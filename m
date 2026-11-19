@@ -1,49 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.101.248.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795054206;
-	b=yxzkwfCIdly1vzMx78y7kd2y5XwcjS6nhlB4Rpfs1AOOIk7OCovAgwRCtMuy9juTlzeG
-	 mXuDIAfWVsCRpISYgU01t8ish6bTHGF+G7TQmkfB4SjqMFvFKpQDg21GBV95RlhSZWFk/
-	 y6D/AyMHPrbWJ0g1G8cwLZEeJ7IxDx80ksPxirJRI0DuxUCvUIDLJFNB9n5muKcvqt86F
-	 ilDyfZ5gnYtDwL3l9oGeHH/tIAmwGOj8QqQG9Ix+oSDbAlxDB90BC8zbPhTb1wJNcDBva
-	 g+TvGS/494rDXW1zemEbKS+ZADPQ+KLurL+k1ye3oZvqsUn+mrTyiaheNBo/iW9VW+A==
+	t=1795054308;
+	b=QxEYvrkiSHscE5v6h14NmwBS2VsjIm0BEVm1nkbQiwnbJZFH/b8KV287WbK/Ey46Okep
+	 1YcCzlJ9Ee2E98cP8LYu6gznL/5kwJVmi37g3THeLHA07f0oNY6vAjsvLaAqfBduFbhKr
+	 hJwK1s6J4k51Uj4wi30ZrZKWnBmpWZKhxb6JUnsIAY9+kTRazQFBVQg7AXDb7fxY36tEd
+	 /4Gb/w72Zfz69cxzxdYW/PEntbDrWbhN0Jjv9DbF6stl42uXPbARYGeWuQshmarPT2utI
+	 e2cZxdm0xmtHHHUhFC62Iw/oMZ+HCX0gJtHFGqQU2hJ7kEg9+gqyjj/t7uToPbnnhKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795054206;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=UEjhzhCjQdaRhLGAQv+AyZZcdtMTWVkXBmp9NELmJzs=;
-	b=5fM9Goo5GX2+mKV6iZHZipNCAlyT89ZosPvrW+qDXN9M5Ap9TiCLWMIzHveLMsvUXzgd
-	 Vx5J/wYlywm+cO49XKqDblyEf2GIJ/Qry4CdttaAa9TylB08Tm2YkwnKFP9hnYHCuDaqR
-	 9Ye9S0n0CUoRo3obnVQNL6u1UGL12aPz9bwQPWzXLaV+VN9C8OvOCsaVmQuqmSqg6txDq
-	 z968J5aqTcW55iOLuMtCO9q+f7MAwM5gF1Cm200yefuplm9tY90bekEUi50c60TqCYXDN
-	 Gc0QC2MIcUotqdCvFC6/fKtCiymRtFj8UO91vQGKf8HVwOm7jwZPTkLsD/4WfNTdSsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795054308;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=I7umKs4ojZyRjYW4oSjGu4qFhEDe6jxTq5oypeT9h3s=;
+	b=eMJy3Vih1o1gUATiEy4kDJ9bfxuSLV7O4Uz9N4X9A+6Whi0SuZBJ7iDkxvc9XG+pMynd
+	 c5S71oCgVcZ6Xx72MJadelu0QpcBPjxYNlgeb9L0DreJESUHjXT+yg9sd8XjwCbw5bqzH
+	 HXqhxfCR7ZEpdH47AdAGFPPvBzSbP8Z8Wf3ZXWPzMQvaF0q1zEry+qMuatV7T6wH6aTQz
+	 5AC2mjnmp3ckHWGV4mqJxhsaw3U61v/pqhQoLkmmu7Jo67zjmp6vIuAndO+IugwxwJmWs
+	 1R/L2/aU6tnNTHbRxQqKbiuY1di8L8qNj/uTWztr4IlPZIy+mXMckBSv9tUKcBav+Pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BENrbtHc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8244D606A32A;
-	Thu, 19 Nov 2026 02:10:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BENrbtHc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4233B1F000C4;
-	Thu, 19 Nov 2026 02:10:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795054206;
-	bh=UEjhzhCjQdaRhLGAQv+AyZZcdtMTWVkXBmp9NELmJzs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=BENrbtHcfeLmLZAUEZEdbOi+stF1n3MNYQxdS+9PUk9ONECL/kDh6aCGWEy4bltuh
-	 oOU7pyneLH9u4WQ1VF8VeSCisY8oygcgAjMQTbGB/MsZZw+vVtcjdno7Mv/8Qa3sTa
-	 o5ADQGUNSq1/6YUhHJNnrsn25DmOB02H18UBoPss+FcYSdprIEBsc3pozoAq+L8VnW
-	 LhGwH9oW1Jc5rsjTzB9q+MWyX0nee2p3GhdI4pU2qCLm2psqK4yMKvIP9Xhg10hf4O
-	 6XZ3ogVrsKiXQ0XIosDVD5z+wq9hHruM33owfcLepSYuuQ1JDllOvqa27HnrWkSOU1
-	 IdParg3ZaNwBA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3393808210;
-	Thu, 19 Nov 2026 02:10:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=46.101.248.176
+Received: from zg8tndyumtaxlji0oc4xnzya.icoremail.net (zg8tndyumtaxlji0oc4xnzya.icoremail.net [46.101.248.176])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7915B606A31C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:11:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7915B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wDnlSrdWv5qbOciAg--.2050S3;
+	Thu, 19 Nov 2026 10:11:42 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgCHV5zcWv5qw0jYAA--.5105S4;
+	Thu, 19 Nov 2026 10:11:41 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: netdev@vger.kernel.org,
+	linux-afs@infradead.org
+Subject: Re: [PATCH] net: rxrpc: Release challenge connection ref on abort
+Date: Thu, 19 Nov 2026 10:10:58 +0800
+Message-ID: <20261119021058.1014099-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,53 +52,35 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: hsr: clean up synced addresses and allmulti
- in
- hsr_del_port()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179505420503.2716323.9284279349036950699.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 02:10:05 +0000
-References: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
-In-Reply-To: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
-To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, hangbin.liu@linux.dev, fmancera@suse.de,
- danishanwar@ti.com, m-karicheri2@ti.com, wojciech.drewek@intel.com,
- r-gunasekaran@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- 1342116488@qq.com, liuhangbin@kylinos.cn
+X-CM-TRANSID:zi_KCgCHV5zcWv5qw0jYAA--.5105S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAUs+
+X-CM-DELIVERINFO: =?B?1wfkkwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGdBUsqc4g38TSJC+UbjERjO6W65mNpu/0oK+bQLVOwV3yPn
+	QMd5hkOFfLpjV6RTGtPkFJfuYRpl2X1e0ghaNI0EmPp0mJ8ReaOl296GDLAGXw==
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x02
+	67AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI
+	0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280
+	aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48Icx
+	kI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4U
+	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
+	AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
+	cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
+	80aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIF
+	yTuYvjxU26pBDUUUU
 
-Hello:
+Hi,
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This was found with LLM-assisted manual code inspection.
 
-On Thu, 12 Nov 2026 14:47:16 +0800 you wrote:
-> hsr_set_rx_mode() syncs unicast and multicast addresses to slave A and
-> slave B devices via dev_uc_sync_multiple() and dev_mc_sync_multiple(),
-> and hsr_change_rx_flags() propagates IFF_ALLMULTI via
-> dev_set_allmulti().
-> 
-> When an UP HSR device is deleted via hsr_dellink(), hsr_del_ports()
-> removes all ports from hsr->ports before unregister_netdevice_queue()
-> leads to hsr_dev_close(). Consequently, hsr_dev_close() iterates over an
-> already-empty port list and cannot execute dev_uc_unsync() or
-> dev_mc_unsync() on the detached slaves. Likewise, when a slave device is
-> unregistered while the HSR master is UP, hsr_netdev_notify() calls
-> hsr_del_port() directly without running hsr_dev_close(). In addition,
-> hsr_dev_close() does not release IFF_ALLMULTI on slave devices either.
-> As a result, detached slave devices can retain synced unicast/multicast
-> addresses and an elevated allmulti reference count.
-> 
-> [...]
+An independent Linux 7.0-rc3 QEMU benchmark run reproduced the issue.  The
+trace showed the missing connection reference release, with the connection
+refcount remaining at 1.
 
-Here is the summary with links:
-  - [net,v2] net: hsr: clean up synced addresses and allmulti in hsr_del_port()
-    https://git.kernel.org/netdev/net-next/c/a02d05f6aff8
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Thanks,
+Lin
 
