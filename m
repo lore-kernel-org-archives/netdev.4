@@ -1,100 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.173
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795071584;
-	b=veXtBjCX4JNReFMNPd5N9qEPSyTRlzkf40Ciu/cUNnER/pYdVMgsniSumlP+CjXIcG5a
-	 7rcHFBkI7UcrrohYhZyaixvum/QenMzzyQTtJtMWmm6bkcNjqj8Kp64PPVyImY1uZEwxZ
-	 A3eYNODLUKgKV0kFr8UwnjXzUVjfxGsaHsPh9PnRdF7TCYd4P7NZDt2pTlLKquvUznrwo
-	 NlBc4biHO56TpjUNQPBLAziFZli/IMdU8Mh0sKpy5KXbnBvM/T7WTcBmeUe80hYdL4eup
-	 U17NyGhv1kE/+4lGVSlkKDwuSME9Zu5lN61kjRN9CCA9H2vyxvkU5T+VMSSyozMsTkg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795071584;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-	b=GZ+fopyrNgLDzbgYQSwvMMNgT5h0Vof1i5HsEhck1Chv6jRuWkhr9DlFRSvaNJT1zMu8
-	 9wc5Uf7yruECHhOmAJ2I2Jbpl5cepnBcvW8WJvnB4Fhfd1FhPRGS14qEgKgzdvXbuXgby
-	 IafWzDeE49XfYBp9rg00wKmku89Y2k7VnDAas/vcacM6pUX71yAdWV9UtHeWx91Xcs6GV
-	 Bf6a7xDGmH9AeuD1IZBiAtFALaadaBDRleOZ0Y7Z64Rko9umsMEF2GT1sMGQIw9vU6gB1
-	 CtIIpV8hJnhxHhC9lCRWfhkyS5JcdObO9QsvR5IIug5TCO0sVdMLrpynwDxFRTpf32g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CfefhvgJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795072249;
+	b=o1DohX8N+sLZQchW+XoOzASIwGRvyyGrs1SZMkhjWxGuWIAKF0FsXUytSx28mMVakxYH
+	 80QU8nCp1UYGn1guRIdz1HLzRRMyYBtgodXVDZeQgfjI4s/QhRmVMHgIRCA3UUyvjAOcV
+	 aEoQgU1nKqKTSGuPsA4Dy4d15qOSwbeYFwbKzZCt6FL6iO1cKzqaDt3GAZiouHzMfLhgQ
+	 k4d7COPaas9Lv2yEupz4VMA2jTQkWm0qvxioXmhnB6UM23oh6cHQLczu4b5bgsujz2HtW
+	 Bb7VUgvEoDbY5nDMwG5zJbJvhh4K2YT5tcpieCNKiHhQUP6tWjzRNKZt65p7A4PHdQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072249;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Acsw0qyovGUap8db+iIcnylVzRzfPacwYuj8IYgEo9w=;
+	b=QRWlQ4/yb+89SZbZpIKDPYni3G/24yqzYq2T4RVss6MaNls/RjadMzAB0Ali3G+5W3Z+
+	 hg9ukjW3+FRXJvE5GpBFTgrLssOmebF9KJum3IPIXSwEaQOjPRrUQho1GCYNoExH1v1Ng
+	 Th+ZzpnRr+LasWJ/nH8yE/hXPta56wLQYJ+ZvcYdLQk2bP0JghUt2o9rgzv4IbjOvt9xe
+	 BDT//yS0DfztJ2O9pNImip7kYPJUp2BHLDZIBrvAbkW2DE5LZqb7mSMLxvRVZt/e4dEHc
+	 f6pauwMmNrsVL3JSLp/G6rt14wqaWz1scfvFoIR0/EHN8q25T4q6P4p4jU1qSpXXtMw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="E9mB/rqu";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GfPGlhM4;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50F7260A2600
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:59:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50F7260A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E35F606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:10:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E35F606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CfefhvgJ
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cde1479f76fso1343090a12.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:59:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795071584; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XGCSmGHjXBLE2Cr02xJQ92YU9y6gLyGo8LXJLOkE8dOObIpSvae/wjCxOQvJ35wn2X
-         Oc0w4dG4TnHZRg8/J0s3Qw99QRMms2oZPUZNQfHs/CaEFmGHiQWuiuoXuSADs1Aeewhw
-         a4iCBzaSMpAXRxoLgfkECI0j4s0tHTK8txF8RtdkYAlHQT/V41KrSRqhi9dyRvxqsZ1k
-         ANQHJsfROkdDoNmQ3eHKymTgjSf+rxkfu8EXdom1EOcArB+voSAd/Gq7hvd6yv6fOTWR
-         upEjc0J/H4wYq0gvJtV5T2QaR1T4we/nxw2xw40P3k3b7AEwxXAKibdFuxIVj+7bV4V+
-         37UQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-        fh=13K5dNbYgOnHMsJ6n17QQv5jWeh4G3HK933Vm5tWL0g=;
-        b=pYvke8IFQ6iszV2n5omKJYPEx0x4R7o4/BijaTBAsj3/ICSzTaubva5rRnOHMp/d78
-         TJAWLyHGMhGeVjXveUpmKG6FAYkMl3/b6GIl20oqYuZXMbDwtNqfc8b/SxJ7A8vcWDLn
-         4XFe4zQozh4N5nfFG3O2jxJLH5PV21X09njH9+Drv8ASw2qFTlDEcGv9RjAfz79/ZsvO
-         WiqLZ/J32H2yKmx5l/jMdoNZtMMvqX/4rhnOusAx5D/HjLpI6lGT6esLL2yThZI9fK5q
-         n8+CVRdzYCYY6+nUoln+MsLGS6l7CqMem3OgPky7YxfbDtFtO+PJbPkdYF0C4uOw1ais
-         lrZw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=E9mB/rqu;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GfPGlhM4
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6vQrL053075
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:10:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Acsw0qyovGUap8db+iIcny
+	lVzRzfPacwYuj8IYgEo9w=; b=E9mB/rquOXn8j8xVJ+TcPynUmboMfJ2ZKgchaS
+	LCT26JKww6apw4CQpKusocBppfr8E12OtbyQO2NYkrk5KW0uSaZe2Nt6Pedjj0BK
+	W89gjGZ67BPgaNbq18kWbG/DGB3+wrWZLNs4a1Pbt0SmrJHjhrvr9zGpEVoW21hR
+	MEi2q+suE48r4/yiWtgvtnxlU1yKfOOsFyRwmIamqp+q1DbOmj/AmCwahdIEjirU
+	+tPn42fPGnpdf9BijAp4TLciA274ClA4jJcTy7RdPla9x6MPTp6P4lXDxqVysXJJ
+	p1q0Ou5wJgd5LYyy5imzX+80wZlbp8DfupUD3OHWjwpbvnXQ==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1g3bb5eq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:10:47 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b0c7ab2427so1531015a91.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:10:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795071584; x=1795676384; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-        b=CfefhvgJKboZ4DCkGtAZ6foSmOAIxCHUgayvLTdqAAOjYG0/2C5N7ZZguVUjLRKkSa
-         ee4e6auDggLchvLQ1CNIpvJGvY1bJGQ04/F+aHpGIw6opujN6EAf3c79JmagEZOp+IQp
-         S5ZenmrAN+AWERADuvNt3gjxgL0LOoG0yFc09l/NRfzI9KlK7lGGMpGY/piYRO7nRNdG
-         KRov6NznqPXnzPVlsyC5nPiVqmlpUGEEePUtN4ixRpJHftSt+qAL+1L2olsqxCJwYBhC
-         NVtj8t2s7wDWuuXA9ji1kw4uicwmVZgFtRkEsj4tmn73H2HwgW0rjMn+5hRmdWI9duf1
-         tjWQ==
+        d=oss.qualcomm.com; s=google; t=1795072246; x=1795677046; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Acsw0qyovGUap8db+iIcnylVzRzfPacwYuj8IYgEo9w=;
+        b=GfPGlhM4H7JryDdYtVqnIVldhq05FRd34sUMKjWEnPoRX7IDqeyjH5EfVVIjEQ4ymd
+         hcRJKf3w8mc3WicqK81DvvezFLy4cQCzjMlIPaPLdpaOwiSNlixxKMz4CMNGZA2CEsD7
+         Jb0CD2GNRkNH9bqB5zPOsdCrzGFA3KGmxoC5wD2PfAvsYrx9QDshK7ABJox+tPGXDMuM
+         OT+QwujLsoCXWmc6YRphhMtw2dRPiKnzzc4d2mU3RldiknTNQOWRtVtY/vGt/fwBn1md
+         dFnkogP1JAg0VrjNUseTGg7wmhlTwPAQ4ovJtxKurKljnXPGUZdKF6GQ6/PQHZm5CNk1
+         wo5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795071584; x=1795676384;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-        b=QxXffNAhVxgDmQ/CSsDY/jDSBi+nID38iEfz4VDKs5mQFFzr8FXCkdcQusbXWQNwlI
-         3Gaf4QaR+9vppmYnUEnT26guNEjKlvP5yVGbhiSSIoW6qFeggr8XITAq/DGCvwGAWHR6
-         5Gl3rOKfkYSjGSA8FhRLP64A5H5y4yjCxV7RoYtwWhrRwiI2fUC0oz4ilUBAWzNbxwb3
-         eht0GHFW14WNDdCrh16ZTG5XZf3g5C/Z8Uy1m9qVSGHBNx1Uxes5nQCfFMi41Jb6x6Zv
-         /BomsQPyM5YtWIzTNsWvcD0JD9fT/c0Nv6sa4QcSD9jr7mtiXSteTQw6iGW9BB9+Hs5M
-         I88g==
-X-Forwarded-Encrypted: i=1; AL+hErEL7cW+dpX4BSqYB/U0pc/tuDu+N2RKhdib99A1EyG3vXSqiisCpEt/fd/wx6ccxp430VyH4Pc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9PDMY4mBJsjZtKPUuPZQP/pV0NaZT3Xo4Ot939z04ONVfBmgwv
-	MfDh0jTuI4ZDd4cvdxB3m5uWbfouV1XqgFCVq75/IlcbEjOYupWQSCTv/lAFp5sruFoBlBElU/U
-	hGOajwBV2X8rlSnxH807vtfqmKRSIo1r90i/tKooQ
-X-Gm-Gg: AZFdTZcOkuzPYdmc4SeYJZtidHP/aAe/+VNHxVV9LfFzKkY/SKqUJrA1jM6U41rEQPm
-	8VKpmK+jcfpEv/aGXH+qvGeB7YfuDYQDcH4XEH5qRCXZNFDfd76ZFAIP9ZRixVLOF1nwMjokHFB
-	sxmA/uP1zGhLlhpNOSGUBpP3VZLiz60yEWa5s2iBypt76QB53ljyI5zRoLpf0t+RTyEW4kHcjlD
-	BFEopw/rgQvCyqmayjwOI/qnVq8sEDh8PAC6e/La1QxWkNf2l+5329GVfQP/LvyEy1p+r+l3pQW
-	t6u5Yb5zspajgKPEaHWEy8r/WpL7NWYgIMy9WV02CRmVLui0Yb4EveIPQojfpVMXhHw4nVU1VU+
-	rrIoBuiayjJJENrk8EQ0HHH4Te/CnfORnYco=
-X-Received: by 2002:a17:90b:56d0:b0:3b0:9a2e:b491 with SMTP id
- 98e67ed59e1d1-3b3d07d4e32mr4811737a91.66.1795071582990; Wed, 18 Nov 2026
- 22:59:42 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795072246; x=1795677046;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Acsw0qyovGUap8db+iIcnylVzRzfPacwYuj8IYgEo9w=;
+        b=f12/2s9b9+FE/2YDPrOEAmqkSKwTk+8q2SLas+Ud8Crj6B4CgT4jn41/Hn39m5wt+x
+         B8z5vGurEWhm2qGK7P6uxHx4HiEUrgIIHXOUU5KpzcDj5TpIvkbsEHwH7Kp4ImOdGgPi
+         q1i2XjXSCnortG/lmU4ZbS8YUfVbLYSXdFxIkw2551c9o/6miwhdXyNDBa7C0FxYwcBe
+         ba/z3nZeR6VzGqoLLJa50M53RwRMEZBjwxJCjGUcVuCV9A6qyJrPQggxPBU53jAeuF7m
+         roai7DXvnsp0jKQ5XRyplhnYek2yF8FQgubfoVu+ZlxL8fHeXcxaMiH8/H9uLddSEq8c
+         fdPA==
+X-Forwarded-Encrypted: i=1; AL+hErGkxuC89NCUVTbaWpWq8cL9bOARW1uhBTgDZ8RF0cR8OmXGj/+Cy+tKL9MESY71QdeE6dFwNHU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9x6LI0c+d6wOYA9oVoGN1ehY3Enz1WnKVjufBopv+xVdOdHt94
+	KzOhA/bRy50M6HtbwKYLcoutflF1FWYDWuDNUeJwwnH9lkA8qYL0sIlP1KmE+o3+bG1HofT3Dxy
+	YWH6r1S5km+SsTSS+Cw7kGjrFf7YVxH+pwhkVtvhlst2tW5Vwc1Vf9y20N/8=
+X-Gm-Gg: AZFdTZccJWHTS6ghAaSYB8c3RVRD7En7VcJNJkYrCxb2Z/kXnKTYqrRsFhRGfNj9tZ1
+	ggf2MoUWIBXEVGunFljUt72EppsbrB7FqO23cytw/eWLz+xXEcnL09p7ZKOMqgVdm2v1+SD9oY4
+	hFyenax/zUkgjDhWPUYy2ZuN759tijTAim4nlc/WVTNIKEWm6tgttSLjS2MSBCXWlDZw2qfRk7L
+	RsfzS8x2xT0yO2SQHthuCCF0ynkGm/gm7nIOqnmDnXJyPNmK9hswfc53OQPEC/eLvTEElca1ri2
+	H2VRLOhvgADCpvt4N2zv0ZZqMNyImI4zEKMGQucau6fSOBttu95v28JgKb2OxlOMoh+WrXESAYO
+	xEOeX4yuF2AAKOOCFr5zXK47v0VdKaw55AIl3ofD2zvEUXuofoyD8cOy8mWd6Ydiz/6H0TKyGEq
+	WEFohdmoH6Hg==
+X-Received: by 2002:a17:90b:1a86:b0:3b3:b858:cc92 with SMTP id 98e67ed59e1d1-3b3d07cd6f0mr5089122a91.63.1795072246178;
+        Wed, 18 Nov 2026 23:10:46 -0800 (PST)
+X-Received: by 2002:a17:90b:1a86:b0:3b3:b858:cc92 with SMTP id 98e67ed59e1d1-3b3d07cd6f0mr5089104a91.63.1795072245709;
+        Wed, 18 Nov 2026 23:10:45 -0800 (PST)
+Received: from hu-gthawre-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b409330ae8sm746348a91.7.2026.11.18.23.10.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 23:10:45 -0800 (PST)
+From: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
+Subject: [PATCH v3 0/3] arm64: dts: qcom: lemans: Add LeMans Draco EVK
+ board support
+Date: Thu, 19 Nov 2026 12:40:11 +0530
+Message-Id: <20261119-lemans-draco-final-changes-bringup-v3-0-db08f12f0cd5@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,187 +116,134 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112014942.2946303-1-treapking@google.com>
- <avaewOJD7tX1UYfE@fedora> <avanVkILHDYdpond@fedora> <CAHwYsio=qtCY10EPnh+qvWpdgtQUG5mw1b3WKMt9_Kytcc7h9A@mail.gmail.com>
- <avwBrbJfp4ET9ifT@fedora> <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
- <av1hWxGIlZUJDUpl@fedora>
-In-Reply-To: <av1hWxGIlZUJDUpl@fedora>
-From: Pin-yen Lin <treapking@google.com>
-Date: Wed, 18 Nov 2026 22:59:31 -0800
-X-Gm-Features: AclHuK8wS87JOe1h2N3kmc2gHdWKNu393jcuOZJmbei73u2w3z7QQLjva2_sguc
-Message-ID: <CAHwYsioz+MJoFkABmub0_9QtKpneiJyi0-=Syc98zRy8KJXTOw@mail.gmail.com>
-Subject: Re: [PATCH net] selftests: bonding: fix failover race in
- bond_options.sh prio test
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Bjoern Doebel <doebel@amazon.de>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, 
-	Matthieu Baerts <matttbe@kernel.org>, linux-kernel@vger.kernel.org, 
-	Jonathan Toppins <jon.toppins+linux@gmail.com>, linux-kselftest@vger.kernel.org, 
-	Hangbin Liu <liuhangbin@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANSg/moC/42PwW7CMAyGXwXlPKMmqSjdifeYdnBSl2ZqE4hpB
+ Kr67ktAE0LagYul3/79+fcimKIjFp+bRURKjl3wWeiPjbAD+iOB67IWqlI7WUkNI03oGbqINkD
+ vPI7wMDKY6PxxPoE0jWl2/d4o0iKDTpF6d70f+fp+aJ7ND9lLIReHQaa8jt4OpfVyo8yKZ3B8C
+ fF2T5pkYf2Fat8JlSRU0Fk01Na9rJr6EJi35xlHG6Zpm4so2ZJ6kuV77yaVyRppbztp21arf8j
+ ruv4COouqSWsBAAA=
+X-Change-ID: 20261013-lemans-draco-final-changes-bringup-1b7b76f8b2e3
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>
+Cc: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Kishor Buchi <kbuchi@qti.qualcomm.com>,
+        Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
+        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
+        Ajinkya Inchure <ainchure@qti.qualcomm.com>,
+        Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>,
+        Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>,
+        Wei Deng <wei.deng@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795072239; l=3088;
+ i=gopikishan.thawre@oss.qualcomm.com; s=20261019; h=from:subject:message-id;
+ bh=CArQ8mp16A0sNgF7DdUS8Knm8k5ocqWb1J9WJ8aO0ns=;
+ b=CJhVARD1CdrjbjCGIDCc0orj/rqP3rV5B85MDU6ajYo5Y0vX2wdXz+ooz+BIJ3yVr2i2W+D++
+ 2Iq/EPclbXvB9VqqRiHeHi0nuXIoZCRt0WmPdvRk/QQESFaja79yXkk
+X-Developer-Key: i=gopikishan.thawre@oss.qualcomm.com; a=ed25519;
+ pk=l7diN2ZWn/39T24vZixhPPrGDEUF6RKc19MsWZubM6s=
+X-Proofpoint-ORIG-GUID: pEJ_MAvwjZJA5TX-JtFXRyV2sRnYCstC
+X-Proofpoint-GUID: pEJ_MAvwjZJA5TX-JtFXRyV2sRnYCstC
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyOCBTYWx0ZWRfXw4cIYftHdxWM
+ fcjtT/WET6VtLs7mLWQtZSH4EL7DofbS/B+dMQOPRF5S0NlgDuHbAc8s1EMxYBCvw9mjHUJQa8F
+ hHvEHB19w5qtQhosPNq2Uj1wu3TwHTw=
+X-Authority-Analysis: v=2.4 cv=dZQVTnXe c=1 sm=1 tr=0 ts=6afea0f7 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8 a=aa3sxGzdGyLt4iHDoZcA:9
+ a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyOCBTYWx0ZWRfX8yrrhxctxH7b
+ hZtaHMpXwFEjngM9bmKl2evEWSV7cbP2tu0S61k0C+O5PV4IJu+XGVFYSIn5CWh/0ooRqZQh1j3
+ 8IEfqMlrONaw/Kd83jmixCCiydBXILYzEForPiIFTHUjdZFCLKoPqu/CLRECvndXzXP9TdYP5CG
+ ZJdwKn7lwnlV171Po+431bczynjLgqLasSV3j9BcUGLNXlsY+EaOV4xsZuYFx0RqcFAr6jVUuen
+ ycSAg98cNkgWNW9KsnDXfSo7CUPoOrXLdtwYip7K8cjE8q3oY4QHnUs+MZ0wQlmXMCFD7FGwRDe
+ 0QzCHcfvP0kIF/MhbAeHLABKOvL1xY19oYnOlVs6V8xOfxactQmzRTOFy+yuvZmZjoQ0/GEd8KI
+ bfFT4F6BqB2/cdHXTCqDImIK0jdgjrAgVsvhYNEBYolID9m1oXpdLtFJ6j64sAXnn8HUEsTBrfW
+ x3NBhmQeGjs97Iuws2w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0 priorityscore=1501
+ impostorscore=0 bulkscore=0 clxscore=1015 malwarescore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190028
 
-Hi Hangbin,
+Add device tree support for the LeMans Draco EVK, an evaluation kit
+based on the SA8775P/QCS9100 SoC targeting automotive and industrial
+use cases. The platform consists of a System on Module (SoM) paired
+with the Draco carrier board.
 
-On Wed, Nov 18, 2026 at 12:27=E2=80=AFAM Hangbin Liu <hangbin.liu@linux.dev=
-> wrote:
->
-> Hi Pin-yen,
-> On Tue, Nov 17, 2026 at 06:32:52PM -0800, Pin-yen Lin wrote:
-> > Hi Hangbin,
-> >
-> > On Mon, Nov 16, 2026 at 11:26=E2=80=AFPM Hangbin Liu <hangbin.liu@linux=
-.dev> wrote:
-> > >
-> > > Hi Pin-yen,
-> > > On Mon, Nov 16, 2026 at 05:30:28PM -0800, Pin-yen Lin wrote:
-> > > > Thanks for the pointer, but I believe Bjoern's patch addresses a
-> > > > different problem.
-> > >
-> > > I think they are the same issue, as you comment also said
-> > >
-> > > The ARP/NS monitor marks a slave down when it has received nothing fo=
-r
-> > > too long.
-> >
-> > This is the existing behavior of the bonding driver, and the prio test
-> > uses it to check which backup slave takes over. Slaves being marked
-> > down is not the root cause of the test failure. Instead, the root
-> > cause is the ping replies described below.
->
-> If the backup slaves are not mark down, we can active the correct slave
-> based on the priority, right? I think that's the root cause. The ping tes=
-ting
-> is just for checking connectivity.
+The LeMans Draco SoM integrates the SA8775P/QCS9100 SoC, three
+PMM8654AU PMICs, UFS storage, USB 0/1/2, GPU (Adreno 663), and
+essential connectivity. A dedicated SoM .dtsi allows carrier board
+device trees to reuse common SoM peripherals without duplication.
 
-Yes, I get your point now. If we keep backup slaves up all the time,
-the ping reply packets won't affect the test result.
+The Draco carrier board provides board-specific peripherals:
+- Four DisplayPort outputs (DP0-DP3) via MDSS0 and MDSS1
+- I2C GPIO expanders (TCA6416 x4, PCA9534 x2) and EEPROM-based MAC
+  address storage on i2c18
+- Dual Ethernet (ethernet0/ethernet1) with HSGMII PHY over SerDes
+- ST33HTPM TPM over SPI16
+- AMC6821 fan controller on i2c4
+- PCIe0 to NTN3 switch and PCIe1 to x4 slot or M.2 M-key (dip switch)
+- M.2 E-key slot with 3.3V supply and PCIe/UART for Wi-Fi/BT module
 
->
-> >
-> > >
-> > > >
-> > > > Bjoern's patch keeps the traffic flowing so that idle slaves are ke=
-pt
-> > > > alive between the test steps. This patch fixes the case where the p=
-ing
-> > > > replies from bond_check_connection() only arrive on the active slav=
-e
-> > > > right before it is set down. The active slave's failure is then
-> > > > detected one monitor interval late, when the backups have also time=
-d
-> > > > out.
-> > >
-> > > The reason is we set arp interval to 100ms, and slowwait also check e=
-very
-> > > 100ms. If the backup slave down at the same check point, e.g.
-> > >
-> > >   t=3D300  monitor: eth1 idle 230ms -> still up
-> > >   t=3D400  monitor: eth1 idle 330ms -> down
-> > >                   eth2 idle 400ms -> down too
-> > >
-> > > The test failed.
-> >
-> > I don't think the slowwait interval makes a difference here.
-> >
-> > The ARP monitor decides which slave becomes active, and slowwait only
-> > reads the result afterwards. The test expects the active slave and the
-> > backups to time out in different monitor runs, so that a backup can
-> > take over. In the example above, eth2 is already down when the bond
-> > picks the new active slave, no matter when slowwait polls.
->
->
-> My idea is, by extending the arp interval, there is a larger gap. e.g.
->
->    t=3D300  monitor: eth1 still up
->                    ^^ slowwait check, incorrect active slave
->    t=3D400  monitor: eth1 down
->                    eth2 still up, should become active slave
->    t=3D500  monitor: eth1 down
->                    eth2 still up, active slave
->                    ^^ slowwait check, correct active
+Link: https://lore.kernel.org/r/20261019-lemans-draco-final-changes-bringup-v1-0-dcabe94f1074@oss.qualcomm.com
+Signed-off-by: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
+---
+Changes in v3:
+  - Add PCIe0 (connects to NTN3 switch) and PCIe1 (routable to x4 slot
+    or M.2 M-key depending on dip switch) with pinctrl states and IOMMU
+    mappings. [Sushrut Shree Trivedi]
+  - Add M.2 E-key connectivity slot with always-on 3.3V supply and
+    PCIe/UART graph connections for Wi-Fi/BT via pwrseq-pcie-m2.
+    [Wei Deng]
+  - Move MDSS DP PHY supply assignments to lemans-draco-som.dtsi.
 
-Shouldn't eth2 become the active slave at t=3D400? In the failing case,
-eth2 is also down at t=3D400 so it can't be picked.
+Changes in v2:
+  - Sort DT node order: move tlmm block after i2c18 node. [Dmitry Baryshkov]
+  - Drop unused sub-node labels ethernet0_mdc, ethernet0_mdio,
+    ethernet1_mdc and ethernet1_mdio. [Konrad Dybcio]
+  - Improve dt-bindings commit message to explain the two-compatible
+    SoM/carrier hierarchy. [Krzysztof Kozlowski]
 
->
-> > >
-> > > >
-> > > > The ARP requests triggered by Bjoern's ping are sent only about onc=
-e
-> > > > per second, which isn't frequent enough for this failure. I tested
-> > > > Bjoern's patch and confirmed that it didn't fix the issue in our
-> > > > testing environment. We also can't simply use arping instead becaus=
-e
-> > > > iputils arping doesn't support sub-second intervals.
-> > > >
-> > > > If you're worried that the 200ms sleep is too short, would increasi=
-ng
-> > > > it to 0.5s or 1s work for you?
-> > >
-> > > It's not about the sleep time before setting active slave down. I'm a=
-fraid
-> > > about the slowwait checking time. Even we sleep 1s, with arp interval=
- 100,
-> > > we still only have 100ms checking window. Before the window, the acti=
-ve slave
-> > > is up, after the window, the backup slave also down. With a debug ker=
-nel, this
-> > > time is a little tight.
-> > >
-> > > So, either we have some background arp traffic, or let's extend the a=
-rp
-> > > interval to a larger one.
-> > >
-> > > What do you think?
-> >
-> > I agree that a 100ms ARP interval could be too short in environments
-> > like a debug kernel.
-> >
-> > Background ARP traffic doesn't widen that window, though: it is sent
-> > through the active slave, so once the active slave is set down,
-> > nothing reaches the backups. It could only help with the ping reply
-> > race if it were very frequent; Bjoern's patch triggers about one ARP
-> > request per second and didn't fix the failures in our testing.
->
-> For background traffic, I mean let the client send the arp requests,
-> not from active slave of server. With arp_validate 0, the backup slaves
-> will update last_rx and won't be down with idle.
+To: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>
+To: Abel Vesa <abelvesa@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Richard Cochran <richardcochran@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: netdev@vger.kernel.org
 
-I see. If the ARP requests are sent from the client, the backup slaves
-can receive them and will stay up during the test.
+---
+Gopikishan Thawre (3):
+      dt-bindings: arm: qcom: Add LeMans Draco EVK board
+      arm64: dts: qcom: lemans: Add LeMans Draco EVK SoM platform
+      arm64: dts: qcom: lemans: Add LeMans Draco EVK board
 
->
-> >
-> > Increasing the ARP interval alone won't address the ping reply race,
-> > but it should help in environments like a debug kernel. I'd prefer to
-> > keep this patch focused on the ping reply race and send the ARP
-> > interval change as a follow-up, but I can fold it into v2 if you
-> > prefer.
->
-> Doesn't extending the arp_interval (e.g. to 500) resolve your issue?
-> Are you still able to reproduce the problem?
+ Documentation/devicetree/bindings/arm/qcom.yaml |   7 +
+ arch/arm64/boot/dts/qcom/Makefile               |   5 +
+ arch/arm64/boot/dts/qcom/lemans-draco-evk.dts   | 778 ++++++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/lemans-draco-som.dtsi  | 421 +++++++++++++
+ 4 files changed, 1211 insertions(+)
+---
+base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+change-id: 20261013-lemans-draco-final-changes-bringup-1b7b76f8b2e3
 
-Yes, I can still reproduce this. Simply extending the arp_interval to
-500 does not fix our issue. I still saw failures in 9 of 20 runs.
+Best regards,
+--  
+Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
 
-However, with arp_interval=3D500 and a background arping from the
-client, the issue no longer reproduces. Both of them are needed:
-arping only sends one request per second, which is enough for the
-~1.75s backup timeout at arp_interval=3D500 but not for the ~350ms one
-at arp_interval=3D100.
-
-Bjoern's v1 patch sends the ARP requests from the server, so it
-doesn't fix our issue. I can prepare a v2 to remove the sleep,
-increase the arp_interval to 500, and add a background arping from the
-client, unless Bjoern prefers to include the client-side arping in his
-v2. How would you like to proceed?
-
->
-> Thanks
-> Hangbin
-
-Regards,
-Pin-yen
