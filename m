@@ -1,104 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099390;
-	b=t50UFTnBwnD4vtvCWnvamHqBWKG6b9n6YDj1DqyiXIgKuEzF88OeWDOIdQe3CEdClqBk
-	 vmNNUQC/hJqWYOKl7woWgzqfH1AozUdZMFHcDD9x6agjEqt6n36KQFZr+xczq++dgh8x0
-	 0pvlMNyYPIgZuUKLF9HdMvUJawzXQjAO5YevkiHmgsWPOsPNWdedcwo93SPARhHHmntR3
-	 daa0d03ucxewmeHS6BUVfkbZxNkl2ljweaXjTbXd8MIq9Zc22JFZ4H/XcuZS2W0sya9u8
-	 J5B3RwM1wp3QRD75aSi86bbX96Gy0vvYEOjO+TFoKwY7iCFnzRpkgfZkKNt4YOBL6aA==
+	t=1795099542;
+	b=EitIKICFE9T8A672Bkk8+lkxrhYF2LhlqDjMKZo8oJqsBHYbxx2w7Wxyk9nRRUp65ERX
+	 xQjZL79rwNzBEJjqmBHtyODKD4P8RhmqINDM3MexX9IMHrj9Pbbm/OOKgS52uXNJqZNJ8
+	 9VDyD0gLWAw8OaSCrH8nKLCbP5ZpIcfxzED+6k07EGBQj71nyS46JuNxlin3B7AHeqFQw
+	 rHb8RQ4dRVgm5mzDA6D63U4DPjBfsC0I8CnYD+xGGyvlPYzvXS+Ci53h15bSbYOLkFt0L
+	 uqnGS5OdhNP8eKa/2b9PBLILugmQkf/cBKEQ3RKspdoHTl6lHOQxJc1b6N/RaEWdpoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099390;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=yiNGMOZ+T2aYXndxp6WNW2Z7eC3xgYW0cACgi8Pfxp8=;
-	b=NejuJgT2kqoLvtxfcg4AAAayRUcZaTOG8wYA7yO1KH9pmXUVdPa6Whlv9KAuNP3j1V5g
-	 SyUj3+Hbl4Oe2yr7j5XDCq1qFGV5jXD7XK6UPhhDgY+AZ2kLiZrXriY4CwPZXeiOTxDOx
-	 V9C4qPAB/3/H43BpvIx2NrSEWDNThoT5jt2ahydp6iDJxv43mKEEdyNdx0SDe49HEYudm
-	 JJ/tnFDfvOKjnx7guBlj1jSRpSCXRQz8mnxyMGajNPKZbg9ap43cd0Ck/brfPFhyQgIDZ
-	 LpWVRzejgI8XAKcFQVvM55nj8JeTRnnB+vFQI/jBrox01CXzsxnXZWXrmJFW1GVteVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099542;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=mErUvWvSAMQID0KQkYNWkXS0wwrTWA1UHG2jXHEQYNo=;
+	b=SeJsu+Lrq6we84Crs9UXeSZCjemnBdSj0v8cV8bA3MmTq7wBL42X7ZBJ7e1loxvypGr3
+	 tMQlvAAXEMpydIBBF5u9mzgk0OrjRbUwt4OpebEB6BgB8gOTqHip9VXNYfwI8JOGQwyVt
+	 MqHMF/ItPtSbhOycHM9HbcjfsCywNI2X9p553j2n838o8h85Q6azgLR6wD2alaB1ShDeh
+	 xX0XoKSf0tSlyRgV8kyk7enPIiSO0gseKr9HZb+/5ff8kVtlaFzq19XzznWVGpAA0+t32
+	 RFYsTHGxlPlW8GmJyO4BRbiJZSpw189XmY+zC1Ixa9T1wSgah34HHDjqww6viXV3NtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GCfnoQPq;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hEHPJjDt;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hkFoYruY;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3A4460A2633
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:43:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3A4460A2633
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3988760A2606
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:45:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3988760A2606
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GCfnoQPq
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-36eb1cb7aabso3491421eec.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:43:09 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hEHPJjDt;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hkFoYruY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795099541;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mErUvWvSAMQID0KQkYNWkXS0wwrTWA1UHG2jXHEQYNo=;
+	b=hEHPJjDtYuPdAJaw7QEE58tL3LKG17TeMXVSjitBwO4W4zWZ86RC+72XoScS+exZ2WSvgs
+	+MyEN/4zwNe3qPj6ZokdjOgQpN7w4KbUDHCXe6RthftZfp7GEl1oFG8EtpJzuLIcnTHMIz
+	sYjSYdAkLKszU+3Dqyy85KRX2hjUY2g=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-693-nLVY0m8-OVWuOgCy-YVa5A-1; Thu, 19 Nov 2026 09:45:39 -0500
+X-MC-Unique: nLVY0m8-OVWuOgCy-YVa5A-1
+X-Mimecast-MFC-AGG-ID: nLVY0m8-OVWuOgCy-YVa5A_1795099538
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb67b2c00cso5432565e9.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:45:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795099389; x=1795704189; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yiNGMOZ+T2aYXndxp6WNW2Z7eC3xgYW0cACgi8Pfxp8=;
-        b=GCfnoQPqg+rCDFqYxBpm9AKziIf+db5ejrjN3XzIAVXwywCajnXzzh4eEwiI/gLxIZ
-         p3UK5+dBJyUS386omtr4Clr/kiVXlfjqXMJ0glNBhMIymhCnApZybKHV4TvVXOh3Nv3u
-         SpL3s6Jqd2BcoXEaaK72PMwWGlRZAogU1UNYitXhG997WzgzRAjMgEuQRqOtrT1xkf5u
-         2RpdW2VwHA0Kvp9GEcqpN6VByZQ/nN5N24VOXuNR2hdxyy/eEAXMAn1gYbVTaHxUcXiy
-         piaRAyK351lHRur5sX87av2ea7Afg0SQbGMaGezLO3veV16PwqNXXK4r34aNEIyyESz6
-         U54w==
+        d=redhat.com; s=google; t=1795099538; x=1795704338; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mErUvWvSAMQID0KQkYNWkXS0wwrTWA1UHG2jXHEQYNo=;
+        b=hkFoYruYMjIwGmFg5iFhCNH1tiPnbK1D43q4NJrNFZKIx4DIjtPY4js1wGzbTdqOOk
+         coCY5jXM3B7YXO557EdvrHot1SyVjU8uiXn9gFmL4weiHUYzFcWDuSuzbDbGGGuI9Zj8
+         Sz3NaAZb9yIqs0bY0QnYRaXOXNSiXb6m+L1BQvXy3rV0f5LcPv4bfReoDnhS+/gVN6ba
+         /Nw9tSGW4i6MYRAtBwmAxFguxkHmAlfIQ9DexvoIG2Mv4lSqNJocu7CRlOG/E50ulveP
+         uoz7iPXXQ8J7F+AALRkD1gzqB0HbyHgjTjKu4pC7PBYLZHlgARx6guNg4rZtfLVsCO93
+         pBhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795099389; x=1795704189;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yiNGMOZ+T2aYXndxp6WNW2Z7eC3xgYW0cACgi8Pfxp8=;
-        b=AL9qjZX/GGYc8SMFhbPRh7BgzhtBu/54RebRncT2OHV0hcIlEPUHRslBjkS70UkEbG
-         ftEouJB4rJDeype1EPmQA02l35oLlVCS9OfM4NwPSdNj64xGRQ8dg9Uy5uUum6aYsW92
-         Y+POxVHfrlKmPlm0Jb+5UVJq8v3fD9BSzOk3zQkqeSuzZEYugjB1SY+E/TKMf4D9qk4m
-         +fT7WhrFH12jGwSg87fL5/KCKcQ0FMRjOKKA+QVXpiHO6CYE1X57qmcDCw5tEe2LPBF+
-         cpT0P7cajaLEt6wBTWQmKbPVaeUSfbOQIjdxW+gp63CH4vBKi/C2xq1MIWtyK4nxpJn2
-         0HoA==
-X-Forwarded-Encrypted: i=1; AL+hErHGZjCAy74hq0nUnH/wrOdDBUlsaBuTJnO1/76G8enjXAsTU9i7FLwpkzUdUFQ5Zt0fMfcvPH8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MCz/Fh/8RpQd9Ad+J18frl743mHAeYkuqBNosM6VJItB5/q+u
-	0q3woEYp/Lggfpv+iKZHyS0LK9MfDWqizn/JJRzE/tcg0meYjiCY7EbY
-X-Gm-Gg: AZFdTZclpT2ilmF8oCNPKn1JpG7U45U06H5XILruX9Nr8p8FwBzxWFkCKvEhoyqFov8
-	Sgky7Yg7v0hL+FGd/LXSPKMaebmC91xu7WOn9CR++QZJcZtxnivBBWADWJHJIVuYEfbFuBPAHAj
-	8m/Tx7e6258uYkOLhMvwCdmhjMUBqrS34V/IrbW+/wNQ1/eTxKO0XTrQlT3a8aJIedUCyhiuKx8
-	CABtHpzQoRZfCESIejC5mJfC0AYn6un3vWTQORIdWDAa+WADbRIpbaeQvh0inpj1hsnQVP0zL4n
-	X26foqkaJzfbBh+rQpJ+XCtLvE+cRbRiyTc95QPh2eCWMKWhysZUCwQ8iXFTDXCRkUE1bMZwAu/
-	H3qCcdlBnWHOCovfc1mS4i4KTCdY3ePUqP8nWtRfuC8AIL+uVDcxkNVoEMFxTU19+Zi6fCOY10X
-	/0yFnkGE4rfcuT4N9Rlp5XbVok2NyFYgcxx7wvUeDXiJWFxN7ySXyzat+9B3Vae0s90MWAt8mRc
-	JLq0Iu6UsgMdGw8B2H/i9w4qKtP0410bGh9aFofdxUlhdEEoGf8ueFMRwvE+V+QtLNVV2J6M9Rh
-	3hRP6/q6HmnSYnX0KbfhkSmTIehGJJKkxvX9klUHYDdwkTQdZA==
-X-Received: by 2002:a05:7300:cf98:b0:382:7375:1306 with SMTP id 5a478bee46e88-38280a38654mr5978419eec.14.1795099388796;
-        Thu, 19 Nov 2026 06:43:08 -0800 (PST)
-Received: from localhost.localdomain ([112.170.44.210])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6fe733dsm16682848eec.16.2026.11.19.06.43.05
+        d=1e100.net; s=20260707; t=1795099538; x=1795704338;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mErUvWvSAMQID0KQkYNWkXS0wwrTWA1UHG2jXHEQYNo=;
+        b=JdrRlSG6xURWYqYDMWPoy0fqkMpYnVsJZn1fxzqLku6tvN3uDjR/RKR1pkLCDeU+UC
+         YWKfwXK77xAyvE6B5fOFd93g0kawLEvbsyhYBNZaWCoqCai1IbT5KHva3l7bv+gV1bJ5
+         jfGw3h+TxugXaH584bWb2SOACWfoVbxf3sIkOLLwE1tTT4Ir6sj8ymUKspPajrgoKYyG
+         3QkxaKxaMpcYphGq5Lsyqk4qcYur0sSlPc2O/GmN0iUXbAR2P5zKii1mMPjAZlTWLAVu
+         kZvuVQ1hC3ySxmLry6aZAvQCkAmSGdsn65f5XI1IUhHO5Dcjk2pWNeCerjrgCOqoxVH6
+         FQiw==
+X-Gm-Message-State: APuU4Z8S4I/s0lHCtZomZtmj1YqnJ/xB4fO+lB+9x5c0eviZSXS2WfcC
+	6t0oivOLHF0MTljKe5hFZbVM4KDWzdMBoJypa2kfqy3XI7py3JELKp6zQGilaVkBejwy9gOdHSE
+	F2FoMWWB2kPKO48y5Owtxbm1KXn+gC+8lkqLbQyzfxSwZ5u7O2cObBALBYA==
+X-Gm-Gg: AYBFou1uIxsu4VAYg6iJoCn9VfEpE1cEAl3WOQ8J8pTUN1GqAd2RFDiCmB25pl/2oNH
+	DR3ei5rBjpfr5MP5EuVbhiu9GD+I6ID3oMGjzT99MkFvGV5MkNFkS01bxuQgeEvT4Op8qCmDH0k
+	HjCiIPVxdAiDE4uIR9E8B6Ijx2bmu/xHUdaXw+0aBL/imPImXYfeiAh9TVRE1mPVWCArARACO3x
+	fREeiRfKpwTg0kV7J07sZPgUpAogFXVc32IXKTmRmDgLVb3+buOz+aG7PaVyqN4G5sJUVCY0ysN
+	XYrPiOFQpsYAHmXNFXYrL6Bt/W4NA7v9uW46AXlJ3vuJn62WeZ8eCD0k6s7yl2c6ra+zR2/kfOp
+	4JnbTK5z93G0gDxn5qCrPGTwhdxf0easQqPIkP4hXIg==
+X-Received: by 2002:a05:600c:674b:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4bb860ffbaamr32242095e9.5.1795099537824;
+        Thu, 19 Nov 2026 06:45:37 -0800 (PST)
+X-Received: by 2002:a05:600c:674b:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4bb860ffbaamr32241545e9.5.1795099537283;
+        Thu, 19 Nov 2026 06:45:37 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1522:6500:ac93:c62:f076:48c6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e5f081sm34711455e9.4.2026.11.19.06.45.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:43:08 -0800 (PST)
-From: Junyoung Jang <graypanda.inzag@gmail.com>
-To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Gwanhyun Lee <gwanhyunlee@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net v3 4/4] selftests: net: check padded vnet hdr_len in tun and tap
-Date: Thu, 19 Nov 2026 23:42:39 +0900
-Message-ID: <20261119144241.360238-5-graypanda.inzag@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119144241.360238-1-graypanda.inzag@gmail.com>
-References: <20261119144241.360238-1-graypanda.inzag@gmail.com>
+        Thu, 19 Nov 2026 06:45:36 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:45:33 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Jianlin Shi <shijianlin11@foxmail.com>
+Cc: netdev@vger.kernel.org, virtualization@lists.linux.dev,
+	jasowang@redhat.com, eperezma@redhat.com,
+	xuanzhuo@linux.alibaba.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, talgi@nvidia.com, hengqi@linux.alibaba.com,
+	horms@kernel.org
+Subject: Re: [PATCH v2 0/2] virtio-net/dim: fix irq moderation init failure
+ unwind
+Message-ID: <20261119094456-mutt-send-email-mst@kernel.org>
+References: <cover.1790751008.git.shijianlin11@foxmail.com>
+ <20261102155145.23144-1-shijianlin11@foxmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,108 +119,50 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102155145.23144-1-shijianlin11@foxmail.com>
 
-Add tun and macvtap write tests with a 512-byte virtio header and a
-14-byte Ethernet frame. A hdr_len of 256 must fail with -EINVAL
-because it exceeds the post-padding payload. A zero hdr_len must
-continue to accept the same valid frame.
+On Mon, Nov 02, 2026 at 11:51:43PM +0800, Jianlin Shi wrote:
+> net_dim_init_irq_moder() leaves dev->irq_moder dangling when
+> profile allocation fails.  virtio-net probe then skips the
+> virtqueue teardown if that init fails after init_vqs(), leaking
+> the virtqueues and their DMA mappings.
+> 
+> Patch 1 makes the dim init failure path clear dev->irq_moder, so
+> net_dim_free_irq_moder() is a no-op afterwards.  Patch 2 sends the
+> virtio-net failure through the existing free_irq_moder unwind
+> (reset + del_vqs), matching the page-pool failure path.  Patch 2
+> depends on patch 1.
 
-These tests exercise the common header parser through both drivers.
-On the unpatched kernel, each oversized hdr_len test accepts the
-packet instead of rejecting it.
+this is not how u submit a patch to netdev:
 
-In x86-64 QEMU, the patched kernel passed all 105 tun and five tap
-selftests, including the new cases.
-
-Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
----
- tools/testing/selftests/net/tap.c | 29 +++++++++++++++++++++++++++++
- tools/testing/selftests/net/tun.c | 31 +++++++++++++++++++++++++++++++
- 2 files changed, 60 insertions(+)
-
-diff --git a/tools/testing/selftests/net/tap.c b/tools/testing/selftests/net/tap.c
-index a0c9418132c8..bf5d36cf73c9 100644
---- a/tools/testing/selftests/net/tap.c
-+++ b/tools/testing/selftests/net/tap.c
-@@ -425,4 +425,33 @@ TEST_F(tap, test_packet_crash_tap_invalid_eth_proto)
- 	ASSERT_EQ(errno, EINVAL);
- }
- 
-+TEST_F(tap, padded_hdr_len_exceeds_payload)
-+{
-+	const int hdr_size = 512;
-+	uint8_t pkt[512 + ETH_HLEN] = { 0 };
-+	struct virtio_net_hdr *vh = (void *)pkt;
-+	ssize_t ret;
-+
-+	ASSERT_EQ(ioctl(self->fd, TUNSETVNETHDRSZ, &hdr_size), 0);
-+	vh->hdr_len = 256;
-+	build_eth(pkt + hdr_size, ETH_P_IP);
-+
-+	ret = write(self->fd, pkt, sizeof(pkt));
-+	ASSERT_EQ(ret, -1);
-+	ASSERT_EQ(errno, EINVAL);
-+}
-+
-+TEST_F(tap, padded_hdr_len_zero)
-+{
-+	const int hdr_size = 512;
-+	uint8_t pkt[512 + ETH_HLEN] = { 0 };
-+	ssize_t ret;
-+
-+	ASSERT_EQ(ioctl(self->fd, TUNSETVNETHDRSZ, &hdr_size), 0);
-+	build_eth(pkt + hdr_size, ETH_P_IP);
-+
-+	ret = write(self->fd, pkt, sizeof(pkt));
-+	ASSERT_EQ(ret, sizeof(pkt));
-+}
-+
- TEST_HARNESS_MAIN
-diff --git a/tools/testing/selftests/net/tun.c b/tools/testing/selftests/net/tun.c
-index 34de2580e32e..525fd588d916 100644
---- a/tools/testing/selftests/net/tun.c
-+++ b/tools/testing/selftests/net/tun.c
-@@ -683,6 +683,37 @@ TEST_F(tun_vnet_gso, vlan_tcpv4_gso_no_csum_64k)
- 	ASSERT_EQ(ret, len);
- }
- 
-+TEST_F(tun_vnet_gso, padded_hdr_len_exceeds_payload)
-+{
-+	const int hdr_size = 512;
-+	uint8_t pkt[512 + ETH_HLEN] = { 0 };
-+	struct virtio_net_hdr *vh = (void *)pkt;
-+	ssize_t ret;
-+
-+	ASSERT_EQ(ioctl(self->fd, TUNSETVNETHDRSZ, &hdr_size), 0);
-+	vh->hdr_len = 256;
-+	build_eth(pkt + hdr_size, ETH_P_IP, param_hwaddr_outer_src,
-+		  param_hwaddr_outer_dst);
-+
-+	ret = write(self->fd, pkt, sizeof(pkt));
-+	ASSERT_EQ(ret, -1);
-+	ASSERT_EQ(errno, EINVAL);
-+}
-+
-+TEST_F(tun_vnet_gso, padded_hdr_len_zero)
-+{
-+	const int hdr_size = 512;
-+	uint8_t pkt[512 + ETH_HLEN] = { 0 };
-+	ssize_t ret;
-+
-+	ASSERT_EQ(ioctl(self->fd, TUNSETVNETHDRSZ, &hdr_size), 0);
-+	build_eth(pkt + hdr_size, ETH_P_IP, param_hwaddr_outer_src,
-+		  param_hwaddr_outer_dst);
-+
-+	ret = write(self->fd, pkt, sizeof(pkt));
-+	ASSERT_EQ(ret, sizeof(pkt));
-+}
-+
- FIXTURE(tun_vnet_udptnl)
- {
- 	char ifname[IFNAMSIZ];
--- 
-2.43.0
+1. start a new thread
+2. put "net" in the prefix as in [PATCH net v2 ....]
+> Changes since v1 [1]:
+> 
+> - Patch 1's commit message now documents the call sequence the
+>   maintainer asked for: on current mainline the dangling pointer
+>   is never dereferenced by the only in-tree caller (virtio-net
+>   probe does "goto free", which only reaches free_netdev()).  It
+>   becomes reachable once the caller unwinds through
+>   free_irq_moder as patch 2 does, which makes patch 1 a hard
+>   prerequisite rather than a standalone bug fix.
+> 
+> - No functional changes; both patches are identical to v1.
+> 
+> [1] https://lore.kernel.org/netdev/cover.1790751008.git.shijianlin11@foxmail.com/
+> 
+> Jianlin Shi (2):
+>   dim: clear irq_moder on init failure
+>   virtio-net: unwind VQs when irq moderation init fails
+> 
+>  drivers/net/virtio_net.c | 2 +-
+>  lib/dim/net_dim.c        | 1 +
+>  2 files changed, 2 insertions(+), 1 deletion(-)
+> 
+> Signed-off-by: Jianlin Shi <shijianlin11@foxmail.com>
+> 
+> --
+> 2.43.0
 
