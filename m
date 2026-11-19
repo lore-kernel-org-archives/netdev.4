@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108148;
-	b=LqUXAXL2o3i+ynFBRq+kFE32oz65QEULZZJZEyMPdHl6fPjnrlkQYms3T+GZreUqwYTz
-	 t8BIoGvyyonpLXpNV4oJvW0rsR/0yd/mhGEiDAIDc49njzMIiTxOy0QXm07Dz0vNUm4UQ
-	 9cc4siGAkuDtsbFjJyFTp7PkmlfkVhqsdcy2MavBl9L6FsK2LPfDv0EtDdR9A4uNiOx1W
-	 jRJ81d1a3AezRcsihOL7iWyiEzamRey0Jzmuv6M/dg8DiL9BLpm8HhRMqD+nDTZecdukd
-	 agfP0urID9XpK3AIi3SQ1eUVLQWzpylV82xRayIQgTLUwue44OnFDysapCh7Tf1uHqw==
+	t=1795108150;
+	b=MbdyKgrRJvfalneS2CVhw5tuXBQDILR6kfpeESUi+9XzQhOKzNXrgSZovjmY3BvG9La2
+	 Zwi1/mmczvBowMKajTtSRs3T8uKTDUK81QbDU2ONT5L5uXgTYA6zeeIOnzXN8vCPVvDXS
+	 n5RwMPC1dERqSD5J6kxj+DdIt5lrx3RmC2nQJcDFQkcJjGyvg4/GG5Imzxq7j1FaRE/S3
+	 Rtp7BnbqLtywNsKELnPZUZdK5jXcXwZveZymFz6FwVSqxhB/mdNkGHa/Z6InqtL7Nxwfr
+	 C20qAUNt0JbT0B6EeoRuEBklwKKwejY73cjO5yyXohlGBjEH5XZKcN5R8+RQTHlpTgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108148;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108150;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=PSqQVFaw3UwgJdiIZRX3APSYTWHL6vnnXw7KglXBjxo=;
-	b=a6+qAhE3GrwThta4ae542h7s+LoGs5F73giS9TOYWcF/gC3eLK3kTPDJ14H+sKY/oNRv
-	 SY7Mcur4SYga/yQf1P/5T5nF5Yz8r1f6aO1uLfvCp5OBZ2KlxO8UN30QimW8GqE5NxSVf
-	 nqaD4CrGqmssKqAGopeySeR+aG9w2tRQ3SE8tjCDj4atP5osfAaTkP/0mKr6wZIR4UDxn
-	 agl1ZGDi6nAub/K/09XsgGESlRXQuxT5f1h0yEweTUw2mG8oymixOKlq894w7GZs0TeYb
-	 dcKlk2hFST15+Xh99/bSi1fZFlb4WNglHkbxpRVChJKA+wCOePgNnFpdW0xEXTJybMA==
+	bh=V/SClVkHawywlSW8ZBpKO3xLQwjFX3XdpDt9XLNgukg=;
+	b=YSRRn/0FyrpIzj+aS82+hr0168CqiorndqzTwVA9UKqlP3vb1XmVvmONLhxuWCoZRKMH
+	 TAz9zbYvreJKs3ZEozUAMwO3L7nB1+PIJeICJQz133uPdRrSHNbP29jI5yF96RJp39hAh
+	 Mt9HlRiHmipOrpxeBoPfHaJ00pK9CUXHjXdiSA1z3Bj5kEvbEMJg2mlbU3Y64ZUgIs01i
+	 jpiCnnYKhSgizPyTqZxb356sg2BaXkF7YYkordER2GwjxqPvAzDM6dwCbm8bJm3AQ5ayT
+	 4tLUv7ssAHaUVhaTcfcIpXuugMqsCgW50CHosRavLS0guQigNNV0MZubGMxVryJXaPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bxKp+Pb7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jg1JqDzg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C405860A2613;
-	Thu, 19 Nov 2026 17:09:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 568D960A3818;
+	Thu, 19 Nov 2026 17:09:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bxKp+Pb7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF1E91F000C8;
-	Thu, 19 Nov 2026 17:09:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jg1JqDzg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 280A31F000C7;
+	Thu, 19 Nov 2026 17:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795108148;
-	bh=PSqQVFaw3UwgJdiIZRX3APSYTWHL6vnnXw7KglXBjxo=;
+	s=k20260515; t=1795108149;
+	bh=V/SClVkHawywlSW8ZBpKO3xLQwjFX3XdpDt9XLNgukg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bxKp+Pb7NDKGhCo65km8UAPgni/Y3EYXVdXi5YTv3EIbVfqrlxXwpD1T3H078RivS
-	 HZbtt3lE/bsojjP9kb+wfSE2RJhXKaW2oesKNk0wixq9PrCTaVNwPAn/t5cC03EAoI
-	 INJlhn9hhmNK0l71cf66BVLs90F76B/hF1rOJ/VaDjzYvZilL7Xz9XqnGW6Y131O96
-	 DIcbSTg4TAqSltvv2vi3BbluNXT1iOOcA9RdHQsXmgqd/YY9nIOlsUJya3yQ23yzrf
-	 u+tT7MJ2UW1pR2tQA0ImnQiQDWpgBHQSTkbUKW4Q/g0p3RVFHzwwjnlrQqhz+SG/UV
-	 4+/eyornPfDhQ==
-Subject: Re: [PATCH net-next v8 05/10] bnge: add ethtool support to manage RSS
- contexts
+	b=Jg1JqDzgdbr9H3GgqAGd8kRz0F4BU7Q9eVXQkHe+uwV+Xn0UIK3ATNJAB86mdwhRs
+	 rcyquDPovUId0A3+aCHYwUof5j54mGfZKhfOxR2OsFQGStzgLIaYbbDhdpnrH9zCrS
+	 w1ZfXEbH6VIMCx5U/VRR2lmwhQZlfeNmbheiwePbRdyKTlec0i3V1fSr7W7vbB2x5A
+	 Skv/ZaUdK8BLaJEeaoPW5W2Qa/OH/APTkpiLiGmc2WwKP8fYPi7VVig9aym/taqvxD
+	 eB9FTapCuP3oe7CGxSBM7b0VpkXkbPUHST7z7WG7BlD+9tL9pXMEyYuTMFFGXA/LQV
+	 qCC+3XSZ+t5jw==
+Subject: Re: [PATCH net-next v8 07/10] bnge: add NTUPLE filter infrastructure
 From: netdev-bot+sashiko@kernel.org
 To: vikas.gupta@broadcom.com
 Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
@@ -50,10 +49,10 @@ Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
  bhargava.marreddy@broadcom.com, rahul-rg.gupta@broadcom.com,
  vsrama-krishna.nemani@broadcom.com, rajashekar.hudumula@broadcom.com,
  dharmender.garg@broadcom.com, ajit.khaparde@broadcom.com
-Date: Thu, 19 Nov 2026 17:09:07 +0000
-Message-ID: <179510814742.3136.14901565561375383969@kernel.org>
-In-Reply-To: <20261116140653.1685797-6-vikas.gupta@broadcom.com>
-References: <20261116140653.1685797-6-vikas.gupta@broadcom.com>
+Date: Thu, 19 Nov 2026 17:09:08 +0000
+Message-ID: <179510814874.3136.16401645419893919570@kernel.org>
+In-Reply-To: <20261116140653.1685797-8-vikas.gupta@broadcom.com>
+References: <20261116140653.1685797-8-vikas.gupta@broadcom.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,342 +77,465 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message does not disclose that user-created RSS
-  contexts are destroyed when bnge_reserve_rings() gets fewer RX rings…
-- [Medium] An NTUPLE-off request made while the interface is up is held
-  back, and applying it at close now always fails while RSS contexts…
-- [Medium] bnge_refill_dflt_rss_ctxs() (bnge_vnic.c) calls
-  ethtool_rxfh_ctxs_resize(bd->netdev, tbl_size).
-- [Low] bnge_reserve_rings()
-  (drivers/net/ethernet/broadcom/bnge/bnge_resc.c) contains bug fixes…
-- [Low] A comment added in bnge_create_rxfh_context() (bnge_ethtool.c)
-  says 'The invalid id prints as -1 for all.' The same patch changes…
+- [Medium] This patch ties an ntuple filter to its L2 filter only through
+  a copied firmware handle, `bnge_ntuple_filter.l2_filter_id`.
+- [Low] bnge: duplicate L2 filter allocation in
+  bnge_alloc_user_l2_filter()
 
 --
 
-bnge: add ethtool support to manage RSS contexts
+bnge: add NTUPLE filter infrastructure
 
-This patch adds the create, modify and remove rxfh_context ethtool
-callbacks to bnge. Each RSS context is backed by its own VNIC, with its
-own indirection table and hash key. It also reworks bnge_reserve_rings()
-so that a user-configured default table and user RSS contexts are kept or
-declared lost when the RX ring count changes, and it makes
-bnge_set_features() refuse to clear NTUPLE while RSS contexts exist.
+This commit adds the ntuple filter data structures, hash table, bitmaps
+and the HWRM wrappers that allocate and free ntuple filters in firmware.
+It also tracks L2 filters by sw_id in a bitmap, and sets bd->max_fltr to
+the fixed value BNGE_MAX_NTUPLE_FLTRS.
 
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> index 878fe4888160f..1bb9c30197695 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> @@ -1073,6 +1073,180 @@ static u32 bnge_get_rx_ring_count(struct net_device *dev)
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.h b/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+> index 372657cba43c4..87d66266a9f5b 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
 
 [ ... ]
 
-> +static int bnge_create_rxfh_context(struct net_device *dev,
-> +				    struct ethtool_rxfh_context *ctx,
-> +				    const struct ethtool_rxfh_param *rxfh,
-> +				    struct netlink_ext_ack *extack)
-> +{
-
-[ ... ]
-
-> +	bnge_init_vnic_mem(vnic);
-> +	/* Number the VNIC after the base VNICs, so that its error messages
-> +	 * tell the RSS contexts apart. The invalid id prints as -1 for all.
-> +	 */
-> +	vnic->vnic_id = BNGE_BASE_VNICS + rxfh->rss_context;
-
-[Severity: Low]
-This isn't a bug, but is the last sentence of this comment still accurate?
-
-bnge_init_vnic_mem() sets vnic_id to BNGE_VNIC_ID_INVALID (0xffffffff).
-This same patch also changes the vnic_id format specifiers in
-bnge_hwrm_vnic_rss_cfg() and bnge_setup_vnic() from %d to %u:
-
-	netdev_err(bn->netdev, "hwrm vnic %u set rss failure rc: %d\n",
-		   vnic->vnic_id, rc);
-
-With %u, the invalid id prints as 4294967295, not -1.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-> index e605448286d55..4b22152025d8c 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-
-[ ... ]
-
-> @@ -3147,6 +3152,10 @@ static int bnge_set_features(struct net_device *dev, netdev_features_t features)
->  	if (flags == bn->priv_flags)
->  		return 0;
->  
-> +	if ((bn->priv_flags & BNGE_NET_EN_NTUPLE) &&
-> +	    !(flags & BNGE_NET_EN_NTUPLE) && bn->num_rss_ctx)
-> +		return -EBUSY;
-> +
+> +struct bnge_ntuple_filter {
+> +	/* base filter must be the first member */
+> +	struct bnge_filter_base	base;
+> +	struct flow_keys	fkeys;
+> +	struct bnge_flow_masks	fmasks;
+> +	__le64			l2_filter_id;
+> +	u32			flow_id;
+> +};
 
 [Severity: Medium]
-Can this -EBUSY end up coming from the deferred feature update at close,
-instead of being returned to the user's request?
+The only link from an ntuple filter to its L2 filter is a copy of the
+firmware L2 handle in l2_filter_id. There is no pointer or refcount back
+to the struct bnge_l2_filter. What happens to an ntuple filter that is
+already programmed when its parent L2 filter is freed and re-created in
+firmware?
 
-bnge_fix_features() holds NTUPLE back only when netif_running() is true.
-It does not look at num_rss_ctx:
+Later patches in the series fix most of this:
 
-bnge_fix_features() {
+"bnge: add aRFS flow steering ndo support" changes bnge_fltr_match() to
+compare l2_key. It also makes bnge_cfg_ntp_filters() look up the L2 id
+by key again before programming.
+
+"bnge: add NTUPLE filter support in ethtool" adds bnge_cfg_usr_fltrs(),
+which binds user rules to l2_filters[0] again on open.
+
+One path still looks open at the end of the series. Every unicast list
+update goes through bnge_cfg_rx_mode(), which does this:
+
+bnge_cfg_rx_mode() {
     ...
-	if (netif_running(dev)) {
-		if (dev->features & NETIF_F_NTUPLE)
-			features |= NETIF_F_NTUPLE;
-		else
-			features &= ~NETIF_F_NTUPLE;
+	for (i = 1; i < vnic->uc_filter_count; i++) {
+		struct bnge_l2_filter *fltr = vnic->l2_filters[i];
+		...
+		bnge_hwrm_l2_filter_free(bd, fltr);
+		bnge_del_l2_filter_rcu(bn, fltr);
 	}
     ...
 }
 
-So running "ethtool -K <dev> ntuple off" on an interface that is up only
-updates dev->wanted_features.
+bnge_hwrm_set_vnic_filter() then re-creates the filters, and firmware
+gives them new L2 ids.
 
-At close, bnge_close_core()->bnge_clear_rss_ctxs() calls
-bnge_del_one_rss_ctx(bn, rss_ctx, false), which returns before the
-decrement:
+In the later aRFS patch, bnge_rx_flow_steer() binds aRFS rules for flows
+to a secondary unicast MAC (a macvlan, for example) to that MAC's L2
+filter, through bnge_lookup_l2_filter_from_key(). After such a rule is
+programmed and BNGE_FLTR_VALID is set, nothing walks ntp_fltr_hash_tbl to
+invalidate or re-program it when its parent L2 filter is removed.
 
-	if (!all)
-		return;
-	...
-	bn->num_rss_ctx--;
+While the flow stays active, rps_may_expire_flow() keeps the stale entry.
+bnge_rx_flow_steer() keeps matching it by l2_key and only re-programs it
+when the RX queue changes. Does steering for that flow stop without any
+error, so that packets fall back to default VNIC RSS?
 
-bnge_close() then calls netdev_update_features(dev). netif_running() is
-false by then, so ndo_set_features is asked to clear NTUPLE while
-num_rss_ctx is still non-zero, and this check returns -EBUSY.
+When the rule finally expires, bnge_hwrm_cfa_ntuple_filter_free() sends
+the cached ntuple filter_id. Suppose firmware dropped that entry together
+with its parent L2 filter and has since reused the id. Could this free an
+unrelated live ntuple filter?
 
-__netdev_update_features() then logs "set_features() failed (-16)", and
-netdev_update_features() still sends a NETDEV_FEAT_CHANGE notification.
-The request stays in wanted_features and fails again on every later close
-or feature update for as long as the contexts exist. The user never gets
-the -EBUSY that the commit message describes.
-
-Should bnge_fix_features() also take num_rss_ctx into account? This
-appears to be unchanged at the end of the series.
-
->  	bn->priv_flags = flags;
+Should the L2 filter teardown in bnge_cfg_rx_mode() also invalidate or
+re-program the ntuple filters that reference that L2 filter?
 
 [ ... ]
 
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
-> index 25aa6e7c43c37..d74ffd4f41172 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
-
-[ ... ]
-
-> @@ -358,27 +390,46 @@ int bnge_reserve_rings(struct bnge_dev *bd)
->  		hwr.rx = rx_rings << 1;
->  	tx_cp = hwr.tx;
->  	hwr.nq = sh ? max_t(u16, tx_cp, rx_rings) : tx_cp + rx_rings;
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+> @@ -72,10 +227,339 @@ static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
+>  	if (!fltr)
+>  		return ERR_PTR(-ENOMEM);
+>  
+> -	bnge_init_l2_filter(bn, fltr, key, idx);
+> +	rc = bnge_init_l2_filter(bn, fltr, key, idx);
+> +	if (rc) {
+> +		kfree(fltr);
+> +		fltr = ERR_PTR(rc);
+> +	}
 > +
-> +	/* One ring group per rx ring, so rss_ctx is checked against the final
-> +	 * rx ring count. Fail before any driver state is changed, so that a
-> +	 * retry reserves again instead of finding the failed values in place.
+>  	return fltr;
+>  }
+>  
+> +struct bnge_l2_filter *bnge_alloc_user_l2_filter(struct bnge_net *bn,
+> +						 struct bnge_l2_key *key,
+> +						 u8 flags)
+> +{
+> +	struct bnge_l2_filter *fltr;
+> +	u32 idx;
+> +	int rc;
+> +
+> +	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
+> +	      BNGE_L2_FLTR_HASH_MASK;
+> +	fltr = bnge_lookup_l2_filter(bn, key, idx);
+> +	if (fltr) {
+> +		fltr = ERR_PTR(-EEXIST);
+> +		goto l2_filter_exit;
+> +	}
+> +	fltr = kzalloc_obj(*fltr, GFP_KERNEL);
+> +	if (!fltr) {
+> +		fltr = ERR_PTR(-ENOMEM);
+> +		goto l2_filter_exit;
+> +	}
+> +	fltr->base.flags = flags;
+> +	rc = bnge_init_l2_filter(bn, fltr, key, idx);
+> +	if (rc) {
+> +		kfree(fltr);
+> +		return ERR_PTR(rc);
+> +	}
+> +
+> +l2_filter_exit:
+> +	return fltr;
+> +}
+> +
+> +void bnge_free_l2_filters(struct bnge_net *bn)
+> +{
+> +	int i;
+> +
+> +	netdev_assert_locked_or_invisible(bn->netdev);
+> +
+> +	for (i = 0; i < BNGE_L2_FLTR_HASH_SIZE; i++) {
+> +		struct bnge_l2_filter *fltr;
+> +		struct hlist_head *head;
+> +		struct hlist_node *tmp;
+> +
+> +		head = &bn->l2_fltr_hash_tbl[i];
+> +		hlist_for_each_entry_safe(fltr, tmp, head, base.hlist)
+> +			bnge_del_l2_filter(bn, fltr);
+> +	}
+> +
+> +	bitmap_free(bn->l2_fltr_bmap);
+> +	bn->l2_fltr_bmap = NULL;
+> +	bn->l2_fltr_count = 0;
+> +}
+> +
+> +void bnge_free_ntp_fltrs(struct bnge_net *bn, bool skip_user)
+> +{
+> +	int i;
+> +
+> +	netdev_assert_locked_or_invisible(bn->netdev);
+> +
+> +	/* Under netdev instance lock and all our NAPIs have been disabled.
+> +	 * It's safe to delete the hash table.
 > +	 */
-> +	hwr.grp = rx_rings;
-> +	if (!bnge_rings_ok(&hwr))
+> +	for (i = 0; i < BNGE_NTP_FLTR_HASH_SIZE; i++) {
+> +		struct bnge_ntuple_filter *fltr;
+> +		struct hlist_head *head;
+> +		struct hlist_node *tmp;
+> +
+> +		head = &bn->ntp_fltr_hash_tbl[i];
+> +		hlist_for_each_entry_safe(fltr, tmp, head, base.hlist) {
+> +			if (skip_user && bnge_is_usr_fltr(&fltr->base))
+> +				continue;
+> +			bnge_del_ntp_filter(bn, fltr);
+> +		}
+> +	}
+> +
+> +	if (skip_user)
+> +		return;
+> +
+> +	bitmap_free(bn->ntp_fltr_bmap);
+> +	bn->ntp_fltr_bmap = NULL;
+> +	bn->ntp_fltr_count = 0;
+> +}
+> +
+> +static int bnge_alloc_l2_fltrs_mem(struct bnge_net *bn)
+> +{
+> +	int i, rc = 0;
+> +
+> +	if (bn->l2_fltr_bmap)
+> +		return 0;
+> +
+> +	for (i = 0; i < BNGE_L2_FLTR_HASH_SIZE; i++)
+> +		INIT_HLIST_HEAD(&bn->l2_fltr_hash_tbl[i]);
+> +
+> +	bn->l2_fltr_count = 0;
+> +	bn->l2_fltr_bmap = bitmap_zalloc(BNGE_MAX_L2_FLTRS, GFP_KERNEL);
+> +
+> +	if (!bn->l2_fltr_bmap)
+> +		rc = -ENOMEM;
+> +
+> +	return rc;
+> +}
+> +
+> +static int bnge_alloc_ntp_fltrs_mem(struct bnge_net *bn)
+> +{
+> +	struct bnge_dev *bd = bn->bd;
+> +	int i, rc = 0;
+> +
+> +	if (!(bn->priv_flags & BNGE_NET_EN_NTUPLE) || bn->ntp_fltr_bmap)
+> +		return 0;
+> +
+> +	for (i = 0; i < BNGE_NTP_FLTR_HASH_SIZE; i++)
+> +		INIT_HLIST_HEAD(&bn->ntp_fltr_hash_tbl[i]);
+> +
+> +	bn->ntp_fltr_count = 0;
+> +	bn->ntp_fltr_bmap = bitmap_zalloc(bd->max_fltr, GFP_KERNEL);
+> +
+> +	if (!bn->ntp_fltr_bmap)
+> +		rc = -ENOMEM;
+> +
+> +	return rc;
+> +}
+> +
+> +int bnge_fltrs_mem(struct bnge_net *bn)
+> +{
+> +	bool ntp_alloced = !bn->ntp_fltr_bmap;
+> +	int rc;
+> +
+> +	rc = bnge_alloc_ntp_fltrs_mem(bn);
+> +	if (rc)
+> +		return rc;
+> +
+> +	rc = bnge_alloc_l2_fltrs_mem(bn);
+> +	if (rc)
+> +		goto err_free_ntp_mem;
+> +
+> +	return 0;
+> +
+> +err_free_ntp_mem:
+> +	if (ntp_alloced) {
+> +		bitmap_free(bn->ntp_fltr_bmap);
+> +		bn->ntp_fltr_bmap = NULL;
+> +	}
+> +	return rc;
+> +}
+> +
+> +#define BNGE_IPV4_4TUPLE(bd, fkeys)					\
+> +	(((fkeys)->basic.ip_proto == IPPROTO_TCP &&			\
+> +	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_TCP_IPV4) ||	\
+> +	 ((fkeys)->basic.ip_proto == IPPROTO_UDP &&			\
+> +	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_UDP_IPV4))
+> +
+> +#define BNGE_IPV6_4TUPLE(bd, fkeys)					\
+> +	(((fkeys)->basic.ip_proto == IPPROTO_TCP &&			\
+> +	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_TCP_IPV6) ||	\
+> +	 ((fkeys)->basic.ip_proto == IPPROTO_UDP &&			\
+> +	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_UDP_IPV6))
+> +
+> +static u32 bnge_get_rss_flow_tuple_len(struct bnge_dev *bd,
+> +				       struct flow_keys *fkeys)
+> +{
+> +	if (fkeys->basic.n_proto == htons(ETH_P_IP)) {
+> +		if (BNGE_IPV4_4TUPLE(bd, fkeys))
+> +			return sizeof(fkeys->addrs.v4addrs) +
+> +			       sizeof(fkeys->ports);
+> +
+> +		if (bd->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_IPV4)
+> +			return sizeof(fkeys->addrs.v4addrs);
+> +	}
+> +
+> +	if (fkeys->basic.n_proto == htons(ETH_P_IPV6)) {
+> +		if (BNGE_IPV6_4TUPLE(bd, fkeys))
+> +			return sizeof(fkeys->addrs.v6addrs) +
+> +			       sizeof(fkeys->ports);
+> +
+> +		if (bd->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_IPV6)
+> +			return sizeof(fkeys->addrs.v6addrs);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static u32 bnge_toeplitz(struct bnge_net *bn, struct flow_keys *fkeys,
+> +			 const unsigned char *key)
+> +{
+> +	u64 prefix = bn->toeplitz_prefix, hash = 0;
+> +	struct bnge_ipv4_tuple tuple4;
+> +	struct bnge_ipv6_tuple tuple6;
+> +	struct bnge_dev *bd = bn->bd;
+> +	u8 *four_tuple;
+> +	int i, j, len;
+> +
+> +	len = bnge_get_rss_flow_tuple_len(bd, fkeys);
+> +	if (!len)
+> +		return 0;
+> +
+> +	if (fkeys->basic.n_proto == htons(ETH_P_IP)) {
+> +		tuple4.v4addrs = fkeys->addrs.v4addrs;
+> +		tuple4.ports = fkeys->ports;
+> +		four_tuple = (u8 *)&tuple4;
+> +	} else {
+> +		tuple6.v6addrs = fkeys->addrs.v6addrs;
+> +		tuple6.ports = fkeys->ports;
+> +		four_tuple = (u8 *)&tuple6;
+> +	}
+> +
+> +	for (i = 0, j = 8; i < len; i++, j++) {
+> +		u8 byte = four_tuple[i];
+> +		int bit;
+> +
+> +		for (bit = 0; bit < 8; bit++, prefix <<= 1, byte <<= 1) {
+> +			if (byte & 0x80)
+> +				hash ^= prefix;
+> +		}
+> +		prefix |= (j < HW_HASH_KEY_SIZE) ? key[j] : 0;
+> +	}
+> +
+> +	/* The valid part of the hash is in the upper 32 bits. */
+> +	return (hash >> 32) & BNGE_NTP_FLTR_HASH_MASK;
+> +}
+> +
+> +u32 bnge_get_ntp_filter_idx(struct bnge_net *bn, struct flow_keys *fkeys,
+> +			    const struct sk_buff *skb)
+> +{
+> +	struct bnge_vnic_info *vnic;
+> +
+> +	if (skb)
+> +		return skb_get_hash_raw(skb) & BNGE_NTP_FLTR_HASH_MASK;
+> +
+> +	vnic = &bn->vnic_info[BNGE_VNIC_DEFAULT];
+> +	return bnge_toeplitz(bn, fkeys, (void *)vnic->rss_hash_key);
+> +}
+> +
+> +static bool bnge_fltr_match(struct bnge_ntuple_filter *f1,
+> +			    struct bnge_ntuple_filter *f2)
+> +{
+> +	struct bnge_flow_masks *masks1 = &f1->fmasks;
+> +	struct bnge_flow_masks *masks2 = &f2->fmasks;
+> +	struct flow_keys *keys1 = &f1->fkeys;
+> +	struct flow_keys *keys2 = &f2->fkeys;
+> +
+> +	if (keys1->basic.n_proto != keys2->basic.n_proto ||
+> +	    keys1->basic.ip_proto != keys2->basic.ip_proto)
+> +		return false;
+> +
+> +	if (keys1->basic.n_proto == htons(ETH_P_IP)) {
+> +		if (keys1->addrs.v4addrs.src != keys2->addrs.v4addrs.src ||
+> +		    masks1->addrs.v4addrs.src != masks2->addrs.v4addrs.src ||
+> +		    keys1->addrs.v4addrs.dst != keys2->addrs.v4addrs.dst ||
+> +		    masks1->addrs.v4addrs.dst != masks2->addrs.v4addrs.dst)
+> +			return false;
+> +	} else {
+> +		if (!ipv6_addr_equal(&keys1->addrs.v6addrs.src,
+> +				     &keys2->addrs.v6addrs.src) ||
+> +		    !ipv6_addr_equal(&masks1->addrs.v6addrs.src,
+> +				     &masks2->addrs.v6addrs.src) ||
+> +		    !ipv6_addr_equal(&keys1->addrs.v6addrs.dst,
+> +				     &keys2->addrs.v6addrs.dst) ||
+> +		    !ipv6_addr_equal(&masks1->addrs.v6addrs.dst,
+> +				     &masks2->addrs.v6addrs.dst))
+> +			return false;
+> +	}
+> +
+> +	return keys1->ports.src == keys2->ports.src &&
+> +	       masks1->ports.src == masks2->ports.src &&
+> +	       keys1->ports.dst == keys2->ports.dst &&
+> +	       masks1->ports.dst == masks2->ports.dst &&
+> +	       keys1->control.flags == keys2->control.flags &&
+> +	       f1->l2_filter_id == f2->l2_filter_id;
+> +}
+> +
+> +int bnge_insert_ntp_filter(struct bnge_net *bn, struct bnge_ntuple_filter *fltr,
+> +			   u32 idx)
+> +{
+> +	struct bnge_ntuple_filter *f;
+> +	struct hlist_head *head;
+> +	int bit_id;
+> +
+> +	spin_lock_bh(&bn->ntp_fltr_lock);
+> +
+> +	head = &bn->ntp_fltr_hash_tbl[idx];
+> +	hlist_for_each_entry(f, head, base.hlist) {
+> +		if (bnge_fltr_match(f, fltr)) {
+> +			spin_unlock_bh(&bn->ntp_fltr_lock);
+> +			return -EEXIST;
+> +		}
+> +	}
+> +
+> +	bit_id = bitmap_find_free_region(bn->ntp_fltr_bmap,
+> +					 bn->bd->max_fltr, 0);
+> +	if (bit_id < 0) {
+> +		spin_unlock_bh(&bn->ntp_fltr_lock);
 > +		return -ENOMEM;
+> +	}
 > +
->  	bd->tx_nr_rings = hwr.tx;
->  	if (!bd->num_tc)
->  		bd->tx_nr_rings_per_tc = bd->tx_nr_rings;
->  
-> -	if (rx_rings != bd->rx_nr_rings)
-> +	rx_changed = rx_rings != bd->rx_nr_rings;
-> +	if (rx_changed) {
->  		dev_warn(bd->dev, "RX rings resv reduced to %d than earlier %d requested\n",
->  			 rx_rings, bd->rx_nr_rings);
-> +		indir_lost = bd->netdev &&
-> +			     netif_is_rxfh_configured(bd->netdev) &&
-> +			     (bnge_cal_nr_rss_ctxs(bd->rx_nr_rings) !=
-> +			      bnge_cal_nr_rss_ctxs(rx_rings) ||
-> +			      bnge_get_max_rss_ring(bd) >= rx_rings);
-> +		bnge_check_rss_ctxs_lost(bd, rx_rings);
+> +	fltr->base.sw_id = (u16)bit_id;
+> +	fltr->base.filter_id = BNGE_FLTR_ID_INVALID;
+> +	fltr->base.type = BNGE_FLTR_TYPE_NTUPLE;
+> +	fltr->base.flags |= BNGE_ACT_RING_DST;
+> +
+> +	head = &bn->ntp_fltr_hash_tbl[idx];
+> +	hlist_add_head_rcu(&fltr->base.hlist, head);
+> +
+> +	bnge_insert_usr_fltr(bn, &fltr->base);
+> +	bn->ntp_fltr_count++;
+> +
+> +	spin_unlock_bh(&bn->ntp_fltr_lock);
+> +
+> +	return 0;
+> +}
+> +
+> +struct bnge_ntuple_filter *
+> +bnge_lookup_ntp_filter_from_idx(struct bnge_net *bn,
+> +				struct bnge_ntuple_filter *fltr, u32 idx)
+> +{
+> +	struct bnge_ntuple_filter *f;
+> +	struct hlist_head *head;
+> +
+> +	head = &bn->ntp_fltr_hash_tbl[idx];
+> +	hlist_for_each_entry_rcu(f, head, base.hlist) {
+> +		if (bnge_fltr_match(f, fltr))
+> +			return f;
 > +	}
->  
->  	bd->rx_nr_rings = rx_rings;
->  	bd->nq_nr_rings = hwr.nq;
->  
-> -	/* One ring group per rx ring, so rss_ctx is checked against the final
-> -	 * rx ring count.
-> -	 */
-> -	hwr.grp = rx_rings;
-> -	if (!bnge_rings_ok(&hwr))
-> -		return -ENOMEM;
-> +	if (old_rx_rings != bd->hw_resc.resv_rx_rings || rx_changed) {
-> +		if (!bd->netdev || indir_lost ||
-> +		    !netif_is_rxfh_configured(bd->netdev))
-> +			bnge_set_dflt_rss_indir_tbl(bd, NULL);
-> +		bnge_refill_dflt_rss_ctxs(bd);
-> +	}
->  
-> -	if (old_rx_rings != bd->hw_resc.resv_rx_rings ||
-> -	    old_rx_nr_rings != bd->rx_nr_rings)
-> -		bnge_set_dflt_rss_indir_tbl(bd);
-> +	/* Notify only now, so the notification reports the new ring count
-> +	 * and the reset indirection table.
-> +	 */
-> +	if (indir_lost)
-> +		ethtool_rxfh_indir_lost(bd->netdev);
+> +	return NULL;
+> +}
+> +
+>  int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
+>  			      const u8 *mac_addr)
+>  {
 
 [Severity: Low]
-This isn't a bug, but should these two fixes be split out, or at least
-described in the commit message?
+bnge_alloc_user_l2_filter() looks like a copy of
+bnge_alloc_l2_filter(), which sits just above it. Both functions do
+the same steps:
 
-The first is the bnge_rings_ok() move. It now runs before
-bd->tx_nr_rings, bd->tx_nr_rings_per_tc, bd->rx_nr_rings and
-bd->nq_nr_rings are written. That fixes already released code: before
-this series, a failed reservation left the failed ring counts in the
-driver state.
+- compute the bucket index with jhash2()
+- return -EEXIST when bnge_lookup_l2_filter() finds a match
+- allocate with kzalloc_obj()
+- call bnge_init_l2_filter() and kfree() the filter if it fails
 
-The new comment describes that bug. However, the commit message does not
-list it among the behaviour changes, and there is no Fixes: tag, so
-stable will not pick it up.
+The only difference is that the user variant sets fltr->base.flags
+before bnge_init_l2_filter(). That lets bnge_insert_usr_fltr() see
+BNGE_ACT_RING_DST and add the filter to usr_fltr_list.
 
-The second is the indir_lost and ethtool_rxfh_indir_lost() handling. It
-fixes a problem introduced earlier in this series by "bnge: add RXFH
-ethtool support". Since that patch, a user-configured default
-indirection table was replaced with the default spread whenever the ring
-count changed. dev->ethtool->rss_indir_user_size stayed non-zero, so the
-core kept reporting the table as user-configured.
+The gfp argument of bnge_alloc_l2_filter() also does not seem to do
+anything useful. Its only caller, bnge_hwrm_set_vnic_filter(), always
+passes GFP_KERNEL, and the user variant hardcodes GFP_KERNEL as well.
 
-Would it be better to fix that in the earlier patch, so that each patch
-is correct on its own?
+Could bnge_alloc_l2_filter() take a flags argument instead and set it
+before calling bnge_init_l2_filter()? bnge_hwrm_set_vnic_filter()
+would pass 0, and the ethtool path would pass the user flags. Then
+there is one copy of the lookup, init and error handling to keep in
+sync when bnge_init_l2_filter() grows more state in later patches.
 
-[ ... ]
+A merged helper would also tidy up the user variant. It currently
+exits through goto l2_filter_exit on some errors and through a direct
+return ERR_PTR(rc) on another.
 
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-> index a44971a7c74d3..7d587290c33ab 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-
-[ ... ]
-
-> @@ -201,6 +222,89 @@ void bnge_hwrm_realloc_rss_ctx_vnic(struct bnge_net *bn)
-
-[ ... ]
-
-> +void bnge_check_rss_ctxs_lost(struct bnge_dev *bd, u16 new_rx_rings)
-> +{
-
-[ ... ]
-
-> +		if (!ctx->indir_user_size)
-> +			continue;
-> +
-> +		if (bnge_cal_nr_rss_ctxs(bd->rx_nr_rings) !=
-> +		    bnge_cal_nr_rss_ctxs(new_rx_rings)) {
-> +			lost = true;
-> +		} else {
-
-[ ... ]
-
-> +		if (lost) {
-> +			bnge_del_one_rss_ctx(bn, rss_ctx, true);
-> +			ethtool_rxfh_context_lost(bd->netdev, rss_ctx->index);
-> +		}
-> +	}
-> +	mutex_unlock(&bd->netdev->ethtool->rss_lock);
-> +}
-
-[Severity: Medium]
-Does this delete user-created RSS contexts whenever the table size
-changes, even when their tables could be folded?
-
-Any context with ctx->indir_user_size set is marked lost whenever
-bnge_cal_nr_rss_ctxs() differs between the old and new ring counts.
-bnge_del_one_rss_ctx(bn, rss_ctx, true) and ethtool_rxfh_context_lost()
-then erase it and send ETHTOOL_MSG_RSS_DELETE_NTF. From "bnge: add
-NTUPLE filter support in ethtool" onward, the all=true path also frees
-every user ntuple filter steered to that context.
-
-Contexts survive close, because bnge_clear_rss_ctxs() passes all=false.
-So this runs at open, via bnge_open_core()->bnge_reserve_rings(),
-whenever firmware grants fewer RX rings than were requested.
-
-The comment in bnge_refill_dflt_rss_ctxs() says foldable tables are
-dropped anyway. The core already provides ethtool_rxfh_ctxs_can_resize()
-and ethtool_rxfh_ctxs_resize() to fold user-sized tables, but here they
-are only used for default contexts.
-
-Context 0 is handled the same way in bnge_reserve_rings():
-
-	indir_lost = bd->netdev &&
-		     netif_is_rxfh_configured(bd->netdev) &&
-		     (bnge_cal_nr_rss_ctxs(bd->rx_nr_rings) !=
-		      bnge_cal_nr_rss_ctxs(rx_rings) ||
-		      bnge_get_max_rss_ring(bd) >= rx_rings);
-
-ethtool_rxfh_indir_can_resize() is not consulted there.
-
-The commit message only says:
-
-    A user-configured default table is kept,
-    and ethtool_rxfh_indir_lost() is called when it no longer fits.
-
-It does not mention that user RSS contexts, and the ntuple rules attached
-to them, can be lost. Could the core resize helpers be used for user
-tables as well, or could the commit message at least describe this
-behaviour?
-
-> +
-> +void bnge_refill_dflt_rss_ctxs(struct bnge_dev *bd)
-> +{
-
-[ ... ]
-
-> +	/* bnge_check_rss_ctxs_lost() already dropped every context with a
-> +	 * user table when the table size changed, even if the table could
-> +	 * have been folded. Only the default contexts are resized here.
-> +	 */
-> +	if (resize) {
-> +		if (ethtool_rxfh_ctxs_can_resize(bd->netdev, tbl_size)) {
-> +			dev_warn(bd->dev,
-> +				 "RSS contexts cannot be resized to %u entries\n",
-> +				 tbl_size);
-> +			return;
-> +		}
-> +		ethtool_rxfh_ctxs_resize(bd->netdev, tbl_size);
-> +	}
-> +
-> +	mutex_lock(&bd->netdev->ethtool->rss_lock);
-> +	xa_for_each(&bd->netdev->ethtool->rss_ctx, context, ctx) {
-> +		if (!ctx->indir_user_size)
-> +			bnge_set_dflt_rss_indir_tbl(bd, ctx);
-> +	}
-> +	mutex_unlock(&bd->netdev->ethtool->rss_lock);
->  }
-
-[Severity: Medium]
-Do the RSS context notifications sent here report the intermediate
-table instead of the final default one?
-
-ethtool_rxfh_ctxs_resize() resizes each context's table, drops rss_lock,
-and then sends ETHTOOL_MSG_RSS_NTF for every context:
-
-net/ethtool/common.c:ethtool_rxfh_ctxs_resize() {
-    ...
-	xa_for_each(&dev->ethtool->rss_ctx, context, ctx)
-		ethtool_rss_notify(dev, ETHTOOL_MSG_RSS_NTF, context);
-}
-
-The loop that follows rewrites the default contexts (indir_user_size ==
-0) with bnge_set_dflt_rss_indir_tbl() only after those notifications
-have gone out. So the notification carries the old i % old_rx_rings
-pattern, truncated or replicated. That pattern can hold ring indices >=
-the new bd->rx_nr_rings, and no second notification with the final
-table follows.
-
-bnge_reserve_rings() already gets this ordering right for context 0
-("Notify only now, so the notification reports the new ring count and
-the reset indirection table"). Should the additional contexts be handled
-the same way, for example by notifying after the default tables are
-refilled?
+This is not a functional problem. It just removes duplicated code
+that has to be maintained.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
