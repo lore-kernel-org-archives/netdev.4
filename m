@@ -1,58 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073812;
-	b=Nz03nInr8IjHwEJbfrWg17nftIHuf+munMy0KIZb57jk9kAKhjyOk0HW/GiwPC+NJEFv
-	 c4xXA7SXQsjS/j+6lnFEzpt8XBm0UEJBpY3BzFw2t4kFg5q/Hyz7H0QXZpZx3588GfPKT
-	 VOWNatdnUrs/DYs5pCku3Tjqpnr/1exGWukpOSNR6OHn9RcS6VCgUCJbXt13xHLQG3KAa
-	 C1dS7Bylm2hKfYXA0BpnLOPz3xHLj+nNMpZCtzkwTUpJrG7dv6ws81P7WY0F9z0Xdm5t2
-	 fpms8sB1qVzTMeO+hmyqq9RcgSKIJGrhFxx5o3xbGiEY+Tsp2YwHrDY4Pz5JLyWr0cQ==
+	t=1795073935;
+	b=CeE9EMEWzaoY8Rkq4jvxIHSYQ3nq/e46UyX2imAwqBiC60AP7fgvuiEH3Y9aRwtEnap7
+	 j6SoFWdKRkgKrV4fOX1arOooUMfG6AtGfRimpIRnYIzu/HAYakBH5fKQuH3f5xb/PiAge
+	 /oeqDwqg+CAII1h3WeLKFvPP73MRgNj6yHg+sTX+3s5uYmbdWxwfH/h3ZGLUM2I5NFkC6
+	 lUfw5KATEJPSuVRCCsl5vNVSByY23Wv05paNdqu8jTiMGWR9WWAEk3JR880puU0wsW/61
+	 HjObmUPiftQ5cipZ8bUiUDdnlTVkakSHsvI//WR6lMw8C1IsvSSIh8Qu6iIc1Z/98pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073812;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=Xz9x+nu8iFDsD3oN41PdfcdXcq5+MFZLlOOhZlyWh6I=;
-	b=yKYB4+eXOcmOkpd/sH4mg1RNYdHsO6diGpUy4iq63G9X+qUd0kLAdy9C3SggMxobhkyg
-	 48+Y5mAsagnahoMRfQdiQQ/ncTvuSahvgUBQUfRWgNrZ6MuYkIjTVh2wdQj7bWCYYVEJe
-	 Pxp5+Ikp7JydUJqpvOq1JbzqSM6Z7EwICWeaNDEhdDKGS5F4HOJD1q6XzJQDpiMThVJ7n
-	 w4KBmbtrOucS8O40OclkpVyS4VB93dS50ko/jNOm1iUE7C204lrX5tNWc70B8Zz1S2zqS
-	 i4VcYDHqHGezjACCe2JxTKM1ZrgTxYt7ag5sosdifpJlF25rp1yGuACujP0g/S/KkSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073935;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=FwcHmJgjwO7Wx8jngr2JVYKZYHOEfqrD8BdaI3p/Vp8=;
+	b=BQZyWvqy/i/QvO5p08EMGiakh6kFXQGQ0YyzsYyXtgafrZ28qKFr21jt5NezeQoBXjT+
+	 mL9QJguoDA3QPWPk28hWZM9irPzgc2Hx05k4e2h3hw5ObHRTKkR/cW7zM+23HzcdbCmwt
+	 tQqnl0GPKHGLTUQjTYh7ul1Xuvu8WRi02BjTQpY+yCXp2CKBAT2cdD+pAPnZaYTGKICjt
+	 ip42QBOu82XUyPwVuB18n73FfaW3TJBn0KH04YIhg56v0McaA6q41lYMtWU8cBkzcundF
+	 Dfq6YcUCXTJMApN/EYlDrE0Ql5kVtL67fN43yLwFsjji2wfIy/IpVVHcrkQhraAhxzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fsCZGmzt;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hVQ20Kqv;
+	arc=none smtp.remote-ip=209.85.210.200
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C601606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:36:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C601606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 648C3606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:38:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 648C3606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fsCZGmzt
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4DE154E41659;
-	Thu, 19 Nov 2026 07:36:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1AF9C60237;
-	Thu, 19 Nov 2026 07:36:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CAABA11BC2D6A;
-	Thu, 19 Nov 2026 08:36:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795073803; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Xz9x+nu8iFDsD3oN41PdfcdXcq5+MFZLlOOhZlyWh6I=;
-	b=fsCZGmzt+fC0fzp4kR6Qre+ME9xwJCzkqh2RMfEnsYfUQKcvoDvE8tGbXLrlkh55jKY0wk
-	5aSIs3r14a2766AwiOGXKd5X8Esp0S3LdhNw5H0O+KcHGY7t9NUxsm/9sU8eyuFiAK+0X/
-	RSfYX2BTfMqT2n1Fx8aT0dE6hI2by+F8Ei3o1j5gNHWVByze0bPXtho48ya36PMQcmiuLV
-	LkYm2qBpXPafvuJjzwLpwY7JciQMJlyDNALWWuSx2mUE/be/meyTvzvQ8Baj0LHGZYFp0f
-	VBzZZRVNttSVa0sSGvlDUJZUm2vxcs2Jtr2wlPfKjGd8zBKSz0TW2hb0ciWArg==
-Message-ID: <c811598d-28e9-4d9b-9929-b434878b90ff@bootlin.com>
-Date: Thu, 19 Nov 2026 08:36:34 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hVQ20Kqv
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a065e2933fso2350595b3a.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:38:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795073935; x=1795678735; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FwcHmJgjwO7Wx8jngr2JVYKZYHOEfqrD8BdaI3p/Vp8=;
+        b=hVQ20Kqv6v+JLij33D+FsamJTZdgY3XvFx+3H0lAV6O1JV+GbTZzZew5KD3Aspaar1
+         4csbMngNkYtdC5NN3YrMCUA9MTjMdV1cOLf151Ajndx1zZD9qLGvRYWMsMUmoL2lEKdy
+         zIjDMzDuz3YZZVsQwYIwSazGZD61u7iuyg8Z652Ly4L9at9uD8KQ/h4z+/blg7Pg0JT2
+         UHLECkIKM1KXoMrKc+0xVMeq9x2B/2XDeiRjDED0RF+21QJ91RAIN61WeuGFbjUHQY8D
+         +/xAN4i5Yu/jjtrRkZ/BYTPoI02J2vY83yB4VccsSOETuf8rDwqoGtjrbxDVRUGKMvpz
+         GOBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795073935; x=1795678735;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FwcHmJgjwO7Wx8jngr2JVYKZYHOEfqrD8BdaI3p/Vp8=;
+        b=hTx1zSX/bPW5D3BP2E5hne0XmAFOYftp/r/fK0z5Orh0Q98pBbkMUJ8trcSUgeG4Bw
+         zUjJ9A36+erjNC+wXxiAvWRV3vPowCIFAMKFGOmYWU94NEKuWIvBnw7fPlZQD2aINA0Y
+         v/i5fGpiA73WHpyiUR3XQ8ZqqeJySi9kahIoTED71fgJVCzePBxFhjp+Y2AoZb2+24yW
+         KPGNng/zo/KVFnbYD6fsAfXnLB8Ghz8pmcQEHmq+0Nh79Hl/0a4yeozD7F4AotOgVXAh
+         yIjvmxIaP0iXis7LQ/KYh+LX4b4XU6ZZBPM8ij7ISfL9NmerPRukIqe3Z7hfJ1Dji2+B
+         92tw==
+X-Gm-Message-State: APuU4Z88GgJbdWJoZ/+TgxxdvqBsmg0ewYhy06NcyM0uffjYJiN0uVWH
+	/oTkyHwIMfTW4G+hM0AO1HqCX4E3GsHoXCFFhOhpCQiv3ujOqTGmEgzafGfKRTvaGLxQY+rqCUr
+	4tWHHJQ==
+X-Received: from pglc33.prod.google.com ([2002:a63:d21:0:b0:cc7:ec41:d571])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:4321:b0:3eb:aeb4:2c2c
+ with SMTP id adf61e73a8af0-3fe86fcee52mr6114463637.4.1795073934482; Wed, 18
+ Nov 2026 23:38:54 -0800 (PST)
+Date: Thu, 19 Nov 2026 07:38:54 +0000
+In-Reply-To: <20261116200854.3799498-1-antonio@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,83 +76,29 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
- from the descriptor
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
- Joseph Steel <recv.jo@gmail.com>,
- Muhammad Nazim Amirul Nazle Asmade
- <muhammad.nazim.amirul.nazle.asmade@altera.com>,
- thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
- <a2518e0794b8b9c79a97cb6c768dded6@tipi-net.de>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <a2518e0794b8b9c79a97cb6c768dded6@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Mime-Version: 1.0
+References: <20261116200854.3799498-1-antonio@mandelbit.com>
+Message-ID: <av6nhGkOn3XlAA1i@google.com>
+Subject: Re: [PATCH net-next] net: use inet_rcv_saddr_any() in udp_tunnel and ping
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Antonio Quartulli <antonio@mandelbit.com>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>, 
+	Ido Schimmel <idosch@nvidia.com>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Neal Cardwell <ncardwell@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-HI,
-
-On 11/18/26 21:09, Nicolai Buchwitz wrote:
-> Hi Maxime
+On Mon, 16 Nov 2026 21:08:53 +0100, Antonio Quartulli wrote:
+> udp_tunnel_core.c carries its own copy of inet_rcv_saddr_any(),
+> sk_saddr_any(), as it can be built as a module while
+> inet_rcv_saddr_any() is not exported, and ping_bind() open-codes the
+> same check for its AF_INET and AF_INET6 sockets.
 > 
-> On 18.11.2026 17:21, Maxime Chevallier wrote:
->> Stmmac's double VLAN handling hasn't been working great for a while,
->> it's been recently reworked for dwmac4 by Ovidiu Panait. In that work,
->> it was found that the tag stripping hardcodes the 8021Q tag type for
->> XGMAC while stripping the tag, while the IP actually reports the outer
->> tag type in the descriptor.
->>
->> The tag type can be one of 6 different values (note inner/outer is
->> reversed in the macro names):
->>
->>  - XGMAC_ET_LT_VLAN_STAG       single S-tag
->>  - XGMAC_ET_LT_VLAN_CTAG       single C-tag
->>  - XGMAC_ET_LT_DVLAN_CTAG_CTAG outer C-tag, inner C-tag
->>  - XGMAC_ET_LT_DVLAN_STAG_STAG outer S-tag, inner S-tag
->>  - XGMAC_ET_LT_DVLAN_CTAG_STAG outer S-tag, inner C-tag
->>  - XGMAC_ET_LT_DVLAN_STAG_CTAG outer C-tag, inner S-tag
->>
->> Report that tag type through a dedicated desc ops and report it to the
->> stack.
->>
->> We keep the 8021Q fallback when we don't have the ops, as we don't
->> set NETIF_F_HW_VLAN_STAG_FILTER on the cores that don't support that.
->>
->> This has been tested on AgileX5 with the vlan.py selftest.
->>
->> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Make inet_rcv_saddr_any() a static inline in <net/addrconf.h>, where it
+> is already declared, and use it in both places.
 > 
-> Isn't this a fix too? I mean xgmac advertises STAG_RX but still
-> reports S-tags as 802.1Q. Then again nobody seems to have hit it
-> so far, so net-next is probably fine.
+> Suggested-by: Kuniyuki Iwashima <kuniyu@google.com>
+> Link: https://lore.kernel.org/netdev/avVVzxL3pVZc6yQ5@google.com/
+> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
 
-Yeah not only was this discovered while working on something else, it
-seems no-one noticed and it's always been broken... I wanted to avoid
-spamming net too much, both options are fine for me TBH,
-
-Thanks for the review :)
-
-Maxime
-
-> 
-> Anyway:
-> 
-> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-> 
-> Thanks,
-> Nicolai
-
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
