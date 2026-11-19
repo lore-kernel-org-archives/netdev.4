@@ -1,102 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125116;
-	b=CUfQ2A0BGa2YR/JUogDorgZHOeBfZcpaOPhPLB7vmsLLaDyhuiWPD8agkny9YDnz7TlB
-	 8mrwr3LQpKBaQfr94H2/hlMywEh1Yd9LT9Myd5et/XbBQMBcuTl4P+l6Jala6qs9OiHtG
-	 peBmuvPvzb2/qheo9K8/RgKn/OJUl7jq/YAZ5fLD5TSUkjCRk89Fh8WURdcsnZIfwepL1
-	 9DRtUTj6iox6L8BtsMq82UVp2MIZiKC/NL5AKQX0HzbAgLT3/OyDaE7JxA3HcmoEgIjjs
-	 MzxMyoocG7/otF4Pb9TajVnPXguu/6q5Uw3Hzlf7FJZyMVENtEYJ+SN+GTxsvHbAwiw==
+	t=1795125160;
+	b=YZK3pNPcmkD7TPVTvcy597wKcRZzb2QK8DQlhQiFiJTJ2gwgcW36u10UcqtdhfFUSpON
+	 phKujom9EvBJRolssa9VS64s8qEsLzyNZOuAW7BeOSPBdg1mePF0LIkQkjzj/I4/Bwbxf
+	 h6XgJvAZSoYib/MwwjJmXXCrj0BcID5UnOR+u/2em0LAsj5DTeZdaKt76cTyzXB83PIYX
+	 7WXoCTbqAekg4fHW6K00bcE0nfZPWtNC5hyI++RapWmtoj9s/w8xDozIIis8I9+l6oI6B
+	 wRobXCieit5gUQdf/N7fn6BzB4ynnhJmR/ln5nT3VR32IwadVrS3gxoCgotyGqnb9ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125116;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=Ri8CK3ItJsJssm9R2a+AMX7zfGjjWTKSLJi5tTs2ofs=;
-	b=1HfJWHFeV7d3lOFqG2H4NmMIQj1PaxpPXnbwZlfyGronodFSj7o9R54E2FH7x6bo+ND1
-	 +yL/YdRaLQWPCZae1N8eKzEHYFImE1+lv4DA+VDKniCMNJwjDM4dpTL6q6wfRffA7ma14
-	 XHcHVwvh6dV1nTxeJzIfwwLLxZG60OjX221fSFqz0i6AoeOdAODw3rWzFCH/GvWnhLpEe
-	 2wOQfEmFblv3NYhHsaiGb1H0qjzlgZkuIWZi/BqwxiWIxBgu6/kicTkOOtNaxN026ecQR
-	 linb0BUqkhjvPA/fLfALaol06CeH2gTNIPcKuDjm8qxipKW+AKPLRKSscNMh5gzbQVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125160;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=kY4a9Sw1tw4257Yux+6Zqx7kEYU65w6q3mNVHAEvp4c=;
+	b=gsVcvMVegX/HETX1FNJLoddTRbZWM2//j026inWxxjyTmM0qa9AXhkEOqIr/LZP24zn1
+	 MffbxwpJRaTzAVSkuVQ0HODnjEyVK4AzyAYVXqq6MhnI644B2CggmmJ3ICn/0iIicaYWZ
+	 e8qsKMDTlhLJX2qW44iPItePbLE6eCdotmQBGlzoMupB0OdrvCQEvhbCBJ6JAdDQj+T9L
+	 KZmH1RQFc79QF3FsLAkqPhQc47sxbvwgL8sa6K/+l165EOfcoMp2ZiSjI3ASismD0e+hJ
+	 4Ho8iNWs4HlBsoqcSh2GmeTjv+WVAEIOcmzqQrbOJ5cYcItcGGmSoR0Q8tPtzktdOOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DHGBUcJM;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N93v5G8i;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA1C060A381E;
-	Thu, 19 Nov 2026 21:51:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA1C060A381E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30C1E606A326;
+	Thu, 19 Nov 2026 21:52:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DHGBUcJM
-Received: from pps.filterd (m0528005.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJJ1LkI2754408;
-	Thu, 19 Nov 2026 13:51:24 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=Ri8CK3ItJsJ
-	ssm9R2a+AMX7zfGjjWTKSLJi5tTs2ofs=; b=DHGBUcJMMYXzIekxH9QyMTq7eci
-	SVZVf1xD6/O7voHLqsj3TWCiHW0pTsTwkmp/Sp9PwtUka34/b6VZNoQ3XhAegWHp
-	XpONuZUN0BT5PbMkq0U9Jw5rxaNbEH6ZM45118sUHONBJw1PZ/EDqM1N8pENELLL
-	6rSXBjtU4zfkfEQuuysIkDiL3qzIAJ1VUpSH/voGd5OhHjcVxH6uqOIL4qV94Mts
-	8l4+IRAgaR0HPmmg+KnSAl3PoeGsapIjh+W+qZj8eqd7rRovRjydI6BAwRArFP5o
-	k1nsJTlzvDeQ2/EH+QAf3DQtrrgl4w5/oY/3h1+h7MQ3JGWzNvfsRrvodKA==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j228kvma1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 19 Nov 2026 13:51:23 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1b::8e35) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Thu, 19 Nov
- 2026 21:51:22 +0000
-Date: Thu, 19 Nov 2026 13:51:21 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Sergio Lopez Pascual <slp@redhat.com>
-CC: Stefano Garzarella <sgarzare@redhat.com>,
-        Alexei Starovoitov
-	<ast@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Bryan Tan
-	<bryan-bt.tan@broadcom.com>,
-        Vishnu Dasa <vishnu.dasa@broadcom.com>,
-        Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        Stefan
- Hajnoczi <stefanha@redhat.com>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason
- Wang <jasowangio@gmail.com>,
-        Eugenio =?iso-8859-1?Q?P=E9rez?=
-	<eperezma@redhat.com>,
-        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-        Haiyang Zhang
-	<haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
-        Dexuan Cui
-	<decui@microsoft.com>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap
-	<rdunlap@infradead.org>,
-        <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
-        <bpf@vger.kernel.org>, <linux-hyperv@vger.kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>, <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH RFC v3 0/8] vsock: add datagram support to virtio and
- vhost
-Message-ID: <av9vWRXli+JmYO8A@devvm29614.prn0.facebook.com>
-References: <20261113-vsock-dgram-support-v3-0-1523c8e9b27e@redhat.com>
- <aveMxDqYQobWwXd/@devvm29614.prn0.facebook.com>
- <CAAiTLFUQMyQXHAw1DbDKfJYus-Se+QA_SSHWQymQ9dK6-UmRTQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N93v5G8i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0897B1F000C4;
+	Thu, 19 Nov 2026 21:52:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795125160;
+	bh=kY4a9Sw1tw4257Yux+6Zqx7kEYU65w6q3mNVHAEvp4c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=N93v5G8iqNZ15a7Kva1dFn/oH4XI59e5nV8GeZOavKIWakjmbxE9v1mlfdy8BJb0v
+	 g6J6NW+5sIej/iFxn8mCzSlYvtjwwd7U/lPmbwlv96AK1xnoqgBS7uJdnkZ4uEgmS6
+	 NLbhzOndOwEUSymQB3GPwRB+WqQlp7dRa9mZBF4TioaeyymgJJqIxgRltOhgK+R1ns
+	 pEE/+medmSQNCQ5zJsJXFQChMdPvT4rklyD6u85ACQkhZHfb6Tu+HqjTN7ikatIGvR
+	 4fgY5nEwgaoFHK/Ds0mDSUKPdg34qyZBcxYRCmuJAbiYg1Cmt9hv3r0bV2IqCtatEs
+	 gBJofBIYt86fQ==
+Subject: Re: [PATCH net] net: stmmac: stop Tx NAPI before disabling the queues
+From: netdev-bot+sashiko@kernel.org
+To: tommaso.merciai.xr@bp.renesas.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ peppe.cavallaro@st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, biju.das.jz@bp.renesas.com,
+ tomm.merciai@gmail.com, dinghui@lixiang.com, dinghui1111@163.com
+Date: Thu, 19 Nov 2026 21:52:38 +0000
+Message-ID: <179512515855.3136.15162646874622512762@kernel.org>
+In-Reply-To: <20261116-tm-stmmac-eth-s2idle-v1-1-bbe165b743b5@bp.renesas.com>
+References: <20261116-tm-stmmac-eth-s2idle-v1-1-bbe165b743b5@bp.renesas.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,202 +67,188 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <CAAiTLFUQMyQXHAw1DbDKfJYus-Se+QA_SSHWQymQ9dK6-UmRTQ@mail.gmail.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA4NyBTYWx0ZWRfXwzIa7BHDzrhI
- V9NPLugZeX0Dem605ATYIgoQU8DX72WI9bBs9VHmBqBAZcwlUI4+xKCLGec3yqad6e9XNHuQUKf
- wh8/Z1Mk/yEYchU1ELul3oyezvQPlMuTsK6aw11IrS/iZG2ky0YHPQ5x2fDjJxe01HuGKZlID1n
- bHRiO20kWrSLZK4gz9ob3EKfJCQ+sOo9P4S7G27w3umfmXytFXum9tJ/HanNivge0nqvRbrcLuJ
- gA5mT4Wg7ZPOq05ccIQNX2ksv3x0dRPyiOMSJ0rrulluGOEJigLTb8HpiGCpoUiziVUM9XNcjy3
- 1eWA60wrpqu5Qfr1NHxKeA8KK0UhAQZs2ign8WT+c4ph6c6rH1+NFA6L/zLq1aLANdVep2Lm5XV
- HjICGVvLKwUIxJ3LSS5blwdHhxNf41mYiTRHaqmzf4ysQYa+mVHLxeWUEJRY/H+HxjOmG7yAUPQ
- pBlTEVLGOEG9QGMJvTA==
-X-Proofpoint-GUID: EKMxB3j1syV6aAXBL7ADcf_4KtTeg0Sh
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA4NyBTYWx0ZWRfXwKAReosY9zZa
- bBwoIH2U7bvtKc0Z4koR1XE6E6nLpYuJxcDsR5HFruBknRfag+QQB5Dtcl9NFmzvJqBczeAlmXp
- QcRk/8QcO5bLyBaKyd3NyJUPaB/1FsQ=
-X-Authority-Analysis: v=2.4 cv=cYxHPXDM c=1 sm=1 tr=0 ts=6aff6f5b cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=jCddH8ec0KUNCymVuxII:22 a=VwQbUJbxAAAA:8
- a=20KFwNOVAAAA:8 a=968KyxNXAAAA:8 a=NEAV23lmAAAA:8 a=mDV3o1hIAAAA:8
- a=KMMIYZg5AAAA:8 a=VabnemYjAAAA:8 a=lvHqt9aMAKSFOjNFyPAA:9 a=CjuIK1q_8ugA:10
- a=dU3it2pj8zK4A0baVwjB:22 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-ORIG-GUID: EKMxB3j1syV6aAXBL7ADcf_4KtTeg0Sh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_05,2026-11-19_01,2025-10-01_01
 
-On Thu, Nov 19, 2026 at 08:06:44AM -0800, Sergio Lopez Pascual wrote:
-> Bobby Eshleman <bobbyeshleman@meta.com> writes:
-> 
-> > On Fri, Nov 13, 2026 at 06:15:40PM +0100, Sergio Lopez wrote:
-> >> This RFC adds SOCK_DGRAM support to virtio-vsock and vhost-vsock through
-> >> the existing AF_VSOCK API. It is intended for guest and host services
-> >> that exchange independent requests, responses, or events and need message
-> >> boundaries and sender addresses without a stream connection or application
-> >> framing.
-> >>
-> >> VIRTIO_VSOCK_F_DGRAM gates virtio traffic in both directions. Each virtio
-> >> send carries zero to 64 KiB of payload in one VIRTIO_VSOCK_TYPE_DGRAM
-> >> packet. On the RX virtqueue, the device may split a datagram across
-> >> page-sized guest buffers.
-> >> START and EOM delimit the message; the guest reassembles at most 64
-> >> fragments and 64 KiB before delivering it to a socket. Invalid or
-> >> incomplete messages are discarded. Datagram delivery is best effort:
-> >> there are no peer credits, acknowledgements, or retransmissions. Send
-> >> admission uses the socket send-memory limit, and SIOCOUTQ reports charged
-> >> send memory.
-> >>
-> >> Datagram sockets have a separate port space from stream and seqpacket
-> >> sockets. The latter two continue to share their port space. Datagram
-> >> routes are chosen per destination among guest-to-host, host-to-guest, and
-> >> loopback transports, with VMCI as a fallback. VMCI still owns its socket
-> >> handle when it is present; loopback works without a directional transport.
-> >> Hyper-V continues to reject datagram sockets.
-> >>
-> >> The Sashiko review of v2 also reported that a VMCI datagram bind in a
-> >> local-mode network namespace creates a receive handle in VMCI's global
-> >> port space, so a sender outside the namespace can deliver datagrams
-> >> across the namespace isolation boundary. The issue predates this series
-> >> and it's getting addressed in a separate patch:
-> >>
-> >> https://lore.kernel.org/all/20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com
-> >>
-> >> Within this series, local-mode namespaces bind datagrams only in the
-> >> core table and never create a VMCI handle.
-> >>
-> >> Bobby Eshleman and Amery Hung explored this feature in their v6 series
-> >> and v7 work-in-progress branch. This series is a fresh implementation
-> >> against the current vsock code. It follows the separate datagram port
-> >> space, per-destination routing, and VMCI fallback requirements discussed
-> >> there. For guest receive buffers, it uses bounded fragmentation and
-> >> reassembly rather than full-message buffers or the earlier drop/error
-> >> queue approach:
-> >>
-> >> https://lore.kernel.org/r/20240710212555.1617795-1-amery.hung@bytedance.com
-> >> https://github.com/ameryhung/linux/tree/vsock-dgram-v7
-> >>
-> >> A corresponding virtio specification update has been drafted separately.
-> >> The wire format and feature negotiation still need specification review
-> >> before this series can be considered for merging.
-> >>
-> >> The first patches expose the core port allocator and add datagram queue
-> >> reporting, then implement the common data path, guest and host feature
-> >> negotiation, routing, and RX fragmentation. The last patch extends
-> >> vsock_test with local and peer tests for message boundaries, routing,
-> >> connected peers, port sharing, queue accounting, and delayed reads.
-> >>
-> >> Testing used QEMU with the F_DGRAM property patch below, an x86-64
-> >> KASAN/lockdep kernel, paired guest tests, and a nested Linux vhost-vsock
-> >> backend. The tested paths include 64 KiB messages, delayed-read bursts,
-> >> feature-disabled ingress, stream and seqpacket controls, and header-only
-> >> guest RX buffers. A temporary userspace backend still fails stream test
-> >> 21 on both the series base and tip; that case passes with Linux vhost.
-> >> VMCI's host personality was exercised in a QEMU guest, including
-> >> coexistence with virtio and self-send without loopback. A VMware VMCI guest
-> >> device and Hyper-V hardware were not exercised.
-> >>
-> >> https://lists.gnu.org/archive/html/qemu-devel/2026-10/msg08074.html
-> >>
-> >> Code was written and reviewed both manually and assisted by Codex
-> >> (GPT-6.1-Sol) and Claude (Opus 4.6).
-> >>
-> >> Signed-off-by: Sergio Lopez <slp@redhat.com>
-> >> ---
-> >> Changes in v3:
-> >> - Preserve Hyper-V stream routing and prefer virtio for guest CID_HOST
-> >>   datagrams (thanks to Sashiko AI bot).
-> >> - Bind explicit non-VMCI CIDs and local-mode sockets without a VMCI
-> >>   handle, resolve wildcard destinations, and retain VMCI self routes
-> >>   (thanks to Sashiko AI bot).
-> >> - Recheck bound addresses after receive takes the socket lock and set
-> >>   TO_HOST only for forwarded guest sources (thanks to Sashiko AI bot).
-> >> - Probe negotiated virtio datagrams and numeric local CIDs before running
-> >>   dependent tests; cover wildcard and VMCI coexistence (thanks to Sashiko
-> >>   AI bot).
-> >> - Link to v2: https://lore.kernel.org/r/20261113-vsock-dgram-support-v2-0-bacfc85b71ce@redhat.com
-> >>
-> >> Changes in v2:
-> >> - Keep guest RX buffers page-sized; add START/EOM framing and bounded
-> >>   datagram reassembly (thanks to Alexei Starovoitov and Bobby Eshleman).
-> >> - Preserve stream and seqpacket data when an RX buffer has no payload
-> >>   room.
-> >> - Separate datagram and connection-oriented port spaces, and share
-> >>   receive metadata and queueing (thanks to Alexei Starovoitov).
-> >> - Check negotiated support and destination CID on ingress, and require
-> >>   an exact connected peer CID and port (thanks to Sashiko AI bot).
-> >> - Select a capable route for each destination, retain VMCI as fallback,
-> >>   and support loopback-only sockets (thanks to Alexei Starovoitov).
-> >> - Preserve the connected peer address across temporary parent fallback
-> >>   (thanks to Sashiko AI bot).
-> >> - Use socket write-memory accounting for datagram SIOCOUTQ instead of
-> >>   separate transport counters (thanks to Alexei Starovoitov).
-> >> - Extend selftests for fragmentation, delayed reads, port sharing,
-> >>   connected peers, and capability-based skips; fix the test build and
-> >>   README entries (thanks to Alexei Starovoitov, Bobby Eshleman,
-> >>   and Sashiko AI bot).
-> >> - Link to v1: https://lore.kernel.org/r/20261028-vsock-dgram-support-v1-0-e457cf7cee78@sinrega.org
-> >>
-> >> ---
-> >> Sergio Lopez (8):
-> >>       vsock: expose the core port allocator to transports
-> >>       vsock: report datagram receive and send queue state
-> >>       vsock/virtio: implement the datagram data path
-> >>       vsock/virtio: negotiate datagram support on the guest
-> >>       vhost/vsock: negotiate datagram support with guests
-> >>       vsock: allow datagrams to use directional transports
-> >>       vsock: fragment datagrams across receive buffers
-> >>       vsock: add datagram tests to vsock_test
-> >>
-> >>  Documentation/admin-guide/sysctl/net.rst |    8 +-
-> >>  drivers/vhost/vsock.c                    |   51 +-
-> >>  include/linux/virtio_vsock.h             |    8 +-
-> >>  include/net/af_vsock.h                   |   31 +-
-> >>  include/uapi/linux/virtio_vsock.h        |   10 +
-> >>  net/vmw_vsock/af_vsock.c                 |  526 +++++++++++----
-> >>  net/vmw_vsock/hyperv_transport.c         |   11 +-
-> >>  net/vmw_vsock/virtio_transport.c         |  167 ++++-
-> >>  net/vmw_vsock/virtio_transport_common.c  |  172 ++++-
-> >>  net/vmw_vsock/vmci_transport.c           |  124 ++--
-> >>  net/vmw_vsock/vsock_bpf.c                |    3 +-
-> >>  net/vmw_vsock/vsock_loopback.c           |    2 +-
-> >>  tools/testing/vsock/Makefile             |    3 +-
-> >>  tools/testing/vsock/README               |   33 +-
-> >>  tools/testing/vsock/util.c               |   62 +-
-> >>  tools/testing/vsock/util.h               |   10 +
-> >>  tools/testing/vsock/vsock_test.c         |  175 ++++-
-> >>  tools/testing/vsock/vsock_test_dgram.c   | 1061 ++++++++++++++++++++++++++++++
-> >>  tools/testing/vsock/vsock_test_dgram.h   |   30 +
-> >>  19 files changed, 2195 insertions(+), 292 deletions(-)
-> >> ---
-> >> base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
-> >> change-id: 20261027-vsock-dgram-support-683a4e0aebe7
-> >>
-> >> Best regards,
-> >> --
-> >> Sergio Lopez <slp@redhat.com>
-> >>
-> >
-> > Hey Sergio,
-> >
-> > Just a gentle heads up that net-next asks for 24hrs before reposting.
-> 
-> Whoops, sorry!
-> 
-> > I'll start working my way through the series, sorry if my reviews come
-> > back spread out across a few days, not sure I'll have enough time in a
-> > single sitting.
-> 
-> I was planning on sending a v4 fixing Sashiko's issues. Should I wait
-> for your review first?
-> 
-> Thanks!
-> Sergio.
-> 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Feel free to send without my review, I'm lagging behind!
+Critical: 0 · High: 2 (1) · Medium: 0 · Low: 0
 
-Best,
-Bobby
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix only fences the ndo_start_xmit producer.
+- [High] The patch assumes NAPI is the last thing that can wake a TX
+  queue once stmmac_disable_all_queues() returns.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  stmmac_xdp_release() quiesces TX in the order the patch's new comment…
+
+--
+
+net: stmmac: stop Tx NAPI before disabling the queues
+
+This commit adds a netif_tx_disable() call to stmmac_suspend(), right
+after stmmac_disable_all_queues(). A TX queue woken by stmmac_tx_clean()
+between netif_device_detach() and napi_disable() is then stopped again
+before the platform suspend callback gates the clocks. It follows an
+earlier bcmgenet fix.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 25894771e9e9f..41d62f3b7ce51 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -8412,6 +8412,9 @@ int stmmac_suspend(struct device *dev)
+>  
+>  	stmmac_disable_all_queues(priv);
+>  
+> +	/* NAPI may have woken a TX queue after netif_device_detach() */
+> +	netif_tx_disable(ndev);
+> +
+
+[Severity: High]
+
+Does this also cover the XDP transmit path? stmmac_xdp_xmit() is the
+ndo_xdp_xmit callback, and its only gate is the STMMAC_DOWN bit:
+
+stmmac_xdp_xmit() {
+    if (unlikely(test_bit(STMMAC_DOWN, &priv->state)))
+        return -ENETDOWN;
+    ...
+    __netif_tx_lock(nq, cpu);
+    ...
+    if (flags & XDP_XMIT_FLUSH) {
+        stmmac_flush_tx_descriptors(priv, queue);
+        stmmac_tx_timer_arm(priv, queue);
+    }
+    __netif_tx_unlock(nq);
+    ...
+}
+
+stmmac_suspend() never sets STMMAC_DOWN. stmmac_xdp_xmit() also doesn't
+check netif_xmit_stopped() or netif_device_present().
+
+So netif_tx_disable() only waits for an XDP transmit that already holds
+the txq lock. It doesn't stop new ones from starting.
+
+The core redirect path doesn't block this either. xdp_ok_fwd_dev() only
+checks IFF_UP and the MTU, and netif_device_detach() leaves IFF_UP set.
+
+Once an XDP program is attached, stmmac_xdp_set_prog() advertises the
+device as a redirect target through xdp_features_set_redirect_target().
+
+Suppose another interface redirects into this one through a devmap, for
+example a NIC that suspends later in dpm order, or a veth. Could this
+sequence then run after stmmac_stop_all_dma() and priv->plat->suspend()?
+
+bq_xmit_all()
+  stmmac_xdp_xmit()
+    stmmac_xdp_xmit_xdpf()
+      stmmac_enable_dma_transmission()     <- MMIO
+    stmmac_flush_tx_descriptors()
+      stmmac_set_queue_tx_tail_ptr()       <- MMIO
+    stmmac_tx_timer_arm()                  <- re-arms cancelled txtimer
+
+That looks like the same SError the commit message describes: a tail
+pointer write after the clocks are gated.
+
+Is a driver-level state needed here that every TX entry point checks?
+One option is to set STMMAC_DOWN (or a dedicated suspended bit) before
+stmmac_stop_all_dma() and clear it on resume. Another is to check
+netif_device_present() in stmmac_xdp_xmit().
+
+[Severity: High]
+
+The new comment assumes that once stmmac_disable_all_queues() returns,
+nothing but NAPI can wake a TX queue. Is that true? stmmac_tx_err() also
+wakes the queue, from hardirq context:
+
+stmmac_tx_err() {
+    netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, chan));
+
+    stmmac_stop_tx_dma(priv, chan);
+    ...
+    stmmac_start_tx_dma(priv, chan);
+
+    priv->xstats.tx_errors++;
+    netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, chan));
+}
+
+It is called through stmmac_interrupt()->stmmac_dma_interrupt() and
+through stmmac_msi_intr_tx(). Both handlers return early only on
+STMMAC_DOWN, which stmmac_suspend() never sets.
+
+The channel IRQs also stay enabled until
+stmmac_stop_all_dma()->stmmac_deinit_chan() masks them.
+
+Say a tx_hard_error status is handled after this netif_tx_disable().
+TX DMA is restarted and the txq is woken. Can the qdisc then call
+stmmac_xmit() after priv->plat->suspend() has gated the clocks?
+
+On dwmac4, stmmac_stop_all_dma() may open this window by itself.
+DMA_CHAN_INTR_ABNORMAL enables RPS, so stopping RX DMA can raise AIS.
+dwmac4_dma_interrupt() then decodes TPS, which is set when
+stmmac_stop_tx_dma() clears ST, as tx_hard_error:
+
+dwmac4_dma_interrupt() {
+    ...
+    if (unlikely(intr_status & DMA_CHAN_STATUS_TPS)) {
+        x->tx_process_stopped_irq++;
+        ret = tx_hard_error;
+    }
+    ...
+}
+
+A fatal bus error during the suspend window would take the same path.
+
+Should the DMA interrupts be masked, or a down state set, before the
+queues are disabled here?
+
+>  	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+>  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+>  
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but stmmac_xdp_release() in
+the same file still uses the ordering this patch fixes in
+stmmac_suspend():
+
+stmmac_xdp_release() {
+    /* Ensure tx function is not running */
+    netif_tx_disable(dev);
+
+    /* Disable NAPI process */
+    stmmac_disable_all_queues(priv);
+    ...
+    stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
+    ...
+    stmmac_stop_all_dma(priv);
+    ...
+    free_dma_desc_resources(priv, &priv->dma_conf);
+    ...
+}
+
+A tx NAPI poll that runs before napi_disable() completes can reach
+stmmac_tx_clean(). There it finds the queue stopped and
+stmmac_tx_avail() > STMMAC_TX_THRESH, so it calls netif_tx_wake_queue(),
+which also reschedules the qdisc.
+
+stmmac_xmit() can then run, holding only the txq lock, while
+stmmac_xdp_release() carries on into free_dma_desc_resources(). Could
+stmmac_xmit() write descriptors and tx_skbuff entries into ring memory
+that is being freed?
+
+This can be hit by attaching or detaching an XDP program on a running
+interface while TX traffic is flowing, through
+stmmac_xdp_set_prog()->stmmac_xdp_release().
+
+__stmmac_release(), and stmmac_suspend() after this patch, both disable
+NAPI before calling netif_tx_disable(). Should stmmac_xdp_release() use
+the same order?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-tm-stmmac-eth-s2idle-v1-1-bbe165b743b5%40bp.renesas.com
