@@ -1,109 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.171
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119044;
-	b=t4nZuONiag36PF2ZNI50l09FJcE67S4u+o0Sz7XNABX1QuLpnGA3Jyx4xcr1255nHlpg
-	 7Ifp7dywbDDTCoHsQ21+2c6qbJbHIYxX9hBrvRp6zrLLaqogT8lZrwgGvHdrvFgfzZtce
-	 SUccH8/4RQ9Czsp8xFAeFyxbK5oy7v4L2m9SnSTW9A+yBTAYaN+eQnnri2l23iJ4YyhJz
-	 rAMR/kGswAiYmz6HFiNV04DdNncq0DjaCoYqqJDXRIkWONuYxKcyn4z7HQgwU0LLMc/nO
-	 UIG1MiZz8IwslTtXJjhUMtJ2pGtAH1ibA8GOekC9UVQSEvjN/2ms7ibpmhFpl/qfuZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119044;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795119186;
+	b=CkReW4czLEoZVgO+4qy/P9MsWEZNY1eV2xVTJ2kQbJMHdHDTfkEelYMsoLOQr+ZNl2e1
+	 bK97Rwq/zTm48ty0ncFIBrtXp6RCiMl93Yjm369XJuUJDaJs/rCLj+QQfmK3rMG96tncf
+	 5dgq1tH6CYX4a5ef4IBVTznCcr8GtTyiiEyV5w8icEBPSZ/IYPCsIXUffrb9vjPUG29JY
+	 aiJRdqZLp5g6or8tXOI5vrSt03zj82nApTU0YEsGJrGoIIg21uWhG3ZKvUj8WkMbfTqU5
+	 Xa7WAJgiwfBdtXRhQKan4seY9YgBpLsByFHK0rL/vTHaZMhmB6SDxQtk0S1dt2mWdIw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119186;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=4STxJw8apfsXksn2vhnIZYq3Je/j7gzJU23OLBgCVCw=;
-	b=Yo/OXm+B3VkVyYEiwmUIY0z3KU3UxPRoAggpV5+wHDE5CUjhSkSAqVlCcfHUg2kSkm6D
-	 xm8AWDPHsXLxamnDGyysW9wF5CSCv0FJ/HJxVaLVD+Tr018NgW5I/ShlrWr7TPS+3vCZA
-	 c2mDESMY4NdQE8l7gwZk4IS4UYrhFMGIN0TyD0hfVkYCYl0OCsIDOVE6LUVlSyheAizCY
-	 yvvYargNrxqL9F/Zwi1Ja0BHZ717xfUE0kSnL8ILLJ8xPjuzKpquZZeHNYmmg2lO8f8OJ
-	 EOcD4kRiIfAmeRQ5+Q5j/LL7i37lUrzrZH+h5kQgFvPYU2bECQru4GMAMkjDnRYYl0Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jbOGqzl4;
-	arc=none smtp.remote-ip=209.85.128.171
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=4khV6mEF0FJ1/ADpxcAkFphboFBDJSIVs2FQrSfyQtA=;
+	b=pz1bwSpBxGb9ENgCpq1fmwen2gDIeIIZ4kWXppUBvkURETUXUpSfWfZpUIrUkR5cuS68
+	 yaUvMM0eLgmH2CQpwjwn3aEKAlnxlUzAaUWV5NLhFFXsOBGMconHDErD7GDlAuRbopSBt
+	 oxxpAe5X4JGjyS6Id7KSutKIkGgcG7bC+tQmi21q2TWElqbXimlkx0p8UYWae8MB7kXKA
+	 O/Rix0gKZKKEExob+VcYzeFVNHydUVEY5gcbnS2mahoghwJH58fGaB4HFpKO+ScQ+CHEt
+	 pQPp2y10gjJFNS+iIuhQHIu3QOGr//+aJYoYBDrDmV1l8lI8V8Jca6WiPrpuKC8FWBA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=EPCa8q24;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0064606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:10:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0064606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F6D606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:13:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F6D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jbOGqzl4
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b315dd057bso1192197b3.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:10:43 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=EPCa8q24
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b4c8b51b58so145675b3a.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:13:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795119185; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J9J6AdaYpITB9JwHXb0LrRNDM1UqdPKXRrQmWi2UAR5EARFxATVBWAvyM1S6T0XBKU
+         5bO9k+0FovnUVx33AednyNXsYymJ3NHvuE5VXlwO0vYnq/IbN3KSp8WIgdMa+YDWn4co
+         Kj5MV9OR3YZVY6K+2j3cW0/VTraDniIscVQT8lXm5z7cbXHywT9I/I6HJun2wYS3FZPr
+         36kVL5/VeniHiCtuJWuUEs5jmx38TwykbrBHC6jvnacGUGhlyEJeJsWjt43Q2GhdzVvd
+         WYvr1nBfQCD5k2murG7NpdotjYRLThQwJ2RrRPWTyjKBPeatu5pv//+vRhsFnWeEXUEF
+         wmAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4khV6mEF0FJ1/ADpxcAkFphboFBDJSIVs2FQrSfyQtA=;
+        fh=nCPWH0a2SrzGijRaEDU6gf8pYULvW08NvZts+zbiVSo=;
+        b=r4pXP0Zmo48A9TBsMcpMgPZ095S2IFrBge0XmKQ4aueSxA9Wyg8xLzVRyFmBMXYSPS
+         OMYdyKnY+WEQZqMHSIhle0peBzn4q+aUW1v0she3Fxz12oI5JmL8QJ5e/lYIpqSvtvEJ
+         POiLLVgq7jpQYx8cavlhOEOcUDrrgVs3Ilrbs8EOdJx/bGP5EuRjkbo5kbvJ6rsPzLvd
+         i0TL8n5/rQym2SE6weg9857bm5tylaZPQV7nA5Fk3eGLwy9DohXxLa4r/XAQegAaM2Nl
+         Fr7fPWGzrsZyvrqQj3gsRw+DWaL+pANOckR272gGRNA7XixJgTIzLYgfHLCi6pmMNSGI
+         998g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795119043; x=1795723843; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=4STxJw8apfsXksn2vhnIZYq3Je/j7gzJU23OLBgCVCw=;
-        b=jbOGqzl4pjTZnlX9CRqhGTwl7IvLx/HCGiF2R1smwd3C1xS/q5+8W6IuVixt3ofp/H
-         UcDRPhnfi9vbdbCkAwL2L6B2GgmVewmfYsZXHz4rNAtL3nftLQnKP3S9AEk0k7oLIwED
-         WkJLrVbc9mqKig8z//TLZvj4mk9v4eST7U+mBQKCykkKMy2zUfGyWk8m5DQlvPm8o6v2
-         YaWg39KQF8X77inqQxHzMloUyf52HDB2HfTAnPXdu+rrErMGNxVat7iZ/qXNL5hj7sax
-         DOLdkN/yHC/Ygm2ZtiQstlDpDGfBI2Wou+P5h5w/7Tv+ma5YWs70v4mbBxdENHUpD3xg
-         MJ2A==
+        d=mojatatu.com; s=google; t=1795119185; x=1795723985; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4khV6mEF0FJ1/ADpxcAkFphboFBDJSIVs2FQrSfyQtA=;
+        b=EPCa8q24SwOuw1efncaNpF97tf642vZRPRWja05dGd5Vk16yE3j4qUulwHHvZoqnu7
+         F3gqKSSynHVfYR/16BQkbsSuB8pKettOLoj2JANGKtM6gJ3sjwrDQO8BEKlhZ92+52GV
+         cXz/nTvhq2MqU/vDdkr+b5g/Bd2AMHPZV01CQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795119043; x=1795723843;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795119185; x=1795723985;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4STxJw8apfsXksn2vhnIZYq3Je/j7gzJU23OLBgCVCw=;
-        b=EvyLVc3MiZtfr18QbO7RkThYASOSvlQOHK+TU4G1lQmx7pegF5M8yjBPkWzdwI2uZi
-         qzg0rPbfW9BxX/BAdCLoojWC8W3B7QiLB/u2c2JLOmxapO/Km3aKEGSrT0kNJ37Ey1XH
-         /mFaloHzEsKGI7jCe6zp+C2TSn1fsNiMaJxM0U8AFyC94yM7I8BLt7L8XVyaeOm1gPWy
-         6AvtEpK2YeTIDrn8uklDNdILaEu1mvbEbsIGyKSl8pvdd70p21rf5AyeQGM8fckkLolc
-         ZXTp4Pz9zDYGDtjHkLyJipANjNUcQsQ+ywH4WmZlb6wW//3FQVHehToC4rIxqRfgkQ7f
-         gMCA==
-X-Forwarded-Encrypted: i=1; AL+hErFSHQ6TeYYrVtmzyi2ZhpH0si0Wztk/UqIe3b0BcDYInHvudHzQIrYAtxKXuS0ABEv52sK8zG4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+r1+dYwN/uS8AmYKud3IpKc/sBt11lwVAiHaAdLYL8W5XGFNTq
-	ao+P64QD1eXESlZYmUFMW2li/DcE0eqUC9Ha73DXDw2PIIO4ayZR5Dhv
-X-Gm-Gg: AZFdTZd1gvoSZsOT40F0rAKXtbAOEGRtaIN7ixQwLmlHl68FU2eKPBOhMrNIumuvedx
-	G3M/fgZQm9iPC0bn4ry/oD/Usx51WidRaVQhPCoWBiIQiVvoOPaaio4bKUVfSC/kLpzOkWHFd+0
-	XVGrkk48SUPFzQCxEdSLDO7qvNXCO/wS/vV9IGzoYjiwb8GRasqKGB0CHNnCTL1Va7SX01bWfKS
-	c83xtsxf2xts6HuQqJHcIHR3tI+wScO51lfcOmMdw80JgGR3I0LGDJH/6sBtRBLqmS4gAWhYxz7
-	4G1Gw/YPCJXMvg4K0wPcazv2uRynczCdEvFIByQ0tUNey4uJwVFklxjfcP+I0BI5HA0nipvFWih
-	+tKUKKxiVCVfa1H/UBKsOVTfysO2m9rdydD4Fed9KgBlAuCe7RyufgKlvfij4pEOvtJkqkob+RS
-	3zgHYBYhbJoh7gqBaWxabf7r9cy0tSQYnFGFqpaJrhqd8TuRiVvRd86cU+8VYJybcDiDXg5iWPg
-	/+ejNnc1s86mI3heOIlE2nF9tPl5+HdNwvNoBO2c9cWtoAIhxKiaRHmW32C5Vlss+dSZOr317vp
-	Qe3VNwPrpLHvBWbb2M+SDMxVWT8KdtIVJPKutcgBirmcpA7EvUE+r9q3gK5iwlWwuMSzAYgeNmd
-	vn6ZJgkCh7fWN0fTk5bBLpi7nSNxAsICCSlbToxljC7C38XojOpTANLe1EeOa/tyI4VCa4S/oZ/
-	eERdPbU0uH3g==
-X-Received: by 2002:a05:690c:c86:b0:8b3:4deb:7ce1 with SMTP id 00721157ae682-8b5204403c4mr5285257b3.14.1795119042818;
-        Thu, 19 Nov 2026 12:10:42 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201ba5c1sm4973157b3.3.2026.11.19.12.10.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 12:10:41 -0800 (PST)
-Date: Thu, 19 Nov 2026 15:10:41 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Junyoung Jang <graypanda.inzag@gmail.com>, 
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
- Jason Wang <jasowangio@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>, 
- Simon Horman <horms@kernel.org>, 
- Shuah Khan <shuah@kernel.org>, 
- Gwanhyun Lee <gwanhyunlee@gmail.com>, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
-Message-ID: <willemdebruijn.kernel.2124e819195d3@gmail.com>
-In-Reply-To: <20261119144241.360238-2-graypanda.inzag@gmail.com>
-References: <20261119144241.360238-1-graypanda.inzag@gmail.com>
- <20261119144241.360238-2-graypanda.inzag@gmail.com>
-Subject: Re: [PATCH net v3 1/4] net: tun_vnet: validate hdr_len after skipping
- header padding
+        bh=4khV6mEF0FJ1/ADpxcAkFphboFBDJSIVs2FQrSfyQtA=;
+        b=kuogHkWvJjzlyRrroJ8lcZRqhVGe71pI4ICwnIDDTal3zvL1lDNxZHvMjU/nUDNX9X
+         m9/Ju7jRGSp0Xl9+1oRcawKOajN9pN9YhEv5ArJWa5DHY9gKLXQZ36nU2p8MnQ/9ODI8
+         vzdJKylAZaV9LlytEglenKcEDzgG3ZxsAtkD5ga9o10y3yEWHaMF5GamAtWrxSnpZuEk
+         F0flPUQtHvAwMxTybZywE+udnzkxBzBKOvwIfAthLyndQlSt5pOkAPETI0+HZJB5YXc1
+         OUMmSfoFCOQo9gamFt8pE1YDi8w+eLb2fC5eZOIXGtH/zcIMTnsSoqGtGuEKsPWu8e7+
+         Te0g==
+X-Gm-Message-State: APuU4Z8kOzM0C+w7v8A2GtqKx+ivZwVuB2cFHWN8bWt9TD6e1DdPysMB
+	WyahD17Yl4CdL1cbonfidS3qPff9+9bcNjqOygMw0LqUI0qvnZEm136rVfbu3Y33I1mmVW9kbFh
+	FQAvsILRsVR1NBboxEfgpAc5I0r1hQNowsCz26dUV
+X-Gm-Gg: AYBFou1fqcnHFwKSshopHn9Igm5hY/DZj2fYpgIlQPFpk9T8dATo4jXGyv/5cRK4r1P
+	ccAVMW99oGkjMCpsJOzo1RiKgIAOSe72g8iCKEKK2vw79IneHXiHTNuwtHsaH1jx/GAHcWpSEk0
+	TFcD34ZmrQLws2ddae1TJkIVustJ1dMkZQlllQD2q0YN6c/O84bgZT1ETCb/E0ONHT8JusxF3De
+	UqamwaaetNA7VLe/RkynCSDlP3oU+G6zyc7SaovUGxHjeBPj++GekXpXoaVgJ9egJPiL/oZC4ME
+	pUBf4uq9B3Sq1BvW18VD0gYIEPfs9EHeUGrff4LtkJNaVhdYh6c+dgu6Wy/DTwqKzG61YIA1VwS
+	KR5YJlxz/F+w46UFRHAmRhj8y8qicwT2kZz9LbIsMh8Ga6CLUXDE8wbvyA68NuU1PiIygq3ru58
+	v58kh7ww4msaiHLajv
+X-Received: by 2002:a05:6a00:2d06:b0:882:e3a6:27c9 with SMTP id
+ d2e1a72fcca58-8c87c28e012mr636431b3a.30.1795119185501; Thu, 19 Nov 2026
+ 12:13:05 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -113,64 +101,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+References: <20261119001539.2868072-1-stephen@networkplumber.org>
+ <20261119001539.2868072-4-stephen@networkplumber.org> <CAM0EoMkLUeJdzCBxsknqxSKAZ2Q7WhAB9ifV_tKXne4fPxY7YA@mail.gmail.com>
+ <20261119094711.6049b21a@phoenix.local>
+In-Reply-To: <20261119094711.6049b21a@phoenix.local>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Thu, 19 Nov 2026 15:12:52 -0500
+X-Gm-Features: AclHuK-WviYzYMuuuMuH_F0OQSbVyUbDFfwbruGy8h9rB34Yy17XJd7c5N5IAHY
+Message-ID: <CAM0EoMmZ7hLf_BnUvKyTsBZVKiFCQ3Z6Y5Q3qHgORtQT9omhGQ@mail.gmail.com>
+Subject: Re: [PATCH iproute2-next 3/5] tc: remove eBPF map export and exec bpf import
+To: Stephen Hemminger <stephen@networkplumber.org>
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, Thomas Graf <tgraf@suug.ch>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@plumgrid.com>, Jiri Pirko <jiri@resnulli.us>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Junyoung Jang wrote:
-> __tun_vnet_hdr_get() checks hdr_len against iov_iter_count(from) before
-> advancing past the configured virtio header padding. With a 512-byte
-> header and a 14-byte Ethernet frame, hdr_len=256 passes because the
-> iterator still includes header padding. After the advance, only
-> 14 bytes remain. tun_get_user() and tap_get_user() can then reserve a
-> linear skb area larger than the frame and transmit uncopied bytes.
-> 
-> Advance past the padding before comparing hdr_len with the remaining
-> payload. Both callers return immediately on error and discard their
-> iterator, so the cursor position on -EINVAL is not observable by them.
-> 
-> The problem was identified during review of the tap zero-copy fix and
-> reproduced with vhost-net in an x86-64 QEMU guest: a 14-byte input
-> produced a 256-byte frame on both tun and tap. After the change, both
-> drivers reject that input with -EINVAL. The new tun and tap selftests
-> pass on the patched kernel.
-> 
+On Thu, Nov 19, 2026 at 12:47=E2=80=AFPM Stephen Hemminger
+<stephen@networkplumber.org> wrote:
+>
+> On Thu, 19 Nov 2026 04:19:50 -0500
+> Jamal Hadi Salim <jhs@mojatatu.com> wrote:
+>
+> > I dont think this code changes in iproute2-next (didnt try iproute2
+> > tree) - but for tc testing i use:
+> > https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git
+> > (origin/main =3D 9eee7bb8 ("Merge remote-tracking branch 'main/main'
+> > into next", 2026-11-18))
+> > libbpf 1.3.0 default and LIBBPF_FORCE=3Doff
+> >
+> >      m_bpf.c:107:25: error: 'bpf_obj' undeclared (first use in this fun=
+ction)
+> >      m_bpf.c:108:25: error: 'bpf_uds_name' undeclared (first use in
+> > this function)
+> >      m_bpf.c:108:43: error: 'struct bpf_cfg_in' has no member named 'ud=
+s'
+> >      make[1]: *** [../config.mk:47: m_bpf.o] Error 1
+> >      make: *** [Makefile:67: all] Error 2
+> >
+> > suspect: the patch removes this declaration?
+> > -  const char *bpf_obj =3D NULL, *bpf_uds_name =3D NULL;
+> >
+> > Attached fixes it.
+>
+> I suspect you need to do a "make distclean" and rebuild.
 
-If respinning, please state explicitly that this restores existing
-pre 6.15 behavior.
+sorry - this was my fault. I cutnpasted the patch into a vi session
+and left out a couple chunks.
 
-> Suggested-by: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-> Fixes: 2506251e81d1 ("tun: Decouple vnet handling")
-> Fixes: 6a53fc5a8770 ("tap: Use tun's vnet-related code")
-> Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+cheers,
+jamal
 
-Reviewed-by: Willem de Bruijn <willemb@google.com> 
-
-> ---
->  drivers/net/tun_vnet.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/tun_vnet.h b/drivers/net/tun_vnet.h
-> index f4c652b1fa44..0b9622891681 100644
-> --- a/drivers/net/tun_vnet.h
-> +++ b/drivers/net/tun_vnet.h
-> @@ -138,11 +138,10 @@ static inline int __tun_vnet_hdr_get(int sz, unsigned int flags,
->  		hdr->hdr_len = cpu_to_tun_vnet16(flags, hdr_len);
->  	}
->  
-> +	iov_iter_advance(from, sz - parsed_size);
->  	if (hdr_len > iov_iter_count(from))
->  		return -EINVAL;
->  
-> -	iov_iter_advance(from, sz - parsed_size);
-> -
->  	return hdr_len;
->  }
->  
-> -- 
-> 2.43.0
-> 
-
-
+> There should no longer be and --libbpf options in config and no way to fo=
+rce off.
