@@ -1,99 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123200;
-	b=dLM7819PiiiWtRtvE/4ynGOGPuXeV7+6V7SZxFSbL4ZD9LNrpJdgMLk5xAye4JKfMSA1
-	 oDuoFd2aYfKP8pJlyUn4/0LmE3ng6UMMKhwXpsUQKcpzF8a236wg9xJNTESe9jetFZJLU
-	 C2FylLEFdQuKEV2TIhOS+nYQf6cYd4KVth6EFkVcIkBhRpi+gT7CnA+Wko7ok43EJOpHL
-	 CeetBuIFr/WalnhtNRU2X5TWDX1oTAQjLtJVj8cJV75A/ffSlxZVnOxUmSF4JzW/1o7vx
-	 pbTp1FTT0FyIKNRaJBH+uEG9pvjKpqO4ceafpWYL7/Vh7ANCayruW0IdqUkki24mamA==
+	t=1795123205;
+	b=M4nb3k+r6oyHdmYNew0MmukeI6pOstmvyp1xd34qTbeCqTRKCV1KKIqF1ZAxw3NmEQ4W
+	 Dbz7arC6f5lLdU1gyPttSPEQEnKVEHrNaX1qhZiAyCjW6ivr1BMO5j7C8z3AqJ1JtnDf9
+	 jpl2/PXSwVgu/MMD1B2y1bMnVItzEEtxaiet2LQ32EnC+iedon5U75YEQjYyH+sEh4K6o
+	 ISj4AviN4VDjgsl0nE1N5ULSN65V2LKWbi3AZ0YbWNYzBwIKWmvM1JFE5GX175cTnOnAR
+	 EVW7EhyBGRRKCuEfM9DKHT3gr2aZDFlg4XbTP2FWKD1WC5keoa3c80r1qJsY4gpGBHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123200;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123205;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=OZc3Hh1DciK5xgYmf0zZ1RClkKI7jh3AfHf4r9PdGc8=;
-	b=OCRmUODIOVyJLLuqhoAbQoR/eWn6TgO5R4L7cIFb/EB3jWzzQuQaey5Dhk8It/w11iZJ
-	 cJbMCy5KT4TtjolXDgLGP2SEg2AKCLwbv9J9ye7E9NPR7mkOhVYFpt95tyF8+1SBtCAgA
-	 KgC2JPb74NbgVGn8H87wCYPDL8iWt4blrFmk6L9UBVN5VG/yeamF6Fw8R81HzQUd0oQB5
-	 3zEaDnF9UqFpKuetSOlutQdYFl3M7vgMdg5SaQYVAkJtVTxcF2OyCqwlL17OUJMJLNsHB
-	 BxPHVgeO/2GfrbmSrTYFgIh38r9Jj5cLpv4saQAPaJ5qajH0KdFmgejJF1DeWDgLuCQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=IoA82Q2ZEVJNJ0FtORDuYOR+6+olp8aB1qEhIgqXksI=;
+	b=yKeDaZe0U+LV72ytDASqRFFQtgvT+0qTFDpudsFirKbx9tEUX5lH2uvvyJSxGyaVZ2wE
+	 HO5DsSEOnJ5XMUjb2wgPNbq0rFLR6cP4qykeAaqpOhZCohNfDr+Yz071Thx/fDlYIYJxc
+	 zf1U1U9CBg9b8JBuGEzUN45wEZ1yriGRKJCXzg6zEsDVz5MhZQcfyR/KOFWqaVfw1UxNm
+	 q7V+zzHscT2vG+qwPw+YU4vDTTOzEVeZS8CscSAR5DGwIwCsOFLgvlnGsUkYGiuQBlwId
+	 pg+/GDAAFnO7g1oRwtaTo/OREWS84vzHXZgPMc4PDG7IXlxu90iPqkX0VoeKayWjyMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="iDC/YNiY";
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=thKTbKYD;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81680606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:20:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81680606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FEE9606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:20:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FEE9606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iDC/YNiY
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-36eb1cb7aabso228322eec.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:20:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=thKTbKYD
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-381f65e4e4bso254096eec.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:20:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795123200; x=1795728000; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795123204; x=1795728004; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OZc3Hh1DciK5xgYmf0zZ1RClkKI7jh3AfHf4r9PdGc8=;
-        b=iDC/YNiYbghLmUQJ2nboQ+S+l1VknX/qKPG5qWckFR4rRYriTc8SXF3QQ9PeklkGVd
-         /wlu7qK18uzPYzqjn6yTXZwuFszMzfAYhmiZcw0lRJYXxbVl1p6Buh1hb99VGY/3tIvr
-         GqiiFRvyohhMonvX26kCYK2ABRYqVZSF6RtT1yg8liO6xSM1kVdl8PsOxms1+c8UahzG
-         3h0IKAA6iugpmGOm+MYi6raMV11nRK1xZn7EkT8tlTGIWI4S4O4xRoX93SLrIavEV2L3
-         ym8iPqLIye6J8KrrM0l7UlEh3xVk6XWSHdV0yAcN4uDjhpknoBZgoJ7Gp492tzBlI5l6
-         Vs0Q==
+        bh=IoA82Q2ZEVJNJ0FtORDuYOR+6+olp8aB1qEhIgqXksI=;
+        b=thKTbKYDMiRq+MDphqsEdZJ4oqLSONrJr8+Bl0EfJzIGzLtw1ICSKZWyDt4a/iUoKI
+         xaPkgxIwop0MtzQeIQ7XG9PYu8AeIvOvU/WkzxJ0KqPgD9EnRJtV+G2dcjfmyvIkXEPh
+         y5TmAACGTD/8xCPDmaxzk3kEaPffUuEiDe9Ce6Jgq4VlFHdgxaCl6Ro1inR5YtTfq98B
+         gkScCe74aRikueGHbzafObsJUvwrhuzfz+l2wNVazIIIK0DP+CHaj5NTCix3xLHNHAtK
+         W73tkOULPhrQi3PZfVKcTHSA6R/4uo/czkuCF/LbXgjJKxX8G1IAesrECCCic9Y4jbS0
+         mIbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795123200; x=1795728000;
+        d=1e100.net; s=20260707; t=1795123204; x=1795728004;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OZc3Hh1DciK5xgYmf0zZ1RClkKI7jh3AfHf4r9PdGc8=;
-        b=uoNPN4z4MJssVdzwUVF+irasqzrcyFBIr9WhjkzH+V530onKr+ps2j76W/r9eLIP5W
-         M5/JSvbn6ZsLaE3xHnFi363ZAd19RiDYFT2rJsk0Tmzy7kzRfCoaH73OCrfZk1962+8w
-         8Jnpihbw1JBJvMzuNCZTFhNFG3v5NFeCHUq2+s0YK1BPGalNbvbPiuJWnnjPUjDits9/
-         yAQ3SZtMRg7/Tzh4kCxS+ChmqFglRea2kjEDZg+35ekhMCHU/MpQrqqdiR70kDi9Sifi
-         CwhIGyubXw8dZfWTafQ2Fqzf+Tc0jOnA5kZ/h112v5r+wjVCpvmPeVjp7Hu6iY/Lg4S7
-         yTdQ==
-X-Gm-Message-State: APuU4Z8nKmTufda0HvAluzb798Vwu/DZSNmcwLRDx6nv6ldwoUtlzi60
-	NQ5e69VyXpld33IDzEgsnSRmsqlV5BKhttfDtoyeSxPSfpFVoPQciSrGfz5ip9Ui
-X-Gm-Gg: AZFdTZfsE5QG3Xx+sdsn99NhYDPoxf4Crj1ihid6GCFkDxrhcY8QThZs2x7JLoueU7I
-	no+QG17EH8Trl54zcBLAPFkgn/DppOzaiQXLkktjJIccZVxJ81epvqPrXJw5McV+WXpJIKICRMA
-	wW4C15tvAhIG0bKrG5StrJOfnK+PqY8Y+0foyuIbgNzMYcwiAeQI6W1T6KkWf2uUoCngm7gepJk
-	UJRuJeKPfrs3FYW0/wpb3BaF9BP4Wp1sWphdpC6u+aMFhwSbS5gc5mgLx6DIjE983CGsZhYO08P
-	Bc6W4dXJMXXZPfU4AxuwCU1F2oXEu6DbctumBh/Gb4EdPMFwTirX+klr1fePRdp3kgkqQEUak/g
-	PYaUZAmvrbHX0PcGhLUTwLkXN9wrTCQM5zEHPMJmTKb0HIsILvM0K8lpKA1VEMo78oZCsZUHZvS
-	jLh2+ZRkp+yeWwIhzwcpuyOeVJ81jqoN78mIv6IvTNkhzbSKas0Sb4a/Xw1vpaUQ9dTUyy0DTmN
-	epwWVZ8ReeJOkPU0bTt28qPI/yLpNmPilwybNRB+gOGJmMyn5zD0DUt5kFEBe1ezefRZvxzuTLB
-	NrztBmvt/oFUnjMS4bUND5Rhy67EBQFtWXl0KmQDKerWmAEaNSjNecyGLapZID4XdbaXcfx7tnf
-	fHec7zCUYnsuHYeQ8AYJecvfcy5Gm54yHkYuDBdt4PQl/heRqELUv9cgAoh6Vgvqe43Lt1FOw
-X-Received: by 2002:a05:7300:3e93:b0:36c:a390:8907 with SMTP id 5a478bee46e88-3857015eaedmr578371eec.21.1795123199544;
-        Thu, 19 Nov 2026 13:19:59 -0800 (PST)
+        bh=IoA82Q2ZEVJNJ0FtORDuYOR+6+olp8aB1qEhIgqXksI=;
+        b=V2pVIggaJsE+ILqA/EOuHfGcuAmUDe83JWxvudstJVjKLrbNGIg5EPeaKj3MaVcHIs
+         +PG0nIR7zNXi2OxEtrPMdYqaIoX+7V0RAoVy3wYk8I0joKrO8YpkQvk/V2K9yZp5NgRH
+         OKCfYC/nK6w4PP4lgLv0NEQTVBDAqR/9MW0iAG9PQnE4w/fhlwVYDmLgtfWJ+1Lw1Qwg
+         1LHCznm3ZzYY5YWSxEk+uqIsKLs1wq7bilChC0bme7asp7xlXl3r9TaaxRhKVLmqITAF
+         WsgEzSLKvGWcaHG2uE8KcxXoyiBc2It3oCLLFUN7Xu4zcdN3MO+UzHuUEB5dbgUHGWEr
+         1ZhQ==
+X-Forwarded-Encrypted: i=1; AL+hErH4rNZtWHpUmJH2q1A9jkg53xFcwK1Jk91e5+49JwPF2qSVze5es6A67rokM4oQ4KDacsyvB2w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ppQWiaEybsU+saVy9cD+fUaJPXRtLzRAmxVOsdBau95WdXMND
+	URQceU1bzx+gpFM9GCFUT9vkJK40tUUBphNXKl795OES1RQ1TejOIkAn
+X-Gm-Gg: AZFdTZcSE+kgOAknlIiGIl4qL67qnTghSa64kk2yEuF5gkCwtXtI6dErEtzNXgfpu42
+	drtRlmei2TIYFaSIlVobcPCVbcNjiC3MeJngLRE16xZjqlx9JDN9IzLsuDXwH6odjwKrO87anhl
+	KKGQuNakWWr3odL8yOS2Aun5N18zmXSs9yXUmsH5KKeJ+728nAqTa2pHIOzUI9ANyEtVH0XxN2Q
+	yANEj9sGX5SbwxvYRhttS2uDl2UP8qM1P74Twet737fo8kQI7V5miIqbxJKm1ZClhk0IsDW42OM
+	ed1THXmpG+aLbR77K7gx6GBoxUmeQEpYT/oyaHZXFor7yQP8nM5bB7OyJHZ+a/ABkOEV3K/QZpw
+	SdfgMxwrKjLC2HRJSRmG1eZz/dK9DHxbOoFb6uLDdWFRE7ZQTdSzh3ty68VSXTjVylShJVuXT8D
+	UuVZym/Bwn7vDvnPI9ATEH++J52DhRBiKzPesjBOD9HvWzJ+7P9zqUwbMCvq72+KCEGKoJBqPkO
+	XMvGSFDsQLZ80o/9nlHfMxbyrogRAkCT0k6jJRemQ4N9f3D6FnxL10AwFxjZ1uD4ME9ZpGk07xF
+	WHlx4nPEnUjse2eM8RxI9Xxa10EzaBO1gGzMTPYq+pvB1X2j0FurkOxoWpXGmLudC61LNNHYgEM
+	TtyftFygnG4X2BwLHC86FhQ3TM2tUyXYGNuKfqqEP9KrMJQBQ1oR5Eq4hbfDHapMMXC4v4HFfQy
+	cT1usKUranbT0RelGBjA==
+X-Received: by 2002:a05:693c:8955:10b0:36a:1008:5815 with SMTP id 5a478bee46e88-3856c6ab8e7mr602925eec.5.1795123204235;
+        Thu, 19 Nov 2026 13:20:04 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567ea2cc5sm1466388eec.29.2026.11.19.13.19.58
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm1382576eec.28.2026.11.19.13.20.02
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 13:19:58 -0800 (PST)
+        Thu, 19 Nov 2026 13:20:03 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev@vger.kernel.org,
-	richardcochran@gmail.com,
-	vadim.fedorenko@linux.dev
-Cc: andrew+netdev@lunn.ch,
+To: vadim.fedorenko@linux.dev
+Cc: andi.shyti@kernel.org,
+	andrew+netdev@lunn.ch,
+	corbet@lwn.net,
 	davem@davemloft.net,
 	edumazet@kernel.org,
+	horms@kernel.org,
+	jiri@resnulli.us,
 	kuba@kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	pabeni@redhat.com
-Subject: Re: [PATCH net 1/4] ptp: ocp: prevent timestamp rearming during detach
-Date: Thu, 19 Nov 2026 13:19:57 -0800
-Message-ID: <20261119-timecard-common-v2-078fe69f33-r1-ahmadexp@gmail.com>
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	rdunlap@infradead.org,
+	richardcochran@gmail.com,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH net-next v3 3/3] ptp: ocp: support the WiWi revision 02 Time Card
+Date: Thu, 19 Nov 2026 13:20:01 -0800
+Message-ID: <20261119-timecard-common-v2-078fe69f33-r3-ahmadexp@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <ad6883e5-c103-4f82-8040-e5463477ca10@linux.dev>
-References: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com> <20261118-timecard-common-301f823ddd-1-ahmadexp@gmail.com> <ad6883e5-c103-4f82-8040-e5463477ca10@linux.dev>
+In-Reply-To: <890ef941-0c52-4e3c-9fce-70b11fd1b198@linux.dev>
+References: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com> <20261116-wiwi-v3-87afa10a8-3-ahmadexp@gmail.com> <890ef941-0c52-4e3c-9fce-70b11fd1b198@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,48 +115,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Thu, 19 Nov 2026 at 18:24:24 +0000, Vadim Fedorenko wrote:
-> On 18/11/2026 20:05, Ahmad Byagowi wrote:
->> + mutex_lock(&bp->ts_lock);
->> + if (enable && bp->ts_stopping) {
->> +         err = -ENODEV;
->> +         goto out;
->> + }
->
-> ts_stopping is changed only in device detach callback, there is actually
-> no need to cover whole ptp_ocp_ts_enable() with mutex, I believe
-> existing spinlock can be used to serialize this access, no?
+Hi Vadim,
 
-Yes, the existing bp->lock is sufficient. I have sent the four-patch
-v2 common-fix series to net:
-https://lore.kernel.org/r/20261119-timecard-common-v2-078fe69f33-0-ahmadexp@gmail.com
+On Thu, 19 Nov 2026 at 18:44:38 +0000, Vadim Fedorenko wrote:
 
-The revised timestamp fix uses spin_lock_irqsave() for the stopping
-check, PPS subscription updates and MMIO. Detach sets ts_stopping under the same lock. Keeping
-the register writes in that critical section prevents an enable which
-passed the check from writing after detach has disabled the channel.
+Regarding the different addressing and interrupt layout:
+> another resource table.
 
-The disable path still flushes the interrupt-mask write, but drops the
-spinlock and restores IRQ flags before both pci_irq_vector() and
-synchronize_irq(). The former takes the MSI descriptor mutex on this
-kernel; the latter may sleep. There is no new driver mutex or associated
-initialization/destruction.
+Agreed. The next revision has a dedicated ocp_wiwi_resource table with
+final BAR0 addresses and MSI-X vector numbers. I removed the runtime
+offset/vector adjustment, the temporary resource copy, and the WiWi
+filtering from ptp_ocp_register_resources(). The existing FB/Celestica,
+ART, ADVA and ADVA X1 tables are unchanged. The WiWi table explicitly
+contains the three UARTs and typed XIIC data, but no GNSS2 or SPI entry.
 
-One additional detail is the PPS no-state-change shortcut. Once the
-IRQ wait is outside the lock, another disable can clear pps_req_map and
-unlock before draining its IRQ. While stopping, the candidate bypasses
-that shortcut so detach still disables and drains the channel itself.
-Outside teardown, removing one of the PPS/EXTTS subscriptions still
-leaves the other subscription armed without unnecessary MMIO.
+Regarding UART access and the omitted second GNSS interface:
+> Why it's not a problem for ADVA and ART boards?
 
-The source-derived ASan/UBSan harness passes late-enable, in-flight-enable,
-active-IRQ and in-flight-disable cases, shared PPS/EXTTS handling, and all
-six channels. It asserts that MMIO is locked and vector lookup and IRQ
-waits are unlocked; six deliberately broken variants are rejected.
-Both common and WiWi integration PTP objects compile for x86-64 with W=1
-and KCFLAGS=-Werror.
-This is software evidence, not kernel lockdep or physical unbind testing.
+I conflated the peripheral IP with the host interface in that description.
+The aligned 32-bit requirement is specific to the WiWi LitePCIe path;
+sharing UART IP does not establish the same PCIe access restrictions.
+UART width is now selected by per-resource data, with the existing
+byte-access default preserved for the other boards. WiWi's XIIC child
+uses the force_32bit_access flag from patch 1.
 
-Thanks for the suggestion.
+The UART list is a separate issue. ART already has one GNSS UART entry;
+ADVA and ADVA X1 have GNSS and MAC entries, not GNSS2. Thomas described
+WiWi's second GNSS UART as instantiated but unwired on this board, so
+the WiWi table exposes only GNSS, MAC and NMEA. I am not inferring wiring
+for arbitrary boards from their PCI revision or claiming that the other
+boards have a GNSS2 defect. The external SMA PPS2 input remains available.
 
+Regarding the additional interrupt-readiness check:
+> new revision but not for the older ones?
+
+WiWi has a separate LitePCIe per-input gate at BAR0+0x1800, in addition
+to the PCI MSI-X masks. The legacy probe does not program that gate.
+The WiWi path first opens only UART/XIIC inputs for child probe; it opens
+timing inputs after the PHC and handlers exist. Because ptp_clock_register()
+can expose the PHC before that second write, an early arm request returns
+-EAGAIN without changing subscription state or programming the source.
+After the checked write/readback it can be retried. Disable is not gated.
+
+Both early and late gate writes now use the same checked-readback helper;
+failure returns -EIO and unwinds probe. This is software ordering, not a
+claim that WiWi loses masked pulses or that older firmware replays them.
+The common timestamp-removal spinlock fix remains separate and is used
+by all boards.
+
+Regarding the path to supporting updates:
+> enable flash upgrades?
+
+Not through a supported in-driver procedure in this series. I kept SPI
+absent from the WiWi table and its input masked, and reject every WiWi
+devlink flash request before looking up MTD or writing anything. There
+is no override. This intentionally also removes raw MTD read access.
+
+The documentation now spells out the follow-up needed: validate the
+controller's access width and interrupt behavior, specify and check the
+WiWi image header and board/revision compatibility, protect the golden
+region in every erase/write path including raw MTD, then validate update
+readback, activation and interrupted-update/watchdog recovery. Thomas's
+description of a modified spi-xilinx path is not validation of an upstream
+update implementation. A running build ID is not proof of the active slot.
+
+Validation for this draft includes actual-source resource/UART/gate/flash
+tests under ASan/UBSan, the spinlock removal-race suite (100 runs), and
+13 deliberately broken variants rejected by the tests. The x86-64 PTP
+and XIIC objects build with W=1 and KCFLAGS=-Werror; all four XIIC KUnit
+tests pass under QEMU. The five-architecture Kconfig checks also pass.
+No new physical-card test, firmware update or masked-pulse replay test
+is claimed; the machine has been reserved for Windows HLK. I will report
+that limitation in v4.
+
+Thanks,
 Ahmad
