@@ -1,55 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082862;
-	b=o98SdqgM/aMRh9XUUY+UAbsztsMd5XhMy5fR+aEIRlIYLCDRuaXpFyW/yPePGHvY6MBU
-	 MZJB8vR9A343yhXs9sGtRHTfVM2ECf3CQ9XJ0nBnUNzrxPy+3H4roacSXTniCgYcZV2IR
-	 CelCKaLpUNGpLQmMnWaRu8Mexn0SXQdePpGUX4INw4yXqR3PJm3lW3HtDDfSp07rOeXN8
-	 6yLCUdmQsTohh2igC09sxktoms4F7Hastq2KfIDBFD/0FsNFkZr1FIQgbVhraKQR3lODH
-	 W7ECWbigb2p9AQp7OF39Gsv4cJeFZUIiM6NKHpBeQiJX/lHLzATTy/omhYNW4iud8Ew==
+	t=1795083344;
+	b=11nXj5vJyVG52kw+2qz9TlBxqDNJzCyhlr2tFt2yNYM4VD6dHUyHfLoeTZIg1OV8n1NJ
+	 CSt2wFpih4Dd+iiZO5LuIVDRNEAMBGxmbe4HThUzYsPr/TusnpBF7ks09kpd/MHF8NBJr
+	 shNZUeWI2aoE3XnSBppqH8qhCuvIFRDOd0q11ev69TKTIBeFrLthClnjy6I7CDWQoXzdJ
+	 d/I8hV35me9/Ptt2x6trko00pUeTKJkROvk5gOmhP8XgO9YkkppUFaU8IVQYgoSqwai5V
+	 HK4EYcIBO2x0vOjl/lTxqNd2pEBYhvXyrVQ/JYNb8EPl0Nvm049zM7GaiZFfxMGCvbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082862;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=rdNNbl9xjS7fw25SeJHWSaw1USK+R4l2BVmzQBe1r44=;
-	b=A/XVKBhusthzNpNp5cBdfpflpsNSqbCxI/ELhiFHMO+NUhCkAPALc5LMjK+NGP+MRLUe
-	 dB2a2MJIfrKgtqf18a3A5f6bqbjBVNJ67ZsmtttuHWDZhgzjq+gHK3Mn+AiUUFBRsKYLL
-	 i+DchcBF2Gfj391HrZotdFgxAhjF4fUBtIHVpNZzKVcYbtDk0+zAXvmQdPvbwm6Una1d9
-	 ZDn/u0g8Dt41sOuaKjjgywOQiiO8SIfyxdl0X0gDPHn9+UGSkbRFLee0dHic2ER61/vvI
-	 R9TF9gpCpAIjd/W1bzWwKX9aF/m0jDikxylWTr4biAB2JE5zqN0iI6BWqbyv95+xrug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083344;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=VMbM0n0fGOb5WRoEQogOfM6SY5XoKlXZke9k2tIlH4c=;
+	b=2lAlzA17eR4XVoI+v9aswraWYO6w55aXp4705gD6uCbC3PgFxhpFOadGix2uVhmeWBNh
+	 KoIpICNuRx1A9noBFf65fxnnrdeJvWl4mib/1z+s0mV/DzCenQe9b4WIz5F4oAeNE+WA8
+	 /arkwVmioOW2ZxtAcDZ6BtvPyswTzlWrqrP0cnLsLRle7ljXJjWWjhwKBBXwNyx8BUA/b
+	 n6uPE8Y8G8QWPSk56jBTqL5JNNlnYrmCOElPhvwGammzj2Pr12as5fSKDsg1Jho5PWywt
+	 YPhaoOuX39GkzQ4Rspwtfp6LsfSeHZkSl9N3DcqdeTyiIv0diKS226sNxY6IrbezwLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GwHJqmL/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OvmMBpyC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1DED60A2603
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:07:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86957606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:15:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GwHJqmL/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57F721F000D0
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:07:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OvmMBpyC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63C391F000C6;
+	Thu, 19 Nov 2026 10:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795082862;
-	bh=rdNNbl9xjS7fw25SeJHWSaw1USK+R4l2BVmzQBe1r44=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=GwHJqmL/daSbnsD7Jpppugk7O7cBsMZE0ILmiEitcaran+3uPzA+t5RTOslQ8M58Z
-	 UG7a3nxtUxPUNxN8TbkDCgA6eJb19mv9zkLUxdAt5eNlz4/L5q7eD2kWkEdYAeX3wF
-	 oYKZXHtIbEusg4E+1WfNhdFkn+mWUWL1he4WpUAorxNT3RUasq433zYa9+l56eqwHQ
-	 8T5KiSMf+8baKdUV4kIopYOgBPhJWld5hpuuDr7ROxp3MQt3mIQ54gVzG1rl/ZLDYm
-	 L9DBgUQ+NDEjztzXDP8K0BTBC7seHkXnVsPmXxN+41c1vobLIkG9khccB9tckA7rOt
-	 TvF2qoNuV8jHQ==
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-716b58a4365so1201063eaf.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:07:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErF+CkOx0GDEH2HwauFLN3joKQMlRX7OEI+ofu77yy13HVzxdJQybY3Zk/yst1KdSqbyBjhcEMY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+fTTVFa969a/JAKLUsgU/SCsKcN0/qQNcrmeqJt578WUYiiOsQ
-	r8MYx7WMVJqqeKc7I/o5wGYWuMxwB3NJ27Pk+MNG+bqdRNbKxWu5m4UHXdNO2xEKpPIrzeLCL2E
-	6LCKj3E1IGHXbOCZUV1gdupnhocEPzkE=
-X-Received: by 2002:a05:6820:4887:b0:71a:fcbf:2470 with SMTP id
- 006d021491bc7-71b18487cb0mr3689287eaf.35.1795082861721; Thu, 19 Nov 2026
- 02:07:41 -0800 (PST)
+	s=k20260515; t=1795083344;
+	bh=VMbM0n0fGOb5WRoEQogOfM6SY5XoKlXZke9k2tIlH4c=;
+	h=From:To:Cc:Subject:Date;
+	b=OvmMBpyCVARurStHfKKF3MGmg/2z9XlnSvsHrN40mucddEki76LCWkijCoBZzsUoS
+	 B36Y4B9fIgHjiDzP9JEnu1lLPR/RmeOoLwmB+v/NtfczB3Z3w79hzC/9uvJRB0ZgAY
+	 Kt1O2a7oFh4zWAoEz+u2daADPM7jWSGM/vUpxdC3az3sxYA+lHkAxd5vrQYCpPq2sR
+	 dHItFKUVuSHbPGpUYIrJbA9fjUoYkuqrMt/gKpLPaioj1fmFwn4orh71/J8SL2FD5u
+	 yJo3qGxtiANU8xF1IuFMuUj04YKhHB5C7ybYJoiq1r5LfhMFgAYLMnXVpXDdU0MQXV
+	 KsHmlG99A51+A==
+From: Eric Dumazet <edumazet@kernel.org>
+To: "David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>
+Cc: Kuniyuki Iwashima <kuniyu@google.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>
+Subject: [PATCH net-next] net: do not over-estimate truesize in zerocopy_fill_skb_from_iter()
+Date: Thu, 19 Nov 2026 11:15:38 +0100
+Message-ID: <20261119101538.3229466-1-edumazet@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,52 +62,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119100414.13635-1-zihengw03@163.com>
-In-Reply-To: <20261119100414.13635-1-zihengw03@163.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 11:07:30 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiirt_H2OK6pBNG4tOZdiVOQQpAJDK=Vo6vkKJsasMw4AXw@mail.gmail.com>
-X-Gm-Features: AclHuK9nktjco5gsyxNqtp3kam55uGY77qmevX_EOfaPr5ulVyu6PcDAfnwyusk
-Message-ID: <CAL4Wiirt_H2OK6pBNG4tOZdiVOQQpAJDK=Vo6vkKJsasMw4AXw@mail.gmail.com>
-Subject: Re: [PATCH net-next v2] net: do not use SOCK_INODE() in sock_init_data_uid()
-To: Ziheng Wei <zihengw03@163.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le jeu. 19 nov. 2026 =C3=A0 11:04, Ziheng Wei <zihengw03@163.com> a =C3=A9c=
-rit :
->
-> Since commit 5d6b58c932ec ("net: lockless sock_i_ino()"),
-> sk_set_socket() reads i_uid and i_ino through SOCK_INODE(sock).
-> sock_init_data_uid() calls sk_set_socket(), but its only direct users
-> are tun and tap, which pass &tfile->socket and &q->sock. Those sockets
-> are embedded in struct tun_file and struct tap_queue, not in a struct
-> socket_alloc, so SOCK_INODE() points at whatever follows the socket in
-> those structures and both reads return unrelated data.
->
-> sk_uid is overwritten a few lines later with the uid passed in, and
-> nothing reads sk_ino of a tun or tap socket today, so the result is
-> not used. The reads themselves are still out of type, and with
-> CONFIG_RANDSTRUCT the inode fields can land beyond the end of struct
-> tap_queue.
->
-> sock_init_data_uid() was added so that tun and tap would not use
-> SOCK_INODE() on these sockets. Set sk_socket directly there, clear
-> sk_ino, and let sock_init_data(), whose sockets always come from
-> sockfs, fill in sk_ino.
->
-> Found by LLM-assisted source review and confirmed by code inspection
-> only; the out-of-type reads were not triggered at runtime. The fix was
-> build tested only; it was not run against selftests.
->
-> Fixes: 5d6b58c932ec ("net: lockless sock_i_ino()")
-> Signed-off-by: Ziheng Wei <zihengw03@163.com>
-> ---
+zerocopy_fill_skb_from_iter() adds PAGE_ALIGN(copied + start) to
+skb->truesize for each iov_iter_get_pages2() call.
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Since commit 394fcd8a8134 ("net: zerocopy: combine pages in
+zerocopy_sg_from_iter()"), a chunk that directly follows the last frag
+in the same page is merged into this frag, and the extra page reference
+is released. The page is still accounted again in skb->truesize.
 
-Thanks.
+With iovecs describing small contiguous chunks of the same page, each
+iovec charges a full page while a single page is pinned. For TCP,
+1024 one-byte iovecs sent with MSG_ZEROCOPY add 4 MB to sk_wmem_queued
+and charge 4 MB to the socket, for 1024 bytes of payload sitting in
+one page. Appending to the skb at the tail of the write queue does not
+check sk_sndbuf, so a single sendmsg() can get sk_wmem_queued above it.
+
+Account pages while building the frags instead:
+
+- A new frag accounts one page, as before.
+- A chunk merged into the last frag only accounts the pages this frag
+  did not already cover.
+
+The accounting is unchanged when no chunk is merged in the middle
+of a page.
+
+Fixes: 394fcd8a8134 ("net: zerocopy: combine pages in zerocopy_sg_from_iter()")
+Link: https://lore.kernel.org/netdev/20261119090828.343748-1-jiayuan.chen@linux.dev/
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>
+Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+---
+This was found with an AI coding assistant, while reviewing
+the patch in the Link above, which mentions 8 one-byte iovecs being
+charged 32768 bytes.
+
+It was validated with a userspace reproducer, on an unmodified kernel,
+without special privileges:
+
+- TCP connection over loopback, SO_ZEROCOPY and TCP_CORK set
+- send() of one byte, so that the tail skb is not a pure zerocopy one
+- sendmsg(MSG_ZEROCOPY) of 1024 bytes of a single page, either
+  in one iovec or in 1024 one-byte iovecs
+- compare SK_MEMINFO_WMEM_QUEUED (SO_MEMINFO) before and after
+
+  1 iovec        sk_wmem_queued += 4096
+  1024 iovecs    sk_wmem_queued += 4194304
+
+With this patch, both cases add 4096 bytes. Kernel selftests were
+not run.
+
+ net/core/datagram.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/net/core/datagram.c b/net/core/datagram.c
+index 489d92fe6dae8952da08bc5cb2a58f9863938fe0..8c418c3adf1c97b41ee7999146d09aacd8cf29d4 100644
+--- a/net/core/datagram.c
++++ b/net/core/datagram.c
+@@ -659,7 +659,6 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 
+ 		skb->data_len += copied;
+ 		skb->len += copied;
+-		skb->truesize += PAGE_ALIGN(copied + start);
+ 
+ 		head = compound_head(pages[n]);
+ 		order = compound_order(head);
+@@ -680,6 +679,11 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 
+ 				if (head == skb_frag_page(last) &&
+ 				    start == skb_frag_off(last) + skb_frag_size(last)) {
++					/* Only account the pages this frag
++					 * did not already cover.
++					 */
++					skb->truesize += PAGE_ALIGN(start + size) -
++							 PAGE_ALIGN(start);
+ 					skb_frag_size_add(last, size);
+ 					/* We combined this page, we need to release
+ 					 * a reference. Since compound pages refcount
+@@ -695,6 +699,7 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 				page_ref_sub(last_head, refs);
+ 				refs = 0;
+ 			}
++			skb->truesize += PAGE_SIZE;
+ 			skb_fill_page_desc_noacc(skb, frag++, head, start, size);
+ 		}
+ 		if (refs)
+-- 
+2.53.0
+
