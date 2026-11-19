@@ -1,58 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109220;
-	b=WByQu3J544eZhWNhW7pVvMMgc2rx4RN1r5YNoNAD3HNXnkYGDX+H/GuF6FvLaEqtekhv
-	 aV7CqDZDuIARMbNm99pt/xwIhiO/wK6qZNodJPNMWsg1bYZvj3e4gGVFuKEf6Edn2LaNh
-	 k4yLCMNs0/9jP+9UKRCPmYsDTtVDmC7+YAD8FnDd08X7dkxn+6ctu/ntLFI7YsUoyHujp
-	 AdtkaDo4ZkJjCxVVIHrls/CTndCaqeYWAgdwRV4+kk+zVKL7fN4wQ80MzvemyUfi5n1wN
-	 5MRDgVdOmvhDS7xrE2SvXH9rKzvaGTD6HT2ckKJ7O5Le5cQQk97dCtleoGy3R3RVzpw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109220;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=b161FkFDAsvC3jLoVNbOzXrl68eIJRUz4QoBplXQxk4=;
-	b=afuouB7Q4Wd0f1temWjJ0N5avQB/AWe9T3cv4LfiqZBLkAZu2rfM22nZ5D6kX412fZn8
-	 8HgVlODjwnrURtCVYl3KrHbujipF5NmQOfa8gE5EuUEEY0gUjjuKE6hdyDuAtgrL3kb67
-	 e0BWOzZNOyU4W/4D3eDt+RaYKay8A/zuU3cdFTuvflTXr911xJhBngLtFFGN75aCy5FoS
-	 HL+NtwHAwXbPf+6RwZe+EAQwbKGx+04K+tYnsmeCJIBuvp92/uMduZTGhKH9PuU1/1Q5n
-	 v23cakTJzzOPrdw7N5KYZUKAxY9GFq9Gk11/Avi9n+HGI3E0t7NPfDsfDE6Am3pSPoQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yJX3ZqxI;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795109564;
+	b=UfnNgsLGCFe+9mKlL3ZlK9DC9EnsYhZSruC+fT/kWtNGMADhpnBh/qBwq4D2PfLitEMg
+	 wgduNQ0NBqkHjxTHuCNzLbB/JaTa/WcEK1RKBO3G7WIe6tQ3A23rugUK0Y4U9xgoNZb+S
+	 C5wcxBgAimc3XjfbR8bkrSBD5NX3e3tClD1i0Vnt783nCCRVMfqwQ/0Hne3UbIla+DDOx
+	 zHSQ2RPQ4PYVskDz24jga4Z9l+l1BKJ8fJf+kMYpFMkLH2wUEqFZwm3lOAsakWnPIXzC/
+	 YIQn3DqhQgqMjrr3YACzBr+DnE9uCI9nxre6EvbRopf84uJRbMQ/S/CwYp99l8xh9wQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109564;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=z4LFR8sPTaldPIfzeLWs+kUKX/gW8Rxi8H+3V2no91c=;
+	b=IcmK2/nB5RWN66c3tv8k5WiMn05OYlvkojFcsDc8XR7jUEfoGjka/gMgjByUZ0abDklW
+	 IHKEIsDgO8HFb9xYAnYD31PgyWyY2fUp441qHQTvBEQ+/fAYIed1nnBiMcNX9sPRf6YNs
+	 oFiXlnfmwUvm4oVSkw3P+ZcUZoPffP7odCSVUDJw51y09Dq229T5kSjsBimQCb2vQ78zg
+	 95HiPT1yUnIMUavGUVBzyNHDt1nA3WfCtvvTfLPeSHTDd4jwW5DFaBmw32TSjU7mn+PLU
+	 hPX0wKdo5gckp41qReNpmlxvoDQt6MMsF52ifxFr3jom7dXE35Os2Ro7WrBa2f6kaCQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Dylj0VmD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4202606A324;
-	Thu, 19 Nov 2026 17:26:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4202606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE4A606A320;
+	Thu, 19 Nov 2026 17:32:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EE4A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yJX3ZqxI
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 4BF1CC2F4C7;
-	Thu, 19 Nov 2026 17:27:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E43526035B;
-	Thu, 19 Nov 2026 17:26:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4350411BC0C8D;
-	Thu, 19 Nov 2026 18:26:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795109213; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=b161FkFDAsvC3jLoVNbOzXrl68eIJRUz4QoBplXQxk4=;
-	b=yJX3ZqxIhcynpdAQbXlLlxaOXqSO382sx/sCL/eq8nZVnWspuXBkUexQO4SJFbD6qvS+/L
-	B1BzqyEvReve55MWDIi+O73Cu84NnPpwjXK5m3ndBRj7OAgSXhgNbzFVe5FW8RQx52bX5m
-	OX2LqMC8kg+ZWfHXVDCvZaIjKMZqYa1aaVMJUhU1gC8IozHiarfxPK9BLGUcFQLRWjn27P
-	698Ua4lbIC55S7fNuiGyWkTylUuh0hvEujPegOPzcRLMnpto9PdjKx+1+2CLADPedloe/n
-	to7KeLr9QlS+Wh89octwOv6xzqCZhUOdR0dEkmWfweVwIvJOdOedqLhiPTfntg==
-Message-ID: <f712f16f-dd35-4afc-81db-4e93232846aa@bootlin.com>
-Date: Thu, 19 Nov 2026 18:26:48 +0100
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Dylj0VmD
+Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 51D2A2059D4;
+	Thu, 19 Nov 2026 18:32:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795109557;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z4LFR8sPTaldPIfzeLWs+kUKX/gW8Rxi8H+3V2no91c=;
+	b=Dylj0VmD0AxcxdcIpn4dhnMgUcRQoqzARgwe4ovJ21yKD8iPd0yU/YGKlu9/U4Vp25eEBo
+	6PC7jZ+3L+jmmfHzRYOaZlAUJRqW4ybBH/y+Kb1DZZUrMDGedgli+NYta5UAW+Sx6D9I6X
+	0lsEmtYFRJad2T5Nr0fpfxQ5WNxDppPz4tDir7PHJVoHKVGn2vhvdqK4sTpNuVTeFRrrQV
+	JAZ+c0iMBTf9OvQf6ZWlMgZaanJhcsROmvGevJL/svjXzA5Ivbdqny0+p9bvZpV2Talt4G
+	LosN9gM3PiJVBY+JTVQkPz75zKcSGSIrp4RRTPIDnlf0Bw9p00ykDDMSkuskmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795109557;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z4LFR8sPTaldPIfzeLWs+kUKX/gW8Rxi8H+3V2no91c=;
+	b=Zp3rdxB+++gIZ93q4ne3Tuz0SSlfY0/91QM5LPiDOBTpRsG9wh1zrkwyEWeXDdTc1DkOaI
+	OuQMlTxbi+BeQKQfF5Su/uns4xz1tCDlNIZKuvZRSkbTrZ5K7WUw2f6IE13lMF2nJePsS5
+	YVeO+hgNtRj/YxzdmX8wgtbvEkwWNA+invG44cn8ccdHLAKA4YyaFsRZtRw9vcV1UmeIJT
+	nbkV6nxebNzNoj6oEX6H5Cqe+MRMsu0bcTuYsx3xLqg+HDrkjbi5ePIHFXYnLbcVnSotnO
+	ndI8U6Ff0Lc8KnEZynNNYwz0dDtvJ//e7T7pRzBJCX4R6nHP0F62HpMAwUm8bA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795109557; a=rsa-sha256;
+	cv=none;
+	b=KdzSC7R/VPogBAd3UClopzznGvFgBNmCEfIEBtjNRldg9kvAVh6phQNecj95w3QZiC9NHe
+	3f2kQfFLhim17lowHoegW//eMBg/7jY87pY6TCMYAcCl7kgSWTWb6qtfDZrvWkYWePC2vs
+	25vbJknT4hsaRVhpqQIk6VRzdPBjjIFz3C4x5l88ATQM2nNPLBjZyihuVWiM2HRc2HUqwb
+	ni9rBAIVzu/qXADq/PHb5TQwH+bnh3BEa1RHsW1HQKtrHKkXaYSPUJn2mdUN/ScPZYvfbR
+	48UJ4YU+7Zw5ePQpf5g9v+B7e35IxA5Gnf1kuHnPV1Gbkn9mxGwrvV75MguIxw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Date: Thu, 19 Nov 2026 18:32:37 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Oliver Hartkopp <socketcan@hartkopp.net>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
+	linux-can@vger.kernel.org, kernel@pengutronix.de
+Subject: Re: [PATCH net 0/11] pull-request: can 2026-11-17
+Message-ID: <20261119-gifted-tapir-of-courtesy-408880-mkl@pengutronix.de>
+References: <20261117220818.1142581-1-mkl@pengutronix.de>
+ <f29308ea-4493-4146-bb28-506522040ce8@hartkopp.net>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,115 +87,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net] net: pse-pd: pd692x0: Return fw_upload_err codes from
- firmware upload ops
-To: Ian Rogers <irogers@google.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-References: <20261119171014.1534691-1-irogers@google.com>
-From: Kory Maincent <kory.maincent@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261119171014.1534691-1-irogers@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gunyr36roytbrewh"
+Content-Disposition: inline
+In-Reply-To: <f29308ea-4493-4146-bb28-506522040ce8@hartkopp.net>
 
 
+--gunyr36roytbrewh
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net 0/11] pull-request: can 2026-11-17
+MIME-Version: 1.0
 
-On 11/19/26 18:10, Ian Rogers wrote:
-> pd692x0_fw_reset() and pd692x0_fw_write() return negative errno values
-> from i2c_master_send() directly as enum fw_upload_err instead of
-> FW_UPLOAD_ERR_RW_ERROR, and pd692x0_fw_recv_resp() ignores negative
-> errors from its trailing i2c_master_recv(). When a negative errno is
-> propagated to the firmware upload core, fw_upload_error() rejects it
-> as >= FW_UPLOAD_ERR_MAX, logs an invalid error code message, and
-> reports "unknown-error" instead of "read-write-error" via sysfs.
-> 
-> Return FW_UPLOAD_ERR_RW_ERROR on I2C transfer failures and use
-> enum fw_upload_err consistently across the PD692x0 firmware upload
-> helpers.
+On 19.11.2026 17:53:14, Oliver Hartkopp wrote:
+> unfortunately we did not make it into the net-PR for -rc4.
+>
+> Do you want me to re-spin my series to address the Sashiko remarks and
+> commit rewordings for this PR?
+>
+> If so I would answer one of the reviews with a pw bot cr tag.
 
-Please write a readable commit message with human hands.
+make it so
 
-> Found via Clang -Wimplicit-int-enum-cast on an x86_64 allyesconfig
-> build. Verified by building drivers/net/pse-pd/pd692x0.o with LLVM=1
-> W=1 (-Werror) and -Wimplicit-int-enum-cast, and with a standalone C
-> reproducer; not runtime-tested on PD692x0 hardware.
-> 
-> Fixes: 9a9938451890 ("net: pse-pd: Add PD692x0 PSE controller driver")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->   drivers/net/pse-pd/pd692x0.c | 81 ++++++++++++++++++------------------
->   1 file changed, 40 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/net/pse-pd/pd692x0.c b/drivers/net/pse-pd/pd692x0.c
-> index 7958f5741463..94a857eaa3de 100644
-> --- a/drivers/net/pse-pd/pd692x0.c
-> +++ b/drivers/net/pse-pd/pd692x0.c
-> @@ -1455,6 +1455,8 @@ pd692x0_fw_recv_resp(const struct i2c_client *client, unsigned long ms_timeout,
->   
->   	/* Read remaining characters */
->   	ret = i2c_master_recv(client, fw_msg_buf + 1, msg_size - 1);
-> +	if (ret < 0)
-> +		return FW_UPLOAD_ERR_RW_ERROR;
->   	if (strncmp(fw_msg_buf, msg_ok, msg_size)) {
+regards,
+Marc
 
-The error will be catch anyway by the string comparison. If you want to 
-add a check on ret then add another error message.
-This is not a fix.
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
->   		dev_err(&client->dev,
->   			"Wrong FW download process answer (%*pE)\n",
-> @@ -1465,9 +1467,10 @@ pd692x0_fw_recv_resp(const struct i2c_client *client, unsigned long ms_timeout,
->   	return FW_UPLOAD_ERR_NONE;
->   }
->   
-> -static int pd692x0_fw_write_line(const struct i2c_client *client,
-> -				 const char line[PD692X0_FW_LINE_MAX_SZ],
-> -				 const bool last_line)
-> +static enum fw_upload_err
-> +pd692x0_fw_write_line(const struct i2c_client *client,
-> +		      const char line[PD692X0_FW_LINE_MAX_SZ],
-> +		      const bool last_line)
->   {
->   	int ret;
->   
-> @@ -1478,19 +1481,12 @@ static int pd692x0_fw_write_line(const struct i2c_client *client,
->   		line++;
->   	}
->   
-> -	if (last_line) {
-> -		ret = pd692x0_fw_recv_resp(client, 100, "TP\r\n",
-> -					   sizeof("TP\r\n") - 1);
-> -		if (ret)
-> -			return ret;
-> -	} else {
-> -		ret = pd692x0_fw_recv_resp(client, 100, "T*\r\n",
-> -					   sizeof("T*\r\n") - 1);
-> -		if (ret)
-> -			return ret;
-> -	}
-> +	if (last_line)
-> +		return pd692x0_fw_recv_resp(client, 100, "TP\r\n",
-> +					    sizeof("TP\r\n") - 1);
->   
-> -	return FW_UPLOAD_ERR_NONE;
-> +	return pd692x0_fw_recv_resp(client, 100, "T*\r\n",
-> +				    sizeof("T*\r\n") - 1);
+--gunyr36roytbrewh
+Content-Type: application/pgp-signature; name="signature.asc"
 
-This is not a fix, just moving code around.
+-----BEGIN PGP SIGNATURE-----
 
-For the rest, FW_UPLOAD_ERR_NONE is similar to ret = 0 so there is no 
-real issue, only some type mismatch and I am not sure these changes 
-should land as a fix.
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCav8yrgAKCRDMOmT6rpmt
+0prpAQDkhTEdwmg4aFItagLk27UJ6xEZ3Qk+B3PYlnvMUv9UUQD8DRYVlzzbP21Z
+htuLtC/mIZZ0Sj3wnp6U8Zze2nnRwQM=
+=23nH
+-----END PGP SIGNATURE-----
 
-Regards
--- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
-
+--gunyr36roytbrewh--
