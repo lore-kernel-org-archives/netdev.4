@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095674;
-	b=L9GLbvoGJ1ZJlvnq4ES73/I4WPzyPvWHvxLgpVHL+oz+kU1VDy05QlEkfKYWP7dOVzaS
-	 snfxCYUTU4VCAJwfbvw0nEggzoWIHrHBfHDr5xOdJjFbvkjhSGy/eSNYyZauNf7UzSDdk
-	 S8ewXOnutlqs+YX0vNWHw+/CQXfpUkM5VAN0OhNY511ilsnUm/WF1Ffgm/Z3xcpRB7y1Q
-	 TIRM4Vw5KKKPtAIJgii9OkoT9uFuYE5ZThJx0S12thWLqfNRrFB+qJEypBs/q38oJFd1S
-	 jOYHTQubNJyJ2urSpxPFxldeC4iQWep2GR/NSbSLH/6GZ1SxjoGdHvgoiC4URFkyqnQ==
+	t=1795095676;
+	b=v9R/C65ThIZNFt+X0bCkOv0Hs85K+XeIhf/+yECAjBcG7/TgJ5CSSkd2StdVroRX5cXc
+	 +pF1dYmFs1jUmMA0O1k8K52YZ0PY8VdRQGuHMTIjf7kPx1X5htW7AXHrECP/yYaospFuW
+	 Qdg7Y0+emkfBa51XltrEWFm0VwgIYi0ufQ0KlyxXcS5QdcYWoSVOB4845WGEY1gnC34eb
+	 Gy8+b7mtymc7E8NYSEq/OwIbfHzR8RamPt923WwYgks/D6N5lpb3RbRzYKlOFZ9EzZAXU
+	 MHa0UxRHkVbw6l0MD3yCUvTtU9JmlZQQt6XEQLBW6wHKZH3/lpKFieQZFp4sAOsCWuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095674;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095676;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Qd4bx4OUZghZ7ls8uoKi/iBPko+kcWdFcEqzSd0yD1U=;
-	b=Obp5q4Zpo/ViWldslKJJu9H8iFfvLuynE2Td6N1aD6ymLZ2r9qoqMXXsMwD1jN0qKt0x
-	 zzRN43aX/+lrCybiN3ULX/+oFXsAuVPuQigZxmzWXFbxefOpkhwoTMC9V8xDKgxm3l5GV
-	 gM5kroNLH9AZtw4pTPjV6R+heVGhM/NrOjroSqOFQrC/IXliiH599qmaZQACu8gwjobhv
-	 EDKY9UN4nTA57qoEUyDG/SQdCPup69gjJK59ym5TB27Er98W1X9mqz68SCbBeKftTSaYX
-	 OXUB0IoXD33SxUZ+LDrz+ZlXWY/YVn50wQ0NH2x/J/UN9okdU/KPZglp6v1w2+gh3AA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=7FIQI1a7Wwi14MW3gOjijVwiiAgA2Vl/DQHUXGyi0Kc=;
+	b=whc+1GroOIPBSOmzAkAJdZgB9mpIkDdGDWW1ccGBGjoF7xy7YW5PKsoSSwAygUqsbVOQ
+	 /RmuCeZRH7Jc/Dwi1ogrCTHR6hJ3w5/ipXz1MLKqtWCo3gIQXKEIt8vqTJ4hXWf5Ixd/s
+	 TaISz51ejgEKNk5xiiTwi1e2fv0kdbiFLoGj3HuGlTIcN6csWgaGTyhtH3Rq/vfQ65KvR
+	 XrjAmsyukFHsDBKYR1GmC0BZc2mzzaW/fD2kFUhkSnQ5vdpw4axHyWWmaomgYzy8/tV/G
+	 qsV7DmE4bZu7XeDNG9s7t6MYgWW1WLlqL611dBcsP07Y8P+1k+gU7zQjBIj/twA46AA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yo0muiJE;
-	arc=none smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VjqZuHaz;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C320606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:41:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C320606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28BEE606A33B
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:41:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28BEE606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yo0muiJE
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c4cdc606b47so380752066b.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:41:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VjqZuHaz
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b86bbce3d1so3079922a12.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:41:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795095673; x=1795700473; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Qd4bx4OUZghZ7ls8uoKi/iBPko+kcWdFcEqzSd0yD1U=;
-        b=yo0muiJEqXgZ5B5uz2e4Yh7KzHrUl6cIwy9N3xmyntYxBBIYmS3beEjJKewBtQSR4c
-         WwLbTdmC/OIIJ7BddGlUzqFwydGR9OSw9afo4deTHw6gXWI5BOYYGa1wBxj/q6IhbkMZ
-         CqwAVmv4Kp0h0g+hCc1XSm2FMK8qj/DFbwRkBTDzeBUMQBTmXcbJj5bA0sBMe24LgSPV
-         jfeUrtlxAj6OGObVjbGcO8bO88HVFs/rNTl9y5XlvnoBFf4Vo6uzi/4A0tc0lxTm7mh0
-         nV7fd5qHdo5v63q+AMvKhe4QkFWZKfb+1/kEUDofL0zB+fMASTu9hZg/LJv7U/5A3V+P
-         Es8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795095673; x=1795700473;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795095674; x=1795700474; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Qd4bx4OUZghZ7ls8uoKi/iBPko+kcWdFcEqzSd0yD1U=;
-        b=jl+QiAg5aYtlt68CXsBQIAGLN1vPYuoCKoVAP+SCBfHgV02IH302q+AWfu1AIDU5gh
-         Yb1LwpNCM3Ngt3dOq3npEbwCD4kdCMzAAmy4sfMGYHMrEgrrV9i1Hr1lWPCy4dO1vYYl
-         9FFXYRc3ItQJqdqRzBwKuOGorNDbFVh+VA6c0SyiId7LveCKkOAGbsDJufEOB2HGV9hc
-         Q0fgTKBlyIKxHhcU9ybhxGvzNjuS1MNKm1kjou3oo0O8txAPD2hnhiqzTlL2776l6+1W
-         IE5Ygrqt0Q3JGHPF3Cq0LbmSlCcIUPduttwXJ9wlXDxLUphqt1Jh7hxMw6ymGIHU3zU2
-         Pjpg==
-X-Forwarded-Encrypted: i=1; AL+hErEgr2Jz/YiTmEoolc1EbG/Kn0fIrCPmJkhxf3OuJ/n8QmjGzuuP2hpQ3/S3LzNo7XCSXB9w44E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/cGEnzTu23i2D97pMf7qvKvx06LqP2XQnzjZKJL9it+ulryg9U
-	8WPlmM5S6TUKax6BozxLQZjFuWwdHvUoWrRVjpSJWHlH8sHoo+BpQbaxfsiJXC5Z
-X-Gm-Gg: AYBFou2KNzRNnEzcKNHZrH+lkJ9gySkWx3W3YBU3feMR17+J3r08W3SkbWcmr/g0qO4
-	FBjPSIR9Z+Eec2vNrjtNaUMqjwo9QM7ngwM5J1vydxL3YsYSz39jFEi1osusBed9uZeq9Z1h//a
-	SohjyyZJP+6uJHU6p2yRIBJu3pCzBbLvJzumIrDNJGDoc4/ZXV9YH2pSzLXeqSq/8FsTeSsLP/f
-	25mrXqP1HkTDKNHPSn4Ajld1+XqaEeKECI4SPHUzsf8Xw1eny46SBhAaS1z+GcUbNwVbMbfXAs4
-	Hp99VDAu3dxW/J/HSTCy7owHhoRFQu5Xa57T2zQbcQ9TksoCz7Zcc48z+dQ+dvhCoAzVByWfMgh
-	ZPV0yjSSth4r5nR3EMNcXF9yIlO75QHwV08zrH6iX2DMN9T7PZzY8Yt0YvPdNSwAVqrBrTHcO6+
-	hkymvHqiSENG1fXvbbg9C721RU2lVebvCnlYDSVkE++LhRkZXsrLoOPYJsV8xth93ecXv0xsdXC
-	Okk6Wng5JhKxzkWlRrVpR7JrG3CeOY5kPy62BnuAlnOhAiwL0HTfJ/Qx/FquxC4S5SOTG60mk6I
-	80gWRCn2GkdbC/ZqGQW7hP0WNVQ/ZRC+HMjRL8uehWS1s088OPVKKbVnyXxnlsACo4JgQzOjBkd
-	TuZ7hOSNk62aR+w==
-X-Received: by 2002:a17:907:ea8e:b0:c46:7ec3:fde2 with SMTP id a640c23a62f3a-c510e19b619mr560024766b.11.1795095672804;
-        Thu, 19 Nov 2026 05:41:12 -0800 (PST)
+        bh=7FIQI1a7Wwi14MW3gOjijVwiiAgA2Vl/DQHUXGyi0Kc=;
+        b=VjqZuHazwHa66f0MNLWNqb6jSuUcQZOv/SbwTxXT6qA7BpYarCSE9mGZtAjOUoqLE/
+         8ljuOEiPiQJp3NUgZf25sUbDgBpJ1HZ3C84RU07RDN2Gw1pHcAViGLZs+DZkBKAh0htm
+         kinVWqZF44RXd8AwbTOeZcAc+i4/vizf0yGm56dYvUiKNPccAIPfQz9igIHCASyw3a5d
+         n7mMT8y1NDhfhPHvQsxEGEFucQ5lDyES/VTp2gZ4dfFbPnnKHr0s9WeJriDkA9uaIRv9
+         x6knmxHX2aATTvPwoTASKT2Co13ZIqCwnCl1UOyl2lrSTo8DXcJrjgLb7UZw3DCJj/fW
+         8Y7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795095674; x=1795700474;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7FIQI1a7Wwi14MW3gOjijVwiiAgA2Vl/DQHUXGyi0Kc=;
+        b=a976bY8CDA5VTv+XP6Iit3Pis0140jLHsAnRepReVR3KkxRwR+w0igxjZcgmWR3FgH
+         N+db0VqlZLCrgRyRb9zPDnbtQSDl0A6N50JlAto/lJ/8HeuNLH8vCL26NQCFMVRvISrg
+         EJ4EUjXudHX+hmQLc1SiiHHy1Eu9eb7vSxwFYZvj/ip5uUYsUcUJWnqcOfckKbZtOsOr
+         j0vBCg0No7wwu23MqJK7/ea9nESxVKZq7GA+S+xEG7EQnDk9lW8HidIy89e4v9BO2pV7
+         /8s6GKnnxKlrk3hphuA8AR739EIE/CpploLOljYqosTeRL6zA6Y+fscrwdmXU5k9j5Nb
+         HIgg==
+X-Forwarded-Encrypted: i=1; AL+hErF/4+lgIOqglJv3Hkcdcu4I/ksgv30yE4KDKTDzZ3dqkDFBRQsFB9JpQni6jps5IfM6yloSuWI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8CYolxlA8jiiMXuZqrFE0dlHgY1t/owlGmLxjsAnQL6ffd36AW
+	LtGn/UzabQif7xkwPFjjMlxQpISZvSYGmpq0pJDsKO7mKqQIqmFPHeOQ
+X-Gm-Gg: AYBFou3G4NCjEsbhEqM5ejPq7tOPivRZOH1gyTQ8St5aG6aMbPAxr1QGQxZ9qy7iPCf
+	+jh07SsJwWERZEctdRSCTAaGKmx/5CZCqlYRJyILQveT1V9YPcPehAg0zIKDihuXqkp1FR/ikeP
+	OwjRmwHWucjW9sFOQOjvCLnANhMk9rmysNIVes71v7SvfkElhfBFn7m8uLk07QJFtrQgL7QWQor
+	3oo/0wSZM6Xw3BiQNqcsqwRtK8PDtjzsUSiJSjPIZCWc+kXvofIV96uFxJoXAz3Hyyw/4+gOlPp
+	eWI7QDQvkQ9mwmHzA/KXV3x2RnSiQwbB3QRMljmmMEFwosYOtDiDVwc+fB6phL4W5M6rMuJeGes
+	IeBsd/Qcr9rInpg5hMjtv+iw4LmrEy1QPlpKSESnbNCnYAkrL0BGBoFXKLOhWHtA6raVdA9Nwsi
+	I9O9EyEpRa9r9JShpR1BcaT8VYSzQxf9QwRwsrCyXbqrJlSfpqUsc0HdIraMNMGoAhIbYCeVE9b
+	TYcmboA3nLNvo67EnkqEWld168ymrXI1DeSSaYT6Abo2dz0BWRKa6FgMIyKme9jbYlVtyTGlzEZ
+	OONKrPKSS40+FLYz8cOvagggQnZKpwedmy8rle4loWEttTeOAx2vb0BauVKBlLRWSgTB5YE4IqL
+	jOE85wzYC2l5yFj5YTzSLEzfLWGmkbjNsiPY=
+X-Received: by 2002:a17:907:ea8e:b0:c4d:22e2:1a2b with SMTP id a640c23a62f3a-c510debe78amr570893666b.1.1795095674419;
+        Thu, 19 Nov 2026 05:41:14 -0800 (PST)
 Received: from VivoBook-ASUS-X712UA-M712UA.lan (user-31-175-182-49.play-internet.pl. [31.175.182.49])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c512346fc3fsm105582666b.59.2026.11.19.05.41.11
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c512346fc3fsm105582666b.59.2026.11.19.05.41.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:41:12 -0800 (PST)
+        Thu, 19 Nov 2026 05:41:13 -0800 (PST)
 From: Stanislaw Pal <kuncy7@gmail.com>
 To: Christian Marangi <ansuelsmth@gmail.com>,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -90,10 +91,12 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	Alexey Immoreev <luixo-public@luixo.me>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 0/4] net: dsa: qca8k: fix the MIB autocast and management frame handlers
-Date: Thu, 19 Nov 2026 14:41:06 +0100
-Message-ID: <20261119134110.15048-1-kuncy7@gmail.com>
+Subject: [PATCH net-next v4 1/4] net: dsa: qca8k: read each register into its own word over MDIO
+Date: Thu, 19 Nov 2026 14:41:07 +0100
+Message-ID: <20261119134110.15048-2-kuncy7@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119134110.15048-1-kuncy7@gmail.com>
+References: <20261119134110.15048-1-kuncy7@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,107 +108,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The netdev AI review of the MIB statistics series [1] found bugs in
-the qca8k handlers of the Ethernet management and MIB autocast frames,
-and its review of v1 of this series [2] found two more. None of them
-has been seen in production, so as Andrew asked for the related MTU
-series [3], this goes to net-next rather than net. All four keep their
-Fixes tags.
+qca8k_bulk_read() is the regmap read op. When the Ethernet management
+path is not available it falls back to reading the registers one by one
+over MDIO, but it stores register i at val_buf + i with val_buf a void
+pointer: the words land one byte apart and overwrite each other, and the
+last six bytes of a three-register read are never written.
 
-1. qca8k_bulk_read() falls back to MDIO when the management path is
-   not available, but stores register i at val_buf + i with val_buf a
-   void pointer, so every multi-register read is garbage: the FDB dump
-   and the MDB add/del write the wrong port mask back into the ATU.
+Every multi-register read over MDIO is garbage then. qca8k_fdb_read()
+reads the three ATU registers this way, so the FDB dump shows MAC
+addresses made of the VID and the aging field, the search reads a wrong
+status and port mask for the entry it found, and qca8k_port_mdb_add()
+and qca8k_port_mdb_del() write that port mask back into the ATU. With
+tag_qca the management frames carry these reads and the fallback is
+rarely taken; it is taken every time when the management conduit is
+down, when a management read fails, and on boards whose CPU port is not
+port 0, where qca8k_conduit_change() never sets up the management
+conduit.
 
-2. An ethtool MIB request over Ethernet (autocast) that times out
-   leaves the caller's buffer published; late frames write into it
-   after ethtool has freed it, and extra frames underflow the frame
-   counter. v2 also handles the frames of an earlier autocast arriving
-   during the next request.
+Store each register in its own u32.
 
-3. The autocast handler reads up to 164 bytes of counters without
-   checking the frame length.
+The bug was found while bringing up a tagger without management frames;
+an LLM assistant (Claude, claude-fable-5-1) helped write the fix and
+this description. I reviewed both and tested the fix on a QCA8337 behind
+an IPQ5018 (GL.iNet GL-B3000), where bridge fdb show returns the right
+entries with it and garbage without.
 
-4. The management ack handler trusts the frame for both the length and
-   the layout: up to 32 bytes into a 16-byte buffer, read from
-   skb->data without checking that the frame has them.
+Fixes: c766e077d927 ("net: dsa: qca8k: convert to regmap read/write API")
+Signed-off-by: Stanislaw Pal <kuncy7@gmail.com>
+---
+ drivers/net/dsa/qca/qca8k-8xxx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v4:
-- 4/4: take the Ethernet header again after pskb_may_pull(), which can
-  move the head; v3 read ->seq and ->mdio_data through the pointer
-  taken before the pull [6]. 3/4 already did this for the MIB frame.
-- Rebase on current net-next; 1/4-3/4 unchanged.
-
-Changes in v3:
-- Rebase on current net-next; the code is unchanged.
-- 1/4: the description said that the last three bytes of a
-  three-register read are never written; it is the last six (Alexey
-  Immoreev) [5].
-
-Changes in v2:
-- Drop "let regmap serialize register access" (v1 1/3): Yongzhao Chen
-  carries it, unchanged, as 1/2 of his net-next v8 "preserve port state
-  across MTU changes" [4]; this series does not depend on it.
-- New 1/4: the MDIO fallback of qca8k_bulk_read() (review of v1 1/3).
-- 2/4: poll MIB_BUSY before the next autocast, as qca8k_mib_init()
-  does after a flush, and track the ports seen as a bitmap instead of
-  a countdown (review of v1 2/3). The description now says that a
-  frame of the previous autocast still queued on the host can serve the
-  next request, with counters one autocast old, instead of claiming
-  that every late frame is dropped.
-- 3/4 unchanged (v1 3/3).
-- New 4/4: bound the data of a management ack frame (review of v1
-  3/3).
-- Target net-next; describe the LLM assistance here and in the commit
-  messages instead of an Assisted-by tag.
-
-Testing: the affected objects build with W=1 on arm64 on this base.
-The hardware test is the one of v2, from before the three lines v4
-adds to 4/4, which are only built: on a QCA8337 behind an IPQ5018
-(GL.iNet GL-B3000), kernel 6.18.60 with these four patches, under
-tag_qca with the management conduit on port 0, counted on the conduit:
-one ethtool -S costs 3 management frames up and 10 down (the MIB_BUSY
-poll, the cast, the 7 autocast frames and acks); with the request
-timeout forced to 0 by a test-only module parameter it costs 50 up and
-57 down, i.e. the register fallback over management frames plus the 7
-late autocast frames, which the handler drops. The counters stayed
-monotonic over 2000 such reads and over 5x200 reads under iperf3 in
-both directions while toggling the timeout, with no memory growth and
-no splat. Under a tagger without management frames (qca-8021q,
-OpenWrt) the MDIO fallback of 1/4 was checked by the FDB dump.
-
-LLM assistance: Claude Code (Claude Opus 5.5 for v1, Claude Fable 5.1
-for v2, Claude Fable 5.2 for the v3 rebase, Claude Opus 5.5 for the v4
-fix) drafted the code and the descriptions from my analysis and the
-review findings, and helped work out the race in 2/4. I reviewed every
-line, built the series and ran the tests above. The review findings
-themselves came from Sashiko, the netdev AI review bot, and for v4
-from the OpenWrt AI review of the same patch in OpenWrt.
-
-[1] https://lore.kernel.org/netdev/20261019191137.307514-1-kuncy7@gmail.com/
-[2] https://lore.kernel.org/netdev/179304303832.3134.328719975361344250@kernel.org/
-[3] https://lore.kernel.org/netdev/47e9713f-815e-4caf-8928-a7ec12d0087b@lunn.ch/
-[4] https://lore.kernel.org/netdev/20261104120130.48455-1-yongzhao.derek@gmail.com/
-[5] https://lore.kernel.org/netdev/20261107031005.2525-1-luixo-public@luixo.me/
-[6] https://lore.kernel.org/netdev/20261119133908.12428-1-kuncy7@gmail.com/
-
-v3: https://lore.kernel.org/netdev/20261118104104.26684-1-kuncy7@gmail.com/
-v2: https://lore.kernel.org/netdev/20261104210757.467964-1-kuncy7@gmail.com/
-v1: https://lore.kernel.org/netdev/20261022192933.384898-1-kuncy7@gmail.com/
-
-Stanislaw Pal (4):
-  net: dsa: qca8k: read each register into its own word over MDIO
-  net: dsa: qca8k: drop MIB autocast frames once the request is over
-  net: dsa: qca8k: check the length of MIB autocast frames
-  net: dsa: qca8k: bound the data of a management ack frame
-
- drivers/net/dsa/qca/qca8k-8xxx.c   | 84 ++++++++++++++++++++++++++----
- drivers/net/dsa/qca/qca8k-common.c |  2 +-
- drivers/net/dsa/qca/qca8k.h        |  9 ++--
- 3 files changed, 80 insertions(+), 15 deletions(-)
-
-
-base-commit: 9068e05d35f3b02a802f520e664032f802bcd2e9
+diff --git a/drivers/net/dsa/qca/qca8k-8xxx.c b/drivers/net/dsa/qca/qca8k-8xxx.c
+index 382753bcc4..3c8044a4d1 100644
+--- a/drivers/net/dsa/qca/qca8k-8xxx.c
++++ b/drivers/net/dsa/qca/qca8k-8xxx.c
+@@ -519,7 +519,7 @@ qca8k_bulk_read(void *ctx, const void *reg_buf, size_t reg_len,
+ 
+ 	/* loop count times and increment reg of 4 */
+ 	for (i = 0; i < count; i++, reg += sizeof(u32)) {
+-		ret = qca8k_read_mii(priv, reg, val_buf + i);
++		ret = qca8k_read_mii(priv, reg, (u32 *)val_buf + i);
+ 		if (ret < 0)
+ 			return ret;
+ 	}
 -- 
 2.43.0
 
