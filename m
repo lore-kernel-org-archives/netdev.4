@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103230;
-	b=V21pePxzCeEVoPopsDSzUy+fA6s6d1y8q6uCm/cwdYxmN7fUt+ogrGmNIeGYCrX1uYkC
-	 gesT+1v8kAcSarRhq4SptR+jYQRquHkLToFkBCqTS3pPi9+43G9os9seMbLmG1oTmUqBM
-	 +iGYY8yZ9jsaiNxt9mzG5Nk4Q4lJNrR7SvqvMuj00JtbgM5ecC2Ipev7m772A8DJivRTu
-	 5XGD/t8BaoXH1zdEfqwbSAH/OUnIf0Ec1U6m2uFAbDMoI+0WW78WK9/0cTlKe6E9/keOj
-	 AMvFUBKnSpyJky5ihau14Jz2dw3U9f6sCC9YOWacFkSosfMCFOnKqvclOxCm8EjthTA==
+	t=1795103445;
+	b=WF9OnkbezRcipMHphrZZB+EPY/nHEfBfdyFt7jvje0KNGiKYlmK18qCw50tnk7Ia9Y1p
+	 uVBqTVkcroDGpwfCadi/KxwOvAt3eounNycHYJxEIhaEyzLcDIpINn/1sbuET2TO/lyHl
+	 zr4fae54HU6o3Aoi1MUBt8iinFawlnRlx27jE4iwaYgVYxlKcH4fYjavNZd0m2F/GcdIq
+	 ruPGsk9wf1TKw050HxgA8c7UqKzRGjJLznju1MuP9xhmb2z9LMSO6MdI+Nm1sn4+PWMeP
+	 9hGd05WROgw58NrVCtPEHShw4lsj8gQEiempieci6pjmGgmc8kymhLnXekC0tjd92AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103230;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103445;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=HFucv/1vEFUJ92a1RgUBjjm3jSf0ckrYCwva8AjNNgQ=;
-	b=fcMRDIWGsoa/gW93fXgdMwcmD7ubnUxUgZ6xz1y5hcvkg3+O8FFzLnIcdM8NPgOtQwr3
-	 CuC7kOoLsSPGj2u0N99mHXJzbGkEsZpBqecotl/z5BDm792ZdWCGk4h26XZ2+GZHc9pQl
-	 m8LJyzz1jm6mO+XkIpOsI9jABCmCNmHPLt7s9dvx7IoC0OeRBp/APjQIOgg44cnNCZmHK
-	 wX101fHJjfQFsDkZmJcKjNMDZ3rPz5NNaa+TbIOPzhqV3d8+6coklZtLaZ51Eput0lAu/
-	 0xSSUpf6EdejK8CJ0NFlgvZYWD5pXjcR7oyLtX0jVO9oFMNk3BN3Ok+UttgfwQ/ZD7g==
+	bh=62W9RY7nZd29DN8Po0/bEaRLPE+4tKh51aN3pE4XOWE=;
+	b=Hu/j075nG67rn8z5oZJqnRhGhjBImukc1wKOh4jvj33Srfvda8bi2XuTGGIDRbX/fgVT
+	 bps104KzbqhPCN1TFTGk+hb/noUv6B8QIcJfIo8ZENbPwHVUjXRalFSWGqtuuIFKBXCGd
+	 NkDXKsnLMP6NVzvbGkyjcqtp8yjHPojyZugAjwTAKlZbNi9Mmk92mREcb5QK1YTcZFUSF
+	 GN5Q3TZKXDrCTRnB8utKQDwFw3V/GdN36b0tuztQBK+InArtZMhY4nWFMJ6908X8TgYv5
+	 Y/Njgq6wN3bXjPf3YBSAzaFCQKLu3bepThjKXS4cv/RxQTL+ONSXzfnN/Rpcsa2pKwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JGNlEtNh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz4g+Qgx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2355960A2636;
-	Thu, 19 Nov 2026 15:47:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C53B606A324;
+	Thu, 19 Nov 2026 15:50:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JGNlEtNh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C48F1F000CC;
-	Thu, 19 Nov 2026 15:47:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz4g+Qgx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D4EA1F000CA;
+	Thu, 19 Nov 2026 15:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795103230;
-	bh=HFucv/1vEFUJ92a1RgUBjjm3jSf0ckrYCwva8AjNNgQ=;
+	s=k20260515; t=1795103445;
+	bh=62W9RY7nZd29DN8Po0/bEaRLPE+4tKh51aN3pE4XOWE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JGNlEtNhcFbkQJXcCLCkwxp05ZPMCRFWIQRlOdGCe9zmDfhODt0ip8SItKrNc+ClY
-	 kmq5ZGkjQSLxB0s2CKgGqdRtXEEpGvy3j8sAPkVti/d3hb/yj4wKpm79BRa+LJo3HV
-	 rbykHhN0nNjkb8TDpY7nsmA1gfWtK7yWeJtu+GTrZyo40kTk2vtEtowv5SqZwzRqNR
-	 7UnGdww+hBKQsHPRhVrG9nz3I86sRtY8UVViT6vM4O3Ltriw+qEjEWqW9T+UO+SxDD
-	 wICHKm5m0oCWBc9JaxCFZPNoFj2cMKLBPlFt1vFD6svgkiaAwM/AlMBXo9p7FPiN38
-	 PR/0qv5/H0mag==
-Message-ID: <c5fb4561-f12c-431d-b68d-659ea9cd8a90@kernel.org>
-Date: Thu, 19 Nov 2026 08:47:08 -0700
+	b=hz4g+QgxWI0u1pL4SdlNXI94Qj7MVmcXKvWbeSgpUuUKxZVgAvPxIf/L3GMUbeStS
+	 Kg0inaxYr1zhk3Vo+eAShMs5VuryUCqAyh/TxBtqWWVATIFp1zPS+Odg70KnWaMx5Y
+	 HNd5vwgYAaNGaULB6Yf4qVLjhfPIGRbE5hBuRykOTKy3VXFD+tWpgTi+K+BoLO4qWh
+	 RY/cOLDsnXvcq2UrIhWQWpdV1S/Rez8zVSwameCnTmJDwlO/fbbaqtTFQRZGO6qvx7
+	 Y309eYrluDGB3auVzC0hb87i1P/HXf7MJvySkEiCvnbT7eifZa9enFG2SXHCDRH++0
+	 Nxcmk/Z+zgdhw==
+Message-ID: <e8f2770e-68bf-4b1c-bc9a-7bae4ee3f9e1@kernel.org>
+Date: Thu, 19 Nov 2026 08:50:44 -0700
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,42 +52,65 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] ipv4: accept nexthop dump attributes in route
- deletes
+Subject: Re: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first
+ dump entry does not fit
 Content-Language: en-US
-To: Yuen Su <zypulsecore@gmail.com>, netdev@vger.kernel.org
-Cc: Ido Schimmel <idosch@nvidia.com>,
- Stephen Hemminger <stephen@networkplumber.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-api@vger.kernel.org
-References: <20261118084510.332821-1-zypulsecore@gmail.com>
- <20261118084510.332821-2-zypulsecore@gmail.com>
+To: Stephen Hemminger <stephen@networkplumber.org>, netdev@vger.kernel.org
+Cc: Ido Schimmel <idosch@nvidia.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Sabrina Dubroca <sd@queasysnail.net>, Andrea Parri <parri.andrea@gmail.com>,
+ Stanislav Fomichev <sdf.kernel@gmail.com>,
+ Nikolaos Gkarlis <nickgarlis@gmail.com>,
+ Willem de Bruijn <willemb@google.com>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20261117221538.184948-1-stephen@networkplumber.org>
+ <20261117221538.184948-2-stephen@networkplumber.org>
 From: David Ahern <dsahern@kernel.org>
-In-Reply-To: <20261118084510.332821-2-zypulsecore@gmail.com>
+In-Reply-To: <20261117221538.184948-2-stephen@networkplumber.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/18/26 2:45 AM, Yuen Su wrote:
-> diff --git a/net/ipv4/fib_frontend.c b/net/ipv4/fib_frontend.c
-> index 8c123b1..6b012c8 100644
-> --- a/net/ipv4/fib_frontend.c
-> +++ b/net/ipv4/fib_frontend.c
-> @@ -868,7 +868,10 @@ static int rtm_to_fib_config(struct net *net, struct sk_buff *skb,
->  		goto errout;
->  	}
->  
-> -	if (cfg->fc_nh_id) {
-> +	/* Dumps can include both a nexthop ID and compatibility attributes.
-> +	 * On deletion, fib_nh_match() uses the ID to match the nexthop.
-> +	 */
-> +	if (cfg->fc_nh_id && nlh->nlmsg_type != RTM_DELROUTE) {
->  		if (cfg->fc_oif || cfg->fc_gw_family ||
->  		    cfg->fc_encap || cfg->fc_mp) {
->  			NL_SET_ERR_MSG(extack,
+On 11/17/26 4:13 PM, Stephen Hemminger wrote:
+> If a route entry is too large for the dump skb, the dump is silently
+> truncated and no error is returned.
+> 
+> For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
+> -EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
+> dump ends with NLMSG_DONE and status 0, and the remaining entries are
+> lost.
+> 
+> The first dump skb is allocated from __netlink_dump_start() while
+> max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
+> kernel that is under 4000 bytes, and a 500 way multipath route does not
+> fit:
+> 
+>   ip link add dummy0 type dummy
+>   ip link set dummy0 up
+>   ip route add 198.51.100.0/24 table 100 \
+>         $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
+>   ip route show table 100
+> 
+> The dump prints nothing and exits 0
+> 
+> Only ignore -EMSGSIZE when the skb has data, so that an entry which
+> does not fit in an empty skb reports the error to user space.
+> 
+> This only covers handlers which report a too large entry with
+> -EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
+> a positive value when the first route does not fit, so the check added
+> here never fires for it; that case is fixed by the next patch in this
+> series.
+> 
+> Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
+> Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
+> Reviewed-by: Ido Schimmel <idosch@nvidia.com>
+> ---
+>  net/core/rtnetlink.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
 
-as the error message at this point shows, the 2 specifications must be
-mutually exclusive. iproute2 will need to strip the nh_id or the nexthop
-spec.
+Reviewed-by: David Ahern <dsahern@kernel.org>
+
+
