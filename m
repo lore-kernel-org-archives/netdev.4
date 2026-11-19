@@ -1,62 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795047360;
-	b=yxOoioSKqkr9GPoarJntPdSboiHUjXIMf0f/89O3A2tm4vdbw0J9L4c7HPriByiLfFfg
-	 D8d01LDq5kAXi/gcj/1tmL5CLAW8GrWlGIlBUCYPz4adiHvOSUyzHY/1J2qs/Usw/Dsay
-	 ojV9kLOkXxQHAjxsG6eHCjvQS78NJeFOS/IGZSQKqZP/u+RlJULE070jsgoDz1iR7VmDI
-	 oZL5i6y8CtevIt9I4R7hTjPKPcCV3xZDCsnqGSY1b7V7lSIevi1a+Z+VOJWZQa6FEE2ff
-	 WpkfeHAwR2Vf4VB1nblX2GEjPyiL+UrS48k1uhQaRdb6+l1msw8sLB6Qb20J51HbQoQ==
+	t=1795047437;
+	b=ibvwN8OdA+YD4OZyW/HRh/zWFbEfoRLQTrIVMgsdlMprlXa1jVG242GDnjWdNo4p0CJx
+	 6OKAX07YX9RUR3ThFjfwb40QpCu+Q3FXsoGxhcDsDFIfAsVLTxPrwIZqALChGPXVgqss5
+	 y99ngKcsbwt+toVTuNud039wdsy0U7s3umkvo9sUsqDdk9gjFc66fQq0cJ0RvM3LZ0u0d
+	 tenpzfPTCzVIyt1D2GVy7RaiLCEYkvKt9QT6kKR6TbT4N3oEK7hSUPwWmAlg7CpYiUnUb
+	 R2H/m9hFFKV+/5JDfjwZ12AKpSQsfK+sutIrl09oYANQUD/KVwA38PXXtz43ue+DTIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047360;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=pL4E9ZeUxxe0siI5O0GOO+Ni20/5dMjIvvKbqRBh8dM=;
-	b=SQQ+aCyWTUAoa0rNrHavFhMImXTtQN05iXyT1Fyy1IAa/6Pv0lwswzZgTkzawTXMsDB8
-	 AlDw5AmW0tDcrULQlRN+vqPKmYcOwJ00Kcabw13nbaPqnSRPORIfmN2WdCteKkv+pUQ5r
-	 5v1zA3VO5vRsW0mwR7fUed26MgjuKUauN3EaW6sQF+lFgXn8Z3pvzdSJcsrSPg3shSZ5D
-	 Rw+jZk+2mE22H0pMKKD7YgpOlL83pPcW3XQMBtngVHcL0+13B1zgvXx7R2DM3s6ykD7Xv
-	 xnTYYSNGcfEEUhXa4nlIRZl24XTVIAlgCVdcRs5jz0QBtON3G3C1+JQS6j6IuZLyVKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047437;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=xA0UJdaWjcLJwESH6GytqwneDgaiE76tWOywSb/nkYI=;
+	b=kqZg/AvNB/utXGoBXadMq76PfTIZbDEiBQZYH+aStrVfyLSj8fu+gVqXZ4HBXziaYqf/
+	 oI6neyBGI/NTEom21yeeaOgN9R4d11WZjYVueOKIqIC03lLEQzSpW97CtzZveeBhig5pp
+	 2d7BvMarQwoB1ScBEcpSuH+c2rB6s1+00Hs2BVgi94BMZ0udhsDl1Q5WoETKmci4StiLe
+	 KxScaRkmzwALkIS3JKvUdKKhyxRPm2VWR/B6CgvLbECJOAfxRseJY/iydiE2LDo89q61F
+	 tGGQYBmaVl4nY8bjOTZxgejtw7OofYVnN4B293NuXCI7UhV7WhQpGDvgqSyLO369qyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n50LOWiE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xmyy9OyU;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A4C606A32A;
-	Thu, 19 Nov 2026 00:16:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A5A5606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:17:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A5A5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n50LOWiE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6D471F000C4;
-	Thu, 19 Nov 2026 00:15:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795047360;
-	bh=pL4E9ZeUxxe0siI5O0GOO+Ni20/5dMjIvvKbqRBh8dM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=n50LOWiElJ3KsBuc0hn5EH68ru5pYN0pswzhzkkonGjwqG1yr+sef7HbQcXflExNu
-	 HTNrbvZuEKTgUbIOCYN5QYyGoUnWM1MSdZb9oF+6YEeaMNh9YELL06/DJxr6/n66ly
-	 K4OvbKRVoxoaf71ZmCc2cSerxgo3pJwAFoZx31IPSJsuRJnT6GR+JIaI1v5K33tDGA
-	 rtvyqEjVbjRMZpyeYecNXdpjHs6GTYpVbOg32eLHnCLwMwJ/2ypr4sJJyNHdPux79Y
-	 FNb9jf4ed2SHzeEKwbZzhPKfSaXZBM+5/b8RaJ7D7sZcueCn87Hd7BGxY6T0aPJwFK
-	 sQbgrMXabc8IA==
-Date: Wed, 18 Nov 2026 16:15:59 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Mina Almasry <almasrymina@google.com>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, Neal
- Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, Josef Bacik
- <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, Willem de
- Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov
- <asml.silence@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>
-Subject: Re: [PATCH net-next v5 2/3] net: prevent mixing frags from
- different memory providers or bindings
-Message-ID: <20261118161559.0c2b62f4@kernel.org>
-In-Reply-To: <20261115004003.3695475-3-almasrymina@google.com>
-References: <20261115004003.3695475-1-almasrymina@google.com>
-	<20261115004003.3695475-3-almasrymina@google.com>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xmyy9OyU
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AILQJlO2200331;
+	Thu, 19 Nov 2026 00:16:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=xA0UJd
+	aWjcLJwESH6GytqwneDgaiE76tWOywSb/nkYI=; b=Xmyy9OyUMfsCqoLEnMV58E
+	m99lLRtNmt+dSEaODtScwyWNqsSp3dQjf7ftvJLkw/skD0oZz9/DU8EhmzglJVH6
+	KQwk4tlAovq7hRTrKAVpfTT1qQsrzP3KpSnDdMQQZFIgp4pLUnMlYmcvf+d4B22P
+	YlCOLp25Kd4jIUPbW1KpZMmT/XdUJ1yeJMtcxSrjrYeFg3raJcJnkGWkAZmyR4Mc
+	oDe6SEL159etFUfTRnV4g3hAu0c7Q9SaoyLAEF1E3awAd3gwyK19MKsGOs1PdLjq
+	U/DhCcp4qolaStA4Lqqv2xTYTIlyu3nKpFVHcNPUtQjdXJTn+KrHarFlUJQcShrQ
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105ww5k1-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 00:16:59 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AILbI6W3716116;
+	Thu, 19 Nov 2026 00:16:58 GMT
+Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1m3hre74-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 00:16:58 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
+	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ0Gu8F11469800
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 00:16:56 GMT
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 68B0658060;
+	Thu, 19 Nov 2026 00:16:56 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 077335805A;
+	Thu, 19 Nov 2026 00:16:54 +0000 (GMT)
+Received: from [9.67.93.165] (unknown [9.67.93.165])
+	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 19 Nov 2026 00:16:53 +0000 (GMT)
+Message-ID: <614b3ef8-0e00-408b-a960-445c6bd2e405@linux.ibm.com>
+Date: Wed, 18 Nov 2026 16:16:53 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,14 +86,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v8 09/15] ibmveth: Split RX poll into per-slot
+ helpers for MQ
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, horms@kernel.org,
+        edumazet@kernel.org, pabeni@redhat.com, andrew+netdev@lunn.ch,
+        nnac123@linux.ibm.com, maddy@linux.ibm.com, mpe@ellerman.id.au,
+        linuxppc-dev@lists.ozlabs.org, npiggin@gmail.com, chleroy@kernel.org,
+        ritesh.list@gmail.com, sshegde@linux.ibm.com, haren@linux.ibm.com,
+        ricklind@linux.ibm.com, davemarq@linux.ibm.com, bjking1@linux.ibm.com,
+        shaik.abdulla1@ibm.com
+References: <20261109235556.60604-1-mmc@linux.ibm.com>
+ <20261109235556.60604-10-mmc@linux.ibm.com>
+ <20261116174018.6cd71ba5@kernel.org>
+Content-Language: en-US
+From: mingming cao <mmc@linux.ibm.com>
+In-Reply-To: <20261116174018.6cd71ba5@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: wTXqsLce92opVevaF0ucAAkeQ0oK3Kg7
+X-Proofpoint-GUID: _bbz2iPGCP73pYV0sRuISME3X1GzWOpB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA4OCBTYWx0ZWRfX3TsJUPeTfUJ0
+ af2Nuf8WkIrYnWsUHAeSbPX/JgBdjfb4YVEpwlG9NZ6FDHKZ2aKdehDc5iOlzgmYXMa8igpiD/m
+ wJiorDyx7uaBmCfyMjLNSi+VWP3mGN9S5pb5KK/hk5b4uKfZQBjirBe7k5iQaOUbfQE9jwuIKxU
+ RSI0Tmg8jKFxfxc95IOwsGuCAEzk8fioQ1sVDPxmc8olZtAn5os8m8/qHw4+Lx2SLvTYAdK3wHf
+ C6Chvb45C+nEWJy889gH1hkGBh91jo7wfu9JV6Cka4v+JjI+DBJTUm5TOdZyNWnMjlfjiqBkA13
+ 48bIrJa92dKpMpXJ74wIwtDKrlb9qx5JW+Hi9ZnNlw7jNAt3W6+H6FXVF3i9a3wYpenyIzPQDfr
+ rlCfekvqMNGrAfs+JwRKdEONJr8lMJ/lfRo5vX4ZukoEwVXpkAWT7lmKydZTkTc9FM1asqCdes4
+ SEi1/9n+JZjdsB4e2qg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA4OCBTYWx0ZWRfX2Ub2+9IIRX+N
+ Gbt/jZhXaV/LQOmKh1Q5y5giUNhXqCU46JakryFWi+megy3r7Xw9We/SmG63U+JtvvXgjirYleG
+ Zchs4+SGqL4VOfJQMBUZ7gawe3HmiVM=
+X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afe3ffb cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=t5fRNr4mx1plWV7DNOQA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_07,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180088
 
-On Sun, 15 Nov 2026 00:40:02 +0000 Mina Almasry wrote:
-> Subject: [PATCH net-next v5 2/3] net: prevent mixing frags from different memory providers or bindings
 
-This patch needs to be split up. There seems to be pure refactoring
-here (validate_xmit_unreadable_skb()) and the test code also should
-be in a separate patch. The rest needs a close look from perf
-perspective :S Lots of checks on the fast path to fix a hallucination..
+On 11/16/26 5:40 PM, Jakub Kicinski wrote:
+> On Mon,  9 Nov 2026 15:55:50 -0800 Mingming Cao wrote:
+>> +	if (WARN_ON(queue_index < 0 ||
+>> +		    queue_index >= adapter->num_rx_queues)) {
+> You add such checks all over the place, why?
+> The kernel coding style explicitly recommends against defensive
+> programming.
+No good reason: no caller passes an out-of-range index. They are all
+removed in the split series.
+>> +		if (budget)
+>> +			napi_complete_done(napi, 0);
+>> +		return 0;
+>> +	}
+>> +
+>> +	if (ibmveth_poll_stopping(netdev, napi)) {
+> Why are you checking if the NAPI is stopping?
+> Maybe I missed it in the avalanche of words in the commit message,
+> you mention live resize, which I assume is patch 14. I don't get why
+> you need to explicitly check this, core already does.
+Yes, it was for patch 14's live resize. You're right that the core
+already handles it.  The check will be removed in the splited series.
+>> +		if (budget)
+>> +			napi_complete_done(napi, 0);
+>> +		return 0;
+>> +	}
+>> +
+>>   	while (frames_processed < budget) {
+>> +		if (ibmveth_poll_stopping(netdev, napi))
+>> +			break;
+>> +
+>>   		if (!ibmveth_rxq_pending_buffer(adapter, queue_index))
+>>   			break;
+>>   
+>>   		smp_rmb();
+>> -		correlator = ibmveth_rxq_read_correlator(adapter, queue_index);
+>>   		if (!ibmveth_rxq_buffer_valid(adapter, queue_index)) {
+>>   			wmb(); /* suggested by larson1 */
+>> -			adapter->rx_invalid_buffer++;
+>> -			netdev_dbg(netdev, "recycling invalid buffer\n");
+>> -			rc = ibmveth_rxq_harvest_buffer(adapter, queue_index,
+>> -							correlator, true);
+>> -			if (unlikely(rc)) {
+>> -				netdev->stats.rx_dropped++;
+>> +			if (ibmveth_poll_recycle_invalid(netdev, adapter,
+>> +							 queue_index))
+>>   				frames_processed++;
+>> -				continue;
+>> -			}
+>>   		} else {
+>> -			struct sk_buff *skb, *new_skb;
+>> -			int length = ibmveth_rxq_frame_length(adapter,
+>> -							      queue_index);
+>> -			int offset = ibmveth_rxq_frame_offset(adapter,
+>> -							      queue_index);
+>> -			int csum_good = ibmveth_rxq_csum_good(adapter,
+>> -							      queue_index);
+>> -			int lrg_pkt = ibmveth_rxq_large_packet(adapter,
+> You should really factor out the pure code movement to a separate patch.
+Done. The poll split is now movement only, apart from the bad-frame
+message naming the queue. The behaviour changes it carried had no
+reason of their own, so I dropped them rather than keep them as a
+separate patch.
+
+Thanks,
+Mingming
 
