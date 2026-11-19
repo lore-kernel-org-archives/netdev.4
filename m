@@ -1,88 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076117;
-	b=jjETZqqTc3kjLn22CVPEFX8XEschm35KJM+S3ljuECDuiOJPc+bMxSKCmLqqipgLjq4X
-	 Zf7hSvkZCy6zMSm/iraNJvZ0/qOG6Sv3TN4qZxZPFsxUcXLPh96ac5gcQKBkctBEpaq9e
-	 cfoKT50T6C7GUlFI2yasA6r8Da8uh9/mXKmS9P9/pDWHARiAXz5VO92Yq7FCTMaX9cZ13
-	 eqcCvIqWV/6Nk3x0WgW7SSpx6wSvWiMDE6KFtXx9IMOKY+OMbb51Ir9Cbvrh7OTtoweoj
-	 HGk5uNNU1q4qg5IoXgl2HiEyi9wacyloGlTiil5Tnam5msqTFSAHrEDYh57t82KSX+A==
+	t=1795076118;
+	b=cpUeZpSUSCc6mqR80+zc/bwCVjHdaL2mayUTZxKDuASXBNKrydspTPrI5F0FJNNeTQl4
+	 5xRsrUwTD7lAH41py7jx83jX06KjtShgf9N7qslDj5YUBcmMs9TQQGHsQ0ZogJPRZdjzz
+	 7cut2G+Cv0/7ltNYF2xpUVFaoKBy+Pwyuz/mh5SM7nrj440XgF9maAmSeKVBxp3aLbA2I
+	 0x5rgYqLbKVvE3pW8EnJ8sXS54WBw1SzW/7LywkReTdxwkMeWvVmh+XwUl7+RgJVWeexx
+	 cmKwqPLl4HH8DVdt2liYTUhpiczFEhjUtmh2R9DDFqIhc3XA6wFDRIBWcR5RJLbiuxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076117;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Reply-To:Subject:To:Cc:References:From:
-	 Content-Language:Organization:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=SbD58ugfokxPZmAa+sr28GhjcGo78uQBy/eh0bnkppE=;
-	b=A329pBxtuBtW9HXlpkD+943yc32UFitz4qg1EJBloMG2gVFtLIN8lVkaNROtNH61b291
-	 oFKJRqA+JIPAqH1VMq7dNwtT2kcxj4HKBZu55GqDroCfYDGiNkTD0si2R2ZmCmoon77zg
-	 HklqyvOlRSvHLXK41UO/1swlRXvSdA3yP9GEQrC5ijAruDYuutzoqH30or+TRDr4ZaZTY
-	 9X3WTOZpW01UevB4aRSidAMUfFIjsdNcxG+LvmSbW0rRxFqYomc7OZ10DI3ABWRRVCl1r
-	 EPSoltVWz0lsOvxgJR4R9etRRd5OEwDS0uD2Ut4+RvE7j+FvQ3mLDJiGawPE9q7eIkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076118;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=afOKT7iLNdIGr/OYItr19oAdE8gSKLl6Gb6SM3xUZt0=;
+	b=qvEdm9QcwsFMaax+22RpxbY0qPMzdyvNEeIiqKoGbBWxyBqcScr/xBf1i0WrNHfMBf3H
+	 GAeTqQ6gkkaX7+X4HG48zoGW7vda+Hug1sCW4eTzwvyetFqvd7HmmFe+tH/WSWQLzCryx
+	 deQ4Z5TH6PqkSf1+AjwfGN0sH+M34tsrWyxnZiVckX1H4vnNpMvoLtSv4sjiXkRha3pBK
+	 0nEMMjTsWoaIggUCZ3nBI75YdwASMtbljqkcw3gbm6+GXzacC66FnuenFv5oZAvCcNaIs
+	 Xoz+ReijbvJT/j9kGneZSCwCwnH/xhnpHd1HOGgntSwTdaPMgPFbegwQNsV0Z7+oBPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=6wind.com;
-	spf=pass smtp.mailfrom=6wind.com;
-	dkim=pass header.d=6wind.com header.i=@6wind.com header.a=rsa-sha256 header.s=google header.b=PQDADLkm;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D948E60A6F65
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:15:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D948E60A6F65
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=6wind.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=6wind.com
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=DqAdNGWc;
+	arc=none smtp.remote-ip=207.46.229.174
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B0E3160A2624;
+	Thu, 19 Nov 2026 08:15:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E3160A2624
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=6wind.com header.i=@6wind.com header.a=rsa-sha256 header.s=google header.b=PQDADLkm
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a41f145599so134853f8f.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:15:16 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=DqAdNGWc
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=6wind.com; s=google; t=1795076115; x=1795680915; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :content-language:from:references:cc:to:subject:reply-to:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=SbD58ugfokxPZmAa+sr28GhjcGo78uQBy/eh0bnkppE=;
-        b=PQDADLkmig1UB0qWSA/TIcTTyx7AJJGYESq4GRUMdjB/1kdiF0oN1HGPu0uelP8Geq
-         xiyRIuSQzsvselPCmQy+aeRzgWjdmALrKfqv+U/+66B+kz19UrievEb71WpVFv/KGpop
-         bDgk5rg8KztJ1MwBkWmrtKsOsYmpuhP93GAooPSrWLk876SJRpU5ntBkoq8Z63UFpm7n
-         C0H6PF7eNDPfPBNkm3sPvT30yX9xJc3hsvoFar05aQstrEkfBXshjSlEBPGV2D1Jiv/L
-         Z2zZaCErRkAECTHe9JUCpy+JZzEue+M24D5VZwwcPPnD+hP6EzpMcY3AGzMFe9MgXR3h
-         CjMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795076115; x=1795680915;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :content-language:from:references:cc:to:subject:reply-to:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=SbD58ugfokxPZmAa+sr28GhjcGo78uQBy/eh0bnkppE=;
-        b=iIkYnTTAxJusN194nZN3OBFWNlNl8hzF7lVC1BC6y1YXaNPDANNTyzYBGJ5VwCHb3U
-         cLVGRsSd5WxxYK6boMjQu6edpUuYVGI7pNopU0EptNATFnmk8geZ4UCG3+ZrxySYnR91
-         LEwfTeF5FsitQwI5Idp9EPlfWRBZChWKBm0xfxONfA/INdnf71sjtZhBIMfQN4FbV/1t
-         9V449Xrl9G+mekI01slar4xzEmhacPWRTB4eaX/e5ncOoX3TUd1MQSaSFyg6VitjH8Dm
-         hLLhtruzh/peQ8JdvWmB1H2/5+ym6bP0zxgbhbEvtEPpCxicBxe/ORvLPIMgceFvNtJ3
-         C3bg==
-X-Gm-Message-State: APuU4Z+wXQqCcT9qmHjVpt7xCYYEhBktoftKgN14IxMjx/MIt0xFUxi+
-	FxgEbWhz58ZPUtrrGr6mLT9YPsMsnejNfCCTEAX4n2PnQoa9K09LzJOwg+nbqDB3umE=
-X-Gm-Gg: AZFdTZcM02xCfd6TnOoB40D64JW2BQ6FG5JuaCkTIu6/pngSMhXh2TnDmZTJy32g+nw
-	FYEyk/6zIC5NQvi1fWBt8Bss3cNTbRMSq3lyXWM8GHrnp8EdBULZtUxlD0M4V8v6DkGTpz47FWJ
-	Ybu2WzRoFcJMchksom0An6r206J3xPTEO/gTIvSCCThBkdtDXjTGVP2pyk94YkgWTUHH0AVqBId
-	A4Ap8FA0TET+QiuB1jePDJZhNFAmnU7jujCzhz5r9MpVtUlmRmUqMjekILW0u65GHXKdB9RF4cC
-	AEyIPQE0RcQgTLmINPCC2/iz3uRBoXvdL6dM7nGlim89Nph/Z8ItV8QeaWRFCq0ceSsguAvzLCC
-	zk8OEQ+2IvGAkR9ARLiDSv1wDPx4C4YfEp34vivguP0JwZp7IbUp/SwoHIZ/qUKe+K5v+5+RcB9
-	r8MHv9zSod+/9eahwGoIJ9ta/eVBphap6iHRdTwylg8s/YgAiw1zrRZnMnSOBXjsvQR+rg0CYHo
-	SVdwvP0NHO3eJjacHvQyIOPHQtbfrSeUhfeK5abbbe09wAv6axUzDcIg6cG5IJqHE4VAsJLjohM
-	iGiUkXlE1OJ9AWYUXEzDTn19wIPbBH+bbxpRwNB2Q8EFAkq+yV2VjUORS7ZHLETaxrJzoQMC9oU
-	WY7flh/6l1exQLZo+ZWHw3a5bAQM=
-X-Received: by 2002:a5d:64c8:0:b0:48d:f4e6:7b2 with SMTP id ffacd0b85a97d-4a63aa7f7edmr11571422f8f.3.1795076115084;
-        Thu, 19 Nov 2026 00:15:15 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:ab7:2110:6a1d:efff:fe52:1959? ([2a01:e0a:ab7:2110:6a1d:efff:fe52:1959])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65100bf42sm8710432f8f.1.2026.11.19.00.15.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 00:15:14 -0800 (PST)
-Message-ID: <5681e42c-f8f6-4993-a8f8-78be39776a86@6wind.com>
-Date: Thu, 19 Nov 2026 09:15:13 +0100
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=afOKT7iLNdIGr/OYItr19oAdE8gSKLl6Gb6SM3xUZt0=; b=DqAdNGWc9IVw0
+	+pg2zTzwHZIv4fiswsDgKSL8QstQr2Yc+3Eek7VjS4FggsUCWrgBoF1BArxKI1c9
+	W/5/YH4wPuXHP1p+tegeF7971NhfCjyUhkkCSqxETAga+GWT0fde/KE3PWGQaJJm
+	lnyuydxpqtpzTllIS1OfV9O4TikTpo=
+Received: from 10.eml (unknown [58.206.202.11])
+	by web2 (Coremail) with SMTP id yQQGZQAnU2cGsP5qZCJLAQ--.42739S2;
+	Thu, 19 Nov 2026 16:15:02 +0800 (CST)
+From: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
+To: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch, olteanv@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, wanghr2026@mail.zgclab.edu.cn
+Subject: [PATCH] net: dsa: mt7530: disable the power rails on setup failure
+Date: Thu, 19 Nov 2026 16:15:03 +0800
+Message-ID: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,49 +55,130 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Reply-To: nicolas.dichtel@6wind.com
-Subject: Re: [PATCH net v2] net: zero the tail of ha->addr when allocating
- address list entries
-To: Henry Martin <bsdhenrymartin@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Simon Horman <horms@kernel.org>, Stanislav Fomichev <sdf.kernel@gmail.com>,
- Yuyang Huang <sigefriedhyy@gmail.com>,
- Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Daniel Machon <daniel.machon@microchip.com>
-References: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
-From: Nicolas Dichtel <nicolas.dichtel@6wind.com>
-Content-Language: en-US
-Organization: 6WIND
-In-Reply-To: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:yQQGZQAnU2cGsP5qZCJLAQ--.42739S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWFWxArWfJw1xCFyfKF1rZwb_yoW5AFW8pa
+	yUuFyktryvqFyFgasrAr48Xas0y397Gay7KayDC390yw4ayr4vvry8tFWSvF1fKrs8Ja13
+	C398AF97uFWkZaUanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	4UJVWxJr1ln4kS14v26r1Y6r17M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
+	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5Mc
+	Ij6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4x0
+	x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxV
+	W8ZVWrXwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+	cVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4
+	v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAF
+	wI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRAl1kDUUUU
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgMQD2r+rloDcAAAsN
 
-Le 19/11/2026 à 05:01, Henry Martin a écrit :
-> __hw_addr_create() allocates entries with kmalloc() and initializes only
-> addr_len bytes of ha->addr.  The dump paths emit each entry using the
-> current dev->addr_len, so an entry that was created with a smaller
-> addr_len is dumped with uninitialized tail bytes.
-> 
-> dev->addr_len can grow after the entry was created: tun's TUNSETLINK
-> changes a device from ARPHRD_NONE (addr_len 0) to ARPHRD_IP6GRE
-> (addr_len 16).  On v7.4-rc3, with 64 entries armed on a down tun device
-> and the link type then set to ARPHRD_IP6GRE, RTM_GETMULTICAST returned
-> 16 bytes per entry of which 37 were non-zero and 21 started with a
-> kernel heap pointer (e.g. 0xffff8188_04857ee0); /proc/net/dev_mcast
-> exposed the same bytes.  This discloses stale heap contents to readers
-> of those interfaces.
-> 
-> Allocate with kzalloc(), so the tail is always zeroed and a dump can
-> only emit bytes that were written or zeroed at creation.  This also
-> makes the explicit ha->sync_cnt = 0 initialization redundant.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: a748ee242681 ("net: move address list functions to a separate file")
-> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+mt7530_setup() enables the core and io regulators and then has several
+failure returns (io rail enable failure, reset timeout, unsupported chip id
+or 20 MHz XTAL, vlan0 setup, phy muxing, gpio setup, fdb flush) that all
+return without disabling the already enabled rails. A failed probe never
+reaches mt7530_remove(), which is the only place the regulators are
+disabled, so after a setup failure the switch rails stay enabled until the
+next attempt re-enables them and the enable counts keep growing.
 
-Reviewed-by: Nicolas Dichtel <nicolas.dichtel@6wind.com>
+Unwind the enables on the error paths, guarding each disable by
+priv->id == ID_MT7530 since the rails are only enabled for that variant.
+
+Signed-off-by: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+---
+
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index d5a199293f78..769f733f80d2 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2425,7 +2425,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 		if (ret < 0) {
+ 			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
+ 				ret);
+-			return ret;
++			goto err_disable_core_pwr;
+ 		}
+ 	}
+ 
+@@ -2447,20 +2447,22 @@ mt7530_setup(struct dsa_switch *ds)
+ 				       val != 0, 20, 1000000);
+ 	if (ret < 0) {
+ 		dev_err(priv->dev, "reset timeout\n");
+-		return ret;
++		goto err_disable_pwrs;
+ 	}
+ 
+ 	regmap_read(priv->regmap, MT7530_CREV, &id);
+ 	id = FIELD_GET(CHIP_NAME_MASK, id);
+ 	if (id != MT7530_ID) {
+ 		dev_err(priv->dev, "chip %x can't be supported\n", id);
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err_disable_pwrs;
+ 	}
+ 
+ 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_20MHZ) {
+ 		dev_err(priv->dev,
+ 			"MT7530 with a 20MHz XTAL is not supported!\n");
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_disable_pwrs;
+ 	}
+ 
+ 	/* Reset the switch through internal reset */
+@@ -2527,7 +2529,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 	/* Setup VLAN ID 0 for VLAN-unaware bridges */
+ 	ret = mt7530_setup_vlan0(priv);
+ 	if (ret)
+-		return ret;
++		goto err_disable_pwrs;
+ 
+ 	/* Check for PHY muxing on port 5 */
+ 	if (dsa_is_unused_port(ds, 5)) {
+@@ -2554,7 +2556,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 				if (ret && ret != -ENODEV) {
+ 					of_node_put(mac_np);
+ 					of_node_put(phy_node);
+-					return ret;
++					goto err_disable_pwrs;
+ 				}
+ 				id = of_mdio_parse_addr(ds->dev, phy_node);
+ 				if (id == 0)
+@@ -2579,16 +2581,25 @@ mt7530_setup(struct dsa_switch *ds)
+ 	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+ 		ret = mt7530_setup_gpio(priv);
+ 		if (ret)
+-			return ret;
++			goto err_disable_pwrs;
+ 	}
+ #endif /* CONFIG_GPIOLIB */
+ 
+ 	/* Flush the FDB table */
+ 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+ 	if (ret < 0)
+-		return ret;
++		goto err_disable_pwrs;
+ 
+ 	return 0;
++
++err_disable_pwrs:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->io_pwr);
++err_disable_core_pwr:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->core_pwr);
++
++	return ret;
+ }
+ 
+ static int
+
+---
+
+The vulnerability was found by static analysis.
+
