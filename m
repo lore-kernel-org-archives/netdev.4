@@ -1,62 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122736;
-	b=TgzpZdgpE6X1mATWG+3rtzyQDCzwn/PC8LaSVuMTCTofT+s+c7iVndiixxncSYVNnUAc
-	 ykrXWkVi4u+dTp+PPch21MeU38MKn0OPNO1Ha785UovVEf2RtDxCPWAjqlzzZ6BQLCnKe
-	 AxfOAvNm/o79KYElbar+pW37la67VoWcGnVwvy8i7gfmkwFuZqzfM383zzr/HnRhdHisd
-	 N2SEnCR6ddgQJaET9cqR3q40OMIVrG6bj9fG1OIKTkYWUMkBmplb2OdclOuy0umvIH/P1
-	 ZIVkYmMY3B1ACziUQjs/G6zXMd0zY2kdlbxqfIVZJxdlZELSa8oLWCOWF6uVSRPdQcg==
+	t=1795122804;
+	b=ABXgJnOmmOfHP+/IF1Evif95tHFyi6sI+73DjIjRVLsXTnrfvv34ZxZaVYQd5YaYjPdS
+	 CcLuxs8WFB/4XSxNU9gVVUV9W8QdxjXsWP43DDsRQAnw0vC52isKy9qk07jB66veU6Uwz
+	 KluF8Bs8MJlGtAHR9W1bFJiFSFv86FnQ3S0fAfHg8KMqq/QSCawN9lex6iK2Spb5gQUWA
+	 XuSG3qmxpU9zcgkSe+O+BUXwJg+B3A6YH4xzWa72OU+eOzrZFpeYqxZHZgMsPjUnCNZdr
+	 3YmOiJzTkm9NKemG+rEKTgVOCLdL35FR5Uh5tkuiCyZxfuU8iuxj3cVD6nVVKjh1/uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122736;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=PPsz8EPWKcdeEfKVGYp9pwNeSXYhC2IpPyvOQ8qfLNU=;
-	b=JbmqiDiZTcltR87ei8+enNQsk8SXXWrQIe5+lzeljI5q4TUTPBGFUax0HJm9wiB1Jtgg
-	 F2xRaaZKlzSSoXuJPDmYmb8ffNtgB6Z8NV0YAA+MIDyswznc6NBHrJ958idXn66+KejbY
-	 eaZLCau1lH0u4jj/wRvWUqdC+Ouwtkrukp75NxJSutCh1nVZMxIlI741HhTnMdjQe8db1
-	 9uL+nM5w4TiQgX5RO3qbp1Ek2Yo8xfAWtUuclseMWI/EDZOqzyjlPfCewkOTysH+/DN1v
-	 2zoLRkrgjUrWC2TbVS3Kg3xC9JRpijGdFTWer1Z2qBu0wXf9yWLGZiTZLfCIrHwwrCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122804;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=7uQtFNOdQLFaDhr2O+xKsh0q3GABDuv111m5QXQWzZQ=;
+	b=P2/Xly/XWz9XJPI7kJDLTw4JOQlAcBFyCexpJSOLBTpDR++DuqE2yACxigMI41d8khMr
+	 IQAOeMOqcGkPerZjhO5t3lBquyUrkTQGGCKJY8N/Nm5rGeb8+sDHNIClV2D7qsyluvnyz
+	 ILmXv8od+pI2g0bOTlcB9avEnPXGY3JtmE0nz3jsYgV6essHc0Np0MuSk68DdFNmcpPQc
+	 nO4CuNT2tjpzGdvgkTt1HU9kmAnzQ1gduJk789pqoAT8V2m1rLegFz/ttXsA2bk/6BAnN
+	 bV1c+KVJxxKUDJhadKj4IOzI2eBN42M+A4hUh9XtTc5yOObNJCRQpcGkJ6M/2Kaeyrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=elTwXLSY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uWExxlHe;
+	arc=none smtp.remote-ip=209.85.222.169
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61F07606A320;
-	Thu, 19 Nov 2026 21:12:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAF4560A2628
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:13:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAF4560A2628
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=elTwXLSY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E37F1F000C0;
-	Thu, 19 Nov 2026 21:12:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795122736;
-	bh=PPsz8EPWKcdeEfKVGYp9pwNeSXYhC2IpPyvOQ8qfLNU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=elTwXLSY2aQ/A+on2z7+cdJtgueL4VgRLQN+A9ICWwwxPjwPJt5sImilvUU0BuatH
-	 rICfaY7p6i5P5KRW6mdIoaDnnW7oWNd4gFZwrm7vdEPIqvj1sEmabAqPTdYFFHqRMb
-	 W/mMV3GUtefPaqviMy9Jh5qJ8hC/vES7L+FsfjU9OcmczAUVRvCu5dP+UveU4NPV3m
-	 4DlKgRV3Q1pLF/1aGwIh5G7HncJ+2oK3qSBghlTd68IJVccimHqpDBhrkxavVcJJ1f
-	 8IEY6O9MDETdER51fkzGoHiPdwxRG+bfa9mYJOTDcpJW4SyHKg+VVoyEY/+KOq+9hA
-	 CcNfekYXW2rDA==
-Date: Thu, 19 Nov 2026 13:12:14 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: Tianyi Gao <tianyi@cloudflare.com>, Hangbin Liu <hangbin.liu@linux.dev>,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org,
- kernel-team@cloudflare.com, tianyi.gao@linux.dev
-Subject: Re: [PATCH net v4 0/3] selftests: net: veth: propagate check
- failures to exit status
-Message-ID: <20261119131214.0b38c1ae@kernel.org>
-In-Reply-To: <20261119012940.32838-1-tianyi@cloudflare.com>
-References: <CAG4wq-d_30-B4wQZu48ZQXAORM4QxRqPfmYsmoHS0hiYp1EtTA@mail.gmail.com>
-	<20261119003003.40482-1-emmaonana18@gmail.com>
-	<20261119012940.32838-1-tianyi@cloudflare.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uWExxlHe
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94959217274so30318885a.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:13:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795122803; x=1795727603; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7uQtFNOdQLFaDhr2O+xKsh0q3GABDuv111m5QXQWzZQ=;
+        b=uWExxlHej4/g5IMBDYKhLOiKScIXVgK7/fzcH6uPm4B7PWN6GBFYe8hLUAyEn/NR/D
+         yWcZtnkEjJ0B8q4SuHNDLDzaH58ZES6SCWCQz3EtIbIU57241Vop9zAETRC7e6LQ3ZuV
+         GF+4KVNXMFPHAXcHx0kX8ysOznPl1EvWT9/s9gNB5ipWmFBgsNkdKIZnUP851RUyZCW4
+         kIPK6Lzz1uETDrMf5HGJ3fBJpQ3RjWFS+k4qDmvFEItO41oRuGxzP8ToDnNKyGeaGyRL
+         4HSoVGTPB0wHZ6o1DvkxzqkBZmEmmbYNTXgolxI6URnoVyGnEoZNDh+N9ssbSozCj5dm
+         19Aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795122803; x=1795727603;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7uQtFNOdQLFaDhr2O+xKsh0q3GABDuv111m5QXQWzZQ=;
+        b=Zt8mawOdrYeadGU30KyBPzQDrgZEXx+eM1bgWE+N7RzEaPdqP/H6gOfECljhWGCBal
+         jrcMcF9gT6kpSx793KooqKorXUBCUlEgRy7XtiWjkLSL9paLKeTK4efnQ9NGDG78t5rE
+         vkpGZlG5+jx0J4s2dNCYNzeHLIRnEmZwroW13/0U3S52qO8ACiF/Fr4HAlSEDj4NuUd4
+         GvEGPtt14TUYVugA/Q1Dsd0pN04tBWXFihu9ctO41agWBAbps8zsNshl0f/C4sERM52L
+         Y9CzvFHLtTcBDg7WFhMedWo1fmYOub2tNLNMFACGr4hBW5LAKdFwdwkNd8+j+ZSKoyB3
+         3Yfw==
+X-Forwarded-Encrypted: i=1; AL+hErGEZ2cbUAsWOcRbQAhVRiRGOnlsQy8QNRYnNGub2OZJbBOfn5Rs8IasnOjkq9oeUpssH1/V6Nw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9x/nJSTXyg6kpeDNdwBv7MJ/m+sxEImG9UPv+J7VfYzPOHJePn
+	L9yagKzDi0eWXNl2TnkWs7zo9th5FMfrE7DWKlD4s8+F85voFqJJccdw
+X-Gm-Gg: AYBFou1WD4T6OwWblB2UpPm2t1mt01cBch1S8zi49YlH9i6Uo2k30ozrgAVqRomT9c2
+	r+BOQj0fPBIjSupGCQV7gtGmGcpzjM0Y4NiLdriQcwchpJ8hMKKDy9EZfgxMn/LxxTLkdi3S3zW
+	SIgaFu2dttNaLyWQIZC/u+bT+Fpp4s9CZTYEFrCeQGSZ2deSgXVob7NFYvmK9+7lWeXjQF4Ovnf
+	VAE/Tp2977ZNcDGjfJf2j5EtABv9CoEOr9/EzVaI4WfpmEviHJwskbiWcNMPD3plRxmcZS+y6+z
+	hXumcJ3o5hfx/4lstxPLJOYrpTqu78cFD4X55mjFmEC2nzGOQH6fpkDYJD9/RV+d4Wnc6GGbpeW
+	QEFnOC5GGao1nXWmDEE0HjEFMS5kFbwcdIdHmRgRCPGcNyoC9qyn/+b2VNhdMnT9BqkQ4MnKygC
+	KRi5kux+52RcNCFtOVCVfdwCDjb+VarvbZmeWTgn2wIVo6IFWpqvZ2ksA4AjIT5cgZFD89Lzdlh
+	ZgpvzlyR53ZVLUTTR8K7Ht6nAjWGW4UjHxTXi72HjrGI5tN2mmQM+RdG6YhUt+KpPYsJV/N40ue
+	OWVtzp03Xkqx/lfyBR8n+ZotHhQ9DBjPKhDx3bDQESy1PH80mb1d7PcVU3jx7I9zRID3Mki1pOA
+	NeErqSFv+xO0LSJ1lmU2W2zLSPi9eNHAKk0hs/DGyz2D0+WPrCKOOBfIdbtR6uM4=
+X-Received: by 2002:a05:620a:460b:b0:93e:fa30:f1da with SMTP id af79cd13be357-949ba9e95f8mr157198485a.45.1795122802898;
+        Thu, 19 Nov 2026 13:13:22 -0800 (PST)
+Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34a38bsm47654385a.13.2026.11.19.13.13.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 13:13:22 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:13:22 -0500
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: Junyoung Jang <graypanda.inzag@gmail.com>, 
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
+ Jason Wang <jasowangio@gmail.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>, 
+ Simon Horman <horms@kernel.org>, 
+ Shuah Khan <shuah@kernel.org>, 
+ Gwanhyun Lee <gwanhyunlee@gmail.com>, 
+ netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org
+Message-ID: <willemdebruijn.kernel.10e4a96974af5@gmail.com>
+In-Reply-To: <20261119144241.360238-4-graypanda.inzag@gmail.com>
+References: <20261119144241.360238-1-graypanda.inzag@gmail.com>
+ <20261119144241.360238-4-graypanda.inzag@gmail.com>
+Subject: Re: [PATCH net v3 3/4] tun: clamp zero-copy copylen to remaining
+ payload length
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,37 +112,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: 7bit
 
-On Thu, 19 Nov 2026 01:29:40 +0000 Tianyi Gao wrote:
-> On Thu, 19 Nov 2026 01:29:59 +0100 Omokefe Emmanuel Onanaroghene wrote:
-> > Changes v3 -> v4:
-> > - Patch 2: use if/else instead of "&& { ...; } ||" chains, keep
-> >   lines within 80 columns (thanks Tianyi for the review).
-> > - Add patch 3 deriving the invalid tx value from the kernel maximum.  
+Junyoung Jang wrote:
+> tun_get_user() also derives copylen from hdr_len or GOODCOPY_LEN
+> without bounding it to len after removing the virtio header. A
+> padded header can make a short frame cross vhost-net's zero-copy
+> threshold. tun_alloc_skb() then reserves more linear packet data than
+> zerocopy_sg_from_iter() copies, and the uncopied tail can be delivered
+> to the network stack.
 > 
-> Sorry for being annoying, but I see three problems with how v4 was
-> sent:
+> Limit copylen to len before the NAPI fragments and skb allocation
+> branches. The requested copy length then cannot exceed the supplied
+> payload. The normal skb-building path is unchanged.
 > 
-> 1. Patch 3 lost its subject prefix. It went out as "[PATCH] selftests:
->    net: veth: derive invalid-tx test value from kernel max", so
->    patchwork put it in a series of its own [1].
+> This matching tun issue was noted during review of the tap zero-copy
+> fix. An AI coding assistant helped prepare the /dev/net/tun
+> reproducer. In x86-64 QEMU/vhost-net, a 14-byte input produced a
+> 128-byte frame with a nonzero uncopied tail. The patched kernel
+> delivered 14 bytes, completed 300 repeated short sends, and still
+> selected zero-copy for a later 400-byte frame.
 > 
-> 2. Patch 3 should come first. Patch 1 makes a chk_channels() failure
->    fail the script, and from then on the nproc + 1 check can fail on
->    a correct kernel. With the fix first, no commit in the series
->    reports a false failure.
-> 
-> 3. v4 was posted as a reply to my review of v3. A new version should
->    start a new thread, and its change log should link the previous
->    postings [2].
+> Suggested-by: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+> Fixes: 0690899b4d45 ("tun: experimental zero copy tx support")
+> Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+> Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+> Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
 
-On top of the points Tianyi Gao already made:
+Reviewed-by: Willem de Bruijn <willemb@google.com>
 
- 4. Please target all your "fixes" for selftests at net-next rather
-    than net and remove the Fixes: tags. None of this is worth applying
-    to the current release.
-
-I'm tossing all your submissions from patchwork.
-Please don't forget to wait at least 24h before you repost anything.
+Thanks for converting the original patch into this more complete
+series.
