@@ -1,103 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795131265;
-	b=T6uaXTeLtn/0HUm3eLhIGgfXxyJ73Bh+bCsDMOYI+VXNmwrkS09fahopyj7aHSp0cAta
-	 cSCIvlInGAd3FdhC9ax/Q2KXldK5S4pPE/xpGv76hk1L+U9Mnysox5kgW9yVlB0H1FPrY
-	 JzZO6rvfk6O9zrQjv0vu+VRVWcSRyc6SO0NZ7UY40SNutA3DelU5M1/OFvdU42d+uBh/w
-	 c9mAytUhjacxsq4BJSkMax1iFP+JOCOrVG9NeHT3rzDjPYW0avz1wyWJMehLuYEkCAKVA
-	 gsH5NvpvIwPkagol9D1f7fEHJkfzWOxpNKaEfEPWygtuF/Ir1AePe7yR3ryksjZgVjQ==
+	t=1795131973;
+	b=JViUmwP+RAIZvZmbpTM2SjdiOznyC1O5wWZPTBoOhtDMexyL02P39HtmTq0RJBO3R42l
+	 hWshIC29fg6tfqEDrWnKGPVaUDnzBYZeKb3Vy8Ty+AvFRItkcDORH/1V5HqJkx/OXEi2z
+	 DFc2LKTjgSea7R3YvOBnpvgGNf4tJghsemOJ9Rk8nJVE1iwrlnjCgwZVSY+2zS+YQsu38
+	 bbi/VDAgxRV5GfgWXwZusSWuEDsBk3xe+snifGG19lJtzndGHcnFKP65F6eK0s5dPyCDh
+	 w3JZ9mYen9G5v1UpjI7XcVdx9OHQetQW8K6qYBwkrTDzLUnzNdEq6BAJZkjHRp3cGbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795131265;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795131973;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=MI7mnbWJtqOFjuPsaAZSAnv0rdseJZ3T3cjclMQcElI=;
-	b=bDUWoUQ9UHR7aMbXEhmcMbo0NT9wINLII9gD+D9csEyKdlmM1xHHLF+eghBmx1sBVoEx
-	 vqnRcUSrKihbAZ4SRdA++LOJLo86/fzVovF/52PwX0Pml9yPZ2H7uoEuA/fYb8lcCGZbV
-	 /xA6kjaUFOkr5xUXK5r16nRS6IOiPKHtu72Ka0mCXclYoNRwb7vr/W4dF1Sp6L8wVoPeO
-	 Sp1Vf7vWtacmasU3vuILox+foU3MN7CHzZ/hdilSjNrtdPaqbeEeNaiJbS6FnYtFxknK5
-	 6SfO4q00TUGRgNpobR8N0Em69jiSh6o9nqnDFitEWnlaQstEF1khC2bZUy8NvCFr89A==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=snv6p6hL7glNU9Kbc8Q6F9OHOb2I5IO6GSKTn8JSsTI=;
+	b=JVykcHVbD4lrEOeC8YmvQTxPnPqALqbt90RLeCqc4HKlrhmN/4oBZ/6z+21lptekX/QN
+	 4VTMv+JGVim5BvXCWgW2ccjVlOMNvp+acWIkuh3NNYOvkSf2Zv32gaA/BDTf6aXnm5UUQ
+	 o3FomkCgubNf3sL/Su+aOw0+jutxL4VlklFN2NzzCtmN0bgOjp5j3EdRn+C2UH9+Xchgr
+	 sYLmQ/mSBz6C5Ge1kIeJWbe2DsyLAB33G28HQ7Z4q6fhRCxO016X/HdaAZJrzW6yOXLEF
+	 kWR5WRPg10GbG0Lq0UkLgRSKE8i4ZZ1WUTmaIuq5MRKphNkV6tFW244bxMS1WsM7aYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="Oxm1d/Yy";
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TdwXmnD7;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F7AF606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:34:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F7AF606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA5CD606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:46:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA5CD606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Oxm1d/Yy
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2ed0890476fso1651795ad.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 15:34:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TdwXmnD7
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38431138772so330060eec.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 15:46:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795131264; x=1795736064; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MI7mnbWJtqOFjuPsaAZSAnv0rdseJZ3T3cjclMQcElI=;
-        b=Oxm1d/Yy+28cDfMvo3cUdd6Q0KgD2KJbd/1W0J7vt+MiDkUiRqER9fvsEzv+rb0YQE
-         7lgbjx9EmSH8g5MAOeV/k5k30wfsdCtNgmcqlomxqYYO59GNzlQ1QPZ7U/CLX2NjTzAG
-         OLDWZLAaLHaYBg5cUxZ6LPDpgdcA9ndXwY/DH36hSxWd3KBJzaBgMu3G4qSQFI85bRAg
-         xIK9VYJaXva8sAgtS5LlOHC5YgOBfjnTW+TLo5r3Ad5gQatczb+5QUKf+9GXAFT9sXE5
-         tzcGPTQ5O6Ax+i2Xa9TTQE55/BvYvkCErY8E+r7i55kE0ahKFGrMQiD0wrtQhYhwhrzc
-         j6qA==
+        d=gmail.com; s=20260707; t=1795131972; x=1795736772; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=snv6p6hL7glNU9Kbc8Q6F9OHOb2I5IO6GSKTn8JSsTI=;
+        b=TdwXmnD7F5uejcWgqjte5YSJ0bplxxEyIMBJvP/Ifi6FHifHegtfoVOUEDOBdy7Ndv
+         bRX+r7tojJFml24o+GCvEzCOmBhmKK+FUbTbFmiryjRdjRm2tiJQkeira/E+w6ThdO2m
+         THXbOMdappF5+XQ5viwdYMar6Yv6KXexdfO1Zd6LaluEq604Xwcn5sMW6HKvFPfBBxkn
+         SMZUEp2DClQ6BD2LOCJUPNJZjSCyqYre7EeYguRZ7ZhqmnTwGMoAbXOCsny4FJzgNWn4
+         9P9rJ1cZXysPlMX2kob6z8OcGiSKDtaGzQRqdEbGo/wTWvNszmDehSBLEb3JWNn+a0lt
+         o1Ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795131264; x=1795736064;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=MI7mnbWJtqOFjuPsaAZSAnv0rdseJZ3T3cjclMQcElI=;
-        b=0+ZG9T8HGbRsdqm36lftsLs2GxaQo4F7SpXbbxAJcp9XIHacKEl/vbhi/T0/sAVEG1
-         Ou8WXpHybQ2yxLRkSsP3F573IemfokCQ4NY71UWrFrTrF9xThYsExJeBMFznLdkmaS0U
-         BvUfNsKeUZlvM2rkt0BPTl3/hqNLBTUExyUBiBO7pX8BY30YiOlba1x2qhIucvIeQxfd
-         I4NrHJWxsetEbjo9VnGQPeCsDGTsL7iWQTUmuo4O4t9e9IKkT9d9I0KogJ6UdO0nX9VS
-         QWkEoxx+p83CNwAjsw8tMVRevYVORjY/2jzguykz7rxxiy2OGXZcccH9VUKkyBe19r4x
-         fxGQ==
-X-Forwarded-Encrypted: i=1; AL+hErG04r5ch6tyvdpKIs4EpJsU6RLklRPchUCELnTapUFZf1cM56yEznLsrL2cnjU6cqccEc3CLao=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YFyB0hbVMDZ54tgSgxA/m4tcJEYRWNLs5/ghmw3oluoLIfecN
-	xmHqdZlVed/Q5vINKLDQK0Qvf8iGNarW7LX8e1b1qtky+pLuv84aNKtr3Z/bvvsantQ=
-X-Gm-Gg: AZFdTZdBRa00BrtcqN2SFMb3YDBFkWyaBTk5gdHP5ZqO+eVi0LaNy0x59y3H3F88GXR
-	W2pnGRbfWAqIZFqnTSgbyY9EVBSNnZ9VKAQ5T1bKAxFK5yB1nN6DYBSyFRWQvMMl8F6zCzFTkiw
-	V9Z5CG56lIpwfff/ayqVf8eq4KBg8owxBqyBopIlO1B/04URIuGrfpiPuzyqYZPVdBClhRua4Lw
-	ywMbGqWgPE2Cb4pTMAEJE4aEQQrMK6zQggVxlhiZn+M0hT+U8eT3Y27dhkg0Sz01qyAgb6Kuh/s
-	ytjgGMw7PljVfYxYaTw/amWtrepC6Jn19UFR42UJGprJA9Ds5fplLTBwSG2MU9BVXb1HeSyOMOB
-	c46WE6jJkQOEQb0mA2ksAf37cixfP9/PvW482wg3F63UbAhUx4MjzlDd6kNxAecQsGyQFkRZONn
-	RwovMBBOUkqj0RFql8teDQJmYi6zpkbOOyOT5tB8jwA5wuqG1nNlosDMn68IvrFHxQZ13bFU01y
-	yss6fR2spFM85ejCFLNYMGCHBo//ZGE6m/HtKofMxB/AZOCL9prqXCzI+hciYaWBMZWpCo4IKKI
-	bRpoFH/uVPUinYQeuUmZHgYdUBNNSw5OMyLmAh+U33srTZLGtyE6DusekfA7w4Uf
-X-Received: by 2002:a17:902:ec8a:b0:2f0:446d:30cb with SMTP id d9443c01a7336-2f0446d312emr3115195ad.15.1795131264280;
-        Thu, 19 Nov 2026 15:34:24 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:47::])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc0f8sm5686265ad.27.2026.11.19.15.34.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 15:34:23 -0800 (PST)
-Date: Thu, 19 Nov 2026 15:34:21 -0800
-From: Joe Damato <joe@dama.to>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: tariqt@nvidia.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	horms@kernel.org, linux-kernel@vger.kernel.org,
-	daniel.machon@microchip.com
-Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
- doorbell fix
-Message-ID: <av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Jakub Kicinski <kuba@kernel.org>, tariqt@nvidia.com,
-	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, daniel.machon@microchip.com
-References: <20261117155353.2250540-1-joe@dama.to>
- <179493106742.3291.11434436383058043225@kernel.org>
- <avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
- <20261119143852.3bca9000@kernel.org>
+        d=1e100.net; s=20260707; t=1795131972; x=1795736772;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=snv6p6hL7glNU9Kbc8Q6F9OHOb2I5IO6GSKTn8JSsTI=;
+        b=twhHEX5bRmRYMThIkyUUDho6GnvQo6d87Kp+6NewYbrefQfEEhSw0WYB7ZPsSfPahI
+         vEe+FWyYy5GzCcBLabpe0YiM+sm6QBJZXszdaLEuvbVFlF9ky4JJsHE1S8IiCWjAEHU9
+         1yt46wTVRA0S9rJ4bK2R+gcjKE8Zy8hTX6PL5n9j163nuN2Wf7oilZ9le6BpphXmvZgT
+         zyQ8AZrkIih655su0v1/k/CpEC/kupgaZTM58zjoateL/MnUL7Ybv3eFwDKNv5Es0iqB
+         grSpQ+l4dzBkF6fq1yFj2/xW95T1/0C0t750FC20rK0NvPrsFcAf0gJjjnBbhJfs8+td
+         De5g==
+X-Gm-Message-State: APuU4Z9AWS5TvOSsE+Glkn7/MwbOMKgLg89VxxrzDHCoPTik10YAbcs2
+	qOL8O0ypeoo2dTKhMWosn5X03uRkr1uRoGwglbqsqvmjgLzXv5dk2+Y2
+X-Gm-Gg: AZFdTZfoFeI0G+4RB+HJSnrKgOY1azACdI5P4iJi+3czuU1ciWJL08NLpA6okQC1mJA
+	HYgRthxqfl5aGLB7XIsZOewI/89DMYpQjyn/Udynq1l1LzKyvIUqdsuibmPueCW3YdC1IhTn8d1
+	taAO6z5542guE15Nzbs5NcNqItS00I6duRPm8eDCkp31ik8CRVjGAbONrwgF3ITOt2L3JbNXGOP
+	tOLkQ/wo5YInoRUPLwIqpo6DUZLgEblCN2WioSkChQDYI/B4qzzZoCqQylhoisKsqWpsDjjBqqa
+	dsE3EXa92B3t/EHTsylhxUeIbB4aQt+Md8YPRKzphA09YLVCgZhNYTZWLnZs60q2/FxiBd/vSAb
+	r8JunZLJS7jhWk8bi3pHzA91MsE+3rjiJRXfvtq/NlsFvX3lWeTqF5F7NMm5vxglxmnhd9gZ0V4
+	6013PQ06fhiSyeI19Wj+47dTfpwwCEx1iFlpBLOlPfE2zbwwj9ygg0y2MDTFQOehXJxPTHuXvQa
+	dvlZFuV5ItrnCFVVfjpoMN6wYT29SevgVHkVmCmMzjm+zszneSuJGVJwyhqHMlUPtNvXU9LPJ0I
+	id86ROBYnV50vf8BF3P2NsNg/gNsbqutPy1oZ6KTNaM7Kjr0ed/8YmNSCzIJ0tE3+SPROa1PeNr
+	epagEt6dycqsIA7GEbbbggRnRTiMdbp3i/ju0TGsqzf4GSQHwEyrQnetyXsWazLieF4D0ETYCqm
+	+Yqs9cYdh/+0HebX95lg==
+X-Received: by 2002:a05:7301:f23:b0:36a:1f4f:3e9 with SMTP id 5a478bee46e88-3857045249fmr887394eec.20.1795131971809;
+        Thu, 19 Nov 2026 15:46:11 -0800 (PST)
+Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646632b9sm2095662eec.1.2026.11.19.15.46.10
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 15:46:11 -0800 (PST)
+From: Ahmad Byagowi <ahmadexp@gmail.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: netdev@vger.kernel.org,
+	Richard Cochran <richardcochran@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net v2 1/4] ptp: ocp: prevent timestamp rearming during detach
+Date: Thu, 19 Nov 2026 15:46:09 -0800
+Message-ID: <20261119-timecard-common-v3-discussion-743fce65f675-ahmadexp@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <4e42134b-b017-4836-9772-9c1915b16e77@linux.dev>
+References: <20261119-timecard-common-v2-078fe69f33-0-ahmadexp@gmail.com> <20261119-timecard-common-v2-078fe69f33-1-ahmadexp@gmail.com> <4e42134b-b017-4836-9772-9c1915b16e77@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,31 +103,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119143852.3bca9000@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 02:38:52PM -0800, Jakub Kicinski wrote:
-> On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:
-> > The only fix in this series is the deferred doorbell flush (patch 5), but I
-> > need the other code (patches 1-4) for SW USO support I plan to submit next
-> > if this series is applied.
-> 
-> Not sure if this is what you meant but this may read as if you were
-> sending a fix for net-next for convenience of sending more patches.
-> To be clear - that's not a valid excuse. That said, here, we're talking
-> about a 10 year old error path bug which nobody apparently have been
-> bothered by. We don't have space in net for such things at this point
-> of the cycle, anyway :S
+On Thu, 19 Nov 2026 at 22:23 UTC, Vadim Fedorenko wrote:
+> enable() callback has to set PTP_PF_EXTTS function
 
-I'm probably just being dense and not following what you mean here.
+Thanks. I tested the cleanup path. Recording an assignment makes the core
+disable that channel, but ptp_ocp exposes six timestamp channels and only
+four SMA descriptors. TS0 is the internal GNSS source and TS5 is the PHC
+source. All six can be enabled without pin assignments. Four descriptors
+cannot record that state without rejecting requests or changing the pin
+interface. extts_enable sysfs also reaches enable() without an assignment.
 
-I was looking at a local branch that implements SW USO in mlx4 and it was
-getting to be quite long with a lot of patches. I thought that breaking it up
-and moving some of the patches into a standalone series would make it easier
-to review.
+Would you and Richard prefer disabling all n_ext_ts channels in
+ptp_disable_all_events(), followed by the existing PPS disable? That keeps
+cleanup after posix_clock_unregister(), without inventing pin assignments.
+I have prepared and tested that alternative locally, not posted it yet.
 
-I suppose you are saying I should have just kept it as one longer series,
-instead?
+I also removed ptp_ocp's preliminary disable loop. Otherwise it can clear
+pps_req_map while an in-flight enable subsequently rearms the hardware.
+An overlapping sysfs/ioctl request can likewise leave an empty map with
+the source enabled, so the final disable now always masks and drains an
+empty PPS map. The shortcut remains while another subscription is active.
 
-Sorry if I am not following what you mean.
+> why do we need it now?
+
+The v2 teardown exception covered a disable that had cleared the map and
+dropped the spinlock but had not yet completed synchronize_irq(). The
+previous mutex version held its lock through the IRQ drain. This local
+revision removes the stopping flag and its special-case condition: core
+cleanup runs after active requests finish, and an empty map is disabled
+and drained regardless of its prior value.
+
+The source-derived ASan/UBSan removal/shared-PPS tests pass 100 runs, and
+seven deliberate regressions fail assertions. Five KUnit cases using real
+PTP register/unregister pass in QEMU with KASAN and lockdep; the old core
+fails all five. The KUnit callback models events, and the source-derived
+tests model MMIO/IRQs. Neither is a physical Time Card removal test.
+
+I have preserved your Reviewed-by tags on the other three unchanged fixes.
+Thank you for reviewing them.
+
+Ahmad
