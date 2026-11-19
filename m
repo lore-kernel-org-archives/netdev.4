@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106811;
-	b=IprQFCNXqDIehPh/N4vFf9G/7yPNfM4W/eflAAz+wSKBx6uHc8kD5XEvaQbizLKDF9IW
-	 6imGkocN4XLv1z3zzznX1DiVacl56IF3yiJ5u/Fi/NHsp7nW+G5zVTiix5JMAxM35lrhS
-	 HTiql96mTlDBtdDyK9BS1hnTfK55Cf7e8lK6BRJhtJzaCsgCTu6wO/BE0T3+KDkjfHPy2
-	 K4HIxmnHfhnO2sEDw9rhrlNrS+6qkX3KmB9dPSVQgbP97nMsSM+t2m5eqol415a/Q5Mk7
-	 jfQEcvCdY74pHN5gegICzdQvq8dScholXIVkwEKMDgJag4Mcqsdr/0kCxx1ES2ET3sQ==
+	t=1795106813;
+	b=Nd1ZEhynBSBI2UtpVzO7M/If/9p5hShxMtTelwappc/Uep6erFmO6BvoLLffo41yzkIc
+	 Y3xQYOpBqX4apoRYDIQIlAslZ4cH1huManRezOlucPqpyVjcNsFqDIwjDY2D2hyO/Valk
+	 aZyw4+Hc6HypR1teqVYTZtjTDNoZaxf4H4h6h07kWty6MOES3TeZfUpCd5bUAw/OrGK1G
+	 W5i2J2CSUZD9vRISw8fiA59Da4WLbwOOvMGufiLCn++X6wq5t6/hcUjdLfwZYf5R7nIyX
+	 7fnGZrqW2U0hAdMd/z3wBvuGsPE83vXvxgETvJbH5wYf1ueztNVvY3cWjooD28WSF3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106811;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106813;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=QPsRk9aamTs9edR6WRWyAqP5ZnSMo1RzLxXrk8WnPjU=;
-	b=VuUkv1g0yun6vBfm2StrQdvekSZgV5rBvRONBv4VZImm8ND1WyVZ/phDK10yLd4vdGjq
-	 SqpbEyfNn2AmBgH+xB3hMYWoPsUUqjQO11hhRHRUQhkq34beW22x6dKyLEap3rcSgGYYv
-	 k91EHcEuUjWNU6axfpS1eJ9UzrH4Em8BdpiH414d4z7mRpl7NP5t/wEsdaUoB2RFmH91u
-	 rZzeiB//b5gP8784RtN8nmc8S9zsaK7fLMswkipvskKexqA3RB9v6aVRrI/AS07rx47aR
-	 vBXPTCIwc6bzZb7nwBkTJE24YNYYepCcNSzlUiYIntXIOKccd17KcGXaehcRJlIF5FA==
+	bh=ehxB1VgKPRwPEOV+A2fFuyHiPaDpvgqInIZcRS0d3/o=;
+	b=v5NKDUdjOcT/LCCo8N6Tev10cqGz3HV6WCaD9CGG2+y6UnM+eEY8MsDpte1UE/7JOGFN
+	 C4Tl44smyNJxzyDq484cn9/I3mO5PfHH1+ApXXUJPi8Tzh1YP0lg75gy4xn4TGNQXBkGq
+	 E25GCnVOC4sBuogydiRlY1+UjspMi6INI3WuvVqjOaq3AqR5u1iUK7WRmgk9enVl8I2b0
+	 wVwqDHcN1ZYs0Q5P6ENLw703jpqyChD3tsN3iwVVBuBmZmPDrEC89xgbOLDrLznP9NiNr
+	 f6jw/3AQ1e6a04wPj0b/CNBcs1T/X4bXnFAgiQcZ3+JxC4zxOu8uxBu8qgC2TuH1zsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Kcwqg9cK;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gyKkj6Gu;
 	arc=none smtp.remote-ip=192.198.163.16
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F15606A33B
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:46:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F15606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35FAB606A33B
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:46:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35FAB606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Kcwqg9cK
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gyKkj6Gu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795106811; x=1826642811;
+  t=1795106813; x=1826642813;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=dvW7oS3iQesoGebH6fka+i61nQU1s9ch28eICvtl2nA=;
-  b=Kcwqg9cKXt/azU7ldzpdBIEErnamvqJ+JghicGMiZg/IIAUsuHRFgdYf
-   oKF1ptSFHGbqV3f0/193ztoM044mGNTe/TK7M8NJ84KNY4+axkj14uweU
-   ldX3lYrB6qXMaUZDv5YRDRNXSpB4n/wv5thIWwbGeyLR9QmShJcayNf90
-   5+FqtJfo7//pkMf8XM6CS8IG8Zi8jEsrXUrGVSnbyW+rHZI0apl7VVxYk
-   9ta3ZQdRUFUnhPJKt+oOo26Vab+Uz7/Kl5BjK3+QJrSWyjAuFgxs5qRqF
-   S66UMo/nzxh5IK2iStdvsLfqSzd/ydzKxax/zC+qqR/Sa3NqUF9nq6p0G
+  bh=PeF74ynoemrNZ+wJdBCncAzUPcjYyBM65FU/c/B11W8=;
+  b=gyKkj6GuKNuldTRexhIziBeYCIu8zTDCYbqFqZIZpL75zWKF4JJNdS5e
+   Ky000uplmV6qdvFViBtqMbhqXXYKl+SpeO2Ye2x56NPh3RbfKQd5bxdkz
+   Cfi4M+flbvALK6mT/JtqXSi8vIKU7ZJDtPikfJJIA7EQpjEBH9b8fAIJX
+   unuyobIleBZsNolAmDjondVwxOMN7AjcHiNh5K+qGcVKov7Lg8M/nxnxI
+   1nnOnx6ruiZ+rbESgkrEfkpO3Ix9pBQfMj3s+sCFRRxIVdKJhspezl4Bi
+   2QLE9ctuyvSSGtXCp6nQJuPctRh9CSL1jMsFxrGTm6qpbJuwIidxgaahn
    A==;
-X-CSE-ConnectionGUID: lmX/IJ1SRGKHj0AwhbtFFg==
-X-CSE-MsgGUID: ZVzYGsG1QRmeM9kxDWRpBQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3991090"
+X-CSE-ConnectionGUID: Px4itbDyQCWTYU23beNQ4w==
+X-CSE-MsgGUID: yXtSS2epQ/OqR+pCRUgevQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3991105"
 X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3991090"
+   d="scan'208";a="3991105"
 Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 08:46:51 -0800
-X-CSE-ConnectionGUID: 0Iv14yeFRlWGYHpS6KAq/A==
-X-CSE-MsgGUID: GCPOi5WXSaSDHjbiUlqqLw==
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 08:46:53 -0800
+X-CSE-ConnectionGUID: zQy2XustRkmLzXrKJ7MI9w==
+X-CSE-MsgGUID: RtVyXk6lTNizH0NhEf/wQQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10843356"
+   d="scan'208";a="10843361"
 Received: from boxer.igk.intel.com ([10.102.20.173])
-  by fmviesa007.fm.intel.com with ESMTP; 19 Nov 2026 08:46:48 -0800
+  by fmviesa007.fm.intel.com with ESMTP; 19 Nov 2026 08:46:51 -0800
 From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 To: netdev@vger.kernel.org
 Cc: magnus.karlsson@intel.com,
@@ -71,9 +71,9 @@ Cc: magnus.karlsson@intel.com,
 	kerneljasonxing@gmail.com,
 	bjorn@kernel.org,
 	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: [PATCH v5 net-next 03/13] selftests: xsk: drop the single-interface loopback mode
-Date: Thu, 19 Nov 2026 17:46:26 +0100
-Message-Id: <20261119164636.1071385-4-maciej.fijalkowski@intel.com>
+Subject: [PATCH v5 net-next 04/13] selftests: xsk: collect interface capabilities in struct xsk_caps
+Date: Thu, 19 Nov 2026 17:46:27 +0100
+Message-Id: <20261119164636.1071385-5-maciej.fijalkowski@intel.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20261119164636.1071385-1-maciej.fijalkowski@intel.com>
 References: <20261119164636.1071385-1-maciej.fijalkowski@intel.com>
@@ -89,671 +89,317 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-xskxceiver -i ethX -i ethX, used for HW tests, bound both sockets to
-queue 0 of one interface, which the kernel only allows with a shared
-UMEM. With the endpoints about to become separate processes, they would
-have to share the UMEM mapping and the socket fd.
+A later patch runs the TX and RX endpoints of a case as separate
+processes, possibly on different hosts, each binding only its own
+interface. The shared test code still looks at the capabilities of both
+ifobjects, e.g. to check both for multi-buffer support or to size the
+RX batch from the TX ring limit. As the endpoints do not exchange
+capabilities, a process will represent the other side by a shadow
+ifobject that mirrors the local ones.
 
-The mode also relied on the interface being set up by hand with a
-single queue and promiscuous mode, which does not suit CI. The hardware
-test added later in this series steers its traffic with ntuple and RSS
-configuration instead.
-
-Remove the shared-UMEM TX setup, the split UMEM addressing and the
-POLL_TXQ_FULL workaround it needed, and drop the -i IFACE option of
-test_xsk.sh that used it. XDP_SHARED_UMEM (two sockets of one endpoint)
-is unaffected.
-
-test_xsk.sh ran HW_SW_MIN_RING_SIZE and HW_SW_MAX_RING_SIZE only in
-this mode, as veth has no ring parameters. xskxceiver resized the rings
-for them and restored the sizes it had found only when it exited, so a
-killed run left the test sizes behind for the next run to take as the
-defaults. Drop the resizing with the mode, and set_hw_ring_size() with
-it, as nothing else uses it: the hardware test sizes the rings with
-ethtool -G and restores them after each case, however the endpoints
-end. Both cases still skip on interfaces without ring parameters, and
-HW_SW_MAX_RING_SIZE still reads the maximum TX ring size for its
-batches.
+Prepare for that by replacing the per-interface support booleans and
+limits in struct ifobject with one struct xsk_caps, so that mirroring
+takes a single struct assignment and a capability added later cannot
+be left out of the copy. The maximum TX ring size, which comes from the
+ethtool ring parameters that a shadow does not mirror, is copied there
+too. ifobj_has_cap() and ifobj_set_cap() test and set the flags, and
+xsk_get_cap() reads a limit from the TX ifobject, the only one that has
+all of them set, as the open-coded reads did.
 
 Reviewed-by: Björn Töpel <bjorn@kernel.org>
 Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 ---
- .../testing/selftests/net/lib/xsk/test_xsk.c  | 164 ++++--------------
- .../testing/selftests/net/lib/xsk/test_xsk.h  |  12 --
- tools/testing/selftests/net/lib/xsk/xsk.c     |  24 ---
- tools/testing/selftests/net/lib/xsk/xsk.h     |   1 -
- .../selftests/net/lib/xsk/xskxceiver.c        |  13 +-
- tools/testing/selftests/net/test_xsk.sh       |  49 ++----
- tools/testing/selftests/net/xsk_prereqs.sh    |   7 -
- 7 files changed, 50 insertions(+), 220 deletions(-)
+ .../testing/selftests/net/lib/xsk/test_xsk.c  | 84 +++++++++++--------
+ .../testing/selftests/net/lib/xsk/test_xsk.h  | 34 ++++++--
+ .../selftests/net/lib/xsk/xskxceiver.c        | 14 ++--
+ 3 files changed, 83 insertions(+), 49 deletions(-)
 
 diff --git a/tools/testing/selftests/net/lib/xsk/test_xsk.c b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-index 0b2aa6919d72..bb66f34652aa 100644
+index bb66f34652aa..2daca147aa63 100644
 --- a/tools/testing/selftests/net/lib/xsk/test_xsk.c
 +++ b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-@@ -101,10 +101,6 @@ int xsk_configure_umem(struct ifobject *ifobj, struct xsk_umem_info *umem, void
- 		return ret;
- 
- 	umem->buffer = buffer;
--	if (ifobj->shared_umem && ifobj->rx_on) {
--		umem->base_addr = umem_size(umem);
--		umem->next_buffer = umem_size(umem);
--	}
- 
- 	return 0;
- }
-@@ -115,8 +111,8 @@ static u64 umem_alloc_buffer(struct xsk_umem_info *umem)
- 
- 	addr = umem->next_buffer;
- 	umem->next_buffer += umem->frame_size;
--	if (umem->next_buffer >= umem->base_addr + umem_size(umem))
--		umem->next_buffer = umem->base_addr;
-+	if (umem->next_buffer >= umem_size(umem))
-+		umem->next_buffer = 0;
- 
- 	return addr;
- }
-@@ -173,33 +169,6 @@ int xsk_configure_socket(struct xsk_socket_info *xsk, struct xsk_umem_info *umem
- 	return xsk_socket__create(&xsk->xsk, ifobject->ifindex, 0, umem->umem, rxr, txr, &cfg);
- }
- 
--static int set_ring_size(struct ifobject *ifobj)
--{
--	int ret;
--	u32 ctr = 0;
--
--	while (ctr++ < SOCK_RECONF_CTR) {
--		ret = set_hw_ring_size(ifobj->ifname, &ifobj->ring);
--		if (!ret)
--			break;
--
--		/* Retry if it fails */
--		if (ctr >= SOCK_RECONF_CTR || errno != EBUSY)
--			return -errno;
--
--		usleep(USLEEP_MAX);
--	}
--
--	return ret;
--}
--
--int hw_ring_size_reset(struct ifobject *ifobj)
--{
--	ifobj->ring.tx_pending = ifobj->set_ring.default_tx;
--	ifobj->ring.rx_pending = ifobj->set_ring.default_rx;
--	return set_ring_size(ifobj);
--}
--
- static void __test_spec_init(struct test_spec *test, struct ifobject *ifobj_tx,
- 			     struct ifobject *ifobj_rx)
+@@ -1743,20 +1743,24 @@ static int __testapp_validate_traffic(struct test_spec *test, struct ifobject *i
+ 				      struct ifobject *ifobj2)
  {
-@@ -207,7 +176,7 @@ static void __test_spec_init(struct test_spec *test, struct ifobject *ifobj_tx,
- 
- 	for (i = 0; i < MAX_INTERFACES; i++) {
- 		struct ifobject *ifobj = i ? ifobj_rx : ifobj_tx;
--		struct xsk_umem_info *umem_real;
-+		struct xsk_umem_info *umem;
- 
- 		ifobj->xsk = &ifobj->xsk_arr[0];
- 		ifobj->use_poll = false;
-@@ -224,16 +193,14 @@ static void __test_spec_init(struct test_spec *test, struct ifobject *ifobj_tx,
- 			ifobj->tx_on = false;
- 		}
- 
--		umem_real = ifobj->xsk_arr[0].umem_real;
--		memset(umem_real, 0, sizeof(*umem_real));
-+		umem = ifobj->xsk_arr[0].umem;
-+		memset(umem, 0, sizeof(*umem));
- 		for (j = 0; j < MAX_SOCKETS; j++) {
- 			struct xsk_socket_info *xsk = &ifobj->xsk_arr[j];
- 
- 			memset(xsk, 0, sizeof(*xsk));
- 			xsk->rxqsize = XSK_RING_CONS__DEFAULT_NUM_DESCS;
--			if (j == 0)
--				xsk->umem_real = umem_real;
--			xsk->umem = umem_real;
-+			xsk->umem = umem;
- 			xsk->batch_size = DEFAULT_BATCH_SIZE;
- 			if (i == 0)
- 				xsk->pkt_stream = test->tx_pkt_stream_default;
-@@ -250,16 +217,12 @@ static void __test_spec_init(struct test_spec *test, struct ifobject *ifobj_tx,
- 		ifobj->xsk->umem->frame_size = XSK_UMEM__DEFAULT_FRAME_SIZE;
- 	}
- 
--	if (ifobj_tx->hw_ring_size_supp)
--		hw_ring_size_reset(ifobj_tx);
--
- 	test->ifobj_tx = ifobj_tx;
- 	test->ifobj_rx = ifobj_rx;
- 	test->current_step = 0;
- 	test->total_steps = 1;
- 	test->nb_sockets = 1;
- 	test->fail = false;
--	test->set_ring = false;
- 	test->adjust_tail = false;
- 	test->adjust_tail_support = false;
- 	test->mtu = MAX_ETH_PKT_SIZE;
-@@ -825,8 +788,6 @@ static bool is_frag_valid(struct xsk_umem_info *umem, u64 addr, u32 len, u32 exp
- 	void *data = xsk_umem__get_data(umem->buffer, addr);
- 	u64 umem_sz = umem_size(umem);
- 
--	addr -= umem->base_addr;
--
- 	if (addr >= umem_sz || addr + len > umem_sz) {
- 		ksft_print_msg("Frag invalid addr: %llx len: %u\n",
- 			       (unsigned long long)addr, len);
-@@ -1164,7 +1125,7 @@ static int __send_pkts(struct ifobject *ifobject, struct xsk_socket_info *xsk,
- 		       bool test_timeout)
- {
- 	u32 i, idx = 0, valid_pkts = 0, valid_frags = 0, buffer_len;
--	struct xsk_umem_info *umem = ifobject->xsk_arr[0].umem_real;
-+	struct xsk_umem_info *umem = ifobject->xsk_arr[0].umem;
- 	struct pkt_stream *pkt_stream = xsk->pkt_stream;
- 	bool use_poll = ifobject->use_poll;
- 	struct pollfd fds = { };
-@@ -1468,12 +1429,12 @@ static int validate_tx_invalid_descs(struct ifobject *ifobject)
- }
- 
- static int xsk_configure(struct test_spec *test, struct ifobject *ifobject,
--			  struct xsk_umem_info *umem, bool tx)
-+			  struct xsk_umem_info *umem)
- {
- 	int i, ret;
- 
- 	for (i = 0; i < test->nb_sockets; i++) {
--		bool shared = (ifobject->shared_umem && tx) ? true : !!i;
-+		bool shared = !!i;
- 		u32 ctr = 0;
- 
- 		while (ctr++ < SOCK_RECONF_CTR) {
-@@ -1497,31 +1458,6 @@ static int xsk_configure(struct test_spec *test, struct ifobject *ifobject,
- 	return 0;
- }
- 
--static int thread_common_ops_tx(struct test_spec *test, struct ifobject *ifobject)
--{
--	struct xsk_umem_info *umem_rx, *umem_tx;
--	int ret;
--
--	if (!test->ifobj_rx || !test->ifobj_rx->xsk_arr[0].umem->umem) {
--		ksft_print_msg("Error: RX UMEM is not initialized before shared-UMEM TX setup\n");
--		return -EINVAL;
--	}
--
--	umem_rx = test->ifobj_rx->xsk_arr[0].umem;
--	umem_tx = ifobject->xsk_arr[0].umem_real;
--	memcpy(umem_tx, umem_rx, sizeof(*umem_tx));
--	umem_tx->base_addr = 0;
--	umem_tx->next_buffer = 0;
--
--	ret = xsk_configure(test, ifobject, umem_rx, true);
--	if (ret)
--		return ret;
--	ifobject->xsk = &ifobject->xsk_arr[0];
--	ifobject->xskmap = test->ifobj_rx->xskmap;
--
--	return 0;
--}
--
- static int xsk_populate_fill_ring(struct xsk_umem_info *umem, struct pkt_stream *pkt_stream,
- 				   bool fill_up)
- {
-@@ -1547,7 +1483,7 @@ static int xsk_populate_fill_ring(struct xsk_umem_info *umem, struct pkt_stream
- 			if (!pkt) {
- 				if (!fill_up)
- 					break;
--				addr = filled * umem->frame_size + umem->base_addr;
-+				addr = filled * umem->frame_size;
- 			} else if (pkt->offset >= 0) {
- 				addr = pkt->offset % umem->frame_size + umem_alloc_buffer(umem);
- 			} else {
-@@ -1584,9 +1520,6 @@ static int thread_common_ops(struct test_spec *test, struct ifobject *ifobject)
- 	if (umem->unaligned_mode)
- 		mmap_flags |= MAP_HUGETLB | MAP_HUGE_2MB;
- 
--	if (ifobject->shared_umem)
--		umem_sz *= 2;
--
- 	mmap_sz = umem->unaligned_mode ?
- 		ceil_u64(umem_sz, HUGEPAGE_SIZE) * HUGEPAGE_SIZE : umem_sz;
- 
-@@ -1600,7 +1533,7 @@ static int thread_common_ops(struct test_spec *test, struct ifobject *ifobject)
- 	if (ret)
- 		return ret;
- 
--	ret = xsk_configure(test, ifobject, umem, false);
-+	ret = xsk_configure(test, ifobject, umem);
- 	if (ret)
- 		return ret;
- 
-@@ -1629,10 +1562,7 @@ static int testapp_validate_tx_endpoint(struct test_spec *test,
+ 	pthread_t t0, t1;
++	u32 mbuf_cap;
  	int err;
  
- 	if (test->current_step == 1) {
--		if (!ifobject->shared_umem)
--			err = thread_common_ops(test, ifobject);
--		else
--			err = thread_common_ops_tx(test, ifobject);
-+		err = thread_common_ops(test, ifobject);
- 		if (err)
- 			return err;
- 	}
-@@ -1779,7 +1709,7 @@ static int xsk_attach_xdp_progs(struct test_spec *test, struct ifobject *ifobj_r
- 			return err;
- 	}
- 
--	if (!ifobj_tx || ifobj_tx->shared_umem)
-+	if (!ifobj_tx)
- 		return 0;
- 
- 	if (xdp_prog_changed_tx(test))
-@@ -1805,7 +1735,7 @@ static void clean_umem(struct test_spec *test, struct ifobject *ifobj1, struct i
- 		return;
- 
- 	testapp_clean_xsk_umem(ifobj1);
--	if (ifobj2 && !ifobj2->shared_umem)
-+	if (ifobj2)
- 		testapp_clean_xsk_umem(ifobj2);
- }
- 
-@@ -1897,18 +1827,6 @@ static int testapp_validate_traffic(struct test_spec *test)
- 		return TEST_SKIP;
- 	}
- 
--	if (test->set_ring) {
--		if (ifobj_tx->hw_ring_size_supp) {
--			if (set_ring_size(ifobj_tx)) {
--				ksft_print_msg("Failed to change HW ring size.\n");
--				return TEST_FAILURE;
--			}
--		} else {
--			ksft_print_msg("Changing HW ring size not supported.\n");
+-	if (test->mtu > MAX_ETH_PKT_SIZE) {
+-		if (test->mode == TEST_MODE_ZC && (!ifobj1->multi_buff_zc_supp ||
+-						   (ifobj2 && !ifobj2->multi_buff_zc_supp))) {
+-			ksft_print_msg("Multi buffer for zero-copy not supported.\n");
 -			return TEST_SKIP;
 -		}
--	}
--
- 	return __testapp_validate_traffic(test, ifobj_rx, ifobj_tx);
- }
+-		if (test->mode != TEST_MODE_ZC && (!ifobj1->multi_buff_supp ||
+-						   (ifobj2 && !ifobj2->multi_buff_supp))) {
+-			ksft_print_msg("Multi buffer not supported.\n");
+-			return TEST_SKIP;
+-		}
++	if (test->mtu <= MAX_ETH_PKT_SIZE)
++		goto skip_mbuf_check;
++
++	mbuf_cap = test->mode == TEST_MODE_ZC ? XSK_CAP_MBUF_ZC :
++						XSK_CAP_MBUF;
++
++	if (!ifobj_has_cap(ifobj1, mbuf_cap) ||
++	    (ifobj2 && !ifobj_has_cap(ifobj2, mbuf_cap))) {
++		ksft_print_msg("Multi buffer%s not supported.\n",
++			       mbuf_cap == XSK_CAP_MBUF_ZC ?
++			       " for zero-copy" : "");
++		return TEST_SKIP;
+ 	}
++
++skip_mbuf_check:
+ 	err = test_spec_set_mtu(test, test->mtu);
+ 	if (err) {
+ 		ksft_print_msg("Error, could not set mtu.\n");
+@@ -1821,8 +1825,10 @@ static int testapp_validate_traffic(struct test_spec *test)
+ 	struct ifobject *ifobj_rx = test->ifobj_rx;
+ 	struct ifobject *ifobj_tx = test->ifobj_tx;
  
-@@ -2184,12 +2102,6 @@ int testapp_invalid_desc(struct test_spec *test)
- 		pkts[8].valid = false;
+-	if ((ifobj_rx->xsk->umem->unaligned_mode && !ifobj_rx->unaligned_supp) ||
+-	    (ifobj_tx->xsk->umem->unaligned_mode && !ifobj_tx->unaligned_supp)) {
++	if ((ifobj_rx->xsk->umem->unaligned_mode &&
++	     !ifobj_has_cap(ifobj_rx, XSK_CAP_UNALIGNED)) ||
++	    (ifobj_tx->xsk->umem->unaligned_mode &&
++	     !ifobj_has_cap(ifobj_tx, XSK_CAP_UNALIGNED))) {
+ 		ksft_print_msg("No huge pages present.\n");
+ 		return TEST_SKIP;
+ 	}
+@@ -1922,7 +1928,7 @@ int testapp_headroom(struct test_spec *test)
+ int testapp_stats_rx_dropped(struct test_spec *test)
+ {
+ 	struct xsk_umem_info *umem = test->ifobj_rx->xsk->umem;
+-	u32 umem_tr = test->ifobj_tx->umem_tailroom;
++	u32 umem_tr = xsk_get_cap(test, umem_tailroom);
+ 
+ 	if (test->mode == TEST_MODE_ZC) {
+ 		ksft_print_msg("Can not run RX_DROPPED test for ZC mode\n");
+@@ -2184,9 +2190,9 @@ int testapp_too_many_frags(struct test_spec *test)
+ 	int ret = TEST_FAILURE;
+ 
+ 	if (test->mode == TEST_MODE_ZC) {
+-		max_frags = test->ifobj_tx->xdp_zc_max_segs;
++		max_frags = xsk_get_cap(test, xdp_zc_max_segs);
+ 	} else {
+-		max_frags = test->ifobj_tx->max_skb_frags;
++		max_frags = xsk_get_cap(test, max_skb_frags);
+ 		max_frags += 1;
  	}
  
--	if (test->ifobj_tx->shared_umem) {
--		pkts[4].offset += umem_sz;
--		pkts[5].offset += umem_sz;
--		pkts[6].offset += umem_sz;
--	}
--
- 	if (pkt_stream_generate_custom(test, pkts, ARRAY_SIZE(pkts)))
- 		return TEST_FAILURE;
- 	return testapp_validate_traffic(test);
-@@ -2248,28 +2160,14 @@ int testapp_xdp_shared_umem(struct test_spec *test)
+@@ -2246,7 +2252,6 @@ static int xsk_load_xdp_programs(struct ifobject *ifobj)
+ 	return 0;
+ }
  
- int testapp_poll_txq_tmout(struct test_spec *test)
+-/* Simple test */
+ static bool hugepages_present(void)
  {
--	bool shared_umem = test->ifobj_tx->shared_umem;
--	int ret;
+ 	size_t mmap_sz = 2 * DEFAULT_UMEM_BUFFERS * XSK_UMEM__DEFAULT_FRAME_SIZE;
+@@ -2262,21 +2267,13 @@ static bool hugepages_present(void)
+ 	return true;
+ }
+ 
+-int init_iface(struct ifobject *ifobj, thread_func_t func_ptr)
++static int detect_ifobj_caps(struct ifobject *ifobj)
+ {
+ 	LIBBPF_OPTS(bpf_xdp_query_opts, query_opts);
+ 	int err;
+ 
+-	ifobj->func_ptr = func_ptr;
 -
- 	test->poll_tmout = true;
--	/*
--	 * POLL_TXQ_FULL exercises TX timeout setup in isolation.
--	 * Keep TX out of shared-UMEM mode here so TX setup does not require
--	 * RX UMEM to be initialized first.
--	 */
--	test->ifobj_tx->shared_umem = false;
- 	test->ifobj_tx->use_poll = true;
- 	/* create invalid frame by set umem frame_size and pkt length equal to 2048 */
- 	test->ifobj_tx->xsk->umem->frame_size = 2048;
--	if (pkt_stream_replace(test, 2 * DEFAULT_PKT_CNT, 2048)) {
--		test->ifobj_tx->shared_umem = shared_umem;
-+	if (pkt_stream_replace(test, 2 * DEFAULT_PKT_CNT, 2048))
- 		return TEST_FAILURE;
+-	err = xsk_load_xdp_programs(ifobj);
+-	if (err) {
+-		ksft_print_msg("Error loading XDP program\n");
+-		return err;
 -	}
 -
--	ret = testapp_validate_traffic_single_thread(test, test->ifobj_tx);
--	test->ifobj_tx->shared_umem = shared_umem;
+ 	if (hugepages_present())
+-		ifobj->unaligned_supp = true;
++		ifobj_set_cap(ifobj, XSK_CAP_UNALIGNED);
  
--	return ret;
-+	return testapp_validate_traffic_single_thread(test, test->ifobj_tx);
+ 	err = bpf_xdp_query(ifobj->ifindex, XDP_FLAGS_DRV_MODE, &query_opts);
+ 	if (err) {
+@@ -2284,19 +2281,34 @@ int init_iface(struct ifobject *ifobj, thread_func_t func_ptr)
+ 		return err;
+ 	}
+ 	if (query_opts.feature_flags & NETDEV_XDP_ACT_RX_SG)
+-		ifobj->multi_buff_supp = true;
++		ifobj_set_cap(ifobj, XSK_CAP_MBUF);
+ 	if (query_opts.feature_flags & NETDEV_XDP_ACT_XSK_ZEROCOPY) {
+ 		if (query_opts.xdp_zc_max_segs > 1) {
+-			ifobj->multi_buff_zc_supp = true;
+-			ifobj->xdp_zc_max_segs = query_opts.xdp_zc_max_segs;
++			ifobj_set_cap(ifobj, XSK_CAP_MBUF_ZC);
++			ifobj->caps.xdp_zc_max_segs = query_opts.xdp_zc_max_segs;
+ 		} else {
+-			ifobj->xdp_zc_max_segs = 0;
++			ifobj->caps.xdp_zc_max_segs = 0;
+ 		}
+ 	}
+ 
+ 	return 0;
  }
  
- int testapp_poll_rxq_tmout(struct test_spec *test)
-@@ -2481,14 +2379,19 @@ int testapp_xdp_metadata_mb(struct test_spec *test)
- 	return testapp_xdp_metadata_copy(test);
- }
- 
-+/* Expects the HW TX ring of the sender to hold DEFAULT_BATCH_SIZE
-+ * descriptors.
-+ */
- int testapp_hw_sw_min_ring_size(struct test_spec *test)
++int init_iface(struct ifobject *ifobj, thread_func_t func_ptr)
++{
++	int err;
++
++	ifobj->func_ptr = func_ptr;
++
++	err = xsk_load_xdp_programs(ifobj);
++	if (err) {
++		ksft_print_msg("Error loading XDP program\n");
++		return err;
++	}
++
++	return detect_ifobj_caps(ifobj);
++}
++
+ int testapp_send_receive(struct test_spec *test)
+ {
+ 	return testapp_validate_traffic(test);
+@@ -2386,7 +2398,7 @@ int testapp_hw_sw_min_ring_size(struct test_spec *test)
  {
  	int ret;
  
--	test->set_ring = true;
-+	if (!test->ifobj_tx->hw_ring_size_supp) {
-+		ksft_print_msg("HW ring sizes not supported.\n");
-+		return TEST_SKIP;
-+	}
-+
- 	test->total_steps = 2;
--	test->ifobj_tx->ring.tx_pending = DEFAULT_BATCH_SIZE;
--	test->ifobj_tx->ring.rx_pending = DEFAULT_BATCH_SIZE * 2;
- 	test->ifobj_tx->xsk->batch_size = 1;
- 	test->ifobj_rx->xsk->batch_size = 1;
- 	ret = testapp_validate_traffic(test);
-@@ -2501,23 +2404,26 @@ int testapp_hw_sw_min_ring_size(struct test_spec *test)
- 	return testapp_validate_traffic(test);
- }
- 
-+/* Expects the HW TX ring of the sender and the HW RX ring of the receiver
-+ * at their maximum sizes.
-+ */
- int testapp_hw_sw_max_ring_size(struct test_spec *test)
- {
- 	u32 max_descs = XSK_RING_PROD__DEFAULT_NUM_DESCS * 4;
+-	if (!test->ifobj_tx->hw_ring_size_supp) {
++	if (!ifobj_has_cap(test->ifobj_tx, XSK_CAP_HW_RING)) {
+ 		ksft_print_msg("HW ring sizes not supported.\n");
+ 		return TEST_SKIP;
+ 	}
+@@ -2413,12 +2425,12 @@ int testapp_hw_sw_max_ring_size(struct test_spec *test)
  	u32 batch_size;
  	int ret;
  
-+	if (!test->ifobj_tx->hw_ring_size_supp) {
-+		ksft_print_msg("HW ring sizes not supported.\n");
-+		return TEST_SKIP;
-+	}
+-	if (!test->ifobj_tx->hw_ring_size_supp) {
++	if (!ifobj_has_cap(test->ifobj_tx, XSK_CAP_HW_RING)) {
+ 		ksft_print_msg("HW ring sizes not supported.\n");
+ 		return TEST_SKIP;
+ 	}
  	/* The second step sends batches of tx_max_pending - 8 descriptors. */
--	if (test->ifobj_tx->hw_ring_size_supp &&
--	    test->ifobj_tx->ring.tx_max_pending <= 8) {
-+	if (test->ifobj_tx->ring.tx_max_pending <= 8) {
+-	if (test->ifobj_tx->ring.tx_max_pending <= 8) {
++	if (xsk_get_cap(test, tx_max_pending) <= 8) {
  		ksft_print_msg("HW TX ring too small.\n");
  		return TEST_SKIP;
  	}
+@@ -2441,7 +2453,7 @@ int testapp_hw_sw_max_ring_size(struct test_spec *test)
+ 	 * updating the Rx HW tail register. __send_pkts() waits until a whole batch fits
+ 	 * in the XSK TX ring, so keep it below that ring's size on NICs with larger rings.
+ 	 */
+-	batch_size = min(test->ifobj_tx->ring.tx_max_pending, max_descs) - 8;
++	batch_size = min(xsk_get_cap(test, tx_max_pending), max_descs) - 8;
+ 	test->ifobj_tx->xsk->batch_size = batch_size;
+ 	test->ifobj_rx->xsk->batch_size = batch_size;
+ 	if (pkt_stream_replace(test, max_descs, MIN_PKT_SIZE)) {
+@@ -2536,7 +2548,7 @@ int testapp_adjust_tail_grow_mb(struct test_spec *test)
+ 	grow_size = XSK_UMEM__MAX_FRAME_SIZE -
+ 		    XSK_UMEM__LARGE_FRAME_SIZE -
+ 		    XDP_PACKET_HEADROOM -
+-		    test->ifobj_tx->umem_tailroom;
++		    xsk_get_cap(test, umem_tailroom);
+ 	test->mtu = MAX_ETH_JUMBO_SIZE;
  
--	test->set_ring = true;
- 	test->total_steps = 2;
--	test->ifobj_tx->ring.tx_pending = test->ifobj_tx->ring.tx_max_pending;
--	test->ifobj_tx->ring.rx_pending  = test->ifobj_tx->ring.rx_max_pending;
- 	test->ifobj_rx->xsk->umem->num_frames = max_descs;
- 	test->ifobj_rx->xsk->umem->fill_size = max_descs;
- 	test->ifobj_rx->xsk->umem->comp_size = max_descs;
-@@ -2666,8 +2572,8 @@ struct ifobject *ifobject_create(void)
- 	if (!ifobj->xsk_arr)
- 		goto out_xsk_arr;
- 
--	ifobj->xsk_arr[0].umem_real = calloc(1, sizeof(struct xsk_umem_info));
--	if (!ifobj->xsk_arr[0].umem_real)
-+	ifobj->xsk_arr[0].umem = calloc(1, sizeof(struct xsk_umem_info));
-+	if (!ifobj->xsk_arr[0].umem)
- 		goto out_umem;
- 
- 	return ifobj;
-@@ -2682,7 +2588,7 @@ struct ifobject *ifobject_create(void)
- void ifobject_delete(struct ifobject *ifobj)
- {
- 	if (ifobj->xsk_arr)
--		free(ifobj->xsk_arr[0].umem_real);
-+		free(ifobj->xsk_arr[0].umem);
- 
- 	free(ifobj->xsk_arr);
- 	free(ifobj);
+ 	return testapp_adjust_tail(test, grow_size, XSK_UMEM__LARGE_FRAME_SIZE * 2);
 diff --git a/tools/testing/selftests/net/lib/xsk/test_xsk.h b/tools/testing/selftests/net/lib/xsk/test_xsk.h
-index 2506b0dcc6bf..410702f89dc9 100644
+index 410702f89dc9..716ea044797c 100644
 --- a/tools/testing/selftests/net/lib/xsk/test_xsk.h
 +++ b/tools/testing/selftests/net/lib/xsk/test_xsk.h
-@@ -83,7 +83,6 @@ typedef int (*test_func_t)(struct test_spec *test);
- struct xsk_socket_info {
- 	struct xsk_ring_cons rx;
- 	struct xsk_ring_prod tx;
--	struct xsk_umem_info *umem_real;
- 	struct xsk_umem_info *umem;
- 	struct xsk_socket *xsk;
- 	struct pkt_stream *pkt_stream;
-@@ -108,19 +107,11 @@ struct xsk_umem_info {
- 	u32 frame_headroom;
- 	void *buffer;
- 	u32 frame_size;
--	u32 base_addr;
- 	u32 fill_size;
- 	u32 comp_size;
+@@ -112,8 +112,22 @@ struct xsk_umem_info {
  	bool unaligned_mode;
  };
  
--struct set_hw_ring {
--	u32 default_tx;
--	u32 default_rx;
--};
--
--int hw_ring_size_reset(struct ifobject *ifobj);
--
++#define XSK_CAP_UNALIGNED        (1U << 0)
++#define XSK_CAP_MBUF             (1U << 1)
++#define XSK_CAP_MBUF_ZC          (1U << 2)
++#define XSK_CAP_HW_RING          (1U << 3)
++
++struct xsk_caps {
++	u32 flags;
++	u32 xdp_zc_max_segs;
++	u32 max_skb_frags;
++	u32 umem_tailroom;
++	u32 tx_max_pending;
++};
++
  struct ifobject {
  	char ifname[MAX_INTERFACE_NAME_CHARS];
++	struct xsk_caps caps;
  	struct xsk_socket_info *xsk;
-@@ -131,7 +122,6 @@ struct ifobject {
- 	struct bpf_map *xskmap;
- 	struct bpf_program *xdp_prog;
- 	struct ethtool_ringparam ring;
--	struct set_hw_ring set_ring;
- 	enum test_mode mode;
+ 	struct xsk_socket_info *xsk_arr;
+ 	thread_func_t func_ptr;
+@@ -126,9 +140,6 @@ struct ifobject {
  	int ifindex;
  	int mtu;
-@@ -145,7 +135,6 @@ struct ifobject {
- 	bool busy_poll;
+ 	u32 bind_flags;
+-	u32 xdp_zc_max_segs;
+-	u32 umem_tailroom;
+-	u32 max_skb_frags;
+ 	bool tx_on;
+ 	bool rx_on;
+ 	bool use_poll;
+@@ -136,11 +147,20 @@ struct ifobject {
  	bool use_fill_ring;
  	bool release_rx;
--	bool shared_umem;
  	bool use_metadata;
- 	bool unaligned_supp;
- 	bool multi_buff_supp;
-@@ -204,7 +193,6 @@ struct test_spec {
- 	u16 current_step;
- 	u16 nb_sockets;
- 	bool fail;
--	bool set_ring;
- 	bool adjust_tail;
- 	bool adjust_tail_support;
- 	bool poll_tmout;
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk.c b/tools/testing/selftests/net/lib/xsk/xsk.c
-index 6bd32caf5d08..660540efc46e 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk.c
-+++ b/tools/testing/selftests/net/lib/xsk/xsk.c
-@@ -802,27 +802,3 @@ int get_hw_ring_size(char *ifname, struct ethtool_ringparam *ring_param)
- 	close(sockfd);
- 	return 0;
- }
--
--int set_hw_ring_size(char *ifname, struct ethtool_ringparam *ring_param)
--{
--	struct ifreq ifr = {0};
--	int sockfd, err;
--
--	sockfd = socket(AF_INET, SOCK_DGRAM, 0);
--	if (sockfd < 0)
--		return -errno;
--
--	memcpy(ifr.ifr_name, ifname, sizeof(ifr.ifr_name));
--
--	ring_param->cmd = ETHTOOL_SRINGPARAM;
--	ifr.ifr_data = (char *)ring_param;
--
--	if (ioctl(sockfd, SIOCETHTOOL, &ifr) < 0) {
--		err = errno;
--		close(sockfd);
--		return -err;
--	}
--
--	close(sockfd);
--	return 0;
--}
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk.h b/tools/testing/selftests/net/lib/xsk/xsk.h
-index 3f1fea999763..94a56dd43f2e 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk.h
-+++ b/tools/testing/selftests/net/lib/xsk/xsk.h
-@@ -244,7 +244,6 @@ void xsk_socket__delete(struct xsk_socket *xsk);
- int xsk_set_mtu(int ifindex, int mtu);
- 
- int get_hw_ring_size(char *ifname, struct ethtool_ringparam *ring_param);
--int set_hw_ring_size(char *ifname, struct ethtool_ringparam *ring_param);
- 
- #ifdef __cplusplus
- } /* extern "C" */
+-	bool unaligned_supp;
+-	bool multi_buff_supp;
+-	bool multi_buff_zc_supp;
+-	bool hw_ring_size_supp;
+ };
++
++static inline bool ifobj_has_cap(const struct ifobject *ifobj, u32 cap)
++{
++	return ifobj && (ifobj->caps.flags & cap);
++}
++
++static inline void ifobj_set_cap(struct ifobject *ifobj, u32 cap)
++{
++	ifobj->caps.flags |= cap;
++}
++
++#define xsk_get_cap(test, cap) ((test)->ifobj_tx->caps.cap)
++
+ struct ifobject *ifobject_create(void);
+ void ifobject_delete(struct ifobject *ifobj);
+ int init_iface(struct ifobject *ifobj, thread_func_t func_ptr);
 diff --git a/tools/testing/selftests/net/lib/xsk/xskxceiver.c b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-index 0a63651434a5..7876ad47ed0f 100644
+index 7876ad47ed0f..d82224a4fa4b 100644
 --- a/tools/testing/selftests/net/lib/xsk/xskxceiver.c
 +++ b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-@@ -336,7 +336,6 @@ int main(int argc, char **argv)
- 	u32 i, j, failed_tests = 0, nb_tests;
- 	int modes = TEST_MODE_SKB + 1;
- 	struct test_spec test;
--	bool shared_netdev;
- 	int ret;
- 
- 	/* Use libbpf 1.0 API mode */
-@@ -383,10 +382,6 @@ int main(int argc, char **argv)
- 		ksft_exit_xfail();
+@@ -361,15 +361,15 @@ int main(int argc, char **argv)
+ 		ksft_print_msg("Can't get MAX_SKB_FRAGS from system, using default (17)\n");
+ 		max_frags = 17;
  	}
+-	ifobj_tx->max_skb_frags = max_frags;
+-	ifobj_rx->max_skb_frags = max_frags;
++	ifobj_tx->caps.max_skb_frags = max_frags;
++	ifobj_rx->caps.max_skb_frags = max_frags;
  
--	shared_netdev = (ifobj_tx->ifindex == ifobj_rx->ifindex);
--	ifobj_tx->shared_umem = shared_netdev;
--	ifobj_rx->shared_umem = shared_netdev;
--
- 	if (!validate_interface(ifobj_tx) || !validate_interface(ifobj_rx))
- 		print_usage(argv);
+ 	/* 48 bytes is a part of skb_shared_info w/o frags array;
+ 	 * 16 bytes is sizeof(skb_frag_t)
+ 	 */
+ 	umem_tailroom = ALIGN(48 + (max_frags * 16), cache_line_size);
+-	ifobj_tx->umem_tailroom = umem_tailroom;
+-	ifobj_rx->umem_tailroom = umem_tailroom;
++	ifobj_tx->caps.umem_tailroom = umem_tailroom;
++	ifobj_rx->caps.umem_tailroom = umem_tailroom;
  
-@@ -397,11 +392,8 @@ int main(int argc, char **argv)
+ 	parse_command_line(ifobj_tx, ifobj_rx, argc, argv);
+ 
+@@ -392,8 +392,10 @@ int main(int argc, char **argv)
  	}
  
  	ret = get_hw_ring_size(ifobj_tx->ifname, &ifobj_tx->ring);
--	if (!ret) {
-+	if (!ret)
- 		ifobj_tx->hw_ring_size_supp = true;
--		ifobj_tx->set_ring.default_tx = ifobj_tx->ring.tx_pending;
--		ifobj_tx->set_ring.default_rx = ifobj_tx->ring.rx_pending;
--	}
+-	if (!ret)
+-		ifobj_tx->hw_ring_size_supp = true;
++	if (!ret) {
++		ifobj_set_cap(ifobj_tx, XSK_CAP_HW_RING);
++		ifobj_tx->caps.tx_max_pending = ifobj_tx->ring.tx_max_pending;
++	}
  
  	if (init_iface(ifobj_rx, worker_testapp_validate_rx) ||
  	    init_iface(ifobj_tx, worker_testapp_validate_tx)) {
-@@ -453,9 +445,6 @@ int main(int argc, char **argv)
- 		}
- 	}
- 
--	if (ifobj_tx->hw_ring_size_supp)
--		hw_ring_size_reset(ifobj_tx);
--
- 	pkt_stream_delete(tx_pkt_stream_default);
- 	pkt_stream_delete(rx_pkt_stream_default);
- 	xsk_unload_xdp_programs(ifobj_tx);
-diff --git a/tools/testing/selftests/net/test_xsk.sh b/tools/testing/selftests/net/test_xsk.sh
-index 448cd2462278..fbf4551d596a 100755
---- a/tools/testing/selftests/net/test_xsk.sh
-+++ b/tools/testing/selftests/net/test_xsk.sh
-@@ -71,9 +71,6 @@
- # Set up veth interfaces and leave them up so xskxceiver can be launched in a debugger:
- #   sudo ./test_xsk.sh -d
- #
--# Run test suite for physical device in loopback mode
--#   sudo ./test_xsk.sh -i IFACE
--#
- # Run test suite in a specific mode only [skb,drv,zc]
- #   sudo ./test_xsk.sh -m MODE
- #
-@@ -88,14 +85,11 @@
- 
- . xsk_prereqs.sh
- 
--ETH=""
--
--while getopts "vi:dm:lt:h" flag
-+while getopts "vdm:lt:h" flag
- do
- 	case "${flag}" in
- 		v) verbose=1;;
- 		d) debug=1;;
--		i) ETH=${OPTARG};;
- 		m) MODE=${OPTARG};;
- 		l) list=1;;
- 		t) TEST=${OPTARG};;
-@@ -162,21 +156,16 @@ if [[ $help -eq 1 ]]; then
-         exit
- fi
- 
--if [ ! -z $ETH ]; then
--	VETH0=${ETH}
--	VETH1=${ETH}
--else
--	validate_root_exec
--	validate_veth_support ${VETH0}
--	validate_ip_utility
--	setup_vethPairs
--
--	retval=$?
--	if [ $retval -ne 0 ]; then
--		test_status $retval "${TEST_NAME}"
--		cleanup_exit ${VETH0} ${VETH1}
--		exit $retval
--	fi
-+validate_root_exec
-+validate_veth_support ${VETH0}
-+validate_ip_utility
-+setup_vethPairs
-+
-+retval=$?
-+if [ $retval -ne 0 ]; then
-+	test_status $retval "${TEST_NAME}"
-+	cleanup_exit ${VETH0} ${VETH1}
-+	exit $retval
- fi
- 
- 
-@@ -208,11 +197,7 @@ fi
- 
- exec_xskxceiver
- 
--if [ -z $ETH ]; then
--	cleanup_exit ${VETH0} ${VETH1}
--else
--	cleanup_iface ${ETH} ${MTU}
--fi
-+cleanup_exit ${VETH0} ${VETH1}
- 
- if [[ $list -eq 1 ]]; then
-     exit
-@@ -221,18 +206,12 @@ fi
- TEST_NAME="XSK_SELFTESTS_${VETH0}_BUSY_POLL"
- busy_poll=1
- 
--if [ -z $ETH ]; then
--	setup_vethPairs
--fi
-+setup_vethPairs
- exec_xskxceiver
- 
- ## END TESTS
- 
--if [ -z $ETH ]; then
--	cleanup_exit ${VETH0} ${VETH1}
--else
--	cleanup_iface ${ETH} ${MTU}
--fi
-+cleanup_exit ${VETH0} ${VETH1}
- 
- failures=0
- echo -e "\nSummary:"
-diff --git a/tools/testing/selftests/net/xsk_prereqs.sh b/tools/testing/selftests/net/xsk_prereqs.sh
-index d8fe786e967c..5e5c8ef3fff2 100755
---- a/tools/testing/selftests/net/xsk_prereqs.sh
-+++ b/tools/testing/selftests/net/xsk_prereqs.sh
-@@ -53,13 +53,6 @@ test_exit()
- 	exit 1
- }
- 
--cleanup_iface()
--{
--	ip link set $1 mtu $2
--	ip link set $1 xdp off
--	ip link set $1 xdpgeneric off
--}
--
- clear_configs()
- {
- 	[ $(ip link show $1 &>/dev/null; echo $?;) == 0 ] &&
 -- 
 2.43.0
 
