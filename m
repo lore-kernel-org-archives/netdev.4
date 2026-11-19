@@ -1,57 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795052861;
-	b=5pzGWrrJoTor4Ge28FEA9CZfx7KZlc5bEmjJavuSWJScch0i0yqYVl3woQjseXwjQoi6
-	 4AMAHenhIhWl8QkfwJv8kqp9psFBirD8FtJCDBnYGK1cbN7CZh/G6ORx7e7r/1Dd9eYA7
-	 /titw3NJnEvh8sTNKtAL7q0SeW2ohPe8MO4zcTwv38H4Ms+hQheYDQlu/2JyzQKq7m+Ro
-	 mePuLwALzWtgACfy74j1LS7o2DQkhSDW2o0geIX7odoMj/1GFz4QNAyJeGSikLUU+QNeK
-	 M63G4aEVHbUdlNY/+VibbmeKfwtZVel4iND3DJANNXfAMDllzP+YT17N/qotjjDgQdw==
+	t=1795053011;
+	b=p59nMwZx+zU0/0q5k2M143N3QUYAKXlnrGfrylWBVzXXuKy01wpjoYBQDvksDwiOGHZU
+	 3mxzgY6FnagW2yZtR91gVHbBlAIFIrkcpb2DEErhr66fQ0kdNN3JAXG6rO2JwgHjajQ3v
+	 OcLTlDt6vw0WJNJcJl3owOPJRhf5B4WkKKfJeFZoNBAh/SCpwlpttYs4hPeaUlSml34Tj
+	 XSgCXkY9ONUIbll8dGi51iXioCR00ClaSvTlaNmLKphWICMP0u7mPqEhHsoTIV2h41yeK
+	 cACbkeDo+MDHvg/aqRJhH4iHzunkI7O9y0vEXkgCqcJKa/ooXQJIbTWgtio/NJsxg9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052861;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=etIsZPUKiQOgnaTxQQL9Wq8lQ8t2eKQW8Swl5Q0HUVE=;
-	b=2Fj5V/Bzm4Wa3s3XGXLMV8/hHsmK9ppNM40TEn2mOMol9glOw7ThOun9KbI57aZ/HNbS
-	 ypgjAE9eGcMJRd+B0+U1MNYEBTO9xAoGqBp4J224TSNSVGPYuIJOrSjRVHfN9NKta+TPS
-	 vxXt2BCnnGDIJJYEqj72wK+v/kWLu2PDVt9e57lcNSwg9sgiauFJUA97epEqWCwuAxC6c
-	 t7YgyeephVjS3oNqQRdVbB0xzffLmkJ/tiVQDMhIGocW4TRY5x4P/QVNWndkE8cpNrYkB
-	 ZwcYmbAVnY2ZGxkGGosgq4IjoV0cmHoj8/7aChbLTiVsr3rpehadtIjASLUhIVQr/Zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053011;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=ttrxSxpE+Q+mpNUeMr0sCUPblz0LLvYtA2JvNlvZ3ns=;
+	b=tXr0fnpnzseXnBIK0RA5bfEsWz91uYamP43xKJfwgaaAk/Gwt5+ZP4ZVjsIfLn2YU7Rd
+	 xgSfdFleWjQSdItZMgAfc38fgaZ1aXL8UB9y6BH2fNsEHVh3/c8Zz/2vL88bWvMi+LWF/
+	 esYZEtw2bSPI6NrAsG1NdWraYI2oNu8F8YPGX+EqNsfG7HT7V9pjjKRYlO/N17xkJdq0Q
+	 bw2zMvdd4KxDLTo/eGVqtTZy5pZcqUiEkYJpEmYcl7kuLwaroM6a83HCv52BZo5POZ0hc
+	 ZMQtN7AKxQzUP7S7SEUKvGpOzwUUtvZajQ6LZcVLjVibvpw6/u4T+P341JLiDKu2odQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a84JPg3e;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WLjN5IPp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 148C8606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:47:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 355D3606A31C;
+	Thu, 19 Nov 2026 01:50:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a84JPg3e
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DB9C1F000C4;
-	Thu, 19 Nov 2026 01:47:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WLjN5IPp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 067741F000C4;
+	Thu, 19 Nov 2026 01:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795052860;
-	bh=etIsZPUKiQOgnaTxQQL9Wq8lQ8t2eKQW8Swl5Q0HUVE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=a84JPg3ePCsR0+TTG3WuvKkgLJ2xWd/Hb5NNGoVySuqMcHJUYeRFljRb7OO4U1ri4
-	 0FSM3dsDNyQA0tMWo/tPyjwAVggrgB1F2IkAUm31dvD0PAc7nvZnRSnlmFFB5fzqHc
-	 BZSKBviSY61h4bLibU0RTeFZdtg3e7/U9frWx3DM/BmLezN8gqJH3Hu8P06L9LsV3v
-	 M8HR0d+yTMM+pgCudsihy6swQ+J5Lf3ux65eEIN8jhAZtOmh+fG9difQrIJymspe1u
-	 n2IFGnlJQgK68muRzjCkpwP/htyrOLcn4lYpO7msx0aoH+cHVSz7/fV8AGBf186ZDu
-	 AjxQiOcVsJNHg==
-Date: Wed, 18 Nov 2026 17:47:39 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>
-Cc: <davem@davemloft.net>, <pabeni@redhat.com>, <edumazet@kernel.org>,
- <andrew+netdev@lunn.ch>, <netdev@vger.kernel.org>, <skunkolee@gmail.com>,
- <luoxuanqiang@kylinos.cn>, <nsvatoslav515@gmail.com>
-Subject: Re: [PATCH net 0/3][pull request] Intel Wired LAN Driver Updates
- 2026-11-12 (e1000e, igb, igbvf, e1000)
-Message-ID: <20261118174739.61e7749c@kernel.org>
-In-Reply-To: <a67050e0-ba9e-41a8-acc9-2acb0b713ebd@intel.com>
-References: <20261113005823.130021-1-anthony.l.nguyen@intel.com>
-	<a67050e0-ba9e-41a8-acc9-2acb0b713ebd@intel.com>
+	s=k20260515; t=1795053011;
+	bh=ttrxSxpE+Q+mpNUeMr0sCUPblz0LLvYtA2JvNlvZ3ns=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=WLjN5IPpDCrxQsA0lADOoPKtuoD+yqw6nAlLrI7zfJJax9KpGCaVE7QHtZb40arx/
+	 IWwzT4THXI2HHdKH8uP3IgmDx+EgaQyzYs33F1vdxZySvncoqWUUC2WZnGm4UFLvfv
+	 RrULg/vobKoajiTHv164J0eoa3Qy6tUbZsPWRkV/PvmuOenA4ZRx4U07BBe5hfdIGd
+	 msSpHM+WE3PKZx5rvrd2rC3vpOHhQXH8dWhm0EiIQqy3ystOuNO+Dvumuyj/5TLlYN
+	 2EpRSvAaYm0WHgEoMkwqPDoYrtXywPWD9c9lnMVOKrjx9M0T+K5M+j9viJsXJGsxZg
+	 ClTMe93dm7Omg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15D03808210;
+	Thu, 19 Nov 2026 01:50:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,23 +53,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v7 0/6] amt: relay tunnel lifetime,
+ validation and request-path hardening
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179505300952.2710764.11211154682646312778.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 01:50:09 +0000
+References: <20261110210538.217936-1-omar@blockcast.net>
+In-Reply-To: <20261110210538.217936-1-omar@blockcast.net>
+To: Omar Ramadan <omar@blockcast.net>
+Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, horms@kernel.org,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ linux-rt-devel@lists.linux.dev, kuniyu@google.com
 
-On Fri, 13 Nov 2026 15:25:46 -0800 Tony Nguyen wrote:
-> On 11/12/2026 4:58 PM, Tony Nguyen wrote:
-> > Ivy Lopez corrects NVM read on e1000e which was not properly checking
-> > the high word's modified flag.
-> > 
-> > Xuanqiang Luo fixes igb and igbvf device removal by disabling watchdog and
-> > reset work to prevent work from being queued after cancellation.
-> > 
-> > Svyatoslav Nikolenko resolves an e1000 probe failure warning by checking
-> > that the CE4100 MDIO mapping is non-NULL before calling iounmap().  
+Hello:
+
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 10 Nov 2026 21:05:31 +0000 you wrote:
+> This series hardens AMT relay tunnel lifetime, validates gateway input, and
+> keeps unauthenticated Requests from consuming relay state. The problems
+> fixed by patches 3 and 4, and the pre-Query drop in patch 5, were found
+> during the AMT IPv6 outer transport work, which is not included here.
 > 
-> It looks like the cover didn't make it to the list [1], presumably, due 
-> to the Outlook outage. Did you want me to resend the series?
+> I am using the existing IPv4 AMT relay and gateway implementation in a
+> multicast delivery network, where gateways on access networks send IGMP/MLD
+> membership state through a relay to reach downstream receivers.
+> 
+> [...]
 
-Oh missed this, since it wasn't threaded, sorry!
-FWIW I decided to toss the first patch since our AI says it can't happen
-and the commit msg read like a AI report/hallucination.
+Here is the summary with links:
+  - [net,v7,1/6] amt: stop receiving before amt_dev_stop() tears down its state
+    https://git.kernel.org/netdev/net/c/cd057fd9c742
+  - [net,v7,2/6] amt: fix use-after-free when a Membership Update re-arms a freed tunnel
+    https://git.kernel.org/netdev/net/c/5931fd2440de
+  - [net,v7,3/6] amt: reject a gateway Query or Data from 0.0.0.0 before a relay is learned
+    https://git.kernel.org/netdev/net/c/b4fa7f8daed6
+  - [net,v7,4/6] amt: require an exact IPv4-sized IFLA_AMT_{LOCAL,DISCOVERY}_IP
+    https://git.kernel.org/netdev/net/c/144183ab4b05
+  - [net,v7,5/6] amt: make pre-query report drops visible
+    https://git.kernel.org/netdev/net/c/ee58008edb99
+  - [net,v7,6/6] amt: create relay tunnels only from authenticated Updates
+    https://git.kernel.org/netdev/net/c/8ddd3a1c207f
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
