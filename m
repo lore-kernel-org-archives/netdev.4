@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076118;
-	b=cpUeZpSUSCc6mqR80+zc/bwCVjHdaL2mayUTZxKDuASXBNKrydspTPrI5F0FJNNeTQl4
-	 5xRsrUwTD7lAH41py7jx83jX06KjtShgf9N7qslDj5YUBcmMs9TQQGHsQ0ZogJPRZdjzz
-	 7cut2G+Cv0/7ltNYF2xpUVFaoKBy+Pwyuz/mh5SM7nrj440XgF9maAmSeKVBxp3aLbA2I
-	 0x5rgYqLbKVvE3pW8EnJ8sXS54WBw1SzW/7LywkReTdxwkMeWvVmh+XwUl7+RgJVWeexx
-	 cmKwqPLl4HH8DVdt2liYTUhpiczFEhjUtmh2R9DDFqIhc3XA6wFDRIBWcR5RJLbiuxw==
+	t=1795076115;
+	b=sOmzKfcUj1VflbQatxB1Rug8OwpDs/GadtgZJQEwkv9P6ucg3XSRZpKOnmSqdveajqpE
+	 OTDjoR+d5OuogDywr16N0sQwE5kdnklXIQfMWZYdYhQmi4kTEfeL9qXfhnqygYvP8Hi6I
+	 bo1sFfRKeWFqlcTqEu9g7Uc/1OE6o6hE2zMhpPrWnmTSftvw2YVbWqj0jgKZ4LHDeUyO1
+	 IKLTMSwR45Ys+ooLzH77UHdg9Lk6AvZj9OiSztZnWvgHb3J+leAR6wZL5+N/K/ERtj2Sr
+	 5f7Xbagb69xNnazACkR9rl9/sLCUDTFod8wn/XzvkWt4jxFIkfvwRf4U1wUvyJYsvAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076118;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076115;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=afOKT7iLNdIGr/OYItr19oAdE8gSKLl6Gb6SM3xUZt0=;
-	b=qvEdm9QcwsFMaax+22RpxbY0qPMzdyvNEeIiqKoGbBWxyBqcScr/xBf1i0WrNHfMBf3H
-	 GAeTqQ6gkkaX7+X4HG48zoGW7vda+Hug1sCW4eTzwvyetFqvd7HmmFe+tH/WSWQLzCryx
-	 deQ4Z5TH6PqkSf1+AjwfGN0sH+M34tsrWyxnZiVckX1H4vnNpMvoLtSv4sjiXkRha3pBK
-	 0nEMMjTsWoaIggUCZ3nBI75YdwASMtbljqkcw3gbm6+GXzacC66FnuenFv5oZAvCcNaIs
-	 Xoz+ReijbvJT/j9kGneZSCwCwnH/xhnpHd1HOGgntSwTdaPMgPFbegwQNsV0Z7+oBPA==
+	bh=LKhSUFZiKht3O3lHBosMHkQH7emcTORKH+eG3szv0nI=;
+	b=jquT+NWnbjeN1rzMPe+cjjX5b9Emx7ybRnnbtPfhUu/+eqMDlu6nX9u6prXMjfp9CiVt
+	 NseZPiVpM7CHN6j9m/E7yUp+31NB84hu7VegldekinT3GoJxwUT1QlskJYDO/7fgzI/0a
+	 AMS9QbPeoyzfKlqTnZcIhqeVS1hIZ7bsicEQriJiP/4WjSpfQ4YjZUfPVPCbxGqUqvkBO
+	 7ljC9dsNLxVNCoVsd+oNvwUk1n8NEesV5pXyoXxYQMkkkeaOW9TdfWGPWVyIXEoMNCvtw
+	 pE8APMI6nh2LARG39KDf+fMrySJ7y/TQDghDARu8nq9Dq4lDAQZKipPhu2vu50tXTTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.zgclab.edu.cn;
 	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=DqAdNGWc;
-	arc=none smtp.remote-ip=207.46.229.174
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B0E3160A2624;
-	Thu, 19 Nov 2026 08:15:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E3160A2624
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=GLhUWeCb;
+	arc=none smtp.remote-ip=162.243.161.220
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A074960A6F44;
+	Thu, 19 Nov 2026 08:15:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A074960A6F44
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=DqAdNGWc
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=GLhUWeCb
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
 	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=afOKT7iLNdIGr/OYItr19oAdE8gSKLl6Gb6SM3xUZt0=; b=DqAdNGWc9IVw0
-	+pg2zTzwHZIv4fiswsDgKSL8QstQr2Yc+3Eek7VjS4FggsUCWrgBoF1BArxKI1c9
-	W/5/YH4wPuXHP1p+tegeF7971NhfCjyUhkkCSqxETAga+GWT0fde/KE3PWGQaJJm
-	lnyuydxpqtpzTllIS1OfV9O4TikTpo=
-Received: from 10.eml (unknown [58.206.202.11])
-	by web2 (Coremail) with SMTP id yQQGZQAnU2cGsP5qZCJLAQ--.42739S2;
+	bh=LKhSUFZiKht3O3lHBosMHkQH7emcTORKH+eG3szv0nI=; b=GLhUWeCbeeKKI
+	wUX/1UmdLmBhoBH5hKzR+yzAdJhnP6gvcXelbyTPd+AacvYthaU44Zfk8DuCbV+E
+	FcUZlYZR8Q2MP3C+nd99VRc7PABbTy5kI1BPQEC+Q7qTEet2en81BfDGl3YrkN9c
+	RfOjxoe89QVvnLxqiH1q8KoRYwtdx4=
+Received: from 09.eml (unknown [58.206.202.11])
+	by web3 (Coremail) with SMTP id ygQGZQBH+pEGsP5qG1LEAA--.62695S2;
 	Thu, 19 Nov 2026 16:15:02 +0800 (CST)
 From: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
-To: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch, olteanv@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, wanghr2026@mail.zgclab.edu.cn
-Subject: [PATCH] net: dsa: mt7530: disable the power rails on setup failure
-Date: Thu, 19 Nov 2026 16:15:03 +0800
-Message-ID: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+To: justin.chen@broadcom.com, florian.fainelli@broadcom.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, bcm-kernel-feedback-list@broadcom.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, wanghr2026@mail.zgclab.edu.cn
+Subject: [PATCH] net: bcmasp: avoid refcount drain on probe
+Date: Thu, 19 Nov 2026 16:15:02 +0800
+Message-ID: <1795076102979-9-385853cc@mail.zgclab.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,10 +57,10 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:yQQGZQAnU2cGsP5qZCJLAQ--.42739S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWFWxArWfJw1xCFyfKF1rZwb_yoW5AFW8pa
-	yUuFyktryvqFyFgasrAr48Xas0y397Gay7KayDC390yw4ayr4vvry8tFWSvF1fKrs8Ja13
-	C398AF97uFWkZaUanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID:ygQGZQBH+pEGsP5qG1LEAA--.62695S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZry5tFyrtry5Cr47Zr43Wrg_yoW5WF1xpF
+	43CFyS9rWkXr1xK397J3WkZayFqws5tF15GFn7Wan5Za1DAr1aqF1xK345Wr1DKrW8Gw1a
+	qF4DZ3yaya4DJ3DanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUQ214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -69,116 +69,81 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxWFWxArWfJw1xCFyfKF1rZwb_yoW5AFW8pa
 	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5Mc
 	Ij6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4x0
 	x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxV
-	W8ZVWrXwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	WUtVW8ZwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
 	Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
 	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
 	cVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4
 	v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAF
-	wI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRAl1kDUUUU
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgMQD2r+rloDcAAAsN
+	wI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfUeyCJDUUUU
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgIQD2r+rloDYAAGsa
 
-mt7530_setup() enables the core and io regulators and then has several
-failure returns (io rail enable failure, reset timeout, unsupported chip id
-or 20 MHz XTAL, vlan0 setup, phy muxing, gpio setup, fdb flush) that all
-return without disabling the already enabled rails. A failed probe never
-reaches mt7530_remove(), which is the only place the regulators are
-disabled, so after a setup failure the switch rails stay enabled until the
-next attempt re-enables them and the enable counts keep growing.
+bcmasp_probe() calls of_find_node_by_name(dev->of_node, "ethernet-ports"),
+which unconditionally drops the from-node reference the caller never held.
+Every probe or bind cycle that reaches the port scan, including ones that
+later fail with "No ports found", drains the asp node refcount by one. Once
+it hits zero, of_node_release() deadlocks in its error printk (%pOF on the
+parent while holding devtree_lock with IRQs off), so the machine freezes
+silently with nothing on the console.
 
-Unwind the enables on the error paths, guarding each disable by
-priv->id == ID_MT7530 since the rails are only enabled for that variant.
+Use of_get_child_by_name() which leaves the parent reference alone.
 
 Signed-off-by: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Fixes: 490cb412007d ("net: bcmasp: Add support for ASP2.0 Ethernet controller")
 ---
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index d5a199293f78..769f733f80d2 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2425,7 +2425,7 @@ mt7530_setup(struct dsa_switch *ds)
- 		if (ret < 0) {
- 			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
- 				ret);
--			return ret;
-+			goto err_disable_core_pwr;
- 		}
- 	}
+diff --git a/drivers/net/ethernet/broadcom/asp2/bcmasp.c b/drivers/net/ethernet/broadcom/asp2/bcmasp.c
+index a59a006cea3a..af9e14214987 100644
+--- a/drivers/net/ethernet/broadcom/asp2/bcmasp.c
++++ b/drivers/net/ethernet/broadcom/asp2/bcmasp.c
+@@ -1342,7 +1342,7 @@ static int bcmasp_probe(struct platform_device *pdev)
  
-@@ -2447,20 +2447,22 @@ mt7530_setup(struct dsa_switch *ds)
- 				       val != 0, 20, 1000000);
- 	if (ret < 0) {
- 		dev_err(priv->dev, "reset timeout\n");
--		return ret;
-+		goto err_disable_pwrs;
- 	}
+ 	bcmasp_init_wol(priv);
  
- 	regmap_read(priv->regmap, MT7530_CREV, &id);
- 	id = FIELD_GET(CHIP_NAME_MASK, id);
- 	if (id != MT7530_ID) {
- 		dev_err(priv->dev, "chip %x can't be supported\n", id);
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto err_disable_pwrs;
- 	}
- 
- 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_20MHZ) {
- 		dev_err(priv->dev,
- 			"MT7530 with a 20MHz XTAL is not supported!\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto err_disable_pwrs;
- 	}
- 
- 	/* Reset the switch through internal reset */
-@@ -2527,7 +2529,7 @@ mt7530_setup(struct dsa_switch *ds)
- 	/* Setup VLAN ID 0 for VLAN-unaware bridges */
- 	ret = mt7530_setup_vlan0(priv);
- 	if (ret)
--		return ret;
-+		goto err_disable_pwrs;
- 
- 	/* Check for PHY muxing on port 5 */
- 	if (dsa_is_unused_port(ds, 5)) {
-@@ -2554,7 +2556,7 @@ mt7530_setup(struct dsa_switch *ds)
- 				if (ret && ret != -ENODEV) {
- 					of_node_put(mac_np);
- 					of_node_put(phy_node);
--					return ret;
-+					goto err_disable_pwrs;
- 				}
- 				id = of_mdio_parse_addr(ds->dev, phy_node);
- 				if (id == 0)
-@@ -2579,16 +2581,25 @@ mt7530_setup(struct dsa_switch *ds)
- 	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
- 		ret = mt7530_setup_gpio(priv);
- 		if (ret)
--			return ret;
-+			goto err_disable_pwrs;
- 	}
- #endif /* CONFIG_GPIOLIB */
- 
- 	/* Flush the FDB table */
- 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
- 	if (ret < 0)
--		return ret;
-+		goto err_disable_pwrs;
- 
- 	return 0;
-+
-+err_disable_pwrs:
-+	if (priv->id == ID_MT7530)
-+		regulator_disable(priv->io_pwr);
-+err_disable_core_pwr:
-+	if (priv->id == ID_MT7530)
-+		regulator_disable(priv->core_pwr);
-+
-+	return ret;
- }
- 
- static int
+-	ports_node = of_find_node_by_name(dev->of_node, "ethernet-ports");
++	ports_node = of_get_child_by_name(dev->of_node, "ethernet-ports");
+ 	if (!ports_node) {
+ 		dev_warn(dev, "No ports found\n");
+ 		ret = -EINVAL;
 
 ---
 
-The vulnerability was found by static analysis.
+PoC reproduction (7.4.0-rc2, arm64 QEMU virt, unmodified kernel):
+
+Device tree injection, spliced into the QEMU virt machine DT:
+
+    reserved-memory { #address-cells = <2>; #size-cells = <2>; ranges;
+        asp-regs@7f000000 { no-map; reg = <0x0 0x7f000000 0x0 0x200000>; }; };
+
+    asp@7f000000 { compatible = "brcm,asp-v2.2"; reg = <0x0 0x7f000000 0x0 0x200000>;
+        interrupt-parent = <&gpio0>; interrupts = <4 2>; };
+
+The node has no ethernet-ports child, so every probe passes through the
+of_find_node_by_name() call and then fails with "No ports found".
+
+Trigger (repeated bind cycles):
+
+    modprobe bcm-asp
+    echo "7f000000.asp" > /sys/bus/platform/drivers/brcm,asp-v2/bind
+    echo "7f000000.asp" > /sys/bus/platform/drivers/brcm,asp-v2/bind
+
+Result:
+
+    brcm,asp-v2 7f000000.asp: Failed to init WoL irq: -6
+    brcm,asp-v2 7f000000.asp: No ports found
+    MARK: probe1 done
+    MARK: bind -> probe2
+    MARK: bind -> probe3
+    (no further output)
+
+The third probe drives the asp node refcount to zero and the machine
+freezes inside of_node_release().
+
+Control: with the same DT minus the interrupt properties the probe fails
+before this call and three or more bind cycles run clean.
+
+Note: the PoC was generated with AI assistance and the vulnerability was
+found by static analysis. The device tree is trusted input (a bad DT
+requires root or physical access), so this is not a security fix, but it
+prevents a potential resource leak or system failure on a failed probe or
+an old or malformed DT.
 
