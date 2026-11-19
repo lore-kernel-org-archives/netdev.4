@@ -1,39 +1,39 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.196
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795088158;
-	b=LswstB5o0UFGWhye24TWCzub5Krn5ovgHVp0/iBHeCFuxj+zLJ/xaFFN1TBVWvMpa5pl
-	 QRJk78pZYpuO8OJfrICStrYK9fUHUotcX7LF6c1B5Ooi05KUrUYSRw4Lm4D949Nzp1efx
-	 N5UWLAjayitsO0rhko/w46w81VD9ndS1i2jGJ6EfvtCiPO5ek7i+5bJ10m1SSkXnpl4kl
-	 X24q/98JDDbJwvW9Hm4MdwgeEQrIQA4CJcljUSUmpa3V4MuKOya0x8al1xkTZ0MX+YdSB
-	 1EH9eEX8YbuuHAYhKKDe0fF0odkirrJ1Ta1sS+kAAqXAnOzLrb1s9RF7m45k28DlCQQ==
+	b=lGW/8VWbdu/msDN+yD88KX79tDlphbHHmrNZBP/efxibU25aPo3WeZFjGiarIvhFfLgd
+	 /TBe93WNicIfbddW8usWhJmFw2nZn0vEkpjPJHHOZq7Wx7ScE0B1+3BPW9a8cWY7lLYT3
+	 PgZLCtTz3sD8BsK7l4pGHCKBPziZeMqjPPQ7zNnW2A2HfuyrwEDFjryMh+UJH9skurm1N
+	 iD2oLunVhSjwl6HWvef+DJwNsg44LehmGcOX6yLUYnRIM1qRR1bqpnD8X55qzW5pSrmiS
+	 YNQq+cZyZUgKdMIXdBukWCIPL9QQxHg6bFsl+2W/7VWtq5UUtxAabyoKj++LXiuy6pA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795088158;
 	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=9bPVSZ4Bjprnby0m2JrSZswi0LmkvJK9GQjMNa0/87A=;
-	b=dP5RK5zc0sGjb65TV+FATvM+HCjVdf7/+Ao7kRP5rjxKR9FurVR+VHpFrAO7qCmg2NUj
-	 F+xLw4Cau8DBrXhsotUxslOkCToNF37EqS/zB93yasFJE1+hEm/KsV4Fo1IlEteLdd6KL
-	 7+QwMUcVvmvkVmscIpP7czmCsfwlo/J5HUTTqMD6Tc/hz3HUjCCFq/2s+KMjUqlFOyLJ+
-	 hVEelYEyNJuBUkARs8xc17sTNDqV8t41FDOvWjbGWmHgP/D8Rw1FllAEVgGYtN9dE7gN/
-	 DaFXT2kDirUjZrl6I6w7MdXZVty/V0brSzjY3HcwuFL87WFEvVaEYx8T8fSqEDUybrQ==
+	bh=CZodKGVIJX8+PS+qt6zwlBuJv3RHv+jaP+ORjlSsKjc=;
+	b=vmGROXiChxCCtbs+AH0rJmfwZuqXw1EEC41wloDXYt7cy+5q9oLsCX1ZffFIk6kojhvW
+	 X9NNtJKPKUNFBuSeFhbBUVgUyPjw6HwAFxyFLVMmpRkvT3RdI2Wy2Tc++XGa8f7EdDyNU
+	 F1v18OelvaJM2T1jNgcLyfn687b4Rcy3+qjs/2blR5xtHFqVlYdbJcBh/G1xi29gw+m0f
+	 +m7gLIvCtZ7zEYZehjUtCkYaNNPxZ2v2oFyAP7SZmF2LG0tL/AXKynFqrDqlld8lCDo14
+	 9TCq5FIMta51rTvcLjFhsdKhB7n9n6UMQRdFAZnBExZbb+0/KuXqvN6ulLm0eKYubkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=nebula-matrix.com;
 	spf=pass smtp.mailfrom=nebula-matrix.com;
-	arc=none smtp.remote-ip=115.124.28.196
-Received: from out28-196.mail.aliyun.com (out28-196.mail.aliyun.com [115.124.28.196])
+	arc=none smtp.remote-ip=115.124.28.149
+Received: from out28-149.mail.aliyun.com (out28-149.mail.aliyun.com [115.124.28.149])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71FF4606A32C;
-	Thu, 19 Nov 2026 11:35:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71FF4606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CF7260A261B;
+	Thu, 19 Nov 2026 11:35:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CF7260A261B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=nebula-matrix.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebula-matrix.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.9171291|0.8895054;CH=green;DM=|SPAM|false|;DS=CONTINUE|ham_system_inform|0.00231371-0.00146079-0.996225;FP=11777857221891280049|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam011083034076;MF=illusion.wang@nebula-matrix.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5kCyAy_1795088145;
-Received: from localhost.localdomain(mailfrom:illusion.wang@nebula-matrix.com fp:SMTPD_---.k5kCyAy_1795088145 cluster:ay29)
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06712908|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.0304879-0.00427726-0.965235;FP=11986308938880128514|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033025068124;MF=illusion.wang@nebula-matrix.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5kCyCJ_1795088147;
+Received: from localhost.localdomain(mailfrom:illusion.wang@nebula-matrix.com fp:SMTPD_---.k5kCyCJ_1795088147 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Thu, 19 Nov 2026 19:35:46 +0800
+          Thu, 19 Nov 2026 19:35:48 +0800
 From: "illusion.wang" <illusion.wang@nebula-matrix.com>
 To: dimon.zhao@nebula-matrix.com,
 	illusion.wang@nebula-matrix.com,
@@ -46,9 +46,9 @@ Cc: kuba@kernel.org,
 	edumazet@google.com,
 	horms@kernel.org,
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v35 net-next 3/8] net/nebula-matrix: add intr resource implementation
-Date: Thu, 19 Nov 2026 19:35:16 +0800
-Message-ID: <20261119113530.32107-4-illusion.wang@nebula-matrix.com>
+Subject: [PATCH v35 net-next 5/8] net/nebula-matrix: dispatch: add control-level routing core infrastructure
+Date: Thu, 19 Nov 2026 19:35:18 +0800
+Message-ID: <20261119113530.32107-6-illusion.wang@nebula-matrix.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
 References: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
@@ -65,1594 +65,288 @@ Content-Transfer-Encoding: 8bit
 
 From: illusion wang <illusion.wang@nebula-matrix.com>
 
-Add dedicated nbl_interrupt module to manage chip-internal MSI-X interrupt
-resource and hardware mapping for the Nebula Matrix Ethernet driver.
-
-This module manages the driver-wide global hardware MSI-X vector index
-space, split into independent network and control interrupt bitmaps
-(intr_net_bmap/intr_other_bmap), and handles programming of the
-chip-internal MSI-X mapping registers.  It explicitly does not manage
-physical PCI MSI-X entries; physical vector allocation via
-pci_alloc_irq_vectors() will be implemented in a follow-up patch via
-nbl_dev_init_interrupt_scheme().
-
-The published manager is control-PF only: the resource helpers reject
-calls when common->has_ctrl is not set.
-
-Core functional interfaces:
-1. cfg_msix_map: Allocate global hardware MSI-X vectors from the separate
-   net/other interrupt bitmaps.  The per-function coherent DMA map table
-   is allocated once and reused by every later reconfiguration, so a
-   reconfiguration does not free and reallocate it.  It does still take
-   the destroy-path quiesce sequence before the old vectors are recycled
-   - disable mailbox routing, invalidate the per-vector INFO entries,
-   clear map VALID, flush, wait for in-flight table fetches - because the
-   old table is what the pcompleter may still be reading; only the DMA
-   buffer itself survives.  Only tear down the old hardware state after
-   the new allocation succeeds, to avoid interrupt loss, and program the
-   MSI-X table DMA address plus the control-PF BDF into
-   NBL_PCOMPLETER_FUNCTION_MSIX_MAP. No extra invalidate or quiesce
-   window is needed before the first configuration either: every map
-   entry is invalid at that point, since nbl_intr_mgt_start() scrubbed
-   them all and nothing arms one before cfg_msix_map does.
-2. destroy_msix_map: Recycle global vector indices, clear hardware MSI-X
-   mappings, and release the descriptor resources.  Implements two-stage
-   teardown: disable mailbox IRQ routing first, mask vectors, clear
-   hardware VALID bits while retaining the live DMA addresses, take a
-   bounded best-effort ~1ms hardware DMA quiescence window, then zero the
-   table entries and release the vector bitmap and interrupt buffer.  The
-   coherent map table itself is deliberately not freed: a sibling PF can
-   reach this teardown at runtime while the control PF is still bus
-   master, the table fetches carry the control PF's BDF, and the quiesce
-   window is best-effort, so a late fetch could read reused memory.  The
-   table is kept for the function's lifetime, reused by a later
-   configuration, and released only by nbl_intr_mgt_stop().
-3. set_mailbox_irq: Toggle PF-specific mailbox MSI-X routing by updating
-   NBL_MAILBOX_QINFO_MAP_REG_ARR.  The disable path works without a
-   configured MSI-X map, enabling safe routing cleanup before vector
-   release.
-
-4. cfg_msix_info: Program PADPT_HOST_MSIX_INFO and
-   PCOMPLETER_HOST_MSIX_FID_TABLE with the strict hardware-defined
-   programming order (forward for enable, reverse for teardown) to avoid
-   inconsistent hardware state.
-
-Key design & safety features:
-- Self-contained intr_mgt->lock protects the global bitmaps and the
-  per-function state; all public APIs hold the lock internally, so callers
-  need no upper-layer locking.
-- Global cleanup via nbl_intr_mgt_stop(): under the lock it latches the
-  manager stopping and invalidates the hardware map entry of every function
-  still left CONFIGURED, then takes a single global quiesce window before
-  the coherent tables and vector indices are released.  Remote PF maps are
-  created via mailbox RPC in later patches; the cleanup itself uses local
-  MMIO writes.
-- Only PFs are supported: every op rejects a func_id outside the PF range
-  (a VF id) with -EINVAL, and cfg_msix_map additionally rejects a func_id
-  that maps to a PF which is not present on this board with -EOPNOTSUPP,
-  via nbl_res_func_id_to_bdf().
-- FUNCTION_MSIX_MAP survives a kexec or a forced unload without FLR and
-  there is no .shutdown callback to scrub it, so nbl_intr_mgt_start()
-  invalidates all NBL_MAX_PF map entries once, followed by one flush and
-  one quiesce window, before any function is configured.  nbl_probe() now
-  leaves bus mastering disabled until nbl_core_init() has returned, so
-  this scrub runs before the device can issue a single fetch against a
-  stale VALID entry - those fetches are bus-master reads, and a stale
-  entry points at memory this kernel may already have reallocated.
-  Everything up to the scrub is host-side setup plus MMIO and does not
-  wait for the device, so keeping bus mastering off until
-  nbl_core_init() has returned costs nothing on the probe path.
-
-Known limitation - MSI-X map table DMA quiescence:
-The chip exposes no idle or completion status for a pcompleter fetch of a
-map table, so the only ordering available anywhere in this module is
-"clear VALID -> flush_write() -> bounded delay".  The delay is sized well
-above the tables' worst-case fetch/response latency, but it is a
-best-effort approximation and not a guarantee, which is why nothing in
-this module relies on it to make coherent memory freeable: a per-function
-destroy keeps its table.  What the window does protect is the vector set
-that a reconfiguration hands to another function.
-The tables are released only by nbl_intr_mgt_stop(), after one global
-window, and nbl_remove() clears Bus Master Enable before nbl_core_remove()
-reaches it, so the device cannot start a new fetch and the residual
-window covers in-flight requests only.  Clearing bus mastering cannot help
-a sibling PF's map destroyed at runtime - those fetches are tagged with
-the control PF's BDF - which is exactly why the table is retained there.
-
-Instantiate the interrupt manager via nbl_intr_mgt_start() during device
-resource initialization, and attach it to the resource management context.
-
-Add corresponding hardware register definitions, helper functions, and
-Makefile entries to wire up the new module.
-The three new helpers (nbl_res_intr_cfg_msix_map(),
-nbl_res_intr_destroy_msix_map() and nbl_res_intr_set_mailbox_irq()) have
-no in-tree callers within this patch; invocation will be added in
-subsequent patches in this series.
+Allocate the dispatch management state and ops table and wire the
+init_module and deinit_module wrappers to the resource layer helpers.
+Add a ctrl_lvl bitmap to track control privileges; only the MGT level is
+defined, and it is enabled only on the control PF.
 
 Signed-off-by: illusion wang <illusion.wang@nebula-matrix.com>
 ---
  .../net/ethernet/nebula-matrix/nbl/Makefile   |   1 +
- .../nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c  | 159 ++++
- .../nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h  |  44 +
- .../nbl_hw_leonis/nbl_resource_leonis.c       |  36 +-
- .../nbl_hw_leonis/nbl_resource_leonis.h       |   1 +
- .../nebula-matrix/nbl/nbl_hw/nbl_interrupt.c  | 859 ++++++++++++++++++
- .../nebula-matrix/nbl/nbl_hw/nbl_interrupt.h  |  21 +
- .../nebula-matrix/nbl/nbl_hw/nbl_resource.c   |  32 +
- .../nebula-matrix/nbl/nbl_hw/nbl_resource.h   |  90 ++
- .../nbl/nbl_include/nbl_def_hw.h              |   9 +
- .../net/ethernet/nebula-matrix/nbl/nbl_main.c |  42 +-
- 11 files changed, 1284 insertions(+), 10 deletions(-)
- create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
- create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.h
+ .../net/ethernet/nebula-matrix/nbl/nbl_core.h |   2 +
+ .../nebula-matrix/nbl/nbl_core/nbl_dispatch.c | 107 ++++++++++++++++++
+ .../nebula-matrix/nbl/nbl_core/nbl_dispatch.h |  23 ++++
+ .../nbl/nbl_include/nbl_def_dispatch.h        |  53 +++++++++
+ .../net/ethernet/nebula-matrix/nbl/nbl_main.c |   8 ++
+ 6 files changed, 194 insertions(+)
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
 
 diff --git a/drivers/net/ethernet/nebula-matrix/nbl/Makefile b/drivers/net/ethernet/nebula-matrix/nbl/Makefile
-index 3dab9519a..5aec8e44f 100644
+index be314b909..b7eebd89b 100644
 --- a/drivers/net/ethernet/nebula-matrix/nbl/Makefile
 +++ b/drivers/net/ethernet/nebula-matrix/nbl/Makefile
-@@ -8,4 +8,5 @@ nbl-objs +=	nbl_common/nbl_common.o \
- 		nbl_hw/nbl_hw_leonis/nbl_hw_leonis.o \
- 		nbl_hw/nbl_hw_leonis/nbl_resource_leonis.o \
+@@ -10,4 +10,5 @@ nbl-objs +=	nbl_common/nbl_common.o \
  		nbl_hw/nbl_resource.o \
-+		nbl_hw/nbl_interrupt.o \
+ 		nbl_hw/nbl_interrupt.o \
+ 		nbl_hw/nbl_chip.o \
++		nbl_core/nbl_dispatch.o \
  		nbl_main.o
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
-index 6c13ae117..1def2374c 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
-@@ -97,6 +97,20 @@ static void nbl_hw_rd_regs_lock(struct nbl_hw_mgt *hw_mgt, u64 reg, u32 *data,
- 	spin_unlock(&hw_mgt->reg_lock);
- }
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
+index 3c7ef9b42..b7ee52cce 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
+@@ -16,12 +16,14 @@ enum {
  
-+static void nbl_hw_wr_regs_lock(struct nbl_hw_mgt *hw_mgt, u64 reg,
-+				const u32 *data, u32 len)
-+{
-+	u32 size = len / 4;
-+	u32 i;
-+
-+	if (len % 4)
-+		return;
-+	spin_lock(&hw_mgt->reg_lock);
-+	for (i = 0; i < size; i++)
-+		wr32(hw_mgt->hw_addr, reg + i * sizeof(u32), data[i]);
-+	spin_unlock(&hw_mgt->reg_lock);
-+}
-+
- /*
-  * Flush posted MEMORY-BAR writes by reading back a register that only
-  * exists in the control-PF mapping.
-@@ -136,6 +150,148 @@ static void nbl_hw_get_fw_eth_map(struct nbl_hw_mgt *hw_mgt, u32 *eth_map)
- 	*eth_map = FIELD_GET(NBL_FW_BOARD_DW6_ETH_BITMAP_MASK, data);
- }
+ struct nbl_interface {
+ 	struct nbl_hw_ops_tbl *hw_ops_tbl;
++	struct nbl_dispatch_ops_tbl *dispatch_ops_tbl;
+ 	struct nbl_channel_ops_tbl *channel_ops_tbl;
+ };
  
-+/*
-+ * nbl_hw_set_mailbox_irq - read-modify-write NBL_MAILBOX_QINFO_MAP_REG_ARR
-+ *
-+ * The full RMW sequence is wrapped by reg_lock, so concurrent register
-+ * access from different CPUs is already serialized safely.
-+ * nbl_hw_cfg_mailbox_qinfo() programs the BDF fields during control-PF
-+ * init and clears MSIX_IDX/MSIX_IDX_VALID at the same time (they survive
-+ * kexec/forced unload without FLR), so mailbox MSIX routing for a PF
-+ * starts disarmed at init and is armed only by an explicit en_msix=true
-+ * call here.
-+ */
-+static void nbl_hw_set_mailbox_irq(struct nbl_hw_mgt *hw_mgt, u16 func_id,
-+				   bool en_msix, u16 gvec)
-+{
-+	u32 data = 0;
-+
-+	spin_lock(&hw_mgt->reg_lock);
-+	nbl_hw_rd_regs(hw_mgt, NBL_MAILBOX_QINFO_MAP_REG_ARR(func_id), &data,
-+		       sizeof(data));
-+	data &= ~(NBL_MAILBOX_QINFO_MAP_MSIX_IDX_MASK |
-+		  NBL_MAILBOX_QINFO_MAP_MSIX_IDX_VALID_MASK);
-+	if (en_msix)
-+		data |= FIELD_PREP(NBL_MAILBOX_QINFO_MAP_MSIX_IDX_MASK,
-+				   gvec) |
-+			FIELD_PREP(NBL_MAILBOX_QINFO_MAP_MSIX_IDX_VALID_MASK,
-+				   1);
-+
-+	nbl_hw_wr_regs(hw_mgt, NBL_MAILBOX_QINFO_MAP_REG_ARR(func_id), &data,
-+		       sizeof(data));
-+	spin_unlock(&hw_mgt->reg_lock);
-+	nbl_flush_writes(hw_mgt);
-+}
-+
-+static void nbl_hw_cfg_msix_map(struct nbl_hw_mgt *hw_mgt, u16 func_id,
-+				bool valid, dma_addr_t dma_addr, u8 bus,
-+				u8 devid, u8 function)
-+{
-+	struct nbl_function_msix_map function_msix_map;
-+
-+	memset(&function_msix_map, 0, sizeof(function_msix_map));
-+
-+	/*
-+	 * Clear VALID on its own first.  nbl_hw_wr_regs_lock() writes an
-+	 * entry in ascending dword order, so a single whole-entry write
-+	 * would publish the new (or zeroed) address in data[0]/data[1]
-+	 * while the old VALID bit in data[2] was still set, exposing a
-+	 * valid entry with a half-written address to the pcompleter's
-+	 * table fetch.  With VALID already zero only the address words
-+	 * change, and no fetch can be started from a torn entry.
-+	 */
-+	nbl_hw_wr_regs_lock(hw_mgt,
-+			    NBL_PCOMPLETER_FUNCTION_MSIX_MAP(func_id) +
-+			    NBL_FUNC_MSIX_MAP_VALID_DW * sizeof(u32),
-+			    &function_msix_map.data[NBL_FUNC_MSIX_MAP_VALID_DW],
-+			    sizeof(u32));
-+
-+	if (valid) {
-+		/* program full entry and set VALID */
-+		function_msix_map.data[0] = lower_32_bits(dma_addr);
-+		function_msix_map.data[1] = upper_32_bits(dma_addr);
-+		function_msix_map.data[2] =
-+			FIELD_PREP(NBL_FUNCTION_MSIX_MAP_FUNCTION_MASK,
-+				   function) |
-+			FIELD_PREP(NBL_FUNCTION_MSIX_MAP_DEVID_MASK, devid) |
-+			FIELD_PREP(NBL_FUNCTION_MSIX_MAP_BUS_MASK, bus) |
-+			FIELD_PREP(NBL_FUNCTION_MSIX_MAP_VALID_MASK, 1);
-+
-+		nbl_hw_wr_regs_lock(hw_mgt,
-+				    NBL_PCOMPLETER_FUNCTION_MSIX_MAP(func_id),
-+				    function_msix_map.data,
-+				    sizeof(function_msix_map));
-+	} else {
-+		/*
-+		 * reg_lock prevents concurrent CPU writes to the same
-+		 * function's MSIX entry, but cannot synchronize hardware DMA
-+		 * reads. Upper layer uses two-stage destruction + sync sleep
-+		 * to avoid torn hardware read of partial MSIX entry.
-+		 * VALID is already cleared above, so the address written
-+		 * here is either the still-live table (prepare) or zero
-+		 * (complete); data[2] stays zero, leaving the BDF fields
-+		 * unused because the entry cannot be fetched.
-+		 */
-+		function_msix_map.data[0] = lower_32_bits(dma_addr);
-+		function_msix_map.data[1] = upper_32_bits(dma_addr);
-+
-+		nbl_hw_wr_regs_lock(hw_mgt,
-+				    NBL_PCOMPLETER_FUNCTION_MSIX_MAP(func_id),
-+				    function_msix_map.data,
-+				    sizeof(function_msix_map));
-+	}
-+}
-+
-+static void nbl_hw_cfg_msix_info(struct nbl_hw_mgt *hw_mgt, u16 func_id,
-+				 bool valid, u16 interrupt_id, u8 bus,
-+				 u8 devid, u8 function, bool msix_mask_en)
-+{
-+	u32 host_msix_fid = 0;
-+	struct nbl_host_msix_info msix_info;
-+
-+	memset(&msix_info, 0, sizeof(msix_info));
-+	if (valid) {
-+		host_msix_fid =
-+			FIELD_PREP(NBL_PCOMPLETER_HOST_MSIX_FID_TABLE_FID_MASK,
-+				   func_id) |
-+			FIELD_PREP(NBL_PCOMPLETER_HOST_MSIX_FID_TABLE_VLD_MASK,
-+				   1);
-+
-+		msix_info.data[1] =
-+			FIELD_PREP(NBL_HOST_MSIX_INFO_FUNCTION_MASK, function) |
-+			FIELD_PREP(NBL_HOST_MSIX_INFO_DEVID_MASK, devid) |
-+			FIELD_PREP(NBL_HOST_MSIX_INFO_BUS_MASK, bus) |
-+			FIELD_PREP(NBL_HOST_MSIX_INFO_VALID_MASK, 1);
-+
-+		if (msix_mask_en)
-+			msix_info.data[1] |=
-+			FIELD_PREP(NBL_HOST_MSIX_INFO_MSIX_MASK_EN_MASK, 1);
-+	}
-+	spin_lock(&hw_mgt->reg_lock);
-+	/*
-+	 * Programming order rule:
-+	 * Enable: PADPT_HOST_MSIX_INFO -> PCOMPLETER_HOST_MSIX_FID_TABLE
-+	 * Teardown: reverse order, clear FID VLD first to avoid inconsistent
-+	 * state
-+	 */
-+	if (valid) {
-+		nbl_hw_wr_regs(hw_mgt,
-+			       NBL_PADPT_HOST_MSIX_INFO_REG_ARR(interrupt_id),
-+			       msix_info.data, sizeof(msix_info));
-+		nbl_hw_wr_regs(hw_mgt,
-+			       NBL_PCOMPLETER_HOST_MSIX_FID_TABLE(interrupt_id),
-+			       &host_msix_fid, sizeof(host_msix_fid));
-+	} else {
-+		nbl_hw_wr_regs(hw_mgt,
-+			       NBL_PCOMPLETER_HOST_MSIX_FID_TABLE(interrupt_id),
-+			       &host_msix_fid, sizeof(host_msix_fid));
-+		nbl_hw_wr_regs(hw_mgt,
-+			       NBL_PADPT_HOST_MSIX_INFO_REG_ARR(interrupt_id),
-+			       msix_info.data, sizeof(msix_info));
-+	}
-+	spin_unlock(&hw_mgt->reg_lock);
-+}
-+
- static void nbl_hw_update_mailbox_queue_tail_ptr(struct nbl_hw_mgt *hw_mgt,
- 						 u16 tail_ptr, u8 txrx)
- {
-@@ -315,6 +471,8 @@ static void nbl_hw_get_board_info(struct nbl_hw_mgt *hw_mgt,
- }
+ struct nbl_core {
+ 	struct nbl_hw_mgt *hw_mgt;
+ 	struct nbl_resource_mgt *res_mgt;
++	struct nbl_dispatch_mgt *disp_mgt;
+ 	struct nbl_channel_mgt *chan_mgt;
+ };
  
- static struct nbl_hw_ops hw_ops = {
-+	.cfg_msix_map = nbl_hw_cfg_msix_map,
-+	.cfg_msix_info = nbl_hw_cfg_msix_info,
- 	.flush_write = nbl_flush_writes,
- 
- 	.update_mailbox_queue_tail_ptr = nbl_hw_update_mailbox_queue_tail_ptr,
-@@ -326,6 +484,7 @@ static struct nbl_hw_ops hw_ops = {
- 	.get_real_bus = nbl_hw_get_real_bus,
- 
- 	.cfg_mailbox_qinfo = nbl_hw_cfg_mailbox_qinfo,
-+	.set_mailbox_irq = nbl_hw_set_mailbox_irq,
- 
- 	.get_fw_eth_map = nbl_hw_get_fw_eth_map,
- 	.get_board_info = nbl_hw_get_board_info,
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h
-index 251dd68d0..b7c0a87c1 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h
-@@ -54,6 +54,50 @@ struct nbl_mailbox_qinfo_cfg_table {
- #define NBL_PCIE_HOST_TL_CFG_BUSDEV (NBL_INTF_HOST_PCIE_BASE + 0x11040)
- 
- #define NBL_PCIE_BUS_MASK	GENMASK(12, 5)
-+
-+/*  --------  HOST_PADPT  --------  */
-+/* host_padpt host_msix_info */
-+#define NBL_PADPT_HOST_MSIX_INFO_REG_ARR(vector_id) \
-+	(NBL_INTF_HOST_PADPT_BASE + 0x00010000 +    \
-+	 (vector_id) * sizeof(struct nbl_host_msix_info))
-+
-+#define NBL_HOST_MSIX_INFO_DWLEN	2
-+/* data[0] */
-+#define NBL_HOST_MSIX_INFO_INTRL_PNUM_MASK GENMASK(15, 0)
-+#define NBL_HOST_MSIX_INFO_INTRL_RATE_MASK GENMASK(31, 16)
-+/* data[1] */
-+#define NBL_HOST_MSIX_INFO_FUNCTION_MASK GENMASK(2, 0)
-+#define NBL_HOST_MSIX_INFO_DEVID_MASK GENMASK(7, 3)
-+#define NBL_HOST_MSIX_INFO_BUS_MASK GENMASK(15, 8)
-+#define NBL_HOST_MSIX_INFO_VALID_MASK BIT(16)
-+#define NBL_HOST_MSIX_INFO_MSIX_MASK_EN_MASK BIT(17)
-+struct nbl_host_msix_info {
-+	u32 data[NBL_HOST_MSIX_INFO_DWLEN];
-+};
-+
-+/*  --------  HOST_PCOMPLETER  --------  */
-+/* pcompleter_host function_msix_map_table */
-+#define NBL_PCOMPLETER_FUNCTION_MSIX_MAP(i)   \
-+	(NBL_INTF_HOST_PCOMPLETER_BASE + 0x00004000 + \
-+	 (i) * sizeof(struct nbl_function_msix_map))
-+#define NBL_PCOMPLETER_HOST_MSIX_FID_TABLE(i) \
-+	(NBL_INTF_HOST_PCOMPLETER_BASE + 0x0003a000 + (i) * sizeof(u32))
-+
-+#define NBL_PCOMPLETER_HOST_MSIX_FID_TABLE_FID_MASK  GENMASK(9, 0)
-+#define NBL_PCOMPLETER_HOST_MSIX_FID_TABLE_VLD_MASK  BIT(10)
-+
-+#define NBL_FUNC_MSIX_MAP_DWLEN		4
-+/* The VLD/BDF fields live in data[2]; it can be cleared on its own */
-+#define NBL_FUNC_MSIX_MAP_VALID_DW	2
-+/* data[2] */
-+#define NBL_FUNCTION_MSIX_MAP_FUNCTION_MASK GENMASK(2, 0)
-+#define NBL_FUNCTION_MSIX_MAP_DEVID_MASK GENMASK(7, 3)
-+#define NBL_FUNCTION_MSIX_MAP_BUS_MASK GENMASK(15, 8)
-+#define NBL_FUNCTION_MSIX_MAP_VALID_MASK BIT(16)
-+struct nbl_function_msix_map {
-+	u32 data[NBL_FUNC_MSIX_MAP_DWLEN];
-+};
-+
- #define NBL_FW_BOARD_CONFIG			0x200
- #define NBL_FW_BOARD_DW3_OFFSET			(NBL_FW_BOARD_CONFIG + 12)
- #define NBL_FW_BOARD_DW6_OFFSET			(NBL_FW_BOARD_CONFIG + 24)
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
-index b96ac999e..b74019cd6 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
-@@ -277,6 +277,10 @@ static int nbl_res_start(struct nbl_resource_mgt *res_mgt)
- 		ret = nbl_res_ctrl_dev_vsi_info_init(res_mgt);
- 		if (ret)
- 			return ret;
-+
-+		ret = nbl_intr_mgt_start(res_mgt);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	return 0;
-@@ -307,8 +311,36 @@ int nbl_res_init_leonis(struct nbl_adapter *adap)
- 
- void nbl_res_remove_leonis(struct nbl_adapter *adap)
- {
-+	struct nbl_resource_mgt *res_mgt = adap->core.res_mgt;
-+	struct nbl_common_info *common = &adap->common;
-+
-+	if (!res_mgt)
-+		return;
-+
- 	/*
--	 * No resource release here because all memory uses devm managed
--	 * allocation
-+	 * Tear down all MSI-X maps before destroying coherent tables.
-+	 * This is critical on the control PF, whose table carries the map
-+	 * entries installed for every configured function: they must be
-+	 * invalidated in hardware before the tables backing them are
-+	 * freed, otherwise the device keeps DMA-reading released pages.
-+	 *
-+	 * Sibling PFs are unbound by the device-link ordering, but that
-+	 * does not mean their entries are gone: a destroy_msix_map RPC
-+	 * that timed out leaves the control PF owning that function's map
-+	 * entry, its net/other bitmap bits and its coherent table.  That is
-+	 * why nbl_intr_mgt_stop() walks every configured function instead
-+	 * of relying on the siblings having cleaned up after themselves,
-+	 * and the walk must stay for that case.
-+	 */
-+	if (common->has_ctrl && res_mgt->intr_mgt)
-+		nbl_intr_mgt_stop(res_mgt);
-+
-+	/* Note:
-+	 * per-function interrupts arrays (kcalloc) are freed by
-+	 * nbl_intr_mgt_stop().
-+	 * MSIX coherent tables are freed by nbl_intr_mgt_stop() too, after
-+	 * the last quiesce window and with bus mastering already cleared.
-+	 * intr_mgt itself (devm_kzalloc) is released by devres after this
-+	 * function returns
- 	 */
- }
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
-index b9355262c..6eb4dc9e6 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
-@@ -7,4 +7,5 @@
- #define _NBL_RESOURCE_LEONIS_H_
- 
- #include "../nbl_resource.h"
-+#include "../nbl_interrupt.h"
- #endif
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
 new file mode 100644
-index 000000000..9e5376d21
+index 000000000..58f6ac834
 --- /dev/null
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
-@@ -0,0 +1,859 @@
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+@@ -0,0 +1,107 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (c) 2026 Nebula Matrix Limited.
 + */
 +#include <linux/device.h>
-+#include <linux/delay.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/bitfield.h>
-+#include "nbl_interrupt.h"
++#include <linux/pci.h>
++#include "nbl_dispatch.h"
++#include "../nbl_hw/nbl_chip.h"
 +
-+#define NBL_MSIX_DMA_SYNC_MIN_US	1000 /* us */
-+#define NBL_MSIX_DMA_SYNC_MAX_US	1200 /* us */
-+
-+/*
-+ * Bounded best-effort wait for in-flight pcompleter fetches of a MSI-X
-+ * map table after that entry's VALID bit has been cleared and flushed.
-+ *
-+ * The chip exposes no idle/completion status for those fetches, so the
-+ * only ordering available is: clear VALID -> flush_write() -> wait.  The
-+ * window is sized well above the tables' worst-case fetch/response
-+ * latency; it is not a guarantee, so it is never what makes coherent
-+ * memory freeable.  A per-function destroy only returns the global
-+ * vector ids to the pool and leaves the table allocated for the
-+ * function's lifetime (see
-+ * __nbl_res_intr_complete_destroy_msix_map()); what the window does
-+ * protect is the vector set a reconfiguration hands to another function.
-+ *
-+ * Those are bus-master reads tagged with the control PF's BDF, so
-+ * pci_clear_master() is the only other lever.  The only place a table is
-+ * freed is nbl_intr_mgt_stop(), which nbl_remove() reaches through
-+ * nbl_core_remove(), after it has cleared bus mastering.  That is what
-+ * makes the final free safe: the device cannot start a new fetch, and
-+ * this window covers the ones already in flight.
-+ */
-+static void nbl_intr_quiesce_wait(void)
++static void nbl_disp_deinit_module(struct nbl_dispatch_mgt *disp_mgt)
 +{
-+	usleep_range(NBL_MSIX_DMA_SYNC_MIN_US, NBL_MSIX_DMA_SYNC_MAX_US);
++	nbl_res_chip_deinit_module(disp_mgt->res_mgt);
 +}
 +
-+/*
-+ * Release global vector IDs back to intr_net_bmap / intr_other_bmap.
-+ * Caller must hold intr_mgt->lock, passing the intr_mgt it locked:
-+ * nbl_intr_mgt_stop() clears res_mgt->intr_mgt while a caller may
-+ * already be blocked on that mutex, so it must not be re-read here.
-+ */
-+static void nbl_intr_release_bitmap(struct nbl_interrupt_mgt *intr_mgt,
-+				    struct nbl_resource_mgt *res_mgt,
-+				    u16 *vec_buf, u16 cnt)
++static int nbl_disp_init_module(struct nbl_dispatch_mgt *disp_mgt)
 +{
-+	u16 bit;
-+	u16 i;
++	return nbl_res_chip_init_module(disp_mgt->res_mgt);
++}
 +
-+	lockdep_assert_held(&intr_mgt->lock);
++static void nbl_disp_set_ctrl_bit(struct nbl_dispatch_mgt *disp_mgt, u32 lvl)
++{
++	set_bit(lvl, disp_mgt->ctrl_lvl);
++}
 +
-+	if (!vec_buf || cnt == 0)
-+		return;
++static void nbl_disp_refresh_ctrl_ops(struct nbl_dispatch_mgt *disp_mgt)
++{
++	struct nbl_dispatch_ops *disp_ops = disp_mgt->disp_ops_tbl->ops;
 +
-+	for (i = 0; i < cnt; i++) {
-+		u16 intr_index = vec_buf[i];
-+
-+		if (intr_index >= NBL_NET_INTR_BASE) {
-+			bit = intr_index - NBL_NET_INTR_BASE;
-+			if (bit < NBL_MAX_NET_INTERRUPT)
-+				clear_bit(bit, intr_mgt->intr_net_bmap);
-+			else
-+				dev_warn(res_mgt->common->dev,
-+					 "invalid net intr index %u\n",
-+					 intr_index);
-+		} else {
-+			if (intr_index < NBL_MAX_OTHER_INTERRUPT)
-+				clear_bit(intr_index,
-+					  intr_mgt->intr_other_bmap);
-+			else
-+				dev_warn(res_mgt->common->dev,
-+					 "invalid other intr index %u\n",
-+					 intr_index);
-+		}
++	if (test_bit(NBL_DISP_CTRL_LVL_MGT, disp_mgt->ctrl_lvl)) {
++		disp_ops->init_module = nbl_disp_init_module;
++		disp_ops->deinit_module = nbl_disp_deinit_module;
 +	}
 +}
 +
-+/*
-+ * Internal (unlocked) mailbox IRQ bind.  Caller must hold
-+ * intr_mgt->lock, passing the intr_mgt it locked (see
-+ * nbl_intr_release_bitmap()).
-+ *
-+ * The disable path deliberately carries no state check: the teardown
-+ * sequence uses it to disarm routing while func_res->state is still
-+ * CONFIGURED, and it stays harmless after nbl_intr_mgt_stop() because
-+ * the hardware op ignores gvec when en_msix=false.  Only the enable
-+ * path is gated by the stopping latch and the per-function state.
-+ */
-+static int __nbl_res_intr_set_mailbox_irq(struct nbl_interrupt_mgt *intr_mgt,
-+					  struct nbl_resource_mgt *res_mgt,
-+					  u16 func_id, u16 vector_id,
-+					  bool en_msix)
++static struct nbl_dispatch_mgt *
++nbl_disp_setup_disp_mgt(struct nbl_common_info *common)
 +{
-+	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
-+	struct nbl_common_info *common = res_mgt->common;
++	struct nbl_dispatch_mgt *disp_mgt;
 +	struct device *dev = common->dev;
-+	struct nbl_func_interrupt_resource_mng *func_res;
-+	u16 gvec;
 +
-+	lockdep_assert_held(&intr_mgt->lock);
-+
-+	/*
-+	 * func_intr_res[] is indexed by the raw hardware function id; this
-+	 * bound check is the only guard on this path, so it is what keeps
-+	 * VF ids out.  Whether the PF is present on this board is not
-+	 * checked here: callers pass either common->mgt_pf or an id that
-+	 * nbl_res_intr_cfg_msix_map() has validated.
-+	 */
-+	if (func_id >= NBL_MAX_PF) {
-+		dev_err(dev, "func_id %u out of range\n", func_id);
-+		return -EINVAL;
-+	}
-+
-+	if (!en_msix) {
-+		hw_ops->set_mailbox_irq(res_mgt->hw_ops_tbl->priv,
-+					func_id, false, 0);
-+		hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+		return 0;
-+	}
-+
-+	/*
-+	 * Enable path: the map must be live and not under teardown,
-+	 * otherwise routing would point at a vector that the complete
-+	 * phase is about to release and never re-disables.
-+	 */
-+	if (intr_mgt->stopping)
-+		return -ESHUTDOWN;
-+
-+	func_res = &intr_mgt->func_intr_res[func_id];
-+	if (func_res->state != NBL_INTR_FUNC_CONFIGURED) {
-+		dev_err(dev, "func %u MSIX map not configured (state %u)\n",
-+			func_id, func_res->state);
-+		return -ENODEV;
-+	}
-+
-+	if (vector_id >= func_res->num_interrupts) {
-+		dev_err(dev, "vector_id %u out of range (max %u)\n",
-+			vector_id, func_res->num_interrupts - 1);
-+		return -EINVAL;
-+	}
-+
-+	gvec = func_res->interrupts[vector_id];
-+	hw_ops->set_mailbox_irq(res_mgt->hw_ops_tbl->priv, func_id,
-+				en_msix, gvec);
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Internal (unlocked) MSI-X map teardown prepare phase: only hardware
-+ * register operations. The DMA address is retained and only the VALID
-+ * bit is cleared; zeroing the address (Stage 2) is deferred to the
-+ * complete phase after the hardware-DMA quiesce window.
-+ *
-+ * Caller must hold intr_mgt->lock.
-+ */
-+static int
-+__nbl_res_intr_prepare_destroy_msix_map(struct nbl_interrupt_mgt *intr_mgt,
-+					struct nbl_resource_mgt *res_mgt,
-+					u16 func)
-+{
-+	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
-+	struct nbl_func_interrupt_resource_mng *func_res;
-+	u16 *interrupts;
-+	u16 intr_num, i;
-+	int ret;
-+
-+	lockdep_assert_held(&intr_mgt->lock);
-+
-+	if (func >= NBL_MAX_PF) {
-+		dev_err(res_mgt->common->dev, "Invalid func_id %u\n", func);
-+		return -EINVAL;
-+	}
-+
-+	func_res = &intr_mgt->func_intr_res[func];
-+	if (func_res->state != NBL_INTR_FUNC_CONFIGURED)
-+		return 0;
-+
-+	interrupts = func_res->interrupts;
-+	intr_num = func_res->num_interrupts;
-+
-+	/* Step 0: disable mailbox IRQ routing before tearing down map */
-+	ret = __nbl_res_intr_set_mailbox_irq(intr_mgt, res_mgt, func, 0, false);
-+	if (ret) {
-+		dev_err(res_mgt->common->dev,
-+			"disable mailbox irq failed, func=%u ret=%d\n",
-+			func, ret);
-+		return ret;
-+	}
-+
-+	/* Step 1: invalidate each MSIX info entry in hardware first */
-+	for (i = 0; i < intr_num; i++) {
-+		hw_ops->cfg_msix_info(res_mgt->hw_ops_tbl->priv,
-+				      func, false, interrupts[i],
-+				      0, 0, 0, false);
-+	}
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+	/*
-+	 * Stage 1: retain the DMA address, only clear the VALID bit.
-+	 * Stage 2 runs after the quiesce window in the complete phase.
-+	 */
-+	hw_ops->cfg_msix_map(res_mgt->hw_ops_tbl->priv, func,
-+			     false, func_res->msix_map_table.dma,
-+			     0, 0, 0);
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+	func_res->state = NBL_INTR_FUNC_DESTROYING;
-+
-+	return 0;
-+}
-+
-+/*
-+ * __nbl_res_intr_complete_destroy_msix_map - finish hardware teardown and
-+ * release vector bitmap and interrupt buffer after the hardware quiesce
-+ * window has elapsed.  The coherent map table is deliberately kept (see
-+ * below) and released only by nbl_intr_mgt_stop().
-+ *
-+ * Caller must hold intr_mgt->lock.
-+ */
-+static int
-+__nbl_res_intr_complete_destroy_msix_map(struct nbl_interrupt_mgt *intr_mgt,
-+					 struct nbl_resource_mgt *res_mgt,
-+					 u16 func_id)
-+{
-+	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
-+	struct nbl_func_interrupt_resource_mng *func_res;
-+	struct device *dev = res_mgt->common->dev;
-+	u16 *interrupts;
-+	u16 intr_num;
-+
-+	lockdep_assert_held(&intr_mgt->lock);
-+
-+	if (func_id >= NBL_MAX_PF) {
-+		dev_err(dev, "Invalid func_id %u\n", func_id);
-+		return -EINVAL;
-+	}
-+
-+	func_res = &intr_mgt->func_intr_res[func_id];
-+	if (func_res->state != NBL_INTR_FUNC_DESTROYING)
-+		return 0;
-+
-+	/*
-+	 * Stage 2: the quiesce window has elapsed, it is now safe to
-+	 * zero the DMA base address in the hardware map register.
-+	 */
-+	hw_ops->cfg_msix_map(res_mgt->hw_ops_tbl->priv, func_id,
-+			     false, 0, 0, 0, 0);
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+	interrupts = func_res->interrupts;
-+	intr_num = func_res->num_interrupts;
-+
-+	if (interrupts) {
-+		nbl_intr_release_bitmap(intr_mgt, res_mgt, interrupts,
-+					intr_num);
-+		kfree(interrupts);
-+	}
-+
-+	/*
-+	 * The coherent table is kept, not freed here.
-+	 *
-+	 * A sibling PF can reach this teardown at runtime while the control
-+	 * PF stays bus master.  The pcompleter fetches the table with the
-+	 * control PF's BDF, and the quiesce window above is best-effort -
-+	 * the chip reports no fetch completion - so freeing here would let
-+	 * a late fetch read reused memory.  Keeping the table for the
-+	 * function's lifetime removes that exposure, and a later
-+	 * configuration of the same function reuses the buffer instead of
-+	 * allocating a new one.  nbl_intr_mgt_stop() frees every table,
-+	 * after the last window has passed and with bus mastering already
-+	 * off.
-+	 */
-+
-+	func_res->interrupts = NULL;
-+	func_res->num_interrupts = 0;
-+	func_res->num_net_interrupts = 0;
-+	func_res->state = NBL_INTR_FUNC_IDLE;
-+
-+	return 0;
-+}
-+
-+/*
-+ * Internal (unlocked) MSI-X map teardown.  Caller must hold
-+ * intr_mgt->lock for the whole sequence, including the hardware-DMA
-+ * quiesce window: dropping the lock would let a concurrent caller (or
-+ * nbl_intr_mgt_stop()) install/free state against this teardown.
-+ *
-+ * This is used for the single function synchronous destroy path.
-+ */
-+static int __nbl_res_intr_destroy_msix_map(struct nbl_interrupt_mgt *intr_mgt,
-+					   struct nbl_resource_mgt *res_mgt,
-+					   u16 func_id)
-+{
-+	int ret;
-+
-+	lockdep_assert_held(&intr_mgt->lock);
-+
-+	if (intr_mgt->stopping)
-+		return -ESHUTDOWN;
-+
-+	ret = __nbl_res_intr_prepare_destroy_msix_map(intr_mgt, res_mgt,
-+						      func_id);
-+	if (ret)
-+		return ret;
-+	/*
-+	 * prepare() only transitions CONFIGURED functions; an IDLE func
-+	 * has nothing to wait for or complete.
-+	 */
-+	if (intr_mgt->func_intr_res[func_id].state !=
-+	    NBL_INTR_FUNC_DESTROYING)
-+		return 0;
-+
-+	nbl_intr_quiesce_wait();
-+
-+	return __nbl_res_intr_complete_destroy_msix_map(intr_mgt, res_mgt,
-+							func_id);
-+}
-+
-+int nbl_res_intr_destroy_msix_map(struct nbl_resource_mgt *res_mgt,
-+				  u16 func_id)
-+{
-+	struct nbl_interrupt_mgt *intr_mgt = res_mgt->intr_mgt;
-+	int ret;
-+
-+	if (!intr_mgt)
-+		return -EINVAL;
-+
-+	mutex_lock(&intr_mgt->lock);
-+	ret = __nbl_res_intr_destroy_msix_map(intr_mgt, res_mgt, func_id);
-+	mutex_unlock(&intr_mgt->lock);
-+
-+	return ret;
-+}
-+
-+/**
-+ * nbl_res_intr_cfg_msix_map - allocate & program MSI-X mapping table
-+ * @res_mgt: resource management instance
-+ * @func_id: target function identifier
-+ * @num_net_msix: required net data interrupt vectors
-+ * @num_others_msix: required control interrupt vectors
-+ * @net_msix_mask_en: enable mask for net interrupt entries
-+ *
-+ * Allocate interrupt vectors; MSIX coherent DMA table is allocated once
-+ * per function on first configuration, entries are rewritten while the
-+ * map is invalidated on subsequent reconfigurations. No free/realloc of
-+ * DMA table on vector count changes. This removes the DMA table
-+ * free/realloc cycle. On reconfiguration the map VALID bit is cleared
-+ * and the hardware-DMA quiesce window is observed (lock held) before old
-+ * vectors are recycled and the table is rewritten.
-+ *
-+ * Reconfiguration transiently needs room for the whole new vector set on
-+ * top of the old one, because the old set is only released after the new
-+ * allocation has succeeded (a failed reconfiguration must leave the old
-+ * configuration intact).  The bitmap pools are therefore sized for peak,
-+ * not maximum, concurrent use: a reconfigure of the same or a smaller
-+ * size still fails with -EAGAIN when the pool is nearly exhausted.  The
-+ * in-tree caller asks for one non-net vector per PF, far below
-+ * NBL_MAX_OTHER_INTERRUPT.
-+ *
-+ * Serialization: this function takes intr_mgt->lock internally to
-+ * protect the global vector bitmaps and per-function state against
-+ * concurrent callers.
-+ *
-+ * Return: 0 on success, negative errno on failure
-+ */
-+int nbl_res_intr_cfg_msix_map(struct nbl_resource_mgt *res_mgt,
-+			      u16 func_id, u16 num_net_msix,
-+			      u16 num_others_msix,
-+			      bool net_msix_mask_en)
-+{
-+	struct nbl_interrupt_mgt *intr_mgt = res_mgt->intr_mgt;
-+	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
-+	struct nbl_common_info *common = res_mgt->common;
-+	struct nbl_msix_map_table *official_tbl;
-+	struct nbl_msix_map *msix_map_entries;
-+	struct device *dev = common->dev;
-+	u16 requested, intr_index;
-+	u8 bus, devid, function;
-+	bool entry_masked = false;
-+	u16 *tmp_interrupts = NULL;
-+	u16 allocated_cnt = 0;
-+	u16 *old_interrupts;
-+	u16 old_num;
-+	bool had_config;
-+	bool tbl_alloc = false;
-+	int ret = 0;
-+	u16 gvec;
-+	u16 i, j;
-+
-+	if (!intr_mgt)
-+		return -EINVAL;
-+
-+	if (!common->has_ctrl)
-+		return -EINVAL;
-+
-+	if (func_id >= NBL_MAX_PF) {
-+		dev_err(dev, "Invalid func_id %u\n", func_id);
-+		return -EINVAL;
-+	}
-+
-+	if (num_net_msix == 0 && num_others_msix == 0) {
-+		dev_err(dev, "MSI-X vector count cannot both be zero\n");
-+		return -EINVAL;
-+	}
-+
-+	if (num_net_msix > NBL_MSIX_MAP_TABLE_MAX_ENTRIES ||
-+	    num_others_msix > NBL_MSIX_MAP_TABLE_MAX_ENTRIES) {
-+		dev_err(dev, "MSI-X count out of limit: net=%u, others=%u\n",
-+			num_net_msix, num_others_msix);
-+		return -EINVAL;
-+	}
-+
-+	if (check_add_overflow(num_net_msix, num_others_msix, &requested) ||
-+	    requested > NBL_MSIX_MAP_TABLE_MAX_ENTRIES) {
-+		dev_err(dev, "Total MSI-X vectors %u exceeds maximum %u\n",
-+			requested, NBL_MSIX_MAP_TABLE_MAX_ENTRIES);
-+		return -EINVAL;
-+	}
-+
-+	ret = nbl_res_func_id_to_bdf(res_mgt, func_id, &bus, &devid, &function);
-+	if (ret) {
-+		if (ret == -EOPNOTSUPP)
-+			dev_err(dev,
-+				"MSI-X mapping: func_id=%u is not a PF present on this board\n",
-+				func_id);
-+		return ret;
-+	}
-+
-+	mutex_lock(&intr_mgt->lock);
-+	official_tbl = &intr_mgt->func_intr_res[func_id].msix_map_table;
-+
-+	/* Reject new configs once global teardown has started */
-+	if (intr_mgt->stopping) {
-+		ret = -ESHUTDOWN;
-+		goto out_unlock;
-+	}
-+
-+	had_config = intr_mgt->func_intr_res[func_id].state ==
-+		     NBL_INTR_FUNC_CONFIGURED;
-+
-+	/*
-+	 * Phase1: allocate global vector array first.
-+	 * Allocate the fixed-size MSIX DMA table only ONCE for this function.
-+	 */
-+	tmp_interrupts = kcalloc(requested, sizeof(*tmp_interrupts),
-+				 GFP_KERNEL);
-+	if (!tmp_interrupts) {
-+		ret = -ENOMEM;
-+		goto out_unlock;
-+	}
-+	/* Allocate MSIX DMA table once per function */
-+	if (!official_tbl->base_addr) {
-+		official_tbl->size =
-+			sizeof(struct nbl_msix_map) *
-+			NBL_MSIX_MAP_TABLE_MAX_ENTRIES;
-+		official_tbl->base_addr = dma_alloc_coherent(dev,
-+							     official_tbl->size,
-+							     &official_tbl->dma,
-+							     GFP_KERNEL);
-+		if (!official_tbl->base_addr) {
-+			dev_err(dev, "Failed to allocate DMA memory for MSIX table\n");
-+			ret = -ENOMEM;
-+			goto release_vecs_unlock;
-+		}
-+		tbl_alloc = true;
-+	}
-+
-+	/* Allocate net interrupt vectors */
-+	for (i = 0; i < num_net_msix; i++) {
-+		intr_index = find_first_zero_bit(intr_mgt->intr_net_bmap,
-+						 NBL_MAX_NET_INTERRUPT);
-+		if (intr_index == NBL_MAX_NET_INTERRUPT) {
-+			dev_err(dev, "No free net interrupt vectors left\n");
-+			ret = -EAGAIN;
-+			goto release_vecs_unlock;
-+		}
-+		tmp_interrupts[i] = intr_index + NBL_NET_INTR_BASE;
-+		set_bit(intr_index, intr_mgt->intr_net_bmap);
-+		allocated_cnt++;
-+	}
-+
-+	/* Allocate other interrupt vectors */
-+	for (; i < requested; i++) {
-+		intr_index =
-+			find_first_zero_bit(intr_mgt->intr_other_bmap,
-+					    NBL_MAX_OTHER_INTERRUPT);
-+		if (intr_index == NBL_MAX_OTHER_INTERRUPT) {
-+			dev_err(dev, "No free control interrupt vectors left\n");
-+			ret = -EAGAIN;
-+			goto release_vecs_unlock;
-+		}
-+		tmp_interrupts[i] = intr_index;
-+		set_bit(intr_index, intr_mgt->intr_other_bmap);
-+		allocated_cnt++;
-+	}
-+
-+	/*
-+	 * Phase2: quiesce the old hardware MSIX config before touching
-+	 * the live DMA table. Same sequence as destroy:
-+	 *   disable mailbox routing -> invalidate per-vector INFO ->
-+	 *   clear map VALID -> flush -> wait for in-flight table fetches.
-+	 * The lock stays held across the wait, so no concurrent caller
-+	 * can program the quiesced function. Only then are old vectors
-+	 * recycled.
-+	 * NOTE: NO DMA table free here.
-+	 */
-+	if (had_config) {
-+		old_interrupts =
-+			intr_mgt->func_intr_res[func_id].interrupts;
-+		old_num = intr_mgt->func_intr_res[func_id].num_interrupts;
-+
-+		ret = __nbl_res_intr_set_mailbox_irq(intr_mgt, res_mgt, func_id,
-+						     0, false);
-+		if (ret) {
-+			dev_err(dev, "%s: disable old mailbox irq failed, keep old config\n",
-+				__func__);
-+			goto release_vecs_unlock;
-+		}
-+		for (j = 0; j < old_num; j++) {
-+			hw_ops->cfg_msix_info(res_mgt->hw_ops_tbl->priv,
-+					      func_id, false,
-+					      old_interrupts[j],
-+					      0, 0, 0, false);
-+		}
-+		hw_ops->cfg_msix_map(res_mgt->hw_ops_tbl->priv, func_id,
-+				     false, official_tbl->dma,
-+				     0, 0, 0);
-+		hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+		nbl_intr_quiesce_wait();
-+
-+		nbl_intr_release_bitmap(intr_mgt, res_mgt, old_interrupts,
-+					old_num);
-+		kfree(old_interrupts);
-+		intr_mgt->func_intr_res[func_id].interrupts = NULL;
-+		intr_mgt->func_intr_res[func_id].num_interrupts = 0;
-+		intr_mgt->func_intr_res[func_id].num_net_interrupts = 0;
-+	}
-+
-+	/* Swap new vector array into func state */
-+	intr_mgt->func_intr_res[func_id].interrupts = tmp_interrupts;
-+	intr_mgt->func_intr_res[func_id].num_interrupts = requested;
-+	intr_mgt->func_intr_res[func_id].num_net_interrupts = num_net_msix;
-+	tmp_interrupts = NULL;
-+
-+	/*
-+	 * The table is rewritten in place while the map is invalid, so the
-+	 * device cannot observe a torn old/new mix.  No invalidate or
-+	 * quiesce window is needed first on either path: nbl_intr_setup_mgt()
-+	 * scrubbed every entry at init, a completed destroy leaves VALID
-+	 * clear, a failed configuration returns before arming anything, and
-+	 * the reconfiguration branch above has just cleared it.
-+	 *
-+	 * Only entries beyond requested count need explicit zeroing.
-+	 */
-+	msix_map_entries = official_tbl->base_addr;
-+	memset(msix_map_entries + requested, 0,
-+	       (NBL_MSIX_MAP_TABLE_MAX_ENTRIES - requested) *
-+	       sizeof(*msix_map_entries));
-+
-+	for (i = 0; i < requested; i++) {
-+		gvec = intr_mgt->func_intr_res[func_id].interrupts[i];
-+		msix_map_entries[i].data =
-+			cpu_to_le16(FIELD_PREP(NBL_MSIX_MAP_VALID_MASK, 1) |
-+				    FIELD_PREP(NBL_MSIX_MAP_INDEX_MASK,
-+					       gvec));
-+	}
-+
-+	/* Ensure coherent table writes are visible before HW fetch/enable */
-+	dma_wmb();
-+
-+	/* Enable per-vector INFO entries after the table is published */
-+	for (i = 0; i < requested; i++) {
-+		gvec = intr_mgt->func_intr_res[func_id].interrupts[i];
-+		entry_masked = (i < num_net_msix && net_msix_mask_en);
-+		hw_ops->cfg_msix_info(res_mgt->hw_ops_tbl->priv,
-+				      func_id, true, gvec,
-+				      bus, devid, function,
-+				      entry_masked);
-+	}
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+	/*
-+	 * Point the map at the table last and set VALID.
-+	 *
-+	 * cfg_msix_map uses the control PF's own BDF (common->hw_bus etc.),
-+	 * not the target function's BDF.  This BDF tags the pcompler DMA
-+	 * read of the MSI-X map table as originating from the control PF.
-+	 * The target function's BDF (bus/devid/function from
-+	 * nbl_res_func_id_to_bdf) is used only in cfg_msix_info for the
-+	 * host_msix_ctrl table entry BDF filtering.
-+	 */
-+	hw_ops->cfg_msix_map(res_mgt->hw_ops_tbl->priv, func_id,
-+			     true, official_tbl->dma, common->hw_bus,
-+			     common->devid, common->function);
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+
-+	intr_mgt->func_intr_res[func_id].state = NBL_INTR_FUNC_CONFIGURED;
-+	mutex_unlock(&intr_mgt->lock);
-+	return 0;
-+
-+release_vecs_unlock:
-+	nbl_intr_release_bitmap(intr_mgt, res_mgt, tmp_interrupts,
-+				allocated_cnt);
-+	kfree(tmp_interrupts);
-+	/*
-+	 * Release the DMA table only if this call allocated it.  A table
-+	 * left behind by a completed destroy must survive a failed
-+	 * reconfigure: it was kept on purpose, because a late pcompleter
-+	 * fetch may still read it, so freeing it here would hand that
-+	 * fetch recycled memory while the control PF is still bus master.
-+	 */
-+	if (tbl_alloc) {
-+		dma_free_coherent(dev, official_tbl->size,
-+				  official_tbl->base_addr,
-+				  official_tbl->dma);
-+		official_tbl->base_addr = NULL;
-+		official_tbl->dma = 0;
-+		official_tbl->size = 0;
-+	}
-+out_unlock:
-+	mutex_unlock(&intr_mgt->lock);
-+	return ret;
-+}
-+
-+/**
-+ * nbl_res_intr_set_mailbox_irq - bind mailbox IRQ to specified vector
-+ * @res_mgt: resource management instance
-+ * @func_id: target function identifier
-+ * @vector_id: index inside local interrupt array
-+ * @en_msix: enable/disable mailbox interrupt
-+ *
-+ * Serialization: takes intr_mgt->lock internally and passes the
-+ * pointer it read (before taking the lock) down to the helpers, which
-+ * must not re-read res_mgt->intr_mgt: nbl_intr_mgt_stop() clears that
-+ * pointer while a caller may already be blocked on this mutex.
-+ *
-+ * Return: 0 on success, negative errno on parameter or state check
-+ * failure.  The hardware op is void and cannot report failure.
-+ */
-+int nbl_res_intr_set_mailbox_irq(struct nbl_resource_mgt *res_mgt,
-+				 u16 func_id, u16 vector_id,
-+				 bool en_msix)
-+{
-+	struct nbl_interrupt_mgt *intr_mgt = res_mgt->intr_mgt;
-+	struct nbl_common_info *common = res_mgt->common;
-+	int ret;
-+
-+	if (!intr_mgt)
-+		return -EINVAL;
-+
-+	if (!common->has_ctrl)
-+		return -EINVAL;
-+
-+	mutex_lock(&intr_mgt->lock);
-+	ret = __nbl_res_intr_set_mailbox_irq(intr_mgt, res_mgt, func_id,
-+					     vector_id, en_msix);
-+	mutex_unlock(&intr_mgt->lock);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Reset the software state and invalidate every function's hardware MSI-X
-+ * map entry once.  The chip-internal tables (FUNCTION_MSIX_MAP,
-+ * PADPT_HOST_MSIX_INFO, HOST_MSIX_FID_TABLE) can survive a kexec or a
-+ * forced unload without FLR and there is no .shutdown callback to scrub
-+ * them.  Only FUNCTION_MSIX_MAP is scrubbed here: it is indexed by the
-+ * 3-bit PCI function number (NBL_FUNCTION_MSIX_MAP_FUNCTION_MASK), so the
-+ * NBL_MAX_PF (8) entries are every entry the pcompleter can select - the
-+ * 10-bit FID mask belongs to HOST_MSIX_FID_TABLE, a separate table
-+ * indexed by FID.  One register write each, after which the pcompleter
-+ * can no longer fetch a stale table that points into memory this kernel
-+ * may have reallocated.  The INFO/FID tables are indexed by global vector
-+ * id and are not cleared; instead a map entry is always invalidated by
-+ * nbl_res_intr_cfg_msix_map() and by the teardown paths before it is
-+ * armed for a new configuration.
-+ *
-+ * No sibling PF is live at this point: the device links make them probe
-+ * only after this PF and remove before it, so clearing all NBL_MAX_PF
-+ * entries cannot disturb a running function.
-+ */
-+static struct nbl_interrupt_mgt *
-+nbl_intr_setup_mgt(struct nbl_resource_mgt *res_mgt)
-+{
-+	struct device *dev = res_mgt->common->dev;
-+	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
-+	struct nbl_interrupt_mgt *intr_mgt;
-+	u16 func_id;
-+	int err;
-+
-+	intr_mgt = devm_kzalloc(dev, sizeof(*intr_mgt), GFP_KERNEL);
-+	if (!intr_mgt)
++	disp_mgt = devm_kzalloc(dev, sizeof(*disp_mgt), GFP_KERNEL);
++	if (!disp_mgt)
 +		return ERR_PTR(-ENOMEM);
 +
-+	err = devm_mutex_init(dev, &intr_mgt->lock);
-+	if (err)
-+		return ERR_PTR(err);
-+
-+	intr_mgt->stopping = false;
-+	bitmap_zero(intr_mgt->intr_net_bmap, NBL_MAX_NET_INTERRUPT);
-+	bitmap_zero(intr_mgt->intr_other_bmap, NBL_MAX_OTHER_INTERRUPT);
-+
-+	/*
-+	 * Invalidate any map entry left VALID by a previous kernel.  One
-+	 * flush plus one quiesce window covers the outstanding table
-+	 * fetches, same as the teardown paths do.
-+	 *
-+	 * This is the scrub that makes it safe to enable bus mastering:
-+	 * nbl_probe() calls it with bus mastering still disabled, so no
-+	 * new fetch can start while these entries are still VALID.
-+	 */
-+	for (func_id = 0; func_id < NBL_MAX_PF; func_id++)
-+		hw_ops->cfg_msix_map(res_mgt->hw_ops_tbl->priv, func_id,
-+				     false, 0, 0, 0, 0);
-+	hw_ops->flush_write(res_mgt->hw_ops_tbl->priv);
-+	nbl_intr_quiesce_wait();
-+
-+	return intr_mgt;
++	disp_mgt->common = common;
++	return disp_mgt;
 +}
 +
-+int nbl_intr_mgt_start(struct nbl_resource_mgt *res_mgt)
++static struct nbl_dispatch_ops_tbl *
++nbl_disp_setup_ops(struct device *dev, struct nbl_dispatch_mgt *disp_mgt)
 +{
-+	struct nbl_interrupt_mgt *intr_mgt;
++	struct nbl_dispatch_ops_tbl *disp_ops_tbl;
++	struct nbl_dispatch_ops *disp_ops;
++
++	disp_ops_tbl = devm_kzalloc(dev, sizeof(*disp_ops_tbl), GFP_KERNEL);
++	if (!disp_ops_tbl)
++		return ERR_PTR(-ENOMEM);
++
++	disp_ops = devm_kzalloc(dev, sizeof(*disp_ops), GFP_KERNEL);
++	if (!disp_ops)
++		return ERR_PTR(-ENOMEM);
++
++	disp_ops_tbl->ops = disp_ops;
++	disp_ops_tbl->priv = disp_mgt;
++
++	return disp_ops_tbl;
++}
++
++int nbl_disp_init(struct nbl_adapter *adapter)
++{
++	struct nbl_common_info *common = &adapter->common;
++	struct nbl_dispatch_ops_tbl *disp_ops_tbl;
++	struct nbl_channel_ops_tbl *chan_ops_tbl =
++		adapter->intf.channel_ops_tbl;
++	struct device *dev = &adapter->pdev->dev;
++	struct nbl_dispatch_mgt *disp_mgt;
 +	int ret;
 +
-+	intr_mgt = nbl_intr_setup_mgt(res_mgt);
-+	if (IS_ERR(intr_mgt)) {
-+		ret = PTR_ERR(intr_mgt);
++	disp_mgt = nbl_disp_setup_disp_mgt(common);
++	if (IS_ERR(disp_mgt)) {
++		ret = PTR_ERR(disp_mgt);
 +		return ret;
 +	}
 +
-+	res_mgt->intr_mgt = intr_mgt;
++	disp_ops_tbl = nbl_disp_setup_ops(dev, disp_mgt);
++	if (IS_ERR(disp_ops_tbl)) {
++		ret = PTR_ERR(disp_ops_tbl);
++		return ret;
++	}
++
++	disp_mgt->res_mgt = adapter->core.res_mgt;
++	disp_mgt->chan_ops_tbl = chan_ops_tbl;
++	disp_mgt->disp_ops_tbl = disp_ops_tbl;
++	adapter->core.disp_mgt = disp_mgt;
++	adapter->intf.dispatch_ops_tbl = disp_ops_tbl;
++
++	if (common->has_ctrl)
++		nbl_disp_set_ctrl_bit(disp_mgt, NBL_DISP_CTRL_LVL_MGT);
++
++	nbl_disp_refresh_ctrl_ops(disp_mgt);
 +	return 0;
 +}
 +
-+/*
-+ * nbl_intr_mgt_stop - global control-PF interrupt teardown
-+ *
-+ * Phase 1 sets the stopping latch and invalidates every configured
-+ * function's hardware map entry while holding the lock.  The lock is
-+ * dropped for the global quiesce window, so a caller that races the
-+ * window is rejected by the latch (checked under the lock), not by the
-+ * lock being held.
-+ *
-+ * The latch is what rejects a caller that raced the window; it is not
-+ * what makes the manager safe to touch.  No caller is in flight here by
-+ * construction: nbl_remove() clears bus mastering and stops the device
-+ * before reaching this point, and every sibling PF - the only remote
-+ * source of these calls - is unbound first through its
-+ * DL_FLAG_AUTOPROBE_CONSUMER device link.  A caller that did latch the
-+ * pointer earlier and then gets in under the lock hits the latch
-+ * instead:
-+ *   - the config path, destroy_msix_map and the enable path of
-+ *     nbl_res_intr_set_mailbox_irq() report -ESHUTDOWN.  The latch is
-+ *     checked ahead of that path's per-function state check, so its
-+ *     -ENODEV is only reachable while the manager is not stopping.
-+ *   - the en_msix=false disable path consults neither and returns 0,
-+ *     which is what lets teardown disarm routing after the latch is set.
-+ * Once this returns res_mgt->intr_mgt is NULL and the public entry
-+ * points report -EINVAL.
-+ */
-+void nbl_intr_mgt_stop(struct nbl_resource_mgt *res_mgt)
++void nbl_disp_remove(struct nbl_adapter *adapter)
 +{
-+	struct nbl_interrupt_mgt *intr_mgt = res_mgt->intr_mgt;
-+	struct nbl_msix_map_table *msix_tbl;
-+	u16 func_id;
-+	int ret;
-+
-+	if (!intr_mgt)
-+		return;
-+
-+	/*
-+	 * Phase 1: set the stopping latch and invalidate all hardware
-+	 * MSIX map entries.  A caller racing the quiesce window below is
-+	 * either still waiting for the lock, in which case it observes
-+	 * stopping == true at its next checkpoint once it is let in, or
-+	 * it already holds the lock, in which case this phase waits for
-+	 * it to finish.  The latch is never cleared.
-+	 *
-+	 * The en_msix=false mailbox path is exempt from the latch on
-+	 * purpose: this phase and the per-function teardown use it to
-+	 * disarm routing, and it only rewrites bits that are already
-+	 * clear by then.
-+	 */
-+	mutex_lock(&intr_mgt->lock);
-+	intr_mgt->stopping = true;
-+	for (func_id = 0; func_id < NBL_MAX_PF; func_id++) {
-+		if (intr_mgt->func_intr_res[func_id].state ==
-+		    NBL_INTR_FUNC_CONFIGURED) {
-+			dev_info(res_mgt->common->dev,
-+				 "intr_mgt_stop: preparing destroy map for func %u\n",
-+				 func_id);
-+			ret = __nbl_res_intr_prepare_destroy_msix_map(intr_mgt,
-+								      res_mgt,
-+								      func_id);
-+			if (ret)
-+				dev_warn(res_mgt->common->dev,
-+					 "intr_mgt_stop: prepare destroy map for func %u failed: %d\n",
-+					 func_id, ret);
-+		}
-+	}
-+	mutex_unlock(&intr_mgt->lock);
-+
-+	/*
-+	 * Global quiesce: wait for straggler DMA table reads after all
-+	 * MSIX map entries have been invalidated in hardware, before
-+	 * freeing coherent memory.  Best-effort only, see
-+	 * nbl_intr_quiesce_wait().
-+	 */
-+	nbl_intr_quiesce_wait();
-+
-+	/* Phase2: safely release MSIX coherent memory and intr resources */
-+	mutex_lock(&intr_mgt->lock);
-+	for (func_id = 0; func_id < NBL_MAX_PF; func_id++) {
-+		if (intr_mgt->func_intr_res[func_id].state ==
-+		    NBL_INTR_FUNC_DESTROYING) {
-+			ret = __nbl_res_intr_complete_destroy_msix_map(intr_mgt,
-+								       res_mgt,
-+								       func_id);
-+			if (ret)
-+				dev_warn(res_mgt->common->dev,
-+					 "intr_mgt_stop: complete destroy map for func %u failed: %d\n",
-+					 func_id, ret);
-+		}
-+	}
-+	/*
-+	 * Free every coherent MSI-X table.  The per-function destroy path
-+	 * keeps them alive on purpose (see
-+	 * __nbl_res_intr_complete_destroy_msix_map()), so this is the only
-+	 * place they are released.  nbl_remove() has already cleared bus
-+	 * mastering, and the window above has elapsed, so no pcompleter
-+	 * fetch can still be in flight.
-+	 */
-+	for (func_id = 0; func_id < NBL_MAX_PF; func_id++) {
-+		msix_tbl = &intr_mgt->func_intr_res[func_id].msix_map_table;
-+		if (!msix_tbl->base_addr)
-+			continue;
-+		dma_free_coherent(res_mgt->common->dev, msix_tbl->size,
-+				  msix_tbl->base_addr, msix_tbl->dma);
-+		msix_tbl->base_addr = NULL;
-+		msix_tbl->dma = 0;
-+		msix_tbl->size = 0;
-+	}
-+
-+	/*
-+	 * Unpublish last.  Readers do not synchronize on intr_mgt->lock,
-+	 * so this only has to happen after every hardware access and
-+	 * every free above; a caller that latched the pointer earlier is
-+	 * rejected by the stopping latch.
-+	 */
-+	res_mgt->intr_mgt = NULL;
-+	mutex_unlock(&intr_mgt->lock);
++	/* Dispatch structures are allocated via devm */
 +}
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.h
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.h
 new file mode 100644
-index 000000000..9f66f5e19
+index 000000000..12b19d12b
 --- /dev/null
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.h
-@@ -0,0 +1,21 @@
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.h
+@@ -0,0 +1,23 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (c) 2026 Nebula Matrix Limited.
 + */
 +
-+#ifndef _NBL_INTERRUPT_H_
-+#define _NBL_INTERRUPT_H_
++#ifndef _NBL_DISPATCH_H_
++#define _NBL_DISPATCH_H_
++#include "../nbl_include/nbl_include.h"
++#include "../nbl_include/nbl_def_channel.h"
++#include "../nbl_include/nbl_def_resource.h"
++#include "../nbl_include/nbl_def_dispatch.h"
++#include "../nbl_include/nbl_def_common.h"
++#include "../nbl_core.h"
 +
-+#include "nbl_resource.h"
++struct nbl_dispatch_mgt {
++	struct nbl_common_info *common;
++	struct nbl_resource_mgt *res_mgt;
++	struct nbl_channel_ops_tbl *chan_ops_tbl;
++	struct nbl_dispatch_ops_tbl *disp_ops_tbl;
++	DECLARE_BITMAP(ctrl_lvl, NBL_DISP_CTRL_LVL_MAX);
++};
 +
-+#define NBL_MSIX_MAP_TABLE_MAX_ENTRIES	1024
-+int nbl_res_intr_destroy_msix_map(struct nbl_resource_mgt *res_mgt,
-+				  u16 func_id);
-+int nbl_res_intr_cfg_msix_map(struct nbl_resource_mgt *res_mgt,
-+			      u16 func_id, u16 num_net_msix,
-+			      u16 num_others_msix,
-+			      bool net_msix_mask_en);
-+int nbl_res_intr_set_mailbox_irq(struct nbl_resource_mgt *res_mgt,
-+				 u16 func_id, u16 vector_id,
-+				 bool en_msix);
 +#endif
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
-index b316fb8e7..66b36dc90 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
-@@ -68,6 +68,38 @@ int nbl_res_vsi_id_to_pf_id(struct nbl_resource_mgt *res_mgt, u16 vsi_id)
- 	return -ENOENT;
- }
- 
-+int nbl_res_func_id_to_bdf(struct nbl_resource_mgt *res_mgt, u16 func_id,
-+			   u8 *bus, u8 *dev, u8 *function)
-+{
-+	struct nbl_common_info *common = res_mgt->common;
-+	struct nbl_pf_info *pf_info;
-+	int pfid = func_id;
-+	u8 pf_bus, devfn;
-+	u32 rel_pf_id;
-+	int ret;
-+
-+	if (!common->has_ctrl || !bus || !dev || !function)
-+		return -EINVAL;
-+	ret = nbl_common_func_id_to_rel_pf_id(common, pfid, &rel_pf_id);
-+	if (ret)
-+		return ret;
-+	if (rel_pf_id >= common->max_pf) {
-+		dev_err(common->dev,
-+			"func_id=%u rel_pf_id=%u exceeds max_pf=%u, no such PF on this board\n",
-+			pfid, rel_pf_id,
-+			common->max_pf);
-+		return -EOPNOTSUPP;
-+	}
-+	pf_info = res_mgt->resource_info->pf_info + rel_pf_id;
-+	pf_bus = PCI_BUS_NUM(pf_info->bdf);
-+	devfn = pf_info->bdf & 0xff;
-+	*bus = pf_bus;
-+	*dev = PCI_SLOT(devfn);
-+	*function = PCI_FUNC(devfn);
-+
-+	return 0;
-+}
-+
- int nbl_res_get_eth_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
- 		       u16 vsi_id, u8 *eth_num, u8 *eth_id, u8 *logic_eth_id)
- {
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
-index 674b103ea..ae5b2885e 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
-@@ -17,6 +17,72 @@
- 
- struct nbl_resource_mgt;
- 
-+/* --------- INTERRUPT ---------- */
-+#define NBL_MAX_OTHER_INTERRUPT			1024
-+#define NBL_MAX_NET_INTERRUPT			4096
-+#define NBL_NET_INTR_BASE		NBL_MAX_OTHER_INTERRUPT
-+
-+#define NBL_MSIX_MAP_VALID_MASK		BIT(0)
-+#define NBL_MSIX_MAP_INDEX_MASK		GENMASK(13, 1)
-+#define NBL_MSIX_MAP_RSV_MASK		GENMASK(15, 14)
-+
-+struct nbl_msix_map {
-+	__le16 data;
-+};
-+
-+struct nbl_msix_map_table {
-+	struct nbl_msix_map *base_addr;
-+	dma_addr_t dma;
-+	size_t size;
-+};
-+
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
+new file mode 100644
+index 000000000..c90dd4e11
+--- /dev/null
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
+@@ -0,0 +1,53 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * Per-function MSI-X resource state.
-+ *
-+ * IDLE       - nothing configured for this function.
-+ * CONFIGURED - map valid in hardware, vectors owned by this function.
-+ * DESTROYING - map invalidated, teardown in flight: neither the vector
-+ *              bitmaps nor the coherent table may be released until the
-+ *              hardware-DMA quiesce window has elapsed.
-+ *
-+ * The single-function destroy path holds intr_mgt->lock across that
-+ * window.  nbl_intr_mgt_stop() cannot, because it quiesces every
-+ * function at once: it drops the lock and relies on the stopping latch
-+ * to keep a concurrent configuration from installing a map that the
-+ * in-flight teardown would free.
++ * Copyright (c) 2026 Nebula Matrix Limited.
 + */
-+enum nbl_intr_func_state {
-+	NBL_INTR_FUNC_IDLE = 0,
-+	NBL_INTR_FUNC_CONFIGURED,
-+	NBL_INTR_FUNC_DESTROYING,
++
++#ifndef _NBL_DEF_DISPATCH_H_
++#define _NBL_DEF_DISPATCH_H_
++
++#include <linux/types.h>
++
++struct nbl_dispatch_mgt;
++struct nbl_adapter;
++enum {
++	NBL_DISP_CTRL_LVL_MGT,
++	NBL_DISP_CTRL_LVL_MAX,
 +};
 +
-+struct nbl_func_interrupt_resource_mng {
-+	u16 num_interrupts;
-+	u16 num_net_interrupts;
-+	u16 *interrupts;
-+	struct nbl_msix_map_table msix_map_table;
-+	u8 state; /* enum nbl_intr_func_state */
++/**
++ * struct nbl_dispatch_ops - dispatch control plane operation callbacks
++ * @init_module: chip-wide datapath init, forwarded to the resource layer
++ *               (nbl_res_chip_init_module() and then hw_ops->init_module());
++ *               on leonis it programs the chip-wide datapath registers and
++ *               sets driver_status=true.  Control-PF exclusive: the pointer
++ *               is NULL on a function without has_ctrl, so the caller must
++ *               check has_ctrl first.
++ * @deinit_module: chip-wide teardown, forwarded the same way; on leonis
++ *               it clears driver_status, which starts an asynchronous
++ *               firmware per-PF cleanup pass with no completion status
++ *               bit, waited for best-effort only.  The caller must have
++ *               stopped the mailbox channel and drained all in-flight
++ *               mailbox DMA before calling it.
++ *               Returns void.  Control-PF exclusive, same NULL rule as
++ *               @init_module.
++ *
++ * These callbacks are not dispatch-layer setup/teardown: the dispatch
++ * structures are devm-allocated in nbl_disp_init(), and nbl_disp_remove()
++ * only documents why no explicit teardown is needed. They forward
++ * chip/firmware control down to the layers below instead: a control-PF
++ * function calls the resource helpers directly.
++ */
++struct nbl_dispatch_ops {
++	int (*init_module)(struct nbl_dispatch_mgt *disp_mgt);
++	void (*deinit_module)(struct nbl_dispatch_mgt *disp_mgt);
 +};
 +
-+struct nbl_interrupt_mgt {
-+	struct mutex lock; /* Protects the bitmaps + func_intr_res[] */
-+	DECLARE_BITMAP(intr_net_bmap, NBL_MAX_NET_INTERRUPT);
-+	DECLARE_BITMAP(intr_other_bmap, NBL_MAX_OTHER_INTERRUPT);
-+	/* One-way latch: set on teardown, never cleared */
-+	bool stopping;
-+	/*
-+	 * Indexed by the raw hardware function id.  Only PF entries are ever
-+	 * used: the public entry points reject ids outside the PF range (VFs
-+	 * included) with -EINVAL, and nbl_res_intr_cfg_msix_map() also
-+	 * rejects a PF that is not present on this board.  The destroy and
-+	 * mailbox paths only bound-check NBL_MAX_PF; they rely on their
-+	 * callers passing either common->mgt_pf or an id that the config
-+	 * path has already validated.
-+	 */
-+	struct nbl_func_interrupt_resource_mng func_intr_res[NBL_MAX_PF];
++struct nbl_dispatch_ops_tbl {
++	struct nbl_dispatch_ops *ops;
++	struct nbl_dispatch_mgt *priv;
 +};
 +
- /* --------- INFO ---------- */
- struct nbl_pf_info {
- 	unsigned int bdf;
-@@ -55,14 +121,38 @@ struct nbl_resource_mgt {
- 	struct nbl_common_info *common;
- 	struct nbl_resource_info *resource_info;
- 	struct nbl_hw_ops_tbl *hw_ops_tbl;
-+	/*
-+	 * Published interrupt manager, control PF only.  The public entry
-+	 * points read this pointer without the manager lock and then pass
-+	 * the value they read down to the internal helpers;
-+	 * nbl_intr_mgt_stop() clears it under the manager lock as its last
-+	 * step, after every hardware access and every free, so a caller
-+	 * that reads it after that gets -EINVAL.
-+	 *
-+	 * The object is devres-owned and is released together with the
-+	 * device rather than by nbl_intr_mgt_stop(), so a latched pointer
-+	 * is never dereferenced into freed memory.  That is not what keeps
-+	 * a concurrent caller safe, though: see nbl_intr_mgt_stop() for
-+	 * the ordering that makes sure there is none.  A caller that
-+	 * latched the pointer before it was cleared and then gets in under
-+	 * the lock hits the stopping latch: the config path,
-+	 * destroy_msix_map and the mailbox-enable path report -ESHUTDOWN,
-+	 * while the mailbox-disable path (en_msix == false) returns 0
-+	 * without consulting the latch.
-+	 */
-+	struct nbl_interrupt_mgt *intr_mgt;
- };
- 
- int nbl_res_vsi_id_to_pf_id(struct nbl_resource_mgt *res_mgt, u16 vsi_id);
- int nbl_res_func_id_to_vsi_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
- 			      u16 type, u16 *vsi_id);
-+int nbl_res_func_id_to_bdf(struct nbl_resource_mgt *res_mgt, u16 func_id,
-+			   u8 *bus, u8 *dev, u8 *function);
- int nbl_res_get_eth_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
- 		       u16 vsi_id, u8 *eth_num, u8 *eth_id, u8 *logic_eth_id);
-+int nbl_intr_mgt_start(struct nbl_resource_mgt *res_mgt);
- int nbl_res_pf_dev_vsi_type_to_hw_vsi_type(struct nbl_resource_mgt *res_mgt,
- 					   u16 src_type,
- 					   enum nbl_vsi_serv_type *dst_type);
-+void nbl_intr_mgt_stop(struct nbl_resource_mgt *res_mgt);
- #endif
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
-index 8e11363aa..72e469b67 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
-@@ -12,6 +12,13 @@ struct nbl_board_port_info;
- struct nbl_hw_mgt;
- struct nbl_adapter;
- struct nbl_hw_ops {
-+	void (*cfg_msix_map)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
-+			     bool valid, dma_addr_t dma_addr, u8 bus,
-+			     u8 devid, u8 function);
-+	void (*cfg_msix_info)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
-+			      bool valid, u16 interrupt_id, u8 bus,
-+			      u8 devid, u8 function,
-+			      bool net_msix_mask_en);
- 	/**
- 	 * flush_write - Flush posted MEMORY-BAR writes
- 	 * @hw_mgt: hardware management context
-@@ -61,6 +68,8 @@ struct nbl_hw_ops {
- 
- 	void (*cfg_mailbox_qinfo)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
- 				  u8 bus, u8 devid, u8 function);
-+	void (*set_mailbox_irq)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
-+				bool en_msix, u16 gvec);
- 	void (*get_fw_eth_map)(struct nbl_hw_mgt *hw_mgt, u32 *eth_map);
- 	/**
- 	 * get_board_info - Fetch board info from firmware
++int nbl_disp_init(struct nbl_adapter *adapter);
++void nbl_disp_remove(struct nbl_adapter *adapter);
++#endif
 diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
-index 36a02d40d..247869471 100644
+index 247869471..50cb01a33 100644
 --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
 +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
-@@ -261,20 +261,32 @@ static int nbl_probe(struct pci_dev *pdev,
- 	/* never return fail when DMA_BIT_MASK(64) */
- 	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
+@@ -11,6 +11,7 @@
+ #include "nbl_include/nbl_def_channel.h"
+ #include "nbl_include/nbl_def_hw.h"
+ #include "nbl_include/nbl_def_resource.h"
++#include "nbl_include/nbl_def_dispatch.h"
+ #include "nbl_include/nbl_def_common.h"
+ #include "nbl_core.h"
  
--	pci_set_master(pdev);
--
-+	/*
-+	 * Bus mastering is enabled only after nbl_core_init() returns.
-+	 *
-+	 * FUNCTION_MSIX_MAP survives a kexec or a forced unload without
-+	 * FLR and there is no .shutdown callback to scrub it, so at this
-+	 * point every map entry left VALID by a previous kernel still
-+	 * holds a DMA address that this kernel has already reallocated.
-+	 * Those entries tag their table fetches as bus-master reads, and
-+	 * the only thing standing between such a fetch and a read of
-+	 * reused memory is Bus Master Enable, which the PCI core cleared
-+	 * on the way into this kernel.  nbl_intr_setup_mgt() invalidates
-+	 * the entries from inside nbl_core_init(); enabling bus mastering
-+	 * before that would re-open the window.  Everything up to that
-+	 * point is host-side setup plus MMIO and nothing in it waits for
-+	 * the device, so it does not need bus mastering.
-+	 */
- 	adapter = nbl_core_init(pdev, &param);
- 	if (IS_ERR(adapter)) {
- 		dev_err(dev, "Nbl adapter init fail: %pe\n", adapter);
--		err = PTR_ERR(adapter);
--		goto out_clear_master;
-+		return PTR_ERR(adapter);
- 	}
+@@ -48,7 +49,13 @@ struct nbl_adapter *nbl_core_init(struct pci_dev *pdev,
+ 	ret = nbl_res_init_leonis(adapter);
+ 	if (ret)
+ 		goto out_chan_remove;
 +
-+	pci_set_master(pdev);
- 	pci_set_drvdata(pdev, adapter);
++	ret = nbl_disp_init(adapter);
++	if (ret)
++		goto out_res_remove;
+ 	return adapter;
++out_res_remove:
++	nbl_res_remove_leonis(adapter);
+ out_chan_remove:
+ 	nbl_chan_remove_common(adapter);
+ out_hw_remove:
+@@ -59,6 +66,7 @@ out:
  
- 	return 0;
--out_clear_master:
--	pci_clear_master(pdev);
--	return err;
- }
- 
- static void nbl_remove(struct pci_dev *pdev)
-@@ -284,9 +296,23 @@ static void nbl_remove(struct pci_dev *pdev)
- 	if (!adapter)
- 		return;
- 	pci_set_drvdata(pdev, NULL);
--	nbl_core_remove(adapter);
- 
-+	/*
-+	 * Stop bus mastering before the teardown in nbl_core_remove()
-+	 * releases the map tables.
-+	 *
-+	 * nbl_core_remove() releases the coherent MSI-X map tables whose
-+	 * DMA addresses are still programmed in FUNCTION_MSIX_MAP, and the
-+	 * only thing standing between a late pcompleter fetch and a read
-+	 * of freed memory is a bounded best-effort delay - the chip
-+	 * exposes no completion status for those fetches (see
-+	 * nbl_intr_quiesce_wait()).  Clearing Bus Master Enable first
-+	 * keeps the device from starting a new fetch at all, so that
-+	 * residual window only covers requests already in flight.
-+	 */
- 	pci_clear_master(pdev);
-+
-+	nbl_core_remove(adapter);
- }
- 
- /*
+ void nbl_core_remove(struct nbl_adapter *adapter)
+ {
++	nbl_disp_remove(adapter);
+ 	nbl_res_remove_leonis(adapter);
+ 	nbl_chan_remove_common(adapter);
+ 	nbl_hw_remove_leonis(adapter);
 -- 
 2.51.0.windows.1
 
