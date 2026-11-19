@@ -1,100 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108552;
-	b=0CcaEuOeABVI89DOoroCO+8NBtYG4Eh6fXXTI3O6HfymT45QWiacZqhW9//c/xPSAPT9
-	 51fuSjLo6w8tmuKtcR/DDqccqQXn3WltTkUT4h+2zTjf4dGzsbGHZYZ1094Pt2MvukGaK
-	 Obvwf5N48S59egKzcv3W/AM/TSKOiXnyR97CFriAFp4H4xY60X0OF89b4evEK9K0b5z6l
-	 ODo1SorndKsizFVL4GhTizjREni8zThUmXWM0ZNT2gige8zdHYh+YE3IZtgzhsksE7CeC
-	 SynJZAFIIIcr4rHbk00fySrEyXunSip6bFYRuEez2rx7toY76w1uiiGa3ZnYFapd/Eg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108552;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795108697;
+	b=FkIpD7Y41IEYXlhL8x9ogBLfEkJ91JmOxY3Fry7NvLjd+jamBp3ZByOYSfk1AxpeDBR9
+	 mnymxIzdg9xuFZQ38O95klIW62fsDrgjW7gsKvzDik9ALh7RUaAiHuNKv1kTvJbfSbC9c
+	 9U+M0ORgIdtkIxofATpmTTD6Cz+h3Wh7v2Ko9v+oW/ZOFMG3bkdDTRcCYuDPX5bLmYmiw
+	 qAiqUHMSCxEfR93Djap9pJaZ0mHpyGCHDD0Kg4QzRpTk20RoKDuLnfj2lrgA1zb5oKCGx
+	 hI0IsFJxNmpEfbVYPjdQPmWwfudmhdUNKeJhlPZYpMxAOOPNyDNmzP672EXPARs32zg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108697;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=lTBFXfA4/IjpYPeV/USh7z3mUhareSyfqpp2hDcaHsY=;
-	b=LBIM1BzKmENGJ7pI1B1WLUzH00Z9QZ7xLEWU/d0aEImNv5yLj/LZBV6wud8JiJrKoqvK
-	 OWzWwKOLR0dt1PbRKIH32l73shXp+u4xfEIamS2EffqtZqHDVwlbJ5pVgtpQ0kUGthKak
-	 Gs5+zWIIsZ+NCN1zUNlMLgnQeRmMFox40q3Wbggm+REBLwd42IOf1S9T5FvlghX+XRyyS
-	 UmaowjGuAy7ydGooBoc+4XSqhTBE8XSm0yPawWt4F1R6D/GBv2+pNMefV6RaCwTcUU8Bg
-	 KNi37dTrDkniKq8kRfcK1NrcRVGWSlMtAbRxoORjmfG0XVGHhBSM/N1qgj1HfVDmmcg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=HsNd5mHeiYuhW66N7H8r1a49LBtgcNlCSKxp045xerY=;
+	b=WfL4nxnrgjmD4ugdPlMCDVPPaobB7xqhgvwryUuYmxZoe4vW3kWmd96mlIktOwwglRNg
+	 etBU7Kl5AUR/NU35bvSObhFOWG13frQaboTTDFZNk7RI07BmjxlQE7uNxcmLHZ5elUJka
+	 mUtIgIWYiJmQUP+0UOLnDYaefAiqTNHvHbtjP2pe4fnbef9/4mm5tIWW1qmRX6Bij8ipg
+	 Ntcf9oZT7PuaNNNPdxwoJw4gSqT+MITPvBr3S0AYDRdy4QsLJEQ3p9FHkSi70tFxmtnMQ
+	 v1PsXFMXr0YSneuyVHJHQVl0KsH8dMOrWaypKDveK/ISkB2VKtIQB1VXA/lMgwsLYVw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JjAe/V4a";
-	arc=none smtp.remote-ip=209.85.214.177
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q21WoWqm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.43
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com [209.85.217.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92C70606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:15:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92C70606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A112606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:18:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A112606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JjAe/V4a
-Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2e9ae391a05so8694905ad.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:15:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q21WoWqm
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-7cc2bb73cd9so896096137.3
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:18:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795108696; cv=none;
+        d=google.com; s=arc-20260327;
+        b=h7CDnHd4o44oIHjygDvNPSD6sxop4OAzuFl8SolpoQAxsN/Ch9ObpTIEYTIccU1jec
+         qvS/ChIxktuarzDHS9HYXyO9nGwCWCRXwij5UeViUNBiBVLCgbkBuwvCZfa4XZQLfzkz
+         6/jCSdajlS9q+9wkX38Z25f93MRG8VhXON8eqG6UWfvQNctJf3q9r7IBQnB4O4PDnS1t
+         Hfka4Q4Vtb2C0NE8/oF8lTLXROLxOzr05Cmc7ab57g5I70GqvDz/9Inh85aVWNkmIkJT
+         smtWdn4zttrvB8kPSUQeCgPZaPoPeupV60+0jVJlOiBqgesGt2b9bRZfU/qYcmpBOUiK
+         6Dhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HsNd5mHeiYuhW66N7H8r1a49LBtgcNlCSKxp045xerY=;
+        fh=Od9nJU2cD85G8gfdHKAeRWPVwg8B+/mwHUzcZqW5IPo=;
+        b=OXhYyiAeLbGLVT5oS9ah3phyCwN+y84aacHXCo8d8vGy9na0LxVzKC1z/3t7vGy82L
+         7KsQzwsILFRE5OTikFDjCrSnRb/eM9DtmHQuSUvDDjSK6JtWixzmS+siefm7LtYmMKD/
+         iwVzUCOorZV3OEgZKLH7ZJlW1LIMndM0YjyRNfqbk7WMwQMfPYPMkjVu8/pZjF3gITCu
+         xsiNGsaRgP3KP+0IN9RixUh+7bHB1ayZttIjc/V1/WhrqurOBpxTAwuL3Cpka4mYiElp
+         A2gUQivu3DSiEOLvKA98QhYogCeTO5KBsmRfi78YZvBsj9PKMdd95hgVXrBbuetVtbSL
+         auZA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795108551; x=1795713351; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lTBFXfA4/IjpYPeV/USh7z3mUhareSyfqpp2hDcaHsY=;
-        b=JjAe/V4afYZG6YG/6auHVc/XaCUGoznUPsaAt101z5rOyqvAKe0uafsmwd1Xh7eyNL
-         mX+E5+xpG+EsTIxGfLPNG0hZTfF20kEY2mPxf4vMz+bv6ynUctPkQpORAPmJibxWRQe0
-         YoUd4YAV6qemcnvpSR4E2VZFp5CnNbQtS1xsDeBlMsT4r1cvCZq8t134KSaVMHqtytqJ
-         YXI5X2+e9HWnGL5ghGcm7s9Sj+4Tp3+yg6Rezg+QDvSpD7P+53rE8NMQxcAjm0hhbdmb
-         I8sZHpzx9+P1v7fjNCIs8r+CRNVWpRlAtmoDxry6buWSvbEQKmRAOaPdJbujqpSm551z
-         0S8A==
+        d=gmail.com; s=20260707; t=1795108696; x=1795713496; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HsNd5mHeiYuhW66N7H8r1a49LBtgcNlCSKxp045xerY=;
+        b=q21WoWqm3KaqKAME4jgDJm3/zYzOlYi0imKDKyBs5lI6uOMaw1BM2BJDBU4uPFkl1O
+         b2lUzitfcHhXmRRqGcyFXX7N/RtRcBhkzcQkp9/Q9/BoU0+SfB47nU4K+Aw6rog04ssc
+         A78nT+0UdrSrCkz4ycyJCpIv0+qOZMi5dtW4dNGwJNKdfajIq0I8nqidE7cxD4y2Tfax
+         V+kNILQ5ue7FEWK9b6R8tA99zZ+lnljIjZkYd2aVwdToKaNMtFqSSLWq6axdgM4PCfNt
+         X1QGNetP2LkZKV88MLG0u3voVS+UWoDf6HPNh5ARLeg5QkB0gLP1m6DNaFSMWJQUqA0D
+         DE5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108551; x=1795713351;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lTBFXfA4/IjpYPeV/USh7z3mUhareSyfqpp2hDcaHsY=;
-        b=GezskMGhNk1Ma7Xv9dDQ/l65rwnEMKusF0kX5taJuFC//xyV2PEmYtwTCoasT5fSEN
-         1QR0EcNmEUbeSSCI3xk1cSx1EYvMfXi6VaZcsxZDNkw/NWIJ5/LofUuBhAt+m5Wffq7/
-         v+9okQMlEDTh9jXzWHJVC9bQlhlBhktFalfJZrod0ZjaFOUsayiQ/O3PLWfMykUYjX+b
-         rQiJEJG7xttV/a485L3GtRfWcs24d+4GIkZFNRcvu3h58pbYWag25ETuDTQ3Z8sN7NQE
-         VjOkPtzromoUaHkHcL5QBBySPTa3N02jasqDVO7KefJ/dvNExMwsTps80O7ZX1PQO7s/
-         giJw==
-X-Gm-Message-State: APuU4Z86FXjFJ4aT9Db5+QcEbfn6Fddr+04dpGfv2xWE8+nuyf5Z8WRo
-	QTqc2pdjNKzAviuVjmQ4zw/573mnwJUOSfwt94LIMTtCFD+hlLUj7mLduZcQN/3d
-X-Gm-Gg: AZFdTZfoppjtDop7NfbraEB/7tZmFmOfHOZUbci7h9XE2379UateTyh+OxfFRPyzNjb
-	pmgrgBJ6S12jiHsPeVzNjnq5gw8Pyn7UWzz11PMIHS3bivIGSahOI5xyyA06JfJz19bKlq/70vr
-	BOj0K/zXSGvSebU5fP2XfIEjdzXIPWy5aVEWpfmCOVwCUpeF24WqCvx1fvuGPGu3ncd9XntgGFd
-	Mb43EPMd4gJKxXxOZgtIL0y66U6RJY1zSMSyIOHd5VNXb9HrMk/tH/axApH0d5moEe2Gw/IwDmC
-	cc8VJSiMN3yaasuQIGnA5mDZwCfrPt6Xf+KcqQF03EXFcwEHc+Sds46jMjMsKiWFJicOi7YqP6W
-	AKJVa+niVz3ex2Vya1wvwphOmQHYsQYt9WSxcdJzInWRGA47je8H0zQ38Yk04b6+wD6czvWu+bI
-	bCg4q0haJCqin5a+vOTIvzmjpyIxa1utUrJTkmkoEUZ8F9TbBT1Dd9AydwOn0cAxVAzwuSt7YuO
-	KO286Zg0gsJu3yTNQungQPaKLTx9L6mnJwML+Swr/fSXawcZdiZ6ljLWF64ZNZ9GmTAIrMf+4B9
-	vFgrhUlLA/tlSftRRWx+WPGTliv6B0u2ML+na1qOCKIg5m3wNP/X
-X-Received: by 2002:a17:902:ea01:b0:2e9:5178:4e83 with SMTP id d9443c01a7336-2f03f2413e4mr3783595ad.38.1795108550763;
-        Thu, 19 Nov 2026 09:15:50 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee848c1sm3185305ad.10.2026.11.19.09.15.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:15:50 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
-To: netdev@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v6] net: dsa: motorcomm: Add devlink info and resources
-Date: Fri, 20 Nov 2026 01:15:06 +0800
-Message-ID: <20261119171528.681819-1-mmyangfl@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795108696; x=1795713496;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HsNd5mHeiYuhW66N7H8r1a49LBtgcNlCSKxp045xerY=;
+        b=EbX5WQfWDXooND2dIh1fqFCR6DPh9EsOs0PBc7BHleNhy3+xYloZWKgozrVZGQI3M3
+         3QnpZL/5Ip1vdT3KhdbM3JCOX2vTrubAXBhPQnlj0H9l336Ufy0gXmin2JOcA6A6jIZI
+         38XylGklMkG52/DuPL7aKg5yl03Z/uCdDXINTINUC1Ig9FvPUB60Q15qlcJbCy3ekATt
+         chqv+YEiHY0qPbE5aJqPZtEcC8yOz/jS+ReBbBobvN/01NGG3RJ1UeGu0tshrLyfAgXr
+         4KxgW6QWOCQ8fxKr7jO4/PzSluk3Bq+OxyfeL+wYd+fwdiYiQ1/0JFb2G9TvJso8bKG9
+         LvUQ==
+X-Gm-Message-State: APuU4Z8FOgrcSM0nzYO58cgaFZsPbOjr/mYdeF6Kj93+F8bH+AysZ1Lu
+	GF6ZqjUP1/T6CGzgY8C/TBsI/oM77Ky7izNa7sRnI1k6UrUynev0jR4T63OQyP9QmJxapphrt4W
+	XyLQjigv3OkFDYb6EDuNHUnOD7YLnIZc=
+X-Gm-Gg: AYBFou2o1xyzO9oteAZdJkhPPc6DMog9xiHrv1owhfiqNCJi8xVTlS6gGfYLr5f2rUh
+	eN2lXU4ZlI9o3n9aGMU72Qesvrq58RB6K8YBt3ghb6l4A/4ANsgglANYrWJBbAu7FtWhP68lsPP
+	hlCJzguNSp5V0dj6Xqv7TXdPcOnAa6AyCmfHhky232uveEfFnnNXsV0cxvrmTGWnyFOlMrIx3X3
+	PNVRgcJbM3WYjF5lq2PJIUVDczpgo6UmxOOJrWQQhrA+xGRJM7ZV9rV4jeHY79HNSZvO4/pRtwy
+	7Cdzlyz1CE8rBdF1NKdCW1LlNNIt2+rlHyt9b9wE4t2F+XVRgfg7drpqtVSZX1gOTid17oZZLpk
+	vxUskDlCPlZPn1HfeDVpeTLAJJ1vK/k2FFsZWxpmTdIP7Gf7Y5YQe78QrjAUOj9HehC6mp1orLi
+	IuYKLpwyMMCOVdomdeHKVw7U9qWaRV5XpBRMDf4p8i07h+8ZKqotn7BCE6jtaxZRvntBnJGTLCK
+	SumbWcLTeAOe8ePyAAWoNsJi8+WeQ==
+X-Received: by 2002:a05:6102:5813:b0:7b2:508e:3d57 with SMTP id
+ ada2fe7eead31-7d72b3688c2mr101327137.4.1795108696380; Thu, 19 Nov 2026
+ 09:18:16 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,289 +105,172 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
+ <179497442968.3136.18415990643273213851@kernel.org>
+In-Reply-To: <179497442968.3136.18415990643273213851@kernel.org>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Thu, 19 Nov 2026 10:18:05 -0700
+X-Gm-Features: Aa3M54poH74flJHm30nVUNh5kQyVyqEvjxxcHU_6uijb8f_Ea6AWdb-4l3_B2EM
+Message-ID: <CADvTj4p9bBOTCk5xbiVMRtcv5gL3L8Nn2Umxm4i5VD_6jJBbNg@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
+ offload setting
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, wens@kernel.org, jernej.skrabec@gmail.com, 
+	samuel@sholland.org, clabbe.montjoie@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Expose the ASIC model via devlink info (ASIC_ID), and register devlink
-resources for ACLs and meters. Document the devlink support.
+On Tue, Nov 17, 2026 at 9:00=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] Clearing EMAC_RX_DO_CRC (EMAC_RX_CTL0 bit 27) whenever
+>   NETIF_F_RXCSUM is off may also turn off the MAC's Ethernet FCS=E2=80=A6
+> - [Low] When RX checksum offload is turned back on, frames the sun8i MAC
+>   received while EMAC_RX_DO_CRC was clear can be marked=E2=80=A6
+>
+> --
+>
+> net: stmmac: dwmac-sun8i: Honor the RX checksum offload setting
+>
+> Before this patch, sun8i_dwmac_rx_ipc_enable() always set
+> EMAC_RX_DO_CRC. With the patch, it sets or clears the bit based on
+> hw->rx_csum, so that turning off RX checksum offload through ethtool
+> also turns off the hardware checksum engine.
+>
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/driver=
+s/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> > index 2ece7ba9dd73b..98cc7503bddeb 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> > @@ -705,7 +705,10 @@ static int sun8i_dwmac_rx_ipc_enable(struct mac_de=
+vice_info *hw)
+> >       u32 v;
+> >
+> >       v =3D readl(ioaddr + EMAC_RX_CTL0);
+> > -     v |=3D EMAC_RX_DO_CRC;
+> > +     if (hw->rx_csum)
+> > +             v |=3D EMAC_RX_DO_CRC;
+> > +     else
+> > +             v &=3D ~EMAC_RX_DO_CRC;
+>
+> [Severity: Medium]
+> Does clearing bit 27 of EMAC_RX_CTL0 also turn off the MAC's Ethernet
+> FCS check, and not only the IP/L4 checksum engine?
 
-Signed-off-by: David Yang <mmyangfl@gmail.com>
----
-v6:
- - add devlink document
-v5: https://lore.kernel.org/r/20261116121627.1182631-1-mmyangfl@gmail.com
- - minor stylistic fixes
-v4: https://lore.kernel.org/r/20261112002031.1475005-1-mmyangfl@gmail.com
- - remove FDB-related changes
-v3: https://lore.kernel.org/r/20261109163117.1792478-1-mmyangfl@gmail.com
- - remove the buggy sub-resources
-v2: https://lore.kernel.org/r/20261108094512.1285796-1-mmyangfl@gmail.com
- - fix issues reported by sashiko
- Documentation/networking/devlink/index.rst  |   1 +
- Documentation/networking/devlink/yt921x.rst |  37 +++++++
- MAINTAINERS                                 |   1 +
- drivers/net/dsa/motorcomm/Makefile          |   1 +
- drivers/net/dsa/motorcomm/chip.c            |   8 ++
- drivers/net/dsa/motorcomm/devlink.c         | 107 ++++++++++++++++++++
- drivers/net/dsa/motorcomm/devlink.h         |  18 ++++
- 7 files changed, 173 insertions(+)
- create mode 100644 Documentation/networking/devlink/yt921x.rst
- create mode 100644 drivers/net/dsa/motorcomm/devlink.c
- create mode 100644 drivers/net/dsa/motorcomm/devlink.h
+It doesn't on H616. I sent 100 frames with a deliberately incorrect
+FCS in each setting and checked that bit 27 changed. With normal
+filtering, none produced an RX descriptor. With error forwarding
+enabled, all 100 produced descriptors with RDES0_CRC_ERROR set in
+both settings, and the driver discarded them. All 100 good-FCS
+controls were received in both settings.
 
-diff --git a/Documentation/networking/devlink/index.rst b/Documentation/networking/devlink/index.rst
-index 03f49389a755..be0d59cbaa3c 100644
---- a/Documentation/networking/devlink/index.rst
-+++ b/Documentation/networking/devlink/index.rst
-@@ -104,4 +104,5 @@ parameters, info versions, and other features it supports.
-    sfc
-    stmmac
-    ti-cpsw-switch
-+   yt921x
-    zl3073x
-diff --git a/Documentation/networking/devlink/yt921x.rst b/Documentation/networking/devlink/yt921x.rst
-new file mode 100644
-index 000000000000..7ccb75a30029
---- /dev/null
-+++ b/Documentation/networking/devlink/yt921x.rst
-@@ -0,0 +1,37 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=======================
-+yt921x devlink support
-+=======================
-+
-+This document describes the devlink features implemented by the ``yt921x``
-+device driver.
-+
-+Info versions
-+=============
-+
-+The ``yt921x`` driver reports the following devlink info versions.
-+
-+.. list-table:: devlink info versions implemented
-+
-+   * - Name
-+     - Description
-+   * - ``asic.id``
-+     - ASIC model name as reported by the driver.
-+
-+Resources
-+=========
-+
-+The ``yt921x`` driver exposes the following devlink resources to monitor
-+hardware occupancy.
-+
-+.. list-table:: Driver-specific resources implemented
-+   :widths: 5 95
-+
-+   * - Name
-+     - Description
-+   * - ``ACL``
-+     - TCAM entries available for ACL rules, 384 entries in total, organized
-+       as 48 blocks of 8 entries.
-+   * - ``meters``
-+     - Meters available for ACL rules to police matching flows, 64 in total.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 40bb77cbc6b0..8ef92c9ff65f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18974,6 +18974,7 @@ M:	David Yang <mmyangfl@gmail.com>
- L:	netdev@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/dsa/motorcomm,yt921x.yaml
-+F:	Documentation/networking/devlink/yt921x.rst
- F:	drivers/net/dsa/motorcomm/
- F:	net/dsa/tag_yt921x.c
- 
-diff --git a/drivers/net/dsa/motorcomm/Makefile b/drivers/net/dsa/motorcomm/Makefile
-index 9eaa59f699e8..0b31d815ce43 100644
---- a/drivers/net/dsa/motorcomm/Makefile
-+++ b/drivers/net/dsa/motorcomm/Makefile
-@@ -2,6 +2,7 @@
- obj-$(CONFIG_NET_DSA_YT921X) += yt921x.o
- yt921x-objs := chip.o
- yt921x-$(CONFIG_NET_DSA_YT921X_LEDS) += leds.o
-+yt921x-objs += devlink.o
- yt921x-objs += mdio_bus.o
- yt921x-objs += mib.o
- yt921x-objs += pcs-921x.o
-diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-index 35e70b322608..dca5bc593848 100644
---- a/drivers/net/dsa/motorcomm/chip.c
-+++ b/drivers/net/dsa/motorcomm/chip.c
-@@ -26,6 +26,7 @@
- #include <net/ieee8021q.h>
- 
- #include "chip.h"
-+#include "devlink.h"
- #include "leds.h"
- #include "mdio_bus.h"
- #include "mib.h"
-@@ -2149,6 +2150,8 @@ static void yt921x_dsa_teardown(struct dsa_switch *ds)
- 
- 	yt921x_leds_remove(priv);
- #endif
-+
-+	dsa_devlink_resources_unregister(ds);
- }
- 
- static int yt921x_chip_detect(struct yt921x_priv *priv)
-@@ -2483,6 +2486,10 @@ static int yt921x_dsa_setup(struct dsa_switch *ds)
- 	if (res)
- 		return res;
- 
-+	res = yt921x_devlink_setup(priv);
-+	if (res)
-+		return res;
-+
- #if IS_ENABLED(CONFIG_NET_DSA_YT921X_LEDS)
- 	res = yt921x_leds_setup(priv);
- 	if (res)
-@@ -2571,6 +2578,7 @@ static const struct dsa_switch_ops yt921x_dsa_switch_ops = {
- 	.port_add_dscp_prio	= yt921x_dsa_port_add_dscp_prio,
- #endif
- 	/* chip */
-+	.devlink_info_get	= yt921x_dsa_devlink_info_get,
- 	.teardown		= yt921x_dsa_teardown,
- 	.setup			= yt921x_dsa_setup,
- };
-diff --git a/drivers/net/dsa/motorcomm/devlink.c b/drivers/net/dsa/motorcomm/devlink.c
-new file mode 100644
-index 000000000000..a896aa99fb3e
---- /dev/null
-+++ b/drivers/net/dsa/motorcomm/devlink.c
-@@ -0,0 +1,107 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (c) 2026 David Yang
-+ */
-+
-+#include "chip.h"
-+#include "devlink.h"
-+#include "tc.h"
-+
-+int
-+yt921x_dsa_devlink_info_get(struct dsa_switch *ds, struct devlink_info_req *req,
-+			    struct netlink_ext_ack *extack)
-+{
-+	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
-+	int res;
-+
-+	res = devlink_info_version_fixed_put(req,
-+					     DEVLINK_INFO_VERSION_GENERIC_ASIC_ID,
-+					     priv->info->name);
-+	if (res)
-+		return res;
-+
-+	return 0;
-+}
-+
-+static u64 yt921x_devlink_occ_get_acl(void *ctx)
-+{
-+	struct yt921x_priv *priv = ctx;
-+	unsigned int count = 0;
-+
-+	mutex_lock(&priv->reg_lock);
-+	for (unsigned int i = 0; i < YT921X_ACL_BLK_NUM; i++)
-+		count += hweight8(priv->acl_masks[i]);
-+	mutex_unlock(&priv->reg_lock);
-+
-+	return count;
-+}
-+
-+static u64 yt921x_devlink_occ_get_meter(void *ctx)
-+{
-+	struct yt921x_priv *priv = ctx;
-+	u64 count;
-+
-+	mutex_lock(&priv->reg_lock);
-+	count = bitmap_weight(priv->meters_map, YT921X_METER_NUM);
-+	mutex_unlock(&priv->reg_lock);
-+
-+	return count;
-+}
-+
-+enum yt921x_devlink_resource_id {
-+	YT921X_DEVLINK_RESOURCE_ID_NONE,  /* DEVLINK_RESOURCE_ID_PARENT_TOP */
-+	YT921X_DEVLINK_RESOURCE_ID_ACL,
-+	YT921X_DEVLINK_RESOURCE_ID_METER,
-+};
-+
-+struct yt921x_devlink_resource {
-+	const char *name;
-+	devlink_resource_occ_get_t *occ_get;
-+	unsigned short size;
-+	unsigned char id;
-+	unsigned char parent_id;
-+};
-+
-+static const struct yt921x_devlink_resource yt921x_devlink_resources[] = {
-+	{
-+		"ACL", yt921x_devlink_occ_get_acl,
-+		YT921X_ACL_NUM,
-+		YT921X_DEVLINK_RESOURCE_ID_ACL,
-+		DEVLINK_RESOURCE_ID_PARENT_TOP,
-+	},
-+	{
-+		"meters", yt921x_devlink_occ_get_meter,
-+		YT921X_METER_NUM,
-+		YT921X_DEVLINK_RESOURCE_ID_METER,
-+		DEVLINK_RESOURCE_ID_PARENT_TOP,
-+	},
-+};
-+
-+int yt921x_devlink_setup(struct yt921x_priv *priv)
-+{
-+	struct dsa_switch *ds = &priv->ds;
-+	int res;
-+
-+	for (int i = 0; i < ARRAY_SIZE(yt921x_devlink_resources); i++) {
-+		struct devlink_resource_size_params size_params;
-+		const struct yt921x_devlink_resource *r;
-+
-+		r = &yt921x_devlink_resources[i];
-+
-+		devlink_resource_size_params_init(&size_params, r->size,
-+						  r->size, 1,
-+						  DEVLINK_RESOURCE_UNIT_ENTRY);
-+
-+		res = dsa_devlink_resource_register(ds, r->name, r->size, r->id,
-+						    r->parent_id, &size_params);
-+		if (res) {
-+			dsa_devlink_resources_unregister(ds);
-+			return res;
-+		}
-+
-+		dsa_devlink_resource_occ_get_register(ds, r->id, r->occ_get,
-+						      priv);
-+	}
-+
-+	return 0;
-+}
-diff --git a/drivers/net/dsa/motorcomm/devlink.h b/drivers/net/dsa/motorcomm/devlink.h
-new file mode 100644
-index 000000000000..184b9f05742e
---- /dev/null
-+++ b/drivers/net/dsa/motorcomm/devlink.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright (c) 2026 David Yang
-+ */
-+
-+#ifndef _YT_DEVLINK_H
-+#define _YT_DEVLINK_H
-+
-+#include <net/dsa.h>
-+
-+struct yt921x_priv;
-+
-+int
-+yt921x_dsa_devlink_info_get(struct dsa_switch *ds, struct devlink_info_req *req,
-+			    struct netlink_ext_ack *extack);
-+int yt921x_devlink_setup(struct yt921x_priv *priv);
-+
-+#endif
--- 
-2.53.0
+>
+> The bit is named after the CRC:
+>
+>     #define EMAC_RX_DO_CRC BIT(27)
+>
+> The probe code says the hardware features were "copied from Allwinner
+> drivers". That code sets this bit with the comment "Enable CRC & IPv4
+> Header Checksum". The Allwinner manuals describe CHECK_CRC as "Calculate
+> CRC and check the IPv4 Header Checksum".
+>
+> On this path, sun8i does not have the hardware strip the FCS.
+> stmmac_rx() removes it in software without checking it:
+>
+>     /* ACS is disabled; strip manually. */
+>     if (likely(!(status & rx_not_ls)))
+>         len -=3D ETH_FCS_LEN;
+>
+> The only FCS check left is the hardware RDES0_CRC_ERROR bit, which
+> ndesc_get_rx_status() turns into discard_frame.
+>
+> Suppose bit 27 does control CRC calculation. After "ethtool -K ethX rx
+> off", the path is stmmac_set_features() -> hw->rx_csum =3D 0 ->
+> sun8i_dwmac_rx_ipc_enable(). Frames with a corrupted FCS would then no
+> longer set RDES0_CRC_ERROR. They would reach the stack as good frames,
+> with the FCS silently stripped. That behaves like NETIF_F_RXALL rather
+> than "RX checksum offload off".
+>
+> Is there a datasheet reference or a bad-FCS test showing that bit 27
+> gates only the L3/L4 checksum? If the hardware ties the two checks
+> together, a different approach may be needed. For example, keep bit 27
+> set and, when rx_csum is 0, stop discarding frames whose only error is
+> the IP or payload checksum.
+>
+> [Severity: Low]
+> Can frames that arrive while EMAC_RX_DO_CRC is clear be marked as
+> checksum-verified once RX checksum offload is turned back on?
 
+Yes. In a separate test, frames with bad UDP checksums were already
+in the RX ring when offload was turned back on. When NAPI processed
+them, invalid datagrams reached the UDP socket in both the IPv4 and
+IPv6 tests. The driver used the new offload setting for descriptors
+filled under the old one. Changing the order of the register and
+software flag updates would not fix that case.
+
+>
+> When "ethtool -K ethX rx on" runs, stmmac_set_features() publishes the
+> software flag before the MMIO write that re-enables the engine:
+>
+> stmmac_set_features() {
+>     ...
+>     if (features & NETIF_F_RXCSUM)
+>         priv->hw->rx_csum =3D priv->plat->rx_coe;
+>     else
+>         priv->hw->rx_csum =3D 0;
+>     ...
+>     stmmac_rx_ipc(priv, priv->hw);
+>     ...
+> }
+>
+> NAPI is not disabled, RX DMA is not stopped and the ring is not drained.
+> Meanwhile, stmmac_rx() may run on another CPU and read the flag
+> directly:
+>
+>     int coe =3D priv->hw->rx_csum;
+>     ...
+>     if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
+>         (status & csum_none))
+>         skb_checksum_none_assert(skb);
+>     else
+>         skb->ip_summed =3D CHECKSUM_UNNECESSARY;
+>
+> sun8i uses normal descriptors. ndesc_get_rx_status() never returns
+> csum_none, so nothing in the descriptor says whether the hardware
+> actually checked a given frame.
+>
+> Any unchecked frame still in the RX ring would then be passed up as
+> CHECKSUM_UNNECESSARY. That covers frames received before the writel()
+> in sun8i_dwmac_rx_ipc_enable() and frames received just after it.
+> Before this patch, the bit was never cleared, so this state could not
+> happen on sun8i.
+>
+> Swapping the two writes would narrow the window, but it would not cover
+> frames already in the ring. Would RX need to be quiesced or drained
+> across this transition?
+>
+> >       writel(v, ioaddr + EMAC_RX_CTL0);
+> >
+> >       return 1;
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f%40gmail.com
