@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795058512;
-	b=3HSkX7Qs4MiELnAHwT9fJyEzw/+ZUE1wixW8ECem4HWxO64ZmMfe9aPN0InskkPWcTfY
-	 0cwAr9/X6ZUeiNT0doFEEIIs1n9cTX8rWai1pmmHb9HkyvnQimVRIkawCU5rAm7ITTxt8
-	 mGWFEUNj8vA6d7sHp8o2xwlAUjpEO2TUIm7sNy21YpxHecG9tkhriK5p2lhYz/RvIHpep
-	 UIJyXKE9j2u4FDCjZHmshLPHCHm2flXb7lLz+ng28uPJ3JiIJasJQRYnYRdLjY0nu0n6g
-	 kLrHF85fJ6xWNIW0y5hreeQ9xLHW9HujVVz7QzvnHay6P20FeelVhchLKBFlOZJ/JKA==
+	t=1795058513;
+	b=1yDPu68xZHkDd9MlVFTG0CytXLvJ7JlJiIHv9/a1+MTK4Hi/NlidL7++Q6pW65ui87AI
+	 2+ANtPRpByRbL2aUzOp1mQA8cok9pB6t+qv+yVvNfu0gedXO1eHYvbU3kLd5utFk7sTYV
+	 IOia9W7+9gs+7vBsxRt2dR4/qSs2ads1UQUfeqK6CD05ozzRDSJhPbdZHpBvPwYEUfYXr
+	 yBCLRBMmZGgXfEBziHOqaO3W2NR8RZZaKvyBOgysn7LzpbxvUx9SYTmw30Qa6Xb9imCmA
+	 +njQcWWB/RnoiE4cWyDrB9RsyFG5HTP51IlRRb6UumBeL/gW4o1jd6AIN7vSjOhrd4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795058512;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058513;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=sygTKaQOi959GwISEgU9k6VTMlYety2yv6Nh8rJcTaU=;
-	b=PIy45y/ls4yLF4rbqTPBjyq3skwNT4JDcY+WxskoPGahA3Dy2365IiOmwqHX/FqwPcci
-	 mgjaP3DCulEB2AqhnzJ2S3DxA4N1ZV1zq17E/N9lL4W3EuWe/3x0YdKki/pdzEArYJmNy
-	 DperwMluo9kr2OkRn0W4+EBYU0Rs7jeAVNgzYhHlEuRUHtcRqsqSkG5gkjKPEnZ0yrRz2
-	 T435FsxEJ4qVEt+1ME+VH/aPRfZR+F7aBWvkUYdfzMNjyLyVdcAdUdu0tX67ODqG52oEP
-	 7pt2n80fhWRY5VYGoi4+6mL6MnMKdMR+YRpMvP7Tmw/mzfsz1NpnhIa+1GiRDvO3XCg==
+	bh=UyLUi1+1/tBeEtLf7/QqtxqCmuLdma61KC/Yyvt7xh0=;
+	b=WEzpik35AZomjvnq19wbrEWFwm45bF9Y55s35Pw4f++rDqRD7C6vh4OyXiWy6ovU2mWt
+	 kD1M1TDgDfWDLI4rp9slpL2VQwTvf2BTPz12v/n2EUmDB/qd3yBZNcUqdd2kR+cqINgD7
+	 1hHQK+q4uVBrlsqKpZEZdxzF6DqOjZpt9InlUe2XRD65p+cfNJvsRpHhAoLo1lPIgrK8J
+	 oINv9S05In3jO4QfO9YW4Fs6glYBSPilM9kLtH1MxcOA0aMQeyu+Wc9HvWK9l6yMXVIe8
+	 c50ibLMqLnK0D+MqAR1zwsoU+RSSt2TCNpdSPfMoO97xKPTaHtoG+r2hcr7lL/4e2Hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFdgdtZi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O0cKBxlf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD519606A33D
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:21:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA96E606A332
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:21:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFdgdtZi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0971A1F000C6;
-	Thu, 19 Nov 2026 03:21:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O0cKBxlf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3334D1F000C5;
+	Thu, 19 Nov 2026 03:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795058512;
-	bh=sygTKaQOi959GwISEgU9k6VTMlYety2yv6Nh8rJcTaU=;
+	s=k20260515; t=1795058513;
+	bh=UyLUi1+1/tBeEtLf7/QqtxqCmuLdma61KC/Yyvt7xh0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PFdgdtZiL+P/1P50rHCUeXLl9fXWzmFD8yVoREpjfkArHXTqEee3hCuoNpz7iF5g8
-	 YUyT18auEGn+OT5rkMlVrARxfv0Es/TX48UwhZ14lWhcwd8fTcbp29LTvRidETOo4D
-	 y4HoHXtT1nXuLxsyHAyxqfm/qfoUisbKxZmbE1Llz0tK8qHTsh857V2a59ZrGaXnTM
-	 u5u/XQATzpmRPX1riaJiGBBvA0/wUlwSzV4eNfieIFgeovDUKoIp7OLALqaUN5JObd
-	 bTqJ2PTUeZbrvdtAWGS6Dxkuorw1chO/uU5Mw8iZuU6sg9rkd2X9YCj+OO7tcn4ZHH
-	 MBj+u2c8IQ6Kg==
-Subject: Re: [PATCH net-next 2/6] eth: bnxt_en: follow explicitly set IRQ
- affinity when placing page pool
+	b=O0cKBxlfm6llXuek6UrBAPpH65cRdAj+i2KnpnTvzfpuU7YAgu9aikXR0BgPd4ugl
+	 jXkLFWzMAExskPfUKIp5gqgki/s4XbNEmMWkA0nThzuvZ3kjDUkPfn4pA76PmEFPOy
+	 RLIHn55UfyXw9tAodqSMnOGmMsdEKSHwl9Vqab0n3dycYMXxNYZfjBjHxXr1KVTYuJ
+	 LulDdcWuprIFzA2YdLhstmojelRTNJP6f9ODKVMknHFE5EQZaP0ZLABzOgVYbV/eaR
+	 NaGHtZSq7zElypEGOXcsFJfSOjEyhJ7ID6rVl0llfJ//skzebiM57CsXSHAtnA3CY0
+	 pNOzdRkw3ltRw==
+Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
+ IRQ moves to another NUMA node
 From: netdev-bot+sashiko@kernel.org
 To: kuba@kernel.org
 Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
  edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
  horms@kernel.org, pavan.chebbi@broadcom.com
-Date: Thu, 19 Nov 2026 03:21:51 +0000
-Message-ID: <179505851154.3136.10312778002934262803@kernel.org>
-In-Reply-To: <20261118023905.3050661-3-kuba@kernel.org>
-References: <20261118023905.3050661-3-kuba@kernel.org>
-X-sashiko-severity: Medium
+Date: Thu, 19 Nov 2026 03:21:52 +0000
+Message-ID: <179505851274.3136.4469982545223123709@kernel.org>
+In-Reply-To: <20261118023905.3050661-7-kuba@kernel.org>
+References: <20261118023905.3050661-7-kuba@kernel.org>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 2 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,136 +75,166 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] After a CPU hotplug event, bp->ring_nid[] can hold a stale
-  node, and the open path allocates from that stale value before…
+- [High] The new error handling in bnxt_irq_affinity_update() cannot
+  work, and the path it targets oopses.
+- [High] bnxt_irq_affinity_update() takes only the netdev instance lock,
+  via bnxt_lock_sp() (not bnxt_rtnl_lock_sp()), before calling…
+- [Medium] The code restarts more queues than the commit message and the
+  new function comment describe ('Restart the Rx queues whose IRQ…
 
 --
 
-eth: bnxt_en: follow explicitly set IRQ affinity when placing page pool
+eth: bnxt_en: restart Rx queues when their IRQ moves to another NUMA node
 
-Each Rx ring's page pool used to get its NUMA node from
-cpumask_local_spread(). This patch uses the node recorded by the IRQ
-affinity notifier instead, published through a new bp->ring_nid[]
-array. Queue restart now looks up the node again rather than copying
-the old page pool's nid.
+This patch schedules the IRQ affinity update work on every device that
+supports the queue API, instead of only when the TPH Steering Tag changes.
+The work restarts an Rx queue when its page pool's nid differs from the
+node of the CPU servicing the IRQ. After a failed restart it checks that
+the device is still open.
 
 > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> index 5ad2a3033505d..8e8ee02ca8d9b 100644
+> index 134b24842c4f2..5f4a8db1f8b58 100644
 > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
 > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> @@ -3818,6 +3818,21 @@ static int bnxt_alloc_ring(struct bnxt *bp, struct bnxt_ring_mem_info *rmem)
->  	return 0;
+
+[ ... ]
+
+> @@ -14663,7 +14662,10 @@ static void bnxt_rtnl_unlock_sp(struct bnxt *bp)
+>  	rtnl_unlock();
 >  }
 >  
-> +/* Node of the CPU expected to service cp ring @n. If the IRQ affinity was
-> + * configured from the outside (by the user or irqbalance) the affinity
-> + * notifier recorded the node to use, otherwise follow our default spread.
+> -static void bnxt_tph_update(struct bnxt *bp)
+> +/* Restart the Rx queues whose IRQ moved, if the move changed the TPH
+> + * Steering Tag or the node the queue memory should be allocated on.
 > + */
-> +static int bnxt_cp_num_to_node(struct bnxt *bp, int n)
-> +{
-> +	int nid = READ_ONCE(bp->ring_nid[n]);
-> +	unsigned int cpu;
-> +
-> +	if (nid != NUMA_NO_NODE)
-> +		return nid;
-> +	cpu = cpumask_local_spread(n, dev_to_node(&bp->pdev->dev));
-> +	return cpu_to_node(cpu);
-> +}
-> +
+> +static void bnxt_irq_affinity_update(struct bnxt *bp)
+>  {
+>  	struct net_device *dev = bp->dev;
+>  	int i;
 
 [ ... ]
 
-> @@ -4036,8 +4050,7 @@ static int bnxt_alloc_rx_rings(struct bnxt *bp)
->  
->  		ring = &rxr->rx_ring_struct;
->  
-> -		cpu = cpumask_local_spread(i, numa_node);
-> -		cpu_node = cpu_to_node(cpu);
-> +		cpu_node = bnxt_cp_num_to_node(bp, i);
->  		netdev_dbg(bp->dev, "Allocating page pool for rx_ring[%d] on numa_node: %d\n",
->  			   i, cpu_node);
->  		rc = bnxt_alloc_rx_page_pool(bp, rxr, cpu_node);
-
-[ ... ]
-
-> @@ -11877,6 +11892,14 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
->  	cpumask_copy(irq->bp->ring_cpu_mask[irq->ring_nr], mask);
->  	set_bit(irq->ring_nr, irq->bp->ring_affinity_set);
->  
-> +	/* Allocation paths don't hold any lock which would exclude us,
-> +	 * publish the node to allocate on instead of making them parse
-> +	 * the mask while it may be getting overwritten.
-> +	 */
-> +	cpu = cpumask_first_and(mask, cpu_online_mask);
-> +	nid = cpu < nr_cpu_ids ? cpu_to_node(cpu) : NUMA_NO_NODE;
-> +	WRITE_ONCE(irq->bp->ring_nid[irq->ring_nr], nid);
-> +
-
-[ ... ]
-
-> @@ -12066,6 +12098,7 @@ static int bnxt_request_irq(struct bnxt *bp)
->  		if (!test_bit(i, bp->ring_affinity_set) ||
->  		    !cpumask_intersects(cpu_mask, cpu_online_mask)) {
->  			clear_bit(i, bp->ring_affinity_set);
-> +			WRITE_ONCE(bp->ring_nid[i], NUMA_NO_NODE);
->  			cpumask_clear(cpu_mask);
->  			cpumask_set_cpu(cpumask_local_spread(i, numa_node),
->  					cpu_mask);
+> @@ -14680,20 +14684,26 @@ static void bnxt_tph_update(struct bnxt *bp)
+>  		map_idx = bnxt_cp_num_to_irq_num(bp, i);
+>  		irq = &bp->irq_tbl[map_idx];
+>  		tag = READ_ONCE(irq->new_tag);
+> -		if (irq->tag == tag)
+> -			continue;
+> -
+> -		if (pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
+> +		if (irq->tag != tag &&
+> +		    !pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
+> +			new_tag = true;
+> +		if (rxr->page_pool->p.nid != bnxt_cp_num_to_node(bp, i))
+> +			new_node = true;
 
 [Severity: Medium]
-Can ring_nid[i] already be stale when bnxt_alloc_rx_rings() reads it?
+The new function comment says only "Rx queues whose IRQ moved" are
+restarted. Is that what this loop does?
 
-A real node is only recorded in bnxt_irq_affinity_notify(). It is
-computed once, from cpumask_first_and(mask, cpu_online_mask).
+An affinity notification for any one Rx IRQ queues
+BNXT_IRQ_AFFINITY_SP_EVENT. This loop then compares every ring's
+page_pool nid against bnxt_cp_num_to_node(bp, i), whether or not that
+ring's IRQ moved.
 
-When those CPUs go offline later, the IRQ core moves the IRQ through
-migrate_one_irq()->irq_do_set_affinity(). That path does not schedule
-the affinity notify work, so ring_nid[i] keeps the old node.
-bnxt_cp_num_to_node() returns any value that isn't NUMA_NO_NODE as-is.
+For rings whose affinity was never set, bnxt_request_irq() leaves
+ring_nid[i] as NUMA_NO_NODE. bnxt_cp_num_to_node() then falls back to:
 
-The reset added here is in bnxt_request_irq(). In __bnxt_open_nic(),
-the allocations run before it:
+	cpu = cpumask_local_spread(n, dev_to_node(&bp->pdev->dev));
+	return cpu_to_node(cpu);
 
-__bnxt_open_nic()
-    rc = bnxt_alloc_mem(bp, irq_re_init);
-        bnxt_alloc_rx_rings()
-            bnxt_cp_num_to_node()    <- returns stale ring_nid[i]
-    ...
-    rc = bnxt_request_irq(bp);
-        WRITE_ONCE(bp->ring_nid[i], NUMA_NO_NODE);
+That result depends on cpu_online_mask at the time of the call.
 
-Suppose ring i's IRQ affinity is set to CPUs on node X, all of those
-CPUs go offline, and the interface is closed and reopened. Would the
-page pool, the Rx/agg descriptor rings and the agg bitmap for ring i
-then be placed on node X, while the IRQ hint goes to
-cpumask_local_spread(i, numa_node)?
+After CPU hotplug (for example SMT disable or offlining CPUs), can this
+fallback pick a different node from the one used at open? If so, moving
+one unrelated IRQ would restart these other queues and move their memory
+to the new default-spread node.
 
-This branch uses irq_update_affinity_hint(), so no notifier runs
-afterwards to fix the placement for the rest of the open cycle. Before
-this patch, the allocation and the IRQ hint both came from
-cpumask_local_spread() and matched.
+The comment in bnxt_request_irq() says this placement is "just a hint",
+so the new node may not match where the IRQ actually runs.
 
-There is a related case when the mask spans nodes and only its first
-online CPU goes offline. ring_nid[i] keeps the old node until
-irq_set_affinity_and_hint() in the next bnxt_request_irq() fires the
-notifier again. That also happens after bnxt_alloc_mem() has already
-used the value.
+> +		if (!new_tag && !new_node)
+>  			continue;
+>  
+> -		err = netdev_rx_queue_restart(dev, irq->ring_nr);
+> +		err = netdev_rx_queue_restart(dev, i);
+>  		if (err) {
+>  			netdev_err(dev, "RX queue restart failed: err=%d\n",
+>  				   err);
+> +			/* Failing to start a new queue may close the device */
+> +			if (!test_bit(BNXT_STATE_OPEN, &bp->state))
+> +				break;
 
-Later in the series, "eth: bnxt_en: allocate fast path DMA rings on the
-queue's NUMA node" and "eth: bnxt_en: allocate per-queue SW state on the
-queue's NUMA node" use the same value for more allocations: cp rings,
-Tx rings, tx_push, stats and TPA info.
+[Severity: High]
+If the restart fails because the device was closed, can this check ever
+be reached? Here is the sequence I'm looking at:
 
-"eth: bnxt_en: restart Rx queues when their IRQ moves to another NUMA
-node" restarts Rx queues only from the notifier. That covers the
-spanning-mask case, but only for Rx page pools. It does not cover the
-case where all CPUs in the mask go offline, because no notifier runs
-there.
+bnxt_irq_affinity_update()
+  netdev_rx_queue_restart(dev, i)
+    netdev_rx_queue_reconfig()
+      ndo_queue_stop(old_mem)        /* succeeds */
+      bnxt_queue_start(new_mem)
+        /* clone page_pool, rings and rx_tpa moved into bp->rx_ring[idx] */
+        bnxt_hwrm_rx_ring_alloc() fails -> err_reset
+        netif_close(dev)
+          bnxt_close()->bnxt_close_nic()->__bnxt_close_nic()
+            bnxt_free_mem(bp, true)
+              kfree(bp->rx_ring);
+              bp->rx_ring = NULL;
+      err_start_queue:
+      bnxt_queue_start(old_mem)
+        rxr = &bp->rx_ring[idx];
+        rxr->rx_prod = clone->rx_prod;   /* bp->rx_ring is NULL */
 
-The new comment on ring_nid in bnxt.h says the field is "Written by the
-affinity notifier". bnxt_alloc_ring_cpu_masks() and bnxt_request_irq()
-also write it. After hotplug, the value is also not guaranteed to be
-the node of an online CPU in the mask.
+Wouldn't this hit a NULL pointer dereference in the sp workqueue while
+netdev_lock is held, before control returns to this check?
+
+If that step were survived, err_free_new_queue_mem would call
+ndo_queue_mem_free(dev, new_mem). That runs page_pool_destroy() and
+bnxt_free_ring() a second time on resources bnxt_free_mem() already
+released.
+
+The commit message says "check that the device is still up after
+errors", which relies on this path returning normally.
+
+Before this patch the path ran only on TPH Steering Tag changes.
+bnxt_irq_affinity_notify() now queues the work on every queue-API PF,
+and any cross-node Rx IRQ move restarts a queue. irqbalance or a write
+to /proc/irq/N/smp_affinity is enough to trigger it. An HWRM failure
+during queue start is the only other precondition.
+
+[Severity: High]
+bnxt_irq_affinity_update() starts with bnxt_lock_sp(bp). That only takes
+netdev_lock(bp->dev), not RTNL.
+
+The new comment expects this restart to close the device. The close
+happens via bnxt_queue_start() err_reset -> netif_close(dev) ->
+netif_close_many() -> __dev_close_many(), which begins with:
+
+	ASSERT_RTNL();
+	might_sleep();
+
+It then calls the NETDEV_GOING_DOWN notifiers, dev_deactivate_many(),
+rtmsg_ifinfo() and the NETDEV_DOWN notifiers.
+
+Doesn't all of that run without RTNL here? That would trigger the
+assertion and race with other RTNL holders.
+
+Would bnxt_rtnl_lock_sp()/bnxt_rtnl_unlock_sp() be more appropriate,
+as bnxt_reset() uses?
+
+The old bnxt_tph_update() used the same helper, but it only ran on TPH
+tag changes. With this patch the path runs for any cross-node IRQ move
+on a queue-API PF. In the same failure, the core rollback then hits the
+NULL bp->rx_ring dereference described above.
+
+>  			continue;
+>  		}
+>  
+> -		irq->tag = tag;
+> +		if (new_tag)
+> +			irq->tag = tag;
+>  	}
 
 [ ... ]
 
