@@ -1,64 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087456;
-	b=Pd7+fV/LpZdHwiDYwVQpsFPxj4Dopz/nM3nkYP2NZcGmWUWfOc5u+ANb6T03WJh0CDXd
-	 sKEOY+9HoZaVHmIqBzE96KAktR+4jqYpul3cr+RKBckv/lpfB42FUhMqiSYxLNZZnPb3k
-	 xAWO2okHXHQlA/aTlGrwrYfL1PLMH4pHG3kts5jebPzDBsumRjDebIuPIpg9U/l1kIka8
-	 +60OwKRBtU/O0fvny8WjjphfCE2NZlyQvD79GMMIJz4yiEjJJPziCVnlqwHrdJhxVSfYh
-	 n6hSpTsbDIdS3s55Ju5PxjG9vVEjTQKrfZDuhlAR40h6pT7ryHpAnIaDV5lATK22e+w==
+	t=1795087527;
+	b=IBFSdL3qRIkhxgW62DMphxsMrdIhEAMRIUfVnUaW9jZRmXrhi42W5vNwlAhv7BprVF7h
+	 N49iHfQFCgsNTGynl0WsYaCfr34q95PcPZQiqI5oCcK+OLNv1eveX5u6+Ls4Mbc7q5ayR
+	 LRvhJC0dk/SvO/l6dQvfYuxBa8d+uWJJ2baXgQZcGiodrT8NWyr+QwQbQctJCwYENaZl0
+	 UkJ+hxZtPJze8fvndHx9VK+nEIvK7j9B3PKa2C+SH/3Anf8SmcNzj8v9xSJz9+7LRMut5
+	 olBXYv9wwy6FJOZcnW/UqdUexTJ0+Iewx91Zgz91yUYPlF9E4XT4l+cfkAIL4OtcoEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087456;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=PAbCKhxpRkBffJWgsRtKYvAYQkiZqg3MoFHOfafjj7I=;
-	b=mP7VnehN6+a5Qtxel0q+efgxHWtZESxmyUZWWZJ0zo+y4Tek4a4Bv1Z4FKxuTk8yC2ZI
-	 GLJpgY9rgybE6hjgtXVx6hVqr7NzI3eTYlYPvWQdoV8uRvrdlXQk7PbDKre8ndj2Zq5Pb
-	 Q0EVttlzuhWMEGaRMFk0LZDGZ+QBoi48KCKC74ifLbwyOhnC3Uc1EyGT9wpB2n37pQTjr
-	 Ahga01hqBgHzSguswVWDdkLwkXvyUCRhOlPrpcB1mDT9/oHtpPBB2aCDhONGvkVIS22GU
-	 uQp6SvqvaxdY7LTspQyqW97CwsI1bFbnXvTden/XGsVqPNT6YHoOGZkTNtk1KugsaBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087527;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=qZBF9jximpjJL75Z6oAstg8U4CWukb4j0yMLWFJCNhs=;
+	b=mzwMjeYZsK6Tdgc6M1DKQlolDXr6mwb87q/pVCfqVTPZtjOjPa/BkCxpsPCzETfAyHs1
+	 tw+h00B1xNaznellCv/6RRKrqs4IaCBSvZkxoPY1PW2hTvRAAp6ZOJk1qXDDFU64eNvMa
+	 fLHjUgqU0w/wAX1CzjCaICh38A57qnkOVqRX++KIVkwg5cVl7tgPLbwc9v4xVbTIV9rcF
+	 mJHn4aTChQiLgAdrwKz5ajq55ofiohON+Rd97vJuT+zcMzEGiJ3fGFH4A8NbNAWoPufTy
+	 udF7ISDlFzIWOn4Wb4YkqlC/4T4+RMth7nytgdXKDUYOy70Vh4tPqidsd/R8fbPaz+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQlFHyVn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=12Cqi765;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0773606A326;
-	Thu, 19 Nov 2026 11:24:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34C68606A32F;
+	Thu, 19 Nov 2026 11:25:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34C68606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQlFHyVn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DE071F000C5;
-	Thu, 19 Nov 2026 11:24:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795087455;
-	bh=PAbCKhxpRkBffJWgsRtKYvAYQkiZqg3MoFHOfafjj7I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PQlFHyVnL719LmbhVpx+mjI6xRk6OVIKiMmHw+GvFflDKHLBFnA6zci52jYLuOSzo
-	 NR3pt0KAtun2FasVaOmNk9Goes6SYI/S3z11jEp131dN9pfVEj5G6+70AFwJR7/rC0
-	 xL+MxScusFNHVhNp84bPq1FIcloF1DPuHrolJw79YJMHRPNGNaWC7gV8bzMu0qF8q4
-	 4riiillfyhA9JZ9Pibu2KHH8MKff+15mr+Hon6kkW0dtC0Fi2F5pFh6Rrep+KlMk+R
-	 FInoyKoua3H2uw37uIiL4n5VHQztII/f66agXZ4ex/FSw1XwrzW5MoF874KGpt85P/
-	 +RrDtrl55zTDQ==
-Date: Thu, 19 Nov 2026 11:24:09 +0000
-From: Simon Horman <horms@kernel.org>
-To: Vincent Choiniere <choiniere.vincent@hydroquebec.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
-	Michal Kubiak <michal.kubiak@intel.com>,
-	Wojciech Drewek <wojciech.drewek@intel.com>,
-	Mateusz Polchlopek <mateusz.polchlopek@intel.com>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=12Cqi765
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A59384E41665;
+	Thu, 19 Nov 2026 11:25:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5AA9B60237;
+	Thu, 19 Nov 2026 11:25:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 283A511BC1049;
+	Thu, 19 Nov 2026 12:25:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795087523; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=qZBF9jximpjJL75Z6oAstg8U4CWukb4j0yMLWFJCNhs=;
+	b=12Cqi765624eFrrQ6n8kFlj+entCvEb0osYz+MhI4NpTtouwr0lzLHSdy0TkNUD+8rs8tU
+	xsAEihh3kDqUoqHFEXSo21wofVY8kynm0fqrg/L8cHk1nsVdMHTCpCrdt1siB7XUnodE+c
+	qA2QRvCIK2v0Q0luhVV06u3PFVJr4e2psfhX+qeNgw50A6ANd44tD+06472WcRYI7Yz3i4
+	hvfkwjnB9/0nM8mG3dOFjiE+kUAKGM05M5ZWaGUFHXBqF2EYH+WlBVZ99iYZ4JwbvTq9Ll
+	mhL0tJOqpzAI6OHSvxlafNUTsTZVMcei1f7rx/UQ/uoBcTgRyinW19S4fRb/8g==
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Kory Maincent <kory.maincent@bootlin.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: thomas.petazzoni@bootlin.com,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net v4] ice: fix Tx hang dump using stale tx_buf[0].skb
-Message-ID: <20261119112409.GU860048@horms.kernel.org>
-References: <20261112-ice-tx-hang-dump-v4-1-9125f687669b@hydroquebec.com>
+	Eric Dumazet <edumazet@kernel.org>
+Subject: [PATCH net] net: pse-pd: tps23881: Fix reported power class
+Date: Thu, 19 Nov 2026 12:25:07 +0100
+Message-ID: <20261119112511.239208-1-kory.maincent@bootlin.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,123 +73,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112-ice-tx-hang-dump-v4-1-9125f687669b@hydroquebec.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 12, 2026 at 01:45:56PM -0500, Vincent Choiniere wrote:
+The power class read from the classification register is not 1:1
+aligned with the IEEE 802.3 class value. Add a lookup table to report
+the correct class.
 
-...
+Fixes: 7f076ce3f1733 ("net: pse-pd: tps23881: Add support for power limit and measurement features")
+Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+---
+ drivers/net/pse-pd/tps23881.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
-> @@ -424,6 +429,78 @@ void ice_prep_tx_hang_report(struct ice_pf *pf, struct ice_tx_ring *tx_ring,
->  	buf->vsi_num = vsi_num;
->  	buf->head = head;
->  	buf->intr = intr;
-> +	buf->queue = tx_ring->q_index;
-> +	buf->next_to_clean = tx_ring->next_to_clean;
-> +	buf->next_to_use = tx_ring->next_to_use;
-> +}
-> +
-> +/**
-> + * ice_tx_hang_snapshot - copy the timed-out queue's ring at report time
-> + * @pf: PF on which the Tx hang was detected
-> + * @tx_ring: ring saved by ice_tx_timeout(), possibly stale
-> + * @ev: event to fill in
-> + *
-> + * The saved ring may have been freed or replaced since the timeout (e.g. by
-> + * ethtool -G or -L), and a freed ring may be reused for another queue. Use it
-> + * only if the timeout was on the PF VSI, that VSI is up and the timed-out
-> + * queue still maps to it. Those paths, and the reset paths, replace or free
-> + * the rings under RTNL or from the service task itself, so with RTNL held the
-> + * accesses below are to live memory for them. The ring may still have been
-> + * reset in place since the timeout (e.g. by ethtool -G or an MTU change); as
-> + * before, its state is read when the report is generated. Driver removal and
-> + * devlink reload tear the VSIs down before the service task is stopped and are
-> + * not covered here. ice_clean_tx_irq() may still run and free the skb at
-> + * next_to_clean at any time, so only the pointer value is recorded and the skb
-> + * itself is never dereferenced.
-> + */
-> +static void ice_tx_hang_snapshot(struct ice_pf *pf, struct ice_tx_ring *tx_ring,
-> +				 struct ice_tx_hang_event *ev)
-> +{
-> +	struct ice_vsi *vsi = ice_get_main_vsi(pf);
-> +	struct ice_q_vector *q_vector;
-> +	struct ice_tx_buf *tx_buf;
-> +	u16 ntc, ntu;
-> +	void *desc;
-> +	u32 size;
-> +
-> +	ASSERT_RTNL();
-> +
-> +	if (!tx_ring || !vsi || !vsi->tx_rings ||
-> +	    test_bit(ICE_VSI_DOWN, vsi->state))
-> +		return;
-> +
-> +	if (ev->vsi_num != vsi->vsi_num || ev->queue >= vsi->num_txq ||
-> +	    vsi->tx_rings[ev->queue] != tx_ring)
-> +		return;
-> +
-> +	q_vector = tx_ring->q_vector;
-> +	if (!q_vector || !tx_ring->desc || !tx_ring->tx_buf || !tx_ring->count)
-> +		return;
-> +
-> +	size = tx_ring->count * sizeof(struct ice_tx_desc);
-> +	desc = kvmalloc(size, GFP_KERNEL);
-> +	if (!desc)
-> +		return;
-> +
-> +	ntc = READ_ONCE(tx_ring->next_to_clean);
-> +	ntu = READ_ONCE(tx_ring->next_to_use);
-> +
-> +	if (ntc < tx_ring->count) {
-
-Sorry to nit-pick, but I wonder if it would be nicer to move the kvmalloc()
-call and associated error checking be moved here...
-
-> +		tx_buf = &tx_ring->tx_buf[ntc];
-> +		if (tx_buf->type == ICE_TX_BUF_SKB)
-> +			ev->skb_ptr = READ_ONCE(tx_buf->skb);
-> +
-> +		memcpy(desc, tx_ring->desc, size);
-> +		ev->next_to_clean = ntc;
-> +		ev->next_to_use = ntu;
-> +		strscpy(ev->irq_name, q_vector->name);
-> +		ev->desc_ptr = tx_ring->desc;
-> +		ev->dma = tx_ring->dma;
-> +		ev->desc_size = size;
-> +		ev->desc = desc;
-> +	} else {
-> +		kvfree(desc);
-
-... and remove the else arm of the condition.
-
-> +	}
->  }
-
-And further, the sense of the condition could be reversed, saving some
-indentation:
-
-	if (ntc >= tx_ring->count)
-		return
-
-	desc = kvmalloc(size, GFP_KERNEL);
-	if (!desc)
-		return;
-
-	tx_buf = &tx_ring->tx_buf[ntc];
-	if (tx_buf->type == ICE_TX_BUF_SKB)
-		ev->skb_ptr = READ_ONCE(tx_buf->skb);
-
-	memcpy(desc, tx_ring->desc, size);
-	ev->next_to_clean = ntc;
-	ev->next_to_use = ntu;
-	strscpy(ev->irq_name, q_vector->name);
-	ev->desc_ptr = tx_ring->desc;
-	ev->dma = tx_ring->dma;
-	ev->desc_size = size;
-	ev->desc = desc;
-
-Regardless, this looks good to me.
-
-Reviewed-by: Simon Horman <horms@kernel.org>
+diff --git a/drivers/net/pse-pd/tps23881.c b/drivers/net/pse-pd/tps23881.c
+index 244ce596d845c..58ea7e0ffa996 100644
+--- a/drivers/net/pse-pd/tps23881.c
++++ b/drivers/net/pse-pd/tps23881.c
+@@ -402,6 +402,25 @@ tps23881_pi_get_chan_current(struct tps23881_priv *priv, u8 chan)
+ 	return (int)tmp_64;
+ }
+ 
++static int tps23881_class_table[] = {
++	-ERANGE,
++	1,
++	2,
++	3,
++	4,
++	0,
++	0,
++	-ERANGE,
++	5,
++	6,
++	7,
++	8,
++	4,
++	5,
++	-ERANGE,
++	-ERANGE,
++};
++
+ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+ 				    int id)
+ {
+@@ -416,7 +435,8 @@ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return tps23881_calc_val(ret, chan, 4, 0x0f);
++	ret = tps23881_calc_val(ret, chan, 4, 0x0f);
++	return tps23881_class_table[ret];
+ }
+ 
+ static int
+-- 
+2.43.0
 
