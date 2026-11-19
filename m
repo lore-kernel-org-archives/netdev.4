@@ -1,71 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107956;
-	b=zdo6gmYS3q6es0+CWlESXYTAll/8+ovZWP+ZiyoYX4vJD1xFyeNVCCnVqjDWlq9H4A1Q
-	 gPmVSTdn7fbso7mxZ9hcpDUTLtU7kAf5bjWuikq1GVfTZMne4SCy1SKKu/y0GlNEA2Pkf
-	 aTW3BKQlzKgsUpUii8kVsURHF7w8J7N9N+44u9Bzz3r2DL2XPjDkW6Qeotac1bL2BoMmw
-	 vofacoxncgZxQak15JZa93BpBnECmoENWO+O5MDZJsmc/pnmbN7Vp8bF+gWsNAHNaNUXG
-	 gRJYwF6bd/chYpBjgnztcMexqiwNrQ3v+M9JVMRhkCG4LA0JIJ4cIUs7X8meOJDfGdg==
+	t=1795107964;
+	b=jaEMrWQIf0w51fY5CA+1hHfT6ch1L8M3jseh10dSSwzUPPz1Fs2KHo6ohwrc79RWAL+R
+	 eBQKL6own+g+96X5qMqITtSnHq3SV8w+BCQuXm8RoiWQ0vXO1dSTBmT0MyVHIzL5D5Nq7
+	 rqH1d9xQ4IgImA7IupXvCeKiIu45KCwnT0DY8GstFijI4AdkZ7g9FgHALc0uR/qT0Bc6U
+	 6FFN1vVpy98yGPxzQOD2t/dY24a6KCvzkQwEJPAxZFQfUGMc95TlfOhflXBc8uqQX/k4l
+	 cWfVj0Phlq5p76V8J5XrJI6TPaym1pRQl7MJOsH02jUhDsCta2/Os35upgNFwW9YjuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107956;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107964;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
-	b=c+P/JipT8DhGiOeH04RTDEyospDe7v5MCxAh4KrmbdMjALph3Sq+hxmmoPSa5nUCQWf+
-	 fucG2EgkkYnIhiAWUKMBoQCJqwlZ6LVKAv2j4pfSJ5BQ/L1vpnBoiSVEN36+Whvu6vjgX
-	 hBwb5DJsWakR70cqoGVrbZ7oaQtUa2y5qaPnHq3orXPIbpbU3yjwLAiO7M4AwJ5hwkvEq
-	 D4X6ZFGUXKfKZubhiGgP20eR8Pd0ix6q9ijEbrnLlASHAkWrOX+6+saTyATTJOBuJPUB4
-	 o9DpvQ0DZ/dB5qfQaKXZ1kF2e/ncF8AGSWsflQ6kCVwLdgpZ24B7YRuQox+pyLpJRdQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
+	b=4xvofOn9/BH8UcCXAkZJkaHBnsbRtZTGYuLx86EKb8WB++dbxkhGaWJHnNmhy70QYO/W
+	 e5Ce1HAZcLy4BBUqBzlsjXWL1+zRfA+scwkuIH1bn4p38Y4xvE/8xEuqVz+ahkVuYh9mt
+	 57OdbkrJSD99SjrXiLJ+K4YDqmYsZQ8yRpslrBiAQ+MmWu2NzhMMfDJp3SHJDvuB1GTve
+	 glw1JbHQOm/JCXL0rSj0Jr/4x0os3Cv3XzSuITazKChClYTAoArNpAoYdR7+EF4xR3ONw
+	 QvJqZ0np2SgJC1EvtLvYPJQIXTfVTg0NfuDI8woZN4b3c1zOjTJ1Rr9K4fOmQdSseFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CDzUfvvN;
-	arc=none smtp.remote-ip=209.85.210.69
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AdC8JO5c;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C0E606A32F
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:05:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68C0E606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E04D4606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:06:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E04D4606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CDzUfvvN
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-85a6d046af0so2676841a34.2
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:05:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AdC8JO5c
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso2715664eec.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:06:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107954; x=1795712754; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107963; x=1795712763; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
-        b=CDzUfvvNG4F7g5PV6b96thWKB2WqFdAFwcGHtxP9lCuUnTGkW/3UjU8YQlhy5Dln5l
-         wc/IVMWnElcxl4wFNMXpn1d3luTQOXC4/2vimDvu9/1KCETktasjTsNEIimTjtRPNqSN
-         h5kgHMx6GXNuLTr9kVszjOdAuABRdp56oTpytIliB05BVphnINVwOkKC84HV7bEYg9wS
-         ej72+4vOSh1zdkZ5vxUltpFxCjUCSZKG53WjoVe5ybSYKe6TwIjATmwfof0WJfIeUGKL
-         xNzQdIKNiyC25c6MvwqvKUlrQOk4K18lE4Qyq8auddoEa6nirRfzH1n2fMiAGE8DybUw
-         26bA==
+        bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
+        b=AdC8JO5cfYkREzBuevSsmBRofyeI2viaNdzDHn22fr5zHup73OzTY3NnOWjx8+gR0H
+         slfgJ589QAW3d71exm+NVYNH22zUkwviQImI6St9JAHQ7XQisL1Wauv1RNIjWSyNtDAV
+         f1SwR74ongcjXN/5+SWXfwvl5qGjVyyLsTrnl/ITt9tbeLTFW/E64tzpQUNSqgBjH9Vg
+         OkmvgI+Uss1oalxYeB3K0h/Zv895W0dTN/0xXn2ClA+rg5vhATHczFlWEljWFmJRT/47
+         4/bp0BnPee/FEc+IMaPVhet7FvufTKFGTAhZVT34AG8vcATrAhlgfHjKeLETqOmhAfZN
+         R1MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107954; x=1795712754;
+        d=1e100.net; s=20260707; t=1795107963; x=1795712763;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
-        b=Lw8MeXvfrQBsKseS8+12aAeSLt9c/TWwdzSugDIqqn7xwLpKuPeKcNmgrHDgZJp+Cc
-         Lr3d2ImRkksbAjtZGc6aUhEL+G6s5jLCZwzRjEEPYvy5wyum3CxNqHM4EJMoobhPRTJ0
-         snTOCE3qncLhjmkgfA7YEC3NFh/0UyDq3flsoVoca5HR1FMviK/qzzKBvEUC7gkyv+LC
-         y4KsCSkxa4zk6O+Ox/ro291/2VYjXLaWd1/c/LaJ/blVXFq3oe6rVCgwp+Bo/CfISuRo
-         CXgXsCCSlDYLrj792IxKSYnublT8mO3z2N+AEERJuZ2WTqr0hCP9tD5p58Y9ufy3zliX
-         YHIg==
-X-Gm-Message-State: APuU4Z8nPsXhS2YFCcnEUhQJ5I71TpN9H/yKimTbWTYSgNk/5zIhb/g/
-	4JQ70tsnAqnMdc4i+Z1CKZ8unfRntk8J88dN35yKVxy3/OHLE2WISEQ5kznLgV/g/u91i8MJaQ1
-	NkGC/RTxxIA==
-X-Received: from iodz8.prod.google.com ([2002:a05:6602:6f48:b0:9c7:a5de:745e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:50a3:b0:55c:888:2a15
- with SMTP id 5614622812f47-57a0c9c219amr482948b6e.53.1795107953923; Thu, 19
- Nov 2026 09:05:53 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:50 -0800
+        bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
+        b=xfxON4UNOw0zwfwnDC+nv7orD/qPyTkFu2igwHXbqFifYmcc5nHZjQzjgwa7l3A9/8
+         7Xhe605Pk6ZPaN1aRL3McDTxhX/XmaSFKcTa3zwmXkz9OX+IQK8ue/GUMgjcIJm0GLXD
+         vD/RLZLYT2MG31chD1a6BLvilTXq4Gt7yZkb9l+DbfK7QBkO2fQj43IRzcQPEf8+ORiW
+         kMsElPj87fLz2J52JC5q3WHDrM3dgvy6vMX+C01AhmbOcKHZfyGVWvyAhS47neEcQwBE
+         oC3u2gZ73HuK4f6scg4SamVTQBYd8H31abm1Ev8SMZVFaUhIE/B5MMdsdEdn2s3j2otu
+         iILg==
+X-Forwarded-Encrypted: i=1; AL+hErE52UqeStGLiC9tLr+Vgm3ykI6GIzFiBYhcTWvUnxi3PPT/3W3apndTGqDz8hAug4Gp7x1mb6M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ZtsMGOnGfcbihSFUOIrNU/12US/m2YstFw/XB4Xpl2J9Mm042
+	apua5VFTlXDjuUY5cGZ1GMZ65ncjpNMCewPqCmnisO3vB1CFA2HDmJLtWcSU9iAMPYqthjTgOB4
+	tp1focsZEUw==
+X-Received: from dldz5-n1.prod.google.com ([2002:a05:701b:4185:10b0:1b5:1a6c:af8e])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4196:b0:1b2:3b5b:b80b
+ with SMTP id a92af1059eb24-1b55689ee3amr339019c88.8.1795107962438; Thu, 19
+ Nov 2026 09:06:02 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:05:56 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,111 +77,69 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170550.1517634-1-irogers@google.com>
-Subject: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds in
- MCS alloc handlers
+Message-ID: <20261119170556.1518068-1-irogers@google.com>
+Subject: [PATCH net] tipc: validate peer address attributes in tipc_nl_peer_rm()
 From: Ian Rogers <irogers@google.com>
-To: Sunil Goutham <sgoutham@marvell.com>, Ratheesh Kannoth <rkannoth@marvell.com>, 
-	Geetha sowjanya <gakula@marvell.com>, Subbaraya Sundeep <sbhatta@marvell.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+To: Jon Maloy <jmaloy@redhat.com>, Tung Quang Nguyen <tung.quang.nguyen@est.tech>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
+	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(), switch (req->rule_type) has
-no default case; an unrecognized rule_type in a PF/VF mailbox request
-leaves 'offset' uninitialized when passed to mcs_alloc_ctrlpktrule(),
-allocating rules from the wrong hardware partition or failing spuriously.
+tipc_nl_peer_rm() documents TIPC_NLA_NET_ADDR and TIPC_NLA_NET_NODEID as
+mutually exclusive ways to identify the peer to remove, but implements
+them as two independent if-blocks with no fallback check. If a
+TIPC_NL_PEER_REMOVE netlink request provides an empty nested TIPC_NLA_NET
+attribute (or only unrelated TIPC_NLA_NET_* attributes), 'addr' remains
+uninitialized on the stack and is passed into in_own_node() and
+tipc_node_find(). Conversely, if both attributes are supplied, the second
+silently overwrites the first.
 
-In rvu_mbox_handler_mcs_alloc_resources(), 'rsrc_id' is left uninitialized
-when !req->all and either req->rsrc_cnt == 0 or req->rsrc_type is not one
-of the four handled types. Moreover, req->rsrc_cnt (u8, 0..255) is not
-checked against the 128-element rsp->flow_ids, rsp->secy_ids, and
-rsp->sc_ids response arrays before writing into them.
-
-Reject invalid rule_type, unrecognized rsrc_type, zero rsrc_cnt when
-!req->all, and rsrc_cnt values exceeding the corresponding response array
-bounds.
+Return -EINVAL when both attributes are present or when neither is
+present.
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
 -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
 coding assistant. Build-tested under LLVM=1 W=1 and
--Wconditional-uninitialized; not tested on Marvell CN10K hardware.
+-Wconditional-uninitialized; not runtime-tested over TIPC netlink.
 
-Fixes: cfc14181d497 ("octeontx2-af: cn10k: mcs: Manage the MCS block hardware resources")
+Fixes: 43fcd906d9c1 ("tipc: support 128bit node identity for peer removing")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../ethernet/marvell/octeontx2/af/mcs_rvu_if.c   | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+ net/tipc/node.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
-index cd9cca5a9cf5..54c1d9809ae6 100644
---- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
-+++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
-@@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
- {
- 	u16 pcifunc = req->hdr.pcifunc;
- 	struct mcs_rsrc_map *map;
-+	int rsrc_id = -EINVAL, i;
- 	struct mcs *mcs;
--	int rsrc_id, i;
- 
- 	if (req->mcs_id >= rvu->mcs_blk_cnt)
- 		return MCS_AF_ERR_INVALID_MCSID;
- 
-+	if (!req->all && !req->rsrc_cnt)
+diff --git a/net/tipc/node.c b/net/tipc/node.c
+index 53b0993c2c23..d19ed94b8f41 100644
+--- a/net/tipc/node.c
++++ b/net/tipc/node.c
+@@ -2277,18 +2277,21 @@ int tipc_nl_peer_rm(struct sk_buff *skb, struct genl_info *info)
+ 	/* attrs[TIPC_NLA_NET_NODEID] and attrs[TIPC_NLA_NET_ADDR] are
+ 	 * mutually exclusive cases
+ 	 */
++	if (attrs[TIPC_NLA_NET_ADDR] && attrs[TIPC_NLA_NET_NODEID])
 +		return -EINVAL;
 +
- 	mcs = mcs_get_pdata(req->mcs_id);
- 
- 	if (req->dir == MCS_RX)
-@@ -709,6 +712,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
- 
- 	switch (req->rsrc_type) {
- 	case MCS_RSRC_TYPE_FLOWID:
-+		if (req->rsrc_cnt > ARRAY_SIZE(rsp->flow_ids))
-+			goto exit;
- 		for (i = 0; i < req->rsrc_cnt; i++) {
- 			rsrc_id = mcs_alloc_rsrc(&map->flow_ids, map->flowid2pf_map, pcifunc);
- 			if (rsrc_id < 0)
-@@ -718,6 +723,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
- 		}
- 		break;
- 	case MCS_RSRC_TYPE_SECY:
-+		if (req->rsrc_cnt > ARRAY_SIZE(rsp->secy_ids))
-+			goto exit;
- 		for (i = 0; i < req->rsrc_cnt; i++) {
- 			rsrc_id = mcs_alloc_rsrc(&map->secy, map->secy2pf_map, pcifunc);
- 			if (rsrc_id < 0)
-@@ -727,6 +734,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
- 		}
- 		break;
- 	case MCS_RSRC_TYPE_SC:
-+		if (req->rsrc_cnt > ARRAY_SIZE(rsp->sc_ids))
-+			goto exit;
- 		for (i = 0; i < req->rsrc_cnt; i++) {
- 			rsrc_id = mcs_alloc_rsrc(&map->sc, map->sc2pf_map, pcifunc);
- 			if (rsrc_id < 0)
-@@ -744,6 +753,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
- 			rsp->rsrc_cnt++;
- 		}
- 		break;
-+	default:
-+		goto exit;
+ 	if (attrs[TIPC_NLA_NET_ADDR]) {
+ 		addr = nla_get_u32(attrs[TIPC_NLA_NET_ADDR]);
+ 		if (!addr)
+ 			return -EINVAL;
+-	}
+-
+-	if (attrs[TIPC_NLA_NET_NODEID]) {
++	} else if (attrs[TIPC_NLA_NET_NODEID]) {
+ 		if (!attrs[TIPC_NLA_NET_NODEID_W1])
+ 			return -EINVAL;
+ 		*w0 = nla_get_u64(attrs[TIPC_NLA_NET_NODEID]);
+ 		*w1 = nla_get_u64(attrs[TIPC_NLA_NET_NODEID_W1]);
+ 		addr = hash128to32(node_id);
++	} else {
++		return -EINVAL;
  	}
  
- 	rsp->rsrc_type = req->rsrc_type;
-@@ -793,6 +804,9 @@ int rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(struct rvu *rvu,
- 	case MCS_CTRL_PKT_RULE_TYPE_MAC:
- 		offset = MCS_CTRLPKT_MAC_EN_RULE_OFFSET;
- 		break;
-+	default:
-+		rsrc_id = -EINVAL;
-+		goto exit;
- 	}
- 
- 	rsrc_id = mcs_alloc_ctrlpktrule(&map->ctrlpktrule, map->ctrlpktrule2pf_map, offset,
+ 	if (in_own_node(net, addr))
 -- 
 2.56.1.708.g77570a6a1d-goog
 
