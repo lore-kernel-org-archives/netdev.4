@@ -1,72 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107964;
-	b=jaEMrWQIf0w51fY5CA+1hHfT6ch1L8M3jseh10dSSwzUPPz1Fs2KHo6ohwrc79RWAL+R
-	 eBQKL6own+g+96X5qMqITtSnHq3SV8w+BCQuXm8RoiWQ0vXO1dSTBmT0MyVHIzL5D5Nq7
-	 rqH1d9xQ4IgImA7IupXvCeKiIu45KCwnT0DY8GstFijI4AdkZ7g9FgHALc0uR/qT0Bc6U
-	 6FFN1vVpy98yGPxzQOD2t/dY24a6KCvzkQwEJPAxZFQfUGMc95TlfOhflXBc8uqQX/k4l
-	 cWfVj0Phlq5p76V8J5XrJI6TPaym1pRQl7MJOsH02jUhDsCta2/Os35upgNFwW9YjuQ==
+	t=1795107983;
+	b=ena5wL2b2D/OhuPlj2h+4dmRNm/Tn6BB5vUKgwbeqc172KZbP0opud2AmjUaRXpOrdbF
+	 dF1+ioLq8hKChg3oZZ25Kq0GQPw3mDwB6l5dU8NiJ5xYIMTk6hJZfgrD6aUOe3flUW2+9
+	 FmL0nJ8WgnwISrFh3f3+nAK3+9/ceFtqRpdr7li/yEkzYLSNyCc4m0HgpasnYnvYH9jC7
+	 akPVCdGMlu1bTj0U8VzBw5gWbQAQPuINUKcnOEKGkMRO11birxS4yzScU21ONVoptrt10
+	 kpa7ZrlKL79CAA0/44tr8bedI7QPgDxCpOHL73K//XNAMqNtr8OKjk7aKGu/9UU0UJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107964;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107983;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
-	b=4xvofOn9/BH8UcCXAkZJkaHBnsbRtZTGYuLx86EKb8WB++dbxkhGaWJHnNmhy70QYO/W
-	 e5Ce1HAZcLy4BBUqBzlsjXWL1+zRfA+scwkuIH1bn4p38Y4xvE/8xEuqVz+ahkVuYh9mt
-	 57OdbkrJSD99SjrXiLJ+K4YDqmYsZQ8yRpslrBiAQ+MmWu2NzhMMfDJp3SHJDvuB1GTve
-	 glw1JbHQOm/JCXL0rSj0Jr/4x0os3Cv3XzSuITazKChClYTAoArNpAoYdR7+EF4xR3ONw
-	 QvJqZ0np2SgJC1EvtLvYPJQIXTfVTg0NfuDI8woZN4b3c1zOjTJ1Rr9K4fOmQdSseFw==
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=bLopLnqT37BG2OvCBZ1zm5sa3WM/aEFFGJMu/II3YXU=;
+	b=g7SAiv4dQl8sdwfjarMYlytvYBgG0QUIiouE+5kWs8EaODhH86jWGbEpkRAuSiozEjBE
+	 L+cXqt49A6QFyO53P0A06+WF8ekTEGEkarjEVIoNNjyh0xhhf5a2sMBDuy7EQ7QjBAMye
+	 UnL12rQr+TvWyTXwsbqU2bBSiftMz+8GYMJMOQOosDH3y2xW3wQ+puCVV2eGi+u0T3Na9
+	 YmZ7x5bXS4bRNke0kQr+w+vTRSHVNaVI6m2U9jzscYsdJgWObUp6e1VRm+us2ol/vYunt
+	 o24GV/lc3qCo7ftUamCXmKo4llpR3MKwt0tsps/H0VVdJiF771h3S4Wxyi6OKPShg8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AdC8JO5c;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=I5FJymWa;
+	arc=none smtp.remote-ip=209.85.161.70
+Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com [209.85.161.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E04D4606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:06:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E04D4606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84C14606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:06:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84C14606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AdC8JO5c
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso2715664eec.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:06:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=I5FJymWa
+Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-70273936138so2274743eaf.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:06:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107963; x=1795712763; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107981; x=1795712781; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
-        b=AdC8JO5cfYkREzBuevSsmBRofyeI2viaNdzDHn22fr5zHup73OzTY3NnOWjx8+gR0H
-         slfgJ589QAW3d71exm+NVYNH22zUkwviQImI6St9JAHQ7XQisL1Wauv1RNIjWSyNtDAV
-         f1SwR74ongcjXN/5+SWXfwvl5qGjVyyLsTrnl/ITt9tbeLTFW/E64tzpQUNSqgBjH9Vg
-         OkmvgI+Uss1oalxYeB3K0h/Zv895W0dTN/0xXn2ClA+rg5vhATHczFlWEljWFmJRT/47
-         4/bp0BnPee/FEc+IMaPVhet7FvufTKFGTAhZVT34AG8vcATrAhlgfHjKeLETqOmhAfZN
-         R1MQ==
+        bh=bLopLnqT37BG2OvCBZ1zm5sa3WM/aEFFGJMu/II3YXU=;
+        b=I5FJymWahfLuJDZXebyzmrFVvBkmVjnDX5f2Cvw4WPshTFoe+pi6Mx1gtWyo7iJrCq
+         6SIOUcUxLS8BuHgtZ464JDqdVSzT6zZdICyDCrPKmkygqoqM9qg8b4FY/TS0zc7gn41A
+         V4Yar6nR+/wP51HHdqSGMA7elccd1zdhAbcTpNpggWQ8SwZSwJlDIqCj1QxoOsGGGSaW
+         2QHwa63ih/r8iH4RI8tg7bDyTKBmQakMdAZcuELWJgt3lABcZ9A+O5ePIPTVQK/NQn8i
+         4l8H0y9KLXI6BrBy+XyjqlS3A88T1vg3DVRUiZuzItLjJaa7JIiilz63wJgf8dECm64K
+         pfuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107963; x=1795712763;
+        d=1e100.net; s=20260707; t=1795107981; x=1795712781;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
-        b=xfxON4UNOw0zwfwnDC+nv7orD/qPyTkFu2igwHXbqFifYmcc5nHZjQzjgwa7l3A9/8
-         7Xhe605Pk6ZPaN1aRL3McDTxhX/XmaSFKcTa3zwmXkz9OX+IQK8ue/GUMgjcIJm0GLXD
-         vD/RLZLYT2MG31chD1a6BLvilTXq4Gt7yZkb9l+DbfK7QBkO2fQj43IRzcQPEf8+ORiW
-         kMsElPj87fLz2J52JC5q3WHDrM3dgvy6vMX+C01AhmbOcKHZfyGVWvyAhS47neEcQwBE
-         oC3u2gZ73HuK4f6scg4SamVTQBYd8H31abm1Ev8SMZVFaUhIE/B5MMdsdEdn2s3j2otu
-         iILg==
-X-Forwarded-Encrypted: i=1; AL+hErE52UqeStGLiC9tLr+Vgm3ykI6GIzFiBYhcTWvUnxi3PPT/3W3apndTGqDz8hAug4Gp7x1mb6M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ZtsMGOnGfcbihSFUOIrNU/12US/m2YstFw/XB4Xpl2J9Mm042
-	apua5VFTlXDjuUY5cGZ1GMZ65ncjpNMCewPqCmnisO3vB1CFA2HDmJLtWcSU9iAMPYqthjTgOB4
-	tp1focsZEUw==
-X-Received: from dldz5-n1.prod.google.com ([2002:a05:701b:4185:10b0:1b5:1a6c:af8e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4196:b0:1b2:3b5b:b80b
- with SMTP id a92af1059eb24-1b55689ee3amr339019c88.8.1795107962438; Thu, 19
- Nov 2026 09:06:02 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:56 -0800
+        bh=bLopLnqT37BG2OvCBZ1zm5sa3WM/aEFFGJMu/II3YXU=;
+        b=wI+HRWSx3riKkmjOyEzjxAi6YYMgi31+8f2O9OBdJfGTwi9w4/YxYLB2IHx0REmc0C
+         kSdKoA0vqJLVuzTVl+1wNhCVt9DZG3RXbWj3Htl+NOpx3ItiIO7tRW9obPjwc436nyhc
+         WxJOaCIsTw9oIXY+NUNN6FS6as06rSpNkFMosdEE9dYXnoPRfOL7gi7vet/CQO6Houfu
+         GmVbyPwrCCO6MmMA7piYQbeC+gDNeL8OM2dn4HuD7x0L/tcBpiEbRCsrrBCIk6q6z4hv
+         l3ynn07BUEdJR2cxpUqdr06JoGqiYjqTghF4PBqi6Wd2632hyR/GYbO89Wnoy3khNh+u
+         bEnQ==
+X-Gm-Message-State: APuU4Z/am+xRhXFKYpeMzS6S4jJQo/qtd5BqM9y5eHSYwu69oTirM0y+
+	35XDrz4l/61lj8bD83RGHGKidV3oqcjvv7h4cIT1Aea3yLI0hpprJl7mwgT3ECkMnq/4+HVAuKZ
+	UfbkyfyJBxQ==
+X-Received: from oaccw5.prod.google.com ([2002:a05:687c:2705:b0:4ad:bde3:7f14])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6820:1620:b0:716:d2b4:f895
+ with SMTP id 006d021491bc7-71b395258b4mr197475eaf.62.1795107981165; Thu, 19
+ Nov 2026 09:06:21 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:06:13 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,69 +76,82 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170556.1518068-1-irogers@google.com>
-Subject: [PATCH net] tipc: validate peer address attributes in tipc_nl_peer_rm()
+Message-ID: <20261119170613.1519353-1-irogers@google.com>
+Subject: [PATCH net] eth: funeth: Include FEC stats in fun_free_stats_area()
+ DMA free size
 From: Ian Rogers <irogers@google.com>
-To: Jon Maloy <jmaloy@redhat.com>, Tung Quang Nguyen <tung.quang.nguyen@est.tech>, 
+To: Dimitris Michailidis <dmichail@fungible.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
 	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
-	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-tipc_nl_peer_rm() documents TIPC_NLA_NET_ADDR and TIPC_NLA_NET_NODEID as
-mutually exclusive ways to identify the peer to remove, but implements
-them as two independent if-blocks with no fallback check. If a
-TIPC_NL_PEER_REMOVE netlink request provides an empty nested TIPC_NLA_NET
-attribute (or only unrelated TIPC_NLA_NET_* attributes), 'addr' remains
-uninitialized on the stack and is passed into in_own_node() and
-tipc_node_find(). Conversely, if both attributes are supplied, the second
-silently overwrites the first.
+fun_init_stats_area() allocates coherent DMA memory for
+(PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
+64-bit counters (632 bytes), whereas fun_free_stats_area() omits
+PORT_MAC_FEC_STATS_MAX and passes 616 bytes to dma_free_coherent(),
+triggering DMA-API debug size-mismatch warnings on teardown.
 
-Return -EINVAL when both attributes are present or when neither is
-present.
+Extract a shared fun_stats_area_size() helper used by both allocation and
+deallocation paths, and cast the leading enum constant to unsigned int to
+avoid cross-enum arithmetic.
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+-Wenum-enum-conversion enabled; fix and changelog drafted with an AI
 coding assistant. Build-tested under LLVM=1 W=1 and
--Wconditional-uninitialized; not runtime-tested over TIPC netlink.
+-Wenum-enum-conversion; not tested on Fungible Ethernet hardware.
 
-Fixes: 43fcd906d9c1 ("tipc: support 128bit node identity for peer removing")
+Fixes: ee6373ddf3a9 ("net/funeth: probing and netdev ops")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- net/tipc/node.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ .../ethernet/fungible/funeth/funeth_main.c    | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/net/tipc/node.c b/net/tipc/node.c
-index 53b0993c2c23..d19ed94b8f41 100644
---- a/net/tipc/node.c
-+++ b/net/tipc/node.c
-@@ -2277,18 +2277,21 @@ int tipc_nl_peer_rm(struct sk_buff *skb, struct genl_info *info)
- 	/* attrs[TIPC_NLA_NET_NODEID] and attrs[TIPC_NLA_NET_ADDR] are
- 	 * mutually exclusive cases
- 	 */
-+	if (attrs[TIPC_NLA_NET_ADDR] && attrs[TIPC_NLA_NET_NODEID])
-+		return -EINVAL;
-+
- 	if (attrs[TIPC_NLA_NET_ADDR]) {
- 		addr = nla_get_u32(attrs[TIPC_NLA_NET_ADDR]);
- 		if (!addr)
- 			return -EINVAL;
--	}
--
--	if (attrs[TIPC_NLA_NET_NODEID]) {
-+	} else if (attrs[TIPC_NLA_NET_NODEID]) {
- 		if (!attrs[TIPC_NLA_NET_NODEID_W1])
- 			return -EINVAL;
- 		*w0 = nla_get_u64(attrs[TIPC_NLA_NET_NODEID]);
- 		*w1 = nla_get_u64(attrs[TIPC_NLA_NET_NODEID_W1]);
- 		addr = hash128to32(node_id);
-+	} else {
-+		return -EINVAL;
+diff --git a/drivers/net/ethernet/fungible/funeth/funeth_main.c b/drivers/net/ethernet/fungible/funeth/funeth_main.c
+index bad8276d26b0..e0d4e69abfa4 100644
+--- a/drivers/net/ethernet/fungible/funeth/funeth_main.c
++++ b/drivers/net/ethernet/fungible/funeth/funeth_main.c
+@@ -1457,17 +1457,20 @@ void fun_set_ring_count(struct net_device *netdev, unsigned int ntx,
  	}
+ }
  
- 	if (in_own_node(net, addr))
+-static int fun_init_stats_area(struct funeth_priv *fp)
++static size_t fun_stats_area_size(void)
+ {
+-	unsigned int nstats;
++	unsigned int nstats = (unsigned int)PORT_MAC_RX_STATS_MAX +
++			      PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX;
++
++	return nstats * sizeof(u64);
++}
+ 
++static int fun_init_stats_area(struct funeth_priv *fp)
++{
+ 	if (!(fp->port_caps & FUN_PORT_CAP_STATS))
+ 		return 0;
+ 
+-	nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX +
+-		 PORT_MAC_FEC_STATS_MAX;
+-
+-	fp->stats = dma_alloc_coherent(&fp->pdev->dev, nstats * sizeof(u64),
++	fp->stats = dma_alloc_coherent(&fp->pdev->dev, fun_stats_area_size(),
+ 				       &fp->stats_dma_addr, GFP_KERNEL);
+ 	if (!fp->stats)
+ 		return -ENOMEM;
+@@ -1476,11 +1479,8 @@ static int fun_init_stats_area(struct funeth_priv *fp)
+ 
+ static void fun_free_stats_area(struct funeth_priv *fp)
+ {
+-	unsigned int nstats;
+-
+ 	if (fp->stats) {
+-		nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX;
+-		dma_free_coherent(&fp->pdev->dev, nstats * sizeof(u64),
++		dma_free_coherent(&fp->pdev->dev, fun_stats_area_size(),
+ 				  fp->stats, fp->stats_dma_addr);
+ 		fp->stats = NULL;
+ 	}
 -- 
 2.56.1.708.g77570a6a1d-goog
 
