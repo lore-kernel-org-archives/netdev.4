@@ -1,101 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795132189;
-	b=e5kbte2okTmsnpZq9Jbdf1lPMGqAdPy7l0IMi+8QwusP8JXC77WXUGQaieYZHSA7FO2u
-	 lAY8+/TiPJJDBZ/AxCZ88rI30s5VoIvtmJMLWEi/awFdCJEMxq+FOt4580AQNMpLbaMRo
-	 Pa+VmOec162yrqoir2QPXUdUEeQG4LyFIPxjkvDq9ft9quSXBtZTUUP6VwkypivIWrDur
-	 8hkqGaxZaEC5iGZHk1D+NxhOuIn1Wxb/NYkLHVSUIm9hFSocIe+86u3dFItUDTm/+MYyh
-	 sK+gWR8XNO1oLytFY24zUKbJja7dmqjG4BGRZJXNdAF4eC7t0KS03GVvd9s0O5WvjEw==
+	t=1795132207;
+	b=Vw2cCn+dC5UiS1NeLvDSGOur8E8DqBjPluIhGm1+z4h6tse0ptDuFugPPqKzAVKBEDxz
+	 N8Yzgmf/WwA1I61+c0fnqO7jB33Pq8woARCH5HT7AmY/oXlfvZG2lP9mIBof9E+zRyYin
+	 ZcwtHCQP0Q4P64xUqo8391OGsaCvAOQWI6A996pNnt2SngGeG8nCwaI36VS07wBKGIkht
+	 akZXqDxncIk+cXgwXdLAeqgDpv0CdJ8Rna2vPQwnoimV3YxuUx+FmXv7gquV+xmU9uW6A
+	 2j7unOrnQqmg3gdZioRAc2gihgGoGeYG5yh8CHYwY1JazG2LHWtL8/50SkhyaLkqzRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795132189;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=8pxF1XjPmydG2nmBhgUZ39yA7PK/1cXjwAWpQkhvRAQ=;
-	b=dWyNNCtnfVzQBq30XnyJR0WnDPPlPZvwAW6eKCmHz/sGPeHJ1Y9B1RlGlHEqPA38xaos
-	 2CqCw8PrulMyMceI81qrtJ2VtuyND4LiCsJAxZryYG5b/OhuaaeXqClMzR5DkVq+PM3nE
-	 RLXGFcWJogqe/H90ccV46sgfLzyWeiGqepXwbenw0pSM5t37iqWv6yxBIxS8/SuCXk2DY
-	 LMnLMgLMY8dMEkC94z8eHXnfvYu79HIBc8ixTnNnZ9YljQ2JI2VQ956soVadD3Yc8U3J9
-	 2baVlIBaBxfadD8qrGxSyAICh4uolxuPuggWTvipCBfGVPasw9O+HIbtR/q2Fb5DgFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132207;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=o1SU+t4mqyZqVJ8A+o+dnd+7ntN600YxWGC6YBUr0OA=;
+	b=3BilpQWrddu9/jQUpV2m6jIE5sw529kNgTM5AnydoXtZZf0HanNu8FeQFFT+uPa657S1
+	 Zx31iVhGuy+Zxj4eNQti0LvFTq9urruieBqZlNa7q71319gXnp230a4UMtDudcwaoMO9l
+	 fYMhR7EXAS06n28cpfxXS2KsnES4aM9+fAJTcNrVKsx3j2MjQSEovp0QFPZmQmqTqGVTC
+	 RebGzJ8EpFZx2wuZqkBQK12b0PfuI2z94fI4hpEOZUSZ++3N8LKGiCiswmmj5OnNXkt10
+	 tSmESJe0q6J2IXa90KlrbZbGWJXvMEZoIBRcAl3/alYFJTlbhRu6lb9U5Nz/2gCUEAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WjRmHavG;
-	arc=none smtp.remote-ip=209.85.217.46
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com [209.85.217.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nhkuhDOm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECD57606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:49:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECD57606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82A47606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:50:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WjRmHavG
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-77bf892b496so126584137.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 15:49:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795132188; x=1795736988; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8pxF1XjPmydG2nmBhgUZ39yA7PK/1cXjwAWpQkhvRAQ=;
-        b=WjRmHavGc1axqWZ/NY0RuQD48lhYaCkSwdQqA2C5NLcw4M4NlhxBwnCfqcRS6+ddzM
-         0fLFbVfOrjyIIyBbdPLCVG1fL9wToVC9/zJZf+DEKVBbwbsFBL+OUPnrfFSV0tfGX0NL
-         EpHq6kKsFPohP6yjEYQh2q28tyqBBesVy72WbOHBy3t+CehEKmBq+tiZXHU5Ga1pOcnH
-         suRePIAOIrvoWPiAx/3cLtPHECgr7AioI0DsXLD9IfFFi+4i9QV6d3girZeBhyNIPFFk
-         8hoaCl8d0H7iatKCkw1b/mMuIj6WEVAy8qPRb4Pa9k/d2nDUi6HeMsCDGTGHxEkE4MyJ
-         BETw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795132188; x=1795736988;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8pxF1XjPmydG2nmBhgUZ39yA7PK/1cXjwAWpQkhvRAQ=;
-        b=iqQ/t8egIBk3NqwG3mr5QgkN1j0ZMA/SD6+PzuWWgoXcSgal+lFdBvW0UdKqd3R9dK
-         JMi4e9G5XAPhI+OaJlxWIUfmPXSh1k0rgnyZ5/ErSQrv5wDfEzmob7Jw4C5s99O4KZ79
-         Jl0N8uxUlQC43aqylLD8lNnYjmeh8+IIeV+em/ftvPnOSHqAq9ggPfA6/7GGkwbUrUij
-         0E0EPSTfPlmE55W1RMgiTdPjF+MYDt5tt6NWrkzS4abjIWtsdKFR3iRIoUc8ge6gJ7UI
-         6q+VTsGEKLfrGBiNICOAsvyriICF5KBuR2NWMz/LV6LDWRJQlXW/KcfMcJv3RdZL9DHh
-         ZD/Q==
-X-Forwarded-Encrypted: i=1; AL+hErHcKLrI3R7t8M5sPBNT6rH5gjskZVoApAoYPeIRfjEdzDte0Zb9fgB+dUiPeKnKjGHQQUB5wdk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+MM/2zquMpvA7e4WVl/0RdV7OR2VsNRLE/kHEmZR3Vmr/7e6NE
-	AcMgPzIKYhdxmMD2IF+Gxt2AJygZRPRu04xG0VdykeJFVaBzf/ZG/gBR
-X-Gm-Gg: AYBFou18rd/38gDUg0lPPMPoRfwmen+5wOU4uyqi7RagarKTbtGigZAzogBt//18PV2
-	kWqfOXPMp6X7ois1CRhjFFeFSoncSDVP4YH2ADyDgEMnUNS628oycmk97f6EFtlyQCq4HROrWqo
-	hA1zXDrf9N9cngt3H0EKxiJGx3qfcJ2tOhFF4Ch13ccQRFUpm6eWWOuGtPLTNx12qusOlneqIWA
-	AvKYQyEJ26DScWd2M9qN6DKfeN8K3supxaIuH2wFkcJexosEf+e13js8E9481pjubSRxzYeF1RS
-	GB0AenNgShuk8cKbSgV6n9LXPZ8ydrkBRNHWYRLb4Kc8Z02p6kUIb5wVmajne0645rhYRgFU+Vv
-	y3bxyn+fIChkXT2Bp2jBmxBlOpc5mfpDv9W4KUiaZo5HWiYUA+X6YxTfOWQpEbciY6Cayb9Ne33
-	xET0UOvvY+4Wtw9EZYpJAeLEfTnPIt9FmgaBoPK2LIQ8RSFtyfvXFIRhMVZLJ9YxDMyuSHDT2kE
-	6jCO6DwRkHxgPy7+oOIEwb0gZLtG5o3bk+Us059sIYkep+cnJDMVX/Ikrlhfdro/4NJnymyHKa2
-	K/vwtdhEXFaS3ZeBES8nGL3kpRQilFXrYH39+sLA4x2xLCGFH/jK5/FVr6QZhh8+Xg+bHbdVOoG
-	76dI8E4NGhDkTK3rOU0+fhgoQL/t9RPEojRUXaNt8UPdsRHbxj+DmjX2lIv2l33A=
-X-Received: by 2002:a05:6102:41a3:b0:7d2:754c:23e7 with SMTP id ada2fe7eead31-7d7396d1b09mr430676137.35.1795132187626;
-        Thu, 19 Nov 2026 15:49:47 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e6e0686b1sm1376086241.10.2026.11.19.15.49.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 15:49:47 -0800 (PST)
-Date: Thu, 19 Nov 2026 18:49:46 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>, 
- "David S . Miller" <davem@davemloft.net>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, 
- Willem de Bruijn <willemb@google.com>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>, 
- Simon Horman <horms@kernel.org>, 
- netdev@vger.kernel.org, 
- Eric Dumazet <edumazet@kernel.org>
-Message-ID: <willemdebruijn.kernel.320d89ebe1495@gmail.com>
-In-Reply-To: <20261119072258.3157902-3-edumazet@kernel.org>
-References: <20261119072258.3157902-1-edumazet@kernel.org>
- <20261119072258.3157902-3-edumazet@kernel.org>
-Subject: Re: [PATCH net-next 2/4] tap: add a mutex to protect queue management
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nhkuhDOm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060CB1F000CA;
+	Thu, 19 Nov 2026 23:50:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795132207;
+	bh=o1SU+t4mqyZqVJ8A+o+dnd+7ntN600YxWGC6YBUr0OA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=nhkuhDOmO2HWETeEyyoR8SBZjVZnNi7UcBkM1SNWnSW1WoRKNif+OEEtTtQDuCUov
+	 tv+AQJCH6OCZozuQ75dSuKzoWxpJMsM29QNKiz6C/6ttFFFOnPpYMeAugi+4XaMm3b
+	 QNf1BcbM7R/oy2+X2QuZ7rEqeDGu9tGUwOU/81EuKN8fTDeCphuOZ06sg9FaumiQfm
+	 qlbPMA6y/CYtjnJe3E4j1h10XSWarl99VynQmWfO8JJzmWffQV9ezUBKYotYmNNCf3
+	 scKWs7qqokqNjbW8g7ri1VHE35ZebOQHMGBeClHpR0X8IN+dXCeYfEUAziiXBGKrI7
+	 s9pq6H35ruKkw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15763808209;
+	Thu, 19 Nov 2026 23:50:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,67 +53,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [net PATCH 0/6] fbnic: Follow-up fixes for the Tx idle check,
+ HW stats and FW mailbox allocations    
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179513220578.3927581.16979332960210990151.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 23:50:05 +0000
+References: 
+ <179460241885.8819.7179935130629202331.stgit@ahduyck-xeon-server.home.arpa>
+In-Reply-To: 
+ <179460241885.8819.7179935130629202331.stgit@ahduyck-xeon-server.home.arpa>
+To: Alexander Duyck <alexander.duyck@gmail.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, horms@kernel.org, kernel-team@meta.com, kuba@kernel.org,
+ pabeni@redhat.com
 
-Eric Dumazet wrote:
-> The list of queues attached to a tap device (tap->taps[],
-> tap->queue_list, tap->numvtaps, tap->numqueues) and the back pointer
-> from each queue (q->tap, q->enabled, q->queue_index) are all private
-> to tap, but are protected by RTNL.
-> 
-> Add tap->lock, a per-device mutex nesting inside RTNL, and hold it in
-> every function reading or changing this state: tap_open(),
-> tap_put_queue(), the TUNSETQUEUE ioctl, tap_del_queues() and
-> tap_queue_resize(). A mutex is needed because tap_open() and
-> tap_queue_resize() allocate ptr_ring storage with GFP_KERNEL.
-> 
-> Add tap->ring_size, the ptr_ring size shared by all the queues of a
-> device. It is updated under the mutex when tap_queue_resize() succeeds
-> and is used by tap_open() instead of dev->tx_queue_len. Once RTNL is
-> gone, tap_open() can thus not size a new ring from a tx_queue_len
-> which is being changed, or rolled back by netif_change_tx_queue_len()
-> after a failure.
-> 
-> tap_handle_frame() reads tap->numvtaps locklessly, add the missing
-> WRITE_ONCE() annotations while touching these lines.
-> 
-> The mutex is initialized in the macvtap and ipvtap ->setup() handlers
-> and destroyed from dev->priv_destructor, once all references to the
-> device are gone. macvtap has to chain to the macvlan destructor,
-> export macvlan_dev_free() for this purpose.
-> 
-> Set tap->dev before the netdevice is registered instead of after,
-> since the char device can be opened as soon as the NETDEV_REGISTER
-> notifier has run. Like the mutex itself this has no effect yet: RTNL
-> is still held by all callers, and is removed from the paths that do
-> not need it in the following patch.
-> 
-> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+Hello:
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-> diff --git a/include/linux/if_tap.h b/include/linux/if_tap.h
-> index e9c4c9272585cdb14cf0ea7ea7d96acc3e8964b7..f2507fd41b9c9bf37687d17d06a2a9821b934b50 100644
-> --- a/include/linux/if_tap.h
-> +++ b/include/linux/if_tap.h
-> @@ -35,12 +35,22 @@ struct tap_queue;
->  struct tap_dev {
->  	struct net_device	*dev;
->  	u16			flags;
-> +	/* Protects taps[], queue_list, numvtaps, numqueues, ring_size, dead,
-> +	 * and the tap, enabled and queue_index fields of the attached queues.
-> +	 * Nests inside RTNL.
-> +	 */
-> +	struct mutex		lock;
+On Fri, 13 Nov 2026 12:41:19 -0800 you wrote:
+> Follow-up fixes for fbnic on top of the series that was just applied
+> to net, plus two fixes for FW mailbox allocations under memory pressure.
+> 
+> Patch 1 makes the Tx idle check wait for in-flight PTP timestamps. The
+> QM idle registers do not cover the TMI completion path, so they can
+> report idle while a timestamp completion is still outstanding.
+> 
+> [...]
 
-It's very helpful that the exact fields guarded by the lock are explicitly
-listed.
+Here is the summary with links:
+  - [net,1/6] fbnic: Wait for in-flight PTP timestamps before treating Tx as idle
+    https://git.kernel.org/netdev/net/c/6ada0c276966
+  - [net,2/6] fbnic: Do not accumulate HW stats from failed register reads
+    (no matching commit)
+  - [net,3/6] fbnic: Cover all of the HW stats with the stats lock
+    https://git.kernel.org/netdev/net/c/52a64e64230e
+  - [net,4/6] fbnic: Initialize and reset the HW stats before they can be read
+    https://git.kernel.org/netdev/net/c/4b5153b38962
+  - [net,5/6] fbnic: Stamp heartbeat and ownership requests after allocating them
+    (no matching commit)
+  - [net,6/6] fbnic: Allocate FW completions with kvzalloc
+    (no matching commit)
 
-(not a blocker) could this use even more mechanically verifiable
-instrumentation, such as __guarded_by field annotations and __must_hold
-for helper functions that access these fields?
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-It is not possible for every such example, as e.g., lockless READ_ONCE
-numvtaps.
+
