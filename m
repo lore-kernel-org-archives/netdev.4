@@ -1,73 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.75
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077759;
-	b=BZZv4ZvgeUi/ZcptuY6v3LswthxAlq/wnq818YVDIvW188amIJaGkNnjYn34EwcNVsZk
-	 lgcicLfaflvjJ9p0/O5wU2buAg9Z+1Xf5iJ2AMikQVgXIdIZqfSodscNemMrYUZXFdsDf
-	 m1GsVl9wnDf+ZQiN/JYX6R86m2VTerhbQ6tNgd3uurwO30sKNml39QDo9FPVZ7ithOGVP
-	 wdGYtr6L8InzAc3Duh6pJ56TqMu5dbVpV7GUzDKbgjD2xBm69nY1pLd8XQXQdFOvsY2fB
-	 rOLJ9FU/UiQn9gAQv6kPYXmkS/7Gcg6Pmy6lc2BwDLj37qz2vCvDQdxPg8JHq44jMiw==
+	t=1795077807;
+	b=iOGqVpciwaS3t1Y4OVP2bJhKz63x+hVGFxQiKBjhPfIKDNSLLFXHUUtSHnF0TBo9AJPK
+	 32W5fjz0ANXKaS3Vw/EW3WP5d6haH/KJZJdreSKpiaLYD1UB8EhIYwExHO1+zc0x1TUdn
+	 NvqQrLIACI2EqIh/3lZ/BACZnW/Q5JCcTNNvb18wQVgFJ68BBhe13BDG/GZOagigWmRLq
+	 wPdeqwJQDF+JggR7XTsnRF8yx9JVQwkpl8aB4UYkMIpRdIlUOWJDVr/s5pf0w5RFNnRo4
+	 nW6ufvjoTUSf7mrJZ8oU/Tbw9BglAbc8B+/jDpBERESTUNz/OxjU1L0puobilkzWCeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077759;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iWiJbFtVqVddp2vrnL7/ZGl130GuxHSvBxEu5wOIpWo=;
-	b=kbH5XXNwTIAjAuMy1H96PYOu+9ENkrAjVkKDBNps5K6zWct1B3s5Xnjdh3apOcEHBzuw
-	 JDHzAJYqu8nUj8gn/rTuPuTpaogRj1nHjTYO/yJpYtxn8R/VLPjfJ0U7J8POgkvfRaFGm
-	 Bqex1OrRjY8H8ELlMr19v1LRqIfoFFIGuz7NYQwkwoWDWiiRc0XL8JJsSTI8+yFLEWy8f
-	 xsFYLst1tlCcQjK3HTkxc/ZpPu+32mZRAzTTf9YnwGwjiPzKVi69rECpZRaXKC0+Kf3rF
-	 zcDgv2qCoo9cNrMI/z5CxKNyLGbx+4zQStKIzvFz2OcwR92TmP9oj15o4ckfbWb0J/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077807;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
+	b=yvImv5x1ks/Fs80JyG3E5EhWnFvyZnzKiNWzkbOsli6ZHLSzMGqSbVT93WfVx8YjIIij
+	 ROeHh4uX6JVXlJgDv7TsbPz8A7ft4W1ZdNQUn8yibj36EEC/kgJMRqh37cuwlSci03w1Z
+	 ECVdM7mPDAFgPG9oZDKVtyWeh9NUAWPMrQQ2Jpn+LHTTUXeHspi+0Us5cVHF1KviBvtRm
+	 xXCZdUppdz0DdPZc0uPeFa51qAkgA2BUsj1dGhI1tEpo+odkUAO/OG4Meq/VdatcT5Zje
+	 HaroQfiV1pkjXkvu3f6619G46gHWT3tXy7Q4siBPzJlUtcLtr5JaSRjdQ4MhgYJ6ZyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q8pJCaj3;
-	arc=none smtp.remote-ip=95.215.58.75
-Received: from mta1.migadu.com (out-75.mta1.migadu.com [95.215.58.75])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Di7cHPve;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bHrE2JO0;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C001606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:42:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C001606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01177606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:43:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01177606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q8pJCaj3
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=vL/J4zG6bd1pCk4S7uhM04WqGErVOFa1v5NdfiiZhWs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795077756; v=1; x=1795682556;
- b=q8pJCaj3gX6e+McaWww+F+gOZ7PqhkSpMuCMBqUbaupfpH6mxRZl69UsuvBvL4zwofdGOrSs
- Jvi4C12rOZ7EEWtUlmgSlR7LZt2qIQRl2RCQ34rqnibEtfTixwbrPmHOtwTfIw/O8Y8HfcDYFCU
- 1tN7udbbGN9yIKHWl1y1wRTo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 42f76bb1e926322b;
-	Thu, 19 Nov 2026 08:42:35 +0000
-X-Mizu-Trace-ID: 42f76bb1e926322b
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 16:42:20 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
-	David Lebrun <david.lebrun@uclouvain.be>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Mathieu Xhonneux <m.xhonneux@gmail.com>,
-	David Lebrun <dlebrun@google.com>,
-	Justin Iurman <justin.iurman@gmail.com>,
-	Stefano Salsano <stefano.salsano@uniroma2.it>,
-	Andrea Mayer <andrea@common-net.org>
-Subject: Re: [PATCH net v2 4/6] seg6: discard CHECKSUM_COMPLETE after the
- End.BPF program
-Message-ID: <av62bJ3xNkvqD-gD@fedora>
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
- <20261118150251.65-5-andrea.mayer@uniroma2.it>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Di7cHPve;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bHrE2JO0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795077805;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
+	b=Di7cHPvezovVu+Ra/6MEHgLRukZemXUfwzLb9mvtT2oKTb7ZYzuAWfoF2yBzCX35+ZjOqF
+	nGCuuiVZypumRd9RD0qtLBs67QNu14Hi6JvtA2yLbnv2zKA/W7FwoNpdX4/GW6DUYCntO9
+	ysFlVTyoe5Uec9aLVhH+TA97GqTh7rA=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-410-1cujbrUqPpWnr7rtQ4IL8Q-1; Thu, 19 Nov 2026 03:43:21 -0500
+X-MC-Unique: 1cujbrUqPpWnr7rtQ4IL8Q-1
+X-Mimecast-MFC-AGG-ID: 1cujbrUqPpWnr7rtQ4IL8Q_1795077800
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-49034831bb3so1307637f8f.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:43:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795077800; x=1795682600; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
+        b=bHrE2JO0hzT/aSfmOHX/SU0tVzGRoXHijJiuUwWJOkjAFVNDMdzUFxKsO27/j8gmM0
+         5wf33Gwqbs9IUiLMY9mwWpCCDa2Tm1GARulPzLto0IB1FZK/Br3Lc2+k9318wdvZj+Sp
+         37+XdfLzxG7IFjWtKZ1eo+TVJw2/Kxo3zhvO8ZImat3AmdIF3YxYiyiM324l4X4K6UYH
+         t5u3wCwwNY39viIoOfCW2/dYnWtMXfbZtqGL5qyHJoAWVntis0TZV0E2kIbnp35tU6OR
+         SD5n/+tgA/rplt1T+RoeLVL9Zs9jFfjXk37xt5fqswVQ5RSUOj6V553vr6HHUof0KWI4
+         4YUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795077800; x=1795682600;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
+        b=ybtaZqnFutjoDE856xyJS2OjxqvnY0pIddxnBknp5cSHquyx0279w+1hh3FDiGu/TB
+         EDpwe9MQa9IkHziRw/mV+54RXEYVYidVJKfb0cjk58g1AP3uoNZdXEjFx2pMrL8xBiqf
+         xIOg+5rqW5M0G1/rnvMppxRium0d8JD6PHq6IPkOQO8wHh7LeuU7aKvl4dS0NyHbshtD
+         fy1sjj7ys7GL0FJfQTv4PeUN0eF7Pa7jM5ZovSb1MMo7qhnU3AeVfNSvsQfLWIgPmKro
+         P0lQkh/rOG8TtGBb93iFf7Xh6K5xElsm5WEodtGrTTt5XmLKqrbShUhuVYsHNmJKz9V2
+         h+zQ==
+X-Forwarded-Encrypted: i=1; AL+hErHEeyCrwEaNGzE1a1dlhuL6GNYaP7z8se2bRpjGZrZFI0xQzbX/oKmE5fYa4bHUkuxNWA7UiI8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hh8aMtpJODvENy4Hjf7MEOkZlL3MZ0Pg2ac+hhtXEhxwEmANZ
+	B09Sp8FK98R2XEmlPag4nQ35/+vW7T+YXhSIW1kiXGHCZO+WmEglrHBvx68BhxGYuzMrUQj+UNx
+	jmuSy4QGjfUgXUi/Lhx3bCAFhJXEsAdbhhtu1YX6XTi4qojtfbyX80dSFow==
+X-Gm-Gg: AZFdTZcUpgELyORetpl1Pw9RsWUB9EdN/uVkcWRd0vqLql2Vp2uJkN5REIp5Ra02Avs
+	ZYMH5x5n0RbjYKVqvdKqIAHa59aCQApA4u8MLzyDHWXn5TqK3+191nPbe0nu706bqdXLHNPvyId
+	9afyvbeJUktmI56xHdIrYar9+FWQyKnE+STb6xV8AcOP4mJFYwKA8YPFXtjVpIIjGsuf1EcGHsi
+	H0O7fxzHsWYD+B7PsBfUI+73QNIlQCwdymVsC5H9iz7SYpWxzUBW+D1VxlgL2FOH3PX2YbjsKJ7
+	+06HmO2Yk1sWvyHjHvUWVxAJbuirYlwjfoFg/Ipu9fOfKQUEmeqot4t1UAMKwFQw4GtRxrkUpK7
+	WTuROkivGdxpk+Hw6dHGeJe/Jw93DEmQ7MdgJ7BlTZvwLAiW5ZnbTt62L2PUnFS7aBBOWj55S13
+	wzdjEwPBQms5NhuMKTVuzBUfEB9ge3rafeuJ2vq/hACHCW
+X-Received: by 2002:a05:6000:4812:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4a63b9d9635mr9987017f8f.22.1795077800452;
+        Thu, 19 Nov 2026 00:43:20 -0800 (PST)
+X-Received: by 2002:a05:6000:4812:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4a63b9d9635mr9986962f8f.22.1795077799925;
+        Thu, 19 Nov 2026 00:43:19 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b5f1sm9637679f8f.21.2026.11.19.00.43.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 00:43:19 -0800 (PST)
+Message-ID: <597411fe-5506-43dd-ae37-3bbbc581bd76@redhat.com>
+Date: Thu, 19 Nov 2026 09:43:17 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,59 +112,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150251.65-5-andrea.mayer@uniroma2.it>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/1] ipv6: mcast: use resolved interface for source
+ filters
+To: Zihan Xi <zihanx@nebusec.ai>, netdev@vger.kernel.org
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, horms@kernel.org, vega@nebusec.ai
+References: <cover.1794492711.git.zihanx@nebusec.ai>
+ <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 04:02:49PM +0100, Andrea Mayer wrote:
-> The End.BPF program can change the packet through the seg6 BPF helpers,
-> for instance the SRH Tag with bpf_lwt_seg6_store_bytes(). After the
-> program, seg6_bpf_has_valid_srh() can also rewrite the SRH Hdr Ext Len.
+On 11/12/26 16:19, Zihan Xi wrote:
+> When no interface is specified, ip6_mc_source() resolves the multicast
+> route to an interface but searches socket memberships with a wildcard
+> index. A socket joined to the same group on multiple interfaces can
+> therefore update its source filter on a different interface from the
+> interface filter.
 > 
-> With CHECKSUM_COMPLETE, the program does not always update skb->csum for
-> the bytes it writes, and seg6_bpf_has_valid_srh() does not either. If the
-> packet is then delivered on the same node and skb->csum was computed in
-> software, for instance by conntrack, UDP can drop the packet as a checksum
-> error. With skb->csum computed by the device, TCP can instead log a
-> "hw csum failure", as if the device had computed a wrong skb->csum.
+> Use the resolved interface index for the membership lookup and for
+> dropping the membership after leaving the last source.
 > 
-> Discard CHECKSUM_COMPLETE with skb_checksum_complete_unset() after the
-> program, since input_action_end_bpf() does not know which bytes the program
-> changed. The checksum is then verified in software.
-> 
-> Found by manual code inspection and reproduced in a VM without kernel
-> changes or error injection: with skb->csum computed by a tc ct action, an
-> End.BPF program that writes the SRH Tag, followed by End.B6.Encaps and a
-> local End.DT6 SID, makes UDP drop the packet. With this patch, the packet
-> is delivered. Also tested against the srv6 selftests, the lwt_seg6local
-> BPF selftest, and with a ConnectX-6 Lx NIC (mlx5) that provides
-> CHECKSUM_COMPLETE.
-> 
-> Fixes: 004d4b274e2a ("ipv6: sr: Add seg6local action End.BPF")
-> Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
-> ---
->  net/ipv6/seg6_local.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/net/ipv6/seg6_local.c b/net/ipv6/seg6_local.c
-> index 56c6be841e53..f7e1bbc6e9f9 100644
-> --- a/net/ipv6/seg6_local.c
-> +++ b/net/ipv6/seg6_local.c
-> @@ -1661,6 +1661,12 @@ static int input_action_end_bpf(struct sk_buff *skb,
->  		goto drop;
->  	local_unlock_nested_bh(&seg6_bpf_srh_states.bh_lock);
->  
-> +	/* The program may have changed the packet and seg6_bpf_has_valid_srh()
-> +	 * may have rewritten the SRH Hdr Ext Len.
-> +	 * skb->csum may then no longer be the checksum of the full packet.
-> +	 */
-> +	skb_checksum_complete_unset(skb);
-> +
->  	if (ret != BPF_REDIRECT)
->  		seg6_lookup_nexthop(skb, NULL, 0);
->  
-> -- 
-> 2.43.0
-> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Cc: stable@vger.kernel.org
+> Reported-by: Vega <vega@nebusec.ai>
+> Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+This is changing an established behavior. While the old one is likely
+"uncorrect", existing application may depend on it.
+This is at best net-next material (with no fixes nor stable tag), but
+lacking an end-user report, but I tent to think we are better off
+without this change entirely.
+
+/P
+
