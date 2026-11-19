@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070704;
-	b=R0jhI5RSTj9Ghl9qnlspA0Sb7gu2+3bOczH7XFhGEQGGDPLppfdvEz0YuuSELxjZ2bTw
-	 hHSZ6s0DIHSxGuUDjAT26YlFj7yA6dUKnoAss/vbsOKXOhVclPftCma/dilXcD8AYLToY
-	 AUjNY19D1TOQH+GpLbqDJiHTFgMhmXXmNYAddm+pPHFpnE6Z1XLgrZHtUWFXUuQXppJUS
-	 6jg22n0OqqHxfZZ7RTqFUKFwomzfor3rWoa7hbK0t+cddAO6MAZiCII9fp+PbDw8++bVA
-	 zWm5t1GB/YnlPWIW5GmB5wu8KI2njahQX69Gj9x4fQPt7gx+142pwMrcATlL2X08QZQ==
+	t=1795070706;
+	b=uf6LQI2d1JwsQWOhVhpykplbfqmlx2R/YZbdKYLvMn++/QxROOIkw3xzj8d9Xla9RU7S
+	 lEj1ZhnLgZeoDjBC5YWthu0P5bQ/Dib5GuWP3QM4A2Y7qx8eFwM0X543piJkp/MUy+322
+	 vhdkVn2KTXx4lBM910x0ncOS3N/X6V/31mVcxpT/AopagdMTZS+e09EvkQxFTGTdEYx+b
+	 clv2shr5GcA5M4LzfpjAPu619uiMXk9npNvI+M78GjX69hG/RLeSPjMjBSho+7guMKsil
+	 xN7c+ql4qwS1h6BoAGHaXZVDQSwnHn+UJFkBu/NIIDn8f7r/6ct1mPV36Agf4vDE8yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070704;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070706;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=SscW4jPT8Or0Syda4jZxOH9RJv46Uc4ZJHe6Zhovo4Q=;
-	b=B8EtULmqDMp93eFoVyR1D2Z6WXLiGMSB59RC9dfJjH6OXs2OYVT/tWIzAOVg44vsVX2S
-	 vbhkqTE5YvCVt2tg/dM9CPFJ2IOq5GVgX8q/SSV4PpGBItFL6URllFtwZVLZYrt2Zs62I
-	 TFuQHbf4QHdE+zTYxu5hvIhev72etetUH76rqR1wO+2nXF5LMOtT/ye+uqQ79RqkkwJ3N
-	 BDwFSfU/+7yRX5COJDx3jfTkitbQyaS6YWoBF4CQXpk5w2WRQXHIkckYeNVX/FunnfPob
-	 0FzLiui7/S+cla4+PC2tlDF067OdSdPPTkSRx8pElhVp3VKV/U8fQ0n9+rgGn+RFLLw==
+	bh=fsOt81r2UE7NffohmViWawVkV/SETfL9NBoyQgD8Gzs=;
+	b=yWZCDvjVr+bH10x74SaCpOiNgAFz+iWRVSiAe09kp42oyTKX9H2mVqVm3BrDbSc3Fuvx
+	 mowtAgQCf8sJ/L77OR/xn4B7xb4v1OexkGMQ7To8nUmE45AGpZXZextR4/1NpT9Q/9+O5
+	 1P6XD6GkpueU7bsC0VqYswbtlwj3A042N0ggY6qXwjtTA93TKG1kYjPdKxMu6sg+MVM0Z
+	 EYIbVlMB8dSEfnHtaEpU31kIDcPM2t3f09cv60urCqdv/sEO4Sa+K6ORgRL37LOisThRn
+	 K0uWfD5PV3yL1RFOtbf6Jpt5L8sexXAdVklUquGLN/fOvgMcHuXniCmry13EOLVBRyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GE/uihCP";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eHWsZenl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58E7760A2624
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:45:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23FDB60A2624
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:45:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GE/uihCP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95981F000C4;
-	Thu, 19 Nov 2026 06:45:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eHWsZenl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B3E11F000C4;
+	Thu, 19 Nov 2026 06:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795070703;
-	bh=SscW4jPT8Or0Syda4jZxOH9RJv46Uc4ZJHe6Zhovo4Q=;
+	s=k20260515; t=1795070705;
+	bh=fsOt81r2UE7NffohmViWawVkV/SETfL9NBoyQgD8Gzs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GE/uihCPShiaZhq3bG15MHEM0FTZusWfqiq5FqaJSBeJvJE1TliHhnA0QhkAJXz8U
-	 l3YS0mdqyTYloAYZeJjGbSlHggyPdx4hEDLddGdh7cAJE/5p3AcZYT/gAaLKJPvdxT
-	 yDYZEOzZBCB3psnCblrOhUygArfISbvmFWXWow28S/dCIBVZypTWnu5yOaz4+qbPyP
-	 iNNeLJu9JPAVVPqonduljtjzJzcRiWzJNTCzB2JePKaEuvOmtX+GFNbO4zbF/2gzBx
-	 NyBn+KY/P/84i7YiQ4+ZAZYtjI3iuAsOdMjqHwKHYHX7jR0+7t/RZXj/MoO05aT4uP
-	 O2hc49vSQs6Kw==
+	b=eHWsZenlEppWUDsFKFQDcz40+2WslWI46FGsz/DHedoIyjUdg8v+I/no8KyWpqrmt
+	 ynG4rWZU0ZFAJLpHdfV5aVR8uLvC2TX8n6d/jlth4o9Gka07iSWh+XnAUKcH5J6kKC
+	 1UAB/H3osbAMCPP+gHOVA9eIWrNPsYBpYgucSjL6sGmmr6wUQHCFwwExznYkbeZC2H
+	 LWGio2XuiWdBNqp4nmst1rGq211slBOWQjVa1LHi5zCu+myM14UEcPOMWRrn3XWgR2
+	 ZRkjPwZ6GUXjm5eCSq3eAPOnY4uFa/e9STiMz7ZXo3tXc3Yg4NGe63qIfz9BrT4fbo
+	 dtoKvbPSPvi7Q==
 Subject:
- Re: [net-next v6 11/15] ice: introduce handling of virtchnl LARGE VF opcodes
+ Re: [net-next v6 12/15] devlink: give user option to allocate resources
 From: netdev-bot+sashiko@kernel.org
 To: przemyslaw.kitszel@intel.com
 Cc: kuba@kernel.org, netdev@vger.kernel.org, aleksandr.loktionov@intel.com,
@@ -52,11 +52,11 @@ Cc: kuba@kernel.org, netdev@vger.kernel.org, aleksandr.loktionov@intel.com,
  mbloch@nvidia.com, mschmidt@redhat.com, ohartoov@nvidia.com,
  pabeni@redhat.com, poros@redhat.com, rdunlap@infradead.org, saeedm@nvidia.com,
  skhan@linuxfoundation.org, tariqt@nvidia.com
-Date: Thu, 19 Nov 2026 06:45:02 +0000
-Message-ID: <179507070227.3136.5959529573012279667@kernel.org>
-In-Reply-To: <20261117094913.100756-12-przemyslaw.kitszel@intel.com>
-References: <20261117094913.100756-12-przemyslaw.kitszel@intel.com>
-X-sashiko-severity: Medium
+Date: Thu, 19 Nov 2026 06:45:04 +0000
+Message-ID: <179507070407.3136.14784491222272219958@kernel.org>
+In-Reply-To: <20261117094913.100756-13-przemyslaw.kitszel@intel.com>
+References: <20261117094913.100756-13-przemyslaw.kitszel@intel.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,178 +69,131 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The patch widens struct ice_q_vector::num_ring_rx/num_ring_tx
-  from u8 to u16.
-- [Medium] ice_vc_validate_qs_v2_msg() bounds each chunk (start_queue_id
-  + num_queues <= min(num_vf_qs, 256)), and the only limit on num_chunks…
+- [Low] API asymmetry in the new occ_set mode, plus an unsafe misuse
+  path.
+- [Low] The occ_set paths change size_new without revalidating the
+  hierarchy.
 
 --
 
-ice: introduce handling of virtchnl LARGE VF opcodes
+devlink: give user option to allocate resources
 
-This adds PF-side handlers for VIRTCHNL_OP_ENABLE_QUEUES_V2,
-VIRTCHNL_OP_DISABLE_QUEUES_V2 and VIRTCHNL_OP_MAP_QUEUE_VECTOR. They are
-allowlisted under VIRTCHNL_VF_LARGE_NUM_QPAIRS so that VFs can use more
-than 16 queues. It also widens num_ring_rx/num_ring_tx in struct
-ice_q_vector to u16.
+This adds a new mode of operation for devlink resources. In this mode a
+driver registers an occ_set() callback together with occ_get() through
+devl_resource_occ_set_get_register(). DEVLINK_CMD_RESOURCE_SET then
+applies the requested size immediately and does not stage it until
+reload. For such resources the getter value is reported as
+DEVLINK_ATTR_RESOURCE_SIZE.
 
-> diff --git a/drivers/net/ethernet/intel/ice/ice.h b/drivers/net/ethernet/intel/ice/ice.h
-> index 89a2bdbecf609..fc2e84136e247 100644
-> --- a/drivers/net/ethernet/intel/ice/ice.h
-> +++ b/drivers/net/ethernet/intel/ice/ice.h
-> @@ -474,8 +474,8 @@ struct ice_q_vector {
+> diff --git a/net/devlink/resource.c b/net/devlink/resource.c
+> index c3cfda7ea0703..c4502c480a6bb 100644
+> --- a/net/devlink/resource.c
+> +++ b/net/devlink/resource.c
+
+[ ... ]
+
+> @@ -137,6 +139,16 @@ int devlink_nl_resource_set_doit(struct sk_buff *skb, struct genl_info *info)
+>  	if (err)
+>  		return err;
 >  
->  	u16 v_idx;			/* index in the vsi->q_vector array. */
->  	u16 reg_idx;			/* PF relative register index */
-> -	u8 num_ring_rx;			/* total number of Rx rings in vector */
-> -	u8 num_ring_tx;			/* total number of Tx rings in vector */
-> +	u16 num_ring_rx;		/* total number of Rx rings in vector */
-> +	u16 num_ring_tx;		/* total number of Tx rings in vector */
-
-[Severity: Medium]
-
-The v5 notes say these fields were widened because mapping all 256 queues
-of a VF to one vector made the counters wrap. The main writer of these
-fields still truncates to u8, though:
-
-drivers/net/ethernet/intel/ice/ice_base.c:ice_vsi_map_rings_to_vectors() {
-    ...
-		u8 tx_rings_per_v, rx_rings_per_v;
-		u16 q_id, q_base;
-
-		/* Tx rings mapping to vector */
-		tx_rings_per_v = (u8)DIV_ROUND_UP(tx_rings_rem,
-						  q_vectors - v_id);
-		q_vector->num_ring_tx = tx_rings_per_v;
-    ...
-		for (q_id = q_base; q_id < (q_base + tx_rings_per_v); q_id++) {
-    ...
-}
-
-With 256 rings and one q_vector, DIV_ROUND_UP(256, 1) cast to u8 is 0.
-That sets num_ring_tx to 0, links no rings and leaves ring->q_vector
-unchanged. The Rx side has the same problem.
-
-This function also runs on VF VSIs. ice_pf_dcb_recfg() calls it for every
-VSI except ICE_VSI_CHNL. On resume, ice_reinit_interrupt_scheme() calls it
-for every VSI right after it re-allocates the q_vectors.
-
-Readers then use the truncated count. For example, ice_vsi_release_msix(),
-which ice_vsi_free_irq() also calls for VF VSIs, does this:
-
-	for (q = 0; q < q_vector->num_ring_tx; q++) {
-		ice_write_itr(&q_vector->tx, 0);
-		wr32(hw, QINT_TQCTL(vsi->txq_map[txq]), 0);
-
-Wouldn't this skip clearing QINT_TQCTL/QINT_RQCTL for every one of these
-queues?
-
-On the resume path, can rings be left with ring->q_vector pointing at
-q_vectors that were freed at suspend? ice_free_q_vector() only clears the
-pointer for rings on the linked list, and VF rings mapped through virtchnl
-are never on that list.
-
-At the end of the series, this needs a VF with the PF LUT
-(ICE_LUT_PF_MAX_QS = 256) and ICE_MIN_INTR_PER_VF MSI-X vectors, so
-num_q_vectors = 1. The VF requests 256 queues, and then a DCB
-reconfiguration or a suspend/resume runs. The u8 locals and the (u8) casts
-in ice_vsi_map_rings_to_vectors() are still there at the end of the
-series.
-
-Should tx_rings_per_v/rx_rings_per_v and the casts be widened to u16 in
-this patch as well?
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/intel/ice/virt/queues.c b/drivers/net/ethernet/intel/ice/virt/queues.c
-> index 7f2b459dbc836..f87ccf5d370bb 100644
-> --- a/drivers/net/ethernet/intel/ice/virt/queues.c
-> +++ b/drivers/net/ethernet/intel/ice/virt/queues.c
-> @@ -1046,3 +1046,342 @@ int ice_vc_request_qs_msg(struct ice_vf *vf, u8 *msg)
-
-[ ... ]
-
-> +static bool ice_vc_validate_qs_v2_msg(struct ice_vf *vf,
-> +				      struct virtchnl_del_ena_dis_queues *qs_msg,
-> +				      u16 msglen)
-> +{
-> +	u32 max_qs = min_t(u32, vf->num_vf_qs, ICE_MAX_QS_PER_VF);
+> +	if (resource->occ_set) {
+> +		err = resource->occ_set(size, info->extack, resource->occ_priv);
+> +		if (err)
+> +			return err;
 > +
-> +	if (msglen < virtchnl_struct_size(qs_msg, chunks, 0))
-> +		return false;
-> +
-> +	if (msglen < virtchnl_struct_size(qs_msg, chunks, qs_msg->num_chunks))
-> +		return false;
-
-[ ... ]
-
-> +	for (int i = 0; i < qs_msg->num_chunks; i++) {
-> +		struct virtchnl_queue_chunk *chunk = &qs_msg->chunks[i];
-> +		u32 end;
-> +
-> +		if (!ice_vc_supported_queue_type(chunk->type))
-> +			return false;
-> +
-> +		if (!chunk->num_queues)
-> +			return false;
-> +
-> +		end = chunk->start_queue_id + chunk->num_queues;
-> +		if (end > max_qs)
-> +			return false;
+> +		resource->size = resource->occ_get(resource->occ_priv);
+> +		resource->size_new = resource->size;
+> +		return 0;
 > +	}
+> +
+>  	resource->size_new = size;
+>  	devlink_resource_validate_children(resource);
+>  	if (resource->parent)
 
-[Severity: Medium]
+[Severity: Low]
+Should the occ_set branch also revalidate the hierarchy before it returns?
 
-Each chunk is bounds-checked here. Is anything rejecting duplicate or
-overlapping chunks? The only limit on num_chunks is msglen.
+The legacy branch below sets size_new and then calls
+devlink_resource_validate_children() on the resource and on its parent.
+The occ_set branch changes size_new and returns before doing either.
+The occ_set refresh added to devl_resource_size_get() also overwrites
+size_new without revalidating.
 
-For VIRTCHNL_OP_DISABLE_QUEUES_V2, ice_vc_dis_txq_chunk() calls
-ice_vf_vsi_dis_single_txq() for every queue in every chunk. That helper
-does not return early for queues that are already disabled:
+devlink_resource_validate_children() computes the parent's size_valid
+from the sum of the children's size_new. That flag is reported as
+DEVLINK_ATTR_RESOURCE_SIZE_VALID. It is also checked by
+devlink_resources_validate(), which gates DEVLINK_CMD_RELOAD in
+devlink_nl_reload_doit():
 
-drivers/net/ethernet/intel/ice/virt/queues.c:ice_vf_vsi_dis_single_txq() {
-	if (!test_bit(q_id, vf->txq_ena))
-		dev_dbg(ice_pf_to_dev(vsi->back), "Queue %u on VSI %u is not enabled, but stopping it anyway\n",
-			q_id, vsi->vsi_num);
-	...
-	err = ice_vsi_stop_tx_ring(vsi, ICE_NO_RESET, vf->vf_id, ring, &txq_meta);
-	...
-}
+    err = devlink_resources_validate(devlink, NULL, info);
+    if (err) {
+        NL_SET_ERR_MSG(info->extack, "resources size validation failed");
 
-Each ice_vsi_stop_tx_ring() call does an MMIO read-modify-write of
-QINT_TQCTL, an ndelay(100), ice_trigger_sw_intr() and ice_dis_vsi_txq().
-ice_dis_vsi_txq() takes pi->sched_lock and searches the Tx scheduler tree
-with ice_sched_find_node_by_teid().
+Nothing stops one hierarchy from mixing the two modes. Take a legacy
+parent P with an occ_set child A and a legacy child B. Setting B through
+the legacy path marks P invalid. If A is then shrunk through occ_set so
+the sum fits again, does P stay invalid, so that reload is refused? In
+the other direction, growing A through occ_set would leave P reported
+as valid.
 
-A 4 KiB mailbox message can hold the 8 byte header plus about 511 chunks,
-each set to {type TX, start 0, num max_qs}. With 256 queues, that is about
-130k stop-ring operations from one message. They run in the PF service
-task with vf->cfg_lock held.
-
-The v1 DISABLE_QUEUES bitmap limits this to at most 16 queues, and each
-one is processed once.
-
-Can a VF keep sending this message to keep the PF service task busy? That
-would delay mailbox handling for other VFs, as well as AdminQ events and
-resets. The validation and the Tx disable helper are unchanged at the end
-of the series.
-
-Could the validation build a bitmap of the requested queues and reject
-overlapping chunks? Another option is to skip queues that are not set in
-vf->txq_ena on the v2 path.
+No in-tree user mixes the modes today. In this series ice registers rss,
+lut_512 and lut_2048 all with devl_resource_occ_set_get_register(), so
+this is latent. Should this path revalidate mixed hierarchies, or should
+they be rejected or documented as unsupported?
 
 [ ... ]
+
+> @@ -684,9 +748,10 @@ void devl_resource_occ_get_unregister(struct devlink *devlink,
+>  	if (WARN_ON(!resource))
+>  		return;
+>  	WARN_ON(!resource->occ_get);
+> +	WARN_ON(resource->occ_set);
+>  
+>  	resource->occ_get = NULL;
+> -	resource->occ_get_priv = NULL;
+> +	resource->occ_priv = NULL;
+>  }
+>  EXPORT_SYMBOL_GPL(devl_resource_occ_get_unregister);
+
+[Severity: Low]
+Should this WARN_ON(resource->occ_set) return instead of falling
+through?
+
+devl_resource_occ_set_get_register() is exported, but
+include/net/devlink.h declares no matching unregister. That leaves
+devl_resource_occ_get_unregister() as the only detach helper. If it is
+called on a resource registered with
+devl_resource_occ_set_get_register(), it warns, clears occ_get and
+occ_priv, and leaves occ_set set.
+
+The three mode checks then disagree. devlink_resource_occ_size_put()
+requires both callbacks, so it takes the legacy path. But
+devlink_nl_resource_set_doit() and devl_resource_size_get() check only
+occ_set:
+
+    if (resource->occ_set) {
+        err = resource->occ_set(size, info->extack, resource->occ_priv);
+        ...
+        resource->size = resource->occ_get(resource->occ_priv);
+
+Would a later DEVLINK_CMD_RESOURCE_SET call occ_set() with a NULL priv
+and then call through the NULL occ_get pointer?
+devl_resource_size_get() would make the same call to occ_get.
+
+Nothing in-tree reaches this today. The only user in the series is ice,
+which tears down with devl_resources_unregister() and never calls
+devl_resource_occ_get_unregister(). Drivers that follow the existing
+convention keep resources registered across reload and unregister the
+callbacks in fini or reload_down. The new mode offers no way to do that.
+
+Would it make sense to add a matching unregister helper, or have this
+one also clear occ_set? Could all three places use the same mode check?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117094913.100756-1-przemyslaw.kitszel%40intel.com
