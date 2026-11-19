@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795058605;
-	b=CzA7EK3q5UQLTfM7A5D+lIaJxHfuk41XCbx6gC5eyXBumGFLxv5iADMcmKeyQkC/KcPQ
-	 SPBptru0dUqTREITKBG3WrQVBqGwPQhapxQShtfuTburTf/GvhqfepMDOh9lzFs5ah0Wh
-	 8hn8/GCDjlww5Ho83US31p11n0YRrY8r8R1jhbSByDA79oSMEl+ctnsNTz/nM/g9UqpZa
-	 8ee+LR876G0zSkZhfWxAUlfj99JYdNXhx3Fs96ru/Kdk6jO8cH8xbocUiXJXIlTS5Gz2g
-	 9k7Z/ipTf3gy1fNtaF9PlE8djthKJHdIiFXVFOvha1g5pqMTjvYBuO9ARftFQwWJlaQ==
+	t=1795058894;
+	b=a59uugOiGTwBRKaJI3p+LzF62psyPHRXHIeHXESHuB7R5gAqeBjg/AK1iazWclook3mN
+	 FIxZ2VH7alYyguVhQWxsUH3YJFKYPROtRiLgQPhR49eSrXMcGcC7ykTnBoheWPAw/Aupd
+	 GPA1CD9Cu5XB576ruJA0GBk0by4y+vHGaPFiESFIL4ZPzKs9AI/SM4ay0vKxzyYRbKCeq
+	 KGbXeGjQ64bmDvPZz2FFOmzwDs4ix/L2NR5zzRys6nhkUs/nPryLZubdgZCZeylfpUWXw
+	 dD+EX72TJrQ8Huu9xiOp0urBVhJAPXX7rMkEhMHIeR/aRCB3qEH7x4uuP8ybOrcOyEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795058605;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=cHmwptowYKNxL+0rjg4ZbqGuN3Z1jBx3o4VBT2/LBbc=;
-	b=k7+KLMcTeoYfeXaaE2shNjtd1bjenLGTCxk/xIIrMzEPaAkw7v7oEChxxyj3ECqT/P3c
-	 qXkwHMu6oQ9wVuR+X80nE9nvJSjSCdC4jUtnvamCaj63o2r7rkkOEKDuAeFsKHM6aPrvE
-	 aXEInxS+mQ5kjRfB/lpCg5TYtnUfRoV4EGplR3Af+r2bKMN4NnbRMi1jtmSCtfE17l66x
-	 Ipe1xqa+XSKQKCl6vq1cn8ioaDCRbOjo0kNQtoQkVi8AAGkywkZlGBitYrbwPiG25mmT5
-	 stlre5xQS+jmg3GowGXMdfmU6PetAW3FgF/3gwAPc9VTREpf6dfN7TFbWepKT5TTFDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058894;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=CbyFwhwRvvW2mN25jQgNpahIvkeid+7JDvgpXv4XI84=;
+	b=MZ4DkRaWe12LD92JZvtNSv9ix68rxUKSWMIyzyz6W/S+QpHiFCMLMaeRDGRsry81UsQQ
+	 IrohcGFwlTuZ8ue/8EV3L9vpmTdWhkAE2TVZsqZRkb9EQfGadsbP8zkqAHCVXr7tCBibd
+	 oIwug4gFhfXgBP534NrH6tjnGFJ2FE7o+nsMbnSQfy1mUdfLTAxEwU9SncHaPtexmI9f9
+	 TTSpf6RzHtL4SY59NfZUqJyG6/V7SRSZrD3Zm0BkP8Eii53FQYqFBAquwI4bj4/ziHWqX
+	 ChwMAlvjyGU9QYGvf6VX/ev76fzyVHk8qX2Q//tERQDaZQPbmCV+rJI9VRuMv4ojQ0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=a3mhC9Fr;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Djm8nA4F;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 559B9606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:23:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 559B9606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EBE2606A31C;
+	Thu, 19 Nov 2026 03:28:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=a3mhC9Fr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=cH
-	mwptowYKNxL+0rjg4ZbqGuN3Z1jBx3o4VBT2/LBbc=; b=a3mhC9FrD/TSe+2oh1
-	snosx9wiC8iQ7gfjIsp/H8Yy3TbhigHEzIX9tBGxWe9eZs7/pRQiMLSVKO6KGc7m
-	TqQATohLUJ9Nl36T3m49OyGaDv1b4RExP5HI2S5gGlTAtoEC5iw99Tajw/lgrePE
-	cQBlwq5V5wQdoNX7+zQCb/xfU=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDHrxGQa_5qYlvqHw--.39351S4;
-	Thu, 19 Nov 2026 11:22:57 +0800 (CST)
-From: Rongguang Wei <clementwei90@163.com>
-To: netdev@vger.kernel.org
-Cc: willemdebruijn.kernel@gmail.com,
-	jasowangio@gmail.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	alexei.starovoitov@gmail.com,
-	kuba@kernel.org,
-	Rongguang Wei <weirongguang@kylinos.cn>
-Subject: [PATCH net v11 2/2] selftests: net: add TAP socket filter attach tests
-Date: Thu, 19 Nov 2026 11:22:42 +0800
-Message-Id: <20261119032242.71919-3-clementwei90@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261119032242.71919-1-clementwei90@163.com>
-References: <20261119032242.71919-1-clementwei90@163.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Djm8nA4F
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A782F1F000C4;
+	Thu, 19 Nov 2026 03:28:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795058894;
+	bh=CbyFwhwRvvW2mN25jQgNpahIvkeid+7JDvgpXv4XI84=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Djm8nA4F62eL/RWgAuon2+cBDcTrvpzZtsnhkbTuQKtFcUfF0VHQeVgUpmvYxRmWw
+	 aBAWQeTlEK7Ar7VptenxR1YtOh2YCWZnXRyVUDi7dHbU3Df6cu+l/OXbyQkaYgB7Be
+	 E358m0opS/hOW8T8WiT4J6BdqlhQrn7rC9By+OJtAvKtEz3rj1qSDeSL8dWPB8sFQP
+	 Ah1XKcTu1dLZQfYj7ri+qJwKBotcfBe6nygynb5A+hRtOZaXzdO/sUQQ7QEvxp26Oi
+	 iQ9catzK6IHzCQeVgw2p9ILnz4ULVYBBBVDDla1ahl8ONvJM73Pzr3WzNy5nYaFroP
+	 xpjftm+d4pCIA==
+Subject: Re: [PATCH net] ppp: serialize channel connect with unregister
+From: netdev-bot+sashiko@kernel.org
+To: 26031212468@stu.xidian.edu.cn
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-ppp@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com,
+ qingfang.deng@linux.dev, 25031212117@stu.xidian.edu.cn, byu@xidian.edu.cn
+Date: Thu, 19 Nov 2026 03:28:13 +0000
+Message-ID: <179505889320.3136.16828129332871650938@kernel.org>
+In-Reply-To: <20261116122750.23294-1-26031212468@stu.xidian.edu.cn>
+References: <20261116122750.23294-1-26031212468@stu.xidian.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,409 +64,221 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDHrxGQa_5qYlvqHw--.39351S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW3CF47Jw4DAryxCw17ZF15CFg_yoWktr48pF
-	97WFWDJr15Xr47Xws7ArW8ZFW3Zw4DGr1rAan5K3s8ZFs8Jry5Ca9YkFWakws7tr48uws0
-	kFyaya43WwsxtFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jajgcUUUUU=
-X-CM-SenderInfo: 5fohzv5qwzvxizq6il2tof0z/xtbC4hFZxGr+a5EdPQAA3g
 
-From: Rongguang Wei <weirongguang@kylinos.cn>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Add tests for TUNATTACHFILTER and TUNDETACHFILTER: a queue re-attached
-after the buffer the program came from was made unreadable, a bad program
-and a bad length with queues attached and with none, a program configured
-before any queue, and the IFF_NOFILTER paths.
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
 
-Signed-off-by: Rongguang Wei <weirongguang@kylinos.cn>
----
- tools/testing/selftests/net/tun.c | 358 ++++++++++++++++++++++++++++++
- 1 file changed, 358 insertions(+)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/tools/testing/selftests/net/tun.c b/tools/testing/selftests/net/tun.c
-index 34de2580e32ec..ac326193867b0 100644
---- a/tools/testing/selftests/net/tun.c
-+++ b/tools/testing/selftests/net/tun.c
-@@ -9,9 +9,11 @@
- #include <stdlib.h>
- #include <string.h>
- #include <unistd.h>
-+#include <linux/filter.h>
- #include <linux/if_tun.h>
- #include <netinet/tcp.h>
- #include <sys/ioctl.h>
-+#include <sys/mman.h>
- #include <sys/socket.h>
- 
- #include "kselftest_harness.h"
-@@ -548,6 +550,362 @@ TEST_F(tun, reattach_close_delete)
- 	EXPECT_EQ(tun_delete(self->ifname), 0);
- }
- 
-+/* accept: return skb->len.  Three instructions on purpose, so that the
-+ * length read back through TUNGETFILTER tells it apart from a rejected
-+ * program that is shorter.
-+ */
-+static const struct sock_filter filter_accept[] = {
-+	BPF_STMT(BPF_LD | BPF_W | BPF_LEN, 0),
-+	BPF_STMT(BPF_ALU | BPF_ADD | BPF_K, 0),
-+	BPF_STMT(BPF_RET | BPF_A, 0),
-+};
-+
-+/* Put the instructions in an anonymous mapping, so that the test can make the
-+ * address unreadable afterwards.
-+ */
-+static void *filter_alloc(const struct sock_filter *insns, unsigned int len)
-+{
-+	void *p;
-+
-+	p = mmap(NULL, getpagesize(), PROT_READ | PROT_WRITE,
-+		 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (p == MAP_FAILED)
-+		return NULL;
-+
-+	memcpy(p, insns, len * sizeof(*insns));
-+
-+	return p;
-+}
-+
-+static int filter_attach(int fd, const struct sock_filter *insns, unsigned int len)
-+{
-+	struct sock_fprog fp = {
-+		.len = len,
-+		.filter = (struct sock_filter *)insns,
-+	};
-+
-+	return ioctl(fd, TUNATTACHFILTER, (void *)&fp);
-+}
-+
-+static int filter_get(int fd, struct sock_fprog *fp)
-+{
-+	return ioctl(fd, TUNGETFILTER, (void *)fp);
-+}
-+
-+static int tun_get_iff_flags(int fd)
-+{
-+	struct ifreq ifr = { 0 };
-+
-+	if (ioctl(fd, TUNGETIFF, (void *)&ifr) < 0)
-+		return -1;
-+
-+	return ifr.ifr_flags;
-+}
-+
-+/*
-+ * The program is built when TUNATTACHFILTER is issued, so a queue attached
-+ * later does not read the buffer it came from.  Here the mapping is made
-+ * unreadable before the queue is attached again, and another queue is then
-+ * attached from a fresh socket, which starts without a filter of its own.
-+ */
-+TEST_F(tun, reattach_filter_without_user_buffer)
-+{
-+	struct sock_fprog gf = { 0 };
-+	struct ifreq ifr = { 0 };
-+	short flags = 0;
-+	void *prog;
-+	int fd, ret;
-+
-+	prog = filter_alloc(filter_accept, ARRAY_SIZE(filter_accept));
-+	ASSERT_NE(prog, NULL);
-+	ASSERT_EQ(filter_attach(self->fd, prog, ARRAY_SIZE(filter_accept)), 0);
-+
-+	EXPECT_EQ(tun_detach(self->fd, self->ifname), 0);
-+
-+	/* This memory is no longer readable */
-+	ASSERT_EQ(mprotect(prog, getpagesize(), PROT_NONE), 0);
-+
-+	ret = tun_attach(self->fd, self->ifname);
-+	EXPECT_EQ(ret, 0);
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	/* The queue is attached again, not left disabled */
-+	EXPECT_EQ(flags & IFF_DETACH_QUEUE, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	/* The two checks below document the expected state, they cannot
-+	 * tell an installed filter from no filter: tun_detach() leaves the
-+	 * device program alone, and TUNGETFILTER only returns the header.
-+	 */
-+	EXPECT_EQ(filter_get(self->fd, &gf), 0);
-+	EXPECT_EQ(gf.len, ARRAY_SIZE(filter_accept));
-+
-+	/* A new queue starts without a filter, so a clear IFF_NOFILTER shows
-+	 * that the filter configured on the device covers it as well.
-+	 */
-+	fd = open("/dev/net/tun", O_RDWR);
-+	ASSERT_GE(fd, 0);
-+
-+	strcpy(ifr.ifr_name, self->ifname);
-+	ifr.ifr_flags = IFF_TAP | IFF_MULTI_QUEUE;
-+	EXPECT_GE(ioctl(fd, TUNSETIFF, (void *)&ifr), 0);
-+
-+	flags = tun_get_iff_flags(fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	close(fd);
-+
-+	ASSERT_EQ(mprotect(prog, getpagesize(), PROT_READ | PROT_WRITE), 0);
-+	ASSERT_EQ(munmap(prog, getpagesize()), 0);
-+}
-+
-+/* A new queue attached with IFF_NOFILTER must not get the filter that is
-+ * configured on the device.
-+ */
-+TEST_F(tun, attach_filter_nofilter_flag)
-+{
-+	struct ifreq ifr = { 0 };
-+	short flags = 0;
-+	int fd;
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept, ARRAY_SIZE(filter_accept)), 0);
-+
-+	fd = open("/dev/net/tun", O_RDWR);
-+	ASSERT_GE(fd, 0);
-+
-+	strcpy(ifr.ifr_name, self->ifname);
-+	ifr.ifr_flags = IFF_TAP | IFF_MULTI_QUEUE | IFF_NOFILTER;
-+	EXPECT_GE(ioctl(fd, TUNSETIFF, (void *)&ifr), 0);
-+
-+	flags = tun_get_iff_flags(fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, IFF_NOFILTER);
-+
-+	close(fd);
-+}
-+
-+/* A later TUNATTACHFILTER covers every queue of the device, including one that
-+ * was attached with IFF_NOFILTER.
-+ */
-+TEST_F(tun, attach_filter_clears_nofilter_queue)
-+{
-+	struct ifreq ifr = { 0 };
-+	short flags = 0;
-+	int fd;
-+
-+	fd = open("/dev/net/tun", O_RDWR);
-+	ASSERT_GE(fd, 0);
-+
-+	strcpy(ifr.ifr_name, self->ifname);
-+	ifr.ifr_flags = IFF_TAP | IFF_MULTI_QUEUE | IFF_NOFILTER;
-+	ASSERT_GE(ioctl(fd, TUNSETIFF, (void *)&ifr), 0);
-+
-+	flags = tun_get_iff_flags(fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, IFF_NOFILTER);
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept,
-+				ARRAY_SIZE(filter_accept)), 0);
-+
-+	flags = tun_get_iff_flags(fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	close(fd);
-+}
-+
-+/* After TUNDETACHFILTER a later attach must not install the filter again */
-+TEST_F(tun, detach_filter_clears_reattach)
-+{
-+	short flags = 0;
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept, ARRAY_SIZE(filter_accept)), 0);
-+	EXPECT_EQ(ioctl(self->fd, TUNDETACHFILTER, 0), 0);
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, IFF_NOFILTER);
-+
-+	EXPECT_EQ(tun_detach(self->fd, self->ifname), 0);
-+	EXPECT_EQ(tun_attach(self->fd, self->ifname), 0);
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, IFF_NOFILTER);
-+}
-+
-+/* TUNDETACHFILTER must clear the filter of a queue that was detached with
-+ * IFF_DETACH_QUEUE as well, not only that of the active queues.
-+ */
-+TEST_F(tun, detach_filter_clears_detached_queue)
-+{
-+	short flags = 0;
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept,
-+				ARRAY_SIZE(filter_accept)), 0);
-+
-+	EXPECT_EQ(tun_detach(self->fd, self->ifname), 0);
-+	EXPECT_EQ(ioctl(self->fd, TUNDETACHFILTER, 0), 0);
-+	EXPECT_EQ(tun_attach(self->fd, self->ifname), 0);
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, IFF_NOFILTER);
-+}
-+
-+/* A TUNATTACHFILTER with a bad length must leave the installed program and the
-+ * filter state that TUNGETIFF reports alone.
-+ */
-+TEST_F(tun, attach_filter_bad_len_keeps_program)
-+{
-+	struct sock_fprog gf = { 0 };
-+	struct ifreq ifr = { 0 };
-+	short flags = 0;
-+	int fd;
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept, ARRAY_SIZE(filter_accept)), 0);
-+
-+	errno = 0;
-+	EXPECT_EQ(filter_attach(self->fd, filter_accept, 0), -1);
-+	EXPECT_EQ(errno, EINVAL);
-+
-+	EXPECT_EQ(filter_get(self->fd, &gf), 0);
-+	EXPECT_EQ(gf.len, ARRAY_SIZE(filter_accept));
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	/* A queue attached afterwards still gets the filter, so the rejected
-+	 * ioctl left the program on the device alone.
-+	 */
-+	fd = open("/dev/net/tun", O_RDWR);
-+	ASSERT_GE(fd, 0);
-+
-+	strcpy(ifr.ifr_name, self->ifname);
-+	ifr.ifr_flags = IFF_TAP | IFF_MULTI_QUEUE;
-+	EXPECT_GE(ioctl(fd, TUNSETIFF, (void *)&ifr), 0);
-+
-+	flags = tun_get_iff_flags(fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	close(fd);
-+}
-+
-+/* A TUNATTACHFILTER with instructions that bpf_check_classic() rejects must
-+ * be refused, and must leave the program that is installed in place.
-+ */
-+TEST_F(tun, attach_filter_bad_prog_keeps_program)
-+{
-+	struct sock_fprog gf = { 0 };
-+	struct sock_filter bad[] = {
-+		BPF_STMT(BPF_LD | BPF_W | BPF_LEN, 0),
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 0, 1, 0),
-+	};
-+	struct ifreq ifr = { 0 };
-+	short flags = 0;
-+	int fd;
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept,
-+				ARRAY_SIZE(filter_accept)), 0);
-+
-+	errno = 0;
-+	EXPECT_EQ(filter_attach(self->fd, bad, ARRAY_SIZE(bad)), -1);
-+	EXPECT_EQ(errno, EINVAL);
-+
-+	/* the program attached before is untouched */
-+	EXPECT_EQ(filter_get(self->fd, &gf), 0);
-+	EXPECT_EQ(gf.len, ARRAY_SIZE(filter_accept));
-+
-+	/* IFF_NOFILTER comes from the program kept on the device, not from
-+	 * the saved header, so a clear flag shows the filter is still there.
-+	 */
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	/* A queue attached afterwards still gets the filter, so the rejected
-+	 * program never replaced the one on the device.
-+	 */
-+	fd = open("/dev/net/tun", O_RDWR);
-+	ASSERT_GE(fd, 0);
-+
-+	strcpy(ifr.ifr_name, self->ifname);
-+	ifr.ifr_flags = IFF_TAP | IFF_MULTI_QUEUE;
-+	EXPECT_GE(ioctl(fd, TUNSETIFF, (void *)&ifr), 0);
-+
-+	flags = tun_get_iff_flags(fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+
-+	close(fd);
-+}
-+
-+/* The program is built by TUNATTACHFILTER itself, so a bad one has to be
-+ * refused even when there is no queue attached.  A program that is only
-+ * refused when it is built would otherwise be saved and break every later
-+ * attach.  Detach all queues, check that a bad length and a bad program are
-+ * still refused, and that a re-attached queue gets the program installed
-+ * before.
-+ */
-+TEST_F(tun, attach_filter_bad_keeps_program_without_queues)
-+{
-+	struct sock_fprog gf = { 0 };
-+	struct sock_filter bad[] = {
-+		BPF_STMT(BPF_LD | BPF_W | BPF_LEN, 0),
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 0, 1, 0),
-+	};
-+	short flags = 0;
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept,
-+				ARRAY_SIZE(filter_accept)), 0);
-+
-+	EXPECT_EQ(tun_detach(self->fd, self->ifname), 0);
-+	EXPECT_EQ(tun_detach(self->fd2, self->ifname), 0);
-+
-+	errno = 0;
-+	EXPECT_EQ(filter_attach(self->fd, filter_accept, 0), -1);
-+	EXPECT_EQ(errno, EINVAL);
-+
-+	errno = 0;
-+	EXPECT_EQ(filter_attach(self->fd, bad, ARRAY_SIZE(bad)), -1);
-+	EXPECT_EQ(errno, EINVAL);
-+
-+	/* The rejected ioctls did not replace the program on the device */
-+	EXPECT_EQ(filter_get(self->fd, &gf), 0);
-+	EXPECT_EQ(gf.len, ARRAY_SIZE(filter_accept));
-+
-+	/* The queue gets that program again, from the device */
-+	EXPECT_EQ(tun_attach(self->fd, self->ifname), 0);
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+}
-+
-+/* A program configured while no queue is attached must cover the queues that
-+ * are attached afterwards.
-+ */
-+TEST_F(tun, attach_filter_without_queues_then_attach)
-+{
-+	short flags = 0;
-+
-+	EXPECT_EQ(tun_detach(self->fd, self->ifname), 0);
-+	EXPECT_EQ(tun_detach(self->fd2, self->ifname), 0);
-+
-+	ASSERT_EQ(filter_attach(self->fd, filter_accept,
-+				ARRAY_SIZE(filter_accept)), 0);
-+
-+	EXPECT_EQ(tun_attach(self->fd, self->ifname), 0);
-+
-+	flags = tun_get_iff_flags(self->fd);
-+	EXPECT_GE(flags, 0);
-+	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-+}
-+
- FIXTURE(tun_vnet_gso)
- {
- 	char ifname[IFNAMSIZ];
+- [High] ppp: race between PPPIOCDISCONN and ppp_unregister_channel()
+- [Low] In ppp_unregister_channel()
+  (drivers/net/ppp/ppp_generic.c:3097-3105), the patch moves…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch
+  closes the PPPIOCCONNECT re-attach race and leaves the other channel-…
+
+--
+
+ppp: serialize channel connect with unregister
+
+This commit takes pch->chan_sem around ppp_connect_channel() in the
+PPPIOCCONNECT ioctl. In ppp_unregister_channel() it moves the mutex_lock()
+to before ppp_disconnect_channel(), so a concurrent connect cannot re-add
+the channel's clist to a PPP unit between the disconnect and the clearing
+of pch->chan.
+
+Closes: https://syzbot.org/bug?extid=6b18da3ef22e33061add
+
+> diff --git a/drivers/net/ppp/ppp_generic.c b/drivers/net/ppp/ppp_generic.c
+> index 29847dc4bb454..ba2359f0899f3 100644
+> --- a/drivers/net/ppp/ppp_generic.c
+> +++ b/drivers/net/ppp/ppp_generic.c
+
+[ ... ]
+
+> @@ -755,7 +755,9 @@ static long ppp_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+>  		case PPPIOCCONNECT:
+>  			if (get_user(unit, p))
+>  				break;
+> +			mutex_lock(&pch->chan_sem);
+>  			err = ppp_connect_channel(pch, unit);
+> +			mutex_unlock(&pch->chan_sem);
+>  			break;
+>  
+>  		case PPPIOCDISCONN:
+
+[Severity: High]
+This is a pre-existing issue. The commit message says the patch
+preserves the disconnect-before-null ordering that the transmit path
+needs. Does that ordering still hold when PPPIOCDISCONN races with
+ppp_unregister_channel()?
+
+The PPPIOCDISCONN case right below calls ppp_disconnect_channel()
+without taking chan_sem. ppp_disconnect_channel() clears pch->ppp
+under pch->upl and then drops upl. Only after that does it take
+ppp_lock(ppp), unlink pch->clist and wait in synchronize_net().
+
+Consider this sequence:
+
+1. Thread A issues PPPIOCDISCONN on the channel's /dev/ppp file.
+   ppp_disconnect_channel() replaces pch->ppp with NULL under upl and
+   drops upl. It has not yet taken ppp_lock(ppp).
+
+2. Thread B runs ppp_unregister_channel() on the same channel, for
+   example because the pppoe socket or the tty is closed. It takes
+   chan_sem without contention. Its ppp_disconnect_channel() sees
+   pch->ppp == NULL and returns at once.
+
+3. Thread B sets pch->chan = NULL under downl and returns. The
+   channel driver is now free to release its struct ppp_channel.
+
+4. pch->clist is still on ppp->channels. ppp_push(), running under
+   ppp_xmit_lock(), picks pch, takes pch->downl, loads pch->chan and
+   dereferences chan->direct_xmit.
+
+ppp_mp_explode() and ppp_fill_forward_path() also dereference
+pch->chan without a NULL check. Those checks were removed on the
+assumption that unregister fully disconnects the channel before
+clearing chan.
+
+Thread A may already have done list_del_rcu() by the time B runs. B
+still does not wait for A's synchronize_net(), so RCU readers such as
+ppp_fill_forward_path() can keep using pch->chan after the driver has
+freed it.
+
+That is a NULL dereference or a use-after-free on the transmit path.
+ppp_open() only requires CAP_NET_ADMIN in the user namespace, so an
+unprivileged user namespace can reach this.
+
+Would taking chan_sem around ppp_disconnect_channel() in the
+PPPIOCDISCONN case close the race? Unregister would then wait for an
+in-progress disconnect to finish its list_del_rcu() and
+synchronize_net(). Alternatively, should ppp_disconnect_channel() be
+reworked so that pch->ppp is not cleared until the channel has been
+unlinked from the unit?
+
+[Severity: High]
+This is a pre-existing issue, but now that the PPPIOCCONNECT re-attach race
+is closed, can the PPPIOCBRIDGECHAN case next to it still attach a channel
+that is being unregistered?
+
+ppp_bridge_channels() looks only at ->ppp and ->bridge under upl. It does
+not check pch->chan or pch->file.dead:
+
+drivers/net/ppp/ppp_generic.c:ppp_bridge_channels() {
+	spin_lock(&pch->upl);
+	if (rcu_dereference_protected(pch->ppp, lockdep_is_held(&pch->upl)) ||
+	    rcu_dereference_protected(pch->bridge, lockdep_is_held(&pch->upl))) {
+	...
+	refcount_inc(&pchb->file.refcnt);
+	rcu_assign_pointer(pch->bridge, pchb);
+	...
+}
+
+The PPPIOCBRIDGECHAN case does not take chan_sem. ppp_unregister_channel()
+calls ppp_unbridge_channels() only once, after chan_sem is dropped and
+after list_del():
+
+	mutex_unlock(&pch->chan_sem);
+	...
+	list_del(&pch->list);
+	...
+	ppp_unbridge_channels(pch);
+
+Consider this sequence:
+
+1. Channel A is unregistered while a /dev/ppp file is still attached to
+   it. A stays alive with chan, ppp and bridge all NULL.
+
+2. PPPIOCBRIDGECHAN is issued on A's file:
+
+   ppp_ioctl()
+     ppp_find_channel(pn, unit)          finds B under all_channels_lock
+     refcount_inc(&pchb->file.refcnt)
+     spin_unlock_bh(&pn->all_channels_lock)
+
+3. At the same time, B's driver calls ppp_unregister_channel(B), for
+   example because the pppoe socket is closed:
+
+   ppp_unregister_channel(B)
+     list_del(&B->list)
+     ppp_unbridge_channels(B)            B->bridge is NULL, returns -EINVAL
+     B->file.dead = 1
+     ppp_release_channel(B)
+
+4. ppp_bridge_channels(A, B) then sets A->bridge = B and B->bridge = A.
+   Each channel takes a reference on the other.
+
+ppp_unregister_channel() never runs again for A or B, and ppp_release()
+only calls ppp_release_channel().
+
+Once A's file is closed, is each channel's refcount held only by the
+other? If so, ppp_release_channel() never gets to put_net_track().
+
+That would leak both struct channel objects and keep their network
+namespace pinned. ppp_open() only requires CAP_NET_ADMIN in the user
+namespace. A failed attempt is harmless, so the race can be retried.
+
+This doesn't look like a use-after-free, because
+ppp_channel_bridge_input() checks pchb->chan under downl. A fix probably
+needs a chan/dead check under upl in ppp_bridge_channels(), not wider
+chan_sem coverage.
+
+The new comments "Prevent PPPIOCCONNECT from reattaching the channel during
+removal" and "serializes connect/unregister" are accurate for connect only.
+The bridge attach path is still not serialized against unregister.
+
+[ ... ]
+
+> @@ -3092,12 +3094,15 @@ ppp_unregister_channel(struct ppp_channel *chan)
+>  
+>  	chan->ppp = NULL;
+>  
+> +	/*
+> +	 * Prevent PPPIOCCONNECT from reattaching the channel during removal.
+> +	 */
+> +	mutex_lock(&pch->chan_sem);
+>  	/*
+>  	 * This ensures that we have returned from any calls into
+>  	 * the channel's start_xmit or ioctl routine before we proceed.
+>  	 */
+>  	ppp_disconnect_channel(pch);
+
+[Severity: Low]
+This isn't a bug, but after this change the old comment about returning
+from the channel's start_xmit or ioctl routine sits directly above
+ppp_disconnect_channel(). The comment on chan_sem now mentions only
+PPPIOCCONNECT.
+
+ppp_disconnect_channel() only unlinks clist and calls synchronize_net(),
+so it does not wait for chan->ops->ioctl().
+
+The ioctl drain described in include/linux/ppp_channel.h and
+Documentation/networking/ppp_generic.rst comes from chan_sem. The default
+case in ppp_ioctl() holds it around chan->ops->ioctl():
+
+	default:
+		mutex_lock(&pch->chan_sem);
+		chan = pch->chan;
+		err = -ENOTTY;
+		if (chan && chan->ops->ioctl)
+			err = chan->ops->ioctl(chan, cmd, arg);
+		mutex_unlock(&pch->chan_sem);
+
+Could the comments say that the mutex drains channel ioctls as well as
+blocking PPPIOCCONNECT?
+
+> -	mutex_lock(&pch->chan_sem);
+>  	spin_lock_bh(&pch->downl);
+>  	pch->chan = NULL;
+>  	spin_unlock_bh(&pch->downl);
+
 -- 
-2.43.0
-
-
-No virus found
-		Checked by Hillstone Network AntiVirus
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116122750.23294-1-26031212468%40stu.xidian.edu.cn
