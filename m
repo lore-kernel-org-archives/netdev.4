@@ -1,100 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.177
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795126517;
-	b=5EcE843wTghiG2nA79IMX1YNvlef5uDA8k+OEQrRSOuY2ryYCqIeBSkI+XAGhy4fJg5Q
-	 5udZgAT2EDi6fLw9E8eg+PMO+J6Ks6pohU8qz+Urh6DTa64QcUX39JaTYXGGa+OF8sgBp
-	 JRDK3qk8OgrNFgqd5MH7JSNPd3Us5NPv29FhhbFVWbwahRlF2r9QntqZtakOToi3KIuVz
-	 msv6eZBbrj7i0JF5oEWYKKxayZ/waWKdYwAED4ol5mdqGK8R0NFwEhenVa8qKpSXWECya
-	 fsJ30/1oPDA7fAQhzIC0btH6uIPal+jUZxQX0G3wtJsgIu4rCZcsR0hGFwQQIaFdAiA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126517;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=8l8XHyNayBAlJsP3xEji+LFlUpnRVNoG1UJ97c+xgzk=;
-	b=Dw6zuAPkoU4FYZMFyaLep23gDcqCYkgkvptSeJl9wpsAA6CiVNImqkifVSlvwNLT0vWx
-	 JH94+asoxaXhNVmRsQSe+dQn6mL5oUt6iK4eOZWkzl7snEMCp0YQCKKraav+SPKdYFXZb
-	 VM1+MWrkFuLKRwMrbeUErNNTWBjHXy6D4IT5vM9NIYCD9jccKCILi0uU54cLTmXmQF3QU
-	 e90TZJ60aW0SjaIV/SKkk9NPiNnqfAeOcqHeB7yXACnM5v47u/NmvR5T/H8dHgO54HRRz
-	 pSY8fX7d2sO2rD3/9hUlefH9Ujih+SDQrP5tFVEmPt+uEYo4EFUNHh5mkE60Uk38CJQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TZM+cwE3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.177
-Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com [209.85.167.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.35.192.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795126554;
+	b=emdPLDLFjW77mpaKhzCrChfQet7G89lHvlWhFbwTV8Gso0GatFkiKU3124vIMROnlD1h
+	 ZjCUPRIuSnW6DyIkSfWrf//SDL6Aup59A8eDQNU78wo7VZdm5yrYX2rzV8jz3SaMJKGHj
+	 DMBq2UQDV0WB/W1qzS0KJR7/tzxK7sW4LUKa6PBL903qMc2nEBzyQHd4EkH/NXowMrbvU
+	 KWyLJ4GXaUT3Ugnlu9+JBMDRAnlHhGZmCazhJiUXJZF36hgoXK9I1qWoSd3YNueMH+Lhi
+	 DF/d7AztYTeZSmcp1t4vlkURELt/KpjL1/HjK5I7x22jpgzbjMKu6/FIXq3oVGswghw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126554;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=rG8ySpd1iW2MeECK/3VoVBb77o8GMUNj0ctIINg/L10=;
+	b=5qwWCknNUjlI2TfTBJgAYoAtgf3VE8TVjZWpnhUfg/9dKvLzHQENVaqU/uWJbhLuj5F0
+	 V2+qTBd4JRcLlLpuJliWs055+HJGd5tgn8SSqsz0c/3WthwyGUbbTkIf0xyCPTtujxQb9
+	 Ku17HmGGHQev/Xf6c6pFbOp2lpGs470iBlG5CHhiyX//7Q/h4nEMt/sjYeaozHk/h/iwK
+	 IsiKSOiFUX48w/TtrJPMxvjjnzNamMOKbT0r+Ar7GYihteaQ9gKqCF3GxXdYusw0wf1p+
+	 lrFNKkZtG7GQsUR91moCPqrt0UsUlwbKNuAsXwBLEQiDjteN3a6rf5HwqGHpNBwyJ9g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=TDVR55O7;
+	arc=none smtp.remote-ip=52.35.192.45
+Received: from pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.35.192.45])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA0B1606A330
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:15:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA0B1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1802606A320;
+	Thu, 19 Nov 2026 22:15:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1802606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TZM+cwE3
-Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-4af81963f35so214896b6e.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:15:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795126515; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Xb7yJV8rufYPLIOcwgLUqY9s2IJ/f43XMV6Vmhy8ZbcRfCGfkv+UDVUcq5snAIfE9B
-         UKd4hbGcVSoJmmnDKKTArUOq30yru62gI4KLSK9y+8VYv5NPaJ4gNZHoFNVOyuFNp4wm
-         uqtqsJDqPuvPr4HYhQ2oC+OzEnR1HU4xwNeOXKFroYv6p5RpeZf8idHMKmkO57RzYqUb
-         jxlMji6JHGdFSPKoV4cca9ZGVzzARkTPNWlaO5XkM+5TragSKqjKTaU3LoTw/6y/0mcW
-         5M0o4qBaEb31h3Nrm2LaCpgr1spWZKyVjzsjEgfhxh1rAjxNC7PzFffAJRp4c2ThO9AK
-         HH7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8l8XHyNayBAlJsP3xEji+LFlUpnRVNoG1UJ97c+xgzk=;
-        fh=O16QCut573K8eSWrpwva3b2QxqPQsx4MS0slYCS7b34=;
-        b=LIUs7WamFr1jLqcEc80KqKXwBpmO1/XsR60dWp7VR8FZFAGN2C5zsTMmDsNrm4jNGi
-         uj3xFUBVJQ2tYdtXB3pptA18rjhm1cqmoW7bYAYfvUFhhiSg8uWxnDL6I4JNy6FCzB4e
-         ZsWeQNU3A2HVqOm3bCCiEuMy6D9UwcapIiiWtu0OAdL3SPOhK5BagP9OYLMo0CpWdYC2
-         ZNwebQ9tZh2MErXEYtaZbvVvqkvFhAEom7tRlNMo1P/miSA6gDLFSc0pdwFrT8+JeArs
-         D0hmSQHEhxBFiQSPcMQsJ6+nlxdN/IUsUE1HXqXGTq8DAmN/2P0d5voH91vNpfeXVmf8
-         sjUA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=TDVR55O7
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795126515; x=1795731315; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8l8XHyNayBAlJsP3xEji+LFlUpnRVNoG1UJ97c+xgzk=;
-        b=TZM+cwE3SeQWyq5M/HERyZiG9VcMIlqLKFNeyqphKMa+l8lfv+/2luYwqYm4XWp794
-         W2myme57djc8K3qfFrR0PX1Jh9W08aV113XF6qC8HxK1hHVtrZIq2cbAQkB6tL0Axswg
-         uhwPRLDx16+8m3LNIm54ALsjOwc9216ZelbKRpNgixV0XFolGlb7gzl1F4MG31H8+L9W
-         ODzh9GNudWPmLZt3LJN+BuW1qA+VUdnNLu3Bip7Sg0YE/kglQsmJqgN5HNIUj/FTWVC9
-         PM6GsTI0UngsjO3vBfQ9yU+Jw7n7bB+9VIxobtS476/UjgQjZh8C3gPvUIPgYrYUsCx2
-         Nbzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795126515; x=1795731315;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8l8XHyNayBAlJsP3xEji+LFlUpnRVNoG1UJ97c+xgzk=;
-        b=jUfuP6Yj1g5Vt3cWLsAqyHBIlem2I++uCoypVhPTlqj57/mcZyOm3BbrHWEh3a3biV
-         znTOnxgyIMEaFcUdp1u01iKy2x6mdhkArdka+xqGMCmVE017RD3qXI1QBrM11aEpbJdK
-         O559bl6Gsgmz+VI8kSxNViRLLJyyD6dUIihvb4G3NpccQTjoVMEo1dx3V6SGlofVTXfY
-         lQyJB+Tp+51NID6w/DotzZqS90slJ2rue2RpO8UlUwAU/DhYY9P0xZ15wAhScyrtD3L2
-         VlqM7m1S8R4fq3U0cNC7XItTUGKQkTYVjZdVVnvHH65Ol0n+WBorScvkmDJDlzzu9pt6
-         ce6Q==
-X-Gm-Message-State: APuU4Z+NAz+FtjcCXkzvU01oNfhJzY3/R4lzqjmMOnS+BU6uCpGN14pE
-	l8OPCTHXh0DuXs8uMsx87xWtC3Lw4JbiWTDJ84TpyaPuSL3Jq6m2AG6JDT+84jByBqp54ItZfxO
-	GGjMD49NMg/F3GFFo7pR23dk7+W7oAQoaBfYpApFyhg==
-X-Gm-Gg: AYBFou3nbOE7OkEgAEB+JS1c+1c7sBf8AV+CYCSdIpOpB8kFVGAxRvwhTHmPLCXe5jL
-	QmG25j75fAiuP2l99lN9FN90AmEdCVI3ZXE47TCZjKy2ZQneUR/rQvoL3Fjpkv6Xw4iM/+L5Ebq
-	IAhcCCEFAEbkZ6+N3ICNnaLXIJNklFFSqhr3xpTjg+R1pwmfeniEdM4rxBiZnDPU190cyFYbGwy
-	t+G+UaVsfjFRY+CTNLbWzI/YdX3gwwBZPT24SrpMrz/XW+xN4oYfu7WY9bCWH8cTGG63I5U1yd5
-	F0y6foiGJ/moLnuq9cApknLocTOHot7d0D9DdP3hbhrlfU/NDrYKcayLtO8SB7lKc7Gi3d11pPi
-	Gl72YvhwYodElCgwC8icplYkPj6eRWGX7OsyCOPSDFUs3ASiCbBpTy7d/HwlZey05FFzfqhtctu
-	IBbtP6XA==
-X-Received: by 2002:a05:6808:c236:b0:539:4d53:170e with SMTP id
- 5614622812f47-57a0bb79445mr1617066b6e.43.1795126515353; Thu, 19 Nov 2026
- 14:15:15 -0800 (PST)
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795126553; x=1826662553;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=rG8ySpd1iW2MeECK/3VoVBb77o8GMUNj0ctIINg/L10=;
+  b=TDVR55O76qLmVZnvaleXoy72ksBUC2ld4KpvbA6TtQ15xHin2ON51+3v
+   AkCDgQd19HkTzaAhyQ9qGqMZSpxo9UbOLSC+gXqgFfD1LEcqS2Vd9sx2z
+   KIY6afaOKd5icQdXFPE61rhO7bRRzbTTqODVG3nathgnvNgGVnIq5Xyoi
+   3B8QCDcFWjhn9ri7UCytVerhwbRo4lvBhu1sZtKpd4XWXv+9WmFn8SOVx
+   hLjaa0KAqxcrEI0sz7FN5xiWEzQz+I36Kf5fYK2Ls4M9qMoCD52pAAoea
+   k2PKEiyvRKGi4ym8M74x5susNofJWWp40U0/tEyUpReaJbuQTno+DNjSO
+   w==;
+X-CSE-ConnectionGUID: zr3KRbncQK+kEcd2VcYiNw==
+X-CSE-MsgGUID: fFSXlcqnS2eFb3UN2TslBA==
+X-IronPort-AV: E=Sophos;i="6.27,221,1787011200"; 
+   d="scan'208";a="34359087"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:15:53 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:16723]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.46.128:2525] with esmtp (Farcaster)
+ id f584f67a-9e5d-41c7-b791-57426c59856d; Thu, 19 Nov 2026 22:15:53 +0000 (UTC)
+X-Farcaster-Flow-ID: f584f67a-9e5d-41c7-b791-57426c59856d
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
+ Thu, 19 Nov 2026 22:15:52 +0000
+Received: from dev-dsk-hagan-1f-c6b5e25f.us-east-1.amazon.com (172.19.159.5)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Thu, 19 Nov 2026 22:15:51 +0000
+From: "Craig I. Hagan" <hagan@amazon.com>
+To: <anthony.l.nguyen@intel.com>, <przemyslaw.kitszel@intel.com>
+CC: <intel-wired-lan@lists.osuosl.org>, <netdev@vger.kernel.org>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
+	<tactii@gmail.com>, <aleksandr.loktionov@intel.com>,
+	<moriyax.kadosh@intel.com>, <vitaly.lifshits@intel.com>, <hagan@amazon.com>
+Subject: [PATCH iwl-net] e1000e: fix link stuck at 10 Mb/s after DMoff exit
+Date: Thu, 19 Nov 2026 22:15:48 +0000
+Message-ID: <20261119221548.10466-1-hagan@amazon.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,44 +85,140 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119220949.1123168-1-mmyangfl@gmail.com> <179512636063.3291.8215181491669422818@kernel.org>
-In-Reply-To: <179512636063.3291.8215181491669422818@kernel.org>
-From: David Yang <mmyangfl@gmail.com>
-Date: Fri, 20 Nov 2026 06:14:39 +0800
-X-Gm-Features: AclHuK8FrmxyBDW2Qx0-1Un82cpLJ2A8ElXh25KupnrPMkwZrCZU2Ew0q7N_3kE
-Message-ID: <CAAXyoMP6_+Z56qj0MVh8KosbCLb_3sOPROgv2jOsDKvHjy6+gw@mail.gmail.com>
-Subject: Re: [PATCH net] net: dsa: motorcomm: Read the port PVID instead of bridge's
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On Fri, Nov 20, 2026 at 6:12=E2=80=AFAM <netdev-bot+sinfo@kernel.org> wrote=
-:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by LLM and not proven at runtime). If it was triggered
->    please include the symptoms, like the stack trace or kernel messages.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+On an I219 (pch_spt+), a link outage of more than a few seconds (e.g. a
+switch reboot) can bring the MAC back in DMoff, with the STATUS speed bits
+reading 0. If DMoff has already ended by the time the watchdog runs, the
+speed bits can still read 0. The watchdog decodes them as SPEED_10, and the
+link stays at 10 Mb/s Full while the PHY is at 1000 Mb/s Full.
+rx_crc_errors climb and jumbo traffic stalls until the interface is
+manually reset. Seen on deployed machines and reproduced on an I219-LM
+(8086:15b7).
 
-Assisted by LLM and verified on the hardware.
+The patch "e1000e: restore jumbo config after DMoff exit"
+(https://lore.kernel.org/netdev/20260928210552.13266-1-hagan@amazon.com/)
+handles DMoff that is still set when the watchdog runs. The watchdog
+cannot detect the case above on its own, because STATUS then reads the
+same as a real 10 Mb/s Full link.
+
+Record DMoff (PCIM_STATE) in the link status interrupt, next to
+mac.get_link_status, and have the watchdog's existing DMoff wait loop
+start as if it had seen it, so it takes the same full-reset path.
+
+This depends on that patch. Without it the loop ends in a bare PHY
+reset, which clears the 10 Mb/s but not the jumbo configuration.
+
+The unpatched driver stuck at 10 Mb/s on an I219-LM (8086:15b7) when
+the switch port was shut for 90 s or the switch power cycled, behind a
+Cisco C9200-48P and a TP-Link TL-SG108PE. Reproducing it needs no
+kernel change. A debug build that logs STATUS was used to find the
+cause, and the patch was tested on the same hardware and switches.
+
+Fixes: def4ec6dce39 ("e1000e: PCIm function state support")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Craig I. Hagan <hagan@amazon.com>
+---
+Please keep this patch and "e1000e: restore jumbo config after DMoff
+exit" (queued in net-queue dev-queue) together, in that order, when
+they go to net and to stable. Without it, this patch ends in a bare PHY
+reset: the link no longer sticks at 10 Mb/s, but the jumbo
+configuration is still not restored.
+
+This was seen on deployed machines running the stock Ubuntu 5.4.0-117
+driver behind Cisco C9200-48P switches, on both IOS-XE 16.12.3a and
+17.9.4a. After a switch reboot, ethtool reported 10 Mb/s Full while
+mii-tool showed the PHY at 1000 Full, and rx_crc_errors kept climbing.
+One machine stayed in that state for about a week.
+
+On the bench, the unpatched driver on 5.4.0-117 (HZ=250) was logged
+across 16 link-ups, each after the switch port had been shut for 90 s.
+All 16 read 0x40080003 in the link status interrupt, and in 2 of them
+DMoff had already ended by the time the watchdog ran:
+
+  link status interrupt   0x40080003  DMoff, link up, FD, speed bits 0
+  watchdog, +14.6 ms      0x00080003  DMoff over, speed bits still 0
+  about 100 ms later      0x00080083  1000 Mb/s Full
+
+With the unpatched driver, the link stuck at 10 Mb/s in 2 of 10 outages
+behind the Cisco and in 2 of 20 behind a TP-Link TL-SG108PE V3, both on
+5.4.0-117 at HZ=250. On 6.17.0-19 and 7.0.0-14 rebuilt with only
+CONFIG_HZ changed to 250 (the Kconfig default), it stuck in 2 of 10
+outages on each. At HZ=1000 it did not stick: in the logged runs the
+watchdog always found DMoff still set, so the existing DMoff handling
+ran. The difference comes from HZ, not the kernel version.
+
+Behind the Cisco, every outage that stuck at 10 Mb/s also dropped jumbo
+traffic: 8972-byte pings were lost while small pings passed. On
+7.4.0-rc2 built from the same dev-queue tree without this patch (HZ=250,
+Cisco on 17.9.4a), 2 of 10 outages instead ended at 1000 Mb/s with jumbo
+traffic dropped until "ethtool -r". Neither of those two got a full
+reset before link-up, and the full reset is what restores the jumbo
+configuration ("e1000e: restore jumbo config after DMoff exit"). With
+this patch, all 26 trials there got the full reset and passed jumbo
+traffic.
+
+With this patch, every reset and link cycle ended at 1000 Mb/s Full
+with 8972-byte pings passing. Each cycle cut power to the switch for 5 s
+to 4 min, or shut the port for 90 s. The port-shut cycles behind the
+Cisco also ran under 200 Mb/s of jumbo traffic.
+That covered 50 cycles on 5.4, 129 on 6.17, 404 on 7.0 and 29 on
+7.4.0-rc2 (40 each on 6.17 and 7.0 and all 29 on 7.4.0-rc2 at HZ=250),
+behind both switches. The new path was taken 21 times at HZ=250, 5 each
+on 6.17 and 7.0 and 4 on 7.4.0-rc2, and never at HZ=1000.
+
+ drivers/net/ethernet/intel/e1000e/hw.h     | 1 +
+ drivers/net/ethernet/intel/e1000e/netdev.c | 5 +++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/intel/e1000e/hw.h b/drivers/net/ethernet/intel/e1000e/hw.h
+index c7ac599e5..efb945590 100644
+--- a/drivers/net/ethernet/intel/e1000e/hw.h
++++ b/drivers/net/ethernet/intel/e1000e/hw.h
+@@ -604,6 +604,7 @@ struct e1000_mac_info {
+ 	bool autoneg;
+ 	bool autoneg_failed;
+ 	bool get_link_status;
++	bool dmoff_at_lsc;
+ 	bool in_ifs_mode;
+ 	bool serdes_has_link;
+ 	bool tx_pkt_filtering;
+diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
+index c3e944ee4..47a6964fa 100644
+--- a/drivers/net/ethernet/intel/e1000e/netdev.c
++++ b/drivers/net/ethernet/intel/e1000e/netdev.c
+@@ -1785,6 +1785,7 @@ static irqreturn_t e1000_intr_msi(int __always_unused irq, void *data)
+ 	/* read ICR disables interrupts using IAM */
+ 	if (icr & E1000_ICR_LSC) {
+ 		hw->mac.get_link_status = true;
++		hw->mac.dmoff_at_lsc = er32(STATUS) & E1000_STATUS_PCIM_STATE;
+ 		/* ICH8 workaround-- Call gig speed drop workaround on cable
+ 		 * disconnect (LSC) before accessing any PHY registers
+ 		 */
+@@ -1864,6 +1865,7 @@ static irqreturn_t e1000_intr(int __always_unused irq, void *data)
+ 
+ 	if (icr & E1000_ICR_LSC) {
+ 		hw->mac.get_link_status = true;
++		hw->mac.dmoff_at_lsc = er32(STATUS) & E1000_STATUS_PCIM_STATE;
+ 		/* ICH8 workaround-- Call gig speed drop workaround on cable
+ 		 * disconnect (LSC) before accessing any PHY registers
+ 		 */
+@@ -5302,6 +5304,9 @@ static void e1000_watchdog_task(struct work_struct *work)
+ 			/* Checking if MAC is in DMoff state*/
+ 			if (er32(FWSM) & E1000_ICH_FWSM_FW_VALID) {
+ 				pcim_state = er32(STATUS);
++				/* DMoff may have ended since the LSC */
++				if (mac->dmoff_at_lsc)
++					pcim_state |= E1000_STATUS_PCIM_STATE;
+ 				while (pcim_state & E1000_STATUS_PCIM_STATE) {
+ 					if (tries++ == dmoff_exit_timeout) {
+ 						e_dbg("Error in exiting dmoff\n");
+
+base-commit: 6055ab4d82e42de89871db03045b568ed706ef50
+-- 
+2.47.3
+
