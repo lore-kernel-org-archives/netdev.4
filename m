@@ -1,62 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050203;
-	b=bOxnLuflL2+bsQSfYsYNJgLmDGwj0XO3zF7qIBZfPTjdojEjMfolO7T2zjwbzGIYmXHI
-	 PYt6YgXZRy/3Wetkn7zfepidTp0ENJjWPIosejVE4TaZTesTQsx+RYsvrf898g/bu9Ysz
-	 HYuJ1MaZV0ewzvzk7hrvM6EoyPo4vvacqHTdQiCFIw0M1jpn8VpX7CiCB1MKGdgGYOcUW
-	 Qi5CdOqGbMxAVSyOCZngiq1XvIE5sZAfG/mFZ8PWKsXuePw54cikho/kq1TOuatIkNgW2
-	 9K6+D//q6wauM4BUQ+uxGA7a4CZPhzsbBRQr7CcP3K5uzpthtdA6J4sOF/QnSeGIIhQ==
+	t=1795050671;
+	b=3qCl5nw1jYET8qvcr/HHRYU5ZVocs4L2ytxMpXXfypzu8de3OaPOnuvPTuN3BK25/f+u
+	 LMkpp+m4Ywlwtpa25SIb/pjEWTcgDZThAKLkCXwrOeA8c1YglWWbSZsTvpyLdWqsDH7NI
+	 gyDNtHAztaFPnzcwFS692TpVuT6O9sgVxD0UmmVRYiHEO2apT1P5tw5m/UAL2DF+FvV/L
+	 1/a28sAdYZokEvF4WgdHp1FnzYfzl99sjib13ylrEVp4AvD+qm7LvAGf2hm6U1zD2YtHx
+	 VvOq1jbH+NTHRZVHapmgFZBiIW3PuIwRX+IimPE4mkMFR/1ONZWXQ/ocfUOTkxo72Xw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050203;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=1R80DB8vNXXSBxqgpip9NisgaUs3vCCTC7Eim9o0R9A=;
-	b=3YEKNRT3WNbbDisVXdNlQrGOCicac4cVTL/tiU78YqgsQb5t2tgRAxjPuw3xztQAebfr
-	 smicU7F4zcLokltePZLcnH6rnSq0R9IuRdWnce56eY6bhoSUsF/vrhJX5oVH12suWmYj4
-	 Fid4r5BAMmXzt7X+woeZdm/QXTMzxrupTE1mwpCWt6hpSJHe4JIjgFVIfVyXMfwYRWTkP
-	 9Z5y2gcg7fY9BkuBxgFarAT1z1MPqPDpwFGZzUdwoi7+gd83S1y9nv1P0FeGXVS4xEYgw
-	 3YTA0DpNVajoG8Ny8CDzefW4Nwmg6peAwubJ5JLpjc2nY9SVvBjURL8+6SEhbvGFyRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050671;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=pSkuji4kXwZcd1ydna+oHa+tnDhj558qTFgbXnb/qHI=;
+	b=MIV5lGvPk0RnVoTwFYH/ZZYJ9lsMkOqWJ0iminkUwvd3GfR4Y9Fh7nSM7Tw0Y/5hZWsL
+	 d9cD0yOEmjniMbqdxUjBErM7d6+BEtixSAMg8mThjTQ+k0tXPBWO0DUCdQoqF0SseTyMZ
+	 sk5gLUqLm0cQgccE+ZIbQmJbP/4lLbeqTAALEGV88+/fRyfSfQNo/w4YpsOzWqwuJ0cpZ
+	 hfAPJBR5yw6FxD30wHITyX0PDoz8vfvTXmMiFrW9Evad5tzNSHADE3JTqWS17DjR5jYgj
+	 7cMUbFVqYbGXr1YF5iVPPe8VE4Wb/b06B6UnNA8wUcKAhyT+gmcry+UNCYFLKb6AY7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZExSz2Y;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AQxjWr92;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC82E606A32A;
-	Thu, 19 Nov 2026 01:03:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9888A606A331
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:11:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9888A606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZExSz2Y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 908A61F000C4;
-	Thu, 19 Nov 2026 01:03:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795050203;
-	bh=1R80DB8vNXXSBxqgpip9NisgaUs3vCCTC7Eim9o0R9A=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mZExSz2YWjwWp4w5eHni/X8lNP0Ppgik7DYvbEkR7SEYhRnPGiF5RkKTOKYA4Hqzw
-	 z0fIkRGCu+ltiR8L16gOh1T1avqJJsArQutURwKHTHkdskJp0WkdJ2WqDSc5Ot4yq4
-	 pIIMY1fP4LSMIPTXDNLPhQT9N8VrT7jy/JY5kcMSB3eiKL0vuYZx6Q+uzO7gNnb2Xt
-	 myiALa7s9eZs1DdhhSS12LxxaD7k9+Nkd/HdWC+nRfn9WFa9Kner/nvfSyttspASge
-	 oIKLF7JY/b3Jyj3l4cz5JkTwuIGtHoMfi2sm9mDNWQmIHyFc+KaJIcR+Jde9ojNB+Z
-	 bWZhNHWAti1Uw==
-Subject: Re: [PATCH net-next v3 3/3] net: dsa: forget the port ageing time
- when the port leaves the bridge
-From: netdev-bot+sashiko@kernel.org
-To: o.rempel@pengutronix.de
-Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, arun.ramadoss@microchip.com,
- jiri@resnulli.us, linusw@kernel.org, f.fainelli@gmail.com,
- vivien.didelot@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- jensemil.schulzostergaard@microchip.com
-Date: Thu, 19 Nov 2026 01:03:22 +0000
-Message-ID: <179505020217.3136.6917391809574658393@kernel.org>
-In-Reply-To: <20261117-ksz-stp-ageing-v3-3-135de6b9f8ad@pengutronix.de>
-References: <20261117-ksz-stp-ageing-v3-3-135de6b9f8ad@pengutronix.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AQxjWr92
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3ad41b47541so1283512a91.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:11:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795050670; x=1795655470; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:from
+         :subject:cc:to:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pSkuji4kXwZcd1ydna+oHa+tnDhj558qTFgbXnb/qHI=;
+        b=AQxjWr92FxP60mndSKV1WTxMvlLowBCe4ISf1KUb5lLrWmFDGKOqW+rvkah8HZubyT
+         xmx6n2ONUy5IOJNNxTrL91ftGOtwfB1sWkrm06UxgLyrLdHYWG7i/evZhXDs2j3wm0S4
+         L2/kS8SMInAdFLQOYw5m219eN9iMe/ALzLEZRZ9mzRti9mbEFfMj/hrQMBFR1eoy2op/
+         D5A80+nsjMEDab9wzjTy3BhVjDZbyxNs1wEgLVlN83T+ngwRY+FNpSe8bl/PdZFGHWB9
+         RqCy4BfRqoZJemQ0BRqZAmRaWIvwTnzgWA24Cs1qZkIfMyvmnUeYw50P0z2oABLVlTwy
+         ZvXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795050670; x=1795655470;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:from
+         :subject:cc:to:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pSkuji4kXwZcd1ydna+oHa+tnDhj558qTFgbXnb/qHI=;
+        b=sR5eGh4xi3HXULZ33cDTBHlK4+QTnIjT5kNJflcIqzcSj3GqbfDvcTUA13LeqYMAOU
+         qR5Rc2e4dJogrbaeYn8yIjYE4LzgP2lR9bTEPraodQ1dOwx3pHovIXQgiXOmBf4FQ55j
+         037DQn0c9C9xkywNEWZebUF06yQ++H8dj3IIk+1fI/wU4xLw8lCV/fNqUNS9IBVCIw8N
+         DsSczaWN0h5DdW8xKXaGEOzvmVdJWytqKV/3+08uQRN6A5Pxg9rkmZkRpBaJKXkOpnok
+         4bEDa6mOdFC41uHsmyoajfM2ClfW2qTWu4aA3VHopPcxedH2RCGpASt+6hMq+tq6piNj
+         y/Ag==
+X-Forwarded-Encrypted: i=1; AL+hErEBrqjfnRKLac+8eGTs1h55u9eRcfPqvCWu56eqrsE+AU0op+Tm5aKTV6HFVAiIIGf9X+O1NNc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JTP2VD3xdt5SBjnrejZI5yZXRJbik8YW4hV307a84cL0cPkmN
+	/OC8747oLQW9YcNSMhUZ2IBngQhElzVA5utUsgLD+fY0xVkVUGVKK3dc
+X-Gm-Gg: AZFdTZfBatkWRbG21TJ7I/M32fbTGos5/Uko8OezXTxGYaofpnlw3qLqDpcaERI0QdM
+	z1ioYnscUfVwugfxaSVl2QgEiJ+/+2cQv4gp/QZwALVZmtayXewxcyXkm4mT6zxiZBKzWrflK81
+	6kCwtVvjTAOBD5ZrkV9jMNnpCXx3ww+HyNccfILVbezZYB8Ud05OkYgTmhmCtJYxzAt4YSNHMsi
+	5CjdnJSDjJ58J9YVIImNeSiwdT6tYlTUdkF6ZfEqVQou4fdnIIIbwS99/YKyb9A7N6H9FKR7UK+
+	uqVmQr6L+NzaiErlFGVxCwnc2Mmvi6iAyjIJmyVtrMQxglBbMp3/fkt6HSTSLMWE2dxbMfajEwB
+	kmYoW7VjtVKcg5oeuGj9RGCC+wPRtxzuMdZ3o3cn+mOzn5+qJ613qTm1Dvxa2ETmBAKi/AoUkdu
+	9/iUFAHWas/T2WqCWj9kfBxebNixH+6eQZUpkYgp1mNyYgs91DHBwNhuezflKHM6/ucpr2b7cLL
+	YH+oUGH5dkz/O+DvzARWusSIDztkCyK202t3Tj8s89Mzy0kMGgYFpUf9EIXRG8/AI84RNj7EpTj
+	Hc5Dg7imONO3oODFNpyNULpdIsgjNU5GmBmKx/VnwQbzjwTUKVcyE24X05SdTgvzQTmOcYaUUQ7
+	rSOIlKVt+nDNVmmOV8BJ8Sxsrok+kJgZsPybq
+X-Received: by 2002:a17:90b:4fc1:b0:3b0:9a0d:b825 with SMTP id 98e67ed59e1d1-3b3d07ab104mr4002171a91.45.1795050669692;
+        Wed, 18 Nov 2026 17:11:09 -0800 (PST)
+Received: from localhost ([153.61.198.249])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3fdf456d2sm650359a91.13.2026.11.18.17.11.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 17:11:09 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 01:11:08 +0000
+Message-Id: <DMYSCT1OYI5F.2HSYP9MZ2BRJU@gmail.com>
+To: "Maciej Fijalkowski" <maciej.fijalkowski@intel.com>,
+ <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
+Cc: <kuba@kernel.org>, <daniel@iogearbox.net>, <pabeni@redhat.com>,
+ <edumazet@kernel.org>, <horms@kernel.org>, <davem@davemloft.net>,
+ <shuah@kernel.org>, <hawk@kernel.org>, <john.fastabend@gmail.com>,
+ <sdf@fomichev.me>, <willemb@google.com>, <petrm@nvidia.com>,
+ <bjorn@kernel.org>, <magnus.karlsson@intel.com>,
+ <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH net-next] selftests: net: don't warn when bpftool is
+ missing
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+In-Reply-To: <20261118165338.1064930-1-maciej.fijalkowski@intel.com>
+References: <20261118165338.1064930-1-maciej.fijalkowski@intel.com>
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -68,106 +107,14 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Wed, Nov 18, 2026 at 08:53 AM Maciej Fijalkowski <maciej.fijalkowski@intel.com> wrote:
+> Based on the bpf-net-xsk-move tag so it can go to net-next and bpf-next
+> through another shared branch, as Alexei asked:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Acked-by: Alexei Starovoitov <ast@kernel.org>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks for the quick fix.
 
-- [Medium] The fix is incomplete because nothing reprograms the switch
-  when the port leaves.
+Jakub,
+could you make another stable branch to pull?
 
---
-
-net: dsa: forget the port ageing time when the port leaves the bridge
-
-This patch clears the cached dp->ageing_time in
-dsa_port_switchdev_unsync_attrs() when a port leaves a bridge. After that,
-dsa_switch_fastest_ageing_time() no longer counts the departed port's
-value when it computes the minimum. The aim is to keep the switch from
-staying at a short ageing time (for example one set during an STP
-topology change) after the port that requested it has left.
-
-> diff --git a/net/dsa/port.c b/net/dsa/port.c
-> index 15e7da20b0e2f..54c9709840952 100644
-> --- a/net/dsa/port.c
-> +++ b/net/dsa/port.c
-> @@ -415,6 +415,12 @@ static void dsa_port_switchdev_unsync_attrs(struct dsa_port *dp,
->  	/* Ageing time may be global to the switch chip, so don't change it
->  	 * here because we have no good reason (or value) to change it to.
->  	 */
-> +
-> +	/* Forget the ageing time cached for this port.
-> +	 * dsa_switch_fastest_ageing_time() skips 0, so this port no longer
-> +	 * counts towards the minimum.
-> +	 */
-> +	dp->ageing_time = 0;
->  }
-
-[Severity: Medium]
-Can the switch still stay at the departed port's short ageing time after
-this change?
-
-This only clears the cache. Nothing on the leave path reprograms the
-hardware. dsa_port_bridge_leave() ends right after
-dsa_port_switchdev_unsync_attrs(). The only code that writes the ageing
-register is dsa_switch_ageing_time() in net/dsa/switch.c:
-
-net/dsa/switch.c:dsa_switch_ageing_time() {
-    ...
-	ageing_time = dsa_switch_fastest_ageing_time(ds, info);
-
-	if (ds->ops->set_ageing_time)
-		return ds->ops->set_ageing_time(ds, ageing_time);
-    ...
-}
-
-That function runs only for DSA_NOTIFIER_AGEING_TIME. The only sender is
-dsa_port_ageing_time(). It is called from the sync_attrs path at bridge
-join, and from the SWITCHDEV_ATTR_ID_BRIDGE_AGEING_TIME handler, which
-needs a port that still offloads the bridge.
-
-Here is a sequence on a single chip, with br0={lan1} at 300 s and
-br1={lan2} with STP enabled:
-
-  topology change on br1
-    __set_ageing_time(br1, 2 * fwd_delay)
-      dsa_port_ageing_time(lan2, 8 s)
-        programs min(8, lan1=300) = 8 s for the whole chip
-
-  ip link set lan2 nomaster
-    dsa_port_bridge_leave()
-      dsa_port_switchdev_unsync_attrs()
-        dp->ageing_time = 0;   /* no reprogram */
-
-  end of the topology change on br1
-    br1 restores 300 s, but br1 has no DSA lower port left,
-    so no notifier is sent
-
-lan1 in br0 would keep ageing at 8 s until br0's ageing time changes or
-some port joins a bridge again. Would it make sense to recompute the
-minimum of the remaining non-zero dp->ageing_time values on dp->ds and
-program it here when the port leaves?
-
-The existing comment just above the new code says there is "no good
-reason (or value) to change it to". Once the cache is cleared, the
-minimum of the remaining cached values is a usable value, so that
-comment no longer seems accurate. The new comment also doesn't mention
-that the hardware value stays unchanged until the next notification.
-
-The commit message does cover part of this:
-
-  "The switch gets the restored value only if another port of the same
-  bridge is still in this DSA tree."
-
-However, the problem the commit message describes, a switch stuck at the
-departed port's short ageing time, can still happen through this leave
-path when ports of a different bridge remain on the same chip.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-ksz-stp-ageing-v3-0-135de6b9f8ad%40pengutronix.de
