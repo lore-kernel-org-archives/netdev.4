@@ -1,72 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795072614;
-	b=N9v1exmUkIZ0mzDhmRoMjKXmbzA/8OvYGSaPUovRGS0z1ZyioPZHwQtX0uU4O3Cc0eaq
-	 L3rE4IVyNaTmcS+hAvAkAo4nrCyu5v8pwtGpCadvRrwx220zvXi5OIoFTizilDtiXybIE
-	 s7W5/c4ZnD1ePnlRbBvkI14Y6CHUl9PCRcPOxmV0G4MDAssQwCETkbax3CVmh3QbvRDZz
-	 AK5zvORh1QRNpvlSuMItSZWOErCh5KwYjEWLyuoLgl8Og4n+MqhMOb+Vzn1OyseKzLCGA
-	 l2iozFcUSzb0bLEdxL317mCt4keqAShCRW38AcwnMzTnXKsMV56oDQkzAQ9yRMAwsxA==
+	b=lnKhGDI48gNBdXOcRJoe9GG22dfn5Ml26QZAXmrZfVm86Ql1CAdytwtSjCnIjLj6Oz11
+	 fejwWfMiMs8unP3+6IwCVVd5M2OxjBExQPasnr7H0sqvnhyztFHh1T1FDqRCKG64EQq8x
+	 iFqWTk6IgefYAJRB6soemwy8gpnh8a63DpOMf3PZlTuYiAbD3bQtpOdmxUzG22JkE4Gez
+	 PfIgnzIl8ViNai1KuvzCAlMJDIhbccief7pqExz9P/7PBOtKMHwC/XpKNMtagbMJH15d1
+	 XmxGiyd/VjdmZyOuod8+qqtfpyHW3zQPuz4xYW1hG7Rs9g/waHgaMlcM87MF8eiedOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795072614;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=36/82EqcliLLkBXq/Gk0sXygwhD+qbzxdyFBMAKOhkI=;
-	b=zm5fAqyl1jmWG2PUoLOzSA5NWUdeq6Zv8KMSx5BiK3e7NJ1y9GOFnnbRqA1vJlSUuUyi
-	 xmrVqNljAe4iPlzBMhturt1PQi2BRJKTd/YeaQR/UHiFT9iD5N/vlTvfON+8xvlbUohEV
-	 k9i5xTsXm7CsYkA+RHmpqg7iHmXC4nqiqinKGZdjODI6Oocg0R2mwixhTiQp60TBbnU34
-	 9Y/SZa5vDKs7EYGDgt6G9XRADjf9AfLSu2n+7GM7J4lo6OgG8IgIj5TEp39JHr0vXv0N/
-	 8Q0u1bd067VfE1B3I8Dj39yFFn1xw+xkl38ohHxCV2vI9fO95wGm7OhdQteVJmD19kQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=XH0KR5U668j8GkdNpv7amJfmOVvHsijvl9Q4WNbhGpI=;
+	b=VpFk8Qq1dmbip5z9habIqcM0dPEjeYnCPlsRVIWwkTi+/RLHcJ7IbxKNqSy5qG8A99V+
+	 pdweHVE9btkvLNxV8p+aM5ohplGRCQR1TCIe+uPqal/x1kI3yOXfMHG+c9PY14r+mevqR
+	 hEVM5DeVQa0fCBxozAjS6I+d5chkMG9aYdKs5dhy2u+mdori0eWiyZ8ume2tBCEE3V00n
+	 VZwIy8zUbcTSn/UpyX3l7GzqbqEOW35jZUPFvJNoVKVtqlEFM9N0IlLaUS7CHfZ/OHWl2
+	 LFCFG5+G1IGPHcsbdy+6qLhnXjxgi1FZjlBW2TP1IINvqT0+F5OpHj/KwlqBdATvjrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZCgSU+TA;
-	arc=none smtp.remote-ip=209.85.215.198
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F4ADlqnE;
+	arc=none smtp.remote-ip=209.85.214.200
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7002606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:16:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7002606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67AA4606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:16:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67AA4606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZCgSU+TA
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cddf142187aso1152656a12.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F4ADlqnE
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ed1fbae872so23048375ad.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795072613; x=1795677413; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=36/82EqcliLLkBXq/Gk0sXygwhD+qbzxdyFBMAKOhkI=;
-        b=ZCgSU+TA/u3wXW5OrEVFHaUL+uwq7zBMxGtXAk5mTRfEBl0eYt4wmnXY/6AxV85bBq
-         fqfUfsrePINrDfp5DS4x2iZl/J1kLB+vs8x8xfNYPblP2LGXpgrs28AlupRT3UFXq2V2
-         4ANJHEhsxvnLDUMweu+KWb5TF8CTTwj7j198RNVNeWKKDd+m/sMQ9flup+prYdnMKmha
-         fMsFb+F+7tX4zA32SdQwQvuiu7RcFfJmpdva218E9+HE9m3rLxKwgEXyI9VMW7np8Lzw
-         MoTbqczdvgxamm3KnuhVQZXYScwoJcmPfG5C9ahvo2DUf6DknmxsP+Fu39Qsd/surVO4
-         j+sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795072613; x=1795677413;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795072614; x=1795677414; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=36/82EqcliLLkBXq/Gk0sXygwhD+qbzxdyFBMAKOhkI=;
-        b=rZKCFIfeL0FwkKRpN+OABaNBOEotELGuuKjI6xHYRrkBhjuTwPz0JnzAQ9Xb9kWs/E
-         w9J4PQv0XSGHQN8D0NJW9T23slNDjfbwFLBE1kh9A65o3uopt84Rgsd68HTlMQgwhdrQ
-         kDHIkgmAyiMAf8uxkh3fqRHkvWJdc6DpI2RkV2biL5QuXQRjgT1cd7IdV3Gcxs/MtXqd
-         qtlL88nVhPr6tyaYB5gbvgSuF6WNfybOOZz0WfQV2ZHT1eKp0DoLBSCAoErRf9DxL5X+
-         AM66Q9mbwAZNcvrGFpEL9CSWJ2DDJUeQRzk6wfu78ihc3GJCpeYFMYghDkWvEi+XNz1W
-         bB3Q==
-X-Forwarded-Encrypted: i=1; AL+hErHbGD+X8be3HZar0Vuq+9HtDwXQ2p2fskUwhmwQ2Q+u+uBRMpnvYwPSNGmAdpCzbkFWAjr/Lkw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lXpvQ2MJFDczEcrbDEorFPwG7wMzykQwR5ZTHTHFsEUaBhSLH
-	2MdiaDBR0EaFPlZhDiO3BbEShJuaLtHqKTG34ggaKpZWk4JCUC18Q3reVX3O04/DePq0UluZCXG
-	NF5rAxg==
-X-Received: from pjbds24.prod.google.com ([2002:a17:90b:8d8:b0:3b3:fff8:e92a])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1dcb:b0:3b3:af8e:ea98
- with SMTP id 98e67ed59e1d1-3b3d07d3d1cmr4485886a91.37.1795072612860; Wed, 18
- Nov 2026 23:16:52 -0800 (PST)
-Date: Thu, 19 Nov 2026 07:15:52 +0000
+        bh=XH0KR5U668j8GkdNpv7amJfmOVvHsijvl9Q4WNbhGpI=;
+        b=F4ADlqnE9ChsCRqTTxPfwBz9jRS5lUTC3Kg33/yG7ChrbSmY8JOWfoIqYg5jyEAhCY
+         PxU5B+BU9AkUr+rG4W61gZZ2EUSDkDZSJDOvnzU87Ojabn7qC/Wx8Tvv1N6BotYJV0SK
+         1KoDEw1LderVUge24AiWTfF2/8/3f175XhUAAe6m5wyT7+FBZYwVfxWpHQNw+lK21diq
+         bRUTFshkQC9rfA4Osik6WZk2uXoGJ44T5+RKjOXFGGwHaOaUi71uQX+Ks76HUJtooh8u
+         nhHbwy4QEudEG7ONu4ptMpcYW+YlQNQjqT1i6GhqIAI1FP8V/te40CVAEEG4hzT6ZCU5
+         REsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795072614; x=1795677414;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XH0KR5U668j8GkdNpv7amJfmOVvHsijvl9Q4WNbhGpI=;
+        b=KKGgmyILjo81eMXj+OIC6A230X0HtMNx8S6Otl8ghP4I+QzSAsCe7cbuqSLmZ9pNPm
+         TERwrp1pDRgs29azvvOHEuQm3A6iKEtqkxV9o5UpgudZ1muJk/lshKkv02/a7hzT37P5
+         ROoAAaL2e5mhddWoQo/ESUaLpmw8zG8rkdSSwWDq2rCzgcUlWmOwBRVJzHKVrOvx+88n
+         tXQHl5DHbm2fq2I8iVXGkxaOMfFRobZBXHBeYc0tpiZLOYqFb6KlFdOYb44j2Rjz2Y2p
+         qtQgcwXdY2hkPebzbp85ojOzvl0bVV4hyAM9fk/IGKW3WiuWi9Jr+XHChunxQeLSqs2R
+         f9Hg==
+X-Forwarded-Encrypted: i=1; AL+hErHw+trMmfdxrPfYVBsh1RmBkhQqvu0KHUdQ9d89kw3A/R5wUobDGv8HRB77Lpp1ggTGmjZfK1Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8I944GBio1ym9iJx6yzufKE3SujybevJRS3YdG0Ec2gwQA/u2v
+	lT0ShuKwSja8pGw+tXHw5zzmgxCIuYPyPERRtiC4H0EBrLqzOM3QhsupPCYSW60asYfEPCNeLTk
+	CUFz/Zw==
+X-Received: from plbjb7.prod.google.com ([2002:a17:903:2587:b0:2e1:2a71:d15b])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:90f:b0:2e9:8202:509c
+ with SMTP id d9443c01a7336-2eff70fd303mr54789045ad.7.1795072613602; Wed, 18
+ Nov 2026 23:16:53 -0800 (PST)
+Date: Thu, 19 Nov 2026 07:15:53 +0000
+In-Reply-To: <20261119071649.374106-1-kuniyu@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,9 +79,10 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+References: <20261119071649.374106-1-kuniyu@google.com>
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119071649.374106-1-kuniyu@google.com>
-Subject: [PATCH v3 net-next 0/7] tcp: Prevent tcp_collapse() from bloating queue.
+Message-ID: <20261119071649.374106-2-kuniyu@google.com>
+Subject: [PATCH v3 net-next 1/7] tcp: Refactor the first loop in tcp_collapse().
 From: Kuniyuki Iwashima <kuniyu@google.com>
 To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
 	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -87,76 +91,106 @@ Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
 	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, mptcp@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 
-This is a follow-up for commit 031c403d13e5 ("tcp: do not let
-tcp_collapse() drive sk_forward_alloc negative").
+tcp_collapse() detects skb to start collapsing from in the
+first loop.
 
-The core algorithm in tcp_collapse() is so simple and has not
-been changed since commit 1da177e4c3f4 ("Linux-2.6.12-rc2");
-finding a collapsible skb and repacking it into up-to-SKB_MAX_ORDER()
-skb.
+If the last skb has SYN or FIN, the condition is tested
+again after the loop.
 
-Now that we use 4K MSS and tp->scaling_ratio, the simple algorithm
-does not work well, and it could even end up consuming more memory
-contrary to the intention.
+skb_frags_readable() is placed inside and outside of the
+loop as well.
 
-For example, the scaling ratio of SKB_MAX_ORDER() is 222, but
-typically tp->scaling_ratio for 4K MSS flow is 252, and repacking
-data rather bloats high-density skb.
+If we goto skip_this in both cases, we can remove the second
+tests and simply replace end_of_skbs with the inverted loop
+condition.
 
-Also, once a low-density skb starts collapsing, it drags all the
-following skbs into collapsing regardless of the density.
+Then, we do not need a test for tcp_collapse_one() too.
 
-This series changes the algorithm so that it skips high-density
-skb and a single low-density skb between high-density skbs, batches
-memory accounting at the end, and removes sk_forced_mem_schedule().
+Also, skb_frags_readable() should be tested after the fully
+overlapping check.
 
-This series still keeps linear SKB_MAX_ORDER(0, 0) skbs as the
-collapse target, and Eric is working on a follow-up patch to
-store the collapsed payload in order-0 page frags instead.
+Let's refactor the loop.
 
-https://lore.kernel.org/netdev/CAL4WiiqekjxZw3EoDYXLc0Phd3i0GStE2ZHWQkH2iAkSM5D8TQ@mail.gmail.com/
+Note that previously, when a SYN/FIN skb overlapped with the next
+skb, the loop broke with end_of_skbs set to false and the check
+after the loop returned without collapsing anything further.
+Now such a skb is skipped instead, allowing the following skbs to
+be collapsed.
 
+Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+---
+v2: Document SYN/FIN behaviour change
+---
+ net/ipv4/tcp_input.c | 28 ++++++++++------------------
+ 1 file changed, 10 insertions(+), 18 deletions(-)
 
-Changes:
-  v3:
-    * Patch 3:
-      * Remove fully-overlapping skb in the 2nd loop
-      * Skip range on overlapping unmergeable ofo skb
-      * Update tcp_collapse() comment
-    * Patch 4:
-      * Remove redundant kmalloc_size_roundup()
-      * Rename helper with skb_ prefix
-      * Declare {old,new}_truesize as unsigned int
-    * Patch 5:
-      * Make TCP_COLLAPSE_MAX_TOTAL_SIZE hard-limit for multiple skbs
-
-  v2: https://lore.kernel.org/netdev/20261116230555.2305867-1-kuniyu@google.com/
-    * Patch 1: Describe SYN/FIN behaviour change
-    * Patch 3: Describe behavioural change for MPTCP
-    * Patch 4: Add compute_skb_truesize() instead of macro
-    * Patch 7: Rename test to tcp_rcv_collapse_bloated.pkt
-
-  v1: https://lore.kernel.org/netdev/20261114040101.1043546-1-kuniyu@google.com/
-
-
-
-Kuniyuki Iwashima (7):
-  tcp: Refactor the first loop in tcp_collapse().
-  tcp: Don't collapse high density skb.
-  tcp: Stop collapsing if not bloated.
-  tcp: Skip collapsing if collapsed skb is less-dense.
-  tcp: Allocate all new skb before collapsing.
-  tcp: Batch memory accounting in tcp_collapse().
-  selftest: packetdrill: Add test for tcp_collapse().
-
- include/linux/skbuff.h                        |   2 +
- net/core/skbuff.c                             |  27 ++-
- net/ipv4/tcp_input.c                          | 190 +++++++++++++-----
- .../selftests/net/packetdrill/ksft_runner.sh  |   9 +
- .../packetdrill/tcp_rcv_collapse_bloated.pkt  | 135 +++++++++++++
- 5 files changed, 311 insertions(+), 52 deletions(-)
- create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
-
+diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+index d35048c363be..838d4f470c94 100644
+--- a/net/ipv4/tcp_input.c
++++ b/net/ipv4/tcp_input.c
+@@ -5849,23 +5849,17 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ {
+ 	struct sk_buff *skb = head, *n;
+ 	struct sk_buff_head tmp;
+-	bool end_of_skbs;
+ 
+ 	/* First, check that queue is collapsible and find
+ 	 * the point where collapsing can be useful.
+ 	 */
+ restart:
+-	for (end_of_skbs = true; skb != NULL && skb != tail; skb = n) {
++	for (; skb && skb != tail; skb = n) {
+ 		n = tcp_skb_next(skb, list);
+ 
+-		if (!skb_frags_readable(skb))
+-			goto skip_this;
+-
+ 		/* No new bits? It is possible on ofo queue. */
+ 		if (!before(start, TCP_SKB_CB(skb)->end_seq)) {
+ 			skb = tcp_collapse_one(sk, skb, list, root);
+-			if (!skb)
+-				break;
+ 			goto restart;
+ 		}
+ 
+@@ -5874,27 +5868,25 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 		 * - bloated or contains data before "start" or
+ 		 *   overlaps to the next one and mptcp allow collapsing.
+ 		 */
+-		if (!(TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN)) &&
+-		    (tcp_win_from_space(sk, skb->truesize) > skb->len ||
+-		     before(TCP_SKB_CB(skb)->seq, start))) {
+-			end_of_skbs = false;
++		if (!skb_frags_readable(skb) ||
++		    TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN))
++			goto skip_this;
++
++		if (tcp_win_from_space(sk, skb->truesize) > skb->len ||
++		    before(TCP_SKB_CB(skb)->seq, start))
+ 			break;
+-		}
+ 
+ 		if (n && n != tail && skb_frags_readable(n) &&
+ 		    tcp_skb_can_collapse_rx(skb, n) &&
+-		    TCP_SKB_CB(skb)->end_seq != TCP_SKB_CB(n)->seq) {
+-			end_of_skbs = false;
++		    TCP_SKB_CB(skb)->end_seq != TCP_SKB_CB(n)->seq)
+ 			break;
+-		}
+ 
+ skip_this:
+ 		/* Decided to skip this, advance start seq. */
+ 		start = TCP_SKB_CB(skb)->end_seq;
+ 	}
+-	if (end_of_skbs ||
+-	    (TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN)) ||
+-	    !skb_frags_readable(skb))
++
++	if (!skb || skb == tail)
+ 		return;
+ 
+ 	__skb_queue_head_init(&tmp);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
