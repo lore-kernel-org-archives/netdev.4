@@ -1,84 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.87
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064929;
-	b=KKKmcjemfG3nnPrZnxHpIciBEoiqHnJ+U7Fkhk2oVR85BVbBxpw0thZOwBviz1WA0SpP
-	 Gkf3+gllfYs+GuWEkdBPF8OOhm3Yl35XGJ0e0B68iEYpBaNzlyfTqXAkl6zuOpf2nRNyC
-	 zWyQBmmCMboVlz888NAQRB6PuozKsleVu2+bHtLRto/dI8W7O1oyqiCs4d+/hQyFfS/3Q
-	 ZuxjXFcIZlGTLWX9UF9wjEC/ssP40zIIm7MkCw5oUdq9LMlHWFzxUN3JX08nomSGWvij6
-	 65i8w4iKtkaugGJIz5sgkjOx796fBypZppK+hJ515llNo73nxmwWszUzYZAClMtOoSQ==
+	t=1795066484;
+	b=jideUXC/DKelv0uYuXIzWgAQrnYR9r42AQU3spljyUHCmewuc6IU+8f5BwZj/OcWMDdv
+	 yZngcs+px+YLR4FWtJUuFDxMBFm/QAyLgiXhv5AyxZrnHVFCfIqPAcBDUQ0i/qJEj6TxY
+	 aaTtXbEmxkesa2Nis/UMhI94nwxG1jkImjyNVwpRLWXkfwY/W0Pki1PJS8abLErdYe6N6
+	 WT6ByA92bWrDJWonCEmmw9AhcLH4UyzXHpS2SsJR6KJx6VTtlHEl1IhLz4tsP/OZHaW05
+	 zxBTHQQuCpii258J2WMI2oI7W1zN19iFu86r6VOXuBOVdpDAKAFF6HE4H1op5UwICRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064929;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=JsbfZY3YpWLLXS47DzvZ2q2Kiq9RcJQNoyxoisr/Mwo=;
-	b=k7DGG3d6wLLEjW+Kax3aHoopKWaItk1q3UORuOJwJ3rBvixq1+Fk3aegioBUyXtQykHn
-	 7hJp+92EjDNUowuDYuqrJkp5RurrHpyc0mAwVE99a861XJb71wt0QmF+O22f4Z1IEZmb4
-	 XOO20FufJaMzh9tLh60/5hhVUCUD8MuFRs5Z8tFjzZR4wxOK34FK5o3jab4farsaVreku
-	 5GFOyCZUlHcQHmiGETjuGYY624ty0yVi7UwJpkuG4DjQ4lgPlNMZDNxEaaKH0mgjnlOB6
-	 cd8bL09bO+pgwUFeJj/mwu5/8VjKWR6Sm2Lbwu085PDgYb9E1zazx0xKOn9U84kaueA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066484;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=FqNOA/XhMTTZd7OvJELMXZv2ULVvy6ui2nsQvAMkW3Y=;
+	b=5avsPZ1HfceuT93mciBaBopnEoGjg+bnAv9qvUmlKOxaObGWZErsi1AQIvh0spNvIXZw
+	 2b19P0frLM01GeJVg3IVuiDcHrFSk/tZ5tIVu7yckYmUbYew7s53Y/BxncSBLo1brJhxy
+	 wBAkIA/zKmnmrTc3LIq3rPhru8Sik9ZTQkqIogWxMUgnE5MQ3f8AKplrxL1L8ySYZfAFp
+	 3gKjEjbX1ttkRRR8JthQfxC9zTlaAg6wKfR65aSkIMYouBjdcYA0atfvriIjpvYTw2orX
+	 U1Z6MxdZ6/vUk/yISfO4ttOIgtXTrSZ3cvi+H7UDi4BNTEKna+PTPqUpwZ4i1xvwMSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=OvL4dOcN;
-	arc=none smtp.remote-ip=162.62.57.87
-Received: from out162-62-57-87.mail.qq.com (out162-62-57-87.mail.qq.com [162.62.57.87])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Idb9rU17;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC42606A320;
-	Thu, 19 Nov 2026 05:08:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC42606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82080606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:34:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82080606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=OvL4dOcN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795064897; bh=JsbfZY3YpWLLXS47DzvZ2q2Kiq9RcJQNoyxoisr/Mwo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OvL4dOcNp6G7yW3vYLDoGPVA/W81Kn9Wo/dkHdV+nYQN9FatSielf3ceLBZxuYeLX
-	 pecY/v0li4SID7cUjkQVKYashEWxQ0mfpDqf+psV8l7A4LiJKdRn6WBsRDN4ZjlTUV
-	 bH6kxfnNEYi5bxPG+0ccimBLBkH3H9TdgEvj0xqU=
-Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id 20E0EA98; Thu, 19 Nov 2026 13:08:14 +0800
-X-QQ-mid: xmsmtpt1795064894tzj3vxw18
-Message-ID: <tencent_46F20906773869221623F9FA26275C133107@qq.com>
-X-QQ-XMAILINFO: NC4p7XQIBeahL9Rdr7kBZOzUd7hBssibtBW4fxsYFWhzn7D8Sf7HKB89xOZPch
-	 10V03tpg9+cy26bKqWWlouNaA27Jn/eUYrbStSxuWlXR98X6UzwDlsjSxvMH3yfEdVHYSUH8oVbX
-	 RXiuN3/BHyPZybjZleWHnUhoPcwjVaN5GqO/aU6bzev9zzXz/IL4H5dhZ69VygR/8KuXtbCfbmZY
-	 2dRsaWeE0L16T0gwfxqWn0fL2OHKPvRfCFn12GN6l5AgnGICougkR6S0syjbwWucZdjO4oaLazzk
-	 qPx2/b5eBwmcCRbBlonCU8P7P7RXfR32+LY5+arDX6g6qucUU+XHs2Gvn0v//Vix72HhEBoh7e4K
-	 gMi/CWhLMcGPICHO4yrJhqVXOBl5htc7AVhatLinSLcwk3yi759A7KBof5u8lx2ftdvVvNKtHxJH
-	 ehpZjxcB+AE5qshvlsj5FylUk4w3BXhqzs0Saxi8SX6h+6eizTtnCoUohNYZiXjz2qPqsjcVwE+F
-	 R/cNfEMWYUKee3KFuy6EbcXHHDNxMIXbBjhqgcCiMJ7QCSoNU3r+7kTFXco+muk57BaHgGQRhTKE
-	 PrJ9FvdqWYF8qETmyzE6H+BRYjvYdZe44IT7RM4szLNlQCUzjJTiH15zKPmOLGvMHbJ3LEAamlix
-	 sPeateQz240FWT2S6d6HBfeXVKmbJSEAojQ3tDVrr+6QfsiYO1jNA50H0cgbKdcZ2J6MkWraLee5
-	 XhG7WL54KM08mFg/M+tdW8d5wcBIaytLh4RHa40VAdJfb5DrIcL3OHYowRIB5O2JZacc41J+slBb
-	 I8zb0I97QL1mlBLZp5BSO5SGFLrrCgcsAgP7y4GPYIUHqOD1DCgI31K0G7TKATENlkcuH0weiAit
-	 CZZWCjI7IYtKgrbIxC2MVHJ9zVCqP9VPxkm8kscAq+afyJpt4IsNBkFV7vd4D+0iT8HI3D+3T5eA
-	 B98pmD6Hce4DPIZ0eBiY2D6Xq7C21pGENpTCWT3mP41LTDHUWw0vUGRDw0n26swdMXkkKUvvdM3c
-	 LtIV+E3bQDqj4hRNITSBSQKhIh+hPB7+kcBMJbVx1auwVRpv8NpIGo6IzwDpfz2wPSTETo5kE73U
-	 TVDT7vkV+PZYdVvItYCYaehwxSxtsKk7pBPnwq
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Shuai Liu <847807867@qq.com>
-To: netdev@vger.kernel.org,
-	steffen.klassert@secunet.com
-Cc: herbert@gondor.apana.org.au,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Idb9rU17
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-49a92144733so816525f8f.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 21:34:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795066483; x=1795671283; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FqNOA/XhMTTZd7OvJELMXZv2ULVvy6ui2nsQvAMkW3Y=;
+        b=Idb9rU17frJ2gEg1N27gOZs8AUcjvXJX/XjIeUn12LCC/ZCyYVNQwOAYQTxDUSIGFk
+         GSWOhAavX8/7Z1OKmn1UXKZ5C+O/PSo6tnSGzLHzKZG9rS8H/e+dj1bi2adLfhsgegfn
+         o/x9tTjEJk88M8gH8mn5oY1LbhkJ0PB39YRDwdahpJsu2eLknTFXAMCmJ5tvA2qKsP1R
+         KpPY+WKFMp/HYoDKSpy5MnrdENmF5kmVY6E8CJPY+YuAuklrqnJAURLST0yCpXcP8chI
+         7/Zf6CkPTJhzKZKYaFzRfihGfhz5oD20B4NmO6IgOOBvwg27T/NsS7LTL7SyB29UkWds
+         pmgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795066483; x=1795671283;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FqNOA/XhMTTZd7OvJELMXZv2ULVvy6ui2nsQvAMkW3Y=;
+        b=GzHbmyAelxvy3higGosS94h6FIChgvZubHb5Hj6JtPCrk3h8lULvkVeR8no0KxXBv5
+         qni/ZFfxhNtj/6ZmPskxlTTErsAg5DT6MSxapjz3aWNxe1w0SU0R4ZlGh5Dqypu7jQdv
+         pnb04mJACR4BLaxLCHrWz+ZAy4+9g/CH6H5fhJXzcRH12pxlZ+F5IdChC3NYaNbomeOJ
+         J+MzAe/0jbCuFCUn1cs8uoeVzBKz4RuZIB6APrEVy0OBvXh7mI09+CTczHMNSfDWZiDI
+         7g0HRGk0Efz8NaSfwWKHA11zWDI2UFUTj/EKAtocfprf4Z8hvZxcUA9swhCljLVbTeNH
+         PjsA==
+X-Gm-Message-State: APuU4Z85Ee7xsTCjOGgXgoBmBXf4bmEXi3zEDguhAQgoKVh6dyoH/2gf
+	A4PM3yFfVOgWB2cxvXlfRMqcbirm+Na7WG8F1n9dO9Gyyq6IDUuGE+6/zDJoOTgcD0I=
+X-Gm-Gg: AZFdTZdREXaUD4zFMkzjgyG50KimHktVC8uXK4eUZxyy1D3wOBHHYXc11ggMbWaEaB7
+	Y7oA+8JNukzhw0arMHHmbKcrX+BgPzDzAuBZCd3B8uzHGEeR3Q2J7Lq0f1Cin+44HwcuKQ91O3P
+	PzdUWc5L/sp3fbKeRRC9PwiOpq6h5Dca7dkKRmYVo8b/bYdmF5AhSfOZb3V7vihFfRg5KbJLdp3
+	f1Q+BmmJeItG/RpYlUXFmpMhV1+2fFy65xaZmYt43sPPUNruDddOXXKfYPE/0wcVRjFrk2aUTDl
+	mZQF1rL5omM+ggOL3gxdWRMidI6EJ6ACj5zI5Cq3wnbh4zkhRsgR/M8S3QzZe16EuPdQt6sLVwi
+	W50eiSkxZozJCG0JHuptW6i7GAA6dPdOG3uDBG7V/VPgzdLJEltn34RwUZFoG+yWXDoT0iDDOBp
+	HxHAqPjEqwDWyWRF047GjnbQNBPL5vvrtBc04tq/mO4WNTIAvhlm62HfefijnIEKsPVI9hQKZwb
+	bweWnmZ7Fu3sDl5C3EvG287t6okKrodUnyJuxqXJ1ffckoXwWo52hLa3az8Kbc/pvT8e4BSYadV
+	hX7oye9XYfNrVO+nNmqKGpPXQcDNyMjk2V3XU/PhGg==
+X-Received: by 2002:a05:6000:4b1e:b0:48d:f9dd:e3df with SMTP id ffacd0b85a97d-4a638bd6a63mr9511769f8f.18.1795066482521;
+        Wed, 18 Nov 2026 21:34:42 -0800 (PST)
+Received: from localhost.localdomain ([102.185.156.210])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65609391bsm8674320f8f.36.2026.11.18.21.34.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 21:34:42 -0800 (PST)
+From: Mohamed Dawod <mhm.dawod@gmail.com>
+To: netdev@vger.kernel.org
+Cc: vinicius.gomes@intel.com,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
+	davem@davemloft.net,
 	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
 	horms@kernel.org,
-	q.h.hack.winter@gmail.com,
-	stable@vger.kernel.org,
-	syzbot+d29af9ef5c96a3f5e96c@syzkaller.appspotmail.com,
-	Shuai Liu <847807867@qq.com>
-Subject: [PATCH net] xfrm: interface: drop non-IP packets before pskb_inet_may_pull()
-Date: Thu, 19 Nov 2026 13:08:14 +0800
-X-OQ-MSGID: <20261119050814.1788751-1-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <6afdcf01.ca6cd63e.174a34.0001.GAE@google.com>
-References: <6afdcf01.ca6cd63e.174a34.0001.GAE@google.com>
+	ye.zh-yuan@socionext.com,
+	linux-kernel@vger.kernel.org,
+	Mohamed Dawod <mhm.dawod@gmail.com>
+Subject: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission time estimate
+Date: Thu, 19 Nov 2026 07:33:57 +0200
+Message-Id: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,66 +103,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-AF_XDP sockets bound to an xfrm interface submit skbs with
-skb->protocol unset (0) and skb->network_header still 0 from the
-__alloc_skb() zero-initialization; skb_reserve() only moves data
-NET_SKB_PAD bytes into the headroom.
+cbs_dequeue_soft() estimates when the transmission of a packet completes:
 
-Since commit 86de3a1118a16 ("xfrm: interface: validate the IP header
-on xmit"), xfrmi_xmit() calls pskb_inet_may_pull() unconditionally.
-For such a skb, pskb_inet_may_pull_reason() selects nhlen = 0 for the
-unknown protocol and pskb_may_pull_reason() receives
-len = skb_network_offset(skb) = network_header - data = -64, which as
-unsigned int exceeds INT_MAX and trips the
-DEBUG_NET_WARN_ON_ONCE(len > INT_MAX) in pskb_may_pull_reason():
+	q->last = now + div64_s64(len * NSEC_PER_SEC, port_rate);
 
-  WARNING: ./include/linux/skbuff.h:2856 at pskb_may_pull_reason [inline]
-  WARNING: ./include/linux/skbuff.h:3286 at pskb_network_may_pull_reason [inline]
-  WARNING: ./include/net/ip_tunnels.h:483 at pskb_inet_may_pull_reason [inline]
-  WARNING: ./include/net/ip_tunnels.h:488 at pskb_inet_may_pull [inline]
-  WARNING: ./include/net/ip_tunnels.h:488 at xfrmi_xmit+0x1844/0x1eb0
-    net/xfrm/xfrm_interface_core.c:534
-  RIP: 0010:pskb_may_pull_reason include/linux/skbuff.h:2856 [inline]
-  Call Trace:
-   __dev_direct_xmit+0x4b6/0x730 net/core/dev.c:5164
-   __xsk_generic_xmit net/xdp/xsk.c:1288 [inline]
-   xsk_generic_xmit+0x27d8/0x47a0 net/xdp/xsk.c:1344
-   xsk_poll+0x326/0x670 net/xdp/xsk.c:1472
+len is an int and NSEC_PER_SEC is 1000000000L. On 32-bit architectures
+long is 32 bits wide, so the product is computed in 32 bits and wraps
+before it is widened for div64_s64(). For a 1242 byte frame the product
+is 1242000000000 mod 2^32 = 754451456, which gives a transmission time
+of about 60 ns at 100 Mbit/s instead of about 99 us.
 
-The packet is dropped by the pull returning PKT_TOO_SMALL and hitting
-the default case afterwards anyway, so the only visible effect is the
-warning; reject unknown protocols before the pull to restore the
-pre-86de3a1118a16 behavior of dropping them silently via the switch
-default.
+As a result q->last stays almost equal to now and the packet sending
+time is ignored again, which is the problem 'commit 961d0e5b3294
+("net: cbs: Fix software cbs to consider packet sending time")'
+set out to fix. The throughput becomes
 
-Reported-by: syzbot+d29af9ef5c96a3f5e96c@syzkaller.appspotmail.com
-Closes: https://syzbot.org/bug?extid=d29af9ef5c96a3f5e96c
-Fixes: 86de3a1118a16 ("xfrm: interface: validate the IP header on xmit")
-Cc: stable@vger.kernel.org
-Signed-off-by: Shuai Liu <847807867@qq.com>
+	idleslope * port_rate / |sendslope|
+
+instead of idleslope.
+
+Measured on a BeagleBone Black (32-bit ARM, CPSW, 100 Mbit/s full
+duplex) with software CBS (offload 0), one UDP flow with a 1200 byte
+payload (1242 byte frames), sendslope = idleslope - 100000. The rate
+was read from the qdisc byte counters:
+
+	idleslope [kbit/s]   before [Mbit/s]   after [Mbit/s]
+	10000                11.1              10
+	20000                25.0              20
+	30000                42.9              30
+
+Cast len to s64 so the multiplication is done in 64 bits on all
+architectures.
+
+Fixes: 961d0e5b3294 ("net: cbs: Fix software cbs to consider packet sending time")
+Signed-off-by: Mohamed Dawod <mhm.dawod@gmail.com>
 ---
- net/xfrm/xfrm_interface_core.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ net/sched/sch_cbs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/net/xfrm/xfrm_interface_core.c b/net/xfrm/xfrm_interface_core.c
-index 9835fbe63ccb8..aa6e42c3e0e2e 100644
---- a/net/xfrm/xfrm_interface_core.c
-+++ b/net/xfrm/xfrm_interface_core.c
-@@ -531,6 +531,14 @@ static netdev_tx_t xfrmi_xmit(struct sk_buff *skb, struct net_device *dev)
+--- a/net/sched/sch_cbs.c
++++ b/net/sched/sch_cbs.c
+@@ cbs_dequeue_soft()
+ 	if (unlikely(atomic64_read(&q->port_rate) == 0))
+ 		q->last = now;
+ 	else
+-		q->last = now + div64_s64(len * NSEC_PER_SEC,
++		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
+ 					  atomic64_read(&q->port_rate));
+---
+ net/sched/sch_cbs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/sched/sch_cbs.c b/net/sched/sch_cbs.c
+index 1c93469c56e3..107c2b6e9da3 100644
+--- a/net/sched/sch_cbs.c
++++ b/net/sched/sch_cbs.c
+@@ -222,7 +222,7 @@ static struct sk_buff *cbs_dequeue_soft(struct Qdisc *sch)
+ 	if (unlikely(atomic64_read(&q->port_rate) == 0))
+ 		q->last = now;
+ 	else
+-		q->last = now + div64_s64(len * NSEC_PER_SEC,
++		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
+ 					  atomic64_read(&q->port_rate));
  
- 	memset(&fl, 0, sizeof(fl));
- 
-+	switch (skb->protocol) {
-+	case htons(ETH_P_IPV6):
-+	case htons(ETH_P_IP):
-+		break;
-+	default:
-+		goto tx_err;
-+	}
-+
- 	if (!pskb_inet_may_pull(skb))
- 		goto tx_err;
- 
+ 	return skb;
 -- 
-2.43.0
+2.25.1
 
