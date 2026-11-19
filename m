@@ -1,43 +1,43 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095074;
-	b=ZR8fHRnq9twgTmYQOk0uQbwzjWVQYLoVygaz1SaD/n3xYUIbHvmRcpbFxOgM8saGigWh
-	 lRQpcXtwFFX7FEKImw3qKpmyPMY0Up1byXWbWGt+404WTkHzjJcusNgXQ60I3pQ5HNU5+
-	 ZeaZa3IGWEEEcSVxLTZdpmiHubpuyMDHDmnAyE0oX5+G8vmsfO2Sr5J5ByVDebHwrwij9
-	 1ka6EKut+8+jqCB807CO3szMabSAZjF+VX2mmiMERfbbSpSHT4cJhfne0KyZBNeeupsd/
-	 BEJlcdIR2fv1Ty+3thbBN/6K4xLdSbhGQbq/Xt7anC5ctKTmgSVEhOFpyNCcD0LCh4w==
+	t=1795095076;
+	b=mlpDtjiBIm45A/Lo5+S47c0aXY+eP8O93jlCJAhdOslCS0XoRdPGXnEaOnrwqa+LOGcf
+	 VT1BaCpxyF/f2HqEqLKMCeXsVviaA1Uzrc7W7Hn99uU8QN0Ok/BrbbKEw46wJ73kmsxqD
+	 YgwPD67/mM5+b3bCiH2DewxRz5UnDxU7EJdKL1zy2L/JCXyCwW1/tlFZuFkBcpuNxfJKV
+	 MrOIiXXxa0x4y22WcOn6DoW4ZkOSqbK2/hVxtEVTTrRjWR0+P+SwEKov38MckgZVyPlvP
+	 9kgd/gAFimiZMVRH8x48SgYgso0/yUYjqKSOrp1OEScJ0dOO8kyeNrhqzpKY233OMcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095074;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095076;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 DKIM-Signature;
-	bh=ek7NZSZk66IEwU0BTvcPsgNpxaCLENhsZm176O6DDyU=;
-	b=soN9AF7CFJ02rkj+9Nh9X5YKzK/LaM8lPDNyRBXS2CiXdNeA39B5OhN898UhHi63BIHT
-	 MXcFH9QEj2a2JfBuIth6pu92BiN7WgLAgVyKaSKVHyB+J9v4jOR5f6Uw3mn+a7Ccvorgd
-	 ZIi6vvgj6Szv72JflS+92TWlbrtaoFAVw0LDMQPSkPRlPjD1mK0LzPiKonOAaMqPqcWjb
-	 hYh8H/7maNWvJQd68FRHyIZwruChcLslQodlsxSGHpn9zO8ChynTEUNNIQ5GE+lX9C626
-	 3+FSCeBheOOcTlbje/HhySb8gy9jQAV+TkxT34XD5Ex6eoYQCRfuBDfDo2+CnH1Sy9Q==
+	bh=qFr9lWCuk7+PmFSkutjax6ByEjHsqoGnpUv6uLZt39o=;
+	b=41dxVOt6b6Jgn9LzIbKhxZVYKL5tQfXLUTydd/kzWafnmtOB8GVkOBc6gUVFQLDc2ed4
+	 SMLl6HHFX2qvIwhsgw3LREMReMuj+FalRgFN+5AR9LkzVq73bndX0UsVovROOF7xVoj/j
+	 VzOBsQkYoV0YC1zOU2JrAjuL4SrssKznnsi1Rpf/Bht95L7FNpeE1LhdVCVdMZSVZg1jb
+	 Y0nG9zZgdP3Lds5Pzm4R0jAk+guwyY84KEGbnvn1ijpoqML4c79YVn1+65oHM6dyrvmfu
+	 bsB2EAdTp2lncIxn5HhfQQGI5vSGI/LKyauGbWLo5iLPtmyO1EQ7vZ8kySZiwsPLvnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=poczta.fm;
 	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b="yQjV/pXu";
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b="Rlcsx/LV";
 	arc=none smtp.remote-ip=217.74.67.49
 Received: from smtpo49.interia.pl (smtpo49.interia.pl [217.74.67.49])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E9EC60A261E
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:31:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E9EC60A261E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05063606A33B
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:31:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05063606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=yQjV/pXu
+	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=Rlcsx/LV
 Received: from localhost (unknown [80.68.231.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
 	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Thu, 19 Nov 2026 14:31:09 +0100 (CET)
+	Thu, 19 Nov 2026 14:30:55 +0100 (CET)
 From: Slawomir Stepien <sst@poczta.fm>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -70,10 +70,11 @@ Cc: bpf@vger.kernel.org,
 	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
 	Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
-	Slawomir Stepien <sst@poczta.fm>
-Subject: [PATCH v7 bpf 5/5] selftests/bpf: Shrink test_run frags after generic XDP ran on lo
-Date: Thu, 19 Nov 2026 14:30:32 +0100
-Message-ID: <20261119133032.2015656-6-sst@poczta.fm>
+	Slawomir Stepien <sst@poczta.fm>,
+	stable@vger.kernel.org
+Subject: [PATCH v7 bpf 1/5] bpf: test_run: Use a private rxq info for XDP test runs
+Date: Thu, 19 Nov 2026 14:30:28 +0100
+Message-ID: <20261119133032.2015656-2-sst@poczta.fm>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261119133032.2015656-1-sst@poczta.fm>
 References: <20261119133032.2015656-1-sst@poczta.fm>
@@ -88,103 +89,82 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795095072; bh=ek7NZSZk66IEwU0BTvcPsgNpxaCLENhsZm176O6DDyU=;
+	t=1795095058; bh=qFr9lWCuk7+PmFSkutjax6ByEjHsqoGnpUv6uLZt39o=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=yQjV/pXuU8HvAJ67XKahDyNu0UxnWZKUj0AmBXyw+8ifxEwFUjIKPkzycztwVaYGN
-	 HhOgkZwdjbb6J8Lh4XCSAbl9UNl8ei6mIp2hL4IEZDWDnTgUQewAkQc7cBDzmEt3r2
-	 riOZp2fpp/3a9i11AES5XMN7KD5z4Hh9k3q1a2OM=
+	b=Rlcsx/LVZvDXCFzslFypj6wbL0A/f7xMKZJJW2hE2FRkYKGmvH3Mw9HNgc9/6Ti3f
+	 Nzj3P1Rq4EbeXRn2gndhDl4FBm9fEtUjKdjlDHcu4dXx2MFGS1eBmcKSZOQb0iAKSe
+	 jy1ScTYshWdS8Xe192Zpt6o2rocHsla2ugHOPZWg=
 
-bpf_prog_test_run_xdp() used the rxq info of the loopback device's
-queue 0, and generic XDP sets the mem type of that rxq info for the
-packets it handles. Run a packet through generic XDP on lo in a new
-netns, then repeat xdp_adjust_frags_tail_shrink there, which frees
-test_run frags from the program.
+bpf_prog_test_run_xdp() runs the program with xdp->rxq pointing to the
+xdp_rxq_info of a real device queue: queue 0 of the loopback device, or
+the queue given by ingress_ifindex and rx_queue_index in the context.
+The frags of a multi-buffer test packet come from alloc_page(), and when
+the program releases one with bpf_xdp_adjust_tail() or
+bpf_xdp_pull_data(), __xdp_return() frees it according to
+xdp->rxq->mem.type. This only works as long as nobody else changes the
+mem type of that shared queue.
 
-Without the test_run fix this hits WARN_ON() in page_pool_unref_netmem()
-and leaks the frag pages; the test itself still passes, so the failure
-shows up in the kernel log (and as a panic with panic_on_warn).
+The next patch makes generic XDP set the mem type of the queue it runs
+on to MEM_TYPE_PAGE_POOL, since frags it hands to the program come from
+skb_pp_cow_data(). After any packet went through generic XDP on lo, a
+later test run would free its alloc_page() frags as page_pool pages:
 
+  WARNING: include/net/page_pool/helpers.h:305 at __xdp_return+0x828/0x9c0
+  Call Trace:
+   bpf_xdp_adjust_tail+0x8a0/0xd10
+   bpf_prog_..._xdp_adjust_tail_shrink+0xe1/0x101
+   bpf_test_run+0x31a/0xc30
+   bpf_prog_test_run_xdp+0x948/0x1740
+
+and leak the page. Restoring the mem type after generic XDP would not
+be enough, as generic XDP may run on the same queue on another CPU at
+the same time.
+
+Run the program on a private copy of the rxq info instead, with
+MEM_TYPE_PAGE_SHARED, which describes the memory test_run allocates.
+devmap and cpumap already do the same for the programs they run. The
+device and queue index stay the same, so the program sees the same
+ingress_ifindex and rx_queue_index, and xdp_convert_buff_to_md() still
+drops the device reference. Live frames mode does not allow frags and
+uses its own rxq info for the page_pool frames, so it is unaffected.
+
+The problem was found by Sashiko AI review and BPF CI in the review of
+v6 of this series.
+
+Link: https://lore.kernel.org/all/sashiko-outbox-197255@kernel.org/
+Cc: <stable@vger.kernel.org> # 6.4.x
 Signed-off-by: Slawomir Stepien <sst@poczta.fm>
 ---
- .../bpf/prog_tests/xdp_adjust_tail.c          | 51 +++++++++++++++++++
- 1 file changed, 51 insertions(+)
+ net/bpf/test_run.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-index 43264347e7d7..c0d54cf421d8 100644
---- a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-+++ b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-@@ -1,6 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <test_progs.h>
- #include <network_helpers.h>
-+#include <linux/if_link.h>
-+#include <net/if.h>
-+#include "xdp_dummy.skel.h"
+diff --git a/net/bpf/test_run.c b/net/bpf/test_run.c
+index d6c9dc62182e..676107758678 100644
+--- a/net/bpf/test_run.c
++++ b/net/bpf/test_run.c
+@@ -1348,6 +1348,7 @@ int bpf_prog_test_run_xdp(struct bpf_prog *prog, const union bpf_attr *kattr,
+ 	u32 repeat = kattr->test.repeat;
+ 	struct netdev_rx_queue *rxqueue;
+ 	struct skb_shared_info *sinfo;
++	struct xdp_rxq_info rxq;
+ 	struct xdp_buff xdp = {};
+ 	int i, ret = -EINVAL;
+ 	struct xdp_md *ctx;
+@@ -1426,6 +1427,14 @@ int bpf_prog_test_run_xdp(struct bpf_prog *prog, const union bpf_attr *kattr,
+ 	if (ret)
+ 		goto free_data;
  
- static void test_xdp_adjust_tail_shrink(void)
- {
-@@ -355,6 +358,52 @@ static void test_xdp_adjust_frags_tail_grow_64k(void)
- 	bpf_object__close(obj);
- }
- 
-+/* bpf_prog_test_run_xdp() runs on the rxq of lo's queue 0, where generic
-+ * XDP sets the mem type of the frags it hands to its program. Let generic
-+ * XDP see a packet on lo first, then free test_run frags from the program.
-+ */
-+static void test_xdp_adjust_frags_tail_shrink_after_generic(void)
-+{
-+	struct sockaddr_in addr = {
-+		.sin_family = AF_INET,
-+		.sin_addr.s_addr = htonl(INADDR_LOOPBACK),
-+		.sin_port = htons(9),
-+	};
-+	struct netns_obj *ns = NULL;
-+	struct xdp_dummy *skel;
-+	int fd = -1, lo;
++	/* xdp.rxq points to the rxq info of a real device queue, which
++	 * generic XDP updates for every packet it runs on. Use a private
++	 * copy with the mem type of the frags allocated below.
++	 */
++	rxq = *xdp.rxq;
++	rxq.mem = (struct xdp_mem_info){ .type = MEM_TYPE_PAGE_SHARED };
++	xdp.rxq = &rxq;
 +
-+	skel = xdp_dummy__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "xdp_dummy__open_and_load"))
-+		return;
-+
-+	ns = netns_new("xdp_adjust_tail_ns", true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto out;
-+
-+	SYS(out, "ip link set dev lo up");
-+	lo = if_nametoindex("lo");
-+	if (!ASSERT_GT(lo, 0, "lo ifindex"))
-+		goto out;
-+
-+	if (!ASSERT_OK(bpf_xdp_attach(lo, bpf_program__fd(skel->progs.xdp_dummy_prog),
-+				      XDP_FLAGS_SKB_MODE, NULL), "attach generic XDP"))
-+		goto out;
-+
-+	fd = socket(AF_INET, SOCK_DGRAM, 0);
-+	if (ASSERT_GE(fd, 0, "socket"))
-+		ASSERT_EQ(sendto(fd, "x", 1, 0, (struct sockaddr *)&addr, sizeof(addr)),
-+			  1, "sendto");
-+	bpf_xdp_detach(lo, XDP_FLAGS_SKB_MODE, NULL);
-+
-+	test_xdp_adjust_frags_tail_shrink();
-+out:
-+	if (fd >= 0)
-+		close(fd);
-+	netns_free(ns);
-+	xdp_dummy__destroy(skel);
-+}
-+
- void test_xdp_adjust_tail(void)
- {
- 	int page_size = getpagesize();
-@@ -367,6 +416,8 @@ void test_xdp_adjust_tail(void)
- 		test_xdp_adjust_tail_grow2();
- 	if (test__start_subtest("xdp_adjust_frags_tail_shrink"))
- 		test_xdp_adjust_frags_tail_shrink();
-+	if (test__start_subtest("xdp_adjust_frags_tail_shrink_after_generic"))
-+		test_xdp_adjust_frags_tail_shrink_after_generic();
- 	if (test__start_subtest("xdp_adjust_frags_tail_grow")) {
- 		if (page_size == 65536)
- 			test_xdp_adjust_frags_tail_grow_64k();
+ 	size = linear_sz;
+ 	if (unlikely(kattr->test.data_size_in > size)) {
+ 		void __user *data_in = u64_to_user_ptr(kattr->test.data_in);
 -- 
 2.56.0
 
