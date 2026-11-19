@@ -1,100 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097484;
-	b=fNjdmQnLre5xvSK1YlWZxDV8Laf1C0FNavf+JM3EOfmMAL/MibCbV1R+TAbZaTwyWtKE
-	 TGIIXf8nOXuyOnDPjfE18E08x+WUBUGzO5WTWCBt0922oNFzP1/9zrVkatikTmJxWGYd9
-	 YxG3TYedXQ97b7Azd/iCA1P70fsl1QqVoJ0Z0r35bHW8ReEJTy0hTQ1ofPjxIgSKTXTbP
-	 2n+SQ3ClMxoAkIYMGrRm5xXX12VFM3QQQNZ824gYaCmohJoGWpEwLEXNz94yCBPquJ/xi
-	 cQWLcZYq7qAnPmAvUTisqzOp4HiMrx4WbREpK/v3EWSv2B9Lcn/9XWiy1ybPDB6/RoQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097484;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795097582;
+	b=1W27bv9gPKvR1kMuIPbTwbwnsfv56hZj1b5g1ZYyfWxg1nbtM7JkMUoE5y/t7JoiAGUE
+	 QYYnK02ayIHlxAlBjkiSGWmlLCBo0j/FtCHd8GzoymOEHRPi4F6lEjVegWY0vAqslIz4d
+	 CZ7v6yvpjzIUEN4SMJN1eU5hBRUYvbebZ7HWP3MYjj4t9EQI40TdXFs2ZtaJrHqbtzWE1
+	 HwPLMcJZ8g+44W3E081zVppMeEq1HlNZJmrw2qb42YQN/IrmljLkBLepKOkUMVnkUfSy1
+	 IzwhEj4nBl4W2zkgBFIZ5BB3OUOu8Ls/NH1f3ghTlDeh3h8uEZ6tcUR4fFa8BnRGZ+Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097582;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=NlHcMsNltoA1RVaZWqS6lSMU0wyom7V9Dy7Nz9l2BTs=;
-	b=eillllohW0ptO31UoMoJWHb/xa319aGgqAmFfgW9cpYNYvV3zxneDIdQxlsHbtdI7cqG
-	 wBRiD2TDoPel6Sy1KSlcXvz9ZBNrFhAQ4qdOZKUlPnqE1UHutm1FwdujwDn83B4zAAxEd
-	 T+dPtWX2MY5lfhTkxFy8yKw92KsXP/IC9IRf+GWUOA7pZtj8Uxd/TrtAD1Hr9acPYzbWw
-	 BqiKB0YCUDyGJ6A6Nqr7XDnxHBYEunq4lnIwxq+DuQo/+Y8G9VGRqNk0QmvFLkHDgRsfL
-	 9I3uRFefs7sX8UUpV5E51OYLFMn+RNDGUHehVHIaWAoYEFpzgU86ZT9TVU8uhXjUdZQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cs.unc.edu;
-	spf=pass smtp.mailfrom=cs.unc.edu;
-	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=C62OlvOA;
-	arc=none smtp.remote-ip=209.85.222.175
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com [209.85.222.175])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=w/ilLozYd3yRSspJfrhijv1emqLes2PCX8KGijxL0l8=;
+	b=2pDJg2GOCxsT3BmCxCWWQPD1aoB+sTZyLfFGGxggQvuCTvpceEan1qUBax2WwZIPUSdJ
+	 qJW3BbKKVtrV01aRTaz7JpBjS3brOL0crEZrcWehNTRrdV3K9A1UQciwvh0p2MrXon1xT
+	 8iavmbYEoWOJ7yJvWfJ8WhRiCK7jfFoD9lDvkBEe4tN3hsRDq7HQgKLJK29ADEqDZGeDf
+	 Av1YDMUNCSjtuFc6PAjcBjZ6Qq1UJnPACNO4sBvP5p5xE2SJtY8SmikESOqYg2cJGfNJC
+	 nxnxj9cQU5QOH+8TOPmh/1J5H4u2crEt/8CmzUTYAa3vTwf77SjaotghpmpSD5o+MdA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pB+6HyHB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F166C606A337
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:11:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F166C606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B047660A2616
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:13:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B047660A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=C62OlvOA
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-94961b68685so198301385a.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:11:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pB+6HyHB
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c50aaad19fbso260973266b.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:13:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795097580; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mZRLELXGCBNW4o9+1+buidB8w3TjhnGvMEiGIOwFgrS4i6lIPY2p84jBHShSjXWm3L
+         pv237YbOCTHOyHT9ZaoETodq2s1/fz5UaSx2mcDbLLUoGq9af7KDQFgurR2/u4KFXloz
+         yYW+KMGuPzq9lfInHNVeW+imOkWnCWQVb77f1sVMfLgmma3JBWg47ArRGBuC5Wy/g11e
+         K57Q+0C1098X6Q+KJmRqbTno4+iJbJSpv39lQcnJUwI7VBdmrr2q03PQeH6HAywi9fVf
+         rUcCYIAUl3jd8/8bn6fIpliCZyPfNkyiEay62qhHuIkn8Svb0NWWCKJof0SIfZhvSBpe
+         KoGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=w/ilLozYd3yRSspJfrhijv1emqLes2PCX8KGijxL0l8=;
+        fh=9e2dYtsVxnYRsZLf/fDDJ/S77N5AiitWLT6wHQM+mM0=;
+        b=loZsSywYyoXj2wpW/m+mrwDVbCOz+XI0WsSkIBLdE+AbLeEuEhT6jiGslaow/pNO47
+         kQI1NkcuwqaaPw7wSmgfZ5a+9c6tt+0f9inB5ODo4QHb8Cu2tQVgdFroThbWEpHWeKIl
+         Ltgg+U+xKUalMhCGFY4el/J8oqpOruQJF92VCfGJEsqfu+mgVizJUCYpM5bSgAVtBlN3
+         mQFrvr5IffAAsFKcWWOno1zY+ktMJF0iHgisJ+ZKcIt1vhTlYOSeslr9c8u8edfRinda
+         4mDQ1pCv3LfY6KHK9wjEqySP97aMMsYPxdDuIopPlcbFnGDb8t9YsDe8UwWmZ8G+wAs1
+         +zaw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cs.unc.edu; s=google; t=1795097483; x=1795702283; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NlHcMsNltoA1RVaZWqS6lSMU0wyom7V9Dy7Nz9l2BTs=;
-        b=C62OlvOAXzi4l3BV2Zpwe4h2T9O9R2BzGDUfWmfgpUkF4npm0CMGEV42snp0axiNa3
-         b/klUNHafSiWBMa2qJ75Cn99ns94DPkT6Lb9AcJGAB4o0QToYI0jHQ3KKfOx3OjhwLHu
-         HixNHj6nbJ2L0bkg5u5KbN4/mQXS2IcE7erQkZB5HStMTu7y192zXERmzQHmXxSDZ6Hw
-         x3UC+ccCWjd2Hq2epzA1tRikTa9xgBBwMN140CzcUQ97e3k9QI+5VvnSYHuo42VczYjB
-         w/qUTEfWZzuMyqtUKprESNbwkMaAuMkMkWpwJEh1h0KukeMWzYz5IsW33P+4QRpgRJgr
-         boGA==
+        d=google.com; s=20260707; t=1795097580; x=1795702380; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=w/ilLozYd3yRSspJfrhijv1emqLes2PCX8KGijxL0l8=;
+        b=pB+6HyHBq795Hz10gM850FSsxP7zowkhuGNbEpeovCZdBGyaWC0s7AIXlE00N/gtcW
+         Ar9oMTjXyINVaLNgnFgEJ6PpC0vNshHkeYa590GKgbrQ8+BNdFXnqgJNcyh8EjarIA23
+         O2oUEEoQNkQzjt4dihOFEIRqmOUtp6IdpEyYMDi3PUWkCzWYFkLkTqgyqU0zjQz8lIu/
+         zTRW2K37Mlg8hjWJuz8TlJ8bsZr8JMCKZ8i0AW8MxQmHdbM3VMZ3QkCVerxATW4opIRi
+         bnX+dIkHttZIG5ljy0CUAH8SiL3py6BDHE7S9OLa7+v57idNTW3y7j9xemrcDaz3aPxu
+         /YxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795097483; x=1795702283;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NlHcMsNltoA1RVaZWqS6lSMU0wyom7V9Dy7Nz9l2BTs=;
-        b=CQsIiX90i2OcAJF02NM2/6wvlX7X+GCBMEv18+1G1n/tLnRCVnysHsUxaYwuN7aQ9F
-         /2OfoHsmwMlWBz0ewlUFwHisu2dZesyTgsLME6gCnwXj9de7DpPRXFu51xaSK6PDiduh
-         Kime78eoTBd/ruR8DZxR2RG6qIfoYACgSuXXbY8tCWY54HzRT7pEaV842bHDv5FXZjg+
-         A3gUgBXvJu+fBR5Ps6C218Ees4iFcJWbZBSpI39FZn0YuU8mWHBAsaukuzkxuYgDBHln
-         Xi2m7Vwooyp2Oc/R1g7dTfYL7lt/SUmaLH09VOSzR18P32aTdjKja9dR9/uRiihGUPE8
-         eVHA==
-X-Forwarded-Encrypted: i=1; AL+hErGAJUATqGDWWrcuzCFlmAYSxMNQWQJBrw0y7J4qY7rgJ4vao9+BankvMYIBmlvX3RpcZuPQ8yw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8EBEfu9hx+bYp0ehm1oIp8XgKEIXY8OE2NkMjdc5IGtdyl0gc
-	uvAttYG3xpbItbEvhqoI7jI/0LDG+a7Xbc2wPvk4LeeWcHRF6n++T+IhpojpEHDECA==
-X-Gm-Gg: AYBFou3V+zhYigRd0moVT6CF13eo1nBudF3B9PBjoxnjN9bmCe/D+yMARLTzklEc955
-	XnusecTLVwWW6Ob8EcUX3Q08gDiCRt7X2nYCzGA1Vq4jRWDwQTan7ksw7ACXkP0oxv6Rccri4ZE
-	t/d9RHgxlwXELg2b42dxaC3HS//yog8nnNzbJsBISUM+F5RPz0nMsRjcwHToXTEjxeSQWbozwca
-	ofF3JVEXwj4uiQ6a4249I3D1Pho53i/6c/EJZjTdGG1pRKsQU+KPbZHOFlFoEC7Vb5bJOaDu+AA
-	r1/lKTFds/wG+kLvGBX3DIieSZB0TaBI/dFiVWncLqXp/AvzTG0nYHUAv/4FsJ7NqPPzfpyShkE
-	tVALkim3Lx3ivQBXrQMT0WCvC6caaQWeoSqVetYkBqz54/frqp6NtbuKSu4rkXvkJsx47KarwqL
-	O8zei6YF2wLer99M+eXfLFM8VXlH5z1rrMsxZA2rQcOZjF/uyNYvPn5z1aQbHjAdUZJ/1RscpG8
-	QkkuejicERwnHMqAMXROqgVcOtKffMXy4/Sc2GgAU3EJ+KHtcn+DUIlc010OhwJBYNwNhW8KjUA
-	KLxhGNGspbz7TYWMBFl0e+EeGYTkd9JENTIRCRg0O1i7YTE0uVw=
-X-Received: by 2002:a05:620a:394c:b0:949:91c6:973e with SMTP id af79cd13be357-94999602219mr1058615385a.65.1795097482486;
-        Thu, 19 Nov 2026 06:11:22 -0800 (PST)
-Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949b9ad0cdfsm57885a.39.2026.11.19.06.11.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:11:22 -0800 (PST)
-From: Hengyu Liang <hengyul@cs.unc.edu>
-To: John Fastabend <john.fastabend@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Sabrina Dubroca <sd@queasysnail.net>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Benjamin Coddington <bcodding@redhat.com>,
-	Benjamin Coddington <ben.coddington@hammerspace.com>,
-	Rishikesh Jethwani <rjethwani@purestorage.com>,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] tls: fix send() returning success after the TCP send failed
-Date: Thu, 19 Nov 2026 09:11:06 -0500
-Message-ID: <20261119141106.840038-1-hengyul@cs.unc.edu>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795097580; x=1795702380;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=w/ilLozYd3yRSspJfrhijv1emqLes2PCX8KGijxL0l8=;
+        b=aM2JIJpOSGhPPjXoBKxa1+gi5OnONZeK58KdrgAWT+CdF7mUuPnLnhLkCXFo3EnSS0
+         KNc+n4cr0SwbeK0KOiz/GRrxXqw6cWUaMaxaSf3iavLzG/s2pEVOD9W0Ik1sLXgyGwgA
+         bd3F/F1jypk0uqzFzdmYJ5HUIbHIKtSKpuGIlG1hXifsCqIvCJzoFCVdrj/muVoJwZiG
+         +Cr/Za6d5xa4vYgCkPgJJG2ITWNm7dfbqoVN+tlY4TAL0VbBRZzRSuPNoRLTKe+jUSu5
+         2HbSHWzTLQqH+AhlnhOrHxIsuU5rRFArAg/jFi3NbCvymAS27P3esCXn2chaJfFUs+xo
+         4RJQ==
+X-Forwarded-Encrypted: i=1; AL+hErG3t38SaJV+nWzQrXAa0DskOf8R7XHiUdKL2JEmvcaqvvXT6/42Vfpju0uVzUIMg3osjtFges4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/fdOjUB55Rqn+U4GNHSCwtBaZZTeqa8LYnYamy2pgxdyaUGekM
+	4eQeDcS22bt8HQv47vGuAs0bptAT+3F6e+v0iaiu6IoBcq5BSJYMMhv9RDB/9PlfU2g2Cy84N4X
+	9Lloi0tgu2G/JLSZN4EOj15RQDVMHGBs4pfEDze3g
+X-Gm-Gg: AYBFou1pY9jPTUwz1/gLEIHNNNa+o9uba3OXCLZfIvVk/XVIkv0ZA3JdzJfYFbsVdJT
+	HLcpNFWMKmhnPgd31YjeTMLmlFozz3KW3vWW4wuLTb4VRRw0V2iTdX3B7HN8SSP4+dR3Ojfv3PE
+	KyWf4VXfx3QvMNMc1x2fEHWdk3JlRokNVd31UrFtA3KvuheIpuvmcB1GQuP5moSqyXbWk1GCDee
+	1cal70TaSJp5m3Qiyh5BgyaB2R0ahw7nrdC4BdlwmYvrY0foCKtF2pt2/jAahIwyqMGwCkKQSKZ
+	GjTWnp5sOc8g4lvVPodaG6wrYR+vkqrIAavcJtRH14etLvq8VXHgQCi9iGKxMzdM/OHuLANg0fa
+	ixm/rjlZKXmSJGgKoZsNB5xJdpZmAf6lEfuTLDyOtPtrQpQsxcGtc6ND+UgVSecu1HlzUR1gFTj
+	pJ1uzXIeLZVqSwyno=
+X-Received: by 2002:a17:906:c104:b0:c2a:ad55:b3fa with SMTP id
+ a640c23a62f3a-c513a434889mr1072366b.7.1795097579236; Thu, 19 Nov 2026
+ 06:12:59 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,157 +105,183 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261116224308.986555-1-joshwash@google.com> <179495835918.3136.2006086240050992361@kernel.org>
+ <CAJcM6BGpwRPm6bhRWp6BWLsaTzwYd__x=tyQqpAcbOKsBCxekQ@mail.gmail.com>
+In-Reply-To: <CAJcM6BGpwRPm6bhRWp6BWLsaTzwYd__x=tyQqpAcbOKsBCxekQ@mail.gmail.com>
+From: Ankit Garg <nktgrg@google.com>
+Date: Thu, 19 Nov 2026 06:12:47 -0800
+X-Gm-Features: AclHuK8WoTWkqmw29NUYRmt8h6v6x5oiORA3vRlTHvm3zvXH5MgdiZe-ehExt1k
+Message-ID: <CAJcM6BF1HLM2MPUrsEpq+qE8H788vxn7JTNVOcd3B+0ReCtdeA@mail.gmail.com>
+Subject: Re: [PATCH net v2] gve: fix checksum state and gso_segs of HW-GRO packets
+To: netdev-bot+sashiko@kernel.org
+Cc: joshwash@google.com, netdev@vger.kernel.org, hramamurthy@google.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, jordanrhee@google.com, thostet@google.com, 
+	willemb@google.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	pkaligineedi@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Commit b341ca51d267 ("tls: Fix tls_sw_sendmsg error handling") made
-tls_tx_records() pass the error of the TCP send to tls_err_abort()
-instead of -EBADMSG.
+On Tue, Nov 17, 2026 at 8:33=E2=80=AFPM Ankit Garg <nktgrg@google.com> wrot=
+e:
+>
+> On Tue, Nov 17, 2026 at 3:32=E2=80=AFPM <netdev-bot+sashiko@kernel.org> w=
+rote:
+> >
+> > Thank you for your contribution! Sashiko AI review found 1 potential
+> > issue(s) to consider.
+> >
+> > Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+> >
+> > If you believe none of the issues are legitimate, please reply to each
+> > issue of Medium severity or higher and explain why the AI is wrong.
+> > If any of them are legitimate and you plan to respin, please let patchw=
+ork
+> > know by including "pw-bot: cr" as a separate line at the end of your re=
+ply
+> > (one such reply per series is enough).
+> >
+> > - [Medium] gve_rx_complete_rsc()
+> >   (drivers/net/ethernet/google/gve/gve_rx_dqo.c) works out where the TC=
+P=E2=80=A6
+> >
+> > --
+> >
+> > gve: fix checksum state and gso_segs of HW-GRO packets
+> >
+> > This patch makes gve_rx_complete_rsc() set the network and transport
+> > headers on HW-GRO packets. For device-verified packets it also seeds
+> > th->check with the TCP pseudo-header checksum and calls tcp_gro_complet=
+e(),
+> > so forwarded HW-GRO skbs can be resegmented correctly. IPv4 and IPv6 ar=
+e
+> > now told apart by EtherType, and gso_segs is computed from the TCP payl=
+oad
+> > length.
+> >
+> > > diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/n=
+et/ethernet/google/gve/gve_rx_dqo.c
+> > > index 82ed5e48b00ab..b4dbfb1ba39b0 100644
+> > > --- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> > > +++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> >
+> > [ ... ]
+> >
+> > > @@ -1049,10 +1061,50 @@ static int gve_rx_complete_rsc(struct sk_buff=
+ *skb,
+> > >               skb_frag_off_add(frag, hdr_len);
+> > >               skb->data_len -=3D hdr_len;
+> > >               skb->tail +=3D hdr_len;
+> > > +             /* napi_gro_frags() pulls the Ethernet header later. */
+> > > +             nhoff =3D ETH_HLEN;
+> > > +     }
+> > > +
+> > > +     /* The header lengths come from the packet, so make sure the he=
+aders are
+> > > +      * in the linear part before reading them and writing th->check=
+.
+> > > +      */
+> > > +     if (unlikely(skb_headlen(skb) < nhoff + sizeof(struct iphdr)))
+> > > +             return -EINVAL;
+> > > +
+> > > +     skb_set_network_header(skb, nhoff);
+> > > +     proto =3D nhoff ? ((struct ethhdr *)skb->data)->h_proto : skb->=
+protocol;
+> > > +     switch (proto) {
+> > > +     case htons(ETH_P_IP):
+> > > +             gso_type =3D SKB_GSO_TCPV4;
+> > > +             thoff =3D nhoff + ip_hdrlen(skb);
+> > > +             break;
+> > > +     case htons(ETH_P_IPV6):
+> > > +             gso_type =3D SKB_GSO_TCPV6;
+> > > +             thoff =3D nhoff + sizeof(struct ipv6hdr);
+> >
+> > [Severity: Medium]
+> > Is it safe to assume the TCP header comes right after the fixed IPv6
+> > header here?
+> >
+> > Nothing checks ipv6_hdr(skb)->nexthdr =3D=3D IPPROTO_TCP or desc->ipv6_=
+ex_add.
+> > The IPv4 case above also uses ip_hdrlen() without checking
+> > ip_hdr(skb)->protocol =3D=3D IPPROTO_TCP. The only sign that L4 is TCP =
+is the
+> > ptype.l4_type check at the top of gve_rx_complete_rsc().
+> >
+> > The descriptor suggests the device does parse IPv6 extension headers:
+> >
+> > gve_desc_dqo.h:
+> >         /* Set when IPv6 packet contains a destination options header o=
+r routing
+> >          * header.
+> >          */
+> >         u8 ipv6_ex_add: 1;
+> >
+> > gve_rx_skb_csum() only holds back CHECKSUM_UNNECESSARY when that bit is
+> > set:
+> >
+> >         } else if (ptype.l3_type =3D=3D GVE_L3_TYPE_IPV6) {
+> >                 /* Checksum should be skipped if this flag is set. */
+> >                 if (unlikely(desc->ipv6_ex_add))
+> >                         return;
+> >         }
+> >
+> > So an IPv6/TCP packet with a hop-by-hop header and a device-verified
+> > checksum would still be CHECKSUM_UNNECESSARY when it gets here.
+> >
+> > Suppose the device coalesces such a packet, or a tunnelled packet whose
+> > ptype reports the inner L4 as TCP. Then thoff would point into the
+> > extension or tunnel header, and tcp_hdrlen() would read doff from the
+> > wrong bytes.
+> >
+> > gve_rx_fixup_gro_checksum() would then write the pseudo-header seed at
+> > that offset:
+> >
+> >         th->check =3D ~tcp_v6_check(len, &ipv6_hdr(skb)->saddr,
+> >                                   &ipv6_hdr(skb)->daddr, 0);
+> >
+> > tcp_gro_complete() would also set csum_start, csum_offset and
+> > CHECKSUM_PARTIAL at that offset.
+> >
+> > Wouldn't a forwarded packet then leave through TSO/GSO with a bad
+> > checksum? That is the same blackholing this patch sets out to fix.
+> >
+> > The destination-options and routing cases are CHECKSUM_NONE, but they
+> > still hit the wrong doff. That could drop a valid packet with -EINVAL o=
+r
+> > give it a wrong gso_segs. It could also take the new early return:
+> >
+> >         payload =3D skb->len - thoff - tcp_hdrlen(skb);
+> >         if (payload <=3D rsc_seg_len)
+> >                 return 0;
+> >
+> > and deliver a multi-segment coalesced packet without gso_size.
+> >
+> > Before this patch the RSC path never read or wrote the TCP header, so
+> > this assumption is new. The changelog gives the VLAN guarantee ("The
+> > device does not coalesce VLAN tagged frames"), but says nothing about
+> > IPv6 extension headers or encapsulation.
+> >
+> > For comparison, bnx2x_set_gro_params() documents the matching hardware
+> > guarantee ("TPA aggregation won't have either IP options or TCP options
+> > other than timestamp or IPv6 extension headers"). The mlx5 SHAMPO path
+> > checks ipv6->nexthdr =3D=3D IPPROTO_TCP.
+> >
+> > Could the device guarantee be documented in the changelog and in a
+> > comment? Alternatively, could this check ip_hdr(skb)->protocol and
+> > ipv6_hdr(skb)->nexthdr against IPPROTO_TCP (and ihl >=3D 5), and skip t=
+he
+> > GSO and checksum fixup otherwise?
+> >
+> GVE device doesn't coalesce IPv6 packets with extension headers. I
+> will send a v3 documenting that guarantee in changelog.
+> > --
+> > Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/pat=
+chset/20261116224308.986555-1-joshwash%40google.com
+> pw-bot: cr
 
-However, the transmit path relied on EBADMSG in two places.
-bpf_exec_tx_verdict() looks for it in sk_err to tell that the record
-was not sent, and sk_stream_error() leaves it in sk_err, so later sends
-failed early. Neither holds for EPIPE. As of now, send() on a kTLS
-socket returns success after the TCP connection can no longer send, for
-example after shutdown(SHUT_WR) or after a reset. Nothing reaches the
-peer, the caller is not told, and every send queues one more record
-until the socket is closed.
+This is superseded by v3
+(https://lore.kernel.org/netdev/20261118212045.3575303-1-joshwash@google.co=
+m/).
+Replying again to get patchwork bot to mark v2 as such.
 
-The issue can be reproduced with:
-
-    python3 - <<'EOF'
-    import socket, struct
-    l = socket.create_server(("127.0.0.1", 0))
-    c = socket.create_connection(l.getsockname())
-    c.setsockopt(socket.SOL_TCP, 31, b"tls")
-    c.setsockopt(282, 1, struct.pack("HH", 0x0303, 51) + bytes(36))
-    c.shutdown(socket.SHUT_WR)
-    print(c.send(b"hello"))
-    EOF
-
-Before commit b341ca51d267 ("tls: Fix tls_sw_sendmsg error handling"),
-the result is:
-
-    OSError: [Errno 74] Bad message
-
-After that commit, the result is:
-
-    5
-
-Record the error in the TX context when tls_tx_records() aborts the
-connection. Do not count the record as sent, and fail later sends with
-that error before they take any data. The send() above then fails with
-EPIPE, as it does on a plain TCP socket.
-
-Found while comparing the behaviour of different kernel versions. The
-program above reproduces it on an unmodified kernel. Tested with that
-program and with the tls selftests.
-
-Fixes: b341ca51d267 ("tls: Fix tls_sw_sendmsg error handling")
-Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
----
-I found this while comparing the behaviour of different kernel versions.
-I used an LLM to analyse the problem and to draft the patch and this
-message, and I analyzed the result myself.
-
-Changes in v2:
-- Keep the abort in the TX context, so that later sends fail and queue
-  nothing. v1 only fixed the send that hit the error.
-- Tell that the record was not sent from that state, not from sk_err.
-- Cc the address of the fixed commit's author and the bpf list.
-v1: https://lore.kernel.org/netdev/20261113193649.3822306-1-hengyul@cs.unc.edu/
-
-With 20000 sends of 16 KiB after shutdown(SHUT_WR), net reports 19856
-of them as sent and TCP memory grows from 15 to 158882 pages. With this
-patch, all of them fail with EPIPE and TCP memory stays at 0 pages.
-
-Rishikesh's "tls: make the record number wrap abort final" adds a
-similar state for another abort. I can rebase on it if it goes in first.
-
- include/net/tls.h |  1 +
- net/tls/tls_sw.c  | 22 +++++++++++++++++++---
- 2 files changed, 20 insertions(+), 3 deletions(-)
-
-diff --git a/include/net/tls.h b/include/net/tls.h
-index 0b001b8ab1c3..7d43ffe46f33 100644
---- a/include/net/tls.h
-+++ b/include/net/tls.h
-@@ -100,6 +100,7 @@ struct tls_sw_context_tx {
- 	struct tls_rec *open_rec;
- 	struct list_head tx_list;
- 	atomic_t encrypt_pending;
-+	int abort_err; /* error of the send that aborted TX, never cleared */
- 	u8 async_capable:1;
- 
- #define BIT_TX_SCHEDULED	0
-diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
-index 226e0f176fdc..795cbfe5fb2a 100644
---- a/net/tls/tls_sw.c
-+++ b/net/tls/tls_sw.c
-@@ -413,6 +413,9 @@ int tls_tx_records(struct sock *sk, int flags)
- 	struct sk_msg *msg_en;
- 	int tx_flags, rc = 0;
- 
-+	if (unlikely(ctx->abort_err))
-+		return ctx->abort_err;
-+
- 	if (tls_is_partially_sent_record(tls_ctx)) {
- 		rec = list_first_entry(&ctx->tx_list,
- 				       struct tls_rec, list);
-@@ -459,8 +462,11 @@ int tls_tx_records(struct sock *sk, int flags)
- 	}
- 
- tx_err:
--	if (rc < 0 && rc != -EAGAIN && rc != -EINTR && rc != -ERESTARTSYS)
-+	if (rc < 0 && rc != -EAGAIN && rc != -EINTR && rc != -ERESTARTSYS) {
-+		/* sk_err is cleared when it is reported, keep the abort */
-+		ctx->abort_err = rc;
- 		tls_err_abort(sk, rc);
-+	}
- 
- 	return rc;
- }
-@@ -636,6 +642,9 @@ static int tls_push_record(struct sock *sk, int flags,
- 	if (!rec)
- 		return 0;
- 
-+	if (unlikely(ctx->abort_err))
-+		return ctx->abort_err;
-+
- 	msg_pl = &rec->msg_plaintext;
- 	msg_en = &rec->msg_encrypted;
- 
-@@ -708,13 +717,15 @@ static int tls_push_record(struct sock *sk, int flags,
- static int bpf_exec_tx_verdict(struct sk_msg *msg, struct sock *sk,
- 			       u8 record_type, ssize_t *copied, int flags)
- {
-+	struct tls_sw_context_tx *ctx = tls_sw_ctx_tx(tls_get_ctx(sk));
- 	int err;
- 
- 	err = tls_push_record(sk, flags, record_type);
--	if (err && err != -EINPROGRESS && sk->sk_err == EBADMSG) {
-+	if (err && err != -EINPROGRESS &&
-+	    (ctx->abort_err || sk->sk_err == EBADMSG)) {
- 		*copied -= sk_msg_free(sk, msg);
- 		tls_free_open_rec(sk);
--		err = -sk->sk_err;
-+		err = ctx->abort_err ?: -EBADMSG;
- 	}
- 	return err;
- }
-@@ -807,6 +818,11 @@ static int tls_sw_sendmsg_locked(struct sock *sk, struct msghdr *msg,
- 	}
- 
- 	while (msg_data_left(msg)) {
-+		if (unlikely(ctx->abort_err)) {
-+			ret = ctx->abort_err;
-+			goto send_end;
-+		}
-+
- 		if (sk->sk_err) {
- 			ret = -sk->sk_err;
- 			goto send_end;
-
-base-commit: a8aeac0b1883206cf72461258e6bfd991589049e
--- 
-2.53.0
-
+pw-bot: cr
