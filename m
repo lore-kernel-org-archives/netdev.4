@@ -1,54 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081107;
-	b=uqDOXXeAOgeMqY8zErwftd05OAhSkm55GqH+tKL7CF+nF7JZkJGQh5NKpfI3oj/PHeu/
-	 cEamaAbZcsOwqHMA8hzCaYb48sXwWLQaqWxBIVsricrEEWRy8IP4rgfLYTNW5URbQh7ny
-	 qx1wPu0rk/YPn6Ro6dAH40FZUnSzE8l5y+SU1VSB69a/w64momihQLk73Lgr5O4D7WEwH
-	 qVDedWwGJQeGW2dgoV7nqv2TI28NcZds1q/CSnSnpuGH5iEmxoSgT9yipolGwlcRrkwIY
-	 RCOG0KZXiGF7MPNrLpgAOIBe6OdRxBuRwzmMXVdEJWy5wrO/IYvquctGMb8s8ymhFjw==
+	t=1795081260;
+	b=wVXMJvP/8JS5g2Sx9CW3TYDwE84ahG+c+dl6IDtbmRwuVan+YnJ8EXQlfSiSchWSy+8x
+	 Ecz5UxL4EmNrSUuuP4R4caEgeoKlPcP3NEsh64zBnEldCcIOpaR8SEfh88ftrZb13aLhA
+	 Lss3+0DSS13FDZikr4VEoo1+vDgq0Gj9XzTm6IcBUXOH4aiISLt3d/O+m2HwHNXi6c1On
+	 7b2Ju8dtjJlyVZ3eOjdzuTzZepz9LqYT7p2FYdTK6MTgXs9ZC7EgruEirNc91cwLQYt53
+	 JkdHTKny6szGfiNK1on2OzPMtL+kumsntUbNOm+2AZRnyZXtCTNaxSbi/ZdCRvbPPng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081107;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=uzPlcHId7TW7FWgqbyn6Wh6K3YuV+RZW/v5XhOuWFmc=;
-	b=5EgYKfUsH6BoEHXN//naR20IauaOz6P8bVjJeF7Kvz+5HSaHIuZqyNEbRjCN40hSSb94
-	 +TW+AIUc6ppfEAX1IP6wNIujJ8lRMuHT0c+Th63J51AgZyc+MDtNm00FNBK/x6qUjIlME
-	 AuzhLn/S4eiUpMRoK5vzQ+8pVRSOJCekiYoXOIKPyRIHDxPdjkhy67K6Tk8+bK57+PvWE
-	 ZTYcIB/XCqnTXmc0C4Qb8lElILMAJyYjyCSs/y7tFuK6UjwpgXaHAeMbMXm2jgYur9xnW
-	 dilTodgPBPTpWm5lFfkfWDTNphey7sCVJEaI3L7sVTkQyOE9Q1XqfApwyHKx1PoObNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081260;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=HSkOuV0OPCHmCxL1Bd9TpkoiDXoOHO/xhdsrQTWa2Ss=;
+	b=xK9zlrDEQ9X5DM8wgvtjIRE5CFTtf+Iqv1dTVipz19lfIfd2iCbbVEE9cpWuy6gKIN+n
+	 5jzXKCUyvft5NLPNqZKPx9Z1oJOQV9T33DNKCR94p5oDeqe4YxL9NrsBuRm9P2ogDMQIQ
+	 MFnwIk+ibNdoC+8ip+eTNP2OH6rx7Oyvria+jTw1qKTXcSukTjqdpBWhs2Q6MWz4zcXu1
+	 Fw9X5W5dp5PGwzRz4I9ZWrEaLNlIDKB3KagOkRIpn2/xCEZAxldCkKJscoqiwMJ5vIkkZ
+	 MrDUnk/GCeYimLFWYkBck8hTYvLYVtZ3Ktdte2NB8uQ7NDpqkOtmqjpCgpXDcVUtEkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmJ3A6Y8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 182CC606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:38:26 +0000 (UTC)
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Xp5EhP6H;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A9F5F606A326;
+	Thu, 19 Nov 2026 09:40:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9F5F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmJ3A6Y8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9998F1F000CC
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:38:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795081106;
-	bh=uzPlcHId7TW7FWgqbyn6Wh6K3YuV+RZW/v5XhOuWFmc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EmJ3A6Y8ndCXMiHCdM4vfBefqqfsNiLmz150UnFRUVpwc6rR2ECWRVqVnLoVf6Ewj
-	 gwUfo/ckSHBM5/3tEsp3GuDP1djM6c7OWmF+MmgkUxX8omCx2hgIQ5d3hbEowPfCpz
-	 XsfAXuXvYE39X8Dp3++9XxNLAqECiyzCdxjqWg/18Md3tvK41c5VpnFj7jbGvhTYjI
-	 Adlmei6aWcauoYpmGJgDzboQpZ3ZKbBjOAnd+WRvYeCTlnoK7dtymUPrgOrHOfs/Nb
-	 4/EoiagX7x2+TuOeZVIc0aeVSlGanGL24kjzfk58gWx0GeCJzWfwmz5RolD/RrvKTy
-	 hP7tcXTDwWCzg==
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-71aed54d4c5so1329630eaf.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:38:26 -0800 (PST)
-X-Gm-Message-State: APuU4Z+4kVddh5Mo7/Of6rDwjFBSWpmh4mjAyRgODKkXLsl9qcUY6i+a
-	YislmRAyN1hzpTiCngkQ6Y/AgSI5HU3jbpqSm1Rp3msK672dQxNvwbWcyWBSGkDiF8k2Z8MKd8s
-	PzJGRnfZooZGtUuTi3P/rdSaMFpRIGSg=
-X-Received: by 2002:a05:6820:1517:b0:716:d827:9ecb with SMTP id
- 006d021491bc7-71b1842dcd8mr3807739eaf.30.1795081105843; Thu, 19 Nov 2026
- 01:38:25 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Xp5EhP6H
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=HSkOuV0OPCHmCxL1Bd9TpkoiDXoOHO/xhdsrQTWa2Ss=; b=Xp5EhP6HXf728
+	1D+wi5YgIU+kPAFAW8GI+P9J4NVNYbtgZInafZkNA1EjYuBE2NuN6Iz6o2XFBdua
+	p24Jqqz/mzmBaFc+24MaPxo9QoTCwxS4uN/AB9TOGXHaHfaTj2OIPJlpdKP6Wfx0
+	dM1knZH8DE/suxeYaHcxns5uXNJTbc=
+Received: from v5_final.eml (unknown [58.206.202.11])
+	by web3 (Coremail) with SMTP id ygQGZQCHKo0WxP5qeKDEAA--.59320S2;
+	Thu, 19 Nov 2026 17:40:38 +0800 (CST)
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, rostedt@goodmis.org, wanghr2026@mail.zgclab.edu.cn
+Subject: [PATCH net v5] libcxgb: use raw_cpu_ptr() in ppm_get_cpu_entries()
+Date: Thu, 19 Nov 2026 17:40:14 +0800
+Message-ID: <179508121445.22600.6953098503196332718@mail.zgclab.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,100 +55,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
- <20261118235055.1225115-5-vladimir.oltean@nxp.com> <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
- <av62HrrrRs8qwiHw@skbuf>
-In-Reply-To: <av62HrrrRs8qwiHw@skbuf>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 10:38:14 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiiq29baq2c6X9YV6Vj8ymc4n6sTuvBUSHU5e=kPa2iFkKw@mail.gmail.com>
-X-Gm-Features: AclHuK8vBJaJIv6TzFRAeRooYkV2ys6qCen-d_QhtxFZU_RN-wm6gOtvFUynZaU
-Message-ID: <CAL4Wiiq29baq2c6X9YV6Vj8ymc4n6sTuvBUSHU5e=kPa2iFkKw@mail.gmail.com>
-Subject: Re: [PATCH v2 net 4/4] net: enetc: let core segment GSO skb when
- headers exceed TSO_HEADER_SIZE
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Claudiu Manoil <claudiu.manoil@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
-	Clark Wang <xiaoning.wang@nxp.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:ygQGZQCHKo0WxP5qeKDEAA--.59320S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGF1rZrWkAFy7ArW8Kr1ftFb_yoWrJr4kpr
+	4xW3sIgr4kXr4aqw1DAa18ZFs0kwsrGFnxJFW7XrW5ZFsrWF13Za1DKFW5Xr98Xr4xZw1U
+	tF4jv39xCFs0k3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Cr
+	0_Gr1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
+	AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v2
+	6r1Y6r17MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnI
+	WIevJa73UjIFyTuYvjfUOqXHDUUUU
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQQQD2r+rmUp4QABsM
 
-Le jeu. 19 nov. 2026 =C3=A0 09:44, Vladimir Oltean
-<vladimir.oltean@nxp.com> a =C3=A9crit :
->
-> Hi Eric,
->
-> On Thu, Nov 19, 2026 at 01:03:16AM +0100, Eric Dumazet wrote:
-> > > Bizarrely, enetc is the only affected driver, because the core
-> > > accidentally protects most other drivers against this bug in
-> > > gso_features_check(). There, we have this logic that saves the day:
-> > >
-> > >         /* NETIF_F_IPV6_CSUM does not support IPv6 extension headers,
-> > >          * so neither does TSO that depends on it.
-> > >          */
-> > >         if (features & NETIF_F_IPV6_CSUM &&
-> > >             skb_has_ipv6_extension_hdr(skb))
-> > >                 features &=3D ~(NETIF_F_IPV6_CSUM | NETIF_F_TSO6 | NE=
-TIF_F_GSO_UDP_L4);
-> > >
-> > > enetc is the outlier because it only advertises the more complete
-> > > NETIF_F_HW_CSUM, so for it, this fixup does not clear the NETIF_F_TSO=
-6
-> > > and NETIF_F_GSO_UDP_L4 bits.
-> > >
-> > > [ astute reviewers may ask: what if we disable NETIF_F_IPV6_CSUM at
-> > >   runtime, via ethtool -k, so as to bypass this fixup, don't we make
-> > >   all drivers vulnerable?
-> > >   No, because netdev_fix_features() will trigger the code path which
-> > >   also prints "Dropping TSO6 features since no CSUM feature.\n".
-> > >   So TSO skbs will now be segmented in the stack. ]
-> > >
-> > > Surveying every driver that uses TSO_HEADER_SIZE:
-> > >
-> > >  Driver  | TSO6 | Checksum feature    | Core guard fires? | Verdict
-> > >  ---------------|---------------------|-------------------|---------
-> > >  enetc   | yes  | NETIF_F_HW_CSUM     | no                | vulnerabl=
-e
-> > >  bnxt    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> > >  nicvf   | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> > >  otx2    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> > >  fec     | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> > >  mvneta  | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> > >  mvpp2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> > >  mv643xx | no   | NETIF_F_IP_CSUM     | n/a               | safe
-> > >  dpaa2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe (*)
-> > >
-> > > (*) dpaa2 also uses a fixed-size kmalloc(TSO_HEADER_SIZE) per segment=
-,
-> > > so the identical overflow would apply if it ever gained NETIF_F_TSO6.
-> > >
-> > > The above survey is what influenced the decision to make a localized
-> > > patch in enetc_features_check() rather than create a huge disturbance=
- in
-> > > the core, even though, IMO, TSO_HEADER_SIZE is a huge foot gun.
-> >
-> > I should probably rework my series :
-> > https://lore.kernel.org/netdev/20260403043237.3909226-1-edumazet@google=
-.com/
->
-> Do you disagree with my analysis that only enetc risks corruption? I mean=
-,
-> for a second layer of defense, having tso_features_check() everywhere
-> TSO_HEADER_SIZE is used probably makes sense, but I opted for a targeted
-> fix because I couldn't justify it for the other drivers.
+ppm_get_cpu_entries() must not acquire a sleeping lock while preemption
+is disabled: get_cpu() disables preemption, and spin_lock_bh() may sleep
+on PREEMPT_RT kernels.  Use raw_cpu_ptr() instead, which reads the
+current CPU's per-CPU pointer without touching preempt_count.
 
-I agree with your analysis, I could not find another driver where
-headers can exceed TSO_HEADER_SIZE today. Your targeted fix is fine
-for net.
+The task is then free to migrate before taking pool->lock, so it may end
+up allocating from a different CPU's pool.  That is harmless: each
+per-CPU pool is just a shard of the global page pod (ppod) index space,
+and every read-modify-write of a pool's bitmap and next index happens
+under pool->lock.  The free path, ppm_unmark_entries(), re-derives the
+owning pool from the global index rather than from the running CPU and
+takes that same lock, so any thread can service any shard.  Derive the
+global index base from pool->base so it always matches the pool that
+was locked.
 
-The other drivers are only safe as a side effect of the
-NETIF_F_IPV6_CSUM rule in gso_features_check(), and none of them
-bounds the header length in an ndo_features_check(). I might respin
-the tso_features_check() series for net-next as a second layer
-(calling vlan_features_check() this time), and enetc can be
-converted on top.
+Found by static analysis and not triggered.  The bug is only reachable
+on PREEMPT_RT kernels, where spin_lock_bh() is a sleeping lock: there it
+would trigger a "scheduling while atomic" BUG under
+CONFIG_DEBUG_ATOMIC_SLEEP, or a deadlock if pool->lock is contended.
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Fixes: 47da7e62b391 ("cxgb4: add iSCSI DDP page pod manager")
+Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+
+---
+Changes since v4:
+- Reword the commit message (review).
+- pr_debug(): drop the running CPU that David suggested in v3; it is of
+  limited use, so keep only the pool-owning CPU.
+- Add a Fixes: tag and record how the issue was found (netdev bot).
+
+Changes since v3:
+- Explain in the commit message why a foreign CPU's pool is harmless and
+  trim the PREEMPT_RT problem description (review).
+- pr_debug(): label the pool-owning CPU and also print the running CPU.
+
+Changes since v2:
+- Keep the pool-owning CPU in the pr_debug() output, derived from
+  pool->base (suggested by Sebastian).
+- Reword the commit message; spell PREEMPT_RT.
+
+Changes since v1:
+- Read the global-index base from pool->base (initialised at pool
+  allocation) instead of a cpu captured before the lock.
+
+ drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c |   14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c b/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+index 2e3973a32..837bdf412 100644
+--- a/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
++++ b/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+@@ -119,16 +119,13 @@ static int ppm_get_cpu_entries(struct cxgbi_ppm *ppm, unsigned int count,
+ 			       unsigned long caller_data)
+ {
+ 	struct cxgbi_ppm_pool *pool;
+-	unsigned int cpu;
+ 	int i;
+ 
+ 	if (!ppm->pool)
+ 		return -EINVAL;
+ 
+-	cpu = get_cpu();
+-	pool = per_cpu_ptr(ppm->pool, cpu);
++	pool = raw_cpu_ptr(ppm->pool);
+ 	spin_lock_bh(&pool->lock);
+-	put_cpu();
+ 
+ 	i = ppm_find_unused_entries(pool->bmap, ppm->pool_index_max,
+ 				    pool->next, count, 0);
+@@ -144,11 +141,11 @@ static int ppm_get_cpu_entries(struct cxgbi_ppm *ppm, unsigned int count,
+ 
+ 	spin_unlock_bh(&pool->lock);
+ 
+-	pr_debug("%s: cpu %u, idx %d + %d (%d), next %u.\n",
+-		 __func__, cpu, i, count, i + cpu * ppm->pool_index_max,
+-		pool->next);
++	pr_debug("%s: pool cpu %u, idx %d + %d (%d), next %u.\n",
++		 __func__, pool->base / ppm->pool_index_max,
++		 i, count, i + pool->base, pool->next);
+ 
+-	i += cpu * ppm->pool_index_max;
++	i += pool->base;
+ 	ppm_mark_entries(ppm, i, count, caller_data);
+ 
+ 	return i;
+@@ -375,6 +372,7 @@ ppm_alloc_cpu_pool(unsigned int *total, unsigned int *pcpu_ppmax)
+ 
+ 		memset(ppool, 0, alloc_sz);
+ 		spin_lock_init(&ppool->lock);
++		ppool->base = count;
+ 		count += ppmax;
+ 	}
+ 
+
