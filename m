@@ -1,54 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075153;
-	b=rNUB9RQzMUEPZu6PZ2hZV6WQvVco7E7+NyPbCu7iFte5xvFC/QlM0OcHLqFwDpYACwo/
-	 LOVbA4oWGPQMEGComlBmews3cnREV2I64tMnGDO01GhkEw9Tc3/l+esfSBsrsdmd+NUSx
-	 Gl098kyGZiUFfGnp3Hqcyc8s4axds756lo2ED0XmQgzcPRFMvw/4LeYwlZSrvcWgmVkEi
-	 c18g2aN0CGh0Hqif615G+tGLSq6szdrSumflPNqC4HaA2NwPJ/ehdPAb3t2jZarKzWqMu
-	 AjAnAb1fw8N33+k+FOTwR2IsFpDvp+iQHEcgXWtAhy5jC+QHC3lfSnr5wd+BBcndDZQ==
+	t=1795075464;
+	b=sy8vfU/FXfdKha2z86Q7GNYOq0S3WWUM7C66cgNYVkgM6i2VwKb8dXUXV4UckJ/zNXlF
+	 QHhRlruG9tzE1gi0Y5H+hFBtagHmJL1ag4HrJafyc3IxPJsGqwH3Xw4piUyE0u9cUjGsG
+	 Qjpy9MibER3aiBUKwaHtecf6Cz2cS1KPEyy+wy+PTXrAXYUIqtfS+DQpzquCvBUupj23y
+	 oZqEGcFysvBeMsWNSvfAJvo+E8nhvJP6svkp47jeAMMTmDcVdeygeYuecaNWXoqVrM7eq
+	 YmIycAzisO4hilUiqCrmlvB8mpB0ZYmT5jN57Q4Ra7trPnuekh9w3AeShTiJgAuj13g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075153;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=JkzZ+/LzqSu9eJ8rN1zudTbo5cBOm4V3ktgf/z3HvLg=;
-	b=jblOZs5gRpo1qqzz6ckcKt2F+y9iBefpS211d5M7mdfOKWdQJrRbNmNpLYogTdAaIV8g
-	 FDN0JS+LllpSKxTrW7Zn6Gb7FdS+OgCJIdJY2qHXhNkhKOYwS6uDIF6Ys+h8LtV6j39wv
-	 fuJrVBXLl2eZ9HJWZpn7OPi5oy0lXTfkvgGq9WOLq7+dr+A5X81qnwzfL/DXDqFORCpwJ
-	 T1GPPfS16r11HDgFWsKurEMiNTyTx+1w/KmCS1YBQ/udNa2B7C3Y9ruuf2di9OGRIgW15
-	 vbpWX1FQi8ui7ZRDyQWkxH8lAcJFlx67nyCQwkXj3ssaAyEuhgk+KBiIKh85VBnfjMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075464;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:From:
+	 To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=NNtg6nawYJsI+Au2yKHzzfTB8XIjxD+Um0wS7YZDvu8=;
+	b=Z3+LYOxKXn94UP5hJdauL2Madga14n3WPopHyMQXcilQIIUJsog0BcuCsHt9DLqqJFz6
+	 HuqHEnsjM7c67FCpNPddu8qAguVLlBP1U5CQbezXOic7s1Us5GPFwZYikVU8PVZPhtBfe
+	 qtgn9gG1VDUAn4ZzFZzp3dg0EWoFkKhGrX78wuGGhpnC0FmztDWGvRmHhFdG8Gp3yirEW
+	 S2yNKaEczlj3tWDYa2UIchvxhO+zoxlFPSP7vuY/ABO3IzGD4lYKChX+a0ARpZb81K6BE
+	 G5xjWtamZiHmgUAwGL8osnknQr7YyLMpJmcNn39mSEdixACQJDjKjlmdC2qX6DDu3mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cT1d9bAO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ug7itAqZ;
+	arc=none smtp.remote-ip=113.46.200.217
+Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C202606A32A
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:59:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC22B606A32A;
+	Thu, 19 Nov 2026 08:04:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC22B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cT1d9bAO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C915F1F000D3
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:59:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795075152;
-	bh=JkzZ+/LzqSu9eJ8rN1zudTbo5cBOm4V3ktgf/z3HvLg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cT1d9bAOKHMxpj+whA++2fdRttofOMvSLcKHSEOdyt/Fgip0BdEiPrxLporpSGVw4
-	 0AdIjQum156h4D3EPbGFu+GTMNX7BE0wjF2P4XJ0J1Wx7MZY9iGOwroeTTXB5jl4uC
-	 Df+G39DGeSU7CH2a9nwL3o1x1uEvD/yc5pcCHnxn35tPb2LuwH9GNJ4IVS7Ag7j8hs
-	 7+XGxVYAF+JA+7YgHGzxInzEmdljCH2+XVgPoU54miYoeCphdtlUBPELRsJu3DdFQD
-	 ZOZpFc46llKHhS7PI+9lncIKoiUJleIhZY/OuKFl6YJKLYZSnf9FVFzSxxzFS/uOoF
-	 2IO4NYosvTDEg==
-Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-71ac798b8bbso1219877eaf.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:59:12 -0800 (PST)
-X-Gm-Message-State: APuU4Z+Xp1k0yS8GFC08G/KIB9l68teOYWIrPLE0QYEfTxZniYBPcDXH
-	OUmBEkrVzBY58uee8exl3YOzaSiTQD8Xc5cR4ayEh77nMjoCzA+OISUFeYH1FJ3liSFLx7IEwAh
-	cY3eqw0noLDZoCItbpoHm3RTwkoXXDwI=
-X-Received: by 2002:a05:6820:1517:b0:716:d827:9ecb with SMTP id
- 006d021491bc7-71b1842dcd8mr3683424eaf.30.1795075152056; Wed, 18 Nov 2026
- 23:59:12 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ug7itAqZ
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=NNtg6nawYJsI+Au2yKHzzfTB8XIjxD+Um0wS7YZDvu8=;
+	b=Ug7itAqZcVfd+9VmIk0A9Ly6M2H5qwzHz2uYhaRzAtzvwCiT2yCZDmB3hInGBrg/EMMwG0P5t
+	d/zlOhQ8xrRWed4HTsGJg4yrrEl8BhLc/qAkSv3RSceU0UmjB3B5rRtPeAkoyq29pGNJ1feK55f
+	MyTTI8hyDhfsLfezjTXQHgg=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jVWDk18jNzcZxp;
+	Thu, 19 Nov 2026 16:03:18 +0800 (CST)
+Received: from dggpemr200017.china.huawei.com (unknown [7.185.36.233])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7B98F40579;
+	Thu, 19 Nov 2026 16:04:12 +0800 (CST)
+Received: from whupemq100015.china.huawei.com (7.152.185.230) by
+ dggpemr200017.china.huawei.com (7.185.36.233) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 19 Nov 2026 16:04:12 +0800
+Received: from DESKTOP-62GVMTR.china.huawei.com (10.174.220.94) by
+ whupemq100015.china.huawei.com (7.152.185.230) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 19 Nov 2026 16:04:09 +0800
+From: Fan Gong <gongfan1@huawei.com>
+To: <kuba@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<dimitri.daskalakis1@gmail.com>, <edumazet@google.com>,
+	<gongfan1@huawei.com>, <horms@kernel.org>, <hramamurthy@google.com>,
+	<ioana.ciornei@nxp.com>, <larysa.zaremba@intel.com>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<maxime.chevallier@bootlin.com>, <mohsin.bashr@gmail.com>,
+	<netdev@vger.kernel.org>, <pabeni@redhat.com>, <tengpeisen@huawei.com>,
+	<vadim.fedorenko@linux.dev>, <wudi234@huawei.com>, <wulike1@huawei.com>,
+	<zhoushuai28@huawei.com>
+Subject: Re: [PATCH net-next v04 1/4] hinic3: Fix the RX stalls in hinic3_rx_poll()
+Date: Thu, 19 Nov 2026 16:04:05 +0800
+Message-ID: <20261119080405.123506-1-gongfan1@huawei.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20261118180907.641e8e51@kernel.org>
+References: <20261118180907.641e8e51@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,72 +81,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117052200.1507847-1-llleigoing@outlook.com> <20261117052200.1507847-4-llleigoing@outlook.com>
-In-Reply-To: <20261117052200.1507847-4-llleigoing@outlook.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 08:59:01 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioFmJXhfGSY7rs7aR3FA_xC_f0sjuArBo7CBjV_tXTbTw@mail.gmail.com>
-X-Gm-Features: AclHuK8OqGGNm4LBhCnEZgVIY5TwLI8xRaYoD8FYFVRWho5XxXLqAQY5a9U59Mw
-Message-ID: <CAL4WiioFmJXhfGSY7rs7aR3FA_xC_f0sjuArBo7CBjV_tXTbTw@mail.gmail.com>
-Subject: Re: [PATCH net 3/3] mptcp: exclude MSG_PEEK from receive buffer autotuning
-To: lei lei <llleigoing@outlook.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>, 
-	"ncardwell@google.com" <ncardwell@google.com>, "kuniyu@google.com" <kuniyu@google.com>, 
-	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>, 
-	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>, 
-	"matttbe@kernel.org" <matttbe@kernel.org>, "martineau@kernel.org" <martineau@kernel.org>, 
-	"geliang@kernel.org" <geliang@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemq100015.china.huawei.com (7.152.185.230)
 
-Le mar. 17 nov. 2026 =C3=A0 06:22, lei lei <llleigoing@outlook.com> a =C3=
-=A9crit :
->
-> __mptcp_recvmsg_mskq() passes bytes copied by MSG_PEEK to
-> mptcp_rcv_space_adjust(), although those bytes remain in the receive
-> queue. Repeated peeks count the same data as new application
-> consumption and can inflate the receive-memory budget. Subtracting the
-> unread queue at a measurement boundary cannot undo that repeated count.
->
-> The receive path originally skipped this adjustment for MSG_PEEK.
-> Commit 581302298524 ("mptcp: error out earlier on disconnect") moved
-> the adjustment calls without preserving that check.
->
-> Only adjust receive space for non-peeking reads. Keep the returned
-> byte count unchanged.
-
-This one looks good to me.
-
-mptcp_rcv_space_adjust() accumulates @copied in msk->rcvq_space.copied,
-and mptcp_inq_hint() is subtracted once per measurement, so N peeks
-of the same bytes are indeed counted N times.
-
-(TCP also calls tcp_rcv_space_adjust() for MSG_PEEK, but it uses
-tp->copied_seq, which is not changed by a peek, so it has no such
-issue.)
-
-The Fixes: tag is correct, commit 581302298524 removed the
-"if (!(flags & MSG_PEEK))" test.
-
->
-> A loopback test leaves a fixed 32 KiB queue unread and peeks 4096 times.
-> Before this change, sk_rcvbuf grows to the configured 8 MiB limit.
-> Afterwards, both the budget and the queue remain unchanged, and a
-> subsequent consuming read returns the original data intact.
-
-It would be nice to have this test in
-tools/testing/selftests/net/mptcp/ (or as a packetdrill test),
-MPTCP maintainers can tell you what they prefer.
-
->
-> Fixes: 581302298524 ("mptcp: error out earlier on disconnect")
-> Signed-off-by: lllei <llleigoing@outlook.com>
-
-Given my comments on patches 1 and 2, I suggest you send this
-patch alone, it does not depend on them.
-
-With the Signed-off-by: fixed:
-
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-
-Thanks.
+> On Tue, 17 Nov 2026 20:08:31 +0800 Fan Gong wrote:=0D
+> > hinic3_rx_poll() can leave the loop with a completed CQE still sitting =
+at=0D
+> > the head of the ring, or with no WQE left to receive into, and still=0D
+> > return nr_pkts, which is below budget.  hinic3_poll() then calls=0D
+> > napi_complete_done() and re-enables the MSI-X interrupt, which is edge=
+=0D
+> > triggered, so nothing re-arms the queue if no further packet arrives.=0D
+>=0D
+> Look how you Hauwei coworker is fixing this in hns3:=0D
+> https://lore.kernel.org/all/20261118130330.3026625-4-shaojijie@huawei.com=
+/=0D
+> That's much better. Live-locking the system in NAPI when its OOM=0D
+> is pretty bad. My personal preference is to have a work that just=0D
+> checks for Rx buffer queue being empty every few sec.=0D
+=0D
+OK=
