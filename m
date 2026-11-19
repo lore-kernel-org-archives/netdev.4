@@ -1,61 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100220;
-	b=ZcJnqbtKlAayhqhv+djaGBUBWG5oVHtuoXs8vi1VOFvZarV5Q8SnB4Bw2Fj3GXlnIZOY
-	 +OlZ/pWzHQIW7rQwd003PQez/AnK0V2Nyd1NDpyi/KO9cv3JrKud2oBdy6YdnwqQefM6S
-	 uI+GSOT1PPmn75xBQ09eGXs6xjSxg74tMhBG+CXbagyjYklLq+rI491ADeuF+8urQs6fI
-	 4Vx7UN5F5rSWK8mrCnWCp8odJMGEpWxqn5j5r1HdOeXLedmaeapj/kwtsHIKvwg153iBV
-	 AXW3hCjIEYlvQfDToZMjz9MRk5zi00sQ5fObzMRD9PSgOThKWmbiDpaufPDd6vRSF5g==
+	t=1795100589;
+	b=Ob+d9i4Ctqwi1z4cN/Y5olc7gBW4S0xMJjDD/BQSOQCRw1PPjx47IVKlLGwqCnSqAJQ7
+	 e7sf8KRrNA7zzl/K2Zi94qE/ISFyWOcXlIfk8Ap83vOMliZ0KGn8/BCz0t77HEinD2GYH
+	 EhNUlY1KL85UjRzGPlyUWJt/D4va6lnhN4KbfSRx9eVKy6Qn2GidmcgE2LnJHxJ1ufnaF
+	 lCQAhFiHh+EPcwNxcq/lhTzRUzEkWcDGkyQK4aZALlV4CSmzYw+pHz4NhYTBFTo+qlFZa
+	 6XsxqHX4M9HSV9vspP2neL7zddV+Dg1bsLS61R36CmJ7Op5MP8kJ+oSJ6D5/l7WrhlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100220;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Cnsng9BOZcTR5dWhMhFYliiky1LEK8VCvuJn4fpPT3c=;
-	b=hR/E9v4XOy2Tr+sMfd1oTLW4RqrJ3FFlImPrpjVRVJw4jbvs4weGoTu9qrvvYvOEwNg4
-	 eH7WT6XpxPLx+7cQ1NX+INnQnLsNg6uGG29qx88noY3hqHUQTcdfSZUuUvYItt0HLIunH
-	 aMZPKPgDtcuT3Psu7b1AF69ObpRrWwz1Wcl+WO/g0qtr2hsjfKs3r4Ka7s8EImteQ3gAw
-	 rsadHGOjqsZdHhxguwJ67yeq5j79pXVn9KG1mxQ74q9wQ3vI/ToQ/eXHTtIW8W3+gtt7m
-	 ZBeSE0O2dbAUyOKD2vXtxPdDxYdGLFVT4qy5L26r0hb8M+9k/mbQ2ikqVfiRdNtKdWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100589;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wnQjVTvQ1FdNEd5V/022XTlNbc2cMP/Jpaz5K1hV8Gc=;
+	b=3YdVVQomgDnJJybYIlpZPSit4YmtQSBH92yA380I/J/CRXzpu4LAbG7YDg8I77vNiRsE
+	 4T/a9F4BYQf11jQshoKZx1CbjZREL4uhw41Ai2i0xcstKDuuLu7T6hj5vu8stauYEx0tX
+	 wlozOIvBargkG0RG6suDGKcRxyq8I8CgqrnIdFt/9G8av6PNZaUcPvTp431ywDq12WA5f
+	 vKB+bo3lNh+/3bYJicyFPQ4quR/SvRoTPxbkgiqiyFPKj0BMyC8aPvUCcNrezvMwWCojt
+	 K7xC2F7KckoQSndaH5TkUFIe6v6WHMPtanjGA4xiBduLXXesEI4R+QQ4H501ikluKmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KflLY7xu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VHNTkOXX;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ggIRWTWj;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68688606A33D;
-	Thu, 19 Nov 2026 14:57:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BCC1606A331
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 15:03:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BCC1606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KflLY7xu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3954A1F000C7;
-	Thu, 19 Nov 2026 14:56:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795100220;
-	bh=Cnsng9BOZcTR5dWhMhFYliiky1LEK8VCvuJn4fpPT3c=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KflLY7xupGFFOzPewH3Sp5A4e0j8KWo63PiYVCjDPg7YcU6PTpuCukYhLb2nOsdWU
-	 EnOU6eXvEX5k8PpUahGEYOvOMB5wkGUSyUY/elGg9jk00tpt2Lsh3N1r7rKmqtAvnj
-	 kY5VsLI/Q+Ybp0OnnAbWQrDUUHd8+Th+iT/3Kd7qpupLq3DZKy+uvJk1MpMcT+9Ifk
-	 iJUZVXr7VuNKaSmB6d5uERxDTJuDGELAFmFD/wq1TireWos7rxvIY8dsthn5w0sKN2
-	 wUZZ973JTBygJ14hlE/Et7A+gmK5qUizPDD7tZjJSOS+gqm+J06GbBnVp4SNTAAINI
-	 /mnIXJ1azfIYA==
-Subject: Re: [PATCH net v3 2/2] net: add a KUnit test for the
- alloc_skb_with_frags() tail split
-From: netdev-bot+sashiko@kernel.org
-To: yanhaishuang@cmss.chinamobile.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, almasrymina@google.com,
- daniel@iogearbox.net, willemb@google.com, willemdebruijn.kernel@gmail.com,
- mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com,
- narcisav.kernel@gmail.com, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 14:56:58 +0000
-Message-ID: <179510021881.3136.3672843529450562064@kernel.org>
-In-Reply-To: <20261116115620.18151-3-yanhaishuang@cmss.chinamobile.com>
-References: <20261116115620.18151-3-yanhaishuang@cmss.chinamobile.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VHNTkOXX;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ggIRWTWj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795100587;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wnQjVTvQ1FdNEd5V/022XTlNbc2cMP/Jpaz5K1hV8Gc=;
+	b=VHNTkOXXUeLx6GRqErVXLm5SLvTCVWQSjvPItgAO7yKArQHIrRX81zWP44O5STvSZqACiM
+	LXXG3XsVX3Dg/ohy8KiUz6LxnICr0hlVUHtlvcnQ5NUljd/+CVAuiz971Pb8Kz6TV0dowW
+	hxepm46rpWr5GBqV+e5jUcTyZyITDR4=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-149-5HEUJOOwMTCjIW5iYKfQUQ-1; Thu, 19 Nov 2026 10:03:05 -0500
+X-MC-Unique: 5HEUJOOwMTCjIW5iYKfQUQ-1
+X-Mimecast-MFC-AGG-ID: 5HEUJOOwMTCjIW5iYKfQUQ_1795100585
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb66fc3aa6so24771855e9.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:03:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795100584; x=1795705384; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wnQjVTvQ1FdNEd5V/022XTlNbc2cMP/Jpaz5K1hV8Gc=;
+        b=ggIRWTWjIyjtQGlFj1zLr/5Wj/VtHpEyaD6RXTFgmB5IQKjR5URhSiL3rFvYQJc31T
+         Vd5KpwQZyDTx9X6gcP9k1cAkHCgDUUMYdBjPpyQc3qVTPj+uquf7+MA3V5NVPNLvfvmk
+         Pir1KM9WszC+njKJGG8Uq4QbBRafxcWekzME+ErIbSX5l/wi40eaOpf0C+TuqmX/TwRg
+         jmEfGmbEGaYqs8PznAeBIAbGWw3pYzJd9REqpKHPAqcWOU6Dc7VYykOg/jiuYB4ifpwg
+         MvT7VyqcCi4QCBjFzolohCc9psn1QFVmv/8vC0ZldYXR4Fpj3s/AeRuDf89HRShsqi+U
+         2vMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795100584; x=1795705384;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wnQjVTvQ1FdNEd5V/022XTlNbc2cMP/Jpaz5K1hV8Gc=;
+        b=ND3qm1yA9AIuctB3m08TAHjKAVkQJ7cmfjKMFccsSRG86sMamTwb34TPDLP/yJ/FGn
+         pMU9jCtPli5b0pK76r4c159HOZehJ3xdvqh9OgScJjElGwcKGCqkcck8+RBX4TKoiEiA
+         g4GkQhgiKQAn1JJdZQPILp1A6IovUTPUUkK3P7VwnGtTsTl4MLld75eG+Wu8NLKbMPtU
+         Ehdc9wlpR+bGOqH7m/vGDSIVoz2lC1ULwesnQTbQds6ls/dBXRgaGo1aAthSb3155pgN
+         G6RRCEAVBY71wv+fzEPPDO0wF9AebZ6kEKV7qmSXLXOf8o00WPao/F2mKrXElKmETn1d
+         mPbw==
+X-Forwarded-Encrypted: i=1; AL+hErFdcjLD1HBu74QJXMGUDo+LIx3bfQ7q4A9GQjzZ1wWlVUFwtDtwnktcUvxlj8Z+4lLtcTCqMH8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ens9edmFOZBuo2qAirfmP89Pk2oU5eMGzx4Caf+5IhjtXhxIW
+	jNqt4AAoR9ROffhrEGjYJ6EhYwdb/GpJfLEbfaNJpVbhoyEOfCcWzGgml0LfUym3L0ybtG1Y/yM
+	IRfNxmzdMX50Ua1EkG/nOh38YiGhurCAIt06AAAEpaZE7lNFeDO7LisbHK5wybm+NOg==
+X-Gm-Gg: AYBFou3GOLixIMZWtu/+kR+VfZ0r+pDr6M2f1WdNQU4sysguAN0jaGpmcFIOKlfL0Ed
+	uemLj21+NjcmPkW8cxUakq/LlxbzliJt2r0ahyzlwDYQ7bOpHNsm2lEo2tT41BdEczUxAV8nyvh
+	MhTUIjlJ3rqySEh1T0URFyAtnCJOkrxC6MpWnvbjyWR3h+BYLHT/LA3uvFJr/C9XK1IYNZ7ES5k
+	8oVd/BuL69UuQ4I4IhBfb3I7zzaI8JKk+TwP/FnuHGEk88mAFik48QH1B4aT7YX3GpKN/JfBWm1
+	yfMtQi0XrlFNqVR26+P/m/u1Pkdbwo+EvW3RVB2dplXelKpqqA5ssCYtCky3OPA6RP4YNeLSr3h
+	ex7gEDppIc0XFsn4ay4DrhmnfWZAjLdRv8rzjWkoX2w==
+X-Received: by 2002:a05:600c:34d2:b0:4a1:6992:f861 with SMTP id 5b1f17b1804b1-4bb7d6d1f21mr127466855e9.1.1795100584441;
+        Thu, 19 Nov 2026 07:03:04 -0800 (PST)
+X-Received: by 2002:a05:600c:34d2:b0:4a1:6992:f861 with SMTP id 5b1f17b1804b1-4bb7d6d1f21mr127465905e9.1.1795100583800;
+        Thu, 19 Nov 2026 07:03:03 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1522:6500:ac93:c62:f076:48c6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm2590845e9.15.2026.11.19.07.03.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 07:03:02 -0800 (PST)
+Date: Thu, 19 Nov 2026 10:03:00 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Hemanth Selam <hemanth.selam@gmail.com>
+Cc: Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Xiong Weimin <xiongweimin@kylinos.cn>,
+	virtualization@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] vdpa: alibaba: fix typos in comment
+Message-ID: <20261119100226-mutt-send-email-mst@kernel.org>
+References: <20261102043526-mutt-send-email-mst@kernel.org>
+ <cover.1793860522.git.hemanth.selam@gmail.com>
+ <e68b7938e19affe2b18ba0ba9711e079fe1f7084.1793860522.git.hemanth.selam@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,126 +121,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e68b7938e19affe2b18ba0ba9711e079fe1f7084.1793860522.git.hemanth.selam@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The skip-or-fail decision in alloc_skb_with_frags_test_tail()
-  (net/core/net_test.c) depends on a probe that only runs after…
-
---
-
-net: add a KUnit test for the alloc_skb_with_frags() tail split
-
-This adds a KUnit test that asks alloc_skb_with_frags() for
-MAX_SKB_FRAGS - 2 full order-3 chunks plus a 7 page tail. It then checks
-that the frags cover the full length. If the allocation fails, the test
-checks whether MAX_SKB_FRAGS - 1 order-3 pages can be held at once, and
-skips if they cannot.
-
-> diff --git a/net/core/net_test.c b/net/core/net_test.c
-> index 2b5080c226636..118866f3e28c3 100644
-> --- a/net/core/net_test.c
-> +++ b/net/core/net_test.c
-> @@ -1721,7 +1721,58 @@ static void netmem_ref_test_tcp_devmem_recv(struct kunit *test)
->  #endif
->  #endif
+On Thu, Nov 05, 2026 at 12:06:53PM +0530, Hemanth Selam wrote:
+> The comment above eni_vdpa_set_vq_state() misspells "specification",
+> and "ENI is build upon" should be "built".
+> 
+> Link: https://lore.kernel.org/all/20261102043526-mutt-send-email-mst@kernel.org/
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+> ---
+>  drivers/vdpa/alibaba/eni_vdpa.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/vdpa/alibaba/eni_vdpa.c b/drivers/vdpa/alibaba/eni_vdpa.c
+> index 1288402d3dd8..af163b4f9259 100644
+> --- a/drivers/vdpa/alibaba/eni_vdpa.c
+> +++ b/drivers/vdpa/alibaba/eni_vdpa.c
+> @@ -276,7 +276,7 @@ static int eni_vdpa_set_vq_state(struct vdpa_device *vdpa, u16 qid,
+>  	struct virtio_pci_legacy_device *ldev = vdpa_to_ldev(vdpa);
+>  	const struct vdpa_vq_state_split *split = &state->split;
 >  
-> +/* Can @nr pages of @order be allocated and held at the same time? */
-> +static bool alloc_skb_with_frags_test_have_pages(unsigned int nr,
-> +						 unsigned int order)
-> +{
-> +	struct page *pages[MAX_SKB_FRAGS];
-> +	unsigned int i, n;
-> +
-> +	for (n = 0; n < nr; n++) {
-> +		pages[n] = alloc_pages(GFP_KERNEL | __GFP_NOWARN |
-> +				       __GFP_NORETRY, order);
-> +		if (!pages[n])
-> +			break;
-> +	}
+> -	/* ENI is build upon virtio-pci specfication which not support
+> +	/* ENI is built upon virtio-pci specification which not support
+>  	 * to set state of virtqueue.
 
-[ ... ]
 
-> +static void alloc_skb_with_frags_test_tail(struct kunit *test)
-> +{
+which does not support a way
 
-[ ... ]
+> But if the state is equal to the
+>  	 * device initial state by chance, we can let it go.
+>  	 */
+> -- 
+> 2.48.1
 
-> +	skb = alloc_skb_with_frags(0, len, PAGE_ALLOC_COSTLY_ORDER, &err,
-> +				   GFP_KERNEL);
-> +	/* The full chunks can't fall back to smaller pages here, so the
-> +	 * call needs up to MAX_SKB_FRAGS - 1 order-3 pages at once. Don't
-> +	 * report a lack of them as a failure.
-> +	 */
-> +	if (!skb && !alloc_skb_with_frags_test_have_pages(MAX_SKB_FRAGS - 1,
-> +							  PAGE_ALLOC_COSTLY_ORDER))
-> +		kunit_skip(test, "not enough order-%d pages",
-> +			   PAGE_ALLOC_COSTLY_ORDER);
-> +	KUNIT_ASSERT_NOT_NULL_MSG(test, skb, "err %d", err);
-
-[Severity: Medium]
-
-Can this report a FAIL when alloc_skb_with_frags() only ran into a
-temporary shortage of high-order pages?
-
-The probe in alloc_skb_with_frags_test_have_pages() runs only after the
-real allocation has failed, and by then memory is in a different state.
-For this len, the full order-3 chunks can't drop to a lower order. So a
-single failed __GFP_NORETRY retry ends the call:
-
-net/core/skbuff.c:alloc_skb_with_frags() {
-    ...
-				page = alloc_pages(gfp_mask | __GFP_COMP |
-						   __GFP_NOWARN | __GFP_NORETRY,
-						   order);
-				if (!page)
-					goto failure;
-    ...
-failure:
-	kfree_skb(skb);
-	return NULL;
-}
-
-By the time the probe runs, three things have changed:
-
-  - kfree_skb() has given the order-3 pages already taken back to the
-    allocator.
-  - The failed call has already done one round of direct reclaim and
-    compaction.
-  - kswapd and kcompactd have been woken for order 3.
-
-The probe's GFP_KERNEL | __GFP_NORETRY order-3 allocations can then
-succeed. In that case the test does not skip, and
-KUNIT_ASSERT_NOT_NULL_MSG() fails.
-
-The commit message says:
-
-  so that fragmented memory is not reported as a failure.
-
-Does this ordering guarantee that?
-
-Also, the failure message prints err. That value is -ENOBUFS both for a
-real frag exhaustion regression and for a page allocation failure, so the
-log can't tell the two apart.
-
-Would it be more robust to call alloc_skb_with_frags() again when the
-probe succeeds, and fail only if the second call also returns NULL?
-
-> +
-> +	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++)
-> +		frags_len += skb_frag_size(&skb_shinfo(skb)->frags[i]);
-> +	KUNIT_EXPECT_EQ(test, frags_len, len);
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116115620.18151-1-yanhaishuang%40cmss.chinamobile.com
