@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110981;
-	b=RwHqpd77cIa1FpDl0IVzR84XqSXlTinUdc9nSJvoYrIoilzaZY7V5tqluC5cEHFtW3Yj
-	 n2m9KOz2YAEq9qizE0t0fhKiz525rCUDOVCeqFgKTCwveRnG7xjyHCVw49mqFdFn3oc9v
-	 gaBVMl+JoRyL0Nxu0WS98/au7VGdFNIfCTPMDPmHigzAzyxQ1qLRPDWvQf9d/0QWzdPof
-	 XenglD29sMlEcjx72ic+q1n0sM1Vc4vaaT/INWQ1w6KdgJKDWey1T0K4Hi3dP+FCxZYET
-	 cnIo0wjA0D0WE/8cKGXzzPRJUyK1aZ91Y+hhoGMpkSifnqlI8piOpyspIx11NlMBKZg==
+	t=1795111010;
+	b=0U0HAQTdaaXmtQeLgddQO3cbCHNIwPZJdzPp9NNZZIiXYRFc8Ucm+ufoQktsRxS57zys
+	 1nXXfCQMA3IyBo3u4/ge6VtkFuYi8WJ4ZYcd4VAwyHV1QPx25WCqlS/CNSjJY4/sZGQMv
+	 Wfv+h2nwSEIf8S95X2RRNGUjuz4EuwAq13q1TDnmF0/nwt24KUtX7kK4/hgGMpMukcLlj
+	 FdPVFtkCqaDclxzR7e9v9JL7wZRdqtU76CDTX2b4xhhntGcDBpYo6TPoRiCNLXBelIi/d
+	 +YxgZsmwrdkuAFgoXfiJPLiqnnCHUpGtHsA4qc9KVmswjRPKDhB5JX15bmJYiTKJoiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110981;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795111010;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
 	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=1zvf1Vt6Wlu8Jafv7/Nxh5FyeaGX2OkkjqPuvdXfMmk=;
-	b=plevL+5ozpvJvqK0CumfGc26uGYR5JdNHsx3VjFYNI795D1DrJyF1/WyILSIPNE+eeoy
-	 gZi921PWML+HtKdOmcT7TT7FGzUIpc5oV+TqfQqYFun7s2Mahcuby8lZSbb9FPcHAQaml
-	 vud+lgIiQ8yFhDsvGP0FgShDUqnW2z7cGVSiTTBreNBC3061uqdM6Gjp3YPq/UefaxcE/
-	 nDrH1aiPBRPAvxP5O86CRvjXYjU2S6xpxxxvf9aKHZwpN31BCa5FGU/gCLQoZOXGnOqZz
-	 XB/T33YSGTtx7kg+KbRIs4q0aX27VojeEBkSMXt+Wo1FYS6FVqEph2Qkvc99PQmsoBA==
+	bh=E2NIbmhTtrAS7wmJW7mkUM6cARcKD/LGZwOXlgRTQsI=;
+	b=IA4pIlRDbHSumYZhWX9IRJiT1SP5JSL3rMTbB5mvla0spaQqkPK8dOh4PxyphUY5FRXI
+	 i/3DH1S9/R4p6CvYVEgfTb+DWAcnMnE96KssXWi0exBHoDB1BaSaprUUZRTRc0+H5gNGj
+	 YAbbx+nLhJBxkH2bPyIhPZfBtiNOmkM6gdtpkPv5XJophZDL0ld09dV2EWOgtna/NG4Wt
+	 t8DnpoWKTbf1I4ddeTdT8TDV1PugAHoD17bjzMJfxvkVMbRD95bpUOGr7dbBfVv/nSZkL
+	 jmq9VqiwpTh5MtJOsyunJUnFRwGGywoGMu7ldoks5KruUSbiq4280VXLicUzO4VOAbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ee9AK2C+;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cMtMwajo;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9531606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9531606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1618606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1618606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ee9AK2C+
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b3acec6677so3642993c88.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:56:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cMtMwajo
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b3acec6677so3643735c88.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:56:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795110980; x=1795715780; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795111009; x=1795715809; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1zvf1Vt6Wlu8Jafv7/Nxh5FyeaGX2OkkjqPuvdXfMmk=;
-        b=Ee9AK2C+S3qeJOi6maQz+7AlWazVG+ohhMcXX9mAY6d8njr+vRKJUaxKWZiijoAX6s
-         N/AaSlo0a9nSNaB2IaD5fbR7YymAv+sgEfgMqgYviN4llAYi4w+DsGjv3WkCfjXVlQEB
-         7Qp1Ua8EhPp8GYHByv9OTUetHNas4MbBGXPj9f5ERkuLvPfAG1DHt2t1rPKLz+ChkoDS
-         rvxPNZ6QT1lKDA2O0cLI/7BNB8otlMPK1FLnBuHX3L6AhoRXwuL2JupNKbhTZ5z7Omh8
-         gjpGP8fJIdD8p83ByCnvro+uOT7Udzm7f9NjOFBV4xIBA2zr55CPjhMRTQb5sEyzvW+5
-         exww==
+        bh=E2NIbmhTtrAS7wmJW7mkUM6cARcKD/LGZwOXlgRTQsI=;
+        b=cMtMwajomCbRVs7vFzFO+TVH7BBmXvJ6KhEOdHb24rMRDDivQa4ovhTh+ohAbTbD10
+         2wcMWdnjrJqtkoxuieDUiigbcMjfipl+dsU/AqwcjTpjiXSGey79EsbmxzJxrVYhSedK
+         oXyHitLgTWKd89l9EaUK/SUo9UszWgaxDTLpHSNOw3iHBRcbcbrgWcYo4DDPOCrAKd4A
+         5s0Q0GkFBqhP58ii3+pp8uj7O4q88/+h5OEreWP6zAXqL1EqoOoSJL3K1mZhWDkdZIo8
+         hGcFNg/rmNAGqoKHsSD+3pvsUHr3KL3slHwvGpH5gIs4NlaTuGQBR6nRVX4njna/V4Bu
+         xREg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795110980; x=1795715780;
+        d=1e100.net; s=20260707; t=1795111009; x=1795715809;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1zvf1Vt6Wlu8Jafv7/Nxh5FyeaGX2OkkjqPuvdXfMmk=;
-        b=P52Zc0H9tXsN4s5AVh/CF8JBe//In5AKzPVKBJOIxCm+d/gDEJw29uUZAReRay0NmU
-         +hLsGwki03TduwvjckkPrAgl2Fz9HHi8deAiBTPH9JU5LWcq0ZO8pC4Z994RGD8GxqgK
-         ZK7bLBQw3pwges9RKCFibXeEpZolddtcvR2QJACUW/Ac+ytqjyEKPlIOp5m8C5spsdb4
-         x/zPTt2AKzV/Z9rSTQ2kjaXwo9pffX2u5rVWoXWyXeFvHzQ33izMqAqsLlWzyORL8P4p
-         5Cis9N+bRADP7iclJbM7UuEskghiJ3Kq5NlrHOGJAFSZyiuKUG7EqXnCnfBCLHsdLXb6
-         RAcg==
-X-Forwarded-Encrypted: i=1; AL+hErG8pquhZhjdojZKjrf0l72pYhh2Lmmu8MNbnPd0wLo/nNocVmI9F2qw+bsYHf6bXMJDb6yGr5E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+J5KcsjtjJdsM8DySDBDs47q+GzvL6p+GuUzapGWAeDXaOPVPw
-	KqJAjVQSHmV7OK191iwEFmg2Gd7mMFdv2FDDJ6qJsQ/mgrqYvUVvfYja
-X-Gm-Gg: AYBFou2ee8BLYa1qmgj78Qv/gG+CPiZefbw95nUkdkUth7V89jMpI/UQQu7NfreYq0o
-	SZ9AMYhvIWFV7C1M6PekgDM/u5f0Dp+XxK25+c68jAZeu6+Xuit+PVJ0eTytc25pvWua1w8mSUK
-	CpcjCh+jgJ8Aa8J0AhKawubgu3Z4mbkzh4Rstd8ipnIGfOkGugjEBaLspxwCEmp44IKEUyA8gLi
-	WhDAKhuLu6e+EhbeMd/+8BmA76kTaKFCg6NJ7z9a1woRnmUGpXlb0RDSrfmO7WIZyXkSe9wXc2l
-	VLadndnKnCx2yBLsVZN6XkWXuQLnBi9epzNz9o7zMo1TIyIyPHZeU7ui32E0DLbfMnovUod0+Dn
-	1mL4XzcRL7M+jF5yqZueYqeQwVAS6JL8zrtcM4qOhoasyKLmn4PkXmUAxKz1CM5cI3uHENODenD
-	eAmQMBafnG7MHC2UBdGv3/dusIGUVYhz5tGkh4bh1ngqMms3sFuO4hdmt/VlwUf/q3x2MNuB57M
-	S8VpVrHDE4T6IT9jNtHOyH0nzup/sniku/bTY8+6kmgNWHXBz4J//HDjhFtCRIzBcyszn3hKP/K
-	1YGsv0qb8ABY1ipx3zgWOFYSaDujC8y3im/bBQMgAnPl0ZFiVberg3ZTPzRKjJR0MfM5PizR9nr
-	SUzLQUj/QrXegVAv3
-X-Received: by 2002:a05:7022:b909:b0:1b4:f3af:355e with SMTP id a92af1059eb24-1b5568a660emr304415c88.13.1795110979829;
-        Thu, 19 Nov 2026 09:56:19 -0800 (PST)
+        bh=E2NIbmhTtrAS7wmJW7mkUM6cARcKD/LGZwOXlgRTQsI=;
+        b=2gHiI9wm1LaK9Tqj1ytBSnuhbslGDwXKhqeTz2y8J6JqKHHkbAIHloQM1yYo+xzjAr
+         eWv7Xc636DJiUOhCHcE4APd3uZnE/mxUSgcbMRTOcK0PbgzmnqwWT1e1AKnqDuai3FQs
+         DpMQidXLA1pkRTAWcefe2O4qlxInsUX/PZvc+wrCNrSqQH3nKS8sJbL+jgMKayJWLsnH
+         nkwNV8SoinJcbp+BnS+u0RT96h+5I9XxoJ3012IKUM9AEEY7vkMAIbmBmFG2KZhV4OpQ
+         qL7V3PZrY3hiyKFkeWP8SoUeSJ8JxOt29zqtZuERtBmHGae8O2kf8V7UJcb5qEP5FUMw
+         oqWQ==
+X-Forwarded-Encrypted: i=1; AL+hErG9X+L+bnDiiyum8PjF63cWcuSF/CqC/yfawct8hJE04HwzHDXuA2fKVQH7GNdsnfmSp89Jr0I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9uOu5Q+IdIb3mDwCKESertJi59s2lXI+WgxvABC1Z9SkwoAwRM
+	/UhGqvD6862zySm/ideb3X6tJdM2jb9i0FdgxzGP0/GFR0qhNuo6Ki+J
+X-Gm-Gg: AYBFou1Tu3bxwczRq7ojxmenw0zF8YSJ4OGDyrxCNTM/xrU0R4FwvnhfGOhA5BMpBWs
+	YNp4mVTAfFD0aKuO42ID36oDHSpdxm6jMdP/VzqxY6bdF0KzsUwgaZ6cABsN2xPiYW19Fq4bzi5
+	TLl25+L22zfXGMEaDce0i9/t635YtjDCCanVbF+yxOIrBJwq6qLNAoxH4YKlpVtX+ceRHc6Iwmy
+	a9CKeHcK72C2xSp7wVFlwb1XZJrhuGAOwK2gtxUWe0kdaAc9dic/YxUIY3aDiCT8xOnzAlEn68T
+	Hur1ruBeKUwxD4Z5T6/FJnx/hwB8yQ4xILd7t6Ew/DUqp/XisPJ9fngxAvEi5gaIn4Vjk+h8tZ+
+	a3c1jGdHjjQISXUoe21GCGSYJ3elKVsefoUZecuGjN6IVJUnG4BowxvcgzR59Ha/Cu0sK7ZAVaz
+	x0AvsZYoap7Fh3Y26T7ylZTTRviMmXdl7Y36tyXBPF46QIBaOQ3Y6w58TFuUAk4e5Gjxbtocg7l
+	U62SclOIUK8k9WyNAYsR4mFLaWFCnoZlIIqt5p4IfRYl2u70MEfC8T336BhY7jEFRp17QE3QZtW
+	0p5ZDHE5Y9cI+sDx5XoYysYDRmP1ZBkNJ1sQmcJyNR38Q29ndLpRj5PYzFNE7o3Wjt124W65KYX
+	ewLyW/pAXRYAwCMZx
+X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr351438c88.10.1795111008699;
+        Thu, 19 Nov 2026 09:56:48 -0800 (PST)
 Received: from ?IPV6:2a03:83e0:1151:15:c24:4ad9:f660:1904? ([2620:10d:c090:500::7:3ffc])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm670954c88.7.2026.11.19.09.56.18
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm741715c88.12.2026.11.19.09.56.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 09:56:19 -0800 (PST)
-Message-ID: <e2f61cf2-f5d1-4509-aad8-ef7db1dde81c@gmail.com>
-Date: Thu, 19 Nov 2026 09:56:17 -0800
+        Thu, 19 Nov 2026 09:56:48 -0800 (PST)
+Message-ID: <e10e6b18-ec08-4f21-b972-b63c73ddfb25@gmail.com>
+Date: Thu, 19 Nov 2026 09:56:47 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,8 +94,8 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/5] eth: fbnic: wait on the correct queues in
- fbnic_queue_stop()
+Subject: Re: [PATCH net v2 5/5] selftests: drv-net: stats: query timestamping
+ stats while down
 To: netdev-bot+sashiko@kernel.org
 Cc: davem@davemloft.net, alexanderduyck@fb.com, kuba@kernel.org,
  kernel-team@meta.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
@@ -104,158 +104,100 @@ Cc: davem@davemloft.net, alexanderduyck@fb.com, kuba@kernel.org,
  bjorn@kernel.org, leitao@debian.org, horms@kernel.org,
  almasrymina@google.com, vadim.fedorenko@linux.dev, daskald@meta.com,
  netdev@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20261117215416.1901246-2-dimitri.daskalakis1@gmail.com>
- <179508206173.3136.15402623456535892800@kernel.org>
+References: <20261117215416.1901246-6-dimitri.daskalakis1@gmail.com>
+ <179508206338.3136.8445234401487583362@kernel.org>
 Content-Language: en-US
 From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-In-Reply-To: <179508206173.3136.15402623456535892800@kernel.org>
+In-Reply-To: <179508206338.3136.8445234401487583362@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 
 
 On 11/19/26 1:54 AM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
 > 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
+> Low priority / nit picks for your consideration:
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] After this patch, fbnic_queue_stop() passes
->   nv->qt[t].cmpl.q_idx to fbnic_wait_queue_idle().
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but
->   fbnic_queue_stop() stops the vector's netdev Tx queues with a bare…
+> - [Low] In check_down_ts_stats()
+>   (tools/testing/selftests/drivers/net/stats.py), if a counter present…
 > 
 > --
 > 
-> eth: fbnic: wait on the correct queues in fbnic_queue_stop()
+> selftests: drv-net: stats: query timestamping stats while down
 > 
-> This patch sets q_idx on Tx completion rings. fbnic_queue_stop() now
-> passes cmpl.q_idx to fbnic_wait_queue_idle(), so Rx queues no longer
-> wait on queue 0. It also skips stop and wake of Tx rings that are
-> marked FBNIC_RING_F_DISABLED.
+> This patch adds check_down_ts_stats() to the drv-net stats selftest. The
+> test reads timestamping stats over ethtool netlink before and after taking
+> the link down. It then checks that no counter went backwards.
 > 
->> diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
->> index 07d4b2e923627..5efed21e59329 100644
->> --- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
->> +++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+>> diff --git a/tools/testing/selftests/drivers/net/stats.py b/tools/testing/selftests/drivers/net/stats.py
+>> index b08e4d48b15ce..e61db30b51817 100755
+>> --- a/tools/testing/selftests/drivers/net/stats.py
+>> +++ b/tools/testing/selftests/drivers/net/stats.py
+>> @@ -220,6 +220,28 @@ def check_down(cfg) -> None:
 > 
 > [ ... ]
 > 
->> @@ -3089,13 +3092,16 @@ static int fbnic_queue_stop(struct net_device *dev, void *qmem, int idx)
->>  	napi_disable_locked(&nv->napi);
->>  	fbnic_nv_irq_disable(nv);
->>  
->> -	for (i = 0; i < nv->txt_count; i++)
->> +	for (i = 0; i < nv->txt_count; i++) {
->> +		if (nv->qt[i].sub0.flags & FBNIC_RING_F_DISABLED)
->> +			continue;
->>  		netif_stop_subqueue(dev, nv->qt[i].sub0.q_idx);
->> +	}
->>  	fbnic_nv_disable(fbn, nv);
+>> +    ip(f"link set dev {cfg.dev['ifname']} down")
+>> +    defer(ip, f"link set dev {cfg.dev['ifname']} up")
+>> +
+>> +    stats2 = ethnl.tsinfo_get(req).get("stats", {})
+>> +    for k in stats:
+>> +        ksft_ge(stats2[k], stats[k], comment=f"{k} went backwards on device down")
 > 
-> [Severity: High]
-> This isn't a bug introduced by this patch, but does anything here wait
-> for an fbnic_xmit_frame() call that is already running on another CPU?
+> [Severity: Low]
+> What happens here if a counter that was reported while the link was up is
+> missing from the reply after ifdown?
 > 
-> netif_stop_subqueue() only sets __QUEUE_STATE_DRV_XOFF. Nothing calls
-> __netif_tx_lock() or synchronize_net() before fbnic_nv_disable(),
-> fbnic_wait_queue_idle() and fbnic_nv_flush() run. Only the full-down
-> path in fbnic_pci.c uses netif_tx_disable().
+> The kernel only puts counters in the reply when the driver filled them in.
+> tsinfo_prepare_data() resets every counter on each query:
 > 
-> A sender may pass the netif_xmit_frozen_or_stopped() check before the
-> bit is set. It can then still be inside fbnic_tx_map(), writing
-> tx_buf[], ring->tail and the BQL state, and ringing the doorbell.
-> 
-> Suppose it sets ring->tail after fbnic_nv_flush() has run:
-> 
-> fbnic_nv_flush()
->     fbnic_clean_twq0(nv, 0, &qt->sub0, true, qt->sub0.tail);
+> net/ethtool/tsinfo.c:tsinfo_prepare_data() {
 >     ...
->     netdev_tx_reset_queue(tx_queue);
-> 
-> Is the skb and its DMA mapping then leaked once __fbnic_nv_restart()
-> re-enables the ring and fbnic_enable_twq0() resets head/tail to 0? BQL
-> would also keep in-flight bytes that never complete, and that can
-> stall the Tx queue.
-> 
-> Now suppose the sender is delayed until after fbnic_enable_twq0() has
-> done this:
-> 
-> 	twq->tail = 0;
-> 	twq->head = 0;
-> 
-> It would then write a stale ring->tail and ring the doorbell, and the
-> hardware would fetch old descriptors whose buffers are already
-> unmapped. Could those completions make fbnic_clean_twq0() read a NULL
-> ring->tx_buf[] entry and dereference FBNIC_XMIT_CB(skb)->desc_count on
-> it?
-> 
-> To hit this, a queue restart (netdev bind-rx devmem, io_uring zcrx) has
-> to run on an Rx queue whose NAPI vector also serves a combined Tx queue,
-> while another CPU is sending on that Tx queue.
-> 
->>  
->>  	for (t = 0; t < nv->txt_count + nv->rxt_count; t++) {
->>  		err = fbnic_wait_queue_idle(fbn, t >= nv->txt_count,
->> -					    nv->qt[t].sub0.q_idx);
->> +					    nv->qt[t].cmpl.q_idx);
-> 
-
-This finding looks legit. I'd prefer to submit a fix for this separately,
-and I can try to repro on HW in the meantime.
-
-> [Severity: Medium]
-> On an Rx-only vector the Tx triad has sub0 disabled and carries only the
-> XDP TWQ1 ring, so this call becomes fbnic_wait_queue_idle(fbn, false,
-> txq_idx). Does fbnic_wait_queue_idle() actually cover TWQ1 of that
-> queue?
-> 
-> It builds a single bit from the queue index and tests that bit in all
-> four Tx idle arrays:
-> 
-> fbnic_wait_queue_idle() {
->     ...
-> 	off = idx / 32;
-> 	mask = BIT(idx % 32);
+> 	ethtool_stats_init((u64 *)&data->stats,
+> 				   sizeof(data->stats) / sizeof(u64));
 >     ...
 > }
 > 
-> The TWQ, TQS and TDE idle arrays are twice as wide as the TCQ one:
+> Then tsinfo_put_stat() skips any counter that is still unset:
 > 
-> #define FBNIC_QM_TWQ_IDLE_CNT			8
-> #define FBNIC_QM_TCQ_IDLE_CNT			4
-> #define FBNIC_QM_TQS_IDLE_CNT			8
-> #define FBNIC_QM_TDE_IDLE_CNT			8
+> net/ethtool/tsinfo.c:tsinfo_put_stat() {
+> 	if (val == ETHTOOL_STAT_NOT_SET)
+> 		return 0;
+>     ...
+> }
 > 
-> There are 128 queues with two work queues each (TWQ0 and TWQ1), so this
-> looks like one bit per TWQ. fbnic_wait_all_queues_idle() reads all 8
-> registers, but fbnic_wait_queue_idle() only reads registers 0 to 3.
+> So the second reply can contain fewer keys than the first. When that
+> happens, stats2[k] raises KeyError before ksft_ge() runs.
 > 
-> If bit idx maps to TWQ0, it is always idle here, because TWQ0 is
-> FBNIC_RING_F_DISABLED on this triad. The TWQ1 ring that carries XDP_TX
-> traffic would then never be polled.
+> This already happens with wangxun ngbe/txgbe. On ifdown, ngbe_close() and
+> txgbe_close() call wx_ptp_stop(), which does:
 > 
-> Next, fbnic_queue_stop() calls fbnic_nv_flush(), which runs
-> fbnic_clean_twq1() and unmaps the XDP buffers. Could the hardware still
-> be fetching TWQ1 descriptors at that point?
+> 	if (wx->ptp_clock) {
+> 		ptp_clock_unregister(wx->ptp_clock);
+> 		wx->ptp_clock = NULL;
+> 		...
+> 	}
 > 
-> The bit layout isn't documented in-tree, so the answer depends on the
-> hardware. The commit message gives "fbnic_wait_queue_idle(tx, 39)" as
-> the wait on the vector's XDP Tx queue. Is that wait enough to cover
-> TWQ1?
+> After that, wx_get_ptp_stats() fills nothing while the link is down:
 > 
->>  		if (err)
->>  			goto err_restart;
->>  	}
+> 	if (wx->ptp_clock) {
+> 		ts_stats->pkts = wx->tx_hwtstamp_pkts;
+> 		...
+> 	}
+> 
+> ksft_run() catches the KeyError and still marks the test as failed. The
+> output is a Python traceback, though, and not the "went backwards on device
+> down" message.
+> 
+> Would it be better to check that the key is present first, for example
+> with ksft_in(k, stats2, ...), before calling ksft_ge()?
+> 
+> Also, when ETHTOOL_FLAG_STATS is set, tsinfo_fill_reply()->tsinfo_put_stats()
+> always adds the stats nest to the reply. The {} default in
+> .get("stats", {}) therefore never takes effect, and it can be dropped.
 > 
 
-This also looks legit, and I can submit a fix in a subsequent series.
-
+The preference is for the test to fail, as this is unexpected behavior.
