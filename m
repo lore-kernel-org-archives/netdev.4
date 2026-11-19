@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795118564;
-	b=gtyWL0MpBDM3+ubmoRV8FLjg60zbe3R230cqXaHD9fM/UCQ4qwIfi/RBs3rnKBoajU1J
-	 ip58SfPlRcVNEmltr9v6fd9+MId1q+0QxZp+m+DJSlXuEg2JrimCz+huAdvuC6rdHDmYw
-	 pnmzy9LKCB7P/1qPxapZiiWYVhIKKtKs1W9bhUd5ZT222+jNikFbuWmt3WXgPPLqIflV1
-	 fnO/qq854815K3a9pyDEtn4QtAvvCKkmRmGmGL95GQjfludsth5yVmITDqHGh+kGhux5Y
-	 ZqJnML026/IaywiDD6bqaRg7FwoNIoorxK/f7BKThmzGQmxcX3aDBCaAm5xcxfuj4JA==
+	t=1795118562;
+	b=cNZ3jwKiorpxrGfbp8CaHbChEcjtXWPU/Uzs1pZJ472zrKdpzlKp5PiQ+3AGymucPcVa
+	 QefD3kzudvHIbHVqDAHQTdc1fyKuY3zbVDgBTVL2PS3xivXjBv0m+cjTPq4MZrVDfSN6c
+	 MtabZbIVeExDNpJja8rcCE5OKpuTqjaYGDPo8apzoF5eXfPLT/DqkybbZA0btLtXjdq98
+	 J352fTbxUCE6MS9rM+DP0DnXPDDkTtJmKHa/vCPOdWwBL6AM8F/iMg7Q2zjLWpB+hWlYm
+	 mH1hKRQQZ4FoXjhGcsmGKeNHFEHuTA8ZpyDN9Oit5FDqekvzuZ++NivLOES4RWFec2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118564;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118562;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=dxfb/sPVGMZpxQTV2aEE45mRohpQPeNSpNM2wT9CGIs=;
-	b=iALJy3x7AFoLvTKM9mhkHQJZBFw+yFwVECkk88RB9+hA5Pn7CpaQMJslbex4qAS/5om9
-	 Rq/xUnHO5Cq31+u/E1ngfw8AKn0DUbA8N/CF0q5t/WKvMLaEjynGWRA/Klgy2aAgZt/cI
-	 oaIXqh3jqEdf3QTyO6VKOXGheF282s279rGeUdbXt8C+J6fzuU8xvNw84fzjqEiCnvVqZ
-	 xae3v3cmB6+bgkl+3XeA4l30N/7YAq6d/R8026C8y9CvE9o0y6zxSs1ZvHoILy+BGn8LH
-	 EriouJZ1EXQGONUqb3H8ORo7vszIJBlJVeoWqgNuxN1yl7c2m2qRM5VBTBf8B3vq6oQ==
+	bh=yS5HZGb4ZYV7fzhYyCITQ/ILCiUQlwy/aDQIF+31MW8=;
+	b=i31hE0NfRR69/uxeX3XCN8+shdE+Dl8XUq6mPeVaNesWw6frPljEJi2HLK3pTLwR58Yt
+	 II261cAk5mhI6dh2qRdy1nATmUyHBAQHn0hTDIxIrbTnanJAsaGCT29pKFeQ5wA+SCeTu
+	 Y33QtVWt/bK01BJd1l0/71ii8eQ6iZtLXd1+uQHAaYjlSP4Yiixor4OswshooVXDIIzjN
+	 fLghMB0pMx3FquCdQwJEnRjDnNAAvV0hyXv5uZb9OjbKJHVcfo36KZu8mXob2GscXMK6L
+	 ckJ/+CdCl2AqWUVMJmJuyWQGQif7Vu3UUYk/tR4S2s4lqBGdzGsWvEzPTU4NzC4IUgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wd64eoZp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fxU/TGcC";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73D6B606A325;
-	Thu, 19 Nov 2026 20:02:44 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wd64eoZp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37AF1F000C4;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B884606A324;
 	Thu, 19 Nov 2026 20:02:42 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fxU/TGcC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13BDA1F000C6;
+	Thu, 19 Nov 2026 20:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795118564;
-	bh=dxfb/sPVGMZpxQTV2aEE45mRohpQPeNSpNM2wT9CGIs=;
+	s=k20260515; t=1795118562;
+	bh=yS5HZGb4ZYV7fzhYyCITQ/ILCiUQlwy/aDQIF+31MW8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Wd64eoZpcFyspmoEiA3lW8bUq1huqTM++6o1myM267EPbPK6kh9hyyf0OG7osU3VZ
-	 1lzyW7zwqkq40xn+0/BzJfiGEj6jvzCTg8OjqrXXmoKEOcAydTqN2gmOVYJqa5S782
-	 oVrnrzTOHIKy9ROsbzGOOFs2wK2pODChoPU/czT0uDA/+AiDucsvnvP5yKQtHvZYk0
-	 8qgAVKxaYKpbOyJknfT6zHKI1fC2kdOmYM6TNf3kL6u6Y60hIBhqAjlya45KcSqx62
-	 UM2Tygk4nagKUVES8RZH4Rfop5u15+Ny4olZ8inURV5biLc0LbzVyL+Kd4I1DGJzjU
-	 pd/VDFkg2d5Qw==
-Subject: Re: [PATCH net-next v4 2/4] net: dst: keep the LWT metadata of a
- dropped route
+	b=fxU/TGcCrY5xlJwFFLlAn1jTWV0E5hTnmdN+IJB9RNcS+a2vw+7uiwuntML6Sw1d3
+	 Z7fp5QL6FsWvBNluBljxGexs56t7UNh4LZfNHad68IONQMoMsPncnV2376zbbxFwtS
+	 ndGZvc7ZBTPtk5bzUBInv4x19bp1Ach9QXK45SPmNauF4/Y2wGjzEv60klCxoKaoxN
+	 bHT9/bxJEmnW749qgs71MIZE/s+/X2dwZaStZ89ZFDxc/6dMlAd1gR6Nhoh226pkH7
+	 BqmxZxQ7/qDudV1kXRaHI8J4C1bwmMWuAwPSSF0VjaJXN5pO/c2SNOi3b6VhkxcseC
+	 7IVbvd9N+EwPg==
+Subject: Re: [PATCH net-next v4 1/4] net: xfrm: interface: restore dst_orig on
+ every xfrm interface
 From: netdev-bot+sashiko@kernel.org
 To: jhs@mojatatu.com
 Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
@@ -51,10 +51,10 @@ Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  horms@kernel.org, bpf@vger.kernel.org, jiri@resnulli.us, victor@mojatatu.com,
  sashiko-bot@kernel.org
-Date: Thu, 19 Nov 2026 20:02:42 +0000
-Message-ID: <179511856244.3136.14894552339395914339@kernel.org>
-In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-2@mojatatu.com>
-References: <CORE-9NOG.v4.r0.20261116135311-2@mojatatu.com>
+Date: Thu, 19 Nov 2026 20:02:40 +0000
+Message-ID: <179511856062.3136.18243971639206515341@kernel.org>
+In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-1@mojatatu.com>
+References: <CORE-9NOG.v4.r0.20261116135311-1@mojatatu.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,121 +74,101 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message says the ip/ip6 copy "starts with an empty
-  cache, which costs the tunnel one route lookup".
-- [Low] The kernel-doc of skb_dst_drop_keep_metadata() (net/core/dst.c)
-  does not match the implementation in two places.
+- [Low] This commit fixes real, user-visible bugs but carries no Fixes:
+  tag.
+- [Low] The commit message does not mention that the old per-cpu design
+  leaked a route reference, and that this patch fixes the leak.
 
 --
 
-net: dst: keep the LWT metadata of a dropped route
+net: xfrm: interface: restore dst_orig on every xfrm interface
 
-This commit adds skb_dst_drop_keep_metadata(). The helper releases an
-skb's route dst, but first moves the ip/ip6 tunnel info or the xfrm md
-info held in the route's lwtstate onto a newly allocated metadata dst.
-Nothing calls it yet; the nft fwd and bpf redirect patches later in the
-series will use it.
+This commit makes xfrmi_xmit2() restore dst_orig from the xfrm metadata
+in both the collect_md arm and the configured if_id arm. It takes its own
+reference with dst_clone() and drops the metadata dst from the slot
+first. It also switches bpf_skb_set_xfrm_info() from a shared per-cpu
+metadata dst to a per-skb one and removes xfrm_bpf_md_dst.
 
-> diff --git a/net/core/dst.c b/net/core/dst.c
-> index 092861133023c..fd63580e6529d 100644
-> --- a/net/core/dst.c
-> +++ b/net/core/dst.c
-> @@ -353,3 +353,82 @@ void metadata_dst_free_percpu(struct metadata_dst __percpu *md_dst)
+> net: xfrm: interface: restore dst_orig on every xfrm interface
 
 [ ... ]
 
-> + * A dst that is metadata, or absent, is left in place. Any other dst is
-> + * released, and a route with no encapsulation parameters leaves the skb
-> + * with no dst at all.
-> + *
-> + * Return: true when the skb is left free to be sent: its dst was already
-> + * metadata or absent, the encapsulation parameters were moved onto a new
-> + * dst, or there were none and the route was simply released. False when
-> + * the copy could not be allocated or a reference on the route could not
-> + * be taken; the caller must drop the skb.
-> + */
+> The same slot overwrite is in the unstable helper a tc-bpf program uses to
+> attach that metadata: bpf_skb_set_xfrm_info() records the route as dst_orig
+> and installs a per-cpu metadata dst over it. The per-cpu dst is shared by
+> every invocation of the program, so the restore cannot keep anything in it.
+>
+> The Fix:
+> Restore dst_orig in both arms of xfrmi_xmit2(), taking a reference with
+> dst_clone() so the metadata dst keeps its own, and empty the counted slot
+> with skb_dst_drop() before the route is installed. The helper allocates a
+> metadata dst per skb instead of a per-cpu one, so the route it records
+> belongs to that skb and is released with it; the per-cpu allocation is no
+> longer used and goes away.
 
 [Severity: Low]
+Should the commit message also say that the per-cpu design leaked the
+route reference, and that this change fixes the leak?
 
-Does this kernel-doc match what skb_dst_drop_keep_metadata() actually does?
+Before this patch, bpf_skb_set_xfrm_info() moved the skb's reference on
+the route into the shared per-cpu xfrm_md_info:
 
-The Return: section says true means the parameters were moved, or "there
-were none and the route was simply released". The code only keeps
-LWTUNNEL_ENCAP_XFRM, LWTUNNEL_ENCAP_IP and LWTUNNEL_ENCAP_IP6.
+	skb_dst_force(skb);
+	info->dst_orig = skb_dst(skb);
 
-Take a route whose lwtstate is MPLS, ILA, SEG6, SEG6_LOCAL, BPF, RPL or
-IOAM6. It falls through to skb_dst_drop() with md_dst == NULL, its
-encapsulation is thrown away, and the function still returns true, the
-same value documented for "there were none".
+	dst_hold((struct dst_entry *)md_dst);
+	skb_dst_set(skb, (struct dst_entry *)md_dst);
 
-The code is consistent with the two readers the doc names,
-skb_tunnel_info() and skb_xfrm_md_info(). The general wording of the
-contract, though, does not say it is limited to those types.
+Only the collect_md arm of xfrmi_xmit2() returned that reference, by
+clearing md_info->dst_orig. Some packets never reach that arm:
+TC_ACT_SHOT, a redirect to a non-xfrm device, an xfrm interface with a
+configured if_id, or any drop before xmit. For those packets, the next
+helper call on the same CPU overwrote info->dst_orig without calling
+dst_release().
 
-Also, "Any other dst is released" does not hold for the xfrm branch:
+xfrm_bpf_md_dst is never freed, so metadata_dst_free_percpu() never runs
+for it. The route therefore leaks, along with the net_device reference it
+holds. That can leave the device stuck in "unregister_netdevice: waiting
+for <dev> to become free".
 
-    md_dst->u.xfrm_info.dst_orig = old;
-    skb_dstref_steal(skb);
-    skb_dst_set(skb, &md_dst->dst);
+With the per-skb metadata dst, the route is released when the metadata
+dst is destroyed:
 
-In that branch the route is not released. It keeps a counted reference
-inside the metadata dst, which is what the earlier sentence "for xfrm the
-route is kept" describes.
+dst_destroy()
+  metadata_dst_free()
+    dst_release(md_dst->u.xfrm_info.dst_orig);
 
-The v4 changelog says this Return: section was meant to be corrected.
-Could these two points be covered as well?
-
-> +bool skb_dst_drop_keep_metadata(struct sk_buff *skb)
-> +{
+At the moment the message only says the per-cpu allocation goes away.
+Could it mention the leak as well?
 
 [ ... ]
 
-> +	if (old->lwtstate &&
-> +	    (old->lwtstate->type == LWTUNNEL_ENCAP_IP ||
-> +	     old->lwtstate->type == LWTUNNEL_ENCAP_IP6)) {
-> +		struct ip_tunnel_info *src = lwt_tun_info(old->lwtstate);
-> +		struct ip_tunnel_info *dst;
-> +
-> +		md_dst = metadata_dst_alloc(src->options_len,
-> +					    METADATA_IP_TUNNEL, GFP_ATOMIC);
+> Reviewed-by: Victor Nogueira <victor@mojatatu.com>
+> Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
 
 [Severity: Low]
+Should this patch have a Fixes: tag?
 
-The commit message says:
+These three pieces all appear to come from the same commit:
 
-    the copy starts with an empty cache, which costs the tunnel one
-    route lookup.
+- the per-cpu metadata dst in bpf_skb_set_xfrm_info()
+- the xfrm_bpf_md_dst pointer in net/core/filter.c
+- the collect_md-only dst_orig restore in xfrmi_xmit2()
 
-Is that accurate? This metadata_dst_alloc() runs with GFP_ATOMIC once per
-skb, and dst_cache_init() is never called on md_dst->u.tun_info.dst_cache.
-__metadata_dst_init() memsets the payload, so dst_cache.cache stays NULL:
+That commit is:
 
-net/core/dst.c:__metadata_dst_init() {
-    ...
-	memset(dst + 1, 0, sizeof(*md_dst) + optslen - sizeof(*dst));
-    ...
-}
+Fixes: 94151f5aa966 ("xfrm: interface: Add unstable helpers for setting/getting XFRM metadata from TC-BPF")
 
-With a NULL cache, dst_cache_get_ip4() and dst_cache_get_ip6() return NULL,
-and dst_cache_set_ip4() and dst_cache_set_ip6() store nothing. So the copy
-has no cache at all, not an empty one.
+The configured if_id drop and the clone sharing problem date back to
+that commit as well. The slot overwrite started to warn, or panic with
+panic_on_warn, only after a890348adcc9 ("net: Add skb_dst_check_unset")
+added this check:
 
-The route's own lwtstate has a shared, persistent cache, set up by
-dst_cache_init() in ip_tun_build_state(). Before this series the tunnel
-used that cache through skb_tunnel_info().
+	DEBUG_NET_WARN_ON_ONCE((skb->_skb_refdst & SKB_DST_PTRMASK) &&
+			       !(skb->_skb_refdst & SKB_DST_NOREF));
 
-Later in the series, nft_fwd_neigh_eval() and __bpf_redirect_neigh_v4/v6()
-call this helper. At that point, wouldn't every steered packet over an
-ip/ip6 encap route cost a GFP_ATOMIC metadata_dst allocation, an
-RCU-deferred free, and a full route lookup in the collect_md tunnel?
-
-Could the commit message say that the cost is per packet and that it adds
-an allocation?
-
-> +		if (!md_dst)
-> +			return false;
-
-[ ... ]
+The message says the tc-bpf case needs no other patch from the series.
+Without the tag, stable tooling can't tell how far back the fix applies.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v4.r0.20261116135311%40mojatatu.com
