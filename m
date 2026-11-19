@@ -1,101 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795113945;
-	b=tCuNIgyHD+m/7EDlLS63iLCca7Zai3ce7OU9D3v0AfeXS8CUDae7nXmpz93kVj2u8oFZ
-	 SVcsn+UsBV+fOF8KAqAMbcWDSt+b3pUBxCK58W3fPhDdKBGl2loJlQY7xMq1jQrlehALQ
-	 PDcKq0eKR2v8Gnt/9strp9hwLFL4vN/tX8Irr5712KJEaFbBRuCtPsyk1V+4vt2NpMoQk
-	 eR2+PxwQe81zsftLLnMi2ZcKcXLce3wwKrnE6E5IAaTsGAYdQbsIzrz4dtkhTGavtLtTp
-	 TKdNPbqluo7GAkD8jeyYNcTbMtJzFNCPCdQuGoCrQy52MKCyyov/RxiiZJj5Cfn7g2g==
+	t=1795114009;
+	b=BGLuKn4TXL6KEHFSnPfA31MmGbt9s06FnNR8FdI6tk7B8Qoixt45Uvg9IJY6a6NzGI9J
+	 70yX1Owegcbr6K7AhyWD5KBXXj+ySINMXPGRtnM94uXt2EQvAEMX6w3WrINQY9Z+/0JUu
+	 7vdpB2QT5uA231WwNFZzN7I938QeacYS/HJ4p1X3oM8g5A8p3tvfun+ZUui3GctPXMx8A
+	 NOJU4H2wlGJpynFcN0bU6Cc9eYDfLOyTqlI7dR5krOdQdSo7wnj0XUISr5ISMUuUY8Vak
+	 qdhc4H+DTAhnouSBS6OYXoFmv9IZvra4o4nl6FHFOzMbQg9GHS3V39mnnZR8F8PD9Pw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113945;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Sv8olJzUFogc1iQqa1YZUkBH+/6GFReCOOw7AF+hLEw=;
-	b=Iap7GutqdY69tRAvu2gx6rLvdyZqJTEqL4YkmExleHUnxi0iEjIT4yNyWIgOk3AGOijh
-	 yfCW+cZl2S2AE9cFKIQqntHYC7T16vJi/7RVXKzvn8BloHDFDbQf7lt4HywU/2pK/tn4I
-	 U5X5V+ynXq/enxW5BD6vVfxD7+5uyTIv6WmlPbu1l5XyDima5anpz2ObHMK9zZHRSp4EK
-	 Yy3VmMbnhb5CGkNxjXvYUq2uEEznYtfiGoqqtrhiwfEk3YFXXPW6Mfx1MiU2TcCSRzD1u
-	 8BU8Hb2lwaPRViY8DOZgenI/cjk6pEZMieN8VtJh9L6pCbcsMlXA6nK1XRHjkguxG2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795114009;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=tpiPU8++XfQSCP9ULe9LXdelFvKTKcALUKX3kHYjn+4=;
+	b=pCZcBtWD1gjttgFRZKswRRxQqDWQNEwPtJPONb/3/RADqwfmBTfEZ+nCJxzqHLjtAtP/
+	 dgDV2kMkymBJE9PqLBI7qmb9Xl9oe1HZluKlLhtqA/mpb48cWS7hbBsihzvFbacAJHpv7
+	 /s8rGo0U8yZgP8E8GN3aOzsNJ0oA2bI1t6fuodxaiv5SJKQaG4xnPwvj0tBMH5ZVq/Cft
+	 yPDOJcSrLGGImfVthH6krJ2xmcS8so0DXtuMbyLCWaX684jnLKFARvQOEUS2+I71/kc15
+	 ZnX3igblkX/BV9ZT9CU8DQrZrFExI64cTH8OjIK1SwADB/pDa2gu6+qsTVSmJ1+ccpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mjsISXao;
-	arc=none smtp.remote-ip=209.85.222.173
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fUNG9Hmm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46B79606A331
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:45:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46B79606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EBF5606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:46:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mjsISXao
-Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-9496400270fso8162685a.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:45:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795113944; x=1795718744; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Sv8olJzUFogc1iQqa1YZUkBH+/6GFReCOOw7AF+hLEw=;
-        b=mjsISXao+1fqWbCM2EmEZT24xMN2dtJQyiVGCHZmYNtxPU0aZtbvytwe1VkM2FZgyf
-         lb1LvEv4c71QJ+hbmUSevk6L0FEeSoEIEa1e52CInSYxyGpmh2/HDUytIQZQcCzfLBqM
-         hm1mA+68xJjp3rxm61rSIEi6kFHxy75oZ5bihX61FTD4+XVxD6o6X6mtbHkr1to00E8r
-         1Qhj2/lXJukRLsyXIUeNVqpQO2a8xgz9+55XX+NHgIGkNcMJJEgt+4d5EgHPwcdiHJwc
-         Jb4CV+rl5kA8HaaU4gy4ga/WAYZS2BQ7O3DtMedvlPbW+dj7eXH0bU3cf6Mqm2PF12Cw
-         rXzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795113944; x=1795718744;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Sv8olJzUFogc1iQqa1YZUkBH+/6GFReCOOw7AF+hLEw=;
-        b=Y58fVT+4lHmInUPew3r+p3BWEK50OzOiyFUBz+R91Sh8tU5adJU8gKousbJkEiXo3i
-         RpD2WND1hNM+Ok+JsuOAbApprlDX7b2CugKnE7Ih+9kVM2xK7g7DmYz1GKPAcQ+CWN9l
-         t3SUfr1FvfFsaNflqfJqaew4GCGXkM3q6U7A45StaTjcUTA5m4G8RJ2WFOWezIGvWkiw
-         EQ7v0+PQuoRmqARQpxHPTtUyduvV5idFOaUy/jEOZV2geeR7LJtQRiR5s9N9fCxj7Q5f
-         LfKbydPptRtVAs685DUj5ZfNUhp9m6UTMqqlleMJxqpLntY0xOR+2LYVxoORcYrYj6kN
-         DPhQ==
-X-Forwarded-Encrypted: i=1; AL+hErG9yEScw7V/b72izOpgj3iw2b4jNTn4m9HEKYV8nHiwcw+Z+6K5xsg4tRb5ULRGgQhBStrysXk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SMGYeuAnWgWVSjRGPOe1roJIkGAvfKLAtkUDnI9r2lSx6Jc0x
-	dBM7RAANRSO96+jWQT5WmMsYSaFM+8IBxlBJKS6hmDNezHsVvRdOiZgG
-X-Gm-Gg: AYBFou1+s5tU3j5FCNYsUlMNNun4imCKqfp9jNh59gzyXbsz3yvozarS2TyEF3wnRwV
-	9gKmhwZGIqLBrGDHj1QofGG4F5V/WRdYArlpjBvlBKEiY/WntXRiPxj5xyUlEE4FnViVjfsJy/8
-	3CvWnjmWyWOcdaJyFrRm8+LoXpqfb9l+MLGJgWOjJGz/3nix4QO6KWiDiEktcUxtxlo1oc8tkhZ
-	JFiRjj0nQz/zFSXv33qzseC9+YCnHUgrNREvckVIFfwTqrJiA40AJHnhK7GHiN2odX3CM9XleTY
-	Atno48bi/5Zdb+5mEjfh5VgvN1Eb0D/gWIRWQuG8nHgQOpfWWA6hG9IJllkz+LL8EfmMMtdAq5l
-	wXa6pt3cOT5PCfWpIR8DN+cIP5ds7WtJPTuj8LaAyzFcLVycKPDhZeoCZBLaQoAisVahIqtkz6o
-	cOjcVDhYBU26TMShWWNEEt7i/US98X+y4l4Q5SvzuyahaWeFgUQPvGptn0rCXF0HrFuMWXhERgF
-	KhbRFoFqk13eFGRrU7uxyEKr2nhuItNRjwE9WkFFZR3QoNyLt27qVLWV3FYkYlxFhwWI1xvHpz0
-	7Z4A2yAtIfGGOoo4tjo4zvYw1Rc+MSvfWnWQw4y+BeltNm4Oq1uN4XXjvWPpKsYuzWE1ZP/vWkS
-	6paVo2ahM5SBmVJKCtqEwV72Ds95MaVz+ZjAixL0QA5N3QNqBYmrkYkAi+Ys3vk48FOLcxBrdzV
-	ALPNHU01Nbom6NpduX6EmJzmWYwnM=
-X-Received: by 2002:a05:620a:271a:b0:949:7473:b1a5 with SMTP id af79cd13be357-949bab1d726mr76159685a.55.1795113944016;
-        Thu, 19 Nov 2026 10:45:44 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c935:f347:a919:9f78])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3c2abesm21186085a.26.2026.11.19.10.45.43
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 10:45:43 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] rxrpc: Fix RxGK server to reject an expired ticket
-Date: Thu, 19 Nov 2026 13:45:41 -0500
-Message-ID: <20261119184541.26343-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fUNG9Hmm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 115411F000CE
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:46:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795114009;
+	bh=tpiPU8++XfQSCP9ULe9LXdelFvKTKcALUKX3kHYjn+4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=fUNG9Hmmpnw906AVNfBTDC24dtOuJFtFSrE4knpssFOSWboTWgU/TUr/Fzor9QkD5
+	 Z1wC8SKht2FYjEBPA2qVVbDmz61NVZrfbJyHVTloXjzmVbsgycNAUugiLyzT0gz53u
+	 afA9XGO7x/cjK8lYSUlAqH4E8JshyiZeklTcrQw8uVnxN2zq4WX+Wwvm5bhJe4k93D
+	 3lhw/vnDiYT9uJZBUrR+saoY3Qr1RwzooKtI9/H8Vl8d5tCdbR1MNhcj9VS4NRz7Bm
+	 +d9GUoxbMuBhqZTrCS0QQa77gmAPWaIHzxOzFBmaBOyWZG74QNOq7GApeAoJhITJrR
+	 CFcG04gVC5LOA==
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-4b0348a4c79so112444fac.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:46:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEvq8dPnP8vhKM083O5KiKjzbkWuDvKxWKggaWpofHCwHHNwCHMSC1fomu0X+vGnGFQzw3/leM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UtwGfskfJcDqT0luIXX5dmVju2AK6OjgXzLr0JD/2yuLBQW5B
+	CtRiVEfWI8LXglnywd+NWLxlnWbQXdR8efGnos/ZDUt+nyqqmcYAyqukk2EYsJ5YtD5mMW0i7Br
+	QajejkD95/5MKeCyexijagII9yuVKDn4=
+X-Received: by 2002:a05:6870:9d98:b0:442:175:cea7 with SMTP id
+ 586e51a60fabf-4bc7beb0334mr556077fac.1.1795114008363; Thu, 19 Nov 2026
+ 10:46:48 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,87 +59,220 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261119180143.2912138-1-chia-yu.chang@nokia-bell-labs.com> <20261119180143.2912138-2-chia-yu.chang@nokia-bell-labs.com>
+In-Reply-To: <20261119180143.2912138-2-chia-yu.chang@nokia-bell-labs.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 19:46:37 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirdYsiR9a2BtHO4MtPtJX3st48mtfAwTvzft5JuQXT59g@mail.gmail.com>
+X-Gm-Features: AclHuK-tsqmjCJGsuoHtwqpC8EpbRAKIkGBsk_sdnPDFvh8WOjjREis7vqFOKyo
+Message-ID: <CAL4WiirdYsiR9a2BtHO4MtPtJX3st48mtfAwTvzft5JuQXT59g@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 1/4] tcp: export CE count in rate_sample
+To: chia-yu.chang@nokia-bell-labs.com
+Cc: linux-kernel@vger.kernel.org, kuba@kernel.org, netdev@vger.kernel.org, 
+	pabeni@redhat.com, davem@davemloft.net, kuniyu@google.com, ij@kernel.org, 
+	ncardwell@google.com, koen0607@gmail.com, g.white@cablelabs.com, 
+	ingemar.s.johansson@ericsson.com, mirja.kuehlewind@ericsson.com, 
+	cheshire@apple.com, rs.ietf@gmx.at, Jason_Livingood@comcast.com, 
+	vidhi_goel@apple.com, Mike_Rudolph@comcast.com, Jeff_Howe@comcast.com, 
+	srichard@netapp.com, Olivier Tilmans <olivier.tilmans@nokia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-rxgk_yfs_decode_ticket() decodes the ticket in a RESPONSE and builds a
-key from it, with the key's expiry set from the ticket's expiration
-time. Nothing checks that expiry before the connection is set up, so a
-client holding a token whose ticket has expired can still open a
-connection and have its calls delivered to the service. Section 6.3 of
-draft-wilkinson-afs3-rxgk-afs-08 says servers must reject connections
-secured with an expired token, and rxkad already rejects an expired
-ticket in rxkad_decrypt_ticket().
+Le jeu. 19 nov. 2026 =C3=A0 19:01, <chia-yu.chang@nokia-bell-labs.com> a =
+=C3=A9crit :
+>
+> From: Ilpo J=C3=A4rvinen <ij@kernel.org>
+>
+> Store the number of newly ACKed/SACKed CE-marked packets in rate_sample.
+> This will be used by upcoming congestion control algorithms, e.g.,
+> TCP Prague, that need access to AccECN-derived congestion info.
+>
+> For RFC3168 ECN mode, acked_sacked_ce equals delivered when FLAG_ECE
+> is present. For AccECN mode, it carries the derived CE-marked packets
+> from AccECN options or ACE field based on RFC9768.
+>
+> Signed-off-by: Ilpo J=C3=A4rvinen <ij@kernel.org>
+> Co-developed-by: Olivier Tilmans <olivier.tilmans@nokia.com>
+> Signed-off-by: Olivier Tilmans <olivier.tilmans@nokia.com>
+> Co-developed-by: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
+> Signed-off-by: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
+>
+> --
+> v3:
+> - Improve commit message
+> - Rename ece_delta to acked_sacked_ce
+> - Remove redundant rate_sample initializer
+> ---
+>  include/net/tcp.h    |  1 +
+>  net/ipv4/tcp_input.c | 40 +++++++++++++++++++---------------------
+>  2 files changed, 20 insertions(+), 21 deletions(-)
+>
+> diff --git a/include/net/tcp.h b/include/net/tcp.h
+> index 25d11fab1b03..4b1159e6c125 100644
+> --- a/include/net/tcp.h
+> +++ b/include/net/tcp.h
+> @@ -1353,6 +1353,7 @@ struct rate_sample {
+>         long rtt_us;            /* RTT of last (S)ACKed packet (or -1) */
+>         int  losses;            /* number of packets marked lost upon ACK=
+ */
+>         u32  acked_sacked;      /* number of packets newly (S)ACKed upon =
+ACK */
+> +       u32  acked_sacked_ce;   /* number of packets ECE-marked upon ACK =
+*/
 
-Check the key with key_validate() after it is instantiated, and abort
-the connection with RXGK_EXPIRED if the ticket has expired. A ticket
-that expires while a connection is open is not handled here. As with
-rxkad, the server keeps accepting calls on that connection but can't
-send replies.
+I presume you meant "CE-marked" instead of "ECE-marked"
 
-Reproduced on v7.4-rc3 under QEMU with the in-kernel rxperf server and a
-small userspace client. The client's token has an end time in the
-future, because the client won't use an expired token, but the ticket
-inside it (encrypted with rxperf's test server key) expired 30 days ago.
-Without the patch the connection is set up and rxperf reads the whole
-request. Only its reply fails, with -EKEYEXPIRED. With the patch the
-connection is aborted with RXGK_EXPIRED and no request data reaches
-rxperf. A token with an unexpired ticket works either way. No other
-kernel changes, debug code or error injection were used. There is no
-rxrpc selftest.
+>         u32  prior_in_flight;   /* in flight before this ACK */
+>         u32  last_end_seq;      /* end_seq of most recently ACKed packet =
+*/
+>         bool is_app_limited;    /* is sample from packet with bubble in p=
+ipe? */
+> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+> index 67e4aa73bd6a..72826cafa246 100644
+> --- a/net/ipv4/tcp_input.c
+> +++ b/net/ipv4/tcp_input.c
+> @@ -616,9 +616,10 @@ static u32 __tcp_accecn_process(struct sock *sk, con=
+st struct sk_buff *skb,
+>         return safe_delta;
+>  }
+>
+> -static u32 tcp_accecn_process(struct sock *sk, const struct sk_buff *skb=
+,
+> -                             u32 delivered_pkts, u32 delivered_bytes,
+> -                             u64 prior_bytes_acked, int *flag)
+> +static void tcp_accecn_process(struct sock *sk, struct rate_sample *rs,
+> +                              const struct sk_buff *skb, u32 delivered_p=
+kts,
+> +                              u32 delivered_bytes, u64 prior_bytes_acked=
+,
+> +                              int *flag)
+>  {
+>         struct tcp_sock *tp =3D tcp_sk(sk);
+>         u32 delta;
+> @@ -628,11 +629,11 @@ static u32 tcp_accecn_process(struct sock *sk, cons=
+t struct sk_buff *skb,
+>         if (delta > 0) {
+>                 tcp_count_delivered_ce(tp, delta);
+>                 *flag |=3D FLAG_ECE;
+> +               rs->acked_sacked_ce =3D delta;
+>                 /* Recalculate header predictor */
+>                 if (tp->pred_flags)
+>                         tcp_fast_path_on(tp);
+>         }
+> -       return delta;
+>  }
+>
+>  /* Buffer size and advertised window tuning.
+> @@ -4248,8 +4249,8 @@ static void tcp_xmit_recovery(struct sock *sk, int =
+rexmit)
+>  }
+>
+>  /* Returns the number of packets newly acked or sacked by the current AC=
+K */
+> -static u32 tcp_newly_delivered(struct sock *sk, u32 prior_delivered,
+> -                              u32 ecn_count, int flag)
+> +static u32 tcp_newly_delivered(struct sock *sk, struct rate_sample *rs,
+> +                              u32 prior_delivered, int flag)
+>  {
+>         const struct net *net =3D sock_net(sk);
+>         struct tcp_sock *tp =3D tcp_sk(sk);
+> @@ -4260,8 +4261,9 @@ static u32 tcp_newly_delivered(struct sock *sk, u32=
+ prior_delivered,
+>
+>         if (flag & FLAG_ECE) {
+>                 if (tcp_ecn_mode_rfc3168(tp))
+> -                       ecn_count =3D delivered;
+> -               NET_ADD_STATS(net, LINUX_MIB_TCPDELIVEREDCE, ecn_count);
+> +                       rs->acked_sacked_ce =3D delivered;
+> +               NET_ADD_STATS(net, LINUX_MIB_TCPDELIVEREDCE,
+> +                             rs->acked_sacked_ce);
 
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with the same tool and reviewed
-by me.
+In RFC 3168 mode this is every packet delivered by an ACK carrying
+ECE, not the number of CE-marked packets. This was fine for a MIB
+counter, but once exposed to congestion control modules it should be
+documented in the field comment, especially since rate_sample already
+has delivered_ce with a different meaning.
 
-Fixes: 9d1d2b59341f ("rxrpc: rxgk: Implement the yfs-rxgk security class (GSSAPI)")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
----
-A reproducer is available on request.
-
-David, this takes enum rxrpc_abort_reason to 128 entries. Your pending
-"rxrpc: Fix packet encryption error handling" adds one more, so with
-both it has 129. In a small test, clang treats a __mode(byte) enum as
-signed and warns that the 129th value wraps to -128. I can reuse an
-existing reason instead if you prefer.
-
- include/trace/events/rxrpc.h | 1 +
- net/rxrpc/rxgk_app.c         | 7 +++++++
- 2 files changed, 8 insertions(+)
-
-diff --git a/include/trace/events/rxrpc.h b/include/trace/events/rxrpc.h
-index 56dc9b614071..684034c67c69 100644
---- a/include/trace/events/rxrpc.h
-+++ b/include/trace/events/rxrpc.h
-@@ -97,6 +97,7 @@
- 	EM(rxgk_abort_resp_short_yfs_key,	"rxgk-resp-short-yfs-key") \
- 	EM(rxgk_abort_resp_short_yfs_tkt,	"rxgk-resp-short-yfs-tkt") \
- 	EM(rxgk_abort_resp_tok_dec,		"rxgk-resp-tok-dec")	\
-+	EM(rxgk_abort_resp_tok_expired,		"rxgk-resp-tok-expired") \
- 	EM(rxgk_abort_resp_tok_internal_error,	"rxgk-resp-tok-int-err") \
- 	EM(rxgk_abort_resp_tok_keyerr,		"rxgk-resp-tok-keyerr")	\
- 	EM(rxgk_abort_resp_tok_nokey,		"rxgk-resp-tok-nokey")	\
-diff --git a/net/rxrpc/rxgk_app.c b/net/rxrpc/rxgk_app.c
-index 200a30064fae..34a3bdea531d 100644
---- a/net/rxrpc/rxgk_app.c
-+++ b/net/rxrpc/rxgk_app.c
-@@ -147,6 +147,13 @@ int rxgk_yfs_decode_ticket(struct rxrpc_connection *conn, struct sk_buff *skb,
- 	if (ret < 0)
- 		goto error_key;
- 
-+	ret = key_validate(key);
-+	if (ret < 0) {
-+		ret = rxrpc_abort_conn(conn, skb, RXGK_EXPIRED, ret,
-+				       rxgk_abort_resp_tok_expired);
-+		goto error_key;
-+	}
-+
- 	token = key->payload.data[0];
- 	token->no_leak_key = true;
- 	*_key = key;
-
-base-commit: 1e575bda30acc0bf01f799cee798d4a1c100d538
--- 
-2.43.0
-
+>         }
+>
+>         return delivered;
+> @@ -4327,7 +4329,6 @@ static int tcp_ack(struct sock *sk, const struct sk=
+_buff *skb, int flag)
+>         u32 delivered =3D tp->delivered;
+>         u32 lost =3D tp->lost;
+>         int rexmit =3D REXMIT_NONE; /* Flag to (re)transmit to recover lo=
+sses */
+> -       u32 ecn_count =3D 0;        /* Did we receive ECE/an AccECN ACE u=
+pdate? */
+>         u32 prior_fack;
+>
+>         sack_state.first_sackt =3D 0;
+> @@ -4441,10 +4442,9 @@ static int tcp_ack(struct sock *sk, const struct s=
+k_buff *skb, int flag)
+>         tcp_rack_update_reo_wnd(sk, &rs);
+>
+>         if (tcp_ecn_mode_accecn(tp))
+> -               ecn_count =3D tcp_accecn_process(sk, skb,
+> -                                              tp->delivered - delivered,
+> -                                              sack_state.delivered_bytes=
+,
+> -                                              prior_bytes_acked, &flag);
+> +               tcp_accecn_process(sk, &rs, skb, tp->delivered - delivere=
+d,
+> +                                  sack_state.delivered_bytes,
+> +                                  prior_bytes_acked, &flag);
+>
+>         tcp_in_ack_event(sk, flag);
+>
+> @@ -4470,7 +4470,7 @@ static int tcp_ack(struct sock *sk, const struct sk=
+_buff *skb, int flag)
+>         if ((flag & FLAG_FORWARD_PROGRESS) || !(flag & FLAG_NOT_DUP))
+>                 sk_dst_confirm(sk);
+>
+> -       delivered =3D tcp_newly_delivered(sk, delivered, ecn_count, flag)=
+;
+> +       delivered =3D tcp_newly_delivered(sk, &rs, delivered, flag);
+>
+>         lost =3D tp->lost - lost;                 /* freshly marked lost =
+*/
+>         rs.is_ack_delayed =3D !!(flag & FLAG_ACK_MAYBE_DELAYED);
+> @@ -4481,17 +4481,15 @@ static int tcp_ack(struct sock *sk, const struct =
+sk_buff *skb, int flag)
+>
+>  no_queue:
+>         if (tcp_ecn_mode_accecn(tp))
+> -               ecn_count =3D tcp_accecn_process(sk, skb,
+> -                                              tp->delivered - delivered,
+> -                                              sack_state.delivered_bytes=
+,
+> -                                              prior_bytes_acked, &flag);
+> -
+> +               tcp_accecn_process(sk, &rs, skb, tp->delivered - delivere=
+d,
+> +                                  sack_state.delivered_bytes,
+> +                                  prior_bytes_acked, &flag);
+>         tcp_in_ack_event(sk, flag);
+>         /* If data was DSACKed, see if we can undo a cwnd reduction. */
+>         if (flag & FLAG_DSACKING_ACK) {
+>                 tcp_fastretrans_alert(sk, prior_snd_una, num_dupack, &fla=
+g,
+>                                       &rexmit);
+> -               tcp_newly_delivered(sk, delivered, ecn_count, flag);
+> +               tcp_newly_delivered(sk, &rs, delivered, flag);
+>         }
+>         /* If this ack opens up a zero window, clear backoff.  It was
+>          * being used to time the probes, and is probably far higher than
+> @@ -4518,7 +4516,7 @@ static int tcp_ack(struct sock *sk, const struct sk=
+_buff *skb, int flag)
+>                                                 &sack_state);
+>                 tcp_fastretrans_alert(sk, prior_snd_una, num_dupack, &fla=
+g,
+>                                       &rexmit);
+> -               tcp_newly_delivered(sk, delivered, ecn_count, flag);
+> +               tcp_newly_delivered(sk, &rs, delivered, flag);
+>                 tcp_xmit_recovery(sk, rexmit);
+>         }
+>
+> --
+> 2.34.1
+>
