@@ -1,98 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795049997;
-	b=goGjfMXhpogWO5KyhLSLy8GMg6sEzj8J6OWk5Wh2v96jEPdZG6IrNl0ZX13JZEa+MBBC
-	 X2TFLitIXy9zoIIkURCxklEOEpmNsVbjpG6OxWWVe15hq29CtSfjjRADMsYoYYfGDJ+/l
-	 0bnAU4hdZgLkKc/UDxer6F5+T8Sysvd2+656K70BtGGSu9A5TKdsX2kkeCFdn9z6MgawO
-	 Ab9OUc2OIJVBuZVZB7zdT5l63MTqwvNGTpiJrr+RKFoe76+SFFIOTlzSJbNbRPvDTkLWx
-	 Ta7Un8KclpInD+4kZDCNL8tkxyGvfCvhjK4ZgyemA64SKW6irvD/+9cnWCG1OezgsDQ==
+	t=1795050000;
+	b=B8As56z4ZCsCbafe/zQkV2Ip7BQGxQETiRQ0djfCr5xCF5hB2Rxm+/OTwq+PUqyleJjc
+	 Zzkhy3GbFWMjbUuua/asYV0p05ukrKOAYaYlRBw0Pc1I793ZRr/Qd47YchwYOxwX23q8G
+	 2vybeMUZ6UAOR/CbT2C66GlIQklm7W8LbOq/0HM6X3ztVmqZ2R/w/fOLV6eu+ES6v5xHj
+	 J9JCGTDTavNTl05rgcDkP8g6MmU0QREgUofmQWF67uldta+6H8Om1AHNUWZnRE6vwpyv+
+	 h/hJdTp6Sd/8q6zXM5fcu13jXWnA/+IXtq0nq+gG8fP945HyMv4mEHYEP6zTgVJuPRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795049997;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050000;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
 	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=drRvNBldGZjy4qZkbZLlOV+QLmaf97VqNGgTP8eyCDU=;
-	b=BaxhMY2SHlLUmbpOE9NkU5+rbIRAjT8/djKLnYzTdAlPq+6Rb+/eXGDYbmdJK9icKCWS
-	 /Mo1smZ2EfOu/9XFtPqe9aRLvvSOfRtdyMwuQUDnSmcy7ZoKBbklCF0QFefrv7C15gr+h
-	 +htFOrQE8ZU3qgLLSMoheyUwbnKBdBZBFA5OJoiZ5lLVfOCw7Ah9Wm1YzvpvIPyQttFS3
-	 VN6/8DzcuLCxewWC1/UkhY7wTUgkDs7T1gNs+JT4ydiOa1TGAHpLPOGeGGubd5w711g1C
-	 6CQiGMbHMLmNpJMdJN4R5+GwXt8aQ0667mLZo4xrEJOFtYRZ5hngfZ2C4rXvZdiTo5Q==
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=uqR8IPHWCdN0LU2FwConSqcYqy8/D1QDNc5O0QVDFsY=;
+	b=lWzBYNlLnT7BxbuLkKhCtCpdT+fYYOFVLhm8Uls5bW+x42UMtmrdiDskrJBGQl9Lj8ym
+	 VhA3F0+3Gs7rdBGHoX8sHwS3Id/poIFGTP0OYjNaIP/hFcLsDxwMDOznAtsj2jkQwEiGQ
+	 gJToD3c1ANPwykLoY/BG3AQYzrBai9TXitmCDUBz2K2N4ctPcUmVsg6K2CfFy1Y6MMeEl
+	 xj1nR0K4ElF4V986p3W7dOup17VcNU3ykCV0nqRvDkLpvwyUBL/WvqsqI4mBXjbqmAZjQ
+	 PAUa/5Ycs3ObcpRmFPVrLXmItPgj+J0Ppcc2sG3h9Pa+R0GuyUQlQLS8JSqNpcZI9aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=BbFBHqj1;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=EOsVzpWg;
+	arc=none smtp.remote-ip=209.85.215.225
+Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7D81606A32C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:59:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7D81606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9092760A260A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:59:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9092760A260A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=BbFBHqj1
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso1115576a12.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:59:56 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=EOsVzpWg
+Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso861927a12.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:59:59 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795049996; x=1795654796;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=drRvNBldGZjy4qZkbZLlOV+QLmaf97VqNGgTP8eyCDU=;
-        b=Wt1O0W+frprihvnfSVjjkmsMNHDnev+iHmiVPBQYNYkZQw496gJXhWNJBW3asSN3zB
-         ZoEOZLkPiw3Ff/ly/2Z+WqKMre/9EhNSLyv0O23ZTtj1mBid9Eo88rq4fxu9nfllLLnZ
-         CVzdLQMoeZ0H98ua/0C9qFRRpvVuFDCx/ad/HXX0LWl2Um69lUtUVgNt8FAlT1seoUJa
-         6a3z7JP6zevrsIdpmK6J5G0Gfp/zHKvW97sIYFGLdOAjavNzOeSjttCaYNsd/CO5aI2G
-         SmeUhiisVKPDaYWSinTCqQq10Oz0Wu1b2WjLrlYprzPR02AurpI1/M7qi25G2lQw904O
-         gXMA==
-X-Gm-Message-State: APuU4Z9JqEMPLZLNSW7NsxnfHyX/eZSq9b4mLIH0VtCOQ28c1G08cvxU
-	9d7GtT77oN9khVu6o8Mvc3HL3lwSuqx+75BnucwNaQcgnXrm6cH3iC8qtWbUxPl6FvZlxCapTOO
-	xzS3AC1ZKF0551VO44aaYVxwMhUUUYUOGUt+Dz92kOZOA+Zgnka6sDZ2E2T/M09t5djkyt7OFZk
-	Us4h7q/Ed/Hjzk1KVr6QacNhxRvlt/xDzgWQ5vIUZRDT9BzygsDfrJR4DH50EwPEbKVI+oyd3xJ
-	4xyGijE2knlmKTR
-X-Gm-Gg: AZFdTZcXI9/grEyct91PnjZNp2eZe/zUlPpK3bhDnAGkzXAJo+AJ4SmwQ95Pgv1+4+g
-	BzMaARd5tONVL4/JFLa1jvDlCna8j1ZD0MytGT3NRYpTaR/piXuIamlGpLBefcufBhF4NNyzw6b
-	iOXeYUsCFd6SR62Kq/xc4oPl4QSDTihUSI9DdvX5Oky95n0z047bFS7isI7vwZ3oYZhqQGDVkOB
-	G4qhQIcOFQl3Gm9Jzu1jFRSPWLi5I1/L35uzbDZog0+AUJyvksAqAFJeT/chKseU5PYE4w1nWY6
-	mAhz0gnA9/5L5TS+vFKK7opx0eqsMid/Hu9KiBJHcbhGwsRBQmMPy0oyS/zt1id9Xf36eO6fn8q
-	lIgncKMShphA56XbjZLSQvvJmxb836h0hQLv/TsoM+lp0K2CqIODZV73F9ToaAyC+mkUe3+X0Ty
-	84QiA73Xw4/FmHMSPiLXWUI3m98M+m+TgMVX8rYj29d2Y=
-X-Received: by 2002:a17:90a:ec8d:b0:3ab:4f1:4f7e with SMTP id 98e67ed59e1d1-3b3d07b911dmr3860547a91.28.1795049995946;
-        Wed, 18 Nov 2026 16:59:55 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3fdedd8a0sm398781a91.1.2026.11.18.16.59.55
+        d=1e100.net; s=20260707; t=1795049999; x=1795654799;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uqR8IPHWCdN0LU2FwConSqcYqy8/D1QDNc5O0QVDFsY=;
+        b=Ara96f9Uv8JIzwAp1nNW4A/v/oxFYq6GchtnApNjldw9xpiQbGBWpvsKlnYJDTrmVn
+         amKy6AKoC/to9acxO/OJZT1KulID1o4+LYWcoaUc4HbrWlnpcetvT7cOFjEBznGAPwe5
+         7sgtP4zMoDwP9w530QtU3pCJZkm8OGupmMOXVZNbdK3vtssAXdNcoSjZevW4+ehTStB6
+         vfFCx40y75hfgCCQCjssd0Vz6zOhGWym6MUNLMrKRxrecZOqZMNZCoE2atgq4JarFXWH
+         EVZq3FKATCczLxcsNb74bczyselvy74tFvgTHogFUcBRLNBhhyZuqHqGy6qpBwNUWHmx
+         276A==
+X-Gm-Message-State: APuU4Z8w8ogtHXnqDfusNXa7aovR4JgSniZC+d5ojJ1fn7cCHC5RcHbV
+	6st/q/o0j8v6WGOrHv0AyRl9aq7k/SGjZ5zkRpbofztQ5yJqW4jwOw/NZjrsAcpMxGnWd23wV0F
+	HxmYkrvkK4tGioJZQR9qMDz3Txe1/vfKn07RpHqNYBlH7HAdBrc0etJDaOm94VbBdPYW/GQekA9
+	u6aYKXkmDtuCzpf53QdXn/rHobp1heBvvnl72jYI8G2WLTOyp6ywnW4VdW/h7uOHkvlj5TO7iRF
+	MCsLFrxLjY10JnY
+X-Gm-Gg: AZFdTZfBZaSvVFYVwqijNY2RdCiajfuPC4pqJQXHkeBNCG7HPi4p81g/wYjCRZ8MpGJ
+	hJSX/OZchRRZ3nM7iGgmb9fQm9I1kXSAIAZMAPzivASSTqksaQxOwPzIPZYrwJFgq333ZPL3MKG
+	Fh/TmKHLcmG9fhPxupndNXX1frx47AKPDkdyjdBrriJ5KcjA0tm/4k93R0wvsqr6CIA0C0vNt2W
+	JDWvhr9h+GLUwAPsjAMq7ZdBqXpw4pUXPyo0ZevHKbahZav6L/mq+vJW4d2PK0nVOpp95ODehAh
+	uknZLh00UDV1mrAAG0qvpSr8c/5gGqIMIKomhTUrojCa6JOe9D7+357dhOJ775Tr1tSt8eRX/fz
+	zRkN7ytwdHMa4gqcM5nvJTs8QP1AydAmLOKf/066eb0eLWtiNp+UvU14B0dsVXZDxJZoS3DESTg
+	woabdMJ9UMlVRvdL0TSabXs7bgksDCzncVnaVijdxw
+X-Received: by 2002:a17:90b:1809:b0:3ac:a521:95e with SMTP id 98e67ed59e1d1-3b3d07aab47mr4345509a91.47.1795049998928;
+        Wed, 18 Nov 2026 16:59:58 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3fe1fd05dsm334702a91.7.2026.11.18.16.59.57
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 16:59:55 -0800 (PST)
+        Wed, 18 Nov 2026 16:59:58 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-921273a6cacso3179136d6.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:59:55 -0800 (PST)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-92101937b03so28083776d6.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:59:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795049995; x=1795654795; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=drRvNBldGZjy4qZkbZLlOV+QLmaf97VqNGgTP8eyCDU=;
-        b=BbFBHqj1fnu9hg25Usrhd6sqPdrJGhOTfVfSdJIH+qMpHZlJrUqSX4w/brIS7zs/AC
-         63MA1JD9huK+1PDQW5EqgUAVyuySQs4o1YIBd0UKmQHA1hzVqof3Z7ebmKffeeTd5wZd
-         kNaob2bczsy58tqw4UBpwpFj8W2sBfnnzE0VA=
-X-Received: by 2002:a05:6214:1bc8:b0:91b:9536:21af with SMTP id 6a1803df08f44-92114eabcfcmr70727796d6.46.1795049994649;
-        Wed, 18 Nov 2026 16:59:54 -0800 (PST)
-X-Received: by 2002:a05:6214:1bc8:b0:91b:9536:21af with SMTP id 6a1803df08f44-92114eabcfcmr70727286d6.46.1795049993735;
-        Wed, 18 Nov 2026 16:59:53 -0800 (PST)
+        d=broadcom.com; s=google; t=1795049997; x=1795654797; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uqR8IPHWCdN0LU2FwConSqcYqy8/D1QDNc5O0QVDFsY=;
+        b=EOsVzpWgNVOdLi5C8NZVVP0Afe72NSY6d6SZluF9E4W1BEvtO42pVinsvAZTVVM1eF
+         1GfkGrG4mun3ffg+yTddpALZWFKjANRmUrKj1yp91uIiNfnuYstsV3vye7ziiDkto86m
+         qj/eOFN/5oinQCoKb0g2r3L8DmHoIFKSaTFcY=
+X-Received: by 2002:a05:6214:5545:b0:921:1242:f2a6 with SMTP id 6a1803df08f44-92114e6805cmr70001686d6.15.1795049996492;
+        Wed, 18 Nov 2026 16:59:56 -0800 (PST)
+X-Received: by 2002:a05:6214:5545:b0:921:1242:f2a6 with SMTP id 6a1803df08f44-92114e6805cmr70001276d6.15.1795049995797;
+        Wed, 18 Nov 2026 16:59:55 -0800 (PST)
 Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d10f89sm35861216d6.13.2026.11.18.16.59.51
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d10f89sm35861216d6.13.2026.11.18.16.59.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:59:53 -0800 (PST)
+        Wed, 18 Nov 2026 16:59:55 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
 	Nicolai Buchwitz <nb@tipi-net.de>,
+	Doug Berger <opendmb@gmail.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
@@ -103,10 +105,12 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	linux-kernel@vger.kernel.org (open list),
 	Mlody12 mlody12 <kudzo51@gmail.com>
-Subject: [PATCH net-next v4 0/4] net: mdio: Clause 45 support for mdio-bcm-unimac
-Date: Wed, 18 Nov 2026 16:59:39 -0800
-Message-Id: <20261119005943.999981-1-florian.fainelli@broadcom.com>
+Subject: [PATCH net-next v4 1/4] net: phy: Map C45 probe read errors to -ENODEV during bus scan
+Date: Wed, 18 Nov 2026 16:59:40 -0800
+Message-Id: <20261119005943.999981-2-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261119005943.999981-1-florian.fainelli@broadcom.com>
+References: <20261119005943.999981-1-florian.fainelli@broadcom.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -119,71 +123,139 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-This patch series adds support for Clause 45 MDIO operations within the
-mdio-bcm-unimac driver. The series breaks things up in this way:
+get_phy_c22_id() maps a bus read error of -EIO or -ENODEV to -ENODEV, so
+that mdiobus_scan_bus_c22() carries on with the next address when nothing
+answers. get_phy_c45_ids() only does so for phy_c45_probe_present(); a
+failed read of the devices in package registers is turned into -EIO, which
+mdiobus_scan_bus_c45() treats as fatal and which makes the whole
+__mdiobus_register() fail.
 
-- make the C45 bus scan done by the MDIO core carry on when nothing
-  answers at an address, as the C22 scan already does
-- scope the existing defines to make it clear what is C22 vs. C45
-  specific
-- rework the polling completion loop to be a tighter loop
-- add support for clause 45 operations
+MDIO controllers that report a read from an empty address as a bus error
+(e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide read_c45()
+with unmasked addresses therefore cannot be registered: the C45 scan fails
+on the first empty address.
 
-Changes in v4:
+Let get_phy_c45_devs_in_pkg() return the bus error and apply the same
+mapping as get_phy_c22_id() to the two places that look for a device at an
+address: the loop over the MMDs and the MMD 0 fallback. In the loop, an MMD
+whose read fails that way is handled like one that reads as all Fs, except
+that the remaining MMDs are not probed: the scan goes straight to MMD 0, and
+-ENODEV is only returned if that does not answer either, so PHYs that only
+respond on MMD 0 are still found while an empty address costs a bounded
+number of bus reads.
+Errors from the reads of the per-MMD identifiers, which only happen once a
+device has answered, are still reported as -EIO.
 
-- patch 1:
-  - when the read of the devices in package registers of an MMD fails with
-    -EIO or -ENODEV, treat it like an all Fs reply and probe MMD 0 instead
-    of returning -ENODEV right away, so that PHYs that only respond on
-    MMD 0 (e.g.: Cortina CS4315/CS4340) are still found on controllers
-    that report a bus error for an MMD that does not answer. The remaining
-    MMDs are not probed, to keep the cost of scanning an empty address
-    bounded. -ENODEV is only returned if MMD 0 does not answer either
-  - add a Fixes: tag
-  - update the kernel-doc of get_phy_c45_ids() and phy_get_c45_ids()
-  - the code changed since Nicolai's Reviewed-by tag was given, which was
-    kept, please let me know if it should be dropped
-- patch 2: no changes
-- patch 3: reword the comments about the poll timeout, which applies to each
-  frame, a C45 access waits once for each of its two frames
-- patch 4: no code changes, the commit message now mentions that the C45
-  scan also runs for the platform device GENET registers without a
-  Device Tree node (e.g.: ACPI), since it does not mask any address
+Fixes: 17b447539408 ("net: phy: c45 scanning: Don't consider -ENODEV fatal")
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ drivers/net/phy/phy_device.c | 48 ++++++++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 10 deletions(-)
 
-Changes in v3:
-
-- patch 1: collect Reviewed-by tag from Nicolai Buchwitz, no code changes
-- patches 2 and 3: no changes
-- patch 4:
-  - after the ADDR cycle, make sure the controller is idle before starting
-    the READ/WRITE cycle, since a wait_func() such as bcmgenet_mii_wait()
-    returns 0 even when it timed out with START_BUSY still set
-  - take bus->mdio_lock in unimac_mdio_resume() around
-    unimac_mdio_clk_set(), such that its read-modify-write of MDIO_CFG
-    cannot race with the C22/C45 clause switch done by the accessors
-
-Changes in v2:
-
-- add patch 1, since providing read_c45/write_c45 makes the MDIO core scan
-  for C45 PHYs on all addresses that are not masked. On a bus registered
-  without a device tree node (e.g.: GENET with ACPI) a read from an empty
-  address fails with -EIO, which get_phy_c45_ids() passed up instead of
-  mapping it to -ENODEV, and made the whole bus registration fail. Reported
-  by Nicolai Buchwitz.
-- patches 2 and 3: collect Reviewed-by tags from Andrew Lunn and Nicolai
-  Buchwitz, no code changes
-- patch 4: no code changes
-
-Florian Fainelli (4):
-  net: phy: Map C45 probe read errors to -ENODEV during bus scan
-  net: mdio: mdio-bcm-unimac: Define MDIO_OP_SHIFT
-  net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
-  net: mdio: mdio-bcm-unimac: Add Clause 45 support
-
- drivers/net/mdio/mdio-bcm-unimac.c | 151 ++++++++++++++++++++++++++---
- drivers/net/phy/phy_device.c       |  48 +++++++--
- 2 files changed, 173 insertions(+), 26 deletions(-)
-
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index b39e945cebd7..79f3fa1e9a03 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -780,7 +780,7 @@ static int phy_c45_probe_present(struct mii_bus *bus, int prtad, int devad)
+  * Description: reads devices in package registers of a MMD at @dev_addr
+  * from PHY at @addr on @bus.
+  *
+- * Returns: 0 on success, -EIO on failure.
++ * Returns: 0 on success, or the negative error code from the bus read.
+  */
+ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+ 				   u32 *devices_in_package)
+@@ -789,17 +789,30 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+ 
+ 	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS2);
+ 	if (phy_reg < 0)
+-		return -EIO;
++		return phy_reg;
+ 	*devices_in_package = phy_reg << 16;
+ 
+ 	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS1);
+ 	if (phy_reg < 0)
+-		return -EIO;
++		return phy_reg;
+ 	*devices_in_package |= phy_reg;
+ 
+ 	return 0;
+ }
+ 
++/* get_phy_c45_probe_err - map a bus error seen while looking for a device.
++ * @err: negative error code returned by a bus read
++ *
++ * Like get_phy_c22_id(), report -ENODEV when the bus read failed with -EIO or
++ * -ENODEV, which is how a controller signals that nothing answered at this
++ * address, so that bus scanning carries on with the next address. Anything
++ * else is reported as -EIO.
++ */
++static int get_phy_c45_probe_err(int err)
++{
++	return (err == -EIO || err == -ENODEV) ? -ENODEV : -EIO;
++}
++
+ /**
+  * get_phy_c45_ids - reads the specified addr for its 802.3-c45 IDs.
+  * @bus: the target MII bus
+@@ -810,8 +823,9 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+  * the PHY identifiers for each device. Return the "devices in package"
+  * and identifiers in @c45_ids.
+  *
+- * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+- * the "devices in package" is invalid or no device responds.
++ * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
++ * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
++ * reads that look for a device), or %-EIO on any other bus access error.
+  */
+ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+ 			   struct phy_c45_device_ids *c45_ids)
+@@ -844,8 +858,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+ 				continue;
+ 		}
+ 		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
+-		if (phy_reg < 0)
+-			return -EIO;
++		if (phy_reg < 0) {
++			ret = get_phy_c45_probe_err(phy_reg);
++			if (ret != -ENODEV)
++				return ret;
++
++			/* The MMD did not answer: treat it like a read of all
++			 * Fs, which is what controllers that do not check the
++			 * turnaround return, and go straight to the MMD 0
++			 * probe below. Do not probe the remaining MMDs, each
++			 * one costs two bus reads on a slow bus.
++			 */
++			devs_in_pkg = 0xffffffff;
++			break;
++		}
+ 	}
+ 
+ 	if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff) {
+@@ -855,7 +881,8 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+ 		 */
+ 		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
+ 		if (phy_reg < 0)
+-			return -EIO;
++			/* returning -ENODEV doesn't stop bus scanning */
++			return get_phy_c45_probe_err(phy_reg);
+ 
+ 		/* no device there, let's get out of here */
+ 		if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff)
+@@ -1077,8 +1104,9 @@ EXPORT_SYMBOL(phy_device_remove);
+  * phy_get_c45_ids - Read 802.3-c45 IDs for phy device.
+  * @phydev: phy_device structure to read 802.3-c45 IDs
+  *
+- * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+- * the "devices in package" is invalid.
++ * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
++ * no MMD responds (this includes a bus read failing with -EIO or -ENODEV while
++ * looking for a device), or %-EIO on any other bus access error.
+  */
+ int phy_get_c45_ids(struct phy_device *phydev)
+ {
 -- 
 2.34.1
 
