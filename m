@@ -1,104 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059638;
-	b=lphRi9/BmV0HCeVAogyWJ8JbLtFWdeIwDqAzKkTTfYKUSBGPOUQzhVTv/VBr26Ntarla
-	 UGQd21fzlgea6Zg1/FdiWXWojPDUaczBJhAmiFEzYl08WIiP63TskKGCjR8HlwkV4IYaY
-	 OQoyy7U1y1wuB40A/4uycUl2HCV7NY8II7w3l5Twv9pDIFzZqZ+FFJAN2HMwX0lw90JH+
-	 XFiBPhIqFf5KrkbRV3YYCG5MLU2ryoZLWwH2UJhPyk4wi86TsyefLbTzt1LXOsw4n6ET3
-	 huS902sykLFpcjYIMqAJ4pE0AkpWrAC24GaaRifU6k1bI7w7+VN57NPopPFl8KCewRQ==
+	t=1795059970;
+	b=PuSUJtsLopsoV46iRGdzI/N20G6InWjXeRLQlZT0kQ2Vscv7IghzWJ1kRCWVPtNk4krF
+	 Y219ICnkArVKf8V39dmxCZE/ntnEo0FquVGqdLtRnH+vNgQW2iFvqTzBT+oaBp5vtZkTD
+	 s8tCiQ4Fs058jwB5uLXc2pXtVOts2kdChFMiZTuD1LaPmsSNqHKtRnRgYfkH6cXnvHY+q
+	 95ln7T+PZ1XTMNaHKg8gwcuZ+hkjPRv69WJKFqfPviAantXjckzDBOYMXFeb8XaQ7KM/R
+	 pKZxLuvXS8gxdGAV5APRDmyy56bRc7B4mE2HWcfWAxnyZF/RncrVy/3JVhYMZj2M7ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059638;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=c+7vBVE35eU7OvcQRlXaK7erubNGtvgQAaBs8IXCypg=;
-	b=jIDNzq90uCJ4DHfBoxKAsQUbKBCDbB9ouSVnekmo9J/ZnTSRoIdULXVfciQ4LLS83x3+
-	 aSpunwd6WVfuB/XeyY1nwVbA4Oml9uZa57Jp8zH5P537ol3E8gNQKmKo1WSGIdpybTZMz
-	 6WYI7Hppn2M0mG4wN2nOR/yPKuqxE9N4Q4XAsa6v2AfoFPj22H3zQMsCeZBQbQbPrujos
-	 PrGp/TlTNXnfq7oVSveAMxjUBqnylXo9N3J1+8SVq710gGN8Mrj+yYfZk+v7BlMb/PDzu
-	 ctfpmIGxCedsbQ3LMa6raUPzRpEpzlDytkDYuYLGHh6JGgiLFu7LB9wGBxeDW0cZD1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059970;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=8QcXhpi7yEci8c2/TVVRIJK0h6/KhpDAAlCKtLz8KQQ=;
+	b=xFITEOX4Ff1KMMKVTlrZMfX4mvsxS+CKw6znpqBBCvPK5VBwfyPvsxGOtjjaarMe4qSc
+	 mJY+klcn3a8aR9LDqHX6MghwZEMmCTAkSLet1YTrOhH+4QrI2i9x4AuOBIgcjEZuj8tAm
+	 DGNKag5P3Urc59FwnJ1+VIIiu//MOFgbAtM+SunJLZpVg44IdfGwl32Kz4t5Mv93O9pqK
+	 qVBjlAN9zB/M2gqQQpe4F8yTNsFjv1vgZXANycbZRVznzjaAovvDP9gccqXLV5QUBnPCx
+	 Nm/H/XQAErdIWyM/IucXsoHeK3cdsAMld4M5VdChaYLLFT2kyGCjXJFjbObcGZ28lDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P9nAT9wR;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C73360A260F
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:40:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C73360A260F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P9nAT9wR
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2e95bd1c14cso14837145ad.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 19:40:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795059638; x=1795664438; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=c+7vBVE35eU7OvcQRlXaK7erubNGtvgQAaBs8IXCypg=;
-        b=P9nAT9wR/BxrSHFD0rc86O6tPp9oJPwSNHtCDIP49VsyeibeusvaAfn48WqF/RglWj
-         H3JMuEh0bFpaHNQAml1uewIK/XABMlPBWHyxyXg9wgEzu/ASbM7aG7mA6hlR4RIMYA63
-         x68LfDa1iXT/0CFIP7V6TsEz6Cg6ahqT5XXBrjPNwrEC8XyY3+DfmxpxU29GgAyt3uhI
-         iYqMUEutqpOeXhPsGce0xTkE/CS/SPk8rHPfrJ6V84plqOIiHqfYNyG3nvfZM0YMQise
-         Xzo7GobJsXAtaHNTQmnGz7R6L6G/avbpQTKAJ5YM1Ix/X4aL0G47Bl622024nWwBZFrx
-         qZew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795059638; x=1795664438;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c+7vBVE35eU7OvcQRlXaK7erubNGtvgQAaBs8IXCypg=;
-        b=szIPbiKVFHAEh3SkLJHt66A0xkuG/eSR9q7E3zPO5tWOHUaj5ckNwwfQ/QC465quW/
-         gDjIn+pu1NmlVUULcX/kIrruFAOdr6P29KO28UEyukbeoqoKO2/rAQ1OaCBkeJAPnnlw
-         gZK4Oe8MgZAZBXJS741zJCXXfi4yqWUQ3xFnlWLNYaQbmEdvglTs1BqCbvtHvmDtAyxr
-         jkO3upljcgESo5l3m6Aj9pNJJjhPbwAC1TFcv/gxx6ZhTG8F6vG2tGxt9IB3xoHsaXFT
-         4WdQnZmqfyKv2VgUaGYS3xLTUZ1SwqW4kPOXGOoH1hJunyDl5OtGJGYeTISW8myYOxUd
-         p9gg==
-X-Gm-Message-State: APuU4Z+f9aeHlrfyd28PGpVZTDS7y5NhLi3/YnyPFK5W8Ht7GhSGxNwY
-	6Sm00qn2faaO2qYYjH+dgQsOqWG+yTQmFqvbP/s+vkVzBzujS/ZakxmN
-X-Gm-Gg: AZFdTZcr7i1RIY8u5K1mFBz046dCOEsShbsMJioegbF1ABffq8o2C+CnEUi6mWW1m7b
-	6ndDM6/YggGv3tg2zi64UElFeCBdTHhU1O/6yZWK07CSlrL5svzgvRHMNEfptGgUlwdGGSyyuly
-	+sv3jYdHMXF5pza0iJkUcOyulABOyfniTxO4w/xz7NymrRGumGXDJPao1zGC5uTUcO0b6PAytih
-	dIPGMfESw4+f7By4Xl9xy7nhpexsujQiP23rE4Llx2vp9Ctc0jw7P9L3mPh0NAXyzF1LqebvItt
-	/VYS6uuAIlMLdZQEGCMBsldHuzMxKYKQARydiwKiztJrHWkXRrmM+CwRNw7JeitEt/MMZ/FxPWH
-	LwieOyT47e1XLeDE5lwWzxEd6aMGckVnAykz+cOpfhiq4zr8INXQhKNUbsEEC0emBsSbC0yl+g2
-	AKRtFiMEJt8hbsf5NCrMHYkkVoFaZMaxcoUrXr6hMIwejNjFOoZnu/Qfhfm/u+irddvLKc3wEOQ
-	Cdei/up7h7D12QJDmFhSyRPHCGRQ1UBRUdPTZ10v6xNAZYFqRMxSe1FiZsRJinbMG6PJhBr+pCC
-	wQJeXJ2e/5KBIRn6
-X-Received: by 2002:a17:903:18b:b0:2ed:130f:869d with SMTP id d9443c01a7336-2eff753bb92mr47715105ad.43.1795059637889;
-        Wed, 18 Nov 2026 19:40:37 -0800 (PST)
-Received: from x1.hs.local ([2601:600:a482:7d70::5e59])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62897d0sm22109355ad.64.2026.11.18.19.40.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:40:37 -0800 (PST)
-From: David Westen <davidlwesten@gmail.com>
-To: netdev-bot+sashiko@kernel.org
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=207.46.229.174
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 16DA4606A32C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:46:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16DA4606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wDX7jT1cP5q9jIjAg--.2749S3;
+	Thu, 19 Nov 2026 11:45:59 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgDHBpv0cP5qwILYAA--.48052S4;
+	Thu, 19 Nov 2026 11:45:57 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
 Cc: netdev@vger.kernel.org,
-	loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	m.chetan.kumar@linux.intel.com,
-	linux-kernel@vger.kernel.org,
-	mail@maciej.szmigiero.name,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net] net: wwan: iosm: fix S3 resume by re-binding the driver around it
-Date: Wed, 18 Nov 2026 19:40:23 -0800
-Message-ID: <20261119034025.480656-1-davidlwesten@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <179501477167.3136.5713040375169842773@kernel.org>
-References: <179501477167.3136.5713040375169842773@kernel.org>
+	linux-afs@lists.infradead.org
+Subject: [PATCH] net: rxrpc: Reject previous RxGK key at key zero
+Date: Thu, 19 Nov 2026 11:45:14 +0800
+Message-ID: <20261119034514.1019830-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,71 +51,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zi_KCgDHBpv0cP5qwILYAA--.48052S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAZsz
+X-CM-DELIVERINFO: =?B?tEhTngXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGerhwLqVh2elSpnTQIpLwR+84BRzbtXNWxQDsJYbJXO77pt
+	JDlmLrO2jQlFg4McTJhyTLNdil2Tf8rCclWM3oKX81b09fO53Ay++Shlfnq4rQ==
+X-Coremail-Antispam: 1Uk129KBj93XoW7tw43Xw1rKFWfXw4rCr4UGFX_yoW8tr1Upr
+	WFkas5A348GF47Jr1UXa1jg3WYkaykKFW2gF1Du3yfJr4ktay5t3WkKrWjkryjvwn5Xw1j
+	vryvq3s8K3ZFvFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUvmb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
+	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAF
+	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
+	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
+	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
+	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZE
+	Xa7IU8VMKtUUUUU==
 
-> - [Medium] pm_notify() in drivers/net/wwan/iosm/iosm_ipc_pcie.c decides
->   whether to unbind the driver on PM_SUSPEND_PREPARE by checking…
-> - [Medium] The changelog limits the problem to "platforms where S3 cuts
->   power to the WWAN card".
->
-> Pre-existing issues:
-> - [High] ipc_imem_cleanup()
->   (drivers/net/wwan/iosm/iosm_ipc_imem.c:1231-1266) cancels…
+rxgk_get_key() and rxgk_rekey() compare the wire key number with the low
+16 bits of current_key - 1 without checking that current_key is nonzero.
+On a new connection, cksum 0xffff therefore selects UINT_MAX as the key
+number.
 
-Thanks for the review, these were good points. I tried the suggestions
-and will send a v2; details below.
+The missing key slot makes rxgk_rekey() derive a new context from keys[0]
+and overwrite that slot with crank false, losing the reference to the
+original context and leaving the connection with the wrong key state.
 
-> Could this be gated on ipc_pcie->d3l2_support or a platform check? And
-> since the patch is tagged Cc: stable, could the changelog mention this
-> change in behaviour?
+We verified the path using a real AF_RXRPC client and a raw UDP server that
+sent a DATA packet with cksum 0xffff.  The run reported five suspected
+leaks; two objects had an allocation backtrace through
+rxgk_generate_transport_key(), rxgk_get_key() and
+rxgk_verify_packet().  The slot overwrite and lost context reference are
+established by the source-level ownership analysis.
 
-I looked at gating on d3l2_support first, but it doesn't match the
-power behavior here: the X1 Carbon 6th gen reports D0L12 and the modem
-still loses power in S3.
+Reject the previous-key match while current_key is zero.
 
-So I tried checking the hardware instead: on resume, read the exec
-stage before touching the modem, and only re-bind the driver from
-PM_POST_SUSPEND if it no longer reads RUN. That covered every sleep
-state and left platforms that keep the modem powered alone, and it
-worked in most runs. The catch is that the re-bind then tears down a
-modem that has already booted again. When a port was still open at
-that point, port close sent PIPE_CLOSE messages to the new firmware,
-they timed out, and the modem crashed:
+Fixes: 7a7513a3081c ("rxrpc: rxgk: Implement connection rekeying")
+Assisted-by: Codex:GPT-6 <codex@openai.com>
+Signed-off-by: Lin Ma <linma@zju.edu.cn>
+---
+ net/rxrpc/rxgk.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-  iosm 0000:03:00.0: modem lost power while suspended (stage 0xfeedb007), probing it again
-  iosm 0000:03:00.0: msg timeout
-  iosm 0000:03:00.0: msg timeout
-  (exec stage now 0xbadc0ded, the probe then fails)
+diff --git a/net/rxrpc/rxgk.c b/net/rxrpc/rxgk.c
+index f9f5a2dc62ed..0a62475691f7 100644
+--- a/net/rxrpc/rxgk.c
++++ b/net/rxrpc/rxgk.c
+@@ -100,7 +100,8 @@ static struct rxgk_context *rxgk_rekey(struct rxrpc_connection *conn,
+ 	} else {
+ 		if (*specific_key_number == (u16)current_key)
+ 			key_number = current_key;
+-		else if (*specific_key_number == (u16)(current_key - 1))
++		else if (current_key > 0 &&
++			 *specific_key_number == (u16)(current_key - 1))
+ 			key_number = current_key - 1;
+ 		else if (*specific_key_number == (u16)(current_key + 1))
+ 			goto crank_window;
+@@ -185,7 +186,8 @@ static struct rxgk_context *rxgk_get_key(struct rxrpc_connection *conn,
+ 		 */
+ 		if (*specific_key_number == (u16)current_key)
+ 			key_number = current_key;
+-		else if (*specific_key_number == (u16)(current_key - 1))
++		else if (current_key > 0 &&
++			 *specific_key_number == (u16)(current_key - 1))
+ 			key_number = current_key - 1;
+ 		else if (*specific_key_number == (u16)(current_key + 1))
+ 			goto rekey;
+-- 
+2.56.1
 
-Making the teardown safe against that would mean changing every path
-that talks to the modem during removal, which seemed like a lot of
-change for a stable fix. Unbinding before S3 tears the driver down
-while the modem still answers and has worked reliably, so v2 keeps it.
-The trade-off is that on platforms that keep the slot powered in S3,
-the modem is probed again on resume, which drops data sessions and
-recreates the ports. As you suggested, the changelog will spell that
-out.
-
-If you'd rather see the resume-time check, I'm happy to work on that
-instead.
-
-> Can pm_suspend_default_s2idle() tell S3 apart from s2idle here? It only
-> reports which state the "mem" label maps to:
-
-Good catch, it's the default mode, not the target state. The target
-isn't known yet when PM_SUSPEND_PREPARE is sent, and
-pm_suspend_via_firmware() is only set later, in platform_suspend_begin(),
-so I didn't find a better signal for the notifier. In the cases you
-list the patch either probes the modem again when it didn't need to, or
-behaves as before. I'll describe those limits in the changelog and
-correct the suspend-to-idle sentence.
-
-> Should ipc_imem_cleanup() call hrtimer_cancel(&ipc_imem->adb_timer) along
-> with the other timers before this path runs on every S3?
-
-Yes, thanks for spotting it. v2 adds a patch for that ahead of this
-one. I could only build-test it, since the XMM7360 doesn't use UL
-aggregation.
-
-pw-bot: cr
