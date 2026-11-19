@@ -1,98 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795077881;
-	b=jH7A2y/vtZI980N6/AjfWYdzf+UdgS9FbIUK/0BsIZsu6lwNK9QXzQ7spuxvY/3vSk+M
-	 OGcFKbhpsRfxb198zLOHrSsGyW9VEt2feT0CVL3KNfcWC4WSNZuQrfF26KayKpYp0upa7
-	 Ov2ffku2wsMCcViNtJ/f2UrgbDXvWzDA7X41emm91vlhjOltvIxbvJ0tb6TxdzTpIJcJR
-	 yjxJxGWI6BjzZP/dd+4RzXbCPNJSUPiS4mVpp1LsVXSEAH6TWwA390yBdsrwUZ9qEtRav
-	 cb5iK6peOXzr7ZTHQn2Ac5GLXA0UdEgEUw5FrcZqeHTaQaWOVC+oaUKA8oRNuJCwhsA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077881;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=aLlUZT059MSLq9CO/oh2NcBBnG/ct5JsOOYoDZECi7U=;
-	b=ganQuVUk4S3mWd05oAmTBZBpsxOXBXDmfpzkkDUe/CQZMB72eLF8UslanbtpuOWsGzjR
-	 7i9Xw+i4bxsT/H9zgwzAXDStHlk9RLG3vWdwG4Ne8oT80YCzflovx1ckgjTt8jwvPKAbF
-	 UkWjyNZx5yWLjf75E2InQKn4iAncZevZYt5ResFBoNnCLRXTag9IvxweQTAL8E1SBvNTY
-	 ah2zHeRxrc/NdArn2ZdsuGJ+R+BStopA4JLxtKdaebbBxVzBiJ+LN2cJKbRhjwLnE5PRB
-	 f8Sqt2gX74gvgvI92BDtTFMEZ3DirVuT/iAhlxlSPRFkvp6vUyEBL+IV3cq6K9Hvc+w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=T2o0nE7E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.51
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013051.outbound.protection.outlook.com [40.107.162.51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.165
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795078086;
+	b=IlFns99yncllc9jlhvcRdDc/umooCzhu7QRoocDTAJ1FowTAhTAL4JY5N5S65JKVMg5X
+	 HTK2DTU2pzXMjkZZP5gyng5E0lRFsuX2HodXsf1VUQyN9+TD9DwJouPhRu9oPee49b9d5
+	 0DH06RjYTFavwl2pT1IthCCMg5NW+OpEeATg/Ton0sUaBzKrt901uq9yvSpPVEfiVGPW4
+	 MgpVFthkNESF8HHZfr1LEA+qjcsuyR5iHdmbmFmM4DEOh1x95ZzdNsijVjHIdQ3U0mpDS
+	 ROiD82Eq9hu7JBrVhQRC4P2LfbBP/XNYPsIn+CpMsfhDGCMTLwVuvM1We9Q4zkKQ7zA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795078086;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=H1bhQLtIfRhu5KAqAjgC9nCVZmy6r3NXMjolwdRpzaA=;
+	b=OqFKDDER3QKthc4y+6q7WgqZruyScN7HBa+RHflGmw5Dmzsi0oDn3t+ZLB4kWugmHZXT
+	 YwRA1bbweoZKeEM8nhk6k9K/u+77+QXDKJQlE+0o06KLWmvX/3l4YUbr7mXBEvJSoyQnc
+	 Bxn5yUpHJ3/Z4zwicESzjnqGnoffpmp9tC6FjR/GuZksmtlS5lP5i2CioARJk2F72Fpt/
+	 odwXBCymuoOdRSoYQy2rl7lhhTrySdjTPQK37UEX+oHnqT5K/1y/96elyIGBc2paGNXg4
+	 J/L0RmXw3RsHr5TasPj6jHbFbdQPFoZ5MfKn+Gx/U4excCg2Sj6XJd5u/JAAPSypdyA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=X5uQIsei;
+	arc=none smtp.remote-ip=91.218.175.165
+Received: from mta0.migadu.com (out-165.mta0.migadu.com [91.218.175.165])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BEF1606A320;
-	Thu, 19 Nov 2026 08:44:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BEF1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37033606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:48:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37033606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=T2o0nE7E
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IMr8ECWkxftinoD5BLaghe0seu4HfixjFRsMMkR4xL1x0wuup/JqJpNRfMp4Ox3btdSx2rfZvWDQqxD+iDgvZjxBLOLwf61kJdRL7jJM8KGJTVljZ4qRppX7ca7fldCUUOAR0CWhsg4BaK+sk+0+Pn1ni05eU0J5UZjJxwq7f+DvlzDgmGZRvX7mjLlmb39WwDYVbqA/gGU/n3u4HEQsAgwZTYT3NgfoJ+AkLHs3qbn5uQwS2h52p6wwCO+2QnTh83L7+3n8+YamubTUowlugwZ2uOGS6HfxHb71pTqpwWiur+UJlGY1EaO5UNdQyGvMRxAIhBR60vXoBK00CHip6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aLlUZT059MSLq9CO/oh2NcBBnG/ct5JsOOYoDZECi7U=;
- b=Ct9YIe32TIvn18Jnmcdss9qtzvo6XBt6+ujyOPaXNUwgHHOWIxFumZJlZDlBGKMpzrALS+jCoaD3Cq8rLbrxvZNYfLcGTbvrxc90dkngOz0sEwIfDJbOXY7u7vwSV0qibG/8jj3NISQ/7QxuWkuP8mg2vHgAy0SD+++4CXzblTy7rkQdJFfYncUC3BaZJgqMlLNM+uOMUN1ghUhQVXBN9pI5F6+L1aCxMQ+EytOsP++FdOdNZaYGvF0j1Ho3Dx5B0k3HW4U9BzHgc3bXMpW2HPBE/j5CqZmOMrjjcDxiCWFEEQWkUROXQzd6KtA+exIpJuhElbEXPZb8bLkCg0lCdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aLlUZT059MSLq9CO/oh2NcBBnG/ct5JsOOYoDZECi7U=;
- b=T2o0nE7EIpLulHs7lpwa8dnxF4MOwiRiLXvR2bpqD5JiWme7kXyV2WtsQZU385WksINyo4sKYS6WBxvBkXvO7PmJRL8i3S+OAPC2NXjyZp280h4Ph65tjG8wgbIn9xAVgi3jJa++TaItgVdNGfD0GNwFAUQLuN4Lf8tB8b3m1+5wlBxLmw0myc2VTPOwvjOrV1PUvYQBDWFK18vkSb4menPputV4CcX7nUJMgD2cj0JY4Skm8qCYTTQAeHyszNSpbP7sd3ZcpPpfnQQp91JHHyv/NC19nyorlLfN7Un9VyKe6AonYh7ckJG1kKgj9AbmD6HQ/M7EBRm+gEgccXviag==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by DB8PR04MB6908.eurprd04.prod.outlook.com (2603:10a6:10:116::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 08:44:36 +0000
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 08:44:36 +0000
-Date: Thu, 19 Nov 2026 10:44:33 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Claudiu Manoil <claudiu.manoil@nxp.com>, 
-	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>, 
-	Ioana Ciornei <ioana.ciornei@nxp.com>, Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 net 4/4] net: enetc: let core segment GSO skb when
- headers exceed TSO_HEADER_SIZE
-Message-ID: <av62HrrrRs8qwiHw@skbuf>
-References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
- <20261118235055.1225115-5-vladimir.oltean@nxp.com>
- <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
-X-ClientProxiedBy: VI1PR09CA0096.eurprd09.prod.outlook.com
- (2603:10a6:803:78::19) To AM0PR04MB6900.eurprd04.prod.outlook.com
- (2603:10a6:208:17d::10)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=X5uQIsei
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Y9EVLqGCLJb6bEWtsztP5YW7dfjn2JrAKJzkvnEfwzE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795078083; v=1; x=1795682883;
+ b=X5uQIseiNdtIy5kUc5kkUN0fHVDdotCpin2O6LAb54zpbTe7M5FhgnjCAX5I6iMf5sVh8Akh
+ SN1nOFFeCGfrpDamjcrNbFOWa71kQECZG5eiq0BoXvc0IpGMQ3/4BVf1T7Zz0ZtCh2OxMeKeOCH
+ t63HNmA4ww8XIGjUpfRPpY0E=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id d0654b647b7ec1a7;
+	Thu, 19 Nov 2026 08:48:03 +0000
+X-Mizu-Trace-ID: d0654b647b7ec1a7
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 19 Nov 2026 16:47:50 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
+	David Lebrun <david.lebrun@uclouvain.be>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Mathieu Xhonneux <m.xhonneux@gmail.com>,
+	David Lebrun <dlebrun@google.com>,
+	Justin Iurman <justin.iurman@gmail.com>,
+	Stefano Salsano <stefano.salsano@uniroma2.it>,
+	Andrea Mayer <andrea@common-net.org>
+Subject: Re: [PATCH net v2 5/6] seg6: account for the MAC header in skb
+ checksum on L2 encapsulation
+Message-ID: <av63tgNtC6__wjWS@fedora>
+References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
+ <20261118150251.65-6-andrea.mayer@uniroma2.it>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,112 +77,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|DB8PR04MB6908:EE_
-X-MS-Office365-Filtering-Correlation-Id: 387d6844-89c6-4e93-2148-08df46195769
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|10070799003|19092799006|261021135927099003|261022075727099003|10067099003|5023799004|56012099006|11063799006|4143699003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	Mwt0/8kN9TisZ7cd7QS8/LdynKPkQJTmdYr7H3qZeerQKe9QcV1vdUe5NijfkG/UzqH8s44n1lgAZEr+Ni3RomerXW4GR0zzCIkKsGZKBbU0P5+NVRTSQHIRsdM+x7PDAAXZfJsOWyUcFqxMoAeVIApwQgsKW2lKkSFGWjNHlUpgNKrqEnlM/JNuVGtCponWWCVDK/8IKnl3Np6rEeM75zlC/zoiU72nTEaWtyz0roVgFzZVPestc7Qr3HaW2SwGDhiFKDBP/uUJLTUYJ8OVt4THSIFXbpugjmXOdX5ZrSs/mgVO+l2Zb4Sfb8lO5g6LSjGVUv5r5Ms3ONEhtro8KAJJKY3alAq/NsOr8lMrZvOwUQKMRPsodWBOyJgvD7dcEEIktQPXu4dWEgSrftS/PiiNk9YL3kesNSRBtH983NBR74G+uhSEXvQLIqP7VfTs6ygazWldKaOkz4V+kXxbrjG1X1BngTgJj1i56ndzjvmrtf/0aN2XR2V8hVrP7gLV4cVGPvxhMLfdJPLw8YJH/3uq5EcVYcrIb9VUMpHcMBCG60UNEqvvl1XSY6lUEO3OxBuwdHxxoKpGhu6yGTGKvfrST/CQuGcxQU6Qkzjq+FU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(10070799003)(19092799006)(261021135927099003)(261022075727099003)(10067099003)(5023799004)(56012099006)(11063799006)(4143699003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?ZzM4q6jAO4y6JOxMjsK9Titcx954hcklnvoVeB44i+uYuTNC67MnULCd8WJk?=
- =?us-ascii?Q?9oVJgT2XS9EpP0GcLd9L7jZtI/GMfKYsfXkLsuJANQtfooc+93UAxeNd9vOP?=
- =?us-ascii?Q?0OF0elWBEdRd02GmNXoGKEYMD9edBYyRkl/hS6Kas3I5YW0CEzFZPQE0ty/O?=
- =?us-ascii?Q?242FoQd/B5VofEHRZ4dam2NQ+GLZhJYwQKMDgXbsuWU3cKJc47KgLsjmVV44?=
- =?us-ascii?Q?z4JfpUtIi9v2xBOrXp9iusk4sNuo3LkPdFpJbMK0IH/gp4Fp5rorLMoH4Hqw?=
- =?us-ascii?Q?l1fd4bq3BCb/obSU0Tzy37SnKY5S3dXRzo84rSbeystiw1OCs835MKR4MBn4?=
- =?us-ascii?Q?nTaACtEpCK+GVW87r+CeqLfHnKroVIGI7WKYlrz1pRYalpe7VovVImeJ0F+r?=
- =?us-ascii?Q?1YTrvSmmayBI21XW2qf0L15uGCSbznNm1oI8Us6Zyflo3Yj5lgL9LTRHPuyZ?=
- =?us-ascii?Q?x9+dPLeQ83wU2eZ8WbKnUuDY2b+4PzLbXyMNH4C8V8UptEj23XUKNW1CoSV7?=
- =?us-ascii?Q?Tu2pAe999Tath2SbKmkRZB+9mXbRnz3RdCadfH/m85VX2nMgxrZs2g3vuIsw?=
- =?us-ascii?Q?V3gErJHxr+5xSy301ZAi/5pkd3L+d2+fshvNqMXt7neFtA2/t2yPjlUhByj1?=
- =?us-ascii?Q?dPsPYnB+y++3owa3bDGdkpquTyre9H8iUSZHs3gdm1f86M30WDMwhiBmmyCv?=
- =?us-ascii?Q?dO8n2W+Vu0JlQsMQkVNi0EsLzus4Uk23g2XC8lE4C9Uid5YrLaoHKW4ZPvPO?=
- =?us-ascii?Q?OdCcKw9HKm7FDg5pX0ShelRzeoNn8qT6bbskclwbxjSNIK5ZKd/jXVHcc8Fq?=
- =?us-ascii?Q?N2Q431AOa/LpcSj19h89kRajhI8Qy29F4gfQPRL9NWPiQGpf/UIiPbZco8E3?=
- =?us-ascii?Q?xtAt9B+W0LTKvxLFXkkAGDM0oEjmqwBavHia/mbnRA4/B5631YGeW7bVHXTp?=
- =?us-ascii?Q?rtuiosMMtjHPKHgWPzAC7UWu0+elAfhMWhBMgXD9Ed415ggEp4Qs9Ym/IYxv?=
- =?us-ascii?Q?VQ3dfiuGdObR2yJKGN8SIonzz2hgNz4bNl8UwlWwYlHJSwGim9B6q9AOhPCN?=
- =?us-ascii?Q?DS4YmTS0/9Dxu9K01VPF4XHvA2JzLJzqr8hxNUZh3MiqMmDnVD4fy1tsr3rg?=
- =?us-ascii?Q?QpJ0WkkmVYZD0dZWsgsYPxqi+HngkfihB2hdhkuJx8e8Bi7AI4anni+wljzW?=
- =?us-ascii?Q?z1v/7QRLOIjfwBvTx1OXgRIDFepNyIR8FfzWohYwLlcSGH7IByybOlKZfEAw?=
- =?us-ascii?Q?PHCnoKiq15z7QtepHe41toTGyiQSwNZQ/2abBxO4OqwwkeEIStghJ8NEVX2T?=
- =?us-ascii?Q?I2FPQyFqMGxRBKLpdq+4HxWZ4OW9QgZHvzdQhJITRk5X9o2tb6yGoR6BNUru?=
- =?us-ascii?Q?qQVl5RMLGmMw70J29/h7cOWk+0ejQS8Tvyi0kpx8wq4h9jGY3FJxWVPhep9w?=
- =?us-ascii?Q?n9JiXV3OenzzRCwcx6Qqd6z4AxKfCacARSHGFyzZ8cChU2L8l0zL5oSEwoDd?=
- =?us-ascii?Q?S9b0vGFWLgcPuK76MCmCmD+RNsV18gbmoFZPbxuQR1LjA4W8xQIqykuce4c9?=
- =?us-ascii?Q?e1bY9Lxv4Ew7lK4/aXlvxxwbQu3M12x3PMp4lZ4GibrlDE8d9DLcYLAJiCtd?=
- =?us-ascii?Q?qyOS6cfG6cvJ2kXfW2DTKrcbO1rYHGktBHnkbCXDVpkvOAlydUBHuhrhAHmK?=
- =?us-ascii?Q?s95BSN5TkXEtIuHmhErcmFAIo3durnY46yP72d2iILxFWuoyGMo4iEeXjERx?=
- =?us-ascii?Q?O02XdfFP6F4AWdnEsB310VHaa35YUW6Zc6PiQCT1fB1OvmWTFk+i8TuakhZR?=
-X-MS-Exchange-AntiSpam-MessageData-1: LCiV0+KcIKTBBckuOmnHjBBQ5M8s6YFu2ys=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 387d6844-89c6-4e93-2148-08df46195769
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 08:44:36.6231
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tBffFt/7kuSBt0S25WtZtrw7BySNLOOE7Im27w7B9P9Ir7naRi0y/An63jYX/Yj27PSD6Ec3BiBekaGyLr2xVg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6908
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118150251.65-6-andrea.mayer@uniroma2.it>
 
-Hi Eric,
-
-On Thu, Nov 19, 2026 at 01:03:16AM +0100, Eric Dumazet wrote:
-> > Bizarrely, enetc is the only affected driver, because the core
-> > accidentally protects most other drivers against this bug in
-> > gso_features_check(). There, we have this logic that saves the day:
-> >
-> >         /* NETIF_F_IPV6_CSUM does not support IPv6 extension headers,
-> >          * so neither does TSO that depends on it.
-> >          */
-> >         if (features & NETIF_F_IPV6_CSUM &&
-> >             skb_has_ipv6_extension_hdr(skb))
-> >                 features &= ~(NETIF_F_IPV6_CSUM | NETIF_F_TSO6 | NETIF_F_GSO_UDP_L4);
-> >
-> > enetc is the outlier because it only advertises the more complete
-> > NETIF_F_HW_CSUM, so for it, this fixup does not clear the NETIF_F_TSO6
-> > and NETIF_F_GSO_UDP_L4 bits.
-> >
-> > [ astute reviewers may ask: what if we disable NETIF_F_IPV6_CSUM at
-> >   runtime, via ethtool -k, so as to bypass this fixup, don't we make
-> >   all drivers vulnerable?
-> >   No, because netdev_fix_features() will trigger the code path which
-> >   also prints "Dropping TSO6 features since no CSUM feature.\n".
-> >   So TSO skbs will now be segmented in the stack. ]
-> >
-> > Surveying every driver that uses TSO_HEADER_SIZE:
-> >
-> >  Driver  | TSO6 | Checksum feature    | Core guard fires? | Verdict
-> >  ---------------|---------------------|-------------------|---------
-> >  enetc   | yes  | NETIF_F_HW_CSUM     | no                | vulnerable
-> >  bnxt    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> >  nicvf   | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> >  otx2    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> >  fec     | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> >  mvneta  | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> >  mvpp2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> >  mv643xx | no   | NETIF_F_IP_CSUM     | n/a               | safe
-> >  dpaa2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe (*)
-> >
-> > (*) dpaa2 also uses a fixed-size kmalloc(TSO_HEADER_SIZE) per segment,
-> > so the identical overflow would apply if it ever gained NETIF_F_TSO6.
-> >
-> > The above survey is what influenced the decision to make a localized
-> > patch in enetc_features_check() rather than create a huge disturbance in
-> > the core, even though, IMO, TSO_HEADER_SIZE is a huge foot gun.
+On Wed, Nov 18, 2026 at 04:02:50PM +0100, Andrea Mayer wrote:
+> In L2ENCAP and L2ENCAP_RED mode, seg6_do_srh() puts the MAC header back
+> in front of the frame with skb_push(), without adding it to skb->csum.
+> The encapsulation then calls skb_postpush_rcsum() only for the outer
+> headers. With CHECKSUM_COMPLETE the MAC header is missing from
+> skb->csum, which no longer covers the whole packet as required.
 > 
-> I should probably rework my series :
-> https://lore.kernel.org/netdev/20260403043237.3909226-1-edumazet@google.com/
+> For a forwarded packet, ip6_forward() sets ip_summed to CHECKSUM_NONE with
+> skb_forward_csum(), and End.DX2 does the same before sending the frame.
+> When the packet is delivered on the same node, a raw socket with
+> IPV6_CHECKSUM still reads skb->csum. With skb->csum computed by the device,
+> the kernel can then log a "hw csum failure", as if the device had computed
+> a wrong skb->csum.
+> 
+> Use skb_push_rcsum(), which also calls skb_postpush_rcsum() for the MAC
+> header.
+> 
+> Found by manual code inspection of the skb->csum updates in the SRv6 code,
+> and observed in a VM without kernel changes or error injection: with
+> skb->csum computed by a tc ct action, a BPF tracing program on
+> ip6_forward() shows skb->csum missing the MAC header. With this patch,
+> skb->csum covers it. Also tested against the srv6 selftests, and with a
+> ConnectX-6 Lx NIC (mlx5) that provides CHECKSUM_COMPLETE.
+> 
+> Fixes: 38ee7f2d4756 ("ipv6: sr: add support for encapsulation of L2 frames")
+> Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
+> ---
+>  net/ipv6/seg6_iptunnel.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/net/ipv6/seg6_iptunnel.c b/net/ipv6/seg6_iptunnel.c
+> index 3bc47c5614ff..82b3c2af03f7 100644
+> --- a/net/ipv6/seg6_iptunnel.c
+> +++ b/net/ipv6/seg6_iptunnel.c
+> @@ -472,7 +472,7 @@ static int seg6_do_srh(struct sk_buff *skb, struct dst_entry *cache_dst)
+>  			return err;
+>  
+>  		skb_mac_header_rebuild(skb);
+> -		skb_push(skb, skb->mac_len);
+> +		skb_push_rcsum(skb, skb->mac_len);
+>  
+>  		if (tinfo->mode == SEG6_IPTUN_MODE_L2ENCAP)
+>  			err = __seg6_do_srh_encap(skb, tinfo->srh,
+> -- 
+> 2.43.0
+> 
 
-Do you disagree with my analysis that only enetc risks corruption? I mean,
-for a second layer of defense, having tso_features_check() everywhere
-TSO_HEADER_SIZE is used probably makes sense, but I opted for a targeted
-fix because I couldn't justify it for the other drivers.
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
