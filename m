@@ -1,103 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098500;
-	b=1Y4ekwzuSVgQrPT1cOQ6OeZ4cNqEGwYq6y0LFL3LLawLWmXhEZ/+ubUDMZA0TiMiDntw
-	 GAOKmAM300e5Of6U64RMmiGC0lo4VJKMN18QPuV3ZvcPCXbo45DGrXmZVB4xTKBgA8GgG
-	 OrUR9SYH2snAVeKcjjOkBhFV4c2OvFVT4LMYVr38OmzFOql1yQgU7q42Me4jBDSaWbplW
-	 Ef9Aw8NBjl9dXS6u5t6V3HDkiMoIN2i0WLm2OItUIZVT/xPrzVNtrJ9lTlxf45qWPaYs/
-	 OuxlTAuqpoeeKT9sxvt0uipfBNIBMInF8wBYeA0myrYiFhcwPioqYsVpebmxeNNdhqQ==
+	t=1795098504;
+	b=mRqM1cAFuAiCOyMzT3eqOfNNsNfMi2OcrJv09ZzFAsp0aW2UwowI4PD08LPFz9vIBDAQ
+	 uDi+r7ci6ZiKvkATsHi6Wly4LKcCaUdEscKaHMwMJTPDWuOSow2pM8kQDkOjlflSzs0iw
+	 ks1E8BW4TJ3rzILjUj2Uzc/gxwOzdJ74zF1PVRduAVqNAdoONIi6v5FHyOd2+8Qojzpaj
+	 bCGS5MYQwhjJp4aI2curngcrNvXTOltzW3otfMYRJYW+JJ72dw6FaW/sISDKfqtQ1ULZL
+	 AJDLvL9ZQSQclbqTGnz3HxZ8VRkx9cWIc2q0bYUlNdZ95taP+DM3bUKNxFb95vdczfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098500;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098504;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=9T6tFEDCgpYCKcFgHJzfl3vLbUXzdhPs6It4k/cVCSk=;
-	b=Nmf9n0Cd5te/bHdndCKNOm2N83XNg/HVN8wklWwK970vVvgREodp31ZK79KxxvMIYCVh
-	 HJctvlu65m2zisDMebCg7ar8dL7EUrc+0Ip+gOpvB0m98iznRDBEUXLsdl++HyiuqqKpQ
-	 6RYYDXWyrBj+CJRcMT5cXQaPeCiIhc/p6QpOV9Cvd9VYEb5N6b4xCwMAEEir/TEuvqTsP
-	 X6qzm/Pz8z2lWk3av3sVu3gUhKSA/FHaweXir3ATsYDjLe3Zr2eGWr1aEKn4Nhjreer+c
-	 ZYEk1JP5c2OwDYy3GPRt86Iva3Jum3NjWiujGm8bqq9Xif0jWp5IqIb+p8cPZWeETtw==
+	bh=aDolSJGzJ9eNhH42W0V8Hq6aAfDimZGKnPrQQn0FKh0=;
+	b=29586ALcshVrYrTS1KjOfjqhvyVM/XJJbgAhWW3OURladQERDPVdn9CAOd7Vhp8yqobm
+	 wJ9m9gEn0ssLwJx656U7To3cnvtJRXJvupo9EmxC+OQLGXflOhCcS5gOsbk84ZEspewOq
+	 IQxjeLwMnPUSU3Uk6ds5OUQvlyIIjfGZ9Ak5BzmQHfI2nN8HApth0nedBW+wpwWDAoYX3
+	 yvnajnmda9T6YN3t3ogEzFmBIQMdP+pIay6KeS6U8WzUewP+fg14viORSt0wYainR4wZO
+	 y5W1iJlS91wEcrsLdF45CdMzIhVv/Wu1VmEcPqsLyMMJ23XAAufucLSmVSarpSsHTYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=blackwall.org;
 	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=awp6Bwub;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=k5DGBpdZ;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D5E8606A330
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:28:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D5E8606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7450606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:28:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7450606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=awp6Bwub
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-492f563d1c6so895136f8f.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:28:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=k5DGBpdZ
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso6793535e9.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:28:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795098498; x=1795703298; darn=vger.kernel.org;
+        d=blackwall.org; s=google; t=1795098502; x=1795703302; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9T6tFEDCgpYCKcFgHJzfl3vLbUXzdhPs6It4k/cVCSk=;
-        b=awp6Bwub+sVdEgAt2b7Ki9zjLVh5kXE+aVJmbNL1CsstYlUKCluufG71VxXFmzE1hT
-         57MJc/jEBaIc7BLUAvlRFS0mWRevKIZ+17dbiHN2vYeSnqcQlTevGXBA9SPJfn69vYix
-         bXscRm7zvDdldiE9Cie5M/VDVNTUUmOV2OQVSty9R4iOHUDAw6DlAfL82xP6WQLhEfJW
-         1qxyoZN7IOygBHOQztHhtls7Tly7gb5TIZ8GLQTj5m6zciyE8LhJXGR+O2fid8omqJth
-         aOKYUCzNGBOxMCR54fwbbxZly+M9hGqCTLs+lanrJpHoWRv3PYB4mmDaeMIeTwOWFXWJ
-         PYkw==
+        bh=aDolSJGzJ9eNhH42W0V8Hq6aAfDimZGKnPrQQn0FKh0=;
+        b=k5DGBpdZP01TebVA2IIRUM6srGoHzYEnmVkWOAtg+rAfjp8qi7gYmvRVD8LQ3m/8/f
+         YZbPbIAhxqRR1OHTuRThNV83srBCvr7AuNzfRpRnAxTP4uAgOJbTsUH5TsYfu+XbAmPS
+         3SHikzKvcyM387C6FeRbK1gtAHlyvx8cKL/IS4vRgiVbIc7AiQnEkSjPJlDzzlYrtsDk
+         Jjf8WaaGld81gxc1pnFGXvx53/GjhljBqMvpSm7msRFql7j9rN/HnL/GNGz5T/Th0a+v
+         o3cDFtq8fRI7QFHqBVkgjumFi0HcPAEZxuZctCLWt0EndyNeoPC3WaKah5gOIzOkvO5U
+         guZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795098498; x=1795703298;
+        d=1e100.net; s=20260707; t=1795098502; x=1795703302;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9T6tFEDCgpYCKcFgHJzfl3vLbUXzdhPs6It4k/cVCSk=;
-        b=EXzkI22hBWC5BFeH7TaEMXu4CbGIWa7vRDAzEWHVK1l1mlMAVLKhbm1n9xMGDco89s
-         kFXcHl80W6Q4qCyU0P2tmBA1WOECkUGRvuh2Ux7j/X80MET18z4ZrW62fE7/I1YbY5Ce
-         jt/W0oe/PaykHIkOWeE75+jpMyur30+CTLOmu2Gb+n+BeGXy3EjIclJ2mgZJ/R/k24Ql
-         A4Bzjli40482/kShEs9J+vZki8N/nu9oid7oW6w0ydQ0bdjWKUtRiLV6R+abaHipkfTW
-         83dIgWbopeHeLR6YzVjguFskwV1nwGfP4ZvCXa7Y31zDonvKI3xd3gQCKTf+hy9joovY
-         1cFQ==
-X-Forwarded-Encrypted: i=1; AL+hErFt6aXEIT3/9xHK99qYmB0xw2BIwcZa4tcgZD9pNBPM5ygaDAm9i4OErHdaIPnHutFzYE2/b3k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jl8XdYNtYb+JxZg+N4ntTJAAIuUZYAHQaEOVQJZipLgjBQoBz
-	9ZnWxiSnM71V2CbBihIGum1vb6jT5BTvc9OU620e52E3baa3X42h8Su4pOTehd5tRIU=
-X-Gm-Gg: AZFdTZdORWGp4A9KTQ2G5kFi+/I/47GrwpWHKli1uAUg22asTb9yrDuECTAXVyMGPwf
-	yqGOKsSFfeX7t713g9MlR9b5+4UpeFZN4616P11sgsXJuSPcVloxZDcWoJOWgOZ4fIskkh03RlZ
-	myS2yh/Xl7WlGKteoQtXGdruoAxEqBcp13e849FINKPGnr9bzREv9F2gh0GZ9sX6DaxK7XuXkYx
-	Xm6FWQRAUv/r79BV4HRIsvg7M8RdM4Gc7II2Z3G71zJ3so6gaDZ9JwKOdkpThtvABOwOKivXvkT
-	BlOOWY/Zn54bgJaluSLx6EliN+BL8Ya+uQHeTEIHgoXvmpRZp0HsWqgi+UoyC4Zdgxyv7tVFviQ
-	g2JBDn3D5AdYbL72BauFGiMRWYZORmm0uJ9fQBAW512TKC8njylx5Tfymq7m/WGNzERtll3+aed
-	ZmQm2ySFvmEr1ijQqrN9TzPoRvPhYsFCV6ediB98c5DsQijhgbK72Ild9qQO/bcHXU3KpONtsjJ
-	XGNMI0zjS8f6+YJSPTispVHnsQDRnTq7aONAA1K/gyEY53YI49L7ZeavKaie6rTDLAZtbSTvmpX
-	9x8ualfahpQaayH95bXR636DOkgMplahLSWCilduX2Fe2ICey3R8ZnJ8WpboopRuLXS6C2ma
-X-Received: by 2002:a05:6000:22c5:b0:4a6:ed6f:7a6d with SMTP id ffacd0b85a97d-4a6ed6f7c2dmr11897798f8f.28.1795098498460;
-        Thu, 19 Nov 2026 06:28:18 -0800 (PST)
+        bh=aDolSJGzJ9eNhH42W0V8Hq6aAfDimZGKnPrQQn0FKh0=;
+        b=J1jYPhY4lGEmRkC2iTQ/7N4LxREkZ2fN/52dRIh5YPe39fMYxS33YT2cjIlKMVbuZ+
+         aRjqwOde4hsQfCRWn+kWxZYphLpBfLFAJheuHgXBakvzkT6DQYVwS+i0SWeYVCd6UZD+
+         4cCj/hiIQyMFuT4p2pJZjR/1vgODK6wgtI65wthsfTOkdHVKji/pxTxWVj8y5dmiE0iZ
+         SwdWawx0uV+tZbCH8w/qAuc8JnDL+l96VbUaU50J7IeP6f2rjUArY//JsMobAIwMoaFy
+         1RkG/SPntAxKZScpAaPOqBhULkS6k81+80K+bPfEaxnhga7PK8u3XKve4cWMbggC6L/J
+         zKiw==
+X-Forwarded-Encrypted: i=1; AL+hErFUwyMOtXJn44xNg1zJrinEWsbwd3Fc3bDK++zH6Xp6Z1P1lU5yPJ9umq4Ej3O9zTRvC+PHBh0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dh/V5VR1m182vQxQ+oNSTjndL+KChE37rKwjw2wB5dpp+SW9b
+	fbHC0KHU8epT1QiDVKv6J0O9tZb8xV67rsxt1BGl/GKBiS9PStGfOkNqHwQ3BqFINFg=
+X-Gm-Gg: AYBFou19cdGpg8oq2bNFwR6gjNMeV+UE/PaQ+Y5S5QseUhsd/SH5TvVVLkdcvgCluRj
+	ix+nb4BGS9cPy5LIVOeidglbuNYMa2YZfOdj5vVaUWs1042QknaY0VqvDftmGD2aizLT6yC2jE0
+	Div/SAWcYSd9H4vxn0B0d4McIh0nA/BOL9eUSp/u3O7Cy+aBG4GF3J6ubUOPVh5ff5BTvw872Mm
+	IZKPWnDj323o0gFUG5JwMTjYuXNjJtMbQsR0gkYhYNhrgTjd5UZLbXdvRLDM8MfVZOpZRRNswbA
+	qP15LgLu918o30VhVW8yZwUFqmPwvEkt0ia1zzVlF0SLWvCQ5VRC04RgaRa7JYgbyDmMT5uT9rV
+	z7MQEGfcZT/UqPFVaSLNICKJ8eXruX2Wt7xQZvEB4XkmmrQhfzUt3XiCQO+6PUwtP4SUbme4pYf
+	dWk+9ePdK47xePKpNFVal/UE2Ef9ZCVXcMAVCqV4zqiTdEB+6T3Bjt5mNPUdytlv40n7yipG+H+
+	YcaURb//Ido8Zp1fAwz1KG7BpyOzJqAx+Xi/f/ZnRn4GC847KB7yE2boOkrWyyrlgNNktMc5tXx
+	DFdA0DAxtfG0RC2jRNS5mOpQsP3HznQDNyD+u9e2dy+Sl/5nbGg=
+X-Received: by 2002:a05:600c:6746:b0:4a2:1364:252a with SMTP id 5b1f17b1804b1-4bb7d5d41f0mr118656245e9.3.1795098502012;
+        Thu, 19 Nov 2026 06:28:22 -0800 (PST)
 Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab53e89050sm121821f8f.16.2026.11.19.06.28.16
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab55d2e241sm97733f8f.45.2026.11.19.06.28.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:28:16 -0800 (PST)
+        Thu, 19 Nov 2026 06:28:19 -0800 (PST)
 From: Nikolay Aleksandrov <razor@blackwall.org>
 To: bpf@vger.kernel.org
-Cc: Nikolay Aleksandrov <razor@blackwall.org>,
-	Paul Chaignon <paul@isovalent.com>,
-	Alasdair McWilliam <alasdair.mcwilliam@isovalent.com>,
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Ayush Sawal <ayush.sawal@chelsio.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	netdev@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
 	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Eduard Zingerman <eddyz87@gmail.com>,
 	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
@@ -108,10 +99,19 @@ Cc: Nikolay Aleksandrov <razor@blackwall.org>,
 	Emil Tsalapatis <emil@etsalapatis.com>,
 	Ihor Solodrai <ihor.solodrai@linux.dev>,
 	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH bpf-next 2/8] net: track references owned by prefetched socket assignments
-Date: Thu, 19 Nov 2026 16:22:24 +0200
-Message-ID: <20261119142231.2612515-3-razor@blackwall.org>
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Paul Chaignon <paul@isovalent.com>,
+	Alasdair McWilliam <alasdair.mcwilliam@isovalent.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next 3/8] bpf: allow bpf_sk_assign on tc egress with refcounted sockets
+Date: Thu, 19 Nov 2026 16:22:25 +0200
+Message-ID: <20261119142231.2612515-4-razor@blackwall.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261119142231.2612515-1-razor@blackwall.org>
 References: <20261119142231.2612515-1-razor@blackwall.org>
@@ -126,29 +126,58 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add sock_pfree_ref() for skb-owned references whose release must not
-depend on SOCK_RCU_FREE. Teach receive lookup, NFQUEUE and reuseport
-selection to preserve and transfer this ownership for egress assignment.
-This ownership bookkeeping is needed for subsequent patches that allow
-bpf_sk_assign to be used in egress paths.
+From: Daniel Borkmann <daniel@iogearbox.net>
 
+bpf_sk_assign() has been limited to tc ingress because the assigned
+socket may be a SOCK_RCU_FREE listener held without a refcount, relying
+on the current RCU read-side section for its lifetime. That assumption
+breaks on egress where the skb can sit in a qdisc across grace periods.
+However, the helper is also useful on the egress path, for example to
+attribute forwarded traffic to a specific established socket for qdisc
+flow classification (fq, fq_codel), cgroup accounting, or SO_PRIORITY
+propagation. Established sockets are refcounted and therefore safe to
+pin on an skb that may be queued.
+
+Allow TC egress to assign full refcounted sockets, taking an skb-owned
+reference after orphaning any previous send-side owner. Preserve it
+across redirects, classic BPF verdicts and netem delay. Reject decrypted
+egress skbs to preserve the original TLS transmit owner.
+
+Using sock_pfree_ref as a destructor encodes the refcount state so:
+
+  - sock_pfree_ref releases the refcount on drop (unlike sock_pfree
+    which skips non-refcounted sockets).
+  - skb_sk_is_prefetched recognizes both destructors so ip_rcv_core
+    still skips the skb_orphan on the receive side.
+  - skb_steal_sock sets refcounted=true for sock_pfree_ref so the
+    transport layer calls sock_put after consuming the socket.
+  - skb_do_redirect only orphans sock_pfree + !sk_is_refcounted (the
+    true no-refcount case from ingress), preserving sock_pfree_ref
+    sockets across redirects.
+
+The refcount_inc_not_zero cost per bpf_sk_assign call is negligible
+relative to the BPF program and the sk_lookup that precedes it, and
+does not affect the UDP early demux path which continues to use
+sock_pfree without a refcount.
+
+Handle reference-only ownership in TLS software fallback and Chelsio
+record reconstruction without sk_wmem_alloc charges or lost references.
+
+Software GSO splitting after assignment is unsupported, including qdisc,
+device/driver/tunnel fallback and netkit peer-side NFQUEUE segmentation.
+Segments can lose the selected socket; intact GSO and assignment after
+segmentation remain supported. Ordinary loopback and veth peer NAPI/GRO
+preparation can also discard the assignment, even without GSO.
+
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
 Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
 ---
-CC: Paul Chaignon <paul@isovalent.com>
-CC: Alasdair McWilliam <alasdair.mcwilliam@isovalent.com>
+CC: Ayush Sawal <ayush.sawal@chelsio.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>
 CC: David S. Miller <davem@davemloft.net>
 CC: Eric Dumazet <edumazet@kernel.org>
 CC: Jakub Kicinski <kuba@kernel.org>
 CC: Paolo Abeni <pabeni@redhat.com>
-CC: Simon Horman <horms@kernel.org>
-CC: Kuniyuki Iwashima <kuniyu@google.com>
-CC: Willem de Bruijn <willemb@google.com>
-CC: Pablo Neira Ayuso <pablo@netfilter.org>
-CC: Florian Westphal <fw@strlen.de>
-CC: Phil Sutter <phil@nwl.cc>
-CC: netdev@vger.kernel.org
-CC: netfilter-devel@vger.kernel.org
-CC: coreteam@netfilter.org
 CC: Alexei Starovoitov <ast@kernel.org>
 CC: Daniel Borkmann <daniel@iogearbox.net>
 CC: Andrii Nakryiko <andrii@kernel.org>
@@ -162,155 +191,196 @@ CC: Emil Tsalapatis <emil@etsalapatis.com>
 CC: Ihor Solodrai <ihor.solodrai@linux.dev>
 CC: John Fastabend <john.fastabend@gmail.com>
 CC: Stanislav Fomichev <sdf@fomichev.me>
+CC: Simon Horman <horms@kernel.org>
+CC: Kuniyuki Iwashima <kuniyu@google.com>
+CC: Willem de Bruijn <willemb@google.com>
+CC: Jamal Hadi Salim <jhs@mojatatu.com>
+CC: Jiri Pirko <jiri@resnulli.us>
+CC: Sabrina Dubroca <sd@queasysnail.net>
+CC: Paul Chaignon <paul@isovalent.com>
+CC: Alasdair McWilliam <alasdair.mcwilliam@isovalent.com>
+CC: netdev@vger.kernel.org
 
- include/net/inet6_hashtables.h | 10 +++++++---
- include/net/inet_hashtables.h  | 10 +++++++---
- include/net/request_sock.h     |  8 +++++---
- include/net/sock.h             |  4 +++-
- net/core/sock.c                |  7 +++++++
- net/netfilter/nf_queue.c       | 16 +++++++---------
- 6 files changed, 36 insertions(+), 19 deletions(-)
+ .../chelsio/inline_crypto/ch_ktls/chcr_ktls.c |  5 ++++-
+ include/uapi/linux/bpf.h                      |  8 ++++---
+ net/core/filter.c                             | 22 +++++++++++++------
+ net/core/sock.c                               |  4 ++++
+ net/sched/act_bpf.c                           |  4 +++-
+ net/tls/tls_device_fallback.c                 |  5 +++--
+ tools/include/uapi/linux/bpf.h                |  8 ++++---
+ 7 files changed, 39 insertions(+), 17 deletions(-)
 
-diff --git a/include/net/inet6_hashtables.h b/include/net/inet6_hashtables.h
-index 2cc5d416bbb5..5a109a48cc14 100644
---- a/include/net/inet6_hashtables.h
-+++ b/include/net/inet6_hashtables.h
-@@ -134,10 +134,14 @@ struct sock *inet6_steal_sock(struct net *net, struct sk_buff *skb, int doff,
- 	if (!reuse_sk)
- 		return sk;
- 
--	/* We've chosen a new reuseport sock which is never refcounted. This
--	 * implies that sk also isn't refcounted.
-+	/* egress bpf assignment can hold a reference on the prefetched
-+	 * socket and reuseport returns an rcu protected socket so if it
-+	 * differs we have to release the original reference
- 	 */
--	WARN_ON_ONCE(*refcounted);
-+	if (reuse_sk != sk && *refcounted) {
-+		sock_put(sk);
-+		*refcounted = false;
-+	}
- 
- 	return reuse_sk;
+diff --git a/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c b/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
+index 4d645771596a..796497e9d3b9 100644
+--- a/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
++++ b/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
+@@ -1669,7 +1669,10 @@ static void chcr_ktls_copy_record_in_skb(struct sk_buff *nskb,
+ 	nskb->truesize += record->len;
+ 	nskb->sk = skb->sk;
+ 	nskb->destructor = skb->destructor;
+-	refcount_add(nskb->truesize, &nskb->sk->sk_wmem_alloc);
++	if (nskb->destructor == sock_pfree_ref)
++		sock_hold(nskb->sk);
++	else
++		refcount_add(nskb->truesize, &nskb->sk->sk_wmem_alloc);
  }
-diff --git a/include/net/inet_hashtables.h b/include/net/inet_hashtables.h
-index 6e2fe186d0dc..787bf9e394a8 100644
---- a/include/net/inet_hashtables.h
-+++ b/include/net/inet_hashtables.h
-@@ -474,10 +474,14 @@ struct sock *inet_steal_sock(struct net *net, struct sk_buff *skb, int doff,
- 	if (!reuse_sk)
- 		return sk;
- 
--	/* We've chosen a new reuseport sock which is never refcounted. This
--	 * implies that sk also isn't refcounted.
-+	/* egress bpf assignment can hold a reference on the prefetched
-+	 * socket and reuseport returns an rcu protected socket so if it
-+	 * differs we have to release the original reference
- 	 */
--	WARN_ON_ONCE(*refcounted);
-+	if (reuse_sk != sk && *refcounted) {
-+		sock_put(sk);
-+		*refcounted = false;
-+	}
- 
- 	return reuse_sk;
- }
-diff --git a/include/net/request_sock.h b/include/net/request_sock.h
-index faa6dc49cea8..1d1204e4f754 100644
---- a/include/net/request_sock.h
-+++ b/include/net/request_sock.h
-@@ -103,6 +103,8 @@ static inline struct sock *skb_steal_sock(struct sk_buff *skb,
- 	}
- 
- 	*prefetched = skb_sk_is_prefetched(skb);
-+	*refcounted = true;
-+#ifdef CONFIG_INET
- 	if (*prefetched) {
- #if IS_ENABLED(CONFIG_SYN_COOKIES)
- 		if (sk->sk_state == TCP_NEW_SYN_RECV && inet_reqsk(sk)->syncookie) {
-@@ -114,10 +116,10 @@ static inline struct sock *skb_steal_sock(struct sk_buff *skb,
- 			return sk;
- 		}
- #endif
--		*refcounted = sk_is_refcounted(sk);
--	} else {
--		*refcounted = true;
-+		*refcounted = skb->destructor == sock_pfree_ref ||
-+			      sk_is_refcounted(sk);
- 	}
-+#endif
- 
- 	skb->destructor = NULL;
- 	skb->sk = NULL;
-diff --git a/include/net/sock.h b/include/net/sock.h
-index 3144efad8c36..33cc361e941f 100644
---- a/include/net/sock.h
-+++ b/include/net/sock.h
-@@ -1874,6 +1874,7 @@ void sock_efree(struct sk_buff *skb);
- #ifdef CONFIG_INET
- void sock_edemux(struct sk_buff *skb);
- void sock_pfree(struct sk_buff *skb);
-+void sock_pfree_ref(struct sk_buff *skb);
- 
- static inline void skb_set_owner_edemux(struct sk_buff *skb, struct sock *sk)
- {
-@@ -3034,7 +3035,8 @@ static inline bool
- skb_sk_is_prefetched(struct sk_buff *skb)
- {
- #ifdef CONFIG_INET
--	return skb->destructor == sock_pfree;
-+	return skb->destructor == sock_pfree ||
-+	       skb->destructor == sock_pfree_ref;
- #else
- 	return false;
- #endif /* CONFIG_INET */
-diff --git a/net/core/sock.c b/net/core/sock.c
-index ad414878dc5b..3b1f60eaa73e 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -2871,6 +2871,13 @@ void sock_pfree(struct sk_buff *skb)
- 	sock_gen_put(sk);
- }
- EXPORT_SYMBOL(sock_pfree);
-+
-+/* variant of sock_pfree for sockets where a refcount was explicitly taken */
-+void sock_pfree_ref(struct sk_buff *skb)
-+{
-+	sock_gen_put(skb->sk);
-+}
-+EXPORT_SYMBOL(sock_pfree_ref);
- #endif /* CONFIG_INET */
  
  /*
-diff --git a/net/netfilter/nf_queue.c b/net/netfilter/nf_queue.c
-index bd603e3a99a5..d920a67b6fa0 100644
---- a/net/netfilter/nf_queue.c
-+++ b/net/netfilter/nf_queue.c
-@@ -195,17 +195,15 @@ static int __nf_queue(struct sk_buff *skb, const struct nf_hook_state *state,
- 		break;
- 	}
+diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
+index 62de0919db72..45e3018fb2ae 100644
+--- a/include/uapi/linux/bpf.h
++++ b/include/uapi/linux/bpf.h
+@@ -4611,7 +4611,9 @@ union bpf_attr {
+  *		**bpf_clone_redirect**\ () or other methods outside of BPF may
+  *		interfere with successful delivery to the socket.
+  *
+- *		This operation is only valid from TC ingress path.
++ *		This operation is valid from TC ingress and egress paths.
++ *		On egress, only full refcounted sockets are accepted.
++ *		Software GSO segmentation after assignment is unsupported.
+  *
+  *		The *flags* argument must be zero.
+  *	Return
+@@ -4623,8 +4625,8 @@ union bpf_attr {
+  *
+  *		**-ENETUNREACH** if the socket is unreachable (wrong netns).
+  *
+- *		**-EOPNOTSUPP** if the operation is not supported, for example
+- *		a call from outside of TC ingress.
++ *		**-EOPNOTSUPP** if the socket is unhashed, or TC egress uses
++ *		a non-full or non-refcounted socket or a decrypted packet.
+  *
+  * long bpf_sk_assign(struct bpf_sk_lookup *ctx, struct bpf_sock *sk, u64 flags)
+  *	Description
+diff --git a/net/core/filter.c b/net/core/filter.c
+index 1ad57a371534..feeb752f7a00 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -2559,14 +2559,17 @@ int skb_do_redirect(struct sk_buff *skb)
+ 	if (unlikely(!dev))
+ 		goto out_drop;
  
--	if (skb_sk_is_prefetched(skb)) {
--		struct sock *sk = skb->sk;
--
--		if (!sk_is_refcounted(sk)) {
--			if (!refcount_inc_not_zero(&sk->sk_refcnt))
--				return -ENOTCONN;
 +#ifdef CONFIG_INET
-+	if (skb->destructor == sock_pfree && !sk_is_refcounted(skb->sk)) {
-+		if (!refcount_inc_not_zero(&skb->sk->sk_refcnt))
-+			return -ENOTCONN;
+ 	/*
+-	 * Prefetched sockets may borrow a listener under RCU. Orphan them
+-	 * before redirects that can outlive this section. Peer ingress
+-	 * stays in the same RCU section.
++	 * Prefetched listeners may be borrowed under RCU. Drop borrowed
++	 * assignments before redirects that can outlive this section.
++	 * Peer ingress stays in the same RCU section.
+ 	 */
+-	if (skb_sk_is_prefetched(skb) &&
++	if (skb->destructor == sock_pfree &&
++	    !sk_is_refcounted(skb->sk) &&
+ 	    (!(flags & BPF_F_PEER) || (flags & BPF_F_EGRESS)))
+ 		skb_orphan(skb);
++#endif
+ 	if (flags & BPF_F_PEER) {
+ 		dev = skb_get_peer_dev(dev);
+ 		if (unlikely(!dev ||
+@@ -8115,21 +8118,26 @@ static const struct bpf_func_proto bpf_tcp_gen_syncookie_proto = {
  
--			/* drop refcount on skb_orphan */
--			skb->destructor = sock_edemux;
--		}
-+		/* drop refcount on skb_orphan */
-+		skb->destructor = sock_edemux;
+ BPF_CALL_3(bpf_sk_assign, struct sk_buff *, skb, struct sock *, sk, u64, flags)
+ {
++	bool egress = !skb_at_tc_ingress(skb);
++	bool refcounted;
++
+ 	if (!sk || flags != 0)
+ 		return -EINVAL;
+-	if (!skb_at_tc_ingress(skb))
++	if (egress && (!sk_fullsock(sk) || !sk_is_refcounted(sk) ||
++		       skb_is_decrypted(skb)))
+ 		return -EOPNOTSUPP;
++	refcounted = egress || sk_is_refcounted(sk);
+ 	if (unlikely(dev_net(skb->dev) != sock_net(sk)))
+ 		return -ENETUNREACH;
+ 	if (sk_unhashed(sk))
+ 		return -EOPNOTSUPP;
+-	if (sk_is_refcounted(sk) &&
++	if (refcounted &&
+ 	    unlikely(!refcount_inc_not_zero_acquire(&sk->sk_refcnt)))
+ 		return -ENOENT;
+ 
+ 	skb_orphan(skb);
+ 	skb->sk = sk;
+-	skb->destructor = sock_pfree;
++	skb->destructor = egress ? sock_pfree_ref : sock_pfree;
+ 
+ 	return 0;
+ }
+diff --git a/net/core/sock.c b/net/core/sock.c
+index 3b1f60eaa73e..f4ec58a86056 100644
+--- a/net/core/sock.c
++++ b/net/core/sock.c
+@@ -2818,6 +2818,10 @@ static bool can_skb_orphan_partial(const struct sk_buff *skb)
+  */
+ void skb_orphan_partial(struct sk_buff *skb)
+ {
++#ifdef CONFIG_INET
++	if (skb->destructor == sock_pfree_ref)
++		return;
++#endif
+ 	if (skb_is_tcp_pure_ack(skb))
+ 		return;
+ 
+diff --git a/net/sched/act_bpf.c b/net/sched/act_bpf.c
+index 06d8f78b7368..a0918fe9a71a 100644
+--- a/net/sched/act_bpf.c
++++ b/net/sched/act_bpf.c
+@@ -54,8 +54,10 @@ TC_INDIRECT_SCOPE int tcf_bpf_act(struct sk_buff *skb,
  	}
+ 	if (unlikely(!skb->tstamp && skb->tstamp_type))
+ 		skb->tstamp_type = SKB_CLOCK_REALTIME;
+-	if (skb_sk_is_prefetched(skb) && filter_res != TC_ACT_OK)
++#ifdef CONFIG_INET
++	if (skb->destructor == sock_pfree && filter_res != TC_ACT_OK)
+ 		skb_orphan(skb);
 +#endif
  
- 	entry = kmalloc(sizeof(*entry) + route_key_size, GFP_ATOMIC);
- 	if (!entry)
+ 	/* A BPF program may overwrite the default action opcode.
+ 	 * Similarly as in cls_bpf, if filter_res == -1 we use the
+diff --git a/net/tls/tls_device_fallback.c b/net/tls/tls_device_fallback.c
+index b547027cc879..1450335a94dc 100644
+--- a/net/tls/tls_device_fallback.c
++++ b/net/tls/tls_device_fallback.c
+@@ -194,8 +194,9 @@ static void complete_skb(struct sk_buff *nskb, struct sk_buff *skb, int headln)
+ 
+ 	update_chksum(nskb, headln);
+ 
+-	/* sock_efree means skb must gone through skb_orphan_partial() */
+-	if (nskb->destructor == sock_efree)
++	/* these skbs hold a socket ref but aren't charged to sk_wmem_alloc */
++	if (nskb->destructor == sock_efree ||
++	    nskb->destructor == sock_pfree_ref)
+ 		return;
+ 
+ 	delta = nskb->truesize - skb->truesize;
+diff --git a/tools/include/uapi/linux/bpf.h b/tools/include/uapi/linux/bpf.h
+index 62de0919db72..45e3018fb2ae 100644
+--- a/tools/include/uapi/linux/bpf.h
++++ b/tools/include/uapi/linux/bpf.h
+@@ -4611,7 +4611,9 @@ union bpf_attr {
+  *		**bpf_clone_redirect**\ () or other methods outside of BPF may
+  *		interfere with successful delivery to the socket.
+  *
+- *		This operation is only valid from TC ingress path.
++ *		This operation is valid from TC ingress and egress paths.
++ *		On egress, only full refcounted sockets are accepted.
++ *		Software GSO segmentation after assignment is unsupported.
+  *
+  *		The *flags* argument must be zero.
+  *	Return
+@@ -4623,8 +4625,8 @@ union bpf_attr {
+  *
+  *		**-ENETUNREACH** if the socket is unreachable (wrong netns).
+  *
+- *		**-EOPNOTSUPP** if the operation is not supported, for example
+- *		a call from outside of TC ingress.
++ *		**-EOPNOTSUPP** if the socket is unhashed, or TC egress uses
++ *		a non-full or non-refcounted socket or a decrypted packet.
+  *
+  * long bpf_sk_assign(struct bpf_sk_lookup *ctx, struct bpf_sock *sk, u64 flags)
+  *	Description
 -- 
 2.47.3
 
