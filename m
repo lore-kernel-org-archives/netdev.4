@@ -1,104 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.63.21.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795056470;
-	b=WEDo9iw39KiHkl0mJcb6Frwuzh5GX7PNSeXwCrw7nR7CmI9Z3lcKiDgY/gyJHNCx30IT
-	 3d30xlKcz2gr0dcsN4jC5XMaLvglufQGGe2JnZ92e+p2ThLBNYiPfhrx3qC/SXs3nz4Dp
-	 ezEtrIETcp1KeUYdKjy3cBwFn6xZTB1/m2O5zDg2krErWnT4jHF/4M8rJbvXA5gpCroqw
-	 T9UAHT6MnbbZdsDqKzOJ1uPgVPYpIBXCK+YtoXBKBf21Uact7TVTrJ/nCHkYLwBCp4t/R
-	 hGQUhbTlPNVNnSQTVx3eXzpyLxoirmOZojvHNNGHtCTz2++nRHJ8WTBO2sDkNPlp84w==
+	t=1795056819;
+	b=0uQfnA8A+wZfgS15a+HezFZngDUYNO/dOfY1zwV0ng76LBtGtJGNkl4bvMQew/wfM8AZ
+	 QyhhgUa4Al+smQBEboOkv1mSqfN9Yylz5WodzGALkrqQd8c3914JulVpIiMYL6kgUBhYw
+	 8dU6R9QydRph8giUFiUfxsuYR5U0UERYHA8+9Yp+CWYH3uPARoonc7zxZu16CJH2v38Q9
+	 qOuO6dWGTXZF1vDOmwtGdI63EmgB561q6tM4llN6y4EhzTBGoYXN4mHDd8Bw0K9ZX88f1
+	 tgPMVIMm3PfcWh9OOopNIa8NiL2H3f+ovmNjm+Mei73NcvPayR3KRKfmLkY9D3FAqKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795056470;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Received:X-ME-Sender:
-	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-Greylist;
-	bh=C2oTDrUAloUPLb9R3L1FV5EoIyNwUSlSwZoggaW6Y5s=;
-	b=GM1nLNmyp13yk5+knYB8E173nIBY3GzD5uQdIWT6hjzufIR5xTkjUKnW/ZWVncJqSASn
-	 DhTELXuJ74qm0KC0tY0lCa8lBLi/kste6B2/JHOp0R9vDGuwo9tGaeLaUeTCR3jsFpVqP
-	 Lii7XfjFeeFhNd9zlCF8OLFavEaeZzMwnIHsIkK9AVNizqYrA8moRtwdbLGK65zNo2JDA
-	 k1twwIEAIBLDS+SjEteU5MAssiVlNRZuihHQ6+yfNAS3i4hNKNL5E09dIhwAoM0Da0OGc
-	 k27pZsCagINPM+uVMrUF0P6tT71rFotnTfskB26pGKJinrbfnDKcOKEExas18Dd+rDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795056819;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=9tWToM0lifFSyYKYANxc0yn8qaqJFP/ZYyDXn3gAv98=;
+	b=iYatpcOswkvgzbwpux/048wpmhGWw/MlMOJRou5j6pc7eioO0WziknYEkkQmLG2julrb
+	 HByJgJL2GxX5S2gymZnGjJoSC2I9egEwbU4G5zb6/c1Y56U2ZhOb8ylHtEJ1w5CmcHyOW
+	 6WriHhWUpy3G3sWgSPcwu+9b+AvjLR7YoLdtj/qjb4YG856FTYGKEDolTusxhPgQ9EDqt
+	 fEc5JtA2i6DmMhEvJ8us/YM7s9rTQs2aujqlfEAkoFrsqOpeZMJpli/+PROYCQKN5tC6N
+	 mHCwVn80EouWuu6MO8HzqI7FXT4dciXgZxQpmnD4hPGKd5jbY2IYuyttYOCecOWTrig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sericyb.com.au;
-	spf=pass smtp.mailfrom=shining.glasswings.com.au;
-	dkim=pass header.d=sericyb.com.au header.i=@sericyb.com.au header.a=rsa-sha256 header.s=shining header.b=cxxvUuXU;
-	arc=none smtp.remote-ip=178.63.21.144
-Received: from shining.glasswings.com.au (shining.glasswings.com.au [178.63.21.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F493606A325;
-	Thu, 19 Nov 2026 02:47:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F493606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sericyb.com.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shining.glasswings.com.au
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sericyb.com.au header.i=@sericyb.com.au header.a=rsa-sha256 header.s=shining header.b=cxxvUuXU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=sericyb.com.au;
-	s=shining; t=1795056468;
-	bh=C8FYOrq1/N2X6ndUQiRxC8Lu0JM0VQ3FC8k8ab2MGrA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cxxvUuXUweCPtmcsvbROVekq0nddHOk1RVUthN90r538qz8aBeCjCrBxoUvXVQT94
-	 MCp2uFFQEBzHIzcrAEh/uFbr/i4guGRASpHz4cXUo75mpYcdFRz31n/FH52h4ZvwR9
-	 t6KGOqORNN8vUP6B+x+yexXa6/XRtEPBXl9ifJnxfU9YUT2UaFV5Cd0X7yZlQgblIZ
-	 Y6OQ3vGyBg7UvOyJD+HtpK68GBYGiPpy6swb6vbdRy6SfuTrRK4SW5KlSNCmCYxDU/
-	 W9fIazSKnhOBFfKZn/9CEAtAJL1zsK0YbHkYv5t5jviIafiNodgMt5CsOmZksVmnkS
-	 UmsSLjhCfmKmQ==
-Received: from fauth-a2-smtp.messagingengine.com (fauth-a2-smtp.messagingengine.com [103.168.172.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by shining.glasswings.com.au (Postfix) with ESMTPSA id 2ACF810A47D28;
-	Thu, 19 Nov 2026 02:47:47 +0000 (UTC)
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfauth.phl.internal (Postfix) with ESMTP id D6C7FF40066;
-	Wed, 18 Nov 2026 21:47:45 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Wed, 18 Nov 2026 21:47:45 -0500
-X-ME-Sender: <xms:UWP-alB1BrDOxn5i_rh2Sz9O9vgAhzrp7PG-CCNvGVW8zI1D79yC0g>
-    <xme:UWP-arGid5weEz3rUFF6EakJlLDGfixGQ2w_9MeYzjpyuTXKYk8QIjLGP6tY3hdRt
-    zEKfRi1KzVH_w2aNipGHdeqTDarPHT4ahCx6zXwP3Z6K36fw8VvvisU>
-X-ME-Received: <xmr:UWP-agNW8q695JX80FEkV9jnwlDcbeXhYfWvCjMyDNgevIauNkwxlnUBTjVYPMT3sGUhJcsHPFmE_9VQr4NU5p9khEWaAhTMjQya52_nCnEWfHS3qBD8DP1EEG-1>
-X-ME-Proxy-Cause: dmFkZTEwpsQHC9Tj7Tz09TkJGL7qYNNHrIq0C5ACydSwY+TvPVL6v5ayL12XNqrkxqXTG+
-    /bG6qVSvFmLAm6e8L3ktA8BXWVbs398GKZF6//9vw7ujDbG+VaUWRuCR1Tb/51WdEqNw0q
-    Ocdncv6gRQKblwe7OMQ6c+lNAYCsA/pubayqAUUpYF2RbLJI2eH3tn5aa22WAnBGC6qKjk
-    VSs7Zhox35Ta58Q2TiNoGabmPtjiX3etHwBQIsVoP6z+XQFhIBvZ4QZfHUFt184A3GPUGi
-    pnJxf41TPiIJssg5WvrdjlpLxdXSRz/rhoe5U0KN/3HazjQCEO614gp8q7Qy0KZ9CeMIRj
-    EVRanag64aMLeCA63It9NMBN5ri5tsecXVns9S+CNoKSyv75JQ71Eb+EFXwJRHoU1rhHAH
-    TNnNfG5L9AGQIQgQBsfEuuiXSFVisXs6JkT4nLCRQXEV3zVy+kZpJaSlIpsivCHIK8y+Pn
-    DEDb7WtcoUYTn5IxyM/enCZUo0tlRohk/5rh4kfnl25HoGnwswuofZmemA4cUHtwvjo1M4
-    phxWw+5p7wvbrlWEquSSTevFtgTCfuHtu4EmPUDjWuji2FqzqWiKsTsqcbwT1m1Du83yo1
-    Bz28DWe/V3QtMea50HQ+OIEXg/s8BUJTOEwSdaLEMaCJwx6bJ42mlggvEWbg
-X-ME-Proxy: <xmx:UWP-asiw7M6vfBb4FtEollw8SVLUzpGso1VCkMv3eSc4kWLifghjuA>
-    <xmx:UWP-ag19TD6yflF7cL6yR_bFJ0l5l5CP_z61l7RBArBaMvPEb0kCWA>
-    <xmx:UWP-apkqbazigEcVAc9ek0QDCZedma5lkFicNaj3feOtt2t-jSLPQA>
-    <xmx:UWP-avu0yOckxpe6pBfXHBM_Aa4J8sIG23lKAXIgNJ-keZHlPGTcGA>
-    <xmx:UWP-ap3c2FUwHGjGDGEALzfjwWEzFRJVEVhSRrrVhr_LmVZzsfcjKZlf>
-Feedback-ID: i558e4b61:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 21:47:41 -0500 (EST)
-From: Andrew Pam <andrew@sericyb.com.au>
-To: Trond Myklebust <trondmy@kernel.org>,
-	Anna Schumaker <anna@kernel.org>
-Cc: Andrew Pam <andrew@sericyb.com.au>,
-	Chuck Lever <cel@kernel.org>,
-	Jeff Layton <jlayton@kernel.org>,
-	NeilBrown <neil@brown.name>,
-	Olga Kornievskaia <okorniev@redhat.com>,
-	Dai Ngo <Dai.Ngo@oracle.com>,
-	Tom Talpey <tom@talpey.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mike Snitzer <snitzer@kernel.org>,
-	linux-nfs@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/3] SUNRPC: reconnect client transports after resuming from hibernation
-Date: Thu, 19 Nov 2026 13:47:18 +1100
-Message-ID: <20261119024719.311474-4-andrew@sericyb.com.au>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119024719.311474-1-andrew@sericyb.com.au>
-References: <20261119024719.311474-1-andrew@sericyb.com.au>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6449606A32F
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:53:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6449606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-5384e381fbbso1308092b6e.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:53:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795056818; x=1795661618;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9tWToM0lifFSyYKYANxc0yn8qaqJFP/ZYyDXn3gAv98=;
+        b=DSmvj8Q0ZCwR/u687Gwt7mbW4JrmO2CB3+1BMHAwFnKm537TiZfaiVf+pAmgaP//Z9
+         Z3peLIxd58pgQki5NSwbQNARBcCm/VdbFKNYCVUqrQSFpwpKx+36Q/FvbZdPMJbx373C
+         tOKqC2bYk/oFie64ruWb+xrO3nJkKVCj7dDRJtjN6BUzKnd8brKVKVi1lyF1KdsoqE2D
+         anSmgWivrL6z3T3nPt0VAWyI0nnV2zjXLeistTXyU7XW71pCdtJ3Rtz/0DktkCHp4w7n
+         F1ORFD05xae42dQLEWCHnAmYcwW/X/ibnDGra0JqZSUGRVDY3nwuxT9J2UxcWZw14VYu
+         ImoA==
+X-Forwarded-Encrypted: i=1; AL+hErHB7U7KisXoUjuPBh+NX5XnO6TQtDBXDUf/57VFJjZvcwxoplyEd0ezO+lzGTPfLJvG9CXF94w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/YecL02I1r8fnv57R2sZtQ5crNVYWVb1djfqKNmUalsDFZnsPI
+	Byjj7g/rWj1oyOmV5UWDGpF8Lj4l+1ziv2Ib8U8gm2rzWuxW/uYMME2TIBJ0XuSWUzpy2uGDcKQ
+	ZWCTRgdOlOrDwWsJfC2BmTsgdlPtBGpwA6Rzzv09R5C2GPVqXOdo6GfKrdQM=
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,164 +58,129 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.6.2 (shining.glasswings.com.au [178.63.21.144]); Thu, 19 Nov 2026 02:47:48 +0000 (UTC)
+X-Received: by 2002:a05:6808:4f54:b0:4c3:db9b:3ead with SMTP id
+ 5614622812f47-5773db23e12mr5790184b6e.3.1795056817810; Wed, 18 Nov 2026
+ 18:53:37 -0800 (PST)
+Date: Wed, 18 Nov 2026 18:53:37 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afe64b1.92f98041.20636d.0000.GAE@google.com>
+Subject: [syzbot] [net?] KCSAN: data-race in __seccomp_filter / bpf_sk_storage_free
+From: syzbot <syzbot+dbe9d09c93ae0bb86ae1@syzkaller.appspotmail.com>
+To: ameryhung@gmail.com, ast@kernel.org, davem@davemloft.net, 
+	edumazet@kernel.org, horms@kernel.org, josef@toxicpanda.com, kuba@kernel.org, 
+	linux-kernel@vger.kernel.org, martin.lau@kernel.org, netdev@vger.kernel.org, 
+	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-With rpciod and xprtiod frozen across hibernation, no RPC is sent after
-the snapshot. TCP can still acknowledge data the server sends then,
-though: typically a reply that was in flight when the snapshot was
-taken. The restored image has not seen that data, and the server, which
-saw it acknowledged, will not send it again. The client then waits
-indefinitely for replies that never arrive.
+Hello,
 
-After resuming, disconnect every client transport. Requests in flight
-are retransmitted on the new connection, and the server answers any it
-has already executed from its reply cache. Because nothing was sent
-after the snapshot, NFSv4.1 session slot sequence ids still agree on
-both sides.
+syzbot found the following issue on:
 
-The disconnect is done from a PM notifier at PM_POST_HIBERNATION, which
-runs in the restored kernel once everything has thawed. It is also sent
-when hibernation fails, where the reconnect is unnecessary but harmless.
-The notifier walks each client's transport switch under its xps_lock.
-Every transport on the switch's list holds a reference that is dropped
-only after it has been removed under that lock, so the transports stay
-valid while it is held. xprt_force_disconnect() does not sleep, so no
-references need to be taken and nothing is allocated.
+HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=146ba4b5580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=b949a9d3c1d44ceb
+dashboard link: https://syzkaller.appspot.com/bug?extid=dbe9d09c93ae0bb86ae1
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
 
-Drafted with an AI coding assistant (Claude).
+Unfortunately, I don't have any reproducer for this issue yet.
 
-Signed-off-by: Andrew Pam <andrew@sericyb.com.au>
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/a943b9915869/disk-666539ee.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/9bfd839d7ea5/vmlinux-666539ee.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/0f20b9720a71/bzImage-666539ee.xz
+
+AI-generated root cause summary:
+Commit 378b7708194f moved __migrate_disable() and __migrate_enable() inline from
+kernel/sched/core.c (where KCSAN instrumentation is disabled via KCSAN_SANITIZE
+:= n) into include/linux/sched.h. In __migrate_disable(), this_rq_pinned()++ is
+updated with only preemption disabled (via guard(preempt)()), without disabling
+hardware interrupts. When an interrupt fires on the same CPU while a task is
+executing __migrate_disable(), the interrupt exit path invokes softirqs (such as
+RCU core callbacks running deferred_put_nlk_sk -> bpf_sk_storage_free), which
+calls rcu_read_lock_dont_migrate() -> migrate_disable(), resulting in an
+uninstrumented/non-IRQ-safe nested read-modify-write on CPU 0's rq->nr_pinned
+that triggers KCSAN.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=dbe9d09c93ae0bb86ae1
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+dbe9d09c93ae0bb86ae1@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KCSAN: data-race in __seccomp_filter / bpf_sk_storage_free
+
+read-write to 0xffff888237c2ccf0 of 4 bytes by interrupt on cpu 0:
+ __migrate_disable include/linux/sched.h:2495 [inline]
+ migrate_disable include/linux/sched.h:2512 [inline]
+ rcu_read_lock_dont_migrate include/linux/rcupdate.h:990 [inline]
+ bpf_sk_storage_free+0x7b/0x210 net/core/bpf_sk_storage.c:52
+ __sk_destruct+0x12e/0x4d0 net/core/sock.c:2398
+ sk_destruct net/core/sock.c:2448 [inline]
+ __sk_free+0x23c/0x280 net/core/sock.c:2459
+ sk_free+0x55/0x90 net/core/sock.c:2470
+ deferred_put_nlk_sk+0x89/0xc0 net/netlink/af_netlink.c:712
+ rcu_do_batch kernel/rcu/tree.c:2650 [inline]
+ rcu_core+0x76e/0xcb0 kernel/rcu/tree.c:2919
+ rcu_core_si+0xd/0x20 kernel/rcu/tree.c:2936
+ handle_softirqs+0x109/0x310 kernel/softirq.c:669
+ __do_softirq kernel/softirq.c:703 [inline]
+ invoke_softirq kernel/softirq.c:542 [inline]
+ __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
+ sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
+ delay_tsc+0x32/0xa0 arch/x86/lib/delay.c:71
+ udelay include/asm-generic/delay.h:64 [inline]
+ delay_access kernel/kcsan/core.c:332 [inline]
+ kcsan_setup_watchpoint+0x255/0x3f0 kernel/kcsan/core.c:622
+ __migrate_disable include/linux/sched.h:2495 [inline]
+ migrate_disable include/linux/sched.h:2512 [inline]
+ bpf_prog_run_pin_on_cpu include/linux/filter.h:836 [inline]
+ seccomp_run_filters kernel/seccomp.c:426 [inline]
+ __seccomp_filter+0x362/0x1400 kernel/seccomp.c:1283
+ __seccomp_permit_syscall+0x7d/0x150 kernel/seccomp.c:1410
+ syscall_trace_enter include/linux/entry-common.h:98 [inline]
+ syscall_enter_from_user_mode_work include/linux/entry-common.h:147 [inline]
+ do_syscall_64+0xce/0x3a0 arch/x86/entry/syscall_64.c:86
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+read-write to 0xffff888237c2ccf0 of 4 bytes by task 6079 on cpu 0:
+ __migrate_disable include/linux/sched.h:2495 [inline]
+ migrate_disable include/linux/sched.h:2512 [inline]
+ bpf_prog_run_pin_on_cpu include/linux/filter.h:836 [inline]
+ seccomp_run_filters kernel/seccomp.c:426 [inline]
+ __seccomp_filter+0x362/0x1400 kernel/seccomp.c:1283
+ __seccomp_permit_syscall+0x7d/0x150 kernel/seccomp.c:1410
+ syscall_trace_enter include/linux/entry-common.h:98 [inline]
+ syscall_enter_from_user_mode_work include/linux/entry-common.h:147 [inline]
+ do_syscall_64+0xce/0x3a0 arch/x86/entry/syscall_64.c:86
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 0 UID: 0 PID: 6079 Comm: syz.0.1215 Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+
+
 ---
- net/sunrpc/clnt.c        | 61 ++++++++++++++++++++++++++++++++++++++++
- net/sunrpc/sunrpc.h      |  2 ++
- net/sunrpc/sunrpc_syms.c |  7 +++++
- 3 files changed, 70 insertions(+)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/net/sunrpc/clnt.c b/net/sunrpc/clnt.c
-index 2f076b4bfd54..89afd2d0a47e 100644
---- a/net/sunrpc/clnt.c
-+++ b/net/sunrpc/clnt.c
-@@ -32,6 +32,8 @@
- #include <linux/in.h>
- #include <linux/in6.h>
- #include <linux/un.h>
-+#include <linux/suspend.h>
-+#include <net/net_namespace.h>
- 
- #include <linux/sunrpc/clnt.h>
- #include <linux/sunrpc/addr.h>
-@@ -881,6 +883,65 @@ int rpc_clnt_iterate_for_each_xprt(struct rpc_clnt *clnt,
- }
- EXPORT_SYMBOL_GPL(rpc_clnt_iterate_for_each_xprt);
- 
-+/*
-+ * TCP may have acknowledged data from the server after the hibernation
-+ * snapshot was taken, which the restored kernel has never seen. Disconnect
-+ * every client transport after resume, so that outstanding requests are
-+ * retransmitted on a new connection.
-+ *
-+ * Each transport on a switch's list holds a reference that is dropped only
-+ * after it is removed under xps_lock, and xprt_force_disconnect() does not
-+ * sleep.
-+ */
-+static int rpc_pm_notify(struct notifier_block *nb, unsigned long action,
-+			 void *data)
-+{
-+	struct net *net;
-+
-+	if (action != PM_POST_HIBERNATION)
-+		return NOTIFY_DONE;
-+
-+	down_read(&net_rwsem);
-+	for_each_net(net) {
-+		struct sunrpc_net *sn = net_generic(net, sunrpc_net_id);
-+		struct rpc_clnt *clnt;
-+
-+		spin_lock(&sn->rpc_client_lock);
-+		rcu_read_lock();
-+		list_for_each_entry(clnt, &sn->all_clients, cl_clients) {
-+			struct rpc_xprt_switch *xps;
-+			struct rpc_xprt *xprt;
-+
-+			xps = rcu_dereference(clnt->cl_xpi.xpi_xpswitch);
-+			if (!xps)
-+				continue;
-+			spin_lock(&xps->xps_lock);
-+			list_for_each_entry(xprt, &xps->xps_xprt_list,
-+					    xprt_switch)
-+				xprt_force_disconnect(xprt);
-+			spin_unlock(&xps->xps_lock);
-+		}
-+		rcu_read_unlock();
-+		spin_unlock(&sn->rpc_client_lock);
-+	}
-+	up_read(&net_rwsem);
-+	return NOTIFY_DONE;
-+}
-+
-+static struct notifier_block rpc_pm_nb = {
-+	.notifier_call = rpc_pm_notify,
-+};
-+
-+int rpc_pm_notifier_register(void)
-+{
-+	return register_pm_notifier(&rpc_pm_nb);
-+}
-+
-+void rpc_pm_notifier_unregister(void)
-+{
-+	unregister_pm_notifier(&rpc_pm_nb);
-+}
-+
- /*
-  * Kill all tasks for the given client.
-  * XXX: kill their descendants as well?
-diff --git a/net/sunrpc/sunrpc.h b/net/sunrpc/sunrpc.h
-index 11b9e5cead8e..1833b167616c 100644
---- a/net/sunrpc/sunrpc.h
-+++ b/net/sunrpc/sunrpc.h
-@@ -43,6 +43,8 @@ struct rpc_task;
- struct rpc_xprt;
- int rpc_clients_notifier_register(void);
- void rpc_clients_notifier_unregister(void);
-+int rpc_pm_notifier_register(void);
-+void rpc_pm_notifier_unregister(void);
- void auth_domain_cleanup(void);
- void svc_sock_update_bufs(struct svc_serv *serv);
- enum svc_auth_status svc_authenticate(struct svc_rqst *rqstp);
-diff --git a/net/sunrpc/sunrpc_syms.c b/net/sunrpc/sunrpc_syms.c
-index 1a3884a0376a..d32786f51ae5 100644
---- a/net/sunrpc/sunrpc_syms.c
-+++ b/net/sunrpc/sunrpc_syms.c
-@@ -116,6 +116,10 @@ init_sunrpc(void)
- 	if (err)
- 		goto out6;
- 
-+	err = rpc_pm_notifier_register();
-+	if (err)
-+		goto out7;
-+
- 	sunrpc_debugfs_init();
- #if IS_ENABLED(CONFIG_SUNRPC_DEBUG)
- 	rpc_register_sysctl();
-@@ -124,6 +128,8 @@ init_sunrpc(void)
- 	init_socket_xprt();	/* clnt sock transport */
- 	return 0;
- 
-+out7:
-+	genl_unregister_family(&sunrpc_nl_family);
- out6:
- 	rpc_sysfs_exit();
- out5:
-@@ -141,6 +147,7 @@ init_sunrpc(void)
- static void __exit
- cleanup_sunrpc(void)
- {
-+	rpc_pm_notifier_unregister();
- 	genl_unregister_family(&sunrpc_nl_family);
- 	rpc_sysfs_exit();
- 	rpc_cleanup_clids();
--- 
-2.53.0
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
