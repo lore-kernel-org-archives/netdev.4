@@ -1,59 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079417;
-	b=QvyqxJ5cVTjyNBpRc2xU6bkQOLDwhAvFQfImXEaEd2238JWSFWGff08qLXTSOS7rhj8F
-	 tXqFB+CAI+364NAB13gDOEji73oEH+A8g58LuqWemKOLXqt20kEVVa3IuUBLggIj1yGqk
-	 bHeJWCXlcYRrqxyAP2Rysf/Q1U+YgAs624USQy4TKGz7R7S+mXlaUEbtcOPHv6ijBn/Lt
-	 M8TmX/aSgoqGCWM1/+UTyyzFWZb3pYNOA1BXfFU9Km8zSnykMzJpIug6gbBw0c+T9ujjH
-	 wLhlU/ZlP6yoGvlKqlqp95u+P1iJJUvuDLtK7/hPcbveq/az3Rv9qajOwF25BMrSOlg==
+	t=1795079435;
+	b=TwjDuD/INRx+Jt/BoB0XthDWd6AAoDNLwoELk2BzAuIBKqLO1hS7/4944Joz/sclOTWV
+	 0s8selESYTcvZGbO4mpddOr7/9W7L2dogDxnu1++pw8B8q/0qyAWskXeY+rG+L1blL69C
+	 7/FwXebYEJ9q4OV03WfyZ1Ax58nb4ow5O7DXA3qeLzIsbXcMeI21UiVqrIlE4k/wAbXms
+	 87uvMR/Fshvt/pvaLIlSSbvh6axryUDGOAwomH4xHAn2Y+z9a5gk5gPmiTVH3oviOCw/r
+	 b62m+7ZaOu912xkGBZbU2WuPldfAOzqeBu4WCAvcYyTR8ecexLCQmgyRU1ccQli8hGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079417;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=QZaIpmJbdbbLJ0/+K2lgnwIVoF87UxKHw3bi+8cUMeI=;
-	b=4zP48ysYcsEyNiBQRbiAXwaPeoxz6cKuXp507kwzTymuSWwviHb2cTBHl/Pua9VczvuI
-	 Vt9O1Ok+XYaiZDIL03TuBH6trZQxx6O/G3TTYyP4PMt4HdXI0LN+IDLeI+k3cpjiIvBv5
-	 yqY8PjuIK7H26UTUbnuBFELQ4RgLUWNwTQX0JQDRKWzcvVQo4tlpc9pHLumm0NO5fZ/E8
-	 YHSMDYy/70fAlf23/sL9Xpud9f+88tnPso5ekgYjXx6Cl+8dCmbMxTM/EhCRW6yhmlNdh
-	 eukE1Xzz7xZp3+q9FvwwktzhJbe8WxfTaALZBw4VeuHUbsWkA/uXmWMhWU8FB0tHPBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079435;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=tuBOCCiH6AYUcrUIRQklRkNbz1Dojigm78BR7t4qnhM=;
+	b=G99YJGXOEekLpbRVzOW6ZMW5UYoVQ10VMwS2WZZBycbbEx1NkJFsJkGZ3pk6D8iqxdP4
+	 rvmJjBYiuZ1Lsn3fbcS3XxkwnMYHlyK2xhP+hXx72oM3fYLhjmQolDgj7v3wqUXtYhGyd
+	 xhUiix4jS+zAhi7srzAy+4RPNQvke0/2Sc+gz21PwimixTj13CBYRbQcTErgb3VJ3mD23
+	 FPjMkHUgcZuBwIQ0rL+vTuwzjM9gwBmWDCBwaW9G0H6g6k0D9jm2G6NLcrgodONapdVxK
+	 YxLr+GiegMIDjGg1dMjpkuYfifXvb/dWdvIzOvQiq398BO6AJawSMUUd8QUiDC/Ft7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0ZG4SCx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=P64Dlkd0;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=S2tpJH4W;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0E80606A326;
-	Thu, 19 Nov 2026 09:10:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC3DA606A335
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:10:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC3DA606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0ZG4SCx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB1F1F000C4;
-	Thu, 19 Nov 2026 09:10:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795079417;
-	bh=QZaIpmJbdbbLJ0/+K2lgnwIVoF87UxKHw3bi+8cUMeI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=n0ZG4SCxH3CFGBQKpAGOjOTbSmbkbU/jbqQbT9GAJbMCquQ/Vq8wkbVUMdzVSwAkD
-	 q3HE+7GhBaWnU5dR7NALmPmOlm+jMyXM10X0sHNojf2WY5ruj//ZoAV/UUrsOTYuuc
-	 oP28MkPMPnJi0sr4usfP73DXRsjd5NhfpWIoW27xYvrWJgrpBeOQhZz6AygAaVQ11f
-	 md1roGbx61yL7zNmOzW+Jsiq0KmWLgpBzeCfniYyGcOqR3FgmmJEKK+1G4xOORKIg/
-	 PnxVyNZGqgvyumB51dcO8noOyZ4VoY1gzoCixr59JoJXRCmvtKsTs8cfK1ZuNkGwOQ
-	 MTEq1qaBzsRgQ==
-Subject:
- Re: [PATCH net v6 7/8] net: dsa: b53: harden mirror register programming
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, vivien.didelot@gmail.com, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 09:10:16 +0000
-Message-ID: <179507941634.3136.10463696917464189508@kernel.org>
-In-Reply-To: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
-References: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=P64Dlkd0;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=S2tpJH4W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795079433;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tuBOCCiH6AYUcrUIRQklRkNbz1Dojigm78BR7t4qnhM=;
+	b=P64Dlkd0H+Yr1orC347Gfysn/DDU7S0PFINxC2C3+7Rwnok16CvZL61foZ0ZYEbwueBMRQ
+	J6fQHZ28HiJcrjr4NPe9AQ+hGOuL70REvlNSS58lUl/wZpKxfJHqLpmXL3ZTTMVqLF+iYF
+	RsYNyrOVdPHLmXle+ASKAnLzlrBhd94=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-349-kH5tPdnWNdqf14VJIMPQYQ-1; Thu, 19 Nov 2026 04:10:30 -0500
+X-MC-Unique: kH5tPdnWNdqf14VJIMPQYQ-1
+X-Mimecast-MFC-AGG-ID: kH5tPdnWNdqf14VJIMPQYQ_1795079429
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a3052225cbso1787010f8f.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:10:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795079429; x=1795684229; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tuBOCCiH6AYUcrUIRQklRkNbz1Dojigm78BR7t4qnhM=;
+        b=S2tpJH4Wj6jciNhL/J4DjTGLFb3gFzo/LgkP9ow8OTPov7qEGZJckh5wjM75Xa3QHp
+         8wXSJRthuAGTzqs+NHkEp9uOE2/ayyCcyx1feo5KuZTHAv89ydrHab6WETnQ2gNZHeC/
+         QPe9Z0XuEaZLj5Gd/ozaNEV1BvoJO2aDBu1Zj6wXCALmqGv1E3f6guEJIAzy0/cfXOay
+         c/fzvbbUszZZROATz2kQZML2KwVQ8l+GlL1gNGaCUpfCnmvFQ/NlMUTj6Nm2rgQSEJM8
+         /YPpo7sOoeR64D/4g64N9wUNvR0XtN3/Yb5gSaCsPKnoJtnLC1Iw8KMwk0v9NXp7alcs
+         DaWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795079429; x=1795684229;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tuBOCCiH6AYUcrUIRQklRkNbz1Dojigm78BR7t4qnhM=;
+        b=oC/ir+udM/8Q6lV6CXsORjHgqvjHL2BGKwLo8R4zQjQ3Y5ktAkL1KW0WIn5JaJpgWa
+         xdzOzWeN7wGYRrIlhO8M3VDzQluhG2Z8MXOSfTqyR5JNnwfpCku0GAhgT4pOeZIyIn7R
+         aVG/mW6+cUH7e3lUXemurrTbHy7X2LxSOFzREoGgR6QiWAVpZUnwbgPlpFKZfeNsEySk
+         fCpYSuR6EtcsmsLqkxp35G/KhveGksRbGbdJVOIgd2INTgpeu+rULxXW/o25gpS5YEC0
+         AmoPKWfLhzq6h2QFr65QcbURI9FdRgfGgrUeosUSDnxxcR/hyufMd1uNwD92eKqkIP9q
+         lNCw==
+X-Forwarded-Encrypted: i=1; AL+hErGw/jYThZ+Jx/TzNkXNA2YZ7y7EB4QYmk/jcgCg1L4xg5NT06Hh/hhGS/fOwCJtftAPlciNTCc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bEbrlrWJFSMIezIDbDRoQd9o5hJ+RPJWtdn35H2VhNNL/ypnf
+	5YvfA+XRzktFTuLpMnSgphqMKSfAoTT2Ug1dw1jsMiI3EMnhx+KAON/57wzUf0qZ2KE5Ze/LxqZ
+	am3yZwZo5FX5xiCNk2JI+WxP40bQBhjCyy/Fk2iCsgBDrKC77a+TRpuMgAg==
+X-Gm-Gg: AZFdTZe+jnekl+Jbk5tgGuRuocbBo6l21twbZs3z+D5wlLvC5w3jcQ8wkPUhCmWMFY2
+	ZZKJfiuRyDFHpvO/hSnsI21kip8gqU5Pks/tDjMQue/IqDggJr5b/WJM79ZiKY/eP/D9Qa1b+Pm
+	K6D6746w26WwSSKiv/Wtlk7LAw1a/azD4siAxbsCOVv5pZ1CXWeqepD3551Nh4vIK2BNgkBp59d
+	eE8w3kCVTH0koHThKhWPLOWic/DAGVjMcW9+crjr8zjOFj9wquSreKFvCMqlSnjlIqD/4hf0FXH
+	seK3djla8fs+3aQWhFT8cOCo6q0OQhagSGIixJlLT25pMskHG9xQKx/SKJm32dkYiJp3NagGfiX
+	c41GmtlscTu6hEXKAKiUqpDW953G3m/k5fSYFpITfNx7m3WHIz0a6MA==
+X-Received: by 2002:a05:6000:4812:b0:490:50c1:f359 with SMTP id ffacd0b85a97d-4a63bea9888mr10985194f8f.39.1795079429126;
+        Thu, 19 Nov 2026 01:10:29 -0800 (PST)
+X-Received: by 2002:a05:6000:4812:b0:490:50c1:f359 with SMTP id ffacd0b85a97d-4a63bea9888mr10985146f8f.39.1795079428655;
+        Thu, 19 Nov 2026 01:10:28 -0800 (PST)
+Received: from sgarzare-redhat ([80.116.143.202])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a655db6d45sm9145491f8f.33.2026.11.19.01.10.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 01:10:28 -0800 (PST)
+Date: Thu, 19 Nov 2026 10:10:21 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Sergio Lopez <slp@redhat.com>
+Cc: Bryan Tan <bryan-bt.tan@broadcom.com>, 
+	Vishnu Dasa <vishnu.dasa@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, linux-kernel@vger.kernel.org, virtualization@lists.linux.dev, 
+	netdev@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] vsock/vmci: reject datagram binds in local network
+ namespaces
+Message-ID: <av682hncPM1ksJtf@sgarzare-redhat>
+References: <20261117-vsock-vmci-netns-isolation-v2-1-d6f35e86416a@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,189 +120,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261117-vsock-vmci-netns-isolation-v2-1-d6f35e86416a@redhat.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 08:01:52PM +0100, Sergio Lopez wrote:
+>VMCI already rejects datagram sends from local network namespaces, but a
+>datagram bind still creates a receive handle in VMCI's global port space.
+>A VMCI sender outside the namespace can therefore deliver to the local
+>socket. Its handle also prevents a global-namespace socket from binding
+>the same port.
+>
+>Reject VMCI datagram binds in local namespaces. No namespace-local
+>datagram transport exists, so EOPNOTSUPP reflects the available receive
+>paths. Unbound datagram connect() and sendmsg() also return EOPNOTSUPP
+>because both call vsock_auto_bind(). The receive callback rejects any
+>local-mode socket as a defensive check.
+>
+>In a KASAN/lockdep QEMU guest, a reproducer observed cross-namespace
+>delivery and the global port collision before the fix. After the fix,
+>local bind returns EOPNOTSUPP, the global bind succeeds, and a global
+>VMCI datagram still reaches the global socket.
+>
+>Fixes: eafb64f40ca4 ("vsock: add netns to vsock core")
+>Cc: stable@vger.kernel.org
+>Link: https://lore.kernel.org/all/sashiko-outbox-212907@kernel.org/
+>Acked-by: Bobby Eshleman <bobbyeshleman@meta.com>
+>Signed-off-by: Sergio Lopez <slp@redhat.com>
+>---
+>Changes in v2:
+>- Combine the VMCI receive checks and clarify the auto-bind effects on
+>  datagram connect() and sendmsg() (thanks to Stefano Garzarella).
+>- Carry Bobby Eshleman's Acked-by.
+>- Link to v1: https://lore.kernel.org/r/20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com
+>---
+> net/vmw_vsock/vmci_transport.c | 7 ++++++-
+> 1 file changed, 6 insertions(+), 1 deletion(-)
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
+Reviewed-by: Stefano Garzarella <sgarzare@redhat.com>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] This patch fixes a regression that an earlier patch in the
-  same series introduced.
-- [Low] The series is split badly around b53_mirror_init().
-
-Pre-existing issues:
-- [Low] At this commit, on BCM5325/BCM5365, the mirror source masks and
-  capture-port field use the newer-chip encoding.
-
---
-
-net: dsa: b53: harden mirror register programming
-
-This commit clears and rebuilds the mirror registers during b53 and
-bcm_sf2 setup. It also checks every mirror register access in
-b53_mirror_add() and b53_mirror_del(), and only increments the source
-reference count once programming has succeeded. Whether a destination is
-occupied is now decided from the source masks instead of MIRROR_EN.
-
-> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-> index 98696bce368fe..deb331b3629a7 100644
-> --- a/drivers/net/dsa/b53/b53_common.c
-> +++ b/drivers/net/dsa/b53/b53_common.c
-> @@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
->  		return ret;
->  	}
->  
-> +	ret = b53_mirror_init(ds);
-> +	if (ret)
-> +		return ret;
-> +
-
-[Severity: Low]
-The commit message says this patch will "Clear capture control and both
-source-control registers during b53 and bcm_sf2 setup, then rebuild the
-source masks and capture destination from the mirror reference counts".
-The diff, however, only adds the calls in b53_setup() and
-bcm_sf2_sw_setup().
-
-The previous patch, "net: dsa: b53: reference count shared mirror source
-bits", added the body of b53_mirror_init(), its EXPORT_SYMBOL and the
-prototype in b53_priv.h. That patch's message only talks about reference
-counting, and the function has no callers there.
-
-Could b53_mirror_init() move into this patch, or could the earlier commit
-message describe it?
-
-As it stands, cherry-picking this commit through its Fixes: tag without
-the previous one would fail to build because b53_mirror_init() is
-undefined. The "must be applied after them" note doesn't say that the
-dependency is a missing function body.
-
-[ ... ]
-
-> @@ -2654,14 +2658,25 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
->  {
->  	struct b53_device *dev = ds->priv;
->  	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
-> -	u16 reg, loc, cap_ctl;
-> +	u16 reg, other_reg, loc, other_loc, cap_ctl;
->  	int ret;
->  
-> +	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
-> +	other_loc = ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
-> +
-> +	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
-> +	if (ret)
-> +		return ret;
-> +
->  	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &cap_ctl);
->  	if (ret)
->  		return ret;
->  
-> -	if ((cap_ctl & MIRROR_EN) &&
-> +	if (((reg | other_reg) & MIRROR_MASK) &&
->  	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
-
-[Severity: Medium]
-This replaces the (cap_ctl & MIRROR_EN) check that "net: dsa: b53: reject
-conflicting mirror destinations" added earlier in this series. Is that
-earlier patch a regression on its own?
-
-At that point in the series, nothing in setup clears the mirror
-registers. The baseline add path always overwrote B53_MIR_CAP_CTL.
-b53_switch_reset() only soft-resets some chips:
-
-	if (is539x(dev)) {
-		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x83);
-		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x00);
-	}
-	...
-	if (dev->chip_id == BCM58XX_DEVICE_ID ||
-	    dev->chip_id == BCM583XX_DEVICE_ID) {
-
-Take one of the other chips with no reset GPIO, where a bootloader or a
-kexec'd kernel left MIRROR_EN set with a different capture port. The
-first valid tc matchall mirror rule then fails with -EOPNOTSUPP.
-
-If stale source bits were also left set, b53_mirror_del() never clears
-MIRROR_EN. Another destination then can't be selected until a power
-cycle.
-
-The earlier patch carries Fixes: ed3af5fd08eb and a Reviewed-by, so
-stable tooling can pick it up without this one. The "must be applied
-after them" note only guards the other direction.
-
-"net: dsa: b53: reference count shared mirror source bits" has a similar
-problem. It increments mirror_count after unchecked writes, so a failed
-first programming attempt is recorded as success. Later adds for the same
-port and direction then return early instead of reprogramming. This
-patch fixes that ordering too.
-
-Would it be better to squash the b53_mirror_init() wiring and the
-source-mask occupancy check into "reject conflicting mirror
-destinations", and the mirror_count reordering into "reference count
-shared mirror source bits"? Reordering the series so that no single
-commit regresses would also work.
-
->  		NL_SET_ERR_MSG_MOD(extack,
->  				   "Only one mirroring destination is supported");
-> @@ -2673,19 +2688,17 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
->  		return 0;
->  	}
->  
-> -	if (ingress)
-> -		loc = B53_IG_MIR_CTL;
-> -	else
-> -		loc = B53_EG_MIR_CTL;
-> -
-> -	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
-> -	reg |= BIT(port);
-> -	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
-> -
-> +	/* Select the destination before enabling the new source. */
->  	cap_ctl &= ~CAP_PORT_MASK;
->  	cap_ctl |= mirror->to_local_port;
->  	cap_ctl |= MIRROR_EN;
-> -	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
-> +	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg | BIT(port));
-> +	if (ret)
-> +		return ret;
->  
->  	(*mirror_count)++;
-
-[Severity: Low]
-This is a pre-existing issue, but is the source and capture-port encoding
-right here for BCM5325/BCM5365?
-
-The source bit is written as BIT(port), so the CPU port uses bit 5 rather
-than hardware bit 8. The destination is compared and written as a raw
-port number under CAP_PORT_MASK, but these chips expect a port bitmap.
-
-b53_mirror_init() uses the same encoding (cap_ctl = MIRROR_EN |
-dev->mirror_port), and so does b53_mirror_del() (reg &= ~BIT(port)). The
-hardware can then mirror the wrong source or destination while
-mirror_count and mirror_port report the rule as installed.
-
-The encoding goes back to ed3af5fd08eb. A later patch in this series,
-"net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365", fixes
-it. That patch adds b53_mirror_port_mask(), b53_mirror_capture_port(),
-b53_mirror_capture_port_mask() and CAP_PORT_MASK_25, and uses them in the
-init, add and del paths.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116210943.1352656-1-florian.fainelli%40broadcom.com
