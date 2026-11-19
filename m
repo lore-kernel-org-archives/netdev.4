@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795097434;
-	b=fIBqu+XLeGL7V2p+4SRSQPM5soJpxv2g5cgJkxiqyJAMEFBK4DbIG0VYHtJL4gCzJ46J
-	 q1fzUmhNB1HHFbPpz3Eiwm0orhcJwLI8waW8cv9K3a6Qh5/rxxa0Dxmni2XarvKPU5lM+
-	 c5mdeX9OZyw9POtY97n2cwiyB99F6P+97c5k6d542uVMtnrQ8w+PmG/pcqa/RvCycgoSG
-	 wAvEnUkvILjItzRbLiOCNd1k/fWBhX/lzrhVeB5bYibNta6ppXc7ejvb1F1B2zo/Yw64H
-	 Ea3cKRhjOmoReRw2HJFvOdnxiazCqjY53JgkExUOqMKLFaXw7poqqeo2VHQnq8YfDIA==
+	b=eXDwVZ2Tii6H1Hdcpa4zUuX/DNCTUwJ+bP6zAunj1LS4Zm/wPP85jcuPJ/W3W5E24p/g
+	 xa1YQo5pI498bLr/K0hl4TuPIQPQ40DNhDHHaTkOSfG6lUFuy4ePq6BkJnna/CYAVgMNu
+	 AyzmkqefoWd95o62SnbOgpZq2GtaRJySQnFdJv6WWEJfbMWVTMZLPoTRaTl5MDwxF+OYE
+	 8oDc2lHckrnMtWwpbK3TGm/nltGjwrXbbnJLb6pbPT1iAnJ8mdnQ22fLdtLjJ9cpXGt+t
+	 xDnoOTUBLdeRYmDwcfVGh7919mGy5MRQUw9Agy7zE8aQ06nsBQNGFaMicLa56J0WSFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795097434;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=fi+MFG63/XkyO9Z7kltTJvTwM41Amb5H9DYZXImCVMw=;
-	b=BTpo4Q7sPBh1kWpt9DJVUV0dM0ID27Prklgdh7lvoP9UnVaH1FT7S20wgEMSf3bEQWTo
-	 k5ssrw+NK4Ca/LRQQ0/FJO3kC6O4uLH8hZwgC/kxLtRjhXBZHc2/oFarngd33Z3xPn5T4
-	 9rvBqQ9F85fe43+cCNbpR/QKaQbUnDeg6HfVfH9HPHep9EgzfUiAZL7t6HM4Tu60yRVdp
-	 7Y3GswKixP4AhLcm7WeKa2rIEw6vCShX9dK7rzPwXhjci2jxm2msVBhMdOHTtjhZmCEYK
-	 lwcQ1EE2Q6AFSodZ4WxG6/JPO2GzDJc8U7CVu7dzN/bwDew2aYx8Q6ubCOEycFDlPDA==
+	bh=885O//4TNWmICaXvaoWhD9ON/DN8BkJX8bU3kObVRv8=;
+	b=c70X83IR9bO5nehqFjIjZPDjPhrXchlxTkEyJMhIl0emo3y+SRt28wZ5TnFUqOtW6tA4
+	 qGvh0bHHAOFt5Xol+xNQcHdT7BU/VAyRd6mS9xNe8SJYYBBWHu7XdLcUU1X1HDZ04hj0O
+	 0DwhNFkFIW6Dty78lODkMqlc2bI/5Kr9Arzfuk14b7S8qHMa9IUvv8Vl7Ctc4ee1tjZRu
+	 CNlToIMXK7oPFoT3yJV545RYO9uTMjktwtpWDqXAeG8+PKll6RmwLAsShdvQdkzSTxSPi
+	 TDLwRuLybmUCNud5ZUfbWJroJIPnad9nTlTsaPv/BYTw+PAhytt37ozB6Vv+XFh697Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cP4qZpvl;
-	arc=none smtp.remote-ip=117.135.210.5
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XBD9TLT3;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D221606A320;
-	Thu, 19 Nov 2026 14:10:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D221606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8EC5606A32F;
+	Thu, 19 Nov 2026 14:10:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8EC5606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cP4qZpvl
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XBD9TLT3
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=fi
-	+MFG63/XkyO9Z7kltTJvTwM41Amb5H9DYZXImCVMw=; b=cP4qZpvlPQHEOs5cBR
-	+fooBy8dOadAAELbPLG85uj6SCENDsAt2MBXmQdqVP5T8fWqnbudSBBWfr/9Gjje
-	HTUbaX/KA6pNiDOaJmzhqhrED0/vKhpwRX9ETJzkFnacA33kDHPGHyiYQqERgM9y
-	5EFH2P3WjXfUQuy5M6X2yfSEI=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=88
+	5O//4TNWmICaXvaoWhD9ON/DN8BkJX8bU3kObVRv8=; b=XBD9TLT34HGRFYTGYE
+	zJUQD3TaQIwiUnmo6JmWUYvSiCtguu5zh2CHqLJ4UPQOdX5g7TOVVnz+lsAfSIOU
+	CjPT6yH7q1KwltnSbkj1hQWHid+SMVJbkSppu9FzH+1sE+unmOb2t2YZ73iVnp+2
+	d0Ir3jl5rOGIUS2XiQ8zrSB64=
 Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wB3Zjj_Av9qQc93Iw--.13924S6;
-	Thu, 19 Nov 2026 22:09:32 +0800 (CST)
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wB3Zjj_Av9qQc93Iw--.13924S5;
+	Thu, 19 Nov 2026 22:09:30 +0800 (CST)
 From: Ding Hui <dinghui1111@163.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -62,9 +62,9 @@ Cc: dinghui@lixiang.com,
 	liuxuanjun@lixiang.com,
 	fujiahui@lixiang.com,
 	zhoujing3@lixiang.com
-Subject: [PATCH net v8 4/4] net: stmmac: restore the XSK TX pool on resume
-Date: Thu, 19 Nov 2026 22:09:00 +0800
-Message-Id: <5874b73b815d2385bbbf5f6988d50b3772fa0ce0.1795096430.git.dinghui@lixiang.com>
+Subject: [PATCH net v8 3/4] net: stmmac: restore RX descriptor buffer addresses on resume
+Date: Thu, 19 Nov 2026 22:08:59 +0800
+Message-Id: <52672e4d879760b1434a92e12f3c7d5b2287e086.1795096430.git.dinghui@lixiang.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1795096430.git.dinghui@lixiang.com>
 References: <cover.1795096430.git.dinghui@lixiang.com>
@@ -78,49 +78,341 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wB3Zjj_Av9qQc93Iw--.13924S6
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uF48XF1DCw48JrWkAFy7KFg_yoW8ArWxpr
-	Z7Cayqywn7tF4xZws8Gw40vFyFyayftF45ua4xJanxZFW7KFZIqr1YvFWYvry8JrWkXr13
-	trWjkan8C3W5CrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jCpBfUUUUU=
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8x1ijmr-Ax1JngAA3e
+X-CM-TRANSID:_____wB3Zjj_Av9qQc93Iw--.13924S5
+X-Coremail-Antispam: 1Uf129KBjvJXoW3ur17JFyfKrWDGryUAw1rtFb_yoWkXw4Upa
+	1akw4DK3ykJr13Gw4DJr48ZFyaya43tFWUWa1fWw4a9r4akr9a9F1FqFy5ZFyxJr1q9r4S
+	yF4DC3Z8CF4DXrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07b20eLUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC9BphjWr-Axo-qQAA3Y
 
 From: Ding Hui <dinghui@lixiang.com>
 
-When suspend interrupts AF_XDP zero-copy transmission, resume releases
-outstanding TX buffers through dma_free_tx_skbufs(). If it completes XSK
-frames, that helper also clears tx_q->xsk_pool even though the socket
-remains bound to the queue.
+Suspend disables NAPI before stopping RX DMA. Hardware can complete RX
+descriptors in between, overwriting GMAC4/XGMAC buffer addresses with
+writeback status. Resume currently rearms those descriptors without
+restoring their addresses, leading to a fatal bus error.
 
-The resume path does not run the TX ring allocation routine that normally
-sets this pointer. Consequently, stmmac_tx_clean() skips XSK transmission
-and a running TX-only socket can stop sending after resume, despite the
-link coming back up.
+Share buffer preparation with the refill paths and restore addresses
+from attached buffers. Allocate missing primary and secondary pages
+independently with GFP_KERNEL. If allocation fails, return the error
+without restarting DMA and leave the device detached.
 
-Restore the TX pool from the queue's existing XSK binding after releasing
-TX buffers and before restarting DMA and NAPI. Keep the buffer cleanup
-helper's behavior for teardown unchanged.
+For XSK queues, restore a contiguous populated prefix and leave the rest
+CPU-owned in the pending refill region. Preserve attached buffers beyond
+the prefix for later refill. Recompute the initial tail and pending count
+rather than retaining the allocation count from open.
 
-Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
+Rebuild chain pointers and use stmmac_reset_rx_queue() to discard partial
+receive state from before the DMA reset. Initialize RX descriptors after
+restoring their addresses,
+using the existing per-queue initializer to preserve the watchdog policy
+and legacy control fields. Keep the unpopulated XSK suffix CPU-owned when
+DMA restarts. This replaces the separate final ownership-setting loop.
+
+Collect the resume work in stmmac_resume_descriptors(), with one loop over
+TX queues and one over RX queues. Free outstanding TX buffers before
+initializing each TX ring, and remove the now-unused all-queue TX wrapper.
+The RX rings no longer undergo initialization before address restoration.
+
+Unlike the reverted commit 9c63faaa931e ("net: stmmac: re-init rx buffers
+when mac resume back"), retain attached buffers and their DMA mappings.
+
+Fixes: f748be531d70 ("stmmac: support new GMAC4")
 Signed-off-by: Ding Hui <dinghui@lixiang.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
- 1 file changed, 3 insertions(+)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 221 +++++++++++++-----
+ 1 file changed, 158 insertions(+), 63 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 1508cf08f03b..550a0bd647e1 100644
+index f9ac82d2e726..1508cf08f03b 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2277,6 +2277,9 @@ static int stmmac_resume_descriptors(struct stmmac_priv *priv)
- 	for (queue = 0; queue < priv->plat->tx_queues_to_use; queue++) {
- 		stmmac_reset_tx_queue(priv, queue);
- 		dma_free_tx_skbufs(priv, dma_conf, queue);
-+		/* Buffer cleanup may clear the pool; the socket remains bound. */
-+		dma_conf->tx_queue[queue].xsk_pool =
-+			stmmac_get_xsk_pool(priv, queue);
- 		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
+@@ -1677,6 +1677,40 @@ static bool stmmac_rx_check_buf2_cap(struct stmmac_priv *priv)
+ 	return priv->hw->desc && priv->hw->desc->set_sec_addr;
+ }
+ 
++static int stmmac_prepare_rx_buffer(struct stmmac_priv *priv,
++				    struct stmmac_rx_queue *rx_q,
++				    struct stmmac_rx_buffer *buf,
++				    struct dma_desc *p, gfp_t flags)
++{
++	gfp_t gfp = flags;
++
++	if (priv->dma_cap.host_dma_width <= 32)
++		gfp |= GFP_DMA32;
++
++	if (!buf->page) {
++		buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
++		if (!buf->page)
++			return -ENOMEM;
++		buf->page_offset = stmmac_rx_offset(priv);
++	}
++
++	if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
++		buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
++		if (!buf->sec_page)
++			return -ENOMEM;
++
++		buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
++	}
++
++	buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
++
++	stmmac_set_desc_addr(priv, p, buf->addr);
++	stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
++				 stmmac_rx_check_buf2_cap(priv));
++
++	return 0;
++}
++
+ /**
+  * stmmac_init_rx_buffers - init the RX descriptor buffer.
+  * @priv: driver private structure
+@@ -1695,32 +1729,100 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+ {
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+-	gfp_t gfp = flags;
++	int ret;
+ 
+-	if (priv->dma_cap.host_dma_width <= 32)
+-		gfp |= GFP_DMA32;
++	ret = stmmac_prepare_rx_buffer(priv, rx_q, buf, p, flags);
++	if (ret)
++		return ret;
+ 
+-	if (!buf->page) {
+-		buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+-		if (!buf->page)
++	if (dma_conf->dma_buf_sz == BUF_SIZE_16KiB)
++		stmmac_init_desc3(priv, p);
++
++	return 0;
++}
++
++static int stmmac_prepare_rx_buffer_zc(struct stmmac_priv *priv,
++				       struct stmmac_rx_queue *rx_q,
++				       struct stmmac_rx_buffer *buf,
++				       struct dma_desc *p)
++{
++	if (!buf->xdp) {
++		buf->xdp = xsk_buff_alloc(rx_q->xsk_pool);
++		if (!buf->xdp)
+ 			return -ENOMEM;
+-		buf->page_offset = stmmac_rx_offset(priv);
  	}
  
+-	if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
+-		buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+-		if (!buf->sec_page)
+-			return -ENOMEM;
++	stmmac_set_desc_addr(priv, p, xsk_buff_xdp_get_dma(buf->xdp));
++	stmmac_set_desc_sec_addr(priv, p, 0, false);
+ 
+-		buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
+-		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
++	return 0;
++}
++
++/**
++ * stmmac_reinit_rx_descriptors - restore RX descriptors before restarting DMA
++ * @priv: driver private structure
++ * @dma_conf: DMA configuration
++ * @queue: RX queue index
++ *
++ * Restore addresses overwritten by hardware writeback, retaining attached
++ * buffers and allocating missing page_pool buffers with GFP_KERNEL. Keep
++ * descriptors CPU-owned until addresses and chain pointers are restored.
++ *
++ * For XSK, publish only the contiguous populated prefix. The remainder is
++ * left in the refill region, including any buffers already attached there,
++ * and can be populated by NAPI when userspace supplies more fill buffers.
++ *
++ * Return: 0 on success, or -ENOMEM if a required page cannot be allocated.
++ */
++static int stmmac_reinit_rx_descriptors(struct stmmac_priv *priv,
++					struct stmmac_dma_conf *dma_conf,
++					u32 queue)
++{
++	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
++	struct dma_desc *p;
++	int i, ret;
++
++	for (i = 0; i < dma_conf->dma_rx_size; i++) {
++		p = stmmac_get_rx_desc(priv, rx_q, i);
++		stmmac_clear_rx_owner(priv, p);
+ 	}
+ 
+-	buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
++	rx_q->buf_alloc_num = 0;
++	for (i = 0; i < dma_conf->dma_rx_size; i++) {
++		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+ 
+-	stmmac_set_desc_addr(priv, p, buf->addr);
+-	if (dma_conf->dma_buf_sz == BUF_SIZE_16KiB)
+-		stmmac_init_desc3(priv, p);
++		p = stmmac_get_rx_desc(priv, rx_q, i);
++		if (rx_q->xsk_pool) {
++			ret = stmmac_prepare_rx_buffer_zc(priv, rx_q, buf, p);
++			if (ret)
++				break;
++		} else {
++			ret = stmmac_init_rx_buffers(priv, dma_conf, p, i,
++						     GFP_KERNEL, queue);
++			if (ret)
++				return ret;
++		}
++		rx_q->buf_alloc_num++;
++	}
++
++	/* Hardware timestamp writeback may have overwritten chain pointers. */
++	if (priv->descriptor_mode == STMMAC_CHAIN_MODE) {
++		void *des = priv->extend_desc ? (void *)rx_q->dma_erx :
++					      (void *)rx_q->dma_rx;
++
++		stmmac_mode_init(priv, des, rx_q->dma_rx_phy,
++				 dma_conf->dma_rx_size, priv->extend_desc);
++	}
++
++	rx_q->rx_count_frames = 0;
++	stmmac_reset_rx_queue(priv, queue);
++
++	/* Initialize control fields and publish ownership only after restoring
++	 * addresses and chain pointers. DMA is stopped; initialization also
++	 * clears OWN again for the unpopulated XSK suffix before DMA restarts.
++	 */
++	dma_wmb();
++	stmmac_clear_rx_descriptors(priv, dma_conf, queue);
+ 
+ 	return 0;
+ }
+@@ -2157,16 +2259,37 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
+ }
+ 
+ /**
+- * stmmac_free_tx_skbufs - free TX skb buffers
+- * @priv: private structure
++ * stmmac_resume_descriptors - prepare TX and RX rings before restarting DMA
++ * @priv: driver private structure
++ *
++ * Release outstanding TX buffers before initializing each TX ring. Restore
++ * RX buffer addresses before initializing RX descriptors and their ownership.
++ * All DMA channels must be stopped throughout this operation.
++ *
++ * Return: 0 on success, or a negative errno if RX restoration fails.
+  */
+-static void stmmac_free_tx_skbufs(struct stmmac_priv *priv)
++static int stmmac_resume_descriptors(struct stmmac_priv *priv)
+ {
+-	u8 tx_queue_cnt = priv->plat->tx_queues_to_use;
+-	u8 queue;
++	struct stmmac_dma_conf *dma_conf = &priv->dma_conf;
++	u32 queue;
++	int ret;
+ 
+-	for (queue = 0; queue < tx_queue_cnt; queue++)
+-		dma_free_tx_skbufs(priv, &priv->dma_conf, queue);
++	for (queue = 0; queue < priv->plat->tx_queues_to_use; queue++) {
++		stmmac_reset_tx_queue(priv, queue);
++		dma_free_tx_skbufs(priv, dma_conf, queue);
++		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
++	}
++
++	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++) {
++		ret = stmmac_reinit_rx_descriptors(priv, dma_conf, queue);
++		if (ret) {
++			netdev_err(priv->dev, "Failed to restore RX queue %u: %d\n",
++				   queue, ret);
++			return ret;
++		}
++	}
++
++	return 0;
+ }
+ 
+ /**
+@@ -5172,10 +5295,6 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+ 	int dirty = stmmac_rx_dirty(priv, queue);
+ 	unsigned int entry = rx_q->dirty_rx;
+-	gfp_t gfp = (GFP_ATOMIC | __GFP_NOWARN);
+-
+-	if (priv->dma_cap.host_dma_width <= 32)
+-		gfp |= GFP_DMA32;
+ 
+ 	while (dirty-- > 0) {
+ 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[entry];
+@@ -5184,25 +5303,9 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 
+ 		p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+-		if (!buf->page) {
+-			buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+-			if (!buf->page)
+-				break;
+-		}
+-
+-		if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
+-			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+-			if (!buf->sec_page)
+-				break;
+-
+-			buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
+-		}
+-
+-		buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
+-
+-		stmmac_set_desc_addr(priv, p, buf->addr);
+-		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
+-					 stmmac_rx_check_buf2_cap(priv));
++		if (stmmac_prepare_rx_buffer(priv, rx_q, buf, p,
++					     GFP_ATOMIC | __GFP_NOWARN))
++			break;
+ 		stmmac_refill_desc3(priv, rx_q, p);
+ 
+ 		use_rx_wd = !stmmac_rx_need_ic(priv, rx_q, queue);
+@@ -5609,22 +5712,15 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+ 
+ 	while (budget-- > 0) {
+ 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[entry];
+-		dma_addr_t dma_addr;
++		struct dma_desc *p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 		bool use_rx_wd;
+ 
+-		if (!buf->xdp) {
+-			buf->xdp = xsk_buff_alloc(rx_q->xsk_pool);
+-			if (!buf->xdp) {
+-				ret = false;
+-				break;
+-			}
++		if (stmmac_prepare_rx_buffer_zc(priv, rx_q, buf, p)) {
++			ret = false;
++			break;
+ 		}
+ 
+-		rx_desc = stmmac_get_rx_desc(priv, rx_q, entry);
+-
+-		dma_addr = xsk_buff_xdp_get_dma(buf->xdp);
+-		stmmac_set_desc_addr(priv, rx_desc, dma_addr);
+-		stmmac_set_desc_sec_addr(priv, rx_desc, 0, false);
++		rx_desc = p;
+ 		stmmac_refill_desc3(priv, rx_q, rx_desc);
+ 
+ 		use_rx_wd = !stmmac_rx_need_ic(priv, rx_q, queue);
+@@ -8563,10 +8659,9 @@ int stmmac_resume(struct device *dev)
+ 
+ 	mutex_lock(&priv->lock);
+ 
+-	stmmac_reset_queues_param(priv);
+-
+-	stmmac_free_tx_skbufs(priv);
+-	stmmac_clear_descriptors(priv, &priv->dma_conf);
++	ret = stmmac_resume_descriptors(priv);
++	if (ret)
++		goto error_unlock;
+ 
+ 	ret = stmmac_hw_setup(ndev);
+ 	if (ret < 0) {
 -- 
 2.34.1
 
