@@ -1,47 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057649;
-	b=hz4M88t/kE+Q2uPvqJpAOG9UweT/eeC7X5/zx4BgBSfa8otkLSIimmzQPZ4EAtbsvjEM
-	 oMu56wmIgvbU5OPXlbgAnysUjlCdkZD40XCw5jx3K31cZZJmac4zkPtOKiuhKW/OUGW9A
-	 AhOBYTimX84ikqDkvN/U16L0mFa11QltilMoKyxsL/QXUF5PI5qmQeqKL4EjgsoP1xt0Y
-	 U8A2Uj6GwHem2cYYsx94KXhknFfrD1irT1XHCW4JMfvDwBHkkUREAV0S2i6WMyskFSHK/
-	 hqjAago0LHUFHCYRydaRpAlPWzfFAtxCDfcMSi93Eo6CJL1rns9WrEjpBxaPzXKTcjg==
+	t=1795058511;
+	b=WVyjzfKrtjsY/YvmOvIWyM6AcHC+pXopEhVkqYWFjLiI9Z2IbpoP7x7VycNvFKWiNzco
+	 nUIiyOwDT//ptmPnKos0mj2OparEOo+LkQbqfWHwFRxAm8U/YXNKvElcfWxwBvRamGhiY
+	 OmF+joCJ2Lf9sGcMnUha1TwTVlDmiE47IyskMU2mv190M4cGe2XUYUZN0QGz7xlJY8b2m
+	 oRnudxksUlLNzcqZklO1pA37oQtncs0N0GaN9mTJHzcACBJvAkCyD5bznjuoPAVcYs9tm
+	 p6+gXyM4uC+HCLqxADQM03d3MTiBKmiEnzI6PAAWsyGJLvSRTDf/AaBtcijffnxjYWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057649;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
-	bh=IdzxIHwvPNhXFWRF/deMgH+tj2xn4z0opwo9u8jxkq0=;
-	b=Cwje/d8mUNQQ/e6LJbU4xTK3Zt0YZNE4hHulSHawQyC8zz123M6ri8uJYIt18v3l0jxZ
-	 ceiS5YVNNWitXUWZHwwYYoqGeimNGJODGlzQLreHP4+eaNCNC4Cf9ollm9QzYcGLJ3/SU
-	 DLQ+qA1ebAy/LBp+Au57tgIoaJqkhbJWT7Ulb6ISzYUYWGEIzwzfv2kvy1t6az6TleNGg
-	 IFH9FB/RJRDEVq4hle+tQTYjgdA77mtfY2PH4P90zJMNu+mT5T466Kr0ftmX4c89CX1vu
-	 PuxnQtRSO0sWm9tc8XjPG3I6TF1t2q0l4dXmOeEyN6KiOqMlreqpC/ZTuS1WCLvTcuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058511;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=iDmQOr43QTF7igvrWWY0fOtv86OpvPLY2q1VhBvbwSM=;
+	b=0UILzzJUuluJs0zR6NDSwqpTRX9j5O20mf4VjhWLAz6SKwgQzi6pwK6z7hDRK9ZOm4SP
+	 9eOw9FE8XdWJ2IbmMhklKu9o27gQlGfKhW6xeaFfpW1adT2qIO53s9PrkaIs2/HkWhw5/
+	 0c0jxUoFV2wrSqYbCKS2mUaQzBs3HPGMJvz4rtgat+XgyBYnv8vop29iQ75doQ9LAw9lK
+	 UasH97Q4FQcqavOUql8pmqemRPdILVqPHkB5WitZT9M+a62jPOXgAHFoKiTGQLSfgvUeR
+	 MA86VR2hHm/t6Ww3h3PbHbaDUz2169P/VnXIqEc2+F552bnF8oj+jRpymzdNitPMl3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zju.edu.cn;
-	spf=pass smtp.mailfrom=zju.edu.cn;
-	arc=none smtp.remote-ip=162.243.161.220
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E794060A2601
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:07:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E794060A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
-Received: from zju.edu.cn (unknown [123.60.231.41])
-	by mtasvr (Coremail) with SMTP id _____wDXkj3hZ_5q9BgjAg--.2492S3;
-	Thu, 19 Nov 2026 11:07:14 +0800 (CST)
-Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
-	by mail-app2 (Coremail) with UTF8SMTPSA id zC_KCgA3jXvYZ_5qxgzzAA--.10773S4;
-	Thu, 19 Nov 2026 11:07:05 +0800 (CST)
-From: Lin Ma <linma@zju.edu.cn>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: netdev@vger.kernel.org,
-	linux-afs@infradead.org
-Subject: [PATCH] net: rxrpc: Validate RxGK security level before allocating context
-Date: Thu, 19 Nov 2026 11:06:22 +0800
-Message-ID: <20261119030622.1017012-1-linma@zju.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hJ/5ptYx";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9710A606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:21:51 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJ/5ptYx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCF411F000C4;
+	Thu, 19 Nov 2026 03:21:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795058511;
+	bh=iDmQOr43QTF7igvrWWY0fOtv86OpvPLY2q1VhBvbwSM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hJ/5ptYxGDUQxEW1FPtDFYsdmo7UOtOGQzylBH39HHfG4FZh9hv1xOKwGv4VuNcPN
+	 m+2Lrlby1IDjCCXCREr/IiBS2VAl/hupBVZJujz1KtFU8J7s4+I2KP1lPLXR5adtBE
+	 wDQIPIMRRcml/IQREpvxYeDIxmI/GR5obi3K0iBtEpq0fxbs1Pyb4urSTuE6Q3GIeU
+	 FjqU0EnhUFIaaJPUUyIKa7Cgji18T9OPx5hhIdCDngysXeiHj8TmphFdkzUxC8amwg
+	 qgzIqAV5QxH+sLyyAbFpORSoCj1bubr/Tn90cYZ/Z3IEfJ7pvQfQPEncSE1g0YkpS3
+	 P74MP50OJRo2g==
+Subject: Re: [PATCH net-next 1/6] eth: bnxt_en: order event data before
+ setting the sp_event bit
+From: netdev-bot+sashiko@kernel.org
+To: kuba@kernel.org
+Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
+ edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+ horms@kernel.org, pavan.chebbi@broadcom.com
+Date: Thu, 19 Nov 2026 03:21:50 +0000
+Message-ID: <179505851041.3136.8792625449105507971@kernel.org>
+In-Reply-To: <20261118023905.3050661-2-kuba@kernel.org>
+References: <20261118023905.3050661-2-kuba@kernel.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,87 +63,122 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zC_KCgA3jXvYZ_5qxgzzAA--.10773S4
-X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAWs8
-X-CM-DELIVERINFO: =?B?GZE9rwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
-	APHnkvfpsecr7gZmVpD/pedGeHpGtDMELJCLEh64ggYXhOADlsr/2nYF2Ow6mehgvIHhLM
-	tWUv/Ymvum76TfL/Z2FenxA56WZayqXYq91+Si4TZ8lE+nRajidCoU/v5KYMdA==
-X-Coremail-Antispam: 1Uk129KBj93XoW7Kw4xJF1DJrWDKFy3Xry8tFc_yoW8uF13pr
-	Z09FyfJrn5JFnIkF1kAa1v9F1YkrZ5Wr47CF90v3Wvv3Wktr1Dtr1kKr4q9ry5GFWfGa10
-	v3WIqFnIk3ZrCwbCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUvSb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_GcCE3s1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27wAqx4
-	xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v2
-	6r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjcxG0xvY0x0EwI
-	xGrVCF72vEw4AK0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
-	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF
-	0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
-	c7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7I
-	U8VMKtUUUUU==
 
-rxgk_init_connection_security() currently stores a generated transport-key
-context before validating the token security level.  A rejected level can
-therefore leave a context in conn->rxgk.keys[]; a retry overwrites it and
-leaks the context and its crypto transforms.  Validate the level first so
-failed initialization does not allocate or install a context.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Found by LLM-assisted manual code inspection; not runtime-triggered.
-Related upstream fixes include commit 7e1876caa836
-("rxrpc: Fix leak of rxgk context in rxgk_verify_response()") and commit
-b555912b9b210 ("rxrpc: Fix key parsing memleak").  These analogous fixes
-support the allocation-lifetime analysis, but neither covers this path.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Fixes: 9d1d2b59341f ("rxrpc: rxgk: Implement the yfs-rxgk security class (GSSAPI)")
-Assisted-by: Codex:GPT-6 <codex@openai.com>
-Signed-off-by: Lin Ma <linma@zju.edu.cn>
----
- net/rxrpc/rxgk.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/net/rxrpc/rxgk.c b/net/rxrpc/rxgk.c
-index f9f5a2dc62ed..80fc8bea61a2 100644
---- a/net/rxrpc/rxgk.c
-+++ b/net/rxrpc/rxgk.c
-@@ -242,6 +242,16 @@ static int rxgk_init_connection_security(struct rxrpc_connection *conn,
- 	conn->security_ix = token->security_index;
- 	conn->security_level = token->rxgk->level;
- 
-+	switch (conn->security_level) {
-+	case RXRPC_SECURITY_PLAIN:
-+	case RXRPC_SECURITY_AUTH:
-+	case RXRPC_SECURITY_ENCRYPT:
-+		break;
-+	default:
-+		ret = -EKEYREJECTED;
-+		goto error;
-+	}
-+
- 	if (rxrpc_conn_is_client(conn)) {
- 		conn->rxgk.start_time = ktime_get();
- 		do_div(conn->rxgk.start_time, 100);
-@@ -254,16 +264,6 @@ static int rxgk_init_connection_security(struct rxrpc_connection *conn,
- 	conn->rxgk.enctype = gk->krb5->etype;
- 	conn->rxgk.keys[gk->key_number & 3] = gk;
- 
--	switch (conn->security_level) {
--	case RXRPC_SECURITY_PLAIN:
--	case RXRPC_SECURITY_AUTH:
--	case RXRPC_SECURITY_ENCRYPT:
--		break;
--	default:
--		ret = -EKEYREJECTED;
--		goto error;
--	}
--
- 	ret = 0;
- error:
- 	_leave(" = %d", ret);
+- [Medium] The patch fixes only some of the producers that publish data
+  and then raise an sp_event bit.
+
+--
+
+eth: bnxt_en: order event data before setting the sp_event bit
+
+This commit adds smp_mb__before_atomic() in bnxt_queue_sp_work() before
+the set_bit() on bp->sp_event. Data that callers store for bnxt_sp_task()
+then becomes visible before the event bit. The barrier pairs with the
+fully ordered test_and_clear_bit() in bnxt_sp_task().
+
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> index 6846a27bfef4c..5ad2a3033505d 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> @@ -394,6 +394,10 @@ static void __bnxt_queue_sp_work(struct bnxt *bp)
+>  
+>  static void bnxt_queue_sp_work(struct bnxt *bp, unsigned int event)
+>  {
+> +	/* Make the data the event carries visible before the event bit,
+> +	 * pairs with test_and_clear_bit() in bnxt_sp_task().
+> +	 */
+> +	smp_mb__before_atomic();
+>  	set_bit(event, &bp->sp_event);
+>  	__bnxt_queue_sp_work(bp);
+>  }
+
+[Severity: Medium]
+Should the same ordering also cover the producers that set sp_event bits
+directly and then call __bnxt_queue_sp_work()?
+
+The new comment reads like an ordering contract for sp_event in general.
+Several paths in bnxt.c do not go through bnxt_queue_sp_work(), so they
+never reach the new barrier. Each of them stores the event data, does a
+plain set_bit() on bp->sp_event, and then calls __bnxt_queue_sp_work(),
+which has no barrier.
+
+In bnxt_async_event_process(), the echo request case does this:
+
+	if (fw_health) {
+		fw_health->echo_req_data1 = data1;
+		fw_health->echo_req_data2 = data2;
+		set_bit(BNXT_FW_ECHO_REQUEST_SP_EVENT, &bp->sp_event);
+		break;
+	}
+	...
+	__bnxt_queue_sp_work(bp);
+
+Could bnxt_fw_echo_reply() then copy stale echo_req_data1/2 into
+HWRM_FUNC_ECHO_RESPONSE?
+
+In the RESET_NOTIFY case, the code writes fw_reset_timestamp,
+fw_reset_min_dsecs, fw_reset_max_dsecs and the BNXT_STATE_FW_FATAL_COND or
+BNXT_STATE_FW_NON_FATAL_COND bit in bp->state, and then does:
+
+	set_bit(BNXT_FW_RESET_NOTIFY_SP_EVENT, &bp->sp_event);
+
+The state bits are also set with a relaxed set_bit(), on a different
+word, so nothing orders them against the sp_event bit. bnxt_sp_task()
+then checks them:
+
+	if (test_and_clear_bit(BNXT_FW_RESET_NOTIFY_SP_EVENT, &bp->sp_event)) {
+		if (test_bit(BNXT_STATE_FW_FATAL_COND, &bp->state) ||
+		    test_bit(BNXT_STATE_FW_NON_FATAL_COND, &bp->state))
+			bnxt_devlink_health_fw_report(bp);
+		else
+			bnxt_fw_reset(bp);
+	}
+
+Can this take bnxt_fw_reset() instead of bnxt_devlink_health_fw_report(),
+or start the reset with stale wait limits?
+
+bnxt_event_error_report() does the same with bp->thermal_threshold_type:
+
+	bp->thermal_threshold_type = type;
+	set_bit(BNXT_THERMAL_THRESHOLD_SP_EVENT, &bp->sp_event);
+
+and bnxt_hwmon_notify_event() switches on that value.
+
+bnxt_sched_reset_rxr() follows the same pattern:
+
+	rxr->bnapi->in_reset = true;
+	if (bp->flags & BNXT_FLAG_CHIP_P5_PLUS)
+		set_bit(BNXT_RESET_TASK_SP_EVENT, &bp->sp_event);
+	else
+		set_bit(BNXT_RST_RING_SP_EVENT, &bp->sp_event);
+	__bnxt_queue_sp_work(bp);
+
+If bnxt_rx_ring_reset() sees a stale in_reset == false, it skips the ring:
+
+	if (!rxr->bnapi->in_reset)
+		continue;
+
+in_reset then stays true, so bnxt_sched_reset_rxr() never schedules that
+ring reset again. Would that ring stay stuck until a full reset?
+
+These paths are still unchanged at the end of the series, as of the
+"restart Rx queues when their IRQ moves to another NUMA node" patch.
+
+Moving the barrier into __bnxt_queue_sp_work() would not cover these
+paths, because the open-coded set_bit() calls run before it. Could
+smp_mb__before_atomic() go before each open-coded set_bit() instead, or
+could these producers use an ordered helper?
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118023905.3050661-1-kuba%40kernel.org
