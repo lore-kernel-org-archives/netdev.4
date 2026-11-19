@@ -1,101 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123279;
-	b=UIx7AEKqDYys0aj52FePn9E762gKQ5VM+aNjfy/tax3bb6YzhgEuDmrK1Oa4ukGaq7Bi
-	 tYjLnYtmzwcnW7yxRJRNpuVjP41/WzOgrPY/ZH50TuNEhzigVfC6VO8czm4fuzgsVMaIM
-	 x3ZYZP3mOIfUe3fi4Wq/YnDP+f7DD9Fhg6LxgxKbXB8/31JoaZvdvdtlEDqItoEu4uW/W
-	 cazmmDNJiTl0z6xc5etpXi9A2zzy0Q66scUKW29AmVk2wV2TV6UfYHla55XJDEO8nxsXu
-	 EtPUrvpVfeQR11auwk6w0fiHVxsXhhyLZPGjUn1bgaRDXx8h7ZSq/zz0q6UF+o/1F5A==
+	t=1795123547;
+	b=RTj5VYeabgHJJapMdCSC1fXpCx8U/2crISkSTDLlkUm3752XWY0an6dL1TT3pvL2SQ8F
+	 8pa7Zot4+C5HVQQYhwnuylNy7E75G3iFeXCg9jy4AcSuWkAZFq/hDQkBMnuepxysRs9sG
+	 TvEiZ052GvYQlmSfzyq4JHxo5rk3hgY62o94ra/W5BJ8hCLWy/bqXxjapLD5CjsHOdVFJ
+	 AQTxeKtZYQ9e6H/HCzrAARrqiYp6wsQ1zaSPa8rQVlkG7UsCu7CJR7lIEyKeMSFlOUijW
+	 DdIVAwy5q2qv7Ie349/JttwpcjoO+2mTQbwlwP5g7JRdI5OxUre0lHkxNeNIZGN/ypw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123279;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123547;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=IxbcqXDp+7lwlw2Bt8v10C2qLAMvpra0R3wselVisNo=;
-	b=gGZg5O02dMDQsY6KEE2IPxThFxtthKzQYkpzGkectMiGtVR2o2M/gGpZEBciIDoW95uU
-	 xPiP064jZ2cBRjmUuKPhnFzqX1dDvPINQH8H4/uV/zj7+I4PGqrtwKGAHlGxEJ08EEBwJ
-	 P0wRnPpeBvA2Jxu6yMZjujoGz5EHxyfsGQd60hCy/k7XxfV4bCmUOIsaO+zi9TliXKp6V
-	 7WCtUCmw2EpZofyFhceDOzgipF8MmDqEdPu4wEZ0Zsy33aw1/nY3i8DOUmshtGDQMhsEd
-	 kdu0VehytP4SvehabfLGxv2GzoTB1Rfz+gOrdwJEvo51ccQdnlKW8YzElaopNo4PV9Q==
+	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=L3A+83a9wCzT+86gHuUpOEXepXCJ0T5thB6Rt4gPEd4=;
+	b=aHp3m4uXVyCvoH4Xj1VMvxjUdLXFSSV58zU6RJ1uxofMuwBNUFZ3RhVTeba9ELPwAKhU
+	 fIHBafscOrwf5QhuGLfTWPYlrrszWR/3gXfwMBDxVz0hPeEk/I3lie8Yj1wLEMSvylrJp
+	 u7sXLMmi7HYmTori4uOPDE0D32xF4jkXvQX8ofagJIT5yVHzmfMH6uFvHcrlmAlj8nDER
+	 eLOcCoi1YqLORYhTYtqipX+eD9Ysr6W8lxyNJUS9LafJKk/8MO/yQyJSRSv/jd5YupNhC
+	 v4S5SreFm3om/VuRgLrdueuH4ki8L23h9AXteF5vgeWDY44ILN1xqjymIIeipNogMhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Wva/SJ8d";
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rEWPSsQJ;
+	arc=none smtp.remote-ip=209.85.160.174
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E22B6606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:21:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E22B6606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 013AD606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:25:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 013AD606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wva/SJ8d
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38190551625so230356eec.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:21:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rEWPSsQJ
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-55d03bfd477so2564461cf.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:25:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795123278; x=1795728078; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IxbcqXDp+7lwlw2Bt8v10C2qLAMvpra0R3wselVisNo=;
-        b=Wva/SJ8djy1iTCcj15UXKpg9PB4aURFnuU7ZuBMi9SHy9YLxgpL5lr0oJHWudRyKz+
-         6ul/vp6ZdCSzfJFV9ELpGaKuGQZ+c8zE9Xf5bI31ibB8DeKRuB7YycvfOpyOd60FAgaG
-         2bpsA8FmEZbSjOS58Jl/h2elSABGlyH8la6yOZ+lhjSwSPPrwDQ2sdsT912eRvqtrlll
-         w2B0n7sgPK6g9KkHsBbD56fe+mozRMlOWAurX1IosvfWg8VgGaGlAjwmu6Y9ux0Fi2KN
-         aZ8MnUp16cuUbN1WydmsbpGYSLbSm2Bvy7ZtPsfzJPcV5TR7GzEqbx8Wta8XhkhvTwWV
-         spIg==
+        d=gmail.com; s=20260707; t=1795123546; x=1795728346; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=L3A+83a9wCzT+86gHuUpOEXepXCJ0T5thB6Rt4gPEd4=;
+        b=rEWPSsQJu0DHzGPnHR4fUNkId0R/vH5k8iuqTieO4oFRVN9Wr6bJ2jRdJmRWIIp034
+         U67Ce3A3De/ZQfiK3F70I2Izmn+Nh6u0X0rU1isSDp4b+RNakUt1fwNgRz4GSAE8nqcG
+         /c8hLCmmJkjIN6Pptt6iTBvye4W33y8thEPF6arbiZ6rfpFL5jBGBVz+KMHLUdt141NX
+         32EjVHbeID7WYgbEi0z2Q2pY9M5McaT8cSEYeinFBNl5SbO93aT6Iju8ucwg01mVLOl0
+         X2pOMMLAt6q5xhSqpKbaIE4PREpMCtplAjqgZIZGvsW7Z8S3IRRmmKqUn0C4P07IAds4
+         eyHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795123278; x=1795728078;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IxbcqXDp+7lwlw2Bt8v10C2qLAMvpra0R3wselVisNo=;
-        b=X+NM0t4QPlmZTwhcqUHb3GHEuUj7zpOHonqbgUarHWD1q/fwl9+4PnkGdMYNoIgZiv
-         V7HmlbVs0A72+LGPynbIbaiNzG1WtmVo6syxKtvQMRzbged3otNP4/S2C3ZWE8pgziyC
-         QbhxCyK4SkA2RjhxCh2WDunRG4q4t5gBOa7sIXL2PzPm0BYyin2N5sUDM215NTcfx29n
-         mWZ/PY7bMdGHyY3BD8ZUZPDSOAGJvgiKjWlExHM7pdI6i2vO1jYO7W/tHQnSU/3Ekcec
-         RGRzVDmGRGO9fbkxWlQJFBl+j8K44sQlRgQ4dX3mRSpdxX9IByRKv+5FC2Lfb+whsAoM
-         khlA==
-X-Forwarded-Encrypted: i=1; AL+hErFUV/ZNnYFeTMWR8G14UpPgbxZLY7R0P2W2GnhEytTzSqTW+9HutE09+MwhxBSC1fRhrOk9vuw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+GXEuyARKcH+4X7Ap4CxGt8+5tPPZ1mzxrOAINBjvG8cElmu//
-	bpe59QelqyeUjvTv9fdYcZ0tS387gBGWhNMadg7vB82JZhqdRC9CmX7c
-X-Gm-Gg: AZFdTZeBtMqD3xRaACiH7cIFCzkXmPASa8rxCMir6RYT/G5L6humf0zYuWNH7a++T+P
-	MR1YpYVLZKqMeDAfBrLgsZXWQ9BeaWPY7S012TMXrbqjldY8lXkIi6KNn05R4BkJGbzfZbjSDjG
-	KOqAflzWi21w/7CIiMLuG7R+U0Xb+Oxe+FYUKWBI3Wad8LB7LFjttkdjE7uysBtJVvgJB3g3hhq
-	GR5c9whKnAR8nCP4xheFjruFJn4kfCzoAxcVGYGgop/CxDoizMn6qoTbXdFHYI/DDUgj77KIVAn
-	hvcBpNK/zlZTtwK3l9H0HTyO5GmvcLxr2hSVSZmHe9VuZBmM0N/VHmcEK0HVplbjgKOUXgVBP3E
-	LZNMw386eyr8M9FSUFG6DueZUZpR4TNICMItE8hoVPGgO/8Rwgi8C1PAqwrO1Ig8L5RqgiQeKW2
-	hsNwVKgX489J6MzppktRrZbp8NZyMzXPEbFRKE0Kkw9UyeSDEck43gfmZI3r6wpH6wYVY2XDAh2
-	ifdOfg7A6YNj8QBgiKLEsIobZiLp00JNe51QWr4e6jrjVn6EnZoSeX+KxtTSs9Exkz/92rHHSpx
-	99DHh0X+JNRM3TmbMnd591gr7bPkv/Ga7fOjwTFARbyx2jBlevt+WloG9QrD
-X-Received: by 2002:a05:7300:824c:b0:36a:5126:a8aa with SMTP id 5a478bee46e88-385702602famr579637eec.27.1795123277901;
-        Thu, 19 Nov 2026 13:21:17 -0800 (PST)
-Received: from kq.cs.ucr.edu (kq.cs.ucr.edu. [169.235.27.223])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385667decc2sm1174588eec.9.2026.11.19.13.21.17
+        d=1e100.net; s=20260707; t=1795123546; x=1795728346;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=L3A+83a9wCzT+86gHuUpOEXepXCJ0T5thB6Rt4gPEd4=;
+        b=dyKpA7vwN13Ab69X3954FgPD8dIRQe9nQagiEjYlfYWnw3k2hlbyYEHNiDPk1f/wrk
+         Njt1Lk71Avp6LaoeLTtevYFlqZ3OOmmYp4mhIGayL2iOFrdO7TCxIncML1/K/aEMSjR5
+         bRBSRAs1EHy88m795MMxSlEmQaiN8jqPilhTt8I/WTkQVPwp36u9lrUhURowwlVR/hlh
+         AdeQxWMAxdfyFJGBnmNPNKGeaE9X1os4Bx5gs+wJ+wSV67xn2yvXiqG07Fmjo3id7pVP
+         dMGvlW/iZHmg7uyYedSlH3AgEj0usltzFWbP3xgrbNtdO68TXxBMy6O4v1d3b3y/Ukhp
+         8ZMA==
+X-Forwarded-Encrypted: i=1; AL+hErE3HPc4lhWpWcVCvc0Ip3Kxc9KbCygxZMdIGYYlD/Exmtyp2/BkIyZ6siFtaJ51PtWpvAVqrjI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8U5AL3trXY7FT7luw0ZsEBKpHk6Hid9vi4cs2UCtALI27qpvng
+	SuNT62qXc8y3k7AUFlLC1uL8ZT3CMBaRGocOFLpJo4J/KpYB4rE/JFnZ
+X-Gm-Gg: AYBFou2xHgy67ynTqShctWjKxGODmy7SBnqW56OQwgfsi0vnUtpUEtgGyC+RqK8Rw4A
+	GijGzMolJ7dYuqTfVjf0J+oO/4vn98KKfNbwj06TXeRx+AHSOOY2Ttt4lQstYA82LXsKYHMpsSw
+	3xw3W5xRTJRsOp8eIeQtIVkFVTVtovgtExYHTM6Y3jANlQi1zU17BUebX3ZMCsOL35RXMloLnoa
+	IcExv9DltMS8sDaZc0yXfTIS7hDNolYzYHLcvBwjTXrHB4zNJyrbQJeb8EnhjBL2oiMEiXlVpcO
+	cQ0FbzowX9L4w079qprgSEfGY/fkmZCSwjG5Fc9UaUTXXuX45C4y5vSdhYL3kGrE0qTeqWqWlmg
+	j29KDfjw70RnLSaCCTrpNz3aqGJ4PhxPLofuvCUj//Jf305If9YLPeeOcy4PFDUtZovycyELtxn
+	C5Iwe9Dx7bf29jKpeQ6Bep+DKcEGN7pDNdAjTTF0VbQwfEKt5ARxsOj7OulJZ1T3BTyTsZLNmS6
+	wi2/+6wZENhRkeMneInJ41i+nOqhVjob6TKZIsP/TW8pUK0dXr8TcIwVpD4IVU4qxLhDXACU4NO
+	37GpjyEqKdcI0cihG50Kfewcm4XkysauOMxOEQZt4c6nASlnUtjQYF/nB2a/EXB98M7c/Oq6WnX
+	SSLvtUGisci9He4umCYfc5UN5HTDtKnSxpBREp2HzAs2bbCq5xc4yS8BIsuDJi7KZ2LvLUNC/6Z
+	YbWI2nkzGf
+X-Received: by 2002:a05:622a:248c:b0:55d:3669:e04e with SMTP id d75a77b69052e-55d76a2b7f7mr22004751cf.22.1795123546011;
+        Thu, 19 Nov 2026 13:25:46 -0800 (PST)
+Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b253csm8744006d6.15.2026.11.19.13.25.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:21:17 -0800 (PST)
-From: Zhengchuan Liang <zcliangcn@gmail.com>
-To: Aaron Conole <aconole@redhat.com>
-Cc: Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pravin B Shelar <pshelar@nicira.com>,
-	Jesse Gross <jesse@nicira.com>,
-	netdev@vger.kernel.org,
-	dev@openvswitch.org,
-	linux-kernel@vger.kernel.org,
-	Zhengchuan Liang <zcliangcn@gmail.com>
-Subject: [PATCH net-next v2] net: openvswitch: avoid hashing the network namespace pointer
-Date: Thu, 19 Nov 2026 13:20:46 -0800
-Message-Id: <b2853b9410d049e08b3e2ae2491e775506b4f0e8.1795122681.git.zcliangcn@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        Thu, 19 Nov 2026 13:25:45 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:25:45 -0500
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: Sangmin Lee <45sangmin99@gmail.com>, 
+ netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ David Ahern <dsahern@kernel.org>, 
+ linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+Message-ID: <willemdebruijn.kernel.d6d50443276@gmail.com>
+In-Reply-To: <20261119164351.49040-1-45sangmin99@gmail.com>
+References: <20261119164351.49040-1-45sangmin99@gmail.com>
+Subject: Re: [PATCH net-next] docs: networking: correct skb_shared_info field
+ reference
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,67 +110,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-The Open vSwitch vport name table uses the network namespace pointer as
-the Jenkins hash seed. When an Open vSwitch vport already exists in the
-attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests can
-look up attacker-chosen missing names and time whether those lookups
-traverse an occupied bucket. Ranking the resulting collision pattern
-across possible KASLR slides recovers the init_net pointer and thus the
-kernel text base.
+Sangmin Lee wrote:
+> The skbuff documentation refers to skb_shared_info.refcount,
+> but struct skb_shared_info has no such member. The actual
+> field is skb_shared_info.dataref.
+> 
+> Correct the reference to match the structure definition.
+> 
+> The discrepancy was identified with assistance from
+> GPT-6.2-Astra (xhigh) and manually verified against
+> include/linux/skbuff.h.
+> 
+> Codex built the affected page with Sphinx and verified the corrected
+> field name in the HTML output.
+> 
+> Fixes: ddccc9ef5599 ("skbuff: add a basic intro doc")
+> Signed-off-by: Sangmin Lee <45sangmin99@gmail.com>
 
-Use the namespace cookie instead. It is a stable, unique, non-address
-identifier that is deliberately exposed to userspace. setup_net() assigns
-it before per-net initializers run, and it remains unchanged for the
-namespace lifetime. Hash the cookie down to a 32-bit seed so vports in
-different namespaces retain namespace-dependent bucket placement.
+Reviewed-by: Willem de Bruijn <willemb@google.com>
 
-Found by AI-assisted code review and reproduced on an unmodified kernel
-without fault injection. After privileged setup created the resident
-vport, the timing measurements ran as an unprivileged user with no
-effective capabilities. With this change, the pointer-derived prediction
-fails. Existing and missing vport lookups behave as expected. Identically
-named vports in separate network namespaces remain independent.
+> ---
+>  Documentation/networking/skbuff.rst | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/networking/skbuff.rst b/Documentation/networking/skbuff.rst
+> index 94681523e..e66adf19a 100644
+> --- a/Documentation/networking/skbuff.rst
+> +++ b/Documentation/networking/skbuff.rst
+> @@ -21,7 +21,7 @@ to as shared skbs (see skb_shared()).
+>  
+>  skb_clone() allows for fast duplication of skbs. None of the data buffers
+>  get copied, but caller gets a new metadata struct (struct sk_buff).
+> -&skb_shared_info.refcount indicates the number of skbs pointing at the same
+> +&skb_shared_info.dataref indicates the number of skbs pointing at the same
+>  packet data (i.e. clones).
 
-Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces.")
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
+small nit:
 
----
-Changes in v2:
-- Use hash_64() rather than jhash_2words() to derive the 32-bit seed.
-- Use u32 for the local hash value.
-- Drop Cc: stable because this net-next change is not a stable candidate.
-- Drop the deprecated Assisted-by trailer.
+    The `&struct.member` syntax is only converted inside kernel-doc
+    comments in C files. In a plain .rst file the `&` is printed literally,
+    so the HTML shows "&skb_shared_info.dataref". Since you're touching the
+    line anyway, match line 18 (:c:member:`sk_buff.users`) or line 19
+    (``sk_buff.users != 1``), e.g.:
+  
+        ``skb_shared_info.dataref`` indicates the number of skbs pointing at the same
+  
+    The :c:member: form won't link, because struct skb_shared_info has no
+    kernel-doc, so the ``literal`` form is the safer choice.
 
-v1: https://lore.kernel.org/netdev/4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com/
----
- net/openvswitch/vport.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
-index 083f7a8d9d4e..04e4df103b26 100644
---- a/net/openvswitch/vport.c
-+++ b/net/openvswitch/vport.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/etherdevice.h>
-+#include <linux/hash.h>
- #include <linux/if.h>
- #include <linux/if_vlan.h>
- #include <linux/jhash.h>
-@@ -53,7 +54,8 @@ void ovs_vport_exit(void)
- 
- static struct hlist_head *hash_bucket(const struct net *net, const char *name)
- {
--	unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
-+	u32 hash = jhash(name, strlen(name), hash_64(net->net_cookie, 32));
-+
- 	return &dev_table[hash & (VPORT_HASH_BUCKETS - 1)];
- }
- 
--- 
-2.34.1
 
