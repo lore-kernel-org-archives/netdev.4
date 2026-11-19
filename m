@@ -1,66 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069438;
-	b=0zuA7kfWieMu0R233MA8Q/fWHDvGC/Ms7wmn2KQIb4bEjXVheojlROz2iDHWFEX+tsO9
-	 rqvs1Cjez43QnIqWZtrmKJxbEHg4gxfaTxYOr7uybgzrr8MkIThJcTRggAXMjI9SzfFaG
-	 vinsISY4RdL8MYKQUKeHeYBsk9rbtJao/FVl/g73rsMKlCGPfcg7G01UpdvzxIW8xkpRp
-	 jMdQ1CnOnxySQfW2V18tLOg58BnxMVhQAOlQ51Zt+h94ryG1wTx5+JXhY7yD5LLbW/4G/
-	 baynKQWz1i8/WLhToinXpQ8h/FL9pFKhwnXkLL9ne4Oc5aowlQsPQlVxr12I50jerMw==
+	t=1795069527;
+	b=sY0zhgdm3Zt56jQzPixRrGQk6FTek3Tx1TMjchTBHr87Ind07G8P2pIyi+N5dou2tl/s
+	 ENNLtJMa4mKQtqv+3zyCOajX9orZ9QtE+fr5pQt99u9QFRJtpnYfySXxdaTZE3Ac1jyiY
+	 Au550J3PMzlFgM05R0R06KwZTYR++nvtec7Tp1Ut9fVS+tPCc1rgdgca640EHdO4p7vtP
+	 D/FXLPxnZsnsTKLLAYkPrjCX17gqH0USQP+lvn/Uz9f0tYROkt/bfmOpi9T8HZbSSCgpd
+	 TGAHkOpxiEvncoE2GBHcIl8BzWN4/1P6QfJZAOgcwgNtodRIGoJNWui3QgZHrnubGxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069438;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=s3tkgzYJkcpsUA+Nw1aGNm4ArJbdTfhLKelINm5eGy6N/Ym74E48BAfUn9itCETiCTU2
-	 YcfcbKDa7+K9TfU0C+JnpuDhP7WmCklwJ0uMgi3XJfOcETYsXzInw4V9kJVw8OqSBMUpH
-	 UcRp3tWSJnSIPPHLJNxvSAguVc8brajohVDENEakRaeBHBynLzvU4bVJQOeY9D/G8k4eb
-	 GgtG1fBitq1QBkw1qXxLUfEA8BOazq37DYAFK72gA/j9GKCCz429jJ3A6hMzA3Udrct/x
-	 5WEyx7QTF2ldn+vdJFkQ1RLQ858wKxNij4jcYKtfurXP+XCRiAJPvAdwf9PbIkdRS6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069527;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=3/jCbkLsS4OGDXUOa/6hUNYQQjlO6TzzhZNOu+cYzkc=;
+	b=TIT8cst0t0NJ9f0CuWDl65AL+hwBo1LpPDhaLsdj9BQ3hfxBQsAs3Y7PaxLvHqfgI/ym
+	 UU0h8vGFrWyEP3qyOXEwmarKtDaPGfSN3RHCDZ4n+iQf5SMlQMg8JQB+uYV2BO0Kbv96j
+	 0MbdHlplO9Jah8Jkc/BbJ3TcJhCOMt7BTA7uw6VDNigTuKhPhEb+SpIbaxMhZqxdtWdaN
+	 /8PKWy/nPe5qd9Wuqb1Zc/00kr8tYqpeWjiKcdXCOrZZdjJoEuTjr5lfV0U0WI/odu1MU
+	 R6uQD8o1a1CKUzErW/LaxrzHOirHGqpi4dv/7oHyWZJPeBGs70gCLB6lAdCUBd3NVNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmobXEA8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DsrNb2t0;
+	arc=none smtp.remote-ip=209.85.214.198
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D3E7606A326;
-	Thu, 19 Nov 2026 06:23:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D84F606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:25:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D84F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmobXEA8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4498D1F000C4;
-	Thu, 19 Nov 2026 06:23:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069438;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nmobXEA8BY8H8yKoYGfvS0Ym1tOcAYN3VYvO3aifoMfyvBhEffu08cnHXGZi90qJq
-	 QPPnALrqPsdSGnpUqLFx1U1BLh6b2xbWNFj6sYAX60Zij//ti3LZ5PCp4v6DB11nAX
-	 qyr1iV3XTig+OHxucPEbnM/2ky0hnz4S35tShrs+zNPWYLezw70BpRORDfL9jmKywi
-	 cMcisIhbu0W1ZRg2B/wamV6+reVmqxe4N+ctPFYMCD20aPx+kDnrtMLJv5U3vpKUlh
-	 dImjPnrVV/n21OrQmhXY8XIQNGX3d4Ak14Cls9ddcWn69aJlkO648bBJOwhgLBk9lh
-	 qK47uGlQ7L36g==
-From: netdev-bot+sinfo@kernel.org
-To: Fang Xieyan <fangxy@xiaopeng.com>
-Cc: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Sergey Ryazanov <ryazanov.s.a@gmail.com>,
- Ilpo =?utf-8?q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- netdev@vger.kernel.org, Liu Haijun <haijun.liu@mediatek.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Lin Qiaojie <linqj@xiaopeng.com>
-Subject: 
- Re: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
-Date: Thu, 19 Nov 2026 06:23:56 +0000
-Message-ID: <179506943682.3291.10326179398413921657@kernel.org>
-In-Reply-To: <20261119062044.72261-1-fangxy@xiaopeng.com>
-References: <20261119062044.72261-1-fangxy@xiaopeng.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DsrNb2t0
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2efe8f2bdc0so16730335ad.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:25:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795069527; x=1795674327; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3/jCbkLsS4OGDXUOa/6hUNYQQjlO6TzzhZNOu+cYzkc=;
+        b=DsrNb2t02IODLijhWdu7RKB6d0nUCCWQT9Ri1w3QwWzqQROAWLnzG8L5y5/0yzdkM3
+         Hk6/6M6r6kVP0+k2iA4Z+P0zIm9OzzKb6yXYvCmNShBYqBxperO53Aclo76atEkc7HsL
+         RsZaUAT9ZyRj8AD6GTuCQyTb9zEktyG3JuRBCOhX8/1rE7PHN3i5eQTHPxeOyr6hkpMa
+         W5eOrPgZQ67LztrcdqYopVvXSqFBYNvSCnXwtqHgtwOKS3JXxqg9n2E1L9uxUST6ae77
+         T74V8VZYgC6VjcZmGnLXFjHy0mpDGnts3QcH2fXZhSRxdfiEIn+daLA8kiM3b091lVyK
+         E5mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795069527; x=1795674327;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3/jCbkLsS4OGDXUOa/6hUNYQQjlO6TzzhZNOu+cYzkc=;
+        b=xu7qFOA75GI2Ssjeyl6Fq+867KMxb9T5sS0hVxXZNaMz+HHzTduZt8okpSjlwNXpir
+         ynxnHm5uqEXAJVR6fJ3H2aqZstWHoc5sWjXxm0WNwpSIVbGRR9lN9OP7XN1o75EYyfmE
+         4NuTMJps4JhlYiiAdH4O7VW78Hgk+04LQI2hCL2+07MvJPl8/RdErUEjUqF885JhwrNE
+         cduPhuJdqpUXN2hCEHRHr6Vu0e8gaxBa0Yzddy/xPXeB/WPnZwdUeflCFFu5hXxQ42aI
+         rxZd+e7OFGjNcJAJKs1dMskqqXQD2XTbQkFKgpArRV5Bv5ndZFFBrQJ+sbDWGezpZbzQ
+         sXqw==
+X-Gm-Message-State: APuU4Z9aCirAfkGPWaUQnNpWIvQQ+sk0VGFaevvwnsoyoSSxyvvH6pL9
+	WX0zM6hZUI0YK0tmZs5nAtLjGGPLOcDzP8cSpjoEoYCiZ/ZlqgsDmMji8Id8DGi8HjgU72N4TJc
+	6E/N/Xw==
+X-Received: from plbkp8.prod.google.com ([2002:a17:903:2808:b0:2ef:f76f:c4])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f54e:b0:2ef:fcd8:df75
+ with SMTP id d9443c01a7336-2effcd8e214mr45611785ad.36.1795069526782; Wed, 18
+ Nov 2026 22:25:26 -0800 (PST)
+Date: Thu, 19 Nov 2026 06:25:25 +0000
+In-Reply-To: <20261118153541.172499-1-shlomojune6@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,27 +76,39 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <20261118153541.172499-1-shlomojune6@gmail.com>
+Message-ID: <av6WPnah6aodSmuh@google.com>
+Subject: Re: [PATCH v2] net: sock_reuseport: check program type on the
+ migration path
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Shihuang Liu <shlomojune6@gmail.com>
+Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, edumazet@kernel.org, 
+	pabeni@redhat.com, willemb@google.com, davem@davemloft.net, kuba@kernel.org, 
+	horms@kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Hi!
+On Wed, 18 Nov 2026 23:35:41 +0800, Shihuang Liu wrote:
+> A BPF_PROG_TYPE_SOCKET_FILTER program can be loaded with
+> expected_attach_type set to BPF_SK_REUSEPORT_SELECT_OR_MIGRATE and
+> attached to a SO_REUSEPORT TCP group.  Closing a listener that still
+> has queued children then runs it with a struct sk_reuseport_kern
+> context even though it was verified against struct sk_buff, which
+> KASAN reports as a stack-out-of-bounds in ___bpf_prog_run().
+> Reaching this without CAP_BPF requires
+> kernel.unprivileged_bpf_disabled=0; with
+> CONFIG_BPF_UNPRIV_DEFAULT_OFF=y, the Kconfig default, the sysctl
+> starts at 2.
+> 
+> reuseport_migrate_sock() decides from prog->expected_attach_type
+> alone, a field user space sets that does not identify the program
+> type.  Require BPF_PROG_TYPE_SK_REUSEPORT there and in
+> reuseport_stop_listen_sock(); socket filters still work as
+> selectors, so the selection path is unchanged.
+> 
+> Fixes: d5e4ddaeb6ab ("bpf: Support socket migration by eBPF.")
+> Signed-off-by: Shihuang Liu <shlomojune6@gmail.com>
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Thanks
