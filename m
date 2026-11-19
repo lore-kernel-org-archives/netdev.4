@@ -1,60 +1,159 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123847;
-	b=RDvago+Hif6ce4YHBvEjJGKA2d03EeKnvbgug548Kay3ZNY5JQGYNmf84zbMGn7dWes/
-	 wxzeo5g/cj0Og4up2+mG3i7HXmDIFb5Kcj7pzTTjP+Zxl5HPLhOGPEHAljjJT0y7hEL0J
-	 voMX3z6rlPbyDtWOB0HAiA60AVawVFwZU/of/KBQtSE4/RnBBFfhsxGeiasLD/INcJYEv
-	 LtsbO2e2H/XKJWsud5irgNqc9LtnEYCW49dOjXJWGGaT4O3KKifivWM7Cb0Yo/dOkd7qo
-	 1nFbun/95LcVCH/fojcQs6OGpU1fh5OGkveADx1P5zrZEtU8VkH058xwVTLPEfncYMw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123847;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Xk1kv/Ctd3PlqbSpT6yLqdl6pmb3Zw8L64Vom2TNBMs=;
-	b=PQmwuXeEQ5GMKQ30Z/SpcbDUiCI+QoB0SuBH3mHBU9AmNOucqZBcCbk/x7qOOtcoC2cL
-	 rZ5bNt9pmA7OPFv0zVYtziIIaoIy5i93V2cb7idDi/dl8fHsgTDQgOASM2QYhr8axPiCl
-	 mc7y6wI1Sm5PsGVqp0P/2OU+5J/GIDQ0sqg2Z/6drFJPBcAseM5e/NtX1GEZ0MtGXSTCQ
-	 18Kz4x6LnfPQQ19u6bxkrwmsn/S90hGO9clJx9b/Pi6m5KL1vjofT3y8RuXKGd0aBxuza
-	 7hLOL87IFJmxqWClRe9LV1j/3b2VjwLLAgOBl5sCA6a0qtTVz4S9K6c/jJUEDu+AX6g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WB5Z/aFs";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.116
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795124016;
+	b=TLJMudBxdTdkV5c4FbBop9jl8siWCkPc3fO9iNx5EM9s29WuTWQMw1TI9aH9KPhhMyY/
+	 PCZ6mNsYt71459/Rx+XdjXsDilBQ7NGv4KSHdOzvRHpYjbNeEGiG54upw6Ua33q/HgUkC
+	 9IQvqxzl16BhWyTDe6WctbWJ4a5axS3UMfDK3YuLRfFn18RdZhFvC/aI6VNyZrYA/yma0
+	 EfB+5F6oymxr+bQcHnKd0gEnKBFHpRW+sg4V6Zd+C7F/VOiiNXPI5HAsqwRaAau8jZVLv
+	 RMRrrHt9n3ppLR3CzWfCT2rdhxN4e8gxINQT8LQlxxzexsVium3YXBEVX1VBlutihjQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124016;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-traffictypediagnostic:x-ms-publictraffictype:
+	 client-request-id:request-id:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=HIDQA+u4y2bkO9BO+GU6s2FDKh2s7jOydoRaiNT1sHo=;
+	b=sNcL9ryUefAtLl5qH3dm2XMn2f8tSsTnIqlQIXZo8/GLLU95J9KdmipPkJVd3co1QgEf
+	 svb22lT01ucciz6qPT+TKMVT3+AzWJLSoZmd6OrsSgr1QVxwbAoE8Yd+HHuqUpo+ECzqk
+	 1GsyVWPRJzlj75RH5A1CUmOYmY81024wFSJeo9rR7zmhdlP4RIiGzgSh8pNp1wt5VHez0
+	 T8GVXHXhV+c/bM7HQhtfi4194I5bg0oive2bShSprv9YMbMHiu3qK8X0i6uBOcqtMtBsN
+	 OHo9tCa/AHyypAoAzQT32K5YcOs9qhqrykbvEHEgKBy81/wsBv2SsOMW2FEC8t7cWag==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microsoft.com;
+	spf=pass smtp.mailfrom=microsoft.com;
+	dkim=pass header.d=microsoft.com header.i=@microsoft.com header.a=rsa-sha256 header.s=selector2 header.b=QGWQxN9d;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.116
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11020116.outbound.protection.outlook.com [52.101.201.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE3E6606A32A;
-	Thu, 19 Nov 2026 21:30:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05752606A320;
+	Thu, 19 Nov 2026 21:33:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05752606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WB5Z/aFs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C23441F000C0;
-	Thu, 19 Nov 2026 21:30:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795123847;
-	bh=Xk1kv/Ctd3PlqbSpT6yLqdl6pmb3Zw8L64Vom2TNBMs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WB5Z/aFsbCXGNYoBHDEh2EZeYlGp6ulxUbVFT9FBbtxXmYoHR9V9QYZS+rDP5ahpc
-	 aEZH07F6xP3S1+P79btN2PCmnOQDMTZwVc2+9tpddrVYQUbi9qzZcGP/U8j3sZ3hKn
-	 EfjZIx3M9g2NKr8AdZOn7St+alyET+cgjJFMXZo0qpnSNvuJDvrgFSyp/u2qu4kT/u
-	 +27fiU1THOlEkOWrCWmGPBjWT0f7GHK/9+F6w+kcvoMnFQP2GmBgx5I8395WTVa4WL
-	 m7ocoSl8y6rtsv78Y5OR3bWgUVUEucMIONDNbepYffhHy7t2sLATVAyDyCy7Dqx6Nj
-	 f/8tmkondbYvQ==
-Subject: Re: [PATCH net-next v2] net: dsa: b53: mirror CPU-bound frames to
- port 5 when port 8 is unused
-From: netdev-bot+sashiko@kernel.org
-To: joseph@telaak.dev
-Cc: florian.fainelli@broadcom.com, jonas.gorski@gmail.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 21:30:46 +0000
-Message-ID: <179512384634.3136.13428964502385964682@kernel.org>
-In-Reply-To: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
-References: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=microsoft.com header.i=@microsoft.com header.a=rsa-sha256 header.s=selector2 header.b=QGWQxN9d
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GGTZcTqXfmhGkwJw745GorRd5yWzDWXKLXoi8vg5fxKnzxJBaWIbL/F906VaknzIfHfnccpqByY5gwxzDxRSYLodOtr/QJUvqdFhO7nExX9BtQGWQEFkL2rjE7wf0DH8DShmiU8TWZkwWKYmHEVzFCauS3GBX0Nsk+gZ/aF77ApyqQygxwvpwoblMPOYq6wE/CWHDCPnUg4kCJKDORsN0pmCJXJ9qH1jQbzRqx9Vk14s0QZ4rrPVcb34PUXK9+ua12hZsif+GEcU7uEptP0wmm/bNmlEZiPkTGc4UWQz1cAABaNL8K3WoRs/xqou454lhormTP0XVQepqS4lYM/bJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HIDQA+u4y2bkO9BO+GU6s2FDKh2s7jOydoRaiNT1sHo=;
+ b=JIiMLsfssfWwvxPGA6TT97HcfzjkYa9Dzp+lRFc3q+FUCh43ti25VtgQyxPxVmDJqub80KW0rZqSJIauB4doNzxxpVTwJekAPIpLNoKtoViWS+jHKKx3XPERTVgUBi48vWZOlwHkeEurUpYoPyDDwDeX9OZVrjYZb/F21kU25LcSPlG8j6dO8bB3HFGPOsjE4wQuUNb9baxW8OZ0xSSXRvajaq+fzQlgDAz07+YYIUF3pUk+1WrrramxgcJ9J35IrNWx/xxRxy0zP2YNgfNo+Kinq/QVDA2ZPHbHMI9bCmmoqGEynzkub9KBe3/4uBy5ZJLaGIpqqbY6YXllagZwNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microsoft.com; dmarc=pass action=none
+ header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HIDQA+u4y2bkO9BO+GU6s2FDKh2s7jOydoRaiNT1sHo=;
+ b=QGWQxN9dukF57ULUN3goF+HPgi8dbivco2o0pHHKSPBdEsY5rLsv0yQFwLUEZbX+hkIkKlbcPzI3h7qEDujU9XvpOQqpD2QL6lRaZZ6+zzZ+WtZLhll7m9/01Y1H2AXsD7VPItLi1ygSvmtmTSMcr03syL+jphBWN7e9ajd1OFg=
+Received: from DS4PR21MB6867.namprd21.prod.outlook.com (2603:10b6:8:2e5::19)
+ by DS2PR21MB4965.namprd21.prod.outlook.com with HTTP via P2P; Thu, 19 Nov
+ 2026 21:33:31 +0000
+Received: from DS4PR21MB6867.namprd21.prod.outlook.com
+ ([fe80::ca4d:7155:e45a:3250]) by DS4PR21MB6867.namprd21.prod.outlook.com
+ ([fe80::ca4d:7155:e45a:3250%6]) with mapi id 15.21.0662.001; Thu, 19 Nov 2026
+ 21:33:31 +0000
+From: Haiyang Zhang <haiyangz@microsoft.com>
+To: Sahil Chandna <sahilchandna@linux.microsoft.com>, "wei.liu@kernel.org"
+	<wei.liu@kernel.org>, Dexuan Cui <DECUI@microsoft.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@kernel.org" <edumazet@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	Konstantin Taranov <kotaranov@microsoft.com>, "horms@kernel.org"
+	<horms@kernel.org>, "ernis@linux.microsoft.com" <ernis@linux.microsoft.com>,
+	"gargaditya@linux.microsoft.com" <gargaditya@linux.microsoft.com>,
+	"mawasthi@linux.microsoft.com" <mawasthi@linux.microsoft.com>,
+	"kees+treewide@kernel.org" <kees+treewide@kernel.org>,
+	"schakrabarti@linux.microsoft.com" <schakrabarti@linux.microsoft.com>,
+	"leitao@debian.org" <leitao@debian.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-rdma@vger.kernel.org"
+	<linux-rdma@vger.kernel.org>
+CC: "stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: RE: [PATCH net v4] net: mana: Avoid waiting on dead HWC after device
+ reset
+Thread-Topic: [PATCH net v4] net: mana: Avoid waiting on dead HWC after device
+ reset
+Thread-Index: AQHddz1eoh77ImL/P0mrS5GGpvqOQ7c17FjA
+Date: Thu, 19 Nov 2026 21:33:31 +0000
+Message-ID:
+ <DS4PR21MB68671DF4211103A5814ABAD9CA792@DS4PR21MB6867.namprd21.prod.outlook.com>
+References: <20261118091436.3985155-1-sahilchandna@linux.microsoft.com>
+In-Reply-To: <20261118091436.3985155-1-sahilchandna@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=d0ca8241-e0f8-4bcf-a4af-aba0bd16b9f7;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ContentBits=0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=true;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Method=Standard;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=Internal;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2026-11-19T21:32:01Z;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Tag=10,
+ 3, 0, 1;
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microsoft.com;
+x-ms-traffictypediagnostic: DS4PR21MB6867:EE_|DS2PR21MB4965:EE_
+x-ms-publictraffictype: Email
+client-request-id: 93d03520-cf73-482d-8a2f-1584c6682440
+request-id: 7d802804-28e8-4e46-b107-08df4684c202
+x-ms-office365-filtering-correlation-id: 7d802804-28e8-4e46-b107-08df4684c202
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261022105027099003|261022075727099003|261021121427099003|261102123227099003|261026140227099003|261026121527099003|921020|261028144727099003|38070700021|11063799006|56012099006|10067099003|7146999003|22082099003|18002099003|7053199004|6133799003|3023799007;
+x-microsoft-antispam-message-info:
+ w3shkWMqGdlcIJE8YyQkaxS6jwTNV/xSpaxwV9OzHUtgKF+WL4oSsyjfF50msAnr7FNYDtrSvBj/RZ9FJIoK5hnPhY1Ozdr4BVGtS23pNnQuOhJQh+t3b8Ko1DdTX5BhYHQyTufJW6kNMXqbImkkzxbCkC43C47xqnO661eutiRge5zzMOiy4UKYnB7I3JJIkVmD5jR518FRxvRS6zsaNbajlnGSf/M8u/XSc4gVdF8DMhPQlvce0YBB1OWkc2M1noM6sulm9ZD9gIPIsOV0gjovLWYdGjVF5FqGJ/w7djVzCguPa/sYF6VUP62Nl33VY75PwtyYmqjno75ltsOrT1+ESMewCQ6XNB1wcdrasQIUjlyzxye4xEHfDkQNuzlc+4lHGMC+n0lD+U1caajDiRgvlWEuPIC2fa7dNIZEOHbD1VwGHJf2tnqIvolNzb5tqtB9cndl6l56p5Svmi6Qv/lJk8nFTBIrl1z8D+2CQM0VrKvbNTLOuxxCGJXXnbx2tOSoZIbtIu1lWAL9qLEXKB7J1bb6MV55uFpfVICJfPbXaBhQL9QB8aF7NGSLpgMLD71NOJAA0XJaxdMrdUGXtFWUzS83iUII5CM7vzkJpNNRGOhgujJd1i/kUmoFo2Nj/DRFYWhHTZfn4/R+u9+fnKgfgUijdiCj+KefYaf8LXsY4qbk6huCkMTLY2V0niuLDXpd58jykEnzQxeP9J5a1xv76hHh00PkpqrKwTCYyRuwIObWxd3zNgVXHpBrwM3C
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261022105027099003)(261022075727099003)(261021121427099003)(261102123227099003)(261026140227099003)(261026121527099003)(921020)(261028144727099003)(38070700021)(11063799006)(56012099006)(10067099003)(7146999003)(22082099003)(18002099003)(7053199004)(6133799003)(3023799007);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?aavB/mWfITm6+uYN91VY6c2qkMY3tTWjXH5wcGE4319VnlmduNzub7+vXK2Q?=
+ =?us-ascii?Q?6LFTIR48w9WoWCWt5QtYOEA/lfBaFEbHw7pdNAWXLMT72aL6BGVoxbQ4AZ2i?=
+ =?us-ascii?Q?8/9yONfP2mNKVrxhJk2THxUPWD7enze2jltqDl+t1VHhzwnS9wzk0AjaC5xG?=
+ =?us-ascii?Q?36LXOWmGht8oeP+nJ1ci8tCf1MVPr+vfWy0GLU29g7RatG+O5iReSaymeUP5?=
+ =?us-ascii?Q?NPROiFYg6XipmwF9B/OKelAcpnte7Se7EWf4Y8AGk/yWZCb9In3mvQpklIxq?=
+ =?us-ascii?Q?CPVpKw3tJzhYzLpoQCppYo7U/iLEQ9ulzRJScW6AUDaYcQXggT2r8pf6AgS+?=
+ =?us-ascii?Q?gkrNAYHS9YKp5T6ObLB7XyDBA23zcEmOvEwxY02hIc3hb2k8283ek7sUTnuu?=
+ =?us-ascii?Q?oyfBYxZ9+OAD+7L2hBZgP+kdB/OdbuXjTj3iRFUiEbF9/Lg/I2GtSunRrxu5?=
+ =?us-ascii?Q?6Zv7EAQ03pghqt64bvBLI/OaUh9OGdSQQOewXiv0xaRoe1hln5QwgOw29H+D?=
+ =?us-ascii?Q?yKlOLWYjlAvWokIAZG3jtX56IfeZ2K/KTjA9RAAPCV7TbQv3HL/F1drK/zvi?=
+ =?us-ascii?Q?Sj4kosYyPvBT7XTgGxSvq4K7gcPpPsdZvGnP7DjD/FZmEYbtnaPJyxaqIVio?=
+ =?us-ascii?Q?sqqKKGTztzP/AaErCd4qyrZWeAil7x1qTuSa028/Dk57WlRKjPylAm1JQeN1?=
+ =?us-ascii?Q?vI7MZOdZtbwdZp1k7fhak43l5mo4ZiGP/DW8giEBroH3R8MaqqPyk5ll4vbE?=
+ =?us-ascii?Q?IFgKe7XxFPEoTBGUZalSW6NEYMzFRKFpZ6DT6sdLwD9FkukQ/Iwsg6Lf/l6k?=
+ =?us-ascii?Q?VOYYEjskZ5uoQ1Tpz9tDBzNIBMRexlojUOnI2mjp0BOhIyA2ZnU/4o12Vtnk?=
+ =?us-ascii?Q?avlsln2DVl50bvVl95tPVGahOw6u8YjpXFijrQgPFXvXw/6wCaO78FHLhOAX?=
+ =?us-ascii?Q?xV3rTOz9xk1fe13faBRW53EjZNNaztmN2qE4eVh8HYwSYDpgerju5sIElcVd?=
+ =?us-ascii?Q?+mq9nT63jzBHu6253E77/z5aUZs6OBQg782WIOtolb0Y3RG9MDg6SRSUfZ8D?=
+ =?us-ascii?Q?JMEZ3d6jiGhAkK1Egc36YH7mGEtStOGJ5+AMCs7zvUnoavLejTGi8CSiOAah?=
+ =?us-ascii?Q?QMR2CBw5XqGUcaqaQWT4TR1JlR8ujI6wh0caUVC8i6xRndxdUvC0M+06DYrX?=
+ =?us-ascii?Q?7jGVps14VXB6ZxM+oPzj6zZetPaaT1YkdyaC7KL+uVWZDk1Sz8+hiiYLh6Ig?=
+ =?us-ascii?Q?VbB/14evG2uWRQgHxNAo7KlVom2D/R+XUtXZqC8yHT/h3fl8PEqKqpqSrZ66?=
+ =?us-ascii?Q?greF1ktq5fjzWB/dxC/0s+VyXxxB8xCaL5QpZjfS0pX3gMJtAPz8ChLbHR4q?=
+ =?us-ascii?Q?2nFd3d0oi+MeRlcEB4HDHohBNhnPxGSR/JxPfYMpVaxR0FglqKnGOq8a2hwq?=
+ =?us-ascii?Q?ofBX4JLEYNKpDhp89eIa1aoQwpsU3y3CgAX98DO03zzagVNl8n4Iz6P1Iqw5?=
+ =?us-ascii?Q?7nPOZtu6J2oRkTX1filqKJAcuYkYaRBXAyfEYdyY0rrAXfYDbn/I+Di+ziGm?=
+ =?us-ascii?Q?zzTAwotSBWYi5j9CQKXk4iwwyxIc1BKk7QSoDoNcVFcF3dgG/0pTdcvT51QT?=
+ =?us-ascii?Q?W6hCYZaXQcphsN/UWJRebmEd16WJ/wpIoP9G3rLbYUB/Nitm/iwf26eEyYyw?=
+ =?us-ascii?Q?JLcuFqVoH/sin1/dcm1ArwwWalTBcDBblDGxizM0Ib3I71cWY6bzvWEyeOB3?=
+ =?us-ascii?Q?6xfsNDQGhg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,187 +163,85 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-OriginatorOrg: microsoft.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS4PR21MB6867.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d802804-28e8-4e46-b107-08df4684c202
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2026 21:33:31.4327
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 9JRdhUOPxwM223nG8x4BGEa7RU20Q2ZGoEuIPCzz7O8VjE6gAX/h8zDE2IbPxjDXGnFebreKOyXsypYXQ+uTTg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR21MB4965
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> -----Original Message-----
+> From: Sahil Chandna <sahilchandna@linux.microsoft.com>
+> Sent: Wednesday, November 18, 2026 4:14 AM
+> To: Haiyang Zhang <haiyangz@microsoft.com>; wei.liu@kernel.org; Dexuan
+> Cui <DECUI@microsoft.com>; andrew+netdev@lunn.ch; davem@davemloft.net;
+> edumazet@kernel.org; kuba@kernel.org; pabeni@redhat.com; Konstantin
+> Taranov <kotaranov@microsoft.com>; horms@kernel.org;
+> ernis@linux.microsoft.com; gargaditya@linux.microsoft.com;
+> mawasthi@linux.microsoft.com; kees+treewide@kernel.org;
+> schakrabarti@linux.microsoft.com; leitao@debian.org; linux-
+> hyperv@vger.kernel.org; netdev@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-rdma@vger.kernel.org
+> Cc: stable@vger.kernel.org
+> Subject: [PATCH net v4] net: mana: Avoid waiting on dead HWC after device
+> reset
+>=20
+> After device reset is issued due to TX drain timeout in
+> mana_dealloc_queues(), hardware channel (HWC) state is non-functional.
+> However, the driver continues to issue HWC commands
+> (mana_disable_vport_rx,
+> mana_fence_rqs, mana_destroy_wq_obj) which will each wait for a
+> completion that never arrives.
+>=20
+> The first such command (MANA_CONFIG_VPORT_RX) blocks for the full
+> hwc_timeout (60s as set by the firmware on the tested system), after
+> which the timeout is reduced to 1 ms for subsequent commands. This
+> causes the calling thread to hold the RTNL lock for over 180 seconds
+> (120s TX drain + 60s HWC timeout), triggering hung task warnings and
+> blocking all other networking operations on the system.
+>=20
+> Fix this by:
+> 1. Replacing the sleep-based TX drain with a CQE polling approach:
+>    disable NAPI per queue and poll its CQ synchronously, with up to 3
+>    more polls 100 ms apart to collect late completions. Reset the
+>    device only if sends remain unacknowledged after that, then free
+>    uncompleted SKBs. The device is reset at most once per call, and
+>    not at all if an earlier reset already marked the HWC dead. Once a
+>    queue is found stuck or the HWC is dead, the remaining queues are
+>    polled only once. This replaces the 120s drain timeout with at most
+>    300 ms of sleep per queue. If queue is still stuck,
+>    mana_gd_dev_reset() waits for device to return. The 300 ms budget
+>    is not based on a hardware limit but in testing under load, the
+>    completions still outstanding on a queue had all arrived by its
+>    second poll.
+> 2. Setting the hwc_dead flag after a successful device reset. If the
+>    reset fails, the device may not have been reset and may still access
+>    memory, so teardown commands are still posted.
+> 3. Checking the hwc_dead flag in mana_hwc_send_request() before taking
+>    an HWC message slot and again before posting the WQE, and returning
+>    -ETIMEDOUT immediately without submitting commands to hardware that
+>    cannot respond. A request that was already posted, or that passed
+>    these checks just before hwc_dead was set (for example from the
+>    gf_stats worker or mana_ib, which do not hold RTNL), still waits for
+>    its own timeout, as before this patch.
+> 4. Skipping mana_fence_rqs() and the SHM channel teardown handshake
+>    once hwc_dead is set.
+>=20
+> Fixes: a7dfeda6fdec ("net: mana: Fix MANA VF unload when hardware is
+> unresponsive")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Dipayaan Roy <dipayanroy@linux.microsoft.com>
+> Signed-off-by: Dipayaan Roy <dipayanroy@linux.microsoft.com>
+> Signed-off-by: Sahil Chandna <sahilchandna@linux.microsoft.com>
+> ---
 
-- [Medium] The commit message says the problem and the fix apply to
-  "boards that leave port 8 unconnected".
-- [Low] The Fixes: attribution is incomplete.
-- [Low] `b53_setup_cpu_mirror()` programs global switch state that
-  nothing ever restores: `B53_PORT_CTRL(8)` = `PORT_CTRL_DIS_STATE`, the…
-- [Low] `b53_setup_cpu_mirror()` hard-codes the IMP state override for
-  port 8 to `PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |…
+Reviewed-by: Haiyang Zhang <haiyangz@microsoft.com>
 
---
 
-net: dsa: b53: mirror CPU-bound frames to port 5 when port 8 is unused
-
-This patch applies when port 5 is the CPU port and port 8 is unused in
-DT. In that case b53 uses the switch's single mirror to copy frames to
-the bridge group address from user ports to port 5. It also copies all
-port 8 egress to port 5, with port 8 enabled and its link forced up, and
-refuses tc mirroring while this is active.
-
-> to port 8: BPDUs, the IGMP/MLD copies b53_enable_mcast_snooping()
-> enables, and most traffic of standalone ports. On boards that leave
-> port 8 unconnected these are lost, so STP never sees its peers and a
-
-[ ... ]
-
-> Fixes: 8fab459e69ab ("net: dsa: b53: Enable Broadcom tags for 531x5/539x families")
-
-[Severity: Low]
-Is this Fixes: tag complete? The loss of "most traffic of standalone
-ports" seems to come from commit 4227ea91e265 ("net: dsa: b53: prevent
-standalone from trying to forward to other ports"). That commit added this
-to b53_setup_port():
-
-	if (dsa_is_user_port(ds, port))
-		b53_set_eap_mode(dev, port, EAP_MODE_SIMPLIFIED);
-
-Its commit message notes that "effectively this redirects all incoming
-traffic to the CPU port". In dual-IMP mode (GC_FRM_MGMT_PORT_M, set by
-b53_brcm_hdr_setup() for CPU port 5), that redirect target is port 8.
-
-Before 4227ea91e265, standalone traffic followed the PVLAN/ARL path, which
-b53_imp_vlan_setup() points at port 5.
-
-8fab459e69ab is older, so this doesn't lose stable coverage. Would it
-still help to also name 4227ea91e265, so that the standalone breakage on
-these boards can be traced?
-
-> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-> index b7aff5e238e85..f82139b0c501c 100644
-> --- a/drivers/net/dsa/b53/b53_common.c
-> +++ b/drivers/net/dsa/b53/b53_common.c
-
-[ ... ]
-
-> @@ -1326,6 +1330,42 @@ int b53_setup_devlink_resources(struct dsa_switch *ds)
-
-[ ... ]
-
-> +static void b53_setup_cpu_mirror(struct dsa_switch *ds)
-> +{
-> +	struct b53_device *dev = ds->priv;
-> +	int cpu_port = 5;
-> +
-> +	dev->cpu_mirror = false;
-> +	if (dev->tag_protocol == DSA_TAG_PROTO_NONE ||
-> +	    dev->imp_port != B53_CPU_PORT || B53_CPU_PORT >= ds->num_ports ||
-> +	    !dsa_is_cpu_port(ds, cpu_port) ||
-> +	    !dsa_is_unused_port(ds, B53_CPU_PORT))
-> +		return;
-
-[Severity: Medium]
-The commit message says this is for "boards that leave port 8
-unconnected". Can dsa_is_unused_port() tell such a board apart from one
-where port 8 is wired inside the SoC and only disabled in DT?
-
-On Northstar (BCM5301x) and NSP (BCM58xx), port 8 is wired inside the SoC
-to a GMAC. arch/arm/boot/dts/broadcom/bcm-ns.dtsi has:
-
-	port@8 {
-		reg = <8>;
-		ethernet = <&gmac2>;
-
-and gmac2 stays enabled. Boards such as bcm4708-netgear-r6250.dts and
-bcm47094-luxul-xwr-3100.dts use port 5 as the CPU port and set port@8 to
-status = "disabled", so they pass all of these checks.
-
-On those boards, the code below clears RX/TX_DISABLE on port 8 and forces
-its link up at 1000/full. Before this patch, b53_disable_port() left port
-8 with RX/TX disabled.
-
-Port 8 then transmits the frames the switch traps or redirects to the CPU
-(BPDUs, IGMP/MLD copies and, with EAP simplified mode, all standalone
-ingress). They go to an internal MAC that DSA does not own and that
-bgmac may have probed as an ordinary netdev.
-
-The early return added to b53_disable_port() keeps port 8 enabled for the
-life of the switch, with no way to opt out. b53_mirror_add() now also
-returns -EOPNOTSUPP on all of these boards.
-
-Should this be limited to chips where port 8 can't be wired internally?
-If not, should the commit message say that 5301x/58xx boards with port 8
-disabled in DT are affected too? Because of the Fixes: tag, this may also
-be picked up for stable.
-
-> +
-> +	/* Rx/Tx on, STP disabled: only trapped frames leave port 8 */
-> +	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_CTRL(B53_CPU_PORT),
-> +		   PORT_CTRL_DIS_STATE);
-> +	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_OVERRIDE_CTRL,
-> +		   PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |
-> +		   PORT_OVERRIDE_FULL_DUPLEX | PORT_OVERRIDE_LINK);
-
-[Severity: Low]
-Is a fixed 1000/full override valid for every chip and IMP strapping that
-reaches this point? Everywhere else, the driver derives
-B53_PORT_OVERRIDE_CTRL from phylink data in b53_force_link() and
-b53_force_port_config().
-
-Mirroring port 8 egress only works if port 8 actually transmits what is
-queued for it. Suppose the IMP is strapped to a mode whose TX clock comes
-from the missing link partner (MAC-mode MII), or the forced speed doesn't
-match the strapped interface. Could port 8 then fail to drain, leaving
-CPU-bound frames in its egress queue instead of being mirrored?
-
-That depends on whether the mirror copy is taken at enqueue or at transmit
-time, which I couldn't confirm from the driver. The patch covers all
-dual-IMP chips, but it was only tested on one BCM53125 board.
-
-> +
-> +	b53_write48(dev, B53_MGMT_PAGE, B53_IG_MIR_MAC,
-> +		    ether_addr_to_u64(eth_stp_addr));
-> +	b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL,
-> +		    (MIRROR_DA << MIRROR_FILTER_SHIFT) |
-> +		    (dsa_user_ports(ds) & MIRROR_MASK));
-> +	b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, BIT(B53_CPU_PORT));
-> +	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, MIRROR_EN | cpu_port);
-> +	dev->cpu_mirror = true;
-> +}
-
-[Severity: Low]
-Is anything meant to undo this configuration? b53_teardown() only does
-this:
-
-static void b53_teardown(struct dsa_switch *ds)
-{
-	dsa_devlink_resources_unregister(ds);
-}
-
-b53_setup() doesn't roll it back if b53_enable_mcast_snooping() or
-b53_setup_devlink_resources() fails afterwards. The early return above
-also clears only dev->cpu_mirror and leaves the registers as they were.
-
-On BCM531x5 parts without a reset GPIO, b53_switch_reset() issues no soft
-reset; only is539x() and BCM58XX/BCM583XX get one. So this mirror and
-port 8 override state can survive an unbind/rebind with a different DT,
-or a kexec into another kernel.
-
-Later, with cpu_mirror false, b53_mirror_add() only read-modify-writes
-BIT(port) in the mirror control register and the capture port in
-B53_MIR_CAP_CTL. Would a tc ingress mirror then inherit the MIRROR_DA
-filter and the STP MAC, and copy only STP frames?
-
-The stale BIT(8) in B53_EG_MIR_CTL would also copy all port 8 egress to
-the user's capture port. And since B53_EG_MIR_CTL never becomes empty,
-can b53_mirror_del() ever clear MIRROR_EN?
-
-Separately, dev->cpu_mirror is set to true without checking any of the
-b53_write*() return values. A failed bus write would leave the mirror
-partly programmed, while tc mirroring is refused and port 8 stays enabled.
-The rest of the driver also ignores b53_write*() errors, though.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-b53-bpdu-mirror-v2-1-c39ab745730f%40telaak.dev
