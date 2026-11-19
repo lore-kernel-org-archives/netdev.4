@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081335;
-	b=VOwljfAdP2M5BzPN8KqPhKBgCFqIoQ35xyaj7o2WFJ9YFqflSBT/PJgedSb57POZcYjE
-	 Fc5GFtjCcg7vGNSCQsZwH7GU8E8boa+FqnxTQVWNnDxuA01UV0lPeOzuFI/ylGhhrdK92
-	 K9rndIIxRmXzO0unStD9YfAYIB5ykcKgqYJNq1qmO8F05XF60KAXySbIoHSRkMvryhL9S
-	 ve5T3QUCeL9Pg5cnz/p/t1sAEq4xutCVhttNQwx8t7XPtk4DezDxlQVkwOzVGJeBLMsaR
-	 aevH/0IBQZ1xWxWBa3ieTHqAVHDVT+4B3mruhEhnYw5UGbkSOA7cAgMcfAQwX4RLuxw==
+	t=1795081339;
+	b=44nOH1z2o/3gBk4/VIOSXuVneNob8W+hldJ3Bspv42bin3hwrtGLdfpzjTPnR//wEbiV
+	 zVVAiIi9S6BW/roazOF/CwQR46UI+ECFLvvWklb34dYLqukPQCLpqrSZABPDUQUYP4kWg
+	 vyUtBGZoVWgqKQ6Jz0ztqFMbv/QDH0O+vwK824zaMnPt/COFVkB5HuQagq7lezfJ12Oij
+	 epmRIRHDGc5Vhu0/+aRoxGeFtKRSbacX/yFpgrWpR6EGzqsL6H87/OJodU9U1OmbNShR1
+	 GSL/L0PWct0emF2bwbyLcGtqX7wcWUO8Uzpkwf0zl3mTy6jAu1R2dQoFRvf3dAI+iGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081335;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=/D99FBui+IgQqOoHfHSwVVVX3NUjUeNBW0CsxCpgIqU=;
-	b=iYE/hIVM8Ph9s3CYlF1xh338FD659Huj+RuSjfsrIG5PspIA1bZ6Hu3qQVsSAh4DlSlH
-	 O7igwVmT9dN+KE8IiXscm81U1jzvPOJ1BUHYTrAY94DEFXZ4FAUsoTE74ddgj+vDnrwQE
-	 fU52HAVAVyAejuHpOIcnGYqif9WLM5bIObqAkcvQzTdFJBotrFo1z1DfeBVIjHSNQhUMI
-	 YR+AePAze87nU9Zi2+XLQ0nTOTWdNuRsvkkSzTsLMUbhfTo/+ZFFD3vJkdLszZMeMr2Sr
-	 TNZTrXwI9O4UJC0gATI9nm9UjWUOsJX23D1pn7ppVmmf7NFf2bWjlDMRCaVV3uTyYDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081339;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=9eV58bQMhX9Am98vKMtGdiSfZp+vJZsY8YTzTf6KgXQ=;
+	b=18Of+MK5EPzazH1QE5M7BIqivu72Exw0LXrCUH2tgEQZdDvV6dxo6fdeWERLzAra+sKm
+	 hnaH9L4ljP+QPiWsRh/KlKY9D7eGKmc9OWgsSvQ0jb5pVqMmdGJ7bR5t3rxRgNLriHmh8
+	 uwnUoO8iM+RQ/biKCnDi/QTl9wqOjmjrsQj4d7PQKl7g1cw+fTi0DnxsAgtLwmn7ck0KM
+	 Y5AaXAm3wdfw6aQuzunIvKOgBSWJ10ZJ6blUiW8zVjRhgnVw1lKpGFD06LB63C4D8wWhl
+	 HaRTihMDuWx5NJH4eWLJ0NFDoT9ebdMaMc4N/1/hQIz6UMRdzQOaa/yqi9t5Vqj9RNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F4BsR25t;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPEn4YGD;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E50B5606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:42:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D008606A32C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:42:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D008606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F4BsR25t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EBFD1F000C9
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:42:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795081334;
-	bh=/D99FBui+IgQqOoHfHSwVVVX3NUjUeNBW0CsxCpgIqU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=F4BsR25t6ndbvM9exfF0bEMuftHRlwcSDHVSo2rd2FTlWColie6vq6odA4QZkkF7m
-	 mXF2hYrJPmOa0o9d/RXB/K+kMrpE/kS8ts6n+ul2WCIPln7Y6pPpAHuVbDI1pJpN0a
-	 trd4P0gCEBSsDNGhD3cxT4OjZUQviP+YgtXmegY6zS46dzR9u6QTK1go4/ISzETnNq
-	 N8CQ6G3H90INQUZJRSIYtikAobWhvl4pLfl4eDU2gj4CV6XyzWmv0nmCAlW7YIBTQu
-	 AXH33GFiF34LuDC7v5wxsr5JjFauSvVFAgXoryigThRQdnNiDOPBcX58y/ttPq02h+
-	 C9uEHAfvHJYPg==
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-71af0656bedso1317364eaf.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:42:14 -0800 (PST)
-X-Gm-Message-State: APuU4Z8DSptN21aG6hkDtw/l5DeZod9SSJngc/4ECpldiiabWUL+/AHW
-	h32Dns4kfrcvZVEgRUhAEXppkgU/XB+MhGq1tKnmlbMzHhJRfky8u4U2chYl1uE6rtAxxfgRTZo
-	HA38GDf7FCU7ki4Dvo6VKUH242tyDZjw=
-X-Received: by 2002:a05:6820:2409:b0:70b:af3d:2b75 with SMTP id
- 006d021491bc7-71b187c106dmr3548649eaf.65.1795081333803; Thu, 19 Nov 2026
- 01:42:13 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPEn4YGD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795081337;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9eV58bQMhX9Am98vKMtGdiSfZp+vJZsY8YTzTf6KgXQ=;
+	b=dPEn4YGD81irMy+j6YOZcufkUbnFmULpbm3wAfPH5e91mzX7zU6z4HEwJ2bXbFDs95TeRL
+	Ox+OQWep0SSXZyuC/UKkoq3S6bDrFpVjqQsLAPF5xxliqQDtFicolN3NAqqPLOkGmFlt5U
+	OxkUJ6OBh0PYiFZODXotm0wKvXPvV4s=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-211-w81Rv_zLNRmhwbRjzVrpPQ-1; Thu,
+ 19 Nov 2026 04:42:12 -0500
+X-MC-Unique: w81Rv_zLNRmhwbRjzVrpPQ-1
+X-Mimecast-MFC-AGG-ID: w81Rv_zLNRmhwbRjzVrpPQ_1795081331
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0FBFB19560A2;
+	Thu, 19 Nov 2026 09:42:11 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id CDC77195B3C6;
+	Thu, 19 Nov 2026 09:42:08 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Thu, 19 Nov 2026 10:42:10 +0100 (CET)
+Date: Thu, 19 Nov 2026 10:42:07 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Allison Henderson <achender@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Joel Granados <joel.granados@kernel.org>, edumazet@google.com,
+	horms@kernel.org, netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org
+Subject: Re: [PATCH v2 net-next 0/5] net/rds: move sysctl-only code under
+ CONFIG_SYSCTL
+Message-ID: <av7EbwREaye6QQnQ@redhat.com>
+References: <avmymGvelu00X5EH@redhat.com>
+ <20261118181936.2f6e9d7b@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,54 +83,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
-In-Reply-To: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 10:42:02 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiiq3k-FtqtX-w5WEcTBAee9ukmbMMWL36vx0VNL0KPpPzg@mail.gmail.com>
-X-Gm-Features: AclHuK8OdpBInB5Oa2_kN1teNvgvUNzWkFon8eg7MKr-np2dztkIK38gr9QBzf8
-Message-ID: <CAL4Wiiq3k-FtqtX-w5WEcTBAee9ukmbMMWL36vx0VNL0KPpPzg@mail.gmail.com>
-Subject: Re: [PATCH v2 net 0/4] ENETC GSO fixes
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Claudiu Manoil <claudiu.manoil@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
-	Clark Wang <xiaoning.wang@nxp.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118181936.2f6e9d7b@kernel.org>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-Le jeu. 19 nov. 2026 =C3=A0 00:51, Vladimir Oltean
-<vladimir.oltean@nxp.com> a =C3=A9crit :
+On 11/18, Jakub Kicinski wrote:
 >
-> Sashiko derailed me from "[PATCH v5 net 0/4] Fix short frame
-> transmission in enetc":
-> https://lore.kernel.org/netdev/20261021145314.1435049-1-vladimir.oltean@n=
-xp.com/
+> On Sun, 15 Nov 2026 14:24:40 +0100 Oleg Nesterov wrote:
+> > Compile tested with CONFIG_RDS CONFIG_RDS_RDMA CONFIG_RDS_TCP CONFIG_RDS_DEBUG,
+> > the kernel builds with or without CONFIG_SYSCTL.
 >
-> which also touches the driver GSO code path, so I'm making a detour
-> to fix 3 unrelated issues there (which I could all reproduce using
-> LLM-produced programs).
->
-> The main highlight of this series is the introduction of
-> .ndo_features_check() for enetc, which runs for every transmitted skb.
-> Each patch makes its implementation more and more complex (and I'm not
-> done...).
->
-> These patches all assume that at .ndo_features_check() time,
-> skb_shinfo(skb)->gso_segs is set properly. There might be issues there,
-> see commit 67b0cca9ba88 ("net: validate xmit skbs in generic_xdp_tx()")
-> which fixes one case which led to gso_segs reaching the driver while
-> being zero. For some reason it was merged to net-next though.
->
-> Running a bidirectional eno0 <-> swp0 forwarding of raw IPv4 64B packets
-> (no GRO or GSO) on LS1028A-QDS rather than some micro-benchmark,
-> I am not seeing a noticeable performance degradation. It is in the
-> noise margin.
-> Before: 7440 Kpps ingress, 586 Kpps egress
-> After: 7440 Kpps ingress, 588 Kpps egress
+> Why tho?
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Well, initially I proposed these changes to fix the bug with CONFIG_SYSCTL=n
+but Allison found a much simpler solution, commit fbea154a86641d25
 
-Thanks.
+So I sent V1 on top of that fix with the following note in 0/5
+
+	Allison, Joel, I am sending this mostly to "complete" the previous discussions.
+	I won't argue if you think these cleanups do not make a lot of sense.
+
+and you suggested to rebase on net-next/main and resend after
+the merge window.
+
+That is why ;)
+
+> Who cares about this? How much is this series improving
+> the life for those who care? Otherwise it looks like pure noise
+> and a bunch of ifdefs we were happily living without until now.
+
+OK, please forget then. Cleanups are always subjective, and I agree
+that this series doesn't really "improve" the code.
+
+Thanks!
+
+Oleg.
+
