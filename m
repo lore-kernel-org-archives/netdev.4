@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795118562;
-	b=cNZ3jwKiorpxrGfbp8CaHbChEcjtXWPU/Uzs1pZJ472zrKdpzlKp5PiQ+3AGymucPcVa
-	 QefD3kzudvHIbHVqDAHQTdc1fyKuY3zbVDgBTVL2PS3xivXjBv0m+cjTPq4MZrVDfSN6c
-	 MtabZbIVeExDNpJja8rcCE5OKpuTqjaYGDPo8apzoF5eXfPLT/DqkybbZA0btLtXjdq98
-	 J352fTbxUCE6MS9rM+DP0DnXPDDkTtJmKHa/vCPOdWwBL6AM8F/iMg7Q2zjLWpB+hWlYm
-	 mH1hKRQQZ4FoXjhGcsmGKeNHFEHuTA8ZpyDN9Oit5FDqekvzuZ++NivLOES4RWFec2w==
+	t=1795118568;
+	b=tzySdFuYWzmJ8oD5G3Hh9AFMmr4CWStu1fpqhoUjA0xdKFsUdTt9A80F5rbLHukeslTB
+	 /oGKrbIjTS/vFyR77OD/6KvHrrHvAHIv8+mC2xDSPsCPjed5vo55Jizqm9vHJUNwm++Lb
+	 7y6b+gLrHxjy/lRQOlIvtrxTa/PEoZ1XnGkojtcEVcw2ESAGEeais4P4yPaPorjtOHcgw
+	 ibFXjaoVNsYcPSbP5j3Ttpid7gBQbgkxJetm2elmoPRJZiM5cPtrk6Q0uJMMo9wimVU0i
+	 C4AR6f/PRiHvYhaodR7OJhkN1j88loEGb0WchP++69tRTSE6HJG1oN0d7lOKygmZgcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118562;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118568;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=yS5HZGb4ZYV7fzhYyCITQ/ILCiUQlwy/aDQIF+31MW8=;
-	b=i31hE0NfRR69/uxeX3XCN8+shdE+Dl8XUq6mPeVaNesWw6frPljEJi2HLK3pTLwR58Yt
-	 II261cAk5mhI6dh2qRdy1nATmUyHBAQHn0hTDIxIrbTnanJAsaGCT29pKFeQ5wA+SCeTu
-	 Y33QtVWt/bK01BJd1l0/71ii8eQ6iZtLXd1+uQHAaYjlSP4Yiixor4OswshooVXDIIzjN
-	 fLghMB0pMx3FquCdQwJEnRjDnNAAvV0hyXv5uZb9OjbKJHVcfo36KZu8mXob2GscXMK6L
-	 ckJ/+CdCl2AqWUVMJmJuyWQGQif7Vu3UUYk/tR4S2s4lqBGdzGsWvEzPTU4NzC4IUgg==
+	bh=RKK0OI96pECkHppROmIdESDMy4NSloW0JuhxhC44a4A=;
+	b=joWzqAMuDv3sCA9XffJ+1RY5nBGXEA89Z7bMRHiuSNc6B84JnWmS0dmUBgfYRQTQrgBK
+	 1S/O4iPrWi/xhPk9xZ27aiZSu4MOBh354gaKchRcWPA89ioOatBuLC04qs6lhV4RNGxsI
+	 YrM/F0wKROVmwXzNfM6TJrUdBa8qpensoNaOy3Mc8j6OJlljjLz/ANorxOShEC1+W1MLW
+	 Aj3hur5hapacmkw8SoBlNfB912HJnKYUpHTcrviam/ncc2S20ulndV96UpebtdY4FMnKA
+	 4gFGZY0UL5IKUU9Cl+k9W4eqDbhR00O/ohGs6N7BwRLJjAXgi8Pj8PXzdbwRnKbStyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fxU/TGcC";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PpH7DsWN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B884606A324;
-	Thu, 19 Nov 2026 20:02:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E09C2606A332;
+	Thu, 19 Nov 2026 20:02:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fxU/TGcC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13BDA1F000C6;
-	Thu, 19 Nov 2026 20:02:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PpH7DsWN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C9D1F000C7;
+	Thu, 19 Nov 2026 20:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795118562;
-	bh=yS5HZGb4ZYV7fzhYyCITQ/ILCiUQlwy/aDQIF+31MW8=;
+	s=k20260515; t=1795118567;
+	bh=RKK0OI96pECkHppROmIdESDMy4NSloW0JuhxhC44a4A=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fxU/TGcCrY5xlJwFFLlAn1jTWV0E5hTnmdN+IJB9RNcS+a2vw+7uiwuntML6Sw1d3
-	 Z7fp5QL6FsWvBNluBljxGexs56t7UNh4LZfNHad68IONQMoMsPncnV2376zbbxFwtS
-	 ndGZvc7ZBTPtk5bzUBInv4x19bp1Ach9QXK45SPmNauF4/Y2wGjzEv60klCxoKaoxN
-	 bHT9/bxJEmnW749qgs71MIZE/s+/X2dwZaStZ89ZFDxc/6dMlAd1gR6Nhoh226pkH7
-	 BqmxZxQ7/qDudV1kXRaHI8J4C1bwmMWuAwPSSF0VjaJXN5pO/c2SNOi3b6VhkxcseC
-	 7IVbvd9N+EwPg==
-Subject: Re: [PATCH net-next v4 1/4] net: xfrm: interface: restore dst_orig on
- every xfrm interface
+	b=PpH7DsWNKZZ5nDxLnHjF/22h6Rz55sVIj+y3RERJctzTeuY3SOwzt11Ct10nU6qbH
+	 HcxcPbjuGTh3gK9vCn3g7/BLeJVspYOvxE5j1gsVGCHyiP1Om1UT8IE+Bo6u5T5KFb
+	 KBfFMsWRuKIfcUsizdCPgpJh4oSR4fxCa+OntDcPhz0YIcaH3vdl6ujfzhgXXDyHoj
+	 XfdA7QMIE/T3ZetULJxEESYQThEO1iv/kOFhDno1uF55cI3IRxnFY2aLkN9Lwz6Bcu
+	 rL8Oa07Oxvy24cRTiDMZGrFQDNFSUhG3qw0P0wpyEBN+oQ7lnPwvHsCAz9eAZbpthW
+	 zV3YE5OI5MXUA==
+Subject: Re: [PATCH net-next v4 4/4] bpf: drop the stale dst when redirecting
+ to an explicit nexthop
 From: netdev-bot+sashiko@kernel.org
 To: jhs@mojatatu.com
 Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
@@ -51,11 +51,11 @@ Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  horms@kernel.org, bpf@vger.kernel.org, jiri@resnulli.us, victor@mojatatu.com,
  sashiko-bot@kernel.org
-Date: Thu, 19 Nov 2026 20:02:40 +0000
-Message-ID: <179511856062.3136.18243971639206515341@kernel.org>
-In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-1@mojatatu.com>
-References: <CORE-9NOG.v4.r0.20261116135311-1@mojatatu.com>
-X-sashiko-severity: Low
+Date: Thu, 19 Nov 2026 20:02:45 +0000
+Message-ID: <179511856597.3136.7846835490904436138@kernel.org>
+In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com>
+References: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,107 +68,155 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] This commit fixes real, user-visible bugs but carries no Fixes:
-  tag.
-- [Low] The commit message does not mention that the old per-cpu design
-  leaked a route reference, and that this patch fixes the leak.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] In the explicit-nexthop branch of __bpf_redirect_neigh_v4(),
+  the new skb_dst_drop_keep_metadata() call can replace a real struct…
+- [Low] The patch fixes a long-standing, user-visible bug but has no
+  Fixes: tag and no Cc: stable.
 
 --
 
-net: xfrm: interface: restore dst_orig on every xfrm interface
+bpf: drop the stale dst when redirecting to an explicit nexthop
 
-This commit makes xfrmi_xmit2() restore dst_orig from the xfrm metadata
-in both the collect_md arm and the configured if_id arm. It takes its own
-reference with dst_clone() and drops the metadata dst from the slot
-first. It also switches bpf_skb_set_xfrm_info() from a shared per-cpu
-metadata dst to a per-skb one and removes xfrm_bpf_md_dst.
+This patch changes __bpf_redirect_neigh_v4() and __bpf_redirect_neigh_v6()
+so they release the arrival dst through skb_dst_drop_keep_metadata() when
+the BPF program supplies an explicit nexthop. Without it, a packet parked
+on the target device's incomplete neighbour can later leave with the
+original device's link-layer header. Encapsulation parameters carried by
+the route are moved onto a metadata dst.
 
-> net: xfrm: interface: restore dst_orig on every xfrm interface
+Link: https://lore.kernel.org/netdev/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com/
+Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
 
-[ ... ]
-
-> The same slot overwrite is in the unstable helper a tc-bpf program uses to
-> attach that metadata: bpf_skb_set_xfrm_info() records the route as dst_orig
-> and installs a per-cpu metadata dst over it. The per-cpu dst is shared by
-> every invocation of the program, so the restore cannot keep anything in it.
->
-> The Fix:
-> Restore dst_orig in both arms of xfrmi_xmit2(), taking a reference with
-> dst_clone() so the metadata dst keeps its own, and empty the counted slot
-> with skb_dst_drop() before the route is installed. The helper allocates a
-> metadata dst per skb instead of a per-cpu one, so the route it records
-> belongs to that skb and is released with it; the per-cpu allocation is no
-> longer used and goes away.
-
-[Severity: Low]
-Should the commit message also say that the per-cpu design leaked the
-route reference, and that this change fixes the leak?
-
-Before this patch, bpf_skb_set_xfrm_info() moved the skb's reference on
-the route into the shared per-cpu xfrm_md_info:
-
-	skb_dst_force(skb);
-	info->dst_orig = skb_dst(skb);
-
-	dst_hold((struct dst_entry *)md_dst);
-	skb_dst_set(skb, (struct dst_entry *)md_dst);
-
-Only the collect_md arm of xfrmi_xmit2() returned that reference, by
-clearing md_info->dst_orig. Some packets never reach that arm:
-TC_ACT_SHOT, a redirect to a non-xfrm device, an xfrm interface with a
-configured if_id, or any drop before xmit. For those packets, the next
-helper call on the same CPU overwrote info->dst_orig without calling
-dst_release().
-
-xfrm_bpf_md_dst is never freed, so metadata_dst_free_percpu() never runs
-for it. The route therefore leaks, along with the net_device reference it
-holds. That can leave the device stuck in "unregister_netdevice: waiting
-for <dev> to become free".
-
-With the per-skb metadata dst, the route is released when the metadata
-dst is destroyed:
-
-dst_destroy()
-  metadata_dst_free()
-    dst_release(md_dst->u.xfrm_info.dst_orig);
-
-At the moment the message only says the per-cpu allocation goes away.
-Could it mention the leak as well?
-
-[ ... ]
-
-> Reviewed-by: Victor Nogueira <victor@mojatatu.com>
-> Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
+> diff --git a/net/core/filter.c b/net/core/filter.c
+> index bd98d29ed7f8f..ae5346d6abd23 100644
+> --- a/net/core/filter.c
+> +++ b/net/core/filter.c
+> @@ -2318,6 +2318,8 @@ static int __bpf_redirect_neigh_v6(struct sk_buff *skb, struct net_device *dev,
+>  		skb_dst_set(skb, dst);
+>  	} else if (nh->nh_family != AF_INET6) {
+>  		goto out_drop;
+> +	} else if (!skb_dst_drop_keep_metadata(skb)) {
+> +		goto out_drop;
+>  	}
+>  
+>  	err = bpf_out_neigh_v6(net, skb, dev, nh);
 
 [Severity: Low]
-Should this patch have a Fixes: tag?
+Should this patch carry a Fixes: tag, and maybe Cc: stable?
 
-These three pieces all appear to come from the same commit:
+The nh != NULL branch in __bpf_redirect_neigh_v4() and
+__bpf_redirect_neigh_v6() skips the FIB lookup and keeps the incoming
+dst. That branch appears to come from commit ba452c9e996d ("bpf: Fix
+bpf_redirect_neigh helper api to support supplying nexthop"). Before that
+commit, bpf_redirect_neigh() always did a FIB lookup on the target device
+and installed the resulting route.
 
-- the per-cpu metadata dst in bpf_skb_set_xfrm_info()
-- the xfrm_bpf_md_dst pointer in net/core/filter.c
-- the collect_md-only dst_orig restore in xfrmi_xmit2()
+The commit message gives a reproducer that puts wrong addresses on the
+wire. Would a tag like this one help stable trees that carry ba452c9e996d
+pick up the fix?
 
-That commit is:
+Fixes: ba452c9e996d ("bpf: Fix bpf_redirect_neigh helper api to support supplying nexthop")
 
-Fixes: 94151f5aa966 ("xfrm: interface: Add unstable helpers for setting/getting XFRM metadata from TC-BPF")
+> @@ -2433,6 +2435,8 @@ static int __bpf_redirect_neigh_v4(struct sk_buff *skb, struct net_device *dev,
+>  
+>  		skb_dst_drop(skb);
+>  		skb_dst_set(skb, &rt->dst);
+> +	} else if (!skb_dst_drop_keep_metadata(skb)) {
+> +		goto out_drop;
+>  	}
+>  
+>  	err = bpf_out_neigh_v4(net, skb, dev, nh);
 
-The configured if_id drop and the clone sharing problem date back to
-that commit as well. The slot overwrite started to warn, or panic with
-panic_on_warn, only after a890348adcc9 ("net: Add skb_dst_check_unset")
-added this check:
+[Severity: Medium]
+Can this pass a metadata_dst to code that still casts the skb dst to a
+struct rtable?
 
-	DEBUG_NET_WARN_ON_ONCE((skb->_skb_refdst & SKB_DST_PTRMASK) &&
-			       !(skb->_skb_refdst & SKB_DST_NOREF));
+Suppose the arrival route has lwtstate of type LWTUNNEL_ENCAP_IP,
+LWTUNNEL_ENCAP_IP6 or LWTUNNEL_ENCAP_XFRM. Then
+skb_dst_drop_keep_metadata() replaces the rtable with a METADATA_IP_TUNNEL
+or METADATA_XFRM dst, and that dst uses dst_blackhole_ops:
 
-The message says the tc-bpf case needs no other patch from the series.
-Without the tag, stable tooling can't tell how far back the fix applies.
+net/core/dst.c:skb_dst_drop_keep_metadata() {
+    ...
+		md_dst = metadata_dst_alloc(src->options_len,
+					    METADATA_IP_TUNNEL, GFP_ATOMIC);
+    ...
+	skb_dst_drop(skb);
+	if (md_dst)
+		skb_dst_set(skb, &md_dst->dst);
+    ...
+}
+
+If the redirect target is a non-collect_md NBMA tunnel, its transmit path
+still calls skb_rtable() on that dst. For an IPv4 payload with raddr set
+to any:
+
+net/ipv6/ip6_tunnel.c:ip6_tnl_xmit() {
+    ...
+		} else if (payload_protocol == htons(ETH_P_IP)) {
+			const struct rtable *rt = skb_rtable(skb);
+
+			if (!rt)
+				goto tx_err_link_failure;
+
+			if (rt->rt_gw_family == AF_INET6)
+				memcpy(&fl6->daddr, &rt->rt_gw6, sizeof(fl6->daddr));
+		}
+    ...
+}
+
+ip_tunnel_xmit() falls back the same way when skb_tunnel_info() gives no
+usable AF_INET key dst. That covers METADATA_XFRM, an AF_INET6 key from
+LWTUNNEL_ENCAP_IP6 on an IPv4 route, and a key.u.ipv4.dst of zero:
+
+net/ipv4/ip_tunnel.c:ip_tunnel_xmit() {
+    ...
+		} else if (payload_protocol == htons(ETH_P_IP)) {
+			rt = skb_rtable(skb);
+			dst = rt_nexthop(rt, inner_iph->daddr);
+		}
+    ...
+}
+
+On 64-bit, rt_gw_family and rt_gw4/rt_gw6 land on the tun_info.key
+address fields in the metadata_dst union. So rt_gw_family reads the first
+byte of key.u.ipv4.src, and rt_gw6 starts at key.u.ipv4.dst.
+
+Here is an example. An IPv4 route carries "encap ip ... src 10.x.x.x dst
+D", and a tc egress program redirects with a supplied nexthop to an NBMA
+ip4ip6 tunnel. Then rt_gw_family reads as 10, which is AF_INET6.
+ip6_tnl_xmit() copies 16 bytes starting at key.u.ipv4.dst into
+fl6->daddr, and the packet is encapsulated towards an outer IPv6 address
+made of tunnel key bytes.
+
+Before this patch the skb kept the real rtable on this path, so the cast
+read real route fields.
+
+The METADATA_XFRM layout does not seem to match AF_INET or AF_INET6.
+IPv6 payloads coming from __bpf_redirect_neigh_v6() look like they are
+dropped, because dst_blackhole_neigh_lookup() returns NULL. So this looks
+limited to IPv4 payloads in the IP/IP6 encap case.
+
+The commit message says:
+
+  The release here can leave one behind as well, when the parameters a
+  route carries are not usable for the payload. The cast is repaired
+  separately.
+
+ip_tunnel_xmit() and ip6_tnl_xmit() are unchanged at this commit. Should
+this patch go after the skb_rtable() fix, or include it? Otherwise this
+path is exposed until that fix lands.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v4.r0.20261116135311%40mojatatu.com
