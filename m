@@ -1,139 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.145.42
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795115139;
-	b=DAo95sYd0U+E+m4XUAtk3t60/wzbybBSVrPzuDggIwGrQLvA78yogAn+avlHOe4sCu1w
-	 fAFIaMx5654IYQxhviLkAPjKf0963yMJUS/+RzcqVQrRR7cOyChuLpp2FTKXpEE3efKRZ
-	 GFUa6wSc+UVwXvoXh5Tc2DYo4Pj942v+CpXVqLiGqSgQHYCs3EY6xg7QTLVZYLBxrPHcv
-	 oKto70AKEJxcmCwZULjKdBgGqXDJARv3U6SG54tlKf+sEjUBAQ7NZAanoMsuIKElakv+6
-	 mNNeG8WCXAtom1sWM7FKQNgOl7x71lxjH1lD8DE/+ygO9R+UfwTizwQYX8yhLo2u7qw==
+	t=1795115213;
+	b=moHxVBRRdwJZhphQAY60ARQ214XtPxLZ1vkvXgmo8YKpRCvnqWc3VA+01NmnFzIv4OGm
+	 r2kCgdA0gNuRoFL7/GHvZU0OLXQQtphYt2K9eu0yHtCdvrDy/31qCtQ49qOtXGTvV5rh3
+	 3884K8nXoWwFY0OjW2rsA8WF3jQxq97HKsJwKt5qjBr4Wm6SyXqALVN5HorjwJxhoA2L5
+	 b6PHz6YU8GauMKGnU0dnLMCr/wU1//FGJINsjpLlt2lyBx8tNSI1KmY4f9INqaUf7zFqA
+	 BhuZBoF6imJWR8ZZ4c6GQGirY/SKMgQ86kHRyG/k/Z483Erp+KNfrRvHr59njtYlAeQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115139;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=QLjGJKkmi+Oj9BCIKBFtpyLhAr3EaTS2IyWKcdrF2kA=;
-	b=XREQDI+EQ2OwzOXm/LrvxpPy785M8jdW5nCZAhikZYnVbsndNaUJMj63QGXgPitv1u/C
-	 MgrESVstFFJgV5aQck+XJUCmzYwdrlwfGurfD+4iDo4/WRo2u+XQTp+3RbvV/+G5IQkcb
-	 aKfslsBQtZ2LcmJ+6ksGBLB7kwyYVklMBNSbYIJ1t0qkpCSi5Ac/azDno7rW9nBPKB7Fy
-	 EDj2wi2IBNwHEtRyt5nT3WfpKGXgk/Dtby76NidBsayj0aV0IXJ9/cVVOTq2Hx82NCwF7
-	 PkOmxY1fiVn1c1h/pDu3WHwek6LRao3jIappytvOeGUFuBzPXX3iy4DoyGTacgb2NZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115213;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version;
+	bh=7UOIM1gt/HSVdU/4mq+KVCxj8c2UYFHGAIGtG4eIqGw=;
+	b=FB3UeHpes5NtBMn5NbYYeujAoyX44bTSB1D7kwZ91LOOXq8jx9DIMWszwFwsufCW5Thc
+	 +ZmrWzXTyiYPDHxo9YcSKxvcccjLYdkvry4hPXSxd51C4tcCf4V4x5lsDgLXB8LPI70Y3
+	 wJW+eE3W9qeoqDCUhonkeAws3ydZKj2ps/yuXOV+cog3y1ctghZhu519xZoB7/QAjd4QA
+	 zWZ0bhGK6NeL0BXvYFapQQ8lCfOB8TgpASkNFeKJYUvGDQBvV1UkSy/Cnq4QbxOHhoNFC
+	 RA7FE7zSZ0fg9pNg9wAhzsOwKesnbBGMa/2bkjw1kacWcDwEXA0IfKFkqgWWrB8pIJA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PCxZLxgh;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=O4eDDCSg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=FBS35DIl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E29C9606A339
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:05:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E29C9606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31C93606A32F
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:06:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31C93606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PCxZLxgh;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=O4eDDCSg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795115138; x=1826651138;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=6d+2stocgPxYhgLEioo8a10DGQcSRQ60ADfAmxua9VI=;
-  b=PCxZLxghHBCbCjhTTJV1uOL0vPP8dIwKLcV8UfLrl7iuDizIzmVGATHc
-   a7k/LTE8VQTz57sBqqX1OuhLookg7X//1QBgHBCBre8BVCUvuDY4o7so+
-   kgEuHSBkx84IqYAFJICMXpR5KGQfoPXn4J5d2CBENsEZlDb4GVLkQboIf
-   hQOn2mAMSSrd4x22bZ0ZTI7yeF7vn/7QOEQiVCmyjN6v/Vl0R4RordzQx
-   aa9Ef0sRigO7kkQFXzNzozwJzbwLU2+I2BjZwI4crT+wzpO7CWLzQOkhg
-   mq9u19JJxKohSfIMaBt1i488DNNup7+/9ddGRtAbU3Opr1JtucLt3wFY1
-   w==;
-X-CSE-ConnectionGUID: Q4fg4ld7T2WV0j+Sl7mqxA==
-X-CSE-MsgGUID: w1epUEj9RR6KLfcGHB0Kmg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3895711"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3895711"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:05:32 -0800
-X-CSE-ConnectionGUID: HQBBZx8NS4KpM9kuuOVb7A==
-X-CSE-MsgGUID: A4Fho3jhQCCwnoGH32b9jQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10418701"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:05:32 -0800
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 11:05:30 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 11:05:30 -0800
-Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.14) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 11:05:30 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DrLOtcKAD5kOqx1LHVYeIpoJYpxv6UL2KaqzY8acJ5DpR7XislXmhjsZdLwFAcaU+S/eqYMNmmx6ttEjK6cMS3YYeE2RqkmLCYYc2BUcbw0aeVY8yJ8naM9/boeSvWujBUTxz4obQEVjOq2OwBQsVd9DkNYvF5C5KyXI5xtqV3Tsuglo4mfsbez3xc5BbcqM3aBiqg+iBy6p9kzNIFrc9H/5aw4aCiBRww3vadSnwSqBzjpsN+qOCkbOsLLNflx16zA+QH7BxN2xYGNZZvlq00b8AR4HOP/v+ahfZTqJY4BozVmjARqhtSTa3E1Pvzk6jFI8oEeO9D0Gzy1CM6UnSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QLjGJKkmi+Oj9BCIKBFtpyLhAr3EaTS2IyWKcdrF2kA=;
- b=YxI4L19CoR40IkvNUAcNAo07edYGKQCaJf4oWic3e54+DdYPGT2ojpBSimAhGR8VYUf+/3MYTF0mITMY7qw8ABIuKaxGRs6GOF3SqNqP1hjVFCMw9UYhPQcdPofa7weulcRgjYdSFXM29NzUXV3j/qU1d7WU0iSzlCPFGZOwD+QhBvTdBQMrr6ohGOs3epeo/6DF8vlkPlDzJdX9xvf3FTo6OOrt6Z1Io57wjGrld8CQbwWLohLCSr4U189j+cjvRK2akfju3XGfZwcpWIicJcvUtf97OKPk7so7ndpN2VxPbNXZPcCGl0XG4IzT7+7lPRXEjf0hGlY7dWJs7KfQFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QLjGJKkmi+Oj9BCIKBFtpyLhAr3EaTS2IyWKcdrF2kA=;
- b=O4eDDCSg43ma5gK+wj1x3BtdEf/UZRqp5gIqk+57p8Cf9Vz2nzwkQYSfi3qc8ikkVd+VFVsTSFoUC9A6VbNJokdXCvNqrKH5ZMpmFen19/xsqXNMSujiSRPc1xwNMuWf9dVQ3XmAWOAlD0hrDAjM0Kv90+oNiMy3/f/VJHJmHeo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV2PR11MB868673.namprd11.prod.outlook.com
- (2603:10b6:408:422::13) by SJ2PR11MB7519.namprd11.prod.outlook.com
- (2603:10b6:a03:4c0::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 19:05:27 +0000
-Received: from LV2PR11MB868673.namprd11.prod.outlook.com
- ([fe80::5bfd:6afe:a9db:b7de]) by LV2PR11MB868673.namprd11.prod.outlook.com
- ([fe80::5bfd:6afe:a9db:b7de%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 19:05:27 +0000
-Date: Thu, 19 Nov 2026 20:05:15 +0100
-From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-To: Magnus Karlsson <magnus.karlsson@intel.com>
-CC: <netdev@vger.kernel.org>, <magnus.karlsson@gmail.com>, <sdf@fomichev.me>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <bjorn@kernel.org>,
-	<kerneljasonxing@gmail.com>, <intel-wired-lan@lists.osuosl.org>,
-	<anthony.l.nguyen@intel.com>, <przemyslaw.kitszel@intel.com>,
-	<jacob.e.keller@intel.com>
-Subject: Re: [PATCH net-next 5/5] selftests: net: add AF_XDP USO test
-Message-ID: <av9Ia2gpMyF9jTuE@boxer>
-References: <20261119165340.1071525-1-magnus.karlsson@intel.com>
- <20261119165340.1071525-6-magnus.karlsson@intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119165340.1071525-6-magnus.karlsson@intel.com>
-X-ClientProxiedBy: DU2PR04CA0309.eurprd04.prod.outlook.com
- (2603:10a6:10:2b5::14) To LV2PR11MB868673.namprd11.prod.outlook.com
- (2603:10b6:408:422::13)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=FBS35DIl
+Received: from pps.filterd (m0528007.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJJ14Cg193965
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:06:52 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=7UOIM1gt/HS
+	VdU/4mq+KVCxj8c2UYFHGAIGtG4eIqGw=; b=FBS35DIlYfrNJvTrsnesOsZXjHu
+	lShjNbOKcW+4QM1K1aoLTP70qi5tI7RMA2vJwjdT6wVGEM7qbKX7TUCyPn8NYLdN
+	w/Nmgi7S2w/MYm2sVSnArpTHYuEgihfprYzgxh5FAlxnM/HsEAdC+iDwpQq8j91D
+	5DK3IC6Dq31TEkxovREk9wTM61Ha2trluzl8SPTq3cr+nOiKpROIb3P0l+g+1hNI
+	smTrP6XALq2srV1GF94pDR8lBaW/PKZS8xaGmG9b1Y7jfx5W/ycFnN2Xpwp1lGoY
+	cjMfYJ9bQqoSqzD9oUEWt7ktQ7AHIi2ub6t9g2Aqv8VWarmC2C4NrUY8Bhg==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j1x1amsep-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:06:52 -0800 (PST)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cde6bb2c56dso67156a12.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:06:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795115211; cv=none;
+        d=google.com; s=arc-20260327;
+        b=klB/z+Ci21sXlY0Q0aKIksm4EbE54yIBQUsJ2Gsae+Ng4je5fWJ/5sRAUf/GQ+HHHq
+         PhzI6LjPpIdxMqgApXRCO0qOM3QLoNmXUub6fU0g8UJm2rjtR3/69NP8Wy275/+iq7Nu
+         /0Gbg5XTON62pF7WRQH31vqHHp5RaLYY16p7sOFMhiXCzhazx+Qk1S6IqHvrK5HTD5v8
+         fZF6HatSDs33ZGArdHyqnBxdVSPg88c4zblSSKvy9lH32b8EtqTV/vyFhO8TexoYxiKa
+         Ueymeg6MovTArsHLWkwFBnswkGyARAmzcF3qAOA6J6Ooo/7JhxFXWS0EzVh4nUIaM3Eq
+         gE6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=7UOIM1gt/HSVdU/4mq+KVCxj8c2UYFHGAIGtG4eIqGw=;
+        fh=SDIrgXTWabEseLSVvzHFzvh0aU9d3CU2LpIBST3YlUQ=;
+        b=LIbmM6/mVBxjeYSgIXL7a2f8iHx36RRMwk0sAtijEDGchWVNCeC+7jwoCeSo56Zp/b
+         OfsWbjSnMOOnqsnzeNfIVRYiqtcYeAFoDEa2QnlzOpAKexPaBAQCrpDnWAInsZ9GUEe2
+         BFu7f9eCv0Ux0/gegVEYV7WbvWqaG2pcY7Aks2/RREo1Vi8DEEs9zxecSAiVmZtOuA3j
+         rRDUMoBnWdRU7bhPXPosTby1lInNDntWFYHCiMt2K10IqHlpZ1Kzx04JEmvrWr2leEg7
+         zfSo8B8ErU5902GrFyzwuxr+mzU6VeqfqWWEk3AcwCutiivyGYjZJ9gPyYshFrWqK549
+         qPNA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795115211; x=1795720011;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7UOIM1gt/HSVdU/4mq+KVCxj8c2UYFHGAIGtG4eIqGw=;
+        b=hafKGyQsTM+37tFWnAtpFITpgXDlf6rEBqtxIJVJlwqE4r/GgHSRNljNYODv6lrfgI
+         hTPxpT44ZbGGabgPukH9qyxOOVzja/8tp9xRSi258kB0JvABtD2gAvVHcvMOyiQ24YDW
+         Cir8twWRZDwqrAO6yu8jphzI5VZ3i9QV4fU0wWOKGneSYai4SKOPeYBgMj3oH5OW9QEI
+         J+TMZv00OiXBzbQVI17Pf3X+pOBGb/lJh53XEEu2mUy2Uhs4SYJ5Y153Yxsn0hqszoRK
+         TNmH5oBtJp/uFiCf67WWJcmUhtH2G9U20C/ynoqfXwyGLf5NJikEjzRKMIrkiJvp6x+n
+         LhJw==
+X-Gm-Message-State: APuU4Z9Y3N7abYEDUZ2q9QPMmktizBzwNwpwJolU3GEV0x1O0AOQIN4s
+	cfZGz9dyhcrqFpjCHBpbognu1qqUQtz6dlDuaV8us3F2lNc+EI4R8f+kHI446kZEZZH5wlrY6oC
+	w7rZi6YkO9oydA/WCGrUQSXuvSC10H0Bx4zZ99YBVHvES04LF1h0BzaNd3c1MkGvVQEWLAItsa7
+	cAnt1J1Vt2+WNtX35uTWPvjtbjVLneUm4=
+X-Gm-Gg: AZFdTZeEFT6pk6eHwt9AfPPBuIahtszhZZOfY0LNI3wErmhDUAuovZyOrboWNXiFGYO
+	SlXuWqWcKXJbQJLtq1pYVHDaVXUOFMnrd1PTehp/lKwh+q+XbDS/q0z9VOIpK+JscD6lMi8B2F+
+	5x/yZLs8Wtg3RYR/2KBis6Hw1vxYgYk+JueZ6GFujM/afl6IkXxRNOSkXDTOxlRDaOdC0xx9/4F
+	UkR2onQSWE0iHMvsue4InLYd9lqAEVI
+X-Received: by 2002:a17:90b:4a06:b0:3a4:9dd7:296f with SMTP id 98e67ed59e1d1-3b41caec8a1mr251297a91.40.1795115211588;
+        Thu, 19 Nov 2026 11:06:51 -0800 (PST)
+X-Received: by 2002:a17:90b:4a06:b0:3a4:9dd7:296f with SMTP id
+ 98e67ed59e1d1-3b41caec8a1mr251262a91.40.1795115211062; Thu, 19 Nov 2026
+ 11:06:51 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -143,227 +110,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR11MB868673:EE_|SJ2PR11MB7519:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9279fdc1-8038-4520-700d-08df46701278
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|22082099003|18002099003|6133799003|56012099006|261026121527099003|4143699003|261026140227099003|261026130827099003|261102123227099003|10067099003|261026135527099003|261022113327099003|261022105027099003|261028144727099003|261009223027099003|261022075727099003|261021135927099003|261022115727099003|261021133027099003|261021130227099003|261021121427099003|261021123027099003|11063799006;
-X-Microsoft-Antispam-Message-Info: y+1e+vgDrnWtDG4z1F60xTUq8lLc8tfsxlautzo5l7feAJARdVTjiDn7pbop/nFjbobc+eSxCMIVUwMDQVT//5gp7djkgINDz3VoRjU3tMq1d7MEpbzTgUHFOcBL2QdXYQQe0O7bJ9b2zJtV7j+MjbX3gZzfSBPisYELryeW80bR2DIs5Iq3F30H49sBWyj7jUsS93T7Qx2uv3CdxmL11rwib/y1lMvb6v/sAc9055k5RPteozEyhRfQgvDA63xsrzKspsBVwoKLPPj8eloO95w2NuG24+6q8iOGUoNPShQP4aI7Eo4+QjItxreuDhP481frCfaH+W8wfcq4JFG30zyShrzgpFFdx08L9MgfmJo1EYZFTIiCOZjbYKXGEmDEFRvJ9hOwu9r6BL4k5cD81KUNYKjw2r5g5w046nP2nxBthHzrzu3kzyuzhZdJuY1ilhQ/1UDGzbm6QmuweyzubvAo02WskvoECBvaXVU80W9sIMzaNtiGqbEBtTXrDqXF6D5WaBccJFKG9JIIvWh+rqeqyymhi/mIrU18YT2XuUVBdbvv7SymxdX+UCVAkTAG62Z/UKwA8p+wxn0JMtvOTO0ZfOAshTkcOgfdhCWF194JymP0EVa9rTU8hgA5xDoQ4Gg9kfV2oHL4dI+lAEbm3yvLIrS51xE4XuRx86ZA0Gg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR11MB868673.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(22082099003)(18002099003)(6133799003)(56012099006)(261026121527099003)(4143699003)(261026140227099003)(261026130827099003)(261102123227099003)(10067099003)(261026135527099003)(261022113327099003)(261022105027099003)(261028144727099003)(261009223027099003)(261022075727099003)(261021135927099003)(261022115727099003)(261021133027099003)(261021130227099003)(261021121427099003)(261021123027099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C6iKcFGWlhXvhQVzj49oeqvb90QiTsLmkodxg/+sC1vU+G68JVNEULsZBv2h?=
- =?us-ascii?Q?+sOyYt7c9MuYvm3dkGWmoaBg4CfHLHyy0HUW3O6LPtrdDj5NBvWjhwmdVrIJ?=
- =?us-ascii?Q?Pxoo8YtjewjbT4OMHBsYssjOwfLXaTp09g9yCmVF7la2L/GX2QWaTnyp+yb9?=
- =?us-ascii?Q?EXeH+2tWFXsq1jqhARbDxXofTCaYWjstD1uNsl5vNLJczMJESVCu2Pgr4Fiy?=
- =?us-ascii?Q?JGhaSVRA2zoErtpb7WdbldAFd+iUBaoS9Ovuv7yWrTPgosLvbn1Rimko65VV?=
- =?us-ascii?Q?lmQkkH89jqN0UseQLdKCT+Lk1lkbeG1B/qPKnrEMdatY1tzspDVh5IYOPMSO?=
- =?us-ascii?Q?598QrtBX/fFg8v3qaNjZHrFtl6c7twSC6dHH55BdiIhD4nyrJ3N/PchKAM2V?=
- =?us-ascii?Q?fL5jOTLRczrc86gHpwIh1vqL3eOGlB8YCHalpaRpdx0F6dIH9pY/JuPrFqH7?=
- =?us-ascii?Q?nBIl77dCeeURygw/+00kjRmrzXsV/R7H4NQohsegn5g43ggSqWFr5RB9GvZ0?=
- =?us-ascii?Q?qwm86gg6oQ1A9mWtHI9XvtJWvV1PbniOzbLMGLN4JIPPnkAEwQ1KLSU/ExiP?=
- =?us-ascii?Q?8J8+OscIWEB/+H8iq7bHB6Saz/JHn/JGfuK+wQ0mYU+OMfcgRKrNe+6+uGQH?=
- =?us-ascii?Q?xcFFznUKJ5TcQoyU8rYTW2wY6PPW/Pl8kgyZYUV0K5xe6XGVkbSG38FD6YaK?=
- =?us-ascii?Q?j2a0r4BusDT46DuiFHupr0JcXYmVnvnR4OfRNc6WA5NgC1cN7baS4WifrA7g?=
- =?us-ascii?Q?HrqTquCiQGTZ3Wlydf/YLt4Kqi3SmF1h6ItTlvCtxu1/Als268vJEgm81+Yc?=
- =?us-ascii?Q?3YZhIsuFAKAcLqVDlZt1rRNT84TFVctMTUWqlSH5qLE71SreKMPWVrUBMl0y?=
- =?us-ascii?Q?p5iJdXU2kMzrXtFt0KTUd284jK4RVSiNgShLdPSW78xq7vROnoXYadtvZ3aT?=
- =?us-ascii?Q?Uqp4zWRU6Xl4ZK6R2s/xOw5cO/qtx9gYAHxYUXVcoOyh3v7mkax34/4h3aM4?=
- =?us-ascii?Q?0P8JBlXyDvW59ZYqqU9JlL+Ys+5tNwwM7BJHDyUe6DOnEjp/3MKeF0z+DTj+?=
- =?us-ascii?Q?Vpl1wW4q34ohLr7blIcYpyjn+zAq3Ei5IqHlANtT85k387k3EsmHq2Mr4maK?=
- =?us-ascii?Q?PUAdZm4RvgQd7vHJuQ7/i45YhtwKAzq057LG0lsaPfrpC5eds7ktH10jIROn?=
- =?us-ascii?Q?G0l+Q8SMErKS8P7q10YrR0wF7cfb8zhSCVpSIMGilzT1pg1loYqlKXOgARct?=
- =?us-ascii?Q?jbNK/u0X1K/I1nEFjRa4C765O5hrp45eF9rSN4/bNqiQHRgvAkCOHvcGPEbO?=
- =?us-ascii?Q?jQG2wP7SJRnvhNEZOLCgmO7g/dTaOBofFHIPQhwo1+k/zyhv+aSNwR3I2ha5?=
- =?us-ascii?Q?9WI9oAQJqpnMcIyBSO75aMauDerWNelq84HyzrJzKCbQzQ35S85pp7GylqfH?=
- =?us-ascii?Q?WWBrCkE8hdCsHYhL1WVk8zRTUJSbl9iYDkaJYy4sl2NFGBYM1QRNILOMHE0L?=
- =?us-ascii?Q?1IYIh7LOXeFNNdJDkskV6rTvK/UzKSo7LjdFNiQUFjXUbOO4D79uDEh9da19?=
- =?us-ascii?Q?vevVoiAbLCatO+vwjtQKPpjyZguPbeMeQHaN67cosY6qr5YyIppA6i33e6bL?=
- =?us-ascii?Q?zCCWlBQ7R0G3S2UipL4/stUMlgzMeVDt3+qE57mUXSIWWrpWofgrDjiUaPNa?=
- =?us-ascii?Q?hTlYhU9vs8dbXHaqTAZxrIOcPQRAzbyco4b0b9/Vr19gFwjtWP2K70Otm6Th?=
- =?us-ascii?Q?Z+3RpDilp02WodUfr50dkAUrPCfTeLI=3D?=
-X-Exchange-RoutingPolicyChecked: OU4nUPeLxq20Pn6Q+J+5MASGFXWePyygaku1GX1YZXk8mUqWaz8cPHbvYpzqt+QXvyXYzWLxOzLaE1rLmoGzBJcrjW2WOAbMUsM01Wl6KWEIdVPCKR6v1hf6baJ/0fiuzYxhpNqSu1DiYfwzvRZWfFUBF6jOfmDf9T6QX8i/V07S8aDdDrx9x9jGcewrihVdPfXppW8ycFYieRQZx+k8noK9YFGLUW6bQfoo/RuKKeqGjnRDyRG1yAkalupv260waS5rUobjk2x4UIn5bjW+h4afDklgCBwT2o4Q+KaX/HvYNuaQm0Atgk0CsW889WRTWBKSy2r5JXEkVc7BLFBJEA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9279fdc1-8038-4520-700d-08df46701278
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR11MB868673.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 19:05:27.1002
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pxjZm/FsnIUCtOWwqcXPfNssQn+OC3RRHtWPO9gNdiHhyvKoIJ1W/MqHepc0/eXH6b+VBgZuhqUjb1G7aP8Tsxa9XtDNsowzCcpapfwiEp8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7519
-X-OriginatorOrg: intel.com
+References: <20261113185553.171059-1-toddfreed@meta.com> <20261113185553.171059-2-toddfreed@meta.com>
+ <20261118182729.21bcf5f5@kernel.org>
+In-Reply-To: <20261118182729.21bcf5f5@kernel.org>
+From: Todd Bert Freed <toddfreed@meta.com>
+Date: Thu, 19 Nov 2026 11:06:40 -0800
+X-Gm-Features: AclHuK8MIg7IMlCLvugp4MxnFKNBhzqTy9e8on9cRpXBj8Das6tgcuB0baaIcl4
+Message-ID: <CADh2yMx3Fw+Xe3E-hwj_bBMG8Cy_0N8-XfoTZXSxDcQgaSgxuA@mail.gmail.com>
+Subject: Re: [PATCH net 1/3] net/sched: act_mirred: don't send decrypted skbs
+ from egress to ingress
+To: Jakub Kicinski <kuba@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        Simon Horman <horms@kernel.org>, Daniel Zahka <daniel.zahka@gmail.com>,
+        Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+        Wei Wang <weiwan@google.com>, Jamal Hadi Salim <jhs@mojatatu.com>,
+        Jiri Pirko <jiri@resnulli.us>, Alexei Starovoitov <ast@kernel.org>,
+        Andrii Nakryiko <andrii@kernel.org>,
+        Martin KaFai Lau <martin.lau@linux.dev>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>,
+        Sabrina Dubroca <sd@queasysnail.net>,
+        Boris Pismenny <borisp@nvidia.com>, bpf@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA3NSBTYWx0ZWRfX+LdvHEmqIKM1
+ PHaugd83mGDmoSH2eZyyRuvGCu8TXJUk9cwyZbyo0CxzCsR9YEzugsXvHZ7V9KtGVbkiKSUsnqP
+ QsIDhq+N6Nq9aJIZu/148NSOB9bERDKcdOcH7zif4TXO6+ASi1R2ENzs2T9WAiRiTlHWWR6lbaG
+ Z0Je5G7TyF8mVaI6T6knxf5FL6HkxsnPw1xEp5exzRvoDN1n6azkzMH9J0I/J47tdfmZB42lA/T
+ inxiaCyG8GztaNLZrTVX9PqL7nRm7iGOO4zMEkoOQpe7mx83/vacwYDJByz6oNmw5ERhNc+MLAm
+ gb+NvcEzxgSN5TOJExTnFDaVT+UP1Zemytjq+LKZWVpYgaB7iOeZfCgCRE6xmg932VCPu0zsW0v
+ zqb0esmzmqNjZLNClzzR0DYqracJPia9if582Jyb/sQ7s6UO6BMKN2XBrxJJxuuKy7cxB5Hhrq7
+ YU8th04tV8DThbpc3Tw==
+X-Proofpoint-GUID: XdG-XIDIIqwBqPab2TsOFxMdf2esOMnN
+X-Proofpoint-ORIG-GUID: XdG-XIDIIqwBqPab2TsOFxMdf2esOMnN
+X-Authority-Analysis: v=2.4 cv=OvPaWC/t c=1 sm=1 tr=0 ts=6aff48cc cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=4h92JMTCafKA-fb_NiOh:22
+ a=jjTLAEkg5ClW6PfqSUgA:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA3NSBTYWx0ZWRfXypDGzF9qUK9r
+ tCamsbbHS4q6ytYu3At5XOU368DKKGvCw7E6rOWvscwJSHc+127fcwTasU6aP6IohE7Pg/UldBD
+ B2FWAc5sjOMomad/mwg5ka1RoUSuCEw=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_05,2026-11-19_01,2025-10-01_01
 
-On Thu, Nov 19, 2026 at 05:53:40PM +0100, Magnus Karlsson wrote:
-> Add xsk_uso, a functional test for AF_XDP UDP segmentation offload in
-> copy and zero-copy mode. It sends USO requests from an AF_XDP socket
-> and checks the datagrams received on a packet socket: the number of
-> datagrams, the IP and UDP lengths, the checksums and the payload, for
-> IPv4 and IPv6, and single and multi-buffer requests. It also checks
-> that invalid requests are dropped and counted in tx_invalid_descs.
-> 
-> The test needs root and physical NICs with an MTU of at least 1448,
-> either two connected ports (-i TX_IFACE -r RX_IFACE) or one in NIC
-> loopback (-l -i IFACE). Virtual devices such as veth pass the packet on
-> without segmenting it. Zero copy (-z) also needs a native XDP program on
-> the interface. Standalone checksum offload cases run only with -C, as
-> they test the existing checksum offload rather than USO. As it needs
-> real hardware, it is built but not run by default, like xdp_hw_metadata.
-> It uses the AF_XDP library in net/lib/xsk.
+> > A packet which mirred redirects or mirrors from egress to ingress keeps
+> > the bit. On ingress, it then claims to have been decrypted by the device,
+> > although it was never encrypted, and its payload, which was to be
+> > encrypted before leaving the host, could then be forwarded in cleartext.
+>
+> I don't get it, TBH. The bit says the data is in cleartext, and as you
+> flag we can't forget that. But my understanding was that the only thing
+> we have to guarantee about such packet is that never _leaves the host_
+> as clear text. Within the host it is clear text, whether its coming in
+> or going out. Can you ELI5 what the problem is?
 
-I assume the end goal for xdp_hw_metadata is to pull in its contents onto
-xsk python runner. What is the case for this one?
+Ok, redirect from egress to ingress can't leak clear text onto the
+network. I will drop the mirred and bpf patches.
 
-Also since you're adding support to copy mode i assume veth runs would be
-welcome...
+The clear text leaks have all been fixed in other ways in the net and nf-next
+series (extension headers, fragmentation, icmp quoting). This part is
+not needed.
 
-Did you try to point AI to my set and ask whether it would be able to
-produce python runner for that? Or do we don't want to have this CI'ed ?
-
-> 
-> Missing prerequisites are reported as skips. In zero-copy mode, the
-> device must report xsk-zerocopy and tx-uso-zc, and checksum-only cases
-> need tx-checksum. In both modes, cases that produce more than one
-> datagram need tx-udp-segmentation, including the invalid ones, which
-> would otherwise be dropped for lack of the offload whatever their
-> headers. Cases that need more descriptors than xdp-zc-max-segs are
-> skipped, and so are binds that the device refuses with EOPNOTSUPP.
-> Receive-side UDP GRO (rx-udp-gro-forwarding, rx-gro-list) must be off,
-> as it would merge the segments again before the packet socket sees them.
-> USO with launch time must succeed in copy mode and be dropped in
-> zero-copy mode.
-> 
-> Signed-off-by: Magnus Karlsson <magnus.karlsson@intel.com>
-> ---
->  tools/testing/selftests/net/.gitignore |   1 +
->  tools/testing/selftests/net/Makefile   |  10 +-
->  tools/testing/selftests/net/xsk_uso.c  | 954 +++++++++++++++++++++++++
->  3 files changed, 964 insertions(+), 1 deletion(-)
->  create mode 100644 tools/testing/selftests/net/xsk_uso.c
-> 
-
-...
-
-> +
-> +static void get_mac(const char *name, unsigned char *mac)
-> +{
-> +	struct ifreq ifr = {};
-> +	int fd = socket(AF_INET, SOCK_DGRAM, 0);
-> +
-> +	if (fd < 0)
-> +		ksft_exit_fail_msg("socket: %s\n", strerror(errno));
-> +	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-> +	if (ioctl(fd, SIOCGIFHWADDR, &ifr))
-> +		ksft_exit_fail_msg("MAC address for %s: %s\n", name, strerror(errno));
-> +	memcpy(mac, ifr.ifr_hwaddr.sa_data, ETH_ALEN);
-> +	close(fd);
-> +}
-> +
-> +static unsigned int get_mtu(const char *name)
-> +{
-> +	struct ifreq ifr = {};
-> +	int fd = socket(AF_INET, SOCK_DGRAM, 0);
-> +
-> +	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-> +	if (fd < 0 || ioctl(fd, SIOCGIFMTU, &ifr))
-> +		ksft_exit_fail_msg("MTU of %s: %s\n", name, strerror(errno));
-> +	close(fd);
-> +	return ifr.ifr_mtu;
-> +}
-
-this is a lib content which i'm also adding, so we're gonna clash.
-
-> +
-> +/* Virtual devices have no backing device, and pass GSO packets on whole. */
-> +static bool is_physical(const char *name)
-> +{
-> +	char path[64];
-> +
-> +	snprintf(path, sizeof(path), "/sys/class/net/%s/device", name);
-> +	return !access(path, F_OK);
-> +}
-> +
-> +static int ethtool_ioctl(const char *name, void *cmd)
-> +{
-> +	struct ifreq ifr = { .ifr_data = cmd };
-> +	int fd = socket(AF_INET, SOCK_DGRAM, 0), err;
-> +
-> +	if (fd < 0)
-> +		return -1;
-> +	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-> +	err = ioctl(fd, SIOCETHTOOL, &ifr);
-> +	close(fd);
-> +	return err;
-> +}
-> +
-> +/* Returns whether the netdev feature called @feature is active on @name. */
-> +static bool feature_active(const char *name, const char *feature)
-> +{
-> +	struct ethtool_gfeatures *features = NULL;
-> +	struct ethtool_gstrings *strings = NULL;
-> +	struct ethtool_sset_info *sset;
-> +	unsigned int count, blocks, i;
-> +	bool active = false;
-> +
-> +	sset = calloc(1, sizeof(*sset) + sizeof(sset->data[0]));
-> +	if (!sset)
-> +		ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
-> +	sset->cmd = ETHTOOL_GSSET_INFO;
-> +	sset->sset_mask = 1ULL << ETH_SS_FEATURES;
-> +	if (ethtool_ioctl(name, sset))
-> +		ksft_exit_fail_msg("ETHTOOL_GSSET_INFO: %s\n", strerror(errno));
-> +	if (!sset->sset_mask)
-> +		ksft_exit_fail_msg("%s reports no feature strings\n", name);
-> +	count = sset->data[0];
-> +	blocks = (count + 31) / 32;
-> +	strings = calloc(1, sizeof(*strings) + count * ETH_GSTRING_LEN);
-> +	features = calloc(1, sizeof(*features) +
-> +			  blocks * sizeof(features->features[0]));
-> +	if (!strings || !features)
-> +		ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
-> +	strings->cmd = ETHTOOL_GSTRINGS;
-> +	strings->string_set = ETH_SS_FEATURES;
-> +	strings->len = count;
-> +	features->cmd = ETHTOOL_GFEATURES;
-> +	features->size = blocks;
-> +	if (ethtool_ioctl(name, strings) || ethtool_ioctl(name, features))
-> +		ksft_exit_fail_msg("ethtool features: %s\n", strerror(errno));
-> +	for (i = 0; i < count; i++)
-> +		if (!strncmp((char *)strings->data + i * ETH_GSTRING_LEN, feature,
-> +			     ETH_GSTRING_LEN)) {
-> +			active = features->features[i / 32].active & (1U << (i % 32));
-> +			break;
-> +		}
-> +	free(features);
-> +	free(strings);
-> +	free(sset);
-> +	return active;
-> +}
-> +
-> +static void get_xdp_features(unsigned int ifindex, uint64_t *xdp, uint64_t *xsk,
-> +			     unsigned int *zc_max_segs)
-> +{
-> +	struct netdev_dev_get_req *req;
-> +	struct netdev_dev_get_rsp *rsp;
-> +	struct ynl_error yerr;
-> +	struct ynl_sock *ys;
-> +
-> +	ys = ynl_sock_create(&ynl_netdev_family, &yerr);
-> +	if (!ys)
-> +		ksft_exit_fail_msg("YNL: %s\n", yerr.msg);
-> +	req = netdev_dev_get_req_alloc();
-> +	if (!req)
-> +		ksft_exit_fail_msg("netdev_dev_get_req_alloc failed\n");
-> +	netdev_dev_get_req_set_ifindex(req, ifindex);
-> +	rsp = netdev_dev_get(ys, req);
-> +	netdev_dev_get_req_free(req);
-> +	if (!rsp)
-> +		ksft_exit_fail_msg("netdev dev-get: %s\n", ys->err.msg);
-> +	*xdp = rsp->_present.xdp_features ? rsp->xdp_features : 0;
-> +	*xsk = rsp->_present.xsk_features ? rsp->xsk_features : 0;
-> +	*zc_max_segs = rsp->_present.xdp_zc_max_segs ? rsp->xdp_zc_max_segs : 1;
-> +	netdev_dev_get_rsp_free(rsp);
-> +	ynl_sock_destroy(ys);
-
-you really should look at python drv-net infra...
+-Todd
