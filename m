@@ -1,109 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073183;
-	b=1W6kWYmA5ruJWVYN1PsJlen/fdrYbspV610UouKW4prLWexL6fv/gzU22A+oPsssm8gw
-	 jgYqkFGUzm4fZ97v7f4hjf4jJEodMjGPgSNCHRrqTIdms431p5E+kBCKTTVj6JWBDWCxs
-	 0Xtgf1guCQXVMe3a7GM/1vR17ZN3mZ0dRh27haOHi1hIJdvpZBwhUv5Ou8g1TaiyMwo54
-	 W2DPBD/VyyKKnUK2Tr8FRLl2XI7xREfkBNsJDk+EAGdPYOvcYmmYAeostV1ROqxbsCxzG
-	 PFE9tpg3P2f+wLkilIVznQRUA0Mqq0oXeYXrSBhRP1Tr6IpnsUVxESqNIZQMAulVfFQ==
+	t=1795073684;
+	b=xLxzQeAxdGXWD0htG6ZO4wzP9MMUYa6/JC2accc15OmhzVo8m2q2RZMBu87hFi4mmK47
+	 d+g2VyLJDObmB0M10FnIgZpv+HVPiyNWX+tLEdCD3cweMhz4np1hnfCQvxR57x6279E65
+	 fV60h7msGUm8NOUI8EmuSIqHQa8rtJ8MSqECHRs/5dKvFuRObsAGXQDtqgdlPOgQJ8gQp
+	 emTvbG6o5n+ivcJCWYmsbuzBcwbX123OiHRkuxafUoobam80f1DCR2IWNcv/4x0baIAug
+	 AsMkUTNq/YM9jMo0Rn7Cv7EmC4riZUc+Kno89JsXJo1UtQXjrzo5nytq1OEly0bJ3jQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073183;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:MIME-Version:
-	 Content-Type:Content-Disposition:X-Mutt-Fcc;
-	bh=3j6KmbtXLvsmTJiTThzFS5hiEYdNxo/Fgv8rfbB+Ypg=;
-	b=vmfFwr6knAEcrV8OyWh+p6rPrlZN+HTV07ato+qRIbjxR3GBbJvqXPMlla8cnIb84Pfj
-	 +nVrwjtqw5ePgkI7Uv6NrCRILHFLXn6nwnvXLmYBN+SCicZ8rFgGQfp3y5hzbDwLtLvfq
-	 /qwr5BwOFWsecLfJbbTNYZZ95WxGrfskKZqZ01D8Jew6CCwWqioBdjiviACY1JS5+26wZ
-	 m3GT695W4II8w1LmaiYnf9gDGgmACMqsdLyojWYp71eP/84Dzb650mHlS5874oaA9QSsy
-	 +wylJFqY4yaWX1X1O/VakSslwjwHjyYEeGs4wtIdFHmW9fB7K3fk2CIqJ1LotKJBaVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073684;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=gjusxHLs8BnE8wEfuFeVlYsYGPDDDVtyMEC/lGh7zfI=;
+	b=na4rF/1JUStiqqwF8E9F9FIZfLEhGJn4BTqsBJk4rPEtGz9e03kwoxsHLi/vcKifLx5D
+	 ODYVPYkhgAnI3RqSEJOuUE4MeOL03Bl4gBaCathgzsWk0hkTT50bYVEAgvpcjcFVTjg50
+	 UbnpFNksvM8cd04fL+wuhpNFstgdypzveVc8RhMs+OX+lMamGA/Hzjsh+aDFtUQmvh8kO
+	 jv44fLIa7oFTK4NSgJpBMPu+F+8GnYN3Juq2+ywA3M3xRj6EPC4FsXYrHwN6MVuDjVjuL
+	 k/cWJU9JaqJT3pWpR+McIL9qraE7IYhDSyq4K5gQT4Rpoc9E2cLhnBPGSfO0QTTizqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gdeH2uDW;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=F7rRIAyt;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="M/lHRTlh";
+	arc=none smtp.remote-ip=209.85.214.200
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5CDF606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:26:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5CDF606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2FDB606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:34:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2FDB606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gdeH2uDW;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=F7rRIAyt
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795073181;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=3j6KmbtXLvsmTJiTThzFS5hiEYdNxo/Fgv8rfbB+Ypg=;
-	b=gdeH2uDWu8itjh6NHKhUx86u22inkN6eOj7JOIjIaOssT3k1IbkiGiHmooIpkV52lt2ldj
-	kFDpVwUGei0XCR3OCPyQQrtAHdDTQM8yji8S4ngIneTCHttdtOFBnelgx1J2LjKpyq6IEi
-	1K1RPS8s57f7KLUCUurBdEOQ0rFvmWg=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-497-EFVJd4nLM9i0pAJhrD8Qnw-1; Thu, 19 Nov 2026 02:26:20 -0500
-X-MC-Unique: EFVJd4nLM9i0pAJhrD8Qnw-1
-X-Mimecast-MFC-AGG-ID: EFVJd4nLM9i0pAJhrD8Qnw_1795073179
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a3705ea6ccso573493f8f.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:26:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M/lHRTlh
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ed02a00b24so17909125ad.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:34:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795073179; x=1795677979; darn=vger.kernel.org;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795073683; x=1795678483; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3j6KmbtXLvsmTJiTThzFS5hiEYdNxo/Fgv8rfbB+Ypg=;
-        b=F7rRIAyt3wWCkr/uIq7CcsZAeA9N2ckYQaSb9PfrHzzdrhLoatK0jPKUtp+a7bx4zw
-         Ke1VCtmj7C1COq4SH1DMhKo2Ccl9K7tOI42jExCQFi7YHv1F+j0DeQnYLHFOJllMVk5T
-         t2Hal6qIZufy2ggOPnNvB12f4qax7PvUPO5vOts5DVv1q8s8jnGomTr9maN07NLHj81v
-         GsL59um+fiT/322vCvC1fsnbBl1QmFpLuvWWvkOEpUPm4fWEQ51aFMUTyFQ7v0lGn2U6
-         ZCM/9e2zx93L7vZkG4kMo77jDjMqrJlJiTu6EWtXGU/v1melySXVeVmdbJPyQnN6s+gP
-         LWAg==
+        bh=gjusxHLs8BnE8wEfuFeVlYsYGPDDDVtyMEC/lGh7zfI=;
+        b=M/lHRTlhZoCChYwJ+n2nrsiezOvYh9X65AisaBf+6eCaTvFRCRTo5IssNy1QkTmjHM
+         z0l3EvT9OZfA8J/BQ95mvnIEjfyLklJ1leJFbz2NsyiRG3qbRvqyqjcUbu1FTHj13xcW
+         /yy5WQGxCtk+/3b5Dc5TZDYnPvoO3pGGDPJDMlimLUiQLYO2hnCL8fFN6UzJV70GfUde
+         lAIx4x3hqFNWbw3NSehYyOMm+ZQQGfNxCnmNSUFTrqgNA/S1q1BQJyBsyIUTO2f9U9GJ
+         Q2kQ3lsu42dMgSn7o9TwxRK7/Nh3RcgkgHXEn5T8adYjYlqDEo7Qz4fxUyNrs1xsvhZJ
+         0qJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795073179; x=1795677979;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795073683; x=1795678483;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3j6KmbtXLvsmTJiTThzFS5hiEYdNxo/Fgv8rfbB+Ypg=;
-        b=EYYjLgVK753lz1SIVqdLGHEJXnETLTrlX/PCrk3DJZNbscrra8ZjYWIs7DxsKRYVPr
-         GbrPGVP7RDjjs/Xe+SLr6+s+pE7ZK7kp7tsLzUV9TQoog3yiwbeuf+QBph/DXVZsZXcj
-         pd/E3wIuPq2VEirEJ4CH4j5hnGydSNHrKDlvayYF6UuENDyG6fYVnYN+mpJL3TNfI1pR
-         7f4VwjChDRjMCtZE+aS32BcVSISqECldYW7HPQ5VQI05/7NDi9YqMmWeihacTbUYY8Ie
-         Gzj1NWw8drV3gE1bMpbL0E82BBhdKGa8kJ9EhvQI+8ggs1EKzGTgH8BnLz46KS6JwxNT
-         Z+mw==
-X-Forwarded-Encrypted: i=1; AL+hErEF9W01Vl4sSt0w/1KYB4XwZvbWqbjUMhRtqI/pLuzq/HV2z4ZFd2YPfOSZ970Ny2eRo6SMoGo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rlYh0SX9/NPuTsbQHMQSPak66+gFPUmf75Q9f4TrWaP3dTXSr
-	rTU2+xMw9oDWq/bIrqfR6LK8nLQh2AytklN/Sk9ZYEZtOjVYgMfkoPByW0sxFXfPgRbqf7u70k+
-	BpEogTuJw3dxfkVf4QTAOfMLWyzQSmVLiKdsiX8KfK+NHmz8c91jEWnXRng==
-X-Gm-Gg: AZFdTZe7Y+UFLqm7+A1A+IeK8i1rUfCk9cN91HHA+IyUFWFgbQ3GeabaJNAwnGbPod6
-	KYPr6pYZlxGoJ++Sy1HCHRJjhGqupB1HL6Oh2F1u+Qr4OSFWTJMpFjl4hf52jGfXlv9cS4eEd7s
-	zgbfJwpQqpOU1S4y50X57hH0qjEPxzP/1sv3TxZ3OvehtbR7U6vcVLg9q7mstagxLCoAK1UkLma
-	QeG+rcvaFxKDhz4g7GNvYotY8C5WCEGPPabclJezVSPymyqGT8nn1hrxZWyPFrxrMC4Ii/GlvnV
-	VYdDAPbgE2iL+HLRpXUdrqWpRuGCOmSaBJcRwbTeKUwBGFFU0g8NJo8TmcbLT7hNUOxvQkYrH2P
-	+2suI5LunOItGnEn/BkaYvcGZfyrCIZn7bNzI81di0BY=
-X-Received: by 2002:a05:6000:4703:b0:4a6:4f35:336b with SMTP id ffacd0b85a97d-4a64f353379mr8871400f8f.5.1795073178850;
-        Wed, 18 Nov 2026 23:26:18 -0800 (PST)
-X-Received: by 2002:a05:6000:4703:b0:4a6:4f35:336b with SMTP id ffacd0b85a97d-4a64f353379mr8871351f8f.5.1795073178254;
-        Wed, 18 Nov 2026 23:26:18 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1520:4400:d78d:7b2d:2f5d:e08f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65541f3f7sm9540259f8f.24.2026.11.18.23.26.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 23:26:17 -0800 (PST)
-Date: Thu, 19 Nov 2026 02:26:15 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	bioloidgp@gmail.com, jasowangio@gmail.com, minki@morningstarsec.dev,
-	mst@redhat.com, stable@vger.kernel.org
-Subject: [GIT PULL] vhost: bugfix
-Message-ID: <20261119022615-mutt-send-email-mst@kernel.org>
+        bh=gjusxHLs8BnE8wEfuFeVlYsYGPDDDVtyMEC/lGh7zfI=;
+        b=G7zbskIsk8/v/elv6Of5YuzN4RudH/A7PON7i57gdnlydj6Wn4dZGDL9iTta3kKpdf
+         IrrewOek3re1n/tIzKQuuHQHsz8phZk1BH4C8ibYMTeWDU5EeZeb3lVNUFCuKg4BTDND
+         8prac+KguhlBzzYhYTqgHZ3hYAKA0ndSjLXXB6OXbkk7J7179oDO+veqIR9xqYDK5n0d
+         Q5JC4Mbc+uXv8sD4VRDTLFFjoreHdsCLdZJRSKCbw10Ym0bGof744q0xdF9g85c0aX2o
+         QHUQsDmtJT8sapAu4R0R9yr4zUmt5W4lQpGB60MoCye8LF3wwDwd3/bbxH5kP4gAcsXD
+         moGg==
+X-Forwarded-Encrypted: i=1; AL+hErFcWyHTwlAc/89ZPhtfBBQRSsidV1zX6yvaVu6KQI2Qv0ajob+dI3wAVoLHca/2LgNu8IlWrTM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fpUQv5LlNPsoE2jVKSf0uBeA3vqpCXK+3qXMxS8MvEiZ0/vF/
+	+xKYhzJyaX2fmkXD+wibSRLMbL01i+fxFNpZuXAJF/ZTkpzD4P70K3J3cqe97tlTG1dUJyLffZ8
+	RuGG3Bg==
+X-Received: from plpj2.prod.google.com ([2002:a17:903:3d82:b0:2e3:1b6e:33bb])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f64e:b0:2ed:12a1:c4a9
+ with SMTP id d9443c01a7336-2eff752924cmr51702555ad.11.1795073683031; Wed, 18
+ Nov 2026 23:34:43 -0800 (PST)
+Date: Thu, 19 Nov 2026 07:34:42 +0000
+In-Reply-To: <20261115161820.941166-1-zihengw03@163.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,34 +77,89 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mutt-Fcc: =sent
+Mime-Version: 1.0
+References: <20261115161820.941166-1-zihengw03@163.com>
+Message-ID: <av6mbcM5wdGnmdM4@google.com>
+Subject: Re: [PATCH net-next] net: do not use SOCK_INODE() in sock_init_data_uid()
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Ziheng Wei <zihengw03@163.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-The following changes since commit 1a577f9402c1780cc1e663f48d5dd54c02051b09:
+On Mon, 16 Nov 2026 00:18:20 +0800, Ziheng Wei wrote:
+> Since commit 5d6b58c932ec ("net: lockless sock_i_ino()"),
+> sk_set_socket() reads i_uid and i_ino through SOCK_INODE(sock).
+> sock_init_data_uid() calls sk_set_socket(), but its only direct users
+> are tun and tap, which pass &tfile->socket and &q->sock. Those sockets
+> are embedded in struct tun_file and struct tap_queue, not in a struct
+> socket_alloc, so SOCK_INODE() points at whatever follows the socket in
+> those structures and both reads return unrelated data.
+> 
+> sk_uid is overwritten a few lines later with the uid passed in, and
+> nothing reads sk_ino of a tun or tap socket today, so the result is
+> not used. The reads themselves are still out of type, and with
+> CONFIG_RANDSTRUCT the inode fields can land beyond the end of struct
+> tap_queue.
+> 
+> sock_init_data_uid() was added so that tun and tap would not use
+> SOCK_INODE() on these sockets. Set sk_socket directly there, clear
+> sk_ino, and let sock_init_data(), whose sockets always come from
+> sockfs, fill in sk_ino.
+> 
+> Found by LLM-assisted source review and confirmed by code inspection
+> only; the out-of-type reads were not triggered at runtime. The fix was
+> build tested only; it was not run against selftests.
+> 
+> Fixes: 5d6b58c932ec ("net: lockless sock_i_ino()")
+> Signed-off-by: Ziheng Wei <zihengw03@163.com>
+> ---
+> 
+> Notes:
+>     The changelog was drafted with an AI assistant from my analysis;
+>     I have reviewed the code, the fix and the text.
+> 
+>  net/core/sock.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/net/core/sock.c b/net/core/sock.c
+> index ad414878d..b4499be84 100644
+> --- a/net/core/sock.c
+> +++ b/net/core/sock.c
+> @@ -3831,7 +3831,11 @@ void sock_init_data_uid(struct socket *sock, struct sock *sk, kuid_t uid)
+>  	sk->sk_sndbuf		=	READ_ONCE(sysctl_wmem_default);
+>  	sk->sk_state		=	TCP_CLOSE;
+>  	sk->sk_use_task_frag	=	true;
+> -	sk_set_socket(sk, sock);
+> +	/* tun and tap pass a socket that is not part of a socket_alloc, so
+> +	 * SOCK_INODE() must not be used here. sock_init_data() sets sk_ino.
+> +	 */
+> +	WRITE_ONCE(sk->sk_socket, sock);
+> +	WRITE_ONCE(sk->sk_ino, 0);
 
-  virtio_pci: don't take the MSI mutex under cpu_hotplug_lock (2026-11-03 07:32:14 -0500)
+WRITE_ONCE() is not needed.
 
-are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mst/vhost.git tags/for_linus
+>  
+>  	sock_set_flag(sk, SOCK_ZAPPED);
+>  
+> @@ -3897,6 +3901,8 @@ void sock_init_data(struct socket *sock, struct sock *sk)
+>  		make_kuid(sock_net(sk)->user_ns, 0);
+>  
+>  	sock_init_data_uid(sock, sk, uid);
+> +	if (sock)
+> +		WRITE_ONCE(sk->sk_ino, SOCK_INODE(sock)->i_ino);
 
-for you to fetch changes up to 5570a998b884c988dbe105430d7e2d8e9411e37e:
+Same here.
 
-  vhost: split out-of-order used ring batches at every wrap (2026-11-12 07:44:36 -0500)
 
-----------------------------------------------------------------
-vhost: bugfix
-
-One bugfix here. I am testing a couple more
-
-Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
-
-----------------------------------------------------------------
-Michael S. Tsirkin (1):
-      vhost: split out-of-order used ring batches at every wrap
-
- drivers/vhost/vhost.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
-
+>  }
+>  EXPORT_SYMBOL(sock_init_data);
+>  
+> 
+> base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
+> -- 
+> 2.43.0
+> 
