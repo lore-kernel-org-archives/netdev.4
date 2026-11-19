@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116115;
-	b=qCu6aeSTP8CtpIovpW3LncrwDGLMEnO+FrbDPqOKdwk8K1bwzySbAPJ/sRDMuZDoGJMi
-	 DmUWoxa0ZqqTLMSTYBzcTyqwEZixfIakoIxoDx93m/XtwG9q7jLXPtYu2DC6PWJEOaZuW
-	 6JBLCF1s7uW1dZDtZ/PiELx03+WgeSxuaHpoLAg0Afvo7R6IEpR4hW5BN/omsT+2IrNZL
-	 oSqmmGfEFdb7TWHlyfk67NAK0nom/xbdEXybTcz7dpDxpnEPDMh5hFH1oWthBpB2Cu54Y
-	 asbTCwQbj0wL0QndbTHt5AC/4fNnXDuuw4CLBZkRTYk5vtuXt8QG8OpqmfggdgT4EMQ==
+	t=1795116123;
+	b=rKgeQmJgH/FyDWvNfZxKM4OXpnUhMqNsVm+aoKjY0yW6Dv3yTPjOVp4BYpqmi7lrlUiJ
+	 RgmVZ/BEi79da63N8HqkeqtHnveUnERbmsizwEmCN0RK8YnIZ1h+q8fA6EfDimaTjhueb
+	 3y1qvxRvcO6JX8qKdtASaIPxmsEXDvE8uan1frJ214n23jf544hUt4cJC9+0bEpnuIeZX
+	 F0MOG9I4aAqx9q/jWJKHOEeLkmLkSZmuJG/7/OIRJUtNYgFoaw3HtbeW5r//rNoAQF+NK
+	 frYT9ylbwsVGKM4kZZ2UJ/wT3wLmZkCjwbtsLB6YK2cjF0ChCJ4eeEsU+/7NlYIm+7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116115;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116123;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=EZxKuaQ3gr1F8JRDyLliq4Asg6s39aWAxeOoWBrwBGg=;
-	b=YGUHpWzazqaj4dvoRJ3tjodKAVt/hUKMcFZq1wxXeabejLmLYnZzbbHkHoWOF/s4wyIh
-	 QGd/zUj28pl9NqphYPiZyoQ35SiUvC6FTPMX0DplQSwWSvqrbI6RA+JosPR7koyN4jvol
-	 9cgyS4lcumm4n52eUbThA88jQJrm74yBn0ogVhb3nowRxPAINP/IYwZ0EDGDWvx9n99kR
-	 Pn1nab1tb8n0SxZA+y+Cup5F/BbIcTpmSh/iGx8myBFb+oYC3V7dXMcF5dmTDfpQESLEV
-	 4pZAt3rKyVJpfKJ1f8Qhti+aVHtp4MvPjiZ8jHhLlkS4RQfe6KcjutZS+yQeDrZGmgw==
+	bh=gIWylxu69Ioq+u8Mm1LXBIh3r/He82QwlSQoOVn3GZY=;
+	b=1RNTWgfhVNk+q22bFAWTJ5uKjGsJK+eYQEy1KjBg+Tm7tQLyLk5uiQUPLXcjBXPySCHe
+	 J7EIzmUZZ0znCUJBc+Uf30lW4lnNxr5nnErUrhjXZaZrFuXbMvUjEsA8Xoyo/3+T+6TPB
+	 d5MKTbDegi0LrFbqlqzN0XNBlXRHzMBG0FnF2TonePwQEVDHVvhAdb8bTwwxzZvDOvMsa
+	 eDtaKweZnsYeMyUDRwPEiSR/3jzwnDsD6fClPplksqJI3dCNTpbAoD8Y5Sal4bTchLmr0
+	 5Mw9PqZPI/5BCR2Jjrcm+milOPjRBHoVuU96dAjh+xVG6nGxQQSW4xI+fsNOWh6VJLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--dmnk.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OjS6lF37;
-	arc=none smtp.remote-ip=209.85.128.71
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com [209.85.128.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aIFZTVoc;
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B3DE606A336
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:21:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B3DE606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1723606A32F
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:22:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1723606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmnk.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OjS6lF37
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4ba078f26f4so262105e9.2
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:21:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aIFZTVoc
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a82fb7e71eso28302f8f.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:22:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795116113; x=1795720913; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795116121; x=1795720921; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EZxKuaQ3gr1F8JRDyLliq4Asg6s39aWAxeOoWBrwBGg=;
-        b=OjS6lF37LpZTHrPgx/QI39m7UFh8BFJe4Ovvg5zWoDsq8g687XsQVwvqN4pTExpWNb
-         MqPeL++J687CoOA0iTUx3QuJFT/NsnSf7I0sJPCWF7I+yBMozCjuBPkAr3jau8o2rNfJ
-         b2IsJYiQ/CX6PwlF8eumPESM9z/eOvGsEg/Y0XQdLx8+LSMXqtjJ4chDMEmxk6mHc/1C
-         mZDYqh5YtvZpf9rgm2WUreJsZbac5/QJOVNkymmUt7Vy4RrqlilRlJhne0YugDryNipa
-         9gulmFR7jYMnCkI90k39TGhDFfS5QISB9L0jeQI3SaP7OLChQ+CLgwy2N+vQBvrafWr4
-         ELJA==
+        bh=gIWylxu69Ioq+u8Mm1LXBIh3r/He82QwlSQoOVn3GZY=;
+        b=aIFZTVockyKyuUbXwL2uczLP4xw+tljzW+quEjvI7ZvGqsLnEFcTlV0VbOIyjpnMG1
+         sUnktRuFlyma/srYcFsDIcJDuoWaYay8hWxd2ylJLFTF5nNh09YR94bctYwlwUtIQcxN
+         dIQlAwVKfDl0ql30GpyjxxndwwJv1VmGmqUjsj9E7F9boKpfe6wfIjc4Snv5mdZlaYZw
+         8Femv2LprG7EqEZW7k5Ad+oEclPrdWGAxTxyT04QHptnpOR2/8tzvRgZwLcBexfjF7Mx
+         CenYwQqEeatVc/HOVE49zxMFX4QrcNeog7am6MFqacGg+AgwMq0DprIJQS++i9BwIXK7
+         7GDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795116113; x=1795720913;
+        d=1e100.net; s=20260707; t=1795116121; x=1795720921;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EZxKuaQ3gr1F8JRDyLliq4Asg6s39aWAxeOoWBrwBGg=;
-        b=B327VY+mibNe7whoAM6Kvipnuq+WyIE0PR2pIFelz77/8UZV8WlRZzHlw5h7rODSoh
-         sQt8caEPwu6H5OoZVF7OEQY0i2iY+hiP8yHFv5YXMtKXBJOVi8RURbQOeeKFb2+/KAWS
-         rNIMg3Im15ihV2F3mqJjY7J+zatRIut4/xF1lATYWKyn+sZZSlIX/4cmXa4gaEEba965
-         ELH7MimSQa7XigwMOLG4aziefmdOWXyMGyrCmgvC4bSysjbKuQCgcaQ3imOHJC+crfa2
-         KTofJtgaumDR0bixLW+77/Hd42+M7s8iVjK5DmsBrEIlzeRx0ART2n/X3wPN1eVYz2Bq
-         VI1w==
-X-Forwarded-Encrypted: i=1; AL+hErEUOyvuWTwEmVw3WPHJE8QZXsal7EIE16u2UhfMv3XpSFiP789sz7tpxLjvUprRBq7zIqjtvHk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1D4f/d3VisJQ+irAnQpToi8P6ChxfFAU3SoQfUlZNX5HFrr1B
-	G3H+8nzyt/fjOtSDskxZZ1e+sgVmSJuGzLV8YfYDoJuZnfiy9OpeVbNdjiwRyR8gZLSrK41u5A=
+        bh=gIWylxu69Ioq+u8Mm1LXBIh3r/He82QwlSQoOVn3GZY=;
+        b=idwXf4APHAPyOZJn3l3aucjymYez5NNccsEuc47AWCGH8xShzaNLx/HuLyMX5IPPM+
+         nYLTzc049lTegOo21sEn4TRmVgEQZc8cJoDBY4a+0gQBsY0ITrbnefdjYXy1WIsv1q82
+         Jxd9BlXnkD3LMypj5GbtSaLEuvztaCQDnwaFo3Q0U1VU3MdznMkZz6ER6PsePlRzJLLq
+         NjTmp563UclMgpXZdnAdq4MuHf386SCWxW+iDM0f239WJ/Wt6qwXLpnsif5mJnDfq2ZK
+         Cm+mcHdgBcQCKHiaGINtNatAUuGXFuzVVug610vVqiU1ER9OyMmLu/rlu7cdetQF/A6K
+         JiEg==
+X-Forwarded-Encrypted: i=1; AL+hErFLFsnnXvV0qDKdKh6OQeHuF9lbEU/9co6QMkCGCaFQSyws+dEV7hlckID0jM1VxMs2MKJNAaY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mmTMCTAlybxIB45HXLZbsTT4eT/j3zQuTm+XeJeGTweRiziKd
+	6QfXjM22KmM/fmdyhgNTX7xmHwk3MxWUUwnsqTjnKmv4cAKB52KGWQIJiw3ynepz/WdkR+Uqmw=
 	=
-X-Received: from wmpf29.prod.google.com ([2002:a05:600c:491d:b0:4a1:ae53:2fe9])
- (user=dmnk job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1c11:b0:4a1:e57b:667c
- with SMTP id 5b1f17b1804b1-4bb8881c357mr11184885e9.26.1795116113324; Thu, 19
- Nov 2026 11:21:53 -0800 (PST)
-Date: Thu, 19 Nov 2026 20:21:52 +0100
+X-Received: from wrmt2.prod.google.com ([2002:adf:e442:0:b0:48e:4e20:1349])
+ (user=dmnk job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4b0f:b0:48e:d7c:4bc8
+ with SMTP id ffacd0b85a97d-4abad6a1782mr866576f8f.7.1795116120877; Thu, 19
+ Nov 2026 11:22:00 -0800 (PST)
+Date: Thu, 19 Nov 2026 20:21:59 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,89 +77,107 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261119192152.2643304-1-dmnk@google.com>
-Subject: [PATCH net] inet: reject multicast and broadcast bind addresses on SOCK_STREAM
+Message-ID: <20261119192159.2646113-1-dmnk@google.com>
+Subject: [PATCH mptcp-net] mptcp: gate diag sequence counters on CAP_NET_ADMIN
 From: Dominik Maier <dmnk@google.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Simon Horman <horms@kernel.org>, Joanne Koong <joannelkoong@gmail.com>, netdev@vger.kernel.org, 
-	dmnk+artist@google.com, Dominik Maier <dmnk@google.com>
+To: Matthieu Baerts <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>
+Cc: Geliang Tang <geliang@kernel.org>, Paolo Abeni <pabeni@redhat.com>, mptcp@lists.linux.dev, 
+	netdev@vger.kernel.org, dmnk+artist@google.com, 
+	Dominik Maier <dmnk@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-__inet6_bind() already rejects native IPv6 multicast addresses on
-SOCK_STREAM sockets with -EINVAL. However, __inet_bind() and the
-IPV6_ADDR_MAPPED branch of __inet6_bind() allow binding SOCK_STREAM
-sockets to IPv4 multicast and broadcast addresses.
+In net/mptcp/diag.c, subflow_get_info() restricts MPTCP sequence-related
+subflow attributes (rel_write_seq, map_seq, map_subflow_seq, ssn_offset)
+to callers holding CAP_NET_ADMIN in the network namespace.
 
-When binding a non-INADDR_ANY RTN_MULTICAST or RTN_BROADCAST address,
-__inet_bind() stores the non-unicast address in inet->inet_rcv_saddr
-while clearing inet->inet_saddr to 0. Because bind conflict checks
-compare receive addresses, binding 224.0.0.1:PORT does not conflict with
-another user's exclusive unicast 127.0.0.1:PORT socket. On a subsequent
-active tcp_v4_connect(), seeing !inet->inet_saddr causes the kernel to
-call inet_bhash2_update_saddr(), relocating the active-open socket into
-the unicast (port, saddr) bhash2 bucket alongside the exclusive socket
-without re-evaluating inet_csk_bind_conflict() (note that this affects
-active-open bhash2 rebinding and port occupancy rather than passive
-lhash2 SYN delivery).
+However, mptcp_diag_get_info() unconditionally exports mptcpi_write_seq,
+mptcpi_snd_una, and mptcpi_rcv_nxt via INET_DIAG_INFO because
+.idiag_get_info does not receive the caller's net_admin status. Any
+unprivileged local user can therefore dump or query cross-UID MPTCP
+sockets by token via SOCK_DIAG_BY_FAMILY and read live 64-bit MPTCP Data
+Sequence Numbers.
 
-Reject non-INADDR_ANY RTN_MULTICAST and RTN_BROADCAST addresses on
-SOCK_STREAM sockets with -EINVAL in __inet_bind() and in the
-IPV6_ADDR_MAPPED path of __inet6_bind(), matching native IPv6 stream
-socket validation while preserving INADDR_ANY (0.0.0.0) wildcard binds.
+Emit INET_DIAG_INFO from an .idiag_get_aux callback in mptcp_diag (which
+already receives net_admin from inet_sk_diag_fill(), while msk never
+sets icsk_ca_ops so netlink attribute ordering is unchanged) and zero
+mptcpi_write_seq, mptcpi_snd_una, and mptcpi_rcv_nxt when !net_admin.
+getsockopt(SOL_MPTCP, MPTCP_INFO) for the socket owner and token-based
+lookup in mptcp_diag_dump_one() remain unchanged.
 
 This issue was discovered with an AI-assisted code review tool (ARTIST)
 and reproduced in QEMU/KVM on an unmodified v7.4-rc3 kernel without
 kernel modifications or error injection; a standalone reproducer is
-available upon maintainers' request. The fix was compile-tested with
--Werror and checked with checkpatch.pl --strict; an equivalent fix was
-verified against the reproducer in QEMU/KVM.
+available on request. This revised .idiag_get_aux patch was
+compile-tested with -Werror and checked with checkpatch.pl --strict; it
+has not yet been runtime-tested against the reproducer or the MPTCP diag
+selftests.
 
-Fixes: 28044fc1d495 ("net: Add a bhash2 table hashed by port and address")
+Fixes: ac3b45f60954 ("mptcp: add MPTCP socket diag interface")
 Cc: stable@vger.kernel.org
 Signed-off-by: Dominik Maier <dmnk@google.com>
 ---
- net/ipv4/af_inet.c  | 6 ++++++
- net/ipv6/af_inet6.c | 8 ++++++++
- 2 files changed, 14 insertions(+)
+ net/mptcp/mptcp_diag.c | 28 +++++++++++++++++++++++-----
+ 1 file changed, 23 insertions(+), 5 deletions(-)
 
-diff --git a/net/ipv4/af_inet.c b/net/ipv4/af_inet.c
-index 8822bae..b1ea554 100644
---- a/net/ipv4/af_inet.c
-+++ b/net/ipv4/af_inet.c
-@@ -500,6 +500,12 @@ int __inet_bind(struct sock *sk, struct sockaddr_unsized *uaddr, int addr_len,
- 	tb_id = l3mdev_fib_table_by_index(net, sk->sk_bound_dev_if) ? : tb_id;
- 	chk_addr_ret = inet_addr_type_table(net, addr->sin_addr.s_addr, tb_id);
+diff --git a/net/mptcp/mptcp_diag.c b/net/mptcp/mptcp_diag.c
+index 136c2d0..62d8f1f 100644
+--- a/net/mptcp/mptcp_diag.c
++++ b/net/mptcp/mptcp_diag.c
+@@ -193,10 +193,9 @@ static void mptcp_diag_get_info(struct sock *sk, struct inet_diag_msg *r,
+ 				void *_info)
+ {
+ 	struct mptcp_sock *msk = mptcp_sk(sk);
+-	struct mptcp_info *info = _info;
  
-+	err = -EINVAL;
-+	if (sk->sk_type == SOCK_STREAM &&
-+	    addr->sin_addr.s_addr != htonl(INADDR_ANY) &&
-+	    (chk_addr_ret == RTN_MULTICAST || chk_addr_ret == RTN_BROADCAST))
-+		goto out;
-+
- 	/* Not specified by any standard per-se, however it breaks too
- 	 * many applications when removed.  It is unfortunate since
- 	 * allowing applications to make a non-local bind solves
-diff --git a/net/ipv6/af_inet6.c b/net/ipv6/af_inet6.c
-index a9b8b4b..ab7da0c 100644
---- a/net/ipv6/af_inet6.c
-+++ b/net/ipv6/af_inet6.c
-@@ -324,6 +324,14 @@ int __inet6_bind(struct sock *sk, struct sockaddr_unsized *uaddr, int addr_len,
- 		chk_addr_ret = inet_addr_type_dev_table(net, dev, v4addr);
- 		rcu_read_unlock();
+ 	r->idiag_rqueue = sk_rmem_alloc_get(sk) +
+-			  READ_ONCE(mptcp_sk(sk)->backlog_len);
++			  READ_ONCE(msk->backlog_len);
+ 	r->idiag_wqueue = sk_wmem_alloc_get(sk);
  
-+		if (sk->sk_type == SOCK_STREAM &&
-+		    v4addr != htonl(INADDR_ANY) &&
-+		    (chk_addr_ret == RTN_MULTICAST ||
-+		     chk_addr_ret == RTN_BROADCAST)) {
-+			err = -EINVAL;
-+			goto out;
-+		}
+ 	if (inet_sk_state_load(sk) == TCP_LISTEN) {
+@@ -210,11 +209,29 @@ static void mptcp_diag_get_info(struct sock *sk, struct inet_diag_msg *r,
+ 			r->idiag_wqueue = READ_ONCE(lsk->sk_max_ack_backlog);
+ 		}
+ 	}
++}
+ 
+-	if (!info)
+-		return;
++static int mptcp_diag_get_aux(struct sock *sk, bool net_admin,
++			      struct sk_buff *skb)
++{
++	struct mptcp_sock *msk = mptcp_sk(sk);
++	struct mptcp_info *info;
++	struct nlattr *attr;
+ 
++	attr = nla_reserve_64bit(skb, INET_DIAG_INFO,
++				 sizeof(struct mptcp_info), INET_DIAG_PAD);
++	if (!attr)
++		return -EMSGSIZE;
 +
- 		if (!inet_addr_valid_or_nonlocal(net, inet, v4addr,
- 						 chk_addr_ret)) {
- 			err = -EADDRNOTAVAIL;
++	info = nla_data(attr);
+ 	mptcp_diag_fill_info(msk, info);
++	/* Only export seq related counters to user with CAP_NET_ADMIN */
++	if (!net_admin) {
++		info->mptcpi_write_seq = 0;
++		info->mptcpi_snd_una = 0;
++		info->mptcpi_rcv_nxt = 0;
++	}
++	return 0;
+ }
+ 
+ static const struct inet_diag_handler mptcp_diag_handler = {
+@@ -222,8 +239,9 @@ static const struct inet_diag_handler mptcp_diag_handler = {
+ 	.dump		 = mptcp_diag_dump,
+ 	.dump_one	 = mptcp_diag_dump_one,
+ 	.idiag_get_info  = mptcp_diag_get_info,
++	.idiag_get_aux	 = mptcp_diag_get_aux,
+ 	.idiag_type	 = IPPROTO_MPTCP,
+-	.idiag_info_size = sizeof(struct mptcp_info),
++	.idiag_info_size = 0,
+ };
+ 
+ static int __init mptcp_diag_init(void)
 -- 
 2.56.1.750.gf70dc682cf-goog
 
