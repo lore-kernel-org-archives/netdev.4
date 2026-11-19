@@ -1,102 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795051633;
-	b=v/KS4rOlJgdKwe/wAc6wSr/ibEPbSFKQNeLRSUVHfj5aVpIEYanAcIsH1RYHtLWiKxbW
-	 m8AcWDiKes/5uDdaybKVd/Rvo3Zx2cqeNawNkuZ0fxGA9O/Cr89BBPUHNPHF5jmPSYJSZ
-	 +1re6S+K8FGMPgrWtX3200dTb46qufnZhmejRf6LKm4cbSt4b7rn9KWWLa3j2vkfh5QuD
-	 3QUDugZX7JuxZiHnRyeysI1vGswWSy3JcX3gCcy95sXx7qbgx5DOuaqCLG4DqoyKWg2XZ
-	 /Wxz3DYDzDn60g9bg5uqe8LBNHHTdcb94Q+LQzTkwZztiZbmHxrxVOqAfWuq1pkBHWQ==
+	t=1795051789;
+	b=3K5rP4g3/Ati10lcP/HMxXnPLMIfREgZojkPE+xBfudFhMYtjpAxlhT2PA7bEGNWIBBG
+	 mJR9kz8Ng8DnWmzqaBimFpZuR101NWvPJyMbWmNE1FOj8ZyZSICzGLQ7PgvUtNJiVnvRv
+	 D1sVhXiePgNYH23HKevgvvpJ2ygx4OFbtUEbjtoE34n+2hOHh9rM8qFJNQ8zFIXf2JtCg
+	 5CulCy2EpxngHnTQnhzb21rFY2YT6xbFaWotOW1R4aqGRWv3vpQvbGzanQG5BfPzPph3y
+	 cGKJOewJQxSI1qVgCz4sn4HSpRj1aJwBfodX0r/oZdiaJ5v7WSpVP9DLa4InqLuYzAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795051633;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051789;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wMPR2OAqKd8NTkv9afi4XE21M7DTJCxQ1aj05lm6jLA=;
-	b=jiEMjMVICQKS494m5uHn6I3Mah6iCqKEzLzZud9gEbrxpCxRIUNF1JHFEIhUopry3F9W
-	 enmql/CZJt8k4Sj6G1gW8ODlb/WHITpqrWQJvjYUnBymojZZ3TUzbaSqr8GcTo3S6MHTN
-	 MbTMM1+2PzJ9SsU/y0ajR+H1IrpMr4nST1yY8TxaEcGPuzo86qE1r4UNXg1NnLop8ESeb
-	 BTnkSMby0QzdKrtcrG+lpk9OUani0bucmS6jwdOy8VJtQKCbwGQC039tsAThJVatbGWJp
-	 nhajN+Z8gUwS5nL3wQwIlEbdwBL2xw0H2PZtSn5W6gFrS78xPHl5GJP8yqIqzRUsh3Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=IMUfFg2iR1Z91GxSjPkov61aiB2ViYWc3Z9M9ZmX54Q=;
+	b=ziFGYdyeapLZz5FmWWjHGxd75Xi1KsLPrMqp3/6/zAwsEdsL2LwhCNiE0evvxpD8SRiu
+	 PpU+a9JNanuOlhLdWTxUEW89bAAQJlId5gpY9VEFe/HBhcaI6D5OpEms0iiAPDErqKlll
+	 9dEe9pC0O+NQ7RGc4yYs2ITMJXNCEEB0elHluuKwz6M92Yngw0cspJJLhV+OhOMb5fGPm
+	 9PZn9o/YSdbBtVNugpA9It/0BLl+BDVmdH/q9YER/jopy219pAeEnI0CSjA/HjJcYYxi6
+	 mdCnOrNB9VJZ0UQ7by4fIMncLHH6ZYTVTLzSSMI7xEWAeGI0hll0HJnoqb2IztLtBgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dnBigy5L;
-	arc=none smtp.remote-ip=209.85.222.177
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=X6RUl5nX;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53236606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:27:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53236606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CAF9606A32A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:29:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CAF9606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dnBigy5L
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-94960131b30so191890685a.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:27:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=X6RUl5nX
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so1901048a12.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:29:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795051631; x=1795656431; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wMPR2OAqKd8NTkv9afi4XE21M7DTJCxQ1aj05lm6jLA=;
-        b=dnBigy5LCe3PKsBq23e+tzlO8XsZwaQCApUPD1wD4F6K6Q5XNb5RCm9PkGUqNAq275
-         kDRAPaS8Z1ouYJH9Gi/DA/vAdNWLSBfwtrt+ZcCHcPqbjR4l/m4lvpjbg0MdRqkR3IXY
-         3gEPFuzpldVtV54oxUxL7CZ0fg0cay7mfcrBcfxJK57/bOcwe1Y6UNEu4npiVjwc4h31
-         uqZLBnbePKmptJZk9mv4MKFVJQLET8BnkaroIthf7S0Uv3tDvqCHPH1pEP7okI7CXY45
-         lvJf3xvwTroXbIm5BtDjmNOqsqIJP6JWA1cfQDm4OOL/Qm5Gc05pIlE3dUKtBVISQA3+
-         Zuvw==
+        d=cloudflare.com; s=google09082023; t=1795051787; x=1795656587; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IMUfFg2iR1Z91GxSjPkov61aiB2ViYWc3Z9M9ZmX54Q=;
+        b=X6RUl5nXPwSwt5c/kUdF+d/qAIPpu4B78KXEgoYgO1Ifwmp9Un0wXT9O03brHfdkj0
+         Iw/NgiWtHQkg9OjzyksdTG/Yk3SubNSObINPdaZ1LH3tMW9lWXcM2a5r0nkclDrg2smC
+         Zb0YGB4IT7dNKxmFRti4PmVmxBxhrgJIsbGdXjpReO5gHaAFEaHL7kPg6Eg7L+Kh2w1f
+         9UmlkTUkG7mvaMEWNHvsqbuMBWDQO8hWN6c3xb4rEMyQKIx7BNQiPLSzNI0tNGSeJsfo
+         60BiL735Nn8IsGlBj2912I24qTnwkLODMQpnOlSR6NzHZK8QstcQRJPAG1XWTsTRcE5b
+         m+WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795051631; x=1795656431;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wMPR2OAqKd8NTkv9afi4XE21M7DTJCxQ1aj05lm6jLA=;
-        b=NL9sE8wuYfs/wDUiSJGGy7STBDcsIgbbVWQ1sV/pB2Sp9ucNlR0IxbVmaCN4+t71W1
-         x8n+a/yEGIyBDHlOVQk1YZs61nQfGsoFIaCnQjmV0SmFl2TTh5NkeVjog0MLkGvoBey6
-         hOwt2ol0UPidSzrP4GhG5ZQcQ1UzMOavCCwEivWmosaIlm/Oqj8/6vbQoFtMyqMzqiRP
-         vFenTtjJNFohNhHekSkRYRmBhDNCPyijIqzGUMxynFq1bYu82lCJhYboo3EGYlvaY2zB
-         XVvtCHqw6PD3UpyKwKw/buzVd6kOfkWzhlLghC8fjTT8UxG3Ob/wyqHcpIy8tdzGTcat
-         hf1g==
-X-Forwarded-Encrypted: i=1; AL+hErHRI+POp5DRSPGHa6vp8lMjL4owAp+1PP0cYns1PEd30BFGiAOqzdlllRgn7fWGYxmbkao7bX8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ph7JosaqWxMJ4wJxnzndOFoQUy8R2evMhgNbP474D2DO9XwUV
-	eQoSUxHX7ylYx+4TZaHS9woDKdSlswLnkBDIAP7IP+O9sOqJfUbd+m2K
-X-Gm-Gg: AYBFou3N09VqM9Ty3/6mk5HkurBzaa37nbyGXuF4URHJuGdEDKecaWQVoK9HjNXsPOj
-	9JraogsgQHLCVeCCtEIkB7S5Sg69CzvuOoARhgZ8UMEbKS1EVwgWACewpcC8sC1ROhtvobOtSQz
-	lJBY9PazSBKZd4f0lSktvsjN4NEHYeEEvgkjEv6ks8agDN6PWnz15/IjdpXnf1l24zVPWegdpM9
-	qATcNsNnw15EQ4TjcfeC+8CPG7JqaBKaHA9NEcpQhD757mIMPA/0wNhY52/rbWEcEb/1yLLvovo
-	oxBZWI/rpKuPfs/v/qnoTKYpJx07slv3hJAds4HncvMdMiu2EdFUS7wX9TvyWQMfeevIJQENWBj
-	/aJCGWd3mbd8THy7bjfafyqe7yznAFNx6p8PhC+CFwCd46l/frroTN/3hGpLRu7ct2KCuD/ui10
-	dSUP0Q2UWnmfdoHOSsIGEceIAjikciy9M+APSgyKz48FWqL9n6z0CR2DzclV9yusZt436DrAlWp
-	/nEPwPtzYc+lJALi4mCugnIpZbbh7j7w05mFs6tZ88zfECNtPc3ZZ7F2qCiD6iRs/ztlSkYEjF4
-	SIwlkyC9PM+NI9CUFKWJMgY6IS2eTgZAdMxBGYqFuGqIvwfKJzXFkO739IeHQ2I5kpYCg6v6aDw
-	=
-X-Received: by 2002:a05:620a:2709:b0:93e:920c:c00e with SMTP id af79cd13be357-9499957ea71mr827141385a.21.1795051631052;
-        Wed, 18 Nov 2026 17:27:11 -0800 (PST)
-Received: from linux.. ([8.34.174.240])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b4524c3sm318730885a.1.2026.11.18.17.27.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 17:27:10 -0800 (PST)
-From: Changyul Lee <lcy8047@gmail.com>
-To: Saeed Mahameed <saeedm@nvidia.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Mark Bloch <mbloch@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Gal Pressman <gal@nvidia.com>,
+        d=1e100.net; s=20260707; t=1795051787; x=1795656587;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IMUfFg2iR1Z91GxSjPkov61aiB2ViYWc3Z9M9ZmX54Q=;
+        b=H4xj+1Rhw9FWGCWBcpA8WxTHhm/bh9z+eCTXBdCUZRQ+wBBAzDGL8FnZEKhMycJhf7
+         lHyMcoqOI8DPnq9yKKXMsCydWbXO4Wz0e89Qm6liMUfxYhDGGLaV3DGG+Z7wm1gDQi7c
+         kzCl5XH7pL0iHCb+qDfG00Gpmdgq+zS69h3vj/6jSeL/txFxGCxRq/p2302xmOQsS00i
+         gp7zr45Q3bwIK6v7lDM4y7nul4HSkx4WJUjlV1JcLNK2g6vathpjScRku/I7bJfBfvcq
+         0PwJQSZ48HrX69aDAkgST7oX6k+fJ/srsrkISfqU3eaXUsnjI3kmc8JstBwpxiljjphD
+         tSkw==
+X-Forwarded-Encrypted: i=1; AL+hErH5sregtvjYhBe12uKL6g5r0OnuK6Gufx0byLPGnY/pw1lHgJ6YrcJ8eiNEtKklZW1do6fIcYs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/hsHMu4psAPpty2W3rqcKgHfw7UQcsyPAcOv4t5yLkjjVsvo9
+	ybTDqDFg4Miw4qFBAdabAfv54lamkQ2vbpjh/qb4kOn5XdC57+DNRFJA6bVtueJgEg4=
+X-Gm-Gg: AYBFou1joCNKRk11++wNHCQg0Iv7TQGArLDswIZ80enDdDkaAALoJ6l0qYU52UwTu+R
+	k0xdfpxcZTvwXh6PGXSVFxLA83SM1X9JFhhsW4czvMyj0Y0bEtnYubegKpvAQ4ptZFyDiFbdsjh
+	KorOHs/BCaOGjiyceL1dr+Exm6AZdW7xo3yJobD7vsQfoJJAQKtkjmxeFLV8YNtUdwFUk7I++gU
+	6f6+Xas/PuvOFNmxAFlyoTYrHy+Tx1OjCh4RdlhjwYreUm4wm8zcRWXcdsmqc3ooqWKsirQUvhB
+	Sti8af9oVJ2ffVRURAQ0KCgVU815WEg+i2yFjte0aLhd07JeQP/uUv9W8Cobx9Md1Ns3Xjg35fc
+	ngCM6TYoG0nvhlidDe1ko4lONjMf0/yk+wRxviQijZZ0+B/Cg6FPblDdvpUAXgjdOGkdGkEjTBB
+	I2B57qFLmS4dqz0MdlPcKuaOLmQ2YIoesJXFHG5ChGO+r1+b2lUQy5mLsc01liIToG3O1Q5Ufwt
+	1PoiyeXcPD7+VeauAWlVtuFOOt1WVtBPDu/KHo7z6aIGvx0/gg7yqnRFKWX6PmLM4FMlPRa2TiM
+	zaP3jHW3ATD7uUS6iZes5FSHUDI4gAmFDIqKmT+0UlCVh/tY51bcKh6WaA==
+X-Received: by 2002:a05:6402:c4e2:10b0:6b8:afbd:64e6 with SMTP id 4fb4d7f45d1cf-6b8afbd6722mr1777470a12.42.1795051787085;
+        Wed, 18 Nov 2026 17:29:47 -0800 (PST)
+Received: from L9JK9NPFH9 ([104.28.20.56])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a1eb813sm1711016a12.26.2026.11.18.17.29.44
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 17:29:45 -0800 (PST)
+From: Tianyi Gao <tianyi@cloudflare.com>
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>,
+	kuba@kernel.org,
 	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Changyul Lee <lcy8047@gmail.com>
-Subject: [PATCH net] net/mlx5e: Skip hairpin entries not ready in debugfs dump
-Date: Wed, 18 Nov 2026 20:27:07 -0500
-Message-ID: <20261119012707.555494-1-lcy8047@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	bpf@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	skhan@linuxfoundation.org,
+	kernel-team@cloudflare.com,
+	tianyi.gao@linux.dev
+Subject: Re: [PATCH net v4 0/3] selftests: net: veth: propagate check failures to exit status
+Date: Thu, 19 Nov 2026 01:29:40 +0000
+Message-ID: <20261119012940.32838-1-tianyi@cloudflare.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261119003003.40482-1-emmaonana18@gmail.com>
+References: <CAG4wq-d_30-B4wQZu48ZQXAORM4QxRqPfmYsmoHS0hiYp1EtTA@mail.gmail.com> <20261119003003.40482-1-emmaonana18@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,48 +115,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
 
-Hairpin entries are added to the table before creation completes.
-Reading hairpin_table_dump can therefore dereference a NULL pointer
-while creation is in progress, or an error pointer if creation fails.
+Hi Omokefe,
 
-Skip entries that are still being created or whose creation failed.
+On Thu, 19 Nov 2026 01:29:59 +0100 Omokefe Emmanuel Onanaroghene wrote:
+> Changes v3 -> v4:
+> - Patch 2: use if/else instead of "&& { ...; } ||" chains, keep
+>   lines within 80 columns (thanks Tianyi for the review).
+> - Add patch 3 deriving the invalid tx value from the kernel maximum.
 
-Fixes: 0e414518d6d8 ("net/mlx5e: Add hairpin debugfs files")
-Signed-off-by: Changyul Lee <lcy8047@gmail.com>
----
-Found with a static analysis tool we are developing.
+Sorry for being annoying, but I see three problems with how v4 was
+sent:
 
-Compile-tested only, with x86_64_defconfig plus MLX5_CORE_EN,
-MLX5_ESWITCH, MLX5_CLS_ACT and W=1.
+1. Patch 3 lost its subject prefix. It went out as "[PATCH] selftests:
+   net: veth: derive invalid-tx test value from kernel max", so
+   patchwork put it in a series of its own [1].
 
- drivers/net/ethernet/mellanox/mlx5/core/en_tc.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+2. Patch 3 should come first. Patch 1 makes a chk_channels() failure
+   fail the script, and from then on the nproc + 1 check can fail on
+   a correct kernel. With the fix first, no commit in the series
+   reports a false failure.
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index 1d35c97aea0b..c6623f13261b 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -1067,12 +1067,15 @@ static int debugfs_hairpin_table_dump_show(struct seq_file *file, void *priv)
- 	u32 bkt;
- 
- 	mutex_lock(&tc->hairpin_tbl_lock);
--	hash_for_each(tc->hairpin_tbl, bkt, hpe, hairpin_hlist)
-+	hash_for_each(tc->hairpin_tbl, bkt, hpe, hairpin_hlist) {
-+		if (!completion_done(&hpe->res_ready) || IS_ERR(hpe->hp))
-+			continue;
- 		seq_printf(file,
- 			   "Hairpin peer_vhca_id %u prio %u refcnt %u num_channels %u num_packets %lu\n",
- 			   hpe->peer_vhca_id, hpe->prio,
- 			   refcount_read(&hpe->refcnt), hpe->hp->num_channels,
- 			   BIT(hpe->hp->log_num_packets));
-+	}
- 	mutex_unlock(&tc->hairpin_tbl_lock);
- 
- 	return 0;
+3. v4 was posted as a reply to my review of v3. A new version should
+   start a new thread, and its change log should link the previous
+   postings [2].
 
-base-commit: 342e62fd34c2674e82bffc89cb5c7091924986d9
--- 
-2.43.0
+[1] https://patchwork.kernel.org/series/1215530/
+[2] https://docs.kernel.org/process/maintainer-netdev.html#resending-after-review
 
+Cheers,
+Tianyi
