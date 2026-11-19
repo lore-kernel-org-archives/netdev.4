@@ -1,61 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=130.149.7.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081473;
-	b=d7Yxkf9AJhs6VJYEqO364DCRTO+jNNAdrMKEOATBBFNgSjVG5rPsy6bjpPhoTUc4sYyV
-	 paOekUZRWDQLhHdsxKXHcEoD0Tw0rchSJBu9zz579TTKhp44Bium0Uos3ASWS9KEV+d9o
-	 6UqdROSqin1xyizVEFgyAunGjqRSda7u0EBT/tXuayGS5uJXLDGFukjlnYs772tb/VSaY
-	 /vxlGFLdF3UdipyiX/QGulca+85FaBOg+ANBicf6JAGJkZrYfGezd4wi+2X8I72zG0HkO
-	 VdtzpzPAXqSP2Mv7CeYv8Z2rK4ashMSDbXxBeJQuW7execT0Pa5g7CPpKP09jPA7AcQ==
+	t=1795081603;
+	b=AoX6DdB0cHvmCQJcrk5CHuSdQNXg7KTWjmZxwpRDXbiVxk/+9l587IW6NVkzqdStBZlE
+	 2sP/t0i7QhBi2+/YO4qIgP37jaLS0CUD4/SfRRUBQOjCz+BjbSWgmkWdI9KUMMpPuogt/
+	 kO8S/itJn2uvKdMoOYf0yyIoLG2JlQds9OiTRdDAdd2wKVFZkI7uEAFG1HjlZzMu5W70p
+	 weV1BEGKTXjtUovRSXb6yqbVNgtV65lxZ1rWCbb0iv9yvYuzx4d9K8wxvsof/za+l/oHN
+	 qKOouGJmKfmX58ePA/llZI/IAlhky6WJdIgYHnyvcI02p08Y9but5MGW1PnYm/tHlpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081473;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-ID:X-B4-Tracking:X-Change-ID:To:CC:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=V+3UsMjZBvcdao0W9uMQLAzOcFQLxo5afAU/TJpG878=;
-	b=jGZOO+bB1PFgimMFrgxutg6AWavJncewENlnDoiyQwPBBhTZRr5vHdTLSI65bIIAmWkq
-	 9hQPj7mMl59/4gQ/50s4j0B6dq76abSpJld8hDuYL3p5/AUR9e+ACo9ZLKcjL7tM19tBi
-	 A6iDiO332amPERwiizjEU92wwOjRrasZVY5urX7EMoYvVPdmE0S3ceABbV5u93Al2k2/V
-	 ebeGgclygkgr5Rn2Yq7qI69GENMK4YoY2gwCMkRgB3G9AOWGzGh5lY+LQIkfSgzrqUbAD
-	 RG4qasNJ9NATlijOOFVgLJVxrSrdbYM4SdyfsdNUURzzQZyZJjSfYvhvt6rEYtkaKeg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081603;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:To:Cc:
+	 Message-ID:X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=3BqdCJTGw47ZPbEBDmV2Sxr2xhOXRAA8TmzOR2G/4rE=;
+	b=vl5Bc4QaGOPi29D9n4hxq0OP6+hVQqesMHIezKKVvTqAEZO7hgLNehbRToYsSrHxHIdO
+	 KVDvsnQNVVHTJHvX5r3vK6LspLt2ByehAgfbsH1ONHzKb21efjpLmazZuRBGHXBLxzLRt
+	 60iaidyfPYJcoHZS7IGXh3DolUTBCL/W4INAatn3IXtdaVofrgTGxpI/Nhe8o5Sct0qpj
+	 zGKMQt10fpVMICt263elTqXuHm0xN2spHf8rszsRuWcB/YdNblCn7Z7NfvF9/tMvnn1U8
+	 sKkrdNS46mUWGHFMsNd1KMicNoe1hQvrLoWx/r635jMFkQxfbvy0Z7CgnnBi3EyZqRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tu-berlin.de;
-	spf=pass smtp.mailfrom=tu-berlin.de;
-	dkim=pass header.d=tu-berlin.de header.i=@tu-berlin.de header.a=rsa-sha256 header.s=dkim-tub26 header.b=UKqhatpb;
-	arc=none smtp.remote-ip=130.149.7.70
-Received: from mailrelay.tu-berlin.de (mailrelay.tu-berlin.de [130.149.7.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F95606A320;
-	Thu, 19 Nov 2026 09:44:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F95606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tu-berlin.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-berlin.de
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=PECAIvbD;
+	arc=none smtp.remote-ip=132.226.202.154
+Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E8782606A333;
+	Thu, 19 Nov 2026 09:46:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8782606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=tu-berlin.de header.i=@tu-berlin.de header.a=rsa-sha256 header.s=dkim-tub26 header.b=UKqhatpb
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/relaxed;
-  d=tu-berlin.de; s=dkim-tub26; t=1795081472;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=V+3UsMjZBvcdao0W9uMQLAzOcFQLxo5afAU/TJpG878=;
-  b=UKqhatpbs8aWjzWlrzZgRi7RuXZfNlXXisrPUCElz39MOS69o0anagWD
-   aiMnbTjcbHpim64N40NMIDvF0RwNLic7NW7Xjc6UeotACG3uP4W6UR80B
-   KJ1txZ6b41bZ7L7azfEu3gjnLe3q5j9pcPSc+E/PRLJcgVMYiAF6qpNut
-   tpelbgG+Ln6XDztu+zrxEvARWdPX4UsTqqmy6/0vcFlU+1b24k5ugwYup
-   hNgb4bm5NWPKviuUAOzbwmzaFXuSEQxZ1GGw+iuLHiWb/f3tVrb9UFhKL
-   OB+Q2e3Pu90RvOcm3iYDXdrJQoXEcmfgRVDskb/WRwJqgL4Ark/O+FOpC
-   Q==;
-X-CSE-ConnectionGUID: Fq4jeTPTSjGxSZQYuQNw1A==
-X-CSE-MsgGUID: 6J1wcFywQl+Syul5X1f+2A==
-X-IronPort-AV: E=Sophos;i="6.27,220,1787004000"; 
-   d="scan'208";a="54889326"
-Received: from bulkmail.tu-berlin.de (HELO mail.tu-berlin.de) ([141.23.12.143])
-  by mailrelay.tu-berlin.de with ESMTP; 19 Nov 2026 10:44:23 +0100
-From: =?utf-8?q?Jonas_K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>
-Date: Thu, 19 Nov 2026 10:43:57 +0100
-Subject: [PATCH net] net/sched: sch_cake: fix unintended tin override with
- cake_mq
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=PECAIvbD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:Date:Subject:To:Cc:
+	Message-ID; bh=3BqdCJTGw47ZPbEBDmV2Sxr2xhOXRAA8TmzOR2G/4rE=; b=P
+	ECAIvbDr/63E056kTp7RIxuk9w+EhN9D3nGamcaf234TdfvVY/yh1gbyt9Rrc0YB
+	wzq9A6p1nf57do74aRMEdTwkCWsKm57PDh3aRkYuleEdLuauZelz6hhWMtR8CtuG
+	nj3NAyNEIS5JSD8yw6+SHNKcokS7D3yiNZtH7Malps=
+Received: from v3_final.eml (unknown [58.206.202.11])
+	by web1 (Coremail) with SMTP id yAQGZQAXhjZ2xf5q5qN6Ag--.9276S2;
+	Thu, 19 Nov 2026 17:46:30 +0800 (CST)
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Date: Thu, 19 Nov 2026 17:46:13 +0800
+Subject: [PATCH net-next v3] net: sparx5: check DT port reg against chip port count
+To: Daniel Machon <daniel.machon@microchip.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>,
+ UNGLinuxDriver@microchip.com
+Cc: netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Message-ID: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
+X-CM-TRANSID:yAQGZQAXhjZ2xf5q5qN6Ag--.9276S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCw4fXFyxuFWUXw47Gr1rJFb_yoW5Cr4xpF
+	Z8Aas8KrW8Gr43Ca4xJw48uas09a1DXFy5Wr1xCwsxWw45GFW0yryxKFs0vF1jkrWrJa97
+	JF4Yqa43Ca9FkFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBKb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r
+	17McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48J
+	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8uw
+	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
+	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64
+	vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26F4j6r4UJwCI42
+	IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU5qZX3UUUUU=
+	=
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQEQD2r+rmUtngAAsz
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,114 +80,72 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20261119-cake_mq_fix_incorrect_tin_override-v1-1-3238122d09ca@tu-berlin.de>
-X-B4-Tracking: v=1; b=H4sIANzE/moC/x2NUQrCMBAFr1L224BbqFSvIrLE5KmLuNFNKELp3
- Q1+DgwzK1W4otJpWMmxaNViHXg3UHpEuyNo7kzjfjww8zGk+IS8PnLTr6il4o7UpKlJWeCuGSH
- neQLPPF1jpB56O7r9n5zJ0OiybT/vFcQfeQAAAA==
-X-Change-ID: 20261119-cake_mq_fix_incorrect_tin_override-dd85e1815baa
-To: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>, Jamal Hadi
- Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Willem de Bruijn <willemb@google.com>
-CC: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
-	<cake@lists.bufferbloat.net>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, =?utf-8?q?Jonas_K=C3=B6ppeler?=
-	<j.koeppeler@tu-berlin.de>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795081463; l=3525;
- i=j.koeppeler@tu-berlin.de; s=20260219; h=from:subject:message-id;
- bh=qOg+PjfmvlIpJEXH52wn9tweaLIrOgRqgsCHOQ7C1ns=;
- b=uqVbuwB9GkQbApH4Rs6/JKgCHuVV09HojmGQvO3UOIiCEQ5rGctweFLn/aoR2elW0jzm7V8Sz
- E2Fjn4DEJpbDbhgni1E8RzvARUa1qME2UbXBWDFddQg/e9SkB/gHsig
-X-Developer-Key: i=j.koeppeler@tu-berlin.de; a=ed25519;
- pk=+pMLYEiy24PHhKr0HCDJhKWgh9WowPOEUOtiuMX7LLc=
+Message-ID: <20261119094613.klyjRQ7HPrCZV7VwnhNzSf_Ev6wIWbyixM5FfrNrJS8@z>
 
-CAKE allows overriding the tin selection through skb->priority: if the
-major number of skb->priority matches the qdisc handle, the minor number
-selects the tin. With cake_mq, the per-queue CAKE instances are created
-through qdisc_create_dflt() and never get a handle assigned, so
-sch->handle is 0 for all of them.
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 
-For forwarded IPv4 traffic, ip_forward() sets skb->priority from the TOS
-byte via rt_tos2priority() when net.ipv4.ip_forward_update_priority is
-enabled, which is the default. rt_tos2priority() returns 0, 2, 4 or 6,
-all with a major number of 0, which matches the handle of the cake_mq
-children. The minor number is then taken as a tin override and the DSCP
-mapping is skipped.
+mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
+portno, which sparx5_create_port() later uses to index the fixed-size
+sparx5->ports[] array:
 
-With diffserv4 and diffserv8 this puts packets into the wrong tins. For
-example, AF13 (TOS byte 0x38) under diffserv4:
+    sparx5->ports[config->portno] = spx5_port;
 
-  ip_forward():
-    skb->priority = ip_tos2prio[(0x38 & 0x1E) >> 1]
-                  = ip_tos2prio[12] = TC_PRIO_INTERACTIVE_BULK = 4
-  cake_select_tin():
-    TC_H_MAJ(4) == 0 == sch->handle
-    tin = bulk_order[4 - 1] = 3                     -> Voice
+The value is never validated, so an out-of-range 'reg' (runtime overlay,
+corrupted or attacker-controlled DTB, kexec-supplied or bootloader
+fixed-up DT) turns probe into an out-of-bounds write.
 
-whereas the DSCP table gives diffserv4[0x38 >> 2] = diffserv4[14] = 0,
-i.e. Best Effort. Likewise, AF21, AF31 and AF41 are demoted from Video
-to Best Effort. diffserv3 happens to be unaffected, because the only
-reachable override (priority 2) agrees with its DSCP table.
+Skip port nodes with an out-of-range 'reg'.  lan966x_probe_port() has
+the same bounds check but fails probe with -EINVAL; skipping here keeps
+the remaining valid ports working.  The bound is the per-chip port count
+from the match data (sparx5->data->consts->n_ports), so lan969x, which
+shares this probe path and has only 30 ports, is bounded correctly as
+well.
 
-Fix this by matching skb->priority against the major number of the
-parent cake_mq qdisc when the instance is part of cake_mq.
+Found by a scripted scan of of_property_read_u32() call sites used to
+index fixed-size arrays, followed by manual review. Verified at runtime
+on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
+CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
+malicious DT overlay, the unmodified in-tree driver performs the store.
+reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
+write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
+with a later NULL oops. With this patch all three are skipped. The PoC
+and full logs are posted in the thread. Not tested on real hardware,
+QEMU virt (cortex-a57) and compile testing only.
 
-Fixes: ebc65a873eff ("net/sched: sch_cake: Add cake_mq qdisc for using cake on mq devices")
-Signed-off-by: Jonas Köppeler <j.koeppeler@tu-berlin.de>
+Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
+Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 ---
-Reproducer: client -> router -> server over veth, router forwarding with
-the default ip_forward_update_priority=1, cake_mq diffserv4 on the
-router's egress (2 txqs). Ping with -Q 0x38 (AF13), compare per-tin
-counters against plain cake:
+v2 -> v3:
+- Fix the diff paths (a/a/ -> a/, b/b/ -> b/) so the patch applies
+  (Daniel Machon).
+- Restore the in-body From: line so the author matches the Signed-off-by
+  (checkpatch author/Signed-off-by mismatch).
+- Clarify that lan966x fails probe instead of skipping (Daniel Machon).
 
-                  Bulk  Best Effort  Video  Voice
-cake:                0           50      0      0
-cake_mq before:      0            0      0     50
-cake_mq after:       0           50      0      0
+v1 -> v2:
+- Check against sparx5->data->consts->n_ports instead of SPX5_PORTS,
+  so that lan969x (30 ports), which goes through the same probe, is
+  bounded correctly as well (Daniel Machon).
+- Document how the issue was found, the runtime verification and the
+  test setup, as requested by the patch bot.
 
-Setting ip_forward_update_priority=0 also hides the bug.
----
- net/sched/sch_cake.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
-index aa4043d662c1..5a37b7a5d569 100644
---- a/net/sched/sch_cake.c
-+++ b/net/sched/sch_cake.c
-@@ -1679,7 +1679,7 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
- {
- 	struct cake_sched_data *qd = qdisc_priv(sch);
- 	struct cake_sched_config *q = qd->config;
--	u32 tin, mark;
-+	u32 tin, mark, handle;
- 	bool wash;
- 	u8 dscp;
- 
-@@ -1689,6 +1689,8 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
- 	 */
- 	mark = (skb->mark & q->fwmark_mask) >> q->fwmark_shft;
- 	wash = !!(q->rate_flags & CAKE_FLAG_WASH);
-+	handle = q->is_shared ? TC_H_MAJ(sch->parent) : sch->handle;
-+
- 	if (wash)
- 		dscp = cake_handle_diffserv(skb, wash);
- 
-@@ -1698,7 +1700,7 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
- 	else if (mark && mark <= qd->tin_cnt)
- 		tin = qd->tin_order[mark - 1];
- 
--	else if (TC_H_MAJ(skb->priority) == sch->handle &&
-+	else if (TC_H_MAJ(skb->priority) == handle &&
- 		 TC_H_MIN(skb->priority) > 0 &&
- 		 TC_H_MIN(skb->priority) <= qd->tin_cnt)
- 		tin = qd->tin_order[TC_H_MIN(skb->priority) - 1];
-
----
-base-commit: e203d8a4751d48aa00eda31e3b320ba8e0d47dbf
-change-id: 20261119-cake_mq_fix_incorrect_tin_override-dd85e1815baa
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index 08a398adf..164706745 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 			dev_err(sparx5->dev, "port reg property error\n");
+ 			continue;
+ 		}
++		if (portno >= sparx5->data->consts->n_ports) {
++			dev_err(sparx5->dev, "port %u: reg out of range\n",
++				portno);
++			continue;
++		}
+ 		config = &configs[idx];
+ 		conf = &config->conf;
+ 		conf->speed = SPEED_UNKNOWN;
 
