@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070700;
-	b=TwFqS0CzcYRte/2L8YWgvOjcpM77Vbg6b1dv6tRp4mzu3N6cc0YewSZYA7Cx6KJFUA1Y
-	 EwMwFsQ0eI4bk2TVg6DFJge5ii/FSKBaPO/CvnH0QFzDDx7X+Z7FzAHZYnWdJgPLwO5av
-	 Ut2tHVmNGdujo+hKMw/IKMuSWZUuwixtHx97p6VYD3ljiTrRz3ovhZHmH+IadUkbeA7uo
-	 TSDbzRGLyspVcUkrDDA8Qj+tyL88eMMrW/MfxWLOKPqd+lkOqbRYvsxMdL2zEaBW1iQ67
-	 gZsaDPD0fQ03udMV852PbscLqJq0gZuCyIVHj75TIf4i6DfWwOyWumoCRsURrPaO52g==
+	t=1795070704;
+	b=R0jhI5RSTj9Ghl9qnlspA0Sb7gu2+3bOczH7XFhGEQGGDPLppfdvEz0YuuSELxjZ2bTw
+	 hHSZ6s0DIHSxGuUDjAT26YlFj7yA6dUKnoAss/vbsOKXOhVclPftCma/dilXcD8AYLToY
+	 AUjNY19D1TOQH+GpLbqDJiHTFgMhmXXmNYAddm+pPHFpnE6Z1XLgrZHtUWFXUuQXppJUS
+	 6jg22n0OqqHxfZZ7RTqFUKFwomzfor3rWoa7hbK0t+cddAO6MAZiCII9fp+PbDw8++bVA
+	 zWm5t1GB/YnlPWIW5GmB5wu8KI2njahQX69Gj9x4fQPt7gx+142pwMrcATlL2X08QZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070700;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070704;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ct3xVuraqIgSvW2uZojlh2VFdfDZrsrHXmqMp73nLbI=;
-	b=eRN8FuEAx3Jt0iS78mD8qScZ4+H4pIQPSfMX6lU59XEN/KdLPb24Btn3abw6O0ECouzG
-	 dCn3qWOe9piwGLQr1zC26Rzgtr882mgZj2T7PGQmTxl8Li2bw2F5T4AKxUfwasSCyNZWh
-	 9SwnxfHbTChdnqvpnTFmmws3WKmj4ME6rP8hE+36DsmOLdsNROpxdSGa530UPu8Hs2Dch
-	 tYKOwSqTZZP2ejrfah0EU0jxkM4HfDCH7ErBI30o2zt6d9o6ugez46lgMDhzWlkb9Ujgv
-	 dEwnRwxpVj7KhfFVjo3oJ1TzR5R9THrYGyzu82uBBkB4aP2o3T4LEyIUJLueAmk9asA==
+	bh=SscW4jPT8Or0Syda4jZxOH9RJv46Uc4ZJHe6Zhovo4Q=;
+	b=B8EtULmqDMp93eFoVyR1D2Z6WXLiGMSB59RC9dfJjH6OXs2OYVT/tWIzAOVg44vsVX2S
+	 vbhkqTE5YvCVt2tg/dM9CPFJ2IOq5GVgX8q/SSV4PpGBItFL6URllFtwZVLZYrt2Zs62I
+	 TFuQHbf4QHdE+zTYxu5hvIhev72etetUH76rqR1wO+2nXF5LMOtT/ye+uqQ79RqkkwJ3N
+	 BDwFSfU/+7yRX5COJDx3jfTkitbQyaS6YWoBF4CQXpk5w2WRQXHIkckYeNVX/FunnfPob
+	 0FzLiui7/S+cla4+PC2tlDF067OdSdPPTkSRx8pElhVp3VKV/U8fQ0n9+rgGn+RFLLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D12Tfgse;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GE/uihCP";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A034160A2617
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:45:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58E7760A2624
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:45:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D12Tfgse
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D0FB1F000C4;
-	Thu, 19 Nov 2026 06:44:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GE/uihCP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95981F000C4;
+	Thu, 19 Nov 2026 06:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795070700;
-	bh=Ct3xVuraqIgSvW2uZojlh2VFdfDZrsrHXmqMp73nLbI=;
+	s=k20260515; t=1795070703;
+	bh=SscW4jPT8Or0Syda4jZxOH9RJv46Uc4ZJHe6Zhovo4Q=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=D12Tfgseor3kfWoVbPqOfVGVyed19jw4pKSxhj4IYYzddko2ksIXtTC1aEKIYmLJ9
-	 4oEl6N9/gWNkJb339k0J3abPli6eg74hAFnUXpKKYAffFjSJXkoAQiVlBs6+SkYGw5
-	 IglbS4OezZqnocMBuqISuURAOeSntaTfOHSo3JIvGQ/CJ/VedBrSD1kIWVTdzqV4OL
-	 FpzImUULfIhGWma+kejKF387C0GvYiWnLiyBlN+MXQ4+3CGF3nXyiVZspEspZ/mTJJ
-	 hxT9347NKyu82F53zfg6seCtAY7y/LBiNP8OrXxcFfPcPYA0xtW7DuPUaw+qcH+9lL
-	 1D7ASBe4Tz6yA==
-Subject: Re: [net-next v6 09/15] iavf: increase max number of queues to 256
+	b=GE/uihCPShiaZhq3bG15MHEM0FTZusWfqiq5FqaJSBeJvJE1TliHhnA0QhkAJXz8U
+	 l3YS0mdqyTYloAYZeJjGbSlHggyPdx4hEDLddGdh7cAJE/5p3AcZYT/gAaLKJPvdxT
+	 yDYZEOzZBCB3psnCblrOhUygArfISbvmFWXWow28S/dCIBVZypTWnu5yOaz4+qbPyP
+	 iNNeLJu9JPAVVPqonduljtjzJzcRiWzJNTCzB2JePKaEuvOmtX+GFNbO4zbF/2gzBx
+	 NyBn+KY/P/84i7YiQ4+ZAZYtjI3iuAsOdMjqHwKHYHX7jR0+7t/RZXj/MoO05aT4uP
+	 O2hc49vSQs6Kw==
+Subject:
+ Re: [net-next v6 11/15] ice: introduce handling of virtchnl LARGE VF opcodes
 From: netdev-bot+sashiko@kernel.org
 To: przemyslaw.kitszel@intel.com
 Cc: kuba@kernel.org, netdev@vger.kernel.org, aleksandr.loktionov@intel.com,
@@ -51,10 +52,10 @@ Cc: kuba@kernel.org, netdev@vger.kernel.org, aleksandr.loktionov@intel.com,
  mbloch@nvidia.com, mschmidt@redhat.com, ohartoov@nvidia.com,
  pabeni@redhat.com, poros@redhat.com, rdunlap@infradead.org, saeedm@nvidia.com,
  skhan@linuxfoundation.org, tariqt@nvidia.com
-Date: Thu, 19 Nov 2026 06:44:58 +0000
-Message-ID: <179507069863.3136.4636322783372070178@kernel.org>
-In-Reply-To: <20261117094913.100756-10-przemyslaw.kitszel@intel.com>
-References: <20261117094913.100756-10-przemyslaw.kitszel@intel.com>
+Date: Thu, 19 Nov 2026 06:45:02 +0000
+Message-ID: <179507070227.3136.5959529573012279667@kernel.org>
+In-Reply-To: <20261117094913.100756-12-przemyslaw.kitszel@intel.com>
+References: <20261117094913.100756-12-przemyslaw.kitszel@intel.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,7 +72,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,132 +80,165 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The patch turns q_vector->ring_mask into a fixed 256-bit
-  bitmap (DECLARE_BITMAP(ring_mask, IAVF_MAX_REQ_QUEUES)).
-- [Low] The new helper iavf_itrn_reg() (iavf_main.c:423) picks the ITR
-  register bank per vector index: IAVF_VFINT_ITRN1 (base 0x2800, 0x40…
+- [Medium] The patch widens struct ice_q_vector::num_ring_rx/num_ring_tx
+  from u8 to u16.
+- [Medium] ice_vc_validate_qs_v2_msg() bounds each chunk (start_queue_id
+  + num_queues <= min(num_vf_qs, 256)), and the only limit on num_chunks…
 
 --
 
-iavf: increase max number of queues to 256
+ice: introduce handling of virtchnl LARGE VF opcodes
 
-This patch raises the iavf queue limit from 16 to 256. It turns
-q_vector->ring_mask into a 256-bit bitmap and allocates the netdev with
-256 Tx/Rx queues. Queue vectors are capped at 64, and the ITR of vectors
-16..63 is programmed through a new IAVF_VFINT_ITRN_64 register bank.
+This adds PF-side handlers for VIRTCHNL_OP_ENABLE_QUEUES_V2,
+VIRTCHNL_OP_DISABLE_QUEUES_V2 and VIRTCHNL_OP_MAP_QUEUE_VECTOR. They are
+allowlisted under VIRTCHNL_VF_LARGE_NUM_QPAIRS so that VFs can use more
+than 16 queues. It also widens num_ring_rx/num_ring_tx in struct
+ice_q_vector to u16.
 
-> diff --git a/drivers/net/ethernet/intel/iavf/iavf_main.c b/drivers/net/ethernet/intel/iavf/iavf_main.c
-> index 822d6e692d495..db769eead68f3 100644
-> --- a/drivers/net/ethernet/intel/iavf/iavf_main.c
-> +++ b/drivers/net/ethernet/intel/iavf/iavf_main.c
-> @@ -419,6 +419,15 @@ static irqreturn_t iavf_msix_clean_rings(int irq, void *data)
->  	return IRQ_HANDLED;
->  }
+> diff --git a/drivers/net/ethernet/intel/ice/ice.h b/drivers/net/ethernet/intel/ice/ice.h
+> index 89a2bdbecf609..fc2e84136e247 100644
+> --- a/drivers/net/ethernet/intel/ice/ice.h
+> +++ b/drivers/net/ethernet/intel/ice/ice.h
+> @@ -474,8 +474,8 @@ struct ice_q_vector {
 >  
-> +/* VFINT_ITRN1 fits 16 vectors only, VFINT_ITRN_64 aliases it for up to 64 */
-> +static u32 iavf_itrn_reg(enum iavf_dyn_idx_t itr_idx, u16 reg_idx)
-> +{
-> +	if (reg_idx < 16)
-> +		return IAVF_VFINT_ITRN1(itr_idx, reg_idx);
-> +
-> +	return IAVF_VFINT_ITRN_64(itr_idx, reg_idx);
-> +}
-
-[Severity: Low]
-Is the aliasing in this comment documented anywhere? When a VF has more
-than 16 queue vectors, iavf_itrn_reg() programs vectors 0..15 through
-the 0x2800 bank and vectors 16..63 through the 0x2C00 bank.
-
-idpf_lan_vf_regs.h describes the same VF register space. There, the two
-banks are alternatives chosen by the VF's vector mode:
-
-/* For VF with 16 vector support, itrn_reg_spacing is 0x4, itrn_indx_spacing
- * is 0x40 and base register offset is 0x00002800
- */
-...
-/* For VF with 64 vector support, itrn_reg_spacing is 0x4, itrn_indx_spacing
- * is 0x100 and base register offset is 0x00002C00
- */
-
-Suppose a VF in 64-vector mode does not decode the 0x2800 bank. Then the
-first ITR writes for vectors 0..15 in iavf_map_vector_to_rxq() and
-iavf_map_vector_to_txq() are lost. Both functions still set current_itr
-to target_itr afterwards.
-
-With static ITR (adaptive turned off with ethtool -C),
-iavf_update_enable_itr() only rewrites ITR when target_itr !=
-current_itr. Would those vectors then stay at the hardware reset
-moderation value?
-
-Using IAVF_VFINT_ITRN_64 for every vector whenever the VF has more than
-16 vectors would not depend on the aliasing. Would that be safer?
-
-> +
->  /**
->   * iavf_map_vector_to_rxq - associate irqs with rx queues
->   * @adapter: board private structure
-> @@ -439,8 +448,8 @@ iavf_map_vector_to_rxq(struct iavf_adapter *adapter, int v_idx, int r_idx)
->  	q_vector->rx.count++;
->  	q_vector->rx.next_update = jiffies + 1;
->  	q_vector->rx.target_itr = ITR_TO_REG(rx_ring->itr_setting);
-> -	q_vector->ring_mask |= BIT(r_idx);
-> -	wr32(hw, IAVF_VFINT_ITRN1(IAVF_RX_ITR, q_vector->reg_idx),
-> +	set_bit(r_idx, q_vector->ring_mask);
+>  	u16 v_idx;			/* index in the vsi->q_vector array. */
+>  	u16 reg_idx;			/* PF relative register index */
+> -	u8 num_ring_rx;			/* total number of Rx rings in vector */
+> -	u8 num_ring_tx;			/* total number of Tx rings in vector */
+> +	u16 num_ring_rx;		/* total number of Rx rings in vector */
+> +	u16 num_ring_tx;		/* total number of Tx rings in vector */
 
 [Severity: Medium]
-Can r_idx reach 256 here? ring_mask is now
-DECLARE_BITMAP(ring_mask, IAVF_MAX_REQ_QUEUES). iavf_map_rings_to_vectors()
-calls this for every ridx up to num_active_queues - 1, and nothing checks
-r_idx against IAVF_MAX_REQ_QUEUES.
 
-The only clamp is in iavf_validate_num_queues(). It checks only
-vf_res->num_queue_pairs, and it rewrites vsi_res[i].num_queue_pairs only
-inside that branch:
+The v5 notes say these fields were widened because mapping all 256 queues
+of a VF to one vector made the counters wrap. The main writer of these
+fields still truncates to u8, though:
 
-	if (adapter->vf_res->num_queue_pairs > IAVF_MAX_REQ_QUEUES) {
-		...
-		for (i = 0; i < adapter->vf_res->num_vsis; i++) {
-			vsi_res = &adapter->vf_res->vsi_res[i];
-			vsi_res->num_queue_pairs = IAVF_MAX_REQ_QUEUES;
-		}
-	}
+drivers/net/ethernet/intel/ice/ice_base.c:ice_vsi_map_rings_to_vectors() {
+    ...
+		u8 tx_rings_per_v, rx_rings_per_v;
+		u16 q_id, q_base;
 
-The queue count, however, comes from vsi_res->num_queue_pairs (a u16).
-In iavf_alloc_queues():
+		/* Tx rings mapping to vector */
+		tx_rings_per_v = (u8)DIV_ROUND_UP(tx_rings_rem,
+						  q_vectors - v_id);
+		q_vector->num_ring_tx = tx_rings_per_v;
+    ...
+		for (q_id = q_base; q_id < (q_base + tx_rings_per_v); q_id++) {
+    ...
+}
 
-		num_active_queues = min_t(int,
-					  adapter->vsi_res->num_queue_pairs,
-					  (int)(num_online_cpus()));
+With 256 rings and one q_vector, DIV_ROUND_UP(256, 1) cast to u8 is 0.
+That sets num_ring_tx to 0, links no rings and leaves ring->q_vector
+unchanged. The Rx side has the same problem.
 
-and in iavf_set_channels():
+This function also runs on VF VSIs. ice_pf_dcb_recfg() calls it for every
+VSI except ICE_VSI_CHNL. On resume, ice_reinit_interrupt_scheme() calls it
+for every VSI right after it re-allocates the q_vectors.
 
-	if (num_req == 0 || num_req > adapter->vsi_res->num_queue_pairs)
-		return -EINVAL;
+Readers then use the truncated count. For example, ice_vsi_release_msix(),
+which ice_vsi_free_irq() also calls for VF VSIs, does this:
 
-Take a PF that reports vf_res->num_queue_pairs <= 256 but
-vsi_res->num_queue_pairs > 256. num_active_queues can then go above 256,
-either on a guest with more than 256 vCPUs or after
-"ethtool -L combined N" once the PF grants N.
+	for (q = 0; q < q_vector->num_ring_tx; q++) {
+		ice_write_itr(&q_vector->tx, 0);
+		wr32(hw, QINT_TQCTL(vsi->txq_map[txq]), 0);
 
-If so, set_bit() writes past ring_mask. Small overruns hit the q_vector
-fields that follow it (itr_countdown, num_ringpairs, v_idx, reg_idx,
-name). Larger r_idx values land past the end of the q_vectors array.
-Before this patch, the same input only reached "|= BIT(r_idx)" on a
-u32. That shift is undefined, but it stays inside the field.
+Wouldn't this skip clearing QINT_TQCTL/QINT_RQCTL for every one of these
+queues?
 
-The in-tree ice PF reports the same value for both counts. Hitting this
-needs a buggy or malicious PF, which is the case the driver's own
-comment in iavf_validate_num_queues() is meant to guard against.
+On the resume path, can rings be left with ring->q_vector pointing at
+q_vectors that were freed at suspend? ice_free_q_vector() only clears the
+pointer for rings on the linked list, and VF rings mapped through virtchnl
+are never on that list.
 
-The final iavf_validate_num_queues() at the end of the series has the
-same structure; only the threshold depends on LARGE_NUM_QPAIRS_SUPPORT.
+At the end of the series, this needs a VF with the PF LUT
+(ICE_LUT_PF_MAX_QS = 256) and ICE_MIN_INTR_PER_VF MSI-X vectors, so
+num_q_vectors = 1. The VF requests 256 queues, and then a DCB
+reconfiguration or a suspend/resume runs. The u8 locals and the (u8) casts
+in ice_vsi_map_rings_to_vectors() are still there at the end of the
+series.
 
-Should iavf_validate_num_queues() clamp vsi_res[i].num_queue_pairs on
-its own terms? Or should r_idx be bounded before the set_bit()?
+Should tx_rings_per_v/rx_rings_per_v and the casts be widened to u16 in
+this patch as well?
 
->  	     q_vector->rx.current_itr >> 1);
->  	q_vector->rx.current_itr = q_vector->rx.target_itr;
->  }
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/intel/ice/virt/queues.c b/drivers/net/ethernet/intel/ice/virt/queues.c
+> index 7f2b459dbc836..f87ccf5d370bb 100644
+> --- a/drivers/net/ethernet/intel/ice/virt/queues.c
+> +++ b/drivers/net/ethernet/intel/ice/virt/queues.c
+> @@ -1046,3 +1046,342 @@ int ice_vc_request_qs_msg(struct ice_vf *vf, u8 *msg)
+
+[ ... ]
+
+> +static bool ice_vc_validate_qs_v2_msg(struct ice_vf *vf,
+> +				      struct virtchnl_del_ena_dis_queues *qs_msg,
+> +				      u16 msglen)
+> +{
+> +	u32 max_qs = min_t(u32, vf->num_vf_qs, ICE_MAX_QS_PER_VF);
+> +
+> +	if (msglen < virtchnl_struct_size(qs_msg, chunks, 0))
+> +		return false;
+> +
+> +	if (msglen < virtchnl_struct_size(qs_msg, chunks, qs_msg->num_chunks))
+> +		return false;
+
+[ ... ]
+
+> +	for (int i = 0; i < qs_msg->num_chunks; i++) {
+> +		struct virtchnl_queue_chunk *chunk = &qs_msg->chunks[i];
+> +		u32 end;
+> +
+> +		if (!ice_vc_supported_queue_type(chunk->type))
+> +			return false;
+> +
+> +		if (!chunk->num_queues)
+> +			return false;
+> +
+> +		end = chunk->start_queue_id + chunk->num_queues;
+> +		if (end > max_qs)
+> +			return false;
+> +	}
+
+[Severity: Medium]
+
+Each chunk is bounds-checked here. Is anything rejecting duplicate or
+overlapping chunks? The only limit on num_chunks is msglen.
+
+For VIRTCHNL_OP_DISABLE_QUEUES_V2, ice_vc_dis_txq_chunk() calls
+ice_vf_vsi_dis_single_txq() for every queue in every chunk. That helper
+does not return early for queues that are already disabled:
+
+drivers/net/ethernet/intel/ice/virt/queues.c:ice_vf_vsi_dis_single_txq() {
+	if (!test_bit(q_id, vf->txq_ena))
+		dev_dbg(ice_pf_to_dev(vsi->back), "Queue %u on VSI %u is not enabled, but stopping it anyway\n",
+			q_id, vsi->vsi_num);
+	...
+	err = ice_vsi_stop_tx_ring(vsi, ICE_NO_RESET, vf->vf_id, ring, &txq_meta);
+	...
+}
+
+Each ice_vsi_stop_tx_ring() call does an MMIO read-modify-write of
+QINT_TQCTL, an ndelay(100), ice_trigger_sw_intr() and ice_dis_vsi_txq().
+ice_dis_vsi_txq() takes pi->sched_lock and searches the Tx scheduler tree
+with ice_sched_find_node_by_teid().
+
+A 4 KiB mailbox message can hold the 8 byte header plus about 511 chunks,
+each set to {type TX, start 0, num max_qs}. With 256 queues, that is about
+130k stop-ring operations from one message. They run in the PF service
+task with vf->cfg_lock held.
+
+The v1 DISABLE_QUEUES bitmap limits this to at most 16 queues, and each
+one is processed once.
+
+Can a VF keep sending this message to keep the PF service task busy? That
+would delay mailbox handling for other VFs, as well as AdminQ events and
+resets. The validation and the Tx disable helper are unchanged at the end
+of the series.
+
+Could the validation build a bitmap of the requested queues and reject
+overlapping chunks? Another option is to skip queues that are not set in
+vf->txq_ena on the v2 path.
 
 [ ... ]
 
