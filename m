@@ -1,54 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.212
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795061303;
-	b=NEgYf5Gki2SzTnjdDpWyp/62BGcnvt7VKYA/6qeiehfkTU530O6E+cvTxytB+lNQIShm
-	 yjs9tqGWVhKj79gQzUz98UIjSPyFFTdgMMeY7y+Apq7cPgn6R67nixnNrJ5FNrwaTyjuD
-	 +Ey/tXA0d0Lw7Lx2NLTtSuu2cHZhvSrF2DBeOlrjleUlfus4E4ydTQLeVq0G1WIiJ2ENy
-	 cZQKaWVwEaOQsE3ypGTWkzqUiaDv0Iy+e55Jk2emAe7lYr9At+060VHjPtFq03ME+7Q0j
-	 Bn/NP0kEJnWUxhUlVYDzV7HQ6omPFaNrVGa1mVWZqE7w1dwcHRhmBMfXDCMIHvt1z1w==
+	t=1795061562;
+	b=pfjyjZYAbva6nOc/605cNt3+VPjCu1gL9YAhzsnbrknQuvYgEUKCZ6I+gk9swmr7soNN
+	 7cf1yMo6s1wK2sYtpAETaDSFaXHB8/J1+nMUvdJMydP2Wh4E+0s4N7slBfo9MCkEz5gXz
+	 NV8s6uIncSoW6R8T0Kw5V/GxKt7ueqefwqCwaMFItMYAtBvFtEEorQRKDND2cpQlc8SlJ
+	 x2xjM7xTBP459s1liXDRY3TnA2C19sGdMFJbxf5Xe8C335XU7EC9wbcd2sPZaVjAM3RUG
+	 /nJHwuaJJ//xepqz8dHlFBGGJqTsFBw4o+N/cNO1+KlpWW67gb/a1fHpz29+fkGhn6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061303;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=8kgTy7DxiQLMuPP8fQhGc6a4uftmy7+klXDukgBMDq0=;
-	b=pPg6zox7DX9FOHLsc1Al4iXO3pKCHZN7K3knJkaguv0HsavzdezbeAlJhTbgkMcn1Pqd
-	 rsbBedWhLPCSfFzqkzJ1DqyUaXynj1V8JfpHQILNqqbXFgx9GJTimfXYdasZNSw0t7CMy
-	 2IJvPHMtwPFnA4eEXzUUUA9BHzsJyCGtYLds02Pd7+WIuxjSbyiKzDy5vE8dyyLaJ5xNa
-	 FgF7+2asfEM/hJeLZuQiFzB/S5eOiIe/d0DV05C94ZDtY4ZNBlDOZvjpd5W1BoGN1XI7N
-	 YZ0iLe3tdqBF/CFBZcdRuqDpUA4XKQV/Kkor6QvrG9UtC3CdPK2wvg6Bxxmu5UM5Ckw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795061562;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=9i2xSNVqrdCkfoxIYuGVvU1swaArXTrdncn/noLGlnk=;
+	b=ECW/wyTNkVMhniN38DX7kgMnDa0PYlVrLEWzFUj29bZMYFYfZvQN6pyWGxOwi8PKV4/h
+	 rh5VGALolIfntTZgj55IGX1VXrSNLaSZWDhC4YxmwYlwIwi+M7jIusuKZGQtUN208ID0O
+	 UXLg89zTCe9lap+pKnza1eM1+TccZEu+v8OxvqGGRz0FsFiBdiERSN5Us+h/YqtX6MHR/
+	 dv2jYe7l/ibu3PtsWDCOTQloRwSCEK6+XNWeYz+HcJ+0GXfP+VdRKUGCVzXFN0YZbkaIu
+	 YxiYMABeZmlF7Vbbq/BRdN1SZfTR2BSWTPqkLcqdpgg1KnheSLetvgZ0oDTUAhmRHNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jdK6uf3C;
-	arc=none smtp.remote-ip=95.215.58.212
-Received: from mta1.migadu.com (out-212.mta1.migadu.com [95.215.58.212])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=eCbUE52y;
+	arc=none smtp.remote-ip=54.204.34.129
+Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32068606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:08:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32068606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25D460A2603;
+	Thu, 19 Nov 2026 04:12:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25D460A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jdK6uf3C
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=whbgR+u9zDBcuS9v/MZNb96l3DLr6gjznO7ku7+wUbM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795061299; v=1; x=1795666099;
- b=jdK6uf3C4dP+zg4K4tuKRbWOGbAjHgF6lrYcyLazAoJ2GNnp3bMR1up6YaD4UUtVvoggIDkg
- 2r2OyIKKpMy6cRIvbtdUJGjCUNTYfGk62JKXpf1ORovF/1FQyd3lRQNL8ZLGsuKde6yGvc/Xauh
- g1ScHwaJS53OHIxCRgiMBJzU=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 13b25e838765a44f;
-	Thu, 19 Nov 2026 04:08:18 +0000
-X-Mizu-Trace-ID: 13b25e838765a44f
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <9013e41a-302d-4748-b9c7-058307140c3d@linux.dev>
-Date: Thu, 19 Nov 2026 12:08:10 +0800
+	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=eCbUE52y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795061532;
+	bh=9i2xSNVqrdCkfoxIYuGVvU1swaArXTrdncn/noLGlnk=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=eCbUE52yh4rzRfxMpVYueg6rlwt8f2hS5yNUpjXP1uR8RZrljExHtrUfZXmvg7aQt
+	 oCg4lDWirEKZVAKph8f89E5YNmKn7svxNjvSjpo/n7EGGODpmB3QL0uLg5QQkRZEzV
+	 7R/EzYGsBNapmlNPUOYgiVxoQL2V3f7eezHq5t/A=
+X-QQ-mid: esmtpsz10t1795061514t53da4054
+X-QQ-Originating-IP: d/4tuF11XGOj10HNJTbqcdVgReHSy8ZOCdXEKnz4xCI=
+Received: from localhost.localdomain ( [61.183.83.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 12:11:32 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 4520981733334392773
+EX-QQ-RecipientCnt: 9
+From: Wentao Guan <guanwentao@uniontech.com>
+To: edumazet@kernel.org,
+	ncardwell@google.com,
+	kuniyu@google.com,
+	imv4bel@gmail.com
+Cc: martin.lau@linux.dev,
+	jiayuan.chen@linux.dev,
+	netdev@vger.kernel.org,
+	stable@vger.kernel.org,
+	Wentao Guan <guanwentao@uniontech.com>
+Subject: [PATCH net] inet: reject unhashed sockets during timewait purge
+Date: Thu, 19 Nov 2026 12:11:14 +0800
+Message-ID: <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,97 +73,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] tls: wait for a single RCU grace period in
- tls_device_down()
-To: Eric Dumazet <edumazet@kernel.org>, "David S . Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>
-Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org
-References: <20261118224758.1617869-1-edumazet@kernel.org>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <20261118224758.1617869-1-edumazet@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: No4GWyI4cWt6Df5bP2kXmZVq/n+C2IUuPBJF8fu8tufByM2nUw+PMfJt
+	KZTka2mvCe8SHfhRf/7C2hZP/LvZ+ly09DubesZVOuGtTobsMj/xVSKNGpBBvfQkcidhYFU
+	IHvlw4B5OjUmZvCh+Wmr5oR2BMlWAk6zaiqKhndsvdar7+AaLF5yg7WEkXH7c6OuXDUnOfL
+	jvUDMkatSrpb1YnNwdJUmQooeZtL29Tei+2m7l13OJCu/4CZGdIIyk0pMIf12L50MEpT1W3
+	grHRbgNpwP4bx1ETAvUuxPp9K+Dls33Cn4mLUIuqblyKz02CkcxnH9O1RoLDhRd6pNsFne0
+	SD9Zc13WL/QCW2lMIzldyQUH3OV/Uj+jr3njLoU8A37fqvczZjTJA85wq1ZJSja2YkQ8X+Z
+	RdOXjmeFMLt+2dpla4lQMbj8w9B4FGjrRAIP2CYPHq98205dDxRGPW0fWQx8Nv7d3DiZLUO
+	lMby7AacTTqyJWFBhaKcLHTZFcwLobCNBRcRIJBfxLpgAjiwIn0qK/ydra8uaRw8oC+1d4V
+	68jMtMkUbLvpprJcQIv79cLFXVstx3TcX5i9+/1iXH6VyUa6Gz2QCRudHW7aXOvBbnEVOQ7
+	2qlH+AIP8rbVUvGAaLH/RKhK4qV1vFj3pflrkYPJO9Nec2m4PWPglj7J0na05i8BHwL7yIX
+	xPa727/Uq5kdC3A7VueZu70U6bE8C03G1esWcC+H3sa6XWTMFVdXVzjpOafEm6Yy0DdFah7
+	0kuQgwzDSY3A1zfo5QPultxcxnax3ihinSNF7vn//lSNueI9U4Q02206BTERD8MBXVtRHsq
+	1Kns9PSWbUlv51lgUGiYShidS8+4pE45X/qxLDwE9BT8coqQtFviphx7Cojydi6xFviuGb0
+	8RBLl2wbFe78DS3TnFNBXvnTIZuYIerACD7bR21RDCy3Fx+Raq1e10PI8zXKxRGyWra+S6d
+	ZYubBOXNHuAxmpBH5sJd8AOIGuIfTf63JxPpXDYox2cofrWkNFAkxKD4SNsvNQ/lx21Q+iT
+	lVLWqZBKIh8qVAcVTQ5XinkZVwT+GGhatnqAJnQc2byx331QpeTF+C2EFJDp8=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 
+A shared ehash can retain a stale pointer that is recycled as an
+unhashed SYN-cookie request from another dead namespace. The namespace
+recheck alone accepts that request, and
+inet_csk_reqsk_queue_drop_and_put() can then operate on an uninitialized
+timer.
 
-On 11/19/26 6:47 AM, Eric Dumazet wrote:
-> tls_device_down() calls synchronize_net() for each offloaded context
-> bound to the device going down. As this runs from the NETDEV_DOWN
-> notifier, a device with N offloaded sockets waits for N RCU grace
-> periods while RTNL is held.
->
-> Split the loop:
->
-> - First stop the offload for all contexts: switch to the software
->   fallback, clear ctx->netdev and set TLS_RX_DEV_DEGRADED.
->
-> - Then call synchronize_net() once, if there is at least one context.
->
-> - Finally release the driver state and drop the reference of each
->   context, as before.
->
-> The contexts are on a private list with a reference held, and the
-> first step only writes to fields of each context. The only change in
-> behavior is that all contexts stop being offloaded before the driver
-> state of the first one is released.
->
-> Compile tested only, with CONFIG_TLS_DEVICE=y.
+This is the inet_twsk_purge() counterpart of the validation added for
+established lookups. Recheck the nulls node after taking the reference.
+If it is unhashed, drop the reference and restart the purge instead of
+operating on the recycled request.
 
+Fixes: 4e2b3ef19e0e ("inet: reject unhashed sockets during established lookups")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
+---
+ net/ipv4/inet_timewait_sock.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
+diff --git a/net/ipv4/inet_timewait_sock.c b/net/ipv4/inet_timewait_sock.c
+index e256c55ce9f29..5601bd03b1382 100644
+--- a/net/ipv4/inet_timewait_sock.c
++++ b/net/ipv4/inet_timewait_sock.c
+@@ -333,7 +333,8 @@ void inet_twsk_purge(struct inet_hashinfo *hashinfo)
+ 			if (unlikely(!refcount_inc_not_zero_acquire(&sk->sk_refcnt)))
+ 				continue;
+ 
+-			if (check_net(sock_net(sk))) {
++			if (unlikely(hlist_nulls_unhashed_lockless(&sk->sk_nulls_node) ||
++				     check_net(sock_net(sk)))) {
+ 				sock_gen_put(sk);
+ 				goto restart;
+ 			}
+-- 
+2.47.3
 
-I tested this with the netdevsim TLS offload emulation [1] (changed a little locally): N sockets with
-TX and RX offloaded on one port, then "ip link set down" on it.
-
-sockets    before    after
-    100   12.7 ms   8.6 ms
-   1000   39.1 ms   11.5 ms
-   5000  160.8 ms   19.2 ms
-  20000  577.2 ms   44.1 ms
-
-
-Reviewed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-
-[1] https://lore.kernel.org/netdev/20261117140642.4008-1-jiayuan.chen@linux.dev/
-
-
->
-> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
-> ---
->  net/tls/tls_device.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/net/tls/tls_device.c b/net/tls/tls_device.c
-> index 4cdfbb57ecff0a0ad5589fca4ab6599ab695c913..9c2f57312d14062f453d8b8e316404a3d1b20e0f 100644
-> --- a/net/tls/tls_device.c
-> +++ b/net/tls/tls_device.c
-> @@ -1349,7 +1349,7 @@ static int tls_device_down(struct net_device *netdev)
->  	}
->  	spin_unlock_irqrestore(&tls_device_lock, flags);
->  
-> -	list_for_each_entry_safe(ctx, tmp, &list, list)	{
-> +	list_for_each_entry(ctx, &list, list) {
->  		/* Stop offloaded TX and switch to the fallback.
->  		 * tls_is_skb_tx_device_offloaded will return false.
->  		 */
-> @@ -1362,13 +1362,16 @@ static int tls_device_down(struct net_device *netdev)
->  
->  		/* Start skipping the RX resync logic completely. */
->  		set_bit(TLS_RX_DEV_DEGRADED, &ctx->flags);
-> +	}
->  
-> -		/* Sync with inflight packets. After this point:
-> -		 * TX: no non-encrypted packets will be passed to the driver.
-> -		 * RX: resync requests from the driver will be ignored.
-> -		 */
-> +	/* Sync with inflight packets, once for all contexts. After this point:
-> +	 * TX: no non-encrypted packets will be passed to the driver.
-> +	 * RX: resync requests from the driver will be ignored.
-> +	 */
-> +	if (!list_empty(&list))
->  		synchronize_net();
->  
-> +	list_for_each_entry_safe(ctx, tmp, &list, list)	{
->  		/* Release the offload context on the driver side. */
->  		if (ctx->tx_conf == TLS_HW)
->  			netdev->tlsdev_ops->tls_dev_del(netdev, ctx,
