@@ -1,96 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795092036;
-	b=mJTPBoyoNbjpVrDk2ceaaqI7Ve9AmRSN9Y1+lWOBXANT/Oi4kVyNnNZ325FCe+UJk8hl
-	 fD7/P0/wSKfgitnJ4MdDClL93Uac9RJH0jNE94XCYT1b9dwOs3kQA4MGGt9SUHH1W34lG
-	 lOW6n57/SxRN9QUuJ3mJ1cuhj1huyhQIgVIdWq0QJEvm1n7YOQcxZ/LVAptYo+CrOzMxC
-	 psJwrudt9ZN5dwBagtBScyK/OeSBRmy45xHsI4KzNAFCwefzCUnOlf2Goap4Zz15NVCzz
-	 VSoAjpMQss+aZIivq2tUp65bBSLSUs9XqWm/8x9Bk/h4kMlVgroblt2Zo9FagOnm9+A==
+	t=1795092039;
+	b=QmvG8J4noIBrxCEcvlfdSyx5c6I9BgTdZjXIirc7PUGyVADb7DYhbawhsY1CQ4FT8+d0
+	 +87rjBzN+4xZqFJSvXyY2cfNm/re2Zr6Jl71VRy9VjX39peAeppO8wr7DXmRdBNsBKCkn
+	 pMYBb77XExPeYlQhLZcIForb2eHMaVRd8CKMT8m0jIeZiiBK3nuQTHn+iOTOzgXXREyLu
+	 NdcPYUb6r0Ix7+yexI4UaD0VDgEFb/GAfnIBkg5KgpkxtSPEcv814mRXNtxHjmSMdQT0R
+	 TUyidfy3UIa/RVSo17HDciQeROIlQ4hbrVnd5kLMRDLqHFNRZybxl2qQwDTYLP/PpSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795092036;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795092039;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=tVDnY8OtxNX87CAwAGPLJZ7DAxyj7rWw4UJCN44byEo=;
-	b=IpUUMa1jQULMXkiJcfZE2yh+rFK1Qx8DPLfUZ1PxXd7YPE1RpP2kIo++rrWisjHjgb+C
-	 G0XGk0adRAopLgi/KfrXWTpaijubQTpaTuI+LdbkCtxwoFe1Eqb0OcXOZfdx+HUD+CUos
-	 tVqk3ll1q+H9c4GReP8HuTJeUAzmSc5LSw406a7JB2bDUKVF2CPyVSmdw2l4jgLXo22mG
-	 B2IsDCxMV6+B7xoAWnp3iX4vri2ya7MJmpaB8WVUUB7WAe0i7BUzAJ33nYSJ8g3u7mzcV
-	 YJTrBWe/POyrmz8yo3GsTs9SjGqlR1J/B2g68CjSGR0sKCko5ZbfPhTqSIDD5NMclww==
+	bh=/HBktdhhH40COOtgFHhMziUMTJYpM/f/9inUmvkMpn0=;
+	b=Y5/VxYWxzFYlw+70JES2l0ReFIuNLFkICUX95JyHtC4hzDnTaFcUTXu5IeE0VZGuT3RR
+	 jEX90ki4wFtv5zGLuUWk0iZ/RfslxH6W7EqjjtuSK/lVeezhUP335EXdcNF/H811qT60O
+	 8Srb1xKGxvYUVbbOR9zJVjiBggM631NZI7lINXJsCApXWXwN4eCH68z2LYGRprfqjKFtt
+	 AQ66Nf3qkZjlqcrdwjbHh5TE+u9gTiYIAw5zZPyItdWu3G0+uqwLRJWaltpqajm803kpd
+	 j68K24UbSI3mqLm15RAbKkhR5N3lqQVd1Ad3x+x9Iy1mcwBaCiFHRX6AhcxYJof1NJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mojatatu.com;
 	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=O8pJNLyp;
-	arc=none smtp.remote-ip=209.85.219.42
-Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=TG59cT47;
+	arc=none smtp.remote-ip=209.85.160.182
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76A20606A330
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:40:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76A20606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA833606A338
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:40:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA833606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=O8pJNLyp
-Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-9212aaefc11so5868746d6.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:40:36 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=TG59cT47
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5366ae57896so20824031cf.3
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:40:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795092035; x=1795696835; darn=vger.kernel.org;
+        d=mojatatu.com; s=google; t=1795092037; x=1795696837; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tVDnY8OtxNX87CAwAGPLJZ7DAxyj7rWw4UJCN44byEo=;
-        b=O8pJNLyp5l0iKi1X4+pPG7gM8tZIRyouS1KJ1bmgyKmu0Y/IMd+XIfxoVhjnO6jS6r
-         CVZTS0GDKOWNYnf968sqh1hXrjpWHa5zfEzdsxWWt8swcz2Ue+ytbt+rxLuopiOkuAYf
-         tuo+zJ9NApIiLSTz3C77VaADY98UxsujnzhI0=
+        bh=/HBktdhhH40COOtgFHhMziUMTJYpM/f/9inUmvkMpn0=;
+        b=TG59cT47d78F1RoC28G8m4TwPz6aL4pqdP6Eo2YIKsEOX6vagNfv3qWajo+aP3L6vL
+         bJobuGx0zpMVC8S5LTj4VZvIyTLEPzCcs1u5Pn1oHPdt3yXV2H4YHlQ/lAUaBDuINIhS
+         NTPjMyB8ek/ZQ2OCKgWgzvG06qpqF/XuuLApE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795092035; x=1795696835;
+        d=1e100.net; s=20260707; t=1795092037; x=1795696837;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tVDnY8OtxNX87CAwAGPLJZ7DAxyj7rWw4UJCN44byEo=;
-        b=DGuWSLQV12WgzawxVzUlF+2IFwFW3jLKbpYzeKt6O7B9JtWiRGnc7kwb4DqQbxskPQ
-         bF38fCU7sHFmuT8+0wig7Q+4MQnkrbVWS7ImKFYXwrataETH8iy6XCfQ4dudZq5RJiN4
-         E9WX/UWA4b1pSpNUEwsUqXonLvPPkrXWe8J7JN72qnb3nEL49K7fcjwoH8org5jIsLKN
-         3AFFjU21+Qhn+xWNI71/MzjhbyEzvabaa13330Xxfu33Hl/6BGhMkVu2YLY6QbjA6MJO
-         nNnCwKtZ6ofsDeY3SfklSK68jTCOoK/xQuFN0HU0DYKBpYHS5t8Di2sWZyo1klF59s3u
-         iBzg==
-X-Gm-Message-State: APuU4Z8lnC7r2P6OOYmXhCXj+m42HOTeqQPlLu3bjTUsgGQ0fQ9RPi3e
-	EVKKumJv5/aCyxH/aJOOjEbx6J78dgI4229pI3wyRhqVOg0rkwRwoDArwyV8u6YRvIhd4h/xre7
-	eM1Y=
-X-Gm-Gg: AYBFou26Xbmf33AvUIW4ol4m964vrzFb2uS/jlXSDZUzT8HM4deBAfpwUPQYwBiO8Tv
-	izQhD9T6TfE4npQefGVTHigfuI78MYfhq5VVtS1sJ0nEiP9/Zg5/PU2TYkmQh8ci0gw9AooW9R2
-	qkl/ePE2GpmP3aisuLYF/jn6aDzaOAUlErqD/maqaZBwj2g3jbrk9wqVNgPUiplIBvm+3UXEznB
-	eP+GlyMLw862eCQeAfRGOsXllMS8VNCOp5NkphYPLg+aLrzOSyMgpBzgGKXbJM25JR1HRbl5bIX
-	/V13AA5BrXH13l900Y5mFxzsvIYInUTj1fHtAPnR6fbu/hj65Kc8EXQC43HE988BA/uvaOa35l9
-	6HC6YSu3Y1Vac5OLJBgdtav6Fl/oeBjPNB2X2x4u+VcQ7ELxu1pbFsf4OqMkhuU8Pmnvwpvayej
-	a3zhH2CowpMpUhy+x5SVQGGjmnm9JuZ471x/Sy6Sr3WYXrAeIJ/2nbyHgDpx3vch329U+QkXaLI
-	ylxgziUfzUfo9o+dHfQw4uTGcLMEUiv7SmIgh6vWhOHRQWlLbAJyne+lTYWWjL61eP7kdlTykV0
-	Ihez0SL1uHDCfVOMAdEZ5xSe0stTggZmNd1p9ITXn8u5fE+i83QGbMQ/1+gFR+rWUSejAaZLtjs
-	=
-X-Received: by 2002:ac8:5d06:0:b0:536:d47:22e with SMTP id d75a77b69052e-55d5a5e9e6fmr94167611cf.40.1795092035312;
-        Thu, 19 Nov 2026 04:40:35 -0800 (PST)
+        bh=/HBktdhhH40COOtgFHhMziUMTJYpM/f/9inUmvkMpn0=;
+        b=WO2u+UoHN8x8DMaq1nH9uJ9jF4OCY8nzCHXUMjgj7wA32hI7W3otxlOdRui5VB1pQW
+         iol7QWuk4AfefmMs3jXoJAhIzq3SmnETQlqC+RLSMhESSOe56HByal0XkchmErQsKJYw
+         UI186/KVKo9jD9HAzdhOBrcNUKtLGhKDe+miS0xuFuzrTk/UZNnF35nr1qszoGQsyuie
+         RYKFBAJW9Tg9/Jn9pnHVpntrgb4d1xy7aB5tPu0z4VFz/8yNRGKJs+/XiBBC45W3dXP/
+         3w2YRHCW7ANkm9Q23uBFsNkSUfby8KnVJ1VKBeGaboNyi4EBRGrfgi/9ENoqJ79CEEUX
+         zK/g==
+X-Gm-Message-State: APuU4Z90z9eU1RsYCsmnpnv3n/qdeZY8k4j8r42alenyqWMLLVpO6T0f
+	mBTHXNDx//fg+eiet6Vz7mOoCfWJ71QQH+mKvl+xbGVG34d5p83WeH9semed384Mu6guCjS6IaS
+	uLSs=
+X-Gm-Gg: AYBFou3YBLFy1HAvPMFmhtFGN1U3Z2xaVw1Yb+5VQGCVLM5gVcpPPYlK/2xtImfvWW1
+	u2hQeumCLMDYRz6DBS7guixppWNWgVDgZ6XYSV9hUlqISJciV5T4k9MmRd8H8h4wPlyTuSe04ER
+	9Z93Ebn6rZxYP3xUFziLsN1g8LTB188GQuulBBYZ8ws2GX5UeWMSyISDAE1Tm93MeMPOqFT0Wjd
+	7rD5qknPFDoIfFuJy+bQjAkHFfu5/I7gXN47x0ilzQpkRqHJ8BO0OX85of8l+6y47kmfWXJZ1fX
+	+irXQa4JKRYsic4DMXYvQF9217kaGy3lKlFOXpZxSNhjuBfvvjMU+5tJyZ7Uvf20MHIkyz2EC9w
+	LGXydbtT3JxmAZCnwvl9bEEXTKHTEI6JcwEHKmeazyaKQqQyXOItSLtSM1/uPksEiJGTAjry3xw
+	p9HtdoTgZ6G6B9f5fUcDKySyXe+GFv0NqcNOFn9vHoh0U3I8RgmO2Cfk1Q3fD1eMwnJmNSYQR+L
+	01pkU0oXessyGrDxpac3e2yZPKpgBnJbE3+zUok2kWuZTXpbzyOJhtp4WglyLIPDF/CoOoF9Do9
+	jtbEPE0ROX7Hx4h8+3XR12LGVwZr1x6qlUbsZPERnBkeRLNFaMJFzec+lu5yMqj2LJBSWHUFcAU
+	9
+X-Received: by 2002:a05:622a:40b:b0:55d:37d8:5037 with SMTP id d75a77b69052e-55d5a75b268mr87571091cf.77.1795092037457;
+        Thu, 19 Nov 2026 04:40:37 -0800 (PST)
 Received: from mbili.waya ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66b75823sm22370191cf.13.2026.11.19.04.40.31
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66b75823sm22370191cf.13.2026.11.19.04.40.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:40:34 -0800 (PST)
+        Thu, 19 Nov 2026 04:40:36 -0800 (PST)
 From: Jamal Hadi Salim <jhs@mojatatu.com>
 To: netdev@vger.kernel.org
 Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
 	Victor Nogueira <victor@mojatatu.com>,
 	Jiri Pirko <jiri@resnulli.us>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
 	Simon Horman <horms@kernel.org>,
-	stable@vger.kernel.org,
-	sashiko-bot@kernel.org
-Subject: [PATCH net v6 1/3] net/sched: sch_teql: unshare the header before writing and fix retry strip
-Date: Thu, 19 Nov 2026 07:40:23 -0500
-Message-Id: <QDISC-6HS9.v6.r0.20261119070330-1@mojatatu.com>
+	bpf@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net v6 2/3] net: neighbour: reinject a parked skb through a headerless output device
+Date: Thu, 19 Nov 2026 07:40:24 -0500
+Message-Id: <QDISC-6HS9.v6.r0.20261119070330-2@mojatatu.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <QDISC-6HS9.v6.r0.20261119070330@mojatatu.com>
 References: <QDISC-6HS9.v6.r0.20261119070330@mojatatu.com>
@@ -105,190 +108,99 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This is a followup of commit dc4b95b8fee9 ("net/sched: sch_teql: restore
-skb->dev on the slave failure path") as reported by Sashiko.
-
 The issue:
-teql_master_xmit() writes the slave's link header into the skb in
-teql_resolve() and on retry pulls it back with __skb_pull().  Two bugs:
+neigh_update_process_arp_queue() drains a neighbour's arp_queue and
+reinjects every skb through READ_ONCE(n1->output)(n1, skb), where n1 is
+the top-level neighbour re-looked-up from the skb's dst, not the neighbour
+the skb was queued on. skb->dev is whatever the producer left there.
+Note: skb->dev and n1->dev are not guaranteed to be equal.
 
-1. When the skb's header is cloned (e.g. a tc-mirred action on a
-   physical device's clsact egress redirects to the teql master), the
-   write corrupts the other clone.  Call skb_cow_head() first.
+When n1->dev has no header_ops, arp_constructor() and ndisc_constructor()
+install neigh_direct_output(), a plain dev_queue_xmit() that transmits on
+skb->dev and builds no link header. Such an output sends the skb out
+whatever device skb->dev names, not out n1->dev, so a producer that
+parked the skb naming a lower device has it leave without the link header
+its own transmit path builds.
 
-2. The pull always removes skb_network_offset() bytes.  For an
-   AF_PACKET/SOCK_RAW frame with no dst entry, teql_resolve() adds no
-   header, so the retry strips the user-supplied one.  Pull back only
-   the length this slave added.
+sch_teql is the producer that hits this: it parks the skb on the slave's
+neighbour while the top-level neighbour is the master's, so skb->dev and
+n1->dev differ and the reinjection has to come back through the master to
+leave with a header. It names the slave on purpose, so that a parked skb
+does not outlive the master it came from.
+
+This was split out of the sch_teql fix on review, so that the neighbour
+restore carries its own commit log and its own Cc set. It is the first
+half of that pair and is applied first. The behaviour it describes
+exists once the second half, "net/sched: sch_teql: keep skb->dev
+consistent on the arp-queue path", moves skb->dev = slave ahead of
+teql_resolve(): until then the parked skb still names the master, so the
+assignment is a no-op and the recipe below does not reproduce on this
+patch alone. The two are taken together.
 
 The Fix:
-Unshare the header before the neighbour is asked to send the skb, so the
-skb is private whether the neighbour writes the link header at once or
-parks it on its arp_queue and writes it when the entry resolves.  Start
-every attempt from the network header, as neigh_resolve_output() does,
-so an skb that arrives with link-layer bytes in front of its network
-header is given one link header rather than a second one.  Track the
-added length per iteration; an AF_PACKET frame retries with its header
-intact.
+Put skb->dev back to n1->dev before the output call when that device
+builds no link header, so a headerless output transmits on the device the
+neighbour belongs to, whatever the producer left in skb->dev.
+
+A forward that steers the skb to another device, nft fwd ... neigh or
+bpf_redirect_neigh() with explicit nexthop parameters, parks it with the
+dst of the original route still attached. When the original route is
+itself a headerless device this gate matches there and the skb goes back
+out the original device, running its egress hook a second time. Those
+forwards supply their own device and nexthop and do not consult the
+retained dst, so dropping it at those two sites is where that is fixed;
+that is a separate change to the producers.
 
 Conditions to recreate the bug:
-CONFIG_NET_SCH_TEQL=y and CONFIG_VETH=y, run as root. A teql master with
-two veth slaves, the first slave returning NETDEV_TX_BUSY without
-consuming the skb so that teql retries the frame on the second one:
+CONFIG_NET_SCH_TEQL=m and CONFIG_VETH=y, run as root. This is the
+neighbour half of the sch_teql parked-skb fix, reached once the sch_teql
+half parks the skb naming the slave: create a veth pair, make one end a
+teql slave, give the master an address and a route, flush the slave's
+neighbour entry and send one packet:
 
-  ip link add vethBAD type veth peer name vethBADp
-  ip link add vethGOOD type veth peer name vethGOODp
-  ip link set vethBAD up;  ip link set vethBADp up
-  ip link set vethGOOD up; ip link set vethGOODp up
-  tc qdisc add dev vethBAD root teql0
-  tc qdisc add dev vethGOOD root teql0
+  ip link add v0 type veth peer name v0p
+  ip link set v0 up;  ip link set v0p up
+  tc qdisc add dev v0 root teql0
   ip link set teql0 up
+  ip addr add 10.0.0.1/24 dev teql0
+  ip route add 10.0.0.99/32 dev teql0
+  ip neigh flush dev v0
+  ping -I teql0 -c 1 10.0.0.99
 
-Send a SOCK_RAW frame that carries its own link header on teql0 and
-capture it on the second slave's peer. A veth transmit does not return
-NETDEV_TX_BUSY on its own; to hold the skb pending this reproduction used
-a test-only IFF_DEBUG accelerator in veth_xmit(), which is not part of
-this patch and was applied to both the unfixed and the fixed build.
+The packet parks on v0's arp_queue. When the solicitation resolves,
+neigh_update_process_arp_queue() reinjects it; without this change it
+leaves v0 directly, with no link header, and never reaches the peer.
 
-On the unfixed tree the captured frame arrives with its header stripped
-(176 of the 208 bytes sent, starting at the payload) because the retry
-pulls skb_network_offset() bytes while this slave added none. With the
-patch the frame arrives intact.
-
-The shared headroom case needs a second reference to the skb to survive
-the transmit. A PF_PACKET tap on the master whose socket is never
-drained keeps one alive; a kprobe on eth_header then reports cloned=1
-without the patch and cloned=0 with it. The parked path needs the
-unshare before the queue: a tc-mirred mirror on a physical device's
-clsact egress parks the clone on the teql slave's unresolved neighbour,
-so hold the original frame in a netem delay on that device and then
-resolve the slave's neighbour through a changed lladdr. Without the
-unshare the arp-queue drain writes the new link header over the original
-frame's first bytes, and a listener on the peer sees a frame addressed
-to the new lladdr instead of to itself; with the patch the queued frame
-keeps its own destination address.
+The window that frees the master, and the unload recipe that shows it,
+are in the sch_teql patch.
 
 Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260824115928.4099988-1-victor@mojatatu.com
-Reported-by: Sashiko (nipa) <sashiko-bot@kernel.org>
-Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v4.r0.20261111094338-1%40mojatatu.com
-Link: https://lore.kernel.org/netdev/20260824115928.4099988-1-victor@mojatatu.com/
 Link: https://lore.kernel.org/netdev/20261110101908.2e64e8e9@kernel.org/
 Cc: stable@vger.kernel.org
 Reviewed-by: Victor Nogueira <victor@mojatatu.com>
-Reviewed-by: Simon Horman <horms@kernel.org>
 Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
 ---
 v5 -> v6:
-- every attempt now starts from the network header, as
-  neigh_resolve_output() does, so an skb that arrives with link-layer
-  bytes in front of its network header gets one link header rather than
-  a second one.  The header length is recorded as the offset the
-  neighbour built, and only that much is pulled back on retry.
-  Considered comments from Sashiko (nipa).
+- the commit log names the sch_teql half this neighbour restore is
+  applied before.  Considered comments from Sashiko (nipa).
 
- net/sched/sch_teql.c | 30 +++++++++++++++++++++++++-----
- 1 file changed, 25 insertions(+), 5 deletions(-)
+ net/core/neighbour.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/net/sched/sch_teql.c b/net/sched/sch_teql.c
-index dc21cd9704a2..44730a5e8917 100644
---- a/net/sched/sch_teql.c
-+++ b/net/sched/sch_teql.c
-@@ -262,7 +262,7 @@ static int teql_qdisc_init(struct Qdisc *sch, struct nlattr *opt,
- static int
- __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
- 	       struct net_device *dev, struct netdev_queue *txq,
--	       struct dst_entry *dst)
-+	       struct dst_entry *dst, int *hlen)
- {
- 	struct neighbour *n;
- 	int err = 0;
-@@ -292,6 +292,18 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
- 		n = mn;
- 	}
- 
-+	/* Unshare the head before the neighbour can write or queue it. */
-+	if (skb_cow_head(skb, LL_RESERVED_SPACE(dev)) < 0) {
-+		err = -ENOMEM;
-+		goto out;
-+	}
-+
-+	/* Each attempt starts from the network header, as
-+	 * neigh_resolve_output() does.
-+	 */
-+	if (skb_network_offset(skb) > 0)
-+		__skb_pull(skb, skb_network_offset(skb));
-+
- 	if (neigh_event_send(n, skb_res) == 0) {
- 		char haddr[MAX_ADDR_LEN];
- 
-@@ -299,9 +311,12 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
- 		if (dev_hard_header(skb, dev, ntohs(skb_protocol(skb, false)),
- 				    haddr, NULL, skb->len) < 0)
- 			err = -EINVAL;
-+		/* The bytes prepended above skb->data, pulled back on retry. */
-+		*hlen = skb_network_offset(skb);
- 	} else {
- 		err = (skb_res == NULL) ? -EAGAIN : 1;
- 	}
-+out:
- 	neigh_release(n);
- 	return err;
- }
-@@ -309,11 +324,13 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
- static inline int teql_resolve(struct sk_buff *skb,
- 			       struct sk_buff *skb_res,
- 			       struct net_device *dev,
--			       struct netdev_queue *txq)
-+			       struct netdev_queue *txq,
-+			       int *hlen)
- {
- 	struct dst_entry *dst = skb_dst(skb);
- 	int res;
- 
-+	*hlen = 0;
- 	if (rcu_access_pointer(txq->qdisc) == &noop_qdisc)
- 		return -ENODEV;
- 
-@@ -321,7 +338,7 @@ static inline int teql_resolve(struct sk_buff *skb,
- 		return 0;
- 
- 	rcu_read_lock();
--	res = __teql_resolve(skb, skb_res, dev, txq, dst);
-+	res = __teql_resolve(skb, skb_res, dev, txq, dst, hlen);
- 	rcu_read_unlock();
- 
- 	return res;
-@@ -335,6 +352,7 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
- 	struct Qdisc *start, *q;
- 	unsigned long flags;
- 	int nores;
-+	int hlen;
- 	int busy;
- 
- restart:
-@@ -361,7 +379,7 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
- 			continue;
+diff --git a/net/core/neighbour.c b/net/core/neighbour.c
+index ae2db3912454..d36d86cfc441 100644
+--- a/net/core/neighbour.c
++++ b/net/core/neighbour.c
+@@ -1342,6 +1342,9 @@ static void neigh_update_process_arp_queue(struct neighbour *neigh)
+ 			if (n2)
+ 				n1 = n2;
  		}
- 
--		switch (teql_resolve(skb, skb_res, slave, slave_txq)) {
-+		switch (teql_resolve(skb, skb_res, slave, slave_txq, &hlen)) {
- 		case 0:
- 			if (__netif_tx_trylock(slave_txq)) {
- 				unsigned int length = qdisc_pkt_len(skb);
-@@ -408,8 +426,10 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
- 			nores = 1;
- 			break;
- 		}
-+		/* Pull back only the header this slave added. */
-+		if (hlen > 0)
-+			__skb_pull(skb, hlen);
- 		skb->dev = dev;
--		__skb_pull(skb, skb_network_offset(skb));
- 	} while ((q = rcu_dereference(NEXT_SLAVE(q))) != start);
- 
- 	if (nores && skb_res == NULL) {
++		/* headerless output transmits on skb->dev, not n1->dev */
++		if (!n1->dev->header_ops)
++			skb->dev = n1->dev;
+ 		READ_ONCE(n1->output)(n1, skb);
+ 		if (n2)
+ 			neigh_release(n2);
 -- 
 2.34.1
 
