@@ -1,101 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795118530;
-	b=15ANNTW+D0L53EwRuC/3WDQxjMDV3du9CQ3O2ucizePfcACm7bEwPv8UomaL03/ZuxE2
-	 ZTUaJkORs/qE8HFIjUeXK9hqmHivDotc7CSslBvA9XhPdtZtpPKaJNUD+g0KSUdzrt5Gm
-	 BN6GvCsCi/j1DAMcp+1tZSpozBvey2cYAjqaK9TElSp24pR0L+5lVp9ehrX87aow4mEew
-	 uOdRTHiYQlAbadahzfqodvcvVrykt13gZwcjslJ5H4c5V9c8rt4FbpYtBj4t8kqa4BTnV
-	 OmfEcRZQbeqMCjO1faD/d9OERWwAbVdelLNkWLbC/ANu4+cg312CnPQWXo++zvyeMaQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118530;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-	b=z7rMa9KcHdhNC02IAahVRmxQfNx+1o5zMFzxZMwI3ve/gSd4qtp62dwATkddFMY4iBTQ
-	 ZfWUCiDyg1LYDJe/8tG1Qp7hL4Nux2LlsqrbxPmRc5GeoQ0KEQnVzwD/iuW2GxabfEYEX
-	 Ubm/ZpV2RJdUI8DKFI27kqowziQMRfbJXrSgWbm+I37TXVY6pE9d8kzCaMeK26/RuydHx
-	 Aru43u4ymNmWTF1jjQQAJRG1NR6XHxHzYMiZ0RhlZrVuzVxuPxAoo7fY0z+nE0Kox7d5A
-	 ++1S509D87IuTed9zANl9hNeEYNBvZmwbrqR0fiFPt6czHBP3xu9YD2F+ghr8t1HOEg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M3fG1mGz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795118564;
+	b=gtyWL0MpBDM3+ubmoRV8FLjg60zbe3R230cqXaHD9fM/UCQ4qwIfi/RBs3rnKBoajU1J
+	 ip58SfPlRcVNEmltr9v6fd9+MId1q+0QxZp+m+DJSlXuEg2JrimCz+huAdvuC6rdHDmYw
+	 pnmzy9LKCB7P/1qPxapZiiWYVhIKKtKs1W9bhUd5ZT222+jNikFbuWmt3WXgPPLqIflV1
+	 fnO/qq854815K3a9pyDEtn4QtAvvCKkmRmGmGL95GQjfludsth5yVmITDqHGh+kGhux5Y
+	 ZqJnML026/IaywiDD6bqaRg7FwoNIoorxK/f7BKThmzGQmxcX3aDBCaAm5xcxfuj4JA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118564;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=dxfb/sPVGMZpxQTV2aEE45mRohpQPeNSpNM2wT9CGIs=;
+	b=iALJy3x7AFoLvTKM9mhkHQJZBFw+yFwVECkk88RB9+hA5Pn7CpaQMJslbex4qAS/5om9
+	 Rq/xUnHO5Cq31+u/E1ngfw8AKn0DUbA8N/CF0q5t/WKvMLaEjynGWRA/Klgy2aAgZt/cI
+	 oaIXqh3jqEdf3QTyO6VKOXGheF282s279rGeUdbXt8C+J6fzuU8xvNw84fzjqEiCnvVqZ
+	 xae3v3cmB6+bgkl+3XeA4l30N/7YAq6d/R8026C8y9CvE9o0y6zxSs1ZvHoILy+BGn8LH
+	 EriouJZ1EXQGONUqb3H8ORo7vszIJBlJVeoWqgNuxN1yl7c2m2qRM5VBTBf8B3vq6oQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wd64eoZp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B834C606A32C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:02:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B834C606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73D6B606A325;
+	Thu, 19 Nov 2026 20:02:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M3fG1mGz
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cddc597d062so80517a12.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:02:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795118529; cv=none;
-        d=google.com; s=arc-20260327;
-        b=C0G506xVT+sPZiwhO1/GYNaKHMMGCrFq4zMnGD/pm/bO260a0zut37YmZRMu8cwGhK
-         eUXkldXJeT7iyXr2O8kdEK5d8htDaRHWMoP3Fh4t7PU/VOPYDFJm/EHGihrNi2Ec0I/n
-         tLMLzxq2HyIWzBqsPoLlzh03SYFKqxWwM/CWrUIbP9derkiaLLMjppElIVlXXJJPEfyU
-         vRf/39205hT9oociins0J2Ok5xOrRTky8dOXD6W12GNHPmzsUHcGXeAKseVUxKhZjTm6
-         3WliyUnOlohEVCZetz0m0CUm5WzWvCdnW87L3i9ZzubAmZWB2Pi0r83b10l9BxwiwU1B
-         +YBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-        fh=sQ+EqCenzysEr5Ut5l1KoT+L4GnjJnDOWmVb6+AAPm4=;
-        b=KTk3WfM7lB4PzHSsWRI7iFDdKjgHJgaH8wm6HTufKinNV1bEKvKeMz0FE2tu5nI5S8
-         o0I6DbsCILx1cIN6kI8sa42kRDoTGOa5m6UASYuLYkVMCyIfDJ6zSJLroJWt4ZC8/twr
-         1CNhBu4HgpW8yfwbAHTd7BmwQaseQsiZqJcc9MNyS+bOR/1mHVfr8oCbkvGuP8C0E47J
-         PsQHMhhiXFRHpBvaXrS987vUYxJUl7YvqhtFzeJoasOJnEON5N6vSxguP1DGBMF5K9ih
-         AqJNTjdNDw/arw8QP8UbyS+yPxwUiI20nh/AM4k+B4ZNcCga7TUGIXWNeO3Gy4026PA9
-         jQ7A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795118529; x=1795723329; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-        b=M3fG1mGzEEkK5g7tak26ZQNGKd7qs9NXAy1TMsB82Nwso+Aptx1qWQVgo8Cp4FYXXs
-         6dCdZfyEfFsjkmQzyIuP7py7yWf2sUr3E6zbpY0UbPMVVG/hCDp7r6OCU8QhY92fP7fb
-         2BqvEu/y6MWxscIWT87NLch2a0NRJyfbRYUnUyakxrpco96/Lry3rD4NxzZQp6WgsEqW
-         6EXSmFiiNb0vnfAp0ORPXQvFq4wc1uzM3C6wIfKmNqdXm4M+9ATW+r8ixkXprK4ca8O1
-         +neYtapyEwGRaPSkmGUrNeA60ooaZI3OXnu1kMT9lxs1esQY/mR+a+fbDyqa8IppPFly
-         gcvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795118529; x=1795723329;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-        b=k6/TD9dMjuCssZ02OvUBq0cYN4vTrcNjDhN8JqFoBfvKnVCybQfK5qA/5zRuVGA5f+
-         2T/2J3HdrrvYNRGm0LexnaEofu1l3fi1+9BtghLyOwiJDyvF6cnCwMA8nUAK3hKtxm1R
-         QGf9Nt8hwW7DCoDs56CX3/Lm7RooHWmXlB/jmcggOvi+3Dx2lBC9gjXen2IWk5OAIjxq
-         3Ve2PLejMCs68zqkHynXqlLBL568Q/pewcjhRHEOWZAZDV7sNNDxbailNgobLDMO1Jar
-         VdYHBsaymeqvRxxAiJZtzsBD/bl5Mdc8iP0XxyqqeXjckryIZfww+wYBbeehOQcARWYY
-         bmBQ==
-X-Forwarded-Encrypted: i=1; AL+hErGZ0Qk8h9Hy0sRrweyc8COe4wrGHBXiczL4csNgveu7P7M70j7G9gMoOdg1kG1npqho92AzwxY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9sd6TAe78Hbb1Xbxea009U4fBTiAXCZwFdVRlFS+5jfQycGMyX
-	3beHnTRJcM9g5BxvQQ3RBD+FxqOtD3aCxQ45uwfSq+X41ZE+rMStSxJ2kNrrOdy4aNewMPd5w/T
-	q24HjTKAPRaGMtURUss2dWz0JHlU4vsg=
-X-Gm-Gg: AYBFou1fzqoHkSIDJ+tQVsFTL4bGsgcUsB9wnqGMmL3fQKMN6gSlBRxmoGEai6PyRXn
-	eYmVbCtCGqfuOyMgHTaZ3mDaoJy1GkP5Po8q1m9V5MozoeFS6jRC05BfHuzp79/T8JWB+/Kepd9
-	wPmRCtSK9uCl72QbRzOOvqgUty+UdxE3tixcfyCw39NLqmtvcXqIcbW9WiE/CbZ9B35DA+w0gQ4
-	N1QmWSKiVilWZN2Okubhu4KVEH6ufxctFkL36a4zfFaP/NoVRtDP5Ks0piY8VLPQjuJK23MHbmb
-	nSZL3e9R1UH4YE7EigjIW8kdEqDjtqAu9um+8cbj5uzFhW/0+TePcML+z7lmI43uyxy2kAZFrRr
-	UZQkGYZVjzb13ZDC4Q/VV0u2hUiEADs4/29AFvzTsL4s0u2jxfKUgL36hckjJISf8z9ZaTBGOYO
-	4Iq5A6p0Mt1JmodDNx9ikjJ2SUwpVBFD9J7Wk=
-X-Received: by 2002:a05:6a21:39a:b0:3e2:aab8:4eb6 with SMTP id
- adf61e73a8af0-4014db602b4mr721063637.47.1795118528518; Thu, 19 Nov 2026
- 12:02:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wd64eoZp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37AF1F000C4;
+	Thu, 19 Nov 2026 20:02:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795118564;
+	bh=dxfb/sPVGMZpxQTV2aEE45mRohpQPeNSpNM2wT9CGIs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Wd64eoZpcFyspmoEiA3lW8bUq1huqTM++6o1myM267EPbPK6kh9hyyf0OG7osU3VZ
+	 1lzyW7zwqkq40xn+0/BzJfiGEj6jvzCTg8OjqrXXmoKEOcAydTqN2gmOVYJqa5S782
+	 oVrnrzTOHIKy9ROsbzGOOFs2wK2pODChoPU/czT0uDA/+AiDucsvnvP5yKQtHvZYk0
+	 8qgAVKxaYKpbOyJknfT6zHKI1fC2kdOmYM6TNf3kL6u6Y60hIBhqAjlya45KcSqx62
+	 UM2Tygk4nagKUVES8RZH4Rfop5u15+Ny4olZ8inURV5biLc0LbzVyL+Kd4I1DGJzjU
+	 pd/VDFkg2d5Qw==
+Subject: Re: [PATCH net-next v4 2/4] net: dst: keep the LWT metadata of a
+ dropped route
+From: netdev-bot+sashiko@kernel.org
+To: jhs@mojatatu.com
+Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
+ sdf@fomichev.me, martin.lau@linux.dev, ast@kernel.org, andrii@kernel.org,
+ eddyz87@gmail.com, memxor@gmail.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, bpf@vger.kernel.org, jiri@resnulli.us, victor@mojatatu.com,
+ sashiko-bot@kernel.org
+Date: Thu, 19 Nov 2026 20:02:42 +0000
+Message-ID: <179511856244.3136.14894552339395914339@kernel.org>
+In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-2@mojatatu.com>
+References: <CORE-9NOG.v4.r0.20261116135311-2@mojatatu.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,108 +67,128 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179505710266.3511678.14017674052424733262@gmail.com>
-In-Reply-To: <179505710266.3511678.14017674052424733262@gmail.com>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Thu, 19 Nov 2026 15:01:57 -0500
-X-Gm-Features: AclHuK_QNEvmBX1MCKcJp6gFprpzU6I8eQIOW2c22-DHXFZThro3p5SjaiyInMM
-Message-ID: <CADvbK_citvtZ4eumLcx_szUvth7sQMP1oKu0mLbo0a3bD-eSxQ@mail.gmail.com>
-Subject: Re: [BUG] sctp: auth: NULL asoc->shkey after a failed
- SCTP_CMD_ASSOC_SHKEY makes close() oops
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Jun Yang <junvyyang@tencent.com>, linux-sctp@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 10:04=E2=80=AFPM Kyuwon Cho <kyuwoncho18@gmail.com>=
- wrote:
->
-> Hi Marcelo, Xin,
->
-> While testing v7.4-rc3 with an LLM-guided test generator that we are
-> developing as a research prototype, we found that an SCTP association
-> whose shared key could not be set up still builds authenticated chunks,
-> with a NULL key. Closing such a socket with SO_LINGER {1, 0} then
-> oopses in sctp_auth_shkey_hold(); here as an unprivileged user:
->
->   BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (include/linux/refco=
-unt.h:366 net/sctp/auth.c:113)
->   Write of size 4 at addr 0000000000000018 by task test/115
->   CPU: 1 UID: 65534 PID: 115 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(=
-lazy)
->   Call Trace:
->    <TASK>
->    sctp_auth_shkey_hold (include/linux/refcount.h:366 net/sctp/auth.c:113=
-)
->    sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
->    sctp_make_abort_user (net/sctp/sm_make_chunk.c:1492 net/sctp/sm_make_c=
-hunk.c:953 net/sctp/sm_make_chunk.c:1016)
->    sctp_close (net/sctp/socket.c:1564)
->    inet_release (net/ipv4/af_inet.c:443)
->    __sock_release (net/socket.c:735)
->    sock_close (net/socket.c:1529)
->    __fput (fs/file_table.c:512)
->    fput_close_sync (fs/file_table.c:618)
->    __x64_sys_close (fs/open.c:1574 fs/open.c:1597 fs/open.c:1584)
->    do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_6=
-4.c:89)
->    entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
->    </TASK>
->
-> When the INIT-ACK arrives, sctp_sf_do_5_1C_ack() queues
-> SCTP_CMD_PEER_INIT, which records that the peer supports AUTH and which
-> chunks it wants authenticated, and then SCTP_CMD_ASSOC_SHKEY:
->
->         case SCTP_CMD_ASSOC_SHKEY:
->                 error =3D sctp_auth_asoc_init_active_key(asoc,
->                                         GFP_ATOMIC);
->                 break;
->
-> sctp_auth_asoc_init_active_key() returns -ENOMEM before it sets
-> asoc->shkey when the secret cannot be allocated:
->
->         secret =3D sctp_auth_asoc_create_secret(asoc, ep_key, gfp);
->         if (!secret)
->                 return -ENOMEM;
->         ...
->         asoc->shkey =3D ep_key;
->
-> sctp_cmd_interpreter() then drops the remaining commands, but the
-> association stays, with peer.auth_capable set and asoc->shkey NULL. If
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-The association should NOT stay with a broken state, but be deleted in such
-cases. But it seems we can't do it in the loop of sctp_cmd_interpreter().
+Low priority / nit picks for your consideration:
 
-Can you please try fixing it by directly calling sctp_process_init() and
-sctp_auth_asoc_init_active_key() in sctp_sf_do_5_1C_ack()? like:
+- [Low] The commit message says the ip/ip6 copy "starts with an empty
+  cache, which costs the tunnel one route lookup".
+- [Low] The kernel-doc of skb_dst_drop_keep_metadata() (net/core/dst.c)
+  does not match the implementation in two places.
 
-        if (!sctp_process_init((struct sctp_association *)asoc, chunk,
-                               sctp_source(chunk), initchunk, GFP_ATOMIC)) =
-{
-                sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-                                SCTP_U16(SCTP_ERROR_NO_RESOURCE));
-                return SCTP_DISPOSITION_CONSUME;
-        }
+--
 
-        /* SCTP-AUTH: generate the association shared keys so that
-         * we can potentially sign the COOKIE-ECHO.
-         */
-        if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
-                                           GFP_ATOMIC)) {
-                sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-                                SCTP_U16(SCTP_ERROR_NO_RESOURCE));
-                return SCTP_DISPOSITION_CONSUME;
-        }
+net: dst: keep the LWT metadata of a dropped route
 
-instead of using SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
+This commit adds skb_dst_drop_keep_metadata(). The helper releases an
+skb's route dst, but first moves the ip/ip6 tunnel info or the xfrm md
+info held in the route's lwtstate onto a newly allocated metadata dst.
+Nothing calls it yet; the nft fwd and bpf redirect patches later in the
+series will use it.
 
-Then you can delete SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY commands
-from sctp code, as they're no longer used.
+> diff --git a/net/core/dst.c b/net/core/dst.c
+> index 092861133023c..fd63580e6529d 100644
+> --- a/net/core/dst.c
+> +++ b/net/core/dst.c
+> @@ -353,3 +353,82 @@ void metadata_dst_free_percpu(struct metadata_dst __percpu *md_dst)
 
-Also, please use git-send-email to send your patch, not send it as an
-attachment.
+[ ... ]
 
-Thanks.
+> + * A dst that is metadata, or absent, is left in place. Any other dst is
+> + * released, and a route with no encapsulation parameters leaves the skb
+> + * with no dst at all.
+> + *
+> + * Return: true when the skb is left free to be sent: its dst was already
+> + * metadata or absent, the encapsulation parameters were moved onto a new
+> + * dst, or there were none and the route was simply released. False when
+> + * the copy could not be allocated or a reference on the route could not
+> + * be taken; the caller must drop the skb.
+> + */
+
+[Severity: Low]
+
+Does this kernel-doc match what skb_dst_drop_keep_metadata() actually does?
+
+The Return: section says true means the parameters were moved, or "there
+were none and the route was simply released". The code only keeps
+LWTUNNEL_ENCAP_XFRM, LWTUNNEL_ENCAP_IP and LWTUNNEL_ENCAP_IP6.
+
+Take a route whose lwtstate is MPLS, ILA, SEG6, SEG6_LOCAL, BPF, RPL or
+IOAM6. It falls through to skb_dst_drop() with md_dst == NULL, its
+encapsulation is thrown away, and the function still returns true, the
+same value documented for "there were none".
+
+The code is consistent with the two readers the doc names,
+skb_tunnel_info() and skb_xfrm_md_info(). The general wording of the
+contract, though, does not say it is limited to those types.
+
+Also, "Any other dst is released" does not hold for the xfrm branch:
+
+    md_dst->u.xfrm_info.dst_orig = old;
+    skb_dstref_steal(skb);
+    skb_dst_set(skb, &md_dst->dst);
+
+In that branch the route is not released. It keeps a counted reference
+inside the metadata dst, which is what the earlier sentence "for xfrm the
+route is kept" describes.
+
+The v4 changelog says this Return: section was meant to be corrected.
+Could these two points be covered as well?
+
+> +bool skb_dst_drop_keep_metadata(struct sk_buff *skb)
+> +{
+
+[ ... ]
+
+> +	if (old->lwtstate &&
+> +	    (old->lwtstate->type == LWTUNNEL_ENCAP_IP ||
+> +	     old->lwtstate->type == LWTUNNEL_ENCAP_IP6)) {
+> +		struct ip_tunnel_info *src = lwt_tun_info(old->lwtstate);
+> +		struct ip_tunnel_info *dst;
+> +
+> +		md_dst = metadata_dst_alloc(src->options_len,
+> +					    METADATA_IP_TUNNEL, GFP_ATOMIC);
+
+[Severity: Low]
+
+The commit message says:
+
+    the copy starts with an empty cache, which costs the tunnel one
+    route lookup.
+
+Is that accurate? This metadata_dst_alloc() runs with GFP_ATOMIC once per
+skb, and dst_cache_init() is never called on md_dst->u.tun_info.dst_cache.
+__metadata_dst_init() memsets the payload, so dst_cache.cache stays NULL:
+
+net/core/dst.c:__metadata_dst_init() {
+    ...
+	memset(dst + 1, 0, sizeof(*md_dst) + optslen - sizeof(*dst));
+    ...
+}
+
+With a NULL cache, dst_cache_get_ip4() and dst_cache_get_ip6() return NULL,
+and dst_cache_set_ip4() and dst_cache_set_ip6() store nothing. So the copy
+has no cache at all, not an empty one.
+
+The route's own lwtstate has a shared, persistent cache, set up by
+dst_cache_init() in ip_tun_build_state(). Before this series the tunnel
+used that cache through skb_tunnel_info().
+
+Later in the series, nft_fwd_neigh_eval() and __bpf_redirect_neigh_v4/v6()
+call this helper. At that point, wouldn't every steered packet over an
+ip/ip6 encap route cost a GFP_ATOMIC metadata_dst allocation, an
+RCU-deferred free, and a full route lookup in the collect_md tunnel?
+
+Could the commit message say that the cost is per packet and that it adds
+an allocation?
+
+> +		if (!md_dst)
+> +			return false;
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v4.r0.20261116135311%40mojatatu.com
