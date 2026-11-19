@@ -1,47 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101736;
-	b=2IS6uVLnorIc3KaMB7xkrJ0FNz6v2zXz70qC75FHegnfmlaFkzQEWC7F7fXP2pBThMi6
-	 asVSYTlZIaDnClSMmbjQSJ3DcGFZZsjfKRd0ouzwBxbAglSscJgMcrtZbxwOUjUBYJ6bT
-	 QaiaGH7KHW6wJItCvd3toaFae1bdUXRuTlN0URTvVkbA2MjK0RFlX6ymkdnhcXBuuhmCP
-	 0bQsAvRCPWZPWQwC0v5KQZnbnhkbNJRB/zW2NlaLpU4a7T38RU+xvebo59lyg2htGcvK0
-	 4swbL7Q9PzTDYr5zJkaprGEPJMuK6NE2ujH1/t5qZejLTYbq3JfoOYa/4oQV6+/L7Aw==
+	t=1795101806;
+	b=yAq2JdfMC3qZzsaVfXn27ZBrjOm6R/W9anMmn+spu/lqRPSOzQJt2s2H/5DAtRTg6nZd
+	 H/uSsMO3fEEncRgUoyYEViQa6e/fMAKWOZsdjaYaBQ4AvBT0k2tgMwqpfJAiiZmlgirGN
+	 TGIcYFEotDCUXZZLBswXq7YxjcAywDvKSP0sODic/Cl5RT7SC8JiZcl7hExyZ2xbL7B+x
+	 8VdvRF9lh7hBX4w+4lOdEDdjZSN8oVhSv6RnBnT0W84PTqYIVGzwMwJe9abADUK/xUsxa
+	 /W4Mn900Ba4NIULAhOvBgMbi/2HmUKEV6X0c4D9/CTBNZS3D/vkEXxN3jAbB8tmC6Cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101736;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=WOBMgTjD1aH3/vBF1uqNQyOfNqHdGqc6ZU6xHbMB52w=;
-	b=ElVqspWpTbEPBchrT7joaC/kUlwjS/eCbzfqksQ+T7gED9Hn49aR1PNVEYr5S6MJ14KB
-	 0sSmA2EBkEXsJptz+5cEcOikRT9QU0I6P+5+w1Ti3vU5OKeMux1rOxULKV7nLFao4WMVD
-	 lCsT+/VRmP5o0A/q1oYBuyEuBuTceryk+wUzsE1gI/TE5QPToFJUxX7p2zsqhciVNx0Sw
-	 fC9sa17C4Ad7XfftUbwS4Cpjlka+okBqJCXaD7OF40tSbGmK/qf0UNABJyidQvcIr40WU
-	 5sljiSaCzkxxwkaDWbkObRVVBbqD/XEBXnh02/XwO75jTeBSNDSWBqbD3i3IwK3N3Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101806;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=YIzSyzaItZhIffQi2QtIvlrKu5BS3YVep8+7TkvwtmM=;
+	b=anw26u1FbLp/4wBpkSWfczDPjUPeMVX7FTgkT3LMiQvK1UjS/j18eMKLsynnqgQyQb9b
+	 GrYxDotySPjjf2395upwOBanA7GRSbfcV6TA5+EUu08cB6qL40ULREfgVkMsp866ZonJB
+	 mzat1NJp3/VhlyPos9IG4qE3/KdkI9UcM1tyN2IpARbdGccJKYzccxeoPoNZyKDisEjh8
+	 HUnuhBgARryyaf6PXhWiWlG3Dw68xDL2TeNswh9Abe9T0lJGIZUY85heWBqXGxB5QjbUP
+	 TwZOtTrx8dSMQGb2vuSwS3SONQjv/cot4oBPFt+fx4DQAp6VteldMutnZKnmVGlVuDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZcYqImOI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CPf7m+Xx;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E76B606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 15:22:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4857E606A320;
+	Thu, 19 Nov 2026 15:23:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4857E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZcYqImOI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B365F1F000C5;
-	Thu, 19 Nov 2026 15:22:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795101736;
-	bh=WOBMgTjD1aH3/vBF1uqNQyOfNqHdGqc6ZU6xHbMB52w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ZcYqImOI7FiKGWp6SM7L6K/8skRpDG/UrKweTILu1pcpChZLG9MeT4Obygq9W215r
-	 AQ2oE6fFA5unrCEZG8+k212mrcFEF3vtvsstFHdPOokJt9PEepnoHikGspTcRqqAcZ
-	 qoP92dw+LzWBUoRmFwns0vDhiMt7DhwV2MtnZDh7bj1RlYltC+XUd95XGmrUz2tDLd
-	 rkYHdvTRlpNTIBvyCW8Dc4UTfQ2INM99oFRAXNhevl1YkM4mx4w+cdsOlQ7plX1zze
-	 P6cpI5Zm8GzjHoHiAfZGenWxKEVueTg9XyPnXUGXzAheFFNM7hmlkDiNRaTNY7inTF
-	 EJsXab8Ervo1Q==
-Message-ID: <9315f508-0db9-42a5-9684-0b8e5c7d528f@kernel.org>
-Date: Thu, 19 Nov 2026 08:22:14 -0700
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CPf7m+Xx
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=YIzSyzaItZhIffQi2QtIvlrKu5BS3YVep8+7TkvwtmM=; b=CPf7m+XxC2aOPWBIbZ1FZwojES
+	KHOEmvXm7b4dxoNstIe6Pejopqwj5qDRYIxozdI041E02LMoUyQLqBRZF75tfjtg+xl0f4alFDQ5I
+	CoWGLaGUHVw3f+hGZPhiEk4q9mVZoATtzVehwoMZHYBHkDLIl3nbRFynVXj4PDrYHGaQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xU3yg-0004Dh-Qt; Thu, 19 Nov 2026 16:23:10 +0100
+Date: Thu, 19 Nov 2026 16:23:10 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?utf-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: Re: Re: [PATCH net] net: phy: micrel: Fix potential shared PHC
+ use-after-free
+Message-ID: <ed84f6b1-4bed-4328-9278-02bbde45ca23@lunn.ch>
+References: <20261107-0d0c29e10a-net-micrel-lan8814-1@mail.sdu.edu.cn>
+ <71089325-dfab-45f7-9ebd-1feb65013863@lunn.ch>
+ <AHAASAAGLPGJfVjn9skPJKoS.3.1794229559658.Hmail.202321181@mail.sdu.edu.cn>
+ <198e6702-0663-4183-9aaf-0fa4082dbf79@lunn.ch>
+ <ANsAuAAOLLS4OaDq0elM1KrN.3.1795091965243.Hmail.202321181@mail.sdu.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,57 +70,15 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 net 7/8] tcp: Pass inet_sdif() to
- __inet_lookup_established() in tcp_v4_err().
-Content-Language: en-US
-To: Kuniyuki Iwashima <kuniyu@google.com>, Eric Dumazet
- <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>,
- "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuni1840@gmail.com>,
- netdev@vger.kernel.org, David Ahern <dsahern@gmail.com>
-References: <20261117053543.84032-1-kuniyu@google.com>
- <20261117053543.84032-8-kuniyu@google.com>
-From: David Ahern <dsahern@kernel.org>
-In-Reply-To: <20261117053543.84032-8-kuniyu@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ANsAuAAOLLS4OaDq0elM1KrN.3.1795091965243.Hmail.202321181@mail.sdu.edu.cn>
 
-On 11/16/26 11:35 PM, Kuniyuki Iwashima wrote:
-> tcp_v4_err() passes 0 sdif to __inet_lookup_established().
-> 
-> So, ICMP error coming from VRF can be leaked to a socket not
-> bound to the device.
-> 
-> For example, this test fails at the last assert because the
-> socket receives ICMP error:
-> 
->   --ip_version=ipv4
->    0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) = 3
->   +0 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
->   +0 > S 0:0(0) <...>
->   +0 `ip link add vrf0 type vrf table 10`
->   +0 `ip link set vrf0 up`
->   +0 `ip link set dev tun0 master vrf0`
->   +0 `ip route add 192.0.2.0/24 dev tun0 table 10`
->   +0 < icmp unreachable port_unreachable [0:0(0)]
->   +0 %{ assert tcpi_state == TCP_SYN_SENT, tcpi_state }%
-> 
-> Let's pass inet_sdif() to __inet_lookup_established().
-> 
-> Fixes: 3fa6f616a7a4 ("net: ipv4: add second dif to inet socket lookups")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
-> ---
-> Cc: David Ahern <dsahern@kernel.org>
+> On LAN8814, if the registering PHY unbinds first, the other ports would
+> lose access to the PHC. Is that the behaviour you'd expect?
 
-just this one is needed.
+No, as i keep saying, i expect remove to be the opposite of probe. The
+first PHY probed sets up the PHC. What is the opposite of that? The
+last PHY removed releases the PHC.
 
-> Cc: David Ahern <dsahern@gmail.com>
-> ---
->  net/ipv4/tcp_ipv4.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-
-Reviewed-by: David Ahern <dsahern@kernel.org>
-
-
+     Andrew
