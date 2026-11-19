@@ -1,49 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122006;
-	b=vOVv4zGf/6pVhkDIV5WeF1LdX8A0PqVIetJ6u3WuV6dmG5UIjtbdWRqz7Xn1HQuJMmUT
-	 povIeVqfcENGUhmZ+5C2NrVAu9QcgOmNnVESYIJ3U1En0Az1qbbU/RWVWvsDlV1R4wYd8
-	 Wn3BqQuCqVeM3BaO6Zyk165S4aipIi42GyUR9lklQHjOwJZayyxkBVpwkiO68NnGGKn9l
-	 goCFMKieDlrjEuZrUsCj6j+zcamSRrFkDVQPEknd2CF1aGyRrafpziL6BWmxm7jyrp6WZ
-	 m8o3tvq6fuYg8zT3mYv+VwChWFKoRVjMKnzZUHJoJ0f1Fjposrvlvngmfh6Ompx72KQ==
+	t=1795122216;
+	b=C8tIhkhGyr9PrM8rYCPgcukJxXmLOiRSFDVtxQhGuPCo+sEpZZOwX+VMCXNZNZ4mV3LP
+	 mbL65XOpa6C7VnpB9i3nh48JLcUVOg0nxflEAgiDHe90i1LGIok+mKCOQmqgu94brqhXh
+	 BgS1eR/RA0XCWdP9RXjVLJWPEE6vRXrmTROWTa9BRyXnN02z/CLXIPwN4KM7kfArHZoY4
+	 +FDzUZPWHT9qOjMHK5+dNTW0KBEk61lrSiNiEKgZdU/N67JHZ8fswKk7wGUJQ2sNfoaBX
+	 6nJdAgLPsJSdaovhZ5xzhzWysCk47YGDFoaDE3ItCl9Gt7A4gO3n5xxeCwb8kKwou/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122006;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=3A25cVy87QHR88s5yF+T27dGgaGRZ+rFUBw/027HN9I=;
-	b=suez4K97mNNp9YFs4VeJ5X8OkJInpxkUryG41yM1K1LNAsk2K6bgN/DjQRY1vxhbzRhc
-	 a54wp25Y/LgM5hvOgkdswmrU+ZWcG3sELJFDiZ/hN8JNRPeVZ5SX2aHubNFw2zv8JT/X5
-	 CyPJf0I57CcNI0H43jgbbt304/Vet4i3NhbglW789IbPskIE+DWIJf1MNlmqr+/8lwsWd
-	 AhVfb0aQh9FmgT39pQj2tnVIph7PgjakvbsfnBkuLam9YaP5zmAbAxIpVQ6unBxtJKoJx
-	 sU0fUHRE5hy+iOLI0nsaLMhEdXRqCMUeRg4XzyC65m8zp1VyWKOREnbiL99hkKPwK2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122216;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=sfsFb1aGEKDdDgduNvVaqLPO/+tVEkI1Hc7WtTzriM4=;
+	b=FlsZ30jIk+0CSOMW26KXTo7DtmjRkvHRvsadse9ptWJLxlswhR9MATiQeq+6b/97LNIE
+	 4pak4BKGNb8D+a52lJYJ9TY/4U05Oc5iGNuZwoJbYps8OGm7EwGCXeu7IdYPFQyWBlkZH
+	 lDYY2/yYKkelx3qYfSwyhxdZmf/kFypsJBpm4ZrpUm94+v6CVs5kkZ9TH0V0t7E8s4BJm
+	 a0M51cXMyetGrSEj712RPxMuc03LTmxTmtEH3fj6EhpEccgTycNZ/1h58pS1g6+VoKdM6
+	 LsXrCFG451mE6jGhp7qom/+g4aJmI1GAJKvGUljBDcHvQ3BFIwy9JDhXNaf4gOKYVGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N9q6mnol;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ec1yZDgI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 933DB606A900;
-	Thu, 19 Nov 2026 21:00:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7617A606A320;
+	Thu, 19 Nov 2026 21:03:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N9q6mnol
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C38A91F000CA;
-	Thu, 19 Nov 2026 21:00:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ec1yZDgI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 224001F000C0;
+	Thu, 19 Nov 2026 21:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795122005;
-	bh=3A25cVy87QHR88s5yF+T27dGgaGRZ+rFUBw/027HN9I=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=N9q6mnolFvGCE8dk3yJ6FplOoarGrULKtVCwBnDk4npT6/N+L9BPttM6oIgdqqill
-	 p3SB9dWnQwF+pIkAyn0gdaz+fgYVwcHFyHgbfsQC9v0wAOs+9re/7DyQmawTzGnIiH
-	 wDuY7trnZwxftUpaaNReRqmTi/DknKw3G+yvmDGTZV3V+9TbwdO6DSN9W639n1KPC6
-	 qbz5Kgp9YZiwVwk1WyMm9AI1M4NK1dSLjAwOUov1A5BBHzPCfbl1+L+x/F38O3ChRI
-	 1hv/iUrDIhXn0oy/AuSn7oF5em191bwHUKTofE4vswdqFGMMEmwM5NNprX1V0cZM6J
-	 TGUOljoCyd6lA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B440C3808209;
-	Thu, 19 Nov 2026 21:00:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795122216;
+	bh=sfsFb1aGEKDdDgduNvVaqLPO/+tVEkI1Hc7WtTzriM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ec1yZDgIKaPP2Gg+BMqEMC7B1k7AJQf+XKLHQru6ochjFwVtKC3fb5DUSCBqJrLoz
+	 0v740ceRJMbVFPLVI/cYo+OEFNwQRcYRBU9R1q0EPPenf0xwB+thk7kFbcVB9cDnNs
+	 GeHiRRc/bmoqNKWrgF9g/XgPwuUbkhTwJY6Ccbbt1t6DKP9VqLvbSyc2VOJVTqd3pI
+	 FyH4Ur/ihOix2mwCIzmNbpOQ0KBUs0CW4ZDKi+QSy2TOV7YxRM1yMMdyqXwV4iIodF
+	 FDeKh/Xq3mmZR+ePmEHSoJfbgW7Nb+pQuwmCb4P86wLVs8B3NskO09jSMjnAEazAgj
+	 Nw6e5SM8v8ugA==
+Date: Thu, 19 Nov 2026 15:03:33 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: muhammad.nazim.amirul.nazle.asmade@altera.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	"David S . Miller" <davem@davemloft.net>, netdev@vger.kernel.org,
+	Dinh Nguyen <dinguyen@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: altr,socfpga-stmmac:
+ Add altr,socfpga-stmmac-agilex5-tsn compatible
+Message-ID: <179512221319.568679.6038463507415818454.robh@kernel.org>
+References: <20261104040320.18077-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <20261104040320.18077-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,38 +69,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] MAINTAINERS: update prestera switchdev e-mail address
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179512200528.3857806.587988169694867113.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 21:00:05 +0000
-References: <20261118123126.326686-1-enachman@marvell.com>
-In-Reply-To: <20261118123126.326686-1-enachman@marvell.com>
-To: Elad Nachman <enachman@marvell.com>
-Cc: kuba@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104040320.18077-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-Hello:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 18 Nov 2026 14:31:26 +0200 you wrote:
-> Update the Prestera SwitchDev subsystem maintainer e-mail
-> for Elad Nachman.
+On Tue, 03 Nov 2026 20:03:19 -0800, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > 
-> Signed-off-by: Elad Nachman <enachman@marvell.com>
+> The Agilex5 SoCDK TSN Config2 gmac1 path includes an FPGA soft-IP
+> GMII-to-RGMII converter between the DWXGMAC and the PHY. The converter
+> provides the RGMII TX/RX delays and presents GMII toward the MAC, unlike
+> a plain altr,socfpga-stmmac-agilex5 port with no such converter.
+> 
+> Add altr,socfpga-stmmac-agilex5-tsn for that integration in the same
+> compatible items entry as altr,socfpga-stmmac-agilex5 (shared
+> snps,dwxgmac-2.10). Do not use altr,socfpga-stmmac-agilex5 as a DT
+> fallback for the TSN port; the converter presents GMII to the MAC and
+> supplies the RGMII delays, unlike a plain Agilex5 GMAC port.
+> 
+> The TSN port uses the same DWXGMAC-2.10 core as the plain Agilex5 port,
+> so extend the interrupt/interrupt-names/dma-coherent conditional to
+> match the new compatible as well; otherwise a TSN node would incorrectly
+> fall into the single-interrupt, non-coherent else branch.
+> 
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > ---
->  MAINTAINERS | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Previously patch 3 of the v6 board series; split out for net-next.
+> 
+> v2: Extend the interrupt/interrupt-names/dma-coherent allOf conditional to
+>     match altr,socfpga-stmmac-agilex5-tsn, per Jakub Kicinski / netdev bot.
+> v6: Put altr,socfpga-stmmac-agilex5-tsn in the same enum as
+>     altr,socfpga-stmmac-agilex5, per Krzysztof Kozlowski.
+> v5: Drop altr,socfpga-stmmac-agilex5 fallback and rewrite commit message
+>     to explain hardware incompatibility, per Krzysztof Kozlowski.
+> 
+>  .../devicetree/bindings/net/altr,socfpga-stmmac.yaml     | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
 
-Here is the summary with links:
-  - MAINTAINERS: update prestera switchdev e-mail address
-    https://git.kernel.org/netdev/net/c/5e2976e52671
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
