@@ -1,83 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070562;
-	b=TVEVrFjGP8MJkkFu9etVksEQq6XEsdEDkco+rZ/3VfJioF0iAOhqp1QjuY4DLV8o5Ge1
-	 j4HhKVzLjXnnPTMAIU6VEOAmzWrnnmA2eeR7ZIED/NHuROAI3XdXct+wRbeiMhEfaAvK1
-	 6uXXmNrct6W6mQqEfBz2bAgDiFjdS7nIO+2sqMXJMBBadoRXu6gXSxVJwZ9L4U+W74aUz
-	 sesTIMJ6SnoQXZGD4/aPtfaDSKrbDSTerq8ozA0CaE3bzK9GFCvXLammXPCzrxVmsglTZ
-	 8qO1gBOsZo2G7Ef6r1gvaEn+4W/CqGks8oAMymAyQdT+2dqvpDRypmX1Y4uhH7a8wYQ==
+	t=1795070697;
+	b=hLnhrhms+UuEhWEINFRkF6TvdToU6CBuvljZDtRIzEbiAbpVNotm6KQOf/O+xBrWliNl
+	 MY1DV2JPRhIFVvn8CNkazNTcKnVcrYni49I9xqU2KQo8J6stMimL6jAU6zdXJ3CYRpjPn
+	 RSpaXr4kRbls1yXp48dxcepNATfzxPOJdojjxxY1H4vYDt66yhAjzbUxO108hWsA9jqTv
+	 nWVhz6fjeLMAVNnDO42/MKYL8R6duKnDbCKndEwW/cL9nSJM5unWWzVZroLGLj0eLvJvg
+	 XTT8SdousPZKL79HPuuXCLsS1BVZ6ZjQ6D5KM5N+HdVZdVHGts9CVc64lUCY2Rw73xA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070562;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ra0jJFg2rLBnpyjZI3vp/qEopGKNTn3oOysk8aqDYh4=;
-	b=dIKU0uClEcQJuTff7vKjuSUiEdh6qLFKHW2I9nQ01hZWpynv9/IuZVSn8hXtKZshff2A
-	 EsXKXgpyBHxTDMPhGbVrjxozzuFHW2cW0xpBtrToVcZb/zge9jQPvSdDGMBWEfgo23IWd
-	 rCbAoHbn+vSs2qEjWSFw2KbB3bZTcq8QVZAH3RwxLyScrCj+p4BbAQg8qxoVi5kDLe48I
-	 TsftG1L/3pk66DL5YRVbvW8X1ayg015z1Tm6A9MAZLqIqYk+7gLI2tUkBOg5YakiSoMax
-	 aWKsWNcIAP0hWq6k47bcrSLD/NVUCBat17oYnzVHvP8dkCrPw3krF4CYtJytfp0l7mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070697;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=JLBL2wrg3mE0HWqiTHlCWKNYklhYyRHXyYX58075LC4=;
+	b=kXZulQDVinJlF16LjfZPsBD6L28sxjyB9QW/675yF1I3iCedROeaS5JM+NnhEUzC4VQs
+	 0kgJy7ix81x7aUFMaOZvpKY9VfHiTtNzjA9rdRyoYm3gDbfn8t/Sb6z9dt/R5dcmmOqwo
+	 OhJYGUWBYK2iBU8HaDJuAmEXNTaNXjpP2ncFYP+/l8JPRfBMM+7V8SIcFo3YPlzrWzovU
+	 rx4xB1+W1ovJaD5fZaDYaMIMyW2GspWPmRCHwJwAihnYptx+MGptSEFhIPQ3Ak9rgP/sY
+	 8AoVLsfEFZ/b84HS8p9jcx6vVHeSA9lF8xvhbx9YNUU91SfkaFXhobmuDbLcfYYdPmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ay68REvo;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h4HjtuVz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA626606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:42:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA626606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F507606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:44:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ay68REvo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795070561; x=1826606561;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZQY2lgHCzyGRl8yFvLsb5a4GHsBXWlwP2RwNQ4NyDoE=;
-  b=Ay68REvoORPnEG+EZq+Cl705ioPV1LBRBN8zb7Yz1hKIw2IFA7cbiSfW
-   PBGkauIao3uNr9wLlgNwTIzJXtIW1HjYRxg8JoLR8y/kghVCCOxEM9K85
-   UZOSLuUAX0eTVikzcwKnh/xZCmPqWYQOMbM5LwYAE86wa1q3+NLokbw+9
-   hKBaV2ImizBQElOQc3RCDjs3C8q5bsvMTz+6o3jAetidSwKXu2dfzd+KZ
-   Oud88UaPD+d5fyVjjJmCHoip2fBwQGUryHV3wwES7SPV2doDI8tb1hALd
-   vRcaCu9mrHD4Kg51LZtYC8Sn9Vh8LlLJbbAFN74fbQTtVLcU2cbiwQ4F2
-   A==;
-X-CSE-ConnectionGUID: 6y7KalcfRw6h1WZXk/tZ4A==
-X-CSE-MsgGUID: 8iiwisgyS7K3MLWxfEbjsg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3827577"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3827577"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 22:42:41 -0800
-X-CSE-ConnectionGUID: LMBOrTQoT4yzVyo1QKAIuw==
-X-CSE-MsgGUID: qzqpxI7xSGucEDwR5TaBGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10689664"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 18 Nov 2026 22:42:37 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTvqr-00000001FDC-47nC;
-	Thu, 19 Nov 2026 06:42:33 +0000
-Date: Thu, 19 Nov 2026 14:42:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Frank.sae" <frank.sae@motor-comm.com>, andrew@lunn.ch,
-	hkallweit1@gmail.com, linux@armlinux.org.uk, kuba@kernel.org,
-	pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net,
-	netdev@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	lingyu.zou@motor-comm.com, xiaoyong.li@motor-comm.com,
-	jie.han@motor-comm.com
-Subject: Re: [PATCH net-next v3] net: phy: motorcomm: add YT8831 2.5G PHY
- support
-Message-ID: <202611191438.hJl6vCfi-lkp@intel.com>
-References: <20261118033539.36633-1-frank.sae@motor-comm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h4HjtuVz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 560E41F000C4;
+	Thu, 19 Nov 2026 06:44:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795070696;
+	bh=JLBL2wrg3mE0HWqiTHlCWKNYklhYyRHXyYX58075LC4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=h4HjtuVz0OrTPPR7vgSb5uOH/NlV+9Goh1sQNVAB93vDNEqh3HBnnJYpDSqfeVm3O
+	 alTdiZw1wZNc6hDgE4qPeGuCd9MOD3cpKnfn1Q0CgfBu959NBoi+QmXUj4rvMnWByX
+	 CuTMuK0ABx0TmtrbX01n31o1DWdzxLm3GuDGNAt+AtpJVf5XZi75O/nT0Gc/qfe+M7
+	 v6lR4XP4c9eBT47wffFk583LELWoKklApwI7Jvs91FU67xDcI6B6oIYZPcTjbPHYYZ
+	 SQzLkcy7mE7UqgIF9bwzwWkElcysvXRboLguKMXQd2pSUWpxYD4GDAvH2xV7stEx+s
+	 XP0pL2bDtRKWQ==
+Subject: Re: [net-next v6 05/15] ice: rename ICE_MAX_RSS_QS_PER_VF to
+ ICE_MAX_QS_PER_VF_VCV1
+From: netdev-bot+sashiko@kernel.org
+To: przemyslaw.kitszel@intel.com
+Cc: kuba@kernel.org, netdev@vger.kernel.org, aleksandr.loktionov@intel.com,
+ andrew+netdev@lunn.ch, anthony.l.nguyen@intel.com, anzaki@gmail.com,
+ brett.creeley@amd.com, corbet@lwn.net, davem@davemloft.net,
+ edumazet@kernel.org, horms@kernel.org, jacob.e.keller@intel.com,
+ jedrzej.jagielski@intel.com, jiri@resnulli.us, leon@kernel.org,
+ mbloch@nvidia.com, mschmidt@redhat.com, ohartoov@nvidia.com,
+ pabeni@redhat.com, poros@redhat.com, rdunlap@infradead.org, saeedm@nvidia.com,
+ skhan@linuxfoundation.org, tariqt@nvidia.com
+Date: Thu, 19 Nov 2026 06:44:54 +0000
+Message-ID: <179507069485.3136.3088916078389743897@kernel.org>
+In-Reply-To: <20261117094913.100756-6-przemyslaw.kitszel@intel.com>
+References: <20261117094913.100756-6-przemyslaw.kitszel@intel.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,93 +68,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118033539.36633-1-frank.sae@motor-comm.com>
 
-Hi Frank.sae,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-kernel test robot noticed the following build warnings:
+Low priority / nit picks for your consideration:
 
-[auto build test WARNING on net-next/main]
+- [Low] The rename marks every user of the old ICE_MAX_RSS_QS_PER_VF as a
+  legacy virtchnl-v1 opcode limit.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Frank-sae/net-phy-motorcomm-add-YT8831-2-5G-PHY-support/20261118-033539
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20261118033539.36633-1-frank.sae%40motor-comm.com
-patch subject: [PATCH net-next v3] net: phy: motorcomm: add YT8831 2.5G PHY support
-config: loongarch-defconfig (https://download.01.org/0day-ci/archive/20261119/202611191438.hJl6vCfi-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 3b14d7c370558b46e5f0c6494a05c492e59bf32c)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611191438.hJl6vCfi-lkp@intel.com/reproduce)
+--
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611191438.hJl6vCfi-lkp@intel.com/
+ice: rename ICE_MAX_RSS_QS_PER_VF to ICE_MAX_QS_PER_VF_VCV1
 
-All warnings (new ones prefixed by >>):
+This commit renames ICE_MAX_RSS_QS_PER_VF to ICE_MAX_QS_PER_VF_VCV1 across
+the ice driver and keeps the value at 16. It prepares for the next patch,
+which raises the per-VF queue maximum to 256. It also adjusts the
+kernel-doc of ice_vf_has_no_qs_ena().
 
->> drivers/net/phy/motorcomm.c:2782:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    2782 |         if (old_page < 0) {
-         |             ^~~~~~~~~~~~
-   drivers/net/phy/motorcomm.c:2802:44: note: uninitialized use occurs here
-    2802 |         return phy_restore_page(phydev, old_page, ret);
-         |                                                   ^~~
-   drivers/net/phy/motorcomm.c:2782:2: note: remove the 'if' if its condition is always false
-    2782 |         if (old_page < 0) {
-         |         ^~~~~~~~~~~~~~~~~~~
-    2783 |                 phydev_err(phydev, "Failed to select page: %d\n",
-         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    2784 |                                 old_page);
-         |                                 ~~~~~~~~~~
-    2785 |                 goto err_restore_page;
-         |                 ~~~~~~~~~~~~~~~~~~~~~~
-    2786 |         }
-         |         ~
-   drivers/net/phy/motorcomm.c:2779:19: note: initialize the variable 'ret' to silence this warning
-    2779 |         int old_page, ret;
-         |                          ^
-         |                           = 0
-   1 warning generated.
+> diff --git a/drivers/net/ethernet/intel/ice/ice_vf_lib.h b/drivers/net/ethernet/intel/ice/ice_vf_lib.h
+> index fa436b3b1eac2..4959ecee0c21c 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_vf_lib.h
+> +++ b/drivers/net/ethernet/intel/ice/ice_vf_lib.h
+> @@ -19,7 +19,8 @@
+>  #define ICE_MAX_SRIOV_VFS		256
+>  
+>  /* VF resource constraints */
+> -#define ICE_MAX_RSS_QS_PER_VF	16
+> +/* for "old" virtchnl opcodes that accept up to 16 queues */
+> +#define ICE_MAX_QS_PER_VF_VCV1	16
 
+[Severity: Low]
+This isn't a bug, but the new comment calls this constant a limit for the
+"old" virtchnl opcodes. At this point in the series, several of its users
+are not opcode limits.
 
-vim +2782 drivers/net/phy/motorcomm.c
+The txq_ena/rxq_ena bitmaps and qs_bw[] in struct ice_vf, and q_home[][]
+in struct ice_lag, use it as a storage size. ice_set_per_vf_res() uses it
+as the per-VF Tx/Rx queue cap. ice_vsi_set_rss_params() uses it as the VF
+VSI rss_size.
 
-  2770	
-  2771	/**
-  2772	 * yt8831_serdes_init() - serdes init
-  2773	 * @phydev: a pointer to a &struct phy_device
-  2774	 *
-  2775	 * Returns: 0 or negative errno code
-  2776	 */
-  2777	static int yt8831_serdes_init(struct phy_device *phydev)
-  2778	{
-  2779		int old_page, ret;
-  2780	
-  2781		old_page = phy_select_page(phydev, YT8831_RSSR_FIBER_SPACE);
-> 2782		if (old_page < 0) {
-  2783			phydev_err(phydev, "Failed to select page: %d\n",
-  2784					old_page);
-  2785			goto err_restore_page;
-  2786		}
-  2787	
-  2788		ret = ytphy_write_ext(phydev, YT8831_SDS_WRITE_PROTECT_REG, 0x1);
-  2789		if (ret < 0)
-  2790			goto err_restore_page;
-  2791	
-  2792		ret = ytphy_write_ext(phydev, YT8831_SDS_SGMII_OUTPUT_REG, 0xc4);
-  2793		if (ret < 0)
-  2794			goto err_restore_page;
-  2795	
-  2796		/* softreset sds space */
-  2797		ret = __phy_modify(phydev, MII_BMCR, BMCR_RESET, BMCR_RESET);
-  2798		if (ret < 0)
-  2799			goto err_restore_page;
-  2800	
-  2801	err_restore_page:
-  2802		return phy_restore_page(phydev, old_page, ret);
-  2803	}
-  2804	
+The value is still 16 everywhere, so nothing goes out of bounds here. The
+next patch in the series ("ice: bump to 256qs for VF") adds
+ICE_MAX_QS_PER_VF and moves the storage, allocation and RSS users over to
+it. After that, ICE_MAX_QS_PER_VF_VCV1 remains only at the v1 opcode
+sites.
+
+Could ICE_MAX_QS_PER_VF be introduced in this patch, with only the opcode
+sites switched to the VCV1 name? That way the intermediate tree would
+match the new comment.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117094913.100756-1-przemyslaw.kitszel%40intel.com
