@@ -1,59 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069350;
-	b=gbKiGUvSbuTDgV3tqLKPy0GvYzkScZ23J0qtOy/EXkPDS1xm/pbTH4+Qkhfh2fQslE67
-	 OzykLwSb30EpQZY5/xg+CxWZMWnEZFhfvRVizPeD/WzPD359SMUXANKtmlKVcNfEiQ7EJ
-	 kYXWwGsjO/wBD5AAM5nkrzMNZPfj1LXpH62AKMOyxVmY/WV3nMdyUCMY+eejIwLRVgumy
-	 37fI84yei8v7G/sVSHFLOm8dByv7I/2hYNcUIL6W/bccG12cK2IAIEcCTl35JZ6MjtEYe
-	 6NBe5x4CbR4hpSyTKB29LLq/mTD5emn3ud5ZAjjUhR+CYFWT0Zoh9Nb535Fxt227UTA==
+	t=1795069387;
+	b=jgis0E57FMmhQ9RL1l13nqybGfQkIuVn6ApkIb+ejoYojBfPqHJty7i4ylcVBCpHngq8
+	 qnTTJKpdjmhPStK0hmRmlC9ne/bT960JN9IzIUpYQwPLcCSUbZeTA47Ij0z5IMrrQlsWg
+	 be7G+QDKezu7KhvVbBdmlSu+YGe+e57E/tdLZ6BHz3pSwijgKMN6aZP2x9p5whrO8MFUZ
+	 6WkMVu17awhl8FsijAUZ3pq0Guupy4NDYyyVwGuX+TMfVpsf5UpBZOxPMonoLcVPOPREF
+	 95bcCNLPw0xm6P/cAgIf16HBrdC1QQoBh8Wz7ZgQlKeDIp1x9+d/22KB7AjtSddJdaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069350;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=mBBLFHn2+33Nh68ew1lXsaRwuuz7TPCR0eOaeXY0uQY=;
-	b=cxrx3QL9NU5VdpTKEFZzW4zuzmpelEJIFOAk6b96pfvB1x523A4I9PbLa0UfIBUK1/vd
-	 nghf0z16R4xUyTeUTCcjIFubbZV6lXZqwMoehZP8GdKjyjDw9IIto3p/t/pOLZVczCepV
-	 CNt+MpKPrp/EcgTdr6uD/d8eb6AE+etWHc3IkpfWYd+e3s1ohsw3nv7T2ptq8+8ly5IUF
-	 MB8N+vDb4Jlw9l/0wxqS5d0LavVJb0ILG1FA3MnjJCP3OqRFCb58T9lEWbGzRXhnhA4TP
-	 t0HUOgXOmvfvG0DkqwdlnrnZ2PBF1QaGGj80G4COnYUJVtDeqYNf2Zxn2PdXz6pcXFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069387;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=V3V+gW+4QnpXlZqmDyQKdC1vPF8DCpUTnjwDnqaNguw=;
+	b=zZ6h4Zjfoq3rGndBM3zO0PAPavegdwJiqvr0/Y034D7fneYR5gcvpbpSNLqcGnNhFyIg
+	 CdWsjr0hfmUKbZ7TV2w+PebxlO+NUPSsqFVyggFPRHMQSiuwWLh5mzH8ft5tUIVROLqgz
+	 e2HYj5lVJsVRZSuEvcwrOyb4sESjrAlVnbydF1QPRwMw7f9WxhJxdMfP5z9DoTJVqasTt
+	 9XxEGJbYQw/nCuK7cq8xFsTdOZKo/Bq5PygFuZ9nJ0OGTuyP36Mbu+ZJmXtgAjDjp3flD
+	 YRCnvEyqP2nMYghGDykm7sAUFl2ELlwCFvwe+G5PM4vR5w1dLHF0qNzqfKO4CBCC/QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=foLa6Lrz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KOgBuV34;
+	arc=none smtp.remote-ip=209.85.214.197
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C877606A326;
-	Thu, 19 Nov 2026 06:22:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39DCB606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:23:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39DCB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=foLa6Lrz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9AF1F000C5;
-	Thu, 19 Nov 2026 06:22:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069350;
-	bh=mBBLFHn2+33Nh68ew1lXsaRwuuz7TPCR0eOaeXY0uQY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=foLa6LrzsH1eeQA4Tfrvomi+9TBkSodt9806M+hQDPTqYkjbDkZ1k0JoSGBr69AQ2
-	 C0JH33sW0z+JpQ82ykBeCBt6l4Y1aBrOb4c3xs9ypBhgACUqNzJ4DBsTwmLEUecanA
-	 QGCTrdthpNNYUJ9sjJeodSs8vEyLVdu5j0Y0Cv2Gdu89J3ygRf/0FIRBZKMKFP7knx
-	 9wPb9rdDap49CHFO0EG5ngfDZW6LqWSNiLdzfKreaGFMCBCRuKX81boeY/TTHexEvg
-	 aewXaVl9zpJLSBbKKekNCWdypa6b5t8leHfgx7wDjyVL1tMeJsGCxX6c9dgOrpyfVS
-	 I6FBCU89ADnbA==
-Subject:
- Re: [PATCH net v2] net/sched: act_csum: bound the IPv6 jumbo payload length
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: jhs@mojatatu.com, jiri@resnulli.us, netdev@vger.kernel.org,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, linux-kernel@vger.kernel.org, kapil@presceralabs.ai
-Date: Thu, 19 Nov 2026 06:22:28 +0000
-Message-ID: <179506934898.3136.2983483959880388164@kernel.org>
-In-Reply-To: <20261116182108.2581258-2-piyus@iiitd.ac.in>
-References: <20261116182108.2581258-2-piyus@iiitd.ac.in>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KOgBuV34
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2efad644688so17053435ad.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:23:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795069386; x=1795674186; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=V3V+gW+4QnpXlZqmDyQKdC1vPF8DCpUTnjwDnqaNguw=;
+        b=KOgBuV34NzYfNY8Y7g70SamQjhVlLaZKeKfEStrlLEqNrkjEQMxs+mWIdztfPe2IuW
+         ld2bTPY+ZMcX8gQxhvn/YUwDKaBBodHQNG27lxWcTw3Xp3cQRZeW5kKOtH5pWWqI5lRs
+         td4jULqH+ziG/zKS7VwPoDi2kgyXbjx9DRxm4njhquRZnAWZUmh/Ih3KffQXWQyRT+Mm
+         1rsg/R2Ej58t6Qrk4pSFNyypN71dg4Pfuci1g71q36JkoDt/v6o52jJeA4FJTij9QmW8
+         a5s/bCeUqPkm4q1kxGmovmgSvFhNXKf2s9o6x8BTnK2qwSksvKwBboTij8xvZRvF60YT
+         8WEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795069386; x=1795674186;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=V3V+gW+4QnpXlZqmDyQKdC1vPF8DCpUTnjwDnqaNguw=;
+        b=CyHKRKaGDOQapyo0m9f3BgZ8c7Sx4cybWz7DRQPcAVKwQWdukvAZWPlGMEBBFkE3qc
+         D00C8/3PrOPgwSFrUV9SpqJnrGzS5DKWelSk1mnS2gC/C1HMx6Yb6If3W6qM/XOxf51T
+         OLfXM99kskQXWVwPbWVbl1OO9oJwbnm1CVyd+7GKS8uD5niolngJuXvEfTwxLaeCf3mj
+         VjX0gJ2BjnEUEZgLEf5jZPE1JE+OuIW05M2Ganzp1JqlOm/1X+n6hYyxfXtEjLV4PfCb
+         4x/Ox3BNwRK/GItBS1kve/dh9nVUYemywCxICE5pR5GxMguEPe69pb0T/pWRk1tkvCu4
+         R1AQ==
+X-Forwarded-Encrypted: i=1; AL+hErHoQ/Ls0ydpDu9w4ru32ElZEr9Ngdi+l5hCWLEIPkVLwqy1ogMfVgadeoYtAPHBRUeGc4bfBHU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kyKT5Xc/f2uTvnTPm/6GWhwMhYZJ5FxIIY50UIP12q05IbT5+
+	Ir4wc0PEyqSxsRti/mPamUBLCyDIu8mbIbsOlkOPUcJ8XFV3tjvc9LQaK4Y/wYloMBRK6Dy10J1
+	Ovej0dA==
+X-Received: from plgi10.prod.google.com ([2002:a17:902:cf0a:b0:2e8:f377:a4d4])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:19e3:b0:2ef:ced7:9ff4
+ with SMTP id d9443c01a7336-2eff740c243mr51107455ad.31.1795069369890; Wed, 18
+ Nov 2026 22:22:49 -0800 (PST)
+Date: Thu, 19 Nov 2026 06:22:49 +0000
+In-Reply-To: <0907415D86226AEA+20261119025619.3485277-2-guanwentao@uniontech.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,148 +77,43 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <0907415D86226AEA+20261119025619.3485277-2-guanwentao@uniontech.com>
+Message-ID: <av6VHCsEnrAMOx0M@google.com>
+Subject: Re: [PATCH net] tcp: cancel cloned request timers without waiting
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Wentao Guan <guanwentao@uniontech.com>
+Cc: edumazet@google.com, ncardwell@google.com, kuba@kernel.org, 
+	netdev@vger.kernel.org, melotti@google.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Thu, 19 Nov 2026 10:56:20 +0800, Wentao Guan wrote:
+> When a cloned request is migrated again, its timer has the same lockdep
+> class as the running request callback. Using timer_delete_sync() through
+> __inet_csk_reqsk_queue_drop(..., false) can therefore trigger a
+> recursive-locking splat and disable lockdep.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+This is net-next material.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
 
-- [Medium] The v2 changelog says the TCP, ICMPv6 and UDP-Lite ul == 0
-  paths were exposed only to "a bounded over-read of up to 63 bytes",…
-- [Medium] The changelog understates who can trigger the bug.
+> 
+> The clone is unhashed when inet_ehash_insert() fails, so
+> reqsk_queue_unlink() is a no-op. Its timer is pinned to the current CPU,
+> allowing it to be cancelled without waiting for its callback. Use
+> timer_delete() and drop the timer reference directly instead of
+> synchronously deleting it through the queue helper.
 
---
+This change depnds on 4e2b3ef19e0e, without that, __reqsk_free()
+frees reqsk immediately and timer triggers UAF.
 
-net/sched: act_csum: bound the IPv6 jumbo payload length
+So please mention the commit.
 
-This patch bounds the jumbo payload length parsed by
-tcf_csum_ipv6_hopopts(). The length must exceed IPV6_MAXPLEN, the IPv6
-payload_len must be zero, and the claimed length must fit within the skb.
-This stops the ipl + ntkoff sum in tcf_csum_skb_nextlayer() from wrapping
-and keeps csum_partial() from reading past the end of the skb.
 
-Link: https://lore.kernel.org/r/20261112075159.3552470-1-piyus@iiitd.ac.in
-Link: https://lore.kernel.org/r/20261112075445.3555341-1-piyus@iiitd.ac.in
+> 
+> Fixes: 97c8a3c1f73d ("tcp: Fix potential UAF in reqsk_timer_handler().")
+> Cc: stable@vger.kernel.org
 
-> 16-bit length, since ul <= ipl - ihl compares against ~4.29e9, and
-> csum_partial() reads that many bytes off the end of the skb.  (The plain
-> UDP arm is not affected: it requires ul == ipl - ihl.)
+Please drop two tags above.
 
-[ ... ]
-
-> So "action csum tcp" and "action csum icmp" setups were exposed to a
-> bounded over-read of up to 63 bytes on kernels built without KASAN, while
-> the 65535-byte read reported below is the UDP-Lite case specifically.
-
-[Severity: Medium]
-Is this impact statement complete? It covers only reads, but the same
-wrapped-ipl path also seems to allow out-of-bounds header writes.
-
-When ipl + ntkoff wraps, the only check that any transport header bytes
-exist is the loop guard in tcf_csum_ipv6(). It covers one byte:
-
-    } while (pskb_may_pull(skb, hl + 1 + ntkoff));
-
-tcf_csum_skb_nextlayer() then lets the wrapped ipl through. Also,
-skb_try_make_writable() does not check the length:
-
-    if (!pskb_may_pull(skb, ipl + ntkoff) || (ipl < hl) ||
-        skb_try_make_writable(skb, hl + ntkoff))
-
-After that, the handlers store to header fields whose offsets were never
-checked:
-
-    tcf_csum_ipv6_tcp():   tcph->check = 0;          (bytes 16-17)
-    tcf_csum_ipv6_icmp():  icmp6h->icmp6_cksum = 0;  (bytes 2-3)
-    tcf_csum_ipv6_udp():   udph->check = 0;          (bytes 6-7)
-
-In tcf_csum_ipv6_udp(), the udph->check store comes before the ul tests:
-
-    ul = udp_get_len_short(udph);
-
-    udph->check = 0;
-
-    if (udplite) {
-    ...
-    } else {
-        if (ul != ipl - ihl)
-            goto ignore_obscure_skb;
-
-So the plain UDP arm cannot do the large read. It still writes at an
-unchecked offset, though, and udph->len is read from the same unchecked
-header.
-
-On the rawv6_send_hdrinc() path, the skb is allocated with
-length + hlen + tlen + 15 bytes. With tlen = 0 and a length of the form
-41 + 8k, the tailroom can be exactly 15 bytes. Two examples are 353 bytes
-in the 704-byte small head and 673 bytes in kmalloc-1024. With a 1-byte
-TCP header, tcph->check then lands on skb_shared_info at skb->end. KASAN
-would not flag this because the store stays inside the allocation.
-
-The code change closes all of these paths, since the new bound on *pl
-keeps ipl + ntkoff within skb->len. v2 was a changelog-only respin meant
-to describe the exposure. Could the changelog also mention these writes,
-and qualify the statement that the plain UDP arm is not affected?
-
-[ ... ]
-
-> The packet is generated locally through a raw AF_INET6 socket with
-> IPV6_HDRINCL and leaves an Ethernet device, so skb_network_offset() is
-> non-zero and the sum above wraps.  Reaching it needs a clsact qdisc with
-> a csum action carrying TCA_CSUM_UPDATE_FLAG_UDPLITE, which is
-> CAP_NET_ADMIN in the network namespace - reachable by an unprivileged
-> user through a user namespace.  The folded checksum of the out-of-bounds
-> bytes is written into the packet and transmitted.
-
-[ ... ]
-
-> Conditions it needs: a clsact qdisc with a csum action carrying
-> TCA_CSUM_UPDATE_FLAG_UDPLITE, on an Ethernet-type device, with the packet
-> locally generated so that skb_network_offset() is 14 and the sum in
-> tcf_csum_skb_nextlayer() can wrap.  CAP_NET_ADMIN in the network namespace,
-> which CONFIG_USER_NS makes reachable by an unprivileged user.
-
-[Severity: Medium]
-Can a wider set of senders trigger this than described here?
-CAP_NET_ADMIN is needed to install the csum action, but not to send the
-packet that reaches it.
-
-A bridged IPv6 frame from another host also arrives at tc egress with
-skb_network_offset() equal to 14:
-
-__netif_receive_skb_core()
-    skb_reset_network_header(skb);
-  -> bridge rx_handler -> forward
-br_dev_queue_push_xmit()
-    skb_push(skb, ETH_HLEN);
-    dev_queue_xmit(skb);
-  -> tc egress -> tcf_csum_act() -> tcf_csum_ipv6()
-     -> tcf_csum_ipv6_hopopts()
-
-These frames never pass through ipv6_rcv() or its jumbo option checks.
-The only bridge-side check is br_validate_ipv6()->nf_ip6_check_hbh_len(),
-and that only runs with br_netfilter.
-
-act_mirred ingress-to-egress redirects also push the MAC header back, so
-ntkoff is mac_len at the target device's egress.
-
-Take a bridge, VM tap or container veth host where action csum is
-installed on a port's egress. A remote, guest or container sender with no
-privilege on the host could send a jumbo length of 0xFFFFFFCA. That would
-trigger the UDP-Lite read, or the TCP/ICMP over-read and header writes,
-and the folded checksum would be transmitted.
-
-The new bound uses skb->len - skb_network_offset(skb), so the fix covers
-these paths too. Since this affects stable and security triage, could the
-changelog and the conditions note describe this broader exposure rather
-than only locally generated packets?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116182108.2581258-2-piyus%40iiitd.ac.in
+---
+pw-bot: cr
