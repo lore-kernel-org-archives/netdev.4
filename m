@@ -1,113 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.129
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795097809;
-	b=tZxdOrT+RKSZrhoVv3ZY7EZlL9yhzBAUs25mv1xzjJupLO4Yd86ZNOa1LeYsVBc2Invn
-	 PTpiVWSfX+b0R7pytEQj83dmgKBWufP+hWNVFx8/zZwUEPEKHTYANCg5047tGJjMJ8mdx
-	 SWG7vkeClt8e4lLdNpAONeXdtv40Vln9ocMeqnlGWCx8BskVU3TF4iyLJpkFWN1SmZWfK
-	 2HaO8imLPYSQ3XeMyrPoDZJSCYO6t9f6JjjoPPJxaE1b2sZJ//1e14ayafylr/UFKNiu3
-	 28DMzvv2AGafPFvbmQiJzaszTn8c/6t6VDiqMI/Od/HT3Tb2NvTMfAVx0UPjMERsUeA==
+	t=1795097833;
+	b=m1msopwhteltMcxQWuLVPfOIGqQFMH5/SAo5je/rhg0dXoF9zvRdpMvgG8wq5rB9ohBr
+	 vw/phE3rx/NVyadCj1VHJ2gfafH3WFpe8IO0u+yCnzDI/aQOUZi2jSCf26W/eg9v5o5kM
+	 u/ypHEQ0IYx0iT++e6B3tb3LjDKonDSzy9TrqMr+WDRugewcBRYDHo7TU5+zO9I+KHGxb
+	 2iL6o6jzbNk91DbgHtnBDdzA/gV++MMrsEEhiSeFbEvRu+/6Y+XAIXbLd8vOQmesT5Ik1
+	 BdJjT6HEcZ9OoJFHizGV9aysyGtHAyd3q/H9p7v1/rzKGn8IlXMGWVw00Nz79t1VQ7Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097809;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=AjGmTYfwk+pEetozVokxzOL4oEgaLM49CmOKLNeGY3U=;
-	b=mM8V1XfvYotfeE5XWKjIfIvGVBuVv2P6QSBHiQqgKHw2FUm/kPTlBSVU+qNzynkBPVed
-	 zytwWcHS2Pr8McjIc+/5qvbr7cQPpsXSiR6lmpPJ7gde2WF7N+fuhZJaQEXk+WE/gK2K0
-	 1w+GowZeWwtgS2Pxn3I1XQ9zICiBCqMLEANwS0sWhFsrT0NQ+zjNOKP+9zs3K96sEEGQR
-	 coUitcJxtim4OdlQ+sk/8+fgIcanjQCsPjld/VxVzRMLVVYtgOYUwlGgz4l3MqwB+2+oQ
-	 xO5wAnFQfeiDO5p6oEZeX+TLIL4AgyuEVp6vAVjuOtoGg5Koby0F2DCQmTUmE77F95Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097833;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
+	b=vN68NtFLulH5gVHbQtGj3R5iOJBOi/M/yQgtKsXlPBXLsL7/mEudSOvrA3rUlxOuwqFj
+	 AyXns8z8nh7UPQ85gSmS3R15S8WRyERwulcSk99T/Zt1zt1uyne/ZFsu00Ldc5jN01DWI
+	 EvrG9k+H+Cq/nz5wO6y83YPPt2IEgHlrSmFJQZ68FF/QnR/Trwsex1IafuoEVDnymTRIJ
+	 +zeHdva2IcF7cwkFW7YvLxs8HlFbmVbVkhUifj467M6SBYKtcvD18F5IP5KMNAmlSteEj
+	 2iPx7xF6E+407oKQrrycStA/dA8qrGElw0bPPpzy3ifHq5svDKl8C0Qp3U3BLoPlWCA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=telcobridges.com;
-	spf=pass smtp.mailfrom=telcobridges.com;
-	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=lziU0q5v;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.129
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020129.outbound.protection.outlook.com [52.101.189.129])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYLCrU1b;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E95CA60A260F;
-	Thu, 19 Nov 2026 14:16:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E95CA60A260F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=telcobridges.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telcobridges.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E12E0606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:17:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E12E0606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=lziU0q5v
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mCgvjLQKsz753iARkIIJMaIZi6Y9DgXOT8NMusJz90yz540rgIfjZDpxgkTRtbVsJ7YS3uqqPuVstD3VjpOBPXK5dpuV+jttqwg7Y9tcqhAHkb+ceU+47/0XJLmdc8/cj1wwewp8G4H5WHB1eGWah0vQB3pwy4A5ycQMhC4MveU4cDnTsy4e1Nim52cfd5DPcReCR0fXwBRWO0k0N/WOnkxC3mmSf96ZnRgDELEtfaGCEe34HdwSfbpCXmVo3fJho9hCxW5oYoew6XRTrW8tM6vgp6ae3QJxSJyTAdKDXmIyIjT4B/bm5z12NEW04T3yF66DDv2/bRuITOG4n2DPng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AjGmTYfwk+pEetozVokxzOL4oEgaLM49CmOKLNeGY3U=;
- b=bIQ/u+Pk+b0n52LWwMbKs1Csw80qQQhXmT975466YLgB+XJg4iGBDn8783QCswvi1xz8GXwPAwxnmklYeDHMHqbzt6moyRa/FOMenbtDHk3FbP3z5kjEi50nmBTXZg0/P6xw1mXEYvtBO0v0aMLS/onpJScXj5Ghl7qGyhkkMuL0kaK19OlE566/CbS8JXn75GrY+Ldg8Aq5S5w7wy4XmsIUSnrQ58SDum/f7q/oWQGb/5DzR/UrJxj9Gdk5uhMvMa/Ux5pbrhhnsZZSxW7MueEz4vgTvX+vKWkku8/dnonX5RK9PfwyT3xiXaGMUHrbo1VN7L9L4IdgtrXJ3qwQKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 142.180.224.216) smtp.rcpttodomain=davemloft.net
- smtp.mailfrom=telcobridges.com; dmarc=pass (p=quarantine sp=quarantine
- pct=100) action=none header.from=telcobridges.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telcobridges.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AjGmTYfwk+pEetozVokxzOL4oEgaLM49CmOKLNeGY3U=;
- b=lziU0q5vdTmlR57Gxz+r+fb6Dp6ZvJ4NFpErIyJwIpEaQ9DegHTlNZZe50E3DHWAnYuKxUBztazX/AhIWE5YnpVL9a0Q+md+q1FeNorz7DroSm9xlesG+c55T56SP+OxC9Cq96IYe6+WGss5OLrqR1JLcI425UqIQ4bBU4srw6c=
-Received: from YT4P288CA0092.CANP288.PROD.OUTLOOK.COM (2603:10b6:b01:d0::27)
- by YT1PPFFAD0C5CD4.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b08::5ae) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 14:16:42 +0000
-Received: from YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d0:cafe::3b) by YT4P288CA0092.outlook.office365.com
- (2603:10b6:b01:d0::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Thu,
- 19 Nov 2026 14:16:42 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 142.180.224.216) smtp.mailfrom=telcobridges.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none header.from=telcobridges.com;
-Received-SPF: Pass (protection.outlook.com: domain of telcobridges.com
- designates 142.180.224.216 as permitted sender)
- receiver=protection.outlook.com; client-ip=142.180.224.216;
- helo=srv-code1.telcobridges.lan; pr=C
-Received: from srv-code1.telcobridges.lan (142.180.224.216) by
- YT2PEPF000001CF.mail.protection.outlook.com (10.167.241.39) with Microsoft
- SMTP Server id 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 14:16:41
- +0000
-Received: from srv-vmware-cmcburney-tbos10.telcobridges.lan (unknown [10.0.0.68])
-	by srv-code1.telcobridges.lan (Postfix) with ESMTP id 47ECD9653;
-	Thu, 19 Nov 2026 09:16:41 -0500 (EST)
-From: Curtis McBurney <cmcburney@telcobridges.com>
-To: netdev@vger.kernel.org
-Cc: Curtis McBurney <cmcburney@telcobridges.com>,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrew+netdev@lunn.ch,
-	willemb@google.com,
-	toke@redhat.com,
-	daniel@iogearbox.net,
-	almasrymina@google.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 2/2] net: net_test: add tests for netif_tx_stop_queue() trans_start
-Date: Thu, 19 Nov 2026 09:16:31 -0500
-Message-ID: <20261119141633.3118789-3-cmcburney@telcobridges.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261119141633.3118789-1-cmcburney@telcobridges.com>
-References: <20261119141633.3118789-1-cmcburney@telcobridges.com>
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYLCrU1b
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ae3a5d440aso21775341fa.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:17:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795097831; cv=none;
+        d=google.com; s=arc-20260327;
+        b=N4b3YrhjP0jD8eevShHSq2Uvu98zjDXrJh/vthxO3WMeFMuFx+lu+rC8CiqnBX88yc
+         j5bFCwHTqCNUQsGQYrSCy7POCvY2sshOtEJQSy+xeFpTeaC4IgnLL//n+G07kG4GBtNJ
+         04H3rifklZr9+2qgpImvmMK56aLm9cfIDy0LzmghXth1bAvn3EAcpQ1LXXMm5iUZI3Pz
+         wc92NRO6PTqpUM+D9cAKLfIY6DUiubrEO02CMK5HoE3KTIfc0kqomk7RVyilkivypfv+
+         mLDIiRIKNg0uTGb3XZsjwhzBQW50POle7j7Gw4vkl7Q3pXkPTtGyo+Ac1TxYT8sOv/BP
+         7hMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
+        fh=A/aid7ZNnTxMniDLoXI1WWJQQ0hJo5Uif2rACN/fTKA=;
+        b=EAZxLDgSyRis+MqLk1eorrMtQSdDpUOvIJw5g7DcmJxl2En5ruDrPcObflwuMysyXu
+         Qts6O+ymPR7EhuiZfOIVRiEkPmbeNHvKcwbIjGwKlR83haWV3WVEOztUEg5v8wubDZBu
+         wR+HN9AbYpFMuxp5bp+OZEtj0Q6d+NHzugwZJXH6JGt2JyYo1iGyYhQvxE9GTZFS5F/v
+         EdzRtlSACXVfUG7br/G0GttlMIEskPcqgMskoU7aqHGtiM5bl21/5/tNx/+/Rh8MvGRl
+         MeWSyrz/5yqaF9esyzBL/kU3TLpIy87OX33HAtY5/JLqe1Z0/kKys02HgK9TT8trVNiA
+         eUkg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795097831; x=1795702631; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
+        b=gYLCrU1b14FtyWF9J9rRGDjfdc0Otf4TgsztKEFyUN8vJ9fEW00iNlVqaoT2i619GN
+         PxW3UzyGLeWoFiRpiteOsZMxbyCOnwB0I4Vz7wka/NNZaRvwxaLO+iTNj7edK7aSpb2E
+         6dlsAyjI70MyFpVX27aztVirR/jyfNLlLk0ArU3X1/lW/5ew9DP4mA3FM2CFLrkx5a8B
+         Q7S3hXRSwI+Kfx8e2500V5OyhAsVHtbBuYy2Lmdx6wFHL1iEJgod36lZbX66g9lksG4J
+         PlM0PO+aDLTSGc+5+rIr20nfPTNKiUbTBRQwHd+HMGzbCyYY9lMv1PoV78+PQOtZFcf6
+         kgOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795097831; x=1795702631;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
+        b=nToLPEfsSgxP/MZ1cbITXyv7loD3c4YS9I9xrvQTU+FsFLeOeJOevTRHiuuLDcnCWO
+         jdHx6VXSiIpBRz1ro4yYY4fkoLz/5SSwG1d+XN0pB2NL2YFKK6VDGCXgTqxMieXVP1SC
+         4QuGO/bKFU4yMb4TAovzZmxCk7IrBOC1/3RSijQjKp7ns5WYHgeeRUKQXuBP8ezUakoz
+         Qf0rIKtwrFDZ8/udFm/neHKAPp5/v4bng3u0KnOlxCNs1bzRhS5eq5xhxljXcC3ZPgQS
+         kI0sBjNRwF1L5VqnQajyv4SXqoNBfbKQbeRMx9wkWCfGKW94EU2f3xPscLCcHl0yJjBQ
+         4ebA==
+X-Forwarded-Encrypted: i=1; AL+hErGdAqS8vTkWxoD5oJQ01uaTfOp2zB1TmzQNWpt3WC9X1lAsxoiLDXfTUAlhK3GqNiiNrQmpKvM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8asrX2rdGB2r1OHgtVjfCSvtqOPIqLYB0Plkx0bfQJ9VOlYBIz
+	ECx/GYCvJm6/+V+i+H2xC6Nc8Gt0Kl1XnJY4HXUwN9ltv9pgIpzhlB0bz3sQy93XZ60uzHuy4La
+	qvpimj0u38lDa5ds97ZVxojGitqFjWC4=
+X-Gm-Gg: AYBFou265ehBvCagsIBqpBAT84HX8Qna/5hlxChw57uONaKZ9N0aIxgVVY/blNxPpic
+	hLXf31qADXNmkeNoTGwJRY0aTWpBjzyplUMFlLQb5F3L5y04iXG0q17vNiJHusAeokL7k89DHRE
+	HUMi1gKz9V+Vy/b8IX1quMOoMPG2Lox016TkyYh0xogO19DdjunuWBw3K5z7FQ3B5aDcuz3eS5m
+	+fleWchFrZ7vYvdskM0CmhTUstk8VAT7aUz7Smjmi6KUu8XOeLrjZIxiGPFDx+Ga+WFweYpLHjz
+	ZSk3Jl9bE4hwVRhdVXT8p8/msIDztqykX4kO9INIk8Ato9fjTzUgwdLJQydX2TYq5jijT6591Uq
+	XzsnL3rStCjNU6fmZfVvYzYQsnVqZtWg0Hw9gwmM=
+X-Received: by 2002:a2e:ac01:0:b0:3ac:dc69:e62a with SMTP id
+ 38308e7fff4ca-3ae7f8d3febmr335241fa.2.1795097830717; Thu, 19 Nov 2026
+ 06:17:10 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -117,192 +104,202 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PEPF000001CF:EE_|YT1PPFFAD0C5CD4:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 85d2f126-7653-403e-0211-08df4647bbb2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|1800799024|36860700016|7416014|376014|22082099003|18002099003|6133799003|261009223027099003|56012099006|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261028144727099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	SYqtGmquIUQ3VNsoTZbxE+Rf5ZEmeksPs5frX2XqQcWZjgnibsk6cMYpMg9MUslLiDc326/JhwumDaff4d+7qvqds+lyR5hwKlNWh63BhaNJClCuZOBNkkec43PO+IZwpt7ED6mkSSo1cbtjk7TSAgOrciwLZN1+ioYE77yW/LHxHcTbpSVyJGHclFwj8GZWNQuB2MijeYg21GaNN4fnTE79EcJPWgq9LXtlk343zHiTDtfJi/5ndQl14QwqiU9j76Z5YwIZPSq+/mfftXLjyKo1NtGffsKVs9b0Y6SZrXcKEez+Z5EEVMPzu73mp9/auS8RMYTgR6o89pnUbpNic76xT4bWE2/Txr74GROaUCe9b0EGphL90v7sOs/vbmOW2OiGDta7kFytuQbxZ+ZehYN5joQJKep3OfsKCrB0DGKqf2kGYnM9/Q+xN30odtJHhPaCvX5tbpS0i8dGmxNl6xHf75H8y8tA7XcqvtC+cRJp7IPYCmN6121/wf1Do5lVbxJvoR9X64Folg22XXjZx/lSky4bPVfkCmAwJ94CL7VDWXsVfZTApLKtP51/Yd4QcgvmQw37E2VX74lwUiD82yGm8KEcObKdAU5z8xPt5HZjzI8bQLd9mWj9uqOB/pyIDH+VAnDkh8LEFz88mXMHApSrYYvkiU/U+e3bQOuEtq5Rs4WfCPrCbiqJmvUIfSlV
-X-Forefront-Antispam-Report:
-	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(36860700016)(7416014)(376014)(22082099003)(18002099003)(6133799003)(261009223027099003)(56012099006)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261028144727099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	hpnlQfs6gPrDEuXpfUn85bEkfQ4ZP5XZJvBoZxgr9lWaGIHsgqb2E5TMx8e+ti65S8w1Jx0oy0M+SCJWr7+mSX9kir0hObywo1piE+G4L4/9TZhupP6x/Gcp1SYUtI7QPW+Uoq+3O03+bUJ1laxl3iSUktekLnBb6uBEOVP6S65kDEdZmjasu7HNsQ3VNwWcx7AwJMZB6iczmwTH0S7xw6YB1R5+BPwCNlaWLYKB3PcSyPSxyjP6u0HTAwjihDsIVUV+VxlJbMC0xJO1nDxZT3I5C7ndsBh5DGIK7oXctXIvinWgcbHO2WnkmnNS7t2jDpR/7HLf4FQSC/m0GtFDNUY8xC9gCsf76JAAfgpgHkj+G3oqbEJe7Fkz+PNu2s4JZvNJO2sAvpbcIsHWqgEGWRPpZvXocWcCCHVx/vTXEabntyNEEcSCP761FIm3sXZX
-X-OriginatorOrg: telcobridges.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 14:16:41.4913
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 85d2f126-7653-403e-0211-08df4647bbb2
-X-MS-Exchange-CrossTenant-Id: 5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5;Ip=[142.180.224.216];Helo=[srv-code1.telcobridges.lan]
-X-MS-Exchange-CrossTenant-AuthSource:
-	YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PPFFAD0C5CD4
+References: <20261118120102.3717000-1-graypanda.inzag@gmail.com> <willemdebruijn.kernel.37588f5cf382f@gmail.com>
+In-Reply-To: <willemdebruijn.kernel.37588f5cf382f@gmail.com>
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+Date: Thu, 19 Nov 2026 23:16:58 +0900
+X-Gm-Features: AclHuK_LIRKFgU_S2fFfC6XZS0j4HJsS0X8_nxwW8loTln1Qz37v8K9q7GCKYcQ
+Message-ID: <CAO7ntTQpeuWE4t-e_3d_aFzug=KiUd7dZjXpZgO-Fm=8iY8=jw@mail.gmail.com>
+Subject: Re: [PATCH net v2] tap: clamp zero-copy copylen to remaining payload length
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+Cc: Jason Wang <jasowangio@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Gwanhyun Lee <gwanhyunlee@gmail.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add KUnit tests for the txq->trans_start handling of
-netif_tx_stop_queue(), which dev_watchdog() uses to detect a stuck
-queue:
+> Commit 2506251e81d1 ("tun: Decouple vnet handling", v6.15) introduced
+> the premature check, replacing if (hdr_len > len) with if
+> (hdr_len > iov_iter_count(from)) and crucially before
+> iov_iter_advance(from, sz - sizeof(*hdr))
+>
+> Commit 6a53fc5a8770 ("tap: Use tun's vnet-related code", v6.15) then
+> brought that bug into drivers/net/tap.c
 
-  - a stop on a running queue writes trans_start
-  - a stop on a queue already stopped by the driver keeps trans_start
-  - a stop after netif_tx_start_queue() writes trans_start again
-  - a stop on a queue stopped only by BQL (__QUEUE_STATE_STACK_XOFF)
-    writes trans_start
+Thanks for the review and tracking down those commits.
 
-txq_stop_keeps_stamp_stopped_queue fails without the previous patch.
+Mixing the two examples in my v2 commit message made the timeline
+confusing:
 
-The tests run on a single thread and do not cover a wake that races
-with a stop. The previous patch removes that race by construction: a
-stop that finds the bit set writes neither trans_start nor the bit.
+- The second case (sz=3D512, hdr_len=3D256 bypassing __tun_vnet_hdr_get())
+  is indeed the v6.15 regression from 2506251e81d1 and 6a53fc5a8770.
 
-Tested on UML with CONFIG_KUNIT, CONFIG_NET and CONFIG_NET_TEST:
+- The first case (246-byte padded vnet_hdr + 14-byte frame with
+  hdr_len=3D0) predates v6.15. Because vhost-net checks the 260-byte
+  total descriptor length against VHOST_GOODCOPY_LEN (256) before the
+  vnet_hdr is stripped, this short frame still enters the zero-copy
+  path. With len=3D14 after subtracting vnet_hdr_sz, hdr_len=3D0 passed
+  the old "hdr_len > len" check, and GOODCOPY_LEN (128) was chosen as
+  copylen. Keeping Fixes: 97bc3633bec7 on tap (and 0690899b4d45 on
+  tun, which has the same unbounded GOODCOPY_LEN issue) ensures
+  pre-v6.15 stable trees pick up the fix as well.
 
-  tools/testing/kunit/kunit.py run --kunitconfig=<cfg> 'net_core.txq_*'
+> We still should also include this fix (or skip zero-copy when
+> copylen >=3D len)
 
-Claude Code (Anthropic) wrote these tests and this changelog.
+I checked both options. Clamping copylen keeps skb_zcopy_init() intact
+even with zero frags and completes cleanly via skb_zcopy_clear(),
+whereas falling back to zerocopy =3D false invokes
+uarg->callback(NULL, uarg, false) and increments vhost's tx_zcopy_err
+counter on valid short frames. So keeping the copylen clamp in both
+tap and tun looks cleaner.
 
-Signed-off-by: Curtis McBurney <cmcburney@telcobridges.com>
----
- net/core/net_test.c | 112 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 112 insertions(+)
+> So there is more work to protect all paths. This on its own fixes
+> one issue. It should probably be respun to fix the Fixes tag. Let
+> me know if you want to take on the other work and send a series.
+> This can certainly also stand on its own.
 
-diff --git a/net/core/net_test.c b/net/core/net_test.c
-index c36333b36211..368545f1f987 100644
---- a/net/core/net_test.c
-+++ b/net/core/net_test.c
-@@ -1723,6 +1723,114 @@ static void netmem_ref_test_tcp_devmem_recv(struct kunit *test)
- #endif
- #endif
- 
-+/* netif_tx_stop_queue() and txq->trans_start */
-+
-+#include <linux/etherdevice.h>
-+#include <linux/jiffies.h>
-+#include <linux/netdevice.h>
-+
-+/* dev_watchdog() reports a timeout when a queue stays stopped for longer
-+ * than watchdog_timeo after txq->trans_start. A trans_start value this far
-+ * in the past is distinguishable from a fresh one.
-+ */
-+#define TXQ_TEST_OLD_DELTA	(10 * HZ)
-+
-+KUNIT_DEFINE_ACTION_WRAPPER(txq_test_free_netdev, free_netdev,
-+			    struct net_device *);
-+
-+static struct netdev_queue *txq_test_alloc(struct kunit *test)
-+{
-+	struct net_device *dev;
-+
-+	dev = alloc_etherdev(0);
-+	KUNIT_ASSERT_NOT_NULL(test, dev);
-+	KUNIT_ASSERT_EQ(test, 0,
-+			kunit_add_action_or_reset(test, txq_test_free_netdev,
-+						  dev));
-+
-+	return netdev_get_tx_queue(dev, 0);
-+}
-+
-+static void txq_test_expect_fresh(struct kunit *test,
-+				  struct netdev_queue *txq,
-+				  unsigned long before)
-+{
-+	unsigned long stamp = READ_ONCE(txq->trans_start);
-+
-+	KUNIT_EXPECT_TRUE_MSG(test, time_in_range(stamp, before, jiffies),
-+			      "trans_start=%lu not in [%lu, %lu]",
-+			      stamp, before, jiffies);
-+}
-+
-+/* A stop on a running queue records the stop time in trans_start */
-+static void txq_stop_stamps_running_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long before;
-+
-+	WRITE_ONCE(txq->trans_start, jiffies - TXQ_TEST_OLD_DELTA);
-+	before = jiffies;
-+	netif_tx_stop_queue(txq);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	txq_test_expect_fresh(test, txq, before);
-+}
-+
-+/* A stop on a queue that is already stopped keeps the first stop time, so
-+ * repeated stops from a driver hang check do not postpone dev_watchdog()
-+ */
-+static void txq_stop_keeps_stamp_stopped_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long old, stamp;
-+
-+	netif_tx_stop_queue(txq);
-+	old = jiffies - TXQ_TEST_OLD_DELTA;
-+	WRITE_ONCE(txq->trans_start, old);
-+	netif_tx_stop_queue(txq);
-+	stamp = READ_ONCE(txq->trans_start);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	KUNIT_EXPECT_EQ_MSG(test, stamp, old,
-+			    "second stop moved trans_start forward by %lu jiffies",
-+			    stamp - old);
-+}
-+
-+/* A stop after a restart records a new stop time */
-+static void txq_stop_stamps_restarted_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long before;
-+
-+	netif_tx_stop_queue(txq);
-+	netif_tx_start_queue(txq);
-+	KUNIT_EXPECT_FALSE(test, netif_tx_queue_stopped(txq));
-+
-+	WRITE_ONCE(txq->trans_start, jiffies - TXQ_TEST_OLD_DELTA);
-+	before = jiffies;
-+	netif_tx_stop_queue(txq);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	txq_test_expect_fresh(test, txq, before);
-+}
-+
-+/* Only the driver XOFF bit decides whether the stop is a transition. A queue
-+ * stopped by BQL (stack XOFF) gets a new stop time when the driver stops it.
-+ */
-+static void txq_stop_stamps_stack_stopped_queue(struct kunit *test)
-+{
-+	struct netdev_queue *txq = txq_test_alloc(test);
-+	unsigned long before;
-+
-+	set_bit(__QUEUE_STATE_STACK_XOFF, &txq->state);
-+	WRITE_ONCE(txq->trans_start, jiffies - TXQ_TEST_OLD_DELTA);
-+	before = jiffies;
-+	netif_tx_stop_queue(txq);
-+
-+	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-+	txq_test_expect_fresh(test, txq, before);
-+}
-+
- static struct kunit_case net_test_cases[] = {
- 	KUNIT_CASE_PARAM(gso_test_func, gso_test_gen_params),
- 	KUNIT_CASE_PARAM(ip_tunnel_flags_test_run,
-@@ -1740,6 +1848,10 @@ static struct kunit_case net_test_cases[] = {
- 	KUNIT_CASE(netmem_ref_test_tcp_devmem_recv),
- #endif
- #endif
-+	KUNIT_CASE(txq_stop_stamps_running_queue),
-+	KUNIT_CASE(txq_stop_keeps_stamp_stopped_queue),
-+	KUNIT_CASE(txq_stop_stamps_restarted_queue),
-+	KUNIT_CASE(txq_stop_stamps_stack_stopped_queue),
- 	{ },
- };
- 
--- 
-2.52.0
+I will take on the full work and send out a v3 series shortly, split
+by Fixes target:
 
+  1/4 net: tun_vnet: validate hdr_len after skipping header padding
+  2/4 tap: clamp zero-copy copylen to remaining payload length
+  3/4 tun: clamp zero-copy copylen to remaining payload length
+  4/4 selftests: net: check padded vnet hdr_len in tun and tap
+
+Thanks,
+Junyoung
+
+On Thu, Nov 19, 2026 at 1:37=E2=80=AFPM Willem de Bruijn
+<willemdebruijn.kernel@gmail.com> wrote:
+>
+> Junyoung Jang wrote:
+> > tap_get_user() derives the linear copy length for zero-copy TX from
+> > hdr_len or GOODCOPY_LEN without bounding it to the payload remaining
+> > after the virtio header. tap_alloc_skb() exposes that length in the skb=
+,
+> > but zerocopy_sg_from_iter() copies only the available payload bytes.
+> > The unfilled tail is transmitted on the underlying link and can expose
+> > stale kernel heap contents.
+> >
+> > For example, a 246-byte padded virtio header and a 14-byte Ethernet
+> > frame leave only 14 payload bytes, but a zero hdr_len makes copylen 128=
+.
+> > With a 512-byte virtio header, a guest-supplied hdr_len of 256 also
+> > passes __tun_vnet_hdr_get(): it checks hdr_len before skipping the
+> > padding. That makes copylen 256 for the same 14-byte frame.
+> > Larger padded headers can raise copylen as far as good_linear.
+> >
+> > Clamp copylen to the remaining payload length before allocating the
+> > skb. The minimum Ethernet frame size has already been checked.
+> >
+> > Fixes: 97bc3633bec7 ("macvtap: macvtapTX zero-copy support")
+>
+> Thanks for the fix.
+>
+> This appears to apply to both tun and tap. But to have been introduced
+> later
+>
+> Both macvtap/tap and tun originally subtraced len -=3D vnet_hdr_sz first,
+> and rejected hdr_len > len with -EINVAL. We should reinstate that for
+> both.
+>
+> Commit 2506251e81d1 ("tun: Decouple vnet handling", v6.15) introduced
+> the premature check, replacing if (hdr_len > len) with if
+> (hdr_len > iov_iter_count(from)) and crucially before
+> iov_iter_advance(from, sz - sizeof(*hdr))
+>
+> Commit 6a53fc5a8770 ("tap: Use tun's vnet-related code", v6.15) then
+> brought that bug into drivers/net/tap.c
+>
+> We still should also include this fix (or skip zero-copy when
+> copylen >=3D len)
+>
+> So there is more work to protect all paths. This on its own fixes
+> one issue. It should probably be respun to fix the Fixes tag. Let
+> me know if you want to take on the other work and send a series.
+> This can certainly also stand on its own.
+>
+> Side-note: it is also somewhat surprising that we have allowed such
+> massively padded vnet_hdrs all this time. But that is perhaps too late
+> too fix. Certainly for net and stable.
+>
+> > Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+> > Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+> > Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+> > ---
+> > Changes in v2:
+> > - Replace the Fixes placeholder and add the co-developer trailers.
+> > - Document and reproduce the guest hdr_len > GOODCOPY_LEN path.
+> > - Shorten the code comment and keep the C reproducer separate.
+> > - Link to v1: https://lore.kernel.org/netdev/20261113164903.785381-1-gr=
+aypanda.inzag@gmail.com/
+> >
+> > Tested on Linux 7.4.0-rc2 (067c5c24cef2) in x86-64 QEMU/KVM with
+> > two vCPUs, CONFIG_MACVTAP=3Dy, CONFIG_VHOST_NET=3Dy, and CONFIG_VETH=3D=
+y.
+> > The guest used vhost_net.experimental_zcopytx=3D1 and init_on_alloc=3D0=
+.
+> > Each case ran in a fresh VM with TUNSETVNETLE enabled.
+> >
+> > Before this patch, with a 14-byte Ethernet payload:
+> >
+> >   [POC] case=3DA
+> >   [POC] case_a_hdr0 received_len=3D128 expected_user_frame=3D14
+> >   [POC] case_a_hdr0 tail_bytes=3D114 tail_nonzero=3D98
+> >   [POC] control received_len=3D14 expected_user_frame=3D14
+> >   [POC] used_idx=3D2 trigger=3D128 control=3D14
+> >   POC_EXIT=3D0
+> >
+> >   [POC] case=3DB
+> >   [POC] case_b_hdr256 received_len=3D256 expected_user_frame=3D14
+> >   [POC] case_b_hdr256 tail_bytes=3D242 tail_nonzero=3D82
+> >   [POC] control received_len=3D14 expected_user_frame=3D14
+> >   [POC] used_idx=3D2 trigger=3D256 control=3D14
+> >   POC_EXIT=3D0
+> >
+> > With this patch applied, using the same inputs:
+> >
+> >   [POC] case=3DA
+> >   [POC] case_a_hdr0 received_len=3D14 expected_user_frame=3D14
+> >   [POC] control received_len=3D14 expected_user_frame=3D14
+> >   [POC] used_idx=3D2 trigger=3D14 control=3D14
+> >   POC_EXIT=3D0
+> >
+> >   [POC] case=3DB
+> >   [POC] case_b_hdr256 received_len=3D14 expected_user_frame=3D14
+> >   [POC] control received_len=3D14 expected_user_frame=3D14
+> >   [POC] used_idx=3D2 trigger=3D14 control=3D14
+> >   POC_EXIT=3D0
+> >
+> > Disclosure: An in-house LLM-based analysis tool developed by the author=
+s
+> > assisted in surfacing this bug candidate and drafting the initial notes=
+.
+> > All root-cause analysis, patch code, and QEMU/KVM reproducer results
+> > were manually reviewed and independently verified by the authors.
+> >
+> >  drivers/net/tap.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/drivers/net/tap.c b/drivers/net/tap.c
+> > index 2f19fb07bb2d..f25c58d6e986 100644
+> > --- a/drivers/net/tap.c
+> > +++ b/drivers/net/tap.c
+> > @@ -608,6 +608,8 @@ static ssize_t tap_get_user(struct tap_queue *q, vo=
+id *msg_control,
+> >               struct iov_iter i;
+> >
+> >               copylen =3D clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good=
+_linear);
+> > +             /* The remaining payload may be shorter than copylen. */
+> > +             copylen =3D min_t(unsigned long, copylen, len);
+> >               linear =3D copylen;
+> >               i =3D *from;
+> >               iov_iter_advance(&i, copylen);
+> >
+> > base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
+>
+>
