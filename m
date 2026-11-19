@@ -1,69 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079320;
-	b=QJ/O8gRCW9gSjjqM4uDBeMGMKRoYz4LW5suPj0QuBaMzVrNfbPDobfTRk5eh9WftnTFM
-	 mULc/ZlPbQKYDkHTO/gN/NO6wlaNPO5nl92CjirpWZmpQB4FjjVKkuTYad4+JtD2dMMpH
-	 13jx7Rd/gyzmxK4ZgbweLx34HemCTinl5E8nI/QLPBoe5hneHnF8fSMiz7kaeg8QbVjOo
-	 6UwvFy5V9PhUhnsXugDf1f5wtzNNv48eG9UB5u42wrrlc3LVUikjOMXQfISifaE2CT9kS
-	 EwdhQ8fReT9jSJLWOh7mVkJcJE4NHlR3KAv+7Xda+x674jwU0vi/lyaB3E02m4g093w==
+	t=1795079417;
+	b=QvyqxJ5cVTjyNBpRc2xU6bkQOLDwhAvFQfImXEaEd2238JWSFWGff08qLXTSOS7rhj8F
+	 tXqFB+CAI+364NAB13gDOEji73oEH+A8g58LuqWemKOLXqt20kEVVa3IuUBLggIj1yGqk
+	 bHeJWCXlcYRrqxyAP2Rysf/Q1U+YgAs624USQy4TKGz7R7S+mXlaUEbtcOPHv6ijBn/Lt
+	 M8TmX/aSgoqGCWM1/+UTyyzFWZb3pYNOA1BXfFU9Km8zSnykMzJpIug6gbBw0c+T9ujjH
+	 wLhlU/ZlP6yoGvlKqlqp95u+P1iJJUvuDLtK7/hPcbveq/az3Rv9qajOwF25BMrSOlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079320;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=15zWcwkuBSJexmlOsRrtxfRWi46muQGHV1HA3UEnjNo=;
-	b=RR+rTNsu3FQPq7tesGzb21OtyafpZXvCndj6fdJ5beRfe8F9s/42NHrQ81lJ/werYgWb
-	 dxUMr9AJJHQe67EcBl5ZxqGXHO9G+HZvqecB4iOMVSReIsGM0ASK5fddmMFvZT90kp0/8
-	 Ya0qtLLl5nmMimS65rhm/sq8YTJANb4GsNN4+w+V6Uh3upRZT91/YMVq239yN1EwZ+mvI
-	 W3d5XqK5MOtOj3RQksAkWnVKO9E7TDZm/omW9GKLosk0Yn/5ZWU5VmxOZ2h8ASdv4OdmM
-	 jC4K0tpmPKCUnQtSlndg/tXSNC/BgkcpsJxpGkNmeu6wk2/RV/Tt7/f6dJGJa6GjX2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079417;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=QZaIpmJbdbbLJ0/+K2lgnwIVoF87UxKHw3bi+8cUMeI=;
+	b=4zP48ysYcsEyNiBQRbiAXwaPeoxz6cKuXp507kwzTymuSWwviHb2cTBHl/Pua9VczvuI
+	 Vt9O1Ok+XYaiZDIL03TuBH6trZQxx6O/G3TTYyP4PMt4HdXI0LN+IDLeI+k3cpjiIvBv5
+	 yqY8PjuIK7H26UTUbnuBFELQ4RgLUWNwTQX0JQDRKWzcvVQo4tlpc9pHLumm0NO5fZ/E8
+	 YHSMDYy/70fAlf23/sL9Xpud9f+88tnPso5ekgYjXx6Cl+8dCmbMxTM/EhCRW6yhmlNdh
+	 eukE1Xzz7xZp3+q9FvwwktzhJbe8WxfTaALZBw4VeuHUbsWkA/uXmWMhWU8FB0tHPBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iGaz0MnM;
-	arc=none smtp.remote-ip=91.218.175.56
-Received: from mta0.migadu.com (out-56.mta0.migadu.com [91.218.175.56])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0ZG4SCx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0212606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:08:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0212606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0E80606A326;
+	Thu, 19 Nov 2026 09:10:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iGaz0MnM
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ewLD2RoUEn44CzUrN+jsQkMnB8disIPWVTgYsWzKRj0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795079316; v=1; x=1795684116;
- b=iGaz0MnMJK2L3UpilUUmEvzFnKsXezvVt0AyKhtlDDnoCP09FGGP6xbv7veim1jcXUBtCeJJ
- CROBFESll6SlMQ2Hko7oNd264lW6Nnqhg2YBGRodvb0haPXBwcZhKy5JQy53NOr5gtTviSGySZE
- PUGXqZOu5DfTBBxuQFPoMR3Y=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c716db91977b33a7;
-	Thu, 19 Nov 2026 09:08:36 +0000
-X-Mizu-Trace-ID: c716db91977b33a7
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Wei Wang <weiwan@google.com>,
-	Soheil Hassas Yeganeh <soheil@google.com>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
-Date: Thu, 19 Nov 2026 17:08:27 +0800
-Message-ID: <20261119090828.343748-1-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0ZG4SCx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB1F1F000C4;
+	Thu, 19 Nov 2026 09:10:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795079417;
+	bh=QZaIpmJbdbbLJ0/+K2lgnwIVoF87UxKHw3bi+8cUMeI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=n0ZG4SCxH3CFGBQKpAGOjOTbSmbkbU/jbqQbT9GAJbMCquQ/Vq8wkbVUMdzVSwAkD
+	 q3HE+7GhBaWnU5dR7NALmPmOlm+jMyXM10X0sHNojf2WY5ruj//ZoAV/UUrsOTYuuc
+	 oP28MkPMPnJi0sr4usfP73DXRsjd5NhfpWIoW27xYvrWJgrpBeOQhZz6AygAaVQ11f
+	 md1roGbx61yL7zNmOzW+Jsiq0KmWLgpBzeCfniYyGcOqR3FgmmJEKK+1G4xOORKIg/
+	 PnxVyNZGqgvyumB51dcO8noOyZ4VoY1gzoCixr59JoJXRCmvtKsTs8cfK1ZuNkGwOQ
+	 MTEq1qaBzsRgQ==
+Subject:
+ Re: [PATCH net v6 7/8] net: dsa: b53: harden mirror register programming
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, vivien.didelot@gmail.com, linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 09:10:16 +0000
+Message-ID: <179507941634.3136.10463696917464189508@kernel.org>
+In-Reply-To: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
+References: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,81 +63,189 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Our local syzbot reported the following warning:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-  WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
-  Modules linked in:
-  CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
-  RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
-  Call Trace:
-   <TASK>
-   tcp_sendmsg+0x2c/0x50
-   inet_sendmsg+0x62/0xb0
-   __sys_sendto+0x2fe/0x350
-   __x64_sys_sendto+0x7f/0xb0
-   x64_sys_call+0x1375/0x27e0
-   do_syscall_64+0xe4/0x470
-   entry_SYSCALL_64_after_hwframe+0x76/0x7e
-   </TASK>
+Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
 
-The problem is here:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-  if (!skb_zcopy_pure(skb)) {
-          copy = tcp_wmem_schedule(sk, copy);
-          if (!copy)
-                  goto wait_for_space;
-  }
+- [Medium] This patch fixes a regression that an earlier patch in the
+  same series introduced.
+- [Low] The series is split badly around b53_mirror_init().
 
-When MSG_ZEROCOPY data is appended to a skb that already holds copied
-data, only the user length is scheduled, but the pinned pages are then
-charged by their truesize:
+Pre-existing issues:
+- [Low] At this commit, on BCM5325/BCM5365, the mirror source masks and
+  capture-port field use the newer-chip encoding.
 
- skb_zerocopy_iter_stream
-   __zerocopy_sg_from_iter
-    zerocopy_fill_skb_from_iter  //truesize += PAGE_ALIGN(copied + start)
-    sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
+--
 
-For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
-charges 32768 with 4K pages.
+net: dsa: b53: harden mirror register programming
 
-On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
-(e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
-min(copy, sk->sk_forward_alloc), which is negative. The negative copy
-is passed to skb_copy_to_page_nocache() and triggers the warning, and
-sendmsg() fails with -EFAULT.
+This commit clears and rebuilds the mirror registers during b53 and
+bcm_sf2 setup. It also checks every mirror register access in
+b53_mirror_add() and b53_mirror_del(), and only increments the source
+reference count once programming has succeeded. Whether a destination is
+occupied is now decided from the source masks instead of MIRROR_EN.
 
-A few options were considered:
+> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+> index 98696bce368fe..deb331b3629a7 100644
+> --- a/drivers/net/dsa/b53/b53_common.c
+> +++ b/drivers/net/dsa/b53/b53_common.c
+> @@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
+>  		return ret;
+>  	}
+>  
+> +	ret = b53_mirror_init(ds);
+> +	if (ret)
+> +		return ret;
+> +
 
-1) Schedule the truesize up front. It is not known before the pages
-   are pinned, it depends on the iovec layout.
-2) Do not append zerocopy data to a non pure skb. This splits a small
-   header and its zerocopy payload into two skbs.
-3) Schedule the missing part right after the pages are charged. They
-   are already in the skb at this point, so this can not fail.
+[Severity: Low]
+The commit message says this patch will "Clear capture control and both
+source-control registers during b53 and bcm_sf2 setup, then rebuild the
+source masks and capture destination from the mirror reference counts".
+The diff, however, only adds the calls in b53_setup() and
+bcm_sf2_sw_setup().
 
-Go with 3).
+The previous patch, "net: dsa: b53: reference count shared mirror source
+bits", added the body of b53_mirror_init(), its EXPORT_SYMBOL and the
+prototype in b53_priv.h. That patch's message only talks about reference
+counting, and the function has no callers there.
 
-Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pressure")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
- net/ipv4/tcp.c | 2 ++
- 1 file changed, 2 insertions(+)
+Could b53_mirror_init() move into this patch, or could the earlier commit
+message describe it?
 
-diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-index d510e982dcea..8bd377542a89 100644
---- a/net/ipv4/tcp.c
-+++ b/net/ipv4/tcp.c
-@@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
- 			if (err < 0)
- 				goto do_error;
- 			copy = err;
-+			/* Pages were charged by truesize, not by copy. */
-+			sk_forced_mem_schedule(sk, 0);
- 		} else if (zc == MSG_SPLICE_PAGES) {
- 			/* Splice in data if we can; copy if we can't. */
- 			if (tcp_downgrade_zcopy_pure(sk, skb))
+As it stands, cherry-picking this commit through its Fixes: tag without
+the previous one would fail to build because b53_mirror_init() is
+undefined. The "must be applied after them" note doesn't say that the
+dependency is a missing function body.
+
+[ ... ]
+
+> @@ -2654,14 +2658,25 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
+>  {
+>  	struct b53_device *dev = ds->priv;
+>  	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
+> -	u16 reg, loc, cap_ctl;
+> +	u16 reg, other_reg, loc, other_loc, cap_ctl;
+>  	int ret;
+>  
+> +	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
+> +	other_loc = ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
+> +
+> +	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
+> +	if (ret)
+> +		return ret;
+> +
+>  	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &cap_ctl);
+>  	if (ret)
+>  		return ret;
+>  
+> -	if ((cap_ctl & MIRROR_EN) &&
+> +	if (((reg | other_reg) & MIRROR_MASK) &&
+>  	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
+
+[Severity: Medium]
+This replaces the (cap_ctl & MIRROR_EN) check that "net: dsa: b53: reject
+conflicting mirror destinations" added earlier in this series. Is that
+earlier patch a regression on its own?
+
+At that point in the series, nothing in setup clears the mirror
+registers. The baseline add path always overwrote B53_MIR_CAP_CTL.
+b53_switch_reset() only soft-resets some chips:
+
+	if (is539x(dev)) {
+		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x83);
+		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x00);
+	}
+	...
+	if (dev->chip_id == BCM58XX_DEVICE_ID ||
+	    dev->chip_id == BCM583XX_DEVICE_ID) {
+
+Take one of the other chips with no reset GPIO, where a bootloader or a
+kexec'd kernel left MIRROR_EN set with a different capture port. The
+first valid tc matchall mirror rule then fails with -EOPNOTSUPP.
+
+If stale source bits were also left set, b53_mirror_del() never clears
+MIRROR_EN. Another destination then can't be selected until a power
+cycle.
+
+The earlier patch carries Fixes: ed3af5fd08eb and a Reviewed-by, so
+stable tooling can pick it up without this one. The "must be applied
+after them" note only guards the other direction.
+
+"net: dsa: b53: reference count shared mirror source bits" has a similar
+problem. It increments mirror_count after unchecked writes, so a failed
+first programming attempt is recorded as success. Later adds for the same
+port and direction then return early instead of reprogramming. This
+patch fixes that ordering too.
+
+Would it be better to squash the b53_mirror_init() wiring and the
+source-mask occupancy check into "reject conflicting mirror
+destinations", and the mirror_count reordering into "reference count
+shared mirror source bits"? Reordering the series so that no single
+commit regresses would also work.
+
+>  		NL_SET_ERR_MSG_MOD(extack,
+>  				   "Only one mirroring destination is supported");
+> @@ -2673,19 +2688,17 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
+>  		return 0;
+>  	}
+>  
+> -	if (ingress)
+> -		loc = B53_IG_MIR_CTL;
+> -	else
+> -		loc = B53_EG_MIR_CTL;
+> -
+> -	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
+> -	reg |= BIT(port);
+> -	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
+> -
+> +	/* Select the destination before enabling the new source. */
+>  	cap_ctl &= ~CAP_PORT_MASK;
+>  	cap_ctl |= mirror->to_local_port;
+>  	cap_ctl |= MIRROR_EN;
+> -	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
+> +	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg | BIT(port));
+> +	if (ret)
+> +		return ret;
+>  
+>  	(*mirror_count)++;
+
+[Severity: Low]
+This is a pre-existing issue, but is the source and capture-port encoding
+right here for BCM5325/BCM5365?
+
+The source bit is written as BIT(port), so the CPU port uses bit 5 rather
+than hardware bit 8. The destination is compared and written as a raw
+port number under CAP_PORT_MASK, but these chips expect a port bitmap.
+
+b53_mirror_init() uses the same encoding (cap_ctl = MIRROR_EN |
+dev->mirror_port), and so does b53_mirror_del() (reg &= ~BIT(port)). The
+hardware can then mirror the wrong source or destination while
+mirror_count and mirror_port report the rule as installed.
+
+The encoding goes back to ed3af5fd08eb. A later patch in this series,
+"net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365", fixes
+it. That patch adds b53_mirror_port_mask(), b53_mirror_capture_port(),
+b53_mirror_capture_port_mask() and CAP_PORT_MASK_25, and uses them in the
+init, add and del paths.
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116210943.1352656-1-florian.fainelli%40broadcom.com
