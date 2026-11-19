@@ -1,62 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048838;
-	b=f4Bu3DXBFzrIplxWep66uZwlXwFQ+1np37iSA7zgNTQS62z1FtZX8xtIYSIRKDVYvFAr
-	 QpGv79YJ8yoY38YWAdbDG9Lbbwn4NvvE3z7g1vncAL219i9k4nymSNLPQm8bnCQHwQtDX
-	 K6fRzw2Bb5MLnwNxgQTVuMRulNBukwOabQGeOMWVsPNZflU+1vzWY6SgWxtBfzbVGIyxo
-	 wU1BqY9z2zi8wpq6xHos9nOUuG25A1t3qW1ShLVubcFoGJzf0pX6yBdimvezQ5n4JF68N
-	 3TffHOUoCyDiPvzMw6kBsNG6vKkIVDuit1EFZnAqSE8iIL7llwYgVJW84WG6l5xaiww==
+	t=1795048899;
+	b=IcG/cEhLaj2480yxySuzyf6DHedJnJJhWY3i/B+tDxCdBv7HLEEN+Z8MODbKVLXDXenG
+	 vbHNbrZ98hXUvrQTWt4OPOBD4gR1OuO/1Ug1M6TmTShS793mlE5hDzUFVNLHIcmLZ9l1T
+	 Vx78RrikUnqONq9qJbEwqrU2yRE5eYRX2MA9W7DNJe7OPgbtWUPaNDzu53Mdxb8Un9kbh
+	 oMng+R9yUM96sccfqmXIROK+PNaeA20xhVJIY5BJpGUAK6AuTqhTfXQa+6Y1rcpHWxKZT
+	 ufNOmJvqgDh0mFZ03kk19ACS5hCaXFYk7qyCMS4UPQ03k4HYqW3DedA7lZIB2x3z7sA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048838;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=mo1q4jEE8kXYGn1pEvjW3f9A0Zb56qipOWRIn9i/1Ow=;
-	b=V0LJmL9lJuGPHNm2CNKTbvg71hy1H2MfkfKxy83wbsLQ2P7IsvMytDCVburEW9/gWuo9
-	 QnpmgG+tWBPwqtXX/rV3QEs252TA2U35epR3+ztWXfZc7Ce21dhEoIVXF9N0gtg7qo25W
-	 BKfRqcaPpTU8A//II23IlPeYjaZqlNznoVTQwurlhPgSBvk0+iaNjA1bGvre02gcCorRK
-	 XF4qTt3sN76XBVULM4wGbz0bMgFxjNidxMfk5h9hQT0a8SvhsRTDhPzUbVkOQb7WmCGee
-	 JdDI1K7pcPOlDgWCV25Mcm1Tu14kzXKpv4fOCkDnv5yee0pN5OQLgDjAcyn1Cf1mU6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048899;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=hvBatQBYMyCCrwFYx6ixL2SoWI3yMG92pdP59Av2nhY=;
+	b=qkO0Dc9dBtR3hzThOHTs34AZ287Kh2YK469Oc7OaR7ohJmvmqgYdzynV5wraLTMJv2co
+	 nHoiPBgquDaBU5YAlj7kOKZVCYfL8Bntq8EUD5qtio4vfixBccN/mmfYrWfY/UZIFUCyY
+	 vv0XcrgMf5SPj7p5ziKsV9Ekbmb/NiZJxOavIYwed8ze1eZEKiKzwKdUk99Av234QKSgf
+	 1JQa65YKcP4GUZGvkt53cwqWTPPbNtU/vP4Z1YCBp8yB2j1tAT4duyy7U6b5r90EWykyk
+	 W3tRzL7xpYlGRsQUUrSsCY47dex+2zK3fgVltF/iXxylNPTo16REuZa42FYCZpJ9tpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QIDQHr1w;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GOb+xqyL;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E24D606A31C;
-	Thu, 19 Nov 2026 00:40:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9FEE606A32C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:41:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9FEE606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QIDQHr1w
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A3941F000C4;
-	Thu, 19 Nov 2026 00:40:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795048838;
-	bh=mo1q4jEE8kXYGn1pEvjW3f9A0Zb56qipOWRIn9i/1Ow=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QIDQHr1wqbeXEA1vWkJOJWOE/Iu91Y6XqJ63ia3ZPqQl4p36JuOUuo9IIsKDJSgZ8
-	 FqOhHkw0bWDAw+IugRVQAdSNotrqICWPnXvWLYrrTq+0fXEaEYB5PlB5h+IdLz17td
-	 tDxrsKUMJlMORObMqkAEuBPb1CU6xPx9/uFoeApMKGRIcuukiSYrVqSRpaFBL2Zp3K
-	 3eIyrAKu1aYLld9IlyzXSO1ORCfB3rj5Ie0V6L/1LMJFql2MqN49SCjzbUnDEk652j
-	 /O23E+FYplNDTOfZ+95OGwnhd534QDMrknZnDLjLr5y6to0mCJXlv8FrJBydWu7HX/
-	 H1qdsSAK3lj8A==
-Subject: Re: [PATCH net v3 1/2] selftests: net: veth: propagate channel-check
- failures to exit status
-From: netdev-bot+sashiko@kernel.org
-To: emmaonana18@gmail.com
-Cc: tianyi@cloudflare.com, hangbin.liu@linux.dev, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, kuba@kernel.org, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org
-Date: Thu, 19 Nov 2026 00:40:36 +0000
-Message-ID: <179504883686.3136.13611151498828489972@kernel.org>
-In-Reply-To: <20261116084107.6675-2-emmaonana18@gmail.com>
-References: <20261116084107.6675-2-emmaonana18@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GOb+xqyL
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c50686daf9cso40594566b.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:41:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795048897; x=1795653697; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hvBatQBYMyCCrwFYx6ixL2SoWI3yMG92pdP59Av2nhY=;
+        b=GOb+xqyLz68ulwX34svmLuibUnhYeJMs1CyRXVUiqptI/WC/pbUF7RIT3eSlVHgdVx
+         bboW1nx1d1MzTPJLg8vDngDHQ+uH48Z46LoaHcNovFnEGEFip+CUPxlOzcZERklA2/OL
+         nXE/VultkctCKfo21K2EbImQT6/aamY0EuvGAnk6Bjt9YVRE1Aq+v3FJyl+tgbUOB85o
+         voyZUA9FKUClvOI9597Kux2e+uN/ghvWdtZTbb8pS7NulrYMpcAtY36GF3Y/ZbfSw3KL
+         6rG4gSASL+/We76JNOwN4vn8qlzKOeE3Qu03obXV4OfaOeVrY99ts9oxYJfEJUzdO66a
+         LsMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795048897; x=1795653697;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hvBatQBYMyCCrwFYx6ixL2SoWI3yMG92pdP59Av2nhY=;
+        b=177Vqwo3JQ7+PDWkVaJYBclnLPxQbQg/THsq3hUZge4WpeK1ExnNlbvlx6Ql5HcPhV
+         Z4ueg2NUCjVUddBTiVGRTswSLp/Pn3tLJf1wKZiu/kA3ihSnY3b3qzsV9iPPJ49RntdY
+         n15h3XrPW7yu1LaHPeqyKG4eVm5iuVKiyippMyYm3SjVt5INu+u2oia1PEliwJQ8gV4k
+         CDtOTNgRldGS4l47zth0mlZK5hZdkacmosAnZZmqX+AdByOPa1X1eKApOvUgc8wlOTmj
+         FEMMJ8MhdYcH0qrjP0S1aJlP9GGWdi2XlztaZpoICuxrELNKlo3KO/Z3htVcdgoweFxr
+         9GMw==
+X-Forwarded-Encrypted: i=1; AL+hErG6VWugvrLGADPIDKeWjj5K42cnHIs9iNjiBZJtkm06DSsJFPJZa7WWWSsi5ddszkJod2rBRDI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UVJQUVn0xDCdPxTgiXtDo5jZHr6MVSVvbrPpYixAf/gQ5TXQ8
+	hGgDoc3bf5c2Gxy/jxImcwX+R1j9dKQH6sEQXf7vkVyDppPirNiJafoT
+X-Gm-Gg: AYBFou07A4KQ4RLLC0PRiNJhrlXUXrHZbsIYvLn83RkJwrnjygOHyba8q1d31X2IYp2
+	9eKjwFkY4JA1kReKWsixZVfXFqADitLxe7DNuxBYUm4dGRXwH74nRuvHolStmLsa8e7hntfJqy/
+	5svf/GMl+Lioav/FnPrLHjoTEFnm813KGwln6NTpo0RgayWTTbkjIIRxlqeRcSnjOXXARq6eh63
+	jheE8oH72Uwf8NubaUYB5JzqspHPZaxU2N0pp+gaBiwH2kWLfnJPZvPWUW/bZZ8EBmw50FaOOV4
+	8BAoCjns3NM8/GLW23wMx2vV0FLnFJf3nv9rnVJ3w6nZj+DSyExyf+ZfJDT6MVpBfiavo3midR5
+	y54yyXYLOMLaGXQdq1SLpJZctl/3s5VLv5EohZhHHF0ozPpEa4W4E0qAC1KgUpj3ajGli3oL3I5
+	2ZdNfPLJ4csmeYuMcpnFy/tff9uaIYd2JOJ6uFm48KnOGp7Q/g88T5PPoGYOrL4ZIXROiHFHDsl
+	tq7BanembmRrKJXVgGSjRAqTC4yRwMFSnoamo324kcfJ0pJzcXBTEneNMhoh/RM79KOxyS158rF
+	AJJaGRZqlTppEScH1sB6fCTeI73cnEr1IwhuAYx2M+0hLRxdSHw=
+X-Received: by 2002:a17:906:2a12:b0:c51:269e:5c7b with SMTP id a640c23a62f3a-c51269e6306mr85283766b.4.1795048896973;
+        Wed, 18 Nov 2026 16:41:36 -0800 (PST)
+Received: from Nuel20.localdomain ([105.118.74.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51234d2159sm52803766b.78.2026.11.18.16.41.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 16:41:36 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: kuba@kernel.org,
+	tianyi@cloudflare.com,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	skhan@linuxfoundation.org,
+	emmaonana18@gmail.com
+Subject: Re: [PATCH net v2] selftests: net: veth: propagate channel-check failures to exit status
+Date: Thu, 19 Nov 2026 01:40:56 +0100
+Message-ID: <20261119004117.41043-1-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179486580141.3136.15559598598860423821@kernel.org>
+References: <179486580141.3136.15559598598860423821@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,82 +114,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Mon, 16 Nov 2026 21:50:01 +0000 netdev-bot+sashiko wrote:
+> - [High] The fix is incomplete.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Legitimate, and already addressed: the three bad-setting checks
+gained ret=1 in v3 [2/2] (also spotted by Tianyi during review),
+restyled to if/else in v4 [2/2].
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> - [Medium] Because chk_channels() now sets ret=1, the "setting
+>   invalid channels nr" check at
+>   tools/testing/selftests/net/veth.sh:467-468…
 
-- [Medium] The patch adds `ret=1` to the mismatch branch of
-  chk_channels() in tools/testing/selftests/net/veth.sh (line 133).
+Good catch. Fixed by [3/3] in v4,
+which attempts max_tx + 1 from the kernel-reported maximum
+instead of nproc + 1.
 
---
-
-selftests: net: veth: propagate channel-check failures to exit status
-
-This commit makes chk_channels() in veth.sh set ret=1 when the observed
-channel counts do not match the expected ones. With it, any channel
-mismatch makes the script exit with a non-zero status.
-
-> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-> index 64c2a5a59821d..5c1dbe1516bb4 100755
-> --- a/tools/testing/selftests/net/veth.sh
-> +++ b/tools/testing/selftests/net/veth.sh
-> @@ -130,6 +130,7 @@ chk_channels() {
->  		echo " ok "
->  	else
->  		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
-> +		ret=1
->  	fi
->  }
->  
-
-[Severity: Medium]
-With this change, can a check whose result depends on the test environment
-now fail the whole veth.sh run?
-
-The "setting invalid channels nr" check expects a request for CPUS + 1 TX
-queues to be rejected. CPUS comes from nproc:
-
-    readonly CPUS=`nproc`
-    ...
-    ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
-    chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
-
-The veth queue limit is num_possible_cpus(), capped at 4096. It is not the
-number of CPUs the process can use:
-
-drivers/net/veth.c:veth_get_num_queues() {
-	/* enforce the same queue limit as rtnl_create_link */
-	int queues = num_possible_cpus();
-    ...
-}
-
-veth_get_channels() reports dev->num_tx_queues as max_tx. The ethtool core
-in net/ethtool/channels.c only rejects tx_count > max_tx.
-
-nproc returns the number of CPUs the process can use. That can be smaller
-than the number of possible CPUs on machines with hot-pluggable CPU slots,
-or when the test runs under taskset or a restricted cpuset.
-
-In those cases the request is valid. No XDP program is attached at that
-point, so veth_set_channels() accepts it and real_num_tx_queues becomes
-CPUS + 1. chk_channels() then sees cur_tx != $CUR_TX, and with this patch
-veth.sh exits 1.
-
-Before this patch, the mismatch only printed a fail line. The later patch
-in the series ("selftests: net: veth: propagate bad-settings check
-failures to exit status") does not change this check.
-
-Could the out-of-range value come from the device's advertised maximum
-instead of nproc? For example, the "Pre-set maximums" TX value from
-ethtool -l, plus one.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116084107.6675-1-emmaonana18%40gmail.com
+pw-bot: cr
