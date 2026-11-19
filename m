@@ -1,67 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.122
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.186.204
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069265;
-	b=w1EHzxpWdzgJXXFoxtJjItRec5+J6o3wAsw+qUOAPwpMHwWf5GK5zsV0s9Gdbuvag/+f
-	 5kiFFhbLyTjusgyl4Kb7JG1/6XAts7z8080FtP0CTqsVCjrvEAop/eNgj3qfmdGRVNwS0
-	 zj4Mc1WMWLZY4dlRfjbWNrZHpTtn7T3STNVcyteHX00cMbFBJoQnuTacVcnUX00xzLisa
-	 nodKWCajyUomZwDVUfUafjiC9vPsL3RTc10Zs4oFO2vPeBKokYrwoBWqwVtvzu1ql5TTg
-	 /rT7m8NTAC6kQhJC8SIqn8aHFL6SaUTC1No7pqmCYd9BvLgMjyHbBeYIGEnqpwwBTkA==
+	t=1795069286;
+	b=smQZH1Y1L85gIrugzIVJ7sWL0Jm9g26QatPGBo5kdibWeXK4akdekvPcWENLq3MaX34u
+	 Co2nYdg3NIJkJ/MvLH0ZKNaRndSN0seyhoLKqgh5n61eDq+oY/7JhpJCT4Kg1ItuBiM3J
+	 p+gMxk2NX6XkRQrOqH7P/WJ6nEiXY7OrIcZ7xatkTPMJJaVMyRssZkAIT5JWolm2NTaX2
+	 jGCpHc1yCDnx5G8wuDuJqcS9tWWV4ei60V2i6Kn+/MZ9Kk92qywtbQOigaL6P2hxiiGTI
+	 hD8fh+rnNUptEmZieEg66BziHfdqltyRa0EBs6nVJtjcxHXnBe8cgrhP50suydNeI6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069265;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=qbyL5HMrGv75dxRJkA0TUVYKMlH2SnW57JgwxkKtV7Q=;
-	b=036xAW82MTekdt/t9nEJjC6DZUNa/y/qFiNhKNEd4g6WwLPEDYos4MGuDGLu75wqwzkt
-	 a2lMOoWWXY9Me+5f7oPJ1nE1vvgPM0gpdYc9IYWDkqvUjHel+o5h8lilOqnMpOITcGQdq
-	 Oe89hxFagXbyRmNDNj4Wjc0wri3VaUCqh01kJPAX9wuoAYJtIYx3teRhIUDqyuKv8NF+3
-	 7JmKsj2m0PVrFBquAKT3KbzRTRtqcJmjjaHhTtEoagpwKVDSqGkW7uOdurIGQvIb7EShD
-	 yFfNlTFezJgHTGw675+PTLmT3Ub/QYzSdbsms2SKsLXTIXLROpg+CAHUgxdtqcj5eSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069286;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=e8bV8mZNPv72BEjVa27YKHF5PibJk4k58MTQ78+dY3I=;
+	b=KZ7xxW2uF6CFUtd9wOrDyrce6Jb4gWVCuTeWBg4J4d6bDCvZeAhe1UaPFT6ZtvZZ6qzb
+	 LTJ7LFJ+uuLYRWprmaiQ9X7p0qkgDJ9CvKr7sUbtuSkWTC3aP2XOr/lerkTV9zGX/cKui
+	 TiuUUzrrb8Y46HsYkWxWErcFCpoBaJF+xO5bV89hQgbnek4/FxAVG7Q/W3/guId4851vM
+	 xqMH0DhACp3jqlZJNwLMkES6qPw7bWztFU3BMvMz6jUg3BJjfPLZf37htUs33BQ4uP9vA
+	 P1Keq38Bny39d7Yeb9Yu0tU/C3dKUP0XlZF7sDBaX4QchZKb+pjJU2nhSEkj97KosMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=G0Kv+Gb2;
-	arc=none smtp.remote-ip=115.124.28.122
-Received: from out28-122.mail.aliyun.com (out28-122.mail.aliyun.com [115.124.28.122])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LIPd85QV;
+	arc=none smtp.remote-ip=66.163.186.204
+Received: from sonic310-23.consmr.mail.ne1.yahoo.com (sonic310-23.consmr.mail.ne1.yahoo.com [66.163.186.204])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D093606A326;
-	Thu, 19 Nov 2026 06:21:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D093606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2AC360A2605
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:21:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2AC360A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=G0Kv+Gb2
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795069254; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=qbyL5HMrGv75dxRJkA0TUVYKMlH2SnW57JgwxkKtV7Q=;
-	b=G0Kv+Gb2uorMxENuh45jQqk6geH5Pzo80fnPJdXyzahSRT3Z5tq2LXJrd8Yg0axxfRptu/HTJtfMp9/pSqroDaWU3EvN7pgfZRDDmWpiX663R7m0DQWJBLUlypow/6Ar/MqDUauNRjlejZaJ6I0jw0onopLJuEGtORVniCU3FYk=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04436262|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.00479623-0.00100605-0.994198;FP=17005987452478377524|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam011083034076;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=15;RT=15;SR=0;TI=SMTPD_---.k5V6pCz_1795069250;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k5V6pCz_1795069250 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Nov 2026 14:20:52 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	netdev@vger.kernel.org
-Cc: Liu Haijun <haijun.liu@mediatek.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Lin Qiaojie <linqj@xiaopeng.com>
-Subject: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
-Date: Thu, 19 Nov 2026 14:20:44 +0800
-Message-ID: <20261119062044.72261-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LIPd85QV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795069284; bh=e8bV8mZNPv72BEjVa27YKHF5PibJk4k58MTQ78+dY3I=; h=Date:Subject:From:To:Cc:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=LIPd85QVK9Ht23Y8sJgoPj/DNgdJ3k95qnarE5FZOlt9Nc+7qUHSYdvIhFpfQROFGnRZ2DFK5SlX8StOIrxl7vYPzBnUw9UcZZzWz6cIsZarpBd+v8i6eDjQNvS9PXvwngeAgiS3c6glQCtgQeG8FoGqL4dxPilNKv7rkEoDA1c/dqMMQDRWh8fdgqt/XT8V+IkCngWzAtzaPYpsrwz1RV+5tE9pIx6W70zAIDepXjvoLXCpsLzRfl9CZSmcW+xDadRRtpKr5xWO89d9Uvk4DAEuSEVotuhgMnILYDHZiLm5UfeJj16JBu/uQ/pC2eC51KHzcXTCSVXKriRcFn2gKw==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795069284; bh=pOkv8uwHf3RepmUoM5aWeTBX14THJ8SnEx58vDdLCal=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=n7GVA8pBnHDjEd1Mpb4UfoVCCMuCNTufuutuXBn9eT6jKjLXIn9LMjWiQCOp++rvgSzPeqDNdmUlo3DN086ZKQ9PsBqq8KoHR6xLtjIRNSjRd15XpedrCauQT8f9liKf7oRiSRSlb+bg4H0+vk2q/EhCZeLeokmk0kM/PVaeS+f2oq6pj+umZ8Y1j2iBnuoNphNB3Ejm7uWLqitMWroMUhF2TKMhOSjwR72eoFe+dlPCpP9MJcpGRbKyO5VuNKjbRO9YfbVH08tbppqCx3Q3eKg3gHaI8XDUMLlTNYi6Nz/+cszJYnZ4mz4T64/r2zf4jSGN63ASqu+Zv/AqL6Q7iQ==
+X-YMail-OSG: Sv9U0yYVM1mRr5oTfBdh_qtqE1j2WLJzbCSQaPyoWPLOE7vdcQtrfhzr1jyEuG8
+ FzUneLPjNkHQ0zMWBNTpScPMVu0qY1QpjZm2hXK8e3Yi3Fyq0JKFo0SluYuu7nO7MQaxaxL8nlpv
+ 6y47rgZWk4wJZq4nYS4w5eqkiit5PcJiDSk.RQESR1_AwtyCrdjviU2Q_vBpk8G5PRU.HkYKabp1
+ vOC70Pa9ATgofZCw15Z_d8LnHhQD.E_vRPYatYn.QP9JYxs4GmqLdjR_hlRG9m6krxTt3.bzAJUv
+ m_eRLDopySyHoyYL0_CEaWbkeBmD2bbvdHBkM6m9MuLoRZRW4heMd2ddvineL9PM9bC_ekS6sV77
+ PTZef3YwhUIeubM8ZCL4xunXfEUNouHVws8gcygNeq4piQJASVbVBK3qrVCxaj.jYXHrXp2uwGPo
+ 465V8Tj1gmOll.PPvNll9eNILH7aaGEPQDXewa.QtWEn4bpFfcEZttVm6gASnsX1nEf8ZHspOpq_
+ _q64KldAzZ8BIa5g7GPJDUfkAfyM3wEg0qCovZV1MqvK4prqyJ_gCq5_w8AgcBGCEsxktHbIpgHH
+ T6o9xeb.H.xmynRvwtAsZ6SBCSz1Qh7ED7Ry2x7RVlpxjxK_9cMvvv4qNDl6MdhkfW952v1VrRsq
+ 0oHPDLaumjyR_bXUmOD6.myyAeVyvd8ysVz.3XRQ6tczUuTy8LjwcjjE3wLjviWkmacu6l8QGCPS
+ mTyhU8qIMB1CkbyM3y5qutjAZlbSzAdjs0.lwWZWcC9TFVUwiEeZNAUX4TrgX9kN7Gx1JPHEA_f8
+ _XZXQJOcHj5PWiHV5Qhu7sMi3sjDbDBVxz_.uYBX1Hj_2Uv4aIGeysO2wjKw11wxY6nSfBQQ1e44
+ DBSOd9OJOwW5Y3ooHVeJX3AnH5a0cbxVxSXlB5BiR2LGDcOfoLEpclGLL9VSBt3ACsmgYqvlbk97
+ gwOd7aR4VrEHJSKe3sFv1ZqGuFRoxe50gxCSHF5FN4qbKfs_dshLRLJqcUEZgM35ea7rvahMF.ZA
+ ne6Aja2DrFwMdB3E91JcIw0SYMtCqQ1GNbH65WQdhCdAt.PBPto7SQ6IOLgPVlwyj0iUmfmdj0yg
+ uERFp1kXCgl7pajIIlIInSxdSsvvsZiynZwqf9VLSrEpQqhqennQzmKeq0vTgQosb8FgYJqz6qsG
+ njC5ueVi0WDTvgY6LwY_CXPhr_0BO0U5w4.Noehh_yLoQKFECPNIEj8rWPk7x3xJLgc_E6Ou_4Pa
+ APpoGJQOjKL4sFNpP.R3nDD3GC_1og20jsFfM7A1iLJXv1Zk0kXnSZAr6hmS99n9ovQs80w4JAHw
+ iF43l12tvNLjAJlF2GrNje5gFDEy4BY7C0PEgloTKkHgW_YV5xavqu_ebXidPEmn8fEo23iEBSeO
+ zVvX2gwfGE4h7Hdg4qJx.W9pcVMWJU8syhS1nnsXHICW93RvjRZXTGPP.nNv8D4xAs8uvwDaMwEZ
+ b.s3aRIXAM1udjKe7H0f4y_cSpEa.Y1kq84Z5rMWEEou7W83Qz61U5vAtZOzfpOrbwENtlVXwyeG
+ asY9OE_bpT3ptQpDb6N74MzMwAaSzkPEvUnlUMI64.Pwc6j4jGqJWUeeqpFo3kCZK98yqb.6qbkA
+ sQBVBplFo_V9B535V89_5gWOJ9GgzQfFlTOZqMgz3O5K.h4xIL6xqyvKRThK1PynFT8aLKDCQZDv
+ bYuFs7iigyNnpNvD_vf0LnL7gTAW3PC5v6WXGUeUeD270INWD2cqwCBO2KKySjAiSJHAkHe9yI_O
+ ih5zaKkLrEoHxEvJ99BH25TVPCwn76XDpJxx2XXPZBRKJUVQ.4ub28_qK4vu1GTZ1ISc4fNliR6L
+ 6uftyWGpgfnXV8B0lsyjWvlazysG4O02UIGrFu_XxECRSZ9lpl145rntCI8WQ3u15r5wiXToBEMk
+ L.KqvivhPGDPUjsBXiKobVZWxgOYBN1153F9WPmN__Itr7nv0awO.KzS0nKa9Gt1MJ6szcxDgZ9S
+ XiEC5iUlR5brWYQkGpbdBHfZFmTyXfSI3v4niEDgkUQ583W.KuUzBe2kJrEYwIyC4QGga.f5PV07
+ 6ySc1ygysPnT7ERd6MiwoZjCGm0Ge3gNUhep78LUOoxkss_LQ4eGlmVfgSjWAliEy10eYO6cIVpA
+ RJJLMrcB4W8uXykg926I43aa0utmNfaRXFHxzJj8VpVu0IPGlVe.QaXu8inWjZip2cxtYYE3Lg5D
+ IizXeQFcJ.9ha9L5.SLn9lHwP7Wwjj05rv.qXdK0CV.u0KcxOK1kb44Ik5YTDV0mTkP.JUSTBAoG
+ Mh0EuElUgUEINMUZEuML_oS8Sb9LfvPlAZeE-
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 38964375-c347-44e9-9db9-4bf867d1484d
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic310.consmr.mail.ne1.yahoo.com with HTTP; Thu, 19 Nov 2026 06:21:24 +0000
+Received: by hermes--production-ir2-7c4859dc89-nqpvs (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 12cacd051e5a2aa1b45be2165f154924;
+          Thu, 19 Nov 2026 06:21:22 +0000 (UTC)
+Message-ID: <ec7722a0-d308-4903-860b-974beb8fb623@yahoo.com>
+Date: Thu, 19 Nov 2026 07:21:18 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,105 +84,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v10 11/12] net: dsa: realtek: rtl8365mb: make
+ L2/LUT access work on family D
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <ddc3b324-fe93-4c1d-a4da-558c0d6e88f1@yahoo.com>
+ <179485535983.3136.18038505829775887634@kernel.org>
+ <8aa852f3-86b4-49c9-95a0-e8c51ef0d521@yahoo.com>
+Content-Language: pl
+In-Reply-To: <8aa852f3-86b4-49c9-95a0-e8c51ef0d521@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-t7xx_dpmaif_set_data_to_skb() derives the data offset from the
-modem-supplied PIT data address and the driver's BAT DMA base address.
-The unsigned 64-bit difference is stored in an int, so a backwards
-address can wrap into a non-negative value and escape validation.
-A negative offset passed to skb_reserve() moves skb->data and
-skb->tail before skb->head. The subsequent skb_put() then extends
-the skb over an invalid range, allowing later packet processing
-to access memory outside the allocated buffer. The existing tail/end
-check runs after skb_reserve() and only guards the tail side.
+Hi,
 
-Compare the addresses in the unsigned domain and validate the offset
-and data length against both the skb tailroom and the DMA mapping
-length before calling skb_reserve(). This subsumes the old tail/end
-check.
+A follow-up to my reply about point 1 (a private FID for the offloaded
+bridge). I could not confirm it from the vendor API and said it needed
+hardware experiments. Gustavo Foletto Mora has now measured it on an
+RTL8367S-VB (EX511) with a development version that wrote FID 1 into the
+VLAN 4K entries of the bridge and used it in the FDB/MDB keys.
 
-On error the DMA mapping is already torn down, but the skb stayed
-assigned to the BAT entry and the entry was never marked consumed.
-This leaves the BAT entry unreclaimable and can eventually stall BAT
-release and buffer replenishment. Free the skb and mark the entry
-consumed so it can be released and reallocated.
+What the measurement showed:
 
-Reject invalid packets with -ENOBUFS.
+ - The chip learns with the FID of the 4K entry the frame is classified
+   into (IVL_EN=0), and static entries written with that FID replace the
+   learned ones.
+ - Standalone ports (PVID 0) do not land in that FID, so for a bridge
+   whose ports have a PVID the collision is gone.
 
-Fixes: d642b012df70 ("net: wwan: t7xx: Add data path interface")
-Cc: stable@vger.kernel.org
-Reviewed-by: Lin Qiaojie <linqj@xiaopeng.com>
-Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
----
- drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 29 ++++++++++++++++------
- 1 file changed, 21 insertions(+), 8 deletions(-)
+Why I still won’t do this in the next series:
 
-diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-index 5af90ca6e063..44e2ba15984d 100644
---- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-+++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-@@ -632,9 +632,9 @@ static int t7xx_dpmaif_set_data_to_skb(const struct dpmaif_rx_queue *rxq,
- 	unsigned long long data_bus_addr, data_base_addr;
- 	struct device *dev = rxq->dpmaif_ctrl->dev;
- 	struct dpmaif_bat_skb *bat_skb;
--	unsigned int data_len;
-+	unsigned int data_len, tailroom, max_len;
- 	struct sk_buff *skb;
--	int data_offset;
-+	unsigned long long data_offset;
- 
- 	bat_skb = rxq->bat_req->bat_skb;
- 	bat_skb += t7xx_normal_pit_bid(pkt_info);
-@@ -643,22 +643,35 @@ static int t7xx_dpmaif_set_data_to_skb(const struct dpmaif_rx_queue *rxq,
- 	data_bus_addr = le32_to_cpu(pkt_info->pd.data_addr_h);
- 	data_bus_addr = (data_bus_addr << 32) + le32_to_cpu(pkt_info->pd.data_addr_l);
- 	data_base_addr = bat_skb->data_bus_addr;
--	data_offset = data_bus_addr - data_base_addr;
- 	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
- 	skb = bat_skb->skb;
- 	skb->len = 0;
- 	skb_reset_tail_pointer(skb);
--	skb_reserve(skb, data_offset);
- 
--	if (skb->tail + data_len > skb->end) {
--		dev_err(dev, "No buffer space available\n");
--		return -ENOBUFS;
-+	if (data_bus_addr < data_base_addr) {
-+		dev_err_ratelimited(dev, "Invalid PIT data address\n");
-+		goto err_drop;
-+	}
-+
-+	data_offset = data_bus_addr - data_base_addr;
-+	tailroom = skb_tailroom(skb);
-+	max_len = min(tailroom, bat_skb->data_len);
-+	if (data_offset > max_len || data_len > max_len - data_offset) {
-+		dev_err_ratelimited(dev, "Invalid PIT data offset or length\n");
-+		goto err_drop;
- 	}
- 
-+	skb_reserve(skb, (int)data_offset);
- 	skb_put(skb, data_len);
- 	skb_info->cur_skb = skb;
- 	bat_skb->skb = NULL;
- 	return 0;
-+
-+err_drop:
-+	dev_kfree_skb_any(skb);
-+	bat_skb->skb = NULL;
-+	t7xx_dpmaif_set_bat_mask(rxq->bat_req, t7xx_normal_pit_bid(pkt_info));
-+	return -ENOBUFS;
- }
- 
- static int t7xx_dpmaif_get_rx_pkt(struct dpmaif_rx_queue *rxq,
-@@ -674,7 +687,7 @@ static int t7xx_dpmaif_get_rx_pkt(struct dpmaif_rx_queue *rxq,
- 
- 	ret = t7xx_dpmaif_set_data_to_skb(rxq, pkt_info, skb_info);
- 	if (ret < 0) {
--		dev_err(rxq->dpmaif_ctrl->dev, "RX set data to skb failed: %d\n", ret);
-+		dev_err_ratelimited(rxq->dpmaif_ctrl->dev, "RX set data to skb failed: %d\n", ret);
- 		return ret;
- 	}
- 
--- 
-2.50.1
+ - The FID comes only from a VLAN 4K entry. The default OpenWrt br-lan has
+   no VLAN: its ports keep PVID 0, the driver writes no 4K entry for
+   VID 0, and the bridge is looked up in FID 0, while the entries are
+   written with FID 1. The keys then never match: a static entry no longer
+   steers or drops (104 frames out of the uplink for 100 sent, 7 with the
+   shared FID 0).
+ - With fdb_isolation, DSA installs the standalone ports' addresses as host
+   entries in FID 0, which the plain bridge also looks up. Its frames to
+   them go to the CPU with offload_fwd_mark set and are not forwarded by
+   the software bridge: 0/50 on h1 -> h2, versus 50/50 with the shared FID.
 
+So a private FID fixes the case with a PVID and breaks the more common
+one, which is worse than the documented limitation. The next revision
+will keep the shared FID 0 and the limitation as described in the commit
+message.
+
+A complete solution would give the ports of a VLAN-unaware bridge a
+private PVID whose 4K entry carries the bridge FID, as mv88e6xxx does
+(MV88E6XXX_VID_BRIDGED / MV88E6XXX_FID_BRIDGED). That needs the PVID to
+follow vlan_filtering changes, and the handling of tagged frames with a
+VID that has no 4K entry is still unknown, so I would like to do it as a
+separate follow-up with testing on hardware.
+
+Best regards,
+Mieczyslaw Nalewaj
