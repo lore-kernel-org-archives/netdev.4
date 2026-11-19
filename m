@@ -1,100 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.128
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795060925;
-	b=UaJpRXdfy4fh2tUJChKGbpH8Q/ztV0rU0B9O6B0zKQypjM949Jkxv95XoqSHdDjkrBLb
-	 Rwq/D7IotGM8lcyOn62BCcK9Ax0lsRxsHaNrs6WhiIK6mEJBgOv1XOEgL+RjOTZFyhIna
-	 JnmP3oeoBWWN8xNgMrk3EM7DixvbPKKPuEs3gL9e95lTWt+K3IzyhpNlX5g12neKHhZ3x
-	 gHgbSiWeuz48H1nGizYjYLRQxkl9t6RSWodncgT9N5QmL51duM0w7Ua23mvNf0A+L1ix1
-	 dgMegm08X9ieyXh/gEjud5sDkQj0HyA/5flbRq2oxC1EuRdt+7cGEOYngArK/kNdlDg==
+	t=1795060979;
+	b=INb14yj0IoiXG9rLmChcoG68MSo8D2dpVv7WJwMea9D9Ho7jPiv7sTIf5UHnTVrHBhJZ
+	 denhd0gbeKZHLlXfUJ4nUrZPoMHUipQWWeJTTB+Ym6K6kYQ2/g9mL1CSTHd4ycbpE9V5b
+	 8qK0bvi5kqGiZS9YDkK2ukXwnclSiv0HDwxAuYzNIo2wCi2O9p4+gUpvVBc/7w5xf2V22
+	 KITbW/XfsDXOBM+U9diTiLOGg/xhD0AjjV+w3MvdZWCRk8ZpitMQMrMMm+Jc+wNchX6Wa
+	 wf69OOqKp7sXGr8+6rjoR9VbR9bpw7qbWKd5GRM0BAs1Jq3BjABq3Kg0iWfTZceVzug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795060925;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795060979;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=ki+hym5xBnLUsLIUPy9cHW9nYAaIrxILlRLJC6d61Q4=;
-	b=DdozOCr9r03xQGaW6OA+ueXO/mCvqMMw2E7+wkPscHkrKp6cPy12EAqYZaFBbesUlPtf
-	 9j2MqWnC5DS/mjQs7qxgfQD5kxVqeAgstbFvZYLcK3195fIpo7jgSLLVZb50ARYi0A3hN
-	 CWKASqD1doq3HEkgD0WIbYoTzg70ZV8gxLc99ozgK/BOlDTR4wuHOuxT/M/atgJJrOgfG
-	 3GsLaA+H+y4YJbcltNyZpaXiml7G2UTYbYJ0Tuw2hRjnbepp+m58jx/YT68K512qb4J4K
-	 2OKqWOXNkpL4sPUZgvnJSNTMMRdRmTCUC+l7lFZm5kD78Z/fPXFYhn7D84lD+KvOsOA==
+	bh=8YRFM8U63OEdRvVjTw8RvG7PNWf4otoP5rtHsWUr5Dc=;
+	b=pTfl6cxqJc0IeN4miEN6YsOsM6w/VaYluYVsAXeeY21shhmqntB46VMOz7y24J3Z2vEp
+	 WTpRw2aMVSoOyHBFN9gIVrh60Jnf72Na1H/oN0gIBpkBlX67j2v/9G6xo+WU0UWE97Gpb
+	 yQRUTtnqBTM4jgUkqGyi+UrOsxRnRi84nMzE77yvPrrIqbTxYHs6E7a81sCGaxb9dJG4f
+	 Urvzi9nMQYj7PbZKQuXYQ6m3YhtLwSF/iJHkkvRdDDdpMtX/B4zYDkR46PhB1/xeTe9hS
+	 Tspli794Kvp5bTrd7D2K4uHBiWK58Fc3HzwvVZ4Zg32LaSS3tlIR1MBs8vjbtv/bdaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YhBGpxNL;
-	arc=none smtp.remote-ip=74.125.231.128
-Received: from mail-oo2-f0.google.com (mail-oo2-f0.google.com [74.125.231.128])
+	dmarc=pass header.from=octane.security;
+	spf=pass smtp.mailfrom=octane.security;
+	dkim=pass header.d=octane.security header.i=@octane.security header.a=rsa-sha256 header.s=google header.b=G0Mgriqr;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE2A4606A332
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:02:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE2A4606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A518606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:02:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A518606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=octane.security
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=octane.security
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YhBGpxNL
-Received: by mail-oo2-f0.google.com with SMTP id 006d021491bc7-71b1c6cb11fso339863eaf.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:02:04 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=octane.security header.i=@octane.security header.a=rsa-sha256 header.s=google header.b=G0Mgriqr
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso680537a91.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:02:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795060924; x=1795665724; darn=vger.kernel.org;
+        d=octane.security; s=google; t=1795060979; x=1795665779; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ki+hym5xBnLUsLIUPy9cHW9nYAaIrxILlRLJC6d61Q4=;
-        b=YhBGpxNLOS65RBwZNOx35XebtNQustjfOo9inRNweNvTqgNnl7g1XXs2Gic+Z+ZZJa
-         BPzBkbQintn+wN81KAlk1T/Gkv7oYnoav65I0tImgcgL/Ed4nW0ptb502FMzsOtKCdb8
-         g+qgRBISkIFyNkZu3MtVjmArSPJQ0DmEZZL+CbPTgFYO3/CLXQX5Kt9rK5LEN5jdeTyj
-         mK5Hta1lq78vTSLehnS5Lj3rqmxGbzQNZpKkbgs8wPgqouv9ie0RlFnQX56L0ikhVLu4
-         zMTgo2vr2I53eabkOhPc2DUXOGkJDS9Y05lgQPahHwUSNCBIAnNek94k9iJcdPmILs5/
-         xX6Q==
+        bh=8YRFM8U63OEdRvVjTw8RvG7PNWf4otoP5rtHsWUr5Dc=;
+        b=G0MgriqrHVRZB+ZQGau91wta6srIhiIyZ0+YjoxiJ3oA88zSmez44lwFUn+JdbxLgm
+         s2+LZd+4v14FoGyqYRoVUU6a0E42s0RcU64/224NSxtH0mU2Dne2yaDRIueU7L6Q1QeY
+         Smu0Pb2VCnqQLf9GzoJWYOpCjdKESpPqJecVA+VJNIcZv5TN2inS/b2cHKfHws1yww26
+         oPtdVHF6dbO9mHegFMX8Waub/JxCbCvcH/WvqKBK2IaTvRYi+wqh4W75hzOhiCSYbqQB
+         Q7ZpHWZMId18kIRbkN2yc/73WQYUkDBrUsTK9P8K/Yr6KBRmXMzU/cDN0C8bJyrlzZTw
+         0vQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795060924; x=1795665724;
+        d=1e100.net; s=20260707; t=1795060979; x=1795665779;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ki+hym5xBnLUsLIUPy9cHW9nYAaIrxILlRLJC6d61Q4=;
-        b=PN4bk/jYy9MdnEg83EM/XT3aHpwh/XDkdcxmV+9xTCmFYjv65D7Nneb2HaWaG9mBUz
-         bc4L21Yj1Dx2eSDqoMFQ7n36rD3rSRYBi35Gd/eaqtOFb+rcvYXJEyOiFirMxtOHe+xJ
-         4HyVbHz6oxX7QWni/zI3kEJyO419yXl8/dPS8fPZ8nFgQqq2kN/1cSYF/oQKUzvKnutb
-         1ytPGMGmbV9Kv9dHlKx7Ik17G7c3aM7meTmpb3JQdAT0alNDFMpvmTTbIfGc2SEOW60S
-         dC7ymi74v3N/v1JKvegeP3lZKzK+H56woX8DCOh0vWFzDA+9nrUvj6ZeWW5RYk67MB+0
-         TVbA==
-X-Gm-Message-State: APuU4Z/Zprimj+/dKAlA8N6urxE1Y1M9D4nJJPtNhwDOnY95CoXqIRRs
-	spqGMbcseIhBOMYXvzBNFPVxlPlYxEy2IiFg380YRYLi6TeksUfT+XOh
-X-Gm-Gg: AYBFou2CQr48D+/8P7e4C0SYhoFZaHD9U1M9Nk9S2008NaZlbhWqm1Se7pzX37cQqmU
-	iEkhGh7sqMdj9Q0M8emJ/Ui8ZyKpu1A5l+08v3b+hl0ePiCjWNf6jyP7cTFgqMiQNjDNje0sE/G
-	ugNauYSh6hQjvFHcqx6J6Ah3OvBcRC1HITfQbDFKM8nnoBxhruH+CbsubFsIodYqoE3tgTDuSc7
-	DM42yA4gdJyhachAOJK185LIRAazwrgOb49uX6l4FV4E++iJ5IWMuqu3vHP+MKffF/mn+bDNPfZ
-	h43tiTh3cPxUFmPKovSYHlE16A5HMLGqAtj7+wsXIxGpqtwLJJKjLafgj3Cl80z32ldrtcAvZ2a
-	iTBYiyZzfrkfrlUI7lPlvf3cKvAsHKdFmg6TX7PpeGocW2+0755c/fFt2YSlphdihMJRw7JQ2Ct
-	1ZsbtvdALzWbAfaNU+XAP0/HxomdJq4kp1Tp7iEpiiKyDcdRYadbhE1yH3xzicKQG0NE2gqEdwl
-	ZRffAT1hpYzZ0O1A/33YKwAF2C36QDaCmFHgYOSq2NyRPklUDTaQm7H8pgrSVr2O1WF61odh4AZ
-	nEQCT+x69HThKGFKgOl/kUqOsAfVUqAwVxd4F6JCb6C6xH0cD/OpLJeC5iwBLToUizHLdb/Mjk/
-	CKiCeYMTiqzMR
-X-Received: by 2002:a05:6820:338e:20b0:71b:188a:319d with SMTP id 006d021491bc7-71b188a3436mr2906072eaf.53.1795060923744;
-        Wed, 18 Nov 2026 20:02:03 -0800 (PST)
-Received: from localhost.localdomain ([14.22.11.162])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b744126dfdsm4163497fac.10.2026.11.18.20.01.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 20:02:02 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: Paolo Abeni <pabeni@redhat.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Stanislav Fomichev <sdf.kernel@gmail.com>,
-	Nicolas Dichtel <nicolas.dichtel@6wind.com>,
-	Yuyang Huang <sigefriedhyy@gmail.com>,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org,
-	Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net v2] net: zero the tail of ha->addr when allocating address list entries
-Date: Thu, 19 Nov 2026 12:01:52 +0800
-Message-ID: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.43.7
+        bh=8YRFM8U63OEdRvVjTw8RvG7PNWf4otoP5rtHsWUr5Dc=;
+        b=yiDLnGde/QSCJU5CdI6uRlDLtVZxBZb0C5fgNXPoIe+BtBzp6eUIM1VWufdTADt+yc
+         vK4JKf6XTYtZgvsriuuuWAt97go/g9uWjIL8ligl2oO8pZN2H1Zw9t8EhtUlmTE1ppMR
+         l5WRNdAuchrtjBtygkBbhBATWIXOn3JxeqDaRAG1WvQQM7YY9uhgvOBMdzfmm6co2M9I
+         SfLWCvTb2oE1OraiBGrc6/3G3Ngt7CX8kwMGFIsC7cfYSFSnuH4O5UMDweIVWR7OyrvQ
+         W9S8WrZwn9xBtG0jTWLj50q56k4yneKifad5nkseC1KZ1qTpN4lxtyuKBX6ypkxqf9Po
+         PQ3g==
+X-Gm-Message-State: APuU4Z8fYiTwe+VW5x85fjYD9ELBWuyAJIxIB4ScypLIA03GA5F11tQd
+	zA4VppQY9F87oAta3pvoo3m+Fgo3BZDamFLenAjGGHhxLWo651YioyaMndsLnYC/XauZj9vjB/T
+	zn6iz
+X-Gm-Gg: AZFdTZfjy8dnR24IA5M2Jx9zFBhijUpIxooR9teRqUYuhiQvp0cQTtWrJRwRELL1x1T
+	GiBHwpbB/Mxxgg10c04km7kN5DYAfP7CZHUD3jvTlXtZiI4RuuNsNuyxDHEMzLuOAvFHMdutaHJ
+	IJQ0cGU5UjMUvlL5crNjzL0DFpGJZlV8D637jvm9bUkVsxLGIRI/kCP02lm6AiuCe3Tft41CB8X
+	FoPmBDg8PORMF+sd3WBpypYmy8cKWOWnvtSvD/zgW/ko7zt9yyeJRJPll5lBOIGeCO7eRjk0RTR
+	+KKsukhUl5KLUG34ZwNHlc2ZModaSuORSJ3iEzuaPDOzfd8kLLnvmlEGgUXlMeluH+QXWasxupy
+	s/C1JdeU8SH/VQAUyVRZppB+2ywkPCW+BAn0NkZvbjs3m39Q2sNP0xP3HMq6QDsll2lfr8Vu2DZ
+	olKAjXGgP2lSRVpb6YurVfUY9lZOZU737psYBpIWfI/+drE6qYaa7WPyiMDQB4P64mWaUtK7uDL
+	X3J+rmAJ37AwZd0uNgwmRjDNeUFwD+BddTc1QNXZAt7d7+dIFz/aBD71UUMB2NGuzJcC1LKTc+M
+	+P4H6sfsAipU4jNqIKAfELnd7QY3lm35Qi7+cVLEShizy5vCJ+qvQ0JfSD2yXrVcRJwPn3S1waQ
+	qXvvZqDOY3KTpi0fAKd86qLiCj8T7MvQ+vtRXtVGYYZLHm7d89T6/91ChgF99ZaNdjt5fJbpf
+X-Received: by 2002:a17:90a:d60f:b0:3b0:a7b5:c037 with SMTP id 98e67ed59e1d1-3b3d063e959mr4513245a91.1.1795060978401;
+        Wed, 18 Nov 2026 20:02:58 -0800 (PST)
+Received: from localhost.localdomain ([103.207.175.108])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4057af4e2sm406863a91.7.2026.11.18.20.02.56
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 20:02:58 -0800 (PST)
+From: Shubham Antil <shubham@octane.security>
+To: netdev@vger.kernel.org
+Cc: oe-linux-nfc@lists.linux.dev,
+	david@ixit.cz,
+	horms@kernel.org,
+	gio@octane.security
+Subject: [PATCH net v8 0/4] nfc: order NCI UART and firmware teardown
+Date: Thu, 19 Nov 2026 09:32:49 +0530
+Message-ID: <20261119040253.15986-1-shubham@octane.security>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,59 +98,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__hw_addr_create() allocates entries with kmalloc() and initializes only
-addr_len bytes of ha->addr.  The dump paths emit each entry using the
-current dev->addr_len, so an entry that was created with a smaller
-addr_len is dumped with uninitialized tail bytes.
+Make NCI UART driver selection, callback shutdown, close-time command
+handling, and Marvell firmware completion explicit and ordered.
 
-dev->addr_len can grow after the entry was created: tun's TUNSETLINK
-changes a device from ARPHRD_NONE (addr_len 0) to ARPHRD_IP6GRE
-(addr_len 16).  On v7.4-rc3, with 64 entries armed on a down tun device
-and the link type then set to ARPHRD_IP6GRE, RTM_GETMULTICAST returned
-16 bytes per entry of which 37 were non-zero and 21 started with a
-kernel heap pointer (e.g. 0xffff8188_04857ee0); /proc/net/dev_mcast
-exposed the same bytes.  This discloses stale heap contents to readers
-of those interfaces.
+Patch 1 serializes NCIUARTSETDRIVER and protects the driver registry while
+a transport takes its module reference.  Patch 2 rejects a second firmware
+request without disturbing the active core state.  Patch 3 orders UART
+publication and shutdown, preserves close-time reset and driver commands,
+and bounds transport draining.  Patch 4 stops firmware timer, receive, and
+command producers before their queues and private state are released.
 
-Allocate with kzalloc(), so the tail is always zeroed and a dump can
-only emit bytes that were written or zeroed at creation.  This also
-makes the explicit ha->sync_cnt = 0 initialization redundant.
+Source auditing, patch development, review triage, and test planning were
+assisted by OpenAI Codex, gpt-5.6-sol.  I reviewed and tested the resulting
+changes and take responsibility for them under my Signed-off-by.
 
-Cc: stable@vger.kernel.org
-Fixes: a748ee242681 ("net: move address list functions to a separate file")
-Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
----
-v1 -> v2:
- - allocate with kzalloc() and drop the manual ha->sync_cnt = 0, as
-   suggested by Eric Dumazet and Daniel Machon
- - add the runtime observation to the changelog
+The final v8 code was tested with:
 
- net/core/dev_addr_lists.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+  - strict checkpatch and git diff checks for every patch;
+  - targeted W=1 builds and current sparse checks;
+  - full x86_64 bzImage and module builds with KASAN, UBSAN, lockdep, and
+    DEBUG_LIST, and separately with strict-mode KCSAN;
+  - 20 concurrent driver-selection cycles under each configuration;
+  - 5 registration/publication and 5 reset-preserving lifecycle cycles
+    under each configuration; and
+  - 100 firmware teardown cycles and five timer-boundary modes under each
+    configuration.
 
-diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
-index d827cc21867b..9613c8a9ed7f 100644
---- a/net/core/dev_addr_lists.c
-+++ b/net/core/dev_addr_lists.c
-@@ -96,7 +96,7 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
- 	alloc_size = sizeof(*ha);
- 	if (alloc_size < L1_CACHE_BYTES)
- 		alloc_size = L1_CACHE_BYTES;
--	ha = kmalloc(alloc_size, GFP_ATOMIC);
-+	ha = kzalloc(alloc_size, GFP_ATOMIC);
- 	if (!ha)
- 		return NULL;
- 	memcpy(ha->addr, addr, addr_len);
-@@ -104,7 +104,6 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
- 	ha->refcount = 1;
- 	ha->global_use = global;
- 	ha->synced = sync ? 1 : 0;
--	ha->sync_cnt = 0;
- 
- 	return ha;
- }
+All test assertions completed with zero failures.  Neither sanitizer run
+reported a memory, concurrency, locking, or undefined-behavior diagnostic.
+Current sparse reported only two pre-existing warnings outside the changed
+logic.  The st-nci close path was also built and checked separately because
+it sends a final proprietary command from its close callback.
+
+No in-tree selftest covers these NCI UART and nfcmrvl firmware paths.  No
+physical Marvell controller was available for testing.
+
+Changes since v7:
+
+  - keep asynchronous core completion lockless to avoid an inverse lock
+    order with driver-private locks;
+  - serialize transmit wakeups and retain partial frames across worker
+    restarts;
+  - publish Marvell transport state before NCI registration while keeping
+    receive admission closed until core queues are ready;
+  - close command admission and drain response work before cancellation;
+  - preserve the close-time reset and a driver's final close command, then
+    cancel any command left by an interrupted synchronous request;
+  - actively retry partial UART writes during the bounded close flush and
+    poison a line-discipline instance whose framing cannot be preserved;
+  - stop firmware receive, timeout, and command dependencies before core
+    workqueue teardown; and
+  - document lifecycle sleep, locking, lifetime, and queue-ownership
+    contracts and refresh validation on the final tree.
+
+v7: https://lore.kernel.org/netdev/20261104062026.80599-1-shubham@octane.security/
+
+Shubham Antil (4):
+  nfc: nci: uart: serialize driver selection
+  nfc: reject overlapping firmware downloads
+  nfc: nci: uart: quiesce callbacks during teardown
+  nfc: nfcmrvl: stop firmware work before unregistering
+
+ drivers/nfc/nfcmrvl/fw_dnld.c | 237 ++++++++++++-----
+ drivers/nfc/nfcmrvl/fw_dnld.h |  11 +
+ drivers/nfc/nfcmrvl/main.c    |  52 +++-
+ drivers/nfc/nfcmrvl/nfcmrvl.h |   4 +
+ drivers/nfc/nfcmrvl/uart.c    |  64 ++++-
+ include/net/nfc/nci_core.h    |  29 +++
+ net/nfc/core.c                |  20 +-
+ net/nfc/nci/core.c            |  82 ++++--
+ net/nfc/nci/rsp.c             |   3 +
+ net/nfc/nci/uart.c            | 467 +++++++++++++++++++++++++++++-----
+ 10 files changed, 805 insertions(+), 164 deletions(-)
+
+
+base-commit: 30c71476d842b094651bd7712f6c8ee8716147d0
 -- 
-2.43.7
+2.54.0
 
