@@ -1,72 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107827;
-	b=s3LHq3myEmsf6OV7YeeZaHbWiron5h4XXE8G3WFj2rwYc8Q4x/OMJ+mCQ92MnDvsc0sQ
-	 F4sISvZkNK9e0BZ/YZQUJTYVATk5NiYg4b6Np2IflsMABMO7wGF9V8PgE5KowaoSDzwTt
-	 FhhA2ElAvc/GbjYM6tEkjDrn7f8+WUThDK51M1BR7vgqZ0V3ewcahGf6zfe9Uta5s6MJC
-	 iWMoA5nP+B66rR8xHGaw85oNSvvVOo1xwU3aTOK+dobhizYFe7NJVFLfejKx5uu9JtKRy
-	 je+stZXcVFH4/A27fg7F1kKZsiLyB6kOhDNTZbwUP7gcVynTm6+X1Ivya1us5+Vm1Pg==
+	t=1795107839;
+	b=5Rm23FOJVuNSB5TJ6ZYfGHJIo49mrtu/L8HqqEuprPud/+0ooPy8byL/Sutln+zapZjN
+	 k1Ua2Fa+T37MwDP0DT0T5qG5b4YxiBjAlSeTyAibuTGi1s7QjqiFGVV3IcqAEVromW9Dx
+	 UKLe8wwO4kQIJdq1uRG7u9gB0cvMrJDmZs2XxKbWPSdy3fg6rk2dDVbJ7Ro/2spmsNQUD
+	 qEElgcbAjodiX7paytwv3dHwEPSLCS3AihUeq/Zao5tHZBMWx8x5AiztamAzu2S09O/SR
+	 GZx81ptI9fVvnORnryMt//7KIwfoZGG/cuMep8s/iOoy74xxhmUWMvZHZfBc6Boz+uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107827;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107839;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=RoORXzLb277Rdk0jDhn23CA3scGInU/7CE/j8ILPC2U=;
-	b=ic/FCZ/tRlh+wr/Gvb+wGWsT6LHBaZiEQwpKiaWMl4yC5FmXZ86AHVNPtbCvHq+KUbOw
-	 5g1niZOT9cH/GCxhm9CEeM6IevzRN9c4vW+41lqeRdIXomNnDvUfHl3AppK/CHBodAuDR
-	 0io2CQkxi2iGf92OOQHfygHRXWR3yOCpUUc8jposeBzATaCUVpmEw16TiXrXE1u/0BQBN
-	 J8QgcVwBRX39KymthzzCNJop/ij+n3eYPurrcNb0pr8+nAsUmpcie+c4B41y+hJ7CcWdo
-	 ZAGVETE446+kcP/yjvoIPuiGDdb1zH1+UX8zJ6xlSlaRd7IFNVMoQeNzL3xqH0EKKfA==
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=kDzxg4ba9uJgWZ+i6XZZvE8D/ozoXIo8ReEk/bEeEZE=;
+	b=ABQovUffenlheRklrbqFH1L+s6a6JiAZr/cnAaRyvNuaZ2y1vjgpub7k2nrVLskih1P3
+	 FAsZIzVDYx/kwRJA+GpNvqL6ZkU9iW/qgaHCCAj22eWAm4S3NlrA1k56rJGrmdt8KczYI
+	 2PMVitSCs+WLk126yyydTa5LEvM+OLYc+60QVrtinyaHqdZb8t4fFIGgnspkLgUR8ZCen
+	 r1Z+e6e1Jtk+H8C/naxf13R/JI93dmvST8yk4QKkixPK0qyg535cxVXq1LETlXL9RZskv
+	 t1KvuWZOmtFNfMaMO5cNPTwKd7wYvypyN7G+PH9UJHLIf3/ponXV3Pn+2QjNViH2l3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pRf1H6KW;
-	arc=none smtp.remote-ip=74.125.82.72
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SWTG4H7T;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4080606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:03:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4080606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 800B0606A32F
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:03:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 800B0606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pRf1H6KW
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b29df78132so2585002c88.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:03:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SWTG4H7T
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-382af5cfc58so6011249eec.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:03:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107826; x=1795712626; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107837; x=1795712637; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RoORXzLb277Rdk0jDhn23CA3scGInU/7CE/j8ILPC2U=;
-        b=pRf1H6KWASLQWbCXQXj/AniEbxnzqZjDqFGZfvGIXM1N7OlLmqGYqDPLD9tLvvG8fE
-         rMxQzxBfTozcwV5HKdEokJ6r0/aF7WmEbHQSDr77HyIVSlDam7AXH4aORlMgFEIJf3oc
-         Tf5OI8LVVOQXI+xpxFSodPDWJ7+BCPNrMkDdV+UtgapscTirg8pWxvuu4VEWxFB487Mc
-         NXmj0C0FVqp6RGuc2FxI29ETIAodXKVbJ72f5VTDLqNBuu2BleyfZYjPuDPHAi5nGKh3
-         FwSYYM5AHdMBoMLD4AZFCjwWMuUMouQZqFicNN2mx7DoUq/TVw/+f+1PZZ+8FPRYsXu5
-         Va1Q==
+        bh=kDzxg4ba9uJgWZ+i6XZZvE8D/ozoXIo8ReEk/bEeEZE=;
+        b=SWTG4H7THfkDUQrMuZ3rq3VvVI9TpbOoHm0ItNq3pUggQrTV/GIwJzUwAea3PEeH1R
+         EOnDMQLr7dG51lrmmoWdghF4WhEBCAUm/Ux3E3hoAL/0/nleCOAvCHOLykdDttt+tD2J
+         hwJMJvQA+4VaLs5j/HW1mCVooNDDwW60HhMTcZwJ/IJTpQKPAiKP9uYzKp1CX/FKlkTI
+         m23er4pJG7b652AL1yQYj8EVAl1NIWc90xGukqiv7xqsOi+SQ13JhntbiYEVjZOnWsAQ
+         eU1uaGT6Pekxcz7PF6BY0HzHKijWdF2tK7TSOpexCgCjXljVTzOeX5dx5ZyYv68UIvjO
+         bXUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107826; x=1795712626;
+        d=1e100.net; s=20260707; t=1795107837; x=1795712637;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RoORXzLb277Rdk0jDhn23CA3scGInU/7CE/j8ILPC2U=;
-        b=ZPemLWYDDCGv8mGAI5/ouRUPll7Vk3bSjDMsCHgKTbd/mzRam255vKJ8pGVqD/0I8k
-         qM5/Gp6tb2oOkUCVNBZsGV3gj7wxqTsyTgh5QeBMnSAgjZWvbw9mshg2qofD11y0QZpo
-         iN6SFA1XkQjxCdvEQr5STx7lLSlFGgdqBWUZoauDiBF1Y8ynipQNQQVY2wVhc8kNE77M
-         np4jE/fjwZCJVGQxR5wvKuWetSG/ATutUGBpFaiyLjYCEyNqA7S2GtnEUSGTDGLYR6h+
-         gbuclPLVzcj2YUswKz3UbIdh0xzbjCeMnBZxYSJctdnWlU0nEXDA9V9OCfKAJnpZljd0
-         tAxw==
-X-Forwarded-Encrypted: i=1; AL+hErFaxh3eqB4+E2n65Q1UYEvZWy1pjEWcw5QNMh5d9gT/uY8bG1V8lnLUREaREigT/D2P3XEsSk0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9a33Rqw617RwaIjr+DNwxAR9az0JGz06GNxkIRCEkvczDDfoJy
-	OX6fjApPoIRyY458Q4sMVLfhuD7wftwDdrrhhk5zShiOCWXC+Bq49+XXIFons1RGxLNIoduVZ0J
-	sF+YEjIrCPw==
-X-Received: from dldyq18-n1.prod.google.com ([2002:a05:701b:4552:10b0:195:d59a:94bc])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:2083:10b0:164:4e36:f956
- with SMTP id a92af1059eb24-1b5568b47a4mr238242c88.16.1795107825531; Thu, 19
- Nov 2026 09:03:45 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:03:42 -0800
+        bh=kDzxg4ba9uJgWZ+i6XZZvE8D/ozoXIo8ReEk/bEeEZE=;
+        b=0n496oBvShP1GGdUfPx13/Q1SgayklhaEdrs6QsmulrGyfJQI2Sgbv4NhkaUCtSaPI
+         fRjhIMmzK6j9jx+WfKFnWYSBDInIAdD5O0Yghk37KHRTShBGKBx2TKxUTW9Qnb79meqW
+         QWPcG59LSv4LPlCMIteg2IU5sjecRRLuAshYJLTkbGwebGjraK5PFF1NO3jsrwoVAcps
+         KNbnQTtqs1dxMaTDa8hGjFxPADGJfw1IaAvPgwlUJauIZczJLhiDJYGk+ZsTUpk0g1Vi
+         HXzbW9mJ2BzJ2wxY6/9ITxzzDvtx5FABvtjLrpFL6dtB+ZayUybiTeHtf5gZo/HmMRwg
+         evnw==
+X-Gm-Message-State: APuU4Z8Q/0MBhak3K4/qnfyJQI5/yk0zShtxY5BOMS7cPIG7UhH5rhfz
+	kEOZTcmfzEfOzmEyhk0KNSwsVYf0SNgjmvRWCyk3l9akHfZBhq5PmXCHUlRRz/TsxC71f0yjK6l
+	xnD1o1RS8Hg==
+X-Received: from dycuf10.prod.google.com ([2002:a05:7300:10a:b0:379:1aaf:7a27])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d401:b0:362:fa87:2aa6
+ with SMTP id 5a478bee46e88-38569256f32mr42571eec.0.1795107836309; Thu, 19 Nov
+ 2026 09:03:56 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:03:53 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,148 +76,67 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170342.1508789-1-irogers@google.com>
-Subject: [PATCH net] sctp: initialize new_value in custom proc_dointvec sysctl handlers
+Message-ID: <20261119170354.1509589-1-irogers@google.com>
+Subject: [PATCH net] net: marvell: prestera: Fix skb leak on error in prestera_rxtx_xmit()
 From: Ian Rogers <irogers@google.com>
-To: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Xin Long <lucien.xin@gmail.com>, 
+To: Elad Nachman <enachman@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
 	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-proc_sctp_do_rto_min(), proc_sctp_do_rto_max(), proc_sctp_do_auth(),
-proc_sctp_do_udp_port(), and proc_sctp_do_probe_interval() point
-tbl.data at an uninitialized stack variable new_value on writes before
-calling proc_dointvec().
+prestera_rxtx_xmit() is invoked directly from prestera_port_xmit(), the
+driver's .ndo_start_xmit() callback, whose return type is netdev_tx_t.
+When skb_cow_head() or prestera_dsa_build() fails, prestera_rxtx_xmit()
+returns NET_XMIT_DROP (0x01, a qdisc congestion code rather than a
+netdev_tx_t value) without freeing skb.
 
-proc_dointvec() can return 0 without writing to tbl.data, for example on
-a zero-length write (*lenp == 0) or on a write at a non-zero file offset
-ignored by proc_first_pos_non_zero_ignore() (such as pwrite(fd, "1\n",
-2, 1) or a split write where the trailing newline is written separately).
+In dev_hard_start_xmit(), any return code other than NETDEV_TX_OK (0x00)
+is treated as a busy/requeue condition unless dev_xmit_complete() holds;
+for an unrecognized positive value like 0x01, the core neither frees nor
+requeues the skb (or hits the unrecognized-return WARN path), leaking
+the packet buffer.
 
-When that happens:
-- proc_sctp_do_auth() unconditionally stores the uninitialized stack int
-  into net->sctp.auth_enable and sctp_sk(sk)->ep->auth_enable, both
-  corrupting SCTP authentication state and leaking 4 bytes of kernel
-  stack memory back on subsequent sysctl reads.
-- proc_sctp_do_rto_min(), proc_sctp_do_rto_max(),
-  proc_sctp_do_udp_port(), and proc_sctp_do_probe_interval() validate
-  the uninitialized value and overwrite the netns setting whenever stack
-  bytes happen to fall within range.
-- proc_sctp_do_udp_port() also stops and restarts the UDP encapsulation
-  socket even when the port number did not change.
+Free the skb with dev_kfree_skb_any(), increment the core tx_dropped
+counter via dev_core_stats_tx_dropped_inc() (so .ndo_get_stats64 reports
+the software drop), and return NETDEV_TX_OK.
 
-Initialize new_value to the current netns setting before calling
-proc_dointvec() (matching proc_dobool()), and skip tearing down and
-restarting the UDP encapsulation socket in proc_sctp_do_udp_port() when
-new_value equals net->sctp.udp_port.
+Found by enabling Clang's -Wassign-enum on an x86_64 allyesconfig build,
+with AI coding assistant help to audit the warning and prepare the fix.
+Build-tested with Clang; not runtime-tested on Prestera switch hardware.
 
-Found by enabling Clang's -Wconditional-uninitialized on an x86_64
-allyesconfig build, with AI coding assistant help to audit the warning
-and prepare the fix. Build-tested with Clang; not runtime-tested.
-
-Fixes: 4f3fdf3bc59c ("sctp: add check rto_min and rto_max in sysctl")
-Fixes: b14878ccb7fa ("net: sctp: cache auth_enable per endpoint")
-Fixes: 046c052b475e ("sctp: enable udp tunneling socks")
-Fixes: d1e462a7a5f3 ("sctp: add probe_interval in sysctl and sock/asoc/transport")
+Fixes: 501ef3066c89 ("net: marvell: prestera: Add driver for Prestera family ASIC devices")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- net/sctp/sysctl.c | 39 +++++++++++++++++++++++----------------
- 1 file changed, 23 insertions(+), 16 deletions(-)
+ drivers/net/ethernet/marvell/prestera/prestera_rxtx.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/net/sctp/sysctl.c b/net/sctp/sysctl.c
-index 2b94c211427d..0c33f05fa532 100644
---- a/net/sctp/sysctl.c
-+++ b/net/sctp/sysctl.c
-@@ -425,8 +425,9 @@ static int proc_sctp_do_rto_min(const struct ctl_table *ctl, int write,
- 	struct net *net = container_of(ctl->data, struct net, sctp.rto_min);
- 	unsigned int min = *(unsigned int *) ctl->extra1;
- 	unsigned int max = *(unsigned int *) ctl->extra2;
-+	int new_value = net->sctp.rto_min;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
+diff --git a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+index c4ea247d2470..7ac9220d33c5 100644
+--- a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
++++ b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+@@ -817,13 +817,18 @@ netdev_tx_t prestera_rxtx_xmit(struct prestera_port *port, struct sk_buff *skb)
+ 	dsa.port_num = port->hw_id;
  
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -453,8 +454,9 @@ static int proc_sctp_do_rto_max(const struct ctl_table *ctl, int write,
- 	struct net *net = container_of(ctl->data, struct net, sctp.rto_max);
- 	unsigned int min = *(unsigned int *) ctl->extra1;
- 	unsigned int max = *(unsigned int *) ctl->extra2;
-+	int new_value = net->sctp.rto_max;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
+ 	if (skb_cow_head(skb, PRESTERA_DSA_HLEN) < 0)
+-		return NET_XMIT_DROP;
++		goto drop_skb;
  
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -489,8 +491,9 @@ static int proc_sctp_do_auth(const struct ctl_table *ctl, int write,
- 			     void *buffer, size_t *lenp, loff_t *ppos)
- {
- 	struct net *net = container_of(ctl->data, struct net, sctp.auth_enable);
-+	int new_value = net->sctp.auth_enable;
- 	struct ctl_table tbl;
--	int new_value, ret;
-+	int ret;
+ 	skb_push(skb, PRESTERA_DSA_HLEN);
+ 	memmove(skb->data, skb->data + PRESTERA_DSA_HLEN, 2 * ETH_ALEN);
  
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -522,8 +525,9 @@ static int proc_sctp_do_udp_port(const struct ctl_table *ctl, int write,
- 	struct net *net = container_of(ctl->data, struct net, sctp.udp_port);
- 	unsigned int min = *(unsigned int *)ctl->extra1;
- 	unsigned int max = *(unsigned int *)ctl->extra2;
-+	int new_value = net->sctp.udp_port;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
+ 	if (prestera_dsa_build(&dsa, skb->data + 2 * ETH_ALEN) != 0)
+-		return NET_XMIT_DROP;
++		goto drop_skb;
  
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -541,18 +545,20 @@ static int proc_sctp_do_udp_port(const struct ctl_table *ctl, int write,
- 			return -EINVAL;
- 
- 		mutex_lock(&sctp_sysctl_mutex);
--		net->sctp.udp_port = new_value;
--		sctp_udp_sock_stop(net);
--		if (new_value) {
--			ret = sctp_udp_sock_start(net);
--			if (ret)
--				net->sctp.udp_port = 0;
-+		if (new_value != net->sctp.udp_port) {
-+			net->sctp.udp_port = new_value;
-+			sctp_udp_sock_stop(net);
-+			if (new_value) {
-+				ret = sctp_udp_sock_start(net);
-+				if (ret)
-+					net->sctp.udp_port = 0;
-+			}
+ 	return prestera_sdma_xmit(&port->sw->rxtx->sdma, skb);
 +
-+			/* Update the value in the control socket */
-+			lock_sock(sk);
-+			sctp_sk(sk)->udp_port = htons(net->sctp.udp_port);
-+			release_sock(sk);
- 		}
--
--		/* Update the value in the control socket */
--		lock_sock(sk);
--		sctp_sk(sk)->udp_port = htons(net->sctp.udp_port);
--		release_sock(sk);
- 		mutex_unlock(&sctp_sysctl_mutex);
- 	}
- 
-@@ -564,8 +570,9 @@ static int proc_sctp_do_probe_interval(const struct ctl_table *ctl, int write,
- {
- 	struct net *net = container_of(ctl->data, struct net,
- 				       sctp.probe_interval);
-+	int new_value = net->sctp.probe_interval;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
- 
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
++drop_skb:
++	dev_kfree_skb_any(skb);
++	dev_core_stats_tx_dropped_inc(port->dev);
++	return NETDEV_TX_OK;
+ }
 -- 
 2.56.1.708.g77570a6a1d-goog
 
