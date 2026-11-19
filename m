@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127792;
-	b=nIUNdYqGt/dR9Y4P8x0C4IX0gx5UAeUFjjIqPinhB1gZKnxwr9dq7SSpgxziaR+/2hBZ
-	 Rc1LjEEoVDlntXre/sxqfYg+yAtrFe/mh2s86woxEWwyWNCfsBH7uk52t0KH/o/WANBmc
-	 QPDrcgwE5+olUrN0TuAX0g1PJIhfgRVs6mZ2iIkPG8R2WSh9DsvBTTJFBGSdQeuHMFldl
-	 Nu/Np6LKpruGviDmTIVwP+RLuFS+XfXvaLNH9yp/AU9islsE1q0izKiBJgrxi2s6Zl7uZ
-	 Hri255OY1IMRMZMe0mRdIh4jX+1Khblb9iOBvRrlQrIrBtMlc4J08MYXC2m5WciokCA==
+	t=1795127793;
+	b=ZYSuA+V/hkDEfzph7gTSt0BbPkaGgLh2dOCwQZvHY6oQKaJXBgU11lQ/2e1jCXgI5rBO
+	 Hwp0or6dh1UYgvc4mqJ/r9DV4r8BvHYEeNCH34SPBY7DrVyOqw7YfPcqLZEUOYropfqBt
+	 //pVsTJeR04V3rWVj63EIjZYsW8sjlpg9wH4dtkWGec/IETC6hdPXnNAUInlFwZ3qFkMt
+	 wJk91C3kAEJbKMtMmSmUYK/GU+9Dd79AE3l1Pw3w60MYVcpqaFdPw4hvyrn0XCcD98X2q
+	 lHOwU1dKS+5nhvQbNrwQjFURPWvCrJF9NK06MflIrFuVuTUgNANiM8Qxjo0VKL4Q7IA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127792;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127793;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Tgu+WP2m0uodmDr9Nd0f7m6qiFgWHDogdH3e+s7AJJI=;
-	b=QqleRpotmEJGYarEzah3or5xQCotWWImO6laAooWKbde5pk6bXPVXN0vA7zmXHrBx7H1
-	 ZNpqbYm2d7fDJDg5eJawDoWoqK8MouX1eFbJDc80A38pGwBgcF7E6OcOQDWCok9NCIWYu
-	 03LrzPVLw2cbp9NlYPZzGRRVHjSwtaYYfdbRuiGgAJl+ZVLnI4Hhhh7U/0SzU0hZ8Ixh4
-	 yk2jETVwOSnEznydkhbqh7Yf+wP3dd1U9Kl3inMM15jmip/SKCHhbQGdwx/J3e7LHmc2U
-	 02LG3HteL2oMKPO2HWUmoqeuTpf6JIJlnd3Zfq+J4LiWGEBvzpDaAE+Y3v41ZZIQ+QA==
+	bh=EQND8DtByypeGvKjlf1d8I5SCOd8zNIl7zb8J8w2nKA=;
+	b=cfSX6YCH3wnHTyhwdhsNAKRROOW9z/v4bUJaj/YVs5GlSHIjFl2/rnPynGV9W2xnhZFH
+	 EU3/CohCyZkl5LsRwztIY++A80BBvOipmQpOFAWry12VFV8W7BRgeS1n9q82DzyLitgMA
+	 +FMc8mXFzi5npNo4McJeg44MVPZnkJz4PA39xKzHtrLMpEqrh86Y576n2RTWZdWcwrwaA
+	 dbKTfOKb8/EiwXPhJi72G++iPjbTvNCVKCPubTWxgasQaxoQrGnCEiqE8znhxqtRJX6Ti
+	 L3pmrhr5YXyolqkHmgcG7D1U6lhLIJWvXvpwa2GmKxMnaM2lYGOgfiGdX9moBv5C1QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNExrvjz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lkmlGfJv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E705D606A326;
-	Thu, 19 Nov 2026 22:36:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33A2B606A337;
+	Thu, 19 Nov 2026 22:36:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNExrvjz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EF121F000C0;
-	Thu, 19 Nov 2026 22:36:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lkmlGfJv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 182A91F000C0;
+	Thu, 19 Nov 2026 22:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795127791;
-	bh=Tgu+WP2m0uodmDr9Nd0f7m6qiFgWHDogdH3e+s7AJJI=;
+	s=k20260515; t=1795127793;
+	bh=EQND8DtByypeGvKjlf1d8I5SCOd8zNIl7zb8J8w2nKA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YNExrvjzBol1ezFy1HpYWmoqW4KSC95f21PTKTi5J+ErrVBa3DZseGOOxnDb4oZup
-	 W3kEn4Ocx4luYGM1faP+cv/56M4WNd0fmsH0rYikksRh9T9g7JWSwVPB4+Zvr+K7Hm
-	 ibaSw4E20vssNQ24g8Omci2kIqITji2n6who65RFGHAh9MFkPR0YppMyte7CysbiQy
-	 nkavc2z82KoAV/8zk7Fu9WT4QqhC+yQ8jeQ6ztgFhXEDK9Wg3BmbT4ItQV7AB+hUim
-	 Wnhn6G+ViaXSON0lVvycrdh2eIYQLhvpx6snwfhaJ1RbhwhJnoE0tFtDQwcDOQpRR6
-	 ChrUcxG3rCklQ==
-Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
- get vlan 4k for family D
+	b=lkmlGfJvUhqUHl3wzHkpz6HT10pDBrv21YMR4VHzR5gSSAp/n4EpJ6nw2mxDxWkiw
+	 82BV6nuJ/hl9JmKqi5+p0tQtrx8yuYRzmJBBeZ6U5smU5uWuKLLqgAoIxuiBEYbBNq
+	 GP+eePm5t3E4hZMP24ET+2YjaAZeLCBNPtR13kTw75RY3sKF4WbioNJr05QQjDdtrU
+	 GmAoZJGHQAepx7Plm9M00K+oYn7I3lH+9ZbOLIJ3QJXbRT4ZRiTdoGECBkIxRSWGlx
+	 MH+iNyWEZ9w1S3kyR3Ib2IjF3sHnpU8ICzx6WeYHN9gV7gbQHAy7gkTT6assIalK/V
+	 JrXXAtDAAQgRQ==
+Subject: Re: [PATCH net-next v11 09/13] net: dsa: realtek: rtl8365mb: use raw
+ VID for PVID on family D
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,11 +50,11 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Thu, 19 Nov 2026 22:36:30 +0000
-Message-ID: <179512779012.3136.12590210308172981547@kernel.org>
-In-Reply-To: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
-References: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
-X-sashiko-severity: Medium
+Date: Thu, 19 Nov 2026 22:36:31 +0000
+Message-ID: <179512779167.3136.16350479075659467985@kernel.org>
+In-Reply-To: <62c7fce5-0296-4e66-92c9-fdb501ef592a@yahoo.com>
+References: <62c7fce5-0296-4e66-92c9-fdb501ef592a@yahoo.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,127 +67,91 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] rtl8365mb_d_vlan_4k_refresh_ivl()
-  (drivers/net/dsa/realtek/rtl8365mb_vlan.c) does not roll back when it…
-- [Low] When the switch-wide IVL state flips,
-  rtl8365mb_d_vlan_4k_refresh_ivl()…
+- [Low] The comments on the new PVID reset step contradict each other
+  about whether the hardware reset leaves the PVID register in a known…
 
 --
 
-net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+net: dsa: realtek: rtl8365mb: use raw VID for PVID on family D
 
-This patch adds two-word CVLAN pack/unpack helpers for family D in the
-rtl8365mb driver. On family D, IVL_EN is set only while at least one user
-port is VLAN filtering. When a vlan_filtering change flips the
-switch-wide state, rtl8365mb_d_vlan_4k_refresh_ivl() rewrites IVL_EN in
-the active 4K entries.
+This patch adds family D versions of the PVID helpers. On family D the
+PVID is a raw 12-bit VID in a per-port register at 0x0700 + port, not a
+VLANMC index. It also calls a per-family vlan_port_reset_pvid hook from
+rtl8365mb_vlan_setup(); the hook clears the PVID register on family D and
+does nothing on family C.
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-> index 566c6bc1449af..f3ac2940a0ed4 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-
-[ ... ]
-
-> @@ -277,6 +323,96 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
-
-[ ... ]
-
-> +/* Must be called with &priv->vlan_lock held. */
-> +int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
-> +				    bool filtering)
-> +{
-
-[ ... ]
-
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> index 77ad84ea4a6d1..983257250205f 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> @@ -2432,11 +2432,22 @@ static int rtl8365mb_port_vlan_del(struct dsa_switch *ds, int port,
+>   */
+>  static int rtl8365mb_vlan_setup(struct dsa_switch *ds)
+>  {
+> +	const struct rtl8365mb_family_info *fi;
+>  	struct realtek_priv *priv = ds->priv;
+>  	struct dsa_port *dp;
+>  	int ret;
+>  
 > +	fi = rtl8365mb_get_family_info(priv);
-> +
-> +	for (vid = 1; vid < VLAN_N_VID; vid++) {
-> +		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
+>  	dsa_switch_for_each_available_port(dp, ds) {
+> +		/* Start every port with the neutral PVID */
+> +		ret = fi->vlan_port_reset_pvid(priv, dp->index);
 
 [Severity: Low]
-How long does this scan take on real hardware? Each of the 4095 iterations
-is a full rtl8365mb_table_query(). That is two busy polls through
-regmap_read_poll_timeout(), an address write, a command write and a bulk
-read, all under priv->map_lock.
+This comment says every port starts with the neutral PVID. On family C,
+though, fi->vlan_port_reset_pvid() is rtl8365mb_c_vlan_port_reset_pvid().
+That function just returns 0, and its kernel-doc relies on the hardware
+reset value:
 
-Over realtek-mdio, each register access is several MDIO frames
-(realtek_mdio_read() does 3 writes and 1 read). That works out to roughly
-0.5-1 ms per entry.
+ * On family C the neutral PVID is VLANMC index 0, which is already the reset
+ * value of the PVID control register, so there is nothing to do. Leave it
+ * untouched to preserve existing driver behavior.
 
-This runs from the port_vlan_filtering callback with rtnl_lock and
-priv->vlan_lock held:
+The new kernel-doc for rtl8365mb_d_vlan_port_reset_pvid() gives the
+opposite reason for clearing the register:
 
-rtl8365mb_port_vlan_filtering()
-    mutex_lock(&priv->vlan_lock);
-    ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
-    mutex_unlock(&priv->vlan_lock);
+ * On family D the PVID is a raw VID in a per-port register whose value after
+ * reset is not defined by the driver (it may come from the hardware default or
+ * from an EEPROM), so clear it to 0.
 
-Could a single flip hold RTNL for several seconds over MDIO, and longer
-over bit-banged SMI? The commit message and the comment above do note that
-the scan reads every entry, but they don't mention how long RTNL is held.
+The header comment in rtl8365mb_main.c describes the EEPROM for all
+supported chips:
 
-port_vlan_add/del already see which VIDs are in use. Could the driver
-track the active VIDs and rewrite only those, rather than reading every
-entry?
+ * The EEPROM contains initial register values which the chip will read over I2C
+ * upon hardware reset.
 
-> +		if (ret)
+Doesn't the same EEPROM reasoning also apply to the family C PVID register
+at 0x0700 + (port >> 1)?
+
+Suppose an EEPROM preloads a non-zero MC index there. Then
+rtl8365mb_c_vlan_port_get_pvid()->rtl8365mb_vlan_get_pvid_mc() could
+return a non-zero evid. rtl8365mb_port_vlan_filtering() would then select
+RTL8365MB_FRAME_TYPE_ANY_FRAME, which is the same situation this patch
+fixes on family D.
+
+That runtime behaviour on family C is older than this series, because
+rtl8365mb_vlan_setup() never touched the family C PVID before. The rest
+of the series also leaves rtl8365mb_c_vlan_port_reset_pvid() unchanged.
+
+Would it make sense to have the family C hook write MC index 0 through
+RTL8365MB_VLAN_PVID_CTRL_PORT_MCIDX_MASK(port)? Alternatively, the
+comments in rtl8365mb_vlan_setup() and rtl8365mb_c_vlan_port_reset_pvid()
+could be reworded so they don't promise a neutral PVID that the code
+doesn't enforce.
+
+> +		if (ret) {
+> +			dev_err(priv->dev,
+> +				"Failed to reset PVID on port %d\n",
+> +				dp->index);
 > +			return ret;
-> +		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
-> +			continue;
-> +
-> +		vlan4k.ivl_en = want_ivl;
-> +		ret = fi->vlan_4k_write(priv, &vlan4k);
-> +		if (ret)
-> +			return ret;
-> +	}
-
-[Severity: Medium]
-What happens to the entries already rewritten if fi->vlan_4k_read() or
-fi->vlan_4k_write() fails partway through this loop? Possible causes are
-a regmap/MDIO error or -ETIMEDOUT from rtl8365mb_table_poll_busy().
-
-VIDs before the failing one keep the new IVL_EN, the remaining ones keep
-the old value, and nothing records or restores which were changed. The
-caller then unwinds like this:
-
-rtl8365mb_port_vlan_filtering()
-    ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
-    ...
-    if (ret)
-        goto undo_egress_mode;
-
-The undo_egress_mode -> undo_set_framefilter chain restores the egress
-mode, frame filter and transparent VLAN settings, but not the CVLAN
-IVL_EN bits.
-
-On error, dsa_port_vlan_filtering() does not commit dp->vlan_filtering. So
-rtl8365mb_d_want_ivl(ds, -1, false) and later rtl8365mb_vlan_4k_port_set()
-calls follow the old mode, while some existing VLANs learn in the other
-mode.
-
-For a VLAN-unaware bridge, would a VLAN left with IVL_EN set stop matching
-the static FDB/MDB entries keyed as SVL/FID 0? That is the mismatch this
-patch is meant to prevent. It would only clear on the next real
-switch-wide flip.
-
-Should the loop undo the entries it already rewrote when it fails, or
-otherwise restore the table to the previous mode before returning?
-
-> +
-> +	return 0;
-> +}
+> +		}
 
 [ ... ]
 
