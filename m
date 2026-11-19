@@ -1,87 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109175;
-	b=0WnrzUfq9kMkUGu71CJo7JF9dA8DDIyGeZpVpnNR0B6+ntvFvuU7HPCcV2Uk9BSGdbDs
-	 yg5nBQ8vXenJxnu+OHu2lYgXv//rp8cs1+vhpQTiyT1TKRVgQ5PiNv2mZa0ubVbOLPE1Q
-	 xgzMh5UJaHgOEfv81FewW6e7xxQj2tY0QKI+ie3KmEo8rCPGZPkyZGAdJ+NSXe35QOhqv
-	 YpVVmHhgmguNdF1SI4lNYRXp2nhBVhJM+JfNwgtZmWRLhLCiDcUznyf1H5+KyVuvrvq9k
-	 TKNuZ64/FguqB41ebp9aM2IIrxOZV0N9taZ9JyEu3bvORqfbVeKAGDig7gf9CFlaDpg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109175;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=baTpZUjod5GD/amHfc55ByHpGuIJoaIfPWwl3/4IbyE=;
-	b=MYAdIE8iE8sH/aOA36OPC32CdCGmh1DXa8JDye8qUV5slV9xG4U2rzSxP8vtuqEUnqJ5
-	 ohsurUf6fwxusQhUhi6cvwuCLbwT3XjhGBl1Hc2J1LWmniaGBdQ2fjjyKdURVjYsE6mzp
-	 Y18/vXKB15OAN7YXC+Yk+/GYjaCuS7Z9exfzk9ahOr0j1YRXvOsXLNJCF1q32wuhMG24s
-	 YBfIr7aJo9ztpnJy6vRbN1sgaRtNV6ad3R91BW52O8E78fJC+JqYZdBj2vqskXxgbSifc
-	 qLP6LcjoNDjXjbcp9taak/tJdiRLjVBhjYGx532KvxDWkCVUMSFcvz8S0m4oyYeTSbw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=CueZNpJ4;
-	arc=none smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.36
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795109203;
+	b=Imut9swxkvXJ/oyO4/sOFUJRYJenUPYUPtji5KaOt0utHnvE3pLyLRjmOaE35T8dKrnf
+	 849T2Lzo6tgric2AHsYJczTFNXka2ZUXY4mDaQPza2hrovrLUS1zXfsoGouIvcIEfDoep
+	 kp8/G4rdRQeZVIXHFG/kblx2KiiYcIEm/jLFnBmhty0p7yw6KiyxdKXQTLogU20fdNl8t
+	 rGlU5eLCK7WDKXLcAB1/rXxTPMNtzQ+pKXsiuKdT6CxyvPh54tecvSj7yh6r2G68x7G1d
+	 6xff50EroWQaVI02GcnRbOXE5c2vPoEbcJWiXpvvyqRVGXlKsBSDCh4o9mRJyusC6Iw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109203;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=cFiYvLHtRbaEOsCuic1Aw5kQhYqO0RZfer3U4Bzj5Tw=;
+	b=gXmEO9bdve9TU/6tN9jOsnrCKUmFBrJUbkGT03I/WMSk+i4CAImJ7H+pRjt+DcyCx5US
+	 xAfI7eE7EyfmBte+I+WS4j7C2wMCr2vhNLfiTPv7SPf9dIUJrWiCQqyTNWfmnL9p+9tug
+	 BTzRVHGnHW7loHc/ThirOeZ3A0/ml3Er4JhgGMtZWrUo/yW4qGKE5CRFTGSZvkJxdcCgL
+	 5z+tUEaUONNSs4ldrmz9ThdCtNLLGvgxghITZuVBT1SNZgCIPqOwVMKZyvqEw9ybXaPZJ
+	 LWPhjfQU1+BJRoCD9v41On0xu8Ez7XSyh5bHhmDs+/FY3vS3FMMe5Xz0wybGuW//Ppw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=K492XEjz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.36
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013036.outbound.protection.outlook.com [40.107.159.36])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 824FF606A324;
-	Thu, 19 Nov 2026 17:26:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 824FF606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9116606A33A;
+	Thu, 19 Nov 2026 17:26:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9116606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=CueZNpJ4
-Received: from pps.filterd (m0528009.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJF8jD13256812;
-	Thu, 19 Nov 2026 09:26:01 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=baTpZUjod5G
-	D/amHfc55ByHpGuIJoaIfPWwl3/4IbyE=; b=CueZNpJ4YJ8ALUOc215uhnpE+ff
-	dQX1OjfrScxov1md8Q3g97pe4M6hcrZzuOMXtkFx3ctvGpEvlfrGcahlwu1xyZI3
-	ckBI3glM/YRXa9qgYAgrAWKmo6cVMaW8SnOuyhTFzo+YAyw145PDy91KLpeQ2ZfP
-	dnVvv03X4rNsngwF+TDtjIVnHNWmLgNIoQdw7LlI+jTA6EYvC+JBIMASraK6fytM
-	t976vQHHMTc0CZTxej92055SNoQmA3SWCgOJjkkkYWdZVbc8KaLN6T3MjPCFDs0M
-	N7BlqPWCBD7KxEFhIMpzEWyA3EjwWdK9Xt2TNmZ7U9KQkdVnGM3n81aueyw==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j1yjjk3ut-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 19 Nov 2026 09:26:00 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1b::8e35) by mail.thefacebook.com
- (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Thu, 19 Nov
- 2026 17:25:58 +0000
-Date: Thu, 19 Nov 2026 09:25:57 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Paolo Abeni <pabeni@redhat.com>
-CC: <netdev-bot+sinfo@kernel.org>, Stefan Hajnoczi <stefanha@redhat.com>,
-        Stefano Garzarella <sgarzare@redhat.com>,
-        "Michael S. Tsirkin"
-	<mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>,
-        Eugenio
- =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-        Xuan Zhuo
-	<xuanzhuo@linux.alibaba.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Simon Horman
-	<horms@kernel.org>, <kvm@vger.kernel.org>,
-        <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can
- reach the device
-Message-ID: <av8xJb3skp2S9a1D@devvm29614.prn0.facebook.com>
-References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
- <179487315810.3291.12142099363352099423@kernel.org>
- <avur4Uwbv27bGG67@devvm29614.prn0.facebook.com>
- <a3049b70-fae9-488c-9de7-0c1613e6c480@redhat.com>
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=K492XEjz
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IndFP71idhKibwhK/yepDgyFmeCa7n7uAGu5Tmr0XA04bIS1tiDuqqrp+du0I1WiIBeE62TIAVqaQNeTxj04spy5vhpC80e2tfA/8eBktvpSHQLcykik6PwilqSjBx0P8jFJCQXK7kEWnbxojP1E6tBHpnWw/LrXegBAmnfDhdWorviAGkAuKfgSpnkij+g6IVuGEQSmcwtG/JAExKZyWUfxur5nHUfncPZaxUyJ4N4S2EGBBfuTeUR+Ep0Gymql/qEn3caQ6oF3a7hcsHuSBRcylpA4vXvRdplvtlA/d2xHxxVpcR5gTxFln+zk5h0/5pfxyj6sVKIkk0zsSTho1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cFiYvLHtRbaEOsCuic1Aw5kQhYqO0RZfer3U4Bzj5Tw=;
+ b=XXbRbMDhq5zSRFfuq5JFQFakpK/2tnlwWIx8uenHCDPh5f2gS5H19zNBlqCyFDaPQEM6Fkf+8QdAZFtxzA0E5/u/+ik9cXBkdLiuyorYW+OQzP4vRMpOByC4/pI4Rp8LWtFRVKp9tnoelAQgMW6sVfjbg4VCaadpsxurV5NQgIA+MIti52MBwlYzBPSziJj6m4K9eK94NVl0V44Ydw8RBJqfkkdphVQd4WisRdxOE8gz73yT2Ecda2VFEdLryUc3FOkmQ+7kWSv+Ey98HEJA8LSyj8Zi9ZBXyW6YYq+R7rMs2io0pWHlzXxH6YAnPtW04zugZvhWPo5vSnupZo+KUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cFiYvLHtRbaEOsCuic1Aw5kQhYqO0RZfer3U4Bzj5Tw=;
+ b=K492XEjzvDL5JLacvSVgVkZEeu2qJliu8vN7WGpUaXj6auuI9mRS6LnqqHj4spKR3DUUyA6CQir98quwGOuVa+XbKoHOogLCcZ8111jklDVkcH2oCa6B3GhrSGHToIZVTzG6lIhCeJ0n/VfGZKcsDs4ECE5DPlQ1v7MryjGyP04wpvq8FFYBH68ZabOfpvFG3mqhe6DjkFDobb3Oqgqe38bdZnDiVkqAW4e/uizGAjKN5vlpcqz+JMDDtDW/x0T7smsrVOw8oTNKQEuqhY6Ouryzert9RHWNHqtHCSXF8TfIoSVJcDYRGu4bUZnmLXivOe6Bpw7p5DR/eafK21zEkg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17) by VI1PR04MB7069.eurprd04.prod.outlook.com
+ (2603:10a6:800:127::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 17:25:39 +0000
+Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
+ ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 17:25:39 +0000
+Date: Thu, 19 Nov 2026 19:25:36 +0200
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Vincent Jardin <vjardin@free.fr>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	netdev@vger.kernel.org, Vladimir Oltean <vladimir.oltean@nxp.com>
+Subject: Re: [PATCH 0/3] phy: lynx: add support for downstream retimer PHYs
+Message-ID: <oalhiiiyludhpil5gsplwkrusidxl6znh43ptxmvlxzcd73pqv@ncsskfxywmpb>
+References: <20261118163134.2149894-1-ioana.ciornei@nxp.com>
+ <av8cUZ2F4_iw2fQV@L30177.local>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av8cUZ2F4_iw2fQV@L30177.local>
+X-ClientProxiedBy: AS4P189CA0038.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dd::10) To MI9PR04MB019273.eurprd04.prod.outlook.com
+ (2603:10a6:290:d3::17)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,72 +98,109 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <a3049b70-fae9-488c-9de7-0c1613e6c480@redhat.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA2OSBTYWx0ZWRfXzKS0vfGJ72KO
- zIyDazw0AxLGffzEGQwkkEj5SntZA4LKayi0WiUzH/ViegYsmljCHZt1zG8QADoL3QM7A/EUYZx
- 9UMEmnD6ZoYfCXlJH2g+Bs/Vr+atw/164axcQRQ75ErEza1WtcY1k9dSHWptyH07MFjDK3i7YfY
- JCB4fmPNh7gmiVpgWclTMhLO2H4+fwUQJUUU8MWjMW4zPhFIMFFtU+PgM7deuUP0PlUmS29MIk/
- oXVQX5vX83mKiP8bj1Xj7SwK1UXU4WoPBiC2UcLlENghvHjM1o4rdpUr4UTGMOGEdM+bTAOm6BN
- 3CfR/7gO+PAJPsKjx1U+Dnfz/R9TmxEzImwUWg0txQpwZKO7jdPKcLogyxCjtAyhflOZUw3m0JF
- eIyDZRhoOkHKmryiop+MQbllNzetpU89I15vZzADAtAl+dQKLz5QkLTVrnPz3g4ozpLCvRfMyBD
- 1JUdORy6Vnqhn+beb0g==
-X-Authority-Analysis: v=2.4 cv=GLKdgeNK c=1 sm=1 tr=0 ts=6aff3128 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=U_y8lYiYyhHBU5rMqhb2:22 a=VwQbUJbxAAAA:8
- a=a3FyozKr4OXg-YhadtQA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA2OSBTYWx0ZWRfX5hKU9AMUQXG6
- Rjy/dDLFZFeasosjQbDO4Fdh5aF5XlcQvx93ACOqlpus6ZKbdGZgY0hstBR4Xt6fLLuRu9tMjWc
- pVi2SCh3B32Uja3txi7dyGOSXMa4BRA=
-X-Proofpoint-ORIG-GUID: aN6qMjTUmxqAt-mKuIb1wprEufQV4ud9
-X-Proofpoint-GUID: aN6qMjTUmxqAt-mKuIb1wprEufQV4ud9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_04,2026-11-19_01,2025-10-01_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|VI1PR04MB7069:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fdb6bf0-6ffb-4cef-f6a9-08df466221aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|366016|376014|7416014|23010399003|1800799024|261102123227099003|10067099003|261026121527099003|56012099006|11063799006|261021121427099003|261026140227099003|261022105027099003|261028144727099003|4143699003|261022075727099003|261009223027099003|22082099003|10086099003|6133799003|18002099003|3023799007|27256017|41080700001;
+X-Microsoft-Antispam-Message-Info:
+	mp0C9OyS0oGJHumTu+xmbWJnCqdEmbUsjhZD4LDaXTVD0D7h6CTB0wgsn1WZxNGABuQv4IXytScwXMzdhzym9OG6sjpqvLDwJqbR8ahoO8UOT7GNqpHeuNH0F54ZAEuCnVOVXQGjpmKEGIBOmk1E621qqSBi6wnpRUlTasU1grHNDOFXAwFVsTl7XhLhWqULm0AvcMgNTItVtDF0Q6FIXYezdKkdlEPVpGwiwgSJZUqDdJfR5Xc3WloAOKOvDpZU2ijetZJTH+2DwhjYSzwt4t0xhIHI332iKCAxPD/TN/yU1+HiV7tpZcPrrij9qWTNzaJYgPDYDh6J7uph682ftgf7yMMcpUS1XIe/KtQwjpT6plP/Q7Xs5IvbXs6DAcaAGPgioCS4Eu0WmASCsysqUzYgXYNKslx05cu9xKmvFy0Wfx7DjLihh03lJpR98n/PQ09/nEPYHyVvc8usnvjXZH0OAFF9hj5iSibNa/LAb1OsKumjMfUmVJqCN3+7PA2zhOgNbLOn3VeaW6FoLOy/RVBFChvF53oQ//hN4aebuRAP3AY/VMIcVj1e6TBkBwzJo1QnEInm2TjwACkVlFZhhKVoTIz17tlhDfc/5i5NUXska4iYveTFnqu7voWrBFoiqWkl+bL1HVamr/jZXXFLB+eXDV/74nnVD9TSCnEWmFhmNN81EGuPGKWT7ss1ziTbjCoBpe3NlRrl3d52ztEG7w==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(23010399003)(1800799024)(261102123227099003)(10067099003)(261026121527099003)(56012099006)(11063799006)(261021121427099003)(261026140227099003)(261022105027099003)(261028144727099003)(4143699003)(261022075727099003)(261009223027099003)(22082099003)(10086099003)(6133799003)(18002099003)(3023799007)(27256017)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?GHySdnMIL4f5P/cayF2B/HCEbcCMhcjawNbaR9o4kdU/rXD+NqZA2Nl5qijW?=
+ =?us-ascii?Q?Pd5idI8WCNsuVmC37q+u7pPPkHj40JedCt65BUIqRdEkYg9as+dOjhMO8aE2?=
+ =?us-ascii?Q?d6Vjl37RYjJ870KkxcF5t2iA5cR+ZByXBNmZL0g50aVW/31RtXoru6Aji/vV?=
+ =?us-ascii?Q?knMZ/wIpWGyAxEmvlfTaItHWLr+j949MqJ0Z9kXpGGhigFURoDGugJM7gNxK?=
+ =?us-ascii?Q?Yp1Y5QRA/OrH3j3JOhwKLn6x1EcA4wFo3iNVODFJ459U6Ls2FkVy+ynP7J72?=
+ =?us-ascii?Q?snj4p9HlcwCP4HkPU2Mc2T05hWnYkC2VK3xaMV2/JRB+pEP1qtREpdH3FYJq?=
+ =?us-ascii?Q?pJcI1zvQgIaD3l2zfv5vQacVfsbHE5feisFLITmecHwSJkkYDOtyVtVifRPl?=
+ =?us-ascii?Q?uYO9ckSfjzJfaQYst3vRNFXz80KN2lsQwcymD+1N70pkMJkoPjFXgEGy2YLR?=
+ =?us-ascii?Q?Nwq+OSqdloyI0Tg2jX9Hn+DOPNJY3rUMqqEwrRlC1fjIR2VrOwQonyJq/UtR?=
+ =?us-ascii?Q?2w+W6MJtMVV5HRpQ9PyWiq2ytDKprLs4y8mShAq7rarkiqvccQEw9ewhmVYw?=
+ =?us-ascii?Q?E8PXZfbwJndf3LYf/0A1wvxrBozAdiveJuFPsB6S5j+EqdQuv03BrTDKHh9I?=
+ =?us-ascii?Q?stuvms3ewUeTxNWzuS/c0g0T3hI7UWI+EukBt7qtjecGaS4l2SXVJLzMa5ND?=
+ =?us-ascii?Q?vzF9Tk79liXoIRvVnFuEkprozUpTCeNKSHxuqgt7dPmoBllASXmAg+SsvP4j?=
+ =?us-ascii?Q?j93sCRviP4Zm0Lflj7Fskgsk0Gz15oHLTRNCLQmsH9g9A8EyZXAwf/99t68e?=
+ =?us-ascii?Q?cwQFwRLZaJilqN8/CCpI13pfdCelo1djZhbDxByCuj735dfwYqPzshd4NFKO?=
+ =?us-ascii?Q?sDkXdcCXRkI9gV36xmTzme/B/B5yQYsIXRLhLwqEDZzO6vzuFppkgoczWVxG?=
+ =?us-ascii?Q?RTFaqUlx+hr4RESnj32ecmZdqz/uqEvWrx73d2y7yz0jZEJgn7KFEgcVwWZc?=
+ =?us-ascii?Q?1MKviyfrPfwqKJKIoz3iP8yN9sBZOJmSi8OKst2Gi0OPd+8TPuV2UydLhwH9?=
+ =?us-ascii?Q?6EdVESmkXk8w9+rhsPuTv2ylux2fRrL+2D1vqAGPOQ7ogSuBOgSeP08lSp5f?=
+ =?us-ascii?Q?o5Uov6AUPlUE+Vco2wQAFKmkYc/xjZxAiZ1TmbwvY8m2dy4Wqj60QjpiNBsg?=
+ =?us-ascii?Q?WLEl7Yxd6lRch6F6gqNCogJ32aInq79j78bY2eoJV+FG8NLQ4d37EbeQOOVY?=
+ =?us-ascii?Q?ib08rHwc8YSlmq9f09PY99J6TAEimTIOhvByGQJSS+XW13ZoGdvo26kxmD5u?=
+ =?us-ascii?Q?qsJ7Cm1zSLM2+d1RnUDVuaJ/wY/HNlAr5ZYtAZBGW+4L5DJCsRipYEKapIKf?=
+ =?us-ascii?Q?cjEzINqjJQjQVBR8jSz/P6eO2lLBCpNhvI+8ZhLO5RrEftV5p3vgsfA+Z6Hd?=
+ =?us-ascii?Q?5fBKXIbF009RFILSVd2zFPIUJ59Z2EOYUqThODHWMjpA/hVcWDP8ktJjjVRe?=
+ =?us-ascii?Q?Qtkr8ORlffb8aOR+91+wPPQ4hAmfDC+v0Q8B1LOE5l0KqHUDtzVka5Eumqm3?=
+ =?us-ascii?Q?wngW4f0OF8247ZwCspQOplTeVDvsriqs4e3Di+qUABRfiZ/O8B9zjDROGgvU?=
+ =?us-ascii?Q?TbsGgu3bBf2qq8TKjTsC02E1ydguy60nmNuas+IWNrKoe2njLtYTQJf+95KV?=
+ =?us-ascii?Q?UGDSuhoCNayCbgcWOp84BCw+qTcBOQTST0QYvQhwUD1svN1uatSLaligCLic?=
+ =?us-ascii?Q?m6/Z2yeGOg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fdb6bf0-6ffb-4cef-f6a9-08df466221aa
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 17:25:39.6315
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BsiKMi5bog/tnVWBCP/L755F4D88MPTDnZiladdXNkKtEVFPVKKtrMhUUdo8YjQQ/c6wHlm61h/ds1G0WJulJw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7069
 
-On Thu, Nov 19, 2026 at 10:03:10AM +0100, Paolo Abeni wrote:
-> On 11/17/26 02:20, Bobby Eshleman wrote:
-> > On Mon, Nov 16, 2026 at 11:52:38PM +0000, netdev-bot+sinfo@kernel.org wrote:
-> > > Hi!
-> > > 
-> > > This is an automated message. This series looks like a fix, but its
-> > > commit messages seem to be missing some information:
-> > > 
-> > >   - How the issue was discovered, e.g. hit in production, hit during
-> > >     development, syzbot report, manual code inspection, LLM or static
-> > >     analysis tool scan.
-> > > 
-> > >   - Whether the issue was actually triggered, or is only theoretical
-> > >     (e.g. found by LLM and not proven at runtime). If it was triggered
-> > >     please include the symptoms, like the stack trace or kernel messages.
-> > > 
-> > > Please do not repost the series just to address the above. Instead,
-> > > reply to this email with the missing information, so that reviewers
-> > > can take it into account.
-> > > 
-> > > *IMPORTANT*: If you do repost (for other reasons) - please include
-> > > the relevant info in the cover letter or commit messages.
-> > > -- 
-> > > The evaluation is done by an LLM so it may be wrong, if you think
-> > > that is the case please reply and explain.
-> > 
-> > This is a known issue and has come up in review of the guest netns
-> > series (so via code inspection).
-> My reading of the above is this feels like more an improvement than a
-> regression fix. As such I'll move this to net-next. Please scream out
-> loudly very soon if you disagree.
+On Thu, Nov 19, 2026 at 04:57:05PM +0100, Vincent Jardin wrote:
+> Hi Ioana,
 > 
-> /P
+> > This patch set adds support in the Lynx SerDes PHY drivers for
+> > retimer PHYs which can be found on the board downstream of the SerDes
+> > lane towards any connector such as an SFP cage.
+> 
+> It is a good idea, it can be used then to leverage other retimers
+> on those serdes too (like a ds250).
+> 
+> So, two questions:
+>  - in patch 3, a downstream PHY without .validate fails every mode of
+> the lane. Could it be stated in the binding or in a kernel doc ? A
+> minimal retimer driver would take the port down.
+
+I am not really sure where exactly to document this Lynx SerDes
+restriction: the dt bindings do not deal with this kind of restrictions
+and I am not sure that in the driver it will actually be visible.
+
+On the other hand, phylink_dbg will print the phy_interface_t bitmap
+supported by an SFP and the bitmap supported by the MAC/SerDes +
+retimers. So there will be some debug messages to start from.
+
+> 
+>  - for 100G and 40G ports that are 4 lanes under one MAC, and the
+> Lynx 28G driver has no lane mode for them, so set_mode would never reach
+> their retimers. What's the plan ?
+
+I would think that if a retimer connected to the lanes of a 100G or 40G
+port needs to configured at runtime, it would also need to have SerDes
+level support in the Lynx 28G driver. So than plan would be to add
+100G/40G support first.
+
+> 
+> One more point: we need to be able to tune the equalization and run PRBS
+> on these chips from userspace. A driver that selects a channel and then
+> writes would race with such tools. The retimer driver
+> would have to deal with it. What could the proper design be ?
 > 
 
-My net-next guest ns series actually needs this to build, maybe I should
-pull it back into that series?
+If PRBS is done in user space then I would expect the Linux drivers
+which touch the SerDes lanes and any other retimer on the signal path
+to be unbound from the devices. For example, if PRBS is run on a Lynx28G
+SerDes lane then the entire SerDes block needs to be in test mode. This
+implies that no other lane can be in application mode which is invasive
+enough that an unbind is necessary.
 
-My rationale for sending to net was that it also fixes the issue for the
-already merged vhost-vsock ns support. I don't have a strong opinion
-either way.
+Ioana
 
-Best,
-Bobby
+[1] https://lore.kernel.org/all/aY2lFTIALH7qEJmM@shell.armlinux.org.uk/
+
