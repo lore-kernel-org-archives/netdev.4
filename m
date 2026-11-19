@@ -1,58 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795053300;
-	b=CEhjoii+OhfVnXWhum6eT3TGGtUUXGyc9f3RebgHzWRz9VTC9oR72yuW66EyDx+4/U1w
-	 AupztOAz7fa/sigI4mHOOnoiWGJtyYUicwJ2sZD/C9OoLjiJByMr9FSs/sovdg1SGejiE
-	 1FaXwaDmpg+fk6f688Tw67/ud5KTKMdnuod8n0hiUlagexQeLcgiSXlXIoUBbzXFiCLIb
-	 LQPEwdAGPY1Wh8ZCrTiNJu2T8dihRZyK91SMy7o5qnv5TUuG/ShU/68gRIqmLU/+i9YGU
-	 jNv34/DPbSy/ilrWOoIGDKqmFSrMexPmKyspsGE9q2lqDZDYovbFpORMJO4AFpvOAoA==
+	t=1795053608;
+	b=2CAjop/UmZvVFk1FJVRFKBsCDk9EeSiO9ZmEzPRIggzmVqJj54cub/r1u4Sgr0F27phu
+	 MSuXsDLt/SrFp1ZeQXgOnyxF9HMVyD2XD4Yhk0hy+tdhRtFCvZVHp91J9G9IYaIe6GtN+
+	 iD8MKucRPQ3tkU7MJiBqhvzXr0WRsLl+Y53yedQ/xIvqK1HDUT6PHWdpnXJyj3xwhi9+S
+	 r8Wlkgn2MxSWgZEcpAns8s+IIZ8xo8vXDvRJBZUBF+8+UtrNoph9nTVrjDa0OKT70rK/5
+	 4W0mKylbdsBWgUjlbEE4qwqOMAmBIT0KMN6KKFwjXqKOSgtnN6cu0VZuzzbEeUpVE0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053300;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6oqckTj4aBrYkNlCPOoGtpoPLOPKhvVx0CS2wne8WA8=;
-	b=yJeUYxlABjJxFk3bad92tHULaena/FnRCkQryVRwzM37ASJ0fpdACDQ9vhkULggsBo5K
-	 XCQUKPtRj29Vzza9BTGzp++hmQi6LXY7h05A/wYTJ9gdP0pYtJso4HTpSRZwfVsCQ/J/9
-	 /nqJ7XgILSHWhG+ksD7m4PpjpPNUIM8GAeIJw4wCRQwCBD/P9khMq9SS2KEzBkrs3eu79
-	 O0rxjmGfDp22QgakMbR6+xDs+VuiX/MYzU7Kc5yEqQW9ItoydGefI9LRWMYvkX/1EMMnB
-	 SuipuegbW/NqhL03UXUuymCh20qdkcbJ40TyphQGXr7otv/qp83E39kI7nAXjv6FGwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053608;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=1C408Plf+PpCCQJIv8vfJX7AKu969dw4X06nTdduXKE=;
+	b=Vb22qTc7cl8kKYyMyxDNS+0OrDK5vPDh/ttJw8Vkbc7byyrRDNXEiveRbAIiFIMYwT/9
+	 ZiCVGKXL7wpOOXrWzISGaQ8R0lb/wcicO1mC52csD+DQAVnnoAV+prRstpuCbmpeaTPeg
+	 puLlkIA8F2O6IomRRDBrSxVJn0Y3uzvuqcmPdz4msxGOYAMNHe7xs/Uv99i8b3JxCmeDN
+	 atD/pLBv8gDJrUisRZ+2dTEHHFYdvJ7ko9SCKDTB0UfYp9uJ5yK4j/HzaWzJOHRuBT0qJ
+	 Y6IzzhGkSsTSlDgbZiz2CTG++62Eh+IzeFdZpvcBquTqfROY7kXnjAWHj3LVZybxZuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=laiqhx6J;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0UpdRHC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A3D060A260E;
-	Thu, 19 Nov 2026 01:55:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0A19606A31C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:00:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=laiqhx6J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A885D1F000C5;
-	Thu, 19 Nov 2026 01:54:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0UpdRHC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80EEA1F000C4;
+	Thu, 19 Nov 2026 02:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795053300;
-	bh=6oqckTj4aBrYkNlCPOoGtpoPLOPKhvVx0CS2wne8WA8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=laiqhx6JSs7EWtNGLJtaa4YqZt/dnpnLkxKJ1ohDy0R5XLGTHBN/X/sst+q1STvlU
-	 vRPeVi7Q4djMZw7uKUQB+HYuaNbi5mGS1PbeLyLG65RtWZKKxd0XyemGLZs7zWHh1N
-	 Ai3KjrFxZO567G/hzF4OvO6mfSMKfUFBq2KBlG57eHe3JfzYi6ufe4m1zf9XZhJnLh
-	 aYRzaPJtaLT34l8rCWy5XPiv8Df3BmfQkIDUGHhodlZqVFkgDc/y4V8cQfD0H6rU0W
-	 0HLRkcN58CpqelRnHOeERaHv67oteX2Lwj3mwPEFjQvYksrDVwfqBGhTTcOEwW0pXp
-	 agzSWIDt1FVVw==
-Date: Wed, 18 Nov 2026 17:54:58 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-Cc: "Shihuang Liu" <shlomojune6@gmail.com>, <netdev@vger.kernel.org>,
- <bpf@vger.kernel.org>, <edumazet@kernel.org>, <kuniyu@google.com>,
- <pabeni@redhat.com>, <willemb@google.com>, <davem@davemloft.net>,
- <horms@kernel.org>
-Subject: Re: [PATCH v2] net: sock_reuseport: check program type on the
- migration path
-Message-ID: <20261118175458.6c7e5940@kernel.org>
-In-Reply-To: <DMYSGWL8247Y.DQAGO9I6EPK3@gmail.com>
-References: <20261118153541.172499-1-shlomojune6@gmail.com>
-	<DMYSGWL8247Y.DQAGO9I6EPK3@gmail.com>
+	s=k20260515; t=1795053608;
+	bh=1C408Plf+PpCCQJIv8vfJX7AKu969dw4X06nTdduXKE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=c0UpdRHCSt//BxJy1NphJwQKB4akcPOVY2PMueFzGfZ867uqI+Nz9WgpsKa+PgR6a
+	 H2pNX7Gmt3mj7rTDE/xV1vvAp9OhzseUCZHCuiH8vqxCPsYBNrmgAvR7ztU/b+wDce
+	 HlUZcCX6u7lEitEltd4k733SD1dvYiF0yI1ywqC5MU23hdugBwc4aQsYZ7oWOIABIY
+	 sno9scSYQp3cPUViqSF/UTXsdp/Mvlu9Xpx5oMO7o1UeAMVPXdfnoS68k8nmwI+sd/
+	 LFNCZ4ZJQfhiE2fLyNU23weZnXezEbYd9HTFtadQbfLIro5jNN76y9HK4titiO3Zl/
+	 gs30v39YYJzOw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 772FF3808210;
+	Thu, 19 Nov 2026 02:00:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,13 +53,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
+ 2026-11-12 (i40e, iavf)
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179505360728.2713881.10859053822875993430.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 02:00:07 +0000
+References: <20261113004602.129864-1-anthony.l.nguyen@intel.com>
+In-Reply-To: <20261113004602.129864-1-anthony.l.nguyen@intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>
+Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ edumazet@kernel.org, andrew+netdev@lunn.ch, netdev@vger.kernel.org,
+ mheib@redhat.com, fballuch@redhat.com, aleksandr.loktionov@intel.com,
+ luoxuanqiang@kylinos.cn
 
-On Thu, 19 Nov 2026 01:16:30 +0000 Alexei Starovoitov wrote:
-> netdev folks, opinion?
-> I'm fine whichever way.
+Hello:
 
-Don't care either FWIW, if you want to take it:
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Acked-by: Jakub Kicinski <kuba@kernel.org>
+On Thu, 12 Nov 2026 16:45:54 -0800 you wrote:
+> For i40e:
+> Mohammad Heib adds missing set of VSI down bit prior to calling
+> i40e_down() as is expected by the call.
+> 
+> Filip Balluch fixes incorrectly provided Tx rings in error path of
+> i40e_set_ringparam().
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,1/6] i40e: fix napi_disable hang in i40e_down() during firmware update
+    (no matching commit)
+  - [net,2/6] i40e: fix freeing of TX rings on RX allocation failure
+    https://git.kernel.org/netdev/net/c/4957f668681a
+  - [net,3/6] i40e: avoid resetting BQL state when freeing temporary Tx rings in set_ringparam
+    https://git.kernel.org/netdev/net/c/e3916fa03f4d
+  - [net,4/6] iavf: fix QoS capabilities memory leak
+    https://git.kernel.org/netdev/net/c/65f6ffb9001b
+  - [net,5/6] iavf: fix ASQ command buffer leak on init failure
+    https://git.kernel.org/netdev/net/c/2a1f106379a9
+  - [net,6/6] iavf: add missing PTP adjustment callbacks
+    https://git.kernel.org/netdev/net/c/adbc4d0fff64
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
