@@ -1,102 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108905;
-	b=fhKjtmKjNczQJdeb1LaMjtlNNc2MrO7TILuoTvgl+7ogZP2hEY/VWAeoOyER6Y3dohOn
-	 tFoxOYyjhBE7V/0NE+VL6LJR7Tw0/unDVAqabjcGd7wG1dSOLlJkHVu8qkbL7PUtx3PeD
-	 5To1+qdwTL9ErYsMwrCZnl8z9ZH5ZHWCqELgdWGQCqCzmdH2YOm/HTR4jRrJR+aY/Vttk
-	 T//z3TlA9vfTklUis02HZVdhSstvZ0Ut7I3fb1DiJOVYI54tskxpjeiIkB5iRBGt80DMY
-	 Hif3YCWLYFIDx6jWoQecWbxTQ7na7P5xX/LvzkOXQyn/ifNvxSjAE5ljzcoNoKXaGnw==
+	t=1795109060;
+	b=mWBGVEjrq2nm6u1hw6bxyhkNlSwhhcLNSOAem1zMyuIm9T5zI7rdHr/XTec776opbkDx
+	 1nIRFw4bV26KOlT5tKfhSsnbdOnvoIEJ9uSTHTtj+Cu+dHW75PenSMkQb7GMRYBQQ9AtA
+	 I4OjMDGO8yK3zfMKSJcq3QJcL9gC8qNqOPw+A2JBIT/9cdIsY1N4W2reBp+Y5gk3Emgqn
+	 h7izWOA82l13wsHH38s+TaV4VcyUe7r8rYIKHpbUP7hurY61RnB4aAP26ajK+1nOAdZk3
+	 zmBAMD8YWGVcPUOaHi9Ln1+TETUSt/9Ilm/yo/7WVxuft3Rh/MonVGLnuwURWieRwLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108905;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109060;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=qCKspVRVOBd/joD+05jOwyZUEmbfEcJyaUV6EH4dQXI=;
-	b=P+0GWv5ymoS1i7FwkFc949Aq8l68d6P295XWPffz0i7g9JIvgIieMYDCJWw1nRiwl7gx
-	 j/zlGns23yjrDVgD/wqNKoDaQ+wApUYQ46MUYLklytpjfisng5pLOjQcHWobF0JIe3iQ8
-	 /JGqPSL/3f0k9ANtynvxmzY4AurylHLx6irtmShkH5xHAVfW8TR6z9nFNOcpPMr5r8oJB
-	 XOcyrN6P65/K6pN5KKURcDDKmRCchmAoJwFYNnBqlwAw3LKGp+MUmSBl8UIbOcyCp7FdU
-	 w2cygr4MxEgyOhlhgXVeBmVs7gbW1HWG3N/PWIcxDStr+oMeUmb8ORxpa0+/GIdTZcw==
+	bh=Ybt3yDy2PVnBctTda6fFNeBbSLRMNED8RLSC/2nr034=;
+	b=IzjndGImQj2gLYL22v42/372rELi9LSWKPeYwMExkflcH5Bytk/YFffGpxrWnaPfqv2J
+	 uLBFYmonZskLVMekg+u2mXbdwNl4lX0aQjgz72PvKykcUY+J6fQX8Uw3ku1J3e8WnIcR2
+	 o5lQOhdeW498mIGf4yFXXOnFEDzQ4h46autLFO73stC7V+g/M0Orc6965YWvdmWPzALhd
+	 AI5o3wdchNnSrbDwVn12wXFj+ufT+Mjo6mxTrZQbEGWh7gv1gNC9SNLy7kkZfgXxQnhS3
+	 FeNhfpqWgQetldPnnyKZ+ALQgiYFdd+fueDAlzignGAsb+EDg3dSyvCI8ZV/eUH+zTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tY1GHSnq;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=jD9NsWHE;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36798606A32F
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:21:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36798606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E4F9606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:24:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E4F9606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tY1GHSnq
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-38431138772so1592343eec.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:21:45 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=jD9NsWHE
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso34976045e9.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:24:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795108904; x=1795713704; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qCKspVRVOBd/joD+05jOwyZUEmbfEcJyaUV6EH4dQXI=;
-        b=tY1GHSnqNR5ofMb1KioIS30YqaVKjUQtv8ZTqlstmaKO4w/8ZaZbSm1ddKTcujkZa2
-         R3g8/1W6C9XtF22hSugqhJXqnLVtl1uzVFDAYZWjpXOBEi2ztEMt8htA2wIYyKtFRJ6y
-         iQC/38ScTWx2TQhuiaB6vobA2RZBPpehVB7pW7TEQTLIX38tnlgCZZAjkSN0lR//zDAf
-         dZpjfseEIicTrqBR5acP+DlS+ziAa56GugpDYEu/6ODeR7E/l+g3oQrVendDD8IxOItr
-         njW1QKaA/0QWH/JjppXBIeb0vaGYnHoyEHpAgWGTQmh1jO7ueA5x4x51gFUhWvbfVCMw
-         Vpmw==
+        d=cloudlinux.com; s=google; t=1795109058; x=1795713858; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ybt3yDy2PVnBctTda6fFNeBbSLRMNED8RLSC/2nr034=;
+        b=jD9NsWHEcpatdmkdARhiuKvJF8rOijuHu4QsWe5pwXO/hCwFJt23oZzBSkW3RxE3ez
+         HDXmr6cRmfsFwFAy8r5Gefm4/JTb+2WilSA9p9UYjvMupIOWW1BllrzQEBEzdPIpMkYa
+         nsfL0+2xw5a48YGHj/+hdypYNNqC7vSWdCFI9Qul2FiDvBK/Pho/QdDVUQT2EXExT3EW
+         0X2SSGfyKL4Jkka9NRhr087wMg13s/LtvgdBfHGc5GsHxeU+emJgMhKeL5rvyCcxEubZ
+         C3REhaiwrUacIb5LugvECbYId2qVh99ulNcHvTXm4iuN/eHRaxfANYmx8W+w3CtthPW9
+         l2YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108904; x=1795713704;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qCKspVRVOBd/joD+05jOwyZUEmbfEcJyaUV6EH4dQXI=;
-        b=RLrCsrKxflRKmeq92trbDXjrjeKq79NbJ3yUACs5WX2tV9+fVc6UgyYuGpJ48n8W40
-         5MqTd0dY+NABJywzEy4KNOoNwW6dWFHD1Z8auV/BPb+4kpXCrICTV0yWljCZ2rg+aAdx
-         OfJtgrm2Qhw8ZrnlhadVWcagDeQGRC1mBavpmDu3mSFRxrB4NaOo8USCUAB4ikHdWwXV
-         kGKTo50s+jJzBt0oKsgMguE3wEwKbMtk6bG9dXnc/reoKY6RfxbQYXAjORQ+tnyOxZ88
-         tLNbl3+2AIsArXnRpsZwTs9yuLGycycXiPOSAX1/D0qswOPWNSndEJ0rJAS6a6gS9sza
-         jBHQ==
-X-Gm-Message-State: APuU4Z/sFiAbdtxvcJ7jRGqewSDipbcubhxetw2D9fyx4OZz3viMh8+b
-	1QY1WxMRr50nZVB9DWh2ZRxJHJGv4xf6bO75O78Xz4fwoM3xc3C5/15EyqOV067N
-X-Gm-Gg: AZFdTZcAdc+24iHLUR0flKLgXtuegqIAIPA6Wn5qq3nXCEuzn8EiZ3I3bZwpwcF8HdQ
-	7+Bh7Y3BjcXkGcRW+O/OPHoLiy2aM/RD+9Cv7BH6qNX0pt94ReJhsgM0Tj1on8KXQ+hpCHxXTVv
-	kL/e+IANybjpuEs51ZUcZya1oUaCQh4/39oh2+2ZiixfsahA8feJjYa1G+TnCVNGTtLZS1wMUfJ
-	8DNPSunk40JPklOSGKOOBs+EBgWBHLN9SCjWennQtkTjoDU0ppI7sHvco63k2/4B3M5eXjVuo0Q
-	ma4QxPomE0DUg00XHJSEP2ZHnFIDXCAFK0jJYwb/XOLgx3hljhIPwRtp2/wxlFUcmXfup16nigk
-	galJbtNK0lOzIPPkY8BJcJYapJTg2l0EDF9a7TqsFJHLq3v9ZquwoP9Zzi6LSeNpvfRNokXME/J
-	liCsVvN3z9Xs569yB2t+V4Ocgl9ZkL2UKdcCLYRJUc8nCdlzdl+fRmTPHzOSjv9rPCeWLGLR52I
-	Lj8UfTRRjZzHGPpQZ5dYvZeun3qZ0u5x3teRdz9ZOTuNeUAYHzzlYPpcF+RpADXwkj+dLDwOlHQ
-	XsCY8x51sgk3khNk4sAy/QGjgjF2IcdmwFDgRDe9RJS3od4=
-X-Received: by 2002:a05:693c:8211:b0:36f:202c:48 with SMTP id 5a478bee46e88-3857045092emr15315eec.14.1795108904018;
-        Thu, 19 Nov 2026 09:21:44 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672cf745sm226887eec.18.2026.11.19.09.21.40
+        d=1e100.net; s=20260707; t=1795109058; x=1795713858;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ybt3yDy2PVnBctTda6fFNeBbSLRMNED8RLSC/2nr034=;
+        b=IsBDjLUswSctrBRJLZAMsQ0HkyT1w7PIsIM0mxWQe4hPEKLbMY47auO6CrliJ2u00H
+         97k5R4DDLJi+SsQU/Z4h1aseMDK2Jyxe/PB6h/GOAV4prORK952HGbV4ZKE7JVleXHp/
+         q1edH+/Lf0kder08KDn71H2gn3aMtTKwXM86f+S0J9qpjf9qywt1cBYpnqdD/eQ+Igzd
+         bmjxP/2/f/sYZ84TsodsEcmUh4YIi31m+ussjensM+/LyKWmpkEyXUuAVvnbCaDhOXgR
+         bbd+3xFZRChrzlX1dPzJ95c2dNf8fgP9wmmbS7NOWbvxs6elb61+VDTpPee31+ooFkKP
+         jyZw==
+X-Forwarded-Encrypted: i=1; AL+hErHfB7EBJSbZtw+xAaU24VZKVO8R5Abb5i9+qwzDOwKRg62suHhL6EmQ/GPWSz2dniSZ9TJXLjc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/E4o85draOjYkGrGez1b2gJ0QuKpym8AJcqownOwV3BShd8k75
+	fIEbTbMN8UgVXJH562r7cPP11oQ0p2pxxzg0sm8qrHUmSETnNn9577chPy76sQOeub8=
+X-Gm-Gg: AYBFou0FRYFeDoejbLgWsyREcQIPcikC75qwhf+4wjQhc0KursNAECDc1M4qk2XaTQa
+	GgArjowORgfDKOsa+YLnH0gXHJSvWTo2ZLMJHNuK2FfrjcZRkNHVemnPGkbRygLDR4kDH4IdnOR
+	PGz9h0HzB9lpkshcTfCVT+TiWuSH6DkFs0FH3cKDA8jNluRfaIBTvT3DvjWhvrLjS6mZDeg44ls
+	Cb82LHjyrLLzl29o9hlugNjujy0hozs52CUKwkY724bTcUAwuHo0jAEdJ7uTjJhXsAh+yZ/CHn4
+	PJ96srxh1tWH+icDICZ9JBrKqpQGNvCMLDbpYnNNW4YhzrWqhmrVhehg5Df6tbC18gwphaugvwB
+	opiwabdqQgb/iZJrXf6K8pwUE3w8A0l6M80vPp0sMlouvjgO6XTHnFeo43Awe1Jp728cI5Lk5E3
+	X0xBeD46JhcHpgsFiLA6zflH3SG6POWJKRONEZebc53T5Ag5s/IEPl31Guw+hBVUZyB0Gb57qrX
+	huDn9CHH+7aOh589CjJjAjo1b/m27UjHEpCNlP6mg9Eqf4H+l2ZZfdRH3WyrVSEzr+m+x24KGNS
+	UvnEeOej/TMmUwnifuMAZngk
+X-Received: by 2002:a05:600c:34c9:b0:4a3:5d64:df91 with SMTP id 5b1f17b1804b1-4bb88810d28mr4268105e9.18.1795109057952;
+        Thu, 19 Nov 2026 09:24:17 -0800 (PST)
+Received: from dev1.kernelcare.com ([2a01:4f8:172:1c85::2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm17951085e9.14.2026.11.19.09.24.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:21:43 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: netdev@vger.kernel.org,
-	dev@openvswitch.org
-Cc: Aaron Conole <aconole@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
+        Thu, 19 Nov 2026 09:24:17 -0800 (PST)
+From: Andrey Misiurov <amisiurov@cloudlinux.com>
+To: Alexander Aring <alex.aring@gmail.com>,
+	Stefan Schmidt <stefan@datenfreihafen.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: linux-wpan@vger.kernel.org,
+	netdev@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Ilya Maximets <i.maximets@ovn.org>,
 	Jakub Kicinski <kuba@kernel.org>,
-	linux-kernel@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Minxi Hou <houminxi@gmail.com>
-Subject: [PATCH net-next v9 3/3] netlink: specs: correct the ovs specs where they do not match the kernel
-Date: Thu, 19 Nov 2026 12:21:18 -0500
-Message-ID: <20261119172118.3416958-4-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119172118.3416958-1-houminxi@gmail.com>
-References: <20261119172118.3416958-1-houminxi@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Andrey Misiurov <amisiurov@cloudlinux.com>
+Subject: [PATCH net] ieee802154: keep the original error after a netns rollback
+Date: Thu, 19 Nov 2026 18:24:13 +0100
+Message-ID: <20261119172413.2068073-1-amisiurov@cloudlinux.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,297 +105,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The vport netnsid attribute is signed in the kernel: vport_policy declares
-it NLA_S32 and ovs_vport_cmd_fill_info() sends it with nla_put_s32(). A
-client reading it as unsigned turns the -1 that peernet2id_alloc() returns
-when it cannot assign an identifier into 4294967295. Declare it s32, and
-say the same in the uapi comment, which also never said the value is -1
-when no identifier could be assigned.
+cfg802154_switch_netns() moves all of a phy's netdevs into a new netns. If
+one move fails, it jumps to the errout label and moves the already-moved
+netdevs back to the old netns.
 
-Two dumps shared a request list with their get operation, while the dump
-handlers read no request attribute. Each dump now has a request list of its
-own with no attributes, so neither advertises an attribute the kernel would
-ignore.
+That rollback loop overwrites the same 'err' variable with the result of
+each move-back. The move-backs succeed, so 'err' ends up 0 and the function
+returns 0 -- success -- even though nothing moved and the phy stayed in the
+old netns. nl802154_wpan_phy_netns() then tells userspace the move worked.
 
-Four lists named attributes their handler never reads or sends. The vport
-delete goes through lookup_vport() and reads no type. The datapath reply
-does not carry upcall-pid, which the uapi reserves for the new request, so
-the reply list drops it and the ynl selftest stops printing that field. The
-vport new request named the nested options, which the kernel accepts and
-ignores. The packet miss event shared its list with the userspace action
-event, which alone fills userdata, actions, the tunnel key and the length
-of a truncated packet, so the miss event now lists only what a miss sends.
+Keep the original error in a separate variable and return that.
 
-The vport get request can also be answered by port number, because
-lookup_vport() falls back to it when the request carries no name, so list
-port-no there. The datapath get is served by the name, or by the header
-ifindex when the name is absent, which its doc now says, and all four ovs
-specs document the header struct the same way. The vport new doc gains the
-constraint that an ifindex is only accepted for an internal vport.
-
-The uapi note on the vport name now covers requests other than new and
-dump, and names the header member the lookup uses. The note on options says
-what the kernel does with the attribute instead of leaving it to the vport
-type.
-
-The packet spec declared neither the validate flags nor the admin
-permission that the kernel registers on the execute operation.
-
-The vport spec also declared family version 2 where the kernel registers 1.
-
-None of this comes from the set operations added earlier in the series; the
-specs have been wrong since the families were introduced.
-
-Signed-off-by: Minxi Hou <houminxi@gmail.com>
+Fixes: 66e5c2672cd1 ("ieee802154: add netns support")
+Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
 ---
-v9:
- - Complete the note on the vport name. The v8 wording stopped after
-   "dp_ifindex from"; the missing tail names the attribute and the header
-   member the lookup uses.
+Found during a backport review.
 
- Documentation/netlink/specs/ovs_datapath.yaml | 16 +++++++++----
- Documentation/netlink/specs/ovs_packet.yaml   | 20 +++++++++++-----
- Documentation/netlink/specs/ovs_vport.yaml    | 24 ++++++++++++-------
- include/uapi/linux/openvswitch.h              | 16 ++++++++-----
- tools/net/ynl/tests/ovs.c                     |  5 ++--
- 5 files changed, 53 insertions(+), 28 deletions(-)
+On debian13 6.12.88, "iwpan phy phy0 set netns name T" reported success
+(returned 0) while phy0 and its wpan0 interface stayed in the original
+namespace; internally the move had failed with -EEXIST, but the function
+returned 0 anyway. With the fix the same command correctly fails
+with "File exists".
 
-diff --git a/Documentation/netlink/specs/ovs_datapath.yaml b/Documentation/netlink/specs/ovs_datapath.yaml
-index 6232760224dc..94ab15251e2a 100644
---- a/Documentation/netlink/specs/ovs_datapath.yaml
-+++ b/Documentation/netlink/specs/ovs_datapath.yaml
-@@ -12,6 +12,8 @@ definitions:
-   -
-     name: ovs-header
-     type: struct
-+    doc: |
-+      Header for OVS Generic Netlink messages.
-     members:
-       -
-         name: dp-ifindex
-@@ -118,24 +120,28 @@ operations:
-   list:
-     -
-       name: get
--      doc: Get / dump OVS data path configuration and state
-+      doc: |
-+        Get one OVS data path by name, or by the ifindex in the header when
-+        the request carries no name.
-       value: 3
-       attribute-set: datapath
-       dont-validate: [strict, dump]
--      do: &dp-get-op
-+      do:
-         request:
-           attributes:
-             - name
--        reply:
-+        reply: &dp-reply
-           attributes:
-             - name
--            - upcall-pid
-             - stats
-             - megaflow-stats
-             - user-features
-             - masks-cache-size
-             - per-cpu-pids
--      dump: *dp-get-op
-+      dump:
-+        request:
-+          attributes: []
-+        reply: *dp-reply
-     -
-       name: new
-       doc: |
-diff --git a/Documentation/netlink/specs/ovs_packet.yaml b/Documentation/netlink/specs/ovs_packet.yaml
-index e4c5f24b3b01..a9ee84be6e22 100644
---- a/Documentation/netlink/specs/ovs_packet.yaml
-+++ b/Documentation/netlink/specs/ovs_packet.yaml
-@@ -22,6 +22,8 @@ definitions:
-   -
-     name: ovs-header
-     type: struct
-+    doc: |
-+      Header for OVS Generic Netlink messages.
-     members:
-       -
-         name: dp-ifindex
-@@ -97,14 +99,10 @@ operations:
-       value: 1
-       attribute-set: packet
-       event:
--        attributes: &event-attrs
-+        attributes:
-           - packet
-           - key
--          - userdata
--          - actions
--          - egress-tun-key
-           - mru
--          - len
-           - hash
-     -
-       name: action
-@@ -112,12 +110,22 @@ operations:
-       value: 2
-       attribute-set: packet
-       event:
--        attributes: *event-attrs
-+        attributes: &event-attrs
-+          - packet
-+          - key
-+          - userdata
-+          - actions
-+          - egress-tun-key
-+          - mru
-+          - len
-+          - hash
-     -
-       name: execute
-       doc: Apply actions to a packet.
-       value: 3
-       attribute-set: packet
-+      dont-validate: [strict, dump]
-+      flags: [uns-admin-perm]
-       do:
-         request:
-           attributes:
-diff --git a/Documentation/netlink/specs/ovs_vport.yaml b/Documentation/netlink/specs/ovs_vport.yaml
-index af7ee56f5f90..7626b578c568 100644
---- a/Documentation/netlink/specs/ovs_vport.yaml
-+++ b/Documentation/netlink/specs/ovs_vport.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)
- ---
- name: ovs_vport
--version: 2
-+version: 1
- protocol: genetlink-legacy
- uapi-header: linux/openvswitch.h
+ net/ieee802154/core.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/net/ieee802154/core.c b/net/ieee802154/core.c
+--- a/net/ieee802154/core.c
++++ b/net/ieee802154/core.c
+@@ -222,6 +222,7 @@
+ {
+ 	struct wpan_dev *wpan_dev;
+ 	int err = 0;
++	int ret;
  
-@@ -12,6 +12,8 @@ definitions:
-   -
-     name: ovs-header
-     type: struct
-+    doc: |
-+      Header for OVS Generic Netlink messages.
-     members:
-       -
-         name: dp-ifindex
-@@ -116,7 +118,7 @@ attribute-sets:
-           min: 0
-       -
-         name: netnsid
--        type: u32
-+        type: s32
-       -
-         name: upcall-stats
-         type: nest
-@@ -128,7 +130,9 @@ operations:
-   list:
-     -
-       name: new
--      doc: Create a new OVS vport
-+      doc: |
-+        Create a new OVS vport. An ifindex is accepted only for an
-+        internal vport; any other type returns -EOPNOTSUPP.
-       attribute-set: vport
-       dont-validate: [strict, dump]
-       flags: [uns-admin-perm]
-@@ -140,7 +144,6 @@ operations:
-             - upcall-pid
-             - port-no
-             - ifindex
--            - options
-     -
-       name: del
-       doc: Delete existing OVS vport from a data path
-@@ -151,17 +154,19 @@ operations:
-         request:
-           attributes:
-             - port-no
--            - type
-             - name
-     -
-       name: get
--      doc: Get / dump OVS vport configuration and state
-+      doc: |
-+        Get one OVS vport by name, or by port number when the request
-+        carries no name.
-       attribute-set: vport
-       dont-validate: [strict, dump]
--      do: &vport-get-op
-+      do:
-         request:
-           attributes:
-             - name
-+            - port-no
-         reply: &dev-all
-           attributes:
-             - port-no
-@@ -172,7 +177,10 @@ operations:
-             - ifindex
-             - netnsid
-             - upcall-stats
--      dump: *vport-get-op
-+      dump:
-+        request:
-+          attributes: []
-+        reply: *dev-all
-     -
-       name: set
-       doc: |
-diff --git a/include/uapi/linux/openvswitch.h b/include/uapi/linux/openvswitch.h
-index bd77e6fb4a95..6ee048a9e812 100644
---- a/include/uapi/linux/openvswitch.h
-+++ b/include/uapi/linux/openvswitch.h
-@@ -293,7 +293,9 @@ enum ovs_vport_type {
-  * packets sent or received through the vport.
-  * @OVS_VPORT_ATTR_IFINDEX: Provides the ifindex of a vport, or sets the desired
-  * ifindex while creating a new vport with type %OVS_VPORT_TYPE_INTERNAL.
-- * @OVS_VPORT_ATTR_NETNSID: Provides the netns id of the vport if it's not local.
-+ * @OVS_VPORT_ATTR_NETNSID: Provides the netns id of the vport if it's not
-+ * local, as a signed 32-bit value.  The value is -1 when the identifier could
-+ * not be assigned.
-  * @OVS_VPORT_ATTR_UPCALL_STATS: Provides upcall statistics for a vport.
-  * Contains nested %OVS_VPORT_UPCALL_ATTR_* attributes.
-  *
-@@ -303,12 +305,14 @@ enum ovs_vport_type {
-  * For %OVS_VPORT_CMD_NEW requests, the %OVS_VPORT_ATTR_TYPE and
-  * %OVS_VPORT_ATTR_NAME attributes are required.  %OVS_VPORT_ATTR_PORT_NO is
-  * optional; if not specified a free port number is automatically selected.
-- * Whether %OVS_VPORT_ATTR_OPTIONS is required or optional depends on the type
-- * of vport.  None of currently supported vport types support options.
-+ * None of currently supported vport types support options, so
-+ * %OVS_VPORT_ATTR_OPTIONS is ignored in a %OVS_VPORT_CMD_NEW request and
-+ * rejected with -EOPNOTSUPP in a %OVS_VPORT_CMD_SET request.
-  *
-- * For other requests, if %OVS_VPORT_ATTR_NAME is specified then it is used to
-- * look up the vport to operate on; otherwise dp_idx from the &struct
-- * ovs_header plus %OVS_VPORT_ATTR_PORT_NO determine the vport.
-+ * For requests other than new and dump, if %OVS_VPORT_ATTR_NAME is specified
-+ * then it is used to look up the vport to operate on; otherwise dp_ifindex
-+ * from the &struct ovs_header plus %OVS_VPORT_ATTR_PORT_NO determine the
-+ * vport.
-  */
- enum ovs_vport_attr {
- 	/* private: */
-diff --git a/tools/net/ynl/tests/ovs.c b/tools/net/ynl/tests/ovs.c
-index d49f5a8e647e..fea7609a68b9 100644
---- a/tools/net/ynl/tests/ovs.c
-+++ b/tools/net/ynl/tests/ovs.c
-@@ -16,9 +16,8 @@ static void ovs_print_datapath(struct __test_metadata *_metadata,
- 		return;
+ 	list_for_each_entry(wpan_dev, &rdev->wpan_dev_list, list) {
+ 		if (!wpan_dev->netdev)
+@@ -249,6 +250,7 @@
+ 	return 0;
  
- 	EXPECT_TRUE((bool)dp->_hdr.dp_ifindex);
--	ksft_print_msg("%s(%d): pid:%u cache:%u\n",
--		       dp->name, dp->_hdr.dp_ifindex,
--		       dp->upcall_pid, dp->masks_cache_size);
-+	ksft_print_msg("%s(%d): cache:%u\n",
-+		       dp->name, dp->_hdr.dp_ifindex, dp->masks_cache_size);
+ errout:
++	ret = err;
+ 	/* failed -- clean up to old netns */
+ 	net = wpan_phy_net(&rdev->wpan_phy);
+ 
+@@ -264,7 +266,7 @@
+ 		wpan_dev->netdev->netns_immutable = true;
+ 	}
+ 
+-	return err;
++	return ret;
  }
  
- FIXTURE(ovs)
--- 
-2.56.1
-
+ void cfg802154_dev_free(struct cfg802154_registered_device *rdev)
