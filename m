@@ -1,69 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125751;
-	b=gK6BYjC4yr7PpRjIWJazhoDR8/aWmFZEe/0zoPHJzlq+GFhpFG2QAmdyhoZOwoHf3VY0
-	 99Wza6gpHCfi2DumMHt0Xtm7syzkXsHBfgGiSMGdcRRpnnhwxc4ywpH9ytiZ2tdTRdE5u
-	 Z9fXUdGD6c0kusIR/2uyYNtodC91oDtURHC/HP4ZPCOpEKVTzecWlTeobecWDQn1Go1gi
-	 2pU/CCblGvQWt88KFYjR59G10Mt4ogveFJbExWDewnj4bSrKavAgi9pem8j5O/wOKxwc9
-	 GV+7HYmxs/X4Q2bs5FyaR9MWM9ouenpU83Yolr2B0L5jEE6TCa2e0WUbR8zYprl/Zrw==
+	t=1795126207;
+	b=g/WvQkIJFfnlvquSQD3DiAmCMy6f3H18itcePy5XOb90OMWOvgPZPYKtWT5p9E60HxA1
+	 GBEQb9sjfgcfyb4jkhNqtzbEb+JpLsVs/PJi0bPGOTarF26nKY8u79rtqVAP0I9GwsOE0
+	 WKYG4LZ7pDmISnp6PmqtmyVTWJE6IfKphDqjNTupJr7GZBxP3+orfiIGOGu24nWTRrOEN
+	 VwUvAtyWhcdS6sdqf0Qde4F8ZFMDg0pj1YbZTGD4nCvV/srNjCrXSIuA1oI694sNKLKNF
+	 WMtgqc0u38g6CPoQlCytNhZsXPWMxbaHEVXPyDHDFc5WNRHcxqzjj9kTFNnkSo5RxVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125751;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=DGfBV41hyrj/R7oh4W4UjVZ/ziD0kcYY8j84a4AjooI=;
-	b=y6BX1lQuWLpsVxdVWlHA/R5DtjKU8AtQTkfosOQwBU4d7qCDr0lhK7nzjF4I5sIznXB5
-	 GKxzud1xPIpgC3R19x6pZtBqNZ0RsCi9/KZQvuqRfu6DXsRKK8UlreDDByduJpe2OLWuh
-	 8h+K7ljF9PZzrrbWFUYn5OuaU0N69yiM7zhxMgTQbJWTxQqnzMMIuJ2GCXIar3PO0WeTK
-	 zW7ui6YRLEsEhWWtVKA2EVCdimfsJ4SDBHmDA3Eb1fP1eN3t/braXWRiZRxclhmlRrTTg
-	 R+GrO/ks4IAgfxGjub19fuRN63RtHcTMfnKYo3TuUt1kNpn7feZalTayx7k/pidhpaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126207;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=hlPU3sZhVUwnjKrwxg/N89sgqrZkBaaTp1xlR8QkCdo=;
+	b=z+5a2awq/OI2O5ze00QhJ37uEdIeLT8dvtglJ90mrAoTUuYPmv2L42a/LbKy391sQJIw
+	 sbwYoR8r165umJ/0FOVypZDel0e03Lb/9eXtaK6A1MSM35aBxmat9TgsaI0UfAzZaEAzn
+	 eUjvxHnhVtYKnfStIcli2F8Jlez1nNvy6fV0tEx8zC37X1Pqzhik9LE3rczm8N6gBlQdE
+	 Z2yXYXGzH12NmDSAophPFpULMVVrl8MUJESb0GTKF1kKyWvYag3kOab1EgNZrAP7SeupI
+	 K3l/GgjaknUaq/vWeZV1xfjbWtd3TdUtIvIp7waoKRGx9hQYSiMU4OA3t8cufDfDaTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j22wZqfF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="TAj/ZXx6";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC35606A320;
-	Thu, 19 Nov 2026 22:02:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71FD9606A335;
+	Thu, 19 Nov 2026 22:10:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j22wZqfF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 322361F000C6;
-	Thu, 19 Nov 2026 22:02:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TAj/ZXx6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42CBC1F000C0;
+	Thu, 19 Nov 2026 22:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795125751;
-	bh=DGfBV41hyrj/R7oh4W4UjVZ/ziD0kcYY8j84a4AjooI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=j22wZqfFwgrUgMo0tyKDaKgQILbDB2Lt8QTaAURL4RiYF7xy6CTPHYS06bZ3pXQMb
-	 LF9ulO2LjxNAkY2gTx5MgAQXiqaJBg/66wdHnx5HjkJWYKQNS2TjVO5G/A99DVM4sF
-	 eKTBT/I5AmW8u9UpnYPdhcEfM4aixtfbp3qxb2AM4ReBEKZk1LD+VIRIs41k6PWeXa
-	 c5AGYAKotxzmuovgBuhYwRzImp7/T7afTCppkAGJtK20oWZZvY1a5fQmj3O/kel7p5
-	 RkJt8sx/T66VjnD702b//MCgoPtK+bTH7gZqG0UO/pRJ89QQwO4++h3gNZSv1abLti
-	 H+nqwKCZ2Sgtw==
-Date: Thu, 19 Nov 2026 14:02:29 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Kyle Hendry via B4 Relay
- <devnull+khendry.reliablecontrols.com@kernel.org>
-Cc: khendry@reliablecontrols.com, Geert Uytterhoeven
- <geert+renesas@glider.be>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
- <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, Fabrizio
- Castro <fabrizio.castro.jz@renesas.com>, Philipp Zabel
- <p.zabel@pengutronix.de>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
- <clement.leger@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, linux-renesas-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 0/6] clk: renesas: r9a06g032: Add reset controller to
- clear resets for mii converter
-Message-ID: <20261119140229.56a553e0@kernel.org>
-In-Reply-To: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
-References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+	s=k20260515; t=1795126207;
+	bh=hlPU3sZhVUwnjKrwxg/N89sgqrZkBaaTp1xlR8QkCdo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=TAj/ZXx615jsjL5Z/IWmaK0EvDf7E0hYB+VzLswAlBU1QY2GXtMRZIA+rHmD+vr5B
+	 ELx+gTK4Q4vCemJUOvpoXAwUswSxzFnoO+iJ5n1iLsvppldQWdRRQ1Usiyy359So5j
+	 p5j638brwqlulOtd/zWVdywxZkkJY+tF06hlqQs81Dx3h3J7JQ613Y3uIKa2s9pdwi
+	 gxT5y2gwcDaVToh0VbKUp7nAqfMXChiibg1ziGFdn12VTHgOFfyfq3hSVmMN3KvFrc
+	 aHSi3RRjCEaJ0PPBjTc+y40dXaharMxdqNNfzKtpP6yYr/JxzasXzrCnjT+j9Z+rlg
+	 gDQazpNqYw9og==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A41D3808209;
+	Thu, 19 Nov 2026 22:10:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,17 +53,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [GIT PULL] wireless-2026-11-19
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179512620603.3888839.8901800817499638079.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 22:10:06 +0000
+References: <20261119153408.342115-3-johannes@sipsolutions.net>
+In-Reply-To: <20261119153408.342115-3-johannes@sipsolutions.net>
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: netdev@vger.kernel.org, linux-wireless@vger.kernel.org
 
-On Thu, 19 Nov 2026 09:57:42 -0800 Kyle Hendry via B4 Relay wrote:
-> On the rzn1, there are two resets for the mii converter in the system
-> controller. If they are not cleared by the bootloader then the kernel needs
-> to do it. 
+Hello:
 
-You need to split this up by subsystem, the series as posted doesn't
-seem to build for us. Please send patches 4 and 5 as a separate mini
-series and tag it for net-next. Please wait until tomorrow (24h 
-from this posting) per netdev subsystem guide.
+This pull request was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Thanks!
+On Thu, 19 Nov 2026 16:33:27 +0100 you wrote:
+> Hi,
+> 
+> A bit late, but nothing that's urgent or would need
+> to be resolved with net-next/wireless-next soon.
+> Just a couple of driver updates, still reviewing
+> more core changes.
+> 
+> [...]
+
+Here is the summary with links:
+  - [GIT,PULL] wireless-2026-11-19
+    https://git.kernel.org/netdev/net/c/dcf495789037
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
