@@ -1,60 +1,142 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117426;
-	b=ptk/JoxMy37B6MbPSu04a+OFNj2H36VtFJclM3Zcytinl6ofSPVPov6j4+hSDMla8qFi
-	 3w7SPGuxUhXoXYHaCVBBh9FCQMHeihaTK4es9M7YV+3MBSWE4VBA9SCz/1kgSJlvV7y6G
-	 934VaAihfDlYmTv1r37HqpBEo//ikTVX4TxfjBsKS3UBohLtYMrqJuRTiMBSyDNJnlyMp
-	 9qqw2FtyL9G7yV1WsuWabzmDcZgrQjFZ7T4uEswd5wJSLXCGQ0FvFKvCm1upOBK32xL0u
-	 Mlc3REBt4hG/3MyKPGwAqKX41AJbHscM/EYEejJ0705t3ZFnMSz4UQrjNsJ7E6+mlNA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117426;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=qBLuacBYKz/tdxSHVBEHjNWt6ZoFU95vFan68bdG1qo=;
-	b=ahB4ThimEY5YFA6tDk/+Gx48J57Awkuit8i5aIVN0ZtL7dF9GYSVWI/TQ42jlTs4oAM3
-	 F9h7ObDMvYWCzQQhL20gEuVZF4y/+VFYi15+iYqPgOQntbkeuANI/M5Vt9yQWof4dqwqH
-	 sOdhyJBUs6leouFYnoENbekPAhnGiQYjCOt+k3NbF1XIjn/EqBMAVSVAx0YSTyQiPeH89
-	 j8b8zcNqWXacTADMiqazNBc0fqm0kAfmCNsSp6ib5FHCBBUWhBl6D+grdpECmDmNbf6+0
-	 EJ4ebv1X4Kg58A1YeeeGVyOuKp1bTpPGUj+DOn6+K7HhNajxNp3LNHy+ZPS2IBVnS9Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O22ep1Bv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795117485;
+	b=2EKcHvaAWd77DJbVaX6n7NNS1ILJRsrCAKX1Z0y8OuwIHmxZsrFdh0g5RhUaWC+ZU/oJ
+	 jWBc2+MI/3mu+wVDywC2Y2niroDS1DTvNSnZ4rOvlqbk6Irq0qGfQt8ajDxP26yJ/+Eky
+	 2ab6bzhoRV/Mj6FHqZQpLqoc6nbrGAUKkwqx3N9GbCAyPjt5a9W6ZYNqwkl6iPcEvsdJi
+	 ycn9leTyHQzHoLNf7QnHMVY5wic6rWue3qSISTTBAJLvtvVioJzOBwJ6XX6hoKXbjqaeN
+	 raWHAF0X04jVxjwpMLbvAw2opkeAff2rgi9AEFet9ZmNmt123uHx8U4MCcHV8fKT9Uw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117485;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:From:To:CC:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=LBt5m5p2Fp/7CBa53VtLXLEqyKYBzSaKCfW7YUqH4eQ=;
+	b=B2+cJ31OPU7TOkwh+1JXwZmOSkpvYvdDB9O+gtpCljs/UETkTBI/XesKOBaKWgltqKZ/
+	 tIR9EFBa/5a90ygPy2drSsRHSAlbXkT4nAk6SSaReoNAI0KLoULame36iYjW8tvIfBjg9
+	 JRyNdLRrraK5yPm1w7PPPgmo3Mo7JBChrz6CwDZ5YcOL2/PU4xoZ07ZEDMYYnd0SMzMbr
+	 ofRJC75f1s+ZwGfIXJ2n1JUmuL7UntltvLtDwQw/URuP7uf833TzYr44M/lMTJ2uj/DwC
+	 ubGifanQ/WBeEYP6JdGemTs/LpcL7R5vteBqy9BHrG+C5QkNHfNPnt+o07wk6lN4Tog==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kiOIYIj1;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=konP8vg0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D7FB606A32A;
-	Thu, 19 Nov 2026 19:43:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 782E8606A330
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:44:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 782E8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O22ep1Bv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D5D1F000C4;
-	Thu, 19 Nov 2026 19:43:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795117426;
-	bh=qBLuacBYKz/tdxSHVBEHjNWt6ZoFU95vFan68bdG1qo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=O22ep1Bv/KO5P5jOgb9+RHffFJYPcPV9AMHPtyaGQlq7sZ00vHjxREhSOc0IlNNzI
-	 X3uk6S3voZkPVf23zU6ntg1XNMeJ117Tqpeic9uHtuVD1PyAMiy7vNs4KCyfn/oVF0
-	 oRR+9rd6SzQh1TAHaKelW3TaZ5T3y4rV5M/FZJcUxPheB22WjCaNSTvgoCKSprSMHo
-	 suTY6QqljlyrVO/3lTAKGCVoI1uKudN+kuqpUSILKKjWX0569LZtW9F7X/8+4EYNPX
-	 hpgQX5bVD8HBke3q9rMRwhNkStyFjszdPLoaIO1pvsMfhVRBuCUxtfkgeYzA+T8X0+
-	 KfMMhsj59R2ug==
-Subject: Re: [PATCH net-next] net: stmmac: dwmac4: schedule RX NAPI on Receive
- Buffer Unavailable
-From: netdev-bot+sashiko@kernel.org
-To: david.wu@rock-chips.com
-Cc: rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
- lorenzo.bianconi@oss.qualcomm.com, luis.la@mail.de, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
- kuba@kernel.org
-Date: Thu, 19 Nov 2026 19:43:45 +0000
-Message-ID: <179511742535.3136.6978268600110523155@kernel.org>
-In-Reply-To: <20261117034332.88443-1-david.wu@rock-chips.com>
-References: <20261117034332.88443-1-david.wu@rock-chips.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kiOIYIj1;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=konP8vg0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795117486; x=1826653486;
+  h=message-id:date:subject:from:to:cc:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=WUSJKkN6+CfCm4Fszb6J6/vRH4ero6YLn3LQsMLDFuk=;
+  b=kiOIYIj1S0iK23JOwW+WIeZXLm+nGpwZPrkxg5qqDr2mgVsPs0UvM+mU
+   T9KE/65WW2xmSapzrMatXhxOMxMNZUKN1m+Qi2Ec6tWC6naNVUanTTUEP
+   pdepx0KKyK7ZfTMiD49KCbgNDHYWiaZtNKiVDgoPn4x8g9fSVsnyZ+iXX
+   /1OtWsEShutbeKCAfMwhLZGss+bHVQV3oP0DbWt+RS812mxc4Aj4B2xOd
+   6Qv4WBu9JLkdMLlt7uS728xTS0nLBClMEDMIb3t0FxYFd+p/+T/2+mr7x
+   ExVkrGT2DqehlQzJ9fODEtrsn6RDZKGlYmCFMVl2j5nxURHxd37dbxk1M
+   g==;
+X-CSE-ConnectionGUID: ByqC+LW7QruVKejslh+iVA==
+X-CSE-MsgGUID: kxssNJBMR3+jtrZ0XerpTw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3879909"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3879909"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:44:45 -0800
+X-CSE-ConnectionGUID: QaTeexTwQmKDTg7c4kfbgA==
+X-CSE-MsgGUID: ZBtry4JlS9eOD2icQOcIGQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10805893"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:44:45 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 11:44:44 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 11:44:44 -0800
+Received: from PH0PR06CU001.outbound.protection.outlook.com (40.107.208.16) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 11:44:44 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nQ1xPibxbWMCY0o3jM9wAcd/uQyRqg5fur/nOw6qt2Cz8PhRimFJ4lBH1bOSVH9hRMMXLeHwUgA7T3cpCEK4fNMIHV/0Ubj4IV7vOHE9ZtIQKvsg0W+NxC0+pTzvtHLxEDdA+QxVsuHLMoVtKKO+lRHfigEEs0F4knwOGE0FdN5zds/RfKMFaCQPI9trJYdC78V1D9rgY/KlOhKq3zbjJ1vqhAgvI9oXLl2rKrvkS040kq26g01HLucF6lswr9wk9QSVKqO7FdLZVxQniHmC/jhyGTlhB0dkDDpjvmwoFhyDjr9o6+YC6GfyoHttnrBMV32a3qKn0yZVlQxNu+eHHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LBt5m5p2Fp/7CBa53VtLXLEqyKYBzSaKCfW7YUqH4eQ=;
+ b=Q15OwZbg6TcOxW2DHyOQIOd9W8eSJ/hTl3cBiYo56WWqTC890Gh/rbmwgFkL5L3NBXbX2LYYvWCT7paJuCVXFEDHnnt0XnH5tuXJmLNuO0xZwQTqFYwelt/HCiCPoT6dHCxPLbqz810FMqy0GO8RR73DopGtUQsnw0gWOUAVX/pj7bArUbl8YXK2gWOZm29N6vC75EiHqdW923LPVzEfgOHTgLumGoNLRKy9U5pfNBkZ844YmID6adfw4VvFuYzdiJyXBPTbxm5b5pVKIGbEn2DMomXtw+obEGa4SO/GZPjMS6VGj5u7yTpwJ+FSK2m9p+yMYnzlFVkM1Gf7KvWAgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LBt5m5p2Fp/7CBa53VtLXLEqyKYBzSaKCfW7YUqH4eQ=;
+ b=konP8vg09AEcovihi86/sCVqqEeeNqHIsGY6pqA5r4F9qKcnrlphh0J5I4rYDFzuOIpf6n56lC1udEfWb1kGAhuvEqr4aGozN1NsyWvaHdyn57G9T40cZBbXpDTYE91yq1mVm0O9gv43nhxVk+ZaX3BsmlGxssFCFRCkFN2zhsU=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8451.namprd11.prod.outlook.com (2603:10b6:a03:56e::20)
+ by SA3PR11MB7435.namprd11.prod.outlook.com (2603:10b6:806:305::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Thu, 19 Nov
+ 2026 19:44:26 +0000
+Received: from SJ2PR11MB8451.namprd11.prod.outlook.com
+ ([fe80::7d5f:b2ba:92d4:5f3c]) by SJ2PR11MB8451.namprd11.prod.outlook.com
+ ([fe80::7d5f:b2ba:92d4:5f3c%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 19:44:26 +0000
+Message-ID: <8f362b3d-4b54-4337-af61-b7310d353507@intel.com>
+Date: Thu, 19 Nov 2026 11:44:24 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
+ 2026-11-12 (i40e, iavf)
+From: Jacob Keller <jacob.e.keller@intel.com>
+To: Mohammad Heib <mheib@redhat.com>, <patchwork-bot+netdevbpf@kernel.org>
+CC: Tony Nguyen <anthony.l.nguyen@intel.com>, <davem@davemloft.net>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <edumazet@kernel.org>,
+	<andrew+netdev@lunn.ch>, <netdev@vger.kernel.org>, <fballuch@redhat.com>,
+	<aleksandr.loktionov@intel.com>, <luoxuanqiang@kylinos.cn>
+References: <20261113004602.129864-1-anthony.l.nguyen@intel.com>
+ <179505360728.2713881.10859053822875993430.git-patchwork-notify@kernel.org>
+ <av7qBdVhmyhFKdai@mheib-thinkpadp16vgen1.rmtil.csb>
+ <a9639f30-7465-4241-841f-a22b1af54356@intel.com>
+Content-Language: en-US
+In-Reply-To: <a9639f30-7465-4241-841f-a22b1af54356@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0272.namprd03.prod.outlook.com
+ (2603:10b6:303:b5::7) To SJ2PR11MB8451.namprd11.prod.outlook.com
+ (2603:10b6:a03:56e::20)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,189 +146,123 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8451:EE_|SA3PR11MB7435:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00128272-d404-42f1-2f90-08df46758461
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|261022075727099003|261102123227099003|4143699003|56012099006|261026121527099003|11063799006|261026140227099003|10067099003|261028144727099003|261022105027099003|261021121427099003|261009223027099003|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: n9IWLaxCJrCRV2UQEFgR36QLc1BG23LFxw/vuABRpd2yTsD6/3AzWjVswauTrUPlLCSEcPTO/q0wiEs68QfQXmGQRMlpt3NSAo/sH7elnNF0swsJL8te48Xj9zBTSMaRMIaGVZhw5UECwY0kE9o46Sai/f3O2E5mWGtUO82iijb5Bh19QIiiOiHExZRshr8o3WzKnFqKAOdRKF4KmD9JXVuAq7anBm9YmLohDQZBmJjsAI7Bg3N5ScWdy8ovYDmbdRVLixb9J8t6h8IFOvgPgyKEUcjiy00qGiE8ItJ0cLlHeQe2wDhe9xuOvAqyD+oFYdNPgehw7ioeZB2DI3QQbE7Bic4HBhQcen6uu2Fg08nGU1vXA9NG2x6wvuz8hlzKhZkK6q/KEYJUrNaYH5hFOXr8p7NWWyCteZoHC/gyOBI75WvoBzPPYr+FQzikmgfXD19lT4ajb9SRKqajnlFEC6UfeddBAc9NF1KUGWvrtRT+x44Icn7CKEx1HXGRuJVDohnDd/t941oyVSwP/5x12BMDUZYPyh8wYe3EU6wPlvzm5TfWfP8f1Sk3XTYiedwe/5251ZwJqWz0SLit4iMcinrTCduOJmfUvgN1QNRgRgI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8451.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(261022075727099003)(261102123227099003)(4143699003)(56012099006)(261026121527099003)(11063799006)(261026140227099003)(10067099003)(261028144727099003)(261022105027099003)(261021121427099003)(261009223027099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eTU3RWN3TFloZTNWZ2IvSnlnYWE1ZEhzejg0QnV2YnZXNmVwdi9QVzdBSmJ0?=
+ =?utf-8?B?N1FUQXhBa0p1RDFHTzNVdCs5eDdPcnZMR3lJZGh4c3ViN0pFei9xUHNZcDdm?=
+ =?utf-8?B?WVhzR2hTRlZlT3Rtb2lSNEw1R2hKNFdlOC9qSGdRcCtXT1hYNlVxUXAwTE5i?=
+ =?utf-8?B?UmtxSnAvUFZxYS9GR2QyVFA2V0FmMnhuNGQ0NWpaMUd6aENjazQxc2pvR0sr?=
+ =?utf-8?B?SjRsUGFWUHdpQis4WlRYQ2Y2cG1tL2lkOWlXVUhtcTU5eGFHOXdsdmtrb2tZ?=
+ =?utf-8?B?VXg3azJadTBVcWlyMVFScXFORVZjQUtYSmZvNWRKaHVIZ1B0S3VBUmV0RFJH?=
+ =?utf-8?B?WjdpN3FsTEtkZjNUc0VVQjZQbGkzc1EzSkJVelUvSHlkUkdnemtUMFYvdSt5?=
+ =?utf-8?B?aGNFWnJmamVoWFJIL0kzOFgrNFRKb2ZlZVBRK0dESC9zNFJJOTZjazJ5UDl3?=
+ =?utf-8?B?Mm1PblIzNnF0b2NsVUVDRGFIellzSjc4TklKWDVrNkxIV3pDSkFHeFNIWGFB?=
+ =?utf-8?B?bjk0S05wcUlNb0NIWmhNMkVwSHlKK1JvbHIwamJnSUt5cWUybGxMZXFkeEl0?=
+ =?utf-8?B?T1B4YUhQaFZHU1Mvc1FaRHo5NWhGTk9OdGdlUUtseStydTZTRlRnRGozendo?=
+ =?utf-8?B?eUE1L0RJVkFBSUZKVldQeGlJZ25FVVF6cG5wWDNueWJRdG5ESjkvRmxOVFdi?=
+ =?utf-8?B?NnZ0S214bTQ4eFUwKzFIU2pVZEh2dDFZUlE1NFNQanJFd0hkbEZaNVdQeHIz?=
+ =?utf-8?B?eWJMMEtxT3pDcWMwa1VvTU9JQlhvNEJuUGhxTHl6RzVkc3VrRkhTU1d3eWNm?=
+ =?utf-8?B?eFFna2szU2Uva1ZrK1c4T0RBT05wMk9zVmd5NkZjQnZLYjhTczVBanZlWE5E?=
+ =?utf-8?B?Z3BPQmxXeElsOWtTSEJEcThqSEh5aDZXZ1JqWjFveC9WNzB5ZU8ycEtTVm82?=
+ =?utf-8?B?bTJpWkxLSmF5dVczd21qTTE2T0ZqZDhUbi9jNjlJZERnY1hHRXdFcVR5Q0ln?=
+ =?utf-8?B?UEIwSHk3Z0pqYmRveEFtL3JzNFNNOGdiK1ZnUFg3K3lDdzVVaFFzM3RYTWRB?=
+ =?utf-8?B?bkpYK3RyelN6c1Z4UURjdVpuUlYzd3NFcGtuOGpMTTZLUXFzQzRoUWJNakRs?=
+ =?utf-8?B?YUk0ZHYzbHdSQ3ByWndiM253ck1Bdng5TjZMbmdCQ3ZaYk1VWm91Z250SGFv?=
+ =?utf-8?B?MndDb3c5YVNqL2FFNndHakRheXhYRkt0QmUwT1RHeGJRRXFZaDhXMTlibHhO?=
+ =?utf-8?B?dEE4VGhZZ3g0cWlQNmlpV015bVphRDdiWThFZHpWOGszZjdhblAwQXdOZDNM?=
+ =?utf-8?B?OEsvNFovaUJ5djNFWjlLQ1NyMVJpOThpc3g2UkRpaE9Edm9ERlBmTkpaelM1?=
+ =?utf-8?B?K3JjZW8yb2l1RkFPWlJ5WGR1SUs2c053VTVqWkxtSmZ0MmMzQ0lWcTJkak9y?=
+ =?utf-8?B?TERhRE11ckF3cjdzRko1RndUdUZ6ck1ET2pCakMwZVJoajJKWUFockxBQVZ6?=
+ =?utf-8?B?NW9PckJzV05vdjZGU05OMzlmc0dTWmZ4enFETWtqVGhiME9NVGZTVDhlZWxz?=
+ =?utf-8?B?emZmU243U2dydGxoQU93cWxFdW15NFVxbzVSa1d0STB3VDREYTZqVzByTVNz?=
+ =?utf-8?B?L1pHbi9SQXVhczBBaTBXYi93akFSNlFFWTBGL1ZUNnlUNHoyZkdnNTUwVzIv?=
+ =?utf-8?B?aU9Oem5rcW9IZllRTGRUU0E2THdTYVlvekVPenRWQjhlNzE0SzZJcVRVc2lD?=
+ =?utf-8?B?clRVVEdOODlyYk1kbXpITGpxbUdMWmJyNjJ4MWNzVkxZblF4OWdFejcyY3NK?=
+ =?utf-8?B?ODJkd2x3dXRVRUFjM0RnS3BwQ3hzVVBJYTZ1ZEYydFNmcUE2T1JzWXRDQ0Jo?=
+ =?utf-8?B?Z1BHRFdpNnZjZk1pU21SL1dVTDNYNjcxbnNMZ1l5Zkd3N1IwSis5Z0h4Q056?=
+ =?utf-8?B?bXJRUFFXUHljNTl0b3ErK1ZSNEQxN3lLTVdQN3BFVmYvL3lld2ZRRndZT1VK?=
+ =?utf-8?B?T3VBR3lXNVdVS0k4VU1yVytjZnNzTEtkMnBZTWpRSWsyTXBBbnZEa3ZLRVRX?=
+ =?utf-8?B?YVg3WUpwSkgyaVRsSGw4ZW9uT3d1NFpkeXl0eXE5Z0Y0bWdVMGxGd3FKWXdH?=
+ =?utf-8?B?OGRyUXI2aDk2cGpua3RQVE0xNzFObjFibG1WNXNrdDZRdFlZUnJYdnRHL0Nv?=
+ =?utf-8?B?bXIzMFF1cEZkc0MxZzFZMUpZZ2NyOFQ1cXhFTUJSa0w5OEppaEpTNlIyU0hR?=
+ =?utf-8?B?RThpajBOUFFnZUEvUVd0NHMwdzg0NjA2N1lzYjk1TWFLcm1OY1BkMGIyZGtr?=
+ =?utf-8?B?a1JQS05FelhQdXV3MEZDdFNNN2M3ZW43aVJZR2dpZ0NEa1JVODdnK0ltd1RZ?=
+ =?utf-8?Q?70MbYshorLaJZfwo=3D?=
+X-Exchange-RoutingPolicyChecked: v2BRYUZUnWHNnEPolF3EwSMgemfRTAJxLtCPQQL0uGFXIGQfqXBkQkAnA2yVr4fdk+FHt6hyRdpVknFYWZKNHh+JFMAc5ZR8fbfKdiTl3X5yNvDZORwZl87Zo3rhE2ntoKwK0zprYDUFRwr5fU26Vmks31jWPluD9wMcrbBNddK0aozGLzFRfb4fuwRi6zwdf7uC++p3F/aUKUCEPG87wXRJQ1I+m35pw0ETlWj/SMsyXYcqA0sudOROugY5E8okjg7rUDyHvloaFT6uPI+cFEvNdZZ+b8cz2525Kv5MJvQ7uh102DnQ62GhEVlBhY5lxPhsg9IzCyUxa15jcKOOHQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00128272-d404-42f1-2f90-08df46758461
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8451.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 19:44:25.8993
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gqZT9bMyl+u6jrceyPYuZzSg3g0t8wUzIeCTFD4lWadAnnwsCUVW+UOgFvnNpW0GbbIWxbk25GxDgBmBCKUXXA4KdWXpaLzyToRYX7FQ8UY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB7435
+X-OriginatorOrg: intel.com
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On 11/19/2026 9:31 AM, Jacob Keller wrote:
+> On 11/19/2026 4:24 AM, Mohammad Heib wrote:
+>> Hi Jakub,
+>> On Thu, Nov 19, 2026 at 02:00:07AM +0000, patchwork-bot+netdevbpf@kernel.org wrote:
+>>> Hello:
+>>>
+>>> This series was applied to netdev/net.git (main)
+>>> by Jakub Kicinski <kuba@kernel.org>:
+>>>
+>>> On Thu, 12 Nov 2026 16:45:54 -0800 you wrote:
+>>>> For i40e:
+>>>> Mohammad Heib adds missing set of VSI down bit prior to calling
+>>>> i40e_down() as is expected by the call.
+>>>>
+>>>> Filip Balluch fixes incorrectly provided Tx rings in error path of
+>>>> i40e_set_ringparam().
+>>>>
+>>>> [...]
+>>>
+>>> Here is the summary with links:
+>>>   - [net,1/6] i40e: fix napi_disable hang in i40e_down() during firmware update
+>> I noticed that the entire series has been applied except for the first patch.
+>> Was it intentionally dropped?
+> 
+> The patch did have a "high" comment but that one does really just say
+> "shouldn't you also fix this in ice" which to me shouldn't be a knock
+> against fixing i40e..
+> 
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+Ignore me :D I can't read. The comment was on a different patch than the
+one that didn't get applied.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks,
+Jake
 
-- [Medium] In dwmac4_dma_interrupt()
-  (drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c), the new `ret |=…
-- [Medium] The fix depends on a single RBU edge to restart a suspended RX
-  DMA, but the non-ZC RX poll does not handle a refill failure.
-- [Medium] The new RBU → handle_rx scheduling in dwmac4_dma_interrupt()
-  runs only when the handler sees DMA_CHAN_STATUS_AIS (line 155).
-- [Low] The patch fixes a permanent, user-visible RX hang but has no
-  Fixes: tag and no stable Cc.
+>>>     (no matching commit)
+>>>   - [net,2/6] i40e: fix freeing of TX rings on RX allocation failure
+>>>     https://git.kernel.org/netdev/net/c/4957f668681a
+>>>   - [net,3/6] i40e: avoid resetting BQL state when freeing temporary Tx rings in set_ringparam
+>>>     https://git.kernel.org/netdev/net/c/e3916fa03f4d
+>>>   - [net,4/6] iavf: fix QoS capabilities memory leak
+>>>     https://git.kernel.org/netdev/net/c/65f6ffb9001b
+>>>   - [net,5/6] iavf: fix ASQ command buffer leak on init failure
+>>>     https://git.kernel.org/netdev/net/c/2a1f106379a9
+>>>   - [net,6/6] iavf: add missing PTP adjustment callbacks
+>>>     https://git.kernel.org/netdev/net/c/adbc4d0fff64
+>>>
+>>> You are awesome, thank you!
+>>> -- 
+>>> Deet-doot-dot, I am a bot.
+>>> https://korg.docs.kernel.org/patchwork/pwbot.html
+>>>
+>>>
+>>
+>>
+> 
+> 
 
---
-
-net: stmmac: dwmac4: schedule RX NAPI on Receive Buffer Unavailable
-
-This patch makes dwmac4_dma_interrupt() return handle_rx when it sees the
-Receive Buffer Unavailable (RBU) abnormal interrupt. The RX NAPI then gets
-scheduled, so stmmac_rx_refill() can restart a suspended RX DMA. This
-matches what the XGMAC handler already does for RBU.
-
-> Commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
-> enabled the RBU interrupt for dwmac4, but the interrupt handler only
-> updates the statistics counter without scheduling the RX NAPI. The RX
-> NAPI is therefore never invoked, stmmac_rx_refill() never runs, and
-> the RX path hangs forever once the ring has been exhausted.
-
-[Severity: Low]
-Should this have a Fixes: tag for 1b9707e6f1a9, and maybe a stable Cc?
-Without one, kernels that already have 1b9707e6f1a9 won't get this hang
-fix automatically.
-
-The wording also suggests that 1b9707e6f1a9 caused the hang. As far as I
-can tell, 1b9707e6f1a9 only added DMA_CHAN_INTR_ENA_RPS/RBU to
-DMA_CHAN_INTR_ABNORMAL(_4_10) so the counters would update. A drained ring
-stalled before that commit too. 1b9707e6f1a9 is what makes this approach
-possible.
-
-Would a sentence saying this change has no effect without 1b9707e6f1a9
-help backporters?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-> index a0249715fafaf..929aa77ce247d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-> @@ -153,8 +153,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
->  
->  	/* ABNORMAL interrupts */
->  	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
-
-[Severity: Medium]
-Is gating on AIS safe in multi-MSI mode? stmmac_msi_intr_tx() and
-stmmac_msi_intr_rx() both call dwmac4_dma_interrupt() on the same
-DMA_CHAN_STATUS register, and no lock serializes them. AIS is in
-DMA_CHAN_STATUS_MSK_COMMON, which is part of both MSK_RX and MSK_TX. AIE is
-in intr_en, so the TX vector handler also acks AIS.
-
-Consider this sequence on one channel:
-
-TX vector (CPU1)
-  dwmac4_dma_interrupt(..., DMA_DIR_TX)
-    reads AIS | TI | RBU, masks to MSK_TX
-    writel(AIS | TI)   /* clears AIS */
-
-RX vector (CPU2)
-  dwmac4_dma_interrupt(..., DMA_DIR_RX)
-    reads RBU without AIS
-    skips the RBU branch
-    writel(RBU)        /* clears RBU */
-
-Could RBU get acked here without rx_napi being scheduled? Two things
-decide this, and I couldn't confirm either from the code:
-
-  - whether RBU can reach the RX vector without RI in the same read
-  - whether AIS re-asserts while RBU stays set
-
-The dir mask already limits RBU to the RX side. Would testing RBU outside
-the AIS block close this window?
-
-This doesn't apply in shared IRQ (DMA_DIR_RXTX) mode.
-
-> -		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
-> +		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU)) {
->  			x->rx_buf_unav_irq++;
-> +			ret |= handle_rx;
-
-[Severity: Medium]
-Can handle_rx be lost when RBU shows up in the same status read as TPS or
-FBE? Later in the same AIS block, ret is assigned, not ORed:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c:dwmac4_dma_interrupt() {
-    ...
-		if (unlikely(intr_status & DMA_CHAN_STATUS_TPS)) {
-			x->tx_process_stopped_irq++;
-			ret = tx_hard_error;
-		}
-		if (unlikely(intr_status & DMA_CHAN_STATUS_FBE)) {
-			x->fatal_bus_error_irq++;
-			ret = tx_hard_error;
-		}
-    ...
-	writel(intr_status & intr_en,
-	       ioaddr + DMA_CHAN_STATUS(dwmac4_addrs, chan));
-}
-
-DMA_CHAN_INTR_ENA_RBU is in DMA_CHAN_INTR_ABNORMAL, so the final writel()
-still clears RBU. stmmac_napi_check() then doesn't schedule rx_napi. When
-status == tx_hard_error, stmmac_dma_interrupt() only calls stmmac_tx_err().
-Would the RX DMA stay suspended in that case?
-
-TPS may make this easier to hit. Its enable bit isn't in
-DMA_CHAN_INTR_ABNORMAL(_4_10), so the W1C write never clears it. TX DMA
-can be stopped without a DMA soft reset, for example:
-
-  - stmmac_tx_err()->stmmac_stop_tx_dma()
-  - stmmac_disable_tx_queue() during XSK pool setup
-
-TPS could then stay latched. In shared IRQ (DMA_DIR_RXTX) mode, every
-later RBU on that channel would take the ret = tx_hard_error path, and
-stmmac_tx_err() would stop TX DMA again.
-
-dwxgmac2_dma_interrupt(), which the commit message cites, uses
-ret |= tx_hard_error and so keeps handle_rx. Switching to |= alone isn't
-enough here, because stmmac_dma_interrupt() and stmmac_msi_intr_tx() test
-for equality:
-
-		} else if (unlikely(status[chan] == tx_hard_error)) {
-			stmmac_tx_err(priv, chan);
-
-Would it work to OR handle_rx back in after the TPS/FBE checks, or to
-switch both sides to bit tests?
-
-[Severity: Medium]
-Is a single RBU edge enough to recover if the refill fails? This RBU is
-W1C cleared before anyone knows whether stmmac_rx_refill() worked.
-
-stmmac_rx_refill() allocates with GFP_ATOMIC | __GFP_NOWARN:
-
-		if (!buf->page) {
-			buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
-			if (!buf->page)
-				break;
-		}
-
-		if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
-			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
-			if (!buf->sec_page)
-				break;
-
-If the allocation fails on the first dirty descriptor, dirty_rx and the
-tail pointer are written back unchanged. dwmac4 has no
-enable_dma_reception callback to kick the DMA.
-
-stmmac_rx_refill() returns void, and stmmac_rx() returns only the packet
-count. So stmmac_napi_poll_rx() calls napi_complete_done() and re-enables
-only RIE. A suspended DMA can't raise RI. RBU is set only when the DMA
-moves from a DMA-owned descriptor to a host-owned one, so it shouldn't
-re-assert.
-
-Would RX on that queue then hang, which is the same state this patch is
-meant to fix?
-
-stmmac_rx_zc() handles the same case by returning limit on failure, so
-NAPI keeps polling:
-
-	return failure ? limit : (int)count;
-
-The SPH setup in the commit message needs two page allocations per
-descriptor, so it is the setup most likely to hit this.
-
-> +		}
->  		if (unlikely(intr_status & DMA_CHAN_STATUS_RPS))
->  			x->rx_process_stopped_irq++;
->  		if (unlikely(intr_status & DMA_CHAN_STATUS_ETI))
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117034332.88443-1-david.wu%40rock-chips.com
