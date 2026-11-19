@@ -1,108 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077807;
-	b=iOGqVpciwaS3t1Y4OVP2bJhKz63x+hVGFxQiKBjhPfIKDNSLLFXHUUtSHnF0TBo9AJPK
-	 32W5fjz0ANXKaS3Vw/EW3WP5d6haH/KJZJdreSKpiaLYD1UB8EhIYwExHO1+zc0x1TUdn
-	 NvqQrLIACI2EqIh/3lZ/BACZnW/Q5JCcTNNvb18wQVgFJ68BBhe13BDG/GZOagigWmRLq
-	 wPdeqwJQDF+JggR7XTsnRF8yx9JVQwkpl8aB4UYkMIpRdIlUOWJDVr/s5pf0w5RFNnRo4
-	 nW6ufvjoTUSf7mrJZ8oU/Tbw9BglAbc8B+/jDpBERESTUNz/OxjU1L0puobilkzWCeA==
+	t=1795077845;
+	b=bCfzAUb/VMUPyTlI8zdTbdu90N3PR66gDwuyLHweg1o+a1/uVQdxDS7HV67pp3QDay/Z
+	 1vSQOSL50K29784V50WYO/qpzeXqLQN7Q030TflVeYnrDgJAVwzBgby4dM4jg3dOczA9V
+	 0qrZDXuWSOPWvR1H7hjjqpEsdKYKrNc6szvOZKmk2UnuKTNFTyK/77lF7Rkk8keZhLBhY
+	 VOuEnEegCfaEfgP+wrTJL9p/jhzGCHx/KqKKWDYve6t9lTCq/eh32iUfswl8YDscny+Df
+	 jqC2tNUcoBMpjOWpHQx2NI22wvAlXU7m2oT8kqHXmgyeKDjGs1CCGkJHeyJxZalK52Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077807;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
-	b=yvImv5x1ks/Fs80JyG3E5EhWnFvyZnzKiNWzkbOsli6ZHLSzMGqSbVT93WfVx8YjIIij
-	 ROeHh4uX6JVXlJgDv7TsbPz8A7ft4W1ZdNQUn8yibj36EEC/kgJMRqh37cuwlSci03w1Z
-	 ECVdM7mPDAFgPG9oZDKVtyWeh9NUAWPMrQQ2Jpn+LHTTUXeHspi+0Us5cVHF1KviBvtRm
-	 xXCZdUppdz0DdPZc0uPeFa51qAkgA2BUsj1dGhI1tEpo+odkUAO/OG4Meq/VdatcT5Zje
-	 HaroQfiV1pkjXkvu3f6619G46gHWT3tXy7Q4siBPzJlUtcLtr5JaSRjdQ4MhgYJ6ZyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077845;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=pzztXHndeQHLiVkmdK1//Tm9Egu7ImCBXiOVNLsJo1g=;
+	b=SxbFTjeM9LKbzY013rhq4F0fwO2B1n8IikMf6j75MM6gqd+wN1er8yeH9gJe9f1AXokM
+	 Nbq1W7m6pkmfV/QGpYad4X/HZLfAyeaVmWnaxbvXIj/yNfV1Nv5yqLYLdODhPfaV1O1zK
+	 wbYVsVd9VMPuMUOFLabGsQf8/W2bHO+R6X1UT8mSN9dWL0eISrSR0xvep6ID/N/u3UbB1
+	 1nFn9VJg1LlV2KZ86UtjkLyomzNzYQv1A5MXwBbYgD2q9jqiAUGQYUGFUlE6lEa+m/ywj
+	 RmKn+HRIOT7iVdzKoWPyabjwaMvcU/1T30VS3FHAyCCLzVDyiGx+qgPIQKPrYJvqtFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Di7cHPve;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bHrE2JO0;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01177606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:43:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01177606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Di7cHPve;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bHrE2JO0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795077805;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
-	b=Di7cHPvezovVu+Ra/6MEHgLRukZemXUfwzLb9mvtT2oKTb7ZYzuAWfoF2yBzCX35+ZjOqF
-	nGCuuiVZypumRd9RD0qtLBs67QNu14Hi6JvtA2yLbnv2zKA/W7FwoNpdX4/GW6DUYCntO9
-	ysFlVTyoe5Uec9aLVhH+TA97GqTh7rA=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-410-1cujbrUqPpWnr7rtQ4IL8Q-1; Thu, 19 Nov 2026 03:43:21 -0500
-X-MC-Unique: 1cujbrUqPpWnr7rtQ4IL8Q-1
-X-Mimecast-MFC-AGG-ID: 1cujbrUqPpWnr7rtQ4IL8Q_1795077800
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-49034831bb3so1307637f8f.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:43:21 -0800 (PST)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 893B8606A320;
+	Thu, 19 Nov 2026 08:44:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 893B8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795077800; x=1795682600; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
-        b=bHrE2JO0hzT/aSfmOHX/SU0tVzGRoXHijJiuUwWJOkjAFVNDMdzUFxKsO27/j8gmM0
-         5wf33Gwqbs9IUiLMY9mwWpCCDa2Tm1GARulPzLto0IB1FZK/Br3Lc2+k9318wdvZj+Sp
-         37+XdfLzxG7IFjWtKZ1eo+TVJw2/Kxo3zhvO8ZImat3AmdIF3YxYiyiM324l4X4K6UYH
-         t5u3wCwwNY39viIoOfCW2/dYnWtMXfbZtqGL5qyHJoAWVntis0TZV0E2kIbnp35tU6OR
-         SD5n/+tgA/rplt1T+RoeLVL9Zs9jFfjXk37xt5fqswVQ5RSUOj6V553vr6HHUof0KWI4
-         4YUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795077800; x=1795682600;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+Cjzngq1VGH0F6kYJpBdoRXztCMYblcWKIno2QwRBjA=;
-        b=ybtaZqnFutjoDE856xyJS2OjxqvnY0pIddxnBknp5cSHquyx0279w+1hh3FDiGu/TB
-         EDpwe9MQa9IkHziRw/mV+54RXEYVYidVJKfb0cjk58g1AP3uoNZdXEjFx2pMrL8xBiqf
-         xIOg+5rqW5M0G1/rnvMppxRium0d8JD6PHq6IPkOQO8wHh7LeuU7aKvl4dS0NyHbshtD
-         fy1sjj7ys7GL0FJfQTv4PeUN0eF7Pa7jM5ZovSb1MMo7qhnU3AeVfNSvsQfLWIgPmKro
-         P0lQkh/rOG8TtGBb93iFf7Xh6K5xElsm5WEodtGrTTt5XmLKqrbShUhuVYsHNmJKz9V2
-         h+zQ==
-X-Forwarded-Encrypted: i=1; AL+hErHEeyCrwEaNGzE1a1dlhuL6GNYaP7z8se2bRpjGZrZFI0xQzbX/oKmE5fYa4bHUkuxNWA7UiI8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hh8aMtpJODvENy4Hjf7MEOkZlL3MZ0Pg2ac+hhtXEhxwEmANZ
-	B09Sp8FK98R2XEmlPag4nQ35/+vW7T+YXhSIW1kiXGHCZO+WmEglrHBvx68BhxGYuzMrUQj+UNx
-	jmuSy4QGjfUgXUi/Lhx3bCAFhJXEsAdbhhtu1YX6XTi4qojtfbyX80dSFow==
-X-Gm-Gg: AZFdTZcUpgELyORetpl1Pw9RsWUB9EdN/uVkcWRd0vqLql2Vp2uJkN5REIp5Ra02Avs
-	ZYMH5x5n0RbjYKVqvdKqIAHa59aCQApA4u8MLzyDHWXn5TqK3+191nPbe0nu706bqdXLHNPvyId
-	9afyvbeJUktmI56xHdIrYar9+FWQyKnE+STb6xV8AcOP4mJFYwKA8YPFXtjVpIIjGsuf1EcGHsi
-	H0O7fxzHsWYD+B7PsBfUI+73QNIlQCwdymVsC5H9iz7SYpWxzUBW+D1VxlgL2FOH3PX2YbjsKJ7
-	+06HmO2Yk1sWvyHjHvUWVxAJbuirYlwjfoFg/Ipu9fOfKQUEmeqot4t1UAMKwFQw4GtRxrkUpK7
-	WTuROkivGdxpk+Hw6dHGeJe/Jw93DEmQ7MdgJ7BlTZvwLAiW5ZnbTt62L2PUnFS7aBBOWj55S13
-	wzdjEwPBQms5NhuMKTVuzBUfEB9ge3rafeuJ2vq/hACHCW
-X-Received: by 2002:a05:6000:4812:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4a63b9d9635mr9987017f8f.22.1795077800452;
-        Thu, 19 Nov 2026 00:43:20 -0800 (PST)
-X-Received: by 2002:a05:6000:4812:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4a63b9d9635mr9986962f8f.22.1795077799925;
-        Thu, 19 Nov 2026 00:43:19 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b5f1sm9637679f8f.21.2026.11.19.00.43.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 00:43:19 -0800 (PST)
-Message-ID: <597411fe-5506-43dd-ae37-3bbbc581bd76@redhat.com>
-Date: Thu, 19 Nov 2026 09:43:17 +0100
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=pzztXHndeQ
+	HLiVkmdK1//Tm9Egu7ImCBXiOVNLsJo1g=; b=PWaeQtNstd6SqWgfVoijRTOivM
+	dNwwjcEJJB2xh9bjw7wDbeFOC+pgNUZKIFCPle2+TPn6oDCZQEeJ1k9ZpN19OezO
+	yvtPzpXvqW5z0vdBAtdLMVYMcbS8rkGkKdmlvz9mIZvPkh/UuOsLXxaEMb0S5opw
+	qKIRoaGzqTtgQA03c=
+Received: from LAPTOP-FRMFRHCN.localdomain (unknown [2408:8670:ae1:0:ec52:1f40:2f6a:587a])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkDGy_64tv5qzKbfAQ--.42994S2;
+	Thu, 19 Nov 2026 16:43:38 +0800 (CST)
+From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-ppp@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com,
+	25031212117@stu.xidian.edu.cn,
+	byu@xidian.edu.cn
+Subject: [PATCH net v2] ppp: serialize channel operations with unregister
+Date: Thu, 19 Nov 2026 16:43:33 +0800
+Message-Id: <20261119084333.371234-1-26031212468@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,40 +62,202 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/1] ipv6: mcast: use resolved interface for source
- filters
-To: Zihan Xi <zihanx@nebusec.ai>, netdev@vger.kernel.org
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, horms@kernel.org, vega@nebusec.ai
-References: <cover.1794492711.git.zihanx@nebusec.ai>
- <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BbQMCkDGy_64tv5qzKbfAQ--.42994S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Jw4xJw4UZr18AFy5CFWkXrb_yoWxZryDpF
+	W5KrWDtrWjqFZYqay8G3WUXrW3AFnrWayjyr98t3sYk348Wrnakr45ta4j9F15C397CrW0
+	yw4aqr9xua4UJ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBa14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
+	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
+	x2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20x
+	vY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I
+	3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIx
+	AIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAI
+	cVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2js
+	IEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUQvtAUUUUU=
+X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAgUCEWr9wcm4rwAAsc
 
-On 11/12/26 16:19, Zihan Xi wrote:
-> When no interface is specified, ip6_mc_source() resolves the multicast
-> route to an interface but searches socket memberships with a wildcard
-> index. A socket joined to the same group on multiple interfaces can
-> therefore update its source filter on a different interface from the
-> interface filter.
-> 
-> Use the resolved interface index for the membership lookup and for
-> dropping the membership after leaving the last source.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Cc: stable@vger.kernel.org
-> Reported-by: Vega <vega@nebusec.ai>
-> Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
+The channel unregister path disconnects a channel before clearing
+pch->chan. A concurrent PPPIOCCONNECT can observe pch->ppp as NULL while
+pch->chan is still valid and attach the channel again. Unregister can
+then clear pch->chan and release the channel while its clist remains
+linked to a PPP unit.
 
-This is changing an established behavior. While the old one is likely
-"uncorrect", existing application may depend on it.
-This is at best net-next material (with no fixes nor stable tag), but
-lacking an end-user report, but I tent to think we are better off
-without this change entirely.
+Serialize PPPIOCCONNECT with unregister using chan_sem. Hold the mutex
+from before disconnecting the channel until it has been removed from the
+channel list and marked dead. An in-flight connect completes before
+unregister disconnects the channel; later connects see the cleared
+channel and fail.
 
-/P
+PPPIOCDISCONN must use the same mutex. An in-progress PPPIOCDISCONN can
+clear pch->ppp before it has removed pch->clist and completed
+synchronize_net(). Without the mutex, unregister can see pch->ppp as NULL
+and proceed before that disconnect has finished unlinking the channel and
+waiting for network readers. Taking chan_sem in both paths makes
+unregister wait for the disconnect to finish before clearing pch->chan.
+
+Bridge establishment must also be serialized with unregistering either
+endpoint. Hold both channels' chan_sem mutexes in a stable order while
+establishing the bridge, and reject channels that have been marked dead.
+Unregister holds its channel mutex through unbridging and marking the
+channel dead, so bridge establishment cannot pass the teardown step and
+leave a new bridge reference behind.
+
+The transmit fast path is unchanged. chan_sem drains channel ioctl
+callbacks. ppp_disconnect_channel() removes the channel from the PPP unit
+and waits for network readers before unregister clears pch->chan.
+
+Fixes: 6a196e83a1a7 ("ppp: disconnect channel before nullifying pch->chan")
+Reported-by: syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com
+Closes: https://syzbot.org/bug?extid=6b18da3ef22e33061add
+Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+---
+Changes in v2:
+- Serialize PPPIOCDISCONN with channel unregister.
+- Serialize bridge establishment with unregistering either endpoint.
+- Clarify the chan_sem comment and bridge lock ordering.
+
+ drivers/net/ppp/ppp_generic.c | 55 ++++++++++++++++------
+ 1 file changed, 40 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/net/ppp/ppp_generic.c b/drivers/net/ppp/ppp_generic.c
+index 1a610a1..7b0bcac 100644
+--- a/drivers/net/ppp/ppp_generic.c
++++ b/drivers/net/ppp/ppp_generic.c
+@@ -174,7 +174,7 @@ struct channel {
+ 	struct ppp_file	file;		/* stuff for read/write/poll */
+ 	struct list_head list;		/* link in all/new_channels list */
+ 	struct ppp_channel *chan;	/* public channel data structure */
+-	struct mutex chan_sem;		/* protects `chan' during chan ioctl */
++	struct mutex chan_sem;		/* protects chan in ioctls; serializes with unregister */
+ 	spinlock_t	downl;		/* protects `chan', file.xq dequeue */
+ 	struct ppp __rcu *ppp;		/* ppp unit we're connected to */
+ 	struct net	*chan_net;	/* the net channel belongs to */
+@@ -639,11 +639,30 @@ static struct bpf_prog *compat_ppp_get_filter(struct sock_fprog32 __user *p)
+  */
+ static int ppp_bridge_channels(struct channel *pch, struct channel *pchb)
+ {
++	struct channel *first, *second, *bridge;
++	bool pch_first;
++	int ret = -EALREADY;
++
++	if (pch == pchb)
++		return -EALREADY;
++
++	/* Use a stable order to avoid deadlock with reverse bridge requests. */
++	pch_first = (unsigned long)pch < (unsigned long)pchb;
++	first = pch_first ? pch : pchb;
++	second = pch_first ? pchb : pch;
++	mutex_lock(&first->chan_sem);
++	mutex_lock_nested(&second->chan_sem, SINGLE_DEPTH_NESTING);
++
++	if (first->file.dead || second->file.dead) {
++		ret = -ENODEV;
++		goto out_unlock;
++	}
++
+ 	spin_lock(&pch->upl);
+ 	if (rcu_dereference_protected(pch->ppp, lockdep_is_held(&pch->upl)) ||
+ 	    rcu_dereference_protected(pch->bridge, lockdep_is_held(&pch->upl))) {
+ 		spin_unlock(&pch->upl);
+-		return -EALREADY;
++		goto out_unlock;
+ 	}
+ 	refcount_inc(&pchb->file.refcnt);
+ 	rcu_assign_pointer(pch->bridge, pchb);
+@@ -659,20 +678,22 @@ static int ppp_bridge_channels(struct channel *pch, struct channel *pchb)
+ 	rcu_assign_pointer(pchb->bridge, pch);
+ 	spin_unlock(&pchb->upl);
+ 
+-	return 0;
+-
++	ret = 0;
++	goto out_unlock;
+ err_unset:
+ 	spin_lock(&pch->upl);
+-	/* Re-read pch->bridge with upl held in case it was modified concurrently */
+-	pchb = rcu_dereference_protected(pch->bridge, lockdep_is_held(&pch->upl));
++	bridge = rcu_dereference_protected(pch->bridge,
++					   lockdep_is_held(&pch->upl));
+ 	RCU_INIT_POINTER(pch->bridge, NULL);
+ 	spin_unlock(&pch->upl);
+ 	synchronize_rcu();
+ 
+-	if (pchb)
+-		ppp_release_channel(pchb);
+-
+-	return -EALREADY;
++	if (bridge)
++		ppp_release_channel(bridge);
++out_unlock:
++	mutex_unlock(&second->chan_sem);
++	mutex_unlock(&first->chan_sem);
++	return ret;
+ }
+ 
+ static int ppp_unbridge_channels(struct channel *pch)
+@@ -754,11 +775,15 @@ static long ppp_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 		case PPPIOCCONNECT:
+ 			if (get_user(unit, p))
+ 				break;
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_connect_channel(pch, unit);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		case PPPIOCDISCONN:
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_disconnect_channel(pch);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		case PPPIOCBRIDGECHAN:
+@@ -782,7 +807,9 @@ static long ppp_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 			break;
+ 
+ 		case PPPIOCUNBRIDGECHAN:
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_unbridge_channels(pch);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		default:
+@@ -3000,17 +3027,15 @@ ppp_unregister_channel(struct ppp_channel *chan)
+ 		return;		/* should never happen */
+ 
+ 	chan->ppp = NULL;
+-
++	mutex_lock(&pch->chan_sem);
+ 	/*
+-	 * This ensures that we have returned from any calls into
+-	 * the channel's start_xmit or ioctl routine before we proceed.
++	 * chan_sem waits for channel ioctl callbacks. Disconnect first;
++	 * ppp_disconnect_channel() waits for network readers after unlinking.
+ 	 */
+ 	ppp_disconnect_channel(pch);
+-	mutex_lock(&pch->chan_sem);
+ 	spin_lock_bh(&pch->downl);
+ 	pch->chan = NULL;
+ 	spin_unlock_bh(&pch->downl);
+-	mutex_unlock(&pch->chan_sem);
+ 
+ 	pn = ppp_pernet(pch->chan_net);
+ 	spin_lock_bh(&pn->all_channels_lock);
+@@ -3021,6 +3046,7 @@ ppp_unregister_channel(struct ppp_channel *chan)
+ 
+ 	pch->file.dead = 1;
+ 	wake_up_interruptible(&pch->file.rwait);
++	mutex_unlock(&pch->chan_sem);
+ 
+ 	ppp_release_channel(pch);
+ }
 
