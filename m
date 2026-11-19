@@ -1,114 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117005;
-	b=PRXmvczakIwE/kyD1XK9kYPwrlOELBk9FoH4njbLO5Jth4WCj6cr81roL2BeVIwFXNXB
-	 9DQ1nPxw688DkfsPpjahyIL9OnjT9AEW7vZ9OH2F91O8i5BrT9jPCNtT3vTkj3Fq0Si6D
-	 0zNyEddalXvShabH8e1ybqNYM072e14WHaWCOEwZNdjSnvRbII3FR9amAH0Y/jtCUky70
-	 kUm3iJX4/FtpnenvAWGITkkdwhXdt7zcxwja4waYSJEyMiBKdru9y/HrBN2C8aJccMH/C
-	 oNaU09vPDOl8nT7pjokJPP/mPImw4JC0C/XcbCiwhUU1kxabL0raLK/pP6HGQuWsbfg==
+	t=1795117236;
+	b=lKdlt8H5Oi6nwjb0Ijqg7NMDfxSQ0z7kDN1YECvN0hFd3FdgMpTgdaJFnQd2rKS0jP6V
+	 Tzk1Sbb226RDlFSW2EnHG71L9w4c6ThDH8KuE4zYlr0kZ4tZIAJhjQQJOno+4tSA+Fijg
+	 3t57P7xnXQSvGorcuFheJgE30mbHRTvj3EAHpYaNgEmYhgWCODpkf6Dfr8lR4kGMgNKdV
+	 Ap/aMBdQ9iQRE9/S8g+T6pukt3CqaskuQR8/GrB/0LV3Mb4V2oTx7rkR+ov3m0Dso6CNe
+	 b8U9UhV2WkqmKsKUv45tbnRGf946RVKS/SpqYtceSQld9tR4IdbVCtkNHNewOWxxedQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117005;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=Z/2L9IovMD4zBIgZcsGeAkwPGqc72zduF1TmecAsP2U=;
-	b=JuglhaRonAMVQNXWQWcysjFUvipr5ck+SL9aWaq75wRd8X6XaF145tJVpCQmks03P6xg
-	 /lvZzR6LF4MpXngAk5IjsmTi2HESitUTDcptQBwSE/9Hi7wQc/rcG/+dLKZ9GGCTch7vt
-	 wKuihA7ACN+R/oqH8m6rvz1JTihrATHDZFol0RVTQ9OqxyLvZppAvpC5bFujk6N7eYDM+
-	 Ufs4HLPxFIVooCk507mBJh++wn1Ql2Bx8j0YbXGDxZjP3iPPvT6pKhcxh8TJrZzlOSXKi
-	 zZzlyhCd5nrYyeUfuaB9NXEZryU0nLQQoASvPKmK3YhkNr6rljMItWoP5nWBEticP1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117236;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=KllBJ9+aHKHmevvfZXj4eWwtwcZanwxTddFWb4nlWzA=;
+	b=IuhQEibYzbPUY0Q4RuLv6Z7rWumX5Boq/YopNSyux7qaXTcv93iWGYRStUc+fCxmm/Nq
+	 KUZeWxY0T4XeHQAXJrfDJiVQfsLXCvPqk0k7k2BNxxq8HK3dPG6HYZXFyqligE7iusOPc
+	 xgDf+bXuYKyrnhcRlM9Ssy3ntfB3QkRgkUqhF78RvyVdK2vU8crs3iRG8lwc2cUShIg3X
+	 jqxVxBWQeXWqOUVqryen/18gWF+6/GKNfrLLB/Hd1eNHcRDaUn+IyJdZuYn1HCNWty9xW
+	 b+OB+nztUgy2UqoA6FT+fFyOHJf8YJG53h+1v8bphA8YzRcRksM7VpQmrJa6ySD89+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WUKTHXmP;
-	arc=none smtp.remote-ip=209.85.161.41
-Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com [209.85.161.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HlelLrL8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9EFD606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:36:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9EFD606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 121FA606A337;
+	Thu, 19 Nov 2026 19:40:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WUKTHXmP
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-716d052dc23so57380eaf.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:36:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795117004; x=1795721804; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Z/2L9IovMD4zBIgZcsGeAkwPGqc72zduF1TmecAsP2U=;
-        b=WUKTHXmPDsd8bmISSW+LqyZEPEQsRE4kJ67FPXvLSxtN1Gmsu2ddKXNZgsXZUWUwlX
-         hTP0Lu5Przzo9ho8j1uFMOKolRcvpszRuWOMtitvNE/J1tAcwKrhu0FSRXVHewX0bpZZ
-         MiI5q131r/I2/UIgTUYGB9lP3lSqudnWHs3z44w403i5AG6QNxSi9KLbJluult3ciAPo
-         EyC+BJGtrDCIm4Ic2a4gLUJfDPHa0JxqcSU+gbl9CWU9kLRa+YzsMc1xfQeqrH9Ug+XP
-         Flg/hRH7BCgRObF84+fpRBD3MaLKpk8+hIE/dzkyEXUIeDrdOhUEKV+ZkaCdvAeJkX9H
-         xsrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795117004; x=1795721804;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z/2L9IovMD4zBIgZcsGeAkwPGqc72zduF1TmecAsP2U=;
-        b=IWszIJ7aH8oSN2Gt9KeamhmrxHgYzKE77appIQrWgBjgr8Cg70dQnELSDN2O/yNrZN
-         pIxoupKm31VPUt/DJVLLwz4wKxZB3Akib8SV6ypgvQOZUINjgi584NK+c0LnXOA4qN8v
-         AoDVN7H8ARIxleFKYJAHo810VkvEoVCPRhEoOBpXxmq5A+zpbfOWoZFNI9Bc71KfgYry
-         uA69JhEV2JZ6sNRChGTd/r1SKoER6dTtKtArRn2lq+UU82FYRtYsNK/DxfkYyQ+x+bbg
-         pzjAveglm7TPwv2RYkM1JkLsXTclEop4EdAbDBoBlIJaD38uONeAacmrtvRWPpJuWdPT
-         mZYg==
-X-Forwarded-Encrypted: i=1; AL+hErFjjt5XE2o9o1RTYnGLs9Xds7oA0MU3LjzPzHb6C6JQooBymSNnBpnyqXWos5iD78BZp5hR5YQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DL4n6EXrikCNIxu7s13KLgdueOgmri0vZrf4v34Mx9I8DncFE
-	10i34tmbME9TkM3sIzzkAjZJJF2EZdg5IXOxb0ppZKirNNoGatrmUZVpleBH2A==
-X-Gm-Gg: AYBFou1h+LaZPZAigw5o4wLD0N8dFs14lihBb7d2ZJ87hgWC11fqtWRNo82HhvL0nwQ
-	w+7Di3g4xPWb5bTdCFEUt6Aejo7KbnmA01nVSZ9dpTKO6dnvF/SqXnYOwsV4rKfN/381ZBhOCkK
-	LNckIq2LFEgdoIaZRnpaIqV5JROKXh0Dvz/8S4MihnmgQ89aRnsjpmFuv10XEGCmXSwlYZrFWpe
-	qmhYS9oa8qeTRY41DEQI8hin4PoqNHcZQP1vaiWgGtBPftcq/esNcgrFsScW6+qR/7ZlLew90jg
-	5sHFYAg8o9ny+YumXOMgNQ3nwVqjAot01yMur+HbaIlUPC6QcK1OggWy4SJpVFm1+iPm3CYGSL6
-	d/gYzpMNiGHErK0VF/iN8XZ7dS3dsR2TI/AGew2jpTMZbfixFvy8OpWdsqVssYrSf+ZkeYvl7ji
-	AP+I0GW6WVeK18PtavgtVC9UnqcRcLC8SS+gGWOoAqVzy4TvbWBsQPfRHNOYPgf1uU2/rby57qN
-	Kmerv2/FDK+uI+7hxkKc736dgRbPSKMcQRGXlyIdDMqx2v2rWG0kRLV889HVwpF3JEQsREa2Hrq
-	deP+sSQIK84aJtE6n7jDAB2zkSOcmSwTJ/SZMQEjus62GB7WaoPU+0fKRXo9uYaIXTa0g2WaE5c
-	i3W+cz2bWS7Tj5RLFNpcsnJyD8H9bF+ZX6BCOnQgYdsf+tGr2jKKgvhu3lsKEiY6VsH+wHtUlHN
-	9s74g1+Z1iMg==
-X-Received: by 2002:a05:6820:1c98:b0:6b1:bb82:f7a3 with SMTP id 006d021491bc7-71b39209557mr740286eaf.5.1795117003758;
-        Thu, 19 Nov 2026 11:36:43 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dd6e7sm435223a34.12.2026.11.19.11.36.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 11:36:43 -0800 (PST)
-Date: Thu, 19 Nov 2026 14:36:42 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Antonio Quartulli <antonio@mandelbit.com>, 
- willemdebruijn.kernel@gmail.com, 
- jasowangio@gmail.com
-Cc: Antonio Quartulli <antonio@mandelbit.com>, 
- andrew+netdev@lunn.ch, 
- davem@davemloft.net, 
- edumazet@kernel.org, 
- kuba@kernel.org, 
- pabeni@redhat.com, 
- horms@kernel.org, 
- mst@redhat.com, 
- eperezma@redhat.com, 
- ast@kernel.org, 
- daniel@iogearbox.net, 
- hawk@kernel.org, 
- john.fastabend@gmail.com, 
- sdf@fomichev.me, 
- maheshb@google.com, 
- peterpenkov96@gmail.com, 
- netdev@vger.kernel.org, 
- virtualization@lists.linux.dev, 
- bpf@vger.kernel.org
-Message-ID: <willemdebruijn.kernel.24840892273e@gmail.com>
-In-Reply-To: <20261119153056.353156-1-antonio@mandelbit.com>
-References: <20261119153056.353156-1-antonio@mandelbit.com>
-Subject: Re: [PATCH net v7] tun: bound the NAPI receive queue
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HlelLrL8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E74781F000C6;
+	Thu, 19 Nov 2026 19:40:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795117235;
+	bh=KllBJ9+aHKHmevvfZXj4eWwtwcZanwxTddFWb4nlWzA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HlelLrL8Ng2+24StS3Zy59pXifhMcFRrzQWdbgwGFcZ2c4cc/o+TSmXcJh9cWftJx
+	 FVpLNcPskOkukVpMzAs/fLn54scLX7G9I/yIYilndZ9iIGE+z62R9C3SYni6ci0D7N
+	 ZNFhvxR65Rz+Heqrr/DEcJKd0uEk3Mnn82zSbL1OgpbX76AiQsuDRSAXROU3KZMCcA
+	 YPjZABiuphx9bpwVNQ998Z81J/mEoutyOKFMLPt32mDvVkie2Ur9EO0YkVtf+PhyLk
+	 kj6IclTiME1nNEpEcJkIjl2ARa/EcWr7CafGojxa6KsOx37GY8/CyIig410KAyqt6q
+	 TXeVoW0xZ7iyw==
+Subject: Re: [PATCH net v2] net: stmmac: preserve RX checksum capability when
+ offload is disabled
+From: netdev-bot+sashiko@kernel.org
+To: james.hilliard1@gmail.com
+Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 19:40:34 +0000
+Message-ID: <179511723446.3136.5381192433185500992@kernel.org>
+In-Reply-To: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
+References: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,71 +65,154 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
 
-Antonio Quartulli wrote:
-> With IFF_NAPI, tun_get_user() queues every written packet for NAPI on
-> an unbounded list. When the poll runs asynchronously (threaded NAPI or
-> ksoftirqd) and is slower than the writer, the queue grows until the
-> system runs out of memory. An unprivileged user can do this from its own
-> user and network namespaces, and the queued skbs are not charged to its
-> memcg: in a test VM, a uid 1000 process limited to 128 MB caused a
-> global OOM in ~6 seconds. The socket send buffer does not help: tun sets
-> it to INT_MAX by default, the build_skb() path is only used while it is
-> INT_MAX, and the XDP batch path never checks it.
-> 
-> Drop packets once more than netdev_max_backlog of them are queued, like
-> enqueue_to_backlog() does, and count them as rx_dropped; the write still
-> reports success, as for a full backlog. The check sits where packets are
-> queued for NAPI, in tun_get_user() and in tun_xdp_one() for the batches
-> vhost-net passes, so packets consumed by XDP or delivered through
-> IFF_NAPI_FRAGS are not affected. A dropped zerocopy skb completes its
-> buffer when freed. The check is lockless, so concurrent writers can each
-> still add one packet.
-> 
-> The NAPI poll moved the whole queue out, processed up to its budget and
-> put the rest back: while it ran, the queue looked empty to writers, so
-> with the poll on another CPU the backlog could still grow without limit.
-> Take at most budget packets instead: the rest stays on the queue writers
-> check.
-> 
-> Dropping also schedules NAPI. vhost-net sends with MSG_MORE while it has
-> more packets, and tun_get_user() schedules NAPI only for a packet
-> without it or once more than NAPI_POLL_WEIGHT are queued. With a
-> netdev_max_backlog below that, the queue fills first and the packet
-> without MSG_MORE is dropped too: nothing would schedule NAPI, and the
-> queued packets, with zerocopy also their buffers, would wait forever.
-> 
-> Reproducer, as an unprivileged user in a new user and network
-> namespace, without kernel modifications or fault injection:
->   ip tuntap add t0 mode tun; ip addr add 10.11.0.1/24 dev t0
->   ip link add d0 type dummy; ip addr add 10.20.0.1/24 dev d0
->   ip link set t0 up; ip link set d0 up; sysctl net.ipv4.ip_forward=1
->   install ~500 iptables FORWARD rules, to slow down the poll, and a
->   MASQUERADE rule on d0
->   open t0 with IFF_TUN | IFF_NO_PI | IFF_NAPI
->   echo 1 > /sys/class/net/t0/threaded
->   write() 1400-byte IPv4 packets for 10.20.0.2 in a loop
-> 
-> Found by code inspection while analysing the performance of the tun
-> write path. Tested in an x86-64 VM on net, with 1 and 2 vCPUs: the
-> reproducer causes a global OOM without the patch, while with it memory
-> use stays flat and the forwarding rate is unchanged; the tun kselftest
-> passes; a local vhost-net test of the batch, copy and zerocopy paths
-> with netdev_max_backlog set to 8 passes, and fails without the patch;
-> an XDP program on the device sees every packet while the excess is
-> dropped.
-> 
-> Still open: neither the packet size nor the queued memory is bounded,
-> and the skbs are not charged to the writer's memcg. A single write can
-> create an skb of several hundred KB, so even one queue can hold a lot,
-> and IFF_MULTI_QUEUE (allowed in a user namespace) and more devices
-> multiply it. This bounds the queue as enqueue_to_backlog() bounds the
-> per-CPU backlog; charging the skbs to the writer is left to a follow-up.
-> 
-> Fixes: 943170998b20 ("tun: enable NAPI for TUN/TAP driver")
-> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] After this patch, stmmac_hw_setup()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:3725-3729) checks…
+- [Low] The struct stmmac_ops comment for rx_ipc
+  (drivers/net/ethernet/stmicro/stmmac/hwif.h:322) still says "Enable…
+
+Pre-existing issues:
+- [Low] This problem wasn't introduced by this patch, but
+  sun8i_dwmac_rx_ipc_enable()…
+
+--
+
+net: stmmac: preserve RX checksum capability when offload is disabled
+
+This patch changes stmmac_hw_setup() so that a zero return from
+stmmac_rx_ipc() clears plat->rx_coe only when RX checksum offload was
+requested, meaning hw->rx_csum is non-zero. Before this, the RX COE
+capability was lost when the interface was reopened after RX checksum
+offload had been turned off with ethtool.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 25894771e9e9f..e162976be2e6d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3723,7 +3723,7 @@ static int stmmac_hw_setup(struct net_device *dev)
+>  	stmmac_safety_feat_configuration(priv);
+>  
+>  	ret = stmmac_rx_ipc(priv, priv->hw);
+> -	if (!ret) {
+> +	if (priv->hw->rx_csum && !ret) {
+
+[Severity: Medium]
+Can plat->rx_coe now stay unverified when RX checksum offload is off at
+every stmmac_hw_setup() since probe?
+
+For example, if "ethtool -K ethX rx off" runs before the first
+"ip link set up", the readback is never checked. plat->rx_coe then keeps
+whatever value the HW feature register or platform data reported.
+
+If RX checksum is later enabled while the interface is up,
+stmmac_fix_features() keeps NETIF_F_RXCSUM because rx_coe is not
+STMMAC_RX_COE_NONE. stmmac_set_features() then ignores the rx_ipc result:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_set_features() {
+	if (features & NETIF_F_RXCSUM)
+		priv->hw->rx_csum = priv->plat->rx_coe;
+	else
+		priv->hw->rx_csum = 0;
+	/* No check needed because rx_coe has been set before and it will be
+	 * fixed in case of issue.
+	 */
+	stmmac_rx_ipc(priv, priv->hw);
+	...
+}
+
+That comment assumes the stmmac_hw_setup() check has already run, and
+after this patch that is not guaranteed. Before this patch, any open
+with a zero readback cleared rx_coe. So once the interface had been
+opened, offload could not be enabled at runtime without a check.
+
+Some hardware may advertise RX COE while its IPC bit does not latch. On
+such hardware, hw->rx_csum would be non-zero while the MAC is not
+validating checksums. stmmac_rx() and stmmac_construct_skb_zc() would
+then mark IP frames CHECKSUM_UNNECESSARY based on hw->rx_csum:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_construct_skb_zc() {
+	...
+	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
+		skb_checksum_none_assert(skb);
+	else
+		skb->ip_summed = CHECKSUM_UNNECESSARY;
+	...
+}
+
+The zero-copy path does not look at descriptor status at all. Split
+header is also enabled from rx_csum > 0.
+
+This would last until the next stmmac_hw_setup() with a non-zero
+rx_csum, for example after down/up, resume or an MTU change.
+
+I could not find a specific part where the IPC bit fails to latch, so
+this depends on the hardware case that the stmmac_hw_setup() check
+exists for.
+
+Would it make sense to check the stmmac_rx_ipc() return in
+stmmac_set_features() when offload is enabled? Another option is to
+verify the capability once, whatever state was requested.
+
+[Severity: Low]
+This isn't a bug, but should the rx_ipc comment in struct stmmac_ops be
+updated to match the contract this check now depends on?
+
+drivers/net/ethernet/stmicro/stmmac/hwif.h:
+	/* Enable and verify that the IPC module is supported */
+	int (*rx_ipc)(struct mac_device_info *hw);
+
+The commit message says the callbacks program the state requested in
+hw->rx_csum and return whether IPC is enabled afterwards.
+dwmac1000_rx_ipc_enable(), dwmac4_rx_ipc_enable() and dwxgmac2_rx_ipc()
+behave that way. The hwif.h comment still reads as if a zero return
+means the IPC module is unsupported.
+
+sun8i_dwmac_rx_ipc_enable() already uses the other reading ("caution
+this function must return non 0 to work") and ignores hw->rx_csum.
+
+>  		netdev_warn(priv->dev, "RX IPC Checksum Offload disabled\n");
+>  		priv->plat->rx_coe = STMMAC_RX_COE_NONE;
+>  		priv->hw->rx_csum = 0;
+
+[Severity: Low]
+This is a pre-existing issue, not one introduced by this patch, but the
+commit message says:
+
+  Keep calling rx_ipc when offload is disabled so that the hardware
+  is still programmed with the requested state.
+
+Does that hold for the sun8i EMAC used on H616? The commit message
+limits this claim to the GMAC, GMAC4 and XGMAC callbacks.
+sun8i_dwmac_rx_ipc_enable() ignores hw->rx_csum and never clears
+EMAC_RX_DO_CRC:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:sun8i_dwmac_rx_ipc_enable() {
+	...
+	v = readl(ioaddr + EMAC_RX_CTL0);
+	v |= EMAC_RX_DO_CRC;
+	writel(v, ioaddr + EMAC_RX_CTL0);
+
+	return 1;
+}
+
+So on sun8i, "ethtool -K ethX rx off" leaves the EMAC checksum engine
+on.
+
+stmmac_rx() still treats these frames as CHECKSUM_NONE because coe is
+0, so I could not find any frames being marked with the wrong checksum
+state. The problem is that the register state does not match the
+requested state.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386%40gmail.com
