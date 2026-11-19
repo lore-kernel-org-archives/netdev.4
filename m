@@ -1,50 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.74.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095168;
-	b=HzHebSJM4v/q7zB2LsC92DEd5S/FnRK8v5jmq2yO/IXkPuZCSxKfUxHlx/mwHMLIk0u0
-	 fCq/5d3tLhIl/3//vKk5wDyeItPoiOAgRAil8+x04mQEGHaGS7bwxPJfgJNOxNtw7rB86
-	 f+a4SJTZXr5KT3VbLhK80G447Cnivg0DvYyYH2rPy4rxcvQLxRJmvrjHrZoenS9xf1hwC
-	 cvxMSeU/dAO/r04OwcRhTmKl3CEagOcIZgxvRVoOWSPxAUGmg2oG7a/7iAjZJnH8LbZGN
-	 Gwa4G8PpKDht5mTcamUyikH2cNXJOR1H5ovl1/Wy67UCjgxh/ubZKgzWXSxbW1VP/FQ==
+	t=1795095372;
+	b=2IccqsO1Ctf5m4s8FrSUGgEWYukYvZSud/AvLLMBxUMsiSQ4YIYa3YUC66gnWEa+H8zc
+	 KBHn4dRGecIBk34UzoiH7pBJC5CrbVJTx3avWPpEJYL6AvWPiRth6bYq5A1iQXaq6HGU8
+	 4dSNYzN5kG+foPMmNbG/fgQicnBSNktT7daEittN854r87cbSGp9qA7lIGlkYisiZ2TJf
+	 ZM99DL9gmb7+UuIrvtQ7h51z4WO8RLMliF6AxmtGblabbecU2woAKtGUyry7UE+x1D+CH
+	 pESxKOTehF8bqmXyvQGlXo2W4weHOa5Pn1ZTR0PiB+1lfE3TAm0jtRHqhFppC0DquDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095168;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
-	 mail-alias-created-date:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Info-Out:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
-	bh=Tc3ESe3JZqXFraISylXoQOb2N2b+1RDdSzgufiOKQzE=;
-	b=h3r7f+52EUG10yZKJhNH98oJBySG3xm+nUzFNabxZoOYr4kpk93YzHyVWqkKKIjqtaPz
-	 6KqfYYTggswNqfB8+zfPgl8YMR8WbUXSM7IpObHwKJMSYyVT4erBtFBU+dLfoC06KNEq8
-	 KtJMbZZ4aqCUdrAgeKDxpYkb+CJTTItc8NIBX+Htffvf2uFKw1H+5H1cJLvskeCs4Id73
-	 cI21SvUQsTG1omGAVjZL9HTmByoNZqO5JUb361POU9unCG24R3UR1NLK6v4bYx0OUpLb0
-	 DdPOHU+eF5f/bZ1ibEQ2z24LqwX3SqJAZhcl0jQ1ksvcTesYSSVT6q2Un9q6Q1wON2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095372;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=YTomsJzN86B4i+kyehTHEeuAX5N33ShCtJVKBYwLGHM=;
+	b=GnmwWiHdAuzkJyU/8oG1u3KCScKGEenH6MzCSkcXEy3IzfncNn9CKw7q2OoB/0W7fXxD
+	 6bTaWNdmVu+1xJtBlsL73+og4Ucg1nrHUEcJCXi/oQ1gzVD0Hkr3a0qZf6SfKlccKX6mu
+	 b3SzuCiaVe1vu/2G9Sy9fUcd3dErimTr6LSEpXyysYLB8XH66lYLcxpA8b3CcsVCrAY5l
+	 7tdo5/iVImZvO0PQZpn9PBrUT2yFD3jr/7StF0obgNyIZ4EJcaohm4qGZMtm2R3+15Q8L
+	 Y/KcWzRgxi/YuLUMzm9E4CPQIJEvv/uHK2PBWNCJsXyr7t4GqdpFAdxzwjHR4JM2QjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=verdict.gg;
-	spf=pass smtp.mailfrom=verdict.gg;
-	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=M0I1MTD+;
-	arc=none smtp.remote-ip=57.103.74.12
-Received: from outbound.ms.icloud.com (ms-2002i-snip4-10.eps.apple.com [57.103.74.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b="GxYII/6w";
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA7F2606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:32:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA7F2606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FF0760A2600
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:36:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FF0760A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=M0I1MTD+
-Received: from outbound.ms.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-3a-60-percent-0 (Postfix) with ESMTPS id 611C11800104;
-	Thu, 19 Nov 2026 13:32:44 +0000 (UTC)
-X-ICL-RepId: 01a1f402-74e2-7576-b5a3-3dae9037e027
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1795095166; x=1826631166; bh=Tc3ESe3JZqXFraISylXoQOb2N2b+1RDdSzgufiOKQzE=; h=Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:x-icloud-hme; b=M0I1MTD+/tOItEXUYEfftUgihbCzj34q0OQqjlmMQnGomsTx002b03xjgiJHAzdp3aAtlRziTFquMm63WjX+dUbEEJst0T3zWWqtprhLbGjDZ17OcTQ2uINuk34OZer/060UpS40DJARjOv7aQm7jHqtjhQjSbspytwtzRNoYxkfM+JsYAmBcB9D5XWiA8ai4f9t1sMTcm0La0HK619W9RHhgULo+yTfPt5FV3zXY3aP+7u8GCTEIuCm1afqxxGdzgeyIcPGDWrnsCAEwW7avkCGTyOEYXvXF8WO4JWUQpcwg/tGNLVTHR4k/4/f0FVUCMYfVhkn5Xa6FyecESiJ3w==
-mail-alias-created-date: 1621344842221
-Received: from localhost (unknown [17.156.208.39])
-	by p00-icloudmta-asmtp-us-west-3a-60-percent-0 (Postfix) with ESMTPSA id 20D031800285;
-	Thu, 19 Nov 2026 13:32:40 +0000 (UTC)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=GxYII/6w
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2e987a2ba0cso16448255ad.3
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:36:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795095371; x=1795700171; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YTomsJzN86B4i+kyehTHEeuAX5N33ShCtJVKBYwLGHM=;
+        b=GxYII/6wR1PyA0WzJgv/ztp9cJRK+H2FJyPVpivHfXxa/RBwgZQrJ7KUO+2NC5GNpH
+         ude7W7Zjpfo8jTW96FTD+JB7KrxMkvb+qhkfed2tdcS1lXvOT5dfKUP6xHtQpAwYV8F4
+         +jdPqdF6Hwnht1s2Bi4Pas31FKqZg6mEjWQpo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795095371; x=1795700171;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YTomsJzN86B4i+kyehTHEeuAX5N33ShCtJVKBYwLGHM=;
+        b=ZBlyvXj/jONAR1FtqX35RusJSBaO1hK2R066ICc0gRCYWNLMtdhek7FOzHbbSxR1FU
+         NJOPgqy58xcF+fyXZUwy8KkTxKQNEmdPiO5itoRdKc10Mqt+l+ruqoptNikW1F3Imhli
+         1pQCV1vVGO5cmBj/HWWNxzyaK20EHUUI9VjqhnkxFd4V75LHid31exxvf1kys81rviGq
+         W9luQ230ySoOSXRnqt1miM9GJaT5vikjSF1K4ABEsl6fPgMhxZoX6g+xy0C93ShUZAl5
+         gGvjaXejYVuLOlNspRl934P3ijqGxiAqM1yS/Zjd9ekFRFFu4GjeEV9WxpAhv0OU3lw4
+         ddUQ==
+X-Gm-Message-State: APuU4Z9XpSj8wDKoxWP2Bco+A6LBkU6AK+Ws0peDNrpsWvK2vhCDhORA
+	7h7+ZiLEQ/DWw5/eR+o/Gcp5Ub7tvaUlriertMfXwDdZQYgZBJqMUPO8cOf/C4akXEY=
+X-Gm-Gg: AZFdTZdkCz8KmqkZ2ykBmwh91BlPTQMu5HkOm0xxz3fGuh5DW5czIUQU8/WdQWi8/e8
+	sMkTGmTmWVmCB5GKzo+38zvkoWRF/I46h27q/LuYWlvqXgsQVm+I6yCM5EI3DPDD0hSrpgv9KTd
+	iFvFM17qogVsQlS1kW2Kbqi6eaoFZc0OQHnI9goK0ypEQ1Inw/bA7e4c2iiEw0KEz48n7Iucsk5
+	pBeQFsGsg1dnkoBb2aWb2X8Lc14T2ioSMzmdIXY+Fdna7Wa+VfWEi+J/dUOoTCSAdi2FDEnu4+r
+	pzLs8TLH/vWGEeDMtqtNK2Z4mcv3lG8fA6S9ZyVFXnZsJZm15OW/77G1yV2FdsBSN3zAfibFNbv
+	R3iQUrcOT0SQkzxKZTnY2RZqLHS6INzUY0zjucdwKf/Nj2uDFpCTc3RFo7EoYcUW63N1L4ts+3T
+	2Oj+nQ4YkaqYeCMi8hpS+II3yXk5sTqiU7k1OO8aNu1Q9DvUjajdmo1RWlnDEV30MUhTf2kmVOU
+	ZGSmTu59LlHSLKENyaOSWzjuJJxgjMnBAUJoFA4LZeRjEFs6kQty0jIl/wEb2nmMw985/9lXdeN
+	uZtGIZFcpxRin5L6BwG7uuzAAC2ghdFX56dirp4/YAfZaUW5/K4FFYPYZa0P+vrRBsw4G5JIZt/
+	CkVt7SfmHR9tixNSWM5WmT3umR/ICgVY7HwOp+fcxIsjegEvfcTjAqBCv2zX57gCJ
+X-Received: by 2002:a17:902:ec85:b0:2ed:38c0:3328 with SMTP id d9443c01a7336-2eff73fade1mr58759865ad.28.1795095370830;
+        Thu, 19 Nov 2026 05:36:10 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff622c0a5sm31787405ad.50.2026.11.19.05.36.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 05:36:10 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Cong Wang <xiyou.wangcong@gmail.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev-bot+sashiko@kernel.org,
+	kapil@presceralabs.ai
+Subject: Re: [PATCH net v2] net/sched: act_csum: bound the IPv6 jumbo payload length
+Date: Thu, 19 Nov 2026 19:06:04 +0530
+Message-Id: <20261119133604.3214926-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <179506934898.3136.2983483959880388164@kernel.org>
+References: <179506934898.3136.2983483959880388164@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,81 +102,154 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 16:32:38 +0300
-Message-Id: <DMZ84JBLQD08.3E6KHRQNK83FW@verdict.gg>
-Cc: "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>, "Eric Dumazet"
- <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni"
- <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Shuah Khan"
- <shuah@kernel.org>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH net-next v4 0/3] ipv4/ipv6: Cache pmtu on all paths of a
- multipath route
-From: "Vladimir Vdovin" <deliran@verdict.gg>
-To: <netdev-bot+sinfo@kernel.org>, "Vladimir Vdovin" <deliran@verdict.gg>
-X-Mailer: aerc 0.22.0
-References: <20261117193141.27004-1-deliran@verdict.gg>
- <179494427164.3291.6413261457824057937@kernel.org>
-In-Reply-To: <179494427164.3291.6413261457824057937@kernel.org>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA1MyBTYWx0ZWRfX6z+JpH7Tmf8N
- qftqUzD5RYIPZbbB4sstzx9VYpxJ0vugDWnTT7ykkr62A33ycby9p0kKOwv+0DyvBkNc/CiZmk3
- c4tCD98FacYjZYT0UfABTjXXXqkS3+g=
-X-Proofpoint-ORIG-GUID: usP5jA0ZpkwNj_6TWbSd-bIBYmUTjmdu
-X-Authority-Info-Out: v=2.4 cv=L5mI0OT8 c=1 sm=1 tr=0 ts=6afefa7d
- cx=c_apl:c_pps:t_out a=kRaGL2Q7qLiahLf3O6OaIA==:117
- a=kRaGL2Q7qLiahLf3O6OaIA==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=4Xuvw5ty44FKcjjuTMQI:22 a=788SybWvmYwSByz6lwXL:22
- a=1OqCGUWwC2Wpexm8AmAA:9 a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10
-X-Proofpoint-GUID: usP5jA0ZpkwNj_6TWbSd-bIBYmUTjmdu
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA1MyBTYWx0ZWRfX53kMkk3oB7en
- FGeji2rNEmlOLvzPOrO4jVioIql/OGp8OCNZF+F+VR8QKQGDTYyaZDIyfS+QvgKwb7QdjYRR+1t
- e7aSLKfRqAhJq2TVJK+Ck4wrRgOw1j4l9GjGaBpFHRU8PW+ehmw2rMvASW08uGi46FhLZh30YMn
- Dx0uSB4l9dJGS+x+6w6VNBSihl+pyiDoygErDN2BrtTcFvRoLnK7bbxL3jFVSgSQAJZWpwKtbq1
- TFyVM8J6vvvonwML4IzpEp8sHPFEn2p/ptvJNsqFQ14pecu9AInYNCYKIWPu/1FEeBD/isdetnT
- XmsW/Qt+Qs9g9gPKxavPnV4c2ScKJRVfxwtpkJ8GlKxRvMKBZUAPnY9HKrEDz4=
-X-JNJ: AAAAAAAB4Q7HnMXF2dErNg4bF9ZGQSg+n710kLWBCQnpc58tkm6IVUyjRr30TEK9+YyEtF
- L/KWEEzxafePDgGr7fG8hX/q27fbUA/yX9KTEM8MJ4lv/XKOW1IHBMciT2yLDeyXkhtXYA
- RMPlcqc3wzgTsKKIBegeaiG6w48GqpPRqJLWWOC79wkhWGmohIm6/iuZoYljjNSKjqTSeg
- js2TNd5SRJAwabGaMFK/vICdnb1lthpopfcSFPuKh8wbmydeYn6dO3nw1A4LltVOaXvzc3
- 0weYvX4ByYLG620feFH1qBTaCGoeKUKatQoiW1pvhTkGcX6kCM0aLWU7PxkgizET+OZ7NV
- al4GkbQ/Be8BlrOXbIiaiBebq1EjqhuGRN8+tmWGB18M9GCs/elSm35RMb+r/y00p9psRY
- vubL5XxRdIujm81TFK2HR7M/7NXlYjwuSxgXd4A8IKMmlScwzlyS/ZPfQyD3RxsmU3Fy7j
- liENV4jX3P97eZaBSXQv62CVDC1Etf+NlK9ZnaiKr/v2/QVrgqbW2Jo5K6U28vh8+wEWIR
- 3Vxk+gCRNgfYSebQv6k4XNsOwnStAEF9m1JQFOuSVzM4oXtjboA5bsd/hf1UbiSWOJUpY+
- LIWto3k0ruN8xPKw64kTx6bERbTKh1qmxQN9ZLyn6TF6UyjPTetDcaXNgOW+sH53WiMPOL
- z9dOu3gaimmGjUJ2VXAYWwtBHwk4nQtsXunHudUVA3yeEV0gU/m3UwHUshdjAw82FB7Jxi
- MvPl47lq4MJaPHsRGlrKh86+g9AXS1EZLKccRIPSvwQAAd8Sw7fdi+cEhQa2h36vuvR17v
- HlHrVnE468tfPegjgZ6pz97YzqC3QYXXop3uTILI+BCaWoCBEw2rGDB1eVJQ8oJSwRtlgF
- PePwvHquS6jHd/cZUBTzfcEXB2Qdyt7HKmDhhtpKkEaz9D1HhkiuuhLbPYkgJYC4pwJBgv
- dm7TMa5Of/c1O4h/UDHDMveisVw5lWvNru4GLzrtx659Qt4Ql/tDG7LiOK9EVB21jyt9kt
- EZ7370jkFOvLb/fgprMBmFWNG+5Vt8SwHwT7HSSe/dhlf1F7H7IoOulFkdRfUArZ+NXzEr
- 7pTJ8/CkpqTWdtcXrBhWk0+V4EzOivc45MXb5v45sk+MXuEmrYAODuFJQnrM5OZ7QBVPQe
- WSgvy3lTWmlXa56Cigc41/FckE85SDoSogO2FLhpXnY3mONCeYaLRmbsYP93A7y4usetQP
- kQ5f/x2FC8x45ZIu2Pfloi0YauJ+VhrU8af07SiYUWc2uzAVaxNsN0O9vYcSQYDBjEYjjg
- qatEoPfk2aOqzSiCfvSjYbSNEN/jiEWVMOx1A2Vg==
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 07:37:51PM +0000, netdev-bot+sinfo wrote:
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
+Thank you - both points are right, and both are things the v2 changelog
+understated.  I have read each of them in the tree rather than reasoning
+from the patch, and measured the write before claiming it.  v3 describes
+both and adds a second hunk for the write path.
 
-Patch 2 fixes for IPv6 what commit 7d3f3b4367f3 fixed for IPv4, a
-production issue back then, the cover letter links the discussion.
-Patch 1 was found by code inspection while reworking v1 after the
-Sashiko review of it.
+1. The out-of-bounds writes, and the plain UDP arm
 
+Confirmed, and my first reading of this was wrong in the direction that
+mattered.  I had assumed skb_try_make_writable() established the length,
+which would have kept the stores in bounds.  It does not:
+
+	static inline int skb_try_make_writable(struct sk_buff *skb,
+						unsigned int write_len)
+	{
+		return skb_cloned(skb) && !skb_clone_writable(skb, write_len) &&
+		       pskb_expand_head(skb, 0, 0, GFP_ATOMIC);
+	}
+
+It copies a cloned skb and returns 0 otherwise, without consulting
+write_len at all.  So in tcf_csum_skb_nextlayer() the
+pskb_may_pull(skb, ipl + ntkoff) that wrapped really is the only length
+check, exactly as you say, and the single remaining guarantee is the loop
+condition
+
+	} while (pskb_may_pull(skb, hl + 1 + ntkoff));
+
+which covers one byte past the option chain - against stores at byte 16-17
+(tcph->check), 2-3 (icmp6_cksum) and 6-7 (udph->check).
+
+The ordering in tcf_csum_ipv6_udp() is as you describe: udph->check = 0 at
+act_csum.c:339 precedes the ul tests at 341-352, so the plain UDP arm
+performs the store and only then returns on ul != ipl - ihl.  "The plain
+UDP arm is not affected" was true only of the long read, and v3 says so
+instead of saying it is unaffected.
+
+On the rawv6_send_hdrinc() arithmetic: I confirmed the allocation form,
+
+	skb = alloc_skb(length + hlen + tlen + 15, ...)
+
+with hlen = LL_RESERVED_SPACE(rt->dst.dev) and
+tlen = rt->dst.dev->needed_tailroom, so a 15-byte tailroom is reachable as
+you set out.  I did not independently reproduce the 353- and 673-byte cases
+landing tcph->check on skb_shared_info, so rather than repeat figures I had
+not checked, v3 states the mechanism and gives only arithmetic I verified:
+a 49-byte packet, skb->len = 63, the store at offsets 78-79.
+
+2. The set of senders
+
+Confirmed, and this is the more consequential of the two for stable.
+br_dev_queue_push_xmit() (net/bridge/br_forward.c:49) pushes ETH_HLEN back
+before dev_queue_xmit(), so a bridged frame reaches tc egress with
+skb_network_offset() == 14 and has never seen ipv6_rcv() or its jumbo
+checks.  The only bridge-side check of this option is br_validate_ipv6()
+at net/bridge/br_netfilter_ipv6.c:63, which calls nf_ip6_check_hbh_len()
+and is reached from a br_netfilter hook - so it is absent unless that
+module is loaded.  act_mirred does the same push for ingress-to-egress
+(skb_push_rcsum(skb_to_send, mac_len), net/sched/act_mirred.c:315).
+
+So CAP_NET_ADMIN is needed to install the action and not to send the
+packet, and the sender need not be local: on a bridge, VM tap or container
+veth with "action csum" on a port's egress, an unprivileged remote host,
+guest or container can reach it.  v3 states that instead of describing only
+the locally generated case.
+
+3. Why KASAN does not report these writes
+
+Worth stating explicitly, because the absence of a splat for the writes is
+not evidence against them.
+
+The overshoot is small and stays inside the same allocation.  The loop
+condition in tcf_csum_ipv6() establishes hl + 1 + ntkoff bytes, and the
+furthest store is tcph->check at bytes 16-17 of the transport header, so a
+store reaches at most 17 bytes past the end of the linear data.
+rawv6_send_hdrinc() asks alloc_skb() for length + hlen + tlen + 15, leaving
+15 + dev->needed_tailroom spare bytes, and __alloc_skb() places
+skb_shared_info - in its own words - "exactly at the end of allocated
+zone", immediately after skb->end and within the kmalloc object.  So the
+store lands in the tailroom or in skb_shared_info.  KASAN's redzone begins
+only after that object, so nothing is poisoned and no report is produced.
+
+This is why the harness that found the UDP-Lite read never reported the
+writes: that read walks tens of thousands of bytes and leaves the object, so
+it hits a redzone, while the writes corrupt skb_shared_info silently.  With
+a one-byte transport header the arithmetic is: a 49-byte IPv6 packet
+(40 + 8 hop-by-hop + 1) gives skb->len = 63 at clsact egress, which is
+exactly what the loop condition establishes (48 + 1 + 14), while
+tcph->check is stored at offsets 78-79 - fifteen bytes past the data.
+
+I have not posted a demonstration of this, and deliberately have not
+instrumented a kernel to produce one: observing it needs a WARN added to
+tcf_csum_skb_nextlayer(), which is not something to carry in a fix, and the
+reproducer for this finding is not being posted in any case.  The claim
+rests on the code paths above, each read in the tree.
+
+4. What v3 changes
+
+The write path gets a check of its own.  You are right that the jumbo bound
+closes it transitively - once *pl is bounded, ipl + ntkoff is back inside
+skb->len and the existing pskb_may_pull() is again what establishes the
+header - but the guarantee then lives in tcf_csum_ipv6_hopopts(), three
+frames from the store, while the code at the store site reads as though it
+validates.  That split is how this got here.  So
+tcf_csum_skb_nextlayer() now checks the header it is about to hand out:
+
+	if (!pskb_may_pull(skb, ipl + ntkoff) || (ipl < hl) ||
+	    !pskb_may_pull(skb, hl + ntkoff) ||
+	    skb_try_make_writable(skb, hl + ntkoff))
+		return NULL;
+
+It cannot refuse a valid packet: ipl >= hl and ipl + ntkoff <= skb->len
+together give hl + ntkoff <= skb->len, so the new test succeeds whenever
+the old ones do.  It only refuses an skb whose header is not there.
+
+Measured both ways on 7.4-era code, with a print added to that function for
+the purpose and one 49-byte packet (40 + 8 hop-by-hop + 1) through a clsact
+csum action carrying TCA_CSUM_UPDATE_FLAG_TCP:
+
+  before:  ihl=48 jhl=20 hl=68 ntkoff=14 ipl=4294967282 skb_len=63
+           data_len=0 headlen=63 hdr_end=82 oob=1
+  after:   the print does not appear - the function returns NULL before the
+           store - and ping6 to ::1 still works, so ordinary traffic is
+           unaffected.
+
+ipl is 0xFFFFFFF2 there, so ipl + ntkoff is 0 and the first pskb_may_pull()
+passes without pulling anything, ipl < hl is false because ipl is huge, and
+the 20-byte header ends 19 bytes past the 63 bytes of linear data.  That is
+the store you described, and the reason it needed a print rather than a
+splat is in section 3.
+
+5. The jumbo bound, unchanged from v2
+
+The bound is relative to this skb,
+
+	unsigned int avail = skb->len - skb_network_offset(skb);
+
+so it holds for the bridged and redirected paths as well as the local one,
+and it closes the writes together with the reads: with ipl + ntkoff back
+inside skb->len, the pskb_may_pull() in tcf_csum_skb_nextlayer() is once
+again what establishes that the transport header is present before
+anything stores to it.  That subtraction cannot wrap, because
+tcf_csum_ipv6_hopopts() is only reached after the
+pskb_may_pull(skb, sizeof(*ip6h) + ntkoff) at the top of tcf_csum_ipv6()
+has succeeded, which leaves avail >= sizeof(struct ipv6hdr).
+
+If you would rather keep v3 to the jumbo bound alone and treat the
+nextlayer check as a separate cleanup for net-next, say so and I will split
+them; I kept them together because the write is reachable today and the
+check is what makes that function's contract local.
