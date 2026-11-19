@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048207;
-	b=p5z23XLWuI/pUBJfL4X16YZREkAxwvgqFDxTC9MKzkBTi5ELriphu0u0a4LN+ThVQqhT
-	 WdJZ2WlFKpDzZm+CuJdfE7Ek1oIC2Z8PXhddCWwiV5KekkJ3JDQNvJjV+ZlS0YPQrTH/M
-	 kCl3fRFYQ5IUEU7aoMdsW1lN7EYLjdcZ+fwnXbfIedJ+5W8WZi60GHGzBIWRVrE4RoJC0
-	 10WXclNjAuf814WirdE004Csln9uCXHv4cSiWPcevOubWfvBw5/Q6DM4Vd1kKQq70M2u/
-	 tQqC479HicPO56dHtrSo8QdsNfjaL8HoWvfTkkdbGYmd0K4IrjYc0h/beZeF7Rcb+QQ==
+	t=1795048208;
+	b=vfe30XtUuWorYXjXBsRhv11SRHzU/iF+iA+/+YH25flg1MPGl0TBA8X8DktXxoZkOR/f
+	 v6Yjqi6fPIn4OXlHrYzADRRelPBYNutdHCqFLoep79DZ/LkaqGEroq4wQff0eOZxSZ394
+	 mB2tYkpfnS7Z+NhI1zrQ1v+me31w9ICuMRpdl2GZDJRPTnvbWI1cbwzDT8gP6gNN3bSGX
+	 lG+Kt9ecYyhLqBK6o6vOM3qNIav4HPhGlCo7vkMyMJV96nVglkniLAquYnvKh1YirtGAh
+	 g3iLz640/Mx2l2mjuVpxI5fFE5nX7ABmBhfzMDKE9bjsUx9Qs9bI1yIAOJ3KGGtI00A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048207;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048208;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=q4uUwijGwEGNahwvfbi1awakekbl6fH77V+e6oo82Vw=;
-	b=qmLVPpXvUlOHFg0ZXphoYd4KunOC0SEZjdWx2Mv7pcZRMntqlkwYh68GwwXRm8RDdC5L
-	 +tWNHBcpQrjAtvpGCQ49/7kfT/shqFwPdjMP7X61JcFd9Ct9pSdeWalqw9kRSjRdlY7JS
-	 TVskvx5iDzKdDCGqPndC1AvATBlWeu/WelxHELRCEdFtdoW6Wq/9y6mOQOO3GyyxW0Vzv
-	 9+lef0lxo/eKjwtRJjSMjlK7YCNyeickO/331qmxvcVTyWdFlQ/JE+E78S3sdGE5A7yBi
-	 e+xPGFD+OKCaWuhxo/XUY1ozDqbOsUibVt15ntyZE9jSmnbnwGwfgD0h4HgZgAzyJRw==
+	bh=vLkljH5SDXx0IeKaAwCJhAMjKvUVLeXJNvmdVHGfrO0=;
+	b=b0El8bPB4m2x1W5X8W1E7os10kLfybLgq/JuboBrZS5ADjeZFV2DEv2vEVlhvaAErBfU
+	 jIBUhKGN2x8RaGCrHzu0e2lk2Veaueo45eC1QWp3+cxIYDorwLcHjMp++711zNC5fwiOn
+	 l3zE4N1irlTEnegUYGlNOLywM0SafPqu5RSm6RbDYMLzRXRUnWds6qQqFvVdlUwMV9wgO
+	 NNCzAddxrm6yXmsG42w+GGFlHY3qi/MTgqiwcB/7jJQzgAIn4JP6yAqZCaIipoxODfHIG
+	 37k0YKd+c9RhK3HaEmT3f28sMVXXCt54Tgh+D0SfuKfTYiX8yD0pEgMtRpWyZKumYAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BjnKmAXO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eMfXbFFl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04986606A32C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:30:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31BAE606A332;
+	Thu, 19 Nov 2026 00:30:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BjnKmAXO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 816951F000C4;
-	Thu, 19 Nov 2026 00:30:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eMfXbFFl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D981F000C4;
+	Thu, 19 Nov 2026 00:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795048206;
-	bh=q4uUwijGwEGNahwvfbi1awakekbl6fH77V+e6oo82Vw=;
+	s=k20260515; t=1795048208;
+	bh=vLkljH5SDXx0IeKaAwCJhAMjKvUVLeXJNvmdVHGfrO0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=BjnKmAXOShs3vN5KPy2NqK6YAJ7RxpV5FRJ5q50a2Q0jeRDXV2p6Q8I6cZJ5YEQpc
-	 1S81drNXRRnZQ8NFEMCFR8B4jqD/Q9/KLwx+5rtqVHl3Url99GFmBWhIcsVUiudfaP
-	 1gdwesKJleOurpii5v8Ys2GMMjNqY3a8hNlmE9YsglnS9aLbQnw5HEZRK4a2V65vyL
-	 7gzvdd13erTA40fgSMmg7C4dKq9/5LQoaL+r1nUgsc8BYh+Ghhz7oQfy9GfhQkJ3Zs
-	 jZBE2WffyLwilvnaCAxeVB6WmTgIQdSQtj8FqNb/kqiDdXcywfm+pBUSa9Dj0ALOE0
-	 4VBzi6V/QrM3Q==
+	b=eMfXbFFlHWv1HxmG0QmKHqjCfZ/Eiio/JZRGDj/nRPYvDgKTiXqv9XYYqQvkUMGMq
+	 qpBjsvMsBj8J+tj+4AOOK1mfYKsZ8b1Rnbk9JTN54qOzamX0JcmBxxj71ErGF1wsph
+	 bhS5xKuSA0Flxm+4Qr0z0jRIpB+sycGjRVfMEqg1avOxOafFbOL97PxHF3fDiDA08S
+	 PeDMh6+wxWswyyBhRAocrJgGtI3nYy9RO1/U4T/n+kc4EWWBikPwxPE2x/vE+aMyeJ
+	 E4ghclge45yWsmpkn/e8g2CAN+mpOLAY+IEHnUslgQZN699hI2mh3J1fSbVA2ALJQn
+	 nH3KL0l/ATQxw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7743D3808210;
-	Thu, 19 Nov 2026 00:30:06 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F17FA3808210;
+	Thu, 19 Nov 2026 00:30:07 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,42 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3] fou: reserve headroom before pushing the encap
- header
+Subject: Re: [PATCH] net: phy: realtek: fix listing of sysfs directory tree
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179504820528.2657179.7362359071229117121.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 00:30:05 +0000
-References: <20261116113845.166280-1-theodorlarionov@gmail.com>
-In-Reply-To: <20261116113845.166280-1-theodorlarionov@gmail.com>
-To: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- nicoyip.dev@gmail.com, netdev@vger.kernel.org
+ <179504820653.2657179.4672591477512368848.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 00:30:06 +0000
+References: <20261115214045.3704-1-mat.jonczyk@o2.pl>
+In-Reply-To: <20261115214045.3704-1-mat.jonczyk@o2.pl>
+To: =?utf-8?b?TWF0ZXVzeiBKb8WEY3p5ayA8bWF0LmpvbmN6eWtAbzIucGw+?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: andrew@lunn.ch, javen_xu@realsil.com.cn, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, kuba@kernel.org, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 16 Nov 2026 14:38:45 +0300 you wrote:
-> ip_tunnel_xmit() and ip_md_tunnel_xmit() push the encap header before
-> reserving headroom. A packet redirected into the tunnel (tc mirred, nft
-> fwd/dup) keeps the headroom of its original device, so fou_build_udp()
-> panics:
+On Sun, 15 Nov 2026 22:40:45 +0100 you wrote:
+> On git master, listing the contents of sysfs produces an error:
 > 
->   kernel BUG at net/core/skbuff.c:214!
->   Call Trace:
->    skb_push+0xcc/0xf0
->    fou_build_udp+0x2f/0x380
->    gue_build_header+0xfa/0x150
->    ip_tunnel_xmit+0x87f/0x21c0
+> 	root@mateusz-debian:/sys# LANG=C find -iname foobar
+> 	find: './module/realtek/drivers': Input/output error
+> 	root@mateusz-debian:/sys# LANG=C ls -1 ./module/realtek/drivers
+> 	ls: reading directory './module/realtek/drivers': Input/output error
+> 	'mdio_bus:Generic FE-GE Realtek PHY'
+> 	'mdio_bus:RTL8201CP Ethernet'
+> 	'mdio_bus:RTL8201F Fast Ethernet'
+> 	'mdio_bus:RTL8208 Fast Ethernet'
+> 	'mdio_bus:RTL8211B Gigabit Ethernet'
+> 	[...]
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v3] fou: reserve headroom before pushing the encap header
-    https://git.kernel.org/netdev/net/c/bcb42672751a
+  - net: phy: realtek: fix listing of sysfs directory tree
+    https://git.kernel.org/netdev/net/c/f16d85cd3de9
 
 You are awesome, thank you!
 -- 
