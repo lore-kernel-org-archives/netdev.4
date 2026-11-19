@@ -1,104 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795126299;
-	b=MuhrscHfWIvJGFBcfilflUkbnWHzv8lYvw1Hx8DvLWkYm7cSD8P4aZWY2280S10zxMna
-	 OdySfp3v4qPGKJwx06pExtmaXrgeY6186HhRCJb7V88s140TMFtzoDr/39ObU+qyedMY5
-	 zWXbwxcAAUFOZckDpuyh4qzMG1aZGIKx9Zwa51AowkgDYedHp7LDsJxVeD68q4daOOOVK
-	 S7syCToRAqA2jkptYWsg8/jv0fQdWB8ukQUJ3NgdYCR+OohzVxOxWWpdSANUBNnt8aRoP
-	 TTS9q2PKAYmlzAmm0MtOge1/aQRdQXFlV8+YREdN/EXo2MSBWpvpBH13hyhPkwuXAlw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126299;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=KEN5ZypB40P0YfGkq38aJE4BdtSzLwnZcBL5dNs54wM=;
-	b=haq1ViTVeyjhuY4E6+Ja65uZf9qpYvVRuBGTFy8qt4vET06DioaM/NYBHSGoyx8GmdvH
-	 Z/B9FNpqYu9S+ccT0iXxDpkwM/lkoLD2h6n8L9SFrMTI/rjdVRcqFU+QQrL3LGGeXj3o7
-	 3QJIhbYO2a4Ok45P4z6mUAMtZJqY9W0ABKiSW0Y1sXQK39s8EnaOH+s8DAekPE8CgNjC2
-	 eGvG6XMAWyA6+bkgq/rgVOEVDmafILuA1hYUU5dnfAEdl/XyW8oo9ypAGJC1LifJPb09p
-	 AIcBHcuNk7F7HwfS5C4pmnwCL1qca8+InyyfEPmHycLZbyCv0FkwvWH8K8qP7A8je1Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="MVfz2/5I";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795126361;
+	b=oxlmBvOvCcxoJ4mb6MoIwys0Wsyel7myuU+xQ9bakx/Sa+zkjIT3W7w/r28Rds2x96/P
+	 ynwhRyyLatvVCfbbqBwW+jvykjS7xE472dzQWzBHVB+ggyz0GdLrtoEzniwIFC/QPdRuF
+	 btpp76vFH0MoF2x1r4Ctt+/b3286BY0HoRxCa2FlQa18/OOp9pYJNo2sejSXmH4F08F1e
+	 UCo8POBD4NSsCLGmETu6ENPe5Wf66S804MC1NjbLykZI2ZZpGKZTSR35XBFegVwQPAltE
+	 q3g8HUwsTcuzo0fmeLUkxwJbRWjW0vZFXKLdA+oMhQ5ZRG2xjSIo+WzU9V3wmpNRl2w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126361;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=OQL37J+rKSGqzy+Lk6CaHVJSuLnvvSdUTE6JoGml4aT2NvPZrFifnEGnacvURXhaGpu3
+	 buDDY6qmrKgFMB1khyWbfltSTKT12WuYsHahtQN/tkfd2hljPDwtEimunCCEoE/1TacVW
+	 +IzQswQTaQlnK8E+CTOdhrTdDOiiElf2aRHEU+mgi9FaB3Nh+Cq1kfRZeoKzf5VRn3D5u
+	 fF7cqq0UjYDDjCFU/Y+/sgpSUE6tOmVEz6Wshr7BtvFJTgGaGhA2WGFH3HznfKqyyXmts
+	 E42kQ2EZKahfFNP3V3ogutx11aoiIuFfkOPY9cS2CsEQiAkgmyHoMu4knKf0HD6h4Pw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQNXnqtj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6154360A3810;
-	Thu, 19 Nov 2026 22:11:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6154360A3810
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5731606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:12:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=MVfz2/5I
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9A91B205B48;
-	Thu, 19 Nov 2026 23:11:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795126288;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KEN5ZypB40P0YfGkq38aJE4BdtSzLwnZcBL5dNs54wM=;
-	b=MVfz2/5IPLgz7qXkSZVd4+K7+MHckZWq9bitugEELRD1xZtkst9HpjkyEm1GE17rMWs2gB
-	5BbpQgE6jGcIHyckvajy8weh4ZWyCtTUJibiZYww0vPIzB4DatQ/Q7aZ8w66b32SizHRtt
-	C7eFOiaew639hm6sI0p5gmtIJ7fhNuyc/A/Lul0vaHcRWAL8rOWWvfKyBXcB0ThPqLYzh5
-	lUqbJxiqNr6vIdMjhaXbwBfCXGEMgXoINf3FH9YhPRdzVt+0rMQLYiDX2IQagB8Uh3p4/J
-	jDIn+E9YMEozjpJM6P76U0oLoEUulXZXt+xoUNAHxcV8lkK7z4hSIVH8iA2d1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795126288;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KEN5ZypB40P0YfGkq38aJE4BdtSzLwnZcBL5dNs54wM=;
-	b=cunWV5HKTuxG9qWE34J2C9OeGqFVp+pvVhgx4bOTepcJq02yuTAq49gx6SevutP7vNy4ag
-	qyO/fmGwKgp5iFOsxC2+3tmdcyVmgJwHdSdAU2YgUUDlNPMQNM9L6y3cbzUOHwwTbfT9iH
-	pEzg/+m2CKGeWnL5m9L2tsTxrBXzC29IbWFntLW0lOLWPV2VKZg4Jsycg261XDmgtdVMv3
-	vf72F9pSP8bP6SvtS60qx8yRY8rAfNswme00F0v0o0funGVfCS5XEPsJ16OR+I4jHjSKHN
-	E+FHPiwVHCqARWe6oWV7TvxSAOiL9oGwNyozziF8cj8N64J+DXlAfxPna8ICEg==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795126288; a=rsa-sha256;
-	cv=none;
-	b=IKMdWMyIS+XsXB1KkPBNb3JcFlcoGwpsUvz0M93geY2MDTpbKhKAovVOiAUdbHGEDkNsIz
-	9k1r5XdeHyStQXH6S0IQQ5mUXri9bXXVRKr0DWTCyBEOo/gI4QFPwODWaun0nr03osPBRQ
-	k1qYloong8pnfQvS+f6hvjm+AnFBm/ppVIyNUoanWxV/Rh4bYXJeTSP8JBUua1GOZxF3HF
-	mlIqLINy+vyLZvHP0lDPYmPnwOjMd4rVg71E15w76/IaCzGoQnVzSyAa/h2ocr2zwSgJyr
-	OjdXSfWpj5bSAqvzXQTLbKPLCV1L2ZrfbAvnfXb3vN9q2SjwW0t1pPoj0IL8Pw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1xUALn-000Z6a-3A;
-	Thu, 19 Nov 2026 23:11:28 +0100
-Received: from blackshift.org (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 45B585F09A0;
-	Thu, 19 Nov 2026 22:11:28 +0000 (UTC)
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	linux-can@vger.kernel.org,
-	kernel@pengutronix.de,
-	Maximilian Zimmermann <maxz@spacecubics.com>,
-	stable@vger.kernel.org,
-	Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: [PATCH net-next 13/13] can: xilinx_can: set CAN FD flags on received frames
-Date: Thu, 19 Nov 2026 22:58:49 +0100
-Message-ID: <20261119220936.155728-14-mkl@pengutronix.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119220936.155728-1-mkl@pengutronix.de>
-References: <20261119220936.155728-1-mkl@pengutronix.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQNXnqtj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A9281F000C0;
+	Thu, 19 Nov 2026 22:12:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795126361;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=LQNXnqtjXSIlYNu9PyE906Q6SP61aBQoQ8JLoW5Rd7H1g5rMlXxlr/CLhGFFAXnpm
+	 KhT++yWqq0uaGlT6Y0lIIpM/dhQuF+b+f9tjEMDpVlvng+EEPV2Q/kUMwGoaLCtSUo
+	 gbAEQYmFOS1OX11DRu2asbmrXJnlQVIK63d+bwDeOQ7oSy3Zy0LObfp5v+EZHes+HN
+	 s3wCtwuZIzxHa3xoQ3/LBGjU0RzH1waeAs42XQHDjvX/2nKTq5Z/wZiwVV+kjKHIdO
+	 RyS7I5wHNyVjv3oSj4PaTkkzyEZVFN+t8qHGEiymxvi34F43KqEmo8aU2sAFb3wOCZ
+	 C9OeAslmQXwEQ==
+From: netdev-bot+sinfo@kernel.org
+To: David Yang <mmyangfl@gmail.com>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Subject: 
+ Re: [PATCH net] net: dsa: motorcomm: Read the port PVID instead of bridge's
+Date: Thu, 19 Nov 2026 22:12:40 +0000
+Message-ID: <179512636063.3291.8215181491669422818@kernel.org>
+In-Reply-To: <20261119220949.1123168-1-mmyangfl@gmail.com>
+References: <20261119220949.1123168-1-mmyangfl@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,54 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Maximilian Zimmermann <maxz@spacecubics.com>
+Hi!
 
-The Xilinx CAN FD controller reports the bit rate switch (BRS) and error
-state indicator (ESI) in the receive buffer DLC register. The receive
-path currently uses this register to determine frame format and payload
-length, but does not set BRS and ESI in struct canfd_frame::flags.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-This results in applications being unable to receive the BRS and ESI
-flags, even when the controller correctly received them.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Add the ESI register mask and copy the controller flags to the
-corresponding SocketCAN canfd_frame struct.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-Fixes: c223da689324 ("can: xilinx_can: Add support for CANFD FD frames")
-Cc: stable@vger.kernel.org
-Signed-off-by: Maximilian Zimmermann <maxz@spacecubics.com>
-Link: https://patch.msgid.link/20260921-fix-xilinx-canfd-flags-v1-1-a371c90b4e7c@spacecubics.com
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
----
- drivers/net/can/xilinx_can.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-diff --git a/drivers/net/can/xilinx_can.c b/drivers/net/can/xilinx_can.c
-index 43d7f22820b8..52661e088205 100644
---- a/drivers/net/can/xilinx_can.c
-+++ b/drivers/net/can/xilinx_can.c
-@@ -157,6 +157,7 @@ enum xcan_reg {
- #define XCAN_2_FSR_RI_MASK		0x0000003F /* RX Read Index */
- #define XCAN_DLCR_EDL_MASK		0x08000000 /* EDL Mask in DLC */
- #define XCAN_DLCR_BRS_MASK		0x04000000 /* BRS Mask in DLC */
-+#define XCAN_DLCR_ESI_MASK		0x02000000 /* ESI Mask in DLC */
- #define XCAN_ECC_CFG_REECRX_MASK	BIT(2) /* Reset RX FIFO ECC error counters */
- #define XCAN_ECC_CFG_REECTXOL_MASK	BIT(1) /* Reset TXOL FIFO ECC error counters */
- #define XCAN_ECC_CFG_REECTXTL_MASK	BIT(0) /* Reset TXTL FIFO ECC error counters */
-@@ -959,6 +960,11 @@ static int xcanfd_rx(struct net_device *ndev, int frame_base)
- 
- 	/* Check the frame received is FD or not*/
- 	if (dlc & XCAN_DLCR_EDL_MASK) {
-+		if (dlc & XCAN_DLCR_BRS_MASK)
-+			cf->flags |= CANFD_BRS;
-+		if (dlc & XCAN_DLCR_ESI_MASK)
-+			cf->flags |= CANFD_ESI;
-+
- 		for (i = 0; i < cf->len; i += 4) {
- 			dw_offset = XCANFD_FRAME_DW_OFFSET(frame_base) +
- 					(dwindex * XCANFD_DW_BYTES);
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.53.0
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
