@@ -1,57 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795054777;
-	b=JqgAaZWEEgFZAX+tj16OjoYwnxK8a4KTj8FNViccWB0rMtvg0nGyZfRb2eKrI2MIDjjI
-	 3iusOyZtURKXwVddvBC3J7EYLcjnMp/Nq26qozEhUdfR4ySMqXtrn5K0naKFKKZ02b18a
-	 1t6T2s4aO1z9gthvZPS4AUBU2710Qq8Y/23Snd+Wcgwm/Xl545UN2HWTPVL6pFg6lWcBN
-	 2DnHPPWR5N+eKD6pHgSNtBBJhCLUhuBrKEDyFTd5uVyMwzP6ckhny/Q7rvJ+WZQ28nDPj
-	 prVzUxb0Ffk8WRnGMjEcHTrk8mHeo1bcfq27wEkipHfmGoVL2XxrJWIGFU/O7TFQyVw==
+	t=1795054807;
+	b=dRmWmEwjj38SlVPVMMhHeJKrVDwLqNcfZzLOTESDj4I+kjQzJoqfLt9l46qWJdxjmi42
+	 ShzACLpUU5YURFdUpFSJkaXQUx6e+7pph9Tt1EDmtqPvV9waDJDPui9s8ywA4JGUpQ76f
+	 P1zKvMJiaQAwaExO5H8skmxEXuO2NocdnkJt8H7ZXCo5E68jy6qXmR4XOU2NDh7T6goxQ
+	 Xk+ixNAMSzGzcAK9xLrSHSPsKa18PrqvQ6pxS0UWffgAaN+zkolRo6uROH9fr5V6PEcSx
+	 BP8Pye6XNZzB2TyUiX64FDdPsfo0g/50LnJJ500M7Zfu77hFSDfrYrvyW3WQWI8enwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795054777;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=x76fuySMjOLJQoIqrOK++7Ix1/3pTjbSZqz/xRH57XI=;
-	b=LUwdjCp7BBQJsOsQ6jvUNQFP2RRsnrq9EIq44dlI5s1apCZDnlgCqdD63fiBeSi6TwDW
-	 MCEzyicv5lp5sYHpwlsnVoAQVLyyM3spHtHenBzPfjwpC68CvVb752fQROKcOjW+0WlLU
-	 D8KdP3rYCh1Ud5tDoh5L6KPFDTBMEr5xRkyhRg3nTlLxfPZ5Lyix9VnRNuBKedd0GMemw
-	 NMuaAEVU76H3pU53aUNPqaSWebntCgLmVM29+4m2cyZDJv7UY69JiR5fQR7szUEdLgg23
-	 Euffhowxm1rrMtZr9lodKAFhkoDvoavXfmmoItoLrtJzEe2fDsV20Orvb//ONpznCLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795054807;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=mj17ar87hi6VzmZyAkm4mIAAgD9NHdce9it64Mz87JM=;
+	b=3GRXCFiuEzeNEExJRulrQ4ZGE32MdFQ1gb0an9w48mFBzjbFqKb8X0ZunYd8x5B3qMu2
+	 D/MixRa9DHcQFYbjbbI/mGLe25jamuZSyxrZbKpi096uUdSmcJdfr2i1xxiD4uqEqyQGO
+	 Tz+IQ4YAa08kVGvn0EBUYX4Uma5y8qz/pguXpXjLDDchWq7zdp7Pl6CdazU0jI+p5biXf
+	 gmP7e56OD+wjy7mHoDm4kByFU3SECnyGAlhjWS+ZA+G81mtX+xnEgNDmD1hD7ReIeI0yX
+	 ZuYTxgdW3WQVXEZHVoJamc7EsR2cmhf9Ul0ImP1p0aeSGL8SS61uZSzqfU999It5h1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ATlvJmji;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UQU7l72n;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D895606A32C;
-	Thu, 19 Nov 2026 02:19:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6CE4606A31C;
+	Thu, 19 Nov 2026 02:20:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ATlvJmji
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9311F000C7;
-	Thu, 19 Nov 2026 02:19:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UQU7l72n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C12341F000C5;
+	Thu, 19 Nov 2026 02:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795054776;
-	bh=x76fuySMjOLJQoIqrOK++7Ix1/3pTjbSZqz/xRH57XI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ATlvJmjiEovAKxuWckCcYVqGExELfmCknB5sJyWhvJCNr63WaxMSWm+zBY33vXhWU
-	 jt2ic4n7iX07Rm4qkVJB46YB8IYtj41DzBkwafWT6KWSydMMHpjh8XkopJlqxd8XkK
-	 pBdDmJ5R0dEwTdroOTPwdAVFZcpU5c+GBJDGPGP0jm2qMgvJYLWkrbf8BYExPQXdmY
-	 ILV4CaV/dktuxwPsP8+i4RSBRiGGM4pa5xK3C/e2HJ7kpFlHW32R1rwlOS9Ds4zFsc
-	 KU4gZsuMnob048KqzOUtb8J/4DwKpOrbAis2tIzkBKmMncoM3tGZ7MR0689eVFv72F
-	 WiHcnoaLFHFhA==
-Date: Wed, 18 Nov 2026 18:19:36 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Allison Henderson <achender@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Joel Granados <joel.granados@kernel.org>,
- edumazet@google.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org
-Subject: Re: [PATCH v2 net-next 0/5] net/rds: move sysctl-only code under
- CONFIG_SYSCTL
-Message-ID: <20261118181936.2f6e9d7b@kernel.org>
-In-Reply-To: <avmymGvelu00X5EH@redhat.com>
-References: <avmymGvelu00X5EH@redhat.com>
+	s=k20260515; t=1795054806;
+	bh=mj17ar87hi6VzmZyAkm4mIAAgD9NHdce9it64Mz87JM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=UQU7l72n2EAZyARUurImvzLMtseHYEOtvftJL6cUiNkECNjrqf4WStqJ99rfO0b2k
+	 jdMOp+YInvDWMNgDQvBqojcQUflxvaP4jaJmIubAJ6eO3lRWqdmqC+9aAc8y154CRn
+	 2bYodnmnRdGDNr8QbTUrcKG95PJqG0kTRh4xJPUWX1eUhyIaeHfQ0fWfZkU2mW8HfK
+	 c2EJKIUvqJz1uwikY1nnfGD4CpA/293XWfyamPCGe0HSbef3cST/nGYrYSF8x8AZNR
+	 JJpNwt0Ih7kbVjgL3ckvcwIoCstknT8JIJolyZw6iE4HmhUtCGPauDxDW6z+bJgdcA
+	 ciMBrNlgjU9mA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B479A3808210;
+	Thu, 19 Nov 2026 02:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,15 +53,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v04 0/4] net: hinic3: Bugfix for later patch-set.
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179505480553.2718526.4549526677342724377.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 02:20:05 +0000
+References: <cover.1794917917.git.gongfan1@huawei.com>
+In-Reply-To: <cover.1794917917.git.gongfan1@huawei.com>
+To: Fan Gong <gongfan1@huawei.com>
+Cc: wudi234@huawei.com, tengpeisen@huawei.com, netdev@vger.kernel.org,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, andrew+netdev@lunn.ch, ioana.ciornei@nxp.com,
+ maxime.chevallier@bootlin.com, mohsin.bashr@gmail.com,
+ dimitri.daskalakis1@gmail.com, hramamurthy@google.com,
+ larysa.zaremba@intel.com, vadim.fedorenko@linux.dev,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ zhoushuai28@huawei.com, wulike1@huawei.com
 
-On Sun, 15 Nov 2026 14:24:40 +0100 Oleg Nesterov wrote:
-> Compile tested with CONFIG_RDS CONFIG_RDS_RDMA CONFIG_RDS_TCP CONFIG_RDS_DEBUG,
-> the kernel builds with or without CONFIG_SYSCTL.
+Hello:
 
-Why tho? Who cares about this? How much is this series improving
-the life for those who care? Otherwise it looks like pure noise
-and a bunch of ifdefs we were happily living without until now.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 17 Nov 2026 20:08:30 +0800 you wrote:
+> These issues were discovered by LLM Gemini-4-Argon and Claude-Opus-5-5.
+> At the same time, LLM recommended submitting an independent patch.
+> These issues were not actually triggered. Based on theoretical analysis
+> and consideration of actual risks, this patch is used to fix the issues.
+> 
+> Testing:
+>   This patch-set has been tested on hinic3 hardware.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v04,1/4] hinic3: Fix the RX stalls in hinic3_rx_poll()
+    (no matching commit)
+  - [net-next,v04,2/4] hinic3: Read the queue counters once per u64_stats retry loop
+    https://git.kernel.org/netdev/net-next/c/0f00324913b4
+  - [net-next,v04,3/4] hinic3: Wrap long lines and rename q_params
+    https://git.kernel.org/netdev/net-next/c/b4cca5c5238e
+  - [net-next,v04,4/4] hinic3: Keep max_qps at the hardware maximum when RSS setup fails
+    https://git.kernel.org/netdev/net-next/c/453a026487a6
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
