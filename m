@@ -1,98 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.56
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795112929;
-	b=qcYWbTElZLaBvAlbTG0sHXcEQ6w+wB610oE9RXIuMTzCHkD2jlzQc/FaNI7WN3a3CvTv
-	 TgPZXW2PjMqNa6Ig0xYDiEoM1sBOBKS+8v5GVbML7zppiooE7l57QYu+0Q8EZO18kUsZo
-	 dOkvJnIeSc7VLfl+X5iYS9KDcFuvOsvPrkj/Ru519VCjoZW47r8Qpj1Z3GP0uUiNi2Y4y
-	 zD5atCfl163vNxegqy42Qv4vj1OywJiKzvWQqBIEuTY196F9XDboWyxftHNcEj7eaqcRG
-	 EKQZROMHrcILOEpmJP5OeahSIQPtWtioaxKafZu9mxp5noLuYByngEGy54KD+P0dA6g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112929;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=xMHYv/3PQ1dDfJ+rtiKztMzQh4qN4g0xk740mDLwxPU=;
-	b=hkUsMZ50HAfyYD0s4NbGyy5HHJ6RAc7SdGBCus8TQ5iKgL2qtOuliFG+xYKFfUMluJSN
-	 +iEXsh674qROkFQk67sNb6thHd+VIiNoqysrMyktaagUkTO6NDsYFeMtVgs4X/nnhgCQv
-	 EGIcZo7OoDA3rfmeFWgXUdkO8/JIDLPAR1y2ejsHUYUdi0TsM1zfc3lcmQCtEfavGhgwV
-	 0XIuSTsieDOUBK15IThhKzqLQXhhkFsMLxMx9N0PNH6FxwHsJ9O1kmIZ2ty7EULIQsXKz
-	 E8X2hD0+mKFGSB/BoCVL0od9FNROLbXgg4GfTyHA/G61oYUdUloFxA44XEMk2rf4QGg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=T8kxm6kB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.56
-Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011056.outbound.protection.outlook.com [52.101.62.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795113209;
+	b=K4q7wbk+aKfbfVXjLzRJBhz1H4u6IM4RgeR+VPPw9Ucddt/v0aazU5OegjkcQQQCyWUQ
+	 57rBreiINmQtit1LO4R97wr2Vh2oEZwWDpeLZoGe4hXNptkDGeryGiOBjqFEGNdjgjKvY
+	 gwlCudhcXHK5idE8U6nud+lgI8Cm3p13gcmlHoKRlYL9RyF6rgXfToZD6hxm5eJRPfw6S
+	 d8Nt2SivLXGUbnGX5GsNGqy7mqK5/autwp4PqX46WqSRZIhVLTt2PDpZNk8LR4Ndg8oMt
+	 Eocsj8i4G1HToiR4m+11VgaO80EE9EN+dAuRa6obE8WKg+T2Riknk7Y1FsmGamIEphA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113209;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=cW1Gp/SLXYhxx5A9Q5dr7GIRM3j5LjmrWw0BlEu5f0M=;
+	b=ygigcAZcL6aF8wRoiTmJfrM4yKjctM/a0FLmSKEYQ55ltNawG2zW+1gJoJTvFeQdQI/2
+	 m8aGwe+15QtGSWas8l2XnNAHpHf7QYT+onxPlBh0JNhQpHSqpDaeG7dtIn5/3Fk/Hjo0p
+	 dCvns3D+31t5jwhDHu3SeGSWYQH8XNBjBmm2FLlm27OmryTXlC21TwzC8pbJFT4WpoKKv
+	 LPP8SZSo2udppk1sHryXFxHbiIHEEYG6kr43UHIRhOWWgIZGnDU8fltUfCewzwkyD4rTT
+	 fq71wotNaKh2QaJgP01z5qlokMvfrZmaWCftc6AmFnw+TL3N3HvEodbzDR8p2RRDH8g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LftXorVd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 362F560A2602;
-	Thu, 19 Nov 2026 18:28:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 362F560A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C36F606A324;
+	Thu, 19 Nov 2026 18:33:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=T8kxm6kB
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oRmRxfmFHGXSWpNpbhRLGFqnkA7WmKVt6d0Z1Z41apbeU7J/1ID2wf1y2towGOtYdovVn2sCVUsaEuQtAQw1OUDkkvbs2pXonGAFNiYata70fvZsWp6/l0C+uwiTsFtzUS7uEEVUTPw2B0bb1LMPtJO0EwLRd7BKvgiAw8f7a50E7yRZ1Rq+IfrXVuKUlcOQFraGtc8jNzBYuriirSjTlj9neFi0vI3T7/IvxbG5eJi9A7K5VYD8E+swM8/mXOfw5UdUo0BhAi0oqfBwfblF1BjoqQZFLnkIFbrxTvcMDu/mKU0WrAl69QOkFq0a14DnS9uSCXZtHeWVHJsfOmw/GQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xMHYv/3PQ1dDfJ+rtiKztMzQh4qN4g0xk740mDLwxPU=;
- b=XEHq7b0aXcZ15LxwBmE7uFpCzwbIv5+bYO45Ft733/XiyEnfSuFRDzR2uJKvfhlsl2aYlC0qxFsD7ycfB0CriVY9PxNoawPXMHYALajz1RSD1doQhc1AHh5mgDA47nOJOW3yYYWkT+U+s7U9eea2UP3m4GzzxxuywnPOX8/WGIOpGLkDFY+qK7CiF8DC+eLdzrP+4up4yz456E6ZG/TfwIyF1qMC2d5PHWh2GxYb8h92Zb/68zZ3GY+l14PkjZJY0RXUYA7HBg9XlHYbX18WJG17+C/4OItY0V/Fpr7m9cKb5JwLTJP9IbNaa2oSxrTz3mzWq6tkVsevIyC6TCL0lg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xMHYv/3PQ1dDfJ+rtiKztMzQh4qN4g0xk740mDLwxPU=;
- b=T8kxm6kBnQj3W9I/+oyBl21Jb+tithcS+ABCfTuPr13sJ5DGItpEz7oIPMUp+sDAfByITPbqGxG1eX6rzKEcxS2g+VsDQ/ZdtJzmL2w3sV8eQQi88jOTmutYwSVryY9+WnbBfF8dWob50ypOwwBWWH8PLycqHRBAVKYgjklsLFq72JMFob60K3T5D2FCIUCaQcV+7xk2sQtssS+W4c3TCZ8bmaw3+53zA9FEjTkY2jUjWQkE1GKRiP9EySGIO3UTluICHFxWhhzSPDuDWG77jDKt167cNPkC9lgVoQsEC69bo7q6u2cGXR8TyEh7ZtBnCgzCpHCNho/1EMCHLCfVQg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15) by IA0PR12MB8374.namprd12.prod.outlook.com
- (2603:10b6:208:40e::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Thu, 19 Nov
- 2026 18:28:38 +0000
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 18:28:38 +0000
-Message-ID: <7e94f48f-f352-4809-a96e-d5363b8be273@nvidia.com>
-Date: Thu, 19 Nov 2026 20:28:32 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net/mlx5e: Skip hairpin entries not ready in debugfs
- dump
-To: Changyul Lee <lcy8047@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
- Leon Romanovsky <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>,
- Mark Bloch <mbloch@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Gal Pressman <gal@nvidia.com>, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261119012707.555494-1-lcy8047@gmail.com>
-Content-Language: en-US
-From: Tariq Toukan <tariqt@nvidia.com>
-In-Reply-To: <20261119012707.555494-1-lcy8047@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TLZP290CA0002.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:9::8)
- To IA4PR12MB932075.namprd12.prod.outlook.com (2603:10b6:207:12d::15)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LftXorVd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C08C1F000C7;
+	Thu, 19 Nov 2026 18:33:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795113208;
+	bh=cW1Gp/SLXYhxx5A9Q5dr7GIRM3j5LjmrWw0BlEu5f0M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=LftXorVdYWkIH/eKEEiACZdlDi2wHbqiibu28g6YGHfvZtuH+Yr3N6hOUSovVKTwv
+	 mziTPULqd4/+RbUap3VPHM661ho0Ttdz0nxZZ8N9ZDwBpQ2uq0V8+PfXTrFSMuXajj
+	 pXuP2GtQO6zhyRYzbgpgpJPUrdEFnYSFfl3gDdAz5+siFiDn8Gj5pRdRcM55jc0w/1
+	 wMSXH6NqCwoF9vTnCceN4Pa0FtOoTviSnHGYs1jGzhem1zhnlNGiB6wYM315U3QsYW
+	 4k5fOUjyOBMtpWx/V1WxnQ8qVg4iyumUE+R9mYHttnCGnGrHZruHR8fkOhWpe9j5Bi
+	 2JdA39KfX1kYA==
+Message-ID: <cab39a1c-056f-488f-b217-194af2056db2@kernel.org>
+Date: Thu, 19 Nov 2026 19:33:23 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,91 +51,171 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|IA0PR12MB8374:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d14b1f2-04c8-4bbd-c66f-08df466aedc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|7416014|23010399003|376014|1800799024|261022075727099003|261102123227099003|10067099003|11063799006|56012099006|261026140227099003|261028144727099003|261022105027099003|261021121427099003|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	b4m+0te9BjIKjC4DTS7kY7irr0NSA6406ZRvTqAQOajrOYkvAUgFdi3eYYLCVPrRrfesW2tvFOCoa2qlWMe4cQigXio/MTumdvKcI8YllAyZDxsQuIhNc97U0+EBcdnEswUITkhfadvSJjvJuiT9nw85di89M6H/jYLu4EJz3pkf9w/YS/FMTArHnRYHnRt7zgUTMA8fryZvAYAIEgNeAk2JY5/93Qu03T95n5dUv1ufxlRgTcal6HkJ7ycEwSrp8QYds/067mxmZt+8//CDX/+GKGZZfuBi/2t16TNaj7q4D/L5K62He3M4FXq62zXwvegdZbF5Ap92wfDLDJz9ipBiJuLYhU/kPEy02vCQwzgUcsUxXIE6HDZgWO9M0/boFd542/pp5q3CJA18dWlLTJvYxuPDp3GdwHFu6MyVjN3flg2Egp/pk4HIv9dLZSJ9a+C8pMMYYO3gmDoxl5ukjgnrVBI/ky8DXjDzkkZub42h305qfLF3KQcCXxayTq5PVgheCd6RryB0lN1n3uVBjezdPj4jp8gfKUHT/1hUTV0hRZzw2zQg3EXeTUS9G04UgIuEk5RrqqwuibxTp7O94hQd2y2K+GiUHEnpq9XU9VTe3/sCgtU94SoYtwIc562G7bNukLYVT16fl8YZDH2ZbNco4Sphj3JPDWsSd3KtKqE=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(23010399003)(376014)(1800799024)(261022075727099003)(261102123227099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?aGlEelNqS1NURXVGSGFQcTJnWWNrTWlZck5IbVdIOUx3UEcwMTNaZE5nOXZQ?=
- =?utf-8?B?d2p2T0ZMd1VmdkM5RDFKcE16czd4Y1BkVVcyM20xYXg3L2FKVG1MY3prZDhI?=
- =?utf-8?B?d3JCVzhSK3hoVGtxU0tESUM1U0lROTRRVmxRZThGT2xWQW40b1FkaTR4UytX?=
- =?utf-8?B?UDdaUHNCY2p0UEViQ0xSZ2N1Nk81RzVHUGdpRlhFUER0K1pQZThYYldGempo?=
- =?utf-8?B?emVoLzA4ci9jU0x2L0lMWnV0SlFBRFdGTm9ka0FreGdsVENoWUdvbDdYWi9v?=
- =?utf-8?B?bzhPeDZRTFhZazU5YUl2TUJzU09YcXZhWVVsNkZnMzFsS2hFWkZ6a21nUUF1?=
- =?utf-8?B?SlhMWjU4MTJYNEFEdjlSTmpHbHBYb1RidmI5Z2ZHaDRNTEtOZ2ZSdkVsaDR3?=
- =?utf-8?B?eHNLakplZ3NCUnNpTE9OV2xheGxzTUNkT2FUZlMyME8yUitSZ0xsSUQ1bndX?=
- =?utf-8?B?NWNpTHNHeTlHWFV4dU1wVjhYZFA0bEV1UU5tV3c1c25VZE5IQlRGUithZjNm?=
- =?utf-8?B?c0wyZEtZb3RGakVWNUgvWkdaR1FQa0hhZkd5c3hjVjVGTFRyVmEwRDJ0MFQz?=
- =?utf-8?B?dDNubTliZkNMcVZoQmhPb05nMGo3Y0RSdUdHMXVKN3g2VUhLeXdUdTRUR28z?=
- =?utf-8?B?R3dlcXhvMkxBM1h3M0VQa0Y2RGprS2VEREpVTXVCNlp2VUQxdEd3bDV4anJN?=
- =?utf-8?B?bG9RRmwzazc4WnNkWDRLbUhyaEpxYnlhVlp4dlAvRGh3anU5T2VHdzJiUXp3?=
- =?utf-8?B?Y2tubjM1UFZURGcybEhpYkdkcGROZjBTN3M2cnRkVjhSVzFWUkl3Qk42RzlK?=
- =?utf-8?B?WHM4citGamRadERxZDFEeStNdEY3TUhrUEFsQ2RwSDRPSnh1VFR3ajR2VEtI?=
- =?utf-8?B?ZjJML0VWMjFMTmhoYlBOSitJeU1pOWVYemVsTzBzVzhIc0RFemlJWTBQaEk5?=
- =?utf-8?B?SFNxamZHUFZpV2tPaDY2MHVhR0FtNjBPWFZTYmlKTnkyS3BGTFBqU0VwTGlY?=
- =?utf-8?B?UXovRnBXaTA0eEFFMUJVbEdhMHlRTXZERmFDdERzbEdQNHY2RXBRRSswUmVL?=
- =?utf-8?B?cjExOHFEaXVkbHkwK0pNRXAvTSt5aWlyTkttTkt5WDdRRlVyVDZDVUNaaWdK?=
- =?utf-8?B?QXFBbjJ3Q3pkcVhIME9MaXRPSDZSNVBrb0Y0aGxBbEF1Y2pSYjA2TVhmSjdO?=
- =?utf-8?B?SW5KRWs5WmZMSFJndlJkUkgzTW1VaVRabXl0ekRTNlRWSFg2Tzc5VTBGTVZi?=
- =?utf-8?B?cE5VdzBYQlBFd3pySXJwQlJLWmJTaGc2VWg3c09OQW13NHo0SG9DRWh4Z29l?=
- =?utf-8?B?MTNEekhyRE9BZzRwSVZFYjc0S01oWDRrSXg5bjJubGFrdDc5S3I1S0Z2U0sy?=
- =?utf-8?B?ZEpzc0tlNzBibmV2MkFGQlpNYURWOWg0ZTB3Sm4yUkFQS1BSQ0IzOXhQNXNU?=
- =?utf-8?B?Tmk1MCtFS0lBRGVFWUlveWllWFU3U2IzcTlrZTVMNE05SVhJUDd2c1Zac21H?=
- =?utf-8?B?ckR6b05OTjl6Ty9vRSswZHNvNXRleU94RkNVeXV3RmtDS3Z0Tmt2TkRJN1BH?=
- =?utf-8?B?OHZoN0Q4dWM4SGFyMndZWWxtUEFPclllT0pMeWlEeEVZTndFTUFjVVN5b01q?=
- =?utf-8?B?VEVpem1MUytOeDRmWFp4YmFwSSs5S2toTHJSWmdkU25rUzVNbTBScjJ3YVNa?=
- =?utf-8?B?dUo0OWRLZW9VcnEydXBndDdYTSsvRnFlai9KelZubmdSOEo0NnhTTFFXMjd0?=
- =?utf-8?B?bWVPNzhqRnJxaGRSZm94d0VRYVZ2SThQbDFkWEJCN3RBcXJxSzA5aFZtdFZk?=
- =?utf-8?B?WlZjU3l6QjRvYjR5cEl2T3NIZXMrQVo5eUM2NERWdlM0VW1HVWs3dGprdyth?=
- =?utf-8?B?ZXFRNEh4eFdjbFIrN0hhZUdFVEZnRzdkQUlRVUNMekJJYWo3aWtscWxscjZK?=
- =?utf-8?B?UXdwaDY4eXU5bnhYc3BhNFNiRzFIM0hQbnJnNy8yL0I3ZWdzK2NRa1FkWGpM?=
- =?utf-8?B?eUhFdFhERmllZGRYTnpxKzZJdW9BcU1wSGNHOENkdXhQbk1QUXV4U0ZTSmRs?=
- =?utf-8?B?RWJBdjNYdFdCdlZLTERPTnduZDk2ekZBZHUreVFoWURENFBUOUQ2eVQ5cjVv?=
- =?utf-8?B?U0kvY0pndEllNE9MK3U0d0NvaExkMEZIcEI4RU9FU2crMHdqY0R0SlRLY3BH?=
- =?utf-8?B?OTVyQnpoUHYzUHZpTStvMklkd3ordlZScHZyYVBlNzRJSkhUY3IxVXFjN3VJ?=
- =?utf-8?B?QmtBYWVlTFUvQXJQeWRDVlJ3Z3lJY3RMUFp4UHFkSXpGWWJCMzhwczJOd2Zz?=
- =?utf-8?B?UlJsdTlScWdwRUQ0RjFiSHVXYjN5SUtsMzRPZFFHMHp3NCtRNGtHQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d14b1f2-04c8-4bbd-c66f-08df466aedc6
-X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 18:28:38.1867
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7Vd7unTCxo+ol0QJ/uIIS+pYCv9WeUvuKzPZxOfIGSG2qUXlSS0P50xpLBQ1rR63+IJNCwKemMWRzboPgqGbxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8374
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net 3/3] mptcp: exclude MSG_PEEK from receive buffer
+ autotuning
+Content-Language: fr
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: lei lei <llleigoing@outlook.com>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>,
+ "ncardwell@google.com" <ncardwell@google.com>,
+ "kuniyu@google.com" <kuniyu@google.com>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>,
+ "martineau@kernel.org" <martineau@kernel.org>,
+ "geliang@kernel.org" <geliang@kernel.org>
+References: <20261117052200.1507847-1-llleigoing@outlook.com>
+ <20261117052200.1507847-4-llleigoing@outlook.com>
+ <CAL4WiioFmJXhfGSY7rs7aR3FA_xC_f0sjuArBo7CBjV_tXTbTw@mail.gmail.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <CAL4WiioFmJXhfGSY7rs7aR3FA_xC_f0sjuArBo7CBjV_tXTbTw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+Hi Eric, Lei,
 
+Thank you for the patch, and for the review!
 
-On 19/11/2026 3:27, Changyul Lee wrote:
-> Hairpin entries are added to the table before creation completes.
-> Reading hairpin_table_dump can therefore dereference a NULL pointer
-> while creation is in progress, or an error pointer if creation fails.
+On 19/11/2026 08:59, Eric Dumazet wrote:
+> Le mar. 17 nov. 2026 à 06:22, lei lei <llleigoing@outlook.com> a écrit :
+>>
+>> __mptcp_recvmsg_mskq() passes bytes copied by MSG_PEEK to
+>> mptcp_rcv_space_adjust(), although those bytes remain in the receive
+>> queue. Repeated peeks count the same data as new application
+>> consumption and can inflate the receive-memory budget. Subtracting the
+>> unread queue at a measurement boundary cannot undo that repeated count.
+>>
+>> The receive path originally skipped this adjustment for MSG_PEEK.
+>> Commit 581302298524 ("mptcp: error out earlier on disconnect") moved
+>> the adjustment calls without preserving that check.
+>>
+>> Only adjust receive space for non-peeking reads. Keep the returned
+>> byte count unchanged.
 > 
-> Skip entries that are still being created or whose creation failed.
+> This one looks good to me.
 > 
-> Fixes: 0e414518d6d8 ("net/mlx5e: Add hairpin debugfs files")
-The dump added by that commit printed only peer_vhca_id, prio and
-refcnt, it did not touch hpe->hp. The dereference came later, in v6.4,
-so this should be:
+> mptcp_rcv_space_adjust() accumulates @copied in msk->rcvq_space.copied,
+> and mptcp_inq_hint() is subtracted once per measurement, so N peeks
+> of the same bytes are indeed counted N times.
+> 
+> (TCP also calls tcp_rcv_space_adjust() for MSG_PEEK, but it uses
+> tp->copied_seq, which is not changed by a peek, so it has no such
+> issue.)
+> 
+> The Fixes: tag is correct, commit 581302298524 removed the
+> "if (!(flags & MSG_PEEK))" test.
 
-Fixes: 8a0594c09610 ("net/mlx5e: Add more information to hairpin table 
-dump")
+It looks good to me too, please send a v2 with the Signed-off-by:
 
-The change itself looks good to me.
+Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 
-With the tag fixed, you can add:
-Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
+>> A loopback test leaves a fixed 32 KiB queue unread and peeks 4096 times.
+>> Before this change, sk_rcvbuf grows to the configured 8 MiB limit.
+>> Afterwards, both the budget and the queue remain unchanged, and a
+>> subsequent consuming read returns the original data intact.
+> 
+> It would be nice to have this test in
+> tools/testing/selftests/net/mptcp/ (or as a packetdrill test),
+> MPTCP maintainers can tell you what they prefer.
 
-Thanks,
-Tariq
+Good idea! We prefer a packetdrill test here, using the MPTCP fork [1]:
+such tests are usually shorter and easier to read than a new selftest,
+and our CI
+runs them.
+
+@Lei: could you open a PR on this separate repository with a new test,
+please? For example in gtests/net/mptcp/syscalls/recv_peek_rcvbuf.pkt,
+next to recv_peek_waitall.pkt. Feel free to use the following script if
+it works on your side. You can test it with:
+
+  ./packetdrill/run_all.py -lv mptcp/syscalls/recv_peek_rcvbuf.pkt
+
+
+------------------------- 8< -------------------------
+  // MSG_PEEK must not be counted as consumed data by the rcvbuf autotuning
+  --tolerance_usecs=100000
+  `../common/defaults.sh`
+
+  // Small initial rcvbuf: without the fix, a few peeks are enough to grow it
+  +0.0  `sysctl -q net.ipv4.tcp_rmem="4096 8192 15728640"`
+
+  +0.0  socket(..., SOCK_STREAM, IPPROTO_MPTCP) = 3
+  +0.0  setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+  +0.0  bind(3, ..., ...) = 0
+  +0.0  listen(3, 1) = 0
+
+  // With TS, the first data gives an RTT sample (~100ms), needed by autotuning
+  +0.0    <  S   0:0(0)                win 65535  <mss 1460, sackOK, TS val 100 ecr 0,   nop, wscale 8, mpcapable v1 flags[flag_h] nokey>
+  +0.0    >  S.  0:0(0)        ack 1              <mss 1460, sackOK, TS val 700 ecr 100, nop, wscale 8, mpcapable v1 flags[flag_h] key[skey]>
+  +0.1    <   .  1:1(0)        ack 1     win 256  <nop, nop,         TS val 200 ecr 700,                mpcapable v1 flags[flag_h] key[ckey=2, skey]>
+  +0.0  accept(3, ..., ...) = 4
+
+  +0.0    <  P.  1:1001(1000)  ack 1     win 256  <nop, nop,         TS val 300 ecr 700,                mpcapable v1 flags[flag_h] key[skey, ckey] mpcdatalen 1000, nop, nop>
+  +0.0    >   .  1:1(0)        ack 1001           <nop, nop,         TS val 700 ecr 300,                dss dack8=1001 dll=0 nocs>
+
+  // Peek the same data multiple times within one RTT...
+  +0.0  recv(4, ..., 1000, MSG_PEEK) = 1000
+  +0.0  recv(4, ..., 1000, MSG_PEEK) = 1000
+  +0.0  recv(4, ..., 1000, MSG_PEEK) = 1000
+  +0.0  recv(4, ..., 1000, MSG_PEEK) = 1000
+  +0.0  recv(4, ..., 1000, MSG_PEEK) = 1000
+
+  // ... then once more after one RTT: nothing consumed, the rcvbuf is unchanged
+  +0.2  recv(4, ..., 1000, MSG_PEEK) = 1000
+  +0.0  getsockopt(4, SOL_SOCKET, SO_RCVBUF, [8192], [4]) = 0
+
+------------------------- 8< -------------------------
+
+[1] https://github.com/multipath-tcp/packetdrill
+
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
+
