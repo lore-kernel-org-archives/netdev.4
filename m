@@ -1,75 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795072619;
-	b=im7Wo8CXMHG7Lmfi4NAYtUi61pYHpEUwAt/xiHpCBKZsTe898R85JWWoZG0Ys1Gj4tW0
-	 7VeCiXm3CH91OeWjw9sfmfCy2UBZNqbRUKI3qbQhZOXFPpbKJrWRJ0/5prLdRKAF4POOF
-	 dTbdC66TNnRq4BWSoHFh3C2JyVAVQzs4ukTvxPKI9mm7cVt/1HPOxXVNN29ekKHRM2p0/
-	 34xb2bufCCamz7jb14VcNpFIeXctMLSTtVHRb0jWID6NMINMmNXcaQA0gF+YPvHX9wRTW
-	 4IIbXAZBpqRSWbKyxiWDw0b3XCtubOAbrkfjr4sRgcE8UB20l5mavDv6uMSCTJAXWGA==
+	t=1795072696;
+	b=MFcRk3HbZttDSb9YFb9/l1rxWJbe/sd8zESubT5W82Orsf3FxyZdlBDc7oW7obo6B5az
+	 BD15cu7VrgioLTq77HNvyPF77gjypGLYEgDvoDwK3rGR4x5zFsRrT6ToQ/fK2MwunrReO
+	 Myl0XvdnmlqjggXkai0cuiSedUy4ywP1oREWgrp2UDePs3ivbnVP1ieuXTkf3bBTYnAt5
+	 S4QvJQIlM+oM4vzfy0QFre5O1didaO+rGImRRSqcAJRAFkf8I+YMab5cqM5idzWGPkwAl
+	 OOIEcR4Q0GzqIMPDesiLHdeVIyOLC+Y2hmlT1Q4e4KdlZbOYHpa9NW1Scc+RJgA2zQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072619;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=g7Mi1EJ8K+x+qtLPs0vy1b0AVcFesnmBsbWRRhaRZuI=;
-	b=QJYFgMnbGFqaP7NSD0RAIvBPfMlyc49QbW/wmeOWnZ0hB2+dtY/mrLAn61zYUk9RrCqF
-	 c2nG4pje5ZnAdaiw8nw4M860Moid82RMZQbIm1j6xHBFwv5uV3m6ZtOTkIB1ucEAaIyEW
-	 OFO1e9pPJ5xbu9faLlP6jLmqDKB/vtY6LCxpzFScnz0qK2Jb3YGPc/Wqhy+HkjI+8v/Z4
-	 j2v2afEbU/kKBH0bI6DQ7njME5k1s/By5asUwCEmH/Cr91yI4yyxYimRDaUj3ZtZeQRgO
-	 ljg/F8z7WyJKI626jX86PhWSQeOTw1fR0BP3T9zSug/DIWHujWgZSgOB7Yrh8c6Y+1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072696;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=APuvn7f/7sMW86yp8ozwMRqfBj0JO9PvrdgmAwgAkXc=;
+	b=VyR3HPweDGlkcRHEhgyHO0XM0aQuXf21yjbO1ZZxC5fUz+36oN3nGALUqxwNz2SQ39Q+
+	 4/Nt55b7ek55S6ew3gdfbIt4YLp2h7dFr9PDCpKdkggPaByl+qc3porw++3jmoIaBU8e0
+	 Jy3Oqm1s6ZT8O1mP6TA34cupTPhwvRfi6bDHNYZHqc6e72WTufRi9/kK3QL6O7LHDi9dH
+	 j2Ci7KwkHaUQZ+/tidgdgrcFOK7nggGmapmxbSFHKxQO0xuRtpFaoYzFcbKDYAVxcje3x
+	 1F7cqEtzyVqiYy1Trf6fYInmUdzEoV7amAdWygLEqA1p0ihUodEtYEyqt/ZTYL1K8Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a15kQE0f;
-	arc=none smtp.remote-ip=209.85.216.69
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nuLJV8fV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2539060A2626
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:16:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2539060A2626
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E6D5606A324;
+	Thu, 19 Nov 2026 07:18:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a15kQE0f
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b18165dc53so2286027a91.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795072618; x=1795677418; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g7Mi1EJ8K+x+qtLPs0vy1b0AVcFesnmBsbWRRhaRZuI=;
-        b=a15kQE0f1cqzk4uCvvwlDoOVX9c3FJJA++AewQme6nQNCcWtqKvEXBZC6Ug2P5aO3F
-         nIiBTFp6YEGF4Rw+5l0zY8PGhtH1gHw5YCxXqRWqQkLr7sCU+dKp7gYyQS4qwcB4867G
-         bvzbu15d5UhHF2Sb7nIaMezpTWpOEbns02tcT2sOU9mBVSJayrmaatGtNUM7hp1px8x9
-         69Nc3egu8u9bqQTbezGhQvEVC2lVKPv2TyMEAYtoNymhEUbRNK1YUIcafn15Ze/BjTYU
-         vJOVlh6Y4rE7A/Oaww8Qwe/jQICbj6frBzve7WkUZTtfvQr7YL9his5m5+iJBDMyvO0x
-         rTLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795072618; x=1795677418;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g7Mi1EJ8K+x+qtLPs0vy1b0AVcFesnmBsbWRRhaRZuI=;
-        b=l78U5AZ4b9mG4UhmWe8AhcBT8ZdPZj4q7QMd6vmHyEk3RC+tVwRtiBnMub+BXYAN5t
-         1+L4HCYkPF6cKs7flMvP6AxbJW6IDpfU+zwkVrb6z3H7nHRWO7uyo8vuHAxDycnD8HEl
-         LeXGxRboR4Y4GIcwhRJo4zItQE6r/7USR6dy3PgyGdqZsXsFwfBsnZXAwphuUXR+0BDt
-         2wiRRo6mJHvCkY77C9qeqIJf9kGs7kqaK/ucdNXKokI1IxsVA9/XYC2ubyz1c7rMbv1i
-         aiyCaCBq2q2PRxVj/1myisttBsOTQDA7TD4T1nX6hdKapYvgQHvnaiGGU9Sf2efBBp8G
-         SnCA==
-X-Forwarded-Encrypted: i=1; AL+hErFTITRtr25Xtqj2UendVc8hDi1wKs6h1g24XW+/IdOp7pwqpkLQWafxCw+xj6Px3PiUoH6dTuA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lZrOxcIpNEABCBtl2Z9RNgO5Zg/2Da279xLcztijGZjKBC0Be
-	aByTXU9ZY6mMat5eEGVaqyWt8SjJBlUXFE1v4Xy1fy/4cM+TT11FNeUoMtgBB1AOqEOz609HElP
-	HEApbHQ==
-X-Received: from pjnx12.prod.google.com ([2002:a17:90a:8a8c:b0:3b1:7f3c:405d])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:448f:b0:3b3:c04e:4b61
- with SMTP id 98e67ed59e1d1-3b3d07abdb6mr5408294a91.47.1795072618233; Wed, 18
- Nov 2026 23:16:58 -0800 (PST)
-Date: Thu, 19 Nov 2026 07:15:59 +0000
-In-Reply-To: <20261119071649.374106-1-kuniyu@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nuLJV8fV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ADF91F000C4;
+	Thu, 19 Nov 2026 07:18:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795072696;
+	bh=APuvn7f/7sMW86yp8ozwMRqfBj0JO9PvrdgmAwgAkXc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nuLJV8fVc2D0MrbPEKZ35IXVmf8L6ICWqA805Tk7LAAIPJx7UCKjmZxc59fyigx2g
+	 lXSSphsOzAQfsebmstu0+O4eMgGF3exHrvIfhuxGoLmOWey18JBKmVK1Xw/VyHaPsZ
+	 hfSjl8WYYm65pvvel75Be0ysgbB4Ky87xuvAoyV/SvuqTIEdmRvPaiJ7T4S3a+bVQR
+	 nIn2nQUotBnrGo9Xzn8ESPCAU8Vj6UhKaMIFf33OD9RSf1ChY6r0xVN3/BxnU55Hlh
+	 R9hY6EZN2X9huqMJHvsXgm3b3LVgn9x4FSZvgXfvSUj2AY4v6IcCAS4emNvE/VqD+b
+	 R2bmr+esy2LCA==
+Date: Thu, 19 Nov 2026 09:18:11 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	Chris Lu <chris.lu@mediatek.com>, Mans Rullgard <mans@mansr.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Cornelia Huck <cornelia.huck@de.ibm.com>,
+	Andrew Morton <akpm@osdl.org>, Jeff Garzik <jeff@garzik.org>,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org, netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev, linux-coco@lists.linux.dev,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>, linux-sound@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v3 18/31] net: phy: Use the compatibility driver
+ attachment API
+Message-ID: <20261119071811.GG162713@unreal>
+References: <20261118-device-trust-core-v3-0-d655875c4bfb@nvidia.com>
+ <20261118-device-trust-core-v3-18-d655875c4bfb@nvidia.com>
+ <71c1b931-c553-46e3-b49a-51167f168ac4@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,218 +97,41 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261119071649.374106-1-kuniyu@google.com>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119071649.374106-8-kuniyu@google.com>
-Subject: [PATCH v3 net-next 7/7] selftest: packetdrill: Add test for tcp_collapse().
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Matthieu Baerts <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, mptcp@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <71c1b931-c553-46e3-b49a-51167f168ac4@lunn.ch>
 
-tcp_collapse() now does not collapse high-density skbs and a
-low-density skb sandwiched by high-density skbs.
+On Wed, Nov 18, 2026 at 09:21:45PM +0100, Andrew Lunn wrote:
+> > @@ -3813,6 +3809,8 @@ static int phy_probe(struct device *dev)
+> >  	int err = 0;
+> >  
+> >  	phydev->drv = phydrv;
+> > +	phydev->is_genphy_driven = phydrv == &genphy_driver ||
+> > +				 phydrv == &genphy_c45_driver;
+> >  
+> 
+> Why do this here?
 
-tcp_rcv_collapse_bloated.pkt verifies the behaviour by
+This flag marks that driver is already probed, which is reliably
+happening in phy_probe() under right locks. It was the easiest
+way to battle AI reviews which don't agree with how PHY subsystem
+performs driver bound.
 
- 1. set a large SO_RCVBUF
- 2. send one high-density skb with 100 bytes read()
- 3. send one high-density skb
- 4. send one low-density skb
- 5. send one high-density skb
- 6. send 30 low-density skbs
- 7. send one high-density skb
- 8. set a small SO_RCVBUF
- 9. send a small data to trigger tcp_collapse()
-10. check TcpExtTCPRcvCollapsed via nstat
+> 
+> It also makes the code asymmetric. If you set it in phy_probe, you
+> should unset it in phy_remove. At the moment, it is symmetric,
+> phy_attach_direct sets it, phy_detach clears it.
 
-Without the series, the first high-density skb is collapsed.
-In addition, the first low-density skb drags the following
-high-density skb into collapsing, consuming more memory.
+is_genphy_driven management was moved from attach/detach to
+probe/remove, so it is not set in attach anymore. It aligns now
+with how phydev->drv is handled, which was set to NULL phy_remove(),
+see commit 00db8189d984 ("This patch adds a PHY Abstraction ...").
 
-If we remove sk_forced_mem_schedule() without this series,
-sk->sk_forward_alloc becomes negative at the end of tcp_collapse().
+So I would say that now it is more aligned with what PHY does and more
+symmetric than before.
 
-Note that 30 segments are to make the memory savings large
-enough so that the margin can absorb minor size delta of
-struct sk_buff or L1_CACHE_BYTES across configs.
+Thanks
 
-skb truesize, TCP_COLLAPSE_MAX_SIZE, TCP_COLLAPSE_SCALING_RATIO
-depend on PAGE_SIZE being 4K, so the test is skipped if getconf
-returns non-4K PAGE_SIZE.
-
-Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
----
- .../selftests/net/packetdrill/ksft_runner.sh  |   9 ++
- .../packetdrill/tcp_rcv_collapse_bloated.pkt  | 135 ++++++++++++++++++
- 2 files changed, 144 insertions(+)
- create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
-
-diff --git a/tools/testing/selftests/net/packetdrill/ksft_runner.sh b/tools/testing/selftests/net/packetdrill/ksft_runner.sh
-index 0a97d5ae3469..250d143bb9f7 100755
---- a/tools/testing/selftests/net/packetdrill/ksft_runner.sh
-+++ b/tools/testing/selftests/net/packetdrill/ksft_runner.sh
-@@ -44,6 +44,15 @@ if [ -z "$(which packetdrill)" ]; then
- 	exit "$KSFT_SKIP"
- fi
- 
-+page_size=$(grep -E '^--define="?PAGE_SIZE=' $script | sed -E 's/.*PAGE_SIZE="?([0-9]+)"?.*/\1/')
-+if [[ -n "$page_size" ]]; then
-+	cur_page_size=$(getconf PAGESIZE 2>/dev/null)
-+	if [[ "$cur_page_size" != "$page_size" ]]; then
-+		ktap_skip_all "requires PAGE_SIZE=$page_size (current: ${cur_page_size:-unknown})"
-+		exit "$KSFT_SKIP"
-+	fi
-+fi
-+
- declare -a optargs
- failfunc=ktap_test_fail
- 
-diff --git a/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt b/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
-new file mode 100644
-index 000000000000..90e8be86968f
---- /dev/null
-+++ b/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Test that tcp_collapse() only collapses bloated skb runs, skips leading
-+// and trailing high-density skbs, skips isolated bloated skbs when collapsing
-+// them would not shrink truesize, and properly recovers receive buffer space.
-+
-+--mss=1000
-+--define="PAGE_SIZE=4096"
-+
-+`./defaults.sh`
-+
-+// Establish a connection with a large receive buffer.
-+// __sock_set_rcvbuf() doubles, so 2000000
-+   +0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
-+   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
-+   +0 setsockopt(3, SOL_SOCKET, SO_RCVBUF, [1000000], 4) = 0
-+   +0 bind(3, ..., ...) = 0
-+   +0 listen(3, 1) = 0
-+
-+   +0 < S 0:0(0) win 32792 <mss 1000,nop,nop,sackOK,nop,wscale 7>
-+   +0 > S. 0:0(0) ack 1 win 65535 <mss 1460,nop,nop,sackOK,nop,wscale 4>
-+   +0 < . 1:1(0) ack 1 win 65535
-+
-+   +0 accept(3, ..., ...) = 4
-+
-+// 1. Queue two high-density 62,000 B segments (each adds 15 pages of frag
-+// truesize with enough margin across NET_SKB_PAD, L1_CACHE_BYTES, and
-+// MAX_SKB_FRAGS configs).
-+// Read 100 bytes from the first one so before(skb->seq, tp->copied_seq) is true.
-+   +0 < P. 1:62001(62000) ack 1 win 65535
-+    * > .  1:1(0) ack 62001
-+   +0 read(4, ..., 100) = 100
-+
-+   +0 < P. 62001:124001(62000) ack 1 win 65535
-+    * > .  1:1(0) ack 124001
-+
-+// 2. Queue an isolated bloated 1,000 B segment.
-+   +0 < P. 124001:125001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 125001
-+
-+// 3. Queue another high-density 62,000 B segment.
-+   +0 < P. 125001:187001(62000) ack 1 win 65535
-+    * > .  1:1(0) ack 187001
-+
-+// 4. Queue a run of 30 bloated 1,000 B segments.
-+   +0 < P. 187001:188001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 188001
-+   +0 < P. 188001:189001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 189001
-+   +0 < P. 189001:190001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 190001
-+   +0 < P. 190001:191001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 191001
-+   +0 < P. 191001:192001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 192001
-+   +0 < P. 192001:193001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 193001
-+   +0 < P. 193001:194001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 194001
-+   +0 < P. 194001:195001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 195001
-+   +0 < P. 195001:196001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 196001
-+   +0 < P. 196001:197001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 197001
-+   +0 < P. 197001:198001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 198001
-+   +0 < P. 198001:199001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 199001
-+   +0 < P. 199001:200001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 200001
-+   +0 < P. 200001:201001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 201001
-+   +0 < P. 201001:202001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 202001
-+   +0 < P. 202001:203001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 203001
-+   +0 < P. 203001:204001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 204001
-+   +0 < P. 204001:205001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 205001
-+   +0 < P. 205001:206001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 206001
-+   +0 < P. 206001:207001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 207001
-+   +0 < P. 207001:208001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 208001
-+   +0 < P. 208001:209001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 209001
-+   +0 < P. 209001:210001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 210001
-+   +0 < P. 210001:211001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 211001
-+   +0 < P. 211001:212001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 212001
-+   +0 < P. 212001:213001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 213001
-+   +0 < P. 213001:214001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 214001
-+   +0 < P. 214001:215001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 215001
-+   +0 < P. 215001:216001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 216001
-+   +0 < P. 216001:217001(1000) ack 1 win 65535
-+    * > .  1:1(0) ack 217001
-+
-+// 5. Queue a trailing high-density 62,000 B segment.
-+   +0 < P. 217001:279001(62000) ack 1 win 65535
-+    * > .  1:1(0) ack 279001
-+
-+// Reset SNMP counters.
-+   +0 `nstat -n`
-+
-+// Shrink SO_RCVBUF so sk_rcvbuf (320,000) is smaller than current
-+// sk_rmem_alloc (334,592 on x86_64 default), but larger than sk_rmem_alloc
-+// after collapsing the 30 bloated skbs (300,288 on x86_64 default).
-+   +0 setsockopt(4, SOL_SOCKET, SO_RCVBUF, [160000], 4) = 0
-+
-+// Inject the next 1,000 B segment with a changed window to bypass
-+// header prediction.  This triggers tcp_prune_queue() -> tcp_collapse().
-+// Only the 30 bloated segments should be collapsed; the high-density
-+// segments and the isolated bloated segment are skipped.  sk_rmem_alloc
-+// shrinks below sk_rcvbuf, so tcp_can_ingest() succeeds and the packet
-+// is accepted.
-+   +0 < P. 279001:280001(1000) ack 1 win 65534
-+    * > .  1:1(0) ack 280001
-+
-+// Verify exactly 30 skbs were collapsed.
-+   +0 `nstat -s | grep TcpExtTCPRcvCollapsed | grep -q " 30 "`
-+
-+// Verify no packets were dropped.
-+   +0 `test -z "$(nstat -s | grep TcpExtTCPRcvQDrop)"`
-+
-+// Read all remaining queued data to verify data integrity.
-+   +0 read(4, ..., 300000) = 279900
--- 
-2.56.1.708.g77570a6a1d-goog
-
+> 
+> 	Andrew
