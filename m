@@ -1,71 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.113
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070988;
-	b=Rapvu9saIuXDuOAHDgyVPJW0X3D81H91L5jMRqsu40ndR/Bxx0wJ4epBfClTTqh5yp6Z
-	 ON0HYI1EpQ0ciyZk8env++7NJ/sVLwUuqeKBvuTghfYJM9nxnMAWBPvRkL733rpOWNGrs
-	 bSW32nBn9PrJodowdc9cFGtGjyvJQe6ULtp2MmMwmGa8YonqhmfATcLjKQuf42uYdBMLF
-	 5AgFJ16qv29JZIvSY6zbAK7+m3Abg2JQLTdlqZ/Z3zYvlvtmFqjy1fwtJlgjybFkjpCE4
-	 Y8Wguy1/TXv0PB2XWPVAoSo2v3iDMbD4j4VypZwxwLrUczrkojOg/gZlYiZc+EJHPAw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070988;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=fFtNKWh5sCdTC+S0cGQWEyXMgW5g+xTd4hHCi9qN4EU=;
-	b=j8yqSwytY/tqQmEiJjVIjungiVjSoaV+bc6mQeA2tt/wynjjb2/QEj5rEOh+QJjl6GMI
-	 VnMQljynePzdo1JnvoPEVGAozWEDAKtqWRJMGKKFkwMcC+EVZrnmHv6mc/aThcbKpwpf6
-	 6LFSiSn6LG9FK3uPqfqT0otJ33KAUcmoI7Dx4PshaFAH5ZdqAJtViECMN5nZEvujixS1q
-	 AaPgQKxDmo7w3oozo/TK4hbpYKb71vh+hJOIGrlo8MWZsM2D/wLl4seC+yGWEBFlfR3Ej
-	 vVqzbXN82xkdtwzuDJHeRuvpzxUPWLXPHWH78+AgjbhLbp4fWk4oOMeQh4aE0mEpAIg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dhVp2N7C;
-	arc=none smtp.remote-ip=91.218.175.113
-Received: from mta0.migadu.com (out-113.mta0.migadu.com [91.218.175.113])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795071063;
+	b=36Nqan5Mhjtp/wgcLZLcGwP9eSTAcG/d6WedhcWQJOJ3WmtSKClPBqItuaIV8rZ0Z693
+	 w1C3Ckrtv7PT2XqGufYTY2iiG0c+pNfvENFyF1uxWyuvMV+xYUckT/Bbra/TPs2WYGVJr
+	 2TKNaccMbzZ/tzm4I7l+wyhn94n2QQjFhBrCdu/gSujoFPBCgR2U3npUBxI3RFxm4E9q1
+	 xf38Ou5KMe6bL4eK/WIlrnBkZ91yLIfzFOtIEKRot+aWt49kdHPEF7tF36ONrR9dz1Meo
+	 ksujiXk2aoav8YfhMRDTFnJCVlBRslCJImATFQzU3sT4aIl72lwOZK5IBG8Pfkj0d0Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795071063;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=21+ZMeN7M5QzEt5ztkUWNg03Vu34l6r+4MJ3ywJYA5s=;
+	b=5ebc+QVOgtNdvcNWd0ireX16MH4wyQ5jGdFIgl3BfLQkYs0fwdHfhtNvYjppUxefDeq/
+	 O60IBpoafwRzQla3KtEUtCcn0lLT+iM9glbzQ6BSQ/0tbGMqHe1h4dIJtBb0Ndco/d9lV
+	 +8kiuEpsEu1h6YKXun29qI9FhGE80QPNGREHP6VnLtWM4ajWVor4tIZQGzLsIpnta4WBE
+	 vV+XRcc2bCF5pPQJGhfZ5qQUrl7VVWk9Z6OoAxqhp6J3CpyAb51VJybRL8sGqFsOlaUiS
+	 hlKRzR/ZnoSx5+Y5WPIAYBV5mKKV7YPBX8srMpk+3yOkKCUfZsAL0y3wofhaJQ+2mvg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dz3kqhhs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66B8E606A33F
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:49:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66B8E606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E377A606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:51:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E377A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dhVp2N7C
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/tGdPvwhxPFu63Kn0ZYWw898SW5K2Ud4dFBtURngO+c=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795070985; v=1; x=1795675785;
- b=dhVp2N7CMC5DV45klPqWj7NK3D85UeOJIFFLgAuSSwn8+UfK2D9tJnPbnIQKRrn0nT0lUBvx
- DJLfQ/gi89BOdPf1fQlR/NLbDjFVYbvDzYAJsxe25RiI+f34/S0E+gfa/xt34FS0McYpntl6zgZ
- f6cO8+RE1ijZTlUq2DD1on8w=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a7cf3eda06a126e6;
-	Thu, 19 Nov 2026 06:49:45 +0000
-X-Mizu-Trace-ID: a7cf3eda06a126e6
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net-next v3 2/2] selftests: drv-net: run tls_hw_offload on netdevsim
-Date: Thu, 19 Nov 2026 14:48:51 +0800
-Message-ID: <20261119064902.242502-3-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119064902.242502-1-jiayuan.chen@linux.dev>
-References: <20261119064902.242502-1-jiayuan.chen@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dz3kqhhs
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c506a231b88so265661166b.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:51:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795071061; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Vtpv04iMCHHn9pDVvVFdkNST6fVWWgEYbrlriqxH8glgr8J7i3v6y72Oj4LR8YCy02
+         YTjpQDLMkuYZwsmDzL+XQ1KaEjBS8RSXC2axksorpxo7H+/8T1a8FXU5FlLk+OWuQSzu
+         B7dgZBuILj3pJNDOBPLFFvfzjg7wHa+kGyrx9hGaH470ckZFWEvJDJj59x5Tjr4QEsOq
+         1UJddsVrFIINaYgMB6fYcpzlCKfJqgnwTdQL7984W92jqEg/x2aaHPi6Pjji+G6/IfB7
+         t+Fi2r/C4zXXqh1PVKgsyiE/IDe+Ym/X3OMoJajq8Iy64PqOKKYHgylpC3hz5OMFjG0T
+         jH3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=21+ZMeN7M5QzEt5ztkUWNg03Vu34l6r+4MJ3ywJYA5s=;
+        fh=ZkQ+1rW0Vd3/oYoWJt3mTJcpCuk63DfPv0bAxCBHjKk=;
+        b=qaLr7U6tzxBhqjE8ERyf6I5QwHZ6jS8clGeS4Pwi6M4O+LAOMFWJZr9tqQPjNKl5AZ
+         i0DFhoZOXa0XuRe984qxe/yaxBZACIXAz/b2alQq6R/+z6kSh3BbK079y3Q8EkrqOM/9
+         4PjxnQWFT33HyuP8Wiq8EWr8Cw+65+d7DB7iRQz7qcoWBvjSXNzJKNjyR1JC8WXScsNr
+         bgaJ2DmzgYnYNqZvAj3SpI5drSlhhYIt4L1ycooyc9JEmkL9xfLmxDUKSelTG9f9ZvE0
+         f8GV4fH8Za2mRrKOXPpae0Cx6N1E+wfhlQIeLEVlZrLn0kwmeUcF+CLWNe7SmEgF/A4o
+         hD2Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795071061; x=1795675861; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=21+ZMeN7M5QzEt5ztkUWNg03Vu34l6r+4MJ3ywJYA5s=;
+        b=Dz3kqhhseNsqNCwHF7k1uCU7FQuXQgICJzlP/c0pBJjdE2knWHXGiJRepazlnC5b5j
+         E8U8mtr1gTLXz5BTNLZGw8RMPh5H3eRxTLqgKqBb6NxRXwyNs7sU7/dfJavvJu7QkIq3
+         0uoSCHWAceLPVW3Wni19pX0CLlcGo0q55Vs6q1Cem2SX1+cZc2MECZ833Sk/1469wjaN
+         HZNvWlJfP64yyPwVctHU0AxkUPa3Nqt3SHyg6NekWiEIYNQ6el+MPqPlYp4D+V6Bfx9s
+         Exdk/jK8J0WUF1x0QQ8wTt9BxZf+7krvwFtkTqPc5niGIERV2KZ9B0Zp+wSqu1lqfRG+
+         UaUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795071061; x=1795675861;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=21+ZMeN7M5QzEt5ztkUWNg03Vu34l6r+4MJ3ywJYA5s=;
+        b=RG7P3x2ts77i5bLbLUxYobFo3rluBDwcBXhoyjnhaBWIO++bUhqNLxCg/0+ipEwzAH
+         mvL8r7uTvx9QyVSV/0BS/1GYCp8q60Qd/0D06SuqySVshif80vqOvaTmGLjoO8Zlu/+E
+         dNExCi2wvqYeG/+FkqbB+K7rsLAU467KOduNpbs0W+45t7QLnrasYbNjXcEVTaupVAwD
+         FdUEr5gtjzraxgMR1kclipExsRJa2b0/5A83LPe/We/sORReyIFJ3i+vmq4SHZ8SzAzw
+         7tAjH0q8bUcfDx/cZkTprtGmB4U4cRxyA8QWzooeXqWF3C7VYSgZkBNfmcqn7GPeZXU6
+         okRg==
+X-Forwarded-Encrypted: i=1; AL+hErGO3R7F4siRORAr8dRTCVixP5WgXaYlC2zkD2ippeGC3Zwv4jK9kwxk3TzRZmooJmzjkrFlIUA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4HKoFvJpg9b9623j5peh/LtyqtEM4dmDG3nr0seJqu+UtiDXT
+	JppGXBpJngAArzed8XFfIz4Zheb5pJBKG9RUd3Rfv2bGmKE6oKcNYUQ2B2PK9OKqm1m1zs++Myy
+	ZSvEf6NMAbdkn9oR5synx4gyqj22OPGM=
+X-Gm-Gg: AYBFou1wLf0xYfI5u41x+SjPZcd0phIIpd4fM+JVecK2vhjMVBYjySI/EArVt4z/Dxv
+	P/8DBc9Xbv2qYBr+5kCNj6vIkOCI/WM7+UnsjmaF0cGVGiY4qLKm+1Eqg3JrKPVf/Hw7d/P1746
+	PGp/94fxMB9DHXU+GkyJLmyBQHHKA7Ixn/9/qow18KR24UzkriD+pxvLCe4oARYo4CGmUD3+o9A
+	5WzETc93OZoulWYuXoDuablqXEZVgrQy4oN3k9hBjjqUMbzhydjOSSLkI6XmLW+udeXNW9qyP8X
+	OnakRu7hEga4qMhnD/65vUocNqPod92bri0BqxML5/LYEMyLg6DnSRYaIbOPFCPfOf0EkdScDv+
+	VByV3tEguFhRNmc87+JhJjsjMz4bDFaGonVjSC0p+k4gmo+AGwGiML9ExrVZDjPvAFM47VWeMmj
+	6DAqvvJqTZZVP51bH4WeOI/A==
+X-Received: by 2002:a17:907:3d0d:b0:c50:95bd:e491 with SMTP id
+ a640c23a62f3a-c510e2b7e08mr400463666b.28.1795071060980; Wed, 18 Nov 2026
+ 22:51:00 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,63 +105,123 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261118221450.1764790-1-pawlik.dan@gmail.com> <4ddef89e-d6aa-4d6f-bc8d-997a9ad781b9@lunn.ch>
+In-Reply-To: <4ddef89e-d6aa-4d6f-bc8d-997a9ad781b9@lunn.ch>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Thu, 19 Nov 2026 07:50:48 +0100
+X-Gm-Features: AclHuK_5r3LzpobJv6cf-BjS86pPufeEQH1uQqqP4Fae6DR4oKTexALqnOpdwqE
+Message-ID: <CALC2ApjfktxVEubK9WHMK8mnVpXLE4upEK_q4uEVFmYsUaGvkw@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: sfp: skip PHY probe on bridge-less OEM
+ SFP-10G-T revisions A and B
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: linux@armlinux.org.uk, netdev@vger.kernel.org, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	petr.wozniak@gmail.com, maxime.chevallier@bootlin.com, olek2@wp.pl, 
+	hkallweit1@gmail.com, "kabel@kernel.org" <kabel@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Now that netdevsim offers kTLS device offload, let the test run on it
-too: drop nsim_test=False so the default netdevsim pair is used when no
-NETIF is set.
+Hi Andrew,
 
-The only thing netdevsim can't give is ethtool -S: nsim_ethtool_ops in
-drivers/net/netdevsim/ethtool.c has no get_sset_count or get_strings,
-so the command fails and every case died taking the NIC counter
-snapshot.  That is a gap in netdevsim itself, not in the TLS emulation,
-and the NIC counters are optional in this test anyway, so skip the
-snapshot on netdevsim instead of adding ethtool stats to the driver.
-A netdevsim port passed in through NETIF still runs ethtool -S and fails,
-that is not supported for now.
+On Thu, Nov 19, 2026, Andrew Lunn wrote:
+> If i'm reading this correctly, it never worked before? So this is not
+> a regression? I don't think this is net material, it should go via
+> net-next.
 
-  # ./tls_hw_offload.py
-  # Interface: eth1, driver: netdevsim
-  TAP version 13
-  1..8
-  ok 1 tls_hw_offload.test_tls_offload.tls12_aes128
-  ok 2 tls_hw_offload.test_tls_offload.tls12_aes256
-  ok 3 tls_hw_offload.test_tls_offload.tls12_aes128_ip6
-  ok 4 tls_hw_offload.test_tls_offload_sizes.small_buf
-  ok 5 tls_hw_offload.test_tls_offload_sizes.large_buf
-  ok 6 tls_hw_offload.test_tls_offload_sizes.random_buf
-  ok 7 tls_hw_offload.test_tls_offload_record_type.handshake
-  ok 8 tls_hw_offload.test_tls_offload_record_type.alert
-  # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
+Correct, rev A never worked without the stall; it eventually links up
+after ~9 minutes, so it is not a regression. I will send v3 to net-next
+without the Fixes: tag.
 
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
- tools/testing/selftests/drivers/net/hw/tls_hw_offload.py | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+> When sending to net-next, you can move this function in one patch, and
+> then make use of it in the next patch.
 
-diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-index e720ce6547610..1197f17caa13c 100755
---- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-+++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-@@ -125,6 +125,9 @@ def read_nic_stats(cfg):
-     # before/after-delta caveat as read_tls_stats(): these are device-wide,
-     # so concurrent kTLS traffic on this NIC would perturb the deltas.
-     stats = defaultdict(int)
-+    # netdevsim has no ethtool -S, and the NIC counters below are optional
-+    if cfg.get_local_nsim_dev():
-+        return stats
-     output = cmd(f"ethtool -S {cfg.ifname}").stdout
-     for line in output.strip().split('\n'):
-         key, sep, val = line.partition(':')
-@@ -307,7 +310,7 @@ def test_tls_offload_record_type(cfg, record_type):
- 
- def main() -> None:
-     """Set up the DUT/peer environment and run the offload test suites."""
--    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
-+    with NetDrvEpEnv(__file__) as cfg:
-         cfg.bin_local = cfg.test_dir / "tls_hw_offload"
-         cfg.bin_remote = None
-         cfg.tls_skip_reason = None
--- 
-2.43.0
+Will do, v3 splits the sfp_strlen() move into its own patch.
 
+Thanks for the review,
+Daniel
+
+czw., 19 lis 2026 o 00:16 Andrew Lunn <andrew@lunn.ch> napisa=C5=82(a):
+>
+> On Wed, Nov 18, 2026 at 11:14:50PM +0100, Daniel Pawlik wrote:
+> > "OEM SFP-10G-T" modules with vendor revision "A" have no RollBall
+> > I2C-to-MDIO bridge: page 3 of the 0x51 EEPROM passively echoes written
+> > bytes, so every RollBall command times out. With instrumented mdio-i2c,
+> > the CMD register reads back exactly the written command byte (0x02)
+> > forever, with no DONE and no I2C errors. 0x56 reads back all 0xff, so t=
+he
+> > PHY is not reachable at all. A genuine RollBall module with the same
+> > vendor and part number (revision "02", AQR113C PHY) on the same board
+> > answers DONE on the first poll and its PHY attaches within ~2 seconds.
+> > A rev B module with an RTL8261BE PHY, reported on the OpenWrt tracker,
+> > hits the same RollBall timeouts. The bridge probe added by
+> > commit 8fe125892f40 ("net: phy: sfp: probe for RollBall I2C-to-MDIO
+> > bridge in mdio-i2c"), since reverted, found no bridge on it, after
+> > which the module worked.
+> > That module reaches this quirk entry only because its part number is
+> > "SFP-10G-T" at that point: it is a rate-adapting module which reports
+> > "SFP-10G-T" with a 2.5G or faster peer and "SFP-10G-T-I" with a 1G
+> > peer, and only the former matches this entry, which is the sole entry
+> > forcing RollBall on it. The "SFP-10G-T-I" variant matches no quirk and
+> > keeps the default behaviour either way.
+> >
+> > Because the SFP-10G-T quirk forces RollBall, the kernel retries the PHY
+> > probe 25 times at ~21 seconds per attempt, i.e. for over nine minutes,
+> > before giving up and falling back to inband mode. Each attempt runs fro=
+m
+> > sfp_timeout() with rtnl_lock held, so for the whole window every rtnl
+> > user on the system stalls in ~21 second chunks, including the state
+> > machines of other SFP cages: insertion and removal of a module in anoth=
+er
+> > cage is only processed after the current attempt ends. In one test, a
+> > module pulled from the other cage kept being polled by phylib until the
+> > attempt ended, triggering a WARN from phy_error_precise().
+> >
+> > Give the SFP-10G-T entry its own fixup that skips the PHY probe for
+> > revisions "A" and "B", while keeping the forced extended compliance cod=
+e
+> > so that the module still links up in 10GBASE-R inband mode as before.
+> > Other revisions keep the RollBall fixup unchanged.
+> >
+> > Tested on a Banana Pi BPI-R4 with rev A and rev 02 modules: the rev A
+> > module links up at 10G ~16 s after insertion instead of over nine
+> > minutes, and the rev 02 module is unaffected. No rev B module was
+> > available for testing; its match is based on the report above.[1]
+> >
+> > [1] https://github.com/openwrt/openwrt/pull/22910
+> >
+> > Fixes: 324e88cbe3b7 ("net: sfp: add support for multigig RollBall trans=
+ceivers")
+> > Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+> > Link: https://lore.kernel.org/netdev/20260624084814.20972-1-petr.woznia=
+k@gmail.com/
+>
+> If i'm reading this correctly, it never worked before? So this is not
+> a regression? I don't think this is net material, it should go via
+> net-next.
+>
+> > +static size_t sfp_strlen(const char *str, size_t maxlen)
+> > +{
+> > +     size_t size, i;
+> > +
+> > +     /* Trailing characters should be filled with space chars, but
+> > +      * some manufacturers can't read SFF-8472 and use NUL.
+> > +      */
+> > +     for (i =3D 0, size =3D 0; i < maxlen; i++)
+> > +             if (str[i] !=3D ' ' && str[i] !=3D '\0')
+> > +                     size =3D i + 1;
+> > +
+> > +     return size;
+> > +}
+>
+> When sending to net-next, you can move this function in one patch, and
+> then make use of it in the next patch. That makes the code easier to
+> review. Lots of small patches, with good commit messages, which are
+> obviously correct.
+>
+>         Andrew
+
+
+
+--=20
+Z powa=C5=BCaniem,
+Daniel Pawlik
