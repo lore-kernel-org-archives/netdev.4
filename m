@@ -1,73 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097439;
-	b=RKeWBPodE++jZZFwL3zVySSk66+VOKEWmrTsg3ouFA4KhO9aZpyO99Q+BsXo853f1dyT
-	 4r9vEW28fp4GkUA75js0qD3vyD3R6Ffa42YCz9D+OiRDulaHy2cKmACNH3e/FcOE8Z++u
-	 n+eTCez7HD4Z2Nux78DWsI9Dl+/dD+KG021TxmIYiLOV6NTi6pnbKfBXNjP5Xms594V/2
-	 ns1RT6UBQ+0Wv7f/iHbze5N32rgZNJonaVxaA4cS/3byOxBgVYs0BDbYrIs13/RGCIMPb
-	 lt3NjnlTlDgAnRvkjNpZ/6tF9u45BoDmSBtgLioVs5s0GjdmW/Xj+7ahXB0dQA6aHWA==
+	t=1795097486;
+	b=tTRaRlxiQImsy95yIPr+zhDQtYXEv+Baf6knimNs5/goNhc3IPqNeusBI0B4+3WRf8sK
+	 AW6Z0VjQ3u0kMX9AHDiAJ0cUlH1Oxvx/WLQMYouoJOfCdiIbT+64qwGK6/7AEEEIWRyQN
+	 6F904f1UZvs/ZnMfvAykSVS1XjE0mlBCLKcIbqmsCHXZyzfmxGDdIzpafyaQ+QUWJrsMG
+	 Zrg+mOSFBv8rKqaX8sKJByRNM17Di1H1sBJPfUq9NJxkWNHKD+gGoRcfvBlNqxGUzhVbL
+	 cZ8zR3uJLTH2Yvs+FPJgTY2vlenS/qvJIE1mCakBK30uBd5nhat6iEI/Qbnd/xyl05w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097439;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=Ri6j8q1jPRsMfhWmYWlkpK/mZK+T8sJY7VX8H+dNYGA=;
-	b=Y6GysimKMvjkMPOLY7WX98xm+JdKFMu99teH4tUI5JuokxNRlzOW5GlW8O81tpedPYgO
-	 yMUHaVqwBTdUrww3A686XHnejegyAibJLDaVPgneguKgBZBz5DbpdDwk3zn26+xzMuAWM
-	 aQQJeM7fnN2Ka464rCF0qS1A3361P6eClSHXUCsZanKLFcDdT4dRHwFmcI25OvdP/nae/
-	 Fag4f1RFTM8w7nCYDWufU/s5CTsI3iXhI/HHzVtvkg1BpwPffUc79xRkVSTygiaXO+fIZ
-	 pTndElPJpjMeCxIJllFUg33e2Zx3d369IFFJnSGj4Oo3rlow3PZXYkzHxjO7b6EapEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097486;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=bf3s9RgIY82SmvQaR+hK80LHud4bx2Ddycs3hcBL9WE=;
+	b=0d0jJWvCN79UOh0Oi4/qUmyAb2lNVdnI/N89sapk1ZzsZ+4Mx8BN2s9MDoy8SVt5Dyz7
+	 RrMl/ifCFVC2HBPnVr1KPykLozt9wzFYWbHK/TU1NFrBfracaHp2YI/ApGSz9bJd1uBiu
+	 hoO+XQyCJnTgK58Tlr+TB9ZDj4011Hj8qkRWMz4JLAa435q1Yo4DPNRIbphtRqB34+edj
+	 zeQyJ8hbaul2yoCGx2tDfm1w+88I3eIuYHYfGTIs22/lSSgGKztp6950rD8Dr8bBrlRp0
+	 8GrbfXh/J9pJwHXrZE7I/auYP6d5kNcmqXBSffQ+ZNvDQgfeHkaMRODh7UHv40j1Kog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=l3RqANIA;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omL137Mu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6999D606A325;
-	Thu, 19 Nov 2026 14:10:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6999D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F71760A260D;
+	Thu, 19 Nov 2026 14:11:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=l3RqANIA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ri
-	6j8q1jPRsMfhWmYWlkpK/mZK+T8sJY7VX8H+dNYGA=; b=l3RqANIAqzjyMvfTCm
-	uvhcwbYa7PUohyF53eSFnHlfv9psBa5Vnj9sK8qCT/4r72gcpNEd9sl7gOg1Il2A
-	z4bt6VMonW6G7bVNmkq5lnaPrG6a3d45f2eREXdGSxF/7qMVa7FuBdma/LAJ2JDw
-	FGQiIaq8pB9TRnD+Agu/GOl5k=
-Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wB3Zjj_Av9qQc93Iw--.13924S4;
-	Thu, 19 Nov 2026 22:09:27 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: dinghui@lixiang.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com,
-	fujiahui@lixiang.com,
-	zhoujing3@lixiang.com
-Subject: [PATCH net v8 2/4] net: stmmac: track unfilled XSK RX descriptors explicitly
-Date: Thu, 19 Nov 2026 22:08:58 +0800
-Message-Id: <31856c65c85293ac3955212a22653ca41a36ad2f.1795096430.git.dinghui@lixiang.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1795096430.git.dinghui@lixiang.com>
-References: <cover.1795096430.git.dinghui@lixiang.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=omL137Mu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E7C51F000C4;
+	Thu, 19 Nov 2026 14:11:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795097485;
+	bh=bf3s9RgIY82SmvQaR+hK80LHud4bx2Ddycs3hcBL9WE=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=omL137MuvhpSe/wi/xx9MkwCYV21C8J9Cb4ElascXr7mkFMGFmXiY8OnZVKOOR3mL
+	 3bL0SAe1KMfdMgTA9wEg7Fs5s/Tn4PKAqn4xrzYQ4zr7BgRwLQWSOtxP6ezTe2LNaD
+	 a/V/epuUf6QZhSWcmV41KLbjXam4m9+1m6qQn3dBzC5e9r96Jgp36R51qTo1OMUFHm
+	 J0G2fxgmvx5w18IQ5tlJEeSib9VGzFw23oMyJeUiUXTDJRri43ILTYRovHvHjO9l7s
+	 lHtxfXqi1Qpur9WnmJjwlyCbIJ8fHxSduGm/+N82MzRTkKDzJq/oBO1/gx+i1mrKwa
+	 uHuZPEBYhTjaw==
+Content-Type: multipart/mixed; boundary="===============5181703165338020747=="
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,381 +49,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wB3Zjj_Av9qQc93Iw--.13924S4
-X-Coremail-Antispam: 1Uf129KBjvAXoW3Kr1fKw4kZF13JrW7ZrykGrg_yoW8Xw45Ao
-	Z2yFnxta13Kr1xCr1DWr18Gry3XanxZ34fJ3yDCrZ5uayIka1aq343Z3yrXw17Ary5Ka9r
-	Z3W8JFsFvFZrtry5n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU6-VyUUUUU
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8xhhjWr-AxhJNgAA32
+Message-Id: <fd9b43958f6297b0031158bd33bdc6cc54f3c9338a4ee2e30bd6e50acf775a60@mail.kernel.org>
+In-Reply-To: <20261119133032.2015656-3-sst@poczta.fm>
+References: <20261119133032.2015656-3-sst@poczta.fm>
+Subject: Re: [PATCH v7 bpf 2/5] xdp: introduce xdp_convert_skb_to_buff()
+From: bot+bpf-ci@kernel.org
+To: sst@poczta.fm,ast@kernel.org,daniel@iogearbox.net,davem@davemloft.net,kuba@kernel.org,hawk@kernel.org,john.fastabend@gmail.com,sdf@fomichev.me
+Cc: bpf@vger.kernel.org,netdev@vger.kernel.org,maciej.fijalkowski@intel.com,tianyi@cloudflare.com,tavip@google.com,toke@redhat.com,aleksander.lobakin@intel.com,ilias.apalodimas@linaro.org,lorenzo@kernel.org,magnus.karlsson@intel.com,ihor.solodrai@linux.dev,edumazet@kernel.org,pabeni@redhat.com,andrew+netdev@lunn.ch,horms@kernel.org,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,memxor@gmail.com,shuah@kernel.org,linux-kselftest@vger.kernel.org,syzbot+ff145014d6b0ce64a173@syzkaller.appspotmail.com,stable@vger.kernel.org,sst@poczta.fm,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Thu, 19 Nov 2026 14:11:22 +0000 (UTC)
 
-From: Ding Hui <dinghui@lixiang.com>
+--===============5181703165338020747==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-An XSK fill ring may supply fewer buffers than the RX ring needs. Those
-unfilled descriptors must remain CPU-owned, including on legacy cores
-whose clear callback only clears the buffer address. Add an ownership
-operation that preserves descriptor size and ring/chain control fields.
+> xdp: introduce xdp_convert_skb_to_buff()
 
-Track the number of descriptors awaiting refill independently of the
-ring indices, so an entirely empty ring can be distinguished from one
-with no pending refills. Initialize the pending region after the allocated
-prefix and stop consumption before entering it. Retry pending refills
-on each poll, including userspace wakeups with fewer than a batch of
-buffers, and retain batching during packet processing.
+TL;DR:
+- Commit message calls the bug a page leak; it may be a use-after-free of
+  page_pool pages
+- Stable Cc 6.4.x predates the Fixes: tag (v6.9)
+- kdoc may overstate mem type usage (nit)
 
-Update the tail after successful refills and kick legacy RX DMA. Use the
-end-of-ring tail address for a refill ending at index zero, including a
-completely empty ring populated before DMA has advanced from the base.
-Select the receive buffer size from the XSK pool even if no buffers were
-available at initialization.
+> Then when bpf_xdp_adjust_tail() calls
+> __xdp_return(), it acts incorrectly due to mem type not being set to
+> MEM_TYPE_PAGE_POOL and causes a page leak.
 
-Define the RX OWN masks as u32 before complementing them, following the
-existing TX OWN mask convention. This avoids sparse truncation warnings
-in the ownership-clearing callbacks on 64-bit builds.
+Is "causes a page leak" the full impact?
 
-Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Signed-off-by: Ding Hui <dinghui@lixiang.com>
+The mechanism is bpf_xdp_adjust_tail() -> bpf_xdp_frags_shrink_tail() ->
+bpf_xdp_shrink_data() -> __xdp_return(netmem, MEM_TYPE_PAGE_SHARED) ->
+page_frag_free().  That ends in put_page_testzero() on a page_pool page.
+
+With page checks enabled this is reported as "page_pool leak" and the page
+is not freed.  Without them, page_pool keeps _refcount at 1 and counts
+fragment users in pp_ref_count, and skb_pp_cow_data() allocates
+fragment-sized chunks.  A single page_frag_free() can therefore hand back
+to the buddy allocator a page that other skbs or pool->frag_page still
+use, which looks like a use-after-free rather than only a leak.
+
+Could the commit message describe that?
+
+> Cc: <stable@vger.kernel.org> # 6.4.x
+
+The Fixes: tag points at e6d5dbdd20aa, which first landed in v6.9.  Before
+that, generic XDP linearized every skb and never set the frags flag, so
+this bug cannot occur on 6.4 through 6.8.
+
+The later veth patch in this series (1d3541dbf827) appears to be why 6.4.x
+is listed, since it uses this helper and needs it as a backport
+prerequisite.  Could the commit message either say that, or align the
+stable range with the Fixes: tag?
+
+> diff --git a/include/net/xdp.h b/include/net/xdp.h
+> --- a/include/net/xdp.h
+> +++ b/include/net/xdp.h
+
+[ ... ]
+
+> +/**
+> + * xdp_convert_skb_to_buff - build an xdp_buff on top of an skb
+> + * @skb: skb to describe, packet data is taken from its MAC header onwards
+> + * @xdp: xdp_buff to initialize
+> + * @xdp_rxq: Rx queue info to attach to @xdp
+> + *
+> + * The memory type set on @xdp_rxq is only used to release fragments that
+> + * the XDP program consumes; the head can not be freed from under the skb.
+> + * A non-linear @skb is expected to have gone through skb_pp_cow_data(), so
+> + * all of its fragments are page_pool backed.
+> + */
+
+This isn't a bug, but is the "only used to release fragments" statement a
+property of this helper, or of its current caller?
+
+It holds for generic XDP.  However, the veth patch later in this series
+(1d3541dbf827) converts the xdp_buff to an xdp_frame on XDP_TX and
+XDP_REDIRECT, where the head is released through the same mem type, and it
+has to overwrite rq->xdp_rxq.mem after calling this helper.
+
+The kdoc also does not mention that the mem type stays set on the caller's
+possibly shared @xdp_rxq after the call.  Should the kdoc say that these
+properties depend on the caller?
+
+
 ---
- drivers/net/ethernet/stmicro/stmmac/descs.h   |  4 +-
- .../ethernet/stmicro/stmmac/dwmac4_descs.c    |  6 +++
- .../ethernet/stmicro/stmmac/dwmac4_descs.h    |  2 +-
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  2 +-
- .../ethernet/stmicro/stmmac/dwxgmac2_descs.c  |  6 +++
- .../net/ethernet/stmicro/stmmac/enh_desc.c    |  6 +++
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  3 ++
- .../net/ethernet/stmicro/stmmac/norm_desc.c   |  6 +++
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 49 +++++++++++++------
- 10 files changed, 67 insertions(+), 19 deletions(-)
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/descs.h b/drivers/net/ethernet/stmicro/stmmac/descs.h
-index 0af819a98fda..3053b915f804 100644
---- a/drivers/net/ethernet/stmicro/stmmac/descs.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/descs.h
-@@ -33,8 +33,8 @@
- #define	RDES0_ERROR_SUMMARY	BIT(15)
- #define	RDES0_FRAME_LEN_MASK	GENMASK(29, 16)
- #define	RDES0_DA_FILTER_FAIL	BIT(30)
--#define	RDES0_OWN		BIT(31)
--			/* RDES1 */
-+#define	RDES0_OWN		((u32)BIT(31))	/* silence sparse */
-+/* RDES1 */
- #define	RDES1_BUFFER1_SIZE_MASK		GENMASK(10, 0)
- #define	RDES1_BUFFER2_SIZE_MASK		GENMASK(21, 11)
- #define	RDES1_SECOND_ADDRESS_CHAINED	BIT(24)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-index c6a8f8d73501..307bbd63dbcb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-@@ -176,6 +176,11 @@ static void dwmac4_set_tx_owner(struct dma_desc *p)
- 	p->des3 |= cpu_to_le32(TDES3_OWN);
- }
- 
-+static void dwmac4_clear_rx_owner(struct dma_desc *p)
-+{
-+	p->des3 &= cpu_to_le32(~RDES3_OWN);
-+}
-+
- static void dwmac4_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
- {
- 	u32 flags = (RDES3_OWN | RDES3_BUFFER1_VALID_ADDR);
-@@ -539,6 +544,7 @@ const struct stmmac_desc_ops dwmac4_desc_ops = {
- 	.rx_status = dwmac4_wrback_get_rx_status,
- 	.set_tx_owner = dwmac4_set_tx_owner,
- 	.set_rx_owner = dwmac4_set_rx_owner,
-+	.clear_rx_owner = dwmac4_clear_rx_owner,
- 	.get_rx_vlan_tci = dwmac4_wrback_get_rx_vlan_tci,
- 	.get_rx_vlan_valid = dwmac4_wrback_get_rx_vlan_valid,
- 	.get_rx_frame_len = dwmac4_wrback_get_rx_frame_len,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.h
-index fb1fea5b0e6e..c69f95268cd0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.h
-@@ -134,7 +134,7 @@
- #define RDES3_INT_ON_COMPLETION_EN	BIT(30)
- 
- /* TDS3 use for both format (read and write back) */
--#define RDES3_OWN			BIT(31)
-+#define RDES3_OWN			((u32)BIT(31))	/* silence sparse */
- 
- extern const struct stmmac_mode_ops dwmac4_ring_mode_ops;
- extern const struct stmmac_desc_ops dwmac4_desc_ops;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index f8ab347f7b5b..50f9d1dfc92d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -434,7 +434,7 @@
- #define XGMAC_RDES2_L4FM		BIT(28)
- #define XGMAC_RDES2_L3FM		BIT(27)
- #define XGMAC_RDES2_HL			GENMASK(9, 0)
--#define XGMAC_RDES3_OWN			BIT(31)
-+#define XGMAC_RDES3_OWN			((u32)BIT(31))	/* silence sparse */
- #define XGMAC_RDES3_CTXT		BIT(30)
- #define XGMAC_RDES3_IOC			BIT(30)
- #define XGMAC_RDES3_LD			BIT(28)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-index 6719ac6e395b..ad377c76ed4e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-@@ -51,6 +51,11 @@ static void dwxgmac2_set_tx_owner(struct dma_desc *p)
- 	p->des3 |= cpu_to_le32(XGMAC_TDES3_OWN);
- }
- 
-+static void dwxgmac2_clear_rx_owner(struct dma_desc *p)
-+{
-+	p->des3 &= cpu_to_le32(~XGMAC_RDES3_OWN);
-+}
-+
- static void dwxgmac2_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
- {
- 	u32 flags = XGMAC_RDES3_OWN;
-@@ -350,6 +355,7 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
- 	.rx_status = dwxgmac2_get_rx_status,
- 	.set_tx_owner = dwxgmac2_set_tx_owner,
- 	.set_rx_owner = dwxgmac2_set_rx_owner,
-+	.clear_rx_owner = dwxgmac2_clear_rx_owner,
- 	.get_rx_vlan_tci = dwxgmac2_wrback_get_rx_vlan_tci,
- 	.get_rx_vlan_valid = dwxgmac2_wrback_get_rx_vlan_valid,
- 	.get_rx_frame_len = dwxgmac2_get_rx_frame_len,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-index 7ece8d4157a8..57909a9ba70d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-@@ -299,6 +299,11 @@ static void enh_desc_set_tx_owner(struct dma_desc *p)
- 	p->des0 |= cpu_to_le32(ETDES0_OWN);
- }
- 
-+static void enh_desc_clear_rx_owner(struct dma_desc *p)
-+{
-+	p->des0 &= cpu_to_le32(~RDES0_OWN);
-+}
-+
- static void enh_desc_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
- {
- 	p->des0 |= cpu_to_le32(RDES0_OWN);
-@@ -460,6 +465,7 @@ const struct stmmac_desc_ops enh_desc_ops = {
- 	.set_tx_ic = enh_desc_set_tx_ic,
- 	.set_tx_owner = enh_desc_set_tx_owner,
- 	.set_rx_owner = enh_desc_set_rx_owner,
-+	.clear_rx_owner = enh_desc_clear_rx_owner,
- 	.get_rx_frame_len = enh_desc_get_rx_frame_len,
- 	.rx_extended_status = enh_desc_get_ext_status,
- 	.enable_tx_timestamp = enh_desc_enable_tx_timestamp,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 8ae95e91a36a..05edec258a8b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -65,6 +65,7 @@ struct stmmac_desc_ops {
- 			 struct dma_desc *p, void __iomem *ioaddr);
- 	/* Handle extra events on specific interrupts hw dependent */
- 	void (*set_rx_owner)(struct dma_desc *p, int disable_rx_ic);
-+	void (*clear_rx_owner)(struct dma_desc *p);
- 	/* Get the receive frame size */
- 	int (*get_rx_frame_len)(struct dma_desc *p, int rx_coe_type);
- 	/* Return the reception status looking at the RDES1 */
-@@ -121,6 +122,8 @@ struct stmmac_desc_ops {
- 	stmmac_do_callback(__priv, desc, get_rx_vlan_valid, __args)
- #define stmmac_tx_status(__priv, __args...) \
- 	stmmac_do_callback(__priv, desc, tx_status, __args)
-+#define stmmac_clear_rx_owner(__priv, __args...) \
-+	stmmac_do_void_callback(__priv, desc, clear_rx_owner, __args)
- #define stmmac_set_rx_owner(__priv, __args...) \
- 	stmmac_do_void_callback(__priv, desc, set_rx_owner, __args)
- #define stmmac_get_rx_frame_len(__priv, __args...) \
-diff --git a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-index d19bf7ca4db3..473d53c31072 100644
---- a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-@@ -141,6 +141,11 @@ static void ndesc_set_tx_owner(struct dma_desc *p)
- 	p->des0 |= cpu_to_le32(TDES0_OWN);
- }
- 
-+static void ndesc_clear_rx_owner(struct dma_desc *p)
-+{
-+	p->des0 &= cpu_to_le32(~RDES0_OWN);
-+}
-+
- static void ndesc_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
- {
- 	p->des0 |= cpu_to_le32(RDES0_OWN);
-@@ -284,6 +289,7 @@ const struct stmmac_desc_ops ndesc_ops = {
- 	.set_tx_ic = ndesc_set_tx_ic,
- 	.set_tx_owner = ndesc_set_tx_owner,
- 	.set_rx_owner = ndesc_set_rx_owner,
-+	.clear_rx_owner = ndesc_clear_rx_owner,
- 	.get_rx_frame_len = ndesc_get_rx_frame_len,
- 	.enable_tx_timestamp = ndesc_enable_tx_timestamp,
- 	.get_tx_timestamp_status = ndesc_get_tx_timestamp_status,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index b76acfe0d958..b81695453cc6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -128,6 +128,8 @@ struct stmmac_rx_queue {
- 	unsigned int cur_rx;
- 	unsigned int dirty_rx;
- 	unsigned int buf_alloc_num;
-+	/* XSK descriptors waiting for refill, including a completely empty ring. */
-+	unsigned int xsk_rx_pending;
- 	unsigned int napi_skb_frag_size;
- 	dma_addr_t dma_rx_phy;
- 	unsigned int state_saved;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 8bd244046195..f9ac82d2e726 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -436,7 +436,7 @@ static void stmmac_set_queue_rx_buf_size(struct stmmac_priv *priv,
- {
- 	u32 buf_size;
- 
--	if (rx_q->xsk_pool && rx_q->buf_alloc_num)
-+	if (rx_q->xsk_pool)
- 		buf_size = xsk_pool_get_rx_frame_size(rx_q->xsk_pool);
- 	else
- 		buf_size = priv->dma_conf.dma_buf_sz;
-@@ -453,6 +453,9 @@ static inline u32 stmmac_rx_dirty(struct stmmac_priv *priv, u32 queue)
- {
- 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
- 
-+	if (rx_q->xsk_pool)
-+		return rx_q->xsk_rx_pending;
-+
- 	return CIRC_CNT(rx_q->cur_rx, rx_q->dirty_rx,
- 			priv->dma_conf.dma_rx_size);
- }
-@@ -1610,6 +1613,9 @@ static void stmmac_clear_rx_descriptors(struct stmmac_priv *priv,
- 				    priv->descriptor_mode,
- 				    (i == dma_conf->dma_rx_size - 1),
- 				    dma_conf->dma_buf_sz);
-+		/* Only the allocated prefix may be handed to RX DMA. */
-+		if (rx_q->xsk_pool && i >= rx_q->buf_alloc_num)
-+			stmmac_clear_rx_owner(priv, desc);
- 	}
- }
- 
-@@ -5601,7 +5607,7 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 
- 	budget = min(budget, stmmac_rx_dirty(priv, queue));
- 
--	while (budget-- > 0 && entry != rx_q->cur_rx) {
-+	while (budget-- > 0) {
- 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[entry];
- 		dma_addr_t dma_addr;
- 		bool use_rx_wd;
-@@ -5626,12 +5632,18 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 		dma_wmb();
- 		stmmac_set_rx_owner(priv, rx_desc, use_rx_wd);
- 
-+		rx_q->xsk_rx_pending--;
- 		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_rx_size);
- 	}
- 
- 	if (rx_desc) {
- 		rx_q->dirty_rx = entry;
--		stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
-+		/* Use the end-of-ring address when filling an initially empty
-+		 * ring completely, so the tail differs from its initial base.
-+		 */
-+		stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue,
-+					     entry ?: priv->dma_conf.dma_rx_size);
-+		stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
- 	}
- 
- 	return ret;
-@@ -5652,7 +5664,6 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
- 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
- 	unsigned int count = 0, error = 0, len = 0;
--	int dirty = stmmac_rx_dirty(priv, queue);
- 	unsigned int next_entry = rx_q->cur_rx;
- 	bool in_progress = rx_q->state_saved;
- 	u32 rx_errors = 0, rx_dropped = 0;
-@@ -5661,6 +5672,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 	bool failure = false;
- 	int xdp_status = 0;
- 
-+	if (rx_q->xsk_rx_pending)
-+		failure = !stmmac_rx_refill_zc(priv, queue, rx_q->xsk_rx_pending);
-+
- 	if (netif_msg_rx_status(priv)) {
- 		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
- 
-@@ -5697,11 +5711,13 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		entry = next_entry;
- 		buf = &rx_q->buf_pool[entry];
- 
--		if (dirty >= STMMAC_RX_FILL_BATCH) {
--			failure = failure ||
--				  !stmmac_rx_refill_zc(priv, queue, dirty);
--			dirty = 0;
--		}
-+		if (!failure && rx_q->xsk_rx_pending >= STMMAC_RX_FILL_BATCH)
-+			failure = !stmmac_rx_refill_zc(priv, queue,
-+						     rx_q->xsk_rx_pending);
-+
-+		/* A CPU-owned slot in the refill region is not a packet. */
-+		if (rx_q->xsk_rx_pending == priv->dma_conf.dma_rx_size)
-+			break;
- 
- 		p = stmmac_get_rx_desc(priv, rx_q, entry);
- 
-@@ -5714,10 +5730,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		/* Prefetch the next RX descriptor */
- 		next_entry = STMMAC_NEXT_ENTRY(rx_q->cur_rx,
- 					       priv->dma_conf.dma_rx_size);
--		if (unlikely(next_entry == rx_q->dirty_rx))
--			break;
--
- 		rx_q->cur_rx = next_entry;
-+		rx_q->xsk_rx_pending++;
- 
- 		np = stmmac_get_rx_desc(priv, rx_q, next_entry);
- 
-@@ -5746,7 +5760,6 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		if (unlikely(error)) {
- 			xsk_buff_free(buf->xdp);
- 			buf->xdp = NULL;
--			dirty++;
- 
- 			if (status & rx_not_ls)
- 				goto read_again;
-@@ -5761,7 +5774,6 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 			buf->xdp = NULL;
- 			rx_dropped++;
- 			error = 1;
--			dirty++;
- 			goto read_again;
- 		}
- 
-@@ -5805,7 +5817,6 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		}
- 
- 		buf->xdp = NULL;
--		dirty++;
- 		count++;
- 	}
- 
-@@ -5817,6 +5828,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 
- 	stmmac_finalize_xdp_rx(priv, xdp_status);
- 
-+	if (!failure && rx_q->xsk_rx_pending)
-+		failure = !stmmac_rx_refill_zc(priv, queue, rx_q->xsk_rx_pending);
-+
- 	u64_stats_update_begin(&rxq_stats->napi_syncp);
- 	u64_stats_add(&rxq_stats->napi.rx_pkt_n, count);
- 	u64_stats_update_end(&rxq_stats->napi_syncp);
-@@ -8460,6 +8474,11 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
- 	rx_q->state_saved = false;
- 	rx_q->cur_rx = 0;
- 	rx_q->dirty_rx = 0;
-+	if (rx_q->xsk_pool) {
-+		rx_q->dirty_rx = rx_q->buf_alloc_num % priv->dma_conf.dma_rx_size;
-+		rx_q->xsk_rx_pending = priv->dma_conf.dma_rx_size -
-+				       rx_q->buf_alloc_num;
-+	}
- }
- 
- static void stmmac_reset_tx_queue(struct stmmac_priv *priv, u32 queue)
--- 
-2.34.1
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44535627869
+--===============5181703165338020747==--
