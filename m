@@ -1,54 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795046609;
-	b=oGRsctJfqom0OMeWIflthO2KpdKmxXLUzllmJd5bP7aF+49alO+0SylfUxpSGdCY++z7
-	 j3knlBXbJDH7/kbwMWcb/IelrpfnUa0tYnUck/jXIVzDSAgaUis0yoyOroVi/Fnhlu/TP
-	 meDUJMND5Tbc+wT8uhwNdR2Jry6ptXDAsW7UgyuMakU9lQGle/3mrGblUlzm080cpgMOo
-	 AViy43wnzO5qQNEGS3DxK8q5OQ0DrcQncVSesYcqDQQwGmfU1WBnYn+CsWvMhKVnpeXdn
-	 WoqXiqBFeM9QJzGEPIQuD7IU2uBl43Vvrg4Wg/dFsV7G9Tyvjd1j6NISA9U/9jHKmgw==
+	t=1795046849;
+	b=koC5ti66r7QCGAk263VQnwCraHeEaIuZmZIv1szN4sgQ4R/N+hJPl9VyxzJJsxqNfpj0
+	 3yygP1MXUwcae77DZy4YDbTlSkMRf97M4saHiGzWFFiO8oMhY09ijJG4386R/CcF6Julm
+	 rdWsWgWX1nDkG8tXNJNi1aNp8H7TZ53eZyrS2+tY1C7jVscuSeuaR9/fyGjJ1lyfFqb/C
+	 NYAjlqxuXMv+onUlzd0epzDK4/pm5PSxlKxLbMDHCIcqUmsAijQ3YPiH9ghKYwHywL+Bl
+	 FIbajOlZQNmF+aifDe5pcQ9Rt1jFz/p+R7bbyfCwwesjZkJ93TSgzIJrn/5rXAieWXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046609;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=wyfuj7NvvZbRNd5oi8oKRypq3whiMRjk+iKeQTsU3ew=;
-	b=FyqUIVi/s0VzcWxb6gTgChexRJC63rpd9Cu8OYaOK4rV1Mq/ztZj3bTxfz1xrWOUyoSW
-	 338nDkI2SJyIyPCfu/QaW8T2Lz9Hz1dqm2+dS8fOsTAWx3poCjNxn58Sq18AXyYhvN5IU
-	 W7AnG6FXr/OGxuxRdKw2pmImCW/c984lxMr1Sx9ZsID9G7OrWWWT/hsin2l590FMM9U4G
-	 LT5k///ydlfZuOxSRT0RODK+B93zaxEEPWWdzEhW1+KPlFWSQ16HK1z7qI4TdQrjKbWKx
-	 tCFxlbmKojGOU/RT0fX4vhkIceF6pSEgbYrY+pNnHiAm/us7BW5Nq5sRNOMangSELUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046849;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	b=iLDJEOICkTEd6KjGvdMTwoJzopVVz9vfKF6a1Dm+7u0TCoWYZhKeylZSGaebYg+LSOYn
+	 DITl5sImWs+EesGdaV2A7QkTbM8zuEec/dB/iRl5FdcAaQXGuh+sI4Gy6cs4DnHl04tWu
+	 iT0KoW0ZXbpqEZMbm9QE8PyuQIP1zNgFJUCjMvu3JLi+iaayMrAUPzrB7g5mqT65ZKvGQ
+	 4YALcNqJaotYnYVAFzNc7COFRh/AMeCHO8vVVqFs0BvcAIEiMl4Z9TzJS+7pvwqNh8UC0
+	 bubUSgJeLTAOz3mMuD61vUr6byirq7RQEmJsbzCOf5+G/iVb0135T9BjrDeNCftfvxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="gJb/T9DJ";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H1IueEKF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E655606A336
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:03:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29C25606A31C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:07:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gJb/T9DJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D04B31F000CD
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:03:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H1IueEKF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA71F1F000C4;
+	Thu, 19 Nov 2026 00:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795046608;
-	bh=wyfuj7NvvZbRNd5oi8oKRypq3whiMRjk+iKeQTsU3ew=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gJb/T9DJyAdLfSZdoqK6HPP1JWwTP7vlA4Yf/LleMFzTNRdrwX8NfOa6NHEJ9kGCD
-	 E0jSXp1+ttsn9Q7HPZjX+L7FulXlDdEzB7Zt9lWjbBX3LFoCsHWjCdoTQ433vYmCe5
-	 MsVfHrxNim6YFlGDPOwxPMVRbAoUF+/2qHKDWwUyEchRZ3ljZKuVHK1aErWp/ZIf1k
-	 3xdyKdzOZNDNZzWmrhoocb/OKukFqa1LlGW/AF+y5nXPYI5xhZ3wul2f7uSCuFccxV
-	 e+tSvlX+yJ1xjhQCWv7By8IwnypIH7u/5zu4AuRVUOwf7qweK3RsYI6OKjtB03quhS
-	 BKHYEy1z6qN9A==
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-70bf1671c21so1054980eaf.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:03:28 -0800 (PST)
-X-Gm-Message-State: APuU4Z9UcW61s5hVfvk3erzSj4Im83lenldjPjxr03PTwerVEVSan0FE
-	DsssIMI/c3fG65W6tJB2/dV9qdsbCAu/Llng+19aWSkr9k+rbJyvbz+enqbtsDahzG+WFRENk4M
-	oieXByRMV3OdaBqSrvvHU9CMfQ8AoLA8=
-X-Received: by 2002:a05:6820:1517:b0:716:d3ac:6950 with SMTP id
- 006d021491bc7-71b18297a2emr3293454eaf.7.1795046608044; Wed, 18 Nov 2026
- 16:03:28 -0800 (PST)
+	s=k20260515; t=1795046848;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=H1IueEKFqS5WVceOSa9LS6rT/LJCmRIUnPsdvO/DpUn7u4JQwVYAW3Orq9oTyfX6S
+	 zNhd4S/9p+bJfYuW9VBnHrLm0gqJbXfHeimg94SR3cYxLhaNoUCgUTKhemwCbSqn/D
+	 DqZhurt+D3naMSZ8Snb8eAlhcneH8nBHXsu4l9xGhGow+f5zVV2IyRdb7c2GhZknBv
+	 6IScvzFPXYGzKbtHcosslOtsqIey+a2TDq8Vxaom8TZ8mkdeX5PjZ4tTKv8HotjyXX
+	 V+da0tkKmuoFQwZhN38LPV/V4nMQPrOvWiD2zORc4gYwVo1dD8tdQshp1982Qhwthp
+	 X8FBjdGHS6s2A==
+From: netdev-bot+sinfo@kernel.org
+To: Mingming Cao <mmc@linux.ibm.com>
+Cc: netdev@vger.kernel.org, nnac123@linux.ibm.com, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+ ritesh.list@gmail.com, sshegde@linux.ibm.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linuxppc-dev@lists.ozlabs.org, horms@kernel.org, davemarq@linux.ibm.com,
+ haren@linux.ibm.com, ricklind@linux.ibm.com, bjking1@linux.ibm.com,
+ shaik.abdulla1@ibm.com
+Subject: Re: [PATCH net-next 0/2] ibmveth: two TX and reset fixes
+Date: Thu, 19 Nov 2026 00:07:27 +0000
+Message-ID: <179504684743.3291.10300720489651147627@kernel.org>
+In-Reply-To: <20261119000235.15622-1-mmc@linux.ibm.com>
+References: <20261119000235.15622-1-mmc@linux.ibm.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,154 +66,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118235055.1225115-1-vladimir.oltean@nxp.com> <20261118235055.1225115-5-vladimir.oltean@nxp.com>
-In-Reply-To: <20261118235055.1225115-5-vladimir.oltean@nxp.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 01:03:16 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
-X-Gm-Features: Aa3M54opHWuR9SlJEPohXbxMUMlaFEN9TxFaq4PW8CJ455fM-o3BKFzXrSMiZDQ
-Message-ID: <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
-Subject: Re: [PATCH v2 net 4/4] net: enetc: let core segment GSO skb when
- headers exceed TSO_HEADER_SIZE
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Claudiu Manoil <claudiu.manoil@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
-	Clark Wang <xiaoning.wang@nxp.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le jeu. 19 nov. 2026 =C3=A0 00:51, Vladimir Oltean
-<vladimir.oltean@nxp.com> a =C3=A9crit :
->
-> Like many other drivers, the software TSO path (enetc_map_tx_tso_buffs())
-> copies the L2+L3+L4 headers of the skb into a fixed-size TSO_HEADER_SIZE
-> (256 byte) slot of the per-ring dma_alloc_coherent() header area,
-> without checking that they fit.
->
-> Sashiko casually points out during review of an unrelated patch:
-> https://lore.kernel.org/netdev/179294166520.3134.18097439321876673016@ker=
-nel.org/
-> that TSO_HEADER_SIZE does not constitute the maximum size that packet
-> headers can have for GSO skbs, but rather, an essentially arbitrary
-> number.
->
-> An example where headers can exceed TSO_HEADER_SIZE is with an IPv6
-> extension named Segment Routing Header, set through setsockopt(IPV6_RTHDR=
-),
-> with a type 4 routing header. With 11 or more segments, the headers of a
-> TCP/IPv6 packet exceed 256 bytes:
->
->   Ethernet                14
->   IPv6                    40
->   SRH, 12 segments        8 + 12 * 16 =3D 200
->   TCP (with timestamps)   32
->                           ---
->                           286  (30 bytes too many)
->
-> No privileges are required to request this socket option (but it will
-> cause driver writes outside allocated memory). A reproducer sketch can
-> be found at:
-> https://gist.github.com/vladimiroltean/7cecf636b788b29f361a2fbdae646010
->
-> Bizarrely, enetc is the only affected driver, because the core
-> accidentally protects most other drivers against this bug in
-> gso_features_check(). There, we have this logic that saves the day:
->
->         /* NETIF_F_IPV6_CSUM does not support IPv6 extension headers,
->          * so neither does TSO that depends on it.
->          */
->         if (features & NETIF_F_IPV6_CSUM &&
->             skb_has_ipv6_extension_hdr(skb))
->                 features &=3D ~(NETIF_F_IPV6_CSUM | NETIF_F_TSO6 | NETIF_=
-F_GSO_UDP_L4);
->
-> enetc is the outlier because it only advertises the more complete
-> NETIF_F_HW_CSUM, so for it, this fixup does not clear the NETIF_F_TSO6
-> and NETIF_F_GSO_UDP_L4 bits.
->
-> [ astute reviewers may ask: what if we disable NETIF_F_IPV6_CSUM at
->   runtime, via ethtool -k, so as to bypass this fixup, don't we make
->   all drivers vulnerable?
->   No, because netdev_fix_features() will trigger the code path which
->   also prints "Dropping TSO6 features since no CSUM feature.\n".
->   So TSO skbs will now be segmented in the stack. ]
->
-> Surveying every driver that uses TSO_HEADER_SIZE:
->
->  Driver  | TSO6 | Checksum feature    | Core guard fires? | Verdict
->  ---------------|---------------------|-------------------|---------
->  enetc   | yes  | NETIF_F_HW_CSUM     | no                | vulnerable
->  bnxt    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
->  nicvf   | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
->  otx2    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
->  fec     | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
->  mvneta  | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
->  mvpp2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
->  mv643xx | no   | NETIF_F_IP_CSUM     | n/a               | safe
->  dpaa2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe (*)
->
-> (*) dpaa2 also uses a fixed-size kmalloc(TSO_HEADER_SIZE) per segment,
-> so the identical overflow would apply if it ever gained NETIF_F_TSO6.
->
-> The above survey is what influenced the decision to make a localized
-> patch in enetc_features_check() rather than create a huge disturbance in
-> the core, even though, IMO, TSO_HEADER_SIZE is a huge foot gun.
->
-> Note that the LSO path (enetc_lso_map_hdr()) also copies the header into
-> the tso_headers buffers for a reason I don't quite understand. However,
-> I've excluded it from the discussion because when the GSO header size
-> grows to weird sizes, it never gets anywhere near TSO_HEADER_SIZE before
-> hardware stops being able to support this offload. There's an earlier
-> limit at ENETC_TX_CSUM_MAX_L4_OFFSET at which it stops being able to
-> perform HW TX checksumming (a dependency feature).
->
-> Fixes: fb8629e2cbfc ("net: enetc: add support for software TSO")
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
-> v1->v2:
-> - drop word "super" from "GSO super-skb"
-> - subtract VLAN_HLEN from maximum permissible GSO header size
-> - stop blaming LSO
-> ---
->  drivers/net/ethernet/freescale/enetc/enetc.c | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/e=
-thernet/freescale/enetc/enetc.c
-> index 6cc519eea5bd..2bc65cf6f508 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc.c
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-> @@ -1138,7 +1138,19 @@ netdev_features_t enetc_features_check(struct sk_b=
-uff *skb,
->                 return features;
->         }
->
-> -       if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
-> +       if (!skb_is_gso(skb))
-> +               return features;
-> +
-> +       /* In case NETIF_F_HW_VLAN_CTAG_TX is disabled, validate_xmit_vla=
-n()
-> +        * has not yet run and a VLAN may still be in the hwaccel area, s=
-o we
-> +        * need to be one step ahead
-> +        */
-> +       if (enetc_lso_get_hdr_len(skb) > TSO_HEADER_SIZE - VLAN_HLEN) {
-> +               features &=3D ~NETIF_F_GSO_MASK;
-> +               return features;
-> +       }
-> +
-> +       if (enetc_skb_uses_lso(priv, skb))
->                 return features;
->
->         if (enetc_tso_count_descs(skb) >=3D priv->tx_bd_count)
-> --
-> 2.53.0
+Hi!
 
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-I should probably rework my series :
-https://lore.kernel.org/netdev/20260403043237.3909226-1-edumazet@google.com=
-/
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
