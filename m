@@ -1,82 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073055;
-	b=hp81aAMCGDs97snZpcy6b01UX1PsFRl7wnR5WqnOay6qzkP54K0iqcClULEBR/TJokOj
-	 Zt2ty22C3kJiog4mLfw0464v6NV0mPq4GBE1BDtk1pOtiyS1DbUaDtGa9wZqBj6/AT8lb
-	 YSckspek8u0Q5AO0occsPPZsaxaQboXJAidPcG38J5q8iHWS7cXkBfceaZdgovrQ+qjze
-	 ptZRoZEyh411yqaJ9olpI3CO/jAq8U5VXj+cllMtGpRuhrzwIFQejngc55YWADo9CSdX+
-	 TqLiEDI4//dN1Wy0riuEf3PjKM9qA9l8LK2ypGzeWaDMTe2Ud8pfK1Vrd0b06qzxfPQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073055;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=PpA7Huyl4HsN6y6lBWysCvDrGPcB8h4nS9rilJdNIn8=;
-	b=wkAXAhqngY6pMu7PDZU2QaIzEYe7Gx2G5UvNNNLs/QcUYB35/3SUfEYqJVhnyi1mokWH
-	 MauSGvj7mrz4qy2Z2575ZQ/6lVw0vIBDS2f8YtMSMuzbBL48FFVzBfn3fGJryCdJCnvkq
-	 paNvYQ5is141xMiCf/+8IRvHVbYH+bBjgvtu/x4E0WHdPdYFVQTQIu1MrwogBN+MV00i5
-	 2ASPV0qpsc4KcuLIgizTO80Bn996I2m3Fw2eBcblCTBRAfg+z5VL5iz7d55PXlDA2TENt
-	 ydV8FMUmFC4xX/I3GM9PNU6VDPiZP1iMNb5avt2uB+ifJzmfqdkjE4PNlvZQm0cuJMQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=K46uLKNl;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795073046;
+	b=omiOV0MNmkyzceEb32wyo3dvIT11ub9lB/6nAOMoM/AxCTEVKl4aoTDafxZJiu7VAe81
+	 UqqayLMbb/ajrG9kSziifKXKDGy9FQDJvUmJ5OxbfIYbFqmWO/QcWPLs9jaHxHEO09tYO
+	 M2x3N/67gAvg73KVbYf4040bzkabGmW30xhS/tjLWJD0ssEyWfEReBt+oJHhMF4cLDbOI
+	 inpretFxfU6Wv+COJP8i7NP0NsrruIQQ5jxMkfx31yZsVnyt8yyn4CoLA6xU6IFIIxQB5
+	 neg2hJB4iIINHbttJFPNVUjs2aM5NinUvxPD++R3JS7f2GnwDpGOgf7QXZzwOZLWVyw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073046;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+UKs5NAMHUL1PNxzeJvtVdqVZH7QVnwoIxqZhZzacDU=;
+	b=AEGPTxWvkZdMQ0gf03uucdPbILsLPpbSdXksxzPhoWA6tFGdticzmc8ShKjf/RUTidG3
+	 AC4lGtZRCJAtLTJAzXggy1tVsXTURqEunfjjkSMV09QPuEVxhZCvjOOZLs4V/0f3Iew+Q
+	 TullUb9cRxc3XMj76fLrHID7Ogs+Ul6gjC9gMYa/KJND3Tcv22sn0pPfWQogdGK+ypYJq
+	 D6yLvPQzQng2hSBNyqyrJXN2/HHzdv5jUwX7B6yRt/PBkzxXb8/736khjWnKAnff6fN5q
+	 na1Vtg6HdUkrqKOEO8p4bfuTG1CX8h7s1MPCO4D6CISU8yACVQ/r/3m49YskAeSsLZw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AdtSz/xl";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0B9060A260F;
+	Thu, 19 Nov 2026 07:24:06 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AdtSz/xl
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795073046;
+	b=lmuataKnqoVUJfAqlMJDmAUek4FyWGfIxJRPzNDqx5yrEoPaT19bAIqqoOe8VzDlQxv+
+	 ejJ64tMiPk21FdcLVPUEp1IdrNJv8goMO1jjMrcKHCIHu05V1ESC5dpx10ZOCQUzJppPU
+	 oMn7Dcwwyi0SfmWvDk3Zf2Jk5WkaQoXzhdvVwejcCbyAWCn88VUSdqyvmGQsvN+0rjb1Y
+	 CTGEWAcoP2LfpZBqEVGQEAJJW9Z6x6BzVRO2EN3xUrHk68kj+SGsROH7lXSeGBubGP40R
+	 2aWpeX0LZNjxHF6NKCQDymPQ99HS6frzATcNH1nJBmlshaPoPmIz4Pa7KIfK7oc88Iw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795073046;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+UKs5NAMHUL1PNxzeJvtVdqVZH7QVnwoIxqZhZzacDU=;
+	b=o2WsVsDcygVIMQKYi22w0pqCJ6vPIGOrWUCiRSHqLG1gpKIMmbC/mOOD6wq1V0rrGphx
+	 28vk1YTx/s4WKfQ2kzdJno3FQsgD3CGo15N3922H6DSXe+2WedJImUbIluvzyIuCJkymX
+	 vUGdV1+evo66BqKx374MO3Azw/gPXtPW1UNgpBQyzi38RkpmiYhYByQJDlagHuCiYjXEg
+	 mxR4L7JU8WjlW/8hws5LkfAaVP7LDH0IFsO8l6dY6Nf4hbKXc9yudUa/iHbKO1YGooler
+	 SU77+mEqtStttrRg0Nat0nsE12c9b1BqJ5BjI6HufLneZLb4pm9TOxafCrMDJ9V4v/g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7531960A260C;
-	Thu, 19 Nov 2026 07:24:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7531960A260C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=K46uLKNl
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6uVlO1805523;
-	Thu, 19 Nov 2026 07:23:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=PpA7Hu
-	yl4HsN6y6lBWysCvDrGPcB8h4nS9rilJdNIn8=; b=K46uLKNlSBGrqZcTNdrHjH
-	ZSsTM9MmKU/1EuSA09S8auoe7ewdgrakfhKF92BOIxBvzf9Asekp5CdgCMNQ+mLa
-	QrPXi82CT6Y/OyH8Nmr+r9xRI3GRXupvcLsBrBtbtf3+QKGploW8MIoY6wqrpNIA
-	oTai/Rlgcti7PA3I+ye+Q+Eyu7FaYRtQRg5Vq5gmMEsQ7+O3Y3ignraeaipQv/Fa
-	BpDTDZ3VACxcJh001yWYoKIlrTkvMczLdnDjsnSDnKqNj3xIjhHHSJlrh9jcG4qs
-	+5IdMNSOda+HTswmQArlYDURAjoX8ON5U+89FQP1aR9gfvhn5sfKHq/lXi5AfdtA
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105rq8m9-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 07:23:58 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ75C433327282;
-	Thu, 19 Nov 2026 07:23:57 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1bb5c7au-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 07:23:57 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ7NtXk42074492
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 07:23:55 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 611332004D;
-	Thu, 19 Nov 2026 07:23:55 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 556C720040;
-	Thu, 19 Nov 2026 07:23:51 +0000 (GMT)
-Received: from [9.123.13.84] (unknown [9.123.13.84])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 19 Nov 2026 07:23:51 +0000 (GMT)
-Message-ID: <e9389120-778a-46f2-93e3-aad966bd148c@linux.ibm.com>
-Date: Thu, 19 Nov 2026 12:53:50 +0530
+	by smtp.kernel.org (Postfix) with ESMTPS id 899211F000CB;
+	Thu, 19 Nov 2026 07:24:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795073046;
+	bh=+UKs5NAMHUL1PNxzeJvtVdqVZH7QVnwoIxqZhZzacDU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=AdtSz/xlJp6y2L9Mdt/rFPamt7g4B3um82fGnJU7sYwJiH+u6pzdYSitK4i8vBKRq
+	 WdArI6oAbwDhUrYPTnQ0Ar2NP6d0nQ8IM6aRaW6B4qsMbfZjhbaexFoJlBRNKWfli2
+	 rZswUv9hjksdtvTQJ8Fg3GvRutYpqxY4tSyPzr6HXMXBYXK617vNb6zV/pZRB8wZtb
+	 mxIfVpFpGfnBJSDxPEGvzm2pWVWaZOUghOtxpcy2oEtZutmLaE95bqhOyQexHYdT16
+	 MAFJGEe8USL7WNlgnNkLrho13zLxKSPLFhOvO6TdyN+gI+DO4oq2nBu8uzNORFNuUo
+	 CCixDIrB9Bvww==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1A78D4B16D;
+	Thu, 19 Nov 2026 07:24:04 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Thu, 19 Nov 2026 07:24:00 +0000
+Subject: [PATCH net v7 4/5] net: phy: run a postponed PHY interrupt handler
+ directly on resume
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,177 +83,115 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 5/5] net/smc: annotate data-races around smc
- sysctls
-To: Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org
-Cc: Dust Li <dust.li@linux.alibaba.com>, David Ahern <dsahern@kernel.org>,
-        Ido Schimmel <idosch@nvidia.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Matthieu Baerts <matttbe@kernel.org>,
-        Mat Martineau <martineau@kernel.org>,
-        Geliang Tang <geliang@kernel.org>,
-        Allison Henderson <achender@kernel.org>,
-        "D. Wythe" <alibuda@linux.alibaba.com>,
-        Mahanta Jambigi <mjambigi@linux.ibm.com>,
-        Tony Lu
- <tonylu@linux.alibaba.com>, Wen Gu <guwen@linux.alibaba.com>,
-        linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
-        linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
-        linux-s390@vger.kernel.org
-References: <20261118045137.174026-1-jiayuan.chen@linux.dev>
- <20261118045137.174026-6-jiayuan.chen@linux.dev>
-Content-Language: en-US
-From: Sidraya Jayagond <sidraya@linux.ibm.com>
-In-Reply-To: <20261118045137.174026-6-jiayuan.chen@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-b4-phylib-mac-pm-irq-v3-v7-4-d8b8f43b5a62@iav.lv>
+References: <20261119-b4-phylib-mac-pm-irq-v3-v7-0-d8b8f43b5a62@iav.lv>
+In-Reply-To: <20261119-b4-phylib-mac-pm-irq-v3-v7-0-d8b8f43b5a62@iav.lv>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, linux-pm@vger.kernel.org, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Lukas Wunner <lukas@wunner.de>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Wei Fang <wei.fang@nxp.com>, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+ Paul Barker <paul@pbarker.dev>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Doug Berger <opendmb@gmail.com>, 
+ Thangaraj Samynathan <Thangaraj.S@microchip.com>, 
+ Shenwei Wang <shenwei.wang@nxp.com>, 
+ Haoning Cheng <Haoning.CHENG@cn.bosch.com>, netdev@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3045; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=tJFrw+ovxezOqGpL0LoRv72fnj6/k3KLfaKIS2eufrE=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFn/lgheOZp26InOlJWbDth7snB+mqMZq/nFLK7vXO8xm
+ +n+AZeWdJSyMIhxMciKKbJMOKRxK2PJ1b/+HuYPYOawMoEMYeDiFICJNC1l+O8n8Mjrbl6XUsGW
+ nwxm8mE7823umj54aM+bnWC7pebsw32MDF/z763VlrhzKnnd7aszfxw53jRPWbtK3ZM15PHxFss
+ pX7kB
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Reply-To: iav@iav.lv
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: d_pMhtpwwfHRBcOOG4J3TNdurOevL0_9
-X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6afea40e cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=SRrdq9N9AAAA:8
- a=VnNF1IyMAAAA:8 a=3S7D6mjnOIgGY85eZR4A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyNyBTYWx0ZWRfX2eVJ+/+IxlE7
- W+BE+rUAtrGYMJflvUMIkc0soy6L0enk48XAQSEVygx2VVnZZvnFX2aPyViyQbzjQ1577O4Rkvo
- HZK9RL0k+M/Qa579S+rWoPsOB1I1+Zc=
-X-Proofpoint-ORIG-GUID: C6HuRQ26zw5MJH3TAq5joplAzXr2-CMF
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyNyBTYWx0ZWRfX3cNfb6jiVM8D
- mfpJaV/VkGJobFNS7IXa9q6OVxa6ACnLSmgQ99qI1gL4DfWZS6aCQ3ElldLIrRyUjdnDzZFE4UE
- oRZNhCYOnJXrVWT+HqHH718BrfppYVflPBNAJq/JOg/PqCewSgO/VurZ/xIhNHaD5zB+j+CYi/A
- VxaCAXf5E7oDm8AQqbU4KLI8UO+uvjwF954uOoolfc+fz9eM+yte1w6x2FwdfOwCjJmkxDLZ5yQ
- PJb+4uCfTkQrnLN1XUgUH+jAdEK0saKP1Kj1Kzz9RFUOk/2btj+0blmhxV7kLfnxENdLJAOLIDC
- ZfN1OKNsOWA2SwTEFwhbjgpOURJzLkIKoIntQKfR7JkCthxT5qO2hawMhtuPv/iLE+ZPhs9H1lS
- 23YWitNnp4X4GX9/ved77zUb7Qp9yXNi8fbiARvo84vbfDHBEunSvH7+CYea+4Q25HWz80qfIT4
- HZKDb3f1SLoVbLCychg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 suspectscore=0 phishscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611190027
+
+From: Igor Velkov <iav@iav.lv>
+
+mdio_bus_phy_resume_irq() reruns a postponed interrupt with
+irq_wake_thread(). A PHY interrupt behind a nested threaded interrupt
+controller, such as an I2C or SPI GPIO expander, has no interrupt
+thread, so irq_wake_thread() does nothing and the postponed interrupt
+is lost: the PHY keeps its status latched and its INT line asserted.
+
+For a PHY without MAC-managed PM, mdio_bus_phy_resume() calls
+phy_init_hw() before the rerun, and config_intr() there acknowledges
+the latched status in drivers such as realtek. A later patch brings
+PHYs with MAC-managed PM under postponing, and stmmac, for one, does
+not call phy_init_hw() on resume.
+
+Call the PHY driver's handler from mdio_bus_phy_resume_irq(), as
+phy_interrupt() does, unless the PHY has freed its interrupt: on a
+shared line irq_rerun outlives the free, and the handler would run on a
+PHY with its interrupts disabled. Hold irq_pm_lock across the call and
+around phy_disable_interrupts() in phy_free_interrupt(), so that the
+free waits for the handler, as free_irq() waits for the thread.
+
+Fixes: 1758bde2e4aa ("net: phy: Don't trigger state machine while in suspend")
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+ drivers/net/phy/phy.c        |  3 +--
+ drivers/net/phy/phy_device.c | 13 ++++++++++---
+ 2 files changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+index 92ee4651bdbc..6cc94b525e09 100644
+--- a/drivers/net/phy/phy.c
++++ b/drivers/net/phy/phy.c
+@@ -1516,9 +1516,8 @@ EXPORT_SYMBOL(phy_request_interrupt);
+  */
+ void phy_free_interrupt(struct phy_device *phydev)
+ {
+-	phy_disable_interrupts(phydev);
+-
+ 	mutex_lock(&phydev->irq_pm_lock);
++	phy_disable_interrupts(phydev);
+ 	free_irq(phydev->irq, phydev);
+ 	/* free_irq() shuts down a line left without users and the next request
+ 	 * resets its depth; mdio_bus_phy_resume_irq() enables a shared line.
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index 2d2058c29f30..8bc394ff7d2d 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -355,12 +355,19 @@ static __maybe_unused void mdio_bus_phy_resume_irq(struct phy_device *phydev)
+ 	mutex_lock(&phydev->irq_pm_lock);
+ 	if (phy_interrupt_is_valid(phydev))
+ 		synchronize_irq(phydev->irq);
+-	/* The PHY may have fallen back to polling since it disabled the line */
++	/* The PHY may have fallen back to polling since it disabled the line,
++	 * or freed its interrupt while another user keeps the line.
++	 */
+ 	if (phydev->irq_rerun) {
+ 		phydev->irq_rerun = false;
+ 		enable_irq(phydev->irq_rerun_line);
+-		if (phydev->irq == phydev->irq_rerun_line)
+-			irq_wake_thread(phydev->irq, phydev);
++		/* A nested threaded line has no thread; we run the handler */
++		if (phydev->irq == phydev->irq_rerun_line &&
++		    phydev->interrupts) {
++			mutex_lock(&phydev->lock);
++			phydev->drv->handle_interrupt(phydev);
++			mutex_unlock(&phydev->lock);
++		}
+ 	}
+ 	mutex_unlock(&phydev->irq_pm_lock);
+ }
+
+-- 
+2.43.0
 
 
-
-On 18/11/26 10:21 am, Jiayuan Chen wrote:
-> autocorking_size, smcr_buf_type, smcr_max_links_per_lgr,
-> smcr_max_conns_per_lgr and limit_smc_hs are read without any lock while
-> their sysctl handlers update them with WRITE_ONCE(), and the SMC netlink
-> handlers toggle limit_smc_hs with plain writes. Add READ_ONCE() to the
-> readers and WRITE_ONCE() to those handlers.
-> 
-> Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-> Acked-by: Dust Li <dust.li@linux.alibaba.com>
-> ---
->  net/smc/af_smc.c   | 8 ++++----
->  net/smc/smc_clc.c  | 8 ++++----
->  net/smc/smc_core.c | 2 +-
->  net/smc/smc_tx.c   | 2 +-
->  4 files changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/net/smc/af_smc.c b/net/smc/af_smc.c
-> index bfc0c7e71a12b..1d3eae064fe0d 100644
-> --- a/net/smc/af_smc.c
-> +++ b/net/smc/af_smc.c
-> @@ -88,7 +88,7 @@ int smc_nl_dump_hs_limitation(struct sk_buff *skb, struct netlink_callback *cb)
->  		return -ENOMEM;
->  
->  	if (nla_put_u8(skb, SMC_NLA_HS_LIMITATION_ENABLED,
-> -		       sock_net(skb->sk)->smc.limit_smc_hs))
-> +		       READ_ONCE(sock_net(skb->sk)->smc.limit_smc_hs)))
->  		goto err;
->  
->  	genlmsg_end(skb, hdr);
-> @@ -102,13 +102,13 @@ int smc_nl_dump_hs_limitation(struct sk_buff *skb, struct netlink_callback *cb)
->  
->  int smc_nl_enable_hs_limitation(struct sk_buff *skb, struct genl_info *info)
->  {
-> -	sock_net(skb->sk)->smc.limit_smc_hs = true;
-> +	WRITE_ONCE(sock_net(skb->sk)->smc.limit_smc_hs, true);
->  	return 0;
->  }
->  
->  int smc_nl_disable_hs_limitation(struct sk_buff *skb, struct genl_info *info)
->  {
-> -	sock_net(skb->sk)->smc.limit_smc_hs = false;
-> +	WRITE_ONCE(sock_net(skb->sk)->smc.limit_smc_hs, false);
->  	return 0;
->  }
->  
-> @@ -411,7 +411,7 @@ void smc_sk_init(struct net *net, struct sock *sk, int protocol)
->  	spin_lock_init(&smc->conn.send_lock);
->  	mutex_init(&smc->clcsock_release_lock);
->  	smc_init_saved_callbacks(smc);
-> -	smc->limit_smc_hs = net->smc.limit_smc_hs;
-> +	smc->limit_smc_hs = READ_ONCE(net->smc.limit_smc_hs);
->  	smc->use_fallback = false; /* assume rdma capability first */
->  	smc->fallback_rsn = 0;
->  	smc_close_init(smc);
-> diff --git a/net/smc/smc_clc.c b/net/smc/smc_clc.c
-> index 014d527d5462d..df0afeef67cbd 100644
-> --- a/net/smc/smc_clc.c
-> +++ b/net/smc/smc_clc.c
-> @@ -990,8 +990,8 @@ int smc_clc_send_proposal(struct smc_sock *smc, struct smc_init_info *ini)
->  	}
->  	if (smcr_indicated(ini->smc_type_v2)) {
->  		memcpy(v2_ext->roce, ini->smcrv2.ib_gid_v2, SMC_GID_SIZE);
-> -		v2_ext->max_conns = net->smc.sysctl_max_conns_per_lgr;
-> -		v2_ext->max_links = net->smc.sysctl_max_links_per_lgr;
-> +		v2_ext->max_conns = READ_ONCE(net->smc.sysctl_max_conns_per_lgr);
-> +		v2_ext->max_links = READ_ONCE(net->smc.sysctl_max_links_per_lgr);
->  	}
->  
->  	pclc_base->hdr.length = htons(plen);
-> @@ -1272,12 +1272,12 @@ int smc_clc_srv_v2x_features_validate(struct smc_sock *smc,
->  
->  	if (ini->smcr_version & SMC_V2) {
->  		ini->max_conns = min_t(u8, pclc_v2_ext->max_conns,
-> -				       net->smc.sysctl_max_conns_per_lgr);
-> +				       READ_ONCE(net->smc.sysctl_max_conns_per_lgr));
->  		if (ini->max_conns < SMC_CONN_PER_LGR_MIN)
->  			return SMC_CLC_DECL_MAXCONNERR;
->  
->  		ini->max_links = min_t(u8, pclc_v2_ext->max_links,
-> -				       net->smc.sysctl_max_links_per_lgr);
-> +				       READ_ONCE(net->smc.sysctl_max_links_per_lgr));
->  		if (ini->max_links < SMC_LINKS_ADD_LNK_MIN)
->  			return SMC_CLC_DECL_MAXLINKERR;
->  	}
-> diff --git a/net/smc/smc_core.c b/net/smc/smc_core.c
-> index a3164201c1420..2db3a87054835 100644
-> --- a/net/smc/smc_core.c
-> +++ b/net/smc/smc_core.c
-> @@ -1010,7 +1010,7 @@ static int smc_lgr_create(struct smc_sock *smc, struct smc_init_info *ini)
->  		lgr->net = smc_ib_net(lnk->smcibdev);
->  		lgr_list = &smc_lgr_list.list;
->  		lgr_lock = &smc_lgr_list.lock;
-> -		lgr->buf_type = lgr->net->smc.sysctl_smcr_buf_type;
-> +		lgr->buf_type = READ_ONCE(lgr->net->smc.sysctl_smcr_buf_type);
->  		atomic_inc(&lgr_cnt);
->  	}
->  	smc->conn.lgr = lgr;
-> diff --git a/net/smc/smc_tx.c b/net/smc/smc_tx.c
-> index 0f0c6df3bf2ce..30bffe79d06a3 100644
-> --- a/net/smc/smc_tx.c
-> +++ b/net/smc/smc_tx.c
-> @@ -148,7 +148,7 @@ static bool smc_should_autocork(struct smc_sock *smc)
->  	int corking_size;
->  
->  	corking_size = min_t(unsigned int, conn->sndbuf_desc->len >> 1,
-> -			     sock_net(&smc->sk)->smc.sysctl_autocorking_size);
-> +			     READ_ONCE(sock_net(&smc->sk)->smc.sysctl_autocorking_size));
->  
->  	if (atomic_read(&conn->cdc_pend_tx_wr) == 0 ||
->  	    smc_tx_prepared_sends(conn) > corking_size)
-
-Reviewed-by: Sidraya Jayagond <sidraya@linux.ibm.com>
-
-Regards,
-Sidraya
