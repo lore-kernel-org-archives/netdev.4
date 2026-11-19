@@ -1,92 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098195;
-	b=iO7eT+7McOV0CdfNEaEeCgSrzbWUaWcprhONjlQP8YJnlF7ZanZOBbNF8kCWRH1IrWEg
-	 vbW4Cft/fhZ8WFf29hAPG1jAUQwyVDbBQ3aVVTOG1xLJ2JrrPR+y4fuv3mI7gkRTCgsjX
-	 oOglKnjIlRi7a7GcslZTuDv+r5ls6aD/zUciqNNlRmH51jcqdjrzvr4YW6LVy09k7F1M7
-	 Drx/N+ZCYllSBQQQBhm8yWLsWTyEG3WDZ9EYSNI5fhoHTKy4UBRtmwEgMTh/hJYipce0D
-	 3XpEJtc5SAPRB8lJaOucQoOL+ekI2LCC2yOW7YAMpqjatuXbJfGNVQq4ajXQbmCcO0A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098195;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795098265;
+	b=rceJVOC7wqlCM68fyn4OuSqzeX6i508zUVpPbxI6OljKM+SvYjQd/tdi0JjXvBxHFdJc
+	 hdQLlj8ZFuIGUQj1Bfh37eT8E01wazrvWho7f+Eux0dQW/UTA7nrFdRzx2A2bQ9pjzImC
+	 exDd+VijFMcDY8pmsyXyV1N0ylc3f6JM/qbQ6v00SKNQ0pyr87dG2x/SFvgBoUPE4CGid
+	 FQC07BbLljaPvFmkVmxOl3yyp1WLVv87oGGLoDwtE0vZnaCSQfG7EGiq+RkVHGn2haCF/
+	 W8f6aJLT8CTd35AKE3JwkB5O8S/5Y5Nce31x92owtTel1aWzZi84UR8AqH3D2IbEjcA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098265;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=N9Dht0+rK1yV0tLYiiQtWs8fXm3ah26aEzvELZDzz7A=;
-	b=qB7rMa3cWrXp20MCdIdxAwB5ZK7R1c3Tbdm8WYZ8N9DCQ3PLh1lX2jHYYsWR3Ya8qmpM
-	 LD2pbXWDeVLt4iGCFZ7jLU5e7JdAgrRJE0k3CDcXyQ62TUz1u/WfEH3Ko3TAjTxMYuCtj
-	 2o0zgRmKj3J8yeGYReXgBjf+PXaGp85+gJQ/7ffoDNlYAeVaj49YTN2E1SFzQmC3QnCLQ
-	 cLZv3TaTYf56EN5kilIefydC3PB6gMzvtqsv2ak0AsMup7+g8Xv6Q5F5kPdBfwyrdjzQs
-	 geGfdSNtx7StNhksR/opIRptGd4l3kywdS8BxIOQ8OjnzcbkJbrvS6OMwgBIfnLaTgA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=axbyo65u;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=o5n51x59sxtfs0bspBXfBjL3tD09TlDgiTXE1CgF8cY=;
+	b=1wNP4tb1B5v93yVpSEbbkDxfcCQsuThKWnzxcJnd/jpxghtPWxr5Bno2IEWckhiWOfXT
+	 7e1vjK76+i0g4aOulGJwMbOeb8V3PjUnSXR3TSgOqf/M1Ko1dJNqSu7V58DWAzJkbY67w
+	 adxVBL4yS/O6JMk1556VhLFSWv057VlFjHHlCrR9z9uyfJpdjtm5lpeCBQ9eKHAUWIN6o
+	 fxTaKCqKbPeCucqnkaRWY7vYv9vTq9ZpZBZpdRgMr1Wt0Pq9YMBpQy09moGePvIxGQEZt
+	 edQUZGsr2wBDHHsX3st2hQO9mp5jcpV+0gl0+TYBzLfTNNWcU3iC8k0H+fgYkYyEnWw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=NATJwU+x;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.47
+Received: from mail-oo1-f47.google.com (mail-oo1-f47.google.com [209.85.161.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 092CE606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:23:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 092CE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E69C1606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:24:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E69C1606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=axbyo65u
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2e987a2ba0cso16941195ad.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:23:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=NATJwU+x
+Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-71ae5389c00so1579556eaf.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:24:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795098263; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rl//b/kLVqvW3+h090OgU3CVLsZWwJRtbGptFgU9yB9Jh0f2syL4LmOZgXOXLVu1lw
+         Wn0VGzCAkELkLjeJWN6yz41zN3MAQgxitYnvXLcwxkgQz9nYJ1CYuQQoUaKohrjg5MsX
+         Qb9o5E1qjhDF423NgkjWS1/eESeu0QRsqplEbzqxryh8WBsh/Icj8Cxl+VSLJTZeG8wc
+         Y8kdbCnSrFsABPoSkUzlsrLrbVS8yjWB64MKHfHT8jOLGd4E/l9kMBl0svx0mM6kqfZC
+         YoIbj6/vJFTeeGyXXKbqmVlzKON0tMFXeqCUSz48FILjnSCqM3++IrY0AbNwqvPSep7o
+         gFPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=o5n51x59sxtfs0bspBXfBjL3tD09TlDgiTXE1CgF8cY=;
+        fh=Ey/AwV+EH9+b5KBCySScyXs1gd1sWuCy9eq+H7i9Ztg=;
+        b=FQRDDqUYt1ATuuzaQVbllMLmUWTlyrpiYnCktBhfz4iTh37uNfVUPv0ZWR+TTS9cq9
+         2qbid89/LVpHBF6sYDTy0G+LBoQrSwnp/HV2rZSaAO4dTcB0+70sH/bv8WX4tanytrIR
+         U1eVNL49TdOHlY6xwhvEllDKTTEGTTRvnnLxqcy32ZB2PuwyOFHKH6v741uPbRtiCzQ5
+         9rzz3IhhgiVYTEb4cTh+plJEKmG6mapSTdvXpy9Ed3rDb1g1dseiT8kvfGfR8UPIvFtv
+         BvwAxqknekwx6GFotY6+bB8QR9e1K99Way05Rx9Pd0+KJfWPN4nzY5TY9foK/bFRHGs8
+         8bDQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795098194; x=1795702994; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=N9Dht0+rK1yV0tLYiiQtWs8fXm3ah26aEzvELZDzz7A=;
-        b=axbyo65uiRYy1wKOnS4TNNgCFqIoTwn+x5Ze2gj+TBO14/kQtnqzofZ9FJJTqbbvOi
-         lruNVOiyAVsw0tQ9vzjfPHGkfhC5yK6iRYovuNUqak6SIDSakvk8lQdivcDxMkMv0mes
-         aa7qcCmzqVHQ9mPvQSZOZA6/Dw50f4YI9xc90=
+        d=cloudflare.com; s=google09082023; t=1795098263; x=1795703063; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o5n51x59sxtfs0bspBXfBjL3tD09TlDgiTXE1CgF8cY=;
+        b=NATJwU+x+h6AHV7vGou4j3ono/Md2OV4luDyjboci7TCmuKFe4/+jUTzEY3qeCkODm
+         Jdf0mQMp3pWUIR+H53ljsFJxs58GZf9hhs+iwv99yk3jycz0TeXgWLoDwKMIfxcxRYMB
+         aT0BJ/j+lFkAIse5VR4AyGqJd4jHFMqWoNCrhm6ablapl8s8PLf0P2wtxBLs0QbAG+sv
+         N/F5ZXOBR6H8/3yqRMYYyx3dSnlhN84oKjGPP6b8dTOYbpMs8wLrIsZWePuvE77uNeSz
+         /Q3Db6GOZVszJ10GQIP7ssJz+DlMr6noBug64h7R9UqQta6VVtVJkumfxsHUQndEXdyq
+         TBpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795098194; x=1795702994;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=N9Dht0+rK1yV0tLYiiQtWs8fXm3ah26aEzvELZDzz7A=;
-        b=sggdXlZ1ovAdWJLhj4S8X4msP0sjzFW4fZRQLTtF0pUM+WumesI0su0Iuv8ePAD027
-         PUEs43BoyIAve/qFsDROxAEKF6rYnUA5qJD9yBBtCP/i8zWCxaXDyr1nv6la20QZll5J
-         VSu0dHIntqVjQNnWxVYmAPSqj11uQeVL4QAdOJgDCqrDKgxKcQYs/A6ax/k1fV3PAdPr
-         CZ8R4SY7rNBLewneuN3KVcOd0/1h+9kMHLZ0wppotMl2HvEEfa3D7Uc2y6tRjp8cF6h5
-         GzIkt02ha2l3Mfc2Sv/mjXG76r/+fumZtGzU/EzEnCSIehmzeSljG6ekzBrXdLIneKKN
-         bsWw==
-X-Gm-Message-State: APuU4Z+ip833/rr8n91yMSFjsn+bC0BdjInU5LKwGBaCig2bwW06nBWT
-	8QaJgPjqa30ZZfcZ0u+H1QqYO9VUNnfSApfbz5tI1NLV9KE/waDoKPpohJ5WuIGpusI=
-X-Gm-Gg: AZFdTZema7hepCC0Vq3WnCoNDBcte7ff5jXZowmeAbSTTErDR1EFYSsXAqrCrZf6+n7
-	CYGOLZQRFMxeymHsHFyb7m4tfPHlz/Wrrgz49zjfs/FclCNMs2cBLTuEs32uaBqtQzCjMjeyMve
-	S6vn/gBpCMC0KNNehkLc6Cbk22KeOBigCnQVTFl6Ws+WO0A+n2yCV1HCMIj3sgHjC2duqCw0dcH
-	xudhKWE3anmpsLdRe0UCZ0ayCDS6EGxcHMbfo4SL+i0NeiUfSH1QYWmj7CSnoET0p93qWzSSsLk
-	T2H5BxQeITBfNc6y7hmlJakF4ZeOA7ZBRixRTRdSTvwyfjGq5YQTDMCQ9yKuJF0YGXRMv0ux8Xm
-	DUhfgH5Wi8nRHULv5hvcdbQniCcxBJaZvp/0zOCX0dRiM4LJOfaYEFcc37eepCxL2iXryRTZeue
-	AoF/8mDoa/3Kh7HArIZPn758kMRGCt8Er1tq4dcJa/Or4wxB3emK320NBegxHdsgU5DRV6aaLe0
-	o/juUkpgiuYvz3GDm3dx5V31dienSuhgg76QK0kgatc3rZlswJL9GQRqqxtRrDz20kvP21daePb
-	PrfcZVBFKHemiLY7nRLIrfxR5lDwtBrDP/w0MPMzrRBFB91iAdSpnOJN3qn2+JrJteHM3Iu4TEP
-	6wEL6GboB8Rdh5Zye2QXif2GmoE7C0S5Tgn9UQUibi5VXGut/fz9TKKVtL2paNra+pg==
-X-Received: by 2002:a17:903:1a0e:b0:2ed:38c0:332d with SMTP id d9443c01a7336-2f03f16eabamr154485ad.23.1795098194311;
-        Thu, 19 Nov 2026 06:23:14 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c2ab7sm213535ad.15.2026.11.19.06.23.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:23:13 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Christian Hopps <chopps@chopps.org>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] xfrm: iptfs: bound the reassembly copy by the buffer it copies into
-Date: Thu, 19 Nov 2026 19:53:08 +0530
-Message-Id: <20261119142308.3272570-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20260707; t=1795098263; x=1795703063;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=o5n51x59sxtfs0bspBXfBjL3tD09TlDgiTXE1CgF8cY=;
+        b=v5cj1Qqay0tRh/szyo0KDT3DahiSvQdeT2B0nasohC2/Iy2N1du44Xw4SW/wwgS370
+         XKksusgJwpQvIsjAotzC3rvJorGIt72WJ/ozLOnSgY6SoTjmKpR9JiZQTWkTwpJyXLJQ
+         yToO/7koEXMcFD5Ft2kfpf92QKZatE1A+E/cSDfvWj8fVtYLW4vYSWC8uloXC/ssvcd4
+         +7g2TJW0jBvKHs1xmQkJSmQi38Cbhu+cebFDp8I2TPm70lWjGqut8UXUDJT7pJb5+oT+
+         L2grCPnAi2A01+09JKBVdjR8pkE4+w7imivuxKerMaKeLQ2n7FS1msvpOgkK6FdSQSbT
+         NckQ==
+X-Forwarded-Encrypted: i=1; AL+hErEAKk5jeJfUcplk/4yZQXyhafZkKvn/aT0Jqk9gzKVqM0l76Mjc0c7bBc6en0qZnJrO+M2bZTk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/jPzYsFhWavMVRo2uwPqQfs31Qhsb5xTpIuWVfCJ5KzGey6cDw
+	Mw3KkvO3b2+//3U3mkW9Ogoc3E5igoLZYOKhCIEd8ZXGa29PzSWPc7QLZO+OQXd7LcYeweQNBo4
+	zvnUSBNpufqc78OfU8xW40RnH3mNxZnIxGLCvGn8B5w==
+X-Gm-Gg: AYBFou3BidQEeYoAQL7xAydFOspVI22VsHOFqTik0yklPXpDkOI3kb6Q+oAaqX5cYUz
+	3KB6VK6um/oHeyjYgRTJyObuzxxVl4P7CHIxinkRSvSHcSHLn+CDK0lWeTEj6+8GNPJgZPmZdex
+	fdTHgQN4VO55SKW8dPXW7Ak3cZd0zPHBvBaiTko8XQ5isRvBiBm2nyYIp4OCmhBOni5ET5pePk0
+	VbKMO7k0g3Y4hNiNby7i/v6TG9JnNTSiQAlDjxgWSZpC4usIKGb8wlw2ZRd4UNRimG13BMRtGVS
+	q4Jq/X9CYg6e5mznsg4wFEYa2OWa8leST5VYPgZpWEvFXSHoxDM1mFczyzjVW8ihYpRRtt7Q10Y
+	ckd61zkKwloiiN1nynj3y7PBIIwwyVAO3v7RXciL5XFcta7cdoTokNDxRcvemUpK/d+U15vxdmW
+	xU5EYlOo6bwQ==
+X-Received: by 2002:a05:6820:1355:b0:71b:193f:2eb1 with SMTP id
+ 006d021491bc7-71b193f3492mr4490832eaf.1.1795098263194; Thu, 19 Nov 2026
+ 06:24:23 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,144 +104,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261119133032.2015656-4-sst@poczta.fm> <9a5a1487a4676381f4c3d98cb5a22f50e2f54d9d4ec7947891c889b64ac12693@mail.kernel.org>
+In-Reply-To: <9a5a1487a4676381f4c3d98cb5a22f50e2f54d9d4ec7947891c889b64ac12693@mail.kernel.org>
+From: Tianyi Gao <tianyi@cloudflare.com>
+Date: Thu, 19 Nov 2026 14:24:12 +0000
+X-Gm-Features: Aa3M54pU7ZbLxGTK6OUaJJJ5wSY671yMAwh7XMSPppG-d1bHhduINP_cjWCI05s
+Message-ID: <CAG4wq-favnH37jS2=a-aJwBgQOuW=KTsM-vJWp73PNDfFq4=ZA@mail.gmail.com>
+Subject: Re: [PATCH v7 bpf 3/5] veth: use the frame mem type when running XDP
+ on an xdp_frame
+To: bot+bpf-ci@kernel.org
+Cc: sst@poczta.fm, ast@kernel.org, daniel@iogearbox.net, davem@davemloft.net, 
+	kuba@kernel.org, hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me, 
+	bpf@vger.kernel.org, netdev@vger.kernel.org, maciej.fijalkowski@intel.com, 
+	tavip@google.com, toke@redhat.com, aleksander.lobakin@intel.com, 
+	ilias.apalodimas@linaro.org, lorenzo@kernel.org, magnus.karlsson@intel.com, 
+	ihor.solodrai@linux.dev, edumazet@kernel.org, pabeni@redhat.com, 
+	andrew+netdev@lunn.ch, horms@kernel.org, andrii@kernel.org, 
+	martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org, 
+	yonghong.song@linux.dev, jolsa@kernel.org, memxor@gmail.com, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, stable@vger.kernel.org, 
+	martin.lau@kernel.org, mason@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-iptfs_reassem_cont() takes the length to copy from the inner packet's own
-IP total-length field:
+On Thu, 19 Nov 2026 13:54:58 +0000, bot+bpf-ci@kernel.org wrote:
+> Is this Fixes: tag pointing at the right commit?
+>
+> 718a18a0c8a6 only reworks the skb path (veth_xdp_rcv_skb() and
+> veth_convert_skb_to_xdp_buff()), and does not touch veth_xdp_rcv_one(),
+> which is the only function this patch changes.
 
-	ipremain = __iptfs_iplen(newskb->data);
-	...
-	ipremain -= newskb->len;
-	...
-	copylen = min(fraglen, ipremain);
+I think the AI is wrong here. Before 718a18a0c8a6, veth copied a
+non-linear skb into one linear page, so no frame with frags could reach
+veth_xdp_rcv_one(). Either way, 718a18a0c8a6 and bf25146a5595 are both
+in v5.18-rc1, so the choice makes no difference for stable.
 
-and then puts that into the reassembly buffer:
-
-	if (skb_copy_seq_read(st, data, skb_put(newskb, copylen), copylen))
-
-Nothing ties that claimed length to the size of newskb on the path this
-takes, although the file states that it must.  iptfs_input_ordered() has
-three ways to obtain the skb that becomes xtfs->ra_newskb.  The reuse path
-checks the requirement and its comment gives the rule:
-
-	} else if (data + iphlen <= skb_headlen(skb) &&
-		   skb_tailroom(skb) + tail - data >= iplen) {
-		/* Reuse the received skb.
-		 ...
-		 * For linear buffer space we only require that
-		 * linear buffer space is large enough to
-		 * eventually hold the entire reassembled
-		 * packet (by including tailroom in the check).
-		 */
-
-The fallback allocates for it outright, iptfs_pskb_extract_seq(iplen, ...).
-The third does neither: iptfs_pskb_add_frags() is preferred over the
-allocating one and builds an skb whose capacity reflects capturelen, the
-bytes that arrived, not iplen.  Its result becomes the reassembly buffer
-just the same:
-
-	if (skb->len < iplen) {
-		/* Start reassembly */
-		...
-		xtfs->ra_newskb = skb;
-
-So when the sharing path wins, the buffer carries no guarantee about iplen
-and the invariant the reuse path enforces is simply absent.  A later
-continuation then computes copylen from a header field that can be much
-larger than the buffer, and skb_put() walks off the end of it.  skb_linearize() flattens the fragments already present;
-it does not grow the tailroom to whatever the header asked for.
-skb_over_panic() catches the overrun and BUG()s:
-
-  skbuff: skb_over_panic: text:... len:4000 put:3000 head:... data:...
-                          tail:0xff0 end:0x6c0 dev:tap0
-  kernel BUG at net/core/skbuff.c:214!
-  Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
-  RIP: 0010:skb_over_panic+0xcd/0xd0 net/core/skbuff.c:219
-  Call Trace:
-   skb_put+0xd4/0xe0 net/core/skbuff.c:2641
-   iptfs_reassem_cont+0xa30/0xb30 net/xfrm/xfrm_iptfs.c:920
-   iptfs_input_ordered+0x479/0x4f0 net/xfrm/xfrm_iptfs.c:1288
-   iptfs_input+0x161/0x2b0 net/xfrm/xfrm_iptfs.c:1733
-   xfrm_inner_mode_input+0xe0/0x190 net/xfrm/xfrm_input.c:453
-   xfrm_input+0xac9/0x1320 net/xfrm/xfrm_input.c:705
-   xfrmi_input+0x13a/0x170 net/xfrm/xfrm_interface_core.c:331
-   xfrm4_esp_rcv+0x7f/0x1e0 net/ipv4/xfrm4_protocol.c:104
-   ip_protocol_deliver_rcu+0x261/0x380 net/ipv4/ip_input.c:207
-   ...
-
-tail is 4080 against an end of 1728: a 2352-byte overrun of a buffer sized
-for what arrived rather than for what the header claimed.
-
-skb_put() tests tail against end before returning the pointer, and BUG()
-does not return, so the copy never runs and nothing is written out of
-bounds - this is a reachable BUG()/oops rather than memory corruption.  It
-is reached from xfrm_input(), i.e. after ESP processing, so it needs a peer
-that can produce packets the SA accepts.
-
-Note that skb->tail and skb->len are already incremented when the check
-fires, and the abandon path is not taken, so without panic_on_oops the
-task is killed while xtfs->ra_newskb is left pointing at an skb whose tail
-is past its end and whose len exceeds its buffer, still reachable from the
-SA.
-
-Reproduced deterministically: eighteen payloads on one SA - one declaring
-3800 bytes with 1000 carried, sixteen 100-byte continuations that fill the
-fragment array to MAX_SKB_FRAGS so iptfs_skb_can_add_frags() must fail, and
-one declaring block_offset 1200.  skb_linearize() then pulls into a
-kmalloc-4096 buffer (SKB_WITH_OVERHEAD 3776, 80 bytes of headroom, len 2600,
-tailroom 1096) and skb_put(1200) is 104 bytes past the end, which is the
-len:3800 put:1200 tail:0xf28 end:0xec0 above.  The same values appear on
-every run.
-
-Bound both copies by the tailroom actually available and abandon the
-reassembly otherwise, which is how the function already handles a stream it
-cannot complete.  This restores at the point of use the invariant the reuse
-path states, without disabling the sharing optimisation.  The second check has to come after skb_linearize(), since
-that may reallocate and so change the tailroom the copy has to fit in.  The
-comparison is made signed because copylen is u32 while skb_tailroom()
-returns int: promoting a negative tailroom to a large unsigned would defeat
-the check in exactly the leftover state described above.
-
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -875,6 +875,20 @@
- 		}
- 		fraglen = min(blkoff, remaining);
- 		copylen = min(fraglen, iphremain);
-+		/* copylen is bounded only by the length the inner header
-+		 * claims, which says nothing about the size of the buffer being
-+		 * reassembled into: iptfs_input_ordered() prefers
-+		 * iptfs_pskb_add_frags(), whose capacity is the bytes that
-+		 * arrived, over iptfs_pskb_extract_seq(), which allocates the
-+		 * claimed length. Cast because copylen is u32 and skb_tailroom()
-+		 * returns int, so the comparison must not promote a negative
-+		 * tailroom into a large unsigned.
-+		 */
-+		if (skb_tailroom(newskb) < (int)copylen) {
-+			XFRM_INC_STATS(xs_net(xtfs->x),
-+				       LINUX_MIB_XFRMINBUFFERERROR);
-+			goto abandon;
-+		}
- 		if (skb_copy_seq_read(st, data, skb_put(newskb, copylen),
- 				      copylen)) {
- 			XFRM_INC_STATS(xs_net(xtfs->x),
-@@ -913,6 +927,15 @@
- 			XFRM_INC_STATS(xs_net(xtfs->x),
- 				       LINUX_MIB_XFRMINBUFFERERROR);
- 			goto abandon;
-+		}
-+
-+		/* Re-checked after skb_linearize(), which may reallocate and so
-+		 * change the tailroom this copy has to fit in.
-+		 */
-+		if (skb_tailroom(newskb) < (int)copylen) {
-+			XFRM_INC_STATS(xs_net(xtfs->x),
-+				       LINUX_MIB_XFRMINBUFFERERROR);
-+			goto abandon;
- 		}
- 
- 		/* copy fragment data into newskb */
--- 
-2.43.0
+Cheers,
+Tianyi
