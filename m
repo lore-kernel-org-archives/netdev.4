@@ -1,106 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123547;
-	b=RTj5VYeabgHJJapMdCSC1fXpCx8U/2crISkSTDLlkUm3752XWY0an6dL1TT3pvL2SQ8F
-	 8pa7Zot4+C5HVQQYhwnuylNy7E75G3iFeXCg9jy4AcSuWkAZFq/hDQkBMnuepxysRs9sG
-	 TvEiZ052GvYQlmSfzyq4JHxo5rk3hgY62o94ra/W5BJ8hCLWy/bqXxjapLD5CjsHOdVFJ
-	 AQTxeKtZYQ9e6H/HCzrAARrqiYp6wsQ1zaSPa8rQVlkG7UsCu7CJR7lIEyKeMSFlOUijW
-	 DdIVAwy5q2qv7Ie349/JttwpcjoO+2mTQbwlwP5g7JRdI5OxUre0lHkxNeNIZGN/ypw==
+	t=1795123658;
+	b=Fi/2U1xhlXLJBkMauCugC17U8ooiOGkFezHcsHLbLR4FJvxUGlHi9b8wR6isER+HgCzz
+	 vq8LwPUHbwk5GXUd19fS/Vvs0yzhlAVbCguT3tJj8n7mpFfSA2cwH9dK08a5dyi27v1Wc
+	 mMqJIfq/8QT8/DM4Tu3TP0/uzswg3yCfLL3VH+bASfAjvefflV0CD+s5ZhXJxO9gwNu3z
+	 B6ide7uLficpKmNe1I7XCPM2o9RVb3S+DX13rkNCeTdrW0SoNVKCg8NJQ8hqtdLhCgYgD
+	 1Mg9TOW0yQ1SckvB28R4Ghc0OTAsyoGO8M2dyT52bhgrih1SNASu10LRhK6sgCdpNHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123547;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=L3A+83a9wCzT+86gHuUpOEXepXCJ0T5thB6Rt4gPEd4=;
-	b=aHp3m4uXVyCvoH4Xj1VMvxjUdLXFSSV58zU6RJ1uxofMuwBNUFZ3RhVTeba9ELPwAKhU
-	 fIHBafscOrwf5QhuGLfTWPYlrrszWR/3gXfwMBDxVz0hPeEk/I3lie8Yj1wLEMSvylrJp
-	 u7sXLMmi7HYmTori4uOPDE0D32xF4jkXvQX8ofagJIT5yVHzmfMH6uFvHcrlmAlj8nDER
-	 eLOcCoi1YqLORYhTYtqipX+eD9Ysr6W8lxyNJUS9LafJKk/8MO/yQyJSRSv/jd5YupNhC
-	 v4S5SreFm3om/VuRgLrdueuH4ki8L23h9AXteF5vgeWDY44ILN1xqjymIIeipNogMhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123658;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=FI9vWdua1Ky4pzSvEMEUUts+rWwX6FGvwGpLJLvDzhs=;
+	b=PH1t5vSu8WVbiu/bLmug061H1ACL7DZ4XOr9+Tb0rdmNusmdlWrHD8lEJk2lmr9kpwSG
+	 JP6UXJLmY48e+Ew4ZGujZ50/hWHJHLOulNYv6854BW6Ojzq0i5gAmdMNmzCuWRyrEcznW
+	 9iUKbIYxThfJd1g78OXCfyMnQ1tJrO15saVQc/gxuoCe/r3w/8S2nXEthyvS4BcY3NRjK
+	 kSFg0AInW41e+Vyf5u3ySKuLL+trs3Ax5jAifpzuUo2m5FqLEmcLPnmy7y/JznsmltSMM
+	 mtGDdtLmFCTg7S/REYAFy4xBerKK+KXVbW/HzE45QnGy8zoTcgG/vDqDxg3aCsMUEOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rEWPSsQJ;
-	arc=none smtp.remote-ip=209.85.160.174
-Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5oh2KSP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 013AD606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:25:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 013AD606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1BF5606A320;
+	Thu, 19 Nov 2026 21:27:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rEWPSsQJ
-Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-55d03bfd477so2564461cf.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:25:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795123546; x=1795728346; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=L3A+83a9wCzT+86gHuUpOEXepXCJ0T5thB6Rt4gPEd4=;
-        b=rEWPSsQJu0DHzGPnHR4fUNkId0R/vH5k8iuqTieO4oFRVN9Wr6bJ2jRdJmRWIIp034
-         U67Ce3A3De/ZQfiK3F70I2Izmn+Nh6u0X0rU1isSDp4b+RNakUt1fwNgRz4GSAE8nqcG
-         /c8hLCmmJkjIN6Pptt6iTBvye4W33y8thEPF6arbiZ6rfpFL5jBGBVz+KMHLUdt141NX
-         32EjVHbeID7WYgbEi0z2Q2pY9M5McaT8cSEYeinFBNl5SbO93aT6Iju8ucwg01mVLOl0
-         X2pOMMLAt6q5xhSqpKbaIE4PREpMCtplAjqgZIZGvsW7Z8S3IRRmmKqUn0C4P07IAds4
-         eyHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795123546; x=1795728346;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L3A+83a9wCzT+86gHuUpOEXepXCJ0T5thB6Rt4gPEd4=;
-        b=dyKpA7vwN13Ab69X3954FgPD8dIRQe9nQagiEjYlfYWnw3k2hlbyYEHNiDPk1f/wrk
-         Njt1Lk71Avp6LaoeLTtevYFlqZ3OOmmYp4mhIGayL2iOFrdO7TCxIncML1/K/aEMSjR5
-         bRBSRAs1EHy88m795MMxSlEmQaiN8jqPilhTt8I/WTkQVPwp36u9lrUhURowwlVR/hlh
-         AdeQxWMAxdfyFJGBnmNPNKGeaE9X1os4Bx5gs+wJ+wSV67xn2yvXiqG07Fmjo3id7pVP
-         dMGvlW/iZHmg7uyYedSlH3AgEj0usltzFWbP3xgrbNtdO68TXxBMy6O4v1d3b3y/Ukhp
-         8ZMA==
-X-Forwarded-Encrypted: i=1; AL+hErE3HPc4lhWpWcVCvc0Ip3Kxc9KbCygxZMdIGYYlD/Exmtyp2/BkIyZ6siFtaJ51PtWpvAVqrjI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8U5AL3trXY7FT7luw0ZsEBKpHk6Hid9vi4cs2UCtALI27qpvng
-	SuNT62qXc8y3k7AUFlLC1uL8ZT3CMBaRGocOFLpJo4J/KpYB4rE/JFnZ
-X-Gm-Gg: AYBFou2xHgy67ynTqShctWjKxGODmy7SBnqW56OQwgfsi0vnUtpUEtgGyC+RqK8Rw4A
-	GijGzMolJ7dYuqTfVjf0J+oO/4vn98KKfNbwj06TXeRx+AHSOOY2Ttt4lQstYA82LXsKYHMpsSw
-	3xw3W5xRTJRsOp8eIeQtIVkFVTVtovgtExYHTM6Y3jANlQi1zU17BUebX3ZMCsOL35RXMloLnoa
-	IcExv9DltMS8sDaZc0yXfTIS7hDNolYzYHLcvBwjTXrHB4zNJyrbQJeb8EnhjBL2oiMEiXlVpcO
-	cQ0FbzowX9L4w079qprgSEfGY/fkmZCSwjG5Fc9UaUTXXuX45C4y5vSdhYL3kGrE0qTeqWqWlmg
-	j29KDfjw70RnLSaCCTrpNz3aqGJ4PhxPLofuvCUj//Jf305If9YLPeeOcy4PFDUtZovycyELtxn
-	C5Iwe9Dx7bf29jKpeQ6Bep+DKcEGN7pDNdAjTTF0VbQwfEKt5ARxsOj7OulJZ1T3BTyTsZLNmS6
-	wi2/+6wZENhRkeMneInJ41i+nOqhVjob6TKZIsP/TW8pUK0dXr8TcIwVpD4IVU4qxLhDXACU4NO
-	37GpjyEqKdcI0cihG50Kfewcm4XkysauOMxOEQZt4c6nASlnUtjQYF/nB2a/EXB98M7c/Oq6WnX
-	SSLvtUGisci9He4umCYfc5UN5HTDtKnSxpBREp2HzAs2bbCq5xc4yS8BIsuDJi7KZ2LvLUNC/6Z
-	YbWI2nkzGf
-X-Received: by 2002:a05:622a:248c:b0:55d:3669:e04e with SMTP id d75a77b69052e-55d76a2b7f7mr22004751cf.22.1795123546011;
-        Thu, 19 Nov 2026 13:25:46 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b253csm8744006d6.15.2026.11.19.13.25.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:25:45 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:25:45 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Sangmin Lee <45sangmin99@gmail.com>, 
- netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- David Ahern <dsahern@kernel.org>, 
- linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-Message-ID: <willemdebruijn.kernel.d6d50443276@gmail.com>
-In-Reply-To: <20261119164351.49040-1-45sangmin99@gmail.com>
-References: <20261119164351.49040-1-45sangmin99@gmail.com>
-Subject: Re: [PATCH net-next] docs: networking: correct skb_shared_info field
- reference
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5oh2KSP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E02B1F000C4;
+	Thu, 19 Nov 2026 21:27:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795123658;
+	bh=FI9vWdua1Ky4pzSvEMEUUts+rWwX6FGvwGpLJLvDzhs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=N5oh2KSPBuNpDFr7xrQyBWbEBYBE+mP27Yec7/RVAcz2gcwbxTLkwqT9e1SAlOfXd
+	 IRhC/NZT0Kr9bveewyxi3UWWb/AOYbyqpcxL/l6hGPAiA6OXwSgWo9ZX1hn5R1NW+r
+	 1D8pi47FJCyAaQ2mzGKr1r9jjklUj4IWDj6F3RJcZiGaO8jnOBAH0ZW+H/Enb2I1N9
+	 47kqZXfoCSkY06rcJ/YVpKW7E4wJl9myAOB+ySpZt4IrMj5mPfSn286ImUxZkRRSEp
+	 NsLVPb1zNGoOpJbN9QnUyVKC7TpLqY01mMBfj0x25DDuhlesrVblxdPJNOg8Wk8PMe
+	 a4x8kTnmhljLg==
+Subject: Re: [PATCH net] netfilter: ipset: exclude add-path GC during resize
+From: netdev-bot+sashiko@kernel.org
+To: onleaf322@gmail.com
+Cc: pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, kadlec@netfilter.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Date: Thu, 19 Nov 2026 21:27:37 +0000
+Message-ID: <179512365704.3136.7898068439962970821@kernel.org>
+In-Reply-To: <20261117092731.14656-1-onleaf322@gmail.com>
+References: <20261117092731.14656-1-onleaf322@gmail.com>
+X-sashiko-severity: Critical
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,56 +63,179 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
 
-Sangmin Lee wrote:
-> The skbuff documentation refers to skb_shared_info.refcount,
-> but struct skb_shared_info has no such member. The actual
-> field is skb_shared_info.dataref.
-> 
-> Correct the reference to match the structure definition.
-> 
-> The discrepancy was identified with assistance from
-> GPT-6.2-Astra (xhigh) and manually verified against
-> include/linux/skbuff.h.
-> 
-> Codex built the affected page with Sphinx and verified the corrected
-> field name in the HTML output.
-> 
-> Fixes: ddccc9ef5599 ("skbuff: add a basic intro doc")
-> Signed-off-by: Sangmin Lee <45sangmin99@gmail.com>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+Critical: 1 · High: 0 (1) · Medium: 0 · Low: 1
 
-> ---
->  Documentation/networking/skbuff.rst | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/networking/skbuff.rst b/Documentation/networking/skbuff.rst
-> index 94681523e..e66adf19a 100644
-> --- a/Documentation/networking/skbuff.rst
-> +++ b/Documentation/networking/skbuff.rst
-> @@ -21,7 +21,7 @@ to as shared skbs (see skb_shared()).
->  
->  skb_clone() allows for fast duplication of skbs. None of the data buffers
->  get copied, but caller gets a new metadata struct (struct sk_buff).
-> -&skb_shared_info.refcount indicates the number of skbs pointing at the same
-> +&skb_shared_info.dataref indicates the number of skbs pointing at the same
->  packet data (i.e. clones).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-small nit:
+- [Critical] The fix is incomplete.
+- [Low] The commit carries `Cc: stable@vger.kernel.org` and `Fixes:
+  f66ee0410b1c`, a 2020 commit, so stable maintainers will try to apply…
 
-    The `&struct.member` syntax is only converted inside kernel-doc
-    comments in C files. In a plain .rst file the `&` is printed literally,
-    so the HTML shows "&skb_shared_info.dataref". Since you're touching the
-    line anyway, match line 18 (:c:member:`sk_buff.users`) or line 19
-    (``sk_buff.users != 1``), e.g.:
-  
-        ``skb_shared_info.dataref`` indicates the number of skbs pointing at the same
-  
-    The :c:member: form won't link, because struct skb_shared_info has no
-    kernel-doc, so the ``literal`` form is the safer choice.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but a successful
+  resize leaks the comment extensions of elements that had already…
 
+--
 
+netfilter: ipset: exclude add-path GC during resize
+
+This patch takes h->gc.lock around the direct mtype_gc_do() call in
+mtype_add() and skips the collection when the pinned table has resizing
+set. The goal is to keep the packet-side add path from freeing extensions
+of old-table elements that mtype_resize() has already copied into the new
+table.
+
+> Fixes: f66ee0410b1c ("netfilter: ipset: Fix "INFO: rcu detected stall in hash_xxx" reports")
+> Cc: stable@vger.kernel.org
+
+[Severity: Low]
+The new code uses h->gc.lock and t->resizing. Both were added by
+cffcf57bf03c ("netfilter: ipset: exclude gc when resize is in progress"),
+which has no Fixes: or Cc: stable tag. The commit message mentions it only
+as background.
+
+Stable trees that have f66ee0410b1c but not cffcf57bf03c won't build this
+patch. A hand-adapted backport could also add the add-path check without
+the matching resize-side flag and lock.
+
+Should the stable tag record the dependency, for example
+"Cc: stable@vger.kernel.org # depends on cffcf57bf03c", or ask for
+cffcf57bf03c to be backported as well?
+
+> diff --git a/net/netfilter/ipset/ip_set_hash_gen.h b/net/netfilter/ipset/ip_set_hash_gen.h
+> index 80ca523f304bb..70f768ba7b443 100644
+> --- a/net/netfilter/ipset/ip_set_hash_gen.h
+> +++ b/net/netfilter/ipset/ip_set_hash_gen.h
+> @@ -1009,8 +1009,12 @@ mtype_add(struct ip_set *set, void *value, const struct ip_set_ext *ext,
+>  	maxelem = t->maxelem;
+>  	if (elements >= maxelem) {
+>  		u32 e;
+> -		if (SET_WITH_TIMEOUT(set))
+> -			mtype_gc_do(set, h, t, r);
+> +		if (SET_WITH_TIMEOUT(set)) {
+> +			spin_lock_bh(&h->gc.lock);
+> +			if (!t->resizing)
+> +				mtype_gc_do(set, h, t, r);
+> +			spin_unlock_bh(&h->gc.lock);
+> +		}
+>  		maxelem = h->maxelem;
+>  		elements = 0;
+>  		for (e = 0; e < ahash_numof_locks(t->htable_bits); e++)
+
+[Severity: Critical]
+Does this fully close the double free? Only the direct mtype_gc_do() call
+is guarded. Other packet-path sites still call ip_set_ext_destroy() on
+elements of the pinned old table while mtype_resize() runs.
+
+mtype_resize() makes a shallow copy of each live element. It holds only
+rcu_read_lock_bh() and no hregion locks:
+
+    d = ahash_data(m, m->pos, dsize);
+    memcpy(d, data, dsize);
+
+After the copy, both tables point to the same ip_set_comment_rcu. Hash
+types set region_lock, so packet-side ip_set_add() and ip_set_del() can
+run at the same time as this copy.
+
+The first site is the reuse/forceadd branch later in mtype_add():
+
+    if (reuse || forceadd) {
+        if (j == -1)
+            j = 0;
+        data = ahash_data(n, j, set->dsize);
+        if (!deleted) {
+            mtype_del_cidr_all(set, h, data);
+            ip_set_ext_destroy(set, data);
+            t->hregion[r].elements--;
+        }
+        goto copy_data;
+    }
+
+This branch can free the comment of an element that was live when copied
+and has expired since. That is the same timing as the race in the commit
+message. With forceadd it evicts slot 0, a live element that has already
+been copied, so no expiry timing is needed.
+
+GC is now skipped on a resizing table. When expired entries are present,
+the recomputed elements stays >= maxelem. Doesn't that make forceadd more
+likely to take this eviction path?
+
+The second site is mtype_del():
+
+    mtype_del_cidr_all(set, h, d);
+    ip_set_ext_destroy(set, data);
+
+    if (t->resizing && ext && ext->target) {
+        ...
+            x->ad = IPSET_DEL;
+
+This frees the comment in the old table and queues an IPSET_DEL record.
+After the new table is published, mtype_resize() replays the record:
+
+    mtype_del(set, &x->d, NULL, NULL, 0);
+
+The replay finds the copied element in the new table and calls
+ip_set_ext_destroy() again on the same comment pointer.
+
+ip_set_comment_free() clears only the slot it is given:
+
+    atomic64_sub(sizeof(*c) + strlen(c->str) + 1, &set->ext_size);
+    rcu_assign_pointer(comment->c, NULL);
+    kfree_rcu(c, rcu);
+
+In each case the new table keeps a dangling pointer. The next GC, delete,
+flush/destroy or backlog replay on it then calls strlen() on freed memory
+and does a second kfree_rcu(). A dump would also read freed memory
+through ip_set_put_comment().
+
+Would it be better to stop or defer all extension destruction on the old
+table while t->resizing is set? Another option is to have the new table
+take ownership of the extensions during resize, by transfer or deep copy.
+
+[Severity: High]
+This is a pre-existing issue, but does a successful resize leak the
+comment extensions of elements that had already expired but had not been
+collected yet?
+
+mtype_resize() skips those elements during the copy:
+
+    if (SET_ELEM_EXPIRED(set, data))
+        continue;
+
+It then frees the old table without extension cleanup:
+
+    if (atomic_dec_and_test(&orig->uref)) {
+        pr_debug("Table destroy by resize %p\n", orig);
+        mtype_ahash_destroy(set, orig, false);
+    }
+
+With ext_destroy set to false, mtype_ahash_destroy() skips
+mtype_ext_cleanup(). orig->resizing stays true after a successful resize,
+so mtype_gc() never runs mtype_gc_do() on orig. With this patch the add
+path doesn't either:
+
+    if (!t->resizing)
+        mtype_gc_do(set, h, t, r);
+
+So the ip_set_comment_rcu objects that ip_set_init_comment() allocated
+for those elements are never freed. set->ext_size is never reduced for
+them either.
+
+Before this patch, the add-path GC could still free some of those
+uncopied expired comments while running on orig. This check closes that
+window as well.
+
+ipset netlink commands need only CAP_NET_ADMIN in the caller's own user
+and network namespace, and these allocations are not memcg accounted. Can
+a user repeat create, expire, resize and destroy to use up host memory?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117092731.14656-1-onleaf322%40gmail.com
