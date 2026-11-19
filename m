@@ -1,58 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795131241;
-	b=Uq5b59+gCKMNEFlVbzUShk+2d9NmuHFUfCRtGXyXtfZnaZInGsM37mGXLHC8SI+5gaS/
-	 DRsut25t8+rSq7bnCiJ1JxxAz1zMx2AA0KWwZbSo+W7QQu7rlow+6RfBZvihtq53auP4G
-	 5jnuxjwCKrNwml7i+34KVD/44rvp5sTroks8TkQYx5uWUcfUKiI+GiKQaVa3Zum95tEMS
-	 m2QJIyBgc3hK6aB6JUu3SSC1e66Q67+ef+5ykbZofscVAS7AsFV3q3TbLrlcECv3dpQMn
-	 AvzEYJ+VFD15ximAdge3OPqvs09vePUX2muVL+RWqMFJYhSG4rJVQYTI0smNHiSThYg==
+	t=1795131265;
+	b=T6uaXTeLtn/0HUm3eLhIGgfXxyJ73Bh+bCsDMOYI+VXNmwrkS09fahopyj7aHSp0cAta
+	 cSCIvlInGAd3FdhC9ax/Q2KXldK5S4pPE/xpGv76hk1L+U9Mnysox5kgW9yVlB0H1FPrY
+	 JzZO6rvfk6O9zrQjv0vu+VRVWcSRyc6SO0NZ7UY40SNutA3DelU5M1/OFvdU42d+uBh/w
+	 c9mAytUhjacxsq4BJSkMax1iFP+JOCOrVG9NeHT3rzDjPYW0avz1wyWJMehLuYEkCAKVA
+	 gsH5NvpvIwPkagol9D1f7fEHJkfzWOxpNKaEfEPWygtuF/Ir1AePe7yR3ryksjZgVjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795131241;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=o/riQ6Rp9lNUag+Na8yzBW2UdMslv2nQXBM29X/rxaw=;
-	b=hO3SoIfgDxVChhgKlftkzt9vgtZA7wo8IIezPNdoN/3zEFtdPNgynK79734VoOi34z1U
-	 B0+DuAq+X4wSoAHbp/Js4syoVpNmzt185AdMA7bflERitA0jUYip8i8YqG+C4Hm0odt3+
-	 k2TiJrtrc0IIu/CBNeXF/BJLksZWIrVTvkfDW/GllFn+DzvBurUUpHjMPtSv05BbNOdle
-	 iKfGVxXFTSl5X4IdrQF1RAWN2XXHMOlWRU3w13liyuXwBYHrDeQ2PI6Yx41L1JFYhzisy
-	 ZoPfTX+39nEPfoxjYUxrGeT+05/RTHZX7WngOYbYc8jWWs5cXCbcbyR3niQIueOnplw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795131265;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=MI7mnbWJtqOFjuPsaAZSAnv0rdseJZ3T3cjclMQcElI=;
+	b=bDUWoUQ9UHR7aMbXEhmcMbo0NT9wINLII9gD+D9csEyKdlmM1xHHLF+eghBmx1sBVoEx
+	 vqnRcUSrKihbAZ4SRdA++LOJLo86/fzVovF/52PwX0Pml9yPZ2H7uoEuA/fYb8lcCGZbV
+	 /xA6kjaUFOkr5xUXK5r16nRS6IOiPKHtu72Ka0mCXclYoNRwb7vr/W4dF1Sp6L8wVoPeO
+	 Sp1Vf7vWtacmasU3vuILox+foU3MN7CHzZ/hdilSjNrtdPaqbeEeNaiJbS6FnYtFxknK5
+	 6SfO4q00TUGRgNpobR8N0Em69jiSh6o9nqnDFitEWnlaQstEF1khC2bZUy8NvCFr89A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CnwO93ud;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="Oxm1d/Yy";
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03ACC606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:34:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F7AF606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:34:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F7AF606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CnwO93ud
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A2EF1F000C6;
-	Thu, 19 Nov 2026 23:34:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795131240;
-	bh=o/riQ6Rp9lNUag+Na8yzBW2UdMslv2nQXBM29X/rxaw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CnwO93ud9+Yx5F9DMwNiBS2KH7IZYVhMNj5SHEHHzR5xg7XFtzbmBsoAvn7wJ8lP1
-	 N0ZqUjcYF0poaJJfCcYry1dfPVTCtVlfcLGdwJwFb9kt5GaJZ80UFPqhDoZqhG0FWA
-	 LakVeKDUkPtDkk/IfbQLS1KoGUH1DmqIVJVnK/pnX+XRzCAWXWPy3USXrpHt94QgZf
-	 sjkhPLHKKfajUyvBFcbFQg/mIKDNYJFu+K0brQ7FJpeDdX8UUekRgV3AlMNlEI4GvW
-	 HPHFM/F9MvvvgwgTt99FMs/hBKZTcK+LbetcQLv/rxZuyHob1GH4EkcMu8I0FMJtrt
-	 A3A7OtquhDpmA==
-Date: Thu, 19 Nov 2026 15:33:59 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Alexander Duyck <alexander.duyck@gmail.com>
-Cc: netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- horms@kernel.org, kernel-team@meta.com, pabeni@redhat.com
-Subject: Re: [net PATCH 1/6] fbnic: Wait for in-flight PTP timestamps before
- treating Tx as idle
-Message-ID: <20261119153359.06277f25@kernel.org>
-In-Reply-To: <CAKgT0UcDxJHs2jCUtMDPzTBX2pFahFOSO=Qd01mO-4xCwZ1Ozg@mail.gmail.com>
-References: <179460248693.8819.282933709034208845.stgit@ahduyck-xeon-server.home.arpa>
-	<179495005876.3136.9616798412841778832@kernel.org>
-	<CAKgT0UcDxJHs2jCUtMDPzTBX2pFahFOSO=Qd01mO-4xCwZ1Ozg@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Oxm1d/Yy
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2ed0890476fso1651795ad.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 15:34:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795131264; x=1795736064; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MI7mnbWJtqOFjuPsaAZSAnv0rdseJZ3T3cjclMQcElI=;
+        b=Oxm1d/Yy+28cDfMvo3cUdd6Q0KgD2KJbd/1W0J7vt+MiDkUiRqER9fvsEzv+rb0YQE
+         7lgbjx9EmSH8g5MAOeV/k5k30wfsdCtNgmcqlomxqYYO59GNzlQ1QPZ7U/CLX2NjTzAG
+         OLDWZLAaLHaYBg5cUxZ6LPDpgdcA9ndXwY/DH36hSxWd3KBJzaBgMu3G4qSQFI85bRAg
+         xIK9VYJaXva8sAgtS5LlOHC5YgOBfjnTW+TLo5r3Ad5gQatczb+5QUKf+9GXAFT9sXE5
+         tzcGPTQ5O6Ax+i2Xa9TTQE55/BvYvkCErY8E+r7i55kE0ahKFGrMQiD0wrtQhYhwhrzc
+         j6qA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795131264; x=1795736064;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MI7mnbWJtqOFjuPsaAZSAnv0rdseJZ3T3cjclMQcElI=;
+        b=0+ZG9T8HGbRsdqm36lftsLs2GxaQo4F7SpXbbxAJcp9XIHacKEl/vbhi/T0/sAVEG1
+         Ou8WXpHybQ2yxLRkSsP3F573IemfokCQ4NY71UWrFrTrF9xThYsExJeBMFznLdkmaS0U
+         BvUfNsKeUZlvM2rkt0BPTl3/hqNLBTUExyUBiBO7pX8BY30YiOlba1x2qhIucvIeQxfd
+         I4NrHJWxsetEbjo9VnGQPeCsDGTsL7iWQTUmuo4O4t9e9IKkT9d9I0KogJ6UdO0nX9VS
+         QWkEoxx+p83CNwAjsw8tMVRevYVORjY/2jzguykz7rxxiy2OGXZcccH9VUKkyBe19r4x
+         fxGQ==
+X-Forwarded-Encrypted: i=1; AL+hErG04r5ch6tyvdpKIs4EpJsU6RLklRPchUCELnTapUFZf1cM56yEznLsrL2cnjU6cqccEc3CLao=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YFyB0hbVMDZ54tgSgxA/m4tcJEYRWNLs5/ghmw3oluoLIfecN
+	xmHqdZlVed/Q5vINKLDQK0Qvf8iGNarW7LX8e1b1qtky+pLuv84aNKtr3Z/bvvsantQ=
+X-Gm-Gg: AZFdTZdBRa00BrtcqN2SFMb3YDBFkWyaBTk5gdHP5ZqO+eVi0LaNy0x59y3H3F88GXR
+	W2pnGRbfWAqIZFqnTSgbyY9EVBSNnZ9VKAQ5T1bKAxFK5yB1nN6DYBSyFRWQvMMl8F6zCzFTkiw
+	V9Z5CG56lIpwfff/ayqVf8eq4KBg8owxBqyBopIlO1B/04URIuGrfpiPuzyqYZPVdBClhRua4Lw
+	ywMbGqWgPE2Cb4pTMAEJE4aEQQrMK6zQggVxlhiZn+M0hT+U8eT3Y27dhkg0Sz01qyAgb6Kuh/s
+	ytjgGMw7PljVfYxYaTw/amWtrepC6Jn19UFR42UJGprJA9Ds5fplLTBwSG2MU9BVXb1HeSyOMOB
+	c46WE6jJkQOEQb0mA2ksAf37cixfP9/PvW482wg3F63UbAhUx4MjzlDd6kNxAecQsGyQFkRZONn
+	RwovMBBOUkqj0RFql8teDQJmYi6zpkbOOyOT5tB8jwA5wuqG1nNlosDMn68IvrFHxQZ13bFU01y
+	yss6fR2spFM85ejCFLNYMGCHBo//ZGE6m/HtKofMxB/AZOCL9prqXCzI+hciYaWBMZWpCo4IKKI
+	bRpoFH/uVPUinYQeuUmZHgYdUBNNSw5OMyLmAh+U33srTZLGtyE6DusekfA7w4Uf
+X-Received: by 2002:a17:902:ec8a:b0:2f0:446d:30cb with SMTP id d9443c01a7336-2f0446d312emr3115195ad.15.1795131264280;
+        Thu, 19 Nov 2026 15:34:24 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:47::])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc0f8sm5686265ad.27.2026.11.19.15.34.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 15:34:23 -0800 (PST)
+Date: Thu, 19 Nov 2026 15:34:21 -0800
+From: Joe Damato <joe@dama.to>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: tariqt@nvidia.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+	horms@kernel.org, linux-kernel@vger.kernel.org,
+	daniel.machon@microchip.com
+Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
+ doorbell fix
+Message-ID: <av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Jakub Kicinski <kuba@kernel.org>, tariqt@nvidia.com,
+	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, daniel.machon@microchip.com
+References: <20261117155353.2250540-1-joe@dama.to>
+ <179493106742.3291.11434436383058043225@kernel.org>
+ <avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
+ <20261119143852.3bca9000@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,20 +107,31 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119143852.3bca9000@kernel.org>
 
-On Tue, 17 Nov 2026 13:31:33 -0800 Alexander Duyck wrote:
-> This is assuming the worst case, but in the worst case we are talking
-> about the Terminus Tx or Rx path essentially being locked up to
-> trigger us being stuck in the wait that long.
+On Thu, Nov 19, 2026 at 02:38:52PM -0800, Jakub Kicinski wrote:
+> On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:
+> > The only fix in this series is the deferred doorbell flush (patch 5), but I
+> > need the other code (patches 1-4) for SW USO support I plan to submit next
+> > if this series is applied.
 > 
-> The likelihood of this is incredibly low, and the change that was
-> already made reduced the worst case to under 10 seconds which I feel
-> is reasonable in the case of shutting down an interface that is
-> potentially in a stuck setup and requiring additional time to flush.
+> Not sure if this is what you meant but this may read as if you were
+> sending a fix for net-next for convenience of sending more patches.
+> To be clear - that's not a valid excuse. That said, here, we're talking
+> about a 10 year old error path bug which nobody apparently have been
+> bothered by. We don't have space in net for such things at this point
+> of the cycle, anyway :S
 
-Could be the "don't add defines for meaningless constants" in me trying
-to break thru, but in cases like this I wonder if the AI would have
-complained if the AI writing the code did not over-comment this stuff.
-None of this matters :S
+I'm probably just being dense and not following what you mean here.
+
+I was looking at a local branch that implements SW USO in mlx4 and it was
+getting to be quite long with a lot of patches. I thought that breaking it up
+and moving some of the patches into a standalone series would make it easier
+to review.
+
+I suppose you are saying I should have just kept it as one longer series,
+instead?
+
+Sorry if I am not following what you mean.
