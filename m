@@ -1,102 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050671;
-	b=3qCl5nw1jYET8qvcr/HHRYU5ZVocs4L2ytxMpXXfypzu8de3OaPOnuvPTuN3BK25/f+u
-	 LMkpp+m4Ywlwtpa25SIb/pjEWTcgDZThAKLkCXwrOeA8c1YglWWbSZsTvpyLdWqsDH7NI
-	 gyDNtHAztaFPnzcwFS692TpVuT6O9sgVxD0UmmVRYiHEO2apT1P5tw5m/UAL2DF+FvV/L
-	 1/a28sAdYZokEvF4WgdHp1FnzYfzl99sjib13ylrEVp4AvD+qm7LvAGf2hm6U1zD2YtHx
-	 VvOq1jbH+NTHRZVHapmgFZBiIW3PuIwRX+IimPE4mkMFR/1ONZWXQ/ocfUOTkxo72Xw==
+	t=1795050682;
+	b=yj+W2X755N1xoI12n5uroFRb4dAgvkPE1uhJGkqRDIRoJLBLIsZeWAqC/cv9SJUjcIvB
+	 odWmoDApkd7tHJM8E9QjtU0sDWqV2uovvQ6TIOAIpKvcKsbCSps8OvyRYFiZ85Kx3G67g
+	 CVwwqXDK00V1xHmFi5tnrwn9cRs/XeizNdmHeAOuGUFR6wfRqjWOE5oHCnKpPzynIiRlL
+	 4/9BJqMAG4Yc6E824TQ3wpAHodb6rYFhXv19LqGU5toTOGC6vvWDiAY/dstnlcfwP6NBt
+	 iLgmTa+zdWhUkmCXVQSLJBFpLCvnWeJeLgSqm5kTSgfivJs5aqtcy9yG+lj7dXVsewg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050671;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=pSkuji4kXwZcd1ydna+oHa+tnDhj558qTFgbXnb/qHI=;
-	b=MIV5lGvPk0RnVoTwFYH/ZZYJ9lsMkOqWJ0iminkUwvd3GfR4Y9Fh7nSM7Tw0Y/5hZWsL
-	 d9cD0yOEmjniMbqdxUjBErM7d6+BEtixSAMg8mThjTQ+k0tXPBWO0DUCdQoqF0SseTyMZ
-	 sk5gLUqLm0cQgccE+ZIbQmJbP/4lLbeqTAALEGV88+/fRyfSfQNo/w4YpsOzWqwuJ0cpZ
-	 hfAPJBR5yw6FxD30wHITyX0PDoz8vfvTXmMiFrW9Evad5tzNSHADE3JTqWS17DjR5jYgj
-	 7cMUbFVqYbGXr1YF5iVPPe8VE4Wb/b06B6UnNA8wUcKAhyT+gmcry+UNCYFLKb6AY7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050682;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=qfTi+55bweZ3lujHuhvCsOW+eaoFg11xdlPDAlgz0IU=;
+	b=vF8Ny5Y7ukshAsZeY4YAcc/ez7uXTnPEjJhjcOD5rAu7lBFUfo9rSeO5+UFPaaQsjLdI
+	 lAbm/1yjjuxn5hce/XjV34FCEtdiGX4zspMK9drgYL6C48RjJYXAu+Djo7k7Tuyq12f6P
+	 1kk8zSchVxmXkPfMCY59axVvV5JIfWM+eTiQ71GWa0UWbUD+LE57wCha+Nu/4KpVuGGyr
+	 X+3bTMp5x322hFgL0exliaY0Rt48mwxvlH+ak7JwRrquglCsjF38B3/mVedVST5mv0ACy
+	 3hNrSJdguO7f58fj2pO1xz58yzbgjgTagJjc1E9jYymcNGED92EKyWRDxSWz5ooR7iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AQxjWr92;
-	arc=none smtp.remote-ip=209.85.216.49
-Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oB8YztzR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9888A606A331
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:11:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9888A606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6892606A32A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:11:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AQxjWr92
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3ad41b47541so1283512a91.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:11:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795050670; x=1795655470; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:from
-         :subject:cc:to:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pSkuji4kXwZcd1ydna+oHa+tnDhj558qTFgbXnb/qHI=;
-        b=AQxjWr92FxP60mndSKV1WTxMvlLowBCe4ISf1KUb5lLrWmFDGKOqW+rvkah8HZubyT
-         xmx6n2ONUy5IOJNNxTrL91ftGOtwfB1sWkrm06UxgLyrLdHYWG7i/evZhXDs2j3wm0S4
-         L2/kS8SMInAdFLQOYw5m219eN9iMe/ALzLEZRZ9mzRti9mbEFfMj/hrQMBFR1eoy2op/
-         D5A80+nsjMEDab9wzjTy3BhVjDZbyxNs1wEgLVlN83T+ngwRY+FNpSe8bl/PdZFGHWB9
-         RqCy4BfRqoZJemQ0BRqZAmRaWIvwTnzgWA24Cs1qZkIfMyvmnUeYw50P0z2oABLVlTwy
-         ZvXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795050670; x=1795655470;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:from
-         :subject:cc:to:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pSkuji4kXwZcd1ydna+oHa+tnDhj558qTFgbXnb/qHI=;
-        b=sR5eGh4xi3HXULZ33cDTBHlK4+QTnIjT5kNJflcIqzcSj3GqbfDvcTUA13LeqYMAOU
-         qR5Rc2e4dJogrbaeYn8yIjYE4LzgP2lR9bTEPraodQ1dOwx3pHovIXQgiXOmBf4FQ55j
-         037DQn0c9C9xkywNEWZebUF06yQ++H8dj3IIk+1fI/wU4xLw8lCV/fNqUNS9IBVCIw8N
-         DsSczaWN0h5DdW8xKXaGEOzvmVdJWytqKV/3+08uQRN6A5Pxg9rkmZkRpBaJKXkOpnok
-         4bEDa6mOdFC41uHsmyoajfM2ClfW2qTWu4aA3VHopPcxedH2RCGpASt+6hMq+tq6piNj
-         y/Ag==
-X-Forwarded-Encrypted: i=1; AL+hErEBrqjfnRKLac+8eGTs1h55u9eRcfPqvCWu56eqrsE+AU0op+Tm5aKTV6HFVAiIIGf9X+O1NNc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8JTP2VD3xdt5SBjnrejZI5yZXRJbik8YW4hV307a84cL0cPkmN
-	/OC8747oLQW9YcNSMhUZ2IBngQhElzVA5utUsgLD+fY0xVkVUGVKK3dc
-X-Gm-Gg: AZFdTZfBatkWRbG21TJ7I/M32fbTGos5/Uko8OezXTxGYaofpnlw3qLqDpcaERI0QdM
-	z1ioYnscUfVwugfxaSVl2QgEiJ+/+2cQv4gp/QZwALVZmtayXewxcyXkm4mT6zxiZBKzWrflK81
-	6kCwtVvjTAOBD5ZrkV9jMNnpCXx3ww+HyNccfILVbezZYB8Ud05OkYgTmhmCtJYxzAt4YSNHMsi
-	5CjdnJSDjJ58J9YVIImNeSiwdT6tYlTUdkF6ZfEqVQou4fdnIIIbwS99/YKyb9A7N6H9FKR7UK+
-	uqVmQr6L+NzaiErlFGVxCwnc2Mmvi6iAyjIJmyVtrMQxglBbMp3/fkt6HSTSLMWE2dxbMfajEwB
-	kmYoW7VjtVKcg5oeuGj9RGCC+wPRtxzuMdZ3o3cn+mOzn5+qJ613qTm1Dvxa2ETmBAKi/AoUkdu
-	9/iUFAHWas/T2WqCWj9kfBxebNixH+6eQZUpkYgp1mNyYgs91DHBwNhuezflKHM6/ucpr2b7cLL
-	YH+oUGH5dkz/O+DvzARWusSIDztkCyK202t3Tj8s89Mzy0kMGgYFpUf9EIXRG8/AI84RNj7EpTj
-	Hc5Dg7imONO3oODFNpyNULpdIsgjNU5GmBmKx/VnwQbzjwTUKVcyE24X05SdTgvzQTmOcYaUUQ7
-	rSOIlKVt+nDNVmmOV8BJ8Sxsrok+kJgZsPybq
-X-Received: by 2002:a17:90b:4fc1:b0:3b0:9a0d:b825 with SMTP id 98e67ed59e1d1-3b3d07ab104mr4002171a91.45.1795050669692;
-        Wed, 18 Nov 2026 17:11:09 -0800 (PST)
-Received: from localhost ([153.61.198.249])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3fdf456d2sm650359a91.13.2026.11.18.17.11.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 17:11:09 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 01:11:08 +0000
-Message-Id: <DMYSCT1OYI5F.2HSYP9MZ2BRJU@gmail.com>
-To: "Maciej Fijalkowski" <maciej.fijalkowski@intel.com>,
- <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
-Cc: <kuba@kernel.org>, <daniel@iogearbox.net>, <pabeni@redhat.com>,
- <edumazet@kernel.org>, <horms@kernel.org>, <davem@davemloft.net>,
- <shuah@kernel.org>, <hawk@kernel.org>, <john.fastabend@gmail.com>,
- <sdf@fomichev.me>, <willemb@google.com>, <petrm@nvidia.com>,
- <bjorn@kernel.org>, <magnus.karlsson@intel.com>,
- <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH net-next] selftests: net: don't warn when bpftool is
- missing
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-In-Reply-To: <20261118165338.1064930-1-maciej.fijalkowski@intel.com>
-References: <20261118165338.1064930-1-maciej.fijalkowski@intel.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oB8YztzR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5BB51F000C7;
+	Thu, 19 Nov 2026 01:11:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795050682;
+	bh=qfTi+55bweZ3lujHuhvCsOW+eaoFg11xdlPDAlgz0IU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=oB8YztzRnFiaYfBIZjINZSEOELvM7AHJHIDt/T7NLt9zii59MaKM79HxtiDadVPrv
+	 Jvni0d3+3drFOncot93KRQT1X6T/zjOlwEXwoWrVYybdavQVF/fbvfWbZLZzbmxAsM
+	 C3acHWKDQxvM488JN/Cm5Y13Eqrv7STADBXfmT8kQzOB+M+E0UAKCJqX4jKULvTKMB
+	 MN2DIsMwcZwzfTWAtxth4ajGd9S/27swyhPMOHGQ3N7TZBPmHMy5rPoBlspwcc63Tt
+	 gv/KkMCSLUhd+TCmCXxbFbaR/I15/1z4ADb29uuGUPFAf6YBPZDAg1q2Vn2qZ9vUXX
+	 DbRLyRsbmryYw==
+Date: Wed, 18 Nov 2026 17:11:21 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: netdev@vger.kernel.org, Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>, Michal Schmidt
+ <mschmidt@redhat.com>, edumazet@kernel.org, horms@kernel.org,
+ pabeni@redhat.com, davem@davemloft.net, Jiri Pirko <jiri@resnulli.us>,
+ Jonathan Corbet <corbet@lwn.net>, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, andrew+netdev@lunn.ch, saeedm@nvidia.com,
+ tariqt@nvidia.com, leon@kernel.org, mbloch@nvidia.com,
+ jacob.e.keller@intel.com, jedrzej.jagielski@intel.com, anzaki@gmail.com,
+ brett.creeley@amd.com, ohartoov@nvidia.com, Petr Oros <poros@redhat.com>
+Subject: Re: [PATCH net-next v5 13/15] ice: represent RSS LUTs as devlink
+ resources
+Message-ID: <20261118171121.447b7e6d@kernel.org>
+In-Reply-To: <20261110141534.95614-14-przemyslaw.kitszel@intel.com>
+References: <20261110141534.95614-1-przemyslaw.kitszel@intel.com>
+	<20261110141534.95614-14-przemyslaw.kitszel@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,15 +67,86 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 08:53 AM Maciej Fijalkowski <maciej.fijalkowski@intel.com> wrote:
-> Based on the bpf-net-xsk-move tag so it can go to net-next and bpf-next
-> through another shared branch, as Alexei asked:
+On Tue, 10 Nov 2026 15:07:22 +0100 Przemek Kitszel wrote:
+> E800 family offers three kinds of RSS LUTs: VSI LUT (sized 64), GLOBAL LUT
+> (sized 512), and PF LUT (sized 2048). Until now the GLOBAL kind was not
+> used at all. There are two possible usages for it, subsequent commit will
+> give VF option to acquire it, and this one enables PF to switch between PF
+> LUT and GLOBAL LUT - switching to smaller one is, again, to make it
+> possible for VF to then acquire the former one.
+>=20
+> Devlink resources are used to let user show current usage and change the
+> allocation, see examples below.
+>=20
+> Default state on 8-port card, asking for aggregate "whole device" usage,
+> note that there are as many PF LUTs as there is PFs, and, for e810, there
+> are 16 GLOBAL LUTs:
+> $ devlink resource show devlink_index/11
+> devlink_index/11:
+>   name rss size 8 unit entry size_min 0 size_max 24 size_gran 1 dpipe_tab=
+les none
+>     resources:
+>       name lut_512 size 0 unit entry size_min 0 size_max 16 size_gran 1 d=
+pipe_tables none
+>       name lut_2048 size 8 unit entry size_min 0 size_max 8 size_gran 1 d=
+pipe_tables none
 
-Acked-by: Alexei Starovoitov <ast@kernel.org>
+The LUTs are not sub-dividable right? The 512 LUT tables "always
+exist", they are not collapsed up to form the 2048 entry ones?
+If so it'd be more intuitive to me to have:
 
-Thanks for the quick fix.
+ lut_512 size $hw-count size_max $hw-count occ $currently-used
 
-Jakub,
-could you make another stable branch to pull?
+size 0 size_max 16 would tell me we configured the device to not have
+any 512 LUTs but IIUC it does still have them.
 
+Then I'd have expected per-PF/VF resource which tells the driver
+max LUT size allowed for the function:
+
+ lut/pf0 size 1024 (<- we let it use 1024 LUT)=20
+         size_max 2048 (<- max configurable)
+         occ 512 (<- currently only 512 is used)
+
+maybe for you occ =3D=3D size to day, but we tried to lay the foundation
+for dynamic RSS table sizing in Netlink. Note that Netlink accepts RSS
+tables smaller than the one reported by the device. I intend it to
+mean that user wants the table at least that size. IOW if device
+declares it's RSS table as 2048 but user send a table of 512 entries
+via devlink - the driver should be free to reallocate the table down
+to 512 (or a multiple, so 1024, Bjorn has added the "fold / unfold"
+helpers already as part of other work).
+
+What am I missing?
+
+> Now let's add GLOBAL LUT for a single PF (on one-port NIC):
+> $ sudo devlink resource set pci/0000:18:00.0 path rss/lut_512 size 1
+> And show it's resources after that:
+> $ devlink resource show pci/0000:18:00.0
+> pci/0000:18:00.0:
+>   name rss size 2 unit entry size_min 0 size_max 2 size_gran 1 dpipe_tabl=
+es none
+>     resources:
+>       name lut_512 size 1 unit entry size_min 0 size_max 1 size_gran 1 dp=
+ipe_tables none
+>       name lut_2048 size 1 unit entry size_min 0 size_max 1 size_gran 1 d=
+pipe_tables none
+> Let's take the PF LUT out of that PF afterwards:
+> $ sudo devlink resource set pci/0000:18:00.0 path rss/lut_2048 size 0
+> now `ethtool -x $ifacename` will report smaller RSS table.
+>=20
+> Changing the LUT of a PF resets its RSS indirection table to the default
+> spread, as the table size changes, and the ethtool core is told that
+> the user table is lost. The PF LUT change is done under rtnl, as
+> the ethtool core sizes its RSS buffers by the table size under rtnl.
+
+Why?! =F0=9F=98=B1=EF=B8=8F
+The resource change should only control the max table size the driver
+can allocate *when it allocates a new one*. Increasing the max allowed
+table size certainly mustn't cause loss of config.
+
+> FW drops RSS LUT assignments on reset, so the driver gives the PF its PF
+> LUT back after each reset, and logs when that discards a devlink change.
+> Changes are rejected with -EBUSY while a reset is in progress.
