@@ -1,60 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795066705;
-	b=eMUtahrUKd36x7K/nYzg/sU5T1lw27c5XxEzZvOj+KT/1vxdJ1Prj9UO5z99pZj+Zlpn
-	 Sv+00Q9bM25hKdcwdhAs/fngercDeDjw53Gq5SjNWqUbSABq4RH3akpVU78HSL17lC3k+
-	 38mMh9Zz588os2nio//ZQ0Fi3ln6YEkyk9J4pX51+4tK4VKtZGzqNrrxGhh8J0y3Oi9OF
-	 jqFeIBaBGyNpfdeLQQzCuYM4DYsg0np+xbxKyBWU1Aj+T71r4Wsi92fryL4rnrak2zyUA
-	 uug96KPpWapzrN5XUrpaEJX/0IquqdwAeS4wY8hA47BdyA+0o4N/OpcAc9UxwVfuqTw==
+	t=1795066959;
+	b=C8FZ1U8rbyz6UlBf/5IZFn1WIBYzULgCfCjcG1BoEit05gcOJSNpyMXhj/hC10sLFnld
+	 DGfIBT7yOjFVzUk2Kq231pP9nnB2oGakCcecaQT9yviN1aBytFWAGRf8hsMvQwJwHFP+3
+	 uJrhci8+PbSgdg3KgdU2J/yY69sbHAIQHJUU0b+NVTV++EJL6eksstfYJj9EkpqHQtlZR
+	 VP6TqWQ8P1Y6E+tDzWx/gyBTIwY5OKQIdjLr5LIcvOsTURd/vE08506ks46/67Zb8TjNL
+	 f/hB4WJwCzWT9BQVR5j5eKNiCdOWTEeP0C0bk2tDdiP3oeZgwU5GSo2RTP69N1k5Lkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795066705;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=I6OBaNpH54Z8ktG2Qr+KnHkPf9hCrWPCQPiLHt0LY5E=;
-	b=fp1YE0oOdqq6W3jRaXPg2udVk5BrttcUoi3TH8clQTiI+t3NNhi2Y0/vfw/5HlT9V0Pq
-	 +BcL9TLoWgEWaQ2qr4Lx2zbVydBGipVObEMpdXSiGsHdo6zymTugrZnRI/tL1MTJVspB0
-	 BSW0+fHUMm/mhaKQncFytu4GZlAy9lHw4VlC/9iH0WmaoYsnrIW6sO8jwy59hzJP17vhe
-	 06ird9yh84hHwkBogX8WqqwW77ZeQ6+GLzAVFpt+51BfCEA13jO441F77WkWSEdRRfkRE
-	 NP8jcc++JVV2GL4dQIgp81sNaGGFGQh019WcbRGkqdGxQnB1zEkWJ8ARJrDSFW/JDjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066959;
+	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=TfyqN5N0HsajAx60aXm/mbdtsX+mZmkQNjwbhKW+JR0=;
+	b=NsSLUTsTlIvS8gf77BPakE/JMi7MP7oOZ+Lyj5u+PrXOhdiO/efwqIVc0JZTcMZbLRDc
+	 2pPdU8ozYi5DNAzgPouTKRUv4PO84raZioqJzeMuVGx8riqSXlWey4HYHrPvt1wpUXtwS
+	 ieDKXe1ta+BZPVbgbA770sk0Y3dBlwJ7pPXNZ2zeDyquWQmnHTiMyjrhCbyjzJRw63g3J
+	 dqXCknoqPEM89ftcxt2bT/P5dP1aPiur160O3Bdr7SX+NOXEdBt0JjK+c5N8iZ4yrJy4t
+	 H5wpd/RDCaLOsJYk0gmSBxfGsW7Fa7ssjyENGMuwILLn0/czXWD00wDOyElL6Yh/g+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZo3LM+H;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=T3FKh4WF;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4691B606A6DC;
-	Thu, 19 Nov 2026 05:38:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8287A606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:42:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8287A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZo3LM+H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8956F1F000C4;
-	Thu, 19 Nov 2026 05:38:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795066705;
-	bh=I6OBaNpH54Z8ktG2Qr+KnHkPf9hCrWPCQPiLHt0LY5E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AZo3LM+HEufsnoEHwNocu1sUXZgqT5K95t2o5S05PlUJoiQWxERuf7H4IRhXyoEhz
-	 kr40LnZdMwkeUO4jlC6eC2D0UIDklFSmb7Y/bDqnW+B6s80i0vvxOQ+f4BZ1YxKO2A
-	 wrEUt1d/4R6dvJRoXaQ1c97IYK2HcJXOzj/fILTSSaS/u7LlGT37X3vEVJnxIPASg0
-	 TA8FbRSNYjnGELvvaw0NUOe5oCavGM5wVXB5+nZmADgKNTQRcDdHDj0WYu55lLAkri
-	 PH24v5MJLijur/Qqw4aOaKJJXfDk129H7sTMEdFEcU8L066VwIWa6c8+hxw01if3Ho
-	 lcUXbNWlDsK3A==
-Subject: Re: [PATCH net 2/2] net: net_test: add tests for
- netif_tx_stop_queue() trans_start
-From: netdev-bot+sashiko@kernel.org
-To: cmcburney@telcobridges.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
- willemb@google.com, toke@redhat.com, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Date: Thu, 19 Nov 2026 05:38:24 +0000
-Message-ID: <179506670414.3136.7943679597590478564@kernel.org>
-In-Reply-To: <20261116143716.367451-3-cmcburney@telcobridges.com>
-References: <20261116143716.367451-3-cmcburney@telcobridges.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=T3FKh4WF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=TfyqN5N0HsajAx60aXm/mbdtsX+mZmkQNjwbhKW+JR0=;
+	b=T3FKh4WFvI7H5u7ek9m0vYPmPEw9lqFBU7e2H0uFg+KN4F/3YBXTLvRvUzFZ6N
+	XhQCfHQKSowN5aRezi9ut08J7VVn17gVUc30LKGgMemJtVOQiRG9zh0coYukojOH
+	7KAyuC6E4jS2o0unfHgj2oWID7BWtyOwJY8zEaygcFVQ4=
+Message-ID: <90640d84-0c13-4004-b3df-1a11e4321fae@163.com>
+Date: Thu, 19 Nov 2026 13:42:05 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,124 +51,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v11 1/2] tun: run the socket filter from
+ tun_net_xmit()
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, netdev@vger.kernel.org
+Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
+ Rongguang Wei <weirongguang@kylinos.cn>
+References: <20261119032242.71919-1-clementwei90@163.com>
+ <20261119032242.71919-2-clementwei90@163.com>
+ <DMYVOCRSECAR.1WZZONX4K3PYF@gmail.com>
+Content-Language: en-US
+From: Rongguang Wei <clementwei90@163.com>
+In-Reply-To: <DMYVOCRSECAR.1WZZONX4K3PYF@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:_____wDnD6YtjP5qkk2uIg--.7948S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUeWlkDUUUU
+X-CM-SenderInfo: 5fohzv5qwzvxizq6il2tof0z/xtbC4g+I82r+jC+WqQAA3e
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Alexei Starovoitov wrote:
+> On Wed, Nov 18, 2026 at 07:22 PM Rongguang Wei <clementwei90@163.com> wrote:
+>>  drivers/net/tun.c | 93 ++++++++++++++++++++++-------------------------
+>>  1 file changed, 43 insertions(+), 50 deletions(-)
+> 
+> Why did you lose removal of exports?
+> The changelog doesn't say why.
+> 
+> pw-bot: cr
+Hi,
 
-- [Medium] The patchset changes netif_tx_stop_queue()
-  (include/linux/netdevice.h:3814-3821) so that it decides whether to…
+I see the export removal as a separate cleanup rather than part of this fix.
+This series is a -net fix with a Fixes: tag, so I think it should send the removal
+separately.
 
---
+Sorry for lost in changelog.
 
-net: net_test: add tests for netif_tx_stop_queue() trans_start
-
-This adds four KUnit cases to net/core/net_test.c. They check how
-netif_tx_stop_queue() updates txq->trans_start on a running queue, a
-queue already stopped by the driver, a restarted queue and a queue
-stopped only by BQL. They cover the previous patch, which skips the
-trans_start write when __QUEUE_STATE_DRV_XOFF is already set.
-
-> diff --git a/net/core/net_test.c b/net/core/net_test.c
-> index 2b5080c226636..c69d34d0e2306 100644
-> --- a/net/core/net_test.c
-> +++ b/net/core/net_test.c
-
-[ ... ]
-
-> +/* A stop on a queue that is already stopped keeps the first stop time, so
-> + * repeated stops from a driver hang check do not postpone dev_watchdog()
-> + */
-> +static void txq_stop_keeps_stamp_stopped_queue(struct kunit *test)
-> +{
-> +	struct netdev_queue *txq = txq_test_alloc(test);
-> +	unsigned long old, stamp;
-> +
-> +	netif_tx_stop_queue(txq);
-> +	old = jiffies - TXQ_TEST_OLD_DELTA;
-> +	WRITE_ONCE(txq->trans_start, old);
-> +	netif_tx_stop_queue(txq);
-> +	stamp = READ_ONCE(txq->trans_start);
-
-[Severity: Medium]
-This test treats the check-then-set behaviour added to
-netif_tx_stop_queue() by the previous patch as the intended contract.
-Is that behaviour safe when netif_tx_wake_queue() runs at the same time?
-
-include/linux/netdevice.h:netif_tx_stop_queue() {
-	if (!test_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state))
-		WRITE_ONCE(dev_queue->trans_start, jiffies);
-
-	/* This barrier is paired with smp_mb() from dev_watchdog() */
-	smp_mb__before_atomic();
-
-	/* Must be an atomic op see netif_txq_try_stop() */
-	set_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state);
-}
-
-The test_bit() and the set_bit() do not happen as one atomic step.
-Suppose TX completion clears the bit locklessly between them. The
-set_bit() is then a real 0->1 transition, but trans_start still holds
-the stamp from the earlier stop:
-
-CPU1 (queue stopped, trans_start == T0)  CPU2
-netif_tx_stop_queue()
-  test_bit(DRV_XOFF) == 1
-  (trans_start not written)
-                                         netif_tx_wake_queue()
-                                           test_and_clear_bit(DRV_XOFF)
-                                         (queue idle, no
-                                          txq_trans_update())
-  set_bit(DRV_XOFF)
-
-After that, dev_watchdog() sees a stopped queue with trans_start == T0:
-
-	trans_start = READ_ONCE(txq->trans_start);
-
-	if (time_after(jiffies, trans_start + dev->watchdog_timeo)) {
-
-Can this report a NETDEV WATCHDOG timeout and call ndo_tx_timeout()
-right after the queue was stopped again? Before the previous patch, the
-stamp was always written before set_bit(). So a stop could never leave
-the queue stopped with an old stamp.
-
-The previous commit says "A timeout is then reported only if both stops
-together last longer than watchdog_timeo". Does that still hold when
-the caller can be preempted?
-
-For example, e1000_print_hw_hang() runs from the print_hang_task work
-item. It can call netif_stop_queue() on a queue that is already
-stopped:
-
-drivers/net/ethernet/intel/e1000e/netdev.c:e1000_print_hw_hang() {
-	...
-	/* Real hang detected */
-	netif_stop_queue(netdev);
-	...
-}
-
-If it is preempted after test_bit(), the queue can be woken and then
-sit idle for any length of time. That running time also counts
-against watchdog_timeo.
-
-These tests all run on a single thread, so they can't catch this
-window.
-
-> +
-> +	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-> +	KUNIT_EXPECT_EQ_MSG(test, stamp, old,
-> +			    "second stop moved trans_start forward by %lu jiffies",
-> +			    stamp - old);
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116143716.367451-1-cmcburney%40telcobridges.com
