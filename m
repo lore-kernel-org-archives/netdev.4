@@ -1,82 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048219;
-	b=f42yfII3XQHorzPTh7JbqfPJmY/GpfekZLrU1yFpQpOC20H+x3MaqOgcAYgxnT1fJfbh
-	 H5DmKiFsLcUUz5Sim4+p3RsunJ77egshaXWJh8OjQ+oxbBebFR4twFSLCtRqUtKgKC+59
-	 Uv1wr0zoLmYmV9JTmsbkcLS0ONRuZKq4RSWIjF0XIteYCDReQdK7lhHRyr+1fahd0Zyv8
-	 0ae5525Iu9kUhru0szNyzPM+YBcrfTCz0Z7qnRRaEjmC2lZ+K67U8AeDbtmLdAv/8n1mB
-	 5BO1drbUxlobuQiZ+C9jc+B9vSQ4v9D83JXFkChvDRifhJFqZIHmqHsYJsrCk4XXI/g==
+	t=1795048233;
+	b=xkkxzcyTCy4n+FNCEilpv0gARB31jNAicAkT6dxESZWlxgJTtObkLJvtNGFB7URDfkFK
+	 91jSrQIUKkfGexc1VDvkGLRo8DR7k35xuymtBbH4I15QAzDsvEX+Mi5TwfTPa+3Yr8HvW
+	 dFc6XfQt43ypEsRLPx8RsDHngXJCKiiIW7+KWTdNcmomuJfLRTxfZJWbPKLzHp0FsIQxt
+	 FZchzkkDvbY6yrPmaqJ9stVEgvDxOSoELKm2FBDKJ0mV6lwTin0VnDeIQiHcMoCVtngP9
+	 bIp77c64sF2MYqViCzR+JcirJHu4K4aFWkuvCOfsDNlfIEcTkRSnN0glTG905crraAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048219;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=zxam1vrXM5B1VwWPDazyd+QQbZEkReFXIjKzqFoHM/U=;
-	b=KZgCDAGXqIaBvA3ETeADuWBtL/nQWp4LOsxJ+aC4EQK8T920syagUkkag2POIo2v3H4/
-	 q63NDLzSm7ZFPSnHCgpLysIpQxTnIMCeBr7lFmGhePC/EQ5yoc1YHAKMPZZ/KuA1PMDqj
-	 hCBy6W2mIZaQ4uJZEaKfEpOLCOWjUHw4DLoEKGCzWsaxZqK3SMji4uDb/2kxt9dyVfhzs
-	 4JY3am5BfADxWi2PLWqAa7b33JpihKn3Fh17aqk6eFMGnKiH0cijPlur7cCCzIG1cmRSw
-	 xRXJWxO9tH3n2T7S8nrDHDYRskrFqGLNc704fINELHArwnY/Ps9qW6nHZHab9k1ySuA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048233;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=tY6fRiRHZ4qZ5vYbTo0aHqI1fHONsrHB61AnWgkQo9U=;
+	b=xnIVCmaNeJID3Clh1xms3IqXnO4wZu3vjn3fhrKwIGQcR0nBcdPxStz5Tw4Byc3XPd/H
+	 4EnLM57iRIq8rs6mzQRy7cOwmeC87YDeQbnY8yuJDkM8Sw2KqNuvApXbMp7Nt9Ej/Sgf+
+	 zeq9dyJuehnfJgIHgavJU00LNLUtpeaRS1q8Mswgd4eXNA1u946AMekRm7ZdgwYGusoKi
+	 01081KE71lQ3LO0uqwmqOI2LWdRs7W9joz0cmn/xicpNbqIkg6jeoGHPIeUiINdmEYLJl
+	 PlAOyU0PWKuBt68WGU7CEBjo5VoFcFv2sAY/3XWf7VK/Ai/vO9mwuwoTqvmMs3Z1rqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=kFOYsquu;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PRNwZbbp;
+	arc=none smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B0F660A2627
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:30:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B0F660A2627
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45AD460A260D
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:30:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45AD460A260D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=kFOYsquu
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AILQcPZ2240623;
-	Thu, 19 Nov 2026 00:29:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=zxam1v
-	rXM5B1VwWPDazyd+QQbZEkReFXIjKzqFoHM/U=; b=kFOYsquu6zCav1fN2Mrrv6
-	W1KEB6DzoQcVkqQCeZHBvoelML6z57vqXp3+cf5hqbfp7QnzRi9BA7kHr5utIrb3
-	oO079+ji3sePXsZkfTe3V38dCl17KOdosNE6pc2piX50ceAsKQiAKjeQ01dR6cBx
-	Yj7KJizhkvsjrJGTgwLAO1LKN4291SFbwuaAWqeUWq9RHNe3uYixq/NrR04/2KS1
-	US7/x3ub8yApVPQ2fonK0sDSnpEhLbjiQzp5hTQJ1SoxNtBbUaci4iKCStlnB94F
-	C3fG49UsHdWBOLOxzaoNCjyT1N9N3hdQsHnuTpzjUgG8P4fUKl0fxAU6KUdA7KDw
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vn852-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 00:29:59 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AILbNRY3716181;
-	Thu, 19 Nov 2026 00:29:58 GMT
-Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1m3hrffw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 00:29:58 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ0TuJN58917298
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 00:29:56 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4E7A35805A;
-	Thu, 19 Nov 2026 00:29:56 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C7A5758051;
-	Thu, 19 Nov 2026 00:29:53 +0000 (GMT)
-Received: from [9.67.93.165] (unknown [9.67.93.165])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 19 Nov 2026 00:29:53 +0000 (GMT)
-Message-ID: <6f0fa4c6-7b16-4561-ad9b-4dcd728e1aa1@linux.ibm.com>
-Date: Wed, 18 Nov 2026 16:29:53 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PRNwZbbp
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c50686daf9cso40445866b.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:30:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795048232; x=1795653032; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tY6fRiRHZ4qZ5vYbTo0aHqI1fHONsrHB61AnWgkQo9U=;
+        b=PRNwZbbpu1cxDps4lx1UK660t5mxgKF3mzzZubJ0SgZGhmNYtnHeBDIQK0hVqt6qs0
+         1qzPOjOtvYhmWNnW1MrRjPaBgOicIxQW7ZaCLSAxktNNeZGws5e9jDQ3iQkqI/qxXto9
+         JGct10nK5IE1P0lsAHlZ+iX24wYAY8s+K+d0jEBa9K0/R4A9MOJQFqH9ZIbj4GRy+rDJ
+         rXohZgzARca5GUzOWkjtOE6N+z7JrIQjHoAbO2xd0JxxNhvMRK/LPYAZ7GfXvfkvJEt4
+         +fhXNAS7vdhZlHrDvrbpkb2ndMD7fSl5EQx75kNhbXfrTx1SkXDKtXAii9K7l2iWP1C3
+         E3Og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795048232; x=1795653032;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tY6fRiRHZ4qZ5vYbTo0aHqI1fHONsrHB61AnWgkQo9U=;
+        b=T8RenA+udpzH6aa4XMD9J6v2oEJgw+SGxa0/z0CR3QpA1NvKU7vqr3QBP8uu8kvFzT
+         7QeC3AD4eoBl/CWA2p6OBmoWibPsIWBN3xQ4D2zVBJjyh3G0Fm/Qj50b/cD/H09duab6
+         gXwjpF2DOUsFBMsrZx5o+NOXn9l1CHBb+/3iPbeDEgfJOtisH/nk7mzhbsB+Th5VEDV4
+         q/rSL45ie0lEL5z60BanVxKkPvsSzaCfaxMn+BuM8N1KTcgYrGFc6kGyvsc1n1m3xwrH
+         YSvTV1VzXkaC/KZ03QVBdcWgTERqFMLEMQvsNO+Nx0+WOVmHM85JBwE0GKtI9I3fpnnf
+         lJhw==
+X-Forwarded-Encrypted: i=1; AL+hErFn1z0ug5/4Zhbu8U/dKOU/P6lO64i2pKB4HwPgoTfdQ3gch/Gj/ehQQG9dXWVcgpXOyOhDqkw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86V7Hpc505eveta11epkuqBJqz1VY5a25F407JoWBXF50Gze9h
+	UZwCTY04uWcZHu3tq+PBy37eBhou0Nn6JXgSwUDTL4AtBUnuNq7UcvX5
+X-Gm-Gg: AYBFou3JW7nv26bPu4yJmiNJvmkM9yqJ3d7OsuUtK8JM7s/TlgaTO+eC29YmPfe0Hq8
+	q4EDVQpAJx/uOos1fH9VtqrSK01bA/yYvELYee4elpRg/m8dWMYS4TEMTDM3qpq5n8dgK+cBj+X
+	5f7W0ZQLPiWGxLHN4BmZ0hVKDVFWzIXlNess13O76svoEo4xIvXhAbksbRNLWn2dCsJRMTckLKm
+	1CgS/nv8PoFdNPDNOOGAfBTl+7lKK7iAF549AUM0GV4VPZYtmal9MSFWGwBldRQ5xXEuFNi0D/k
+	aBIX0XyiPfYdmwMgig4JMfOM3ZtExQa6u+0R8C3se0NqR5trcKlF4c0OCvz/5Rt3tvGGU/j3mN3
+	lpohd15xpjusb65GA5sg5KHoAJHBHkmGHRW9rVl4KfM5XJMSb8JL4pWAjSaKPZkAmdvR4+ubya6
+	FkyjLDQUD9tdutt/gBPt0wBQ+iSuBtDNoU4BDEBSxrF4RiMJzlnlyQ9vKP7ifnM8crQZdsbF69r
+	4wsgkiG7M7zX4Qm9LWuyMNE2EQtqPItMam08+OFU/Pp6V1br5KJ/1urr0/F6hzSgGq1vXxgCZRB
+	46oBvyM65GtKBAr7wumcziEosTlTrNT0Im9wrzoUjRmA8D8mVI4+fDqjnjINNTrOEpMR715pEw=
+	=
+X-Received: by 2002:a05:6402:ca02:b0:6b8:8146:a10f with SMTP id 4fb4d7f45d1cf-6b887e52710mr3301122a12.2.1795048231599;
+        Wed, 18 Nov 2026 16:30:31 -0800 (PST)
+Received: from Nuel20.localdomain ([105.112.208.161])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a001123sm1729744a12.21.2026.11.18.16.30.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 16:30:31 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: tianyi@cloudflare.com,
+	hangbin.liu@linux.dev
+Cc: kuba@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	skhan@linuxfoundation.org,
+	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Subject: [PATCH net v4 2/3] selftests: net: veth: propagate bad-settings check failures to exit status
+Date: Thu, 19 Nov 2026 01:30:01 +0100
+Message-ID: <20261119003003.40482-3-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119003003.40482-1-emmaonana18@gmail.com>
+References: <CAG4wq-d_30-B4wQZu48ZQXAORM4QxRqPfmYsmoHS0hiYp1EtTA@mail.gmail.com>
+ <20261119003003.40482-1-emmaonana18@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,84 +115,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/2] ibmveth: two TX and reset fixes
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, nnac123@linux.ibm.com, maddy@linux.ibm.com,
-        mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-        ritesh.list@gmail.com, sshegde@linux.ibm.com, andrew+netdev@lunn.ch,
-        davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-        pabeni@redhat.com, linuxppc-dev@lists.ozlabs.org, horms@kernel.org,
-        davemarq@linux.ibm.com, haren@linux.ibm.com, ricklind@linux.ibm.com,
-        bjking1@linux.ibm.com, shaik.abdulla1@ibm.com
-References: <20261119000235.15622-1-mmc@linux.ibm.com>
- <179504684743.3291.10300720489651147627@kernel.org>
-Content-Language: en-US
-From: mingming cao <mmc@linux.ibm.com>
-In-Reply-To: <179504684743.3291.10300720489651147627@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: DPoUV0YR8NOBFJ4MeZWsoCbaE4DT2Pvh
-X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afe4307 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
- a=anQ5-TqrEUfaeNihTikA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: 56rBCxgIaW54lbrGYm1p13ShKgOnnMNI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAwMSBTYWx0ZWRfXxeBHuqzOEkGy
- CgxVcH/Scuge90Io1Lb1C2GT/dvJALAjB2XIM10r5rpmLxn5ka0FpOmogOBWu6tPvQ0GdGr/8xV
- iTAJdb5sOAMfxLSg2FYBX0jhajscDBSeoyIs9y5rJ8j7YUxwlU5e4F02dezAxMyMhquRjh/X4i+
- 7VtfVAKlqShQL/gpMkNAADjHA0UqiHNVv5fU/M8eevh+8lrTwzsqiZ4H0yFuKOMH8zrLXsaVNJ2
- 0qQlPKsiHggWyeDCqNm6JhDmrLzOgntIfQpt5aO8J8FKqh0c02U70wjlklhMwlm36TwKMJIBnHr
- PtHR1MF4RcUbBTzx9W9uxpUD6kCLurENRDUYieEvVph4ZW/nJv06yYp8SRsIIQDke2pL0N9na8z
- bwqZcAlKHcJCO/mneLO8y9sCWCb0evPJ4Dkh0JuGYKuIti7zfCgARixRlahfqn5vKG0T31E2Noj
- KpdvaMHCi9M3aVdypaA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAwMSBTYWx0ZWRfX0kdtqdIjDfSG
- R1Emsdb8+Sm6Rg1CNhpmNkv512PnbaBt/rPAQyae6LzuOEZBmQCj29OlcjbfSWAlsEwbh5n3B5a
- Wk6tINj9mFEf3h12ti3PqxOLpJ11JjA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_07,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
- adultscore=0 clxscore=1011 lowpriorityscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190001
+Content-Transfer-Encoding: 8bit
 
+Three more checks in veth.sh print "fail - set operation successful
+?!?" without setting ret: "bad setting: XDP with RX nr less than TX",
+"bad setting: reducing RX nr below peer TX with XDP set", and "bad
+setting: increasing peer TX nr above RX with XDP set". A kernel that
+wrongly accepts any of these invalid operations would be reported yet
+the script would still exit 0. Wrap each fail branch so it sets ret=1.
 
-On 11/18/26 4:07 PM, netdev-bot+sinfo@kernel.org wrote:
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->   - Whether the issue was actually triggered, or is only theoretical
->     (e.g. found by LLM and not proven at runtime). If it was triggered
->     please include the symptoms, like the stack trace or kernel messages.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
-Thanks.
+Fixes: 1ec2230fc721 ("selftests: net: veth: add tests for set_channel")
+Reported-by: Tianyi Gao <tianyi@cloudflare.com>
+Link: https://lore.kernel.org/all/CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com/
+Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+---
+ tools/testing/selftests/net/veth.sh | 26 +++++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
 
-Some of this context was included in the cover letter, but for reviewers'
-convenience:
+diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
+index 5c1dbe1516bb4..2a37d21f97da5 100755
+--- a/tools/testing/selftests/net/veth.sh
++++ b/tools/testing/selftests/net/veth.sh
+@@ -472,9 +472,13 @@ if [ $CPUS -gt 1 ]; then
+ 	ip netns exec $NS_DST ethtool -L veth$DST rx 1 tx 2 2>/dev/null
+ 	ip netns exec $NS_SRC ethtool -L veth$SRC rx 1 tx 2 2>/dev/null
+ 	printf "%-60s" "bad setting: XDP with RX nr less than TX"
+-	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
+-		section xdp 2>/dev/null &&\
+-		echo "fail - set operation successful ?!?" || echo " ok "
++	if ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
++		section xdp 2>/dev/null; then
++		echo "fail - set operation successful ?!?"
++		ret=1
++	else
++		echo " ok "
++	fi
+ 
+ 	# the following tests will run with multiple channels active
+ 	ip netns exec $NS_SRC ethtool -L veth$SRC rx 2
+@@ -482,16 +486,24 @@ if [ $CPUS -gt 1 ]; then
+ 	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
+ 		section xdp 2>/dev/null
+ 	printf "%-60s" "bad setting: reducing RX nr below peer TX with XDP set"
+-	ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null &&\
+-		echo "fail - set operation successful ?!?" || echo " ok "
++	if ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null; then
++		echo "fail - set operation successful ?!?"
++		ret=1
++	else
++		echo " ok "
++	fi
+ 	CUR_RX=2
+ 	CUR_TX=2
+ fi
+ 
+ if [ $CPUS -gt 2 ]; then
+ 	printf "%-60s" "bad setting: increasing peer TX nr above RX with XDP set"
+-	ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null &&\
+-		echo "fail - set operation successful ?!?" || echo " ok "
++	if ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null; then
++		echo "fail - set operation successful ?!?"
++		ret=1
++	else
++		echo " ok "
++	fi
+ 	chk_channels "setting invalid channels nr" $DST 2 2
+ fi
+ 
+-- 
+2.43.0
 
-Both issues were identified during development and review of the ibmveth
-multi-queue work. Patch 1 addresses a race when TX queues are reduced via
-ethtool -L while traffic is running. Patch 2 addresses a race where a queued
-reset can reopen a device that has already been administratively brought 
-down.
-
-I could not reproduce either issue directly. The fixes are based on 
-analysis of
-the existing code paths and rare race conditions. I exercised the affected
-scenarios on a PowerVM LPAR, including TX queue reduction under traffic,
-ifdown/up during iperf3 traffic, and queued reset testing while the 
-device was
-being brought down, and observed no regressions with the proposed fixes.
-
-Thanks,
-Mingming
