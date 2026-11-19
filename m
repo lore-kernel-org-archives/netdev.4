@@ -1,60 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070439;
-	b=CVrf5eEuKEVbnwODp1ucycsOmEIQ4cGi8Qql2irnf1POaXpk906ru5VWxkNV7x9pSdWY
-	 MEwk+mopHXjB/9TvEOjvLlZQcdgLRdkFihVGETsxoAVOpENl/SLpo5JK4xmgqJnCqn5jK
-	 t1EOQhDQK9FBUI9e9aQVtPPCgNfjFo2/r1OpxGMH5e+VI0Go3xAuL5Vn58nXaUT64vHdX
-	 XNrAFosAd22iH8mAxLoiqO49F62MMRh0VZ/6qv618zkZjeGPktAF+ryfgWgP3RiYBjDlH
-	 ldW67m6CfY17LIDwADjgIe7TmsL+TpzEgx0PLcArG4eQJwOqZnakyqAe30OKqVV42gA==
+	t=1795070562;
+	b=TVEVrFjGP8MJkkFu9etVksEQq6XEsdEDkco+rZ/3VfJioF0iAOhqp1QjuY4DLV8o5Ge1
+	 j4HhKVzLjXnnPTMAIU6VEOAmzWrnnmA2eeR7ZIED/NHuROAI3XdXct+wRbeiMhEfaAvK1
+	 6uXXmNrct6W6mQqEfBz2bAgDiFjdS7nIO+2sqMXJMBBadoRXu6gXSxVJwZ9L4U+W74aUz
+	 sesTIMJ6SnoQXZGD4/aPtfaDSKrbDSTerq8ozA0CaE3bzK9GFCvXLammXPCzrxVmsglTZ
+	 8qO1gBOsZo2G7Ef6r1gvaEn+4W/CqGks8oAMymAyQdT+2dqvpDRypmX1Y4uhH7a8wYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070439;
-	h=DMARC-Filter:DKIM-Signature:EX-QQ-RecipientCnt:X-QQ-GoodBg:X-QQ-SSF:
-	 X-QQ-FEAT:X-QQ-BUSINESS-ORIGIN:X-QQ-Originating-IP:X-Originating-IP:
-	 X-QQ-STYLE:X-QQ-mid:From:To:Cc:Subject:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding:Date:X-Priority:Message-ID:X-QQ-MIME:
-	 X-Mailer:X-QQ-Mailer:References:In-Reply-To:X-QQ-ReplyHash:
-	 X-BIZMAIL-ID:X-Address-Ticket:X-QQ-SENDSIZE:Received:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=AwsLghpy1yPpOZnLIXZoveOlFux3x91/YWYqiaFzdMQ=;
-	b=SpLvtQj5bUxp9ydqA2AeRFWy04r7HxMhkpi73QQ2+XFrw+XdNVAZUoHZaJIhNvgOgiuR
-	 OVz71mPxABPWOJ/BHA/8U4TUHF+kAsYKP186c/14Sy6t0MWTfylI36lf0mCe1DDEpi4k0
-	 Qj3WNnmmmVaTIBRcTTaV+Nnte+DLT50mebbmqhY75eMWa4k7ZfzabCnNEghOeUyXu9MPy
-	 Jz17f1wV+cxfkutEEqfzeKSYWiMD9k18Pu2SQocEbJDvZvLTCik6bHpeMDAbLs+sH78JE
-	 0kKzCmylQLp0Z6IjT98IEweqYNigf6ijjYO0xbWI6HQnCpQSctxQPX/MmZyjZ2GL2xA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070562;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ra0jJFg2rLBnpyjZI3vp/qEopGKNTn3oOysk8aqDYh4=;
+	b=dIKU0uClEcQJuTff7vKjuSUiEdh6qLFKHW2I9nQ01hZWpynv9/IuZVSn8hXtKZshff2A
+	 EsXKXgpyBHxTDMPhGbVrjxozzuFHW2cW0xpBtrToVcZb/zge9jQPvSdDGMBWEfgo23IWd
+	 rCbAoHbn+vSs2qEjWSFw2KbB3bZTcq8QVZAH3RwxLyScrCj+p4BbAQg8qxoVi5kDLe48I
+	 TsftG1L/3pk66DL5YRVbvW8X1ayg015z1Tm6A9MAZLqIqYk+7gLI2tUkBOg5YakiSoMax
+	 aWKsWNcIAP0hWq6k47bcrSLD/NVUCBat17oYnzVHvP8dkCrPw3krF4CYtJytfp0l7mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=mt0cdyGr;
-	arc=none smtp.remote-ip=54.204.34.129
-Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ay68REvo;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98FAC606A320;
-	Thu, 19 Nov 2026 06:40:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98FAC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA626606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 06:42:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA626606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=mt0cdyGr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795070418;
-	bh=AwsLghpy1yPpOZnLIXZoveOlFux3x91/YWYqiaFzdMQ=;
-	h=From:To:Subject:Mime-Version:Date:Message-ID;
-	b=mt0cdyGrOp/qTmojcMWJq5xhdycxAia4USXkM0+2v3IbEeRsOImycxQYVfWZ0v3U5
-	 YHIVUmcNy+o2+PGputj6xcbDO1PMnHHwbrezjVzBmPuKUWzH3RCXKKMScfNhVzV5UG
-	 7ArHU2OZG8DcVVRShE28JAfqO06IDSRDd2jZEr1Q=
-EX-QQ-RecipientCnt: 7
-X-QQ-GoodBg: 1
-X-QQ-SSF: 00400000000000F0
-X-QQ-FEAT: D4aqtcRDiqRO9CuWAcjeqco6/xKk62mDx0R4/xCnRF0=
-X-QQ-BUSINESS-ORIGIN: 2
-X-QQ-Originating-IP: 7UaYbNymNysPlrBN3u5SlIoma/GkM9A9zUI/5dVGGpE=
-X-QQ-STYLE: 
-X-QQ-mid: lv3gz7b-6t1795070416t309a1a73
-From: "=?utf-8?B?5YWz5paH5rab?=" <guanwentao@uniontech.com>
-To: "=?utf-8?B?S3VuaXl1a2kgSXdhc2hpbWE=?=" <kuniyu@google.com>
-Cc: "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@google.com>, "=?utf-8?B?bmNhcmR3ZWxs?=" <ncardwell@google.com>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?bWVsb3R0aQ==?=" <melotti@google.com>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>
-Subject: Re: [PATCH net] tcp: cancel cloned request timers without waiting
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ay68REvo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795070561; x=1826606561;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZQY2lgHCzyGRl8yFvLsb5a4GHsBXWlwP2RwNQ4NyDoE=;
+  b=Ay68REvoORPnEG+EZq+Cl705ioPV1LBRBN8zb7Yz1hKIw2IFA7cbiSfW
+   PBGkauIao3uNr9wLlgNwTIzJXtIW1HjYRxg8JoLR8y/kghVCCOxEM9K85
+   UZOSLuUAX0eTVikzcwKnh/xZCmPqWYQOMbM5LwYAE86wa1q3+NLokbw+9
+   hKBaV2ImizBQElOQc3RCDjs3C8q5bsvMTz+6o3jAetidSwKXu2dfzd+KZ
+   Oud88UaPD+d5fyVjjJmCHoip2fBwQGUryHV3wwES7SPV2doDI8tb1hALd
+   vRcaCu9mrHD4Kg51LZtYC8Sn9Vh8LlLJbbAFN74fbQTtVLcU2cbiwQ4F2
+   A==;
+X-CSE-ConnectionGUID: 6y7KalcfRw6h1WZXk/tZ4A==
+X-CSE-MsgGUID: 8iiwisgyS7K3MLWxfEbjsg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3827577"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3827577"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 22:42:41 -0800
+X-CSE-ConnectionGUID: LMBOrTQoT4yzVyo1QKAIuw==
+X-CSE-MsgGUID: qzqpxI7xSGucEDwR5TaBGQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10689664"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 18 Nov 2026 22:42:37 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTvqr-00000001FDC-47nC;
+	Thu, 19 Nov 2026 06:42:33 +0000
+Date: Thu, 19 Nov 2026 14:42:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Frank.sae" <frank.sae@motor-comm.com>, andrew@lunn.ch,
+	hkallweit1@gmail.com, linux@armlinux.org.uk, kuba@kernel.org,
+	pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net,
+	netdev@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	lingyu.zou@motor-comm.com, xiaoyong.li@motor-comm.com,
+	jie.han@motor-comm.com
+Subject: Re: [PATCH net-next v3] net: phy: motorcomm: add YT8831 2.5G PHY
+ support
+Message-ID: <202611191438.hJl6vCfi-lkp@intel.com>
+References: <20261118033539.36633-1-frank.sae@motor-comm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,64 +86,94 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Thu, 19 Nov 2026 14:40:16 +0800
-X-Priority: 3
-Message-ID: <tencent_39F082F22E8C4DA7199FAC72@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <0907415D86226AEA+20261119025619.3485277-2-guanwentao@uniontech.com>
-	<av6VHCsEnrAMOx0M@google.com>
-In-Reply-To: <av6VHCsEnrAMOx0M@google.com>
-X-QQ-ReplyHash: 2729464397
-X-BIZMAIL-ID: 4085145250553562557
-X-Address-Ticket:version=;type=;ticket_id=;id_list=;display_name=;session_id=;
-X-QQ-SENDSIZE: 520
-Received: from qq.com (unknown [127.0.0.1])
-	by smtp.qq.com (ESMTP) with SMTP
-	id ; Thu, 19 Nov 2026 14:40:17 +0800 (CST)
-Feedback-ID: lv:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: MvyKdZyVtFx37N1CZ+q1CdC53x/1NSR/mraI9xSyV+IMYhzZVndBOGIm
-	L9Hx0jTqIaVtZAg2TMrnSY+ooQv0SXq3QsFYsjpeqkpKCh5zL428AYdzB9DrMJkx/WAFQ9f
-	FcnI6xgsktf2Oza1Fm/l4Z8i3lazAnFdFZ1lYkbb0HzIoIWZmrMKi3j9yjJKjS85XDNOVEu
-	xTWkF+cYSf1Q6aBH7wuJ/PY4RCRxitfn2FM8hLkG5M0SILnCSJ4ZLREGNfRYCMITm8Hw2GN
-	rlCmqEPenN994tF+MmcFxVBldLNbZk8w6UUxA8XDf64MrTJwi6vvaoO5Fl5dlX4TW5CZwk8
-	fgV0fdd4jvH98OYAtfgDtwlD13qqPxQsuXJhh5NBTmAFronWmt/p47Kht4sFqk3BVziV5nJ
-	rgGnA+98vAGykXCgfKq0DIzC5TP1mHLBg5Lxicdf7psKzYH61xrUA7xcQmkRrRKVkRjNrCq
-	femXO1Fl98YQKCH0sIHg8gebe7qloEedm7bu8T5O0d5Z/H+pnPHlq4iseWGOZjWiSm8cnzk
-	9AbwiJTKasDq9U39pxlWXA04nAgrvsATJBvekGZWRfYFaDD3VgmUFoeDePbIlAC/3ldVHME
-	74kswCDvx9TQ/+uYpyPlJWnIY3H6awI49wzrAl2I+yD6cbPayhVX3zv1sbyJa4EcDvot9GF
-	D0ER3Nq6RZOaA9W/tx6tmE2r6GkD6uD7q5PaYNclBaUPH8zg5ROHOQ0O7AEJpTE33uAigMs
-	SLAsaM1PxsWWxC+h16u745yI736tcAx2JP6YQS7P62tjwsXmmo/+1YJNbKqj6zeabfd70w6
-	PdRPr6IFjV+wXE3S2rfLJ1zLxqm9vqS8Yk7OsvHxpq/pH5VOGGtFidDLOG0CRP6Qz29Aii6
-	CetAVeYmmjgM+TcNhFihTVrNFPp4oqbGtHALM5Dp1HurLxA5V4OW2d7lE3rpaqYYYWnui3g
-	5iTM/r4H5sEQh8FZidw6AuHT4tfOR+49OCdV23Po/Lr5gfkiNpaNlqSmlML+Enn97Ixg=
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118033539.36633-1-frank.sae@motor-comm.com>
 
-SGksDQoNCj4gT24gVGh1LCAxOSBOb3YgMjAyNiAxMDo1NjoyMCArMDgwMCwgV2VudGFvIEd1
-YW4gd3JvdGU6DQo+ID4gV2hlbiBhIGNsb25lZCByZXF1ZXN0IGlzIG1pZ3JhdGVkIGFnYWlu
-LCBpdHMgdGltZXIgaGFzIHRoZSBzYW1lIGxvY2tkZXANCj4gPiBjbGFzcyBhcyB0aGUgcnVu
-bmluZyByZXF1ZXN0IGNhbGxiYWNrLiBVc2luZyB0aW1lcl9kZWxldGVfc3luYygpIHRocm91
-Z2gNCj4gPiBfX2luZXRfY3NrX3JlcXNrX3F1ZXVlX2Ryb3AoLi4uLCBmYWxzZSkgY2FuIHRo
-ZXJlZm9yZSB0cmlnZ2VyIGENCj4gPiByZWN1cnNpdmUtbG9ja2luZyBzcGxhdCBhbmQgZGlz
-YWJsZSBsb2NrZGVwLg0KPiANCj4gVGhpcyBpcyBuZXQtbmV4dCBtYXRlcmlhbC4NCg0KVGhh
-bmtzIGZvciB5b3VyIHJldmlldywgSSB3aWxsIG1vZGlmaXkgaXQgaW4gdjIuDQoNCj4gPg0K
-PiA+IFRoZSBjbG9uZSBpcyB1bmhhc2hlZCB3aGVuIGluZXRfZWhhc2hfaW5zZXJ0KCkgZmFp
-bHMsIHNvDQo+ID4gcmVxc2tfcXVldWVfdW5saW5rKCkgaXMgYSBuby1vcC4gSXRzIHRpbWVy
-IGlzIHBpbm5lZCB0byB0aGUgY3VycmVudCBDUFUsDQo+ID4gYWxsb3dpbmcgaXQgdG8gYmUg
-Y2FuY2VsbGVkIHdpdGhvdXQgd2FpdGluZyBmb3IgaXRzIGNhbGxiYWNrLiBVc2UNCj4gPiB0
-aW1lcl9kZWxldGUoKSBhbmQgZHJvcCB0aGUgdGltZXIgcmVmZXJlbmNlIGRpcmVjdGx5IGlu
-c3RlYWQgb2YNCj4gPiBzeW5jaHJvbm91c2x5IGRlbGV0aW5nIGl0IHRocm91Z2ggdGhlIHF1
-ZXVlIGhlbHBlci4NCj4gDQo+IFRoaXMgY2hhbmdlIGRlcG5kcyBvbiA0ZTJiM2VmMTllMGUs
-IHdpdGhvdXQgdGhhdCwgX19yZXFza19mcmVlKCkNCj4gZnJlZXMgcmVxc2sgaW1tZWRpYXRl
-bHkgYW5kIHRpbWVyIHRyaWdnZXJzIFVBRi4NCj4gDQo+IFNvIHBsZWFzZSBtZW50aW9uIHRo
-ZSBjb21taXQuDQpPSywgSSB3aWxsIGFkZCB0aGVtLg0KDQo+ID4NCj4gPiBGaXhlczogOTdj
-OGEzYzFmNzNkICgidGNwOiBGaXggcG90ZW50aWFsIFVBRiBpbiByZXFza190aW1lcl9oYW5k
-bGVyKCkuIikNCj4gPiBDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZw0KPg0KPiBQbGVhc2Ug
-ZHJvcCB0d28gdGFncyBhYm92ZS4NCk9LLg0KDQpCUnMNCldlbnRhbyBHdWFu
+Hi Frank.sae,
 
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Frank-sae/net-phy-motorcomm-add-YT8831-2-5G-PHY-support/20261118-033539
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20261118033539.36633-1-frank.sae%40motor-comm.com
+patch subject: [PATCH net-next v3] net: phy: motorcomm: add YT8831 2.5G PHY support
+config: loongarch-defconfig (https://download.01.org/0day-ci/archive/20261119/202611191438.hJl6vCfi-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 3b14d7c370558b46e5f0c6494a05c492e59bf32c)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611191438.hJl6vCfi-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611191438.hJl6vCfi-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/net/phy/motorcomm.c:2782:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    2782 |         if (old_page < 0) {
+         |             ^~~~~~~~~~~~
+   drivers/net/phy/motorcomm.c:2802:44: note: uninitialized use occurs here
+    2802 |         return phy_restore_page(phydev, old_page, ret);
+         |                                                   ^~~
+   drivers/net/phy/motorcomm.c:2782:2: note: remove the 'if' if its condition is always false
+    2782 |         if (old_page < 0) {
+         |         ^~~~~~~~~~~~~~~~~~~
+    2783 |                 phydev_err(phydev, "Failed to select page: %d\n",
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    2784 |                                 old_page);
+         |                                 ~~~~~~~~~~
+    2785 |                 goto err_restore_page;
+         |                 ~~~~~~~~~~~~~~~~~~~~~~
+    2786 |         }
+         |         ~
+   drivers/net/phy/motorcomm.c:2779:19: note: initialize the variable 'ret' to silence this warning
+    2779 |         int old_page, ret;
+         |                          ^
+         |                           = 0
+   1 warning generated.
+
+
+vim +2782 drivers/net/phy/motorcomm.c
+
+  2770	
+  2771	/**
+  2772	 * yt8831_serdes_init() - serdes init
+  2773	 * @phydev: a pointer to a &struct phy_device
+  2774	 *
+  2775	 * Returns: 0 or negative errno code
+  2776	 */
+  2777	static int yt8831_serdes_init(struct phy_device *phydev)
+  2778	{
+  2779		int old_page, ret;
+  2780	
+  2781		old_page = phy_select_page(phydev, YT8831_RSSR_FIBER_SPACE);
+> 2782		if (old_page < 0) {
+  2783			phydev_err(phydev, "Failed to select page: %d\n",
+  2784					old_page);
+  2785			goto err_restore_page;
+  2786		}
+  2787	
+  2788		ret = ytphy_write_ext(phydev, YT8831_SDS_WRITE_PROTECT_REG, 0x1);
+  2789		if (ret < 0)
+  2790			goto err_restore_page;
+  2791	
+  2792		ret = ytphy_write_ext(phydev, YT8831_SDS_SGMII_OUTPUT_REG, 0xc4);
+  2793		if (ret < 0)
+  2794			goto err_restore_page;
+  2795	
+  2796		/* softreset sds space */
+  2797		ret = __phy_modify(phydev, MII_BMCR, BMCR_RESET, BMCR_RESET);
+  2798		if (ret < 0)
+  2799			goto err_restore_page;
+  2800	
+  2801	err_restore_page:
+  2802		return phy_restore_page(phydev, old_page, ret);
+  2803	}
+  2804	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
