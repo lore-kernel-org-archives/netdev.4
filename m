@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795118568;
-	b=tzySdFuYWzmJ8oD5G3Hh9AFMmr4CWStu1fpqhoUjA0xdKFsUdTt9A80F5rbLHukeslTB
-	 /oGKrbIjTS/vFyR77OD/6KvHrrHvAHIv8+mC2xDSPsCPjed5vo55Jizqm9vHJUNwm++Lb
-	 7y6b+gLrHxjy/lRQOlIvtrxTa/PEoZ1XnGkojtcEVcw2ESAGEeais4P4yPaPorjtOHcgw
-	 ibFXjaoVNsYcPSbP5j3Ttpid7gBQbgkxJetm2elmoPRJZiM5cPtrk6Q0uJMMo9wimVU0i
-	 C4AR6f/PRiHvYhaodR7OJhkN1j88loEGb0WchP++69tRTSE6HJG1oN0d7lOKygmZgcw==
+	t=1795118566;
+	b=imzFh4cytuEwEa9dR1RWmtvotlykXvjBZizyF6I/t/RdeUzGHOHNMk3cSXBWjVTR/ePB
+	 jZ2qUYTi9OzK1Iibj1lbgvXuIWk3DODWCLZTEQoBaKiFFI2xCutM+9VOmktuhgD+2uR2o
+	 RZXAalCi4g/NrM9/6TgKpKZ9xL6+b+YKzbjmolI6wfq5rc5asSnmAU8GMoV0hbPgAgEgM
+	 pt/sFmJPpMMX76mMnfAWUpCKmkN99GXVFfmvySpEzHghrSudoMVRVBAgUHAGfodgw4hCW
+	 VtcXsOCh6Ld4sJ3dmr+T9tk0GHewzMI+LHmua/auVv9AUJUqdJcoGKQIanWnX+xfZOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118568;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118566;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=RKK0OI96pECkHppROmIdESDMy4NSloW0JuhxhC44a4A=;
-	b=joWzqAMuDv3sCA9XffJ+1RY5nBGXEA89Z7bMRHiuSNc6B84JnWmS0dmUBgfYRQTQrgBK
-	 1S/O4iPrWi/xhPk9xZ27aiZSu4MOBh354gaKchRcWPA89ioOatBuLC04qs6lhV4RNGxsI
-	 YrM/F0wKROVmwXzNfM6TJrUdBa8qpensoNaOy3Mc8j6OJlljjLz/ANorxOShEC1+W1MLW
-	 Aj3hur5hapacmkw8SoBlNfB912HJnKYUpHTcrviam/ncc2S20ulndV96UpebtdY4FMnKA
-	 4gFGZY0UL5IKUU9Cl+k9W4eqDbhR00O/ohGs6N7BwRLJjAXgi8Pj8PXzdbwRnKbStyA==
+	bh=wslAM8nQE+b2uA4VEkGTEustCwR0csjpfEvwACbY9dM=;
+	b=xEv3mhS3l2m22kY8G6p7eLGslsUJAlJz9RMWr/wh5WxlvYH6dkH30YL1fnwHkWp3mORJ
+	 cvAqQjr1jlrRtGxfkpesRS4tR4HOPLBoSWKltnkNvHFSeuYKNJR+D0/u+/2XQLdI06hv1
+	 pBGCOJPLcWdeXazV7UOMM+P2kqsT2qFLn6iDsKaMzzJ65whknMEVChRwOrHivqTUr/BcI
+	 7PP2YS0JsdQ7uiVUu82Y9C3YjRjme7Ca1KoVyTF3P1vLV6OikQYN2lkcMKdicsJO7NiHv
+	 0XTshN9oeKauBr5HgAZ94Kb0w7nXvxZht6ePdV+7/FWMshBh6nGfxa+lzi+IIE6xAow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PpH7DsWN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jJVkPAhW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E09C2606A332;
-	Thu, 19 Nov 2026 20:02:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49C36606A320;
+	Thu, 19 Nov 2026 20:02:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PpH7DsWN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C9D1F000C7;
-	Thu, 19 Nov 2026 20:02:46 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jJVkPAhW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9922C1F000C4;
+	Thu, 19 Nov 2026 20:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795118567;
-	bh=RKK0OI96pECkHppROmIdESDMy4NSloW0JuhxhC44a4A=;
+	s=k20260515; t=1795118565;
+	bh=wslAM8nQE+b2uA4VEkGTEustCwR0csjpfEvwACbY9dM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PpH7DsWNKZZ5nDxLnHjF/22h6Rz55sVIj+y3RERJctzTeuY3SOwzt11Ct10nU6qbH
-	 HcxcPbjuGTh3gK9vCn3g7/BLeJVspYOvxE5j1gsVGCHyiP1Om1UT8IE+Bo6u5T5KFb
-	 KBfFMsWRuKIfcUsizdCPgpJh4oSR4fxCa+OntDcPhz0YIcaH3vdl6ujfzhgXXDyHoj
-	 XfdA7QMIE/T3ZetULJxEESYQThEO1iv/kOFhDno1uF55cI3IRxnFY2aLkN9Lwz6Bcu
-	 rL8Oa07Oxvy24cRTiDMZGrFQDNFSUhG3qw0P0wpyEBN+oQ7lnPwvHsCAz9eAZbpthW
-	 zV3YE5OI5MXUA==
-Subject: Re: [PATCH net-next v4 4/4] bpf: drop the stale dst when redirecting
- to an explicit nexthop
+	b=jJVkPAhWpF5ymMQJQiPUjHPkuaUtvtgNvAkitvtg4baKmfIzzWeP9okgzdbSGGYYw
+	 RNNxYk7LyijAgyI8KE2RwfkeNQuyOyc/uhRJTqiPBMz40lcKWOSX1XHgzT1yXA+FtX
+	 TqNAp4h/XqjFebBLlKQLysQNN2jRd5qmzkaP8KtXuyO3OW3llkRUfomJ9cmjlafkqu
+	 vqht/RP0UA3xM0wOuz+G4xpFoekH+9HC577OOLnhbISTcmQQvuu3fSREU6GKY9/NYK
+	 AT49nyvkYC6OX4f0BLbmn/jS3FVtWjAYgUSFe3EnPrf0DdiRw2cq22ay8bFf/ijOnC
+	 WR39bOR8x74EQ==
+Subject: Re: [PATCH net-next v4 3/4] netfilter: nft_fwd_netdev: drop the stale
+ dst when steering to a device
 From: netdev-bot+sashiko@kernel.org
 To: jhs@mojatatu.com
 Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
@@ -51,10 +51,10 @@ Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  horms@kernel.org, bpf@vger.kernel.org, jiri@resnulli.us, victor@mojatatu.com,
  sashiko-bot@kernel.org
-Date: Thu, 19 Nov 2026 20:02:45 +0000
-Message-ID: <179511856597.3136.7846835490904436138@kernel.org>
-In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com>
-References: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com>
+Date: Thu, 19 Nov 2026 20:02:44 +0000
+Message-ID: <179511856420.3136.2766397873785932023@kernel.org>
+In-Reply-To: <CORE-9NOG.v4.r0.20261116135311-3@mojatatu.com>
+References: <CORE-9NOG.v4.r0.20261116135311-3@mojatatu.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,144 +79,149 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In the explicit-nexthop branch of __bpf_redirect_neigh_v4(),
-  the new skb_dst_drop_keep_metadata() call can replace a real struct…
-- [Low] The patch fixes a long-standing, user-visible bug but has no
-  Fixes: tag and no Cc: stable.
+- [Medium] nft_fwd_neigh_eval() (net/netfilter/nft_fwd_netdev.c:164-167)
+  now calls skb_dst_drop_keep_metadata() before the packet is sent to…
+- [Low] This patch fixes a user-visible bug: a frame parked on the
+  configured device's incomplete neighbour is later sent on that device…
 
 --
 
-bpf: drop the stale dst when redirecting to an explicit nexthop
+netfilter: nft_fwd_netdev: drop the stale dst when steering to a device
 
-This patch changes __bpf_redirect_neigh_v4() and __bpf_redirect_neigh_v6()
-so they release the arrival dst through skb_dst_drop_keep_metadata() when
-the BPF program supplies an explicit nexthop. Without it, a packet parked
-on the target device's incomplete neighbour can later leave with the
-original device's link-layer header. Encapsulation parameters carried by
-the route are moved onto a metadata dst.
+This patch releases the skb dst in nft_fwd_neigh_eval() before switching
+skb->dev and calling neigh_xmit(). Without it, a packet parked on an
+incomplete neighbour is later rebuilt from the routed device's neighbour.
+The release uses skb_dst_drop_keep_metadata(), so LWT encap parameters
+move onto a metadata dst. If that allocation fails, the packet is dropped.
 
 Link: https://lore.kernel.org/netdev/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com/
 Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
 
-> diff --git a/net/core/filter.c b/net/core/filter.c
-> index bd98d29ed7f8f..ae5346d6abd23 100644
-> --- a/net/core/filter.c
-> +++ b/net/core/filter.c
-> @@ -2318,6 +2318,8 @@ static int __bpf_redirect_neigh_v6(struct sk_buff *skb, struct net_device *dev,
->  		skb_dst_set(skb, dst);
->  	} else if (nh->nh_family != AF_INET6) {
->  		goto out_drop;
-> +	} else if (!skb_dst_drop_keep_metadata(skb)) {
-> +		goto out_drop;
->  	}
->  
->  	err = bpf_out_neigh_v6(net, skb, dev, nh);
+> Reported-by: Sashiko (nipa) <sashiko-bot@kernel.org>
+> Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com
+> Link: https://lore.kernel.org/netdev/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com/
+> Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
+> Reviewed-by: Pablo Neira Ayuso <pablo@netfilter.org>
+> Reviewed-by: Victor Nogueira <victor@mojatatu.com>
+> Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
 
 [Severity: Low]
-Should this patch carry a Fixes: tag, and maybe Cc: stable?
+Should this have a Fixes: tag? The skb->dev switch and the neigh_xmit()
+call in nft_fwd_neigh_eval(), which run with the stale dst still attached,
+come from:
 
-The nh != NULL branch in __bpf_redirect_neigh_v4() and
-__bpf_redirect_neigh_v6() skips the FIB lookup and keeps the incoming
-dst. That branch appears to come from commit ba452c9e996d ("bpf: Fix
-bpf_redirect_neigh helper api to support supplying nexthop"). Before that
-commit, bpf_redirect_neigh() always did a FIB lookup on the target device
-and installed the resulting route.
+Fixes: d32de98ea70f ("netfilter: nft_fwd_netdev: allow to forward packets via neighbour layer")
 
-The commit message gives a reproducer that puts wrong addresses on the
-wire. Would a tag like this one help stable trees that carry ba452c9e996d
-pick up the fix?
+The bug can be seen in neigh_update_process_arp_queue(). It looks the
+neighbour up again from skb_dst(skb) using dst_neigh_lookup_skb(), while
+skb->dev is already the configured device.
 
-Fixes: ba452c9e996d ("bpf: Fix bpf_redirect_neigh helper api to support supplying nexthop")
+The commit message also doesn't list the in-series prerequisites:
 
-> @@ -2433,6 +2435,8 @@ static int __bpf_redirect_neigh_v4(struct sk_buff *skb, struct net_device *dev,
->  
->  		skb_dst_drop(skb);
->  		skb_dst_set(skb, &rt->dst);
-> +	} else if (!skb_dst_drop_keep_metadata(skb)) {
-> +		goto out_drop;
+  - It won't build without "net: dst: keep the LWT metadata of a dropped
+    route", which adds skb_dst_drop_keep_metadata().
+
+  - According to "net: xfrm: interface: restore dst_orig on every xfrm
+    interface", the netdev egress fwd to an xfrm interface path hits a
+    skb_dst_set() WARN in xfrmi_xmit2() unless that commit is also present.
+    With CONFIG_DEBUG_NET=y and panic_on_warn, that WARN becomes a panic.
+
+Could these dependencies be noted, so a stable backport doesn't take this
+patch without them?
+
+> diff --git a/net/netfilter/nft_fwd_netdev.c b/net/netfilter/nft_fwd_netdev.c
+> index 7447da931a957..f486c7be385cf 100644
+> --- a/net/netfilter/nft_fwd_netdev.c
+> +++ b/net/netfilter/nft_fwd_netdev.c
+
+[ ... ]
+
+> @@ -160,6 +161,11 @@ static void nft_fwd_neigh_eval(const struct nft_expr *expr,
+>  		goto out;
 >  	}
 >  
->  	err = bpf_out_neigh_v4(net, skb, dev, nh);
+> +	if (!skb_dst_drop_keep_metadata(skb)) {
+         ^^^^
 
 [Severity: Medium]
-Can this pass a metadata_dst to code that still casts the skb dst to a
+Can this give an NBMA tunnel a metadata_dst that it then reads as a
 struct rtable?
 
-Suppose the arrival route has lwtstate of type LWTUNNEL_ENCAP_IP,
-LWTUNNEL_ENCAP_IP6 or LWTUNNEL_ENCAP_XFRM. Then
-skb_dst_drop_keep_metadata() replaces the rtable with a METADATA_IP_TUNNEL
-or METADATA_XFRM dst, and that dst uses dst_blackhole_ops:
+When the route carries an LWT encap (LWTUNNEL_ENCAP_IP, LWTUNNEL_ENCAP_IP6
+or LWTUNNEL_ENCAP_XFRM), skb_dst_drop_keep_metadata() replaces the rtable
+with a metadata_dst built on dst_blackhole_ops.
 
-net/core/dst.c:skb_dst_drop_keep_metadata() {
-    ...
-		md_dst = metadata_dst_alloc(src->options_len,
-					    METADATA_IP_TUNNEL, GFP_ATOMIC);
-    ...
-	skb_dst_drop(skb);
-	if (md_dst)
-		skb_dst_set(skb, &md_dst->dst);
-    ...
-}
+The configured device can be an NBMA tunnel: ipip or gre with no remote,
+or ip6tnl with raddr :: and no collect_md. In that case the packet reaches
+the tunnel like this:
 
-If the redirect target is a non-collect_md NBMA tunnel, its transmit path
-still calls skb_rtable() on that dst. For an IPv4 payload with raddr set
-to any:
+nft_fwd_neigh_eval()
+  neigh_xmit()
+    neigh_direct_output()
+      dev_queue_xmit()
+        ip_tunnel_xmit() / ip6_tnl_xmit()
 
-net/ipv6/ip6_tunnel.c:ip6_tnl_xmit() {
-    ...
-		} else if (payload_protocol == htons(ETH_P_IP)) {
-			const struct rtable *rt = skb_rtable(skb);
-
-			if (!rt)
-				goto tx_err_link_failure;
-
-			if (rt->rt_gw_family == AF_INET6)
-				memcpy(&fl6->daddr, &rt->rt_gw6, sizeof(fl6->daddr));
-		}
-    ...
-}
-
-ip_tunnel_xmit() falls back the same way when skb_tunnel_info() gives no
-usable AF_INET key dst. That covers METADATA_XFRM, an AF_INET6 key from
-LWTUNNEL_ENCAP_IP6 on an IPv4 route, and a key.u.ipv4.dst of zero:
+ip_tunnel_xmit() takes the md branch only when tun_info is AF_INET with a
+nonzero key.u.ipv4.dst. For any other IPv4 payload it falls back to this:
 
 net/ipv4/ip_tunnel.c:ip_tunnel_xmit() {
     ...
-		} else if (payload_protocol == htons(ETH_P_IP)) {
-			rt = skb_rtable(skb);
-			dst = rt_nexthop(rt, inner_iph->daddr);
-		}
+	} else if (payload_protocol == htons(ETH_P_IP)) {
+		rt = skb_rtable(skb);
+		dst = rt_nexthop(rt, inner_iph->daddr);
     ...
 }
 
-On 64-bit, rt_gw_family and rt_gw4/rt_gw6 land on the tun_info.key
-address fields in the metadata_dst union. So rt_gw_family reads the first
-byte of key.u.ipv4.src, and rt_gw6 starts at key.u.ipv4.dst.
+Two configurations reach that fallback. One is encap ip6 on an IPv4
+route. The other is encap ip with no dst, which ip_tun_build_state()
+accepts because LWTUNNEL_IP_DST is optional.
 
-Here is an example. An IPv4 route carries "encap ip ... src 10.x.x.x dst
-D", and a tc egress program redirects with a supplied nexthop to an NBMA
-ip4ip6 tunnel. Then rt_gw_family reads as 10, which is AF_INET6.
-ip6_tnl_xmit() copies 16 bytes starting at key.u.ipv4.dst into
-fl6->daddr, and the packet is encapsulated towards an outer IPv6 address
-made of tunnel key bytes.
+In its NBMA IPv4-payload branch, ip6_tnl_xmit() never checks tun_info:
 
-Before this patch the skb kept the real rtable on this path, so the cast
-read real route fields.
+net/ipv6/ip6_tunnel.c:ip6_tnl_xmit() {
+    ...
+		const struct rtable *rt = skb_rtable(skb);
 
-The METADATA_XFRM layout does not seem to match AF_INET or AF_INET6.
-IPv6 payloads coming from __bpf_redirect_neigh_v6() look like they are
-dropped, because dst_blackhole_neigh_lookup() returns NULL. So this looks
-limited to IPv4 payloads in the IP/IP6 encap case.
+		if (!rt)
+			goto tx_err_link_failure;
 
-The commit message says:
+		if (rt->rt_gw_family == AF_INET6)
+			memcpy(&fl6->daddr, &rt->rt_gw6, sizeof(fl6->daddr));
+    ...
+}
 
-  The release here can leave one behind as well, when the parameters a
-  route carries are not usable for the payload. The cast is repaired
-  separately.
+On 64-bit, rt_gw_family overlays the first octet of the tunnel key's IPv4
+source address, and rt_gw6 starts at key.u.ipv4.dst.
 
-ip_tunnel_xmit() and ip6_tnl_xmit() are unchanged at this commit. Should
-this patch go after the skb_rtable() fix, or include it? Otherwise this
-path is exposed until that fix lands.
+Take "encap ip id 42 src 10.20.0.2 dst 192.0.2.9" on the routed device and
+a fwd rule to an NBMA ip6tnl. The leading 10 equals AF_INET6, so the
+payload would be encapsulated towards c000:209::, an address built from
+the key bytes.
+
+For METADATA_XFRM, rt_gw_family overlays the low byte of the dst_orig
+pointer, so the result depends on allocation alignment, not on a check.
+
+All reads stay inside the metadata_dst allocation. The result is a wrong
+outer destination, not an out-of-bounds access. Before this patch, the
+same configuration gave the tunnel a real rtable.
+
+The commit message mentions this case:
+
+    The release here can leave one behind as well, when the parameters a
+    route carries are not usable for the payload. The cast is repaired
+    separately.
+
+However, no patch in this series seems to touch net/ipv4/ or net/ipv6/.
+Should the skb_rtable() fix go in before this patch, or with it, so the
+fwd path doesn't add a new way to reach the cast?
+
+> +		verdict = NF_DROP;
+> +		goto out;
+> +	}
+> +
+>  	local_bh_disable();
+>  	if (nf_dev_xmit_recursion()) {
+>  		local_bh_enable();
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v4.r0.20261116135311%40mojatatu.com
