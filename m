@@ -1,94 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.210
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795051469;
-	b=TJychc2q5wHSt1tJWfH0xwqtkmyW99N0q2tdKmrctCedEXFcOW9mnPfYzJIgyeUNjcOd
-	 57j8HmcEdYAFuQ/N87AEnbprkoBRNmw4/oJC4v+0tiYhA9OjOpHJ0U4Cmng3res4PBlYM
-	 Aw6GMRvbsxArBM3RZy0KtIpwK0rwHLQ8SlwaYdM4aYYVGYJ6RUH6wbPA9bMvZvQt5r/F2
-	 KgYi6HWSfmMBX2fPlxufW1cdzR3iJgdk41YsUtCthXLttDw0rKfXxJXKsVSu6LMkCg3XQ
-	 Xs5OP/vTWAQ+U+YEAuySJ6OpBKONyCXeHcN1XbuUDzBARpKHxHeS62aH13blODHCwCg==
+	t=1795051464;
+	b=ZEXifr93R1G7IPiSsW6GI54dMwzt0vLcdZ+Be4OveF2ejmTMq+iUdDOon/4XvdbNob8d
+	 rriYllFZpylph35bMRuLrSa1o4EckfqLRr8NYu0/RpIMmev4HcMzx/RrvobCF+yyHdYi1
+	 ZcVAAje17eEELYG/Q8i/3g8FIddWdyC1zhfLPEl8nsENG4LFLHpAAwwo1txncg7c4n2J9
+	 pB4aRdxsIC+X2j8DXZYmDDceVFA8QtJBvnHaO33DxwDCHmgHZJ9eyZ6vyN3ls04lVaMgZ
+	 ZE/GcH7z8niYIVI4bnEvd7XXrWwIEeBaad8JSa9e+9hOFjcHE2X/I+F/Vet45bg/aoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795051469;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:X-DetectorID-Processed:
-	 Content-Type;
-	bh=45m3+wAtY9br0zLp/sqkALzQ+Hc7HRk3PVIZ+pkCji4=;
-	b=jt3P1t/ow9z2EhgE07kUaY0g6snp05WOAgIXlOuyjqQiuRo9JzFNiuM18PHVJnQvqeRx
-	 EABy6ah0zg5tIpoBf28Su3L2Ve8CLNsv9/kTKh3CkChmFyeyscj2y68AXaG5kD/i/Xgfs
-	 yLaAx5F5aOHSUJCyVel/ULgY5Zx8Rl9sPuHXzU5erE+E3yyb6ehL7j7dPxj+zMssZydlE
-	 jGN2WRrhgo6VW81IWnweeoc+MelDwLA5DlUvxywrtyYenWvmRxrtJA14DMfpdQCjQA8lK
-	 Msoa5iMdTiyyOuYxatpP4yQzc36XhAhE5hmpjS7k08jIUvdm8TC6MedZqQ1HmF2EgbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051464;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=OmyQOfyTjGdM8xfyGFI74begtamX5Hd2NCop4lVP+rk=;
+	b=S0SL+Gj8hV/GxgJ7wEgoP80hOCMPPrz9RsfzcmGLW1Qpdz5WZ1KkwSox01BkxLq18rne
+	 4lfgm0YRQbAZhJoX+pNddGDlfNVKCj6OwBBEff4fBhoKfJhbkEFmF6t2q2DLI3tROl5i3
+	 SmwIxyXroO9zV4faolVE+uu0CzkrUVn4KkF+aEoUicMboJeBZdOj2GZ3WlEZo0e6DCYlx
+	 7ksySmbl2AsgNWTpb6A4oKI4tZK4ztXgZ0rNBY3tYCvFc9Nu5gfrIJz9cv5FSc4pBOjim
+	 cNWIsi+/RsaO7AaWYAbs4n/SDtsH7ugYt14YjdrcpwikIaz6y7eiR5iJx/5bKUs9Arw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="iIep/GCs";
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jLllVLhG;
+	arc=none smtp.remote-ip=162.62.57.210
+Received: from out162-62-57-210.mail.qq.com (out162-62-57-210.mail.qq.com [162.62.57.210])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C80C5606A32F
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:24:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C80C5606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4EB0606A320;
+	Thu, 19 Nov 2026 01:24:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4EB0606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=iIep/GCs
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-ccca948203aso1150672a12.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:24:28 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795051468; x=1795656268;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=45m3+wAtY9br0zLp/sqkALzQ+Hc7HRk3PVIZ+pkCji4=;
-        b=pJ85m2UMP8f6LfLKG4eeIfpCxdt3oQ5Maq/SKGI05QsyNbQfzzKitKyr382IRkcCkA
-         CITbb66Uy7XUPKtubwwxgm2yhp2rlxKKdAf0XD4nBWwPNo6ch6PbyEt3KfLORQ7uZIGH
-         AC/yVychCwUwNY+bLmluFPUg/X8EeV9rEcj71IDnFnD5vxTdf5pglNpvu+BHDRG/7p+a
-         s/suKN9gPofkKMGlvW9o0JrH+oZSgneS8F7rFy8qf57pW3gGd9vPBk9Kf0gPvLjW0Hx5
-         Efc75n2/+2fXnWRo4w0kiNn07fQAo8BO3fTB6WNCGFLrpKiJZ5Yk5T4ETzqr3yHHiiro
-         eoXw==
-X-Forwarded-Encrypted: i=1; AL+hErEysh8SN+VIq7YLHYEmrEnFy7yzXlwtDfUbIjyHwqiI63NZHv3r0E80rstH1K+PysYFFJt9TdA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/tS1eLVw6AEYgogcy7zpIY/GiGdLIFICvJN83M48IbBPLPRjQ1
-	DrxiwMRxATW44XIXRC3j4dTHY96Jw/5TG4UA9BPwfnX/WTSRwsg9pPwIlgt4a/cqFQLoy8yrySN
-	jeNZvPgRYkWEKwomjcTzsaYquWdTnIrYjUUnKi67N1f5GUOGB8lnV3/OttvWXlLt6THU23hAnRz
-	FxS3i5wWQFPp+7T21kMyUEnTCw81dVd2uoNkxTMiUc4Fqbtwf5W4Utx1mPv7Yvz/MVK+l4dOz6m
-	HdYpFjH1d8=
-X-Gm-Gg: AZFdTZd8gfnuE16rNfcZxtghXJWJn3G8aSE/l6ld/zeTwDeZFAdTzu0jM7M5N0yJy5I
-	icVkjSCprGXwZvCBhTwmPSMT3I7CjEfPBJLzHsrR4AbC13M85j1Tzw1YUm+DtIRbl6O9PTkE/gE
-	NKIJvDKgy1MdItVQ5p/p/aLDzJQD+j6DDiqGIitmz8VEBdnuGv9fOKztlP0NdG5aGME7bt9xNNK
-	2RSqqIkBZd5K/fgMqW70yzBYCPKGT628Bkj8GKyvrHiGHSnGRWDt59hZVA1hib8zI7CsED/+C7G
-	MovKLLJyh1G8bDCALGe4xWBVivhLU+00HGPpVnigPKjV7NTnH8OaoZ2fsKgu0Yinzg2EAuSuJqd
-	HoRk1OKZyHqHFT9U3tL9vkSRtGeJd70Ws+/nTacvgqlfLzlgqJvAT9G8/diZplFXD2J/cXZH+Uq
-	Njm7ULITVUD/tiF1+QUlCDoBjqxYdSd70c0go=
-X-Received: by 2002:a17:90b:2ec7:b0:3ac:a139:1b13 with SMTP id 98e67ed59e1d1-3b3d07a85e6mr4479200a91.29.1795051467856;
-        Wed, 18 Nov 2026 17:24:27 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b40282e72csm61809a91.3.2026.11.18.17.24.26
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 17:24:27 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c50a8e37286so119161266b.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:24:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795051465; x=1795656265; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=45m3+wAtY9br0zLp/sqkALzQ+Hc7HRk3PVIZ+pkCji4=;
-        b=iIep/GCsgPmL6fmv7TEOeDmVxJ62NAy5M1k019yOp40CLq8BbOozKkpsJZmFERYj8i
-         biNiIkVDvLja3P0qu0gzlTiz5GCv+st42umNO4WdF+uG0/GCuNe7x7kUGGa8wx4XiE9X
-         naOCHC1jsWo0U/zbYGt+7JQOi6djveF/L13vg=
-X-Forwarded-Encrypted: i=1; AL+hErFRqOgpQuy6O9MeSLpaEeVYfH4ncKCxb052P/Zc8AP5GJJ3MbAqBgHGf9LmgD+9XElTc7LJl9c=@vger.kernel.org
-X-Received: by 2002:a17:907:868a:b0:c4d:28c7:eb21 with SMTP id a640c23a62f3a-c510e2bd5b4mr419332666b.29.1795051464830;
-        Wed, 18 Nov 2026 17:24:24 -0800 (PST)
-X-Received: by 2002:a17:907:868a:b0:c4d:28c7:eb21 with SMTP id
- a640c23a62f3a-c510e2bd5b4mr419331566b.29.1795051464485; Wed, 18 Nov 2026
- 17:24:24 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jLllVLhG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795051458; bh=OmyQOfyTjGdM8xfyGFI74begtamX5Hd2NCop4lVP+rk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jLllVLhG+WTHiXoj/oWDT3d5sC3jJThLbAzZIqQQNlrn1V7Tjzj3KuhyTaDHiLd8M
+	 EXwOmW6NA9qulJDg6wmIge/C/16ckqtFvS9lgFh7Lc56JCTnWTSeLfwIEwJofP9XQn
+	 6Pt4dL2hJCordlVw87pjYtv2nNjA/PmFEzrwbcgM=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.198])
+	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
+	id 60F84486; Thu, 19 Nov 2026 09:24:15 +0800
+X-QQ-mid: xmsmtpt1795051455ty011zs6a
+Message-ID: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
+X-QQ-XMAILINFO: M+LbSN6IdDJLPI2xR/RX/zobdXc1EBLawdeXCEfqnUDblmTzKeLg6eEvznj92v
+	 aUiC3ZlhSPVy99oQZgfmI0EaLdDmZqkNHyL0boy6oY0xMRDoJ2bUIK5iSIH1ygrkiWzb2xuybJLQ
+	 zRaS1Os+67oq9B15m6Jg/fGnVj8495eJ/J09QHg11qd3BUiQkr9ecZAFJKqbk/4AOzgO2jYJyZuJ
+	 CCvgNyEXOS07evAcjTbhTsZ6zWImwG5LyWr5Hd009DqtSHBow2Bx/sP9We9ZdGLfoO+wHhqfNUGr
+	 XzTINdb6Ps3DYox5RE/aHrSRwDtgoa+DGWpIPs8floaN3WbqSkqW4Wdp/1Ojlvo7PnjO2n6Pe9M1
+	 QCtknj1t1SdVlfR5Txr+v7vyT7k2er87S9Qo/OezBzJEAuuG91M2/6/B1gvCHqRg/pFFKrYg+lDv
+	 KS3jOTPC/TjjaN+BmVHJNVX2RP/r7z2+diwfO3g4/JTTkIlBT4ej4aO25z7R9G0uzVGEuRpU20ty
+	 lIz51DvTkM3ubMR0AfZ/+7XW82p39N2I/rEfZ4zWoeWM98oGx4WhX1Jz5JBG4mBRHaT9XSauXoO7
+	 swKY5ardaLDjz5raEG1Mq5wGi815RPapNY8ADMBB6Wc9WkziFLjM6aQVijfFqca35A0GXly/Kzs5
+	 6byrqdRXGsfOLpiDK9EL3m/flqip26IrJEvMUasW9tx0JD8XeFmkuY5PS/hlmoSddiyRKwLQ+WjH
+	 4u34BUEeT7wZ6T8wgZ/Y+oHoDKFhfyRTeRk1iwgd87u75hQ4zW2GeK+NyYjrG/6j595raudrp6cX
+	 t/9TJw+uGjq8nz/8NzHhTO53809AtllRh9itiegrBXyfKt9ObiPmloQUPiXXBkdQxUgyucQAPQi5
+	 E6kVseDPr+ux8xATir3cbKdtUA/ftnswcMvU7ycfpzr8ML/Li6j6Rg0kQNvwtYyl6bynuNcq2WMo
+	 00AWgolNRyPWFpuZJkitee1B4fjIPWLm15dV/+0ZnEbemHYVGCgJkHSdRIW71htpth1FY/+EtxyO
+	 Q1ww4/sMEKqJhIB2Fryf5WZeSTrtXra8bY2Ig3Qq+2c9WfXaM9uz57EzJiUCF4rBXcxJFTQg==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: Shuai Liu <847807867@qq.com>
+To: ms@dev.tdt.de,
+	linux-x25@vger.kernel.org
+Cc: netdev@vger.kernel.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org,
+	847807867@qq.com,
+	netdev-bot+sashiko@kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] x25: defer socket cleanup on link termination to process context
+Date: Thu, 19 Nov 2026 09:24:15 +0800
+X-OQ-MSGID: <20261119012415.1393808-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179502692151.3136.18288735873132919768@kernel.org>
+References: <179502692151.3136.18288735873132919768@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,164 +89,215 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118023905.3050661-1-kuba@kernel.org> <20261118023905.3050661-7-kuba@kernel.org>
-In-Reply-To: <20261118023905.3050661-7-kuba@kernel.org>
-From: Michael Chan <michael.chan@broadcom.com>
-Date: Wed, 18 Nov 2026 17:24:12 -0800
-X-Gm-Features: AclHuK-Gq_VVSeDakO8wv6E1XAz8JXtnuKLdS75GiYqc5miGUW7kueyDA3QmUQA
-Message-ID: <CACKFLi=Zi7QBd1oNt-d99S5e6PfJ_Ym-p_-+k+iFHSU5zCi+Mw@mail.gmail.com>
-Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
- IRQ moves to another NUMA node
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com, 
-	pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org, 
-	pavan.chebbi@broadcom.com
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000eddd2a066096fc41"
+Content-Transfer-Encoding: 8bit
 
---000000000000eddd2a066096fc41
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+x25_kill_by_neigh() walks all sockets bound to a neighbour and calls
+lock_sock() and x25_disconnect() on each one.  It is invoked from
+x25_link_terminated() and x25_link_control(), which both run in softirq
+context when the LAPB link goes down or a restart frame arrives, e.g.
+from the lapbether NAPI poll path.
 
-On Tue, Nov 17, 2026 at 6:39=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
+lock_sock() takes a mutex in its slow path, so calling it from softirq
+sleeps in atomic context:
 
-> @@ -14673,6 +14675,8 @@ static void bnxt_tph_update(struct bnxt *bp)
->                 goto unlock;
->
->         for (i =3D 0; i < bp->rx_nr_rings; i++) {
-> +               struct bnxt_rx_ring_info *rxr =3D &bp->rx_ring[i];
-> +               bool new_tag =3D false, new_node =3D false;
->                 struct bnxt_irq *irq;
->                 int map_idx, err;
->                 u16 tag;
-> @@ -14680,20 +14684,26 @@ static void bnxt_tph_update(struct bnxt *bp)
->                 map_idx =3D bnxt_cp_num_to_irq_num(bp, i);
->                 irq =3D &bp->irq_tbl[map_idx];
->                 tag =3D READ_ONCE(irq->new_tag);
-> -               if (irq->tag =3D=3D tag)
-> +               if (irq->tag !=3D tag &&
-> +                   !pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
-> +                       new_tag =3D true;
-> +               if (rxr->page_pool->p.nid !=3D bnxt_cp_num_to_node(bp, i)=
-)
-> +                       new_node =3D true;
-> +               if (!new_tag && !new_node)
->                         continue;
->
-> -               if (pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
-> -                       continue;
-> -
-> -               err =3D netdev_rx_queue_restart(dev, irq->ring_nr);
-> +               err =3D netdev_rx_queue_restart(dev, i);
+  BUG: sleeping function called from invalid context at net/core/sock.c:3839
+    in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 14, name: ksoftirqd/0
+    ...
+    lock_sock_nested+0x66/0x70
+    x25_kill_by_neigh+0x90/0x110
+    x25_link_terminated+0x18/0x50
+    x25_lapb_receive_frame+0x1c2/0x1f0
 
-queue restart already has the code to do HWRM_RING_FREE of the CP ring
-to program the new TPH tag.  We can add the missing logic to
-re-allocate the CP ring pages from the proper NUMA.  Since we are
-paying the heavy price for a ring restart, should we include the CP
-ring to make it more complete?
+and lockdep flags the sk_lock-AF_X25 usage violation because the same
+lock is registered in process context by x25_bind():
 
---000000000000eddd2a066096fc41
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
+  WARNING: inconsistent lock state
+  inconsistent {SOFTIRQ-ON-W} -> {IN-SOFTIRQ-W} usage.
+    ksoftirqd/0/14 [HC0[0]:SC1[1]:HE1:SE0] takes:
+    ...
+    x25_kill_by_neigh+0x90/0x110
+    x25_link_terminated+0x18/0x50
+    x25_lapb_receive_frame+0x1c2/0x1f0
 
-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
-DPVtLUtep/P3evQuAtTQRaKedjamBcUpJ7qUhBuv/Z07LlLIlB/vfNSPWe1V+njTezc8m3VfvNEC
-qEpXasPSfDgfcuUhcPR+7++oUDaTt9iqGFOjwiURxx08pL6ogSuiT41O4Xu7msabnUE6RY0O0xR5
-5UGwbpC1QSmnBq7TAy8oQg/nNw4vowEh3S2lmjdHCOdR270Ygd7jet8WQKa5ia4ZK4QdkS8+5uLt
-rMMRyM3QurndiZZJBipjPvEWJR/+jod8867f3n0CAwEAAaOCAd0wggHZMA4GA1UdDwEB/wQEAwIF
-oDAMBgNVHRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDovL3Nl
-Y3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5BggrBgEF
-BQcwAYYtaHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUGA1Ud
-IAReMFwwCQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUFBwIB
-FiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDagNKAy
-hjBodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwJAYDVR0R
-BB0wG4EZbWljaGFlbC5jaGFuQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAfBgNV
-HSMEGDAWgBQAKTaeXHq6D68tUC3boCOFGLCgkjAdBgNVHQ4EFgQUJbO/Fi7RhZHYmATVQf6NlAH2
-qUcwDQYJKoZIhvcNAQELBQADggIBABcLQEF8mPE9o6GHJd52vmHFsKsf8vRmdMEouFxrW+GhXXzg
-2/AqqhXeeFZki82D6/5VAPkeVcgDeGZ43Bv89GHnjh/Vv0iCUGHgClZezpWdKCAXkn698xoh1+Wx
-K/c/SHMqGWfBSVm1ygKAWkmzJLF/rd4vUE0pjvZVBpNSVkjXgc80dTZcs7OvoFnt14UgvjuYe+Ia
-H/ux6819kbi0Tmmj5LwSZW8GXw3zcPmAyEYc0ZDCZk9QckL5yPzMlTAsy0Q+NMVpJ8onLj/mHgTk
-Ev8zt1OUE8MlXZj2+wgVY+az2T8rGmqRU2iOzRlJnc86qVwuwjL9AA9v4R13Yt8zYyA7jL0NiBNP
-WaOSajKBB5Z/4ZVtcvOMILD1+G+CVZX7GUWERT9NRXw/SyIEMU59lFbuvy4zxe3+RbOleCgp3pze
-q8HE2p9rkOJT3MkCNLxe+ij4RytIvPQXACsZeLdfTDUnjeXCDDJ9KugVhuqMelAZc4NissPz8FOn
-2NK++r5/QamlFqYRhsFxSBIvhkh2Q/hD3/zy4j17Yf/FUje5uyg03FblSBOk2WYpRpXEuCpyn5pb
-bYVIzfhQJgwGfO+L8BAeZIFjO1QL3s/zzn+RBlTl4wdDzh8L9eS+QEDhMcSsqb4fFRDbsoVuRjpx
-R5MunSUzk4GcmmM19m7oHhPGeKwIMYICVzCCAlMCAQEwYjBSMQswCQYDVQQGEwJCRTEZMBcGA1UE
-ChMQR2xvYmFsU2lnbiBudi1zYTEoMCYGA1UEAxMfR2xvYmFsU2lnbiBHQ0MgUjYgU01JTUUgQ0Eg
-MjAyMwIMZh03KTi4m/vsqWZxMA0GCWCGSAFlAwQCAQUAoIHHMC8GCSqGSIb3DQEJBDEiBCDm31D1
-fCpHLV7mbPgkHDkXB52Y74oWaEKQEwdIYfg81DAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwG
-CSqGSIb3DQEJBTEPFw0yNjExMTkwMTI0MjVaMFwGCSqGSIb3DQEJDzFPME0wCwYJYIZIAWUDBAEq
-MAsGCWCGSAFlAwQBFjALBglghkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEHMAsGCWCG
-SAFlAwQCATANBgkqhkiG9w0BAQEFAASCAQBxPPaC6V8PU5YqU5KQiH+e0D0S6PazTeTr8R8P3o6r
-3epmurx6rBd6ZlmD0WjixG0+Bfk0QjVHpPkooJx2xt80aCD4W0bDc4UGqw4JjCMfx4DaMQlnPRzi
-yjQG6ZJX1k0ilriNtic83RwBgFsShtuuto0aJILvxd0ZJHvofUFob9HFHS3ZtUqKYQhQZy92Yfzo
-1y/CeN0d1lubTSQWiQomcnYQn5Zk9i3SErbCN17HXzRiLG65PBCURGQfJSRn0j/eX8AWnzcPeuVs
-BWuf/yO13cm9twUmQR13cfVWtzNapDucv+5tUI/0yNF2GWwMs2h0jUXStxR6U8QQRko0zFlY
---000000000000eddd2a066096fc41--
+Defer the neighbour socket cleanup to a per-neighbour work item so it
+always runs in process context.  The work item holds a reference on the
+neighbour and on its net_device, so the deferred cleanup cannot race
+with neighbour or device teardown; both references are dropped again if
+queueing fails because the work is already pending.  A dedicated
+workqueue is drained in x25_exit() so that the module stays loaded until
+pending work has run, and NETDEV_DOWN flushes the work to keep device
+teardown synchronous as before.
+
+Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
+Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+Cc: stable@vger.kernel.org
+Signed-off-by: Shuai Liu <847807867@qq.com>
+---
+
+Changes in v2:
+  - Use a dedicated workqueue and drain it in x25_exit() so the module
+    stays loaded until pending work has run (Sashiko)
+  - Hold a reference on the neighbour's net_device for the deferred work,
+    and drop it again when queueing fails because the work is already
+    pending (Sashiko)
+  - Flush the work in NETDEV_DOWN to keep device teardown synchronous
+    (Sashiko)
+  - Explicitly request WQ_PERCPU to satisfy the workqueue API
+  - Add Fixes tag and Cc stable
+
+ include/net/x25.h  |  3 +++
+ net/x25/af_x25.c   | 11 ++++++++++-
+ net/x25/x25_link.c | 28 +++++++++++++++++++++++++---
+ 3 files changed, 38 insertions(+), 4 deletions(-)
+
+diff --git a/include/net/x25.h b/include/net/x25.h
+index 414f3fd993454..125803d4f0ee7 100644
+--- a/include/net/x25.h
++++ b/include/net/x25.h
+@@ -13,6 +13,7 @@
+ #include <linux/x25.h>
+ #include <linux/slab.h>
+ #include <linux/refcount.h>
++#include <linux/workqueue.h>
+ #include <net/sock.h>
+ 
+ #define	X25_ADDR_LEN			16
+@@ -143,6 +144,7 @@ struct x25_neigh {
+ 	struct sk_buff_head	queue;
+ 	unsigned long		t20;
+ 	struct timer_list	t20timer;
++	struct work_struct	kill_work;
+ 	unsigned long		global_facil_mask;
+ 	refcount_t		refcnt;
+ };
+@@ -317,6 +319,7 @@ extern struct list_head x25_forward_list;
+ extern rwlock_t x25_forward_list_lock;
+ extern struct list_head x25_neigh_list;
+ extern rwlock_t x25_neigh_list_lock;
++extern struct workqueue_struct *x25_wq;
+ 
+ int x25_proc_init(void);
+ void x25_proc_exit(void);
+diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
+index f45c9ec7d2c68..a1a8bc203a24f 100644
+--- a/net/x25/af_x25.c
++++ b/net/x25/af_x25.c
+@@ -222,6 +222,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 			nb = x25_get_neigh(dev);
+ 			if (nb) {
+ 				x25_link_terminated(nb);
++				flush_work(&nb->kill_work);
+ 				x25_neigh_put(nb);
+ 			}
+ 			x25_route_device_down(dev);
+@@ -1790,9 +1791,13 @@ static int __init x25_init(void)
+ {
+ 	int rc;
+ 
++	x25_wq = alloc_workqueue("x25", WQ_PERCPU, 0);
++	if (!x25_wq)
++		return -ENOMEM;
++
+ 	rc = proto_register(&x25_proto, 0);
+ 	if (rc)
+-		goto out;
++		goto out_wq;
+ 
+ 	rc = sock_register(&x25_family_ops);
+ 	if (rc)
+@@ -1825,6 +1830,8 @@ static int __init x25_init(void)
+ 	sock_unregister(AF_X25);
+ out_proto:
+ 	proto_unregister(&x25_proto);
++out_wq:
++	destroy_workqueue(x25_wq);
+ 	goto out;
+ }
+ module_init(x25_init);
+@@ -1843,6 +1850,8 @@ static void __exit x25_exit(void)
+ 
+ 	sock_unregister(AF_X25);
+ 	proto_unregister(&x25_proto);
++
++	destroy_workqueue(x25_wq);
+ }
+ module_exit(x25_exit);
+ 
+diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+index d1e8cd81c2143..424044c1cf974 100644
+--- a/net/x25/x25_link.c
++++ b/net/x25/x25_link.c
+@@ -31,6 +31,8 @@
+ LIST_HEAD(x25_neigh_list);
+ DEFINE_RWLOCK(x25_neigh_list_lock);
+ 
++struct workqueue_struct *x25_wq;
++
+ static void x25_t20timer_expiry(struct timer_list *);
+ 
+ static void x25_transmit_restart_confirmation(struct x25_neigh *nb);
+@@ -58,6 +60,25 @@ static inline void x25_stop_t20timer(struct x25_neigh *nb)
+ 	timer_delete(&nb->t20timer);
+ }
+ 
++static void x25_kill_by_neigh_work(struct work_struct *work)
++{
++	struct x25_neigh *nb = container_of(work, struct x25_neigh, kill_work);
++
++	x25_kill_by_neigh(nb);
++	dev_put(nb->dev);
++	x25_neigh_put(nb);
++}
++
++static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
++{
++	x25_neigh_hold(nb);
++	dev_hold(nb->dev);
++	if (!queue_work(x25_wq, &nb->kill_work)) {
++		dev_put(nb->dev);
++		x25_neigh_put(nb);
++	}
++}
++
+ /*
+  *	This handles all restart and diagnostic frames.
+  */
+@@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_defer_kill_by_neigh(nb);
+ 
+ 			x25_transmit_restart_confirmation(nb);
+ 			break;
+@@ -97,7 +118,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_defer_kill_by_neigh(nb);
+ 
+ 			x25_transmit_restart_request(nb);
+ 			nb->state = X25_LINK_STATE_2;
+@@ -254,7 +275,7 @@ void x25_link_terminated(struct x25_neigh *nb)
+ 	x25_stop_t20timer(nb);
+ 
+ 	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
+-	x25_kill_by_neigh(nb);
++	x25_defer_kill_by_neigh(nb);
+ }
+ 
+ /*
+@@ -269,6 +290,7 @@ void x25_link_device_up(struct net_device *dev)
+ 
+ 	skb_queue_head_init(&nb->queue);
+ 	timer_setup(&nb->t20timer, x25_t20timer_expiry, 0);
++	INIT_WORK(&nb->kill_work, x25_kill_by_neigh_work);
+ 
+ 	dev_hold(dev);
+ 	nb->dev      = dev;
+-- 
+2.43.0
+
