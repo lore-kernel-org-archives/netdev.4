@@ -1,115 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080913;
-	b=oQgykx/2nO5aDZA+AqrykwIFsBoV/A83RWUOehN4E3dG2AcpIh3YGQbZJCeVQmXlFWM1
-	 4bVctJst1LB+hA3a9erCQcS06yTRz/QE+lxEPih3rXOkUzjGF9mtatzb6FCysKDnJqez8
-	 JojIGAZgOnYiudrOXBLglps9yTIJHwpUGKtpoVRbWmHXICxHs87+ka08Sr0ig8YhPeRoH
-	 v3a8Wn1LXl0Qz3gaeU1FGVcfDp+sYVgdLQnunW6JOWSDr7H42C1emvieliHsneI589lyz
-	 CrcJWdURYxD2ZmrjzcqUT86mdR6POyXsZm2pOCiJs1b6rxvW0QLv2n4Ce1XRdwSmE+g==
+	t=1795080945;
+	b=MbKPbB6406kmeaYAZNGSpjYLeKSZkXHskuiSxprN4xxHY1Ttx5+r6NvwrsTO4kBpkB97
+	 cc5r5Vm3f8nDuk3ulUu+uq8Msqj+8UISrBPNsPQqt2a/VpUCROr5IoU1wqYwIVhDMSrFL
+	 C4AVVKBAEo8bb3SO0BcnBR2OvSGnT3LXPYhMzTN1ZsJnXNiT6o0Tak/mCg04v2JTzYui5
+	 KspTDpjFQ4MPOPQsYxtBpIY1Z2eYy5kCtOLinJVm2baYxgZZahay5kjMCHIQP9NncD3QI
+	 fwHGwyE/38F5YT+EE/XepPgE6N6tmEVMJbneh/GeiWNsxhXRLmmwwEvQm70op/fsZ0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080913;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=CQyK9hhzQUtdCIaKwh8qFL6kiw3hBK7e02jXrxk3Q5M=;
-	b=CDUELpzYrosQd/6utA8oMDwPcPCwegxKWZydUoFQiJYnyKSim7qcNdM+jXqa6gXhclRA
-	 g3ahviz961h1Us6/EyovdMxHUfVL1e7A3afXIu6w3j4FMltIw/W+5mS06nTEhlY8eAu/9
-	 w1fLW+eW3Czb39TFX5cB5GI3iHvAUO/2zJ/OlHiaX3MJLotcre6ryv4W10PnIFwPd9gXr
-	 pWM1pRCbIXb9wiGIzRZEdNTAw/7yRCJHuvtddyjvaRgNE5Hle2GOGAux5iHYlUYQYjhmg
-	 goq5JKIef+9A41J6ao8wNTrG+zHrfztOrDZ7u8+JjWd+6T6KLwk7UJqrYjavmd0xI2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080945;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+	b=tgprmwRJvj+ffI7IR8oHc8XKPV4AIT1X7eYW+5GixEDQ4uJFl6653s6zu3f+Gqwvk8CJ
+	 oGWqe9i5SWbeUrd0EqdxfQ5fYzjDHMfuTQnaKS2e5WEOIELN72n4Z5+epZu+MtYHBD5kb
+	 XlCREce7IHkEM5DD/ksnGhafgfcId6XPSiDnrpPXfihVVBQz/Ap8Er4Z4swlAxexqPdpL
+	 +qRZiB8YB3fa2BQ5SsHiASACektikAVXpotasTT4gqRdNvcJA4Kd3lJDeNUfPtQciy4g9
+	 jmkaLXa85A3jedCjVMP/gTnDZW3REDFFOElCqD4djMXHCvthgUz/OUqhRuoRqHG7V4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=trPf9+9S;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="EQR5k/S5";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=dSJBwNcU;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CAD660A2614;
-	Thu, 19 Nov 2026 09:35:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CAD660A2614
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA41660A2601
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:35:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA41660A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=trPf9+9S
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 909DF4E41663;
-	Thu, 19 Nov 2026 09:35:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D3E660237;
-	Thu, 19 Nov 2026 09:35:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 145C311BC315F;
-	Thu, 19 Nov 2026 10:34:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795080902; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=CQyK9hhzQUtdCIaKwh8qFL6kiw3hBK7e02jXrxk3Q5M=;
-	b=trPf9+9SmvXq7f3i06Ocu8PXp2wkKO6ORNKTA4/AjOKcQKVFePqcO/1BhMn+K4JKXgVetW
-	9Yr+85a0u4rw/+pGQPZDRSMsRMDGawEXfnQ9jCtNv2zr3C8ZQd4iUe048cU50ECPRyFurf
-	rsmMLyDo3rueQxG7RuwY+EBebjyTZuhqh1PyoyvCDfGRSYoPSTyfx/hwy85QgTWFsAil0Q
-	X6TU5TJA2EpRSA3/3QyU7eQBfCRlHqNmOlSA+ByZVazhopQuZSLgxPNhpRVe5QgDh43L/T
-	HBMPjxwGs9avJmS68J25IgXRGZqvRkZ+RC3EyDq//xlN7GCwXICCDykv7Bhitw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org,  Jonathan Corbet <corbet@lwn.net>,  Shuah
- Khan <skhan@linuxfoundation.org>,  linux-doc@vger.kernel.org,  David
- Hildenbrand <david@kernel.org>,  Andrew Morton
- <akpm@linux-foundation.org>,  Jason Gunthorpe <jgg@nvidia.com>,  Leon
- Romanovsky <leonro@nvidia.com>,  linux-mm@kvack.org,  Jaroslav Kysela
- <perex@perex.cz>,  Takashi Iwai <tiwai@suse.com>,
-  linux-sound@vger.kernel.org,  Jens Axboe <axboe@kernel.dk>,
-  linux-block@vger.kernel.org,  Marcel Holtmann <marcel@holtmann.org>,
-  Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-  linux-bluetooth@vger.kernel.org,  Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>,  Jason Wang <jasowangio@gmail.com>,
-  David Heidelberg <david@ixit.cz>,  oe-linux-nfc@lists.linux.dev,  Chas
- Williams <3chas3@gmail.com>,  "David S. Miller" <davem@davemloft.net>,
-  Eric Dumazet <edumazet@kernel.org>,  Jakub Kicinski <kuba@kernel.org>,
-  Paolo Abeni <pabeni@redhat.com>,  netdev@vger.kernel.org,  Helge Deller
- <deller@gmx.de>,  linux-fbdev@vger.kernel.org,
-  dri-devel@lists.freedesktop.org,  MPT-FusionLinux.pdl@broadcom.com,
-  "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,  "Martin
- K. Petersen" <mkp@kernel.org>,  linux-scsi@vger.kernel.org,  Richard
- Weinberger <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,
-  Zhihao Cheng <chengzhihao1@huawei.com>,  linux-mtd@lists.infradead.org,
-  Neill Kapron <nkapron@google.com>,  Andrey Konovalov
- <andreyknvl@gmail.com>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-  linux-usb@vger.kernel.org,  Juergen Gross <jgross@suse.com>,  Stefano
- Stabellini <sstabellini@kernel.org>,  xen-devel@lists.xenproject.org,
-  Hans de Goede <hansg@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,
-  "Michael S. Tsirkin" <mst@redhat.com>,  Eugenio =?utf-8?Q?P=C3=A9rez?=
- <eperezma@redhat.com>,  Sean Christopherson <seanjc@google.com>,  Paolo
- Bonzini <pbonzini@redhat.com>,  kvm@vger.kernel.org,
-  virtualization@lists.linux.dev,  Jan Kara <jack@suse.cz>,
-  linux-fsdevel@vger.kernel.org,  "Theodore Ts'o" <tytso@mit.edu>,
-  linux-ext4@vger.kernel.org,  Mike Marshall <hubcap@omnibond.com>,
-  devel@lists.orangefs.org,  Paulo Alcantara <pc@manguebit.org>,  Namjae
- Jeon <linkinjeon@kernel.org>,  linux-cifs@vger.kernel.org,  Jaegeuk Kim
- <jaegeuk@kernel.org>,  Chao Yu <chao@kernel.org>,
-  linux-f2fs-devel@lists.sourceforge.net,  Florian Fainelli
- <florian.fainelli@broadcom.com>,  Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,  Tzung-Bi Shih
- <tzungbi@kernel.org>,  Benson Leung <bleung@chromium.org>,  David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Alex Deucher
- <alexander.deucher@amd.com>,  Christian =?utf-8?Q?K=C3=B6nig?=
- <christian.koenig@amd.com>,
-  amd-gfx@lists.freedesktop.org,  Jani Nikula
- <jani.nikula@linux.intel.com>,  Joonas Lahtinen
- <joonas.lahtinen@linux.intel.com>,  Rodrigo Vivi <rodrigo.vivi@intel.com>,
-  Tvrtko Ursulin <tursulin@ursulin.net>,  intel-gfx@lists.freedesktop.org,
-  Matthew Brost <matthew.brost@intel.com>,  Thomas =?utf-8?Q?Hellstr=C3=B6?=
- =?utf-8?Q?m?=
- <thomas.hellstrom@linux.intel.com>,  intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v2 07/12] docs: ioctl-number: update MTD entries
-In-Reply-To: <20261119053514.255348-8-rdunlap@infradead.org> (Randy Dunlap's
-	message of "Wed, 18 Nov 2026 21:35:08 -0800")
-References: <20261119053514.255348-1-rdunlap@infradead.org>
-	<20261119053514.255348-8-rdunlap@infradead.org>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 19 Nov 2026 10:34:37 +0100
-Message-ID: <87bj7lf9le.fsf@bootlin.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EQR5k/S5;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=dSJBwNcU
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795080943;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+	b=EQR5k/S5gX9O2isyt9+JvCb312lvuQU3o+Tqp4+vCflfecSErAFIy3ykBo3xSvgGk7dPsT
+	WtLZujzuVFLpnfLmbSdniorq0OACjUOdcLIFEz/ECXMSvzNp4wZQd8wSw/fRHMsunSPAJf
+	JibFbSVVIP21JAtWnem5KUV1Mh1omDw=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-652-HatKpz2QPrujLo6a9JqtIQ-1; Thu, 19 Nov 2026 04:35:42 -0500
+X-MC-Unique: HatKpz2QPrujLo6a9JqtIQ-1
+X-Mimecast-MFC-AGG-ID: HatKpz2QPrujLo6a9JqtIQ_1795080940
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4aa0500c979so186677f8f.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:35:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795080940; x=1795685740; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+        b=dSJBwNcUgfpqpqpcO00BqOgy6rn/27u4bSv3znU6NaisVn84/7OzU/9ig3OXS8+qsK
+         qkKbiT4enLFnOOfvErU0mUGxO9SyqIicLhEdGhj161vtOw7rn06zu5zlfeN4M90uksHt
+         BqdsSOZQ9+ChDM02orCwj2u0lN8u9SgDRjDOPlR2V8oX9zNrwJO8yCgUkeLrzbJGqLhe
+         Gdo+aLVsRknjp/6HczOJxengWvca6cMc60CwN7kZnk2zIFWBWUiULNnSpqhanfL0AXUr
+         uBGXqJNf4T4Ht1kz09UPFF3lpULA8QfuswA3BN77urak8D52Xy+IS+NFkuWseWi4Vwuk
+         gtog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795080940; x=1795685740;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+        b=aM4BYAy2DvUeIRwwhVicsnk89zLlTPxhGoIoxunqERpUQfHcj5lD08/2Off61eo6Dz
+         QFWmyQvOfpFpFf562LdkfKqhKrvfusmMkMAF96wcE9Mp22npHpAqLSQTEzBJme9TI5CV
+         kDDg9iHzM65laGWa8Jt5jricZUSk44cN98q43oD+VIe1not135TYFcHt3aX5xd+djytU
+         XB4bkokUHBUjyDTF9qZ6nYhEBWcm8Ngu0K1gdmN85VD3OYrPEoNeAhNWQJaXWb/0+ly8
+         wB79QoUFBjVzqyhcNXYfHjAAzIZH32VRlDOdSdhw64Avt2Expwy+MuGZRbkytqcBFKd8
+         KTHg==
+X-Forwarded-Encrypted: i=1; AL+hErFDRsihKVR+iiFCUGOc5ACwzvcZRVdnAOAyo+V8fZfGs04RY4R2criE6d/UI+o20NAvY69P8hQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9dzW+dByXNeuRG3DRGhAbBmXTNO456jWq3BpDot9zBWQAFNFyx
+	+jDUMjdj1B6E7dUbjGjpu6LY3ByLuBU0UL56mkeSBcYH6GEZSEMau+S8fUFYNQ0HM+cyD+8qa2M
+	qUdwsjpi80CYMLHYQYaSadNJUYjE6W4FJFf2mc9wiX9peH/HkfjiZghEJvQ==
+X-Gm-Gg: AZFdTZdGjiBas5v9vIgMLO83tSoucj6WP9k995qm2Fzrcldgbk0f2aeOtDELgHpRtAl
+	XuUNbkEvSFrNpM82SIakrDXzor9LgAs7aEjjmWx0em14m5Gvl8XfpGaWc4y3fUl+kQL1NuumJbF
+	Fkb/bhiKc/bXzYsf/Ws/hIkoZ6khc/rlhTzSMqQKJwrjhMRQiUH6kvCtjfkE+dzc6mZAJyu1Pem
+	yevfCH8fpuApqvmOsPh1gBHMkzxR5sCYoAtkub8Ls9elfQLtAPHlrFRlT6Bucpr1Bbcv7Tl/rxU
+	JeZcdwZQVGVRcFnjyxlQs1r4FI1si1/Ili4bM1/KKWLMkjwmT6j/CYtCMgWXHT6Rw17vZDiZT8J
+	Kfa1vzJ9Ihq9I1/V/zy//Xqw2g9UDauo11ysILDf+7lQZjOi44ElQAW5YHhZ4AJjqelKyGcsiZ2
+	KQ93PkVXmJpIBSF/CXhScsYUkjiGpEbCXYrBCZcBasXLVN
+X-Received: by 2002:a05:6000:184b:b0:48f:bcdf:6f7d with SMTP id ffacd0b85a97d-4a63b6fbd88mr11817892f8f.34.1795080939845;
+        Thu, 19 Nov 2026 01:35:39 -0800 (PST)
+X-Received: by 2002:a05:6000:184b:b0:48f:bcdf:6f7d with SMTP id ffacd0b85a97d-4a63b6fbd88mr11817756f8f.34.1795080939199;
+        Thu, 19 Nov 2026 01:35:39 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c39bsm9495655f8f.17.2026.11.19.01.35.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 01:35:38 -0800 (PST)
+Message-ID: <4eea6d32-4200-4cd1-860a-70e81356678e@redhat.com>
+Date: Thu, 19 Nov 2026 10:35:36 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -119,26 +112,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 1/4] net: qrtr: Allow the host QRTR to assign
+ a unique node id
+To: netdev-bot+sashiko@kernel.org, manivannan.sadhasivam@oss.qualcomm.com
+Cc: mani@kernel.org, davem@davemloft.net, kuba@kernel.org, horms@kernel.org,
+ jjohnson@kernel.org, edumazet@kernel.org, linux-arm-msm@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-wireless@vger.kernel.org, ath11k@lists.infradead.org,
+ ath12k@lists.infradead.org, andersson@kernel.org,
+ christopher.lew@oss.qualcomm.com, deepak.singh@oss.qualcomm.com,
+ raj.bhagat@oss.qualcomm.com, juha-matti.tilli@iki.fi,
+ jeff.hugo@oss.qualcomm.com, daizhuang.bai@oss.qualcomm.com,
+ jeff.johnson@oss.qualcomm.com
+References: <20261114-qrtr-multi-ep-v6-1-2eb9885659e2@oss.qualcomm.com>
+ <179478985187.3136.15328141866524028119@kernel.org>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <179478985187.3136.15328141866524028119@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Hi Randy,
+On 11/16/26 01:44, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 5 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 3
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] A failed node-id insert now drops the packet, where the old
+>    code still delivered it, and a dropped HELLO is never recovered.
+> - [Medium] In AUTO mode, nid and ep_nid can end up different, which the
+>    commit message says cannot happen, and the rewrite logic then…
 
-On 18/11/2026 at 21:35:08 -08, Randy Dunlap <rdunlap@infradead.org> wrote:
+The first concern above looks relevant, and the 2nd deserves at least an
+explicit answer.
 
-> Update the list of files where MTD ioctls are defined and update
-> the ranges of function numbers that are used.
->
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+In general you need to address (either debate or fix) every AI comment with
+prio >= Mid.
 
-Acked-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Next patch as more of such comments.
 
-> [Since having multiple maintainers trying to merge these would
-> cause some conflicts, it would be more manageable for Jon to
-> take all of these through the docs-next tree.]
+/P
 
-Agreed.
-
-Thanks,
-Miqu=C3=A8l
