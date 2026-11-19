@@ -1,83 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.38.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102274;
-	b=pn7e8cmwJvIa58UpOC4/nlnenhj7az06ewa5FlnAr/TkNQgqtlYCk1Ygjg1rJs2AvMGs
-	 8ikU/SGHsOzEVZhyxO+jMqVbMZhlObec7EswOe9gwfJ/bg7mp46Jdl/Tt0jRRCEurqsgB
-	 HUtNJoq6lZ/fCJobTXa2nUTUDCmzaUrjwtSru4Lm64AAL0iu4PfYSkU/oxs4hcem6XElF
-	 jXY4iWmiYLO15gfPbeZuF/F/l6MT/Qu2RU1O/ep4+5/dXetSBSILT6QD1shviNg+vSfIV
-	 GVND8M36xlGdyzfj6PPA4MZnYZxvwSLfVE6lZvqSJDH4ETsKka5uhP6CxTkcQq1iHiQ==
+	t=1795102455;
+	b=2u83mOvEvWvib0ZtLOnWn/QBnijqEIDKo3mD3INu/mDMHNY5LG7KzagrPkpHR912iOws
+	 jaQklMfR7zF18WKkVHtFAV1iSVN3CQ93sYcwMsruFrUoWnyrT6A2i1NwHiGiFjcpZyAL8
+	 7pSZWPKSZ9GvjIbT/MEhSMkoNnR+cURXWJ6Vk/dMd2A64t68a47C0X+TWqvlAOcVPpdVO
+	 F7860qZk341lKq993thFvJoM/BH50H2SNjEVgGneHBpO1bUFBTwYubqPvRcsOEe8eAQ8c
+	 ofAX56ovR79OmOcdnWa/WMI1QW9s5YjSW+zjAjAmSDXRXOrPd9Q1MJNtFwObd3cMb3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102274;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Rspamd-Queue-Id;
-	bh=0k8H3WhqvZLrLdrKeN3pxsTCp80tQHj2NUfIp60honc=;
-	b=5aNLV5P4bhky9pzJlbhcWMOp8KiF5Vbvt583s9JhBTP/f+3KU2DKsVM3sWD6nZ/3QgCs
-	 ntOHcYfzob8Po1AZuqL/EUcBS57tzDs5yUxIxGgVBsUUPsvfbIrgPacDi9aUNqFC2uaAn
-	 pRct60TCs2VH9W0WdU9jAGF69wh9t/oeO1rjbZCfLxPUHkIqwS3JTGs8SGqWSewt6tSYh
-	 6zZej0TTzwxq9yCcnJhPPmCGO7XdARFULbMolW1YVlK++lo8ag4HI5CJWaEf2tPTqp1MB
-	 N32KuIeJOKagLc7KU/rfloBV8FUm5tcTQzAhvd6UgskmruMrrF5xH6WESloIsl6lWrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102455;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-malware-bazaar;
+	bh=3dMKvfDOqtYyEDsBf2/VAUyEsVF51Ta+iGPIRmde3PU=;
+	b=lr1kvHH8MmxeyY3ZIlBQ4hZ2HqcGHUge+IzlRfREQPlvy53TBiH1YBt7jc0ggM9kk+1h
+	 F/L0nE2/ZG9YR3BtmwTA9dwjgfgHQGEXMuc962Gq6j1YJqpk/0VRM7448io4i3YdssCPQ
+	 N1hsOwzIauG661GyfmjchyMXKGSeI8Tg7SQJ0gjChhYxYKlc/WsMiN/BCKqYoFJwrLSJv
+	 XJVU8cTF9NtEapXBPI0ZGbKN0rVFVuzSUMHtrBq9BTCivOmQERwOUeozeU4xWdclPs8kQ
+	 cLLfNNsP0/YxgA/jtZXuFulFFXhUFCD2BxFCOtzNw4KQoZi4nytifdN5sQ9ru95hU7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=PfH2lDzH;
-	arc=none smtp.remote-ip=195.10.208.47
-Received: from mout-b-107.mailbox.org (mout-b-107.mailbox.org [195.10.208.47])
+	dmarc=permerror header.from=sipsolutions.net;
+	spf=pass smtp.mailfrom=sipsolutions.net;
+	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=KNKgAVTN;
+	arc=none smtp.remote-ip=168.119.38.16
+Received: from sipsolutions.net (s3.sipsolutions.net [168.119.38.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 795B8606A320;
-	Thu, 19 Nov 2026 15:31:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 795B8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22B91606A320;
+	Thu, 19 Nov 2026 15:34:14 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; dmarc=permerror header.from=sipsolutions.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sipsolutions.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=PfH2lDzH
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4jVj9S4FRdz3xTD;
-	Thu, 19 Nov 2026 16:31:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795102268;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=0k8H3WhqvZLrLdrKeN3pxsTCp80tQHj2NUfIp60honc=;
-	b=PfH2lDzH7DFYDEO0JjZgj9hFIaMAF2Eb93achjUr7i8Mz7TOZJXikkZn28r6p7MxEmJS+4
-	ekR8jN9JR40ZU59TtJL5/ZOTSaUMEcJ5syiRglTNxY2Yl9m9Cc9bjqqnYi+3xjikcxsJiS
-	EiY0eUbHFYcwfhU2uCHqVtGwQeClGukb6kpLRaYlwzGOwv4WXoxS+DFFfEar8o2CbsVXpA
-	iQlykGs5jTzL2lHlrMobPlARUtLqk3cVgzHa+GLoBYNj1bDYi1UFX6KwwDt6z74fNPGLHO
-	YIDQgQfHKOD6R72bhHPVYXU0JuFCR/2QZAiW2HKcw5njxb072JM8v4GRc6g7fQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
-From: Antonio Quartulli <antonio@mandelbit.com>
-To: willemdebruijn.kernel@gmail.com,
-	jasowangio@gmail.com
-Cc: Antonio Quartulli <antonio@mandelbit.com>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	mst@redhat.com,
-	eperezma@redhat.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	maheshb@google.com,
-	peterpenkov96@gmail.com,
-	netdev@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	bpf@vger.kernel.org
-Subject: [PATCH net v7] tun: bound the NAPI receive queue
-Date: Thu, 19 Nov 2026 16:30:55 +0100
-Message-ID: <20261119153056.353156-1-antonio@mandelbit.com>
+	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=KNKgAVTN
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-To:Resent-Cc:
+	Resent-Message-ID:In-Reply-To:References;
+	bh=3dMKvfDOqtYyEDsBf2/VAUyEsVF51Ta+iGPIRmde3PU=; t=1795102454; x=1796312054; 
+	b=KNKgAVTNzC7vKWoqvDSHqgdiNPnOKPtU9+V0olHFPzzFlPcHSylmG2VjU+sqQyg9cacUijohscy
+	dnflAlGZa24kBBYXNxWEvbj/L5jA9i1QzenIxLWQmEw+Fg9ZfUhWAOLMpObqxdE5jWlJ7g8dMzJF6
+	5EN1wof+FA5Zxtoma41/SlR07KOCH5wti4aOVcEDAZ++C5STVOVM5C6ZRTNBGXhXWlwg0n+2DljnR
+	zenCuBvMnyeA/T94sKL6JlRs5dyD36zhj0QQnNJTUGaJpZ4XxVtXH7FJKwvFxZu7yikrs+pvChrZ+
+	bnKmJBQwxu+8rp6cYBHugaz0iV4P/Pzb19mQ==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__ECDSA_SECP256R1_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1xU49M-00000004Ybt-2R7i;
+	Thu, 19 Nov 2026 16:34:12 +0100
+From: Johannes Berg <johannes@sipsolutions.net>
+To: netdev@vger.kernel.org
+Cc: linux-wireless@vger.kernel.org
+Subject: [GIT PULL] wireless-2026-11-19
+Date: Thu, 19 Nov 2026 16:33:27 +0100
+Message-ID: <20261119153408.342115-3-johannes@sipsolutions.net>
 X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -88,189 +63,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jVj9S4FRdz3xTD
+X-malware-bazaar: not-scanned
 
-With IFF_NAPI, tun_get_user() queues every written packet for NAPI on
-an unbounded list. When the poll runs asynchronously (threaded NAPI or
-ksoftirqd) and is slower than the writer, the queue grows until the
-system runs out of memory. An unprivileged user can do this from its own
-user and network namespaces, and the queued skbs are not charged to its
-memcg: in a test VM, a uid 1000 process limited to 128 MB caused a
-global OOM in ~6 seconds. The socket send buffer does not help: tun sets
-it to INT_MAX by default, the build_skb() path is only used while it is
-INT_MAX, and the XDP batch path never checks it.
+Hi,
 
-Drop packets once more than netdev_max_backlog of them are queued, like
-enqueue_to_backlog() does, and count them as rx_dropped; the write still
-reports success, as for a full backlog. The check sits where packets are
-queued for NAPI, in tun_get_user() and in tun_xdp_one() for the batches
-vhost-net passes, so packets consumed by XDP or delivered through
-IFF_NAPI_FRAGS are not affected. A dropped zerocopy skb completes its
-buffer when freed. The check is lockless, so concurrent writers can each
-still add one packet.
+A bit late, but nothing that's urgent or would need
+to be resolved with net-next/wireless-next soon.
+Just a couple of driver updates, still reviewing
+more core changes.
 
-The NAPI poll moved the whole queue out, processed up to its budget and
-put the rest back: while it ran, the queue looked empty to writers, so
-with the poll on another CPU the backlog could still grow without limit.
-Take at most budget packets instead: the rest stays on the queue writers
-check.
+Please pull and let us know if there's any problem.
 
-Dropping also schedules NAPI. vhost-net sends with MSG_MORE while it has
-more packets, and tun_get_user() schedules NAPI only for a packet
-without it or once more than NAPI_POLL_WEIGHT are queued. With a
-netdev_max_backlog below that, the queue fills first and the packet
-without MSG_MORE is dropped too: nothing would schedule NAPI, and the
-queued packets, with zerocopy also their buffers, would wait forever.
+Thanks,
+johannes
 
-Reproducer, as an unprivileged user in a new user and network
-namespace, without kernel modifications or fault injection:
-  ip tuntap add t0 mode tun; ip addr add 10.11.0.1/24 dev t0
-  ip link add d0 type dummy; ip addr add 10.20.0.1/24 dev d0
-  ip link set t0 up; ip link set d0 up; sysctl net.ipv4.ip_forward=1
-  install ~500 iptables FORWARD rules, to slow down the poll, and a
-  MASQUERADE rule on d0
-  open t0 with IFF_TUN | IFF_NO_PI | IFF_NAPI
-  echo 1 > /sys/class/net/t0/threaded
-  write() 1400-byte IPv4 packets for 10.20.0.2 in a loop
 
-Found by code inspection while analysing the performance of the tun
-write path. Tested in an x86-64 VM on net, with 1 and 2 vCPUs: the
-reproducer causes a global OOM without the patch, while with it memory
-use stays flat and the forwarding rate is unchanged; the tun kselftest
-passes; a local vhost-net test of the batch, copy and zerocopy paths
-with netdev_max_backlog set to 8 passes, and fails without the patch;
-an XDP program on the device sees every packet while the excess is
-dropped.
 
-Still open: neither the packet size nor the queued memory is bounded,
-and the skbs are not charged to the writer's memcg. A single write can
-create an skb of several hundred KB, so even one queue can hold a lot,
-and IFF_MULTI_QUEUE (allowed in a user namespace) and more devices
-multiply it. This bounds the queue as enqueue_to_backlog() bounds the
-per-CPU backlog; charging the skbs to the writer is left to a follow-up.
+The following changes since commit 7e1392a42ea288d70a266f6553fe06f57f8647ea:
 
-Fixes: 943170998b20 ("tun: enable NAPI for TUN/TAP driver")
-Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
----
-v7:
-- Check where packets are queued, after XDP and not for IFF_NAPI_FRAGS
-  (Sashiko); a dropped zerocopy skb now completes its buffer when freed
-- Fix the poll comment and the commit message (Sashiko)
-- Drop the vhost-net selftest (Willem, Sashiko)
+  Merge tag 'net-7.4-rc3' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net (2026-11-12 12:26:14 -0800)
 
-v6: https://lore.kernel.org/netdev/20261113212237.1742984-1-antonio@mandelbit.com/
-v5: https://lore.kernel.org/netdev/20261111014208.1795777-1-antonio@mandelbit.com/
-v4: https://lore.kernel.org/netdev/20261103142232.1869185-1-antonio@mandelbit.com/
-v3: https://lore.kernel.org/netdev/20261031231444.1528758-1-antonio@mandelbit.com/
-v2: https://lore.kernel.org/netdev/20261030152540.1409884-1-antonio@mandelbit.com/
+are available in the Git repository at:
 
-Stable: kernels before v6.9 have no net_hotdata; a backport reads
-netdev_max_backlog instead.
+  https://git.kernel.org/pub/scm/linux/kernel/git/wireless/wireless.git tags/wireless-2026-11-19
 
- drivers/net/tun.c | 52 +++++++++++++++++++++++++++++++++++++++--------
- 1 file changed, 44 insertions(+), 8 deletions(-)
+for you to fetch changes up to 47f80fcddd09b68b2b0a619bcd5a0048ccc11714:
 
-diff --git a/drivers/net/tun.c b/drivers/net/tun.c
-index 86fd44e10755..b7432bd4d3f0 100644
---- a/drivers/net/tun.c
-+++ b/drivers/net/tun.c
-@@ -58,6 +58,7 @@
- #include <linux/nsproxy.h>
- #include <linux/virtio_net.h>
- #include <linux/rcupdate.h>
-+#include <net/hotdata.h>
- #include <net/net_namespace.h>
- #include <net/netns/generic.h>
- #include <net/rtnetlink.h>
-@@ -227,6 +228,16 @@ struct veth {
- static void tun_flow_init(struct tun_struct *tun);
- static void tun_flow_uninit(struct tun_struct *tun);
- 
-+/* In IFF_NAPI mode written packets wait in the tfile's sk_write_queue for the
-+ * NAPI poll, which may run later in a kthread or ksoftirqd. Bound that queue
-+ * like the per-CPU backlog.
-+ */
-+static bool tun_napi_queue_full(const struct sk_buff_head *queue)
-+{
-+	return skb_queue_len_lockless(queue) >
-+	       READ_ONCE(net_hotdata.max_backlog);
-+}
-+
- static int tun_napi_receive(struct napi_struct *napi, int budget)
- {
- 	struct tun_file *tfile = container_of(napi, struct tun_file, napi);
-@@ -237,21 +248,22 @@ static int tun_napi_receive(struct napi_struct *napi, int budget)
- 
- 	__skb_queue_head_init(&process_queue);
- 
-+	/* At most budget skbs: the rest stays on the queue writers check */
- 	spin_lock(&queue->lock);
--	skb_queue_splice_tail_init(queue, &process_queue);
-+	if (skb_queue_len(queue) <= budget) {
-+		skb_queue_splice_tail_init(queue, &process_queue);
-+	} else {
-+		while (skb_queue_len(&process_queue) < budget &&
-+		       (skb = __skb_dequeue(queue)))
-+			__skb_queue_tail(&process_queue, skb);
-+	}
- 	spin_unlock(&queue->lock);
- 
--	while (received < budget && (skb = __skb_dequeue(&process_queue))) {
-+	while ((skb = __skb_dequeue(&process_queue))) {
- 		napi_gro_receive(napi, skb);
- 		++received;
- 	}
- 
--	if (!skb_queue_empty(&process_queue)) {
--		spin_lock(&queue->lock);
--		skb_queue_splice(&process_queue, queue);
--		spin_unlock(&queue->lock);
--	}
--
- 	return received;
- }
- 
-@@ -2043,6 +2055,19 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
- 		struct sk_buff_head *queue = &tfile->sk.sk_write_queue;
- 		int queue_len;
- 
-+		/* Queue full: drop, and schedule NAPI, which a MSG_MORE sender
-+		 * may not have done yet. Lockless: concurrent writers can each
-+		 * still add one.
-+		 */
-+		if (unlikely(tun_napi_queue_full(queue))) {
-+			local_bh_disable();
-+			napi_schedule(&tfile->napi);
-+			local_bh_enable();
-+			rcu_read_unlock();
-+			drop_reason = SKB_DROP_REASON_FULL_RING;
-+			goto drop;
-+		}
-+
- 		spin_lock_bh(&queue->lock);
- 
- 		if (unlikely(tfile->detached)) {
-@@ -2658,6 +2683,17 @@ static int tun_xdp_one(struct tun_struct *tun,
- 
- 	if (tfile->napi_enabled) {
- 		queue = &tfile->sk.sk_write_queue;
-+
-+		/* Queue full: drop, and schedule NAPI so that it drains even if
-+		 * nothing in this batch gets queued.
-+		 */
-+		if (unlikely(tun_napi_queue_full(queue))) {
-+			napi_schedule(&tfile->napi);
-+			kfree_skb_reason(skb, SKB_DROP_REASON_FULL_RING);
-+			dev_core_stats_rx_dropped_inc(tun->dev);
-+			return 0;
-+		}
-+
- 		spin_lock(&queue->lock);
- 
- 		if (unlikely(tfile->detached)) {
+  Merge tag 'rtw-2026-11-19' of https://github.com/pkshih/rtw (2026-11-19 16:25:10 +0100)
 
-base-commit: ead6fa9a0ab194f02a2f36d634b193e9c5f9a1c6
--- 
-2.56.1
+----------------------------------------------------------------
+Some driver fixes:
+ - iwlwifi: regulatory/FW crash and VHT NSS
+ - ath10k: revert a fix causing more trouble,
+           fix TX completions
+ - ath9k: fix beacons, tasklet teardown, build
+ - rtw89: fix connection drop on RTL8851BE
 
+----------------------------------------------------------------
+Emmanuel Grumbach (3):
+      wifi: iwlwifi: honor the per-channel 320 MHz regulatory flag
+      wifi: iwlwifi: mvm: don't send LARI_CONFIG_CHANGE to old FW
+      wifi: iwlwifi: mvm: fix VHT NSS reporting on pre-MQ devices
+
+Felix K. (2):
+      wifi: ath9k: fix beacon slot selection once TSF exceeds 2^39 us
+      wifi: ath9k_htc: fix beacon slot selection once TSF exceeds 2^42 us
+
+Hao Tan (1):
+      wifi: rtw89: coex: Disable pre-AGC for out-of-band links
+
+Jeff Johnson (1):
+      Revert "wifi: ath10k: Stop unanswered temperature reads"
+
+Johannes Berg (4):
+      wifi: ath9k: uninline ar9003_paprd_create_curve() helpers
+      Merge tag 'iwlwifi-fixes-2026-11-16' of https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-next
+      Merge tag 'ath-current-20261116' of git://git.kernel.org/pub/scm/linux/kernel/git/ath/ath
+      Merge tag 'rtw-2026-11-19' of https://github.com/pkshih/rtw
+
+Miri Korenblit (2):
+      wifi: iwlwifi: trans: don't memset trans::conf when it is still needed
+      wifi: iwlwifi: mvm: correctly check the API version
+
+Shunsuke Nagashima (1):
+      wifi: ath10k: fix status of bundled mgmt tx completions
+
+Toke Høiland-Jørgensen (1):
+      wifi: ath9k: make sure we stop the wmi tasklet on init fail
+
+ drivers/net/wireless/ath/ath10k/core.c             |  1 -
+ drivers/net/wireless/ath/ath10k/thermal.c          |  9 +-------
+ drivers/net/wireless/ath/ath10k/thermal.h          |  2 --
+ drivers/net/wireless/ath/ath10k/wmi.c              |  2 +-
+ drivers/net/wireless/ath/ath9k/ar9003_paprd.c      | 10 +++++----
+ drivers/net/wireless/ath/ath9k/ath9k.h             |  3 ---
+ drivers/net/wireless/ath/ath9k/beacon.c            | 10 ++++-----
+ drivers/net/wireless/ath/ath9k/htc.h               |  2 --
+ drivers/net/wireless/ath/ath9k/htc_drv_beacon.c    | 10 ++++-----
+ drivers/net/wireless/ath/ath9k/wmi.c               |  5 ++++-
+ drivers/net/wireless/intel/iwlwifi/iwl-nvm-parse.c |  6 +++---
+ drivers/net/wireless/intel/iwlwifi/iwl-nvm-parse.h |  7 +++++--
+ drivers/net/wireless/intel/iwlwifi/iwl-trans.c     |  1 -
+ drivers/net/wireless/intel/iwlwifi/mvm/fw.c        |  3 +++
+ drivers/net/wireless/intel/iwlwifi/mvm/ops.c       | 12 +++++------
+ drivers/net/wireless/intel/iwlwifi/mvm/rx.c        |  4 ++--
+ .../net/wireless/intel/iwlwifi/tests/nvm_parse.c   | 24 ++++++++++++++++++----
+ drivers/net/wireless/realtek/rtw89/coex.c          |  3 ++-
+ 18 files changed, 62 insertions(+), 52 deletions(-)
