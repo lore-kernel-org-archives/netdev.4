@@ -1,100 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.61
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091591;
-	b=0S1bfy3Gi5NXBtNvzoJIBmhxpJ/1Pw1lxqy8Fj7yPZoWWmG6piWS858+Rbe6lZbu7wWM
-	 RtitERa+fTNzXXNrl5Pfl7Oowa7e0Y50cBX6OkBKv3/3MGbfKniCp5hwB+teBQmVLByJB
-	 RoecxEawyKqg90ZUs4sqT9dHUDso8VQQ9ay3OainC7Uz8B3zEawSWPRbJdHhQW9aO1TvP
-	 eI0alD1HSMcIa+yIDpJPhHLm9eKPyxTUbBvof8c8zFv+5PuIrJhVY79H97pbgK8cYVkQ6
-	 0O+XqJNrO628QXV1iSFXxoWfnrtpToRrXF4XkDWT+yh8l4RBZxftjCJ9y9TpiLhateQ==
+	t=1795091711;
+	b=SjoMVqbyFyZFwyTsXzuS7CIoyhLhblwkQuI/ZA1QrnWtE9uwcyiAV6PS9t+4LhSDtYDm
+	 KoWtob8XWKMvt1wzL0y41n+U22UoDruFCxWQTRi+tYxqyjvGGtIpvMZzaBRBP6Dtlvprl
+	 kFN5Go7fVQorwMzAaS9N5GG0ubEd4MU9fb1J8QNsL0g9AMxyDEXUbJhHA5QqiyQuBt74o
+	 jftr4XRt2u7jSvUU0tsPc1BfI+pQih5AMFBxQ6RoXk7JTRZ5AQ3Cklkb5okqWwcF+A4Pg
+	 Rh2FYvrn9KAE6sQ15Ddv0HiTN1W8Y5Exw45nIzIUFQey1BgNIpxPFHltV3SwrvrVa2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091591;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/Ek51XyDqjNDlPqGg9sQ2tY31Qy1aTTiJyOPg0VSi+0=;
-	b=tUrXdG/e9o/pLPwfTTfM/C16XxpJsIDyQKq3EWpvlpPcsdfmUWAIBOrgXfVBOY7iV3Ml
-	 QO87thlPMb9P7ML3r2HoYtX9JiDMkc3ZMoZ3K0/0FAszRdCTyQOQaFqKFL3YVbI+9iQTi
-	 4FK1NVoW4qr+x58QTeNY7urlrk7dLiPGmnERQVunR9h8m0sLFs0d7secdv3V+5d4r02qw
-	 8zWD6u5o6n8wWhfZhZhDkhVHIYA9dMlHRzvvoIyq1ujGvFwB3fcX51u71RfjWQDrSlKVb
-	 i/ydkMdJoYvUCfF4vLs40o9goLwGN8U33uSqKVPKdFOTLqElwwjtz1PgbSF5MWBmVkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091711;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=5SeJaTDft0GtN1F516svdvvqapqgOgbQ5E+Wp/co4eU=;
+	b=pM2Ki55RlmUhQVic1++JXH9fW09MZetaWk1sHkJQTh/OUlLHbpG3AeiLFTuCdxHtYds6
+	 Lij6XlABgKe+pOmMVScHtQQPKcmAf7cBAmSqJ7MXSXSmKPMwRKHnfSFuHTaoA4n4vWtCH
+	 QZMcBwWliXqBtQUfITF9kLV7hHaKVPZUNOH9gRhBD9xRxQfKm6+d/SbvzGakHUr4rQo4C
+	 jOCBiRnyJznlLnPAeza+ocEPvsUK+pPD67f9GYXd0FyUDLLH77NsgtWUcliPeEESV0PSO
+	 Tt2wmFilVbSjl+xVxJkAarnNLwmx2o/X7hKkl7GoS0XBfp1xppxf9fD4AAzEf7Febjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uBYexjBE;
-	arc=none smtp.remote-ip=209.85.160.178
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=DXDECqZ+;
+	arc=none smtp.remote-ip=195.10.208.61
+Received: from mout-b-201.mailbox.org (mout-b-201.mailbox.org [195.10.208.61])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E45F1606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:33:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E45F1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9DA6606A324;
+	Thu, 19 Nov 2026 12:35:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9DA6606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uBYexjBE
-Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-55d2b4a99d4so19460781cf.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:33:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795091590; x=1795696390; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/Ek51XyDqjNDlPqGg9sQ2tY31Qy1aTTiJyOPg0VSi+0=;
-        b=uBYexjBES7Nf6QiHlndF8Ui28b0z6/g64un3On2W89+fozFTQDUSEf2bEPEtd7T5pM
-         eg3n3ZZxVMd2jbzC5ya8OLwGMi+VKqz5hj9eOvOlYqGZYjAGmgm8wymDya7TYIKr3slT
-         vDATIC76ZQx7z8cwBByKunj9tfoiMatxWj2ztHkEiyJFts0q8oCpiuRbx9JHcpycHp0l
-         MDlIDX1i1BvnMfCbTsRegYWaI4wSVO45A2mPir5aAr8TNLrzf7lHyagID2IyYPny/JRO
-         TvyrGi+RU7wPXYZAsGTTa+mzT5EnV4YIsaxmXTDeAmu18B0yo8aBLa3bml4OZgle7l46
-         6d/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795091590; x=1795696390;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/Ek51XyDqjNDlPqGg9sQ2tY31Qy1aTTiJyOPg0VSi+0=;
-        b=2fKhC+Pc5YH32HsPR34t3tAB0PnQj+WIPVYz4C0xYoed874rYiSSj57apTxldzsJqu
-         jVIvseFTzbeLCi2+Y6wj8htHwKC2ehoLzX8IRhRJ5JZ8jQiMB69zXN+khq1GAj46F8QF
-         oTZVSX5upeg38TNlTInWsJnvEjXnlZDUVlnZdVjZSVyyX5L/B4iQQwqRZ765qfJkWJ+C
-         H2zdy/A3AQxjoK1TvSvdA8EKSG+2a8JAjiRMQuMTt6vEfVXtp6AXeD/W/zZzOYRfVFaJ
-         0Vv0zEwsiGFtdako1DPbcKENjfW/iRD6GC9r1aP6O0pGHtbFnCSyl3XUVseoi1sPueLB
-         mL1A==
-X-Gm-Message-State: APuU4Z9P63XvJYm06bde58aoB5c4YXS8+4J5CGispYC9dShqYEyP5M0T
-	etwnW2FljgAIHtdNrgQdao6zxC/5P8F3Z5ycVqsS6ZouyXJo8k4IvkPvgk0+411I6O9YG2M=
-X-Gm-Gg: AYBFou0AMPDXJLB/Pee0QRYzLRilhOwgdUSgpyPfUcP0wlEtYiQt9QoYLow/jGIaeM0
-	6JLY0NzTYiRQtL+Wtb/CUNPUUZ3ECSHKUCCrSKjbYgJsq1M2rISS7UaE+47WyrIK6wH1qFgqfqz
-	Du54X8pBEOYjSmCnlAGXX6niDG10QZY2XKjEhnhvrP7F2xOdseJGpTB0+nYcHi0TlVp0AYFwAju
-	lbv4REzvv69gpEA9oamRKYoJ47Cuhdttn2CfONgqiJWxtS7afSCxp0uOg1H0elKQQMfrCc5pCwi
-	F+tf+UnCXYlwE3bj2P7tk02JNQAzPA1VGI9WJRFDU/z6nLvDZslLzmbOoAWr0Y1k8JGVamHLeK8
-	K7tDcXbyeUCUeOUMH1H1OUjzX+YpzeT15S4Wm6Ft+AIJlMcFaDCS0g76ryD68ag2qu1hI9qk9xj
-	e4Zjwe/uP6w21uAfXYGqHnqzZ4CIJYuN+HqDnIl9qli3pxYKhSm4KiRdVG0j3Zy3cUUCA3Ma0fX
-	ys5Lbzghz+G4VrjcJVangf7lS2XPY8yCxT6Aa7EJLRH0y8uq5I0HKYf+ik58deG5DIV/obWKWsB
-	4QHt9Bp9Kphb1H2+zGUfBllYMXwFHmRsXMt+Bg2ylTX1ZWWgMVmGOVR8MuSI3TNhLetjUIJfjZE
-	FNj7iQBVhsE8KjA==
-X-Received: by 2002:a05:622a:651:b0:545:de78:a6fb with SMTP id d75a77b69052e-55d5a5b4e35mr96272451cf.33.1795091589892;
-        Thu, 19 Nov 2026 04:33:09 -0800 (PST)
-Received: from Ixchel.lan (bras-base-mtrlpq3328w-grc-1-70-49-63-180.dsl.bell.ca. [70.49.63.180])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921149f58dbsm48527616d6.6.2026.11.19.04.33.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:33:09 -0800 (PST)
-From: Vlad Banea <montrealtango@gmail.com>
-To: netdev@vger.kernel.org
-Cc: hkallweit1@gmail.com,
-	javen_xu@realsil.com.cn,
-	nic_swsd@realtek.com,
-	andrew+netdev@lunn.ch,
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=DXDECqZ+
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-201.mailbox.org (Postfix) with ESMTPS id 4jVdGF0rz5zLmF7;
+	Thu, 19 Nov 2026 13:35:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795091701;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5SeJaTDft0GtN1F516svdvvqapqgOgbQ5E+Wp/co4eU=;
+	b=DXDECqZ+PGVFm3Zgfl/+gcIjru7TFsHtt4lGq/kn8dMKDfOJZuA3cfXoO371dZwS8a4CPz
+	O83RExzA0Z/CKF3lrtFWLK8AIgwvmFJ1nPEHI1VsRBHNEKrL3wqtf3TntGZ6ZP9Bv0KCEh
+	T/lSsoUJDnv4dnhjTSb52LJSjA1roICIzopncEoywHfJj+KKXlw1P7KSeTInecdbeh9Z+v
+	gAXLm1C2J4CG7AJJDtHG79l9J9oKFASZDzqfUrs5naDZBxGqdT8QkyVOf0bvkeJdgEhGY+
+	3XMEDrLJ5tvmfAE9dGtcDLIi9MEtDBAilW2jkGoX2EPdPGEeNAGYYM80Y9/tZg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org,
+	dsahern@kernel.org,
+	idosch@nvidia.com,
 	davem@davemloft.net,
-	edumazet@google.com,
+	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
+	horms@kernel.org,
+	ncardwell@google.com,
+	kuniyu@google.com,
+	steffen.klassert@secunet.com,
+	herbert@gondor.apana.org.au,
+	fw@strlen.de,
+	sd@queasysnail.net,
+	antonio@mandelbit.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC net-next 0/5] r8169: RSS for the RTL8125B
-Date: Thu, 19 Nov 2026 07:33:05 -0500
-Message-ID: <20261119123305.2459069-1-montrealtango@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261111220114.3863505-1-montrealtango@gmail.com>
-References: <20261111220114.3863505-1-montrealtango@gmail.com>
+Subject: Re: [PATCH net-next v3 3/3] ipv6: use lookup cookies in selected socket dst cache paths
+Date: Thu, 19 Nov 2026 13:34:50 +0100
+Message-ID: <20261119123451.419865-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <179508017589.3136.2311893930440004501@kernel.org>
+References: <179508017589.3136.2311893930440004501@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,15 +88,140 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jVdGF0rz5zLmF7
 
-Hi Heiner, Javen,
+On Thu, 19 Nov 2026 09:22:55 +0000, netdev-bot+sashiko@kernel.org wrote:
+> ipv6: use lookup cookies in selected socket dst cache paths
+>
+> This commit changes tcp_v6_connect(), ip6_datagram_dst_update() and
+> ip6_sk_dst_lookup_flow(). They now store the cookie returned by
+> ip6_dst_lookup_flow_cookie() instead of sampling it after the lookup.
+> The commit also adds ip6_dst_store_cookie() and keeps ip6_dst_store() as
+> a wrapper for callers that are not converted yet.
+>
+> > Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+>
+> [Severity: Low]
+> This patch depends on the earlier commit "ipv6: add
+> ip6_dst_lookup_flow_cookie". That commit does three things:
+>
+> - adds ip6_dst_lookup_flow_cookie()
+> - changes ip6_dst_check() so that a dst with rt->sernum must match the
+>   supplied cookie
+> - moves the fib6_update_sernum() calls in fib6_ifup()/fib6_ifdown() to
+>   after rt6_multipath_rebalance()
+>
+> The prerequisite has no Fixes: tag and no stable note. This commit does
+> not mention the dependency either.
+>
+> If stable selection picks only this commit because of its Fixes: tag, it
+> will not build, since ip6_dst_lookup_flow_cookie() is undefined. Could the
+> prerequisite be tagged too, or the dependency be noted here, so both get
+> backported together?
+>
 
-Gentle ping on this RFC. It still applies to net-next.
+Since this targets net-next and I'm not asking for a backport, I'll drop
+the Fixes tag from this patch in the next revision.
 
-The question I'm least sure about is patch 1: is the RTL8127A affected
-by the same TX descriptor race? If so, I'll send patch 1 to net as a
-fix on its own. Comments on the overall approach for the RTL8125B would
-also help before I send a non-RFC version.
+> > diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
+> > index 95f936be32c6c..2684f6069a5e1 100644
+> > --- a/include/net/ip6_route.h
+> > +++ b/include/net/ip6_route.h
+>
+> [ ... ]
+>
+> > @@ -266,8 +266,16 @@ static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
+> >  #endif
+> >  }
+> >  
+> > +static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
+> > +				 bool daddr_set,
+> > +				 bool saddr_set)
+> > +{
+> > +	ip6_dst_store_cookie(sk, dst, rt6_get_cookie(dst_rt6_info(dst)),
+> > +			     daddr_set, saddr_set);
+> > +}
+>
+> [Severity: High]
+> This wrapper still samples the cookie after the lookup. Three other
+> writers of np->dst_cookie on TCPv6 sockets still go through it:
+>
+> net/ipv6/inet6_connection_sock.c:inet6_csk_route_socket() {
+>     ...
+> 	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
+>
+> 	if (!IS_ERR(dst))
+> 		ip6_dst_store(sk, dst, false, false);
+>     ...
+> }
+>
+> net/ipv6/af_inet6.c:inet6_sk_rebuild_header() {
+>     ...
+> 	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
+>     ...
+> 	ip6_dst_store(sk, dst, false, false);
+>     ...
+> }
+>
+> net/ipv6/tcp_ipv6.c:tcp_v6_syn_recv_sock() {
+>     ...
+> 	memcpy(newnp, np, sizeof(struct ipv6_pinfo));
+>
+> 	ip6_dst_store(newsk, dst, false, false);
+>     ...
+> }
+>
+> Can the same xfrm policy bypass still happen through these paths?
+>
+> xfrm_policy_insert() links the policy and then calls
+> rt_genid_bump_ipv6(). Suppose an insertion lands between
+> ip6_dst_lookup_flow() returning a plain route and the rt6_get_cookie()
+> call inside ip6_dst_store(). The plain dst is then cached with the new
+> serial, and ip6_dst_check() keeps accepting it.
+>
+> These paths run much more often than tcp_v6_connect():
+>
+> - After connect(), every refill for an established socket goes through
+>   inet6_csk_xmit()->inet6_csk_route_socket() whenever __sk_dst_check()
+>   fails. That includes the invalidation caused by the policy insertion
+>   itself.
+> - A remote ICMPv6 Packet Too Big can force refills via
+>   tcp_v6_mtu_reduced()->inet6_csk_update_pmtu()->inet6_csk_route_socket().
+> - For accepted sockets, tcp_v6_syn_recv_sock() reads the cookie only
+>   after inet6_csk_route_req(), tcp_create_openreq_child() and the
+>   ipv6_pinfo memcpy. That window is wider than the one in connect().
+>
+> The commit message says this is a partial conversion. With the Fixes:
+> tag, though, stable trees would get a fix that leaves established active
+> sockets and all accepted sockets exposed. The new kernel-doc for
+> ip6_dst_lookup_flow_cookie() also says "A caller caching the dst should
+> use this cookie when validating it with dst_check". These callers don't
+> do that.
+>
+> Would it make sense to convert inet6_csk_route_socket(),
+> inet6_sk_rebuild_header() and tcp_v6_syn_recv_sock() in this patch as
+> well?
+>
 
-Thanks,
-Vlad
+This is the same point as on v2: the partial conversion is deliberate
+and stated in the cover letter and in this commit message.
+
+That said, these are the only remaining ip6_dst_store users. Converting
+them would let me drop the late-sampling wrapper, so every write to
+np->dst_cookie would use a lookup cookie. inet6_csk_route_socket and
+inet6_sk_rebuild_header are direct conversions. tcp_v6_syn_recv_sock
+needs the cookie to follow the dst that Fast Open passes in from
+tcp_conn_request.
+
+David, Ido, would you prefer this series to cover all ip6_dst_store
+users, or to keep the current three paths and convert the rest along
+with the other cache users in a follow-up? I'll respin accordingly.
+
+The next revision will also include the small changes from this round: a
+note in 1/3 that the generation advances once per ip6_link_failure call,
+a wider comment for rt6_exception_net, the narrowed kdoc and the barrier
+pairing comments in 2/3.
+
+-- 
+Ralf Lici
+Mandelbit Srl
