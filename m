@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050202;
-	b=lLMxKqLkOvERo1CkNNOWhsEKsEsS+1xHG/zhXtXuOBvQlnw+tVHQ5MIwdrsqx9XePJ3E
-	 +VylBdzjEOrH9gPGdI8sp2RIoVvMXowEzd1Fucors4L2Qoi6Y2jIEsC3ImIJn52ZY18/x
-	 xku/cHaRx41Qobhu4wIoTnpFXfJT7ODlr6cYLlBfz+fomhRcbOb2hbrQhx0ih7qjJP60D
-	 l7OpFvOFAb2yI3wP2VoOzkeuZqP0Z/FBJ2YljLFGCmscFBvuN3Gt76HYEjPL+ga97c0K6
-	 ZV1fy+MISkldgdz7wEEAUhvPCKHnE1T+6mz/pXZUDtRDA4j9Anz+LcMoRMj99ivyeOw==
+	t=1795050203;
+	b=bOxnLuflL2+bsQSfYsYNJgLmDGwj0XO3zF7qIBZfPTjdojEjMfolO7T2zjwbzGIYmXHI
+	 PYt6YgXZRy/3Wetkn7zfepidTp0ENJjWPIosejVE4TaZTesTQsx+RYsvrf898g/bu9Ysz
+	 HYuJ1MaZV0ewzvzk7hrvM6EoyPo4vvacqHTdQiCFIw0M1jpn8VpX7CiCB1MKGdgGYOcUW
+	 Qi5CdOqGbMxAVSyOCZngiq1XvIE5sZAfG/mFZ8PWKsXuePw54cikho/kq1TOuatIkNgW2
+	 9K6+D//q6wauM4BUQ+uxGA7a4CZPhzsbBRQr7CcP3K5uzpthtdA6J4sOF/QnSeGIIhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050202;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050203;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=yj8w3KZ+9k9eyPUUUCjfHPBSRxLysZwBaI+r7y6xQCY=;
-	b=2pFbqs7K8p+irnDBlSmyZfYYOA5hO0dhGW8+TXY7l4otjrQnJpHibhhIfl1LYAvST6AQ
-	 Dq/JSyOsplSY32KWAoghj3+JtGOkYaPaY8+GXwiexq023LOHmzL4fqGxjlCKEPg6rSMhb
-	 0mN5AOylQ/UDkr2f7r9e1+b9tO3goHdjxAw5YXyCioamsjHOCoyIA4Rqi9wKBOHjqTzCj
-	 XhxKDKha6kxAX4FwHDznvl+n31DQkpzJbgFZ7kWZS4NRKhhz/E/NAocYrx88SHV20ui2H
-	 Zgapnm2YKbkvKveB7jyp3u6cLpsR/TO+AechXoxGNE42R116SNR2Jnc8jSfZ0/mGF+w==
+	bh=1R80DB8vNXXSBxqgpip9NisgaUs3vCCTC7Eim9o0R9A=;
+	b=3YEKNRT3WNbbDisVXdNlQrGOCicac4cVTL/tiU78YqgsQb5t2tgRAxjPuw3xztQAebfr
+	 smicU7F4zcLokltePZLcnH6rnSq0R9IuRdWnce56eY6bhoSUsF/vrhJX5oVH12suWmYj4
+	 Fid4r5BAMmXzt7X+woeZdm/QXTMzxrupTE1mwpCWt6hpSJHe4JIjgFVIfVyXMfwYRWTkP
+	 9Z5y2gcg7fY9BkuBxgFarAT1z1MPqPDpwFGZzUdwoi7+gd83S1y9nv1P0FeGXVS4xEYgw
+	 3YTA0DpNVajoG8Ny8CDzefW4Nwmg6peAwubJ5JLpjc2nY9SVvBjURL8+6SEhbvGFyRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AlEKYU3t;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZExSz2Y;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E797606A31C;
-	Thu, 19 Nov 2026 01:03:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC82E606A32A;
+	Thu, 19 Nov 2026 01:03:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AlEKYU3t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 164451F000C4;
-	Thu, 19 Nov 2026 01:03:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZExSz2Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 908A61F000C4;
+	Thu, 19 Nov 2026 01:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795050202;
-	bh=yj8w3KZ+9k9eyPUUUCjfHPBSRxLysZwBaI+r7y6xQCY=;
+	s=k20260515; t=1795050203;
+	bh=1R80DB8vNXXSBxqgpip9NisgaUs3vCCTC7Eim9o0R9A=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AlEKYU3tCPhT+g7iRyEC2mBGoDnkAz/uM+yApRkV1+DzFOFaqWerDObQ01qh33VmI
-	 h2HRMCgQp7bRw5SXMV2cxhpooacuralLXEaxhB3CK+dakDGpvJSC55/tdLKejSbZ2O
-	 O67Q488ixgLLhyXIpoA3qOX5bg575g3uQrZF8I6IBH/HDVrvWcI/17oWagEkLEsdPh
-	 gUME5kdh2IOpKST72CttO0g+HOGqpLN1FZAEKMsG8RTQKELMKnWHxgjQL//9vMhl8e
-	 DGA0eeoSEU3oYwJVR/8vbvpv8knsJj2vzUrIi55PNprFxLuHXuLye9eLaTpTFU+n9g
-	 Dz8iBYQtdHWLg==
-Subject: Re: [PATCH net-next v3 1/3] net: dsa: microchip: ksz9477: apply a
- shorter ageing time at once
+	b=mZExSz2YWjwWp4w5eHni/X8lNP0Ppgik7DYvbEkR7SEYhRnPGiF5RkKTOKYA4Hqzw
+	 z0fIkRGCu+ltiR8L16gOh1T1avqJJsArQutURwKHTHkdskJp0WkdJ2WqDSc5Ot4yq4
+	 pIIMY1fP4LSMIPTXDNLPhQT9N8VrT7jy/JY5kcMSB3eiKL0vuYZx6Q+uzO7gNnb2Xt
+	 myiALa7s9eZs1DdhhSS12LxxaD7k9+Nkd/HdWC+nRfn9WFa9Kner/nvfSyttspASge
+	 oIKLF7JY/b3Jyj3l4cz5JkTwuIGtHoMfi2sm9mDNWQmIHyFc+KaJIcR+Jde9ojNB+Z
+	 bWZhNHWAti1Uw==
+Subject: Re: [PATCH net-next v3 3/3] net: dsa: forget the port ageing time
+ when the port leaves the bridge
 From: netdev-bot+sashiko@kernel.org
 To: o.rempel@pengutronix.de
 Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
@@ -51,10 +51,10 @@ Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
  vivien.didelot@gmail.com, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@pengutronix.de,
  jensemil.schulzostergaard@microchip.com
-Date: Thu, 19 Nov 2026 01:03:20 +0000
-Message-ID: <179505020064.3136.4475163541276513628@kernel.org>
-In-Reply-To: <20261117-ksz-stp-ageing-v3-1-135de6b9f8ad@pengutronix.de>
-References: <20261117-ksz-stp-ageing-v3-1-135de6b9f8ad@pengutronix.de>
+Date: Thu, 19 Nov 2026 01:03:22 +0000
+Message-ID: <179505020217.3136.6917391809574658393@kernel.org>
+In-Reply-To: <20261117-ksz-stp-ageing-v3-3-135de6b9f8ad@pengutronix.de>
+References: <20261117-ksz-stp-ageing-v3-3-135de6b9f8ad@pengutronix.de>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -68,10 +68,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,118 +79,95 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The fix depends on a fixed Fast Aging pulse length
-  (KSZ9477_FAST_AGE_PULSE_US = 2 ms, ksz9477.c:1293) that was found by…
-- [Low] ksz9477_set_ageing_time()
-  (drivers/net/dsa/microchip/ksz9477.c:1359-1371) now pulses the switch-…
+- [Medium] The fix is incomplete because nothing reprograms the switch
+  when the port leaves.
 
 --
 
-net: dsa: microchip: ksz9477: apply a shorter ageing time at once
+net: dsa: forget the port ageing time when the port leaves the bridge
 
-This patch makes ksz9477_set_ageing_time() pulse the switch-wide Fast
-Aging bit in REG_SW_LUE_CTRL_1 when the programmed ageing time gets
-shorter or the Age Count gets smaller. Without the pulse, stale FDB
-entries outlived an STP topology change on a KSZ9893. The bit is held
-for a fixed 2 ms and then cleared.
+This patch clears the cached dp->ageing_time in
+dsa_port_switchdev_unsync_attrs() when a port leaves a bridge. After that,
+dsa_switch_fastest_ageing_time() no longer counts the departed port's
+value when it computes the minimum. The aim is to keep the switch from
+staying at a short ageing time (for example one set during an STP
+topology change) after the port that requested it has left.
 
-> diff --git a/drivers/net/dsa/microchip/ksz9477.c b/drivers/net/dsa/microchip/ksz9477.c
-> index 8d4647e23cda1..972703fe7454f 100644
-> --- a/drivers/net/dsa/microchip/ksz9477.c
-> +++ b/drivers/net/dsa/microchip/ksz9477.c
-> @@ -1289,13 +1289,16 @@ static void ksz9477_phylink_get_caps(struct dsa_switch *ds, int port,
->  	ksz_phylink_get_caps(ds, port, config);
+> diff --git a/net/dsa/port.c b/net/dsa/port.c
+> index 15e7da20b0e2f..54c9709840952 100644
+> --- a/net/dsa/port.c
+> +++ b/net/dsa/port.c
+> @@ -415,6 +415,12 @@ static void dsa_port_switchdev_unsync_attrs(struct dsa_port *dp,
+>  	/* Ageing time may be global to the switch chip, so don't change it
+>  	 * here because we have no good reason (or value) to change it to.
+>  	 */
+> +
+> +	/* Forget the ageing time cached for this port.
+> +	 * dsa_switch_fastest_ageing_time() skips 0, so this port no longer
+> +	 * counts towards the minimum.
+> +	 */
+> +	dp->ageing_time = 0;
 >  }
->  
-> +/* The datasheet gives no pulse length. A 2 ms pulse worked on a KSZ9893. */
-> +#define KSZ9477_FAST_AGE_PULSE_US	(2 * USEC_PER_MSEC)
 
 [Severity: Medium]
-Is a fixed 2 ms pulse enough on every chip in this family and for every
-stored Age Count?
+Can the switch still stay at the departed port's short ageing time after
+this change?
 
-The value was found by trial on one KSZ9893, where the entries stored Age
-Count 4. Each ALU entry holds a 3-bit stored age count
-(ALU_V_PRIO_AGE_CNT_M, decoded in ksz9477_convert_alu()). That count is
-copied from SW_AGE_CNT_M when the entry is learned or refreshed, so it can
-be as high as 7.
+This only clears the cache. Nothing on the leave path reprograms the
+hardware. dsa_port_bridge_leave() ends right after
+dsa_port_switchdev_unsync_attrs(). The only code that writes the ageing
+register is dsa_switch_ageing_time() in net/dsa/switch.c:
 
-The pulse matters most when the old count (mult) was larger, and that is
-exactly when entries hold the highest counts. One example: 1785 s
-(7 x 255), then an STP topology change to 8 s. That gives data = 1 and
-triggers the pulse.
-
-Suppose Fast Aging here speeds up ageing rather than purging the table at
-once. Could entries with stored counts 5 to 7 then survive a 2 ms pulse?
-The same question applies to the other chips that use ksz9477_switch_ops
-(KSZ9477, KSZ9897, KSZ9896, KSZ9567, KSZ9563, KSZ8563, LAN9646 and so on).
-
-ksz9477_set_ageing_time() sets SW_FAST_AGING, sleeps, clears the bit and
-returns 0. It never checks that the dynamic entries are gone. If they
-survive, the stale FDB after a topology change would still happen, and
-nothing would report it.
-
-The KSZ8995XA path in ksz8.c describes an "800 us fast-age cycle", which
-hints at sweep behaviour. It doesn't show how the KSZ9477 family behaves.
-
-[ ... ]
-
-> +	old_secs = mult * old_period;
-> +	new_secs = data * new_period;
-> +	if (new_secs >= old_secs && data >= mult)
-> +		return 0;
-> +
-> +	ret = ksz_rmw8(dev, REG_SW_LUE_CTRL_1, SW_FAST_AGING, SW_FAST_AGING);
-> +	if (!ret)
-> +		fsleep(KSZ9477_FAST_AGE_PULSE_US);
-> +
-> +	/* Clear the bit even after an error. */
-> +	err = ksz_rmw8(dev, REG_SW_LUE_CTRL_1, SW_FAST_AGING, 0);
-> +
-> +	return ret ?: err;
->  }
-
-[Severity: Low]
-Can an ageing time change in one bridge now flush the dynamic FDB entries
-of every other bridge on the same switch?
-
-The value programmed here comes from dsa_switch_fastest_ageing_time(),
-which takes the minimum over all ports of the switch. Before this patch,
-one bridge could only shorten the ageing timer for the others, and entries
-still in use kept being refreshed. With the pulse, entries still in use in
-unrelated bridges are removed too. Their unicast traffic floods until the
-addresses are learned again.
-
-Nothing limits the flush to one bridge or limits how often it runs. Here
-are two ways to trigger it again and again.
-
-With kernel STP, __br_set_topology_change() lowers the ageing time when
-received BPDUs or TCNs set TC, and restores it when TC clears:
-
-net/bridge/br_stp.c:__br_set_topology_change() {
+net/dsa/switch.c:dsa_switch_ageing_time() {
     ...
-		if (val) {
-			t = 2 * br->forward_delay;
-    ...
-		} else {
-			t = br->bridge_ageing_time;
-    ...
-		err = __set_ageing_time(br->dev, t);
+	ageing_time = dsa_switch_fastest_ageing_time(ds, info);
+
+	if (ds->ops->set_ageing_time)
+		return ds->ops->set_ageing_time(ds, ageing_time);
     ...
 }
 
-For example, 300 s (4 x 75) -> 30 s pulses. Going back to 300 s
-(2 x 150) does not. The next TC (30 s = 2 x 15) pulses again, so every
-TC on/off cycle causes one switch-wide flush.
+That function runs only for DSA_NOTIFIER_AGEING_TIME. The only sender is
+dsa_port_ageing_time(). It is called from the sync_attrs path at bridge
+join, and from the SWITCHDEV_ATTR_ID_BRIDGE_AGEING_TIME handler, which
+needs a port that still offloads the bridge.
 
-DSA user ports are not netns-immutable. A CAP_NET_ADMIN holder in another
-netns that owns a bridged switch port could toggle IFLA_BR_AGEING_TIME.
-Each toggle would flush the FDB of bridges owned by the host or by other
-tenants. The same happens when a port joins a bridge with a shorter
-ageing time, since the attribute is replayed on join.
+Here is a sequence on a single chip, with br0={lan1} at 300 s and
+br1={lan2} with STP enabled:
 
-The commit message says Fast Aging is a control for the whole switch.
-Was the effect on other bridges sharing the switch intended?
+  topology change on br1
+    __set_ageing_time(br1, 2 * fwd_delay)
+      dsa_port_ageing_time(lan2, 8 s)
+        programs min(8, lan1=300) = 8 s for the whole chip
+
+  ip link set lan2 nomaster
+    dsa_port_bridge_leave()
+      dsa_port_switchdev_unsync_attrs()
+        dp->ageing_time = 0;   /* no reprogram */
+
+  end of the topology change on br1
+    br1 restores 300 s, but br1 has no DSA lower port left,
+    so no notifier is sent
+
+lan1 in br0 would keep ageing at 8 s until br0's ageing time changes or
+some port joins a bridge again. Would it make sense to recompute the
+minimum of the remaining non-zero dp->ageing_time values on dp->ds and
+program it here when the port leaves?
+
+The existing comment just above the new code says there is "no good
+reason (or value) to change it to". Once the cache is cleared, the
+minimum of the remaining cached values is a usable value, so that
+comment no longer seems accurate. The new comment also doesn't mention
+that the hardware value stays unchanged until the next notification.
+
+The commit message does cover part of this:
+
+  "The switch gets the restored value only if another port of the same
+  bridge is still in this DSA tree."
+
+However, the problem the commit message describes, a switch stuck at the
+departed port's short ageing time, can still happen through this leave
+path when ports of a different bridge remain on the same chip.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-ksz-stp-ageing-v3-0-135de6b9f8ad%40pengutronix.de
