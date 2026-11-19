@@ -1,49 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048815;
-	b=xOzzuk6vhbj1l+KlR/7Tushk7QbZEw81g7aLqSS3jitwwowOb+8Jt7XLpDUue4rRA0Jt
-	 7rCfMJCz/SMG/DaconLxmaUgAtgvmzH0EAafJAr0AKjhjaEm7rb18ySMRQj/tI+QCURxp
-	 iIH6vTbPr5347OOeF+rkGGdjSU7qMad26fz9PRJuWYTMM/kDeVNix2734xeoxgoRhfmVe
-	 ryxd2DXJM3G5m2yRQrhKiiT27ILxoQtO4coY/Tr/J2yJpc3RkhbHQebcfmCBs+6btBtom
-	 5g2nq2/txIqci1UdMxuxOMKUJT75H5QlwYHkcnQQ6+tT5nHRXW+DIPR/VthYZkpmSLw==
+	t=1795048838;
+	b=f4Bu3DXBFzrIplxWep66uZwlXwFQ+1np37iSA7zgNTQS62z1FtZX8xtIYSIRKDVYvFAr
+	 QpGv79YJ8yoY38YWAdbDG9Lbbwn4NvvE3z7g1vncAL219i9k4nymSNLPQm8bnCQHwQtDX
+	 K6fRzw2Bb5MLnwNxgQTVuMRulNBukwOabQGeOMWVsPNZflU+1vzWY6SgWxtBfzbVGIyxo
+	 wU1BqY9z2zi8wpq6xHos9nOUuG25A1t3qW1ShLVubcFoGJzf0pX6yBdimvezQ5n4JF68N
+	 3TffHOUoCyDiPvzMw6kBsNG6vKkIVDuit1EFZnAqSE8iIL7llwYgVJW84WG6l5xaiww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048815;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=mH/GpsPPirC6mELIGbZkxdo7T8fe/zXCXZSCzaQ6v48=;
-	b=tRFWTOowocZVBO474l2KjPFlAbEujfPmQjMAJHx1CE5cqG5du7HSUtbb3E4Ljssd+CC5
-	 jYQA+3L07cZKJJrTDnhCoojku/J9myrC8Tf8tmLVXH428FiwyKlG+Y8T0Q10Yk3vOG+R2
-	 hFA1qeOZC4d0oy0UCjjqIRlekrOBZy6e1R9lrskfid1qvVv0ylzCqb+lypRrpvK5Mo7Hn
-	 GaNWRJineoB93mwz9QAIvmNO7dcqWXqsPHiDdHgncYQBT4pqjWkOHfL5c3WJqSjxB+Ly2
-	 1aLlMG+LJTI3ciT3lz3IEdcjS5HTkSA/sVpEhdvS8pj74n/jVA0clywapAou+0OMKJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048838;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=mo1q4jEE8kXYGn1pEvjW3f9A0Zb56qipOWRIn9i/1Ow=;
+	b=V0LJmL9lJuGPHNm2CNKTbvg71hy1H2MfkfKxy83wbsLQ2P7IsvMytDCVburEW9/gWuo9
+	 QnpmgG+tWBPwqtXX/rV3QEs252TA2U35epR3+ztWXfZc7Ce21dhEoIVXF9N0gtg7qo25W
+	 BKfRqcaPpTU8A//II23IlPeYjaZqlNznoVTQwurlhPgSBvk0+iaNjA1bGvre02gcCorRK
+	 XF4qTt3sN76XBVULM4wGbz0bMgFxjNidxMfk5h9hQT0a8SvhsRTDhPzUbVkOQb7WmCGee
+	 JdDI1K7pcPOlDgWCV25Mcm1Tu14kzXKpv4fOCkDnv5yee0pN5OQLgDjAcyn1Cf1mU6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SqbEWm72;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QIDQHr1w;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3E47606A31C;
-	Thu, 19 Nov 2026 00:40:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E24D606A31C;
+	Thu, 19 Nov 2026 00:40:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SqbEWm72
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCAD41F000C4;
-	Thu, 19 Nov 2026 00:40:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QIDQHr1w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A3941F000C4;
+	Thu, 19 Nov 2026 00:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795048814;
-	bh=mH/GpsPPirC6mELIGbZkxdo7T8fe/zXCXZSCzaQ6v48=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=SqbEWm72dT6Bo95rB5VC2FbvrmPHfSxWidxxZvfwym9vUInok0SFU/BWXpQVWMKC5
-	 7foGxa1IsR3AEIqXo+R9X/kl+PxXTOlC8uIQJlnrhsSjIiX5U3Yly3ch/QbC9jrzWq
-	 uAnzZclfiOaz613oeDAErQrEmGyBlhfrb34uPcqf+vVxqYdouwRX/2IbKJT7GUPRpY
-	 lTHXJOfb+YnoUagoV6qFhRqjLyMFEd1MD52h1Itv8mA6nPA4ggaE4Qa/0sshKApMoi
-	 PJlrIIj04GwnbtAlm3pxNgPSNdZ9qV8gunbO0+1dR5iUt7LJrXJs4zxz31CBzuICZS
-	 6roT5G7NEjyQw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44443808210;
-	Thu, 19 Nov 2026 00:40:14 +0000 (UTC)
+	s=k20260515; t=1795048838;
+	bh=mo1q4jEE8kXYGn1pEvjW3f9A0Zb56qipOWRIn9i/1Ow=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QIDQHr1wqbeXEA1vWkJOJWOE/Iu91Y6XqJ63ia3ZPqQl4p36JuOUuo9IIsKDJSgZ8
+	 FqOhHkw0bWDAw+IugRVQAdSNotrqICWPnXvWLYrrTq+0fXEaEYB5PlB5h+IdLz17td
+	 tDxrsKUMJlMORObMqkAEuBPb1CU6xPx9/uFoeApMKGRIcuukiSYrVqSRpaFBL2Zp3K
+	 3eIyrAKu1aYLld9IlyzXSO1ORCfB3rj5Ie0V6L/1LMJFql2MqN49SCjzbUnDEk652j
+	 /O23E+FYplNDTOfZ+95OGwnhd534QDMrknZnDLjLr5y6to0mCJXlv8FrJBydWu7HX/
+	 H1qdsSAK3lj8A==
+Subject: Re: [PATCH net v3 1/2] selftests: net: veth: propagate channel-check
+ failures to exit status
+From: netdev-bot+sashiko@kernel.org
+To: emmaonana18@gmail.com
+Cc: tianyi@cloudflare.com, hangbin.liu@linux.dev, netdev@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, kuba@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
+ ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org
+Date: Thu, 19 Nov 2026 00:40:36 +0000
+Message-ID: <179504883686.3136.13611151498828489972@kernel.org>
+In-Reply-To: <20261116084107.6675-2-emmaonana18@gmail.com>
+References: <20261116084107.6675-2-emmaonana18@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,76 +66,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v21 00/13] ax88179_178a: Add support for
- AX88179A-based chips
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179504881327.2666484.11881850734497891131.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 00:40:13 +0000
-References: <20261114-ax88179a-v21-0-c2d34410bcbe@birger-koblitz.de>
-In-Reply-To: <20261114-ax88179a-v21-0-c2d34410bcbe@birger-koblitz.de>
-To: Birger Koblitz <mail@birger-koblitz.de>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, linux@armlinux.org.uk, andrew@lunn.ch,
- hkallweit1@gmail.com, chenhuacai@kernel.org, kernel@xen0n.name,
- edumazet@kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- neuromoments@gmail.com, beganovic.emir@gmail.com, nb@tipi-net.de,
- maxime.chevallier@bootlin.com
 
-Hello:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-On Sat, 14 Nov 2026 11:50:56 +0100 you wrote:
-> This adds support for the current generation of ASIX network adapter chips,
-> which are based on the AX88179A. This includes the AX88179A/B (1GBit-PHY),
-> AX88772D/E (100MBit) and AX88279 (2.5GBit).
-> 
-> The AX179A-based chips all provide both a CDC-NCM compatible USB interface,
-> and a proprietary vendor interface with more features. By default, the
-> proprietary vendor interface is not active and Linux will load the CDC-NCM
-> driver to support the devices. If the ax88179_178a module is configured by
-> the OS to have precedence over CDC-NCM, then this driver will switch the
-> device to use the vendor interface, and the device will be controlled by
-> the ax88179_178a driver when the device is probed again after an automatic
-> reset of the device bringing up the vendor interface.
-> 
-> [...]
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Here is the summary with links:
-  - [net-next,v21,01/13] phylink: Add phylink_mac_interrupt
-    https://git.kernel.org/netdev/net-next/c/525e055f026b
-  - [net-next,v21,02/13] phylib: Add support for PHYs with broken forced mode
-    https://git.kernel.org/netdev/net-next/c/73f8fcee8453
-  - [net-next,v21,03/13] ax88179_178a: Split driver into library and device specific code
-    https://git.kernel.org/netdev/net-next/c/aadb4048a412
-  - [net-next,v21,04/13] ax88179_178a: Add HW support for AX179A-based chips
-    https://git.kernel.org/netdev/net-next/c/7d573278f9a5
-  - [net-next,v21,05/13] ax88179_178a: Add EEE configuration support for AX88179A MACs
-    https://git.kernel.org/netdev/net-next/c/ac12cbe7b385
-  - [net-next,v21,06/13] ax88179_178a: Add EEE configuration support for AX88179A PHYs
-    https://git.kernel.org/netdev/net-next/c/4ae4234e779c
-  - [net-next,v21,07/13] ax88179_178a: Add VLAN offload support for AX88179A
-    https://git.kernel.org/netdev/net-next/c/faea93a5239c
-  - [net-next,v21,08/13] ax88179_178a: Add AX179A/AX279 multicast configuration
-    https://git.kernel.org/netdev/net-next/c/192c7b09608a
-  - [net-next,v21,09/13] ax88179_178a: Add Suspend/resume support for AX88179A/772D/279
-    https://git.kernel.org/netdev/net-next/c/24543aeed42f
-  - [net-next,v21,10/13] ax88179_178a: Add ethtool get_drvinfo
-    https://git.kernel.org/netdev/net-next/c/8d405df176e1
-  - [net-next,v21,11/13] ax88179_178a: Update driver name and information
-    https://git.kernel.org/netdev/net-next/c/d7e3ce733ae3
-  - [net-next,v21,12/13] ax88179_178a: Add support for AX88179A/772D/279 EEPROM access
-    https://git.kernel.org/netdev/net-next/c/bfa4a3adf638
-  - [net-next,v21,13/13] ax88796b: Add support for AX88772D, AX88179A and AX88279
-    https://git.kernel.org/netdev/net-next/c/8cacc4fd1518
+- [Medium] The patch adds `ret=1` to the mismatch branch of
+  chk_channels() in tools/testing/selftests/net/veth.sh (line 133).
 
-You are awesome, thank you!
+--
+
+selftests: net: veth: propagate channel-check failures to exit status
+
+This commit makes chk_channels() in veth.sh set ret=1 when the observed
+channel counts do not match the expected ones. With it, any channel
+mismatch makes the script exit with a non-zero status.
+
+> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
+> index 64c2a5a59821d..5c1dbe1516bb4 100755
+> --- a/tools/testing/selftests/net/veth.sh
+> +++ b/tools/testing/selftests/net/veth.sh
+> @@ -130,6 +130,7 @@ chk_channels() {
+>  		echo " ok "
+>  	else
+>  		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
+> +		ret=1
+>  	fi
+>  }
+>  
+
+[Severity: Medium]
+With this change, can a check whose result depends on the test environment
+now fail the whole veth.sh run?
+
+The "setting invalid channels nr" check expects a request for CPUS + 1 TX
+queues to be rejected. CPUS comes from nproc:
+
+    readonly CPUS=`nproc`
+    ...
+    ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
+    chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
+
+The veth queue limit is num_possible_cpus(), capped at 4096. It is not the
+number of CPUs the process can use:
+
+drivers/net/veth.c:veth_get_num_queues() {
+	/* enforce the same queue limit as rtnl_create_link */
+	int queues = num_possible_cpus();
+    ...
+}
+
+veth_get_channels() reports dev->num_tx_queues as max_tx. The ethtool core
+in net/ethtool/channels.c only rejects tx_count > max_tx.
+
+nproc returns the number of CPUs the process can use. That can be smaller
+than the number of possible CPUs on machines with hot-pluggable CPU slots,
+or when the test runs under taskset or a restricted cpuset.
+
+In those cases the request is valid. No XDP program is attached at that
+point, so veth_set_channels() accepts it and real_num_tx_queues becomes
+CPUS + 1. chk_channels() then sees cur_tx != $CUR_TX, and with this patch
+veth.sh exits 1.
+
+Before this patch, the mismatch only printed a fail line. The later patch
+in the series ("selftests: net: veth: propagate bad-settings check
+failures to exit status") does not change this check.
+
+Could the out-of-range value come from the device's advertised maximum
+instead of nproc? For example, the "Pre-set maximums" TX value from
+ethtool -l, plus one.
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116084107.6675-1-emmaonana18%40gmail.com
