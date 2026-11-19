@@ -1,158 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795052353;
-	b=bJ1k11TSmcEP4vWWUHC14T7tLXSXA3ZKDQQZ7eeKCRzy4SKjUXlv9rtZkhiHDgcOdvPl
-	 8h8e5FaEBIwYIUQXb5hL+YEVR0+pOIZ3WVi05Z+17WTlU7LdjJEO1Rc/LJiSDWRwfplb0
-	 5pv5dqFWOOq/G9eGGydTqy102p/ByJXmltadEjpMvGy9SD7S/9n4eaF0nSUmavVPTOZ1r
-	 UZ0btPEm6/WB59m2ePI3Ul2WeMM1bIk4GPupYuww5M3SVO1IykUx2jvOGd0A+yA/s0lkP
-	 L283S1nxaW5lk4gAHLsDZaQgkCT3keeoyADFzSSaGLha7b0owaxBsMzG14CofN99Gvg==
+	t=1795052406;
+	b=hhHJAeMW4dCSycHhxElzdiH+hN9cIlM50sRlxK7C95QgN7656Bh6Kc8KmQh9oVb4K8mG
+	 tcubf/OX4XDghF6bfjs6Ir7jft/ScfPw9C2MGCC1fLBYX6Lte8PPg+shhoPJjgZVjhi5e
+	 E9GXMzt48VRNfTvl23VvgWo5IjOUha0bpXUOPEMnl6A7WuSFPG9i0slWyRpO/Bph6TDqk
+	 rS62Gygz92k1OjTX6kltEEMZUw3SY+irME/g4jBtyTIUysbOShuWqTpDhP6+A9Mz0Ojn7
+	 OD1koMl+ST7KD3Ldzwut9aQf+bLLrfFKRJ4ShC0nD02SiG7TjzxMYJheow0cItuPUKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052353;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=iBPC28pXNUc65LCOCKjuf1PqILruKyYBZIqYbx1Wulw=;
-	b=TXr6nQNlRQRKlFk0tKD201vMjXeJNTYhKc0SgQndMIj+pSqggzj1b2BQW7v1Skgcy77w
-	 R9EweEJrpeQUuVuv8IqWdPB9zFcv49Xtf8hq26ZAlGYqGY7sx3ocAH7Jqfi8s+I9nAJau
-	 bfbsDB3A6MxNalaRQ3/8E+Mz6SS7cNI7+MCdhS5WVj/TnmxALyiGQvlan7B0IiTkUsJzX
-	 gwoxh4jfRMJwMGybLUHjlc/oQ5S2oNyc36CxG+NeLsk8ZRqdJ8kvXQIUsdiXzDS7FI7UY
-	 yujJJOs8y8yJhNgZpbHuhQ3Wq/WAni6kKfOwEMJCRyI8s0+pBc1RekAcd6zTqWocbzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795052406;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=W7SHR72+LdBhjeUJUmQ+DyimP5GUte92DHKvYCVcaho=;
+	b=QEV0PtvkLkX4yu8TuY0OPAMhIEj1eLMz638JHhhlcDdo3RNSsRdAaH6xAomM1wo0b3qV
+	 aJ+nplmNPpqLsDbpky9ltcTwGJqBSlkeFmGts9kMl+OSjbiua8YY5JxR+8PlvCY6gjVuo
+	 f8xlmwblY4i7nb6d3yT2GCfDbn5AykbdE8VhMfmFlkaIEi5tgQj1kMKqV0rhlQb3J3Kd5
+	 i6upeME1ur398IX8s7vEBNOK8PIUrl7c8lY32lUVObDwWAXC6fzA61dpve6R6FUHeMCbA
+	 mUEQ4W+MQvOJl2DhG09LhX3mdzeCTKkCyi8kRoiXSiQUl2Uo1ixBKxxCHYlk6mijXBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudflare.com;
-	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=MqbRm099;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R100wCR5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44CF660A263B
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:39:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44CF660A263B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE133606A320;
+	Thu, 19 Nov 2026 01:40:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=MqbRm099
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c50a2efbe1dso291702966b.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:39:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1795052351; x=1795657151; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iBPC28pXNUc65LCOCKjuf1PqILruKyYBZIqYbx1Wulw=;
-        b=MqbRm099WN/Cr7Dh4cVNZTyBKEIODRpZuiVj4miyHNlNXt7w87E9NnSDF/KI+KmnO4
-         SWUxi+nalK1M9EEvGQy4XUiRNrP1TTxeWMavR2HtOoUo7geQHGgKEr3zB7f25OOWouRX
-         AgNhTLOgRc7ygt8yLIoJpwucARceJcn1hjwoWDK2winZ30ockidP6knzrnYOTu/ZyZRP
-         5u4KMTUh/YQTFu/WomnjY2nU4pxE964HIw3foRzZZQwdDww55a2q8gINydUxJcBFCvCq
-         dRTnQ0zYQv2pkEqeTDqJLbCHOswflRuae8/r8NRRAJ15Pr2ak3iyrhxzQ0vv8KlcN9Ym
-         ozoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795052351; x=1795657151;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iBPC28pXNUc65LCOCKjuf1PqILruKyYBZIqYbx1Wulw=;
-        b=wrKvKGAu0V8BEkj0tVzXgP5Gctyvrfkc9KwI8pP4u/0RIu0NYtzenSNGP33HscpjOD
-         Cs7P3FBfnf9hyNo2oa1/P6KLY2zgI1mlJa75qxY+6zh9jnnjqUFq17O/CGo1/GVUu4I8
-         TCUPN8W4caYJmvPVY29thuF2boTWfj1vZ11jhhOpXva5nxOO78phpFyiLp8oaSM+WxBb
-         KzITAOEVFPi6Hxwo9QnYxzAN1D6tPrYtxfMaoeFPyOCciWg/GB7ZdSbZQ25nuK/VV+P8
-         y/S4UtU74NogW5wDHPBhhQf7bjm6ODIItNNOGeT+D3SryyDW4Gaj6+t7VTvry/DbP6gK
-         ATPA==
-X-Gm-Message-State: APuU4Z/TT/z/jyuBbFKD5J9iHXmdfytUy8tobVbrQKj4S5+D+oCzCrJz
-	zPAWMfw6kajy09TTZaL3/ZWQzqD0wpl/YloE+mvIfT7Zm/0D8KeIKKxDXd87Y0M3S03Dy8RYV6x
-	fvEUYRwo=
-X-Gm-Gg: AYBFou2LFwnnr7rQ/mBo8Xj+a065OpJLVe77L1KgNDCQyOsqsYV+3TMV8UMasWjHjzp
-	mFwqF94v1gxkJ9aBb5lWmC31QrsCNec8hrl+qDx4f5HyCOf61gjG+3OD9LTAyxZSwz7iIRTOXY4
-	PMZbH0QGVNeSVd2mUAle2PkaHpXblkeFUgkNIzXd1TdA8sacfHpJoCnsHw7bG956tGTBZta1//1
-	PUqn1FZ5Oc6yeoZI+R9qBLEq0ZftCgBAeBvDmUpNcVUW1S3QjCHmj8NwZDKkXrC/DIJ7fHIh3dW
-	fHyhcuNfWKTK+Xqz3jv+oCh41taO3xP6+U7R+Jx2/YgkBdbyJ+1VbmZl4yDS3yfxZLZsZb1aIM6
-	ljIKZ0gMkA5/o/GviA6RsKPlL9VA3VEmABF+7fr0ONt5R/24yUJK2KCavoax9NUMd0tQXWNYKdp
-	NY3tVDnURAPL7mRLZ/i7LAvSIMtEIw+Y5ysM+g5S1OO+hZqcfE4cGR5u5zSM+AxJ95OxBR0ehG8
-	lljZvQ8do/KqmrKILmezlldJfnQO7r96WJlvSDNh/Xp+WojKPMW2/Yw+2AGveCbqZqAZTAM/oVU
-	i2DSPcGxjQ2PtL1Z02zkkxA4gEOYg4KKk/MR032B3DwUHcX1b81VMLqinQ==
-X-Received: by 2002:a17:907:9304:b0:c46:7462:6332 with SMTP id a640c23a62f3a-c510e4f9809mr385723066b.37.1795052350681;
-        Wed, 18 Nov 2026 17:39:10 -0800 (PST)
-Received: from L9JK9NPFH9 ([104.28.20.56])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51233c4080sm59785966b.16.2026.11.18.17.39.08
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 17:39:10 -0800 (PST)
-From: Tianyi Gao <tianyi@cloudflare.com>
-To: netdev@vger.kernel.org,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Eric Dumazet <edumazet@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Simon Horman <horms@kernel.org>,
-	David Keogh <dkeogh@amazon.com>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Dragos Tatulea <dtatulea@nvidia.com>,
-	Nimrod Oren <noren@nvidia.com>,
-	Alasdair McWilliam <alasdair@mcwilliam.dev>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Magnus Karlsson <magnus.karlsson@intel.com>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Breno Leitao <leitao@debian.org>,
-	=?UTF-8?q?Asbj=C3=B8rn=20Sloth=20T=C3=B8nnesen?= <ast@fiberby.net>,
-	Danielle Ratson <danieller@nvidia.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	bpf@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	kernel-team@cloudflare.com,
-	nh-open-source@amazon.com,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	"Remy D. Farley" <one-d-wide@protonmail.com>,
-	Amery Hung <ameryhung@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Andy Roulin <aroulin@nvidia.com>,
-	Anil Kaushik <anilkaushikwireless@gmail.com>,
-	Demos Ra <demosthenes.ra@gmail.com>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Joe Damato <joe@dama.to>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Li RongQing <lirongqing@baidu.com>,
-	Louis Scalbert <louis.scalbert@6wind.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Martin Karsten <mkarsten@uwaterloo.ca>,
-	Matt Bobrowski <mattbobrowski@google.com>,
-	Michael Bommarito <michael.bommarito@gmail.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Song Liu <song@kernel.org>,
-	Thorsten Leemhuis <linux@leemhuis.info>,
-	Wang Zhan <wang.zhan@smartx.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Zhou Qiuyue <n0ps1edzz@gmail.com>,
-	Tianyi Gao <tianyi.gao@linux.dev>,
-	Tianyi Gao <tianyi@cloudflare.com>
-Subject: [PATCH net-next v2 11/11] selftests: net: tx_extra_headroom: test the veth attribute
-Date: Thu, 19 Nov 2026 01:38:30 +0000
-Message-ID: <20261119013830.36935-12-tianyi@cloudflare.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119013830.36935-1-tianyi@cloudflare.com>
-References: <20261119013830.36935-1-tianyi@cloudflare.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R100wCR5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEFB61F000C5;
+	Thu, 19 Nov 2026 01:40:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795052405;
+	bh=W7SHR72+LdBhjeUJUmQ+DyimP5GUte92DHKvYCVcaho=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=R100wCR5n8JHCXvur07olBqP/QQ0m9fb3HaM7lVlSQyc+kLUySaDEyP2VvbosTF8s
+	 CFauVw10qXn/eIAbUzL0eOFBdnIk3tfXoTHjlPkrqJhitjPKL18jQjjOHWVZ8muMX4
+	 Ma53hAqMSKk1ciZJnWkvoWl0Q/mTtb6OowJESVe6L8tc92lFpbN5m1JyaAlbNTBHFy
+	 XDLKNTeRtPp2w0gwKUt1hpr12tyTDn9HrKsMYc6YCaO94MugonBIrRorz63andOag4
+	 Th9j4uL9MpZAAGTeURKc9Q2Qr+JvU60I8mqI8jH52/XNtzjJxqpZsJpDRULXDYEfpO
+	 II/H1j/pdRP+g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45CB3808210;
+	Thu, 19 Nov 2026 01:40:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -163,130 +54,50 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v5] net: ethernet: adi: adin1110: mask the RX IRQ of
+ the
+ port being stopped
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179505240453.2706708.1042366992857276470.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 01:40:04 +0000
+References: <20261111-adin1110-net-stop-v5-1-yuehongwu@cmss.chinamobile.com>
+In-Reply-To: <20261111-adin1110-net-stop-v5-1-yuehongwu@cmss.chinamobile.com>
+To: Yuehong Wu <wuyuehong@cmss.chinamobile.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, kees@kernel.org,
+ nuno.sa@analog.com, hkallweit1@gmail.com, nichen@iscas.ac.cn,
+ alexandru.tachici@analog.com, lennart@lfdomain.com,
+ linux-kernel@vger.kernel.org
 
-Create a veth pair with VETH_INFO_TX_EXTRA_HEADROOM set to 64 bytes
-through YNL and move the peer to another netns. Check that both ends
-report 64, and that tx_extra_headroom of the sending end is 64. With XDP
-on the peer it is 64 + 256, because the two values are added. Also check
-that a value above 512 is rejected.
+Hello:
 
-The helpers leave the RtnlFamily socket to garbage collection, as
-link_netns.py does.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Tianyi Gao <tianyi@cloudflare.com>
----
-v2:
-- Test VETH_INFO_TX_EXTRA_HEADROOM with YNL only (Jakub). The IFLA
-  tests of v1 4/8 are gone, so the patch no longer carries
-  David Keogh's sign-off.
-- Drop the VLAN case of v1 4/8. In v2 no code copies
-  tx_extra_headroom to a stacked device.
----
- .../selftests/net/tx_extra_headroom.py        | 61 +++++++++++++++++--
- 1 file changed, 57 insertions(+), 4 deletions(-)
+On Wed, 11 Nov 2026 10:30:00 +0800 you wrote:
+> adin1110_net_stop() programs the RX-ready interrupt mask of the wrong
+> port: it uses ADIN2111_RX_RDY_IRQ (the second port's bit) when stopping
+> port 0 and ADIN1110_RX_RDY_IRQ (the first port's bit) when stopping
+> port 1, while adin1110_port_rx_ready() uses the opposite mapping, port 0
+> -> ADIN1110_RX_RDY and port 1 -> ADIN2111_P2_RX_RDY.
+> 
+> The port being stopped therefore keeps its own RX interrupt enabled while
+> the peer's is masked.  On ADIN2111 that stalls RX on the peer port; on
+> ADIN1110 the RX interrupt is never masked at all.  As the interrupt is
+> level triggered and adin1110_read_frames() skips the FIFO while
+> netif_oper_up() is false, the stopped port also keeps re-raising its
+> interrupt with nobody draining the FIFO.
+> 
+> [...]
 
-diff --git a/tools/testing/selftests/net/tx_extra_headroom.py b/tools/testing/selftests/net/tx_extra_headroom.py
-index 122a1a1b5ca9..a4e4195179fa 100755
---- a/tools/testing/selftests/net/tx_extra_headroom.py
-+++ b/tools/testing/selftests/net/tx_extra_headroom.py
-@@ -3,15 +3,17 @@
- 
- """Tests for tx_extra_headroom."""
- 
-+import errno
- import socket
- import struct
- from pathlib import Path
- 
--from lib.py import ksft_run, ksft_exit, ksft_eq, ksft_ge, ksft_gt
-+from lib.py import ksft_run, ksft_exit, ksft_eq, ksft_ge, ksft_gt, ksft_raises
- from lib.py import KsftSkipEx, KsftFailEx
- from lib.py import ksft_busy_wait, ksft_variants, KsftNamedVariant
- from lib.py import cmd, defer, ip, bpftool, bpf_prog_map_ids
- from lib.py import NetNS, NetNSEnter
-+from lib.py import Netlink, NlError, RtnlFamily
- 
- BPF_OBJ = Path(__file__).parent / "tx_extra_headroom.bpf.o"
- XDP_OBJ = Path(__file__).parent / "lib/xdp_dummy.bpf.o"
-@@ -37,9 +39,34 @@ def _setup_addrs(peer_ns, dev, peer):
-         ip(f"neigh replace {addr} lladdr {peer_mac} dev {dev} nud permanent")
- 
- 
--def _setup_veth(peer_ns):
-+def _add_veth(tx_extra_headroom):
-+    """Create veth0 and veth1 with VETH_INFO_TX_EXTRA_HEADROOM through YNL."""
-+    # Without names, the peer is created first and becomes veth0.
-+    rtnl = RtnlFamily()
-+    rtnl.newlink(
-+        {
-+            "linkinfo": {
-+                "kind": "veth",
-+                "data": {"tx-extra-headroom": tx_extra_headroom},
-+            },
-+        },
-+        flags=[Netlink.NLM_F_CREATE, Netlink.NLM_F_EXCL],
-+    )
-+
-+
-+def _veth_tx_extra_headroom(name):
-+    """Return VETH_INFO_TX_EXTRA_HEADROOM of veth device name."""
-+    rtnl = RtnlFamily()
-+    link = rtnl.getlink({"ifname": name})
-+    return link["linkinfo"]["data"]["tx-extra-headroom"]
-+
-+
-+def _setup_veth(peer_ns, tx_extra_headroom=None):
-     """Create veth0 in the current netns and its peer veth1 in peer_ns."""
--    ip("link add veth0 type veth peer name veth1")
-+    if tx_extra_headroom is None:
-+        ip("link add veth0 type veth peer name veth1")
-+    else:
-+        _add_veth(tx_extra_headroom)
-     ip(f"link set veth1 netns {peer_ns}")
-     _setup_addrs(peer_ns, "veth0", "veth1")
- 
-@@ -353,6 +380,30 @@ def test_tag_max() -> None:
-     ksft_eq(bss["tx_extra_headroom"], TX_EXTRA_HEADROOM_MAX)
- 
- 
-+def test_veth_info() -> None:
-+    """Check that VETH_INFO_TX_EXTRA_HEADROOM adds to tx_extra_headroom."""
-+    with NetNS() as send_ns, NetNS() as peer_ns, NetNSEnter(str(send_ns)):
-+        _setup_veth(peer_ns, tx_extra_headroom=64)
-+        ksft_eq(_veth_tx_extra_headroom("veth0"), 64)
-+        with NetNSEnter(str(peer_ns)):
-+            ksft_eq(_veth_tx_extra_headroom("veth1"), 64)
-+        map_id = _load_progs()
-+        _attach_tcx("veth0", "egress", "record")
-+        _send_udp4()
-+        ksft_eq(_read_bss(map_id)["tx_extra_headroom"], 64)
-+        _attach_xdp(peer_ns)
-+        _send_udp4()
-+        ksft_eq(_read_bss(map_id)["tx_extra_headroom"],
-+                64 + XDP_PACKET_HEADROOM)
-+
-+
-+def test_veth_info_above_max() -> None:
-+    """Check that a value above the maximum is rejected."""
-+    with NetNS() as ns, NetNSEnter(str(ns)), ksft_raises(NlError) as cm:
-+        _add_veth(TX_EXTRA_HEADROOM_MAX + 1)
-+    ksft_eq(cm.exception.error, errno.ERANGE)
-+
-+
- def main() -> None:
-     """Run all test cases."""
-     ksft_run([test_peer_xdp,
-@@ -365,7 +416,9 @@ def main() -> None:
-               test_push_detach,
-               test_push_peer_xdp,
-               test_push_two_progs,
--              test_tag_max])
-+              test_tag_max,
-+              test_veth_info,
-+              test_veth_info_above_max])
-     ksft_exit()
- 
- 
+Here is the summary with links:
+  - [net,v5] net: ethernet: adi: adin1110: mask the RX IRQ of the port being stopped
+    https://git.kernel.org/netdev/net-next/c/8199da5970cc
+
+You are awesome, thank you!
 -- 
-2.56.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
