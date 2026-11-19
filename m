@@ -1,115 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091087;
-	b=aMcGBdMAc85QHTaQza6A9b0SJ9geFW4QyBgr7QPuLTdHb7JJO1jDDg9kPX1UZnGQwL4P
-	 UDTwCXOgLh5BzLlzB81/h2Eyf7LmiwPYXzh5wCpkN5PXVelWyGaHC4td1SjUBaik0PQDr
-	 b+ouirla4NikZKmfu2zw6WQbuTwXOIvWjDR3xFLW0KDR7tgbCM5Lm8uZgg1sXnyJXhK2b
-	 1Rv6teuQItmsHSApW3w9fBOyFH80CwHW019JyIZf1Eh1QCtg8QcufJhhW1SuxQWmOBdOx
-	 XMdAKlNLc2ARgFuvPxAgiOym6BhXNOGiMZCcJLpAtjj38l9D3OAqf8hJZ2FIeTd2lZw==
+	t=1795091193;
+	b=Xg1XPv0eLn5Z4O9aiRAMoNjsimyKSTkzCOxlYx0X5nXpzedHdYfdIIWcI2X793mXZcNW
+	 yxn5Bf6tJ4RSKb9CStBXqeGldpttL2WnN6/co1rT+2bU/rQiQ2yzQQGCYVDowjWyW1rGn
+	 oZk+eUzK9DkMT/ENkZRkXD1QaRSBNyJ4FryhhDMJGgLz0w25IFbCZqlKvmoF/1J42qLpd
+	 TXDtfIRD4cwSMc1WLnwu9N6lTkFrpHrsb3w+stnaYQosBCFn8Y8OV5bEuc3xInQE6YzHw
+	 PuT08twh/FWP/C96YAlaXfdF0fvJz5YfpNTQzpVNvNfrN/UGNR4H0ZjOlhEjqYqoYBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091087;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091193;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=L7wE3tSS410sv2V42qZnSWfqMjCR6vRrIZ4ve8vCytQ=;
-	b=Daq3s789VeaH55SRDz2n+Dfyzf54gYUqYmvWPtnncXaDwxqMKfExv7hY48TUuP1LPBuE
-	 fKDPRE1xZT7MHEHoa6SMeGyRuEj7OKZ94NabrayPmmmI+bHv0zko74LojuRQ0o4IH1/1O
-	 p8ae0GwHiLa/Fw24XQ8nVJqUcPwn4DZD+8ed/dnC2xZn7FWVCDqosahrNGemsD/5RGp9R
-	 FCtHQ6oSZuQI78/hg5hruaOrRw5vSuB5ZTezRQN4BZRmwJzuSXFia8sveWF6oTEmnbms3
-	 +Tq5CFgddwUTyEh5dWqyDbsQ3BAlszBga4cofwphgfy554XBa6tTWaynmjn2grVLJ3A==
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=SPtKEPcgPPei/4lpP6NMUNca2C67n223f11xypl4aLY=;
+	b=cNSRl68fFtNp8T6tcUsTkwSBVokoKxkUtApQHDZRLF98RQteC9UFgadzjy5gVmHtATBH
+	 A++uM61yVSN6YyA58LDEPZPVftBew1nYO/WXc1NK/ykEs5CuerpnhMcj9ssgwhuBX2T3E
+	 6YMQmJauzWekP2JM3MtOwqsx72PdL1dGqANQblgoydgn5IEEN3iMZws+7LMMrDHdn6v10
+	 yJaocU+5IlWVFD3U0c+8nVxcH5pjD5oLqn+QnlYwhJ4t1YAziSCQ8bqLdaxqye5jIHBe4
+	 t//2SXCfxMltjMagHd2pzchYWC4F30JYWlF6rdRI68GxmN1xWepK6q8Rgl9TG+rmhxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=deEFkpjX;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=PnhTSmne;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=INRUOght;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=V8rZNA7G;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 292C7606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:24:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 292C7606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2E91606A33A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:26:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2E91606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=deEFkpjX;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=PnhTSmne
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=INRUOght;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=V8rZNA7G
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795091086;
+	s=mimecast20190719; t=1795091191;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=L7wE3tSS410sv2V42qZnSWfqMjCR6vRrIZ4ve8vCytQ=;
-	b=deEFkpjXoy5o2tBvbdm5V2ON8GHHAIz9vImg0mIjc7mX9jgxeCqkGLHkssfntqs0G/5Mz3
-	L9XW3WjZBsdWo6DGpa1kVN3HRnRrAQ0YxD7YQ4G7QmF8qYpxHsNfpy8B74Nz/8Oe4LA7bt
-	S+aiPIZwtLcA5zFnS58XmTtjYiHDLbY=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=SPtKEPcgPPei/4lpP6NMUNca2C67n223f11xypl4aLY=;
+	b=INRUOghtOr6wQRAKWCYpK5KFJnWnRK9NXbbemqfoo9uYlB9XErl+y7GtJYw+LzfapjwKSh
+	Ri5BSdcWvFrv663d0fklIt2uRJ4xbFpyFd2+BZpTlHklT6sVDX4cwfrv+CLYuM5RfOZJso
+	ku5BeCfvfQ4jpcNthvMshNNDyrbtEJ0=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-107-Czq0RcgAPzmWvT-K1UFp7Q-1; Thu, 19 Nov 2026 07:24:44 -0500
-X-MC-Unique: Czq0RcgAPzmWvT-K1UFp7Q-1
-X-Mimecast-MFC-AGG-ID: Czq0RcgAPzmWvT-K1UFp7Q_1795091084
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a1f03f2e8aso17224335e9.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:24:44 -0800 (PST)
+ us-mta-14-ayFQPUEzNVy_3FwbBTp2Dw-1; Thu, 19 Nov 2026 12:26:30 +0000
+X-MC-Unique: ayFQPUEzNVy_3FwbBTp2Dw-1
+X-Mimecast-MFC-AGG-ID: ayFQPUEzNVy_3FwbBTp2Dw_1795091189
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb6bac1e84so15280065e9.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:26:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795091083; x=1795695883; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=L7wE3tSS410sv2V42qZnSWfqMjCR6vRrIZ4ve8vCytQ=;
-        b=PnhTSmneaio4WgnH3FhNEZnH9zZOLJ1G1/hrz2BPLiET1zXjzna/DREmFaQsmbUxPb
-         Oyy6z+HATrzpBnGrxUIHl5aZoKCa+vktPHWV9w6RgUvluubFgzkQHkaskXhgwa9sXawv
-         /QI/U6IOPo6fDI/MxnvlKXanQozVMN5CSqG/TXS63xN5uIWl32BdZqcBulU/YBqZ3Z0a
-         TwAajwuP81ryRTi9ZQazWEP/f/Yk4IqMGtc4TTnZyAdM2FrWYlwxZMhZQ+uPxQL3GmGR
-         MbMmfJhGN2aILRPvdO0jLhG0CXYML/TVh+bc0LLyUr/HBXFoEHdghAHEfAn6+xPOzryF
-         xYag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795091083; x=1795695883;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=redhat.com; s=google; t=1795091189; x=1795695989; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=L7wE3tSS410sv2V42qZnSWfqMjCR6vRrIZ4ve8vCytQ=;
-        b=F+EArlPEZ3QGXaRyOp2DRhcl5laVkoFzquLTjZFUuAhnSSS3L+9+O90eBnz8RZEmim
-         vma4J5vlQaqQUo/s4TNlwikpVfs5mo6GJXNPchybIANw3SF5ldrXFdfcX53brJuZZVRx
-         yNJV2eO9yqqCPiLnyXtEbzQBQ8Q6VLsTM87vw8Hy1T6WcEGIBUfnem2S3QmUfLOU4CX2
-         kPzba9Hmzd7NiTAXalRFOid8jU6zh5FBb5IN3p4XILBrATUQTb3RFPGofza+WGNr68Bw
-         Vgar8bpoXuDDgebLppVPw4RqYGCDvQQwn16ypjLjfJ4+k3HvzB/vbyIaLMmWW9Wpk3w6
-         1Xyg==
-X-Forwarded-Encrypted: i=1; AL+hErEAYpvSbDMO6cHg7nyc5EK/xq5Gl33M6Ypdl55EcaPHNBeLwvqhESF0XKI0Pzm8frtHcOXrbrQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/44tx8KKmg+JZJ6w7SYDbwvUIlKQI2hEZFsCbnsMEROg/JG4MC
-	EwCdOPccwo6vt7SAE+zhaGX2ZCXJUPObWNLy6j4Q8NqhO/Ht9G57S5Wc6/20PPix70vUsYcjzaW
-	tMdcaar2ujGsxLT94zdzGA92oqs+g9eYLTbNCQFmHewBxJZINJCEcHXw/UQ==
-X-Gm-Gg: AYBFou0GXcz+bwBc3EC3UTwWcFu4bBX7jNKzpfZa4LHTKwhdG66ofdUjOPeOM23no4y
-	qI6dF1ItHaeY9K/aPPx30lkJFVp7ZWtDsxbgmctfVLhC1Ws1JUxNugYeUjIFExrGP66thdEoEgN
-	31qcOO8/DRD5LqMiSfJl40een/Zg8kcixFCgHxOQaLX6RqF97vHeXnxPO+sMQh7A1oiV02RK/b9
-	otcySJsJZAFpijf9BPfHtghSBdYOisw8+OO/pa6lbmDyCLvFWdu65nEGD0T2qbNJ9XQv9KUnZp0
-	BNJNQMdFdy22eEHbmE7gdQ93IUDZR5+5QRW8eeDz/l6CU2VQLPVkHDK2eWlcXt38DsbJAsnFGHa
-	Ipsl9y81KmrWHsj0xQz0Jk3Nwz/VbPRlFPEnVaCc5DwYJJZNxTU03pSSeagsrQMruaQb9+BloSV
-	7UD5+soQ==
-X-Received: by 2002:a05:600c:190e:b0:4bb:6ac0:6dc1 with SMTP id 5b1f17b1804b1-4bb7d5d4387mr125077995e9.2.1795091083582;
-        Thu, 19 Nov 2026 04:24:43 -0800 (PST)
-X-Received: by 2002:a05:600c:190e:b0:4bb:6ac0:6dc1 with SMTP id 5b1f17b1804b1-4bb7d5d4387mr125077385e9.2.1795091083137;
-        Thu, 19 Nov 2026 04:24:43 -0800 (PST)
-Received: from mheib-thinkpadp16vgen1.rmtil.csb ([216.128.14.206])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8535bbf7sm40733025e9.12.2026.11.19.04.24.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:24:41 -0800 (PST)
-Date: Thu, 19 Nov 2026 14:24:06 +0200
-From: Mohammad Heib <mheib@redhat.com>
-To: patchwork-bot+netdevbpf@kernel.org
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, davem@davemloft.net, 
-	kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org, andrew+netdev@lunn.ch, 
-	netdev@vger.kernel.org, fballuch@redhat.com, aleksandr.loktionov@intel.com, 
-	luoxuanqiang@kylinos.cn
-Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
- 2026-11-12 (i40e, iavf)
-Message-ID: <av7qBdVhmyhFKdai@mheib-thinkpadp16vgen1.rmtil.csb>
-References: <20261113004602.129864-1-anthony.l.nguyen@intel.com>
- <179505360728.2713881.10859053822875993430.git-patchwork-notify@kernel.org>
+        bh=SPtKEPcgPPei/4lpP6NMUNca2C67n223f11xypl4aLY=;
+        b=V8rZNA7G2GaTHDLpumciZAe8cxUQQXziNITmEtt3+6mBnH2IFtTdJxV+gUTi5ejbZ7
+         tFxcglAZKajrwqDG1xsCKsmeiXENX3toHuU4lOVRnen5rrbNBMlQ7jl9/vkep4YMpm7J
+         3tK7xV2rPjDxFO/XhxkM76dwMM5AKbJEEz3KeqrjsUOgkOIA8EhLXTwzsti/rKZXD2so
+         x8i3ZsxBe2XUBIV+AC2gQGc+MPBQUdhEMXBcZHriaoi82XbWHcSciZ+/r1D3kxrdZINK
+         QqSuFsH+XQaPzGCl3Qzg07kgK1MumkuTlV/5YPsUsjLP/XaOIlye1j4vAIFX1VsSoX3g
+         uUbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795091189; x=1795695989;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SPtKEPcgPPei/4lpP6NMUNca2C67n223f11xypl4aLY=;
+        b=c1OTYEsgcfDR8+WjUtjk2E543yTQg8DYCxdBGFBcy3Za0ioXaazNKUw56K0RVRifpY
+         Q1Ye4KEiqj6rqAEDTc5wpwhNwyFoPucT/HZoWEIPNDUltn6uwf2HOpEEnz0Ttm47kUfI
+         sRvpB0TZhYMpfq82Ob2pyMDc7Ar+3SNXN5/e0wFcNCAqOGeXltgu7CvJXDA6WR8JAXLJ
+         D0ZvLaNC1aWY6F2iMAdMN1rL6mUssyWIPmudI3SsiVKVcXStI0jqSrdUUjZUcp5aUa8u
+         s0G3v9UewsMdIqf1eHILDNzcNyV4J/+87jIARqUfHHGUdMho0rZlV4+Lh2TOyew6hO15
+         1k7A==
+X-Forwarded-Encrypted: i=1; AL+hErHnI80bJdt38ULaWtuFgX9wz0I4sEKEwpP9fr7764i5X4/T6Bd0d8Kv1v87H3rLnUCl/ON67iU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9KxCGQTMSNpDMNdsmIMwjks/2d1NPjlwKUhiDvzhI/E1y/1ZDc
+	wL3+Cq3zfg3MjqflGzl74isM26ZpoxiD0QPF8f7VCrd5MFFAwTUUMKTwnUYUDQ1T0rvZp3JzrC8
+	Xd+U9sxQtwNvjXPi7oqISs4DSP9SSnNKtNyg3+dSeoMhLrvv6OJtjNi4inA==
+X-Gm-Gg: AYBFou2K/AzaoafsADcyvruS9x/Xm6NnQ74t9b4tQXq/tMfyd55c/x6aYZ1U5KYP/Fw
+	WSS47vfAjJ/C47PqzPVNczvCipugSjiMXJeWY4wnqbZRgST2Dw4tEBk0jzqaIRfYLbJVeM7uEZt
+	UxTC9vn5y62aHMjk6ibekeKW8cm4d9FUNV38n5LJZmaRDd2Io8CUrrCfxPGDvUlRnPNQqI/70wR
+	3e5UggsH57DC005340Benu2GSOlozVKI1k6zmH3knGFEBL/mfnGHrQ5Mbd5dRYxmpJ2SQRux9rs
+	K85nED6OoEjbJlEcMiwn7oa98R89fGYiEgs/TsRtXTJ4yv40M8gdCBqlaqVAgpaHsyEmCMakk22
+	wr0sG4K90zY5jGAbpk+DxWA+4iA7j8YA/C2BEjHXWHJEbgqeYu+aZ+0j3bKNTupCYZ4OPtobr4d
+	5mRPqnnhaNFRSgQHFUO/HSQ/vGafhHd+uadVZT/KxI9ieK
+X-Received: by 2002:a05:600c:a41:b0:4a4:3a2d:15da with SMTP id 5b1f17b1804b1-4bb7da1c81emr117566695e9.15.1795091188982;
+        Thu, 19 Nov 2026 04:26:28 -0800 (PST)
+X-Received: by 2002:a05:600c:a41:b0:4a4:3a2d:15da with SMTP id 5b1f17b1804b1-4bb7da1c81emr117565805e9.15.1795091188490;
+        Thu, 19 Nov 2026 04:26:28 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6573ba95csm11163728f8f.56.2026.11.19.04.26.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 04:26:27 -0800 (PST)
+Message-ID: <7ae72699-c528-466a-872d-e9124fadd11c@redhat.com>
+Date: Thu, 19 Nov 2026 13:26:26 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -119,47 +112,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179505360728.2713881.10859053822875993430.git-patchwork-notify@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v5 1/4] net: make room for the tunnel header in
+ skb_segment_list()
+To: Julius Bairaktaris <julius@bairaktaris.de>, netdev@vger.kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com, willemb@google.com,
+ steffen.klassert@secunet.com, jiayuan.chen@linux.dev,
+ mfleming@cloudflare.com, almasrymina@google.com, bigeasy@linutronix.de,
+ richardbgobert@gmail.com, ecree.xilinx@gmail.com, bsdhenrymartin@gmail.com,
+ linux-kernel@vger.kernel.org
+References: <cover.1794151759.git.julius@bairaktaris.de>
+ <c976a72586cda383b3e42486ee3d0176033b973c.1794151759.git.julius@bairaktaris.de>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <c976a72586cda383b3e42486ee3d0176033b973c.1794151759.git.julius@bairaktaris.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Jakub,
-On Thu, Nov 19, 2026 at 02:00:07AM +0000, patchwork-bot+netdevbpf@kernel.org wrote:
-> Hello:
+On 11/14/26 19:26, Julius Bairaktaris wrote:
+> skb_segment_list() pushes each frag_list member back to the outer MAC
+> header and copies the tunnel headers in front of it, but never checks
+> that the member has the headroom. A fraglist GRO packet forwarded into
+> a tunnel and segmented in software then hits skb_under_panic() on IPIP,
+> and on VXLAN the copy writes before the member's head (KASAN:
+> slab-out-of-bounds write in skb_segment_list()).
 > 
-> This series was applied to netdev/net.git (main)
-> by Jakub Kicinski <kuba@kernel.org>:
+> Call skb_cow_head() on each member before pushing it.
 > 
-> On Thu, 12 Nov 2026 16:45:54 -0800 you wrote:
-> > For i40e:
-> > Mohammad Heib adds missing set of VSI down bit prior to calling
-> > i40e_down() as is expected by the call.
-> > 
-> > Filip Balluch fixes incorrectly provided Tx rings in error path of
-> > i40e_set_ringparam().
-> > 
-> > [...]
-> 
-> Here is the summary with links:
->   - [net,1/6] i40e: fix napi_disable hang in i40e_down() during firmware update
-I noticed that the entire series has been applied except for the first patch.
-Was it intentionally dropped?
->     (no matching commit)
->   - [net,2/6] i40e: fix freeing of TX rings on RX allocation failure
->     https://git.kernel.org/netdev/net/c/4957f668681a
->   - [net,3/6] i40e: avoid resetting BQL state when freeing temporary Tx rings in set_ringparam
->     https://git.kernel.org/netdev/net/c/e3916fa03f4d
->   - [net,4/6] iavf: fix QoS capabilities memory leak
->     https://git.kernel.org/netdev/net/c/65f6ffb9001b
->   - [net,5/6] iavf: fix ASQ command buffer leak on init failure
->     https://git.kernel.org/netdev/net/c/2a1f106379a9
->   - [net,6/6] iavf: add missing PTP adjustment callbacks
->     https://git.kernel.org/netdev/net/c/adbc4d0fff64
-> 
-> You are awesome, thank you!
-> -- 
-> Deet-doot-dot, I am a bot.
-> https://korg.docs.kernel.org/patchwork/pwbot.html
-> 
-> 
+> Fixes: 3a1296a38d0c ("net: Support GRO/GSO fraglist chaining.")
+> Tested-by: Henry Martin <bsdhenrymartin@gmail.com>
+> Reviewed-by: Simon Horman <horms@kernel.org>
+> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
+This one looks correct, let me pick it. The reset of the
+series will require a new iteration.
+
+/P
 
