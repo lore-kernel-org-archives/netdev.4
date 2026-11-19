@@ -1,113 +1,139 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.227
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795115060;
-	b=INv6aP/EsgZeYeZ7cw06WDr5YvGqSK36s5bMIYoE/7qLvqbIngWZAGm5ZXot7iIxYK7H
-	 Hy0CqvAJQ09J/0uEVABj2HaiL/RlnBeETLmiYVqFlmO4YdWI5uxcTilfA8K6ilbJdQ4iv
-	 8jZjSPhHsaQzQTRL8wq7bfbmgWbcdix6J37/tTcDF3KePAYfzRpE/tLf8LBOFpUBARVTM
-	 p+KaRpssFbq/cbMfmDIz8o89NH/l5ic7eZn+2MG/Jq1n0GfID8c7BJ4mlIGFMpLqH25s4
-	 Qr+tyV/SLEKlbDbp7NdyPHsSQAqj3B+hr6BiQmMykKlcayEOWOpl/27aCdl99yKYH7A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115060;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=NC6+Hq88/BH5lKJOETgjBF4IywFyoVJ5dO49DTkcORE=;
-	b=xW1bGOz7+03XLTza89SgmdxVZ6N1Pf4JFPZz4FTOXbTAymm/GGbaUI6PDdLJM7CBdBPz
-	 X0J6cP9qGUVdyVuIMc4gRd55n+nzwRQlJKcfTChFFh6vt4qc/h8l7PDMeayOjOgFeGefM
-	 Z8RPA9MIQDWAH2Kzc7AaIhl+aSV6ZShHIJcVtCsI5wfwFySHkQGTVfdYKg+p5ZobtoaCf
-	 psgR5k+DxaIvV7U3ruJ+xCnitiVBB2rXVqI7w72DoGFbXGKOFuIiEY2kOXUJLtRWerO5s
-	 MiftEmO0A21HnY0oSvEIjVwlyFtGfFxqY2U3MByzRZOi2eCTsjx6at3ljTQALuEu9mQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UJMd3Q5r;
-	arc=none smtp.remote-ip=209.85.221.227
-Received: from mail-vk1-f227.google.com (mail-vk1-f227.google.com [209.85.221.227])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.10
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795115139;
+	b=DAo95sYd0U+E+m4XUAtk3t60/wzbybBSVrPzuDggIwGrQLvA78yogAn+avlHOe4sCu1w
+	 fAFIaMx5654IYQxhviLkAPjKf0963yMJUS/+RzcqVQrRR7cOyChuLpp2FTKXpEE3efKRZ
+	 GFUa6wSc+UVwXvoXh5Tc2DYo4Pj942v+CpXVqLiGqSgQHYCs3EY6xg7QTLVZYLBxrPHcv
+	 oKto70AKEJxcmCwZULjKdBgGqXDJARv3U6SG54tlKf+sEjUBAQ7NZAanoMsuIKElakv+6
+	 mNNeG8WCXAtom1sWM7FKQNgOl7x71lxjH1lD8DE/+ygO9R+UfwTizwQYX8yhLo2u7qw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115139;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=QLjGJKkmi+Oj9BCIKBFtpyLhAr3EaTS2IyWKcdrF2kA=;
+	b=XREQDI+EQ2OwzOXm/LrvxpPy785M8jdW5nCZAhikZYnVbsndNaUJMj63QGXgPitv1u/C
+	 MgrESVstFFJgV5aQck+XJUCmzYwdrlwfGurfD+4iDo4/WRo2u+XQTp+3RbvV/+G5IQkcb
+	 aKfslsBQtZ2LcmJ+6ksGBLB7kwyYVklMBNSbYIJ1t0qkpCSi5Ac/azDno7rW9nBPKB7Fy
+	 EDj2wi2IBNwHEtRyt5nT3WfpKGXgk/Dtby76NidBsayj0aV0IXJ9/cVVOTq2Hx82NCwF7
+	 PkOmxY1fiVn1c1h/pDu3WHwek6LRao3jIappytvOeGUFuBzPXX3iy4DoyGTacgb2NZQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PCxZLxgh;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=O4eDDCSg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEC5360A260C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:04:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEC5360A260C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E29C9606A339
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:05:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E29C9606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UJMd3Q5r
-Received: by mail-vk1-f227.google.com with SMTP id 71dfb90a1353d-5eac6c5f927so20385e0c.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:04:19 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795115059; x=1795719859;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NC6+Hq88/BH5lKJOETgjBF4IywFyoVJ5dO49DTkcORE=;
-        b=TREeN4UIXjmvvu8tM6JlfMXL3BgUwanXlb+BDoeSFF7mUYkYM1sy3BVWNAHMc2Nn+h
-         6XOdgaxQFSThq28BMYQtSAz6xqR460twH3qBMckIhZn+/YtBvxjf7tq0FxxnuwnAU29O
-         8+HKg3WKsOUJchfOBw575Pk7b5RNFV7I8NIFi84+cRi+ds9JDTUTpVl0dZxEC46xCRf2
-         bQXtMDApevw74DJ9mCz7j3LvvFfUZ0NS9B8XDR+D/UKU+nL7sVciN7zIN/PKtzesuV9t
-         DdH7jEjUNvcBVftSvZlO64mt0ZLAmUfL4OpswH9Fi6DpSqylVBTXHNuX0q0BvNsIxNDi
-         95Lw==
-X-Gm-Message-State: APuU4Z9DHZT7Z3+C06iDimKSoydHahRRd98D8tAY1PhfJJgE2UZAfdlU
-	wStAFPtpJljuRetmVWrm1IOvggfBeB28GsEtcsseHAi8Bt6GIZaa0DA0wfklS3LNOCpfPH+dak4
-	65T1CH4qKgtdXHR/+I8vqQ2SLi7IqUbgMRz68RJ++vTltTchTA+NS7fs+G82jv7hyPv66TysixE
-	X64HNBAPF/6Us3XCs517n4CZMjEYbfa3KgYryIoMS8PdkLiExwxMn7S3dfmDwC5baXq1OsJnH/k
-	n6m7NEz5uiA3AIZ
-X-Gm-Gg: AYBFou3l9llEs4sSrxUNOEZHDo8I9bLmjp2sSpdZ5GzscV6UFb+Qb01EV2dik/fhbPI
-	YH1SAXRO2gk9hAIyIjrE6XPuklmgrPhAXyJPxrNNnro58owH5+RWTiLeVM3mmHkIrWHwZXm3MJg
-	tgcJUojAgKzKYxSX/VUPAJ0bNSAqxEnH93Ojj4jS37Q5/8+4bhouOImvsofQHjs5q4H8I1hn+LY
-	ML1xgLk3UComsgyN2bqBSClJe0/HyV730R6Q48hObCgiRjhiUoZGMUx45RLjZlNPkghm6Xqj9a2
-	b8whQTJSTc5J/Sf4gAbmjhGhUx5XIsnRFYflfL5nGZz5ZUJQuxx4RQwdCZjDV1BsCCVVnqeeb5m
-	cVTP3u65LsrWDxnBxG2PRuXhgWyif36SFWC1CCGMTa9XPtK8OU4fy578eW4a0rEEMcDxT972C3V
-	P4UJD9Igy/6F0YKBhHfFUqqgvcIJms/OiGKn62uTZ+nqY=
-X-Received: by 2002:a05:6122:e44b:b0:5ea:98fb:e9de with SMTP id 71dfb90a1353d-5ee8adf3d10mr511377e0c.3.1795115058277;
-        Thu, 19 Nov 2026 11:04:18 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e02e099sm75574241.1.2026.11.19.11.04.18
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 11:04:18 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f32050e72so32234085a.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:04:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795115057; x=1795719857; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NC6+Hq88/BH5lKJOETgjBF4IywFyoVJ5dO49DTkcORE=;
-        b=UJMd3Q5rZdzZHG/nayU2UUw0lAMYd7qsdEoMWzRnDoiBNR0rzN17xYvW1AO5lBKCmW
-         MUFElF4bNe3AFVyBxzgSfBNx46MeH9gv/sm/UyXA19O+/JSjVgKDd639z80yiS1RaQ//
-         GWIkdxmh+CuSzAMHQ0cinmNCDIgygfgLhBmjs=
-X-Received: by 2002:a05:620a:1332:b0:949:402b:f1b3 with SMTP id af79cd13be357-949bab3e8f5mr75782285a.70.1795115057218;
-        Thu, 19 Nov 2026 11:04:17 -0800 (PST)
-X-Received: by 2002:a05:620a:1332:b0:949:402b:f1b3 with SMTP id af79cd13be357-949bab3e8f5mr75773285a.70.1795115056445;
-        Thu, 19 Nov 2026 11:04:16 -0800 (PST)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f7cf3sm24063285a.31.2026.11.19.11.04.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 11:04:15 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vivien Didelot <vivien.didelot@gmail.com>,
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net v7 6/6] net: dsa: b53: fix mirror destination and source state tracking
-Date: Thu, 19 Nov 2026 11:03:48 -0800
-Message-ID: <20261119190348.2317702-7-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119190348.2317702-1-florian.fainelli@broadcom.com>
-References: <20261119190348.2317702-1-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PCxZLxgh;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=O4eDDCSg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795115138; x=1826651138;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=6d+2stocgPxYhgLEioo8a10DGQcSRQ60ADfAmxua9VI=;
+  b=PCxZLxghHBCbCjhTTJV1uOL0vPP8dIwKLcV8UfLrl7iuDizIzmVGATHc
+   a7k/LTE8VQTz57sBqqX1OuhLookg7X//1QBgHBCBre8BVCUvuDY4o7so+
+   kgEuHSBkx84IqYAFJICMXpR5KGQfoPXn4J5d2CBENsEZlDb4GVLkQboIf
+   hQOn2mAMSSrd4x22bZ0ZTI7yeF7vn/7QOEQiVCmyjN6v/Vl0R4RordzQx
+   aa9Ef0sRigO7kkQFXzNzozwJzbwLU2+I2BjZwI4crT+wzpO7CWLzQOkhg
+   mq9u19JJxKohSfIMaBt1i488DNNup7+/9ddGRtAbU3Opr1JtucLt3wFY1
+   w==;
+X-CSE-ConnectionGUID: Q4fg4ld7T2WV0j+Sl7mqxA==
+X-CSE-MsgGUID: w1epUEj9RR6KLfcGHB0Kmg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3895711"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3895711"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:05:32 -0800
+X-CSE-ConnectionGUID: HQBBZx8NS4KpM9kuuOVb7A==
+X-CSE-MsgGUID: A4Fho3jhQCCwnoGH32b9jQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10418701"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:05:32 -0800
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 11:05:30 -0800
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 11:05:30 -0800
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.14) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 11:05:30 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DrLOtcKAD5kOqx1LHVYeIpoJYpxv6UL2KaqzY8acJ5DpR7XislXmhjsZdLwFAcaU+S/eqYMNmmx6ttEjK6cMS3YYeE2RqkmLCYYc2BUcbw0aeVY8yJ8naM9/boeSvWujBUTxz4obQEVjOq2OwBQsVd9DkNYvF5C5KyXI5xtqV3Tsuglo4mfsbez3xc5BbcqM3aBiqg+iBy6p9kzNIFrc9H/5aw4aCiBRww3vadSnwSqBzjpsN+qOCkbOsLLNflx16zA+QH7BxN2xYGNZZvlq00b8AR4HOP/v+ahfZTqJY4BozVmjARqhtSTa3E1Pvzk6jFI8oEeO9D0Gzy1CM6UnSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QLjGJKkmi+Oj9BCIKBFtpyLhAr3EaTS2IyWKcdrF2kA=;
+ b=YxI4L19CoR40IkvNUAcNAo07edYGKQCaJf4oWic3e54+DdYPGT2ojpBSimAhGR8VYUf+/3MYTF0mITMY7qw8ABIuKaxGRs6GOF3SqNqP1hjVFCMw9UYhPQcdPofa7weulcRgjYdSFXM29NzUXV3j/qU1d7WU0iSzlCPFGZOwD+QhBvTdBQMrr6ohGOs3epeo/6DF8vlkPlDzJdX9xvf3FTo6OOrt6Z1Io57wjGrld8CQbwWLohLCSr4U189j+cjvRK2akfju3XGfZwcpWIicJcvUtf97OKPk7so7ndpN2VxPbNXZPcCGl0XG4IzT7+7lPRXEjf0hGlY7dWJs7KfQFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QLjGJKkmi+Oj9BCIKBFtpyLhAr3EaTS2IyWKcdrF2kA=;
+ b=O4eDDCSg43ma5gK+wj1x3BtdEf/UZRqp5gIqk+57p8Cf9Vz2nzwkQYSfi3qc8ikkVd+VFVsTSFoUC9A6VbNJokdXCvNqrKH5ZMpmFen19/xsqXNMSujiSRPc1xwNMuWf9dVQ3XmAWOAlD0hrDAjM0Kv90+oNiMy3/f/VJHJmHeo=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV2PR11MB868673.namprd11.prod.outlook.com
+ (2603:10b6:408:422::13) by SJ2PR11MB7519.namprd11.prod.outlook.com
+ (2603:10b6:a03:4c0::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 19:05:27 +0000
+Received: from LV2PR11MB868673.namprd11.prod.outlook.com
+ ([fe80::5bfd:6afe:a9db:b7de]) by LV2PR11MB868673.namprd11.prod.outlook.com
+ ([fe80::5bfd:6afe:a9db:b7de%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 19:05:27 +0000
+Date: Thu, 19 Nov 2026 20:05:15 +0100
+From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+To: Magnus Karlsson <magnus.karlsson@intel.com>
+CC: <netdev@vger.kernel.org>, <magnus.karlsson@gmail.com>, <sdf@fomichev.me>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <bjorn@kernel.org>,
+	<kerneljasonxing@gmail.com>, <intel-wired-lan@lists.osuosl.org>,
+	<anthony.l.nguyen@intel.com>, <przemyslaw.kitszel@intel.com>,
+	<jacob.e.keller@intel.com>
+Subject: Re: [PATCH net-next 5/5] selftests: net: add AF_XDP USO test
+Message-ID: <av9Ia2gpMyF9jTuE@boxer>
+References: <20261119165340.1071525-1-magnus.karlsson@intel.com>
+ <20261119165340.1071525-6-magnus.karlsson@intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119165340.1071525-6-magnus.karlsson@intel.com>
+X-ClientProxiedBy: DU2PR04CA0309.eurprd04.prod.outlook.com
+ (2603:10a6:10:2b5::14) To LV2PR11MB868673.namprd11.prod.outlook.com
+ (2603:10b6:408:422::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -117,297 +143,227 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR11MB868673:EE_|SJ2PR11MB7519:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9279fdc1-8038-4520-700d-08df46701278
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|22082099003|18002099003|6133799003|56012099006|261026121527099003|4143699003|261026140227099003|261026130827099003|261102123227099003|10067099003|261026135527099003|261022113327099003|261022105027099003|261028144727099003|261009223027099003|261022075727099003|261021135927099003|261022115727099003|261021133027099003|261021130227099003|261021121427099003|261021123027099003|11063799006;
+X-Microsoft-Antispam-Message-Info: y+1e+vgDrnWtDG4z1F60xTUq8lLc8tfsxlautzo5l7feAJARdVTjiDn7pbop/nFjbobc+eSxCMIVUwMDQVT//5gp7djkgINDz3VoRjU3tMq1d7MEpbzTgUHFOcBL2QdXYQQe0O7bJ9b2zJtV7j+MjbX3gZzfSBPisYELryeW80bR2DIs5Iq3F30H49sBWyj7jUsS93T7Qx2uv3CdxmL11rwib/y1lMvb6v/sAc9055k5RPteozEyhRfQgvDA63xsrzKspsBVwoKLPPj8eloO95w2NuG24+6q8iOGUoNPShQP4aI7Eo4+QjItxreuDhP481frCfaH+W8wfcq4JFG30zyShrzgpFFdx08L9MgfmJo1EYZFTIiCOZjbYKXGEmDEFRvJ9hOwu9r6BL4k5cD81KUNYKjw2r5g5w046nP2nxBthHzrzu3kzyuzhZdJuY1ilhQ/1UDGzbm6QmuweyzubvAo02WskvoECBvaXVU80W9sIMzaNtiGqbEBtTXrDqXF6D5WaBccJFKG9JIIvWh+rqeqyymhi/mIrU18YT2XuUVBdbvv7SymxdX+UCVAkTAG62Z/UKwA8p+wxn0JMtvOTO0ZfOAshTkcOgfdhCWF194JymP0EVa9rTU8hgA5xDoQ4Gg9kfV2oHL4dI+lAEbm3yvLIrS51xE4XuRx86ZA0Gg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR11MB868673.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(22082099003)(18002099003)(6133799003)(56012099006)(261026121527099003)(4143699003)(261026140227099003)(261026130827099003)(261102123227099003)(10067099003)(261026135527099003)(261022113327099003)(261022105027099003)(261028144727099003)(261009223027099003)(261022075727099003)(261021135927099003)(261022115727099003)(261021133027099003)(261021130227099003)(261021121427099003)(261021123027099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C6iKcFGWlhXvhQVzj49oeqvb90QiTsLmkodxg/+sC1vU+G68JVNEULsZBv2h?=
+ =?us-ascii?Q?+sOyYt7c9MuYvm3dkGWmoaBg4CfHLHyy0HUW3O6LPtrdDj5NBvWjhwmdVrIJ?=
+ =?us-ascii?Q?Pxoo8YtjewjbT4OMHBsYssjOwfLXaTp09g9yCmVF7la2L/GX2QWaTnyp+yb9?=
+ =?us-ascii?Q?EXeH+2tWFXsq1jqhARbDxXofTCaYWjstD1uNsl5vNLJczMJESVCu2Pgr4Fiy?=
+ =?us-ascii?Q?JGhaSVRA2zoErtpb7WdbldAFd+iUBaoS9Ovuv7yWrTPgosLvbn1Rimko65VV?=
+ =?us-ascii?Q?lmQkkH89jqN0UseQLdKCT+Lk1lkbeG1B/qPKnrEMdatY1tzspDVh5IYOPMSO?=
+ =?us-ascii?Q?598QrtBX/fFg8v3qaNjZHrFtl6c7twSC6dHH55BdiIhD4nyrJ3N/PchKAM2V?=
+ =?us-ascii?Q?fL5jOTLRczrc86gHpwIh1vqL3eOGlB8YCHalpaRpdx0F6dIH9pY/JuPrFqH7?=
+ =?us-ascii?Q?nBIl77dCeeURygw/+00kjRmrzXsV/R7H4NQohsegn5g43ggSqWFr5RB9GvZ0?=
+ =?us-ascii?Q?qwm86gg6oQ1A9mWtHI9XvtJWvV1PbniOzbLMGLN4JIPPnkAEwQ1KLSU/ExiP?=
+ =?us-ascii?Q?8J8+OscIWEB/+H8iq7bHB6Saz/JHn/JGfuK+wQ0mYU+OMfcgRKrNe+6+uGQH?=
+ =?us-ascii?Q?xcFFznUKJ5TcQoyU8rYTW2wY6PPW/Pl8kgyZYUV0K5xe6XGVkbSG38FD6YaK?=
+ =?us-ascii?Q?j2a0r4BusDT46DuiFHupr0JcXYmVnvnR4OfRNc6WA5NgC1cN7baS4WifrA7g?=
+ =?us-ascii?Q?HrqTquCiQGTZ3Wlydf/YLt4Kqi3SmF1h6ItTlvCtxu1/Als268vJEgm81+Yc?=
+ =?us-ascii?Q?3YZhIsuFAKAcLqVDlZt1rRNT84TFVctMTUWqlSH5qLE71SreKMPWVrUBMl0y?=
+ =?us-ascii?Q?p5iJdXU2kMzrXtFt0KTUd284jK4RVSiNgShLdPSW78xq7vROnoXYadtvZ3aT?=
+ =?us-ascii?Q?Uqp4zWRU6Xl4ZK6R2s/xOw5cO/qtx9gYAHxYUXVcoOyh3v7mkax34/4h3aM4?=
+ =?us-ascii?Q?0P8JBlXyDvW59ZYqqU9JlL+Ys+5tNwwM7BJHDyUe6DOnEjp/3MKeF0z+DTj+?=
+ =?us-ascii?Q?Vpl1wW4q34ohLr7blIcYpyjn+zAq3Ei5IqHlANtT85k387k3EsmHq2Mr4maK?=
+ =?us-ascii?Q?PUAdZm4RvgQd7vHJuQ7/i45YhtwKAzq057LG0lsaPfrpC5eds7ktH10jIROn?=
+ =?us-ascii?Q?G0l+Q8SMErKS8P7q10YrR0wF7cfb8zhSCVpSIMGilzT1pg1loYqlKXOgARct?=
+ =?us-ascii?Q?jbNK/u0X1K/I1nEFjRa4C765O5hrp45eF9rSN4/bNqiQHRgvAkCOHvcGPEbO?=
+ =?us-ascii?Q?jQG2wP7SJRnvhNEZOLCgmO7g/dTaOBofFHIPQhwo1+k/zyhv+aSNwR3I2ha5?=
+ =?us-ascii?Q?9WI9oAQJqpnMcIyBSO75aMauDerWNelq84HyzrJzKCbQzQ35S85pp7GylqfH?=
+ =?us-ascii?Q?WWBrCkE8hdCsHYhL1WVk8zRTUJSbl9iYDkaJYy4sl2NFGBYM1QRNILOMHE0L?=
+ =?us-ascii?Q?1IYIh7LOXeFNNdJDkskV6rTvK/UzKSo7LjdFNiQUFjXUbOO4D79uDEh9da19?=
+ =?us-ascii?Q?vevVoiAbLCatO+vwjtQKPpjyZguPbeMeQHaN67cosY6qr5YyIppA6i33e6bL?=
+ =?us-ascii?Q?zCCWlBQ7R0G3S2UipL4/stUMlgzMeVDt3+qE57mUXSIWWrpWofgrDjiUaPNa?=
+ =?us-ascii?Q?hTlYhU9vs8dbXHaqTAZxrIOcPQRAzbyco4b0b9/Vr19gFwjtWP2K70Otm6Th?=
+ =?us-ascii?Q?Z+3RpDilp02WodUfr50dkAUrPCfTeLI=3D?=
+X-Exchange-RoutingPolicyChecked: OU4nUPeLxq20Pn6Q+J+5MASGFXWePyygaku1GX1YZXk8mUqWaz8cPHbvYpzqt+QXvyXYzWLxOzLaE1rLmoGzBJcrjW2WOAbMUsM01Wl6KWEIdVPCKR6v1hf6baJ/0fiuzYxhpNqSu1DiYfwzvRZWfFUBF6jOfmDf9T6QX8i/V07S8aDdDrx9x9jGcewrihVdPfXppW8ycFYieRQZx+k8noK9YFGLUW6bQfoo/RuKKeqGjnRDyRG1yAkalupv260waS5rUobjk2x4UIn5bjW+h4afDklgCBwT2o4Q+KaX/HvYNuaQm0Atgk0CsW889WRTWBKSy2r5JXEkVc7BLFBJEA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9279fdc1-8038-4520-700d-08df46701278
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR11MB868673.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 19:05:27.1002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pxjZm/FsnIUCtOWwqcXPfNssQn+OC3RRHtWPO9gNdiHhyvKoIJ1W/MqHepc0/eXH6b+VBgZuhqUjb1G7aP8Tsxa9XtDNsowzCcpapfwiEp8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7519
+X-OriginatorOrg: intel.com
 
-The mirror capture control register selects one destination for all
-ingress and egress sources. Adding a rule for another destination
-currently redirects existing rules. Multiple matchall filters can also
-share one source bit, but deleting any one of them clears that bit and
-can disable mirroring while other filters still need it.
+On Thu, Nov 19, 2026 at 05:53:40PM +0100, Magnus Karlsson wrote:
+> Add xsk_uso, a functional test for AF_XDP UDP segmentation offload in
+> copy and zero-copy mode. It sends USO requests from an AF_XDP socket
+> and checks the datagrams received on a packet socket: the number of
+> datagrams, the IP and UDP lengths, the checksums and the payload, for
+> IPv4 and IPv6, and single and multi-buffer requests. It also checks
+> that invalid requests are dropped and counted in tx_invalid_descs.
+> 
+> The test needs root and physical NICs with an MTU of at least 1448,
+> either two connected ports (-i TX_IFACE -r RX_IFACE) or one in NIC
+> loopback (-l -i IFACE). Virtual devices such as veth pass the packet on
+> without segmenting it. Zero copy (-z) also needs a native XDP program on
+> the interface. Standalone checksum offload cases run only with -C, as
+> they test the existing checksum offload rather than USO. As it needs
+> real hardware, it is built but not run by default, like xdp_hw_metadata.
+> It uses the AF_XDP library in net/lib/xsk.
 
-Reject a different destination while either source mask is occupied, and
-reference count each port's ingress and egress source bit under RTNL.
-Program a source on its first reference and clear it on its last one.
-Check every mirror register access and record a first reference only
-after programming succeeds. Select the destination before enabling the
-source, and log deletion failures because the callback returns no error.
-Use the source masks to retain the destination after a failed source
-deletion and allow a new destination after a failed capture-control clear.
+I assume the end goal for xdp_hw_metadata is to pull in its contents onto
+xsk python runner. What is the case for this one?
 
-Not all supported switches receive a hardware reset during setup, so
-clear stale capture and source registers before accepting mirror rules.
-Introduce b53_mirror_init() together with its b53 and bcm_sf2 setup
-callers. Rebuild active sources and their destination from the reference
-counts when setup runs again, preserving rules across bcm_sf2 resume.
-Propagate initialization failures instead of accepting stale state.
+Also since you're adding support to copy mode i assume veth runs would be
+welcome...
 
-This depends on "net: dsa: b53: fix mirror port encoding on BCM5325 and
-BCM5365" for the chip-specific source and capture-port helpers.
+Did you try to point AI to my set and ask whether it would be able to
+produce python runner for that? Or do we don't want to have this CI'ed ?
 
-Fixes: ed3af5fd08eb ("net: dsa: b53: Add support for port mirroring")
+> 
+> Missing prerequisites are reported as skips. In zero-copy mode, the
+> device must report xsk-zerocopy and tx-uso-zc, and checksum-only cases
+> need tx-checksum. In both modes, cases that produce more than one
+> datagram need tx-udp-segmentation, including the invalid ones, which
+> would otherwise be dropped for lack of the offload whatever their
+> headers. Cases that need more descriptors than xdp-zc-max-segs are
+> skipped, and so are binds that the device refuses with EOPNOTSUPP.
+> Receive-side UDP GRO (rx-udp-gro-forwarding, rx-gro-list) must be off,
+> as it would merge the segments again before the packet socket sees them.
+> USO with launch time must succeed in copy mode and be dropped in
+> zero-copy mode.
+> 
+> Signed-off-by: Magnus Karlsson <magnus.karlsson@intel.com>
+> ---
+>  tools/testing/selftests/net/.gitignore |   1 +
+>  tools/testing/selftests/net/Makefile   |  10 +-
+>  tools/testing/selftests/net/xsk_uso.c  | 954 +++++++++++++++++++++++++
+>  3 files changed, 964 insertions(+), 1 deletion(-)
+>  create mode 100644 tools/testing/selftests/net/xsk_uso.c
+> 
 
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/net/dsa/b53/b53_common.c | 168 ++++++++++++++++++++++++-------
- drivers/net/dsa/b53/b53_priv.h   |   4 +
- drivers/net/dsa/bcm_sf2.c        |   4 +
- 3 files changed, 140 insertions(+), 36 deletions(-)
+...
 
-diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-index ffbf5efd8d95..ee2d27732c0c 100644
---- a/drivers/net/dsa/b53/b53_common.c
-+++ b/drivers/net/dsa/b53/b53_common.c
-@@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
- 		return ret;
- 	}
- 
-+	ret = b53_mirror_init(ds);
-+	if (ret)
-+		return ret;
-+
- 	/* setup default vlan for filtering mode */
- 	pvid = b53_default_pvid(dev);
- 	vl = &dev->vlans[pvid];
-@@ -2629,27 +2633,103 @@ static u16 b53_mirror_capture_port(struct b53_device *dev, int port)
- 	return port;
- }
- 
-+int b53_mirror_init(struct dsa_switch *ds)
-+{
-+	struct b53_device *dev = ds->priv;
-+	u16 ingress = 0, egress = 0, cap_ctl = 0;
-+	unsigned int port;
-+	int ret;
-+
-+	/* A switch reset may leave the previous mirror configuration intact. */
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, 0);
-+	if (ret)
-+		return ret;
-+
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL, 0);
-+	if (ret)
-+		return ret;
-+
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, 0);
-+	if (ret)
-+		return ret;
-+
-+	/* DSA retains matchall filters across suspend and resume. */
-+	for (port = 0; port < dev->num_ports; port++) {
-+		if (dev->ports[port].mirror_count[true])
-+			ingress |= b53_mirror_port_mask(dev, port);
-+		if (dev->ports[port].mirror_count[false])
-+			egress |= b53_mirror_port_mask(dev, port);
-+	}
-+
-+	if (!(ingress | egress))
-+		return 0;
-+
-+	cap_ctl = MIRROR_EN | b53_mirror_capture_port(dev, dev->mirror_port);
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
-+	if (ret)
-+		return ret;
-+
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL, ingress);
-+	if (ret)
-+		return ret;
-+
-+	return b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, egress);
-+}
-+EXPORT_SYMBOL(b53_mirror_init);
-+
- int b53_mirror_add(struct dsa_switch *ds, int port,
- 		   struct dsa_mall_mirror_tc_entry *mirror, bool ingress,
- 		   struct netlink_ext_ack *extack)
- {
- 	struct b53_device *dev = ds->priv;
--	u16 reg, loc;
-+	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
-+	u16 reg, other_reg, loc, other_loc, cap_ctl;
-+	u16 cap_mask = b53_mirror_capture_port_mask(dev);
-+	u16 cap_port = b53_mirror_capture_port(dev, mirror->to_local_port);
-+	int ret;
- 
--	if (ingress)
--		loc = B53_IG_MIR_CTL;
--	else
--		loc = B53_EG_MIR_CTL;
-+	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
-+	other_loc = ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
- 
--	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
--	reg |= b53_mirror_port_mask(dev, port);
--	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
-+	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
-+	if (ret)
-+		return ret;
- 
--	b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &reg);
--	reg &= ~b53_mirror_capture_port_mask(dev);
--	reg |= b53_mirror_capture_port(dev, mirror->to_local_port);
--	reg |= MIRROR_EN;
--	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, reg);
-+	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
-+	if (ret)
-+		return ret;
-+
-+	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &cap_ctl);
-+	if (ret)
-+		return ret;
-+
-+	if (((reg | other_reg) & MIRROR_MASK) &&
-+	    (cap_ctl & cap_mask) != cap_port) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Only one mirroring destination is supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (*mirror_count) {
-+		(*mirror_count)++;
-+		return 0;
-+	}
-+
-+	/* Select the destination before enabling the new source. */
-+	cap_ctl &= ~cap_mask;
-+	cap_ctl |= cap_port;
-+	cap_ctl |= MIRROR_EN;
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
-+	if (ret)
-+		return ret;
-+
-+	ret = b53_write16(dev, B53_MGMT_PAGE, loc,
-+			  reg | b53_mirror_port_mask(dev, port));
-+	if (ret)
-+		return ret;
-+
-+	(*mirror_count)++;
-+	dev->mirror_port = mirror->to_local_port;
- 
- 	return 0;
- }
-@@ -2659,38 +2739,54 @@ void b53_mirror_del(struct dsa_switch *ds, int port,
- 		    struct dsa_mall_mirror_tc_entry *mirror)
- {
- 	struct b53_device *dev = ds->priv;
--	bool loc_disable = false, other_loc_disable = false;
--	u16 reg, loc;
-+	unsigned int *mirror_count =
-+		&dev->ports[port].mirror_count[mirror->ingress];
-+	u16 reg, other_reg, loc, other_loc;
-+	int ret;
- 
--	if (mirror->ingress)
--		loc = B53_IG_MIR_CTL;
--	else
--		loc = B53_EG_MIR_CTL;
-+	if (!*mirror_count)
-+		return;
-+
-+	if (--(*mirror_count))
-+		return;
-+
-+	loc = mirror->ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
-+	other_loc = mirror->ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
- 
- 	/* Update the desired ingress/egress register */
--	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
-+	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
-+	if (ret)
-+		goto err;
-+
- 	reg &= ~b53_mirror_port_mask(dev, port);
--	if (!(reg & MIRROR_MASK))
--		loc_disable = true;
--	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
-+	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg);
-+	if (ret)
-+		goto err;
- 
- 	/* Now look at the other one to know if we can disable mirroring
- 	 * entirely
- 	 */
--	if (mirror->ingress)
--		b53_read16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, &reg);
--	else
--		b53_read16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL, &reg);
--	if (!(reg & MIRROR_MASK))
--		other_loc_disable = true;
-+	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
-+	if (ret)
-+		goto err;
- 
--	b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &reg);
--	/* Both no longer have ports, let's disable mirroring */
--	if (loc_disable && other_loc_disable) {
--		reg &= ~MIRROR_EN;
--		reg &= ~b53_mirror_capture_port_mask(dev);
--	}
--	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, reg);
-+	if ((reg | other_reg) & MIRROR_MASK)
-+		return;
-+
-+	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &reg);
-+	if (ret)
-+		goto err;
-+
-+	reg &= ~(MIRROR_EN | b53_mirror_capture_port_mask(dev));
-+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, reg);
-+	if (ret)
-+		goto err;
-+
-+	return;
-+
-+err:
-+	dev_err(dev->dev, "Failed to delete mirror rule for port %d: %d\n",
-+		port, ret);
- }
- EXPORT_SYMBOL(b53_mirror_del);
- 
-diff --git a/drivers/net/dsa/b53/b53_priv.h b/drivers/net/dsa/b53/b53_priv.h
-index c4d2a41c714f..df00a5ae46c9 100644
---- a/drivers/net/dsa/b53/b53_priv.h
-+++ b/drivers/net/dsa/b53/b53_priv.h
-@@ -119,6 +119,8 @@ struct b53_pcs {
- #define B53_N_PCS	2
- 
- struct b53_port {
-+	/* References to each egress/ingress mirror source mask bit. */
-+	unsigned int mirror_count[2];
- 	u16		vlan_ctl_mask;
- 	u16		pvid;
- 	struct ethtool_keee eee;
-@@ -170,6 +172,7 @@ struct b53_device {
- 
- 	/* run time configuration */
- 	bool enable_jumbo;
-+	unsigned int mirror_port;
- 
- 	unsigned int num_vlans;
- 	struct b53_vlan *vlans;
-@@ -545,6 +548,7 @@ int b53_mdb_add(struct dsa_switch *ds, int port,
- int b53_mdb_del(struct dsa_switch *ds, int port,
- 		const struct switchdev_obj_port_mdb *mdb,
- 		struct dsa_db db);
-+int b53_mirror_init(struct dsa_switch *ds);
- int b53_mirror_add(struct dsa_switch *ds, int port,
- 		   struct dsa_mall_mirror_tc_entry *mirror, bool ingress,
- 		   struct netlink_ext_ack *extack);
-diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
-index 1747a1f20c78..cbaa5de9b107 100644
---- a/drivers/net/dsa/bcm_sf2.c
-+++ b/drivers/net/dsa/bcm_sf2.c
-@@ -1061,6 +1061,10 @@ static int bcm_sf2_sw_setup(struct dsa_switch *ds)
- 	unsigned int port;
- 	int ret;
- 
-+	ret = b53_mirror_init(ds);
-+	if (ret)
-+		return ret;
-+
- 	/* Enable all valid ports and disable those unused */
- 	for (port = 0; port < priv->hw_params.num_ports; port++) {
- 		/* IMP port receives special treatment */
--- 
-2.53.0
+> +
+> +static void get_mac(const char *name, unsigned char *mac)
+> +{
+> +	struct ifreq ifr = {};
+> +	int fd = socket(AF_INET, SOCK_DGRAM, 0);
+> +
+> +	if (fd < 0)
+> +		ksft_exit_fail_msg("socket: %s\n", strerror(errno));
+> +	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
+> +	if (ioctl(fd, SIOCGIFHWADDR, &ifr))
+> +		ksft_exit_fail_msg("MAC address for %s: %s\n", name, strerror(errno));
+> +	memcpy(mac, ifr.ifr_hwaddr.sa_data, ETH_ALEN);
+> +	close(fd);
+> +}
+> +
+> +static unsigned int get_mtu(const char *name)
+> +{
+> +	struct ifreq ifr = {};
+> +	int fd = socket(AF_INET, SOCK_DGRAM, 0);
+> +
+> +	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
+> +	if (fd < 0 || ioctl(fd, SIOCGIFMTU, &ifr))
+> +		ksft_exit_fail_msg("MTU of %s: %s\n", name, strerror(errno));
+> +	close(fd);
+> +	return ifr.ifr_mtu;
+> +}
 
+this is a lib content which i'm also adding, so we're gonna clash.
+
+> +
+> +/* Virtual devices have no backing device, and pass GSO packets on whole. */
+> +static bool is_physical(const char *name)
+> +{
+> +	char path[64];
+> +
+> +	snprintf(path, sizeof(path), "/sys/class/net/%s/device", name);
+> +	return !access(path, F_OK);
+> +}
+> +
+> +static int ethtool_ioctl(const char *name, void *cmd)
+> +{
+> +	struct ifreq ifr = { .ifr_data = cmd };
+> +	int fd = socket(AF_INET, SOCK_DGRAM, 0), err;
+> +
+> +	if (fd < 0)
+> +		return -1;
+> +	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
+> +	err = ioctl(fd, SIOCETHTOOL, &ifr);
+> +	close(fd);
+> +	return err;
+> +}
+> +
+> +/* Returns whether the netdev feature called @feature is active on @name. */
+> +static bool feature_active(const char *name, const char *feature)
+> +{
+> +	struct ethtool_gfeatures *features = NULL;
+> +	struct ethtool_gstrings *strings = NULL;
+> +	struct ethtool_sset_info *sset;
+> +	unsigned int count, blocks, i;
+> +	bool active = false;
+> +
+> +	sset = calloc(1, sizeof(*sset) + sizeof(sset->data[0]));
+> +	if (!sset)
+> +		ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
+> +	sset->cmd = ETHTOOL_GSSET_INFO;
+> +	sset->sset_mask = 1ULL << ETH_SS_FEATURES;
+> +	if (ethtool_ioctl(name, sset))
+> +		ksft_exit_fail_msg("ETHTOOL_GSSET_INFO: %s\n", strerror(errno));
+> +	if (!sset->sset_mask)
+> +		ksft_exit_fail_msg("%s reports no feature strings\n", name);
+> +	count = sset->data[0];
+> +	blocks = (count + 31) / 32;
+> +	strings = calloc(1, sizeof(*strings) + count * ETH_GSTRING_LEN);
+> +	features = calloc(1, sizeof(*features) +
+> +			  blocks * sizeof(features->features[0]));
+> +	if (!strings || !features)
+> +		ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
+> +	strings->cmd = ETHTOOL_GSTRINGS;
+> +	strings->string_set = ETH_SS_FEATURES;
+> +	strings->len = count;
+> +	features->cmd = ETHTOOL_GFEATURES;
+> +	features->size = blocks;
+> +	if (ethtool_ioctl(name, strings) || ethtool_ioctl(name, features))
+> +		ksft_exit_fail_msg("ethtool features: %s\n", strerror(errno));
+> +	for (i = 0; i < count; i++)
+> +		if (!strncmp((char *)strings->data + i * ETH_GSTRING_LEN, feature,
+> +			     ETH_GSTRING_LEN)) {
+> +			active = features->features[i / 32].active & (1U << (i % 32));
+> +			break;
+> +		}
+> +	free(features);
+> +	free(strings);
+> +	free(sset);
+> +	return active;
+> +}
+> +
+> +static void get_xdp_features(unsigned int ifindex, uint64_t *xdp, uint64_t *xsk,
+> +			     unsigned int *zc_max_segs)
+> +{
+> +	struct netdev_dev_get_req *req;
+> +	struct netdev_dev_get_rsp *rsp;
+> +	struct ynl_error yerr;
+> +	struct ynl_sock *ys;
+> +
+> +	ys = ynl_sock_create(&ynl_netdev_family, &yerr);
+> +	if (!ys)
+> +		ksft_exit_fail_msg("YNL: %s\n", yerr.msg);
+> +	req = netdev_dev_get_req_alloc();
+> +	if (!req)
+> +		ksft_exit_fail_msg("netdev_dev_get_req_alloc failed\n");
+> +	netdev_dev_get_req_set_ifindex(req, ifindex);
+> +	rsp = netdev_dev_get(ys, req);
+> +	netdev_dev_get_req_free(req);
+> +	if (!rsp)
+> +		ksft_exit_fail_msg("netdev dev-get: %s\n", ys->err.msg);
+> +	*xdp = rsp->_present.xdp_features ? rsp->xdp_features : 0;
+> +	*xsk = rsp->_present.xsk_features ? rsp->xsk_features : 0;
+> +	*zc_max_segs = rsp->_present.xdp_zc_max_segs ? rsp->xdp_zc_max_segs : 1;
+> +	netdev_dev_get_rsp_free(rsp);
+> +	ynl_sock_destroy(ys);
+
+you really should look at python drv-net infra...
