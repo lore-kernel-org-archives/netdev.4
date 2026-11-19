@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.107
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.203
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126987;
-	b=RKcLesFba/bUZ3jqrW1Nj+AUflUkkp6mw3Z4HGKS36ZwOtrDBqvv4FLVwDJAgZOKJLEq
-	 G/CvZ6FXUKeRoFKOrdZkH4fL8/zVAiFWzdxU35fEEk/vN/ss+z9pm1zVQn0C2CUfZcICe
-	 yK4sbTxTHvxU+RHaeM9df1GBjXyNLeimtq5kK1zxRVF0aXiZ6+iW/qSU4CZuCuQnq3Jui
-	 HawYlbnvVJYK7HQBjiguvXq0v/FM3gsb9L0A5K2GKiZ2HAsH0N9DES07NbLFRpIoZ0Fp/
-	 TWb3F0/L2H/zxKOJYw5eVYwf5tAvklKULfkDSBerrbebdK5/TGdgwl5gAF0HJ9ShhLw==
+	t=1795127010;
+	b=jDzasTO7uGtLu0EN+B5gj4YhpIc0zTV8McizAPVJMbAnaTJoEU8SZ6D4SefNzMtI/hKB
+	 NeyJkC0L2B8rgs4mIJzh0CAdBGbZyPm5jFiMr0KO16bpRLaFSAEgcCvBaLATwHHEGat/j
+	 fDhbhC8wAChm67Y+9gnzk3ZsYySpL1eUXzzRqtWCa6z4vAmVmrd0n+zNluiA3PnvBMaf1
+	 ndeTta48gjHwnG93/c2BXSUEf0kK7Mm1vI3zs2VRTU30IZAYK4gTEwpxUdQFdOfc0CCOG
+	 wDzxlOeTB2BDrUJWtaeFJClQheCu02flQEU4oid+fpfyhbqEZfYoc6UZ9JeAdyPydNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126987;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127010;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=VIR2XXRz/VIYbQ3vo4yDdmGYcHrzMjtf4j4rI56rJeQ=;
-	b=Ge7lwTgMlGpLwwaMVSWZzzNH5xJHn4lKVio2/6FgPJUMIoO2aIbGBmZ5mLeijaCb4b+C
-	 lssfvqrUk5SmKxkONzdBmhfQUkF8SLLS9IKwvt/ENuLNove/hscTZgbWuxEJpwiyi5oQ2
-	 dq7ShXPraQLM8TkfNKAAQjWe2SfaO1jdr7cvVPUWZ6MrrfdCSI+3+Yl8jOoB4oXrQaDxT
-	 ZvzNdOYCUBo8dmFdS9JbVqQPXsn98YcifZUPnTcFejdHMJ+PysOnjWDPHoSz+rV73ylAk
-	 mxkN8tPBctUE01heK+jqCGIUUU+mKRCvqkTAigueRvShSYO8jazDJVU0kZGCh8ZGixw==
+	bh=dEyEykb8A4eT9ASK+0tjHM4tyfrXGycezZEOpc2wRFo=;
+	b=YYXcH3Goe7h3j96jmSuCAH4Neaep8V0iJgaMMx/Pwp0P4WR3yYljoi8Xhi/diup71DpY
+	 WGZTsSjRKKD/Py4PvMxUaSAHMK72Pbj360tKFEKph6l/Ayd2PdfiHGtvAy9V3SAcEy8cT
+	 DSgQ+BosCqSGRgDd92RrLTbJU24t+SHOmeAfnzJJ4mSKdfobhCioed+BEWlt4BWQf5ZaK
+	 CbaW/s+jApuKbdfx8K8WQqLgGIEtO7EOv7S0Xo0J1tKzfKdh4HTmEO6/a8bWNxx+09mD+
+	 gH7wYHOt75NXnDrn7BF62NmkwyOU6lNk+q1GxdJ8HiNtZty5bqLh9ukMHY61cs7JMBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nzbl9uGy;
-	arc=none smtp.remote-ip=91.218.175.107
-Received: from mta0.migadu.com (out-107.mta0.migadu.com [91.218.175.107])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PCo7+q9m;
+	arc=none smtp.remote-ip=95.215.58.203
+Received: from mta1.migadu.com (out-203.mta1.migadu.com [95.215.58.203])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13EDD606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:23:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13EDD606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F553606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:23:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F553606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nzbl9uGy
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PCo7+q9m
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=AtODdgI8E3q9jMSujROV6OOBgGoFpUES4FimZBiQZPI=;
+DKIM-Signature: a=rsa-sha256; bh=Eeyl014gkOjAgkFG1m7QbKJnoVtHYBWzIvgaUqC2g/w=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795126983; v=1; x=1795731783;
- b=nzbl9uGy2kx/0r/xMp3VPfNb0piZ1Lw7JaW3LaZGQYvNd96F9+Kz8pLTjhgqXTySgLQajBwC
- LGenOQVTz4X4p+fjVW6EcCsDuaNjoKPbjP1JTx4GViVENIQ5jQmmPjeOCSSZfZRHqf0dMN8hqCO
- qFWgnUlDPdUqagpw3OAXAdJk=
+ t=1795127008; v=1; x=1795731808;
+ b=PCo7+q9mQX1P3pFB+ik7VO1IoiCQLXi9I6N7++rVU0W18yyE/ZDdxnKmapc9FGr2Jm5zTsMV
+ pCo4aGTQ+2dBG36/1+q33dpp+/l11scvXDqo8jkpnYSFkHFkWHwEoxtmbPIxbyMshu1VyTVaH62
+ 74A/j6lWC0E/wO8eTI7AtKYc=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 677f1b06c5739ceb;
-	Thu, 19 Nov 2026 22:23:03 +0000
-X-Mizu-Trace-ID: 677f1b06c5739ceb
+Received: by smtp.migadu.com with ESMTPS id dfb6ee13888e2f3d;
+	Thu, 19 Nov 2026 22:23:27 +0000
+X-Mizu-Trace-ID: dfb6ee13888e2f3d
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <4e42134b-b017-4836-9772-9c1915b16e77@linux.dev>
-Date: Thu, 19 Nov 2026 22:23:03 +0000
+Message-ID: <9124e525-82ef-4d65-ae30-6676f257d8e1@linux.dev>
+Date: Thu, 19 Nov 2026 22:23:27 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,168 +59,69 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/4] ptp: ocp: prevent timestamp rearming during
- detach
+Subject: Re: [PATCH net v2 2/4] ptp: ocp: use hardware selectors in DPLL
+ frequency operations
 To: Ahmad Byagowi <ahmadexp@gmail.com>, netdev@vger.kernel.org,
  richardcochran@gmail.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com
+Cc: andrew+netdev@lunn.ch, arkadiusz.kubalewski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, jiri@resnulli.us, kuba@kernel.org,
+ pabeni@redhat.com
 References: <20261119-timecard-common-v2-078fe69f33-0-ahmadexp@gmail.com>
- <20261119-timecard-common-v2-078fe69f33-1-ahmadexp@gmail.com>
+ <20261119-timecard-common-v2-078fe69f33-2-ahmadexp@gmail.com>
 Content-Language: en-US
 From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20261119-timecard-common-v2-078fe69f33-1-ahmadexp@gmail.com>
+In-Reply-To: <20261119-timecard-common-v2-078fe69f33-2-ahmadexp@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
 On 19/11/2026 21:19, Ahmad Byagowi wrote:
-> Detach disables timestamp interrupts before unregistering the PTP clock.
-> Until the POSIX clock is unregistered, an ioctl can rearm a channel
-> after that disable. The clock can then be released while the timestamp
-> IRQ is still registered. The core cleanup does not necessarily disable
-> the channel: EXTTS requests do not require a PTP_PF_EXTTS pin assignment.
-
-I think we have to fix it other way. Basically, there are several ways
-to enable EXTTS in ptp_ocp:
-1. Via sma* attributes in ptp_ocp sysfs entry
-2. Via pin name sysfs entry under ptp device
-3. Via PTP_PIN_SETFUNC ioctl
-4. Via PTP_EXTTS_REQUEST ioctl
-
-On teardown, sma* attributes (1) are removed before disabling
-interrupts. Options 2 and 3 set PTP_PF_EXTTS function and reverted
-during ptp_clock_unregister(). Only option 4 does not set PTP_PF_EXTTS
-function to pin, because it calls ops->enable() callback directly.
-To fix it properly enable() callback has to set PTP_PF_EXTTS function
-if it's requested. That will make ptp_disable_all_events() do exactly
-what is has to do - clear all events generators of ptp device after
-removing ioctl interface.
-
-
+> The selector table index is not the hardware selector value. Passing the
+> index to the SMA setter can select unrelated signals, or fail on ART.
+> Use the table value, as the sysfs path already does.
 > 
-> Use the existing device spinlock to serialize the stopping check, PPS
-> subscription updates and timestamp MMIO. Set ts_stopping under that lock
-> before detach disables the channels, so an enable already in progress
-> finishes first and later enables fail with -ENODEV. Keep disables
-> available for PTP core cleanup.
+> Mask the direction enable bit before the frequency lookup. Otherwise an
+> enabled, direction-configurable pin has no matching table entry and its
+> DPLL get or dump fails. Apply both corrections to all board variants.
 > 
-> Flush the interrupt mask writes under the lock, then drop the lock and
-> restore IRQ flags before pci_irq_vector(), which takes the MSI descriptor
-> mutex, and synchronize_irq(), which may sleep. During teardown, bypass
-> the PPS no-state-change shortcut: a concurrent disable
-> may have cleared pps_req_map and dropped the lock without yet draining
-> its IRQ. Detach must still disable and drain that channel before
-> ptp_clock_unregister().
+> Reported by the netdev Sashiko AI review and confirmed by code
+> inspection. Source-derived C regression tests pass with ASan/UBSan;
+> restoring the faulty selector, mask, disabled-state or DCF value makes
+> the corresponding regression fail. Tests use stubbed MMIO, not hardware.
+> The driver object builds on current net with W=1 and KCFLAGS=-Werror. No
+> physical card was tested.
 > 
-> Reported by the netdev Sashiko AI review, then checked against the PTP
-> and POSIX-clock paths. The source-derived userspace harness reproduces
-> rearming with the old source. With this fix it rejects late enables,
-> serializes in-flight enables, drains a mocked active IRQ and covers a
-> disable paused after unlock but before IRQ synchronization. It checks
-> that MMIO is locked and vector lookup and IRQ synchronization run unlocked
-> with IRQ flags restored. Shared PPS/EXTTS subscriptions and all six
-> channels pass with ASan/UBSan. This is not an in-kernel UAF, lockdep or
-> physical-card test.
+> Codex prepared the fix, tests and changelog from the review and upstream
+> source, at the request to separate common-driver fixes from WiWi support
+> and validate removal ordering.
 > 
-> Codex revised the code, tests and changelog from Vadim's review, at the
-> request to check the spinlock approach and rerun the removal-race tests.
-> 
-> Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
-> Suggested-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+> Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 > Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-> Link: https://lore.kernel.org/r/ad6883e5-c103-4f82-8040-e5463477ca10@linux.dev
 > Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 > ---
->   drivers/ptp/ptp_ocp.c | 35 ++++++++++++++++++++++++++++-------
->   1 file changed, 28 insertions(+), 7 deletions(-)
+>   drivers/ptp/ptp_ocp.c | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 625a85b2dc..4c98558e96 100644
+> index 4c98558e96..f1f97c1fa0 100644
 > --- a/drivers/ptp/ptp_ocp.c
 > +++ b/drivers/ptp/ptp_ocp.c
-> @@ -367,6 +367,8 @@ struct ptp_ocp {
->   	struct pci_dev		*pdev;
->   	struct device		dev;
->   	spinlock_t		lock;
-> +	/* Protected by lock; blocks timestamp arming during teardown. */
-> +	bool			ts_stopping;
->   	struct ocp_reg __iomem	*reg;
->   	struct tod_reg __iomem	*tod;
->   	struct pps_reg __iomem	*pps_to_ext;
-> @@ -2550,6 +2552,15 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
->   	struct ptp_ocp_ext_src *ext = priv;
->   	struct ts_reg __iomem *reg = ext->mem;
->   	struct ptp_ocp *bp = ext->bp;
-> +	unsigned long flags;
-> +	bool need_sync = false;
-> +	int err = 0;
-> +
-> +	spin_lock_irqsave(&bp->lock, flags);
-> +	if (enable && bp->ts_stopping) {
-> +		err = -ENODEV;
-> +		goto out;
-> +	}
->   
->   	if (ext == bp->pps) {
->   		u32 old_map = bp->pps_req_map;
-> @@ -2559,9 +2570,9 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
->   		else
->   			bp->pps_req_map &= ~req;
->   
-> -		/* if no state change, just return */
-> -		if ((!!old_map ^ !!bp->pps_req_map) == 0)
-> -			return 0;
-> +		/* Teardown must drain IRQs even if another disable cleared the map. */
-
-there was no need of this in the previous patch, why do we need it now?
-
-> +		if ((!!old_map ^ !!bp->pps_req_map) == 0 && !bp->ts_stopping)
-> +			goto out;
->   	}
->   
->   	if (enable) {
-> @@ -2569,16 +2580,21 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
->   		iowrite32(1, &reg->intr_mask);
->   		iowrite32(1, &reg->intr);
->   	} else {
-> -		int irq_vec = pci_irq_vector(bp->pdev, ext->irq_vec);
-> -
->   		iowrite32(0, &reg->intr_mask);
->   		iowrite32(0, &reg->enable);
->   		ioread32(&reg->intr_mask);
-> +		need_sync = true;
-> +	}
-> +
-> +out:
-> +	spin_unlock_irqrestore(&bp->lock, flags);
-> +	if (need_sync) {
-> +		int irq_vec = pci_irq_vector(bp->pdev, ext->irq_vec);
-> +
->   		if (irq_vec > 0)
->   			synchronize_irq(irq_vec);
->   	}
-> -
-> -	return 0;
-> +	return err;
+> @@ -5903,7 +5903,8 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
+>   	tbl = bp->sma_op->tbl[sma->mode];
+>   	for (i = 0; tbl[i].name; i++)
+>   		if (tbl[i].frequency == frequency)
+> -			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
+> +			return ptp_ocp_sma_store_val(bp, tbl[i].value,
+> +						     sma->mode, sma_nr + 1);
+>   	return -EINVAL;
 >   }
 >   
->   static void
-> @@ -5749,12 +5765,17 @@ ptp_ocp_detach_sysfs(struct ptp_ocp *bp)
->   static void
->   ptp_ocp_detach(struct ptp_ocp *bp)
->   {
-> +	unsigned long flags;
+> @@ -5921,6 +5922,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
 >   	int i;
 >   
->   	ptp_ocp_debugfs_remove_device(bp);
->   	ptp_ocp_detach_sysfs(bp);
->   	ptp_ocp_attr_group_del(bp);
->   	timer_delete_sync(&bp->watchdog);
-> +	/* Drain in-flight enables and prevent rearming before unregister. */
-> +	spin_lock_irqsave(&bp->lock, flags);
-> +	bp->ts_stopping = true;
-> +	spin_unlock_irqrestore(&bp->lock, flags);
->   	/* Disable interrupts on all timestampers */
->   	if (bp->ts0)
->   		ptp_ocp_ts_enable(bp->ts0, 0, false);
+>   	val = bp->sma_op->get(bp, sma_nr + 1);
+> +	val &= SMA_SELECT_MASK;
+>   	tbl = bp->sma_op->tbl[sma->mode];
+>   	for (i = 0; tbl[i].name; i++)
+>   		if (val == tbl[i].value) {
 
+Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
