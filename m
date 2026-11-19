@@ -1,59 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076275;
-	b=vkq/Id8QDifS8AJj7rS03dOAQ87PvoPseyIsxFmBWti+L8rXIeC8bo+7lDmAkmyTEf3M
-	 5I2D/DahEub+DKeeAR2Kh2X16kD+FmTZw6a9JvoXmJFWfTm7777IXD4SHIaybFqBVCve8
-	 7B3DiJw2MeS/x0tAhiaYB1gj/gPcOJhNrqdJsGe86GHl6qP7gVTNW0Mtp9SLgeNhCMDxp
-	 c5dSnCbifC+gxaL6/7bMpTDXWwiwuEJEOI4FjCHP2v5YF1E8TaOGFYc4s6BTPuiGbSgmV
-	 9V0wn9Lic573tatDUvy64vclb2yVVMAw5lEHZ4tbvZHzKEItC84pADwBMhjLhk0o5DQ==
+	t=1795076283;
+	b=R/t/lfJEAaB6uNkC0Zp3cCu4/4mu2gK4i75UWMDYN7buVGztpRLbxUwLYidIdwC5FMLN
+	 QzjR+PDc/IpxuHDVW1y0m0FHmA6T/ldnVdNRKmsOGsuWwAfoJnj1NTwHeeWwezofzXXrY
+	 558TMsg9qKiv4hcesgMY14sSc1+jOR0VfR6ZSau8E3hRpXBPpyq9YCMt+nZ8ee3XC9Pjq
+	 E6jp/xEIp+HQky2nblQIZgth3dt5PrecgIQ9eDBmjMtNHEB25PdDmYG5vQJT7Nh4Cgx5I
+	 AETy2XwzFY/LCt4tNOcq1yE+WmkPRlzYECw5eCd/Hy3GBKmEy2DsFzCYndCgGT7NL0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076275;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076283;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=rbfK52MJeIblNtZwp2z739bc4ZxBCibRqFdRrpzKRYwr9hFku3TtNXyAir9YwautCpuR
-	 kl+qxslw8qiKvgHAPANrIgqs9ph7cyhtkD7CVWtW9qKjpklv6jgp6MgqVBqHwd5yAV//Z
-	 uJg7l/QbF4OLjtSEOyxIEtd57rcSc1z7mlyrkpZII9jbXdCfEYIHgHLd3g8zr/0VslA4r
-	 glbDJJkqrDeOS9v/uGjOPJ3u2nUSJEFvFkJrUO9VRHHJmjbpX8DZy6BL3dareiaBeSrm7
-	 eitWCsmAApbXhmIwF8oIfPccpsUDzvXzUEg4X2YPz8S21CEeHhrpRtjmSsMpJ4oG0Tg==
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=n9n+kegAQN0TsGEc9H2pFuaIt0KGumaxYdN0d1Uf2LvSMxb3TFZK9IUA0aWdYyUAc308
+	 YeB7sL5m4HAHnm1sZHHtmQ/L4n4LJSQeYyf1rAnmhkFvHEssq17Y+CFrGO35tGq/xtM6M
+	 zJ/uyxOw4rRf1VgiBG3K/Cf8x3QSNPmAK48603kbU3/M6Y0BgauIJMiUuVFwu2wqrMMSF
+	 A5hatB7EHNnCxH/rSoH07OJvymv9lEGp8J1jD/o9f5yDR2OffbJ9AEPu1dlYCUdvQ+gKd
+	 TSJC7K87V0Z0cJmFV/FCiYlRPfEp4v3DWUTQxA1zSW6hI7qgGQCUcPHZv7L2thRc8Fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j00jD+2u;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ACN45uGg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F18FC606A320;
-	Thu, 19 Nov 2026 08:17:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AF1E606A339;
+	Thu, 19 Nov 2026 08:18:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j00jD+2u
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6A581F000C4;
-	Thu, 19 Nov 2026 08:17:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ACN45uGg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99D761F000C4;
+	Thu, 19 Nov 2026 08:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795076274;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	s=k20260515; t=1795076283;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=j00jD+2uZz+Wt76MZU20Q3rjoviZclCrpbVH1pctpf5IxsZy9ofVHqQfWyxufNcQY
-	 2W8L/o3t4GAHpdPCzi9tUJfTSElUteh85tChcZjmWz9YFGIFIqn+0nrmnfCxmN3h6E
-	 kyAsf3qhH0NMM1Sf0da8mhup0Dc5OD+Ktvf3gz/xjKMTxHCH/aO4RUBiJJTKOboY7V
-	 o8DMYGiJK8gErhadlk4057/LhjlYZfEK1qTJpS+SndvKHAVrkMuJhd36p7ufu7viwk
-	 TcaaKBYjUA1RBvA5ZAwYToogOKNpFWfoqleR48xo/fFjIFS1Ml1TREDjOX1094gmDe
-	 Y/wUO1ktRL+Gw==
+	b=ACN45uGgY28eXflINpGqrvL63giDLJqr5hIG69CEhEvjnEo+3E+KWI44bPyWXVedz
+	 Q5/sMq+Pj2eY1+8+r91vptKprdEdNjBkKtZhTfQ+lTPG/sMrou/C/vkC2Bg6dRcgxH
+	 EMfBwYlNHaUo/tnFwI/1i9lz6rcusmnWF5MRygJt/nfmwUcB3ihRidIl0+CkQOrPxc
+	 882kE/3dhFz/yBq2Kr6eTtb1oxDS4HiZIUUxILqOCPjiBgCWQMJwi1rA1/brPcQjqr
+	 +hnTM7BrqbzK93zF2ll82mKIxfR+fvzJPl6sNVFvx5BSid7HM7e4Nh2jibeb/zcODU
+	 uJ0b/qyHrF30g==
 From: netdev-bot+sinfo@kernel.org
 To: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: 
- Re: [PATCH] net: dsa: mt7530: disable the power rails on setup failure
-Date: Thu, 19 Nov 2026 08:17:53 +0000
-Message-ID: <179507627334.3291.8585396594383940483@kernel.org>
-In-Reply-To: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
-References: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+Cc: justin.chen@broadcom.com, florian.fainelli@broadcom.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, bcm-kernel-feedback-list@broadcom.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: bcmasp: avoid refcount drain on probe
+Date: Thu, 19 Nov 2026 08:18:02 +0000
+Message-ID: <179507628214.3291.12572685451727032013@kernel.org>
+In-Reply-To: <1795076102979-9-385853cc@mail.zgclab.edu.cn>
+References: <1795076102979-9-385853cc@mail.zgclab.edu.cn>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -79,6 +76,10 @@ commit messages seem to be missing some information:
  - Whether the issue was actually triggered, or is only theoretical
    (e.g. found by LLM and not proven at runtime). If it was triggered
    please include the symptoms, like the stack trace or kernel messages.
+
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
 Please do not repost the series just to address the above. Instead,
 reply to this email with the missing information, so that reviewers
