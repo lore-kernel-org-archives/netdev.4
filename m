@@ -1,89 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107256;
-	b=xjhgzE5apMqwXMnB8PhEobTppl0SFu6fFLCTiiZlWcd0IddRxFi6aGu0DlKoV2S11quq
-	 ZoZZtr/lESk4rzsmIktiO/u9Z5p9Vm8leGeKSZVCmXsjTynUCZkSw/HbkbW7P4lmCbbRL
-	 9UxQeCQG7i678ikurg2UM/mnBhz1hiYmWuRcfiKTpdyuEcYvXjvyHDEx6vRKE2Wmz3u0D
-	 UANu5U5YL0XRkSD9lM0u2XGc3FxPUAKveDxzIsi6Nn6PU8FTYv6iABv5tbpitvZvL+dvH
-	 vxSSw/+UB6g0g9DYYqIn8CjqHaX+sOVNufqNJxwz+RPUQ/USoHYGJLC3yUgFSmNVs5Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107256;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=I6ueF8ltV78eKvEUnHHfXi42A6xUIUTqkyV9CNwByEE=;
-	b=SiMPX9nDEzbvs1vujULCmP0i+F0kFjpj0jPeCtogsffVgyt+B4RWtml/W0pCTwGVx6IG
-	 4emmSDxv58wQKqW9U0xA/VOrUI6g2Y6Y5rFkj3u5U/dktYPxdraCHY0MAebZDbDXSmSsv
-	 AuI3W2Nr9Zs/oVVHRn4T3z2AIAz75zkfB/i+KE8CulNBBtqRrxbjRd6nJFE68QLggZmVp
-	 guS4twRrmjjX+VM5TIfzdtrS8CuEoaU+VRpBLOU0YgitWeU23ST5aNIc9T0Sw76oxf4AG
-	 qUS6PFqx3hIcdp0D8aAA3RNKs1e9Y3kDjvmmF/PVsmxXHBeQ+2DQUf3GHgZfj6Bw3BQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RWnenj52;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795107493;
+	b=lepz2dAhbcHsS2m3pL/3x6cQTDGdkY8etX1wDpNqW6syTP0Ihlv+zQMXmaopi6xXaO0L
+	 3gC+qdPeez3n6+UkyxMH5/tb7Woq6qIZimz7RM9xkyTy+PiK7it/KjHklbVpsCsyZZnmT
+	 rZsAWS1pO7OLNLZ7KbCyYN4WgdAjebVcIF0ar2oGEYVx/VNF4SvTfo0GN2SiK5d7il+0u
+	 KjukwJEOK7RT7NUYBKEYLMH1PDLmC/cmaxD+R5W9Ghw4rA3dI+anuONWhCyicD17YJVI9
+	 3Ie9Wsqu+NagyKPk2BiWtasTy/ILWrcU88MaWj9lJ+SW/vdFHhDXibkQgWnDEzleJrw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107493;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=FoUWRqb3U0YwvxrrBVvLf1xmPXm3v4Rc1dAy/8DCzfk=;
+	b=rcvqsBk5RFsCSZfVYTTiKqYFRNiHnTVyvGqW1F3FFobsVDWsN2EjGoPTNwJBwwvEp7sK
+	 OTkbErBj8hJh7a7j70EaHEkBkRJaa+ktW2uxRibMEswRznMqBwyH3KyV8+9R0irzYcsgG
+	 C9kc4osV/cnGQWrI71u9nfk0o59s6IJDj2A7i6fPK2+diX2Gi2+tvi25pzzUb0pPl/gxv
+	 VrsfubWVMabO1bOvPnxEJGITJb7L9vHNIT2Yak6oEVQQc6QNLJPD2CF2ya3XnFMZHCAIk
+	 9WVhvPPnJuqVZicLCy/OzDIOM9Y/vafvCq06A5QdJzyza/41Dy1hrFhegg0kd8AVHMw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=it5A1bmK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.48
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010048.outbound.protection.outlook.com [52.101.46.48])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6BDC60A2625
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:54:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6BDC60A2625
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C486E606A324;
+	Thu, 19 Nov 2026 16:58:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C486E606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RWnenj52
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795107256; x=1826643256;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=k+Ubnv5W8bAdkgha88wOu/A9VFJ8e5eqDpYAEgsMq6o=;
-  b=RWnenj52pJUnpopitGm6X4yuLGgevYzqw8r+eHQo9rYC4hEBI7+wztPB
-   c078NE1YjLuoieE48DIqXjUxhm7bJxwSCLgQGafMc2mam6d9jHNiqp5Zj
-   SHgWbMMr2BTWv3jjytcBd1/T/Z/wasRoBn+GXGG/Zyxn9c4fNN3+gmQLW
-   nDlPcdcjjbsApTsrUa3+/ItOquHIAJHLmfkm7BS6Fw3lEvtW1cY2e24ZJ
-   3yn2rT1TQJdwbCkYTkjZx76I/A/9Ge+4Oc8E7kGP1Fy4IWkAQg59RW+6z
-   nNenCj7SEVKT10z7BXZtPe1whiuPcAJLTm2bzjmcagDQl5A3X7zsTwsIC
-   w==;
-X-CSE-ConnectionGUID: d2QS/KsrS/CLM67Pwp2r/g==
-X-CSE-MsgGUID: qC72eKZDTbaN0o9k9RCcHA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4045475"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4045475"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 08:54:16 -0800
-X-CSE-ConnectionGUID: RZ5+qPi3QXuIKsOec9MFcQ==
-X-CSE-MsgGUID: f/gaLoIaQ6em9roKCwh3yA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10775004"
-Received: from boxer.igk.intel.com ([10.102.20.173])
-  by orviesa009.jf.intel.com with ESMTP; 19 Nov 2026 08:54:12 -0800
-From: Magnus Karlsson <magnus.karlsson@intel.com>
-To: netdev@vger.kernel.org,
-	magnus.karlsson@intel.com,
-	magnus.karlsson@gmail.com,
-	maciej.fijalkowski@intel.com,
-	sdf@fomichev.me,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	bjorn@kernel.org,
-	kerneljasonxing@gmail.com
-Cc: intel-wired-lan@lists.osuosl.org,
-	anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	jacob.e.keller@intel.com
-Subject: [PATCH net-next 5/5] selftests: net: add AF_XDP USO test
-Date: Thu, 19 Nov 2026 17:53:40 +0100
-Message-Id: <20261119165340.1071525-6-magnus.karlsson@intel.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20261119165340.1071525-1-magnus.karlsson@intel.com>
-References: <20261119165340.1071525-1-magnus.karlsson@intel.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=it5A1bmK
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jAymiXm65eQd40NGhpcElATeHwgNFX/Hh8wdowLBNTUF+Yr1VxZRJv5TeUGoBw8UvkZ38tGFITWrs4hYsgtX4b/Vj5xrIFIzAb7dCJS6bMCLVm2EyevMnzYTviaITeNtilutML4qlMMN99mMu9doMJKdZHFc7UbRARxEbkGygfI81AKQSJI4nghiv+ufqh1pnlVlHVwDirkoUTM96VOLSVqxqroqAAhcP/0cs4Cj9ijLK5pa+MEe/ziCJG61ciJ4NXlOXFrMYUox3H8halVO0WP4ShWRoS7suKWiSBXZUhHdCvoRTsjTuA2ZlpFQ7zoHqYY0CZAIfVFew/B6Lt8ULA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FoUWRqb3U0YwvxrrBVvLf1xmPXm3v4Rc1dAy/8DCzfk=;
+ b=V0oymdLKWNwZacbZ2njpo3Mm/j8qRLJ42TLMscZPr1zBTpzj4JOl2H1leQJKkbDPcuHILyKI3k31gFcARMyBKAYF0ke3kCBuZl8WdEym+9L1pvuK9tv25O7hVvngcQojI1aq6AKu+JxBZEOd+tdhePLiaFYLsMbfRxrDNQtY7XS19/Nt6uvG6wMVQbeRK+MaO3x43zc3HdytXhTFXt7EPoN2b6RXSttqKSY7LuoT+aDgcXqw51YFKE+Dgp+b39dezXd0/kmZfVbLFZ4ScJ8SDFmR7Hn19GOtEFo/s0lv97MMfP63/ZP+OkJuGPBIz0WAeWT7i89sjTrltxK9UnzwrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FoUWRqb3U0YwvxrrBVvLf1xmPXm3v4Rc1dAy/8DCzfk=;
+ b=it5A1bmKhepTIEJCNC/kJ6vFC4yM189W6unv5qhvw6ziT6MC9nHPAuMxLytmXj1lVs49Q3rCCoLk8+1Hs4s6bY5b2rTVk3QwsSxJ/QFmcff6CYq9JAT/wj9aG4LE/YZMy4aKfEE/CTcKOC17xYVdLBdM1kAGFaSGMUZBbldEPxhpV61igYqu8L+tYF+iXP1zrAzq5LPrUzyhYSx9c+r9dniQ/dEk8OGd0+yWawx3E26dkkk1aJb/nsPPGSoRHgV6+Dqcik5RjNlpoImsG0kI87RSd98JGyU5mcprJitWHBa0zjPv441uevSRu8tebmWOfZ+2BLZmzGOOcZV2T3tJBw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by CH8PR12MB9767.namprd12.prod.outlook.com (2603:10b6:610:275::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 16:58:08 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 16:58:07 +0000
+Date: Thu, 19 Nov 2026 18:57:58 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: leonard@lausen.nl, netdev@vger.kernel.org, dsahern@kernel.org,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, horms@kernel.org, pablo@netfilter.org,
+	fw@strlen.de, phil@nwl.cc, shuah@kernel.org, daniel@iogearbox.net,
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 2/3] ipv6: Honor suppress_prefixlength in
+ fib6_lookup()
+Message-ID: <20261119165758.GA2050378@shredder>
+References: <20261116150132.9594-3-leonard@lausen.nl>
+ <179506821413.3136.16876288075711504414@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179506821413.3136.16876288075711504414@kernel.org>
+X-ClientProxiedBy: TLZP290CA0001.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::14) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,1038 +102,231 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|CH8PR12MB9767:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84003902-8fe1-4faa-7b74-08df465e48cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|56012099006|261022105027099003|261021121427099003|261026121527099003|4143699003|11063799006|261026140227099003|10067099003|261022075727099003|261028144727099003|261102123227099003|22082099003|20052099010|18002099003|261009223027099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	imyHSdYKoauskLJsjBAaQfkrv6uDuir23+V85iG7FPIm2VO6/oW+TuV/7jOO7zKDldOu05hwgCsxlNV26notMQM02Kj33IfS/oAE78bWaTIWaAa5JIrc7igjgyphVAzpXrCQtS6QLOQqUbqw6gmwejKNpooX7bKmfX+fGx2JCcBSwhEaOkYClQvkcY0vln8jb+oxIgXbYBqsZUA70McuGaulRTrFYRAbYD7XdOVHzykfKXKWJmjIHI5yj8IcjlXD2C6Fwirs4E01cb5aRx2z/vVIXMVHVjN75I6QNmbDCf+HVWCHJYeulwRoLVn22YeTAOAf6FSW5bDo7+HwOYUiHwAe1M2wEMGTW2MGlgHqla059QU2altAv0JoyGfYKQP8Sjs24GmJObVraHPSL2Ukzhrw/EhVNVCSJ16wtKlSj5FRTwPVx2WnkzoF5A4UO7IuA2wUdepc58wG0Sxa5+gBvVg7cazj3eTzbIILzbA3hbJTL9+fNs7l6YF7zczZ3PhLKjqeKSlIXeLdBX68ipTLOlvqzTB8aRmNWE8gcQjQhmigHbGv3UEA2YcamWx8sC2Fnstbor006L7qFWzRej9tOUPrZrYIHYjvf7jUXzLofK6rsqjXl+By6xN8aLXGoF9/Wh9JcgvYy8OtbBPzWQgTi3S2bNZTJs36ip+CTFO8lH8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(56012099006)(261022105027099003)(261021121427099003)(261026121527099003)(4143699003)(11063799006)(261026140227099003)(10067099003)(261022075727099003)(261028144727099003)(261102123227099003)(22082099003)(20052099010)(18002099003)(261009223027099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?cWRIQnl6cStwK1RTK0pHK3NjTHNDRGpsUDhGZTc4V2ExOU1rQ0tFaU9Hektr?=
+ =?utf-8?B?akJ6YTduRFZLRm85cUJlRDNTUUVJd2pXNUt3c2x4UmoyVUhzRmkxVG9rRjg0?=
+ =?utf-8?B?NmVsLzR5ZnRVNTdhY1c4NklWcE5pc0wrS3VEMDRROTBNRTJKc25pckE3NHpY?=
+ =?utf-8?B?cWYxZTAwYUMwZUdnRGdneVFJMVBvdXVXN0xZM0ZmWElkbndiVklvZjYyOVB4?=
+ =?utf-8?B?a294Y21DOVhTY0NSVktZcFBTTm5oS1drRmFKbjdybFFsazlrbGEvcFE3ZC9S?=
+ =?utf-8?B?WlJEVCt1dXdteTk3WTcxd0JvSmxUR3ZPSUl1NVpPYkFRR0Y2REJETGRSQUx6?=
+ =?utf-8?B?WVFJTlAwOFFLai90akRLQ1hHWWZqWTYraWh4eEw1dXJxT0JabnI2RnZhRm5z?=
+ =?utf-8?B?K2M3cExKblJrcysxR1RSaTEzbnlDa0ZiMWxyV1gwdVMvWWZZUm55ZHBZK2VX?=
+ =?utf-8?B?LzdWdTNUbENrUHpsemZTN25sUFBnL0NjOEtHaExkYlgzYmI1SW53RHk1bUNH?=
+ =?utf-8?B?MldVUm1GTTRzUDBiU1JveDdmNjhNMVRPM1JKdUNBbUZuenFSdThJNmVNd2FU?=
+ =?utf-8?B?cUk1dEMrZ3VuZE92YzBMSW5RT1pkNTgwZER5aTh4c05LUjI3NzhzZ3dVU2Jp?=
+ =?utf-8?B?R2hJYmU5NXlZdXZVWDBxWE11cjRkVlBCNzRudHFtd29NeUhJQld5M3dBVE9B?=
+ =?utf-8?B?V0JnUHluZDhxMGhzaHVMRmZ5a2lhNWpGUFR2dXZEVk0wWGE0Sm1jTEpQZHp2?=
+ =?utf-8?B?TUZ3dkgvaHBNSU5iODFFcTZFL3l6L3hYWHlMd1N0RmZyWEF6RXRWQlJ2MDlo?=
+ =?utf-8?B?T2VKZEhuMjB0ZVh2OSs3VHFXRzExNmQrOXNLV0JDcFpzVFlZcUl0Qk1NRlBI?=
+ =?utf-8?B?WWVCUU10V3lxaVVJU1FPeS9wc2lqM1Jaa0tqVE5WdWtjVlkzMmtHNnJnR3FF?=
+ =?utf-8?B?TTZ1MldGbU1hMmxicU4zd1RCVUtVNmhJanJ6ZXM1QVQ3SEZaYTRMazZVWHFs?=
+ =?utf-8?B?QzcxSmZsWW9RUGkwOEpjaFMyQ0E1QjhpMklGV3RmMjdOQWVqMnd6S2I2cnFw?=
+ =?utf-8?B?QWhGUCszUTlaSW1YQ0ppUUFEb08xNFNsL2FzNXdaNUY5Mjc4a1lhWnc5dXhY?=
+ =?utf-8?B?VUtZUmhHVGVsZU9zclRFbjRiTmtzM1JuV00ydGo3MWVaQVlGYVZCTk5KZnh4?=
+ =?utf-8?B?WUhUczA4ZGZvYkpCRDBzaGJxYWZXT2Z0Uzlxc0ovemhUZ0hkZEhMMFJhbVAz?=
+ =?utf-8?B?Qm5UWlBYWHBhRU41c29rVjBvMDJENWpZOStnQ1UyUENzU2NEc1E3RnZIVDZC?=
+ =?utf-8?B?azJ1eG9BZG1rczBqZlVEbUFKWHIzVmJ0T0pjSCtTYVUxNklCLzVqYmI2aCsr?=
+ =?utf-8?B?WGFtOGNBRVA0Y1ovOWJPeHJWSENjamRxSEtFUHFTL09hR3M4RWxKOWFyc2x6?=
+ =?utf-8?B?ZytWdnAvcUNGRVhjSXEwMUZ2UTQ0NGdodHAzOTc5M2tOaElWYkZiNzZJRXhP?=
+ =?utf-8?B?QWhzYlFyOWd2K2gyZDZuYzRWRVpTa3F5OG1MallIMklVcFBFZWJjbG80bWN2?=
+ =?utf-8?B?N0xET0ZOSHA1bWpueUQrNjBjVXJucG5TS0M2MUw2QmsxVzZCL29uRWVSZHpx?=
+ =?utf-8?B?YzQ4aUlaL01DME02Rkc5Z2ZQaFlIS3JSTEVYMXRRaW5aL1hJeTBzMGZVcTJt?=
+ =?utf-8?B?T0JFZWhZS295SXFmWVRKMXpDRmtEd3R3YmxtMVhkcWRVcGtPTjNJTnlFQ1hP?=
+ =?utf-8?B?RjlwdjdNNDJsL1BOT3luUUJ5R2trT0kxVnpxaTlydlVVSlR4WlNiTlhhc0ht?=
+ =?utf-8?B?SUNmYVBhUWhHVXpxbUdteURKeUZreDlJU3F6czcwckdkK0xEb2E2eUY1YStW?=
+ =?utf-8?B?VVV1cis1MkJrajJrYlVaZXQrY2VZRk5yamphOXJ6YWExMkd4N04rNkU2ZmhW?=
+ =?utf-8?B?cDR3VUZ3dCtHWExhRjdzeDM5cm5WMGU5YzNscUJUd0RFZTFwenp2KzVHUEVq?=
+ =?utf-8?B?aW9pQVhzNTZGemRKV051b0VRaVVZUmQwY085SXlteFQ3NllEUit5VlZWQ0N3?=
+ =?utf-8?B?TDgzaCtuVHlqck1iK24yYVJGRDhCeHdvNjc4Mnl2bFhWT1ZwSkQ3NUlNSFZI?=
+ =?utf-8?B?bTg1QWRDMVZ5U1p4Qk1PQmJrRThObksrUnBjUGU1T3piWFYvbTdyNW9tWUd4?=
+ =?utf-8?B?RTRsemlzbTYycGt3aGNoUDYvd1VjNjhFYVFzakxMdnJYVnJuTWk1eDNnM2dU?=
+ =?utf-8?B?UStNdFFPaWpzMEtwM1lCcmlBSk5vR29CZERBVi9XeE83S3JQbDN3eXN0cmJh?=
+ =?utf-8?Q?cOsbMCDhF+EfV1MBHL?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84003902-8fe1-4faa-7b74-08df465e48cc
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:58:07.4977
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wQJo4hOoeeuKJr01QTKdV62+pR+ZDzjIjdJA7TOp5l9gHnJy3wvQwPl0dU4P8X1SwJx2SMhEHKioi8EDhXpxnA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9767
 
-Add xsk_uso, a functional test for AF_XDP UDP segmentation offload in
-copy and zero-copy mode. It sends USO requests from an AF_XDP socket
-and checks the datagrams received on a packet socket: the number of
-datagrams, the IP and UDP lengths, the checksums and the payload, for
-IPv4 and IPv6, and single and multi-buffer requests. It also checks
-that invalid requests are dropped and counted in tx_invalid_descs.
+On Thu, Nov 19, 2026 at 06:03:34AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The new RTF_REJECT exemption in fib6_rule_suppress() and the
+>   commit message's reason for it ("Do not suppress such routes so that…
+> - [Low] The commit message and Fixes: tag present this as a fix for the
+>   nftables regression from commit 1c32b24c234b, but the code change has…
+> 
+> --
+> 
+> ipv6: Honor suppress_prefixlength in fib6_lookup()
+> 
+> This patch makes fib6_rule_suppress() honour suppress_prefixlength when
+> the lookup goes through fib6_lookup(). That path uses
+> fib6_rule_action_alt(), which never populates res->rt6. The new code
+> compares the FIB entry prefix length against suppress_prefixlen, and it
+> does not suppress results that carry RTF_REJECT.
+> 
+> Link: https://github.com/firewalld/firewalld/issues/1600
+> 
+> > Fixes: 1c32b24c234b ("netfilter: nft_fib_ipv6: switch to fib6_lookup")
+> 
+> [Severity: Low]
+> 
+> This isn't a code bug, but should the changelog and Fixes: tag cover the
+> other fib6_lookup() callers too?
+> 
+> The new branch in fib6_rule_suppress() runs for every fib6_lookup() call
+> while custom IPv6 rules exist, not only for nft_fib6_lookup(). At least
+> two other callers change behaviour.
+> 
+> The first is bpf_ipv6_fib_lookup() in net/core/filter.c. This is the
+> bpf_fib_lookup() helper without BPF_FIB_LOOKUP_DIRECT:
+> 
+>     err = fib6_lookup(net, oif, &fl6, &res, strict);
+> 
+> The second is ip6_route_check_nh() in net/ipv6/route.c, which validates
+> the gateway when a route is added:
+> 
+>     err = fib6_lookup(net, cfg->fc_ifindex, &fl6, &res, flags);
+> 
+> With a WireGuard-style "ip -6 rule add table main suppress_prefixlength 0",
+> bpf_fib_lookup() now returns the VPN table route. Before this patch it
+> returned the main table default route.
+> 
+> For the BPF helper, the missing suppression is older than 1c32b24c234b.
+> The custom rules path of fib6_lookup() came from 138118ec96cb (2018). It
+> was converted to fib6_result in effda4dd97e878 (2019).
+> fib6_rule_action_alt() has never set res->rt6, so the old suppress code
+> always returned false on this path.
+> 
+> The v3 notes say this message and Fixes tag were suggested in review.
+> Even so, stable backports that follow the 1c32b24c234b tag won't reach
+> older kernels where BPF users are affected.
+> 
+> Would it make sense to mention the BPF and route-add callers in the
+> changelog? Should there also be a Fixes: tag for the older commit?
+> 
+> > diff --git a/net/ipv6/fib6_rules.c b/net/ipv6/fib6_rules.c
+> > index 5e2a79a81bf35..2f43e4e48e0d0 100644
+> > --- a/net/ipv6/fib6_rules.c
+> > +++ b/net/ipv6/fib6_rules.c
+> > @@ -288,6 +288,12 @@ INDIRECT_CALLABLE_SCOPE bool fib6_rule_suppress(struct fib_rule *rule,
+> >  	struct fib6_info *from;
+> >  	int plen;
+> >  
+> > +	if (arg->lookup_ptr == fib6_table_lookup) {
+> > +		/* fib6_table_lookup() returns 0 for reject routes. */
+> > +		return !(res->fib6_flags & RTF_REJECT) &&
+> > +		       res->f6i->fib6_dst.plen <= rule->suppress_prefixlen;
+> > +	}
+> 
+> [Severity: Medium]
+> 
+> Is the RTF_REJECT exemption correct for RTN_THROW routes? The commit
+> message says:
+> 
+>   Do not suppress such routes so that they continue to terminate the
+>   lookup, as with ip6_route_output() and IPv4.
+> 
+> rtm_to_fib6_config() also sets RTF_REJECT on throw routes:
+> 
+> 	if (rtm->rtm_type == RTN_UNREACHABLE ||
+> 	    rtm->rtm_type == RTN_BLACKHOLE ||
+> 	    rtm->rtm_type == RTN_PROHIBIT ||
+> 	    rtm->rtm_type == RTN_THROW)
+> 		cfg->fc_flags |= RTF_REJECT;
+> 
+> A throw route doesn't end the lookup in ip6_route_output(). This is what
+> __fib6_rule_action() does:
+> 
+> 		err = rt->dst.error;
+> 		if (err != -EAGAIN)
+> 			goto out;
+> 
+> fib6_prop[RTN_THROW] is -EAGAIN, so fib_rules_lookup() goes on to the
+> next rule. IPv4 does the same through fib_props[RTN_THROW].error.
+> 
+> In the fib6_lookup() path, fib6_rule_action_alt() only checks for
+> fib6_null_entry:
+> 
+> 	err = fib6_table_lookup(net, table, *oif, flp6, res, flags);
+> 	if (!err && res->f6i != net->ipv6.fib6_null_entry)
+> 		err = fib6_rule_saddr(net, rule, flags, flp6,
+> 				      res->nh->fib_nh_dev);
+> 	else
+> 		err = -EAGAIN;
+> 
+> So a throw route gives err == 0. fib6_rule_suppress() then returns false
+> because of RTF_REJECT, and the rule walk stops with the throw route as
+> the result.
+> 
+> The callers then see:
+> 
+>   __nft_fib6_eval_type() returns RTN_THROW
+>   nft_fib6_eval() returns without setting an oif
+>   bpf_ipv6_fib_lookup() returns BPF_FIB_LKUP_RET_NOT_FWDED
+>   ip6_route_check_nh() returns -EHOSTUNREACH
+> 
+> In the same case, ip6_route_output() would use a later rule. An nft fib
+> rpfilter rule such as firewalld's "fib saddr . mark . iif oif missing
+> drop" can then drop legitimate packets.
+> 
+> The lookup already stopped at throw routes before this patch, because the
+> old suppress code always returned false here. For a throw route with
+> plen <= suppress_prefixlen, though, ip6_route_output() moves on to the
+> next rule. The new branch makes fib6_lookup() stop instead.
+> 
+> Would it be better for fib6_rule_action_alt() to return -EAGAIN when
+> res->fib6_type == RTN_THROW, as __fib6_rule_action() does?
 
-The test needs root and physical NICs with an MTU of at least 1448,
-either two connected ports (-i TX_IFACE -r RX_IFACE) or one in NIC
-loopback (-l -i IFACE). Virtual devices such as veth pass the packet on
-without segmenting it. Zero copy (-z) also needs a native XDP program on
-the interface. Standalone checksum offload cases run only with -C, as
-they test the existing checksum offload rather than USO. As it needs
-real hardware, it is built but not run by default, like xdp_hw_metadata.
-It uses the AF_XDP library in net/lib/xsk.
+The patch under review doesn't introduce a regression for throw routes
+(which I suspect are rarely used). fib6_rule_action_alt() never handled
+them correctly and always returned 0 instead of -EAGAIN, unlike its
+__fib6_rule_action() counterpart.
 
-Missing prerequisites are reported as skips. In zero-copy mode, the
-device must report xsk-zerocopy and tx-uso-zc, and checksum-only cases
-need tx-checksum. In both modes, cases that produce more than one
-datagram need tx-udp-segmentation, including the invalid ones, which
-would otherwise be dropped for lack of the offload whatever their
-headers. Cases that need more descriptors than xdp-zc-max-segs are
-skipped, and so are binds that the device refuses with EOPNOTSUPP.
-Receive-side UDP GRO (rx-udp-gro-forwarding, rx-gro-list) must be off,
-as it would merge the segments again before the packet socket sees them.
-USO with launch time must succeed in copy mode and be dropped in
-zero-copy mode.
+I can follow up with [1]. Regardless, I don't think we need to hold up
+v4 because of this, as the patch is fixing an actual regression.
 
-Signed-off-by: Magnus Karlsson <magnus.karlsson@intel.com>
----
- tools/testing/selftests/net/.gitignore |   1 +
- tools/testing/selftests/net/Makefile   |  10 +-
- tools/testing/selftests/net/xsk_uso.c  | 954 +++++++++++++++++++++++++
- 3 files changed, 964 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/net/xsk_uso.c
-
-diff --git a/tools/testing/selftests/net/.gitignore b/tools/testing/selftests/net/.gitignore
-index 83d68e2dd4ac..e40a97618cdc 100644
---- a/tools/testing/selftests/net/.gitignore
-+++ b/tools/testing/selftests/net/.gitignore
-@@ -64,3 +64,4 @@ udpgso_bench_rx
- udpgso_bench_tx
- xdp_hw_metadata
- xdp_hw_metadata.skel.h
-+xsk_uso
-diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-index c80dabbcc907..afe839db2a45 100644
---- a/tools/testing/selftests/net/Makefile
-+++ b/tools/testing/selftests/net/Makefile
-@@ -219,7 +219,8 @@ TEST_FILES := \
- # end of TEST_FILES
+[1]
+diff --git a/net/ipv6/fib6_rules.c b/net/ipv6/fib6_rules.c
+index 0ffd7b47a046..adfaf2b8884c 100644
+--- a/net/ipv6/fib6_rules.c
++++ b/net/ipv6/fib6_rules.c
+@@ -191,7 +191,8 @@ static int fib6_rule_action_alt(struct fib_rule *rule, struct flowi *flp,
  
- # YNL files, must be before "include ..lib.mk"
--YNL_GEN_FILES := busy_poller
-+# xsk_uso needs root and a NIC with loopback or a connected peer; see the source.
-+YNL_GEN_FILES := busy_poller xsk_uso
- YNL_GEN_PROGS := \
- 	netlink-dumps \
- 	tun \
-@@ -273,3 +274,10 @@ $(OUTPUT)/xdp_hw_metadata: xdp_hw_metadata.c xdp_metadata.h lib/xsk/xsk.c \
- 	$(Q)$(CC) -I$(top_srcdir)/tools/include $(CFLAGS) -I$(OUTPUT) \
- 		-I$(SCRATCH_DIR)/include \
- 		$(filter %.c,$^) $(BPFOBJ) $(LDLIBS) -lelf -lz -o $@
-+
-+$(OUTPUT)/xsk_uso: xsk_uso.c lib/xsk/xsk.c lib/xsk/xsk.h $(BPFOBJ) \
-+		   $(OUTPUT)/libynl.a
-+	$(call msg,CC,,$@)
-+	$(Q)$(CC) -I$(top_srcdir)/tools/include $(CFLAGS) \
-+		-I$(SCRATCH_DIR)/include \
-+		$(filter %.c,$^) $(BPFOBJ) $(OUTPUT)/libynl.a $(LDLIBS) -lelf -lz -o $@
-diff --git a/tools/testing/selftests/net/xsk_uso.c b/tools/testing/selftests/net/xsk_uso.c
-new file mode 100644
-index 000000000000..2e3228e2b2f8
---- /dev/null
-+++ b/tools/testing/selftests/net/xsk_uso.c
-@@ -0,0 +1,954 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+/* AF_XDP UDP segmentation offload (USO) test.
-+ *
-+ * Sends USO requests from an AF_XDP socket in copy or zero-copy mode and
-+ * checks the datagrams received on a packet socket: their number, IP and
-+ * UDP lengths, checksums and payload, for IPv4 and IPv6, and single and
-+ * multi-buffer requests. Invalid requests must be dropped and counted in
-+ * tx_invalid_descs.
-+ *
-+ * Needs root and physical NICs with an MTU of at least 1448, either two
-+ * connected ports (-i TX_IFACE -r RX_IFACE) or one in NIC loopback
-+ * (-l -i IFACE). Virtual devices such as veth pass the packet on without
-+ * segmenting it, so they are skipped. An MTU too large for eight 4K buffers
-+ * is also a skip. Zero-copy mode (-z) also needs a native XDP program on the
-+ * interface and a driver reporting tx-uso-zc. Requests that produce more than one datagram
-+ * need tx-udp-segmentation. Standalone checksum offload cases run only with
-+ * -C, and in zero-copy mode only on drivers reporting tx-checksum. Missing
-+ * prerequisites are reported as skips.
-+ */
-+
-+#define _GNU_SOURCE
-+#include <arpa/inet.h>
-+#include <errno.h>
-+#include <linux/ethtool.h>
-+#include <linux/if_ether.h>
-+#include <linux/if_link.h>
-+#include <linux/if_packet.h>
-+#include <linux/if_xdp.h>
-+#include <linux/ipv6.h>
-+#include <linux/netdev.h>
-+#include <linux/sockios.h>
-+#include <linux/udp.h>
-+#include <net/if.h>
-+#include <netinet/ip.h>
-+#include <poll.h>
-+#include <stdbool.h>
-+#include <assert.h>
-+#include <stddef.h>
-+#include <stdint.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
-+#include <sys/socket.h>
-+#include <time.h>
-+#include <unistd.h>
-+#include <ynl.h>
-+
-+#include "kselftest.h"
-+#include "lib/xsk/xsk.h"
-+#include "netdev-user.h"
-+
-+#define RING_SIZE 1024
-+#define NUM_FRAMES 1024
-+#define FRAME_SIZE 4096
-+#define META_LEN sizeof(struct xsk_tx_metadata)
-+/* Each segment then fills an IPv4 or IPv6 packet of at most 1448 bytes, the
-+ * smallest MTU that the test accepts.
-+ */
-+#define GSO_SIZE 1400
-+#define MIN_MTU (sizeof(struct ipv6hdr) + sizeof(struct udphdr) + GSO_SIZE)
-+/* Most buffers a test packet uses. In zero-copy mode, cases that need more
-+ * descriptors than the driver's xdp-zc-max-segs are skipped.
-+ */
-+#define MAX_BUFFERS 8
-+#define TEST_PORT 49732
-+#define TIMEOUT_MS 2000
-+
-+static_assert(sizeof(struct xsk_tx_metadata) == 24, "metadata size");
-+static_assert(offsetof(struct xsk_tx_metadata, request.gso_size) == 12,
-+	      "segment size offset");
-+static_assert(offsetof(struct xsk_tx_metadata, request.network_offset) == 14,
-+	      "network header offset");
-+static_assert(offsetof(struct xsk_tx_metadata, request.launch_time) == 16,
-+	      "launch time offset");
-+static_assert(offsetof(struct xsk_tx_metadata, completion.tx_timestamp) == 8,
-+	      "timestamp offset");
-+
-+enum bad_request {
-+	VALID, ZERO_SIZE, FRAGS_SIZE, NO_CHECKSUM, BAD_CSUM_OFFSET,
-+	BAD_NETWORK_OFFSET, BAD_UDP_LENGTH, FRAGMENT, BAD_PROTOCOL,
-+	EXT_HEADER, LARGE_SEGMENT, SHORT_HEADER, TIMESTAMP, LAUNCH_TIME,
-+	SW_CHECKSUM, UNKNOWN_FLAG, BAD_IP_LENGTH, BAD_IP_VERSION, BAD_IHL,
-+	BAD_TRANSPORT_OFFSET, TOO_MANY_SEGMENTS,
-+};
-+
-+static const struct test_case {
-+	const char *name;
-+	bool ipv6;
-+	unsigned int payload;
-+	unsigned int first_len;
-+	enum bad_request bad;
-+	bool checksum_only;
-+} cases[] = {
-+	{ "IPv4 USO", false, 4000, 0, VALID, false },
-+	{ "IPv6 USO", true, 4000, 0, VALID, false },
-+	{ "IPv4 multi-buffer USO", false, 6000, 2048, VALID, false },
-+	{ "IPv6 multi-buffer USO", true, 6000, 2048, VALID, false },
-+	{ "single output datagram", false, GSO_SIZE, 0, VALID, false },
-+	{ "empty IPv4 datagram", false, 0, 0, VALID, false },
-+	{ "empty IPv6 datagram", true, 0, 0, VALID, false },
-+	{ "checksum-only compatibility", false, 1000, 0, VALID, true },
-+	{ "IPv6 checksum-only", true, 1000, 0, VALID, true },
-+	{ "IPv4 multi-buffer checksum-only", false, 1400, 512, VALID, true },
-+	{ "IPv6 multi-buffer checksum-only", true, 1400, 512, VALID, true },
-+	{ "empty IPv4 checksum-only", false, 0, 0, VALID, true },
-+	{ "empty IPv6 checksum-only", true, 0, 0, VALID, true },
-+	{ "zero segment size", false, 4000, 0, ZERO_SIZE, false },
-+	{ "GSO_BY_FRAGS segment size", false, 4000, 0, FRAGS_SIZE, false },
-+	{ "missing checksum flag", false, 6000, 2048, NO_CHECKSUM, false },
-+	{ "invalid checksum offset", false, 4000, 0, BAD_CSUM_OFFSET, false },
-+	{ "invalid IP offset", false, 4000, 0, BAD_NETWORK_OFFSET, false },
-+	{ "invalid UDP length", false, 6000, 2048, BAD_UDP_LENGTH, false },
-+	{ "fragmented IPv4", false, 4000, 0, FRAGMENT, false },
-+	{ "non-UDP protocol", false, 4000, 0, BAD_PROTOCOL, false },
-+	{ "IPv6 extension header", true, 4000, 0, EXT_HEADER, false },
-+	{ "segment exceeds MTU", false, 0, 0, LARGE_SEGMENT, false },
-+	{ "headers split across buffers", true, 4000, 0, SHORT_HEADER, false },
-+	{ "USO with timestamp", false, 4000, 0, TIMESTAMP, false },
-+	{ "USO with launch time", false, 4000, 0, LAUNCH_TIME, false },
-+	{ "IPv6 USO with launch time", true, 4000, 0, LAUNCH_TIME, false },
-+	{ "multi-buffer USO with launch time", false, 6000, 2048, LAUNCH_TIME, false },
-+	{ "USO with software checksum", false, 4000, 0, SW_CHECKSUM, false },
-+	{ "unknown metadata flag", false, 4000, 0, UNKNOWN_FLAG, false },
-+	{ "invalid IPv4 total length", false, 4000, 0, BAD_IP_LENGTH, false },
-+	{ "invalid IPv6 payload length", true, 4000, 0, BAD_IP_LENGTH, false },
-+	{ "invalid IPv4 version", false, 4000, 0, BAD_IP_VERSION, false },
-+	{ "invalid IPv6 version", true, 4000, 0, BAD_IP_VERSION, false },
-+	{ "invalid IPv4 header length", false, 4000, 0, BAD_IHL, false },
-+	{ "UDP offset mismatch", false, 4000, 0, BAD_TRANSPORT_OFFSET, false },
-+	{ "too many segments", false, 4000, 0, TOO_MANY_SEGMENTS, false },
-+};
-+
-+struct xsk {
-+	int fd;
-+	void *umem;
-+	struct xsk_umem *umem_handle;
-+	struct xsk_socket *socket;
-+	struct xsk_ring_prod fill;
-+	struct xsk_ring_prod tx;
-+	struct xsk_ring_cons cq;
-+};
-+
-+static unsigned char tx_mac[ETH_ALEN], rx_mac[ETH_ALEN];
-+static unsigned char tx_packet[MAX_BUFFERS * FRAME_SIZE];
-+static unsigned int mtu;
-+static bool zero_copy;
-+static bool checksum_tests;
-+
-+static uint64_t now_ms(void)
-+{
-+	struct timespec ts;
-+
-+	if (clock_gettime(CLOCK_MONOTONIC, &ts))
-+		ksft_exit_fail_msg("clock_gettime: %s\n", strerror(errno));
-+	return ts.tv_sec * 1000ULL + ts.tv_nsec / 1000000;
-+}
-+
-+static uint32_t sum_bytes(const void *data, unsigned int len)
-+{
-+	const unsigned char *p = data;
-+	uint32_t sum = 0;
-+
-+	while (len > 1) {
-+		sum += p[0] * 256 + p[1];
-+		p += 2;
-+		len -= 2;
-+	}
-+	if (len)
-+		sum += p[0] * 256;
-+	return sum;
-+}
-+
-+static uint16_t fold(uint32_t sum)
-+{
-+	while (sum >> 16)
-+		sum = (sum & 0xffff) + (sum >> 16);
-+	return sum;
-+}
-+
-+static uint32_t pseudo_sum(const void *ip, bool ipv6, unsigned int udp_len)
-+{
-+	const struct iphdr *h = ip;
-+
-+	if (ipv6) {
-+		const struct ipv6hdr *h6 = ip;
-+
-+		return sum_bytes(&h6->saddr, 32) + IPPROTO_UDP + udp_len;
-+	}
-+	return sum_bytes(&h->saddr, 8) + IPPROTO_UDP + udp_len;
-+}
-+
-+static void get_mac(const char *name, unsigned char *mac)
-+{
-+	struct ifreq ifr = {};
-+	int fd = socket(AF_INET, SOCK_DGRAM, 0);
-+
-+	if (fd < 0)
-+		ksft_exit_fail_msg("socket: %s\n", strerror(errno));
-+	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-+	if (ioctl(fd, SIOCGIFHWADDR, &ifr))
-+		ksft_exit_fail_msg("MAC address for %s: %s\n", name, strerror(errno));
-+	memcpy(mac, ifr.ifr_hwaddr.sa_data, ETH_ALEN);
-+	close(fd);
-+}
-+
-+static unsigned int get_mtu(const char *name)
-+{
-+	struct ifreq ifr = {};
-+	int fd = socket(AF_INET, SOCK_DGRAM, 0);
-+
-+	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-+	if (fd < 0 || ioctl(fd, SIOCGIFMTU, &ifr))
-+		ksft_exit_fail_msg("MTU of %s: %s\n", name, strerror(errno));
-+	close(fd);
-+	return ifr.ifr_mtu;
-+}
-+
-+/* Virtual devices have no backing device, and pass GSO packets on whole. */
-+static bool is_physical(const char *name)
-+{
-+	char path[64];
-+
-+	snprintf(path, sizeof(path), "/sys/class/net/%s/device", name);
-+	return !access(path, F_OK);
-+}
-+
-+static int ethtool_ioctl(const char *name, void *cmd)
-+{
-+	struct ifreq ifr = { .ifr_data = cmd };
-+	int fd = socket(AF_INET, SOCK_DGRAM, 0), err;
-+
-+	if (fd < 0)
-+		return -1;
-+	snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-+	err = ioctl(fd, SIOCETHTOOL, &ifr);
-+	close(fd);
-+	return err;
-+}
-+
-+/* Returns whether the netdev feature called @feature is active on @name. */
-+static bool feature_active(const char *name, const char *feature)
-+{
-+	struct ethtool_gfeatures *features = NULL;
-+	struct ethtool_gstrings *strings = NULL;
-+	struct ethtool_sset_info *sset;
-+	unsigned int count, blocks, i;
-+	bool active = false;
-+
-+	sset = calloc(1, sizeof(*sset) + sizeof(sset->data[0]));
-+	if (!sset)
-+		ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
-+	sset->cmd = ETHTOOL_GSSET_INFO;
-+	sset->sset_mask = 1ULL << ETH_SS_FEATURES;
-+	if (ethtool_ioctl(name, sset))
-+		ksft_exit_fail_msg("ETHTOOL_GSSET_INFO: %s\n", strerror(errno));
-+	if (!sset->sset_mask)
-+		ksft_exit_fail_msg("%s reports no feature strings\n", name);
-+	count = sset->data[0];
-+	blocks = (count + 31) / 32;
-+	strings = calloc(1, sizeof(*strings) + count * ETH_GSTRING_LEN);
-+	features = calloc(1, sizeof(*features) +
-+			  blocks * sizeof(features->features[0]));
-+	if (!strings || !features)
-+		ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
-+	strings->cmd = ETHTOOL_GSTRINGS;
-+	strings->string_set = ETH_SS_FEATURES;
-+	strings->len = count;
-+	features->cmd = ETHTOOL_GFEATURES;
-+	features->size = blocks;
-+	if (ethtool_ioctl(name, strings) || ethtool_ioctl(name, features))
-+		ksft_exit_fail_msg("ethtool features: %s\n", strerror(errno));
-+	for (i = 0; i < count; i++)
-+		if (!strncmp((char *)strings->data + i * ETH_GSTRING_LEN, feature,
-+			     ETH_GSTRING_LEN)) {
-+			active = features->features[i / 32].active & (1U << (i % 32));
-+			break;
-+		}
-+	free(features);
-+	free(strings);
-+	free(sset);
-+	return active;
-+}
-+
-+static void get_xdp_features(unsigned int ifindex, uint64_t *xdp, uint64_t *xsk,
-+			     unsigned int *zc_max_segs)
-+{
-+	struct netdev_dev_get_req *req;
-+	struct netdev_dev_get_rsp *rsp;
-+	struct ynl_error yerr;
-+	struct ynl_sock *ys;
-+
-+	ys = ynl_sock_create(&ynl_netdev_family, &yerr);
-+	if (!ys)
-+		ksft_exit_fail_msg("YNL: %s\n", yerr.msg);
-+	req = netdev_dev_get_req_alloc();
-+	if (!req)
-+		ksft_exit_fail_msg("netdev_dev_get_req_alloc failed\n");
-+	netdev_dev_get_req_set_ifindex(req, ifindex);
-+	rsp = netdev_dev_get(ys, req);
-+	netdev_dev_get_req_free(req);
-+	if (!rsp)
-+		ksft_exit_fail_msg("netdev dev-get: %s\n", ys->err.msg);
-+	*xdp = rsp->_present.xdp_features ? rsp->xdp_features : 0;
-+	*xsk = rsp->_present.xsk_features ? rsp->xsk_features : 0;
-+	*zc_max_segs = rsp->_present.xdp_zc_max_segs ? rsp->xdp_zc_max_segs : 1;
-+	netdev_dev_get_rsp_free(rsp);
-+	ynl_sock_destroy(ys);
-+}
-+
-+/* Returns 0, or a negative error if the device refuses the bind. */
-+static int open_xsk(struct xsk *xsk, unsigned int ifindex, bool sw_csum)
-+{
-+	struct xsk_socket_config config = {
-+		.tx_size = RING_SIZE,
-+		.bind_flags = (zero_copy ? XDP_ZEROCOPY : XDP_COPY) | XDP_USE_SG,
-+	};
-+	struct xsk_umem_config umem_config = {
-+		.fill_size = RING_SIZE,
-+		.comp_size = RING_SIZE,
-+		.frame_size = FRAME_SIZE,
-+		.flags = XDP_UMEM_TX_METADATA_LEN,
-+		.tx_metadata_len = META_LEN,
-+	};
-+	uint64_t deadline;
-+	int err;
-+
-+	memset(xsk, 0, sizeof(*xsk));
-+	xsk->umem = mmap(NULL, NUM_FRAMES * FRAME_SIZE, PROT_READ | PROT_WRITE,
-+			 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (xsk->umem == MAP_FAILED)
-+		ksft_exit_fail_msg("mmap UMEM: %s\n", strerror(errno));
-+	if (sw_csum)
-+		umem_config.flags |= XDP_UMEM_TX_SW_CSUM;
-+	err = xsk_umem__create(&xsk->umem_handle, xsk->umem, NUM_FRAMES * FRAME_SIZE,
-+			       &xsk->fill, &xsk->cq, &umem_config);
-+	if (err)
-+		ksft_exit_fail_msg("UMEM creation: %s\n", strerror(-err));
-+	/* A previous socket on the queue may still be going away. */
-+	deadline = now_ms() + TIMEOUT_MS;
-+	while ((err = xsk_socket__create(&xsk->socket, ifindex, 0,
-+					 xsk->umem_handle, NULL, &xsk->tx,
-+					 &config))) {
-+		if (err != -EBUSY || now_ms() >= deadline) {
-+			xsk_umem__delete(xsk->umem_handle);
-+			munmap(xsk->umem, NUM_FRAMES * FRAME_SIZE);
-+			return err;
-+		}
-+		usleep(10000);
-+	}
-+	xsk->fd = xsk_socket__fd(xsk->socket);
-+	return 0;
-+}
-+
-+static void close_xsk(struct xsk *xsk)
-+{
-+	int err;
-+
-+	xsk_socket__delete(xsk->socket);
-+	err = xsk_umem__delete(xsk->umem_handle);
-+	if (err)
-+		ksft_exit_fail_msg("UMEM deletion: %s\n", strerror(-err));
-+	munmap(xsk->umem, NUM_FRAMES * FRAME_SIZE);
-+}
-+
-+/* An IPv4 segment size one byte larger than the MTU allows. */
-+static unsigned int large_gso_size(void)
-+{
-+	return mtu - sizeof(struct iphdr) - sizeof(struct udphdr) + 1;
-+}
-+
-+static unsigned int case_payload(const struct test_case *t)
-+{
-+	/* Two segments, each too large for the MTU. */
-+	return t->bad == LARGE_SEGMENT ? 2 * large_gso_size() : t->payload;
-+}
-+
-+static unsigned int
-+make_packet(unsigned char *packet, const struct test_case *t, unsigned int id,
-+	    struct xsk_tx_metadata *meta)
-+{
-+	struct ethhdr *eth = (void *)packet;
-+	unsigned int ip_len = t->ipv6 ? sizeof(struct ipv6hdr) : sizeof(struct iphdr);
-+	unsigned int start = sizeof(*eth) + ip_len;
-+	unsigned int udp_len = sizeof(struct udphdr) + case_payload(t);
-+	struct udphdr *uh = (void *)(packet + start);
-+	void *ip = packet + sizeof(*eth);
-+	unsigned int i;
-+
-+	memset(packet, 0, start + udp_len);
-+	memcpy(eth->h_source, tx_mac, ETH_ALEN);
-+	memcpy(eth->h_dest, rx_mac, ETH_ALEN);
-+	eth->h_proto = htons(t->ipv6 ? ETH_P_IPV6 : ETH_P_IP);
-+	if (t->ipv6) {
-+		struct ipv6hdr *h = ip;
-+
-+		h->version = 6;
-+		h->nexthdr = IPPROTO_UDP;
-+		h->hop_limit = 64;
-+		h->payload_len = htons(udp_len);
-+		inet_pton(AF_INET6, "2001:db8::1", &h->saddr);
-+		inet_pton(AF_INET6, "2001:db8::2", &h->daddr);
-+	} else {
-+		struct iphdr *h = ip;
-+
-+		h->version = 4;
-+		h->ihl = 5;
-+		h->ttl = 64;
-+		h->protocol = IPPROTO_UDP;
-+		h->tot_len = htons(ip_len + udp_len);
-+		h->frag_off = htons(IP_DF);
-+		inet_pton(AF_INET, "198.18.0.1", &h->saddr);
-+		inet_pton(AF_INET, "198.18.0.2", &h->daddr);
-+		h->check = htons((uint16_t)~fold(sum_bytes(h, ip_len)));
-+	}
-+	uh->source = htons(TEST_PORT);
-+	uh->dest = htons(TEST_PORT);
-+	uh->len = htons(udp_len);
-+	uh->check = htons(fold(pseudo_sum(ip, t->ipv6, udp_len)));
-+	for (i = 0; i < udp_len - sizeof(*uh); i++)
-+		packet[start + sizeof(*uh) + i] = (i + id * 13) % 251;
-+
-+	memset(meta, 0, sizeof(*meta));
-+	meta->flags = XDP_TXMD_FLAGS_USO | XDP_TXMD_FLAGS_CHECKSUM;
-+	meta->request.csum_start = start;
-+	meta->request.csum_offset = offsetof(struct udphdr, check);
-+	meta->request.gso_size = GSO_SIZE;
-+	meta->request.network_offset = sizeof(*eth);
-+	if (t->checksum_only)
-+		meta->flags &= ~XDP_TXMD_FLAGS_USO;
-+	switch (t->bad) {
-+	case ZERO_SIZE:
-+		meta->request.gso_size = 0;
-+		break;
-+	case FRAGS_SIZE:
-+		meta->request.gso_size = UINT16_MAX;
-+		break;
-+	case NO_CHECKSUM:
-+		meta->flags &= ~XDP_TXMD_FLAGS_CHECKSUM;
-+		break;
-+	case BAD_CSUM_OFFSET:
-+		meta->request.csum_offset = 0;
-+		break;
-+	case BAD_NETWORK_OFFSET:
-+		meta->request.network_offset++;
-+		break;
-+	case BAD_UDP_LENGTH:
-+		uh->len = htons(udp_len - 1);
-+		break;
-+	case FRAGMENT:
-+		((struct iphdr *)ip)->frag_off = htons(IP_MF);
-+		break;
-+	case BAD_PROTOCOL:
-+		((struct iphdr *)ip)->protocol = IPPROTO_TCP;
-+		break;
-+	case EXT_HEADER:
-+		((struct ipv6hdr *)ip)->nexthdr = IPPROTO_DSTOPTS;
-+		break;
-+	case LARGE_SEGMENT:
-+		meta->request.gso_size = large_gso_size();
-+		break;
-+	case TIMESTAMP:
-+		meta->flags |= XDP_TXMD_FLAGS_TIMESTAMP;
-+		break;
-+	case LAUNCH_TIME:
-+		meta->flags |= XDP_TXMD_FLAGS_LAUNCH_TIME;
-+		break;
-+	case UNKNOWN_FLAG:
-+		meta->flags |= 1ULL << 63;
-+		break;
-+	case BAD_IP_LENGTH:
-+		if (t->ipv6)
-+			((struct ipv6hdr *)ip)->payload_len = htons(udp_len - 1);
-+		else
-+			((struct iphdr *)ip)->tot_len = htons(ip_len + udp_len - 1);
-+		break;
-+	case BAD_IP_VERSION:
-+		if (t->ipv6)
-+			((struct ipv6hdr *)ip)->version = 4;
-+		else
-+			((struct iphdr *)ip)->version = 6;
-+		break;
-+	case BAD_IHL:
-+		((struct iphdr *)ip)->ihl = 4;
-+		break;
-+	case BAD_TRANSPORT_OFFSET:
-+		meta->request.csum_start += 4;
-+		break;
-+	case TOO_MANY_SEGMENTS:
-+		meta->request.gso_size = 1;
-+		break;
-+	default:
-+		break;
-+	}
-+	return start + udp_len;
-+}
-+
-+/* EAGAIN means no Tx progress until completions free resources, so return
-+ * to the caller to reap them instead of sleeping.
-+ */
-+static bool kick_tx(struct xsk *xsk)
-+{
-+	if (sendto(xsk->fd, NULL, 0, MSG_DONTWAIT, NULL, 0) < 0 && errno != EAGAIN) {
-+		ksft_print_msg("sendto: %s\n", strerror(errno));
-+		return false;
-+	}
-+	return true;
-+}
-+
-+/* Length of descriptor @n of a packet with @left bytes still to place. */
-+static unsigned int desc_len(const struct test_case *t,
-+			     const struct xsk_tx_metadata *meta, unsigned int n,
-+			     unsigned int left)
-+{
-+	unsigned int amount = left;
-+
-+	if (amount > FRAME_SIZE - META_LEN)
-+		amount = FRAME_SIZE - META_LEN;
-+	if (!n && t->first_len && amount > t->first_len)
-+		amount = t->first_len;
-+	if (!n && t->bad == SHORT_HEADER)
-+		amount = meta->request.csum_start + sizeof(struct udphdr) - 1;
-+	return amount;
-+}
-+
-+static unsigned int count_descs(const struct test_case *t,
-+				const struct xsk_tx_metadata *meta,
-+				unsigned int len)
-+{
-+	unsigned int n = 0, copied = 0;
-+
-+	while (copied < len)
-+		copied += desc_len(t, meta, n++, len - copied);
-+	return n;
-+}
-+
-+/* Submits the packet and waits for its completions. Sets @nr_descs to the
-+ * number of descriptors used.
-+ */
-+static bool transmit(struct xsk *xsk, unsigned char *packet, unsigned int len,
-+		     const struct test_case *t, struct xsk_tx_metadata *meta,
-+		     unsigned int *nr_descs)
-+{
-+	uint32_t index;
-+	uint64_t deadline = now_ms() + TIMEOUT_MS;
-+	uint64_t addrs[RING_SIZE];
-+	unsigned int copied = 0, n = 0, completed = 0;
-+	bool seen[RING_SIZE] = {};
-+
-+	while (copied < len) {
-+		struct xdp_desc *desc;
-+		unsigned int amount = desc_len(t, meta, n, len - copied);
-+		uint64_t addr = n * FRAME_SIZE + META_LEN;
-+
-+		memcpy(xsk->umem + addr, packet + copied, amount);
-+		if (!n)
-+			memcpy(xsk->umem + addr - META_LEN, meta, META_LEN);
-+		if (xsk_ring_prod__reserve(&xsk->tx, 1, &index) != 1) {
-+			ksft_print_msg("functional Tx ring reservation failed\n");
-+			return false;
-+		}
-+		desc = xsk_ring_prod__tx_desc(&xsk->tx, index);
-+		*desc = (struct xdp_desc) {
-+			.addr = addr,
-+			.len = amount,
-+			.options = (!n && meta->flags ? XDP_TX_METADATA : 0) |
-+				   (copied + amount < len ? XDP_PKT_CONTD : 0),
-+		};
-+		addrs[n++] = addr;
-+		copied += amount;
-+	}
-+	xsk_ring_prod__submit(&xsk->tx, n);
-+	*nr_descs = n;
-+	while (completed < n) {
-+		unsigned int count, i;
-+
-+		if (!kick_tx(xsk))
-+			return false;
-+		count = xsk_ring_cons__peek(&xsk->cq, RING_SIZE, &index);
-+		for (i = 0; i < count; i++) {
-+			uint64_t addr = *xsk_ring_cons__comp_addr(&xsk->cq, index + i);
-+			unsigned int j;
-+
-+			for (j = 0; j < n; j++)
-+				if (addr == addrs[j])
-+					break;
-+			if (j == n || seen[j]) {
-+				ksft_print_msg("functional Tx: invalid or duplicate completion\n");
-+				return false;
-+			}
-+			seen[j] = true;
-+		}
-+		xsk_ring_cons__release(&xsk->cq, count);
-+		completed += count;
-+		if (completed < n && now_ms() > deadline) {
-+			ksft_print_msg("completion timeout\n");
-+			return false;
-+		}
-+	}
-+	return true;
-+}
-+
-+/* USO with launch time is copy mode only. */
-+static bool valid_request(const struct test_case *t)
-+{
-+	return t->bad == VALID || (t->bad == LAUNCH_TIME && !zero_copy);
-+}
-+
-+/* Requests that produce more than one datagram, valid or not. Without
-+ * tx-udp-segmentation, invalid ones would be dropped for lack of the
-+ * offload even if a header check were missing.
-+ */
-+static bool needs_segmentation(const struct test_case *t)
-+{
-+	return !t->checksum_only && case_payload(t) > GSO_SIZE;
-+}
-+
-+/* Drop frames that a failed or late case left behind. */
-+static void drain_packets(int fd)
-+{
-+	unsigned char packet[64];
-+
-+	while (recv(fd, packet, sizeof(packet), MSG_DONTWAIT | MSG_TRUNC) >= 0)
-+		;
-+}
-+
-+static bool receive_packets(int fd, const struct test_case *t, unsigned int id)
-+{
-+	unsigned int count = 0, received = 0;
-+	unsigned int expected = valid_request(t) ? t->payload : 0;
-+	unsigned int expected_count = 0;
-+	uint64_t deadline;
-+	unsigned char packet[8192];
-+
-+	if (valid_request(t)) {
-+		expected_count = (expected + GSO_SIZE - 1) / GSO_SIZE;
-+		if (t->checksum_only || !expected)
-+			expected_count = 1;
-+	}
-+	deadline = now_ms() + (expected_count ? TIMEOUT_MS : 200);
-+	while (now_ms() < deadline) {
-+		unsigned int ip_len = t->ipv6 ? sizeof(struct ipv6hdr) : sizeof(struct iphdr);
-+		unsigned int start = sizeof(struct ethhdr) + ip_len;
-+		struct pollfd pfd = { .fd = fd, .events = POLLIN };
-+		struct ethhdr *eth = (void *)packet;
-+		struct udphdr *uh = (void *)(packet + start);
-+		unsigned int payload, frame_len, max_frame_len, i;
-+		ssize_t len;
-+
-+		if (poll(&pfd, 1, 20) < 0) {
-+			ksft_print_msg("receive: poll: %s\n", strerror(errno));
-+			return false;
-+		}
-+		len = recv(fd, packet, sizeof(packet), MSG_DONTWAIT);
-+		if (len < 0) {
-+			if (errno == EAGAIN)
-+				continue;
-+			ksft_print_msg("receive: recv: %s\n", strerror(errno));
-+			return false;
-+		}
-+		if ((size_t)len < start + sizeof(*uh) ||
-+		    memcmp(eth->h_source, tx_mac, ETH_ALEN) ||
-+		    memcmp(eth->h_dest, rx_mac, ETH_ALEN) ||
-+		    eth->h_proto != htons(t->ipv6 ? ETH_P_IPV6 : ETH_P_IP) ||
-+		    uh->source != htons(TEST_PORT) || uh->dest != htons(TEST_PORT))
-+			continue;
-+		if (count >= expected_count) {
-+			ksft_print_msg("receive: unexpected datagram, %u expected\n",
-+				       expected_count);
-+			return false;
-+		}
-+		payload = expected - received;
-+		if (!t->checksum_only && payload > GSO_SIZE)
-+			payload = GSO_SIZE;
-+		frame_len = start + sizeof(*uh) + payload;
-+		max_frame_len = frame_len < ETH_ZLEN ? ETH_ZLEN : frame_len;
-+		if (ntohs(uh->len) != sizeof(*uh) + payload) {
-+			ksft_print_msg("receive: datagram %u: UDP length %u, expected %zu\n",
-+				       count, ntohs(uh->len), sizeof(*uh) + payload);
-+			return false;
-+		}
-+		if ((size_t)len < frame_len || (size_t)len > max_frame_len) {
-+			ksft_print_msg("receive: datagram %u: frame length %zd, expected %u\n",
-+				       count, len, frame_len);
-+			return false;
-+		}
-+		if (!uh->check ||
-+		    fold(sum_bytes(uh, sizeof(*uh) + payload) +
-+			 pseudo_sum(packet + sizeof(*eth), t->ipv6,
-+				    sizeof(*uh) + payload)) != 0xffff) {
-+			ksft_print_msg("receive: datagram %u: bad UDP checksum 0x%04x\n",
-+				       count, ntohs(uh->check));
-+			return false;
-+		}
-+		if (t->ipv6) {
-+			struct ipv6hdr *h = (void *)(packet + sizeof(*eth));
-+
-+			if (ntohs(h->payload_len) != sizeof(*uh) + payload) {
-+				ksft_print_msg("receive: datagram %u: IPv6 len %u, expected %zu\n",
-+					       count, ntohs(h->payload_len),
-+					       sizeof(*uh) + payload);
-+				return false;
-+			}
-+		} else {
-+			struct iphdr *h = (void *)(packet + sizeof(*eth));
-+
-+			if (ntohs(h->tot_len) != ip_len + sizeof(*uh) + payload) {
-+				ksft_print_msg("receive: datagram %u: IPv4 len %u, expected %zu\n",
-+					       count, ntohs(h->tot_len),
-+					       ip_len + sizeof(*uh) + payload);
-+				return false;
-+			}
-+			if (fold(sum_bytes(h, ip_len)) != 0xffff) {
-+				ksft_print_msg("receive: datagram %u: bad IPv4 header checksum\n",
-+					       count);
-+				return false;
-+			}
-+		}
-+		for (i = 0; i < payload; i++)
-+			if (packet[start + sizeof(*uh) + i] !=
-+			    (received + i + id * 13) % 251) {
-+				ksft_print_msg("receive: datagram %u: bad payload byte %u\n",
-+					       count, i);
-+				return false;
-+			}
-+		received += payload;
-+		count++;
-+		if (count == expected_count)
-+			deadline = now_ms() + 100;
-+	}
-+	if (received != expected || count != expected_count) {
-+		ksft_print_msg("receive: %u/%u packets, %u/%u payload bytes\n",
-+			       count, expected_count, received, expected);
-+		return false;
-+	}
-+	return true;
-+}
-+
-+/* Opens the default socket for case @i onwards. If that fails, the remaining
-+ * cases cannot run.
-+ */
-+static void restore_xsk(struct xsk *xsk, unsigned int ifindex, unsigned int i)
-+{
-+	int err = open_xsk(xsk, ifindex, false);
-+
-+	if (!err)
-+		return;
-+	for (; i < ARRAY_SIZE(cases); i++)
-+		ksft_test_result_error("%s: socket creation: %s\n", cases[i].name,
-+				       strerror(-err));
-+	ksft_finished();
-+}
-+
-+static void reopen_xsk(struct xsk *xsk, unsigned int ifindex, unsigned int i)
-+{
-+	close_xsk(xsk);
-+	restore_xsk(xsk, ifindex, i);
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	const char *tx_name = NULL, *rx_name = NULL;
-+	struct sockaddr_ll addr = { .sll_family = AF_PACKET, .sll_protocol = htons(ETH_P_ALL) };
-+	uint64_t xdp_features = 0, xsk_features = 0;
-+	bool loopback = false, udp_segmentation;
-+	struct xsk_tx_metadata meta;
-+	unsigned int ifindex, i;
-+	unsigned int zc_max_segs = 0;
-+	bool sw_csum = false;
-+	int err;
-+	struct xsk xsk;
-+	int fd, opt;
-+
-+	while ((opt = getopt(argc, argv, "i:r:zlC")) != -1) {
-+		if (opt == 'i')
-+			tx_name = optarg;
-+		else if (opt == 'r')
-+			rx_name = optarg;
-+		else if (opt == 'z')
-+			zero_copy = true;
-+		else if (opt == 'l')
-+			loopback = true;
-+		else if (opt == 'C')
-+			checksum_tests = true;
-+		else
-+			ksft_exit_fail_msg("Usage: %s [-z] [-l] [-C] -i TX_IFACE [-r RX_IFACE]\n",
-+					   argv[0]);
-+	}
-+	if (loopback) {
-+		if (rx_name && (!tx_name || strcmp(tx_name, rx_name)))
-+			ksft_exit_fail_msg("Loopback needs one interface for Tx and Rx\n");
-+		rx_name = tx_name;
-+	}
-+	ksft_print_header();
-+	if (!tx_name || !rx_name || geteuid())
-+		ksft_exit_skip("needs root and -i TX_IFACE -r RX_IFACE, or -l -i IFACE\n");
-+	ifindex = if_nametoindex(tx_name);
-+	addr.sll_ifindex = if_nametoindex(rx_name);
-+	if (!addr.sll_ifindex || !ifindex ||
-+	    (!loopback && !strcmp(tx_name, rx_name)))
-+		ksft_exit_fail_msg("Use two connected interfaces, or -l\n");
-+	get_mac(tx_name, tx_mac);
-+	get_mac(rx_name, rx_mac);
-+	if (loopback) {
-+		/* Avoid sending the port's own source MAC back into its Rx filter. */
-+		tx_mac[0] = (tx_mac[0] | 2) & ~1;
-+		tx_mac[ETH_ALEN - 1] ^= 0x80;
-+		memset(rx_mac, 0xff, ETH_ALEN);
-+	}
-+	if (!is_physical(tx_name) || !is_physical(rx_name))
-+		ksft_exit_skip("%s and %s must be physical NICs that segment on the wire\n",
-+			       tx_name, rx_name);
-+	mtu = get_mtu(tx_name);
-+	if (mtu < MIN_MTU || get_mtu(rx_name) < MIN_MTU)
-+		ksft_exit_skip("%s and %s need an MTU of at least %zu\n",
-+			       tx_name, rx_name, MIN_MTU);
-+	/* The oversized-segment case must fit the buffers of a packet. */
-+	if (sizeof(struct ethhdr) + sizeof(struct iphdr) +
-+	    sizeof(struct udphdr) + 2 * large_gso_size() >
-+	    MAX_BUFFERS * (FRAME_SIZE - META_LEN))
-+		ksft_exit_skip("%s has MTU %u, too large for the test buffers\n",
-+			       tx_name, mtu);
-+	if (zero_copy) {
-+		get_xdp_features(ifindex, &xdp_features, &xsk_features,
-+				 &zc_max_segs);
-+		if (!(xdp_features & NETDEV_XDP_ACT_XSK_ZEROCOPY))
-+			ksft_exit_skip("%s does not support AF_XDP zero-copy\n", tx_name);
-+		if (!(xsk_features & NETDEV_XSK_FLAGS_TX_USO_ZC))
-+			ksft_exit_skip("%s does not report tx-uso-zc\n", tx_name);
-+		if (!xsk_is_in_mode(ifindex, XDP_FLAGS_DRV_MODE))
-+			ksft_exit_skip("%s has no native XDP program attached\n", tx_name);
-+		if (zc_max_segs < 2)
-+			ksft_exit_skip("%s does not support multi-buffer zero-copy\n",
-+				       tx_name);
-+	}
-+	/* The packet socket sees received packets after GRO, which could merge
-+	 * the segments back together.
-+	 */
-+	if (feature_active(rx_name, "rx-udp-gro-forwarding") ||
-+	    feature_active(rx_name, "rx-gro-list"))
-+		ksft_exit_skip("turn off rx-udp-gro-forwarding and rx-gro-list on %s\n",
-+			       rx_name);
-+	udp_segmentation = feature_active(tx_name, "tx-udp-segmentation");
-+	fd = socket(AF_PACKET, SOCK_RAW | SOCK_NONBLOCK, htons(ETH_P_ALL));
-+	if (fd < 0)
-+		ksft_exit_fail_msg("packet socket: %s\n", strerror(errno));
-+	{
-+		int ignore_outgoing = 1;
-+
-+		if (setsockopt(fd, SOL_PACKET, PACKET_IGNORE_OUTGOING,
-+			       &ignore_outgoing, sizeof(ignore_outgoing)) ||
-+		    bind(fd, (void *)&addr, sizeof(addr)))
-+			ksft_exit_fail_msg("packet socket setup: %s\n", strerror(errno));
-+	}
-+	err = open_xsk(&xsk, ifindex, false);
-+	if (err == -EOPNOTSUPP)
-+		ksft_exit_skip("%s does not support this AF_XDP bind\n", tx_name);
-+	if (err)
-+		ksft_exit_fail_msg("socket creation: %s\n", strerror(-err));
-+	ksft_set_plan(ARRAY_SIZE(cases));
-+	for (i = 0; i < ARRAY_SIZE(cases); i++) {
-+		const struct test_case *t = &cases[i];
-+		struct xdp_statistics before, after;
-+		socklen_t size = sizeof(before);
-+		unsigned int len, descs, expected_invalid = 0;
-+		bool ok, want_sw_csum;
-+
-+		if (!checksum_tests && t->checksum_only) {
-+			ksft_test_result_skip("%s: checksum offload cases need -C\n",
-+					      t->name);
-+			continue;
-+		}
-+		if (zero_copy && t->checksum_only &&
-+		    !(xsk_features & NETDEV_XSK_FLAGS_TX_CHECKSUM)) {
-+			ksft_test_result_skip("%s: %s does not report tx-checksum\n",
-+					      t->name, tx_name);
-+			continue;
-+		}
-+		if (zero_copy && t->bad == SW_CHECKSUM) {
-+			ksft_test_result_skip("%s: software checksum is copy mode only\n",
-+					      t->name);
-+			continue;
-+		}
-+		if (needs_segmentation(t) && !udp_segmentation) {
-+			ksft_test_result_skip("%s: tx-udp-segmentation is off on %s\n",
-+					      t->name, tx_name);
-+			continue;
-+		}
-+		len = make_packet(tx_packet, t, i, &meta);
-+		if (zero_copy && count_descs(t, &meta, len) > zc_max_segs) {
-+			ksft_test_result_skip("%s: needs more than %u descriptors\n",
-+					      t->name, zc_max_segs);
-+			continue;
-+		}
-+		want_sw_csum = t->bad == SW_CHECKSUM;
-+		if (sw_csum && !want_sw_csum) {
-+			sw_csum = false;
-+			reopen_xsk(&xsk, ifindex, i);
-+		} else if (want_sw_csum && !sw_csum) {
-+			close_xsk(&xsk);
-+			err = open_xsk(&xsk, ifindex, true);
-+			if (err) {
-+				/* open_xsk() released the socket on failure. */
-+				if (err == -EOPNOTSUPP)
-+					ksft_test_result_skip("%s: %s refuses %s\n", t->name,
-+							      tx_name, "XDP_UMEM_TX_SW_CSUM");
-+				else
-+					ksft_test_result_error("%s: socket creation: %s\n",
-+							       t->name, strerror(-err));
-+				restore_xsk(&xsk, ifindex, i + 1);
-+				continue;
-+			}
-+			sw_csum = true;
-+		}
-+		drain_packets(fd);
-+		if (getsockopt(xsk.fd, SOL_XDP, XDP_STATISTICS, &before, &size)) {
-+			ksft_test_result_error("%s: XDP_STATISTICS: %s\n", t->name,
-+					       strerror(errno));
-+			continue;
-+		}
-+		if (!transmit(&xsk, tx_packet, len, t, &meta, &descs)) {
-+			ksft_test_result_fail("%s: submission or completion failed\n",
-+					      t->name);
-+			/* Start the next case from a clean socket. */
-+			sw_csum = false;
-+			reopen_xsk(&xsk, ifindex, i + 1);
-+			continue;
-+		}
-+		ok = receive_packets(fd, t, i);
-+		if (!valid_request(t))
-+			expected_invalid = descs;
-+		size = sizeof(after);
-+		if (getsockopt(xsk.fd, SOL_XDP, XDP_STATISTICS, &after, &size)) {
-+			ksft_test_result_error("%s: XDP_STATISTICS: %s\n", t->name,
-+					       strerror(errno));
-+			continue;
-+		}
-+		if (after.tx_invalid_descs - before.tx_invalid_descs != expected_invalid) {
-+			ksft_print_msg("tx_invalid_descs grew by %llu, expected %u\n",
-+				       after.tx_invalid_descs - before.tx_invalid_descs,
-+				       expected_invalid);
-+			ok = false;
-+		}
-+		if (!ok && zero_copy && valid_request(t))
-+			ksft_print_msg("%s\n%s\n",
-+				       "Drivers may ignore USO in some configurations,",
-+				       "see Documentation/networking/xsk-tx-metadata.rst");
-+		ksft_test_result(ok, "%s\n", t->name);
-+	}
-+	close_xsk(&xsk);
-+	close(fd);
-+	ksft_finished();
-+}
--- 
-2.38.1
+ 	oif = (int *)arg->lookup_data;
+ 	err = fib6_table_lookup(net, table, *oif, flp6, res, flags);
+-	if (!err && res->f6i != net->ipv6.fib6_null_entry)
++	if (!err && res->f6i != net->ipv6.fib6_null_entry &&
++	    res->fib6_type != RTN_THROW)
+ 		err = fib6_rule_saddr(net, rule, flags, flp6,
+ 				      res->nh->fib_nh_dev);
+ 	else
 
