@@ -1,57 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123658;
-	b=Fi/2U1xhlXLJBkMauCugC17U8ooiOGkFezHcsHLbLR4FJvxUGlHi9b8wR6isER+HgCzz
-	 vq8LwPUHbwk5GXUd19fS/Vvs0yzhlAVbCguT3tJj8n7mpFfSA2cwH9dK08a5dyi27v1Wc
-	 mMqJIfq/8QT8/DM4Tu3TP0/uzswg3yCfLL3VH+bASfAjvefflV0CD+s5ZhXJxO9gwNu3z
-	 B6ide7uLficpKmNe1I7XCPM2o9RVb3S+DX13rkNCeTdrW0SoNVKCg8NJQ8hqtdLhCgYgD
-	 1Mg9TOW0yQ1SckvB28R4Ghc0OTAsyoGO8M2dyT52bhgrih1SNASu10LRhK6sgCdpNHg==
+	t=1795123847;
+	b=RDvago+Hif6ce4YHBvEjJGKA2d03EeKnvbgug548Kay3ZNY5JQGYNmf84zbMGn7dWes/
+	 wxzeo5g/cj0Og4up2+mG3i7HXmDIFb5Kcj7pzTTjP+Zxl5HPLhOGPEHAljjJT0y7hEL0J
+	 voMX3z6rlPbyDtWOB0HAiA60AVawVFwZU/of/KBQtSE4/RnBBFfhsxGeiasLD/INcJYEv
+	 LtsbO2e2H/XKJWsud5irgNqc9LtnEYCW49dOjXJWGGaT4O3KKifivWM7Cb0Yo/dOkd7qo
+	 1nFbun/95LcVCH/fojcQs6OGpU1fh5OGkveADx1P5zrZEtU8VkH058xwVTLPEfncYMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123658;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123847;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=FI9vWdua1Ky4pzSvEMEUUts+rWwX6FGvwGpLJLvDzhs=;
-	b=PH1t5vSu8WVbiu/bLmug061H1ACL7DZ4XOr9+Tb0rdmNusmdlWrHD8lEJk2lmr9kpwSG
-	 JP6UXJLmY48e+Ew4ZGujZ50/hWHJHLOulNYv6854BW6Ojzq0i5gAmdMNmzCuWRyrEcznW
-	 9iUKbIYxThfJd1g78OXCfyMnQ1tJrO15saVQc/gxuoCe/r3w/8S2nXEthyvS4BcY3NRjK
-	 kSFg0AInW41e+Vyf5u3ySKuLL+trs3Ax5jAifpzuUo2m5FqLEmcLPnmy7y/JznsmltSMM
-	 mtGDdtLmFCTg7S/REYAFy4xBerKK+KXVbW/HzE45QnGy8zoTcgG/vDqDxg3aCsMUEOA==
+	bh=Xk1kv/Ctd3PlqbSpT6yLqdl6pmb3Zw8L64Vom2TNBMs=;
+	b=PQmwuXeEQ5GMKQ30Z/SpcbDUiCI+QoB0SuBH3mHBU9AmNOucqZBcCbk/x7qOOtcoC2cL
+	 rZ5bNt9pmA7OPFv0zVYtziIIaoIy5i93V2cb7idDi/dl8fHsgTDQgOASM2QYhr8axPiCl
+	 mc7y6wI1Sm5PsGVqp0P/2OU+5J/GIDQ0sqg2Z/6drFJPBcAseM5e/NtX1GEZ0MtGXSTCQ
+	 18Kz4x6LnfPQQ19u6bxkrwmsn/S90hGO9clJx9b/Pi6m5KL1vjofT3y8RuXKGd0aBxuza
+	 7hLOL87IFJmxqWClRe9LV1j/3b2VjwLLAgOBl5sCA6a0qtTVz4S9K6c/jJUEDu+AX6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5oh2KSP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WB5Z/aFs";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1BF5606A320;
-	Thu, 19 Nov 2026 21:27:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE3E6606A32A;
+	Thu, 19 Nov 2026 21:30:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5oh2KSP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E02B1F000C4;
-	Thu, 19 Nov 2026 21:27:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WB5Z/aFs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C23441F000C0;
+	Thu, 19 Nov 2026 21:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795123658;
-	bh=FI9vWdua1Ky4pzSvEMEUUts+rWwX6FGvwGpLJLvDzhs=;
+	s=k20260515; t=1795123847;
+	bh=Xk1kv/Ctd3PlqbSpT6yLqdl6pmb3Zw8L64Vom2TNBMs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=N5oh2KSPBuNpDFr7xrQyBWbEBYBE+mP27Yec7/RVAcz2gcwbxTLkwqT9e1SAlOfXd
-	 IRhC/NZT0Kr9bveewyxi3UWWb/AOYbyqpcxL/l6hGPAiA6OXwSgWo9ZX1hn5R1NW+r
-	 1D8pi47FJCyAaQ2mzGKr1r9jjklUj4IWDj6F3RJcZiGaO8jnOBAH0ZW+H/Enb2I1N9
-	 47kqZXfoCSkY06rcJ/YVpKW7E4wJl9myAOB+ySpZt4IrMj5mPfSn286ImUxZkRRSEp
-	 NsLVPb1zNGoOpJbN9QnUyVKC7TpLqY01mMBfj0x25DDuhlesrVblxdPJNOg8Wk8PMe
-	 a4x8kTnmhljLg==
-Subject: Re: [PATCH net] netfilter: ipset: exclude add-path GC during resize
+	b=WB5Z/aFsbCXGNYoBHDEh2EZeYlGp6ulxUbVFT9FBbtxXmYoHR9V9QYZS+rDP5ahpc
+	 aEZH07F6xP3S1+P79btN2PCmnOQDMTZwVc2+9tpddrVYQUbi9qzZcGP/U8j3sZ3hKn
+	 EfjZIx3M9g2NKr8AdZOn7St+alyET+cgjJFMXZo0qpnSNvuJDvrgFSyp/u2qu4kT/u
+	 +27fiU1THOlEkOWrCWmGPBjWT0f7GHK/9+F6w+kcvoMnFQP2GmBgx5I8395WTVa4WL
+	 m7ocoSl8y6rtsv78Y5OR3bWgUVUEucMIONDNbepYffhHy7t2sLATVAyDyCy7Dqx6Nj
+	 f/8tmkondbYvQ==
+Subject: Re: [PATCH net-next v2] net: dsa: b53: mirror CPU-bound frames to
+ port 5 when port 8 is unused
 From: netdev-bot+sashiko@kernel.org
-To: onleaf322@gmail.com
-Cc: pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, kadlec@netfilter.org,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Thu, 19 Nov 2026 21:27:37 +0000
-Message-ID: <179512365704.3136.7898068439962970821@kernel.org>
-In-Reply-To: <20261117092731.14656-1-onleaf322@gmail.com>
-References: <20261117092731.14656-1-onleaf322@gmail.com>
-X-sashiko-severity: Critical
+To: joseph@telaak.dev
+Cc: florian.fainelli@broadcom.com, jonas.gorski@gmail.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 21:30:46 +0000
+Message-ID: <179512384634.3136.13428964502385964682@kernel.org>
+In-Reply-To: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
+References: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider.
 
-Critical: 1 · High: 0 (1) · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,167 +76,175 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Critical] The fix is incomplete.
-- [Low] The commit carries `Cc: stable@vger.kernel.org` and `Fixes:
-  f66ee0410b1c`, a 2020 commit, so stable maintainers will try to apply…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but a successful
-  resize leaks the comment extensions of elements that had already…
+- [Medium] The commit message says the problem and the fix apply to
+  "boards that leave port 8 unconnected".
+- [Low] The Fixes: attribution is incomplete.
+- [Low] `b53_setup_cpu_mirror()` programs global switch state that
+  nothing ever restores: `B53_PORT_CTRL(8)` = `PORT_CTRL_DIS_STATE`, the…
+- [Low] `b53_setup_cpu_mirror()` hard-codes the IMP state override for
+  port 8 to `PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |…
 
 --
 
-netfilter: ipset: exclude add-path GC during resize
+net: dsa: b53: mirror CPU-bound frames to port 5 when port 8 is unused
 
-This patch takes h->gc.lock around the direct mtype_gc_do() call in
-mtype_add() and skips the collection when the pinned table has resizing
-set. The goal is to keep the packet-side add path from freeing extensions
-of old-table elements that mtype_resize() has already copied into the new
-table.
+This patch applies when port 5 is the CPU port and port 8 is unused in
+DT. In that case b53 uses the switch's single mirror to copy frames to
+the bridge group address from user ports to port 5. It also copies all
+port 8 egress to port 5, with port 8 enabled and its link forced up, and
+refuses tc mirroring while this is active.
 
-> Fixes: f66ee0410b1c ("netfilter: ipset: Fix "INFO: rcu detected stall in hash_xxx" reports")
-> Cc: stable@vger.kernel.org
+> to port 8: BPDUs, the IGMP/MLD copies b53_enable_mcast_snooping()
+> enables, and most traffic of standalone ports. On boards that leave
+> port 8 unconnected these are lost, so STP never sees its peers and a
+
+[ ... ]
+
+> Fixes: 8fab459e69ab ("net: dsa: b53: Enable Broadcom tags for 531x5/539x families")
 
 [Severity: Low]
-The new code uses h->gc.lock and t->resizing. Both were added by
-cffcf57bf03c ("netfilter: ipset: exclude gc when resize is in progress"),
-which has no Fixes: or Cc: stable tag. The commit message mentions it only
-as background.
+Is this Fixes: tag complete? The loss of "most traffic of standalone
+ports" seems to come from commit 4227ea91e265 ("net: dsa: b53: prevent
+standalone from trying to forward to other ports"). That commit added this
+to b53_setup_port():
 
-Stable trees that have f66ee0410b1c but not cffcf57bf03c won't build this
-patch. A hand-adapted backport could also add the add-path check without
-the matching resize-side flag and lock.
+	if (dsa_is_user_port(ds, port))
+		b53_set_eap_mode(dev, port, EAP_MODE_SIMPLIFIED);
 
-Should the stable tag record the dependency, for example
-"Cc: stable@vger.kernel.org # depends on cffcf57bf03c", or ask for
-cffcf57bf03c to be backported as well?
+Its commit message notes that "effectively this redirects all incoming
+traffic to the CPU port". In dual-IMP mode (GC_FRM_MGMT_PORT_M, set by
+b53_brcm_hdr_setup() for CPU port 5), that redirect target is port 8.
 
-> diff --git a/net/netfilter/ipset/ip_set_hash_gen.h b/net/netfilter/ipset/ip_set_hash_gen.h
-> index 80ca523f304bb..70f768ba7b443 100644
-> --- a/net/netfilter/ipset/ip_set_hash_gen.h
-> +++ b/net/netfilter/ipset/ip_set_hash_gen.h
-> @@ -1009,8 +1009,12 @@ mtype_add(struct ip_set *set, void *value, const struct ip_set_ext *ext,
->  	maxelem = t->maxelem;
->  	if (elements >= maxelem) {
->  		u32 e;
-> -		if (SET_WITH_TIMEOUT(set))
-> -			mtype_gc_do(set, h, t, r);
-> +		if (SET_WITH_TIMEOUT(set)) {
-> +			spin_lock_bh(&h->gc.lock);
-> +			if (!t->resizing)
-> +				mtype_gc_do(set, h, t, r);
-> +			spin_unlock_bh(&h->gc.lock);
-> +		}
->  		maxelem = h->maxelem;
->  		elements = 0;
->  		for (e = 0; e < ahash_numof_locks(t->htable_bits); e++)
+Before 4227ea91e265, standalone traffic followed the PVLAN/ARL path, which
+b53_imp_vlan_setup() points at port 5.
 
-[Severity: Critical]
-Does this fully close the double free? Only the direct mtype_gc_do() call
-is guarded. Other packet-path sites still call ip_set_ext_destroy() on
-elements of the pinned old table while mtype_resize() runs.
+8fab459e69ab is older, so this doesn't lose stable coverage. Would it
+still help to also name 4227ea91e265, so that the standalone breakage on
+these boards can be traced?
 
-mtype_resize() makes a shallow copy of each live element. It holds only
-rcu_read_lock_bh() and no hregion locks:
+> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+> index b7aff5e238e85..f82139b0c501c 100644
+> --- a/drivers/net/dsa/b53/b53_common.c
+> +++ b/drivers/net/dsa/b53/b53_common.c
 
-    d = ahash_data(m, m->pos, dsize);
-    memcpy(d, data, dsize);
+[ ... ]
 
-After the copy, both tables point to the same ip_set_comment_rcu. Hash
-types set region_lock, so packet-side ip_set_add() and ip_set_del() can
-run at the same time as this copy.
+> @@ -1326,6 +1330,42 @@ int b53_setup_devlink_resources(struct dsa_switch *ds)
 
-The first site is the reuse/forceadd branch later in mtype_add():
+[ ... ]
 
-    if (reuse || forceadd) {
-        if (j == -1)
-            j = 0;
-        data = ahash_data(n, j, set->dsize);
-        if (!deleted) {
-            mtype_del_cidr_all(set, h, data);
-            ip_set_ext_destroy(set, data);
-            t->hregion[r].elements--;
-        }
-        goto copy_data;
-    }
+> +static void b53_setup_cpu_mirror(struct dsa_switch *ds)
+> +{
+> +	struct b53_device *dev = ds->priv;
+> +	int cpu_port = 5;
+> +
+> +	dev->cpu_mirror = false;
+> +	if (dev->tag_protocol == DSA_TAG_PROTO_NONE ||
+> +	    dev->imp_port != B53_CPU_PORT || B53_CPU_PORT >= ds->num_ports ||
+> +	    !dsa_is_cpu_port(ds, cpu_port) ||
+> +	    !dsa_is_unused_port(ds, B53_CPU_PORT))
+> +		return;
 
-This branch can free the comment of an element that was live when copied
-and has expired since. That is the same timing as the race in the commit
-message. With forceadd it evicts slot 0, a live element that has already
-been copied, so no expiry timing is needed.
+[Severity: Medium]
+The commit message says this is for "boards that leave port 8
+unconnected". Can dsa_is_unused_port() tell such a board apart from one
+where port 8 is wired inside the SoC and only disabled in DT?
 
-GC is now skipped on a resizing table. When expired entries are present,
-the recomputed elements stays >= maxelem. Doesn't that make forceadd more
-likely to take this eviction path?
+On Northstar (BCM5301x) and NSP (BCM58xx), port 8 is wired inside the SoC
+to a GMAC. arch/arm/boot/dts/broadcom/bcm-ns.dtsi has:
 
-The second site is mtype_del():
+	port@8 {
+		reg = <8>;
+		ethernet = <&gmac2>;
 
-    mtype_del_cidr_all(set, h, d);
-    ip_set_ext_destroy(set, data);
+and gmac2 stays enabled. Boards such as bcm4708-netgear-r6250.dts and
+bcm47094-luxul-xwr-3100.dts use port 5 as the CPU port and set port@8 to
+status = "disabled", so they pass all of these checks.
 
-    if (t->resizing && ext && ext->target) {
-        ...
-            x->ad = IPSET_DEL;
+On those boards, the code below clears RX/TX_DISABLE on port 8 and forces
+its link up at 1000/full. Before this patch, b53_disable_port() left port
+8 with RX/TX disabled.
 
-This frees the comment in the old table and queues an IPSET_DEL record.
-After the new table is published, mtype_resize() replays the record:
+Port 8 then transmits the frames the switch traps or redirects to the CPU
+(BPDUs, IGMP/MLD copies and, with EAP simplified mode, all standalone
+ingress). They go to an internal MAC that DSA does not own and that
+bgmac may have probed as an ordinary netdev.
 
-    mtype_del(set, &x->d, NULL, NULL, 0);
+The early return added to b53_disable_port() keeps port 8 enabled for the
+life of the switch, with no way to opt out. b53_mirror_add() now also
+returns -EOPNOTSUPP on all of these boards.
 
-The replay finds the copied element in the new table and calls
-ip_set_ext_destroy() again on the same comment pointer.
+Should this be limited to chips where port 8 can't be wired internally?
+If not, should the commit message say that 5301x/58xx boards with port 8
+disabled in DT are affected too? Because of the Fixes: tag, this may also
+be picked up for stable.
 
-ip_set_comment_free() clears only the slot it is given:
+> +
+> +	/* Rx/Tx on, STP disabled: only trapped frames leave port 8 */
+> +	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_CTRL(B53_CPU_PORT),
+> +		   PORT_CTRL_DIS_STATE);
+> +	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_OVERRIDE_CTRL,
+> +		   PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |
+> +		   PORT_OVERRIDE_FULL_DUPLEX | PORT_OVERRIDE_LINK);
 
-    atomic64_sub(sizeof(*c) + strlen(c->str) + 1, &set->ext_size);
-    rcu_assign_pointer(comment->c, NULL);
-    kfree_rcu(c, rcu);
+[Severity: Low]
+Is a fixed 1000/full override valid for every chip and IMP strapping that
+reaches this point? Everywhere else, the driver derives
+B53_PORT_OVERRIDE_CTRL from phylink data in b53_force_link() and
+b53_force_port_config().
 
-In each case the new table keeps a dangling pointer. The next GC, delete,
-flush/destroy or backlog replay on it then calls strlen() on freed memory
-and does a second kfree_rcu(). A dump would also read freed memory
-through ip_set_put_comment().
+Mirroring port 8 egress only works if port 8 actually transmits what is
+queued for it. Suppose the IMP is strapped to a mode whose TX clock comes
+from the missing link partner (MAC-mode MII), or the forced speed doesn't
+match the strapped interface. Could port 8 then fail to drain, leaving
+CPU-bound frames in its egress queue instead of being mirrored?
 
-Would it be better to stop or defer all extension destruction on the old
-table while t->resizing is set? Another option is to have the new table
-take ownership of the extensions during resize, by transfer or deep copy.
+That depends on whether the mirror copy is taken at enqueue or at transmit
+time, which I couldn't confirm from the driver. The patch covers all
+dual-IMP chips, but it was only tested on one BCM53125 board.
 
-[Severity: High]
-This is a pre-existing issue, but does a successful resize leak the
-comment extensions of elements that had already expired but had not been
-collected yet?
+> +
+> +	b53_write48(dev, B53_MGMT_PAGE, B53_IG_MIR_MAC,
+> +		    ether_addr_to_u64(eth_stp_addr));
+> +	b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL,
+> +		    (MIRROR_DA << MIRROR_FILTER_SHIFT) |
+> +		    (dsa_user_ports(ds) & MIRROR_MASK));
+> +	b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, BIT(B53_CPU_PORT));
+> +	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, MIRROR_EN | cpu_port);
+> +	dev->cpu_mirror = true;
+> +}
 
-mtype_resize() skips those elements during the copy:
+[Severity: Low]
+Is anything meant to undo this configuration? b53_teardown() only does
+this:
 
-    if (SET_ELEM_EXPIRED(set, data))
-        continue;
+static void b53_teardown(struct dsa_switch *ds)
+{
+	dsa_devlink_resources_unregister(ds);
+}
 
-It then frees the old table without extension cleanup:
+b53_setup() doesn't roll it back if b53_enable_mcast_snooping() or
+b53_setup_devlink_resources() fails afterwards. The early return above
+also clears only dev->cpu_mirror and leaves the registers as they were.
 
-    if (atomic_dec_and_test(&orig->uref)) {
-        pr_debug("Table destroy by resize %p\n", orig);
-        mtype_ahash_destroy(set, orig, false);
-    }
+On BCM531x5 parts without a reset GPIO, b53_switch_reset() issues no soft
+reset; only is539x() and BCM58XX/BCM583XX get one. So this mirror and
+port 8 override state can survive an unbind/rebind with a different DT,
+or a kexec into another kernel.
 
-With ext_destroy set to false, mtype_ahash_destroy() skips
-mtype_ext_cleanup(). orig->resizing stays true after a successful resize,
-so mtype_gc() never runs mtype_gc_do() on orig. With this patch the add
-path doesn't either:
+Later, with cpu_mirror false, b53_mirror_add() only read-modify-writes
+BIT(port) in the mirror control register and the capture port in
+B53_MIR_CAP_CTL. Would a tc ingress mirror then inherit the MIRROR_DA
+filter and the STP MAC, and copy only STP frames?
 
-    if (!t->resizing)
-        mtype_gc_do(set, h, t, r);
+The stale BIT(8) in B53_EG_MIR_CTL would also copy all port 8 egress to
+the user's capture port. And since B53_EG_MIR_CTL never becomes empty,
+can b53_mirror_del() ever clear MIRROR_EN?
 
-So the ip_set_comment_rcu objects that ip_set_init_comment() allocated
-for those elements are never freed. set->ext_size is never reduced for
-them either.
-
-Before this patch, the add-path GC could still free some of those
-uncopied expired comments while running on orig. This check closes that
-window as well.
-
-ipset netlink commands need only CAP_NET_ADMIN in the caller's own user
-and network namespace, and these allocations are not memcg accounted. Can
-a user repeat create, expire, resize and destroy to use up host memory?
+Separately, dev->cpu_mirror is set to true without checking any of the
+b53_write*() return values. A failed bus write would leave the mirror
+partly programmed, while tc mirroring is refused and port 8 stays enabled.
+The rest of the driver also ignores b53_write*() errors, though.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117092731.14656-1-onleaf322%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-b53-bpdu-mirror-v2-1-c39ab745730f%40telaak.dev
