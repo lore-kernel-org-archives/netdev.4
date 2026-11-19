@@ -1,54 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082791;
-	b=SLd4zqKRqwxlHM2JbTk71EwD4wiCXUQk+PtO5ILI7DGd/64coy7BkGLtKLkWkIQ+5uAS
-	 cS78Qyum8H78e6RV9Bxpu+z79ZHPdmnuNjJzOLJTIz6MV13NqlUUjvbGajXL7exV82F16
-	 4MHIb60zUGHbrCdamnf43qSJivImPT7OUYDFwQsVzTPehv9smHb9+DPfjmN13UzPL7jY3
-	 X+56AhMJIySVrSkmovknkZhAPaVp+SMMIkU3rAehXgx+hhelax1v2rhM5s/f++Ikjyifv
-	 uICbBaZUp1b2UN1DwkU2YbAiGnrIUHrZNpccz4qvRSUC8p5mCUVvLuAFC6RiDCGiCoA==
+	t=1795082794;
+	b=G3fvDMsekmmJJH5D/cY2MFcKBiiyzP+FJApR/usVZIbsBf6H5NxvvTV+wfxuSuxU54NG
+	 I0bcEShcsNtfvXG5Gr98ux2ALzTFzHnO8rhL/mZVNFAYnDq+tmerZqo9OA8t6XCCVBSlA
+	 YnCRbsPtRFWssIsnrlnQ+6CLsYyMQYYodZ+VPQmJPGmW0N2B/yb/MBrlzLMAsFyOzrK62
+	 eej08uGCf9lzH0KIz8XKtfABZKxwjj2GQeoEnQkkkW3aZLoy9jqlJJ+ge3uMteMPbYnaS
+	 aHibZO+kXBU1TZH5MUnt7qvUsY+UGi5hBsmwcpYK7FsSB85CD3QONqQLNYO/HEpYyaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082791;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4Z5ifa88KqQ4dWuIkiv45R1+MAJlY50Mqn5CfMmpIA0=;
-	b=4+B99ZaiuO6aJnfNYNNcehThfQ5ANi3YtzgWupdR0KUgxC3gF1PZ3nLOs+iuk7631KkO
-	 nVqnG9mJhktqaDF0TseEGfzL5+9lAz4Q9+Ltn3pYVuWfiLKA/IRSl+Uh/FdS86SIBXZYz
-	 njzr7+nGxL8vvZJZYduLhCLWYOcbpeqbuVLN5Jkag9PBUAqh8+TLhMJQEkLgNI4rpDhmR
-	 F9ItSX1nqmXkYOgZ9g/AEq5FIo4Ss1F5syEFa4IyERPt3ed4V0G7xTKuPX4nicoAuwSev
-	 IlO9a8u18zUeB6ph+OHlsBpEqNpf3/AG5hJp4O0ZtsMpdVX2ISlp/MYItPdau0vM2BQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082794;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=vPawRdxVx5IJAwWhAnzzAdQ6Dv3hvzTT0c4JiuMk9f8=;
+	b=0QlxUqPkI+Va7IP10SVgrtcQGLOL/pJJaD6BRWhGbKmYGPWR1GIPjpQyftXqD3dGblvn
+	 j8t8E1/kglGeG3pS+/C9vJ1uqG0ERPmwYShmLBPtZsGoehCd9amGrGVUaR9Ct6DPjvhJ5
+	 CK8mmAutqJ23UqR/kJgWdHBCdbelMtFwKCUDNWJgkmXYLGZwqk9XPZlebMVF6k8FNVeh9
+	 OvofC0s24wP5dMxqZKPpXmYkyDTcCGw7lAc9RA37djxu5yP0DarOcMaud/qlXcb7EmcCs
+	 CxzTlkPfjhwrZzOooh5Ur9711shK/Vhb7RTQ7thsCcLM6G/qwoMH+kJOtx29eVGtT7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EFYr2OU+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=7xz.dev;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16BEA606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:06:30 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EFYr2OU+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B2711F000C9
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:06:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795082790;
-	bh=4Z5ifa88KqQ4dWuIkiv45R1+MAJlY50Mqn5CfMmpIA0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EFYr2OU+/efzFX443Fhx1RBy849p7ljCGRzVBN3L89lI4bWWZh3HbhO3tEqpM7dxk
-	 6US9dI/cpAMmPyN1izGfMj94oLCv9eNsaStejYxntxirx8mnm/f/YMfpAFgskR1oWi
-	 ByaTyNcaig6XKJ/pBun4zySw7KHH7YvF/p00r5l6lBAOIyjAQmLP8V+in1N3YBIuuo
-	 PgnmMYcp+eImYwEA/D4z/aa7m9zKephse6WHBtm7stNpxzD1wvZDqAyPblez0FiVWd
-	 GIzoCbMOHORT7y2QhpwpUb9JcciepI9XgBsRHfgDdKVpTq5TjrZo87ZZtchr8zpCeY
-	 NX+XcVGTzAg8A==
-Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-717080a2d50so1755133eaf.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:06:30 -0800 (PST)
-X-Gm-Message-State: APuU4Z960nIXrCZ/kKki9fDiL1H1eQbP26XIExRg/ET35f8Paami91S7
-	OEwndobeqpwEXIZwjEEq83UaRmZbyTFic+etLEWkMsj45f5DWJuGVs6A72pw95Sc7DMvgo3veq4
-	/zBlVya0kyCPExLPHueIPTedv92WHasM=
-X-Received: by 2002:a05:6820:a511:10b0:71a:df0d:ea24 with SMTP id
- 006d021491bc7-71b18549858mr2967601eaf.51.1795082789733; Thu, 19 Nov 2026
- 02:06:29 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88DEB60A2606
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:06:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88DEB60A2606
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=7xz.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380b40312e2so5618011eec.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:06:34 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082793; x=1795687593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vPawRdxVx5IJAwWhAnzzAdQ6Dv3hvzTT0c4JiuMk9f8=;
+        b=f9zRRlkoW0ESxE8XXuPvZYijdJBWu5InVUrI2YAgf1HrfIQ9uoIvqiYxgsINEpwr47
+         Nhfi84bDRM2tW704RpLF0VULRsMYhb35xopFVfHdIriJSzVjXg4RAJ3DsFks9bMMcj69
+         r1MpeV1rBXYDupHQD+17yjIl5DDI2uegeR1U4pj/dVEoaFeBnFDRQG2Kp4fLMQMaGfEn
+         syQVOrwbtgFFa3wDi7L1lXfUYgRoSo75plCYT6uIw3UpPhWzoWYmZzTsxgw9mLJZPqXT
+         YZtuPIL0gKqna64g7tkiKpj/yx7MFXTHGTnkakR/AJNKgrKYqADO+5T9ghh6RnJ+NAAj
+         pIlQ==
+X-Gm-Message-State: APuU4Z/sSb8zYULbeM26dH57Pl4/DtUdYRsHvMF9KNZmwNH1DpNqg5me
+	36gT1KTkchHNMykBmbbXJajyM7aE/28hMc2UmC6S4AWOV/bS+K7amA1k
+X-Gm-Gg: AZFdTZf3AHvqZJopGOkiqSjZhwjDZsRHPL26tSEtv7AMhMPBC6cUEVqfETphSxMcVyh
+	VNyFu3vaUR4aIUsQCx7vFOx4HE76AHmen6OGuniZ0YVY2CZfsvLYPeyRQWt1WbQj2EAiuz/mS1I
+	AgdC0GH/jS3iJt4lE7CABeGANe9Rx2rSPHWHHIFfW/aZYdtcDRGEqsZCguL1VyCLNbD9ACHkf8/
+	2PNJ0RZCsHUTk2dBYNrzGyjBky0RNMO0jJjSxeOMJDQGbos7LVSadkmeICy+K91NWiZADttjyhY
+	2j6ZamlKBY4wr8E3MVl1WGGLQdiIyKsonYaK2JnYj4+/Zo41tEvwYET2P7Absj3uN5P8RIjGlu5
+	kofSFO6D2dIUr+WLQRVDerTGxsnnnVmJvhjQf9DprSnTWZAWuK53Bqrnl8zQSBz2E8enkCC2FSz
+	Do5z+WDKgxnS7vb75Nl/1B6KKJvlE1twfvHTq82akucg71lvw8tUS5Qnql1OPiRqAOZw/4ESr7W
+	TGoxzxF54+RnN3ra342B/AZLEs6CPYSjdqzySTMcO96nm/gArZb2tJb0VpUmAFPhuGjI1t+maen
+	cN8wwPVbOuRRlSjJy8wCIrSKZ32xnvU/qYB3HINYME6PIA==
+X-Received: by 2002:a05:7300:7314:b0:381:c532:3d88 with SMTP id 5a478bee46e88-38280c2fdbcmr7294986eec.23.1795082793390;
+        Thu, 19 Nov 2026 02:06:33 -0800 (PST)
+Received: from DESKTOP-SA7O5VQ.tail87cff0.ts.net ([211.202.142.76])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3848dc19705sm4083104eec.23.2026.11.19.02.06.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 02:06:32 -0800 (PST)
+From: Sihyeon Park <me@7xz.dev>
+To: sam@mendozajonas.com,
+	fercerpav@gmail.com
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	delphine_cc_chiu@wiwynn.com,
+	Sihyeon Park <me@7xz.dev>
+Subject: [PATCH net] net/ncsi: fix channel loop termination when Channel Count is 0
+Date: Thu, 19 Nov 2026 19:06:25 +0900
+Message-ID: <20261119100625.72505-1-me@7xz.dev>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,181 +86,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119090828.343748-1-jiayuan.chen@linux.dev>
-In-Reply-To: <20261119090828.343748-1-jiayuan.chen@linux.dev>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 11:06:18 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiip2qPc5D_hRQb871m2cSHy-5++tNOOEr9sQYLhCxxknwA@mail.gmail.com>
-X-Gm-Features: AclHuK8_eM9te3cu2PhJ0AV9iMfiCSLFml29TI2SzcAg20mQhXDlb493tDB-73c
-Message-ID: <CAL4Wiip2qPc5D_hRQb871m2cSHy-5++tNOOEr9sQYLhCxxknwA@mail.gmail.com>
-Subject: Re: [PATCH net] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: netdev@vger.kernel.org, Neal Cardwell <ncardwell@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, "David S. Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Wei Wang <weiwan@google.com>, Soheil Hassas Yeganeh <soheil@google.com>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le jeu. 19 nov. 2026 =C3=A0 10:08, Jiayuan Chen <jiayuan.chen@linux.dev> a =
-=C3=A9crit :
->
-> Our local syzbot reported the following warning:
->
->   WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x=
-1f20
->   Modules linked in:
->   CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PRE=
-EMPT
->   RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
->   Call Trace:
->    <TASK>
->    tcp_sendmsg+0x2c/0x50
->    inet_sendmsg+0x62/0xb0
->    __sys_sendto+0x2fe/0x350
->    __x64_sys_sendto+0x7f/0xb0
->    x64_sys_call+0x1375/0x27e0
->    do_syscall_64+0xe4/0x470
->    entry_SYSCALL_64_after_hwframe+0x76/0x7e
->    </TASK>
->
-> The problem is here:
->
->   if (!skb_zcopy_pure(skb)) {
->           copy =3D tcp_wmem_schedule(sk, copy);
->           if (!copy)
->                   goto wait_for_space;
->   }
->
-> When MSG_ZEROCOPY data is appended to a skb that already holds copied
-> data, only the user length is scheduled, but the pinned pages are then
-> charged by their truesize:
->
->  skb_zerocopy_iter_stream
->    __zerocopy_sg_from_iter
->     zerocopy_fill_skb_from_iter  //truesize +=3D PAGE_ALIGN(copied + star=
-t)
->     sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
->
-> For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
-> charges 32768 with 4K pages.
+ncsi_probe_channel() and ncsi_suspend_channel() (state
+ncsi_dev_state_suspend_gls) walk the channels of a package by
+incrementing ndp->channel_probe_id and stop only when it becomes equal to
+ndp->channel_count. channel_count is copied unchecked from the Channel
+Count field of the Get Capabilities response in ncsi_rsp_handler_gc().
 
-This part is a separate bug: these 8 bytes sit in a single page.
+If a Network Controller reports Channel Count 0, channel_probe_id is
+already 1 when it is first compared in the suspend_gls state, so the
+equality never holds. The driver then keeps sending Get Link Status to
+channel IDs 0, 1, 2, ... and never reaches Disable Channel Network Tx /
+Disable Channel, so the reconfiguration started by a single link-down
+AEN never completes and NC-SI does not recover when the link comes back.
+If the link flaps (down/up/down) inside that window, the driver
+additionally logs
 
-zerocopy_fill_skb_from_iter() adds PAGE_ALIGN(copied + start) to
-skb->truesize for each iov_iter_get_pages2() call, even when the
-chunk is merged into the previous frag and the page reference is
-released.
+  Invalid state 0x3 on 0:0
+  NCSI: Handler for AEN type 0x0 returned -22
+  Wrong NCSI state 0x100 in workqueue
 
-With a corked socket, one copied byte, then one MSG_ZEROCOPY sendmsg()
-of 1024 bytes from a single page:
+and channel monitoring stays stopped.
 
-  1 iovec             sk_wmem_queued +=3D 4096
-  1024 iovecs         sk_wmem_queued +=3D 4194304   (sk_sndbuf is 2626560)
+DSP0222 defines Channel Count as the number of channels supported by the
+controller, so a conforming controller reports at least 1; this is a
+robustness fix for non-conforming controllers, firmware bugs and
+emulators. One such emulator is libslirp's NC-SI responder (used by QEMU
+user networking for the Aspeed BMC machines), whose Get Capabilities
+response leaves Channel Count at 0.
 
-With your patch, this over-estimation would become a forced charge,
-above tcp_mem and memcg limits, with an amount controlled by the user.
+The probe loop uses the same comparison. In the tests below it did not
+hang, because the Get Capabilities response was processed before the
+check that follows the GC command, so 0 == 0 held and probing moved on to
+Deselect Package. Whether it can hang depends on that ordering; no hang
+was observed in the probe path.
 
-I have a fix [1] for this accounting (only charge the pages a frag did not
-already cover), I will send it shortly. With it, both cases above
-charge 4096 bytes, and sk_forward_alloc is still negative after the
-append, so your patch is still needed.
+Use ">=" instead of "==" in both termination checks so that neither loop
+can run past the reported channel count. The suspend path change fixes
+the observed hang; the probe path change keeps the two loops consistent
+and removes the ordering dependency.
 
-Thanks.
+Channel Count is not validated in ncsi_rsp_handler_gc() instead, because
+rejecting or clamping a count of 0 would mean deciding what that value
+should mean for a non-conforming controller. Fixing the loop bounds
+handles any reported value where it is used and does not change
+behaviour for conforming controllers.
 
->
-> On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
-> (e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
-> min(copy, sk->sk_forward_alloc), which is negative. The negative copy
-> is passed to skb_copy_to_page_nocache() and triggers the warning, and
-> sendmsg() fails with -EFAULT.
->
-> A few options were considered:
->
-> 1) Schedule the truesize up front. It is not known before the pages
->    are pinned, it depends on the iovec layout.
-> 2) Do not append zerocopy data to a non pure skb. This splits a small
->    header and its zerocopy payload into two skbs.
-> 3) Schedule the missing part right after the pages are charged. They
->    are already in the skb at this point, so this can not fail.
->
-> Go with 3).
+Tested on QEMU 11.1.3 romulus-bmc (aspeed_g5_defconfig, net tree at
+e203d8a4751d) with a minimal initramfs and a loopback NC-SI controller
+emulator (1 package, 1 channel) reporting Channel Count 0 or 1. Events:
+(A) link-down AEN, link-up 15 s later; (B) down, up, down 0.5 s apart,
+link-up 15 s later. Result measured 180 s after the final link-up:
 
-Analysis looks correct, and 3) is consistent with what we did
-for tcp_collapse() recently.
+  kernel     count  event  after the event               ch0 GLS/60 s
+  unpatched  0      A      GLS to ch 0,1,2,..., no DCNT/DC   1
+  unpatched  0      B      GLS stops, monitor stopped        0
+  unpatched  1      A, B   DCNT, DC, DP, ..., EC, AE        58
+  patched    0      A, B   DCNT, DC, DP, ..., EC, AE        58
+  patched    1      A, B   DCNT, DC, DP, ..., EC, AE        58
 
->
-> Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pr=
-essure")
-> Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-> ---
->  net/ipv4/tcp.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-> index d510e982dcea..8bd377542a89 100644
-> --- a/net/ipv4/tcp.c
-> +++ b/net/ipv4/tcp.c
-> @@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msgh=
-dr *msg, size_t size)
->                         if (err < 0)
->                                 goto do_error;
->                         copy =3D err;
-> +                       /* Pages were charged by truesize, not by copy. *=
-/
-> +                       sk_forced_mem_schedule(sk, 0);
+(GLS: Get Link Status, DCNT: Disable Channel Network Tx, DC: Disable
+Channel, DP: Deselect Package, EC: Enable Channel, AE: AEN Enable)
 
-Pure zerocopy skbs are not charged, so there is nothing to fix for
-them. Please avoid the extra work in this case:
+With the patch, Channel Count 0 behaves exactly like Channel Count 1
+(same command counts); Channel Count 1 is unchanged.
 
-                        if (!skb_zcopy_pure(skb))
-                                sk_forced_mem_schedule(sk, 0);
+An AI coding assistant (Claude Code) was used to analyze the problem,
+reproduce it in QEMU and draft this patch; I reviewed the change and
+the test results.
 
->                 } else if (zc =3D=3D MSG_SPLICE_PAGES) {
->                         /* Splice in data if we can; copy if we can't. */
->                         if (tcp_downgrade_zcopy_pure(sk, skb))
-> --
-> 2.43.0
->
+Fixes: e85e271dec02 ("net/ncsi: Fix the multi thread manner of NCSI driver")
+Signed-off-by: Sihyeon Park <me@7xz.dev>
+---
+ net/ncsi/ncsi-manage.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-[1]
-diff --git a/net/core/datagram.c b/net/core/datagram.c
-index 489d92fe6dae8952da08bc5cb2a58f9863938fe0..8c418c3adf1c97b41ee7999146d=
-09aacd8cf29d4
-100644
---- a/net/core/datagram.c
-+++ b/net/core/datagram.c
-@@ -659,7 +659,6 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
+index 1d63958c4429..c5cf2ca0385c 100644
+--- a/net/ncsi/ncsi-manage.c
++++ b/net/ncsi/ncsi-manage.c
+@@ -520,7 +520,7 @@ static void ncsi_suspend_channel(struct ncsi_dev_priv *ndp)
+ 			goto error;
+ 		ndp->channel_probe_id++;
+ 
+-		if (ndp->channel_probe_id == ndp->channel_count) {
++		if (ndp->channel_probe_id >= ndp->channel_count) {
+ 			ndp->channel_probe_id = 0;
+ 			nd->state = ncsi_dev_state_suspend_dcnt;
+ 		}
+@@ -1491,7 +1491,7 @@ static void ncsi_probe_channel(struct ncsi_dev_priv *ndp)
+ 			ndp->channel_probe_id++;
+ 		}
+ 
+-		if (ndp->channel_probe_id == ndp->channel_count) {
++		if (ndp->channel_probe_id >= ndp->channel_count) {
+ 			ndp->channel_probe_id = 0;
+ 			nd->state = ncsi_dev_state_probe_dp;
+ 		}
+-- 
+2.56.1
 
-                skb->data_len +=3D copied;
-                skb->len +=3D copied;
--               skb->truesize +=3D PAGE_ALIGN(copied + start);
-
-                head =3D compound_head(pages[n]);
-                order =3D compound_order(head);
-@@ -680,6 +679,11 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
-
-                                if (head =3D=3D skb_frag_page(last) &&
-                                    start =3D=3D skb_frag_off(last) +
-skb_frag_size(last)) {
-+                                       /* Only account the pages this frag
-+                                        * did not already cover.
-+                                        */
-+                                       skb->truesize +=3D
-PAGE_ALIGN(start + size) -
-+                                                        PAGE_ALIGN(start);
-                                        skb_frag_size_add(last, size);
-                                        /* We combined this page, we
-need to release
-                                         * a reference. Since compound
-pages refcount
-@@ -695,6 +699,7 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
-                                page_ref_sub(last_head, refs);
-                                refs =3D 0;
-                        }
-+                       skb->truesize +=3D PAGE_SIZE;
-                        skb_fill_page_desc_noacc(skb, frag++, head,
-start, size);
-                }
-                if (refs)
