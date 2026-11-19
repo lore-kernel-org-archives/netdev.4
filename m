@@ -1,97 +1,144 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795066484;
-	b=jideUXC/DKelv0uYuXIzWgAQrnYR9r42AQU3spljyUHCmewuc6IU+8f5BwZj/OcWMDdv
-	 yZngcs+px+YLR4FWtJUuFDxMBFm/QAyLgiXhv5AyxZrnHVFCfIqPAcBDUQ0i/qJEj6TxY
-	 aaTtXbEmxkesa2Nis/UMhI94nwxG1jkImjyNVwpRLWXkfwY/W0Pki1PJS8abLErdYe6N6
-	 WT6ByA92bWrDJWonCEmmw9AhcLH4UyzXHpS2SsJR6KJx6VTtlHEl1IhLz4tsP/OZHaW05
-	 zxBTHQQuCpii258J2WMI2oI7W1zN19iFu86r6VOXuBOVdpDAKAFF6HE4H1op5UwICRQ==
+	t=1795066526;
+	b=hK5g3IYPwNz2Sl0ASAPm1QYi9+eaIN5tKt9gmNDhcr3/msAg/Rqo69/rnzByxmSCZGAo
+	 g4ErDIKPcyhTipiubXnUixHzVnSM/7AVWWspjNwFfxzN3iA7p6y3FYJuOwyefrHcy3ypB
+	 lgPOPNNYiDo+QK5JmYmb+AQUBc6eEOVx01EZ0H/02YIJFtdJtLN0IHgeHzr8ihX6uxGVG
+	 5lzOtyFeVkz/w+AnlnYL79IblnAucg/eTz1RSJIeS+Clx9VAYIzv9u2L2hu2p2P6FNACI
+	 NSmE4s+Z6QxVw8Z5MIl+9g6w7DYskZU/aDbFTzRho+ChydnJSTc1duG61k9zHeDRxBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795066484;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=FqNOA/XhMTTZd7OvJELMXZv2ULVvy6ui2nsQvAMkW3Y=;
-	b=5avsPZ1HfceuT93mciBaBopnEoGjg+bnAv9qvUmlKOxaObGWZErsi1AQIvh0spNvIXZw
-	 2b19P0frLM01GeJVg3IVuiDcHrFSk/tZ5tIVu7yckYmUbYew7s53Y/BxncSBLo1brJhxy
-	 wBAkIA/zKmnmrTc3LIq3rPhru8Sik9ZTQkqIogWxMUgnE5MQ3f8AKplrxL1L8ySYZfAFp
-	 3gKjEjbX1ttkRRR8JthQfxC9zTlaAg6wKfR65aSkIMYouBjdcYA0atfvriIjpvYTw2orX
-	 U1Z6MxdZ6/vUk/yISfO4ttOIgtXTrSZ3cvi+H7UDi4BNTEKna+PTPqUpwZ4i1xvwMSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066526;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Wxf1C03XM0J3zRYLBJ6bAuRpCxjKZ85wIDqTXFJZY0U=;
+	b=mnMojkrhZ8hbVYTaCj+lJ/6XW8IaIyC2DUHQbSPypOntJCHrfNz0lQFDlKQc58nRjBq1
+	 ImCr4LfAa4UTEvjfkrkQF6Bu2mhbaQNDf+hRDgwIMy8TSPQDLy4rMlOUn8+L9TRW4BOma
+	 Gzox8P9sW1q7eCdzpOjYAPTVPRO9PMZh2p6EWocMWLoBDRpobEcTDQ/QbxyxVm7mj+3fS
+	 1cuAwuuy4MfKWzZaZ0FKv2co6o3/M57kZONnkwfom6jtu/Y7pHDUVICAiAErhppNd4EmP
+	 g3p0EYIhxrKbxgiACZHN5quQOJs1yKT3rqQ0aMJ6K2XpyF42WT6vVo294ASLo6D/Nkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Idb9rU17;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CrVDzmrc;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82080606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:34:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82080606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C077560A2604;
+	Thu, 19 Nov 2026 05:35:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C077560A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Idb9rU17
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-49a92144733so816525f8f.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 21:34:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795066483; x=1795671283; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FqNOA/XhMTTZd7OvJELMXZv2ULVvy6ui2nsQvAMkW3Y=;
-        b=Idb9rU17frJ2gEg1N27gOZs8AUcjvXJX/XjIeUn12LCC/ZCyYVNQwOAYQTxDUSIGFk
-         GSWOhAavX8/7Z1OKmn1UXKZ5C+O/PSo6tnSGzLHzKZG9rS8H/e+dj1bi2adLfhsgegfn
-         o/x9tTjEJk88M8gH8mn5oY1LbhkJ0PB39YRDwdahpJsu2eLknTFXAMCmJ5tvA2qKsP1R
-         KpPY+WKFMp/HYoDKSpy5MnrdENmF5kmVY6E8CJPY+YuAuklrqnJAURLST0yCpXcP8chI
-         7/Zf6CkPTJhzKZKYaFzRfihGfhz5oD20B4NmO6IgOOBvwg27T/NsS7LTL7SyB29UkWds
-         pmgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795066483; x=1795671283;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FqNOA/XhMTTZd7OvJELMXZv2ULVvy6ui2nsQvAMkW3Y=;
-        b=GzHbmyAelxvy3higGosS94h6FIChgvZubHb5Hj6JtPCrk3h8lULvkVeR8no0KxXBv5
-         qni/ZFfxhNtj/6ZmPskxlTTErsAg5DT6MSxapjz3aWNxe1w0SU0R4ZlGh5Dqypu7jQdv
-         pnb04mJACR4BLaxLCHrWz+ZAy4+9g/CH6H5fhJXzcRH12pxlZ+F5IdChC3NYaNbomeOJ
-         J+MzAe/0jbCuFCUn1cs8uoeVzBKz4RuZIB6APrEVy0OBvXh7mI09+CTczHMNSfDWZiDI
-         7g0HRGk0Efz8NaSfwWKHA11zWDI2UFUTj/EKAtocfprf4Z8hvZxcUA9swhCljLVbTeNH
-         PjsA==
-X-Gm-Message-State: APuU4Z85Ee7xsTCjOGgXgoBmBXf4bmEXi3zEDguhAQgoKVh6dyoH/2gf
-	A4PM3yFfVOgWB2cxvXlfRMqcbirm+Na7WG8F1n9dO9Gyyq6IDUuGE+6/zDJoOTgcD0I=
-X-Gm-Gg: AZFdTZdREXaUD4zFMkzjgyG50KimHktVC8uXK4eUZxyy1D3wOBHHYXc11ggMbWaEaB7
-	Y7oA+8JNukzhw0arMHHmbKcrX+BgPzDzAuBZCd3B8uzHGEeR3Q2J7Lq0f1Cin+44HwcuKQ91O3P
-	PzdUWc5L/sp3fbKeRRC9PwiOpq6h5Dca7dkKRmYVo8b/bYdmF5AhSfOZb3V7vihFfRg5KbJLdp3
-	f1Q+BmmJeItG/RpYlUXFmpMhV1+2fFy65xaZmYt43sPPUNruDddOXXKfYPE/0wcVRjFrk2aUTDl
-	mZQF1rL5omM+ggOL3gxdWRMidI6EJ6ACj5zI5Cq3wnbh4zkhRsgR/M8S3QzZe16EuPdQt6sLVwi
-	W50eiSkxZozJCG0JHuptW6i7GAA6dPdOG3uDBG7V/VPgzdLJEltn34RwUZFoG+yWXDoT0iDDOBp
-	HxHAqPjEqwDWyWRF047GjnbQNBPL5vvrtBc04tq/mO4WNTIAvhlm62HfefijnIEKsPVI9hQKZwb
-	bweWnmZ7Fu3sDl5C3EvG287t6okKrodUnyJuxqXJ1ffckoXwWo52hLa3az8Kbc/pvT8e4BSYadV
-	hX7oye9XYfNrVO+nNmqKGpPXQcDNyMjk2V3XU/PhGg==
-X-Received: by 2002:a05:6000:4b1e:b0:48d:f9dd:e3df with SMTP id ffacd0b85a97d-4a638bd6a63mr9511769f8f.18.1795066482521;
-        Wed, 18 Nov 2026 21:34:42 -0800 (PST)
-Received: from localhost.localdomain ([102.185.156.210])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65609391bsm8674320f8f.36.2026.11.18.21.34.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 21:34:42 -0800 (PST)
-From: Mohamed Dawod <mhm.dawod@gmail.com>
-To: netdev@vger.kernel.org
-Cc: vinicius.gomes@intel.com,
-	jhs@mojatatu.com,
-	jiri@resnulli.us,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	ye.zh-yuan@socionext.com,
-	linux-kernel@vger.kernel.org,
-	Mohamed Dawod <mhm.dawod@gmail.com>
-Subject: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission time estimate
-Date: Thu, 19 Nov 2026 07:33:57 +0200
-Message-Id: <20261119053357.2033707-1-mhm.dawod@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CrVDzmrc
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-Type:Content-ID:Content-Description;
+	bh=Wxf1C03XM0J3zRYLBJ6bAuRpCxjKZ85wIDqTXFJZY0U=; b=CrVDzmrc3oIthRH1y3T/xDyXPx
+	cVrzHc8Q5zx9vBvBKySfZpSp9nn6Ctv4spyKdLZ2gMql4p4lGywVFn4Wxv0urKoLYE2Us8NFQbg/E
+	SujAsyVlT9ZQaUAWuZ4Y5/PYoP053/q4PLQfGDqnfJt8K/Qo/9TEt1lbXZ4Egas/dHptyNhLgoYTF
+	wuP3r+hQInGzK5spo+RZUspvYd5bw0PEETZbVVIV6tTzJx88fApDgP6f1LXwPqMwhToEckWSwFXKs
+	1BcxQ0o6Vx/Qelp2qicLQ22b1mh0dYnsD+nVH3ZPFTcBV3vA7o28QrM93KssD+4D+Q51xT+SBXnFA
+	FTl/MrJQ==;
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTuns-0000000Aufu-3YX5;
+	Thu, 19 Nov 2026 05:35:24 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-doc@vger.kernel.org,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>,
+	linux-mm@kvack.org,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	Jens Axboe <axboe@kernel.dk>,
+	linux-block@vger.kernel.org,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	linux-bluetooth@vger.kernel.org,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	David Heidelberg <david@ixit.cz>,
+	oe-linux-nfc@lists.linux.dev,
+	Chas Williams <3chas3@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Helge Deller <deller@gmx.de>,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	MPT-FusionLinux.pdl@broadcom.com,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	linux-scsi@vger.kernel.org,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Zhihao Cheng <chengzhihao1@huawei.com>,
+	linux-mtd@lists.infradead.org,
+	Neill Kapron <nkapron@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org,
+	Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	xen-devel@lists.xenproject.org,
+	Hans de Goede <hansg@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org,
+	"Theodore Ts'o" <tytso@mit.edu>,
+	linux-ext4@vger.kernel.org,
+	Mike Marshall <hubcap@omnibond.com>,
+	devel@lists.orangefs.org,
+	Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>,
+	linux-cifs@vger.kernel.org,
+	Jaegeuk Kim <jaegeuk@kernel.org>,
+	Chao Yu <chao@kernel.org>,
+	linux-f2fs-devel@lists.sourceforge.net,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	intel-gfx@lists.freedesktop.org,
+	Matthew Brost <matthew.brost@intel.com>,
+	=?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	intel-xe@lists.freedesktop.org,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>
+Subject: [PATCH v2 02/12] docs: ioctl-number: update sound entries
+Date: Wed, 18 Nov 2026 21:35:03 -0800
+Message-ID: <20261119053514.255348-3-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261119053514.255348-1-rdunlap@infradead.org>
+References: <20261119053514.255348-1-rdunlap@infradead.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,70 +150,89 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-cbs_dequeue_soft() estimates when the transmission of a packet completes:
+Update the list of files where sound ioctls are defined and update
+the ranges of function numbers that are used.
 
-	q->last = now + div64_s64(len * NSEC_PER_SEC, port_rate);
-
-len is an int and NSEC_PER_SEC is 1000000000L. On 32-bit architectures
-long is 32 bits wide, so the product is computed in 32 bits and wraps
-before it is widened for div64_s64(). For a 1242 byte frame the product
-is 1242000000000 mod 2^32 = 754451456, which gives a transmission time
-of about 60 ns at 100 Mbit/s instead of about 99 us.
-
-As a result q->last stays almost equal to now and the packet sending
-time is ignored again, which is the problem 'commit 961d0e5b3294
-("net: cbs: Fix software cbs to consider packet sending time")'
-set out to fix. The throughput becomes
-
-	idleslope * port_rate / |sendslope|
-
-instead of idleslope.
-
-Measured on a BeagleBone Black (32-bit ARM, CPSW, 100 Mbit/s full
-duplex) with software CBS (offload 0), one UDP flow with a 1200 byte
-payload (1242 byte frames), sendslope = idleslope - 100000. The rate
-was read from the qdisc byte counters:
-
-	idleslope [kbit/s]   before [Mbit/s]   after [Mbit/s]
-	10000                11.1              10
-	20000                25.0              20
-	30000                42.9              30
-
-Cast len to s64 so the multiplication is done in 64 bits on all
-architectures.
-
-Fixes: 961d0e5b3294 ("net: cbs: Fix software cbs to consider packet sending time")
-Signed-off-by: Mohamed Dawod <mhm.dawod@gmail.com>
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Reviewed-by: Takashi Sakamoto <o-takashi@sakamocchi.jp>
 ---
- net/sched/sch_cbs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+v2: add Rev-by: from Takashi Sakamoto;
+    address several review comments from sashiko
 
---- a/net/sched/sch_cbs.c
-+++ b/net/sched/sch_cbs.c
-@@ cbs_dequeue_soft()
- 	if (unlikely(atomic64_read(&q->port_rate) == 0))
- 		q->last = now;
- 	else
--		q->last = now + div64_s64(len * NSEC_PER_SEC,
-+		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
- 					  atomic64_read(&q->port_rate));
----
- net/sched/sch_cbs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[Since having multiple maintainers trying to merge these would
+cause some conflicts, it would be more manageable for Jon to
+take all of these through the docs-next tree.]
 
-diff --git a/net/sched/sch_cbs.c b/net/sched/sch_cbs.c
-index 1c93469c56e3..107c2b6e9da3 100644
---- a/net/sched/sch_cbs.c
-+++ b/net/sched/sch_cbs.c
-@@ -222,7 +222,7 @@ static struct sk_buff *cbs_dequeue_soft(struct Qdisc *sch)
- 	if (unlikely(atomic64_read(&q->port_rate) == 0))
- 		q->last = now;
- 	else
--		q->last = now + div64_s64(len * NSEC_PER_SEC,
-+		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
- 					  atomic64_read(&q->port_rate));
- 
- 	return skb;
--- 
-2.25.1
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-doc@vger.kernel.org
+Cc: Jaroslav Kysela <perex@perex.cz>
+Cc: Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org
 
+ Documentation/userspace-api/ioctl/ioctl-number.rst |   14 ++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+
+--- linux-next-20261116.orig/Documentation/userspace-api/ioctl/ioctl-number.rst
++++ linux-next-20261116/Documentation/userspace-api/ioctl/ioctl-number.rst
+@@ -122,11 +122,14 @@ Code  Seq#    Include File
+ 'A'   00-0F  linux/agpgart.h,                                          conflict!
+              drivers/char/agp/compat_ioctl.h
+ 'A'   00-7F  sound/asound.h                                            conflict!
++'A'   20-24  sound/pcm.h                                               conflict!
++'A'   10-53  sound/core/pcm_compat.c                                   conflict!
+ 'B'   00-1F  linux/cciss_ioctl.h                                       conflict!
+ 'B'   00-0F  include/linux/pmu.h                                       conflict!
+ 'B'   C0-FF  advanced bbus                                             <mailto:maassen@uni-freiburg.de>
+ 'B'   00-0F  xen/xenbus_dev.h                                          conflict!
+ 'C'   all    linux/soundcard.h                                         conflict!
++'C'   00-68  sound/compress_offload.h                                  conflict!
+ 'C'   01-2F  linux/capi.h                                              conflict!
+ 'C'   F0-FF  drivers/net/wan/cosa.h                                    conflict!
+ 'D'   all    arch/s390/include/asm/dasd.h
+@@ -152,6 +155,7 @@ Code  Seq#    Include File
+ 'H'   01     linux/mei.h                                               conflict!
+ 'H'   02     linux/mei.h                                               conflict!
+ 'H'   03     linux/mei.h                                               conflict!
++'H'   03     sound/core/hwdep_compat.c                                 conflict!
+ 'H'   00-0F  sound/asound.h                                            conflict!
+ 'H'   20-40  sound/asound_fm.h                                         conflict!
+ 'H'   80-8F  sound/sfnt_info.h                                         conflict!
+@@ -161,6 +165,7 @@ Code  Seq#    Include File
+ 'H'   40-4F  sound/hdspm.h                                             conflict!
+ 'H'   40-4F  sound/hdsp.h                                              conflict!
+ 'H'   90     sound/usb/usx2y/usb_stream.h
++'H'   FC     sound/pci/asihpi/hpios.h                                  conflict!
+ 'H'   00-0F  uapi/misc/habanalabs.h                                    conflict!
+ 'H'   A0     uapi/linux/usb/cdc-wdm.h
+ 'H'   C0-F0  net/bluetooth/hci.h                                       conflict!
+@@ -168,7 +173,7 @@ Code  Seq#    Include File
+ 'H'   C0-DF  net/bluetooth/cmtp/cmtp.h                                 conflict!
+ 'H'   C0-DF  net/bluetooth/bnep/bnep.h                                 conflict!
+ 'H'   F1     linux/hid-roccat.h                                        <mailto:erazor_de@users.sourceforge.net>
+-'H'   F8-FA  sound/firewire.h
++'H'   F8-FE  sound/firewire.h                                          conflict!
+ 'I'   all    linux/isdn.h                                              conflict!
+ 'I'   00-0F  drivers/isdn/divert/isdn_divert.h                         conflict!
+ 'I'   40-4F  linux/mISDNif.h                                           conflict!
+@@ -204,6 +209,9 @@ Code  Seq#    Include File
+ 'S'   80-81  scsi/scsi_ioctl.h                                         conflict!
+ 'S'   82-FF  scsi/scsi.h                                               conflict!
+ 'S'   00-7F  sound/asequencer.h                                        conflict!
++'S'   20-52  sound/core/seq/seq_compat.c                               conflict!
++'S'   60-63  sound/scarlett2.h                                         conflict!
++'S'   60-67  sound/fcp.h                                               conflict!
+ 'T'   all    linux/soundcard.h                                         conflict!
+ 'T'   00-AF  sound/asound.h                                            conflict!
+ 'T'   all    arch/x86/include/asm/ioctls.h                             conflict!
+@@ -219,8 +227,8 @@ Code  Seq#    Include File
+ 'V'   C0     media/si4713.h                                            conflict!
+ 'W'   00-1F  linux/watchdog.h                                          conflict!
+ 'W'   00-1F  linux/wanrouter.h                                         conflict! (pre 3.9)
+-'W'   00-3F  sound/asound.h                                            conflict!
+-'W'   40-5F  drivers/pci/switch/switchtec.c
++'W'   00-41  sound/asound.h                                            conflict!
++'W'   40-5F  drivers/pci/switch/switchtec.c                            conflict!
+ 'W'   60-61  linux/watch_queue.h
+ 'X'   all    fs/xfs/xfs_fs.h,                                          conflict!
+              fs/xfs/linux-2.6/xfs_ioctl32.h,
