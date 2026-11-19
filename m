@@ -1,55 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084955;
-	b=yXZzS6Re55XWSydRKMP/yBkbiOlGkE5tMaND2QWiR2Egf43FCvLGJcGW55M7IoRKQ+CO
-	 3uYUx+CxZANjzWjJ43K8SfsR23qkHxKle2dAtt4fxC5josq+7E+ddR2Yktr0xPU6d2N+o
-	 iZFhQG9hR9qRfMkYg9Np54UvhwU134eWCt2HjCn/TBYj/SuyOxGaM5vsPPCtH5A9K7oVD
-	 ksZnEiqjdavG1wYUGo0CwT81G36YTgmx0QD8O9SZjWunVTJUluOFloesSRIQaKpDTSf8r
-	 eLll3HNCQ3oG1Dc1VlSOCymm8c9CBl5+Kf2b7nMDaXtJT0fLTrD/e7x7AlP558ZPBEA==
+	t=1795085160;
+	b=5XgK9wAd/3zRv/9qx5Bjr3KmTBqnoSlX7DRKGNjoVzExR6wXVv/OJex+Ydl0mTZGE69I
+	 HSTByCK5o0mMe/yx9X02gFkDqZNcgQPrFqGYrKydi3Q+sCEElBw/JYOVX1U/s3cFW8kAH
+	 cV1p64Ep2uAK735yZfaEq3DTvc4ewXNlZTXjNTbGOwb0M3i8hr7vTRV5807eurLXKc19l
+	 P4TeOSTM/xWVYvyNANYJ3ZW3TgJMxVmHibeSNbLinuGJH7YmVd4C7RHMq0AHIerHjUG/T
+	 NACv+FKOvIGWFX8OS3BLtHCIJFp8aVrJCC1+k7VQInRMpww9CRWEWIijjBNt8WQHzpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084955;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=QnXZokuDLYMZLjJ6ee2/Ob0NQxuJ0RZGSiWoiYV2gM0=;
-	b=Mv5J5UvkV8LkvVdIiw/XtF5lWsfy23nCtTRW+PMLJg5hDihYekSNAQrWTLxpfgvS51l2
-	 YMQm0XXh8v0B9FWcdhOpA1sLmTNDt/TKQBtcCRBhrBecs3hFSGgAWp34fZ2xJ5zZnNung
-	 CO1RNylew/EUJrmQ6Ft1sRrCw13CM41idHaZ5kmc2bZWJXWz33rYqSqb/kYuhfP+G2SKp
-	 DmFWaUFZTdOtDRPj2gip2A9scpLj8PP3m/MFNdILH+WUSl1IiGlZT3nzQ4mePsgK4ocja
-	 lEG4nDrBozDyQ4qC5NjxhBWAS9LJsexKstnm6mUi4UQab+aB71oy6NnwRmozxidT49g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085160;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dOKNhltPTQHrX/y+540Pcqnemk0kBhNF/HLO6UkiEUU=;
+	b=c4IikIlr2qS2OvdkXFN32kDjQp+lE5A5YzI0G9z/U+PuYiYqM0NUqqmAZ4umHbq5oDpu
+	 VuPcdKfXodLQ4RW1wHDiobxsz73wbLyQK9JDmVBzyFiRZuIqh44Wva24BhtEkn+MbxuKk
+	 FayMW6thZdqD8UwpmPcuczuLGdFxQwj896jjAYbw8vHYQxeTl7xp5l/1HTjk7usJ8NAGp
+	 iRLLFYPrn1nhZeYog8nJDR6sJe+nfvXo8juJEafUfunnJKBVK4aEpmlkl+7L+r80dpOER
+	 s+hhX7pDeLY3dNxRZiTJWkdl/PfPNINOG3Nirs77fsb6VGjfkedZbluUewIy4AydfSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KMoFhX2N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=dmcXnRFc;
+	arc=none smtp.remote-ip=185.70.43.16
+Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 367A5606A33D
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:42:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9DA9606A32C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:45:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9DA9606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KMoFhX2N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA1E1F000C7;
-	Thu, 19 Nov 2026 10:42:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795084954;
-	bh=QnXZokuDLYMZLjJ6ee2/Ob0NQxuJ0RZGSiWoiYV2gM0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KMoFhX2NYyv25GWPIeMdUiSkPOw5kFii2OemDLZYHC8eAlTo5+fHWzu9c0UJTShwr
-	 Km7T9ojV5xEP4cHSCIi2DeFu4E0Q0B1vPn7XCmH1yFhjMpiA7vYKS1nNyGR4sFJv8H
-	 9Lex/k8Yrx2T4ArCYAvhJNNznrTS3VvWrgWuizp8e6uLaoOZ/1qg/D4vb4nCUSSj5z
-	 KjhZz+vsbAB1P4v6whalbSONQJuFqEe5Dg0ESDDognloLLsqgctXjhfs92vAoE54pF
-	 rWA4RrIGHh4EfJ8peu2buub/njqKKMjnnvWIkNGwGqlKdZLpcIrnx/T8/KaVcpHqq6
-	 WqkxKbW5sFnyQ==
-Date: Thu, 19 Nov 2026 10:42:30 +0000
-From: Simon Horman <horms@kernel.org>
-To: Zihan Xi <zihanx@nebusec.ai>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
-	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
-	vega@nebusec.ai
-Subject: Re: [PATCH net 1/1] ipv6: mcast: use resolved interface for source
- filters
-Message-ID: <20261119104230.GT860048@horms.kernel.org>
-References: <cover.1794492711.git.zihanx@nebusec.ai>
- <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=dmcXnRFc
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795085157; x=1795344357;
+	bh=dOKNhltPTQHrX/y+540Pcqnemk0kBhNF/HLO6UkiEUU=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=dmcXnRFccm6R9ZE0geL2c95shg3Jh9EM6z6oxSUR7Z6Wipoa3nqB9lu/d34lv0jd1
+	 fL5T2hLx5p6CiibGhgpsI+Sem5uac2QHLvhwaszl1NscBnXVRxzukh7GY8C84CkF2C
+	 JmL7Ltfco0KFM0iB+6h1ECGdHF6moHs6rMEchkUTps52FlwYzepTd2KLFhI5/j15co
+	 GJjGYE1J42R1QWG9CaqRrLDNdwQLtmX87ZBfGb1P+m9abDNprBrbzmRZDmYM2Jr4Ov
+	 BiElyX0LsklNmDWxGvU+CRX0cLP3S5s7msDRghFrGwY4Efjv5Scw9zB9O7lQ49UffP
+	 141uqMtBeJq1w==
+Date: Thu, 19 Nov 2026 10:45:53 +0000
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+From: Filipe Dias <fsdias@protonmail.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>, ChunHao Lin <hau@realtek.com>, "nic_swsd@realtek.com" <nic_swsd@realtek.com>, netdev <netdev@vger.kernel.org>
+Subject: Re: RTL8125D breaks at 2.5Gbps
+Message-ID: <YK8uEFdmK6-3gCUdjS6WEY4tF2ObFjJplgs-faCQOtxEOXkg8N4YyaTcguGHHHcDbNSkbZhr16dOeUIxYY2YJTUKjrH9aEnfA8ue6-1wx3A=@protonmail.com>
+Feedback-ID: 27979526:user:proton
+X-Pm-Message-ID: b372eeebc574d29ceaddcc292ba8f8d1b2958ddc
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,63 +61,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 12, 2026 at 03:19:04PM +0000, Zihan Xi wrote:
-> When no interface is specified, ip6_mc_source() resolves the multicast
-> route to an interface but searches socket memberships with a wildcard
-> index. A socket joined to the same group on multiple interfaces can
-> therefore update its source filter on a different interface from the
-> interface filter.
-> 
-> Use the resolved interface index for the membership lookup and for
-> dropping the membership after leaving the last source.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Hi,
 
-Hi Zihan,
+I see what looks like a related RTL8125D problem with r8169, but on a
+100 Mbps link, so it may not be specific to 2.5G.
 
-I see that Paolo has responded, and his comments should stand.
-But I had been looking into this patch and I think it's worth
-sharing two points, in case they turn out to be useful in future.
+Hardware: ASUS ROG Strix SCAR 16 (G635LR), onboard
+  RTL8125 [10ec:8125] rev 0c, subsystem 1043:208f
+  r8169 identifies it as "RTL8125D, XID 688"
+Kernel 7.2.15 (also seen on 7.2.8), linux-firmware 20260916.
 
-There is an AI-generated review of this patch available at
-https://sashiko.dev/#/patchset/cover.1794738094.git.zihanx%40nebusec.ai
+Symptom: on some boots the link goes Down/Up every ~5-7 s from the
+moment the interface comes up, and it never recovers:
 
-It states:
+  r8169 0000:82:00.0 enp130s0: Link is Down
+  r8169 0000:82:00.0 enp130s0: Link is Up - 100Mbps/Full - flow control rx/=
+tx
+  (repeats every ~6 s; 108 link-downs in 10 minutes, carrier_changes 208)
 
-  Furthermore, the duplicate membership check with ifindex == 0 in
-  ipv6_sock_mc_join(), the -EADDRINUSE handling in MCAST_JOIN_SOURCE_GROUP,
-  and the leavegroup handling in ip6_mc_source() were introduced later by
-  c9e3e8b6958e ("[IPV6]: multicast join and misc"), while
-  ipv6_sock_mc_join_ssm() was introduced by c7ea20c9da5b ("ipv6/mcast: init
-  as INCLUDE when join SSM INCLUDE group").  Should the Fixes: tag point to
-  those commits instead?
+Traffic to the gateway mostly fails or is very slow (~300-400 ms RTT)
+while this happens. The link partner is an office switch port that
+only advertises 10/100 (autoneg on, symmetric pause). EEE shows
+"enabled - inactive"; the partner advertises no EEE.
 
-I would lean towards using c9e3e8b6958e as the Fixes tag as it seems to me
-that is the commit that that first introduced this bug.
+Once a boot is in this state, none of the following helped:
+  - advertising only 100baseT/Full (ethtool -s ... advertise 0x008)
+  - unplugging and re-plugging the cable
+  - modprobe -r r8169 && modprobe r8169 (the reload logged
+    "rtl_rxtx_empty_cond =3D=3D 0 (loop: 42, delay: 100)" and
+    "rtl_rxtx_empty_cond_2 =3D=3D 0 (loop: 42, delay: 100)")
+  - warm reboot
+  - full power-off (laptop shut down and unpowered)
 
-> Cc: stable@vger.kernel.org
-> Reported-by: Vega <vega@nebusec.ai>
-> Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
-> ---
->  net/ipv6/mcast.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
-> index ecef55f26189..63770b3a7bb2 100644
-> --- a/net/ipv6/mcast.c
-> +++ b/net/ipv6/mcast.c
-> @@ -362,6 +362,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
->  	struct net *net = sock_net(sk);
->  	struct ipv6_mc_socklist *pmc;
->  	struct inet6_dev *idev;
-> +	int ifindex;
->  	int leavegroup = 0;
->  	int i, j;
->  	int err;
+It is per-boot: one boot earlier the same day on the same port ran for
+~30 minutes with a single link-down, and three 5-minute load tests
+(r8169 with rtl8125d-1.fw, r8169 with the firmware file removed, and
+r8125) were all clean on this port. I have not yet caught a bad boot
+with the firmware file removed, so I can't say whether the firmware
+is involved.
 
-For reference, please preserve reverse xmas tree - longest line to shortest -
-ordering for local variable declarations in Networking code.
+Same cable, port and switch with Realtek's out-of-tree r8125 9.018.00:
+no flapping (carrier_changes 2 after boot, normal throughput). Loading
+r8125 is also what ended the only other episode I have, on 2026-10-26
+(kernel 7.2.8, same port, ~130 down/up cycles in 15 minutes). On a
+1 Gbps home link I have not seen the r8169 problem.
+
+I have full kernel logs of the bad boots, plus ethtool, ethtool
+--show-eee and ethtool -S output captured during the flapping.
+Excerpt from the bad boot (r8169, kernel 7.2.15):
+
+r8169 0000:82:00.0 eth0: RTL8125D, xx:xx:xx:xx:xx:xx, XID 688, IRQ 249
+r8169 0000:82:00.0 eth0: jumbo features [frames: 16362 bytes, tx checksummi=
+ng: ko]
+r8169 0000:82:00.0 enp130s0: renamed from eth0
+Realtek Internal NBASE-T PHY r8169-0-8200:00: attached PHY driver (mii_bus:=
+phy_addr=3Dr8169-0-8200:00, irq=3DMAC)
+[09:46:12] r8169 0000:82:00.0 enp130s0: Link is Down
+[09:46:14] r8169 0000:82:00.0 enp130s0: Link is Up - 100Mbps/Full - flow co=
+ntrol rx/tx
+[09:46:18] r8169 0000:82:00.0 enp130s0: Link is Down
+[09:46:20] r8169 0000:82:00.0 enp130s0: Link is Up - 100Mbps/Full - flow co=
+ntrol rx/tx
+[09:46:23] r8169 0000:82:00.0 enp130s0: Link is Down
+[09:46:25] r8169 0000:82:00.0 enp130s0: Link is Up - 100Mbps/Full - flow co=
+ntrol rx/tx
+[09:46:30] r8169 0000:82:00.0 enp130s0: Link is Down
+[09:46:32] r8169 0000:82:00.0 enp130s0: Link is Up - 100Mbps/Full - flow co=
+ntrol rx/tx
+... continues the same way, 108 link-downs by 09:57
+
+A note on where this comes from: I'm an ordinary user, not even a
+programmer. I only got this far because the problem kept getting in
+my way and annoyed me (a lot). I asked Claude Code to guide me
+through the tests and to write this report. Please bear with me if
+I've missed something obvious, and tell me in plain terms what to run
+(or in terms Claude Code understands).
+
+Thanks,
+Filipe Dias
