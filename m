@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795047016;
-	b=Zh9DIbt/zveNQadQRbOhfK5rLrliI4pFCehSvIgctyvGBDhrLvHRP4Dnb2fjSGogFZH8
-	 93mPrT+iJhdAbcJQ7vLtYdjpELLkSaKZAnbFaTWy0jb1nUD/Na0Cv3Zc3y+Tairs0FRT5
-	 CL7dxebmOfGPMY/QnmUc8OPuRt7R1JGr/JXJKVyXMvVlQx92SeRlpeHkWHBdX5w88DTZC
-	 qykvzZQEIjIj6nQRMk927HiMb+dzGp3H6s0X+2tQm+1FV6TXQ674e/Bji/SXsUlkdZcs0
-	 RigK40LZnKZw3JLv2LCjBJo9Bl0gUfNIkhnGUyqPgWw9v75WETmp5tNVvKaNAOPFsmg==
+	t=1795047019;
+	b=QezBtyU8WUg1s5C1A+mQy/DvNper9DRnZGCNBTdQ2bU/YfDFMhGlmPPyi9ryOg1xWlL3
+	 n87/Cfd4rL8H4VdVRhiHZ3OhFb6pKflEpZk+xejOpMR99iDfs0K71TMwxgvoxmXMeOpR9
+	 4mBL1+z+7EtMfa0Ed1bZ1UiO82VKGgQhsHXwQDgwRAygMPtZEkXVMEr165QFa+4qw35a2
+	 oNnpkZgO7XZZTPmYmjbwj4DQvzEOX+EtCnFQnnKDgbuy2xIXZjY0HChq1KXnTEicZr2If
+	 oWszckKEMFlaGrlr6+RWGHZ8lXin6ONtck/7A9ajwTwLuP4GtG239RFyGd0sSE8zShg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047016;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047019;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=vojM6SpzsD2iqo2mF6eR/HylVbADCFIjiFlWWetvcwU=;
-	b=plsA/uv/+phNvQrBqkucQcVrTmcM9D6DoRkqFLWKSNmdj3qwJsOs/vuZ30e94Ke+9bss
-	 9Wwa5LSr3hdo130d8BoPzwr4ivnNuglUG3eNEnlROoJK9JK21SiORP3WXr/nkhS5O0OGy
-	 B18++DeAHcULQ9LumA16MEmNsJI15VXlLcthqchjKO5p2dzQQJSjKiAN+1KBLtrjiGIHt
-	 dhjQySJaM+mGRP8jA1ZWH5oU7s5mrbVyKdl9NoVkskpeMpTubJa1b2OHxTXfmDgtinBK6
-	 F3oAvtUIm4kJKqpuYRgbk04KmFPhoI7cPS7Jo2ZgptHChAP/1jpufWmFMhZ+LsCeS5g==
+	bh=9DdegPMLQ2pfaXK5/7QOz67S/60AgrqPFSiPq7PN+r8=;
+	b=IXYLyXdaEBoHoIo/GrJ7zOpG4zgCOYoRvcHj7lot479wX3gm5qXPKI3Hbqyp/nkhqGDA
+	 gYveiujueBbOl6Q1K4UTvdF6EyGV6y0ZZeJFLLnusBBCx6j79MmdY0VRknmqowEjyB1RL
+	 AlRnKWajOZKCiTf4J/dc5oKno9DuHSqEcKB+W8qqKwoVzeVzAvTVOtdzeScR20RbfLMmL
+	 Z4SMfvPdITSTk9Hfai95ZzS9jHH63qGVBAJtzbdQGxYophpHJdofK3ZCDCcP+EgYTe/Jg
+	 4SxV1D2yG21VGghLYIFADt+PsG4cbLA3pOCIW7xjgW8fe9nAK8xc/PhrFiVKPHe/a4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xt8Sbpub;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vx5X83iC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E3BE60A2633;
-	Thu, 19 Nov 2026 00:10:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A89960A3834;
+	Thu, 19 Nov 2026 00:10:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xt8Sbpub
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07C6D1F000C4;
-	Thu, 19 Nov 2026 00:10:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vx5X83iC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065331F000C4;
+	Thu, 19 Nov 2026 00:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795047016;
-	bh=vojM6SpzsD2iqo2mF6eR/HylVbADCFIjiFlWWetvcwU=;
+	s=k20260515; t=1795047019;
+	bh=9DdegPMLQ2pfaXK5/7QOz67S/60AgrqPFSiPq7PN+r8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Xt8SbpubkqYv5FrJhsdAP5ui4BNe4Yc9rOQC3a5aod4l43DYHIbyCOh7AvH8Myza+
-	 e7650jKOdeaiIXV05s4/BzYIB/hd3zsfXcz/byfkwbW5+DO7QDk5MyXDsKWCvjvEgS
-	 HibqbNH+S3Yc3gYeRW+qZfbh2EG3mKLoC7hwtecnQUj6o53ef9I2qoMagRuaVy/OPB
-	 Etm3ZXrH2DyesA7Dm+/oyDWzLYdX6iQQgtxiBfPsW+os0ryBGdF0+aDtXoRdJLlM9p
-	 njvOGxPLo+bQTrc5yi1jOxE44xrGnk6XqSg/lz1fOZJWY5zva8XvAac7eaY+peLhkL
-	 +lcffVjcIC1EQ==
+	b=Vx5X83iCPc1PfYSQqI/bUfkjxxmP6l45i6IX2VuAUM6UdIEX/A1wWk9kVtyYfxFYf
+	 5+ViOfUci7Dhc667M2arkYICDZY/pKBw91IT5mh59+SJCpooHDQRAhdAjrMx5jOdKC
+	 07jMCEJgAecFHLmlC8jo3jCj+kHCZeSKA2MvRRnPbVv4j/V6mRvTumxytCkCKF7dtL
+	 XoRYGqd67lWcuAL8qrKE+bK6uNtSDTI7/L+ItVzSDtfxFO4jVxud3c0tfkUbS85fuQ
+	 ht5PryTHSQkdfQYJP7fkEnKRUXORsVSx2+UFZO7mTmo4DEJpgRzZVgP5mwwl1cCK/0
+	 bxGnT6WKnJaqg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15D03808210;
-	Thu, 19 Nov 2026 00:10:15 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15173808210;
+	Thu, 19 Nov 2026 00:10:18 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,39 +54,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] selftests: net: arp_ndisc_evict_nocarrier: propagate
- the
- last test failure
+Subject: Re: [PATCH net] net/smc: set the lkey of every SGE in
+ smcr_tx_rdma_writes()
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179504701452.2637749.16212661545923401751.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 00:10:14 +0000
-References: <20261115222351.52930-1-emmaonana18@gmail.com>
-In-Reply-To: <20261115222351.52930-1-emmaonana18@gmail.com>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: netdev@vger.kernel.org, po-hsu.lin@canonical.com,
- linux-kselftest@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
+ <179504701752.2637749.9567972883939360454.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 00:10:17 +0000
+References: <20261114-b4-disp-dd99cd41-v1-1-009e1c022346@proton.me>
+In-Reply-To: <20261114-b4-disp-dd99cd41-v1-1-009e1c022346@proton.me>
+To: Bryam Vargas <hexlabsecurity@proton.me>
+Cc: edumazet@kernel.org, mjambigi@linux.ibm.com, pabeni@redhat.com,
+ kuba@kernel.org, alibuda@linux.alibaba.com, sidraya@linux.ibm.com,
+ davem@davemloft.net, dust.li@linux.alibaba.com, horms@kernel.org,
+ tonylu@linux.alibaba.com, linux-rdma@vger.kernel.org,
+ linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, guwen@linux.alibaba.com
 
 Hello:
 
 This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Sun, 15 Nov 2026 23:23:51 +0100 you wrote:
-> run_arp_evict_nocarrier_disabled_all() reports mismatches with a
-> "failed" line but never sets ret, so the script exits 0 even when the
-> all.arp_evict_nocarrier=0 test fails. The 2023 bulk fix wired the
-> other five test functions and missed this one; the v6 twin
-> (run_ndisc_evict_nocarrier_disabled_all) already sets ret=1. Set
-> ret=1 on mismatch.
+On Sat, 14 Nov 2026 09:14:58 -0500 you wrote:
+> From: Bryam Vargas <hexlabsecurity@proton.me>
+> 
+> smcr_tx_rdma_writes() sets the lkey of an SGE only for a virtually
+> contiguous send buffer; for a physically contiguous one it leaves the
+> lkey the work request slot already holds. With net.smc.smcr_buf_type=2
+> a send buffer falls back to vzalloc() when alloc_pages() fails, so one
+> link carries both kinds, and a slot last used by a virtually contiguous
+> buffer posts the DMA address of a physically contiguous one under the
+> earlier buffer's MR lkey. That write fails, the link goes down and,
+> with no link to switch to, the link group is terminated with all of
+> its connections.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] selftests: net: arp_ndisc_evict_nocarrier: propagate the last test failure
-    https://git.kernel.org/netdev/net-next/c/3873583557dc
+  - [net] net/smc: set the lkey of every SGE in smcr_tx_rdma_writes()
+    https://git.kernel.org/netdev/net-next/c/752c59c85423
 
 You are awesome, thank you!
 -- 
