@@ -1,54 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.228
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127061;
-	b=iNaBaKcXcfusp2hY9EZTUsUk4fPrCgOrf0K2RadyBi9PuqMJugICgr0ShUdsAs5+YPtK
-	 Ps21c7+AKYv6yptj3Y2gJMFOqgbGkdoRHDDr0OqJoO/JtED71mNZ8+yBTVnD/jpFRwJd8
-	 z4LHoGLdyeaC3wrjeqluvTTdctRAEsbwPSbxlxNIfAky1i02uvvBYTfJhGQiXgMn/Yj0D
-	 btUDTrigFeAUXtFKihtwHrXBKKdYj882aUXlfyNTVe2jE1F6VIr5M1wES5bb6BL5LmApq
-	 GLVrk4yc0nlzYJcEnRVfgjUOs5DfinYeBg0MD8vz4EY5jfsBv1fgjNoxPfm57kXA43g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127061;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=fYKEgZx9a2Gppc4NBUi0/c5lafRQKy+TzPob86FA5DM=;
-	b=eMA3HENs0QZWYjceD1QdCZGYEtE4i4hn6r7aD556vntw6DjX/MU59xvnY4XCd+s2ma6l
-	 H83HR2btea3rO1gqx7+jH2F/Zgc3qzAL35iclmyqZnehc/ssEkvLmA8l8hhMCVzIdjkaF
-	 U6I38BiORyn8WvXlz0PnLAdeUCCe9xpjmjLWXLEL7mlikMBjeuqyuHRTIWnqXKxUznu/J
-	 onPVAUlYs8MUtubmIIgiFzwPq6qv28oiN7QrbNI8OGDqLaK8dpF65dSS8zasZo7OsLTXe
-	 i0hO+1dC+lXvhlUIUcx3G8QsNcP3HBiWJufkYNJOgGbQBed1AAhVdnryZn2YIi8f8ZQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OV9igYyr;
-	arc=none smtp.remote-ip=95.215.58.228
-Received: from mta1.migadu.com (out-228.mta1.migadu.com [95.215.58.228])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795127076;
+	b=xmiAubn1X07caDoun4E9geZNAgvzNBVzvzDHd5oWm/AuyajDi8oIWDND8X/aw95RCVOk
+	 WSqg1o9kk3cS8cDYP8GwvZuV+Y6zqehBt2gv3+Rhw7O5hMaU2qz6rs2nUWOcODNHev7G5
+	 wiBMosFVLyJrNoAA8oxf6PmJCnm0nrVyzmxKyqMyY+EMcIHhukiThlf2K2mJboz87zis7
+	 Ntl11TOJm07wrJA1d+YGu/8Muto3VKFUlrJRD+vu+7B9D6ELJUqaYUvjJ9FFRLaf+AIBh
+	 Xngzp8/5hz4sqRA2+BXelsPBtOv8TsoTYOdQvgz8t6dCgJIgNp7ve7xv3TJsmhrwzAQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127076;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=RGzDY9o+cbkCTDKb/jd+TzHBeaQ0PQqOTT3Ib2R6Cow=;
+	b=HXJzRz4wBpjXlGtRsNxPZLnYjUdXIbNSmC3+TDQXIEA2g1gmqUHlV6i6Da+hs/SIz6Dh
+	 cgLKqFWnttsTcqo300KYFrPDRI/TPEaeYqeZX7UHtLYVhxb1BThdCsZPm2Gfw97AHxJ7T
+	 jysOLZxQuvHVyq02r1xjag/SK0Qm4D4r2ey+pmt9X4uFE9fhOrFm/CEdl93UTBopoWjWv
+	 7t27ljIYYOuFVjsBe3KQQaktr+aA+J3XNwY7Ewr8rFGhc7o2opZI7eeSzHm43oUd+4ka4
+	 37i00Sp1lSj6dWmyfKzGnbjD6gA/fW2gcKsU75TrT8VUdTPtBY+eUW+feFazjJ/q7VA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="C/hbY4TU";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99632606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:24:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99632606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB5FA606A320;
+	Thu, 19 Nov 2026 22:24:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB5FA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OV9igYyr
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=jkwvPhHK1HiBXd3GktFSZ5VXaiZz/TgsOz9HPjukXdk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795127058; v=1; x=1795731858;
- b=OV9igYyrM7FIeiDEMAOabNvFsqQVQ+T4Q48swIWEvANPzWZ17Z4dNwe9tGx+x4Z5nl4ghpMY
- I8RNtNqluR21nO9vs03+Svaa/x2RSCsL7wtV5mIyHXZrJOxwWAzPtvx2xDHaCbMAVPAmAjc/TQ5
- +RofbXzBHmD1eM6JoBBfNCzQ=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2741b7962c2aa253;
-	Thu, 19 Nov 2026 22:24:18 +0000
-X-Mizu-Trace-ID: 2741b7962c2aa253
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <acbd7123-7a9e-4c4d-ad37-d1e8c6c5cd84@linux.dev>
-Date: Thu, 19 Nov 2026 22:24:17 +0000
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=C/hbY4TU
+Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 7D1262000E3;
+	Thu, 19 Nov 2026 23:24:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795127068;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RGzDY9o+cbkCTDKb/jd+TzHBeaQ0PQqOTT3Ib2R6Cow=;
+	b=C/hbY4TUC/NFDI8GdD7Ue5XVrm90OY90qC2Vx53mZZtI9npdhHXgboh59EjmZPTx8ynPdf
+	nnTKsufHqv9vGcx+ji6961hMrz2Kb9Jx/NP/qIhb/aa6UT12WNPIuPWEZcq3laDtNiWrNH
+	hfQv2zuNZaAKthT3RqZMs5eiy5usZihPtJCE+LQQPLRl3ivuEpIVCa23Z9ArYWe5kxbA8j
+	Dx8UUhdRWhvx7khpLtELRWIlAH/MHue2wBhCGZ5Bm9se18+uRtVz4WHjHm9dG2YXjr6ke9
+	Xiyd64qQe+nxHjrnKqPEf2fbWoO7szK7O2Oc/tnQjuRI+5KRY6B/23pqluJ6eQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795127068;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RGzDY9o+cbkCTDKb/jd+TzHBeaQ0PQqOTT3Ib2R6Cow=;
+	b=VO/gkJlbB8JU3vp8QW+EA88BKX3kXjB+iXmJ9NSCPv7NnXQ1/jOSuNAmV8eAKlkf0Lp00l
+	Sf/oEs8F+5VSp6X/b1vu1+XXn0jbSpRgVODP78YKGhp8ooODP8SGNppwIh+3Hitdu8XQE0
+	Jc/Njbr08olCLK3p+vwBHz/DUbYCt6DFWatypuafecDpRmdR8eyDKZsH6nxJckwTCETVgR
+	YsWmk5ZAGKuFDkICXHUYcl1tImA/SffPVzjxswraTvAxrQ1BztqOUxqZtX0rXXQZyOdDvd
+	M5S0YE/hrgdzHIz4FjYZBpH45Zyy4PPKlZpmA0UepSkCxe6kd7ySfqYNRZ9h8w==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795127068; a=rsa-sha256;
+	cv=none;
+	b=TbrJhmDGWERyl4W2+PQKRDAGRo3oSHuIpIwTZVrkToPYVLXd/3ApfqKRlI3WkjzhPC1FaU
+	TbyDEDEpJwnn8vg2GwV++x0O/JDKJlqhdL6VKLArY6D2OKTBwJtZYYieSBNJxpNwrsK4Er
+	CPNG3DaSATHYOnHpSDCaVSbexkW7jX/Z2NMSHPwfEE0Xf4Z/rglxpziU3YHYB6C6VwCjVW
+	B8I/A1xXCezKvGb+eDWewtRa7sPc+X682ihLF7RiCDZNMp5S9+Gqkr+VbSvVAWoyk/wnwN
+	aCAd2c18kTHP/EriXj7YTVB7XEdskrxQjQgVEAyu43utLx/ouG3/bLT9q6V46A==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Date: Thu, 19 Nov 2026 23:24:28 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
+	linux-can@vger.kernel.org, kernel@pengutronix.de, 
+	=?utf-8?B?U3TDqXBoYW5l?= Grosjean <s.grosjean@peak-system.fr>
+Subject: Re: [PATCH net-next 01/13] MAINTAINERS: add entry for PEAK-System
+ CAN drivers
+Message-ID: <20261119-fancy-armored-walrus-7e7943-mkl@pengutronix.de>
+References: <20261119220936.155728-1-mkl@pengutronix.de>
+ <20261119220936.155728-2-mkl@pengutronix.de>
+ <179512673520.3291.7584679191508386933@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,59 +90,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 4/4] ptp: ocp: correct the DCF output frequency
-To: Ahmad Byagowi <ahmadexp@gmail.com>, netdev@vger.kernel.org,
- richardcochran@gmail.com
-Cc: andrew+netdev@lunn.ch, arkadiusz.kubalewski@intel.com,
- davem@davemloft.net, edumazet@kernel.org, jiri@resnulli.us, kuba@kernel.org,
- pabeni@redhat.com
-References: <20261119-timecard-common-v2-078fe69f33-0-ahmadexp@gmail.com>
- <20261119-timecard-common-v2-078fe69f33-4-ahmadexp@gmail.com>
-Content-Language: en-US
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20261119-timecard-common-v2-078fe69f33-4-ahmadexp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2bxsz2qaiisefaxj"
+Content-Disposition: inline
+In-Reply-To: <179512673520.3291.7584679191508386933@kernel.org>
 
-On 19/11/2026 21:19, Ahmad Byagowi wrote:
-> The output selector table uses 77000 Hz for DCF, whereas the input table
-> and the DPLL supported frequency list use 77500 Hz. A request for the
-> advertised DCF77 frequency consequently fails on an output, and reading
-> that output reports a frequency outside its advertised set.
-> 
-> Use 77500 Hz for the DCF output selector as well.
-> 
-> Reported by the netdev Sashiko AI review and confirmed by code
-> inspection. Source-derived C regression tests pass with ASan/UBSan;
-> restoring the faulty selector, mask, disabled-state or DCF value makes
-> the corresponding regression fail. Tests use stubbed MMIO, not hardware.
-> The driver object builds on current net with W=1 and KCFLAGS=-Werror. No
-> physical card was tested.
-> 
-> Codex prepared the fix, tests and changelog from the review and upstream
-> source, at the request to separate common-driver fixes from WiWi support
-> and validate removal ordering.
-> 
-> Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-> Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
-> ---
->   drivers/ptp/ptp_ocp.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 06d05fac6e..0d3d9ffd1f 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -1375,7 +1375,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
->   	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
->   	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
->   	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
-> -	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
-> +	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
->   	{ .name = "GEN1",	.value = 0x0040 },
->   	{ .name = "GEN2",	.value = 0x0080 },
->   	{ .name = "GEN3",	.value = 0x0100 },
 
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+--2bxsz2qaiisefaxj
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net-next 01/13] MAINTAINERS: add entry for PEAK-System
+ CAN drivers
+MIME-Version: 1.0
+
+On 19.11.2026 22:18:55, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+
+The cover letter explicitly lists this information for fixes:
+
+| Wentao Liang's patch fixes a clock leak in the suni4_can driver.
+| (fix clock leak, found by LLM)
+|
+| 5 patches by Chaosheng Qu clean up the error handling for
+| platform_get_irq() in several CAN drivers.
+| (fix error handling, found by LLM, but not been seen in real world
+|  systems)
+|
+| [...]
+|
+| The last patch is by Maximilian Zimmermann and sets CAN FD related
+| flags on received frames in the xilinx_can driver.
+| (fix a real problem, can be seen in production system)
+
+All other patches are not fixes (code improvements, cleanups, remove of
+unused code or drivers).
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--2bxsz2qaiisefaxj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCav93GgAKCRDMOmT6rpmt
+0rhlAQDhH1mOgPMOQ7d6y8soMZbd+h3wB+dq/FCAJ3Ck//Nj2wD7Bq8UvcSlqhrh
+QbuqWgT7m7acxOt7isSZ/Js+m/lTUwI=
+=e4Z4
+-----END PGP SIGNATURE-----
+
+--2bxsz2qaiisefaxj--
