@@ -1,67 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091368;
-	b=dHKVFMvvPoipDHCDVLPCe4Ew6Ok3d2r986rIEt/EnkocWWt+gdObC/8I0P1/11ZQThW7
-	 1aY1kkOi0ARLxcyUzk43vIUmuJFqSnx/A1sCGzQ8FYvlKc6zY4529MwN9TcP2jcFXdEsn
-	 2O7azTjOnAlHv+UKCEhVTKdSXLaU8y/Mo2SXtI9c8T7DdduWd0enozLjDmFxlZ3y9mWR0
-	 N5m9ukSyzTcdKh9wLU33vTH7ylnS0DTddOY6vsZ13fud5fh8g6xynw4xDCMBd/+j7PPnw
-	 SaeCQPfMCLnFbSUpKJ5y6XPUcLAqvnAsTtcX0ihMY78wVaN+J9ohs38FGJ4BKY6Q7uQ==
+	t=1795091397;
+	b=ZFqq6PjRknc7S4N5yjEE2p0xvvTVnTbuekdmywIvjmvSXlV58v8dzN3Uv5kEsROxm704
+	 fqMoMtmCDyjv3Mw2ABOEtgTJORMzMGtsuItMUni4lGdmIIf1PEdAfIcf9Th5ac3DJq8E8
+	 2UeHnbMmgeOdz6T6Gkn7RBvTBHSj408kVq9eLw3JaA3q/BBscI6xlm74eMd1gmjQMKSNt
+	 hkSPG42ImyH68uQre9ulxM+iCrp6bwMpsYV2H2yvX1BmdY1E7vVtRlXyVD3jZI9639EeR
+	 cd2fKrxIAw2ZYatOlIJBaHVIO6EmdqN3kqmoWiTzpbEugJYaQbhu/kEuKDCWhN29q3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091368;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=26aI3dIJvKPWaIP7OH1UV6UOwwhdI4DXg4en2db6lzQ=;
-	b=HHRdEdKBCDRniqT8+EIhUCzIhtzi+4P0Pdu/1QzLYuhZyCzZGsn5rxe+wcMyv0ozD2er
-	 uLMKd/n7kQh4uvKgdE0UL7Okiz09xeiw8IxTr3pPgqDaCYAFPNa9Ax1ijod7j8FPeLPZb
-	 Ebk/3eZXzbFlx1IsQ/F2EqD+pA3qpmSmVQzgQflq2Z5mH81COutpmmHLWGvJfLVtsdoUk
-	 HPTnSTbCkhvK0rlSWG8MMzzfjDYPe4I3DGDJlcs4XW0eB5aSVT/IbgUiCB9jk222xGeCA
-	 F30ixSWf+oKKYsRJklVOCGA2NKriAapfG9Ujq0OXL9Hdnypl71YFRPZWOk5gQ2uMixA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091397;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qpWp7RKQvxLSpEEh7A+u1LSSChiWS6u79l4SciL15T0=;
+	b=cjXmt8EQL7KMCcIz1rSvUFCfMyuYDmsw7EUngZEiIE6ZL6HsxNfJbDJt64pX6knLdBub
+	 8jMhnBia0FB/503U8XJlXE52pOBVdrgLHdAHTTiX+4r5a1bENvXWk/zBByVthtH3lBbc6
+	 HST39+Igb2NedYvtXUgsunoAoVLcIMyQVaMJaDJqiNvx0pI2aeV88hly1Sx8Y/zDtQRUr
+	 Y5DnGPtKT+91Jvu8/KfmPlzmj5ydvLQe3fJpvN46HocJGwFcSl6Ko53p/LJiSpobbUYhJ
+	 3TpfDGFSOB42OtoJgoGaTl5cnIXc/WdwkwO3WO3gbFTqc7xwPU/KrjGBWyioo5fS6Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=G8vkCc78;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=F2jafbBE;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DB85606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:29:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DB85606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F1B0606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:29:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F1B0606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=G8vkCc78
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795091366;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=26aI3dIJvKPWaIP7OH1UV6UOwwhdI4DXg4en2db6lzQ=;
-	b=G8vkCc78Rc2gKY2W3lAwBOjl7wFOEfc652PH0dGS+eMtqSKq8CNo3v1AqKhQfmralp6bkT
-	rt+IwDQ39WJSXeUb+0AYv4q4SRXrcYfm+6GMDlWhfrDlawVu4+5xbWhezVxQoWcW1U686e
-	YXvFvpMkaJmi1TaqXPUGruGw3KXt9+Q=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-668-F6N0bqgfOKGGCYzO7xJ5Cg-1; Thu,
- 19 Nov 2026 07:29:23 -0500
-X-MC-Unique: F6N0bqgfOKGGCYzO7xJ5Cg-1
-X-Mimecast-MFC-AGG-ID: F6N0bqgfOKGGCYzO7xJ5Cg_1795091360
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C195218004DF;
-	Thu, 19 Nov 2026 12:29:19 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BEA221956041;
-	Thu, 19 Nov 2026 12:29:12 +0000 (UTC)
-Message-ID: <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
-Date: Thu, 19 Nov 2026 13:29:11 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=F2jafbBE
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so1408804f8f.3
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:29:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1795091396; x=1795696196; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qpWp7RKQvxLSpEEh7A+u1LSSChiWS6u79l4SciL15T0=;
+        b=F2jafbBEseeHmbwhUrufqlP+n3L341gWcgPmpaQJkNSCV8j8dOtPMoyZagdKBQTqmh
+         wTBJJV9L0zmsva/fUOpqz6j1arWAGXeDHADc1+7JDdE8YD7RopYmycbpWfa0BUVq2iWp
+         y8p1E387kqh0MnVVTrheCCVJc9zIUJnO2bypTUVGPAzBv94FFinyh4JquBQIWlRodBmS
+         CgR5Uv5/EqR4Ap8Ii6LqQZYPAk4VlyzPIkYIH/vaY5nSpttxKA8EYQe0x43SHeizOIo9
+         5lQrddiEGqXUPkhNREgn9shXoRKp4GBXVHP5BkQ3GcUPJSTbT1Bsgz0GFy+lPOX/ykqU
+         VhPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795091396; x=1795696196;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qpWp7RKQvxLSpEEh7A+u1LSSChiWS6u79l4SciL15T0=;
+        b=F1II5H+0Lm2lM6pF4gjFeOLrjE1MKq8F9ch/UgH18sGMN+cY/d7bu14dsyU0tSHEaO
+         Pi+BO4xVjsrioch5v0QFakB34Bh2ohnpU+lvoqaFCJRzLqXlkRGi7qBe6m7WF9kfyJPH
+         Rjmi5aDW1jDDOiMGfr1MlH7ke/Mu3oNQHXRkSaSygOkICZopm7LF/3x46GiU3WBYHu67
+         VWBZRkrgnWIFiLldZXuOrLdn9sgjJl561gcaD4fuk+EdD4FDKDQ6Zz20U6Ij2xLPa01o
+         Fnn3Lf3c+0CoE6TpSBufcYi34wX+ABEYVIVgQrLDLP+NXB8xz438Mkr7Rrj1J7u3StyB
+         Xg4g==
+X-Forwarded-Encrypted: i=1; AL+hErF/irLHUospc1G4yKTlUWBlFTC0HYeolcpEjRUo6TPXLMDXUGF3UDt6u4syIFEYOf8yluZV8oc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+MP2Bw6XzeYNR/CTQVRMVNaOxabujEo+xf2VXHi8N1ZUG9eddq
+	mGcg4T9gMZ7xWSyHfBcAWELh0clzXifzRurnGm1/VT8FsbNwMPqDBcdOtVu4vibWd9g=
+X-Gm-Gg: AZFdTZeehOxpKu1PxvaNu7OYAMKLxu1WwsYQN0Y+iztG1HwsoofNzLRHNN+8PR8+r9+
+	6kZZ+fPYtgESjGh/lkLSx390tUWx6unSlyap+pE5+lXtoef0WrSWNUImg8C4lfxg+GpZehFgk/H
+	bAaZBvu+IUGg+RZyTKvzIIpr20WNKk/Wq4LkRz0SBbpr/C6P/1a+KE/Ed9uF/w3mDXHuTniq36s
+	5LvaXdSoShBctjhOZlYsY5CpD0s2zGQ19bp65PPc0QXuxQ9k93xhZX3bLBoN7ulkE6juKu9Y502
+	Rp4DQijrZ01sU7C4sbe07CPOXZme+eL1ykXdqpwevZ5EmPRI3x/U3RJyPg+7nlqodjDAnyRRxRb
+	/p0D97U+fJrWH/J/dKxn2VlonwAy5qrq8w1aqkONlJSlmwJiOpUrQXuqw2dgf60k4rlEXxeNzUN
+	x09ELj8XYl91cw3fO/ui2TK2X+17uhLesPNL0Tcx6ETECAfuGRJ/zf26U1cfZrpftsmDe8taKio
+	Ci5TFvuICDSNBtTuxCxZ5hP3KxtJDLiP4Ro0qx8NMeYqvUKvNFUPyNqpnZGBFrIsmIJ01xLHzjz
+	VZSFM+utqaodaadrSmmTYGVh
+X-Received: by 2002:a05:6000:1a8d:b0:48e:d36:77 with SMTP id ffacd0b85a97d-4a633a63e82mr12936899f8f.4.1795091395668;
+        Thu, 19 Nov 2026 04:29:55 -0800 (PST)
+Received: from dev1.kernelcare.com ([2a01:4f8:172:1c85::2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6573bccb0sm10338670f8f.55.2026.11.19.04.29.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 04:29:55 -0800 (PST)
+From: Andrey Misiurov <amisiurov@cloudlinux.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Wojciech Drewek <wojciech.drewek@intel.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Andrey Misiurov <amisiurov@cloudlinux.com>
+Subject: [PATCH net] pfcp: drop packets until the device is initialised
+Date: Thu, 19 Nov 2026 13:29:46 +0100
+Message-ID: <20261119122946.1720693-1-amisiurov@cloudlinux.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,112 +101,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
-Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <20261118174424.32e9f130@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 02:44, Jakub Kicinski wrote:
-> On Wed, 18 Nov 2026 16:29:23 +0100 Ivan Vecera wrote:
->> A step of the zl3073x PHC, which ptp4l and ts2phc do at start and after
->> a large offset, waits for the next 1 PPS edge, up to 1 s, with the
->> channel lock held. A phase step can hold it for up to 3 s while it
->> waits for the previous one. A dpll callback of that channel waits for
->> the lock under dpll_lock, and every other DPLL request and notification
->> in the system waits behind it. With ToD writes running, requests to an
->> ice DPLL took 1448 ms in median and 3.9 s at most. With the series they
->> took 0.2 ms and 0.3 ms, the same as idle.
->>
->> The bigger reason are zl3073x callbacks we are working on, which have
->> to wait for the hardware themselves:
->>
->> - a device reset with resync waits for the fast lock, up to 1 s with a
->>     1 PPS input
->> - a glitchless stop or start of an output completes on an output edge,
->>     so it takes up to one period, 1 s for a 1 PPS output
->>
->> Holding the global dpll_lock for that long would stall every DPLL
->> device in the system. For the output state we tried an asynchronous
->> implementation, but then the callback returns success before it knows
->> the result.
-> 
-> Right, for these level of waiting async seems like the right direction,
-> at least naively/without knowing the HW.  Why does the device wait until
-> PPS to apply the step change? Is the programmed time supposed to
-> correspond to the pulse?
+pfcp_newlink() creates the PFCP UDP socket (port 8805) and publishes it
+(sk_user_data = pfcp, encap_rcv = pfcp_encap_recv) before
+register_netdevice() runs ndo_init, which is where pfcp->dev is set. A
+datagram that arrives in that window passes the "pfcp != NULL" check in
+pfcp_encap_recv() and then dereferences a NULL pfcp->dev:
 
-Yes. The device has no immediate ToD write, it can only write the ToD
-on the next internal 1 Hz edge, the next input sync edge or the next
-internal 0.5 Hz edge. The written value is the time at that edge, so
-the seconds stay aligned with the 1 PPS outputs.
+  BUG: kernel NULL pointer dereference, address: 0000000000000108
+  #PF: supervisor read access in kernel mode
+  Oops: 0000 [#1] SMP PTI
+  CPU: 0 PID: 26516 Comm: pfcp_race
+  RIP: 0010:pfcp_encap_recv+0xeb/0x1d0 [pfcp]
+  Call Trace:
+   <IRQ>
+   udp_queue_rcv_one_skb+0x24a/0x560
+   udp_queue_rcv_skb+0x4f/0x80
+   udp_unicast_rcv_skb+0x78/0xa0
+   __udp4_lib_rcv+0x519/0x5f0
+   udp_rcv+0x25/0x40
+   ip_protocol_deliver_rcu+0xd4/0x210
+   ip_local_deliver_finish+0x86/0x110
+   ip_local_deliver+0x65/0x110
+   ip_rcv+0x17d/0x190
+   __netif_receive_skb_one_core+0x8d/0xa0
 
-Looking at it again, the zl3073x holds the channel lock while it waits
-for the edge, although the dpll callbacks do not touch the ToD, TIE or
-phase step registers, and they already run while the device applies
-such an operation, because the PTP ops return right after issuing it.
-I will look at narrowing the lock in the driver.
+The window is wide when register_netdevice() fails before ndo_init (e.g. an
+invalid name): the socket stays live until pfcp_del_sock() on the error
+path. A narrower window also exists on the normal success path.
 
-For the resync, async is not only about reporting the result. Fast lock
-is a setting of the DPLL, not of a reference, and forcing it makes the
-DPLL ignore its frequency and phase error monitors. While an
-asynchronous resync is pending, everything else done to the DPLL runs
-in forced fast lock. A reference switch, whether from a priority or
-state change, a manual reference or the device itself in automatic
-mode, would follow the fast lock phase rate instead of the configured
-phase slope limit, and the resync would then report success on another
-reference. A switch to NCO would keep the force bit set until the work
-clears it. So every request changing the DPLL configuration would have
-to fail with -EBUSY, cancel the resync, or wait for it. With a lock per
-chip they simply wait, for at most 1 s.
+Drop the packet while pfcp->dev is not yet set or the device is not
+running.
 
->> A failure can only be reported by a later notification, and
->> the next request gets -EBUSY until the change completes. With a lock
->> per chip the callback can simply wait, and one chip cannot do these
->> operations in parallel anyway.
-> 
-> Do the failures only happen because of "unforeseen circumstances" / EIO,
-> or there may be more common errors reported? If it's just the former
-> a devlink health reporter could be an option.
+Fixes: 76c8764ef36a ("pfcp: add PFCP module")
+Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
+---
+Found during a backport review.
 
-For the output start and stop, only EIO. The device does not report a
-stopped output and the driver can only wait for one period, so a health
-reporter would work there.
+Reproduced on ubuntu-resolute 7.0.0-42: flood UDP :8805 while creating a
+pfcp link with an invalid name (register_netdevice() fails before ndo_init)
+-> the NULL-deref above (kdump vmcore). With the fix the same run stays clean.
 
+ drivers/net/pfcp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-For the resync, no. The wait ends with -ETIMEDOUT when the DPLL does
-not enter fast lock, for example because the selected reference lost
-its qualification in the meantime. That is a result of the input
-signal the user needs in the reply, not a device fault.
+diff --git a/drivers/net/pfcp.c b/drivers/net/pfcp.c
+--- a/drivers/net/pfcp.c
++++ b/drivers/net/pfcp.c
+@@ -61,7 +61,7 @@
+ 		goto drop;
 
-Beyond the zl3073x, with the global lock any callback that waits for
-its device, for example an mlx5 firmware command with its 60 s timeout,
-stalls the DPLL devices of every other driver in the system.
-
-Thanks,
-Ivan
-
+ 	pfcp = rcu_dereference_sk_user_data(sk);
+-	if (unlikely(!pfcp))
++	if (unlikely(!pfcp || !pfcp->dev || !netif_running(pfcp->dev)))
+ 		goto drop;
+ 
+ 	unparsed = pfcp_hdr(skb);
