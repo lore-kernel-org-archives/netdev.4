@@ -1,97 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126291;
-	b=cZp5GcpnItK95QQyXZpSh7XOfE6mAOWXNRA8rUQV6LQfa5jFwf2S3pNzDdmWGaIMgLM4
-	 huAzlCAWlIhr9wo+5jorHa+Ur07lVOs9Dy7xtDKR8ESiIyhN5vdwYIwbjQnXriMrV9voq
-	 +KPEt6BNaSkfVSgcEten5HSWIkCkaJ5TXIj6WlW2Br8n+fnsGRYNcNddJeXoo3sTAcALN
-	 BWz1hMANF3RQAiYr6A4TGmrfpmQSJQTd7u+pnSy+UneYtttkDpxNloVslz7sodAvuYs3G
-	 t9egnJH9KwdBgNy9Aih/ldtihU2EMB2sDZAFI2q5R+S2wpEkmCg9YqL28exjnX1RARQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126291;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795126295;
+	b=HGY9PQZ8tFdqpPXqbGugejOJ7MkMgWHiVOrn9eF8saWQXKznJw3GrDqmNUGMy6sWN1oy
+	 2IEvqsIrUmGQSxjVW5dDgWTHncVrRLWRtKJNudfUyoyGHNocbXu/6HOW6+1YRNOX36cPu
+	 snZBMwe41Dh24qPvfoQN23zbZPnFoalMzUZVIODKXV0wjmGsxqekMWZAa0Zuyf/tTZtLT
+	 6jHb76lMkxX6nj2RqvkGSUEkHQ/6Ghhjw8D6OFXJlZcmjy5O+84My6v6WvWbJqDPTxA7x
+	 30KkQ6J5YjLM1dFtiSbUSWokKDjA03/toEuUD/j4grGu7tl+J2Uu6dH6hXqwi0YjmqA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126295;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=gGW7ZdN7gX0aV1cRU/LLC9Q+zZEpF3SDhxZ/As6s7po=;
-	b=YSL1rdhdVrTcdjx38vInjbjd+NHlhk8AOqUTuiX8bGhHSJJWf/7iKX4ND7v746sKiTJD
-	 i1DSVZ64+8vVvtWbqdRjI2aFP1zq7NBge2q6kRJbRAWk1b1jRnDPm3BpZN3CuaHTc2bG7
-	 oe9xVkQKn7qbXOqUejUmmzDh9uYN2ltbjrohooYXN2p/zjcDfWa6v/3v6ym18GHpKUyhP
-	 AbtBOVM1AT165Dlb48+N6shjxZkJGLLgcQ4oy+PmkO+ClIBfoF979ykCncdqWV/VNgdas
-	 ZpdWJXCEhdbnZ7jgInsoOBBTbdYFKy6E076E+C8WCGW4pEcBsLEWPCEUQ/TVJ1YYKBQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=itpa9brw;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	bh=AxBnwBXyhJqtp8fKEcfhDoTvv+Vuw/5BcEJ5lx660bo=;
+	b=o3jdZBMlrdhIyOxjwfdXJGXrkoVhMSDDEpMx7ONz3zIbF2PnB4p4r7LoIltdQu4YpAzN
+	 UuKp31uPhy8Leu1yCbYgPzTEgnH1Wnk+l8ggJElVtEIGhMPYENi+nMWQhZwAGjUwCn+g4
+	 gFejHXn9zJmornkQ6OwB8dnXewqOPErFiWhnJVAxSeHWnTj4Vgun9143DSZU58nSI7K8l
+	 FYXrW+Z/2n28ij2trLHx7es7qXfBXm4QqdOK/b1l726NhCFQCYMv5yLdWIv1gHyeJfKst
+	 iWZG0JNu/HTDShKWYJRVu8OG8lMEp/H8cKNf93yD3zhEU8S6hPq47OPjApObDdjMRmA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RnwffWc3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2268606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:11:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2268606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36D3A606A325;
+	Thu, 19 Nov 2026 22:11:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36D3A606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=itpa9brw
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so187839a91.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:11:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795126289; x=1795731089; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gGW7ZdN7gX0aV1cRU/LLC9Q+zZEpF3SDhxZ/As6s7po=;
-        b=itpa9brwOYLyhWte/7DAwD9zL8AeCwwmJRbolHfuUEQlmz4jVgFD9UpIv/lK2K5F2s
-         L+5WDVJNALVueHhFX3yv4tITTIrlok5IjTVeOLli2NnvKjMNmUY9vdLmStboddUHMAx1
-         qSac6dTzezmnaOF391Wwyx2f/ScjohSEOZAt98TXzMXzPgC840/HwfS6j1jK+upQhxor
-         zpsET/EKpAgLqBPyV45HzgLL8yNqKFXe9i5sjYdOPKgSEsTgVAVV550ADBWBPYYeUN5C
-         U1YmC2dBbyYQJblPPw+/4TxpJd6uxAxsGPCg2V5xraPpVQgS1f91WB2sYn5XrpRrRZ2P
-         NDGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795126289; x=1795731089;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gGW7ZdN7gX0aV1cRU/LLC9Q+zZEpF3SDhxZ/As6s7po=;
-        b=1TxBn72R7rIutjw5YXfhCTVx9z2OvP+W0fwIOzgVZtHh2mV3s7ZgUbXhIxAjI6U7nW
-         W7ZeeqAwHHMcWk9djammcGAa19B35NYztfRw91sqTSUJnwznk0UWlUCPhHkK/0VmnRqJ
-         Qz2Ey19fGnHErP22AXGeveHOd2O3TTOEXx44X1P2cENwHwX+dGmj0q0mIIqFoJOTc8fD
-         DhRMrb3nmiYrlC7IoVR5rIXmOen+N2DwQXTGOfpDgmL+l2n6tCP2JWhLxZzCe8iB6QMf
-         b+xcwaSEcQgX9yAYHWoNSXzweObHMte+x7H6yRdfDOwVDEOS5N7RTREzZ0mB+W4Kj76x
-         /stw==
-X-Gm-Message-State: APuU4Z+O9CO/G+a9ARrLmVBVXQA/LLD+xd7D/84yN+8s4ijas/LZX8r3
-	fBCV7pkGB94aI1oxwGfScXenuiopfrIGV+0bcaSOg9wIekdJ7NFTqsbbnWkguANy
-X-Gm-Gg: AZFdTZc5aPMTu4Al3/W0qfQeQ1//B7ws4swBu7479YxYsO6GmN2VkYKyofdW5RqapP4
-	auOZcc82uYzDyitkGL1HVN9vagKFN8DVWfAesRE0n+Y+4gvl/J6nKBQX8QJxM0OOoVcIuD5ABUc
-	eGgcoA6oD53/iBGyi9IV0my1Yx0yM/+u0nZxWzPbDmq+ZzLh6iPD2hUJZF/Dyr1U4TyL3KS3bCD
-	pu6YuIuxYG1AClMkUoM9HfrwTbBp2gUH6TC1VTqpBjWVOwA4XRYpHaJA9gJ0CuTpuzDK88V5EeL
-	r4KfLXYosdUHRm8d4dAnJLwA20i+FRByhb2khNxJLYTrtzTsZzJTmMUdho0kXz3X7EPyzzy6yKz
-	cTMkr5TanVI4Yt44NJjoQk2NR71gZsPc8PVkmX9kUlqeiPeujaVqKmHxS6OxOsqyEty5Lku1FsK
-	Xzw+GHX9BYoB43/cu1HQKI8kQ4OiX1DSDwfYW8KwsZJeNSVX1A0eUIJXascZ8BBx2OhYYVoliYK
-	YZdD68Mh6Zipifu8LER9wzHURVlaiGutuZDGxuM8DKuP0dj3UET5teRLFSj+gtjv+2GDftOd3n+
-	2WgMIv8/ZqIFjOyxQnN/h+VEAjSd/5YX5JnfHYwOszI6ZV0W5xDh
-X-Received: by 2002:a17:90b:288e:b0:3b3:ab75:c94f with SMTP id 98e67ed59e1d1-3b41c92a098mr635758a91.31.1795126289178;
-        Thu, 19 Nov 2026 14:11:29 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d243eb1sm369348a91.3.2026.11.19.14.11.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 14:11:28 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RnwffWc3
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2191D205B33;
+	Thu, 19 Nov 2026 23:11:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795126288;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AxBnwBXyhJqtp8fKEcfhDoTvv+Vuw/5BcEJ5lx660bo=;
+	b=RnwffWc3JxowA5GeKs61cpj/MSfm74er8rDAMolw3y783ZyG55YpKRgUzD8BWzl+n7FSCi
+	P0k665BL5D+4rpVlbKdjU5Voy7IdUDZz4I/0znnL1mCjMLsLNCleB2kxVAM9mSlKVHwnSs
+	KfCqc2zXOQ6FOUqrBybtBWomvKLKYqmrVZ3Wx+tiXCYZdwvfUrIPJGb+DFmh1RGfHNYFTB
+	mqU8+rJA8oor8Rvq/VATEJTf+Cm3lxhLcwwzpS7QOrfhbcChtFi6VhLsY0/rqNW94HBi2A
+	QBczaVDTk0Ar5ojdyrLUPRfp/PxqPafwBEgQA8WO7/zK2lCUqmWFz+9tXZ7+tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795126288;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AxBnwBXyhJqtp8fKEcfhDoTvv+Vuw/5BcEJ5lx660bo=;
+	b=KgdJj8l534MrRiODB4SIVnETlx7MpbNPSLdGo8hFJ4jgpUQyh43cwqBbCrpt/UEX1WzwAJ
+	AKX1lWwd9ronzxNd3OerK8IDLezYDxMokNhffyEhdC6qWhE8fSMILgSIOsjCtad/YbZoUz
+	Q5WoiGOnjSCYsHUiP5AIaIWwqvc9aKXAuKbJIXcHEP6gVgIZUhIHAWZA1BdmEjTtW0R3rj
+	C+AiYs4XqG72lm0PyAJYXH9XaaCqlL3GUjUUPyhgW2U6/I6O88Kid+q6Q7F13/F6a09Y/3
+	r0TKNSzD2v0o81y7biV7z+9mr+/Wzp9ZfzsjezDKck6cklqf7N48FkhSJX57IQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795126288; a=rsa-sha256;
+	cv=none;
+	b=acF0yM1lgxClnAD10d6KRebcZImfO9QaaydrxI507KaFsddgCXiGsIYyvAqExgpTKsxHTz
+	LjEZ9o0LpkJ/05bQOb0ucbivSBYUlhHInURGJ3l9UqxzRjqQ4O+BlMhV6qDW+OZng5maVg
+	0OpytPOkz5txJDg2Xdl7fIEzCHRGmxygSR8RrMXZ/xwbL5MQf6OBUaYB8d1AvCu8+doxMF
+	MncMzQRyjhOj4uBF941G2naN0sJtfOBHVQuERScHqyX82eC/gccJIyQaRg6ZY49s0k8PIw
+	hp9D7CHKgvSt5sMyH7Lv4TkWMWSmn29qkgABMzDzXjKpmgt+0aYUoEK6qKpcHw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1xUALn-000Z63-1Z;
+	Thu, 19 Nov 2026 23:11:28 +0100
+Received: from blackshift.org (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id A0E5E5F0995;
+	Thu, 19 Nov 2026 22:11:27 +0000 (UTC)
+From: Marc Kleine-Budde <mkl@pengutronix.de>
 To: netdev@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net v3 3/3] net: dsa: motorcomm: Rewrite FDB entry on port migration
-Date: Fri, 20 Nov 2026 06:10:43 +0800
-Message-ID: <20261119221110.1123578-4-mmyangfl@gmail.com>
+Cc: davem@davemloft.net,
+	kuba@kernel.org,
+	linux-can@vger.kernel.org,
+	kernel@pengutronix.de,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Oliver Hartkopp <socketcan@hartkopp.net>,
+	Marc Kleine-Budde <mkl@pengutronix.de>
+Subject: [PATCH net-next 02/13] can: raw: remove redundant NULL check before netdev_hold()
+Date: Thu, 19 Nov 2026 22:58:38 +0100
+Message-ID: <20261119220936.155728-3-mkl@pengutronix.de>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119221110.1123578-1-mmyangfl@gmail.com>
-References: <20261119221110.1123578-1-mmyangfl@gmail.com>
+In-Reply-To: <20261119220936.155728-1-mkl@pengutronix.de>
+References: <20261119220936.155728-1-mkl@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,176 +110,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When unicast addresses move between ports, DSA calls .port_fdb_add()
-without a prior .port_fdb_del() call, making the new port directly OR
-into the existing entries. The old port mask then loses track in DSA and
-can never be deleted.
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
 
-Fuse FDB join/leave into one change function, and rewrite the whole
-entry on add with the bridge port mask as the leave mask, so that ports
-left behind by the migration are dropped from the entry.
+netdev_hold() does nothing if dev is NULL, so the check before the call
+is redundant.
 
-Note the commit only covers single bridge usage correctly. Host
-subscriptions should be mutually exclusive with multiple bridges, which
-may be addressed in a separate commit later.
+So remove it. No functional change.
 
-Fixes: 186623f4aa72 ("net: dsa: yt921x: Add support for Motorcomm YT921x")
-Signed-off-by: David Yang <mmyangfl@gmail.com>
+This is the result of running the Coccinelle script from
+scripts/coccinelle/free/ifnulldev_put.cocci after commit f83b8a58695c
+("coccinelle: ifnulldev_put: update outdated helper names").
+
+Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+Acked-by: Oliver Hartkopp <socketcan@hartkopp.net>
+Link: https://patch.msgid.link/20260831052031.902699-1-ekffu200098@gmail.com
+[mkl: ported to recent net-next/main]
+Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- drivers/net/dsa/motorcomm/chip.c | 94 ++++++++++++++++----------------
- 1 file changed, 47 insertions(+), 47 deletions(-)
+ net/can/raw.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-index 5bfdac18c012..e9f01aeb9d3e 100644
---- a/drivers/net/dsa/motorcomm/chip.c
-+++ b/drivers/net/dsa/motorcomm/chip.c
-@@ -729,13 +729,14 @@ yt921x_fdb_add(struct yt921x_priv *priv, const unsigned char *addr, u16 vid,
- }
+diff --git a/net/can/raw.c b/net/can/raw.c
+index f14270b56f52..66e41bf9db3e 100644
+--- a/net/can/raw.c
++++ b/net/can/raw.c
+@@ -558,8 +558,7 @@ static int raw_bind(struct socket *sock, struct sockaddr_unsized *uaddr, int len
+ 		ro->bound = 1;
+ 		/* bind() ok -> hold a reference for new ro->dev */
+ 		WRITE_ONCE(ro->dev, dev);
+-		if (ro->dev)
+-			netdev_hold(ro->dev, &ro->dev_tracker, GFP_KERNEL);
++		netdev_hold(ro->dev, &ro->dev_tracker, GFP_KERNEL);
  
- static int
--yt921x_fdb_leave(struct yt921x_priv *priv, const unsigned char *addr,
--		 u16 vid, u16 ports_mask)
-+yt921x_fdb_update(struct yt921x_priv *priv, const unsigned char *addr,
-+		  u16 vid, u16 leave_ports_mask, u16 join_ports_mask)
- {
- 	u16 index;
- 	u32 ctrl1;
- 	u32 ctrl2;
- 	u32 ctrl;
-+	u32 val1;
- 	u32 val2;
- 	u32 val;
- 	int res;
-@@ -744,69 +745,63 @@ yt921x_fdb_leave(struct yt921x_priv *priv, const unsigned char *addr,
- 	res = yt921x_fdb_has(priv, addr, vid, &index);
- 	if (res)
- 		return res;
--	if (index >= YT921X_FDB_NUM)
--		return 0;
-+	if (index >= YT921X_FDB_NUM) {
-+		if (!join_ports_mask)
-+			return 0;
-+
-+		return yt921x_fdb_add(priv, addr, vid, join_ports_mask);
-+	}
- 
- 	/* Check if action required */
- 	res = yt921x_reg_read(priv, YT921X_FDB_OUT2, &val2);
- 	if (res)
- 		return res;
- 
--	ctrl2 = val2 & ~YT921X_FDB_IO2_EGR_PORTS(ports_mask);
--	if (ctrl2 == val2)
--		return 0;
--	if (!(ctrl2 & YT921X_FDB_IO2_EGR_PORTS_M)) {
--		ctrl = YT921X_FDB_OP_OP_DEL | YT921X_FDB_OP_START;
--		res = yt921x_reg_write(priv, YT921X_FDB_OP, ctrl);
--		if (res)
--			return res;
-+	ctrl2 = val2 & ~YT921X_FDB_IO2_EGR_PORTS(leave_ports_mask);
-+	if (!join_ports_mask) {
-+		if (ctrl2 == val2)
-+			return 0;
-+
-+		if (!(ctrl2 & YT921X_FDB_IO2_EGR_PORTS_M)) {
-+			ctrl = YT921X_FDB_OP_OP_DEL | YT921X_FDB_OP_START;
-+			res = yt921x_reg_write(priv, YT921X_FDB_OP, ctrl);
-+			if (res)
-+				return res;
- 
--		return yt921x_fdb_wait(priv, &val);
-+			return yt921x_fdb_wait(priv, &val);
-+		}
- 	}
- 
--	res = yt921x_reg_read(priv, YT921X_FDB_OUT1, &ctrl1);
-+	res = yt921x_reg_read(priv, YT921X_FDB_OUT1, &val1);
- 	if (res)
- 		return res;
- 
-+	ctrl1 = val1;
-+	if (join_ports_mask) {
-+		ctrl1 &= ~YT921X_FDB_IO1_STATUS_M;
-+		ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
-+		if (ctrl1 != val1)
-+			ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
-+	}
-+	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(join_ports_mask);
-+	if (ctrl1 == val1 && ctrl2 == val2)
-+		return 0;
-+
- 	return yt921x_fdb_add_index_in12(priv, index, ctrl1, ctrl2);
- }
- 
-+static int
-+yt921x_fdb_leave(struct yt921x_priv *priv, const unsigned char *addr,
-+		 u16 vid, u16 ports_mask)
-+{
-+	return yt921x_fdb_update(priv, addr, vid, ports_mask, 0);
-+}
-+
- static int
- yt921x_fdb_join(struct yt921x_priv *priv, const unsigned char *addr, u16 vid,
- 		u16 ports_mask)
- {
--	u16 index;
--	u32 ctrl1;
--	u32 ctrl2;
--	u32 val1;
--	u32 val2;
--	int res;
--
--	/* Check for presence */
--	res = yt921x_fdb_has(priv, addr, vid, &index);
--	if (res)
--		return res;
--	if (index >= YT921X_FDB_NUM)
--		return yt921x_fdb_add(priv, addr, vid, ports_mask);
--
--	/* Check if action required */
--	res = yt921x_reg_read(priv, YT921X_FDB_OUT1, &val1);
--	if (res)
--		return res;
--	res = yt921x_reg_read(priv, YT921X_FDB_OUT2, &val2);
--	if (res)
--		return res;
--
--	ctrl1 = val1 & ~YT921X_FDB_IO1_STATUS_M;
--	ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
--	ctrl2 = val2;
--	if (ctrl1 != val1)
--		ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
--	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(ports_mask);
--	if (ctrl1 == val1 && ctrl2 == val2)
--		return 0;
--
--	return yt921x_fdb_add_index_in12(priv, index, ctrl1, ctrl2);
-+	return yt921x_fdb_update(priv, addr, vid, 0, ports_mask);
- }
- 
- static int
-@@ -880,6 +875,7 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
- 			const unsigned char *addr, u16 vid, struct dsa_db db)
- {
- 	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
-+	u32 leave_ports_mask = 0;
- 	int res;
- 
- 	/* The software bridge never forwards according to an FDB entry with a
-@@ -888,8 +884,12 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
- 	if (is_multicast_ether_addr(addr))
- 		return 0;
- 
-+	if (db.type == DSA_DB_BRIDGE)
-+		leave_ports_mask = dsa_bridge_ports(ds, db.bridge.dev);
-+
- 	mutex_lock(&priv->reg_lock);
--	res = yt921x_fdb_join(priv, addr, vid, BIT(port));
-+	res = yt921x_fdb_update(priv, addr, vid, leave_ports_mask,
-+				BIT(port));
- 	mutex_unlock(&priv->reg_lock);
- 
- 	return res;
+ 		if (dev) {
+ 			/* Either raw_notify() sees ro->dev on NETDEV_DOWN or
 -- 
 2.53.0
 
