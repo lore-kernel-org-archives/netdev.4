@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795061860;
-	b=rb0rllSqWJt1S9foo7NpAsygga7LwRGt8wm/9DU2fSTKcia4x4Xic7oK71n9OI5ZmHY4
-	 5LBjBfglh95Es60eSCiqHNz/NG1x90+bXGFU1mwnvKQGfzxAo7c3ET/E1heqb2sBBjLLa
-	 Z1U66SxDUJNnWVZqinE10gO5SP7RCuBhDxz8Boe0MyEQ97iedk6m6SU7fSofDBHv9NF6F
-	 e1FpcL0CtRML8eDfz617LEXsvF7bh6N9q3BXXUGCIhgL60ZcMyhISq4ILk7ZQbhycV/PL
-	 TaTKrapQbR8Z0HGnimxkdQm+lvjbZyjnkYCkww5OlK/1Py2c6kf/IKCDgzeU5IkQCwQ==
+	t=1795062443;
+	b=rof18q+N8bWkVSf/ReWIo3BN6xpY5ABH+nD2fIuTWYSnyRtYffVrXSJU2KvvwBm2OUyS
+	 XHqatXPaAcz+cBm/OUJGyTBMiXPL9xTC1hEueYLTfoLRxKzJ8QYG07LBHLBX741A8yPFO
+	 ASYR6U5nhclYueZqMcdBhhEwwQ0YRMK9IJb2TT9LTY/8vGCCwi6Hg1QFlNeaQhSbtM10s
+	 LWz4fdKEk6NAQ5Wph0daLrLe4KAIWFdM5wAFJ66N/XbzowDG8ofvs2Ar4REAobHKO/qfe
+	 VfM4CL8eAUQrmM0hTgqBwkQkMlTesNVLpNOPYJzSVnVf5Si8Cl4HpNCCcprcgRgbUOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061860;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=YnIs1WTGLn/zqP+lzPBx/qPQEVGx/mUbkzanTiDXB9QbEVDZJip2qs4HrF088tkXCr4Y
-	 NuziQgq2IPjn26GGLlj3lWXjcmXH821t3Y/pySueGZGqqCQqyjD8JGR2vG1QYz/kSeo2K
-	 KaGI4ujPvzC5YFWH5UKkxRNuXfTnwpQJZ5caItBCVG+1tuw+SoAeB8V+cgL1FxPByJPib
-	 V1KwXumZpPElJUTZr3bLD4TYwWFa8cnWFwnd7vuyjgpg67c4sOxI4I3B+qSX2EqwEH1NJ
-	 KZKIe9LcYgOX9npuGt56usHyanSpax+i7k+tpbQZQ0/kERNje1f84EAyE/gw9y697ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795062443;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=3Hxcc3mWV4vpK8u9zPUdfbWlyMV/Lx3auErCWtJ/vww=;
+	b=ytNjqFBRlLZ/bbgJFsYWrm4YaBeow785E2sJ/yluQAtx08r25F1PoKlPys+oNTxVKoCi
+	 ZsTweNrUYY5l84mSvZHJD7PeYqrlXWFQFDPW8S8JWEoSMy3O+VjmgHc9ZELiWV2SJpNLC
+	 QPGaGHATimc0YyOKXwGjcJeAO5FM4fR0DNsUW/bvoLnzn/kxUjrCFhJVM+R9xo9+k6mYG
+	 7Bvk5SvkNThva/IU3Q+sjaxBuUlSWqeBzr2u/fWnTOc9iLrEo+A18AiXlHeIi45mB7CEo
+	 HkgvjmOKKaZkqvLf9SBcP3c6Q13ed+iDPczSIVYIcfuMowJd12tqx9nSYiIOMRddaJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jNgbNd0Y;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bdZ5luSc;
+	arc=none smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D08A9606A320;
-	Thu, 19 Nov 2026 04:17:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F1EE606A32A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:27:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F1EE606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jNgbNd0Y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 432981F000C4;
-	Thu, 19 Nov 2026 04:17:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795061860;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jNgbNd0YQPkspDTpsmKqjbtXP6WUKvcew6n//NzCI0Sn+/qhwvsjF5UOL4QSzqbRc
-	 0EcSOewIZ93hjObsyG7SiUXGyFqQZci6jlPLLYSeJeDwP8vFmcgSCa+gTP3clXqd4w
-	 QKplFFeHrFXXCwrvTR10QXIFa9NO1U3noia4rxTo/UnTEu5V4w8QUj/I/egkyUtlKF
-	 8zOZgzL9ytdqSv8lBaeY5/0JiI0r6hKNp9VFJpdKmIzxDSzOc6RbNKKHVLKvBPxk99
-	 LNl6ma0nGK1uB90F9Nl1cD29IZOJtE8EODIwbXki/rKjm3CLB4uMdzagli4nl9xYtx
-	 iyqwFdYE6hgFw==
-From: netdev-bot+sinfo@kernel.org
-To: Wentao Guan <guanwentao@uniontech.com>
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
- imv4bel@gmail.com, martin.lau@linux.dev, jiayuan.chen@linux.dev,
- netdev@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net] inet: reject unhashed sockets during timewait purge
-Date: Thu, 19 Nov 2026 04:17:39 +0000
-Message-ID: <179506185983.3291.13664137983591286352@kernel.org>
-In-Reply-To:
- <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
-References:
- <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bdZ5luSc
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8b68e59ab33so1409324b3a.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:27:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795062442; x=1795667242; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3Hxcc3mWV4vpK8u9zPUdfbWlyMV/Lx3auErCWtJ/vww=;
+        b=bdZ5luScc7SG3YNewnCwCgsSUxO4L668OOhIJJW+3KnwrEKUzPXmaSbigfrzIcBnmx
+         KSSVyoP2KeqXVWwDmBezvL61+GjMSe5jcv1IZ3far/x5lRc83bqAxViV0F4PAEXwxPKL
+         c1u1XZLNxpy68zHWWUf1R50aWbfH2GW5QDf10KXIb/BEDYi/a/FbdDYN187YRU2YMrN9
+         3OO0SSj2PDmW3LtQ2oRzhDhpjoLpJ88j/9KCYJQv/9E//M1g5b0AYOtCWcAwR7EVpmgi
+         /AuSMNFGnNZ+OqO1BMWddOQU0ex6UIrbgjooIM/z8mfpUy56tsAX+bwPOpNgxnPwt896
+         Z4Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795062442; x=1795667242;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3Hxcc3mWV4vpK8u9zPUdfbWlyMV/Lx3auErCWtJ/vww=;
+        b=CmizIG3gdCZIgeT5i2IEfoJe/69Qd7l2gh+/29FqYPgQMaFDq7ilO8JgYiUIhifNPD
+         fVHdk1ujkYcP9AsIrNloKJ1H0ZOlsn21EByCvMlR/HuUoV2/DPyItdQh7XF8R5ns71kD
+         Y+R00FM7XQuGqGOJiNpsOVFCTiE6bjPu12coGHelJcMvvYPFHlZSmigUNHn/u98d9bEO
+         VBINVSVE0u8MQq3wY5zmCUyF5nW4GbwWl7bcR9gcorhCm+6i++3d3k/KRJ4KYJC4mC/1
+         uiUU3VtZYZlTLLom+6OquO4duCsS6EmMLHttkCHzuvCY6RqJpXhPQsfl2czH8rVLbMs3
+         bLhA==
+X-Gm-Message-State: APuU4Z/LOespEGY+qkgSFjuUcQz61BSZ08fLkDKsyDzO7boF4ynvClXD
+	5EPF1j1uG/Y2PneGKuTT9GIntWvkQ536P5Vww1TFQKgpIe7AHMMcz34YAqeq9qnT
+X-Gm-Gg: AYBFou2Xk9nlBi7acRXDcJJnyR0gBmuxEG42H3hZhYPnnC1SfvV9ehj2QHLulIwgSv5
+	fAj02R6grh0CbqMBaVja2fyS0yFF56X60bB92yEjt78wbeSSRmS5P0bMFLRcaMjqPUio/qHGFZI
+	2amI3j6B9qZyP28gG2rw2pl05yLxRVUH0LbFO9wqktabS7Jp+wfp+K86o1/D9Sd87Otgjl/v3RA
+	4IJlmQi5ivbrRk8wuIIwsMa8JHO1yZGyAXouZIiVfvIpDqXOGwhTrsig2nJgOpPI35IXlPS/DkA
+	iTiEaJQ1BsitQ9A2fgJorqMHNx9YDT3rwtlHwVyLthNs9MkYUOd/+ghVTTbqDOqrqstj4I0BKby
+	w6yAgl/CgEUYBAmx23JW+bGAjE5tnOpBWP59XN4WxAsIcQX6BQwIjFpm4PV1nPap5mxSq1vQ1+2
+	AOtXWtsFV3BKEcPEt0ezso5AMJtUbNzPOYgUuctFGxohxqr5gWPUXg3JWhKflxFzUoO2oQgOpmm
+	zsM/ZSlV1sFU2SeMQ39efipfIQdDB9t7nypKsIV8SKNBfxr4a7ZEOXbsqqQs79XkSPXNprTFnqT
+	JSc8qnito+INV2Lx
+X-Received: by 2002:a05:6a00:4c17:b0:89d:eb23:4e83 with SMTP id d2e1a72fcca58-8c5d3d12f10mr4182188b3a.30.1795062441855;
+        Wed, 18 Nov 2026 20:27:21 -0800 (PST)
+Received: from x1.hs.local ([2601:600:a482:7d70::5e59])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb35830bsm2077636b3a.33.2026.11.18.20.27.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 20:27:21 -0800 (PST)
+From: David Westen <davidlwesten@gmail.com>
+To: netdev@vger.kernel.org
+Cc: loic.poulain@oss.qualcomm.com,
+	ryazanov.s.a@gmail.com,
+	johannes@sipsolutions.net,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	m.chetan.kumar@linux.intel.com,
+	linux-kernel@vger.kernel.org,
+	mail@maciej.szmigiero.name,
+	nihaal@cse.iitm.ac.in,
+	David Westen <davidlwesten@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v2 1/2] net: wwan: iosm: cancel the ADB timer on cleanup
+Date: Wed, 18 Nov 2026 20:27:13 -0800
+Message-ID: <20261119042714.505405-1-davidlwesten@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,26 +104,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+ipc_imem_cleanup() cancels the other imem hrtimers but not adb_timer,
+which the UL aggregation path arms for 500 us. If it is still pending
+when the device is removed, its callback queues a task that finishes
+the ADB on the freed MUX, and the hrtimer itself is freed with the
+imem.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Cancel it along with the other timers.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Fixes: 1f52d7b62285 ("net: wwan: iosm: Enable M.2 7360 WWAN card support")
+Cc: stable@vger.kernel.org
+Signed-off-by: David Westen <davidlwesten@gmail.com>
+---
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Notes:
+    Build-tested, and run as part of this series on an XMM7360 that uses
+    MUX aggregation, so the timer is armed there. I haven't reproduced the
+    race itself.
+    
+    It comes before the S3 fix in the next patch, which makes this teardown
+    run on every S3.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+ drivers/net/wwan/iosm/iosm_ipc_imem.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+diff --git a/drivers/net/wwan/iosm/iosm_ipc_imem.c b/drivers/net/wwan/iosm/iosm_ipc_imem.c
+index 4405c8531888..20f8da53a3ea 100644
+--- a/drivers/net/wwan/iosm/iosm_ipc_imem.c
++++ b/drivers/net/wwan/iosm/iosm_ipc_imem.c
+@@ -1239,6 +1239,7 @@ void ipc_imem_cleanup(struct iosm_imem *ipc_imem)
+ 	hrtimer_cancel(&ipc_imem->tdupdate_timer);
+ 	hrtimer_cancel(&ipc_imem->fast_update_timer);
+ 	hrtimer_cancel(&ipc_imem->startup_timer);
++	hrtimer_cancel(&ipc_imem->adb_timer);
+ 
+ 	/* cancel the workqueue */
+ 	cancel_work_sync(&ipc_imem->run_state_worker);
+
+base-commit: e203d8a4751d48aa00eda31e3b320ba8e0d47dbf
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.56.0
+
