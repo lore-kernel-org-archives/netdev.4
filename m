@@ -1,71 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082391;
-	b=m/Z6brzJyY40ITuFh2/IV0w76FS9on5ixXQU2JlK/jRw9HBbaDvWDMXywN/V7IA0fkqm
-	 SPrTbyBiNsf9BUjyhiZlAU2VKG845n3qYkT8DHvHyQObK7Pd4O1j2jHpXBguoUDquhl9N
-	 +t05AZK5Kb43CenpcvHrxHV8cvaJ1alBIJ/zuwHQrlqZKXf4AjpB2MhGLemuA7+S5h7DE
-	 /r4GO7rC2AcYUfWtaNPopY1OMt5BB0v4xUcD+fJXzudEWF04HWi7LMvfq8t4dVTFFIUim
-	 WI9Mai0SogEdTzsBmE0+kWXorFLTHqfEhX+TpbEWrlXZy/WFPS//k7Z67/FyalIW6kg==
+	t=1795082409;
+	b=yGryBbWjogppwp+NcbY32koQKPICsLh31A0BpfBOIwtswoFGBAcQQLszVhlEjHdlRCVa
+	 W9PEm+Zs+ZfW5KJ6JMUVw118P4ANoFJZoOZMBCfVgVfm/QjFdlm3dKXrtHaCAc/9F5hwf
+	 P9Bof6DxHMcDt4rRpUgLKdytKIBSarepGmimuYTYXpK2/Q4u0M7fVuvZ12+JJddgxF3ty
+	 Ax6o4NDrc8G4atqRmW2zyfup0OGPZdAaJBmx62ocp9VHspugpEj0MyNzHMT+vmyUz9Gxu
+	 TTivhAuIVjc80O9db0h43M7kcJUN7Y5gh2b9biSAnrPd942X6rVaDX0Mu1uDqpRwnAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082391;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=40XBrj6ej0YXePVzHhKmtc1I2QrMmp0ldPmTPQTm2Hs=;
-	b=P/2qPQcsuFdO4Y7kUxEkCl8yq47n7c/VxJUzTjRlS8HA1A40uD/FKmSfjoPSGfpODHRw
-	 P0GHSOvIl1fW9DIjPGT+dMKYw8y/cVgzGsfpnXSQ/LA9dOVGobd9geoACGtSmnKPZO+sE
-	 H35bwWG7hyLFuC5KmSipPDfrOs2aZAsuOwnB5syLGJdvpAPtmyBrCLN01bED/xkDPCqPb
-	 YZO0rBLSN4kdCEJAyNbFolqWviQnFiVYDPfh/+f8txyM/NhaZBU6ksHlg7gK3i9Y3YqWL
-	 0KLJgcx1LT/q9UL4mNT66uHegirudTkPhp7OTXR6uvWQJlWQWrU+SqvsPHn+QdB4lvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082409;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=kTzbNMB0lkPb29C5lEl2iw0lD8pHD/bk4tZXLI5J+hQ=;
+	b=JA5ujkT/XhAi2CKvBrXpC5/UjJeJwKLg0rVI2FAFXLKSgu3I87ed0L0K38jNDNHj0Nry
+	 NKg1JxmNAVgdPYtBm7bhTPYaKl7U+iRwWQQZn93gFIYtqCZWaU4p5RKdZ6+GJL/na1RiI
+	 eUVXybJKNKjnaaPQOGCkJiMoSAwO+/DTDHlm1kkmPwEGtoVG+csI5A5YPt/XNWYplMch2
+	 eA5TVPdkikfzyGh4kdnXbxkFaCtobeQ3uATdl0gPsPa75/5vdcJS2k8nHooG78n/fhdWX
+	 QKTRaMIJzP3rBtZgnmWPEo5aW73WSxLPwPlkMNu2YP+DeuXg/6gzYA2ceSujvRuNg1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=sAICyc07;
-	arc=none smtp.remote-ip=115.124.28.73
-Received: from out28-73.mail.aliyun.com (out28-73.mail.aliyun.com [115.124.28.73])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nokqmaiP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BDF0606A324;
-	Thu, 19 Nov 2026 09:59:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BDF0606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A68B606A320;
+	Thu, 19 Nov 2026 10:00:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=sAICyc07
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795082381; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=40XBrj6ej0YXePVzHhKmtc1I2QrMmp0ldPmTPQTm2Hs=;
-	b=sAICyc077UcTCUAaLmgiJ/iGYd8G03i7MunfiPiQRtnA4f7wj7PRXe5fxPPpkSM+jqHbNQ8TCltKT9Uz++yl/WddoQ67XsYaCfA+a5WKy1/oH2iebi7sSSEog1w4LmZwiovRi1CAbhfezmH0XD2xKpHPS3Fj0QzLtwnlCQGhSL8=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04792612|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00993389-0.000208522-0.989858;FP=16627843036400666137|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033025068124;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=17;RT=17;SR=0;TI=SMTPD_---.k5ij0aX_1795082378;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k5ij0aX_1795082378 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Nov 2026 17:59:39 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: fangxy@xiaopeng.com,
-	chandrashekar.devegowda@intel.com,
-	loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	ilpo.jarvinen@linux.intel.com,
-	netdev@vger.kernel.org,
-	haijun.liu@mediatek.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	linqj@xiaopeng.com
-Subject: Re: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
-Date: Thu, 19 Nov 2026 17:59:33 +0800
-Message-ID: <20261119095933.41076-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <179506943682.3291.10326179398413921657@kernel.org>
-References: <179506943682.3291.10326179398413921657@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nokqmaiP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 077581F000C9;
+	Thu, 19 Nov 2026 10:00:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795082409;
+	bh=kTzbNMB0lkPb29C5lEl2iw0lD8pHD/bk4tZXLI5J+hQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=nokqmaiPUXWYijRU0hq1hretq6+Ayze32k8fjoLs05g4KxO3hQmNM8uOp774N6IEI
+	 4R1e91BQQ2KQmONqWYyJ0JwPgtlAXjBZzvNWvPI9BWT0r1UQX95/QyXYDi+nPpt4Qb
+	 KDgDe1W4JvbP5RRwrrMv4ryoIlAhfk+qNq/uMDvA6pmq4EgnqJTAEZdBuPGiMsEM/r
+	 Ozx4ujCsFKlUpgp28aROP6YonJ3mJV47NK98+VIa8qbac1Rb69s3Klyl19xmVAuAZd
+	 bxOPfgGvn5nqdtQaibES78ueh4lRWMhwDmZyAZClCboZEcW8O+l7Gx8Ey5UPWQa8a8
+	 bOdntlrhSTXZg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F157B3808210;
+	Thu, 19 Nov 2026 10:00:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,47 +54,63 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v3 00/10] net: dsa: realtek: rtl8365mb: DCB
+ ingress QoS offload
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179508240778.2985927.13937253116183236762.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 10:00:07 +0000
+References: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
+In-Reply-To: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, linusw@kernel.org, luizluca@gmail.com,
+ alvin.sipraga@analog.com, andrew@lunn.ch, olteanv@gmail.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kernel@pengutronix.de
 
-The issue was found during a security review of the t7xx driver's
-device-supplied input paths, assisted by the Hawkeye agent
-(LLM-based code analysis).
+Hello:
 
-It has now been reproduced with a fault-injection harness in a
-KASAN-enabled QEMU guest. No t7xx hardware is available, so the
-harness synthesizes a malformed PIT and calls
-t7xx_dpmaif_set_data_to_skb() directly; this is a synthetic trigger,
-not a natural one.
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-With a PIT data address 128 bytes below the BAT DMA base, the int
-offset becomes -128. The existing tail+length check passes because
-the unsigned tail wraps, skb_reserve() then moves skb->data 64 bytes
-before skb->head, and reading the payload triggers:
+On Mon, 16 Nov 2026 20:10:11 +0100 you wrote:
+> Add ingress QoS offload for the RTL8365MB switch through the dcbnl app
+> interface: a per-port default priority, PCP trust and DSCP trust. The
+> mapping helpers go to net/core/ieee8021q_helpers.c so other drivers
+> can share them.
+> 
+> Two changes are visible to users. The driver now rejects a devicetree
+> port that the chip does not have. With a default priority set, an
+> untagged frame that leaves a VLAN-tagged port carries that priority as
+> its PCP.
+> 
+> [...]
 
-  BUG: KASAN: slab-out-of-bounds in t7xx15_harness_run+0xa4f/0xda0 [mtk_t7xx]
-  Read of size 1 at addr ff11000002095340 by task insmod/67
-  Call Trace:
-   <TASK>
-   dump_stack_lvl+0x55/0x70
-   print_report+0x10d/0x5d0
-   kasan_report+0x96/0xd0
-   t7xx15_harness_run+0xa4f/0xda0 [mtk_t7xx]
-   t7xx_pci_init+0x9/0xff0 [mtk_t7xx]
-   do_one_initcall+0x84/0x350
-   do_init_module+0x29d/0x800
-   load_module+0x510c/0x6630
-   init_module_from_file+0x15d/0x180
-   idempotent_init_module+0x320/0x670
-   __x64_sys_finit_module+0xbd/0x120
-   do_syscall_64+0xee/0x500
-   entry_SYSCALL_64_after_hwframe+0x77/0x7f
-   </TASK>
-  The buggy address belongs to the object at ff11000002095040
-   which belongs to the cache skbuff_small_head of size 704
-  The buggy address is located 64 bytes to the right of
-   allocated 704-byte region [ff11000002095040, ff11000002095300)
+Here is the summary with links:
+  - [net-next,v3,01/10] net: ieee8021q: print traffic type and queue count with %u
+    https://git.kernel.org/netdev/net-next/c/b41ef20ab56b
+  - [net-next,v3,02/10] net: ieee8021q: add pcp_to_tt()
+    https://git.kernel.org/netdev/net-next/c/7338998e37fc
+  - [net-next,v3,03/10] net: ieee8021q: clarify the tt_to_tc() traffic-class mapping
+    https://git.kernel.org/netdev/net-next/c/a8d30866fbba
+  - [net-next,v3,04/10] net: ieee8021q: add tt_to_pcp()
+    https://git.kernel.org/netdev/net-next/c/37d731911fc7
+  - [net-next,v3,05/10] net: dsa: realtek: rtl8365mb: describe the ports of each chip
+    https://git.kernel.org/netdev/net-next/c/2517cb4b6510
+  - [net-next,v3,06/10] net: dsa: realtek: rtl8365mb: store the egress queue count per chip
+    https://git.kernel.org/netdev/net-next/c/7e0f10801a0d
+  - [net-next,v3,07/10] net: dsa: realtek: rtl8365mb: add QoS baseline and DCB default prio
+    https://git.kernel.org/netdev/net-next/c/4af6c347edc9
+  - [net-next,v3,08/10] net: dsa: realtek: rtl8365mb: program the PCP of untagged frames
+    https://git.kernel.org/netdev/net-next/c/78dc82293945
+  - [net-next,v3,09/10] net: dsa: realtek: rtl8365mb: offload DCB apptrust
+    https://git.kernel.org/netdev/net-next/c/92a1dea3ebbd
+  - [net-next,v3,10/10] net: dsa: realtek: rtl8365mb: report the DCB DSCP-to-priority map
+    https://git.kernel.org/netdev/net-next/c/03ceee6094c2
 
-The read address matches the corrupted skb->data (skb->head - 64).
-A second case, where the u64 address difference narrows to a small
-positive int, is also accepted by the unpatched code. With this
-patch applied, both inputs are rejected with -ENOBUFS and no KASAN
-report is produced.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
