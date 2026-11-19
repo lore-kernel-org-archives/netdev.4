@@ -1,69 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795061562;
-	b=pfjyjZYAbva6nOc/605cNt3+VPjCu1gL9YAhzsnbrknQuvYgEUKCZ6I+gk9swmr7soNN
-	 7cf1yMo6s1wK2sYtpAETaDSFaXHB8/J1+nMUvdJMydP2Wh4E+0s4N7slBfo9MCkEz5gXz
-	 NV8s6uIncSoW6R8T0Kw5V/GxKt7ueqefwqCwaMFItMYAtBvFtEEorQRKDND2cpQlc8SlJ
-	 x2xjM7xTBP459s1liXDRY3TnA2C19sGdMFJbxf5Xe8C335XU7EC9wbcd2sPZaVjAM3RUG
-	 /nJHwuaJJ//xepqz8dHlFBGGJqTsFBw4o+N/cNO1+KlpWW67gb/a1fHpz29+fkGhn6g==
+	t=1795061860;
+	b=rb0rllSqWJt1S9foo7NpAsygga7LwRGt8wm/9DU2fSTKcia4x4Xic7oK71n9OI5ZmHY4
+	 5LBjBfglh95Es60eSCiqHNz/NG1x90+bXGFU1mwnvKQGfzxAo7c3ET/E1heqb2sBBjLLa
+	 Z1U66SxDUJNnWVZqinE10gO5SP7RCuBhDxz8Boe0MyEQ97iedk6m6SU7fSofDBHv9NF6F
+	 e1FpcL0CtRML8eDfz617LEXsvF7bh6N9q3BXXUGCIhgL60ZcMyhISq4ILk7ZQbhycV/PL
+	 TaTKrapQbR8Z0HGnimxkdQm+lvjbZyjnkYCkww5OlK/1Py2c6kf/IKCDgzeU5IkQCwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061562;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=9i2xSNVqrdCkfoxIYuGVvU1swaArXTrdncn/noLGlnk=;
-	b=ECW/wyTNkVMhniN38DX7kgMnDa0PYlVrLEWzFUj29bZMYFYfZvQN6pyWGxOwi8PKV4/h
-	 rh5VGALolIfntTZgj55IGX1VXrSNLaSZWDhC4YxmwYlwIwi+M7jIusuKZGQtUN208ID0O
-	 UXLg89zTCe9lap+pKnza1eM1+TccZEu+v8OxvqGGRz0FsFiBdiERSN5Us+h/YqtX6MHR/
-	 dv2jYe7l/ibu3PtsWDCOTQloRwSCEK6+XNWeYz+HcJ+0GXfP+VdRKUGCVzXFN0YZbkaIu
-	 YxiYMABeZmlF7Vbbq/BRdN1SZfTR2BSWTPqkLcqdpgg1KnheSLetvgZ0oDTUAhmRHNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795061860;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=YnIs1WTGLn/zqP+lzPBx/qPQEVGx/mUbkzanTiDXB9QbEVDZJip2qs4HrF088tkXCr4Y
+	 NuziQgq2IPjn26GGLlj3lWXjcmXH821t3Y/pySueGZGqqCQqyjD8JGR2vG1QYz/kSeo2K
+	 KaGI4ujPvzC5YFWH5UKkxRNuXfTnwpQJZ5caItBCVG+1tuw+SoAeB8V+cgL1FxPByJPib
+	 V1KwXumZpPElJUTZr3bLD4TYwWFa8cnWFwnd7vuyjgpg67c4sOxI4I3B+qSX2EqwEH1NJ
+	 KZKIe9LcYgOX9npuGt56usHyanSpax+i7k+tpbQZQ0/kERNje1f84EAyE/gw9y697ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=eCbUE52y;
-	arc=none smtp.remote-ip=54.204.34.129
-Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jNgbNd0Y;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25D460A2603;
-	Thu, 19 Nov 2026 04:12:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25D460A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D08A9606A320;
+	Thu, 19 Nov 2026 04:17:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=eCbUE52y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795061532;
-	bh=9i2xSNVqrdCkfoxIYuGVvU1swaArXTrdncn/noLGlnk=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=eCbUE52yh4rzRfxMpVYueg6rlwt8f2hS5yNUpjXP1uR8RZrljExHtrUfZXmvg7aQt
-	 oCg4lDWirEKZVAKph8f89E5YNmKn7svxNjvSjpo/n7EGGODpmB3QL0uLg5QQkRZEzV
-	 7R/EzYGsBNapmlNPUOYgiVxoQL2V3f7eezHq5t/A=
-X-QQ-mid: esmtpsz10t1795061514t53da4054
-X-QQ-Originating-IP: d/4tuF11XGOj10HNJTbqcdVgReHSy8ZOCdXEKnz4xCI=
-Received: from localhost.localdomain ( [61.183.83.60])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 12:11:32 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 4520981733334392773
-EX-QQ-RecipientCnt: 9
-From: Wentao Guan <guanwentao@uniontech.com>
-To: edumazet@kernel.org,
-	ncardwell@google.com,
-	kuniyu@google.com,
-	imv4bel@gmail.com
-Cc: martin.lau@linux.dev,
-	jiayuan.chen@linux.dev,
-	netdev@vger.kernel.org,
-	stable@vger.kernel.org,
-	Wentao Guan <guanwentao@uniontech.com>
-Subject: [PATCH net] inet: reject unhashed sockets during timewait purge
-Date: Thu, 19 Nov 2026 12:11:14 +0800
-Message-ID: <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jNgbNd0Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 432981F000C4;
+	Thu, 19 Nov 2026 04:17:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795061860;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jNgbNd0YQPkspDTpsmKqjbtXP6WUKvcew6n//NzCI0Sn+/qhwvsjF5UOL4QSzqbRc
+	 0EcSOewIZ93hjObsyG7SiUXGyFqQZci6jlPLLYSeJeDwP8vFmcgSCa+gTP3clXqd4w
+	 QKplFFeHrFXXCwrvTR10QXIFa9NO1U3noia4rxTo/UnTEu5V4w8QUj/I/egkyUtlKF
+	 8zOZgzL9ytdqSv8lBaeY5/0JiI0r6hKNp9VFJpdKmIzxDSzOc6RbNKKHVLKvBPxk99
+	 LNl6ma0nGK1uB90F9Nl1cD29IZOJtE8EODIwbXki/rKjm3CLB4uMdzagli4nl9xYtx
+	 iyqwFdYE6hgFw==
+From: netdev-bot+sinfo@kernel.org
+To: Wentao Guan <guanwentao@uniontech.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ imv4bel@gmail.com, martin.lau@linux.dev, jiayuan.chen@linux.dev,
+ netdev@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net] inet: reject unhashed sockets during timewait purge
+Date: Thu, 19 Nov 2026 04:17:39 +0000
+Message-ID: <179506185983.3291.13664137983591286352@kernel.org>
+In-Reply-To:
+ <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
+References:
+ <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,60 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: No4GWyI4cWt6Df5bP2kXmZVq/n+C2IUuPBJF8fu8tufByM2nUw+PMfJt
-	KZTka2mvCe8SHfhRf/7C2hZP/LvZ+ly09DubesZVOuGtTobsMj/xVSKNGpBBvfQkcidhYFU
-	IHvlw4B5OjUmZvCh+Wmr5oR2BMlWAk6zaiqKhndsvdar7+AaLF5yg7WEkXH7c6OuXDUnOfL
-	jvUDMkatSrpb1YnNwdJUmQooeZtL29Tei+2m7l13OJCu/4CZGdIIyk0pMIf12L50MEpT1W3
-	grHRbgNpwP4bx1ETAvUuxPp9K+Dls33Cn4mLUIuqblyKz02CkcxnH9O1RoLDhRd6pNsFne0
-	SD9Zc13WL/QCW2lMIzldyQUH3OV/Uj+jr3njLoU8A37fqvczZjTJA85wq1ZJSja2YkQ8X+Z
-	RdOXjmeFMLt+2dpla4lQMbj8w9B4FGjrRAIP2CYPHq98205dDxRGPW0fWQx8Nv7d3DiZLUO
-	lMby7AacTTqyJWFBhaKcLHTZFcwLobCNBRcRIJBfxLpgAjiwIn0qK/ydra8uaRw8oC+1d4V
-	68jMtMkUbLvpprJcQIv79cLFXVstx3TcX5i9+/1iXH6VyUa6Gz2QCRudHW7aXOvBbnEVOQ7
-	2qlH+AIP8rbVUvGAaLH/RKhK4qV1vFj3pflrkYPJO9Nec2m4PWPglj7J0na05i8BHwL7yIX
-	xPa727/Uq5kdC3A7VueZu70U6bE8C03G1esWcC+H3sa6XWTMFVdXVzjpOafEm6Yy0DdFah7
-	0kuQgwzDSY3A1zfo5QPultxcxnax3ihinSNF7vn//lSNueI9U4Q02206BTERD8MBXVtRHsq
-	1Kns9PSWbUlv51lgUGiYShidS8+4pE45X/qxLDwE9BT8coqQtFviphx7Cojydi6xFviuGb0
-	8RBLl2wbFe78DS3TnFNBXvnTIZuYIerACD7bR21RDCy3Fx+Raq1e10PI8zXKxRGyWra+S6d
-	ZYubBOXNHuAxmpBH5sJd8AOIGuIfTf63JxPpXDYox2cofrWkNFAkxKD4SNsvNQ/lx21Q+iT
-	lVLWqZBKIh8qVAcVTQ5XinkZVwT+GGhatnqAJnQc2byx331QpeTF+C2EFJDp8=
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
 
-A shared ehash can retain a stale pointer that is recycled as an
-unhashed SYN-cookie request from another dead namespace. The namespace
-recheck alone accepts that request, and
-inet_csk_reqsk_queue_drop_and_put() can then operate on an uninitialized
-timer.
+Hi!
 
-This is the inet_twsk_purge() counterpart of the validation added for
-established lookups. Recheck the nulls node after taking the reference.
-If it is unhashed, drop the reference and restart the purge instead of
-operating on the recycled request.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Fixes: 4e2b3ef19e0e ("inet: reject unhashed sockets during established lookups")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
----
- net/ipv4/inet_timewait_sock.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-diff --git a/net/ipv4/inet_timewait_sock.c b/net/ipv4/inet_timewait_sock.c
-index e256c55ce9f29..5601bd03b1382 100644
---- a/net/ipv4/inet_timewait_sock.c
-+++ b/net/ipv4/inet_timewait_sock.c
-@@ -333,7 +333,8 @@ void inet_twsk_purge(struct inet_hashinfo *hashinfo)
- 			if (unlikely(!refcount_inc_not_zero_acquire(&sk->sk_refcnt)))
- 				continue;
- 
--			if (check_net(sock_net(sk))) {
-+			if (unlikely(hlist_nulls_unhashed_lockless(&sk->sk_nulls_node) ||
-+				     check_net(sock_net(sk)))) {
- 				sock_gen_put(sk);
- 				goto restart;
- 			}
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.47.3
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
