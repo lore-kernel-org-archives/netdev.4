@@ -1,58 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127429;
-	b=Nd1aQ13cmX2pNgGAd49PbBH8AfhrWaNGgofdBjC9lU5qZkFzP+iusZsnv2hW5aqpacgN
-	 BU8meWUeWDOZ54nNWt14LTFt6w4HD24e9VjOOBDgQ4PCz2obZEiYFPzeoGGRAfAl5h7DW
-	 NRpFktZTG4AnbuHx84wTOFrVciEMlA/Yc0VLFC+aqO4KNabbhf3aV3LRyJDkB4GTV98P7
-	 N2TM0vjPTn5U5lEJ1zcmpX508e1u+G6DZZayHWkQ6WEyGDP7UZQytX7hlAXZlWgdwozHJ
-	 htlNp7oqQ4IeUweROz+LBSN/qP2FL0uX5tWagkl4kkmSESh9+y+x4F5C0C/T3QDUImQ==
+	t=1795127792;
+	b=nIUNdYqGt/dR9Y4P8x0C4IX0gx5UAeUFjjIqPinhB1gZKnxwr9dq7SSpgxziaR+/2hBZ
+	 Rc1LjEEoVDlntXre/sxqfYg+yAtrFe/mh2s86woxEWwyWNCfsBH7uk52t0KH/o/WANBmc
+	 QPDrcgwE5+olUrN0TuAX0g1PJIhfgRVs6mZ2iIkPG8R2WSh9DsvBTTJFBGSdQeuHMFldl
+	 Nu/Np6LKpruGviDmTIVwP+RLuFS+XfXvaLNH9yp/AU9islsE1q0izKiBJgrxi2s6Zl7uZ
+	 Hri255OY1IMRMZMe0mRdIh4jX+1Khblb9iOBvRrlQrIrBtMlc4J08MYXC2m5WciokCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127429;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Z1dTghTaKtz+6XlsUqAv2sd97175TAUzyOoX368JJ0c=;
-	b=kwTwFpKMJQT8zIy9WLsbJYD7x4CHRKXs6keEL5/TNsMrNar+wX6vIQZiZz/Z7EP7S54I
-	 zV7Pr7NR66O7cwpUjZUZVrmyc56sEFou2iaRDjurczMaSMS5X9OY42NjBGWYiVMEObpn/
-	 DNpoIi/1ByA7Q7ZHAZRqyoY9tHEFJJo7zOtmfAPLD5s4NfejlK4bJ34P7/MwBiPw8R4pv
-	 ykUGKwm19yD/1ZMiK9aeAk3jH7UrKEUlYLmSuI1WsJA5zNk7OKzZyVKvbGK4XZ7vXVjvR
-	 RJ1q21K/a8Q+c2APLG7xj0zeiUmzSmZNe9/w7amto6JLsCxXXDZLnVlgiw96GFlhL8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127792;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Tgu+WP2m0uodmDr9Nd0f7m6qiFgWHDogdH3e+s7AJJI=;
+	b=QqleRpotmEJGYarEzah3or5xQCotWWImO6laAooWKbde5pk6bXPVXN0vA7zmXHrBx7H1
+	 ZNpqbYm2d7fDJDg5eJawDoWoqK8MouX1eFbJDc80A38pGwBgcF7E6OcOQDWCok9NCIWYu
+	 03LrzPVLw2cbp9NlYPZzGRRVHjSwtaYYfdbRuiGgAJl+ZVLnI4Hhhh7U/0SzU0hZ8Ixh4
+	 yk2jETVwOSnEznydkhbqh7Yf+wP3dd1U9Kl3inMM15jmip/SKCHhbQGdwx/J3e7LHmc2U
+	 02LG3HteL2oMKPO2HWUmoqeuTpf6JIJlnd3Zfq+J4LiWGEBvzpDaAE+Y3v41ZZIQ+QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iTYVSRqu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNExrvjz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC5D606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:30:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E705D606A326;
+	Thu, 19 Nov 2026 22:36:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iTYVSRqu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13F11F000C0;
-	Thu, 19 Nov 2026 22:30:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNExrvjz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EF121F000C0;
+	Thu, 19 Nov 2026 22:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795127428;
-	bh=Z1dTghTaKtz+6XlsUqAv2sd97175TAUzyOoX368JJ0c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=iTYVSRqu5EeNmI5Knm9QQnCRzjBZp7JUhdRnBegEMRQFk0cR/YxFCRGMJZCIL2Bok
-	 /RVLjzfCvnywHoDruNrWXWP/k9BoRlnOWiKKjHaZvbK8f1h+OoC+QDWml8oD2z144H
-	 7L4v1+HX1FU9COI9DVEDAcKctOR26DRYubmWJHY/0WyXHb334j8U+hTIineuXHC5EU
-	 0xs7egjxj29aqHEnVNpKKTdziKQ6ZgvXhN7uW4n8PGSnVx6wj/9ci4Y5nMAsHgZsJ3
-	 KJ9MT5hx5HItWORH4prqTLr5qaOHhY2wxmYyHBL+r7qq1aJuJgWFgWlOx9ZQE7p4Q9
-	 C3xI5GE76aWkQ==
-Date: Thu, 19 Nov 2026 14:30:27 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Michael Chan <michael.chan@broadcom.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
- pavan.chebbi@broadcom.com
-Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
- IRQ moves to another NUMA node
-Message-ID: <20261119143027.6d8ca735@kernel.org>
-In-Reply-To: <CACKFLi=Zi7QBd1oNt-d99S5e6PfJ_Ym-p_-+k+iFHSU5zCi+Mw@mail.gmail.com>
-References: <20261118023905.3050661-1-kuba@kernel.org>
-	<20261118023905.3050661-7-kuba@kernel.org>
-	<CACKFLi=Zi7QBd1oNt-d99S5e6PfJ_Ym-p_-+k+iFHSU5zCi+Mw@mail.gmail.com>
+	s=k20260515; t=1795127791;
+	bh=Tgu+WP2m0uodmDr9Nd0f7m6qiFgWHDogdH3e+s7AJJI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=YNExrvjzBol1ezFy1HpYWmoqW4KSC95f21PTKTi5J+ErrVBa3DZseGOOxnDb4oZup
+	 W3kEn4Ocx4luYGM1faP+cv/56M4WNd0fmsH0rYikksRh9T9g7JWSwVPB4+Zvr+K7Hm
+	 ibaSw4E20vssNQ24g8Omci2kIqITji2n6who65RFGHAh9MFkPR0YppMyte7CysbiQy
+	 nkavc2z82KoAV/8zk7Fu9WT4QqhC+yQ8jeQ6ztgFhXEDK9Wg3BmbT4ItQV7AB+hUim
+	 Wnhn6G+ViaXSON0lVvycrdh2eIYQLhvpx6snwfhaJ1RbhwhJnoE0tFtDQwcDOQpRR6
+	 ChrUcxG3rCklQ==
+Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
+ get vlan 4k for family D
+From: netdev-bot+sashiko@kernel.org
+To: namiltd@yahoo.com
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+Date: Thu, 19 Nov 2026 22:36:30 +0000
+Message-ID: <179512779012.3136.12590210308172981547@kernel.org>
+In-Reply-To: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
+References: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,22 +66,130 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Wed, 18 Nov 2026 17:24:12 -0800 Michael Chan wrote:
-> queue restart already has the code to do HWRM_RING_FREE of the CP ring
-> to program the new TPH tag.  We can add the missing logic to
-> re-allocate the CP ring pages from the proper NUMA.  Since we are
-> paying the heavy price for a ring restart, should we include the CP
-> ring to make it more complete?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-I coded this up. AI review thing popped up the problem that
-re-allocating CP rings causes loss of IRQ moderation settings. 
-This seems net-worthy to me :S  Attaching a memory provider 
-on a machine with TPH will lead to loss of coalescing settings.
-Quite unpleasant for the -irq settings in particular.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Can I send out the coal fixes for net and this series without 
-the CP realloc? I'd follow up with the CP realloc after the
-net->net-next merge which we just missed :(
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] rtl8365mb_d_vlan_4k_refresh_ivl()
+  (drivers/net/dsa/realtek/rtl8365mb_vlan.c) does not roll back when it…
+- [Low] When the switch-wide IVL state flips,
+  rtl8365mb_d_vlan_4k_refresh_ivl()…
+
+--
+
+net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+
+This patch adds two-word CVLAN pack/unpack helpers for family D in the
+rtl8365mb driver. On family D, IVL_EN is set only while at least one user
+port is VLAN filtering. When a vlan_filtering change flips the
+switch-wide state, rtl8365mb_d_vlan_4k_refresh_ivl() rewrites IVL_EN in
+the active 4K entries.
+
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+> index 566c6bc1449af..f3ac2940a0ed4 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+
+[ ... ]
+
+> @@ -277,6 +323,96 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+
+[ ... ]
+
+> +/* Must be called with &priv->vlan_lock held. */
+> +int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
+> +				    bool filtering)
+> +{
+
+[ ... ]
+
+> +	fi = rtl8365mb_get_family_info(priv);
+> +
+> +	for (vid = 1; vid < VLAN_N_VID; vid++) {
+> +		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
+
+[Severity: Low]
+How long does this scan take on real hardware? Each of the 4095 iterations
+is a full rtl8365mb_table_query(). That is two busy polls through
+regmap_read_poll_timeout(), an address write, a command write and a bulk
+read, all under priv->map_lock.
+
+Over realtek-mdio, each register access is several MDIO frames
+(realtek_mdio_read() does 3 writes and 1 read). That works out to roughly
+0.5-1 ms per entry.
+
+This runs from the port_vlan_filtering callback with rtnl_lock and
+priv->vlan_lock held:
+
+rtl8365mb_port_vlan_filtering()
+    mutex_lock(&priv->vlan_lock);
+    ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
+    mutex_unlock(&priv->vlan_lock);
+
+Could a single flip hold RTNL for several seconds over MDIO, and longer
+over bit-banged SMI? The commit message and the comment above do note that
+the scan reads every entry, but they don't mention how long RTNL is held.
+
+port_vlan_add/del already see which VIDs are in use. Could the driver
+track the active VIDs and rewrite only those, rather than reading every
+entry?
+
+> +		if (ret)
+> +			return ret;
+> +		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
+> +			continue;
+> +
+> +		vlan4k.ivl_en = want_ivl;
+> +		ret = fi->vlan_4k_write(priv, &vlan4k);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+[Severity: Medium]
+What happens to the entries already rewritten if fi->vlan_4k_read() or
+fi->vlan_4k_write() fails partway through this loop? Possible causes are
+a regmap/MDIO error or -ETIMEDOUT from rtl8365mb_table_poll_busy().
+
+VIDs before the failing one keep the new IVL_EN, the remaining ones keep
+the old value, and nothing records or restores which were changed. The
+caller then unwinds like this:
+
+rtl8365mb_port_vlan_filtering()
+    ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
+    ...
+    if (ret)
+        goto undo_egress_mode;
+
+The undo_egress_mode -> undo_set_framefilter chain restores the egress
+mode, frame filter and transparent VLAN settings, but not the CVLAN
+IVL_EN bits.
+
+On error, dsa_port_vlan_filtering() does not commit dp->vlan_filtering. So
+rtl8365mb_d_want_ivl(ds, -1, false) and later rtl8365mb_vlan_4k_port_set()
+calls follow the old mode, while some existing VLANs learn in the other
+mode.
+
+For a VLAN-unaware bridge, would a VLAN left with IVL_EN set stop matching
+the static FDB/MDB entries keyed as SVL/FID 0? That is the mismatch this
+patch is meant to prevent. It would only clear on the next real
+switch-wide flip.
+
+Should the loop undo the entries it already rewrote when it fails, or
+otherwise restore the table to the previous mode before returning?
+
+> +
+> +	return 0;
+> +}
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cf3fd237-2290-4002-8de0-ea4100ef0f85%40yahoo.com
