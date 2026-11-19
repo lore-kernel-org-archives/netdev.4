@@ -1,117 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050004;
-	b=flHh4KD2kSUi3BPIlEbzIHfmNWzgYRBQHSjS+K1IvyryQUHkqzUbmx9Q714tC5RuyiIy
-	 E+2/FYSNjaDvqpp+x3cD/qD+HMgWr0FN550gLwK+naaCB728EULquUpQPTLZfrwlP2GKC
-	 j1ps91BskPEqDeyJpeVD+TXkA4oYm34GKf78FCTSw5BRz3MVwU/3+dIo41qkYJF8/ZXED
-	 NKiElPhQrzBKlo0Bueb1IecBI/ahZ5nyPRkj8Mv2G0AY+RjI0TC5N01aVdSv5e5W73rev
-	 5KjBBA6I6WL3uQ7vOBZWb+SPPTXoORxEFKJ07AY23i/9ayl5mx4K20tQ9hkd1lsaLYw==
+	t=1795050006;
+	b=bOf6U1619xLQM5eIoYr/b1nOypfy9v1oigflLw1uMiB7e8wFWcy20BUyhHcYXzcaPV+W
+	 28s0VZbZdRtXp73ZI1jw50ZQ1bqfZ45hwrcaq6/Z3HYlr31YjL0wCA32tcjnGG6NC12ae
+	 vc4UQGW13HF1h5ePDwtZ/YBnh+8Gts/SX7JT1P804QQ5acd54zo03RriK2KijatHmRyTj
+	 E8ksH13qZ+ABJn49G9wV+IcGJ4JkmO7GJNBWSCjOfrlDP2xHwAnP596nDlkENAhfFlWBj
+	 EbU53hje8undQGB7Uln2p4+Kdgaq3o966/Ydn1N0RPVytC0EeBK9+8bhS10vX88lHlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050004;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
-	b=vswZ3n1sUnQVAtpA/7AamY+TpAXXPJ9PneM4qvDfeZJXbFcGWgbCZD5FKhrtb4x9Lprx
-	 tPOu1CYK7MPCIJLhE6afBX0eBzESWLx1OzExItC93BrThJhuF1zCbLfaNZnTsxQYyhYjr
-	 /1lfgxXoiiZK//vmwcAEJf8CoL1A7ca3YkP264zP8W3KHsvD3FoW8Izooq1HThDBpSv48
-	 i0TgGbUnqMUtisa+2LZJuEyMa6KHy4NK6wgm9ehXzJpGz//n/wnURGVD/Cn3DY4VOWILm
-	 cw6we2qv/ZLMT9745HuH7ekEZhgiWnlrzPE6e0M/vnIR4q7IKDBqR3NOKvoZ1pyTeTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050006;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=7AhLGHb9m8zSBl48X5m/ooMb9JFfV0IPSDtXv2YHFOQ=;
+	b=Azt5Gki2fNMLpFU1gOD9Sd307Plwk02AYmLl/bHLRbh+xP7DUD9la5d5ANbv8oArONFN
+	 uyep5vzhB6cSnp5lVNrssabs3ayOCGuvS6CDeqTtTx5NeoMgl0DvFml/PZXlygQ8rqojh
+	 J5l1egcFcToxmi2pcB8ugA4KBAIVUJEf/+LhNt28szP4GaS6ZQ6AB5Qp+zqqWvfoDw1WC
+	 JrNnMfBC/6kFPYZYTUwZ2h/BI95l1HSsxp+WY+zm2/qeL5e43uWpCZHHOfBgWP9xxvEX3
+	 RdwUsj/PRTkULO4xsIlQu0fOcvVF4d12Ng55du59A/HHeALJi1uuAcx50zrCWKwYSHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=YVBgw8y3;
-	arc=none smtp.remote-ip=209.85.216.99
-Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VOIbRFGr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C483260A262E
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:00:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C483260A262E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 148CE60A3837
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:00:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=YVBgw8y3
-Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3ae6b4c669fso319867a91.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:00:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795050003; x=1795654803;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
-        b=oE5e9WJtQZSajxUF76iQQVfQp+TBShzGVmNe9eKhB7nSJM20AWYMTPhn62BiQwRDNw
-         ayZkibHshsjmqmd2IUplOqO6dn3L3kueVlU304djlzIjZbnJ6YmNuy/uoZCCKDaWKSJL
-         m2LY3dm3Xd861cgFLCNdCdLzJBOug/ilsfrsLHdFrKTO8qrMwjw9RAw2XYbyDoD2vtKi
-         60lLBR8PYKrrtDTsflDoUerjMlKN5Epm5uz7ssW05xojlZsh/15bGQKYSLReHMP8sOBt
-         pahtDjgvBrnpUGT0HyWpiLiUwEjY9/njCIZBgBVfJqIojR4aQEljLJDTVmTpSN7fRXqy
-         GNUw==
-X-Gm-Message-State: APuU4Z/9R9ZT7vUM9MDMieilRyV9MToXVuZXbypl9Ln8tI9ApspW/p8E
-	f+491W55VjSV6iP8yZhC2S8FLbhye7gR1cT+L1064gUdTxKLClSGuH3KSdTZucTMYa3yYfOI/D2
-	AgC8k+MmihUZHTJi6ovvfBUVYGvzbiN+S0rRyZsEmf1vmq5X3B2Wfsl0KAN2EBCvhtdmhTuO6vh
-	fny9n5ANw27e5ZiBX+gytzS07wl0SuAJ8hBQm3b2TkbZZptLihx5/HUWQrsKZZA3Jqx2UxOmGN7
-	6dM63UhN5lWn6g/
-X-Gm-Gg: AZFdTZdSlqOS6A9rlL9lA7fgOEawX/+H8XfDL3ipqngGJSoJ/yf3vXvvcbE/ptfJ1JX
-	XivNBWqU3PB60a51IP4dzODP2sr8H7e9r/o55LS6Tp/MAVv3IfgIXM/xJtKoOW+KO7CTLD6Gs48
-	b0BWYIcSCPVZqfCoGdnABV1wZWwnm2Z/upoyGIl6jwFtE7EXmWUxnSPoOYukIwCIxHGtRzC8ONF
-	0t0ekVZqmVkXGF2ta05MV4jHTfq2HMuTuXxfgUYEe50B67AhzEbUUkhT5SwasUHx1pK2Xo9SQw5
-	avBOxtlGS3amg5I5S/f5Dw4v/yVGGtbrPofPBTTWllMYg++2agMnf+s15HJJF5uuQgBimivp9eI
-	FoqnXEON/Cde+3jlqnf0Dev1o9RIlEfCMtLQEqlcf58J7RADRndS5lSKhwKY6jbukkxOe8OFyXH
-	XG98oLVdGjXK0Lrnl/LzIadZeHYCR4MyETt8vJOpRO
-X-Received: by 2002:a17:90b:224c:b0:3ac:b3c7:de04 with SMTP id 98e67ed59e1d1-3b3ffa69b06mr181229a91.34.1795050002907;
-        Wed, 18 Nov 2026 17:00:02 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b401f75ed9sm68469a91.0.2026.11.18.17.00.02
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 17:00:02 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-921161ab1a2so6783906d6.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:00:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795050001; x=1795654801; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
-        b=YVBgw8y3R4iU4YbOIqrRky0tN6DM2G+JbDehq9AXARRKcOooRnZ3g7Xzz8t/qNay01
-         aN7NZOz4C8m6JzhAUtxgRAUEXqYtXeTXRSNFq/CGUJl3Jq3keRH0wnbByvwveP/RhP4N
-         6YzNtebcknvn+JK2M8mJfMi0ByKU+upfoDG/8=
-X-Received: by 2002:a05:6214:418d:b0:91e:883b:cb2c with SMTP id 6a1803df08f44-9212a276df8mr2620506d6.26.1795050001088;
-        Wed, 18 Nov 2026 17:00:01 -0800 (PST)
-X-Received: by 2002:a05:6214:418d:b0:91e:883b:cb2c with SMTP id 6a1803df08f44-9212a276df8mr2620186d6.26.1795050000529;
-        Wed, 18 Nov 2026 17:00:00 -0800 (PST)
-Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d10f89sm35861216d6.13.2026.11.18.16.59.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:59:59 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Carlos Soto <carlos.soto@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Mlody12 mlody12 <kudzo51@gmail.com>
-Subject: [PATCH net-next v4 3/4] net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
-Date: Wed, 18 Nov 2026 16:59:42 -0800
-Message-Id: <20261119005943.999981-4-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119005943.999981-1-florian.fainelli@broadcom.com>
-References: <20261119005943.999981-1-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VOIbRFGr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B879D1F00927;
+	Thu, 19 Nov 2026 01:00:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795050005;
+	bh=7AhLGHb9m8zSBl48X5m/ooMb9JFfV0IPSDtXv2YHFOQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VOIbRFGrRvLKkj94nsFGMJ3++FYW9QUNn+RolYFEsVf+qHfu5nwc2PQejTvh8GBKv
+	 f2QpP4Ow5s2Pd9fL3wJKfLUo79wNUGODkOPBCr4s5e37jxtwLCKN8fhizxv943GS/R
+	 5xwFmj5BuLi46QF2akwZBqHh6X0GKVqefsh52T5VpCCqenfBHzbs1g6lHQ7Syl/CLQ
+	 nuGZuRhs22RiyJGpVuBknaAbzY7faDfwCV4vAJPGR/ihxHBXG4ZP9fA1AroX2Z32Vc
+	 p1B4OAuCYBQ+BXa/c27GuRhcpQiEIueO/c81/5X8bCit6gzOLcyR7222mPq3+ICqIb
+	 0bV8e+4tLQyZA==
+Date: Wed, 18 Nov 2026 17:00:03 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: netdev@vger.kernel.org, Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>, Michal Schmidt
+ <mschmidt@redhat.com>, edumazet@kernel.org, horms@kernel.org,
+ pabeni@redhat.com, davem@davemloft.net, Jiri Pirko <jiri@resnulli.us>,
+ Jonathan Corbet <corbet@lwn.net>, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, andrew+netdev@lunn.ch, saeedm@nvidia.com,
+ tariqt@nvidia.com, leon@kernel.org, mbloch@nvidia.com,
+ jacob.e.keller@intel.com, jedrzej.jagielski@intel.com, anzaki@gmail.com,
+ brett.creeley@amd.com, ohartoov@nvidia.com, Petr Oros <poros@redhat.com>
+Subject: Re: [PATCH net-next v5 12/15] devlink: give user option to allocate
+ resources
+Message-ID: <20261118170003.2f6501e3@kernel.org>
+In-Reply-To: <20261110141534.95614-13-przemyslaw.kitszel@intel.com>
+References: <20261110141534.95614-1-przemyslaw.kitszel@intel.com>
+	<20261110141534.95614-13-przemyslaw.kitszel@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -121,86 +67,31 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-The current polling code unconditionally waits 30us, which was sized for
-a ~25us Clause 22 transaction, and then polls MDIO_CMD with a sleep of up
-to 2ms between samples.
+On Tue, 10 Nov 2026 15:07:21 +0100 Przemek Kitszel wrote:
+> Current devlink resources are designed as a thing that user could limit,
+> but there is not much otherwise that could be done with them.
+> Perhaps that's the reason there is not much adoption despite API being
+> there for multiple years.
+> 
+> Add new mode of operation, where user could allocate/assign resources
+> (from a common pool) to specific devices.
+> 
+> That requires a new .occ_set() driver callback, called on
+> DEVLINK_CMD_RESOURCE_SET with the requested DEVLINK_ATTR_RESOURCE_SIZE,
+> instead of staging the size until the next reload. Driver registers it
+> together with .occ_get() by devl_resource_occ_set_get_register(). For
+> such resources the getter value is reported as DEVLINK_ATTR_RESOURCE_SIZE,
+> as opposed to DEVLINK_ATTR_RESOURCE_OCC (current occupation) in the
+> "legacy" mode, and there is no DEVLINK_ATTR_RESOURCE_SIZE_NEW.
 
-Adding Clause 45 support means that every access becomes two back to back
-transactions (an ADDR cycle followed by a READ/WRITE cycle), so a fixed
-delay sized for a single C22 transaction is no longer meaningful, and a
-sleep of up to 2ms between samples can add significant latency to each
-access when the transaction has not completed at the first sample.
+I haven't read the driver code but I wonder why you're making such
+changes. It seems like you want something like param cmode - your
+size change is applied at runtime which existing size_new stuff
+is built to require driver_init. Why not add cmode to the resource
+to express when change will be applied?
 
-Instead, poll the MDIO_START_BUSY bit every microsecond so that the
-completion is noticed as soon as it happens, regardless of the type of
-transaction. This turns the wait into a busy wait, which is bounded by a
-timeout reduced from 100ms to 1ms: a 64 bit MDIO frame takes about 33us at
-the lowest MDIO clock the driver can program from a 250MHz reference clock,
-so even a two frame C45 access completes well within that.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/net/mdio/mdio-bcm-unimac.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-index 5f79f31220f2..f8e5c1811d96 100644
---- a/drivers/net/mdio/mdio-bcm-unimac.c
-+++ b/drivers/net/mdio/mdio-bcm-unimac.c
-@@ -6,8 +6,8 @@
-  */
- 
- #include <linux/clk.h>
--#include <linux/delay.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -36,6 +36,13 @@
- #define  MDIO_CLK_DIV_MASK	0x3F
- #define  MDIO_SUPP_PREAMBLE	(1 << 12)
- 
-+/* A 64 bit MDIO frame takes ~25us at 2.5MHz and ~33us at the lowest MDIO
-+ * clock the driver can program from a 250MHz reference clock. The timeout
-+ * applies to the wait for one frame, so a 1ms timeout leaves a wide margin.
-+ */
-+#define MDIO_POLL_DELAY_US	1
-+#define MDIO_POLL_TIMEOUT_US	1000
-+
- struct unimac_mdio_priv {
- 	struct mii_bus		*mii_bus;
- 	void __iomem		*base;
-@@ -79,14 +86,15 @@ static int unimac_mdio_poll(void *wait_func_data)
- 	struct unimac_mdio_priv *priv = wait_func_data;
- 	u32 val;
- 
--	/*
--	 * C22 transactions should take ~25 usec, will need to adjust
--	 * if C45 support is added.
-+	/* A frame should take ~25 usec. A C22 transaction is a single frame,
-+	 * a C45 transaction is an address frame followed by a data frame and
-+	 * each of them is waited for separately.
- 	 */
--	udelay(30);
--
--	return read_poll_timeout(unimac_mdio_readl, val, !(val & MDIO_START_BUSY),
--				 2000, 100000, false, priv, MDIO_CMD);
-+	return read_poll_timeout_atomic(unimac_mdio_readl, val,
-+					!(val & MDIO_START_BUSY),
-+					MDIO_POLL_DELAY_US,
-+					MDIO_POLL_TIMEOUT_US, false, priv,
-+					MDIO_CMD);
- }
- 
- static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
--- 
-2.34.1
-
+Why you're messing with "occ" I don't get at all. occ(upancy) is
+current use. See comments on the driver patch as well..
