@@ -1,70 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.21.23.139
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107118;
-	b=DTkNPXA9aIei6m2KHbwB3gull9rC/ys4soX8Wt2pS8q92ctdOhwvJmEg92l5/q7MTSSP
-	 8HvoSaWy26p8ZRve2wMRcjy0KQaOYQItrhgwCzUm8DyV1P8D2Wca37cXIXMo/7u5GMKTt
-	 SYsl1LleIfEEFrWJu4uvUDWnJKAu1P6sYe/us321s4GzXzc1+1fCh5BTCMPfSQGnDXWgE
-	 ZAm/SMMR4kIQv7qRcFNY9GYD6LxgZDQqaumcJ7Q3qf/CqZvxb3Jk58ZoFD4RxPlwXeRO9
-	 Q7w6ZH1SwdWNoV5XeFqAuTKo8iRW0VnWbi2ZNBj28AvoZc+G2ArlF+W72iJtcKz9r8A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107118;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:From:
-	 To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Transfer-Encoding;
-	bh=CK6H8UxcdqZxMMEKsoArEvfGurq2qnQzRpmIjroAPoU=;
-	b=O+kI26vYdbqZOb/Iec9Dw7cGJQVWwspyNF9wkoLcFwf1fvJ64DbyUYAWqBL1N5+72svG
-	 BsBt2sqbxg+c//9uzkSBXqBBlaO+H/LtTGeDdfPD24CXXlNDwhgv0cuQn7RZCtdJ33g1j
-	 Dmi8cDRSHNtlxUTsxS3s0BIPRvY+ravCblvcyPhZmA9Yv3UUfnAijf3/Ef449Y8vBe3as
-	 FXaLTnnFI5Y2C1MPprf5ENgjDJ+resPGGePGjI1WQCnTVgIO6RzOTDiI/XRjVJ+ym7UlN
-	 BmDTxqQctEz8faTrr/Da4+k276aGEOqiUCdwJVtcGYMgUFThWcw53YyMLzkzh+HwKsQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=disroot.org;
-	spf=pass smtp.mailfrom=disroot.org;
-	dkim=pass header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b="k7ZzqB/p";
-	arc=none smtp.remote-ip=178.21.23.139
-Received: from layka.disroot.org (layka.disroot.org [178.21.23.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795107169;
+	b=4jX6NnDXO5mcNnCHkW1yA9QymMwxk9ioByAVBjw5Ak7tiPRMRn1Q5m0r4H23cG6x/2am
+	 Sn6OyNPCYanqRw0XB5QpImhlB1Aq92Nxro7/+UMLkUMm2MI2ODnOElISFrHlvG2kcflVy
+	 4B8M8RdqIraQbICCiAWFHljbCKozYFelALImURI9GjemAO5uMwA3VNiRD/NXjvllzVVjg
+	 HE9TrRNoi2IluY3suqljcG6PGLwSA/VAnrKZzpXsx7dEZGNNLsDChVHxmbxVPPGAKZsrk
+	 jbDyTDShaVbrDJFkC8O5cq9q0FQ5ARJp8XozTNC8A3YWpoiedjCu/sBYXGeLCXc/BvQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107169;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+	b=yNr+FRI95vSJKhIUJv4oP821NTWiDYRMchEdJJbViERP9Rh4YkJk2mKXYZqoR3jXfVJ3
+	 qcWJkSOZsNdx+5Qegj+9h6wF0+6bIUNiFsOdjAM033idkHUxI8avdolZfJIDeLO0AJc5A
+	 O/wIE9q681O7IeGgAcqGeH8btbkh6abeRA3ZIqDQFZBdDC1RZSaiArSOfm2ZOag3D3IX+
+	 TuoWr2eocNY5BhMrlWXjzN8/vgG41GqhJzCIrDw8feZ99dDkdXfR6ZLQRPQjSbwS64b8m
+	 UoAy0qdZ6hrvGH3GZD7hIqR5ntT+/glZpjNjN8YfskaKNU/rFos4PLBteFA3iqZyfkg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PlnXRgh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A46AA606A325;
-	Thu, 19 Nov 2026 16:51:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A46AA606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=disroot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=disroot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21446606A32C
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:52:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21446606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=k7ZzqB/p
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id EA18C8072C;
-	Thu, 19 Nov 2026 17:51:55 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id nFZu99wPaFvu; Thu, 19 Nov 2026 17:51:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1795107115; bh=gAFPSv6ZknuLs8T1YbWCSzo/xWEAGUJtXZO8RogVuLs=;
-	h=From:To:Cc:Subject:Date;
-	b=k7ZzqB/pJdiShuPBegI3Plo5S5sfGQmgVJpPI0+MbI02mQ/bG6Jx1RBttNRnTzd0E
-	 SEXECv+bFHQLt20ZLXfo8oNL9UD6IewGVRLtCXDw4+1BiI0+IKWXZRNGzs3R4WjWvx
-	 hM95NQkT2gk4b/yZs4tgDVuhpO8HHx263lae42ClZM7NuAwxTLR8OxZhrr41DW0IHF
-	 PX60rk3fyagJIc3M3HaiiqwhlDTs+u+X4CCHHQZEx3h5eXygzDL69xnNc25mH4q0kU
-	 dvA3uFxtV280GOUf78Qdo02UV3HsiAqlUygh2JodqBahV4nB1+B9y/FHFUa8RdM10w
-	 gQjhFzm/esnnw==
-From: Rustam Adilov <adilov@disroot.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	=?UTF-8?q?Alvin=20=C5=A0ipraga?= <alvin.sipraga@analog.com>,
-	Linus Walleij <linusw@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Rustam Adilov <adilov@disroot.org>,
-	Taiga Ogawa <zectaiga@gmail.com>
-Subject: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C tag variant
-Date: Thu, 19 Nov 2026 21:50:51 +0500
-Message-ID: <20261119165129.26693-1-adilov@disroot.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PlnXRgh
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b6b22be970so16431b3a.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:52:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795107167; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RUi+9v9Mssd9NgHW9IdZY7Pc2hvPv/lH7BMPFfGzOdALs4T9MAY27VpvCmZrzkvnLZ
+         X2dk3B40II+Nqnyvcf2Kr978CJH8SzWbyjryb3fn6KogRhPkmzYRhGHF7Ss2czipS6oK
+         dtzota+kNwL1+ZrSvY7ePDrvoXSkEMTN3ay3T2PLaG5Q214Ap0gs2Piz5XrOh+YhuCB2
+         nzamvbCEEZntuNZ89dDsM1jMgRGnkJqFXmWYnEQZm+qR8P/Ad4R+xsrPxC501hQK9Y61
+         YNfoDy2w0rV+ZkADreItnBsbc1ZN0vdOzd8BjGao6dk15eTp+sdBu0Jz6hs4WHmN84VZ
+         +VPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+        fh=wR/ru9rG3jmUfI4ulzbxMYyPVitfwi0rnSw0R1qqmGI=;
+        b=KV+NLLiRNU9yinqUtrzm5L5AoJCTpeEEezkru1CtYJOCfSM9iJPEJzmBnOFmVBKgyz
+         Mv8PhyQiDRnb2lEkeOoL6TcR6eVcW5PDrxgLdyZ1pfYbvP1QZEoplsanCnCCG7o69uys
+         a8AhLw8hF3mYFHSHjmjtDNxUywvzO+zcMFkQnTYXEdzl5WWgUzFzl1wgchxdTkFz/mG1
+         BizrlFT8T9eHPHhr0yi+IpbsUHuBCH2FPW1KB4JtGsWnynXQ3mdG+s/AZ4+xjWwklcuj
+         iuK3e+gmXeQIkFxjEpVHmAwFhtd7tPtSTm7r8pZq7RZylgKAcDMwCwZ7FvIergROfhrR
+         rFSQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795107167; x=1795711967; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+        b=0PlnXRghkRlUeFoM4+2Jm3VsmvikbZfKxMDTSeFxjn/0laokhultnNvHR2Rpws5RMj
+         +EkLCBkUXxtuXgcJhMD+8iRmvhPtFxJ++ae83fR+J8BEfwC4Fec2tr1p5DP3pIJlNiB0
+         Ay+MDJIQAnCdQqnZdBXiNEk5LvbnCd9rzBLACZfks0KioJn/1MdvuSSeJECT8A+m2EOZ
+         v/2xEwt+lFu+ikffJBdoIQF7l44IFoQ+3RlZJmizLQd7T1p1WtbWOs7yBcSaeT/Ad0yO
+         H9qtSkkFAyz6J4Iye3tv+l8ZwcWp76iIQHYwsZpvF5edGH6UskDm/3p7j3XDBnHdphGz
+         KIhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795107167; x=1795711967;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+        b=fgYGDYsrvlChDl8JNtqvLdH3DgHua0WAewUsLjRsinlpctMlhk4EqAJvfNeo1fj51f
+         Ein6a48Opab4GkU8XXXEtGAw/KMF/7XhmJu/dYi7FyHN6z5VDPci44LQIIADlYMJzu5f
+         qlt+AbWJlovRccMZeMKzVPoDdxeDwk5qdLRolebVuiH+xCfRZ2aOnshyid/j/3YUTZi6
+         yR3642LV3d9Wb/9SE/ct/bhagJ/vq+NqKf9A3e/ogxhsGGi2gmocUblaLfGZf4ysB7en
+         7QgMYhv18cv1YvIK726rimnCz5Ogn1p8VhURzDFVHTDiy60RPPr2grmwTHCFhMPlrLoR
+         WqSQ==
+X-Forwarded-Encrypted: i=1; AL+hErH0+Lc8FzVIfKE6pb9glbc18icg72MW3BummYEaOJv8MXBhdfIcvk7NI+mLj+Rf4eR1UgFdi28=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/PUYQ1w/+9OeE3SyeuBp6Uml3ohYztYO3urGhXOtS4gsfr0Fzd
+	eIesVsQhUCnk9u0clGWfnizjhOw65tcuJbckcUAB09ztNR7b/Ue19nStXdEKB3xpEf516do3ceh
+	OxOvHWEt6WxPBfnMAYD0ZNoMHuUcxOIQ=
+X-Gm-Gg: AYBFou0W8AC9ikbSFEHp176z84FOvLt0WSXaDp+Gye/4nOLbgcHPUhKWn6s7oSE+stU
+	3RABkkX2MsfZwdqYZ9G13UJaszxl3YB+qs6sZ1VhqeMxzM2fHeC+ECQ6kuGc70W2c8yhjqbF7Pe
+	bexinWDbJzxEKRMvNBMFjcmxIfrjOS5sBoTztbTxf4hxYspKVD/e8KRIFlNWl5Nu62DrjXeG2AX
+	U1K+tgINMHshbVtsXWrvuXj4PM4p26djOHtz7CY76sGDlBd0w3JZAgtYgZbZoPI8LuhrOX/ZepX
+	Y1kjbmqH1DjV2nFhi2LRbEu2FqhsFqZe0b8tu51MMxuoWL5uKUrJd1Q4ZITA1Ub9fw++tEhGI6o
+	4gsF/mE7QeJI2mhJ3pIM2GaxVP7wD2DewdDjKcnKLaATYK5thQ216/Anwt9uWBaOS0Bn9hQbtMx
+	GUJlDKGcn6THgOF3Sd2eRST4nPkf9+XRWgvADUwK5C1lQETxHNoX16pIpvy6+6J5IfkfGzqQ==
+X-Received: by 2002:a05:6a20:a12c:b0:3fa:df6d:7d03 with SMTP id
+ adf61e73a8af0-4014a274bf2mr266399637.1.1795107167291; Thu, 19 Nov 2026
+ 08:52:47 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,296 +105,322 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261116033855.1792036-1-pkfxxxing@gmail.com>
+In-Reply-To: <20261116033855.1792036-1-pkfxxxing@gmail.com>
+From: Xin Long <lucien.xin@gmail.com>
+Date: Thu, 19 Nov 2026 11:52:35 -0500
+X-Gm-Features: AclHuK9-as1wTbFo891kSIKMQHM4dkn9fUoJ_KVP5SHbbz1GNMqfHaZuEpH2C-E
+Message-ID: <CADvbK_dO0B156LN_05QRqyo-7wCmCT64BYxbThzXYzJdL6kLBQ@mail.gmail.com>
+Subject: Re: [PATCH net v3] sctp: fix use-after-free after association migration
+To: Yong Liu <pkfxxxing@gmail.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
+	linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The RTL9607C family of SoCs have an embdedded switch that utilizes
-the same Realtek CPU Tag protocol 4 with 8 bytes in size but have
-a bit different of a layout. And that layout is also different for
-TX versus RX sides and introduces new fields not seen by RTL8_4.
+On Sun, Nov 15, 2026 at 10:40=E2=80=AFPM Yong Liu <pkfxxxing@gmail.com> wro=
+te:
+>
+> SCTP timers and ICMP error handling can cache asoc->base.sk before
+> locking it. If accept or peeloff migrates the association in between,
+> processing under the old socket lock can race with an abort on the new
+> socket that frees the association's queues. Transport and association
+> references do not keep those queues alive. With mdelay() instrumentation
+> widening the race, KASAN reported a slab-use-after-free in
+> sctp_chunk_abandoned() from the T3 retransmit path.
+>
+> Recheck the association's socket after taking its BH lock and defer
+> mismatched timer callbacks through the existing retry path. Pass the
+> locked socket to the IPv4 and IPv6 ICMP handlers instead of rereading it,
+> and treat a mismatch like a busy socket before processing ICMP errors.
+>
+> Use READ_ONCE() for socket pointer reads in these paths and receive/backl=
+og
+> processing, paired with WRITE_ONCE() in sctp_assoc_migrate(). Take the ne=
+w
+> socket reference before publishing it. The cached socket is protected by
+> BH context and the endpoint's RCU-deferred sock_put().
+>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yong Liu <pkfxxxing@gmail.com>
+> ---
+> Changes in v3:
+> - Update the commit message and subject as requested by Jakub Kicinski.
+>
+> v2: https://lore.kernel.org/all/20261113032805.1447885-1-pkfxxxing@gmail.=
+com/
+> Review: https://lore.kernel.org/all/20261115100933.75ae0534@kernel.org/
+>
+> Changes in v2:
+> - Use Yong Liu for the author and Signed-off-by, as requested by Jakub
+>   Kicinski.
+> - Address Xin Long's review and the Sashiko ICMP finding: pass the locked
+>   socket to the IPv4/IPv6 error handlers and their UDP encapsulation
+>   callers, and revalidate it before immediate ICMP processing.
+> - Use READ_ONCE() for socket pointer reads in sctp_err_lookup(), sctp_rcv=
+()
+>   and sctp_backlog_rcv().
+> - Broaden the subject and commit message to cover the ICMP paths.
+>
+> v1: https://lore.kernel.org/all/20261110120212.1110283-2-pkfxxxing@gmail.=
+com/
+>
+> Based on b3dfbde62cf1981c4638939c159dfd087b7a72e9 (Linux 7.4.0-rc2).
+>
+>  net/sctp/associola.c     |  4 ++--
+>  net/sctp/input.c         | 32 ++++++++++++++++---------------
+>  net/sctp/ipv6.c          | 11 ++++++-----
+>  net/sctp/sm_sideeffect.c | 41 ++++++++++++++++++++--------------------
+>  4 files changed, 45 insertions(+), 43 deletions(-)
+>
+> diff --git a/net/sctp/associola.c b/net/sctp/associola.c
+> index 4521be3bd8..c5d520c8d7 100644
+> --- a/net/sctp/associola.c
+> +++ b/net/sctp/associola.c
+> @@ -1088,8 +1088,8 @@ void sctp_assoc_migrate(struct sctp_association *as=
+soc, struct sock *newsk)
+>         sctp_endpoint_hold(assoc->ep);
+>
+>         /* Get a reference to the new sock.  */
+> -       assoc->base.sk =3D newsk;
+> -       sock_hold(assoc->base.sk);
+> +       sock_hold(newsk);
+> +       WRITE_ONCE(assoc->base.sk, newsk);
+>
+>         /* Add the association to the new endpoint's list of associations=
+.  */
+>         sctp_endpoint_add_asoc(newsp->ep, assoc);
+> diff --git a/net/sctp/input.c b/net/sctp/input.c
+> index 9494cfa511..e25c94ad08 100644
+> --- a/net/sctp/input.c
+> +++ b/net/sctp/input.c
+> @@ -169,7 +169,7 @@ int sctp_rcv(struct sk_buff *skb)
+>
+>         /* Retrieve the common input handling substructure. */
+>         rcvr =3D asoc ? &asoc->base : &ep->base;
+> -       sk =3D rcvr->sk;
+> +       sk =3D READ_ONCE(rcvr->sk);
+>
+>         /*
+>          * RFC 2960, 8.4 - Handle "Out of the blue" Packets.
+> @@ -217,7 +217,7 @@ int sctp_rcv(struct sk_buff *skb)
+>          */
+>         bh_lock_sock(sk);
+>
+> -       if (sk !=3D rcvr->sk) {
+> +       if (sk !=3D READ_ONCE(rcvr->sk)) {
+>                 /* Our cached sk is different from the rcvr->sk.  This is
+>                  * because migrate()/accept() may have moved the associat=
+ion
+>                  * to a new socket and released all the sockets.  So now =
+we
+> @@ -226,7 +226,7 @@ int sctp_rcv(struct sk_buff *skb)
+>                  * of the current sk.
+>                  */
+>                 bh_unlock_sock(sk);
+> -               sk =3D rcvr->sk;
+> +               sk =3D READ_ONCE(rcvr->sk);
+>                 bh_lock_sock(sk);
+>         }
+>
+> @@ -292,7 +292,7 @@ int sctp_backlog_rcv(struct sock *sk, struct sk_buff =
+*skb)
+>                 goto done;
+>         }
+>
+> -       if (unlikely(rcvr->sk !=3D sk)) {
+> +       if (unlikely(READ_ONCE(rcvr->sk) !=3D sk)) {
+>                 /* In this case, the association moved from one socket to
+>                  * another.  We are currently sitting on the backlog of t=
+he
+>                  * old socket, so we need to move.
+> @@ -304,7 +304,7 @@ int sctp_backlog_rcv(struct sock *sk, struct sk_buff =
+*skb)
+>                  * Otherwise, we can safely push the chunk on the inqueue=
+.
+>                  */
+>
+> -               sk =3D rcvr->sk;
+> +               sk =3D READ_ONCE(rcvr->sk);
+>                 local_bh_disable();
+>                 bh_lock_sock(sk);
+>
+> @@ -377,7 +377,7 @@ void sctp_icmp_frag_needed(struct sock *sk, struct sc=
+tp_association *asoc,
+>              t->pl.probe_size + sctp_transport_pl_hlen(t) <=3D pmtu))
+>                 return;
 
-Add basic necessities for this cpu tag variant to function.
+As the clashiko [1] reported, there's asoc->base.sk access in
+sctp_transport_pl_hlen(), You can delete the !t check (t can't be NULL),
+and move the rest check to sctp_transport_update_pmtu(), which is called
+under sock lock, like:
 
-Tested-by: Taiga Ogawa <zectaiga@gmail.com>
-Signed-off-by: Rustam Adilov <adilov@disroot.org>
----
-Tested on OpenWrt with 6.18 kernel version [1].
+        pmtu =3D SCTP_TRUNC4(pmtu);
 
-The RTL8_4AP name was mostly chosen because Realtek gave the RTL9607C
-family of SoCs a codename "ApolloPro" in their SDK, hence "AP" part.
-Originally it was named RTL8_4_RTL9607C but that feels weird.
++       if (t->pathmtu <=3D pmtu &&
++           t->pl.probe_size + sctp_transport_pl_hlen(t) <=3D pmtu)
++               return false;
++
 
-[1] https://github.com/openwrt/openwrt/pull/26496
----
- include/net/dsa.h    |   2 +
- net/dsa/tag_rtl8_4.c | 193 ++++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 194 insertions(+), 1 deletion(-)
+As for sctp_addrs_lookup_transport() in the report, I think you need
+to do something like:
 
-diff --git a/include/net/dsa.h b/include/net/dsa.h
-index 09f3043d57f0..6f86c7625304 100644
---- a/include/net/dsa.h
-+++ b/include/net/dsa.h
-@@ -63,6 +63,7 @@ struct tc_action;
- #define DSA_TAG_PROTO_MT7628_VALUE		35
- #define DSA_TAG_PROTO_KS8995_VALUE		36
- #define DSA_TAG_PROTO_LAN9645X_VALUE		37
-+#define DSA_TAG_PROTO_RTL8_4AP_VALUE		38
- 
- enum dsa_tag_protocol {
- 	DSA_TAG_PROTO_NONE		= DSA_TAG_PROTO_NONE_VALUE,
-@@ -103,6 +104,7 @@ enum dsa_tag_protocol {
- 	DSA_TAG_PROTO_MT7628		= DSA_TAG_PROTO_MT7628_VALUE,
- 	DSA_TAG_PROTO_KS8995		= DSA_TAG_PROTO_KS8995_VALUE,
- 	DSA_TAG_PROTO_LAN9645X		= DSA_TAG_PROTO_LAN9645X_VALUE,
-+	DSA_TAG_PROTO_RTL8_4AP		= DSA_TAG_PROTO_RTL8_4AP_VALUE,
- };
- 
- struct dsa_switch;
-diff --git a/net/dsa/tag_rtl8_4.c b/net/dsa/tag_rtl8_4.c
-index 4da3beebef75..c934c232d330 100644
---- a/net/dsa/tag_rtl8_4.c
-+++ b/net/dsa/tag_rtl8_4.c
-@@ -74,6 +74,54 @@
-  * software or hardware. To avoid this issue, if the checksum is still pending,
-  * this tagger checksums the packet in software before adding the tag.
-  *
-+ * This 8 byte switch tag can also be found on RTL9607C family of SoCs with
-+ * identical protocol "4", but the format is slightly different.
-+ *
-+ * On switch->CPU the bytes 4-7 look like this:
-+ *
-+ *  |-----------------------------------+-----------------------------------|
-+ *  | (3) |     (3)    |    (5)         |     (2)     |  (1)  |  (1) |  (4) |
-+ *  | PRI |   EXTSPA  OR PON_STREAM_ID  |PON_STREAM_ID|L3ROUTE| ORIG | PORT |
-+ *  |-----------------------------------+-----------------------------------|
-+ *  |    (1)   |           (15-bit)     /      (6-bit)                      |
-+ *  |    FBI   |      FLOW_BASED_HASH   /   DST_PORT_MASK                   |
-+ *  |-----------------------------------+-----------------------------------|
-+ *
-+ * On CPU->Switch however the byte 3 is also different:
-+ *
-+ *  |-----------------------------------+-----------------------------------|
-+ *  |              (8-bit)              |             (8-bit)               |
-+ *  |          Protocol [0x04]          |         TX_PORTMASK_LOW           |
-+ *  |-----------------------------------+-----------------------------------|
-+ *  |     (3-bit)    |(1)|   (1)  | (3) |(1) |(1)|   (1)   |(1) |(2)| (1) |1|
-+ *  |TX_PORTMASK_HIGH| X | PRI_EN | PRI |KEEP| X |LEARN_DIS|PSEL| X |DIRTX|X|
-+ *  |-----------------------------------+-----------------------------------|
-+ *  | (3-bit)|    (2-bit)   |     (4-bit)    |           (7-bit)            |
-+ *  | EXTSPA |   PPPOE_ACT  |    PPPOE_IDX   |        PON_STREAM_ID         |
-+ *  |-----------------------------------+-----------------------------------|
-+ *
-+ * With the following descriptions for new fields:
-+ *
-+ *    field           | description
-+ *   -----------------+-------------
-+ *    EXTSPA          | Source Extension Port. Relevant when port is CPU (9, 10, 7).
-+ *    PON_STREAM_ID   | PON Stream ID (GPON) or LLID index (EPON). Relevant when
-+ *                    | port is PON (5)
-+ *    L3ROUTE         | "This frame is an intended routed frames" as per docs
-+ *    ORIG            | The received frame by NIC is the original packet's format
-+ *                    | before switch lookup and switch didn't do any modifications
-+ *    FBI             | Flow Based I...? Only relevant when REASON is FB (aka < 64)
-+ *    FLOW_BASED_HASH | Flow Based Hash Index.
-+ *    DST_PORT_MASK   | Switch lookup destination port mask. bit 0: CPU, bit 1-5 are
-+ *                    | extension ports 0~4.
-+ *    PSEL            | PON stream id (GPON) / LLID index(EPON) selection.
-+ *    DIRTX           | Direct TX, whatever that means? Used to be called L34KEEP.
-+ *    PPPOE_ACT       | Egress action for PPPoE header whose Ether Type = 0x8864.
-+ *                    | 0: intact, 1: Add PPPoE header, 2: Remove PPPoE header,
-+ *                    | 3: remarking PPPoE switch TX mac action.
-+ *    PPPOE_IDX       | PPPoE index pointed to an entry of the PPPoE table in the
-+ *                    | switch. Switch TX-MAC look PPPoE table up by this index to
-+ *                    | get PPPoE session ID.
-  */
- 
- #include <linux/bitfield.h>
-@@ -84,11 +132,12 @@
- 
- /* Protocols supported:
-  *
-- * 0x04 = RTL8365MB DSA protocol
-+ * 0x04 = RTL8365MB / RTL9607C (aka ApolloPro) DSA protocol
-  */
- 
- #define RTL8_4_NAME			"rtl8_4"
- #define RTL8_4T_NAME			"rtl8_4t"
-+#define RTL8_4AP_NAME			"rtl8_4ap"
- 
- #define RTL8_4_TAG_LEN			8
- 
-@@ -97,13 +146,63 @@
- #define RTL8_4_REASON			GENMASK(7, 0)
- #define   RTL8_4_REASON_FORWARD		0
- #define   RTL8_4_REASON_TRAP		80
-+#define   RTL8_4AP_REASON_BCAST_TRAP	203
-+#define   RTL8_4AP_REASON_RESV_TRAP	215
-+#define   RTL8_4AP_REASON_IGMP		219
-+#define   RTL8_4AP_REASON_RMA		220
-+#define   RTL8_4AP_REASON_ACL		227
-+
-+#define RTL8_4AP_RX_LO			GENMASK(7, 0)
-+#define RTL8_4AP_RX_HI			GENMASK(15, 13)
-+#define RTL9607C_RX_HI_MSK		GENMASK(10, 8)
- 
-+#define RTL8_4AP_DIRTX			BIT(1)
- #define RTL8_4_LEARN_DIS		BIT(5)
- #define RTL8_4_KEEP			BIT(7)
- 
- #define RTL8_4_TX			GENMASK(3, 0)
- #define RTL8_4_RX			GENMASK(10, 0)
- 
-+static void rtl8_4ap_write_tag(struct sk_buff *skb, struct net_device *dev,
-+			       void *tag)
-+{
-+	u16 pmask = dsa_xmit_port_mask(skb, dev);
-+	__be16 tag16[RTL8_4_TAG_LEN / 2];
-+	u16 pmask_low, pmask_high;
-+
-+	/* Set Realtek EtherType */
-+	tag16[0] = htons(ETH_P_REALTEK);
-+
-+	pmask_low = FIELD_GET(RTL8_4AP_RX_LO, pmask);
-+	/* Set Protocol; set RX (CPU->switch) low forwarding port mask */
-+	tag16[1] = htons(FIELD_PREP(RTL8_4_PROTOCOL, RTL8_4_PROTOCOL_RTL8365MB) |
-+			 FIELD_PREP(RTL8_4AP_RX_LO, pmask_low));
-+
-+	pmask_high = FIELD_GET(RTL9607C_RX_HI_MSK, pmask);
-+	/* set high forwarding port mask, KEEP, LEARN_DIS and DIRTX */
-+	tag16[2] = htons(FIELD_PREP(RTL8_4AP_RX_HI, pmask_high) |
-+			 FIELD_PREP(RTL8_4_LEARN_DIS, 1) |
-+			 FIELD_PREP(RTL8_4_KEEP, 1) |
-+			 FIELD_PREP(RTL8_4AP_DIRTX, 1));
-+
-+	/* Zero EXTSPA, PPPOE_ACT/IDX and PON_STREAM_ID */
-+	tag16[3] = 0;
-+
-+	memcpy(tag, tag16, RTL8_4_TAG_LEN);
-+}
-+
-+static struct sk_buff *rtl8_4ap_tag_xmit(struct sk_buff *skb,
-+					 struct net_device *dev)
-+{
-+	skb_push(skb, RTL8_4_TAG_LEN);
-+
-+	dsa_alloc_etype_header(skb, RTL8_4_TAG_LEN);
-+
-+	rtl8_4ap_write_tag(skb, dev, dsa_etype_header_pos_tx(skb));
-+
-+	return skb;
-+}
-+
- static void rtl8_4_write_tag(struct sk_buff *skb, struct net_device *dev,
- 			     void *tag)
- {
-@@ -153,6 +252,84 @@ static struct sk_buff *rtl8_4t_tag_xmit(struct sk_buff *skb,
- 	return skb;
- }
- 
-+static int rtl8_4ap_read_tag(struct sk_buff *skb, struct net_device *dev,
-+			     void *tag)
-+{
-+	__be16 tag16[RTL8_4_TAG_LEN / 2];
-+	u16 etype;
-+	u8 reason;
-+	u8 proto;
-+	u8 port;
-+
-+	memcpy(tag16, tag, RTL8_4_TAG_LEN);
-+
-+	/* Parse Realtek EtherType */
-+	etype = ntohs(tag16[0]);
-+	if (unlikely(etype != ETH_P_REALTEK)) {
-+		dev_warn_ratelimited(&dev->dev,
-+				     "non-realtek ethertype 0x%04x\n", etype);
-+		return -EPROTO;
-+	}
-+
-+	/* Parse Protocol */
-+	proto = FIELD_GET(RTL8_4_PROTOCOL, ntohs(tag16[1]));
-+	if (unlikely(proto != RTL8_4_PROTOCOL_RTL8365MB)) {
-+		dev_warn_ratelimited(&dev->dev,
-+				     "unknown realtek protocol 0x%02x\n",
-+				     proto);
-+		return -EPROTO;
-+	}
-+
-+	/* Parse REASON */
-+	reason = FIELD_GET(RTL8_4_REASON, ntohs(tag16[1]));
-+
-+	/* Parse TX (switch->CPU) */
-+	port = FIELD_GET(RTL8_4_TX, ntohs(tag16[2]));
-+	skb->dev = dsa_conduit_find_user(dev, 0, port);
-+	if (!skb->dev) {
-+		dev_warn_ratelimited(&dev->dev,
-+				     "could not find user for port %d\n",
-+				     port);
-+		return -ENOENT;
-+	}
-+
-+	switch (reason) {
-+	case RTL8_4AP_REASON_BCAST_TRAP:
-+	case RTL8_4AP_REASON_RESV_TRAP:
-+	case RTL8_4AP_REASON_IGMP:
-+	case RTL8_4AP_REASON_RMA:
-+	case RTL8_4AP_REASON_ACL:
-+		break;
-+	default:
-+		dsa_default_offload_fwd_mark(skb);
-+		break;
-+	}
-+
-+	return 0;
-+}
-+
-+static struct sk_buff *rtl8_4ap_tag_rcv(struct sk_buff *skb,
-+					struct net_device *dev)
-+{
-+	if (unlikely(!pskb_may_pull(skb, RTL8_4_TAG_LEN))) {
-+		kfree_skb(skb);
-+		return NULL;
-+	}
-+
-+	if (unlikely(rtl8_4ap_read_tag(skb, dev,
-+				       dsa_etype_header_pos_rx(skb)))) {
-+		kfree_skb(skb);
-+		return NULL;
-+	}
-+
-+	/* Remove tag and recalculate checksum */
-+	skb_pull_rcsum(skb, RTL8_4_TAG_LEN);
-+
-+	dsa_strip_etype_header(skb, RTL8_4_TAG_LEN);
-+
-+	return skb;
-+}
-+
- static int rtl8_4_read_tag(struct sk_buff *skb, struct net_device *dev,
- 			   void *tag)
- {
-@@ -268,9 +445,23 @@ DSA_TAG_DRIVER(rtl8_4t_netdev_ops);
- 
- MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_RTL8_4T, RTL8_4T_NAME);
- 
-+/* Ethertype RTL9607C version */
-+static const struct dsa_device_ops rtl8_4ap_netdev_ops = {
-+	.name = "rtl8_4ap",
-+	.proto = DSA_TAG_PROTO_RTL8_4AP,
-+	.xmit = rtl8_4ap_tag_xmit,
-+	.rcv = rtl8_4ap_tag_rcv,
-+	.needed_headroom = RTL8_4_TAG_LEN,
-+};
-+
-+DSA_TAG_DRIVER(rtl8_4ap_netdev_ops);
-+
-+MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_RTL8_4AP, RTL8_4AP_NAME);
-+
- static struct dsa_tag_driver *dsa_tag_drivers[] = {
- 	&DSA_TAG_DRIVER_NAME(rtl8_4_netdev_ops),
- 	&DSA_TAG_DRIVER_NAME(rtl8_4t_netdev_ops),
-+	&DSA_TAG_DRIVER_NAME(rtl8_4ap_netdev_ops),
- };
- module_dsa_tag_drivers(dsa_tag_drivers);
- 
--- 
-2.56.1
+-               bound_dev_if =3D READ_ONCE(t->asoc->base.sk->sk_bound_dev_i=
+f);
+-               if (sctp_sk_bound_dev_eq(net, bound_dev_if, dif, sdif) &&
++               sk =3D READ_ONCE(t->asoc->base.sk);
++               if (sctp_sk_bound_dev_eq(net,
+READ_ONCE(sk->sk_bound_dev_if), dif, sdif) &&
+                    sctp_bind_addr_match(&t->asoc->base.bind_addr,
+-                                        laddr, sctp_sk(t->asoc->base.sk)))
++                                        laddr, sctp_sk(sk)))
+                        return t;
 
+>
+> -       if (sock_owned_by_user(sk)) {
+> +       if (sock_owned_by_user(sk) || sk !=3D READ_ONCE(asoc->base.sk)) {
+>                 atomic_set(&t->mtu_info, pmtu);
+>                 asoc->pmtu_pending =3D 1;
+>                 t->pmtu_pending =3D 1;
+> @@ -410,7 +410,8 @@ void sctp_icmp_redirect(struct sock *sk, struct sctp_=
+transport *t,
+>  {
+>         struct dst_entry *dst;
+>
+> -       if (sock_owned_by_user(sk) || !t)
+> +       if (sock_owned_by_user(sk) || !t ||
+> +           sk !=3D READ_ONCE(t->asoc->base.sk))
+
+This '!t' check can be deleted, as the t passed to
+sctp_icmp_redirect() can never be NULL.
+
+>                 return;
+>         dst =3D sctp_transport_dst_check(t);
+>         if (dst)
+> @@ -432,7 +433,7 @@ void sctp_icmp_proto_unreachable(struct sock *sk,
+>                            struct sctp_association *asoc,
+>                            struct sctp_transport *t)
+>  {
+> -       if (sock_owned_by_user(sk)) {
+> +       if (sock_owned_by_user(sk) || sk !=3D READ_ONCE(asoc->base.sk)) {
+>                 if (timer_pending(&t->proto_unreach_timer))
+>                         return;
+>                 else {
+> @@ -492,7 +493,7 @@ struct sock *sctp_err_lookup(struct net *net, int fam=
+ily, struct sk_buff *skb,
+>         if (!asoc)
+>                 return NULL;
+>
+> -       sk =3D asoc->base.sk;
+> +       sk =3D READ_ONCE(asoc->base.sk);
+>
+>         /* RFC 4960, Appendix C. ICMP Handling
+>          *
+> @@ -526,7 +527,7 @@ struct sock *sctp_err_lookup(struct net *net, int fam=
+ily, struct sk_buff *skb,
+>         /* If too many ICMPs get dropped on busy
+>          * servers this needs to be solved differently.
+>          */
+> -       if (sock_owned_by_user(sk))
+> +       if (sock_owned_by_user(sk) || sk !=3D READ_ONCE(asoc->base.sk))
+>                 __NET_INC_STATS(net, LINUX_MIB_LOCKDROPPEDICMPS);
+>
+>         *app =3D asoc;
+> @@ -546,11 +547,11 @@ void sctp_err_finish(struct sock *sk, struct sctp_t=
+ransport *t)
+>         sctp_transport_put(t);
+>  }
+>
+> -static void sctp_v4_err_handle(struct sctp_transport *t, struct sk_buff =
+*skb,
+> +static void sctp_v4_err_handle(struct sock *sk, struct sctp_transport *t=
+,
+> +                              struct sk_buff *skb,
+>                                __u8 type, __u8 code, __u32 info)
+>  {
+>         struct sctp_association *asoc =3D t->asoc;
+> -       struct sock *sk =3D asoc->base.sk;
+>         int err =3D 0;
+>
+>         switch (type) {
+> @@ -582,7 +583,8 @@ static void sctp_v4_err_handle(struct sctp_transport =
+*t, struct sk_buff *skb,
+>         default:
+>                 return;
+>         }
+> -       if (!sock_owned_by_user(sk) && inet_test_bit(RECVERR, sk)) {
+> +       if (!sock_owned_by_user(sk) && sk =3D=3D READ_ONCE(asoc->base.sk)=
+ &&
+> +           inet_test_bit(RECVERR, sk)) {
+>                 sk->sk_err =3D err;
+>                 sk_error_report(sk);
+>         } else {  /* Only an error on timeout */
+
+As the clashiko [1] reported, this 'else' need to become:
+
+} else if (sk =3D=3D READ_ONCE(asoc->base.sk)) {
+
+> @@ -630,7 +632,7 @@ int sctp_v4_err(struct sk_buff *skb, __u32 info)
+>                 return -ENOENT;
+>         }
+>
+> -       sctp_v4_err_handle(transport, skb, type, code, info);
+> +       sctp_v4_err_handle(sk, transport, skb, type, code, info);
+>         sctp_err_finish(sk, transport);
+>
+>         return 0;
+> @@ -660,7 +662,7 @@ int sctp_udp_v4_err(struct sock *sk, struct sk_buff *=
+skb)
+>         }
+>         if (hdr->type =3D=3D ICMP_DEST_UNREACH && hdr->code =3D=3D ICMP_F=
+RAG_NEEDED)
+>                 info =3D ntohs(hdr->un.frag.mtu);
+> -       sctp_v4_err_handle(t, skb, hdr->type, hdr->code, info);
+> +       sctp_v4_err_handle(sk, t, skb, hdr->type, hdr->code, info);
+>
+>         sctp_err_finish(sk, t);
+>         return 1;
+> diff --git a/net/sctp/ipv6.c b/net/sctp/ipv6.c
+> index 97390569c4..f96e79ca7f 100644
+> --- a/net/sctp/ipv6.c
+> +++ b/net/sctp/ipv6.c
+> @@ -123,11 +123,11 @@ static struct notifier_block sctp_inet6addr_notifie=
+r =3D {
+>         .notifier_call =3D sctp_inet6addr_event,
+>  };
+>
+> -static void sctp_v6_err_handle(struct sctp_transport *t, struct sk_buff =
+*skb,
+> +static void sctp_v6_err_handle(struct sock *sk, struct sctp_transport *t=
+,
+> +                              struct sk_buff *skb,
+>                                __u8 type, __u8 code, __u32 info)
+>  {
+>         struct sctp_association *asoc =3D t->asoc;
+> -       struct sock *sk =3D asoc->base.sk;
+>         int err =3D 0;
+>
+>         switch (type) {
+> @@ -149,7 +149,8 @@ static void sctp_v6_err_handle(struct sctp_transport =
+*t, struct sk_buff *skb,
+>         }
+>
+>         icmpv6_err_convert(type, code, &err);
+> -       if (!sock_owned_by_user(sk) && inet6_test_bit(RECVERR6, sk)) {
+> +       if (!sock_owned_by_user(sk) && sk =3D=3D READ_ONCE(asoc->base.sk)=
+ &&
+> +           inet6_test_bit(RECVERR6, sk)) {
+>                 sk->sk_err =3D err;
+>                 sk_error_report(sk);
+>         } else {
+
+Same here, change to:
+
+} else if (sk =3D=3D READ_ONCE(asoc->base.sk)) {
+
+[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116033855.1792=
+036-1-pkfxxxing%40gmail.com
+
+Thanks.
