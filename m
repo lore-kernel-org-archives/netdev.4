@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085600;
-	b=oA4j3VlX6djuOCmOBbzhdSRG1ev3OdbaemLpfcHIfn/feKBS/U+7sHeWO/8WUYPgoOum
-	 aa+/7sPCd/KBdOdo7hUsizvFLuEz58FOApvQXeDpjoyxmA3zRI9+SEVVyouHFivMtWU+d
-	 Im0DA/MkTEU2uUhDvrB2ubTzCca4JhDUNJqky3CP4hgbTbhQVwfeVv1HUwx5I1rrR7m87
-	 EouKOV3cpFXGm7hlAgFmoZU/1l4ud3AbStdV3AivkkfNySNE567shY5awRrNg2U0Zc+vm
-	 5qDIm1Cltbff9JtS4oFFC8xgPp1nB58RBm/I1ShfYva69XZfAIVwnEciamY+GmIf1LA==
+	t=1795085603;
+	b=WCsHrjWuazELohdC7tOIpV4imIenB/WWnn4svJBK/Ug7iKn2VwcvLZ1QYHsOMBRB8Cec
+	 5K9e/v+b3zxFhHsNG4li7AdWWJvGvshOstVV8940A2xeQvJysedQMzighPHZImUC0R9zF
+	 jCLupXKK1KJtzMY03gaQ4SEcNiBWXIEsQIlqfHg1BhMK6GlWTrD3SUtoCdqjrTQCiu31B
+	 pgJ8qRZYu/ZoeWVhM99B34IoanAOH8N6vzBLGF9Z8icYVmgJlK9IyPzmQISem/uK8DjV4
+	 48b84k6m8tT3PicrF+qpNib2rXSbDao/MPSHhxDIFiSk6Hdh+2uKag2qaUFoHxQs/9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085600;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085603;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=hqE0DnzQVOaqly9+hSqhRUU82CqCbvfu1P534JABEUc=;
-	b=tdtT588mOEqg16FAUhdiR/WNFBkhQ630AtKLDRX4BsKlUEbYJyczLBYdXQskN2ni+UFd
-	 o7J12aEiA9/l5S/NAwjkvlAWifeZ08kKVRzhjPwdODSv1LB8yJ7L+NgehUBhbxaSbwIlO
-	 I3K5MM7NDGxLeolnm+9BK5toSfS2ArQAzkrvaRwO5mt99mQtiMswNtCPrgAiRrT9yf/+i
-	 oe2KL6CClPNx9nw5v5hNPw7FQaDWm1A6e4l3K4dave4hLI3RD5MMdpIScBfkxWMt/ALrc
-	 k5BE0aD5LlbNAzGPEfIy8Ra2F5fxf1okyCUtuJH7gINuEkPDzpDVqaw729ZztH/GjuQ==
+	bh=u82m5XYfOkixN+Gu4sy3x8jwpD0ueQ6BxZtFc7iLOis=;
+	b=GPe0QsFfLWERyfeFng6353cLIwDt8CVeCKWPzfRJnR+JEH8Fx7xrU0evZiiB8JNTBdZJ
+	 UgLx7O8mjRU5LmH2ByJ8CzZCS/NsXxnNOGsIHSfan/TX2Vv3fHNQzhlQP5edZbIHpqtFC
+	 32wNxTOwuC0Szay/j7cCi/rGmdw4uOH+6KqxSQcOANNJbJ3Gj2HzB1DbTbBkpKQCyUwGk
+	 3YY0eTQtzrIYVwRINzvKDLynT7O2y2hdfygVvzAFtTYlZaJhtkvpH1UWLoyEODTgQua0m
+	 YmHa2n6QoxwamnRKLncHeunLdkC0i6UYwSyr9kdsbAhWe36Cf6cFojUKFETvIDpf2hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=isslab.korea.ac.kr;
 	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=bZwgAt4T;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=iQ6rUIIV;
+	arc=none smtp.remote-ip=209.85.215.171
+Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFB75606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:53:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFB75606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21002606A331
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:53:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21002606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=bZwgAt4T
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b197cd42b0so1510145a91.2
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:53:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=iQ6rUIIV
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cde5a7d7849so185138a12.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 02:53:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795085599; x=1795690399; darn=vger.kernel.org;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795085602; x=1795690402; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=hqE0DnzQVOaqly9+hSqhRUU82CqCbvfu1P534JABEUc=;
-        b=bZwgAt4TKqTsP1xWCq97VLu+tnoq+LiOuNQD/HqwsLAazfa4JIr0ZvR8So4m6B/gc8
-         pyCh66xfyXhzvlqFYjormqzWR+xuCQVe5MHETbIk2+IAknavrZFAb2HuDzIV9YY4uD5E
-         eXCmuqHHuQpKGj2dAUDbsHhu4JTv3sobzZRQx7SvCJ6c78zIEKZqkmT8TurIob+jPDQO
-         l+Y2Byvtvx3HnX8UX9g2bVr18Tf/VnViCYbE/yj4usckpA3RAVus5ErQNhSmiI0lTFzF
-         M/tA9ZH8Y2QwAcbDD8ncuGc3O2eCmFLrk6xcrK7An2VBmdR9dQSCi0QC0DsILEWkhtUh
-         cFRg==
+        bh=u82m5XYfOkixN+Gu4sy3x8jwpD0ueQ6BxZtFc7iLOis=;
+        b=iQ6rUIIV7M0UsUNIRA6NKN+GN+fSa8/ME/likVRUE5Bdb5g7Llp4kUXaNoFBFNOhBu
+         F4l18R77EQ4LI3ORH9xbQFWnh3o6HuJKmiN0ciN6PEOTrv1IRf18GHrX2bRj/lKoek7t
+         hmNB/zpCbM49xuUBktNQrmcoJ5zqomNzHzsqXTLF2iBDCAP6nsSVdeGU7R0jmF2GSPhS
+         dA9NJl+y+nu6Ad8KkMo+5eCE9mSYpFxcvJTBEnQ55zbs6Y9UuJrshRrWTCo1cQhOwY1E
+         z5WVZg6ZJLHx7WbdXSp0e5YnIwhwyAwlkQO8deuDe0o32wdEcvaysTjliRP98bQgfJOf
+         4VuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795085599; x=1795690399;
+        d=1e100.net; s=20260707; t=1795085602; x=1795690402;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hqE0DnzQVOaqly9+hSqhRUU82CqCbvfu1P534JABEUc=;
-        b=wC4VEJoMO9q+5Qm3ktrz/hKZF4UaSQB8Phibn7aMXz0L35miHG3vr5PqDgE904WFPD
-         5iloZjz9EYtydAdewUrYl0ZbDqsloYHKS+C7+E020VMa/s8FjnXbrrz04Fa6cfiVu72a
-         7ey1Jnu8amKx/0dn46nqQm9DX8YDeyMEQqO5Cp0/AeDuOeXZCre63CiHwQU8LS8A9sxy
-         BjIDQQ+xPiA+eX7TL9JUbKil4QUyCpPz9tGD6tuCmJKb0K4XdvUUeyZVsnTXJEFb3yid
-         leVtE9nnmxtLrRw925JZb8mH6zsDo9K8iH7H2qiwdfdqI/TPyXiafqhRkHjw4igZ8AES
-         2qNg==
-X-Forwarded-Encrypted: i=1; AL+hErFm6orVR/dLwl6JydjDkKwc5BR6F+qS5ZyUoT2gJDap/NO5GUBGq/bEYI+IJ90bMYSIvegxFwk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+aOMxvyDJmAxroDazeFAQ5j7wVJ+WEjOhFCY7hBEz57iRyh4r5
-	/O1eCWY2kNPbrLszQJLy4999IjR1+b0etRha8/IveDVmIJEud3IiiQwy9h/oy9dWS9w=
-X-Gm-Gg: AZFdTZeh2WRi8oej/ecLOzm1kzahXbX91a7eqNZf3K3o+S0AwTBvMinG4+NdNjBLTcA
-	FEmymUqSAyqKvJSdsodVsPQ0fvBj05xbsbZwTMFc0N8TTEW/4flgA7PwX0BsKQzB4lQYKUw+JCG
-	vLlucFAcqG6Kz76mn2Ys8DEJp0FwkN9DJHrJK7vkhNnjSSN85OxPLUq+bBfs+Gj7tib7WbjV6Sq
-	hFwKpJvTRA94sr1GvjH0i8/78R2E2URCj+u29HXoWXSPFlxfgF++IYH4kTUhUBzE9qFU3m0N6AV
-	4p2JFIAaMj9dfFnNXZ9UFSIv5DdtK6s2JpR5BpbIXJSGi25wAguTf7tiVw2tcyJlDOn9U2HZC84
-	I+jsvzukmZEgHkA8TpENcw+sG/9OjFQ2E1qtuu7GTFwizooUzZiPosVF9N0orm2B2pl1VM1y/Hl
-	DBWudaguJyrLBW8ICwyKetWc6PQjte0CwIdfkIRwA14eVCbV/mHmrWkJljwwxwNEABjHRq1O3NZ
-	n/weeiSxAaYLxzpvUASLtr4hZcaNEGbC+BK0z+JWZ2IgxyUTA/YHd9cJ0VrMD5a3eC/88neIu2V
-	WZVMYMnF9nBDHOy4uV8Cd1u2Efwe9chiENMF0auKltsveuQ5z+H7ZlX7xdCoSo6GF/UbN3smkdl
-	ClMEAop36Lcd89dsk9eOlM8Dz8XchrbkhU0Hy/w==
-X-Received: by 2002:a17:90b:3d8f:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b3d07c687emr4819843a91.40.1795085598784;
-        Thu, 19 Nov 2026 02:53:18 -0800 (PST)
+        bh=u82m5XYfOkixN+Gu4sy3x8jwpD0ueQ6BxZtFc7iLOis=;
+        b=AEB4e7tMDkp31nGwUkxJdp4sNQPfnryeG3ewB9Z3GBlmzFjEEZg1uYBc8jLwButxfx
+         wKdmp1CiePyElpZ+r/ezyfUaVUfVgB4Fs+5/0gFrtr2wg0cRYkxZ2XrB4YTopgV/iWyd
+         6NxZhEuDTKe2mTOUJNUc1vUpHXfCPJRw2/DdrZ09c1JpcxIsU+0TIwVyrIzKwkHXF4Ji
+         IB4Yumpbjd80LsiLvUZqpG3GWEUjFFlEN/PRdmXzUzjHtOa+epAJ5ga5U94Ogx0z/THw
+         ST0T7EJoie9rKtTfDaecdK2fLB9TE3VL0yMQ8pH0qUap9/I0B/mIWm4YAlYOLaOWYLlJ
+         s+4w==
+X-Forwarded-Encrypted: i=1; AL+hErFvcm4Puj+gpFeV5JjMkZMSs8tbQWTHdvTZ9v9xmxle6LSiBCWBk8+lbN+ROIEjiFF371t/jP0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8cSxOQRbK59DYHRazOju3iwGqaxshejWpLEGiofdnO6k+S/RkQ
+	MgDnKCJUZw8IN25PfK7hmJ7MeEkTs/An5k9IVu02CFY9rBhc8Ymm0nHgmkQNjrdcsQ8=
+X-Gm-Gg: AZFdTZdiGouEMRaPIqazU7Dsd4KoLdT92hpXOtmxzu5S/pxbmByTAr3/voCyeMkZYc7
+	xo6wfHhoJf/ruusPJT5JlW0JgWMRYICwQub7k1yS2cI32DO+1Bl272lScE70XO0C9+pAVQE5k1p
+	9uZ/hnB8Ry3PK7DMeqMu4tv8QLceTaMoZK6Xb4T0p1xDwOijoEQRNqGRhiG/vJkR0djAIkbypL5
+	Th1uaqvPvEoJpP20WBUPWRhzJY8eEC448XvHO69U//Ws5xH/4gve9Y5NQOk23G2OZgA5VDZApNq
+	zka/euKj0bY+BsFK/p2u2Md3jjCIsmhLGnQhMfZSQnA70jTh02B+vheKEg18ssqaPtUt1vrQoJY
+	ywXDwbDNiier4tgVkshCW6ISzcJHIM+gPWe118RAifL94bGI/qTtF44q480eS80ekMrBg7sr8j8
+	opxwUOpsrUlIkJ2NYKjLeDaP+XpVnEfWsWTto3vpC58wEF/ziSQ02EL81sGuTD2bllEJDdriwyL
+	e7ZACtuzs4LMn5Tko59GCw+Um87pOVCDwqX4EBmb6dayxN8aS+2xwpY/7lSqlHruO18aDBkATNM
+	eDqsMHnGenHcG9PUXb/XoUgK8efKN956CkO/RP0vLSzVUf6Ku57u/0JcH5BBtsUOXatXs3vF554
+	TnBKb9jtoRg1EoSseYLmf4oVb02iVf7prtcwbQA==
+X-Received: by 2002:a17:90b:4fc6:b0:3ac:7e3a:1033 with SMTP id 98e67ed59e1d1-3b3d07d9ff7mr5928287a91.59.1795085602395;
+        Thu, 19 Nov 2026 02:53:22 -0800 (PST)
 Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm2246604a91.10.2026.11.19.02.53.14
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm2246604a91.10.2026.11.19.02.53.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:53:18 -0800 (PST)
+        Thu, 19 Nov 2026 02:53:21 -0800 (PST)
 From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
 To: alibuda@linux.alibaba.com,
 	dust.li@linux.alibaba.com,
@@ -92,12 +92,12 @@ Cc: tonylu@linux.alibaba.com,
 	linux-rdma@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v7 3/3] net/smc: carry oversized SMC-Rv2 LLC messages in the queue entry
-Date: Thu, 19 Nov 2026 19:53:07 +0900
-Message-ID: <20261119105308.2567241-1-yhlee@isslab.korea.ac.kr>
+Subject: Re: [PATCH net v7 2/3] net/smc: bound the peer rkey counts in SMC-Rv2 LLC messages
+Date: Thu, 19 Nov 2026 19:53:08 +0900
+Message-ID: <20261119105308.2567241-2-yhlee@isslab.korea.ac.kr>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260820023346.BF2B71F00A3A@smtp.kernel.org>
-References: <20260819023306.644849-1-yhlee@isslab.korea.ac.kr> <20260819023306.644849-4-yhlee@isslab.korea.ac.kr> <20260820023346.BF2B71F00A3A@smtp.kernel.org>
+In-Reply-To: <20260820023347.9D5461F00A3D@smtp.kernel.org>
+References: <20260819023306.644849-1-yhlee@isslab.korea.ac.kr> <20260819023306.644849-3-yhlee@isslab.korea.ac.kr> <20260820023347.9D5461F00A3D@smtp.kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,20 +110,33 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The byte order point is right, and it is not something this series
-changed.  num_rkeys in struct smc_llc_msg_add_link_v2_ext is a plain u16:
-smc_llc_fill_ext_v2() stores lgr->conns_num into it and
-smc_llc_save_add_link_rkeys() reads it back, both in host order, while
-the rt[] entries next to it are __be32 and __be64.  Between a big-endian
-and a little-endian host a count N below 256 arrives as N * 256, and
-min_t(u8, ...) turns that into 0, so no rkeys are saved for the new link.
+Three of the points above are about code this series did not add.  Where
+they stand on current mainline:
 
-I have not sent a fix because the right one depends on what the SMC-Rv2
-format defines.  If the field is big-endian on the wire, htons() and
-ntohs() leave s390 as it is but change the bytes an x86 host sends, so a
-patched x86 host and an unpatched one would stop agreeing.  Could one of
-you confirm the wire format, and whether that compatibility cost is
-acceptable?  I can send the patch for net-next once that is settled.
+- The memcpy() into lgr->wr_rx_buf_v2 is gone.  3/3 made
+  smc_llc_rmt_delete_rkey() read the queue entry instead, and nothing on
+  the CPU writes to that buffer any more.
+
+- The v2 spillover buffer is still shared by every receive WR of the
+  link group.  3/3 narrowed the window to the copy in
+  smc_llc_rx_handler(), but if two LLC messages with extensions arrive
+  before the receive tasklet runs, the first one's tail can already be
+  overwritten by the second when it is copied.  The result is the wrong
+  rkeys being processed for the same peer; the copy stays inside the
+  8 KiB buffer.  Closing it needs a spillover buffer per WR or per link,
+  which gives back the memory 27ef6a9981fe saved, so I am leaving that
+  decision to you.
+
+- smc_rtoken_delete() runs without rmbs_lock, and so do smc_rtoken_add()
+  and smc_rtoken_set2() in smc_llc_rmt_conf_rkey() and smc_rtoken_add()
+  on the CLC path; only the three smc_rtoken_set() callers take it.  As
+  far as I can tell from smc_llc_flow_start(), a remote DELETE_RKEY flow
+  is not held back by a local ADD_LINK flow, so it can clear an rtoken
+  slot while smc_llc_save_add_link_rkeys() is filling that table.  The
+  rtokens are a fixed array, so this ends in a lost or mismatched rkey
+  rather than a memory error.  Taking the lock in the LLC event path is
+  not a one-line change either: smc_llc_cli_rkey_exchange() and
+  smc_llc_srv_rkey_exchange() hold it for writing across smc_llc_wait().
 
 Best regards,
 Yehyeong Lee
