@@ -1,55 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795114801;
-	b=mQ1WWhawL3Zee52GMkrTlUF6RMeNYGHf4SpQH2A5MXEcQlKCJqDU4XPVTC5gGgaliwf6
-	 SoyNgHTwaH3iwIfzgDmEPGsgm2/xV06xY/Xfp9aVQOJ259NmYcV02S9uch5X3D2dotoOr
-	 w9A6oFHDNFTdPTDfyMkRn8wwvsC5YBw2WN95KUu3XcG7WmfPvczdIN75efo+7S9VD7KEy
-	 dAW1wbQ0OEaCF8fs9gHXG/EtTVGQAr4Q1T7ATf4wUndolUcr6Ds2PGzbXFT0zzIebNRaD
-	 YRRLg87R8bkIsOWTSxrnA3XVCQN6gyGjSwo0UvHgM4vw54I+Jqqugb8fiVYDWvdXAVg==
+	t=1795114996;
+	b=1UjvKHo8ZX+QzJioCUm9ZcdtkzL4xUZ76f3G8MaUS8JdC2PofkEJYcGzegc83Xm1A6/L
+	 y1wElAcV35ZsWBWOMDXVIgvSK+dSkG0uvAt3WGycZCM6BaWRXzSMpfUdQvcMeormHNQAc
+	 VOL6ot3Y6QiRp57zgJ5tJyowKr/oJjhGiWOxL6kFdSPH0HJTAQjnAzKeLkvVQkSa0uSBc
+	 N4cWwUrXk2YDEZZyHQokgWQNJH/PNfH3kCbABc+TOlzmLO2nqNbSVOL0KwIxfuqnHxhjX
+	 KSBZNDtRavC/+8iN3GO10tTu0MlJdzPhphUha7bkbRgpxDGXxBFATMqZcD87tmhUdmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795114801;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Rc3Y1zAg/nSiG5dvIx58BgnYoMQ372vHx7okRL2qhjE=;
-	b=cYbeQh9MWmKrnV6jdpiCmw+jHCO+zLyBn8JoAgG2cXYYLUh8411abC+y9gmZA98EFElJ
-	 wCdS9ya8pC4i9srkjPzHcaF3WVbIZ4ZkKxLFCgz9jIxmxBuFyRaNv8xx9LDiBpOwU/5rm
-	 AUU9npkrLcgRYlNeQC7WdjYsMY30HKPL9qWzhdYmCIH9XaormKJufH6QbzetEa7XY/gnT
-	 dVdo/Wy+7HtBrZ7d2KAJpxRadxHACW7IKhvKxk9NfOSEcbv306dkXcsM2rsDfZHqUuhVQ
-	 FQKVVteZfof32f7jqX8Xn6R+G+2+aJCbyum92MRVRi/R7wR9Okbb1+hJuJU4ue7kdBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795114996;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=yGFvb8N9U4YFec1+J2L9SxsAwyGtd5uIvbctO3Neuc8=;
+	b=X/+X72OudiBwJ29E7Hy3Lbx2Av2Mxpyb+LMUPeahzc+ttevkPFuJdX5iX84Xu1IQ4NGt
+	 VgiZ+9uITwzKs92me9PpslbJrx8mBEGTf+4MfhRrC/ud/6H5nBE+qhbLMmgfiHhd6UVSp
+	 Xd07MucADSfn8EZomOiM3RtFOedd1SgCXGhzKLbi6jKm3S4lkzZ79Umal51ZCIMqy+qyD
+	 IkL36W5qPyncTqRMAWFRNLmD83w9k7lhvAotI8HbHrjnDuaHA15yS8QyerMOmTTXXYFoC
+	 xk/Q3ApohY2T08uOIbhIYbq/brJ88LESXSJhGQHUiEmYM6VTedROflLclx1qAsFOvKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X6ZLywbI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ctt7UgI1;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9221C606A33C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:00:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D493606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:03:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D493606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X6ZLywbI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F76F1F000C4
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:00:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795114801;
-	bh=Rc3Y1zAg/nSiG5dvIx58BgnYoMQ372vHx7okRL2qhjE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=X6ZLywbI0i82S0QHqex9fxprVdpeGcA9KdylXNFR4xXsD0/GFrMyjwjzn6+IfQhOC
-	 oYybgn7wNP6PK1gCC+uVvGx7unnko3w886I5K5u4DX/UAJDqKGB2bCC1JVIFVrDRP2
-	 qs/bbHFr2WFZQLDtEUf5RvUPUOVniTtZubxQf5DozquXaR5QxPl0czRl0k004I5w8O
-	 +dv4Wn0b6VwmS4AnzSJyprMO/Q31vqWHTIfqjperhynwfdxilUwKksXoxSjwHjZp3n
-	 hVykgBi6cVM1f3RALwvgRuR32SuBaVEJUrAbh2+JFHNvu448Ub2SXIMOvapd68gCJL
-	 WhGbnH27eu9lA==
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-6d68de53053so59845eaf.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:00:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGefxNFfJvUoHfgSVwq9SJQLdKPCRH8+eQOYdKP1VeomYTe5h3F8BiGGQn1B98v/xqVVGxZZs4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/TUBBofcnWkhcOZqK85emTs7xjHyYkASIRiYKwCxAnclbkAiul
-	6fogxANZqQY7MQmxEtesWl73kiv9I7gzo2tcn+bHh3g4Q0YeqZ90JrK9Ml3LUKgPDJbJGqxoIXq
-	KZaJD5pl8SQyUYGjjZ0a3ptAMEJ69JjE=
-X-Received: by 2002:a05:6820:6703:b0:71a:fe11:aa36 with SMTP id
- 006d021491bc7-71b3953f6b9mr422997eaf.63.1795114800358; Thu, 19 Nov 2026
- 11:00:00 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ctt7UgI1
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f0414c1062so389345ad.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:03:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795114995; x=1795719795; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yGFvb8N9U4YFec1+J2L9SxsAwyGtd5uIvbctO3Neuc8=;
+        b=ctt7UgI1wyOAZoF+fViYViwHUigQAGcTyZ8P5Ur1pOr4da3HAqUbgfb5oaw8ckVOCp
+         UiFNS4BXEHsbsXXi22pW+YpoziASppwu5ds+L7B08/JvjwHW+f6AVNXcfk8QX9FhuoZZ
+         0idhE9/p8b+cn7sKVEgOji3gj7gj2AhO+KayaUr/zgVGJ7vAPCOSQ/x/7RpIYrBlVDR/
+         TjmUVuieM0ukYMkmdaUf/2juImk0mtXm6Ju8DQbp9X86mIx+kU86YmJdJL9+YFj5Gh1m
+         MbrBlzpgLXlQmiQKJZQTpCZevP2yGBpd8BMYzUGXZRB7ivw/JgoGCxOR8J1nFsF4l1dL
+         56fQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795114995; x=1795719795;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yGFvb8N9U4YFec1+J2L9SxsAwyGtd5uIvbctO3Neuc8=;
+        b=a62EJMKshdQTjJmHy8KTJtsMcp3ie93bXZiiigoawIBBTae7TjY32dL6WCpM4DCkJu
+         kq3fzlGgybag36EuNkq9WLyiRpG5HetUB3jqFCgMCh1mi1Sd6TalacWTUaNZIe3BQGgo
+         Y3UNsnZLiD2Y+gvM4KWwWaNMULGMk9TjpMj8Jr4zXlthQNuYYtYZLwPrRdmctDtpaTsj
+         2yOn2zblqFk5GJZpGw2HkKQMdXF5Z7jT2aSYQVeZAIrCUHvofBMmSl2P+ccKLXCs/PhC
+         eeV2gzSQ+SPFlKP5PAwb919hj/M3ooaUWG1mbwrNygcIuC741m9Wt61L1rOPCM/3n+I3
+         hRDQ==
+X-Gm-Message-State: APuU4Z+iqtwrFCEBYPS3mm7xORbrQxGbo20a+fKroRQlhttZXnlSQtQF
+	C0RJg5tVmwH94goZ/aMtPNDvb624xbZ7VQ9xLixdfIgfNhOzqR6oz9wmmN9UtZsezJHvf/5DLWp
+	+R51SN5Q=
+X-Gm-Gg: AZFdTZcFiQpv7hQ/93o10AV9uRMWnFZxno3WzB+1RK9crH+s6Qyc0GIvsvMZ/BRgQNK
+	jX78SFviAkC8CYER7RuGG2PmNOAolppMkKRQt0f6jRiydvZ9Oq2wvMiYPv00LHUY6FL6K0FWmRH
+	3hoZ5a/Hjy1tmklCcr016cbMouLfKjMyMjPi/Js8qlbFO7UCABALjVSD8g7WWD14AfgDTGirCpM
+	gRjpSVTFMgDREWSGWoOK3yOZuj2VNKPg/BmNOIc0QuaiwdN9hTZDUx0Sq3NWN3k7eo2TXpcUJEg
+	lIR4CPIoApRYGzC5WAKlFLfc7FGJ9B0D0+Gd8nl5GUW/JUwwA5Yeg8hp/S8HQFw0kI3ALIKdAA0
+	d13RfulqM/OmRXa7AIWFEgZyUMyfGG3MepOJhZBbvCgVyuo9R02Z6TxSd+NzeALn3WuhTzzmr6d
+	aitlUrk54QLMzCVTw3d8hvhP9pk52uI9ruJ6WPnp8/h3870//VmL8rBCSY/doWStuV9lvJ4zVJC
+	ost7rzpmdZB9Fuo6HbNzAHNtjmKlktB3x8mFKghVuGyqP2YuYr6Dda58fD4qRZpTE0Sle/EhsJf
+	in289PvCdIC44Ogw9TyFpdv/VCDTnxVF/0PbtJeSkvubkO3MRJ1/Q/f01PkeJ9KBbFI0
+X-Received: by 2002:a17:903:2442:b0:2f0:2aca:6795 with SMTP id d9443c01a7336-2f040ddd6eemr3760025ad.18.1795114994711;
+        Thu, 19 Nov 2026 11:03:14 -0800 (PST)
+Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0de00asm3750225ad.35.2026.11.19.11.03.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 11:03:14 -0800 (PST)
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	Stephen Hemminger <stephen@networkplumber.org>
+Subject: [PATCH iproute2-next 0/7] bpf: fix mount point parsing and drop the legacy loader
+Date: Thu, 19 Nov 2026 11:02:35 -0800
+Message-ID: <20261119190312.578885-1-stephen@networkplumber.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,136 +93,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119180143.2912138-1-chia-yu.chang@nokia-bell-labs.com> <20261119180143.2912138-3-chia-yu.chang@nokia-bell-labs.com>
-In-Reply-To: <20261119180143.2912138-3-chia-yu.chang@nokia-bell-labs.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 19:59:49 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqgAmakzRozSD8RvieAyriXJQSJ57kpD35ja6Tz5BB8BQ@mail.gmail.com>
-X-Gm-Features: AclHuK8alF_Zi8-LdHVyoUThH9UYxh9ZHTwY_58OAO9Dp6AN7IPwd1H37_FgiNw
-Message-ID: <CAL4WiiqgAmakzRozSD8RvieAyriXJQSJ57kpD35ja6Tz5BB8BQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 2/4] tcp: rename ECN transmit helper function
-To: chia-yu.chang@nokia-bell-labs.com
-Cc: linux-kernel@vger.kernel.org, kuba@kernel.org, netdev@vger.kernel.org, 
-	pabeni@redhat.com, davem@davemloft.net, kuniyu@google.com, ij@kernel.org, 
-	ncardwell@google.com, koen0607@gmail.com, g.white@cablelabs.com, 
-	ingemar.s.johansson@ericsson.com, mirja.kuehlewind@ericsson.com, 
-	cheshire@apple.com, rs.ietf@gmx.at, Jason_Livingood@comcast.com, 
-	vidhi_goel@apple.com, Mike_Rudolph@comcast.com, Jeff_Howe@comcast.com, 
-	srichard@netapp.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le jeu. 19 nov. 2026 =C3=A0 19:01, <chia-yu.chang@nokia-bell-labs.com> a =
-=C3=A9crit :
->
-> From: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
->
-> Rename INET_ECN_xmit_ect_1_negotiation() to
-> INET_ECN_xmit_negotiation_ect(). The previous name suggests that the
-> helper always uses ECT(1), while it actually chooses the ECT codepoint
-> to be used during the ECN negotiation.
->
-> This renaming also prepares for the introduction of a similarly named
-> helper function for established connections in the followup patch.
->
-> Signed-off-by: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
->
-> --
-> v3:
-> - Rename helper to better reflect its behavior
-> ---
->  include/net/tcp_ecn.h | 6 +++---
->  net/ipv4/tcp_cong.c   | 4 ++--
->  2 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/include/net/tcp_ecn.h b/include/net/tcp_ecn.h
-> index 865d5c5a7718..9ca016d98972 100644
-> --- a/include/net/tcp_ecn.h
-> +++ b/include/net/tcp_ecn.h
-> @@ -33,7 +33,7 @@ enum tcp_accecn_option {
->  };
->
->  /* Apply either ECT(0) or ECT(1) based on TCP_CONG_ECT_1_NEGOTIATION fla=
-g */
+While looking at OSS Scanner reports noticed a pattern of issues
+around the BPF loader. The first set related to parsing of
+mount points with fscanf("%s").
 
-While you are renaming it, please expand this comment, it is rather
-cryptic. Something like :
+The next part were issues from the legacy BPF loader which
+is no longer needed. This series rips the band-aid off
+and related parts no longer needed.
 
-/**
- * INET_ECN_xmit_negotiation_ect - set the ECT codepoint used before CA ini=
-t
- * @sk: TCP socket
- *
- * Mark the socket ECN-capable for the packets sent while ECN is still bein=
-g
- * negotiated (SYN, SYN-ACK), i.e. before tcp_init_congestion_control() run=
-s.
- *
- * The codepoint is chosen by the congestion control module:
- * ECT(1) if it sets TCP_CONG_ECT_1_NEGOTIATION, ECT(0) otherwise.
- *
- * This does not decide whether ECT should be sent at all: callers only use
- * it when the module (TCP_CONG_NEEDS_ECN) or a BPF program asked for ECT
- * on these packets.
- *
- * This changes the socket TOS/tclass, not a single packet, so the codepoin=
-t
- * stays in effect until tcp_init_congestion_control() or tcp_ecn_send()
- * selects the one used for the established flow.
- */
+There were also some bugs in error handling found
+while changing all this.
 
-The helper added in patch 3 (INET_ECN_xmit_established_ect()) would
-deserve the same treatment, so that the split between the two is clear.
+Note: lib/bpf_legacy.c becomes lib/bpf_util.c. "ar rcs" does not
+drop members that are no longer built, so a stale bpf_legacy.o and
+sha1.o stay in lib/libutil.a and are picked up by the link. The
+build still succeeds, but run "make distclean" to be rid of them.
 
+The libbpf build options are gone: libbpf is now always required,
+and pkg-config is the only way it is found. Both --libbpf_force and
+--libbpf_dir are now rejected rather than silently ignored.
 
-> -static inline void INET_ECN_xmit_ect_1_negotiation(struct sock *sk)
-> +static inline void INET_ECN_xmit_negotiation_ect(struct sock *sk)
->  {
->         __INET_ECN_xmit(sk, tcp_ca_ect_1_negotiation(sk));
->  }
-> @@ -583,7 +583,7 @@ static inline void tcp_ecn_send_synack(struct sock *s=
-k, struct sk_buff *skb)
->                 TCP_SKB_CB(skb)->tcp_flags &=3D ~TCPHDR_ECE;
->         else if (tcp_ca_needs_ecn(sk) ||
->                  tcp_bpf_ca_needs_ecn(sk))
-> -               INET_ECN_xmit_ect_1_negotiation(sk);
-> +               INET_ECN_xmit_negotiation_ect(sk);
->
->         if (tp->ecn_flags & TCP_ECN_MODE_ACCECN) {
->                 TCP_SKB_CB(skb)->tcp_flags &=3D ~TCPHDR_ACE;
-> @@ -618,7 +618,7 @@ static inline void tcp_ecn_send_syn(struct sock *sk, =
-struct sk_buff *skb)
->
->         if (use_ecn) {
->                 if (tcp_ca_needs_ecn(sk) || bpf_needs_ecn)
-> -                       INET_ECN_xmit_ect_1_negotiation(sk);
-> +                       INET_ECN_xmit_negotiation_ect(sk);
->
->                 TCP_SKB_CB(skb)->tcp_flags |=3D TCPHDR_ECE | TCPHDR_CWR;
->                 if (use_accecn) {
-> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
-> index e3f462f161dd..3331679c81d7 100644
-> --- a/net/ipv4/tcp_cong.c
-> +++ b/net/ipv4/tcp_cong.c
-> @@ -228,7 +228,7 @@ void tcp_assign_congestion_control(struct sock *sk)
->
->         memset(icsk->icsk_ca_priv, 0, sizeof(icsk->icsk_ca_priv));
->         if (ca->flags & TCP_CONG_NEEDS_ECN)
-> -               INET_ECN_xmit_ect_1_negotiation(sk);
-> +               INET_ECN_xmit_negotiation_ect(sk);
->         else
->                 INET_ECN_dontxmit(sk);
->  }
-> @@ -258,7 +258,7 @@ static void tcp_reinit_congestion_control(struct sock=
- *sk,
->         memset(icsk->icsk_ca_priv, 0, sizeof(icsk->icsk_ca_priv));
->
->         if (ca->flags & TCP_CONG_NEEDS_ECN)
-> -               INET_ECN_xmit_ect_1_negotiation(sk);
-> +               INET_ECN_xmit_negotiation_ect(sk);
->         else
->                 INET_ECN_dontxmit(sk);
->
-> --
-> 2.34.1
->
+The last patch adds a tc bpf test, there was none before. It caught
+a regression in this series that the build did not: the tc/ pin
+subdirectory quietly went missing.
+
+Since v1: squashed the four libbpf configure patches into one,
+dropped the bpf_pinning fallback fix since the loader removal
+deletes that code anyway, moved the tc-bpf(8) update next to the
+change it documents, and reworded the export removal after Jamal
+pointed out that LIBBPF_FORCE=off builds did have a working
+import/run. Dropped Toke's Reviewed-by from the mount point check:
+it now also restores the pin subdirectory, so it is not the patch
+he reviewed.
+
+Stephen Hemminger (7):
+  lib/bpf: parse /proc/mounts with getmntent and check fs magic
+  lib/fs: parse /proc/mounts with getmntent and check fs magic
+  tc: remove eBPF map export and exec bpf import
+  man: tc-bpf: drop references to the removed eBPF agent
+  lib/bpf: require libbpf 1.0 and remove legacy ELF loader
+  lib/bpf: check for missing bpf fs mount point
+  testsuite: add tc bpf test
+
+ bash-completion/tc                   |   18 +-
+ configure                            |  129 +-
+ etc/iproute2/bpf_pinning             |    6 -
+ examples/bpf/README                  |   18 +-
+ examples/bpf/bpf_map_in_map.c        |    4 +-
+ examples/bpf/bpf_shared.c            |   14 +-
+ examples/bpf/legacy/bpf_cyclic.c     |   35 -
+ examples/bpf/legacy/bpf_graft.c      |   66 -
+ examples/bpf/legacy/bpf_map_in_map.c |   56 -
+ examples/bpf/legacy/bpf_shared.c     |   53 -
+ examples/bpf/legacy/bpf_tailcall.c   |  117 -
+ include/bpf_api.h                    |    7 +-
+ include/bpf_elf.h                    |   35 +-
+ include/bpf_scm.h                    |   77 -
+ include/bpf_util.h                   |   41 +-
+ include/sha1.h                       |   18 -
+ ip/iplink.c                          |    4 -
+ lib/Makefile                         |   10 +-
+ lib/bpf_glue.c                       |   15 +-
+ lib/bpf_legacy.c                     | 3306 --------------------------
+ lib/bpf_libbpf.c                     |  260 +-
+ lib/bpf_util.c                       | 1105 +++++++++
+ lib/fs.c                             |   33 +-
+ lib/sha1.c                           |  108 -
+ man/man8/ip-link.8.in                |    5 +-
+ man/man8/tc-bpf.8                    |  173 +-
+ misc/ss.c                            |  946 +++++---
+ tc/e_bpf.c                           |  157 +-
+ tc/f_bpf.c                           |   12 +-
+ tc/m_bpf.c                           |   13 +-
+ testsuite/tests/tc/bpf.t             |  153 ++
+ 31 files changed, 2095 insertions(+), 4899 deletions(-)
+ delete mode 100644 etc/iproute2/bpf_pinning
+ delete mode 100644 examples/bpf/legacy/bpf_cyclic.c
+ delete mode 100644 examples/bpf/legacy/bpf_graft.c
+ delete mode 100644 examples/bpf/legacy/bpf_map_in_map.c
+ delete mode 100644 examples/bpf/legacy/bpf_shared.c
+ delete mode 100644 examples/bpf/legacy/bpf_tailcall.c
+ delete mode 100644 include/bpf_scm.h
+ delete mode 100644 include/sha1.h
+ delete mode 100644 lib/bpf_legacy.c
+ create mode 100644 lib/bpf_util.c
+ delete mode 100644 lib/sha1.c
+ create mode 100755 testsuite/tests/tc/bpf.t
+
+-- 
+2.53.0
+
