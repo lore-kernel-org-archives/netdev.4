@@ -1,81 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.35.192.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126554;
-	b=emdPLDLFjW77mpaKhzCrChfQet7G89lHvlWhFbwTV8Gso0GatFkiKU3124vIMROnlD1h
-	 ZjCUPRIuSnW6DyIkSfWrf//SDL6Aup59A8eDQNU78wo7VZdm5yrYX2rzV8jz3SaMJKGHj
-	 DMBq2UQDV0WB/W1qzS0KJR7/tzxK7sW4LUKa6PBL903qMc2nEBzyQHd4EkH/NXowMrbvU
-	 KWyLJ4GXaUT3Ugnlu9+JBMDRAnlHhGZmCazhJiUXJZF36hgoXK9I1qWoSd3YNueMH+Lhi
-	 DF/d7AztYTeZSmcp1t4vlkURELt/KpjL1/HjK5I7x22jpgzbjMKu6/FIXq3oVGswghw==
+	t=1795126660;
+	b=AT0tL0xpzyDxa49O4z1E1fcN5cNl4rvHu9F4P1z6AKyiS2+umJ+eyVONrh5pmmySVB9g
+	 EoVkOvgSVv78OD+16lscOGf2l401KzWFfMK/Jnz3oSZDjvJ10YauASxEtyrAiQJ/BVuaz
+	 Jb297g+hXN2cc8MGom8d5jgevdBnEuGhu4m/gSpgl8aWxd5VUWIrWflU85DaqN67QhxSc
+	 9nPB0gVgMwAiXVHL92WRMZbmYx/WBKN82t/MCtawJmXlYnHsI4ZMoF6HtEVup2lfM63f1
+	 OOCKHNRx+37IK4Xyoayuogk4fzIib9k1+8rooRf7pLGewpdk336ZQuBBCBNhAuDpEvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126554;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=rG8ySpd1iW2MeECK/3VoVBb77o8GMUNj0ctIINg/L10=;
-	b=5qwWCknNUjlI2TfTBJgAYoAtgf3VE8TVjZWpnhUfg/9dKvLzHQENVaqU/uWJbhLuj5F0
-	 V2+qTBd4JRcLlLpuJliWs055+HJGd5tgn8SSqsz0c/3WthwyGUbbTkIf0xyCPTtujxQb9
-	 Ku17HmGGHQev/Xf6c6pFbOp2lpGs470iBlG5CHhiyX//7Q/h4nEMt/sjYeaozHk/h/iwK
-	 IsiKSOiFUX48w/TtrJPMxvjjnzNamMOKbT0r+Ar7GYihteaQ9gKqCF3GxXdYusw0wf1p+
-	 lrFNKkZtG7GQsUR91moCPqrt0UsUlwbKNuAsXwBLEQiDjteN3a6rf5HwqGHpNBwyJ9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126660;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=FSKXTIopWI2QEbO/fiB83yC9X6BuSlUmNBzn+/m05MA=;
+	b=MURDPr2XwomK71+jDH9jDCCs5HWqo5SvJ0/Mzon2wuOb0ecZHIHWzjhMf53xT9MhMcej
+	 /4G7V7fXkv1RFKr84yyKAOzRqU6S1IPm0MSVFOixApMadKsU9UiKUZsOSf4efRcGNJtkQ
+	 60o6RreDxZh0Xa4+Ju767P3KaEDk7xS4BdjVddGDmismx5g4Rp0C9H4atp03Ww5ZzneE4
+	 pnJqMBZAzLCiPot3XZJ3P+tdbUHnN9xyAj1mOhVN4DS/4pZqy0PETKuS3A271HmCVTX8F
+	 u0Ds7CAC7gU8m2HWRnxyiDR5S8myRG9FebgV3klwRElnjjDldHsiCPDOfTrA1MqsWHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.com;
-	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=TDVR55O7;
-	arc=none smtp.remote-ip=52.35.192.45
-Received: from pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.35.192.45])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BspMPkwi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1802606A320;
-	Thu, 19 Nov 2026 22:15:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1802606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86A5A606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:17:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=TDVR55O7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1795126553; x=1826662553;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=rG8ySpd1iW2MeECK/3VoVBb77o8GMUNj0ctIINg/L10=;
-  b=TDVR55O76qLmVZnvaleXoy72ksBUC2ld4KpvbA6TtQ15xHin2ON51+3v
-   AkCDgQd19HkTzaAhyQ9qGqMZSpxo9UbOLSC+gXqgFfD1LEcqS2Vd9sx2z
-   KIY6afaOKd5icQdXFPE61rhO7bRRzbTTqODVG3nathgnvNgGVnIq5Xyoi
-   3B8QCDcFWjhn9ri7UCytVerhwbRo4lvBhu1sZtKpd4XWXv+9WmFn8SOVx
-   hLjaa0KAqxcrEI0sz7FN5xiWEzQz+I36Kf5fYK2Ls4M9qMoCD52pAAoea
-   k2PKEiyvRKGi4ym8M74x5susNofJWWp40U0/tEyUpReaJbuQTno+DNjSO
-   w==;
-X-CSE-ConnectionGUID: zr3KRbncQK+kEcd2VcYiNw==
-X-CSE-MsgGUID: fFSXlcqnS2eFb3UN2TslBA==
-X-IronPort-AV: E=Sophos;i="6.27,221,1787011200"; 
-   d="scan'208";a="34359087"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:15:53 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:16723]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.46.128:2525] with esmtp (Farcaster)
- id f584f67a-9e5d-41c7-b791-57426c59856d; Thu, 19 Nov 2026 22:15:53 +0000 (UTC)
-X-Farcaster-Flow-ID: f584f67a-9e5d-41c7-b791-57426c59856d
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Thu, 19 Nov 2026 22:15:52 +0000
-Received: from dev-dsk-hagan-1f-c6b5e25f.us-east-1.amazon.com (172.19.159.5)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Thu, 19 Nov 2026 22:15:51 +0000
-From: "Craig I. Hagan" <hagan@amazon.com>
-To: <anthony.l.nguyen@intel.com>, <przemyslaw.kitszel@intel.com>
-CC: <intel-wired-lan@lists.osuosl.org>, <netdev@vger.kernel.org>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
-	<tactii@gmail.com>, <aleksandr.loktionov@intel.com>,
-	<moriyax.kadosh@intel.com>, <vitaly.lifshits@intel.com>, <hagan@amazon.com>
-Subject: [PATCH iwl-net] e1000e: fix link stuck at 10 Mb/s after DMoff exit
-Date: Thu, 19 Nov 2026 22:15:48 +0000
-Message-ID: <20261119221548.10466-1-hagan@amazon.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BspMPkwi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BA261F000CA;
+	Thu, 19 Nov 2026 22:17:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795126660;
+	bh=FSKXTIopWI2QEbO/fiB83yC9X6BuSlUmNBzn+/m05MA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BspMPkwitfHw7ts6tK/trHN+Ep8D8+VzYlW94uVtHPcR5TNWoWayFGfHtazmooVoq
+	 MEIIrCExei3VAoc38IbH6gGjRrDEDlqxr7U+529eGbsLlr5rYVxkxgInGIuW706ST0
+	 /dGjkypjzHBWLhlnrBpZHTrncD2cvou9u/qBa09GBVfJEpIYaCo5m1LItXs8fdHw5H
+	 0wWaP2TfERIEsZhYx4PdcgzdvpbjYo2HSTWTRxnaAc/6qE0B+uHP+z617hXQsvbrbu
+	 /bD8l3dDw4qLruVVlAXxVVc/XB5uU1PET2o03kkje8FMHhkSGyj+SXlR83JqW+0ccd
+	 kfPgoPuZv3RdQ==
+Subject: Re: [PATCH net] tun: flush uc and mc addresses in TUNSETLINK
+From: netdev-bot+sashiko@kernel.org
+To: edumazet@kernel.org
+Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ willemb@google.com, horms@kernel.org, netdev@vger.kernel.org,
+ bsdhenrymartin@gmail.com, willemdebruijn.kernel@gmail.com,
+ jasowangio@gmail.com, andrew+netdev@lunn.ch
+Date: Thu, 19 Nov 2026 22:17:39 +0000
+Message-ID: <179512665919.3136.5931555157250030152@kernel.org>
+In-Reply-To: <20261118125443.1137177-1-edumazet@kernel.org>
+References: <20261118125443.1137177-1-edumazet@kernel.org>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,140 +63,182 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On an I219 (pch_spt+), a link outage of more than a few seconds (e.g. a
-switch reboot) can bring the MAC back in DMoff, with the STATUS speed bits
-reading 0. If DMoff has already ended by the time the watchdog runs, the
-speed bits can still read 0. The watchdog decodes them as SPEED_10, and the
-link stays at 10 Mb/s Full while the PHY is at 1000 Mb/s Full.
-rx_crc_errors climb and jumbo traffic stalls until the interface is
-manually reset. Seen on deployed machines and reproduced on an I219-LM
-(8086:15b7).
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-The patch "e1000e: restore jumbo config after DMoff exit"
-(https://lore.kernel.org/netdev/20260928210552.13266-1-hagan@amazon.com/)
-handles DMoff that is still set when the watchdog runs. The watchdog
-cannot detect the case above on its own, because STATUS then reads the
-same as a real 10 Mb/s Full link.
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
-Record DMoff (PCIM_STATE) in the link status interrupt, next to
-mac.get_link_status, and have the watchdog's existing DMoff wait loop
-start as if it had seen it, so it takes the same full-reset path.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This depends on that patch. Without it the loop ends in a bare PHY
-reset, which clears the 10 Mb/s but not the jumbo configuration.
+- [High] The fix's own claim is still reachable through a race, so
+  uninitialized kernel memory can still leak.
+- [Medium] The new dev_uc_flush()/dev_mc_flush() in TUNSETLINK
+  (drivers/net/tun.c:3393-3396) frees every netdev_hw_addr in…
 
-The unpatched driver stuck at 10 Mb/s on an I219-LM (8086:15b7) when
-the switch port was shut for 90 s or the switch power cycled, behind a
-Cisco C9200-48P and a TP-Link TL-SG108PE. Reproducing it needs no
-kernel change. A debug build that logs STATUS was used to find the
-cause, and the patch was tested on the same hardware and switches.
+--
 
-Fixes: def4ec6dce39 ("e1000e: PCIm function state support")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Craig I. Hagan <hagan@amazon.com>
----
-Please keep this patch and "e1000e: restore jumbo config after DMoff
-exit" (queued in net-queue dev-queue) together, in that order, when
-they go to net and to stable. Without it, this patch ends in a bare PHY
-reset: the link no longer sticks at 10 Mb/s, but the jumbo
-configuration is still not restored.
+tun: flush uc and mc addresses in TUNSETLINK
 
-This was seen on deployed machines running the stock Ubuntu 5.4.0-117
-driver behind Cisco C9200-48P switches, on both IOS-XE 16.12.3a and
-17.9.4a. After a switch reboot, ethtool reported 10 Mb/s Full while
-mii-tool showed the PHY at 1000 Full, and rx_crc_errors kept climbing.
-One machine stayed in that state for about a week.
+When the new link type changes dev->addr_len, this patch makes TUNSETLINK
+flush dev->uc and dev->mc. Entries created with the old addr_len would
+otherwise be searched and dumped with the new length. This follows what
+bonding and team do between NETDEV_PRE_TYPE_CHANGE and the type change.
 
-On the bench, the unpatched driver on 5.4.0-117 (HZ=250) was logged
-across 16 link-ups, each after the switch port had been shut for 90 s.
-All 16 read 0x40080003 in the link status interrupt, and in 2 of them
-DMoff had already ended by the time the watchdog ran:
+Link: https://lore.kernel.org/netdev/20261116024056.1274402-1-bsdhenrymartin@gmail.com/
 
-  link status interrupt   0x40080003  DMoff, link up, FD, speed bits 0
-  watchdog, +14.6 ms      0x00080003  DMoff over, speed bits still 0
-  about 100 ms later      0x00080083  1000 Mb/s Full
+> diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+> index d4870bdc156f4..a2f56a4febb57 100644
+> --- a/drivers/net/tun.c
+> +++ b/drivers/net/tun.c
+> @@ -3379,6 +3379,8 @@ static long __tun_chr_ioctl(struct file *file, unsigned int cmd,
+>  			   (unsigned short)arg == ARPHRD_MCTP) {
+>  			ret = -EINVAL;
+>  		} else {
+> +			unsigned char addr_len = tun_get_addr_len(arg);
+> +
+>  			ret = call_netdevice_notifiers(NETDEV_PRE_TYPE_CHANGE,
+>  						       tun->dev);
+>  			ret = notifier_to_errno(ret);
+> @@ -3387,8 +3389,13 @@ static long __tun_chr_ioctl(struct file *file, unsigned int cmd,
+>  					   "Refused to change device type\n");
+>  				break;
+>  			}
+> +			/* Addresses were added with the old dev->addr_len. */
+> +			if (addr_len != tun->dev->addr_len) {
+> +				dev_uc_flush(tun->dev);
+> +				dev_mc_flush(tun->dev);
+> +			}
 
-With the unpatched driver, the link stuck at 10 Mb/s in 2 of 10 outages
-behind the Cisco and in 2 of 20 behind a TP-Link TL-SG108PE V3, both on
-5.4.0-117 at HZ=250. On 6.17.0-19 and 7.0.0-14 rebuilt with only
-CONFIG_HZ changed to 250 (the Kconfig default), it stuck in 2 of 10
-outages on each. At HZ=1000 it did not stick: in the logged runs the
-watchdog always found DMoff still set, so the existing DMoff handling
-ran. The difference comes from HZ, not the kernel version.
+[Severity: Medium]
+Can this flush break the reference bookkeeping of holders other than
+IPv4 and IPv6?
 
-Behind the Cisco, every outage that stuck at 10 Mb/s also dropped jumbo
-traffic: 8972-byte pings were lost while small pings passed. On
-7.4.0-rc2 built from the same dev-queue tree without this patch (HZ=250,
-Cisco on 17.9.4a), 2 of 10 outages instead ended at 1000 Mb/s with jumbo
-traffic dropped until "ethtool -r". Neither of those two got a full
-reset before link-up, and the full reset is what restores the jumbo
-configuration ("e1000e: restore jumbo config after DMoff exit"). With
-this patch, all 26 trials there got the full reset and passed jumbo
-traffic.
+dev_uc_flush() and dev_mc_flush() free every netdev_hw_addr no matter
+what its refcount, sync_cnt or global_use is. Only IPv4 and addrconf
+(ipv6_mc_unmap()/ipv6_mc_remap()) give back and re-take their references
+across PRE/POST_TYPE_CHANGE.
 
-With this patch, every reset and link cycle ended at 1000 Mb/s Full
-with 8972-byte pings passing. Each cycle cut power to the switch for 5 s
-to 4 min, or shut the port for 90 s. The port-shut cycles behind the
-Cisco also ran under 200 Mb/s of jumbo traffic.
-That covered 50 cycles on 5.4, 129 on 6.17, 404 on 7.0 and 29 on
-7.4.0-rc2 (40 each on 6.17 and 7.0 and all 29 on 7.4.0-rc2 at HZ=250),
-behind both switches. The new path was taken 21 times at HZ=250, 5 each
-on 6.17 and 7.0 and 4 on 7.4.0-rc2, and never at HZ=1000.
+Upper devices that sync into a tap do not veto NETDEV_PRE_TYPE_CHANGE on
+the lower device. Two examples are bonding, via bond_set_rx_mode() ->
+dev_uc_sync()/dev_mc_sync(), and macsec, via dev_uc_add(real_dev,
+dev->dev_addr) in macsec_dev_open() and the syncs in
+macsec_dev_set_rx_mode(). After the flush, the upper device's entries
+still have sync_cnt == 1 and the extra refcount.
 
- drivers/net/ethernet/intel/e1000e/hw.h     | 1 +
- drivers/net/ethernet/intel/e1000e/netdev.c | 5 +++++
- 2 files changed, 6 insertions(+)
+On bond failover, bond_hw_addr_swap() -> bond_hw_addr_flush() ->
+dev_mc_unsync() reaches:
 
-diff --git a/drivers/net/ethernet/intel/e1000e/hw.h b/drivers/net/ethernet/intel/e1000e/hw.h
-index c7ac599e5..efb945590 100644
---- a/drivers/net/ethernet/intel/e1000e/hw.h
-+++ b/drivers/net/ethernet/intel/e1000e/hw.h
-@@ -604,6 +604,7 @@ struct e1000_mac_info {
- 	bool autoneg;
- 	bool autoneg_failed;
- 	bool get_link_status;
-+	bool dmoff_at_lsc;
- 	bool in_ifs_mode;
- 	bool serdes_has_link;
- 	bool tx_pkt_filtering;
-diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
-index c3e944ee4..47a6964fa 100644
---- a/drivers/net/ethernet/intel/e1000e/netdev.c
-+++ b/drivers/net/ethernet/intel/e1000e/netdev.c
-@@ -1785,6 +1785,7 @@ static irqreturn_t e1000_intr_msi(int __always_unused irq, void *data)
- 	/* read ICR disables interrupts using IAM */
- 	if (icr & E1000_ICR_LSC) {
- 		hw->mac.get_link_status = true;
-+		hw->mac.dmoff_at_lsc = er32(STATUS) & E1000_STATUS_PCIM_STATE;
- 		/* ICH8 workaround-- Call gig speed drop workaround on cable
- 		 * disconnect (LSC) before accessing any PHY registers
- 		 */
-@@ -1864,6 +1865,7 @@ static irqreturn_t e1000_intr(int __always_unused irq, void *data)
- 
- 	if (icr & E1000_ICR_LSC) {
- 		hw->mac.get_link_status = true;
-+		hw->mac.dmoff_at_lsc = er32(STATUS) & E1000_STATUS_PCIM_STATE;
- 		/* ICH8 workaround-- Call gig speed drop workaround on cable
- 		 * disconnect (LSC) before accessing any PHY registers
- 		 */
-@@ -5302,6 +5304,9 @@ static void e1000_watchdog_task(struct work_struct *work)
- 			/* Checking if MAC is in DMoff state*/
- 			if (er32(FWSM) & E1000_ICH_FWSM_FW_VALID) {
- 				pcim_state = er32(STATUS);
-+				/* DMoff may have ended since the LSC */
-+				if (mac->dmoff_at_lsc)
-+					pcim_state |= E1000_STATUS_PCIM_STATE;
- 				while (pcim_state & E1000_STATUS_PCIM_STATE) {
- 					if (tries++ == dmoff_exit_timeout) {
- 						e_dbg("Error in exiting dmoff\n");
+net/core/dev_addr_lists.c:__hw_addr_unsync_one() {
+	err = __hw_addr_del_ex(to_list, ha->addr, addr_len, ha->type,
+			       false, true);
+	if (err)
+		return;
+	ha->sync_cnt--;
+}
 
-base-commit: 6055ab4d82e42de89871db03045b568ed706ef50
+This returns early on -ENOENT. __hw_addr_sync() then skips the entry for
+the new active slave, because sync_cnt is still non-zero:
+
+	if (!ha->sync_cnt) {
+		err = __hw_addr_sync_one(to_list, ha, addr_len);
+	...
+
+Would the bond's uc/mc addresses then never be synced to the new active
+slave?
+
+The same applies to AF_PACKET PACKET_ADD_MEMBERSHIP. The packet_mclist
+entry survives the flush. If addr_len later returns to its original value
+(for example ETHER -> NONE -> ETHER), packet_dev_mc() passes its check on
+close or drop:
+
+	if (i->alen != dev->addr_len)
+		return -EINVAL;
+	...
+	return dev_mc_del(dev, i->addr);
+
+Can this plain delete in __hw_addr_del_entry() decrement, or even free,
+an entry that now belongs to another holder (SIOCADDMULTI, IPv6, or an
+upper device's sync)?
+
+bonding and team only flush their own master lists, and only when they
+have no lower ports, so no downstream sync state exists at that point.
+tun can be a lower device and has no such check. Should it handle this
+case differently?
+
+>  			tun->dev->type = (int) arg;
+> -			tun->dev->addr_len = tun_get_addr_len(tun->dev->type);
+> +			tun->dev->addr_len = addr_len;
+
+[Severity: High]
+Is the uninitialized-byte exposure described in the commit message still
+reachable through a race here?
+
+dev_uc_flush() and dev_mc_flush() each take and drop netif_addr_lock_bh.
+The dev->type and dev->addr_len stores come afterwards, as plain stores
+outside that lock. __dev_mc_add() reads dev->addr_len under the addr
+lock:
+
+	err = __hw_addr_add_ex(&dev->mc, addr, dev->addr_len,
+
+IPV6_ADD_MEMBERSHIP does not take RTNL. do_ipv6_setsockopt() only does
+sockopt_lock_sock(), and the join path is:
+
+__ipv6_sock_mc_join()
+  ip6_mc_find_dev()
+  __ipv6_dev_mc_inc()          /* holds only idev->mc_lock */
+    igmp6_group_added()
+      ndisc_mc_map(&mc->mca_addr, buf, dev, 0)  /* uses dev->type */
+      dev_mc_add(dev, buf)
+
+igmp6_group_added() does this before its IFF_UP check, so it also runs
+on the down device that TUNSETLINK requires.
+
+Take a tap switching from ARPHRD_ETHER (addr_len 6) to ARPHRD_IP6GRE
+(addr_len 16):
+
+TUNSETLINK                        IPV6_ADD_MEMBERSHIP
+PRE_TYPE_CHANGE (ipv6_mc_unmap)
+dev_mc_flush()
+                                  mutex_lock(&idev->mc_lock)
+                                  ndisc_mc_map() fills 6 bytes
+                                  __dev_mc_add() reads addr_len == 6
+                                  __hw_addr_create(): kmalloc(),
+                                    memcpy() of 6 bytes
+dev->addr_len = 16
+POST_TYPE_CHANGE (ipv6_mc_remap)
+  igmp6_group_added() skips the
+  group, MAF_LOADED already set
+
+The entry survives. Afterwards, dev_mc_seq_show() (/proc/net/dev_mcast)
+and dev_mc_fill_addr() (RTM_GETMULTICAST) copy dev->addr_len bytes of
+ha->addr to user space:
+
+	nla_put(skb, IFA_MULTICAST, dev->addr_len, ha->addr) ||
+
+Since __hw_addr_create() does not zero the allocation, wouldn't 10 of
+those 16 bytes be uninitialized slab memory?
+
+There is also a stack variant. idev->mc_lock is a mutex, so the joining
+thread can be preempted after ndisc_mc_map() has written only 6 bytes of
+the on-stack buf[MAX_ADDR_LEN]. If TUNSETLINK then flushes and stores
+addr_len = 16, its POST remap blocks on mc_lock. When the join resumes,
+dev_mc_add() copies 16 bytes from buf into a long-lived netdev_hw_addr,
+10 of them uninitialized stack.
+
+Would the flush and the dev->type/dev->addr_len update need to be atomic
+under netif_addr_lock_bh? Would mappers that build the address from
+dev->type also need to agree with the addr_len used for the copy, for
+example by zero-initializing buf in igmp6_group_added() or re-checking
+under the lock?
+
+>  			netif_info(tun, drv, tun->dev, "linktype set to %d\n",
+>  				   tun->dev->type);
+>  			call_netdevice_notifiers(NETDEV_POST_TYPE_CHANGE,
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118125443.1137177-1-edumazet%40kernel.org
