@@ -1,49 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795089256;
-	b=D/z1qusWCi5hFfRBQ+P5VRGSW4Jj9XceOGZLRyP6QFiiXfy9gd/8NQNpENY+yhXYl1Wz
-	 JspQWrhN/JF1S3vgRmFYG5l2bLVFg+gyw08DLEJEOJF9waQhp3ZKYSWdRbtQKbykw6NPi
-	 dpjiGVEfC1NGIsZiRUi4Q7XQ2XLLDG6THcazoPLvq0uOdAt/m+AGo5dHmWVps0V/4Ma8d
-	 hlkbV16d1NykeuFSa5SLIF2EraCNCiUdISe59zWqgCVpl8LK6QFtQ8qRTRtSNwPOg7h4J
-	 CeInGbtQyL/BwNf7sQYWEeohROHE/mXzhARA060SE4vfoqnD052KeoJyl0b6fW/7gig==
+	t=1795089588;
+	b=ghQLPhWtAD3XojWbq8HXQu5uNwnt0XpurxJZHqzce6D0ggW1jpM2xYRDEZ4OHHq3PMO3
+	 JPXWlwGcLXfWz1JyLUW/Ki+nbDr4RJanpsUTgDoTvaqflRsAQZqJwAoyCFPZ7SdRcTLeY
+	 58tqpy+dsd/AUYQe9YeascoEPgWIUUzxbKIqfOPdzgFNhVMvduz89IGE/OjXVg2wUNeMX
+	 I6qYByWF1ibTnT2ksAo6mDZ4X+yOFi4x7cekv4+BC00Xrg8y+XgpMbZrnWC9+qd9gwB5p
+	 VBXHgfT4sVxepoJtjNiyTFF7fyPIMsOwky0zX0LhaKeQWTDbJkv2hHXRqFis12sQLog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089256;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=kazK3jP8RDwEUVX6vo6nPdibxxigNipPp+bbhgW8KEo=;
-	b=VshVQmt0yROfawmlVjkMli/lkzz14jANcrusbI9WTPNPsj9Qh8wMLvCZbiKULgAOEZ6u
-	 QKcNViMZdrOLOWfvGEzZKNENKFm1J6gRO8b+1YMkqxIG7UYpp3N1JBkdBHwIUwKuAfaWZ
-	 xwb9B7en9KimggsVa+ziTVYHsl76xUChDauZ+PgehZMiQGec+a1Xtid8F+hWosH+fzHIl
-	 HXUeBNqPnINiAtCDEzCxbAgfXGKBOCZB9nEd2X8ACxSBLm1uz9e089H3nu4/hVfXHviW8
-	 1ucFqRrdyYRZnbhe8G7a7bGU+ZG7ZJAW+wkOdROsi6zc4/AL5x9zPSH3YsHkaC0kP+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089588;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=6uZDabLxQxlRNvlzS0DFbXpCPUyPpFV7CJaGTp2FAAM=;
+	b=UxwYdvuwFJMa69eiMy0JIT1KtYak9Yi0+AeBd+7VNpGokJ3eos7jbSmTVQbBewzgQsIJ
+	 Ljve59CaXk7TewajT0Snjifrhfxt40rhSx+iLb3Plhog6nWYqcMQm5Z3qgtPG5oQb8/cm
+	 M+zieZcuXFoxezPXlBtqHKwgul7evq3Bj6KP8GT8ry6Q1cPloQop0eTnpGGKQ1E6VB6tl
+	 PvACXkTF5C7Sm3sDcl9GNVHcskbM06W7GBs6osHSF0/KPFmCy/86LtnKDAgsa5oSibD3G
+	 0uT5w8FEDkP3htxHs0J8C5JTOFPTLhqesPfv6mvmLuMZ27oMMitcb95oLxtRwwSNGPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=SJnORjOz;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=O6nCIlsP;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=FUK4fCKp;
+	arc=none smtp.remote-ip=149.28.215.223
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00B53606A33C;
-	Thu, 19 Nov 2026 11:54:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00B53606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1BEA606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 11:59:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1BEA606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=SJnORjOz
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 25344A1569;
-	Thu, 19 Nov 2026 12:54:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795089253; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=kazK3jP8RDwEUVX6vo6nPdibxxigNipPp+bbhgW8KEo=;
-	b=SJnORjOzxVOkNj9XFT4lFk4txb+eNozSdMBVMMvo2/vtEKzeT7xm0xRECwMqyeQSyshOBR
-	rPQapNrtV7EVeacZcacTePAgXQnpEUAEMSm5TikTxACW6j0ZM2/NOZYM4sUPoD4gjRYMKr
-	d2IpQe4PwtEOouDFTRs+p5x3tfvoQXrRQR2zB1+oxih1/DsrSGtdpv1UXpJ9M4/pBtjuhD
-	DFoSxvUY7evP5E2kSI1Fe59kJCvx5HrmjZ+NyCa6Ki0w7AbQfF5BF2zqzWxBlbb/jPiLeD
-	B4795bSEP4CM/6qSZq2bNmfqWvaP4DBaL21c2hLx3I3FSePDtViTjz8OJE/lkg==
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=O6nCIlsP;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=FUK4fCKp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
+ t=1795089585; bh=6uZDabLxQxlRNvlzS0DFbXpCPUyPpFV7CJaGTp2FAAM=;
+ b=O6nCIlsPseL3Frnc/nBymBtnl2uR5JR6HFw98LDdCOv8BWG1o07CBy3nCTdinN0Vy4Xs4hqvZ
+ IcysQPLanUDinziRWkAEP+S2AgYUh3ublV7dgiJ8Qr74e/RHmbCJpi6/wWtp5ymPARbH+gq5f+g
+ oMEG/SuZGlx5PJT5xxjp7C8GCEIMRB2iBpi9kLqGMzR5KmnHAnw5lmAjp5mcgabILZYEgPuroJj
+ LGmOQGA855QVC1S6RWLj1KnEtY/ujpsuLxGCYtAUHXLLVTTjKmzS98u6kISjR5tREw4xZnJxA0W
+ l7Jx5n/qwZSipROR2dgauopYSNfPWQB16i3NymlZ7QAQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795089585; bh=6uZDabLxQxlRNvlzS0DFbXpCPUyPpFV7CJaGTp2FAAM=;
+ b=FUK4fCKpJWASPrBrn7XKD8cHlgPsuQpJac0HPpXeFnWkn1ogMaHikAdOMIRWzJy5dizXmVa0y
+ N82bSGJPeeymyFyFSzCRobE2cACXSnhRELceTyAsoER2BHaa3MHpBkUdZrig6fpa5AWesWl7oK2
+ 757yE0P98BpiqZhsdlpHJlk=
+CFBL-Feedback-ID: 6afee4a18179ba28676bf0a4:5f8657ad80648509a22aabaf6d528548
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6afee4a18179ba28676bf0a4
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.19.33
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <34dbd46a-29cc-4b86-b9cb-9477dc0a4da8@kwiboo.se>
+Date: Thu, 19 Nov 2026 12:59:23 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,77 +77,137 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 19 Nov 2026 12:54:12 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Paolo Valerio
- <pvalerio@redhat.com>, Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
- <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?=
- <benoit.monin@bootlin.com>, Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH net-next v7 2/3] net: macb: implement
- ethtool_ops.get|set_channels()
-In-Reply-To: <20261118-macb-set-channels-v7-2-2dbc00f686af@bootlin.com>
-References: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
- <20261118-macb-set-channels-v7-2-2dbc00f686af@bootlin.com>
-Message-ID: <cc50263bc4f161b2fff96e04306868cc@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/4] dt-bindings: clock: rockchip: Add RK3572 CRU
+To: Cunhao Lu <1579567540@qq.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261117-add-board-ok3572-c-clk-v6-0-cabad6610c5f@qq.com>
+ <20261117-add-board-ok3572-c-clk-v6-1-cabad6610c5f@qq.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20261117-add-board-ok3572-c-clk-v6-1-cabad6610c5f@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Théo
+Hi Cunhao Lu,
 
-On 18.11.2026 21:53, Théo Lebrun wrote:
+On 11/17/2026 8:06 AM, Cunhao Lu wrote:
+> From: Elaine Zhang <zhangqing@rock-chips.com>
+> 
+> The RK3572 CRU uses the PMU0 GRF for the AUPLL reference mux.
+> Describe the controller and define its clock and reset IDs.
+> 
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> [adapted to mainline rockchip clock and reset handling (xin24m input,
+>  don't introduce CLK_NR_CLKS)]
+> Signed-off-by: Cunhao Lu <1579567540@qq.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+> Changes in v6:
+> - Improve readability.
+> 
+> Changes in v3:
+> - Close the reset ID gap while preserving each named reset's register
+>   mapping.
+> - Remove CLK_NR_CLKS from the clock binding.
+> - Fix the indentation of the CRU binding example.
+> ---
+>  .../bindings/clock/rockchip,rk3572-cru.yaml        |  57 ++
+>  include/dt-bindings/clock/rockchip,rk3572-cru.h    | 560 ++++++++++++++++
+>  include/dt-bindings/reset/rockchip,rk3572-cru.h    | 713 +++++++++++++++++++++
+>  3 files changed, 1330 insertions(+)
 
-> [...]
+[snip]
 
-> @@ -3376,7 +3398,7 @@ static void macb_context_swap_start(struct macb 
-> *bp)
-
-> [...]
-
-> +	if (new_ctx) {
-> +		old_ctx = bp->ctx;
-> +		WRITE_ONCE(bp->ctx, new_ctx);
-> +		wmb(); /* ensure IRQ enabled below read the new context */
+> diff --git a/include/dt-bindings/clock/rockchip,rk3572-cru.h b/include/dt-bindings/clock/rockchip,rk3572-cru.h
+> new file mode 100644
+> index 000000000000..b917f72165ae
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/rockchip,rk3572-cru.h
+> @@ -0,0 +1,560 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +/*
+> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+> + * Author: Elaine Zhang <zhangqing@rock-chips.com>
+> + */
 > +
-> +		macb_init_buffers(bp);
+> +#ifndef _DT_BINDINGS_CLK_ROCKCHIP_RK3572_H
+> +#define _DT_BINDINGS_CLK_ROCKCHIP_RK3572_H
+
+[snip]
+
+> +#define ACLK_CRYPTO_NS				525
+> +#define CLK_PKA_CRYPTO_NS			526
+> +#define PCLK_DDR_MON				527
 > +
-> +		/* Clear DQL (only on successful context swap). */
-> +		for (q = 0; q < bp->ctx->num_queues; ++q)
-> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
-> +								  q));
-> +	}
+> +/* Secure clocks */
+> +#define ACLK_CCI				600
+> +#define SCLK_DDR				601
+> +#define CLK_STIMER0_ROOT			602
+> +#define PCLK_SECURE_S				603
+> +#define HCLK_SECURE_S				604
+> +#define ACLK_SECURE_S				605
+> +#define CLK_PKA_CRYPTO_S			606
+> +#define PCLK_KLAD				607
+> +#define HCLK_CRYPTO_S				608
+> +#define HCLK_KLAD				609
+> +#define ACLK_CRYPTO_S				610
+> +#define PCLK_OTPC_S				611
+> +#define CLK_OTPC_S				612
+> +#define PCLK_WDT_S				613
+> +#define TCLK_WDT_S				614
+> +#define HCLK_TRNG_S				615
 
-The queues we just dropped never get their BQL reset, not on close or
-open either. So after shrinking and growing again they can stay stuck.
+Are these secure clocks meant to be used as SCMI clock ids? Why a gap from
+527 to 600? If I am not mistaken SCMI ids should similar to Linux clock ids
+start at 0 and be a consecutive series.
 
-Maybe just reset all max_num_queues here and in macb_close()?
+> +
+> +#endif
+> diff --git a/include/dt-bindings/reset/rockchip,rk3572-cru.h b/include/dt-bindings/reset/rockchip,rk3572-cru.h
+> new file mode 100644
+> index 000000000000..a88af7665dae
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/rockchip,rk3572-cru.h
+> @@ -0,0 +1,713 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +/*
+> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+> + * Author: Elaine Zhang <zhangqing@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_RESET_ROCKCHIP_RK3572_H
+> +#define _DT_BINDINGS_RESET_ROCKCHIP_RK3572_H
+> +
+> +/* CRU-->SOFTRST_CON01 */
+> +#define SRST_ARESETN_TOP_BIU                     0
+> +#define SRST_PRESETN_TOP_BIU                     1
+> +#define SRST_ARESETN_TOP_MID_BIU                 2
+> +#define SRST_HRESETN_TOP_BIU                     3
 
-> [...]
+Please drop the unnecessary/redundant RESETN in all constants. The SRST
+prefix is already a short for Software Reset.
 
-> +static int macb_set_channels(struct net_device *netdev,
+Please see [1] for the header I prepared for U-Boot mainline RK3572 support,
+it should have all these symbols cleaned up, to match naming patterns used
+for all currently supported Rockchip SoCs.
 
-> [...]
-
-> +	ret = netif_set_real_num_queues(bp->netdev, num_queues, num_queues);
-> +	if (ret) {
-> +		if (running) {
-> +			macb_free(new_ctx);
-> +			kfree(new_ctx);
-> +			macb_context_swap_end(bp, NULL);
-
-swap_start() cleared TE, so HW is back at the ring start. Doesn't this
-needs a gem_shuffle_tx_rings() like link_up does, otherwise Tx stalls?
-
-> [...]
+[1] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/blob/rk3562/include/dt-bindings/reset/rockchip%2Crk3572-cru.h
 
 Regards,
-Nicolai
+Jonas
+
+[snip]
+
+> +#endif
