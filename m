@@ -1,39 +1,39 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067998;
-	b=ZO/xfF3qaEvndNPvwCnEQY4mqP9d1AGWM94Tbp1i7yX6w+V61+MhwLuR7+0UKbsSVKxX
-	 T3w4iLwZp3nnvaxJ9B5oX6JmWbvs3/q4PNDPrMZBB+Q1LjzXrtm5bjPGSHjQomxlmtJTb
-	 tGCctlHf51d37RIPenJCF0CkdahbHOJCLlAPAAOmQ9zrWFg/xDIEseoiy8S8LRHUaT7IE
-	 A69DNxWCuLiC8OyIrxg8yHHZqU+inMKOaxs7Hv0d3wMvk+bg2WGQAdE5NzIeHxLO44+07
-	 VyRMu1cuFIZR03kLOYDJDwDyPSmFu0mJL1V7fkuV8Qh6/LHAxNoDf3kAaTeIWi80InA==
+	t=1795067999;
+	b=Kg3i2s++G131vMt0FH6cPxdwP2A2QlQnwz5ya2m81dlhRoYgJm3GWKTbg4kDyHLCtdzD
+	 u1tgn68Od2WxKFOPC04uAnIflvldGH3/WnemIBciw9PaRSMu3XCn0d3WTxR95SGirWIw4
+	 xJWkUryPQb8nXtQz+NoX687zbPwXUod2sxGzn5UGjJlmwD1cM5cujrIGliPDQV7Yyjg+F
+	 CMOmOdHYxJI/34zpqLtLQW++eTTTGHDIvvTvpNeAwVnI3w7XQc64VDLSKuL5iX4zl26Sc
+	 lYslhjc1+iMNP6XpFMLbNLMWdfiPZy1YwXu+qtHg+nGPlFY24emtMMSi/1pwlUUp2TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067998;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067999;
 	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=dRaSS/oJTqhKCs3Rynzpoee8Q2MJKYtV0BSFSheD4u4=;
-	b=mNb7fJ6Ub/4cOaJeHD99Xb+yP4AI+zx2pVu6M1gEY2g9WNJh4c9OA+612OxXZnQhwRbB
-	 xcntT/izg4cvxCVqMIjkde1525P/HaCOdd4xLWHQ405bQfFFCdhKyjqoDGANCT+LEfTwL
-	 RkJeiaVNBMlearHSJ3hwlh86HbsFCaT0OO0LspNE0ZxhwRfPpkqfwlOPLRIM2IsqQ6Sq6
-	 Jfi8cxae2L6nusJ2hEmIyul40YiAtk0hoxpWcZJ01Oe6KhWfWBTJBUHrqO5d97wAZAPcy
-	 gydDE/0quk1NiEmQvu1/A/7uFeg3p21kDNanrfkQM9CAnYTtvOZxmv1uYIhINVASPsA==
+	bh=FHAV8cRW8g+NO4CiXqgiNL9QLb9uHBPuQIVhIL8L/v8=;
+	b=zW20PXUq7QRIY15naKFyJzZ8JK93S+VFDrFCDooSKYqfAlK4CCdzTgQi0eijqqU4aSl5
+	 0IjiOHRmvsXtfY4evX00VKbzPwR8QNaNxaM1WzfKlhrNlzE0ynFIUv4IJClhSrazkvivk
+	 TLB86a3V9vr2kjAqtFFf+dOJodgUHmH+vFyKPNjo3mztBX2zzK03ezjuqZY82caf0nfQm
+	 +6Duly6GvDBolntFbgjMEE7ZfIkE0/K8TUikEHbBvoDRM5Pjo88yamEHnT2ZtIBS5eWOg
+	 mZNIMbro1ZqJjLQeC53A/nhRRRoHMNEuIAZazBhW2rFMH1qHyjRdgsC1yEzoOHksvMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=motor-comm.com;
 	spf=pass smtp.mailfrom=motor-comm.com;
-	arc=none smtp.remote-ip=115.124.28.217
-Received: from out28-217.mail.aliyun.com (out28-217.mail.aliyun.com [115.124.28.217])
+	arc=none smtp.remote-ip=115.124.28.220
+Received: from out28-220.mail.aliyun.com (out28-220.mail.aliyun.com [115.124.28.220])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1519A606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:59:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1519A606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2400B606A332
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 05:59:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2400B606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=motor-comm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=motor-comm.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.237165|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.120113-0.0315384-0.848349;FP=8102288609625296279|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037026024;MF=frank.sae@motor-comm.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5P.6H8_1795067987;
-Received: from motor-comm.com(mailfrom:frank.sae@motor-comm.com fp:SMTPD_---.k5P.6H8_1795067987 cluster:ay29)
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00970056-0.197457-0.792842;FP=13895113620922584242|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033040092104;MF=frank.sae@motor-comm.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5P.6Hk_1795067988;
+Received: from motor-comm.com(mailfrom:frank.sae@motor-comm.com fp:SMTPD_---.k5P.6Hk_1795067988 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Thu, 19 Nov 2026 13:59:48 +0800
+          Thu, 19 Nov 2026 13:59:49 +0800
 From: "Frank.sae" <frank.sae@motor-comm.com>
 To: andrew@lunn.ch,
 	hkallweit1@gmail.com,
@@ -46,10 +46,12 @@ Cc: netdev@vger.kernel.org,
 	lingyu.zou@motor-comm.com,
 	xiaoyong.li@motor-comm.com,
 	jie.han@motor-comm.com
-Subject: [PATCH net-next v4 0/1] Add basic support for Motorcomm YT8831 2.5G
-Date: Thu, 19 Nov 2026 05:59:46 +0000
-Message-ID: <20261119055947.653568-1-frank.sae@motor-comm.com>
+Subject: [PATCH net-next v4 1/1] net: phy: motorcomm: add YT8831 2.5G PHY basic support
+Date: Thu, 19 Nov 2026 05:59:47 +0000
+Message-ID: <20261119055947.653568-2-frank.sae@motor-comm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119055947.653568-1-frank.sae@motor-comm.com>
+References: <20261119055947.653568-1-frank.sae@motor-comm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,25 +61,521 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Changes from v3:
-- Split out WoL support; WoL needs wakeup framework fixes and will be sent as a follow-up separate patch
-- Downshift is not implemented for YT8831 at this moment
+Add a driver for the motorcomm YT8831 2.5G ethernet phy. Verified the
+driver on BPI-R3 (with MediaTek SoC)
 
-AUTO_BX2500_SGMII explanation:
-When operating in AUTO_BX2500_SGMII mode, the YT8831 adjusts the PHY media side to 2500-BaseX or SGMII based on the connection speed on the PHY UTP side.
-1. Media: 2500BX – UTP: 2.5G
-2. Media: SGMII – UTP: 1000M/100M/10M
-Differnece from SGMII is it also includes the 2500-BaseX mode, which is switched automatically.
+YT8831 2.5G ethernet phy works in AUTO_BX2500_SGMII or FORCE_BX2500
+interface, supports 2.5G/1000M/100M/10M speeds.
 
-Frank.sae (1):
-  net: phy: motorcomm: add YT8831 2.5G PHY basic support
+Signed-off-by: Frank.sae <frank.sae@motor-comm.com>
 
+---
+v4:
+- Remove WoL support for now, it will be submitted in follow-up patch
+v3:
+- Fix the kernel doc format of yt8831_set_wol()/yt8831_read_page()/yt8831_write_page()
+- Fix wrong reg addr for WoL magic addr
+- Add PHY_ID_YT8831 entry to motorcomm_tbl for module auto-load
+Link: https://lore.kernel.org/netdev/20261118033539.36633-1-frank.sae@motor-comm.com/
+v2:
+- Fix the notes of function yt8831_set_wol has no return value
+- Fix YT8831 SDS config_init softreset error
+- Fix YT8831 read_status dont read LP's 2.5G status
+Link: https://lore.kernel.org/all/20261109064332.3381180-1-frank.sae@motor-comm.com/
+v1:
+Link: https://lore.kernel.org/all/20261022054642.1332801-1-frank.sae@motor-comm.com/
+---
  drivers/net/phy/motorcomm.c | 395 +++++++++++++++++++++++++++++++++++-
  1 file changed, 393 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+index a87e83fdf590..c7c2a3016b17 100644
+--- a/drivers/net/phy/motorcomm.c
++++ b/drivers/net/phy/motorcomm.c
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * Motorcomm 8511/8521/8522/8531/8531S/861x/8821 PHY driver.
++ * Motorcomm 8511/8521/8522/8531/8531S/861x/8821/8831 PHY driver.
+  *
+  * Author: Peter Geis <pgwipeout@gmail.com>
+  * Author: Frank <Frank.Sae@motor-comm.com>
+@@ -22,6 +22,7 @@
+ /* Live captured from YT921x switch internal MDIO bus */
+ #define PHY_ID_INT861X		0x01e04281
+ #define PHY_ID_YT8821		0x4f51ea19
++#define PHY_ID_YT8831		0x4f51e938
+ /* YT8521/YT8531S/YT8821 Register Overview
+  *	UTP Register space	|	FIBER Register space
+  *  ------------------------------------------------------------
+@@ -171,6 +172,11 @@
+ #define YT8521_RSSR_UTP_SPACE			(0x0 << 1)
+ #define YT8521_RSSR_TO_BE_ARBITRATED		(0xFF)
+ 
++#define YT8831_REG_SPACE_SELECT_REG		0x8020
++#define YT8831_RSSR_SPACE_MASK			(BIT(1) | BIT(0))
++#define YT8831_RSSR_FIBER_SPACE			BIT(1)
++#define YT8831_RSSR_UTP_SPACE			BIT(0)
++
+ #define YT8521_CHIP_CONFIG_REG			0xA001
+ #define YT8521_CCR_SW_RST			BIT(15)
+ #define YT8531_RGMII_LDO_VOL_MASK		GENMASK(5, 4)
+@@ -258,6 +264,34 @@
+ #define YTPHY_WCR_INTR_SEL			BIT(6)
+ #define YTPHY_WCR_ENABLE			BIT(3)
+ 
++#define YT8831_SDS_WRITE_PROTECT_REG		0x873
++#define YT8831_SDS_SGMII_OUTPUT_REG		0x1002
++
++#define YT8831_UTP_WRITE_PROTECT_REG			0x1
++#define YT8831_UTP_DAC_DATA_DLY_REG			0x0
++#define YT8831_UTP_REF_DLAY_SEL_REG			0x3
++#define YT8831_UTP_REF_DLAY_SEL_FEXT_REG		0x4
++#define YT8831_UTP_COE_MANUAL_SHIFT_SEL_2500_REG	0x723
++#define YT8831_UTP_EEE_OPTIM_1_REG			0x727
++#define YT8831_UTP_EEE_OPTIM_2_REG			0x339
++#define YT8831_UTP_EEE_MSE1_REG				0xc3
++#define YT8831_UTP_EEE_MSE2_REG				0x32
++#define YT8831_UTP_EEE_OPTIM_3_REG			0xff
++#define YT8831_UTP_EEE_OPTIM_4_REG			0x372
++#define YT8831_UTP_EEE_OPTIM_5_REG			0x336
++#define YT8831_UTP_EEE_OPTIM_6_REG			0x340
++#define YT8831_UTP_PSAN_OPTIM_REG			0x1e58
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_1_REG		0x209e
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_2_REG		0x20a4
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_3_REG		0x20a9
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_4_REG		0x20af
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_5_REG		0x20b4
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_6_REG		0x20ba
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_7_REG		0x20bf
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_8_REG		0x20c5
++#define YT8831_UTP_2500M_TEMPLATE_OPTIM_1_REG		0x20ff
++#define YT8831_UTP_2500M_TEMPLATE_OPTIM_2_REG		0x2100
++
+ /* 2b00 84ms
+  * 2b01 168ms  *default*
+  * 2b10 336ms
+@@ -397,6 +431,16 @@
+ #define YT8821_CHIP_MODE_AUTO_BX2500_SGMII	0
+ #define YT8821_CHIP_MODE_FORCE_BX2500		1
+ 
++#define YT8831_CHIP_MODE_SEL				0x8802
++#define YT8831_CHIP_MODE_SEL_MASK			GENMASK(2, 0)
++#define YT8831_CHIP_MODE_AUTO_BX2500_SGMII		0x0
++#define YT8831_CHIP_MODE_FORCE_2500BASEX		BIT(0)
++#define YT8831_CHIP_MODE_UTP_TO_FIBER_FORCE		(BIT(2) | BIT(0))
++
++#define YT8831_MDIO_ADDRESS_CTL				0x8004
++#define YT8831_MDIO_ADDRESS_CTL_EN_BROADCAST_MASK	BIT(8)
++#define YT8831_MDIO_ADDRESS_CTL_EN_BROADCAST		BIT(8)
++
+ struct yt8521_priv {
+ 	/* combo_advertising is used for case of YT8521 in combo mode,
+ 	 * this means that yt8521 may work in utp or fiber mode which depends
+@@ -798,6 +842,27 @@ static int yt8521_read_page(struct phy_device *phydev)
+ 	return YT8521_RSSR_UTP_SPACE;
+ };
+ 
++/**
++ * yt8831_read_page() - read reg page
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: current reg space of yt8831 (YT8831_RSSR_FIBER_SPACE/
++ * YT8831_RSSR_UTP_SPACE) or negative errno code
++ */
++static int yt8831_read_page(struct phy_device *phydev)
++{
++	int old_page;
++
++	old_page = ytphy_read_ext(phydev, YT8831_REG_SPACE_SELECT_REG);
++	if (old_page < 0)
++		return old_page;
++
++	if ((old_page & YT8831_RSSR_SPACE_MASK) == YT8831_RSSR_FIBER_SPACE)
++		return YT8831_RSSR_FIBER_SPACE;
++
++	return YT8831_RSSR_UTP_SPACE;
++};
++
+ /**
+  * yt8521_write_page() - write reg page
+  * @phydev: a pointer to a &struct phy_device
+@@ -818,6 +883,26 @@ static int yt8521_write_page(struct phy_device *phydev, int page)
+ 	return ytphy_modify_ext(phydev, YT8521_REG_SPACE_SELECT_REG, mask, set);
+ };
+ 
++/**
++ * yt8831_write_page() - write reg page
++ * @phydev: a pointer to a &struct phy_device
++ * @page: The reg page(YT8831_RSSR_FIBER_SPACE/YT8831_RSSR_UTP_SPACE) to write.
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_write_page(struct phy_device *phydev, int page)
++{
++	int mask = YT8831_RSSR_SPACE_MASK;
++	int set;
++
++	if ((page & YT8831_RSSR_SPACE_MASK) == YT8831_RSSR_FIBER_SPACE)
++		set = YT8831_RSSR_FIBER_SPACE;
++	else
++		set = YT8831_RSSR_UTP_SPACE;
++
++	return ytphy_modify_ext(phydev, YT8831_REG_SPACE_SELECT_REG, mask, set);
++};
++
+ /**
+  * struct ytphy_cfg_reg_map - map a config value to a register value
+  * @cfg: value in device configuration
+@@ -2554,6 +2639,190 @@ static int yt8521_get_features(struct phy_device *phydev)
+ 	return ret;
+ }
+ 
++/**
++ * yt8831_config_aneg() - config auto-aneg
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_config_aneg(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = genphy_config_aneg(phydev);
++	if (ret < 0)
++		return ret;
++
++	return genphy_c45_config_aneg(phydev);
++}
++
++/**
++ * yt8831_serdes_init() - serdes init
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_serdes_init(struct phy_device *phydev)
++{
++	int old_page, ret;
++
++	old_page = phy_select_page(phydev, YT8831_RSSR_FIBER_SPACE);
++	if (old_page < 0) {
++		phydev_err(phydev, "Failed to select page: %d\n",
++				old_page);
++		goto err_restore_page;
++	}
++
++	ret = ytphy_write_ext(phydev, YT8831_SDS_WRITE_PROTECT_REG, 0x1);
++	if (ret < 0)
++		goto err_restore_page;
++
++	ret = ytphy_write_ext(phydev, YT8831_SDS_SGMII_OUTPUT_REG, 0xc4);
++	if (ret < 0)
++		goto err_restore_page;
++
++	/* softreset sds space */
++	ret = __phy_modify(phydev, MII_BMCR, BMCR_RESET, BMCR_RESET);
++	if (ret < 0)
++		goto err_restore_page;
++
++err_restore_page:
++	return phy_restore_page(phydev, old_page, ret);
++}
++
++/**
++ * yt8831_utp_init() - utp init
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_utp_init(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_WRITE_PROTECT_REG, 0x3);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_DAC_DATA_DLY_REG, 0xc8d);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_REF_DLAY_SEL_REG, 0xa426);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_REF_DLAY_SEL_FEXT_REG, 0x8009);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_COE_MANUAL_SHIFT_SEL_2500_REG, 6);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_1_REG, 0x1001);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_2_REG, 0x7c52);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_MSE1_REG, 0x3848);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_MSE2_REG, 0xa8e8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_3_REG, 0x5200);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_4_REG, 0x5849);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_5_REG, 0xb00a);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_6_REG, 0x3022);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_PSAN_OPTIM_REG, 0x1f10);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_1_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_2_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_3_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_4_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_5_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_6_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_7_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_8_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_2500M_TEMPLATE_OPTIM_1_REG, 0x1111);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_2500M_TEMPLATE_OPTIM_2_REG, 0x1111);
++	if (ret < 0)
++		goto err;
++
++err:
++	return ret;
++}
++
++/**
++ * yt8831_get_rate_matching - read register to get phy chip mode
++ * @phydev: target phy_device struct
++ * @iface: PHY data interface type
++ *
++ * Returns: rate matching type or negative errno code
++ */
++static int yt8831_get_rate_matching(struct phy_device *phydev,
++				    phy_interface_t iface)
++{
++	int val;
++
++	val = ytphy_read_ext_with_lock(phydev, YT8831_CHIP_MODE_SEL);
++	if (val < 0)
++		return val;
++
++	if (FIELD_GET(YT8831_CHIP_MODE_SEL_MASK, val) ==
++	    YT8831_CHIP_MODE_FORCE_2500BASEX)
++		return RATE_MATCH_PAUSE;
++
++	return RATE_MATCH_NONE;
++}
++
+ /**
+  * yt861x_config_init() - apply the auto sleep setting to the PHY
+  * @phydev: a pointer to a &struct phy_device
+@@ -2992,6 +3261,65 @@ static int yt8821_soft_reset(struct phy_device *phydev)
+ 					  YT8521_CCR_SW_RST, 0);
+ }
+ 
++/**
++ * yt8831_config_init() - phy initialisation
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_config_init(struct phy_device *phydev)
++{
++	u8 mode = YT8831_CHIP_MODE_AUTO_BX2500_SGMII;
++	int ret;
++
++
++	__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			phydev->possible_interfaces);
++
++	__set_bit(PHY_INTERFACE_MODE_SGMII,
++			phydev->possible_interfaces);
++
++	switch (phydev->interface) {
++	case PHY_INTERFACE_MODE_2500BASEX:
++		mode = YT8831_CHIP_MODE_FORCE_2500BASEX;
++		phydev->rate_matching = RATE_MATCH_PAUSE;
++		break;
++	case PHY_INTERFACE_MODE_SGMII:
++		mode = YT8831_CHIP_MODE_AUTO_BX2500_SGMII;
++		phydev->rate_matching = RATE_MATCH_NONE;
++		break;
++	default:
++		mode = YT8831_CHIP_MODE_AUTO_BX2500_SGMII;
++		phydev->rate_matching = RATE_MATCH_NONE;
++		break;
++	}
++
++	ret = ytphy_modify_ext_with_lock(phydev,
++					 YT8831_CHIP_MODE_SEL,
++					 YT8831_CHIP_MODE_SEL_MASK,
++					 mode);
++	if (ret < 0)
++		return ret;
++
++	/* Disable broadcast*/
++	ret = ytphy_modify_ext_with_lock(phydev,
++					 YT8831_MDIO_ADDRESS_CTL,
++					 YT8831_MDIO_ADDRESS_CTL_EN_BROADCAST_MASK,
++					 0);
++	if (ret < 0)
++		return ret;
++
++	ret = yt8831_serdes_init(phydev);
++	if (ret < 0)
++		return ret;
++
++	ret = yt8831_utp_init(phydev);
++	if (ret < 0)
++		return ret;
++
++	return genphy_soft_reset(phydev);
++}
++
+ /**
+  * yt8821_config_init() - phy initializatioin
+  * @phydev: a pointer to a &struct phy_device
+@@ -3102,6 +3430,53 @@ static void yt8821_update_interface(struct phy_device *phydev)
+ 	}
+ }
+ 
++/**
++ * yt8831_read_status() -  determines the negotiated speed and duplex
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_read_status(struct phy_device *phydev)
++{
++	int ret;
++	int val;
++
++	phydev->speed = SPEED_UNKNOWN;
++	phydev->duplex = DUPLEX_UNKNOWN;
++
++	ret = genphy_read_status(phydev);
++	if (ret < 0)
++		return ret;
++
++	ret = genphy_c45_read_status(phydev);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_read(phydev, YTPHY_SPECIFIC_STATUS_REG);
++	if (ret < 0)
++		return ret;
++
++	val = ret;
++	if (val & YTPHY_SSR_LINK) {
++		phydev->link = true;
++		yt8821_adjust_status(phydev, val);
++	}
++
++	phydev_dbg(phydev,
++		"%s, phy addr: %d, link %s\n",
++		__func__, phydev->mdio.addr, phydev->link ? "up" : "down");
++
++	val = ytphy_read_ext_with_lock(phydev, YT8831_CHIP_MODE_SEL);
++	if (val < 0)
++		return val;
++
++	if (FIELD_GET(YT8831_CHIP_MODE_SEL_MASK, val) ==
++	    YT8831_CHIP_MODE_AUTO_BX2500_SGMII)
++		yt8821_update_interface(phydev);
++
++	return 0;
++}
++
+ /**
+  * yt8821_read_status() -  determines the negotiated speed and duplex
+  * @phydev: a pointer to a &struct phy_device
+@@ -3337,11 +3712,26 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 		.suspend		= yt8821_suspend,
+ 		.resume			= yt8821_resume,
+ 	},
++	{
++		PHY_ID_MATCH_EXACT(PHY_ID_YT8831),
++		.name			= "YT8831/YT8821-VD 2.5Gbps PHY",
++		.get_features		= yt8821_get_features,
++		.read_page		= yt8831_read_page,
++		.write_page		= yt8831_write_page,
++		.config_aneg		= yt8831_config_aneg,
++		.aneg_done		= genphy_aneg_done,
++		.config_init		= yt8831_config_init,
++		.get_rate_matching	= yt8831_get_rate_matching,
++		.read_status		= yt8831_read_status,
++		.soft_reset		= genphy_soft_reset,
++		.suspend		= genphy_suspend,
++		.resume			= genphy_resume,
++	},
+ };
+ 
+ module_phy_driver(motorcomm_phy_drvs);
+ 
+-MODULE_DESCRIPTION("Motorcomm 8511/8521/8531/8531S/861x/8821 PHY driver");
++MODULE_DESCRIPTION("Motorcomm 8511/8521/8531/8531S/861x/8821/8831 PHY driver");
+ MODULE_AUTHOR("Peter Geis");
+ MODULE_AUTHOR("Frank");
+ MODULE_LICENSE("GPL");
+@@ -3354,6 +3744,7 @@ static const struct mdio_device_id __maybe_unused motorcomm_tbl[] = {
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8531S) },
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_INT861X) },
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8821) },
++	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8831) },
+ 	{ /* sentinel */ }
+ };
+ 
 -- 
 2.43.0
 
