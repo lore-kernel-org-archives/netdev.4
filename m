@@ -1,55 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105208;
-	b=H1jlQYhficNEE5vyhN7ac4L3BCUnmWagtytdyIWGkkIKd5KJ/FpF4QhSZEPCTLmnzLfm
-	 KcO9h+fsRnScNJmKxI3ZlbsH1+tYUW1feK2bcb+Z+m1R3cgalDdFg9S5PbIHTStUU20Z3
-	 l5DU5qPw96eNo4ddSFVxYdNiLwob+2Kb+yhGuk5t1Jm0XNCttYhvI0LI4FDOuHr9gy7MF
-	 6RR0/Ed2GxqlzvCmDUlgrQ/vD7vcVbeVAiH9AaFIv8LU62LfUyzoCjX/5xkcMjmyq8rMw
-	 PXbHkZHwVwzHa4GAKCCinF+CJETkI2XQKRKBZ1ZFvwqL/+3ZUwmwwl6tRdsWDCGT6GA==
+	t=1795105847;
+	b=l6K5SMYZMwWev9nE1zm3LQRGS+3YPT8/8SxTggVzYfNzqXsltzb8A///f8BkSAWHHyNt
+	 4e+9p7flpNRtx3yQZkCRF02TP8uFf31PpLvXlB74B1jThXyCeYPmj7Z4Bx5AxuBozH/sk
+	 MpoDQSmeRybWMQmmU5n17wMXK0ErEhz5io3noyIOyc/oQ15pyzzpsSLzV40I3Ok2mQ8LM
+	 YyDpQQoRTYdiO8S9r77lzXLweaPc4r59RPzwoZWm2JIjN9+JuBJsRICCbv6fBALivJE/0
+	 JC0Q83EfbRVoqMW1sRp+pMPWIyxrfTgs+5vEt9WCIxIdTJSW/rb/B+HiAzFJoHZGoBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105208;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=RVJh2xVangVJBwzgstXkIQAK+55cvVoeAY88H9/9n10=;
-	b=HEUWp8+4URYgxksP3+zHQWRL/wsLNdGOnLrZYnCgzTdxw+2rSRDQ98/JozHau1nSdLnb
-	 AUqQmcWGtGMtUXDPgf0XpM2pg6xm3DF7ccgFkBUlMVfdVcfm4DQqqqJA83F7Z3iI9alGG
-	 PIhNDLsuGWW0MUKwl1w8I3oe6psgRXMeofuor6qXtqm84wK4Fv+efNPFGI8ybCmr1rSpF
-	 PaHNlIF0JmuvJjKGW7TpDezCtm6hDFNaRQ2Gv9gFudvJo0PiRwn359Z3+XfGWpOFGi56x
-	 /aRjWyv4b8gn9Y6TVyoNqEJUpxsnoyGCKFV3aGfw81IGkBDdOEH061eEyhEra6eUXCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105847;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer;
+	bh=EkYRALwBnLqcpaD+sPfLr4ZtbCIl2Etf5c33d6GajiE=;
+	b=fJkn1BQAuRFAWFtl9j7eovJGQ+G+9SsZj9Js0PiB9JzXBhXpLrQuZwHmPdvmvk3gx87I
+	 exHfcEURB5EoMGnMQ9zXyNNx3RKRIZJm/8EUf6nEOTaNcRBWBlyfGQgsoEx6k6PYTbw8V
+	 LVu/CIWbCeSJwJFmJdYZ4TebhvlipOHKNEkOJXKiJDISiIO+ATkya9FUdoeg0iHjq5uQI
+	 zvF168zukhJFEEYqQFbNUt16rJkq1h+UdsaZ0BR8Jo1IZCY+WqkYFzZ/l7pdIeTqrIUM7
+	 PT/ClbRd58ZGCSWnkSRvHhkJ6R3BX4cpByYmqaQVw5dVqjJinK79W73rxWzYmCQ+mCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="S5/M99cJ";
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fSoaBXNB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7D54606A32C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:20:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7D54606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA6E606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:30:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=S5/M99cJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 9A831C4CBF6;
-	Thu, 19 Nov 2026 16:20:11 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4A8A35FF9A;
-	Thu, 19 Nov 2026 16:20:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0F6B111BC0CC9;
-	Thu, 19 Nov 2026 17:19:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795105201; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=RVJh2xVangVJBwzgstXkIQAK+55cvVoeAY88H9/9n10=;
-	b=S5/M99cJq76gM4lfm4/KPAMwaNOLURrsn2xn37PPMLNQZlgjLOkklLJybB0ViQb0dhjVmm
-	v6sEH4ba/M5lP7Z5V8WRm0hqdSep+bhZQaSsNlV6LmgbK6vxsYZ2st+zPhDSu6t9VuMlME
-	iNLKGw0p8yfT9Qi0/yrOsQXkfvjjr6w/SvVEN1ZKbfZa5bN+C2e9/GvsNwQpuZCLfjQKum
-	1o/6ZRq8CL9rvUL7wr8YzV54kYf/a+AjPTMop96yu0d9YQMY6F7B9iDUQu+iQ13TchXMjs
-	SJMngqnF8KXW3sqwtDFhFKhRNgzDMNKGEa04cZCGkY2iSW4nZt8EykBUeO3UOg==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fSoaBXNB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D59B1F000C4;
+	Thu, 19 Nov 2026 16:30:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795105846;
+	bh=EkYRALwBnLqcpaD+sPfLr4ZtbCIl2Etf5c33d6GajiE=;
+	h=From:Date:Subject:To:Cc;
+	b=fSoaBXNB0S0F8wg66kdKSkJEogQPtdlyxrCh29CWYeocKSbs6HqIqx1adVXM74PBP
+	 dnDHG6pPQlhQmu+7NAQ/DsTH3yB8WGp+0L+MbHWaSvhx3QPa0QdeaT3junZANByddC
+	 0lBXy9X/x6qfjHkFozeYUZFAjXwJjsFxKK+K5z5Jn3NsZx6h68Bi9eqAWKNsfdjPuQ
+	 EwQ0Nzb/kQeGaRncOYPuJJQIpegwre2djgcWkGk1tT3bMowosbabctoe7asSfw3y8r
+	 RNXe8U5kqOUoyl5OpBBsT4bgKubE00WR9ylmNr1Nm+yRHlcZvfOieUbDc9ICqy3EDL
+	 96U2EGidiZdBw==
+From: Simon Horman <horms@kernel.org>
+Date: Thu, 19 Nov 2026 16:30:34 +0000
+Subject: [PATCH net-next] tools: ynl-gen: avoid shadow local variable
+ declarations
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,73 +52,93 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 17:19:57 +0100
-Message-Id: <DMZBON30TWI8.1KLN28QJP6TNN@bootlin.com>
-Cc: "Conor Dooley" <conor.dooley@microchip.com>, "Andrew Lunn"
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Russell King" <linux@armlinux.org.uk>,
- <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Paolo Valerio"
- <pvalerio@redhat.com>, "Vladimir Kondratiev"
- <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, =?utf-8?q?Beno=C3=AEt_Monin?=
- <benoit.monin@bootlin.com>, "Tawfik Bayouk" <tawfik.bayouk@mobileye.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>
-To: "Nicolai Buchwitz" <nb@tipi-net.de>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next v7 2/3] net: macb: implement
- ethtool_ops.get|set_channels()
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
- <20261118-macb-set-channels-v7-2-2dbc00f686af@bootlin.com>
- <cc50263bc4f161b2fff96e04306868cc@tipi-net.de>
-In-Reply-To: <cc50263bc4f161b2fff96e04306868cc@tipi-net.de>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-ynl-scope-v1-1-d3b0c964d4cb@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqAMAwAwa9IzgZMLYJ+RTyIRg1IWtoiivTvF
+ o8Dy74QOQhHGKoXAl8SxWkB1RUsx6w7o6zFYBrTEVGPj54YF+cZO0tza6xpG7tB6X3gTe7/NYJ
+ yQuU7wZTzB9d30pJlAAAA
+X-Change-ID: 20261119-ynl-scope-641a3242304f
+To: Donald Hunter <donald.hunter@gmail.com>, 
+ Jakub Kicinski <kuba@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: =?utf-8?q?Asbj=C3=B8rn_Sloth_T=C3=B8nnesen?= <ast@fiberby.net>, 
+ Chuck Lever <cel@kernel.org>, netdev@vger.kernel.org
+X-Mailer: b4 0.14.3
 
-On Thu Nov 19, 2026 at 12:54 PM CET, Nicolai Buchwitz wrote:
-> On 18.11.2026 21:53, Th=C3=A9o Lebrun wrote:
->> +	if (new_ctx) {
->> +		old_ctx =3D bp->ctx;
->> +		WRITE_ONCE(bp->ctx, new_ctx);
->> +		wmb(); /* ensure IRQ enabled below read the new context */
->> +
->> +		macb_init_buffers(bp);
->> +
->> +		/* Clear DQL (only on successful context swap). */
->> +		for (q =3D 0; q < bp->ctx->num_queues; ++q)
->> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
->> +								  q));
->> +	}
->
-> The queues we just dropped never get their BQL reset, not on close or
-> open either. So after shrinking and growing again they can stay stuck.
+The cited commit moved away from block-scoped to function-scoped
+local variables. However, it appears to have missed updating
+_multi_parse(). And with the following patch set applied,
+a shadow declaration of len occurred for a string attribute.
 
-Good catch.
+- [PATCH net-next v3 00/10] Deliver TLS session tags to upper-layer consumers (NFSD)
+  https://lore.kernel.org/all/20261113-tls-session-tags-v3-0-91271964cdb0@kernel.org/
 
-> Maybe just reset all max_num_queues here and in macb_close()?
+Address this by using the same set-based mechanism used in the cited
+commit to marshal local variables to be declared at the function-level.
 
-That's the safe solution, agreed.
+The size_t variant of len is renamed as size to avoid the need for a
+variable of the same name but different types in the same scope.
+This, however, has not been observed in the wild AFAIK.
 
->> +	ret =3D netif_set_real_num_queues(bp->netdev, num_queues, num_queues);
->> +	if (ret) {
->> +		if (running) {
->> +			macb_free(new_ctx);
->> +			kfree(new_ctx);
->> +			macb_context_swap_end(bp, NULL);
->
-> swap_start() cleared TE, so HW is back at the ring start. Doesn't this
-> needs a gem_shuffle_tx_rings() like link_up does, otherwise Tx stalls?
+I am marking this as a fix, as it does seem to be a bug in the cited
+commit. But targeting net-next as I do not believe it manifests
+in-tree at this time.
 
-Argh! I had missed (or forgotten) this implicit behavior when clearing
-the TE bit of NCR. Yes gem_shuffle_tx_rings() is meant for that.
+Fixes: 099902fc66f8 ("tools: ynl-gen: avoid repetitive variables definitions")
+Signed-off-by: Simon Horman <horms@kernel.org>
+---
+ tools/net/ynl/pyynl/ynl_gen_c.py | 20 +++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
-Thanks,
+diff --git a/tools/net/ynl/pyynl/ynl_gen_c.py b/tools/net/ynl/pyynl/ynl_gen_c.py
+index 4aca51396a9e..c037ae8ebc9f 100755
+--- a/tools/net/ynl/pyynl/ynl_gen_c.py
++++ b/tools/net/ynl/pyynl/ynl_gen_c.py
+@@ -2208,7 +2208,7 @@ def _multi_parse(ri, struct, init_lines, local_vars):
+             var_set |= set(l_vars) if l_vars else set()
+         except Exception:
+             pass  # _attr_get() not implemented by simple types, ignore
+-    local_vars += list(var_set)
++
+     if indexed_arrays or multi_attrs:
+         local_vars.append('int i;')
+     if needs_parg:
+@@ -2218,7 +2218,14 @@ def _multi_parse(ri, struct, init_lines, local_vars):
+     all_multi = indexed_arrays | multi_attrs
+ 
+     for arg in sorted(all_multi):
+-        local_vars.append(f"unsigned int n_{struct[arg].c_name} = 0;")
++        aspec = struct[arg]
++        var_set |= set([f'unsigned int n_{struct[arg].c_name} = 0;'])
++        if aspec.type == 'binary' and 'struct' in aspec:
++            var_set |= set(['size_t size;'])
++        elif aspec.type == 'string':
++            var_set |= set(['unsigned int len;'])
++
++    local_vars += list(var_set)
+ 
+     ri.cw.block_start()
+     ri.cw.write_func_lvar(local_vars)
+@@ -2304,13 +2311,12 @@ def _multi_parse(ri, struct, init_lines, local_vars):
+         elif aspec.type in scalars:
+             ri.cw.p(f"dst->{aspec.c_name}[i] = ynl_attr_get_{aspec.type}(attr);")
+         elif aspec.type == 'binary' and 'struct' in aspec:
+-            ri.cw.p('size_t len = ynl_attr_data_len(attr);')
++            ri.cw.p('size = ynl_attr_data_len(attr);')
+             ri.cw.nl()
+-            ri.cw.p(f'if (len > sizeof(dst->{aspec.c_name}[0]))')
+-            ri.cw.p(f'len = sizeof(dst->{aspec.c_name}[0]);')
+-            ri.cw.p(f"memcpy(&dst->{aspec.c_name}[i], ynl_attr_data(attr), len);")
++            ri.cw.p(f'if (size > sizeof(dst->{aspec.c_name}[0]))')
++            ri.cw.p(f'size = sizeof(dst->{aspec.c_name}[0]);')
++            ri.cw.p(f"memcpy(&dst->{aspec.c_name}[i], ynl_attr_data(attr), size);")
+         elif aspec.type == 'string':
+-            ri.cw.p('unsigned int len;')
+             ri.cw.nl()
+             ri.cw.p('len = strnlen(ynl_attr_get_str(attr), ynl_attr_data_len(attr));')
+             ri.cw.p(f'dst->{aspec.c_name}[i] = malloc(sizeof(struct ynl_string) + len + 1);')
 
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+
 
