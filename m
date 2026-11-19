@@ -1,69 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087527;
-	b=IBFSdL3qRIkhxgW62DMphxsMrdIhEAMRIUfVnUaW9jZRmXrhi42W5vNwlAhv7BprVF7h
-	 N49iHfQFCgsNTGynl0WsYaCfr34q95PcPZQiqI5oCcK+OLNv1eveX5u6+Ls4Mbc7q5ayR
-	 LRvhJC0dk/SvO/l6dQvfYuxBa8d+uWJJ2baXgQZcGiodrT8NWyr+QwQbQctJCwYENaZl0
-	 UkJ+hxZtPJze8fvndHx9VK+nEIvK7j9B3PKa2C+SH/3Anf8SmcNzj8v9xSJz9+7LRMut5
-	 olBXYv9wwy6FJOZcnW/UqdUexTJ0+Iewx91Zgz91yUYPlF9E4XT4l+cfkAIL4OtcoEg==
+	t=1795087684;
+	b=dcWcQ5eTcPgt8PWBxXYGsmUH31hb343S2qWa+ipr3gUh+4kBOQdpZQtA2Dv8j4k7eB+X
+	 3IYl95A6v0oqU5fs5bButlZZskj2OMQFZ8MzSMNiwdYIw8ZqMb7WPHywudwa2m7OLedyw
+	 lHhH653NUsSBCkImsAppFrGzzVStwWb7hUaOEA9RI1EZ2L2iKv2z9rQBGeWaOcHNHKqHw
+	 XsNcPj6AAnt9pBKzfWF8Lhle35UwzkuHe1vx8EBT9e9RCqVmmSmBUkxp8lnI89bTtPXzy
+	 OUV2O5sKAsgfw0UxwTewVDkGE1TcXhqEPd1HKXi5b0uuxPMBFenLeiwmFCndeM9dUqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087527;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=qZBF9jximpjJL75Z6oAstg8U4CWukb4j0yMLWFJCNhs=;
-	b=mzwMjeYZsK6Tdgc6M1DKQlolDXr6mwb87q/pVCfqVTPZtjOjPa/BkCxpsPCzETfAyHs1
-	 tw+h00B1xNaznellCv/6RRKrqs4IaCBSvZkxoPY1PW2hTvRAAp6ZOJk1qXDDFU64eNvMa
-	 fLHjUgqU0w/wAX1CzjCaICh38A57qnkOVqRX++KIVkwg5cVl7tgPLbwc9v4xVbTIV9rcF
-	 mJHn4aTChQiLgAdrwKz5ajq55ofiohON+Rd97vJuT+zcMzEGiJ3fGFH4A8NbNAWoPufTy
-	 udF7ISDlFzIWOn4Wb4YkqlC/4T4+RMth7nytgdXKDUYOy70Vh4tPqidsd/R8fbPaz+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087684;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=KbfpyG5mKOuVI1c+yte9ZiTw2/A6Mxs95kwcULKFlU4MJg/dcjPN67LqrFz90Lb+eR4S
+	 KyJkwEpuaDNMh/ByvrLybfwOFJ7l+QiCTMJae7tf2pwpcKASqPjfEu3eRyOahY0HZ86nE
+	 DNRJra0flfYEoz7wfLrmw7lDYbr/C98h+f1AZ0+5LyiEkq6gMe2t6UhMaNC8ZnXFo84KG
+	 xCQ5FVy8MRskzfInJPvqJ/7JQ9c2qxQKWI1q1A013/I+6qMCkfeLhegc++9ZYoLjWucJV
+	 sa+iGYhbBZylHi5uvzRGZOZVS2sOuM7gkv5bjSVLjHrbQJAmrhkoWb9bShEcIpjNtuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=12Cqi765;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="a+3f/m/3";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34C68606A32F;
-	Thu, 19 Nov 2026 11:25:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34C68606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5FB3606A326;
+	Thu, 19 Nov 2026 11:28:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=12Cqi765
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A59384E41665;
-	Thu, 19 Nov 2026 11:25:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5AA9B60237;
-	Thu, 19 Nov 2026 11:25:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 283A511BC1049;
-	Thu, 19 Nov 2026 12:25:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795087523; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=qZBF9jximpjJL75Z6oAstg8U4CWukb4j0yMLWFJCNhs=;
-	b=12Cqi765624eFrrQ6n8kFlj+entCvEb0osYz+MhI4NpTtouwr0lzLHSdy0TkNUD+8rs8tU
-	xsAEihh3kDqUoqHFEXSo21wofVY8kynm0fqrg/L8cHk1nsVdMHTCpCrdt1siB7XUnodE+c
-	qA2QRvCIK2v0Q0luhVV06u3PFVJr4e2psfhX+qeNgw50A6ANd44tD+06472WcRYI7Yz3i4
-	hvfkwjnB9/0nM8mG3dOFjiE+kUAKGM05M5ZWaGUFHXBqF2EYH+WlBVZ99iYZ4JwbvTq9Ll
-	mhL0tJOqpzAI6OHSvxlafNUTsTZVMcei1f7rx/UQ/uoBcTgRyinW19S4fRb/8g==
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Kory Maincent <kory.maincent@bootlin.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net] net: pse-pd: tps23881: Fix reported power class
-Date: Thu, 19 Nov 2026 12:25:07 +0100
-Message-ID: <20261119112511.239208-1-kory.maincent@bootlin.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a+3f/m/3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9CF21F000C6;
+	Thu, 19 Nov 2026 11:28:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795087684;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=a+3f/m/3+ER8D5OWmKkea0MTjb5BKmUzrS9Sg3HmuKwmBIaB1oCDVoHuOGwyKzmO1
+	 rPxCPYU+JHz7KvyuEqrn2zbjZQyQe38TUsSkLuhbJwWXCyQnxpzo8BUtYAqOpwhlJu
+	 /WFzWEem1byOpz7KBIYEeq1qLRCXztiie716035rXoaIsKiDyMkRUiL9zFaOMrZB0n
+	 82ygmHPJT07COovqPkr6IIUKvzBVtVJ6sKBNnMbycQyfsEj5C1BqJa2Hs0J7LevFYJ
+	 it0c8Zqh2CyZeFhYTVy3T6ricUiTpnpkGhJK3z1F2yBhtq32vaLaP73lH9RF9Ts/qp
+	 x5pFuqQ0MuUOQ==
+From: netdev-bot+sinfo@kernel.org
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Paolo Abeni <pabeni@redhat.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>
+Subject: Re: [PATCH net] net: pse-pd: tps23881: Fix reported power class
+Date: Thu, 19 Nov 2026 11:28:03 +0000
+Message-ID: <179508768348.3291.15607777507397640958@kernel.org>
+In-Reply-To: <20261119112511.239208-1-kory.maincent@bootlin.com>
+References: <20261119112511.239208-1-kory.maincent@bootlin.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,59 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-The power class read from the classification register is not 1:1
-aligned with the IEEE 802.3 class value. Add a lookup table to report
-the correct class.
+Hi!
 
-Fixes: 7f076ce3f1733 ("net: pse-pd: tps23881: Add support for power limit and measurement features")
-Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
----
- drivers/net/pse-pd/tps23881.c | 22 +++++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-diff --git a/drivers/net/pse-pd/tps23881.c b/drivers/net/pse-pd/tps23881.c
-index 244ce596d845c..58ea7e0ffa996 100644
---- a/drivers/net/pse-pd/tps23881.c
-+++ b/drivers/net/pse-pd/tps23881.c
-@@ -402,6 +402,25 @@ tps23881_pi_get_chan_current(struct tps23881_priv *priv, u8 chan)
- 	return (int)tmp_64;
- }
- 
-+static int tps23881_class_table[] = {
-+	-ERANGE,
-+	1,
-+	2,
-+	3,
-+	4,
-+	0,
-+	0,
-+	-ERANGE,
-+	5,
-+	6,
-+	7,
-+	8,
-+	4,
-+	5,
-+	-ERANGE,
-+	-ERANGE,
-+};
-+
- static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
- 				    int id)
- {
-@@ -416,7 +435,8 @@ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
- 	if (ret < 0)
- 		return ret;
- 
--	return tps23881_calc_val(ret, chan, 4, 0x0f);
-+	ret = tps23881_calc_val(ret, chan, 4, 0x0f);
-+	return tps23881_class_table[ret];
- }
- 
- static int
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.43.0
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
