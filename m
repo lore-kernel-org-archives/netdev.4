@@ -1,66 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101806;
-	b=yAq2JdfMC3qZzsaVfXn27ZBrjOm6R/W9anMmn+spu/lqRPSOzQJt2s2H/5DAtRTg6nZd
-	 H/uSsMO3fEEncRgUoyYEViQa6e/fMAKWOZsdjaYaBQ4AvBT0k2tgMwqpfJAiiZmlgirGN
-	 TGIcYFEotDCUXZZLBswXq7YxjcAywDvKSP0sODic/Cl5RT7SC8JiZcl7hExyZ2xbL7B+x
-	 8VdvRF9lh7hBX4w+4lOdEDdjZSN8oVhSv6RnBnT0W84PTqYIVGzwMwJe9abADUK/xUsxa
-	 /W4Mn900Ba4NIULAhOvBgMbi/2HmUKEV6X0c4D9/CTBNZS3D/vkEXxN3jAbB8tmC6Cg==
+	t=1795102274;
+	b=pn7e8cmwJvIa58UpOC4/nlnenhj7az06ewa5FlnAr/TkNQgqtlYCk1Ygjg1rJs2AvMGs
+	 8ikU/SGHsOzEVZhyxO+jMqVbMZhlObec7EswOe9gwfJ/bg7mp46Jdl/Tt0jRRCEurqsgB
+	 HUtNJoq6lZ/fCJobTXa2nUTUDCmzaUrjwtSru4Lm64AAL0iu4PfYSkU/oxs4hcem6XElF
+	 jXY4iWmiYLO15gfPbeZuF/F/l6MT/Qu2RU1O/ep4+5/dXetSBSILT6QD1shviNg+vSfIV
+	 GVND8M36xlGdyzfj6PPA4MZnYZxvwSLfVE6lZvqSJDH4ETsKka5uhP6CxTkcQq1iHiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101806;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=YIzSyzaItZhIffQi2QtIvlrKu5BS3YVep8+7TkvwtmM=;
-	b=anw26u1FbLp/4wBpkSWfczDPjUPeMVX7FTgkT3LMiQvK1UjS/j18eMKLsynnqgQyQb9b
-	 GrYxDotySPjjf2395upwOBanA7GRSbfcV6TA5+EUu08cB6qL40ULREfgVkMsp866ZonJB
-	 mzat1NJp3/VhlyPos9IG4qE3/KdkI9UcM1tyN2IpARbdGccJKYzccxeoPoNZyKDisEjh8
-	 HUnuhBgARryyaf6PXhWiWlG3Dw68xDL2TeNswh9Abe9T0lJGIZUY85heWBqXGxB5QjbUP
-	 TwZOtTrx8dSMQGb2vuSwS3SONQjv/cot4oBPFt+fx4DQAp6VteldMutnZKnmVGlVuDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102274;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=0k8H3WhqvZLrLdrKeN3pxsTCp80tQHj2NUfIp60honc=;
+	b=5aNLV5P4bhky9pzJlbhcWMOp8KiF5Vbvt583s9JhBTP/f+3KU2DKsVM3sWD6nZ/3QgCs
+	 ntOHcYfzob8Po1AZuqL/EUcBS57tzDs5yUxIxGgVBsUUPsvfbIrgPacDi9aUNqFC2uaAn
+	 pRct60TCs2VH9W0WdU9jAGF69wh9t/oeO1rjbZCfLxPUHkIqwS3JTGs8SGqWSewt6tSYh
+	 6zZej0TTzwxq9yCcnJhPPmCGO7XdARFULbMolW1YVlK++lo8ag4HI5CJWaEf2tPTqp1MB
+	 N32KuIeJOKagLc7KU/rfloBV8FUm5tcTQzAhvd6UgskmruMrrF5xH6WESloIsl6lWrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CPf7m+Xx;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=PfH2lDzH;
+	arc=none smtp.remote-ip=195.10.208.47
+Received: from mout-b-107.mailbox.org (mout-b-107.mailbox.org [195.10.208.47])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4857E606A320;
-	Thu, 19 Nov 2026 15:23:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4857E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 795B8606A320;
+	Thu, 19 Nov 2026 15:31:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 795B8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CPf7m+Xx
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=YIzSyzaItZhIffQi2QtIvlrKu5BS3YVep8+7TkvwtmM=; b=CPf7m+XxC2aOPWBIbZ1FZwojES
-	KHOEmvXm7b4dxoNstIe6Pejopqwj5qDRYIxozdI041E02LMoUyQLqBRZF75tfjtg+xl0f4alFDQ5I
-	CoWGLaGUHVw3f+hGZPhiEk4q9mVZoATtzVehwoMZHYBHkDLIl3nbRFynVXj4PDrYHGaQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xU3yg-0004Dh-Qt; Thu, 19 Nov 2026 16:23:10 +0100
-Date: Thu, 19 Nov 2026 16:23:10 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: =?utf-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: Re: Re: [PATCH net] net: phy: micrel: Fix potential shared PHC
- use-after-free
-Message-ID: <ed84f6b1-4bed-4328-9278-02bbde45ca23@lunn.ch>
-References: <20261107-0d0c29e10a-net-micrel-lan8814-1@mail.sdu.edu.cn>
- <71089325-dfab-45f7-9ebd-1feb65013863@lunn.ch>
- <AHAASAAGLPGJfVjn9skPJKoS.3.1794229559658.Hmail.202321181@mail.sdu.edu.cn>
- <198e6702-0663-4183-9aaf-0fa4082dbf79@lunn.ch>
- <ANsAuAAOLLS4OaDq0elM1KrN.3.1795091965243.Hmail.202321181@mail.sdu.edu.cn>
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=PfH2lDzH
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4jVj9S4FRdz3xTD;
+	Thu, 19 Nov 2026 16:31:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795102268;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=0k8H3WhqvZLrLdrKeN3pxsTCp80tQHj2NUfIp60honc=;
+	b=PfH2lDzH7DFYDEO0JjZgj9hFIaMAF2Eb93achjUr7i8Mz7TOZJXikkZn28r6p7MxEmJS+4
+	ekR8jN9JR40ZU59TtJL5/ZOTSaUMEcJ5syiRglTNxY2Yl9m9Cc9bjqqnYi+3xjikcxsJiS
+	EiY0eUbHFYcwfhU2uCHqVtGwQeClGukb6kpLRaYlwzGOwv4WXoxS+DFFfEar8o2CbsVXpA
+	iQlykGs5jTzL2lHlrMobPlARUtLqk3cVgzHa+GLoBYNj1bDYi1UFX6KwwDt6z74fNPGLHO
+	YIDQgQfHKOD6R72bhHPVYXU0JuFCR/2QZAiW2HKcw5njxb072JM8v4GRc6g7fQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
+From: Antonio Quartulli <antonio@mandelbit.com>
+To: willemdebruijn.kernel@gmail.com,
+	jasowangio@gmail.com
+Cc: Antonio Quartulli <antonio@mandelbit.com>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	mst@redhat.com,
+	eperezma@redhat.com,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	maheshb@google.com,
+	peterpenkov96@gmail.com,
+	netdev@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	bpf@vger.kernel.org
+Subject: [PATCH net v7] tun: bound the NAPI receive queue
+Date: Thu, 19 Nov 2026 16:30:55 +0100
+Message-ID: <20261119153056.353156-1-antonio@mandelbit.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,15 +88,189 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ANsAuAAOLLS4OaDq0elM1KrN.3.1795091965243.Hmail.202321181@mail.sdu.edu.cn>
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jVj9S4FRdz3xTD
 
-> On LAN8814, if the registering PHY unbinds first, the other ports would
-> lose access to the PHC. Is that the behaviour you'd expect?
+With IFF_NAPI, tun_get_user() queues every written packet for NAPI on
+an unbounded list. When the poll runs asynchronously (threaded NAPI or
+ksoftirqd) and is slower than the writer, the queue grows until the
+system runs out of memory. An unprivileged user can do this from its own
+user and network namespaces, and the queued skbs are not charged to its
+memcg: in a test VM, a uid 1000 process limited to 128 MB caused a
+global OOM in ~6 seconds. The socket send buffer does not help: tun sets
+it to INT_MAX by default, the build_skb() path is only used while it is
+INT_MAX, and the XDP batch path never checks it.
 
-No, as i keep saying, i expect remove to be the opposite of probe. The
-first PHY probed sets up the PHC. What is the opposite of that? The
-last PHY removed releases the PHC.
+Drop packets once more than netdev_max_backlog of them are queued, like
+enqueue_to_backlog() does, and count them as rx_dropped; the write still
+reports success, as for a full backlog. The check sits where packets are
+queued for NAPI, in tun_get_user() and in tun_xdp_one() for the batches
+vhost-net passes, so packets consumed by XDP or delivered through
+IFF_NAPI_FRAGS are not affected. A dropped zerocopy skb completes its
+buffer when freed. The check is lockless, so concurrent writers can each
+still add one packet.
 
-     Andrew
+The NAPI poll moved the whole queue out, processed up to its budget and
+put the rest back: while it ran, the queue looked empty to writers, so
+with the poll on another CPU the backlog could still grow without limit.
+Take at most budget packets instead: the rest stays on the queue writers
+check.
+
+Dropping also schedules NAPI. vhost-net sends with MSG_MORE while it has
+more packets, and tun_get_user() schedules NAPI only for a packet
+without it or once more than NAPI_POLL_WEIGHT are queued. With a
+netdev_max_backlog below that, the queue fills first and the packet
+without MSG_MORE is dropped too: nothing would schedule NAPI, and the
+queued packets, with zerocopy also their buffers, would wait forever.
+
+Reproducer, as an unprivileged user in a new user and network
+namespace, without kernel modifications or fault injection:
+  ip tuntap add t0 mode tun; ip addr add 10.11.0.1/24 dev t0
+  ip link add d0 type dummy; ip addr add 10.20.0.1/24 dev d0
+  ip link set t0 up; ip link set d0 up; sysctl net.ipv4.ip_forward=1
+  install ~500 iptables FORWARD rules, to slow down the poll, and a
+  MASQUERADE rule on d0
+  open t0 with IFF_TUN | IFF_NO_PI | IFF_NAPI
+  echo 1 > /sys/class/net/t0/threaded
+  write() 1400-byte IPv4 packets for 10.20.0.2 in a loop
+
+Found by code inspection while analysing the performance of the tun
+write path. Tested in an x86-64 VM on net, with 1 and 2 vCPUs: the
+reproducer causes a global OOM without the patch, while with it memory
+use stays flat and the forwarding rate is unchanged; the tun kselftest
+passes; a local vhost-net test of the batch, copy and zerocopy paths
+with netdev_max_backlog set to 8 passes, and fails without the patch;
+an XDP program on the device sees every packet while the excess is
+dropped.
+
+Still open: neither the packet size nor the queued memory is bounded,
+and the skbs are not charged to the writer's memcg. A single write can
+create an skb of several hundred KB, so even one queue can hold a lot,
+and IFF_MULTI_QUEUE (allowed in a user namespace) and more devices
+multiply it. This bounds the queue as enqueue_to_backlog() bounds the
+per-CPU backlog; charging the skbs to the writer is left to a follow-up.
+
+Fixes: 943170998b20 ("tun: enable NAPI for TUN/TAP driver")
+Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+---
+v7:
+- Check where packets are queued, after XDP and not for IFF_NAPI_FRAGS
+  (Sashiko); a dropped zerocopy skb now completes its buffer when freed
+- Fix the poll comment and the commit message (Sashiko)
+- Drop the vhost-net selftest (Willem, Sashiko)
+
+v6: https://lore.kernel.org/netdev/20261113212237.1742984-1-antonio@mandelbit.com/
+v5: https://lore.kernel.org/netdev/20261111014208.1795777-1-antonio@mandelbit.com/
+v4: https://lore.kernel.org/netdev/20261103142232.1869185-1-antonio@mandelbit.com/
+v3: https://lore.kernel.org/netdev/20261031231444.1528758-1-antonio@mandelbit.com/
+v2: https://lore.kernel.org/netdev/20261030152540.1409884-1-antonio@mandelbit.com/
+
+Stable: kernels before v6.9 have no net_hotdata; a backport reads
+netdev_max_backlog instead.
+
+ drivers/net/tun.c | 52 +++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 44 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+index 86fd44e10755..b7432bd4d3f0 100644
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -58,6 +58,7 @@
+ #include <linux/nsproxy.h>
+ #include <linux/virtio_net.h>
+ #include <linux/rcupdate.h>
++#include <net/hotdata.h>
+ #include <net/net_namespace.h>
+ #include <net/netns/generic.h>
+ #include <net/rtnetlink.h>
+@@ -227,6 +228,16 @@ struct veth {
+ static void tun_flow_init(struct tun_struct *tun);
+ static void tun_flow_uninit(struct tun_struct *tun);
+ 
++/* In IFF_NAPI mode written packets wait in the tfile's sk_write_queue for the
++ * NAPI poll, which may run later in a kthread or ksoftirqd. Bound that queue
++ * like the per-CPU backlog.
++ */
++static bool tun_napi_queue_full(const struct sk_buff_head *queue)
++{
++	return skb_queue_len_lockless(queue) >
++	       READ_ONCE(net_hotdata.max_backlog);
++}
++
+ static int tun_napi_receive(struct napi_struct *napi, int budget)
+ {
+ 	struct tun_file *tfile = container_of(napi, struct tun_file, napi);
+@@ -237,21 +248,22 @@ static int tun_napi_receive(struct napi_struct *napi, int budget)
+ 
+ 	__skb_queue_head_init(&process_queue);
+ 
++	/* At most budget skbs: the rest stays on the queue writers check */
+ 	spin_lock(&queue->lock);
+-	skb_queue_splice_tail_init(queue, &process_queue);
++	if (skb_queue_len(queue) <= budget) {
++		skb_queue_splice_tail_init(queue, &process_queue);
++	} else {
++		while (skb_queue_len(&process_queue) < budget &&
++		       (skb = __skb_dequeue(queue)))
++			__skb_queue_tail(&process_queue, skb);
++	}
+ 	spin_unlock(&queue->lock);
+ 
+-	while (received < budget && (skb = __skb_dequeue(&process_queue))) {
++	while ((skb = __skb_dequeue(&process_queue))) {
+ 		napi_gro_receive(napi, skb);
+ 		++received;
+ 	}
+ 
+-	if (!skb_queue_empty(&process_queue)) {
+-		spin_lock(&queue->lock);
+-		skb_queue_splice(&process_queue, queue);
+-		spin_unlock(&queue->lock);
+-	}
+-
+ 	return received;
+ }
+ 
+@@ -2043,6 +2055,19 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
+ 		struct sk_buff_head *queue = &tfile->sk.sk_write_queue;
+ 		int queue_len;
+ 
++		/* Queue full: drop, and schedule NAPI, which a MSG_MORE sender
++		 * may not have done yet. Lockless: concurrent writers can each
++		 * still add one.
++		 */
++		if (unlikely(tun_napi_queue_full(queue))) {
++			local_bh_disable();
++			napi_schedule(&tfile->napi);
++			local_bh_enable();
++			rcu_read_unlock();
++			drop_reason = SKB_DROP_REASON_FULL_RING;
++			goto drop;
++		}
++
+ 		spin_lock_bh(&queue->lock);
+ 
+ 		if (unlikely(tfile->detached)) {
+@@ -2658,6 +2683,17 @@ static int tun_xdp_one(struct tun_struct *tun,
+ 
+ 	if (tfile->napi_enabled) {
+ 		queue = &tfile->sk.sk_write_queue;
++
++		/* Queue full: drop, and schedule NAPI so that it drains even if
++		 * nothing in this batch gets queued.
++		 */
++		if (unlikely(tun_napi_queue_full(queue))) {
++			napi_schedule(&tfile->napi);
++			kfree_skb_reason(skb, SKB_DROP_REASON_FULL_RING);
++			dev_core_stats_rx_dropped_inc(tun->dev);
++			return 0;
++		}
++
+ 		spin_lock(&queue->lock);
+ 
+ 		if (unlikely(tfile->detached)) {
+
+base-commit: ead6fa9a0ab194f02a2f36d634b193e9c5f9a1c6
+-- 
+2.56.1
+
