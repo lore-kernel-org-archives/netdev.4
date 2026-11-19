@@ -1,47 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077545;
-	b=s5yk6kBG74JSZgACV5IK3MVwhAqa3GlqGMS2YYQuWVIa5lsVtANV2PrgeersJewavzEz
-	 c9l/7J0qRa96KXWC9xfgFTX+kEowZmmUGFZlEZeSof/Fa++4et+hmTO5eXlyPgSi/9m9z
-	 iXbfRaQempD2kuoZ5oZ/jy/z0QoTl5SXrW7LjnLEbRAFySScw6Iek32AEuyOwZtzqBE4U
-	 Sl7WhgEE74PK9rdJ8egvzif/B0/Hl/O3r6x2XdTW62Pdt4oEbYmpe07DOws1sE9RUIygQ
-	 SBp9qwfRpRnostmQO2XU9xNgTrlgl3f19vBtbC4ouf4dhLdlidO36SwQIk39R/uNfYQ==
+	t=1795077584;
+	b=3f2PzNerwSTC08nNgVIafWiUBVikCyHjKh/mQxaZL3+rgv9MpZ/Vm4l38Vk8wjf1Regz
+	 jGrfGDtHnmHyFI5sK5dmdaf7kqZK8wHaQ4CZtOFzgxADrHxi/nyo67f7vaYHmv+Mfg5GY
+	 2SHLMRX4Ztsl4ZApMk7gCf4h5Du7DX7zqdkpvKJ+t1zHqmc+JUM9le9gOY/GO0d98ZeiZ
+	 QgpeLqFKzQK8/yqVYXTwWos8zsaI5DgCTRnbXDIcD5IZTrVE1ayW0zjkEKJ1N1YNGBJck
+	 QIVFgEoEvs1OlNaBrg+lH3tBYVQ8z5N0J4Wg2r6nXfYZNxiIGAVMRt1bw+14ANdEz7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077545;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=qTu0M8ZplBrwJ8o8XHJM31ciLhynvJopV2Hs5MErUkA=;
-	b=PKErw0+WtogU66gBqqHTrsqKRWQfDSbGhODTrMhUk2cr8FuNB5VQRWIdkCADCPzVoNdU
-	 jVPgb2nzKl+TDCUpyGkEc/bg5Q+wYMXGRk5AaskPGKeQqvetf1Vyx3cUOF1q2AiBaF/RX
-	 nim3ec+wZP5w7OkJwvkxamOxeQ4mTcp1vfs3nwaRgLNsbSmzL0eP/F5/vDmvReerL3ai8
-	 09qTryGKoH6V+d6VuOTgZ2UVXYy0LDVZPwdN0urL+FC3ApKs7XYYzSVGI33DoPvww+qDZ
-	 Qg7HWaxAMGeQsCcrUcQcvIh27acBpxzI56B4JQ6BDH/k1H4n+IyHOH24iT91wzWh4Bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077584;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=vPWhm6JE0CImHXK++LMvsnA21/q4aoOMd/fYOnjLm9o=;
+	b=s5cZZsgkBIlsf/wEIlPGRgc+BzUJPPKF0ku5kiJm7Ba0ftr+2LynZnk0d/b3RiLpgYfL
+	 4QmAhVDxuhAmggkPk0JkahNVz7xj69IjY2KUiwxVR8GNA6tvUHnuEqTcFFCVY2qJBGwMF
+	 QFenZO+fNbtgWRMX1i8Fi/OgjXJ4YFtNEG8v4ApSCv3dAs7PqsoK5mW4KcsVD7D8MCwU7
+	 s0KVyCB6j+EyzfAi1CN/JPewmGAu0EqEbpp93iZ1nB9Qntbbm9alWUNA8Z7PdJo0pxaPi
+	 Ts3AXsJwcqo2Vw8pmntXiFnvFh4hYcTEbuBgmBvk5/qH7G2nq/2anTfaDuNWa09fCWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mKfQd0wD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="BX3JB/d2";
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AA91606A320;
-	Thu, 19 Nov 2026 08:39:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D261606A333
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:39:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D261606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mKfQd0wD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B05001F000C4;
-	Thu, 19 Nov 2026 08:39:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795077544;
-	bh=qTu0M8ZplBrwJ8o8XHJM31ciLhynvJopV2Hs5MErUkA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mKfQd0wDGLJjb24cW41DsQamVSmxNTgzqMVqhL7hwMk4MySWEzMk9euwHpQBvvaLS
-	 DfeW8ZhO83Pd803T7ZRJPYLtgSwyY6njZTo/B9nsPl/jV1zSZSKQMse21qhPAKAmHn
-	 oxWioP6Z4n4YbK5oeGVAmT+DZ4JZZNijC1qSifMfB1IqB+gt9noNo5SVkiwwioANAE
-	 fW24p5HuLVd3CIPZ8kSWI1+cjSO22tLV0SwYVO7A2kMdjPMedFVaYI39vhPlQtQPa4
-	 IRRLCSiIyAa+XwemwfK6CNv3sTnhmGrgyo7n1xUBqAejA49zenc4tMP1rpgOJGBT3n
-	 paLxpg4q2+wnA==
-Message-ID: <d06163a2-b29c-41ce-8928-2dd21aa5709a@kernel.org>
-Date: Thu, 19 Nov 2026 09:38:59 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BX3JB/d2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795077583;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vPWhm6JE0CImHXK++LMvsnA21/q4aoOMd/fYOnjLm9o=;
+	b=BX3JB/d2QlUvBdN88SPeDaMZ6EZQdNKHCRl5BHlBVeTo2oFo3RDYjadkwM5Co92KzVauB0
+	OpGiqsnSKdnKHbdPgBWAPZOGOE7L+pUlG2XMONGFzJOeoBU5MFeHh/meyAOVeu+r38cVJx
+	WwxdODIvDzGIANRm1SXRoOIgRyu/uz8=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-491-SjxZP_iUM9aTLwh6tlkkhA-1; Thu,
+ 19 Nov 2026 03:39:40 -0500
+X-MC-Unique: SjxZP_iUM9aTLwh6tlkkhA-1
+X-Mimecast-MFC-AGG-ID: SjxZP_iUM9aTLwh6tlkkhA_1795077578
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6D6B4180059B;
+	Thu, 19 Nov 2026 08:39:38 +0000 (UTC)
+Received: from pabeni-thinkpadp1gen8.rmtit.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E41DE41F;
+	Thu, 19 Nov 2026 08:39:35 +0000 (UTC)
+From: Paolo Abeni <pabeni@redhat.com>
+To: zihanx@nebusec.ai
+Cc: netdev@vger.kernel.org,
+	dsahern@kernel.org,
+	idosch@nvidia.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	vega@nebusec.ai
+Subject: Re: [PATCH net 1/1] ipv6: mcast: use resolved interface for source filters
+Date: Thu, 19 Nov 2026 09:39:20 +0100
+Message-ID: <20261119083920.30482-1-pabeni@redhat.com>
+In-Reply-To: <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
+References: <a5d3d0505baed01a213ea7953f0fe78cb025ee22.1794492711.git.zihanx@nebusec.ai>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,140 +84,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH 5.15.y v1 1/1] mptcp: fix UAF of child socket on listener
- close
-Content-Language: fr
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: mptcp@lists.linux.dev, stable@vger.kernel.org, pabeni@redhat.com,
- Mat Martineau <mathew.j.martineau@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261118125032.200934-1-jiayuan.chen@linux.dev>
- <20261118125032.200934-2-jiayuan.chen@linux.dev>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
- YBNdx5Xl74NLSgx6y/1NiMQGuKeu+2BmtnkiGxBNanfXcnl4L4Lzz+iXBvvbtCbynnnqDDqU
- c7SPFMpMesgpcu1xFt0F6bcxE+0ojRtSCZ5HDElKlHJNYtD1uwY4UYVGWUGCF/+cY1YLmtfb
- WdNb/SFo+Mp0HItfBC12qtDIXYvbfNUGVnA5jXeWMEyYhSNktLnpDL2gBUCsdbkov5VjiOX7
- CRTkX0UgNWRjyFZwThaZADEvAOo12M5uSBk7h07yJ97gqvBtcx45IsJwfUJE4hy8qZqsA62A
- nTRflBvp647IXAiCcwWsEgE5AXKwA3aL6dcpVR17JXJ6nwHHnslVi8WesiqzUI9sbO/hXeXw
- TDSB+YhErbNOxvHqCzZEnGAAFf6ges26fRVyuU119AzO40sjdLV0l6LE7GshddyazWZf0iac
- nEhX9NKxGnuhMu5SXmo2poIQttJuYAvTVUNwQVEx/0yY5xmiuyqvXa+XT7NKJkOZSiAPlNt6
- VffjgOP62S7M9wDShUghN3F7CPOrrRsOHWO/l6I/qJdUMW+MHSFYPfYiFXoLUZyPvNVCYSgs
- 3oQaFhHapq1f345XBtfG3fOYp1K2wTXd4ThFraTLl8PHxCn4ywARAQABzSRNYXR0aGlldSBC
- YWVydHMgPG1hdHR0YmVAa2VybmVsLm9yZz7CwZEEEwEIADsCGwMFCwkIBwIGFQoJCAsCBBYC
- AwECHgECF4AWIQToy4X3aHcFem4n93r2t4JPQmmgcwUCZUDpDAIZAQAKCRD2t4JPQmmgcz33
- EACjROM3nj9FGclR5AlyPUbAq/txEX7E0EFQCDtdLPrjBcLAoaYJIQUV8IDCcPjZMJy2ADp7
- /zSwYba2rE2C9vRgjXZJNt21mySvKnnkPbNQGkNRl3TZAinO1Ddq3fp2c/GmYaW1NWFSfOmw
- MvB5CJaN0UK5l0/drnaA6Hxsu62V5UnpvxWgexqDuo0wfpEeP1PEqMNzyiVPvJ8bJxgM8qoC
- cpXLp1Rq/jq7pbUycY8GeYw2j+FVZJHlhL0w0Zm9CFHThHxRAm1tsIPc+oTorx7haXP+nN0J
- iqBXVAxLK2KxrHtMygim50xk2QpUotWYfZpRRv8dMygEPIB3f1Vi5JMwP4M47NZNdpqVkHrm
- jvcNuLfDgf/vqUvuXs2eA2/BkIHcOuAAbsvreX1WX1rTHmx5ud3OhsWQQRVL2rt+0p1DpROI
- 3Ob8F78W5rKr4HYvjX2Inpy3WahAm7FzUY184OyfPO/2zadKCqg8n01mWA9PXxs84bFEV2mP
- VzC5j6K8U3RNA6cb9bpE5bzXut6T2gxj6j+7TsgMQFhbyH/tZgpDjWvAiPZHb3sV29t8XaOF
- BwzqiI2AEkiWMySiHwCCMsIH9WUH7r7vpwROko89Tk+InpEbiphPjd7qAkyJ+tNIEWd1+MlX
- ZPtOaFLVHhLQ3PLFLkrU3+Yi3tXqpvLE3gO3LM7BTQRV4/npARAA5+u/Sx1n9anIqcgHpA7l
- 5SUCP1e/qF7n5DK8LiM10gYglgY0XHOBi0S7vHppH8hrtpizx+7t5DBdPJgVtR6SilyK0/mp
- 9nWHDhc9rwU3KmHYgFFsnX58eEmZxz2qsIY8juFor5r7kpcM5dRR9aB+HjlOOJJgyDxcJTwM
- 1ey4L/79P72wuXRhMibN14SX6TZzf+/XIOrM6TsULVJEIv1+NdczQbs6pBTpEK/G2apME7vf
- mjTsZU26Ezn+LDMX16lHTmIJi7Hlh7eifCGGM+g/AlDV6aWKFS+sBbwy+YoS0Zc3Yz8zrdbi
- Kzn3kbKd+99//mysSVsHaekQYyVvO0KD2KPKBs1S/ImrBb6XecqxGy/y/3HWHdngGEY2v2IP
- Qox7mAPznyKyXEfG+0rrVseZSEssKmY01IsgwwbmN9ZcqUKYNhjv67WMX7tNwiVbSrGLZoqf
- Xlgw4aAdnIMQyTW8nE6hH/Iwqay4S2str4HZtWwyWLitk7N+e+vxuK5qto4AxtB7VdimvKUs
- x6kQO5F3YWcC3vCXCgPwyV8133+fIR2L81R1L1q3swaEuh95vWj6iskxeNWSTyFAVKYYVskG
- V+OTtB71P1XCnb6AJCW9cKpC25+zxQqD2Zy0dK3u2RuKErajKBa/YWzuSaKAOkneFxG3LJIv
- Hl7iqPF+JDCjB5sAEQEAAcLBXwQYAQIACQUCVeP56QIbDAAKCRD2t4JPQmmgc5VnD/9YgbCr
- HR1FbMbm7td54UrYvZV/i7m3dIQNXK2e+Cbv5PXf19ce3XluaE+wA8D+vnIW5mbAAiojt3Mb
- 6p0WJS3QzbObzHNgAp3zy/L4lXwc6WW5vnpWAzqXFHP8D9PTpqvBALbXqL06smP47JqbyQxj
- Xf7D2rrPeIqbYmVY9da1KzMOVf3gReazYa89zZSdVkMojfWsbq05zwYU+SCWS3NiyF6QghbW
- voxbFwX1i/0xRwJiX9NNbRj1huVKQuS4W7rbWA87TrVQPXUAdkyd7FRYICNW+0gddysIwPoa
- KrLfx3Ba6Rpx0JznbrVOtXlihjl4KV8mtOPjYDY9u+8x412xXnlGl6AC4HLu2F3ECkamY4G6
- UxejX+E6vW6Xe4n7H+rEX5UFgPRdYkS1TA/X3nMen9bouxNsvIJv7C6adZmMHqu/2azX7S7I
- vrxxySzOw9GxjoVTuzWMKWpDGP8n71IFeOot8JuPZtJ8omz+DZel+WCNZMVdVNLPOd5frqOv
- mpz0VhFAlNTjU1Vy0CnuxX3AM51J8dpdNyG0S8rADh6C8AKCDOfUstpq28/6oTaQv7QZdge0
- JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261118125032.200934-2-jiayuan.chen@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-Hi Jiayuan,
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+Full review at: https://netdev-ai.bots.linux.dev/sashiko/
+---
+--- Patch [1]: [PATCH net 1/1] ipv6: mcast: use resolved interface for source filters ---
+commit 65be18fe1d53e3d386a91fc23d1c7ba9cc2e7b28
+Author: Zihan Xi <zihanx@nebusec.ai>
 
-On 18/11/2026 13:50, Jiayuan Chen wrote:
-> mptcp_close() orphans the listener subflow before inet_csk_listen_stop()
-> runs on it. A child created in that window inherits SOCK_DEAD, so a
-> following RST frees it while it is still in the accept queue:
-> 
-> close(listen_fd):                            3-way handshake & rst (plain TCP client)
-> 
-> mptcp_close
->   // mark ssk as SOCK_DEAD
->   sock_orphan(ssk);
->   __mptcp_destroy_sock
->     // ssk in conn_list is listen sk
->     __mptcp_close_ssk
->                                              // in 3-way handshake
->                                              tcp_v4_syn_recv_sock
->                                                // inherit SOCK_DEAD state from listen ssk
->                                                inet_csk_clone_lock
->                                              // process RST
->                                              tcp_reset
->                                                tcp_done
->                                                // sk is SOCK_DEAD
->                                                inet_csk_destroy_sock
->                                                    sock_put(sk); // freed
->       __tcp_close(ssk, 0)
->         // free child
->         inet_csk_listen_stop()
->             process child        <==== process freed sk
-> 
-> refcount_t: addition on 0; use-after-free.
-> WARNING: CPU: 59 PID: 404175 at lib/refcount.c:25 refcount_warn_saturate+0x12e/0x150
-> RIP: 0010:refcount_warn_saturate+0x12e/0x150
-> Call Trace:
->  <TASK>
->  inet_csk_listen_stop+0x3e1/0x530
->  __tcp_close+0x3bc/0x440
->  __mptcp_close_ssk+0xb9/0x210
->  __mptcp_destroy_sock+0x11c/0x280
->  mptcp_close+0x25d/0x3b0
->  inet_release+0x44/0x90
->  __sock_release+0x42/0xb0
->  __fput+0x98/0x270
->  ____fput+0xe/0x20
->  task_work_run+0x6d/0xb0
->  do_exit+0x1e7/0x3c0
->  do_group_exit+0x3b/0xb0
->  get_signal+0x17a/0x940
->  arch_do_signal_or_restart+0xba/0x130
->  exit_to_user_mode_loop+0xae/0x160
->  exit_to_user_mode_prepare+0xad/0xc0
->  irqentry_exit_to_user_mode+0x9/0x20
->  irqentry_exit+0x21/0x40
->  exc_page_fault+0x93/0x190
->  asm_exc_page_fault+0x27/0x30
-> 
-> Unhash the listener subflow and drain its accept queue before it is
-> orphaned. No new child can be queued after the unhash, and the ones
-> already queued are not SOCK_DEAD.
-> 
-> Upstream fixed this in commit 57fc0f1ceaa4 ("mptcp: ensure listener is
-> unhashed before updating the sk status"), which does not fit 5.15.
+ipv6: mcast: use resolved interface for source filters
 
-This patch looks good to me for v5.15:
+This patch makes ip6_mc_source() match socket memberships against the
+ifindex of the device resolved by ip6_mc_find_idev(). Before, it treated
+gsr_interface == 0 as a wildcard. The resolved ifindex is also passed to
+ipv6_sock_mc_drop() when the last source is removed.
 
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
+> diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
+> index ecef55f261890..63770b3a7bb25 100644
+> --- a/net/ipv6/mcast.c
+> +++ b/net/ipv6/mcast.c
 
-> This may become much easier to hit once services move to a newer Go.
+[ ... ]
 
-I hope they will switch to a newer kernel first, v5.15 is supposed to be
-EOL next month :)
+> @@ -375,6 +376,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
+>  	idev = ip6_mc_find_idev(net, group, pgsr->gsr_interface);
+>  	if (!idev)
+>  		return -ENODEV;
+> +	ifindex = idev->dev->ifindex;
+>  
+>  	mutex_lock(&idev->mc_lock);
+>  
+> @@ -386,7 +388,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
+>  	err = -EADDRNOTAVAIL;
+>  
+>  	for_each_pmc_socklock(inet6, sk, pmc) {
+> -		if (pgsr->gsr_interface && pmc->ifindex != pgsr->gsr_interface)
+> +		if (pmc->ifindex != ifindex)
+>  			continue;
+>  		if (ipv6_addr_equal(&pmc->addr, group))
+>  			break;
 
-Cheers,
-Matt
+[Severity: Medium]
+[Finding: main-1-0]
+[Sources: opus-5-5]
+Does this break MCAST_JOIN_SOURCE_GROUP with gsr_interface == 0 when the
+socket already has a membership for the group on another interface?
+
+__ipv6_sock_mc_join() still treats ifindex 0 as "any interface". Its
+duplicate check also runs before ip6_mc_find_dev() resolves the device:
+
+net/ipv6/mcast.c:__ipv6_sock_mc_join() {
+    ...
+	for_each_pmc_socklock(np, sk, mc_lst) {
+		if ((ifindex == 0 || mc_lst->ifindex == ifindex) &&
+		    ipv6_addr_equal(&mc_lst->addr, addr))
+			return -EADDRINUSE;
+	}
+    ...
+	dev = ip6_mc_find_dev(net, addr, ifindex);
+    ...
+}
+
+The caller accepts -EADDRINUSE and goes on to call ip6_mc_source():
+
+net/ipv6/ipv6_sockglue.c:do_ipv6_mcast_group_source() {
+    ...
+		retv = ipv6_sock_mc_join_ssm(sk, greqs.gsr_interface,
+					     &psin6->sin6_addr,
+					     MCAST_INCLUDE);
+		/* prior join w/ different source is ok */
+		if (retv && retv != -EADDRINUSE)
+			return retv;
+    ...
+}
+
+Suppose the socket joined group G on interface Y, and the route for G
+resolves to interface X:
+
+do_ipv6_mcast_group_source()
+  ipv6_sock_mc_join_ssm(sk, 0, G, MCAST_INCLUDE)
+    __ipv6_sock_mc_join()
+      returns -EADDRINUSE (matches Y, nothing created on X)
+  ip6_mc_source()
+    ip6_mc_find_idev() resolves to X
+    no pmc with ifindex == X
+    returns -EINVAL ("must have a prior join")
+
+Before this patch the call returned 0, but it changed the socket filter
+on Y while updating the interface filter on X. After this patch it fails.
+In this state, a source-specific join with interface 0 can never join on
+the resolved interface.
+
+IPv4 does not have this gap. __ip_mc_join_group() calls ip_mc_find_dev()
+first, which writes the resolved ifindex into imr. The duplicate check
+then uses that ifindex.
+
+MCAST_BLOCK_SOURCE, MCAST_UNBLOCK_SOURCE and MCAST_LEAVE_SOURCE_GROUP
+with interface 0 also behave differently when the only membership is on
+an interface the route does not resolve to, for example after a route
+change.
+
+One case that used to work now fails with -EINVAL: removing the last
+INCLUDE source with MCAST_LEAVE_SOURCE_GROUP. Before this patch, that
+path reached ipv6_sock_mc_drop(), which cleaned up using the pmc's own
+ifindex.
+
+Should __ipv6_sock_mc_join() resolve the device before its -EADDRINUSE
+check, as IPv4 does? This is tagged for stable, so could the commit
+message also say that these setsockopt() calls can now return -EINVAL?
 -- 
-Sponsored by the NGI0 Core fund.
+This is an AI-generated review.
 
