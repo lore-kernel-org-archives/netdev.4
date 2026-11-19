@@ -1,61 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079985;
-	b=ohTPlggGfHVqNPtWfJtkt7+x2G60aMb9bs1BJfLhvo8xWyEWfgSk41ONGqlxvaGG1ftK
-	 oopdmv+eS554JwgtgkDiRNrYehTJZ/nVOKPMRKL8e2pyn7yPLIqXJgcJgEBnmXWR4zRyj
-	 Xv0ONC/MLvVdxdmnJ+YNGI/xiRXes/n/cn7enxqLPujpMZk905C9pD9jUKCEteQEg4tA2
-	 1+EVhoDPMfBJ0TZ911VrGYcBWAtre9NP7fcueku5N1o64rLsYlTdxFd1FARtSYOggvlLP
-	 PWeqUx+bosQ6Nxt41Y2NAAOl94niLUBQ73XXEg/Q/JnOLOmfboJLE/kcsbWiOoTpu/w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079985;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=/+nlz1kvn+hsVTexx0cBJ2RIyKU+qYJzjO2caadmD4w=;
-	b=SQb7SHmYuw7EAKWlQCnQ7XaAL2Bbmu4Ed56Xibf0wYJE9kB54KTch+ws1HcIETxP9JaA
-	 9sYPU/iR4Le5nKXBfyKJUQQDu3Bc2nMbnMDrSZb/0JrD6FcBTCzjG9wdfRfmHhYyXCGn/
-	 QVPk7SEKplb0wB9TS73hqyLKOczicURnAe2bz93QqU065O+mCrMSsv4CLmejXokx3CxmH
-	 3bD6j/gcaHJrwTFAfMkN5WQ7BPwzJq1BEGZfiaXaZFKqXGlMLi4Y4dtXt5yxV9GuwOdHe
-	 C39pq9RFV5IPJX/tMhGKxYuwFAQadmKQe1RRvGtxtOqbVrgf3Inz05nHenBXh4YYE9Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M44Ev5+q;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795080001;
+	b=YRUWfXbMncLf6dq06rEUdYa2qzUjKdj/0/iKuTKerUCz6tNUuu5DH/tWUKpIUwKV+lfS
+	 /OtOpZMQJRuZx5oIi7tgWsvebz0bRrAM627vERIttDf3gXDO2FfapYx0NgWnudu0ujj2J
+	 2DEM6Yx1ysyxV5erBMDDUgqhF6hv2+O34zhj7VUYjtz+SWS/m9KoAOarU9anGmu0pOlf5
+	 HfrRJSO0vT0Wg7nxzvmMcJT3BVJpAkHDH7h5+FB8U5tg4B9/XT2ISGzYhFXi75QjKwDme
+	 Soo14vKCSseJBmRPdXZjzK5+fR17zkJdNwLVetE4piS6nFAsEqdNwa/L9ekM9NqI2ew==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080001;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Ti7zYfewVTPLw6o7ketmyvxMhRKCPMrEBC1dAP5uxT4=;
+	b=LapuB3yoL0DjJVxYl2HIha5siy94J8GvebCj0E6FaSSonoRtAcCEDe7ZXFTuGrHC4NpU
+	 4GpecljywTRfGWw9Pt+91bgCHXkliy5Bosxiieb7xH6T/hjt4oAwEw95+4mspPb2LHVxz
+	 FBUlerWMyMEV6jfaH0SVfp9Y3F/OJQWF6dVyu2IJrKLsoc4cQs2wRRlmaa52OV0OPxCOf
+	 +QsvuyZB4zhvKbmzAe4uwE47AhAaqCc126lf30F3ijGXNkC3RzRsok9XHpMg0Frn+1pSg
+	 CN87/SNKXXUkIvryVwFtL5SJ77ByblPZwiAAIK2zsYnSN/re+nBP0dl2QUeAvQlDyCA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EkOk1PBC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B7C0606A33B;
-	Thu, 19 Nov 2026 09:19:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F6A2606A334
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:20:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F6A2606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M44Ev5+q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29E0D1F000C9;
-	Thu, 19 Nov 2026 09:19:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795079984;
-	bh=/+nlz1kvn+hsVTexx0cBJ2RIyKU+qYJzjO2caadmD4w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=M44Ev5+qktf7Kppwo1JIKxNmDBQH62xpvXEyp9Pw8K1Y1i7em9yWJZtRGrMYS5S+s
-	 hfLBFUIWqgqx2WsZM4fgilmwzOc/x1OBedEpgj5+xsW7pG4x9kXy8ZhGqM1LaI7SFj
-	 oFPmpN70DKeBRuJ8BS2O9fRn4QA/gU9aO+l1mo0+Vv3KxQCqlV+KSw++PSHaMcFWYw
-	 R7cMZbzEplmmVUrF/qZ2x7Ernq4y3kQYEYjmtWmZrQROSqRcSIscsoxa/Nycg0heM7
-	 7ypwntP/B+7o3V2tO3BKGajNFhjyAf9zDLuI54l+YqU0Sr4MIrSHY5sx3MtJv+1D0I
-	 om1XgwEEDurmw==
-Subject: Re: [PATCH net-next 6/6] selftests: bonding: Test that Collecting is
- advertised after notification
-From: netdev-bot+sashiko@kernel.org
-To: idosch@nvidia.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, edumazet@kernel.org, jv@jvosburgh.net,
- andrew+netdev@lunn.ch, petrm@nvidia.com, sridhar.samudrala@intel.com,
- jiri@resnulli.us, horms@kernel.org, shuah@kernel.org,
- linux-kselftest@vger.kernel.org, razor@blackwall.org
-Date: Thu, 19 Nov 2026 09:19:43 +0000
-Message-ID: <179507998375.3136.1157162879264282901@kernel.org>
-In-Reply-To: <20261118083442.1061289-7-idosch@nvidia.com>
-References: <20261118083442.1061289-7-idosch@nvidia.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EkOk1PBC
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c50d3ac6b51so143284966b.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:20:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795080000; cv=none;
+        d=google.com; s=arc-20260327;
+        b=EZKcyH3tgJbgonGNpEQENxU7A0Sf9LFk4YIvZ3H5lXExgkzO4y2+S1vSQ/RFpwuxG2
+         1vJ4qieXjZ3Atwfio0ROaBJ3vIM7cTjmfx6Cm3teLCY65HH4LxAMZeFFUu0dMG3U+0a5
+         MlySlGcTjnkZCGBVXxuUslzfNNYDlLAPe9+2sFJFUc8HVYg/C4l8lpYaX0Mc9W6+avrV
+         pKTZxqX15hnUlY3eZdQMN9GGJVhUOMf0Q2wg+XAT0duBBvFp0AhF1VWn4miMO6In4kXD
+         MOCL7p6jxTncKVmhcDuvS9O6tpg37zAnN4Cydw2dXkeFBtXl0g9F3iOBriDznWuvRxZ3
+         51cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ti7zYfewVTPLw6o7ketmyvxMhRKCPMrEBC1dAP5uxT4=;
+        fh=GtahiMwpG1iRUp2pQoPzbqdrGxhlmiMvw5wQ5FCwqtE=;
+        b=gx2X8TMPX3JdiTX93yrdmdmhcdyf+fT+zF55+F9TQ1j76UJiaQVXh11q5Hff7wZKDg
+         1TtPPGzeeMI9NBshNTLPslHgkb8YZ8oMHBEl6C1Rmd7uapVlvxksuRMdvlcnvuTMQtB3
+         /1wO3PX2opEovpglTYtZ4xV2ujK+o5bOVlhZtfAKKmnV7zwEhpql+ERTYPEGtxgr1hRH
+         oHC2UBRLuQMmT63yNl9b7UM/2ryXHUFzVE8v/bDQRaOJr0obBCiShmdnbHghzJ3v+qEt
+         hs4IgYsZeiv1KuIUp36G5ji3bDqKtxvSouP1hDyca81fg8981uBKCdYTvv71PmWMuSVc
+         E6uA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795080000; x=1795684800; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ti7zYfewVTPLw6o7ketmyvxMhRKCPMrEBC1dAP5uxT4=;
+        b=EkOk1PBCMgiSWI/XNDC6j87bo/JDyXhwWSKT7KNf3tIjZn7tp6QFghruYqBhwrnaHh
+         l4wZdzAJmlOIPC8iWaJ7ngwdy1HbOL4Kugu9fvqGhpQht29d9utB/pDKKBVFfYIxjL9F
+         sES+ZEY7KLg3uU24NJyfI6VEygksoQOswuWcQMC5xFUMLihcDekPGXI9MN1T30wP1FbJ
+         mDRuhnxif+ZSVfXF67RgfNJnpFou3Vy2qNQNa4NGt5Hb+iA7sJFxs2gbE4m3MIphzT3W
+         Ul0e5Rdzoacx5eSgIzidb/z7WxKHv9yri14fD+yIxk+ztRXMK0nt2nRw65ZQklBNUFUw
+         mc3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795080000; x=1795684800;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ti7zYfewVTPLw6o7ketmyvxMhRKCPMrEBC1dAP5uxT4=;
+        b=JDn8pH26lEs25LJ0qbjJVMyM5ak+mMgZRGiYQzyvIgao0qpIB6Zag9nDUR/LCHCYDY
+         JSZzPXpgvfUUFbc59WTdhfwZ/OFwHhVftZI8ZZoqjvhHZCJ/UmER4t0wgyt0f7V5N+SJ
+         VRhuQkWnyXi9zZZZ9P8ZeLsXgO6J+4Y5k2F5jTZ7kweqI90Y/+hjthJvEwiFwGF50fON
+         y72dw1eoWNAu36nEpkpyK9kRTKLxAsU0kVGaMz9ESykORDuW96mIhLjKIAJkYdeW+lFk
+         ZsTn6RHBqII/NEHNw1YSr9om80cXUNoWaUJZtAhe9y9yDR9qeJbcxSAuk93Ri5DUUBim
+         bDEQ==
+X-Forwarded-Encrypted: i=1; AL+hErFJS348/YaMZ+7+Zar91zc4GKozpy7Ke4zxkbj7IL8Jl4nuyhIItuICkW1nfhkk1Q5m0wlTHOs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OMvJQWwfo2LAR9+4JwAAIyCSz4cqd/PCYG423bjVWDRNeF/X6
+	8H4e8flZiSFgPJfgfpgWj5eAeGr2dmZW7ucq3eAXWzeHcBXVB72xQvW2Lnp5sAABgiKrUjOFC8j
+	HMBlDVf8siQRtBmovBVydaTqbvOiB1Swio++7ME5HMw==
+X-Gm-Gg: AYBFou0IsbJsLV8EEQehFIfpQiX6TQZqMzV9IT/BLCntrMyWw+uTG2ItCc18kVZW84C
+	hZHX4QG64yr/TrbrFsDwiCSnt4J/OManLC2JIiyur2EmtdlN86bxX8o0+SE+dRjE571SAK3xyjQ
+	yksXCV0DpDnSzYGIJq7Q+VV8RhgsQet6ziA5PHfyQKO/snGHCkc3kLOR/XDqH1a0BvfwEa8Sd3H
+	fgn7S6Ss5qWzh/ERO0HlqMmj1ne0XdzhvqN+Dii60ibm8aJq2u/OmSa1CAKlQByJESpVqVd95rY
+	HGI7QM/5IuyeNG3TKlamsA6bXcuxZiwplSwndvu+758X5fku1Ug64vB1gazhuKPhybFjlv7fiWU
+	zRyK32DfGKyFscJ2PLN4Pq7yEW1BRUeRqw0EZx5kax1iLjZ96f8o6s9N8QI0OUbsOJEEyYw==
+X-Received: by 2002:a17:907:9692:b0:c40:9b35:ad91 with SMTP id
+ a640c23a62f3a-c51318163ecmr59215466b.13.1795079999707; Thu, 19 Nov 2026
+ 01:19:59 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,115 +104,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261118184729.2302130-1-m-malladi@ti.com> <20261118184729.2302130-3-m-malladi@ti.com>
+In-Reply-To: <20261118184729.2302130-3-m-malladi@ti.com>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Thu, 19 Nov 2026 10:19:48 +0100
+X-Gm-Features: AclHuK8e8ffnAD8pzuAiTxnaJvnDKX5k-oyRRYloR7_BmjnaSSX9Hh_xNi7mzEk
+Message-ID: <CAAofZF4XYd5z8X56DRARMxbu3t7QX48T7V69MPBw9TW1BQAmKg@mail.gmail.com>
+Subject: Re: [PATCH net-next 2/2] net: ti: icssg-prueth: Add ethtool RX flow
+ classification support
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: kees+treewide@kernel.org, laixiangwu@cmss.chinamobile.com, 
+	philippe.schenker@impulsing.ch, haokexin@gmail.com, devnexen@gmail.com, 
+	horms@kernel.org, jacob.e.keller@intel.com, sdf@fomichev.me, 
+	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net, 
+	ast@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@kernel.org, 
+	davem@davemloft.net, andrew+netdev@lunn.ch, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com, 
+	Vignesh Raghavendra <vigneshr@ti.com>, danishanwar@ti.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] collecting_advertise() in tools/testing/selftests/drivers/net/
-  bonding/bond_lacp_independent_control.sh can take the wrong…
-
---
-
-selftests: bonding: Test that Collecting is advertised after notification
-
-This patch adds a collecting_advertise test to
-bond_lacp_independent_control.sh. With coupled control disabled, the test
-checks that the Collecting bit is only advertised in a transmitted LACPDU
-after the Rx state change notification was emitted. It also switches the
-partner to a slow LACP rate so that the port is not rate limited when it
-enters COLLECTING state.
-
-> diff --git a/tools/testing/selftests/drivers/net/bonding/bond_lacp_independent_control.sh b/tools/testing/selftests/drivers/net/bonding/bond_lacp_independent_control.sh
-> index a2b83b581e403..b86f39f31d0c3 100755
-> --- a/tools/testing/selftests/drivers/net/bonding/bond_lacp_independent_control.sh
-> +++ b/tools/testing/selftests/drivers/net/bonding/bond_lacp_independent_control.sh
-
-[ ... ]
-
-> @@ -162,6 +167,50 @@ collecting_notify()
->  	log_test "Notifications in COLLECTING state"
->  }
->  
-> +collecting_advertise()
-> +{
-> +	local lacpdu_ts notify_ts tmp_dir
+On Wed, Nov 18, 2026 at 7:50=E2=80=AFPM Meghana Malladi <m-malladi@ti.com> =
+wrote:
+> [...]
+> +       mutex_lock(&emac->rxnfc.rxnfc_lock);
 > +
-> +	RET=0
+> +       /* Check max rules */
+> +       if (emac->rxnfc.rxnfc_rule_count >=3D ICSSG_RXNFC_MAX_RULES) {
+> +               ret =3D -ENOSPC;
+> +               goto unlock;
+> +       }
+>  [...]
 > +
-> +	partner_state_clear 0x18
-> +	defer tc filter del dev "$h1" ingress pref 1 handle 101 flower
-> +	lacp_state_wait "$h1" 0x0f
-> +	check_err $? "Port did not reach ATTACHED state"
-> +
-> +	tmp_dir=$(mktemp -d)
-> +	defer rm -rf "$tmp_dir"
-> +	ip -ts -o -d monitor link dev "$h1" > "$tmp_dir"/notify &
-> +	defer kill_process $!
-
-[ ... ]
-
-> +	notify_ts=$(grep -m1 -w "ad_actor_oper_port_state $((0x1f))" \
-> +		    "$tmp_dir"/notify | sed 's/^\[\([^]]*\)\].*/\1/')
-> +	notify_ts=$(date -d "$notify_ts" +%s%6N)
-> +	lacpdu_ts=$(head -n1 "$tmp_dir"/lacpdu | cut -d' ' -f1 | tr -d .)
-> +	((lacpdu_ts > notify_ts))
-> +	check_err $? "Collecting bit advertised before notification"
-
-[Severity: Medium]
-
-Can notify_ts in collecting_advertise() pick up the timestamp of an
-unrelated link notification instead of the $h1 one?
-
-The monitor runs as "ip -ts -o -d monitor link dev $h1". In iproute2,
-accept_msg() in ipmonitor calls print_headers() for every RTM_NEWLINK.
-With -ts, that prints "[<time>] " with no newline.
-
-print_linkinfo() then returns early and prints nothing when
-filter.ifindex is set and ifi->ifi_index != filter.ifindex, which is the
-case for any device other than $h1. The timestamp of the filtered message
-is therefore left at the start of the next printed line.
-
-With -o, the matching line can then look like this:
-
-    [ts_other] [ts_h1] N: $h1: ... ad_actor_oper_port_state 31 ...
-
-The sed above takes the first bracket, ts_other. That timestamp is older
-than the real $h1 notification.
-
-Without "bonding: 3ad: Advertise Collecting only after collection is
-enabled", the Collecting LACPDU goes out only a short time (at most about
-one tick) before the notification. So any RTM_NEWLINK for another device
-between the monitor start and the $h1 0x1f notification would make
-notify_ts smaller than lacpdu_ts. In that case the check below passes even
-though the bug is present:
-
-    ((lacpdu_ts > notify_ts))
-
-That window covers the sleep 1 plus the wait for the partner's next
-LACPDU.
-
-The test runs in the init netns, so link events on other host interfaces
-can land in that window. Examples are NetworkManager or docker veths,
-carrier changes, and IPv6 ifinfo notifications.
-
-One option is to drop the dev filter and grep for the "$h1:" line, so
-every printed line has its own timestamp. Another is to take the last
-bracketed timestamp on the line instead of the first. Would either of
-these make the check more robust?
-
-> +
-> +	log_test "Collecting advertised after notification"
+> +unlock:
+> +       mutex_unlock(&emac->rxnfc.rxnfc_lock);
+> +       return ret;
 > +}
+> +EXPORT_SYMBOL_GPL(icssg_rxnfc_rule_add);
 
-[ ... ]
+nit: instead of mutex_lock() you can use guard() [1]:
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118083442.1061289-1-idosch%40nvidia.com
+    guard(mutex)(&emac->rxnfc.rxnfc_lock)
+
+and remove all the "goto unlock", returning directly. This handles the
+automatic cleanup.
+
+Same for other places where you're using mutex_lock() / mutex_unlock().
+
+- [1] https://docs.kernel.org/core-api/cleanup.html
+
+--=20
+
+Marco Crivellari
+
+SUSE Labs
