@@ -1,92 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795072734;
-	b=bcuHQ6n5pxVeRl4eWHZ8avzslsdumusy2DXNhxfFJtpF3AD+pt5xKerGmueocGNi2ykU
-	 ZAsYtXHyOvzL4E6GevbnhVjh6uEgmfGu/L+2Z0UZ2jQkz7zqD4JJe+ci7j8bACeP9syCa
-	 nDpod6yCyWThnMOal4OklH91gKpuvy9/Dtk1+Zfn5xYNsNtCWeTYHM90OGVoXCTdK1WPv
-	 DU0ufHHseEAUjNI+dJNCaaznXBXAqxgrFQ+4IOYhXOJu4rYQULd5H+u5bcr6oofCCHC/b
-	 Dc+66+6EF8M/JhVNW8wsUSr+NK4bqjvxVO1Kt61lGLXob18o1p13qARos8onAtedOzA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072734;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=n+LVyi43MxsRwsz1nrwE1G07r0INc4jpFn7KaXglckw=;
-	b=AllwfPGZcvLgYD2h4UZarTDIlzq+I+AgwnS7TB5DWAxC8WSSHwbD1GAD/LQM6SB82UAR
-	 oqzoJS/3b2mhXKZnArqgfZVz5d9UtXH7ioO8pphSigWjnskaCsbBdzS6jP54WgMOzvUUf
-	 l0yZSYLc3gpLgRUXmUaNM3yPwdyP6Iy3LZZ4lRLP8FKtbJfs3CZn0Q8HxXhfDnU7PEzfn
-	 i+MfesXKJKAzl/g71429uoMIXom6Q1bKJJmfAvjknBvuA84jJSEYca+l0ttSLLVfLTfWF
-	 fxlBxMR7y7OcBIlGl6MRR6dqYHxjm6XvTpEPl/HD2mD/Vna31F91xpYoeq69k6BAdhA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=mJRWAuQw;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795072788;
+	b=jKg8hxwL2bVB01LUIIsVWkes0KVtaZvGz/I7NQXuauOZC1eKvxanvH53OH2edatCTIcU
+	 HN0AUVSInfxaP/pd3XrrCE5Er898pW8ro6tu8k5AQKve0Z76Hv/lOAW5RjIhEEWdsOc0s
+	 FPbvHcwFEg6oBRthHwR+xB9OoQMXT42Qkgzw+2DfY5qZdfCjV3BLRtOLqfEB3oSwjyzSg
+	 T6LBh6ObC12yOjomU8QN47lLzjqGeNATa8KmfsZg9oDXP7VAZyhrUl8aDjPquGMIfmjla
+	 pewMBAGRKs9oidogJukKL5Thkpeql2GFWagJeLBQPxgVLfwj4pi38J9xoKa+Rjd7OPA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072788;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=c8wAnZldY5FUY0sprVy/xqqUfivovrY8S/BAsHx9zHI=;
+	b=SOV1Z3qQ63AHaCtgBfzV5R9e4U2ZvzUiJksXWCDfTqTCnOCK1ZFfR8XQPeNj6zrl3gyN
+	 vEaRAioDqFgpIGzkDRXUBjCG+YqXB3ai96s6V9PCBudQsTyjgWw3QRDJ1J9Qy08/YlCSc
+	 C5z0hepvQApWF2HXqPthXDuKaCN08jdeDtaukLo9o8Bp+uA++FYSvCTH0aM6WBOXRccYO
+	 Ke6WsXVebBzb2o0eYER6Ckpw89wOovrz3SWoL3iw6M0FmiiJxwTM6oFHlw0XV/sQzO3Dh
+	 1Wc0Nm0mE6+ntUoAYZGSwhECmV4selpKsyI67JdoN0FgBnw6/W81fL6bqwVicBIAuRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=WdJgb9pe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F004606A320;
-	Thu, 19 Nov 2026 07:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F004606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E32FF606A338;
+	Thu, 19 Nov 2026 07:19:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E32FF606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=mJRWAuQw
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ7IGseC2103056, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795072696; bh=n+LVyi43MxsRwsz1nrwE1G07r0INc4jpFn7KaXglckw=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=mJRWAuQwDoiYaOeMcVQfyEoW6nR4WXrnyzB/C49aHSwvvVsQ8pzB4EZVlxPEJmNcw
-	 agxBylEBH7If3AHlfnI97RG3iLPO+RvyrX+SvkYj5zfWyIo1RVZhZsRfjXPYzlbHdf
-	 /ogwb9UQuUhHSrGk0cqQmqmVo1h1vqhGZbTH/VJm7uBbVBKd1Ow86STKWuNVS57YrK
-	 2fmLTOQPaFsPmJggPhzuZGi+rcBC19KAuSc9BciIc6Jbe6tUlgoM7psd+3rGp1HMR6
-	 CLsG47vOIlRk+L1vRMkbBzlnAEBlUQdJFmlNnqhTZGnVHr5UJaxgjFT7OKTULxrTSG
-	 /IPuIXZNmmWyw==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ7IGseC2103056
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Nov 2026 15:18:16 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 15:18:17 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 15:18:16 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Thu, 19 Nov 2026 15:18:16 +0800
-From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
-To: Birger Koblitz <mail@birger-koblitz.de>, Andrew Lunn <andrew@lunn.ch>
-CC: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
-	<kuba@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	nic_swsd <nic_swsd@realtek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "edumazet@google.com" <edumazet@google.com>,
-	"bjorn@mork.no" <bjorn@mork.no>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>
-Subject: RE: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
- RTL8157 and RTL8159
-Thread-Topic: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
- RTL8157 and RTL8159
-Thread-Index: AQHdcMMAVp0iERnuiECMnOxwgdqzp7cszWwAgAbBatD//87JAIAAMkyAgAF2UFA=
-Date: Thu, 19 Nov 2026 07:18:16 +0000
-Message-ID: <b53ecd5dc96f4890956f051959b74e32@realtek.com>
-References: <20261110032416.16968-11-nic_swsd@realtek.com>
- <179464851836.2199510.10154643847175029122@kernel.org>
- <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
- <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
- <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
-In-Reply-To: <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=WdJgb9pe
+Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
+	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A74D0201868;
+	Thu, 19 Nov 2026 08:19:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795072784;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c8wAnZldY5FUY0sprVy/xqqUfivovrY8S/BAsHx9zHI=;
+	b=WdJgb9pe5emjlqXba6NUt0kYa3jsMKAsa7V0XsZYFVNTSYKNShs9UNoUVz4F9o8q0vTNv2
+	BmU+NuVfXh7g+etw/9uw4XAditv6xDp5KtucCnJrb+gel+a+qxjRnx5kMuBj48LvnswkmI
+	gZbmdTJVhEKapAnv7j1VzGYohmAwVipbxLWG0ELIoWQp31YLjwp8Mt3gIZ99CWJxMBNEh7
+	p9dz0eITYR6YCHOCpbF3OZ0eOKYwiXahZFvFPablweGlZ5731Jh37wiDyOCh7eiCsNwRZp
+	+XxCURmL7DQH2Cx49kn5wKxCHATxmSl2QZsI5POI9Gr+Dv1S7uxyCOM2vmH9Fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795072784;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c8wAnZldY5FUY0sprVy/xqqUfivovrY8S/BAsHx9zHI=;
+	b=bAmx4j9t2rTXKphViZ/vLV9aKS4Py4bl0KhqVMqIpG+OmkByPjQwORzyiv27xSX5qNn4mF
+	xByXyxiwWB+se1khSkiMt+kqWhJ0U5grOJztntY7AInqQ6286UocIwc1xm67gkDOS0X00V
+	zYmfk4YirQrDFpRQdb+LIFK8OaWR7T/5f6q8rC8BLCU9eXXroIX13lHmZqtT86hFPW4KBA
+	ryGkVxjeKUomf1eARJMvWxsUJ5e15DfL402Vw6oWyJqy6P9ZAPu0Adpjmdo7hDvYCUdgtW
+	vcB1NmAdmSsFrvgoaGMs1t7GysrKElpO/IJ98KDOZ8P6xktIcoLzTA9sS4LUuQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795072784; a=rsa-sha256;
+	cv=none;
+	b=c9ZyJPMeNN2bNw+qK3+NlqQG92SJWUohNn9v+ELUh7B7Ui+h3c52rcHv7WQ7lHL2g6SqeH
+	qk5exmDY9zWakI9Q0YkN+L4H4WDUzSlcos6gqWggzJZ5P79AltdFE0n6Us2pSWnMJGql45
+	1QDiPfObcXd9Rzi/mCj5fzv4sUEqJfBMy/DKeNkGa3l3akFua3v1VHovBZ+n+n6Wu5CSQT
+	wvZZQrzdcE3kFjnV6ofHglDXWsNGVaIkFy8khw2YBy+/HpG9H9cKB1d6CLRXRajb+lsNnB
+	IIBTlHrup2OX+hEL5/vY3m+AsA+jSnsaGW+VWkaULSToBWPmNw+015D8b6ZwOA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
+Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
+	id 894991BF6DB; Thu, 19 Nov 2026 08:19:44 +0100 (CET)
+Date: Thu, 19 Nov 2026 08:19:44 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
+	olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	arun.ramadoss@microchip.com, jiri@resnulli.us, linusw@kernel.org,
+	f.fainelli@gmail.com, vivien.didelot@gmail.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de, jensemil.schulzostergaard@microchip.com
+Subject: Re: [PATCH net-next v3 1/3] net: dsa: microchip: ksz9477: apply a
+ shorter ageing time at once
+Message-ID: <av6jEDrNaCwejcft@pengutronix.de>
+References: <20261117-ksz-stp-ageing-v3-1-135de6b9f8ad@pengutronix.de>
+ <179505020064.3136.4475163541276513628@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,24 +95,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <179505020064.3136.4475163541276513628@kernel.org>
 
-T24gMTkvMTEvMjAyNiAxMjo0MiBwbSwgQmlyZ2VyIEtvYmxpdHogd3JvdGU6DQo+IE9uIDE4LzEx
-LzIwMjYgMjo0MiBwbSwgQW5kcmV3IEx1bm4gd3JvdGU6DQo+ID4+IEkgcGxhbiB0byBhZGQgdHdv
-IG5ldyBmdW5jdGlvbnMsIHJ0bF9ud2F5X3Jlc3RhcnQoKSBhbmQNCj4gPj4gcnRsODE1Ml9nZXRf
-bGlua19rc2V0dGluZ3MsIHRvIHJlcGxhY2UgbWlpX253YXlfcmVzdGFydCgpIGFuZA0KPiBtaWlf
-ZXRodG9vbF9nZXRfbGlua19rc2V0dGluZ3MsIHJlc3BlY3RpdmVseS4NCj4gPg0KPiA+IElkZWFs
-bHksIHlvdSBzaG91bGQgcG9ydCB0aGlzIGRyaXZlciB0byBwaHlsaW5rLg0KPiA+DQo+ID4gICAg
-ICAgIEFuZHJldw0KPiANCj4gSW5kZWVkLCBhbGwgb2YgdGhlIChpbnRlZ3JhdGVkKSBQSFlzIG9u
-IHRoZSBhZGFwdGVycyBzdXBwb3JldGVkIGJ5IHI4MTUyIEkNCj4gbG9va2VkIGF0IGFyZSBhbHJl
-YWR5IHN1cHBvcnRlZCB1bmRlciBkcml2ZXJzL25ldC9waHkvcmVhbHRlay8gSXQgc2hvdWxkIGJl
-DQo+IHN0cmFpZ2h0LWZvcndhcmQgd2l0aCBtYW55IGltbWVkaWF0ZSBiZW5lZml0cy4NCj4gDQo+
-IEJpcmdlcg0KDQpJIGFncmVlIHRoYXQgYSBwaHlsaW5rIGNvbnZlcnNpb24gaXMgYSBiZXR0ZXIg
-bG9uZy10ZXJtIGRpcmVjdGlvbi4gSSdkIGxpa2UgdG8NCmtlZXAgaXQgb3V0IG9mIHRoaXMgc2Vy
-aWVzLiBUaGlzIHNlcmllcyBmaXhlcyBhbmQgY29tcGxldGVzIHRoZSBleGlzdGluZyBSVEw4MTU3
-LzU5DQpzdXBwb3J0LiBUaGUgcGh5bGluayBjb252ZXJzaW9uIGlzIGEgbGFyZ2VyIGNoYW5nZS4g
-cjgxNTIgaGFzIG5vIE1ESU8gYnVzIGFuZCANCmFjY2Vzc2VzIFBIWSB0aHJvdWdoIE9DUCByZWdp
-c3RlcnMsIGFuZCB0aGUgTUFDIGNvZGUgYWxzbyBkb2VzIFBIWSBjb25maWd1cmF0aW9uLA0KZmly
-bXdhcmUgcGF0Y2hpbmcsIFVQUyBhbmQgRUVFIGhhbmRsaW5nIHRoYXQgd291bGQgbmVlZCB0byBt
-b3ZlIG9yIGNvZXhpc3Qgd2l0aA0KdGhlIHBoeWxpYiBkcml2ZXJzLiBUaGUgdHdvIGhlbHBlcnMg
-aGVyZSBhcmUgc2VsZi1jb250YWluZWQgYW5kIHdpbGwgYmUgcmVtb3ZlZCBieQ0KdGhlIHBoeWxp
-bmsgcG9ydC4NCg0KQmVzdCBSZWdhcmRzLA0KQ2hpaC1LYWkNCg0K
+On Thu, Nov 19, 2026 at 01:03:20AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Is a fixed 2 ms pulse enough on every chip in this family and for every
+> stored Age Count?
+
+I do not know. I tested only on a KSZ9893. 2 ms worked there, and I
+did not try other lengths. The datasheet only says that the bit
+enables fast aging. It gives no pulse length and does not say what the
+bit removes. The
+800 us figure in ksz8.c is for the KSZ8995XA. I have no such figure for
+the KSZ9477 family.
+
+I tested Age Counts 2 and 4. I write Age Count x Age Period, so
+2 x 150 s is Age Count 2 and Age Period 150 s.
+
+- From 2 x 150 s to 2 x 5 s, I read the FDB after the pulse. The
+  entries were gone within 2 s. On an earlier build with the same
+  code, an entry learned about 2 s after the change aged out after 5
+  to 10 s, so the new period applied at once.
+- From 4 x 75 s to 4 x 2 s, in the kernel STP tests, a monitor read the
+  entries of lan1 every 1 to 3 s. The entries of stations that had
+  stopped sending were gone at the first read after the change. That
+  run used an earlier version of this patch with the same pulse code.
+
+The tests do not show how the pulse works. It may remove all dynamic
+entries at once. Or it may run a fast ageing pass, and entries with a
+higher Age Count could survive it. I did not test Age Counts 5 to 7.
+The driver does not check that the entries are gone after the pulse.
+
+Starting from the reset value of 4 x 75 s, the driver picks Age Count
+5 or more only for ageing times above 1020 s. I keep 2 ms for now. If
+someone can test a higher Age Count on another chip of the family, I
+can extend the pulse or check the table.
+
+> Can an ageing time change in one bridge now flush the dynamic FDB entries
+> of every other bridge on the same switch?
+
+Yes. On the KSZ9893 the pulse removed the entries of both user ports.
+Fast Aging, the Age Count and the Age Period are switch-wide, and
+.set_ageing_time() gets no port or bridge argument. So the pulse also
+hits other bridges on the switch. The commit message and the comment
+say that the pulse removes the entries of all ports. They do not name
+other bridges. IMO the cost is acceptable, see the next answer.
+
+> For example, 300 s (4 x 75) -> 30 s pulses. Going back to 300 s
+> (2 x 150) does not. The next TC (30 s = 2 x 15) pulses again, so every
+> TC on/off cycle causes one switch-wide flush.
+
+Yes. There is no rate limit. The pulse comes only when the programmed
+ageing time or the Age Count gets smaller.
+
+The cost is unicast flooding until the switch learns the addresses
+again. The switch learns an address from the next frame that the
+station sends through it.
+
+The pulse also helps after a station moved. Without it, traffic to
+that station goes to the old port and is lost until the station sends
+a frame through the switch or the stale entry ages out. In my
+worst-case test without this series, one-way UDP with static ARP
+stopped for up to 56 s, 43 s of that after STP had converged. Such
+fully one-way traffic is rare. Once its entry ages out, the switch
+floods that traffic anyway.
+
+On a topology change, kernel STP only shortens the ageing time. With the
+pulse, the switch also removes the entries, as RSTP does. For RSTP and
+MSTP, IEEE 802.1Q-2022, 13.19, NOTE 2 lets a bridge remove all Dynamic
+Filtering Entries, not only those of the given ports: "This does not
+result in incorrect operation, but will result in more flooding of
+frames with unknown destination addresses." The note speaks of a single
+bridge, not of several bridges on one switch. For other bridges on the
+switch, I think the cost is the same: extra flooding.
+
+> A CAP_NET_ADMIN holder in another netns that owns a bridged switch port
+> could toggle IFLA_BR_AGEING_TIME.
+
+Without this patch, that user can already lower the ageing time of the
+whole switch. With this patch, that user can also cause a flush. A
+flush happens when the programmed ageing time or the Age Count gets
+smaller. It can also happen on a raise, for example from 8 s (2 x 4)
+to 31 s (1 x 31). It also happens when a port joins a bridge with a
+shorter ageing time than the switch has now. Other bridges then flood
+unicast until they learn the addresses again.
+
+Oleksij
