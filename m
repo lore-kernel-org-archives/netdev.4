@@ -1,62 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094077;
-	b=HpCr1Jog/ZNwTS4eZglDxNEYCGsGOT94X9LluYGgXIg6W9dtZTrP2WaQknv8QlXPRo3T
-	 mt1OxEXy//mmvOUS5LHiOeAiWPb+pX/NJ09AIPT5zav/TxGmsSrFU3f91tXgDZrkb1pyW
-	 u469ZQa1m31FgoY1JnwHdiwRlceakfrbeVLPCkVn5xKaSUFWRt76ahVSIa9qObM07E1Y+
-	 FCjRPkBZX4KZp3SXbLx/AQEoDkIT7WDcJTFuVIjhgdGXGQ9hdT77TG0ivHC8eDf/o2iHo
-	 1HvB2IlopcO3JAltyoheIHDBJGMnF14TApOg/AghelEz2mCad+wp9Ass7dn+7+tbilA==
+	t=1795094618;
+	b=DmTQ1e4tY3QQpdbS/fQJ93jofpzo4PkRiLoHdJrMd9P9cdU/GF2AHtbYuy3O5/EuRDMe
+	 vbtNoP37onqpqljjevTOtrp1PAH2HD2JXlVLhBkz5KlS2Ehgt7XalPwhDMid6QWYlEBEy
+	 2cvueoU2Bxh0lNuGScy5eAtde/F047oKqSVX/WfmEiE/QCzaG6hJ2UuCrY+vrJiOd2Lh0
+	 OW+I4fqJnLm8KSi8PoMRhtMW1nsYYZMdQHev7lWcTy6KWda4/ydj7aYGJ3NXaCPv31Lln
+	 AvJvN83U7mHAaMHaFqsrYKPuOBxb7B+eE3C4YW3Qfl+rMvx5MO1a3siFLLmuNxeoSug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094077;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=+T9GIvpqxX7q3vG3lIDHXBshm0K+se9i7/mbf4e1L1o=;
-	b=4MbrT5QbO51T/miaxgGx+HxswZAYxQbEcbADCcNhjzM2uvQQ2HiDDstNE/58u50iJUKa
-	 u+YKz2HTWvX4KCH+wZuWqkO50JE7oAfyMJBGpeBe+mqwWeD/UWmnOjV2fsiNKjyPGqaXb
-	 Lemk/6AFH5rGR6PYfRALktwWS2NzDEKxCuBnIGtnj3lgS10+5MIvxAY1ImnvGwSVDCID5
-	 DjSZxWXb3cKUEQx5LY4nXHdtmN/BDMZr2gCAjvS5F8bd8098KXmOuIoH1HO2JARmMFVxc
-	 Tz4UWHokThD0CSgYZYfG2JBygJ7tovjFOe6o1RdotSCNG0AhFNuO8STsSoI6E5YfFMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094618;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=EdJiYgwYCIOqRCeOsRL6qc7Qjf5vSU6CS4yY2L/Kemo=;
+	b=g56cUoLCi3308aqxiht3IoCwlMoyaepEmG+64bIEKq+n6910EEVTegOhwbJjjBLcTDzU
+	 sH35K7Gs9ABOy3cARKozRdFoO9HG6oUW+3tnjfupP6c4SXeCnWAwrIPijONEDniEJuC70
+	 qivnXMZwwqMoe6qxRxUo5NBm52OpJ797VI6kgNRY0J/iqMrH6Uij12zLDcokWPK4qL8/1
+	 ggrU6o6k9gnHZ6tQio74+r41eUCuFSfTdJgzxS+cRT3Jclh8CT8ugFiN20fGWHR5hT50S
+	 S7jFWQA0/kuYKWGoKAwhNyRwGugc8c271NSGDi4CdlnA9nWKF0stZLnM9rOoGnVXs9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=EQ+WSuqY;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h22m5vpa;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D37F3606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:14:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D37F3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 245B1606A32C;
+	Thu, 19 Nov 2026 13:23:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=EQ+WSuqY
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=+T9GIvpqxX7q3vG3lIDHXBshm0K+se9i7/mbf4e1L1o=; b=EQ
-	+WSuqYaODRL5eqB7CntZYmtayQiSzbHdcXFefUWRfmiEFsDMIlrzHY3Btzfbu4DIcUNwpfU16Wccb
-	qVDMx/HkEcSlP5kebEpFqmWjULBh3/FOJEB9MO6iC/mDMkoMh2Gj1F+udlRq8N45Vuf3ksST7FXMe
-	szt0zBnNlAREp+g=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xU1xw-0002FP-3p; Thu, 19 Nov 2026 14:14:16 +0100
-Date: Thu, 19 Nov 2026 14:14:16 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Frank.sae" <frank.sae@motor-comm.com>
-Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, kuba@kernel.org,
-	pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net,
-	netdev@vger.kernel.org, lingyu.zou@motor-comm.com,
-	xiaoyong.li@motor-comm.com, jie.han@motor-comm.com
-Subject: Re: [PATCH net-next v3] net: phy: motorcomm: add YT8831 2.5G PHY
- support
-Message-ID: <5781d5a7-68e8-4837-8eb2-c47ec2f75507@lunn.ch>
-References: <20261118033539.36633-1-frank.sae@motor-comm.com>
- <20261119055645.653216-1-frank.sae@motor-comm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h22m5vpa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0F7D1F000C5;
+	Thu, 19 Nov 2026 13:23:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795094617;
+	bh=EdJiYgwYCIOqRCeOsRL6qc7Qjf5vSU6CS4yY2L/Kemo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=h22m5vpaAFhpWYESjdJo5TWWbFQiBb2MHNRttY1A8wadKyUu5XELL11MRmkvzXU7m
+	 ESWUBRIhDgi12YRQF4aFSUYEEb2/VvU8laltr/ejve/QiJNhEQYeehvGZLDScKCDGy
+	 oYBbEw6K+a0SRbRzcaIURCP6nW0xFF36tKVwPE1EJ3keavP+LpxI+3dwEgTOfsT6G8
+	 fy8hloUmXkDqzg0sLAnq2r+1W2QWqyFNbHSBSifQku9A7FZWh+JDTYF/dvH2Lyhwdy
+	 5AtvvTI+1m6UBVvUkXl+OQPjnCEt6XAoM+4empaQkgu5vZRT/3vAqarX9PdQ7OT13G
+	 Dw9DKxO8OIJ9w==
+Date: Thu, 19 Nov 2026 13:23:32 +0000
+From: Simon Horman <horms@kernel.org>
+To: Claudiu Manoil <claudiu.manoil@nxp.com>
+Cc: netdev@vger.kernel.org, s32@nxp.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v4 1/6] net: enetc: Add pseudo-MAC support for
+ ENETCv4 Ports via a fixed-link node
+Message-ID: <20261119132332.GV860048@horms.kernel.org>
+References: <cover.1794581338.git.claudiu.manoil@nxp.com>
+ <4f51bfd237fa584c7d9187d7b82f36e261853ea3.1794581338.git.claudiu.manoil@nxp.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,47 +67,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261119055645.653216-1-frank.sae@motor-comm.com>
+In-Reply-To: <4f51bfd237fa584c7d9187d7b82f36e261853ea3.1794581338.git.claudiu.manoil@nxp.com>
 
-On Thu, Nov 19, 2026 at 05:56:45AM +0000, Frank.sae wrote:
-> > Please break the patch up. Add basic support as a patch, then
-> > downshift and WoL as additional patches.
-> >
-> > The WoL code looks wrong, i don't see any calls to
-> > device_may_wakeup(), device_set_wakeup_capable() etc.
-> >
-> > What exactly is AUTO_BX2500_SGMII and how does it differ from SGMII?
+On Fri, Nov 13, 2026 at 05:02:32PM +0200, Claudiu Manoil wrote:
+> ENETCv4 has special internal links when connected to the on-chip NETC
+> switch via internal switch ports, called pseudo-MAC links. These
+> pseudo-MACs are proprietary, they don't implement any standard IEEE
+> interface (like MII), and can be modeled as fixed links with the link
+> speed determined at boot time by the Port PCR[PSPEED] register
+> configuration.
 > 
-> Hi Andrew,
+> We also need to be able to probe the ENETCv4 Ports featuring pseudo-MACs
+> as pure PCI devices, i.e. without any "ethernet" DT node representation.
+> The typical use case for this consists in a board with NETC connected
+> via PCI to another host which probes the ENETC. Note that in this
+> scenario, the pseudo-MAC ENETCs are connected internally to a NETC
+> switch that is not owned by Linux.
 > 
-> Thanks for your review.
+> Since such a port has no "ethernet" DT node, its fixed link has to be
+> synthesized at probe time. Build the fixed-link subnode directly in C
+> with an of_changeset: of_changeset_create_node() adds a "fixed-link"
+> node onto the port's own OF node, and of_changeset_add_prop_*() populate
+> its "speed" and "full-duplex" properties. The changeset is applied with
+> of_changeset_apply(), so the fixed-link node is spliced onto the ENETC
+> netdev's fwnode exactly as if it had come from static DT, and phylink
+> picks it up through dev_fwnode().
 > 
-> I have split the submission:
-> This v4 only contains basic YT8831 PHY support.
-> Downshift is not implemented for YT8831 at this time.
-> WoL support is removed from this series; I will fix the wakeup API handling
-> (device_set_wakeup_capable() / device_may_wakeup()) and send WoL as a separate follow-up patch later.
+> The operating speed written into the node is read from PCR[PSPEED] at
+> probe time and mapped to a phylink-supported value, so the fixed link
+> reflects the actual boot-time configuration, as long as it's a phylink
+> supported value. Otherwise, PCR[PSPEED] will be updated to the closest
+> rounded down supported value.
 > 
-> AUTO_BX2500_SGMII is YT8831 chip-specific mode:
-> When operating in AUTO_BX2500_SGMII mode, the YT8831 adjusts the PHY media side to 2500-BaseX or SGMII based on the connection speed on the PHY UTP side.
-> 1. Media: 2500BX – UTP: 2.5G
-> 2. Media: SGMII – UTP: 1000M/100M/10M
-> Differnece from SGMII is it also includes the 2500-BaseX mode, which is switched automatically.
+> The pseudo-MAC path is selected when the port has no OF node, or when it
+> only has the empty PCI-synthesized node (OF_DYNAMIC), which carries no
+> fixed-link description. Ports described by static DT take the regular
+> of_get_phy_mode() path instead.
+> 
+> Building the fixed-link node requires the of_changeset API, which is only
+> available with CONFIG_OF_DYNAMIC, so select it. As OF_DYNAMIC itself
+> depends on OF, make NXP_ENETC4 depend on OF as well, rather than force
+> OF_DYNAMIC on without the core OF code being built.
+> 
+> The changeset is reverted and destroyed on teardown and on the probe
+> error unwind. The node-less pseudo-MAC path has a runtime dependency on
+> CONFIG_PCI_DYNAMIC_OF_NODES: that is what makes the PCI core synthesize
+> the per-function OF node (of_pci_make_dev_node()) that the fixed-link
+> node is attached onto. This is intentionally not a hard Kconfig
+> dependency, since the ENETC4 driver also serves regular ports described
+> by static DT; when PCI_DYNAMIC_OF_NODES is absent the PCI function has no
+> of_node and the pseudo-MAC probe path fails gracefully with a clear
+> -ENODEV error.
+> 
+> Signed-off-by: Claudiu Manoil <claudiu.manoil@nxp.com>
 
-Ah, O.K. Most multi-gige PHYs do this. Basically there are two
-different ways it can work:
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-* The host side changes with the media side. When the link goes up,
-  read_settings needs to set phydev->interface. See
-  mv3310_update_interface() as an example.
-
-* The PHY performs rate adaptation. The host side runs at a fixed
-  speed, e.g. 2500BaseX. The PHY then rebuilds the frames it gets from
-  the MAC, buffers them, and then sends them out the media at the
-  speed negotiated. Pause frames are used to slow down the MAC so the
-  buffers in the PHY don't overflow.
-
-	Andrew
