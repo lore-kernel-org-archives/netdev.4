@@ -1,112 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107886;
-	b=4FMjJGQFhvy69XAkIPvtkr/yx2IBdwfy+ECXaYF1i8WGBG6Z626hJMoTD1xwEi5/+iVT
-	 EOD0WH9SbDTKXIXtpN5WIWbQE1B5pamIas78fdPSuqYb8o+038NYZomKWzbFFpLismEaZ
-	 44+oC8xFF8e3lpZVKAMISUmXCBnDCVLHYiHTRkQQef4joP4JutAZTGQ261hXax0u4cid3
-	 1/oqK/k9A7IzDsokpKYbr1/+x7i6gmfcNtv4YImk5J35f2XvfXc72iTaw3OlevxOlsCLU
-	 OOkMFlsvqbVqhiyHqIfT21dBHmlqfsR6YIWQ1+IB3d3VSewGmfT0cKdBZhlr5ixVFOQ==
+	t=1795107956;
+	b=zdo6gmYS3q6es0+CWlESXYTAll/8+ovZWP+ZiyoYX4vJD1xFyeNVCCnVqjDWlq9H4A1Q
+	 gPmVSTdn7fbso7mxZ9hcpDUTLtU7kAf5bjWuikq1GVfTZMne4SCy1SKKu/y0GlNEA2Pkf
+	 aTW3BKQlzKgsUpUii8kVsURHF7w8J7N9N+44u9Bzz3r2DL2XPjDkW6Qeotac1bL2BoMmw
+	 vofacoxncgZxQak15JZa93BpBnECmoENWO+O5MDZJsmc/pnmbN7Vp8bF+gWsNAHNaNUXG
+	 gRJYwF6bd/chYpBjgnztcMexqiwNrQ3v+M9JVMRhkCG4LA0JIJ4cIUs7X8meOJDfGdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107886;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=cncjVnExA6bfr+B+E0TlUndLQSnD5TH/elcwECuRNDg=;
-	b=VV6z7FGqaLzKjN9IcHnthda8hFvAfwKN4R/r6vMLUQoZfrvxC1Bl95d/WrHuWbsrQjzO
-	 YaXaAi89Q9vDi5Z6agiJsw2PU/m5hbYkoZ+Mam3mbfnpvIXNjHxqqdc+8/rZmWEJe9h8G
-	 aOMMEDd4LPH7uy+O1m0qgNK4EFpdXW61o5r/+6Vmcy1VcQGRJKO11ovuUjsDgSMGL7rrP
-	 4HUZ3SWOYiehkkO1C8dkv3agNsUuAREc8g1ofZ42RGq3eq1Y0I7VjLmiPbyYm3mg4Qoqp
-	 QlJKHzZ4RWLND1JvHNDpQ2i63DAdvE2mkX8wyRP0IdFVzqly08ohJTj4+TaW95251Mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107956;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
+	b=c+P/JipT8DhGiOeH04RTDEyospDe7v5MCxAh4KrmbdMjALph3Sq+hxmmoPSa5nUCQWf+
+	 fucG2EgkkYnIhiAWUKMBoQCJqwlZ6LVKAv2j4pfSJ5BQ/L1vpnBoiSVEN36+Whvu6vjgX
+	 hBwb5DJsWakR70cqoGVrbZ7oaQtUa2y5qaPnHq3orXPIbpbU3yjwLAiO7M4AwJ5hwkvEq
+	 D4X6ZFGUXKfKZubhiGgP20eR8Pd0ix6q9ijEbrnLlASHAkWrOX+6+saTyATTJOBuJPUB4
+	 o9DpvQ0DZ/dB5qfQaKXZ1kF2e/ncF8AGSWsflQ6kCVwLdgpZ24B7YRuQox+pyLpJRdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Y6Vk1GxX;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=T4eOZYeZ;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CDzUfvvN;
+	arc=none smtp.remote-ip=209.85.210.69
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E612A60A2625
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:04:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E612A60A2625
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C0E606A32F
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:05:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68C0E606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Y6Vk1GxX;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=T4eOZYeZ
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJGrlZe1385642
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:04:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cncjVnExA6bfr+B+E0TlUndLQSnD5TH/elcwECuRNDg=; b=Y6Vk1GxXG1cDwK2I
-	Ay5onzAoA+VRchaEdcN+T2+HmJKW1e2Mv61Zv1YiVeNf1fAAzpVwKf6Qcszwgjeo
-	8SrfWy1No0eHTBNs5qsDwAFVPwMJ9YzhPepPmRWfJExpm96/7OhAQu/lNAbxlwuo
-	OzRN0FOH1Y3j5A+J17CDSdf1kTDGyHquIxxHC6uvG+BsbTYmgoGi64xIpA6oL209
-	Ks0rxNRakP5UGPCXPB/Mt/rHgr91iQ0gsoiX0qWKUAA15amMIlvhB2fxpR4yhugz
-	cuBbM+WdH4xY1EwilCUIyJdxFK11DU8TwMkQIj1yg5WEb7mdX9/szhQQ5OiIEigH
-	1/F5Qw==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1x70a3rf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:04:44 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a08903566dso887865b3a.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:04:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CDzUfvvN
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-85a6d046af0so2676841a34.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:05:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795107884; x=1795712684; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cncjVnExA6bfr+B+E0TlUndLQSnD5TH/elcwECuRNDg=;
-        b=T4eOZYeZs8XqlzJWEwxtKKBfHHAm2TfYOpEVkafgc06bxHjR8/gCrb2KlhVV7wRKP1
-         FMb8uVDJAD5g0xp671cnt6bZ/rfd3Q9IJUjcbCWJKH/LPPE4pQlatGRuuwvdx4gJCfFP
-         6ZqwRHgcZ6eIkx9/EAn3cnb5sjqA6CFzycrZQh8UOni2bmRifsbxAGJBhHPGoX6i56bJ
-         DpS0OdBrMyeVEzwwpaPTAd2IGPAI5fFcTVwAJGeX8b13FUlJ5Yg3lKVJHxttbtTYxa29
-         gOnz/LzTXrlbKmNwf/3yT9xuim6ESopOFBQ8h55Z6wMlFcozzP7vq0FLvdj6JaLuL4fB
-         matw==
+        d=google.com; s=20260707; t=1795107954; x=1795712754; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
+        b=CDzUfvvNG4F7g5PV6b96thWKB2WqFdAFwcGHtxP9lCuUnTGkW/3UjU8YQlhy5Dln5l
+         wc/IVMWnElcxl4wFNMXpn1d3luTQOXC4/2vimDvu9/1KCETktasjTsNEIimTjtRPNqSN
+         h5kgHMx6GXNuLTr9kVszjOdAuABRdp56oTpytIliB05BVphnINVwOkKC84HV7bEYg9wS
+         ej72+4vOSh1zdkZ5vxUltpFxCjUCSZKG53WjoVe5ybSYKe6TwIjATmwfof0WJfIeUGKL
+         xNzQdIKNiyC25c6MvwqvKUlrQOk4K18lE4Qyq8auddoEa6nirRfzH1n2fMiAGE8DybUw
+         26bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107884; x=1795712684;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795107954; x=1795712754;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cncjVnExA6bfr+B+E0TlUndLQSnD5TH/elcwECuRNDg=;
-        b=LbP+ADVLPD/ZC/doSQQ53JXzDI9/ZPAu1CB5SojyCEwaRnylgX3tzNPYwWfVCBaR1m
-         U45f3gKWWA2Pf+U6vlQ8xILWnnVcRsO06zE4kxO7BIjLUv5tWef/s0whAcwA+8sVm+Zl
-         Mtn/LjVBolFPe4NA5mISX9ShlD0BM6RV+iNRH+1BqeWLVNOpgSwQiLauAZsJk1ei6ov2
-         In0Zm8ShbW0ddBH5eNmstNdAJz6+ncMCPu6RIR9e6EeRt0sRHPfE02Q8njX6xYTqM3UR
-         NmVVJ5q/KRQTUgrSYyU3aoC8CEzpfB7sjQpwApav7WoXQmF1FnMz/ev3rwpYSSbYCsTj
-         SfMQ==
-X-Forwarded-Encrypted: i=1; AL+hErHtdi/0v1RvIxEYpLigZE+N5tgVB5DNT/vkU4RpIP4xFjqRgG06bCzwHty70L3lEnAmhJGgxkk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Cnc5dAh3wg8s7b54g2Ea4oJoGyJ0GiMdEzisKX/PraV0GTlhz
-	9Fbu6V0ImYk4nuvHcfaXvkrLEZsawXb8nEKniVpwY0GGe/cLD0DLWMUEw74pEGxA4QbN0Eg22DQ
-	HQmL4fLQlgdRhduNBKWNU/r6KICPUNseTi5JuTWuXyQysL1kEFkBJ/KvjIGM=
-X-Gm-Gg: AYBFou11HIQ5V2DlyHTb/52lr68z4PEL7bjPSOXoc+1nSHa8PyABnKJeLEu4nXdgnQI
-	/6OsNTyFSRAZZyMmg+/pPxsHaONZSUBps2MUl01MrVeF+jKwD5MwER36LaxJGeVoOj8T75XjFzL
-	2/G8Q/J1bn5i5gs4Ks8K3tzfnRCV+JkzcSDAzLnNX98EDYVbwbBkyjenn47dtTe3Iyi+iKG88+U
-	hpSUGLJLRvsXqByYjEij011mo23Uj/jZt3borUljgtmY0PuTPwTI2s1at4c5U0AEYmsuC1u+ZsU
-	Q1lOIDKpIJtgwqthr9vxQjm3IoVtrpRtnf8WbuLdtN/gigCiBngSBWY+a7jf8rg+q1ehAq/Kyi8
-	9OTzex2BASw99uxnCSoTHpanm5IJmDNBN8M4shK034+1wUj1H1fOk5NVEeCOZx1J1FexUUWTNEA
-	==
-X-Received: by 2002:a05:6300:614a:b0:3f9:3f64:9b9b with SMTP id adf61e73a8af0-4014ca44ac4mr173051637.13.1795107883681;
-        Thu, 19 Nov 2026 09:04:43 -0800 (PST)
-X-Received: by 2002:a05:6300:614a:b0:3f9:3f64:9b9b with SMTP id adf61e73a8af0-4014ca44ac4mr173005637.13.1795107883151;
-        Thu, 19 Nov 2026 09:04:43 -0800 (PST)
-Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4af1fsm206335b3a.28.2026.11.19.09.04.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:04:42 -0800 (PST)
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Thu, 19 Nov 2026 22:34:21 +0530
-Subject: [PATCH v2 2/2] clk: qcom: segcc-nord: Add I2C and TSC clock
- support
+        bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
+        b=Lw8MeXvfrQBsKseS8+12aAeSLt9c/TWwdzSugDIqqn7xwLpKuPeKcNmgrHDgZJp+Cc
+         Lr3d2ImRkksbAjtZGc6aUhEL+G6s5jLCZwzRjEEPYvy5wyum3CxNqHM4EJMoobhPRTJ0
+         snTOCE3qncLhjmkgfA7YEC3NFh/0UyDq3flsoVoca5HR1FMviK/qzzKBvEUC7gkyv+LC
+         y4KsCSkxa4zk6O+Ox/ro291/2VYjXLaWd1/c/LaJ/blVXFq3oe6rVCgwp+Bo/CfISuRo
+         CXgXsCCSlDYLrj792IxKSYnublT8mO3z2N+AEERJuZ2WTqr0hCP9tD5p58Y9ufy3zliX
+         YHIg==
+X-Gm-Message-State: APuU4Z8nPsXhS2YFCcnEUhQJ5I71TpN9H/yKimTbWTYSgNk/5zIhb/g/
+	4JQ70tsnAqnMdc4i+Z1CKZ8unfRntk8J88dN35yKVxy3/OHLE2WISEQ5kznLgV/g/u91i8MJaQ1
+	NkGC/RTxxIA==
+X-Received: from iodz8.prod.google.com ([2002:a05:6602:6f48:b0:9c7:a5de:745e])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:50a3:b0:55c:888:2a15
+ with SMTP id 5614622812f47-57a0c9c219amr482948b6e.53.1795107953923; Thu, 19
+ Nov 2026 09:05:53 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:05:50 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,272 +74,113 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-gcc_i2c_tsc_support-v2-2-dcb91a0b0013@oss.qualcomm.com>
-References: <20261119-gcc_i2c_tsc_support-v2-0-dcb91a0b0013@oss.qualcomm.com>
-In-Reply-To: <20261119-gcc_i2c_tsc_support-v2-0-dcb91a0b0013@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        netdev@vger.kernel.org, Taniya Das <taniya.das@oss.qualcomm.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Proofpoint-ORIG-GUID: ctgxDcQGVYVkyyBJ9tFi6OggH-R-hLr2
-X-Authority-Analysis: v=2.4 cv=RdgFmFtv c=1 sm=1 tr=0 ts=6aff2c2c cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=dmjuMl4sYXMLEaQzlHIA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA2NyBTYWx0ZWRfX3IEuFn0Ps5OG
- cZm1IMsHU3tfXwd4dEqG2qM8+PyuaaQ/Z9y1XhB+VQnWSKheUXg9ZpqbyUlr92DQSD/zJSYnxQo
- NiGfHm3w3LbV3RM1z3bcNzyrv4Lbyhg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA2NyBTYWx0ZWRfXyUDd1goKqkFI
- A/pKp0023y9EAEUj+mu4Q06yyyFAt9rI7NVjLd+2YeIGd5ZUAjTC/ykSxwIwjjjEz+O/C7I7IE7
- 6U6Glollq1TKhuMTc25aqvM6e0Vrxb1i7PdNJH+J1xyu0Ts4zNVBHns2De3amDGW8hUeKHt09EO
- natpMMqGZYNkyQodymsc63KG2hLx2fq1Pj+yAfAJwpSYKsV8Xl7sqJnJ1NQoBtR7XMvCw4MUYbx
- Nc/L+DPkbvlKKjL3Z7bcKUSbL2edasVT3YoKIzsneHFvTeqDx1S5vXq1On6ySGr2Wdx90Fxhdtx
- PVC5iEtfdFIMjbJB2XnJ20G4jdawKezFdyVQhtsoKtpsp4q3WTLD6BLWkjJAZsliViTKveV5BKa
- ZAjJ8NAXQ+I8tfImYje1vjLFkSTV1gRQv8J/kMUC8z2KiS7VbMLIpVTsHhdy/DXI0TlhscxM5vJ
- yqmDMJdbE3nrCKXEqJg==
-X-Proofpoint-GUID: ctgxDcQGVYVkyyBJ9tFi6OggH-R-hLr2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_04,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 lowpriorityscore=0 malwarescore=0
- adultscore=0 spamscore=0 bulkscore=0 clxscore=1015 phishscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611190067
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261119170550.1517634-1-irogers@google.com>
+Subject: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds in
+ MCS alloc handlers
+From: Ian Rogers <irogers@google.com>
+To: Sunil Goutham <sgoutham@marvell.com>, Ratheesh Kannoth <rkannoth@marvell.com>, 
+	Geetha sowjanya <gakula@marvell.com>, Subbaraya Sundeep <sbhatta@marvell.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Describe the I2C slave and TSC subsystem clocks, reset lines, and
-parent PLL needed by the Nord SE GCC. This permits consumers to enable
-and reset the hardware through the common clock framework.
+In rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(), switch (req->rule_type) has
+no default case; an unrecognized rule_type in a PF/VF mailbox request
+leaves 'offset' uninitialized when passed to mcs_alloc_ctrlpktrule(),
+allocating rules from the wrong hardware partition or failing spuriously.
 
-Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+In rvu_mbox_handler_mcs_alloc_resources(), 'rsrc_id' is left uninitialized
+when !req->all and either req->rsrc_cnt == 0 or req->rsrc_type is not one
+of the four handled types. Moreover, req->rsrc_cnt (u8, 0..255) is not
+checked against the 128-element rsp->flow_ids, rsp->secy_ids, and
+rsp->sc_ids response arrays before writing into them.
+
+Reject invalid rule_type, unrecognized rsrc_type, zero rsrc_cnt when
+!req->all, and rsrc_cnt values exceeding the corresponding response array
+bounds.
+
+Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+-Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+coding assistant. Build-tested under LLVM=1 W=1 and
+-Wconditional-uninitialized; not tested on Marvell CN10K hardware.
+
+Fixes: cfc14181d497 ("octeontx2-af: cn10k: mcs: Manage the MCS block hardware resources")
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/clk/qcom/segcc-nord.c | 135 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 135 insertions(+)
+ .../ethernet/marvell/octeontx2/af/mcs_rvu_if.c   | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/qcom/segcc-nord.c b/drivers/clk/qcom/segcc-nord.c
-index ef97da3852e3571db5c34676a8f08b9650d1e4c6..256d3c18201b4fd0e48bef9293cdf78fb329ebe2 100644
---- a/drivers/clk/qcom/segcc-nord.c
-+++ b/drivers/clk/qcom/segcc-nord.c
-@@ -29,6 +29,7 @@ enum {
- 	P_BI_TCXO,
- 	P_SE_GCC_GPLL0_OUT_EVEN,
- 	P_SE_GCC_GPLL0_OUT_MAIN,
-+	P_SE_GCC_GPLL1_OUT_MAIN,
- 	P_SE_GCC_GPLL2_OUT_MAIN,
- 	P_SE_GCC_GPLL4_OUT_MAIN,
- 	P_SE_GCC_GPLL5_OUT_MAIN,
-@@ -74,6 +75,23 @@ static struct clk_alpha_pll_postdiv se_gcc_gpll0_out_even = {
- 	},
- };
+diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+index cd9cca5a9cf5..54c1d9809ae6 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
++++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+@@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ {
+ 	u16 pcifunc = req->hdr.pcifunc;
+ 	struct mcs_rsrc_map *map;
++	int rsrc_id = -EINVAL, i;
+ 	struct mcs *mcs;
+-	int rsrc_id, i;
  
-+static struct clk_alpha_pll se_gcc_gpll1 = {
-+	.offset = 0x1000,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.enable_reg = 0x57010,
-+		.enable_mask = BIT(1),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_gpll1",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_fixed_lucid_ole_ops,
-+		},
-+	},
-+};
-+
- static struct clk_alpha_pll se_gcc_gpll2 = {
- 	.offset = 0x2000,
- 	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-@@ -189,6 +207,20 @@ static const struct clk_parent_data se_gcc_parent_data_4[] = {
- 	{ .index = DT_SLEEP_CLK },
- };
+ 	if (req->mcs_id >= rvu->mcs_blk_cnt)
+ 		return MCS_AF_ERR_INVALID_MCSID;
  
-+static const struct parent_map se_gcc_parent_map_5[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_SE_GCC_GPLL0_OUT_MAIN, 1 },
-+	{ P_SE_GCC_GPLL5_OUT_MAIN, 3 },
-+	{ P_SE_GCC_GPLL1_OUT_MAIN, 4 },
-+};
++	if (!req->all && !req->rsrc_cnt)
++		return -EINVAL;
 +
-+static const struct clk_parent_data se_gcc_parent_data_5[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &se_gcc_gpll0.clkr.hw },
-+	{ .hw = &se_gcc_gpll5.clkr.hw },
-+	{ .hw = &se_gcc_gpll1.clkr.hw },
-+};
-+
- static const struct freq_tbl ftbl_se_gcc_eee_emac0_clk_src[] = {
- 	F(66666667, P_SE_GCC_GPLL0_OUT_MAIN, 9, 0, 0),
- 	F(100000000, P_SE_GCC_GPLL0_OUT_MAIN, 6, 0, 0),
-@@ -670,6 +702,21 @@ static struct clk_rcg2 se_gcc_qupv3_wrap1_s6_clk_src = {
- 	.clkr.hw.init = &se_gcc_qupv3_wrap1_s6_clk_src_init,
- };
+ 	mcs = mcs_get_pdata(req->mcs_id);
  
-+static struct clk_rcg2 se_gcc_tscss_clk_src = {
-+	.cmd_rcgr = 0x2a010,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = se_gcc_parent_map_5,
-+	.freq_tbl = ftbl_se_gcc_emac0_ptp_clk_src,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "se_gcc_tscss_clk_src",
-+		.parent_data = se_gcc_parent_data_5,
-+		.num_parents = ARRAY_SIZE(se_gcc_parent_data_5),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
- static struct clk_branch se_gcc_eee_emac0_clk = {
- 	.halt_reg = 0x240b4,
- 	.halt_check = BRANCH_HALT,
-@@ -1079,6 +1126,34 @@ static struct clk_branch se_gcc_gp2_clk = {
- 	},
- };
+ 	if (req->dir == MCS_RX)
+@@ -709,6 +712,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
  
-+static struct clk_branch se_gcc_i2c_slave_ahb_clk = {
-+	.halt_reg = 0x2c008,
-+	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x2c008,
-+	.hwcg_bit = 1,
-+	.clkr = {
-+		.enable_reg = 0x2c008,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_i2c_slave_ahb_clk",
-+			.ops = &clk_branch2_aon_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch se_gcc_i2c_slave_xo_clk = {
-+	.halt_reg = 0x2c004,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x2c004,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_i2c_slave_xo_clk",
-+			.ops = &clk_branch2_aon_ops,
-+		},
-+	},
-+};
-+
- static struct clk_branch se_gcc_mmu_2_tcu_vote_clk = {
- 	.halt_reg = 0x57040,
- 	.halt_check = BRANCH_HALT_VOTED,
-@@ -1456,6 +1531,57 @@ static struct clk_branch se_gcc_qupv3_wrap1_s_ahb_clk = {
- 	},
- };
+ 	switch (req->rsrc_type) {
+ 	case MCS_RSRC_TYPE_FLOWID:
++		if (req->rsrc_cnt > ARRAY_SIZE(rsp->flow_ids))
++			goto exit;
+ 		for (i = 0; i < req->rsrc_cnt; i++) {
+ 			rsrc_id = mcs_alloc_rsrc(&map->flow_ids, map->flowid2pf_map, pcifunc);
+ 			if (rsrc_id < 0)
+@@ -718,6 +723,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ 		}
+ 		break;
+ 	case MCS_RSRC_TYPE_SECY:
++		if (req->rsrc_cnt > ARRAY_SIZE(rsp->secy_ids))
++			goto exit;
+ 		for (i = 0; i < req->rsrc_cnt; i++) {
+ 			rsrc_id = mcs_alloc_rsrc(&map->secy, map->secy2pf_map, pcifunc);
+ 			if (rsrc_id < 0)
+@@ -727,6 +734,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ 		}
+ 		break;
+ 	case MCS_RSRC_TYPE_SC:
++		if (req->rsrc_cnt > ARRAY_SIZE(rsp->sc_ids))
++			goto exit;
+ 		for (i = 0; i < req->rsrc_cnt; i++) {
+ 			rsrc_id = mcs_alloc_rsrc(&map->sc, map->sc2pf_map, pcifunc);
+ 			if (rsrc_id < 0)
+@@ -744,6 +753,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ 			rsp->rsrc_cnt++;
+ 		}
+ 		break;
++	default:
++		goto exit;
+ 	}
  
-+static struct clk_branch se_gcc_tscss_ahb_clk = {
-+	.halt_reg = 0x2a00c,
-+	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x2a00c,
-+	.hwcg_bit = 1,
-+	.clkr = {
-+		.enable_reg = 0x2a00c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_tscss_ahb_clk",
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch se_gcc_tscss_cntr_clk = {
-+	.halt_reg = 0x2a008,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x2a008,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_tscss_cntr_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&se_gcc_tscss_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch se_gcc_tscss_etu_clk = {
-+	.halt_reg = 0x2a004,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x2a004,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_tscss_etu_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&se_gcc_tscss_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
- static struct gdsc se_gcc_emac0_gdsc = {
- 	.gdscr = 0x24004,
- 	.en_rest_wait_val = 0x2,
-@@ -1520,9 +1646,12 @@ static struct clk_regmap *se_gcc_nord_clocks[] = {
- 	[SE_GCC_GP2_CLK_SRC] = &se_gcc_gp2_clk_src.clkr,
- 	[SE_GCC_GPLL0] = &se_gcc_gpll0.clkr,
- 	[SE_GCC_GPLL0_OUT_EVEN] = &se_gcc_gpll0_out_even.clkr,
-+	[SE_GCC_GPLL1] = &se_gcc_gpll1.clkr,
- 	[SE_GCC_GPLL2] = &se_gcc_gpll2.clkr,
- 	[SE_GCC_GPLL4] = &se_gcc_gpll4.clkr,
- 	[SE_GCC_GPLL5] = &se_gcc_gpll5.clkr,
-+	[SE_GCC_I2C_SLAVE_AHB_CLK] = &se_gcc_i2c_slave_ahb_clk.clkr,
-+	[SE_GCC_I2C_SLAVE_XO_CLK] = &se_gcc_i2c_slave_xo_clk.clkr,
- 	[SE_GCC_MMU_2_TCU_VOTE_CLK] = &se_gcc_mmu_2_tcu_vote_clk.clkr,
- 	[SE_GCC_QUPV3_WRAP0_CORE_2X_CLK] = &se_gcc_qupv3_wrap0_core_2x_clk.clkr,
- 	[SE_GCC_QUPV3_WRAP0_CORE_CLK] = &se_gcc_qupv3_wrap0_core_clk.clkr,
-@@ -1560,6 +1689,10 @@ static struct clk_regmap *se_gcc_nord_clocks[] = {
- 	[SE_GCC_QUPV3_WRAP1_S6_CLK] = &se_gcc_qupv3_wrap1_s6_clk.clkr,
- 	[SE_GCC_QUPV3_WRAP1_S6_CLK_SRC] = &se_gcc_qupv3_wrap1_s6_clk_src.clkr,
- 	[SE_GCC_QUPV3_WRAP1_S_AHB_CLK] = &se_gcc_qupv3_wrap1_s_ahb_clk.clkr,
-+	[SE_GCC_TSCSS_AHB_CLK] = &se_gcc_tscss_ahb_clk.clkr,
-+	[SE_GCC_TSCSS_CLK_SRC] = &se_gcc_tscss_clk_src.clkr,
-+	[SE_GCC_TSCSS_CNTR_CLK] = &se_gcc_tscss_cntr_clk.clkr,
-+	[SE_GCC_TSCSS_ETU_CLK] = &se_gcc_tscss_etu_clk.clkr,
- };
+ 	rsp->rsrc_type = req->rsrc_type;
+@@ -793,6 +804,9 @@ int rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(struct rvu *rvu,
+ 	case MCS_CTRL_PKT_RULE_TYPE_MAC:
+ 		offset = MCS_CTRLPKT_MAC_EN_RULE_OFFSET;
+ 		break;
++	default:
++		rsrc_id = -EINVAL;
++		goto exit;
+ 	}
  
- static struct gdsc *se_gcc_nord_gdscs[] = {
-@@ -1570,8 +1703,10 @@ static struct gdsc *se_gcc_nord_gdscs[] = {
- static const struct qcom_reset_map se_gcc_nord_resets[] = {
- 	[SE_GCC_EMAC0_BCR] = { 0x24000 },
- 	[SE_GCC_EMAC1_BCR] = { 0x25000 },
-+	[SE_GCC_I2C_BCR] = { 0x2c000 },
- 	[SE_GCC_QUPV3_WRAPPER_0_BCR] = { 0x26000 },
- 	[SE_GCC_QUPV3_WRAPPER_1_BCR] = { 0x27000 },
-+	[SE_GCC_TSCSS_BCR] = { 0x2a000 },
- };
- 
- static const struct clk_rcg_dfs_data se_gcc_nord_dfs_clocks[] = {
-
+ 	rsrc_id = mcs_alloc_ctrlpktrule(&map->ctrlpktrule, map->ctrlpktrule2pf_map, offset,
 -- 
-2.34.1
+2.56.1.708.g77570a6a1d-goog
 
