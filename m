@@ -1,97 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110434;
-	b=15TEzgnHOspTCuDwmCoFFUdpUS3cmNMwMt6aKT1fOj2AofA/cOk6sG67k5j9DYkPTgm9
-	 v+fn/XcURDqI81Mfl/B5ds6IbWNVa04jObITBP4VI55JUZEXBpiUjkziqCay4xZlGiWfw
-	 AaDpKVSH+k2MsIU62ffwWkx2Fz12a718bpnQ0ZyPfK7TWLVWV5hGqDEFEO6b3Q+oPGXGK
-	 hWS3/ay2daQ+5geUrhraIB2irGpFcMq9lGHyURmCwVeP0mzo0vbdlqaLJqS6XGkeyM2sz
-	 e+zPASBHvsSQQIJyCLHIJb2k6cAXKOTptty0xHIabWzVsV4e/Gl8ZmWjrZlmlaBLDLw==
+	t=1795110981;
+	b=RwHqpd77cIa1FpDl0IVzR84XqSXlTinUdc9nSJvoYrIoilzaZY7V5tqluC5cEHFtW3Yj
+	 n2m9KOz2YAEq9qizE0t0fhKiz525rCUDOVCeqFgKTCwveRnG7xjyHCVw49mqFdFn3oc9v
+	 gaBVMl+JoRyL0Nxu0WS98/au7VGdFNIfCTPMDPmHigzAzyxQ1qLRPDWvQf9d/0QWzdPof
+	 XenglD29sMlEcjx72ic+q1n0sM1Vc4vaaT/INWQ1w6KdgJKDWey1T0K4Hi3dP+FCxZYET
+	 cnIo0wjA0D0WE/8cKGXzzPRJUyK1aZ91Y+hhoGMpkSifnqlI8piOpyspIx11NlMBKZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110434;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795110981;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=jA7L51eZFG4wqsC1MFVIKmRTCU9z9tkqrhEZ8kU+Blk=;
-	b=3DXHebGh/TaK91DTGfoiqvmbk6Pkd003FwAbFlnPZcwHddLgO/Vo705cb51lI2IgcX6V
-	 3xHUaK+q53kmz2ugSKVWfJxVSStzE+i4OEp/Yxgj9o0W0xQMyWL0foQ8JU2LXVOawfziA
-	 EAnfcIimGap9Y1Y6o53ms6fQqJSL4TMWjWoxqqc1mqRU/MCZl/by75UkNn5dTa/b233xI
-	 c2CpISrxz8Y/3TDhHwQgXVMrKJ6aOBXvFv3H0I8kTTQAJM+a4J37V5yVWc8ubhJHzb8Nk
-	 XEyx4SzRnrQ7MACAVIJFBRCOHRdgI+T+CF8D/tVwQpckDNZ6bxtWji7DwQVy7hzmlCA==
+	bh=1zvf1Vt6Wlu8Jafv7/Nxh5FyeaGX2OkkjqPuvdXfMmk=;
+	b=plevL+5ozpvJvqK0CumfGc26uGYR5JdNHsx3VjFYNI795D1DrJyF1/WyILSIPNE+eeoy
+	 gZi921PWML+HtKdOmcT7TT7FGzUIpc5oV+TqfQqYFun7s2Mahcuby8lZSbb9FPcHAQaml
+	 vud+lgIiQ8yFhDsvGP0FgShDUqnW2z7cGVSiTTBreNBC3061uqdM6Gjp3YPq/UefaxcE/
+	 nDrH1aiPBRPAvxP5O86CRvjXYjU2S6xpxxxvf9aKHZwpN31BCa5FGU/gCLQoZOXGnOqZz
+	 XB/T33YSGTtx7kg+KbRIs4q0aX27VojeEBkSMXt+Wo1FYS6FVqEph2Qkvc99PQmsoBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=networkplumber.org;
-	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=oDueYk7u;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ee9AK2C+;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC234606A32A
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:47:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC234606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9531606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9531606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=oDueYk7u
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso72530a91.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:47:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ee9AK2C+
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b3acec6677so3642993c88.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:56:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795110433; x=1795715233; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jA7L51eZFG4wqsC1MFVIKmRTCU9z9tkqrhEZ8kU+Blk=;
-        b=oDueYk7uG7QpLXBSnsvPBynfqerujgz25M9iCIQlQm5Q9k5JXnEKvNmXl+C/In2Vqg
-         KTO8m8bssuhLM1YQltPNRvhzpp0l3aibGHmtqCnTtYYMkYM/8X4SooY8T3PG9amimivS
-         WvOXzEOdBaYBGOaKiAKANTuRuvsAo4akje9WvJsK+BIlx8YPFxzOsnDsa+nQtWB2rwfr
-         zQnriJMPj4dCubTMbkcvemmc7hrlFQuXJiNE07T0pyPFbMuLNzBeVno/ocyHUczrqa+r
-         O5pBDzONoHKGrg8vkqEKIT+WWdkBP0UfQXoX8ZppwPTr43TwMvtQD+DDM0rRffkV6TSI
-         Jgiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795110433; x=1795715233;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795110980; x=1795715780; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jA7L51eZFG4wqsC1MFVIKmRTCU9z9tkqrhEZ8kU+Blk=;
-        b=GbyjiMwNtui1EFtDiTGUNt95KrI4xep336Dx2W8nSccgaHiHdUSaEL3jjdMbwVgnHJ
-         7GEkaoQrQcf1Vdbgv6dG7kIZqxc6i2yy2S3eujOIdnIoeJPCp7FfcSIz8kINiHhH/Qq3
-         6Oi1hctxazSjSm0oY8gsvh6+3a4Q1I5UvrbHfEuUNdKw5EsMB7/jIueR5D+2nVjCKu5L
-         yHQG0pP6lFA7w0lCexERqF+TEFYKVVCed9JF2T+JBiUP6GT0zILKLmOWEbB2cUcXtaoi
-         r7wjajuGnWBXHw6FTq0IlbPALfGML7TEVOrlx0kWwHOX+OTI9oxB3Ed+0dyQsVj48XTX
-         oDpQ==
-X-Gm-Message-State: APuU4Z8oWPjD57/QcJuX5klOLnrc4BgnbHPIFcvdxWBlxQCo/NLfKOP7
-	pTTRKrb2vVAz75sPee6eWtURH9JfyKZzto7yTLd5i1KmliNtn5plbFEpHxm7LTjCgYXVuocI/4p
-	TURC+26w=
-X-Gm-Gg: AZFdTZdzEmq/QcOeCIeI3x+YOeST5WolQeKQq/NMbGA5gZEtDB416tseF5UGycNgQik
-	/Se5eJlnbS23/v07Jv+s4vCA/+RqxvKPkKNt70XAzAsQbMMW3pSpGhdK0TDtkD9crg+ngRd/uWD
-	gr8ZSqhC5E+KkgypRQvXGT0tVTNPcye7ItTw5rRf6N1TW56GguoO9Gta27yD4+IRDVH7/3cTzNg
-	I0Kyt6H9fOChW1IC6mroeQf0ge8qYdItG2XQxsAmr0oUegE8UtKksAiUPhg9zOlKnrtmvwfI6gb
-	aVD6T2SRrpNdLms/SfrCQvGi829Pd1XGci6ntwO7diajq6dCa5gO8Yl5wzYkwWgPxm1wMAF/XlK
-	BsgngEtf1u4EKrDcs90ZjrHqGBz6Qi50+w33x6bTyluvRKhe8zBMJ/ZteBqCCNff6iJmkUFyegY
-	JwTL03jnpxvNSQEb1TuuhYTNOm8gj3ECrj8NY+Wb46bdAloRE1Tleb8VWbtTMcYXPkpLuESnp9b
-	h9gSOimAHeMBWCtzpmSGzZnssmFkV9CCXu8Q7mPgLKfn62SdyVjouX++aKv7HuJd6PWHh5xH5S+
-	IAdNiN7+aP/N9i0dj9I1mdn1p5jIRjNULDO4BWj9rjegZKdU+Q3Enoe18GfUFbFCSEw2h9U=
-X-Received: by 2002:a17:90b:48d1:b0:3b1:832b:bb3d with SMTP id 98e67ed59e1d1-3b41c9817dfmr76906a91.57.1795110433087;
-        Thu, 19 Nov 2026 09:47:13 -0800 (PST)
-Received: from phoenix.local (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c13sm326249a91.14.2026.11.19.09.47.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:47:12 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:47:11 -0800
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: Jamal Hadi Salim <jhs@mojatatu.com>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, Thomas Graf <tgraf@suug.ch>,
- Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov
- <ast@plumgrid.com>, Jiri Pirko <jiri@resnulli.us>
-Subject: Re: [PATCH iproute2-next 3/5] tc: remove eBPF map export and exec
- bpf import
-Message-ID: <20261119094711.6049b21a@phoenix.local>
-In-Reply-To: <CAM0EoMkLUeJdzCBxsknqxSKAZ2Q7WhAB9ifV_tKXne4fPxY7YA@mail.gmail.com>
-References: <20261119001539.2868072-1-stephen@networkplumber.org>
-	<20261119001539.2868072-4-stephen@networkplumber.org>
-	<CAM0EoMkLUeJdzCBxsknqxSKAZ2Q7WhAB9ifV_tKXne4fPxY7YA@mail.gmail.com>
+        bh=1zvf1Vt6Wlu8Jafv7/Nxh5FyeaGX2OkkjqPuvdXfMmk=;
+        b=Ee9AK2C+S3qeJOi6maQz+7AlWazVG+ohhMcXX9mAY6d8njr+vRKJUaxKWZiijoAX6s
+         N/AaSlo0a9nSNaB2IaD5fbR7YymAv+sgEfgMqgYviN4llAYi4w+DsGjv3WkCfjXVlQEB
+         7Qp1Ua8EhPp8GYHByv9OTUetHNas4MbBGXPj9f5ERkuLvPfAG1DHt2t1rPKLz+ChkoDS
+         rvxPNZ6QT1lKDA2O0cLI/7BNB8otlMPK1FLnBuHX3L6AhoRXwuL2JupNKbhTZ5z7Omh8
+         gjpGP8fJIdD8p83ByCnvro+uOT7Udzm7f9NjOFBV4xIBA2zr55CPjhMRTQb5sEyzvW+5
+         exww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795110980; x=1795715780;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1zvf1Vt6Wlu8Jafv7/Nxh5FyeaGX2OkkjqPuvdXfMmk=;
+        b=P52Zc0H9tXsN4s5AVh/CF8JBe//In5AKzPVKBJOIxCm+d/gDEJw29uUZAReRay0NmU
+         +hLsGwki03TduwvjckkPrAgl2Fz9HHi8deAiBTPH9JU5LWcq0ZO8pC4Z994RGD8GxqgK
+         ZK7bLBQw3pwges9RKCFibXeEpZolddtcvR2QJACUW/Ac+ytqjyEKPlIOp5m8C5spsdb4
+         x/zPTt2AKzV/Z9rSTQ2kjaXwo9pffX2u5rVWoXWyXeFvHzQ33izMqAqsLlWzyORL8P4p
+         5Cis9N+bRADP7iclJbM7UuEskghiJ3Kq5NlrHOGJAFSZyiuKUG7EqXnCnfBCLHsdLXb6
+         RAcg==
+X-Forwarded-Encrypted: i=1; AL+hErG8pquhZhjdojZKjrf0l72pYhh2Lmmu8MNbnPd0wLo/nNocVmI9F2qw+bsYHf6bXMJDb6yGr5E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+J5KcsjtjJdsM8DySDBDs47q+GzvL6p+GuUzapGWAeDXaOPVPw
+	KqJAjVQSHmV7OK191iwEFmg2Gd7mMFdv2FDDJ6qJsQ/mgrqYvUVvfYja
+X-Gm-Gg: AYBFou2ee8BLYa1qmgj78Qv/gG+CPiZefbw95nUkdkUth7V89jMpI/UQQu7NfreYq0o
+	SZ9AMYhvIWFV7C1M6PekgDM/u5f0Dp+XxK25+c68jAZeu6+Xuit+PVJ0eTytc25pvWua1w8mSUK
+	CpcjCh+jgJ8Aa8J0AhKawubgu3Z4mbkzh4Rstd8ipnIGfOkGugjEBaLspxwCEmp44IKEUyA8gLi
+	WhDAKhuLu6e+EhbeMd/+8BmA76kTaKFCg6NJ7z9a1woRnmUGpXlb0RDSrfmO7WIZyXkSe9wXc2l
+	VLadndnKnCx2yBLsVZN6XkWXuQLnBi9epzNz9o7zMo1TIyIyPHZeU7ui32E0DLbfMnovUod0+Dn
+	1mL4XzcRL7M+jF5yqZueYqeQwVAS6JL8zrtcM4qOhoasyKLmn4PkXmUAxKz1CM5cI3uHENODenD
+	eAmQMBafnG7MHC2UBdGv3/dusIGUVYhz5tGkh4bh1ngqMms3sFuO4hdmt/VlwUf/q3x2MNuB57M
+	S8VpVrHDE4T6IT9jNtHOyH0nzup/sniku/bTY8+6kmgNWHXBz4J//HDjhFtCRIzBcyszn3hKP/K
+	1YGsv0qb8ABY1ipx3zgWOFYSaDujC8y3im/bBQMgAnPl0ZFiVberg3ZTPzRKjJR0MfM5PizR9nr
+	SUzLQUj/QrXegVAv3
+X-Received: by 2002:a05:7022:b909:b0:1b4:f3af:355e with SMTP id a92af1059eb24-1b5568a660emr304415c88.13.1795110979829;
+        Thu, 19 Nov 2026 09:56:19 -0800 (PST)
+Received: from ?IPV6:2a03:83e0:1151:15:c24:4ad9:f660:1904? ([2620:10d:c090:500::7:3ffc])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm670954c88.7.2026.11.19.09.56.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 09:56:19 -0800 (PST)
+Message-ID: <e2f61cf2-f5d1-4509-aad8-ef7db1dde81c@gmail.com>
+Date: Thu, 19 Nov 2026 09:56:17 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,30 +93,169 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 1/5] eth: fbnic: wait on the correct queues in
+ fbnic_queue_stop()
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, alexanderduyck@fb.com, kuba@kernel.org,
+ kernel-team@meta.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
+ pabeni@redhat.com, shuah@kernel.org, hmohsin@meta.com,
+ mike.marciniszyn@gmail.com, sdf@fomichev.me, bobbyeshleman@meta.com,
+ bjorn@kernel.org, leitao@debian.org, horms@kernel.org,
+ almasrymina@google.com, vadim.fedorenko@linux.dev, daskald@meta.com,
+ netdev@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20261117215416.1901246-2-dimitri.daskalakis1@gmail.com>
+ <179508206173.3136.15402623456535892800@kernel.org>
+Content-Language: en-US
+From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
+In-Reply-To: <179508206173.3136.15402623456535892800@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Thu, 19 Nov 2026 04:19:50 -0500
-Jamal Hadi Salim <jhs@mojatatu.com> wrote:
 
-> I dont think this code changes in iproute2-next (didnt try iproute2
-> tree) - but for tc testing i use:
-> https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git
-> (origin/main = 9eee7bb8 ("Merge remote-tracking branch 'main/main'
-> into next", 2026-11-18))
-> libbpf 1.3.0 default and LIBBPF_FORCE=off
-> 
->      m_bpf.c:107:25: error: 'bpf_obj' undeclared (first use in this function)
->      m_bpf.c:108:25: error: 'bpf_uds_name' undeclared (first use in
-> this function)
->      m_bpf.c:108:43: error: 'struct bpf_cfg_in' has no member named 'uds'
->      make[1]: *** [../config.mk:47: m_bpf.o] Error 1
->      make: *** [Makefile:67: all] Error 2
-> 
-> suspect: the patch removes this declaration?
-> -  const char *bpf_obj = NULL, *bpf_uds_name = NULL;
-> 
-> Attached fixes it.
 
-I suspect you need to do a "make distclean" and rebuild.
-There should no longer be and --libbpf options in config and no way to force off.
+On 11/19/26 1:54 AM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] After this patch, fbnic_queue_stop() passes
+>   nv->qt[t].cmpl.q_idx to fbnic_wait_queue_idle().
+> 
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but
+>   fbnic_queue_stop() stops the vector's netdev Tx queues with a bare…
+> 
+> --
+> 
+> eth: fbnic: wait on the correct queues in fbnic_queue_stop()
+> 
+> This patch sets q_idx on Tx completion rings. fbnic_queue_stop() now
+> passes cmpl.q_idx to fbnic_wait_queue_idle(), so Rx queues no longer
+> wait on queue 0. It also skips stop and wake of Tx rings that are
+> marked FBNIC_RING_F_DISABLED.
+> 
+>> diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+>> index 07d4b2e923627..5efed21e59329 100644
+>> --- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+>> +++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+> 
+> [ ... ]
+> 
+>> @@ -3089,13 +3092,16 @@ static int fbnic_queue_stop(struct net_device *dev, void *qmem, int idx)
+>>  	napi_disable_locked(&nv->napi);
+>>  	fbnic_nv_irq_disable(nv);
+>>  
+>> -	for (i = 0; i < nv->txt_count; i++)
+>> +	for (i = 0; i < nv->txt_count; i++) {
+>> +		if (nv->qt[i].sub0.flags & FBNIC_RING_F_DISABLED)
+>> +			continue;
+>>  		netif_stop_subqueue(dev, nv->qt[i].sub0.q_idx);
+>> +	}
+>>  	fbnic_nv_disable(fbn, nv);
+> 
+> [Severity: High]
+> This isn't a bug introduced by this patch, but does anything here wait
+> for an fbnic_xmit_frame() call that is already running on another CPU?
+> 
+> netif_stop_subqueue() only sets __QUEUE_STATE_DRV_XOFF. Nothing calls
+> __netif_tx_lock() or synchronize_net() before fbnic_nv_disable(),
+> fbnic_wait_queue_idle() and fbnic_nv_flush() run. Only the full-down
+> path in fbnic_pci.c uses netif_tx_disable().
+> 
+> A sender may pass the netif_xmit_frozen_or_stopped() check before the
+> bit is set. It can then still be inside fbnic_tx_map(), writing
+> tx_buf[], ring->tail and the BQL state, and ringing the doorbell.
+> 
+> Suppose it sets ring->tail after fbnic_nv_flush() has run:
+> 
+> fbnic_nv_flush()
+>     fbnic_clean_twq0(nv, 0, &qt->sub0, true, qt->sub0.tail);
+>     ...
+>     netdev_tx_reset_queue(tx_queue);
+> 
+> Is the skb and its DMA mapping then leaked once __fbnic_nv_restart()
+> re-enables the ring and fbnic_enable_twq0() resets head/tail to 0? BQL
+> would also keep in-flight bytes that never complete, and that can
+> stall the Tx queue.
+> 
+> Now suppose the sender is delayed until after fbnic_enable_twq0() has
+> done this:
+> 
+> 	twq->tail = 0;
+> 	twq->head = 0;
+> 
+> It would then write a stale ring->tail and ring the doorbell, and the
+> hardware would fetch old descriptors whose buffers are already
+> unmapped. Could those completions make fbnic_clean_twq0() read a NULL
+> ring->tx_buf[] entry and dereference FBNIC_XMIT_CB(skb)->desc_count on
+> it?
+> 
+> To hit this, a queue restart (netdev bind-rx devmem, io_uring zcrx) has
+> to run on an Rx queue whose NAPI vector also serves a combined Tx queue,
+> while another CPU is sending on that Tx queue.
+> 
+>>  
+>>  	for (t = 0; t < nv->txt_count + nv->rxt_count; t++) {
+>>  		err = fbnic_wait_queue_idle(fbn, t >= nv->txt_count,
+>> -					    nv->qt[t].sub0.q_idx);
+>> +					    nv->qt[t].cmpl.q_idx);
+> 
+
+This finding looks legit. I'd prefer to submit a fix for this separately,
+and I can try to repro on HW in the meantime.
+
+> [Severity: Medium]
+> On an Rx-only vector the Tx triad has sub0 disabled and carries only the
+> XDP TWQ1 ring, so this call becomes fbnic_wait_queue_idle(fbn, false,
+> txq_idx). Does fbnic_wait_queue_idle() actually cover TWQ1 of that
+> queue?
+> 
+> It builds a single bit from the queue index and tests that bit in all
+> four Tx idle arrays:
+> 
+> fbnic_wait_queue_idle() {
+>     ...
+> 	off = idx / 32;
+> 	mask = BIT(idx % 32);
+>     ...
+> }
+> 
+> The TWQ, TQS and TDE idle arrays are twice as wide as the TCQ one:
+> 
+> #define FBNIC_QM_TWQ_IDLE_CNT			8
+> #define FBNIC_QM_TCQ_IDLE_CNT			4
+> #define FBNIC_QM_TQS_IDLE_CNT			8
+> #define FBNIC_QM_TDE_IDLE_CNT			8
+> 
+> There are 128 queues with two work queues each (TWQ0 and TWQ1), so this
+> looks like one bit per TWQ. fbnic_wait_all_queues_idle() reads all 8
+> registers, but fbnic_wait_queue_idle() only reads registers 0 to 3.
+> 
+> If bit idx maps to TWQ0, it is always idle here, because TWQ0 is
+> FBNIC_RING_F_DISABLED on this triad. The TWQ1 ring that carries XDP_TX
+> traffic would then never be polled.
+> 
+> Next, fbnic_queue_stop() calls fbnic_nv_flush(), which runs
+> fbnic_clean_twq1() and unmaps the XDP buffers. Could the hardware still
+> be fetching TWQ1 descriptors at that point?
+> 
+> The bit layout isn't documented in-tree, so the answer depends on the
+> hardware. The commit message gives "fbnic_wait_queue_idle(tx, 39)" as
+> the wait on the vector's XDP Tx queue. Is that wait enough to cover
+> TWQ1?
+> 
+>>  		if (err)
+>>  			goto err_restart;
+>>  	}
+> 
+
+This also looks legit, and I can submit a fix in a subsequent series.
+
