@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795047006;
-	b=ekJqryn0cOfKjJ5lj43VBVeHOMfiCRfzucf8/Bf9MyxJj68IqWL1HBI34hAR2nOd2omD
-	 ZG6Wz7+bx7vhcxxnEx6fUuIOUKiFOqnylYhW+TiilO7AI6QzXp/yu/yPfvdYr+zHngX/C
-	 ZX+INmara1qiphHo5rOLnglV2i1sl1b0uIxM6Y0jKitgpfeoAR/D/pq11laDchDFLTyKt
-	 gB16mBFowf9dGWwGX2bhUU1w17LZUrlqxxR0TgNc77/Um/jii2E8mNZ0yJ5UHF6SHDsVP
-	 utwO9NHxl5O5UqsxZTTaFCOP0c9FemyTe0//IwRP7JdL65/Zgw4YDz1/q3w2OxKuZqQ==
+	t=1795047013;
+	b=2JxEQ5eab+ScNmxdNpot7oUK62OwWRAVvYBFHHCcGxaNNwlZ2Osuov7MuYf8kDMHXUYs
+	 3/4faBqkuoGpB3eXA5H2WeirLrukIxhWG/mQGcoAe3qDdt1Y8adQQQR8I085I+dmGwMJC
+	 X8WFLirrUvRN7dA0zO9kVSyrfNXF/if+t3kFyUyCD/Z85WYkUDzuisQJTsSxUb20pRVv0
+	 kAi25L6lY8zg9IYYFykEm8whnLQjHf6B2iK4fZYaNHNtT/QSooOyq6ibs82d3AHsLgixW
+	 6DF7LfRCSx6tjfYwv6vp3NVUxNWRdgJfbnRHMs/XHG1cNYqZ/iPgw9XYqXMSM9HLAeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047006;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047013;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=3zqfOVb1L8J8UWMRAbLSQuaScgqx98kUOPdW2k8ykvY=;
-	b=4alTMKH2ZRT7DPCdJSkwUX9OBYnknUmIioIldXm8ge9UYSSqocTeGt17n5bXUtORYbrb
-	 EEhhvzBEyyRDz4yCRBpPtPjDVZ40VXxj1wDkX1yXTXcFKw8zsz42golupRP16sYHzINew
-	 tgN8A5Na+lqPwBRMYNnc5oiCqDqsonhkMZ6hsszQZCZ2M5ieE+pv1TCAqJlSMxMkJ9Ozi
-	 qgL9vKpIs02BkfK8V7x+Vy4ZEKrsy/dJgS4dmP64LOSKBa0wTaH7OD0+wrD/SJKY5lXjo
-	 NWHlstH+Gewd5yVXqqJT5N7zZj9tr9vp2t+06EiyZtD0qL3rfK5toOTsDJ746kwKHrg==
+	bh=PhMX4cAwpJGXD1gU6oVnlpVXH8u76VL9hE+5dhIxfl4=;
+	b=HmyTlGIgN0DtJaVqHgsLyPqVkBKIIxIE7WuWMSUO+ary/QcLgXvfZbJoSOnvs9PhL2Gg
+	 dvGHkSc39RZauA3ipTWIciy2FNeld+3N/y7/bCDYbbVV5QCuraZ3+LDi204VJr1WrdOHe
+	 vbrCMY1vMrIXEcsBG7QWYLYU77OI9Q/lxqEEeKaoSywqaItXpFZ422zyI+zqW9J00291G
+	 yn8CcY1o2RU1Qduq+iYknmicHDbBrYgZ6vhgEFP23Ibv+QAM9jxnwnyJsQP41fBCiGOHf
+	 qtLGux1BZf+2cOqOeFfFqunxJ+Pye2+YF8lYkfM5BCcy1lTbHjK5umCI5/YF2/kH6iA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AjJxXbOp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FScmRlxK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B18BE60A261F;
-	Thu, 19 Nov 2026 00:10:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 285D460A2600
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:10:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AjJxXbOp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EFD91F000C5;
-	Thu, 19 Nov 2026 00:10:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FScmRlxK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04BEC1F000C5;
+	Thu, 19 Nov 2026 00:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795047006;
-	bh=3zqfOVb1L8J8UWMRAbLSQuaScgqx98kUOPdW2k8ykvY=;
+	s=k20260515; t=1795047013;
+	bh=PhMX4cAwpJGXD1gU6oVnlpVXH8u76VL9hE+5dhIxfl4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=AjJxXbOpBvx8yGxtFK18oSjI1UlVApu8sJgBcZ+28jA+KoHpX+YU9+xNRxeozF33B
-	 fvmUpEdN/8CTZ1jfoDARW+1UKYO1vJfEJAFyX9vBs9J8YYRZewn3GmSzBevB7mL95w
-	 rChbsBQtlH3D1sgvEI6/+DGMVW+tiCMTCx2Ugr8FCxRRiEzw8krrqDTzkZYLglpFau
-	 X9M3YWqZaRPIl+5TcySKCFOEKDpzNEWWKS3xoSEWSQmC1oDSSP5lMKHdc6YBZSo8dy
-	 0UPFN7hqemhxLt2MEAIeCMtRPByzrvKCupocU31VIWHSFFuyS6cK7KiPzhNhABD6Qt
-	 4gWBSAdkuFXVg==
+	b=FScmRlxKxCYLIUGY46BYVRTj9+TFKjrxAV9gsxRcuN1YwMJo7E+u0a4mq/qLkrWSf
+	 CwgrXS6h2lJr2y85pLbltqkT9rIp8B4sb3rqn7SetN9ED9tBIzq+3ZrDZySD5Vd0vO
+	 4BJi59IPaDZqJ+/c7cQPticjgIWdn58DO4OZPwi9r6t0qTf/NW8QaGeOo2JBrBNRJO
+	 27rWG0ajwPxXIkdiBjWjQPGtFcxEYpccl2btHq2cNDT/n1JDRrLexV0knTrgTJYdu0
+	 SD0nkQik/r5F2CiK7NW3LHhxzywX80AAZ2ZceO2iwyCpHxqIo4autiDALDe2hFOMfd
+	 cSWVq4BZAFJRg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773DA3808210;
-	Thu, 19 Nov 2026 00:10:06 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14853808210;
+	Thu, 19 Nov 2026 00:10:12 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,42 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: via-rhine: Stop the NIC on platform device
- shutdown
+Subject: Re: [PATCH v1 net-next 0/4] af_unix: Drop MSG_OOB support.
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179504700528.2637749.17488188558430878185.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 00:10:05 +0000
-References: <20261113-vt8500-rhine-shutdown-v1-1-9448ea9548ec@gmail.com>
-In-Reply-To: <20261113-vt8500-rhine-shutdown-v1-1-9448ea9548ec@gmail.com>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: kevinbrace@bracecomputerlab.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- robh@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+ <179504701152.2637749.17494957758610196904.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 00:10:11 +0000
+References: <20261116021845.2533130-1-kuniyu@google.com>
+In-Reply-To: <20261116021845.2533130-1-kuniyu@google.com>
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
+ netdev@vger.kernel.org
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Fri, 13 Nov 2026 17:01:05 +0400 you wrote:
-> Close a running interface on platform device shutdown, so that the chip
-> stops its receive DMA before kexec hands its memory to the next kernel.
-> Do it in the driver, as the platform (OF) variant lacks a .shutdown
-> callback and nothing else stops it, unlike for PCI, where the core
-> clears bus mastering ahead of kexec.
+On Mon, 16 Nov 2026 02:18:17 +0000 you wrote:
+> MSG_OOB implementation is quite buggy and has received many CVEs,
+> which led to CONFIG_AF_UNIX_OOB, but the default is 'y' so it is
+> enabled by major distros, even though there is no clear use case.
 > 
-> Keep incoming frames from landing in receive buffers the old kernel had
-> allocated: on a WonderMedia WM8950 board, broadcast traffic alone
-> corrupts the next kernel at random points as it decompresses and boots,
-> hanging about a third of kexec attempts early on, e.g. with
-> "unrecognized/unsupported processor variant".
+> In addition, such bugs have changed user-visible MSG_OOB
+> behaviour many times, but no one complained about that.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: via-rhine: Stop the NIC on platform device shutdown
-    https://git.kernel.org/netdev/net/c/3d10dc3ae1f7
+  - [v1,net-next,1/4] selftests: landlock: Replace MSG_OOB with O_ASYNC+F_SETSIG.
+    https://git.kernel.org/netdev/net-next/c/e0fa647fd313
+  - [v1,net-next,2/4] selftests: bpf: sockmap: Remove AF_UNIX MSG_OOB test case.
+    https://git.kernel.org/netdev/net-next/c/30eb4baebfde
+  - [v1,net-next,3/4] selftests: af_unix: Remove MSG_OOB tests.
+    https://git.kernel.org/netdev/net-next/c/f4dc608a4bd1
+  - [v1,net-next,4/4] af_unix: Remove MSG_OOB.
+    https://git.kernel.org/netdev/net-next/c/387f48167305
 
 You are awesome, thank you!
 -- 
