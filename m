@@ -1,59 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069428;
-	b=4AJgyAHphJBV0r0TooU+8SV/WYXytIPfukFQiuctOnDZOO6SvuyEI7S/D6qw5rfNFsQe
-	 iyWOJCbZ7e/GJzvkQdG89w1GSxN0fU+fYJsv3yguxjpFfx61cE4TzFzt/UwZtkCt/mCQs
-	 mQRouaI7+V494EN5dKpsDPQdIbfdxe69KmyOJZt7QZtutumDYBSv5TMGvI0N0MpO8KSlK
-	 e4plRRsqZg5yY0X/4Dtzu/egOcN7w2vZzvKN3BuqRG32iYHcYFvliKKazw/Sw0b7qYaBD
-	 UsAgQpPYHMMlzAjtqwsfH5Q7RdBO7IZy7BYEnnr/+JOR9RkMyLMWybUglL2xYhTyoLQ==
+	t=1795069438;
+	b=0zuA7kfWieMu0R233MA8Q/fWHDvGC/Ms7wmn2KQIb4bEjXVheojlROz2iDHWFEX+tsO9
+	 rqvs1Cjez43QnIqWZtrmKJxbEHg4gxfaTxYOr7uybgzrr8MkIThJcTRggAXMjI9SzfFaG
+	 vinsISY4RdL8MYKQUKeHeYBsk9rbtJao/FVl/g73rsMKlCGPfcg7G01UpdvzxIW8xkpRp
+	 jMdQ1CnOnxySQfW2V18tLOg58BnxMVhQAOlQ51Zt+h94ryG1wTx5+JXhY7yD5LLbW/4G/
+	 baynKQWz1i8/WLhToinXpQ8h/FL9pFKhwnXkLL9ne4Oc5aowlQsPQlVxr12I50jerMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069428;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069438;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
 	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=uiBAgPR3mbCilMy3wV2aTt54aq8fZXpS3BLUN2SMcjFY5I7iCMvmNC70yRztfbvN7V2V
-	 wWNLC9CeVk+G8Zt0mDEvojHX7DH5iWmweyRkZIrThB3Vz3hldRwZWgMg+DXkO78bSZdIk
-	 n08QgEKs6qpTeE16Fuxovr4lO4xvCQqTDk5xmWgMSJxRHdZHU+6jZYrUjQ62LyRwD2Za4
-	 H5TF5J4600VJ6Od+dMb2m9B1lsStul/m6KK2T3uHSniuhpVPr9BsrjsSFmN2Lpc+zW/oR
-	 3yOlAFUWZPipLDvN83ZVDYJbqCw+5WAC7EOKHDZbw/WhRPO3P4pzb7eRQdOAINOtqWA==
+	b=s3tkgzYJkcpsUA+Nw1aGNm4ArJbdTfhLKelINm5eGy6N/Ym74E48BAfUn9itCETiCTU2
+	 YcfcbKDa7+K9TfU0C+JnpuDhP7WmCklwJ0uMgi3XJfOcETYsXzInw4V9kJVw8OqSBMUpH
+	 UcRp3tWSJnSIPPHLJNxvSAguVc8brajohVDENEakRaeBHBynLzvU4bVJQOeY9D/G8k4eb
+	 GgtG1fBitq1QBkw1qXxLUfEA8BOazq37DYAFK72gA/j9GKCCz429jJ3A6hMzA3Udrct/x
+	 5WEyx7QTF2ldn+vdJFkQ1RLQ858wKxNij4jcYKtfurXP+XCRiAJPvAdwf9PbIkdRS6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ewIbnYE7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmobXEA8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FC57606A320;
-	Thu, 19 Nov 2026 06:23:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D3E7606A326;
+	Thu, 19 Nov 2026 06:23:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ewIbnYE7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 753481F000C4;
-	Thu, 19 Nov 2026 06:23:47 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmobXEA8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4498D1F000C4;
+	Thu, 19 Nov 2026 06:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069428;
+	s=k20260515; t=1795069438;
 	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ewIbnYE72ESNFxiFE11aSoAeBONwIKEARAO3xCxcDDrH1axrlYikp6kD2ErbxQT06
-	 /DgnnMu+lxB6aa5saosFuTiJ9gh2GvvffQM2mvANS6rKMwfZYhvBRwYdexAZz5OK8L
-	 mM8TTxC5qIhX9FiW9nfD8xFqGwDXsNUtaghpg4O9OLqYnhuaDgRi7oZUXz8i/gQWU2
-	 5yl8tbSnl1S5StVDnII0qc8OZigm279TL0u0dl+xwFNBEPWLrTo/kXmJcItu9oc5zX
-	 ZcC5UaHlbfnqQt53ORkMI6MLKatogwRL9XlSDjSMFoJSc1TRxUogHWIwzAa7h9vEjq
-	 B1SOkbcSvLHkw==
+	b=nmobXEA8BY8H8yKoYGfvS0Ym1tOcAYN3VYvO3aifoMfyvBhEffu08cnHXGZi90qJq
+	 QPPnALrqPsdSGnpUqLFx1U1BLh6b2xbWNFj6sYAX60Zij//ti3LZ5PCp4v6DB11nAX
+	 qyr1iV3XTig+OHxucPEbnM/2ky0hnz4S35tShrs+zNPWYLezw70BpRORDfL9jmKywi
+	 cMcisIhbu0W1ZRg2B/wamV6+reVmqxe4N+ctPFYMCD20aPx+kDnrtMLJv5U3vpKUlh
+	 dImjPnrVV/n21OrQmhXY8XIQNGX3d4Ak14Cls9ddcWn69aJlkO648bBJOwhgLBk9lh
+	 qK47uGlQ7L36g==
 From: netdev-bot+sinfo@kernel.org
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: linux-kernel@vger.kernel.org, pablo@netfilter.org, fw@strlen.de,
- David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Patrick McHardy <kaber@trash.net>,
- Hannes Frederic Sowa <hannes@stressinduktion.org>, netdev@vger.kernel.org
+To: Fang Xieyan <fangxy@xiaopeng.com>
+Cc: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+ Ilpo =?utf-8?q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ netdev@vger.kernel.org, Liu Haijun <haijun.liu@mediatek.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Lin Qiaojie <linqj@xiaopeng.com>
 Subject: 
- Re: [PATCH nf] ipv4: fix conntrack defrag forwarding after ip_frag_reinit()
-Date: Thu, 19 Nov 2026 06:23:47 +0000
-Message-ID: <179506942704.3291.17367853280181438146@kernel.org>
-In-Reply-To: <20261119061751.222641-1-jiayuan.chen@linux.dev>
-References: <20261119061751.222641-1-jiayuan.chen@linux.dev>
+ Re: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
+Date: Thu, 19 Nov 2026 06:23:56 +0000
+Message-ID: <179506943682.3291.10326179398413921657@kernel.org>
+In-Reply-To: <20261119062044.72261-1-fangxy@xiaopeng.com>
+References: <20261119062044.72261-1-fangxy@xiaopeng.com>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
