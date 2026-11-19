@@ -1,65 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.191
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105976;
-	b=D4tW297KuesA3c+WfmaVgP0GdnQbKhdeu2SCmzW0QDG/qXuiCAxI2aXH+Njy6z5Nbr2a
-	 iLHkvD0FV1hXYVR+51gaJ6sfsYQypNy1C1ozch9rcc3wqamuQnFLqU8tuXudjXZcDCjgr
-	 GjSEEGpGlRez44EetdAWWFDcQ4tkcisVmidjmzq8V5Y1OfpI9yzRUMwNGmR1tW2Nxt04u
-	 g34TvVsChA7Zom9crFNYBWGtG807ksDwobM1UVcmPKX+8MLrxmwLKu2UPPkIKc4ic3MxQ
-	 LqHv0LV5NMHvgL6MOYEm4EN4cTVOZtpWjDf8bhYoQ4+ufAgOcysTmgOTVq49fzDi5UA==
+	t=1795106158;
+	b=mjS6UmYa8Ay2x/qEAr2f2XrjK9c1XCjq6xSI0yjk2MhGUd+fqhD4BAzs3veVnTjHvxkR
+	 FoO8V0mKTiRJlWSecX0nVuFcX7EFkcMbmjvCbwtRRt/DHhkYeX5x6HWl2rvTw7j/kWEDD
+	 l2+ydm4XGRuSVKlyJbeP7tCaRkwly7JLhXBkjc/Zwjrac8qbQXTK6Vn0RSsEvdO+I6whF
+	 95UhscPg1UoRG3KRfIkRiZD5Ku8SzbN1GZ9Ru4wZhEEHYXri1/JCzL/8cULUqHWEqGQJW
+	 pYByaZ1vmV04PBMxJ6+eHIFbWFnXaLIgR1KJJfDc7Yl05WOT0UBzeoC7sN/yhRXpQdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105976;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
-	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
-	 In-Reply-To:X-QQ-mid;
-	bh=hmvVD4jshjGTJPKVKH0iUEryYLKyYDibytdthlFHw3A=;
-	b=xPP0NrBsy1MBPuB78cFaSWvqkU83i/KtiKr/mZY+dJKZOQUJbL/vUTXFExUMdspBjSRq
-	 GTm8Eet29gbsZ+/wDqW6xcysqdP3SpJCFpaPdMFrjoxnC6AVszGvOW49l6zzcRqL39oWQ
-	 KsuyJZm4/xpDbzHBsbIO81utppLNMu7WScNmDYeXxtFGOzy6WMcv4rC6sO7ucSM9bDL8w
-	 cXKsExyDXcxNyFcnHkHOhRo2Yl4I1SWDQ2xxcuSZGvBGjjfWCI7eK0RGnlhppBDIsi424
-	 gsdw31ajfgKL9IHnJfF5556T1Icwdj97wMRNVzSdcCkgWX52PG/apllfnG6MtEXqZxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106158;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=vdpT6LJvyJoZU056rFgJK1cgm13iBFK2/AWVWgyfxl0=;
+	b=sl1krUtugMx+K3e+KTssrtawfI6wexaOVujC+9bxxqRh+2nWDKV3snjcmx/iy28H/+QY
+	 hOz5r1DTdxxixrIf0JjJLYQjigsXZ6MQpm5+KMvCKpMNuoJ3eUNA/uUC/vAqGrtYK4u08
+	 RTB3nWKHo/UuAzkLwiKucoCAa+FdPWu+2YfLD02SndFFRJSlhZNnGFf7v57I1Kakg6Qns
+	 1ybvU92vYxmt33AhOE/2zoUmpdO4T7Sq+xnqWNIbxo4RLCroTRNT5RIilBDUq40BnSO8n
+	 klSCitZbX3+8bSqyIfpH1tlJH7QsrX9PoiwxUv8A1J1LgIr1z/D7od5Zs3/DIcKc3mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="ydNW5j/o";
-	arc=none smtp.remote-ip=203.205.221.191
-Received: from out203-205-221-191.mail.qq.com (out203-205-221-191.mail.qq.com [203.205.221.191])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gQYSVpk8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B456860A2601
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:32:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B456860A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA86606A324;
+	Thu, 19 Nov 2026 16:35:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ydNW5j/o
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795105966; bh=hmvVD4jshjGTJPKVKH0iUEryYLKyYDibytdthlFHw3A=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=ydNW5j/oJaVyJyCJNBsr04hhxUrWBZlgBEKN0kUs16FtF9Ej6hQayEJKdUeein9Mg
-	 wQbjScaHeJUhayHNcDXXFs+4sCKI9Ms8M21pmqAaSuUyYkaX99z/Jtc4sC9LC9gYGm
-	 xIbQzvUurFdinaZmUP9oZ+RWEp8BnNTw+V95NF+U=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-XMAILINFO: McF9JvsryK5JISAGsN0AA0TDtB0RYm29ij4SbvfKO878us4ycgKj+fWwpsOvaB
-	 ok7gmYQPlUi0/0V9zKwEgZeAYUF2aFw7Eg1SRCxPmH5LnNH6QrcISQ/FYhSWPWY7vJXarjmMyzWl5
-	 SphIIB+2kNlbqWXT6rQ8SeBZe4JkuJ2unpFgMls6fJ92QMh5e+2DzvuBqXC6TL3qTFEgRLKXZCGo8
-	 dvhuL7bXQ351YtU9n3bP4dsc9EVg1R6xK51/xhxJ0XaVJnL17oGZ4QoGPykjGvyEMUrx9OJsLLHRW
-	 e36kVLOaDVJYRszWlq6eXlFKc2zASmlKQYUGZEKf7o+FeQGtIA0a4m0kAdT4g8+40CMaFavHE9WIC
-	 ShGvEVDM2QvQOFPfogalHWsGBFifYMp6ZbTj/ee9YlRhB6UPg07dHZcSaEf8Qiw17w8xtq85Z99zo
-	 95NUMFFGBP1lQ1BKe9WBvQcnKuVod5IAjbd6VvUBhanyoonG6HxPwIZpelErOwkUs8YB+xD+C+FFy
-	 ivrnpf5TLBhPPaU16MZOkzC6lAgAZ47ShJ/wkNfzSys2uUUdUsHAfP7PAPptKeflISENMrREJnsrz
-	 ZdmGY2Ul9Xp0OqMhywEBbwNWc2+TfpMQOHreKAFkq+sj7bnF6kh6zqQK7sWkDH9qUxb/V4BRbQ6w3
-	 cXTXbdT8qxElezLBLZ4ftOEKaU8SVrumuwNrtRTKPM2jfDnrZUEzVHcqwIcsCrjFGCvvw4hix9xkt
-	 /KtTp1i4kz7EFAZVhipTdrHBGtJbyTlIzK9QffzNGC24SJSCisxkSkmUZVK9etKtG6CK5pOv0T//y
-	 TQaVdnhRKrtpdidoLo76rSA6XV51cJCLo/6Gr9zfptBTsfzC8z5gohyE3JnNpYZRBZNT9DT+nDWHL
-	 yk4rPEDFUryH7VDdq2POSnYcve0pxOTBQW5kLuodsqqoTUT3j4/tpzARhrZRZK54NTMhQzpXXTEMa
-	 ZVdUlwwX5Ecsb6fVMoQvCzxgWiyZnj0LLWQtyNzKSwyzk+bksEusO30WddveOlcz3s307XF7GAEUH
-	 3QeQ/sZ6O6yo43MdcQ8dw+SFTUgzYInXFpOAqOQAxPeOOjtNHDsKFAmNWveP7DRu1ltjDl9Y/NaWp
-	 SPmbPyVBwR1ucEW710u2nYjI
-From: "=?utf-8?B?Q29uZ2ppZSBaaG91?=" <zcjie0802@qq.com>
-To: "=?utf-8?B?TWljaGFlbCBTLiBUc2lya2lu?=" <mst@redhat.com>
-Cc: "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?amFzb3dhbmdpbw==?=" <jasowangio@gmail.com>, "=?utf-8?B?ZXBlcmV6bWE=?=" <eperezma@redhat.com>, "=?utf-8?B?eHVhbnpodW8=?=" <xuanzhuo@linux.alibaba.com>, "=?utf-8?B?YW5kcmV3K25ldGRldg==?=" <andrew+netdev@lunn.ch>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?dmlydHVhbGl6YXRpb24=?=" <virtualization@lists.linux.dev>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>
-Subject: Re: [BUG] virtio_net: RX stall caused by masking callbacks after NAPI ownership release
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gQYSVpk8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511101F000C4;
+	Thu, 19 Nov 2026 16:35:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795106158;
+	bh=vdpT6LJvyJoZU056rFgJK1cgm13iBFK2/AWVWgyfxl0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gQYSVpk8Ti3Dz/c09ltm5E6cnoyLoK3hTNLppD3CmR67E27lg38E+/NCiyJoo762q
+	 1JxZAcpE2jNuyH7arhdRbACTCBIFV5B499W36m5xUxPglxihcgAMnUl6P1qFnWYZ4A
+	 ezd6Xu771igMuOdZ5aggHIRRgwgXfRlWMMFAGf478Zt4qaRiCtizOmkjNT/qvfXO4d
+	 2MjjshcGxxPN+92CMQDEpdEjqWE48UfVSvxylXsMxjVHk0GG+Z3S8S5vdgqPqRWYZV
+	 DCmzsDYax8vY22yr/uMKPF5oDO7+HGcLKgrnNe476l85h2K5RNG1vW5btEEM7rwpZF
+	 YE6t540hluycQ==
+Date: Thu, 19 Nov 2026 16:35:52 +0000
+From: Simon Horman <horms@kernel.org>
+To: Chuck Lever <cel@kernel.org>
+Cc: Donald Hunter <donald.hunter@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Paolo Abeni <pabeni@redhat.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	Jeff Layton <jlayton@kernel.org>, NeilBrown <neil@brown.name>,
+	Olga Kornievskaia <okorniev@redhat.com>,
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>,
+	Eric Dumazet <edumazet@kernel.org>,
+	kernel-tls-handshake@lists.linux.dev, netdev@vger.kernel.org,
+	linux-nvme@lists.infradead.org, linux-nfs@vger.kernel.org,
+	Hannes Reinecke <hare@kernel.org>
+Subject: Re: [PATCH net-next v3 00/10] Deliver TLS session tags to
+ upper-layer consumers (NFSD)
+Message-ID: <20261119163552.GZ860048@horms.kernel.org>
+References: <20261113-tls-session-tags-v3-0-91271964cdb0@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,53 +70,45 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Fri, 20 Nov 2026 00:32:44 +0800
-X-Priority: 3
-Message-ID: <tencent_3F7F39BC8117D4E15C286B951C22BDF71907@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
- <20261115175445-mutt-send-email-mst@kernel.org>
- <tencent_94953697D2BA27275BEF7A26404E69800605@qq.com>
- <20261116044750-mutt-send-email-mst@kernel.org>
- <tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com>
-	<20261119064843-mutt-send-email-mst@kernel.org>
-In-Reply-To: <20261119064843-mutt-send-email-mst@kernel.org>
-X-QQ-mid: xmsezc52-0t1795105964tq0ulqo3y
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113-tls-session-tags-v3-0-91271964cdb0@kernel.org>
 
-PiBSaWdodC4gU28gSSBjYW1lIHVwIHdpdGggdGhpcyB0aGVuLiBQbHMgbm90ZSBpIGNvdWxk
-IG5vdCByZXBybyB0aGUKPiBwcm9ibGVtIHNvIEkgYW0gbWVyZWx5IHJlYXNvbmluZyBiYXNl
-ZCBvbiB0aGVvcmV0aWNhbCB1bmRlcnN0YW5kaW5nCj4gb2YgaXQuCj4gCj4gLS0tPgo+IAo+
-IHZpcnRpb19uZXQ6IG1hc2sgY2FsbGJhY2tzIGJlZm9yZSBoYW5kaW5nIG9mZiBOQVBJIG93
-bmVyc2hpcAo+IAo+IFZpcnRpbyBpcyBzcGVjaWFsIGluIHRoYXQgZW5hYmxpbmcgb3IgZGlz
-YWJsaW5nIGNhbGxiYWNrcyAoaW50ZXJydXB0cykKPiBhY2Nlc3NlcyBzaGFyZWQgdmlydHF1
-ZXVlIHN0YXRlIGFuZCBtdXN0IGJlIHNlcmlhbGl6ZWQgd2l0aCBwb2xsaW5nLiBJdAo+IHRo
-ZXJlZm9yZSBlbmFibGVzIGNhbGxiYWNrcyBiZWZvcmUgY29tcGxldGluZyBOQVBJLCBhbmQg
-ZGlzYWJsZXMgdGhlbQo+IGFnYWluIGlmIGNvbXBsZXRpb24gcmV0dXJucyBmYWxzZS4KPiAK
-PiBXaXRoIG5hcGlfY29tcGxldGVfZG9uZSgpLCB0aGF0IGZhbHNlIHJldHVybiBjYW4gY29t
-ZSBhZnRlciBvd25lcnNoaXAgaGFzCj4gcGFzc2VkIHRvIGFub3RoZXIgcG9sbC4gVGhlIGZp
-cnN0IHBvbGwgY2FuIHRoZW4gZGlzYWJsZSBjYWxsYmFja3MgYWZ0ZXIKPiBpdHMgc3VjY2Vz
-c29yIGhhcyBlbmFibGVkIHRoZW0sIGxlYXZpbmcgUlggc3RhbGxlZC4gVmlydGlvIHRoZXJl
-Zm9yZQo+IG5lZWRzIHRvIGRpc2FibGUgY2FsbGJhY2tzIGJlZm9yZSBoYW5kaW5nIG9mZiBO
-QVBJIG93bmVyc2hpcC4KPiAKPiBBZGQgYSBwcmVwYXJlL2ZpbmlzaCBOQVBJIGNvbXBsZXRp
-b24gQVBJIHNvIHZpcnRpby1uZXQgY2FuIG1hc2sgaW50ZXJydXB0cwo+IGJlZm9yZSBoYW5k
-aW5nIG93bmVyc2hpcCBvZmYuCj4gCj4gVGhpcyBwcmVzZXJ2ZXMgaW50ZXJydXB0IHN1cHBy
-ZXNzaW9uIHdpdGhvdXQgYSBjYWxsYmFjayBvciBhbiBhZGRpdGlvbmFsCj4gZGF0YS1wYXRo
-IGJhcnJpZXIuIE9yZGluYXJ5IG5hcGlfY29tcGxldGVfZG9uZSgpIGNvbXBpbGVzIGlkZW50
-aWNhbGx5IGluCj4gdGhlIHRlc3RlZCBjb25maWd1cmF0aW9uLgo+IAo+IFRlc3RlZCBvbiB4
-ODYtNjQgS1ZNIHdpdGggbG9jayBkZWJ1Z2dpbmcsIGluY2x1ZGluZyBJUlEgZGVmZXJyYWws
-IGNvbmN1cnJlbnQKPiBzY2hlZHVsaW5nLCBidXN5IHBvbGxpbmcsIG5ldHBvbGwsIGFuZCB0
-aHJlYWRlZCBOQVBJLiBTcGxpdCBhbmQgcGFja2VkCj4gdmlydHF1ZXVlIFRDUCBSWCB0ZXN0
-cyB3aXRoIElSUSBkZWZlcnJhbCBhbmQgYnVzeSBwb2xsaW5nIGFsc28gcGFzc2VkLgo+IAo+
-IFJlcG9ydGVkLWJ5OiBDb25namllIFpob3UgPHpjamllMDgwMkBxcS5jb20+Cj4gQ2xvc2Vz
-OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9uZXRkZXYvdGVuY2VudF9EMDY1MEY4Q0EyQUFF
-NEMyNThCRkU1QkNFODA1Q0RCNENBMEFAcXEuY29tLwo+IEZpeGVzOiA2ZjhiMTJkNjYxZDAg
-KCJuZXQ6IG5hcGk6IGFkZCBoYXJkIGlycXMgZGVmZXJyYWwgZmVhdHVyZSIpCj4gQXNzaXN0
-ZWQtYnk6IExMTQoKSSd2ZSB0ZXN0ZWQgdGhpcyBwYXRjaCBsb2NhbGx5ICwgYW5kIGV2ZXJ5
-dGhpbmcgbG9va3MgZ29vZCBub3csIHRoZSBpc3N1ZSBpcyBnb25lLgo=
+On Fri, Nov 13, 2026 at 02:21:58PM -0500, Chuck Lever wrote:
+> NFSD controls remote access to its exports today by IP address and
+> hostname. Neither of these are cryptographically secure. For
+> instance, a MitM can replace the response to a server's plaintext
+> DNS query. As a result, a malicious NFS client can pretend to be a
+> client whose hostname matches one that has access to exports it
+> would otherwise be denied access to.
+> 
+> So instead, we want access-control decisions to be based on
+> cryptographically-vetted objects such as TLS peer-certificates.
+> In-kernel x.509 parsing would duplicate work mature userspace
+> libraries already do, so let's make tlshd evaluate peer certificates
+> in user space.
+> 
+> The certificates are evaluated against admin-defined policy, such
+> as whether the certificate's Issuer matches a particular string.
+> tlshd then marks NFS TLS sessions with those policy matches. Admins
+> also provide a set of policy names on each NFSD export (allow_tags).
+> Computing the intersection with these per-export tags is quick and
+> completely separate from the details of parsing x.509 certificates.
+> 
+> A yet-to-be-posted patch series introduces tag set support to the
+> exportfs command in nfs-utils. tlshd 1.5.0, current as of this
+> writing, already implements TLS session tagging.
 
+Hi Chuck, all,
+
+FYI, while looking over this patchset I noticed that CI flags
+shadow len variables in ynl generated C code.
+
+I believe this is a bug in ynl-gen and have posted a patch to try to
+address it.
+
+- [PATCH net-next] tools: ynl-gen: avoid shadow local variable declarations
+  https://lore.kernel.org/netdev/20261119-ynl-scope-v1-1-d3b0c964d4cb@kernel.org/
+
+...
