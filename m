@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795072617;
-	b=K5iZAG6qGqSW+8+H63CVMs1jXxWxiEmDx91LL1L68aLvXNWVr8sFK1HfzItvbB1+tQzh
-	 7RiUxPPWBWksgpqpK8vrnzevg9+ToMEHj6BdKKGgW5UiduvpT0ueyY/I6+Hyd+lJKty8r
-	 3gnlzVkDr6XdrNRFWFkhydDgcTjksgdNV6OENWh2/VG+ytHRkT965GdkzgfBnHlSe/n2n
-	 B2Boc3MtrUcYS9qJMBYEUnIxLVE7rm0XEHWYPO9Vrzmzx7qxj0I9dSRxu/mXScK0MS1eS
-	 3hIyCWDnl1QGGXmSO83u2eauxeUqx4u6mA3WmCltZcwNF/ZLJywhgOe39E9iSTT4bPg==
+	t=1795072618;
+	b=2kbDhFogeEaom9ILUGw+CRsX6vynaEnN++KthDkzvW4vRcRulMsewidz7dsdJkrN6mo1
+	 JWhrgX/mjjf4Vceq0pe65tsOGknvsUmEiSscmDV4o5m/oYylzrcz7FVBoA4MdrZAiA7Mu
+	 +rGE/P9n9f/yS7oXXK8p8bcL5+N8+Snslcd+ZxLP9kNx6+sFYybem/NZVJrk496GTcfAv
+	 fDC4c61CzrNPLTfmMngbswfXTmKsUc88swYJ5wdGxuCEaOTQOjIjwmYDsFj6mjqaGoQ/U
+	 rDC7900RnvnUj08rryWxTDXlRBTD6yroWacLbME/9WuEOcZu6DQSnTDoUVUDIUow5oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072617;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072618;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=WTJSAbVd18SG4y7u4B/Xr6BzdN9hE6nrl/zI/oyvASw=;
-	b=qZzFaEKxO+OPfsfaaHd6H8Zs5OPpJmMAx5hZIzWu3DbU2xYdedKUYF4JVIKA1/7jLFX1
-	 E8b/Ef6+f2ZZJQ6wT0Q4oL0ANRsOwSwNe3nRgOTNiq1egg7GIVyg4muHaOMPCQsqsBgDR
-	 0sFY27eGUqyCBZVGSU0lgwvjAYhm8TTWwEr+W/b/0VG3VJlYSE3P7wPuD4paNs4L2X1iq
-	 SClEgGV8foSKN+Xzk4RhiZdwllpzNyEmOJQnCSoR8TWcJ0d0QqmaYuiSS+bf7sAEGkNG3
-	 BjjJTTmfNODsg03dr5cV0N/HCaDCU8GibyoVwpB/LDe1uPlHKPMXg1wj4p1Avxz8XIw==
+	bh=CMnj+t+BttJGwsYDnQr6glYXkdhn5BK2wJJ0r6rAzhA=;
+	b=4YsagGijyElBS7rr6dkvVSATNfFMe010N4dvn+AOaXvcW0m9p+sX7S9eJb6EgZCCfZok
+	 9OwXLvcY7eQ8DzpwwA6XB+rZ3+qr/MIojuOi5JmnnM94SsESsD0k+5tG+fJvjE1fxl8+s
+	 nM8UZeB+wYhTxByit1ZQRRPXItjENdVPI+yp0Vdm5MwqzBBkSonLYkxG9KFypQ7ZkJth1
+	 vKgOroRsFb5YeIpWr9ulSwyIvUfIufhJ+DaFfYFHwE+ex0ipfeD/V07BaOmr+RFia41J7
+	 3TWrlJjRv5xWFeUrhv0vnbt6g1Xd39ALy/aha/+3hc7RlRPgKXCwH6lHY2AQelFR/wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Zn0DVm9k;
-	arc=none smtp.remote-ip=209.85.215.197
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NT2eviJW;
+	arc=none smtp.remote-ip=209.85.214.199
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C06C60A2614
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:16:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C06C60A2614
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4068660A2620
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:16:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4068660A2620
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Zn0DVm9k
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cd6969473a4so1121750a12.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NT2eviJW
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2efe2a88b7cso11182175ad.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795072617; x=1795677417; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795072618; x=1795677418; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=WTJSAbVd18SG4y7u4B/Xr6BzdN9hE6nrl/zI/oyvASw=;
-        b=Zn0DVm9k+I595eH4KSKxnLF2RjLzO/+IYa6WR9JzmYAf4A6t0ECwPTvua5WMCJfTdK
-         YhblXVZt1d7otaq1f1slPElWuSgcNk/4LOK3TJpuHNe14EnZvRzCD2Cyok+TC5aYqWGi
-         05jIa4zF3lo+dQV+e2AQN300RQtf8BEWBG1AXrYMh2lVYz6SsWeRQ2R/eZm0tegrau3g
-         5r/ADTWs6VbPt4IpxmQm5gzcKMipGGaZ3d1HMHGbO68tHZZsg1IS139a0b5WI5LMAOJn
-         OY8MozPwoh1fiajwsqBzq2JSjcypzB0dPurAVcc3V7+ICLbgqoVtyLVurZtmrbTukggO
-         04pQ==
+        bh=CMnj+t+BttJGwsYDnQr6glYXkdhn5BK2wJJ0r6rAzhA=;
+        b=NT2eviJWNYFlNRIEU9saOpkK+mBFGZQ8yb6KgbB2cs341C5J4CmngE30dyWArxGrJh
+         uJwsb+zm6xUW97B9HbcYIyEGIJ72yEOyeyUBya8H4nabBnwZuqBZmUD1GZWGykzOuSgi
+         GJQ5fwZ4qVqnnfBbHgf0xChrY8VKtPCsGEbkc1Czz4g6dk7yzSzrTDUf2yjYNELUGq+n
+         l95wzAFQivzE9VR/ECJAHvACkmwP+RTW6ECgNqwd918i4U0F6d4TS+gvq7QsgJfysj74
+         bDCHnogYsGH7jBmt/1T0OsvpOxap0KGDJluBT+viztOgsoFhNbcIN2Ppb4wcOMHmGhjZ
+         s1IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795072617; x=1795677417;
+        d=1e100.net; s=20260707; t=1795072618; x=1795677418;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WTJSAbVd18SG4y7u4B/Xr6BzdN9hE6nrl/zI/oyvASw=;
-        b=BVGMHBA5piNQtXId9oZVf4nut7kaXgN8sw+D+0/HZgjuzwIoD9JFKENlKUrEJ8GVtP
-         Hgqwr40DwbZKgM5BvEjbB5lfgjN2Hkoqtig1nquva35x7/a/SddW60UDKL5Af1rzqnAU
-         IQoaut8GRcJkZ4pNaW5oMwWbRZ4FtpMBIzbD9LAooZ+UxrutfQ6NbVmUCcYVHS43Ni2u
-         JWuVdrSKlmKyuu8YIkWuch2PS6bMQeV1vnPr05E+H3P8N9KHnquSMChh3URQhS+VhDsK
-         aDrOTdAO0u8zY9SCl83mDc4DOEP8rjz6NZN3z9I83rq7AJSWBnDVHWeyyJto23dw3VM3
-         Cs9g==
-X-Forwarded-Encrypted: i=1; AL+hErHbJMqxlHStww+NQXVEe4VlVal23ImXwY6MYyk0h7vinqymDdp2QiT33qgF5kDEstRFd73tF24=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/w+z4zLmQVFlF45sch55ohnX2Y4uJrF8FhiwWh8H1fNhSYEZT+
-	oQ/MZ9FCi3/vMH85PU/EE94HbkKfUjPWrVUHkEwwrJAqGTXxV5Qrr60jNCMGM14C4NqyLw4AAqp
-	v9AS23w==
-X-Received: from pjbhs15.prod.google.com ([2002:a17:90b:200f:b0:3b4:a90:5a08])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:254e:b0:3ad:1b31:92d8
- with SMTP id 98e67ed59e1d1-3b3d07e37e7mr4576279a91.60.1795072616783; Wed, 18
- Nov 2026 23:16:56 -0800 (PST)
-Date: Thu, 19 Nov 2026 07:15:57 +0000
+        bh=CMnj+t+BttJGwsYDnQr6glYXkdhn5BK2wJJ0r6rAzhA=;
+        b=T8yJ2nuNGTywh1oNBu7PDD0w8xBHpkXFJeOSivB0kDARpit+Pcrotxc5hkXCEiQKy/
+         AIgMN+aLh0TB9o0EqL0LseLM5RCuZ4oTYUc8+LUWq4+bqCkYqYkbTXk6VA9RYywfTIgk
+         1cb24c0GlCjYxrn3P4ayHzI050xkcn4TxIu86xgbu3NhiIut/PYkUSe3664rJjjT80OI
+         6bcC3RJIwVXMM5gAYTEDbSLbqfy0vJYoiVifAmu9MOu5dUflt0eW/lfC/lLGWWvrsGvB
+         MqtC6GsTlsc5HHS2blcUanhOU7pmAfyFhJKOpJV7KFPxM6UqbPIIVdvI7r4ItR0ZBgfq
+         e9cA==
+X-Forwarded-Encrypted: i=1; AL+hErFtwH5p02Et/YxVcSufOc1+zZqfpFs36NpKYmnm/euebJXBLo/OWdJ5U59MapHZ2GxTXp3Vh14=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ddws72h184kCn3Awyf8o6+wDL98q4JmzpTTGJ/gy2IXbGzQVx
+	9fz3zEK4HD2px9cb06CLQV9yjBL4oQLydaTkYu21STZQMPVPG9JERNXct5nny/6Ya+S9TMxrtnS
+	o1terMA==
+X-Received: from pldb12.prod.google.com ([2002:a17:902:ed0c:b0:2ef:deb6:1cc5])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ec8a:b0:2e9:9b5b:e179
+ with SMTP id d9443c01a7336-2eff7545dcdmr54697525ad.50.1795072617476; Wed, 18
+ Nov 2026 23:16:57 -0800 (PST)
+Date: Thu, 19 Nov 2026 07:15:58 +0000
 In-Reply-To: <20261119071649.374106-1-kuniyu@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261119071649.374106-1-kuniyu@google.com>
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119071649.374106-6-kuniyu@google.com>
-Subject: [PATCH v3 net-next 5/7] tcp: Allocate all new skb before collapsing.
+Message-ID: <20261119071649.374106-7-kuniyu@google.com>
+Subject: [PATCH v3 net-next 6/7] tcp: Batch memory accounting in tcp_collapse().
 From: Kuniyuki Iwashima <kuniyu@google.com>
 To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
 	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -91,143 +91,114 @@ Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
 	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, mptcp@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 
-At the final stage, tcp_collapse() iterates over collapsible
-candidate skbs and repacks them to new skbs.
+Once tcp_collapse_one() calls sock_rfree(), skb->truesize is
+reclaimed to sk->sk_forward_alloc by sk_mem_uncharge().
 
-In each iteration, a new skb is allocated and inserted to the
-receive queue or a temporary list for RB tree.
+However, sk_mem_uncharge() rounds down sk->sk_forward_alloc
+immediately once it reaches 4K since commit 4890b686f408 ("net:
+keep sk->sk_forward_alloc as small as possible").
 
-If alloc_skb() fails while splitting a large bloated skb across
-multiple new skbs, the partially-copied skb is not removed and
-new skbs remain in the queue as duplicates, consuming more memory.
+This unnecessarily reclaims memory for newly allocated skbs,
+and the following skb_set_owner_r() for them underflows
+sk->sk_forward_alloc without sk_forced_mem_schedule().
 
-It is only when all candidates are properly collapsed that
-we can save memory.
+Let's cache the delta during tcp_collapse() and batch accounting
+at the end.
 
-To avoid complicated rollback, let's preallocate skbs before
-collapsing.
-
-Now all skb in [start, sub_end) must be allocated in a batch,
-so the section size is capped at TCP_COLLAPSE_MAX_TOTAL_SIZE
-(16 skbs), except for the first single skb.
-
-Once the size exceeds the limit, the remaining skbs are
-re-evaluated from restart:.
-
-Legitimate overlaps (retransmits with a different segmentation)
-only involve a few skbs, so if an overlapping OOO chain reaches
-the limit, we simply skip it.
-
-Note that the next skb can be skipped if its density already meets
-tp->scaling_ratio, and each cut adds at most one remainder skb
-(~3.4% worst-case truesize overhead on 4 KiB pages), which is a
-small tradeoff to bound the temporary allocation.
+Then, we no longer need sk_forced_mem_schedule(), and instead
+DEBUG_NET_WARN_ON_ONCE() is added to catch a future issue.
 
 Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 ---
-v3: Make TCP_COLLAPSE_MAX_TOTAL_SIZE hard-limit for multiple skbs
----
- net/ipv4/tcp_input.c | 41 ++++++++++++++++++++++++++++++++---------
- 1 file changed, 32 insertions(+), 9 deletions(-)
+ net/ipv4/tcp_input.c | 35 ++++++++++++++++++++++++++++++-----
+ 1 file changed, 30 insertions(+), 5 deletions(-)
 
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 27ed9ba11ec9..990e34896373 100644
+index 990e34896373..ec47c75f9598 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -5822,6 +5822,11 @@ static struct sk_buff *tcp_skb_next(struct sk_buff *skb, struct sk_buff_head *li
- #define TCP_COLLAPSE_SCALING_RATIO				\
- 	((TCP_COLLAPSE_MAX_SIZE << TCP_RMEM_TO_WIN_SCALE) /	\
- 	 (SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE)))
-+/* Cap pool preallocation per sub-range to at most 16 skbs in seq
-+ * space.  A single first skb exceeding this is still collapsed,
-+ * whereas an exceeding overlapping ofo range is skipped.
-+ */
-+#define TCP_COLLAPSE_MAX_TOTAL_SIZE (TCP_COLLAPSE_MAX_SIZE * 16)
+@@ -5836,6 +5836,24 @@ static bool tcp_collapse_skb_bloated(const struct sk_buff *skb,
+ 	return __tcp_win_from_space(scaling_ratio, skb->truesize) > unread;
+ }
  
- static bool tcp_collapse_skb_bloated(const struct sk_buff *skb,
- 				     u32 start, u8 scaling_ratio)
-@@ -5862,8 +5867,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
- {
- 	unsigned int old_truesize, new_truesize;
- 	struct sk_buff *skb = head, *n;
--	struct sk_buff_head tmp;
-+	struct sk_buff_head tmp, pool;
++static int tcp_collapse_uncharge(struct sk_buff *skb)
++{
++	DEBUG_NET_WARN_ON_ONCE(skb->destructor != sock_rfree);
++
++	skb->sk = NULL;
++	skb->destructor = NULL;
++
++	return skb->truesize;
++}
++
++static int tcp_collapse_charge(struct sk_buff *skb, struct sock *sk)
++{
++	skb->sk = sk;
++	skb->destructor = sock_rfree;
++
++	return -skb->truesize;
++}
++
+ static struct sk_buff *tcp_collapse_one(struct sock *sk, struct sk_buff *skb,
+ 					struct sk_buff_head *list,
+ 					struct rb_root *root)
+@@ -5871,6 +5889,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
  	int remainder, nskbs;
-+	struct sk_buff *nskb;
+ 	struct sk_buff *nskb;
  	u8 scaling_ratio;
++	int released = 0;
  	u32 sub_end;
  
-@@ -5871,6 +5877,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
- 			    TCP_COLLAPSE_SCALING_RATIO);
+ 	scaling_ratio = min(tcp_sk(sk)->scaling_ratio,
+@@ -5888,6 +5907,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
  
- 	__skb_queue_head_init(&tmp);
-+	__skb_queue_head_init(&pool);
- 
- 	/* First, check that queue is collapsible and find
- 	 * the point where collapsing can be useful.
-@@ -5926,8 +5933,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 		/* No new bits? It is possible on ofo queue. */
+ 		if (!before(start, TCP_SKB_CB(skb)->end_seq)) {
++			released += tcp_collapse_uncharge(skb);
+ 			skb = tcp_collapse_one(sk, skb, list, root);
+ 			goto restart;
  		}
+@@ -5917,6 +5937,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 		bool overlap;
  
- 		if (!overlap &&
--		    !tcp_collapse_skb_bloated(n, sub_end,
--					      TCP_COLLAPSE_SCALING_RATIO))
-+		    (TCP_SKB_CB(n)->end_seq - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE ||
-+		     !tcp_collapse_skb_bloated(n, sub_end,
-+					       TCP_COLLAPSE_SCALING_RATIO)))
- 			break;
- 
- 		sub_end = TCP_SKB_CB(n)->end_seq;
-@@ -5935,25 +5943,38 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
- 		n = tcp_skb_next(n, list);
- 	}
- 
-+	if (sub_end != TCP_SKB_CB(skb)->end_seq &&
-+	    sub_end - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE)
-+		goto skip;
+ 		if (!after(TCP_SKB_CB(n)->end_seq, sub_end)) {
++			released += tcp_collapse_uncharge(n);
+ 			n = tcp_collapse_one(sk, n, list, root);
+ 			continue;
+ 		}
+@@ -5983,11 +6004,8 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 			__skb_queue_before(list, skb, nskb);
+ 		else
+ 			__skb_queue_tail(&tmp, nskb); /* defer rbtree insertion */
+-		/* nskb is charged before the skbs it replaces are freed.
+-		 * Make sure sk->sk_forward_alloc can not become negative.
+-		 */
+-		sk_forced_mem_schedule(sk, nskb->truesize);
+-		skb_set_owner_r(nskb, sk);
 +
- 	/* Third, check if the new skbs have high density. */
- 	nskbs = (sub_end - start) / TCP_COLLAPSE_MAX_SIZE;
- 	new_truesize = nskbs * SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE);
++		released += tcp_collapse_charge(nskb, sk);
+ 		mptcp_skb_ext_move(nskb, skb);
  
- 	remainder = (sub_end - start) % TCP_COLLAPSE_MAX_SIZE;
--	if (remainder)
-+	if (remainder) {
-+		nskbs++;
- 		new_truesize += skb_head_truesize(remainder, GFP_ATOMIC);
-+	} else {
-+		remainder = TCP_COLLAPSE_MAX_SIZE;
-+	}
- 
- 	if (old_truesize <= new_truesize)
- 		goto skip;
- 
--	while (before(start, sub_end)) {
--		int copy = min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - start);
--		struct sk_buff *nskb;
--
--		nskb = alloc_skb(copy, GFP_ATOMIC);
-+	while (nskbs--) {
-+		nskb = alloc_skb(nskbs ? TCP_COLLAPSE_MAX_SIZE : remainder,
-+				 GFP_ATOMIC);
- 		if (!nskb)
- 			goto end;
- 
-+		__skb_queue_tail(&pool, nskb);
-+	}
-+
-+	while (before(start, sub_end)) {
-+		int copy = min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - start);
-+
-+		nskb = __skb_dequeue(&pool);
- 		memcpy(nskb->cb, skb->cb, sizeof(skb->cb));
- 		TCP_SKB_CB(nskb)->has_rxtstamp = false;
- 		skb_copy_decrypted(nskb, skb);
-@@ -6003,6 +6024,8 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
- end:
- 	skb_queue_walk_safe(&tmp, skb, n)
+ 		/* Copy data, releasing collapsed skbs. */
+@@ -6011,6 +6029,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 				start += size;
+ 			}
+ 			if (!before(start, TCP_SKB_CB(skb)->end_seq)) {
++				released += tcp_collapse_uncharge(skb);
+ 				skb = tcp_collapse_one(sk, skb, list, root);
+ 			}
+ 		}
+@@ -6026,6 +6045,12 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
  		tcp_rbtree_insert(root, skb);
+ 
+ 	__skb_queue_purge_reason(&pool, SKB_CONSUMED);
 +
-+	__skb_queue_purge_reason(&pool, SKB_CONSUMED);
++	if (released) {
++		DEBUG_NET_WARN_ON_ONCE(released < 0);
++		atomic_sub(released, &sk->sk_rmem_alloc);
++		sk_mem_uncharge(sk, released);
++	}
  }
  
  /* Collapse ofo queue. Algorithm: select contiguous sequence of skbs
