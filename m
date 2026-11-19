@@ -1,100 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.74.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095092;
-	b=oiFU8PF0uZ9f346quLFQDEfXUPpT98gW9AWGuaDWyRTVu5b3K4qq6qKdY3vk9TtfWtu7
-	 T9OB2wcOTVYqfW5WZTOQi8RrzSMMaMK6ibGFKUt3Jd2CymDRiBXNDp4dRSMZuLsegDN8g
-	 LsOKOcOxgxXSrZh3yeJ5IBbwfGlG1LoALg/0yt9E6+zKFyGiJ4qxEISrZHFVijsx4KbSn
-	 i+88lq5uTkKPbyeQjjsXOx+dDyEPEYeUhLsYSR1MjOMydYoYleUi2cjZUldcBUYgsu2uP
-	 prSZVWtO5dISyk72NExduSGdzSUtoUahiU+dubDsTuX35QAcqYdDK51h5dXftpp03Aw==
+	t=1795095168;
+	b=HzHebSJM4v/q7zB2LsC92DEd5S/FnRK8v5jmq2yO/IXkPuZCSxKfUxHlx/mwHMLIk0u0
+	 fCq/5d3tLhIl/3//vKk5wDyeItPoiOAgRAil8+x04mQEGHaGS7bwxPJfgJNOxNtw7rB86
+	 f+a4SJTZXr5KT3VbLhK80G447Cnivg0DvYyYH2rPy4rxcvQLxRJmvrjHrZoenS9xf1hwC
+	 cvxMSeU/dAO/r04OwcRhTmKl3CEagOcIZgxvRVoOWSPxAUGmg2oG7a/7iAjZJnH8LbZGN
+	 Gwa4G8PpKDht5mTcamUyikH2cNXJOR1H5ovl1/Wy67UCjgxh/ubZKgzWXSxbW1VP/FQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095092;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=j+Za7bMQTz/jGW5KKJ1wZv8OZM3LMy2RfyXXPrr5ddk=;
-	b=ZdRUG3+cmj/6Oc6tD2jZ7NaPDFMu7XSpV1cnBeAyPmzZJC8OhoHyW7EJbAT3yHHqNVMO
-	 8WJiVZTI2FNbzt4feN93k9TPaU2biv2oRotTRdIQv8+2V2NS5Rt4Qef5UesPVhEXoh8kf
-	 sKkDtwP1D3efcTKvIW5vbyv3KxUv+BSDN4aIU1KONoWLrkOmbz0IjLKkeRCzvOHJv5iBZ
-	 JjAvwSNITlHcUr9PxlBFSu279Z1J+ud2U4W2OfEblxOFRXHOwCd35mqBb0K566OEJrLb5
-	 FQmAkSd32+DY1iK0m+iMr8Qd+WWQbc4wHejy0uzQP5RDwAcNby8ZXYYDA/n4APpB9Wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095168;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Info-Out:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
+	bh=Tc3ESe3JZqXFraISylXoQOb2N2b+1RDdSzgufiOKQzE=;
+	b=h3r7f+52EUG10yZKJhNH98oJBySG3xm+nUzFNabxZoOYr4kpk93YzHyVWqkKKIjqtaPz
+	 6KqfYYTggswNqfB8+zfPgl8YMR8WbUXSM7IpObHwKJMSYyVT4erBtFBU+dLfoC06KNEq8
+	 KtJMbZZ4aqCUdrAgeKDxpYkb+CJTTItc8NIBX+Htffvf2uFKw1H+5H1cJLvskeCs4Id73
+	 cI21SvUQsTG1omGAVjZL9HTmByoNZqO5JUb361POU9unCG24R3UR1NLK6v4bYx0OUpLb0
+	 DdPOHU+eF5f/bZ1ibEQ2z24LqwX3SqJAZhcl0jQ1ksvcTesYSSVT6q2Un9q6Q1wON2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=mOPIqIOm;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=none header.from=verdict.gg;
+	spf=pass smtp.mailfrom=verdict.gg;
+	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=M0I1MTD+;
+	arc=none smtp.remote-ip=57.103.74.12
+Received: from outbound.ms.icloud.com (ms-2002i-snip4-10.eps.apple.com [57.103.74.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0CE8606A320;
-	Thu, 19 Nov 2026 13:31:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0CE8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA7F2606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:32:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA7F2606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=mOPIqIOm
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=j+Za7bMQTz/jGW5KKJ1wZv8OZM3LMy2RfyXXPrr5ddk=; b=mOPIqIOmu6kDdwVuemWcNK9Dnn
-	3scHm6yoxWlXhjKDg88oGkRMzRyRggfFiPC7IQHuffZ0g5VsQiVACcLcbYFf/YJimxzK2sEH4Ma7z
-	s46ArUotTLBJyzxjIYKthUVRWJnOH1H0QxoK1FCOjd282vF3lK0QU0S6Yx/wpK07j6KI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xU2Dn-0002Ui-FK; Thu, 19 Nov 2026 14:30:39 +0100
-Date: Thu, 19 Nov 2026 14:30:39 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
-	Chris Lu <chris.lu@mediatek.com>, Mans Rullgard <mans@mansr.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Cornelia Huck <cornelia.huck@de.ibm.com>,
-	Andrew Morton <akpm@osdl.org>, Jeff Garzik <jeff@garzik.org>,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-input@vger.kernel.org, netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
-	iommu@lists.linux.dev, linux-coco@lists.linux.dev,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
-	Greg Kroah-Hartman <gregkh@suse.de>, linux-sound@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v3 18/31] net: phy: Use the compatibility driver
- attachment API
-Message-ID: <7c87310f-e1c6-4a84-8161-11a6e5d91785@lunn.ch>
-References: <20261118-device-trust-core-v3-0-d655875c4bfb@nvidia.com>
- <20261118-device-trust-core-v3-18-d655875c4bfb@nvidia.com>
- <71c1b931-c553-46e3-b49a-51167f168ac4@lunn.ch>
- <20261119071811.GG162713@unreal>
+	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=M0I1MTD+
+Received: from outbound.ms.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-3a-60-percent-0 (Postfix) with ESMTPS id 611C11800104;
+	Thu, 19 Nov 2026 13:32:44 +0000 (UTC)
+X-ICL-RepId: 01a1f402-74e2-7576-b5a3-3dae9037e027
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1795095166; x=1826631166; bh=Tc3ESe3JZqXFraISylXoQOb2N2b+1RDdSzgufiOKQzE=; h=Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:x-icloud-hme; b=M0I1MTD+/tOItEXUYEfftUgihbCzj34q0OQqjlmMQnGomsTx002b03xjgiJHAzdp3aAtlRziTFquMm63WjX+dUbEEJst0T3zWWqtprhLbGjDZ17OcTQ2uINuk34OZer/060UpS40DJARjOv7aQm7jHqtjhQjSbspytwtzRNoYxkfM+JsYAmBcB9D5XWiA8ai4f9t1sMTcm0La0HK619W9RHhgULo+yTfPt5FV3zXY3aP+7u8GCTEIuCm1afqxxGdzgeyIcPGDWrnsCAEwW7avkCGTyOEYXvXF8WO4JWUQpcwg/tGNLVTHR4k/4/f0FVUCMYfVhkn5Xa6FyecESiJ3w==
+mail-alias-created-date: 1621344842221
+Received: from localhost (unknown [17.156.208.39])
+	by p00-icloudmta-asmtp-us-west-3a-60-percent-0 (Postfix) with ESMTPSA id 20D031800285;
+	Thu, 19 Nov 2026 13:32:40 +0000 (UTC)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,29 +53,81 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119071811.GG162713@unreal>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 16:32:38 +0300
+Message-Id: <DMZ84JBLQD08.3E6KHRQNK83FW@verdict.gg>
+Cc: "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
+ "David S. Miller" <davem@davemloft.net>, "Eric Dumazet"
+ <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni"
+ <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Shuah Khan"
+ <shuah@kernel.org>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH net-next v4 0/3] ipv4/ipv6: Cache pmtu on all paths of a
+ multipath route
+From: "Vladimir Vdovin" <deliran@verdict.gg>
+To: <netdev-bot+sinfo@kernel.org>, "Vladimir Vdovin" <deliran@verdict.gg>
+X-Mailer: aerc 0.22.0
+References: <20261117193141.27004-1-deliran@verdict.gg>
+ <179494427164.3291.6413261457824057937@kernel.org>
+In-Reply-To: <179494427164.3291.6413261457824057937@kernel.org>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA1MyBTYWx0ZWRfX6z+JpH7Tmf8N
+ qftqUzD5RYIPZbbB4sstzx9VYpxJ0vugDWnTT7ykkr62A33ycby9p0kKOwv+0DyvBkNc/CiZmk3
+ c4tCD98FacYjZYT0UfABTjXXXqkS3+g=
+X-Proofpoint-ORIG-GUID: usP5jA0ZpkwNj_6TWbSd-bIBYmUTjmdu
+X-Authority-Info-Out: v=2.4 cv=L5mI0OT8 c=1 sm=1 tr=0 ts=6afefa7d
+ cx=c_apl:c_pps:t_out a=kRaGL2Q7qLiahLf3O6OaIA==:117
+ a=kRaGL2Q7qLiahLf3O6OaIA==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=4Xuvw5ty44FKcjjuTMQI:22 a=788SybWvmYwSByz6lwXL:22
+ a=1OqCGUWwC2Wpexm8AmAA:9 a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10
+X-Proofpoint-GUID: usP5jA0ZpkwNj_6TWbSd-bIBYmUTjmdu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA1MyBTYWx0ZWRfX53kMkk3oB7en
+ FGeji2rNEmlOLvzPOrO4jVioIql/OGp8OCNZF+F+VR8QKQGDTYyaZDIyfS+QvgKwb7QdjYRR+1t
+ e7aSLKfRqAhJq2TVJK+Ck4wrRgOw1j4l9GjGaBpFHRU8PW+ehmw2rMvASW08uGi46FhLZh30YMn
+ Dx0uSB4l9dJGS+x+6w6VNBSihl+pyiDoygErDN2BrtTcFvRoLnK7bbxL3jFVSgSQAJZWpwKtbq1
+ TFyVM8J6vvvonwML4IzpEp8sHPFEn2p/ptvJNsqFQ14pecu9AInYNCYKIWPu/1FEeBD/isdetnT
+ XmsW/Qt+Qs9g9gPKxavPnV4c2ScKJRVfxwtpkJ8GlKxRvMKBZUAPnY9HKrEDz4=
+X-JNJ: AAAAAAAB4Q7HnMXF2dErNg4bF9ZGQSg+n710kLWBCQnpc58tkm6IVUyjRr30TEK9+YyEtF
+ L/KWEEzxafePDgGr7fG8hX/q27fbUA/yX9KTEM8MJ4lv/XKOW1IHBMciT2yLDeyXkhtXYA
+ RMPlcqc3wzgTsKKIBegeaiG6w48GqpPRqJLWWOC79wkhWGmohIm6/iuZoYljjNSKjqTSeg
+ js2TNd5SRJAwabGaMFK/vICdnb1lthpopfcSFPuKh8wbmydeYn6dO3nw1A4LltVOaXvzc3
+ 0weYvX4ByYLG620feFH1qBTaCGoeKUKatQoiW1pvhTkGcX6kCM0aLWU7PxkgizET+OZ7NV
+ al4GkbQ/Be8BlrOXbIiaiBebq1EjqhuGRN8+tmWGB18M9GCs/elSm35RMb+r/y00p9psRY
+ vubL5XxRdIujm81TFK2HR7M/7NXlYjwuSxgXd4A8IKMmlScwzlyS/ZPfQyD3RxsmU3Fy7j
+ liENV4jX3P97eZaBSXQv62CVDC1Etf+NlK9ZnaiKr/v2/QVrgqbW2Jo5K6U28vh8+wEWIR
+ 3Vxk+gCRNgfYSebQv6k4XNsOwnStAEF9m1JQFOuSVzM4oXtjboA5bsd/hf1UbiSWOJUpY+
+ LIWto3k0ruN8xPKw64kTx6bERbTKh1qmxQN9ZLyn6TF6UyjPTetDcaXNgOW+sH53WiMPOL
+ z9dOu3gaimmGjUJ2VXAYWwtBHwk4nQtsXunHudUVA3yeEV0gU/m3UwHUshdjAw82FB7Jxi
+ MvPl47lq4MJaPHsRGlrKh86+g9AXS1EZLKccRIPSvwQAAd8Sw7fdi+cEhQa2h36vuvR17v
+ HlHrVnE468tfPegjgZ6pz97YzqC3QYXXop3uTILI+BCaWoCBEw2rGDB1eVJQ8oJSwRtlgF
+ PePwvHquS6jHd/cZUBTzfcEXB2Qdyt7HKmDhhtpKkEaz9D1HhkiuuhLbPYkgJYC4pwJBgv
+ dm7TMa5Of/c1O4h/UDHDMveisVw5lWvNru4GLzrtx659Qt4Ql/tDG7LiOK9EVB21jyt9kt
+ EZ7370jkFOvLb/fgprMBmFWNG+5Vt8SwHwT7HSSe/dhlf1F7H7IoOulFkdRfUArZ+NXzEr
+ 7pTJ8/CkpqTWdtcXrBhWk0+V4EzOivc45MXb5v45sk+MXuEmrYAODuFJQnrM5OZ7QBVPQe
+ WSgvy3lTWmlXa56Cigc41/FckE85SDoSogO2FLhpXnY3mONCeYaLRmbsYP93A7y4usetQP
+ kQ5f/x2FC8x45ZIu2Pfloi0YauJ+VhrU8af07SiYUWc2uzAVaxNsN0O9vYcSQYDBjEYjjg
+ qatEoPfk2aOqzSiCfvSjYbSNEN/jiEWVMOx1A2Vg==
 
-On Thu, Nov 19, 2026 at 09:18:11AM +0200, Leon Romanovsky wrote:
-> On Wed, Nov 18, 2026 at 09:21:45PM +0100, Andrew Lunn wrote:
-> > > @@ -3813,6 +3809,8 @@ static int phy_probe(struct device *dev)
-> > >  	int err = 0;
-> > >  
-> > >  	phydev->drv = phydrv;
-> > > +	phydev->is_genphy_driven = phydrv == &genphy_driver ||
-> > > +				 phydrv == &genphy_c45_driver;
-> > >  
-> > 
-> > Why do this here?
-> 
-> This flag marks that driver is already probed, which is reliably
-> happening in phy_probe() under right locks. It was the easiest
-> way to battle AI reviews which don't agree with how PHY subsystem
-> performs driver bound.
+On Tue, Nov 17, 2026 at 07:37:51PM +0000, netdev-bot+sinfo wrote:
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
 
-I've not seen the netdev LLM do a review yet. It will be interesting
-to see what it says.
+Patch 2 fixes for IPv6 what commit 7d3f3b4367f3 fixed for IPv4, a
+production issue back then, the cover letter links the discussion.
+Patch 1 was found by code inspection while reworking v1 after the
+Sashiko review of it.
 
-   Andrew
