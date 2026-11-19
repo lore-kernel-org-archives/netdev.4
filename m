@@ -1,49 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088406;
-	b=uUj9WraM48L3QEk74Gu9xIh1bvXe7aoLt0iYWKKbdj8r7XcgKB1vYG//Gf/bZurIwQRy
-	 g99ZkBr/5TPKX5CGJkWj+hiYccUFs/wfh3BscqaucTgNfCHN5GFraQDlWLTdPbyyOars/
-	 oc0JByTAE0ETNm900ioJdKl+5Qb+PObXjjstZVIPgkZaApsGBdk7OBXbstHHtTvH51FOH
-	 ogX5Fk84Q3/4mST7P+WuyqW10og9xjebtgUbtUcfe3lUknjPaa2zwX4pD6eG5Pt5XeAC3
-	 vc4+PWOM076SOKuYMoFgz3ghElbxXVYkgrW6AvxVH+feieUTIBBRQfzuQNJOx1SnyVw==
+	t=1795088735;
+	b=NbmPTDhgk5i6E+BY/Rtlu83hzk7YdPkNNqc0j7ZTXQ7D6xjpFtYYnArN1SHUFsDFi61h
+	 l0Ni8RLbr8KMqUjbwthHMoOEwqh0OoL0T6prjmK3YwU3shHquX0AtLv+/u+9UVt4bKeqJ
+	 NlzL7CLZKWNuLleguQXlM3U6DYQvPkUx9pR7MG6fHPA+vKn6Zys2+pcqRTktGeHDceS+5
+	 Gy7ljn+j3667+HTHBVp4mW1ZlXd+FiLejXkKb+Zy2eRzLaTXJiqh5M7YbenrR25yN7yqX
+	 4KtlBxKysU1fJinY1rGU9DeHZBhFUBe6XNH4wVM7vlZRFQHzlvzytxhBH7K4LbXzEZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088406;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=e1OqyWJkdqJlILrOCfF4VIv+SoCP4n191/FHdTdmxoc=;
-	b=hsvlUgWCBVV50cKJb8QRqV6XyfmvQ75EME0+LtI6sYIKsTpaxMkihtIjUTUHyZLEXDDe
-	 GnVzNf85nKvGBi6VxDU8TDRRH620KKiERI6h2gC30KXN8H684mXm/u83koSsBM43aQLo3
-	 vOhwQAb1iLZzjL61czWjrqDVhRZoathkGwBey1E+YzhmSheQHQJDytBWTcVmMi5xxsENd
-	 3lQrlPccOhShx8Tpui6Vihd+93Sv6Q0MY5X9C5DXqsffEdBlCyyWtIqN3fNLn7nQS6lAX
-	 NAQ2K7DS/BtgbcExhnGU92iu88siqoZgIuN0JLehnWu3awnus65sr4BYNd6x+q452aQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088735;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=c0AK16xIDz+yTGPTst3ZRIWhZrisEyg0sJy7pHkhxWE=;
+	b=kKuXgaKqdLHzaqqLBojCwwrscI1QV5X5s2rfd45CLiGt4NENTTxiAs0s/lP/kXmRdspb
+	 LlI7kpjDRWcoHUudizKqz5wuGPRgafDY2dL28PimCfNU01+tDIkqFS3F2BE+7Ko/TMSGu
+	 9+Z6NW8EsiPFqgBvu0rP+b4sj7HvM3R773Y/ZBnIu9OZjr+5pCU6YFqXZUG29wFHQacQW
+	 u0lTBes5ks5o1f3vjdSvJkRknQaA4PW3kpyc4GB38bYeEsYAsnKo6GjjyNcfmcmenPPyi
+	 lMuvLfoQHyRTMTql+kHCGLe8NUd7UKsAOD0Sum77vMcrcENFEIihSNnZ7E/N0t6lSxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c61jP1Og;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=i2XsJQwU;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF8E606A320;
-	Thu, 19 Nov 2026 11:40:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7210D606A332;
+	Thu, 19 Nov 2026 11:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7210D606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c61jP1Og
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46F311F000C6;
-	Thu, 19 Nov 2026 11:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795088406;
-	bh=e1OqyWJkdqJlILrOCfF4VIv+SoCP4n191/FHdTdmxoc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=c61jP1Og09VZiRQJvRXCIKsQ/w7VOUly2g/FoNm/sjQJL3VB1T02NuDuQtFOlD2kF
-	 VxfvYyeGvx9guU8benV4AF3EAsJ9tMrRomBJFEB+DP1+4zu5RAL6NnpYpjiEXnJr8b
-	 UBSyOTsNZ0S/MM2mUm6mqEwgJUS9Ir4kFgmHtb0xsao2v9W/baB5LtRXlabsKp8aoq
-	 o19Qng1VTnBNrKbvl2HvDhm63/LTgp0LFAB88rO1Sv1WRgpePt6ZTQqUu43JkX4Pf2
-	 SSXXfRjg28gXkv/THmIcEKIa+6HUN04kclLBSgkiagYTCT73nd4iamYovNy1Idfk3l
-	 m49wEwjC2gccA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3603808210;
-	Thu, 19 Nov 2026 11:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=i2XsJQwU
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E601A11AF;
+	Thu, 19 Nov 2026 12:45:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795088731; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=c0AK16xIDz+yTGPTst3ZRIWhZrisEyg0sJy7pHkhxWE=;
+	b=i2XsJQwUCRIyMeENphjxm6geSS+Gq3m/WCKD4V2/gDhsPLIA3BMADPcK7T/Gyis1G6m+TE
+	Qzt0Y4204Bmkc7uGHpNSHOsUVl0rwH4wmMtB46m91KyweDCzhbu8CY4vIRuIIeETcBJmlp
+	2nTBbvpdr5Nhmwpe0OauCRYstBQ1xwGzpF17Y5x4xkh/nXA5Vq/8G9mZmcGF/Ohjk6kwVq
+	tDQD2sIJNHSi4D6VhaRkDe0f29SgVmAl95nu5CE20cSIo6ETLkpmqeUd9kRNObZiF0tgAd
+	aTxVodNzeHyuBX6cT+DnUp2OSy354WdNdzb/9FiuBiCaaY9oLw0Tm/Bl6stzrA==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,44 +53,57 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Date: Thu, 19 Nov 2026 12:45:28 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Paolo Valerio
+ <pvalerio@redhat.com>, Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
+ <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?=
+ <benoit.monin@bootlin.com>, Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH net-next v7 3/3] net: macb: distribute evenly Tx SRAM
+ segments
+In-Reply-To: <20261118-macb-set-channels-v7-3-2dbc00f686af@bootlin.com>
+References: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
+ <20261118-macb-set-channels-v7-3-2dbc00f686af@bootlin.com>
+Message-ID: <d594eb9210e2c9a31e965a47a2d5224b@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] tun: don't steer a flow to a queue index that no
- longer exists
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179508840503.3038224.16974538898248760446.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 11:40:05 +0000
-References: <20261114153617.102288-1-umangpokhriyall@gmail.com>
-In-Reply-To: <20261114153617.102288-1-umangpokhriyall@gmail.com>
-To: Umang Pokhriyal <umangpokhriyall@gmail.com>
-Cc: netdev@vger.kernel.org, willemdebruijn.kernel@gmail.com,
- jasowangio@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hello:
+Hi Théo
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Sat, 14 Nov 2026 21:06:17 +0530 you wrote:
-> A multi-queue tun device keeps a flow table that maps each flow to the
-> index of the queue it last used, so that packets sent back to the flow
-> go to the same queue. When a queue is removed, the last queue moves
-> into its index. An entry that still holds the last queue's old index
-> then holds an index that no longer exists. Packets of that flow are
-> sent to queue 0 with a "selects TX queue" warning, until the flow sends
-> again or its entry expires after a few seconds.
+On 18.11.2026 21:53, Théo Lebrun wrote:
+> GEM has registers to configure the Tx SRAM segments distribution across
+> active queues. The reset value is appropriate (even spread) but we need
+> to care if/when number of active queues is modified (or if we inherited
+> unevenly initialised hardware from bootloader).
 > 
+> To distribute segments, we take as input the number of queues (current
+> context num_queues) and the number of segments (found inside DCFG6).
+> Its output is a number of segments for each queue, formatted as
+> powers-of-two. For example, 2 for queue 0 means it has 2^2=4 segments.
+> 
+> We define register offset GEM_TXQSEGALLOC_UPPER which is never used.
+> It shall be used when an IP supports >8 number of queues.
+> 
+> Note that the manual mentions explicitly that only active queues are
+> taken into account. So when we write 0x1 in TXQSEGALLOC and a single
+> queue is active, this means we assign (1<<1) == 2 segments to the
+> first (active) queue and none on the others.
+> 
+> Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
+
 > [...]
 
-Here is the summary with links:
-  - [net-next] tun: don't steer a flow to a queue index that no longer exists
-    https://git.kernel.org/netdev/net-next/c/9068e05d35f3
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks,
+Nicolai
