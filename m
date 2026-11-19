@@ -1,61 +1,146 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795092727;
-	b=L/kuvc3qcW1IICpgKtG1SQP6k8h/2J8v9lIIw7nDqceg4t8X9Xb9UZMxF1kCHIxyZ5aC
-	 f5x6AP+arW1dGR6jGZif+V6o8p1GzZI9pnV1fzk1VIy6PIET6tA996bELSNUEy3vX8Hzj
-	 aK4TFCc7LOojYLZfcDHRnISpLVRiuXW38YVwZTUvjEbIOqusWAGRcRk9NEs6rtAmXw3ss
-	 0V1mjox0pGbphtBZXCm5x1gdt2T4UVTEYVeHy9LuJ4s/SNipoNkFAA1pdJ+de7elpyKG2
-	 UsloCRQa85Q8wZD1mh0Hc6MkjwuwEBDoYOoik00joCU1KwzyXfPkHq54ubykEd/O7BA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795092727;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=71i+6QmMWBr6xdnxXs1YG/oXksyIqockWxgvr0zhSMM=;
-	b=qnlxL3FKD/OFjn04F2gs7QVoOuCAcdO0P6kBdsyF+sEBMU8BWaFDHr0RYeGCROpcU/Wp
-	 4kmsOPwCDAnfzt6QiXr356k1OPc9LgwyRALYrRsvcVP+zw2fIpVQLQkzFrP/C1bXI+9j+
-	 YyQ6S3Yo9J5Xy/KzNVeQaHwQ7ChH0odADZ7N61LJoscZ5r4pXDFm/7uZTEvusi1mVl/s8
-	 5pMa6lwIc+8ufdRiexZNrBf66x6fUZWlpB6bWB5w8ETDkN1GixGcPFJyePLUEdOeI2FAk
-	 N0etZS6tZTRt/LzgsxHByQT/+2lrWnkYzbL6iuSyZOMb/CN3HSscyTLELfxqsh1BXAQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=qNbP591W;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795093879;
+	b=vLBVDbbloJMXinQhVrkSPT1kzzBf+XsH9rZskMmxVGtjYZJ3RRov2/2Yz/u5COhAc3l3
+	 a1uSJAGj7VDAl2FejuvLiuVmsr1/s1LcSktJGNb8Fbu/Wd8PnejgopaqUwoycrtKNZ2Qb
+	 X7FZeDjDoOI/rNAt/I8ZviE9kBCWb8CA5m6uZhyv3WMP4Ec5koF4fsxa+VU0pQCHBDm7z
+	 yM/7tTGCry+QGU5DY3dsK7PfecL2IrvDWjp6IWR8Hh4zbDzTMdLSIEdHbtdXKIGbH1jdI
+	 QRCkfWrADCJFda96UpWSnOozrILd6ibSzvd1dOH6mjmoIF6HVmsCS/D3zvzLuXXpLzA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795093879;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=V+gmNCyF9iPmK8pTSRkeS2wsiG0P9AldUIFdbELcHeY=;
+	b=H68Nksqq6IH4caUa6SmsoXE3WsdaAK7McKddabVVo41TJ26fv2d8h8w7osrpVOy6qar9
+	 KngnFNBY4Ha/bvS5nr1cNNSYGnvUNeAsuMHCPBh96ebIePnIlrWVLliQICHICk0tqO3OE
+	 /KbaQY8DEKT54xoTImKzz/Y2DtvECEo3IpPW45TG8dqULkTfnUFiPlw/fvLT8Fn1PPY+w
+	 iyNmWqoPTGvM16wCV1DuAuoK5tBmFaGHhZdlRCHyDu/JvII6hpZkeoeY/16AYilX5DGMq
+	 EKJeW6YonUnenDiTICrNJcdPhxK665xgDV2GS6bdOIY88okzYEhmX7yU4pCIedolLQw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="SuBd/0aa";
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=LTEOnLmV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FFF3606A320;
-	Thu, 19 Nov 2026 12:52:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FFF3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA2A606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:11:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BA2A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=qNbP591W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=71
-	i+6QmMWBr6xdnxXs1YG/oXksyIqockWxgvr0zhSMM=; b=qNbP591WoN9WWHr6t+
-	3Csmc8RLP/+o9CiB4JjetfQFVAoeeki9GzW/FMqZh8cNmxDVkva9VyANrQ/mKW9+
-	4P5oV+bH+qplMA2JSQzZpOZwpevfCFFel4uBQ9SV6ZZuW7Uus/uDgTFOX8F0hfga
-	V7vh+H/PeMLcXLGXsWz/ASL30=
-Received: from colol4bi5.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgD3v6fB8P5qZByjGw--.21046S2;
-	Thu, 19 Nov 2026 20:51:15 +0800 (CST)
-From: Binbin Deng <18983559317@163.com>
-To: dsahern@kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Binbin Deng <18983559317@163.com>
-Subject: [PATCH net v2] igmp: use copy-on-write RCU updates in ip_mc_source()
-Date: Thu, 19 Nov 2026 20:51:11 +0800
-Message-ID: <20261119125112.540125-1-18983559317@163.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SuBd/0aa;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=LTEOnLmV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795093878; x=1826629878;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=uPLl85t11BcfToCP+M8pWXNmeLXLGOA3p/rczUQUBlA=;
+  b=SuBd/0aaRh0QjsdybdJyLrkBF0fma0g+q2n9QgV9N9MBg6k0ETPgq4M6
+   VrwEldHQRmwOmrRIgUHYpqX+yOcGJwq3U26p3Ef9X9d/XOPUR6HtHCncT
+   LNUE0NPWxc/igksPBkfvytrb+4BH5m4lzF0WQSS4Q2F+Cd3fJbuHTm320
+   8d8sctZrdT3DHC45I9eLw7B9lJiSvqbX1iBbKIfsph9EvkFk53ZmjzJib
+   aFvwoI7b1uUD4+OWE9XbSSiH2sZZeQ8VbS1pXid1QCx9LYgtw+k1wGN6I
+   oIE5llqFBQzNSbmOPKLjnvHtNjiyVpvotR41HkR328LR2fPK8pWI5hV2J
+   w==;
+X-CSE-ConnectionGUID: 1Ue5b2C7RPSu5WWzilCvBQ==
+X-CSE-MsgGUID: d7URoqTTQSq+v2rf8U/DQg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3950003"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3950003"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 05:11:01 -0800
+X-CSE-ConnectionGUID: BavMt9NkQHmqgfqKA59phw==
+X-CSE-MsgGUID: V//dQ2IHTE+vP/bGEa+Ilg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10239098"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 05:11:00 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 05:10:59 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 05:10:59 -0800
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.34) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 05:10:59 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jC1Nm7vs6Rfmtl//T1MsuwtxwjQYqcVRwz7wk5q3DtAdqjAQFx7oNcgq0+3MrASd4w/zmATH3YDxyZV8lKrCTfkRQOBbI9toaL8EF/nV5O7YaQpUwE3kwLvkg2ZVnC7X5RRks46HVhMlB0R0qGkV+SgWAAXvv9jr/4er3CBae1GXB+MuJBSrBbdaZ6aDmeeC0VC70SCid5SIqwnx0VSyQiPrEmczX+uWLGG2HUPuH9aloKdRFyz2qpI79W2vaHL0eqh2t9Hu1cLqvvlmvYsSONAOTDCzC7EcAgauW9EbtxNzxuFgyMh+kDJCBcfs9x+mpx8kkjPB+aIFFqd06qfx8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V+gmNCyF9iPmK8pTSRkeS2wsiG0P9AldUIFdbELcHeY=;
+ b=cns3iP62/wUc9hdkA6IvCKE7DTxx+x3mSd3o1taBYPYlZ5YuxVC62ZIjRxSIXY2enJARQNCBRg1r/xbp6IeRelmCCfPGOScUhGhPqwPJ9q3574f0DldDjEMnYkiKZD5VgW5Fk3zD1gqa07gGgBJkSeDeENQnG4LdiKut1Y3Seo/sPNNwghevxHdNxdf9M92AFCt/n2VYE2VhG0mfDzCMVABeqf9h8jSvM+/gXnf6HRwbGT0AlzcGlU1Jm3q1anSt/kP7yEwzU/QXb2uNblwTVOKHM1T0gYpZmeuG5YZZQaaUL+tJPn58kreJk0zAf4BRBuiB8yB/vOMW3E8djI2sIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V+gmNCyF9iPmK8pTSRkeS2wsiG0P9AldUIFdbELcHeY=;
+ b=LTEOnLmV0OpCiNoqwadF/VwGvBZnukqKegsc0aje6BUVMaaia7iYUJx8vjJd0tQSziWQkbVp93M1ActZYOo8cV5HZfCCx4TsoIUge0IwD0QrQgIgCBi4KlGINBi/4Op/P/V80G5SAggxZtQB8mtAy8t/n1W8JB+KqGD3DfBVajg=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
+ by SA1PR11MB9614.namprd11.prod.outlook.com (2603:10b6:806:4c4::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
+ 2026 13:10:53 +0000
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 13:10:53 +0000
+Message-ID: <15730f22-1283-441a-95a9-b68874b35f43@intel.com>
+Date: Thu, 19 Nov 2026 14:10:25 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v5 00/15] devlink, mlx5, iavf, ice: XLVF for iavf
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <netdev@vger.kernel.org>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, Michal Schmidt
+	<mschmidt@redhat.com>, <edumazet@kernel.org>, <horms@kernel.org>,
+	<pabeni@redhat.com>, <davem@davemloft.net>, Jiri Pirko <jiri@resnulli.us>,
+	Jonathan Corbet <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+	<rdunlap@infradead.org>, <andrew+netdev@lunn.ch>, <saeedm@nvidia.com>,
+	<tariqt@nvidia.com>, <leon@kernel.org>, <mbloch@nvidia.com>,
+	<jacob.e.keller@intel.com>, <jedrzej.jagielski@intel.com>,
+	<anzaki@gmail.com>, <brett.creeley@amd.com>, <ohartoov@nvidia.com>, Petr Oros
+	<poros@redhat.com>
+References: <20261110141534.95614-1-przemyslaw.kitszel@intel.com>
+ <20261118171241.74a70bdd@kernel.org>
+From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261118171241.74a70bdd@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DB8PR04CA0021.eurprd04.prod.outlook.com
+ (2603:10a6:10:110::31) To LV3PR11MB8508.namprd11.prod.outlook.com
+ (2603:10b6:408:1b4::8)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,213 +150,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PygvCgD3v6fB8P5qZByjGw--.21046S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtryxJryDCF1rJFyxur4fuFg_yoWxGF1fpr
-	13Xwn8Ar18Xr4UJa95Zw4kCrn3ury0vF1YkwsxGw1S9rs8Kw15K3Wava43X3Z09F1rua1F
-	qrnagw1UAFWqkaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUUfQiUUUUU=
-X-CM-SenderInfo: jprymmytvvmjmrxbiqqrwthudrp/xtbC4APGqmr+8MM+gQAA3X
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|SA1PR11MB9614:EE_
+X-MS-Office365-Filtering-Correlation-Id: fbcbf6ba-8181-44c0-c1e5-08df463e8a43
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|10067099003|4143699003|11063799006|5023799004|56012099006|261021135927099003|261021121427099003|261022105027099003|261026121527099003|261026140227099003|261028144727099003|261102123227099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 3xZ2qO0Po4cOxy/YkqL5LgWwBEjYGqITqHHogSNUN5TqUAtQqq+NQXbV5t2t9wDW+clU5ml693t0SSdEVMeNtw2OkHD+j9IqDsNpDIyO9xtiMpTCsS84Ci8R2wLozOSHDqKxogyjFjHPWzDbyUxpcG1sK3/zqyevwRB4j6bii5KsZnZa7Loezn3QDSD3eHVRJmlkx0s99iQFyVyBG459rFuhVQr+WCnzvE5wc0DJ2utC8cMS8o2sEqR8IgwNRr/7Ezqg1octXtRUYAQjoGLed461WZ+uXVR+wXoV25SgOxioKEuL7larWB6BNMASffg2ImTarC73LW8qx82Gs8doVwaRuorxob7JQOvF/WcuryLUtCF9o7fpj/1zZHAp5Nzsw9IOEnm3MXOH6aPT4pqVdNIW65yGonUbBhXtLZT3lRyGq1pUGTbb70iqMTGTIL7Ni/bC+r0PV1MLyBPCJKeZpDxUI+VCMHJ3riAZzXYrqsxRk9rS2HMMW2YBsDNdXGDvQKBCQh30eWp8/i/cQitKTBAxRp9PdNns+ecmOKzZs23mVeJpbuChE0dIBqIJEO6cotd29LhFfG6ZQ9eITIz0V6pV/BvUgYsFC1DOCrKzOoi8M/IVHXywjxeyeDcN70an
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(10067099003)(4143699003)(11063799006)(5023799004)(56012099006)(261021135927099003)(261021121427099003)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T285Y1BOSnhFSVBPdEZEWjJKTlpzZUsrdGdEc2VKRG5MVC9mTi83MGoxMlVa?=
+ =?utf-8?B?Njk0RTgwSGk3dkFhcXB5WUplYUxGeHFIWU1tSXR3OXh6MDlERGVPTHRLMkhV?=
+ =?utf-8?B?UWNnMGttL281azhFL0Q3ZVVPZGdFOGMxb3lBS0tZWG1LZHByY2JZdFZqQ0lx?=
+ =?utf-8?B?RTJVVWtJS2t6TDBjVDA4ZFlGRFFUQXVZblQzUTI5bWx5b1p0VzUveUVQdjlQ?=
+ =?utf-8?B?b1V2bDF5R05Jd1gvMDdsSitrMEVwcXNSTGtNVGhUMFd1Vk1JdW9uc0xxa2Fl?=
+ =?utf-8?B?YzdUOFN6Q0tRbGI4ZzEwU0EzVEVENysrRjBFeFBnN3g5ZklHYThBbUhYREta?=
+ =?utf-8?B?endZTU1VK3pvNjF3RXBaMTBrQzhwbUFIMTdzN3hYVlc1NlpGOVMwMmJYOEdr?=
+ =?utf-8?B?OEQ1RDBMTlFKR2RkTldSc1JwTTIxQnRjNkdxcVVTTXZGc2ZxMHROSUZ1T0Jv?=
+ =?utf-8?B?dHc1SWt1c3cydk1ZOC9YOTQvTEoxc0F5L3VPUy83UmNvblNoWncyeCtseXRv?=
+ =?utf-8?B?S3NtSjVXQ1NrT3JoOFE5aTBRM2UrWXNhcEpNQksvUW5iWGVUbUdlUE9nbGFQ?=
+ =?utf-8?B?dUs2Q1JvaTNZcFo4aG5hc0ZCc3Jhb2ZpZnFmclpGWk1FbUFwYklnRDFGT0pU?=
+ =?utf-8?B?d2hBYW5wLzVEVVhsVlFYYUFGYjR6WStlUlFSOFFINVU4OHRqT2hnb2RQNnow?=
+ =?utf-8?B?emF0d05QSGJLRzZodmZHbnBYSlRzR055cXZJVllXQWlPbG9vcmxlK2NLay9N?=
+ =?utf-8?B?MmY2RkNGSnEvcW5INFdqSDFjektnT0NheDRsRFM2aUdBMWw1Uk5EU2ZrcDY1?=
+ =?utf-8?B?QmJUbGdQWEJEUGhjTzFWc1ppc0NTaVJ4VlN2dDFNOVdFMEx4UE9ISWhZVGZR?=
+ =?utf-8?B?cFBNZWFEb2NlOTlJVlhIWGRPalYwRGdYQmc5dGdvUnJNd1VYdmpPMHZhTjlL?=
+ =?utf-8?B?VjlnL2tjTjEzdGlSNzgwODRGQk16RnAwdWVHUStVM0Q0NEtLK0R1elFyOFda?=
+ =?utf-8?B?RkQxRk9uaGhxNHRuNUE0ZXNVU0ovWjNwOVBVOW1zaXZLUEhXbmZxYzRTb0Rw?=
+ =?utf-8?B?YUxYeDh1LzdyVDgvU2VkVk12dzg2OE5oUXlWb1hxWVZ3cXpIT0lRTSthNFZM?=
+ =?utf-8?B?WlFpejUwQWdudGhhVlhTbzU3NXUwTDV3SlU0WEdFTC9RL1RQbVdtSVNwdEFR?=
+ =?utf-8?B?c3lRSDdUeHZrc3ZvN1R0MHhzU1pPbGs1eXNqM1BIR0FDY2xjYmdTNFFLL2JT?=
+ =?utf-8?B?ZDdiMVovdnRldll1eXF6U1NCYSt3cGp3TUJkVm9td1dNZnQ0d084cG5XbkE4?=
+ =?utf-8?B?eUw3dHVURmw4dE52VThHeUxTVjA0Rm5Ga2NpamZ1Rk1wUTY5cnZNcTVncHhZ?=
+ =?utf-8?B?d3pSaXQweGtsMnBabXlIejBMakhEdTA0Q1IySE1oR20va0JneDcvcEFGM2pX?=
+ =?utf-8?B?MTJhZUlHcWp4QXRKaUwrOS9kZUZKZWRPaWdKR2N4aHlnWjdRYjk4Z2lLZkJQ?=
+ =?utf-8?B?OXVhUHdjc3FyZnFLOGtVSUFSTWhYUTA2RkRTQmFXSE1VRVlEdEt5bjV3WEdj?=
+ =?utf-8?B?WTE4OU5zazBQcmhjb2FLeGRkV3VWQnBOWTVBUnFFVWtZUDdZWHphN3ljVjRx?=
+ =?utf-8?B?SFJ5N0h3cEZvMVp3amVKdVk1NHFlYjB3dHpCdER5RlB6VmhtVGlZV2t2VWdm?=
+ =?utf-8?B?ZXBhVWMzOC9RcC9mMU9WTEN6bHRtV0JxUXhFb0k2Q0tZMWhDbS9sODduQXVv?=
+ =?utf-8?B?RTZFSWc2Z3ViaXpWQTRnZU43dnV0aSs0aVRhdGZPOVN4K21IeGQyYUdBOW5O?=
+ =?utf-8?B?N0RVZ3dBRHUzK3ZhcjJxdlJGN21kYzZxbWh3RFJ0UjczeWRPQlFpMDFpWlRL?=
+ =?utf-8?B?NE51STdaK3NQT3E1TjNKV0dDNER3VTRpcjI0ZWFZMDZHSTZwUEowR2tITkJ3?=
+ =?utf-8?B?ZHdoOVhlQjN3Wlc2ODJzRjFERUIxclk1Sk5Nb3ByVFNmMXhsR3BFOUNXcW15?=
+ =?utf-8?B?Q3lQVHpvYkdrckNZSHB5bytZbjVoUzJITkZneXdUNURUaVFqalNGM2ZWZEZF?=
+ =?utf-8?B?TGlwOE1jREZYeDQyOEdBd1V0Qm5nSjhhZyttYUdGVzJRQjArMjFOVEp2a3Yy?=
+ =?utf-8?B?akRjakt2NE9PSDBRRW05K2pwUFozVkZtYlg3WHgzVXZnbkgzNXJ4UWcvRjBW?=
+ =?utf-8?B?UmYzazc2M2s3L1hRcjlUeHNEZUJsNkxHbXNwc1h6dCtSNlY4emE3QjQrUCtS?=
+ =?utf-8?B?a1hzdDNEQzdxZnAzSXZjKzRrbk5GMlpVSVE0TTlVaDBpS0RWbTd5dUR6czZj?=
+ =?utf-8?B?by9PdmtvaVU0RWpTcWhVR1VaekZDaFllbFVTbnlRMG5KQ1YxanRkWkRVNVA5?=
+ =?utf-8?Q?4FyqVlyKf7Gby9ac=3D?=
+X-Exchange-RoutingPolicyChecked: F3zjZa0jlVsDN0btCWgxXEB50l7NsOz/HmmTETorbkiUf8jRJhw0pxFjmCXL3K4b2rBl2MBXWkRVgjZVvtUAJB6jzXb7YN5QuBOlrzYg6pAQwJ80Y8k8Nm1Y7pILrj0mNEJxcK/px2RPc0O2xrwOpVOWMHeOMpHa4YV+T/+k0xMnYjp2sjjaMelnrAsaBuXi5ubSWF+yKhez5nI2KVIOwdFgm1NN7aqHsuYg3WCQrDzCiJpxfdhDOROqcj5Cj/nUwjxIGjJ5a4sS74SsICXT0EokE3C5aP02qzH7iT6556LRyel2qVyBik0T8THDU15zDRH8+OnpK0NjXA5xLrco9g==
+X-MS-Exchange-CrossTenant-Network-Message-Id: fbcbf6ba-8181-44c0-c1e5-08df463e8a43
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:10:53.4685
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LzgE7iPzowiKWQir5X9J509L4xGdxINPqJcFQcp3b5Zw5jFdJGXamq+IVb7GsRah/z4y2C9ycGSYiAERAvK2saM8j+vkUJ4UTzSDaxPC0Dw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB9614
+X-OriginatorOrg: intel.com
 
-pmc->sflist is read locklessly under rcu_read_lock() by ip_mc_sf_allow()
-during packet reception in the UDP and RAW multicast receive paths.
+On 11/19/26 2:12 AM, Jakub Kicinski wrote:
+> On Tue, 10 Nov 2026 15:07:09 +0100 Przemek Kitszel wrote:
+>> Also available here
+>> https://github.com/pkitszel/linux/tree/xlvf-v5
+>>
+>> The purpose of this series is to allow iavf to use more than 16 queue
+>> pairs, in two modes: up to 64 and up to 256 queue pairs.
+> 
+> Doesn't apply, please rebase. When you do could you chunk this stuff> up? First two patches probably stand on their own?
 
-ip_mc_source() mutated psl->sl_addr and psl->sl_count in-place when adding
-or removing a source filter.  Additionally, when expanding the filter
-buffer, newpsl was published via rcu_assign_pointer() before the new source
-was written into the array.
+There is already [v6]
 
-The setsockopt writer holds RTNL and the socket lock, but neither excludes
-ip_mc_sf_allow(), which traverses the filter inside an RCU read-side
-critical section.  During an expansion, the race looks like this:
+there were a simple git conflict in the 2nd patch resolved in v6
 
-CPU0                                     CPU1
-ip_mc_source(add = true)                 ip_mc_sf_allow()
-/* RTNL and socket lock held */
-allocate newpsl
-copy old sources into newpsl
-newpsl->sl_count = old source count
-rcu_assign_pointer(pmc->sflist, newpsl)
-psl = newpsl
-                                         rcu_read_lock()
-                                         psl = rcu_dereference(pmc->sflist)
-                                         read psl->sl_count
-shift psl->sl_addr[] for insertion
-psl->sl_addr[i] = source
-                                         read psl->sl_addr[i]
-psl->sl_count++
-                                         apply source-filter decision
-                                         rcu_read_unlock()
+would be nice if you could merge the two first patches from there
 
-The in-place add and remove paths have the same problem after a reader has
-obtained the old list: the writer shifts or appends source addresses and
-updates sl_count while the reader iterates those fields.  This is a data
-race and can expose a mixed old/new filter state, with duplicated or missed
-source entries.  A multicast packet may consequently be accepted or dropped
-contrary to the configured filter.
+> There's likely also
+> bunch of refactoring / prep you can pull out of the drivers?
 
-An ordinary UDP socket can trigger the race: one thread updates a source
-membership while multicast traffic is received and filtered on another CPU.
-No special hardware is required.
+will see how it shapes after addressing your other comments
 
-Found during a static-analysis-assisted audit: candidate sites were
-surfaced by a Coccinelle rule, and the reader/writer paths were
-confirmed by code inspection. The issue was not observed at runtime;
-it is identified by code inspection only.
 
-Fix this by allocating and fully populating the replacement filter before
-publishing it with rcu_assign_pointer(), and by reclaiming the old filter
-with kfree_rcu().  The socket source list is therefore never modified while
-an RCU reader may still be traversing it.
-
-Fixes: c85bb41e9318 ("igmp: fix ip_mc_sf_allow race [v5]")
-Signed-off-by: Binbin Deng <18983559317@163.com>
----
- net/ipv4/igmp.c | 103 +++++++++++++++++++++++++++++-------------------
- 1 file changed, 63 insertions(+), 40 deletions(-)
-
-diff --git a/net/ipv4/igmp.c b/net/ipv4/igmp.c
-index d56355aca797..fd067858dd3e 100644
---- a/net/ipv4/igmp.c
-+++ b/net/ipv4/igmp.c
-@@ -2489,10 +2489,10 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
- 	struct ip_mc_socklist *pmc;
- 	struct in_device *in_dev = NULL;
- 	struct inet_sock *inet = inet_sk(sk);
--	struct ip_sf_socklist *psl;
-+	struct ip_sf_socklist *newpsl, *psl;
- 	struct net *net = sock_net(sk);
- 	int leavegroup = 0;
--	int i, j, rv;
-+	int count, i, j, rv;
- 
- 	if (!ipv4_is_multicast(addr))
- 		return -EINVAL;
-@@ -2554,13 +2554,33 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
- 			goto done;
- 		}
- 
-+		atomic_sub(struct_size(psl, sl_addr, psl->sl_max),
-+			&sk->sk_omem_alloc);
-+		if (psl->sl_count == 1) {
-+			newpsl = NULL;
-+		} else {
-+			newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr,
-+				psl->sl_count - 1), GFP_KERNEL);
-+			if (!newpsl) {
-+				atomic_add(struct_size(psl, sl_addr, psl->sl_max),
-+					&sk->sk_omem_alloc);
-+				err = -ENOBUFS;
-+				goto done;
-+			}
-+			newpsl->sl_max = psl->sl_count - 1;
-+			newpsl->sl_count = psl->sl_count - 1;
-+			for (j = 0; j < i; j++)
-+				newpsl->sl_addr[j] = psl->sl_addr[j];
-+			for (j = i + 1; j < psl->sl_count; j++)
-+				newpsl->sl_addr[j - 1] = psl->sl_addr[j];
-+		}
-+
- 		/* update the interface filter */
- 		ip_mc_del_src(in_dev, &mreqs->imr_multiaddr, omode, 1,
- 			&mreqs->imr_sourceaddr, 1);
- 
--		for (j = i+1; j < psl->sl_count; j++)
--			psl->sl_addr[j-1] = psl->sl_addr[j];
--		psl->sl_count--;
-+		rcu_assign_pointer(pmc->sflist, newpsl);
-+		kfree_rcu(psl, rcu);
- 		err = 0;
- 		goto done;
- 	}
-@@ -2570,49 +2590,52 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
- 		err = -ENOBUFS;
- 		goto done;
- 	}
--	if (!psl || psl->sl_count == psl->sl_max) {
--		struct ip_sf_socklist *newpsl;
--		int count = IP_SFBLOCK;
- 
--		if (psl)
--			count += psl->sl_max;
--		newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr, count),
--				      GFP_KERNEL);
--		if (!newpsl) {
--			err = -ENOBUFS;
--			goto done;
--		}
--		newpsl->sl_max = count;
--		newpsl->sl_count = count - IP_SFBLOCK;
--		if (psl) {
--			for (i = 0; i < psl->sl_count; i++)
--				newpsl->sl_addr[i] = psl->sl_addr[i];
--			/* decrease mem now to avoid the memleak warning */
--			atomic_sub(struct_size(psl, sl_addr, psl->sl_max),
--				   &sk->sk_omem_alloc);
-+	rv = 1;
-+	if (psl) {
-+		for (i = 0; i < psl->sl_count; i++) {
-+			rv = memcmp(&psl->sl_addr[i], &mreqs->imr_sourceaddr,
-+				sizeof(__be32));
-+			if (rv == 0)
-+				break;
- 		}
--		rcu_assign_pointer(pmc->sflist, newpsl);
--		if (psl)
--			kfree_rcu(psl, rcu);
--		psl = newpsl;
--	}
--	rv = 1;	/* > 0 for insert logic below if sl_count is 0 */
--	for (i = 0; i < psl->sl_count; i++) {
--		rv = memcmp(&psl->sl_addr[i], &mreqs->imr_sourceaddr,
--			sizeof(__be32));
--		if (rv == 0)
--			break;
- 	}
-+
- 	if (rv == 0)		/* address already there is an error */
- 		goto done;
--	for (j = psl->sl_count-1; j >= i; j--)
--		psl->sl_addr[j+1] = psl->sl_addr[j];
--	psl->sl_addr[i] = mreqs->imr_sourceaddr;
--	psl->sl_count++;
--	err = 0;
-+
-+	i = psl ? psl->sl_count + 1 : 1;
-+	count = IP_SFBLOCK;
-+	if (psl)
-+		count += psl->sl_max;
-+	newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr, count),
-+		GFP_KERNEL);
-+	if (!newpsl) {
-+		err = -ENOBUFS;
-+		goto done;
-+	}
-+	newpsl->sl_max = count;
-+	newpsl->sl_count = i;
-+	if (psl) {
-+		for (j = 0; j < psl->sl_count; j++)
-+			newpsl->sl_addr[j] = psl->sl_addr[j];
-+	}
-+	newpsl->sl_addr[i - 1] = mreqs->imr_sourceaddr;
-+
- 	/* update the interface list */
- 	ip_mc_add_src(in_dev, &mreqs->imr_multiaddr, omode, 1,
- 		&mreqs->imr_sourceaddr, 1);
-+
-+	if (psl) {
-+		/* decrease mem now to avoid the memleak warning */
-+		atomic_sub(struct_size(psl, sl_addr, psl->sl_max),
-+			&sk->sk_omem_alloc);
-+	}
-+	rcu_assign_pointer(pmc->sflist, newpsl);
-+	if (psl)
-+		kfree_rcu(psl, rcu);
-+	err = 0;
-+
- done:
- 	if (leavegroup)
- 		err = ip_mc_leave_group(sk, &imr);
--- 
-2.43.0
-
+[v6]:
+https://lore.kernel.org/netdev/20261117094913.100756-1-przemyslaw.kitszel@intel.com/
