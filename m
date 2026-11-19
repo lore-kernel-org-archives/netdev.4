@@ -1,108 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122915;
-	b=wIW7e5YSg+uNZuynzwA/wKFzgE4l4GbbICk+KcT1o5sxG1WgGy9cd5thQObI+qa4gP7r
-	 VWvqs5dTP0nzC4kc53I2r4xXsKM6mejzSRpu8rBNX5ZQIEtZTorbrY3LfoMi2jBcWddzl
-	 gYcV5wj2NcXnZkXMA8e291uS6iCHTuQtNi+q/+CPO++4lzE7gsnSMlHTwi4l9rTZjEBDz
-	 salkQ7tELiErkq+He/A3aG7Of4VJZX2Yab0MW0+et9JI5lAy7rwy1ZCLRFBmXe/PXV6Lz
-	 VrdHg2IH18RZdAA/QraTX+aPudFHPWjnLR9Y4Mrby+DnO1anPPP5Uecsr/5pw+xacvw==
+	t=1795123189;
+	b=S0v8QHVSy1kUz4gXOZuVDpsC8Gme66s/aK5hIdmWEwQi5e1l9ggO5LAl3sC2zKOcKOtj
+	 80aW1QgeKIk6qAaTqzXIoMF5cG2FRRvs6kpfFsZLc8ljoRMD1GBuk2j7ou5avbyZ4HNgX
+	 md2dqz4RGnEHrO6KgRLpxcaRNFHAjrXlDrZrCUcepCbhyw3ZgpQXrPVOT12RCLx9Zukzw
+	 9nr2sTRdZhlcwvFFU1gT4Cxw+CaPraWx2rn6yRLtPQXEl3JO33y3E8FEyvRfP7kDkOAKn
+	 CfkXNKcUhL04Qj1RoUQwzwNnR6gAct9v2T6SyDwNHV/fcCkwQd+6gnSwSeNJQuZ94kQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122915;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123189;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=L2RyQcOZXF1NiXE7RHnhrWrwU4nZkf2kDZOAz8z7ouw=;
-	b=PgUTSV8xwwive4ySqCCtC9dAmuSD2juN5rwQgp3jmAzriCO/2p2RAkSFRMts0FVSlq6f
-	 XGPpJ3kSKw6TPmlwXwKr+BMHELNbU1ZJR9Ezuce9DqncuvwNQ1YiOfJFykjhtBSqPQMgu
-	 g5W+Z5vO5VuQkyRkEVdKvWwm1c+APIPsqseKx/VzqZ4D1Rp6aMWX9eW9bWt+0AB553pqS
-	 IuN/fa7eufudRuPpPhCY5ob3xHlXTTIT/GtXblBByGclMJWKBvhtNgPjRCOMfcTD3nB2T
-	 6VMifZbmEJX7b4Hrk20blK2bWUL5sdvkQrhI/4T0CUCB1Nk1oh9mN+j/BJZmmNhGuHQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Z209N0q+r1NjNxUhzR6kiPLATti/mGc4UR2/BzH8DBo=;
+	b=uB3f8cdVIQ8Si7COCnyilsJIPTe0DidxTeJuJaafifMmjXWLrSS8lqyLodKJUr50tXbP
+	 bDT0Y0iEpwmpu+Lw//EfDPxLQCwUMsiOOWPgu7Od3Gy2S4XKqoCa1IhLtxnOa2wdo61wu
+	 VT3tKCXe3O7/O+57VeMMeyDpQP017b9a/K1XtepAMDu/uoUy2FXkxdkEXCQvqJ6XDHrKi
+	 kLf+PN85r+awQ7BpV4Y8ys8cF/hp5Tc0JeH6QSsd722xfr61py8MHfIz2v8nBwLRdNDQz
+	 i3PBQ5GGyytKd0uKo7XhXGTRIJmIN9s2xfuq+MjJGGQp5s0bEFJlyz8q6xog8S3y5ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YVWDHW7i;
-	arc=none smtp.remote-ip=209.85.160.175
-Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com [209.85.160.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bUS7xvyG;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 403CF60A2606
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:15:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 403CF60A2606
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 962AC606A330
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:19:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 962AC606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YVWDHW7i
-Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-5365d725440so2447551cf.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:15:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bUS7xvyG
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1a2761c69fbso454880c88.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 13:19:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795122911; x=1795727711; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=L2RyQcOZXF1NiXE7RHnhrWrwU4nZkf2kDZOAz8z7ouw=;
-        b=YVWDHW7iCruiAOVwlcK6OzpMh2PB/0sv9z5Xf+JAVkcE/WMJg0GwVnSHXpXzus1PE5
-         qUqRwEWgmFfXRut2f35BaM7a7fSfFj11mOFC8fTBL8hWjCNj8MyVjih7g+nx/+yosVyI
-         VumBeS6oyLOhGSovEzCCCMnix/7RFsuYgn6zqOKKiBevPMpgW52zYEsTWfYviM/0/K+R
-         94V996npreb830xbhrb/gmJJ/AtFIb0TINW2R/RCgGwbZif1sCDEzDk5xa5CHm/BqhLd
-         CEs6Bp9PGpvlkI3zdqgR3FSqd9OOEnATMzUufQgSKTOiMotPJQPiHXAgQbp8PKffiD4a
-         JoDw==
+        d=gmail.com; s=20260707; t=1795123189; x=1795727989; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Z209N0q+r1NjNxUhzR6kiPLATti/mGc4UR2/BzH8DBo=;
+        b=bUS7xvyGUGkeOaq/dSRGdz+KpdCLbg9pl8ojwXebLuQU8HdWWJJwr3H6JuyWAU8lcc
+         QXhY51ZOt1bUFAq6xKld4a/p8dqseL3osMWDPbLqLtm5rX9U5qZdDPZxMqHjdHLKfrch
+         xyZkZrluj0ZOpB0ElCmQ5wnH2oiJgc8X/FFWnNyCFf2MoErgNc5Y8Ot/PWTpoXR9f8Nv
+         rSWUrp7Cg4YkHpepVV6cZCgbvl77TMIwjvDZ8gd/x2G4Whl54vE+tSIYAGOSuY89sOS3
+         D+jxhDJ9DpKzpIiaAcFVva9ZIL5Mros/PaOOTA8urffoJMu80xPcdo2hoJdcNHK0SiWS
+         okvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795122911; x=1795727711;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L2RyQcOZXF1NiXE7RHnhrWrwU4nZkf2kDZOAz8z7ouw=;
-        b=vvx0YdvmK2bA+kYpyl9uu+CXFF5IRjxOSMujzHFY/D0X2K4rPOJL0PVHPkWF/UCZz5
-         B9/tTVLnZkB2oD3kWnViAAnpGHqxsUys/9QGymhsn68Yj6qm0fVISuLXE2rX36V4dtmb
-         jZIpkqc+F5HLHu7y7QApI+FhlWogits5DsySbRLodPFoK7pAcscHz1gRddpfOlJSEAKd
-         EVRRb0CXlk3AyghVsGOtNpGujinq1I+7hjyuB53vIBSj8LTVE2KzB0sZKhmNaM8X9kR4
-         sUdZLRDnKU0nnPoNGfDigBhlL7SB/YWwlDHYk8yWT8NXP4OCq/HkjgusSXhqcDigXaiV
-         3nMQ==
-X-Forwarded-Encrypted: i=1; AL+hErHQav/T7Rj1hyCvkd8VDJ2qadLgRiXsSGxHB14+mpEWMHHpQ1k7+a2n5TzTkflB3PghTCGHcb0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Tu7rw0LRAVaLFWuxoxXj38YhmgwTfUCMQBHd/bIs3bVk3SZnm
-	WPknmzSb4GubKiV+W7s24RkVSXmmm/XpydcK7MP+UNz1D9gfdUnSCtKJ
-X-Gm-Gg: AYBFou0Pur2zTZpA9DA76o67I0ZjIh+/qQ8SrlK35x6wBkvOSvRDlKaln8Cb85JLMx/
-	eIflohu/GECNt4DSgCZd2Wsi/bulNw/raxKYd7UDfGiWbwhBhBr4KvEwSzceBRS+WRwzjNwDXWh
-	EYIdMJzAz0LyiEPhB1IO+FJTZZHrUHQgvysWB3b++z06TmftrhuDf7XAHIG9z3D+0VpCaEattky
-	mN25e7dz4yb64AcBNtPF069IXyFh0VzrsDZj9csWdfCD6I9k2xn9Fch/CNJv28l83xdLfXQ/S9y
-	dhbmVCP75UDTCBHN7xwTFf8VHICAmzIWppZFjKbe/vdwdTYUcFcqAOGJgcOXduyOBSq7f93SRYx
-	0kVSnb4HEn4U/bw2rwrW1ySJVMNis9n4B941OaLcZFpCT3jjZXvULdz2rnVNK1tBYd3VHM5w6R4
-	xL6nbWbv5qvjPfgmMROm3yGdf+4LYTy0kKUrFyf1fqIyP0t72mf+M6fsGhzo+v02nPyTtOURw1k
-	VWdSTkZjiMYbjRJePfIlHNRFO1C1jRlx065O6zfGhFNC645eUVTwAMtVMdjeMKHd2yc8LEmAvXc
-	o8eN1ZXAwQ+6stk9e1jcBQU4PxQrDQWKg3zTWCppbynl+S6zt0Dx6R218EeVMO/eXsDFlRSifGV
-	W/99QJ5Ukl/CaKYRNWyYqmGgD5ErtoVqXFErYieq4Bxc8eSUSozSnFUi7Wsb+4cTN
-X-Received: by 2002:a05:622a:178f:b0:531:172f:79e7 with SMTP id d75a77b69052e-55d76a6595bmr21615331cf.39.1795122911021;
-        Thu, 19 Nov 2026 13:15:11 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788116c9sm5401731cf.4.2026.11.19.13.15.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:15:10 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:15:10 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Junyoung Jang <graypanda.inzag@gmail.com>, 
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
- Jason Wang <jasowangio@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>, 
- Simon Horman <horms@kernel.org>, 
- Shuah Khan <shuah@kernel.org>, 
- Gwanhyun Lee <gwanhyunlee@gmail.com>, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
-Message-ID: <willemdebruijn.kernel.138e4ccd85cc3@gmail.com>
-In-Reply-To: <20261119144241.360238-5-graypanda.inzag@gmail.com>
-References: <20261119144241.360238-1-graypanda.inzag@gmail.com>
- <20261119144241.360238-5-graypanda.inzag@gmail.com>
-Subject: Re: [PATCH net v3 4/4] selftests: net: check padded vnet hdr_len in
- tun and tap
+        d=1e100.net; s=20260707; t=1795123189; x=1795727989;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z209N0q+r1NjNxUhzR6kiPLATti/mGc4UR2/BzH8DBo=;
+        b=zoWYcHxdPj2ThvL2j0GgERFw7URcLhKUrwbCOc/lgutsglo5jNgPgCSs41QWeMy0SJ
+         FevgXPNuGeB7xbmwrjqNDob/mhCTXbBKIL7v93mSJH6I98hgaGCI37RmDs16mKmW2hB9
+         fbq878dLX0p1opEn7gFe2wjzRLFeXfDodMZ/u0SW7gFna+4/NPjnQAsI2KRSnopYlWha
+         FnP7Dp7bgTUqpIMZLz2kz9DqVrI6nPK6T6G9JvVs+xMAy8iMAQvMJINuZh7IgVgZEbTd
+         gOC170rpdsEUwv2JTPsKsDkRjelQHPH9jaIvXX7WCt25wBNU9iXR0C7a1uX4K1VRwgPU
+         J07A==
+X-Gm-Message-State: APuU4Z8CGeIBD7MSTdnAs8NQ0StKmjEWU3drqREr8P/h2wX5htws7Ny2
+	ae/EOpp5Ur0tHEheekQkCaLX33BQMWAFAHC814BhuWXCDhx9xdRtJ0jn7lTdTzHU
+X-Gm-Gg: AYBFou2YPFI9YtVtLqgyhtqqOkH2aA8rAD3ujGc0SLLLsc6HckN3NWrQJVD4LjHvfGE
+	X2fGOrU4th2avMVUVO1Pa1/jgAzfb4g6BIfl9YGb+5GbWwk6qd06sj3JLiHJ3OlKmcn6/pcNL5t
+	l+MeCwAk8zDwWg5Ps1Qwid7SGGuJmVnVW48y+ch6/1iHBjbGDUtUEwSgk4Rd0zUt4RWH7aw1xDl
+	58kpS/HZtDNlV6hihDnZzbzf/Yp0AQ6f/Z8OSnn2uDct7o+yzaRi0+Xxb2XDYSuAfzkAUNzSdzJ
+	V90Z5dwE1uCi8FO9iCD8U+GfvSCyOBJMp/6yKgiOeu6WmAE+Vg8ocJYtvaRUhKIgtDFnUdidhv4
+	KYtn6XbHRw9mPzPtqHTT8BBGB4LS/Lp1bA4Om0RKFuxoEwzEBfgPW+OwdGpC/wGXc/hyKiP5cPn
+	iOC5CNMOaRk/8pvuETcZkCZjy+Fjv6HOWsJ5Rifhkh3lIQ5KqxnQYHRQA7Z9IAh/ubgUGKXcI4F
+	x0zHhWrCsjPqAXEYXoXZBoW55/Wpr4WeRqG2dhafsl9mSs+NYx9duuU5+Gyes2EAcfvCACwMcrm
+	whbZAURQjSSoycuxeaFtM/WqEYqfD6hg5pKFXrA/OM9bmipyl1xEI+9+ao5psGVTedL174qUKnE
+	cz5wXbW20sQSgNPh1Acmep8NM0O7HeT8VgqgRHR1mkoUMAnPM06T+wRhNX4i9tkngjBTXgxxu
+X-Received: by 2002:a05:701b:465f:10b0:1b2:48db:23dd with SMTP id a92af1059eb24-1b5568cfbcdmr843336c88.16.1795123188512;
+        Thu, 19 Nov 2026 13:19:48 -0800 (PST)
+Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm2513815c88.9.2026.11.19.13.19.47
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 13:19:47 -0800 (PST)
+From: Ahmad Byagowi <ahmadexp@gmail.com>
+To: netdev@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	richardcochran@gmail.com
+Cc: andrew+netdev@lunn.ch,
+	arkadiusz.kubalewski@intel.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	jiri@resnulli.us,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Subject: [PATCH net v2 0/4] ptp: ocp: fix timestamp teardown and DPLL routing
+Date: Thu, 19 Nov 2026 13:19:46 -0800
+Message-ID: <20261119-timecard-common-v2-078fe69f33-0-ahmadexp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,25 +100,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Junyoung Jang wrote:
-> Add tun and macvtap write tests with a 512-byte virtio header and a
-> 14-byte Ethernet frame. A hdr_len of 256 must fail with -EINVAL
-> because it exceeds the post-padding payload. A zero hdr_len must
-> continue to accept the same valid frame.
-> 
-> These tests exercise the common header parser through both drivers.
-> On the unpatched kernel, each oversized hdr_len test accepts the
-> packet instead of rejecting it.
-> 
-> In x86-64 QEMU, the patched kernel passed all 105 tun and five tap
-> selftests, including the new cases.
-> 
-> Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+These fixes address existing Time Card teardown and routing issues and
+are independent of the WiWi board support series.
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+Changes since v1:
+- Patch 1 uses the existing device spinlock instead of a new mutex, as
+  suggested by Vadim Fedorenko. It covers the stopping check, PPS map
+  changes and MMIO, but releases the lock before pci_irq_vector() and
+  synchronize_irq(). The vector lookup takes the MSI descriptor mutex.
+- During teardown, the PPS no-state-change shortcut is bypassed so a
+  concurrent disable which has cleared the map cannot cause detach to
+  skip its own IRQ drain.
+- The source-derived removal harness now checks that MMIO remains locked,
+  vector lookup and IRQ synchronization are unlocked, and an in-flight
+  disable cannot skip teardown synchronization. Six intentional
+  regressions are rejected.
+- Code changes in patches 2-4 are unchanged. Group Fixes, Link and
+  Signed-off-by trailers without intervening blank lines, addressing
+  the v1 verify_fixes CI finding.
+
+The common and WiWi-integration PTP objects compile for x86-64 with W=1
+and KCFLAGS=-Werror. Source-derived ASan/UBSan removal and routing checks
+pass. The old-source control still reproduces rearming. These are mocked
+MMIO/IRQ interleaving tests, not kernel lockdep, KASAN or physical unbind
+tests. No production machine, card firmware or Windows HLK host was used.
+
+The issues were reported in the netdev Sashiko AI review and checked
+against the upstream source. Codex prepared the code, changelogs and
+software tests at the request to separate common fixes from WiWi support;
+this revision checks Vadim's spinlock suggestion and extends the removal
+tests. The patch changelogs describe the discovery and testing details.
+
+Previous series:
+https://lore.kernel.org/r/20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com
+Review:
+https://lore.kernel.org/r/ad6883e5-c103-4f82-8040-e5463477ca10@linux.dev
+
+Base: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5 (same net base as v1).
+WiWi v4 remains separate and unsent.
+
+Ahmad Byagowi (4):
+  ptp: ocp: prevent timestamp rearming during detach
+  ptp: ocp: use hardware selectors in DPLL frequency operations
+  ptp: ocp: report disabled SMA inputs consistently over DPLL
+  ptp: ocp: correct the DCF output frequency
+
+ drivers/ptp/ptp_ocp.c | 43 ++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 34 insertions(+), 9 deletions(-)
+
