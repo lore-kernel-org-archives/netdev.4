@@ -1,61 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080177;
-	b=UKyvfU/peNdGCxp5AozAVPO9CgtmmDQUxnHsuhQDjlqz42RI8PvuQpFZw+PzxN0bwuy7
-	 zch+mLow3mnEBeMq0LFbDzGYov/NtE7Z39H4JUOijotLsyKkMNzcEIOxtmBz+Z2/CntKM
-	 T3B+tvdjbKAyUvLDDEItz1YDkS/6LxNj4lDAJw80t7GN6uvwMBSlhv80pCBMZ2C4zPCJ7
-	 KsT3UvOrTIJ1hs5xh8ANxb+NsdZfShDFo+dtNN467cSJoK22bqdzyPUgkUAbk9Tk5Leo6
-	 y/60NKKlS1QJPGn4ExOIIE6m+pBg4HibbpqZH+fMRuqMUueBKGAQW6Jp1qx07KoqO1A==
+	t=1795080211;
+	b=tZrRQt/6VeJUyvuClj6LYylXy4lJF4yAn9loZMvciFtoeCOZVssdeCOJ+qHiSqTWoZVd
+	 u30iv0KrMHYrMtnMgfBLddu6L3oY2I8wYdE7ysqbapir0rbAkk33JsnKfTLmcLmjngAYJ
+	 90Xk+KZj4lhpYUIDYovGRS9Hu8Hd2PklHdsZ1pC008UK8byLmKh+O4XkmjV57L1ySYeUb
+	 wugmXZLSGAM1Suf0KRtoSHxPlthzfec1INUU31DysttlNNnUqRIS7O2uyzOvtfbaWx/YO
+	 WCUtNunD1TpvLh0CIJv5D39fNB8vwjLXn7nx7qm9uTkIqPuZr1qvQhyVacCBYmpaI9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080177;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=BQ2lnBFbJ23uOP8A1QEFwnqNG7eY2eGB8Q6tQ0RjBRI=;
-	b=mdHeXHWYWuALOIoUBdoIMX5cu8+F0kPHL8HkmgvgirSAF6JeVaEx81F1BT6yn88ZIipX
-	 AVyi+O2lwtE4+m05zd3rXdN7NXBngG2QcY1FlN89nLkl6mYHVEmbOPrcDqhr37DT9MLly
-	 AUqSa5qYrqoOg9gRcnXe2zteYBJqwhqEHHBm4RCa/pgz3anYvg3EaydDO1HjanWvwvrtR
-	 16z0YHDuKT9SI7wP6CteKrHi08ytaA7/FjsH2bRCTIaGmzOXEtRpi10yObVY4ehQ4zsZH
-	 2RTQBS1WkhjWTfNbFKbfrNJyJD2iusdEuwSBdUQDBEOy/u4TS7zANkX6xkbGo09jvEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080211;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=i3AXkyaf1e5SR4bn6j5cyytF9T1CSV8eUCUoZvRMjzQ=;
+	b=lQ5Ox9tl7olsQ344QwMU2O9fJUo5WfP37TtsxdsARgeyLmHMw+V3o4GMzsebMeGYNvE3
+	 I8xSYCScbIN/5cNsftN4+3TUXTW2tiB+xnDcFSRWVv2aHZSJIqDd8ALmaxvUgLd16kyF+
+	 ojWnIgjpRZVDobZ3rkLrMY7Qr1otCxhJZBJ/5kqODMLrQUc54twn/tV2l8Ru2VvnyZatp
+	 2BVHTm5b8SmSKHAABYmPdq63Nf8gD77Pdbbmid6/S/2WelsTHhYkrV5QaeoMT+wNm6Tt3
+	 AIr8GHt4/zG4n6FRipfsvqxgL2dcgLqnl+xSx5/avBLAR+KgPuhxZkhs2pulsL0bjtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vhg1ojQ2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OW8Omu97;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=UHrii6lp;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A613C60A261C;
-	Thu, 19 Nov 2026 09:22:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D23EE606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:23:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D23EE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vhg1ojQ2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51BE11F000C9;
-	Thu, 19 Nov 2026 09:22:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795080177;
-	bh=BQ2lnBFbJ23uOP8A1QEFwnqNG7eY2eGB8Q6tQ0RjBRI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Vhg1ojQ2Rc6va153o1ENe21se5QAcg08aI+bwjpY3OhxrjAF23QtUfTW5YJzyWi8h
-	 MNw3dK+aaFz4yhCNsw+m7ikn1gh5MTzSZtIUTjf5OgNtvtguHFTCH6yg8zvgSqiD/R
-	 UXLqlGIOxVRan+9gRE9VvicNq5ivBC8r5bbDNjbdh3q6RWpz+5UPzsmSV8dXB9nLhk
-	 iFvTLJBXNB1+JOGbjTZUmuihYoYDX8kmJFR/PeADNVCiNLVgZ6defra61TEJ/w9S3g
-	 Pw5dRuOt6L8gesRUtoQ1WPuGTuNCPnpM5ayJg2pvarNrPvseG/xQe9PwcV+MibDwlu
-	 vItMk9N4vxLpA==
-Subject: Re: [PATCH net-next v3 3/3] ipv6: use lookup cookies in selected
- socket dst cache paths
-From: netdev-bot+sashiko@kernel.org
-To: ralf@mandelbit.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
- steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
- sd@queasysnail.net, antonio@mandelbit.com, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 09:22:55 +0000
-Message-ID: <179508017589.3136.2311893930440004501@kernel.org>
-In-Reply-To: <60907e12930f38ba6c45c4ccfdca7abee068b765.1794906743.git.ralf@mandelbit.com>
-References: <60907e12930f38ba6c45c4ccfdca7abee068b765.1794906743.git.ralf@mandelbit.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OW8Omu97;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=UHrii6lp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795080209;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=i3AXkyaf1e5SR4bn6j5cyytF9T1CSV8eUCUoZvRMjzQ=;
+	b=OW8Omu97GHUGKXccyL1Cu8Pk+HDRkY3QkEOhpyzGRkZ7jpRrLncO9zt+DP8hmZL54yA1DF
+	EiBORqGomfyHVOwbWNZNLQxlLQFjOtXYD5+MOYYROP3cqgMEnV7HQ0znFkxq3UrRnKqoZV
+	OLz/NCE3ZKLuI/PhMmgg2JNKP3GYnII=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-7-li6x0DoFNoCMuETtDsrwtg-1; Thu, 19 Nov 2026 09:23:28 +0000
+X-MC-Unique: li6x0DoFNoCMuETtDsrwtg-1
+X-Mimecast-MFC-AGG-ID: li6x0DoFNoCMuETtDsrwtg_1795080207
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb67b2c00cso3047145e9.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:23:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795080207; x=1795685007; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i3AXkyaf1e5SR4bn6j5cyytF9T1CSV8eUCUoZvRMjzQ=;
+        b=UHrii6lp038Y7/7ShgnRk+ov4qUDBE7WJOQfnkgmQtmWsjPGbCcoOx+vXwXJ6lTOd9
+         1MiCv2BY+1sA/MiU4tWhZfugURfR9ux0xFDkmWSuZ1dD4+rc67YYu0d/NsPKe43ewKkH
+         GzlrdGf4Ej2r+KO6tBE5+xMwfsciegj/5b9URAgJm8rFGPBWd4TESHs2HLQhY2vZ6YUK
+         YKe7e1T0km7iVzbuSd9cg8C+Lgis08OKbyuc9wcrvPuzi+hkP2ZrjbZCWW6v7kTi2dNJ
+         01I0P2mTDX6uqrKq0yKwd9Mdah6Au+/iBw4xwBBz7yI18xEXaXaMlyBk7LO0RsVprfO5
+         kPIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795080207; x=1795685007;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=i3AXkyaf1e5SR4bn6j5cyytF9T1CSV8eUCUoZvRMjzQ=;
+        b=tsZwHf1luNKlgrm+/pjlWbReRCpeZY65XPGDJXnAxYvBo17SUmc2ye2LpX2N+5nspH
+         dkd6wmTSVdI1iU6oA6yJXo5YzNOqhPEX9cKC71ShzcfLd6+0B8gcHaM5XSNNAun5/DSE
+         jUpxgS170YcoscENwmqGrp3ODgLmxLuSAKDtmJh4bkU/frmz8GdKJK/KbkVYIC5BJyPn
+         ydkPueQXGoXCxXtDJ1hyyGm6vm7jW6QAMdOgrcsud7RCmMDTqJefTvTHyOELioM7+WqI
+         9jrnudsqLoyflmbrRwO9LAgkgSBya8lvPKgKpwYoa72X9A1RRjnlitABoHvRTstVexuL
+         jbcA==
+X-Forwarded-Encrypted: i=1; AL+hErGvZr8a72V4vkwjxMzwWYmQT7pbBAnpuYSgNrcmFriW8EVw8TDTl+PbB+MTMIRBnfOnJYZqqxY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8sAf1IhzvNMfrGRZODkk8dQE2bT+wrQqaQdLAhqYcIeMaZnngS
+	0v/nTZQMbpSJdt28SY0CZu9+ailABCVdWIbKBlRNt0niEJInHMUQCB5qU+KL87Q/x11t570hPnP
+	R6svEmGoFOwJEk/Jp+MxTleMH31pfoV2P8KjvOrma3nyY5Vo8R7V22TvO2Q==
+X-Gm-Gg: AYBFou04NOaE6r/UloP8tlsJ823GN7NdkPqNCfisdULnBRuIbY2HjAMIoHmC4L83vWv
+	vKEET6P+5P78a0agYMCeMJabsK2Y1i+UcuMPtxQYh4SIuBjVDzw5YkMZ1mS8YXwdTU7t91TirUR
+	Jx6k+1CwpOjDQZwrY6s8f/Stzx1QpG+YBlcZgikEVwsQcFJK0hI4iK1ScwZJWnqQ6dXuEA/vKBc
+	4lm2Jcu5KEqM04DGdaoXTVVhEYyeBGtO1nUlhCa9SaQWtdMSQHM9JNtCUoM3HVT8U/ZTRSfnc2R
+	r/eOAn4Ltl+uAjQ3sprO87mfTsK7SkT6ihD/j8KvjWmq4A10hvAgqY+bpUYQFScrr7o6oqyYhgd
+	3hT6rhnFjlYrTaaSn72ZEyuF/6K6Js8hXS6AUmwmcmwrsxSTx8HRH2EWxGVT5t4DdMIz8TzK/hF
+	Q4UntrrqVqCbceQFsGc6LQoMMSoraM8JxeDykytPtp59dy
+X-Received: by 2002:a05:600c:c16e:b0:4ba:4928:8aec with SMTP id 5b1f17b1804b1-4bb86109c24mr11729755e9.9.1795080206962;
+        Thu, 19 Nov 2026 01:23:26 -0800 (PST)
+X-Received: by 2002:a05:600c:c16e:b0:4ba:4928:8aec with SMTP id 5b1f17b1804b1-4bb86109c24mr11729215e9.9.1795080206449;
+        Thu, 19 Nov 2026 01:23:26 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8532f08dsm22506055e9.2.2026.11.19.01.23.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 01:23:26 -0800 (PST)
+Message-ID: <83fb9e03-3c37-4c7e-92b1-0eff6e7384cc@redhat.com>
+Date: Thu, 19 Nov 2026 10:23:24 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,133 +112,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/4] net: skbuff: don't clone a nested frag_list
+ member
+To: Josef Bacik <josef@toxicpanda.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+ Fernando Fernandez Mancera <fmancera@suse.de>,
+ Mina Almasry <almasrymina@google.com>,
+ David Laight <david.laight.linux@gmail.com>, netdev@vger.kernel.org
+References: <20261113-b4-skb-segment-clone-fixes-v1-0-f777fb06f3e7@toxicpanda.com>
+ <20261113-b4-skb-segment-clone-fixes-v1-1-f777fb06f3e7@toxicpanda.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261113-b4-skb-segment-clone-fixes-v1-1-f777fb06f3e7@toxicpanda.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 11/13/26 01:21, Josef Bacik wrote:
+> skb_segment() clones a frag_list member whose linear part fills the
+> segment.  pskb_trim() drops a nested frag_list from the clone, and the
+> walk moves on to the next member while head_skb->len still counts the
+> nested bytes.
+> 
+> With SG the walk then runs out of members and the segmentation fails.
+> Without SG the segments that aren't clones are copied out of head_skb by
+> offset, so the nested bytes are dropped and a later member goes out
+> twice.  Take a gso_size of 1000, a head of 1000 bytes, a member A of
+> 1000 bytes with a nested frag_list of 1000, a member B of 1000 bytes,
+> and a member C with 200 linear bytes and a frag of 100.  The segments
+> come out as head, A, B, B, C.  Without C this was a NULL pointer
+> dereference before commit e447e46ce976 ("net: skbuff: don't run off
+> frag_list in skb_segment()"), and B goes out twice since then.
+> 
+> Don't clone a member that has a frag_list.  Without SG the segment is
+> then copied by offset, and the copy recurses into the nested frag_list.
+> With SG the segmentation still fails with -EINVAL.  Nothing in the tree
+> is known to build such an skb.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+If nothing builds the problematic layout, this feels like defensive
+programming, and we should avoid it.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+/P
 
-- [High] The patch fixes the IPsec-bypass race (late cookie sampling) in
-  only three paths: tcp_v6_connect(), ip6_datagram_dst_update() and…
-- [Low] This patch carries a Fixes: tag and is the one stable selection
-  will pick.
-
---
-
-ipv6: use lookup cookies in selected socket dst cache paths
-
-This commit changes tcp_v6_connect(), ip6_datagram_dst_update() and
-ip6_sk_dst_lookup_flow(). They now store the cookie returned by
-ip6_dst_lookup_flow_cookie() instead of sampling it after the lookup.
-The commit also adds ip6_dst_store_cookie() and keeps ip6_dst_store() as
-a wrapper for callers that are not converted yet.
-
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-
-[Severity: Low]
-This patch depends on the earlier commit "ipv6: add
-ip6_dst_lookup_flow_cookie". That commit does three things:
-
-- adds ip6_dst_lookup_flow_cookie()
-- changes ip6_dst_check() so that a dst with rt->sernum must match the
-  supplied cookie
-- moves the fib6_update_sernum() calls in fib6_ifup()/fib6_ifdown() to
-  after rt6_multipath_rebalance()
-
-The prerequisite has no Fixes: tag and no stable note. This commit does
-not mention the dependency either.
-
-If stable selection picks only this commit because of its Fixes: tag, it
-will not build, since ip6_dst_lookup_flow_cookie() is undefined. Could the
-prerequisite be tagged too, or the dependency be noted here, so both get
-backported together?
-
-> diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
-> index 95f936be32c6c..2684f6069a5e1 100644
-> --- a/include/net/ip6_route.h
-> +++ b/include/net/ip6_route.h
-
-[ ... ]
-
-> @@ -266,8 +266,16 @@ static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
->  #endif
->  }
->  
-> +static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
-> +				 bool daddr_set,
-> +				 bool saddr_set)
-> +{
-> +	ip6_dst_store_cookie(sk, dst, rt6_get_cookie(dst_rt6_info(dst)),
-> +			     daddr_set, saddr_set);
-> +}
-
-[Severity: High]
-This wrapper still samples the cookie after the lookup. Three other
-writers of np->dst_cookie on TCPv6 sockets still go through it:
-
-net/ipv6/inet6_connection_sock.c:inet6_csk_route_socket() {
-    ...
-	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
-
-	if (!IS_ERR(dst))
-		ip6_dst_store(sk, dst, false, false);
-    ...
-}
-
-net/ipv6/af_inet6.c:inet6_sk_rebuild_header() {
-    ...
-	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
-    ...
-	ip6_dst_store(sk, dst, false, false);
-    ...
-}
-
-net/ipv6/tcp_ipv6.c:tcp_v6_syn_recv_sock() {
-    ...
-	memcpy(newnp, np, sizeof(struct ipv6_pinfo));
-
-	ip6_dst_store(newsk, dst, false, false);
-    ...
-}
-
-Can the same xfrm policy bypass still happen through these paths?
-
-xfrm_policy_insert() links the policy and then calls
-rt_genid_bump_ipv6(). Suppose an insertion lands between
-ip6_dst_lookup_flow() returning a plain route and the rt6_get_cookie()
-call inside ip6_dst_store(). The plain dst is then cached with the new
-serial, and ip6_dst_check() keeps accepting it.
-
-These paths run much more often than tcp_v6_connect():
-
-- After connect(), every refill for an established socket goes through
-  inet6_csk_xmit()->inet6_csk_route_socket() whenever __sk_dst_check()
-  fails. That includes the invalidation caused by the policy insertion
-  itself.
-- A remote ICMPv6 Packet Too Big can force refills via
-  tcp_v6_mtu_reduced()->inet6_csk_update_pmtu()->inet6_csk_route_socket().
-- For accepted sockets, tcp_v6_syn_recv_sock() reads the cookie only
-  after inet6_csk_route_req(), tcp_create_openreq_child() and the
-  ipv6_pinfo memcpy. That window is wider than the one in connect().
-
-The commit message says this is a partial conversion. With the Fixes:
-tag, though, stable trees would get a fix that leaves established active
-sockets and all accepted sockets exposed. The new kernel-doc for
-ip6_dst_lookup_flow_cookie() also says "A caller caching the dst should
-use this cookie when validating it with dst_check". These callers don't
-do that.
-
-Would it make sense to convert inet6_csk_route_socket(),
-inet6_sk_rebuild_header() and tcp_v6_syn_recv_sock() in this patch as
-well?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794906743.git.ralf%40mandelbit.com
