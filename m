@@ -1,90 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076639;
-	b=irOBQXFN4yiGdky18+dHlOQhE+Fl4UCfcBTmWDRiDMTmBEgjxi5UbmFP66AENr19cs77
-	 3JAyjYC7VlAXR/JH6/VaJYV1CE7WO+Y8klOkMPeBO/8CBvMpnsyGZ58YoVE6EuMOCfG8n
-	 o/emDdWAJnIrEobsyJc5E2L/UKX1uf9kJ/IEd4s73JUNH1o2v5mU6DaZN0G++3eGbVeyw
-	 IfHmWAHZjMax76rQtnD3qApdtG+1Zhmn1Ral1Qbm59wUZWjgIjroSe9gThgry4d/GTYXA
-	 yKSpe9wAZuuwK6mSRMgTNdGGXXgd6+Rciac2lqSxPSX9aQynDQOVs2/fwV8FLa8dL2A==
+	t=1795076973;
+	b=cTWesm661mqV6DPkcSNrw+3XZzyL7CEHPY/DAlO61yOpOc8OVN6h/g9dKpI7nmRgAzQ/
+	 efgBF9Th7tFF+v+bTUaZL5apf84K8DlLtARvdpki06Rhxp0v7Yx7WM2cLR3Qw3CD5WrZb
+	 UI9egmtN6DThcHxOSiodtXcdbY5Q1C/EjteinL61oy1ygvt7ME8ryMI3CDOHkLyID34FO
+	 qG/I6Ve9M12WA70y94X6Za92ebBr3EejhDTh+xVLX/hyxafO4ZlRO+K0g/n7AiRfVbWlb
+	 GEmH0QqukaGdWutQyh6VkIfh81GGRVk7+mZ/A7KVrBXvnsNMWkAZv/zUSTiuZMn96Ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076639;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=48YdPFcu7k/F/1gLeNRWuBrzFZWBgAjvsA2zw+5FjaY=;
-	b=nJuBbShYZpxvJnRv/Q/so1l8LNRBmi4/hCS8KBt4QW4spaXBG23kkCimaNkV5vWJdTYY
-	 Y/wAuQy6gxpkVhpZBw6jolvVvPyLIX4NF6lctIKAhIBWVINTRUQOB4LGgj+DDFtwjeNZ3
-	 anlc54+/3QF7jCIheASNp6iasnfv0DF9yF5Mf7O3PvgtVj1lnfDVTfOTSCWY92jz9zLD/
-	 77fsptZK22pJfcROPE9QKaGY0AcgOGvaZgYJqU5LjyjN+O6tiWCudYP56zI4C+FAjFtk6
-	 7WCby/oHDZ4oatdkM/huDq/bLdX5dl8pTNsPRHq1z/uq4PIhPHk0kymGiDzd3EuYLRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076973;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ltKoCevNzk3FQ+NjynhcPjvbgAc/XUm4ljr3zeAskEU=;
+	b=xwLPrWXS5zsrroen6mqBQvnuNCgSC4+39hBgERzEv3sP8FD/SpdIekTJtrnKgN0jaO3L
+	 e24Hnt7oM3gXqxFiAGV0yHmb6GtoUc6dcROmvWRuLDjrhRHvBQQH8wlN0xF3z9w1UhudW
+	 SHrYn2dRKwT31AyOxOxUjkHXK1XQbk4q4leQs5UGTP7bBr0oneRnHHXDZBA8LWuMrnbmM
+	 GLDQLrfcJzBUB35tyxyStzZMmSFO+ghn3OjLb1HL58yRyPKezAJoAKtCBhl+bLXLkMMDh
+	 lhCHXiEASoVrTeJ4ThRucwRAdAwcMQdO0dGE5aQGobHu1UVk3Dv4oq9XZEEpvzMeAJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XuU92q8M;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cE0qn7b9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97FC9606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:23:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97FC9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1A74606A324
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:29:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XuU92q8M
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795076637;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=48YdPFcu7k/F/1gLeNRWuBrzFZWBgAjvsA2zw+5FjaY=;
-	b=XuU92q8MkGxMeYOcgXQ/JqvWuQYPWvua6sJZumm6HmvPv+ul3rrlVhArA1Lh2nhJIHiioY
-	bG5ve4mGgxsIpMD9nwuF7S3u6kiDrmz19lJzP8UbAcZcQ3wOesEhbOkuK2JtMzeduoqpUn
-	kfn15+EfwfshC5SdjgWyiLLfutMdcPQ=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-633-7zpoSdcbPoqMob0FWUMk1A-1; Thu,
- 19 Nov 2026 03:23:52 -0500
-X-MC-Unique: 7zpoSdcbPoqMob0FWUMk1A-1
-X-Mimecast-MFC-AGG-ID: 7zpoSdcbPoqMob0FWUMk1A_1795076629
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6586E180054C;
-	Thu, 19 Nov 2026 08:23:48 +0000 (UTC)
-Received: from poros-thinkpadp16vgen1.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4541F1956088;
-	Thu, 19 Nov 2026 08:23:42 +0000 (UTC)
-From: Petr Oros <poros@redhat.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: Petr Oros <poros@redhat.com>,
-	anthony.l.nguyen@intel.com,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	edumazet@kernel.org,
-	andrew+netdev@lunn.ch,
-	netdev@vger.kernel.org,
-	michal.swiatkowski@linux.intel.com,
-	david.m.ertman@intel.com,
-	pengpeng@iscas.ac.cn,
-	przemyslaw.kitszel@intel.com,
-	vinicius.gomes@intel.com,
-	sridhar.samudrala@intel.com,
-	aleksandr.loktionov@intel.com,
-	horms@kernel.org,
-	alexander.nowlin@intel.com,
-	marcin.szycik@linux.intel.com
-Subject: Re: [PATCH net 2/6] ice: skip per-VLAN promisc rules when default VSI Rx rule is set
-Date: Thu, 19 Nov 2026 09:23:38 +0100
-Message-ID: <20261119082339.674502-1-poros@redhat.com>
-In-Reply-To: <179495967132.3136.6714105968141020753@kernel.org>
-References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com> <20261113231225.1864810-3-anthony.l.nguyen@intel.com> <179495967132.3136.6714105968141020753@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cE0qn7b9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803541F000C6
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:29:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795076972;
+	bh=ltKoCevNzk3FQ+NjynhcPjvbgAc/XUm4ljr3zeAskEU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cE0qn7b9wjUJjl+EeF9dlxo3NQSyDGash4L89R/ZGfLdsdB03qEXaB5qLGcQb3NYH
+	 bUNrOfHP7sVJYmJY0fvcpQLzPW3DNrJ7pojElaKXpHS7ZYp5PWJMpZd4bHXckLPCZz
+	 VIFa0EHWJW2yv611yslNN5OUEOPgpTOfspQTJzyZJtDUnlP0prx+6B+IrJXckI5oox
+	 p6omQV15yufCvtraQDjnfroUchVPFYPmh5s0vMPTAh+A3eLo6LmWx1IQPLf3GJoWPQ
+	 RsQtfqomDCZT5oPDlDl3ltLFSVS3T7QjaIfnZkSBkfT4AFW3HQDQnqDy73FlUFvAHG
+	 80eslyIBvThNQ==
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-71aed54d4c5so1285559eaf.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:29:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGF/agtqyycUxR/W1gj7InVE2dODBFLqMwBNUsjfa3TKfWJPiQwFcEwCI/ez31K5KGGIIGHIoA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9dbscOo85gyMPr+b2w4/aCvMPSmhleScxUsyUF5tdlcqHxFA7Q
+	VMrHQGzybSutOXgCmkMNpm03OR8lZ51bIFNz7Cj4SUZdsb1DxRlu6a1zHXlNdA8VQKJqc6oBXsy
+	GZdQ1DqS0kyVOphgjpM54ZQDqSydg8rU=
+X-Received: by 2002:a05:6820:408e:b0:715:2400:9579 with SMTP id
+ 006d021491bc7-71b18501de0mr3454655eaf.56.1795076971851; Thu, 19 Nov 2026
+ 00:29:31 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,81 +59,128 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+References: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
+In-Reply-To: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 09:29:21 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirJ-YBRoDxuPZDf3vD2_RP1GwfJ8EJVFN7nJAGVyiRZgA@mail.gmail.com>
+X-Gm-Features: Aa3M54oko1lYgZfiLlbyzAkE1l6l_7xxTDvABHcKBL2k1QYHaSbaMu8NxDpMhGU
+Message-ID: <CAL4WiirJ-YBRoDxuPZDf3vD2_RP1GwfJ8EJVFN7nJAGVyiRZgA@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: zero the tail of ha->addr when allocating
+ address list entries
+To: Henry Martin <bsdhenrymartin@gmail.com>
+Cc: Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
+	Yuyang Huang <sigefriedhyy@gmail.com>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Daniel Machon <daniel.machon@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 17 Nov 2026 23:54:31 +0000, netdev-bot+sashiko@kernel.org wrote:
-> ice: skip per-VLAN promisc rules when default VSI Rx rule is set
+Le jeu. 19 nov. 2026 =C3=A0 05:02, Henry Martin <bsdhenrymartin@gmail.com> =
+a =C3=A9crit :
+>
+> __hw_addr_create() allocates entries with kmalloc() and initializes only
+> addr_len bytes of ha->addr.  The dump paths emit each entry using the
+> current dev->addr_len, so an entry that was created with a smaller
+> addr_len is dumped with uninitialized tail bytes.
+>
+> dev->addr_len can grow after the entry was created: tun's TUNSETLINK
+> changes a device from ARPHRD_NONE (addr_len 0) to ARPHRD_IP6GRE
+> (addr_len 16).  On v7.4-rc3, with 64 entries armed on a down tun device
+> and the link type then set to ARPHRD_IP6GRE, RTM_GETMULTICAST returned
+> 16 bytes per entry of which 37 were non-zero and 21 started with a
+> kernel heap pointer (e.g. 0xffff8188_04857ee0); /proc/net/dev_mcast
+> exposed the same bytes.  This discloses stale heap contents to readers
+> of those interfaces.
 
-All of these hold up and will be addressed in v5.
+How did you get 64 entries on one device while addr_len was 0 ?
 
-> [Severity: Medium]
-> If only IFF_ALLMULTI is cleared, can a promiscuous VSI end up with no
-> multicast subscription?
+__hw_addr_add_ex() does memcmp(addr, ha->addr, 0), so every add of the
+same type finds the existing node and only bumps its refcount.
 
-Yes. It happened before the patch as well, because promisc and allmulti
-use the same ICE_MCAST_PROMISC_BITS rules, but the patch claims to fix
-exactly this case. In v5 the allmulti branch of ice_vsi_sync_fltr() is
-skipped while the VSI is promiscuous. The promisc path owns the
-multicast subscription and reconciles it with IFF_ALLMULTI when promisc
-is cleared. That also covers both flags changing in one pass, where the
-allmulti branch would otherwise add the per-VID rules right before the
-promisc branch makes them redundant.
+Please describe what was really run (64 devices ? another starting
+link type ?)
 
-> [Severity: Low]
-> This isn't a bug, but the commit message does not mention this change to
-> ice_clear_promisc().
+>
+> Allocate with kzalloc(), so the tail is always zeroed and a dump can
+> only emit bytes that were written or zeroed at creation.  This also
+> makes the explicit ha->sync_cnt =3D 0 initialization redundant.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: a748ee242681 ("net: move address list functions to a separate file=
+")
 
-Agreed. The v5 commit message describes the VLAN agnostic multicast
-rule used while the VSI holds the DFLT rule and the clear of both
-recipes in ice_clear_promisc(), and it no longer says that the DFLT
-rule alone covers every VLAN.
+This commit only moved code around.
 
-> [Severity: Medium]
-> Can leaving promiscuous mode now fail because of the FLU exhaustion this
-> patch is meant to address?
+For tun, the issue became reachable with
+cca8ea3b05c9 ("net: tun: set tun->dev->addr_len during TUNSETLINK processin=
+g")
 
-Yes. In v5, if not all per-VID rules can be added again, the ones that
-were added are removed, the VLAN agnostic rule stays as the multicast
-subscription and the DFLT rule is removed anyway, so leaving promisc
-does not depend on free rule space. The per-VID rules are also dropped
-on promisc entry whenever the VSI holds the DFLT rule, not only when
-the DFLT rule was installed in that pass.
+> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
 
-> [Severity: Medium]
-> Is this reached even when no DFLT rule was actually installed?
+Please point to your v1 instead:
 
-Yes, ice_set_dflt_vsi() returns 0 for a LAG with switchdev without
-installing the rule. In v5 the per-VID rules are dropped only when
-ice_is_vsi_dflt_vsi() is true.
+https://lore.kernel.org/netdev/20261116024056.1274402-1-bsdhenrymartin@gmai=
+l.com/
 
-> [Severity: Low]
-> Separately, ice_vsi_clear_vlan_mc_promisc() above removes the per-VID
-> ICE_SW_LKUP_PROMISC_VLAN multicast rules, vid=0 included, before this
-> ice_set_promisc() call installs the VLAN-agnostic vid=0 replacement.
+Also please mention the companion patch, which flushes dev->uc and
+dev->mc in TUNSETLINK when addr_len changes:
 
-Right. In v5 ice_set_promisc() installs the VLAN agnostic rule first
-and the per-VID rules are dropped after it.
+https://lore.kernel.org/netdev/20261118125443.1137177-1-edumazet@kernel.org=
+/
 
-> [Severity: Medium]
-> The per-VID rule is skipped here for a DFLT VSI, but the conversion further
-> down in ice_vlan_rx_add_vid() is not gated the same way:
+Your patch is still useful with it: tun is not the only driver
+changing dev->addr_len without flushing these lists (qmi_wwan raw_ip,
+hdlc protocol attach/detach), so the changelog should not present tun
+as the only case.
 
-Yes. v5 skips the vid 0 recipe swap in ice_vlan_rx_add_vid() while the
-VSI holds the DFLT rule, so the VLAN agnostic rule stays in place.
+Also, the bot asked how the issue was discovered, please include this
+in the changelog.
 
-> [Severity: Medium]
-> Is the per-VID rule also skipped here when the eswitch owns the DFLT rule,
-> rather than netdev promisc?
+The code change itself looks good to me, please send a v3 with
+the changelog fixed (after the usual 24 hours).
 
-Yes. In v5 the replacement for 3/6 goes first and resyncs the uplink
-after a switchdev session. It drops the multicast promisc rules, marks
-allmulti as not programmed and forces a filter sync, so with
-IFF_ALLMULTI set the sync installs the per-VID rules for the VLANs
-added during the session. The resync takes ICE_CFG_BUSY like
-ice_vlan_rx_add_vid(), so a VLAN added just before the DFLT rule is
-removed is covered as well.
+Thanks.
 
-Regards,
-Petr
+pw-bot: cr
 
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> ---
+> v1 -> v2:
+>  - allocate with kzalloc() and drop the manual ha->sync_cnt =3D 0, as
+>    suggested by Eric Dumazet and Daniel Machon
+>  - add the runtime observation to the changelog
+>
+>  net/core/dev_addr_lists.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> index d827cc21867b..9613c8a9ed7f 100644
+> --- a/net/core/dev_addr_lists.c
+> +++ b/net/core/dev_addr_lists.c
+> @@ -96,7 +96,7 @@ __hw_addr_create(const unsigned char *addr, int addr_le=
+n,
+>         alloc_size =3D sizeof(*ha);
+>         if (alloc_size < L1_CACHE_BYTES)
+>                 alloc_size =3D L1_CACHE_BYTES;
+> -       ha =3D kmalloc(alloc_size, GFP_ATOMIC);
+> +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+>         if (!ha)
+>                 return NULL;
+>         memcpy(ha->addr, addr, addr_len);
+> @@ -104,7 +104,6 @@ __hw_addr_create(const unsigned char *addr, int addr_=
+len,
+>         ha->refcount =3D 1;
+>         ha->global_use =3D global;
+>         ha->synced =3D sync ? 1 : 0;
+> -       ha->sync_cnt =3D 0;
+>
+>         return ha;
+>  }
+> --
+> 2.43.7
+>
