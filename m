@@ -1,46 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.101.248.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088377;
-	b=bqh0TR4/acJ6SmgO1Uaq01az0yhMpK70gXG7qU8H9/bFkeiKv3mtO+0I5JFh4ZaTxtGu
-	 N8T6VWsZuUIFMJ9d0i1WfAc2WsyKn89SR17Xy2rGm0s0/CNVl7CMZ9dr5wHBro/eE3pqn
-	 jqlhjT1B+f5cRxIt1LT8LAKlUqo/6i1WBEmNkXlN1mpQBydjn4Mu58lTXoEesfq/RBF4Q
-	 cDvJOVODPRDm3CodR8BZ2X+0eDWoXalgjggeXktwgZdU7JyKIsYD/sEzhCs7cy7o2bagP
-	 VT2az3k7kC2+pVGPGd6jVGG4f5k8QL5AnA5Bkg72unOnhChpshYZxlUOwvmRxxGwxGg==
+	t=1795088406;
+	b=uUj9WraM48L3QEk74Gu9xIh1bvXe7aoLt0iYWKKbdj8r7XcgKB1vYG//Gf/bZurIwQRy
+	 g99ZkBr/5TPKX5CGJkWj+hiYccUFs/wfh3BscqaucTgNfCHN5GFraQDlWLTdPbyyOars/
+	 oc0JByTAE0ETNm900ioJdKl+5Qb+PObXjjstZVIPgkZaApsGBdk7OBXbstHHtTvH51FOH
+	 ogX5Fk84Q3/4mST7P+WuyqW10og9xjebtgUbtUcfe3lUknjPaa2zwX4pD6eG5Pt5XeAC3
+	 vc4+PWOM076SOKuYMoFgz3ghElbxXVYkgrW6AvxVH+feieUTIBBRQfzuQNJOx1SnyVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088377;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=oQTcKfcyCXeGD+xqwFFJmWR9/TyQjo19bKFT57u0lsk=;
-	b=uLOplG1cvDTYvheLabbYEbUy2UCnTnORUiAQWPd3AGk2Ad+7Kv4sJUz0Wp1SHCj7z2WR
-	 q/PLmPKIMaifSNZRLCJczHZvkbT3kq2kzWJrSvr53TdKOEcCEtim67p21M9uQNBc8kLeI
-	 qeOJgODExUARJ3Ro8NqUCzUsWWLlcKptAlgN6tW6Vk7/rhf25j95PeSK7+ECtBD33HClA
-	 bhR2rXXJBdfoFuHCZQw8fuOeq1rgY09DmMLrcUx+89K5UMIpcTYEJ5o9rxSkvJ3+iqZM/
-	 T+4vI+AH1K+Fo9OoWtTyjfnHapcN1zaMiZRr4ajLzRtNrCOXCeoa7vZtmOmNSyZecHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088406;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=e1OqyWJkdqJlILrOCfF4VIv+SoCP4n191/FHdTdmxoc=;
+	b=hsvlUgWCBVV50cKJb8QRqV6XyfmvQ75EME0+LtI6sYIKsTpaxMkihtIjUTUHyZLEXDDe
+	 GnVzNf85nKvGBi6VxDU8TDRRH620KKiERI6h2gC30KXN8H684mXm/u83koSsBM43aQLo3
+	 vOhwQAb1iLZzjL61czWjrqDVhRZoathkGwBey1E+YzhmSheQHQJDytBWTcVmMi5xxsENd
+	 3lQrlPccOhShx8Tpui6Vihd+93Sv6Q0MY5X9C5DXqsffEdBlCyyWtIqN3fNLn7nQS6lAX
+	 NAQ2K7DS/BtgbcExhnGU92iu88siqoZgIuN0JLehnWu3awnus65sr4BYNd6x+q452aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xjtu.edu.cn;
-	spf=pass smtp.mailfrom=stu.xjtu.edu.cn;
-	arc=none smtp.remote-ip=46.101.248.176
-Received: from zg8tndyumtaxlji0oc4xnzya.icoremail.net (zg8tndyumtaxlji0oc4xnzya.icoremail.net [46.101.248.176])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id ACE4C606A325;
-	Thu, 19 Nov 2026 11:39:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACE4C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=stu.xjtu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xjtu.edu.cn
-Received: from fxxowodeMacBook-Pro.local (unknown [10.181.177.214])
-	by app2 (Coremail) with SMTP id NAGowABnF5Tt3_5qovtSAA--.9121S2;
-	Thu, 19 Nov 2026 19:39:26 +0800 (CST)
-Date: Thu, 19 Nov 2026 06:39:20 -0500
-From: "Zhenrong (Daniel) Gu" <zrgu@stu.xjtu.edu.cn>
-To: Julian Anastasov <ja@ssi.bg>
-Cc: horms@verge.net.au, lvs-devel@vger.kernel.org, netdev@vger.kernel.org,
-	Xing Feng <xingfeng@stu.xjtu.edu.cn>,
-	Peng Zhang <p-zhang@xjtu.edu.cn>
-Subject: Re: [BUG] ipvs: new connection on a reused port goes to the previous
- real server during conn_tab resize
-Message-ID: <av7f6F123V2WDd_u@fxxowodeMacBook-Pro.local>
-References: <avx0_13w3xGNdZP8@fxxowodeMacBook-Pro.local>
- <d876f5ef-982a-0ddb-5e75-3434453c2ccf@ssi.bg>
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c61jP1Og;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF8E606A320;
+	Thu, 19 Nov 2026 11:40:06 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c61jP1Og
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46F311F000C6;
+	Thu, 19 Nov 2026 11:40:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795088406;
+	bh=e1OqyWJkdqJlILrOCfF4VIv+SoCP4n191/FHdTdmxoc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=c61jP1Og09VZiRQJvRXCIKsQ/w7VOUly2g/FoNm/sjQJL3VB1T02NuDuQtFOlD2kF
+	 VxfvYyeGvx9guU8benV4AF3EAsJ9tMrRomBJFEB+DP1+4zu5RAL6NnpYpjiEXnJr8b
+	 UBSyOTsNZ0S/MM2mUm6mqEwgJUS9Ir4kFgmHtb0xsao2v9W/baB5LtRXlabsKp8aoq
+	 o19Qng1VTnBNrKbvl2HvDhm63/LTgp0LFAB88rO1Sv1WRgpePt6ZTQqUu43JkX4Pf2
+	 SSXXfRjg28gXkv/THmIcEKIa+6HUN04kclLBSgkiagYTCT73nd4iamYovNy1Idfk3l
+	 m49wEwjC2gccA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3603808210;
+	Thu, 19 Nov 2026 11:40:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -50,50 +53,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d876f5ef-982a-0ddb-5e75-3434453c2ccf@ssi.bg>
-X-CM-TRANSID:NAGowABnF5Tt3_5qovtSAA--.9121S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XrWxZF1Duw45XFW3AF17GFg_yoWfZFX_Ww
-	s0v3WDAFWUX3WxAanxKa45tay3WF4vqrnxArWIvr1xta4kJry7ua1q93sav3yxZayIq3Z8
-	C3Z8t3WUCwnIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AK
-	wVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20x
-	vE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280
-	aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07
-	x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18
-	McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lF7
-	I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1DMxkIecxEwVCm-wCF04k2
-	0xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26r4xJr1UJwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnU
-	UI43ZEXa7VUbSfO7UUUUU==
-X-CM-SenderInfo: 5hqgt5hwuh2iqrsqq2dwxo5ylwxovvfxof0/
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] tun: don't steer a flow to a queue index that no
+ longer exists
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179508840503.3038224.16974538898248760446.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 11:40:05 +0000
+References: <20261114153617.102288-1-umangpokhriyall@gmail.com>
+In-Reply-To: <20261114153617.102288-1-umangpokhriyall@gmail.com>
+To: Umang Pokhriyal <umangpokhriyall@gmail.com>
+Cc: netdev@vger.kernel.org, willemdebruijn.kernel@gmail.com,
+ jasowangio@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
 
-Hello Julian,
+Hello:
 
-On Wed, Nov 18, 2026 at 05:26:40PM +0200, Julian Anastasov wrote:
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Sat, 14 Nov 2026 21:06:17 +0530 you wrote:
+> A multi-queue tun device keeps a flow table that maps each flow to the
+> index of the queue it last used, so that packets sent back to the flow
+> go to the same queue. When a queue is removed, the last queue moves
+> into its index. An entry that still holds the last queue's old index
+> then holds an index that no longer exists. Packets of that flow are
+> sent to queue 0 with a "selects TX queue" warning, until the flow sends
+> again or its entry expires after a few seconds.
 > 
-> 	We prefer not to unhash such connections because they will
-> go out of our control, eg. we may want to delete them immediately
-> on netns cleanup. May be we should add some check to make them
-> invisible to packets, such as adding new bit in the cp->flags,
-> not depending on the cp->timeout being 0 or not. I can prepare
-> some patch to fix this problem.
+> [...]
 
-Thanks, a flag that hides the entry from packet lookups makes sense
-to us, and it also keeps ip_vs_conn_put() from re-arming the old
-entry's timer. We would be glad to test the patch: we can run the
-reproducer (force, grow and noresize modes) on 7.3.3 and report back.
+Here is the summary with links:
+  - [net-next] tun: don't steer a flow to a queue index that no longer exists
+    https://git.kernel.org/netdev/net-next/c/9068e05d35f3
 
-> 	They end up in the same table but in reverse order. The
-> old table is freed after RCU grace period, so it should not matter
-> which table is checked first.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Understood, thanks for the explanation.
-
-Best regards,
-Zhenrong (Daniel) Gu
 
