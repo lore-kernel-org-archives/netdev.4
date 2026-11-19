@@ -1,71 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108055;
-	b=g1jEfqlnuCAUBhrzN6uZxsIxyzmw4GLlwocqoqP1GBRxuETxfdXXtPjNOfHkLqmCPu2V
-	 1glb8zz6MYK+vKb/BMdY1/L017tV6sQHHbOpktRGtMYVwFc/M0JTxWD6A7jEPlDUrN8Oz
-	 Elus7SiVnpOk+XpcVQ/6pL1ZDrc9EI5qFlcKpSUtZWK250f8qBcBI7Fg9gaT7PZdh/PL6
-	 4Pix6YjGWhdcpvNOsNUh/WVwKRg4jSjLtK3VsF3v3xYQdiC//Giq8/ENe0io+BHMg/aL9
-	 K2JTQSXdrPywV5ZKWSTKNMyuFFKtZRhFfZ/mINGY1JOHlpHyPEaSbgVLcC49WcfANLQ==
+	t=1795108066;
+	b=ru5xPNAdrVQtoowbwJnqmS1MKJUxxdwRIEMn49tuKEsIgTe0WSTkG7VjMKtRK1QZdUQ0
+	 xFT5dUu2cNiQlOF3K+Qyp49jE54UapwT7rF6OgEJz9wVd4pqg2Wqdg4zsfGlK1utItq8V
+	 4OH3dHWVGszNg6u2cKHh3EZsa0PwwMEvEr6qASgPtUDntJtLtn5dH4oAGuvkKCzUCfFlS
+	 7gLRyr+2FT/omc//XXrsrnSDhdgBUbegZNhwnLf5YXhOVO0TJidXM3EJ1kKYNcq3/IHZ0
+	 miq8OEQpRPpykTnOr7XISHeZgTh1NtsXBQccH/ZRCvaFiCj+suc9+KU/IsWYSgza8KQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108055;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108066;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=9+uLL4ZhO+yAS7HHcBHeUoXpu6CmB8jc9UKkI8rB82w=;
-	b=Nk4lmeay22FH1KY6WhY2UcjeqyKfmAQEm92Nmb2oDTgpTHRzx96uSg/ieghtm07+NKyZ
-	 DujMQQCQ4/gMKUs5WMdTdIdHV84ClrWOtIeXCnCALED8SKOIB7rJ1GXh5S+9W6GP50U2N
-	 aB8BK6x163L0yRvFaQW7wURCxZouAF6j7KNOzvstsRBv1VrTxykrYVuYIymxCF/casXDF
-	 KQaqqFoiefDMqbQnkaIifq5aAJt4qyJbBNANHJIYyU41We9lgOhYxdGZHCshHvw+7+8VD
-	 cdjHQVSSF26zbzYe4u6Rn892VQXiVGcP7bGcTMeGMLZGqy4QHYrkSVn06v0H8l2Zcvg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=2o0ILC3keCwMhrgGZ6aMyUvzYh9D8kgarIcL8NMwQRU=;
+	b=M4XiTwqRqCzUGvp8J3HDWNlMLrdi3sRsVG6ZmcAxNC3HxWZHz1v0etrtU77jmlknXf2S
+	 M1fHM5a8nB5eSLJMTZjOX/tWIiblgMxJT2zdCq370BEZmSo49Nal9stTaStD1FFZjw7+y
+	 p9J7ezvmFarYd872KnxRK58hr+rB/+rdT7IPWP+v57rBA69oGZpBRFHRCIXpVOb2gI9K4
+	 PYCuqVb2oZaGGI4mUWu+SBRf234GuZYkJPoht3CNSdh4ZC9RoDsr1dAqLbcij8mZHrAKW
+	 W40kZzoXc5BuXjSrFRR8pSNtp4PjfAzE0sJBBDbnOqopTH8yF/xeKBwHazh+Y7JYXyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Ml7suLlm;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=clKMhSa1;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FF4860A2602
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:07:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FF4860A2602
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B840A606A33A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:07:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B840A606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Ml7suLlm
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1a5005fd0f8so4492929c88.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:07:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=clKMhSa1
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3724667bc16so872450eec.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:07:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108054; x=1795712854; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108065; x=1795712865; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9+uLL4ZhO+yAS7HHcBHeUoXpu6CmB8jc9UKkI8rB82w=;
-        b=Ml7suLlmIpOcXnnf9ewgF2D48rlsL4/6fjI+HeOPmdgCrE4AhicS8+HhdQi8oNqX6W
-         Y6+ANvfNSV9O7BgvxrD3e1thOdDYTXS3LZ+LHiLUfxoqKJuRjeQKYZFMRv1Rdj4aRGQ9
-         aXd6FGfBjuSLleWbBe36id1j3Rkj5Qe0g4uJUrD61911knO0b0Y+WWEQDLpELIFF5uD1
-         PrUsSeu2+Kl+TbwqkQQlK7koNFybLC7NAU4GTT7BCPPpUPrm36+3sPQmexda5jwlpi9G
-         dvw4i1HNtN3Pi7KCm0zphM6l+6FcPQ++dARxtAdPl4N8QQAKrouM1byQW8O5w9h+D9HN
-         3D6g==
+        bh=2o0ILC3keCwMhrgGZ6aMyUvzYh9D8kgarIcL8NMwQRU=;
+        b=clKMhSa1k+t/zljcwothRCYDh/TYTRdBp+Wl4FETkpsD82WP7pE/1MV+Sb8UJWzLhM
+         Weky1HjSqaeyUziUvD8fLkoKgaoGtU4+ELhwr/mx8G/vX+95RxbbWeKDGFeSzUPc/Ozc
+         MHl9MaUPeaCDgVJ5MLt81jFJyjXcDOG+zS0P6c6xpzHZYOH/yleqZ7dD7fgFWv3AHsFa
+         Mwy1GrYiQF/w7G4ZRFxB94ebNY87Zk0vZTJfsBmABSRLe1LVBsOITtVx9hoq+d4eR8nx
+         8qokjHwZotSmKXmB0EJ0t7lPwwfbpO5PpKnZ5IseDX7CNrwWw+4o2O+0ry9wcR1xvp6N
+         cH0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108054; x=1795712854;
+        d=1e100.net; s=20260707; t=1795108065; x=1795712865;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9+uLL4ZhO+yAS7HHcBHeUoXpu6CmB8jc9UKkI8rB82w=;
-        b=OH6N/BgE7XiK5s7CxpBElAn76Hjl7eibX6TJUE3Z/o1MJZ+S/Wx+ubhTqnAKGqXeQ9
-         T/HW7SMx3atzxhBfGKOMkK7eHOtN0dcE/w0h5JqdL9ydGxFWE8sx8LFTPlWAM0vv2RR9
-         pBTGn2o3lpkQxbBpYf/JQIqgM4K+lN4A8CMBr7EYmYZZkTH9TnhoYhGrYlP+fDofyi0d
-         wop5Jk9G6jaOjBuxhTOjpIzq3w0lP7fKR4Oukb8p26oncXDW43CdmW5QvyGT2p4N1hDx
-         PeI0hKRrlnBizduGTZd8TIaWE6OIKMR/KswZVa2pJzpDHPsc+Hj8D9pdTqfaJgXcl3oP
-         BHIA==
-X-Gm-Message-State: APuU4Z8x5++g5A0jQwl8pTlTsTeW0qsRy8RF7TVzvsOKe+fcsc1lvY2B
-	f0ozmyQdF7EHbliAzItpbGeB354EuzsXIs9H46Bm9MfR6d2a35ZhgEOnaxkcMuuytnayMbukjuw
-	hysREFVUBJQ==
-X-Received: from dlaj28.prod.google.com ([2002:a05:701b:281c:b0:1b5:345d:ed30])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:b0c8:b0:1b2:6855:998a
- with SMTP id a92af1059eb24-1b556911007mr233836c88.34.1795108053230; Thu, 19
- Nov 2026 09:07:33 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:07:29 -0800
+        bh=2o0ILC3keCwMhrgGZ6aMyUvzYh9D8kgarIcL8NMwQRU=;
+        b=xO4Tm/NLY9WoZsZVb+2gqKln5aq9ra9FKyDm8MgW6r5de0j3hDQBIhssFf8BNIrzo4
+         9O6Jc1TEQhrbE/32A0eL73CgcWDlh4u8995TB4f/lz7W1L4l9PPwqeEGKaguwao0R5SX
+         LuyV707I2qKN4324dJRZV9Me1YO2kJgsGrbkjJDqhw4zd1bCAGD507JohxQP63PAuRx/
+         3Hl871xjt9y4nKZklGA0V0zz36K4aaSIqXulM5TIVIa81Axio/xL7nXpLJU8lzRCoTKK
+         toGMa7xgIv6ilNMdEmA6aqaGgtmXP3KZRjVj/m9cgQqpE0u7+ZsXXreJXiWHbC9wPVWr
+         iRCw==
+X-Forwarded-Encrypted: i=1; AL+hErFo33ZzBZW0OoKTSSV3UpIQSq7Btiz3Zx43Q33+I2z4b2pRcYBWJnHZv0ZwFjEHpgL78MFQby8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qGsMwnsxAxgdiI8DR8i+KVTYvNhApaIc1bRqucyUZye81qjKa
+	TK4E1ED2joceS91FrGaTerQY5oEuePPvNamBUSKQXRan3EgbDZQItJkbLPBpqAiH4lErZlpnG4U
+	Eap7K1x2fVQ==
+X-Received: from dyr9.prod.google.com ([2002:a05:693c:4009:b0:385:23b2:bccf])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:51d4:b0:384:fef7:5876
+ with SMTP id 5a478bee46e88-384fef75c78mr1005650eec.24.1795108064646; Thu, 19
+ Nov 2026 09:07:44 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:07:41 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,82 +77,63 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170729.1524516-1-irogers@google.com>
-Subject: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
- fails in xmit
+Message-ID: <20261119170741.1525395-1-irogers@google.com>
+Subject: [PATCH iwl-net] i40e: ensure owner VSI is found before dereferencing
+ in i40e_veb_release()
 From: Ian Rogers <irogers@google.com>
-To: Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-When all LAN966X_MAX_PTP_ID timestamp slots are in flight,
-lan966x_ptp_txtstamp_request() returns -EBUSY without queuing or freeing
-skb, and lan966x_port_xmit() returns that negative errno directly from
-.ndo_start_xmit. Because dev_xmit_complete() treats negative return codes
-(< NET_XMIT_MASK) as packets already consumed by the driver, skb is never
-freed or requeued, permanently leaking the sk_buff and its socket
-sk_wmem_alloc accounting.
+i40e_veb_release() counts all VSIs attached to veb->seid in 'n', but only
+assigns 'vsi' when I40E_VSI_FLAG_VEB_OWNER is set. If a non-floating VEB
+has a single remaining VSI without I40E_VSI_FLAG_VEB_OWNER (for example
+if the owner VSI was moved or cleared via debugfs switch operations),
+n == 1 passes the 'n != 1' check while 'vsi' remains uninitialized on the
+stack and is immediately dereferenced.
 
-Free skb with dev_kfree_skb_any(), increment tx_dropped, and return
-NETDEV_TX_OK when lan966x_ptp_txtstamp_request() fails.
+Initialize 'vsi' to NULL and refuse to release a non-floating VEB unless
+both n == 1 and vsi != NULL.
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
+-Wconditional-uninitialized enabled; fix and changelog drafted with an AI
 coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
--Wimplicit-int-enum-cast; not tested on Microchip LAN966x hardware.
+-Wconditional-uninitialized; not tested on Intel XL710/X722 hardware.
 
-Fixes: 77eecf25bd9d ("net: lan966x: Update extraction/injection for timestamping")
+Fixes: 08cdde310e22 ("i40e: Fix broken support for floating VEBs")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../net/ethernet/microchip/lan966x/lan966x_main.c  | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/intel/i40e/i40e_main.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-index b8696fc7e9b9..9c722d23e0bb 100644
---- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-+++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-@@ -392,6 +392,7 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
- 	struct lan966x_port *port = netdev_priv(dev);
- 	struct lan966x *lan966x = port->lan966x;
- 	__be32 ifh[IFH_LEN];
-+	netdev_tx_t ret;
- 	int err;
+diff --git a/drivers/net/ethernet/intel/i40e/i40e_main.c b/drivers/net/ethernet/intel/i40e/i40e_main.c
+index abbc71e815ae..8d4213b7dd92 100644
+--- a/drivers/net/ethernet/intel/i40e/i40e_main.c
++++ b/drivers/net/ethernet/intel/i40e/i40e_main.c
+@@ -14718,7 +14718,7 @@ static void i40e_veb_clear(struct i40e_veb *veb)
+  **/
+ void i40e_veb_release(struct i40e_veb *veb)
+ {
+-	struct i40e_vsi *vsi, *vsi_it;
++	struct i40e_vsi *vsi = NULL, *vsi_it;
+ 	struct i40e_pf *pf;
+ 	int i, n = 0;
  
- 	memset(ifh, 0x0, sizeof(__be32) * IFH_LEN);
-@@ -404,8 +405,11 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
- 
- 	if (port->lan966x->ptp && skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) {
- 		err = lan966x_ptp_txtstamp_request(port, skb);
--		if (err)
--			return err;
-+		if (err) {
-+			dev_kfree_skb_any(skb);
-+			dev->stats.tx_dropped++;
-+			return NETDEV_TX_OK;
-+		}
- 
- 		lan966x_ifh_set_rew_op(ifh, LAN966X_SKB_CB(skb)->rew_op);
- 		lan966x_ifh_set_oam_type(ifh, LAN966X_SKB_CB(skb)->pdu_type);
-@@ -414,12 +418,12 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
- 
- 	spin_lock(&lan966x->tx_lock);
- 	if (port->lan966x->fdma)
--		err = lan966x->ops->fdma_xmit(skb, ifh, dev);
-+		ret = lan966x->ops->fdma_xmit(skb, ifh, dev);
- 	else
--		err = lan966x_port_ifh_xmit(skb, ifh, dev);
-+		ret = lan966x_port_ifh_xmit(skb, ifh, dev);
- 	spin_unlock(&lan966x->tx_lock);
- 
--	return err;
-+	return ret;
- }
- 
- static int lan966x_port_change_mtu(struct net_device *dev, int new_mtu)
+@@ -14735,7 +14735,8 @@ void i40e_veb_release(struct i40e_veb *veb)
+ 	/* Floating VEB has to be empty and regular one must have
+ 	 * single owner VSI.
+ 	 */
+-	if ((veb->uplink_seid && n != 1) || (!veb->uplink_seid && n != 0)) {
++	if ((veb->uplink_seid && (n != 1 || !vsi)) ||
++	    (!veb->uplink_seid && n != 0)) {
+ 		dev_info(&pf->pdev->dev,
+ 			 "can't remove VEB %d with %d VSIs left\n",
+ 			 veb->seid, n);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
