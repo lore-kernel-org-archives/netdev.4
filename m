@@ -1,70 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795130029;
-	b=CEF/GEiwqx58B4FMUxCZTlarBMxSm2qY3J/9VJEthrx3CPKw5zvP5GzEs6NE+UW8qo2y
-	 FiLVLMW9ZTLMjjbuicCPsVySeMLE1W4sYk4ETuRI3t1ZMDUFHaNW61HpPwee8DFXMcI9B
-	 xBfq5lDSuFk0emNj07XS+P4gK1i3sm9m2eBCOKC6ugOdFwz9w62qoxNxmxwklsoP93RFX
-	 a48twy5YVbmDQqaZxcsoG0PxWHU78wJfeZLIZEv2zKHhJsJARILZGz4dUlDfetk49jj/U
-	 5NqYVTUdzVHKMfuNRUfVeZlSym0dnGXQSkXmOKt7frW4kWmnkxe169X3LkTzNovMbXg==
+	t=1795130456;
+	b=lF7Z7RW7Q+WnKE/jJNXJIZ/gRBVo+fMdvt1b+3BnRtD6cDAWAISzPoDzXj/TA7pfqHO0
+	 w4g0M0fsRhBKfQHY6MjJ+8BK4XscNI7WChWFVhWA3IjVueq6+I53JNstQOSkCXNhOPLYU
+	 uUcMTr1EPYjCHdDqApYW5h0LBDCIGRF49myxJzLsRTI+SNUeBeZImYt6lL7gbYqUi9E4A
+	 aQnD0YHe9Qc2r05JDl2SK8vY8mGQAnpMSnhNokt9IreWd8XpapklC3eyBjuJX/v16NEWg
+	 e5UJoHe9X7+OOg5nBQpmdnSxp3cGhledk319N0lgyNqOTNL0nY2qd2xVnU+hWSuo7kA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795130029;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Debian-User;
-	bh=/rLlHy1FIUyb4NEYReYmN+7UGMml1neZjczELrd3bG4=;
-	b=OPy2xrfJaldLj99sAhb8K96Ub2EeMIQyvRrWPvbUZiMtSBPL7WgVXsBn5maWiyQD6DUa
-	 /28GT0cuIk0CMuJYuSaBipbsVcrjN/ACume5ITTCQmSeNm/LfGmrttuF8LCTg56eIy3Fd
-	 fBxl9EmDwLpYwmcfHtgEfKE/kelNuSePuDueP5bp5rAHSFmR5T85AhBzAzAc7ZKBLKPMg
-	 Lfjp3LnEH4RtVZUy0QmPrtozjGyQGW4p/mJs+/MhxJQAAbb6QGm0ubmG/lAPLtjS/Q3dE
-	 JIdJvHMdijVFinsACTDeI3I22eJwtc8m62HARqcgImQTwzEYHuALuWTQHp7U8wjLoaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795130456;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=xr5y2HrJ4TdM8R0sbSoyLZirPhsEM1UUu96wLJAFCyk=;
+	b=Amt6pXGPPrdOh9FQoNLh9XK6Z24NZSzXhThk/ix7khrrIozJ1b+s28T6i1MT5BqujinC
+	 PkbwrVxXjTyBsd2Ve0dRUGFtowZpXJAMb+J6E2HCwc+2/HrdAjI/blwUF+xJLadOERi+4
+	 q399offAevr8pNE84KHOWKm1sX28MijN4tw5nyJppbdDhpYl1ZvgQe0srUG5Gnt/h0A4w
+	 vKV6YaNYlaxv+FgZ7GN3YjpeZG1va0V2POCBuDwSiPMi7ciyHa5qPqLM8wbUkvnh4tOle
+	 qbTk0Y5srsCJAlgDNo+Ax+cRUaQSsQaEFxt+/0Ods+0bdHt6JdTVKXVwb96gcheMHMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=Wr0LXI8t;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="FQdS/ZB/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8271A606A320;
-	Thu, 19 Nov 2026 23:13:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8271A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ABF3606A325;
+	Thu, 19 Nov 2026 23:20:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=Wr0LXI8t
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=/rLlHy1FIUyb4NEYReYmN+7UGMml1neZjczELrd3bG4=; b=Wr0LXI8tFN67gJSug0XV0/gwvu
-	BibMCVk89OE2nC8VXsnydi2r1OoG69g3tJN+0kv9yvHPpkmog10LHllY2ZuRFyAbyRtyBGIBBV5/E
-	FR3R3xdefsk3wGAi4RcTGG5ZV17hDumxPCT6dm4n9jxygonVyXt5A2dndwvbZf5C2ddJlItga7pmh
-	R3KWN1LAC6oHlNCfXEOHio2byxzxnLt+z9OanrwXn3vw8Iux0wKLdfl5p5Ot3lWdZ5f+SOf1lXB0z
-	3rSZ4kclCywOh65ALGxM8WrrNb5HFsJzXq+Mf5o/2xlvFYKwEG8W7c0xK4675fr3pMnTUtLdkPEiC
-	dpLaiyYg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <bage@debian.org>)
-	id 1xUBJt-002RVG-0U;
-	Thu, 19 Nov 2026 23:13:33 +0000
-From: Bastian Germann <bage@debian.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Russell King <linux@armlinux.org.uk>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Bastian Germann <bage@debian.org>
-Subject: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY MDIO devices
-Date: Fri, 20 Nov 2026 00:13:19 +0100
-Message-ID: <20261119231319.1256419-1-bage@debian.org>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQdS/ZB/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8FBB1F000CF;
+	Thu, 19 Nov 2026 23:20:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795130456;
+	bh=xr5y2HrJ4TdM8R0sbSoyLZirPhsEM1UUu96wLJAFCyk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=FQdS/ZB/n3kVaRc6Uoq4w46I7PdeouA3kgT2u5+IFKhtr4bDGVNcmysKTZBhTspiv
+	 z9Il2siQEAgIWIbXC5nh72w//2LH6/OUXhCZW3BHCUaBzdiBzi34pG3K1k7Ym8zVK8
+	 cfdz066DcVMMSe5ge5J0Ua5pyNvo+OocbabTfBwGQa72KL+qFJ92ngYVuMu6ecH0uG
+	 Mo6npIvXn1W/nuWhpcxywfqIO4SKtCwxy75n0GZU7x5MvWang3Sc98kl6ax6jsay/1
+	 cetTpRZjU+9fVZg2Uvife+M3JxFMWiEP+pSqTxbGLfHKBNnhEDjwuo/98+CWCuct6w
+	 LgN1Kf0YTp7Qg==
+Date: Thu, 19 Nov 2026 15:20:55 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Bryon Fryer <bryon@fryer.io>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ horms@kernel.org, jasowangio@gmail.com, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, pabeni@redhat.com, shuah@kernel.org,
+ stable@vger.kernel.org, Willem de Bruijn <willemb@google.com>
+Subject: Re: [PATCH net 1/2] udp: restore outer transport header after
+ tunnel GRO
+Message-ID: <20261119152055.415dc942@kernel.org>
+In-Reply-To: <20261112030708.1915665-2-bryon@fryer.io>
+References: <20261112030708.1915665-1-bryon@fryer.io>
+	<20261112030708.1915665-2-bryon@fryer.io>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,35 +62,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Debian-User: bage
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-The "broken-turn-around" property is documented in mdio.yaml for any
-MDIO device, but the MDIO core currently parses it only for PHY devices
-in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
-switches, are registered through of_mdiobus_register_device(), where the
-property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
-still treat the turn-around/read failure as an error.
+On Wed, 11 Nov 2026 22:07:07 -0500 Bryon Fryer wrote:
+> @@ -948,6 +948,8 @@ int udp_gro_complete(struct sk_buff *skb, int nhoff,
+>  		skb->encapsulation = 1;
+>  		err = udp_sk(sk)->gro_complete(sk, skb,
+>  				nhoff + sizeof(struct udphdr));
+> +		if (!err)
+> +			skb_set_transport_header(skb, nhoff);
 
-Parse the property when registering a non-PHY MDIO device and set the
-corresponding bit in phy_ignore_ta_mask before registering the device.
+IIUC only UDP bothers us because that's what virtio/tun supports but
+isn't the header stale for every tunnel (eg GRE?) Should we not reset
+this back in inet_gro_complete()/ipv6_gro_complete() ?
 
-Signed-off-by: Bastian Germann <bage@debian.org>
----
- drivers/net/mdio/of_mdio.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-index b8d298c04d3f..0695ae83b83b 100644
---- a/drivers/net/mdio/of_mdio.c
-+++ b/drivers/net/mdio/of_mdio.c
-@@ -56,6 +56,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
- 	struct mdio_device *mdiodev;
- 	int rc;
- 
-+	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
-+		mdio->phy_ignore_ta_mask |= BIT(addr);
-+
- 	mdiodev = mdio_device_create(mdio, addr);
- 	if (IS_ERR(mdiodev))
- 		return PTR_ERR(mdiodev);
+Maybe GRO experts prefer it here, dunno. An ACK from someone who
+understands this code better than me would be good.
