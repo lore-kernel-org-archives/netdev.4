@@ -1,106 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795063569;
-	b=lKXx9cg3ULuM+pSSy+XJnJruNdu2Xoud5D2/C4Ni/YEBLOLjkuENEcalW7yNvZIHA7OY
-	 DwJ+fOBStqZ1YEumuGR8m5w8KopNYVgIApniwIBsC+eV8WGeuQXvoLjELXfK0XhSuDy0N
-	 w71iVbptZ+3d+VTGU6AJtftTRqWVKjGVI0249eKPunEstQZanCFlyRZorE4Hxsz4aWV7U
-	 RRrh6ghvEZmeUc+nvM3Nn5WCB2fLpFLYVrzDUtgqPzkc6qfgZG6Z9sNxFLzYBoOBGFy6K
-	 8oi4TmYBibZACatg39e5C1OhZewVRpFtmXToJ+heR6uQcvf82BeGfOOG9tB1OHBPOZQ==
+	t=1795064009;
+	b=vhWJi9kz73sd1V+qW+hd3M/52/NeCpH6vpuvlzVcw4i2Y6koxFNG4Rljx9DVXek3mpHj
+	 TqLJ1QZ6hBlZ/pAz1x3q3Q2gODVgT1+G/QDWnVF6uaGRxme0q7/f9zxEV9Y8Agn06dQqc
+	 PNtNmqzIQVGs8S9mcHdIK05I4rvALgDdjMP6cnBSGrdIVCpNNA5eB3ApUMm2orh5oojFW
+	 2MJVn345+Uk4uZ3TzHoZnaR+OkSgvXTyiM6LQxOhj3aA6HRFBhNLmeW3eIjIMWQh+z/n6
+	 6yEJcDWPqGOpw3GsvosKSuxLa/RotThArI5DjRMRodCnPA56fqK4zOwCInQMQ5VYKcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795063569;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=FeTY81b+WfrxgJ+JVJFyjcmUpktG/vXvoE1Ci/hCaeg=;
-	b=dhk1jtkMNY9V306k2D47/HnmCHLgMYM6/IdanpTVhipKYRFClagp18/wQpnZG3gwpwUQ
-	 ZyYg5IxGs0jIUL74u8fTrZ2E4l+At8G3jCZ2RlBzKUOE3Mm8F7mkfUIjybOFLXLvmXdOG
-	 iJFuqo/VF7NsQGbBA9bWehunflIKuO3XnYc4IDwS8iFgngT+LX38ydCFitOTCF2MrJwan
-	 KCbtb4L5mpMkkSieZ47rZpC5foRRvjkzM3AJ5L0CuaJEGuHK+ylZ+Q6QxirVVl+ZYAx23
-	 DkZh1WxAUi7O4355iDkhkzRRwwdbRu3fjF9fTUfMF3AMdwZPrgPcbNldYvHPnUIHJmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064009;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=KMF4TyqJrgS4jrFxAQVOcsoKi7mGaayIjEdxPJoSCiQ=;
+	b=JvniQ8HBsZ9GEiK7oglrZivCvUC+5DpByIW4wmAMpSq83uRS2Fuq4k3PtF+F5J5gzyVv
+	 mXUs5xWgQTZ6rD51SYwoqO6CK0zhYiBQ9RPON0hv5O+E7tu3oS+f6KP3h7m4tdbsJVhN8
+	 R5dSgWev/13oB/U6eTfIUeox0qS4j7/0yyUNLgqPJtkk3nijGZZHC6jxRqDbXgIhGha/M
+	 ZJqa73FvWz6YwOdfLYNQrtiJGskuVsszZaHO3YN0eBep32NpO/U0fkx/ZWxcVssmvs0VO
+	 O9Hy3PkjPbEloDeYUSBRenbJGcKitu1R87jjyGPxumwENBK1Pq8+TG+gdlag03uu+Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qpgMhnIW;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ouy0yDgA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7913606A326
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 04:46:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7913606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68566606A320;
+	Thu, 19 Nov 2026 04:53:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qpgMhnIW
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-380b40319bdso2695598eec.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:46:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795063568; x=1795668368; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FeTY81b+WfrxgJ+JVJFyjcmUpktG/vXvoE1Ci/hCaeg=;
-        b=qpgMhnIWJHydnd+O4QGYgjWD8KpnXlS9kyTbFEvUPLV+SRAABUtpFF+JIunciTk9NQ
-         3O1LpVLWhBau4w5ZRIIBSaG7SGql1glU1iPAHjktXArUNo2vqTk0jl3ID5jBxQCjK2Dg
-         WAyLsPsJlVsEQnYZBJE6aEMyBFJ+useL2HSTr8TMM9ZqypIQu/HJmO013D6HqY5bUnB1
-         sJALdDIiIFZXBj454usEku7KxN8T/SQ37LTe2oM52MUeMIQkR7gYpDbrGQetVEZrhnFz
-         0XSkTFi/xjm+uof2av6RLgc2FQQ8YTqhaTUQdb34hwO1EqXM6VHcmscVl4b7otlPtou8
-         n1ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795063568; x=1795668368;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FeTY81b+WfrxgJ+JVJFyjcmUpktG/vXvoE1Ci/hCaeg=;
-        b=svet4paykYfdEsIzWi8c9NuU7VpNmNO/pS04cNOIyWaq35AaEnagmiyOT/AlA5qZFe
-         dNSbZf3VEOwpEU7mzX/CaYHmOKGqYQw76m2tQcFPIF/ib6sVyXiyDAmxFmcVYkB5tKlQ
-         fxL6YSNjONfwUvyaunTLVMQyXCw9CJ2KITkzhc9zAYuOPkI8V/6GTSny/jic8oRw73Rb
-         upJZxJv+JMd7y/C4efNS5wk9nDuzNAESDqcuEbVoT0YimbuFYgUH/zbKlEpwHUwAibJ9
-         ewotMJxfdtMqdBp4Zv59YzenH0ZdO1f027YtvfYqxUqQfW/KdDpp8IbEtbZyoV7vmOAr
-         345Q==
-X-Forwarded-Encrypted: i=1; AL+hErGaLC4qF0w7FGgsRg5VSb4bjYD7s71KARDcJkNlY37bl1Spv79EmyO/9zrzKNqSG6/3KLg5rT4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Xy6C03GHOKFbQs2dmC+vEhAcSEjS2MLoSvFljSMAKXsZkFrJi
-	hNERC4kWbqRMJJpPjofOi4xPk3IDjZV01EOFiyuu1RnoaNS3TLRrHj6w
-X-Gm-Gg: AYBFou1D/lyKvs+n4dlq7Fjzpzhu6bbzSCEOpRAOHnmUSBU2kCjwOyjoAb7gtRjGaqv
-	iTUVxPgA7tbq6lC9naKQHwbPLQYgRdKeyb+BCXhj3iIxUQx/htMmVbPEo7V1ay9AlLrHCPl02HG
-	vkimbcMt74xvnluticAdSE34oTEBSYjKDEeEkLKEjNf80C5trvTGcS696IbpW5gEHEUmebnLtDK
-	AehrXbqFEbtwoItMNhl7bwhQ8LFPuTkj+g/yUwb6l2gKwVkQSGlNoaA+vVZrnntv7I45aiOmWmb
-	+zfPR5oElKmfrm94JcjFaDZx1OlmuLRwjEWBZhFWatsvGsVPhU/5E7R2inYgPQRj+b30qkLdSfd
-	vhWPBPL11+SrgRgYKn9B0orK1CvBhAumDY89rD8Rq2ExedBLbyygtePXCKh73/A33/0kArRhwKq
-	gjlrkhisq6zlDimB0DDPLlFCmZvz2GZ3nNL27vgB20InrWVOG2Nn1smJOevLI/UdYui0T+L3iBo
-	yjiMOQajD1A7cuDFnqxcDAza1AE/NPHASqdNdXkGWkkzXtHQCPhfRWDBmekMZCvM32E/GyePhyJ
-	WrgsHMs6YISJEu5GLQARRdr+FDhU0KeF7NG0sNUb2shtzwrEeLnJjWbSOI0M
-X-Received: by 2002:a05:7301:1610:b0:351:7e5d:2de9 with SMTP id 5a478bee46e88-3827d52c432mr4178801eec.1.1795063567342;
-        Wed, 18 Nov 2026 20:46:07 -0800 (PST)
-Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:9ca3:fcf4:a4d3:2073])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a75d8015sm12546986eec.21.2026.11.18.20.45.54
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 20:46:06 -0800 (PST)
-From: Zhao Li <enderaoelyther@gmail.com>
-To: Joshua Washington <joshwash@google.com>,
-	Harshitha Ramamurthy <hramamurthy@google.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Willem de Bruijn <willemb@google.com>,
-	Jordan Rhee <jordanrhee@google.com>,
-	Ankit Garg <nktgrg@google.com>,
-	Ziwei Xiao <ziweixiao@google.com>,
-	Jeroen de Borst <jeroendb@google.com>,
-	Praveen Kaligineedi <pkaligineedi@google.com>,
-	Tim Hostetler <thostet@google.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Matt Olson <maolson@google.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhao Li <enderaoelyther@gmail.com>
-Subject: [PATCH net v2] gve: mark the flow rule cache out of sync when a rule update fails
-Date: Thu, 19 Nov 2026 12:45:37 +0800
-Message-ID: <20261119044537.57936-1-enderaoelyther@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ouy0yDgA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00A201F000C4;
+	Thu, 19 Nov 2026 04:53:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795064009;
+	bh=KMF4TyqJrgS4jrFxAQVOcsoKi7mGaayIjEdxPJoSCiQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ouy0yDgAy0SjqCU5Jx9DuZaecoZVPP4sJCXzHsriVBPVUKwDU8BSVM89OdN15u1fJ
+	 rSBVTV7JbTxzEtIf9HdLya5FdtWxRQqIIN3rZW5fBRWskK9cH1dqkMApxWXtBoaw70
+	 jIQMm1GOOWDw1dyBAQpIfGSm/Zt7QJ5ytAWXWZuaaOYZrRx2bItQBttbfAJo/LE/4/
+	 gkSS+FV1ZqoWmo1p/cFwmSp3E6C4FUnEz74RBkmhCni03iw4Sym3r8aEclydylsfbh
+	 WUl6wBWIGkkcXcd32oKZKB3cHUHB/t8CffgyCahSzyKoSx2whi38Y0BI2yzINIvhAU
+	 94NxK/qmTYwbg==
+Subject:
+ Re: [PATCH net-next v2 4/5] rds: annotate data-races around core rds sysctls
+From: netdev-bot+sashiko@kernel.org
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, dust.li@linux.alibaba.com, dsahern@kernel.org,
+ idosch@nvidia.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, matttbe@kernel.org, martineau@kernel.org,
+ geliang@kernel.org, achender@kernel.org, alibuda@linux.alibaba.com,
+ sidraya@linux.ibm.com, mjambigi@linux.ibm.com, tonylu@linux.alibaba.com,
+ guwen@linux.alibaba.com, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
+ linux-s390@vger.kernel.org
+Date: Thu, 19 Nov 2026 04:53:27 +0000
+Message-ID: <179506400752.3136.8984114555998117139@kernel.org>
+In-Reply-To: <20261118045137.174026-5-jiayuan.chen@linux.dev>
+References: <20261118045137.174026-5-jiayuan.chen@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,58 +68,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-gve_adminq_configure_flow_rule() marks the flow rule cache out of sync
-only when the device accepts the command, although a failed add,
-delete or reset can leave the device state unknown.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-gve_reset() sends the flow rule reset command from
-gve_teardown_control_plane_resources() and then frees and reallocates
-the cache buffers. If that command fails, the cache keeps its nonzero
-rule count and stays marked in sync, but its entries are now zeroed.
-gve_get_flow_rule_entry() then finds location 0 inside the cached range,
-since every zeroed entry has location 0, and reports an all-zero
-TCP/IPv4 rule that steers to queue 0, whatever the device holds at that
-location. Queries for other locations fall outside the cached range and
-read the rules from the device again.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Mark the cache out of sync whenever a flow rule command is attempted,
-so that the next query reads the rules from the device.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Found by an AI code review agent; not triggered. Compile-tested with W=1.
+- [Medium] The patch only annotates the RDS datapath readers of
+  rds_sysctl_reconnect_min_jiffies and rds_sysctl_reconnect_max_jiffies.
 
-Fixes: 57718b60df9b ("gve: Add flow steering adminq commands")
-Suggested-by: Harshitha Ramamurthy <hramamurthy@google.com>
-Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
----
-v2:
-  - mark the cache out of sync on every flow rule command instead of
-    clearing it when its buffers are freed (Harshitha Ramamurthy)
-  - describe the problem in more detail; drop Cc: stable
-v1: https://lore.kernel.org/netdev/20261118023429.29330-1-enderaoelyther@gmail.com/
+--
 
-No new W=1, sparse or smatch warnings.
+rds: annotate data-races around core rds sysctls
 
- drivers/net/ethernet/google/gve/gve_adminq.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+This patch adds READ_ONCE() to the lockless RDS readers of
+reconnect_min_delay_ms, reconnect_max_delay_ms, max_unacked_packets,
+max_unacked_bytes and ping_enable. The sysctl handlers already update
+these with WRITE_ONCE().
 
-diff --git a/drivers/net/ethernet/google/gve/gve_adminq.c b/drivers/net/ethernet/google/gve/gve_adminq.c
-index 2c848f0c23dc..d0e0d9ace3bc 100644
---- a/drivers/net/ethernet/google/gve/gve_adminq.c
-+++ b/drivers/net/ethernet/google/gve/gve_adminq.c
-@@ -1401,8 +1401,7 @@ gve_adminq_configure_flow_rule(struct gve_priv *priv,
- 			sizeof(struct gve_adminq_configure_flow_rule),
- 			flow_rule_cmd);
- 
--	if (!err)
--		priv->flow_rules_cache.rules_cache_synced = false;
-+	priv->flow_rules_cache.rules_cache_synced = false;
- 
- 	return err;
- }
+[ ... ]
 
-base-commit: e203d8a4751d48aa00eda31e3b320ba8e0d47dbf
+> diff --git a/net/rds/threads.c b/net/rds/threads.c
+> index 639302bab51ef..115fcff0a5b13 100644
+> --- a/net/rds/threads.c
+> +++ b/net/rds/threads.c
+> @@ -137,7 +137,7 @@ void rds_queue_reconnect(struct rds_conn_path *cp)
+>  
+>  	set_bit(RDS_RECONNECT_PENDING, &cp->cp_flags);
+>  	if (cp->cp_reconnect_jiffies == 0) {
+> -		cp->cp_reconnect_jiffies = rds_sysctl_reconnect_min_jiffies;
+> +		cp->cp_reconnect_jiffies = READ_ONCE(rds_sysctl_reconnect_min_jiffies);
+>  		rcu_read_lock();
+>  		if (!rds_destroy_pending(cp->cp_conn))
+>  			queue_delayed_work(cp->cp_wq, &cp->cp_conn_w, 0);
+> @@ -156,7 +156,7 @@ void rds_queue_reconnect(struct rds_conn_path *cp)
+>  	rcu_read_unlock();
+>  
+>  	cp->cp_reconnect_jiffies = min(cp->cp_reconnect_jiffies * 2,
+> -					rds_sysctl_reconnect_max_jiffies);
+> +					READ_ONCE(rds_sysctl_reconnect_max_jiffies));
+>  }
+
+[Severity: Medium]
+These two variables have one more lockless reader that is still a plain
+load: the sysctl handlers themselves. Does that leave part of the race
+described in the commit message unfixed?
+
+In net/rds/sysctl.c, each reconnect sysctl uses the other one's variable
+as its range bound:
+
+net/rds/sysctl.c:rds_sysctl_rds_table[] {
+	.procname       = "reconnect_min_delay_ms",
+	.data		= &rds_sysctl_reconnect_min_jiffies,
+	...
+	.extra2		= &rds_sysctl_reconnect_max_jiffies,
+	...
+	.procname       = "reconnect_max_delay_ms",
+	.data		= &rds_sysctl_reconnect_max_jiffies,
+	...
+	.extra1		= &rds_sysctl_reconnect_min_jiffies,
+}
+
+Both entries use proc_doulongvec_ms_jiffies_minmax(), which ends up in
+proc_ulong_conv() in kernel/sysctl.c:
+
+kernel/sysctl.c:proc_ulong_conv() {
+	...
+		if ((tbl->extra1 && *(ulong *)tbl->extra1 > tmp_k) ||
+		    (tbl->extra2 && *(ulong *)tbl->extra2 < tmp_k))
+			return -ERANGE;
+		WRITE_ONCE(*k_ptr, tmp_k);
+	...
+}
+
+If one task writes reconnect_min_delay_ms while another writes
+reconnect_max_delay_ms, each handler's WRITE_ONCE() races with the other
+handler's plain read of the same variable. KCSAN would report this.
+
+The bound check is also not atomic with the store, so both writers can
+pass their checks against the other's old value. For example, with min=100
+and max=1000:
+
+task A: write min=500, checked against max=1000, passes
+task B: write max=200, checked against min=100, passes
+
+Both writes succeed and leave min=500 > max=200. rds_queue_reconnect()
+then starts the backoff at READ_ONCE(min) = 500 and caps the next value at
+min(1000, READ_ONCE(max)) = 200. That puts the backoff below the
+configured minimum.
+
+Could the extra1/extra2 loads in proc_ulong_conv() use READ_ONCE()? Or
+could the two RDS handlers be serialized so that min <= max is enforced
+atomically? As far as I can tell, no later patch in the series changes
+kernel/sysctl.c or net/rds/sysctl.c.
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118045137.174026-1-jiayuan.chen%40linux.dev
