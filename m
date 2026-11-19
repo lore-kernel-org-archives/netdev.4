@@ -1,98 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.169
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.177
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795120031;
-	b=cgvEt5DFAwvyAuqI+c7//dI6GKuNn8b21POTa+IA7QF0mmhnTuYGL4XOsZlxJqUK8QJq
-	 XxF1v29EoLrr4T7HVs/wiuyVq+C8uVU+6nx5mgE5LuppWj2oaUOKVohMNiFF9rAVg2JLa
-	 XNaj6oRic6WRlsV42FQD6UTgmkDmfOppaVqJSMGxGSX4Fa/f0NXN8jLJF3eBMSr/qAj12
-	 pWLtm8udRQwaSfgMSGk87ng0NGbF+lbmy7LEi/StDiSqHiW2HRAS45qFy63fxC2lqPvxJ
-	 BerLy+JWKyCJBm33vW5evMEVp4oCKxlfioywqIHlCTZM0Jpk2MF35YWnqzeZdinO+6g==
+	t=1795120158;
+	b=hWL3EBqnf0gLhN/slIkpWa0zTZFOHuHkCG4Y+12rd/T3SnTeF4CdERKCZOllFZrHzI2n
+	 UVaF1EjOCQ8u5efpZ7YnlE178m/axIwaq9Fovi+ujzID6bHMhyLuj0M0/yDCqYTN3jeNX
+	 tsx6uJYD7F7k9SJuhfxvOTmqOM/IQmAHsLUbL3zrR3pimalddV5FSKUcr8Yb1OXmkePQ2
+	 FFMkKXi5GZGW6FeQ86VEOXt444HP80G2o86kh/S5R4zMCqP3JJqZ/6exZQ5190mLp9B5+
+	 VS5/Mdpqq3j4lav/ogDJ7stEyzW4Nd1y1KBjOnaprNGRnPVY/ZeN5MD0QxEW1RMGtZA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795120031;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795120158;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZoxhHCNPXhJR3tLG7mSx/X3owvYp5j4DXpht8eltBa8=;
-	b=yS//1rtekKyo+PVBgUBvB/7IvP2rVttOWvoyAjbKgJZ4qVQA8QNax6JkjJrpbUFxKUjv
-	 sPxN6VdrWowkcZeV/xZSokZOKvdRr9jVmgISc1G1VKGK9G5V5YpvgKCLwQZbelaOxY/8c
-	 5l3faS9bVaxmKcCSDpltJX2fIHAF90qGmezgSKXNJXbVwA+MaqPs+7wiy5NCUGae34qlo
-	 WAkldHkrRiY8CjDLKywO/Ql/Z9vWfwLBa5x1S1uqYMgt1xWipo/Lu0daJRsWVg3oLgqun
-	 Z+59BN9Y2h7amQ1n2uPRQXjvuBmrDycofb09PLsc+LEglCpIwgL5UlQw/7L/f2i7lsg==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=VaNqnaKYVBxAY+39/+snBNP55py7Um9F6TtNyKeIsEE=;
+	b=LSwkYWiXqh+zqpG3XAiecmGBRMMw8QmUYpYqwuDYWgBtVBom+T3FiR2Lie5MZAdGXQZo
+	 DjxFcmQmmvdhXN3EljMQ6QqPTilWZufW303Bp1saxPVBa7yaJ2mH1Kc/yUnjjftF9+19X
+	 WWOeB1hv+rGE0f0HQ6Loub7KdaYdQCD/PA+/FApR6629s3RUgwlUvrg0N9usISMByrbt7
+	 IXiWi4Hxf/CyW4i9+bpKIl3DRlNL3Phq8pM1j536gRf4QNbOEgQRGwIRPzj/tQYh4crZO
+	 o6pRvvwicItmTlBewlKsJFLcFU0pojX6WOjQ/Hu2jxo59niXN/CEku9muzdZbu3qGtw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mojatatu.com;
 	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=Wmc986pR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.169
-Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=jSZ+6KQD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF36A606A330
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:27:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF36A606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63E3C606A32A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:29:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63E3C606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=Wmc986pR
-Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b5a6f2f27fso108801b3a.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:27:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795120029; cv=none;
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=jSZ+6KQD
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8b904d10882so112873b3a.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 12:29:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795120157; cv=none;
         d=google.com; s=arc-20260327;
-        b=W4gzgMAHurWnyab13YLdBT0QVnlXR5/25h3UXmfjOJNf1CaTkw/sBTXQ81u2GKE8fh
-         kcQW20S+ObUpIWKkvgSV+jsSaczv6x0LsW5wi6Hv9Er6dGpzrTJwucKlEt1MQAlL0hRO
-         0BkiXBQiX95SIuIU3bknp0IM/ko5L0QhB7527LSbp90p6u0yUCUlBVJr6gfmMvrkFxUY
-         /TD1COu+kj4OWse0UVHfrfgsf5XHJ3NiuC1GtnjvPVrnVvxkKNDrPdVfRq9YuwIgxg0t
-         A6o/M3UFrKxiopOh5ixkN9CvpHwg70sOQiRDSlgd9G1166qzpeeX8Qs+9RXFTfJ7fv11
-         ErCg==
+        b=pwEvtK5BubnGIy7p+y3k56arGPzuly/bGQEi7kJKATWnRr89+Q2M527uvkZr5P1rgn
+         9GyinpAvBXb527IjT9b8afYElmLd6Bp2RaQNWpSDh6zO+4J7Mhw6fgk5fAx1D/0gjn5a
+         g3em1Sb9YMeQI19OEGgpoK61OnW31QYmIoWj6OCEwhYcN3/4E60Aj5+lLxC6VQWydOGy
+         88gGeOBzov6Nl2PJAYeVA7YaduyO5zv32Z31JOsNYYdDoLuRH9ukg3PBQadBTLOQ2Lp/
+         WPH+ptimzbP56BidrSOlb05lkwkrAdlbXdL3MUT/PwO4rf9xmoYpMdRHeSdsGhc2ueMT
+         8Bfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZoxhHCNPXhJR3tLG7mSx/X3owvYp5j4DXpht8eltBa8=;
-        fh=tRHd24vaZfMr8BFbmSiqd/+H5pKrKlfovTmhruj8Dlk=;
-        b=Mt4xnDsusYYHB630c1VhYC4WFozo+aIr0DpQpMvu1DCXDG0rAZvY2DqIC1kuQluI9U
-         xO9k7yggMR3Oj2ZycOasSQIxMEDFxcqxSAw5Fr2LbY024WR1gPqftQqoQWlVPZ4aFxk4
-         5pMyArwjSo6BPw8mha6MrydXCMbp/pjMlxEh+1I5CNyTwHERpk6+TgW3etcZZxx+DBKF
-         NL7iY6PwChRJWsDvYXRTG3+wyNa0Mzmq6dOa7xk/400owBgZ26a1EPWvI21zQBBCfyBq
-         IfMfWAXyApDtgEZcSKnuoSUnppkkK64LloBuPM7Iuoayh+tiUE+TrEsksKfYil21JHMN
-         qy7A==;
+        bh=VaNqnaKYVBxAY+39/+snBNP55py7Um9F6TtNyKeIsEE=;
+        fh=yzN3/gOmgne7Tom8WxeXrWFLcGVvPBL+B9jOr1yaDdA=;
+        b=pA6cw8T7hoEkbr6/zpo169eRfcefwDlTIV7MwGsTQ2pz6gXuqRNJgfb9F33CqeeVtn
+         UegH0jmoS1Y7o9KNEPBp9x7msdrCivmrNgwMKLvtL67Xhq0zFtJ+djdGZ2cYTzrq5EqJ
+         Bg/xAKX2gPWBv+RIEw40vhqB4XPjpRzm9lI0E2sibDWF/WFbpZ/1Xp5sNrvzz1zb57Tj
+         7qwZjXIMhTYk44WcmA+7qIQyvTLNNSQL1HyM08iTWVRbOoRLEBZ6xkZhbmPyzfgGK4/B
+         /tyC0PJYJyDcgdNReyItnWuOg36Sgs8L297rK62+hIBHiD0nqQ5SLCtyb02ORmiwqZhf
+         JRRw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795120029; x=1795724829; darn=vger.kernel.org;
+        d=mojatatu.com; s=google; t=1795120157; x=1795724957; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ZoxhHCNPXhJR3tLG7mSx/X3owvYp5j4DXpht8eltBa8=;
-        b=Wmc986pRBGXbKLXE4119Gctmg4JjaBtlEZPJSXnLoO9TDpuhX2st6sMZzrd9xQylB9
-         IJtDNp/1Fmc7havcQt//g+yi8Uv7XEV0fcKak+xdT8NhemQhdUSFlRZ/KLkn4SWFTT+3
-         mH1endb/+Wn30JJfD/K9Wk8godETsTgMLY6JY=
+        bh=VaNqnaKYVBxAY+39/+snBNP55py7Um9F6TtNyKeIsEE=;
+        b=jSZ+6KQD5xKgjGX6InXuwUCnleGA0oi9Jieh50NwikLivOEkIX777npmeFW57bo4/e
+         ALl4nQc5WIJBkTNiDl2+5pAruZh/bwcLjbwffuagsD+i4AfalNbqpdIdZ1AvbbefYbc3
+         EMxWNuyO3bwQE2oBcvRnm8mAfKEgS3S+gf/70=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795120029; x=1795724829;
+        d=1e100.net; s=20260707; t=1795120157; x=1795724957;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZoxhHCNPXhJR3tLG7mSx/X3owvYp5j4DXpht8eltBa8=;
-        b=FoO7E0xksMscxYrDeJz+SpSSrNbovR3ySdq3e5moc6UNVTxvis3BowglWNZ29cM+eH
-         GqGQ1Kkk5OKBqSS60pyZbgHP72aJEnL46KmoRfBRQRjCVRzQ2RsNdjqTwSkRUU3M8TFW
-         TA4aquQ1fgdvBNfPA+JG+D1r3iYD8v4Va8yGsIHGI82IoNke8jcCaSxSQK9MQoDM00Qg
-         sA98Tq2vP25piXUFJz59TlVAEudoDse7IX6q1ovG8M68cSn+pjI9tcA5II3gw1MpswKt
-         EqD+wrD8tWNM1SeedQqRQaYDzTM3atxrm1kibvc32uwkydz+JSpPJN7pI4jGpbmMXxrp
-         ddhA==
-X-Forwarded-Encrypted: i=1; AL+hErF08C/HhhIaX0Ffco/5VgPGLSCjLuvKekzLZe+LFVqgsMqjKShpqivH4TptwJXy1etQJFv0u/Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YezAaQKR0JuqwiN2JOP219TwMW54gqujkOTP25oqEZOYHjk65
-	sKB/BZS51s4lS3qIqxFEzrPvd/hCx2F7DCPUgxm7aoZNnGshEII760n5Mrpo62ZQP2LgFPJ1j1b
-	BmpKeZK3m2QFa7Vycjfk3fYVeWY/qPjfOzGZLm7uQ
-X-Gm-Gg: AYBFou3GuvO9O08ydpeUNJIx+5i46u+20r0XzZHUBBCLpYBhDMWXAsi4SrtCOhxofdo
-	1TJ1bTUVdPlPCam6EJCb1pCRM/Ud7mS7M2yJqxjSA33L/oJs2Hp7K1Bhf0UuFwHObdOZ4bLV4On
-	O2fzp/+MuGZ2B/w63Txsjo4WvHCJsGQQ7yzoVRBbXJrdgbI3ah2iywzj+OH081e2Pc3FQ7Roe4q
-	g27et0+7kxFW6S1JzihRUmMveGL59B/jBhTw67qxtFdIJl1fykbx9RYbwgjH2uFN2FJMZWkNh7+
-	VtNK1yWv604Cpd1pVrzZZYwK1deCuaH/4u6d4b3Z2OZvSploycpUrrR2J2vkCovTaCbDLC14TFc
-	Z7EQFN9UNU0HWj0qFXGtm8tuJvRfndaMNiSe75q1MmFmSpCR1fLTzRgxPTjk8Z+EW7tTGl7Pyg7
-	ZoaLkCBVn9ZuO8zCs=
-X-Received: by 2002:a05:6a00:2e95:b0:8b5:7fc8:8677 with SMTP id
- d2e1a72fcca58-8c87cc4251fmr644396b3a.39.1795120029210; Thu, 19 Nov 2026
- 12:27:09 -0800 (PST)
+        bh=VaNqnaKYVBxAY+39/+snBNP55py7Um9F6TtNyKeIsEE=;
+        b=X+BiD08iVfEmn3fecgtl1OefKEQLA6L/iKFdXgUXPhvEPCEsRmUGjop1Xf9LlfAskT
+         qHay6rlbMJ5xdGqTg4jPQQS3S1tivbvrvWgK3Rqg8MwYx93pEl8LY6+08r6hrhhAbHvs
+         3eEjSm6peVpBsoprD7/1ZQIQZttjbrM1zAbR8fWzs0fIEMIAtYoUKKWJzqNSCV73bjhY
+         A1HliV1swQkkBnfydTOZz0Ms5ANI5buUWxNWLqQFNRybn/n1H+5FmFkQh/BBEDBVtIcD
+         5QuxBxNVmwf+02hMIWF1/SfOtwsxTWr5lgrHtphHg1pAbDUso1Mj7HvLGMuo7GGPs7JC
+         U9ag==
+X-Gm-Message-State: APuU4Z8dDUBFXcS6qlSatQN/LpexRsULRKzrd8fWwifmA201a4P/Ri+s
+	9uz6fFKdf9vikMjeG+vgZdzUG2bGwCvogzZ+o2uQEfHBiXMtcX7F6z4s0D+id/FhQlxS+2e7kl+
+	Xxmqzv6CjpghnEeEEACYluhdnSa5wwqWW81OHJT9q
+X-Gm-Gg: AYBFou2lDR6wZaB2UKB/+kRV0o/R9mKEuIiHxLySn2j4DeNzzxAigFy3P7naY2h6zOl
+	jmg2Q2/Ogupz+LKp2BDB2yngXH8jTP1uhvtN6nXbjmWVTbE1EHudm70mECrSLbac0si1bz179dN
+	2/Ip8aTsDF0JOe0Y1u9Pt3ka2HchqvTGjhOMxDVAhhi6bynCjA8PL2/ZopYspUBnCEe8OHDHvvv
+	fBqXpLZm5nlrgLSJKLNJ7PG8lCyF3fVgsbbXmHiJx9d4ykVdtzecgIOhGjhoktdx9m1V9Lbn+5K
+	yPTyrDSKPrvXuDiAM7Lssfv/r2NUCg8X4mR3UzbIvy0wUUsSddvAJFQCtEms7Lya0OCzfkEzmbi
+	YuVKtlxBbwZkY66wBbi+6/GATmuNSwJnGMP/YyNulxnChz5+m1kOst2oiQ1Qpnrq5usrf0QHHX/
+	MSmgzG8juXcPxz9JuV
+X-Received: by 2002:a05:6a00:b42:b0:8b6:12fd:7271 with SMTP id
+ d2e1a72fcca58-8c87c38846bmr710703b3a.25.1795120156313; Thu, 19 Nov 2026
+ 12:29:16 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,28 +101,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <QDISC-7SHE.v2.r0.20261109072128-1@mojatatu.com> <179494556684.3136.3254895311432959761@kernel.org>
-In-Reply-To: <179494556684.3136.3254895311432959761@kernel.org>
+References: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com> <179511856597.3136.7846835490904436138@kernel.org>
+In-Reply-To: <179511856597.3136.7846835490904436138@kernel.org>
 From: Jamal Hadi Salim <jhs@mojatatu.com>
-Date: Thu, 19 Nov 2026 15:26:57 -0500
-X-Gm-Features: AclHuK-a1TohZyEZcaOhtgrNY8l6DLG4MiHa3Eod_UYFLyn8nJF7eK0fAgKKOig
-Message-ID: <CAM0EoMkLQ3ctDGxOTLr=BHURnRd8uCX_rinEM9Fwe18cKCb3-Q@mail.gmail.com>
-Subject: Re: [PATCH net-next v2] net/sched: em_text: pad the text pattern in
- the ematch dump
+Date: Thu, 19 Nov 2026 15:29:05 -0500
+X-Gm-Features: AclHuK8yAi4mDoEg2Fjwj9CTASd_XfeaP5nznF0v3utPb3bDCPcw5_zH_LgmqFM
+Message-ID: <CAM0EoMkppFKECwmjw+E3tWpXEL3=cyg2VYhgpL+StaSiQf+WAQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 4/4] bpf: drop the stale dst when redirecting
+ to an explicit nexthop
 To: netdev-bot+sashiko@kernel.org
-Cc: victor@mojatatu.com, netdev@vger.kernel.org, jiri@resnulli.us, 
+Cc: netdev@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com, 
+	sdf@fomichev.me, martin.lau@linux.dev, ast@kernel.org, andrii@kernel.org, 
+	eddyz87@gmail.com, memxor@gmail.com, song@kernel.org, yonghong.song@linux.dev, 
+	jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev, 
 	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, sashiko-bot@kernel.org
+	horms@kernel.org, bpf@vger.kernel.org, jiri@resnulli.us, victor@mojatatu.com, 
+	sashiko-bot@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 2:59=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+On Thu, Nov 19, 2026 at 3:02=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
 te:
 >
-> Thank you for your contribution! Sashiko AI review found 3 potential
+> Thank you for your contribution! Sashiko AI review found 2 potential
 > issue(s) to consider.
 >
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 2
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
 >
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
@@ -133,197 +136,165 @@ k
 y
 > (one such reply per series is enough).
 >
-> - [Medium] The commit message says "A padded text ematch is the same size
->   as the request that installed it ... Since the dump is no larger than=
-=E2=80=A6
-> - [Low] The patch fixes a long-standing, user-visible netlink dump bug
->   but carries no Fixes: tag.
-> - [Low] The commit message describes the impact as "the ematch list is
->   therefore misparsed", and its reproducer needs two text ematches.
+> - [Medium] In the explicit-nexthop branch of __bpf_redirect_neigh_v4(),
+>   the new skb_dst_drop_keep_metadata() call can replace a real struct=E2=
+=80=A6
+> - [Low] The patch fixes a long-standing, user-visible bug but has no
+>   Fixes: tag and no Cc: stable.
 >
 
-Unless someone forces us to - we dont plan to send an update to this patch.
-The medium issue is a misrepresentation. It has nothing to do with
-this patch specifically.
-The problem is if you have a large enough message that doesnt fit in
-the response it will be impossible to retrieve.
-A get or dump can collectively include other TLVs that don't fit in the TLV=
-.
-It's a netlink architecture issue - not specific to this patch.
-Since this is a generic issue it will happen in other code areas.
-We have a followup patch to try and address some dumping issues, but
-there is no way to fix create.
+This is still under discussion with Alexei  - so:
 
-Also (for about the 100th time): net-next patches dont carry Fixes
-tags. This patch is a hardening issue hence net-next.
+pw-bot: cr
+
+I will consider this feedback if we have to resend the whole series or
+per Alexei's pov 1 or 2.
 
 cheers,
 jamal
 
-
 > --
 >
-> net/sched: em_text: pad the text pattern in the ematch dump
+> bpf: drop the stale dst when redirecting to an explicit nexthop
 >
-> This patch changes em_text_dump() to append the text pattern with
-> nla_put_nohdr() instead of nla_append(). The pattern is now padded to a
-> 4-byte boundary, so the next ematch in the dump stays aligned. The commit
-> message also argues that a padded dump can never be larger than the
-> request that installed the filter.
+> This patch changes __bpf_redirect_neigh_v4() and __bpf_redirect_neigh_v6(=
+)
+> so they release the arrival dst through skb_dst_drop_keep_metadata() when
+> the BPF program supplies an explicit nexthop. Without it, a packet parked
+> on the target device's incomplete neighbour can later leave with the
+> original device's link-layer header. Encapsulation parameters carried by
+> the route are moved onto a metadata dst.
 >
-> Link: https://lore.kernel.org/netdev/e0f4776a-0457-4069-9f79-3c97de2a54d0=
-@redhat.com/
+> Link: https://lore.kernel.org/netdev/QDISC-6HS9.v3.r0.20261103062649-2@mo=
+jatatu.com/
+> Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
 >
-> > This is a followup of commit 9c572a83037a ("net/sched: fix potential
-> > stack infoleak in em_text_dump()") as reported by Sashiko.
->
-> [Severity: Low]
-> Should this patch have a Fixes: tag? Commit 9c572a83037a fixed a differen=
-t
-> issue: it zero-initialized conf to plug a stack infoleak. It did not
-> introduce the misalignment.
->
-> The unpadded append goes back to the original em_text implementation in
-> d675c989ed2d ("[PKT_SCHED]: Packet classification based on textsearch
-> (ematch)"):
->
->     RTA_PUT_NOHDR(skb, sizeof(conf), &conf);
->     RTA_APPEND(skb, conf.pattern_len, textsearch_get_pattern(tm->config))=
-;
->
-> add93b610a4e ("[NET_SCHED]: Convert classifiers from rtnetlink to new
-> netlink API") converted this directly to nla_put_nohdr() plus nla_append(=
-),
-> so the bug stayed in.
->
-> Without something like:
->
->     Fixes: d675c989ed2d ("[PKT_SCHED]: Packet classification based on tex=
-tsearch (ematch)")
->
-> the stable tooling may not pick this up.
->
-> > tcf_em_tree_dump() records the raw span as the ematch entry's nla_len a=
-nd
-> > then writes the next ematch's nlattr header at that unaligned tail.
-> > Userspace walks the list with RTA_NEXT()/NLA_NEXT(), which rounds each
-> > attribute length up to four bytes, so it looks for the next entry at an
-> > aligned offset the kernel did not write.  The ematch list is therefore
-> > misparsed as soon as a text ematch has a pattern length that is not a
-> > multiple of four.
+> > diff --git a/net/core/filter.c b/net/core/filter.c
+> > index bd98d29ed7f8f..ae5346d6abd23 100644
+> > --- a/net/core/filter.c
+> > +++ b/net/core/filter.c
+> > @@ -2318,6 +2318,8 @@ static int __bpf_redirect_neigh_v6(struct sk_buff=
+ *skb, struct net_device *dev,
+> >               skb_dst_set(skb, dst);
+> >       } else if (nh->nh_family !=3D AF_INET6) {
+> >               goto out_drop;
+> > +     } else if (!skb_dst_drop_keep_metadata(skb)) {
+> > +             goto out_drop;
+> >       }
+> >
+> >       err =3D bpf_out_neigh_v6(net, skb, dev, nh);
 >
 > [Severity: Low]
-> Is the impact wider than the ematch list? em_text_dump() leaves the skb
-> tail unaligned. tcf_em_tree_dump() then uses that raw tail for
-> match_start->nla_len and for both nla_nest_end() calls.
+> Should this patch carry a Fixes: tag, and maybe Cc: stable?
 >
-> cls_basic_dump() and cls_cgroup_dump() close TCA_OPTIONS at the same
-> unaligned tail and then write the action stats after it:
+> The nh !=3D NULL branch in __bpf_redirect_neigh_v4() and
+> __bpf_redirect_neigh_v6() skips the FIB lookup and keeps the incoming
+> dst. That branch appears to come from commit ba452c9e996d ("bpf: Fix
+> bpf_redirect_neigh helper api to support supplying nexthop"). Before that
+> commit, bpf_redirect_neigh() always did a FIB lookup on the target device
+> and installed the resulting route.
 >
-> net/sched/cls_basic.c:basic_dump() {
+> The commit message gives a reproducer that puts wrong addresses on the
+> wire. Would a tag like this one help stable trees that carry ba452c9e996d
+> pick up the fix?
+>
+> Fixes: ba452c9e996d ("bpf: Fix bpf_redirect_neigh helper api to support s=
+upplying nexthop")
+>
+> > @@ -2433,6 +2435,8 @@ static int __bpf_redirect_neigh_v4(struct sk_buff=
+ *skb, struct net_device *dev,
+> >
+> >               skb_dst_drop(skb);
+> >               skb_dst_set(skb, &rt->dst);
+> > +     } else if (!skb_dst_drop_keep_metadata(skb)) {
+> > +             goto out_drop;
+> >       }
+> >
+> >       err =3D bpf_out_neigh_v4(net, skb, dev, nh);
+>
+> [Severity: Medium]
+> Can this pass a metadata_dst to code that still casts the skb dst to a
+> struct rtable?
+>
+> Suppose the arrival route has lwtstate of type LWTUNNEL_ENCAP_IP,
+> LWTUNNEL_ENCAP_IP6 or LWTUNNEL_ENCAP_XFRM. Then
+> skb_dst_drop_keep_metadata() replaces the rtable with a METADATA_IP_TUNNE=
+L
+> or METADATA_XFRM dst, and that dst uses dst_blackhole_ops:
+>
+> net/core/dst.c:skb_dst_drop_keep_metadata() {
 >     ...
->         if (nla_nest_end_safe(skb, nest) < 0)
->                 goto nla_put_failure;
->
->         if (tcf_exts_dump_stats(skb, &f->exts) < 0)
+>                 md_dst =3D metadata_dst_alloc(src->options_len,
+>                                             METADATA_IP_TUNNEL, GFP_ATOMI=
+C);
+>     ...
+>         skb_dst_drop(skb);
+>         if (md_dst)
+>                 skb_dst_set(skb, &md_dst->dst);
 >     ...
 > }
 >
-> tcf_fill_node() then sets nlh->nlmsg_len =3D skb_tail_pointer(skb) - b,
-> which is also unaligned. In a filter dump, the next filter's nlmsghdr fro=
-m
-> nlmsg_put() and the NLMSG_DONE from netlink_dump() go into the same skb a=
-t
-> that unaligned offset.
+> If the redirect target is a non-collect_md NBMA tunnel, its transmit path
+> still calls skb_rtable() on that dst. For an IPv4 payload with raddr set
+> to any:
 >
-> Userspace NLMSG_NEXT() steps by NLMSG_ALIGN(nlmsg_len), so every later
-> message in that recv buffer is read from the wrong offset. This means a
-> single text ematch with pattern_len % 4 !=3D 0 can corrupt a whole tc fil=
-ter
-> show batch. The reproducer in the commit message, by contrast, uses two
-> text ematches.
+> net/ipv6/ip6_tunnel.c:ip6_tnl_xmit() {
+>     ...
+>                 } else if (payload_protocol =3D=3D htons(ETH_P_IP)) {
+>                         const struct rtable *rt =3D skb_rtable(skb);
 >
-> Could the commit message describe this, so stable maintainers can judge
-> backport priority?
+>                         if (!rt)
+>                                 goto tx_err_link_failure;
 >
-> > diff --git a/net/sched/em_text.c b/net/sched/em_text.c
-> > index bc45edb8c03bf..1e7b41e579e24 100644
-> > --- a/net/sched/em_text.c
-> > +++ b/net/sched/em_text.c
-> > @@ -128,8 +128,8 @@ static int em_text_dump(struct sk_buff *skb, struct=
- tcf_ematch *m)
-> >
-> >       if (nla_put_nohdr(skb, sizeof(conf), &conf) < 0)
-> >               goto nla_put_failure;
-> > -     if (nla_append(skb, conf.pattern_len,
-> > -                    textsearch_get_pattern(tm->config)) < 0)
-> > +     if (nla_put_nohdr(skb, conf.pattern_len,
-> > +                       textsearch_get_pattern(tm->config)) < 0)
+>                         if (rt->rt_gw_family =3D=3D AF_INET6)
+>                                 memcpy(&fl6->daddr, &rt->rt_gw6, sizeof(f=
+l6->daddr));
+>                 }
+>     ...
+> }
 >
-> [Severity: Medium]
-> Does the size argument in the commit message hold when the request uses
-> unaligned trailing lengths? The commit message says:
+> ip_tunnel_xmit() falls back the same way when skb_tunnel_info() gives no
+> usable AF_INET key dst. That covers METADATA_XFRM, an AF_INET6 key from
+> LWTUNNEL_ENCAP_IP6 on an IPv4 route, and a key.u.ipv4.dst of zero:
 >
->   Since the dump is no larger than the request, the padding cannot push t=
-he
->   dumped TCA_OPTIONS past U16_MAX.
+> net/ipv4/ip_tunnel.c:ip_tunnel_xmit() {
+>     ...
+>                 } else if (payload_protocol =3D=3D htons(ETH_P_IP)) {
+>                         rt =3D skb_rtable(skb);
+>                         dst =3D rt_nexthop(rt, inner_iph->daddr);
+>                 }
+>     ...
+> }
 >
-> The kernel does not seem to require the request lengths to be 4-byte
-> aligned. nla_ok() only checks that nla_len fits in the remaining length.
-> So the last attribute at each nesting level can have an unaligned nla_len=
-,
-> including in tcf_em_tree_validate():
+> On 64-bit, rt_gw_family and rt_gw4/rt_gw6 land on the tun_info.key
+> address fields in the metadata_dst union. So rt_gw_family reads the first
+> byte of key.u.ipv4.src, and rt_gw6 starts at key.u.ipv4.dst.
 >
->     for (idx =3D 0; nla_ok(rt_match, list_len); idx++) {
+> Here is an example. An IPv4 route carries "encap ip ... src 10.x.x.x dst
+> D", and a tc egress program redirects with a supplied nexthop to an NBMA
+> ip4ip6 tunnel. Then rt_gw_family reads as 10, which is AF_INET6.
+> ip6_tnl_xmit() copies 16 bytes starting at key.u.ipv4.dst into
+> fl6->daddr, and the packet is encapsulated towards an outer IPv6 address
+> made of tunnel key bytes.
 >
-> and em_text_change() only checks:
+> Before this patch the skb kept the real rtable on this path, so the cast
+> read real route fields.
 >
->     if (len < sizeof(*conf) || len < (sizeof(*conf) + conf->pattern_len))
->         return -EINVAL;
+> The METADATA_XFRM layout does not seem to match AF_INET or AF_INET6.
+> IPv6 payloads coming from __bpf_redirect_neigh_v6() look like they are
+> dropped, because dst_blackhole_neigh_lookup() returns NULL. So this looks
+> limited to IPv4 payloads in the IP/IP6 encap case.
 >
-> rtm_tca_policy does not validate TCA_OPTIONS at all, and cgroup_policy
-> and em_policy only mark the nests as NLA_NESTED.
+> The commit message says:
 >
-> A hand-built RTM_NEWTFILTER for cls_cgroup with exact, unpadded lengths
-> appears to be accepted:
+>   The release here can leave one behind as well, when the parameters a
+>   route carries are not usable for the payload. The cast is repaired
+>   separately.
 >
->     TCA_OPTIONS                nla_len 65533
->       TCA_CGROUP_EMATCHES      nla_len 65529
->         TCA_EMATCH_TREE_HDR    nla_len 8
->         TCA_EMATCH_TREE_LIST   nla_len 65517
->           ematch               nla_len 65513 (data_len 65501 =3D 24 + 654=
-77)
->
-> Before this patch, that filter dumps back to an identical 65533-byte
-> TCA_OPTIONS. With nla_put_nohdr(), the pattern now takes
-> NLA_ALIGN(65477) =3D 65480 bytes, so the dumped sizes become:
->
->     ematch 65516, list 65520, TCA_CGROUP_EMATCHES 65532,
->     TCA_OPTIONS 65536
->
-> The dump then fails:
->
-> cls_cgroup_dump()
->   nla_nest_end_safe() -> -EMSGSIZE
-> tcf_fill_node() -> -EMSGSIZE
-> tfilter_notify_prep()
->     if (size > U16_MAX + NLMSG_GOODSIZE)
->         return ERR_PTR(-EMSGSIZE);
->
-> After that, RTM_GETTFILTER for this filter always fails. The RTM_NEWTFILT=
-ER
-> notification is never sent, and tfilter_del_notify() deletes the filter
-> without a notification. Any pattern_len from 65477 to 65479 triggers this=
-,
-> and cls_basic has the same 56-byte overhead.
->
-> Should em_text_change() reject a pattern_len whose padded size cannot be
-> dumped? If not, the claim in the commit message should be corrected.
->
-> >               goto nla_put_failure;
-> >       return 0;
-> >
+> ip_tunnel_xmit() and ip6_tnl_xmit() are unchanged at this commit. Should
+> this patch go after the skb_rtable() fix, or include it? Otherwise this
+> path is exposed until that fix lands.
 >
 > --
 > Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/QDISC-7SHE.v2.r0.20261109072128-1%40mojatatu.com
+set/CORE-9NOG.v4.r0.20261116135311%40mojatatu.com
