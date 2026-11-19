@@ -1,55 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.245.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795078108;
-	b=FUnmqo+6gh1rJBuILi/7G3qQ1udcFL8T8ro5RarN9xB0by5jQwxcBQMF9h/9DI58K1gK
-	 +77HC6ksXRb9W3J/1lfQ1D677ihWraLXyD8+bVlcD0cSED4Kk+gcWTCKCxpNbryknlnvQ
-	 laFQpQlBBDL18nuxwWo7/ug+PocRyoUjddM0GBjRAr6OZLDDc8vwHRKtfxooqkh1scPgz
-	 BfMHJe4PcjKhSDLZ0ymfXJK1id8C3BjxAx09jrR002EcBVh9Ew9P5HlI8A90AIS//A99b
-	 XbOfL1RgaLROfvgFb2PTxptJg6NqxTEQzx6IBmdTEgUX/2dwV6ARFoctvv9iCrf6sKQ==
+	t=1795078110;
+	b=SeVCOELBrGnXlZYnWXjBKOT3mZUrYfKzoU7YX9G/MmleaLzHPhOLZdbYrAgPv1wpa3nW
+	 aVS9yKuDhY+elgujS/6mSgRM3d2Pt40OfjXdc5iI19yDekNlzH8WMXurzx+Y8dLFLMUyM
+	 tcCROmhjeL41iwJs6GaAXWVChNw1CEp1togKC1H0M5fS9ChWh2XRqDWn2oCk0p65CM9h/
+	 fUS3OfYxMiIkT2wreZpdNmWg8msFzxgHqVtpEPLUbjIYAoVTHkaQzc8FE+yDOGs0vgho2
+	 PMgbNhQ3+kogqBHQ4+8XB+KulPqC+YdhQ73EyqEDQ7cmQfOQjh/EnS5BAh63k2NtpCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795078108;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=2DGfvM7qByzpKVDZ+ShBLfzRqMDlNgUiCoMSZg5a9wA=;
-	b=bqTG7DqDyxOJdyXl1+xoGphQji+oZmlxCWdd/y5iJoXqgG2/XFHjrYU/m6VmIXjCZWoJ
-	 4NHj2konr6NmiO6tFkm5QWj+1Rkk0zNkS57PofFHbLaZPGRZYRcMYi23v/YjA6t8f34EI
-	 19lWLXPojKA9gbQMyl+d2nVhxK4UdLKii4KkagTfia0/1McdNZIpvTXCuwGzV2MyESeN9
-	 yHpNSyxc9x86PpnigntTGCC1X9iHYAWv/7R1NNwkP4NE+Fx1VQDhBfZDgmj8jPR5SZH+K
-	 x7iHtHXhTy5qScujIZEwscdT1SXg1u4BLZ8LhYK+inPHVTIktLlFKOtmWi3gxkv9cqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795078110;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=33GYwwHy5bFpbYEe8FzT+nFzFJKkroS1MSXjsWGMd9c=;
+	b=lev3i4NUBWJEqcRCp25nRyM+7jzBjAfoH8Z6ag2vQmlneY9Hlp2wVbwufaMDDqF22Iup
+	 IGDtPvA4o8D3gjCYONVlFfq/xtr64cT5SevKC6a21ppcXpaQktp9lXtqHRXZmGb2oiLEd
+	 ET8RQHJVLmKX2kxwFVS9c2wifq0+G7tk9eCC7kbcJ2as6n9x9IPjprz0u1MlRs2AsVW9O
+	 gWCyMseeQkoKbMBFLDjChMZLJsRK/pm1vrZgTHCNsoUSeA5/SIiKwg3hcdMmimORg6Sqr
+	 1FfJc2Tjxukz9F3Ytl/3YmGPhfcKjbXJHEvHA7Td1YgxEGKMkrjYxqeSkarpaVWUebg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbD7H8Ao;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=strlen.de;
+	spf=pass smtp.mailfrom=strlen.de;
+	arc=none smtp.remote-ip=91.216.245.30
+Received: from Chamillionaire.breakpoint.cc (Chamillionaire.breakpoint.cc [91.216.245.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 255DE606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:48:27 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbD7H8Ao
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9591F000C9
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 08:48:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795078107;
-	bh=2DGfvM7qByzpKVDZ+ShBLfzRqMDlNgUiCoMSZg5a9wA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IbD7H8AohXhp9T6d2YizYcw3IEOLuMrBuGlnMP/hbh+qaH2NZTdQK6XvcpIrE0oLt
-	 eHc6ujjspld2m0TEYAwidrOC3LxGtGaKnw4GKCw8ySRfUzZ4Odhw3Gpj41mcpbEysU
-	 KwSMhSVthY55rm2q0VPKvTXGkf+noW3G742+9RJoMlOIyViTw1hCrWNTwJv7U0tkil
-	 8uVY2XkPsM75Vl1FPJKgGPdbQyXYJ8UmQbgKlEldPQz2sDdL3mA2P4bON2hz91Vz7F
-	 VlN0ZtaXlIFoVa3CBZN0aBOWryWOPLyc8rrAp60KRrbeUiKwgNVJkS/t8S0ItsL7/x
-	 L4AkRxbD9a77Q==
-Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-71b0d330acfso489425eaf.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 00:48:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHFrD4aHQb92VnamMcoYd+PeF4PZxH09z/8kDlZ9sHQ37QAI1EqYAOoHWtfUkmbG8mgkQudhYU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lpP++ClpnYT4rsSNYU8vN/xwtS3AeDfAoXYV7L4XJ/WFIErE7
-	9WYWgoIXOfdzIR1LouvyL8aWbI5rxDkyxKX/4ST5Xn+ZeYQAlc550vHg3eN+a8gjDYFtyajubqK
-	WpHPavvtqEmAsP4oULCiXUcqQ/CqNGZg=
-X-Received: by 2002:a05:6820:340c:10b0:71a:d047:6555 with SMTP id
- 006d021491bc7-71b325f3a96mr154013eaf.23.1795078107107; Thu, 19 Nov 2026
- 00:48:27 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A102606A338;
+	Thu, 19 Nov 2026 08:48:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A102606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=strlen.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=strlen.de
+Received: by Chamillionaire.breakpoint.cc (Postfix, from userid 1003)
+	id 6A49560341; Thu, 19 Nov 2026 09:48:26 +0100 (CET)
+Date: Thu, 19 Nov 2026 09:48:26 +0100
+From: Florian Westphal <fw@strlen.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: theodorlarionov@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	pablo@netfilter.org, phil@nwl.cc, netdev@vger.kernel.org,
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+Subject: Re: [PATCH net v2 2/2] net: unset the mac header of a pskb copy that
+ points into headroom
+Message-ID: <av63w6kQryQqWP_y@strlen.de>
+References: <20261117175835.745796-3-theodorlarionov@gmail.com>
+ <179506802393.3136.3490105838474942994@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,79 +52,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118210933.2477423-1-thaisonphan@google.com>
-In-Reply-To: <20261118210933.2477423-1-thaisonphan@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 09:48:15 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioV7HyfBS=RZhGLkeGVyZEHf85fTueKvXD4s+aO3fRTqQ@mail.gmail.com>
-X-Gm-Features: AclHuK9F0ayhafrQxHgp6uPjGOaq2j-B5wMREskCAbT73MrvpLVLr_jmqjYYh6w
-Message-ID: <CAL4WiioV7HyfBS=RZhGLkeGVyZEHf85fTueKvXD4s+aO3fRTqQ@mail.gmail.com>
-Subject: Re: [PATCH net v4 0/2] tcp: initialize missing request_sock fields in
- syncookie path
-To: Thaison Phan <thaisonphan@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S . Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Matthieu Baerts <matttbe@kernel.org>, Simon Horman <horms@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ij@kernel.org>, 
-	Olivier Tilmans <olivier.tilmans@nokia.com>, 
-	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
-	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179506802393.3136.3490105838474942994@kernel.org>
 
-Le mer. 18 nov. 2026 =C3=A0 22:09, Thaison Phan <thaisonphan@google.com> a =
-=C3=A9crit :
->
-> Initialize missing request_sock fields for TCP connections accepted via
-> SYN cookies, where cookie_tcp_reqsk_alloc() and
-> bpf_sk_assign_tcp_reqsk() allocate without __GFP_ZERO:
->
-> - Patch 1 initializes ireq->ir_rmt_addr and ireq->ir_loc_addr to
->   LOOPBACK4_IPV6 in cookie_v6_check(), matching tcp_v6_init_req().
-> - Patch 2 initializes the AccECN request_sock fields in
->   cookie_tcp_reqsk_init() and sets syn_ect_snt in cookie_{v4,v6}_check()
->   for kernel-generated cookies (!req->syncookie), matching
->   tcp_openreq_init() and tcp_{v4,v6}_send_synack().
->
-> An AI coding assistant helped audit the request_sock initialization
-> paths, write the QEMU reproducer, and draft the changelogs.
->
+netdev-bot+sashiko@kernel.org <netdev-bot+sashiko@kernel.org> wrote:
+> [Severity: High]
+> Does this turn the uninitialised read into an out-of-bounds read for
+> bridged packets? The copy still carries SKB_EXT_BRIDGE_NF, because
+> skb_copy_header() -> __copy_skb_header() -> __skb_ext_copy() duplicates
+> the extensions. After this change, though, n->mac_header is ~0U.
+> nf_dup_ipv4() and nf_dup_ipv6() hand that copy to ip_local_out() and
+> ip6_local_out(), so it goes through NF_INET_LOCAL_OUT before any
+> link-layer header is pushed. Suppose a reject with tcp reset rule
+> matches there. nf_send_reset() and nf_send_reset6() only test
+> nf_bridge_info_exists(oldskb) before calling eth_hdr(oldskb). They then
+> pass oeth->h_source and oeth->h_dest to dev_hard_header().
+> 
+> With the mac header unset, that trips the DEBUG_NET_WARN_ON_ONCE() in
+> skb_mac_header(). It then reads 12 bytes at oldskb->head + 0xffff,
+> well past the end of the head buffer. Those bytes end up in the
+> Ethernet header of the RST sent out the bridge port, or the access
+> faults if the address is unmapped.
+> 
+> Before this patch the same path read uninitialised headroom inside the
+> buffer, which is the leak being fixed here. So the reject helpers
+> probably need a skb_mac_header_was_set() check, the same way
+> nf_bridge_adjust_skb_data() in nfnetlink_queue.c has one. Or would you
+> rather drop the bridge extension on the dup path? Either way, it looks
+> like that has to go in together with this change, especially with the
+> stable tag.
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+I think we should disable dup or fwd of skbs coming from br_netfilter
+(i.e. with SKB_EXT_BRIDGE_NF extension set).
 
-> v4:
->   - Patch 2: restore treq->syn_ect_snt =3D 0 in cookie_tcp_reqsk_init()
->     and guard syn_ect_snt updates in cookie_{v4,v6}_check() with
->     !req->syncookie for BPF custom syncookies; document in changelog
->     (Sashiko, Eric Dumazet)
->   - Patch 2: add Reviewed-by tag from Matthieu Baerts
-> v3: https://lore.kernel.org/netdev/20261117124710.1338951-1-thaisonphan@g=
-oogle.com/
->   - Patch 2: clarify syn_ect_snt / tcp_accecn_third_ack() description
->     for AccECN connections and reference RFC 9768 Table 4
->     (Chia-Yu Chang)
-> v2: https://lore.kernel.org/netdev/20261116023709.132684-1-thaisonphan@go=
-ogle.com/
->   - Patch 1: clarify how KASAN (via SLUB_RCU_DEBUG) exposed the bug,
->     explain how it was observed, and include the inet_sock_set_state
->     trace line (Eric Dumazet)
->   - Patch 2: drop redundant treq->syn_ect_snt =3D 0 in
->     cookie_tcp_reqsk_init() and clarify how the bug was found and
->     observed via TCP_INFO (Eric Dumazet)
->   - Add Eric Dumazet's Reviewed-by tags
-> v1: https://lore.kernel.org/netdev/20261114161248.3428695-1-thaisonphan@g=
-oogle.com/
->
-> Thaison Phan (2):
->   tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
->   tcp: accecn: initialize AccECN fields in syncookie path
->
->  net/ipv4/syncookies.c | 7 +++++++
->  net/ipv6/syncookies.c | 6 ++++++
->  2 files changed, 13 insertions(+)
->
->
-> base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
-> --
-> 2.56.1.831.g720f3f5937-goog
->
+It would also make sense to disable/remove nf_queue support for
+br_netfilter in nf-next (this is independent of this work).
