@@ -1,92 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057488;
-	b=KbC4YgINOSys1tbynZgFtjhEmAHD+cdgihTgdb996t6i1MH/nK7a7kk5+fht/el5CFwB
-	 c6etEGkUK5Qo+CGO9nRCftNz9XJcg/RPPKqsflfw7DpCyoH/vrdOftGA+1DkBtI9baDBs
-	 dVE/dQKyySjNntpoT+/XgodnTi63XXFW9advMQChuBbZNEqMrm5qCqyu1HPU0A4mC3caO
-	 K8mkkfBL7+Lqt/zYccKQq0b51wzY4I0JVGEtyCGJ3+8bOaIpIE0kP174whSQ4JHUrSKgJ
-	 WEM5sjor8gygy6S46flUNMCad7gSL7fpEj4Gd3IV6wxjMk7Dc5zCVFwr2jgND9G5d8w==
+	t=1795057506;
+	b=kZPbtWuaCe8CiaKrl1bNlTm0U9HZpbE0+gqzZuaACLk1cnwJ6+d8Cc/zsstC6Iew5TJR
+	 ECjBUSd0dOd6kyncb0LzELxaGHO9RsEvk9zD7OVO7XXdA4GoZw2Een7FfEI0sk+7a01eG
+	 GH9XuJUOWLN1VzxPHdo0R5W7T7mwJWTs3XcVi66WxbUxYGEEwPQBS+VZjeR8skuhjBPOu
+	 mmqCaBouXV7WLboPZyf+M+4ENB5uLpbPo2g8SYbySMs/rmDw4tCSTDBiEnXehORwKDr8Q
+	 QZREpTsBE6/KRm9u3NTM+344yvhG1IMKUFa2lPdC0n1NfzKl/icL0/3GllMBo2eT8qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057488;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057506;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
-	b=IWDXlXf9KG5v/aQNC8uMebd3rsJvVIjcaiEMj9F8rje3brxXaQQxsptwq472SpAJoCxp
-	 s9JaE8thBPaJXgmyA0bA4FJEBiRWaxvyw/qnWJtD9RfoiQ3yJ0G59CvvBbi/P5HGS/0vD
-	 g/dMEUgNJ6Ar5yEm76OLAiOjvVwpWzGrnZfN1chjNX39IT75ImCpR279u2tgaax6sHKqp
-	 xzgps+FGyMPqADFgrVWLAuOnc3e3z/i7RJLvGg4koGzvzW8YT5B/f3hfUYmJNNc/Ti7me
-	 KKBZFn0h3J7Qv25NwGaW7iAGUCFuDNA+Jn7pbFuE3105mRTsOFe5MguwOyfxDrXcBqw==
+	bh=+6n911PTJB4dWuxLVA1xoiUUj8+NvJ8JijYoL2wuDDI=;
+	b=2Wusj2veM29keNStqfPQurMw41GYLyBGfQLRKrOonb9c9c8p4cGjTlfErDepsCDa5RG6
+	 T0vH28Y6X0XHnFrtbRoGXVGbmSncqcxCoEULpAPnGZULTrjBlujBzrBgGY2PzuPzp2Dy3
+	 PuirBt+PT6eIXKmjQDr/XcJ9YvbYHXQqc+5/6912kZ5vBBALSpSMwiGYvUMkGARZTI2tp
+	 UU8n1eRnlhwzLp2GPtN6adnLLbOVhiOYYQnSWoHCgmGB/nczdJJHAJmh7U8hE2r90/cA7
+	 WA7WdqL96XK1pksMk12uxu+5Bf7KBGcBMXf2TmnlRSQdtqtQW6+3QYJ6PA/cW1QfQXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeSk1+md;
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vxbg5G1J;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA7EB60A261C
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:04:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA7EB60A261C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76BC160A260F
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 03:05:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76BC160A260F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeSk1+md
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b5e5e64494so1114184b3a.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 19:04:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vxbg5G1J
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a070755c8cso1099246b3a.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 19:05:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057486; x=1795662286; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795057502; x=1795662302; darn=vger.kernel.org;
         h=content-type:mime-version:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
-        b=xeSk1+mdWi2MELx1azOPScXfSvPZh7w3doEwtywkqh9TCc5M+L4vVFP3OLQyJgXiFr
-         YN3F6ajnraSgc+tVTu4YnyRK3XUwG9YfXLaOuFYjCrdml9b/nV9/oIunwFwQgf6ZEnow
-         eqPwnhs+JlWnpI/HdPy9XRV8hlLcYemiK85hM0IKPAayW8XV134zXwC3q8XWWkWy+lEB
-         Jn6TyA8gSpPat7U07YH4yMTiDqxD44w8Y/EUhpStPGJamLxoUQKDK5e3YQGGvCWJAay1
-         AFo6H3JgsgjharJy63G3uQH39HNyOqj5Z1I1kCWcTvkjqRoBAaSyRtidXJWLh1VTEOwf
-         iMvA==
+        bh=+6n911PTJB4dWuxLVA1xoiUUj8+NvJ8JijYoL2wuDDI=;
+        b=Vxbg5G1Jq48ndm/CtpiU90yIpI0fm7EbYBV6ZpPx9kzFJ80y3xPA3wLrvBAnR11dZ4
+         eDHfhJvIyCTTzH+BKscUPr6FdkVSlrJBndphZApfyxBK5HTRkwc1hbNAOMd5+RK1ejpg
+         mdSiwLW5c+/iWfYXR+zGqUPvwFFAUFUjVyyQRvWTHCQcZmkP8P76iixBEQD5GQagSraa
+         R1ArHgu+CKiodsdeqmwOk/q9jQjyh+MeAID+KymhpuhHvVXMzvl/wCjrXEJaAMgg5kqz
+         g/B2feeuO1JiECAqHQt/ggBbSdN4OMrXXgOuyzgFQHO2tTi5l2Blk90inEoqsvjUVR47
+         0eHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057486; x=1795662286;
+        d=1e100.net; s=20260707; t=1795057502; x=1795662302;
         h=content-type:mime-version:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
-        b=i8YOFkX19XYMkIMmjjqaPZmRnfABciGLbqnlXN5RLrs8EEcGL8cgyhxTTe4ARD4KAv
-         JlAfMOdPP5TcykrsmiRVHMmkJximjj9imlZ5g2xPWQ0eVv44i8PkxLS9Z7pFPSX8MIaR
-         N1o4Yfx6BFiyLCGsCawpyswPOsll+YsaMnII6upNpTCcsNGBFy7QRSJb37KMR/O+9RMA
-         Vr4kCzbao+gEZlrIiLdyQ4A90FXA/CDpjqt5mTqiBA0kIw+wrSX2ZYUPrfp1tw26YHq5
-         VhD9KB4Hutf7sbjvdwJ5VtgD/ABlaV5h6H76YezW6J4dgaH6uUDhp9R0oIt4LUmuFaph
-         /Upw==
-X-Forwarded-Encrypted: i=1; AL+hErHKUhk42gaUXOe0WAl7ebNCz+sl98n9gvYvmGckn0phhO/KlurT6qPc4KbvbWmLT2Ggkz9QF+4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ONH6vp+r2yhDhr4AImlMVf3JKS6dUTzgFpWyOgfVe2RHaXvEV
-	Yo8AgJM4Y4STvlhjKaY85d7YKmg5XMBs7hSqUeT14ZeVumK2GNEUlQ6f
-X-Gm-Gg: AYBFou00C2XO0IgEo1VG7YC3dGFT6SMYzSJ2eWbl/6sCmZHApzStmU6xsTd3BHH2S0H
-	PuUXuv3rCsFDrpVjJl/OhGs3t8N8k4ADCd93jsyANz+dTqEr5ZtgqWC7Nq4jS/plSIIygMlgeqs
-	uXXkpf0K9k5aI1mY7BPzhabKoPu8tBtohjlLmJjIEhkTv2fMPE0JJohSLbmO7pRj7/FpbladTWc
-	kcz23bByF/T5odm7YEtrKL8TZ0LltDFmqxYzizLETitMH7Bc/fnA66fnZiAJZkjoQd3409pgLGb
-	bJ8CxFfuqaAXsZ2mLeBvy4dqZRoKbQFaN8YavJjKuPZrpC2Z8KP/e+F4Pi2fCLAyqRGqnRoh5zF
-	kLAsh104MDMDm4M3FrCWLTusqgx1MXOS87nXE6ypBF9xgV0vMnx/bYL7QiI/nAQ7gSRSa8L7e9P
-	31VD3kAa1dGo7KUeK8AQnfS4nraq8+ER5N6ebeSmOipLDumsYnHC7qNwtQQdzqcBlHs/HjVYhR+
-	b0dCXt3Lp51aGmgXxO7LEc3LqL/9pO2cJR6JugtQb7sU6paB0Wr13OZ8lVo2/AOKYGCZ7o=
-X-Received: by 2002:a05:6a00:4514:b0:882:bba:8791 with SMTP id d2e1a72fcca58-8c5d4bc3094mr3751706b3a.34.1795057486020;
-        Wed, 18 Nov 2026 19:04:46 -0800 (PST)
+        bh=+6n911PTJB4dWuxLVA1xoiUUj8+NvJ8JijYoL2wuDDI=;
+        b=0YYqQahfDRFDzCqKWa6/Y4N42UjGMT+A6SMntSpBL3SFLFBUToHo9yDQe1ITZ5WMdM
+         CMhyx/uZtAe1OHdRBG8EtQ/WXx7/w/aZ5ZIVxQzwmsqBDrfLYQPpAbsCUkpm88qqUIgp
+         P0r3fO7l0XBBCe3UpmqiMi0uXjrtSeHjbG+jLdqxmwvwZGbuuUk3dP2S1Lxvlh9bA174
+         82Q3HnPXzj9DbnoA2BwBBPQ4QELBHGbhbE2DeNGsGnZvGEb/BeRh7IvtWKM3HljED2TS
+         AVQUPcgXk/8cUmUmW0msh9wcTYEam/XkTbo5q4L1eBVfIydzSYpeVsO9gY2jl80fxZLu
+         kF2A==
+X-Forwarded-Encrypted: i=1; AL+hErFuAI66iYaqtEbOk1jpLsMah09eufQHgbi9/Q+4+NEPJNAJ1Ht+9zsyIYEiznDjrnQP+MW6so8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9i0Z7NTd/zTW2AIm6+DC0p3YmJ2cs9OZ3j72YfnLq3JQDwSLkN
+	C+i6BwTfcr5U6ccFNEoWk/tFIUjg4cuGyyZlnjDr/TCg6AIdf1RtKc04
+X-Gm-Gg: AYBFou0Ube+PU3XyBKmrjmupWDKLsbF2fnfClXjGIWkvb4Nx4g9S0REKWja5B3Vyaz7
+	FfZ5cyD1hErjph0ainn+5M7DoS9MVT/FvtGqffljjI/01ZRs8IsZywYk1I4Uxl2wyBvXwbQIGH2
+	Grp60F0GPMEfCavRYq2rv8r8xR88W8saPSZWMXemIHfpQ1g1XMpAhUc6ebLu10IscoTlwL+fNBA
+	SQQChX7pxL48JGtkmjnzRAT/gOpHv2YmVGnR9rE59L9T5Ap9S3cByOTCVcreEvA4fN6zAyr5xGd
+	mLQNRlsIr8yWDRoTDcIdrufBT57Vix6pJTmzvHkWvClvdIzpG6S9e5a8tQhfKQjCXzwN8K+31Za
+	cobfruWdTgffMSVfez/HOelLQsP62Oh8enldtMGj/bEyC8YJj0KmD7DR/DGUIOaCkKqqvQnYvzv
+	IElX5BmNsGy2CcPYXihIojgS43wAK3pXkexYVso28i5cYegJlBUD/zhjK6S9LNE9Twb7XS+i+9f
+	/yRzftKwEw0fCJN/HTvp3ft+BeFXNgNgE6mzDkndzaBMWEjCa9xAk4giSBiVPgXxmTxQJDG
+X-Received: by 2002:a05:6a21:e08c:b0:3eb:9e92:e1df with SMTP id adf61e73a8af0-3fe8a51c8camr6398683637.54.1795057501735;
+        Wed, 18 Nov 2026 19:05:01 -0800 (PST)
 Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cba34aa1sm1986254b3a.54.2026.11.18.19.04.42
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb35830bsm2000629b3a.33.2026.11.18.19.04.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:04:44 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:04:44 -0800 (PST)
+        Wed, 18 Nov 2026 19:05:00 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:05:00 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
- Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Eric Dumazet <edumazet@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Josef Bacik <josef@toxicpanda.com>,
- netdev@vger.kernel.org, ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [BUG] xfrm: a socket policy cloned for a TCP child leaks when cloning
- the second policy fails
-Message-ID: <179505710269.3511679.8893709762919027206@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [BUG] netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX
+ queues with an RX queue index
+Message-ID: <179505710275.3511681.13434978152402269948@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,208 +94,332 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============7878978291613295449=="
+Content-Type: multipart/mixed; boundary="===============8293946977515997899=="
 
---===============7878978291613295449==
+--===============8293946977515997899==
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi Steffen, Herbert,
+Hi Jakub,
 
 While testing v7.4-rc3 with an LLM-guided test generator that we are
-developing as a research prototype, we found that a TCP listener with
-socket policies in both directions leaks one xfrm policy when cloning
-its second policy for a new child fails. The leaked policy stays on
-net->xfrm.policy_all, and the network namespace teardown warns:
+developing as a research prototype, we found that netdevsim can read
+past the peer's TX queue array when it wakes the peer's queue from
+NAPI poll:
 
-  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300, CPU#0: kworker/u8:4/88
-  RIP: 0010:xfrm_policy_fini (net/xfrm/xfrm_policy.c:4303)
+  BUG: KASAN: slab-out-of-bounds in nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60 drivers/net/netdevsim/netdev.c:409 drivers/net/netdevsim/netdev.c:418)
+  Read of size 8 at addr ff110000140a0fd0 by task test/118
   Call Trace:
-   <TASK>
-   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
-   ops_undo_list (net/core/net_namespace.c:200 net/core/net_namespace.c:253)
-   cleanup_net (net/core/net_namespace.c:713)
-   process_one_work (kernel/workqueue.c:3495)
-   worker_thread (kernel/workqueue.c:3578 kernel/workqueue.c:3659)
-   kthread (kernel/kthread.c:436)
-   ret_from_fork (arch/x86/kernel/process.c:158)
-   ret_from_fork_asm (arch/x86/entry/entry_64.S:245)
-   </TASK>
+   <IRQ>
+   nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60 drivers/net/netdevsim/netdev.c:409 drivers/net/netdevsim/netdev.c:418)
+   __napi_poll.constprop.0 (net/core/dev.c:7997)
+   net_rx_action (net/core/dev.c:8060 net/core/dev.c:8217)
+   handle_softirqs (kernel/softirq.c:669)
+   __irq_exit_rcu (kernel/softirq.c:703 kernel/softirq.c:542 kernel/softirq.c:786)
+   irq_exit_rcu (kernel/softirq.c:809)
+   sysvec_apic_timer_interrupt (arch/x86/kernel/apic/apic.c:1062)
+   </IRQ>
 
-__xfrm_sk_clone_policy() clones the parent's policies into the new
-socket one direction at a time and stops at the first failure:
+nsim_start_peer_tx_queue() uses the index of the RX queue being polled
+as an index into the peer's TX queues:
 
-	for (i = 0; i < 2; i++) {
-		p = rcu_dereference(osk->sk_policy[i]);
-		if (p) {
-			np = clone_policy(p, i);
-			if (unlikely(!np)) {
-				ret = -ENOMEM;
-				break;
-			}
-			rcu_assign_pointer(sk->sk_policy[i], np);
-		}
-	}
-
-When clone_policy() fails for sk_policy[1], sk_policy[0] already holds
-a new policy that is linked on net->xfrm.policy_all. sk_clone() then
-takes its "free" path, which treats the socket as a raw copy of the
-parent:
-
-	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-		...
-		goto free;
-	}
+	idx = rq->napi.index;
 	...
-free:
-	/* It is still raw copy of parent, so invalidate
-	 * destructor and make plain sk_free()
-	 */
-	newsk->sk_destruct = NULL;
+	peer_dev = peer_ns->netdev;
+	if (dev->real_num_tx_queues != peer_dev->num_rx_queues)
+		goto out;
 
-Socket policies are only freed by xfrm_sk_free_policy() from
-inet_csk_destroy_sock() and sk_common_release(), so nothing frees the
-clone of sk_policy[0]. xfrm_policy_flush() skips socket policies, and
-xfrm_policy_fini() finds it when the namespace goes away. The leak
-needs one allocation failure during the handshake, in softirq context.
+	txq = netdev_get_tx_queue(peer_dev, idx);
 
-Josef and Alexei's "[PATCH net] net: free the policies if a socket's
-clone fails late" (2026-10-17) frees the policies when
-bpf_sk_storage_clone() fails, and its message explains why the "free"
-label cannot do that for every user: after a failed filter charge,
-sk_policy[] still holds the parent's pointers. A partial clone leaves
-the same mix, a new sk_policy[0] next to the parent's sk_policy[1], so
-it is not covered there.
+The guard compares this device's TX queue count with the peer's RX
+queue count, not idx with the peer's TX queue count. The peer is read
+again at poll time, so an RX queue filled by one peer can be polled
+after the device was linked to a peer with fewer TX queues.
 
-The reproducer runs as root. In a new network namespace per iteration,
-it sets IP_XFRM_POLICY in both directions on a loopback TCP listener
-and completes one handshake while failslab fails one slab allocation
-(probability 5%, at most one failure). On an x86_64 QEMU guest with 2
-vCPUs and KASAN (gcc 13.3), the warning shows up in every run.
-IP_XFRM_POLICY itself only needs CAP_NET_ADMIN in the user namespace
-that owns the network namespace.
+The reproducer runs as root and uses only sysfs, ethtool and packet
+sockets: netdevsim devices X and R with 8 queues, P with 1 queue, R
+reduced to 1 combined channel (so R's real_num_tx_queues equals P's
+num_rx_queues and the guard passes), a packet socket flooding X with
+many flows so that R's RX queues 0..7 get traffic, and a thread that
+keeps relinking R between X and P. On an x86_64 QEMU guest with 2
+vCPUs and KASAN (gcc 13.3), KASAN reports the read in our runs.
 
-The loop and its early exit come from d188ba86dd07 ("xfrm: add rcu
-protection to sk->sk_policy[]").
-
-Checked against v7.4-rc3 (aebb72744764); xfrm_policy.c and sock.c are
-the same in net (2a324a58a084).
+The code comes from ff2ac4df58ad ("netdevsim: implement peer queue
+flow control"). Checked against v7.4-rc3 (aebb72744764);
+nsim_start_peer_tx_queue() is the same in net and net-next.
 
 A patch is attached (git format-patch against v7.4-rc3; it applies to
-the ipsec tree):
+net and net-next):
 
-  0001-xfrm-free-the-policies-already-cloned-when-a-socket-.patch
+  0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch
 
-It deletes the policies that __xfrm_sk_clone_policy() already cloned
-before it returns the error. It was written with LLM assistance; we
-reviewed and tested it. With it, the reproducer no longer triggers the
-report.
+It skips the wake-up when the index is not a TX queue of the peer. It
+was written with LLM assistance; we reviewed and tested it. With it, the
+reproducer no longer triggers the report.
 
 The reproducer (repro.c), the kernel config and the patch are attached.
 
 Thanks,
 Kyuwon Cho
 
---===============7878978291613295449==
+--===============8293946977515997899==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="repro.c"
 MIME-Version: 1.0
 
-// WARNING in xfrm_policy_fini: a socket policy cloned for an accepted TCP child is leaked when cloning the
-// listener's second policy fails.
-// Each iteration, in a new network namespace, sets an IP_XFRM_POLICY in both directions on a TCP listener and
-// completes one loopback handshake while failslab fails one slab allocation (5% per allocation, at most one).
-// When the failed allocation is clone_policy() for sk_policy[1], __xfrm_sk_clone_policy() returns -ENOMEM with
-// the clone of sk_policy[0] already in the child; sk_clone() frees the child without it, the policy stays on
-// net->xfrm.policy_all, and the namespace teardown warns.
-// Runs as root (failslab through debugfs).
+// Reproducer for the suspected sibling of 08f566e8f83b in netdevsim:
+// nsim_start_peer_tx_queue() calls netdev_get_tx_queue(peer, rq->napi.index)
+// with no check against peer->num_tx_queues.
+//
+// Setup (all netdevsim, init netns, syscalls/sysfs/ioctl only):
+//   X, R: bus device 10, 2 ports, 8 queues each (num_tx = num_rx = 8)
+//   P:    bus device 11, 1 port,  1 queue       (num_tx = num_rx = 1)
+//   R: ethtool -L combined 1  -> R->real_num_tx = 1 (== P->num_rx, passes the guard)
+// Sender: X floods frames with many flows, so skb tx mapping m spreads over 0..7.
+//         nsim_forward_skb() puts them on R's rq[m % R->num_rx] = rq[m].
+// Toggler: link/unlink R between X and P. The rq poll (armed 5us after a forward)
+//         reads R->peer at poll time. If the poll sees P, idx = rq->napi.index
+//         (1..7) is used as an index into P->_tx[], which has only one entry.
 #define _GNU_SOURCE
 #include <arpa/inet.h>
+#include <dirent.h>
+#include <errno.h>
 #include <fcntl.h>
-#include <linux/xfrm.h>
+#include <linux/ethtool.h>
+#include <linux/if_ether.h>
+#include <linux/if_packet.h>
+#include <linux/sockios.h>
 #include <net/if.h>
 #include <netinet/in.h>
-#include <sched.h>
+#include <netinet/ip.h>
+#include <netinet/udp.h>
+#include <pthread.h>
+#include <stdatomic.h>
+#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/mount.h>
 #include <sys/socket.h>
-#include <sys/wait.h>
+#include <time.h>
 #include <unistd.h>
 
-#ifndef IP_XFRM_POLICY
-#define IP_XFRM_POLICY 17
-#endif
+#define RUN_SECS 60
 
-static void failslab(const char *knob, const char *val)
+static int nsfd, ctl;
+static unsigned int ifX, ifR, ifP;
+static atomic_int stop;
+static atomic_long sends, toggles, wr_ok, wr_fail;
+
+static int wr(const char *path, const char *s)
 {
-	char path[96];
-	int fd;
+	int fd = open(path, O_WRONLY);
+	int r;
 
-	snprintf(path, sizeof(path), "/sys/kernel/debug/failslab/%s", knob);
-	fd = open(path, O_WRONLY);
-	if (fd < 0 || write(fd, val, strlen(val)) < 0)
-		perror(path);
+	if (fd < 0)
+		return -1;
+	r = write(fd, s, strlen(s)) < 0 ? -1 : 0;
 	close(fd);
+	return r;
 }
 
-static void one_handshake(int port)
+static int list_netdevs(int busid, char names[][IFNAMSIZ], int want)
 {
-	struct sockaddr_in a = { .sin_family = AF_INET, .sin_port = htons(port),
-				 .sin_addr.s_addr = htonl(INADDR_LOOPBACK) };
-	struct ifreq ifr = { .ifr_name = "lo", .ifr_flags = IFF_UP };
-	int ls, c, s;
+	char path[128];
+	struct dirent *de;
+	int n = 0;
+	DIR *d;
 
-	unshare(CLONE_NEWNET);
-	s = socket(AF_INET, SOCK_DGRAM, 0);
-	ioctl(s, SIOCSIFFLAGS, &ifr);
-	close(s);
-
-	ls = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
-	bind(ls, (struct sockaddr *)&a, sizeof(a));
-	listen(ls, 16);
-	for (int dir = 0; dir < 2; dir++) {
-		struct xfrm_userpolicy_info pi = { .sel.family = AF_INET, .dir = dir, .action = XFRM_POLICY_ALLOW,
-			.lft = { XFRM_INF, XFRM_INF, XFRM_INF, XFRM_INF } };
-
-		if (setsockopt(ls, SOL_IP, IP_XFRM_POLICY, &pi, sizeof(pi)))
-			perror("IP_XFRM_POLICY");
+	snprintf(path, sizeof(path), "/sys/bus/netdevsim/devices/netdevsim%d/net", busid);
+	d = opendir(path);
+	if (!d) {
+		perror(path);
+		return 0;
 	}
+	while ((de = readdir(d)) && n < want) {
+		if (de->d_name[0] == '.')
+			continue;
+		snprintf(names[n], IFNAMSIZ, "%s", de->d_name);
+		n++;
+	}
+	closedir(d);
+	return n;
+}
 
-	failslab("times", "1");		/* fail at most one allocation from here */
-	c = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
-	connect(c, (struct sockaddr *)&a, sizeof(a));
-	s = accept(ls, NULL, NULL);
-	failslab("times", "0");
-	close(s);
-	close(c);
-	close(ls);
+static void set_up(const char *name)
+{
+	struct ifreq ifr;
+
+	memset(&ifr, 0, sizeof(ifr));
+	snprintf(ifr.ifr_name, IFNAMSIZ, "%s", name);
+	if (ioctl(ctl, SIOCGIFFLAGS, &ifr) < 0)
+		perror("SIOCGIFFLAGS");
+	ifr.ifr_flags |= IFF_UP;
+	if (ioctl(ctl, SIOCSIFFLAGS, &ifr) < 0)
+		perror("SIOCSIFFLAGS");
+}
+
+static void set_channels(const char *name, unsigned int n)
+{
+	struct ethtool_channels ch;
+	struct ifreq ifr;
+
+	memset(&ch, 0, sizeof(ch));
+	memset(&ifr, 0, sizeof(ifr));
+	ch.cmd = ETHTOOL_SCHANNELS;
+	ch.combined_count = n;
+	snprintf(ifr.ifr_name, IFNAMSIZ, "%s", name);
+	ifr.ifr_data = (void *)&ch;
+	if (ioctl(ctl, SIOCETHTOOL, &ifr) < 0)
+		perror("SCHANNELS");
+	else
+		printf("set %s combined=%u\n", name, n);
+}
+
+static uint32_t rng_state = 0x9e3779b9;
+static uint32_t rnd(void)
+{
+	rng_state ^= rng_state << 13;
+	rng_state ^= rng_state >> 17;
+	rng_state ^= rng_state << 5;
+	return rng_state;
+}
+
+static void *sender(void *arg)
+{
+	unsigned char dst[ETH_ALEN] = { 0x02, 0, 0, 0, 0, 0x02 };
+	unsigned char src[ETH_ALEN] = { 0x02, 0, 0, 0, 0, 0x01 };
+	struct sockaddr_ll sll;
+	unsigned char f[60];
+	int fd;
+
+	(void)arg;
+	fd = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_IP));
+	if (fd < 0) {
+		perror("socket(AF_PACKET)");
+		return NULL;
+	}
+	memset(&sll, 0, sizeof(sll));
+	sll.sll_family = AF_PACKET;
+	sll.sll_protocol = htons(ETH_P_IP);
+	sll.sll_ifindex = ifX;
+	sll.sll_halen = ETH_ALEN;
+	memcpy(sll.sll_addr, dst, ETH_ALEN);
+
+	while (!atomic_load(&stop)) {
+		for (int b = 0; b < 32; b++) {
+			struct iphdr *ip = (struct iphdr *)(f + 14);
+			struct udphdr *u = (struct udphdr *)(f + 34);
+
+			memset(f, 0, sizeof(f));
+			memcpy(f, dst, ETH_ALEN);
+			memcpy(f + 6, src, ETH_ALEN);
+			f[12] = 0x08;
+			f[13] = 0x00;
+			ip->version = 4;
+			ip->ihl = 5;
+			ip->tot_len = htons(46);
+			ip->ttl = 64;
+			ip->protocol = IPPROTO_UDP;
+			ip->saddr = htonl(0x0a000001);
+			ip->daddr = htonl(0x0a000002);
+			u->source = htons(1024 + (rnd() % 60000));
+			u->dest = htons(9);
+			u->len = htons(26);
+			sendto(fd, f, sizeof(f), 0, (struct sockaddr *)&sll, sizeof(sll));
+			atomic_fetch_add(&sends, 1);
+		}
+	}
+	close(fd);
+	return NULL;
+}
+
+static void *toggler(void *arg)
+{
+	char unlink_r[64], link_pr[64], link_xr[64];
+	int ok;
+
+	(void)arg;
+	snprintf(unlink_r, sizeof(unlink_r), "%d:%u", nsfd, ifR);
+	snprintf(link_pr, sizeof(link_pr), "%d:%u %d:%u", nsfd, ifP, nsfd, ifR);
+	snprintf(link_xr, sizeof(link_xr), "%d:%u %d:%u", nsfd, ifX, nsfd, ifR);
+
+	while (!atomic_load(&stop)) {
+		wr("/sys/bus/netdevsim/unlink_device", unlink_r);
+		ok = wr("/sys/bus/netdevsim/link_device", link_pr);
+		atomic_fetch_add(ok == 0 ? &wr_ok : &wr_fail, 1);
+		wr("/sys/bus/netdevsim/unlink_device", unlink_r);
+		ok = wr("/sys/bus/netdevsim/link_device", link_xr);
+		atomic_fetch_add(ok == 0 ? &wr_ok : &wr_fail, 1);
+		atomic_fetch_add(&toggles, 1);
+	}
+	return NULL;
 }
 
 int main(void)
 {
-	mount("debugfs", "/sys/kernel/debug", "debugfs", 0, NULL);
-	failslab("ignore-gfp-wait", "0");
-	failslab("task-filter", "0");
-	failslab("interval", "1");
-	failslab("probability", "5");
-	for (int k = 1; k <= 120; k++) {
-		pid_t pid = fork();
+	char x[2][IFNAMSIZ], p[1][IFNAMSIZ];
+	char r_name[IFNAMSIZ], x_name[IFNAMSIZ], p_name[IFNAMSIZ];
+	pthread_t ts, tc;
+	int n;
 
-		if (!pid) {
-			one_handshake(20000 + k);
-			_exit(0);
-		}
-		waitpid(pid, NULL, 0);
+	setvbuf(stdout, NULL, _IONBF, 0);
+	mount("sysfs", "/sys", "sysfs", 0, NULL);
+	ctl = socket(AF_INET, SOCK_DGRAM, 0);
+	nsfd = open("/proc/self/ns/net", O_RDONLY);
+
+	if (wr("/sys/bus/netdevsim/new_device", "10 2 8") < 0)
+		perror("new_device 10");
+	if (wr("/sys/bus/netdevsim/new_device", "11 1 1") < 0)
+		perror("new_device 11");
+
+	n = list_netdevs(10, x, 2);
+	if (n < 2) {
+		printf("need 2 netdevs on bus 10, got %d\n", n);
+		return 1;
 	}
-	sleep(40);			/* the namespaces are torn down asynchronously */
-	printf("done\n");
+	if (list_netdevs(11, p, 1) < 1) {
+		printf("need 1 netdev on bus 11\n");
+		return 1;
+	}
+	snprintf(x_name, sizeof(x_name), "%s", x[0]);
+	snprintf(r_name, sizeof(r_name), "%s", x[1]);
+	snprintf(p_name, sizeof(p_name), "%s", p[0]);
+	ifX = if_nametoindex(x_name);
+	ifR = if_nametoindex(r_name);
+	ifP = if_nametoindex(p_name);
+	printf("X=%s(%u) R=%s(%u) P=%s(%u)\n", x_name, ifX, r_name, ifR, p_name, ifP);
+
+	set_up(x_name);
+	set_up(r_name);
+	set_up(p_name);
+	set_channels(r_name, 1);
+
+	{
+		char link_xr[64];
+
+		snprintf(link_xr, sizeof(link_xr), "%d:%u %d:%u", nsfd, ifX, nsfd, ifR);
+		if (wr("/sys/bus/netdevsim/link_device", link_xr) < 0)
+			perror("link X-R");
+		else
+			printf("linked X-R\n");
+	}
+
+	pthread_create(&ts, NULL, sender, NULL);
+	pthread_create(&tc, NULL, toggler, NULL);
+	sleep(RUN_SECS);
+	atomic_store(&stop, 1);
+	pthread_join(ts, NULL);
+	pthread_join(tc, NULL);
+	printf("done: sends=%ld toggles=%ld link_ok=%ld link_fail=%ld\n",
+	       atomic_load(&sends), atomic_load(&toggles),
+	       atomic_load(&wr_ok), atomic_load(&wr_fail));
 	return 0;
 }
 
---===============7878978291613295449==
+--===============8293946977515997899==
 Content-Type: application/gzip
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="config.gz"
@@ -357,61 +479,57 @@ uPqVa3aJMtUixKXO84a62SQDND7a2sAfbjVffuJVxmSGrK3Zfq9Uaa1xcm85RhQz2NjgREwYux2NUNGS
 WceuQ+okF4wn3G3hpTDRmvDwg8ewNr1R2USfNCoDY0vdwWE5U8D2o7Hyro2+zig/W9uwCfmsYiHA6sfdpaBkWDcm2hDs08khnbzNo0Fau3O56XQJ7WqyFDPkXQrb3TB2tTqAdDJ1Z0at6bIQu53WpbHHtdk2dFgm+vbZbQucd4ThrjSBbL/sxUqVBQd4dNqWHnA/+QjzY3z5L4E7zQq10QRhXDKRLM1Mhm+7kW4zNlb1+M5XyBhW3F15oDk3x5HWmI887ReHkfHRobw5XhK5WRHAubj3xXx5fakUk1xRp/TQpTT7MKDJ7TBrhsM9ygnIQDWtl9equJqieb8MDTU4/erXIMwqisymDW4s/9msKW4+9Ir4rlWvqKSprbhZ160+Ax5ilenX3chFp9bBdmfdbd0P1aeAsZMOI4FS7UG8F4eZxUgmqCTEjUp3lFB+s7FxqGsY4FIjrsV9r+pZPzttZk53twTG90WHqHillQ7DvFA3eiVKAQZlebaFQ86HLdMZW+bQvTwmYqzNumvUA3pu3fHyCt1qoeyC/W6VHjG0V1FnhSVy7tK1Cofahl0OoLk42fPUVH8qH98/UJqAMkH/9b8f3+6/PppC4BusH/2W21yXa6VXMRW8r+XFRsAt1I4FaDCLnohl7FlKBZimHysHz7AGxiqQcfdlFph4N2HryJRHIT+hr8A8JkIZ0XQjTWUMuwB5s0U1m7Mbp5O5WIsO2LiYwjlLvwB2G+iNdtLVzwz4TV3tgWtXnLkWm9ZJmFoTXgmsgz0TJD2+CZgoxjqfOHBRnEJtC8Qjtv0lHNYpfz6qklBcMqaeUOiIpzwjoRR4sxhuMSNHsaVkPfKSrl9pWbqWfK4vx2WRpse18cbvwxN7TGiDRTgVSyaYswJobU6ertXIRwaSEbNZQ4Qi5cEzrY0BBm7k1eRmZKZBC5xXL5vePAHyAHzqVPJseiXCzo3fmGKblUZvo7wwwTfjR1vtVx6hA7vx9JGDVefX
 DnN5v8xqfiQZfX5rKl4zOZVCPfxhAlf+emQCqYdg5mDSPYErCg+Gkc9EjJBQEZVYRXuPHH+tU+hs+wn1uLn9E20RocoINffCJok8ssfOZy1J/vn+YWgv90JSK33g+dG2dG2jl9af/cJ4Su+S4bYKqf8ff5wHAoGXAgA=
 
---===============7878978291613295449==
+--===============8293946977515997899==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment;
- filename="0001-xfrm-free-the-policies-already-cloned-when-a-socket-.patch"
+ filename="0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch"
 MIME-Version: 1.0
 
->From 84f048c2bd57b87dcf83233cf59c4ba1fee855b1 Mon Sep 17 00:00:00 2001
+>From 0a9629d8c7c93ef16dd000ab4cf04e9792044987 Mon Sep 17 00:00:00 2001
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
 Date: Thu, 19 Nov 2026 11:36:52 +0900
-Subject: [PATCH ipsec] xfrm: free the policies already cloned when a socket
- clone fails
+Subject: [PATCH net] netdevsim: bound the peer TX queue index in
+ nsim_start_peer_tx_queue()
 
-__xfrm_sk_clone_policy() clones the parent's socket policies one
-direction at a time and returns -ENOMEM at the first failure. If the
-policy for the second direction cannot be cloned, the clone of the
-first one is already linked on net->xfrm.policy_all. sk_clone() then
-frees the new socket as a raw copy of the parent, without
-xfrm_sk_free_policy(), and the policy is leaked until the network
-namespace goes away:
+nsim_start_peer_tx_queue() wakes the peer's TX queue with the index of
+the RX queue being polled, and only compares this device's TX queue
+count with the peer's RX queue count. When the device is relinked to a
+peer with fewer TX queues while its RX queues still hold traffic from
+the old peer, the index is past the peer's TX queue array:
 
-  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
+  BUG: KASAN: slab-out-of-bounds in nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60)
+  Read of size 8
   Call Trace:
-   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
-   ops_undo_list (net/core/net_namespace.c:253)
-   cleanup_net (net/core/net_namespace.c:713)
+   <IRQ>
+   nsim_poll (drivers/net/netdevsim/netdev.c:409)
+   __napi_poll.constprop.0 (net/core/dev.c:7997)
+   net_rx_action (net/core/dev.c:8217)
 
-Delete the policies cloned so far before returning the error.
+Skip the wake-up when the index is not a TX queue of the peer.
 
-Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
+Fixes: ff2ac4df58ad ("netdevsim: implement peer queue flow control")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
- net/xfrm/xfrm_policy.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/net/netdevsim/netdev.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-index cea6842e6454..c6d5c7582af7 100644
---- a/net/xfrm/xfrm_policy.c
-+++ b/net/xfrm/xfrm_policy.c
-@@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
- 			rcu_assign_pointer(sk->sk_policy[i], np);
- 		}
- 	}
-+	while (unlikely(ret) && i--) {
-+		np = rcu_dereference(sk->sk_policy[i]);
-+		if (rcu_access_pointer(osk->sk_policy[i])) {
-+			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-+			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-+		}
-+	}
- 	rcu_read_unlock();
- 	return ret;
- }
+diff --git a/drivers/net/netdevsim/netdev.c b/drivers/net/netdevsim/netdev.c
+index eebc02ccc4a9..6e287ae692a8 100644
+--- a/drivers/net/netdevsim/netdev.c
++++ b/drivers/net/netdevsim/netdev.c
+@@ -53,7 +53,8 @@ static void nsim_start_peer_tx_queue(struct net_device *dev, struct nsim_rq *rq)
+ 
+ 	/* TX device */
+ 	peer_dev = peer_ns->netdev;
+-	if (dev->real_num_tx_queues != peer_dev->num_rx_queues)
++	if (dev->real_num_tx_queues != peer_dev->num_rx_queues ||
++	    idx >= peer_dev->real_num_tx_queues)
+ 		goto out;
+ 
+ 	txq = netdev_get_tx_queue(peer_dev, idx);
 -- 
 2.43.0
 
 
---===============7878978291613295449==--
+--===============8293946977515997899==--
