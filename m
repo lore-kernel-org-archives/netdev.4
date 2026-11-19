@@ -1,115 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108432;
-	b=10b2gNb53IW5FwC5ZMeNN4gOKhtBz08EQC/CS7bLVyRPaE1LRaC4Q6WeaO+0mwZu9hRo
-	 OqiHnAnBRPY1PLX5hn8jDRjT3AZ6J3M4LB9qikPCZm3CllzPOQ3pURDqiH/6qnf0tiVd2
-	 rc8hFCvxZ3oayThcoCdqL9yrIbXQPDL6cIC1OGlmnm+sIGLSNgB9zz+1tGIYA3EIGGJ7t
-	 LW7IfO0Yi1zBMuMGg4yUqv96Y9TdWuKXVqTpQKvFiokTtn5HAMsPI9oY5EfzAk6JaSrAV
-	 4Z46YjYq3TJ7zC7xqXv354Vw6cQOZT3im59dA2Oe2RBvfADkgwrKjhdDiiMirV0aqdg==
+	t=1795108552;
+	b=0CcaEuOeABVI89DOoroCO+8NBtYG4Eh6fXXTI3O6HfymT45QWiacZqhW9//c/xPSAPT9
+	 51fuSjLo6w8tmuKtcR/DDqccqQXn3WltTkUT4h+2zTjf4dGzsbGHZYZ1094Pt2MvukGaK
+	 Obvwf5N48S59egKzcv3W/AM/TSKOiXnyR97CFriAFp4H4xY60X0OF89b4evEK9K0b5z6l
+	 ODo1SorndKsizFVL4GhTizjREni8zThUmXWM0ZNT2gige8zdHYh+YE3IZtgzhsksE7CeC
+	 SynJZAFIIIcr4rHbk00fySrEyXunSip6bFYRuEez2rx7toY76w1uiiGa3ZnYFapd/Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108432;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:MIME-Version:
-	 Content-Type:Content-Disposition:X-Mailer:X-Mutt-Fcc;
-	bh=2lJR0AnwTJygazs23JNSPoGHwUkRi2+i1ThgrxLVwl0=;
-	b=uEx4uwcoH7uAKyAPZgd3g6a6px/y4uSUK78wCZ837SJxn3uN+prsIDOUInrDHPZS8JtI
-	 XaBJ4S8hqvy9davDqgoZyOgrO0Os+vvXAMaFfnFrZiqrw0WvWBJ0+4/YdAhf+q5+qPH+z
-	 jSHFK0xp4ooJvf3GvDSe+Ai5eZAAo7y9ZUG2Eif9lxM3YmsqcItjD/iIDAZCHJ+G+fhVM
-	 Ig4D47xbYdyZo9UkV4B8MQRPXeyLYCoknYJt2sqWE7I01XBpjM36FX3/eNq9dfbVXykiP
-	 8EB+o8yrBzZVAylRCE958UNUMsqGcLbdmrJ0nWqAccNzEenQ6V/e5G1BtR+7jRsopng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108552;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=lTBFXfA4/IjpYPeV/USh7z3mUhareSyfqpp2hDcaHsY=;
+	b=LBIM1BzKmENGJ7pI1B1WLUzH00Z9QZ7xLEWU/d0aEImNv5yLj/LZBV6wud8JiJrKoqvK
+	 OWzWwKOLR0dt1PbRKIH32l73shXp+u4xfEIamS2EffqtZqHDVwlbJ5pVgtpQ0kUGthKak
+	 Gs5+zWIIsZ+NCN1zUNlMLgnQeRmMFox40q3Wbggm+REBLwd42IOf1S9T5FvlghX+XRyyS
+	 UmaowjGuAy7ydGooBoc+4XSqhTBE8XSm0yPawWt4F1R6D/GBv2+pNMefV6RaCwTcUU8Bg
+	 KNi37dTrDkniKq8kRfcK1NrcRVGWSlMtAbRxoORjmfG0XVGHhBSM/N1qgj1HfVDmmcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ItOKK64u;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=uE7jZAn4;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JjAe/V4a";
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30318606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:13:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30318606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92C70606A325
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:15:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92C70606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ItOKK64u;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=uE7jZAn4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795108431;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=2lJR0AnwTJygazs23JNSPoGHwUkRi2+i1ThgrxLVwl0=;
-	b=ItOKK64uCmOLtzmkK7jI0ULNCWKCq0jRylEwkSGppUqohmt155wnGp9VgmndqJ3JpgRrLz
-	qpIfRBmqOvvHPeHFRsvP9jd8ydeIFg25zHSyvKQWhA2W/IBklEl3RqDA01v1v4w3k5pTot
-	jqRxX3sS21OZvBj4/PMZ/9LZH0+3etI=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-445-D8Ea1VuCPd-E7tMpMMi2jw-1; Thu, 19 Nov 2026 12:13:49 -0500
-X-MC-Unique: D8Ea1VuCPd-E7tMpMMi2jw-1
-X-Mimecast-MFC-AGG-ID: D8Ea1VuCPd-E7tMpMMi2jw_1795108428
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a647e776b4so1900531f8f.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:13:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JjAe/V4a
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2e9ae391a05so8694905ad.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:15:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795108428; x=1795713228; darn=vger.kernel.org;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2lJR0AnwTJygazs23JNSPoGHwUkRi2+i1ThgrxLVwl0=;
-        b=uE7jZAn4940FyPr3+dzMe4RNdze06CDBiVl+kh+dCJPyyFgHJW95ITL5EHdBU3ZFkt
-         17Ka19ZVp2/T660pIRMRXWDP1UmRY7wIAdJBK9YmkQfFvdc9Kz5ld7pz7MyIz1rm5HiD
-         9nI3fF0dlw4UAxvludPoqcU1+3n8nV7lbn70TOg+4jjlxR/uQ9QOa+HGPelZjHWH7csf
-         xoM0z9J2KyLimJGsOK2LC19bI5Z3gbWtB2V1rw1Z4HlSCR1Bz6KzJ49GxuslyEn3le4i
-         9aXbY+fsx+hB6AIFcE95g2CtHUZfBYlPYEultkqW8TQnk3nBxwiXDBFKRXFyFn/aXMI9
-         FLcg==
+        d=gmail.com; s=20260707; t=1795108551; x=1795713351; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lTBFXfA4/IjpYPeV/USh7z3mUhareSyfqpp2hDcaHsY=;
+        b=JjAe/V4afYZG6YG/6auHVc/XaCUGoznUPsaAt101z5rOyqvAKe0uafsmwd1Xh7eyNL
+         mX+E5+xpG+EsTIxGfLPNG0hZTfF20kEY2mPxf4vMz+bv6ynUctPkQpORAPmJibxWRQe0
+         YoUd4YAV6qemcnvpSR4E2VZFp5CnNbQtS1xsDeBlMsT4r1cvCZq8t134KSaVMHqtytqJ
+         YXI5X2+e9HWnGL5ghGcm7s9Sj+4Tp3+yg6Rezg+QDvSpD7P+53rE8NMQxcAjm0hhbdmb
+         I8sZHpzx9+P1v7fjNCIs8r+CRNVWpRlAtmoDxry6buWSvbEQKmRAOaPdJbujqpSm551z
+         0S8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108428; x=1795713228;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795108551; x=1795713351;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2lJR0AnwTJygazs23JNSPoGHwUkRi2+i1ThgrxLVwl0=;
-        b=QYk9ffhmOe5CkW4b4cB6TqIPsXa5WJ3MCYaZRrEPtguXNxTGdm0G0d+vD7uLkwWass
-         2ti2JiuYV3uSZ9xDAWYRfqAjXDfBp738z5tMbUNbQ/BlWrHEcR2gJkZzSZh/86bRhah7
-         dCkPed8p+7oDqyfUPgy04J+KfFd590jKU9hcOExbcxCL8wJclVjXpogDpylRIaFZR+zS
-         PUsbvNP5zaWVlHfRBf+3UdK1nISoQrOM/c+HxxI27e7WihKVDX+nruWR5B3BNnB7rDgo
-         2vtYp1zheZ09Cp+CXpIePLS/GN/hmrw69lPU87RQGO2OxaoL/yhAim4oerfyCBZ8xt7p
-         D2lw==
-X-Forwarded-Encrypted: i=1; AL+hErElz12/K9ZdlPeNhUfw5alqOQJF+BX5N2QJ2+J+z27+/klIFdUdF3NQWVpNl16z/F5WZ/X115Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MIP3vOApPPvkvlsudNE0s8CNmlfJszP0jKn2ECowM1RLFV3Zm
-	Brv2n1RcqZbJzTMg75JuAqcqyng56BZT91kp/VhW+pl3abUPC0T1PL50yFZ6utj0jILlPMp/2rZ
-	DIAYNdoASPV5D+Ie3qHtfTJLAb2eb/FPRu+lgnbk7dCVTUTgH6KJudb/z3g==
-X-Gm-Gg: AZFdTZeu6ZejevlwddM/cLd5LfaYZlmTZcp/OYomZYhnpoxVUs/AvHtC1LoKu4wN+fT
-	n9uUs5fivSLIlnJdOvPSDRVmpY6p1oQU0ILFKzvEHrQlc1MvWsFOyQjquua6XpZJkS32Qa9dmb3
-	pmIniE6wSlWDwj9nZA7hkmO4am6BKBkAKrLGvMf7fhqWafVQQyRVJM6v2C+GSOwpBaUmdwH6NnN
-	iB371XhlRvQXa8xdGXEr5jXirJFf9QXC+zA+dMt+71MynX7gQRs9muJwFJKdtpth4OZ6jDtqOxL
-	j6qTln1xLkckGkRZqyg5FvFyEd5NiUNEdlc6/SQVMkT1hKAm+qm8ScuX5tT4hKUVMzP0SoAmAtp
-	kqGfwE0toLKqRzFWsOCRnmCEV+YXK8ZXAJW5VYxyVKA==
-X-Received: by 2002:a05:6000:26ca:b0:492:3176:3d64 with SMTP id ffacd0b85a97d-4abad5ac748mr34926f8f.8.1795108428344;
-        Thu, 19 Nov 2026 09:13:48 -0800 (PST)
-X-Received: by 2002:a05:6000:26ca:b0:492:3176:3d64 with SMTP id ffacd0b85a97d-4abad5ac748mr34864f8f.8.1795108427852;
-        Thu, 19 Nov 2026 09:13:47 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1522:6500:ac93:c62:f076:48c6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm723019f8f.58.2026.11.19.09.13.45
+        bh=lTBFXfA4/IjpYPeV/USh7z3mUhareSyfqpp2hDcaHsY=;
+        b=GezskMGhNk1Ma7Xv9dDQ/l65rwnEMKusF0kX5taJuFC//xyV2PEmYtwTCoasT5fSEN
+         1QR0EcNmEUbeSSCI3xk1cSx1EYvMfXi6VaZcsxZDNkw/NWIJ5/LofUuBhAt+m5Wffq7/
+         v+9okQMlEDTh9jXzWHJVC9bQlhlBhktFalfJZrod0ZjaFOUsayiQ/O3PLWfMykUYjX+b
+         rQiJEJG7xttV/a485L3GtRfWcs24d+4GIkZFNRcvu3h58pbYWag25ETuDTQ3Z8sN7NQE
+         VjOkPtzromoUaHkHcL5QBBySPTa3N02jasqDVO7KefJ/dvNExMwsTps80O7ZX1PQO7s/
+         giJw==
+X-Gm-Message-State: APuU4Z86FXjFJ4aT9Db5+QcEbfn6Fddr+04dpGfv2xWE8+nuyf5Z8WRo
+	QTqc2pdjNKzAviuVjmQ4zw/573mnwJUOSfwt94LIMTtCFD+hlLUj7mLduZcQN/3d
+X-Gm-Gg: AZFdTZfoppjtDop7NfbraEB/7tZmFmOfHOZUbci7h9XE2379UateTyh+OxfFRPyzNjb
+	pmgrgBJ6S12jiHsPeVzNjnq5gw8Pyn7UWzz11PMIHS3bivIGSahOI5xyyA06JfJz19bKlq/70vr
+	BOj0K/zXSGvSebU5fP2XfIEjdzXIPWy5aVEWpfmCOVwCUpeF24WqCvx1fvuGPGu3ncd9XntgGFd
+	Mb43EPMd4gJKxXxOZgtIL0y66U6RJY1zSMSyIOHd5VNXb9HrMk/tH/axApH0d5moEe2Gw/IwDmC
+	cc8VJSiMN3yaasuQIGnA5mDZwCfrPt6Xf+KcqQF03EXFcwEHc+Sds46jMjMsKiWFJicOi7YqP6W
+	AKJVa+niVz3ex2Vya1wvwphOmQHYsQYt9WSxcdJzInWRGA47je8H0zQ38Yk04b6+wD6czvWu+bI
+	bCg4q0haJCqin5a+vOTIvzmjpyIxa1utUrJTkmkoEUZ8F9TbBT1Dd9AydwOn0cAxVAzwuSt7YuO
+	KO286Zg0gsJu3yTNQungQPaKLTx9L6mnJwML+Swr/fSXawcZdiZ6ljLWF64ZNZ9GmTAIrMf+4B9
+	vFgrhUlLA/tlSftRRWx+WPGTliv6B0u2ML+na1qOCKIg5m3wNP/X
+X-Received: by 2002:a17:902:ea01:b0:2e9:5178:4e83 with SMTP id d9443c01a7336-2f03f2413e4mr3783595ad.38.1795108550763;
+        Thu, 19 Nov 2026 09:15:50 -0800 (PST)
+Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee848c1sm3185305ad.10.2026.11.19.09.15.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:13:47 -0800 (PST)
-Date: Thu, 19 Nov 2026 12:13:44 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: Congjie Zhou <zcjie0802@qq.com>, Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+        Thu, 19 Nov 2026 09:15:50 -0800 (PST)
+From: David Yang <mmyangfl@gmail.com>
+To: netdev@vger.kernel.org
+Cc: David Yang <mmyangfl@gmail.com>,
+	Jiri Pirko <jiri@resnulli.us>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
-	virtualization@lists.linux.dev
-Subject: [PATCH net] virtio_net: mask callbacks before handing off NAPI
- ownership
-Message-ID: <ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst@redhat.com>
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v6] net: dsa: motorcomm: Add devlink info and resources
+Date: Fri, 20 Nov 2026 01:15:06 +0800
+Message-ID: <20261119171528.681819-1-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -119,190 +104,289 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email 2.51.2.2891.g4157995a80.dirty
-X-Mutt-Fcc: =sent
+Content-Transfer-Encoding: 8bit
 
-Virtio is special in that enabling or disabling callbacks (interrupts)
-accesses shared virtqueue state and must be serialized with polling. It
-therefore enables callbacks before completing NAPI, and disables them
-again if completion returns false.
+Expose the ASIC model via devlink info (ASIC_ID), and register devlink
+resources for ACLs and meters. Document the devlink support.
 
-With napi_complete_done(), that false return can come after ownership has
-passed to another poll. The first poll can then disable callbacks after
-its successor has enabled them, leaving RX stalled. Virtio therefore
-needs to disable callbacks before handing off NAPI ownership.
-
-Add a prepare/finish NAPI completion API so virtio-net can mask interrupts
-before handing ownership off.
-
-Reported-by: Congjie Zhou <zcjie0802@qq.com>
-Closes: https://lore.kernel.org/netdev/tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com/
-Fixes: 6f8b12d661d0 ("net: napi: add hard irqs deferral feature")
-Message-ID: <20261119064843-mutt-send-email-mst@kernel.org>
-Assisted-by: LLM
-Tested-by: Congjie Zhou <zcjie0802@qq.com>
-
+Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
+v6:
+ - add devlink document
+v5: https://lore.kernel.org/r/20261116121627.1182631-1-mmyangfl@gmail.com
+ - minor stylistic fixes
+v4: https://lore.kernel.org/r/20261112002031.1475005-1-mmyangfl@gmail.com
+ - remove FDB-related changes
+v3: https://lore.kernel.org/r/20261109163117.1792478-1-mmyangfl@gmail.com
+ - remove the buggy sub-resources
+v2: https://lore.kernel.org/r/20261108094512.1285796-1-mmyangfl@gmail.com
+ - fix issues reported by sashiko
+ Documentation/networking/devlink/index.rst  |   1 +
+ Documentation/networking/devlink/yt921x.rst |  37 +++++++
+ MAINTAINERS                                 |   1 +
+ drivers/net/dsa/motorcomm/Makefile          |   1 +
+ drivers/net/dsa/motorcomm/chip.c            |   8 ++
+ drivers/net/dsa/motorcomm/devlink.c         | 107 ++++++++++++++++++++
+ drivers/net/dsa/motorcomm/devlink.h         |  18 ++++
+ 7 files changed, 173 insertions(+)
+ create mode 100644 Documentation/networking/devlink/yt921x.rst
+ create mode 100644 drivers/net/dsa/motorcomm/devlink.c
+ create mode 100644 drivers/net/dsa/motorcomm/devlink.h
 
-This preserves interrupt suppression without a callback or an additional
-data-path barrier. Ordinary napi_complete_done() compiles identically in
-the tested configuration.
-
-Tested on x86-64 KVM with lock debugging, including IRQ deferral, concurrent
-scheduling, busy polling, netpoll, and threaded NAPI. Split and packed
-virtqueue TCP RX tests with IRQ deferral and busy polling also passed.
-
- drivers/net/virtio_net.c  |  4 ++-
- include/linux/netdevice.h |  9 +++++
- net/core/dev.c            | 69 +++++++++++++++++++++++++++++++++++++--
- 3 files changed, 78 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/virtio_net.c b/drivers/net/virtio_net.c
-index dd2c41ef6fbe7..de370a39bc8fa 100644
---- a/drivers/net/virtio_net.c
-+++ b/drivers/net/virtio_net.c
-@@ -730,16 +730,18 @@ static void virtqueue_napi_schedule(struct napi_struct *napi,
- static bool virtqueue_napi_complete(struct napi_struct *napi,
- 				    struct virtqueue *vq, int processed)
- {
-+	struct napi_completion completion;
- 	int opaque;
+diff --git a/Documentation/networking/devlink/index.rst b/Documentation/networking/devlink/index.rst
+index 03f49389a755..be0d59cbaa3c 100644
+--- a/Documentation/networking/devlink/index.rst
++++ b/Documentation/networking/devlink/index.rst
+@@ -104,4 +104,5 @@ parameters, info versions, and other features it supports.
+    sfc
+    stmmac
+    ti-cpsw-switch
++   yt921x
+    zl3073x
+diff --git a/Documentation/networking/devlink/yt921x.rst b/Documentation/networking/devlink/yt921x.rst
+new file mode 100644
+index 000000000000..7ccb75a30029
+--- /dev/null
++++ b/Documentation/networking/devlink/yt921x.rst
+@@ -0,0 +1,37 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++=======================
++yt921x devlink support
++=======================
++
++This document describes the devlink features implemented by the ``yt921x``
++device driver.
++
++Info versions
++=============
++
++The ``yt921x`` driver reports the following devlink info versions.
++
++.. list-table:: devlink info versions implemented
++
++   * - Name
++     - Description
++   * - ``asic.id``
++     - ASIC model name as reported by the driver.
++
++Resources
++=========
++
++The ``yt921x`` driver exposes the following devlink resources to monitor
++hardware occupancy.
++
++.. list-table:: Driver-specific resources implemented
++   :widths: 5 95
++
++   * - Name
++     - Description
++   * - ``ACL``
++     - TCAM entries available for ACL rules, 384 entries in total, organized
++       as 48 blocks of 8 entries.
++   * - ``meters``
++     - Meters available for ACL rules to police matching flows, 64 in total.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 40bb77cbc6b0..8ef92c9ff65f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18974,6 +18974,7 @@ M:	David Yang <mmyangfl@gmail.com>
+ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/dsa/motorcomm,yt921x.yaml
++F:	Documentation/networking/devlink/yt921x.rst
+ F:	drivers/net/dsa/motorcomm/
+ F:	net/dsa/tag_yt921x.c
  
- 	opaque = virtqueue_enable_cb_prepare(vq);
--	if (napi_complete_done(napi, processed)) {
-+	if (napi_complete_done_prepare(napi, processed, &completion)) {
- 		if (unlikely(virtqueue_poll(vq, opaque)))
- 			virtqueue_napi_schedule(napi, vq);
- 		else
- 			return true;
- 	} else {
- 		virtqueue_disable_cb(vq);
-+		napi_complete_done_finish(napi, &completion);
- 	}
+diff --git a/drivers/net/dsa/motorcomm/Makefile b/drivers/net/dsa/motorcomm/Makefile
+index 9eaa59f699e8..0b31d815ce43 100644
+--- a/drivers/net/dsa/motorcomm/Makefile
++++ b/drivers/net/dsa/motorcomm/Makefile
+@@ -2,6 +2,7 @@
+ obj-$(CONFIG_NET_DSA_YT921X) += yt921x.o
+ yt921x-objs := chip.o
+ yt921x-$(CONFIG_NET_DSA_YT921X_LEDS) += leds.o
++yt921x-objs += devlink.o
+ yt921x-objs += mdio_bus.o
+ yt921x-objs += mib.o
+ yt921x-objs += pcs-921x.o
+diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
+index 35e70b322608..dca5bc593848 100644
+--- a/drivers/net/dsa/motorcomm/chip.c
++++ b/drivers/net/dsa/motorcomm/chip.c
+@@ -26,6 +26,7 @@
+ #include <net/ieee8021q.h>
  
- 	return false;
-diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index c0ae442c4344b..a182882624d6a 100644
---- a/include/linux/netdevice.h
-+++ b/include/linux/netdevice.h
-@@ -599,6 +599,15 @@ static inline void napi_schedule_irqoff(struct napi_struct *n)
-  */
- bool napi_complete_done(struct napi_struct *n, int work_done);
+ #include "chip.h"
++#include "devlink.h"
+ #include "leds.h"
+ #include "mdio_bus.h"
+ #include "mib.h"
+@@ -2149,6 +2150,8 @@ static void yt921x_dsa_teardown(struct dsa_switch *ds)
  
-+struct napi_completion {
-+	unsigned long timeout;
+ 	yt921x_leds_remove(priv);
+ #endif
++
++	dsa_devlink_resources_unregister(ds);
+ }
+ 
+ static int yt921x_chip_detect(struct yt921x_priv *priv)
+@@ -2483,6 +2486,10 @@ static int yt921x_dsa_setup(struct dsa_switch *ds)
+ 	if (res)
+ 		return res;
+ 
++	res = yt921x_devlink_setup(priv);
++	if (res)
++		return res;
++
+ #if IS_ENABLED(CONFIG_NET_DSA_YT921X_LEDS)
+ 	res = yt921x_leds_setup(priv);
+ 	if (res)
+@@ -2571,6 +2578,7 @@ static const struct dsa_switch_ops yt921x_dsa_switch_ops = {
+ 	.port_add_dscp_prio	= yt921x_dsa_port_add_dscp_prio,
+ #endif
+ 	/* chip */
++	.devlink_info_get	= yt921x_dsa_devlink_info_get,
+ 	.teardown		= yt921x_dsa_teardown,
+ 	.setup			= yt921x_dsa_setup,
+ };
+diff --git a/drivers/net/dsa/motorcomm/devlink.c b/drivers/net/dsa/motorcomm/devlink.c
+new file mode 100644
+index 000000000000..a896aa99fb3e
+--- /dev/null
++++ b/drivers/net/dsa/motorcomm/devlink.c
+@@ -0,0 +1,107 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2026 David Yang
++ */
++
++#include "chip.h"
++#include "devlink.h"
++#include "tc.h"
++
++int
++yt921x_dsa_devlink_info_get(struct dsa_switch *ds, struct devlink_info_req *req,
++			    struct netlink_ext_ack *extack)
++{
++	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
++	int res;
++
++	res = devlink_info_version_fixed_put(req,
++					     DEVLINK_INFO_VERSION_GENERIC_ASIC_ID,
++					     priv->info->name);
++	if (res)
++		return res;
++
++	return 0;
++}
++
++static u64 yt921x_devlink_occ_get_acl(void *ctx)
++{
++	struct yt921x_priv *priv = ctx;
++	unsigned int count = 0;
++
++	mutex_lock(&priv->reg_lock);
++	for (unsigned int i = 0; i < YT921X_ACL_BLK_NUM; i++)
++		count += hweight8(priv->acl_masks[i]);
++	mutex_unlock(&priv->reg_lock);
++
++	return count;
++}
++
++static u64 yt921x_devlink_occ_get_meter(void *ctx)
++{
++	struct yt921x_priv *priv = ctx;
++	u64 count;
++
++	mutex_lock(&priv->reg_lock);
++	count = bitmap_weight(priv->meters_map, YT921X_METER_NUM);
++	mutex_unlock(&priv->reg_lock);
++
++	return count;
++}
++
++enum yt921x_devlink_resource_id {
++	YT921X_DEVLINK_RESOURCE_ID_NONE,  /* DEVLINK_RESOURCE_ID_PARENT_TOP */
++	YT921X_DEVLINK_RESOURCE_ID_ACL,
++	YT921X_DEVLINK_RESOURCE_ID_METER,
 +};
 +
-+bool napi_complete_done_prepare(struct napi_struct *n, int work_done,
-+				struct napi_completion *completion);
-+void napi_complete_done_finish(struct napi_struct *n,
-+			       struct napi_completion *completion);
++struct yt921x_devlink_resource {
++	const char *name;
++	devlink_resource_occ_get_t *occ_get;
++	unsigned short size;
++	unsigned char id;
++	unsigned char parent_id;
++};
 +
- static inline bool napi_complete(struct napi_struct *n)
- {
- 	return napi_complete_done(n, 0);
-diff --git a/net/core/dev.c b/net/core/dev.c
-index 3ac700d37e596..fa9baa70e9d72 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -6999,9 +6999,17 @@ void __napi_schedule_irqoff(struct napi_struct *n)
- }
- EXPORT_SYMBOL(__napi_schedule_irqoff);
- 
--bool napi_complete_done(struct napi_struct *n, int work_done)
-+static __always_inline bool
-+__napi_complete_done_finish(struct napi_struct *n, unsigned long timeout,
-+			    bool ret, bool allow_pending,
-+			    struct napi_completion *completion);
++static const struct yt921x_devlink_resource yt921x_devlink_resources[] = {
++	{
++		"ACL", yt921x_devlink_occ_get_acl,
++		YT921X_ACL_NUM,
++		YT921X_DEVLINK_RESOURCE_ID_ACL,
++		DEVLINK_RESOURCE_ID_PARENT_TOP,
++	},
++	{
++		"meters", yt921x_devlink_occ_get_meter,
++		YT921X_METER_NUM,
++		YT921X_DEVLINK_RESOURCE_ID_METER,
++		DEVLINK_RESOURCE_ID_PARENT_TOP,
++	},
++};
 +
-+static __always_inline bool
-+__napi_complete_done_prepare(struct napi_struct *n, int work_done,
-+			     bool allow_pending,
-+			     struct napi_completion *completion)
- {
--	unsigned long flags, val, new, timeout = 0;
-+	unsigned long flags, timeout = 0;
- 	bool ret = true;
- 
- 	/*
-@@ -7041,10 +7049,25 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
- 	}
- 	WRITE_ONCE(n->list_owner, -1);
- 
--	val = READ_ONCE(n->state);
-+	return __napi_complete_done_finish(n, timeout, ret, allow_pending,
-+					   completion);
-+}
-+
-+static __always_inline bool
-+__napi_complete_done_finish(struct napi_struct *n, unsigned long timeout,
-+			    bool ret, bool allow_pending,
-+			    struct napi_completion *completion)
++int yt921x_devlink_setup(struct yt921x_priv *priv)
 +{
-+	unsigned long val = READ_ONCE(n->state), new;
++	struct dsa_switch *ds = &priv->ds;
++	int res;
 +
- 	do {
- 		WARN_ON_ONCE(!(val & NAPIF_STATE_SCHED));
- 
-+		if (allow_pending && (!ret || (val & NAPIF_STATE_MISSED))) {
-+			completion->timeout = timeout;
-+			return false;
++	for (int i = 0; i < ARRAY_SIZE(yt921x_devlink_resources); i++) {
++		struct devlink_resource_size_params size_params;
++		const struct yt921x_devlink_resource *r;
++
++		r = &yt921x_devlink_resources[i];
++
++		devlink_resource_size_params_init(&size_params, r->size,
++						  r->size, 1,
++						  DEVLINK_RESOURCE_UNIT_ENTRY);
++
++		res = dsa_devlink_resource_register(ds, r->name, r->size, r->id,
++						    r->parent_id, &size_params);
++		if (res) {
++			dsa_devlink_resources_unregister(ds);
++			return res;
 +		}
 +
- 		new = val & ~(NAPIF_STATE_MISSED | NAPIF_STATE_SCHED |
- 			      NAPIF_STATE_SCHED_THREADED |
- 			      NAPIF_STATE_PREFER_BUSY_POLL);
-@@ -7067,8 +7090,48 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
- 			      HRTIMER_MODE_REL_PINNED);
- 	return ret;
- }
++		dsa_devlink_resource_occ_get_register(ds, r->id, r->occ_get,
++						      priv);
++	}
 +
-+bool napi_complete_done(struct napi_struct *n, int work_done)
-+{
-+	return __napi_complete_done_prepare(n, work_done, false, NULL);
++	return 0;
 +}
- EXPORT_SYMBOL(napi_complete_done);
- 
-+/**
-+ * napi_complete_done_prepare - prepare NAPI completion
-+ * @n: NAPI context
-+ * @work_done: number of packets processed
-+ * @completion: opaque completion token
-+ *
-+ * Return: true if NAPI is complete and interrupts may remain enabled;
-+ * false if ownership is retained. On false, mask interrupts and call
-+ * napi_complete_done_finish().
+diff --git a/drivers/net/dsa/motorcomm/devlink.h b/drivers/net/dsa/motorcomm/devlink.h
+new file mode 100644
+index 000000000000..184b9f05742e
+--- /dev/null
++++ b/drivers/net/dsa/motorcomm/devlink.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (c) 2026 David Yang
 + */
-+bool napi_complete_done_prepare(struct napi_struct *n, int work_done,
-+				struct napi_completion *completion)
-+{
-+	return __napi_complete_done_prepare(n, work_done, true, completion);
-+}
-+EXPORT_SYMBOL_GPL(napi_complete_done_prepare);
 +
-+/**
-+ * napi_complete_done_finish - finish NAPI completion after masking interrupts
-+ * @n: NAPI context
-+ * @completion: token passed to napi_complete_done_prepare()
-+ *
-+ * The caller must provide any device-specific interrupt ordering.
-+ */
-+void napi_complete_done_finish(struct napi_struct *n,
-+			       struct napi_completion *completion)
-+{
-+	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
-+				 NAPIF_STATE_IN_BUSY_POLL)))
-+		return;
++#ifndef _YT_DEVLINK_H
++#define _YT_DEVLINK_H
 +
-+	__napi_complete_done_finish(n, completion->timeout, false, false, NULL);
-+}
-+EXPORT_SYMBOL_GPL(napi_complete_done_finish);
++#include <net/dsa.h>
 +
- static void __skb_defer_free_flush(struct skb_defer_node *sdn, int budget)
- {
- 	struct llist_node *free_list;
++struct yt921x_priv;
++
++int
++yt921x_dsa_devlink_info_get(struct dsa_switch *ds, struct devlink_info_req *req,
++			    struct netlink_ext_ack *extack);
++int yt921x_devlink_setup(struct yt921x_priv *priv);
++
++#endif
 -- 
-MST
+2.53.0
 
