@@ -1,54 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050944;
-	b=f37BMBFZguZ5Ts9ZuFxi5PW4x/hEl104FhOZmkIXPZ35FpsVTl+3VXg2ZPgKpWF2ceB9
-	 P3UmgeOekLUlGFaXVsFBtd7vBRNy8hC+OZTn1KCaDoIwy8tuHbqgAESHgDZ7+jDyEzHpy
-	 8TN8J72rc2vA4ZkglX5AK/kr9mIPRnAKxRYG0VC0z6hd+7aePOIVLnKKqkyHQyokX4Tc5
-	 1Td3gklCVSMqxRKlhoaKm3f9BkJLKxFqSafCtFSwtCBig3sSFOiLUHVNxS/ud/eiHVie1
-	 H8BRUCR+h1v40OI6C6JA8JbmB/d/MmvJx7tAB2JYnGcogyCoUrFEhQRSvhz5YOTZxrw==
+	t=1795050992;
+	b=C62WtHIj1+2mlzA7HKBYolZUeviD3c66IaUzSaSD1DpxvmhNZilgsd/R9OpZozQ1p93m
+	 r03XrQakua/0t2pK40KzbUZRR9KCCRbzG0Q5iTJlzzzRKu0zwK93o7am9Qa5S5q+tlFbn
+	 uts5PMDgeP9RiQ5FazDJooWtx8+gOOS0W+vXNvP+PWJEomFgCF2yAOxZbWvz9cSDZdMNj
+	 AIL+qbIa+rmE5cXirX9aQGYZrDIK2awbB5GhcdiTlNPuTHogA+VIdToUefxFNqwzCjgaC
+	 ltrclEGzIZHM74jYq5q7fO6m7XzVY6RLBp4nVsAdOG49IVaqGn5zuqYAaHEoLLRNhpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050944;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=R6Cb7o409qkbHnmedbWLlgtjDrV1DNM3uP2xpXoQHOA=;
-	b=Tr3eUqIVK3wEgBAeAhqUT15vDyNMXTRViMVjHJEEXJr/qzVuEPTp6xEtkZuCX3LOhtBI
-	 jnme9kClyMcWEE5iVyGwGVvVEETPCGoOmTw7GtdlAZW6fvahy+wQpleTJqS/XF4iSOUh8
-	 Z83i6D4LdRKhSvnvJPPQfH3lrzMg3I1Yde/iBAo8djdq17B9d+Jj40dyVdRzksr7pYydK
-	 5outhBorZLzNuVQQOeWsUDCYwdbCn4Mldk6xJrPqtvoyoF5sEoqJDqrOoKO1fgMtbpaF8
-	 KcAViM2GlE2U23kVcE3wZ/jO4I4o+6c14U2Gu8XnnBsJqTxOIEH7es49p8qrpMyl0kQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050992;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=9GD/UNHBWrOUFrMAE4LOfnoLY5uKQdUtivTrlJSCxsA=;
+	b=mWdM9yK0saZ3Ax/0nV1N8b/lFRKPNAcp++6PKco6csZjkUqPsbXmH0VE3HGEUc25kL5N
+	 ReCrcltuAYYxHqGk8LvxAu4Xw0ZVKVSwVFxunZaGnCpd9k8V7ydB3R2ebri+5cxTRqnNA
+	 G5/fevszoj+wGSsEbyi/1g85JTp2lDq0+T1+zqPxVo6y+WLesDr7/3AN1T3QH1bVEn9IN
+	 OXyOBY00NzClhZhutE73H96whkRRqMI6etvIS2EB0KVzSW73+QjdT1/XZeoHbTLxzoIy3
+	 l6i7fzWtkJefKW37SdNBaHW3o+iKR3vAfRHaBy/Z/cP2rkJuiOXUpvu/w6F4mDeEjwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h1PmIEFf;
+	arc=none smtp.remote-ip=209.85.215.179
+Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44DE6606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:15:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44DE6606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4ab8b4887d4so1040813b6e.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:15:44 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 922AE606A32A
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 01:16:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 922AE606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h1PmIEFf
+Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cc758830601so1405482a12.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:16:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795050991; x=1795655791; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9GD/UNHBWrOUFrMAE4LOfnoLY5uKQdUtivTrlJSCxsA=;
+        b=h1PmIEFfgFgvcdYCELklSygeCh82nQRnbcx+1KUk+Opo6Szk33dVhS8DgC7XRBJnof
+         95YBBBMJ5G1hu7vny2tbV31PKak3z/3lQISPHaN+61fjoia76dmC8a2cLEMDoldl0ZNH
+         NCCXFtHYKK31vSdyHqIV7gMDnESt+ICH+WW3FwzY7fCn34aaKWgF+awXuBPxf/8Ot4CW
+         Z/ZskErk8cYOUBuyZBZ/Ezy9fJ8+4wM54aoutREyvRWX76Dfx+DCEPWCuNts1ZlyO7KQ
+         6KRDzVJ/rw/sxsl+3G7yqv1MsvIhKW92O2EY19BC19GDWgf/RKEO7uNINNu2Dy3K4zR5
+         PZUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795050943; x=1795655743;
-        h=content-type:to:from:subject:message-id:date:mime-version
+        d=1e100.net; s=20260707; t=1795050991; x=1795655791;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=R6Cb7o409qkbHnmedbWLlgtjDrV1DNM3uP2xpXoQHOA=;
-        b=LEjcJaZ4ZRQZ5OBFw86IkTgVk63/0tF0r3J09NYwbi4AEpvtOyrT/s8ZqDgOgBl14S
-         Kb9d13Jn3YlYpsnACAA86Nzb+eH4lgLSHPbmGRerFygruimnET8hI7OME/imkfIOeM/s
-         VeiNZQ5dh0OFyS00niw+EpY6E12/L+01BqxdgH94VAhhccNHfldKH5Dikj2KJXZgqXdF
-         /Za8td5/EglgD+p+O3NTPCiAJOAv2CyfW0RhNmmsNmN12cEQlXdo9VwdMnpjX6G657xC
-         ah1d9IU99LzCbLocmjQTVfHRiKaKRdcz8tZHhrQdn3jRzAqefc0ZMVVzynkW/IQLaoHM
-         hMlA==
-X-Forwarded-Encrypted: i=1; AL+hErH6mL3UzyyOtfnVtElNfIvcpK/9G6gVx+JNplitAx/OwQ59OiE+5jU0ocqRtERG2HTeLLP6wUg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8jkUDDw+UZOioPTZ4Uvv8wzd6ZoF/PBFDQ8uc9+uc9As+Vocdj
-	840Ee3uNsufqfNWLLmcJmmOTYHfgJ9p6e97lSL4/cRcTGJEnGY7TlIW3Hz8TR/7B3l7YaWWgSwR
-	nGsiyE23kXUB3HkKUQW8Fd423/DHFlw9xReGnCXnaq9o2DTd/aLvfqE1pqFI=
+        bh=9GD/UNHBWrOUFrMAE4LOfnoLY5uKQdUtivTrlJSCxsA=;
+        b=Zev4suOM0LQ1XKUghqlskqSINVDfraKZffoLKgGONpLkrI0HUk1/JuzgU92xhjp7Al
+         5Cyb46cTUW5p5KNAAqSP0bpjdIGQW6w9vss6DMCBJkY8vh061NCE+HZUPqY8cXTWesPo
+         JebZAiyHgSXF6HyIX2ymj1EeAQdd4pt5NV+6MrLVu7vKSpVG46wrgMCPSQKEi7q2iIoG
+         7bY8xKE2B6tTYHPeWDpG71zl3llNpDSBzz+yR5Nk25DRiYx0+7qgRw++1nhdoYLjka9K
+         us/X8tYKsJWdX5fwtJuD037o8Ixpd19VfMBCBdmBi2ZP9euAucOKdLtXTfv5M3/rFObx
+         j4ZQ==
+X-Forwarded-Encrypted: i=1; AL+hErH4Q4b40jQ0jhJTdH832q5gXtAt4xONh0iUZ34HMWX+Qmj6PYi1Wt8aVHetVd+FaF2orCSUFH8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8zZAidzmw91uolQwnVe3AwXmPOWHmzzRdbkjWMMAm7IJPMmdj0
+	k3adUgwu3JEGBl53VlypIsbCB4qkGutDwIP07YXoQSvfz0KcRkXYcjiH
+X-Gm-Gg: AZFdTZe+vKKZv2N1vEZvdB6pXFnAqczEDaeSpb2AQqgZuJNUDXSx9NCucAbJtJ8E5c1
+	MjG52BFW5NCbSAJtu8kOYrVsSHxWi4oz94aYRWAsEJOE6xFlEQLG3cAbSjECANvJ0sme47k04MW
+	IDcAMXwnrwfXQHiq1cZvcX7wC5lePJM1Gb4C0YbkqNalW0cacbp0XpPfRJE6NOP44onUu7O2ZE8
+	KxToWixGQoDuVrEIBf73NZhUCgW/ukpeP3dnzhY17Aje0DKzNxvIbezIumPsJJ7V/dY3IRyMhDM
+	L5tapE5arDSmv6q1I+FlJQe5193HhtEQhFS8wD88iR4W29k7TR4bX419gVwW0pmKtypAj/mQZ/e
+	37Jx/ZtpXgrChM6MwioHQs5NPQru6Is537oFMJiCdIAGHdNyAp3cNuIFeTi2M/4Tj8GCZCfvfw1
+	R6MKWxV8bFsHGZRSjgx++fSljtos9x1FRNpNqU35Ew2ycS0Moj0s9WNytYT/ZPo1CRkPbC2kuIk
+	BDEvPXaLYbBaxZvgGHHtxSeUwQbs1L57VcC5bFZw5/E+KoG+GQKeR9DnKh4CNOa0Jxu2JuCbZRw
+	YmmVDEVmru67H1N0vNm+uVGTRLasymxsv9sMGSZcoPpUbKYgPhxUMuLI6OpkYkBYgYZ9VdX5zC6
+	E7+LqUTErlctQc9Bz3XjHl01LkiYyVLIva+b9egMhFmPawfKo5ZCjeyI=
+X-Received: by 2002:a17:90b:4488:b0:3b1:96fe:f5d2 with SMTP id 98e67ed59e1d1-3b3d082c2admr4689543a91.65.1795050990735;
+        Wed, 18 Nov 2026 17:16:30 -0800 (PST)
+Received: from localhost ([153.61.198.254])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3fe0b6fcfsm641546a91.12.2026.11.18.17.16.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 17:16:30 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,140 +88,98 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4441:b0:573:52b1:bb02 with SMTP id
- 5614622812f47-5773e047425mr5959097b6e.66.1795050943262; Wed, 18 Nov 2026
- 17:15:43 -0800 (PST)
-Date: Wed, 18 Nov 2026 17:15:43 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6afe4dbf.a11fe2ad.1b4426.0011.GAE@google.com>
-Subject: [syzbot] [net?] KCSAN: data-race in bpf_map_update_value / bpf_sk_storage_free
-From: syzbot <syzbot+30dc80192107a6515bb5@syzkaller.appspotmail.com>
-To: ameryhung@gmail.com, ast@kernel.org, davem@davemloft.net, 
-	edumazet@kernel.org, horms@kernel.org, josef@toxicpanda.com, kuba@kernel.org, 
-	linux-kernel@vger.kernel.org, martin.lau@kernel.org, netdev@vger.kernel.org, 
-	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 01:16:30 +0000
+Message-Id: <DMYSGWL8247Y.DQAGO9I6EPK3@gmail.com>
+Subject: Re: [PATCH v2] net: sock_reuseport: check program type on the
+ migration path
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Shihuang Liu" <shlomojune6@gmail.com>, <netdev@vger.kernel.org>
+Cc: <bpf@vger.kernel.org>, <edumazet@kernel.org>, <kuniyu@google.com>,
+ <pabeni@redhat.com>, <willemb@google.com>, <davem@davemloft.net>,
+ <kuba@kernel.org>, <horms@kernel.org>
+X-Mailer: aerc 0.20.1-355-gf870624f6c37
+References: <20261118153541.172499-1-shlomojune6@gmail.com>
+In-Reply-To: <20261118153541.172499-1-shlomojune6@gmail.com>
 
-Hello,
+On Wed Nov 18, 2026 at 3:35 PM UTC, Shihuang Liu wrote:
+> A BPF_PROG_TYPE_SOCKET_FILTER program can be loaded with
+> expected_attach_type set to BPF_SK_REUSEPORT_SELECT_OR_MIGRATE and
+> attached to a SO_REUSEPORT TCP group.  Closing a listener that still
+> has queued children then runs it with a struct sk_reuseport_kern
+> context even though it was verified against struct sk_buff, which
+> KASAN reports as a stack-out-of-bounds in ___bpf_prog_run().
+> Reaching this without CAP_BPF requires
+> kernel.unprivileged_bpf_disabled=3D0; with
+> CONFIG_BPF_UNPRIV_DEFAULT_OFF=3Dy, the Kconfig default, the sysctl
+> starts at 2.
+>
+> reuseport_migrate_sock() decides from prog->expected_attach_type
+> alone, a field user space sets that does not identify the program
+> type.  Require BPF_PROG_TYPE_SK_REUSEPORT there and in
+> reuseport_stop_listen_sock(); socket filters still work as
+> selectors, so the selection path is unchanged.
+>
+> Fixes: d5e4ddaeb6ab ("bpf: Support socket migration by eBPF.")
+> Signed-off-by: Shihuang Liu <shlomojune6@gmail.com>
+> ---
+> Changes in v2:
+> - Fix the author identity in From: and Signed-off-by:.
+> - Mention the kernel.unprivileged_bpf_disabled dependency.
+>
+> v1: https://lore.kernel.org/all/20261115152408.48205-1-shlomojune6@gmail.=
+com/
+>
+>  net/core/sock_reuseport.c | 16 ++++++++++++++--
+>  1 file changed, 14 insertions(+), 2 deletions(-)
+>
+> diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
+> index fccbdd0430b059..9ab76697a794fc 100644
+> --- a/net/core/sock_reuseport.c
+> +++ b/net/core/sock_reuseport.c
+> @@ -460,6 +460,18 @@ void reuseport_detach_sock(struct sock *sk)
+>  }
+>  EXPORT_SYMBOL(reuseport_detach_sock);
+> =20
+> +/*
+> + * Only a BPF_PROG_TYPE_SK_REUSEPORT program is verified against
+> + * struct sk_reuseport_kern, which is the context bpf_run_sk_reuseport()
+> + * passes to it.  expected_attach_type is set by user space and does not
+> + * identify the program type.
+> + */
+> +static bool reuseport_is_migration_prog(const struct bpf_prog *prog)
+> +{
+> +	return prog && prog->type =3D=3D BPF_PROG_TYPE_SK_REUSEPORT &&
+> +	       prog->expected_attach_type =3D=3D BPF_SK_REUSEPORT_SELECT_OR_MIG=
+RATE;
+> +}
+> +
+>  void reuseport_stop_listen_sock(struct sock *sk)
+>  {
+>  	if (sk->sk_protocol =3D=3D IPPROTO_TCP) {
+> @@ -474,7 +486,7 @@ void reuseport_stop_listen_sock(struct sock *sk)
+>  						 lockdep_is_held(&reuseport_lock));
+> =20
+>  		if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_migrate_req) ||
+> -		    (prog && prog->expected_attach_type =3D=3D BPF_SK_REUSEPORT_SELECT=
+_OR_MIGRATE)) {
+> +		    reuseport_is_migration_prog(prog)) {
+>  			/* Migration capable, move sk from the listening section
+>  			 * to the closed section.
+>  			 */
+> @@ -644,7 +656,7 @@ struct sock *reuseport_migrate_sock(struct sock *sk,
+> =20
+>  	hash =3D migrating_sk->sk_hash;
+>  	prog =3D rcu_dereference(reuse->prog);
+> -	if (!prog || prog->expected_attach_type !=3D BPF_SK_REUSEPORT_SELECT_OR=
+_MIGRATE) {
+> +	if (!reuseport_is_migration_prog(prog)) {
 
-syzbot found the following issue on:
+Looks fine.
+Which tree should it go to?
 
-HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=12be594d580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=b949a9d3c1d44ceb
-dashboard link: https://syzkaller.appspot.com/bug?extid=30dc80192107a6515bb5
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+netdev folks, opinion?
+I'm fine whichever way.
 
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/a943b9915869/disk-666539ee.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/9bfd839d7ea5/vmlinux-666539ee.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/0f20b9720a71/bzImage-666539ee.xz
-
-AI-generated root cause summary:
-A KCSAN data race occurs between task context and softirq context on the 2-byte
-field current->migration_disabled. While a syscall thread in
-bpf_map_update_value() calls migrate_disable() -> __migrate_disable(), it
-disables preemption via guard(preempt)() and performs a plain store to
-current->migration_disabled = 1. Preempt disable does not mask hardware
-interrupts, allowing a timer interrupt on the same CPU to run softirq RCU
-callbacks on irq exit, which invokes socket destruction (__sk_destruct() ->
-bpf_sk_storage_free()). In bpf_sk_storage_free(), rcu_read_lock_dont_migrate()
-unnecessarily invokes migrate_disable() in softirq context, re-entering
-__migrate_disable() and reading current->migration_disabled concurrently with
-the interrupted plain store.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=30dc80192107a6515bb5
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+30dc80192107a6515bb5@syzkaller.appspotmail.com
-
-==================================================================
-BUG: KCSAN: data-race in bpf_map_update_value / bpf_sk_storage_free
-
-read to 0xffff888101d295b8 of 2 bytes by interrupt on cpu 1:
- __migrate_disable include/linux/sched.h:2483 [inline]
- migrate_disable include/linux/sched.h:2512 [inline]
- rcu_read_lock_dont_migrate include/linux/rcupdate.h:990 [inline]
- bpf_sk_storage_free+0x2b/0x210 net/core/bpf_sk_storage.c:52
- __sk_destruct+0x12e/0x4d0 net/core/sock.c:2398
- sk_destruct net/core/sock.c:2448 [inline]
- __sk_free+0x23c/0x280 net/core/sock.c:2459
- sk_free+0x55/0x90 net/core/sock.c:2470
- deferred_put_nlk_sk+0x89/0xc0 net/netlink/af_netlink.c:712
- rcu_do_batch kernel/rcu/tree.c:2650 [inline]
- rcu_core+0x76e/0xcb0 kernel/rcu/tree.c:2919
- rcu_core_si+0xd/0x20 kernel/rcu/tree.c:2936
- handle_softirqs+0x109/0x310 kernel/softirq.c:669
- __do_softirq kernel/softirq.c:703 [inline]
- invoke_softirq kernel/softirq.c:542 [inline]
- __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
- instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
- sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
- asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
- native_pause arch/x86/include/asm/vdso/processor.h:13 [inline]
- delay_tsc+0x43/0xa0 arch/x86/lib/delay.c:76
- udelay include/asm-generic/delay.h:64 [inline]
- delay_access kernel/kcsan/core.c:332 [inline]
- kcsan_setup_watchpoint+0x255/0x3f0 kernel/kcsan/core.c:622
- __migrate_disable include/linux/sched.h:2496 [inline]
- migrate_disable include/linux/sched.h:2512 [inline]
- bpf_disable_instrumentation include/linux/bpf.h:2875 [inline]
- bpf_map_update_value+0x1cf/0x570 kernel/bpf/syscall.c:270
- generic_map_update_batch+0x4e6/0x700 kernel/bpf/syscall.c:2125
- bpf_map_do_batch+0x26a/0x3b0 kernel/bpf/syscall.c:5849
- __sys_bpf+0x784/0xc50 kernel/bpf/syscall.c:-1
- __do_sys_bpf kernel/bpf/syscall.c:6582 [inline]
- __se_sys_bpf kernel/bpf/syscall.c:6579 [inline]
- __x64_sys_bpf+0x69/0x80 kernel/bpf/syscall.c:6579
- x64_sys_call+0xf26/0x2550 arch/x86/include/generated/asm/syscalls_64.h:322
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-write to 0xffff888101d295b8 of 2 bytes by task 12002 on cpu 1:
- __migrate_disable include/linux/sched.h:2496 [inline]
- migrate_disable include/linux/sched.h:2512 [inline]
- bpf_disable_instrumentation include/linux/bpf.h:2875 [inline]
- bpf_map_update_value+0x1cf/0x570 kernel/bpf/syscall.c:270
- generic_map_update_batch+0x4e6/0x700 kernel/bpf/syscall.c:2125
- bpf_map_do_batch+0x26a/0x3b0 kernel/bpf/syscall.c:5849
- __sys_bpf+0x784/0xc50 kernel/bpf/syscall.c:-1
- __do_sys_bpf kernel/bpf/syscall.c:6582 [inline]
- __se_sys_bpf kernel/bpf/syscall.c:6579 [inline]
- __x64_sys_bpf+0x69/0x80 kernel/bpf/syscall.c:6579
- x64_sys_call+0xf26/0x2550 arch/x86/include/generated/asm/syscalls_64.h:322
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Reported by Kernel Concurrency Sanitizer on:
-CPU: 1 UID: 0 PID: 12002 Comm: syz.0.4076 Not tainted syzkaller #0 PREEMPT(lazy) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-==================================================================
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
