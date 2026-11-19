@@ -1,64 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108156;
-	b=g68VYpBpuKkRR41MdWYTt7RmRfdK8eFQNVkDB/ZVeBm21Yu6iBnG2eQIoKLsugONNZPe
-	 CNgrKRLrUloC61HH4NsiRc49S/UvPytbauK8bN/5WqqbepKXvlkBakq6lqE9WV/Cy3g3V
-	 aoyTSlgnllGu+qExoUZm+g3KwOOyjNnTehm2tC64NbsKJJeByXv5zcx+1ipKeWCTPDqJJ
-	 wnZlXl9EIvB7sEcLe7FL0i+guba1UOC9LSviCjYTswW2myKJtsRHrnxz2/1YjW+vWP2F8
-	 0OH9JqPa5RQ8qxZcwmExpF4ypnWs1IJYmJ2R1rrF+9USYSo9xOn3+pOHK/xqz2D85lw==
+	t=1795108213;
+	b=CfDNAZ73SvijGx9TNhr37j71t99I7oS5wIQ5i6GDgQbedWeE7yWKilwbF3sl0lmqbKmY
+	 G504GHqKcGivlxYGXCMy+f6OBsRI8vi4UG0wFL+v9RRx6gHeqzIxeV9OFGFQumwnJI3KV
+	 +t4mTn3myB+cMZnT5Iz5S/WmmZSECwDVDFcAfQYJ1YkUm2ngK5WXlzhCGv6wfbdujJdrl
+	 F6L8if5LpA2zSTYmY10A0NuR43m30nVWfJPPPLna95NBnENWwzVFoObbV8IOLAgVWV9nF
+	 HdCCDaqkQ1eDFgayVD9Fd0WdD8GExcB3fLBhEvuiq3QLeOAtTrZxEkHn4kVJdkFAlVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108156;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sqvTwsXdZDVo9Q8YUhRZTyiKNxf1YYo/1XNakZHY59k=;
-	b=bacyGBayX7tdu8AcvGswN2Jmqm+xd81siOZKRVcWrvu4fERtju7Q3iXfvqKeAn6DriZi
-	 VggqiAPRll9EbLTxWSJCQpbQu0x5VugXyiIIeUNADoG1g6sQp3GClmlCUT7APdLrU7HmN
-	 /wUw5fUe6ZlzF46vICSF+f0po7r4Iyjk//djaPehL08PbxMj9/LP5EEWPDHw0zrB4IGRX
-	 lVrAXexnqfJjSLpqeGoSjDVdMniWU3ijY28kQ+sgbUzEQ7HcaBXmbJBNjOSAnP+CxGqdu
-	 vsQHa4cDf3qggsbvV+iYpqfoPWcH/CCnhrzRXkWFsVaJSB04mu0uYn20kxedBqAuR8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108213;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=EiBfwWR6KMKvY7bdeIiCHUu6wQSmNF3ekT+F/c9nKQ8=;
+	b=fnPb4kOFZ06OFkpSQScYt3yHem+zUVax33ywb2C7wDoX5qAh9Objon9Y47U3A+GVLmbh
+	 j8cSONSYUrTJ/OUTSUXFGz4nCZ/HwtICpR4vlVozALayHpwOcVi9xgH1TK51PAJKCLSEy
+	 EZgcLLGXwEqt3eVLBpu9xXKvXwsAy2PotuD5KVefPGIvlWpfEVJNvOJ4pAXUniNYmsrBI
+	 e5Wrp2+yvI5mQ/RUD3TEaUgz1KjaomDasarGqu+QRTPTzDwik/wjPDohLcxv3eIloufkZ
+	 U1XkvJ6igpC2YOWOsDANk6RCtqnLSYkvZ5r2vtq6w/zr5cQYxFDrCdBh0NOk8yhKdsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ebmD9/m+";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=APto1++M;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38AD5606CA9C;
-	Thu, 19 Nov 2026 17:09:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D4DA60A3812
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:10:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D4DA60A3812
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ebmD9/m+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02D0C1F00926;
-	Thu, 19 Nov 2026 17:09:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795108156;
-	bh=sqvTwsXdZDVo9Q8YUhRZTyiKNxf1YYo/1XNakZHY59k=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ebmD9/m+Na9scd8rjMLW0uwVyHsoOUjfmr3+DNbAcwVLr+Nz/10DXRLlJ9UBQUYPn
-	 RPTZQEcflL7+Eo3QbXP5REPv1wyQWeaq40kNYMpbQfKP/IKm2JM0cAfddaa5xgDVZP
-	 eO7XM7MEAu8QeTRqWcKpOiUqlo9FKk+G1GVKKwnRRNiBlmx3DlnAheYlyDTpeZE8oA
-	 rqj5L0ljBqfp8kTLFZwPHNIvDgBJ+NDsv06mDUUI83fOEU7QHRPJFJIa90+0NjfAWL
-	 o6U02/MFsiTPg/G2k0TUMCjD4Y8slR/nBUlILplxNdXCXglkKG5KFM65k3I2yYyu9w
-	 WuMZE9oFIo3Bg==
-Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
- from the descriptor
-From: netdev-bot+sashiko@kernel.org
-To: maxime.chevallier@bootlin.com
-Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux@armlinux.org.uk, lorenzo.bianconi@oss.qualcomm.com, nb@tipi-net.de,
- ovidiu.panait.rb@renesas.com, recv.jo@gmail.com,
- muhammad.nazim.amirul.nazle.asmade@altera.com, thomas.petazzoni@bootlin.com,
- alexis.lothore@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Thu, 19 Nov 2026 17:09:14 +0000
-Message-ID: <179510815456.3136.11469597684415088@kernel.org>
-In-Reply-To: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
-References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=APto1++M
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-383165e9b0fso1985266eec.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:10:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795108212; x=1795713012; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EiBfwWR6KMKvY7bdeIiCHUu6wQSmNF3ekT+F/c9nKQ8=;
+        b=APto1++MH6zID2YiOIjGdPc30YAe8iKYKxfkWDZASe0I+ni9w/i8pamAjSFUfIOhWO
+         4qCO2k0LOJoC2iOOShxRGjoOI2hjImjjMj22nJIGuDU74UojWU5pXKGHtnlRLZ8j8m0q
+         kyBC4KSjRWhfs05Loyy4bLmIK27sWhr5vVk6nzBSNh3EC2LdWCeg93ffUHQl8TZ5Atr5
+         LjC+YjqZIvHtEaZ2LwzwhQ2fzQ3Fr1HQsky84+VT3puTIZXYJM8HWHe6TXtTxUdZY1O5
+         HW8oQIlQfeMQfzd03ZJPoB/oqYVJJi3iyYjbC0JTR//bxJiWKIR81G+lruMv8v3J+4k1
+         lv4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795108212; x=1795713012;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EiBfwWR6KMKvY7bdeIiCHUu6wQSmNF3ekT+F/c9nKQ8=;
+        b=KqJQu1xs9gbNnOLC5e4wFDxTOKfTligsb5BrVDWdC+qXn2IAP6YPAD9yBb+8sCKlDE
+         wMjyysS4ZteQcHF7Ee27j8O3Yfja3xO0rJRil1MqvcRwuMTN1XFcvzVwMzlS8Z8fioH4
+         K7aiLjSQ+B5ztY1HeGBJ5Lz494u8Qhuk2Gcrab1zRtrOgycL/wZbpSU+oS59C2M6UveO
+         8gCIsEL8f92cHPlPZEzM4bPHP70yWyL6rAMf3z/NiCT4I1NL8Zwb9wh4wn+G2/WjOuNu
+         5/LHDEujjgvbob5A7R4poBzuDxlG1zqtemKxlHPtzj7NdmcdIKk/wo4yDxIqrOYWspsy
+         M6IA==
+X-Forwarded-Encrypted: i=1; AL+hErFv/FvKd/tq4gXnGwXjqtX5+fuvNCK2rnkIt63ijf9Pdi7n7cbuKEY9oFY76lg3wPH9XWayo+w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Hyu+cQEDXCRC8igY7dt5oFu4QUIEe93HKewShRWxAgu/MkEtN
+	JSYCLRe19bavUlXmiS4UlKmpcUP1/LMyWyGEMD6yKiihGQFDKSJJSsDu8dWkSXNlPjUJ6XnaMoI
+	Zf9LmEY26dQ==
+X-Received: from dyckq13.prod.google.com ([2002:a05:7301:7dcd:b0:383:aab7:cc58])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8943:10b0:381:cb1d:466b
+ with SMTP id 5a478bee46e88-38280d3068emr5688589eec.26.1795108211935; Thu, 19
+ Nov 2026 09:10:11 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:10:09 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,143 +75,53 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261119171009.1534335-1-irogers@google.com>
+Subject: [PATCH net] ncsi: Initialize vid in set_one_vid() to handle
+ concurrent VLAN removal
+From: Ian Rogers <irogers@google.com>
+To: Samuel Mendoza-Jonas <sam@mendozajonas.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Paul Fertser <fercerpav@gmail.com>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+set_one_vid() checks list_empty(&ndp->vlan_vids) before acquiring
+nc->lock and rcu_read_lock(). If ncsi_vlan_rx_kill_vid() removes the
+last VLAN entry in that window, list_for_each_entry_rcu() executes
+zero iterations and leaves vid uninitialized on the stack. The
+subsequent 'if (!vid)' check can then proceed and program stack
+garbage into ncf->vids[index] and an NCSI_PKT_CMD_SVF command packet.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Initialize vid to 0 so that an empty RCU list cleanly hits 'if (!vid)'
+and returns -1.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+build. Verified by building net/ncsi/ncsi-manage.o with LLVM=1 W=1
+(-Werror) and -Wconditional-uninitialized; not runtime-tested on NCSI
+hardware.
 
-- [Medium] This patch is a bug fix but carries no Fixes: tag, and the
-  subject reads like a new feature ("Report the VLAN tag type from the…
-- [Low] The ET/LT macro names in dwxgmac2.h disagree with how the new
-  dwxgmac2_wrback_get_rx_vlan_proto() reads them.
+Fixes: 062b3e1b6d4f ("net/ncsi: Refactor MAC, VLAN filters")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ net/ncsi/ncsi-manage.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---
-
-net: stmmac: xgmac: Report the VLAN tag type from the descriptor
-
-This adds a get_rx_vlan_proto() desc op for XGMAC. The op decodes the
-RDES3 ET_LT field and reports either ETH_P_8021AD or ETH_P_8021Q as the
-stripped outer tag type. vlan_rx_hw() now uses that op when it exists and
-keeps ETH_P_8021Q as the fallback.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> index 6719ac6e395bc..71ce2bc9b5e11 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> @@ -76,6 +76,18 @@ static bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
->  	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
->  }
->
-> +static u16 dwxgmac2_wrback_get_rx_vlan_proto(struct dma_desc *p)
-> +{
-> +	switch (FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3))) {
-> +	case XGMAC_ET_LT_VLAN_STAG:
-> +	case XGMAC_ET_LT_DVLAN_STAG_STAG:
-> +	case XGMAC_ET_LT_DVLAN_CTAG_STAG:
-> +		return ETH_P_8021AD;
-> +	default:
-> +		return ETH_P_8021Q;
-> +	}
-> +}
-
-[Severity: Low]
-This isn't a bug, but the macro names in dwxgmac2.h don't match how they
-are used here. The only comment on them is:
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:
-/* Error Type or L2 Type(ET/LT) Field Number */
-#define XGMAC_ET_LT_VLAN_STAG		8
-#define XGMAC_ET_LT_VLAN_CTAG		9
-#define XGMAC_ET_LT_DVLAN_CTAG_CTAG	10
-#define XGMAC_ET_LT_DVLAN_STAG_STAG	11
-#define XGMAC_ET_LT_DVLAN_CTAG_STAG	12
-#define XGMAC_ET_LT_DVLAN_STAG_CTAG	13
-
-Read outer-first, XGMAC_ET_LT_DVLAN_CTAG_STAG means an outer C-tag, yet
-dwxgmac2_wrback_get_rx_vlan_proto() returns ETH_P_8021AD for it. Likewise
-XGMAC_ET_LT_DVLAN_STAG_CTAG falls through to ETH_P_8021Q.
-
-The commit message says "note inner/outer is reversed in the macro
-names", but nothing in the tree records that. Could the macros be renamed
-(for example XGMAC_ET_LT_DVLAN_OUTER_STAG_INNER_CTAG), or could a comment
-in dwxgmac2.h give the tag order? Otherwise a future user of these
-constants could easily invert the mapping.
-
-If the names do follow the databook's outer-first order, the mapping for
-values 12 and 13 would be inverted. That can't be checked without the
-databook, so it would help to confirm which reading is correct.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> index fb9aad748cb34..bf23d82e9f383 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> @@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
->  {
->  	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
->  		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
-> +		u16 proto = ETH_P_8021Q;
->
-> -		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
-> +		if (hw->desc->get_rx_vlan_proto)
-> +			proto = hw->desc->get_rx_vlan_proto(rx_desc);
-> +
-> +		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
-
-[Severity: Medium]
-Should this patch carry a Fixes: tag? It looks like it fixes a
-user-visible regression on XGMAC.
-
-On XGMAC, __stmmac_dvr_probe() advertises NETIF_F_HW_VLAN_STAG_RX and
-enables MAC-level stripping by default:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:__stmmac_dvr_probe() {
-    ...
-	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-		ndev->features |= NETIF_F_HW_VLAN_STAG_RX;
-
-	if (dwmac_is_xmac(priv->plat->core_type)) {
-		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
-		priv->hw->hw_vlan_en = true;
-	}
-    ...
-}
-
-stmmac_fix_features() also keeps STAG_RX tied to CTAG_RX on XGMAC.
-Because of this, every frame with a stripped 802.1ad outer tag went
-through the old vlan_rx_hw() and reached the stack labelled as
-ETH_P_8021Q. 802.1ad VLAN uppers received no traffic and QinQ between
-hosts failed.
-
-The sibling commit da17990421d7 ("net: stmmac: Disable S-Tag processing
-on dwmac4") describes this exact failure and carries a Fixes: tag. Its
-message says the dwxgmac2 side can be fixed using the RDES3 ET_LT field,
-which is what this patch does.
-
-Without a Fixes: tag, stable trees that pick up the dwmac4 half would
-still mislabel S-tags on XGMAC. Would this be a suitable tag?
-
-Fixes: 534df0c1724b ("net: stmmac: dwxgmac2: Add support for HW-accelerated VLAN stripping")
-
-That commit started XGMAC hardware stripping with the hardcoded
-ETH_P_8021Q proto.
-
-The subject also reads like a new feature. The commit message only says
-double VLAN handling "hasn't been working great for a while". Could it
-state the actual failure, that S-tagged and QinQ frames are passed up as
-802.1Q?
-
->  	}
->  }
-
+diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
+index 1d63958c4429..f7eca228c281 100644
+--- a/net/ncsi/ncsi-manage.c
++++ b/net/ncsi/ncsi-manage.c
+@@ -640,7 +640,7 @@ static int set_one_vid(struct ncsi_dev_priv *ndp, struct ncsi_channel *nc,
+ 	unsigned long flags;
+ 	int i, index;
+ 	void *bitmap;
+-	u16 vid;
++	u16 vid = 0;
+ 
+ 	if (list_empty(&ndp->vlan_vids))
+ 		return -1;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118162136.2782405-1-maxime.chevallier%40bootlin.com
+2.56.1.708.g77570a6a1d-goog
+
