@@ -1,54 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.82
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795113882;
-	b=lVQnKkwT/gTfK2tzZ/3wKY9FPBVuZO0XRI7F509vjp9OI/OZj63tGz0+iAIFC2VGCuD5
-	 jzPPOxV6mMCdVO2NsMGSvh0KyyTjjcLe7VVfXkTziPwjIpIWXlQygtVP3lUHSR1GOwLeV
-	 zSwZeKrsnSy5MNCUcrnVXfAztMew0/NgfFGAUTflR3HlXbZ/Veh6yz+dQVdRa0ZvFkymB
-	 BCOJ99jnGDv9x744JqUfwtjt33vtAEPfm4WvG8ippJhvBotS5WMHQlA2GbV5BgCsjDpzI
-	 onQ9YcO9aWUoMeEeAUiqQnBUruluHy17ZRh/h5ZcQ7POYSkp5nHTpxh250/XxBGr95A==
+	t=1795113945;
+	b=tCuNIgyHD+m/7EDlLS63iLCca7Zai3ce7OU9D3v0AfeXS8CUDae7nXmpz93kVj2u8oFZ
+	 SVcsn+UsBV+fOF8KAqAMbcWDSt+b3pUBxCK58W3fPhDdKBGl2loJlQY7xMq1jQrlehALQ
+	 PDcKq0eKR2v8Gnt/9strp9hwLFL4vN/tX8Irr5712KJEaFbBRuCtPsyk1V+4vt2NpMoQk
+	 eR2+PxwQe81zsftLLnMi2ZcKcXLce3wwKrnE6E5IAaTsGAYdQbsIzrz4dtkhTGavtLtTp
+	 TKdNPbqluo7GAkD8jeyYNcTbMtJzFNCPCdQuGoCrQy52MKCyyov/RxiiZJj5Cfn7g2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113882;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=2H2ujk4pMkofjrrxTD/0OLd5M9zgZ4osSGOPOf/44rw=;
-	b=02SayW3l8Ovv7ObhcW/7N6bvW/gYbKeiDBuaCipa5y7Mm6dlcSAHxid6OczdvqKBeu6W
-	 Xf5BBU5TYTYrh1hD0lNrPC2oeCRTgPSbjL/7MR44uRvK/fzGyILGsczysZnNx/fckpnjw
-	 lvU//lH0jrZihSFh+9AnZN4nUPC8bQbX/up3h0UbuTILgz9phQQEEelA9H+GPAoYrLMaE
-	 CuZ/75zLdCC8RkDVzUw4x94NUzWFvMgFc/U0d8vMTHCsunPr4dlfFOMGBtXUBu5acc4Yc
-	 Y+1KkY0mOuWA76K6PA/2FSTRVE/XCaGpfyPWCsMYIMR//yG0nlg+NF1wvQSWi2+2Luw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113945;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Sv8olJzUFogc1iQqa1YZUkBH+/6GFReCOOw7AF+hLEw=;
+	b=Iap7GutqdY69tRAvu2gx6rLvdyZqJTEqL4YkmExleHUnxi0iEjIT4yNyWIgOk3AGOijh
+	 yfCW+cZl2S2AE9cFKIQqntHYC7T16vJi/7RVXKzvn8BloHDFDbQf7lt4HywU/2pK/tn4I
+	 U5X5V+ynXq/enxW5BD6vVfxD7+5uyTIv6WmlPbu1l5XyDima5anpz2ObHMK9zZHRSp4EK
+	 Yy3VmMbnhb5CGkNxjXvYUq2uEEznYtfiGoqqtrhiwfEk3YFXXPW6Mfx1MiU2TcCSRzD1u
+	 8BU8Hb2lwaPRViY8DOZgenI/cjk6pEZMieN8VtJh9L6pCbcsMlXA6nK1XRHjkguxG2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=APIUpFI6;
-	arc=none smtp.remote-ip=95.215.58.82
-Received: from mta1.migadu.com (out-82.mta1.migadu.com [95.215.58.82])
+	dmarc=none header.from=stellman-greene.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mjsISXao;
+	arc=none smtp.remote-ip=209.85.222.173
+Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B807F606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:44:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B807F606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46B79606A331
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:45:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46B79606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=APIUpFI6
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/kMkRCy9H1vl6y0EZSX58RectQkIJBsV5pNvyHexP54=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795113879; v=1; x=1795718679;
- b=APIUpFI6O+EsWur3vIqBq6FHT4j6Lftc/879eFNEb9HY31mw15a5es92FyE2I29zBBOzF229
- 8I/dgnFyfFcIDrpEmXe0OaxQWGYeFy8MBX5yDgXIVRbc7Z7idJIbsv2RDSwelgllEod8gk48hvk
- vphidaFCoeu/tA7zO61X5YjA=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2db01476e0a08c7e;
-	Thu, 19 Nov 2026 18:44:39 +0000
-X-Mizu-Trace-ID: 2db01476e0a08c7e
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <890ef941-0c52-4e3c-9fce-70b11fd1b198@linux.dev>
-Date: Thu, 19 Nov 2026 18:44:38 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mjsISXao
+Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-9496400270fso8162685a.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 10:45:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795113944; x=1795718744; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Sv8olJzUFogc1iQqa1YZUkBH+/6GFReCOOw7AF+hLEw=;
+        b=mjsISXao+1fqWbCM2EmEZT24xMN2dtJQyiVGCHZmYNtxPU0aZtbvytwe1VkM2FZgyf
+         lb1LvEv4c71QJ+hbmUSevk6L0FEeSoEIEa1e52CInSYxyGpmh2/HDUytIQZQcCzfLBqM
+         hm1mA+68xJjp3rxm61rSIEi6kFHxy75oZ5bihX61FTD4+XVxD6o6X6mtbHkr1to00E8r
+         1Qhj2/lXJukRLsyXIUeNVqpQO2a8xgz9+55XX+NHgIGkNcMJJEgt+4d5EgHPwcdiHJwc
+         Jb4CV+rl5kA8HaaU4gy4ga/WAYZS2BQ7O3DtMedvlPbW+dj7eXH0bU3cf6Mqm2PF12Cw
+         rXzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795113944; x=1795718744;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Sv8olJzUFogc1iQqa1YZUkBH+/6GFReCOOw7AF+hLEw=;
+        b=Y58fVT+4lHmInUPew3r+p3BWEK50OzOiyFUBz+R91Sh8tU5adJU8gKousbJkEiXo3i
+         RpD2WND1hNM+Ok+JsuOAbApprlDX7b2CugKnE7Ih+9kVM2xK7g7DmYz1GKPAcQ+CWN9l
+         t3SUfr1FvfFsaNflqfJqaew4GCGXkM3q6U7A45StaTjcUTA5m4G8RJ2WFOWezIGvWkiw
+         EQ7v0+PQuoRmqARQpxHPTtUyduvV5idFOaUy/jEOZV2geeR7LJtQRiR5s9N9fCxj7Q5f
+         LfKbydPptRtVAs685DUj5ZfNUhp9m6UTMqqlleMJxqpLntY0xOR+2LYVxoORcYrYj6kN
+         DPhQ==
+X-Forwarded-Encrypted: i=1; AL+hErG9yEScw7V/b72izOpgj3iw2b4jNTn4m9HEKYV8nHiwcw+Z+6K5xsg4tRb5ULRGgQhBStrysXk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SMGYeuAnWgWVSjRGPOe1roJIkGAvfKLAtkUDnI9r2lSx6Jc0x
+	dBM7RAANRSO96+jWQT5WmMsYSaFM+8IBxlBJKS6hmDNezHsVvRdOiZgG
+X-Gm-Gg: AYBFou1+s5tU3j5FCNYsUlMNNun4imCKqfp9jNh59gzyXbsz3yvozarS2TyEF3wnRwV
+	9gKmhwZGIqLBrGDHj1QofGG4F5V/WRdYArlpjBvlBKEiY/WntXRiPxj5xyUlEE4FnViVjfsJy/8
+	3CvWnjmWyWOcdaJyFrRm8+LoXpqfb9l+MLGJgWOjJGz/3nix4QO6KWiDiEktcUxtxlo1oc8tkhZ
+	JFiRjj0nQz/zFSXv33qzseC9+YCnHUgrNREvckVIFfwTqrJiA40AJHnhK7GHiN2odX3CM9XleTY
+	Atno48bi/5Zdb+5mEjfh5VgvN1Eb0D/gWIRWQuG8nHgQOpfWWA6hG9IJllkz+LL8EfmMMtdAq5l
+	wXa6pt3cOT5PCfWpIR8DN+cIP5ds7WtJPTuj8LaAyzFcLVycKPDhZeoCZBLaQoAisVahIqtkz6o
+	cOjcVDhYBU26TMShWWNEEt7i/US98X+y4l4Q5SvzuyahaWeFgUQPvGptn0rCXF0HrFuMWXhERgF
+	KhbRFoFqk13eFGRrU7uxyEKr2nhuItNRjwE9WkFFZR3QoNyLt27qVLWV3FYkYlxFhwWI1xvHpz0
+	7Z4A2yAtIfGGOoo4tjo4zvYw1Rc+MSvfWnWQw4y+BeltNm4Oq1uN4XXjvWPpKsYuzWE1ZP/vWkS
+	6paVo2ahM5SBmVJKCtqEwV72Ds95MaVz+ZjAixL0QA5N3QNqBYmrkYkAi+Ys3vk48FOLcxBrdzV
+	ALPNHU01Nbom6NpduX6EmJzmWYwnM=
+X-Received: by 2002:a05:620a:271a:b0:949:7473:b1a5 with SMTP id af79cd13be357-949bab1d726mr76159685a.55.1795113944016;
+        Thu, 19 Nov 2026 10:45:44 -0800 (PST)
+Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c935:f347:a919:9f78])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3c2abesm21186085a.26.2026.11.19.10.45.43
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 10:45:43 -0800 (PST)
+Sender: Andrew Stellman <stellman@gmail.com>
+From: Andrew Stellman <astellman@stellman-greene.com>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-afs@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] rxrpc: Fix RxGK server to reject an expired ticket
+Date: Thu, 19 Nov 2026 13:45:41 -0500
+Message-ID: <20261119184541.26343-1-astellman@stellman-greene.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,69 +105,87 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 3/3] ptp: ocp: support the WiWi revision 02
- Time Card
-To: Ahmad Byagowi <ahmadexp@gmail.com>, netdev@vger.kernel.org,
- andi.shyti@kernel.org
-Cc: andrew+netdev@lunn.ch, corbet@lwn.net, davem@davemloft.net,
- edumazet@kernel.org, horms@kernel.org, jiri@resnulli.us, kuba@kernel.org,
- linux-doc@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, pabeni@redhat.com, rdunlap@infradead.org,
- richardcochran@gmail.com, skhan@linuxfoundation.org
-References: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com>
- <20261116-wiwi-v3-87afa10a8-3-ahmadexp@gmail.com>
-Content-Language: en-US
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20261116-wiwi-v3-87afa10a8-3-ahmadexp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 16/11/2026 18:20, Ahmad Byagowi wrote:
-> Match WiWi 2163:1008, subsystem 10ee:0007, without a class filter.
-> Resolve WiWi devices against the static PCI table so a dynamic ID
-> cannot substitute an unrelated resource layout. NetTimeLogic uses the PCI
-> Revision ID for incompatible interface changes. Revision 02 identifies
-> the LitePCIe/MSI-X interface; the Xilinx subsystem ID and FPGA build
-> number do not identify the register interface. Reject unknown revisions
-> and check BAR0 and the MSI-X layout before accessing FPGA registers.
-> Do not probe a CoreList or require exact versions of individual cores.
-> 
-> Report the full 32-bit image ID as the running firmware build. Derive
-> signal and frequency capabilities from the supported revision, not the
-> legacy FB build-number thresholds. This ID does not identify the boot
-> slot. Retain legacy version reporting on other cards.
-> 
-> WiWi shares the peripheral resource table used by the existing Celestica
-> entry (18d4:1008), not its PCI addressing and interrupt scheme.
-> For WiWi only, translate peripheral offsets by 0x02000000 and interrupt
-> inputs by 32.
+rxgk_yfs_decode_ticket() decodes the ticket in a RESPONSE and builds a
+key from it, with the key's expiry set from the ticket's expiration
+time. Nothing checks that expiry before the connection is set up, so a
+client holding a token whose ticket has expired can still open a
+connection and have its calls delivered to the service. Section 6.3 of
+draft-wilkinson-afs3-rxgk-afs-08 says servers must reject connections
+secured with an expired token, and rxkad already rejects an expired
+ticket in rxkad_decrypt_ticket().
 
-Let's not do this magic. If addressing and interrupt schema differ then
-it means another resource table. If there is a way to make it flexible,
-let's do it compile-time only.
+Check the key with key_validate() after it is instantiated, and abort
+the connection with RXGK_EXPIRED if the ticket has expired. A ticket
+that expires while a connection is open is not handled here. As with
+rxkad, the server keeps accepting calls on that connection but can't
+send replies.
 
-Use aligned 32-bit UART I/O and typed XIIC platform
-> data, sharing the EEPROM list but not casting another controller's data.
-> Do not expose an unvalidated second GNSS UART or PPS output source.
+Reproduced on v7.4-rc3 under QEMU with the in-kernel rxperf server and a
+small userspace client. The client's token has an end time in the
+future, because the client won't use an expired token, but the ticket
+inside it (encrypted with rxperf's test server key) expired 30 days ago.
+Without the patch the connection is set up and rxperf reads the whole
+request. Only its reply fails, with -EKEYEXPIRED. With the patch the
+connection is aborted with RXGK_EXPIRED and no request data reaches
+rxperf. A token with an unexpired ticket works either way. No other
+kernel changes, debug code or error injection were used. There is no
+rxrpc selftest.
 
-Why it's not a problem for ADVA and ART boards?
+The issue was found by Claude Opus 5.5 running Quality Playbook, an
+LLM-driven code review tool:
+https://github.com/andrewstellman/quality-playbook
+The fix and this changelog were drafted with the same tool and reviewed
+by me.
 
-> Keep the external SMA PPS2 input. The PCI revision identifies the host
-> interface, not optional board wiring. Use hardware selector values for
-> WiWi DPLL routing; preserve the existing behavior on other boards.
-> 
-> Enable the three UART and XIIC inputs during probe. Reject attempts to
-> arm a timestamper or generator with -EAGAIN until the timing gate write
-> has been flushed. This avoids relying on FPGA replay of a pulse caused
-> by a userspace request made while the gate was closed.
+Fixes: 9d1d2b59341f ("rxrpc: rxgk: Implement the yfs-rxgk security class (GSSAPI)")
+Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+---
+A reproducer is available on request.
 
-Why is it a problem for new revision but not for the older ones?
+David, this takes enum rxrpc_abort_reason to 128 entries. Your pending
+"rxrpc: Fix packet encryption error handling" adds one more, so with
+both it has 129. In a small test, clang treats a __mode(byte) enum as
+signed and warns that the 129th value wraps to -128. I can reuse an
+existing reason instead if you prefer.
 
-> 
-> Do not register the WiWi SPI flash controller or enable its interrupt.
-> This prevents the driver from exposing raw MTD access to the golden
-> image. Reject devlink flash as well. The update format and controller
-> support are not validated; read access via MTD is intentionally lost.
+ include/trace/events/rxrpc.h | 1 +
+ net/rxrpc/rxgk_app.c         | 7 +++++++
+ 2 files changed, 8 insertions(+)
 
-Is there a process to actually enable flash upgrades?
+diff --git a/include/trace/events/rxrpc.h b/include/trace/events/rxrpc.h
+index 56dc9b614071..684034c67c69 100644
+--- a/include/trace/events/rxrpc.h
++++ b/include/trace/events/rxrpc.h
+@@ -97,6 +97,7 @@
+ 	EM(rxgk_abort_resp_short_yfs_key,	"rxgk-resp-short-yfs-key") \
+ 	EM(rxgk_abort_resp_short_yfs_tkt,	"rxgk-resp-short-yfs-tkt") \
+ 	EM(rxgk_abort_resp_tok_dec,		"rxgk-resp-tok-dec")	\
++	EM(rxgk_abort_resp_tok_expired,		"rxgk-resp-tok-expired") \
+ 	EM(rxgk_abort_resp_tok_internal_error,	"rxgk-resp-tok-int-err") \
+ 	EM(rxgk_abort_resp_tok_keyerr,		"rxgk-resp-tok-keyerr")	\
+ 	EM(rxgk_abort_resp_tok_nokey,		"rxgk-resp-tok-nokey")	\
+diff --git a/net/rxrpc/rxgk_app.c b/net/rxrpc/rxgk_app.c
+index 200a30064fae..34a3bdea531d 100644
+--- a/net/rxrpc/rxgk_app.c
++++ b/net/rxrpc/rxgk_app.c
+@@ -147,6 +147,13 @@ int rxgk_yfs_decode_ticket(struct rxrpc_connection *conn, struct sk_buff *skb,
+ 	if (ret < 0)
+ 		goto error_key;
+ 
++	ret = key_validate(key);
++	if (ret < 0) {
++		ret = rxrpc_abort_conn(conn, skb, RXGK_EXPIRED, ret,
++				       rxgk_abort_resp_tok_expired);
++		goto error_key;
++	}
++
+ 	token = key->payload.data[0];
+ 	token->no_leak_key = true;
+ 	*_key = key;
+
+base-commit: 1e575bda30acc0bf01f799cee798d4a1c100d538
+-- 
+2.43.0
+
