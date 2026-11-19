@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795085417;
-	b=JetRzYaBrpETi3vYgpMN1MWr5po6oFB4xhvJSU4rnvZiqvKOuH6GUVrSxpMHZbDRg6Wl
-	 Q9mLInzFNJCzSPgFkDzDDjSWS6j0kIrr2w5ZXF8M3TkWfJtoS8ypA1K03j3AlT81xqvOw
-	 NLPoZDnRaNp4dSmy4Gr4UGvqF6Vkk3ndZH7B56nF0S8jCIZnvGyMVgVN1Q/UpqSWX7azc
-	 aO0VzcnTchr6gNWeTDk7P9XgHF5nH6i7D1Ghi9TUuRX94OmhbgI7WN72ag5qSF2hE7ljS
-	 D2EGcIx6sCL0XWFh12Utqxe1AJ2CKEGX1/QXfNzAe+EBzmvjIMT8qTbt+QxYtYTTv4w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085417;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=/R2gBmUJNOHulxN5FyC8S+OCRx4mvbTbvxpNTATZDD8=;
-	b=M1gWkUyrAAm9NkGI21cwhmFh6HfRB0MSxd0p1aCBNIOcTlLBkdVWVmXGEGUAH6c5yHcw
-	 7sAC5Sio7axmJa30jQhZC/yUBndoq7mWLZ2DYdj5JilvfQha648hTfiS8SZmQ8yU3fJZW
-	 Rr8DyUZDVrT/CL1BAkzovmCHvgFpdOaKPCgxCKkV88si6XqUQcrRQcD3fsoPC7mylzFaP
-	 J8aVaNxlPIhC0wWhKzAcYA/Ve5ZgkMMGK9WYxEKrlhwhywgRAh5VvvwblsWDpLtgMuJRI
-	 fZ/Ine5aL4GmO3b4YQXWhiD6sN85SfWzDvuHIJ8pFZwNp6h/v9w2j6GuD0RgfSJpKaA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oXkGkiWN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795085528;
+	b=JXvElR5UdT+TLkHqXUk+DkgQ9bue+8ZOTJxbFo3saGvHda8iFqkTQRsKgOM0Sd0wMl6y
+	 Vk+R1AcQBYYI8A7cNSkNtyPmWZOb2euOYR10o+7XCpyO7YxvGOh95/VfHHzABeT3RpRYs
+	 kowB0kYoeZMqVtrCv2GH00NTEscneRkhN24su+87VX4otmm0Uwi5CYjCo7gJMnfu6JQV4
+	 FAgnc/FEoe+QBV1G5b9helVtd3JmsRa2waIb6KkCcOxo1Bdnzym5xlbKegMXF1N/wVuXW
+	 wNZXju5QHfxYV8ZO/FsPfr3GZWy3zVMhA9by1egjMUAO2jdABHB79Hlmglk7n5PhuSg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085528;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=6Pu/O7XRC6jiugVBn+DoiAJQBIT+O5R5wQW6IGBlJEg=;
+	b=I0B18DIydPpeMVo/kbfZ61yIfxzJWhinPtldS0uUYQ1zeiUTIqLIcduynvfMqs09MWso
+	 Mc1u+7JJVJ6CjtnfD+Ricb4YSnqjafkQUirfzm7apr2kq58f+QQO/xt06B/T5bllbYssV
+	 jfH1ZAdbNwB25yc9aUoM57tCAuoTftFlQ8iNvG8MN2sYZvya+0F1/qAAXfm86zOMg0GzH
+	 rL3UvK13H9efEb4Z55J7dK29UOmEGY1A0ufl/o9bEV+pFgqoHM1EoqRMF0WFATqBgoKRb
+	 3G9u476c8CFwlAouBbNlLA9QTNNiDN3D/PkjrW+imvZ2fHfAa8d5MC1Q8CbynPUBv4Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhngCj56;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BE57606A320;
-	Thu, 19 Nov 2026 10:50:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 469C6606A320;
+	Thu, 19 Nov 2026 10:52:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oXkGkiWN
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795085416;
-	b=Xg5Cf4wl+B+BXpoGiony+rE8aTag3oLCvLOi/fT2Ndbz82DBKAC8/6sIJmq+Q4ZxDt1z
-	 22/6op75jI6vjAzsfU7AS8NFUtS5U910MxMpKV46NrheLEHKCrGHGMpYwKv0CnTeftYdF
-	 2fLJKfZFku7k1Si7H33/SrrEsffLWPPdM3ThM7UHgE+9JGOxd2lynAgNw307DXFC1h7n7
-	 IVoKKv0armyuzpCm3aFzb+RJ0OBjDBU/c79aZMiWY8DkqJO43x/UcLspdiKhFUwu9GGz6
-	 JiS+DCT0G1/sgaElAMD50z4M7fvx45GS1E4SiRUukiqHyaHB4cEf9MRMUX9B+iN5yHg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795085416;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=/R2gBmUJNOHulxN5FyC8S+OCRx4mvbTbvxpNTATZDD8=;
-	b=Dz4M5mcvD/O+oX0/RR8VXKlb6hEsj6V/ess5whtRpg1YpC5sFD1qO2wGqPRyhSxfjSRu
-	 Udg7wexK4Vv+iAuzQAxDUCDPr9/yGUYvxEizWM5t1TZ5SFCZUaTDicUDVhBR/TX1Jasbl
-	 BHJypVLLyQPE/RAVjYp41SzJVEMgqCZ7WkyX1KOLqXaSIg/2eE3dUatQ9KrPhdhs3A4Oz
-	 uPoyyoGtiboCrRiD1PUGEQDau04B0UZg4g7e+9QT1vdzD8xRn9S6CfiPcRdzpCFTOQ+5W
-	 pehIuTpfWAZ0BYO/2eXJA3cFbfvXqjyEXHYc72EMmNCX1BmF3QsVgFuiemSjHUgo2mw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 68BD31F000CA;
-	Thu, 19 Nov 2026 10:50:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhngCj56
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249251F000C5;
+	Thu, 19 Nov 2026 10:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795085416;
-	bh=/R2gBmUJNOHulxN5FyC8S+OCRx4mvbTbvxpNTATZDD8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=oXkGkiWN9fww46X6ujRGrxl4BbnMghUxh4j54SrCuWRg0eXnr7TeRnf98gJvGTmDg
-	 1j4JRHYBBneCGD5Jt6jXPdGcFFafUXdEZ58gCPEGBBfcR5DsDuODRLwNT3CQ5+r+k2
-	 CYfLn4xp5r+spzmqtC3YKfrIiVDRjY3EOdihf0LvFPOBUoe7HkDekdQmC9eJEZ9z71
-	 nmEbOdnNo0VOfxuaeTctR3XAvqhYu+d2JUwCqxUoTNV8sAclBI8MyK++kSeaT3Ksuk
-	 H8R94R7Yi/BXEOjNQICB7ojeD2uK8cbG/oiBODKQyNwLBwp2v/WEyfKTdzV0SYGmSo
-	 SRvcfa6jA8Ryg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id BCDF74B24E;
-	Thu, 19 Nov 2026 10:50:15 +0000 (UTC)
-From: Blake Alexander via B4 Relay <devnull+blake.alexander.airbus.com@kernel.org>
-Date: Thu, 19 Nov 2026 11:50:00 +0100
-Subject: [PATCH net] net: dsa: mv88e6xxx: do not override PHYIDs on
- external MDIO
+	s=k20260515; t=1795085528;
+	bh=6Pu/O7XRC6jiugVBn+DoiAJQBIT+O5R5wQW6IGBlJEg=;
+	h=From:Date:Subject:To:Cc;
+	b=EhngCj56F7eMn1Fp2gQ7B/kSYNJbM74fHG82r4ZeFqEGLDetWKqdkrOlJpaNrQYWn
+	 /jgH/PH6UIkq3X1gvy3hCyFll9HZpODdYupdw/lj8FSv+TxLiETagsmOHo8IaX7j3A
+	 J2lt+xaENVd/wInP5Dw9HRBzrLp/dmz85VK5yQkpbiyY5B4v82Au1+cxJ523i2aWVQ
+	 u9D2t+7uuQRY+FntBcOtGaop1oFyK+q+h+8arhe+rpI7MQ9rJtyISjGPGBTSweOQ5F
+	 VYAdLyAnnoqUPNG6j5mCS+CfS/vnk0EZHKVpOd9RTaNExxBGKXq5j9FYSViCVGrCL1
+	 +LQVGPIdNeTgA==
+From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
+Date: Thu, 19 Nov 2026 11:52:01 +0100
+Subject: [PATCH net-next] selftests: drv-net: netpoll_basic: xfail if no
+ hits
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,90 +54,68 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-mv88e6xxx-fix-v1-1-2db604f3516f@airbus.com>
-X-B4-Tracking: v=1; b=H4sIAFfU/moC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0MD3dwyC4tUs4qKCt20TCA2skw1NzI0sbA0T1UC6ikoSgUKg82LjoX
- wi0uTslKTS0CGKNXWAgC4JhAocQAAAA==
-X-Change-ID: 20261110-mv88e6xxx-fix-f29e7214897e
-To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-net-next-netpoll-basic-xfail-v1-1-206bf59911ea@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWM2wrCMBBEf6XsswumeKH+iviw2Wx1JaQlGyVQ+
+ u+mig8zcBjmLGCSVQwu3QJZ3mo6pQZu1wE/KN0FNTSGft+fnHMDJiktdasyTzGiJ1PGOpJGPAc
+ 6cBCmox+gKeYso9av/gr/J9x+i738U7hsdljXDxQWVNCKAAAA
+X-Change-ID: 20261119-net-next-netpoll-basic-xfail-7da4cdeca5b9
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Florian Fainelli <f.fainelli@gmail.com>, 
- Vivien Didelot <vivien.didelot@gmail.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Blake Alexander <blake.alexander@airbus.com>
+ Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>, 
+ Willem de Bruijn <willemb@google.com>
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795085413; l=2771;
- i=blake.alexander@airbus.com; s=20261109; h=from:subject:message-id;
- bh=DEvRstpM6J0VNGLN6y0A8zWK7GLAM0NdyvBdHfH9s/U=;
- b=OfmZz6PPSSGr42KEyWN02aE+/S0tChV3uv/5keBZmbwX94dTMLQ3JST8THEblY1iUhcjGJTor
- PcoeOc1NVP9CU9KhwH9V2k2jdVF2C4+8B3cJI0a1dYM6k4gwFWPfUAX
-X-Developer-Key: i=blake.alexander@airbus.com; a=ed25519;
- pk=cfpa2FQbYHF1zxIJuHbr8W+NR9T4DK/baAknnTv2I68=
-X-Endpoint-Received: by B4 Relay for blake.alexander@airbus.com/20261109
- with auth_id=1461
-X-Original-From: Blake Alexander <blake.alexander@airbus.com>
-Reply-To: blake.alexander@airbus.com
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1767; i=matttbe@kernel.org;
+ h=from:subject:message-id; bh=JdYYxJK2zvNG6LV7QU4dsstQ6xvf+jboNS2+aJGdgio=;
+ b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLL+Xbl6exOfcNIN5dv3J88IEJ94o6/y6+K1jMtYk/NUd
+ wmf+jBvUUcpC4MYF4OsmCKLdFtk/sznVbwlXn4WMHNYmUCGMHBxCsBEiioYGabe/K3FtPrf+fvr
+ VNmuVMuejbTdNandbNq3PbXXgtZfnN/N8D/Sueowz/J7d1Zr3t36/GZV9Y7my9s/SJxwsil9eX/
+ Z38VsAA==
+X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
+ fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
 
-From: Blake Alexander <blake.alexander@airbus.com>
+When netpoll_poll_dev() is not called during the test, bpftrace doesn't
+print the '@hits' map, because it is empty. The test then fails instead
+of reporting the expected XFAIL:
 
-Some variants of the Marvell 88E6xxx family (such as MV88E6390) support
-an external MDIO bus (in addition to the internal MDIO bus for
-configuring internal PHYs). A typical use-case for the external bus is
-to configure PHYs that are external to the switch. On switches that do
-not assign a PHYID for internal PHYs (i.e. the value is 0), the
-mv88e6xxx_mdio_read() function traps read calls to the PHYID registers
-and sets the PHYID equal to the family ID of the switch.
+  net.lib.py.ksft.KsftFailEx: bpftrace failed to run!?: {}
 
-The mv88e6xxx_mdio_read() function is reused for both internal and mdio
-bus operations. The PHYID overwrite trap does not check whether the MDIO
-bus is internal or external and wrongly modifies the PHYID of devices on
-the external bus when their PHYID2 register reports a value of 0. When a
-C22 device reports a PHYID of 0, get_phy_device() will reprobe the
-device as C45 and if successful create a C45 device. Overriding the
-PHYID in this case will prevent a C45 device (such as Aquantia AQR115)
-from being reprobed and their driver will fail to bind.
+This has been observed regularly in the netdev CI with netdevsim, since
+a recent switch to Fedora 45: hitting this function depends on timings.
 
-This was observed on a development board during the bring-up phase. The
-board included an MV88E6393X with external AQR115 PHYs. The MDIO bus of
-the PHYs was connected to the external MDIO bus of the Marvell switch.
-Prior to applying this patch, the aquantia driver failed to detect the
-AQR115 and instead detected a generic C22 device (as a PHYID of
-0x00000393 does not match a known PHY). After applying this fix, the
-external AQR115s were detected correctly and their respective driver
-bound to them successfully.
-
-Do not modify the returned PHYID in mv88e6xxx_mdio_read() when reading
-from a device on the external MDIO bus.
-
-Fixes: da9f33018e2c ("net: dsa: mv88e6xxx: Workaround missing PHY ID on mv88e6390")
-Cc: stable@vger.kernel.org
-Signed-off-by: Blake Alexander <blake.alexander@airbus.com>
+Fixes: b3019343e4bd ("selftests: net: add netpoll basic functionality test")
+Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 ---
- drivers/net/dsa/mv88e6xxx/chip.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I added the Fixes tag to help people validating this on stable kernel,
+but feel free to remove it if you prefer not to.
+Note that the test is currently ignored on NIPA.
+---
+ tools/testing/selftests/drivers/net/netpoll_basic.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/dsa/mv88e6xxx/chip.c b/drivers/net/dsa/mv88e6xxx/chip.c
-index 46aef6dfe77e..bf077e476fd1 100644
---- a/drivers/net/dsa/mv88e6xxx/chip.c
-+++ b/drivers/net/dsa/mv88e6xxx/chip.c
-@@ -3779,7 +3779,7 @@ static int mv88e6xxx_mdio_read(struct mii_bus *bus, int phy, int reg)
- 	mv88e6xxx_reg_unlock(chip);
+diff --git a/tools/testing/selftests/drivers/net/netpoll_basic.py b/tools/testing/selftests/drivers/net/netpoll_basic.py
+index 408bd54d6779..a4dc68c828cf 100755
+--- a/tools/testing/selftests/drivers/net/netpoll_basic.py
++++ b/tools/testing/selftests/drivers/net/netpoll_basic.py
+@@ -236,7 +236,8 @@ def bpftrace_call() -> None:
+     global MAPS  # pylint: disable=W0603
  
- 	/* Some internal PHYs don't have a model number. */
--	if (reg == MII_PHYSID2 && !(val & 0x3f0) &&
-+	if (!mdio_bus->external && reg == MII_PHYSID2 && !(val & 0x3f0) &&
- 	    chip->info->family < ARRAY_SIZE(family_prod_id_table)) {
- 		prod_id = family_prod_id_table[chip->info->family];
- 		if (prod_id)
+     # This will be passed to bpftrace as in bpftrace -e "expr"
+-    expr = "kprobe:netpoll_poll_dev { @hits = count(); }"
++    # Init @hits: bpftrace doesn't print empty maps
++    expr = "BEGIN { @hits = 0; } kprobe:netpoll_poll_dev { @hits++; }"
+ 
+     MAPS = bpftrace(expr, timeout=BPFTRACE_TIMEOUT, json=True)
+     logging.debug("BPFtrace output: %s", MAPS)
 
 ---
-base-commit: af6f95c3300e3d234c813b80f831dd7b80b3eaf2
-change-id: 20261110-mv88e6xxx-fix-f29e7214897e
+base-commit: ac9dfaeb9cd9ab731c14d202a2f00098f0417766
+change-id: 20261119-net-next-netpoll-basic-xfail-7da4cdeca5b9
 
 Best regards,
 --  
-Blake Alexander <blake.alexander@airbus.com>
-
+Matthieu Baerts (NGI0) <matttbe@kernel.org>
 
