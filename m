@@ -1,73 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073935;
-	b=CeE9EMEWzaoY8Rkq4jvxIHSYQ3nq/e46UyX2imAwqBiC60AP7fgvuiEH3Y9aRwtEnap7
-	 j6SoFWdKRkgKrV4fOX1arOooUMfG6AtGfRimpIRnYIzu/HAYakBH5fKQuH3f5xb/PiAge
-	 /oeqDwqg+CAII1h3WeLKFvPP73MRgNj6yHg+sTX+3s5uYmbdWxwfH/h3ZGLUM2I5NFkC6
-	 lUfw5KATEJPSuVRCCsl5vNVSByY23Wv05paNdqu8jTiMGWR9WWAEk3JR880puU0wsW/61
-	 HjObmUPiftQ5cipZ8bUiUDdnlTVkakSHsvI//WR6lMw8C1IsvSSIh8Qu6iIc1Z/98pg==
+	t=1795073965;
+	b=f4stxnpxmZJBMs6NjDtj/lIxyXw0qzuDXxNRtb1ab2BkLe7/Z7yHA9j1QIa0yDnnNGml
+	 3rzKXvSLcchpnzHIxWDjSJ+/mppUAW6B2HMze5cO+DuzZOzkzitscT31m0/RaHk04Zv/l
+	 4E2AlydEPHH02XoRLRw7YuHddrnqH84CxhLZGEHRu29XZHIUGRButGEe3SEOyzZq1aRrn
+	 hjkY9D3de2X7zaSV6tVue3bCZIU1IQkienMFl0Sy15pIDCMyo0eAgsWPfeM//or4jztf4
+	 s3qsksMLEi9Cz5yC3H/DfRAar0R0kH30ppaqF8j7sIJmP2mFCtJgrJkKcGzlvaPAc6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073935;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=FwcHmJgjwO7Wx8jngr2JVYKZYHOEfqrD8BdaI3p/Vp8=;
-	b=BQZyWvqy/i/QvO5p08EMGiakh6kFXQGQ0YyzsYyXtgafrZ28qKFr21jt5NezeQoBXjT+
-	 mL9QJguoDA3QPWPk28hWZM9irPzgc2Hx05k4e2h3hw5ObHRTKkR/cW7zM+23HzcdbCmwt
-	 tQqnl0GPKHGLTUQjTYh7ul1Xuvu8WRi02BjTQpY+yCXp2CKBAT2cdD+pAPnZaYTGKICjt
-	 ip42QBOu82XUyPwVuB18n73FfaW3TJBn0KH04YIhg56v0McaA6q41lYMtWU8cBkzcundF
-	 Dfq6YcUCXTJMApN/EYlDrE0Ql5kVtL67fN43yLwFsjji2wfIy/IpVVHcrkQhraAhxzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073965;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=YMaKFwaJhUFrr0faIOVHt7QsIIOoVYw4Jbw8z2YfCNs=;
+	b=jJygLjT8x9HJo45irYLmsT2oSJsQLampiM3nkz7fgZDRcVSBTP2K/Mum3v6bEK8MR5s5
+	 NKEk9bbFOIW/GVD2Y+Xp352A98JriOCbkaHjcJfTaM3aGJdTbSPiOddNSAdg978He6DkX
+	 Yvedmy9wqlg43EhOw/ByjpttefIrirVqMNVz3a59kaWofoA1ZLkj7gdRhGJj7j+TsU15o
+	 muAZGZYiPdjmKu0GKTp5wuMxUwi5D94r5/0MNX1FVBIF9l8la+Md6nyMXoO0XVbV0eIob
+	 5JwvUTUd+fq7gZGkEoSpWJFC09el8E6YjfjlvR/enLU2MGq3g3PqSQPYyY8ZApjmWZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hVQ20Kqv;
-	arc=none smtp.remote-ip=209.85.210.200
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IxrkVGJG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 648C3606A324
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:38:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 648C3606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59959606A320
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:39:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hVQ20Kqv
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a065e2933fso2350595b3a.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:38:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795073935; x=1795678735; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FwcHmJgjwO7Wx8jngr2JVYKZYHOEfqrD8BdaI3p/Vp8=;
-        b=hVQ20Kqv6v+JLij33D+FsamJTZdgY3XvFx+3H0lAV6O1JV+GbTZzZew5KD3Aspaar1
-         4csbMngNkYtdC5NN3YrMCUA9MTjMdV1cOLf151Ajndx1zZD9qLGvRYWMsMUmoL2lEKdy
-         zIjDMzDuz3YZZVsQwYIwSazGZD61u7iuyg8Z652Ly4L9at9uD8KQ/h4z+/blg7Pg0JT2
-         UHLECkIKM1KXoMrKc+0xVMeq9x2B/2XDeiRjDED0RF+21QJ91RAIN61WeuGFbjUHQY8D
-         +/xAN4i5Yu/jjtrRkZ/BYTPoI02J2vY83yB4VccsSOETuf8rDwqoGtjrbxDVRUGKMvpz
-         GOBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795073935; x=1795678735;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FwcHmJgjwO7Wx8jngr2JVYKZYHOEfqrD8BdaI3p/Vp8=;
-        b=hTx1zSX/bPW5D3BP2E5hne0XmAFOYftp/r/fK0z5Orh0Q98pBbkMUJ8trcSUgeG4Bw
-         zUjJ9A36+erjNC+wXxiAvWRV3vPowCIFAMKFGOmYWU94NEKuWIvBnw7fPlZQD2aINA0Y
-         v/i5fGpiA73WHpyiUR3XQ8ZqqeJySi9kahIoTED71fgJVCzePBxFhjp+Y2AoZb2+24yW
-         KPGNng/zo/KVFnbYD6fsAfXnLB8Ghz8pmcQEHmq+0Nh79Hl/0a4yeozD7F4AotOgVXAh
-         yIjvmxIaP0iXis7LQ/KYh+LX4b4XU6ZZBPM8ij7ISfL9NmerPRukIqe3Z7hfJ1Dji2+B
-         92tw==
-X-Gm-Message-State: APuU4Z88GgJbdWJoZ/+TgxxdvqBsmg0ewYhy06NcyM0uffjYJiN0uVWH
-	/oTkyHwIMfTW4G+hM0AO1HqCX4E3GsHoXCFFhOhpCQiv3ujOqTGmEgzafGfKRTvaGLxQY+rqCUr
-	4tWHHJQ==
-X-Received: from pglc33.prod.google.com ([2002:a63:d21:0:b0:cc7:ec41:d571])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:4321:b0:3eb:aeb4:2c2c
- with SMTP id adf61e73a8af0-3fe86fcee52mr6114463637.4.1795073934482; Wed, 18
- Nov 2026 23:38:54 -0800 (PST)
-Date: Thu, 19 Nov 2026 07:38:54 +0000
-In-Reply-To: <20261116200854.3799498-1-antonio@mandelbit.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IxrkVGJG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D02D81F000C4
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 07:39:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795073964;
+	bh=YMaKFwaJhUFrr0faIOVHt7QsIIOoVYw4Jbw8z2YfCNs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=IxrkVGJG595wwtsxELW0RZKnS0NEq6E+MNbFyTJ7MyE32xFuNxYyLoRrEf4hM028k
+	 xOKGeFUSKkXyFuVRSzgB0apR2IdOGNY6MjJLYsZN7ClJk9zz6hnV4OMBYnTyXlPhkW
+	 JFnqg4lgxGVn9THVOfY0pixsSLyDBLseLdihqU7Tfpsl9LTFFcFLPZObasX/lBB3Jh
+	 fQUXNCOxKG1wvk8CUXCIw84LsGB4QCSu7j0+9m3u6LJi9PvvO3US73DoT2JMifrfwr
+	 cxBLngX5oJBNY3lCfZ/vrf+Ux2aTERo1iiP8sF4nZBaFO/2Kwn0Q5ggYNVjz1938+Z
+	 hnknJdolDDYrQ==
+Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-4a76f63b243so601881fac.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:39:24 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGywRMwzvz8xPwc2ysFschrqKyXpMzHnGRPE5qQz7Q0sivfDPZD+ppFlZVSp7gqBS0UZMVWXIw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/RWV88k9QAO4RRKgsXoOjIlKls3BILjsQLkCA4z5+Y+CpwO14N
+	1Lyr9iJoBVddws5nYOcfzbjNdDwgajs/pOmjGwVa7RL9ZP8T7Wiy8Ffchmb3HKWUomjW7a/KVJF
+	QN1SbvienmAyoxU1QZjEAkuG7/xNCgeM=
+X-Received: by 2002:a05:6870:b85:b0:4a7:2ba8:8e66 with SMTP id
+ 586e51a60fabf-4bb3bb73e47mr159329fac.37.1795073964027; Wed, 18 Nov 2026
+ 23:39:24 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,29 +58,117 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261116200854.3799498-1-antonio@mandelbit.com>
-Message-ID: <av6nhGkOn3XlAA1i@google.com>
-Subject: Re: [PATCH net-next] net: use inet_rcv_saddr_any() in udp_tunnel and ping
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Antonio Quartulli <antonio@mandelbit.com>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>, 
-	Ido Schimmel <idosch@nvidia.com>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Neal Cardwell <ncardwell@google.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+References: <20261119071649.374106-1-kuniyu@google.com> <20261119071649.374106-4-kuniyu@google.com>
+In-Reply-To: <20261119071649.374106-4-kuniyu@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 08:39:13 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirMitCnhd1jNY0ypkFRzVisoFsQeHpdQ_PPDSkkk3Z+UA@mail.gmail.com>
+X-Gm-Features: Aa3M54o6koo1i_5zG1eWmHFCplZJ88N6b7c2l3F2IAterkzT9kZPLwCE9Q8i9kM
+Message-ID: <CAL4WiirMitCnhd1jNY0ypkFRzVisoFsQeHpdQ_PPDSkkk3Z+UA@mail.gmail.com>
+Subject: Re: [PATCH v3 net-next 3/7] tcp: Stop collapsing if not bloated.
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Matthieu Baerts <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>, 
+	Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
+	mptcp@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, 16 Nov 2026 21:08:53 +0100, Antonio Quartulli wrote:
-> udp_tunnel_core.c carries its own copy of inet_rcv_saddr_any(),
-> sk_saddr_any(), as it can be built as a module while
-> inet_rcv_saddr_any() is not exported, and ping_bind() open-codes the
-> same check for its AF_INET and AF_INET6 sockets.
-> 
-> Make inet_rcv_saddr_any() a static inline in <net/addrconf.h>, where it
-> is already declared, and use it in both places.
-> 
-> Suggested-by: Kuniyuki Iwashima <kuniyu@google.com>
-> Link: https://lore.kernel.org/netdev/avVVzxL3pVZc6yQ5@google.com/
-> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+Le jeu. 19 nov. 2026 =C3=A0 08:17, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
+>
+> Even when a skb is not bloated, tcp_collapse() starts collapsing
+> if the next skb has overlapping data.
+>
+> Also, tcp_collapse() does not stop until it reaches the tail or
+> unmergable skb (SYN/FIN, unreadable frags).
+>
+> Assume we detect a low-density skb followed by fully-packed 4K-MSS
+> GRO skbs:
+>
+>              skb->len  truesize  scaling_ratio
+>   skb    #1      1448      2944      125 (49%)
+>   skb    #2     65536     66432      252 (98%)
+>   skb    #3     65536     66432      252 (98%)
+>   ...
+>   skb    #9     65536     66432      252 (98%)
+>   --------------------------------------------
+>   total                  534400
+>
+> Then, even the high-density skbs are repacked into lower-density
+> skbs, and we end up consuming much more memory.
+>
+>              skb->len  truesize  scaling_ratio
+>   nskb   #1      3776      4352      222 (86%)
+>   nskb   #2      3776      4352      222 (86%)
+>   ...
+>   nskb #139      3776      4352      222 (86%)
+>   nskb #140       872      2304       96 (37%)
+>   --------------------------------------------
+>   total                  607232 (+72832!)
+>
+> Even if we find a collapsible skb, we should not collapse
+> subsequent skbs with scaling_ratio >=3D TCP_COLLAPSE_SCALING_RATIO.
+>
+> Conversely, even if tp->scaling_ratio is smaller than
+> TCP_COLLAPSE_SCALING_RATIO, we should repack skbs once we
+> start collapsing, which results in higher-density skb.
+>
+> Let's remove the next skb condition in the first loop,
+> search for collapsible bloated skb range, and repeat
+> collapsing for each range.
+>
+> Note that even when the next skb is not bloated, we must
+> collapse it for OOO rbtree if it has overlapping data.
+>
+>         overlap =3D !list && before(TCP_SKB_CB(n)->seq, sub_end);
+>         ...
+>         if (!overlap &&
+>             !tcp_collapse_skb_bloated(n, sub_end,
+>                                       TCP_COLLAPSE_SCALING_RATIO))
+>                 break;
+>
+> For example, bloated skb_1 and non-bloated skb_2 have overlapping
+> data and only skb_1 is collapsed to nskb_1 and nskb_2.
+>
+>    skb_1 =3D [1000, 5000]
+>    skb_2 =3D [2000, 66000]
+>
+> Then, nskb_2 will be inserted after skb_2 in rbtree, wrongly
+> setting tp->ooo_last_skb to 5000.
+>
+>   nskb_1 =3D [1000, 4776]
+>    skb_2 =3D [2000, 66000]
+>   nskb_2 =3D [4776, 5000]
+>
+> This case is still inefficient, but a later patch handles this.
+>
+> On the other hand, if an overlapping skb on the OOO rbtree cannot
+> be collapsed, we skip the range instead of breaking out, as
+> splitting the range could insert the tail nskb after that skb and
+> break the same rbtree ordering.
+>
+> Another notable thing is that tcp_skb_can_collapse_rx() now checks
+> candidates against the first skb before mptcp_skb_ext_move(),
+> not against each nskb.
+>
+> When a skb with an MPTCP ext spans multiple nskbs, collapsing
+> previously stopped at the next skb with the same ext because later
+> nskbs lacked the ext.
+>
+>    skb1 (ext A),                  skb2 (ext A)
+>   nskb1 (ext A), nskb2 (no ext)             ^
+>                         ^- not collapsible -'
+>
+> Now such skbs are also collapsed with the redundant ext dropped,
+> while the first nskb still carries the same mapping in sequence
+> order.
+>
+>    skb1 (ext A),                  skb2 (ext A)
+>   nskb1 (ext A), nskb2 (no ext) <-' collapsed into nskb2
+>
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
 
-Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
