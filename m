@@ -1,73 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080083;
-	b=SofEj2+NagurrbhhT9Mu3docIdLurAhFa/BhVayd3Zq1tzli+1qwimrjCAMWqceYT8PQ
-	 bSPScuFyPI6o095OyG00c0OqZmvzrkQ2gs6onF4Ic8+aBTmXkryEH0TAmBTiIIA7XiWDP
-	 8n0qb1+Cq5lNl+CHDRaqPe15WfkzrQnVoy7Rrytb+QM4BUg3Nmgq4r2mXHst9HD1qaYHA
-	 b7X6+MKGqgXOMuZgW9V2jH2dj1JcI8xqUpoet0kANaAXZhsSF/Oh9IC++pjDiBNgvcPPS
-	 T0Ew0ItRs+f5NDwNl4jCqW/sJUufmLZ1XGgS0zGf1nfRb7bhXeFZrZRC9g6lPLtOLCA==
+	t=1795080174;
+	b=x/d6UIVzOh7KpnH9rZsbNGHYBPq6uqwhpmpghHot3SXYBKG9lBMp3CK4ZNZL30u/KJrj
+	 dRr06X3mRtHHDDkPw3DOGDSrVVuBdMV91PgSQFg1sHJtdY/ggtJx92dqaVhvzCFoLxFpY
+	 vGlu7Fh5z8tFP2k7sc2LS55W2nLRIvsz3B9Txn2ydJz80OI5zPxztCdE2stO7I0VnO8ba
+	 swi1GFLbvgb+Jl7O6VArrsHrwAOahSYewqaB8WKn31ZE1nVKq1fbpe0f9zYS1Gml6t9EI
+	 D7J3Ppjwop4wiatrtJRLO3O5iTUNIfHxOFTdt/7KPHzpS8nj1kundRFiAb9PSTA/J6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080083;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jwlrWkiL6/bc8bt3jFA1PNWrJYj2IlYZaoWgGCfb8oM=;
-	b=H8Rzao0gd5vBvDoilGL4iT6ID+sM1HwpfUpmUENlbd4dUuyfzWLHrsRMFbBWmJ/UVJkw
-	 +N0ZegPoixwu62+uIM54Knc6m97fRWd60s0V73rSWwW0r1RQJZzBRTM3x+r/VofsoOuaE
-	 ct/LRGxzF3h3P0RkgLP9RFXxin1oWTs6pPC4ksKGRbDQGW4k7ysYqSodGhBQLwYu7JNF9
-	 r80PV9YB0OqSA4bPTBPjlySU6aTJV37ejsYlrPvmmPw66VQlnaEY/YUfsTN2BpatGxzAD
-	 sJff0JUhby/o2WQ2dHKtQZ4b1aFRZu3DocwM3lnT/cgpNYPkAc/FNCVuD6NZzSacTaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080174;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=kzTbXStisJTpwvkLD7D1wA2Fot0EqQtg6G0ERSDfDCo=;
+	b=IleecB4l4CaL08TCfMX16BSj9MrzCn7yZbSSHIsnUld6OLpae3gVCbLgaxsMxsJTpn2/
+	 AmqoyJ8fNZZvEzFNCl1yh2EYNc2FdLqXTM7Q9+JE/dUYbjy/Pn0Wz84khpsvyWFXjbLsY
+	 Zst7iUxXuCxXpfjsCePVbzNc5oZUnfYzs7lYmzhA1zFOa5fcagOROX6cHi0RLUVHeP3UP
+	 +IIWizrt1droGfG4dB1JWyyQYRBr57tYpsCe6RR/0KYS41mDUDRnMpSWLDevy5q0UIKuG
+	 dZxjjjK1AfPP0oJG5tR2kle3FXu0XKLGNz9JwNhkM18eHV45Suf/JZdsb8a6DttNtyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aWlX8672;
-	arc=none smtp.remote-ip=91.218.175.16
-Received: from mta0.migadu.com (out-16.mta0.migadu.com [91.218.175.16])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXqaXkXQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0A12606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 09:21:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0A12606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1167606A320;
+	Thu, 19 Nov 2026 09:22:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aWlX8672
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=mPiSiO8g+w2DpPp3GGR8IZ3wJAak28Y/ctpnaig1pAM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795080081; v=1; x=1795684881;
- b=aWlX8672Mj+HReGYIkiRRIhO2O6zkeJuL6VhFnecacKIcpMy2KcYJl0JkXPRJ0jF0WUoCHWX
- UZp2CZnznB6IlqTgWp6la/ZxlGdmw4GmoBiVritBCyH+02wWoB+Yb4mtGqT+mjjfUm/Hc4tgNEi
- T6rNUYUNQGTJDUl+RDKOLWU8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 291b443669a991fd;
-	Thu, 19 Nov 2026 09:21:20 +0000
-X-Mizu-Trace-ID: 291b443669a991fd
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 17:20:58 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
-	David Lebrun <david.lebrun@uclouvain.be>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Mathieu Xhonneux <m.xhonneux@gmail.com>,
-	David Lebrun <dlebrun@google.com>,
-	Justin Iurman <justin.iurman@gmail.com>,
-	Stefano Salsano <stefano.salsano@uniroma2.it>,
-	Andrea Mayer <andrea@common-net.org>
-Subject: Re: [PATCH net v2 6/6] selftests: seg6: add test for skb checksum
- with CHECKSUM_COMPLETE
-Message-ID: <av6_eqt8yH5qmLYL@fedora>
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
- <20261118150251.65-7-andrea.mayer@uniroma2.it>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXqaXkXQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7211D1F000C4;
+	Thu, 19 Nov 2026 09:22:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795080174;
+	bh=kzTbXStisJTpwvkLD7D1wA2Fot0EqQtg6G0ERSDfDCo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QXqaXkXQPXl7Kk3MSyfTRPZhH03G20sdcA5zC5JeO2TGjpB3UZ8ftYutCUfeycJg+
+	 CN3RR37P7K9LvcTlDBCAQgkpVKCk+pxOUp2pmoNMptf/mbqMGbJ+W6uNCnGMcVtxWb
+	 f9pA5/yn5BBq3JAEabrqbfH4V6AIO7/DQQlt9emt5MkwXhi4lH4UXvXMUppi033Bv5
+	 mLbBlaEbDPZQWY+89LcKubTC1GUrXLbT4LE/aU5+NHnnedgWWCPdtUBHqs8VE+P+qK
+	 bsAVJ6kenqiMHJKmSeqnAmWBZXy46EMafKXnxxCcyLV2rMYuvSnD2Vv94gTta5ltw2
+	 ASrvP+zsl34wA==
+Subject: Re: [PATCH net-next v3 1/3] ipv6: stamp the default route node with a
+ fresh serial on link failure
+From: netdev-bot+sashiko@kernel.org
+To: ralf@mandelbit.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
+ sd@queasysnail.net, antonio@mandelbit.com, linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 09:22:53 +0000
+Message-ID: <179508017302.3136.6673661223156092826@kernel.org>
+In-Reply-To: <5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com>
+References: <5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,151 +65,125 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150251.65-7-andrea.mayer@uniroma2.it>
 
-Hi Andrea,
-On Wed, Nov 18, 2026 at 04:02:51PM +0100, Andrea Mayer wrote:
-> Add a selftest for received packets with CHECKSUM_COMPLETE that the SRv6
-> code processes before they are delivered on the same node. The test checks
-> that, after the node changes the packet, UDP does not read a wrong
-> skb->csum.
-> 
-> The test uses a host and a router connected through a veth pair. Since veth
-> does not provide CHECKSUM_COMPLETE, a tc ct action on the router computes
-> skb->csum in software.
-> 
-> The host sends a UDP datagram to the router along five paths: no SRH (the
-> reference), an SRH with local segments, End.B6.Encaps with End.DT6, End
-> with the next-csid flavor, and End.BPF. Each datagram is expected to be
-> delivered, not dropped as a checksum error. Without the previous patches,
-> every path except the reference fails. With them, every path passes.
-> 
-> The host also sends a control datagram. It checks that the test detects a
-> wrong skb->csum after a change to the packet. After the ct action, a BPF
-> program on the router changes the Flow Label of the control datagram
-> without updating skb->csum, and UDP must drop it. If UDP accepts it, the
-> paths above may report a false pass, and the test fails.
-> 
-> Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
-> ---
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Here are some code style comments. You can decide whether to change them or not.
+Low priority / nit picks for your consideration:
 
-> 
-> +print_log_test_results()
-> +{
-> +	printf "\nTests passed: %3d\n" "${nsuccess}"
-> +	printf "Tests failed: %3d\n"   "${nfail}"
-> +
-> +	# when a test fails, the value of 'ret' is set to 1 (error code).
-> +	# Conversely, when all tests are passed successfully, the 'ret' value
-> +	# is set to 0 (success code).
-> +	if [ "${ret}" -ne 1 ]; then
-> +		ret=0
-> +	fi
+- [Low] ip6_link_failure() (net/ipv6/route.c) used to do one idempotent
+  store, WRITE_ONCE(fn->fn_sernum, -1).
+- [Low] The patch reuses rt6_exception_net() in ip6_link_failure() for a
+  dst that is not an exception (the !RTF_CACHE, RTF_DEFAULT branch).
 
-Do we need to reset the "ret"? It's $ksft_skip by default. If any test failed,
-it is set to $ksft_fail. We can just exit with $ret at cleanup().
+--
 
-> +
-> +cleanup()
-> +{
-> +	cleanup_all_ns
-> +
-> +	# check whether the setup phase was completed successfully or not. In
-> +	# case of an error during the setup phase of the testing environment,
-> +	# the selftest is considered as "skipped".
-> +	if [ "${SETUP_ERR}" -ne 0 ]; then
-> +		echo "SKIP: Setting up the testing environment failed"
-> +		exit "${ksft_skip}"
+ipv6: stamp the default route node with a fresh serial on link failure
 
-if [ "${SETUP_ERR}" -ne 0 ], the ret should be ${ksft_skip}, right? Cause
-we haven't run any test.
+For a non-cached RTF_DEFAULT dst, ip6_link_failure() used to write -1
+into fn_sernum. With this patch it takes tb6_lock and calls
+fib6_update_sernum() instead. That stamps the node with a fresh serial and
+advances net->ipv6.fib6_sernum, so the lookup-cookie checks added later in
+the series can tell repeated invalidations apart.
 
-Then we can goto the following exit directly.
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 4a4c5ace63c54..cc505817399ba 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -2873,13 +2873,13 @@ static void ip6_link_failure(struct sk_buff *skb)
+>  			rt6_remove_exception_rt(rt);
+>  		} else {
+>  			struct fib6_info *from;
+> -			struct fib6_node *fn;
+>  
+>  			from = rcu_dereference(rt->from);
+> -			if (from) {
+> -				fn = rcu_dereference(from->fib6_node);
+> -				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
+> -					WRITE_ONCE(fn->fn_sernum, -1);
+> +			if (from && from->fib6_table &&
+> +			    (rt->rt6i_flags & RTF_DEFAULT)) {
+> +				spin_lock_bh(&from->fib6_table->tb6_lock);
+> +				fib6_update_sernum(rt6_exception_net(rt), from);
+> +				spin_unlock_bh(&from->fib6_table->tb6_lock);
 
-> +	fi
-> +
-> +	exit "${ret}"
-> +}
-> +
+[Severity: Low]
+The old code did a single store that gave the same result every time.
+The new code takes the table-wide tb6_lock and advances the netns-wide
+net->ipv6.fib6_sernum on every call. ip6_link_failure() runs once per
+skb, not once per event.
 
-[...]
+Is that per-skb cost intended on these paths?
 
-> +test_end_bpf_or_ksft_skip()
-> +{
-> +	local test_netns
-> +
-> +	setup_ns test_netns
-> +
-> +	ip -netns "${test_netns}" link add "${DUMMY_DEVNAME}" type dummy
-> +	ip -netns "${test_netns}" link set "${DUMMY_DEVNAME}" up
-> +
-> +	if ! ip -netns "${test_netns}" -6 route \
-> +			add "${SID_LOCATOR}::${BPF_FUNC}/128" encap seg6local \
-> +			action End.BPF endpoint obj "${BPF_FILE}" \
-> +			sec "${BPF_END_SEC}" dev "${DUMMY_DEVNAME}" \
-> +			2>/dev/null; then
-> +		cleanup_ns "${test_netns}"
-> +		echo "SKIP: SRv6 End.BPF not supported"
-> +		exit "${ksft_skip}"
-> +	fi
-> +
-> +	cleanup_ns "${test_netns}"
-> +}
+For example, neigh_invalidate()->ndisc_error_report() calls
+dst_link_failure() for every skb queued on the default router's
+arp_queue:
 
-Maybe move the `trap cleanup EXIT` here.
+net/ipv6/ndisc.c:ndisc_error_report() {
+    ...
+	dst_link_failure(skb);
+    ...
+}
 
-Then we can just `exit` instead of `exit "${ksft_skip}"` for all the
-test_* functions. The cleanup_all_ns() will just do nothing when the
-NS_LIST is NULL.
+The err_count paths in ip6_tnl_xmit() and ipip6_tunnel_xmit() also reach
+this code, at one link failure per received ICMP error. These are 1:1, so
+they don't amplify anything. The sit path can't be reached for ISATAP,
+because ipip6_err() returns before incrementing err_count when
+parms->iph.daddr == 0.
 
-If a command missing, or test_* function failed. The report shows
+Each bump goes through fib6_new_sernum():
 
-SKIP: xxx not supported
-SKIP: Setting up the testing environment failed
-# echo $?
-4
+	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
 
-> +
-> +if [ "$(id -u)" -ne 0 ]; then
-> +	echo "SKIP: Need root privileges"
-> +	exit "${ksft_skip}"
-> +fi
-> +
-> +# required programs to carry out this selftest
-> +require_command ip
-> +require_command tc
-> +require_command ethtool
-> +require_command ping
-> +require_command sysctl
-> +require_command awk
-> +require_command grep
-> +
-> +test_dummy_dev_or_ksft_skip
-> +test_iproute2_supp_or_ksft_skip
-> +test_kernel_supp_or_ksft_skip
-> +test_veth_tx_csum_off_or_ksft_skip
-> +test_bpf_file_or_ksft_skip
-> +test_tc_or_ksft_skip
-> +test_end_bpf_or_ksft_skip
-> +
-> +set -e
-> +trap cleanup EXIT
+Nexthop-object pcpu dsts are seeded from that generation in
+ip6_rt_pcpu_alloc() and checked against it:
 
-> +
-> +setup
-> +set +e
-> +
-> +connectivity_tests
-> +udp_delivery_tests
-> +
-> +print_log_test_results
-> -- 
+net/ipv6/route.c:rt6_is_valid() {
+	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+}
 
-Apart from the comments, the test looks good to me.
+So each call drops and reallocates every nexthop-object pcpu dst in the
+netns. ip6_dst_check() also rejects every socket-cached one, which forces
+a re-lookup.
 
-Tested-by: Hangbin Liu <liuhangbin@kylinos.cn>
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+The commit message says:
+
+    Advancing the namespace generation also invalidates unrelated dsts using
+    nexthop objects, which are validated against that generation.
+
+and the v3 changelog calls this harmless. Could the commit message say
+that this happens once per skb? That includes bursts when the neighbor
+entry for a default router fails.
+
+For reference, rt6_insert_exception() already does the same tb6_lock plus
+fib6_update_sernum() once per event. Per-event invalidation is also part
+of the fix itself: coalescing would let dsts cached between two failures
+survive. The later patches in the series don't change ip6_link_failure(),
+and "ipv6: add ip6_dst_lookup_flow_cookie" relies on this generation
+bump.
+
+[Severity: Low]
+This isn't a bug, but rt6_exception_net() is now used for a dst that is
+not an exception (the !RTF_CACHE, RTF_DEFAULT branch). Here it picks the
+netns whose fib6_sernum gets advanced. Its name and comment still only
+describe exception accounting:
+
+/* Exceptions are accounted to the netns their dst was allocated in.
+ * Unlike dev_net(dst->dev), it does not change when the device moves to
+ * another netns or when dst_dev_put() points the dst to blackhole_netdev.
+ */
+static struct net *rt6_exception_net(const struct rt6_info *rt)
+
+The netns it returns looks correct here, and dev_net(rt->dst.dev) would
+be wrong after dst_dev_put(). Other readers of the same counter, such as
+rt6_is_valid() and ip6_rt_pcpu_alloc(), use dev_net(), so it isn't
+obvious why this one is different.
+
+Would it make sense to update the comment, or rename the helper, so that
+it covers this use?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794906743.git.ralf%40mandelbit.com
