@@ -1,102 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795128050;
-	b=G8zZCGAM2dw2QtHqGYN9gDQykmCoqChLKGwHTx2Zuzuf4675FCdGHOX3kpA71+Zb1U9w
-	 XxpIs687HjS+iy/Uf6l5wuSjjpti6WSiN4SvCj7u3bazxtkCGC95Ev0t7MUXHkfcPAunG
-	 HNgQ8U+ptw2XvbLX0p9pdib78S+K7sUiiQzLfHF4MgBTuBuQJ07W1kVrjeHcVSLDoRDlA
-	 qxWn6wzTnZCvMo4QU1SWDJhvQPU1q2cZQI0f/B72OaXgjpZFsMvF6A0Veq3UdCo3Kz+VF
-	 Y/vHIcQEOOIeruGYrrcNSOWZuikqHXnL/QGUaqhRKOXFu2tSRVuwiLId9hC9chpds1g==
+	t=1795128530;
+	b=hlZRZxVnrcWgektwlFOGVsdi5T08i0H3VyyWXJ4jKRRzkfNZdv2dnQiVN1hykFLurnU+
+	 fcpe2IMYkt6RzaIiwSUul/KoNz7M2kkl+Lrmu8XkLuYEG2PCUg6WZxMUEfgPhIERgCiIG
+	 qMy5pfwTJ04yC2Hrsc9Kr9LvSx8gxUqOzt8SUbNmknCIJm7FAOvuSt9jf/K/c5/8qw85s
+	 XrZA9NrblCW/jIJh62/VKyWwKKJORgsYDyNmIuy/wxGfZwRCidDPhUzS/HDSA6PMwfpq9
+	 EeIAsvtT9/wHu2gvOKfLl1YnKGwsUjKbPXKnExm6SxPxT7BiSzKQqr0sVqItGW5xoyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795128050;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Content-Type:Date:
-	 Message-Id:Cc:Subject:From:To:In-Reply-To:References:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=KX9gw45Ko3F9cAwUcCFt48mDU8KoNsjYHRyjJHpt4Bc=;
-	b=XzAZZpsRIQYV9uRY9Cq8sUh8PTy+JzLo5CIHGRIHhwIolXj66ua4VjgyYLYs/N9+BAs4
-	 xkzsglwyvjfQh8+K9jBLp3Ge53bRAVaXMJg0VlFjRhNulxJLUnWLAlBqsa09VdYYFr6qe
-	 29/Q834DJ4wKAX9rMZ89dBgchsCaNHIu/9EEbhg7aIDbYLW5FGEq7phXWT3d7n5EGS06R
-	 CiGY0UCfMyzKgnfnOVzj9Kv5Y8rsqBr+5f48BhtcwMCDsgg+kfczShgyaUq6Lo8ac6rDA
-	 VrYk5HV5fWhRFwcQnWaj/YJk/cUt0QFEHEtZP3cL9R35AAej/vpuW4/7Bo38Up2Nt8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795128530;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uxdKeh6JL2oY2XBBPbmZrNwISGDq9uDthjhiqqIBPyo=;
+	b=fbSN9YagSgEEKo3kBqy1uirAraUZ88uwwf6GZUF6TVqzW0QuuDhzb6CValei/CBPhamF
+	 /olORfs+9ycxLHyt2/HZl3donQOHFgLZvo/1cfWjqYu3wGsIhVRyeJd8X43sKRx0FhqZk
+	 CsEampqTltD3NdBUKlB+F7sXtMy7R2BbN/JzDGfcAP6o5Ot/D1QdtDB5E6fwy80Kkws7D
+	 p/ZsunrsurJRuH8uCkVad0aySpXZsHiSqB6utqSSejN6y9tebvq01cQZ+xprgmdiRNjEu
+	 tYsI7+Y6jtKl0nhVn8ZH7RM29noC9UvG+Lj8Bto2BM1SLJsB6ZznmZFjyGMNqXh1zAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=na+1krtj;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ffVgQ9h8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48210606A325
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:40:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48210606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01518606A325;
+	Thu, 19 Nov 2026 22:48:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=na+1krtj
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f01f296937so1935995ad.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:40:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795128049; x=1795732849; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KX9gw45Ko3F9cAwUcCFt48mDU8KoNsjYHRyjJHpt4Bc=;
-        b=na+1krtjpl97nonC+fYj8Es1zVRSHZFi4IbHb4lhBhypuCekF9blk9Au8yUEMMyhp+
-         91UE1d+FiU8OT017SDU1uYXndmYODI2IBUx06hyb7PN/8XolRV/H6i0hYbOf+P4nTASN
-         dyyQs1F4l29D0mZ0pKvDF5r0qhSvSXxIupn/3CNNBekHhyT9KqjawODq/FkX7iBCo8UX
-         TLrnOYOAw6rsQ2ANan2mwUiaL8YIyOmfeUIXvhizb0OnHIjn3t7KpgotYL9rgLi/N13F
-         dOL3DEyfqGy7uKVu9p25dQIIX+ezcpyy8yIbqGUv4N6+ZmJHvN4347vMmqgMvJ6Lm0tZ
-         VCmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795128049; x=1795732849;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KX9gw45Ko3F9cAwUcCFt48mDU8KoNsjYHRyjJHpt4Bc=;
-        b=EeIHfcUNnqHpsrt2NQqM80uvgWDiXk8wi5l7l6rxLDd+4jRUAbEkldcINdN0zDbeBM
-         EO+YcDgCMfiNyRxlCn9AliCgGHZTRKglVcaxrx68S1+plxlS+NwX4YJ0YjGe24ji3v2Y
-         ceqa7TuxYPsjYwq/rznGgcDkuSE75Pn9u/mVcn8Yig6+AdjNCDdLdglLVXGU/3dBQkU2
-         M8JxzORQ0Wa/x4ndiMpeCtfPilAGvUcANaUcl/MlpSxmKiiLicKffoyAMPb403GZ9qX4
-         86R0pAXxWm4MMDGSn6cdQj1nviTU0luL9sAFD2IbUxESbfH6/mNOVc49Rn2SsU8eEDRR
-         K1HA==
-X-Gm-Message-State: APuU4Z830lRh73j9IwjS8i3aEu7iNZoS2F0ZzAsam/fqX9HUjZsRqhzC
-	d2NW/SN9VcciYERxOPpfQzhJz+qRqL47D88gh7UoioaG95h6SRMgg+04
-X-Gm-Gg: AZFdTZfcBioUzJPuQq46v+Rw+4S9EG+BTJAS+dQL6dWE1g08MyxhRKayV7Qbh6t9TCu
-	etx73nTRr9bTDqma1jV9gkAeUtXzvtgNMpt/D1aUmm1yppXONbUj1Rq3cyNFv0UVMieUJiYBrK0
-	50jJAQB7xHjmChzNBIlIMntCDQaj8SCHTpkThWQK15nrjM5ku/SLlGNRSKv+qtOFoY2zkvrMUr1
-	3wqhQQOlKjN2b+YKDglAzBGkb/kQQwjboJ1eDHULuvHWWVOehPN0SMO8azyx4jnQ0wpF3EpDM/O
-	368w99snO9lDgZT9l6HlJU3fuCcqYAcf0LkxMN3ead1xyn1cyfO31I5/+jvskECSwj8nXYlHdG+
-	+Rs0NQiJy5Qdod35UAbZOxNrWQC/HLo10pWM/+G+awArgOE7gg0f2VYBzqotjPYmBSj1qmEHx0Q
-	6qhi8EqlAlXvVmwoDoTyf2w0z+seuIL0wQheqpQMHqsoENMT5sxV2AVZSZQeIyADNkoZtJdet/B
-	QhgNviTIiwCTVUOQ66wk+troLOi3b3N9P4eSanXzk7YDmaK3F7XvHqhCfuQL0rYxKgnGwlqQ1U/
-	r3vc6JR2lQ1kcjcPwwotiIHFM4oMWeNCq7dq65K9trLuoUMxmqNdvry1mSieZgdhXkZg02BxkQo
-	BsMx18uKHeWDULDVVjzQAKysxEnFFeqxl2Q==
-X-Received: by 2002:a17:903:228e:b0:2d9:216a:cdd3 with SMTP id d9443c01a7336-2f03f1cfe41mr12272775ad.18.1795128049336;
-        Thu, 19 Nov 2026 14:40:49 -0800 (PST)
-Received: from localhost ([153.61.198.249])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1482c3sm5251995ad.73.2026.11.19.14.40.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 14:40:48 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 22:40:48 +0000
-Message-Id: <DMZJS8O5A4YX.9T2P4DT0DAB7@gmail.com>
-Cc: <netdev@vger.kernel.org>, <daniel@iogearbox.net>,
- <john.fastabend@gmail.com>, <sdf@fomichev.me>, <martin.lau@linux.dev>,
- <andrii@kernel.org>, <eddyz87@gmail.com>, <memxor@gmail.com>,
- <song@kernel.org>, <yonghong.song@linux.dev>, <jolsa@kernel.org>,
- <emil@etsalapatis.com>, <ihor.solodrai@linux.dev>, <davem@davemloft.net>,
- <edumazet@kernel.org>, <kuba@kernel.org>, <pabeni@redhat.com>,
- <horms@kernel.org>, <bpf@vger.kernel.org>, <jiri@resnulli.us>,
- <victor@mojatatu.com>, <sashiko-bot@kernel.org>
-Subject: Re: [PATCH net-next v4 4/4] bpf: drop the stale dst when
- redirecting to an explicit nexthop
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Jamal Hadi Salim" <jhs@mojatatu.com>, <netdev-bot+sashiko@kernel.org>
-In-Reply-To: <CAM0EoMkppFKECwmjw+E3tWpXEL3=cyg2VYhgpL+StaSiQf+WAQ@mail.gmail.com>
-References: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com> <179511856597.3136.7846835490904436138@kernel.org> <CAM0EoMkppFKECwmjw+E3tWpXEL3=cyg2VYhgpL+StaSiQf+WAQ@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ffVgQ9h8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3EF1F000F4;
+	Thu, 19 Nov 2026 22:48:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795128529;
+	bh=uxdKeh6JL2oY2XBBPbmZrNwISGDq9uDthjhiqqIBPyo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ffVgQ9h8PYbAfvjb/j9aLLRAvUnUGIgrkaCBDw9pyRnvQSv3u+1coTIst4AxVU8XH
+	 NRTiObskWMdWIbzoqqAO602nC8w0WbYVdyF67eahSHHBG7N7ftFEPkayEMhaBs/BNY
+	 snOOLcTwLVlDglPubRcvab7a0aBNX7i53JhyatGwYHpXrQ8yj9Nzol7/T5D4L8Mdxp
+	 PAlZGU2KQAucnzJfUvQvxm+bRH5HMHOX2HTAha3KhBSamDAZNI9cmROT4kUB41N/VM
+	 A3KB4VBYm7aJnsZEBW9Brl5KRg48316bR+5e+5wWTjtr2gvkjnI1LSH2wzdScKrGLQ
+	 uJmnrLk5bSiMw==
+Date: Thu, 19 Nov 2026 14:48:48 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, Maxime Chevallier
+ <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ LABBE Corentin <clabbe.montjoie@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
+ offload setting
+Message-ID: <20261119144848.4ddd88cb@kernel.org>
+In-Reply-To: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
+References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,22 +67,28 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 12:29 PM Jamal Hadi Salim <jhs@mojatatu.com> wrote:
-> This is still under discussion with Alexei  - so:
+On Sun, 15 Nov 2026 17:58:26 -0700 James Hilliard wrote:
+> stmmac_set_features() clears hw->rx_csum when RX checksum offload is
+> disabled, but sun8i_dwmac_rx_ipc_enable() unconditionally enables the
+> hardware checksum engine. The MAC therefore keeps dropping packets with
+> invalid IP or transport checksums before they reach the host, even after
+> ethtool reports RX checksumming as disabled.
 
-Answering your earlier quesiton: 
-yes, a route for A is acceptable on a frame that leaves B.
-bpf_redirect() and mirred egress do that today.
-__bpf_tx_skb() and tcf_mirred_to_dev() set skb->dev and keep the dst.
-__dev_queue_xmit() drops the dst when B has IFF_XMIT_DST_RELEASE.
+Rx checksumming only controls whether the _good_ packet indication /
+offload is communicated up the stack. The device should never drop
+packets due to a bad L4 checksum. Checksumming L4 is not much of a DoS
+vector. Oleksij was fixing this in other stmmac variants. I _think_ you
+should always clear this bit if it leads to packet drops.
+(FCS is fine, bad FCS should only be passed up if RX_ALL is set,
+but sounds like your device has all checksums controlled by one bit?
+in which case we prefer to see all and let driver discard the bad FCS)
 
-> I will consider this feedback if we have to resend the whole series or
-> per Alexei's pov 1 or 2.
-
-imo 2, 3 and 4 can go.
-
-So pls consider adopting my earlier neigh_update_process_arp_queue() diff.
-
-Need to think more about patch 1. It's probably ok on its own.
-
+If I completely misunderstand things we should at least get a respin
+to update the cover letter. The commit message talks about L4 offload,
+and rx_csum is L4 AFAIU but the bit is called CRC which deserves a
+mention somewhere IMVHO.
+-- 
+pw-bot: cr
