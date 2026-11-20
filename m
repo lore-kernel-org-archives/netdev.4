@@ -1,68 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.146
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172177;
-	b=KbmP1KcUA9R1dtaAtAZpPD340CykBe0AKoXx8l3QPVJAiLnUagBDv0CL1aRpULYk0gH0
-	 eqeYnz0UORBLQNkkoSkAXO8LXRM6UD3pJbjlErXq0abmeQoA3vzGfyKmGAkER36PT9xdi
-	 hKiw85GI370DVQwMMef4zTIgf7hloMlo/o2AhYWZTwdNr1dxw32VTLCsg0pbAh+WYbmZR
-	 I2uiNw2o8tYad0w+gVSsb49U1Xl3s/u3Ba6j5MUBD3OJAaBkf55fHLyRI7nPyLlhG2rj5
-	 b+G7HoEk6NB6K5V0ynaDR264toB70GRETpNxXHNtxd6xiGxU7bZ+RG346q+uO5KjA7w==
+	t=1795172245;
+	b=4VTrkYAehN3oRKq0Yx4lGV7FMX1XFtGjQBbI5hAVQHazzeThRW5pWPa2KPlcVZDaExN5
+	 8isrPyJGQ3j3ypiJ7SJxLkyUlrZNbFw7QG7eQVJL9KwfmyLFsD2eDQYtOsYrI3AzTBo/H
+	 vaEtpnJAWPLuZ2CiK23pKAFANhIuk24Vn8mWYmKfgix6jOgRp7GNYuKwAN0wZiv+RWHPd
+	 cn93tlPgH3jATo7wO3/jzjbzxXLyFM9nNOD9x5l3LLoYIf6wHl0C4/Ii1brFQ6Q2zn5wn
+	 T/E95dbj7tO3B2Yn7G8dGolWGP+6J1ezKzIkdfLgQG/+KHPdzsN1497YGllBi+P4JRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172177;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172245;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=JoXJoxdHx8fE92ZvcU6qtOwGfUp0AD5mZGY95/KszNo=;
-	b=ywOhQMIcAyiTpR+Z6sO0N5CMl+dRT/Pfaa4I9v9gqO+DnTW7Me1ZTbARd6DLiK46i7mY
-	 6rYbm/J+/eO9M//6RaMjZ02xAGDgrPL/Fqp5B83Q6aj0sYCOBXlMXldiosSZR4bVXS66h
-	 37cLZwIh5ECVu9vao/n6g+UjNVjrRbYAh+jK+qXUgNBJU5TZjMJjp21oUZmn2QS9UbMdj
-	 vDuiwRtPswbie5l7O/1UjbyP130h40owCQajclK/lIbAeUj9qosulU+MKOX7hq0VLt42h
-	 LE7eY/oJtW0kae9R1CCJEnkbxcSRQkxBCMJhliA21EVlth0oyO5dzygG+DRuTpSgpsg==
+	bh=DtNV5VxWZRYPm+qkkMJsylA6Vg/UOHe+uIII8BQIetA=;
+	b=pQv46eIUJnoKmUJcpppt/ekQ/rkEnbWzou836kEiQCqExa/k8qfXfHgi8mEPv01rsc1f
+	 Xl57GbGRfLs+Go90JmlPTxtxbVjJLwAx4Jr+1h9bOJxe0Gh179THcIfMYrcVyF3wc5qD4
+	 1pbEzhtJL6XQgAEaYbCvxxOP93DAaq8Gw1ZLmeBKjz8uH0XsoMqaw0Laj3MelRktM5ltq
+	 d9C2KxQMLjJyI06MppDIlQZH0m8JmvAvbBNXAQ++ZVYfyVjJyAyv4VqfR6eL0RhszRe7o
+	 mqGslMFaAvLkhmFHhYTtyZNa3SzqC2+FNlzh3IuCN3TeI2pNUZFI9ycoTbwzMA7hHqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=rQCfwbOo;
-	arc=none smtp.remote-ip=115.124.28.146
-Received: from out28-146.mail.aliyun.com (out28-146.mail.aliyun.com [115.124.28.146])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SoU36Rrp;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0980860A2605;
-	Fri, 20 Nov 2026 10:56:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0980860A2605
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C69AC606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:57:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C69AC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=rQCfwbOo
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795172168; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=JoXJoxdHx8fE92ZvcU6qtOwGfUp0AD5mZGY95/KszNo=;
-	b=rQCfwbOoP2FzsWIj9p0d/OJILU7avJTRbPbcRLkySnXoouaxW32Ao+ZRl49TO2cxDBQbvMyz5UHuKOgjAUTkHXioNa5qBXETd2mljTGTNh2SrU4LkKqLicf1TXg5kDxfvnzFYmb1Rte4MVHIkDbvT/nooeOK6mTYugJqd9Y9Hj4=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00490976-0.000198701-0.994892;FP=16021593803604885584|1|1|4|0|-1|-1|-1;HT=maildocker-contentspam033037034184;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k6Wwa6c_1795172166;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k6Wwa6c_1795172166 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Fri, 20 Nov 2026 18:56:07 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SoU36Rrp
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso451374a12.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:57:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795172244; x=1795777044; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DtNV5VxWZRYPm+qkkMJsylA6Vg/UOHe+uIII8BQIetA=;
+        b=SoU36RrpP0fAvcxfHnVD1gS9A6b1JLHYlH953RVwxmM3EYg81GAjCqrR03smdAsG9X
+         MUUQttVK7hSH6Bp/t+dU3YLFaGzwsQY0RosxNJOGVl/cCcTeB0sIOq5lDj+lGiUcUt/P
+         3nMcbs0RABVK4edyFJiHfbBPwo1v70GsNfpYTxui4PP+TY7zFarBa0O+Fag0Qa7qy6eC
+         N/6Q4fj8LqN3aL76KXZAVcqjxMPhc5xZhZn+qTKNqIHpjDI9J93r+hK/U6FPB5QU/jAu
+         v7NwCdO7Q2opz+nXTbtCos5wZhHiYm5tbPZgJYrT512lDFSipRI3GGKAmj15+OdukaYh
+         wl5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795172244; x=1795777044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DtNV5VxWZRYPm+qkkMJsylA6Vg/UOHe+uIII8BQIetA=;
+        b=K0nEkpWVXJkmOJSiAXuRr2Wxhxve2sKVwexkJOth+UZ7sgVGn3ixGS2QswGzeiCZE3
+         U9qt1KLb8U+v+PcEZ0kE2ETD1JAytP8CQVJUxxxel7Ofl20LEK53hfyBf+yPUZec8i82
+         dNh4JWiYf+twIwPdyo6hXXUrch+bTbIaeB8dVKPaDvJyQWQuVQmdK8L+pWi3MaQFXlys
+         0mnoPE0Um6gsqDkF1rX787pwjgd4VqI2U2MXCk+ikoQbYR4CRWBtPfOFjma+kPf04maI
+         V/rOWO3Xl19KdljQevA0jdfjixD1PKiuuV67oC1BdWkr9T1vQYmtZscvkmp39tiqESof
+         g5MA==
+X-Forwarded-Encrypted: i=1; AL+hErFxO5mJve85OOmubJf+KHKPqnf6E5VcLQXhwRIBj1I0fcOytkNqWn8VPMU9ANlEuFKqO34Bluw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+MUXpgFUmW2m3BZXxWeEI0394Way/HAf2fxHuSNVSrKIlmHzb
+	NgGBLk5cAvVBCeO9VSFI/ugSun7DNZJTLbfBZ1aBe5VTXBZS/GhtrJOi
+X-Gm-Gg: AZFdTZejufGt0GR58WaQub4hZ3IDNQ242emutqTZSxbwYhzX3pONCbOAJjsAveB471f
+	MTLbqVgIg5c5zfFq0U0PiYzsJ2+YD3bc2OHLGA3q24RPGksbwFjBKDI1oKxEd8SSdxoMIRfRuBg
+	9mZtH+ZA/3IkJNrpMg5x6SMoXAvkIq+S3kv9hgTxfZ6598jtrYzQrNWD/fX9g4Ozj/Djh6FBhl8
+	VPzFb1wIKe85Ehw7s4PvgRZfvJv0aR1XKP/Y5rMKC3EzUJf9tnU2FBIXa5CpDQgPJO0Ifj+Q0iK
+	yBqEnEnnQYqAnLZYwns61S0kuUy5qzmwmJHQ1CMBdoiot+uX4zzTaxd1saquACYAe/xdBXB2x2H
+	1Sfnec2UVCWaTobddl4G7sRblanlngL69pGDJfb4GS+Lb7WJoCx72F0n5tMo+w1yrgI30QY0d8W
+	4H4hl2nSWI+9Yr0MeXjqHCu2+C6CwCytukHbOtzSOBA7xjnvKxiSMw4OcgNGYWn8sGNtXOd+ySw
+	5IPpFdeR4q/k+rM/6moR/lnwUSOavJNXuo2VYhzzEnOehuPvpJ2hrgGzJIWI5mvrcySRG6yjGmp
+	ed4ZjjLULhfifeAPwjXAR928KWzlz0v+O7dn2HTWDxM8vv7u+SI=
+X-Received: by 2002:a17:90a:d607:b0:3ac:4291:f569 with SMTP id 98e67ed59e1d1-3b41c7c776bmr2760098a91.8.1795172244164;
+        Fri, 20 Nov 2026 02:57:24 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b52dsm4176886a91.5.2026.11.20.02.57.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:57:23 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	Phil Sutter <phil@nwl.cc>,
+	netfilter-devel@vger.kernel.org,
 	netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Maoyi Xie <maoyixie.tju@gmail.com>,
-	Guanglei Zhu <zhugl3@xiaopeng.com>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net v3 5/5] net: wwan: iosm: validate the command parameter length
-Date: Fri, 20 Nov 2026 18:55:59 +0800
-Message-ID: <20261120105559.54519-6-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261120105559.54519-1-fangxy@xiaopeng.com>
-References: <20261120105559.54519-1-fangxy@xiaopeng.com>
+Subject: [PATCH nf] netfilter: nfnetlink_queue: drain cleanup work on netns exit
+Date: Fri, 20 Nov 2026 19:57:17 +0900
+Message-ID: <20261120105718.866862-1-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,212 +100,75 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Both command decoders read members of the parameter union without
-knowing how long the parameter actually is, so a truncated
-OPEN_SESSION_RESP copies bytes past the command into acb->got_param
-and resumes the session establishment waiting on it, and a short
-FLOW_CTL builds the flow control mask from whatever bytes followed.
+NETLINK_URELEASE unlinks an NFQUEUE instance and schedules its
+destruction through queue_rcu_work(). The RCU callback queues
+instance_destroy_work() on nfq_cleanup_wq. Queued entries retain
+entry->state.net, but nf_queue_entry_get_refs() pins only their
+sockets and network devices.
 
-Derive the parameter length from what the command owns: the bytes
-beyond the header in MUX Lite, the bytes up to the next command in an
-aggregated block, or up to the end of the block for the last one.
-Check the member each command type uses against that length and
-return -EMSGSIZE when it does not fit; the callers drop the command,
-and in an aggregated block the walk ends there. Unknown types still
-return -EINVAL and the walk continues. cmd_len is passed to the
-decoder unchanged.
+A migratable device can return to init_net as the old namespace exits.
+cleanup_net() waits for the RCU callback but not the work it queued.
+It can free the namespace before instance_destroy_work() calls
+nfqnl_reinject(entry, NF_DROP), which dereferences the old state.net
+in nf_hook_entries_head().
 
-Fixes: 9413491e20e1 ("net: iosm: encode or decode datagram")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
+A source review assisted by a coding agent identified this race. A
+65,536-queue reproducer on unmodified mainline with
+KASAN and lockdep enabled reported:
+
+  BUG: KASAN: slab-use-after-free in nfqnl_reinject
+  Workqueue: nfq_workqueue instance_destroy_work
+
+The free stack included cleanup_net(). The trigger used
+initial-namespace CAP_NET_ADMIN and a migratable virtio-net device;
+it required no kernel modification or fault injection.
+
+Drain NFQUEUE cleanup in the pernet exit batch. rcu_barrier() waits
+for pending RCU callbacks to enqueue their work; flush_workqueue()
+then completes that work before cleanup_net() frees the namespace.
+The batch hook avoids a barrier for each exiting namespace.
+
+The same mainline revision with this patch built without warnings and
+completed two 90-second reproducer runs in KVM with no KASAN or
+lockdep reports. No netfilter selftests were run.
+
+Fixes: 936206e3f6ff ("netfilter: nfnetlink_queue: make hash table per queue")
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
 ---
- drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 105 +++++++++++++++------
- 1 file changed, 75 insertions(+), 30 deletions(-)
+A custom LLM-based coding assistant helped identify this race and prepare the reproducer
+and patch draft; both authors manually verified the source paths,
+teardown ordering, and KVM test results. The standalone C reproducer
+and complete serial logs are available on request.
 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-index 3c5b957893ab..4d7783a059d3 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-@@ -185,6 +185,7 @@ void ipc_mux_netif_tx_flowctrl(struct mux_session *session, int idx, bool on)
- 
- static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
- 					      const union mux_cmd_param *param,
-+					      size_t param_len,
- 					      __le32 command_type, u8 if_id,
- 					      __le32 transaction_id)
- {
-@@ -192,9 +193,18 @@ static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
- 
- 	switch (le32_to_cpu(command_type)) {
- 	case MUX_CMD_OPEN_SESSION_RESP:
--	case MUX_CMD_CLOSE_SESSION_RESP:
-+		if (param_len < sizeof(param->open_session_resp))
-+			return -EMSGSIZE;
-+
- 		/* Resume the control application. */
--		acb->got_param = *param;
-+		acb->got_param.open_session_resp = param->open_session_resp;
-+		break;
-+
-+	case MUX_CMD_CLOSE_SESSION_RESP:
-+		if (param_len < sizeof(param->close_session_resp))
-+			return -EMSGSIZE;
-+
-+		acb->got_param.close_session_resp = param->close_session_resp;
- 		break;
- 
- 	case MUX_LITE_CMD_FLOW_CTL_ACK:
-@@ -229,6 +239,7 @@ static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
- 
- static int ipc_mux_dl_cmds_decode_process(struct iosm_mux *ipc_mux,
- 					  union mux_cmd_param *param,
-+					  size_t param_len,
- 					  __le32 command_type, u8 if_id,
- 					  __le16 cmd_len, int size)
- {
-@@ -242,6 +253,9 @@ static int ipc_mux_dl_cmds_decode_process(struct iosm_mux *ipc_mux,
- 	case MUX_LITE_CMD_FLOW_CTL:
- 	case IOSM_AGGR_MUX_CMD_FLOW_CTL_DISABLE:
- 
-+		if (param_len < sizeof(param->flow_ctl))
-+			return -EMSGSIZE;
-+
- 		if (if_id >= IPC_MEM_MUX_IP_SESSION_ENTRIES) {
- 			dev_err(ipc_mux->dev, "if_id [%d] not valid",
- 				if_id);
-@@ -315,18 +329,26 @@ static int ipc_mux_dl_cmds_decode_process(struct iosm_mux *ipc_mux,
- static void ipc_mux_dl_cmd_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- {
- 	struct mux_lite_cmdh *cmdh = (struct mux_lite_cmdh *)skb->data;
-+	size_t hdr_len = offsetof(struct mux_lite_cmdh, param);
-+	size_t param_len = skb->len > hdr_len ? skb->len - hdr_len : 0;
- 	__le32 trans_id = cmdh->transaction_id;
--	int size;
-+	int ret, size;
-+
-+	ret = ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
-+						 param_len,
-+						 cmdh->command_type,
-+						 cmdh->if_id,
-+						 cmdh->transaction_id);
-+	if (ret == -EMSGSIZE)
-+		return;
- 
--	if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
--					       cmdh->command_type, cmdh->if_id,
--					       cmdh->transaction_id)) {
-+	if (ret) {
- 		/* Unable to decode command response indicates the cmd_type
- 		 * may be a command instead of response. So try to decoding it.
- 		 */
--		size = offsetof(struct mux_lite_cmdh, param) +
--				sizeof(cmdh->param.flow_ctl);
-+		size = hdr_len + sizeof(cmdh->param.flow_ctl);
- 		if (!ipc_mux_dl_cmds_decode_process(ipc_mux, &cmdh->param,
-+						    param_len,
- 						    cmdh->command_type,
- 						    cmdh->if_id,
- 						    cmdh->cmd_len, size)) {
-@@ -494,8 +516,9 @@ static void ipc_mux_dl_adgh_decode(struct iosm_mux *ipc_mux,
- 	ipc_mux->session[if_id].flush = 1;
+ net/netfilter/nfnetlink_queue.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/net/netfilter/nfnetlink_queue.c b/net/netfilter/nfnetlink_queue.c
+index a8aa7ad832c3..5eaa314ed59f 100644
+--- a/net/netfilter/nfnetlink_queue.c
++++ b/net/netfilter/nfnetlink_queue.c
+@@ -2201,9 +2201,17 @@ static void __net_exit nfnl_queue_net_exit(struct net *net)
+ 		WARN_ON_ONCE(!hlist_empty(&q->instance_table[i]));
  }
  
--static void ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
--				     struct mux_cmdh *cmdh, int size)
-+static int ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
-+				    struct mux_cmdh *cmdh, size_t param_len,
-+				    int size)
- {
- 	u32 link_st  = IOSM_AGGR_MUX_CMD_LINK_STATUS_REPORT_RESP;
- 	u32 fctl_dis = IOSM_AGGR_MUX_CMD_FLOW_CTL_DISABLE;
-@@ -503,32 +526,39 @@ static void ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
- 	u32 fctl_ack = IOSM_AGGR_MUX_CMD_FLOW_CTL_ACK;
- 	u32 cmd = link_st;
- 	u32 trans_id;
-+	int ret;
- 
--	if (!ipc_mux_dl_cmds_decode_process(ipc_mux, &cmdh->param,
--					    cmdh->command_type, cmdh->if_id,
--					    cmdh->cmd_len, size)) {
--		if (cmdh->command_type == cpu_to_le32(fctl_ena) ||
--		    cmdh->command_type == cpu_to_le32(fctl_dis))
--			cmd = fctl_ack;
--		else if (cmdh->command_type != cpu_to_le32(link_st))
--			return;
--
--		trans_id = le32_to_cpu(cmdh->transaction_id);
--		/* No response parameter is sent in the aggregated protocol. */
--		ipc_mux_dl_acb_send_cmds(ipc_mux, cmd, cmdh->if_id,
--					 trans_id, NULL, 0, false, true);
--	}
-+	ret = ipc_mux_dl_cmds_decode_process(ipc_mux, &cmdh->param, param_len,
-+					     cmdh->command_type, cmdh->if_id,
-+					     cmdh->cmd_len, size);
-+	if (ret)
-+		return ret;
++static void __net_exit nfnl_queue_net_exit_batch(struct list_head *net_exit_list)
++{
++	/* Wait for RCU callbacks to queue instance cleanup work. */
++	rcu_barrier();
++	flush_workqueue(nfq_cleanup_wq);
++}
 +
-+	if (cmdh->command_type == cpu_to_le32(fctl_ena) ||
-+	    cmdh->command_type == cpu_to_le32(fctl_dis))
-+		cmd = fctl_ack;
-+	else if (cmdh->command_type != cpu_to_le32(link_st))
-+		return -EINVAL;
-+
-+	trans_id = le32_to_cpu(cmdh->transaction_id);
-+
-+	/* No response parameter is sent in the aggregated protocol. */
-+	ipc_mux_dl_acb_send_cmds(ipc_mux, cmd, cmdh->if_id, trans_id,
-+				 NULL, 0, false, true);
-+
-+	return 0;
- }
- 
- /* Decode an aggregated command block. */
- static void ipc_mux_dl_acb_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- {
- 	size_t hdr_len = offsetof(struct mux_cmdh, param);
-+	size_t cmd_end, param_len;
- 	struct mux_acbh *acbh;
- 	struct mux_cmdh *cmdh;
- 	u32 block_length, cmd_index, next_cmd_index;
- 	u8 *block;
--	int size;
-+	int ret, size;
- 
- 	if (skb->len < sizeof(struct mux_acbh))
- 		return;
-@@ -568,12 +598,27 @@ static void ipc_mux_dl_acb_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- 		     skb->len - next_cmd_index < hdr_len))
- 			break;
- 
--		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
--						       cmdh->command_type,
--						       cmdh->if_id,
--						       cmdh->transaction_id)) {
-+		/*
-+		 * A command owns the bytes up to the next one, the last
-+		 * one of the chain those up to the end of what arrived.
-+		 */
-+		cmd_end = next_cmd_index ? next_cmd_index : skb->len;
-+		param_len = cmd_end - cmd_index - hdr_len;
-+
-+		ret = ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
-+							 param_len,
-+							 cmdh->command_type,
-+							 cmdh->if_id,
-+							 cmdh->transaction_id);
-+		if (ret == -EMSGSIZE)
-+			break;
-+
-+		if (ret) {
- 			size = hdr_len + sizeof(cmdh->param.flow_ctl);
--			ipc_mux_dl_acbcmd_decode(ipc_mux, cmdh, size);
-+			ret = ipc_mux_dl_acbcmd_decode(ipc_mux, cmdh, param_len,
-+						       size);
-+			if (ret == -EMSGSIZE)
-+				break;
- 		}
- 
- 		cmd_index = next_cmd_index;
+ static struct pernet_operations nfnl_queue_net_ops = {
+ 	.init		= nfnl_queue_net_init,
+ 	.exit		= nfnl_queue_net_exit,
++	.exit_batch	= nfnl_queue_net_exit_batch,
+ 	.id		= &nfnl_queue_net_id,
+ 	.size		= sizeof(struct nfnl_queue_net),
+ };
+
+base-commit: 65e4fd942f72a9dba0e4e257290c4fa1aa756854
 -- 
-2.50.1
+2.43.0
 
