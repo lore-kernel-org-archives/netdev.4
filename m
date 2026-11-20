@@ -1,99 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795208174;
-	b=EKh06VJYzdKUBWtoM/gefiGzeACmlcEz3OUyg4kRvGVU+0FsOwfkK/a1i1co+4vHUdKz
-	 9QItwUlRP1sf647OU3k6Q4bhME7SKImeTh8TYJjLmRGivCIyan81BhAHjLHZnoF/FJ0G9
-	 x7MFUS7xszv3Rd0Ft7jzwwlOnhB0czo/5wf8ESp9CPdW3EzJZkwiOAueJ19SI7vQxs4ss
-	 3RkIW58+p0fsMag4IVI2MveKa1wGBYYJysZY06ludNd6YF/wb+e8DwTMzSOY0vDxd0Sxw
-	 ecju6ai1TMwSfHcQwAnZYlBs3tJbItgU1sSrYN3ojV+6Mg6qAp/nhcpL+n9rCCrq2Yw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795208174;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=nHm9hVHT8tsjIbOEfB0poGWscPr0Fu+olYBzenctJCQ=;
-	b=5Y/FPXSkrlCmCg/pKnYxUYHdEpfxOHWo0KJ8r21gdgMlKNWKQzf6nUUqNeIydEXk8tHo
-	 337F+gQKMrHCNb+Atd3rAtGWD+yeQwUGBSTQI24Ps5jR4a0t6Y2bBscfeVXD4lIU6cgzq
-	 RQv80Ul89KSHU04YXZKok8L91iPCq/kpLs/1KRmKrc7tvcTdss8OGTUjNmLLU7Rkcsygu
-	 JBWC1CF/E3bM+no3uFz3NBwMUEYGGeGjkIICHq1MHfCFgx7QwyhgJIfe3KFemYLDKqs+u
-	 rvQBf1JkEFbRqrz0y6dNWGM5G/68EyHFSusezNT6r5aUD/0Bx+efiekXQdGwxbYPErA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fqnD+BCm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
-Received: from mail-yx1-f52.google.com (mail-yx1-f52.google.com [74.125.224.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795208484;
+	b=c6Rovpk+LSKC5J0QctEp0/FdIKcUHR4f7CASl/Pscl0+W8uvLICE8G5QzQSPPRdjoXRQ
+	 9EPenCyDgxtbZrw4DRxGZTh++7884fa3E6pQyjagPKaGg26XPn/X/m1coXE0O9qoAQWnI
+	 SLRgEjT8EOP3MKh5gtXKuMj9kLf8bFfH4VlWNss/RQxqSBLcXn/wfIwDMlN9bRrTckRW5
+	 MGPhrC6oczVEdEqp9AeFTQeNjmptNoq0u1AbZI5QE1VcmJgz88Qa3RemEM9KBWe6yc6BP
+	 tcjtijq4nsNLyH31DDc/FKJQetOUay6TzbdAVcvLAJdBkYOXAwmzkSu8o0JiMHyKHwg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795208484;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=W5goPGg+WDIckAjo0y+m2U6zzWKb+HVqL7jjH8fkywk=;
+	b=IEefMduVBO+8bsc517JdjEEGYnVCHpWaNAhOEiNONjVJocKE5z2s8wpNqzH8RL6Ym9ML
+	 xC6xz9ijGY2lnywUGXGBo8uTOQ1AbLV2y3mbRjhSok+YutHDdCfWSP6xbazAqE7AhqR6G
+	 qyad+ZqJdQ4terRl88NxaSG4Pk6CVnCKxuh8AlT1tUGCUeYR7MaKf7PI8pb0PhwXH6GhI
+	 0Um9FCf19lxNoeDv202jNYh4BGR6zewbEFcdzp4LR2nrZZmKQUAAydzoQN9CzgTybeN6u
+	 7vP225lyjw8g8C9S2NO+4ubLrJKbhWFnouee1AoRqDQrNNRt2XZoXW4exXv/FSIxn0Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOgX0mLj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC3CE606A6AE
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:56:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC3CE606A6AE
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF460606A690;
+	Fri, 20 Nov 2026 21:01:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fqnD+BCm
-Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-67db1f6f50eso1565044d50.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:56:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795208172; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TE1LbssFh8CF0aPg3HcVLvNpzl5qJ4UUFsREjVmscdlVsblCUDZQwdU48hzN+onZGq
-         hrtbz4+HlkmbuJQFT0ZUsqPZeV4DckSouHKRyL4SNK1oLo4LvJ2kRGVFg5SQblVI7vGV
-         qPykYrt+JsRt9xGT8ywn/ZcLDM8eDj0rnSqAzA7PRDRjeUItzASxAdMk44R2Su3IGnlH
-         YDEYe74UpVOSfwHyij9/8jSQpqfT1WAkD/gWVXyZ7FJd6WxKgduqablYlQrjx55E2xXR
-         om9RoHfBXGdGXZYsO7tVgwoIiB8C/WOxwW9LuHWqt5p/YhEn7CmkGa8TllYmmHVecZMd
-         5nbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=nHm9hVHT8tsjIbOEfB0poGWscPr0Fu+olYBzenctJCQ=;
-        fh=Rf6dEdhysIkn4HTYMkv0BNKceoyhhPpAAjzBP/Lgog8=;
-        b=m3kBFZ/bzQ20E7JFI6s9X7yn95O1OaHwXRQNNw4jnajqKyKbLXaQH4/BtTcFRJfJgC
-         zpi+bUVysW9OmL4v/Gwqi+nVtB2sDE4X8o15JGBhdCqVN7YypmUA6qKRR125SbAb44QS
-         CcbN7K10OcYGQi7H85FTcApcqv+s5gky48McInRey6MwUom2DQp5wwUHXiDVMtf89EZd
-         evZ34GVmcYwt9tboB51fJagkq65Y8I7+VpMbI3ph0rqFWlDChY6E8ohmyW9QoHhDk3rJ
-         tYa25XZ6yrR1gjF0Jk4DEEL5fIUY0Y0oBaD5Ub6KYp6D6i82QA3sEfqTX7oGNmShHKiB
-         c63w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795208172; x=1795812972; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nHm9hVHT8tsjIbOEfB0poGWscPr0Fu+olYBzenctJCQ=;
-        b=fqnD+BCmZMsSl6GiqWvGzvSz4CDUZNTSHvLmRkRE7ABZzqJO0KBxFvqwkYCxyzdmk+
-         Iv7G6Pqj7onc/PUk2HxLn0H9/bpo/PZjyo4h7N4e/GWkh7QFngPaWCzlmRrfxtlMwBuZ
-         GysFqWOmnkXYgJEpJkz1FI+lTMzgXMzoZOUJBHFtqeFG76N2UZTE66DIITKOzWu2vVYI
-         rCjWmssCCTntC+x/KL+cDN6IW2IZmzj9S0NqNSQN9SMNeIh9Yrsv1LMOmzxnY/v3P9Mr
-         pRlxbxuxmVufW+sS9ScnItwnmGagTvXWgpjuN4TVFrdZGBtUuvfLpY2OUKSphYnQkKnO
-         PvHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795208172; x=1795812972;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nHm9hVHT8tsjIbOEfB0poGWscPr0Fu+olYBzenctJCQ=;
-        b=Nx79Ij5MEir3WwsM2q42MK6ywcmMggM3C0oPKuJZ1/y6IV1mielaTEjppYkICSz0pt
-         ssHNFyZghSeaqX6L2dPhFuMMWrXQ7R57tPH/PdOmVeSZc+XaOiaWssWun2ejq279sMif
-         XLD8TiekUUpmA0uLnITyk9B+aXOtbzKXbMcSFyltsIiN/obsEZ0cSoGh5aRzQwkMNVoR
-         zbHz4gbOLB4StG0ms+xRlQoKsk9zv0wMU6gDbwrbz459pRqXfb4ZygA4pqIiThOOXshM
-         EIFYggXlisUAbyeW8mT+jr4oYVRP9au4LvRPdzCISTspd+76KsvPRnCnJidv8rLZluvE
-         xceA==
-X-Forwarded-Encrypted: i=1; AL+hErEBBb47StZCB0HngkfdBI4jPLBPGpqwy8cvcutX7g4Iogq0vehEjPjNdxaGV1bEdAnlans4QSw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+MYN3M+l+otkZ7gCuRCjxEPRT21/QKBtNsu/yXZxWrsQ9OlG7b
-	dZKyX6TFxniHqlct/hr8bF3vrQKa9M0IU0sL25MUcJWnay2eUgeEVyV2fsJsLNJBRFXcZTvlaUC
-	D0P5iBafqgdyF6wtYQ5QnO1GUxN6L/iA=
-X-Gm-Gg: AZFdTZcXbJ07hSMf6SDfyL45EA/0hE4ZPELoB76eerojpEUCZwqHAKK58ywEmd0VnFs
-	+Fq03XynFkcnWXMcAVAJFk9GHxf2sXhlOSJO4kKABGrSHezQ8BmiV2+gPPmAdVPnkaMhnqxrGtA
-	ozpu2RfXdWkMij64Fs9kLqE+q+AajiJJEwNLEPKhkiK/E7SKOe+K7+qwcgLIoon6oCmXOz/QcRG
-	1BhK65LephzWHwkHfdheE5Y3S5CjEjIrFCErvOHy3aaDrV0gRYgvFDo+4ZcAT6vXC2Qp3aM5PGT
-	sVMFXAP3DsUd9/P4TJP/SdGw7W+a93QzMIB90kXPYlC+kYfKIZTgdK4PCdU5gaOEBL9Nvg1ggyd
-	a4R2xDRYN5AC8QxDnXmyB5q3KCEk8Ha82s4rSB5+RmNg7WNUX7AC3g4qixrCY9KcU5epi8mkl
-X-Received: by 2002:a05:690e:400c:b0:67d:e6f2:bd03 with SMTP id
- 956f58d0204a3-67df445191emr2111759d50.68.1795208171883; Fri, 20 Nov 2026
- 12:56:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOgX0mLj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A42101F000C4;
+	Fri, 20 Nov 2026 21:01:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795208484;
+	bh=W5goPGg+WDIckAjo0y+m2U6zzWKb+HVqL7jjH8fkywk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GOgX0mLj54E9H90rvK6W0y+jRPmLdcrlX+0ZhEVqNgkd0nRgvqmtDHCmboKD9fpFK
+	 s/iscvIH6Y58jhFrxmY/jxNyrvzylLSOCb8YrN2E/IsOq5SkSZ2WWaUgIY0FQ1O4RB
+	 ls9tXQFhzJs1R1eZNmyqBPw3M34GcVN4XX/rZxy6vvMnCsuvrj8o7/4fyDV5iINLQi
+	 iwQ4yjGIVGez1zjcalCy1kFe2KbPnmLfg+4Um8V6CB60etK5YIobQFugfSxU8P3nui
+	 /q2Cxa/FzkK2EvXwkwjlSfQiME1H6qFbv4rEHsuQ7u36qeMwrU1xdfvhJ0owXLMSGq
+	 RfDPieHKs6zxw==
+Message-ID: <cd61f39f-db93-4f37-9836-7a81f7a82f9c@kernel.org>
+Date: Fri, 20 Nov 2026 22:01:15 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,57 +51,183 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com> <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
-In-Reply-To: <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Fri, 20 Nov 2026 17:56:00 -0300
-X-Gm-Features: AclHuK-JVUrfgyiwI_LligE5LfOLOoWTobSTFnbiJh9-3VT0Gl2CvuUWo8aq-Us
-Message-ID: <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
-Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
- support for RTL8367S-VB
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev, o.rempel@pengutronix.de
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/4] net: skbuff: limit folio refcount when copying
+ skb frag references
+To: Stanislav Fomichev <sdf.kernel@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>,
+ Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Rik van Riel <riel@surriel.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, stable@vger.kernel.org
+References: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
+ <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
+ <awBy7PoxdEMEGWyW@devvm16445.scu0.facebook.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <awBy7PoxdEMEGWyW@devvm16445.scu0.facebook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Mieczyslaw, Oleksij,
+On 11/20/26 17:21, Stanislav Fomichev wrote:
+> On 11/18, David Hildenbrand (Arm) wrote:
+>> Various networking features copy frag references of an skb, for example
+>> when unsharing a cloned skb (AF_PACKET trimming a clone), when copying an
+>> skb (nft dup) or when building NFQUEUE messages. This is an effective
+>> way for multiplying folio references held by an skb, allowing for
+>> exceeding folio refcount limits.
+>>
+>> This is not specific to large pagecache folios, but with them it is a
+>> lot easier to reach the refcount limit, as page table mappings can cheaply
+>> create many references.
+>>
+>> Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
+>> try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
+>> skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
+>> and their callers handle that.
+>>
+>> Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
+>> Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
+>> Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
+>> Cc: stable@vger.kernel.org
+>> Acked-by: Pedro Falcato <pfalcato@suse.de>
+>> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>> ---
+>>  include/linux/skbuff_ref.h | 53 ++++++++++++++++++++++++++++++++++++++++++++++
+>>  net/core/skbuff.c          | 35 +++++++++++++++++++-----------
+>>  2 files changed, 76 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/include/linux/skbuff_ref.h b/include/linux/skbuff_ref.h
+>> index b6f6da556ee90..560ddc863bbec 100644
+>> --- a/include/linux/skbuff_ref.h
+>> +++ b/include/linux/skbuff_ref.h
+>> @@ -44,6 +44,33 @@ static __always_inline void skb_frag_ref(struct sk_buff *skb, int f)
+>>  		       skb->pp_recycle);
+>>  }
+>>  
+>> +/**
+>> + * skb_frag_try_ref - try to acquire a reference on a paged fragment of an skb
+>> + * @skb: the buffer
+>> + * @f: the fragment offset
+>> + *
+>> + * Like skb_frag_ref(), but acquires non-page_pool page references using
+>> + * try_get_page(), refusing additional references to a page whose refcount is
+>> + * at its limit.
+>> + *
+>> + * Return: True if a reference was acquired, otherwise false.
+>> + */
+>> +static __always_inline __must_check bool skb_frag_try_ref(struct sk_buff *skb,
+>> +							  int f)
+>> +{
+>> +	netmem_ref netmem = skb_frag_netmem(&skb_shinfo(skb)->frags[f]);
+>> +
+>> +#ifdef CONFIG_PAGE_POOL
+>> +	if (skb->pp_recycle && napi_pp_get_page(netmem))
+>> +		return true;
+>> +#endif
+>> +	if (netmem_is_net_iov(netmem)) {
+>> +		net_iov_inc_ref(netmem_to_net_iov(netmem));
+>> +		return true;
+>> +	}
+>> +	return try_get_page(netmem_to_page(netmem));
+>> +}
+> 
 
-On a TP-Link EX511 v2 (RTL8367S-VB, family D), with v12 on top of the
-rtl8365mb DCB series, an untagged frame that the switch forwards to a
-port where its VLAN is egress-tagged leaves with PCP 1. With v12's
-family D code before the rebase (v12-pre3 in OpenWrt PR #19644),
-without the DCB series, it leaves with PCP 0.
+Hi,
 
-Test: a VLAN-aware bridge with lan2 and lan3 as untagged members of
-VLAN 100 (PVID 100), then lan3 made a tagged member ("bridge vlan add
-dev lan3 vid 100 pvid"). 100 frames per case sent into lan2 and counted
-by PCP behind lan3, over loopback cables:
+thanks for taking a look!
 
-- untagged: all leave tagged with PCP 1 (without the DCB series: PCP 0)
-- tagged with PCP 1 or 5: the PCP is kept
-- lan3 untagged again: all leave untagged
+> I don't see you removing original skb_frag_ref implementations after
+> the conversion, any specific reason? 
 
-CONFIG_DCB is not set, so only the baseline from rtl8365mb_setup()
-runs. The untagged PCP register (0x0851-0x0852) reads 0 in both cases,
-while the port priority (0x0877-0x0878) goes from 0 to 1 with the
-series (IEEE8021Q_TT_BE, set by rtl83xx_qos_init_port()). So on this
-chip the PCP added to an untagged frame seems to follow the frame's
-internal priority (here the port priority), not 0x0851, and untagged
-traffic leaves a trunk as Background (PCP 1) instead of Best Effort. I
-could not change the port priority to confirm it (no CONFIG_DCB).
+As explained in the cover letter, I want to get these fixes here upstream asap,
+to backport them alongside the core fixes that already landed.
 
-The Realtek API in the board's stock firmware points the same way: for
-family C the PVID is set together with a priority, written at 0x0851;
-for family D, dal_rtl8367d_vlan_portPvid_set() writes only the VID and
-rejects any priority other than 0, and dal_rtl8367d_qos_init() sets
-the port priority to 0.
+The focus is on the skb users that allow for multiplying folio references easily.
 
-The rest of our tests give the same results on v12 as on v12-pre3.
-Tested on OpenWrt's 6.18.44 with both series backported (PR #19644).
+> Do we still have any skb_frag_ref
+> callers left? 
 
-Thanks,
-Gustavo
+Yes, after this series there are still some left. Primarily ones that are not
+considered harmful for overflowing the refcount. And some of these require a bit
+more work to convert, like skb_split().
+
+> Maybe at least you can make skb_frag_ref do 'return
+> (void)skb_frag_try_ref' to avoid duplicate code?
+
+That would be bad: calling code would assume that it obtained a reference but it
+actually didn't.
+
+There is some headroom above the folio refcount limit to allow for such harmless
+users that are not converted yet. The immediate problems are the users that
+allow for unbounded folio references.
+
+> 
+> (optional) Also, an easier way to migrate might be to make the existing
+> skb_frag_ref return bool, convert everything, and then add __must_check.
+
+That would require teaching all callers about handling errors in one go, because
+callers would otherwise silently ignore failures. That's nothing we can
+backport, really.
+
+I agree that as a follow-up, all code should be converted to use a single
+function that can fail.
+
+But that's nothing for this series that focuses on fixing folio refcounts in a
+way that can be backported.
+
+Thanks!
+
+-- 
+Cheers,
+
+David
