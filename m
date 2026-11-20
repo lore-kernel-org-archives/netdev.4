@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168548;
-	b=C/tNZLnn2RfpDey0cf5wH04Vl4fXOy8d+Y4RdsS8Ag0dSf8tMKPXTpK2VUEH0cMq3Zsh
-	 92AYKNFeJ9QY7sYFnzaSQE9ujkaltxwbxTc6PEcYEx/2NDOljbGnm41e4LatQEORHkfSk
-	 EBb5fjT+jSZH4y4hRejsbbjExi9hHNn4DTqDQyhKY/zN66gy1TgZ4gMGYuAxMN0xGoqF+
-	 M6YiIuyNC/XH6ixC2qhAPGf2+GNdz9HsbNtR4lY/iC1mzRqSZAz6HT+Pl4mH0pkYwyWhb
-	 XKnqkRLbEW4OSAibiS4dffQaiw0a+9QlmDOJl0vAcdlEkk39Hp3Ht6i0/NiLH2aDVjA==
+	t=1795168664;
+	b=0Vdds9NeMG1gx1/vW1GZaRVBTEeKxC4+0jkhorgKe8Kcddq+nxW89zFXkjmf7yr/xrGr
+	 7Ffxnc/WcZRKvmalplBOMeq+Y1El29gWtw169ZSXnbW7ewVMpwnhILPiOc1CRqKXVsPBl
+	 Twk9ODg7nYOCnbj4IQp4fLnHAfdASoZsVIomaBwLRA9baYjatffPsZ+9IZeCc3i87iOcV
+	 mLdAcZmalPDuaIZVjd/8zr2hjiiLQ4lVacdJCJUKByxPx271UfcDA/MBtNFHIrA5RiTqA
+	 6g1GMg4HL+Zk3bO5XhQf3A5oraKxFuV6uHuu48jAPdu54x6ttvGFHfinrbfCbcZPcqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168548;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=bzSpylSust8zsOiq5a5Yx/S+WNuvA9odAskEU/uVse8=;
-	b=aQ13u4Pk5kC+rz9jVjysSUKQlftBPcmaypU4CxpcGdWLpY3eUi1M1Msbgt/3XHxVSGRu
-	 4nnuXr9Cr0V/9Ufb1hQpTtTGUeNCBaVRD2SBkhTrcmiYmvvb5LagcRq0je0oFrjsYna/P
-	 3LmW6yQcXlRm1IAnJ8BU9LS3lw9XhPGO2iGzrVd6M1moVN8n2wNRn/NNTlnhe8/9TJ2W2
-	 DNmaZEiPIMoiou2ul7kQyRtRq/Z3VN2u9nzOI2Za0xulb1eZ9Ux0Hu8EUZXCp8wk9RaCb
-	 hAZRqa1NISCH9n49Qu5po5hIXwUgGsIo489JtAOq07jGu9oXkqOFKDr2yP4V+uzS/nQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168664;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=US+BwjsBu2YGs4iPWGc7Xdq/wpYAMCQoXR2jUtQoE6E=;
+	b=syCAF3tW8nzoTMkCX1mEpvxu/mYw2eKVGWK+3uRG0fR6mfOVifxED4RriuzmoAkgNtGn
+	 PfHu07i5VDzg6bNM4KQ7hJhBsYwByvispzTkSdcrr7KDPbEkRCInY1NgeV7IlAYgKD1MX
+	 dU4+ozpt6tnhVlND8zedHIefUW2q7C9Ago6e8kjCmY9WAqmv1lOLqwsFfW7e7Y2KS3Fe9
+	 wkLwyGvavIWjz9fXOPxR539YM0YVfBSRmYZftwbOwoGuwagWFGj+vOyZdLwo2w0IinMUH
+	 SNigyXdls7AqWSl4oWH1qV0FjX+dVxx127BaDPoeIRCq8pdkn0OPlTHEgmHg8Ne6d2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ybHrM3G8;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clpYv4nf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 072AF606A325;
-	Fri, 20 Nov 2026 09:55:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 072AF606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3389E606A320;
+	Fri, 20 Nov 2026 09:57:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ybHrM3G8
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7A948A161B;
-	Fri, 20 Nov 2026 10:55:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795168544; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=bzSpylSust8zsOiq5a5Yx/S+WNuvA9odAskEU/uVse8=;
-	b=ybHrM3G8Es0UXB4kDGLW02bmW3fQCCYfu0g5kQWjsgFg1A6y5lFqq1/2I3mw2kx098zZhu
-	wkSHl8aPweNq5NQdAu0mHn6KrzJEOI5ypBY3qY463+Qv0TLgKgkMQp7mh3aDhIAgBuaExR
-	uLrBY9vDvhEATTYVL0pYLo+qpKbLnOeCMPwjzu5z70nFIJC+Bsy7gUELp113AItnwoN91J
-	w/QenQtTtTJIxNSF0VwbVSsBJHcyG8uG6sEnX9YU4//GWf58j4ijPpXZRco1xKBAsIPY1u
-	k1cwPviKh+UquxhmG5wB5QWC8EhpQ8T7k96mePnGZiPBHpheGJXDoRbV5s818Q==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clpYv4nf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B161F000CA;
+	Fri, 20 Nov 2026 09:57:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795168663;
+	bh=US+BwjsBu2YGs4iPWGc7Xdq/wpYAMCQoXR2jUtQoE6E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=clpYv4nf7GoRQgSzznc2rvcK1WJk2g6BZeRgeLlN/EqEoj9aMQbtcGbmNUqwvfUhx
+	 LbSiYfDczBc6J7XGGTObjzBJPhpvPyEBAOHv69laqE0zi/4u0JV6nWPkrLvrvd6hHP
+	 Y6QpmtSIUtqA1EZqlbzlnbzSqZe2iDSZeVpYLcqMpUmOwaEfGmTcYFbokGkmQWi2Lx
+	 z/XGdDS16hb36EF9zk6iyRcO15vU+yfqJ1T9rOi4oIqzWRRDucyWDWwYy/rZMPjRVT
+	 PD4bkkJMDbjWQrBQVQX0G2rfXYBh2HBPDrM2Zm0IEdAPlzQ2rDOKA/ybnsSefWLOkt
+	 0fZOFFPowLENg==
+Subject:
+ Re: [PATCH net] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+From: netdev-bot+sashiko@kernel.org
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, weiwan@google.com, soheil@google.com,
+ shakeel.butt@linux.dev, linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 09:57:42 +0000
+Message-ID: <179516866272.3136.232647069823092530@kernel.org>
+In-Reply-To: <20261119090828.343748-1-jiayuan.chen@linux.dev>
+References: <20261119090828.343748-1-jiayuan.chen@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,41 +64,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 10:55:41 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, justin.chen@broadcom.com
-Subject: Re: [PATCH net-next v8 9/9] net: bcmgenet: reassemble jumbo frames
- from status block fragments
-In-Reply-To: <179511155924.3136.1351414693099706913@kernel.org>
-References: <20261118-nb-genet-mtu-nn-v2-v8-9-68f75eadf3e2@tipi-net.de>
- <179511155924.3136.1351414693099706913@kernel.org>
-Message-ID: <91a0366dbd8ae1fd05dec740a644e2c6@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-On 19.11.2026 19:05, netdev-bot+sashiko@kernel.org wrote:
-> [...]
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-> [Severity: Medium]
-> Can a continuation descriptor that holds only its status block ever end
-> a frame?
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Checked this on a bcm2711. Threshold is 3584, so I swept the boundaries 
-at
-3582, 7166, 10750 and 14334, over the wire and over UMAC loopback.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-All frames came back 1:1 and I didn't observe length or fragmented 
-errors.
-EOP always lands on the descriptor with the last data byte, so a 
-continuation
-is never empty.
+- [Medium] The new sk_forced_mem_schedule(sk, 0) only runs on the success
+  path of skb_zerocopy_iter_stream().
+- [Low] In tcp_sendmsg_locked() (net/ipv4/tcp.c), the MSG_ZEROCOPY branch
+  only pre-schedules memory when the skb is not pure: `if…
 
-> [...]
+--
+
+tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+
+The MSG_ZEROCOPY path in tcp_sendmsg_locked() can append to a skb that
+already holds copied data. In that case only the user length is
+scheduled, but the pinned pages are charged by truesize. This commit adds
+sk_forced_mem_schedule(sk, 0) after a successful skb_zerocopy_iter_stream()
+so that sk_forward_alloc does not go negative.
+
+> diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+> index 832b25ddd3c2e..9f8c0954001bb 100644
+> --- a/net/ipv4/tcp.c
+> +++ b/net/ipv4/tcp.c
+> @@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+>  			if (err < 0)
+>  				goto do_error;
+>  			copy = err;
+> +			/* Pages were charged by truesize, not by copy. */
+> +			sk_forced_mem_schedule(sk, 0);
+
+[Severity: Medium]
+Can sk_forward_alloc still go negative on the error path? The new call
+only runs when skb_zerocopy_iter_stream() succeeds, because the
+"if (err < 0) goto do_error" check comes first.
+
+In skb_zerocopy_iter_stream(), the truesize charge made by
+__zerocopy_sg_from_iter() is undone on -EFAULT only if ___pskb_trim()
+succeeds:
+
+net/core/skbuff.c:skb_zerocopy_iter_stream() {
+    ...
+	if (err == -EFAULT || (err == -EMSGSIZE && skb->len == orig_len)) {
+		...
+		if (!___pskb_trim(skb, orig_len)) {
+			skb->truesize -= delta_truesize;
+			sk_wmem_queued_add(sk, -delta_truesize);
+			if (!skb_zcopy_pure(skb))
+				sk_mem_uncharge(sk, delta_truesize);
+		}
+		skb->sk = save_sk;
+		return err;
+	}
+    ...
+}
+
+___pskb_trim() fails when the skb is cloned and
+pskb_expand_head(skb, 0, 0, GFP_ATOMIC) fails.
+
+Suppose the write queue tail skb is not pure, so only copy was scheduled,
+and it is cloned. If the user iovec faults after some pages are pinned and
+the atomic allocation fails, those pages stay charged by truesize. The
+caller then jumps to do_error without running the fix-up.
+
+A later non-zerocopy sendmsg() under tcp_mem pressure would then get a
+negative copy back from tcp_wmem_schedule(). That is the same case the
+commit message describes.
+
+Would it work to call sk_forced_mem_schedule(sk, 0) right after
+skb_zerocopy_iter_stream() returns, before the error checks? On the paths
+that do undo the charge, the call would do nothing.
+
+[Severity: Low]
+This isn't a bug, but does the new comment hold for pure zerocopy skbs?
+Earlier in this branch, the pre-schedule is guarded:
+
+	if (!skb_zcopy_pure(skb)) {
+		copy = tcp_wmem_schedule(sk, copy);
+		if (!copy)
+			goto wait_for_space;
+	}
+
+__zerocopy_sg_from_iter() also skips the charge for pure skbs:
+
+net/core/datagram.c:__zerocopy_sg_from_iter() {
+    ...
+		sk_wmem_queued_add(sk, truesize);
+		if (!skb_zcopy_pure(skb))
+			sk_mem_charge(sk, truesize);
+    ...
+}
+
+So when SKBFL_PURE_ZEROCOPY is set, no pages were charged to
+sk_forward_alloc. sk_forced_mem_schedule(sk, 0) is still called anyway.
+
+In that case it does nothing, unless sk_forward_alloc is already negative
+for some unrelated reason. Then it would force-charge without any warning
+and hide that imbalance.
+
+Could the call use the same !skb_zcopy_pure(skb) check as the
+pre-schedule? Alternatively, the comment could say it covers the non-pure
+case.
+
+>  		} else if (zc == MSG_SPLICE_PAGES) {
+>  			/* Splice in data if we can; copy if we can't. */
+>  			if (tcp_downgrade_zcopy_pure(sk, skb))
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119090828.343748-1-jiayuan.chen%40linux.dev
