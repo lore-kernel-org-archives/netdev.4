@@ -1,58 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170188;
-	b=KP7hToCJwWK49685l+jYU3e3tos9aR2PCDzx9/73YxF0UUVvl6183ui6R4wfu9g85PaU
-	 7mVG2vxfTVXUS+ybV59c7ROEq5SvBqlCO5pZPeFDO3MNDt7KNgTRuEizBzzs56MRDiw7A
-	 q4XGmERZDitudIgfTAh1jLzjXZrj+5Idkpskk8Cj+utZwjFhnNfPy4K1GkXwgls20zGRc
-	 oF9xC5ULlPHnhH4PQZ9MHYkUirogRXdJcnwKAcsJgb4xq9TGUfZNmzZ3ckU/z/056abOx
-	 0EGkCkATyFWbq/lS9pDzL06RNPquAxTgBkNY9XI94hnyKfIy394g3gOL/ACyjFAUU6Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170188;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=l0oOPOqoS6O4eTceK2XRqL1eFQ1+GtanbURyb8V/HdM=;
-	b=xUXGehp8y+00NMW7qa628kbWdFh7GqjbVyuWSFvnjZlWnywhz6Ds+tdz60oltS/+M8C9
-	 t+ZR+Xsk28gVDsRJ1IaEaNuFZdXTFB0flNEe25dw6MMGMR4NGwN2BxygC7OwIbJ82Uaxu
-	 IU83aQFoyxrRI7WZX4H5HBDtfCbboZD8PeLNkqv4LMIo3wzHy/PazGY6K+Fu8/0fVbZNp
-	 6k7+RtV8Ok1+R+eyodhdugPuIFi/IjgMzVE2b/yrDsh53Sepel1+fXOMIypAisjHHG4tL
-	 hpSPcQOx3dxAj+2s7khuTn/h83AMSzQylXXn5eFsL8D5fuskwEDimdqRi2voQ277qBw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="ahd7y3/K";
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795170242;
+	b=zK6FuTZFlRFB2gg103LDfWR2PDl237SvGIK3/N5l1dD1YNdZ+jnI25cuTn0KC7a9nLK9
+	 mMGu0lXDf3DZLysSti9zMxmS8c+40p83AOn3r/8uX4FsVJHXXJIB1MkVeyFl+VshSHs/v
+	 YgXFXJU17p3XPVWUcsDQlk8jnSPBOOzbaNip37IAD8ucrZ6/6lviYaI5spfD/SbIVvZoN
+	 YK4iZjICmDxee+C3387A+SFh92Qqle6fkhJn4jacf7fxu6hnWiswPYCu2ShXdHKADOcsl
+	 VOcPW92ZEPQYOYsWS0Gn2jChuKF2eGE6S5Eqf5NB/3OPZLx3KYzWOSjZPWycd2/dNIg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170242;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=l8OZaZuTRSXwE+XBNWMHBSQi6ZAfjYJlC0IBxUgqIMU=;
+	b=vQYx4upDJj9C8ZeeliFofVAlHz60F14a1xEvSjsGEXiSZIxVxlI3KCIOYQnsLd4WR2Ad
+	 fkXRqHauh96Yn2UocqZzqpn4bBSDslyZYiO+1upJy6TGTXqI882OuZPorAPwRuNAVIyzm
+	 52EIjWfJz/LwQ+L5Cs2m89zpF91gYbuGVwMxyNpvwfUl+WziU4KYZQdB6oAF0XRor8aZh
+	 m8FoGYbjFwlVJXX2JpaeX8u0/IgvtTUjMpuWPCuXmYgHI2CC3yTwj7ZuBKd2dnJ8vih8q
+	 o9ukbYLHuehEBUd/YF/E8ocg+oXptw5i2/yMPBXYhSBbjBsRrPMrlrilZMpXCKnUyOw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=EnqK7HkX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 953B2606A320;
-	Fri, 20 Nov 2026 10:23:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 953B2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58BB3606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:24:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58BB3606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ahd7y3/K
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D55FA1A173D;
-	Fri, 20 Nov 2026 10:23:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9FD656017D;
-	Fri, 20 Nov 2026 10:23:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4C9E11BC12B8;
-	Fri, 20 Nov 2026 11:22:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795170184; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=l0oOPOqoS6O4eTceK2XRqL1eFQ1+GtanbURyb8V/HdM=;
-	b=ahd7y3/KRLuGXbKFuJU+sxd+SulSkEpFUj0w5OZpcYq5//6lLr9VGTmhC5bn1uNU34NAFQ
-	VgMt1quyUhSy/wdHc6zIdOlgPHtlRkc8egnwFMyV2IS/Tb9i+qWitgDT0rjkcMlO2/FgE0
-	+yJtKtQbgPFvWRA5jJRxVWPgmpG1SVOB8PXKmwdia1f3KT3MaIjDwIWhtEH7+hKrPoRHIv
-	HNPRjRYbVxc7PWTBTiYblxaDqOpob+PAg1ig0X+T9oNuuU5HrLqeZ+K1s5ZXClDSeXGfbl
-	t6xJTj64pdfciybVB7yE5UI1JOS40s0qXFGUYDBda26jPjV1149d4nh9LCXtHw==
-Message-ID: <4f7183c4-5a59-4c4d-8f33-a307fad4d7e3@bootlin.com>
-Date: Fri, 20 Nov 2026 11:22:55 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=EnqK7HkX
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8c700d6cc0bso1084557b3a.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:24:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795170241; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G7kpCZIAnd96V24857Qfl9PHK6WMUDmJnMMh707A2fY5EE16EyhfYZos3sx3ry+OtD
+         xED6Hw1XEZwff6LQoDtGhXz/zyCGbCEdtvYmqlc9yt+j+gHreqqKi6bY8BdcmFfBSESq
+         1TCYOLhE/SAGrb26ssTDKdYMfOww/FArBJl4jGSIiK6i7bennUzs2g6+cECepTeiGjkD
+         5kC876XAXshO2u6MKlLkO1mrC6Cz4iJRlR+CkM4ePr4siyAbQ1PkoQ2yg4bFc5f9Azyj
+         4kI9kUFpEU7UtMoKXnC4/14sOw8rhNXki0WU7TpD1xa+clsFj5oPPmeRS7Ue+Ej02Phw
+         QCCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=l8OZaZuTRSXwE+XBNWMHBSQi6ZAfjYJlC0IBxUgqIMU=;
+        fh=/JIN5wWHz+G54Bu9ieQGlWMgJnMxjFyVJb1ZL8lP5C8=;
+        b=FgafnZyuswCGDpjpIXYYzDrvmLl3x3jg/gqAsscp27QMzEHCPh2xah+RfrRKRDpogj
+         VDMfFpwLEAXoNue+oPbnTTWnJOoh6g6O19xD025VodCSel95G/MvD66PwM/7F0pgM8iz
+         gd2B+DoJuVlHcW6TJ/4W5LXnlzjbuKyEqN/BauRFzQxFuRTBM1q7Pj7S04AdPnTJU9GK
+         /BCsfb3wMz7e8cw1Pj2Rfmy8cQd/23YGSbywhukEYqb/m3WK/8BABqsATGS2Zy597ssp
+         3rLddq2Q4BrH7Jk6oygISXSHA+7payQAjS0EApFH6QEgAPLicacmEsWISuccZ1IWjU6m
+         URhQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mojatatu.com; s=google; t=1795170241; x=1795775041; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=l8OZaZuTRSXwE+XBNWMHBSQi6ZAfjYJlC0IBxUgqIMU=;
+        b=EnqK7HkXV4JMkwZzUoD1n9df5Yb4GgrxRydt5bPKL223c8+YcRi15Xt5qGllawfpNP
+         muzRUlcsV9WhP3yuhl3CRu2fzIi+TJtoclv1dOsJCcAoU5wRlCQPBDrDEIeX7wW3Q1Tj
+         6UWFCsGRstmHBXj6QTM3X71/0cwfaLIkR8MaU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795170241; x=1795775041;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=l8OZaZuTRSXwE+XBNWMHBSQi6ZAfjYJlC0IBxUgqIMU=;
+        b=KVi6gkGx4X3LdUabUSqNBBoNICRphCfOjB29yWEgfSib6yQeOk2qovfM1lQl7mNfr7
+         53LtykGE4GOCmXCH44FBbdCn5YbKZBPDstBUPxl8y+n0OjC4ZvfiwAgt3vI25R1ierUw
+         4m4/ckpsmR+xtAi4MRfhbRhVf23V9bVnGe2TJ62zWIZUgmfKE03Knv4y5en/4ORzR646
+         TRdSsywcyHx3IKOFnNEIsbI1EdcFKKEyXbnSsEYjznV2Yo14dB1OwINANXsIFZC56ZEr
+         VseYLawsa9WykJNKtPAu6OzTNWfqlN4bePCePuSnYwi3Xk5RrSVk7clSF5DqMOIXWumh
+         Tk/g==
+X-Forwarded-Encrypted: i=1; AL+hErEAQdoKzM4H5iz+18VP+j/jnjtYn2Zo1mXQlrnMgm81sryGIUERV42Dwwuxg4y65X1umfvOLg8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/wiJuNuKmrpBpnLKBDYLTvVh7b12EZW2Ez1w9TKv/bCZLqbwn4
+	ZyPKB18h0CDt+Hz1EwBOR99zc0NXyWHaxS9CDK9IGvZy78gwmleGPKUPGrWGW8Mm4k+OYVspLPn
+	NvMBZrz4ARDH5mSarIKSuiKUl+PVvpewZ8Vzctp1lS+oCzunU8n4=
+X-Gm-Gg: AYBFou0T5Oq/tVKQ398Gs9uAhZPUoJTab8JMMfzmXf40m2R0iWgA9hIivE9ctJ0/HMN
+	ekIfun0IsYs+0h7bkPGG/PfCNfVrwzmdrhWHjDHUpHLqhoP0ajitP2md31NaJtTss5DFnUFqtlQ
+	GL6t2OJtlLDoy8ZA4UD5M14c/ZbeBUX+RgonijdUCWu9q0aMKjWp0IRu49/pa9oP7QZ8qGnBYWq
+	2eyQWTIC5jmn8GkIHkDbVTLNJ2t8uCCOZ66ongvdZ2tz5MNFm/LEaDIe0meYYvg43dZZQ6jkUKc
+	pGIjTiwXLIbQ6f9ZzAniOG8smoRm5UY18qkjby4WJQqp752cQBmpXiDsbrM1hnBxD32T2jX4ZQg
+	+znkiwNuMto3GcZA6ViC7jV7NCeZRTQERM5+W/I7nLU+eNvmMeH6o/3aHLD1YITD2UtDjnSs2BT
+	pni6hsrttr1nHJD4M=
+X-Received: by 2002:a05:6a20:da12:b0:3eb:b2fc:bed7 with SMTP id
+ adf61e73a8af0-4014d35aab3mr1802003637.16.1795170241627; Fri, 20 Nov 2026
+ 02:24:01 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,161 +102,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
- from the descriptor
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux@armlinux.org.uk, lorenzo.bianconi@oss.qualcomm.com, nb@tipi-net.de,
- ovidiu.panait.rb@renesas.com, recv.jo@gmail.com,
- muhammad.nazim.amirul.nazle.asmade@altera.com, thomas.petazzoni@bootlin.com,
- alexis.lothore@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
- <179510815456.3136.11469597684415088@kernel.org>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <179510815456.3136.11469597684415088@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com>
+ <179511856597.3136.7846835490904436138@kernel.org> <CAM0EoMkppFKECwmjw+E3tWpXEL3=cyg2VYhgpL+StaSiQf+WAQ@mail.gmail.com>
+ <DMZJS8O5A4YX.9T2P4DT0DAB7@gmail.com>
+In-Reply-To: <DMZJS8O5A4YX.9T2P4DT0DAB7@gmail.com>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Fri, 20 Nov 2026 05:23:49 -0500
+X-Gm-Features: Aa3M54qRL4Ivjl9xk3_JYL8OAzBjPxDHeKoJxbXTubX9anSYCOsmGEkXxaVdsds
+Message-ID: <CAM0EoMm5qit+KP27XV_Q8hHik=KzzHVjSfLDJg161Jyk0xXBZg@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 4/4] bpf: drop the stale dst when redirecting
+ to an explicit nexthop
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org, 
+	daniel@iogearbox.net, john.fastabend@gmail.com, sdf@fomichev.me, 
+	martin.lau@linux.dev, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com, 
+	song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org, 
+	emil@etsalapatis.com, ihor.solodrai@linux.dev, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	bpf@vger.kernel.org, jiri@resnulli.us, victor@mojatatu.com, 
+	sashiko-bot@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+On Thu, Nov 19, 2026 at 5:40=E2=80=AFPM Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
+>
+> On Thu, Nov 19, 2026 at 12:29 PM Jamal Hadi Salim <jhs@mojatatu.com> wrot=
+e:
+> > This is still under discussion with Alexei  - so:
+>
+> Answering your earlier quesiton:
+> yes, a route for A is acceptable on a frame that leaves B.
+> bpf_redirect() and mirred egress do that today.
+> __bpf_tx_skb() and tcf_mirred_to_dev() set skb->dev and keep the dst.
+> __dev_queue_xmit() drops the dst when B has IFF_XMIT_DST_RELEASE.
+>
+> > I will consider this feedback if we have to resend the whole series or
+> > per Alexei's pov 1 or 2.
+>
+> imo 2, 3 and 4 can go.
+>
+> So pls consider adopting my earlier neigh_update_process_arp_queue() diff=
+.
+>
+> Need to think more about patch 1. It's probably ok on its own.
 
+That answers it, thanks. 2, 3 and 4 are gone (pending testing).  I'll
+send the guard as its own net-next change off your diff.
+IOW:
+- 1/4 goes to net on its own (Fixes: 94151f5aa966)
+- separate net-next, your diff + some comment lines
 
-On 11/19/26 18:09, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] This patch is a bug fix but carries no Fixes: tag, and the
->   subject reads like a new feature ("Report the VLAN tag type from the…
-> - [Low] The ET/LT macro names in dwxgmac2.h disagree with how the new
->   dwxgmac2_wrback_get_rx_vlan_proto() reads them.
-> 
-> --
-> 
-> net: stmmac: xgmac: Report the VLAN tag type from the descriptor
-> 
-> This adds a get_rx_vlan_proto() desc op for XGMAC. The op decodes the
-> RDES3 ET_LT field and reports either ETH_P_8021AD or ETH_P_8021Q as the
-> stripped outer tag type. vlan_rx_hw() now uses that op when it exists and
-> keeps ETH_P_8021Q as the fallback.
-> 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
->> index 6719ac6e395bc..71ce2bc9b5e11 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
->> @@ -76,6 +76,18 @@ static bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
->>  	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
->>  }
->>
->> +static u16 dwxgmac2_wrback_get_rx_vlan_proto(struct dma_desc *p)
->> +{
->> +	switch (FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3))) {
->> +	case XGMAC_ET_LT_VLAN_STAG:
->> +	case XGMAC_ET_LT_DVLAN_STAG_STAG:
->> +	case XGMAC_ET_LT_DVLAN_CTAG_STAG:
->> +		return ETH_P_8021AD;
->> +	default:
->> +		return ETH_P_8021Q;
->> +	}
->> +}
-> 
-> [Severity: Low]
-> This isn't a bug, but the macro names in dwxgmac2.h don't match how they
-> are used here. The only comment on them is:
-> 
-> drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:
-> /* Error Type or L2 Type(ET/LT) Field Number */
-> #define XGMAC_ET_LT_VLAN_STAG		8
-> #define XGMAC_ET_LT_VLAN_CTAG		9
-> #define XGMAC_ET_LT_DVLAN_CTAG_CTAG	10
-> #define XGMAC_ET_LT_DVLAN_STAG_STAG	11
-> #define XGMAC_ET_LT_DVLAN_CTAG_STAG	12
-> #define XGMAC_ET_LT_DVLAN_STAG_CTAG	13
-> 
-> Read outer-first, XGMAC_ET_LT_DVLAN_CTAG_STAG means an outer C-tag, yet
-> dwxgmac2_wrback_get_rx_vlan_proto() returns ETH_P_8021AD for it. Likewise
-> XGMAC_ET_LT_DVLAN_STAG_CTAG falls through to ETH_P_8021Q.
-> 
-> The commit message says "note inner/outer is reversed in the macro
-> names", but nothing in the tree records that. Could the macros be renamed
-> (for example XGMAC_ET_LT_DVLAN_OUTER_STAG_INNER_CTAG), or could a comment
-> in dwxgmac2.h give the tag order? Otherwise a future user of these
-> constants could easily invert the mapping.
-> 
-> If the names do follow the databook's outer-first order, the mapping for
-> values 12 and 13 would be inverted. That can't be checked without the
-> databook, so it would help to confirm which reading is correct.
-
-I don't have the databooks. The AgileX5 doc is pretty clear about which
-value is what though, we could rename the macros but that's not very
-urgent IMO.
-
-> 
-> [ ... ]
-> 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
->> index fb9aad748cb34..bf23d82e9f383 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
->> @@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
->>  {
->>  	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
->>  		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
->> +		u16 proto = ETH_P_8021Q;
->>
->> -		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
->> +		if (hw->desc->get_rx_vlan_proto)
->> +			proto = hw->desc->get_rx_vlan_proto(rx_desc);
->> +
->> +		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
-> 
-> [Severity: Medium]
-> Should this patch carry a Fixes: tag? It looks like it fixes a
-> user-visible regression on XGMAC.
-> 
-> On XGMAC, __stmmac_dvr_probe() advertises NETIF_F_HW_VLAN_STAG_RX and
-> enables MAC-level stripping by default:
-> 
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:__stmmac_dvr_probe() {
->     ...
-> 	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-> 		ndev->features |= NETIF_F_HW_VLAN_STAG_RX;
-> 
-> 	if (dwmac_is_xmac(priv->plat->core_type)) {
-> 		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
-> 		priv->hw->hw_vlan_en = true;
-> 	}
->     ...
-> }
-> 
-> stmmac_fix_features() also keeps STAG_RX tied to CTAG_RX on XGMAC.
-> Because of this, every frame with a stripped 802.1ad outer tag went
-> through the old vlan_rx_hw() and reached the stack labelled as
-> ETH_P_8021Q. 802.1ad VLAN uppers received no traffic and QinQ between
-> hosts failed.
-> 
-> The sibling commit da17990421d7 ("net: stmmac: Disable S-Tag processing
-> on dwmac4") describes this exact failure and carries a Fixes: tag. Its
-> message says the dwxgmac2 side can be fixed using the RDES3 ET_LT field,
-> which is what this patch does.
-> 
-> Without a Fixes: tag, stable trees that pick up the dwmac4 half would
-> still mislabel S-tags on XGMAC. Would this be a suitable tag?
-> 
-> Fixes: 534df0c1724b ("net: stmmac: dwxgmac2: Add support for HW-accelerated VLAN stripping")
-
-That's not strictly speaking a regression, I'm ok sending this to
-net but I'm not sure this is worth.
-
-Maxime
+cheers,
+jamal
