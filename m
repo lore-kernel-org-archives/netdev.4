@@ -1,60 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795152922;
-	b=dgX7UCY4rxm7xRUYo9aMxXQzWgjPb6tgV7P2sj0IrSBz8XMhWgkHdyqoSVmc1BgJt5f1
-	 hOtvPbIJcMqgB9AsJiJk69ZuSJ+fQCzlAgm9yIso9Dv2TNntZcMf+pNoCExx8RDnF1Kdm
-	 aN4Mj/mJRjc0jm4SeZzfxK03Us9SJnSkxVkNAGcIOs9zLeto+MSZkJs1bWK2HyhMClg25
-	 eV34OspKJOYWNE+VpMnvZkg0Z3Tq1JoCEN1J2VyxVKZFCBEFitihsOah8z6DCaOvPoRb/
-	 Rgfw2rQBvQ77+6WaGNlwL/5qlWDWMkbQQNzRW/MDaerY5JZuE55xVo3LosHWC5brSPQ==
+	t=1795153113;
+	b=iy7SnhfCdEJbE+Fcvm5z+kZWkbjGzZklOeR0EUhwTrvuaaEtO6rU/FGqeH641hSiW9Px
+	 9yot5R9h6OuOjYNYSVb/1oVOKsmzV1E5aJNVW+z0z/Vnoc/ZbKake+8/NyBuu3APVC8Lw
+	 RUXjjSatRy1AsNTYV1v6IdtVrc/6stnPJ16vSdaSZILcioBozaY8ZsW+/rvXMG21NFX0s
+	 QX360V1d6lDsT8QCd+2vCOMUEpML+/mI4YVLKU8p86UftkN2plCWCyfkNwWJGXr31lwOE
+	 JN0uvAow3j98YP1fzVQY4b8uWVj4Eyq1PDVqYmdYhXzLYq9E1yQkIjm18mpem0q1hSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795152922;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153113;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=6NmKnHRU/piT4HLG2fbbtf+VrhiQ2Ne2vhyFekILWNQ=;
-	b=HHWK1Pm0BYzsQkgg/54puDdcHi4V0ZaeiMmy5WdfavebaL+dkmX6FcoLo9vnyhz+KO6i
-	 J9KebPX2dAn1jVAtI6sv8eBaV65kqNPjtp3kWcvk40mcqljAj5SuwS9gHZECysXqtWYpz
-	 +5Aj9DcDdgKXfepZMshIv30ILt1cXBOr4VV337R7GTJbcH+8XZSR+VIt/Z9/Upi5qQD/y
-	 eyB5bJz14svHMeQmhwLa5L4i78caBIAvMQ2BnaKKyQeyLA4bxSOHBNJI2FQFXFLCSgV8i
-	 nbOXbCRlvv9MOC4YPdPQRdQrCHEb8YZSt4shm7qlOfj5RluksUDi3ah+1nZMJSf0f1g==
+	bh=z9MsZ5nDP02yY+mmqpSAWXCIWO2n34RgSYNzEUczHcs=;
+	b=UEKh58hxgsI5InsS/WpnYgAfPr4lhGmkq+P8XT0GJ/D+JzgddGrRd7IMYerP8tUye5Of
+	 Ox8S/znc3OFaqjTXOqAsVNe15VT+LJmq+sZo11CWJteZKnIMKKCAKyCr+nsvh9T4Gfi8s
+	 0CcN9DNLWRSiz7Xajxa16a2o0EbZI56BlUIVLbn2rGA+hxVBmVexDmTssTHI3OoBb6N2f
+	 ToY/91Oo4zDMjzjo5JAliSvDlRof5ie0G/dEohvh+CNHcWzvdGnT4L8ZGlQVaz7x+RoRH
+	 UCG3jrbAQfSe05J+J6EQfLdcrOrOEkJtD5q9NAUWvwDhwfn3SpEzQ5cM9oYc95gJaxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PyfVUj5V;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hCFudF5M;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A52B606A33A;
-	Fri, 20 Nov 2026 05:35:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7473606A339;
+	Fri, 20 Nov 2026 05:38:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PyfVUj5V
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE1811F000C4;
-	Fri, 20 Nov 2026 05:35:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hCFudF5M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B8B1F000C6;
+	Fri, 20 Nov 2026 05:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795152921;
-	bh=6NmKnHRU/piT4HLG2fbbtf+VrhiQ2Ne2vhyFekILWNQ=;
+	s=k20260515; t=1795153112;
+	bh=z9MsZ5nDP02yY+mmqpSAWXCIWO2n34RgSYNzEUczHcs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PyfVUj5VjogeatR3yXagNs4L7nS8GfD4rcRQWCafelU0Mz6dsJ4HshJGKc4iphgy4
-	 PMVr4YhtnK75HUhGJowOzhWIUlmRcQUasW8ai5h1mn9TYGl07gDaXPtZ/azxLeIuKQ
-	 T3NOXdo9x0JzvukzSZkc24OQCX3FzUC4Eq5uPERLUjJpiWSFWe/vjyktPnq+/nhrue
-	 Uhy7azpqO6OtV+yx7WIBSGJ+zstqGddvowK7G3+Zn3Osb5c4+pT3uyr9avDod9zqSu
-	 wNdtwtolUVzekPfPUJtSpDEJ0RSXxOwFCrilKCYckAsXCb9+7mLhm3pe8TBvM9UunL
-	 XnWFFq7MWbARQ==
-Subject: Re: [PATCH net V2 2/2] net/mlx5: DR, Fix out-of-bounds write when
- sync to HW fails
+	b=hCFudF5MdI8naOC9gQNYl/HfcgR/WNHxlFAM4dZ/SyAOmPwS3w4hnaN3ex+hC4ad/
+	 okIRstQpMW7MrA2I/OKCTQKpvsv5G4BAznTBKPxlA+mxMYvyUcMltsQpiIkaEhx8IQ
+	 za0JF/MS0yD7yXcBLTitkQfHRenzSei2TqzKD1/Ek+3NOutT7tExsRpPrXNY9i7LQ9
+	 uuXtgzuMWX8ds0Qu3bAxECpq6KfSyhR4zwKKzerA3Na6pPfGf2fQcDHOCoJLBZN20A
+	 V1X6eiPxazKiyFO1FQxmmFEcRUtYWp45LDDOQMcR9AWGr9HjjzRdBjc9baOcnmWpJU
+	 XWhoQDOnpqUOg==
+Subject:
+ Re: [PATCH net-next v4 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
 From: netdev-bot+sashiko@kernel.org
-To: tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- acassen@corp.free.fr, valex@nvidia.com, erezsh@nvidia.com, gal@nvidia.com,
- kees+treewide@kernel.org, leon@kernel.org, linux-kernel@vger.kernel.org,
- linux-rdma@vger.kernel.org, mbloch@nvidia.com, moshe@nvidia.com,
- prathameshdeshpande7@gmail.com, saeedm@nvidia.com, horms@kernel.org,
- william@theesfeld.net, kliteyn@nvidia.com
-Date: Fri, 20 Nov 2026 05:35:20 +0000
-Message-ID: <179515292029.3136.16137473377101738953@kernel.org>
-In-Reply-To: <20261118173227.1957670-3-tariqt@nvidia.com>
-References: <20261118173227.1957670-3-tariqt@nvidia.com>
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
+ bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+ kudzo51@gmail.com
+Date: Fri, 20 Nov 2026 05:38:31 +0000
+Message-ID: <179515311151.3136.11984816802162340674@kernel.org>
+In-Reply-To: <20261119005943.999981-5-florian.fainelli@broadcom.com>
+References: <20261119005943.999981-5-florian.fainelli@broadcom.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -68,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,124 +77,177 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] One SYNC_STEERING failure now disables the ICM pool
-  permanently.
-- [Low] The 'KASAN log excerpt' in the commit message is not real KASAN
-  output.
+- [Medium] unimac_mdio_probe() now sets bus->read_c45/bus->write_c45 for
+  every instance, including the one GENET creates from platform data.
+- [Medium] The patch's own comment in unimac_mdio_addr_c45() says
+  bcmgenet_mii_wait() can return 0 after timing out with MDIO_START_BUSY…
+- [Low] unimac_mdio_resume() now takes priv->mii_bus->mdio_lock around
+  unimac_mdio_clk_set(), so system resume now serializes against, and…
 
 --
 
-net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
+net: mdio: mdio-bcm-unimac: Add Clause 45 support
 
-This patch adds an error_state flag to struct mlx5dr_icm_pool. The flag
-is set when SYNC_STEERING fails in dr_icm_pool_sync_all_buddy_pools().
-While it is set, mlx5dr_icm_free_chunk() stops queuing chunks into
-hot_chunks_arr, which prevents the out-of-bounds write, and
-mlx5dr_icm_alloc_chunk() returns NULL.
+This commit adds Clause 45 read/write callbacks to the UniMAC MDIO
+driver. Each access does an ADDR cycle followed by a data cycle, and
+MDIO_CFG is switched between C22 and C45 mode when needed. It also skips
+the BMSR workaround for "ethernet-phy-ieee802.3-c45" children and takes
+mdio_lock around unimac_mdio_clk_set() in resume.
 
-> The issue was discovered by a fuzzer that repeatedly triggered sync
-> failure, at which point the out-of-bounds write was reported by KASAN:
->
->    KASAN log excerpt: BUG:
->      slab-out-of-bounds in mlx5dr_icm_free_chunk+0x4cd at call 2
->      (hot_chunks_num=3 > cap=2).
-
-[Severity: Low]
-Is this excerpt from an actual KASAN report? A real splat starts with
-"BUG: KASAN: slab-out-of-bounds in func+0xoff/0xsize". It is followed
-by "Write of size N at addr ... by task ..." and a stack trace. KASAN
-doesn't print "at call N" or notes like "(hot_chunks_num=3 > cap=2)".
-
-A capacity of 2 also looks hard to reach on real hardware.
-mlx5dr_icm_pool_create() sizes the array like this:
-
-	num_of_chunks = DIV_ROUND_UP(max_hot_size, entry_size) + 1;
-	pool->th = max_hot_size;
-
-Here max_hot_size is a percentage of the byte size of the largest chunk.
-A capacity of 2 would need max_hot_size <= entry_size. Real device caps
-make the array thousands of entries long.
-
-The overflow itself looks real. Before this patch, a failed sync left
-hot_chunks_num and hot_memory_size unchanged.
-
-Could the commit message include the real KASAN splat? Or could it say
-plainly that the overflow was found by injecting sync failures in a
-test harness, and describe how they were injected?
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-> index 1b928b40686e5..a906a72601c4f 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
+> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
+> index f8e5c1811d96b..a79830566abb0 100644
+> --- a/drivers/net/mdio/mdio-bcm-unimac.c
+> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
 
 [ ... ]
 
-> @@ -368,7 +373,15 @@ static int dr_icm_pool_sync_all_buddy_pools(struct mlx5dr_icm_pool *pool)
+> @@ -108,8 +160,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
+>  		return ret;
 >  
->  	err = mlx5dr_cmd_sync_steering(pool->dmn->mdev);
->  	if (err) {
-> -		mlx5dr_err(pool->dmn, "Failed to sync to HW (err: %d)\n", err);
-> +		/* The hot chunks could not be flushed. Put the pool in an
-> +		 * error state so that no further chunks are queued (which
-> +		 * would overflow hot_chunks_arr), and no new chunks are
-> +		 * served. The sync is not retried.
-> +		 */
-> +		mlx5dr_err(pool->dmn,
-> +			   "Failed to sync to HW (err: %d), disabling ICM pool\n",
-> +			   err);
-> +		pool->error_state = true;
-                ^^^^
+>  	/* Prepare the read operation */
+> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
+> -		(reg << MDIO_REG_SHIFT);
+> +	unimac_mdio_set_clause(priv, is_c45);
+> +	if (is_c45) {
+> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
+> +		if (ret)
+> +			goto out;
+> +
+> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
+> +			unimac_mdio_c45_devad(devad) |
+> +			(reg & MDIO_C45_REG_MASK);
+> +	} else {
+> +		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
+> +			(reg << MDIO_REG_SHIFT);
+> +	}
+>  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
+>  
+>  	/* Start MDIO transaction */
 
 [Severity: Medium]
-Does one SYNC_STEERING failure now disable this pool for good? Only
-mlx5dr_icm_pool_destroy() clears error_state, and the sync is never
-retried.
 
-After that, every mlx5dr_icm_alloc_chunk() call returns NULL. STE hash
-table allocation in mlx5dr_ste_htbl_alloc(), modify action allocation
-and pattern allocation in dr_ptrn.c all fail. No new steering rules can
-be inserted until the domain is torn down by an eswitch mode change,
-driver reload or health recovery. Each later mlx5dr_icm_free_chunk()
-also leaves its segment reserved in the buddy.
+The comment in unimac_mdio_addr_c45() says bcmgenet_mii_wait() can
+return 0 after timing out with MDIO_START_BUSY still set. To handle that,
+an unimac_mdio_poll() is added after the ADDR frame. Does the RD_C45 data
+frame need the same check?
 
-mlx5dr_cmd_sync_steering() only skips the device internal error state:
+After the data cycle, unimac_mdio_do_read() does:
 
-	if (mdev->state == MLX5_DEVICE_STATE_INTERNAL_ERROR)
-		return 0;
+	ret = priv->wait_func(priv->wait_func_data);
+	if (ret)
+		goto out;
+
+	cmd = unimac_mdio_readl(priv, MDIO_CMD);
 	...
-	return mlx5_cmd_exec_in(mdev, sync_steering, in);
+	ret = cmd & 0xffff;
 
-That means transient host-side errors also set the flag. For example,
-the SYNC_STEERING inbox is at most 16 bytes, so alloc_msg() in cmd.c
-skips the message cache:
+If wait_func returned early, MDIO_READ_FAIL is not latched yet. Bits 15:0
+of MDIO_CMD still hold the reg & MDIO_C45_REG_MASK value written for the
+command. Could the caller then get the MMD register number back instead
+of the PHY's data?
 
-	if (in_size <= 16)
-		goto cache_miss;
+bcmgenet_mii_wait() always returns 0:
 
-It then allocates with GFP_KERNEL, which can fail with -ENOMEM under
-memory pressure. Command timeouts and the -ENXIO paths are passed up
-the same way.
+	wait_event_timeout(priv->wq,
+			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
+			   & MDIO_START_BUSY),
+			   HZ / 100);
+	return 0;
 
-Also, error_state is per pool (STE, MODIFY_ACTION, MODIFY_HDR_PTRN), but
-the sync is device-wide. A later successful sync from another pool won't
-re-enable this one.
+With HZ=100 this is a one jiffy timeout, which can expire well before a
+25-33us frame completes. On GENET v1/v2, and during probe before any ISR
+is registered, the timer decides every wait.
 
-The commit message says a chunk may only return to the buddy after a
-sync confirms HW no longer references it. That explains not recycling
-the queued hot chunks. Does it also justify refusing to allocate from
-segments that are already in the buddy free lists? Those were either
-freed after an earlier successful sync or never used.
+unimac_mdio_do_write() has the same gap. The WR_C45 frame is reported as
+complete and the bus lock is dropped while the frame may still be on the
+wire.
 
-Would it work to stop queuing only when hot_chunks_num reaches the array
-capacity, leaving those segments reserved, and to retry the sync on
-later frees? That avoids the overflow and keeps the no-recycle rule
-without disabling the pool permanently.
+The next access then calls unimac_mdio_set_clause(), which can rewrite
+MDIO_C22 in MDIO_CFG without checking MDIO_START_BUSY:
 
->  		return err;
->  	}
->  
+	if (new_cfg != cfg)
+		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
+
+Can this change the frame format in the middle of a frame when C22 and
+C45 accesses are interleaved? That happens with the C22 scan followed by
+the C45 scan, or on a bus with mixed PHYs.
+
+The C22 path already has the same early-read weakness. The C45 data cycle
+and the MDIO_CFG switching are new code, though. Would calling
+unimac_mdio_poll() after the data cycle wait_func(), or at least before
+touching MDIO_CFG, close the gap?
 
 [ ... ]
 
+> @@ -302,6 +401,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
+>  	bus->parent = &pdev->dev;
+>  	bus->read = unimac_mdio_read;
+>  	bus->write = unimac_mdio_write;
+> +	bus->read_c45 = unimac_mdio_read_c45;
+> +	bus->write_c45 = unimac_mdio_write_c45;
+
+[Severity: Medium]
+
+These callbacks are set for every instance, including the one GENET
+creates from platform data. How long does the new C45 scan take on the
+GENET non-DT (ACPI) path?
+
+In the non-DT case, bcmgenet_mii_register() does:
+
+	else
+		ppd.phy_mask = ~0;
+
+so bus->phy_mask ends up as 0 and no address is masked. With np == NULL,
+of_mdiobus_register() goes straight to __mdiobus_register(). That runs the
+C22 scan and then mdiobus_scan_bus_c45().
+
+For each empty address, get_phy_c45_ids() does two C45 reads (MMD1 DEVS2,
+then MMD0 DEVS2), and both fail. Each C45 read calls wait_func twice:
+once for the ADDR frame in unimac_mdio_addr_c45() and once for the data
+frame.
+
+bcmgenet_mii_wait() is a wait_event_timeout(..., HZ / 100). Its only
+waker is bcmgenet_isr0(), and irq0 is only requested in bcmgenet_open().
+The bus is registered earlier, in
+bcmgenet_probe()->bcmgenet_mii_init(), so each wait sleeps for the full
+timeout.
+
+That comes to about 31 x 2 x 2 = 124 extra sleeps of 4-10ms each, or
+roughly 1s of extra probe time on systems like a Raspberry Pi 4 booting
+with UEFI/ACPI. This is on top of the ~64 sleeps the BMSR workaround and
+C22 scan already cost, and nothing is gained when there is no C45 PHY.
+
+The commit message notes that the scan now runs on this device:
+
+  This includes the platform device that GENET instantiates when it is probed
+  without a Device Tree node (e.g.: ACPI), which does not mask any address.
+
+It doesn't mention the cost, though. Could the scan be masked, the C45
+callbacks be left unset for pdata users with an IRQ-driven wait_func, or
+the driver poll during probe?
+
+[ ... ]
+
+> @@ -337,8 +438,16 @@ static void unimac_mdio_remove(struct platform_device *pdev)
+>  static int __maybe_unused unimac_mdio_resume(struct device *d)
+>  {
+>  	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
+> +	int ret;
+> +
+> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
+> +	 * Clause 22 and Clause 45, which run under the bus lock.
+> +	 */
+> +	mutex_lock(&priv->mii_bus->mdio_lock);
+> +	ret = unimac_mdio_clk_set(priv);
+> +	mutex_unlock(&priv->mii_bus->mdio_lock);
+
+[Severity: Low]
+
+This isn't a bug, but the commit message doesn't mention that
+unimac_mdio_resume() now takes mdio_lock. As a result, system resume now
+serializes against, and can block on, any in-flight MDIO access. The
+locking itself looks fine. Could the commit message mention this change
+to the resume path?
+
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118173227.1957670-1-tariqt%40nvidia.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119005943.999981-1-florian.fainelli%40broadcom.com
