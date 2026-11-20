@@ -1,54 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167861;
-	b=P6Scz6/ScZgj6ffUq0dUmJAiMqAV4j8HZoTGAVWMOjEEuM2m+HwDOH8iR/NOk0g95NjK
-	 CK6nqqAFxWnGoWz7mMq6GKJwe+qbCJdC6ce+3jYLTboTiNKjoqhGkKpZWGH6UymX/tUBb
-	 tFXMaUkzVfWs408LkGFFYBY2Nzz7lwq9kQVl6ANtF3eozgr1zjblFalgFwDs7wasjR0jF
-	 eS0X9S82GUafGG4QKhP0Dlcl2O/KBlKrSFsf0ZoIDz+LrmbKPBRzLSVqHCyATcUMixjqZ
-	 na1WZuNCY9oT71GwFfKVl7jlCWZ2BvoB49C+s/uL21UOlbAeLNSKlEYLLX/lTbXGmbQ==
+	t=1795167875;
+	b=hbNh8VyY/fLvw199pU7Kr10Q5rbo+4alRYgjHsSJgaEQyCbySGjCx2GFOe0ebSrR8aLy
+	 RBmMVkIbXXBWtrXFSkm7XlGgVzhxYLBjCW+YIQPuELttiN1EMjw4veDu96JtKq2XJBOj0
+	 p/G2eFsCx9MCav0AUx0L9tw9Y6850zpQ9YdiZvyP8cgb+lQXPOKf/5Nj2oGP6R1aJh1WT
+	 0g/wg464zvtLoUV4XFClvWMglyMPeN1rJ2ofF9idQxAa37ddx2/MJ6XYjikhvrAe3bElx
+	 fSXLo2qzKXnS2uhtBQQZrdg7Ie85TMicEdqe68W2SEe3ssfNyB76lyhp6utUjZLXAEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167861;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=oFjhW+7eKqQT97kIliJ3yMumyK6wp8D8hexPVbCu+yo=;
-	b=2mndVAkVt+gCa6p9RX3HbMCfgI3y2hoUjGR0tB4YCj5CrX/muoqbJmkP8MVcjLVFaSjm
-	 ni9S4c0mwRFpesbg1citf+n8DFmWwQ8cMyh5lTPPZhe2V8NmbZmjo03Nc0mcR6n3AoIbn
-	 lvfa/ZsAa1JxtsXMziaxI6ZXZWYYKegTRXQD7FBOfUBPJ0wdf8Joi0CsumHnsu8cqiGV/
-	 iVhAQEk34njkOnZHmZwyxYMVJKmhPeGlI+JqdBpmx7JSkUWSMNv1tpnmE8ISlyM4+eorA
-	 v2kNzUhda6RCWxk5vbBwj/5nBdUw+3EjlNiknT7+qjAD9CXQb9ULImkTTKYuD4TWlYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167875;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Date;
+	bh=Dqkiq30yBanl7xewXuyuKJYZnue8ASHNq+EZiXLR6V8=;
+	b=dLkD7SZksAr862puewXsHDp1sBx6V8gkcuePG4MzG3Dr7DgSAdGThdXK66BMHvJffthv
+	 fx02g1yfhZni0sdnw2bofG8hgWavcw9EfN02OPlTxDCC61cKz11Hm4rnOO1fxUx33YW+9
+	 oWnKjJDX0vrY5Q8e7uR01btY0QEvSzCE72zYDwlK/mjDG1rmQo3iHIVEjeWPv2Yjc/G9T
+	 0zAlAO5ECNPvRfY4MPoknuAQXiJkYQ0uKdUF0wQ+c1uewdiZvOfv76Jm1UQrhrvI2xzIl
+	 DWagYpxjjMaN3v737dtZgcL5KeiD39VH55W7/eiL7Dp5EGZf79yduoWfHLY9FlsKFeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DjXhq2vT;
-	arc=none smtp.remote-ip=91.218.175.175
-Received: from mta0.migadu.com (out-175.mta0.migadu.com [91.218.175.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bWT6Mk1b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8296C606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:44:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8296C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4325B606A32C;
+	Fri, 20 Nov 2026 09:44:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DjXhq2vT
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=oQYnZu7+wRteiPN1ghqb+fRHNCk2pIXgXlUOMBMX+4A=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795167857; v=1; x=1795772657;
- b=DjXhq2vTkD4/KuyM57OwBvaPgvVetN0WTti8yr/3rahHAnmo1+kOdcniJENRHezJ2Qj1l7e6
- eBcNkYAKfLStx7asOt0YV4NlrmHy636KBcOVEEqycCj/KqH5SA88Afr2o2CqujmMec2F0rppkQC
- jM7j+5oSZD8ONhRqfx+trteQ=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7ed50c03f98480e6;
-	Fri, 20 Nov 2026 09:44:17 +0000
-X-Mizu-Trace-ID: 7ed50c03f98480e6
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <99974c5f-c1c0-427c-ab10-a6559789f258@linux.dev>
-Date: Fri, 20 Nov 2026 10:44:15 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bWT6Mk1b
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7531F1F000CA;
+	Fri, 20 Nov 2026 09:44:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795167874;
+	bh=Dqkiq30yBanl7xewXuyuKJYZnue8ASHNq+EZiXLR6V8=;
+	h=From:To:Cc:Subject:Date;
+	b=bWT6Mk1bpBFDnkNSq7deGXEZQ9xyInf+E70oPJPue746FOF29p3l45GNV/ErXIFI5
+	 UbH+70GzaD2SigF2H9gicAo2PC5KeNutGD6IAcoDW1T8IGM0NSN0d9kvN/rDR8YKeK
+	 21u+doNk0fUbsMVHYKgGQ+NW5KzBsC9UqvXGPaaQhmWOb4AIB4eWvWMd+9/EvgueH+
+	 bZLtTdX31/syiaWxKU++awHFgkE8z4jWfpdqcJXdBTw5FSf0gpzYMXtTX/6s4xYFfk
+	 2X8kWIV+L0cu3ZzvFPlkW/K5VQGm+NuDH56Ih1pXwVTNAaDs+L+tV0K11Uaoxta8xt
+	 I+StyLQ2s+vxg==
+From: "syzbot" <syzbot@kernel.org>
+To: syzkaller-bugs@googlegroups.com, Krystian Kaniewski <krystianmkaniewski@gmail.com>, "David S. Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, <linux-x25@vger.kernel.org>, "Martin Schiller" <ms@dev.tdt.de>, <netdev@vger.kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Duoming Zhou" <duoming@zju.edu.cn>
+Cc: horms@kernel.org, linux-kernel@vger.kernel.org, syzbot@lists.linux.dev
+Subject: [PATCH] net/x25: fix invalid lock_sock() usage in x25_kill_by_neigh()
+Message-ID: <00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,152 +53,236 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5 20/24] net: dsa: rzn1-a5psw: Get lookup table
- size from OF data
-To: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
- Ralph Siemsen <ralph.siemsen@linaro.org>, linux-renesas-soc@vger.kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- Prabhakar <prabhakar.csengg+renesas@gmail.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-21-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Language: en-US
-From: Clement Leger <clement.leger@linux.dev>
-In-Reply-To: <20261120002549.1908299-21-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Date: Fri, 20 Nov 2026 09:44:34 +0000 (UTC)
+
+From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
+
+x25_kill_by_neigh() is invoked to tear down X.25 sockets associated with a
+terminating neighbour. This function is called in process context from
+netdevice notifier handlers (such as NETDEV_DOWN in x25_device_event()),
+but it is also called in softirq context when receiving LAPB frames in
+x25_lapb_receive_frame() or link control packets in x25_link_control(), as
+both lapbether (via NAPI) and hdlc_x25 (via tasklet) deliver frames in
+softirq.
+
+x25_kill_by_neigh() acquires lock_sock() around x25_disconnect(). Because
+lock_sock() is a sleeping lock, calling it from softirq context triggers a
+"BUG: sleeping function called from invalid context" and a lockdep
+inconsistent lock state warning ({SOFTIRQ-ON-W} -> {IN-SOFTIRQ-W}) on
+sk_lock-AF_X25.
+
+Fix this by passing a boolean parameter to x25_kill_by_neigh() and
+x25_link_terminated() to distinguish between process and softirq contexts.
+Sockets hold neighbour references and reach net_device only through the
+neighbour. In process context (netdevice notifiers), continue using
+lock_sock() to synchronously disconnect sockets and wait for tasks owning
+the socket, because x25_link_device_down() drops the neighbour's netdevice
+reference on NETDEV_UNREGISTER. In softirq context, use bh_lock_sock()
+instead; if the socket is currently owned by a task through lock_sock(),
+defer the disconnect by setting X25_KILL_BY_NEIGH_FLAG and handling it in
+x25_release_cb() when the socket is released.
+
+Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
+Assisted-by: Gemini:gemini-4-carbon Gemini:gemini-3.8-flash syzbot
+Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+Link: https://syzkaller.appspot.com/ai_job?id=98a38af7-51e0-4126-afa7-b8246507da37
+Signed-off-by: Krystian Kaniewski <krystianmkaniewski@gmail.com>
+
+---
+diff --git a/include/net/x25.h b/include/net/x25.h
+index 414f3fd99..ec4c9ced1 100644
+--- a/include/net/x25.h
++++ b/include/net/x25.h
+@@ -118,6 +118,7 @@ enum {
+ #define X25_Q_BIT_FLAG		0
+ #define X25_INTERRUPT_FLAG	1
+ #define X25_ACCPT_APPRV_FLAG	2
++#define X25_KILL_BY_NEIGH_FLAG	3
+ 
+ /**
+  *	struct x25_route - x25 routing entry
+@@ -196,7 +197,7 @@ int x25_addr_aton(unsigned char *, struct x25_address *, struct x25_address *);
+ struct sock *x25_find_socket(unsigned int, struct x25_neigh *);
+ void x25_destroy_socket_from_timer(struct sock *);
+ int x25_rx_call_request(struct sk_buff *, struct x25_neigh *, unsigned int);
+-void x25_kill_by_neigh(struct x25_neigh *);
++void x25_kill_by_neigh(struct x25_neigh *, bool);
+ 
+ /* x25_dev.c */
+ void x25_send_frame(struct sk_buff *, struct x25_neigh *);
+@@ -230,7 +231,7 @@ void x25_link_control(struct sk_buff *, struct x25_neigh *, unsigned short);
+ void x25_link_device_up(struct net_device *);
+ void x25_link_device_down(struct net_device *);
+ void x25_link_established(struct x25_neigh *);
+-void x25_link_terminated(struct x25_neigh *);
++void x25_link_terminated(struct x25_neigh *, bool);
+ void x25_transmit_clear_request(struct x25_neigh *, unsigned int,
+ 				unsigned char);
+ void x25_transmit_link(struct sk_buff *, struct x25_neigh *);
+diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
+index f45c9ec7d..26a8deb82 100644
+--- a/net/x25/af_x25.c
++++ b/net/x25/af_x25.c
+@@ -221,7 +221,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 		case NETDEV_DOWN:
+ 			nb = x25_get_neigh(dev);
+ 			if (nb) {
+-				x25_link_terminated(nb);
++				x25_link_terminated(nb, false);
+ 				x25_neigh_put(nb);
+ 			}
+ 			x25_route_device_down(dev);
+@@ -234,7 +234,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 			if (!netif_carrier_ok(dev)) {
+ 				nb = x25_get_neigh(dev);
+ 				if (nb) {
+-					x25_link_terminated(nb);
++					x25_link_terminated(nb, false);
+ 					x25_neigh_put(nb);
+ 				}
+ 			}
+@@ -492,10 +492,24 @@ static int x25_listen(struct socket *sock, int backlog)
+ 	return rc;
+ }
+ 
++/*
++ * release_sock() calls this with the socket spinlock held while the task
++ * still owns the socket, so x25->neighbour cannot change during the check.
++ */
++static void x25_release_cb(struct sock *sk)
++{
++	struct x25_sock *x25 = x25_sk(sk);
++
++	if (test_and_clear_bit(X25_KILL_BY_NEIGH_FLAG, &x25->flags) &&
++	    x25->neighbour)
++		x25_disconnect(sk, ENETUNREACH, 0, 0);
++}
++
+ static struct proto x25_proto = {
+ 	.name	  = "X25",
+ 	.owner	  = THIS_MODULE,
+ 	.obj_size = sizeof(struct x25_sock),
++	.release_cb = x25_release_cb,
+ };
+ 
+ static struct sock *x25_alloc_socket(struct net *net, int kern)
+@@ -610,6 +624,7 @@ static struct sock *x25_make_new(struct sock *osk)
+ 	x25->cudmatchlength = ox25->cudmatchlength;
+ 
+ 	clear_bit(X25_INTERRUPT_FLAG, &x25->flags);
++	clear_bit(X25_KILL_BY_NEIGH_FLAG, &x25->flags);
+ 	x25_init_timers(sk);
+ out:
+ 	return sk;
+@@ -1761,7 +1776,13 @@ static struct notifier_block x25_dev_notifier = {
+ 	.notifier_call = x25_device_event,
+ };
+ 
+-void x25_kill_by_neigh(struct x25_neigh *nb)
++/*
++ * The receive path (bh == true) runs in softirq and must not wait for a task
++ * that owns the socket. The netdevice notifier (bh == false) must wait for
++ * every owner because x25_link_device_down() drops the device reference of the
++ * neighbour on NETDEV_UNREGISTER.
++ */
++void x25_kill_by_neigh(struct x25_neigh *nb, bool bh)
+ {
+ 	struct sock *s;
+ 
+@@ -1769,13 +1790,28 @@ void x25_kill_by_neigh(struct x25_neigh *nb)
+ 	write_lock_bh(&x25_list_lock);
+ 
+ 	sk_for_each(s, &x25_list) {
+-		if (x25_sk(s)->neighbour == nb) {
++		if (x25_sk(s)->neighbour == nb &&
++		    (!bh ||
++		     !test_bit(X25_KILL_BY_NEIGH_FLAG, &x25_sk(s)->flags))) {
+ 			sock_hold(s);
+ 			write_unlock_bh(&x25_list_lock);
+-			lock_sock(s);
+-			if (x25_sk(s)->neighbour == nb)
+-				x25_disconnect(s, ENETUNREACH, 0, 0);
+-			release_sock(s);
++			if (bh) {
++				bh_lock_sock(s);
++				if (x25_sk(s)->neighbour == nb) {
++					if (sock_owned_by_user(s))
++						set_bit(X25_KILL_BY_NEIGH_FLAG,
++							&x25_sk(s)->flags);
++					else
++						x25_disconnect(s, ENETUNREACH,
++							       0, 0);
++				}
++				bh_unlock_sock(s);
++			} else {
++				lock_sock(s);
++				if (x25_sk(s)->neighbour == nb)
++					x25_disconnect(s, ENETUNREACH, 0, 0);
++				release_sock(s);
++			}
+ 			sock_put(s);
+ 			goto again;
+ 		}
+diff --git a/net/x25/x25_dev.c b/net/x25/x25_dev.c
+index fb8ac1aa5..be5eb01de 100644
+--- a/net/x25/x25_dev.c
++++ b/net/x25/x25_dev.c
+@@ -135,7 +135,7 @@ int x25_lapb_receive_frame(struct sk_buff *skb, struct net_device *dev,
+ 		break;
+ 
+ 	case X25_IFACE_DISCONNECT:
+-		x25_link_terminated(nb);
++		x25_link_terminated(nb, true);
+ 		break;
+ 	}
+ 	x25_neigh_put(nb);
+diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+index d1e8cd81c..d3e90b402 100644
+--- a/net/x25/x25_link.c
++++ b/net/x25/x25_link.c
+@@ -82,7 +82,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_kill_by_neigh(nb, true);
+ 
+ 			x25_transmit_restart_confirmation(nb);
+ 			break;
+@@ -97,7 +97,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_kill_by_neigh(nb, true);
+ 
+ 			x25_transmit_restart_request(nb);
+ 			nb->state = X25_LINK_STATE_2;
+@@ -247,14 +247,14 @@ void x25_link_established(struct x25_neigh *nb)
+  *	request has failed.
+  */
+ 
+-void x25_link_terminated(struct x25_neigh *nb)
++void x25_link_terminated(struct x25_neigh *nb, bool bh)
+ {
+ 	nb->state = X25_LINK_STATE_0;
+ 	skb_queue_purge(&nb->queue);
+ 	x25_stop_t20timer(nb);
+ 
+ 	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
+-	x25_kill_by_neigh(nb);
++	x25_kill_by_neigh(nb, bh);
+ }
+ 
+ /*
 
 
-
-On 11/20/26 01:25, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> The RZ/N1 A5PSW has 8192 lookup table entries, whereas the RZ/T2H
-> and RZ/N2H ETHSW have only 4096 entries.
-> 
-> Add the lookup table size to struct a5psw_of_data, derive the address
-> mask from it and use it in the FDB and ageing code.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> v4->v5:
-> - New patch
-> ---
->   drivers/net/dsa/rzn1_a5psw.c | 10 ++++++----
->   drivers/net/dsa/rzn1_a5psw.h |  4 ++--
->   2 files changed, 8 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-> index 7e9bc252d92a..c0c1f45852da 100644
-> --- a/drivers/net/dsa/rzn1_a5psw.c
-> +++ b/drivers/net/dsa/rzn1_a5psw.c
-> @@ -311,18 +311,19 @@ static void a5psw_phylink_mac_link_up(struct phylink_config *config,
->   static int a5psw_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
->   {
->   	struct a5psw *a5psw = ds->priv;
-> +	unsigned int entries = a5psw->of_data->lk_table_entries;
->   	unsigned long rate;
->   	u64 max, tmp;
->   	u32 agetime;
->   
->   	rate = clk_get_rate(a5psw->clk);
-> -	max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * A5PSW_TABLE_ENTRIES * 1024),
-> +	max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * entries * 1024),
->   		       rate) * 1000;
->   	if (msecs > max)
->   		return -EINVAL;
->   
->   	tmp = div_u64(rate, MSEC_PER_SEC);
-> -	agetime = div_u64(msecs * tmp, 1024 * A5PSW_TABLE_ENTRIES);
-> +	agetime = div_u64(msecs * tmp, 1024 * entries);
->   
->   	a5psw_reg_writel(a5psw, A5PSW_LK_AGETIME, agetime);
->   
-> @@ -511,7 +512,7 @@ static int a5psw_lk_execute_lookup(struct a5psw *a5psw, union lk_data *lk_data,
->   	if (ret)
->   		return ret;
->   
-> -	*entry = ctrl & A5PSW_LK_ADDR_CTRL_ADDRESS;
-> +	*entry = ctrl & (a5psw->of_data->lk_table_entries - 1);
->   
->   	return 0;
->   }
-> @@ -638,7 +639,7 @@ static int a5psw_port_fdb_dump(struct dsa_switch *ds, int port,
->   
->   	mutex_lock(&a5psw->lk_lock);
->   
-> -	for (i = 0; i < A5PSW_TABLE_ENTRIES; i++) {
-> +	for (i = 0; i < a5psw->of_data->lk_table_entries; i++) {
->   		reg = A5PSW_LK_ADDR_CTRL_READ | A5PSW_LK_ADDR_CTRL_WAIT | i;
->   
->   		ret = a5psw_lk_execute_ctrl(a5psw, &reg);
-> @@ -1357,6 +1358,7 @@ static const struct a5psw_of_data rzn1_of_data = {
->   	.pattern_ctrl_base = 0x3eb0,
->   	.vlan_res_vlanid = GENMASK(16, 5),
->   	.vlan_res_portmask = GENMASK(4, 0),
-> +	.lk_table_entries = 8192,
->   };
->   
->   static const struct of_device_id a5psw_of_mtable[] = {
-> diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
-> index 29d205e2331d..fd523fe7bf47 100644
-> --- a/drivers/net/dsa/rzn1_a5psw.h
-> +++ b/drivers/net/dsa/rzn1_a5psw.h
-> @@ -93,7 +93,6 @@
->   #define A5PSW_LK_ADDR_CTRL_WAIT		BIT(27)
->   #define A5PSW_LK_ADDR_CTRL_READ		BIT(26)
->   #define A5PSW_LK_ADDR_CTRL_WRITE	BIT(25)
-> -#define A5PSW_LK_ADDR_CTRL_ADDRESS	GENMASK(12, 0)
->   
->   #define A5PSW_LK_DATA_LO		0x40C
->   #define A5PSW_LK_DATA_HI		0x410
-> @@ -210,7 +209,6 @@
->   
->   #define A5PSW_LK_BUSY_USEC_POLL		10
->   #define A5PSW_CTRL_TIMEOUT		1000
-> -#define A5PSW_TABLE_ENTRIES		8192
->   
->   struct fdb_entry {
->   	u8 mac[ETH_ALEN];
-> @@ -241,6 +239,7 @@ union lk_data {
->    * @pattern_ctrl_base: Offset of the PATTERN_CTRL register of pattern 0
->    * @vlan_res_vlanid: VLANID field mask of the VLAN_RES registers
->    * @vlan_res_portmask: PORTMASK field mask of the VLAN_RES registers
-> + * @lk_table_entries: Number of entries in the lookup table (power of 2)
->    */
->   struct a5psw_of_data {
->   	unsigned int nports;
-> @@ -252,6 +251,7 @@ struct a5psw_of_data {
->   	u16 pattern_ctrl_base;
->   	u32 vlan_res_vlanid;
->   	u32 vlan_res_portmask;
-> +	unsigned int lk_table_entries;
->   };
->   
->   /**
-
-Hi Prabhakar,
-
-It would probably be better to fold all these commits that adds data 
-into bits of data in oa5psw_of_data into two commits: a first one that 
-prepares support for RZ/N2 and then a second one that add RZ/N2 support 
-itself. I'm not the net maintainer but your series is already quite 
-large just for this change so folding the commits make sense rather than 
-commitmaxxing.
-
-Thanks,
-
-Clément
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+See https://goo.gle/syzbot-ai-patches for information about AI-generated patches.
+The person who has signed off on the patch is responsible for
+addressing comments.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
