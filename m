@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795144808;
-	b=coxgf9D9EmFrPwrKtfHhU7bVQJiS+3+t3fVIJFcEbn1YGHz5+fuCicbEXgYhBAgwMcKf
-	 5F0Vq7UC5RiJZdd+xGoFgYpDPqOfFJwA8feGT0rTVpHwrCQyDriO08Gy7A8RnvRzRd54M
-	 K/3/sUtc4Zpw0R8Ra1h/JN4QHXYhLiOJQSIsdw3Mx3lDpkUqU78DliWVDjiBqLP8Vgx74
-	 cYCXe4mRnHXxdwPGHo+NiPDrflgIAf4ebIt6H+ICd96/HZoFAHUCccHca8llYX9etTofC
-	 JYcDPughnhYTpxT/RrC2V/F4/5+t3ZgFQDC+GCLT0xmZ5k/7WRBYHcfxy+wiNJDDvjg==
+	t=1795144814;
+	b=RXfZ+ZvqZXtC4/eXH5phBcRntWcsQPe9ARZIushovQnBsvKIy8OTdjThJ5O266jcCE01
+	 R4XCQ36bVOcpjJyzBiHxVXy4f4QJKM9Q0DcKXhzSOWJowzuurxg7XGDoEewgaZek7XGEu
+	 Dugdj4iC0xYMWfV6ApODOhJ3dwjmoUlxORaTF1jWmp3mfz3FQ1yO28ZUjkYIIDPy9EIfZ
+	 ekbZqk3/502+l9ZS8dG8349ApfixIXruRQH10c9VKyNZiBybxSRhij0dK6ZjJoqgBjxVg
+	 198DWJhhbyUAuatFZj+U2UR/niMqhwGg4fffBxHY5k4Y2TlL2MDEjrACB2NP3VlQpOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795144808;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795144814;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=QAz06P84KVTpSPjKR/E+e7jxJV9J4nr7PghAGZ65rqI=;
-	b=jGdXjgO7XfvfaDA5stl96lrdIepOi1lQErrjD2D9ePlrRdFGhUgAC9bHRaHxgB5aQDf3
-	 7+7O50yxqq7X++KTw+zDm/iZUUbTNcHALgoKnXOvTSKOEf2mVVZWv8kiKet1vusmenz+a
-	 7Nkg848P5YgSufn1NOUK6OoGcjfTN4uSkmuNpnfXXNYg3Vx4MfKAYWbyURLQy0X+A/zCz
-	 VsRh6cZ18x0KyFow9QS/9Jm4Im7orBSLNSo1QtMVI5u4ZaV/CJwgpP+3KTuyX/LvJ2Iw3
-	 yeGTiHL0wXE6qP4/wH/oYDc9kmD9e6gB6v5KnzQYa1ghBJUOqfRPYwy4AcLfZ2uDKHg==
+	bh=Fn14pDsJOXNYBR0Hx6ngL3nO3uLg8RV/4h744OUD760=;
+	b=oSwOyzThPXx8aSbfUJuCRUOI+qMJ7nJCzXIRMWh2EMQP+OxFvuhVr1ds3tOhM0BxbYfv
+	 Mi7lpzRMrXZg7cVNP2xVEoUCppVur4h2HNLE3MFf0kp1wNyz1iuWpuO14Kb7+IlFsYNTa
+	 HMb0cmJf62gBsgclZWIDMWO8ySFNjn6FdF/aDrH1euRuzIOh8A40K+SVHIZnhxOaq5arA
+	 fgkhLhNIELp2aFRsOovX81/XLcjl0dDf2SyqY+vqrhiA6PZ4mK2huwzGChR+WbZv3SPQz
+	 6SrLGiuQoEhJ9EOnOBOg4hcAAjT6ufrNxnmxH7snTZ1ZXjgt3ZEj3Ogniz7vEubm8LA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hrSfPtRK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MAYywufS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62550606A33F;
-	Fri, 20 Nov 2026 03:20:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA70F60A2625
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:20:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hrSfPtRK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86BB81F000C6;
-	Fri, 20 Nov 2026 03:20:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MAYywufS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04F631F000C4;
+	Fri, 20 Nov 2026 03:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795144807;
-	bh=QAz06P84KVTpSPjKR/E+e7jxJV9J4nr7PghAGZ65rqI=;
+	s=k20260515; t=1795144814;
+	bh=Fn14pDsJOXNYBR0Hx6ngL3nO3uLg8RV/4h744OUD760=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hrSfPtRKgoqBHTj9h3JGB08HVRXbLnSh52xQBNYtMVZumwWMoHUJ+akN32CEMyUcf
-	 x7XVYrd6AdACKwpKCuZZT8NgpuaQx7Z3rehy3Fg04NTQpv15DaTphcltfP7xodNx48
-	 pLy9UzBQrIygO3ZkyTsVSpJ3sjH0wAG/94Jb1oHO3eEsSZJEvXyzM3dx/52FedNOPL
-	 CL8cjhmBp/ho/BoBWDuGzx6ofFcQAM8lygWmG8vjgizmgk9dJUGESzKZf5Tk3ieKvJ
-	 hDt9KTFS3xTkyDa4nNxRUgHMYSkjAPhy1rIAZ1BQmVuZyHtGIE3GAoXAHpjJSvC11E
-	 IklD3JelTcFAQ==
+	b=MAYywufS9MQgnywlry9u6bOvxxIFA+71OAu5P2NQg2AiKnpCbRn6OoZGINN0WqIwk
+	 uB73R2XccVXGVkJr43zN3c34PjQM59vCtWtn7Nnf/PLN+0OZ8m2DXjhFaUDq+Uham3
+	 nDGgQvfSxHMv5txWWcOWC20jlPNIHFK/2YSnSdioAgVd5Jf9ksSb1Eb5t2wDONRdWU
+	 o+pIgiZbRVMDvEUujSJZ0G/c/FqnnLHk2WhYR+oUHtVvkfAG11U1H1jCPBao6hBgNI
+	 /jl3MHcHmFF904KPmGGs7XEBIetclQ8tNodXCm5OLfGeyk+27MrnaDiKogHBayZ+Dv
+	 tD8N+8rtQcq5g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7749C3808209;
-	Fri, 20 Nov 2026 03:20:07 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15503808209;
+	Fri, 20 Nov 2026 03:20:13 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,46 +54,39 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v4 0/2] tcp: initialize missing request_sock fields in
- syncookie path
+Subject: Re: [PATCH net-next] net/packet: wait for a single RCU grace period
+ in
+ packet_release()
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179514480628.4002121.12235176625160890158.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 03:20:06 +0000
-References: <20261118210933.2477423-1-thaisonphan@google.com>
-In-Reply-To: <20261118210933.2477423-1-thaisonphan@google.com>
-To: Thaison Phan <thaisonphan@google.com>
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- matttbe@kernel.org, horms@kernel.org, ij@kernel.org,
- olivier.tilmans@nokia.com, chia-yu.chang@nokia-bell-labs.com,
- stani@google.com, netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org
+ <179514481252.4002121.7167185361157860861.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 03:20:12 +0000
+References: <20261118211439.1453635-1-edumazet@kernel.org>
+In-Reply-To: <20261118211439.1453635-1-edumazet@kernel.org>
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ willemb@google.com, horms@kernel.org, netdev@vger.kernel.org
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 18 Nov 2026 21:09:31 +0000 you wrote:
-> Initialize missing request_sock fields for TCP connections accepted via
-> SYN cookies, where cookie_tcp_reqsk_alloc() and
-> bpf_sk_assign_tcp_reqsk() allocate without __GFP_ZERO:
+On Wed, 18 Nov 2026 22:14:39 +0100 you wrote:
+> Closing an AF_PACKET socket waits for one RCU grace period per ring
+> in packet_set_ring(), then for another one at the end of
+> packet_release(). A socket with an rx ring (libpcap, tcpdump) pays for
+> two grace periods, a socket with both rx and tx rings for three.
 > 
-> - Patch 1 initializes ireq->ir_rmt_addr and ireq->ir_loc_addr to
->   LOOPBACK4_IPV6 in cookie_v6_check(), matching tcp_v6_init_req().
-> - Patch 2 initializes the AccECN request_sock fields in
->   cookie_tcp_reqsk_init() and sets syn_ect_snt in cookie_{v4,v6}_check()
->   for kernel-generated cookies (!req->syncookie), matching
->   tcp_openreq_init() and tcp_{v4,v6}_send_synack().
+> All the RCU unpublishing is done at the beginning of packet_release(),
+> when unregister_prot_hook() removes the socket from the ptype lists or
+> from its fanout group. Nothing is unpublished after that point:
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v4,1/2] tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
-    https://git.kernel.org/netdev/net/c/7411fb192907
-  - [net,v4,2/2] tcp: accecn: initialize AccECN fields in syncookie path
-    https://git.kernel.org/netdev/net/c/ce28b1a4d137
+  - [net-next] net/packet: wait for a single RCU grace period in packet_release()
+    https://git.kernel.org/netdev/net-next/c/2208ab00f4f2
 
 You are awesome, thank you!
 -- 
