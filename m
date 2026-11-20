@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188522;
-	b=nPhGB2ZWJ0Wti34MvNbK4NexAuWvyslqG7ULZyZwlMqwwuehVfPcRkrdcC0hLW8sQCQE
-	 acoTCiL//GDFfHolRGtgX9MjQzBdyy1+jkat3pQKhgW5ij6y7962qUp6Z9KG+GAg8GacB
-	 qR2V1Z5EkDoBT16ZFzhDnyCMmJyez5jWZL27we6lgTxbCEPYJNdB63ithKByQztkkBXTV
-	 oyEWYUIeyuf+27GmBt8G9bqGcgmk0H/ki4trI3zWNr8b/woXWWnnOt+GIP16vWWUPKkwk
-	 JB0GqAyLm2daxvpRMMQLhY7HZrxx0FmfJZBH8gcAYiQ2FYzK1Vix1JcZbuMPbEt6JOA==
+	t=1795188524;
+	b=twxauEEr/JB8qPTzEapmlcyOrh/3H87OCa8zm7yDObovPncM1ARa4GK4F1zumL50fGBa
+	 f0pZCUJgXzujx+/nn1wc4z6P3IIWgVZgtw45lLsp19NPKYcFPnNP+0tOm/nK1xsCaqr4p
+	 kd8oM7cQoQ/RGRXWwbiz3SC6SPO6MKRpHKNVYmW0D0Uep7Xj9slY4+uJL/+k2x0sh+0S6
+	 TIdpnRN4aRO40rRIOMXPUtKezYkVJ/5Zd4nqmE91bXwXmIHLSE7J6VG0pY7jBzRTRbINJ
+	 rypoAXd7lz0RDBc5j/cYuEioADPcDNzjEJMpUPngyuX8XUa/W/brGWYsOJsOsN5LgqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188522;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188524;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=zXTRJAoOuhwgv6K3/hgMVInOSV4KNQqD3bcfaDnRvQ0=;
-	b=w9oJjHfNxW7R7mLuE2KGlpPPCF56wCeGFUmlMkr6XP6JbmhHG1LsTljMCVMW+ekIt6Go
-	 eAPsnYyWBUnMMD3YHLs2Xk0AnlS6xHEjPtujegs1GPGNKex5lvXag2DICaiZMKLDM+RTz
-	 k7Xt+Zg7gbmL44Zis1+UEWiGr69rDUJRhDnl9LbDZnE7tBVpWYfjutyraxtydSRcv660C
-	 oZYBmRvHL4u/uGp12SrK7Ou3J19VDEalf9v15Z9i0yPyfeSaYFp8gU5XSgrzYeRV3cE+p
-	 mFk+U3XQHGaHSQBkYplcFLI8PAb0mAwBWxtmjq/+S7MwfNkDUHY4MFYqQrd4lx6XqQQ==
+	bh=6iFyG/TRTFnFVaxbHFa4tzavqW4H7pOjO5Kz0xPyRdE=;
+	b=FTEC+qG0lkBDvTNssUR9N2oVjS9DuyXJPuLu1srmQEv/Taq/c62i5izhj1ff1S1upayj
+	 PA9g0+wmnGstb8kfiFuurBAEIPqgiP1FGsRktElrsgOZpTnGFad5Fyf3WtaEdy0Vl2uxP
+	 GHoa92OQAhDTLwVtP88dlndW1kFTUAhMhO25Qo/Kli3qhpxT5axVcX/NDAoVF3irdmmtc
+	 nbgsLGk6jbnHcRWkW5GqBFxLisldY+DfyKe7NzBw4QiL3R1GW/U+/dLiF6lRRNao7+PX6
+	 3ohI5sR7nIpfDs5mKyWiShtTTI9sPDqyUKLNEAC4sqS8VK6t/EPGCPzMx09gwJjefEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=dama.to;
 	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IbKQ9U44;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=m7gqa9dx;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E70D060A2600
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:28:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E70D060A2600
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 313F2606A330
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 313F2606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IbKQ9U44
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso861848a91.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:28:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=m7gqa9dx
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so425633b3a.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:28:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795188521; x=1795793321; darn=vger.kernel.org;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795188524; x=1795793324; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zXTRJAoOuhwgv6K3/hgMVInOSV4KNQqD3bcfaDnRvQ0=;
-        b=IbKQ9U441mvUpOCf5AN9AqCTS3l5kw++bv0vXra/SVCRluvwyI1YXYPCMCAtcBSz+c
-         W6znSwySMdcXTH73F1VCad2A8OBL+LsbYUTnR0yGF7mn5aVNFBH6UZQQLmZ12/Y+XrZz
-         V/S6lhX9lwrd7yNmBFU8k7Z/1PujnDmOT8lKzrKWjnp93xhlSegPdASUEPgxX5bGr4bc
-         VvAspiW8JKI9vjDdruBfQsq4FYTeyAYUWyCHjZImkn5oTPwJL3jC9hhvoDKHCdCglvdY
-         G4A0IMCprFZNfQOfCj7yv0Tibrjfjnghw7yqbK3tR53GuHTQw/+QtnT+yZdOa7FxBPNu
-         WQTw==
+        bh=6iFyG/TRTFnFVaxbHFa4tzavqW4H7pOjO5Kz0xPyRdE=;
+        b=m7gqa9dxsiq/A84tMNHqF4JVUM1Oo42ZflJMzKIecgIJsF75DBOCzd3XyWaMiSm95H
+         qHlSzwn2zZL+eW1qMmOfAZ+qBqIPI3iIRxjh4IjLf11qBLiiMeKobi9JQD0s7AloIRMp
+         FnBYgJX+E0iFaxg+Uqr2fA0Yz/ErwlL1GTZ8IBbeVKZkvvUCpbjJJmBwQh32VtNGIpzX
+         ZYW4jSjvmPawTrzZk7w7t5XM5UNAdjJVS5c+VSwmBAbiaORw3Fpm/vHbMBy3NHof7ehR
+         3fnsRWjRQSz42f9uA5eJQC11F7PXukzF3KRJQkl8ta55w24PlGPAPqSi1sNXrMKLSCoJ
+         FunQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795188521; x=1795793321;
+        d=1e100.net; s=20260707; t=1795188524; x=1795793324;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zXTRJAoOuhwgv6K3/hgMVInOSV4KNQqD3bcfaDnRvQ0=;
-        b=Zu52RZCfZYceeH9rJvS8EUAxFTCYJBd+ZKxLOp0Y9EeCJCNqoeM/64jnI0FrgPuWEj
-         zxo2s//bB+lYqY99H4Hhx2vxo1/4prOGbDHKgDQqTr6x8WaP8OUTOQn0+MjvhWCG6J+w
-         voHV3DfESJhfoCEsqN2IhZQg7koOggJXAX5Zbd1V13pX0Z4lWPpR4qtEDU32PvAGDloR
-         XCIgrJhOsN7WQQxf12pA+JsMe8npLmpOmvOkkZUaw2z9PaDyaA1CTeVqnZM8cvR+B3WK
-         R+R5wPStCgNvufzE2wAPRMCzui9z7gHBTrDd7eKjSkcsRs2qvKMH/sQO3YKordU+pLe+
-         DOsA==
-X-Gm-Message-State: APuU4Z/8/WTV/bsmnovTvDCEEokcYWG3Kdbh4XGF6ohpm6Y8KVCNsk+/
-	XDTkG6gP+VxQN1mFgjKinLN93OFzBe6cCry7pfQZQOvUby3NYVHERs+QJ1btR1toLzSxLH+miiN
-	5Xuj3
-X-Gm-Gg: AZFdTZe+nfk6WoKq/TLU4G38lgc+L4BncHnVfDztqjymP1Znq2yAHyATli0ZTdmc/+5
-	Xx6Ab6Up8EZzu2oMsEPXoJq7vKnxmlt9Q3aiIeKmFtSU7bWCEmUmW1yKwdDubUNab5ceXzRG1FV
-	hKP0RdK3J24UKnALuYifgKw0Wxn/FvldF5MwZLesZe1n3h5e5Xelzq8rXNsnerd7AHhLoJMFcXl
-	jROa1c1Hd47JuCV9dFwbm3Vv7zaKHmynBPv0sMwaVkORxBRx0K3fB7FTI6CYS4dQQE3uS8rbcEv
-	L1Rz9VoXmNb6t6yqOcy/2iy/o3JLUWOeAlu9Ew+x8vNEp53+U7NJX4CnCnfQyBnL+BUe9TvyesM
-	4kjgOGatcl5xqrqLV26JeZN9LeAGBrOxogzk1EkQ7bNSVj2hA8RF/bNnLbIrMS9bAOyzjpkcK0h
-	iYVTX6YjKMtPfHMWrg9+4rdTPXwKp4R23j2+s6daXJgIcazM+31447qdWGRTIONa/GirPXKuXT5
-	Q7zlZ2fjRI1y/j55+g+4XCKYUaan2Y/vYQeIzqEHD/ZF4VOYRYSUnxn4F+oKXmgvRqjAbG9C098
-	DNYu3l4jIokYLO+DUkz9ruChclM2dtI2O+Xwc/Phg54=
-X-Received: by 2002:a17:90b:268a:b0:3ac:7c52:fae5 with SMTP id 98e67ed59e1d1-3b41c9778e9mr3152403a91.50.1795188521252;
-        Fri, 20 Nov 2026 07:28:41 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:49::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm5081385a91.1.2026.11.20.07.28.40
+        bh=6iFyG/TRTFnFVaxbHFa4tzavqW4H7pOjO5Kz0xPyRdE=;
+        b=Uo2UxPF/xejfU/bKC1ozgctu0j1olUTZCihK8Uyyj9yGgG1xpAcLWgwNTutVh0ikGo
+         68C4meTCtBp8fuoCwM0+gT8riTgTB9y6lM5eAi5dyBoAY+TXhK0aNWw5DqxPsglVSrUK
+         2cn/UhNpY6Gs6p+6gmUks3sR4JYkponnXa60XVaI7rk+k4Iw+uu3oyrEUm3f2GP3Dfdl
+         WLRV5JL5aqJc/Amt3paIfEcXEwZup+gd1pTMXn4kfFd90QZVpNU6duc20Ulit/3SWvMD
+         oZt2weRUYgva9Q725hbAowPHOQUWacdoWtwvo8uLQDh3weLbpSQV29OZTKKUD+d5vXvj
+         IAdA==
+X-Gm-Message-State: APuU4Z+qvGfnF4YoO5dAq+pt0zp7kcbxh6Rkh7PlJ28zvuL1+8wXD1Z1
+	PMeP53fQkqTZ0ZFBQNeN8WXH6oNKzFMaxy47zE3rP+bdy8+aoaKDEAz5LilW6tzMAWDEJeL8ElX
+	ODnoC
+X-Gm-Gg: AZFdTZefAPR1dyZcQcnx0oAMgoxOgjKQWx2zfhb0sfmp0/bqKlrusWU+G8wCH2OmndQ
+	ODgTvUpiKR90/UdQhayK4bQLy84/RfgAqDv4l/+G4116K4gU9C1I4JF4R+4u1Bvc+dYJ1qMllA4
+	Vdgk6XJHviGnMn46CFwOXGRwEB20nkw/B0Mz5s8dAYmHqDCOg0ScwsUh2DlAsVrAFWGcpJHdlF7
+	FsLMTkGNeirRs7Cs/qf32Yn+xsmTh41pUDuP3U4v46+6c+7c/ZcJgwwO23UMvPiMlMgvum1VjQq
+	we00iRWwZAnfVjR+sNXHozrcnU1O042KlYiktqOo76fHMAXOMCiCODB2+rx7/xUy3m1sf5iriDS
+	Q7WGHqT2MQFRqJDuPn9sbFlKewYS+unmE1BPZ+f8tYL85f7Bj0wA2aYQBVauT6QWn8vH8dX3QOE
+	sbSq0nKK9TsdMudxKteao5/bcfozpP+OLL/vjaBzUcYC5r5DXkzGBHuIPs6x9LB3qmL/NUBX0u5
+	cwcA65ZkyFgEJtNBoxwmoqJaVwMWkO2kInJd4ik4SvK8N21Uc/CourNQ4gCOoL0m5cB0n50gRLQ
+	uRO+Anccd5ur0RHvlqDamYclu60oUfZH1/CKjgTQ0pw=
+X-Received: by 2002:a05:6a00:1ac9:b0:874:705d:f65d with SMTP id d2e1a72fcca58-8c87cf2ad20mr3193643b3a.43.1795188523647;
+        Fri, 20 Nov 2026 07:28:43 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:53::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4aca2sm1637924b3a.32.2026.11.20.07.28.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:28:40 -0800 (PST)
+        Fri, 20 Nov 2026 07:28:42 -0800 (PST)
 From: Joe Damato <joe@dama.to>
 To: netdev@vger.kernel.org,
 	Michael Chan <michael.chan@broadcom.com>,
@@ -94,9 +94,9 @@ Cc: edumazet@google.com,
 	kalesh-anakkur.purayil@broadcom.com,
 	linux-kernel@vger.kernel.org,
 	Joe Damato <joe@dama.to>
-Subject: [PATCH net v6 1/5] bnxt_en: return the RING_FREE status to callers
-Date: Fri, 20 Nov 2026 07:28:23 -0800
-Message-ID: <20261120152830.699712-2-joe@dama.to>
+Subject: [PATCH net v6 2/5] bnxt_en: check HWRM response if completion never arrives
+Date: Fri, 20 Nov 2026 07:28:24 -0800
+Message-ID: <20261120152830.699712-3-joe@dama.to>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261120152830.699712-1-joe@dama.to>
 References: <20261120152830.699712-1-joe@dama.to>
@@ -111,129 +111,89 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-hwrm_ring_free_send_msg() reports failure to its caller, but always as
--EIO, so a caller cannot tell whether the firmware rejected
-HWRM_RING_FREE or never answered it. The TX, RX and AGG ring free
-helpers discard the value.
+When HWRM_RING_FREE is sent over a completion ring, __hwrm_send() waits
+for NAPI to consume the completion and gives up if it never arrives,
+without looking at the response.
 
-Return the errno from hwrm_req_send() instead. -EBUSY means no response
-arrived: the wait timed out, was abandoned, or the firmware channel is
-down. An error reported by the firmware keeps its own errno, for example
-a firmware BUSY reply becomes -EAGAIN. Return the value from the TX, RX
-and AGG ring free helpers.
+If a completion is not posted within the timeout, check the response
+before giving up. If resp_len is set, the sequence id matches, and the
+valid byte is set then the firmware completed the command and only the
+notification was lost. Fall through to the normal error_code handling in
+that case.
 
-No caller acts on it yet, so there is no functional change.
+This check runs only after the full command timeout. A response that is
+still being written reads a zero valid byte, so the command is still
+treated as failed. The rest of the response is read only after the valid
+byte has been seen.
+
+Log the response state on both paths so there is more data when this rare
+event occurs.
 
 Fixes: 74608fc98d28 ("bnxt_en: Ring free response from close path should use completion ring")
 Signed-off-by: Joe Damato <joe@dama.to>
 ---
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 50 +++++++++++++----------
- 1 file changed, 29 insertions(+), 21 deletions(-)
+ .../net/ethernet/broadcom/bnxt/bnxt_hwrm.c    | 47 +++++++++++++++++--
+ 1 file changed, 43 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index e78cf7ad3cbc..c3413354e758 100644
---- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-+++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -7673,55 +7673,62 @@ static int hwrm_ring_free_send_msg(struct bnxt *bp,
- 	if (rc || error_code) {
- 		netdev_err(bp->dev, "hwrm_ring_free type %d failed. rc:%x err:%x\n",
- 			   ring_type, rc, error_code);
-+		if (rc)
-+			return rc;
- 		return -EIO;
- 	}
- 	return 0;
- }
+diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c b/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
+index de02d1baa751..53667c0c38aa 100644
+--- a/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
++++ b/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
+@@ -582,11 +582,50 @@ static int __hwrm_send(struct bnxt *bp, struct bnxt_hwrm_ctx *ctx)
+ 		}
  
--static void bnxt_hwrm_tx_ring_free(struct bnxt *bp,
--				   struct bnxt_tx_ring_info *txr,
--				   bool close_path)
-+static int bnxt_hwrm_tx_ring_free(struct bnxt *bp,
-+				  struct bnxt_tx_ring_info *txr,
-+				  bool close_path)
- {
- 	struct bnxt_ring_struct *ring = &txr->tx_ring_struct;
- 	u32 cmpl_ring_id;
-+	int rc;
- 
- 	if (ring->fw_ring_id == INVALID_HW_RING_ID)
--		return;
-+		return 0;
- 
- 	cmpl_ring_id = close_path ? bnxt_cp_ring_for_tx(bp, txr) :
- 		       INVALID_HW_RING_ID;
--	hwrm_ring_free_send_msg(bp, ring, RING_FREE_REQ_RING_TYPE_TX,
--				cmpl_ring_id);
-+	rc = hwrm_ring_free_send_msg(bp, ring, RING_FREE_REQ_RING_TYPE_TX,
-+				     cmpl_ring_id);
- 	ring->fw_ring_id = INVALID_HW_RING_ID;
-+	return rc;
- }
- 
--static void bnxt_hwrm_rx_ring_free(struct bnxt *bp,
--				   struct bnxt_rx_ring_info *rxr,
--				   bool close_path)
-+static int bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-+				  struct bnxt_rx_ring_info *rxr,
-+				  bool close_path)
- {
- 	struct bnxt_ring_struct *ring = &rxr->rx_ring_struct;
- 	u32 grp_idx = rxr->bnapi->index;
- 	u32 cmpl_ring_id;
-+	int rc;
- 
- 	if (ring->fw_ring_id == INVALID_HW_RING_ID)
--		return;
-+		return 0;
- 
- 	cmpl_ring_id = bnxt_cp_ring_for_rx(bp, rxr);
--	hwrm_ring_free_send_msg(bp, ring,
--				RING_FREE_REQ_RING_TYPE_RX,
--				close_path ? cmpl_ring_id :
--				INVALID_HW_RING_ID);
-+	rc = hwrm_ring_free_send_msg(bp, ring,
-+				     RING_FREE_REQ_RING_TYPE_RX,
-+				     close_path ? cmpl_ring_id :
-+				     INVALID_HW_RING_ID);
- 	ring->fw_ring_id = INVALID_HW_RING_ID;
- 	bp->grp_info[grp_idx].rx_fw_ring_id = INVALID_HW_RING_ID;
-+	return rc;
- }
- 
--static void bnxt_hwrm_rx_agg_ring_free(struct bnxt *bp,
--				       struct bnxt_rx_ring_info *rxr,
--				       bool close_path)
-+static int bnxt_hwrm_rx_agg_ring_free(struct bnxt *bp,
-+				      struct bnxt_rx_ring_info *rxr,
-+				      bool close_path)
- {
- 	struct bnxt_ring_struct *ring = &rxr->rx_agg_ring_struct;
- 	u32 grp_idx = rxr->bnapi->index;
- 	u32 type, cmpl_ring_id;
-+	int rc;
- 
- 	if (bp->flags & BNXT_FLAG_CHIP_P5_PLUS)
- 		type = RING_FREE_REQ_RING_TYPE_RX_AGG;
-@@ -7729,14 +7736,15 @@ static void bnxt_hwrm_rx_agg_ring_free(struct bnxt *bp,
- 		type = RING_FREE_REQ_RING_TYPE_RX;
- 
- 	if (ring->fw_ring_id == INVALID_HW_RING_ID)
--		return;
-+		return 0;
- 
- 	cmpl_ring_id = bnxt_cp_ring_for_rx(bp, rxr);
--	hwrm_ring_free_send_msg(bp, ring, type,
--				close_path ? cmpl_ring_id :
--				INVALID_HW_RING_ID);
-+	rc = hwrm_ring_free_send_msg(bp, ring, type,
-+				     close_path ? cmpl_ring_id :
-+				     INVALID_HW_RING_ID);
- 	ring->fw_ring_id = INVALID_HW_RING_ID;
- 	bp->grp_info[grp_idx].agg_fw_ring_id = INVALID_HW_RING_ID;
-+	return rc;
- }
- 
- static void bnxt_hwrm_cp_ring_free(struct bnxt *bp,
+ 		if (READ_ONCE(token->state) != BNXT_HWRM_COMPLETE) {
+-			hwrm_err(bp, ctx, "Resp cmpl intr err msg: 0x%x\n",
+-				 req_type);
+-			goto exit;
++			__le16 resp_seq_id;
++			u8 valid_byte = 0;
++
++			/* Only HWRM_RING_FREE checks the response here. The
++			 * other users of a completion ring depend on the
++			 * completion itself: the IRQ self test, and
++			 * HWRM_RING_RESET, which reuses the ring. A cancelled
++			 * wait means the device is being torn down.
++			 */
++			if (req_type != HWRM_RING_FREE ||
++			    READ_ONCE(token->state) == BNXT_HWRM_CANCELLED) {
++				hwrm_err(bp, ctx, "Resp cmpl intr err msg: 0x%x\n",
++					 req_type);
++				goto exit;
++			}
++
++			/* The completion was not delivered, but the firmware
++			 * may still have freed the ring. Check the response
++			 * before giving up and log the state.
++			 */
++			resp_seq_id = READ_ONCE(ctx->resp->seq_id);
++			len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
++			if (len && resp_seq_id == ctx->req->seq_id)
++				valid_byte = READ_ONCE(*((u8 *)ctx->resp + len - 1));
++
++			if (!valid_byte) {
++				hwrm_err(bp, ctx,
++					 "Resp cmpl intr err msg: 0x%x len:%d seq:0x%x/0x%x\n",
++					 req_type, len,
++					 le16_to_cpu(resp_seq_id),
++					 le16_to_cpu(ctx->req->seq_id));
++				goto exit;
++			}
++
++			/* Read the rest of the response after the valid byte */
++			dma_rmb();
++			if (!(ctx->flags & BNXT_HWRM_CTX_SILENT))
++				netdev_warn(bp->dev,
++					    "Resp cmpl intr not delivered, msg: 0x%x completed anyway (len:%d valid:0x%x err:0x%x)\n",
++					    req_type, len, valid_byte,
++					    le16_to_cpu(ctx->resp->error_code));
++		} else {
++			len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
+ 		}
+-		len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
+ 		valid = ((u8 *)ctx->resp) + len - 1;
+ 	} else {
+ 		__le16 seen_out_of_seq = ctx->req->seq_id; /* will never see */
 -- 
 2.53.1-Meta
 
