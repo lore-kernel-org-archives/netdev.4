@@ -1,58 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218517;
-	b=pzmL0anKEZRLbuTETznu5vw+TPHzXVaFgPlFTgBx/N2DGbHslIVFFm5JJ6JloixyMfgs
-	 sdpVm08wVi+0U0/iyS+Shrh6r9JAAoW/HVG5waIi/jJ+MzAia4rIsSINpInjE9fg+LnbO
-	 JMPVivDZyNmuMTeQ9br6uWUcCjiovrgDn99j1YrEZ6r4eRE5jR8YDJS5lINg3REknVR6D
-	 EsP2dQERibCmZueIz8hSTVjQf6CsdALvlzcnv1vanEZA6Yl2e28xPhl+MYPNYShtNFmE6
-	 84hqTS2BXDbTPjt3oZkww9OWC4mDF1s6SVtmHfGf42cb8PBMUyHQXT9R4+v9S1eitQw==
+	t=1795218606;
+	b=KDZn0eHVhksMhKYI/mLd9NejXxP31UK6bL5o8/AsVRLaNIgay2aOUu01Uwc7DsVxNc/d
+	 RpXN+ZSZUI1AJXxwbsn0F5NLtpVASEDBg2PvPPQMViRN13wegiGRvoizcLb5wv5BduglU
+	 /EYrulQLz+cgg6haf6W+JKlZOhgUyqyJB40WttRq3tPgU+RR/PBV4U5ruhCdgKc0qiVjw
+	 VVyvBOODbm0KBhGNiAGQ891x0kkiyEa+L0g5n6S9XOVB60MqHB/63OX0RZ19cQm6kJ1HO
+	 jd3IyYadpw1bczqOQlY471gRrEBpeVtWLIStcvebg2HkKb0TKB7Mw9i0CYTd+f/4nKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218517;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zj5rTli9n77ky5qtA/qDG9ORlLmgtspeXHoYNy4XZns=;
-	b=bWbI2woiadxlkKvGEFR+3qV4CQB0YJ9Arq+mT0FjLs6OkdC1zX8haqwageVzkiMwTV9v
-	 sAynA6jiZTEzawOd7bArAnYTlv68nF5shBfppGerxkml8vqbiRObzCtM5jH7efMjqAsi7
-	 9IDTv3GK1QUwFkaMHvAHggbs/HKRk2BaPaYnovWCVoWLL6hJe8OR9h7C1U9aIS38JfUIk
-	 s7uJ+pF4I++eC8K1cDtk+Dgq6xq3Ld0UreDtDDqS8Gth3Eokf3rw0qVFEJYBVX8D2+KmA
-	 rVzLsgwRM9qi9aIhp3NUgEWDamzLHpa1rfKEJSMPTBAyciZ5NT8H2/oOSY5LKUYulTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218606;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=tnHYFtgCITrDmSsRECNy2BGdzhmEJLjovQrJ20eJngI=;
+	b=Gja/s6glXkeDqHeDPhMEqm57mDkO0YdoSS1kjOKbdhNBZBURFeKrWK1Uc+UjXutkw8Hd
+	 IAdekAL9/6fWYJkZGURCad7RD1i5zFte52zN0/rZ4JsssmoaLj2RTBuBc2nT57cgLkCK8
+	 3oqkdLkwOzXpEkFqQw2z4uZi8zMry5PK1m+rGTdG3nYQZA2DtvNRLvvgpTvSmm5l5pzJi
+	 hAzXOWSjuOawp2g7kpWbbVRrlAxe0vEMGKOVKTEEGjaZY5wxVO5uvH0zX21G4ePP6P6Xn
+	 4oMpavOpMcAIfF9F/QKcCuTAsvmadxeo9qEJdne25QjBwkL9hhrPs4wuI9L7khmOJFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HfmSJfd2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BufQ/3AM";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17E3C606A68A;
-	Fri, 20 Nov 2026 23:48:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBF39606A6B7;
+	Fri, 20 Nov 2026 23:50:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HfmSJfd2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511A61F000C6;
-	Fri, 20 Nov 2026 23:48:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BufQ/3AM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E481F000C6;
+	Fri, 20 Nov 2026 23:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795218516;
-	bh=zj5rTli9n77ky5qtA/qDG9ORlLmgtspeXHoYNy4XZns=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HfmSJfd2lIB+QDiw9oTQl7DRq+4pj6Xcn5xnWfvxOs6zxjxlkZuwRjR5EZxtqRBJc
-	 x5tlQJhQg9JpcnWGH8nSuEqab28oRsIyhJofAyc7+egL7/QV8xiEP3HiASckDi3HFj
-	 ziJXGanOhWBrU6n1rd6u0I9QrVkb3JfU27bfuxyq1wxbGXJkbEiB67lrC1cmmdUy2d
-	 wp3Z17KRWD7CLmAGgAFHdiSVbpri6MOg9hZAMYclAja204s6+dvtIOeguO7ML1LKNI
-	 DzqkVr6ZawRBAaXa9anL8HIQ7Xx9+vYMFR5sJfVn1gEIlbMP7nH0jupcdlwB2mN9TA
-	 ck1vmKpKG2eSQ==
-Date: Fri, 20 Nov 2026 15:48:35 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Narcisa Vasile <narcisav.kernel@gmail.com>
-Cc: netdev-bot+sashiko@kernel.org, michael.chan@broadcom.com,
- pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] eth: bnxt: report TX HW GSO queue stats
-Message-ID: <20261120154835.0f56c410@kernel.org>
-In-Reply-To: <av/RAwaDfiQnPmbF@gmail.com>
-References: <20261116204313.23023-1-narcisav.kernel@gmail.com>
-	<179499144094.3136.198428718668517773@kernel.org>
-	<av/RAwaDfiQnPmbF@gmail.com>
+	s=k20260515; t=1795218606;
+	bh=tnHYFtgCITrDmSsRECNy2BGdzhmEJLjovQrJ20eJngI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=BufQ/3AMKOnEj1L3y8S5vJyuerHc4GqWgDS5zGeSHsu3rHFNX2leaRXVsfzSl2UFI
+	 J8z9WTzPQ5kQwSWV/Oyd8iC4NE1RRhyxVk4VEoyaCl1KhHTMisR+JUTbqMQtjGXA18
+	 mdMrXm8suT5I4qiKpG02O7Xuq4AywKnbWK3ZxBMY5+pKVW8KtI58rA2STAxbk0nXC0
+	 55sHNC+a9fFo1XavY6hta7GJ3oXCRP/UDHfTw/559Mjb8ds5ySATSYmem9bvIWned8
+	 pgWGZ7u72h+6KOXTgayaV9GdGYVmz1nuHI5qrd5Y4XVhweEO+5M90Q2D6r+tvt46de
+	 Q8FGaKgXbZWFg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A32B380AA4D;
+	Fri, 20 Nov 2026 23:50:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,36 +53,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] octeontx2-pf: Fix potential use-after-free in
+ representor
+ teardown
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179521860503.842584.8663066740540883936.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 23:50:05 +0000
+References: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
+In-Reply-To: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: sgoutham@marvell.com, gakula@marvell.com, rkannoth@marvell.com,
+ sbhatta@marvell.com, bbhushan2@marvell.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
-On Thu, 19 Nov 2026 20:48:03 -0800 Narcisa Vasile wrote:
-> > [Severity: Medium]
-> > Can this over-count wire packets for GSO skbs that were sent through the
-> > TX push path?
-> > 
-> > This block runs before the is_push early-out. It treats every completed
-> > skb with skb_is_gso() && !is_sw_gso as segmented by the hardware.
-> > However, the push path gate in bnxt_start_xmit() does not exclude GSO
-> > skbs:
-> > 
-> > 	if (free_size == bp->tx_ring_size && length <= bp->tx_push_thresh &&
-> > 	    skb_frags_readable(skb) && !lflags) {
-> > 
-> > The push BDs never set TX_BD_FLAGS_LSO or tx_bd_mss, so the NIC sends
-> > the skb as a single frame.
-> > 
-> > Take an idle ring with tx_push_thresh at 164 and a GSO skb of 164 bytes
-> > or less. Two examples are TCP with a peer-advertised MSS of 48 and 96
-> > bytes of payload, or UDP_SEGMENT with gso_size=8 and 80 bytes of
-> > payload. Either skb would be counted as 1 hw_gso_packet plus gso_segs
-> > hw_gso_wire_packets, even though only one frame went on the wire.
-> > 
-> > tso.py reads these counters, so could this give misleading results
-> > there? Fixing the push path issue described below would also fix this.
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 16 Nov 2026 22:12:10 +0800 you wrote:
+> The representor private data resides in its netdev allocation.
+> rvu_rep_destroy() frees that allocation before reading rep->flow_cfg to
+> release the flow configuration.
 > 
-> This couldn't give misleading results there, since no GSO skb in tso.py
-> can be 164 bytes or less, so none can take the push path.
+> Release the configuration while the representor is still alive.
+> 
+> This issue was found by our static analysis tool under development.
+> 
+> [...]
 
-Fair, but UDP segmentation may sneak in there. I will check with Joe.
-Either way, I agree that this is orthogonal.
+Here is the summary with links:
+  - [net] octeontx2-pf: Fix potential use-after-free in representor teardown
+    https://git.kernel.org/netdev/net-next/c/a98c9978f59e
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
