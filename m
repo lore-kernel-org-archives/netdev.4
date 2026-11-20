@@ -1,60 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.245.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181356;
-	b=PnUYA9mlbK+sCins390RDuKdK1otORmYPpsYTXdrYQK2WaHEUDOVtLOsMKR09qceq4ik
-	 PNHjI8Bh3nASUEuMDAnSiVj7U22hdowH3EPbsMmoQ7BL8N9S0BL66LRV8/1EXYaGxsn4m
-	 GBlCQN0W5NWvJ4Ny+ZuFCY0RD/pWre1rDS7PQwlJwYQhg30BFT8W9JpeF1XbuHbQWFC6Y
-	 xgIRVJEabhA14TxZr+hDxtq+1+X0K7VSnvLGYZB9Jq++UrvhUP7AkOA9o6oA+UEc5U5v+
-	 IXIJHrLPXiMBL3vTu57JwEi2ILm1UK/F+eukeLthAHkBMKMnmEJgu9C6mTXbv1M1KlA==
+	t=1795181565;
+	b=bvaPLpJgbe4iCEQjfH2rDZ2HUU5ernxFGks4/TYq3inV/kQLhAAYJVobrm2GHWK5QJiB
+	 EPs9Ik8a2NWxgki+7AeVA3e+/47XH+MR9X4A+HyK/7Ch80lqzbNWbgY2kaiJd2BpnQeI6
+	 k7Z4EYs5PL1akvRaJ2laSQXTu5glZR2psx6ry7eBstkCiMpYMe13miaBnQ1ryao936s55
+	 3NyywHUYvNNL8GWdKSiXAiQqDk/CPsZuD4vAkxchzl/Wb8S6libXaxMYV71Qb8/MJOKyx
+	 G13++dCGcU6rNYTgIbgaqTSExbNUiqHf2ondSkDqfovzcpmiBcziWIwllyOLcEi2s6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181356;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=9V0wEcz4bwDJK9HLg6xYoGNRiMC7zuqdU6j4swgRUaM=;
-	b=s6a3y/qIzqs/Sl5Gs2XAsLeIeF8kas4ipxHrC+QWO/taDO+TTTdDOpCySNasi5ao8jMn
-	 rHSzTeglvlOaz3gJXcHUkroy9OADrOYA/JcNtdw2c/XFnh5aYG4jIm4Ibk1GaSO3C9ZLR
-	 4eOQaltmXvCoifPiexAfVdg9mLFfNf4aynkenRy1yXrtEI0xQ54bGqkjNnQauHeiSxMYE
-	 d9woUwSf8JBfHpS6gm1l4LetI9/0jtIayy42srs+QC4+bjd3WfaL2ISJl/kEHRaC9b7Cx
-	 +WbNe5uNs64DxZVTpffKDLfQM7uw7cLAH8IIX3bSb87CIunrglUX+UfkaV4mB5WzFFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181565;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=gnCz3ES8tm66iHipwmv17CLb12tKgEyO5B4jPSzg7NQ=;
+	b=p1uA4FvYuz8UXILGmyhxOZTbEcaEkzshR4LZ6rh81Z903yxkoX7pi2ssOvqzl/9H2L0v
+	 6Lscicyi0N1TuDxjZ3DVXiA3JCmEqEhn4E3WYV1ps+prjsVYkWTx+heBWLf6bf9YekrEG
+	 DrgVat5AD+Oa3vfrwObQArIUZVqnE/IRM7bSAjnTHz1YVRunZQ1Gqq2IEQKC6QVEPKZXm
+	 62yyPecOg8qmvRP8YQaPrgjb81CV2bx/wIHJB7i00wQPE/kD6Ctu2VOkuuioHQTVzt5LG
+	 LIpD1JFRKFE/L77q0loGKMwLAsWHVkvj1B7i8IU9OvwG8O5kh98tUgtVjNUkdNjgdXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="TncHJNl/";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=none header.from=strlen.de;
+	spf=pass smtp.mailfrom=strlen.de;
+	arc=none smtp.remote-ip=91.216.245.30
+Received: from Chamillionaire.breakpoint.cc (Chamillionaire.breakpoint.cc [91.216.245.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67EAA606A333
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:29:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67EAA606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=TncHJNl/
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=9V0wEcz4bwDJK9HLg6xYoGNRiMC7zuqdU6j4swgRUaM=; b=TncHJNl/sp3dipaIUiFJs2M4NG
-	dkfmmBSHjaNZW7bj0EQZdf4bxoReb9O83OwONL296oIVw4Cwxyc66Mgi+otAg2U7bkoCE1juIHeh6
-	RMU2WyEpCUXLDLd4jPpNLdZ60F+QuAkomqdh3E1eGDRwLlgRXC5ZthOXoHtwiWn5cuS0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUOfq-000IWY-BQ; Fri, 20 Nov 2026 14:29:06 +0100
-Date: Fri, 20 Nov 2026 14:29:06 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Doddagoudar, Susheela M" <susheela.m.doddagoudar@intel.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"Lindberg, Magnus" <magnus.k.lindberg@ericsson.com>,
-	"Chintalapalle, Balaji" <balaji.chintalapalle@intel.com>,
-	"D H, Siddaraju" <siddaraju.dh@intel.com>
-Subject: Re: Proposal:  per-lane PHY polarity get/set via ethtool PHY tunables
-Message-ID: <112154f6-53f9-4cb7-9124-aba263b097b5@lunn.ch>
-References: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4345E606A320;
+	Fri, 20 Nov 2026 13:32:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4345E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=strlen.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=strlen.de
+Received: by Chamillionaire.breakpoint.cc (Postfix, from userid 1003)
+	id 873D960D35; Fri, 20 Nov 2026 14:32:31 +0100 (CET)
+Date: Fri, 20 Nov 2026 14:32:31 +0100
+From: Florian Westphal <fw@strlen.de>
+To: Junyoung Jang <graypanda.inzag@gmail.com>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>, Phil Sutter <phil@nwl.cc>,
+	netfilter-devel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH nf] netfilter: nfnetlink_queue: drain cleanup work on
+ netns exit
+Message-ID: <awBLxqCPTWlGBWFx@strlen.de>
+References: <20261120105718.866862-1-graypanda.inzag@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,22 +52,49 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
+In-Reply-To: <20261120105718.866862-1-graypanda.inzag@gmail.com>
 
-On Fri, Nov 20, 2026 at 12:45:56PM +0000, Doddagoudar, Susheela M wrote:
-> Hi All,
+Junyoung Jang <graypanda.inzag@gmail.com> wrote:
+> NETLINK_URELEASE unlinks an NFQUEUE instance and schedules its
+> destruction through queue_rcu_work(). The RCU callback queues
+> instance_destroy_work() on nfq_cleanup_wq. Queued entries retain
+> entry->state.net, but nf_queue_entry_get_refs() pins only their
+> sockets and network devices.
+>
+> A migratable device can return to init_net as the old namespace exits.
+> cleanup_net() waits for the RCU callback but not the work it queued.
+> It can free the namespace before instance_destroy_work() calls
+> nfqnl_reinject(entry, NF_DROP), which dereferences the old state.net
+> in nf_hook_entries_head().
+
+A bit too verbose changelog for my taste but unfortunately with AI
+it's becoming the new standard.
+
+> A source review assisted by a coding agent identified this race. A
+> 65,536-queue reproducer on unmodified mainline with
+> KASAN and lockdep enabled reported:
+
+The above is rendundant.
+
+>   BUG: KASAN: slab-use-after-free in nfqnl_reinject
+>   Workqueue: nfq_workqueue instance_destroy_work
+>
+> The free stack included cleanup_net(). The trigger used
+> initial-namespace CAP_NET_ADMIN and a migratable virtio-net device;
+> it required no kernel modification or fault injection.
+
+This is useful, could also have added the trimmed backtrace
+instead of the above.
+
+> Drain NFQUEUE cleanup in the pernet exit batch. rcu_barrier() waits
+> for pending RCU callbacks to enqueue their work; flush_workqueue()
+> then completes that work before cleanup_net() frees the namespace.
+> The batch hook avoids a barrier for each exiting namespace.
 > 
-> I would like feedback on a proposed ethtool netlink interface for getting and setting 
-> the polarity of individual PHY lanes.
-> 
-> USE CASE
-> This helps debug link-up failures caused by swapped lane polarity. A user can read and flip
-> the polarity of a lane at runtime to see if the link comes up.
+> The same mainline revision with this patch built without warnings and
+> completed two 90-second reproducer runs in KVM with no KASAN or
+> lockdep reports. No netfilter selftests were run.
 
-Isn't swapped lanes a hardware problem? The PCB layout is wrong. The
-poor person who first brings up the board needs to figure out what the
-PCB designed did, but after that it is just Device Tree properties.
+This is redundant: its obvious from looking at the diff.
 
-I don't see a need for ethtool.
-
-  Andrew
+Reviewed-by: Florian Westphal <fw@strlen.de>
