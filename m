@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795140610;
-	b=MR3eXaO4rKRzTkooye+y2jphs5GtJLdvhg7kUiOSIEgfvGpWpgWgtVXs/t0/lQ+iWKxG
-	 +hedNjYrZDsApPT94C6L/+RLpOII61J/8cGZL1kN7Z0vNBU05vs6sa2yDu1t07Vb5xXL2
-	 NiMFrdcPehevP3BTJgOrL+xb2AbPLitgZWsM3bE34hP/xSHRho/WO0DKYJK1V5eZKfGv7
-	 rqRsLOHmtw58g9kuZGvZf+vJZRacI3YP79jdJud8RmWwgb6RPzFWVUnIZjCkjdYTHeG62
-	 lSbn07tUji4bdPr2MdlvHGF0pHl9HQZsBXJEY83jQhK2zMnIOGCVxwX2Z5l+MRaFKXA==
+	t=1795140612;
+	b=FdQmDWw1VeciiZli6uzlISdsFbO2oYfKDwc1eMLZHAXECOsMV+NTKFuOqU6MqPrUFTg+
+	 yS6EXJjjaMC4TM5KbbFarSbAaPwV4Y8psxilHCgnOEvkZTHp/w6pQi1Qfgd/X6fMZelr6
+	 OKpK4l3JFkuJSRUaYNUAKLfvHpA5JpdaPlAU6EwdpOBVIU0IEzJuFqK+yASN88Tz7kTh/
+	 vK6pNFfgORsj2YQE2sybxGI0koGoNqbXDoyI791fNom7/tjEq1u7dWLUvxnqHgkhG1qCX
+	 fmxvpM/uSdfZDnNHxGnD/A/bRsVrzqq6dtiZQmk0mXSn7DKuklDdIZQBj+vyHDUgS2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140610;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140612;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=BWF/o7HxuhpeDvyIS/P6u0dIIiRMG6uCfb04buHYMAw=;
-	b=PHKhYzdxKxccMDqwKhJMzeq6md37xypVRG0+RT0uNYg3UJmyZMIwAaH+EYE3ukJgE9Uc
-	 f7Gz2mvq6YrMp6KhqV3W8gACM9eF1ggC9tlQbihJVw0OOsFkNVve+RurFCeUCIOPpC6Pm
-	 uv4UUuEM8ot2C40fcEure2LX9a0A53mrwvxhiHl5HefEWPPiwbaC+KihTA+AQtEl9p9mu
-	 XFf1rbQ2g0dusLPwbPd3L4Aoi2rRKfBF4KVlbyVMA5PqAlyWHcIPKl+She36/YRxWYyyv
-	 /d5bmxo/6kuwxihSLzoYMd3jwzB7xGjqYM/+miiV15SThiV6m2t9Wj7Ip1xCVs722aA==
+	bh=m6dX7bMKg0suoqPEar3y5ccuT+x7eN4my9DRKPnLM7s=;
+	b=YyxE23K7m0y8hWZrcAEnLjpu8KH811iIAo6N3B1H1sd3IKRJJOxcqhgoEdnqMYuzf+If
+	 KDUNZ9sWMkKoVIFT2DigYHgJi6IeSFKNqTbNz6JfWC6L1QooNH5Oxn7N46KC3B18Frb1o
+	 8wMzrMZEKiq5tQkzDwcMmQblELafhuldI3g3AYL3XYvHiqHH7Q3x+1+8vXBszHn2vZMur
+	 gJYUeYHxYCWSoWqk2L9xxMFlwijfCGDX7FWmuQtcIECTN8HqoPPtGpc4eD7s+7J1f3knm
+	 gI6jlMmOX6qfZTJ9PVPH8D0/dPa481AR7Llr5xrafNCK/vdUWkXuix2bNdDRevdAz6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fsn3MbM1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mG0Nk3C4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B316E606A325
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:10:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19D41606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:10:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fsn3MbM1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44AD31F000C6;
-	Fri, 20 Nov 2026 02:10:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mG0Nk3C4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD8081F000CA;
+	Fri, 20 Nov 2026 02:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795140610;
-	bh=BWF/o7HxuhpeDvyIS/P6u0dIIiRMG6uCfb04buHYMAw=;
+	s=k20260515; t=1795140611;
+	bh=m6dX7bMKg0suoqPEar3y5ccuT+x7eN4my9DRKPnLM7s=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Fsn3MbM1H8nPZJ5Fnfy0J2BpkjlfovQSkKuSMxkqUkudoBMwl7bOJNplRBqkoJklq
-	 +0pRVHLck9QVfXX55D3S/gck+EPp2Ne2R3TWCyMh8Jh02zntwgwpMAl5HlwH2gyhuq
-	 i9vyD1BZpUmLxEVMetuJbg6i6MRrpnX/ZH3FLqzaMjOKNOdAXOUpp4qIpEhhuwRgPQ
-	 7xTjI3BhRdA6j8R6J0HKLeGQdyE+SCS/Fl30ML8ELd+UvNsoEWVdei7r8wnH6cqpEz
-	 HIEMs8jHeVbJv60aMTlIGM0qpspSmem6y3Z+p9xkbWorXX8ChfStoYB0wiXrwN73+G
-	 xnSXt9z9fZR8Q==
+	b=mG0Nk3C4rQ5sJaV2ZogJA8CQAZ/suL40j2a1moaJbpZE3hYg9tExWNDYfIVKJZ6j1
+	 ZW8xk1GcKPyUjzh+37a+YRyViWUH78O2p7/xkWY+FViUlI3gswsQma4vjL+lColtX+
+	 Ygubt1L6VlAvUPgb8TX+7zzJBeA7PgPoLTcVP0nzrafNao5vxgYzYidzFYlcIBRdJL
+	 ZVpHTFVtahpmQQprfUD0C5pO94ajt0z/qQKzlNAL+GqGU4gZgOvuqSqQXcIVpOC4lT
+	 aNg8rnA01CL1iJnGkvShYur369d7rd51KazlS+Cy9J4pq0o9pk7onU4/AYxQqNCDda
+	 DYZ/zOtMiPt2w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A32B3808209;
-	Fri, 20 Nov 2026 02:10:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B456E3808209;
+	Fri, 20 Nov 2026 02:10:11 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,67 +54,39 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 01/15] batman-adv: bla: use dedicated key type
- for
- claim hash
+Subject: Re: [PATCH net-next 0/2] mlxsw: Fix teardown order of CQ NAPI
+ instances
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179514060903.3979015.3571765439725680582.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:10:09 +0000
-References: <20261114091556.3336038-2-sw@simonwunderlich.de>
-In-Reply-To: <20261114091556.3336038-2-sw@simonwunderlich.de>
-To: Simon Wunderlich <sw@simonwunderlich.de>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- b.a.t.m.a.n@lists.open-mesh.org, sven@narfation.org
+ <179514061027.3979015.1986878671638427049.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:10:10 +0000
+References: <cover.1794823524.git.petrm@nvidia.com>
+In-Reply-To: <cover.1794823524.git.petrm@nvidia.com>
+To: Petr Machata <petrm@nvidia.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ idosch@nvidia.com, mlxsw@nvidia.com
 
 Hello:
 
 This series was applied to netdev/net-next.git (main)
-by Sven Eckelmann <sven@narfation.org>:
+by Jakub Kicinski <kuba@kernel.org>:
 
-On Sat, 14 Nov 2026 10:15:42 +0100 you wrote:
-> From: Sven Eckelmann <sven@narfation.org>
-> 
-> The claim hash lookup functions are given a struct batadv_bla_claim.
-> For a lookup, a dummy claim is created on the stack and only its addr
-> and vid members are filled. All other members stay uninitialized, and
-> only by reading the hash and compare callbacks can one tell which
-> members form the key.
+On Mon, 16 Nov 2026 11:16:45 +0100 you wrote:
+> There are the following principal objects for processing of hardware
+> events: event queue (EQ), completion queues (CQ), and receive and send
+> queues (RDQ, SDQ). RDQ and SDQ are then configured with a CQ to which
+> they report completion, and CQ is configured with an EQ, to which it
+> reports completion events. The order of configuration is therefore EQ,
+> then CQs, then RDQs and SDQs.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,01/15] batman-adv: bla: use dedicated key type for claim hash
-    https://git.kernel.org/netdev/net-next/c/e5604b4bf76c
-  - [net-next,02/15] batman-adv: bla: use dedicated key type for backbone gateway hash
-    https://git.kernel.org/netdev/net-next/c/f23273d7aa9d
-  - [net-next,03/15] batman-adv: dat: use dedicated key type for DAT hash
-    https://git.kernel.org/netdev/net-next/c/77e73f6381f6
-  - [net-next,04/15] batman-adv: tt: use dedicated key type for hashes
-    https://git.kernel.org/netdev/net-next/c/d4813c39c32d
-  - [net-next,05/15] batman-adv: originator: pass explicit key to orig_hash
-    https://git.kernel.org/netdev/net-next/c/8c42235b3d88
-  - [net-next,06/15] batman-adv: hash: document key argument of hash operations
-    https://git.kernel.org/netdev/net-next/c/733eaea66bf9
-  - [net-next,07/15] batman-adv: never consume skb in BLA rx and DAT incoming snooping
-    https://git.kernel.org/netdev/net-next/c/114fd66162da
-  - [net-next,08/15] batman-adv: always consume skb in batadv_forw_packet_alloc()
-    https://git.kernel.org/netdev/net-next/c/873b9f25cd4b
-  - [net-next,09/15] batman-adv: split fragment forwarding into lookup and forward
-    https://git.kernel.org/netdev/net-next/c/04fb828b297f
-  - [net-next,10/15] batman-adv: document skb ownership of always-consuming functions
-    https://git.kernel.org/netdev/net-next/c/770779407c2d
-  - [net-next,11/15] batman-adv: tt: increase hash generation when purging clients
-    https://git.kernel.org/netdev/net-next/c/581a1de769e4
-  - [net-next,12/15] batman-adv: dat: increase hash generation when purging entries
-    https://git.kernel.org/netdev/net-next/c/f984ddb2522d
-  - [net-next,13/15] batman-adv: bla: increase hash generation when purging entries
-    https://git.kernel.org/netdev/net-next/c/b34f640b6d90
-  - [net-next,14/15] batman-adv: increase orig hash generation when purging originators
-    https://git.kernel.org/netdev/net-next/c/d1c3f6e0d7f3
-  - [net-next,15/15] batman-adv: annotate functions returning objects with __must_check
-    https://git.kernel.org/netdev/net-next/c/e2c4b4b08e96
+  - [net-next,1/2] mlxsw: pci: Process EQ in the IRQ handler instead of a tasklet
+    https://git.kernel.org/netdev/net-next/c/a467c628a7cb
+  - [net-next,2/2] mlxsw: pci: Fix teardown order of CQ NAPI instances
+    https://git.kernel.org/netdev/net-next/c/b494a6d7da32
 
 You are awesome, thank you!
 -- 
