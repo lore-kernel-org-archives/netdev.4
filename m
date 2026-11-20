@@ -1,101 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205203;
-	b=hLhpS+ST8Cqa4/XxPJ/XcNAfipmlreP97fXZqx1QaECEWHPhZk6fsp2mFg3cyiz1hKEQ
-	 B/WSgqAEpGIu4zBckMxUQLMv5+C3cxmLrqFseNicoT37YXRVjn/FshpD8S+92TEh6q29l
-	 QORLZItBDUFsE9pKbpcTMgUh+SlGXyl6cXiXVG3p7cxHnfXW/osiVRDhfwPXmOVL9jgWz
-	 crtx/c5rKc4i08sKffREy8pr/Pr0XVYssQW7EPpYE1ebPs117hQU1nAYdHwfhMu7sjS3v
-	 A3B1lDd1w2n5HXSOg4TJnNQhiiB2QwFQNz4toNHSzpo6KXGOLr5e5wXXwr9D8Afwoug==
+	t=1795205207;
+	b=MZT4672KRirdmguXPrxI0FiTLOPgVUKIhS3ZnkXWGtGlG7PxbafAA5QIzGg4/QLCpDGs
+	 dCWw5GlKnxCCcS0IEB1/wQy3OOy+gCN/nVyWwT4ew2vRcbCQssYa+QA3dG7WhYQlHvHuA
+	 1QVU5sL7atDM2w+xPiiGKvRyEqXcuRFLOtNZcrU6S0LaXR9o9E/m+PV+j4VYwpZcXTI/T
+	 W4C80OfUPBJT20CB8u/lQ7rHF5RBqt75mDCzayS4hoyf1k6UcL/kdtJCuQPumz4pQKL0d
+	 dLUGhE3wKe4BRIBknQnH/Iy0YufmZhCLAzh0n68g17MvvHktaXppC4dubJBRLkU2lnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205203;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205207;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=5VbTKyUQtrAhX3grORwqbl6JK+pg2ixihCAArXS2TXE=;
-	b=GRk6M7V3YvPPyQ3zcz6qUT9w1FclwQrA9Sd5T2EclM8Wo+DOI230Ri/d/cwa7V/9UqNc
-	 pehcEfLG9hbEWZ3ZM6bFPDfVxVQcZzZGvs84BUSGXMKjQU47wURp7aZPoGyVt67YfHRK3
-	 zs/1WP5D2J7tXjBcIsEKZkCfU0s8jg2GvlJdkaH5jJeb7+GUg7mYE++3YBXL1Q6z3YR/E
-	 TFS0ri2/2bodYGd2+JvUXCDJBkV+UAxjSvFDb+B1urclmexYSApq98Ph2NpNL1qwCBYUr
-	 U5EXQTDTt9beCoV5DZ2cvCC4KGd/eeVG00A5q5TkbBu1Hq5UepC/R5ZG/0yebgsMi8w==
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=+C+q5ncc3dwft8pH4Ui5y/gC5sWH3mwGOFy5VnKoiV8=;
+	b=Tmycy+0hga3YkXNkTGqaeMf7HxuNWeCLln75WNvQ+6UI0sbEUhd8YE9x9ZLWybz+Hfop
+	 oXW6pp/lBBX/4mAiIgRTdtev4L95Bw6+jjsWYMRzIsdevJoQe3Y+AOTqlbsgz5RMm8Ak5
+	 7BNjYGcdurPTcPOYyue9pVh3Mycu1AcDZjfJd76e64WLMDvp8xsyDay/EUUfZEwi7vKo0
+	 VkHX+xmm27CcYntZkMKMYltCgDUobvnuWExCdF9cmeibIC8Awf5mqygHB/NWReUK2kPT4
+	 lCqvnlOMw3fcy6tzP8jti0qIujfeyNz8AzaRqU1k5x/xsA3CFWo8/qE1o9V1lxix0HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=networkplumber.org;
 	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ViIAh6mj;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Re3GQRgF;
+	arc=none smtp.remote-ip=209.85.210.173
+Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C52D9606A6D9
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:06:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C52D9606A6D9
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2572606A6F2
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:06:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2572606A6F2
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ViIAh6mj
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-ccca948203aso1454389a12.3
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:06:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Re3GQRgF
+Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so717793b3a.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:06:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795205200; x=1795810000; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5VbTKyUQtrAhX3grORwqbl6JK+pg2ixihCAArXS2TXE=;
-        b=ViIAh6mjzBzn9IlM0DwNU0438MM2fVuM9DDLogvaV1d6GAkYu2LI0tzY4FJy9uGQxS
-         6bSlXKebplEx28kyQJdlhkZZA53gf3jUtAZrSq2FA6mr8DtC2TtQTh22x2p5jozMElep
-         DMvkCWz7uLzHfdIpQafXEsP9ezmIlpqUbJ9GRxKOBGMNirDizuFWc+z2bH5o4C4BhxIZ
-         Ilq/Ta1Qh0uUz/FDatdPeoaq06rmCWPblhWEFUMZBg+D0mqWjuam85s1zMEY9Elcrzu0
-         xwfGrS6Z6GyzxemmbrBb+wsCEeBie0MQnmTN+ShNVfGm7TgxSXMVRcQyCw88Hg68cMFB
-         Ww7w==
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795205198; x=1795809998; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+C+q5ncc3dwft8pH4Ui5y/gC5sWH3mwGOFy5VnKoiV8=;
+        b=Re3GQRgFInWcgf1Ahl6u7Ra8im438UHwEQIp9iC7VIv0/HdZ/3uen4dP9k4SzltcWn
+         41KDM8spY3wJ5ExTfduROEXm4U+tQjtPBsUx6e8G5HFFLoirVg3ZugH/cp191BLIsIpt
+         t4reyjWpeC47sEwq+SPYVyxAoTAxPKKDFDWu5j6eBfRJGRHeph2SqAbLY9TY4ewyd9uv
+         kqjWVL/TCaUa7nXyI1peLS4fKgrh5M3K72/3nSqhDwz1VHoGA1b7+bELBNxL/T355Xr9
+         5mARg/5cIhtLPZK0HmYbPmPpQaIF2yjqEUT/j/mZ8pcbVdmdMuk70hWqxAgfhmnOqdm3
+         VoSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205200; x=1795810000;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5VbTKyUQtrAhX3grORwqbl6JK+pg2ixihCAArXS2TXE=;
-        b=STEK1/vimIni5W5jz1LTPhypV+CPUAkWIrNz+2d66tZz8xiYsOioqZ4cVx41YPjtwE
-         Um3X261orN22JoHGZOa75yijJbJOP+1YmYWMh1AUrwD7ktcSizQm13hMyL5KPNkfh0oS
-         TZnSId6vS45ROvDIbrD6DAQBypA7OZ+g0p/yR9L5Mnsm9LtF2UZOC7fFOm1Gc9zH15q7
-         IGERB5M3sm+A8OdNW1bASTrlfpdGQUOqPWbVre7wQ17pR0jFXQDgGCimVwBpCpWCxjtN
-         XcIEz3Isz3tVU44O5r3Ul43FBo5cZjwUrwW7H+y/ZffpDyxAW9vHGiEA2Xd7vMR4l45e
-         onlQ==
-X-Gm-Message-State: APuU4Z/RUpXWQbLBLUB9QScDnizeIkDo0n51DIrjJCpOWxJtWFBmboRv
-	ZP905z4d32YaSuNA06fjsCvVWmHA12hb7DJDEMQB/FM+k9vuOMLEyqXnkM+yT2iP4QX6REil57j
-	kZQjLiaQ=
-X-Gm-Gg: AYBFou22bSdvzmFIaAYCrwKfdhlhUUouh+2pu2mIOH2HkZkuJLmUpusHEltdkL+0W2n
-	0jv6dEMLM2sop13kUntCwnkVlNK4ZoDFkHepajWgBfvEy7GjeMzarDkS1JFrZR7WoVtNPhKfirk
-	aF+9XXmsAqTnUyLM5wyq6S0UgGTb0cCfgACJboJyCejUFq0ohW3jbVzl67uNOjy4yjj0vglmRBS
-	UJB9O5c5DtigsdaUnmi853xb1j7hXesMJAa1RSS/jg45C8oStXL5KuQP9lQ1j+cCDvZZ6DdaRCm
-	zQEzg77XwCRYiYFvO2o/BnBiI73Gco9aEDxuQMUAn9fvz0JVG/XTqZbXM+iSayqouKdVrrVKMzM
-	xK4h059d4qB81QDyO5lefqt+JQDj+3VdxElmrkJaigdzYSQd+oCkPkteye9iSMA7UpPVutPrNxn
-	gCIVnYMslIhde/azaiH5rPjJn4RQNlSn/+9ohVPh3U8GvyZBRPSuH5N6G6EVlKyfwwuzmGAG0xg
-	t6x/4GKW4dI7O0pNVq1sKOxkddeX08Q0w8YWXR3bPwgLHvVD4MMQu8ItNZaAJs1JeFhRl+Gv3bL
-	ZN6a1uDbDsUR9Qnf1wQRGFToAGHuifrXHlW/5q3PIjwUMHl0pES3Z8l74R7P8bjQxIqY
-X-Received: by 2002:a05:6a21:e089:b0:3f9:20d7:984a with SMTP id adf61e73a8af0-4014a17aa71mr5227956637.13.1795205200153;
-        Fri, 20 Nov 2026 12:06:40 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795205198; x=1795809998;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+C+q5ncc3dwft8pH4Ui5y/gC5sWH3mwGOFy5VnKoiV8=;
+        b=a7H7oKe21uHvXCSC/xiBG9z4AWULe/sZBa3m2vX4Zfyfb5EBSBOvShm2xjGIeZ6H1v
+         9CwW3CTkwkzLk1pTBoAHxz7fkonMoxmkjJ5SETdGwtVZd+gLFR2htvtLG/HZ06oaQZBq
+         vp7J3q9ax8wL5uPmVtnxyRC/pnPbtnpCghIvoJMBFuCSaFpb9QyGfXU++wM0TBI+0L30
+         QkoRqlGW+toncx771qmnmc9bWTBVGOhUzqnyez8HQn/snZVqEGqcIuk8pQp3R1+uZJTw
+         ZDmLuie8IkSoYT5ce9thPC+5XpkcnMq4JnaQgSnQa/HMKFfRRaqrnUNdG14ulCuAfjtA
+         T6BQ==
+X-Gm-Message-State: APuU4Z+X5KE0PbV+o92UnXVPJhaxyfJApSjrjmyqxRhbxEw9lSGXDuK2
+	CQ3BYSiXM0l3Y7bNa3SpHhHxv25RGIYptvT+dLHF7RUp7O34zZMUqvmSPclo5P07KKFllSRyjfV
+	idiWe9Bs=
+X-Gm-Gg: AYBFou2JDywm3S9N8baC/SBojKyJUnuTgb9qsHUUitlTqlN5w1SAiO7Mzsy2Zj0bDKM
+	lvo8H6d3KM1qhQo5DU4OTcEQF4nhmdW1ORCnVdQ+ZRMeI+hLCIR6or78T1qgK1d0Siz1gitVL33
+	4RC/Udbq8lKXYID7OLDyqRooP+9F5y9Q+qTSHJn2Lxr/BdmN6lVZd891sMLMtF54lA6Eksuzrou
+	J2FzOIWK6rBqbbrz55qr2OpeXeYyw2So2bTaATow7yLLSU4Im83G27uJl7f5CM5biVqCw9+V+bO
+	I8SEkqyuSflJ9uk6bHblkGblGykNsvNcqJHeJizfvGh0WIDLF+/EhmiDse+VhQ3V+sdDOlJji/S
+	oWfvYBPmw4gvnFy1MatlygcRtOUPoKeS9RIgeSs7KNYF5rbFsXiAHTJB4i06myyj6OhxKy9/QRS
+	DYfoqs1IFn5RMS+4F+IFGqLwdWQT6ZeLaTrOPpwZBjCUC3AiS4Fbdn76vcdFFixpx3/EMBb3wSk
+	HC7b3lP06dFF+X9HF54aN0CuExsSPbIL2qdz+9HK4TfYkP3sosLbHtV2gNaeCkSlHa5vURSp+Kw
+	afKE2cAqtSE9TdIfGnaTjJLJzNgyXuUdMR040DvajQiXyQT1tIWkp7yqaYB8FNa0hiJcPssc6av
+	UI+Dgqtu+8xlc+g==
+X-Received: by 2002:a05:6a20:1bc6:b0:3f4:79fa:414 with SMTP id adf61e73a8af0-401bb21187fmr2510018637.13.1795205197980;
+        Fri, 20 Nov 2026 12:06:37 -0800 (PST)
 Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm1619282a12.18.2026.11.20.12.06.39
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm1619282a12.18.2026.11.20.12.06.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:06:39 -0800 (PST)
+        Fri, 20 Nov 2026 12:06:37 -0800 (PST)
 From: Stephen Hemminger <stephen@networkplumber.org>
 To: netdev@vger.kernel.org
 Cc: dsahern@kernel.org,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Yuen Su <zypulsecore@gmail.com>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [RFC next-net 2/3] ipv4: accept the reported route type when deleting a blackhole nexthop route
-Date: Fri, 20 Nov 2026 12:01:29 -0800
-Message-ID: <20261120200635.95798-3-stephen@networkplumber.org>
+	Stephen Hemminger <stephen@networkplumber.org>
+Subject: [RFC net-next 0/3] net: fix route flush for routes using nexthop objects
+Date: Fri, 20 Nov 2026 12:01:27 -0800
+Message-ID: <20261120200635.95798-1-stephen@networkplumber.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120200635.95798-1-stephen@networkplumber.org>
-References: <20261120200635.95798-1-stephen@networkplumber.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,103 +96,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-fib_dump_info() rewrites rtm_type to RTN_BLACKHOLE for a blackhole nexthop
-object, before the nexthop_compat_mode bail-out:
+"ip route flush" fails on any route that uses a nexthop object:
 
-	if (fi->nh) {
-		if (nla_put_u32(skb, RTA_NH_ID, fi->nh->id))
-			goto nla_put_failure;
-		if (nexthop_is_blackhole(fi->nh))
-			rtm->rtm_type = RTN_BLACKHOLE;
+  # ip nexthop add id 101 via 192.0.2.1 dev dummy0
+  # ip route add 203.0.113.0/24 nhid 101
+  # ip route flush to 203.0.113.0/24
+  Failed to send flush request: Invalid argument
 
-So rtm_type describes the nexthop object, not the alias, which keeps the
-type it was created with. fib_table_delete() matches the stored type, so
-the kernel won't delete a route using the type it just reported:
+The first attempt at fixing that was to modify iproute but
+that is just working around a kernel bug. Flush should be
+able to be done as dump-and-echo by flipping to set
+RTM_DELROUTE. This always worked until nexthop compat mode
+was introduced.
 
-  # ip nexthop add id 301 blackhole
-  # ip route add 192.0.2.0/24 nhid 301
-  # ip route show 192.0.2.0/24
-  blackhole 192.0.2.0/24 nhid 301 dev lo
-  # ip route del blackhole 192.0.2.0/24 nhid 301
-  RTNETLINK answers: No such process
-  # ip route del unicast 192.0.2.0/24 nhid 301
-  #
+This series fixes thes by changing where fib handling
+is done on delete. I don't use next hop id anywhere
+so this is just a proposal.
 
-"ip route flush" echoes the dumped message back, rtmsg header included, so
-it carries the rewritten type and fails with ESRCH. Because the rewrite
-happens before the compat-mode check, this breaks flush even with
-nexthop_compat_mode off, where there are no legacy attributes at all.
+Patch 1 ignores the legacy nexthop attributes on RTM_DELROUTE when
+RTA_NH_ID is present, for both families. The id is already
+authoritative in the matching code, so nothing downstream looks at the
+fields being cleared. RTM_NEWROUTE stays strict.
 
-Accept RTN_BLACKHOLE on delete when the alias uses a blackhole nexthop
-object, so a route can be removed using the type that was advertised.
-"ip route flush type blackhole" works too: the type filter is applied to
-the dump in userspace, so the kernel only ever sees the type it reported.
+Patch 2 accepts RTN_BLACKHOLE on delete when the alias uses a blackhole
+nexthop object, so a route can be removed using the type the kernel
+advertised. Dropping the dump-side rewrite instead would change what
+every existing reader sees.
 
-Dropping the rewrite in fib_dump_info() instead would change what every
-existing dump reader sees.
+Patch 3 adds the selftest coverage that was missing. fib_nexthops.sh
+exercises "ip nexthop flush" thoroughly but never "ip route flush"
+against nhid routes, which is how the two paths drifted apart in the
+first place.
 
-IPv6 is unaffected, ip6_route_del() doesn't compare rtm_type.
+Testing: the new tests fail 15 assertions against an unpatched kernel
+and all 26 pass with the series applied, booted under qemu with
+nexthop_compat_mode=1. The existing fib_nexthops cases, including the
+legacy delete paths patch 1 must not disturb, still pass: 93
+assertions across ipv4_fcnal, ipv6_fcnal, the compat_mode pair and the
+fcnal_runtime pair.
 
-Reported-by: Yuen Su <zypulsecore@gmail.com>
-Link: https://lore.kernel.org/netdev/CAC9WPdwmM4=64DH5nY85srnLhRBS7PkjR9vrsALpob-GutbmZw@mail.gmail.com/
-Fixes: 4c7e8084fd46 ("ipv4: Plumb support for nexthop object in a fib_info")
-Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
----
- net/ipv4/fib_lookup.h    |  1 +
- net/ipv4/fib_semantics.c | 14 ++++++++++++++
- net/ipv4/fib_trie.c      |  2 +-
- 3 files changed, 16 insertions(+), 1 deletion(-)
+Stephen Hemminger (3):
+  net: accept legacy nexthop attributes when deleting by nexthop id
+  ipv4: accept the reported route type when deleting a blackhole nexthop
+    route
+  selftests: fib_nexthops: test route flush with nexthop objects
 
-diff --git a/net/ipv4/fib_lookup.h b/net/ipv4/fib_lookup.h
-index 0b72796dd1ad..5109cc197de2 100644
---- a/net/ipv4/fib_lookup.h
-+++ b/net/ipv4/fib_lookup.h
-@@ -40,6 +40,7 @@ struct fib_info *fib_create_info(struct fib_config *cfg,
- 				 struct netlink_ext_ack *extack);
- int fib_nh_match(struct net *net, struct fib_config *cfg, struct fib_info *fi,
- 		 struct netlink_ext_ack *extack);
-+bool fib_type_match(u8 fc_type, const struct fib_alias *fa);
- bool fib_metrics_match(struct fib_config *cfg, struct fib_info *fi);
- int fib_dump_info(struct sk_buff *skb, u32 pid, u32 seq, int event,
- 		  const struct fib_rt_info *fri, unsigned int flags);
-diff --git a/net/ipv4/fib_semantics.c b/net/ipv4/fib_semantics.c
-index db030bc26b6d..a089761e2104 100644
---- a/net/ipv4/fib_semantics.c
-+++ b/net/ipv4/fib_semantics.c
-@@ -1061,6 +1061,20 @@ int fib_nh_match(struct net *net, struct fib_config *cfg, struct fib_info *fi,
- 	return 0;
- }
- 
-+/* fib_dump_info() reports a blackhole nexthop object as RTN_BLACKHOLE
-+ * whatever type the alias has, so accept that type back on delete.
-+ */
-+bool fib_type_match(u8 fc_type, const struct fib_alias *fa)
-+{
-+	const struct fib_info *fi = fa->fa_info;
-+
-+	if (!fc_type || fa->fa_type == fc_type)
-+		return true;
-+
-+	return fc_type == RTN_BLACKHOLE && fi->nh &&
-+	       nexthop_is_blackhole(fi->nh);
-+}
-+
- bool fib_metrics_match(struct fib_config *cfg, struct fib_info *fi)
- {
- 	struct nlattr *nla;
-diff --git a/net/ipv4/fib_trie.c b/net/ipv4/fib_trie.c
-index 523a5a4228d0..c67df5aa1b96 100644
---- a/net/ipv4/fib_trie.c
-+++ b/net/ipv4/fib_trie.c
-@@ -1726,7 +1726,7 @@ int fib_table_delete(struct net *net, struct fib_table *tb,
- 		    (fa->fa_dscp != dscp))
- 			break;
- 
--		if ((!cfg->fc_type || fa->fa_type == cfg->fc_type) &&
-+		if (fib_type_match(cfg->fc_type, fa) &&
- 		    (cfg->fc_scope == RT_SCOPE_NOWHERE ||
- 		     fa->fa_info->fib_scope == cfg->fc_scope) &&
- 		    (!cfg->fc_prefsrc ||
+ net/ipv4/fib_frontend.c                     |  17 ++-
+ net/ipv4/fib_lookup.h                       |   1 +
+ net/ipv4/fib_semantics.c                    |  14 +++
+ net/ipv4/fib_trie.c                         |   2 +-
+ net/ipv6/route.c                            |  14 ++-
+ tools/testing/selftests/net/fib_nexthops.sh | 126 ++++++++++++++++++++
+ 6 files changed, 169 insertions(+), 5 deletions(-)
+
 -- 
 2.53.0
 
