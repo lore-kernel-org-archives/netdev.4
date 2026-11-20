@@ -1,95 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209444;
-	b=GNyJWzfwxgbCp66MqPc7XTYAfCsKBMh9t2dET84HSvLS7U2Tu+Drsf7y2ICelBqH5VPb
-	 jJxbh2C7X5Eu1kAF+SYP2YJrBWTGGst95xnjW7TsRUnb1ZkQvRGmqcTP4rmXxxL695aI7
-	 kN7lqnkhdHiUWvcNqgt/QuJKjbg0ARfUw+DURwyt2rOrZRwUrGenzAHkcWB9SjU7D7J/c
-	 CFwbgelZVajO+17SmupDD1eEwUCSJ7voAxra2dWvQ0+EQJsth+OxDXTZJv3No5RGPiAa7
-	 4ZYBE18JtKrYNf/GOiL6IspDxz9b8IwdKbaOW7QBPmt3S174JNhQGXwEt3uMIgXA/kA==
+	t=1795209460;
+	b=wCHDRUEWEiB3uI4CG5P9OP78WLqYUH8gmzwn4lmyhFHWLV319qWhRXVwNxPKWH/c1OpE
+	 gY1QzdGnJI6br3F+l+sUR2iPN5afQnTQ8u1CwdLdhe0kjc4nFKreELLupFQAtHnjBRd/f
+	 7EAjDefIoO24RCMVkrqRbb/RcP8T+9jl1xrC0TQwdWeCIjal4+b9q1UXg9t/DoY+YK+wL
+	 wRxUOOr/OkWopUrNrtb4p1JjDMWdEMwSfeU9S8F78wjrqOWuTNFcPtM1O6c/hE328Up2D
+	 I0pZ3Mk50z5YHhUCrPAiGFmR09c/R+/WH3tVMl/R3xK4gWJ5IY3bkqa0jMkFofHBK9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209444;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=RmOzl6V8lBE6K4Kw59v7KS2vxDmVEr8c61I3ZbKSz3I=;
-	b=KZaFOOrpBeLpgJn05YGnLR81/mbETDOjIcPowRONKbVc2GulM2O+QOdqpu3FspgD84Z/
-	 Lv6wAyylB29oyRd04qJH13dDt2Z3I6XkFQ447XAZJtSjw6FYnAlrHAh2TTwXENEeCrL4X
-	 wAJqkfMoZ9CYvqXzAPNnKGCKqmSAy5MSE2P9OfShwb9iw2WNemx2KPX2JHAgEzXfGrl75
-	 GEN1pmVSz1hi5R0QW4vTbzRx5uXpBpY3Mc7NTZA5cf9RNimW9Xe0Mcj7sziHU2T36SsLz
-	 yLXA4hXSkh0BazYpzeWnIu4zCtz453pJtYz4WU3wgn9QlP5LHbOIni0yUAQCOMq5uEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209460;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qi0w9VhkXQZVVPDCLtmjIgVXJN9NQ3z5wsW3lIvY60U=;
+	b=UrSj1PkaSElIASn0CadKcXnDG2sQiV5TSNZ65H5rEpJmtQPrtprzKXOowhFd3vw7Akhd
+	 pxpBkmpDdcAUreoxqDw+lEMeX4HdOKejmg/MFeu8pkqhQtmsi5HsvMlTKWPcxzWK2DksZ
+	 ZPtlhq9ukT5kjGXFxjZFhh5zBV9ZQbTBrVWgx9PA8a3v+3S9VMnYGUzU0C8s9yOhZTGhd
+	 6YneZI8kXAdAEhZd+XMWOS7lfbSheZmO7mvJyFTcF+poYv3YYP3rj/oxs2313TjkhHMyt
+	 zGwLzy1fYKufEMuEAE7U4g4QWUcPbVLpwEWKnpvuQXXbLtKCGTSkc8xd2+wMoC9CFXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FtOhGXQO;
-	arc=none smtp.remote-ip=209.85.222.41
-Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com [209.85.222.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dtZ3zevh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDC83606A697
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:17:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDC83606A697
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81D85606A692;
+	Fri, 20 Nov 2026 21:17:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FtOhGXQO
-Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-99e0b1ee864so472659241.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:17:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795209434; x=1795814234; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RmOzl6V8lBE6K4Kw59v7KS2vxDmVEr8c61I3ZbKSz3I=;
-        b=FtOhGXQO4DDshDXKuW9oigsknLqGFMD8hCYMjFTqU2WYid504+6aIQX1eqKHL7CmDg
-         gUtnYtM6ms89BeBuQp/9x8gAPZ2VFrj0VsBe118dKAiNucD1nmpYy19qKfnuBDO/flHb
-         3w5yJoJpOzEE+oUL7TvcmOLHapBnAiO5H3gJb1RVmSa2iK8HvWco27ylJ+OM1dbJT6Qu
-         i+H5szKG0a5Jt2dgZeVcbRqxsMwovkZyE+077iPBQTMYUq2arHXhawK4mi4BYjhfFTzk
-         BP97aD9bwca0s2TYrfvtiazG7osKrCHJD3Ygld4k5w4n3Tj8537luhQ25sHlz/E1e5dv
-         0gaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795209434; x=1795814234;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RmOzl6V8lBE6K4Kw59v7KS2vxDmVEr8c61I3ZbKSz3I=;
-        b=Hzb+BaJGY3d4GbDNkQ1+3qFG6169hPcOe9z0qRUwpqJpTE+QjhxaB3NI/gCbA4zkFr
-         3Cj8KBVQOpMTtoaggqj8cnfBLO2oY+04JL0A37FABXmx1jLWTqC+ZmW8l5pc4sdpcRX1
-         zBZi9Y2/VCq5LsGzMqsqwuE2GVQzQHxSXOro+VI+CQyczHk2GlKLRxhW+oqW1JM32lqs
-         /Ojg02D2TGReuqAYYC7c467uAyyoGK6VLK6YiLSxKJpo+ZUfGKKamwzq6fwl+D/BfG7j
-         CV6M6EENIP8AYWoZO1AQJQ8k7gdrCKTxQS9UMQqUf0rENUASQKqO8dkByW0i9q2GkYBc
-         YdMA==
-X-Gm-Message-State: APuU4Z+RvaXrWu3NZCD8jA8zcmVKKYEYI+5dcdQJIPwgcS03gcl2MlQ5
-	3O8gwxEqpyJD6uhmwit6+i5Hb8pM3kMlAeq991anD7VwXhtEM91QGH17
-X-Gm-Gg: AZFdTZechZO+BGiiW4zAE9TCQsaEkt4K20gbejj3jcRUu29WZ+GYknEf4i9FSamwrdF
-	DIVeaoB5hj8HaFGN8cgmS/7jRFX76rkuINKFGq59lxkB5G1F/TEcdICZxR83zioxW682Q5nZDmn
-	ONV3iZtf1DvsyV6sxJuUqGNEa3Lt+Im4lwPCEgqNMv0AIGIoQX4Gqu6K7xRSBEN6f4XALLYcN+F
-	RmTxQAWI5EhQYkV03U8yRtTksk7llqF5aiDrpH4NJdroU4ZHezHaayToKU+8k0lBFhNpM8yY+lM
-	5jI69tATeUjXXGQkm1p61H2D5ji8NnqfG0AyGx2QQBl3eXqSCitKbOVUfELadoomGGM4jrslUar
-	6Q1bwasTM62AhyArbiNHYhlL89t/8jwlQQvDaUPpCOhapv64sV2v0NHxN1Y5kZddxurRISf4xiH
-	lc0fK3nGJTPDnMAOTByzL9qIw9uw0M+9CgkgIJy7458h9tvZWluB3rD5urpgUlqhK3qNW5TnuAl
-	JBl8OicY5sVdFluGphFOBpbPFb55moI3aduirLSm49eJ3xi7atpKhYiXZooEtQiOy4x51kpP2Lw
-	CTJnF2FHE6WtBoCBtFETFkklrr+PNDhrNTzjoNnadBQa33ZVpDBpM89Qjt1TBvhmCuKc
-X-Received: by 2002:a05:6102:441a:b0:7c3:f36:c7b with SMTP id ada2fe7eead31-7d739460f73mr2283411137.14.1795209433597;
-        Fri, 20 Nov 2026 13:17:13 -0800 (PST)
-Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e80cb440sm4075996137.7.2026.11.20.13.17.12
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 13:17:13 -0800 (PST)
-From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3] tcp_metrics: hash the destination address with SipHash
-Date: Fri, 20 Nov 2026 16:17:11 -0500
-Message-ID: <20261120211711.75786-1-juanagusnicco@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dtZ3zevh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D1BB1F000D8;
+	Fri, 20 Nov 2026 21:17:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795209460;
+	bh=qi0w9VhkXQZVVPDCLtmjIgVXJN9NQ3z5wsW3lIvY60U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=dtZ3zevhvMtOgFHZpTa1ovPdFsHRLac9E57n5kg4KZi483tSR7RRuRLqDw+/gXf7C
+	 zwA6Yhn/6+xTByOUSOwY7VbcjGIO/NSsOGta7P9GqH2r60Jty7/qkNuoe4WNe3Q/9J
+	 4Hih7GcJDu2wKdAqzBvZYhXGwXl/Q1JDp8/u1QFKSDE1bCcH8TlAHyayqpNm9KM5gf
+	 kKe/0rsdxQIgcnHjvbyaiHfi9K1r5MmAcmA0OgVhgUNA+hzgZi8Q7QXoMzMRkkEtBU
+	 LkWXjpGTPusYsW5zn/oQydBOjlXLikT6oC4/f9zhgav2m++zXnwCGN6kZRioCzBA1W
+	 1REa/tq1Ygh9Q==
+Subject: Re: [PATCH net-next v4] net: stmmac: program the FSM timeout timer
+From: netdev-bot+sashiko@kernel.org
+To: zxyan0222@gmail.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ rmk+kernel@armlinux.org.uk
+Date: Fri, 20 Nov 2026 21:17:39 +0000
+Message-ID: <179520945915.3135.14304625182301747705@kernel.org>
+In-Reply-To: <20261118025528.2703790-1-zxyan0222@gmail.com>
+References: <20261118025528.2703790-1-zxyan0222@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,328 +65,257 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The tcp_metrics bucket is derived from a fold of the peer address.
-For IPv4 the fold is ipv4_addr_hash(), which returns the address
-unchanged. For IPv6 it is ipv6_addr_hash(), which XORs the four
-32-bit words of the address. net_hash_mix() is only XORed in after
-that fold, so two addresses of either family with the same fold share
-a bucket in every netns.
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
-A remote attacker with an IPv6 /64 can thus compute, without knowing
-net_hash_mix(), addresses that collide with a chosen IPv4 or IPv6 address:
+Critical: 0 · High: 1 · Medium: 2 · Low: 3
 
-  w3 = w2 ^ p0 ^ p1 ^ target    /* p0, p1: prefix, w2: free */
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-A bucket holds six entries and the seventh insert replaces the oldest.
-tcp_init_metrics() seeds the initial RTO from the cached RTT, so the
-attacker can tell whether an entry it planted was evicted, and thus
-whether another address in that bucket closed a connection since.
+- [High] On every in-tree XGMAC platform, the XGMAC half of the fix never
+  runs.
+- [Medium] csr_clk_mhz is only computed when priv->plat->stmmac_clk is
+  non-NULL.
+- [Medium] The patch turns on an FSM timeout check that resets the
+  interface, with a hardcoded NTMRMD = 0x6 (about 1 s) for every…
+- [Low] The commit is written as a bug fix: the protection is
+  'ineffective' and a stuck FSM 'was not reported through the safety…
+- [Low] The patch adds ten STMMAC_NTMRMD_* register-encoding macros (1US
+  .. 64SEC) to include/linux/stmmac.h, the platform-data header shared…
+- [Low] The same clock (stmmac_clk) is converted into a 'CSR clocks per
+  1us tic' register value in two places that use different conventions.
 
-This primitive, with six entries of one fold and a seventh of another,
-shows whether two folds share a bucket. Each answer rules out values
-of net_hash_mix(), the only unknown, and since XOR and multiply is not
-a PRF a few hundred answers recover it. The attacker can then fill
-every bucket and see which one any client's connection evicts from.
-The multiplication in hash_32() is invertible, so with net_hash_mix()
-known, each observed eviction leaks 14 bits of the client's address.
+--
 
-Remote net_hash_mix() recovery followed by remote bucket eviction
-observation was tested under different levels of legitimate traffic
-and with the attacker machine and victim server being in different
-continents:
+net: stmmac: program the FSM timeout timer
 
- legit      attacker    evictions         false or
- conn/s     conn/s      detected          misclassified
- -----      ------      ---------         -------------
- 1          944         214 / 214         0
- 10         927         2146 / 2165       0
- 100        864         22356 / 23576     0
- 999        1239        167213 / 286754   0
- 2974       1412        118665 / 809618   0
+This patch programs MAC_FSM_ACT_Timer on dwmac5 and dwxgmac3 cores after
+TMOUTEN is enabled. TMR is set from the CSR clock rate in MHz, and NTMRMD
+is set to a fixed 1s timeout. A csr_clk_mhz argument is added to the
+safety_feat_config callback, and NTMRMD encoding macros are added to
+include/linux/stmmac.h.
 
-Measurements began after the attacker had recovered net_hash_mix()
-and planted entries; the legitimate connections were present
-throughout. net_hash_mix() recovery was successful in all cases and
-took 28-936 seconds. Note that while the attacker must send many
-connections, these are very efficient to process and caused negligible
-load on the victim server as measured by latency and memory.
-
-Fix this by hashing the address with SipHash and a random key, as commit
-2ee66e948717 ("inetpeer: randomize RB-tree node comparison using SipHash")
-did for inet_peer. net_hash_mix() is fed into the SipHash input, as
-inet_ehashfn() feeds it into its seed, so each netns gets its own bucket
-map. hash_32() is kept to reduce the result to the table size.
-
-Fixes: 51c5d0c4b169 ("tcp: Maintain dynamic metrics in local cache.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
----
-v3: - add testing numbers to changelog (Eric)
-    - fix patch formatting issues (Eric)
-    - feed net_hash_mix() into the SipHash input instead of XORing it
-      in afterwards to protect from potential local attacks (Sashiko)
-v2: https://lore.kernel.org/netdev/20261117041029.80543-1-juanagusnicco@gmail.com/
-    - use siphash_1u32() for IPv4, a4.vif is always zero in tcp_metrics
-      (Kuniyuki)
-    - call tcpm_addr_hash() once after the address family branches
-    - changelog: explain more clearly why net_hash_mix() and addresses
-      are recoverable
-v1: https://lore.kernel.org/netdev/20261112064624.15245-1-juanagusnicco@gmail.com/
-
-Reproducer: github.com/agusnicco/tcp-side-channel
-
-I address the questions Eric asked on v2 below:
-
-> How many connections does your reproducer need, for each phase ?
+> The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
+> not reported through the safety interrupt despite TMOUTEN being set.
 >
-> 1) Recovering net_hash_mix().
->
-> 2) Filling the table (16384 * 6 flows with the default size ?),
->    then each sweep to find which bucket was hit.
->
+> Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
 
-1) I measured this to be 191 to 677 connections per attempt. The reproducer
-verifies the recovered value against collisions it has not tested yet,
-and starts over if they do not hold. The most it took was 15 attempts,
-on a server receiving 800 new connections per second, 936s total.
+[Severity: Low]
+This describes a user-visible functional failure, but there is no Fixes:
+tag. Should this carry Fixes: tags for the commits that added TMOUTEN to
+dwmac5_safety_feat_config() and dwxgmac3_safety_feat_config() without
+programming the timer, so stable has a reference for backporting?
 
-2) You guessed it: 16384 * 6 = 98,304 connections. The attack would be
-infeasible if they had to be sequential but concurrency can be as high
-as the number of buckets. On my tests plants sustained 1000 conn/s
-with zero target degradation. Filling the whole table took a median of
-43s with victim server and attacker machine being across the Atlantic.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+> index f1bb981cab7cd..5cf5139f442ad 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
 
-Each sweep is one read per bucket, 16384 connections, plus one more
-for every eviction found. Sweeps took a median of 24s in my tests.
+[ ... ]
 
-> Each probe also has to wait for an RTO, so wall time matters too.
+> @@ -245,6 +247,19 @@ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+>  		value |= TMOUTEN; /* FSM Timeout Feature */
+>  	writel(value, ioaddr + MAC_FSM_CONTROL);
+>  
+> +	/* Program the FSM active timer so the timeout checker actually fires.
+> +	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
+> +	 * Use a 1s timeout.
+> +	 */
+> +	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
+> +		value = readl(ioaddr + MAC_FSM_ACT_TIMER);
+> +		value &= ~(MAC_FSM_ACT_TIMER_NTMRMD | MAC_FSM_ACT_TIMER_TMR);
+> +		value |= FIELD_PREP(MAC_FSM_ACT_TIMER_NTMRMD,
+> +				    STMMAC_NTMRMD_1SEC) |
 
-Planting does not wait for an RTO since the attacker echoes an old
-TCP timestamp, and the server records a large RTT immediately (see
-reproducer). Reading takes about 0.3s per probe, a little over rto_min,
-no matter how large the cached value is. Probes run in parallel.
+[Severity: Medium]
+Is a fixed 1s timeout long enough at every link speed? A link partner can
+send PAUSE frames with a quanta of 0xffff. At 10Mb/s that holds off the
+transmitter for:
 
-> Also, how does this behave on a server with real traffic ? Every
-> other client closing a flow evicts entries as well. You mention
-> a test against Ubuntu 24.04 over the internet, was this host
-> serving anything else ?
+    65535 * 512 / 10e6 ~= 3.36s
 
-My original test had an idle host but I tested high traffic today
-(see table in the commit message). I performed the attack on an nginx
-server on Ubuntu 24.04 that was receiving legitimate connections while
-the attack happened. The victim server was in a Virginia datacenter,
-the attacker machine in Ireland.
+That is longer than the ~1.048s selected here. At 100Mb/s it is around
+335ms.
 
-The attacker needs to perform hundreds to thousands of connections per
-second if the victim server is high traffic but these are extremely
-cheap to handle. I tested this separately. Even an unproxied uvicorn
-server could handle 200/s before degradation. nginx handled 1000/s
-without degradation of any kind being observed. And they could do it
-on a t3.micro EC2 instance (AWS) which has 2 vCPUs and 1 GiB of memory.
-I measured degradation using latency and memory readings while the
-attack happened.
+If the TX FSM timeout is measured against NTMRMD during a flow-control
+stall, could a legitimate PAUSE stall at 10Mb/s raise a timeout error?
 
-I also reproduced the case where the attacker intersects buckets
-from multiple hosts to recover the full 32 bits of each address.
-This is possible under many common scenarios, the one I tested
-involves client browsers loading a site and hence making many
-connections to eight hosts simultaneously. 47/50 addresses were
-recovered while the victim servers received 100 legitimate connections
-per second. Also done across the Atlantic.
+FSM timeout errors arrive through MCSIS, and
+dwmac5_safety_feat_irq_status() always treats them as uncorrectable:
 
-All tests were done on my own infrastructure.
+    err = (mtl & MCSIS) || (dma & MCSIS);
+    corr = false;
 
-> Note that many servers (including Google ones) have tcp_no_metrics_save=1
+That would go through stmmac_safety_feat_interrupt()->stmmac_global_err()
+and reset the interface. Before this patch the timer was disabled, so this
+path could not trigger. dwxgmac3_safety_feat_config() uses the same fixed
+value.
 
-Many probably do but I haven't come across one yet. All distros ship
-tcp_no_metrics_save=0. I also rented 5 AWS, Azure, and GCP VMs and
-they all came with tcp_no_metrics_save=0.
+Only NTMRMD and TMR are written here. The other fields of
+MAC_FSM_ACT_Timer stay at their read-back values. Can the databook confirm
+whether pause-stalled TX FSMs are covered by NTMRMD rather than by a
+separate large-mode timeout?
 
-This bug was discovered during an LLM-based code review.
+> +			 FIELD_PREP(MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
 
-The patch was tested on a QEMU guest. Addresses built to share a
-fold no longer share a bucket, in either netns. Entries are still
-found when a peer reconnects and by "ip tcp_metrics show/delete".
+[Severity: Low]
+The comment says TMR is csr_clk in MHz. However, dwmac4_core_init()
+programs the existing 1us tic counter from the same clock with a minus
+one:
 
-For stable: 5.10 and 5.15 lack siphash_aligned_key_t;
-"static siphash_key_t tcpm_hash_key __read_mostly __aligned(16);" can
-be used there.
+    writel((clk_rate / 1000000) - 1,
+           ioaddr + GMAC4_MAC_ONEUS_TIC_COUNTER);
 
- net/ipv4/tcp_metrics.c | 49 ++++++++++++++++++++++++++----------------
- 1 file changed, 30 insertions(+), 19 deletions(-)
+Does TMR use the same minus-one encoding? If it does, each tic would be
+one CSR clock too long. If it doesn't, could the comment say why it
+differs from GMAC4_MAC_ONEUS_TIC_COUNTER? The same question applies to
+the XGMAC_MAC_FSM_ACT_TIMER_TMR write in dwxgmac3_safety_feat_config().
 
-diff --git a/net/ipv4/tcp_metrics.c b/net/ipv4/tcp_metrics.c
-index ae551546422f..fc976f61217d 100644
---- a/net/ipv4/tcp_metrics.c
-+++ b/net/ipv4/tcp_metrics.c
-@@ -8,6 +8,7 @@
- #include <linux/init.h>
- #include <linux/tcp.h>
- #include <linux/hash.h>
-+#include <linux/siphash.h>
- #include <linux/tcp_metrics.h>
- #include <linux/vmalloc.h>
- 
-@@ -95,6 +96,25 @@ static unsigned int		tcp_metrics_hash_log __read_mostly;
- static DEFINE_SPINLOCK(tcp_metrics_lock);
- static DEFINE_SEQLOCK(fastopen_seqlock);
- 
-+static siphash_aligned_key_t tcpm_hash_key __read_mostly;
-+
-+static u32 tcpm_addr_hash(const struct inetpeer_addr *a, const struct net *net)
-+{
-+	u32 mix = net_hash_mix(net);
-+
-+	net_get_random_once(&tcpm_hash_key, sizeof(tcpm_hash_key));
-+
-+	if (a->family == AF_INET)
-+		return siphash_2u32((__force u32)a->a4.addr, mix,
-+				    &tcpm_hash_key);
-+
-+	return siphash_3u64(((u64)(__force u32)a->a6.s6_addr32[1] << 32) |
-+			    (__force u32)a->a6.s6_addr32[0],
-+			    ((u64)(__force u32)a->a6.s6_addr32[3] << 32) |
-+			    (__force u32)a->a6.s6_addr32[2],
-+			    mix, &tcpm_hash_key);
-+}
-+
- static void tcpm_suck_dst(struct tcp_metrics_block *tm,
- 			  const struct dst_entry *dst,
- 			  bool fastopen_clear)
-@@ -270,13 +290,11 @@ static struct tcp_metrics_block *__tcp_get_metrics_req(struct request_sock *req,
- 	case AF_INET:
- 		inetpeer_set_addr_v4(&saddr, inet_rsk(req)->ir_loc_addr);
- 		inetpeer_set_addr_v4(&daddr, inet_rsk(req)->ir_rmt_addr);
--		hash = ipv4_addr_hash(inet_rsk(req)->ir_rmt_addr);
- 		break;
- #if IS_ENABLED(CONFIG_IPV6)
- 	case AF_INET6:
- 		inetpeer_set_addr_v6(&saddr, &inet_rsk(req)->ir_v6_loc_addr);
- 		inetpeer_set_addr_v6(&daddr, &inet_rsk(req)->ir_v6_rmt_addr);
--		hash = ipv6_addr_hash(&inet_rsk(req)->ir_v6_rmt_addr);
- 		break;
- #endif
- 	default:
-@@ -284,7 +302,7 @@ static struct tcp_metrics_block *__tcp_get_metrics_req(struct request_sock *req,
- 	}
- 
- 	net = sock_net(req_to_sk(req));
--	hash ^= net_hash_mix(net);
-+	hash = tcpm_addr_hash(&daddr, net);
- 	hash = hash_32(hash, tcp_metrics_hash_log);
- 
- 	for (tm = rcu_dereference(tcp_metrics_hash[hash].chain); tm;
-@@ -310,18 +328,15 @@ static struct tcp_metrics_block *tcp_get_metrics(struct sock *sk,
- 	if (sk->sk_family == AF_INET) {
- 		inetpeer_set_addr_v4(&saddr, inet_sk(sk)->inet_saddr);
- 		inetpeer_set_addr_v4(&daddr, inet_sk(sk)->inet_daddr);
--		hash = ipv4_addr_hash(inet_sk(sk)->inet_daddr);
- 	}
- #if IS_ENABLED(CONFIG_IPV6)
- 	else if (sk->sk_family == AF_INET6) {
- 		if (ipv6_addr_v4mapped(&sk->sk_v6_daddr)) {
- 			inetpeer_set_addr_v4(&saddr, inet_sk(sk)->inet_saddr);
- 			inetpeer_set_addr_v4(&daddr, inet_sk(sk)->inet_daddr);
--			hash = ipv4_addr_hash(inet_sk(sk)->inet_daddr);
- 		} else {
- 			inetpeer_set_addr_v6(&saddr, &sk->sk_v6_rcv_saddr);
- 			inetpeer_set_addr_v6(&daddr, &sk->sk_v6_daddr);
--			hash = ipv6_addr_hash(&sk->sk_v6_daddr);
- 		}
- 	}
- #endif
-@@ -329,7 +344,7 @@ static struct tcp_metrics_block *tcp_get_metrics(struct sock *sk,
- 		return NULL;
- 
- 	net = sock_net(sk);
--	hash ^= net_hash_mix(net);
-+	hash = tcpm_addr_hash(&daddr, net);
- 	hash = hash_32(hash, tcp_metrics_hash_log);
- 
- 	tm = __tcp_get_metrics(&saddr, &daddr, net, hash);
-@@ -811,15 +826,13 @@ static int tcp_metrics_nl_dump(struct sk_buff *skb,
- }
- 
- static int __parse_nl_addr(struct genl_info *info, struct inetpeer_addr *addr,
--			   unsigned int *hash, int optional, int v4, int v6)
-+			   int optional, int v4, int v6)
- {
- 	struct nlattr *a;
- 
- 	a = info->attrs[v4];
- 	if (a) {
- 		inetpeer_set_addr_v4(addr, nla_get_in_addr(a));
--		if (hash)
--			*hash = ipv4_addr_hash(inetpeer_get_addr_v4(addr));
- 		return 0;
- 	}
- 	a = info->attrs[v6];
-@@ -828,24 +841,22 @@ static int __parse_nl_addr(struct genl_info *info, struct inetpeer_addr *addr,
- 
- 		in6 = nla_get_in6_addr(a);
- 		inetpeer_set_addr_v6(addr, &in6);
--		if (hash)
--			*hash = ipv6_addr_hash(inetpeer_get_addr_v6(addr));
- 		return 0;
- 	}
- 	return optional ? 1 : -EAFNOSUPPORT;
- }
- 
- static int parse_nl_addr(struct genl_info *info, struct inetpeer_addr *addr,
--			 unsigned int *hash, int optional)
-+			 int optional)
- {
--	return __parse_nl_addr(info, addr, hash, optional,
-+	return __parse_nl_addr(info, addr, optional,
- 			       TCP_METRICS_ATTR_ADDR_IPV4,
- 			       TCP_METRICS_ATTR_ADDR_IPV6);
- }
- 
- static int parse_nl_saddr(struct genl_info *info, struct inetpeer_addr *addr)
- {
--	return __parse_nl_addr(info, addr, NULL, 0,
-+	return __parse_nl_addr(info, addr, 0,
- 			       TCP_METRICS_ATTR_SADDR_IPV4,
- 			       TCP_METRICS_ATTR_SADDR_IPV6);
- }
-@@ -861,7 +872,7 @@ static int tcp_metrics_nl_cmd_get(struct sk_buff *skb, struct genl_info *info)
- 	int ret;
- 	bool src = true;
- 
--	ret = parse_nl_addr(info, &daddr, &hash, 0);
-+	ret = parse_nl_addr(info, &daddr, 0);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -878,7 +889,7 @@ static int tcp_metrics_nl_cmd_get(struct sk_buff *skb, struct genl_info *info)
- 	if (!reply)
- 		goto nla_put_failure;
- 
--	hash ^= net_hash_mix(net);
-+	hash = tcpm_addr_hash(&daddr, net);
- 	hash = hash_32(hash, tcp_metrics_hash_log);
- 	ret = -ESRCH;
- 	rcu_read_lock();
-@@ -947,7 +958,7 @@ static int tcp_metrics_nl_cmd_del(struct sk_buff *skb, struct genl_info *info)
- 	int ret;
- 	bool src = true, found = false;
- 
--	ret = parse_nl_addr(info, &daddr, &hash, 1);
-+	ret = parse_nl_addr(info, &daddr, 1);
- 	if (ret < 0)
- 		return ret;
- 	if (ret > 0) {
-@@ -958,7 +969,7 @@ static int tcp_metrics_nl_cmd_del(struct sk_buff *skb, struct genl_info *info)
- 	if (ret < 0)
- 		src = false;
- 
--	hash ^= net_hash_mix(net);
-+	hash = tcpm_addr_hash(&daddr, net);
- 	hash = hash_32(hash, tcp_metrics_hash_log);
- 	hb = tcp_metrics_hash + hash;
- 	pp = &hb->chain;
+> +		writel(value, ioaddr + MAC_FSM_ACT_TIMER);
+> +	}
+> +
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> index 7ad08651675e8..3caab23527a19 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+
+[ ... ]
+
+> @@ -873,6 +875,20 @@ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+>  	value |= XGMAC_TMOUTEN; /* FSM Timeout Feature */
+>  	writel(value, ioaddr + XGMAC_MAC_FSM_CONTROL);
+>  
+> +	/* Program the FSM active timer so the timeout checker actually fires.
+> +	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
+> +	 * Use a 1s timeout.
+> +	 */
+> +	if (safety_cfg && safety_cfg->tmouten && csr_clk_mhz) {
+
+[Severity: High]
+XGMAC_TMOUTEN is set just above without looking at safety_cfg, but the
+timer is only programmed when safety_cfg is non-NULL. Does any XGMAC
+platform set plat->safety_feat_cfg?
+
+The generic snps,dwxgmac path in stmmac_probe_config_dt(),
+dwmac-socfpga.c and dwmac-tegra.c all appear to leave it NULL. Only
+dwmac-intel.c, dwmac-mediatek.c and stmmac_pci.c allocate it, and all
+three are GMAC4 cores.
+
+In that case stmmac_safety_feat_configuration() passes NULL and this
+check short-circuits. NTMRMD stays at 0 with TMOUTEN set, which is the
+dwxgmac state the commit message says it fixes.
+
+dwmac5_safety_feat_config() handles a NULL cfg by substituting
+all_safety_feats:
+
+    if (!safety_feat_cfg)
+        safety_feat_cfg = &all_safety_feats;
+
+Should the XGMAC check match how TMOUTEN is enabled? For example,
+(!safety_cfg || safety_cfg->tmouten) && csr_clk_mhz, or just csr_clk_mhz,
+since TMOUTEN is set unconditionally.
+
+> +		value = readl(ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
+> +		value &= ~(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD |
+> +			   XGMAC_MAC_FSM_ACT_TIMER_TMR);
+> +		value |= FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD,
+> +				    STMMAC_NTMRMD_1SEC) |
+> +			 FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
+> +		writel(value, ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
+> +	}
+> +
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 4da7289626387..5e5c54b58bee0 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3691,10 +3691,16 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
+>  
+>  static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+>  {
+> +	unsigned int csr_clk_mhz = 0;
+> +
+>  	if (priv->dma_cap.asp) {
+>  		netdev_info(priv->dev, "Enabling Safety Features\n");
+> +		if (priv->plat->stmmac_clk)
+> +			csr_clk_mhz = clk_get_rate(priv->plat->stmmac_clk) /
+> +				      1000000;
+
+[Severity: Medium]
+When priv->plat->stmmac_clk is NULL, csr_clk_mhz stays 0.
+dwmac5_safety_feat_config() then still sets TMOUTEN but silently skips
+the MAC_FSM_ACT_Timer write. Doesn't that leave the timer disabled on the
+in-tree platforms that explicitly request tmouten?
+
+stmmac_pci_probe() sets plat->safety_feat_cfg->tmouten = 1 for the snps
+gmac5 device but never sets plat->stmmac_clk. snps_gmac5_default_data
+only sets clk_csr = STMMAC_CSR_250_300M.
+
+mediatek_dwmac_common_data() also sets tmouten = 1, but
+stmmac_probe_config_dt() only looks up the "stmmaceth" clock:
+
+    plat->stmmac_clk = devm_clk_get(&pdev->dev,
+                                    STMMAC_RESOURCE_NAME);
+    if (IS_ERR(plat->stmmac_clk)) {
+        dev_warn(&pdev->dev, "Cannot get CSR clock\n");
+        plat->stmmac_clk = NULL;
+
+The mt2712e/mt8188/mt8195 DTs don't provide a clock with that name.
+
+On both platforms TMOUTEN ends up set with NTMRMD == 0, and nothing is
+logged. Could this fall back to plat->clk_csr, or at least report that
+the timer could not be programmed?
+
+>  		stmmac_safety_feat_config(priv, priv->ioaddr, priv->dma_cap.asp,
+> -					  priv->plat->safety_feat_cfg);
+> +					  priv->plat->safety_feat_cfg,
+> +					  csr_clk_mhz);
+
+[ ... ]
+
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index 00be2df63d220..659f5db528d3a 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
+>  	u32 tmouten;
+>  };
+>  
+> +/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
+> +#define STMMAC_NTMRMD_1US		0x1
+> +#define STMMAC_NTMRMD_1MS		0x2
+> +#define STMMAC_NTMRMD_16MS		0x3
+> +#define STMMAC_NTMRMD_64MS		0x4
+> +#define STMMAC_NTMRMD_256MS		0x5
+> +#define STMMAC_NTMRMD_1SEC		0x6
+> +#define STMMAC_NTMRMD_4SEC		0x7
+> +#define STMMAC_NTMRMD_16SEC		0x8
+> +#define STMMAC_NTMRMD_32SEC		0x9
+> +#define STMMAC_NTMRMD_64SEC		0xa
+
+[Severity: Low]
+This isn't a bug, but only STMMAC_NTMRMD_1SEC is used, and only from
+dwmac5.c and dwxgmac2_core.c. Since v4 dropped the ntmrmd field,
+platforms can't select any of the other values.
+
+Would it be better to define just the one value next to the
+MAC_FSM_ACT_TIMER field definitions in dwmac5.h and dwxgmac2.h, rather
+than adding the full table to the shared platform header?
+
+> +
+>  /* Addresses that may be customized by a platform */
+>  struct dwmac4_addrs {
+>  	u32 dma_chan;
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118025528.2703790-1-zxyan0222%40gmail.com
