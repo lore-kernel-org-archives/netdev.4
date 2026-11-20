@@ -1,70 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175853;
-	b=Xy6BHOUSC4+/PAjXrBwqsur1vn7ku7fPo11a7VlkAcs8kcMXK9JytPVB+l83oVZHrnzB
-	 g6lqeSMqRHqDDHbi6UfwNDvx+4HWzxuljUmYWseAm3Y7MJqCfPhUdZDJs8ZtxKOUrZmDa
-	 oWOojhOCPIvgbIDQGdChmDqkXUgEirOBgobzYqxcRRWghg9kRDmfM6I5LMwLebBEs+kwC
-	 Wb0JWrBXnX4Xvmrg2xcGjdnZdKssLuLSiHbliO6Kf6n5OZCoWQj3vYrnjYVAFvqcMAc0Y
-	 U1vlv58KW24wfUbihzgZkbVT6KQjDV054yLSBLuaROUbjRbMnNwaW4Lp1hppJR6RoFA==
+	t=1795175850;
+	b=gEgqWjKee2tMKVfiZ8WQ5rdBLfxjcQuo7VKTRc9IHdG7mVa2eTPOJzeRAMPb+sMFAHan
+	 hdIdJ1tYgDzyzg6HuOqiDW5FF3lkiqhixB9nqs82QeW+taHAGxSjUHhkdRACeBl0AsUHI
+	 ggtEarHnl6hagtd5npGac9x0JZ2OV32mRckKfPcwkuULEYmoIPw5tmx44VDfkf+JzfEfF
+	 YdEPY2YSr9iDbT3/vZaexmX+bD5Y5iX/A7DwRxEKOYf1J9x+nt1xWZD3djAG0fK1HqMXx
+	 auXOCugTk6ibnmLiMs6ujNy68Ka5EEzsJS/pAzR9x37lSnXU/DvVNuWaX+xFTwnW3tA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175853;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175850;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=siFc8sVPglyLA9PoGThla016ADnhZUKRW1vLTiQAiI4=;
-	b=tS7fJL9f5dx/SmOl2+3ovoIXOk1GOsgtsrinMX/hdrIrHo6a5eG4bJY/203qDnq6cDmT
-	 bUxs0TQHZpQ3toYDZxwcnmj1Ma6e/4iWLNUwNzf3gV3Y4S9wP1+ljdSkwx1jaReislWqX
-	 A8TOaTqMcawqkKLV6gFW3znSircysKFD3TK5NpKBC6SEhlSMroARjDpYURiNNPZvC02Nc
-	 rGpcPwJTU8JmKUfgZA2cJrNdixwY46hcc5KS95XCiSUChJ9N6cJqODDRjJOYkBUp4mCWt
-	 nzcVcwny0fCoRIHIvTo26Fs2Nd0IY1RCR0vpHfy6mj39ZWKClygNvuIXx4Iohk5yUVg==
+	bh=UTsaTVy6Znwqrpu6amokY/711od3CYJ0JXSNJZpcBCs=;
+	b=FrdVP8l5YJik2v3WSLCmEtxluKjaPr6htS2xTxYqTGUxe3sgEjVS5b02gTrRTDjtPVx+
+	 0r8Ytqe+jo3FBxHiPODZ1tXcoWrqo0bZcK+qCnLHqZ+ssHdh2Svwt39TmDKIAHzgSicAA
+	 ZxsSLLBbL97uE8mgmqqPckH2qtdQ6UKfeiaf/1i9/X5rghb3+zc+zTNAcMxyvTjGXIQfT
+	 lZjPzC7yHc2+xiWLjv4B4gPN015749Usn1KvOqfU377VXwTsvo2JmWZgl8vDzGeO3QiNt
+	 dEE6vW9BmBDhcrF/p7Q019YQ3x+oH+nM0AYptqfgJfxD12PdrWXw24H27tKlj3mqHkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=microchip.com;
 	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=oUX77PD0;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="L+YKA5t/";
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE56860A260E;
-	Fri, 20 Nov 2026 11:57:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE56860A260E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FF5760A2639;
+	Fri, 20 Nov 2026 11:57:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FF5760A2639
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=oUX77PD0
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=L+YKA5t/
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795175852; x=1826711852;
+  t=1795175857; x=1826711857;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=4HCqCapj2zlqEmMWwYplAEzSSRZfnYaT7T8UVEAhOh4=;
-  b=oUX77PD0kO4gV+jUyZmRMDi2CjJdn/kb4wUvjgBUyfzx/gvWpG07VDNt
-   h2okPMb25wru2BHioImNHlicS3VLsBnToRIP2OdvpmYXa1fLsv5s1tML3
-   rkcOZbdkEIT6qGLcu7kY1hmkISegd7Zz6vqC646ouNLkA0Jg4bRjQ5kVG
-   kswgM4PDTzu0heF1hp4ViJ1qbvvJGS+/Fuq9DE/tsXS3xtrFJa0KzuuWl
-   +2/5JdSdgshkHfESSDujlE9GAMxOYgZ+Ydb1qF5CVCuIiu9B4jet2aqC1
-   KPlf/V808GFmcs14CXOr9+bNjmcvHo0Pm5IBIQUQqFn3DNWeWAaHB4o0n
+  bh=YQTzjtTFISf3bVMJCxj70AaBgMxiYJkh1zBBvoFf8RA=;
+  b=L+YKA5t/kcFYAPHPyBapywmdrq3EZw84Uj+WQaN3MK9+VZh2mj6frdHB
+   13DPHCcaT0qskqPnoI4NKbWVXcka6rZIZz9Q8KCDmCjQyGLiZemSTN57l
+   1IvtmoW61IKHqj6aIHBKAkcvOBJV5aPbQezdsBb2pd1+0Y7mxQDqG9azp
+   RnnOhufV5vB7v5uQIjnDZRYlipOaxpTyiDFW+goxzyZ4zgHI63c34Wh+v
+   tn9jpblwaelTkalKaRESPnawtneg+7r2NPcj4fHi/zo9/Jnsdigl++8UN
+   41k673X36fBjQPEz+s6VoySjMmr68OcdsdwF73aR/GnaLqvwr5a3Sy6jW
    w==;
-X-CSE-ConnectionGUID: Zg/Z/7JnRIyakBRwBO1ZeA==
-X-CSE-MsgGUID: XEan8OAiT6ezTzQDqA4ODQ==
+X-CSE-ConnectionGUID: wdUgcmnnQEekdkHVVAaP3A==
+X-CSE-MsgGUID: bsXRf8jQT+maa9cJA+j8pQ==
 X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="233872425"
+   d="scan'208";a="77589754"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Nov 2026 04:57:31 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:57:37 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 20 Nov 2026 04:57:31 -0700
+ 15.2.2562.56; Fri, 20 Nov 2026 04:57:28 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 20 Nov 2026 04:57:28 -0700
+ 15.1.2507.58 via Frontend Transport; Fri, 20 Nov 2026 04:57:25 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 20 Nov 2026 12:57:03 +0100
-Subject: [PATCH net-next v3 6/9] net: sparx5/lan969x: add support for
- resizing the FDMA buffers
+Date: Fri, 20 Nov 2026 12:57:02 +0100
+Subject: [PATCH net-next v3 5/9] net: sparx5/lan969x: size the FDMA buffers
+ from the port MTUs
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,7 +76,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261120-sparx5-mtu-change-v3-6-55c272fe1acc@microchip.com>
+Message-ID: <20261120-sparx5-mtu-change-v3-5-55c272fe1acc@microchip.com>
 References: <20261120-sparx5-mtu-change-v3-0-55c272fe1acc@microchip.com>
 In-Reply-To: <20261120-sparx5-mtu-change-v3-0-55c272fe1acc@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -91,450 +91,190 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<jensemil.schulzostergaard@microchip.com>, Simon Horman <horms@kernel.org>
 X-Mailer: b4 0.14.3
 
-The FDMA buffers are sized from the largest MTU of the ports when the
-FDMA is initialized, so they must be resized when an MTU change affects
-that size. As the FDMA is shared by all ports, it must be stopped while
-its buffers are replaced.
+The FDMA buffers must hold the largest frame that can be received by the
+CPU, including the IFH, and on Sparx5 also the largest frame that is
+transmitted, as Sparx5 copies the frames into its TX buffers. On Sparx5,
+the RX buffers are skbs, and the TX buffers are a contiguous area. On
+lan969x, the RX buffers are page_pool pages, which are turned into skbs
+with build_skb(), and TX frames are mapped directly from the skbs. The
+buffers are currently fixed to a single page, which is not large enough
+to hold jumbo frames.
 
-Add an fdma_resize operation, which allocates new buffers for the new
-MTU while the FDMA keeps running on the current ones, so that a failed
-allocation leaves the FDMA untouched. It then stops the port TX queues
-and the FDMA, replaces the buffers, and restarts the FDMA and the TX
-queues. On Sparx5 both the RX and TX buffers are replaced. On lan969x,
-where TX frames are mapped directly from the skbs, only the RX buffers
-and page_pool are replaced.
+Instead, size the buffers from the largest MTU of the ports, plus the
+Ethernet header, FCS, IFH and two VLAN tags. On Sparx5, use this length,
+rounded up to the 128 byte granularity required by the FDMA, as the RX
+and TX buffer size. As the TX buffers can now be smaller than a page,
+make sparx5_fdma_xmit() drop frames that do not fit. On lan969x, use the
+page order needed to hold the frame and the skb_shared_info, as lan966x
+does, and limit the RX buffer size so that the FDMA never writes into
+the skb_shared_info at the end of the page.
 
-The forwarding to the CPU ports is stopped, and the frames already
-queued for the CPU are extracted, before the FDMA is stopped. Otherwise,
-with frames arriving for the CPU, extraction to the CPU can stop for
-good after the restart.
-
-Frames that are still in the FDMA buffers, or queued for the CPU, when
-the FDMA is stopped are dropped.
-
-On lan969x, to know which RX pages are still owned by the driver when
-freeing them, clear the RX buffer slot once the page has left the ring,
-either to the stack or back to the page_pool.
+With the default MTU of 1500, the Sparx5 buffers become smaller, and the
+lan969x pages are unchanged.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   1 +
- .../ethernet/microchip/sparx5/lan969x/lan969x.h    |   2 +
- .../microchip/sparx5/lan969x/lan969x_fdma.c        |  75 +++++++-
- .../net/ethernet/microchip/sparx5/sparx5_fdma.c    | 199 ++++++++++++++++++++-
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |   1 +
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |   9 +-
- 6 files changed, 275 insertions(+), 12 deletions(-)
+ .../microchip/sparx5/lan969x/lan969x_fdma.c        | 21 +++++++++----
+ .../net/ethernet/microchip/sparx5/sparx5_fdma.c    | 35 ++++++++++++++++++++--
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |  2 ++
+ 3 files changed, 51 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-index fd1b55eae9c3a..3966f1b74c3d7 100644
---- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-+++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-@@ -357,6 +357,7 @@ static const struct sparx5_ops lan969x_ops = {
- 	.fdma_deinit             = &lan969x_fdma_deinit,
- 	.fdma_poll               = &lan969x_fdma_napi_poll,
- 	.fdma_xmit               = &lan969x_fdma_xmit,
-+	.fdma_resize             = &lan969x_fdma_resize,
- };
- 
- const struct sparx5_match_data lan969x_desc = {
-diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.h b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.h
-index 529fde3d4deba..c34ce0ed4e555 100644
---- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.h
-+++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.h
-@@ -78,5 +78,7 @@ int lan969x_fdma_deinit(struct sparx5 *sparx5);
- int lan969x_fdma_napi_poll(struct napi_struct *napi, int weight);
- int lan969x_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
- 		      struct net_device *dev);
-+int lan969x_fdma_resize(struct sparx5 *sparx5, struct sparx5_port *port,
-+			int new_mtu);
- 
- #endif
 diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-index 1f7856d067b94..4123455e9bfa7 100644
+index 3036d6b6f043c..1f7856d067b94 100644
 --- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
 +++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-@@ -122,6 +122,9 @@ static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
- 	db = &fdma->dcbs[fdma->dcb_index].db[fdma->db_index];
- 	page = rx->page[fdma->dcb_index][fdma->db_index];
+@@ -131,7 +131,7 @@ static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
+ 		goto free_page;
+ 	}
  
-+	/* The page leaves the ring here, so clear its slot */
-+	rx->page[fdma->dcb_index][fdma->db_index] = NULL;
+-	skb = build_skb(page_address(page), fdma->db_size);
++	skb = build_skb(page_address(page), PAGE_SIZE << rx->page_order);
+ 	if (unlikely(!skb))
+ 		goto free_page;
+ 
+@@ -161,21 +161,27 @@ static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
+ 	return NULL;
+ }
+ 
++/* Get the page order needed for a page to hold the largest frame */
++static u8 lan969x_fdma_get_page_order(struct sparx5 *sparx5)
++{
++	return get_order(ALIGN(sparx5_fdma_get_max_frame(sparx5), 128) +
++			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info)));
++}
 +
- 	sparx5_ifh_parse(sparx5, page_address(page), &fi);
- 	port = fi.src_port < consts->n_ports ? sparx5->ports[fi.src_port] :
- 					       NULL;
-@@ -162,9 +165,11 @@ static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
- }
- 
- /* Get the page order needed for a page to hold the largest frame */
--static u8 lan969x_fdma_get_page_order(struct sparx5 *sparx5)
-+static u8 lan969x_fdma_get_page_order(struct sparx5 *sparx5,
-+				      struct sparx5_port *port, int new_mtu)
+ static int lan969x_fdma_rx_alloc(struct sparx5 *sparx5, struct sparx5_rx *rx)
  {
--	return get_order(ALIGN(sparx5_fdma_get_max_frame(sparx5), 128) +
-+	return get_order(ALIGN(sparx5_fdma_get_max_frame(sparx5, port, new_mtu),
-+			       128) +
- 			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info)));
- }
+ 	struct fdma *fdma = &rx->fdma;
+ 	int err;
  
-@@ -421,7 +426,7 @@ int lan969x_fdma_init(struct sparx5 *sparx5)
+ 	struct page_pool_params pp_params = {
+-		.order = 0,
++		.order = rx->page_order,
+ 		.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
+ 		.pool_size = fdma->n_dcbs * fdma->n_dbs,
+ 		.nid = NUMA_NO_NODE,
+ 		.dev = sparx5->dev,
+ 		.dma_dir = DMA_FROM_DEVICE,
+ 		.offset = 0,
+-		.max_len = fdma->db_size -
+-			   SKB_DATA_ALIGN(sizeof(struct skb_shared_info)),
++		.max_len = fdma->db_size,
+ 	};
+ 
+ 	rx->page_pool = page_pool_create(&pp_params);
+@@ -267,7 +273,11 @@ static void lan969x_fdma_rx_init(struct sparx5 *sparx5, struct sparx5_rx *rx)
+ 	fdma->n_dbs = 1;
+ 	fdma->priv = sparx5;
+ 	fdma->size = fdma_get_size(fdma);
+-	fdma->db_size = PAGE_SIZE;
++	/* Keep the FDMA from writing into the skb_shared_info at the end of
++	 * the page. The DB size must be a multiple of 128 bytes.
++	 */
++	fdma->db_size = SKB_WITH_OVERHEAD(PAGE_SIZE << rx->page_order);
++	fdma->db_size = ALIGN_DOWN(fdma->db_size, 128);
+ 	fdma->ops.dataptr_cb = &lan969x_fdma_rx_dataptr_cb;
+ 	fdma->ops.nextptr_cb = &fdma_nextptr_cb;
+ 
+@@ -411,6 +421,7 @@ int lan969x_fdma_init(struct sparx5 *sparx5)
  	struct sparx5_rx *rx = &sparx5->rx;
  	int err;
  
--	rx->page_order = lan969x_fdma_get_page_order(sparx5);
-+	rx->page_order = lan969x_fdma_get_page_order(sparx5, NULL, 0);
++	rx->page_order = lan969x_fdma_get_page_order(sparx5);
  	lan969x_fdma_rx_init(sparx5, rx);
  	lan969x_fdma_tx_init(sparx5);
  	sparx5_fdma_injection_mode(sparx5);
-@@ -464,3 +469,67 @@ int lan969x_fdma_deinit(struct sparx5 *sparx5)
- 
- 	return 0;
- }
-+
-+/* Release the TX buffers that were in flight when the FDMA was reset, and
-+ * initialize the TX DCBs again.
-+ */
-+static void lan969x_fdma_tx_reset(struct sparx5 *sparx5)
-+{
-+	struct fdma *fdma = &sparx5->tx.fdma;
-+
-+	/* Complete the frames that were transmitted before the reset. BHs are
-+	 * disabled as tx_clear_buf() expects to run from NAPI.
-+	 */
-+	local_bh_disable();
-+	lan969x_fdma_tx_clear_buf(sparx5, 0);
-+	local_bh_enable();
-+
-+	lan969x_fdma_tx_release(sparx5);
-+
-+	fdma_dcbs_init(fdma,
-+		       FDMA_DCB_INFO_DATAL(fdma->db_size),
-+		       FDMA_DCB_STATUS_DONE);
-+}
-+
-+int lan969x_fdma_resize(struct sparx5 *sparx5, struct sparx5_port *port,
-+			int new_mtu)
-+{
-+	struct sparx5_rx *rx = &sparx5->rx;
-+	struct sparx5_rx *rx_new;
-+	u8 page_order;
-+	int err;
-+
-+	page_order = lan969x_fdma_get_page_order(sparx5, port, new_mtu);
-+	if (page_order == rx->page_order)
-+		return 0;
-+
-+	rx_new = kzalloc_obj(*rx_new);
-+	if (!rx_new)
-+		return -ENOMEM;
-+
-+	rx_new->page_order = page_order;
-+	lan969x_fdma_rx_init(sparx5, rx_new);
-+
-+	err = lan969x_fdma_rx_alloc(sparx5, rx_new);
-+	if (err)
-+		goto out;
-+
-+	sparx5_fdma_pause(sparx5);
-+
-+	/* The FDMA is stopped and reset, and NAPI and the TX queues are
-+	 * disabled, so nothing uses the buffers until sparx5_fdma_resume().
-+	 */
-+	lan969x_fdma_tx_reset(sparx5);
-+	lan969x_fdma_rx_free(sparx5, rx);
-+
-+	rx->fdma = rx_new->fdma;
-+	rx->page_pool = rx_new->page_pool;
-+	rx->page_order = rx_new->page_order;
-+	memcpy(rx->page, rx_new->page, sizeof(rx->page));
-+
-+	sparx5_fdma_resume(sparx5);
-+out:
-+	kfree(rx_new);
-+
-+	return err;
-+}
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-index b92d249777f0b..6c6387cb8a505 100644
+index 537c945409bba..b92d249777f0b 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-@@ -21,6 +21,13 @@
+@@ -18,7 +18,6 @@
+ #include "sparx5_main.h"
+ #include "sparx5_port.h"
+ 
+-#define FDMA_XTR_BUFFER_SIZE		2048
  #define FDMA_WEIGHT			4
  #define SPX5_FDMA_STOP_SLEEP_US		500
  #define SPX5_FDMA_STOP_TIMEOUT_US	10000
-+#define SPX5_FDMA_TX_DRAIN_SLEEP_US	10
-+#define SPX5_FDMA_TX_DRAIN_TIMEOUT_US	5000
-+#define SPX5_FDMA_XTR_DRAIN_SLEEP_US	100
-+#define SPX5_FDMA_XTR_DRAIN_TIMEOUT_US	100000
+@@ -224,6 +223,10 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
+ 	struct fdma *fdma = &tx->fdma;
+ 	void *virt_addr;
+ 
++	/* Drop frames that do not fit in the TX buffers */
++	if (unlikely(IFH_LEN * 4 + skb->len + ETH_FCS_LEN > fdma->db_size))
++		return -EMSGSIZE;
 +
-+/* Base of the QRES resources tracking memory per destination port */
-+#define SPX5_QRES_DST_MEM		2048
+ 	if (!fdma_db_is_done(fdma_db_get(fdma, fdma->dcb_index, 0)))
+ 		return -EINVAL;
  
- static int sparx5_fdma_tx_dataptr_cb(struct fdma *fdma, int dcb, int db,
- 				     u64 *dataptr)
-@@ -299,19 +306,23 @@ static int sparx5_fdma_tx_alloc(struct sparx5_tx *tx)
+@@ -295,6 +298,33 @@ static int sparx5_fdma_tx_alloc(struct sparx5_tx *tx)
+ 	return 0;
  }
  
- /* Get the size of the largest frame, including IFH and VLAN tags, that can be
-- * received on any of the ports.
-+ * received on any of the ports. If a port is given, its MTU is taken to be
-+ * new_mtu instead of its current MTU, as the MTU is only updated once the
-+ * buffers have been resized.
-  */
--u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5)
-+u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5,
-+			      struct sparx5_port *port, int new_mtu)
- {
- 	u32 max_mtu = 0;
- 
- 	for (int i = 0; i < sparx5->data->consts->n_ports; i++) {
--		struct sparx5_port *port = sparx5->ports[i];
-+		struct sparx5_port *p = sparx5->ports[i];
- 
--		if (!port)
-+		if (!p)
- 			continue;
- 
--		max_mtu = max(max_mtu, READ_ONCE(port->ndev->mtu));
-+		max_mtu = max_t(u32, max_mtu, p == port ?
-+				new_mtu : READ_ONCE(p->ndev->mtu));
- 	}
- 
- 	return SPX5_HW_MTU(max_mtu) + IFH_LEN * sizeof(u32) + VLAN_HLEN * 2;
-@@ -320,9 +331,10 @@ u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5)
- /* Get the DB size needed to hold the largest frame. The DB size must be a
-  * multiple of 128 bytes.
-  */
--static u32 sparx5_fdma_get_db_size(struct sparx5 *sparx5)
-+static u32 sparx5_fdma_get_db_size(struct sparx5 *sparx5,
-+				   struct sparx5_port *port, int new_mtu)
- {
--	return ALIGN(sparx5_fdma_get_max_frame(sparx5), 128);
-+	return ALIGN(sparx5_fdma_get_max_frame(sparx5, port, new_mtu), 128);
- }
- 
++/* Get the size of the largest frame, including IFH and VLAN tags, that can be
++ * received on any of the ports.
++ */
++u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5)
++{
++	u32 max_mtu = 0;
++
++	for (int i = 0; i < sparx5->data->consts->n_ports; i++) {
++		struct sparx5_port *port = sparx5->ports[i];
++
++		if (!port)
++			continue;
++
++		max_mtu = max(max_mtu, READ_ONCE(port->ndev->mtu));
++	}
++
++	return SPX5_HW_MTU(max_mtu) + IFH_LEN * sizeof(u32) + VLAN_HLEN * 2;
++}
++
++/* Get the DB size needed to hold the largest frame. The DB size must be a
++ * multiple of 128 bytes.
++ */
++static u32 sparx5_fdma_get_db_size(struct sparx5 *sparx5)
++{
++	return ALIGN(sparx5_fdma_get_max_frame(sparx5), 128);
++}
++
  static void sparx5_fdma_rx_init(struct sparx5 *sparx5,
-@@ -471,7 +483,7 @@ int sparx5_fdma_init(struct sparx5 *sparx5)
+ 				struct sparx5_rx *rx, int channel, u32 db_size)
+ {
+@@ -424,7 +454,7 @@ void sparx5_fdma_injection_mode(struct sparx5 *sparx5)
+ 
+ int sparx5_fdma_init(struct sparx5 *sparx5)
+ {
+-	u32 db_size = ALIGN(FDMA_XTR_BUFFER_SIZE, PAGE_SIZE);
++	u32 db_size;
+ 	int err;
+ 
+ 	/* Reset FDMA state */
+@@ -441,6 +471,7 @@ int sparx5_fdma_init(struct sparx5 *sparx5)
  		 sparx5, CPU_PROC_CTRL);
  
  	sparx5_fdma_injection_mode(sparx5);
--	db_size = sparx5_fdma_get_db_size(sparx5);
-+	db_size = sparx5_fdma_get_db_size(sparx5, NULL, 0);
++	db_size = sparx5_fdma_get_db_size(sparx5);
  	sparx5_fdma_rx_init(sparx5, &sparx5->rx, FDMA_XTR_CHANNEL, db_size);
  	sparx5_fdma_tx_init(sparx5, &sparx5->tx, FDMA_INJ_CHANNEL, db_size);
  	err = sparx5_fdma_rx_alloc(&sparx5->rx);
-@@ -564,3 +576,174 @@ int sparx5_fdma_stop(struct sparx5 *sparx5)
- 
- 	return 0;
- }
-+
-+/* Check if any TX DB is still waiting to be transmitted */
-+static bool sparx5_fdma_tx_busy(struct fdma *fdma)
-+{
-+	for (int i = 0; i < fdma->n_dcbs; i++)
-+		if (!fdma_db_is_done(fdma_db_get(fdma, i, 0)))
-+			return true;
-+
-+	return false;
-+}
-+
-+/* Enable or disable the forwarding of frames to the CPU ports */
-+static void sparx5_fdma_cpu_fwd_set(struct sparx5 *sparx5, bool ena)
-+{
-+	for (int cpu = SPX5_PORT_CPU_0; cpu <= SPX5_PORT_CPU_1; cpu++) {
-+		int portno = sparx5_get_internal_port(sparx5, cpu);
-+
-+		spx5_rmw(QFWD_SWITCH_PORT_MODE_PORT_ENA_SET(ena),
-+			 QFWD_SWITCH_PORT_MODE_PORT_ENA,
-+			 sparx5,
-+			 QFWD_SWITCH_PORT_MODE(portno));
-+	}
-+}
-+
-+/* Get the memory used by the frames queued to the CPU ports */
-+static u32 sparx5_fdma_cpu_queue_use(struct sparx5 *sparx5)
-+{
-+	u32 use = 0;
-+
-+	for (int cpu = SPX5_PORT_CPU_0; cpu <= SPX5_PORT_CPU_1; cpu++) {
-+		int portno = sparx5_get_internal_port(sparx5, cpu);
-+		u32 base;
-+
-+		base = SPX5_QRES_DST_MEM + SPX5_PRIOS * portno;
-+		for (int prio = 0; prio < SPX5_PRIOS; prio++)
-+			use += QRES_RES_STAT_CUR_INUSE_GET(spx5_rd(sparx5,
-+					QRES_RES_STAT_CUR(base + prio)));
-+	}
-+
-+	return use;
-+}
-+
-+/* Stop the port TX queues and the FDMA, and reset the FDMA, so that the FDMA
-+ * buffers can be replaced.
-+ */
-+void sparx5_fdma_pause(struct sparx5 *sparx5)
-+{
-+	bool busy;
-+	u32 use;
-+
-+	/* Only ports that are up have TX queues to stop */
-+	for (int i = 0; i < sparx5->data->consts->n_ports; i++) {
-+		struct sparx5_port *port = sparx5->ports[i];
-+
-+		if (port && netif_running(port->ndev))
-+			netif_tx_disable(port->ndev);
-+	}
-+
-+	/* Give the frames already handed to the FDMA a chance to be sent, as
-+	 * they are lost when the FDMA is reset.
-+	 */
-+	if (read_poll_timeout(sparx5_fdma_tx_busy,
-+			      busy,
-+			      !busy,
-+			      SPX5_FDMA_TX_DRAIN_SLEEP_US,
-+			      SPX5_FDMA_TX_DRAIN_TIMEOUT_US,
-+			      false,
-+			      &sparx5->tx.fdma))
-+		dev_warn(sparx5->dev, "FDMA TX not drained, frames dropped\n");
-+
-+	/* Stop the switch core from forwarding frames to the CPU, and let the
-+	 * FDMA extract the frames already queued, so that the FDMA is not
-+	 * stopped and reset while the switch core is still sending it frames.
-+	 */
-+	sparx5_fdma_cpu_fwd_set(sparx5, false);
-+	if (read_poll_timeout(sparx5_fdma_cpu_queue_use,
-+			      use,
-+			      !use,
-+			      SPX5_FDMA_XTR_DRAIN_SLEEP_US,
-+			      SPX5_FDMA_XTR_DRAIN_TIMEOUT_US,
-+			      false,
-+			      sparx5))
-+		dev_warn(sparx5->dev,
-+			 "CPU queue not drained, frames dropped\n");
-+
-+	sparx5_fdma_stop(sparx5);
-+
-+	/* Reset FDMA state */
-+	spx5_wr(FDMA_CTRL_NRESET_SET(0), sparx5, FDMA_CTRL);
-+	spx5_wr(FDMA_CTRL_NRESET_SET(1), sparx5, FDMA_CTRL);
-+
-+	/* Discard frames queued for the CPU, as they may not fit the new
-+	 * buffers.
-+	 */
-+	sparx5_xtr_flush(sparx5, XTR_QUEUE);
-+}
-+
-+/* Restart the FDMA and the port TX queues after sparx5_fdma_pause() */
-+void sparx5_fdma_resume(struct sparx5 *sparx5)
-+{
-+	struct sparx5_rx *rx = &sparx5->rx;
-+	struct sparx5_tx *tx = &sparx5->tx;
-+
-+	/* Enable NAPI before the RX interrupt is enabled, as the interrupt
-+	 * handler schedules NAPI, as in sparx5_fdma_start().
-+	 */
-+	napi_enable(&rx->napi);
-+
-+	sparx5_fdma_rx_activate(sparx5, rx);
-+	sparx5_fdma_tx_activate(sparx5, tx);
-+
-+	/* Forward frames to the CPU again, now the FDMA can extract them */
-+	sparx5_fdma_cpu_fwd_set(sparx5, true);
-+
-+	for (int i = 0; i < sparx5->data->consts->n_ports; i++) {
-+		struct sparx5_port *port = sparx5->ports[i];
-+
-+		if (port && netif_running(port->ndev))
-+			netif_tx_wake_all_queues(port->ndev);
-+	}
-+}
-+
-+int sparx5_fdma_resize(struct sparx5 *sparx5, struct sparx5_port *port,
-+		       int new_mtu)
-+{
-+	struct sparx5_rx *rx = &sparx5->rx;
-+	struct sparx5_tx *tx = &sparx5->tx;
-+	struct sparx5_tx tx_new = {};
-+	struct sparx5_rx *rx_new;
-+	u32 db_size;
-+	int err;
-+
-+	db_size = sparx5_fdma_get_db_size(sparx5, port, new_mtu);
-+	if (db_size == rx->fdma.db_size)
-+		return 0;
-+
-+	rx_new = kzalloc_obj(*rx_new);
-+	if (!rx_new)
-+		return -ENOMEM;
-+
-+	sparx5_fdma_rx_init(sparx5, rx_new, FDMA_XTR_CHANNEL, db_size);
-+	sparx5_fdma_tx_init(sparx5, &tx_new, FDMA_INJ_CHANNEL, db_size);
-+
-+	err = sparx5_fdma_rx_alloc(rx_new);
-+	if (err)
-+		goto out;
-+
-+	err = sparx5_fdma_tx_alloc(&tx_new);
-+	if (err) {
-+		sparx5_fdma_rx_free(rx_new);
-+		goto out;
-+	}
-+
-+	sparx5_fdma_pause(sparx5);
-+
-+	/* The FDMA is stopped and reset, and NAPI and the TX queues are
-+	 * disabled, so nothing uses the buffers until sparx5_fdma_resume().
-+	 */
-+	sparx5_fdma_rx_free(rx);
-+	fdma_free_phys(&tx->fdma);
-+
-+	rx->fdma = rx_new->fdma;
-+	memcpy(rx->skb, rx_new->skb, sizeof(rx->skb));
-+	tx->fdma = tx_new.fdma;
-+
-+	sparx5_fdma_resume(sparx5);
-+out:
-+	kfree(rx_new);
-+
-+	return err;
-+}
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 257778da5956c..58f0ce603ad5c 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -1211,6 +1211,7 @@ static const struct sparx5_ops sparx5_ops = {
- 	.fdma_deinit             = &sparx5_fdma_deinit,
- 	.fdma_poll               = &sparx5_fdma_napi_callback,
- 	.fdma_xmit               = &sparx5_fdma_xmit,
-+	.fdma_resize             = &sparx5_fdma_resize,
- };
- 
- static const struct sparx5_match_data sparx5_desc = {
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index af2a81cdfeb66..f2a7d9116a28d 100644
+index 19b38922823ec..af2a81cdfeb66 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -392,6 +392,8 @@ struct sparx5_ops {
- 	int (*fdma_poll)(struct napi_struct *napi, int weight);
- 	int (*fdma_xmit)(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
- 			 struct net_device *dev);
-+	int (*fdma_resize)(struct sparx5 *sparx5, struct sparx5_port *port,
-+			   int new_mtu);
- };
+@@ -110,6 +110,7 @@ enum sparx5_feature {
+ #define SPX5_BUFFER_CELL_SZ    184   /* Cell size  */
+ #define SPX5_BUFFER_MEMORY     4194280 /* 22795 words * 184 bytes */
+ #define SPX5_TAS_ENTRIES_PER_PORT 2 /* TAS lists per port */
++#define SPX5_HW_MTU(mtu)       ((mtu) + ETH_HLEN + ETH_FCS_LEN)
  
- struct sparx5_main_io_resource {
-@@ -516,7 +518,12 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
+ #define XTR_QUEUE     0
+ #define INJ_QUEUE     0
+@@ -515,6 +516,7 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
  irqreturn_t sparx5_fdma_handler(int irq, void *args);
  void sparx5_fdma_reload(struct sparx5 *sparx5, struct fdma *fdma);
  void sparx5_fdma_injection_mode(struct sparx5 *sparx5);
--u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5);
-+u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5,
-+			      struct sparx5_port *port, int new_mtu);
-+void sparx5_fdma_pause(struct sparx5 *sparx5);
-+void sparx5_fdma_resume(struct sparx5 *sparx5);
-+int sparx5_fdma_resize(struct sparx5 *sparx5, struct sparx5_port *port,
-+		       int new_mtu);
++u32 sparx5_fdma_get_max_frame(struct sparx5 *sparx5);
  
  /* sparx5_mactable.c */
  int sparx5_mact_learn(struct sparx5 *sparx5, int port,
