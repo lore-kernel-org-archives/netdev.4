@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139797;
-	b=eUprznRblrI6m2S5qn/AKO5J9DrKhWzcdqGpnFBiU8mqggI4EjqacucQkX1caH5cDk9g
-	 PMSskJGBjHHWME/Iu9b4KG3HKf7dlxLcXYrMKIkseExxcJj0YKdoPU+kamA87TxTcsuy1
-	 4oGXm8lQkOGaSOoBu7xzg13dGHklfVjSJyrTEvb9H4G7IaIFnIXoCZIhESyJ9iey81+hq
-	 Fz+ULwfrNc6+mcylDpfv8y6iO89WkPBELjT8eglTzfRs8iMY8wO0WCP5YUTXgnEiEoMGd
-	 /nVCNuWFKRAd7mr3Aj+WsJ1lBHumKtu4cFeSOUxC5fDl/THl8yjIKTbStfhtlgerXWQ==
+	t=1795139803;
+	b=vmdBWtm51qeyMEqJRDl674mz8hZmVm9obzzWrTzTQyWao5d4ExsEVYV6LtBqwTqTh2do
+	 wdm+nhVueZHPVlGmnU//geqNySxSkHzzYuvIcELHb61dumq26H8aY2by6K+uAYxAc3Yq6
+	 Os21nVBqJMNuX0AUlNN9wRogRTYVQrBSLfZEOka9Kxo8DaBWPOuqXgIcOCv6PcMTyj8/v
+	 YvC9lZNSO4pYn2jSUFx8QV0Kaqn77hoIiuUligYz4Kc5t3orfm50tdl96+talDo56jtxT
+	 uIJK6w7i72hxUZtOrHhcVIYZL0Tl5jF4+1eUsvyGfipzGErcMNx970GaJABChdcrkGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139797;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139803;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0nJf8L3tIJBmX+R7S/jUXKB76L6mBngZYfpLb90wRRE=;
-	b=GUXKa5SnJrg9glQN4rnjyrbHxfvKnQ4JsBJpHoEa5RQ3wIWISni5unpj5e1Dpey2+GR8
-	 XjhcnfrbynshfTiKdQi81eRNiV2FcB1ty4uLLsvBqTYggFSnffnyGdHdMCjTeHq+1hgEe
-	 rPJcIuix/JHhNxWkteULSPOmzaNV4jlF4JDhl7Q5LEw4Fdz8SAktu7dgjAcLyOMwhfk5Y
-	 4g3Q3jDylqVtwIKyOfdbQXW2HMJRCCszUG0ujfL7ddqxFe67bqkLGLRK+yqYXbSfsFiQ8
-	 2DttkgDCQO1uk+E5lhUvAapQVitHBRmmQvCkV9OMh14CxZRcQ/ZzZB025TfFrdoelng==
+	bh=LR2B26HtxaHxg7a5ph6Qay3k33nHcyeCg9k+gslMQ+A=;
+	b=qQw6dxGoo3ZM9UptzVsuMGLsb040fdt3axGM+zyBN2/ryVWOar8AY+nweh0vxV2ZI037
+	 +djCh60vVysHYTof7m+GpU/IE93xlOuaGrhYZUAEDgujROEqzq2d1cQrhoaOfjEKhWlbX
+	 aim1jWYeMKh1Rg3okq4lvmvUOOXj65w7HFvS153hLF4HQxDdOs8qt4poVyuR8AdYlbNOT
+	 M4kGqdyUMG5UHyzY+rbwID6x+lPjkNlnx7PRsN/8+qTXNFHVdKNirKkBX9BQuEF/8tO2w
+	 HTOruNHVVpKmRNKfjk3Ejly9Nzyg1L7o1XZYrdxf2/6/WSi+rzDnXqBnw6/WF3j/KGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rb9kfD6Y;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JwMRdYeq;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EE37606A325
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:56:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EE37606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 226D1606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:56:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 226D1606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rb9kfD6Y
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso378018a91.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JwMRdYeq
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b3a9a4a765so276178a91.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795139797; x=1795744597; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795139802; x=1795744602; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0nJf8L3tIJBmX+R7S/jUXKB76L6mBngZYfpLb90wRRE=;
-        b=Rb9kfD6YIfUAjjigDfbnqPUIKwU28FWkocDOdKnz97ISOHW9jZus+Er5Li8j/v0iod
-         V1Q1c6RII03/85lPwZYQ3FdKaMb8luL8vV7P6AtV4KjmekEokXQLVRi67gTtVRxs686W
-         KYYjoQgvYVio9vBd/XryY9GCIDil4Ph5V1EYW30Z6l9819TGD68PPN734nU4c6w6c/Xv
-         zXyhwHIGsraMnrAb7Zpjl0ApaYA+AHL2TKJwqVPJC+PdrHV3JR5km0KaDmu+rx1oJrr/
-         XgUXSC2jtrwrAufRhYlXGilAjgQE5lDb+qQM/e7LyJ/00ddRO5p8+uAOagCQp0MOIiu2
-         2nUA==
+        bh=LR2B26HtxaHxg7a5ph6Qay3k33nHcyeCg9k+gslMQ+A=;
+        b=JwMRdYeqg4g+oaIIij7D+9eeI8UsfeB8XrsqYWn/lpYVs6dFxvCKKiBUqsSKv09qu0
+         zDUYGeOoEynr7CSzJg0Q2M6SK4rcdV2ylx79mCwkRjmETbPZnkM6tfPYjZ+HeFXUONQo
+         mHbcpttNUaBJUGa1P/4tyDVS/QfJQkoVnLu0EkqdVDTf2x6GqtI5h/HGN+ErQUPMp/pS
+         xQm6ykT3RisuBi//q6huBXbiCN0rfzW5vCsQJVh9h4prT+J5D0DxSvH24VlMJUsX2Y1c
+         7i5nsYletYcQ6Byf282j7HbBE4VdgMO9T5an6TTTC1WQ/hTl2JBsMSH/T2upYZYMPhWZ
+         sjwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795139797; x=1795744597;
+        d=1e100.net; s=20260707; t=1795139802; x=1795744602;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0nJf8L3tIJBmX+R7S/jUXKB76L6mBngZYfpLb90wRRE=;
-        b=hna5+dVej/TjkJUziueFa7CtBAb41tw58QwUfmFR1UrtsT5LLXo9UiIQAC6jflThtb
-         2g8sDesZdU+yrT+dZWtSBi2kNUzk1ELP8ZcrdyvudLNY79QOuUD7nvj557QcpojdI/nM
-         S4NL3duB1oeY0G8HhjG5TzjXeiCAefkCmgakc+TkjH5vsSNEb1BE/1lAIwXSmWL74JLc
-         DlC065QXt9StjHq2JNbDt47rZgsl/7v0YTTasdkxERNHToIR8KbcdX175jH20qXxlyv8
-         +HnB81oUPBgAfERAbw+6DDu3GgVo9FzvVjSWwNXrNcVl2KNUdtiMBGg3O3yomYs9P2gu
-         wWqg==
-X-Gm-Message-State: APuU4Z8fnFwR7ikCqio2qmRrVrD1IjTwz5cfXgwxUKcpQySnk7IooYiO
-	oXEsgTpTOVtu+UvWtWKA5VC4nbNsfg5HDqpnL/mmxJRr7P/rnD3utZ+EzwS7QGyq
-X-Gm-Gg: AZFdTZdKYCb3K0FOLElzsaOi7Y+U0sm0cPvSvF83GKjHTmeQZwjVPVrizKSnWhK2MV0
-	BBdLcN/MkEe0X4WtxBvx+TVg5cU2ZXEd3usGNPAhTsAXZ6+xxGmjcPA3d060qncHAPhbKTFn8aP
-	8kpDKvu0NTYPHZyVD1LZlUTWk23wDPR15YL5MxAdFyfdXuSY89wEtAJB/063LDSydtym3LyVMDA
-	RrDQw233VBe1k6EKswl67QUcbMQFOlU6yROBa0hedEza5thx8ovQOaTumz1tGNwiaPjEsl+PXv7
-	Wh60Yfv09FItRrPkjj3HZjqSCA0iLXDKggTx3CUxz0uxfNw3QYtrG+ytCSzix0XUIXPzCuwgc+k
-	givptRay421e3dDJDhexuRJviIAmoSvei2Iszrm4PdwXts/MzJJhSdf3opWW1r5RlaW6gz6L0R6
-	Gx+dOq7lY8BqIgWnJeZrJXUKwsb/aOXSzNVO5d1xGeif1JhMsZky7dpE8Vk3JB+d60uRGrDn6eg
-	O1etL7Ouk1VjLL5qFjghXLQ7LRQQ1+B6mh9fTaTSXFcRN+gpSGxru/ld/TqNbnMdcxKbfTeK4xy
-	oJB8nB8OqXmmODPUtsIDcwDhGfBneBurNrA32Bv2u/1XmoTh3t4=
-X-Received: by 2002:a17:90b:3f43:b0:3b4:1621:ba74 with SMTP id 98e67ed59e1d1-3b41c8fe3a5mr1269349a91.17.1795139796615;
-        Thu, 19 Nov 2026 17:56:36 -0800 (PST)
+        bh=LR2B26HtxaHxg7a5ph6Qay3k33nHcyeCg9k+gslMQ+A=;
+        b=sixay1kRKcv8w6AyWWhmJIigPeb4Dk/qc9+2j5d0RpI8GZYvzoi3XnSvlTkeS9BO6x
+         OWcbCOS6Tj4OwuXKQb933d//X26sbGbC+xNbTv3z/AXosugn3faaiE8jTwVyjO5Ydtyy
+         wWrGr800F5tRYH9cHGcd26I1TdK+qGrgvd53wLVk1PX03dNkdRr95SOFj+VI3GY62Szd
+         VCgaGiKhPXy7418jEeCzzJrM3pa0YWfZ/09ghyV5jbz5ctzR7u6Xz2rogJO/wTw0U9HD
+         /hAk+/1jYi/OJkd2ZYL9vwzPjk0mHI2aHdPRHBhQeMWiM1cI4pfcAZCpMQ3o3PZhiQcw
+         DlNw==
+X-Gm-Message-State: APuU4Z9rzwGVDUoOsFKUWSoQUTSF0Vh4f1hpTRxCtD4QjHXncS/slg4Y
+	CFh+DdMCqzec9sH+VYM88VXyqCmA8ZWCt1smGN2GwacyYkX8+U1ddhv+kJCMWWkG
+X-Gm-Gg: AZFdTZdCXep4S69WxuOsNilkPBGVnAi0QgddpNm55WYy9kewZXxjcJBjKRYUxTinTEG
+	Nl0Wf1lSnOS1fpDGrNpb8dz7gGGJnBIGWmo0KsrIynWyQcpmwhdU0B1TyRGUcbFd4JjzkVVtEcH
+	fOZ9AoxoyqnEwL/NeobWIqliLSItklA7mjitighAMbAZ+N23ubo8bGHawZB7lDy1MIHnQl0Cl5x
+	mo3lZ2Xii5u8YbwlPr0l641M2TTNwffHolIEs8QzlRdKrTvfoOj+mESS9g9Byeb/l/XgNcqt0px
+	rReSJktp6xddFGAXHw2pnN24DO87IaGgf8Un68gytnX2Xb4KVecna7ev4dZmswSEF6l6TuDXSkR
+	SwiBGK2C6LuuwB518IxV4Ieqmwf+Kbu5BViu3COtcoRt0QjtEbABJL6ho65ZKwCbYrlejPlSwsq
+	c416D0z5E4X/JYlESjoAk16LEc1QkEZ3f2KeQmcKop5VlmYEZuk64MJ0tNushYJ4baAH1Fy5ZX1
+	I0Ej2YoO3c/qewgkQRvah5HqQWi5RKRPLgJW42V5JDSZsjAY/Et3ZyJ/L4ygAZtlX+GKzN7olxz
+	x+YIKniulPNKvznAQry9fuAbhr94+QxgQ6fvYbpYgUuw/YfaNvU=
+X-Received: by 2002:a17:90b:388c:b0:3b0:a378:1cf with SMTP id 98e67ed59e1d1-3b41c9b2d39mr1237682a91.22.1795139802471;
+        Thu, 19 Nov 2026 17:56:42 -0800 (PST)
 Received: from u.. (61-222-64-201.hinet-ip.hinet.net. [61.222.64.201])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5355957a91.8.2026.11.19.17.56.31
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5355957a91.8.2026.11.19.17.56.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:56:36 -0800 (PST)
+        Thu, 19 Nov 2026 17:56:42 -0800 (PST)
 From: Tim JH Chen <tim770802@gmail.com>
 To: netdev@vger.kernel.org
 Cc: chandrashekar.devegowda@intel.com,
@@ -98,9 +98,9 @@ Cc: chandrashekar.devegowda@intel.com,
 	tim.jh.chen@wnc.com.tw,
 	Chih.Hung.Huang@wnc.com.tw,
 	Tim JH Chen <tim770802@gmail.com>
-Subject: [PATCH net v7 5/6] net: wwan: t7xx: complete NAPI on the not-started RX poll early return
-Date: Fri, 20 Nov 2026 09:55:55 +0800
-Message-ID: <20261120015556.131547-6-tim770802@gmail.com>
+Subject: [PATCH net v7 6/6] net: wwan: t7xx: fix memory ordering in t7xx_dpmaif_rx_stop()
+Date: Fri, 20 Nov 2026 09:55:56 +0800
+Message-ID: <20261120015556.131547-7-tim770802@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261120015556.131547-1-tim770802@gmail.com>
 References: <20261120015556.131547-1-tim770802@gmail.com>
@@ -115,36 +115,93 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When the RX queue is not started, t7xx_dpmaif_napi_rx_poll() returns 0
-without calling napi_complete_done(). A poll that returns less than the
-budget must complete the NAPI itself, so NAPI_STATE_SCHED stays set:
-every later napi_schedule() from t7xx_dpmaif_irq_rx_done() is a no-op
-and leaks the runtime PM reference it just took, no further RX poll
-runs on that queue, and a later napi_synchronize() in
-t7xx_ccmni_disable_napi() does not return.
+t7xx_dpmaif_napi_rx_poll() sets rx_processing, issues smp_mb(), then
+reads que_started. t7xx_dpmaif_rx_stop() reads rx_processing first and
+clears que_started afterwards. With this order the stop can read
+rx_processing == 0 while a new poll reads que_started == true, and the
+poll runs after t7xx_dpmaif_rx_stop() returns.
 
-This early return is taken after t7xx_dpmaif_rx_stop() clears
-que_started, for example on the modem exception path.
+Clear que_started before waiting for rx_processing, so the two sides use
+the same store, smp_mb(), load order. Use WRITE_ONCE()/READ_ONCE() on
+the two accesses that form this handshake; the other accesses of
+que_started are on the same side of the barrier or on paths that
+t7xx_dpmaif_rx_stop() serialises through rx_processing.
 
-Call napi_complete_done() before returning.
+With the new order a poll that is already past its que_started check
+when the queue is stopped finishes its pass with que_started == false,
+which used to be rare (only after the stop timed out). In that state
+t7xx_dpmaifq_release_pit_entry() returned 0 without touching the
+hardware and the caller zeroed pit_remain_release_cnt, so the entries
+consumed by that pass would never be released to the hardware. Move
+the check to t7xx_dpmaif_pit_release_and_add() and keep the pending
+count, so the entries are released by the first poll after the queue
+is restarted. The hardware is still up during that pass because
+t7xx_dpmaif_rx_stop() waits for it before the hardware is stopped.
 
-Fixes: 5545b7b9f294 ("net: wwan: t7xx: Add NAPI support")
+Fixes: d642b012df70 ("net: wwan: t7xx: Add data path interface")
 Signed-off-by: Tim JH Chen <tim770802@gmail.com>
 ---
- drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 23 ++++++++++++++--------
+ 1 file changed, 15 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-index 77770869d575..a7d6289415b1 100644
+index a7d6289415b1..d70ef315f5f5 100644
 --- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
 +++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-@@ -848,6 +848,7 @@ int t7xx_dpmaif_napi_rx_poll(struct napi_struct *napi, const int budget)
+@@ -240,9 +240,6 @@ static int t7xx_dpmaifq_release_pit_entry(struct dpmaif_rx_queue *rxq,
+ 	unsigned int old_rel_idx, new_rel_idx, hw_wr_idx;
+ 	int ret;
+ 
+-	if (!rxq->que_started)
+-		return 0;
+-
+ 	if (rel_entry_num >= rxq->pit_size_cnt) {
+ 		dev_err(rxq->dpmaif_ctrl->dev, "Invalid PIT release index\n");
+ 		return -EINVAL;
+@@ -565,6 +562,14 @@ static int t7xx_dpmaif_pit_release_and_add(struct dpmaif_rx_queue *rxq)
+ 	if (rxq->pit_remain_release_cnt < DPMAIF_PIT_CNT_THRESHOLD)
+ 		return 0;
+ 
++	/* The queue is stopped: keep the count, the entries are released by
++	 * the first poll after the queue has been restarted.
++	 * t7xx_dpmaif_rx_stop() waits for this poll before the hardware is
++	 * stopped.
++	 */
++	if (!READ_ONCE(rxq->que_started))
++		return 0;
++
+ 	ret = t7xx_dpmaifq_release_pit_entry(rxq, rxq->pit_remain_release_cnt);
+ 	if (ret)
+ 		return ret;
+@@ -844,7 +849,7 @@ int t7xx_dpmaif_napi_rx_poll(struct napi_struct *napi, const int budget)
+ 	/* Ensure rx_processing is changed to 1 before actually begin RX flow */
+ 	smp_mb();
+ 
+-	if (!rxq->que_started) {
++	if (!READ_ONCE(rxq->que_started)) {
  		atomic_set(&rxq->rx_processing, 0);
  		pm_runtime_put_autosuspend(rxq->dpmaif_ctrl->dev);
  		dev_err(rxq->dpmaif_ctrl->dev, "Work RXQ: %d has not been started\n", rxq->index);
-+		napi_complete_done(napi, work_done);
- 		return work_done;
+@@ -1127,14 +1132,16 @@ void t7xx_dpmaif_rx_stop(struct dpmaif_ctrl *dpmaif_ctrl)
+ 		struct dpmaif_rx_queue *rxq = &dpmaif_ctrl->rxq[i];
+ 		int timeout, value;
+ 
++		WRITE_ONCE(rxq->que_started, false);
++		/* Order the que_started store before the rx_processing load.
++		 * Pairs with the smp_mb() in t7xx_dpmaif_napi_rx_poll().
++		 */
++		smp_mb();
++
+ 		timeout = readx_poll_timeout_atomic(atomic_read, &rxq->rx_processing, value,
+ 						    !value, 0, DPMAIF_CHECK_INIT_TIMEOUT_US);
+ 		if (timeout)
+ 			dev_err(dpmaif_ctrl->dev, "Stop RX SW failed\n");
+-
+-		/* Ensure RX processing has stopped before we set rxq->que_started to false */
+-		smp_mb();
+-		rxq->que_started = false;
  	}
+ }
  
 -- 
 2.43.0
