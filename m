@@ -1,86 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.72.192.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169835;
-	b=rPf0rh60+Zsk9N+wjXYbQSdTYfYPnRi6G4gjIH1Ko45qyRUy5CkcQs3lyFsp0WRjX7Mv
-	 TnzplYrsf/GWL+g5fyfknG7PZyWn4REBIouKVA/pwNNOvwIG2AgYuacuLVLWmXAWd/VkN
-	 wnuUMjGa2bOe/MDKLIrnB+0TfUIt0a4zTHNhZ5CNAJd13KyEBVbiK/PGr8RLvSSIlv1Px
-	 okz32ema7LW2navd5izH6I/eMi0XBS6z/ux4Yxf2DA3sHMuhgISKi38a4zObG9kBSiAaN
-	 40F2mZHdmHJ6vDU/JspJq0m3nFmjI+1Cc0fzJZ3eBCZ1LeVJSz3lwON/pcewXfhMzAA==
+	t=1795169937;
+	b=c9lwJBsLMiCB2R/PkK9EnR3jal8M1WAITVnngDYEj5R9iwaD9+abA2XQ/OE6Nr71kSMN
+	 ooIPYnwmcwXixO0TIm/G4sFhe7Q4BR+0POExM33jugTVNqQPGqxY8ZZugeTB51pDNVAnB
+	 NdZ2cyeiNvVGoSpYxNd1XMW1YCxjpMYxe0OXYxpurcNUOYupgNFSfQjm+MdM6RdAzP5k1
+	 ljAmv5pzGA+H6hHCQNpOrbjQ80j0rIFZ0xIMa+/yAm0Rw+TnJZh7o6J1b8Uzd/ehpJlpz
+	 ywETKMcdE1GBq/EwdJYRY29d0dWr6O4c+K12yf9IEdnZhDYsqGxXGqiZhyoPncoOYMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169835;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=b8aZQEPYie5kxgKmnSX8nOrITEVukdnLIdfXdABdW/o=;
-	b=wLm93DtK/J04ZStz0ud33GcJzqgRV2ByMClM82vxiOHOrK0cJbBkERvR9toV7VjbULFd
-	 He0VcuopJtE/uaA+RCGtaSCR9NXotwfXiXfX8UWJNuhDRI3YbHWu2gauaxiQgi8BTGqcL
-	 8648iA7gZ9PkLmOjmSAA1L+QpL/dfiRNSbJeLq50kBlUM53J1/O83KM6hZRtX7tjYJNIV
-	 f2HfkEYZeourFyzkj7pA/6cEQhA7cCKiUsA6fVSpBihqUd9KQCIUR3sWCaTXlrhuBGMYi
-	 Ehgy7CaHLwjiAZMnw/DjAYtBTNZ2j9XGWECnSecUXYDzTpdgZ8/XVpUCYKEI71R1R5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169937;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Content-Language:To:Cc:From:Subject:Content-Type:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=w9mO5udOoOAPlt3TIjkBf90ljjYVMMkfdGaJlaAwR+Y=;
+	b=P9nF3eTxv7brvUGa25Kb2yJt/JsllHlhtY9n5dYUAv68bCVBcZDKUqP9tIB6bzpFYLlK
+	 y0M2Gb5Sj1DAiXdaWCEZCdrYB8LhNmkfmiXLWFYQWT7UqQqKq+OckA7w4jo3JHK5gqQSV
+	 CDu7TyuM21ZvM4sgnMWCzvRrZUBRC6g4CV7rMCMWry8M1+tQSjqEc9a3R1mSsZ4sZolZH
+	 vwg1zidC6Cxi5H2kxXzsPMwvitNpRMyJsjfkLAmvjTYEydSrCbl2n5ulvXN8laGHW2+W4
+	 vuH9UGJAvhTz7pJ4Wh822MQlZ+fBmKe5c+lCuHPFv6EF61MTo1m/izvI3HA734klXLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=IpRsBMa3;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=SdYJgpiX;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=aaYq2dIs;
+	arc=none smtp.remote-ip=217.72.192.78
+Received: from mout.web.de (mout.web.de [217.72.192.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AEE1606A338
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:17:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AEE1606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2797D60A2612
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:18:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2797D60A2612
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=IpRsBMa3;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=SdYJgpiX
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795169833;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b8aZQEPYie5kxgKmnSX8nOrITEVukdnLIdfXdABdW/o=;
-	b=IpRsBMa318jt2kPYg3ZGtUmHinODpVT1/RM5HpmNYboy3o+fH6DwEwfqBcWRZc26JQ5tk8
-	TGYtShVbo3Tt5Fjbxd7/b4RLJeVWciAsm3Ys/EGEzoXJ2BkIzBBJDz9llU53++UkRr1RIZ
-	mzdJfrkRgKoFGXubBsU4B5eaXC7aCubuU8QR1XYHEY/zBw1fm4YZviEiUWMtUfm+WKlxzb
-	B+b4lM6clJj/1F+TIFnBuHMpxul4+x5RvgMHRVbqvPuv7yAgn0kcrpUi2xutWYYnlyTXXu
-	+pbEZ79USlLJyJdJ5+ZSkXvzWer3N6oe4S+5MhPyzFk6WuiZ+4IaQIcU2C+ZOQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795169833;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b8aZQEPYie5kxgKmnSX8nOrITEVukdnLIdfXdABdW/o=;
-	b=SdYJgpiXCnFd2MAtmg1fDzUeR/YxpbzoR4ksKkq/iJ3D2yFKLko0Dg0hYPgKm9XxKVDoKz
-	BjfoVxKGKI/VjDBA==
-To: netdev@vger.kernel.org
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	"(JC), Jayachandran" <j-rameshbabu@ti.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Danish Anwar <danishanwar@ti.com>,
-	Daolin Qiu <d-qiu@ti.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Felix Maurer <fmaurer@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Neelima Muralidharan <neelima@ti.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Praneeth Bajjuri <praneeth@ti.com>,
-	Pratheesh Gangadhar TK <pratheesh@ti.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next v11 8/8] selftests: hsr: Add test for the inline PTP header on HSR
-Date: Fri, 20 Nov 2026 11:17:04 +0100
-Message-ID: <20261120-hsr_ptp-v11-8-264c88f4f1d0@linutronix.de>
-In-Reply-To: <20261120-hsr_ptp-v11-0-264c88f4f1d0@linutronix.de>
-References: <20261120-hsr_ptp-v11-0-264c88f4f1d0@linutronix.de>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=aaYq2dIs
+DKIM2-Signature:  i=1; m=1; t=1795169934;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:ElG6ro9WqywZ1CnYlR6RcnSzgvZ6
+   S0u4XPJP1dqm1iU8XIz/AR7ScLm+coK40JfN6V4SXcQ7WSYoNwwjXyu6cpPnDSfL6Q8NEJfnd7D
+   FRzQ8l9n7xTASNnPzAGzio18NcvICgJ8Rcd30EdtnrAC6KR/RckbmxrlS+4BOhJakJGT6++7Nbf
+   Kz01CeDNZpOX7DKSuzik+IlR7UfOpHTifJIhnkhEDn904ixiil9dzgUa1T20NULeTypDQudRWSp
+   x4w8oECLnmjr0Gb8+shU3iJi7Nw+koQHwJTewRMYnPg7W21nTJHr9cryOeM+9RBkQ+nX5yWzuRJ
+   yxuBj7stLuffKg==;
+Message-Instance:  m=1;
+ h=sha256:
+   J6lKEZWlqBJ9awQpOhoA1ubI5KltUYC/hR6j/hkfiN4=:
+   6EWhoWmeOaiBHiyIlivxq7oKCwIR/iin7I4W2IGCRPI=,
+  sha512:
+   i0mQykrBsFCGXCauQvzrhOL/7qdbWl2yKo/SIdehSJ+C9o64y9dCi8YZzCgDsW+2uGLcojlbB7Ftv+nzElE0og==:
+   0xscJ547O34iXdITY5K9CR8T1Duo3YpcQIiYsIVyvw6Vzxq4zdnWQiJkaiQnRlp9ZVf3zVEjpGr5+ruZH1bhZA==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795169904; x=1795774704; i=markus.elfring@web.de;
+	bh=w9mO5udOoOAPlt3TIjkBf90ljjYVMMkfdGaJlaAwR+Y=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=aaYq2dIsdNFaPbqxcTm6u4IHGdbnvg8nUyhkprM7F9YGRSCPV6MrQl/fCeejyfie
+	 ngIL680b8Rth9+8wZ9O0NBLDFpn4VNDHbCsBXim2W6wiA+6MauvfnJvFLQFPWoij/
+	 uMJNvpX4gcMXxwicND+PJwFzZDUg7K0QAff8Yd7Blp/0ZsmBLYE6E48aab1eGl6R3
+	 ytL5bfBs80alRtxRYC+w05cRbvUe+3j+WjRVKWkf5NhId0LiaN0SvF1mtjiUGmzQP
+	 g8QXnpjyWMM/3nzws0FbZFgN8xbic7yYmEnXzbCa/f+qRCfs+x4X+/JzoKBpVp7o8
+	 6tZTHCY5EPXzFm618w==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MKdHC-1xpIrc1PC8-00Vryx; Fri, 20
+ Nov 2026 11:18:24 +0100
+Message-ID: <abc2c963-f3bc-43e3-a7c0-56e2cde1a268@web.de>
+Date: Fri, 20 Nov 2026 11:18:20 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,734 +79,239 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Content-Language: en-GB, de-DE
+To: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jakub Kicinski <kuba@kernel.org>, Jonas Gorski <jonas.gorski@gmail.com>,
+ Paolo Abeni <pabeni@redhat.com>, Vladimir Oltean <olteanv@gmail.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Yuanjun Gong <ruc_gongyuanjun@163.com>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH net-next V2] net: dsa: bcm_sf2: Use
+ devm_clk_get_optional_enabled() calls in bcm_sf2_sw_probe()
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:6/4LszDmqs4hiERCky2aSi3u+1auraBpaSx6Wv4wpFbv7VGp+A5
+ b3jaFHXOQyOLf/l4K5+okZIFafvZjPetdmJGG7TRXwXuDFVNp6TIw7Nh16IKAJlhyzwRthQ
+ iRFSb2mIrtMuo0O1yqADYZ7E169E9y1ACGIK7o5Rz1vdbORP6/js8FFcF/3GhNupjnzWX7K
+ azizN4rnyBv8QqNWUexkA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:0JdAc3COgdU=;BKU0VAnKGzOeaklwEl7XFcJntny
+ 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
+ kX7Gs0HadOw==
 
-This test verifies the inline header which is used by HSR stack with the
-ether type ETH_P_1588.
-The HSR stack needs to recognize this header, strip it and send the
-requested packet only on the requested port.
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Fri, 20 Nov 2026 10:45:18 +0100
 
-This test needs a HSR device and the two slave devices passed. It will
-will send a sample PTP packet with this inline header, requesting one of
-the ports combining with and without the HSR header. A total of four
-packets is sent.
-The test checks both ports devices for packets and complains if the
-packet was not observed on the expected port and/ or observed on the
-other port. The received content of the data is compared against the
-send data sample. If the HSR header was supplied it verifies the
-sequence number and the SRC-MAC of the received header if it matches.
+* Reuse existing functionality from devm_clk_get_optional_enabled()
+  instead of keeping duplicate source code.
 
-Test suggested by Felix Maurer.
+* Omit two clk_disable_unprepare() calls in the remove function
+  and on error handling paths.
 
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
- tools/include/uapi/linux/hsr_ptp.h             |  20 +
- tools/testing/selftests/net/hsr/.gitignore     |   1 +
- tools/testing/selftests/net/hsr/Makefile       |   5 +
- tools/testing/selftests/net/hsr/hsr_ptp.sh     | 109 ++++++
- tools/testing/selftests/net/hsr/hsr_ptp_test.c | 496 +++++++++++++++++++++=
-++++
- 5 files changed, 631 insertions(+)
+* Delete the labels =E2=80=9Cout_clk=E2=80=9D and =E2=80=9Cout_clk_mdiv=E2=
+=80=9D.
 
-diff --git a/tools/include/uapi/linux/hsr_ptp.h b/tools/include/uapi/linux/=
-hsr_ptp.h
-new file mode 100644
-index 0000000000000..95e905441ebdc
---- /dev/null
-+++ b/tools/include/uapi/linux/hsr_ptp.h
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
-+#ifndef __UAPI_HSR_PTP_H
-+#define __UAPI_HSR_PTP_H
-+
-+#include <linux/types.h>
-+
-+#define HSR_INLINE_HDR  0xaf485352
-+#define HSR_INLINE_HDR_PORT_A	1
-+#define HSR_INLINE_HDR_PORT_B	2
-+
-+struct hsr_inline_header {
-+	__u8 req_tx_port;
-+	__u8 has_hsr_header;
-+	__be32 __pad0;
-+	__be32 magic;
-+	__be16 __pad1;
-+	__be16 eth_type;
-+} __attribute__ ((packed));
-+
-+#endif
-diff --git a/tools/testing/selftests/net/hsr/.gitignore b/tools/testing/sel=
-ftests/net/hsr/.gitignore
-new file mode 100644
-index 0000000000000..849eecb84c974
---- /dev/null
-+++ b/tools/testing/selftests/net/hsr/.gitignore
-@@ -0,0 +1 @@
-+hsr_ptp_test
-diff --git a/tools/testing/selftests/net/hsr/Makefile b/tools/testing/selft=
-ests/net/hsr/Makefile
-index 2150e487ac7d7..512ccf61b6652 100644
---- a/tools/testing/selftests/net/hsr/Makefile
-+++ b/tools/testing/selftests/net/hsr/Makefile
-@@ -2,9 +2,12 @@
+This issue was detected by using the Coccinelle software.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+
+V2:
+Christophe Jaillet and Florian Fainelli requested further adjustments
+according to the proposed changes.
+
+
+ drivers/net/dsa/bcm_sf2.c | 29 +++++++----------------------
+ 1 file changed, 7 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
+index 1747a1f20c78..1279906154bb 100644
+=2D-- a/drivers/net/dsa/bcm_sf2.c
++++ b/drivers/net/dsa/bcm_sf2.c
+@@ -1467,28 +1467,18 @@ static int bcm_sf2_sw_probe(struct platform_device=
+ *pdev)
+ 		base++;
+ 	}
 =20
- top_srcdir =3D ../../../../..
+-	priv->clk =3D devm_clk_get_optional(&pdev->dev, "sw_switch");
++	priv->clk =3D devm_clk_get_optional_enabled(&pdev->dev, "sw_switch");
+ 	if (IS_ERR(priv->clk))
+ 		return PTR_ERR(priv->clk);
 =20
-+CFLAGS +=3D -Wall -Wl,--no-as-needed -O2 -g $(TOOLS_INCLUDES)
-+
- TEST_PROGS :=3D \
- 	hsr_ping.sh \
- 	hsr_prp_redbox.sh \
-+	hsr_ptp.sh \
- 	hsr_redbox.sh \
- 	link_faults.sh \
- 	prp_ping.sh \
-@@ -12,4 +15,6 @@ TEST_PROGS :=3D \
+-	ret =3D clk_prepare_enable(priv->clk);
+-	if (ret)
+-		return ret;
+-
+-	priv->clk_mdiv =3D devm_clk_get_optional(&pdev->dev, "sw_switch_mdiv");
+-	if (IS_ERR(priv->clk_mdiv)) {
+-		ret =3D PTR_ERR(priv->clk_mdiv);
+-		goto out_clk;
+-	}
+-
+-	ret =3D clk_prepare_enable(priv->clk_mdiv);
+-	if (ret)
+-		goto out_clk;
++	priv->clk_mdiv =3D devm_clk_get_optional_enabled(&pdev->dev, "sw_switch_=
+mdiv");
++	if (IS_ERR(priv->clk_mdiv))
++		return PTR_ERR(priv->clk_mdiv);
 =20
- TEST_FILES +=3D hsr_common.sh
-=20
-+TEST_GEN_FILES :=3D hsr_ptp_test
-+
- include ../../lib.mk
-diff --git a/tools/testing/selftests/net/hsr/hsr_ptp.sh b/tools/testing/sel=
-ftests/net/hsr/hsr_ptp.sh
-new file mode 100755
-index 0000000000000..23379b1ce7a56
---- /dev/null
-+++ b/tools/testing/selftests/net/hsr/hsr_ptp.sh
-@@ -0,0 +1,109 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+
-+ipv6=3Dfalse
-+
-+source ./hsr_common.sh
-+
-+optstring=3D"h"
-+usage() {
-+	echo "Usage: $0"
-+}
-+
-+while getopts "$optstring" option;do
-+	case "$option" in
-+	"h")
-+		usage "$0"
-+		exit 0
-+		;;
-+	"?")
-+		usage "$0"
-+		exit 1
-+		;;
-+esac
-+done
-+
-+setup_hsr_interfaces()
-+{
-+	local HSRv=3D"$1"
-+
-+	echo "INFO: Preparing interfaces for HSRv${HSRv}."
-+# Three HSR nodes. Each node has one link to each of its neighbour, two li=
-nks in total.
-+
-+#    ns1eth1 ----- ns2eth1
-+#      hsr1         hsr2
-+#    ns1eth2       ns2eth2
-+#       |            |
-+#    ns3eth1      ns3eth2
-+#           \    /
-+#            hsr3
-+#
-+	# Interfaces
-+	ip link add ns1eth1 netns "$ns1" type veth peer name ns2eth1 netns "$ns2"
-+	ip link add ns1eth2 netns "$ns1" type veth peer name ns3eth1 netns "$ns3"
-+	ip link add ns3eth2 netns "$ns3" type veth peer name ns2eth2 netns "$ns2"
-+
-+	# HSRv0/1
-+	ip -net "$ns1" link add name hsr1 type hsr slave1 ns1eth1 \
-+		slave2 ns1eth2 supervision 45 version "$HSRv" proto 0
-+	ip -net "$ns2" link add name hsr2 type hsr slave1 ns2eth1 \
-+		slave2 ns2eth2 supervision 45 version "$HSRv" proto 0
-+	ip -net "$ns3" link add name hsr3 type hsr slave1 ns3eth1 \
-+		slave2 ns3eth2 supervision 45 version "$HSRv" proto 0
-+
-+	# IP for HSR
-+	ip -net "$ns1" addr add 100.64.0.1/24 dev hsr1
-+	ip -net "$ns1" addr add dead:beef:0::1/64 dev hsr1 nodad
-+	ip -net "$ns2" addr add 100.64.0.2/24 dev hsr2
-+	ip -net "$ns2" addr add dead:beef:0::2/64 dev hsr2 nodad
-+	ip -net "$ns3" addr add 100.64.0.3/24 dev hsr3
-+	ip -net "$ns3" addr add dead:beef:0::3/64 dev hsr3 nodad
-+
-+	ip -net "$ns1" link set address 00:11:22:00:01:01 dev ns1eth1
-+	ip -net "$ns1" link set address 00:11:22:00:01:02 dev ns1eth2
-+
-+	ip -net "$ns2" link set address 00:11:22:00:02:01 dev ns2eth1
-+	ip -net "$ns2" link set address 00:11:22:00:02:02 dev ns2eth2
-+
-+	ip -net "$ns3" link set address 00:11:22:00:03:01 dev ns3eth1
-+	ip -net "$ns3" link set address 00:11:22:00:03:02 dev ns3eth2
-+
-+	# All Links up
-+	ip -net "$ns1" link set ns1eth1 up
-+	ip -net "$ns1" link set ns1eth2 up
-+	ip -net "$ns1" link set hsr1 up
-+
-+	ip -net "$ns2" link set ns2eth1 up
-+	ip -net "$ns2" link set ns2eth2 up
-+	ip -net "$ns2" link set hsr2 up
-+
-+	ip -net "$ns3" link set ns3eth1 up
-+	ip -net "$ns3" link set ns3eth2 up
-+	ip -net "$ns3" link set hsr3 up
-+}
-+
-+run_ptp_hdr_tests()
-+{
-+	echo "INFO: Running PTP-header tests."
-+
-+	ip netns exec "$ns1" ./hsr_ptp_test -H hsr1 -A ns1eth1 -B ns1eth2
-+	ret=3D$?
-+	stop_if_error "PTP header test failed (ns1)."
-+
-+	ip netns exec "$ns2" ./hsr_ptp_test -H hsr2 -A ns2eth1 -B ns2eth2
-+	ret=3D$?
-+	stop_if_error "PTP header test failed (ns2)."
-+
-+	ip netns exec "$ns3" ./hsr_ptp_test -H hsr3 -A ns3eth1 -B ns3eth2
-+	ret=3D$?
-+	stop_if_error "PTP header test failed (ns3)."
-+}
-+
-+check_prerequisites
-+trap cleanup_all_ns EXIT
-+
-+setup_ns ns1 ns2 ns3
-+setup_hsr_interfaces 1
-+run_ptp_hdr_tests
-+
-+exit $ret
-diff --git a/tools/testing/selftests/net/hsr/hsr_ptp_test.c b/tools/testing=
-/selftests/net/hsr/hsr_ptp_test.c
-new file mode 100644
-index 0000000000000..e2c2da56138ae
---- /dev/null
-+++ b/tools/testing/selftests/net/hsr/hsr_ptp_test.c
-@@ -0,0 +1,496 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Simple test to verify the usage of the inline header used for HSR with
-+ * ether type ETH_P_1588.
-+ * The inline header has to be stripped, the sent packet must only appear =
-on the
-+ * specified port and the interface needs to accept a foreign HSR header a=
-nd
-+ * prepend its own header.
-+ *
-+ * Socket handling inspired by raw.c from linuxptp.
-+ *
-+ */
-+#include <poll.h>
-+#include <stdbool.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <time.h>
-+#include <unistd.h>
-+
-+#include <linux/types.h>
-+#include <linux/hsr_ptp.h>
-+#include <linux/if_ether.h>
-+#include <net/if.h>
-+#include <netinet/in.h>
-+#include <netpacket/packet.h>
-+#include <sys/ioctl.h>
-+
-+#define MSEC_TO_NSEC(_x)	(_x * 1000000)
-+#define USEC_PER_SEC		1000000
-+#define NSEC_PER_SEC		1000000000
-+
-+#ifndef __packed
-+#define __packed __attribute__((packed))
-+#endif
-+
-+#define MAC_LEN  6
-+typedef uint8_t eth_addr[MAC_LEN];
-+
-+struct eth_hdr {
-+	eth_addr dst;
-+	eth_addr src;
-+	uint16_t type;
-+} __packed;
-+
-+struct hsr_hdr {
-+	eth_addr dst;
-+	eth_addr src;
-+	uint16_t type;
-+	uint16_t pathid_and_LSDU_size;
-+	uint16_t sequence_nr;
-+	uint16_t encap_type;
-+} __packed;
-+
-+struct hsr_meta_header {
-+	struct hsr_inline_header hsr_opt;
-+	union {
-+		struct hsr_hdr hsr_hdr;
-+		struct eth_hdr eth_hdr;
-+	};
-+} __packed;
-+
-+static uint8_t ptp_packet[] =3D {
-+	0x00, 0x12, 0x00, 0x2c, 0x00, 0x00, 0x02, 0x00,  0x00, 0x00, 0x00, 0x00, =
-0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x88, 0x88, 0x88, 0x88,  0x88, 0x88, 0x88, 0x88, =
-0x00, 0x01, 0x00, 0x01,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00, =
-0x00, 0x00,
-+};
-+
-+static uint8_t p2p_dst_mac[MAC_LEN] =3D {
-+	0x01, 0x80, 0xc2, 0x00, 0x00, 0x0e
-+};
-+
-+static uint8_t slave_mac_addr[MAC_LEN];
-+static int32_t fd_slaveA =3D -1;
-+static int32_t fd_slaveB =3D -1;
-+static int32_t fd_hsr =3D -1;
-+static uint16_t hsr_seq =3D 37;
-+
-+static void tsnorm(struct timespec *ts)
-+{
-+	while (ts->tv_nsec >=3D NSEC_PER_SEC) {
-+		ts->tv_nsec -=3D NSEC_PER_SEC;
-+		ts->tv_sec++;
-+	}
-+}
-+
-+static int64_t calcdiff(struct timespec t1, struct timespec t2)
-+{
-+	int64_t diff =3D USEC_PER_SEC * (long long)((int) t1.tv_sec - (int) t2.tv=
-_sec);
-+
-+	diff +=3D ((int) t1.tv_nsec - (int) t2.tv_nsec) / 1000;
-+	return diff;
-+}
-+
-+static int tsgreater(struct timespec *a, struct timespec *b)
-+{
-+	return ((a->tv_sec > b->tv_sec) ||
-+		(a->tv_sec =3D=3D b->tv_sec && a->tv_nsec > b->tv_nsec));
-+}
-+
-+static int sk_interface_index(int fd, const char *name)
-+{
-+	struct ifreq ifreq;
-+	int32_t err;
-+
-+	memset(&ifreq, 0, sizeof(ifreq));
-+	strncpy(ifreq.ifr_name, name, sizeof(ifreq.ifr_name) - 1);
-+	err =3D ioctl(fd, SIOCGIFINDEX, &ifreq);
-+	if (err < 0) {
-+		printf("ioctl SIOCGIFINDEX failed: %m\n");
-+		return err;
-+	}
-+	return ifreq.ifr_ifindex;
-+}
-+
-+static int open_socket(const char *name)
-+{
-+	struct sockaddr_ll addr;
-+	int32_t fd, index;
-+
-+	fd =3D socket(AF_PACKET, SOCK_RAW, 0);
-+	if (fd < 0) {
-+		printf("socket failed: %m\n");
-+		goto err;
-+	}
-+	index =3D sk_interface_index(fd, name);
-+	if (index < 0)
-+		goto err;
-+
-+	memset(&addr, 0, sizeof(addr));
-+	addr.sll_ifindex =3D index;
-+	addr.sll_family =3D AF_PACKET;
-+	addr.sll_protocol =3D htons(ETH_P_ALL);
-+	if (bind(fd, (struct sockaddr *) &addr, sizeof(addr))) {
-+		printf("bind failed: %m\n");
-+		goto err;
-+	}
-+	if (setsockopt(fd, SOL_SOCKET, SO_BINDTODEVICE, name, strlen(name))) {
-+		printf("setsockopt SO_BINDTODEVICE failed: %m\n");
-+		goto err;
-+	}
-+
-+	return fd;
-+err:
-+	if (fd >=3D 0)
-+		close(fd);
-+	return -1;
-+}
-+
-+static int sk_interface_macaddr(const char *name)
-+{
-+	struct ifreq ifreq;
-+	int32_t err, fd;
-+
-+	memset(&ifreq, 0, sizeof(ifreq));
-+	strncpy(ifreq.ifr_name, name, sizeof(ifreq.ifr_name) - 1);
-+
-+	fd =3D socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-+	if (fd < 0) {
-+		printf("socket failed: %m\n");
-+		return -1;
-+	}
-+
-+	err =3D ioctl(fd, SIOCGIFHWADDR, &ifreq);
-+	if (err < 0) {
-+		printf("ioctl SIOCGIFHWADDR failed: %m\n");
-+		close(fd);
-+		return -1;
-+	}
-+
-+	close(fd);
-+
-+	memcpy(slave_mac_addr, &ifreq.ifr_hwaddr.sa_data, MAC_LEN);
-+	return 0;
-+}
-+
-+static int raw_open(const char *hsr_dev, const char *slaveA_dev, const cha=
-r *slaveB_dev)
-+{
-+
-+	if (sk_interface_macaddr(slaveA_dev))
-+		goto err;
-+
-+	fd_slaveA =3D open_socket(slaveA_dev);
-+	if (fd_slaveA < 0)
-+		goto err;
-+
-+	fd_slaveB =3D open_socket(slaveB_dev);
-+	if (fd_slaveB < 0)
-+		goto err;
-+
-+	fd_hsr =3D open_socket(hsr_dev);
-+	if (fd_hsr < 0)
-+		goto err;
-+
-+	return 0;
-+
-+err:
-+	if (fd_slaveA >=3D 0)
-+		close(fd_slaveA);
-+	if (fd_slaveB >=3D 0)
-+		close(fd_slaveB);
-+	if (fd_hsr >=3D 0)
-+		close(fd_hsr);
-+
-+	return -1;
-+}
-+
-+static int sk_receive(int fd, void *buf, int buflen)
-+{
-+	struct iovec iov =3D { buf, buflen };
-+	uint8_t control[256];
-+	int32_t cnt =3D 0;
-+	struct msghdr msg;
-+
-+	memset(control, 0, sizeof(control));
-+	memset(&msg, 0, sizeof(msg));
-+
-+	msg.msg_iov =3D &iov;
-+	msg.msg_iovlen =3D 1;
-+	msg.msg_control =3D control;
-+	msg.msg_controllen =3D sizeof(control);
-+
-+	cnt =3D recvmsg(fd, &msg, MSG_DONTWAIT);
-+	if (cnt < 0)
-+		return 0;
-+	return cnt;
-+}
-+
-+static int raw_recv(int fd, bool fwd_hsr, void *sample, int sample_len)
-+{
-+	struct timespec now, end;
-+	struct hsr_hdr *hsr_hdr;
-+	uint8_t buf[1500];
-+	int32_t cnt;
-+
-+	/* The packet is expected to arrive within 100ms. HSR will send hello
-+	 * packets so there an end time and poll() will wait until this point.
-+	 */
-+	clock_gettime(CLOCK_MONOTONIC, &now);
-+	end =3D now;
-+	end.tv_nsec +=3D MSEC_TO_NSEC(100);
-+	tsnorm(&end);
-+again:
-+
-+	cnt =3D sk_receive(fd, buf, sizeof(buf));
-+	if (cnt =3D=3D 0) {
-+		int64_t sleep_time;
-+		struct pollfd pfd;
-+		int ret;
-+
-+		clock_gettime(CLOCK_MONOTONIC, &now);
-+		if (tsgreater(&now, &end))
-+			return 0;
-+
-+		sleep_time =3D calcdiff(end, now) / 1000;
-+		if (sleep_time <=3D 0)
-+			return 0;
-+
-+		pfd.fd =3D fd;
-+		pfd.events =3D POLLIN;
-+		ret =3D poll(&pfd, 1, sleep_time);
-+		if (ret <=3D 0)
-+			return ret;
-+		goto again;
-+	}
-+
-+	if (cnt < sizeof(struct hsr_hdr))
-+		goto again;
-+
-+	hsr_hdr =3D (void *)buf;
-+	/* Embedded magic packet passed? */
-+	if (hsr_hdr->type =3D=3D htons(ETH_P_1588)) {
-+		struct hsr_inline_header *hsr_opt =3D (void *)buf;
-+
-+		if (hsr_opt->magic =3D=3D htonl(HSR_INLINE_HDR)) {
-+			printf("Error: Found HSR_INLINE_HDR\n");
-+			return -1;
-+		}
-+	}
-+	/* Assuming it is *our* network and nobody but the test here sends
-+	 * packets to p2p_dst_mac. Therefore any received packet needs to be
-+	 * ours and every mismatch is considered as error.
-+	 */
-+	if (memcmp(hsr_hdr->dst, p2p_dst_mac, MAC_LEN))
-+		goto again;
-+
-+	if (hsr_hdr->type !=3D htons(ETH_P_HSR)) {
-+		printf("Error: Unexpected ether type: 0x%x\n", ntohs(hsr_hdr->type));
-+		return -1;
-+	}
-+
-+	if (hsr_hdr->encap_type !=3D htons(ETH_P_1588)) {
-+		printf("Error: Unexpected encapsulated type: 0x%x\n",
-+		       htons(hsr_hdr->encap_type));
-+		return -1;
-+	}
-+
-+	if (fwd_hsr) {
-+		if (hsr_hdr->sequence_nr !=3D htons(hsr_seq - 1)) {
-+			printf("Error: Packet has wrong seq nr, %d vs %d.\n",
-+			       ntohs(hsr_hdr->sequence_nr), hsr_seq - 1);
-+			return -1;
-+		}
-+		/* Undo the SRC MAC change in pkt_send() */
-+		hsr_hdr->src[3] ^=3D 0x21;
-+		if (memcmp(hsr_hdr->src, slave_mac_addr, MAC_LEN)) {
-+			printf("Error: Packet has wrong SRC-MAC\n");
-+			return -1;
-+		}
-+	}
-+
-+	if (cnt < sizeof(struct hsr_hdr) + sample_len) {
-+		printf("Error: Packet %d is too small for data check\n", cnt);
-+		return -1;
-+	}
-+
-+	if (!memcmp(&buf[sizeof(struct hsr_hdr)], sample, sample_len))
-+		return 1;
-+
-+	printf("Error: Packet did not match the sample\n");
-+	return -1;
-+}
-+
-+static int recv_verify(int port, bool fwd_hsr, void *sample, int sample_le=
-n)
-+{
-+	int32_t error =3D 0;
-+	int32_t ret;
-+
-+	ret =3D raw_recv(fd_slaveA, fwd_hsr, sample, sample_len);
-+	if (ret < 0)
+ 	ret =3D bcm_sf2_sw_rst(priv);
+ 	if (ret) {
+ 		pr_err("unable to software reset switch: %d\n", ret);
+-		goto out_clk_mdiv;
 +		return ret;
-+	if (port =3D=3D HSR_INLINE_HDR_PORT_A && ret =3D=3D 0) {
-+		printf("Error: Missing packet on portA\n");
-+		error =3D 1;
-+	}
-+	if (port =3D=3D HSR_INLINE_HDR_PORT_B && ret =3D=3D 1) {
-+		printf("Error: Not expecting packet on portA\n");
-+		error =3D 1;
-+	}
-+
-+	ret =3D raw_recv(fd_slaveB, fwd_hsr, sample, sample_len);
-+	if (ret < 0)
+ 	}
+=20
+ 	bcm_sf2_crossbar_setup(priv);
+@@ -1498,7 +1488,7 @@ static int bcm_sf2_sw_probe(struct platform_device *=
+pdev)
+ 	ret =3D bcm_sf2_mdio_register(ds);
+ 	if (ret) {
+ 		pr_err("failed to register MDIO bus\n");
+-		goto out_clk_mdiv;
 +		return ret;
-+	if (port =3D=3D HSR_INLINE_HDR_PORT_B && ret =3D=3D 0) {
-+		printf("Error: Missing packet on portB\n");
-+		error =3D 1;
-+	}
-+	if (port =3D=3D HSR_INLINE_HDR_PORT_A && ret =3D=3D 1) {
-+		printf("Error: Not expecting packet on portB\n");
-+		error =3D 1;
-+	}
-+	return error;
-+}
+ 	}
+=20
+ 	bcm_sf2_gphy_enable_set(priv->dev->ds, false);
+@@ -1565,10 +1555,6 @@ static int bcm_sf2_sw_probe(struct platform_device =
+*pdev)
+=20
+ out_mdio:
+ 	bcm_sf2_mdio_unregister(priv);
+-out_clk_mdiv:
+-	clk_disable_unprepare(priv->clk_mdiv);
+-out_clk:
+-	clk_disable_unprepare(priv->clk);
+ 	return ret;
+ }
+=20
+@@ -1585,8 +1571,7 @@ static void bcm_sf2_sw_remove(struct platform_device=
+ *pdev)
+ 	dsa_unregister_switch(priv->dev->ds);
+ 	bcm_sf2_cfp_exit(priv->dev->ds);
+ 	bcm_sf2_mdio_unregister(priv);
+-	clk_disable_unprepare(priv->clk_mdiv);
+-	clk_disable_unprepare(priv->clk);
 +
-+static int32_t pkt_send(int port, bool hsr_hdr, void *data, int data_len)
-+{
-+	struct hsr_meta_header *hdr;
-+	uint8_t packet[200];
-+	ssize_t cnt;
-+	size_t len;
-+
-+	memset(packet, 0, sizeof(packet));
-+
-+	len =3D sizeof(struct hsr_inline_header);
-+	hdr =3D (struct hsr_meta_header *)packet;
-+	memset(&hdr->hsr_opt, 0, sizeof(hdr->hsr_opt));
-+	hdr->hsr_opt.magic =3D htonl(HSR_INLINE_HDR);
-+	hdr->hsr_opt.eth_type =3D htons(ETH_P_1588);
-+	if (port !=3D HSR_INLINE_HDR_PORT_A && port !=3D HSR_INLINE_HDR_PORT_B) {
-+		printf("Wrong port requested\n");
-+		return -1;
-+	}
-+	hdr->hsr_opt.req_tx_port =3D port;
-+
-+	if (hsr_hdr) {
-+		uint16_t pathid_size;
-+
-+		len +=3D sizeof(struct hsr_hdr);
-+		memcpy(&packet[len], data, data_len);
-+
-+		hdr->hsr_opt.has_hsr_header =3D 1;
-+
-+		memcpy(&hdr->hsr_hdr.dst, p2p_dst_mac, MAC_LEN);
-+		memcpy(&hdr->hsr_hdr.src, slave_mac_addr, MAC_LEN);
-+		/* Flip a bit in SRC MAC addr so it does not look like hosts */
-+		hdr->hsr_hdr.src[3] ^=3D 0x21;
-+
-+		hdr->hsr_hdr.type =3D htons(ETH_P_HSR);
-+		hdr->hsr_hdr.sequence_nr =3D htons(hsr_seq++);
-+		hdr->hsr_hdr.encap_type =3D htons(ETH_P_1588);
-+
-+		/* The resulting packet must be alteast 66 bytes */
-+		if (data_len + sizeof(struct hsr_hdr) < 66)
-+			data_len =3D 66 - sizeof(struct hsr_hdr);
-+
-+		pathid_size =3D data_len + sizeof(struct hsr_hdr) - sizeof(struct eth_hd=
-r);
-+		pathid_size |=3D (port - 1) << 12;
-+
-+		hdr->hsr_hdr.pathid_and_LSDU_size =3D htons(pathid_size);
-+	} else {
-+		len +=3D sizeof(struct eth_hdr);
-+		hdr->hsr_opt.has_hsr_header =3D 0;
-+
-+		memcpy(&hdr->eth_hdr.dst, p2p_dst_mac, MAC_LEN);
-+		memcpy(&hdr->eth_hdr.src, slave_mac_addr, MAC_LEN);
-+		hdr->eth_hdr.type =3D htons(ETH_P_1588);
-+
-+		memcpy(&packet[len], data, data_len);
-+	}
-+
-+	cnt =3D send(fd_hsr, packet, len + data_len, 0);
-+	if (cnt < 1)
-+		return -1;
-+
-+	return cnt;
-+}
-+
-+int main(int argc, char *argv[])
-+{
-+	char *slaveA =3D NULL, *slaveB =3D NULL, *hsr_dev =3D NULL;
-+	char *msg_mode;
-+	int opt;
-+
-+	while ((opt =3D getopt(argc, argv, "A:B:H:")) !=3D -1) {
-+		switch (opt) {
-+		case 'A':
-+			slaveA =3D strdup(optarg);
-+			break;
-+
-+		case 'B':
-+			slaveB =3D strdup(optarg);
-+			break;
-+
-+		case 'H':
-+			hsr_dev =3D strdup(optarg);
-+			break;
-+		default: /* '?' */
-+			fprintf(stderr, "Usage: %s -A slaveA -B slaveB -H hsr_device\n",
-+				argv[0]);
-+			exit(EXIT_FAILURE);
-+		}
-+	}
-+
-+	if (!slaveA || !slaveB || !hsr_dev) {
-+		fprintf(stderr, "Missing network devices\n");
-+		exit(EXIT_FAILURE);
-+	}
-+
-+	if (raw_open(hsr_dev, slaveA, slaveB) < 0)
-+		return EXIT_FAILURE;
-+
-+	msg_mode =3D "PortA, no-hsr-header";
-+	if (pkt_send(HSR_INLINE_HDR_PORT_A, false, ptp_packet, sizeof(ptp_packet)=
-) < 0) {
-+		printf("Sending failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+	if (recv_verify(HSR_INLINE_HDR_PORT_A, false, ptp_packet, sizeof(ptp_pack=
-et))) {
-+		printf("Verify failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+
-+	ptp_packet[16 + 4]++;
-+	msg_mode =3D "PortB, no-hsr-header";
-+	if (pkt_send(HSR_INLINE_HDR_PORT_B, false, ptp_packet, sizeof(ptp_packet)=
-) < 0) {
-+		printf("Sending failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+	if (recv_verify(HSR_INLINE_HDR_PORT_B, false, ptp_packet, sizeof(ptp_pack=
-et))) {
-+		printf("Verify failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+
-+	ptp_packet[16 + 4]++;
-+	msg_mode =3D "PortA, hsr-header";
-+	if (pkt_send(HSR_INLINE_HDR_PORT_A, true, ptp_packet, sizeof(ptp_packet))=
- < 0) {
-+		printf("Sending failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+	if (recv_verify(HSR_INLINE_HDR_PORT_A, true, ptp_packet, sizeof(ptp_packe=
-t))) {
-+		printf("Verify failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+
-+	ptp_packet[16 + 4]++;
-+	msg_mode =3D "PortB, hsr-header";
-+	if (pkt_send(HSR_INLINE_HDR_PORT_B, true, ptp_packet, sizeof(ptp_packet))=
- < 0) {
-+		printf("Sending failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+	if (recv_verify(HSR_INLINE_HDR_PORT_B, true, ptp_packet, sizeof(ptp_packe=
-t))) {
-+		printf("Verify failed: %s\n", msg_mode);
-+		return EXIT_FAILURE;
-+	}
-+
-+	return EXIT_SUCCESS;
-+}
-
---=20
-2.55.0
+ 	if (priv->type =3D=3D BCM7278_DEVICE_ID)
+ 		reset_control_assert(priv->rcdev);
+ }
+=2D-=20
+2.56.1
 
