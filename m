@@ -1,81 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165183;
-	b=ywJh2kOpTaIGK4anxxARKzRkpvt7PbHsa99EMAn2Ux1+CmMbH0W/KNZE7Rhs2rF5e+0v
-	 NtDbTe402sG4yAaJGCgTRTTu4XpTueuhhChxTH7OX/ml0R7PmgzQlmp7qFGVtMpmhBmY7
-	 j7ZPBSSuvsu1s4oBId1EL/rH1Pgo0q3jQdevN5AY/ww2Ql5aZuS7hrJGDQ2a7XHyY2hi8
-	 rvhn9SuRlFFgdAcOVsfSrj49UwHR/E5TxybH+WwhZyAck2NhoEs1W0oRu+jG1evEvbWoF
-	 SdijK9KnPJ64cvjN3ryQRJ7tySkoJ5WpXNU2jAoeC82LIUweVG+b36IDw36H0kypihg==
+	t=1795165349;
+	b=wDsohNhfYnVP0sXOf/zYnRUTG1NoJa/btekOMiA9usceaOoQj5/vMafuYNWY8QM4iaGA
+	 6vVN2/hcqU+HS4PkQQX0FSzvZ3m9gJXGLLUbx3rNkr+0CSNG91vol4kBVoB7UEXgOTLWO
+	 0E54d/vk5AinibceEfGHltj1ZbqM02DULMmh2PgGhEK5/I6EKxf2V6iiQ9eJQv0jJ/FBn
+	 t0PhWkSNvHmiVfspKqbY0MNjbf6b2x5rdraTxKPeDSpoES7IKMTyXUa8H2Q7wwYzJaaqX
+	 LksV+x8H6fZvQhISqvih1HET2IAQSZju7Y0HERtukpArjAfUq5wowUpW/EV5qwG19wQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165183;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=VedXmvSI7G6Xtxoxd3IW0KA5vnVG/Qoj5iEhteVh2F4=;
-	b=M4oy1a4rXgYicMuekHjf3+rK8qdElr+BL7MwjYvHwyjot+o89dtWpG8sGG7iJ4FCNnPz
-	 1snpJT/gmxIDQYE6kMuv3C3ZOkrs7LYshhAwxk4ikspXXAt1XMAfmzXQIX3bzwwX3/iFt
-	 FsJsnNlpx9o2tHHSsvDo1M9Xd6WGgpD/L1xfQpKAvQ9c9BNIcmNz2Dd1MFG+u0+iYzOOz
-	 STNQurKJsRypHwSZvmoLOFHUp+XlMfLkzfL3S03Lct6irRzGJ25MeK39RPJWL3b8tscKg
-	 SEcnqVmutC/fwz8ygZlCIf+6OBQJoPdtgAY8NBXyCK1VWb5QnhlSYbCbQSJmYlrIuvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165349;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=sstSKZPjJIvDzML4RMXfOohuz8+NeyvnKtf4ffPAtS4=;
+	b=uG8NaVGDI4hmlo8g7HgfG3rnyQgulB0BLdL4YjGgv8Arz2BGyULv4DOpzFLej2sTc23K
+	 ElTxxQ+tP356lEy1umSKvq8GFbG1aO2TZlGe+PxXKQgVA/PZP6KAxQh5XCO5/HGGN3Ks5
+	 Ldo+G5jT8lrIksjNTrxCaH1K/dB4m6wvn2HHk4/Zgaq9L0+4RJessu01nq0PeB78Rr4Pi
+	 7vQh8eootZJiL2sWYaG3/FE9yqWPUjdY0q7DBRJCup5rcecescrIiZuYRxcVtHHxFE6bX
+	 DLvk9QpCkWonp4SGFOiqaQZx2xTJfpOfnUGL5EkWwwmkR6qAnQFazU1Xsdl+i8lnxUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GsWwQTjI;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=ZKxeh8h6;
+	arc=none smtp.remote-ip=209.85.214.228
+Received: from mail-pl1-f228.google.com (mail-pl1-f228.google.com [209.85.214.228])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C00606A32C;
-	Fri, 20 Nov 2026 08:59:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4C00606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97FF2606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:02:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97FF2606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GsWwQTjI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795165184; x=1826701184;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=nk+t4fI7zmLmWT/kxiuqyqIDMYUCl9U7mqKAwRYAXEU=;
-  b=GsWwQTjINcWyOfGYRC/W778QqQYSKIPtAP7s64ZUXJGMAQPBwhJkLB/q
-   ltKvmDG4KDCbMVFp22SbdCqPI5YT+ktG7NlgMqsxIiDA099As1e2f4D+D
-   CJFioI1E0MmR4yHdiIkJlov7z3bn4L9aiopjOkQkN263M3ZLKSM1RsRdU
-   roLx0ZtlvTMuJv+4TZoSFNECvOtOMhQcE6tG2ZQ23p/NkExcD9Elyk9E9
-   pSzJm6EPPeBfiCpe5EAdc6a19xpTJxHjhsxiO3Ae50e0bcUED/nVsODQB
-   Y+Q1bgJIicOglhll5V5ZS9WTVDBBGW4sgynt+YCxDNloG3VthIK60OFaG
-   g==;
-X-CSE-ConnectionGUID: 3dlW4yPfRz+FVa2Ykd8g0Q==
-X-CSE-MsgGUID: hTpyKbj5RsalkxRQP5hSow==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4081601"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4081601"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:59:43 -0800
-X-CSE-ConnectionGUID: 8YRu/vs0QIeBu8Whxdd/Iw==
-X-CSE-MsgGUID: eYIQxeXtQJuw0HqduVkqRA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="12363983"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:59:39 -0800
-Date: Fri, 20 Nov 2026 10:59:36 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: liuc63@xiaopeng.com, gregkh@linuxfoundation.org,
-	akpm@linux-foundation.org, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	khtsai@google.com, fangxy@xiaopeng.com, rdunlap@infradead.org,
-	dbrownell@users.sourceforge.net, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] usb: gadget: u_ether: fix out-of-bounds read in
- get_ether_addr
-Message-ID: <awAL-CjBSGfOfYUS@ashevche-desk.local>
-References: <20261117090110.3263592-3-liuc63@xiaopeng.com>
- <179513296378.3136.18205287276015126683@kernel.org>
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=ZKxeh8h6
+Received: by mail-pl1-f228.google.com with SMTP id d9443c01a7336-2f045b921caso2273945ad.3
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:02:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=andrii.net; s=gmail-2025; t=1795165348; x=1795770148; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sstSKZPjJIvDzML4RMXfOohuz8+NeyvnKtf4ffPAtS4=;
+        b=ZKxeh8h6lj0/0p+RkL7y+f9VogVjUM0o2KUt/rqf+eRO72cxaezImmqKY3kWIfpNfd
+         SNFNQk3pLH4bTAOM7Y4Vf+3i/5oLKzBiDtRZZcMAEWPGNo2By+Heb+5VnfsCRnWgA4hn
+         MvkPUqG/5tkjHDUorhb9EoI2H436coP5IdLRYGmp+GEtIlB4OvkOBTIMZSwi8Pf7mO+p
+         IqiSBwrD2IPxcnRmH5bHYniPMVckrb+k/c+1GF+6yPL26csVBYmwGkpSO7RB7wS3gBdD
+         CGWMoSRwq6Exng5CjcS9Gzyu65uYl2k8Y6lYYgr2pm978JoVAXGl35sh7cbZlR15AD7E
+         cAww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795165348; x=1795770148;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sstSKZPjJIvDzML4RMXfOohuz8+NeyvnKtf4ffPAtS4=;
+        b=PyJE0+/cZnfK68D2BKeLaII+zFwbnFRqIn3y1Y9f0KvoIkWDrBrP89s46soEgcIbqF
+         lvsrXpTj6gI2XmIqetFyNOrMfxNDTPF7ZuLoNwCWvItjcbNPhKUQGNGqy9iLvovy8Trk
+         ouOxdF2xOxVwzN4gPvM2yu7LgK4vcZqUMXYTS2JSnCEDVYJ7MwJ8Wn0WNyuL5fL0Eba6
+         7IkEuLZVdTnyltMKd8K0D7E1gb91P21odE8kgt7sOgms+EB9ScgptUJB3UvT2c5/kPPa
+         CrLzS50NG/9UOwkFg+OAwcnDePvhfIcVg8V73X1q5BAwPZ5jkDcnwj14H6jzmfdNbXiH
+         cOPA==
+X-Forwarded-Encrypted: i=1; AL+hErGa+RcdMLdXSRkjUu+KE8VkGClCQ+S2+nS2waba/WhTKJK505NSCJpDkEaryga0eOsMw0pIl/o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z//Q+Iq9ZpfgQzN1jTPHFqillRRpgg6wOWHQd3a2K/78BaMonUs
+	7R5iqpb5ku/CoyaF4UNN2KZ/k1y2sttgppQnO2fk6J2ETqB8yBg8CHHbAws12Qhw6ELpXrwBdAk
+	RpBNv3msIzi/+3PhPPDuimENk8yluojWdPKF6EqRAOUb1XKmymurz
+X-Gm-Gg: AZFdTZcp+pRvmKsax2FNO7okKJA8/wjZ17ZUiAKOSwV4hebnUNGrYbyFgJQiA7O+rRV
+	bf4mK2r15cRcd0G/fwC2G7/oDm2Svx390Dy3NtO5oOFNqiQEH0gfqiRBbYUwdGVt6ueqbAGUPIY
+	sCzWI18bPfdx3vuuBEjOwh/TkcQefogpo/pxWMecNSxux9hYNh8WEM25/NhSOtwyQGlVZG0XoqS
+	/OtAxirQdlzXbeJlRwyupS0mXQoCQP4exJaH6rSwwSNA5eX4p1nYlZ4wCrxFigMZHEzSyycFX6f
+	24LL8I/qJaRi5alRxfLuuZA2GE1VP/MpIJgDkMN5g8LBNYtQu+1w7JpJ53rchc3ht4kToI4Sh9k
+	bB65ooN2kEfSMSb4p8vqOH/21ZjQ=
+X-Received: by 2002:a17:902:db08:b0:2ef:dff3:47e7 with SMTP id d9443c01a7336-2f03f170f5amr26755775ad.33.1795165347902;
+        Fri, 20 Nov 2026 01:02:27 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2f04ed97b5bsm74025ad.22.2026.11.20.01.02.27
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 01:02:27 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Hopps <chopps@labn.net>,
+	Fernando Fernandez Mancera <fmancera@suse.de>,
+	Piyus Kedia <piyus@iiitd.ac.in>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andrii Tereshchenko <opensource@andrii.net>,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: iptfs: make room before copying a continuation in reassembly
+Date: Fri, 20 Nov 2026 01:02:21 -0800
+Message-ID: <70d0cc8d-e2ff-4293-a416-eaf2705a0b9c@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,153 +105,126 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179513296378.3136.18205287276015126683@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Fri, Nov 20, 2026 at 12:02:43AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message is wrong about how the legacy module
->   parameters report a rejected address.
-> - [Low] The ABI text this patch adds to configfs-usb-
->   gadget-{ecm,eem,ncm,rndis,subset} says host_addr/dev_addr accept only…
-> 
-> --
-> 
-> usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
-> 
-> This replaces the open coded MAC address loop in get_ether_addr() with
-> parse_mac_pton() for the delimited notations and hex2bin() for the raw
-> twelve digit notation. This fixes an out-of-bounds read on short strings
-> and stops non-hex characters from being silently accepted. It also selects
-> GENERIC_NET_UTILS and documents the accepted formats in the configfs ABI
-> files for the ECM, EEM, NCM, RNDIS and subset functions.
-> 
-> Link: https://lore.kernel.org/all/20261106030605.576584-3-liuc63@xiaopeng.com/
-> 
-> > How a rejected address is reported depends on the caller.  The legacy
-> > module parameters go through gether_setup_name(), which keeps the random
-> > address that get_ether_addr() falls back to and only logs a warning.
-> 
-> [Severity: Medium]
-> Is this description of the legacy path accurate?
-> 
-> Nothing in the tree seems to call gether_setup_name(). Its only wrapper,
-> the inline gether_setup() in u_ether.h, has no callers either.
-> 
-> The legacy gadgets (legacy/ether.c, cdc2.c, ncm.c, multi.c and g_ffs.c)
-> pass the dev_addr= and host_addr= parameters through
-> gether_set_dev_addr() and gether_set_host_addr(). The KASAN trace earlier
-> in this commit message shows the same path
-> (eth_bind()->gether_set_dev_addr()->get_ether_addr()):
-> 
-> drivers/usb/gadget/legacy/ether.c:eth_bind() {
->     ...
-> 	if (!gether_set_host_addr(net, host_addr))
-> 		pr_info("using host ethernet address: %s", host_addr);
-> 	if (!gether_set_dev_addr(net, dev_addr))
-> 		pr_info("using self ethernet address: %s", dev_addr);
->     ...
-> }
-> 
-> gether_set_dev_addr() parses into a local new_addr[] and returns -EINVAL
-> when get_ether_addr() fails. The random fallback is thrown away:
-> 
-> drivers/usb/gadget/function/u_ether.c:gether_set_dev_addr() {
->     ...
-> 	if (get_ether_addr(dev_addr, new_addr))
-> 		return -EINVAL;
->     ...
-> }
-> 
-> The netdev then keeps the dev_mac/host_mac that
-> gether_setup_name_default() picked earlier with eth_random_addr(). Since
-> eth_bind() has no else branch, nothing is logged.
-> 
-> With this patch, "insmod g_ether.ko dev_addr=aabb.ccdd.eeff" no longer
-> gives a stable aa:bb:cc:dd:ee:ff. parse_mac_pton() fails the length check
-> and hex2bin() fails at the first '.'. Would such a user now get a
-> different random MAC on every load, with no message explaining why?
+When iptfs_reassem_cont() cannot share a continuation's data as page
+frags, it linearizes the in-progress skb and copies the data in with
+skb_put(). The tailroom for that copy is never checked.
 
-It sounds like a good idea to add a warning on rejected addresses and say that
-random is in use.
+An in-progress skb started by iptfs_pskb_add_frags() has only the inner
+IP header in its linear area; the rest of the first piece is attached
+as page frags. Linearizing it with skb_linearize() grows the head only
+by what the frags need plus 128 bytes, so the following
+skb_put(newskb, copylen) runs past the end as soon as copylen is larger
+than that slack, and the kernel panics in softirq.
 
-> Could the commit message be corrected to describe the
-> gether_set_dev_addr() path that the legacy parameters actually take?
+The copy path is taken whenever a continuation cannot be shared: the
+outer skb has a frag_list, has a kmalloc'd head with linear data, has a
+different pp_recycle, or the in-progress skb has used up MAX_SKB_FRAGS.
+So it is enough for the first piece of an inner packet to arrive in a
+shareable outer skb and the next piece in one that is not.
 
-I think this needs to be followed and commit message needs a correction.
+Commit 0b352f83cabf ("xfrm: iptfs: fix skb_put() panic on non-linear
+skb during reassembly") added the skb_linearize() on the assumption
+that the in-progress skb was allocated with room for the whole inner
+packet. That holds for skbs from iptfs_pskb_extract_seq() but not for
+those from iptfs_pskb_add_frags(). The netdev AI review of "xfrm: iptfs:
+fix runt reassembly panic from short inner tot_len" asked about this
+missing check, and it was left for a follow-up.
 
-...
+Piyus Kedia reported the same overrun and posted a fix that bounds the
+copy by the tailroom and abandons the reassembly when it does not fit.
+That stops the panic, but the inner packet, which is valid, is lost.
+Making room delivers it.
 
-> > --- a/Documentation/ABI/testing/configfs-usb-gadget-ecm
-> > +++ b/Documentation/ABI/testing/configfs-usb-gadget-ecm
-> > @@ -17,4 +17,9 @@ Description:
-> >  			      - MAC address of device's end of this
-> >  				Ethernet over USB link
-> >  
-> > -
-> > +		host_addr and dev_addr accept a MAC address as six byte
-> > +		pairs separated by ':' or '.', in any mixture
-> > +		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-> > +		hexadecimal digits with no separator (aabbccddeeff).  Any
-> > +		other format is rejected: the write fails with EINVAL and
-> > +		the attribute keeps its previous value.
-> 
-> [Severity: Low]
-> Does this text match what the new get_ether_addr() accepts?
-> 
-> parse_mac_pton() only checks a minimum length and the first
-> MAC_ADDR_STR_LEN characters:
-> 
-> lib/net_utils.c:parse_mac_pton() {
->     ...
-> 	if (strnlen(s, MAC_ADDR_STR_LEN) < MAC_ADDR_STR_LEN)
-> 		return false;
->     ...
-> }
-> 
-> Its own kernel-doc says "anything after them is ignored". So writing
-> "aa:bb:cc:dd:ee:ff:00" or "aa:bb:cc:dd:ee:ffXYZ" to dev_addr succeeds and
-> sets aa:bb:cc:dd:ee:ff.
+Make room before linearizing, in one reallocation, for the frag data
+that skb_linearize() pulls in and for the rest of the inner packet, so
+that skb_linearize() itself allocates nothing; abandon the reassembly
+and count XfrmInBufferError if that fails. Sizing for ipremain rather
+than copylen means later copies of the same packet need no further
+expansion. The room is measured as end minus tail, because
+skb_tailroom() is 0 for the non-linear skb. The reallocation is
+__GFP_NOWARN: a peer chooses how large it is, and its failure is
+handled.
 
-Yeah, the text needs an amendment. Something like
-"...with no separator (aabbccddeeff) at the beginning of the input."
-(see the part "at the beginning of the input" that's added).
+  skbuff: skb_over_panic: ... len:2884 put:1442 ... end:0x6c0 dev:eth1
+  kernel BUG at net/core/skbuff.c:215!
+  CPU: 2 UID: 0 PID: 0 Comm: swapper/2 Not tainted 7.4.0-rc3 #1
+  Call Trace:
+   <IRQ>
+   skb_put.cold+0x1f/0x1f
+   iptfs_reassem_cont+0x242/0x760
+   iptfs_input_ordered+0x382/0x3e0
+   iptfs_input+0x24d/0x630
+   xfrm_input+0x12a5/0x29f0
+   xfrm4_esp_rcv+0x4d/0x90
+   ip_protocol_deliver_rcu+0x1d2/0x1e0
+   ip_local_deliver_finish+0x13c/0x210
+   ip_local_deliver+0xf9/0x1d0
 
-> The hex2bin(dev_addr, str, ETH_ALEN) fallback reads exactly 12 characters
-> and never looks at str[12]. "aabbccddeeff.zz" and "aabbccddeeff0011" are
-> accepted as well.
-> 
-> The reverse case is also missing from the text. Both paths in
-> get_ether_addr() also require is_valid_ether_addr(). A correctly
-> formatted multicast or all-zero address such as 01:00:5e:00:00:01 or
-> 00:00:00:00:00:00 fails with EINVAL, and the new text doesn't mention
-> this.
-> 
-> Trailing characters do have to be tolerated, because a configfs write
-> from echo ends in a newline. Could the text say that anything after the
-> address is ignored, and that the address must be unicast and non-zero,
-> instead of saying that every other format is rejected?
-> 
-> The eem, ncm, rndis and subset ABI files get the same text.
+An AI code review found this. It reproduces without fault injection on
+unmodified kernels: on v7.4-rc3 when a packet socket on the receiver
+clones every second ESP packet, as ESP input gives each cloned packet a
+kmalloc'd head, and at ipsec commit f0e68014f4ac ("xfrm: hold migrated
+states through rollback") in a selftest written for it. With this patch
+both run clean, and failslab on the new allocation only drops the
+packet. No selftest in the tree covers IP-TFS. xfrm_iptfs.o builds
+without warnings with W=1 under allmodconfig and allyesconfig.
 
-All of them need to follow the same pattern, yes.
+The analysis and the patch were produced with an AI coding assistant
+and reviewed by the submitter.
 
+Fixes: 5f2b6a909574 ("xfrm: iptfs: add skb-fragment sharing code")
+Fixes: 0b352f83cabf ("xfrm: iptfs: fix skb_put() panic on non-linear skb during reassembly")
+Reported-by: Piyus Kedia <piyus@iiitd.ac.in>
+Closes: https://lore.kernel.org/all/20261119142308.3272570-1-piyus@iiitd.ac.in/
+Link: https://lore.kernel.org/all/20260908224855.1591147-1-kuba@kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+---
+I sent this privately to the IPsec maintainers and security@kernel.org
+on 2026-11-20, before I had seen Piyus Kedia's patch. Changed since:
+the credit to him and the paragraph comparing the two fixes, the
+subject of the runt fix, the build sentence, and the stable address.
+The code is the same.
+
+On ipsec master with Piyus Kedia's patch, the selftest no longer panics
+but fails: one of its two inner packets is delivered. With this patch
+both are. The selftest is not posted, as
+Documentation/process/security-bugs.rst asks for a bug found with AI;
+the IPsec maintainers have it.
+
+More fixes for the IP-TFS receive path follow as a separate series.
+
+ net/xfrm/xfrm_iptfs.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 0313a43aa8a9..9c8943991260 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -909,7 +909,18 @@ static u32 iptfs_reassem_cont(struct xfrm_iptfs_data *xtfs, u64 seq,
+ 	    iptfs_skb_can_add_frags(newskb, fragwalk, data, copylen)) {
+ 		iptfs_skb_add_frags(newskb, fragwalk, data, copylen);
+ 	} else {
+-		if (skb_linearize(newskb)) {
++		/* A newskb started by iptfs_pskb_add_frags() holds only the
++		 * inner IP header in its linear area. Make room, in one
++		 * reallocation, for the frag data that linearizing pulls in
++		 * and for the rest of the inner packet.
++		 */
++		int room = skb_end_pointer(newskb) - skb_tail_pointer(newskb);
++		int need = (int)(newskb->data_len + ipremain) - room;
++
++		if ((need > 0 &&
++		     pskb_expand_head(newskb, 0, need,
++				      GFP_ATOMIC | __GFP_NOWARN)) ||
++		    skb_linearize(newskb)) {
+ 			XFRM_INC_STATS(xs_net(xtfs->x),
+ 				       LINUX_MIB_XFRMINBUFFERERROR);
+ 			goto abandon;
+
+base-commit: f0e68014f4ac1653b2980ab76744f4dfdffdbac5
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.53.0
 
