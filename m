@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195781;
-	b=ntNn6GqYgTyrtPherHXTY6rSAYW43z1YXwhqKHM1daG8hWdppRhh4YlMndNEbkHzVPD2
-	 tEqoucTzYKr4gbhsCfvHXtnnQsVfJBjOFD3xIyxnbt+imNs4jTraVjmX3kXxYrMX7CJ1R
-	 NmMCrMVLuA4QlEfLuhoxaH+aDJB9KyPuqYOqIkxQ/9mAy7nY+B97X86o7QH+L65hZA9c7
-	 KrEo6MvBrp4/NhOQd2A/+SQlAvV6C7mlgWYQcVrA4crCDw6a5Bxorx+SFchwb9fONSyW7
-	 YUEj5tWQZRfqrvE6qmFsoWUuch2jcpJyghARR6Bz3DU2Os279jyGZRhA19VwwphVFZA==
+	t=1795195784;
+	b=5EgD/sTEO2z7pEfIrdVKm2WOr9p7NvA7Pu8y95HNukHNVZ4+E05ip4NVVPKCfYQ4M4uO
+	 vB6icasJ0HSbDy0EErf8zJpjgwQcWxgR7MRcqE73LuD2i3CVRt5EhRvcOs03Hi0q6aJIo
+	 CdZyMDY+LKFKZOAgywSo/LxMBSvXcugbMdeVS4TviJAXI+VMNNIeHQ7gnSPVbr44Ak9Gc
+	 X3X3Lw51ykn5HiXE5KYGNOS60siRPaeKfufxBX81qtjEujD9K3rxMtohHQcXQnKiMT82N
+	 14/k7xt+eJaV1Ts9WmVbo99AaBNKITzK7VsSVgmTmvT57TOPFh9bi2zBBM0B0WEJCPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195781;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195784;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer;
-	bh=sXB+8BZcC1DcOKjetr94cVcLWNHnGNGMh5TeEAVQuKk=;
-	b=xES/Ix1Fp6jCVTe5a/qER1STchp7P79/Tjiq8ONoQXrj0B/RriXXVF/+OhurRnZEjczq
-	 K87pQJCujdIprcIrxlHC/6Y9t441g11bTNHWIsNacgYiy/y/EgoBufAd8eWJZ5/aDHwVL
-	 mCwvfWuvqtLSoYDVHXE3V93XAsw94520+ThMVSZAk9QiU2zWaBOYgUsJdTXprAv+lLzFs
-	 I7xdhwTv1XlcwCCIzdGDy35+YGUtMO0uJ6HbGg0rNNAXVcHiKNBUsO4ryu/v21TwuhWb0
-	 o9xHbvNjggvZAKk4hruXX5qMsCIpG+lY8+zb/R4r4a/xHxAl6cvTL/lNRUbGHqYzGSQ==
+	bh=bqrGnmj0r0O9VcnQQWr/AlRBMQf2jlG70xjlsBKgSDw=;
+	b=sA0uh8v//1T0w6cfPJPOd0tu0+d1iw5WzcrCfHBvFeVyYk06uQd2s8F2Ux4bk1Ytigdy
+	 b/cRkRnpFyMq0Y4fe39uRq6jT5RUNEiWx8kgMkH/6iR0zosqzBhon+pj9D5FRipDG2gOh
+	 mF99HWPavSDATTamEpLso1rKdAGrsZn1SoDpov1tINdpDTAKavl0416FvFvUeRm1lSw5s
+	 POsvRZDhuVVDyDDNfvjDXDOQMruRpGdcAGR/6OdAfis7sKLCzfJ2dSuaDjn/40SiXZZPQ
+	 3OJs0Y/5ldql8BlTR1dgKy1p4X9lUmzgjH/AaswOv2uWz2LQEZ8Ou9wxmiGe3CjkxdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=If9igZeb;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nTGzyA3I;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62DEF60A2609
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:29:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DC2E60A260D
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:29:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=If9igZeb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91C691F000D3;
-	Fri, 20 Nov 2026 17:29:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nTGzyA3I
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A338A1F000CA;
+	Fri, 20 Nov 2026 17:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795195780;
-	bh=sXB+8BZcC1DcOKjetr94cVcLWNHnGNGMh5TeEAVQuKk=;
+	s=k20260515; t=1795195783;
+	bh=bqrGnmj0r0O9VcnQQWr/AlRBMQf2jlG70xjlsBKgSDw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=If9igZebmJEThrU5x07EIJYRmbkAdltGvAU7DdE/L/hW1HMCKskaQ3lo5kGIGgKEZ
-	 IQxxcb9QHfsBTCCEbZOk9Uut6hZXGlD/gL4EoY5O8meiFR0yi11UkPIjI4wBZsmTeb
-	 Uo4Tj9MXwkj8Vvwo+dx6MxMgIyzHCDl/z3pW0VfIVtQg6GzuscqwQt8/ysu+mmLpHj
-	 FssT1fxZw3iCoO1lwf0tx3gaZ1fbDEtGod6T8l2hfKWnFlVeO6VzE0fWfke0G3a9WQ
-	 vrwt3VdrZDcfjfq8xn2TJIqKBk9Q5c0cdt0M/s/0mp9EDiJGufaZ/p/aU7uosIWryh
-	 I54dj2vgwRcrg==
+	b=nTGzyA3IeTkM44uUqtWsLEf2l2gMcdlJo7E3fjGZN1sek2biSD5/mAVbaCcUGaqqe
+	 7PJH72VBhGHdA2WQtVmxGW3zXz1FIJs6wvevuk8Dfc2dsQq4oz79NeSlV2jwgAxGxI
+	 Fh7p69KrQLWjZZTm0dzgEo9EgOtXsViXFCvZlLF+EKmR4rF/h4CMsg03kaaxk9sc5A
+	 xuTKJT4Wo8fibPY5AIhrJo6oHYgJdw7bla+tsqWKZLXI3FSoU7ELJEB4JFn7or7WHg
+	 5EGsjq4bQooIs5LCaUkDf7iuCooYnMDT9/gGkcAVaNedxrYzVXWhPzObgdaxt0cV9l
+	 mnQFexInZjmKw==
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Nov 2026 18:29:22 +0100
-Subject: [PATCH net-next v9 03/14] net: ethernet: cortina: Drain free queue
- IRQ before resize
+Date: Fri, 20 Nov 2026 18:29:23 +0100
+Subject: [PATCH net-next v9 04/14] net: ethernet: cortina: Normalize free
+ queue pointers on rebuild
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-gemini-ethernet-fixes-3-v9-3-298671d799d5@kernel.org>
+Message-Id: <20261120-gemini-ethernet-fixes-3-v9-4-298671d799d5@kernel.org>
 References: <20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5@kernel.org>
 In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5@kernel.org>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
@@ -67,136 +67,88 @@ To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
 Cc: netdev@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.16.0
 
-The software free queue interrupt remains registered while both netdevs
-are down. Merely masking the device source does not stop a threaded
-handler which was already woken. That handler can refill the queue while
-resize frees its ring and page metadata, or re-enable the source after
-teardown.
+The free queue read pointer is owned by hardware and can retain a
+position from the previous ring when the queue is rebuilt at a smaller
+order. Using an unmasked pointer to index the replacement page table can
+then access it out of bounds. A replacement ring which does not contain
+the raw retained pointer can also let hardware address past the new
+allocation.
 
-The free queue interrupt is routed through port 1, but both port IRQs
-register the global handler. Ignore the source on port 0, then disable the
-port 1 Linux IRQ for the entire resize. disable_irq() drains hard and
-threaded handlers and prevents a new thread from being woken.
+Mask software page indices to the active queue order. Keep the
+replacement ring large enough for the retained hardware pointer and
+initialize the software-owned write pointer from it before filling the
+ring. This represents an empty queue without relying on a read-pointer
+reset.
 
-After the drain, mask the device source and rebuild the queue. If setup
-succeeds, re-enable the source before the Linux IRQ. On failure, keep the
-source masked, clear freed queue state and restore the Linux IRQ so a later
-open retries setup safely.
+Testing on a D-Link DIR-685 with both ports stopped and the free queue
+disabled showed that neither a 16-bit zero write to rptr nor a 32-bit
+zero write to the pointer register resets rptr. The latter clears only
+wptr. Clearing the queue base also leaves rptr unchanged. Networking
+recovered after each rebuild, with all ten ping replies received.
+
+A retained pointer can prevent shrinking the descriptor allocation. At
+order 15 this is a 512 KiB ring. Buffer allocation initially follows that
+order too, approaching 64 MiB; a following patch decouples the RX buffer
+budget from descriptor geometry. If allocation fails, retries see the
+same floor while DMA is stopped. Keep the queue disabled rather than use
+a descriptor ring that cannot contain the retained pointer. Removing
+this restriction requires verified pointer-reset or truncation behaviour.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/net/ethernet/cortina/gemini.c | 53 +++++++++++++++++++++--------------
- 1 file changed, 32 insertions(+), 21 deletions(-)
+ drivers/net/ethernet/cortina/gemini.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-index 4f27a48908b1..5e9dd2aea407 100644
+index 5e9dd2aea407..66984c78a7cd 100644
 --- a/drivers/net/ethernet/cortina/gemini.c
 +++ b/drivers/net/ethernet/cortina/gemini.c
-@@ -1019,6 +1019,8 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
- 	}
+@@ -920,6 +920,7 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth, bool refill)
  
- 	kfree(geth->freeq_pages);
-+	geth->freeq_pages = NULL;
-+	geth->num_freeq_pages = 0;
- err_freeq:
- 	dma_free_coherent(geth->dev,
- 			  sizeof(*geth->freeq_ring) << geth->freeq_order,
-@@ -1059,20 +1061,37 @@ static void geth_cleanup_freeq(struct gemini_ethernet *geth)
- 	}
+ 	rw.bits32 = readl(geth->base + GLOBAL_SWFQ_RWPTR_REG);
+ 	pn = (refill ? rw.bits.wptr : rw.bits.rptr) >> fpp_order;
++	pn &= m_pn;
+ 	epn = (rw.bits.rptr >> fpp_order) - 1;
+ 	epn &= m_pn;
  
- 	kfree(geth->freeq_pages);
-+	geth->freeq_pages = NULL;
-+	geth->num_freeq_pages = 0;
+@@ -969,6 +970,7 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
+ 	union dma_skb_size skbsz;
+ 	unsigned int filled;
+ 	unsigned int pn;
++	u16 rptr;
  
- 	dma_free_coherent(geth->dev,
- 			  sizeof(*geth->freeq_ring) << geth->freeq_order,
- 			  geth->freeq_ring, geth->freeq_dma_base);
-+	geth->freeq_ring = NULL;
-+}
+ 	geth->freeq_ring = dma_alloc_coherent(geth->dev,
+ 		sizeof(*geth->freeq_ring) << geth->freeq_order,
+@@ -991,6 +993,10 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
+ 		if (!geth_freeq_alloc_map_page(geth, pn))
+ 			goto err_freeq_alloc;
+ 
++	/* Match the software pointer to the retained hardware pointer. */
++	rptr = GET_RPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG);
++	SET_WPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG, rptr & (len - 1));
 +
-+static void geth_set_freeq_irq(struct gemini_ethernet *geth, bool enable)
-+{
-+	unsigned long flags;
-+	u32 val;
-+
-+	spin_lock_irqsave(&geth->irq_lock, flags);
-+	val = readl(geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-+	if (enable)
-+		val |= SWFQ_EMPTY_INT_BIT;
-+	else
-+		val &= ~SWFQ_EMPTY_INT_BIT;
-+	writel(val, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-+	spin_unlock_irqrestore(&geth->irq_lock, flags);
- }
- 
- /**
-  * geth_resize_freeq() - resize the software queue depth
-  * @port: the port requesting the change
-  *
-- * This gets called at least once during probe() so the device queue gets
-- * "resized" from the hardware defaults. Since both ports/net devices share
-- * the same hardware queue, some synchronization between the ports is
-- * needed.
-+ * This is called when a port is opened or its RX ring size changes. Since
-+ * both ports/net devices share the same hardware queue, some synchronization
-+ * between the ports is needed.
-  */
- static int geth_resize_freeq(struct gemini_ethernet_port *port)
- {
-@@ -1082,8 +1101,6 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
+ 	filled = geth_fill_freeq(geth, false);
+ 	if (!filled)
+ 		goto err_freeq_alloc;
+@@ -1101,6 +1107,7 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
  	struct net_device *other_netdev;
  	unsigned int new_size = 0;
  	unsigned int new_order;
--	unsigned long flags;
--	u32 en;
++	u16 rptr;
  	int ret;
  
  	ASSERT_RTNL();
-@@ -1120,13 +1137,8 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
+@@ -1132,6 +1139,10 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
+ 	}
+ 
+ 	new_order = min(15, ilog2(new_size - 1) + 1);
++	rptr = GET_RPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG);
++	if (rptr >= BIT(15))
++		return -EIO;
++	new_order = max_t(unsigned int, new_order, fls(rptr));
+ 	dev_dbg(geth->dev, "set shared queue to size %d order %d\n",
+ 		new_size, new_order);
  	if (geth->freeq_ring && geth->freeq_order == new_order)
- 		return 0;
- 
--	spin_lock_irqsave(&geth->irq_lock, flags);
--
--	/* Disable the software queue IRQs */
--	en = readl(geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
--	en &= ~SWFQ_EMPTY_INT_BIT;
--	writel(en, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
--	spin_unlock_irqrestore(&geth->irq_lock, flags);
-+	disable_irq(geth->port1->irq);
-+	geth_set_freeq_irq(geth, false);
- 
- 	/* Drop the old queue */
- 	if (geth->freeq_ring)
-@@ -1136,14 +1148,10 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
- 	geth->freeq_order = new_order;
- 	ret = geth_setup_freeq(geth);
- 
--	/* Restart the interrupts - NOTE if this is the first resize
--	 * after probe(), this is where the interrupts get turned on
--	 * in the first place.
--	 */
--	spin_lock_irqsave(&geth->irq_lock, flags);
--	en |= SWFQ_EMPTY_INT_BIT;
--	writel(en, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
--	spin_unlock_irqrestore(&geth->irq_lock, flags);
-+	/* Enable the queue interrupt only after successful setup. */
-+	if (!ret)
-+		geth_set_freeq_irq(geth, true);
-+	enable_irq(geth->port1->irq);
- 
- 	return ret;
- }
-@@ -2406,6 +2414,9 @@ static irqreturn_t gemini_port_irq(int irq, void *data)
- 	irqreturn_t ret = IRQ_NONE;
- 	u32 val, en;
- 
-+	if (!port->id)
-+		return IRQ_NONE;
-+
- 	geth = port->geth;
- 	spin_lock(&geth->irq_lock);
- 
 
 -- 
 2.56.1
