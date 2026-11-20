@@ -1,49 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218606;
-	b=KDZn0eHVhksMhKYI/mLd9NejXxP31UK6bL5o8/AsVRLaNIgay2aOUu01Uwc7DsVxNc/d
-	 RpXN+ZSZUI1AJXxwbsn0F5NLtpVASEDBg2PvPPQMViRN13wegiGRvoizcLb5wv5BduglU
-	 /EYrulQLz+cgg6haf6W+JKlZOhgUyqyJB40WttRq3tPgU+RR/PBV4U5ruhCdgKc0qiVjw
-	 VVyvBOODbm0KBhGNiAGQ891x0kkiyEa+L0g5n6S9XOVB60MqHB/63OX0RZ19cQm6kJ1HO
-	 jd3IyYadpw1bczqOQlY471gRrEBpeVtWLIStcvebg2HkKb0TKB7Mw9i0CYTd+f/4nKw==
+	t=1795218863;
+	b=xw78X/3qvPZ4ShHb/zuCII8miMhrEcFI+hSIx+TikJo8rGp/+N5x/aykyrMaoO9DT3tb
+	 wBXgmCdKrMtbog6TvE5CDFsFPmbZYsIHHrrMDCKKOgp8VGJ/ZooLcCrITIQgAfEzL5aUC
+	 wrFMO/VB/7DGTG0rbIx8MT/QFYNQCpBud6dM3+UFqu6kL6KvP8rlSkyH/TnMLanUh+R98
+	 q0VS2XxOKYXniJuDoaf7oxoTYFNB1Su/erE0yEHjRohY1vDvTf8GMsCCckDKSh3TCAjb4
+	 hRLiR4PWd33tQ8LNSuOOwZ5prkSWHG0Ph7hS1gHVgXGb+HIORXJzN6py/JisE9t2Izg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218606;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=tnHYFtgCITrDmSsRECNy2BGdzhmEJLjovQrJ20eJngI=;
-	b=Gja/s6glXkeDqHeDPhMEqm57mDkO0YdoSS1kjOKbdhNBZBURFeKrWK1Uc+UjXutkw8Hd
-	 IAdekAL9/6fWYJkZGURCad7RD1i5zFte52zN0/rZ4JsssmoaLj2RTBuBc2nT57cgLkCK8
-	 3oqkdLkwOzXpEkFqQw2z4uZi8zMry5PK1m+rGTdG3nYQZA2DtvNRLvvgpTvSmm5l5pzJi
-	 hAzXOWSjuOawp2g7kpWbbVRrlAxe0vEMGKOVKTEEGjaZY5wxVO5uvH0zX21G4ePP6P6Xn
-	 4oMpavOpMcAIfF9F/QKcCuTAsvmadxeo9qEJdne25QjBwkL9hhrPs4wuI9L7khmOJFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218863;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7DqEQVPhr6GusklbRo0OOnhzJ3BLe/1hpOgbosdDgc0=;
+	b=1EVb+WOzQjkBUhOB1ET1ax8PetNO52vpNif2qP3cbVfKkq1tUqETz19oEOEEpN78Zo/u
+	 /8ZtcOahhdZxI2y711nYaziL6EC4eINYvx2cc0b06a1VcfQOgqHRM2soW8p7inCraPsQS
+	 8lAWWIZxyRFLR9glRKM424d2mmSHCikZMoyQr8AwnHhPu4XztDnYNbjIMVmh8bziRdjW1
+	 3oARQVOCnQK281BdW8UuHUSCbHYrQHsLLXGf7He8Zz8a/5woVf/91OqSJkP5foZUt0xrR
+	 FlqxfLHFEJCFo40poEitHb4aIy1YkuOJBRaj7G8lWFiPNmES41zVkO02JFzaqwBgRUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BufQ/3AM";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qKhq0UOe;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBF39606A6B7;
-	Fri, 20 Nov 2026 23:50:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F63B606A6A5
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:54:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F63B606A6A5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BufQ/3AM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E481F000C6;
-	Fri, 20 Nov 2026 23:50:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795218606;
-	bh=tnHYFtgCITrDmSsRECNy2BGdzhmEJLjovQrJ20eJngI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=BufQ/3AMKOnEj1L3y8S5vJyuerHc4GqWgDS5zGeSHsu3rHFNX2leaRXVsfzSl2UFI
-	 J8z9WTzPQ5kQwSWV/Oyd8iC4NE1RRhyxVk4VEoyaCl1KhHTMisR+JUTbqMQtjGXA18
-	 mdMrXm8suT5I4qiKpG02O7Xuq4AywKnbWK3ZxBMY5+pKVW8KtI58rA2STAxbk0nXC0
-	 55sHNC+a9fFo1XavY6hta7GJ3oXCRP/UDHfTw/559Mjb8ds5ySATSYmem9bvIWned8
-	 pgWGZ7u72h+6KOXTgayaV9GdGYVmz1nuHI5qrd5Y4XVhweEO+5M90Q2D6r+tvt46de
-	 Q8FGaKgXbZWFg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A32B380AA4D;
-	Fri, 20 Nov 2026 23:50:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qKhq0UOe
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a210470b49so13126385e9.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:54:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795218857; x=1795823657; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7DqEQVPhr6GusklbRo0OOnhzJ3BLe/1hpOgbosdDgc0=;
+        b=qKhq0UOe0Qr2kxLEutjuUqpHAhrmC9Dqv3mB07Hf00AC98Ax8lIaMxr8zNBLDU/E4E
+         mXzB8JthOrW9YmCtE0y2jdUaIPsWArhdL55i7ckNMG1WjkNiz7MHODhxNBZ8Ng7VcnGC
+         RbqzhhCCqfPTbus9VFMiXzypMmdB63oB8vU1xvcnAn0zqSfwMEdduF+QjijZjJkCdjkK
+         Yr911Tnget0k2LKUwmPIIdmoye6tRpRX4a3K66A4mE3u2Yk1xWn1CEciU41lgfLwXOeJ
+         bOh5IkQgQYugP19L0ZkLSEPQN/DJMP82NhzswkfKB7+/fbGzigN2Sx7B9kuowQe7wT2r
+         149A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795218857; x=1795823657;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7DqEQVPhr6GusklbRo0OOnhzJ3BLe/1hpOgbosdDgc0=;
+        b=NgjtCMyro/3i4XjnKuc/c4iwxIfp6VU2yjZY7TOcIzOSsCFzZnxg9nDeRpqHMGgdde
+         VH6bdStbQ81XUugRvamJQqbtsg1uNsHTMkwWzQXR/KIIzI9mLW759g01VTVYLtvP9K7J
+         qmKyk23l534XHE9NKlVObmltu8XGTSLT3Nn/hrdMnyKhTwjdPb6l8wR72SBEUFlZ3Mh1
+         P7cTAqc8y5pU9eenRymLIoinB3tUE5Rg/b62h4Run/+WKwhC7l0DtF7qNiWaXBp2D662
+         rh5sWACHDmbeaRyGy9ul0Gat8S9AUfiKnjyuZ4/2yx04qEFchZsMRAB5dJHM7L4A2Hu1
+         AVWw==
+X-Forwarded-Encrypted: i=1; AL+hErEF9JQllJF9Cy0515ZRh4ObplrUVV5VfrptjyjIk9MFx3aUcCfMHg5T8AjuDLcTJhfjYNC/aTE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/X4NfbedmYdCKCgjzE14iGF0j+ZS1eaOMXX2aKCc41EJH1mbQm
+	J6Tp7WU79RyeuEAEYxpTrL/XLqucbNvY1QruWkV3GzGXsf0OPaBQADA=
+X-Gm-Gg: AYBFou3CgzTeYHr835dkjrlvjgVgz+YJ2D/u1/f8skWrTkQdNkxiWZks0DDaM2i9ppN
+	PXSFXR92F/zCUSwwO1hQet6mWKP4p3AtrHaHU1JJrUfAwOd0LQFrUrhJtsQbWka9rR7IWqum3fp
+	R+7Ts3ZlMlyBJptvnTYeBDnfWtf6i2OmW1Brf98RndoS7J6fCHMU9UbB5HAPruB08e35sxq2vrC
+	ihq5qxt2vio8vEnbE4LbGU4zEO8yGGEDbRgebLzAgPuAN0/XmO1UJdwqPzT1dEyEo6pSNBJq447
+	vWq4jGXw3q2Rr0sx45Pe7FXzO5q//rssWA1AUdmTLUxE30Vab5WE5Q7nY0C7OcUYAb1QFzr/lBs
+	iDk/WOU/EyzInnkuTGP7ksMXY3x/1xlDQI+5pqGz6940t1MaWeghsUcXyQQ4b5gVk5YEXKtr/i2
+	snax6n+8L6T5k7gSIX3C0PHXKI8z5O8bfcp8ReBnPNqNU6BLYWRGyXjT/vY0sRD+1IVgSw2s7E3
+	/52hVHa5MtBlmH53SSnekO7KbRFdSxWEspeiHBWMXFxPaOjoyCPg7YVftIPdOPg+DUQsn7+d3Gj
+	YMNLMSS5NKBT1DU=
+X-Received: by 2002:a05:600c:4f4e:b0:4bb:6c71:b268 with SMTP id 5b1f17b1804b1-4bb8882672fmr115640335e9.6.1795218856735;
+        Fri, 20 Nov 2026 15:54:16 -0800 (PST)
+Received: from localhost.localdomain ([2001:41d0:303:db6b::])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm29426445e9.2.2026.11.20.15.54.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 15:54:16 -0800 (PST)
+From: Tristan Madani <tristmd@gmail.com>
+To: Samuel Mendoza-Jonas <sam@mendozajonas.com>,
+	Paul Fertser <fercerpav@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Tristan Madani <tristan@talencesecurity.com>
+Subject: [PATCH v2 net 0/2] net/ncsi: fix RCU list entry lifetime on package and channel removal
+Date: Fri, 20 Nov 2026 23:54:05 +0000
+Message-ID: <20261120235407.1911365-1-tristmd@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,44 +103,55 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] octeontx2-pf: Fix potential use-after-free in
- representor
- teardown
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179521860503.842584.8663066740540883936.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 23:50:05 +0000
-References: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
-In-Reply-To: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-Cc: sgoutham@marvell.com, gakula@marvell.com, rkannoth@marvell.com,
- sbhatta@marvell.com, bbhushan2@marvell.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Hello:
+From: Tristan Madani <tristan@talencesecurity.com>
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The NCSI package/channel/device removal paths call list_del_rcu()
+followed by immediate kfree().  This races with concurrent readers
+(primarily the unprivileged NCSI_CMD_PKG_INFO netlink handler) that
+walk the same lists with list_for_each_entry_rcu() but never enter
+an RCU read-side critical section.
 
-On Mon, 16 Nov 2026 22:12:10 +0800 you wrote:
-> The representor private data resides in its netdev allocation.
-> rvu_rep_destroy() frees that allocation before reading rep->flow_cfg to
-> release the flow configuration.
-> 
-> Release the configuration while the representor is still alive.
-> 
-> This issue was found by our static analysis tool under development.
-> 
-> [...]
+Patch 1 adds the missing rcu_read_lock()/rcu_read_unlock() to the
+reader paths so kfree_rcu() on the write side has matching readers
+to wait for.
 
-Here is the summary with links:
-  - [net] octeontx2-pf: Fix potential use-after-free in representor teardown
-    https://git.kernel.org/netdev/net-next/c/a98c9978f59e
+Patch 2 defers the free side: channels use call_rcu() with a
+callback that also frees filter sub-allocations, packages and the
+device structure use kfree_rcu_mightsleep(), and the work is
+quiesced before packages are removed.
 
-You are awesome, thank you!
+Pre-existing issues noted by sashiko-bot review -- dangling
+active_channel/hot_channel/preferred_channel pointers, unquiesced
+per-request timers, and the ftgmac100 unregister ordering -- are not
+addressed here.  They affect the overall NCSI teardown design and
+are better handled in a dedicated series.
+
+Tristan Madani (2):
+  net/ncsi: add missing rcu_read_lock to netlink and device list walks
+  net/ncsi: defer free of removed list entries to an RCU grace period
+
+ net/ncsi/internal.h     |  1 +
+ net/ncsi/ncsi-manage.c  | 39 ++++++++++++++++++++++++---------------
+ net/ncsi/ncsi-netlink.c | 32 +++++++++++++++++++++-----------
+ 3 files changed, 46 insertions(+), 26 deletions(-)
+
+---
+
+Changes in v2:
+- Rework as a 2-patch series fixing both reader and writer sides
+  instead of a single patch that only fixed the writer side
+- Add rcu_read_lock() on the reader side: ncsi_find_dev(),
+  ncsi_write_package_info(), ncsi_pkg_info_all_nl() (sashiko-bot)
+- Defer channel sub-allocation frees (mac_filter.addrs,
+  vlan_filter.vids) to the RCU callback so readers cannot follow
+  stale pointers during the grace period (sashiko-bot)
+- Move disable_work_sync() before package removal in
+  ncsi_unregister_dev() so the work function is quiesced before
+  any structures are freed (sashiko-bot)
+- Fix Fixes: tag hash from 2d283bdd5b20 to 2d283bdd079c
+  ("net/ncsi: Resource management") (sashiko-bot)
+- Include discovery method per sashiko-bot request
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+2.47.3
