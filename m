@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795141816;
-	b=uooqgnf0Jd/bvx5a0bK21ewDKPWsxW4mxBxhEsTIixVK5zX6rZgpAWVRQ0nzKUZTounQ
-	 tmkZ8F+hMhZdEMkKNJTj00UlV07Aw2eYLw0VkHXhpaQvtqYl0H1HFsKwCwVg1gxTknW+z
-	 n0s+C+b7krNmAbWHdSKVj4tQnoZFQ6IWV6qE6Kn1Ue+dkdflxwDL0Xz0K489g1X9EW9f2
-	 xTG48HcSPIevR/6fxYyqLd8xmMZgBWCr3HfytnwA5vp3iPJoiAK6J8pBefZ7nVBgTs0H/
-	 /OIWNFeADmu2Zsb4Jfi8GQ2LqOh+FfOhfiGpyaYoljlcV5cAfleNHm3fqEULydSH0/w==
+	t=1795141817;
+	b=qn6Tqpd3czTX5R5u+d+c0o5Dq4zsrWXdjtGTrqHNEmN2aVEaebf3TJeaMT9PoFLs9o3z
+	 fb3atuiDOVgTUDoI6QTum/B3nBjH7q4wg8WnTnNgUsnPHPRbXiij/gDNUTuGRrL0PBIW8
+	 N3ifzgg0utaWg974BdhJ9ax+99RBxHsmj/fmzHSgjRzh8+uB8evBV8nTlgN6wy0rE/nVO
+	 rS6H4+q+1q6QC1VjO1vGJUcNrj+uDux8ru6bOs97BWGTKDrkSU/6Lzf0WtEFSn6TG4mDs
+	 2RRZSYO3sqCRuV8ABrzKAXyuBF5XwNsV4rikYelZmNloJHVwN19MV5aEdUshhrj+agQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795141816;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795141817;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=icvGQ2jGqBAhP3OVrejJvDN6v+ifzvEtACB0CBcsqxg=;
-	b=JrEZ/EO4X3Qyc2QZCWB8nnD8CcSMKM8HVKWJElgcDwRkOcnZjTLhVY0hvkzAlE+tPcjI
-	 irwMhP7PhtTvWp+JoRISTIAGS5TAvSCRwNn8fwVnDFZqrYEMLzJ91dam+h0yZistNOhz4
-	 PoXGLvkUrF2FQuUu6lAP/ya2LDQ84gfZ3evkhb0KZ8yIlf+caRXprZS4j99yU4pINNy3r
-	 neLmkJnWE66wLUipx2Ks+PnQG5AvuGsyGV1SQvy8h2b50oh5SAGkTLY302TAg5A+KDoSI
-	 mmLddo/+6xaHf0ILUxioFdVG7Rvs3DEzdWojR8sPYVgOL5cFK9+gHIt04Gz1A/gJinw==
+	bh=Bsko40UArMhlk8jXOxQgPgbPinBdDj0CN2tdfTyhCls=;
+	b=x+TAdnq1DJ5xMxnPaGZrSCoyhdlTJAHKGUJfNA+/p9MpDUkJ6fdlDK6Gu+Xy8QD3nrXu
+	 xYTdIH2028cEUhjCiwvLYFH0+PpRes1lTy6sp0UoMYPqw7OsxjQR3qa1N5ZSYsnuvdy8m
+	 COXiZaUIiXN0mFQDwXqC89SKBTF9X04DVxvldkknTk9JdTiTGqNrYmmZTuQ6QZPZbheiF
+	 3cBG8CWC3WkKAUwDzKHP/uAfky6UredU5sZeThkfEZKZG5nM5gzMyrAxw/0ow1wINJjJs
+	 yh37yD0Xb9Huy5lhOFiOAsGXsLhoYM1HIMIUG2xcA87rZVgrT+5JxXFqcoI2Nc3eY6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IqBjYRDh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lZ/XNZ02";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D79860A2613;
-	Fri, 20 Nov 2026 02:30:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A4260A2616;
+	Fri, 20 Nov 2026 02:30:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IqBjYRDh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 078EE1F000C4;
-	Fri, 20 Nov 2026 02:30:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lZ/XNZ02
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF971F000E6;
+	Fri, 20 Nov 2026 02:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795141816;
-	bh=icvGQ2jGqBAhP3OVrejJvDN6v+ifzvEtACB0CBcsqxg=;
+	s=k20260515; t=1795141817;
+	bh=Bsko40UArMhlk8jXOxQgPgbPinBdDj0CN2tdfTyhCls=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=IqBjYRDh8Zp0Nj0KKPB/YSM4rD36D+xJeEDr1QSkHabdibskn0anXI5I24/Lvzi4I
-	 x29ecgBjt02mLgXXM5llKiDcjjtVfpLj3ffwMjoF19hSXeOGAkaYj6+hvIfKQioeJV
-	 zGky+hLvweQxLNxMT5ryTbm77FLV4aRs4vAKlOAFynCJMIWVwc1rcDt12A3TpXD32j
-	 mkXFgfCVWbaazzQc6imvQioYdYb2zEc0hTDp7UAEyGqDfUUQrjCQlg+jJhmpi+W20C
-	 sI7p26hi4f6qVwuJcUegwSN7xkssnl5fK5QdFVaO3YRWJG8ZcjwZmIlYP1hBw2flfm
-	 xoTcEPJIfIBNg==
+	b=lZ/XNZ02cGRdPSBoNx6MIeKoPz9WrzYL2btOTaVxafCD9BMURKt30md6J46dxre85
+	 /ChU485UxHQcEk4o1coAacgZ02026UPwt2klAbqxlXxZtUBcOY8Qw0HAOJuXSceByC
+	 rw+/RoBtRwdMVghPcKDfJ4HAoyoigQ3osRlV6tkBSiY2I0KBzdJEqVEFKVrGHm/szp
+	 ukeLDHb0AiNB+1yaADX3ZNLzkGZpB+Nh+zWUwtB+3fE7DSplI3HAw8cX9HCW/9X8Fz
+	 wsc7cOaPeDR3fp9DNVztyI7Y5zSr3m2cMW2Hj4X9VMqj1UsD/OarcAddqSBbREV3a9
+	 FbMI6qamGbodg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F154F3808209;
-	Fri, 20 Nov 2026 02:30:15 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7743A3808209;
+	Fri, 20 Nov 2026 02:30:17 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,37 +54,39 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net: remove CONFIG_NETDEVICES requirement for
- SO_BINDTODEVICE and SO_BINDTOIFINDEX
+Subject: Re: [PATCH net-next v1] net: pcs: xpcs: add 10000baseCR_Full to
+ 10GBASE-R
+ link modes
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179514181453.3985754.4590039410084067939.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:30:14 +0000
-References: <20261116175504.15295-1-ethanf108@gmail.com>
-In-Reply-To: <20261116175504.15295-1-ethanf108@gmail.com>
-To: Ethan Ferguson <ethanf108@gmail.com>
-Cc: edumazet@kernel.org, kuniyu@google.com, pabeni@redhat.com,
- willemb@google.com, davem@davemloft.net, kuba@kernel.org, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+ <179514181602.3985754.15557680920042942739.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:30:16 +0000
+References: <20261116101644.83097-1-francesco@dolcini.it>
+In-Reply-To: <20261116101644.83097-1-francesco@dolcini.it>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ francesco.dolcini@toradex.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 16 Nov 2026 12:55:04 -0500 you wrote:
-> The SO_BINDTODEVICE and SO_BINDTOIFINDEX sockopts return -ENOPROTOOPT
-> if CONFIG_NETDEVICES is disabled, but the lo interface still exists.
-> I believe that these sockopts should not fail on the lo device just
-> because there are no other net devices.
+On Mon, 16 Nov 2026 11:16:44 +0100 you wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
-> Signed-off-by: Ethan Ferguson <ethanf108@gmail.com>
+> An SFP+ direct attach cable is reported by the SFP layer as
+> 10000baseCR_Full, and this link mode is missing from the 10GBASE-R
+> supported list, therefore xpcs_validate() masks it away and the
+> 10GBASE-R interface cannot be used with such a cable.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v2] net: remove CONFIG_NETDEVICES requirement for SO_BINDTODEVICE and SO_BINDTOIFINDEX
-    https://git.kernel.org/netdev/net-next/c/f69dfe594053
+  - [net-next,v1] net: pcs: xpcs: add 10000baseCR_Full to 10GBASE-R link modes
+    https://git.kernel.org/netdev/net-next/c/0742ef27cd72
 
 You are awesome, thank you!
 -- 
