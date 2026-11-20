@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795153113;
-	b=iy7SnhfCdEJbE+Fcvm5z+kZWkbjGzZklOeR0EUhwTrvuaaEtO6rU/FGqeH641hSiW9Px
-	 9yot5R9h6OuOjYNYSVb/1oVOKsmzV1E5aJNVW+z0z/Vnoc/ZbKake+8/NyBuu3APVC8Lw
-	 RUXjjSatRy1AsNTYV1v6IdtVrc/6stnPJ16vSdaSZILcioBozaY8ZsW+/rvXMG21NFX0s
-	 QX360V1d6lDsT8QCd+2vCOMUEpML+/mI4YVLKU8p86UftkN2plCWCyfkNwWJGXr31lwOE
-	 JN0uvAow3j98YP1fzVQY4b8uWVj4Eyq1PDVqYmdYhXzLYq9E1yQkIjm18mpem0q1hSQ==
+	t=1795153111;
+	b=Dv21FYxGQwJUws5QSJCY+NQn0Nrin5z246asXjeF5ac17eiLHlyRoQu0sE0V3/Bd8nYE
+	 pb2jUrklwCogfxDQnlHqbpb6mMG0shSM+HMGvj80ZaqXjDAI9I2zUygcye//GV0Bj7kgb
+	 fa5Lbr6ZN7+32of25WVTG2fynEw/ScgjlhkEBqXJ0Szbdiqt6K8wyVX4vry8f4WDY7CVX
+	 99+dEewrBmvYK0AEVtjF8Ujx32IGX703xC022fxTlX702nT3AOYI4q5MOVYaSmFj4u3iz
+	 0yn0uEAbos222QleBJnehEpROpYqswPmyRvepb+nYcj84VA7g4PpErKw0DyJfCoaRjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795153113;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153111;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=z9MsZ5nDP02yY+mmqpSAWXCIWO2n34RgSYNzEUczHcs=;
-	b=UEKh58hxgsI5InsS/WpnYgAfPr4lhGmkq+P8XT0GJ/D+JzgddGrRd7IMYerP8tUye5Of
-	 Ox8S/znc3OFaqjTXOqAsVNe15VT+LJmq+sZo11CWJteZKnIMKKCAKyCr+nsvh9T4Gfi8s
-	 0CcN9DNLWRSiz7Xajxa16a2o0EbZI56BlUIVLbn2rGA+hxVBmVexDmTssTHI3OoBb6N2f
-	 ToY/91Oo4zDMjzjo5JAliSvDlRof5ie0G/dEohvh+CNHcWzvdGnT4L8ZGlQVaz7x+RoRH
-	 UCG3jrbAQfSe05J+J6EQfLdcrOrOEkJtD5q9NAUWvwDhwfn3SpEzQ5cM9oYc95gJaxg==
+	bh=XOjSlJvgQP4Iaas7h11mJ3/93ER6A7G5BBfYIFJUboE=;
+	b=I40BVI3aekuBYBu0qOGB6aG/HISEkYZhKgq2j4tuw0M9h3Hbs23KpLK/RSM1vTGS1lt2
+	 zLIiPA7HCorcg8mXNjJ/ve/HdLpURXonwVy+2HRbAXno4TICdX7rkCW6enI7lkK0A8nEt
+	 7PoymdL6InVDJczeao7JKR2CYPkZINJ3vvZooAsE2T7goLO/CXEGI1iT1sN14t6ffOHqF
+	 NEBE/sbURp5zXO/j3wDTHPUU8hYxU4lZqYiuzi0IndNCabw5sJkAa6ZARJCAJRYv4rg/V
+	 I3bJSu/sh81rz8F9YFrtqgrng8STk9oqNS9ZeDAjItfkZv8kgrr81u+Ho1JME3Yi7dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hCFudF5M;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GdCyH9kV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7473606A339;
-	Fri, 20 Nov 2026 05:38:32 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hCFudF5M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B8B1F000C6;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4E79606A320;
 	Fri, 20 Nov 2026 05:38:31 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GdCyH9kV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93A3E1F000C6;
+	Fri, 20 Nov 2026 05:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795153112;
-	bh=z9MsZ5nDP02yY+mmqpSAWXCIWO2n34RgSYNzEUczHcs=;
+	s=k20260515; t=1795153111;
+	bh=XOjSlJvgQP4Iaas7h11mJ3/93ER6A7G5BBfYIFJUboE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hCFudF5MdI8naOC9gQNYl/HfcgR/WNHxlFAM4dZ/SyAOmPwS3w4hnaN3ex+hC4ad/
-	 okIRstQpMW7MrA2I/OKCTQKpvsv5G4BAznTBKPxlA+mxMYvyUcMltsQpiIkaEhx8IQ
-	 za0JF/MS0yD7yXcBLTitkQfHRenzSei2TqzKD1/Ek+3NOutT7tExsRpPrXNY9i7LQ9
-	 uuXtgzuMWX8ds0Qu3bAxECpq6KfSyhR4zwKKzerA3Na6pPfGf2fQcDHOCoJLBZN20A
-	 V1X6eiPxazKiyFO1FQxmmFEcRUtYWp45LDDOQMcR9AWGr9HjjzRdBjc9baOcnmWpJU
-	 XWhoQDOnpqUOg==
-Subject:
- Re: [PATCH net-next v4 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
+	b=GdCyH9kVDo50BeQqxTan6qurJr8c8eoUCjmIdh9CL7hoAeBKzdvJzcDyH1Fz3g+qa
+	 v2YJHqvY03WqpGhspapq3VoZIaUdf1ALBUflZpZ+Op4atVN35MC68xiHeigqFZbeW6
+	 ZxRDAPy5OWKWSfV6LzuV9wdoM7TMJ7Fo8O5m0SbmFzcxFwap4bLTB/JxOOpeB7CoGb
+	 B9MoNQfxV7e/chTSD1q1WZL0oeM8Til5eUJSZncGsNYuw0vvSS/Xa9GS2Jyecniasb
+	 v0UUyPB9fuj+EhPjaZm2jlk33/5RgZDayVmG2JXtfVO89bugn9Ez8+QbuAzoAmM9c7
+	 Qw9QcUA3Sl2JQ==
+Subject: Re: [PATCH net-next v4 1/4] net: phy: Map C45 probe read errors to
+ -ENODEV during bus scan
 From: netdev-bot+sashiko@kernel.org
 To: florian.fainelli@broadcom.com
 Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
  linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
  kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
  kudzo51@gmail.com
-Date: Fri, 20 Nov 2026 05:38:31 +0000
-Message-ID: <179515311151.3136.11984816802162340674@kernel.org>
-In-Reply-To: <20261119005943.999981-5-florian.fainelli@broadcom.com>
-References: <20261119005943.999981-5-florian.fainelli@broadcom.com>
-X-sashiko-severity: Medium
+Date: Fri, 20 Nov 2026 05:38:30 +0000
+Message-ID: <179515311013.3136.13885466048757926038@kernel.org>
+In-Reply-To: <20261119005943.999981-2-florian.fainelli@broadcom.com>
+References: <20261119005943.999981-2-florian.fainelli@broadcom.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,188 +66,171 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] unimac_mdio_probe() now sets bus->read_c45/bus->write_c45 for
-  every instance, including the one GENET creates from platform data.
-- [Medium] The patch's own comment in unimac_mdio_addr_c45() says
-  bcmgenet_mii_wait() can return 0 after timing out with MDIO_START_BUSY…
-- [Low] unimac_mdio_resume() now takes priv->mii_bus->mdio_lock around
-  unimac_mdio_clk_set(), so system resume now serializes against, and…
+- [Low] The -EIO/-ENODEV -> -ENODEV mapping in get_phy_c45_ids()
+  (drivers/net/phy/phy_device.c) applies to every caller, not only…
+- [Low] The commit message gives the UniMAC MDIO block (MDIO_READ_FAIL)
+  as its example of a controller whose read_c45() reports an empty…
+- [Low] The patch rewrites the kernel-doc of get_phy_c45_ids() (lines
+  826-828) and of the exported phy_get_c45_ids() (lines 1107-1109).
 
 --
 
-net: mdio: mdio-bcm-unimac: Add Clause 45 support
+net: phy: Map C45 probe read errors to -ENODEV during bus scan
 
-This commit adds Clause 45 read/write callbacks to the UniMAC MDIO
-driver. Each access does an ADDR cycle followed by a data cycle, and
-MDIO_CFG is switched between C22 and C45 mode when needed. It also skips
-the BMSR workaround for "ethernet-phy-ieee802.3-c45" children and takes
-mdio_lock around unimac_mdio_clk_set() in resume.
+This commit makes get_phy_c45_devs_in_pkg() return the raw bus error.
+get_phy_c45_ids() now maps -EIO/-ENODEV to -ENODEV for the devices in
+package reads, both in the MMD loop and in the MMD 0 fallback, which
+matches what get_phy_c22_id() does. With this, mdiobus_scan_bus_c45() can
+skip empty addresses on controllers that report an empty address as a bus
+error.
 
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-> index f8e5c1811d96b..a79830566abb0 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
-
-[ ... ]
-
-> @@ -108,8 +160,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  		return ret;
->  
->  	/* Prepare the read operation */
-> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> -		(reg << MDIO_REG_SHIFT);
-> +	unimac_mdio_set_clause(priv, is_c45);
-> +	if (is_c45) {
-> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-> +		if (ret)
-> +			goto out;
-> +
-> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +			unimac_mdio_c45_devad(devad) |
-> +			(reg & MDIO_C45_REG_MASK);
-> +	} else {
-> +		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> +			(reg << MDIO_REG_SHIFT);
-> +	}
->  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
->  
->  	/* Start MDIO transaction */
-
-[Severity: Medium]
-
-The comment in unimac_mdio_addr_c45() says bcmgenet_mii_wait() can
-return 0 after timing out with MDIO_START_BUSY still set. To handle that,
-an unimac_mdio_poll() is added after the ADDR frame. Does the RD_C45 data
-frame need the same check?
-
-After the data cycle, unimac_mdio_do_read() does:
-
-	ret = priv->wait_func(priv->wait_func_data);
-	if (ret)
-		goto out;
-
-	cmd = unimac_mdio_readl(priv, MDIO_CMD);
-	...
-	ret = cmd & 0xffff;
-
-If wait_func returned early, MDIO_READ_FAIL is not latched yet. Bits 15:0
-of MDIO_CMD still hold the reg & MDIO_C45_REG_MASK value written for the
-command. Could the caller then get the MMD register number back instead
-of the PHY's data?
-
-bcmgenet_mii_wait() always returns 0:
-
-	wait_event_timeout(priv->wq,
-			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
-			   & MDIO_START_BUSY),
-			   HZ / 100);
-	return 0;
-
-With HZ=100 this is a one jiffy timeout, which can expire well before a
-25-33us frame completes. On GENET v1/v2, and during probe before any ISR
-is registered, the timer decides every wait.
-
-unimac_mdio_do_write() has the same gap. The WR_C45 frame is reported as
-complete and the bus lock is dropped while the frame may still be on the
-wire.
-
-The next access then calls unimac_mdio_set_clause(), which can rewrite
-MDIO_C22 in MDIO_CFG without checking MDIO_START_BUSY:
-
-	if (new_cfg != cfg)
-		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
-
-Can this change the frame format in the middle of a frame when C22 and
-C45 accesses are interleaved? That happens with the C22 scan followed by
-the C45 scan, or on a bus with mixed PHYs.
-
-The C22 path already has the same early-read weakness. The C45 data cycle
-and the MDIO_CFG switching are new code, though. Would calling
-unimac_mdio_poll() after the data cycle wait_func(), or at least before
-touching MDIO_CFG, close the gap?
-
-[ ... ]
-
-> @@ -302,6 +401,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
->  	bus->parent = &pdev->dev;
->  	bus->read = unimac_mdio_read;
->  	bus->write = unimac_mdio_write;
-> +	bus->read_c45 = unimac_mdio_read_c45;
-> +	bus->write_c45 = unimac_mdio_write_c45;
-
-[Severity: Medium]
-
-These callbacks are set for every instance, including the one GENET
-creates from platform data. How long does the new C45 scan take on the
-GENET non-DT (ACPI) path?
-
-In the non-DT case, bcmgenet_mii_register() does:
-
-	else
-		ppd.phy_mask = ~0;
-
-so bus->phy_mask ends up as 0 and no address is masked. With np == NULL,
-of_mdiobus_register() goes straight to __mdiobus_register(). That runs the
-C22 scan and then mdiobus_scan_bus_c45().
-
-For each empty address, get_phy_c45_ids() does two C45 reads (MMD1 DEVS2,
-then MMD0 DEVS2), and both fail. Each C45 read calls wait_func twice:
-once for the ADDR frame in unimac_mdio_addr_c45() and once for the data
-frame.
-
-bcmgenet_mii_wait() is a wait_event_timeout(..., HZ / 100). Its only
-waker is bcmgenet_isr0(), and irq0 is only requested in bcmgenet_open().
-The bus is registered earlier, in
-bcmgenet_probe()->bcmgenet_mii_init(), so each wait sleeps for the full
-timeout.
-
-That comes to about 31 x 2 x 2 = 124 extra sleeps of 4-10ms each, or
-roughly 1s of extra probe time on systems like a Raspberry Pi 4 booting
-with UEFI/ACPI. This is on top of the ~64 sleeps the BMSR workaround and
-C22 scan already cost, and nothing is gained when there is no C45 PHY.
-
-The commit message notes that the scan now runs on this device:
-
-  This includes the platform device that GENET instantiates when it is probed
-  without a Device Tree node (e.g.: ACPI), which does not mask any address.
-
-It doesn't mention the cost, though. Could the scan be masked, the C45
-callbacks be left unset for pdata users with an IRQ-driven wait_func, or
-the driver poll during probe?
-
-[ ... ]
-
-> @@ -337,8 +438,16 @@ static void unimac_mdio_remove(struct platform_device *pdev)
->  static int __maybe_unused unimac_mdio_resume(struct device *d)
->  {
->  	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
-> +	int ret;
-> +
-> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
-> +	 * Clause 22 and Clause 45, which run under the bus lock.
-> +	 */
-> +	mutex_lock(&priv->mii_bus->mdio_lock);
-> +	ret = unimac_mdio_clk_set(priv);
-> +	mutex_unlock(&priv->mii_bus->mdio_lock);
+> MDIO controllers that report a read from an empty address as a bus error
+> (e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide read_c45()
+> with unmasked addresses therefore cannot be registered: the C45 scan fails
+> on the first empty address.
 
 [Severity: Low]
 
-This isn't a bug, but the commit message doesn't mention that
-unimac_mdio_resume() now takes mdio_lock. As a result, system resume now
-serializes against, and can block on, any in-flight MDIO access. The
-locking itself looks fine. Could the commit message mention this change
-to the resume path?
+At this commit, drivers/net/mdio/mdio-bcm-unimac.c does not set
+bus->read_c45 yet. The UniMAC example therefore can't reach
+mdiobus_scan_bus_c45() here.
+
+The read_c45 support comes later in the series, in "net: mdio:
+mdio-bcm-unimac: Add Clause 45 support". In that patch
+unimac_mdio_do_read() returns -EIO when MDIO_READ_FAIL is set.
+
+Could the commit message say that the UniMAC case depends on that later
+patch? That would help anyone who backports this fix on its own through
+the Fixes: tag.
+
+> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> index b39e945cebd73..79f3fa1e9a036 100644
+> --- a/drivers/net/phy/phy_device.c
+> +++ b/drivers/net/phy/phy_device.c
+
+[ ... ]
+
+> @@ -810,8 +823,9 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+>   * the PHY identifiers for each device. Return the "devices in package"
+>   * and identifiers in @c45_ids.
+>   *
+> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+> - * the "devices in package" is invalid or no device responds.
+> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
+> + * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
+> + * reads that look for a device), or %-EIO on any other bus access error.
+>   */
+
+[Severity: Low]
+
+Is this list of return values complete? Further down in
+get_phy_c45_ids(), the Device Identifier loop still returns the error
+from phy_c45_probe_present() unchanged:
+
+drivers/net/phy/phy_device.c:get_phy_c45_ids() {
+    ...
+		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
+			...
+			ret = phy_c45_probe_present(bus, addr, i);
+			if (ret < 0)
+				return ret;
+    ...
+}
+
+So whatever errno the controller's read_c45() returns for MDIO_STAT2 can
+reach the caller. That could be -ETIMEDOUT, or an unmapped -EIO/-ENODEV.
+The same call in the first loop is mapped.
+
+The raw return predates this patch. However, the new kernel-doc here, and
+the same new wording on the exported phy_get_c45_ids(), now reads as a
+complete list of zero, -ENODEV or -EIO.
+
+Should this call site be mapped too? The alternative would be to word the
+kernel-doc less strictly.
+
+[ ... ]
+
+> @@ -844,8 +858,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  				continue;
+>  		}
+>  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
+> -		if (phy_reg < 0)
+> -			return -EIO;
+> +		if (phy_reg < 0) {
+> +			ret = get_phy_c45_probe_err(phy_reg);
+> +			if (ret != -ENODEV)
+> +				return ret;
+> +
+
+[ ... ]
+
+> +			devs_in_pkg = 0xffffffff;
+> +			break;
+> +		}
+>  	}
+>
+>  	if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff) {
+> @@ -855,7 +881,8 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  		 */
+>  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
+>  		if (phy_reg < 0)
+> -			return -EIO;
+> +			/* returning -ENODEV doesn't stop bus scanning */
+> +			return get_phy_c45_probe_err(phy_reg);
+
+[Severity: Low]
+
+The subject limits this change to the bus scan. However,
+get_phy_c45_ids() is shared by every get_phy_device(bus, addr, true)
+caller and by the exported phy_get_c45_ids(). Is the new return value
+intended for those callers as well?
+
+Some of them now get -ENODEV instead of -EIO when the devices in package
+reads fail:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
+    ...
+		if (rc == -ENODEV)
+			dev_err(&mdio->dev,
+				"MDIO device at address %d is missing.\n",
+				addr);
+		else if (rc)
+			goto exit;
+    ...
+}
+
+Previously this aborted the bus registration. Now it logs the message and
+continues.
+
+drivers/net/phy/sfp.c:sfp_sm_probe_phy() {
+    ...
+	phy = get_phy_device(sfp->i2c_mii, addr, is_c45);
+	if (phy == ERR_PTR(-ENODEV))
+		return PTR_ERR(phy);
+    ...
+}
+
+The SFP state machine now retries and then reports "no PHY detected".
+Previously it went to SFP_S_FAIL.
+
+gpy_probe() in drivers/net/phy/mxl-gpy.c now passes on -ENODEV from
+phy_get_c45_ids() instead of -EIO.
+
+This does look consistent with existing phylib behaviour.
+get_phy_c22_id() already applies the same mapping for every
+get_phy_device(..., false) caller. The phy_c45_probe_present() branch has
+also done it for C45 since commit 17b447539408.
+
+Could the commit message mention these non-scan callers? As written, the
+subject suggests the change only affects mdiobus_scan_bus_c45().
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119005943.999981-1-florian.fainelli%40broadcom.com
