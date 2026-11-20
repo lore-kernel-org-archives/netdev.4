@@ -1,63 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168406;
-	b=Xyx0MtjIK1O0q1r9sfUFp/suAKbIpiwkg3ojspQvt9cVDQ5T/JJ+Ifk83PNKQjx2ZX/I
-	 HiRSpoVwTSFG9LAO8/EywUBOEbWvDmMcUcMI+/zDkn+/PYZpBZXZru+GdcHhLWfgi00Rk
-	 4szlL/J3bXfUAtx27dd+mmSoVWyq+Lta6aZue1reH2Ww14YGFdYt24/Eexbh2OLO/ppJp
-	 ObwHQw8sWRK8x4W+DzZdnZaHoJBERxroZnrnQCC9VceKfURpOTQKhglm165kef7M/oayr
-	 nNy9GHKvCw+gKDYDdiOqkbZO8MeEdqxE0e96RzjCOwRKcdB7TZclRolSosg9Uv1a2LA==
+	t=1795168424;
+	b=34bsj3Y3fYOv5snszLKbhumMgYI/cAeTXO1Xcov6YCkcEh0PddApuloZXf+wprTQbhHQ
+	 H06TBKOWQSkad/VvEfjviyti1ihJ8ywMgggzNZvgP9M3iDbBuyaUX+QBDBE7NlfxGx3Xt
+	 N54hDuPvd5e8P7yiukPM67zETN8iw4z25tLcoUT4wg5rel+zTmzSQnZIDMuMYSKcSKO5B
+	 6U4gbJB+XrWnk/da1UHNb8Z88FO0s4cgFiESf6Bf/a7HYK+nB9v6Fu5I+s8soMG5J8YEk
+	 JtcgSv5sZJfPKoJHAaRPxEPVvk3xmOZS14RCONnY88BT9+PGtCSF56ouZCPEd7TxjOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168406;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=lb2RFk/NPWgX4J0CsOxcCQbUGvMEOheqS1bpUpgritrFZFvE7HOrI8DtQgwJe2UlADsf
-	 ted9UBA7+kWEhRgr6tWnY0fyAwNyHJiDzQH5PNbMqPzxdVDlf8v1D/kn8fkCHsCCQXtRH
-	 0c+vAZ8FVQafiloXKcup4ozJnGRN7/ae2KiAwjJ8SYGL4Hzg74edVXAc5Qhwt1prGgjTr
-	 8AUOMW5KJjYchdevhNHruUkQkNSszeG7gYsYbweIfo5WJ7neHdxTrU4pYw0eqagqjcYTT
-	 +8JTuYSHpJTFnuVB40gxI30vtDhoUiweGvhrQb8Y1qMONNCp7ZAHs6+b6/YD8LZUb7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168424;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=kVAcCf7YdsZJpIS81TVP41dIPlcYyJk0wj4QR9M2Nb8=;
+	b=HFtkXN+DluUC1kV9u4m801UtWF/u8qhM4eKpjrQihSWvxgtOazf43iOq6sdxF499zltl
+	 UN31g7HNf8jkJ2n3Baa8p9p/3pVcbQ2dyUyw/Gh9LHCqcgO/AyvI14P97DXOmjilzAr7C
+	 7JM73dPkbTMfG0+W17sajLhRHSzFKMj1rZqmW4vKjQKtjsAvFyW5JdR86XY8YfQjoxNLg
+	 zGdbJqBXLlYfJuwpupkNNvYquSZqN34VheQPCa3AYyqJXLClD+eu4UeipVkcmPs6+lY5d
+	 4LkkeXH740xVNFG5OdlfmkW4EGDpTSndaCppEARNIky0L65hwAlEoQq0z9KfmV52aBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T9WFkA+S;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AAEF606A325;
-	Fri, 20 Nov 2026 09:53:26 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jKc5z3qn;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 138B9606A339;
+	Fri, 20 Nov 2026 09:53:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 138B9606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T9WFkA+S
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D7B11F000D3;
-	Fri, 20 Nov 2026 09:53:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795168406;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=T9WFkA+SD6lil9ruTWDxGrfc1ztACVA91hFrU7q2DT1t0Sq38VpLfKAhibFdzb79r
-	 ji4t0Bp7sUeE7MVMS51hbQ+v74EdCN+MjQ2/Mbu81m/lDp8Kb6v+aUaU37SPTxaSb9
-	 I7YMcDluBxpZWghSvMwkPrcfVcH8S4myhcmg8SJyAhU+iHGg9xJKaaVvk+UiXK3ASP
-	 Y3XBBR/mifg9caP2lcOAWuCG13WaJuLQFlNMHG6f2boAi01GusYwqE7kEaHVfSK+nA
-	 twwEIO3jQeSEg67/Md/aUtf21/IZbJyy8SyUpRikAXGGGwBb10am6nkclLQ5MeQbuq
-	 asqOU4lylVYhw==
-From: netdev-bot+sinfo@kernel.org
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>,
- David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Patrick McHardy <kaber@trash.net>, Florian Westphal <fw@strlen.de>,
- Hannes Frederic Sowa <hannes@stressinduktion.org>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] ipv4: fix conntrack defrag forwarding after
- ip_frag_reinit()
-Date: Fri, 20 Nov 2026 09:53:25 +0000
-Message-ID: <179516840511.3291.9188818650072138365@kernel.org>
-In-Reply-To: <20261120094700.46500-1-jiayuan.chen@linux.dev>
-References: <20261120094700.46500-1-jiayuan.chen@linux.dev>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jKc5z3qn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=jKc5z3qnKaFLYzTTaMZdrjHSZGTI6l4WURly0La+uATyMXCkG+81DAVnbeIfu4zIqYKzQBT99uMte
+	 d2WIixcAirOlJcrEqqAHv+Rb3lAcr/8rYhKCvDLnDldu7+q2iVm/bw0Te7eRXI3kRR3GqqM0jSaLP2
+	 eiTTlxyRCuek+oTk=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b0018a3f77-645bd;
+	Fri, 20 Nov 2026 17:53:39 +0800 (CST)
+X-RM-TRANSID:2ee26b0018a3f77-645bd
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b0018a1aad-20e06;
+	Fri, 20 Nov 2026 17:53:39 +0800 (CST)
+X-RM-TRANSID:2ee96b0018a1aad-20e06
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] net: hso: cap the MTU and drop oversized frames
+Date: Fri, 20 Nov 2026 17:53:37 +0800
+Message-ID: <20261120095337.1088-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <179513801218.3291.4900870389760727017@kernel.org>
+References: <179513801218.3291.4900870389760727017@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,26 +75,24 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+Hi,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Same provenance as for v1: the missing bound was found by code inspection,
+after the automated review of the companion skb_tx_buf fix in this driver
+reported that hso_net_start_xmit() copies skb->len bytes into the fixed
+2048 byte mux_bulk_tx_buf without a bound check, and that hso_net_init()
+never sets max_mtu.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+The overflow itself was not triggered at runtime; it is statically
+decidable from the code.  The additional paths listed in the review of v1
+(AF_PACKET with PACKET_VNET_HDR, tpacket_snd() with a vnet header, and a
+route MTU metric above the device MTU) are covered by the length check
+added in v2, which drops such frames with SKB_DROP_REASON_PKT_TOO_BIG and
+tx_dropped accounting.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Thanks,
+Aibing Chen
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
