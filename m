@@ -1,73 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795205661;
-	b=2zwHFfQYpeD1c6LFLOZibJ5WKGLM9G0lj0/xTwz5Z5sqomNNhYCujoiAoMn0dVRV+65B
-	 F7o3IhPUQ2gpnWYdli+dgXcu6MUiU7icN6vMbcA+2EaAipuUY8r6bnyd9pdKpnhxdSVEG
-	 t4Y5oSRx6VHH4YP4N+b2vTtsPWgVjofGH7BAITtch9qzSlKzrPBGw1/G5WlVflc1mIGA5
-	 AW1Vko/ke3O/TG0hgEAG0h0k4d5Qt5ZNGhQD3dwTWFmifqzzayHRu1VgRUcxklhJNxkWM
-	 nSMSGmWpnymOhky8wdOqamaFJ7YGvEu7cVt0MWFr2RY+KfK29eFrIwg/SLGOIhoumVw==
+	b=X0PY+SyiKL5bgME8TSTbvP7w1f7eTVE7lm1jQyd9UrvbhY2ALP16eRcJORmXQHkPeBeS
+	 F5lsxOOzLxQDgZcDk2kvdq8jLH4ca9BB6kozRBrYX84Ijb/OgUloVLYRviJjdY+zVDH1Y
+	 /7BV6WJtmmtyMExftcqncYcRs6GlQz+Q96VArB/v6BVd2QpQUCIVuzvHSc3NYUt8d2OJD
+	 u+pTIYqVjoplyJrop48giUbE69lpFyWkjayyg2HkLoVztDOiwi4lDhKJMfYVP301uK+hK
+	 a7Jo+T+IXvm6/iKgbFQ6Mt2fBjM3efYrpP30I0NntHuHav3DsBPo2Cr0ZzH78n/No9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795205661;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
 	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=NSvJlip/yv6mtxUQ30h6FCDPgrpYgrnOBqf2mcN2qUw=;
-	b=kt4yEHnX5XKhlr9keCu5EST7YJYciBGcr0xetAd6QyfZN85ytseYqbiI/caD6/gRz8kA
-	 cPQ1e1OnhJ3ogGQCSCxsWzzQ/XwdNv3q/WMmLgbK0ybc6oA/wvONvGjsd3R2JeLa/fXph
-	 cjERX0fHXlJ4asLsJTVeqGppxZQRXFNhQeTzFfuAkuuRKko9YvjrlPC0MmZ0zKMa6zHXb
-	 Zcm1uMZZtGvJhjTznN/5IHfWOLFKyXnzeO/aHBWQ8lFrceiYVujbkC+hUdHiINSmLI8mG
-	 +HdWbBoGi0W5fDrwqtkSE9E4oSRX1nUuyv8Dkm5MVnO8teoOlRHRPamh+dDyHLiL95g==
+	bh=RYXg0B4XcZd7l5X1Kl/tzzwPWSC8fGJzkL6gcZJW3y0=;
+	b=IkX0t/e2jhTkq9OUVdho2KrQvJjCkeKBpmyalfWVJX2Cyg9MSGgsGnCpVQm9/TPgF5/h
+	 SMTv2zJq4KXStfMuH3ZOLtY8q2x6/8mzCkIRjSYIUnqekfh+YDw1oyN9+jZjxaunAh0Dh
+	 +v2fiPf8M8LMnw+1AhUlFyXh9dDXIdjL0QizhB6khN8KANCdjk1fOgQkhATMDFbp39S0a
+	 Qqk2W4vuRnO/eYUINGoNz2CmarA9bzdBpyOsaaaXNJgneMIuNXsOFjp2+J4rFzGEIh6RS
+	 EkkgWDeTAd4X7T/PYMrYtJGn8esbLY37Qg6Wd6xTKl+uRPFiOSRRF2rgKQ+//lgslyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Voui0P3o;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VPJZtaTy;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9846606A6D7
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:14:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9846606A6D7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F6E3606A6C4
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:14:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F6E3606A6C4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Voui0P3o
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3821eb27024so2100447eec.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:14:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VPJZtaTy
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b53bfc9534so366081c88.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:14:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795205651; x=1795810451; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795205660; x=1795810460; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NSvJlip/yv6mtxUQ30h6FCDPgrpYgrnOBqf2mcN2qUw=;
-        b=Voui0P3oKqWSRXab62BuzpmFDz/ysoqpgc7U3y/O6yK8IxxLbqZCSk/DAYx6fYQyTV
-         Kamqv/5v5mD6dQcVnF60H8Cz7/14TMEf9pGoYG1Z9EbhP7YAsmbQ6leY8aRkku4vxDYi
-         aAF1YEvFVD5gO7RuClIFGiZZsOge7Xcf8TJN9OmlU+NqfnvdCLvZYufzp/MyBT//DQDu
-         /fhLGgSNAr9UCN06R1C6rjw8dD7pkZ5ug9JwaykFOZClquTEfyNHlFBs4XS1g5mNxOVI
-         nEJ8lMw8b8CC7j9ycw6Ypa0408S81S1XEyrihwH8tcNcfwUBfbbxiYa7O7Zx4MU4YJOt
-         Zzdw==
+        bh=RYXg0B4XcZd7l5X1Kl/tzzwPWSC8fGJzkL6gcZJW3y0=;
+        b=VPJZtaTyp72bsdGUOZbxiMs+5buZSckqYEb7Ym0a/hr95OrFaEOj8U3DcLnrXzZRRU
+         qrxmXv7pS9g+4KEdKYUhymBm4kqsCE7O0o5SmouqLTnzERnQ3s7U0vO8A/XoCFUCu9Je
+         65smX703li2Mc/hb2dAPA+o1QgkJyed78ovlm+H2K6oYmq9Ptmj/95y/ZC0mnqACBd/t
+         Ba3bv3Ah1+7hgYFpLuZN5AN9FKvjte4aghBYADj3P5o835uN6J7Io1yCbDImmPfDlMj+
+         UMbiwnbTct16waVf/Hylwh9aS5+fZd7oVuYHxqAKdepNg6ALUzhHyDW6gUEzDrIq3ZqQ
+         XI6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205651; x=1795810451;
+        d=1e100.net; s=20260707; t=1795205660; x=1795810460;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NSvJlip/yv6mtxUQ30h6FCDPgrpYgrnOBqf2mcN2qUw=;
-        b=ynCisdPr+8Hr1LefVz2M3XtDLpR/Udl6WpQ7aU5l655FjB8bXUj6KIHgyZC4LXx94w
-         Yxyf+R4plqyR5uswxV7LFaik0ePzwm4MQT4rFRA55PyCHnIVM7q7j1uIfMgZqZY39IPn
-         eqoEE7XMSFVp5VUoPpYroJBP9wdHcJpE7JBi/DDpaJRRgSMGxEa3zt8C8CDk+H/VkSZG
-         4Euwl1bodbQ/BrnDwDDKkwE0t5JXGyyQWG38+2Yz0v9nIjAcjNKdQ25hjPVsfddYGO/J
-         Nu5gh/1bffJiEsiVcln6iJQX0AytQ/V85+hoDpIA3L/8p8APVeWbCKss2mS67+3PZvzD
-         SBFw==
-X-Gm-Message-State: APuU4Z+gx2ZxY0A2j7fJwRZvL/+62shxxr5b1qDbuALlkDIaZfBDvmE1
-	eVwdu3EE3bziuJ57+X+Z53SPp5evZwTpP95aAQZK0vpbbT9oInHDrcvL9SeNK/rqrpS4Ngkockw
-	D3S2imQF1BgJMBhvdKQtI7VRlcAIPbTJ9iNwSjSAb8gPdPDRcEIjl8t3Y/6mHynS5iNN+vIaF7F
-	x6W/DGtLJGnhPmrzRABFMT4KvgPjtOIjKgAD5vV4SWQjuMibuOdE/Y53+HWA9MvDU=
-X-Received: from dyz3.prod.google.com ([2002:a05:693c:4083:b0:359:72f9:2aab])
+        bh=RYXg0B4XcZd7l5X1Kl/tzzwPWSC8fGJzkL6gcZJW3y0=;
+        b=nXBvC6p1gng+iP/PdDgcxd/I9SEoRL8DUj7GgK2Suszo6DflfoEXzBkgiyVro2+sr9
+         uHYfcV61bwds8ML4XXKKbHYGId8MP1KCMcIPhvc2OOVwa4TVYJ+roKsVVxfnv8bmFQg+
+         zxs4AUnt2QRcn+awP+H0GGnwA2YJBfg1rpW6QxKHDOoExdvmyFpcVJhg1fqxnCyE4KnC
+         ctd044oC+fA8B8Ta5Fu506wMKiPDmbqUcKi/67s2ttnvwCfmMvMp77gWLTTBnBkXLucH
+         pRlGuXmWME4iwRnEbbfbwEHp9lwgStInP5JdturfPFlgW4S4mPLzwUyNbBMUjlJfOhUJ
+         Zdrg==
+X-Gm-Message-State: APuU4Z8djU69N2MMkJDGUedk1bTQ9kjL+ZkTEwNt1y5bnK0NunEgEumI
+	cGFFpQNCtOh4A6TkC3EA99jWZNNp18U+cWOOZOMyHYS3MqHn8hFdsroedi9cv7gidr9JDReKpqj
+	zKevHYQuR7nIzSNAM3fvM0gbEarROQy4X6fBMEKiIPmVkO9zGooNzJ4MO5LCn+2f79eld3m6hKc
+	sWVSNlGIBcnELksy8Ul8dBOvOSl4GDEvFAhSnQkIP/aJDK+hvWroqfNzr6NaJWyM8=
+X-Received: from dldyq13-n2.prod.google.com ([2002:a05:701b:454d:20b0:1b2:3bcd:9068])
  (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7300:e9cb:20b0:376:7d39:33a0 with SMTP id 5a478bee46e88-38570f22ae5mr4096459eec.26.1795205650512;
- Fri, 20 Nov 2026 12:14:10 -0800 (PST)
-Date: Fri, 20 Nov 2026 20:14:02 +0000
+ 2002:a05:701b:4182:20b0:151:2e62:fe6d with SMTP id a92af1059eb24-1b5568a2ef4mr4036848c88.22.1795205659863;
+ Fri, 20 Nov 2026 12:14:19 -0800 (PST)
+Date: Fri, 20 Nov 2026 20:14:08 +0000
 In-Reply-To: <20261120201408.3445445-1-almasrymina@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -80,9 +80,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120201408.3445445-1-almasrymina@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120201408.3445445-2-almasrymina@google.com>
-Subject: [PATCH net-next v6 1/7] net: fix skb->unreadable propagation in
- skb_split() and skb_shift()
+Message-ID: <20261120201408.3445445-8-almasrymina@google.com>
+Subject: [PATCH net-next v6 7/7] net: kunit: test incompatible memory provider rejection
 From: Mina Almasry <almasrymina@google.com>
 To: netdev@vger.kernel.org
 Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>, 
@@ -95,66 +94,86 @@ Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>,
 	Bobby Eshleman <bobbyeshleman@meta.com>
 Content-Type: text/plain; charset="UTF-8"
 
-skb_split() and skb_shift() do not accurately maintain skb->unreadable
-when moving fragments between skbs:
+Add KUnit subtests in netmem_ref_test_try_coalesce() verifying that:
 
-- skb_split_inside_header() moves all fragments out of skb into skb1
-  (leaving skb with nr_frags == 0 and only host-readable linear memory),
-  but leaves skb->unreadable set on skb.
-- skb_split_no_header() unconditionally copies skb->unreadable to skb1
-  even if 0 fragments were moved to skb1 (k == 0), and leaves
-  skb->unreadable set on skb when splitting at skb_headlen(skb) moves
-  all fragments into skb1 (!skb_shinfo(skb)->nr_frags).
-- skb_shift() does not clear skb->unreadable after all fragments are
-  shifted out of skb.
+- skb_try_coalesce() rejects coalescing two NET_IOV_DMABUF skbs
+  belonging to different bindings, and
+- skb_try_coalesce() rejects coalescing a NET_IOV_DMABUF skb with a
+  NET_IOV_IOURING skb.
 
-Fix all three cases so skb->unreadable accurately tracks whether the
-remaining fragments in each skb are unreadable.
-
-This issue is theoretical and was found by manual code inspection and
-LLM review; it was not triggered in production. Verified with the
-net_core KUnit test suite; not tested on real hardware.
-
-Fixes: 65249feb6b3d ("net: add support for skbs with unreadable frags")
 Signed-off-by: Mina Almasry <almasrymina@google.com>
-Acked-by: Stanislav Fomichev <sdf@fomichev.me>
 ---
- net/core/skbuff.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ net/core/net_test.c | 49 +++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 47 insertions(+), 2 deletions(-)
 
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 1c921383aed9..aac61fbe419f 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -4508,6 +4508,7 @@ static inline void skb_split_inside_header(struct sk_buff *skb,
+diff --git a/net/core/net_test.c b/net/core/net_test.c
+index 1cfa947c11f2..3efff3f5368a 100644
+--- a/net/core/net_test.c
++++ b/net/core/net_test.c
+@@ -1639,9 +1639,10 @@ static void netmem_ref_test_try_coalesce(struct kunit *test)
+ 		.nid = NUMA_NO_NODE,
+ 	};
+ 	struct sk_buff *to, *from, *clone;
+-	struct net_iov niov = {};
++	struct net_iov_area area2 = {};
++	struct net_iov niov = {}, niov2 = {};
+ 	struct page *pp_page, *reg_page;
+-	netmem_ref pp_nm, niov_nm;
++	netmem_ref pp_nm, niov_nm, niov2_nm;
+ 	struct page_pool *pool;
+ 	long base_pp_ref, base_iov_ref;
+ 	int base_pp_page_ref, base_reg_ref;
+@@ -1753,6 +1754,50 @@ static void netmem_ref_test_try_coalesce(struct kunit *test)
+ 	consume_skb(to);
+ 	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 2L);
  
- 	skb_shinfo(skb1)->nr_frags = skb_shinfo(skb)->nr_frags;
- 	skb1->unreadable	   = skb->unreadable;
-+	skb->unreadable		   = 0;
- 	skb_shinfo(skb)->nr_frags  = 0;
- 	skb1->data_len		   = skb->data_len;
- 	skb1->len		   += skb1->data_len;
-@@ -4556,7 +4557,10 @@ static inline void skb_split_no_header(struct sk_buff *skb,
- 	}
- 	skb_shinfo(skb1)->nr_frags = k;
- 
--	skb1->unreadable = skb->unreadable;
-+	if (k)
-+		skb1->unreadable = skb->unreadable;
-+	if (!skb_shinfo(skb)->nr_frags)
-+		skb->unreadable = 0;
- }
- 
- /**
-@@ -4730,6 +4734,8 @@ int skb_shift(struct sk_buff *tgt, struct sk_buff *skb, int shiftlen)
- 	skb->ip_summed = CHECKSUM_PARTIAL;
- 
- 	skb_shinfo(tgt)->flags |= skb_shinfo(skb)->flags & SKBFL_SHARED_FRAG;
-+	if (!skb_shinfo(skb)->nr_frags && !skb_has_frag_list(skb))
-+		skb->unreadable = 0;
- 
- 	skb_len_add(skb, -shiftlen);
- 	skb_len_add(tgt, shiftlen);
++	/* 4. Reject coalescing net_iov skbs from different bindings. */
++	net_iov_init(&niov2, &area2, NET_IOV_DMABUF);
++	niov2_nm = net_iov_to_netmem(&niov2);
++	netmem_set_pp(niov2_nm, pool);
++	netmem_or_pp_magic(niov2_nm, PP_SIGNATURE);
++	atomic_long_set(&niov2.desc.pp_ref_count, 2);
++	to = alloc_skb(0, GFP_KERNEL);
++	from = alloc_skb(0, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, to);
++	KUNIT_ASSERT_NOT_NULL(test, from);
++	to->pp_recycle = 1;
++	from->pp_recycle = 1;
++	skb_add_rx_frag_netmem(to, 0, niov_nm, 0, 32, PAGE_SIZE);
++	napi_pp_get_page(niov_nm);
++	skb_add_rx_frag_netmem(from, 0, niov2_nm, 0, 32, PAGE_SIZE);
++	napi_pp_get_page(niov2_nm);
++	KUNIT_EXPECT_FALSE(test, skb_try_coalesce(to, from, &fragstolen,
++						  &delta));
++	consume_skb(from);
++	consume_skb(to);
++	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 2L);
++	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov2.desc.pp_ref_count), 2L);
++
++	/* 5. Reject coalescing net_iov skbs from different providers. */
++	net_iov_init(&niov2, NULL, NET_IOV_IOURING);
++	to = alloc_skb(0, GFP_KERNEL);
++	from = alloc_skb(0, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, to);
++	KUNIT_ASSERT_NOT_NULL(test, from);
++	to->pp_recycle = 1;
++	from->pp_recycle = 1;
++	skb_add_rx_frag_netmem(to, 0, niov_nm, 0, 32, PAGE_SIZE);
++	napi_pp_get_page(niov_nm);
++	skb_add_rx_frag_netmem(from, 0, niov2_nm, 0, 32, PAGE_SIZE);
++	napi_pp_get_page(niov2_nm);
++	KUNIT_EXPECT_FALSE(test, skb_try_coalesce(to, from, &fragstolen,
++						  &delta));
++	consume_skb(from);
++	consume_skb(to);
++	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 2L);
++	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov2.desc.pp_ref_count), 2L);
++	netmem_clear_pp_magic(niov2_nm);
++	netmem_set_pp(niov2_nm, NULL);
++
+ 	page_pool_put_full_page(pool, pp_page, false);
+ 	page_pool_put_full_page(pool, pp_page, false);
+ 	__free_page(reg_page);
 -- 
 2.56.1.750.gf70dc682cf-goog
 
