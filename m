@@ -1,103 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196626;
-	b=b+Cd9AaasnegWl20f2SpKQqq/IL5G3G8MRQTGLKpVDQ5Nik0YriBPd8aqInAfyekntXO
-	 Nm1ExVTAcMilnp11KA3eGYSIlPAxfaJzvLl5hOAcKXKYAxcZE2XVi8Kn4cWFfxRWB6DJH
-	 dFoTigWIKfI60g7183N7EhVZ99szrZyxU4Xm8Aewr/EWrScDSpqyFYXmgqPS8+QzG4B7b
-	 S8odCOm8TkBpFOkcx69t8puX33fIf0RYHH6AsTBiBvkPkbU/fmXPA4DNVRm3GjO/6BS6C
-	 rbPkwedqgOGSUqUDQ+a52WJpzkgFuD1ZI6lEEYtdZCL0vteKOpJnLhb8VmuETITAqsg==
+	t=1795196627;
+	b=c6gGUMgZwx/H37F/rP7m9yr3hoj+DelOqinrsUBVjDbZRZqbJBTUu3Nm4OuT9zSa4s9y
+	 Cu1elEV6lQKkvo6lDqM8rD+BkAkRu/imuTUD3BZH8sjcet3C2sjjrt9m3ggMRqdZSRXqE
+	 /JAFN2kDGeur3GTjrtCxhFyc/PgKFJSH3lmJSi5QtI1/l/s/FcuAb92y7HsAzA0/QU1Gs
+	 JJnJL7T+kQg4e6UduvDoURR0eZTYv0vMKCguQf8/3RGsx8A6uMlN9CZlH/EXecpgURxG6
+	 sBNhClyk46Rd/bw0KdCOG94WytSd4z5WPxvjuaQia8HYWotMInc2A1vigkbNgoY9UAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196626;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Z2vlB7NbKGLoTXOXAXKnGvAFGuwLLDoa8HHQ3kIB5h0=;
-	b=klsza0o34q/CMITLOEjKpBqrAz5G1EDr9kpxopFF87SimnEYi8RksZo1EvulcXWkuVYq
-	 aelHF4IGIjMzhYoO0US7g/VD0EK7ztFUnZ7vUtbUTPoHKuMo42WUeewAhdPO0S4ATTGjj
-	 Nb2Mb6BYUu3XO5vxozOrlUXlh9MDwwBMaC+rj9UAov4YLHA8+Lizl/BQyHSMzjpv76LpV
-	 NNpJwIuBjGvux62kyah9Sg87w4M+9KxtmNzgjgfUJVJqL2kZ7cgQURc3YCsPeeYfUG8cw
-	 cgIpr69arUDyXaLMVQgmPfC5MLic+D2tVEM2xXDF00tQ2NLOuCAFHJSvo/3jUHBeeEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196627;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
+	b=0bhv4RU4tDZp1t1Yv2qJuTo7G+wFrPptm7Z5iDfgV24n8+1U7DIliTleiICBtM5vhCI7
+	 9D6/a1DrRnPqYzessZVedPyOeVRiDY9vEdlWhZ2Xnc7Whtqw36bcrP+hr1KYQ1FJmLvXD
+	 WSGizwppBNBYsOm3n4ld6BI7Ye+bZ774Cuy3ktHQH42FlwRV6f1xpkzYWpxwcmSsGtzdC
+	 clZYlQt5kUX/LVXm7sylp7zXW7CzBFHnxgTUUAV1nGRKcMHZ2JtXZCyHbztWpedc5EBjQ
+	 AXV1WDV42R2MadunlCzjmV2RPR1oFhDoGmJrSz3hyUjI93qRvUpT/ZOswhEJ6ngAyOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1YKlIeL;
-	arc=none smtp.remote-ip=209.85.217.41
-Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com [209.85.217.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="W/YbbJT1";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=KioDSP8I;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D6B6606A7DE
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AC9A606A32A
 	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:43:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D6B6606A7DE
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AC9A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1YKlIeL
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-7777fa8f1ccso457050137.3
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:43:46 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=W/YbbJT1;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=KioDSP8I
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795196625;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
+	b=W/YbbJT1T6SPfyhgdV+k/AJsU52R5OTRWdc3fkr3VhM5KnxXlwD/MOnF8gpENvlc+5ccOH
+	MNrQRpSMjABb0TSp415Wva8bGXLsqbR1xyVz7OBMwJ4nzet6sz04HbZZjqrpKlM19Zacs5
+	6WtITXSrwfh5fBt4HoUA23R6U3J1Cbs=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-369-KxUWi17tP128BxMlT5F1Xg-1; Fri, 20 Nov 2026 17:43:43 +0000
+X-MC-Unique: KxUWi17tP128BxMlT5F1Xg-1
+X-Mimecast-MFC-AGG-ID: KxUWi17tP128BxMlT5F1Xg_1795196622
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a4654add56so7564705e9.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:43:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795196625; x=1795801425; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z2vlB7NbKGLoTXOXAXKnGvAFGuwLLDoa8HHQ3kIB5h0=;
-        b=q1YKlIeLQUegIpe4ga8FgyMH86d9w2x6f28HPugD7Vnsq927O3G5OoL00UC665t9cX
-         2EfzeUgnv/9pVJe6Cxj4VRZaADBGjW6tCniLeIcrprs9BIcqlizgkHT4HZSnuDRsZ8E3
-         CkzuHeQp/ebG+jLhIyU2fTQ92pXuZ3yrveQrDbsz8NxjfHuDwswlKZ/K/31wmpxRf3uZ
-         ubL411aejf+KNcuudeIryAdkvfxlZzg+bKCsYu7WFjZOzuxM6O7ji6OcbMY3Kxi+qIn2
-         Kq3tc2MBr8LgTyAmM+hNZJqJlPTyuTbCy8UT6GRHtN+ZH7lcSpmFq0MQ7MTSKsF9ca1n
-         /ocg==
+        d=redhat.com; s=google; t=1795196622; x=1795801422; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
+        b=KioDSP8Iyl4FnM43FYjKyB5+9zvHR8M6gyfSRy14jmsNMH7rP9Xt9yY7V42lSfg0TR
+         V/MUw1vy9X9jN27+neVPxgsnOMxxy7mJDtGhVNeyDpaS3aBQMKxlB43fpkT5nddD6FqK
+         Gq/QSHg1s1Bpi1fNplkZCIHGF0gl6nLxUxU8C8ecTNmbdjlAV01lH7LswXM0Q209qNkq
+         mK289KCOuMYWHwhdHW5N6ZLiTKMVNsP8q5KCXJyE+8eiaXvFlmSlgi6b5I+X2Rg8VHK1
+         mQ4TyqJeK4z0gAf9A+ZgnNHL3XIHRLyIpuIbADYXVRJcAafeLnBpNlkYDW3uUdpK/yil
+         oexw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196625; x=1795801425;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z2vlB7NbKGLoTXOXAXKnGvAFGuwLLDoa8HHQ3kIB5h0=;
-        b=eUzEeXD1SEiO6CX4ki22oPt1EKoYop5+ZyLUXoJZAEE403TXeZGHiByhxEZ5F7l/6P
-         z9rfvKnfpcelEI9PNKYPwtq06w5u3dLCno/Hpg+w0ZMELn9BAhWTLbVx0BA+y7rvCwgj
-         SrYXkueShlpI2EgQhKaN5IO9KpzIg1uNxxv+zQFjYJKV8Cw6qfeGaK4mCAw2rgLRts54
-         9jrPYA172E8P4icBge1dZtOMRkt9RR3HkiyLEVJlCB3rVWaPC3kxZyhM9WFmRBP/Pom9
-         2kChzrkjyC/9oqeGGRGjL8Yxxyh31G1o6OItF5f3LOZhi178fLGBH5vtd3D3YF+AUdCE
-         28VQ==
-X-Forwarded-Encrypted: i=1; AL+hErHP1uDxbj0g4Ho9oY77bNhB/y8NlR8Uc/RN5df9imDXy5L/2DFS2syT8KMD8ORwn/K4OW3tBCs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cL7ykuVXOHu8+DhMeZDJiFqpvZgBm1jAJoCInygUnhZMIPkGr
-	JFHtmevD+YnhvVUNURKMv15fH6KGAdWAJa4SQ5yfrs0i3I60/wjhZM0O
-X-Gm-Gg: AZFdTZfT2E/1gfrNtpKNO6kC/nCzs432d8fsg1ujrA1uaUFPW1ojaA5gG/PGwfDDf+l
-	ppTe59Mb+xqoHVFwMiYfxRlo2ifiOfqPM4cMcrrXFEPKOgdXgILvOaqczACnDQni4Tl/MGFvBgy
-	yl6EiiF3/M2iCaNw6X3XywbpKIRxhrwMolI5rl5mf+xUBPiQr2e8yWCjmYvU8Xp6qOZDNQDTpo3
-	5HWRej9FShbKoiIT0U+MTnYLKoo/KOI7dupTqVOrM5FvhLlL+b/Z9K+IP/BErBVRWTbX4nalKQi
-	UfplhzCPAxa6JBpYQimr90/Mo7ZFR9olK9SJTPF1wXHwQ95EH+Owz8jQ1tVTbW0PisveB/UxDLw
-	JPeOROJhSLu5JvBYO66xquqTWGnjF+aCXrxsMoYsbirq4s4lm2ZNey4kIXRvUl+dEvaeErdodzU
-	1rnZSDp751SBPAhY1b5bN7GrFveYcOVErIMKHZbW6o28cUXKVSnSdlsRFo8tdrtFVW/Dt9cb3RG
-	Tkd6lch+rTOOEqZmouAbGDWNROJyTEnUQUYchMMU9KL1RiHZgpccIv13iqIIwRC9pY8+4xL0cV9
-	sMwRoNifodezxUbQAHm/8YuSrLsAa/F3wuCdS2UsS92xSUzM/eAPDpXqmFbv4phjgT1ebg==
-X-Received: by 2002:a05:6102:4b06:b0:7d2:8dd0:301 with SMTP id ada2fe7eead31-7d7395cf0e3mr1827338137.29.1795196625209;
-        Fri, 20 Nov 2026 09:43:45 -0800 (PST)
-Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm3571363137.2.2026.11.20.09.43.44
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 09:43:44 -0800 (PST)
-From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Eric Garver <e@erig.me>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net 2/4] udp: Keep the bound device on disconnect unless connect() set it
-Date: Fri, 20 Nov 2026 12:43:39 -0500
-Message-ID: <20261120174341.35873-3-juanagusnicco@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120174341.35873-1-juanagusnicco@gmail.com>
-References: <20261120174341.35873-1-juanagusnicco@gmail.com>
+        d=1e100.net; s=20260707; t=1795196622; x=1795801422;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
+        b=h+wDQeqSvAQgB4Iq9w71Tb1WQcvPKmUp9sdX/2LOpu31yjMk1Iqon6MdOrF/NyBr/P
+         YIPmyHwgXGXu02p+lvoufoW6rtTB/6atqhQo9hvTYtHvDq3pha/l2Zo/a86/rC4KdPOq
+         yfal7AmEfO8KcL+V2fp+TJ3V0Xjxe/MfhkHZnJfh1BXq9fuBM4snu09TT6X4dBKU6tnD
+         7S7Nrx77JMqGs+tIMfq7pZ/9c9Hsjppsb119YT2DpV0IRa2QmYwlD7FFIKaIx5PgGIA4
+         MId5DHrpaGvSteSMYBVKfmsn5/eD1MDnvpgrX4yqaTxWChHwtniUPSSLWnrKqNC67xfL
+         yv4w==
+X-Forwarded-Encrypted: i=1; AL+hErF3RvzO6pF7C2mmtP9C25ZLlTm4VtDc2IonGcHytY5xrW52K/0t3yj1XKAQx7OHGWq9Y0IXiFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/oYVmLEKld7jPkoj/NcV4YGPApxpnSA21wxckvkq9KnLTQLdZw
+	KRMMSFMEJAZNxdHPM6/odnA4Lvtpxp6aRmMmt5mWMIU/IIHJuTwyUHcS2kiszmZMf6dOYFuUwBE
+	KNd66VXqOpeY4gQHzMjl3MBMpmi5qSfUqyrylY0jwRLtcJB5CyY6+62zS1Q==
+X-Gm-Gg: AYBFou3dtXTlGpUy1srWHo7YcUV5fVegGlWVcVS+67q4jSiCPJRuup231lqGUunO3z7
+	cbbq6UTwkWOLi0fTL2vNn/N4L5pCM8PnwNZP2CBTZih8+8O0YKJvT7fDPHKZ8sainCLUAJEiDqG
+	p7Mtl8sRanO3rdW0CBOQRg1SVehz1YVH+gOA+359BXhrsfnOiyYs4zbL7TUmJfgzKaguDjlXqBg
+	YtP8bbCxcWN1IvoQin74Z/sqnvwb9cQr+iD1URLamiGWxys6al3W5J3KF6xyIKvjSbrZ2A5D5lV
+	5RKoff3jWTNGK28pO7111yUIzoaZcNZYIlumOpAaATyoercODi+rWpMRgzdcRstIfDlL/DpCCiO
+	PWZS9pXySxGhzUYWsPmqAnhkebpwQj3b9sTJOmgAMcgic
+X-Received: by 2002:a05:600c:a086:b0:4a7:6425:c274 with SMTP id 5b1f17b1804b1-4bb887c34bcmr93398475e9.2.1795196621623;
+        Fri, 20 Nov 2026 09:43:41 -0800 (PST)
+X-Received: by 2002:a05:600c:a086:b0:4a7:6425:c274 with SMTP id 5b1f17b1804b1-4bb887c34bcmr93397795e9.2.1795196620944;
+        Fri, 20 Nov 2026 09:43:40 -0800 (PST)
+Received: from redhat.com ([2a06:c701:73c1:fd00:6c8e:5a61:f533:519d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm158225955e9.14.2026.11.20.09.43.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 09:43:40 -0800 (PST)
+Date: Fri, 20 Nov 2026 12:43:37 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Longjun Tang <lange_tang@163.com>
+Cc: kuba@kernel.org, eperezma@redhat.com, jasowangio@gmail.com,
+	xuanzhuo@linux.alibaba.com, virtualization@lists.linux.dev,
+	netdev@vger.kernel.org, tanglongjun@kylinos.cn
+Subject: Re: [PATCH v2 1/3] virtio: add virtqueue_get_last_used_idx() helper
+Message-ID: <20261120124307-mutt-send-email-mst@kernel.org>
+References: <20261120071826.198604-1-lange_tang@163.com>
+ <20261120071826.198604-2-lange_tang@163.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,170 +116,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120071826.198604-2-lange_tang@163.com>
 
-__udp_disconnect() clears sk_bound_dev_if unconditionally, without a
-bind conflict check.
+On Fri, Nov 20, 2026 at 03:18:24PM +0800, Longjun Tang wrote:
+> From: Longjun Tang <tanglongjun@kylinos.cn>
+> 
+> Expose last_used_idx through a new helper, which is used by both the split
+> and the packed ring and denotes the position the driver has last consumed.
+> It is useful for drivers that need to detect whether the device has
+> produced buffers that have not been consumed yet, by passing the returned
+> value to virtqueue_poll().
+> 
+> The split ring now writes the field with WRITE_ONCE() (the packed ring
+> already did) to document that the new reader can run concurrently with
+> the poll path.
+> 
+> Signed-off-by: Longjun Tang <tanglongjun@kylinos.cn>
 
-This is only safe for a device that connect() set, which
-__ip6_datagram_connect() does for a link-local or multicast peer. The
-device can also come from:
 
-- The user, with SO_BINDTODEVICE, SO_BINDTOIFINDEX or a bind() to a
-  scoped IPv6 address.
-- A cgroup program, as with ip vrf exec.
 
-The bind conflict checks treat sockets bound to different devices as
-not overlapping. As a result, an unprivileged user can bind an address
-and port that another user's socket holds on another device, clear its
-own device, and receive the other socket's datagrams:
+This kind of low level API is not reasonable in virtio.h
 
-  victim:   SO_BINDTODEVICE(lo), bind(0.0.0.0:P)
-  attacker: SO_BINDTODEVICE(eth0), bind(127.0.0.1:P)
-  attacker: connect(AF_UNSPEC)            /* clears the device */
 
-Record in sk_userlocks that connect() set the device of a socket that
-had none, and only clear the device on disconnect in that case.
-SO_BINDTODEVICE and SO_BINDTOIFINDEX drop the record.
 
-This changes connect(AF_UNSPEC) for UDP, ping, raw and L2TP sockets,
-which all use __udp_disconnect(): a device that connect() did not set
-is now kept, so changing it afterwards needs CAP_NET_RAW, as on a
-socket that never disconnected.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
----
-Notes:
-- Within a VRF, connect() can replace the master with one of its
-  interfaces, which is now kept on disconnect, so binding back to the
-  master needs CAP_NET_RAW. Before, disconnect took the socket out of
-  its VRF. Restoring the master is not safe: the bind conflict checks
-  treat a master and its interfaces as different devices, so another
-  socket may hold the master by then. Fixing that is a separate,
-  VRF-wide change.
-- Ping, raw and L2TP sockets call __udp_disconnect() without the socket
-  lock, so the sk_userlocks update is unlocked there. That predates
-  this change: commit 286c72deabaa ("udp: must lock the socket in
-  udp_disconnect()") only added the lock for UDP. Fixing it means
-  changing how ping, raw and L2TP handle disconnect, which is separate
-  from this fix, and a lost update cannot cause a bind overlap anyway.
-
- include/net/sock.h  |  4 ++++
- net/core/sock.c     |  1 +
- net/ipv4/udp.c      | 13 +++++++++----
- net/ipv6/datagram.c | 17 +++++++++++++++--
- 4 files changed, 29 insertions(+), 6 deletions(-)
-
-diff --git a/include/net/sock.h b/include/net/sock.h
-index 173b37b2b8bb..78fc65adbcb8 100644
---- a/include/net/sock.h
-+++ b/include/net/sock.h
-@@ -1534,6 +1534,10 @@ static inline int __sk_prot_rehash(struct sock *sk)
-  * define SOCK_CONNECT_BIND - &sock->sk_userlocks flag for auto-bind at connect() time
-  */
- #define SOCK_CONNECT_BIND	16
-+/**
-+ * define SOCK_CONNECT_DEV - &sock->sk_userlocks flag for a connect()-set device
-+ */
-+#define SOCK_CONNECT_DEV	32
- 
- struct socket_alloc {
- 	struct socket socket;
-diff --git a/net/core/sock.c b/net/core/sock.c
-index e2401d735c5a..5ce4aefc514d 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -650,6 +650,7 @@ static int sock_bindtoindex_locked(struct sock *sk, int ifindex)
- 
- 	/* Paired with all READ_ONCE() done locklessly. */
- 	WRITE_ONCE(sk->sk_bound_dev_if, ifindex);
-+	WRITE_ONCE(sk->sk_userlocks, sk->sk_userlocks & ~SOCK_CONNECT_DEV);
- 
- 	if (sk->sk_prot->rehash)
- 		sk->sk_prot->rehash(sk);
-diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
-index 446729b41d66..9f1f45afee53 100644
---- a/net/ipv4/udp.c
-+++ b/net/ipv4/udp.c
-@@ -2195,6 +2195,7 @@ static int udp_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
- 
- int __udp_disconnect(struct sock *sk, int flags)
- {
-+	u8 userlocks = READ_ONCE(sk->sk_userlocks);
- 	struct inet_sock *inet = inet_sk(sk);
- 	/*
- 	 *	1003.1g - break association.
-@@ -2204,15 +2205,19 @@ int __udp_disconnect(struct sock *sk, int flags)
- 	WRITE_ONCE(inet->inet_daddr, 0);
- 	inet->inet_dport = 0;
- 	sock_rps_reset_rxhash(sk);
--	WRITE_ONCE(sk->sk_bound_dev_if, 0);
--	if (!(sk->sk_userlocks & SOCK_BINDADDR_LOCK)) {
-+	if (userlocks & SOCK_CONNECT_DEV) {
-+		WRITE_ONCE(sk->sk_bound_dev_if, 0);
-+		WRITE_ONCE(sk->sk_userlocks,
-+			   sk->sk_userlocks & ~SOCK_CONNECT_DEV);
-+	}
-+	if (!(userlocks & SOCK_BINDADDR_LOCK)) {
- 		inet_reset_saddr(sk);
- 		if (sk->sk_prot->rehash &&
--		    (sk->sk_userlocks & SOCK_BINDPORT_LOCK))
-+		    (userlocks & SOCK_BINDPORT_LOCK))
- 			sk->sk_prot->rehash(sk);
- 	}
- 
--	if (!(sk->sk_userlocks & SOCK_BINDPORT_LOCK)) {
-+	if (!(userlocks & SOCK_BINDPORT_LOCK)) {
- 		sk->sk_prot->unhash(sk);
- 		inet->inet_sport = 0;
- 	}
-diff --git a/net/ipv6/datagram.c b/net/ipv6/datagram.c
-index ff7a7ffbf983..0296207dbeb0 100644
---- a/net/ipv6/datagram.c
-+++ b/net/ipv6/datagram.c
-@@ -139,6 +139,14 @@ void ip6_datagram_release_cb(struct sock *sk)
- }
- EXPORT_SYMBOL_GPL(ip6_datagram_release_cb);
- 
-+static void ip6_datagram_connect_dev(struct sock *sk, int old_dif, int dif)
-+{
-+	if (!old_dif && dif)
-+		WRITE_ONCE(sk->sk_userlocks,
-+			   sk->sk_userlocks | SOCK_CONNECT_DEV);
-+	WRITE_ONCE(sk->sk_bound_dev_if, dif);
-+}
-+
- int __ip6_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
- 			   int addr_len)
- {
-@@ -229,11 +237,13 @@ int __ip6_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
- 				err = -EINVAL;
- 				goto out;
- 			}
--			WRITE_ONCE(sk->sk_bound_dev_if, usin->sin6_scope_id);
-+			ip6_datagram_connect_dev(sk, old_bound_dev_if,
-+						 usin->sin6_scope_id);
- 		}
- 
- 		if (!sk->sk_bound_dev_if && (addr_type & IPV6_ADDR_MULTICAST))
--			WRITE_ONCE(sk->sk_bound_dev_if, READ_ONCE(np->mcast_oif));
-+			ip6_datagram_connect_dev(sk, old_bound_dev_if,
-+						 READ_ONCE(np->mcast_oif));
- 
- 		/* Connect to link-local address requires an interface */
- 		if (!sk->sk_bound_dev_if) {
-@@ -265,6 +275,9 @@ int __ip6_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
- 		np->flow_label = old_fl6_flowlabel;
- 		inet->inet_dport = old_dport;
- 		WRITE_ONCE(sk->sk_bound_dev_if, old_bound_dev_if);
-+		if (!old_bound_dev_if)
-+			WRITE_ONCE(sk->sk_userlocks,
-+				   sk->sk_userlocks & ~SOCK_CONNECT_DEV);
- 		goto out;
- 	}
- 
--- 
-2.43.0
+> ---
+>  drivers/virtio/virtio_ring.c | 18 ++++++++++++++++--
+>  include/linux/virtio.h       |  2 ++
+>  2 files changed, 18 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/virtio/virtio_ring.c b/drivers/virtio/virtio_ring.c
+> index f683a2d6a200..e8af6d5c6432 100644
+> --- a/drivers/virtio/virtio_ring.c
+> +++ b/drivers/virtio/virtio_ring.c
+> @@ -1005,7 +1005,7 @@ static void *virtqueue_get_buf_ctx_split(struct vring_virtqueue *vq,
+>  	/* detach_buf_split clears data, so grab it now. */
+>  	ret = vq->split.desc_state[i].data;
+>  	detach_buf_split(vq, i, ctx);
+> -	vq->last_used_idx++;
+> +	WRITE_ONCE(vq->last_used_idx, vq->last_used_idx + 1);
+>  	/* If we expect an interrupt for the next entry, tell host
+>  	 * by writing event index and flush out the write before
+>  	 * the read in the next get_buf call. */
+> @@ -1072,7 +1072,7 @@ static void *virtqueue_get_buf_ctx_split_in_order(struct vring_virtqueue *vq,
+>  	ret = vq->split.desc_state[last_used].data;
+>  	detach_buf_split_in_order(vq, last_used, ctx);
+>  
+> -	vq->last_used_idx++;
+> +	WRITE_ONCE(vq->last_used_idx, vq->last_used_idx + 1);
+>  	vq->last_used += (vq->vq.num_free - num_free);
+>  	/* If we expect an interrupt for the next entry, tell host
+>  	 * by writing event index and flush out the write before
+> @@ -3236,6 +3236,20 @@ bool virtqueue_poll(struct virtqueue *_vq, unsigned int last_used_idx)
+>  }
+>  EXPORT_SYMBOL_GPL(virtqueue_poll);
+>  
+> +/**
+> + * virtqueue_get_last_used_idx - get the ring's last consumed position
+> + * @_vq: the struct virtqueue we're talking about.
+> + *
+> + * Returns: the vring_virtqueue's last_used_idx.
+> + */
+> +unsigned int virtqueue_get_last_used_idx(const struct virtqueue *_vq)
+> +{
+> +	const struct vring_virtqueue *vq = to_vvq(_vq);
+> +
+> +	return READ_ONCE(vq->last_used_idx);
+> +}
+> +EXPORT_SYMBOL_GPL(virtqueue_get_last_used_idx);
+> +
+>  /**
+>   * virtqueue_enable_cb - restart callbacks after disable_cb.
+>   * @_vq: the struct virtqueue we're talking about.
+> diff --git a/include/linux/virtio.h b/include/linux/virtio.h
+> index f923e42cfd01..1aed4d9235c8 100644
+> --- a/include/linux/virtio.h
+> +++ b/include/linux/virtio.h
+> @@ -112,6 +112,8 @@ unsigned virtqueue_enable_cb_prepare(struct virtqueue *vq);
+>  
+>  bool virtqueue_poll(struct virtqueue *vq, unsigned);
+>  
+> +unsigned int virtqueue_get_last_used_idx(const struct virtqueue *vq);
+> +
+>  bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+>  
+>  void *virtqueue_detach_unused_buf(struct virtqueue *vq);
+> -- 
+> 2.25.1
 
