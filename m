@@ -1,64 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795186390;
-	b=Ufg3iulB6ZO6p8ORtMCXmDsTxPACr/K/1qTuuyuMc5ULkcSfon1LMm1WtRX0e3H8SgGN
-	 HjetI6fczuYywm0M/98fOCqk9lk9Uj/aDDT2CCmWSXrOpu0AXJjvJOF/FFBp9/lbRXGqg
-	 OEFmL4+P3NZGjdQzpKdrb9DKMfGQg/LAbgJgUIVLmrOYWpjojhbdCaSB5NJLoc0+HnfIE
-	 LleGr/Ma/V/vap3UZbRZmGIqSO73/v21OVeIMQXGVd1wIXA7jxozBI7xvzn5MGi3XcP9W
-	 YaHDmGs4s8IcjyUSJjhp/YEX3ac0EMtNPeGMHWtAoAvUP7l7/c1+iSe2z9Ol5IE41Kg==
+	b=R3PSGl3Z9Vi9ilrp4RVczI9CqVFh+T1cNg1+io6K2w/uxZMTmOX6DjKL/4ZDDSug6fCA
+	 y6lb6IfesENNiyWn7UMUwe4LrpdLtW3vsFnuQGTMT5Sp+VhneYrVfM+i/ujMyWdw8421Y
+	 1bdZ2vERkl1rBQmv7p6k+V++ekQQByJZfzfIpDYvcdXJzEoJNc2A9teTO7wirgiscXsWD
+	 t1/NzxMNQqFyQH0RfInpEwbLwyTSob4oXaqWlAMYlNAgIYGDeXOTzMKO9VVEMDNKlyFmx
+	 6TD4sY4h2EpGIdugLH4wwVH/9AGcxwzFfaypgH8rN+F+IR7RiYQA+Nx5OcrobQ+Bn4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795186390;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc;
-	bh=iBP+b6prP6kyCPScuNa8zQ2uYPSjomx3LSDLJkMRsj4=;
-	b=spbnHpl7AZTiuU4I9Z5J5+VuwRS9IGqVHUtcCA5skJNBUfvmfeq5Nx9k0iG0tOiUgI6U
-	 932spWZuU3PdwBmABzGkA2g/8aFhoMEx+nVxRLmMbSAV/w/e7+mb5ecIb56le+AsENnWH
-	 oDbQTwbsWYyV7Aog598Kuw1FygvBEG8oJWFrs125jYr3ZpGOcG6t6N04tWHkYKnIpUU+l
-	 KtonlYBwtmq98Yv06k6xMDh4HLselWxHkqJJ9mEqU+ARohTwABHPUmtT3k7i3zfAYtV5x
-	 DvBmUojOyOVdILFGV89QxMWFqekSDt/TfhivdIuH5WAlzQkeBeh6RmcySYr+qHI7BMw==
+	bh=ayCS7YjxC0rYRgHPPNliFHTX6NulF62RGdEjDbL3Cig=;
+	b=xIjhelQPG+n5WbB4vKEgb98N1BX/qnHy6BUGuskngZsFXM/NKwwagEebf4bTcug27agO
+	 75wsqofNBQI8XC2iMN8erSaISs+FsnLcfkLgwGG6ikqJWCncPwXEyG1OSrZMmhNkQdf3J
+	 C4rbYBU8MhDOxhl22KwudEbJpp5rQhbLAmVmaPvPdsl3ecAde60nlrKWoN6IvmR+lHCzf
+	 Bw7O+n35EyfSh+QEhOvAL32LmrbvR9tbQeWfLMOmOxFU5zp8gIfMo/rVpV8+89eVsyKMl
+	 KvXaVXZr/hOMh7WhtF1odlOuv1JBPlmmql9S/D98Db3t6JgJDroj+G3oRREksBdMgSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Wjfs8+jL;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="B/P0r81C";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=bimSdIGQ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=vgVP7nNy;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EF78606A333;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB87E606A33E;
 	Fri, 20 Nov 2026 14:53:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EF78606A333
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB87E606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Wjfs8+jL;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=B/P0r81C
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=bimSdIGQ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=vgVP7nNy
 From: Vasilij Strassheim <v.strassheim@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795186387;
+	s=2020; t=1795186388;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iBP+b6prP6kyCPScuNa8zQ2uYPSjomx3LSDLJkMRsj4=;
-	b=Wjfs8+jLwZFhTJO1wbR2IhC06W8LE4oMzBM1nIERkNpssNL8eibxzQtKmtvhF7M8N/8/DS
-	xBVEKiKzcZ2aShE3dmigBB4P1yN18ZvFZj57oGUp4FD1jfbWBut2bobL8yL089k7a3t1oQ
-	kJC9g5EluKwvDUBNUeECqc1QYWDEXrCemGMAv5LGYtG8EGflbvoHkzdCjBiTSM8Ptrbwz8
-	UjL0rV/GMqul4t3IHxfEz3PuNJV35YM6WQ13sizFKuRTkVwx1ajmDb918VJN3n50I8lvFh
-	47QEpX58LmZ1eEisfypxkuSTEWjuCXMbrreiSQdBPf8MoRXb51b4av6t+AtS+w==
+	bh=ayCS7YjxC0rYRgHPPNliFHTX6NulF62RGdEjDbL3Cig=;
+	b=bimSdIGQEQ6NBL/3ftfQ05g2R0HjE8rDLy4W1V1idtdQez9BkeZnMjNPA6kFT81Mw6mxyW
+	tYDuNurY636BOcnR7xv/PEoeLnD0flObseDkJTGf2ltLSOPdcN46lU7kK0kvOV9oA3kLT2
+	55ObQxbJ0RvlVzAF9fo7KB281ac9Y2gbvzd3hM68j6rSE/P8l3BC/s4TuKn9C0KsMQ68Sn
+	RngFcPCEIkE0PGhIAMJBXv3WhBJtIFe1xPE5jtvpal36Oo8jLzSzcuanAJG5PLd6fwaaaE
+	8dkcMrledwpUydeZbNLerakPFfZPqMhM/RK+n62x+Wcoo3xxz7fl9YGd+bj1OA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795186387;
+	s=2020e; t=1795186388;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iBP+b6prP6kyCPScuNa8zQ2uYPSjomx3LSDLJkMRsj4=;
-	b=B/P0r81Co3DWzjv7xpdy2YORB1iaTu6HASsaIE1xcB4wO53rISO3Bwpeivg+8OGyhNwAsi
-	LSRH10Nb4q5RVdAw==
-Date: Fri, 20 Nov 2026 15:52:18 +0100
-Subject: [PATCH net-next v5 1/9] dt-bindings: vendor-prefixes: Add soce
+	bh=ayCS7YjxC0rYRgHPPNliFHTX6NulF62RGdEjDbL3Cig=;
+	b=vgVP7nNyUvRY8qLfj4UVGxxsOGroXhaYb8HNLtcwWbob1pMzwRtG90gjn2jaSUoUqWp+BJ
+	RftAf0w6IQNko3Ag==
+Date: Fri, 20 Nov 2026 15:52:19 +0100
+Subject: [PATCH net-next v5 2/9] dt-bindings: net: Add SoC-e SWIP MDIO
+ controller
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,7 +71,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-devel-vstrassheim-soce-dsa-ml-v5-1-5de9225715e6@linutronix.de>
+Message-Id: <20261120-devel-vstrassheim-soce-dsa-ml-v5-2-5de9225715e6@linutronix.de>
 References: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
 In-Reply-To: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -85,31 +86,74 @@ Cc: Vasilij Strassheim <v.strassheim@linutronix.de>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  netdev@vger.kernel.org, mfd@lists.linux.dev, 
  Martin Kaistra <martin.kaistra@linutronix.de>, 
- Benedikt Spranger <b.spranger@linutronix.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Benedikt Spranger <b.spranger@linutronix.de>
 
-Document binding for System-On-Chip Engineering, S.L.
+Add a binding for the MDIO controller integrated into SoC-e SWIP
+Ethernet switch IP cores.
 
-Link: https://soc-e.com/
+The binding describes the transaction data registers and the lower
+16-bit half of the control register shared with the external MDIO bus
+selector. A sibling generic MMIO MDIO mux uses the upper half to select
+the external bus.
+
 Signed-off-by: Vasilij Strassheim <v.strassheim@linutronix.de>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ .../devicetree/bindings/net/soce,swip-mdio.yaml    | 47 ++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 5471a06f93f1..20a850a6e86f 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1599,6 +1599,8 @@ patternProperties:
-     description: Standard Microsystems Corporation
-   "^snps,.*":
-     description: Synopsys, Inc.
-+  "^soce,.*":
-+    description: System-On-Chip Engineering, S.L.
-   "^sochip,.*":
-     description: Shenzhen SoChip Technology Co., Ltd.
-   "^socionext,.*":
+diff --git a/Documentation/devicetree/bindings/net/soce,swip-mdio.yaml b/Documentation/devicetree/bindings/net/soce,swip-mdio.yaml
+new file mode 100644
+index 000000000000..7a0b8bd3ab71
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/soce,swip-mdio.yaml
+@@ -0,0 +1,47 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/soce,swip-mdio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SoC-e SWIP FPGA MDIO controller
++
++maintainers:
++  - Vasilij Strassheim <v.strassheim@linutronix.de>
++
++description:
++  MDIO controller integrated into the SoC-e Switch IP (SWIP) FPGA core.
++  External MDIO buses are selected through a sibling MMIO MDIO mux.
++
++$ref: mdio.yaml#
++
++properties:
++  compatible:
++    const: soce,swip-mdio
++
++  reg:
++    items:
++      - description: MDIO parameter, write data, and read data registers
++      - description: Lower 16-bit half of the MDIO transaction control register
++
++  reg-names:
++    items:
++      - const: data
++      - const: control
++
++required:
++  - compatible
++  - reg
++  - reg-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    mdio@204 {
++        compatible = "soce,swip-mdio";
++        reg = <0x204 0xc>, <0x200 0x2>;
++        reg-names = "data", "control";
++        #address-cells = <1>;
++        #size-cells = <0>;
++    };
 
 -- 
 2.39.5
