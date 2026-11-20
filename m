@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170763;
-	b=Z4Q9kCpZi/6DVa6whpTJmSUXi0wFR0ULlsHu+kC+iz+Fd7KuiEU12J7qO1BZTZ0cZhCm
-	 Z4oBYiPzbxv4isMEPuxPWrPPWa6wrRDdE7k6Z3zIAsymdWTHoAtPSPCaFFj3EnOtGPJEs
-	 O2xjlBJC6Y78mV3jBiC7eNpAbUwQpQNJ3WFHY2MJpI0AMgn38kEZAhUeIBtQbpYGoZV7M
-	 QTJKX61bhtorFhQ+BjFGfTHv96OBVL1wham2jL6NmnoS/sAwTYpQH+dBbkxqKFevnXr9L
-	 Re9XTc32EsQwP8b/nIyE7eFhuasQKVaVJ7+yDgMuuiut70/sw+THZldFuIhju1/1ufA==
+	t=1795170759;
+	b=LttHiY/Ekk+/fOYLtoDQV+P2Hjz4V36W4IHKWICwBu9Ht545Ow5ETtOTJXIYYYEfQWJa
+	 hv49IJQFrNa73OAg1fcmP0J2PvmOm8GF2MyDt2g2RWc4ABI+zq4pGsS4/e/z7yPY36/4n
+	 IZHLcPL/5wkC1q6q2I50aCsWVfmK54BA+ZgTykGmHZKx7YZ97rQj8TlWYmRe/XDDZRXg9
+	 +KElmUyWhKCMO4jk7hekjNeGJaA6K4QkXYZYLGE4x/oJh80S1TaJqOzoAfZqwhAtgmQE7
+	 xkbm46qKv0lMiqAQM3IbtidTRf3CauLzCPhSBLkcNgUCzSUD6PQFaGCAsQdThj6M3Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170763;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170759;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=3Bzon3iWvUaUY96e3SA5cgJ7L9dQgMChALNIrIrFeCA=;
-	b=gaB5kC6RNpwHym9+PN+Fjgb/T8VGEA16AJhjQphl7g2C5tDApC/ltRoOhI3SFgRWgHWk
-	 JYJGv9vKJ043mKVgOOb+vMJC7FpbUITd3udK+0OenT6DGHAHCxIKvp5sQuMO7K/HVu4v7
-	 Ch/zg5QkqzmLqwTgR2aLE416Szk8XnneWQoHmgGpaae+RTvple9PtyiCJk6ay4lfS7cmB
-	 1yuQVUSMSheHJiMf1AQoICz1h7K792ZorzdFQgz0ajHmU5F10eL+tz2rYwuMoiXMOcdHP
-	 CzWLMWV8jmV7psJ00Pzfg4b6CU+EaWulWVgI8fBSL3cJx7dipCRy5L4zHjhoLoJS1Xg==
+	bh=hTNOfdeCvWouP9Nqqtvad4CK/MnaRwkTHqEbV+y/SmE=;
+	b=HuYxesjv+mNqDOD4xc7a+n0ls6/gzUI9xzYI5Xt+dFjfFXE+dJUGEuQwUODPSytwOXIU
+	 louIxUgxMDfXx7s5d0VxSYjtoYPJmXhH4J3mzgHhY6USnSIcJua7ZhBFH0BGAVtu6M2Yb
+	 5aBuF0t0qk4LSxXc8+MD92NeD17usk4v9g9BQNdUjgHK2dNV4M1R+QYsGroqz6k0raKJe
+	 /Mr6M5ax4hd3kwxesjoC2BKKhyDcab3depY6rQPw/ZX+psJf17Mk/mMxW3QYSKAZ0kKvN
+	 rdcLW0N+UHnjHpKpXD0POm9iQe2dHDV7OlaTeBQUVKbNavSrdEBmUJJohKfHWf9ElRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d769vmyH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L+LQ6t0M;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 832D860A262E;
-	Fri, 20 Nov 2026 10:32:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8926E606A33B;
+	Fri, 20 Nov 2026 10:32:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d769vmyH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE321F00A36;
-	Fri, 20 Nov 2026 10:32:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L+LQ6t0M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D1991F000D0;
+	Fri, 20 Nov 2026 10:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170763;
-	bh=3Bzon3iWvUaUY96e3SA5cgJ7L9dQgMChALNIrIrFeCA=;
+	s=k20260515; t=1795170759;
+	bh=hTNOfdeCvWouP9Nqqtvad4CK/MnaRwkTHqEbV+y/SmE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=d769vmyH+YXDYqXQIiDJyzrv96P2247yEvThlIwBs3NCaKJwM/vDydEZG41mPGDsZ
-	 YrsygRu5d770zzC6z5bh9+cBGwZPAec1sg6u5VWvSPztLGygHIuTcvns9MD6llHnx3
-	 XeK/nlnI1aIQt2m51g77dCR+hdgJB3tleJcUKpmGeVVlDVjj+8nE3jVC+P5opFqAOA
-	 l+Cktg7FI/FTWxCYfI8RJg34ByGRZ0WaWA07xsUs4dchK8dVPoHKm4zxRFt1AiE93S
-	 shgV9ywey/cSDRMtHN8h5kCZg8Eb6kvTpymp4QSq26IXN58wEzh+VkoUV3BuqS/+J4
-	 zgJrbkSKuu1KA==
-Subject: Re: [PATCH net v3 09/10] net: au1000: keep the MAC stopped until the
- PHY link is ready
+	b=L+LQ6t0MQiyXMI13RMfIlEoxNujKZpGm0ZO70XcDImQhSg+HGaYWo3Tp36wSHQdRv
+	 VknAFkPYqIMGLQWVwdjUE90cx2PPlCnxOYBFDrHXzNeFBFe1XC+bEn13oI2aCr1WXF
+	 YkpZr4toUPm03dWg3JUaMbNMZsyDkN062BkyMNqv/5MExvWpsypG7SrzgGX8QkfV21
+	 8+PTTsEJ0NB2+0HAjSOGRduVl4M26cpPj6KM85Oa4EFFRBPsBx8e6+6OslgBRtbF9C
+	 O2tJ4aaOqTeVlq+yA+d6sZP+aH8AvCaZlO92Hh2lDL8as08B8dWudRwmpwVCPz0/vE
+	 0uji5FH4M6LUw==
+Subject: Re: [PATCH net v3 07/10] net: au1000: restore RX buffer addresses
+ when restarting the MAC
 From: netdev-bot+sashiko@kernel.org
 To: f.fainelli@gmail.com
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -50,11 +50,11 @@ Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
  danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
  linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
-Date: Fri, 20 Nov 2026 10:32:41 +0000
-Message-ID: <179517076197.3136.575167773294560465@kernel.org>
-In-Reply-To: <20261117193223.2795612-10-f.fainelli@gmail.com>
-References: <20261117193223.2795612-10-f.fainelli@gmail.com>
-X-sashiko-severity: High
+Date: Fri, 20 Nov 2026 10:32:37 +0000
+Message-ID: <179517075795.3136.15427400757159569527@kernel.org>
+In-Reply-To: <20261117193223.2795612-8-f.fainelli@gmail.com>
+References: <20261117193223.2795612-8-f.fainelli@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,126 +78,80 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The fix stops MAC RX/TX in only one place: the link-down branch
-  of au1000_adjust_link()…
-- [Low] The new au1000_hard_stop(dev) call in the link-down branch of
-  au1000_adjust_link() (au1000_eth.c:460) runs inside…
+- [Medium] The patch puts each RX descriptor's buffer address back to
+  rx_db_inuse[i]->dma_addr only in au1000_init()…
 
 --
 
-net: au1000: keep the MAC stopped until the PHY link is ready
+net: au1000: restore RX buffer addresses when restarting the MAC
 
-This patch stops MAC RX/TX in the link-down branch of
-au1000_adjust_link(). In au1000_open() it resumes the PHY synchronously
-before au1000_init(). It also changes au1000_init() to leave RX/TX
-disabled until au1000_adjust_link() has acknowledged a link.
+au1000_init() now rewrites each RX descriptor with its buffer's start
+address from rx_db_inuse[] before setting RX_DMA_ENABLE. Before this,
+it only set the enable bit on whatever address the DMA engine had left
+behind. That could let a receive after close/open start partway through
+its buffer.
 
 > diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-> index cb2f3333ba9fd..98a75aba92e1a 100644
+> index 0e9226ea05e18..cb2f3333ba9fd 100644
 > --- a/drivers/net/ethernet/amd/au1000_eth.c
 > +++ b/drivers/net/ethernet/amd/au1000_eth.c
-> @@ -456,7 +456,8 @@ au1000_adjust_link(struct net_device *dev)
->  		/* link state changed */
->  
->  		if (!phydev->link) {
-> -			/* link went down */
-> +			/* Stop the MAC before the PHY can remove its clocks. */
-> +			au1000_hard_stop(dev);
+> @@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
+>
+>
+>  	for (i = 0; i < NUM_RX_DMA; i++)
+> -		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
+> +		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
+> +		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
 
-[Severity: High]
-This covers phy_stop() on close. Is there a path that powers the PHY down
-without ever calling adjust_link, though?
+[Severity: Medium]
+Is au1000_init() the only place the receiver gets restarted?
 
-During system sleep, mdio_bus_phy_suspend() only skips the PHY when
-mac_managed_pm is set, and au1000_eth never sets it:
+au1000_adjust_link() also stops and restarts RX on every duplex change,
+and it does not go through au1000_init() or au1000_reset_mac_unlocked():
 
-drivers/net/phy/phy_device.c:mdio_bus_phy_suspend() {
+drivers/net/ethernet/amd/au1000_eth.c:au1000_adjust_link() {
     ...
-	if (phydev->mac_managed_pm)
-		return 0;
-    ...
-	if (phy_uses_state_machine(phydev))
-		phy_stop_machine(phydev);
-    ...
-	return phy_suspend(phydev);
-}
+	if (phydev->link && (aup->old_duplex != phydev->duplex)) {
+		/* duplex mode changed */
 
-phy_stop_machine() only cancels the work and moves the state to PHY_UP,
-so it never reaches the PHY_HALTED path that calls phy_link_down():
-
-drivers/net/phy/phy.c:phy_stop_machine() {
-	cancel_delayed_work_sync(&phydev->state_queue);
-	mutex_lock(&phydev->lock);
-	if (phy_is_started(phydev))
-		phydev->state = PHY_UP;
-    ...
-}
-
-On MTX-1 the LAN83C183 then gets genphy_suspend(), which sets BMCR_PDOWN.
-au1000_eth_driver has no .driver.pm callbacks. With the interface up and
-the link up, the MAC appears to keep MAC_RX_ENABLE | MAC_TX_ENABLE set for
-the whole sleep.
-
-On resume, mdio_bus_phy_resume()->lan83c183_resume() waits 500 ms, and
-the MAC is still running during that wait.
-
-Those are the two conditions the commit message describes: "MTX-1 can
-hang when the MAC runs while its MII clocks are absent or still
-recovering."
-
-This looks reachable on MTX-1 itself through s2idle, because
-pm_states_init() always offers "freeze" even without platform
-suspend_ops. Alchemy db1x boards can also reach it through suspend-to-mem,
-via the db1x_pm_ops registered in arch/mips/alchemy/devboards/pm.c.
-
-The last patch in the series ("net: au1000: reject frames larger than the
-TX bounce buffer") only touches au1000_tx(), so this gap is still there
-at the end of the series.
-
-Would it make sense to add MAC-side suspend/resume handling here? Another
-option is to set mac_managed_pm and stop and start the MAC explicitly.
-
-[Severity: Low]
-This call runs inside the spin_lock_irqsave(&aup->lock, flags) region of
-au1000_adjust_link(), and au1000_hard_stop() ends with a busy-wait:
-
-au1000_hard_stop() {
-    ...
-	writel(reg, &aup->mac->control);
-	wmb(); /* drain writebuffer */
-	mdelay(10);
-}
-
-Doesn't this mean every link-down event now spins for 10 ms with local
-interrupts disabled? Before this change the link-down branch did no MMIO
-and had no delay.
-
-On close the wait also seems to happen twice. phy_stop() leads to
-phy_link_down()->au1000_adjust_link(), which does the first hard stop.
-
-au1000_close() then takes aup->lock with irqsave and calls
-au1000_reset_mac_unlocked(). Since MDIO accesses have re-enabled the MAC,
-mac_enabled is still 1, so au1000_hard_stop() runs again with RX/TX
-already cleared:
-
-au1000_reset_mac_unlocked() {
-    ...
-	if (aup->mac_enabled) {
+		/* switching duplex mode requires to disable rx and tx! */
 		au1000_hard_stop(dev);
+		...
+		au1000_enable_rx_tx(dev);
     ...
 }
 
-The delay is only there so the MAC can quiesce before phylib suspends the
-PHY, and that suspend happens after adjust_link returns.
+On link down, old_duplex is set to -1, so this path runs on every link-up
+after a link-down. au1000_hard_stop() only clears MAC_RX_ENABLE and
+MAC_TX_ENABLE in mac->control. It leaves rx_dma_ring[i]->buff_stat alone.
 
-Could the register write stay under the lock, with the mdelay() moved
-after spin_unlock_irqrestore()?
+Suppose clearing RE stops a frame partway through. The descriptor would
+keep RX_DMA_ENABLE with RX_T_DONE still clear. au1000_rx() only reloads
+the address inside its while (buff_stat & RX_T_DONE) loop, so it would
+not reset this descriptor:
 
->  			aup->old_speed = 0;
->  			aup->old_duplex = -1;
->  		}
+	prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
 
-[ ... ]
+Could the next frame then start at the advanced address, partway into
+the MAX_BUF_SIZE buffer? The free list is LIFO, so rx_db_inuse[0] at
+probe is the last slot of the dma_alloc_coherent() region. An overrun
+from that slot would land outside the allocation.
+
+A later patch in this series, "net: au1000: keep the MAC stopped until
+the PHY link is ready", adds another au1000_hard_stop() on link-down in
+au1000_adjust_link(). Each link flap would then stop RX twice, and the
+restart on link-up still skips the reload.
+
+This depends on what the MAC does when RE is cleared mid-frame. If it
+always finishes the frame and sets RX_T_DONE, au1000_rx() covers it.
+Nothing in the driver documents that behaviour.
+
+Would it make sense to put the descriptor reload in a helper that both
+au1000_init() and the au1000_adjust_link() stop/start sequence call?
+
+>
+>  	wmb(); /* drain writebuffer */
+>
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193223.2795612-1-f.fainelli%40gmail.com
