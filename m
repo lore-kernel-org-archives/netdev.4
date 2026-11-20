@@ -1,80 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180737;
-	b=lebNnziPAUtqONIrPTkRaZu3n8a3n9W0qgg7RK0cqiMM9sERokzn6s7vcA0lEa6f6hwg
-	 abOtCSz/3fHuYj725TYDdVciGYsI5O1Lm1FSQ6kC97BH7pOUyMqmTcpmhmBsBu1PN3J7m
-	 mkBjkJMcS29Z1gGQzVRmQpkTBD/vzgJ9cNdfN2fVjrqA9H9S+snjKH1t2bIHf2FkK9U+E
-	 70SaxDC2ZMWlhNGvc+6GDyLwt40Q1e8aBWZO1DydXagjf5F5Twjr+V4StPNH/LN/ZRYNa
-	 fbofmeRgtmwgnF8R1D93lHHJVYcqysVHGV0Z1VkjWJlbS3lZRpQfUT+1Cqxe0URvciw==
+	t=1795180911;
+	b=DrTKE3PjsfQsVRPrsgAbc2QxeA3eCY7AmWEGiaWuhlKMFtyMxox9cFM6GV4A3UexGFva
+	 fizX7kKnV1BS/hG6SpFdgpBb0fKfPuJtiq1OcletiPhFIZ+tThpnmkvfbcZz2JZsb9ppC
+	 Ppwa0zOPVNs637XNqaYktSoaM1nTH2S+0D9kR2XtRsFGNiYq0mcHvAKj24OHHSOknL0o7
+	 5Q06tPx5ZaPnFJ96N66HSU7WjpANC1BSVoqy+M9btzzTi3o/wWgfkx/5ctEYK5OJpFNDY
+	 jjG3qDs4Ha8adHsVi37cgaC25uP+N2Llu5TIXUmWKV1zN8F93zfWwnOVTzDHbj+bOHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180737;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=7vhtwzXgoC5BMw/zcM6/KX8DJnRqVymglyCO+JLqz0c=;
-	b=Uo4VsBcJuOFIvrr6I0cbh0CEF6vN3UEhuE11xLQkZ196MyQo5wP1efxYrJGnOkJDofly
-	 d6rXmcnt54alfqYPfe1eIuuoR/1x1q3EB01vE3UILyJDML75vfvfUqKbfqM69UmXChE8H
-	 keForHKh/puSnC3AwHMk996UMG5dmfEtOi9dPfvR9D9mJZJE2aoQEiaermUGjIb5WiZcQ
-	 5fyZDU7tsloL2B+c9S4I3wGSlPqQnHtfpQ7Jnm1vwFRAEacq2V+YfXvK8fNnLckyfyeb1
-	 FbDmW10DlDjMuBysgbuzYko4aZ3AIOIVI/bOOeZomQhWIR9T5EWn1YjxqW6M87eYqMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180911;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=fFY2JiL4Gjfohkv1qNJ9dcQMzcXH5V6E4XAVqKS4phI=;
+	b=pWMjGj8v/ju5ZWGRWPpbboEf3dBWfL2Jkr3ZPMb9XMLwxUbJG7RqfVksdP9r2v+btHMx
+	 ildENE+2/a2c6gYES6VQD24DX6JMwiG8RhepQEIAU9osjsqX+YYNlZBmXadH/ELPqvDDX
+	 KjTszx81/gztyqDHb5ADARJ0GfF2RSC7+RFzL6doOCHwMWfQrEmNJxyf6AmKmQaq8xQqQ
+	 rca9V6AolxoRuuVmUr4BL1OvQwyTEn2Rz5PstOMl9w3ehrVjJowBmRpfTJbONvSXFjab0
+	 ++5vTGx5hbyZec/jg66wGNoCC0t/yAW8xYT5PyyN9E/nbwsWWcZSgp90uGzvenJtTIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=m7mQfuiI;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=o2MXrZNW;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC6A606A326;
-	Fri, 20 Nov 2026 13:18:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC6A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E807606A338;
+	Fri, 20 Nov 2026 13:21:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E807606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=m7mQfuiI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795180737; x=1826716737;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=JpSwqpRYyuHGJVKnLsoDIc7PuNkmDWVSooM6fHdPxqM=;
-  b=m7mQfuiI/1o0Swr4Zw7BOyhl8vg4inrSJfOVyGyUv+YfE6nLuTtv6yMT
-   FSELKURrUjrUBvvobE+kStH7U5Vj0yJtYeWhA8P1BCTby2bWvJsp6ghMs
-   aF1noCYGHlHQFDCna1KfAWFa2jE0acef3aAnhMZvhAVJOxOZg13OLLmz+
-   FQG4pR9NmEUCIh1EZABWya7B6nAAl0cHpJ6W+p7EwuRBnsUxja7Yw4ula
-   Vm6UR4ZtruyPvbkYxGA1q9QCbuOBR8t2yGmjNOrQcoeouF3T8wvqNLuZl
-   plRAYbuHAeLVF7DwsZny4SdRcoAYEW/Qbize13jvl51e14/ogXpDxZ4DB
-   Q==;
-X-CSE-ConnectionGUID: Y38fTb/4QaWpx1PwKdM1fg==
-X-CSE-MsgGUID: 4zjlGLpJSTCqHAluopv3vQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4101477"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4101477"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:18:55 -0800
-X-CSE-ConnectionGUID: SUQtMr9QRZqKrvVtf+8XOA==
-X-CSE-MsgGUID: d1li8qXERXi9iAcLdgJ0Uw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11269474"
-Received: from emr-371.sh.intel.com ([10.112.106.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:18:53 -0800
-From: Baoli Zhang <baoli.zhang@linux.intel.com>
-To: jv@jvosburgh.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: jamie.iles@oss.qualcomm.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Baoli Zhang <baoli.zhang@linux.intel.com>
-Subject: [PATCH net] bonding: fix use-after-free in slave_kobj_release()
-Date: Fri, 20 Nov 2026 21:08:14 +0800
-Message-ID: <20261120130814.2131659-1-baoli.zhang@linux.intel.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=o2MXrZNW
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=fFY2JiL4Gjfohkv1qNJ9dcQMzcXH5V6E4XAVqKS4phI=; b=o2MXrZNWZdpZsN9juj+n09p61O
+	nRr1FtIW8/cbyrSAtJN2SYPNU24A+nN3PuIpM4RuWn1BxE7y+ERsHTCUjfY+yLoyg9k5Ift74QMQe
+	bCQeMud7Uf6VAVPDWg0ALMrFIb3HMw/OLNazNIcS8fqKD9YsHAE3S+nuCWfzF7Vd5Rn4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xUOYX-000ITq-EW; Fri, 20 Nov 2026 14:21:33 +0100
+Date: Fri, 20 Nov 2026 14:21:33 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chih Kai Hsu <hsu.chih.kai@realtek.com>
+Cc: Birger Koblitz <mail@birger-koblitz.de>,
+	"netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	nic_swsd <nic_swsd@realtek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"bjorn@mork.no" <bjorn@mork.no>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>
+Subject: Re: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
+ RTL8157 and RTL8159
+Message-ID: <78ed468c-798c-44b2-9f97-8645af0f1641@lunn.ch>
+References: <20261110032416.16968-11-nic_swsd@realtek.com>
+ <179464851836.2199510.10154643847175029122@kernel.org>
+ <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
+ <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
+ <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
+ <b53ecd5dc96f4890956f051959b74e32@realtek.com>
+ <1543707c-c121-4c35-8849-c4db1a71fb57@lunn.ch>
+ <6a2c635ba56d4deab25a25db9af91c10@realtek.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,57 +79,18 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6a2c635ba56d4deab25a25db9af91c10@realtek.com>
 
-slave_kobj_release() dereferences slave->bond to check for 802.3ad mode
-before freeing ad_info. The slave kobject's parent is the slave device,
-not the bond, so the bond may already be gone when the release runs.
+>  The root cause there is also that
+> the MII library does not check the errno, so a future patch could make the MII APIs
+> check the mdio_read() return value and propagate the error.
 
-Normally the last reference is put while the bond is still alive, but
-with CONFIG_DEBUG_KOBJECT_RELEASE the release is deferred and the bond
-can be freed first:
+The MII library is deprecated. It is not maintained. It will not be
+changed unless it is really broken, and by that i mean it breaks
+802.3.
 
-  BUG: KASAN: slab-use-after-free in slave_kobj_release+0xe8/0x100 [bonding]
-  Read of size 4 at addr ffff888112c99118 by task kworker/9:1/60681
-  Workqueue: events kobject_delayed_cleanup
-  ...
-  Freed by task 60681:
-   kvfree+0x31/0x40
-   netdev_release+0x8b/0xc0
-   device_release+0xdf/0x2a0
-   kobject_delayed_cleanup+0x148/0x520
+All feature development work should be done on phylink and phylib.
 
-ad_info is only allocated in 802.3ad mode and is NULL otherwise, since
-the slave is allocated with kzalloc(), and the mode cannot be changed
-while the bond has slaves. Drop the mode check and free ad_info
-unconditionally.
-
-Fixes: b9ad3e9f5a7a ("bonding: wait for sysfs kobject destruction before freeing struct slave")
-Signed-off-by: Baoli Zhang <baoli.zhang@linux.intel.com>
----
- drivers/net/bonding/bond_main.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index a1c156c145b2d..0ec5bc838b86e 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -1732,11 +1732,10 @@ static void bond_upper_dev_unlink(struct bonding *bond, struct slave *slave)
- static void slave_kobj_release(struct kobject *kobj)
- {
- 	struct slave *slave = to_slave(kobj);
--	struct bonding *bond = bond_get_bond_by_slave(slave);
- 
- 	cancel_delayed_work_sync(&slave->notify_work);
--	if (BOND_MODE(bond) == BOND_MODE_8023AD)
--		kfree(SLAVE_AD_INFO(slave));
-+	/* ad_info is only allocated in 802.3ad mode, NULL otherwise */
-+	kfree(SLAVE_AD_INFO(slave));
- 
- 	kfree(slave);
- }
-
-base-commit: bc4c8c146447f71534e80db39c2d1149c6af5fd6
--- 
-2.43.0
-
+	Andrew
