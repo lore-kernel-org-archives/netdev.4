@@ -1,66 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158828;
-	b=Ln9nlYYsGWm3MDdUoOTEzrSC1sjxfNqUa2DmPw+JzksrUE1twxl/F7aFGk4cUSLy2uwY
-	 d9gde6M8dcQ85O40a+PVOYSELJq2/ghXJW+tEHE+lI0fWRq3vzFJDlbBWzymgr4h5WeJx
-	 WWP8joMEbKVXoDLSd5AQ+2rul9rO35MeHsvCkYl3Ay6hAjFxPptYHQzWnlCehh6Kr6l0x
-	 1QDXAxl8BC1IHFenDID/ZE2PK6aZHBNQMWIelPFUabiQhrtDXpcqTmFA/eZaJdm9EYzVt
-	 98u4de6DHRHoU42JPpELA5vuxEx08oi4DJ/rw2+xLoHzZu0egdGgo99n357Qd3eJGkA==
+	t=1795158825;
+	b=fcpp2BfwXDuQ6FTm5KnODejpPoiKd6gazwnnUlJmdg8DebFAQAPht7XuTtkIc9hxZUuq
+	 K1WNuq7mtzHlQjmaRRpB5p6CA44ESr7dZD8BiRS3AlrEtGuga3WGcExRGhDf39YRTw3bL
+	 JB6DurTWFxZKj+SkG9WhpGOwOHT5o9VCczmaFQgOs9R7O3p5v5v+dSD5xzD+H7TBQtrNJ
+	 cjLqHcnkRMFeEgfTevhpD3X6SP8ZH3WlHvTa6fQo8jFHKutsHFC63AJ+FFhPpQeTdF+9b
+	 VzacSXGeLbC0NxC+mjCfDoA8dEaFGDm0GLjahJ4FBfRohx//XwPQnJgOSgXPwbDg/nQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158828;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
-	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
-	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=bEA86BmeuaVIl/WuC196ZahnWqjhESSU5lFaK7N0pcY=;
-	b=SVlme4e1Nz8YyzwDhejFeMLzYOFZ6DMMRf3QFwrrj96e/sQ7FpuSZuRXubjUYZ8A0Tm0
-	 KvZgpyDqvU1a5TikvYWXoU7Kq+VRmodGeFs3Qq5E44M1WZCCpXLBgtS1D+rcXVy1M+RKD
-	 bJLv2ftxTnbg3lpZ1h9sAdFoEE3K+G4Iy7vzsDbDIFykkDD4As5zaxhhywGmzpHeB7vEB
-	 jLlxrGCOs/VYXHaijIKQ+TIe+mSynOUx0aF6mcJiD8aLJdHolnt9lwmeVeWJbWkxJAh2w
-	 X4JXyeRbUJPBM374/XaIZJfLzdgLU+LH/v0HutdkdMx7KMhK2vLtS4UM2xsGqKHQqvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158825;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=LB9wymtVohhmpOcRNEMKuhiXQ1mq5XK/YUMlCRu5VHU=;
+	b=czUxY0MEaQU61QSrb2uL9VnjhCkguY5vAt5UdTZt7UJkLqY++ZQojWYmaXVjU5hrIK7h
+	 TVQvZLC1rt1lzCURDpyd7xBDIqIqqYDrBCScbMw26/+UQ8K7wuQ55q2a/nH9nfjHvgfhN
+	 wxJrG1qqAXRoTfYqTpPqjU37HEDLpPGZlV2jV8qS92AkuoTVdRJhOZs/UvZ0coSH7jcJy
+	 HsqFn9Km1Tf8hYUNytgJJ3Px5Kigr8t9vrXmVirsc2EQN/DKjs/63nsuo1xSKNUX7c9Vs
+	 2zbzqOs/t4xOCWy1MBsGgSw46jhlIMGBqsdnAX0oyv6zB7lnvI3jOkfQVopb3IOw/4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UNblf+6w;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SmBCME1G;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49F2606A325
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:13:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49F2606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2254F606A320;
+	Fri, 20 Nov 2026 07:13:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2254F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UNblf+6w
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=bEA86BmeuaVIl/WuC196ZahnWqjhESSU5lFaK7N0pcY=; b=U
-	Nblf+6w0WzYFxY6o8Npm4UFIFHiBs8WZgaRhoefW3ilZu/HM8cBRdnMPBWTLggkz
-	TlPAr+21AFkabbHjuOWFDzNox/EXcjBfWIUCEuUmnkWGRAzL490GzeQ1nm6h+Ic3
-	3rHOiVDjoKZoLjQMxdakYfUBrNxRUxMsEHqmNG9eIM=
-Date: Fri, 20 Nov 2026 15:13:23 +0800 (CST)
-From: "Lange Tang" <lange_tang@163.com>
-To: "mst@redhat.com" <mst@redhat.com>
-Cc: "Jakub Kicinski" <kuba@kernel.org>,
-	"Eugenio Perez" <eperezma@redhat.com>,
-	"jasowangio@gmail.com" <jasowangio@gmail.com>,
-	"xuanzhuo@linux.alibaba.com" <xuanzhuo@linux.alibaba.com>,
-	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"Tang Longjun" <tanglongjun@kylinos.cn>
-Subject: Re:Re: [PATCH 1/3] virtio: add virtqueue_get_last_used_idx() helper
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20261112174936-mutt-send-email-mst@kernel.org>
-References: <20261109094310.103979-1-lange_tang@163.com>
- <20261109094310.103979-2-lange_tang@163.com>
- <20261112174936-mutt-send-email-mst@kernel.org>
-X-NTES-SC: AL_Qu2SB/2et0Ar5SGfZukfmUgRg+c/XsK4svUj24VVOJF8jCDp+SEJYHZTFGvuwfi3ASqsmSO8ahFRxdZ2WohybrgljfmB9rd7tqyaLw/zu0Gkkg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SmBCME1G
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 21E38207D8;
+	Fri, 20 Nov 2026 08:13:42 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id pKVg5zZ_qty8; Fri, 20 Nov 2026 08:13:41 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 7AE48206D0;
+	Fri, 20 Nov 2026 08:13:41 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 7AE48206D0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795158821;
+	bh=LB9wymtVohhmpOcRNEMKuhiXQ1mq5XK/YUMlCRu5VHU=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=SmBCME1GUjFJo2FT6pN9ojDF62kXxceM1TKgtTlbSlecg90SJiOn45q6Q3s4edxWy
+	 CKd9LRdGINW3CRx722ACJByOb9zyHmIZZ1afEtuqLaIZKQFpd2KLAQZ0PQkmipQUF2
+	 1ztlZsGDwmqy8j3AJpgsGI6iM/xBSd+pMRHF+s/FcZN/U2EGNVP1rr+W9Mk6dWKQGl
+	 QzavQldlzObeOJgXKOap43FKPQnryvXWFDhhEdkyGXE1XU0kAzOQRwTsTMHiHU+DPE
+	 0orBFf51TqNt+uAOlIX0eRx2Ry08dPc6pDyg/bij9+qLDuqSBNjQRjeFrIZdBXRlLX
+	 xSranQSAfNPoA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
+ 2026 08:13:39 +0100
+Received: (nullmailer pid 1694731 invoked by uid 1000);
+	Fri, 20 Nov 2026 07:13:38 -0000
+Date: Fri, 20 Nov 2026 08:13:38 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Paolo Abeni <pabeni@redhat.com>
+CC: Daniel Wade <danjwade95@gmail.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, Eric Dumazet <edumazet@kernel.org>, Jakub
+ Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S. Miller"
+	<davem@davemloft.net>
+Subject: Re: [PATCH net] net: af_key: fix use-after-free in dump_sp() on
+ policy migrate
+Message-ID: <av_zInP3LgU0gdIr@gauss4>
+References: <20261114223529.1791-1-danjwade95@gmail.com>
+ <99480e51-50f7-425b-b8e9-95b7734c64bf@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,71 +84,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <62c513b2.5a25.1a1f7cd82ec.Coremail.lange_tang@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:aigvCgD3_8gT8_9qo31yAA--.319W
-X-CM-SenderInfo: 5odqwvxbwd0wi6rwjhhfrp/xtbC-RObyWr-8xNxiwAA3z
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <99480e51-50f7-425b-b8e9-95b7734c64bf@redhat.com>
+X-ClientProxiedBy: EXCH-03.secunet.de (10.32.0.183) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-QXQgMjAyNi0xMS0xMyAwNjo1MDozMywgIk1pY2hhZWwgUy4gVHNpcmtpbiIgPG1zdEByZWRoYXQu
-Y29tPiB3cm90ZToKPk9uIE1vbiwgTm92IDA5LCAyMDI2IGF0IDA1OjQzOjA4UE0gKzA4MDAsIExv
-bmdqdW4gVGFuZyB3cm90ZToKPj4gRnJvbTogTG9uZ2p1biBUYW5nIDx0YW5nbG9uZ2p1bkBreWxp
-bm9zLmNuPgo+PiAKPj4gRXhwb3J0IGEgcmVhZC1vbmx5IGFjY2Vzc29yIGZvciB0aGUgbGFzdCBj
-b25zdW1lZCB1c2VkIHJpbmcgaW5kZXguCj4+IEl0J3MgdXNlZnVsIGZvciBkcml2ZXJzIHRoYXQg
-bmVlZCB0byBkZXRlY3Qgd2hldGhlciB0aGUgZGV2aWNlIGhhcwo+PiBwcm9kdWNlZCBidWZmZXJz
-IHRoYXQgaGF2ZSBub3QgYmVlbiBjb25zdW1lZCB5ZXQsIGJ5IHBhc3NpbmcgdGhlCj4+IHJldHVy
-bmVkIHZhbHVlIHRvIHZpcnRxdWV1ZV9wb2xsKCkuCj4+IAo+PiBUaGUgc3BsaXQgcmluZyBub3cg
-d3JpdGVzIHRoZSBmaWVsZCB3aXRoIFdSSVRFX09OQ0UoKSAodGhlIHBhY2tlZAo+PiByaW5nIGFs
-cmVhZHkgZGlkKSB0byBkb2N1bWVudCB0aGF0IHRoZSBuZXcgcmVhZGVyIGNhbiBydW4gY29uY3Vy
-cmVudGx5Cj4+IHdpdGggdGhlIHBvbGwgcGF0aC4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IExvbmdq
-dW4gVGFuZyA8dGFuZ2xvbmdqdW5Aa3lsaW5vcy5jbj4KPgo+VGhpcyBpcyBub3QgYSBnb29kIEFQ
-SSwgcGFja2VkIHJpbmcgZG9lcyBub3QgaGF2ZSBhIHVzZWQgcmluZyBhdCBhbGwuCgpSaWdodCwg
-cGFja2VkIGhhcyBubyB1c2VkIHJpbmcuIEJ1dCBsYXN0X3VzZWRfaWR4IGlzIG1haW50YWluZWQg
-Zm9yIGJvdGggc3BsaXQgYW5kIHBhY2tlZApyaW5ncyBhbmQgY2FuIGJlIHVzZWQgdG8gZ2V0IHRo
-ZSBwb3NpdGlvbiB0aGUgZHJpdmVyIGxhc3QgY29uc3VtZWQuCj4KPj4gLS0tCj4+ICBkcml2ZXJz
-L3ZpcnRpby92aXJ0aW9fcmluZy5jIHwgMTggKysrKysrKysrKysrKysrKy0tCj4+ICBpbmNsdWRl
-L2xpbnV4L3ZpcnRpby5oICAgICAgIHwgIDIgKysKPj4gIDIgZmlsZXMgY2hhbmdlZCwgMTggaW5z
-ZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPj4gCj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3Zp
-cnRpby92aXJ0aW9fcmluZy5jIGIvZHJpdmVycy92aXJ0aW8vdmlydGlvX3JpbmcuYwo+PiBpbmRl
-eCBkYjY3OGY1YTgwZTAuLjZkODQ4NWM3Mzg4MSAxMDA2NDQKPj4gLS0tIGEvZHJpdmVycy92aXJ0
-aW8vdmlydGlvX3JpbmcuYwo+PiArKysgYi9kcml2ZXJzL3ZpcnRpby92aXJ0aW9fcmluZy5jCj4+
-IEBAIC0xMDAxLDcgKzEwMDEsNyBAQCBzdGF0aWMgdm9pZCAqdmlydHF1ZXVlX2dldF9idWZfY3R4
-X3NwbGl0KHN0cnVjdCB2cmluZ192aXJ0cXVldWUgKnZxLAo+PiAgCS8qIGRldGFjaF9idWZfc3Bs
-aXQgY2xlYXJzIGRhdGEsIHNvIGdyYWIgaXQgbm93LiAqLwo+PiAgCXJldCA9IHZxLT5zcGxpdC5k
-ZXNjX3N0YXRlW2ldLmRhdGE7Cj4+ICAJZGV0YWNoX2J1Zl9zcGxpdCh2cSwgaSwgY3R4KTsKPj4g
-LQl2cS0+bGFzdF91c2VkX2lkeCsrOwo+PiArCVdSSVRFX09OQ0UodnEtPmxhc3RfdXNlZF9pZHgs
-IHZxLT5sYXN0X3VzZWRfaWR4ICsgMSk7Cj4+ICAJLyogSWYgd2UgZXhwZWN0IGFuIGludGVycnVw
-dCBmb3IgdGhlIG5leHQgZW50cnksIHRlbGwgaG9zdAo+PiAgCSAqIGJ5IHdyaXRpbmcgZXZlbnQg
-aW5kZXggYW5kIGZsdXNoIG91dCB0aGUgd3JpdGUgYmVmb3JlCj4+ICAJICogdGhlIHJlYWQgaW4g
-dGhlIG5leHQgZ2V0X2J1ZiBjYWxsLiAqLwo+PiBAQCAtMTA2OCw3ICsxMDY4LDcgQEAgc3RhdGlj
-IHZvaWQgKnZpcnRxdWV1ZV9nZXRfYnVmX2N0eF9zcGxpdF9pbl9vcmRlcihzdHJ1Y3QgdnJpbmdf
-dmlydHF1ZXVlICp2cSwKPj4gIAlyZXQgPSB2cS0+c3BsaXQuZGVzY19zdGF0ZVtsYXN0X3VzZWRd
-LmRhdGE7Cj4+ICAJZGV0YWNoX2J1Zl9zcGxpdF9pbl9vcmRlcih2cSwgbGFzdF91c2VkLCBjdHgp
-Owo+PiAgCj4+IC0JdnEtPmxhc3RfdXNlZF9pZHgrKzsKPj4gKwlXUklURV9PTkNFKHZxLT5sYXN0
-X3VzZWRfaWR4LCB2cS0+bGFzdF91c2VkX2lkeCArIDEpOwo+PiAgCXZxLT5sYXN0X3VzZWQgKz0g
-KHZxLT52cS5udW1fZnJlZSAtIG51bV9mcmVlKTsKPj4gIAkvKiBJZiB3ZSBleHBlY3QgYW4gaW50
-ZXJydXB0IGZvciB0aGUgbmV4dCBlbnRyeSwgdGVsbCBob3N0Cj4+ICAJICogYnkgd3JpdGluZyBl
-dmVudCBpbmRleCBhbmQgZmx1c2ggb3V0IHRoZSB3cml0ZSBiZWZvcmUKPj4gQEAgLTMyMjcsNiAr
-MzIyNywyMCBAQCBib29sIHZpcnRxdWV1ZV9wb2xsKHN0cnVjdCB2aXJ0cXVldWUgKl92cSwgdW5z
-aWduZWQgaW50IGxhc3RfdXNlZF9pZHgpCj4+ICB9Cj4+ICBFWFBPUlRfU1lNQk9MX0dQTCh2aXJ0
-cXVldWVfcG9sbCk7Cj4+ICAKPj4gKy8qKgo+PiArICogdmlydHF1ZXVlX2dldF9sYXN0X3VzZWRf
-aWR4IC0gZ2V0IHRoZSBsYXN0IGNvbnN1bWVkIHVzZWQgcmluZyBpbmRleAo+PiArICogQF92cTog
-dGhlIHN0cnVjdCB2aXJ0cXVldWUgd2UncmUgdGFsa2luZyBhYm91dC4KPj4gKyAqCj4+ICsgKiBS
-ZXR1cm5zIHRoZSBpbmRleCBvZiB0aGUgbW9zdCByZWNlbnRseSBjb25zdW1lZCB1c2VkIGJ1ZmZl
-ci4KPj4gKyAqLwo+PiArdW5zaWduZWQgaW50IHZpcnRxdWV1ZV9nZXRfbGFzdF91c2VkX2lkeChj
-b25zdCBzdHJ1Y3QgdmlydHF1ZXVlICpfdnEpCj4+ICt7Cj4+ICsJY29uc3Qgc3RydWN0IHZyaW5n
-X3ZpcnRxdWV1ZSAqdnEgPSB0b192dnEoX3ZxKTsKPj4gKwo+PiArCXJldHVybiBSRUFEX09OQ0Uo
-dnEtPmxhc3RfdXNlZF9pZHgpOwo+PiArfQo+PiArRVhQT1JUX1NZTUJPTF9HUEwodmlydHF1ZXVl
-X2dldF9sYXN0X3VzZWRfaWR4KTsKPj4gKwo+PiAgLyoqCj4+ICAgKiB2aXJ0cXVldWVfZW5hYmxl
-X2NiIC0gcmVzdGFydCBjYWxsYmFja3MgYWZ0ZXIgZGlzYWJsZV9jYi4KPj4gICAqIEBfdnE6IHRo
-ZSBzdHJ1Y3QgdmlydHF1ZXVlIHdlJ3JlIHRhbGtpbmcgYWJvdXQuCj4+IGRpZmYgLS1naXQgYS9p
-bmNsdWRlL2xpbnV4L3ZpcnRpby5oIGIvaW5jbHVkZS9saW51eC92aXJ0aW8uaAo+PiBpbmRleCBm
-OTIzZTQyY2ZkMDEuLjFhZWQ0ZDkyMzVjOCAxMDA2NDQKPj4gLS0tIGEvaW5jbHVkZS9saW51eC92
-aXJ0aW8uaAo+PiArKysgYi9pbmNsdWRlL2xpbnV4L3ZpcnRpby5oCj4+IEBAIC0xMTIsNiArMTEy
-LDggQEAgdW5zaWduZWQgdmlydHF1ZXVlX2VuYWJsZV9jYl9wcmVwYXJlKHN0cnVjdCB2aXJ0cXVl
-dWUgKnZxKTsKPj4gIAo+PiAgYm9vbCB2aXJ0cXVldWVfcG9sbChzdHJ1Y3QgdmlydHF1ZXVlICp2
-cSwgdW5zaWduZWQpOwo+PiAgCj4+ICt1bnNpZ25lZCBpbnQgdmlydHF1ZXVlX2dldF9sYXN0X3Vz
-ZWRfaWR4KGNvbnN0IHN0cnVjdCB2aXJ0cXVldWUgKnZxKTsKPj4gKwo+PiAgYm9vbCB2aXJ0cXVl
-dWVfZW5hYmxlX2NiX2RlbGF5ZWQoc3RydWN0IHZpcnRxdWV1ZSAqdnEpOwo+PiAgCj4+ICB2b2lk
-ICp2aXJ0cXVldWVfZGV0YWNoX3VudXNlZF9idWYoc3RydWN0IHZpcnRxdWV1ZSAqdnEpOwo+PiAt
-LSAKPj4gMi41MS4wCg==
+On Thu, Nov 19, 2026 at 12:32:46PM +0100, Paolo Abeni wrote:
+> On 11/14/26 23:35, Daniel Wade wrote:
+> > pfkey_xfrm_policy2msg_size() derives an exported policy's message length
+> > from xfrm_vec[].encap_family. dump_sp() derives it twice: once through
+> > pfkey_xfrm_policy2msg_prep(), which allocates the skb, and again in
+> > pfkey_xfrm_policy2msg(), which fills it in.
+> > 
+> > dump_sp() holds net->xfrm.xfrm_policy_lock rather than pol->lock, so
+> > xfrm_policy_migrate() can rewrite encap_family between the two
+> > derivations. The second length is then up to 24 bytes per template
+> > larger than the first, and pfkey_xfrm_policy2msg() opens with
+> > memset(hdr, 0, size), clearing the difference into the skb's shared
+> > info. Four BEET templates put 80 bytes there, which reaches dataref:
+> > alloc_skb() had set it to 1, the memset makes it 0, and the skb_clone()
+> > in pfkey_broadcast_one() leaves two skbs sharing one head with a dataref
+> > of 1. Freeing the original releases a head the queued clone still points
+> > at, so recvmsg() copies freed memory to user space and consume_skb()
+> > frees it a second time. The CAP_NET_ADMIN that pfkey_create() and the
+> > xfrm netlink receive path check is namespace-relative, so an
+> > unprivileged user can reach this. SLUB's double-free check fires within
+> > a second of starting the reproducer; the oops kills a task, or panics
+> > the machine when the corruption lands in softirq context.
+> > 
+> > Racing SADB_X_SPDDUMP against XFRM_MSG_MIGRATE as an ordinary user gave
+> > 4585 use-after-free reports and 765 double-frees in 300s on mainline
+> > with KASAN and 8 CPUs. The reads reach user space (addresses trimmed):
+> > 
+> >    BUG: KASAN: slab-use-after-free in _copy_to_iter+0x1d8/0x1430
+> >    Read of size 240 at addr ffff88810f98d140 by task pfkey_dataref_o/433
+> >    CPU: 3 UID: 65534 PID: 433 Comm: pfkey_dataref_o Not tainted 7.4.0-rc2
+> >    Call Trace:
+> >     <TASK>
+> >     dump_stack_lvl+0x66/0xa0
+> >     print_report+0xd0/0x600
+> >     kasan_report+0xc6/0x100
+> >     kasan_check_range+0x105/0x1b0
+> >     _copy_to_iter+0x1d8/0x1430
+> >     __skb_datagram_iter+0xf8/0x820
+> >     skb_copy_datagram_iter+0x6c/0x1a0
+> >     pfkey_recvmsg+0x1ff/0x500
+> >     sock_recvmsg+0x15e/0x1a0
+> >     __sys_recvfrom+0x182/0x260
+> >     do_syscall_64+0x10b/0x5f0
+> >     entry_SYSCALL_64_after_hwframe+0x77/0x7f
+> >    Allocated by task 433:
+> >     kmalloc_reserve+0x108/0x2b0
+> >     __alloc_skb+0x123/0x5b0
+> >     dump_sp+0xdf/0x490
+> >     xfrm_policy_walk+0x1d9/0x6c0
+> >     pfkey_do_dump+0x61/0x420
+> >     pfkey_recvmsg+0x358/0x500
+> > 
+> > Take xp->lock for reading across both calls, so both derivations see the
+> > same encap_family. xfrm_policy_walk() already calls dump_sp() under
+> > spin_lock_bh(), so the plain reader suffices, as in xfrm_policy_timer().
+> > The other callers of this pair are already serialized against migrate by
+> > net->xfrm.xfrm_cfg_mutex.
+> > 
+> > Fixes: 80c9abaabf42 ("[XFRM]: Extension for dynamic update of endpoint address(es)")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Daniel Wade <danjwade95@gmail.com>
+> @Steffen: do you prefer we take this one directly into the net tree?
+
+I'm Ok with taking it directly into the net tree. PFKEY
+is dead anyway, I plan to remove the implementation at
+the beginning of the next year.
