@@ -1,74 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145097;
-	b=VoD7+H3XpCu4ZSgIsTGn5uFfrNpFiFvQonZYlVYMBohqSVCjjFt8Kj8v8bVZs92q8j2y
-	 E2I9IWnc+ctZyQrZvzEepzzPhCs4KJRtcplvaTPFNmTlC/Hzk3wyfPs4Aq54qXrF5gUZR
-	 MEmMtM72JAN5eq4/heDNdPL7gNKVAW7EYvvYBfqJLDZodaqJvuuqxOmkH2LuzKfoQEXUS
-	 ZmQDXsqIX99FL2mh68H3w0cAmiOd/dHKzN1aCCh4pYh41AbbliQSBAi608h3ja50D/jxZ
-	 qOkwFtoV4YnfKHxTxIWEFnXBDdPJHipjSnSSxxDbrp0RsSN0qP3jYhp51WiPVl+AtsA==
+	t=1795145296;
+	b=IchE3pHW3cdJSC4PaHEYztaya34IEoVWTXa+denw7B34dWgBP86o4jwZlZpCdvJFzDLq
+	 +NeLvFDzll/IbGkpYUaGxwvtcRG58lgCDoaAnLpqM78xpiL/aMMQJQzAP86G7yuWjsO9t
+	 i12rF0uFT3edlvtuo4BbZ4Jo6rENaeO+jO+G165jdrTGy8jTtp95wagr2BgJu7np5Qpmc
+	 eI5H8/Q2gYZVBUmfVjWIAj8TbkFPVzOXqj8j1V1FMuVejnXHrmuMjeY0dQZSVyVAARwjt
+	 n+PxErSK8E5WhSr9euHrPuU3CFUvRtmNyqOAYBBBCJshozX229jv7edY9A77SAkOQoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145097;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ywp488La+28p+Z75XUYWP0jnuMJfPfCt1TGuzNl5Hdk=;
-	b=zKLJI4oUOB6r9zDZT6DP8b3SDfc0CSqOd594cUQDlJTiJ/o+5xNi8Ytov4XeNJD715aF
-	 bw3xcpRWMcwms9AB4pW/Psc4EGhoc9LUdkCjxvmBhWjTr6A598eVILwha8P/dSlLOaJXR
-	 sbrDSv52XDtZgEmR/mgEul97WeN4XPwvThwZJ/mTrhPvRHVPalv99nqldC75esQ035OuC
-	 +cH2JTWE42VPLI3+YRLLocrNrfc5Irt0/UWyzOu4mDVtgS8OV7CRHyfnRb3pgR6zgMSWR
-	 iZ/vqp7Fw6LFv5fRPnVJFpueQz5bkas6W/GpaYYRzOdcmSs/XPeUDhxqYQyjnNANq8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145296;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=iCuHVTWJGQQZffL51FdvyrvlRrU2up2oO7trDXmVHTk=;
+	b=5arEZh3ThgswEsfdwq1UQTEP8sMYD7yy0teCRbXZITdD7i0IS9umpizgNlPUsYXsi25w
+	 c8hHKYjvTOoCcJubEiKoxP6ddGYk/G72i1EyZtJOs00Xz0ZBJZgK9BOyxxUS4VgMfcBHx
+	 /g/vXnOnchIUy1Veip5PBuNTenxQqtE0zT21OU3izUK/L3Vw1yzek/xiFfNzuBlvQqZpN
+	 fel9SFfvR9sPv14GO8rt5R0RTVz3d6B7gMffKdMJm3Gxv7yzm09bTS4MxYkirfYBiMbeh
+	 riaFVnQt7hf+IJenh73OK1ECIHtDVLS26HcTCYykudYlEkgC7boiHO+bRi67A0P8Sag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=rCX8fUwX;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A8524606A325;
-	Fri, 20 Nov 2026 03:24:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8524606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=A6qX0olY;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E885606A337;
+	Fri, 20 Nov 2026 03:28:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E885606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=rCX8fUwX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=rCX8fUwXfMaXZM6PKuakLx2C1p1xyrPxlLjjLnVzssTfvCJjEWjCPb3onzw44NYowZ6W5P9i0q5/E
-	 19OixbsLg63mAzULbamBAMBBF74q/FriU8Ordc+CEyaXL1EjWaP/Ad1dbyw5B6EyoTcfVoB+Ya/afh
-	 ZVd9rDrlwqz7TyAI=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96affbd85671-2907f;
-	Fri, 20 Nov 2026 11:24:55 +0800 (CST)
-X-RM-TRANSID:2ee96affbd85671-2907f
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.net (unknown[223.64.113.192])
-	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46affbd86dde-13bab;
-	Fri, 20 Nov 2026 11:24:55 +0800 (CST)
-X-RM-TRANSID:2ee46affbd86dde-13bab
-From: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-To: Mahesh Bandewar <maheshb@google.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=A6qX0olY
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iCuHVTWJGQQZffL51FdvyrvlRrU2up2oO7trDXmVHTk=; b=A6qX0olY28It2xWB0eBNmhl1tV
+	JdoJ/4+kqS6ILl4lTdOTxTVFkCKJJ0s2QJlfVCA0sQS8RJYgoWNup0PIBzIc06kn12XU+abSq7aUW
+	RuaLkWW3KdBXtZXVAyUQw5Ptrs30GIocop2rkDbKQ4Z9Rm3hZ+F9JdUUMoLhNKnnL/C4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xUFI1-000Bs9-LS; Fri, 20 Nov 2026 04:27:53 +0100
+Date: Fri, 20 Nov 2026 04:27:53 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@linux.dev>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sunwenbo@cmss.chinamobile.com,
-	1342116488@qq.com
-Subject: [PATCH net v3] ipvlan: update port flags only after ipvlan_set_port_mode() succeeds
-Date: Fri, 20 Nov 2026 11:24:38 +0800
-Message-Id: <20261120032438.18789-1-sunwenbo@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.33.0
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Ralph Siemsen <ralph.siemsen@linaro.org>,
+	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net-next v5 08/24] net: dsa: rzn1-a5psw: Fix
+ LK_LEARNCOUNT write mode encoding
+Message-ID: <8b1a4bb5-b53a-4d6e-ab4e-c644e453ce87@lunn.ch>
+References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20261120002549.1908299-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,90 +84,27 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120002549.1908299-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-In ipvlan_link_new(), port->flags is updated before calling
-ipvlan_set_port_mode(). If ipvlan_set_port_mode() fails (for example,
-when switching to L3S mode without CONFIG_IPVLAN_L3S), error unwinding
-calls unregister_netdevice(dev) via unlink_netdev.
+On Fri, Nov 20, 2026 at 12:25:18AM +0000, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> The LK_LEARNCOUNT write mode lives in bits [31:30] of the register, but
+> the driver writes the raw A5PSW_LK_LEARNCOUNT_MODE_* values (0, 1, 2)
+> directly. As a result, adding an FDB entry writes "set LEARNCOUNT to 1"
+> and deleting one writes "set LEARNCOUNT to 2", instead of atomically
+> incrementing/decrementing the counter.
+> 
+> Use FIELD_PREP() with A5PSW_LK_LEARNCOUNT_MODE so the mode lands in the
+> correct bit field.
+> 
+> Fixes: 5edf246c6869 ("net: dsa: rzn1-a5psw: add FDB support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-While unregister_netdevice(dev) destroys the port when creating the
-first ipvlan device on a lower interface, struct ipvl_port is shared
-across all ipvlan interfaces on the same lower device (tracked via
-port->count). If another ipvlan interface already exists,
-unregister_netdevice(dev) only drops the extra reference and leaves the
-shared port alive with the updated port->flags, unintentionally altering
-the flags of existing ipvlan interfaces.
+This sounds like a real problem that should be fixed? So please submit
+it to net, not net-next.
 
-Defer updating port->flags until after ipvlan_set_port_mode() succeeds
-so that a failure inside ipvlan_link_new() does not modify port->flags,
-matching ipvlan_nl_changelink(). Note that failures occurring in
-rtnl_newlink_create() after ops->newlink() returns 0 (such as
-do_set_master()) roll back via ops->dellink() (which shares the normal
-RTM_DELLINK path and does not revert shared port->mode or port->flags)
-and are outside the scope of ipvlan_link_new().
-
-This issue was identified with the assistance of an LLM-based code
-review tool, confirmed in a User-Mode Linux (UML) environment by
-creating a second ipvlan interface that fails in ipvlan_set_port_mode(),
-and verified in UML that the existing interface's port flags remain
-unchanged upon failure inside ipvlan_link_new().
-
-Fixes: a190d04db937 ("ipvlan: introduce 'private' attribute for all existing modes.")
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
-Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
----
-v3:
-  - Clarify in the commit message that deferring the port->flags update
-    prevents failures inside ipvlan_link_new() from modifying
-    port->flags (matching ipvlan_nl_changelink()), while noting that
-    post-newlink failures in rtnl_newlink_create() (such as
-    do_set_master()) unwind via ops->dellink() and remain outside the
-    scope of ipvlan_link_new() (Simon Horman, Sashiko review).
-  - Add Hangbin Liu's Reviewed-by tag (no code changes from v2).
-v2: https://lore.kernel.org/netdev/20261112064821.85624-1-sunwenbo@cmss.chinamobile.com/
-  - Clarify in the commit message that when creating a second or
-    subsequent ipvlan interface on an already-active port,
-    unregister_netdevice() only drops the extra reference rather than
-    destroying the shared port (Hangbin Liu).
-  - Soften and clarify the wording in the commit message.
-v1: https://lore.kernel.org/netdev/20261111064655.233265-1-sunwenbo@cmss.chinamobile.com/
-
- drivers/net/ipvlan/ipvlan_main.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ipvlan/ipvlan_main.c b/drivers/net/ipvlan/ipvlan_main.c
-index f29864db662a..5732b167c5b3 100644
---- a/drivers/net/ipvlan/ipvlan_main.c
-+++ b/drivers/net/ipvlan/ipvlan_main.c
-@@ -678,12 +678,6 @@ int ipvlan_link_new(struct net_device *dev, struct rtnl_newlink_params *params,
- 	if (err)
- 		goto remove_ida;
- 
--	/* Flags are per port and latest update overrides. User has
--	 * to be consistent in setting it just like the mode attribute.
--	 */
--	if (data && data[IFLA_IPVLAN_FLAGS])
--		port->flags = nla_get_u16(data[IFLA_IPVLAN_FLAGS]);
--
- 	if (data && data[IFLA_IPVLAN_MODE])
- 		mode = nla_get_u16(data[IFLA_IPVLAN_MODE]);
- 
-@@ -691,6 +685,12 @@ int ipvlan_link_new(struct net_device *dev, struct rtnl_newlink_params *params,
- 	if (err)
- 		goto unlink_netdev;
- 
-+	/* Flags are per port and latest update overrides. User has
-+	 * to be consistent in setting it just like the mode attribute.
-+	 */
-+	if (data && data[IFLA_IPVLAN_FLAGS])
-+		port->flags = nla_get_u16(data[IFLA_IPVLAN_FLAGS]);
-+
- 	mutex_lock(&port->pnodes_lock);
- 	list_add_tail_rcu(&ipvlan->pnode, &port->ipvlans);
- 	mutex_unlock(&port->pnodes_lock);
--- 
-2.33.0
-
-
-
+   Andrew
