@@ -1,62 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173054;
-	b=gpC5YpdlU3oERjGMlE/rtnl4dqo7iEStwGRGJs0RrfZssSRP+ErCzhAXpH4LfMieaUlR
-	 DP5puifLHY3CddpHgmuAFLSljfTRkS1bCgBmrZOzHuBrWlh/r0KnRSYoNK4iEiLeq/T4L
-	 puiTn8wfMA1IwyRPcC9yGd6USt1bXFud/i4Sq3cUHuOUbmFosZYUx/6l4/O10Q9lU2xay
-	 glYoYfxHHT1Q5xyQNZ1mkAgerCBQKAxYd4Wg+o61Um0a+X6LpN533i4mfyVCQ63/OjLw3
-	 bg4m2Ec2UkwFzNOtS4fmgqriHj4JUxhvpb8CRG4/DTiwIsMuq4x8I8WDW9a2lolBocw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173054;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=2bj2WTnjPiLjsE3k43qjyadZlVuZzndDK7/3eTPwHqQ=;
-	b=aAihYe/vJ4lApYROn/f9u0naFnDAakSz7fNtkmpOHXI3xBvJiVGO1y41baKZFcZTGP78
-	 QU5hwUukIPzxorOpVtCP/9FN+4OsK3oB2Fvtvt6g32kXO1FzhW5XHzXoqLEjlT3zc6C1T
-	 042NPqKpR5dCCbrCK8rryJlyQmFNJ/nn8+CGXEW+bdChDcqzzV4rtGFF0vzNoiiOuf4kS
-	 KFt8iQgal0WYdEfJmfN3ppU1USnVCSPCr9Duv4HCBrJt1gwPrnXaqeClNiDHpysZHoJSD
-	 MSGeeTUVJltbGweHr/nnagsy89D57ctZ5vGlImXsOdazqfHbTQXYuO3jm/tlqAKAbvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z4gIouMy;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795173052;
+	b=y8REu8kBKBsdWN63o8BKEod9ed/KYJpK8N+Ujemd7soxeRU+NkUsxeYFj4aiGtYJsAF9
+	 BQ2oLW6phdlspktNwhuiiCf7qApNjX0MBBISEZFE52lyD4DWtdEKSMVBZ5EM5s2Iw2aUo
+	 QRkN5CWKJltao+ZLPKZNXDPgTUowoaBDNouHrLmiuDrQ+A5PF+NeskH+IvvVjPouOTk1l
+	 3jkEmE69duqQ3XLb+D021MN3HE3Z3pniPnDplQEa/UzETrmAU2ZrMHnvtUnQFv5z9SA9/
+	 3+agpIgfhnT590GXfsV1VEBW+UbR6zCh9KDWrHp5hI/SwSS3B+yj+Q4exqZShl7iniw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173052;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=AcU42dM/DxndFKfD2cez7uuV6JWRlrbHkbmuXHRF75o=;
+	b=wmK3jlqwo3xmKJvHIq+zy7XynsempJ3GJjV3cIh/2Zr63srCmL7ISnjQ1U5OmY++6jsX
+	 BUwsXQG2y5h9/8M7c1gbEXSmpL9SnW+myc+hgYc8EWIINEQMQn17lsy+V/JwWkLNkNL6C
+	 yt92bO9SYad/AL8Oo3h1/Uu4tSY6d8vhizb5NL2EkLuPrAc9Nsr6a3d2WTjL0DUKn6mm2
+	 hLKrcA2QeVRk62KfdkJVxPZyMPaAswbzcTHpEDtlrqWJDwVmzvw/waD9uapmOSgvZF+Wz
+	 1eTIWIAZnND0vNDqY5F0nZ6P1M9vnpaLwLISve03fno9TTTzPfHZPdJUYgWzMbQkYSA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xxzb2TOO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91A9E606A336;
-	Fri, 20 Nov 2026 11:10:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B877606A33D;
+	Fri, 20 Nov 2026 11:10:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z4gIouMy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434E11F000D8;
-	Fri, 20 Nov 2026 11:10:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xxzb2TOO
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795173051;
+	b=GGKvKyLKJXIYebIPAgPqqvPE4nSWBd8vMvh9x7XYnDNt6SnQ0HRu9J3NHA3ZIJSsdrx9
+	 dLm+HygGeEWRaAu8/0h3x4dKPUJqWEqzTydSKfVf2CFOQBLqXH5Dxa3h60hGEr/ElXnKl
+	 vgkrQk8CnIfV6EI6uUaDoYCQNRmv6VXCNUlCrD6fkMhHMOTqW7kxnMg9VBglh4BPpRpol
+	 mzEYJQDeHxOB50k5moHB6C8zuO3axG+O4eIOYvYVtz5EmWSpCNJxgNiFEVD94E/Moanmr
+	 p3gORJthgTnj3zCVei+QLkq/DgXW+4E/Qc9qUAIw2HOLnJxX45wpBYKiptBpLZnEpaQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795173051;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=AcU42dM/DxndFKfD2cez7uuV6JWRlrbHkbmuXHRF75o=;
+	b=iwD7SYh6jB9qM28BU5qgfjCOLGGyDlfbF2GV72zdTH9O4WUNkswDGMCEebkN0z98sokP
+	 LmPHiPSUWa/BzafDdAuMNkK2x1LgBw4Jkj2jvFU0Q/3CxkWi9Td2zdeeyu0Sf+Y6eVzUi
+	 up2xjwc+XMR1gHRUheAZdbyEqrPPaorPKNOz43TsC0jTM1yMIKQsNss4jej9h+6J70c2y
+	 WJW4Dz9iMMzFDuGY2Jzh+dUwnRNV3Vo29U2muWQjTkp3H/6qYrlVORocXfXXJl6WH7k+5
+	 8Xek9DDMRm165uZZlJv5REPaDjX7qkwDRACBRNTg1FdRw8dXsvM9HxmI/o+2XbJ4pTg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id CD9BB1F000E0;
+	Fri, 20 Nov 2026 11:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173054;
-	bh=2bj2WTnjPiLjsE3k43qjyadZlVuZzndDK7/3eTPwHqQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Z4gIouMy2gpXBaY3WJ92xqOrONrBgfanHc39m1N5Hu9RlQQcAyvzr41n0hCNe+1z7
-	 m9cpuNaO0X4sTrpy1GWC+mYR05yX3WG8ac//p95Bz1Kz7glAHpg3rJ5k+nJgy5N/4l
-	 C5FDahJrW/v4Z4zKunw95Z9W3W73+9m7YxBITsLCmWJ8tz92cu2Ti0keTDiuF4n4bL
-	 brIgEo77x3MD++ZDTy5bWXBAb6JOuCY4JObzTt5Z5HZloAi/fDjQU37f3GOjGpUskZ
-	 iwWqPQoyMMDRPvzjXzSpzirRx/CjpQUV6HZGzHBT38rZNa7YHWjXC93Bu9T9zNkvdc
-	 PXWpWEXjV2SQg==
-Subject: Re: [PATCH net v4 2/2] selftests: netfilter: cover IPv6 FIB prefix
- suppression
-From: netdev-bot+sashiko@kernel.org
-To: leonard@lausen.nl
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
- shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 11:10:52 +0000
-Message-ID: <179517305282.3136.16580929973360319234@kernel.org>
-In-Reply-To: <20261117110813.9894-4-leonard@lausen.nl>
-References: <20261117110813.9894-4-leonard@lausen.nl>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795173051;
+	bh=AcU42dM/DxndFKfD2cez7uuV6JWRlrbHkbmuXHRF75o=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=Xxzb2TOOnrM/e/EbbHFMclxznUkXoCy+/599k9x38vduj6FDMdwlwkGF1DHFMdsDU
+	 4DRn6xF6G35bO5gy1BhXKO5gL0p+0OZR7kCrtE3ocK0tA+ApvwWEqxJVNLya2XNZVw
+	 a6zxBnhl0RwWEG09uEYQHb3T3kONm197jEYA3gXJamhW4LJNO/yiGsC4kQ6pe0rm70
+	 KEWcJsYJ6tv4muRNsuJu20vC8flvEww45gz32WrZdqlYsKfdEgkOQqo9bgNTZRRv5M
+	 +hLB8OqBlOU7ElDD7eS96CUBo/31g38QtuDYuKANMssApbvhsO+mHPaX0srQk3SGxu
+	 xiu+SE8mOMe2A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 5D6D149836;
+	Fri, 20 Nov 2026 11:10:40 +0000 (UTC)
+From: Tjerk Kusters via B4 Relay <devnull+tkusters.aweta.nl@kernel.org>
+Subject: [PATCH net v7 0/3] igb: only strip the Rx timestamp header from
+ the first buffer of a frame
+Date: Fri, 20 Nov 2026 12:10:37 +0100
+Message-Id: <20261120-igb-rx-ts-fix-v7-0-63b03045978e@aweta.nl>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,85 +84,304 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAK0qAGsC/3XN3UrEMBAF4FdZcu1IMvlp4pXvIV7kZ7obka4kt
+ a4sfXfTClICXs5hvnPurFLJVNnT6c4KLbnm69SO4eHE4sVPZ4Kc2s2Qo+FGOMjnAOUGc4Ux3yC
+ mgWuriaQwrJmPQi3e+17YRDN7/Q3rZ3ijOG9N29sl1/lavvfVBffnfwYWBAFJBpsM19EbfPZfN
+ PvH6X2vXuQBo+6xbNi5IGn03KboO6z+sBAce6yAgx2sFqiiTig7rI9Y9Vg3HEYVlDSDQNcvmwM
+ Wosdmw14H57i02sUDXtf1B0hs1Yu0AQAA
+X-Change-ID: 20260619-igb-rx-ts-fix-cd70585ee316
+To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Jesper Dangaard Brouer <hawk@kernel.org>, 
+ John Fastabend <john.fastabend@gmail.com>, 
+ Stanislav Fomichev <sdf@fomichev.me>, 
+ Sven Auhagen <sven.auhagen@voleatech.de>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Kurt Kanzenbach <kurt@linutronix.de>, 
+ Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>
+Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Paul Moses <p@1g4.org>, 
+ stable@vger.kernel.org, Tjerk Kusters <tkusters@aweta.nl>, 
+ Piotr Kwapulinski <piotr.kwapulinski@intel.com>, 
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>, 
+ Alexander Nowlin <alexander.nowlin@intel.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795173039; l=13867;
+ i=tkusters@aweta.nl; s=20260619; h=from:subject:message-id;
+ bh=Ob5ecDgGok2XxT1UMi7fvkkKCfslef06ZMcmSpByOzY=;
+ b=2ezb/bLysBeiNdQQFv+y6339iLFVJ8RooAOnFBKWNvDZpV1MGmWNOEzp1UfCC8JWrWg6ueZCn
+ WkTVExdq51tBVSERWVy8reXbSlY8qJqvJErRoFzzCqLi7O0WGDgT/D8
+X-Developer-Key: i=tkusters@aweta.nl; a=ed25519;
+ pk=JYRpYQ3+LrphEabgnxcbiOUpwvNP8WDDMcLzz+cwKsk=
+X-Endpoint-Received: by B4 Relay for tkusters@aweta.nl/20260619 with
+ auth_id=831
+X-Original-From: Tjerk Kusters <tkusters@aweta.nl>
+Reply-To: tkusters@aweta.nl
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+With Rx hardware timestamping enabled (e.g. by ptp4l), igb strips the
+16-byte inline timestamp header from every Rx buffer of a frame instead
+of only from the first one. A continuation buffer that starts with 8
+zero bytes loses 16 bytes, so jumbo frames with zero payload arrive
+short and are dropped.
 
-Low priority / nit picks for your consideration:
+v3 used skb == NULL to find the first buffer of a frame. The Sashiko
+AI review pointed out that this does not hold when an XDP program
+consumes the first buffer of a frame that spans several buffers, so v3
+was sent back for rework.
 
-- [Low] The new in-tree comment before the IPv6 prefix-suppression block
-  in tools/testing/selftests/net/netfilter/nft_fib.sh says "The router's…
+The same question came up for igc. There, Maciej suggested not to track
+frame boundaries in the data path, but to make sure that frames never
+span several buffers while XDP is attached [1]. Paul Moses' igc v3 does
+that [2]. This version follows the same approach for igb:
 
---
+  1/3 limits the receive length (RLPML, or the PF pool's VMOLR with VFs)
+      to the configured frame size while XDP is attached, and leaves
+      room for the timestamp header in the XDP buffer size checks for
+      3 KiB, legacy-rx and PAGE_SIZE >= 8192 buffers. It also refuses
+      XDP with rx-all and legacy-rx changes while XDP is attached, as
+      both would break the limit. The limit is now set from
+      igb_configure() instead of igb_set_rx_mode(). With VFs, the PF
+      pool limit is also written on i354.
+  2/3 is v3, unchanged in code, with a note that it relies on 1/3.
+      The Reviewed-by and Tested-by tags of v3 are kept for that reason.
+  3/3 gives AF_XDP zero-copy rings a 2 KiB or 3 KiB hardware buffer
+      instead of rounding the XSK frame size down to 1 KiB. It refuses
+      XSK pools that cannot hold the current maximum frame plus the
+      timestamp header, and MTU changes that would no longer fit a bound
+      pool. Unlike the igc patch in [2], which checks against the
+      largest XDP MTU, this checks the current MTU, as igb allows XDP up
+      to MTU 3030 and a fixed check would rule out 2 KiB chunks.
+      Enabling VFs, which leaves the PF a single Tx queue, is refused
+      with -EBUSY while an XSK pool is bound to another queue; the core
+      refuses ethtool -L in the same case. The check runs before any VF
+      state is set up. A pool on a queue hidden in another way, for
+      example after a fallback to MSI, is checked again when its ring
+      is set up.
 
-selftests: netfilter: cover IPv6 FIB prefix suppression
+As in igc, 1/3 moves the RLPML programming out of igb_set_rx_mode(),
+which can run without RTNL, into igb_configure(), which runs when the
+interface is (re)configured, before Rx is enabled. This includes the PF
+pool limit in VMOLR, which igb_set_rx_mode() now leaves as it is.
+Attaching or removing XDP on a running interface goes through
+igb_close() and igb_open(), and an MTU change through igb_down() and
+igb_up(), so the limit is updated before Rx is enabled again.
 
-This adds IPv6 checks to nft_fib.sh for suppress_prefixlength 0. They
-verify that a default route is suppressed while a more-specific route is
-retained, and that blackhole, unreachable and prohibit routes (including
-a blackhole nexthop object) stay terminal. The checks run after the
-existing default-table tests.
+The Sashiko reviews of v4 to v6 also point out older issues that this
+series does not change:
 
-The commit message says:
+- On 2 KiB build_skb rings, igb_skb_pad() leaves exactly
+  IGB_MAX_FRAME_BUILD_SKB bytes before skb_shared_info, with no room for
+  the 16-byte timestamp header. With Rx timestamping on, frame and
+  header can overlap skb_shared_info by up to 12 bytes, or 2 bytes at
+  the XDP limit at MTU 1500. This dates from 9cbc948b5a20 ("igb: add XDP
+  support"). I left it out of this series: it is a separate problem from
+  the one fixed here, and a fix changes the buffer layout and the XDP
+  headroom for all igb users, so it needs its own review and testing.
+- igb_set_vf_rlpml() let a VF set other VMOLR bits of its own pool. That
+  is fixed separately: https://lore.kernel.org/all/20261104-igb-vf-rlpml-v1-1-729621b60eee@aweta.nl/
+- igb_alloc_rx_buffers_zc() does not clear the length of the next
+  descriptor after a partial refill at the end of the ring, so
+  igb_clean_rx_irq_zc() can read a stale descriptor. igc clears it in
+  that case. This is a separate zero-copy problem as well.
+- __igb_open() sets up the rings before it updates the real queue
+  counts, so a queue that comes back is used in zero-copy mode again
+  only from the next reconfiguration; see 3/3.
+- When the queue setup or pci_enable_sriov() fails, igb_enable_sriov()
+  frees the VF state without a lock, and after a failed
+  pci_enable_sriov() the PF keeps the VF queue layout. The new -EBUSY
+  return does not go through that path.
+- igb_set_rx_mode() is also called without the address lock, for
+  example from the VF mailbox interrupt, and then walks the address
+  lists.
+- The ethtool offline self-test sets up its test rings with queue index
+  0, so igb_xsk_pool() gives them the pool bound to queue 0. That needs
+  a separate fix.
 
-> The router's logging RPF rules have already been removed by then,
-> allowing neighbour discovery during intentionally different reverse-route
-> states.
+How to reproduce
+----------------
+Receiver with igb (eth0), peer with MTU 8228. hwstamp_ctl turns on Rx
+timestamping with filter ALL, no ptp4l needed; this ping method is
+taken from Paul's igc report. One host with two ports also works if
+the sending port is moved into its own network namespace.
 
-The same statement appears as a comment in the patch, covered inline
-below.
+1) Truncated jumbo frames (patch 2)
 
-> diff --git a/tools/testing/selftests/net/netfilter/nft_fib.sh b/tools/testing/selftests/net/netfilter/nft_fib.sh
-> index 04544905c2164..25e13197f0578 100755
-> --- a/tools/testing/selftests/net/netfilter/nft_fib.sh
-> +++ b/tools/testing/selftests/net/netfilter/nft_fib.sh
+  receiver:  ip link set eth0 mtu 8228
+             hwstamp_ctl -i eth0 -r 1
+  peer:      ping -c 5 -M do -s 8200 -p 00 <receiver>
 
-[ ... ]
+  Without the series there are no replies, and IpExtInTruncatedPkts
+  goes up by one per frame. With the series all requests are answered.
 
-> @@ -845,6 +889,52 @@ test_fib_type "default table"
->  ip netns exec "$nsrouter" nft delete table ip filter
->  ip netns exec "$nsrouter" nft delete table ip6 filter
->  
-> +# Keep the earlier IPv6 checks on the path without custom rules.
-> +# The router's logging RPF rules have already been removed here.
+2) XDP consumes the first buffer (patch 1)
 
-[Severity: Low]
-Is this comment accurate? Earlier, the script calls
-load_pbr_ruleset "$nsrouter", and that installs a logging RPF check in
-table inet filter:
+  receiver:  ip link set eth0 mtu 3000
+             hwstamp_ctl -i eth0 -r 1
+             xdp-filter load -m native eth0
+             xdp-filter ip <peer> -m src
+             tcpdump -nn -e -i eth0 'ether src 00:00:00:00:00:00'
+  peer:      ping -c 3 -M do -s 8200 -p 00 <receiver>
 
-load_pbr_ruleset() {
-    ...
-table inet filter {
-	chain forward {
-		type filter hook forward priority raw;
-		fib saddr . iif oif gt 0 accept
-		log drop
-	}
-}
-    ...
-}
+  At MTU 3000 XDP can attach, but without patch 1 the MAC still accepts
+  the 8242-byte frames, which then span three Rx buffers. xdp-filter
+  drops the first one, and the rest reaches the stack as a separate
+  frame with all-zero MAC addresses:
 
-Between that load and this block, the only deletions are
-"nft delete table ip filter" and "nft delete table ip6 filter", after
-each test_fib_type call. Table inet filter is not flushed until the
-"flush ruleset" in load_ruleset_vrf().
+    without the series    5154 bytes (header stripped twice)
+    v3 alone              5170 bytes (stripped once)
+    this series           no frame; rx_long_length_errors +1 per frame
 
-The prerouting nft_rpfilter logging rules from load_ruleset() are gone
-at this point, since the earlier "nft flush ruleset" removed them. The
-forward-hook "log drop" chain is still loaded, though.
+3) AF_XDP zero-copy with 2 KiB chunks (patch 3)
 
-The new probes (ping to dead:1::1) and neighbour discovery are delivered
-locally and never reach the forward hook, so the checks still pass.
-Could the comment, and the matching sentence in the commit message, say
-that it is the prerouting nft_rpfilter rules that have been removed,
-rather than all of the router's logging RPF rules?
+  receiver:  ip link set eth0 mtu 1500
+             ethtool -L eth0 combined 1
+             hwstamp_ctl -i eth0 -r 1
+             xdpsock -i eth0 -q 0 -r -z -N -f 2048
+  peer:      ping -c 50 -i 0.02 -s 1472 <receiver>
 
-> +if ip -net "$nsrouter" -6 rule add pref 100 to dead:1::99 table 128 \
-> +	suppress_prefixlength 0; then
+  xdpsock is from xdp-project/bpf-examples (AF_XDP-example). It also
+  takes ARP, so the peer needs a fresh ARP entry before it starts.
+  Compare rx_packets (MAC) with rx_queue_0_packets in ethtool -S:
 
-[ ... ]
+    without the series    68 frames, 118 descriptors
+    this series           64 frames, 64 descriptors
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117110813.9894-2-leonard%40lausen.nl
+  At MTU 3000, -f 4096 receives 3014-byte frames in one buffer. Binding
+  with -f 2048 at MTU 3000 was refused with EOPNOTSUPP by the new check
+  on the 6.14.9 test kernel; current kernels refuse it earlier, in
+  xp_assign_dev(), with EINVAL.
+
+Tested on an I350 with these patches applied to the igb driver of
+kernel 6.14.9 (the series itself is against v7.1-rc7), with the steps
+above: results as listed. The v3 line is from an earlier run with an
+XDP program dropping ICMP. Also checked: XDP attach at MTU 1500 and
+3030 works, at MTU 3046 it is refused, as is an MTU change to 3046
+with XDP attached. With two VFs allocated (booted with pci=realloc),
+step 2 gives the same picture: three leftover frames without the
+series, none with it, as the PF pool limit in VMOLR drops the frames.
+In step 3, 98-byte frames and 4 KiB chunks take one descriptor per
+frame with and without the series. With XDP attached, rx-all stays off
+and legacy-rx cannot be changed, and XDP attach is refused with rx-all
+on, or with legacy-rx on at MTU 3000, also when it was set while the
+interface was down. RLPML and the PF pool's VMOLR limit read back as
+expected with and without XDP and VFs. In repeated runs of about 200 MTU
+changes each with XDP and two VFs, the limit was right after every
+change, except for one read in one run, where the value was not logged;
+eleven reruns showed no mismatch.
+
+The steps above were repeated on kernel 7.3.1 with the series applied to
+the v7.3 igb driver, with the same results, including step 2 with VFs.
+There, enabling two VFs while xdpsock was bound to queue 1 was refused
+with EBUSY; with the socket on queue 0 it worked. With 31 macvlans on
+the PF, which fill all 32 receive address registers, all 31 addresses
+stayed valid after the refused VF enable; with v6, two of them were
+overwritten by the VFs' empty MAC addresses. With the driver built so
+that the I350 keeps two Rx queues with VFs, as an 82576 does, binding a
+zero-copy socket to queue 1 after VFs were enabled on the down PF was
+refused with EINVAL; without the new check it was accepted. Removing XDP
+from a down, runtime-suspended interface with rx-all requested resumed
+the device and turned rx-all on. The i354 path was checked with the
+driver built so that the I350 takes the i354 branches for VMOLR: with
+two VFs and XDP attached, the PF pool limit kept its old value of 9728
+with v5, which skipped i354, and read back as 3026 at MTU 3000 and 1526
+at MTU 1500 since v6. Only the registers were checked; I have no i354 to
+test on.
+Not tested: PAGE_SIZE >= 8192.
+
+The patches, their descriptions and this cover letter were prepared
+with the help of an AI coding assistant (Claude). I reviewed them and
+ran the tests above on my test bench.
+
+[1] https://lore.kernel.org/all/20261025065154.2037149-1-p@1g4.org/
+[2] https://lore.kernel.org/all/20261028083344.3047350-1-p@1g4.org/
+
+Changes in v7:
+- Patch 1: when XDP is removed and rx-all is turned back on, resume a
+  runtime-suspended device first, as ethtool does, and skip it if the
+  device could not be resumed or the interface could not be opened
+  again (Sashiko).
+- Patch 3: check for bound XSK pools at the start of igb_enable_sriov(),
+  before any VF state is set up, and hold RTNL until the PF queues are
+  set up again (Sashiko). In v6 the check ran after the VFs' MAC
+  filters were written, which could disable PF unicast filters until
+  the next reset, and the -EBUSY return went through the existing error
+  path, which frees VF state without a lock. The check no longer runs
+  when VFs are disabled, and the DMA coalescing flag is no longer saved
+  and restored. The older error paths are unchanged.
+- Patch 3: igb_xsk_pool_enable() also checks the PF's Tx queue count, so
+  that no zero-copy pool is bound to a queue without a Tx ring on 82576
+  with VFs.
+- Patch 3: the commit message now says that a queue that comes back is
+  used in zero-copy mode again only from the next reconfiguration
+  (Sashiko); no code change for that.
+- Patch 2: no change.
+- The list of older issues above names four more.
+- Link to v6: https://patch.msgid.link/20261111-igb-rx-ts-fix-v6-0-ba5b9903859c@aweta.nl
+
+Changes in v6:
+- Patch 1: with VFs, also write the PF pool limit on i354 (Sashiko).
+- Patch 3: refuse to enable VFs with -EBUSY while an XSK pool is bound
+  to a queue the PF would lose (Maciej). Restore the DMA coalescing flag
+  on that error. Keep the frame size check in igb_xsk_pool() only for
+  queues hidden in another way, such as a fallback to MSI.
+- Patch 4 dropped: with patch 3 the hardware does not split frames in
+  zero-copy mode, so it only added dead code to the hot path (Maciej).
+- Link to v5: https://patch.msgid.link/20261104-igb-rx-ts-fix-v5-0-bf4b4367129a@aweta.nl
+
+Changes in v5:
+- Patch 1: v4 also subtracted the timestamp header from the build_skb
+  frame limit, so XDP no longer attached at MTU 1495-1510 on x86
+  (1493-1508 where NET_IP_ALIGN is 2), including the default MTU 1500.
+  Only subtract the header where the limit is the hardware buffer size,
+  and compute it from the adapter state instead of the ring flags. Skip
+  the check when XDP is removed, so a program can always be detached.
+- Patch 1: refuse XDP with rx-all and legacy-rx changes with XDP
+  attached, and turn rx-all back on after XDP removal if it was
+  requested meanwhile. Program RLPML and the PF pool limit from
+  igb_configure() instead of igb_set_rx_mode(). With XDP attached, an
+  MTU change can now move from 2 KiB to 3 KiB buffers. Added
+  Suggested-by: Maciej.
+- Patch 1: the issues above were also reported by the Sashiko review
+  of v4.
+- Patch 2: no code change. Commit message: igc is fixed by Paul's
+  series, not by this patch; the loss is per continuation buffer, not
+  only at the tail; the possible size wrap is described (Sashiko).
+- New patch 3: AF_XDP zero-copy Rx buffer size, as asked by Maciej.
+- New patch 4: drop zero-copy frames that span several descriptors;
+  depends on patch 3.
+- Link to v4: https://patch.msgid.link/20261102-igb-rx-ts-fix-v4-0-8785124c5d23@aweta.nl
+
+Changes in v4:
+- New patch 1: limit the receive length while XDP is attached, so that
+  skb == NULL reliably marks the first buffer (Sashiko review), as
+  done for igc.
+- Patch 2: no code change; added a note that it relies on patch 1.
+- Link to v3: https://patch.msgid.link/20260625-igb-rx-ts-fix-v3-1-99b3efa08dca@aweta.nl
+
+---
+Tjerk Kusters (3):
+      igb: do not let XDP frames span more than one Rx buffer
+      igb: only strip Rx timestamp header on the first buffer of a frame
+      igb: do not split AF_XDP zero-copy frames over several Rx buffers
+
+ drivers/net/ethernet/intel/igb/igb.h         |   9 +
+ drivers/net/ethernet/intel/igb/igb_ethtool.c |   9 +
+ drivers/net/ethernet/intel/igb/igb_main.c    | 244 +++++++++++++++++++++------
+ drivers/net/ethernet/intel/igb/igb_xsk.c     |  27 ++-
+ 4 files changed, 233 insertions(+), 56 deletions(-)
+---
+base-commit: 2d3090a8aeb596a26935db0955d46c9a5db5c6ce
+change-id: 20260619-igb-rx-ts-fix-cd70585ee316
+
+Best regards,
+--  
+Tjerk Kusters <tkusters@aweta.nl>
+
+
