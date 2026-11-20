@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195811;
-	b=0eZ3pPlUXwC+9nN2DJb3qghGuxiWj+nv77T6N9MsZnDqK4ztLM7ASH9E9dl+pdQFaXUf
-	 c7xRmns7cv3bnDUkAskf0nrrDpp5c3yEXs2W0cuW3Ea2b0afSfjtOP6/B/Y6A3KNwUkb2
-	 58B/ZyJXDY5RKByfv7ejAVNJKJd8YM0day/k7KBrGeqxW1Pvd0pNfacCzKeSVQqJw5KeL
-	 wegGyFiYBJzfvzhIHh0IEj7Ttdj1tiAJ4T0E4IZuZdfdnEWuhH4No5YwhpkkOWtEbzCx+
-	 eUW/P0HHrv26crh8Qs1uCiTjOcf+JWm5micdB3BWfe58lSEsJmw5aPgdFUSvsAVuxLg==
+	t=1795195814;
+	b=UXCNTo7v9VH9ot72y3PfKMvQPhrt6IBa48SCK/F90EmhZF30UU/YuixXlZc6mkLLbaDn
+	 5d1drzowUs9OCjJysGpWyXF8BIe1Pzy8eH8Zb+BY/phlm/nzgdfzeVQtEqJT6/N9knnfu
+	 QHZWMvQ2Eygmv75XnyecEboyRukd4ClEcQP8FbfE9OW4RvjipVNB7w5Tbd+70m3KcyxaZ
+	 0a+iKdmopNiCd78vzj6CAztoD1NCGLFo4pyhp0vg5dPhjjS/3IYFEUGiHqaxn5ZCBQtFN
+	 vR15gXFG1yXgNH4e9b3salZXTyK+vvVjTXpH/eCZ92vwZBFYm3QsvAHe3mmKciB0aFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195811;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195814;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer;
-	bh=qdMPH+Pywn5lGv8FkAdtFbl3/Eh+8xCXy0s9sNtd2TE=;
-	b=eX8rLO6V64H5JoLddju2EQ90ASsVZvJtFXaMuAGtcgNGUypxAuUPd4pUdneg4r1cLU/N
-	 02HLuqMluFwfnTV2m95W+HcHIoW/ExqU7sVHhpDWImI0kGVMEAOhcnx5nATGBr/y1s5H/
-	 /TXzMSXlaHyGIfVK7HG8a98TcphGXF1GYtSyjSgBUVSY/amSSXEYwYcmATrDW5QpWJBNE
-	 OZxL7kjkxL7haUcUAcCdMGvv6WtrFh/L4z1EZltIUAwOMvcrr4NTk8CTqqfeuQQ3xH7hE
-	 uXgDcdnOGJAM5miuyF/XjIRrC8tv4jTnlp9Ltjc8V+FU+dspy79tWnSewU1qPUSIgmw==
+	bh=BKcwwYObM26g/xeWF/vvvFirK1lb/Hw2evlm/NlKvdE=;
+	b=lD0FIvnODnaAIbOq7GysQEhRupqJd4g0VjGdQzeKa9RDz9W0953A9z6ffo0hEMOObh8v
+	 nFXFnjKRTRIC96SxLw58oz3o2+HC6o91Q7rJZG2BD+ys86zKEnkiSG5XDD4h5MHywKfpx
+	 U9w0mfXVLoffB+35QhLFQqLvOT3k+zurRDjezjSZJ30YJ++7VRJcKw/XVceykYRsutrvH
+	 4/hhgbTp2UhlebwnN1K4yf1ZWwbhv70zDRz87Ewb3IAAZpuYpu8m4m3I2uPeXP2iAWVoy
+	 2T32S993BmWzoZvtIWz3CzH/u8Y6iesfZW4ZI6ptISqYO3CFUm1MdmxhP/RkUNI5NMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XDmsasiE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="cfcywSR/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E9BA606A332
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:30:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BA7160A2635
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:30:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XDmsasiE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60E581F000D0;
-	Fri, 20 Nov 2026 17:30:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cfcywSR/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD5B1F000C6;
+	Fri, 20 Nov 2026 17:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795195810;
-	bh=qdMPH+Pywn5lGv8FkAdtFbl3/Eh+8xCXy0s9sNtd2TE=;
+	s=k20260515; t=1795195813;
+	bh=BKcwwYObM26g/xeWF/vvvFirK1lb/Hw2evlm/NlKvdE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=XDmsasiE5fn/7NbVNu3tKuaceDvOyCzLzEokGxtlnTHOqGD+mA+z/B5sPDKquEc7e
-	 erZcEpiF6ZMljeZTtlt7WAAiw6oxlOCkevuV/Qi1E+Hg8ww1U6XfX+M4+BdHQ8cJkY
-	 nMvUlqITp7aAC4hK8jQDlZ0zv36lCrrSuo5bVx3v4N8Bk7LdG1KWN4ha8Ns2KhrGdp
-	 xG1XVafCN0BS8tconZ9FjgxVPzPb/tkJsIXRUDzOdqfWjXHcOLRGZCjpj0/IqR/ACA
-	 f+SrfloBbh2tdUCnw4wJOgQH3doJk+AmFIUIm/pUinueniwxJ3s25coKi05PadyXZs
-	 SL4pU3mUytfUw==
+	b=cfcywSR/y6cY5+DzoBLb9ZwXrbr78izI4RJlCuTR4GcYDqy50Fq29D4l3ztQKcD3C
+	 Bb1nHGz+U319tbq6B+D3/wErQ96ZomS9W3FuUMqv2I6Q4XHZeSev//jpedfC/3u8GI
+	 xp6Hj9k0X/KWUBJJmnxBPrUD+yQ/ykmSgc0+iqcQgA1ehGLMEKME1YGjjC0Lzkjpt3
+	 P3M8/uq4hk/NJXahR0Uj6txRqQG2wgNV3uviTbV+NGf2BmwvnCCmqJA3TN8Cx8iBZP
+	 FKIL+2hux+UpdMiwkkRaVw1hM4pEd1NkfA71d49uBKhmwsHmgK4RxfbtTYvq9KcoPy
+	 r8XIjWpTiHW+w==
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Nov 2026 18:29:31 +0100
-Subject: [PATCH net-next v9 12/14] net: ethernet: cortina: Account RX
- buffer size in truesize
+Date: Fri, 20 Nov 2026 18:29:32 +0100
+Subject: [PATCH net-next v9 13/14] net: ethernet: cortina: Release partial
+ RX frames on stop
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-gemini-ethernet-fixes-3-v9-12-298671d799d5@kernel.org>
+Message-Id: <20261120-gemini-ethernet-fixes-3-v9-13-298671d799d5@kernel.org>
 References: <20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5@kernel.org>
 In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5@kernel.org>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
@@ -67,35 +67,55 @@ To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
 Cc: netdev@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.16.0
 
-gmac_rx() charges only the received payload length for each page fragment
-attached to an skb. Each fragment pins a complete free queue DMA buffer, so
-short packets understate their memory use to GRO and socket accounting.
+A NAPI poll can retain a partially assembled frame across invocations. The
+stop path clears port->rx_skb without freeing the skb retained in
+napi->skb. If the interface is reopened, napi_get_frags() returns that
+stale skb. The next frame overwrites its fragment array from index zero
+while len and data_len still include the partial frame.
 
-Charge the full posted fragment size for every attached fragment. The skb
-already accounts for its own head separately.
+This can lose page references belonging to the old fragments or pass an
+skb with inconsistent fragment accounting to GRO. If the interface is
+removed without reopening, NAPI teardown eventually frees the stale skb.
 
-The issue was found by reviewing the RX fragment accounting. The series was
-tested on a D-Link DIR-685 with media playback and ksmbd transfers under
-ping load.
+Free a pending fragment skb after disabling NAPI and before clearing the
+saved RX state. Count the discarded frame as dropped under the RX
+statistics sequence counter. Use the irqsave update helpers because
+ndo_stop runs in preemptible process context while 32-bit statistics
+writers must not be preempted.
+
+The issue was found by inspecting the partial frame lifetime and statistics
+writer contexts. The series was tested on a D-Link DIR-685 with media
+playback and ksmbd transfers under ping load.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/net/ethernet/cortina/gemini.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/cortina/gemini.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-index fe23ef8be9e5..5f8f220ad9d7 100644
+index 5f8f220ad9d7..3d121eec8873 100644
 --- a/drivers/net/ethernet/cortina/gemini.c
 +++ b/drivers/net/ethernet/cortina/gemini.c
-@@ -1907,7 +1907,7 @@ static unsigned int gmac_rx(struct net_device *netdev, unsigned int budget,
- 		skb_fill_page_desc(skb, frag_nr, page, page_offs, frag_len);
- 		skb->len += frag_len;
- 		skb->data_len += frag_len;
--		skb->truesize += frag_len;
-+		skb->truesize += freeq_frag_len;
- 		frag_nr++;
+@@ -2269,12 +2269,19 @@ static int gmac_open(struct net_device *netdev)
+ static int gmac_stop(struct net_device *netdev)
+ {
+ 	struct gemini_ethernet_port *port = netdev_priv(netdev);
++	unsigned long flags;
  
- 		if (!(word3.bits32 & EOF_BIT))
+ 	hrtimer_cancel(&port->rx_coalesce_timer);
+ 	netif_tx_stop_all_queues(netdev);
+ 	gmac_disable_tx_rx(netdev);
+ 	gmac_stop_dma(port);
+ 	napi_disable(&port->napi);
++	if (port->rx_skb) {
++		napi_free_frags(&port->napi);
++		flags = u64_stats_update_begin_irqsave(&port->rx_stats_syncp);
++		port->stats.rx_dropped++;
++		u64_stats_update_end_irqrestore(&port->rx_stats_syncp, flags);
++	}
+ 	port->rx_skb = NULL;
+ 	port->rx_frag_nr = 0;
+ 	port->rx_dropping = false;
 
 -- 
 2.56.1
