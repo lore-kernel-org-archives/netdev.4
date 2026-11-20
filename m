@@ -1,65 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194064;
-	b=B+uNue5h8FbtashLo2vTOfu2vHUHqsRqN+mq0xLg6BVddZRandpqG2fMhROCWDsZ8EGK
-	 9lGdu4Vu9PuzAGWD1lu4yCirYoJN4+BXGjKRzKfhbQbo+hOS+DwbWR1qLho9yK0qKnrfV
-	 PQM2mRrBL/XqfONU/0glnKYG8GK6MGEBFdFsgpIkKXQH5F6ZPlDnbyoSnfAc7+NOOineA
-	 yGp8rXuf9FsckYv2HOOtOL49SbHmjdwzqKmnwi7ejlftIWlkMp4mvjtmzl6yYinrVaO+T
-	 SfY9puQVMWhHMqfklMoxIJrvgW7bsP4WImAUQua11LsnmO9KLgOn3UI+Um5QB12V1lw==
+	t=1795194146;
+	b=yLcdPH/+BD1Ame52a+pJ7gssZb0w9ikdogVaIpyVLUaVIPAjJoGWMs5AO5UXRn6COTuO
+	 AM6VAyLGXGkHX8OHhJlOjcFIqPIiAmyY3USXOQ+OnaeApszSLcgupJpKXrs9YMQ2REFNa
+	 LE1etkMX3WBSz4o4WxYv/YbgUhS2PUCq49L0SigKQhPNsqYftNtbuQPy4ILo1PJYiHfas
+	 Qh8xbsNA8oSwao8YKwGfhA1JW9aU6Va+PUCJk2VDj1mn8z90x9C+RkhFhhb6YvziU++Ek
+	 yEtP9dlNDRvKSZ1mxJvp0vTvEGFuq4z2In9/Z5Y6jTkpvZjYCMpcoLxs+8WnR+Gk3rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194064;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=+SBEbYMnCfS0wR4VSNhGdIGif4ouwcd3YyOPI5uczzM=;
-	b=fsjDUpfHJe7JnNvDORJefwRFU7vcOE5H2B1tFQveo2LswZ+kIcbztrDPOcfTfnoMRktO
-	 Lb/ZduBK06s/ij+YKYgCifchFzBhB4v/j3/8pAMEGuGX4jmlgX7y//PZsbNoVPjbRn23m
-	 0qPr3PEp8gUw2B+nx/allk9JC+YlzK81VcSQMuQXZgeUXdOOqmzJFkdd0RgL9TcjumHO7
-	 MVcmzAJL5foDLRah7xkmS9NB9/jUYFCr8uu77dF1zLtbebbRWSRL6FSODWqomyXuvtLn2
-	 5uFiJpmMdHJo+3EutTch1n/LlNBwbpCuMhajLbIT+jvq0e+Xmbm9Xw+q4ieQVsaUvRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194146;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=07oCIpupG8yXrr5ZuTvOZTkLRKl/h+AoSNLxt0pWwj0=;
+	b=RyUK4uuVeFW0WC/wvNxpxayPWuIzLkXqRq1sbJoOJJ5EG443XkTWAQs3N5Yaur3kNlo/
+	 4g3ACEBjSVjFzOJSaPdbL9YoEJBG2M1WYQFLddfk3ZKutOraR26nFiRXAV2iUjxg3gmrf
+	 3dpkeiGzA0agxPTVujQDDBNztI9JjTYrPj0sh/PaC3dL5HOq+VH09grxi+CBemn68N7eM
+	 YmHqjzEl4viM6anG1wmoh2OUSZW0Y3nXhG4yFQNJuSCa7QDrHUFodPPTAAtQ4OrE4Cjhs
+	 i3pF2Y7KUw19lFmfMV3bXLxLLskiwIlShhwk6+Q95pMN89306w550KHLsXFivgmGD9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=WbzEuBgE;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HhU2nCnc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDBA8606A33F
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:01:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDBA8606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42E8260A2604;
+	Fri, 20 Nov 2026 17:02:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=WbzEuBgE
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=+SBEbYMnCfS0wR4VSNhGdIGif4ouwcd3YyOPI5uczzM=; b=WbzEuBgEXeLwdhvRcMBEgZPzI2
-	XEHk8m9aAxSz+NIUYXQWOJpYJ8gme2Zm/aOj6J3MIqUKAnj5EA72HUZBxuE8xacw9i9Z95mRLJ5g1
-	asD99yuDHasCWhczQuMdoAjOzRGmm6FjMHZ2wCKHlSmSbAHveMnBr0RxgiIBmE0D86qk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xURyu-000LEn-Gm; Fri, 20 Nov 2026 18:01:00 +0100
-Date: Fri, 20 Nov 2026 18:01:00 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Doddagoudar, Susheela M" <susheela.m.doddagoudar@intel.com>
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"Lindberg, Magnus" <magnus.k.lindberg@ericsson.com>,
-	"Chintalapalle, Balaji" <balaji.chintalapalle@intel.com>,
-	"D H, Siddaraju" <siddaraju.dh@intel.com>,
-	"Srinivasan, Vijay" <vijay.srinivasan@intel.com>
-Subject: Re: Proposal: per-lane PHY polarity get/set via ethtool PHY tunables
-Message-ID: <b9785068-b1c1-43c7-be3e-9b8c5d989b80@lunn.ch>
-References: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
- <112154f6-53f9-4cb7-9124-aba263b097b5@lunn.ch>
- <CA+h21hq0EqJZFh_Kv64TR-oL4j=n61XK1xzzL_GMXLZr-=4PHQ@mail.gmail.com>
- <BYAPR11MB271098184A7A1689F5647937D2782@BYAPR11MB2710.namprd11.prod.outlook.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HhU2nCnc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83D0C1F000D3;
+	Fri, 20 Nov 2026 17:02:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795194146;
+	bh=07oCIpupG8yXrr5ZuTvOZTkLRKl/h+AoSNLxt0pWwj0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HhU2nCnclb4BgjEXKtSq12SvngbuhmoO744/60NjdEYuY6yN676NC7wnVUTCgAMKr
+	 USsO/BxDUbjBLMqHbfDwQFjeuGsj9Whag05EOfTJdH5Wb8jS5q759QGoWCfGwM8y0W
+	 NiP6bYEAj88Cc6tv2o59kE8pI7hsKEC+mAYD5TCON3XACHP6yhNb2CgpuBuu7IINYH
+	 7ophms2SaqTXusCuHLGwurA5VBfV/ZElmV4lYsJTLCqXqk3YQd0gdYF1LGPOhBkX95
+	 9ifeHNtcU9aG3xTqmFvgHLVd6VvIrTBet9HtWoa3Wtuu5k0y9bNfCY9d69iz0fFLHI
+	 Z70b9OJIAMC1Q==
+Subject: Re: [PATCH net-next] net: dsa: bcm_sf2: Use
+ devm_clk_get_optional_enabled() in bcm_sf2_sw_probe()
+From: netdev-bot+sashiko@kernel.org
+To: Markus.Elfring@web.de
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, florian.fainelli@broadcom.com, kuba@kernel.org,
+ jonas.gorski@gmail.com, pabeni@redhat.com, olteanv@gmail.com,
+ linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Date: Fri, 20 Nov 2026 17:02:25 +0000
+Message-ID: <179519414508.3136.7413624094290164260@kernel.org>
+In-Reply-To: <d772ca26-d7f4-4857-9278-628b87e2252e@web.de>
+References: <d772ca26-d7f4-4857-9278-628b87e2252e@web.de>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,44 +64,128 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <BYAPR11MB271098184A7A1689F5647937D2782@BYAPR11MB2710.namprd11.prod.outlook.com>
 
-On Fri, Nov 20, 2026 at 04:35:54PM +0000, Doddagoudar, Susheela M wrote:
-> Hi All,
-> 
-> On Device Tree platforms, inverted PHY lane polarity is described statically via the PHY_POL_* properties. 
-> Non-DT systems, such as x86 platforms where polarity comes from firmware or NVM, have no equivalent, 
-> and still need a way to set it at runtime for bring-up and validation. 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Firmware and NVM are part of the problem, since there is no
-standardization of them across vendors. Since there is no
-standardisation, you are going to need dedicated tools to change them,
-so is it really that difficult to add one printf() in your vendor
-tools?
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-> Two reasons a static description is not sufficient there:
-> 1.ACPI overlay-based workarounds require PCI re-enumeration, which tears down the netdev.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-So what. You try all combinations/permutations until it works, burn it
-into ACPI and the problem is solved. This should be a one time thing.
+- [High] The patch double-disables the switch clock.
+- [Low] The commit message calls the change pure de-duplication ("Reuse
+  existing functionality ... instead of keeping duplicate source code"),…
 
-> 2.Dynamic devlink port splitting changes the single- vs multi-lane topology and, with it, the 
->    per-lane polarity requirements.
+--
 
-Why should a port splitter require the polarity of a pair to change?
+net: dsa: bcm_sf2: Use devm_clk_get_optional_enabled() in bcm_sf2_sw_probe()
 
-A runtime ethtool interface is needed to override the probe-time
->    firmware or DT defaults after a split.
+This commit converts the "sw_switch" clock lookup in bcm_sf2_sw_probe()
+from devm_clk_get_optional() followed by clk_prepare_enable() to
+devm_clk_get_optional_enabled(). Coccinelle generated the change.
 
-How are you going to explain this to the end user? "If you device does
-not work after splitting the port, please try these magical ethtool
-commands until it works."
+> Reuse existing functionality from devm_clk_get_optional_enabled()
+> instead of keeping duplicate source code.
 
-Are you old enough to remember straight and twisted UTP ethernet
-cables? That was painful, and you seem to want to bring that pain
-back. That pain resulted in Auto MDI-X. Has the industry really not
-learned from that?
+[Severity: Low]
+This isn't a bug, but does this description match what the patch does?
+The conversion changes behaviour. It adds a devres-managed
+clk_disable_unprepare() for priv->clk and keeps the manual disables (see
+the comment on the diff below).
 
-	Andrew
+In the patch as submitted, bcm_sf2_sw_remove() still tears down in the
+original order:
+
+drivers/net/dsa/bcm_sf2.c:bcm_sf2_sw_remove() {
+    ...
+	clk_disable_unprepare(priv->clk_mdiv);
+	clk_disable_unprepare(priv->clk);
+	if (priv->type == BCM7278_DEVICE_ID)
+		reset_control_assert(priv->rcdev);
+}
+
+So the ordering is unchanged for now. Once the manual priv->clk disables
+are dropped to fix the double-disable, devres would gate the sw_switch
+clock after clk_mdiv is disabled. On BCM7278 it would also gate it after
+reset_control_assert().
+
+Could a respin describe and justify that ordering change? Could it also
+explain why priv->clk_mdiv stays manually managed while priv->clk is
+converted?
+
+> diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
+> index 1747a1f20c78e..011ce79392e8a 100644
+> --- a/drivers/net/dsa/bcm_sf2.c
+> +++ b/drivers/net/dsa/bcm_sf2.c
+> @@ -1467,14 +1467,10 @@ static int bcm_sf2_sw_probe(struct platform_device *pdev)
+>  		base++;
+>  	}
+>  
+> -	priv->clk = devm_clk_get_optional(&pdev->dev, "sw_switch");
+> +	priv->clk = devm_clk_get_optional_enabled(&pdev->dev, "sw_switch");
+>  	if (IS_ERR(priv->clk))
+>  		return PTR_ERR(priv->clk);
+>  
+> -	ret = clk_prepare_enable(priv->clk);
+> -	if (ret)
+> -		return ret;
+> -
+
+[Severity: High]
+Is the sw_switch clock now disabled and unprepared twice?
+
+devm_clk_get_optional_enabled() registers clk_disable_unprepare() as the
+devres exit action:
+
+drivers/clk/clk-devres.c:devm_clk_get_optional_enabled() {
+	return __devm_clk_get(dev, id, clk_get_optional,
+			      clk_prepare_enable, clk_disable_unprepare);
+}
+
+When devres is released, devm_clk_release() calls state->exit(state->clk).
+
+The patch removes only the explicit clk_prepare_enable(priv->clk). The
+explicit disable at the out_clk label is still there:
+
+drivers/net/dsa/bcm_sf2.c:bcm_sf2_sw_probe() {
+    ...
+out_clk:
+	clk_disable_unprepare(priv->clk);
+	return ret;
+}
+
+So is the one in bcm_sf2_sw_remove():
+
+	clk_disable_unprepare(priv->clk_mdiv);
+	clk_disable_unprepare(priv->clk);
+
+Every probe failure after the clock is acquired ends at out_clk. That
+includes -EPROBE_DEFER from devm_clk_get_optional("sw_switch_mdiv"), so it
+happens on every deferred probe retry. Unbind and module removal go
+through bcm_sf2_sw_remove().
+
+In both cases devres_release_all() runs afterwards and calls
+clk_disable_unprepare() a second time.
+
+When the sw_switch clock is present in DT, the second call would hit this
+check in clk_core_disable():
+
+	if (WARN(core->enable_count == 0, "%s already disabled\n", core->name))
+		return;
+
+It would also hit the matching "already unprepared" WARN in
+clk_core_unprepare().
+
+If the clk_core is shared with another consumer, would the extra call
+drop that consumer's enable/prepare reference instead and gate a clock it
+still uses?
+
+Should clk_disable_unprepare(priv->clk) be removed from both the out_clk
+path and bcm_sf2_sw_remove(), with the error labels adjusted to match?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/d772ca26-d7f4-4857-9278-628b87e2252e%40web.de
