@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134372;
-	b=dcfms5j/eYjO7wjKhJA1/21m/o9FakNDYW2uoUxfkbIeBkpNLrhkCBEAsYjJ59M9qfZA
-	 QhXD/eaBT+jWmKKMcx+bFPWbujHyQT7H1hR2EPxR8oBpvzjmawXKSS3cWkosZjkwQuHTU
-	 gkj/9DQZtGXrTDjzrq66IlZBYZw3jbPlgoWqSzyS5AvJdf/vyYbE0SqGBtAZi1eM/xQep
-	 /5L+QYcZnVuwEoSoobmJXYV8uu+jhVxj3Kv8uoevS2yz5IRI4W6c56Uwr/yEHkSQpv3i1
-	 Bv0pHM+1GDrkX9igtb5Hs9ZOCfxI89TCTktFqyXP9NBTnlTb9kEFual/U2xLatzU49w==
+	t=1795134377;
+	b=p8J4HqOqgfMlHqfTPaoim3YghsUQdFVeBX+v+lR15Y7ePYbKqRtOuM0EMldD1sjsD/Du
+	 WvQCtyNQhZce1xGV6tht5XfoVqNZO0utV/diTcQAzo/r5qtbnm0DQwb255q8mA+PPoNEW
+	 /oaZj2wyj5xJM1IOxLQg0Ararsrx2pniw8C57G2PaMDFcBKN+LHgkAK4DQz/Br+HtJBl5
+	 LHe3r0e58r3T2tKN71Rw7XQfnoZhIQICo/nsLxoXVLmpLZKg5i8oH8zLcpeOsp+RW+ZGv
+	 hKAlvHc4+2vFDh65lGVinC6xKc7fAUphRtqFT/lSFnhQs+cJZlPAnZHAaM8kBuwbZww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134372;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134377;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=+MYuoPEXokos/7FC3STr/BeJTYcH3uf8nARH/KURCuw=;
-	b=hwPeRt2DQI22gCfLucQO8UqSSW0xhRJQYtf0Hcx5SxRmLpgxr6PU30OvtOLXa2uoq37q
-	 /uJ7SGy9vBLPsO1omAm4zkDFyLTZCsSJjAfAPWpqHRZGU+lH9DCy3JWVsyBLmEtj0fBxU
-	 h0Yrma7cN3sbbeBvKCcG2HzvklcnSURgOO1gFap1kaR4Z7BPuHi8Vl4Jw5vFjQpFEnK7z
-	 9AxA/u1j0E69Auq2T2WAslB9RDRL4QX3dnKp6nOlA5t9985GdPehx6k6RbYIsun2zyHtu
-	 TYE94OopmNARzn1wVW5BM5q5vkYewoGqac3KMhv+ue/dYWWB9jDhsAsLComhI2SFQ6g==
+	bh=Qk3aVd4VbRKTIc00sE53YNcKxH8rylinMd/aVzIhDmI=;
+	b=o8DwvcebjkaCshLqF/6ru/SNhcenTYaMTdpzKc82YEyye2kfuynVYchIH+7PRCnNUgtM
+	 pwZWFF/5R+iKeGDijOA9Ql/1vhISQexsAuxfPbIMUiYrS6NyihkwK+JKbJgK9sF8EPLrK
+	 gq1Z7g+Ppq6C7SJylRa8tstZHx0sUa69z+pNEPJnWPh7ry+TwimS/JDjBpxg7iTvhUFbW
+	 uqKANpngsos6v/O0STkxhPjqDJIZZhmvXcKZw9tb4KAGreQz9DS+Z6VMWKRgwhG++gc0R
+	 sdctuLUVbxbYbd0acnWgQqvJ+Fc2DKyBiUarYMh/W45kDEsrmc+A7QA7LdCeuusrUpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="GiZW4/dA";
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JzGwlSSR;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4F3A60A261E
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:26:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4F3A60A261E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F0AD606A961
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:26:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F0AD606A961
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GiZW4/dA
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso1756885e9.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:26:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JzGwlSSR
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so1824505e9.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:26:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795134370; x=1795739170; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795134375; x=1795739175; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+MYuoPEXokos/7FC3STr/BeJTYcH3uf8nARH/KURCuw=;
-        b=GiZW4/dAH9BIl7CvYo9gwvJdIS5Wdn//a2nc1Gq5CnnI35dO7CSUUEVDmikHc4mio4
-         9uyKwKkDpA8KHzowUCfRFBGuJbfkbqXNZ7V1KF8aqy7CyjmTGahrsxWhIO1fD3XCPiTu
-         wjlDAanNYCT3voftYyUuJfNXhhZOvEGVa3uCQ3tWD1ZvF1tU/FPuUuhVB2G2/ShAm27I
-         wRJOe7hGgvauz08SfLaSIvtTRJLDSVw9pH5CL0bG41vVPWVVw5ugGOi8HGUzoDXKUg/f
-         AY5YfIRkanNgSemfmg1XjmR2F76cR6dBrOaT7ksAqgSoQVN5ciaZgBkAW+9ij3Q4IkzN
-         87TQ==
+        bh=Qk3aVd4VbRKTIc00sE53YNcKxH8rylinMd/aVzIhDmI=;
+        b=JzGwlSSRnJ/pM1jzIynWx0Mj9l+P2kGmykNiNarXiqYNS+A110hdsPW7czY7Akpbm0
+         Xz/CamNAUbrx1m1XphPuLG49RNDJAaHotX0PR6jv9lEPsm2ftb7wm+FyOMxJJOi6s5zG
+         67bxUbbB3M70YuPHUMb7H8f5/a9lFgXF1zXVFrNwqifN8DwkoHmTvJNqqucB8SsJZl2n
+         2pMh8AF/BURqD6PAjDG7Dxe6A/dMBjS3CGsqunyde88cETbwjlsqBwveXf9NccFk+YXg
+         onPxtbW8vQOLE2M2cGEE0HsaSOVVu9XYvc1TEgeaFIFcvMW1fXez2DogcZlGApDJfJP5
+         zT5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134370; x=1795739170;
+        d=1e100.net; s=20260707; t=1795134375; x=1795739175;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+MYuoPEXokos/7FC3STr/BeJTYcH3uf8nARH/KURCuw=;
-        b=I6x01AlRAwRbsx5ZC6ovXZ/wpQ90qpSFD3Sr+lGsK2rzR+kSThvo1O2nMCs9uGkWud
-         q5LR8rxBxCyYzFU11tioG9IyBl2SG8Bu3A79woFiW0f2tyNWBMIj0xitTFLvChBFfepj
-         YiwfDNIdIKjckBQ9rfTRUNA/mDYUE9nslYYZYVfeTIW09eYHbtDH8XHwLmVXYl2plWDh
-         JkbFLoM6Qcgyk+jyQxU2IPz2yyYdZSFQfs2nSDiyaifXTI0D/XdpBsMY6Ot/IF7D4ZQQ
-         nqWZd01bJxCFo//bGQF8JXL/bTxAqHbU7RfaXupluqMBoMCJ9XbGZZtX2GoCNkN0EOBT
-         gLfA==
-X-Forwarded-Encrypted: i=1; AL+hErGW5ruAZoQSj/G94EoIwesZqsvPJwCCDWcqtOjl7iSIQ6iOVvavphnL1g93Mk8uz+JKdEMFEdc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WjxE+DEO8EXEYq3/jDsMqZkZduAR9LsPMzbxjQNCW/RQB4g6t
-	sKy0TnkfNtTUtkctFgQSvsFDYs1DCb0zNnCRQZZNqjh+8ILxexQCsbTG
-X-Gm-Gg: AYBFou11Iqk13ZeSxuBzqvQMMbIbnyxCy5JmxT69Rg44hwQUJY73pD0MUDp+mDcM9yJ
-	FKninMSpzMkUaVHKLapLZVwlIZWom3ASsXzwLFQfobyET/+wWoxnx+EXNblWj4ALUx6pqmH4by3
-	0rmbamU6Lqc6kMFoBhSSEo+SpexOX3qlj9fVYUiWGFV5Tl/7cK28C2FCqql+MT2kEqYZKoo0AMV
-	ilcWdZ+J7sw4TAclQQVS1prefWpkc3ASFXHlj1iynnDu63yIRmYTL3R+6tpD2hzclrUMFj1jedP
-	D1Djl3eVqj2rFPxMpwSQi+nsHcbFrbp5ArDEpKQE+KCiMTDjRdgR+6/o7gUbco5dkf9C4VjtGqF
-	GSneJHHsirbCq0q0xT1CdTwMXHatMxqwzh43CEdFssjz9+iajAsgdQXm5603ZcEL/aijdmDcvEy
-	Z7KDm8avJ+YFjzSczP5YMX/DH9kggp2v+2qYQzhJ1+n6ib2/pRg6GX170oCHnBVpIEhT3OZt1qX
-	gE8qQtNqMlT7XTQ4Zdor2XZctMgUzgQQrr7geUXM3ULyn7Q0JZOYbiJnHQmr9JcmBdlp/DIBl0F
-	+aTCaf81QEYEmXTnMc5q2dr9Lr4QV9Hs2I8rtmibGTPzt9H7/16Fd5ZQBKCW9ulNiSXjEdv/nBK
-	s8OTzPbNIowtz3Z1umhjFA7lNmGQ/xt6iDdYWaU4T35ttLvoV2WkKiJGdJEmT2i4t4t86+QmB
-X-Received: by 2002:a05:600c:37c9:b0:4a4:4d57:8487 with SMTP id 5b1f17b1804b1-4bb887fe7f7mr23286075e9.5.1795134370234;
-        Thu, 19 Nov 2026 16:26:10 -0800 (PST)
+        bh=Qk3aVd4VbRKTIc00sE53YNcKxH8rylinMd/aVzIhDmI=;
+        b=hpXwEoAHAxRujiaA8Km1U4VUaC3mlPpRlm+3qY6jwIYaTs1wI7b2aUQmn9wada8L7/
+         66CLoIkWojkhrk0siJbF03fp+Yv9XpnZbUsGX+bDC1MFboXExjKJyoEPs8YlsF7T8pJc
+         kJ4pOkZvaIioPXJtI8m0Ro7yktfv2e6GCFMWCRPxjUSuC+JcZ/zBaRgUSC4L2SapPGIC
+         qBGKyIL3iJAmKaF+Z5kmh7X8TFvjqhD8jGp5cAKmnAJUv9siS343zHS/1h9wucdHxJ+M
+         KGBnb1RRK32ttx62c+z82IFLTHcK2Qi2mnBBK7RdbRF3bW2ItFyuLQL4QI4uUuYIyN7x
+         t9iQ==
+X-Forwarded-Encrypted: i=1; AL+hErGmaM3x9tUohjUM2xTNl1JByLx0jI6VFC9mJYZBudbxtQ+jTxmUhEX0V4HkzZo3+ha3YzwFG7I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Q/yOuuzNUa8MOitu84zqn4SePcvhDEIYXj4qNFBglH5QPBh+d
+	pDZaJFtPctn7c0XTd+ByjyVUOz1ybrcI1/4waiSSGuifgWMo+wH4ElRY
+X-Gm-Gg: AYBFou2dZgFErGEH6WisifCsRSrcTNSP5gWmOOq/8zXka2tj9sAGjASIAmfS9+yZdLB
+	m4jGuVJnfxSZFyQM9Kb8oBouIgJOw63RyIUE5dbA0h4ITGSInRancUvN78L8P6d43t1Jwg78h00
+	CGoxxUbOQqvnDkP7JTPBsBDnEyVnVsMVsCsTy1ZAQSMWDIzM4dAIHuHeI5c9/JEr59NwRI6Ygh5
+	tqfvjFXZQUL0Uu3mK5CJv1/mWp/8W8ViSg6YjMs105CGjA/hDOL3P6S7if9hGhrNcyFwSXFXmcb
+	ZdvwrAuKbwo5qKq65AZJpD6oiX5ncp42SOj5bh9B96PZCx7890BNv1lDfozOdHw4efdL61T79FM
+	r6wYc9OIUujUGS+vwdkoBBy+EQ7fw3SJ0iohTugLhL/xtpfoJwsYG3H0S8yEwBfEMdgzuVX8kSV
+	eUxwKIPLNYTMFQokj1FQ52bEz8hMuYhAy7lFNvwMz4JpBavnznc8O80W84pAWtbMoFCB0xPkGiC
+	Bq9vsicafs0MPTPUAb7EJgFd85nTcyLO+cv9EXr+TNDzk54bQ/hxlTmZJ/1XJDn/tlqwX8pbwIj
+	RiSr7AoAfzwWlJoK0XaU9Hrm6HJC2Z9i7T0miEdrBjkgEGtOpiiebfOjtOXIHvgIm5Juslho1u0
+	J3s9TerYa0z7wzbinuhitg1zMKLzuNFwsqFfR+EgE7wrqg5FTqJs3BML/tYaMWQvfcIKel7hjZa
+	20L4DRBVk5d+AD3L2RPQ==
+X-Received: by 2002:a05:600c:848d:b0:4bb:694e:496c with SMTP id 5b1f17b1804b1-4bb88810b39mr28871365e9.22.1795134375399;
+        Thu, 19 Nov 2026 16:26:15 -0800 (PST)
 Received: from iku.lan ([2a00:23c8:254f:fd01:c5c5:590b:f4b8:3e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm2629998f8f.55.2026.11.19.16.26.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm2629998f8f.55.2026.11.19.16.26.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:26:09 -0800 (PST)
+        Thu, 19 Nov 2026 16:26:15 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@linux.dev>,
@@ -106,9 +107,9 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v5 18/24] net: dsa: rzn1-a5psw: Get pattern matcher register offsets from OF data
-Date: Fri, 20 Nov 2026 00:25:28 +0000
-Message-ID: <20261120002549.1908299-19-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v5 24/24] net: dsa: Kconfig: Enable support for RZ/T2H and RZ/N2H SoCs
+Date: Fri, 20 Nov 2026 00:25:34 +0000
+Message-ID: <20261120002549.1908299-25-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
@@ -125,93 +126,55 @@ Content-Transfer-Encoding: 8bit
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-The RX pattern matcher registers are located at different offsets on
-RZ/N1 and RZ/T2H/RZ/N2H. While RZ/N1 uses 0x3e80 for RXMATCH_CONFIG
-and 0x3eb0 for PATTERN_CTRL, RZ/T2H and RZ/N2H use 0x3f00 and 0x3f40,
-respectively.
+Update the Kconfig entry for the Renesas RZ/N1 A5PSW Ethernet switch
+driver to depend on ARCH_RENESAS instead of ARCH_RZN1. This allows
+the driver to be built for other Renesas SoCs that integrate a similar
+Ethernet switch IP, such as RZ/T2H and RZ/N2H.
 
-Move the base offsets of both register arrays into struct a5psw_of_data
-and use the correct values for each SoC.
+Also update the help text and prompt to reflect support for the ETHSW
+variant used on these SoCs.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
 ---
 v4->v5:
-- New patch
----
- drivers/net/dsa/rzn1_a5psw.c | 10 ++++++++--
- drivers/net/dsa/rzn1_a5psw.h |  8 ++++++--
- 2 files changed, 14 insertions(+), 4 deletions(-)
+- No change
 
-diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-index 9475e53752ce..6f3f902f9f4c 100644
---- a/drivers/net/dsa/rzn1_a5psw.c
-+++ b/drivers/net/dsa/rzn1_a5psw.c
-@@ -112,7 +112,9 @@ static void a5psw_port_pattern_set(struct a5psw *a5psw, int port, int pattern,
- 	if (enable)
- 		rx_match |= A5PSW_RXMATCH_CONFIG_PATTERN(pattern);
+v3->v4:
+- No change
+
+v2->v3:
+- No change
+
+v1->v2:
+- Added RB tag
+---
+ drivers/net/dsa/Kconfig | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/dsa/Kconfig b/drivers/net/dsa/Kconfig
+index d62f0cccf13d..5af8bc1a4dce 100644
+--- a/drivers/net/dsa/Kconfig
++++ b/drivers/net/dsa/Kconfig
+@@ -103,13 +103,14 @@ source "drivers/net/dsa/xrs700x/Kconfig"
+ source "drivers/net/dsa/realtek/Kconfig"
  
--	a5psw_reg_rmw(a5psw, A5PSW_RXMATCH_CONFIG(port),
-+	a5psw_reg_rmw(a5psw,
-+		      A5PSW_RXMATCH_CONFIG(a5psw->of_data->rxmatch_config_base,
-+					   port),
- 		      A5PSW_RXMATCH_CONFIG_PATTERN(pattern), rx_match);
- }
+ config NET_DSA_RZN1_A5PSW
+-	tristate "Renesas RZ/N1 A5PSW Ethernet switch support"
+-	depends on OF && (ARCH_RZN1 || COMPILE_TEST)
++	tristate "Renesas RZ/N1 A5PSW and RZ/{T2H,N2H} ETHSW Ethernet switch support"
++	depends on OF && (ARCH_RENESAS || COMPILE_TEST)
+ 	select NET_DSA_TAG_RZN1_A5PSW
+ 	select PCS_RZN1_MIIC
+ 	help
+-	  This driver supports the A5PSW switch, which is embedded in Renesas
+-	  RZ/N1 SoC.
++	  This driver supports the Advanced 5-Port Switch (A5PSW) found on
++	  Renesas RZ/N1 SoCs, and the Ethernet Switch (ETHSW) found on
++	  Renesas RZ/T2H and RZ/N2H SoCs.
  
-@@ -953,7 +955,9 @@ static int a5psw_setup(struct dsa_switch *ds)
- 	a5psw_reg_writel(a5psw, A5PSW_MGMT_CFG, reg);
- 
- 	/* Set pattern 0 to forward all frame to mgmt port */
--	a5psw_reg_writel(a5psw, A5PSW_PATTERN_CTRL(A5PSW_PATTERN_MGMTFWD),
-+	a5psw_reg_writel(a5psw,
-+			 A5PSW_PATTERN_CTRL(a5psw->of_data->pattern_ctrl_base,
-+					    A5PSW_PATTERN_MGMTFWD),
- 			 A5PSW_PATTERN_CTRL_MGMTFWD);
- 
- 	/* Enable port tagging */
-@@ -1348,6 +1352,8 @@ static const struct a5psw_of_data rzn1_of_data = {
- 	.npcs = 4,
- 	.cpu_port = 4,
- 	.tag_proto = DSA_TAG_PROTO_RZN1_A5PSW,
-+	.rxmatch_config_base = 0x3e80,
-+	.pattern_ctrl_base = 0x3eb0,
- };
- 
- static const struct of_device_id a5psw_of_mtable[] = {
-diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
-index 942931cbc402..5c5f5ec25774 100644
---- a/drivers/net/dsa/rzn1_a5psw.h
-+++ b/drivers/net/dsa/rzn1_a5psw.h
-@@ -74,10 +74,10 @@
- #define A5PSW_VLAN_RES_VLANID		GENMASK(16, 5)
- #define A5PSW_VLAN_RES_PORTMASK		GENMASK(4, 0)
- 
--#define A5PSW_RXMATCH_CONFIG(port)	(0x3e80 + 4 * (port))
-+#define A5PSW_RXMATCH_CONFIG(base, port)	((base) + 4 * (port))
- #define A5PSW_RXMATCH_CONFIG_PATTERN(p)	BIT(p)
- 
--#define A5PSW_PATTERN_CTRL(p)		(0x3eb0 + 4  * (p))
-+#define A5PSW_PATTERN_CTRL(base, p)	((base) + 4 * (p))
- #define A5PSW_PATTERN_CTRL_MGMTFWD	BIT(1)
- 
- #define A5PSW_LK_CTRL		0x400
-@@ -239,6 +239,8 @@ union lk_data {
-  * @tag_proto: DSA tag protocol used by the switch
-  * @management_port_fixed_frame_len: Fixed frame length for the management
-  *   port to account for the HW issue.
-+ * @rxmatch_config_base: Offset of the RXMATCH_CONFIG register of port 0
-+ * @pattern_ctrl_base: Offset of the PATTERN_CTRL register of pattern 0
-  */
- struct a5psw_of_data {
- 	unsigned int nports;
-@@ -246,6 +248,8 @@ struct a5psw_of_data {
- 	unsigned int cpu_port;
- 	enum dsa_tag_protocol tag_proto;
- 	unsigned int management_port_fixed_frame_len;
-+	u16 rxmatch_config_base;
-+	u16 pattern_ctrl_base;
- };
- 
- /**
+ config NET_DSA_KS8995
+ 	tristate "Micrel KS8995 family 5-ports 10/100 Ethernet switches"
 -- 
 2.56.1
 
