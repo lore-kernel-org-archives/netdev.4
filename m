@@ -1,64 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199942;
-	b=iCjujALuy0Ee5ECrgpt+K9x7LZmmWfaQjz9fFgpGgdxEqpu3Yh8YXCcdGybk8wBalUos
-	 sfRxwtXqpOCTlmhM8BduICKe0+dtW66JxTMjWF4XSZgGv0abMomCkOvg3JM8GERoTXYpv
-	 Uj+OTlp4/xDvbdFCerdYgs+MsWcAHOCr/+fcaQ9FZOHwnPUHKtU0O43fbqX6/T5MbM2wY
-	 3v9fJf1XN35JKZoIPSnDy/ptj8QPBbewJ12So2VK1OuF75g19fSrj98b/Ygal067tF7Nz
-	 5SqeShF9SHNgux9p9hbWLr9IIoQg4LGJgB20pKegxQVuw5CTGMOa+xPS/ljXywNV/bg==
+	t=1795200007;
+	b=nHYWM+7PevPFzwaV6L+v6MZgDx3j1cVcR4xbLs23L83RFbiy5Fiah2ymZJoEBZ7D8pif
+	 SHHNixUW7kcq4Cwx/z0gz1oIEaZ6QDUcLmu9n4JWwg1MkM8A/7Ptfxw0JI/E+iKMDdWQ/
+	 Eey9OJ41vXiXruKqTuUNeNRifdgXLCOvQ9dFf3BzYU6RMw/uEeDxY91itwdAdrAliTOss
+	 OP9XDSRJOuhYrCq4yq9bm1Cu4SwIcJok9wcX38yikwYS5g6xLzJcPvYn1S+Qq+RScjNKH
+	 ZXgSkW78nQ/OkeXxbuAYOdX14yQDErVpdIMqpbQ/B1c1/cExLWWEwPFKmDkNj3Q8tgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199942;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 User-Agent:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=oQw3i108RPM5buC+p6pexeM+VTd16NElY2rsP3e1vco=;
-	b=a05QOmicvfU9QoczphQEBuUrQJWQyaek7n4sNRPSBQPo7ytsICjrydudvsxwMGzQOhNh
-	 KlzTXTUJPgV+mwcfP0uhGmYNyLCPbck+paif7VrLk0nKSqWrvJGsDmzzN9FxKJZKNnIpK
-	 3lvP+LUg+u0WVyE+qTq5jbAYzlYqMjgyGdkg2OZk0AVjS96RchZ7bd2DWBKr77XAq6K41
-	 5Mq2i3L4MBjkjg0tpJDZWDsxRzgYYXDb0jSry6Ffa9DZWZi0dqQUJnIGU0epBJKPQFS+h
-	 hgT77pVF+zaXLba2LJRXrr3rc/+sgP+jp3EmSFSLVbVxDJbBPPiJnltt+rg3BY1cOBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200007;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=KowZfwiFCJNEZwPlpnkpTpfQB7DrOhvwcZCjXH+2mo4=;
+	b=vIAqQf7r9ln+2kCLIfpMB4TGCB+53zm55wlVZTH/Jiqb17beLdLvTYTVWmZJCjNkTXNJ
+	 9/cMxzt7et7FaUU3NwLUJFvxnaB5z69EONSrZsQJSUWZ79R6ABuzHzG+0FaTkhS73QeJ4
+	 wt1mkX/+fy5X7OuKTRTHk16OlkPiNIMzs5xRevui1xPkhJf/WKv+uwe8SOlzQ7tBig+D4
+	 tmonXn0Nmta7NLnQ/QN/BCjq4L3tMxZijZECTLWsFSX6jPx1MaoU75HeMLYvoVOcjvdmk
+	 kfRRIqpLcv3oFAJxGllbDYAsFmmR11oySp3ZYOTgD4uXsu9RKjd4ptRVC5otvb68Z6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mssh3ttm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Njkokn7L;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1E08606A339
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 18:39:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE6CB606A338;
+	Fri, 20 Nov 2026 18:40:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mssh3ttm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF621F000CF;
-	Fri, 20 Nov 2026 18:39:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Njkokn7L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC9341F000CA;
+	Fri, 20 Nov 2026 18:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795199942;
-	bh=oQw3i108RPM5buC+p6pexeM+VTd16NElY2rsP3e1vco=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=mssh3ttmd0MQsIES7sYsysAhOnNy1xTknXktxY2FEhrAxM0IKYCH1Mru0vw/f3mQR
-	 gWJ85+IVe1KoimOsw+KeX9GErp+GVAG086+0dHn7sffdakpLtDPP8voeDMUS7GExhZ
-	 7r0jOIVlYayOzXiyjNgXWw5juYyqzdmjuvv9CcwRNF+Ec6Fy+9bO7IrjzuadOqpBOb
-	 8I/i2+6SbA6xdDqjtIN5tD5tGYqoTrPlr07pgKA1TZOEfslIUb+Ue7T1Hv1WVUinJX
-	 kXM1FTQTpHeKUaXz4g1wvyp3G+DobS/TrqUquBP1S/Qxcd1tmCeZNA36+NJQKJeFB8
-	 6KL0nr4RJRm5A==
-From: Roman Gushchin <roman@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Jakub Kicinski <kuba@kernel.org>,  Roman Gushchin
- <roman.gushchin@linux.dev>,  Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-  Andrew Lunn <andrew+netdev@lunn.ch>,  "David S. Miller"
- <davem@davemloft.net>,  Paolo Abeni <pabeni@redhat.com>,  =?utf-8?Q?Micha?=
- =?utf-8?Q?=C5=82_Miros=C5=82aw?=
- <mirq-linux@rere.qmqm.pl>,  Myeonghun Pak <mhun512@gmail.com>,  Eric
- Dumazet <edumazet@kernel.org>,  netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v8 00/19] net: ethernet: cortina: Fix Gemini
- RX/TX buffer management
-In-Reply-To: <CAD++jLnP2EfgM_isbdmidLOc0ZUaoq+bgD+cvw9sKLJCynniWw@mail.gmail.com>
-References: <20261112-gemini-ethernet-fixes-3-v8-0-f55bd43e02d3@kernel.org>
-	<CAD++jL=BZYKywoLY7rqh6+j5X1jpjXBA0OdDAJ-DCaqYMZoVjQ@mail.gmail.com>
-	<20261119165240.293dfbd6@kernel.org>
-	<CAD++jLnP2EfgM_isbdmidLOc0ZUaoq+bgD+cvw9sKLJCynniWw@mail.gmail.com>
-User-Agent: mu4e 1.12.12; emacs 31.1
-Date: Fri, 20 Nov 2026 10:39:00 -0800
-Message-ID: <87pkvzfiuz.fsf@kernel.org>
+	s=k20260515; t=1795200006;
+	bh=KowZfwiFCJNEZwPlpnkpTpfQB7DrOhvwcZCjXH+2mo4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=Njkokn7LQqpxcdFdrEg4aNCyPAf1f50XmXSiN/IDJZJDoixc07/WMecptFkUzUnt3
+	 907/6DrnHSYqBj4PVc/crCe8e8V/Nrz8wwVchA4Mx0Q5E47MheM/t+yZTLvHq1VgfW
+	 /FZH0IufyQhxlkw4APksE2eV4/U4/mkv3H2Ko81gmwJewaPT858MLkOgGdSiuc4yJG
+	 w6xVZjUQL0oYTwDKxbfYXexnaRZSTX80gicrSRFtDHtGSLNBJl9ee+uRUH9bwxoJSY
+	 5OqMQJfhrbYFV+YFbRotaGHuV1k4yr5zTCqOui37fLMugi5fMBCB3XSlr/D/AQILNY
+	 9oktnQNI6E3GQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4531380A950;
+	Fri, 20 Nov 2026 18:40:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,41 +53,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v6] af_packet: avoid waiting for TPACKET_V3 copies at
+ retirement
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179520000553.726917.14536544979792375292.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 18:40:05 +0000
+References: <20261118135443.24767-1-jingxuanxie@deeproute.ai>
+In-Reply-To: <20261118135443.24767-1-jingxuanxie@deeproute.ai>
+To: Jingxuan Xie <jingxuanxie@deeproute.ai>
+Cc: netdev@vger.kernel.org, willemdebruijn.kernel@gmail.com,
+ shaoyanghan@deeproute.ai, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, bigeasy@linutronix.de,
+ clrkwllms@kernel.org, rostedt@goodmis.org, john.ogness@linutronix.de,
+ linux-kernel@vger.kernel.org
 
-Linus Walleij <linusw@kernel.org> writes:
+Hello:
 
-> On Fri, Nov 20, 2026 at 1:52=E2=80=AFAM Jakub Kicinski <kuba@kernel.org> =
-wrote:
->
->> > I think it could be applied and then maybe I can follow up some
->> > of the comments later once this is landed and the ethernet is
->> > working properly.
->>
->> Ugh, not only is this pile over 15 patches
->
-> I blame that on Sashiko's constant "oh by the way fix this too"
-> and ability to find otherworldly error paths...
->
->> it also fell victim to the
->> mass rename of kmalloc to kmalloc_obj that landed in Linus's tree :/
->
-> Oh Christ :D
->
->> Please:
->>  - rebase
->>  - drop all the Fixes tags here, net-next =3D=3D no Fixes tags
->
-> NB: the Sashiko used by netdev insists on us adding these so we
-> are giving incoherent messages here. Clearly Sashiko can see
-> the prefix on each series and know whether Fixes: are applicable
-> or not. We need to fix the Sashiko
-> prompts. (I can perhaps do it if I know how, Roman?)
->
-> Sometimes Fixes: are used for "nonurgent fixes" in other kernel
-> trees but maybe it just doesn't work with netdev.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-A clearly written text with rules in English would work, I can do the
-rest. But it's for "upstream" Sashiko, netdev-specific Sashiko is
-supported by Jakub and has quite significantly diverged.
+On Wed, 18 Nov 2026 13:54:43 +0000 you wrote:
+> TPACKET_V3 retires a full or expired block while holding
+> sk_receive_queue.lock. prb_retire_current_block() takes
+> blk_fill_in_prog_lock for write to wait for in-flight skb_copy_bits()
+> before publishing the block.
+> 
+> On PREEMPT_RT a read lock can be held by a task that has been
+> preempted or is running on another CPU. The packet path or the
+> retirement timer then blocks on the write lock while holding
+> sk_receive_queue.lock, and the receive path resumes only after the
+> copy completes. This was observed as a receive stall of hundreds of
+> milliseconds in a PREEMPT_RT deployment; manual inspection found the
+> same unconditional write_lock() in both the full-block and the timer
+> retirement paths.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v6] af_packet: avoid waiting for TPACKET_V3 copies at retirement
+    https://git.kernel.org/netdev/net/c/d7f2d9b6c7d0
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
