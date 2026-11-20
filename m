@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795196253;
-	b=bcjEO0JLlB4bz+pfm6gbV4TDnIB2WbZbrfLbPd/stinlNkV2x7N2YOePOoSQqfXARtUJ
-	 /b9Y3GtCAHb4ZoUXUBKYAdPROMz1C3Ex83JvWMTgRFfTjTsmzdwyCfkdy5062IwZ67qOj
-	 yyF0E4Ce2/O07vL5WZOK7a1XTQ92aOIhUfwKlAOEXTJ/jSUymN7MfsiaphwQLhNPPtYX2
-	 wJ3H3Jzl3sqz0dER1nCU9rcD/JPlDrg2Ob04ubqXkX1Y28gRQ1vyDEU+ZmWNmwmY3xDXY
-	 kbflQuQtdMhnTgzMGFNdRvLOX4KIhdohAK5AtTTnQb9/eSsX7tYeG4VuN/lsisGgxOw==
+	t=1795196471;
+	b=F9TA4mZKljzSt+ynGtcq3b5OKXbVqDkdqRoHLSS7jgC+EdJdWZBoWgOeNy6x8BXG8l0+
+	 7uu6BjOnZLEl5OIdRZW14H9SEfeBOgqtp6UHY9qK3jy89rVqNrpVa7I6yfBPcpAQmYwlY
+	 K9jFw8CNeBUkVtNov221ixHEPNz+rY6c3D3blorh86YERmVpuzRYiQZ2Uqat5nz38rTLf
+	 ANzWtjvR/j9Qd85K/JMMSXFMdtHo1yIWiaLdi7dyo1Gv8Es/M2mCvSPR4ptlrMxTJAKIT
+	 BXBRDdmc6NgsRGqqtEDBXeWb2q/pT1U+vOrUeRPajhMmQud8qUq6hlqhx3qKru7H+Ow==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196253;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196471;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
-	b=mPnNX6yMpMQ/mMBTUUHkuh6EdolS6UEiDcZ5y1iiwyJBH1Kk1QZLh4iVHpqdW2kw1pj6
-	 aBJOb7QLCIpNxtIw9Bv3fWk94ZxhiTWmFEVKeSMPUkv8kzaFFqVCr8U5IKTVCAGNvtcZ6
-	 Kn5z0MwgOtIC0RjFJMWtposnIMYPrV9LaMrgc8NIJ/M5IGLHlKY9RRA/fRpIRIb5h7k9J
-	 /dDWOak3qe2ctgsxFjDswaCxmvk6fkYUHcpvBUmZeObNFgxrQyRGzttDRuY3HgHAZlO3N
-	 ledVXvpyZYsla2cHFE/BHPkulgO3CJ0+H/Z0TJH4BCQonhfPvNeqM6DgGhabMTHvtXg==
+	bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+	b=RptxPAnF1JO4V1hfosLkQ6c05xllS7/bBlvD/EPweCT5qwmAEAY4LHGSTteEP0r2GNPZ
+	 RL9lzV5h032M806lBxp65lm+i88Mt+M+tpyFDFlQti1Xw5Y0wjjhBseUJ1LqtS9EUya7S
+	 aIjUzx26j2nfuz2NUtMfQDAPORtgBn4Ep4Yvgyoeh6NIWk9+pMWgG+O0eKVIKt8c1q3VO
+	 qqSm4LiZswmQRlteMDLna9+lCRaZLDpAEg1ocnfmBJt00jbL5gD2bnV8bEKPOFmFygXyT
+	 sCz7jI8gBmQ5NrMe5a6I2FR3Qim1WudzCgIlvOP6BoDfJeFiVK3kRDRM2gKeJymza6A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HyEFdSiv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H0YVwCbF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A3E2606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:37:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A3E2606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C607D606A32A
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:41:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C607D606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HyEFdSiv
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-533202fe429so375171cf.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:37:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795196251; cv=none;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H0YVwCbF
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-533202fe429so171cf.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:41:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795196470; cv=none;
         d=google.com; s=arc-20260327;
-        b=g/n7BmRQBNLGP/q42EfcghkFGTz1DmURdQ5w3QecoLscJ7m1UceekiSmYz87+7gfJB
-         KlkBYoNJBDb1LfpIIlVxFeRaRsPC8qmFAolBDZ68f4PKlDkfcQXzMBIvOZbnL84u2Oj8
-         Qunq4Cxmu2uXNLxVx5qMfd5HjFP3eCDaWlqMxnGVZQ09/96RxtRycQeJbgNxnFOF2vdj
-         NOJPIef+m9qpGrnl876Zg9nm8E+F4LeTnsNVrPu1Or6CPwN/nxya5wN7hvD5EsL9F4re
-         rBERfubn3eixanVtp6tvAsbzF1j/vaJ9JlUbD1tivpyoHMCcNHX6faGjF2gbNPIR3+/6
-         0Yug==
+        b=MAgIrCeyIYUQdJoH1k/zkjpbUZ+2+eVLQVMPgZu0L7bhL22sPE6BUObzeUq/Q5ZEPA
+         py7UO2ONWGQCKO46UxqFE0f8hEai4BDOEDDTEaORSckMV6LctBwwVnDTl3XjDzfqs9sv
+         pMtdIrTxdrzFAKm0vagziQnQBiSIlKozu1eQ1cEm76LIygPz/0XEILYbSRxNkNffzJ6z
+         jjGKC6SLAqNzieuxz+URcGH5BsuSxvuSH6DeqKR75EXH+XEofnA88Q5LrF9Rtbk5cSru
+         XXNUGGsQiZ2S4hbf41+hJ8ZhtTY5BYEjRxIpUNw/1lbEEj/Qo5YZ4tcQ0EYGZqlFa6KB
+         E4yQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
-        fh=ZLeaZQVHkt7INUtVgyBBj/qV2kuXSOj0RJihAL0gwjY=;
-        b=AXhWdN0KufxLRlT9gixwXavNZhbUp/z7fSFQPuf33Toe6kk80P5zQ8cULvWi7su0lI
-         gtC7h5H2aQn+tV6pv3kKjt+/81SaAejshJTW1JeXIxf1Uk6Y6p7t/fqYP7XSCr74FMni
-         3GcZVqUTeoWhG84zyqDE7SO/0iMZdFiUJ4y+pcm3+fAA/rx7xXm7aXD89UMzyHX6LNLR
-         Mpjuj9f9Y8nMeFLG1jCyNq9G3G9rxYVqtFrgyPtiTbGW0Y6W7aiAJFZNkOMrgm8zdMt3
-         p1gicYF8P0N4tnFGI9y+kuyEwf6Shtnsp2hG2o4sjCwSY924DyfzNv5h6SMHPi86reeW
-         DG4Q==;
+        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+        fh=X46ybOzdhMx7/TD00KhtvjLw8igNrz6uL5Qy+Yqgvww=;
+        b=czkF/3mdMTZYuKrREW9r3RqmodbBUIyqIH68sgg7L/sKv3rWPxqCiASI+AHiGDkE50
+         2VUvgwit0JxNx9kEegMgclErOhHII/nIX2hGNW9sHvgLwgNjuEjAtA39EyOeadLpC/v6
+         IRW7HIzpAMj3VbXq2z5Y/ksxwOg0zEzvlLHl/6bLrV9VWv1SQcK760xWnNZyDu5XF71b
+         lNbCD1Wsv+xBHdVBgU1aRFW2Zd923f+I8W9NpG5dyqAmU66FEZk98Pk4VevIvtckz0pf
+         Fzjdqp4BV5+hUIn085H+FqTHGbHkJxTD1tTqPiYr4gvZoWlKr6HrNppnqytCUNtt7Keg
+         O9Zw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795196251; x=1795801051; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795196470; x=1795801270; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
-        b=HyEFdSiviiH5O/7TZuD1vGZ+kM18wepe6pgn2HElMQnBbttGCrDUA+C67r84fRUXe0
-         bLnMusdd0pjNDYDtKZDpXupbhCn9zuKytmUv8E0LGfClDQuCtH+TpMkxOFRJgK7Rhww2
-         a7P2rxNb2mnrU21GBAJ4+mWeTT3WK7yOtke7efzrV+Mhc+6TT53lGQik1nKVPlc1lfGP
-         OTy4cJdsSf7Kt85FbR015QEXuyjagBSTnBc3lktgJtgnvRyqB0JeRaFviUSjvG4Kt5Dp
-         S+u84LWIVt+1BqKckZCqP+lfhH7Nv+HaLIRTXAY9XEuX11Oa55b8JxEL1Tp3/ZvMPOyk
-         l5HA==
+        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+        b=H0YVwCbFtGsLhM2WgfyZ9CEZuscowg14WiA+lGcenJ4NsS++ZK28EXcnwg7wRJs1+8
+         +z5Yyobbdw8XfgEZXrC8PmpRdfpofq5yIe+YvuleuMfjNdXoKc50YW3DxeRi4OthuRqz
+         0tuKhB8OrCns8cXlXrDiBhdk9AcVh86nnuG7ZSmr8R2FYvQi1M0nS/u6ajkzKfVJ6nmL
+         NMqoouL4ZyyqnOsTslkUO4QzXWMDqWVdE4LaNW/uy9MML4lLgwtkOiMZKng/4b3yRM7Z
+         xhBSTJieuagig0YgfuCsKkLw/XhFOmV2jReuv3khWSxABqSkp6b77CoVKCc+9NPZMEUK
+         Qzhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196251; x=1795801051;
+        d=1e100.net; s=20260707; t=1795196470; x=1795801270;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
-        b=jXvzCJPSruvG8r9DKqfAbCsUbBTX/eEM8lCrEuxpiqFeP2VGZAatgd5iAE/abU9hSo
-         wQDAli+bUQC53Dem8aY4GJR74tTmWpxxMKQo/r/SWIMlc0uQHKvORrshi0diH/wT99OC
-         CbUUfUuFuHk06pJhfqeyRYk6mIE0ZDipqL57K/niZAraJayfbZZIJ6iuph4u2APRHopK
-         3s6IvqHyckD5qpzddt0Q3tRFDRLFPiLSIcj8zxff8ZYFjFihviEb+0TF5I3mXVio21+G
-         i2zgCEqCqma2bJ59lQpJ5bCvJNT5cOgO3kGBOhuK9mBbbJR1IAkrZXwY9WZibJSxFHMB
-         lsYg==
-X-Forwarded-Encrypted: i=1; AL+hErEp43NExA9++BahriAvDhlwTdsCkTsP6USU7exB6PQPeaGJx/lrF0Tne/jqii0WU9lHdC7zbBg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/7EmmdJ8dnE4Tz6VkEBLvbYm1Sl8b4Gmv75sc2qJoMuylrALzl
-	hPV0PJhcIYBZDulc7ncYa0n30Fv4pV/FFRzn3e/CKBbQAVWfRSmMBcCmYyPD9sP94GTuK3d7UxP
-	Oka27mbpZC5uel7UwolqIzKc/ZZhBlJADMCdKlpLc
-X-Gm-Gg: AZFdTZcP30bmOEezFyLNnuSyGem9kLrtS/glIG29L5VJ8VcD0kFsRD56CnwlhqLK/7t
-	9aZMVHgif6Occp9USaHblhqcTPIyWLjHo73na8+L3aqIQ1dKT5zlQE8GYG78mv9LJzla0/YuLM/
-	aQgxEQA5Pb+PM0uH6DIxcEB7mmuZAMqTLnKHYTpM6AZhOiqt5EnfjGayr/UWvGNkIANg3PFUEGf
-	gHm5gafthgQonA8MceYyV/EAbn/oz65TTZjcsc2uGdYrl8BlE2mW6wpJ8lT++oWjjgiWA7f20oN
-	oHoGpH4tdQCnlE8gQAj90zWFsmhglpEffg8J63DVazSD+/N2ToM32DExdwZb98pWlEgye/SiamR
-	j5ENDYkLqU6Hxr8pz43kOyR4lokrDNLtmStDh
-X-Received: by 2002:a05:622a:420a:b0:536:934f:7da2 with SMTP id
- d75a77b69052e-55d78e6fe63mr22944711cf.2.1795196250681; Fri, 20 Nov 2026
- 09:37:30 -0800 (PST)
+        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+        b=Hx3fc1MKtaedfoE+GLiZp8RPZtOD0eHxkt2nxP8UiK7XHx8+ynULw711jzdoCehFQ2
+         yeFyyOQuS+8XaQd1PyvU1A5WEORGFNBgou1o5y+vLuK1QqQ07K0SwMcLciigoafenHr+
+         lzR6JipBruIxA3MLIat8FmtbikHcxZsCvbQrmVFygC+Li8NbdXFalWyNnNSwRBWI3CXT
+         5bgNBxHs/0TdKQUPufAy2L5J+WcsUcI5sKAd1r2vVl9UzPMoQszhpD2hERzfJOKSwOdz
+         /QAz8kZy3GBXhtsQeOD6gI0zVJHeaHOSN8xkfHQibw9dvjb+wFXY5CkxKWXgOGpZDbNC
+         3laQ==
+X-Forwarded-Encrypted: i=1; AL+hErEkw8lsdCQNTR2joSz5bTsTjBlijpEpGtqI5SIBlEcs7kgbadTKljChOySvdBe9/WvvzG9sQJ4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9oaKrrRxmVm2xj8U5fl6+UfCw4LrlQ5CdsPXHfRqdu0b/B83N/
+	ixsvoOgzcMNE31x1LnUjWzMpA/QE00CpjwqsEstegO1UjI+A23tVQMF4q92q8FTVJ0iGcwV4SSg
+	qVgqzvoSvDXLHv2PolC1tGF2gRNV9G3cw50GyUxMI
+X-Gm-Gg: AYBFou3xY1lEPb4SW0381gsLXrHd0eQHJd1aVTnykdiN7J2Cb0dYUMEx5XlgZheSRz0
+	JtamuxWrU9+51LyVUkTaVLUdp/uXk6BeXYV4hfDrUGXKNLA8B+z8TacjCe3hEPCctJo4AeagJQz
+	ra4+ZAvO5AnlCP36uIumyZ5l0swnbQWu6fsqdJZ6CSPOuSuDbqAndQQP1MCw1zTYQEzpEJ3sjTp
+	2wW925ZW2a85IeDogq+XQLdOnVljbrN/YqF8s7LhXTpgCl1emOBH7IXkw9Ndwst/Zn3Ao8E5k4P
+	feVmfj1Jw+t8X8+HisYjdDXMBcnwPElgkUqA5UzQSrB32j4C4Oe86r+o2mB77zMVANf3MTLcBOQ
+	ADjMK1lT1u7HWg6IET5P5YLRHEOpa/gWaSzao
+X-Received: by 2002:a05:622a:58c8:b0:55b:d494:187f with SMTP id
+ d75a77b69052e-55d7911a3d1mr23325621cf.5.1795196469202; Fri, 20 Nov 2026
+ 09:41:09 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,127 +104,123 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119170354.1509589-1-irogers@google.com> <BL1PPFB0715B38BE20BB0B4087ABC66BD9EDB792@BL1PPFB0715B38B.namprd18.prod.outlook.com>
-In-Reply-To: <BL1PPFB0715B38BE20BB0B4087ABC66BD9EDB792@BL1PPFB0715B38B.namprd18.prod.outlook.com>
+References: <20261119170729.1524516-1-irogers@google.com> <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
+In-Reply-To: <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
 From: Ian Rogers <irogers@google.com>
-Date: Fri, 20 Nov 2026 09:37:18 -0800
-X-Gm-Features: Aa3M54r5Jmnt4Ssp-wBby_ZlWdHK7iMTTCVJuGgQMqW36wSMvbgVZ0tFQ-QRjgE
-Message-ID: <CAP-5=fVj+nAvGW9m9L2AxPqzw63PDqCawS=9a6jVh1fc7ob-dw@mail.gmail.com>
-Subject: Re: [EXTERNAL] [PATCH net] net: marvell: prestera: Fix skb leak on
- error in prestera_rxtx_xmit()
-To: Elad Nachman <enachman@marvell.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+Date: Fri, 20 Nov 2026 09:40:57 -0800
+X-Gm-Features: Aa3M54oOzjegUxdpX7VNYBH8UxXyKYAg5jEgHWesrq6ha6qjCQCMQopqRhJhoB8
+Message-ID: <CAP-5=fWXrX+VTWP4r4daZPf8QHEEWEyfWaQ9L+oa80Y3YAZcBA@mail.gmail.com>
+Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
+ fails in xmit
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Horatiu Vultur <horatiu.vultur@microchip.com>, UNGLinuxDriver@microchip.com, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
 	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, Elkin Cruz <elkin@google.com>
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 9:39=E2=80=AFAM Elad Nachman <enachman@marvell.com>=
- wrote:
+On Fri, Nov 20, 2026 at 1:57=E2=80=AFAM Daniel Machon
+<daniel.machon@microchip.com> wrote:
 >
-> > prestera_rxtx_xmit() is invoked directly from prestera_port_xmit(), the
-> > driver's .ndo_start_xmit() callback, whose return type is netdev_tx_t.
-> > When skb_cow_head() or prestera_dsa_build() fails, prestera_rxtx_xmit()
-> > returns NET_XMIT_DROP (0x01, a qdisc congestion code rather than a
-> > netdev_tx_t value) without freeing skb.
+> > When all LAN966X_MAX_PTP_ID timestamp slots are in flight,
+> > lan966x_ptp_txtstamp_request() returns -EBUSY without queuing or freein=
+g
+> > skb, and lan966x_port_xmit() returns that negative errno directly from
+> > .ndo_start_xmit. Because dev_xmit_complete() treats negative return cod=
+es
+> > (< NET_XMIT_MASK) as packets already consumed by the driver, skb is nev=
+er
+> > freed or requeued, permanently leaking the sk_buff and its socket
+> > sk_wmem_alloc accounting.
 > >
-> > In dev_hard_start_xmit(), any return code other than NETDEV_TX_OK (0x00=
-)
-> > is treated as a busy/requeue condition unless dev_xmit_complete() holds=
-;
-> > for an unrecognized positive value like 0x01, the core neither frees no=
-r
-> > requeues the skb (or hits the unrecognized-return WARN path), leaking
-> > the packet buffer.
->
-> Did you check it yourself or was this sentence AI generated?
->
-> Please check here:
-> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/netdevice.=
-h#L122
->
-> and here:
-> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/netdevice.=
-h#L144
->
-> You indeed need to free the SKB, but as long as rc < 0xf (which is true f=
-or both the
-> NET_XMIT_DROP and the NETDEV_TX_OK cases), the behavior of dev_hard_start=
-_xmit() is the same:
-> https://elixir.bootlin.com/linux/v7.4-rc1/source/net/core/dev.c#L4074
-
-My mistake on that paragraph - you are completely right. Because
-NET_XMIT_DROP (0x01) is < NET_XMIT_MASK (0x0f), dev_xmit_complete()
-returns true and dev_hard_start_xmit() assumes the driver already
-consumed the skb, which is why returning without freeing skb leaks it.
-
+> > Free skb with dev_kfree_skb_any(), increment tx_dropped, and return
+> > NETDEV_TX_OK when lan966x_ptp_txtstamp_request() fails.
 > >
-> > Free the skb with dev_kfree_skb_any(), increment the core tx_dropped
-> > counter via dev_core_stats_tx_dropped_inc() (so .ndo_get_stats64 report=
-s
-> > the software drop), and return NETDEV_TX_OK.
+> > Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
+> > -Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
+> > coding assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and
+> > -Wimplicit-int-enum-cast; not tested on Microchip LAN966x hardware.
 > >
-> > Found by enabling Clang's -Wassign-enum on an x86_64 allyesconfig build=
-,
-> > with AI coding assistant help to audit the warning and prepare the fix.
-> > Build-tested with Clang; not runtime-tested on Prestera switch hardware=
-.
-> >
-> > Fixes: 501ef3066c89 ("net: marvell: prestera: Add driver for Prestera f=
-amily ASIC devices")
-> > Signed-off-by: Ian Rogers <mailto:irogers@google.com>
+> > Fixes: 77eecf25bd9d ("net: lan966x: Update extraction/injection for tim=
+estamping")
+> > Signed-off-by: Ian Rogers <irogers@google.com>
 > > ---
-> >  drivers/net/ethernet/marvell/prestera/prestera_rxtx.c | 9 +++++++--
-> >  1 file changed, 7 insertions(+), 2 deletions(-)
+> >  .../net/ethernet/microchip/lan966x/lan966x_main.c  | 14 +++++++++-----
+> >  1 file changed, 9 insertions(+), 5 deletions(-)
 > >
-> > diff --git a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c b/dr=
-ivers/net/ethernet/marvell/prestera/prestera_rxtx.c
-> > index c4ea247d2470..7ac9220d33c5 100644
-> > --- a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
-> > +++ b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
-> > @@ -817,13 +817,18 @@ netdev_tx_t prestera_rxtx_xmit(struct prestera_po=
-rt *port, struct sk_buff *skb)
-> >       dsa.port_num =3D port->hw_id;
+> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/dr=
+ivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > index b8696fc7e9b9..9c722d23e0bb 100644
+> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > @@ -392,6 +392,7 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff=
+ *skb,
+> >       struct lan966x_port *port =3D netdev_priv(dev);
+> >       struct lan966x *lan966x =3D port->lan966x;
+> >       __be32 ifh[IFH_LEN];
+> > +     netdev_tx_t ret;
+> >       int err;
 > >
-> >       if (skb_cow_head(skb, PRESTERA_DSA_HLEN) < 0)
-> > -             return NET_XMIT_DROP;
-> > +             goto drop_skb;
+> >       memset(ifh, 0x0, sizeof(__be32) * IFH_LEN);
+> > @@ -404,8 +405,11 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buf=
+f *skb,
 > >
-> >       skb_push(skb, PRESTERA_DSA_HLEN);
-> >       memmove(skb->data, skb->data + PRESTERA_DSA_HLEN, 2 * ETH_ALEN);
+> >       if (port->lan966x->ptp && skb_shinfo(skb)->tx_flags & SKBTX_HW_TS=
+TAMP) {
+> >               err =3D lan966x_ptp_txtstamp_request(port, skb);
+> > -             if (err)
+> > -                     return err;
+> > +             if (err) {
+> > +                     dev_kfree_skb_any(skb);
+> > +                     dev->stats.tx_dropped++;
+> > +                     return NETDEV_TX_OK;
+> > +             }
 > >
-> >       if (prestera_dsa_build(&dsa, skb->data + 2 * ETH_ALEN) !=3D 0)
-> > -             return NET_XMIT_DROP;
-> > +             goto drop_skb;
+> >               lan966x_ifh_set_rew_op(ifh, LAN966X_SKB_CB(skb)->rew_op);
+> >               lan966x_ifh_set_oam_type(ifh, LAN966X_SKB_CB(skb)->pdu_ty=
+pe);
+> > @@ -414,12 +418,12 @@ static netdev_tx_t lan966x_port_xmit(struct sk_bu=
+ff *skb,
 > >
-> >       return prestera_sdma_xmit(&port->sw->rxtx->sdma, skb);
-> > +
-> > +drop_skb:
-> > +     dev_kfree_skb_any(skb);
-> > +     dev_core_stats_tx_dropped_inc(port->dev);
-> > +     return NETDEV_TX_OK;
->
-> For the sake of clarity I would return here NET_XMIT_DROP . The behavior =
-in dev_hard_start_xmit() would be the same.
-> There are 53 drivers which currently return this value, this is not an is=
-olated case of just the prestera switchdev one:
-> https://elixir.bootlin.com/linux/v7.4-rc1/C/ident/NET_XMIT_DROP
->
-> The rest of the patch is fine.
-
-Sounds good (I had used NETDEV_TX_OK to match prestera_sdma_xmit()
-just above and avoid Clang's -Wassign-enum on netdev_tx_t, which is
-how I spotted the missing free). I'll send a [PATCH net v2] keeping
-'return NET_XMIT_DROP;' and fixing the commit message.
-
-Thanks,
-Ian
-
+> >       spin_lock(&lan966x->tx_lock);
+> >       if (port->lan966x->fdma)
+> > -             err =3D lan966x->ops->fdma_xmit(skb, ifh, dev);
+> > +             ret =3D lan966x->ops->fdma_xmit(skb, ifh, dev);
+> >       else
+> > -             err =3D lan966x_port_ifh_xmit(skb, ifh, dev);
+> > +             ret =3D lan966x_port_ifh_xmit(skb, ifh, dev);
+> >       spin_unlock(&lan966x->tx_lock);
+> >
+> > -     return err;
+> > +     return ret;
 > >  }
+> >
+> >  static int lan966x_port_change_mtu(struct net_device *dev, int new_mtu=
+)
 > > --
 > > 2.56.1.708.g77570a6a1d-goog
 > >
 >
-> Elad.
+> Hi Ian,
+>
+> Thanks for the fix. The issue is real, and also on my backlog of work to
+> upstream.
+>
+> Just a heads up, I expect the AI review to flag issues in this area. The =
+lan966x
+> PTP TX path has a number of known problems that I am are going to address=
+ in a
+> PTP series soon. I'll go through the findings once the review is in and f=
+ollow
+> up on this one.
+
+Thanks for the heads-up, Daniel! Feel free to fold or supersede this
+in your upcoming PTP series if that's easier than taking it
+standalone.
+
+Thanks,
+Ian
+
+> /Daniel
