@@ -1,75 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180911;
-	b=DrTKE3PjsfQsVRPrsgAbc2QxeA3eCY7AmWEGiaWuhlKMFtyMxox9cFM6GV4A3UexGFva
-	 fizX7kKnV1BS/hG6SpFdgpBb0fKfPuJtiq1OcletiPhFIZ+tThpnmkvfbcZz2JZsb9ppC
-	 Ppwa0zOPVNs637XNqaYktSoaM1nTH2S+0D9kR2XtRsFGNiYq0mcHvAKj24OHHSOknL0o7
-	 5Q06tPx5ZaPnFJ96N66HSU7WjpANC1BSVoqy+M9btzzTi3o/wWgfkx/5ctEYK5OJpFNDY
-	 jjG3qDs4Ha8adHsVi37cgaC25uP+N2Llu5TIXUmWKV1zN8F93zfWwnOVTzDHbj+bOHw==
+	t=1795181356;
+	b=PnUYA9mlbK+sCins390RDuKdK1otORmYPpsYTXdrYQK2WaHEUDOVtLOsMKR09qceq4ik
+	 PNHjI8Bh3nASUEuMDAnSiVj7U22hdowH3EPbsMmoQ7BL8N9S0BL66LRV8/1EXYaGxsn4m
+	 GBlCQN0W5NWvJ4Ny+ZuFCY0RD/pWre1rDS7PQwlJwYQhg30BFT8W9JpeF1XbuHbQWFC6Y
+	 xgIRVJEabhA14TxZr+hDxtq+1+X0K7VSnvLGYZB9Jq++UrvhUP7AkOA9o6oA+UEc5U5v+
+	 IXIJHrLPXiMBL3vTu57JwEi2ILm1UK/F+eukeLthAHkBMKMnmEJgu9C6mTXbv1M1KlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180911;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181356;
 	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
 	 In-Reply-To;
-	bh=fFY2JiL4Gjfohkv1qNJ9dcQMzcXH5V6E4XAVqKS4phI=;
-	b=pWMjGj8v/ju5ZWGRWPpbboEf3dBWfL2Jkr3ZPMb9XMLwxUbJG7RqfVksdP9r2v+btHMx
-	 ildENE+2/a2c6gYES6VQD24DX6JMwiG8RhepQEIAU9osjsqX+YYNlZBmXadH/ELPqvDDX
-	 KjTszx81/gztyqDHb5ADARJ0GfF2RSC7+RFzL6doOCHwMWfQrEmNJxyf6AmKmQaq8xQqQ
-	 rca9V6AolxoRuuVmUr4BL1OvQwyTEn2Rz5PstOMl9w3ehrVjJowBmRpfTJbONvSXFjab0
-	 ++5vTGx5hbyZec/jg66wGNoCC0t/yAW8xYT5PyyN9E/nbwsWWcZSgp90uGzvenJtTIw==
+	bh=9V0wEcz4bwDJK9HLg6xYoGNRiMC7zuqdU6j4swgRUaM=;
+	b=s6a3y/qIzqs/Sl5Gs2XAsLeIeF8kas4ipxHrC+QWO/taDO+TTTdDOpCySNasi5ao8jMn
+	 rHSzTeglvlOaz3gJXcHUkroy9OADrOYA/JcNtdw2c/XFnh5aYG4jIm4Ibk1GaSO3C9ZLR
+	 4eOQaltmXvCoifPiexAfVdg9mLFfNf4aynkenRy1yXrtEI0xQ54bGqkjNnQauHeiSxMYE
+	 d9woUwSf8JBfHpS6gm1l4LetI9/0jtIayy42srs+QC4+bjd3WfaL2ISJl/kEHRaC9b7Cx
+	 +WbNe5uNs64DxZVTpffKDLfQM7uw7cLAH8IIX3bSb87CIunrglUX+UfkaV4mB5WzFFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=lunn.ch;
 	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=o2MXrZNW;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="TncHJNl/";
 	arc=none smtp.remote-ip=156.67.10.101
 Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E807606A338;
-	Fri, 20 Nov 2026 13:21:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E807606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67EAA606A333
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:29:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67EAA606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=o2MXrZNW
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=TncHJNl/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=fFY2JiL4Gjfohkv1qNJ9dcQMzcXH5V6E4XAVqKS4phI=; b=o2MXrZNWZdpZsN9juj+n09p61O
-	nRr1FtIW8/cbyrSAtJN2SYPNU24A+nN3PuIpM4RuWn1BxE7y+ERsHTCUjfY+yLoyg9k5Ift74QMQe
-	bCQeMud7Uf6VAVPDWg0ALMrFIb3HMw/OLNazNIcS8fqKD9YsHAE3S+nuCWfzF7Vd5Rn4=;
+	bh=9V0wEcz4bwDJK9HLg6xYoGNRiMC7zuqdU6j4swgRUaM=; b=TncHJNl/sp3dipaIUiFJs2M4NG
+	dkfmmBSHjaNZW7bj0EQZdf4bxoReb9O83OwONL296oIVw4Cwxyc66Mgi+otAg2U7bkoCE1juIHeh6
+	RMU2WyEpCUXLDLd4jPpNLdZ60F+QuAkomqdh3E1eGDRwLlgRXC5ZthOXoHtwiWn5cuS0=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xUOYX-000ITq-EW; Fri, 20 Nov 2026 14:21:33 +0100
-Date: Fri, 20 Nov 2026 14:21:33 +0100
+	id 1xUOfq-000IWY-BQ; Fri, 20 Nov 2026 14:29:06 +0100
+Date: Fri, 20 Nov 2026 14:29:06 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Chih Kai Hsu <hsu.chih.kai@realtek.com>
-Cc: Birger Koblitz <mail@birger-koblitz.de>,
-	"netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	nic_swsd <nic_swsd@realtek.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"bjorn@mork.no" <bjorn@mork.no>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>
-Subject: Re: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
- RTL8157 and RTL8159
-Message-ID: <78ed468c-798c-44b2-9f97-8645af0f1641@lunn.ch>
-References: <20261110032416.16968-11-nic_swsd@realtek.com>
- <179464851836.2199510.10154643847175029122@kernel.org>
- <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
- <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
- <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
- <b53ecd5dc96f4890956f051959b74e32@realtek.com>
- <1543707c-c121-4c35-8849-c4db1a71fb57@lunn.ch>
- <6a2c635ba56d4deab25a25db9af91c10@realtek.com>
+To: "Doddagoudar, Susheela M" <susheela.m.doddagoudar@intel.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
+	"Lindberg, Magnus" <magnus.k.lindberg@ericsson.com>,
+	"Chintalapalle, Balaji" <balaji.chintalapalle@intel.com>,
+	"D H, Siddaraju" <siddaraju.dh@intel.com>
+Subject: Re: Proposal:  per-lane PHY polarity get/set via ethtool PHY tunables
+Message-ID: <112154f6-53f9-4cb7-9124-aba263b097b5@lunn.ch>
+References: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,16 +66,22 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6a2c635ba56d4deab25a25db9af91c10@realtek.com>
+In-Reply-To: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
 
->  The root cause there is also that
-> the MII library does not check the errno, so a future patch could make the MII APIs
-> check the mdio_read() return value and propagate the error.
+On Fri, Nov 20, 2026 at 12:45:56PM +0000, Doddagoudar, Susheela M wrote:
+> Hi All,
+> 
+> I would like feedback on a proposed ethtool netlink interface for getting and setting 
+> the polarity of individual PHY lanes.
+> 
+> USE CASE
+> This helps debug link-up failures caused by swapped lane polarity. A user can read and flip
+> the polarity of a lane at runtime to see if the link comes up.
 
-The MII library is deprecated. It is not maintained. It will not be
-changed unless it is really broken, and by that i mean it breaks
-802.3.
+Isn't swapped lanes a hardware problem? The PCB layout is wrong. The
+poor person who first brings up the board needs to figure out what the
+PCB designed did, but after that it is just Device Tree properties.
 
-All feature development work should be done on phylink and phylib.
+I don't see a need for ethtool.
 
-	Andrew
+  Andrew
