@@ -1,62 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206829;
-	b=ejhBzwGQrkdmLvuSSK6raDlzqq4ZBZXJ7qnhA71aRNUfdJyKctH8U+qLfZCukGiaOiY/
-	 pej7TLICctop/eotIJ4iAvaGI7sDF4nYs65BYqCKeW3O37BmRe65fIRmSHIvk55zUOZ6N
-	 b25CF1mI5JNBzrlMIi92rxehG6rdyAn2HUuMyA6vrK2vmNK1g9bPdo0FaxttU7jEk+tl2
-	 OjWubT/Tjv/YPQoAUgjaW8ME5lz0pgP5mJLEuud3S1grpOTx/kytd42ViaUjO/UCbwBuL
-	 9HNaX2S110nsiJg6tVadz1XyiZbXizJJHIbu/TFTpX+1sIz3TyDMLtX6S70W9D3xUiA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206829;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:
-	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Rspamd-Queue-Id;
-	bh=hZm9lZhgjP3OUdGyGGXPNH376tgpFhHxDRPWMChVfQo=;
-	b=SWoOGzOr6wNBJ5KhRR2+eeIRBzk6hkD1OMObVtPoqbGBsSjJgYlzAFYivsxmFJZ3LA/3
-	 7/jdMNowhlQ+7dd/7Wwr4JMdEj8IFw8oeA+ORVGMoDiF4nzNipihuk6vNgqsdaM8joOWy
-	 zboELi+XUNvQx1ToX1b1kDsjYgw9FEZEIq4dgbHgBm7QLgcsPQKYXTQupx/x7lAGPQSi1
-	 UF4aGI6ciiqU04oMcclePohuEaREx++luTJ0KPfsuKmbGprKao8fOU1o/QUWYgv1j/+XJ
-	 t90iAdNgOTcQ5HqQE1rcxAzovnQVtnSyg4HXCXHFOauc2339noWDO5H5/xOpKnp3rOw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=IGPBkBBm;
-	arc=none smtp.remote-ip=195.10.208.42
-Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795207436;
+	b=Ax9HD5M+gF9477SlZ3fvi0WBfanyyotrF4VsRKlijRBQBJ50K4GJYmG42VUjEgiGE65v
+	 31PXTowKuTXo4my9wCLGSnHQLQ5A+ecjaB10QnJYc+Se+8VeTLv/WUK6Oo47LFJq1oXSL
+	 yk+dKgwdzKYyTZ4s1zZ8fxdrcKZvHpcnuay1fZ9YIV4IA8Yqitf2gFu7BrT22K+rDo4Ke
+	 H1QUEhMdLbcwp3U64LRxUeGuiNcbkTpohOcfzDyF+Kqq5/IkXuOL0jbEqvLS3lG1AglTQ
+	 OkQ1b3jasG+LrGtZ5HdMb74hbUrCkbnAlrU+9/dF4Wn/aEr6CCjtvoRSJ2x5PTTQW1Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207436;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=oO0G9k5wxWJ9EMmTUsO1ytQSk7ouBp1mqeB7r7E2dqo=;
+	b=KcEy3aZnmv02nQA/HD1VgyM0cVfQQdbT8z6c3tHfmKTfhdxLKPuhePpML8ioZhfP8BK7
+	 sgIbmWCNU44MROldd27ucwf/jjiSJwI57ixR9kB7wxGsSAF4XtCElTPiCnm9oixNu6jqc
+	 TyWLG9lrRqDL/TYwhp1oSfY4Jx+P4N5O3Y/9Hy9luEqALBgfffwX60jrBFSAdyyK2W1XH
+	 bzpmDtCwND3d3O51DFwm2UM+HTb6/CA31u/EJpm8ZgKjBX1cEx9AgmXbRrHyUkXbndfvU
+	 LwYbherHcKnA6TBi3V9P87QBMfWfpz0POiBTmOl2RC2Q/tvw5z3RnUpKynw3c4o12wg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MkzdXZyl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.44
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012044.outbound.protection.outlook.com [52.101.48.44])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA18260A2602;
-	Fri, 20 Nov 2026 20:33:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA18260A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1811606B714;
+	Fri, 20 Nov 2026 20:43:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1811606B714
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=IGPBkBBm
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jWRr33fXHz5vlP;
-	Fri, 20 Nov 2026 21:33:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795206819;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hZm9lZhgjP3OUdGyGGXPNH376tgpFhHxDRPWMChVfQo=;
-	b=IGPBkBBmfyWPT9KNs3XohQTh3sgzvSyuVUOo9WmuovDUMwEzWssc5oyugKzRgf1dL7Os7H
-	Plung0i0xrH0Y1cYq4OO9vbr/ttVWaGIzgtvU8M6zFihqTTAOUBIgI/lKFdGcslON1dvr5
-	qHhMjkFhcq/xwW+DLiXZwKasVBPYaVN8FNkYNLqHeUX+0Gi/CowhfgHOpuHs/Dn+wSZJKt
-	aR1RaERl+nq7pB4Aez+1w+lfpjy1sgx4ZsYZjCAe4OmISJ/18QdN1YqE90YHtUQ3P2quB4
-	qH4St5k4QpF5pHu7uxUX/0EYaZ5W9hUZYu4YPOsu7mqbb8xb6bjMlw8mVADRiA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
-Message-ID: <02a73961-95ab-4caa-85d8-ea92f916a0ab@mandelbit.com>
-Date: Fri, 20 Nov 2026 21:33:35 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MkzdXZyl
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VpfX0sJzjCMUx3sUQ8vNhmlm5gsP8J3wxD561NoJbj1cL8hxFGvlo/du4HU2WYXkIJw8kdm1pIF28mPkmKDVEuuobhxNX/WExrBrHZ643d62Mw73PQlz7PZ67GoskvdNBJy/9QTQusp9xpp6MdMT9aJ2XzmaMliGUhjsUTp7MEMhoqoq7Zkbdyiai1DxGQ90MOEAxKIxCNXdhw8Cq4bV/gfG0XDLI2vF0C31MyYWY2vv4YPTj48+yfItCx+C3rvnJmISgAloz2WfbpnDBtvWvz13WnCJLd2/Xy6bYRcvHnpDCkRdiSO0EtnGBz5SLrOAL0xV2c2C7yDyoJKv0N+/qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oO0G9k5wxWJ9EMmTUsO1ytQSk7ouBp1mqeB7r7E2dqo=;
+ b=R2sVXIYKt0bSOR+4O5mAkBdJBs7oWL0QuvqxxJKGxQLPIt5t1s3512ZN1HB7/dJTxKh+SeewBKoJucptNIsLfQCtcUrWS5wgr7U/mOwUGcvcSUdGTOQ1STa6GwIZTaZ+T7XkkWyIFzW3KgxhAKwRjaVxCUcJaPhCf0Evrsh9JT4TZ0GTi8kBOjD86uEez8xuR0wcQwmHPPyhlRrsEvUK1UQC4IOHhxXs6Cn7Ap/T+Llc/OMi5y6pf5P5uq+OX1I9S5UtLMmul/Cz11W9q3uxgYnWH9VtVJDpv0vchx3YQ04EE+Mv5deQv5bh4mYba6R9etj5LBLm9JCy9s74KMznoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oO0G9k5wxWJ9EMmTUsO1ytQSk7ouBp1mqeB7r7E2dqo=;
+ b=MkzdXZylM6Qg6Y/maovi/XFntC5HwXD4HoPR4+PHHFcOMGtpkXwWL1HADRr4smU0bT/xJ6wgZrLbI3Wpir7/5yAR/vHmpTHGjogibWHYS7JlmyjaHbC0SIbM2Pr3/O/N51nmpudR/aoTndjNx4SdMfXQAQsIJ4JCDr8djvwdK1I+yPtLFWEXHjQFREBwipca+B903wgV0uWJrABA6NyJ/LWprrNnTMNmCvYTvAUmbNDTKv3+i9C9jVb5MWnd30ZVjDu1uc4ccZQGMtkq/+DTmbPGWB+jaVfq/SeDIuHCvU52QmHQXWs2fc6ToZm2z5fjnwtxY8p3x5aFByeElbsnyA==
+Received: from BN1PR14CA0005.namprd14.prod.outlook.com (2603:10b6:408:e3::10)
+ by CH3PR12MB190143.namprd12.prod.outlook.com (2603:10b6:610:39f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 20:43:53 +0000
+Received: from BN2PEPF0000A994.namprd04.prod.outlook.com
+ (2603:10b6:408:e3:cafe::7e) by BN1PR14CA0005.outlook.office365.com
+ (2603:10b6:408:e3::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 20:43:53 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN2PEPF0000A994.mail.protection.outlook.com (10.167.248.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 20:43:53 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 12:43:28 -0800
+Received: from vdi.nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 12:43:26 -0800
+From: Chris Babroski <cbabroski@nvidia.com>
+To: <netdev-bot+sinfo@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <cbabroski@nvidia.com>, <davem@davemloft.net>,
+	<davthompson@nvidia.com>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v1 0/2] mlxbf_gige: disable MAC after panic
+Date: Fri, 20 Nov 2026 15:43:09 -0500
+Message-ID: <20261120204309.587701-1-cbabroski@nvidia.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <179520642352.3294.1018427060462107443@kernel.org>
+References: <179520642352.3294.1018427060462107443@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,89 +112,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 1/4] igb: don't disable rings that don't exist when
- disabling an XSK pool
-To: intel-wired-lan@lists.osuosl.org
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Janis Edvarts Lacis <janislacis06@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>,
- Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>,
- Kurt Kanzenbach <kurt@linutronix.de>,
- Maciej Fijalkowski <maciej.fijalkowski@intel.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, stable@vger.kernel.org
-References: <20261119140412.163202-1-antonio@mandelbit.com>
- <20261119140412.163202-2-antonio@mandelbit.com>
-Content-Language: en-US
-From: Antonio Quartulli <antonio@mandelbit.com>
-Organization: Mandelbit SRL
-In-Reply-To: <20261119140412.163202-2-antonio@mandelbit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 4jWRr33fXHz5vlP
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF0000A994:EE_|CH3PR12MB190143:EE_
+X-MS-Office365-Filtering-Correlation-Id: d57bc1a5-314f-4c06-5a89-08df4746fd48
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|23010399003|261102123227099003|261026140227099003|5023799004|11063799006|261022105027099003|261021121427099003|261021135927099003|261022075727099003|56012099006|261026121527099003|261028144727099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	DKXhXZ1djfxK0YGmg9cfHVemTaM8SHpHfT18en6SsoKwiLIvk2eWGhrgu7zZRsBbWnOrdHc+/TNpwLVSrXXGgS8znbkW473OZfOM+Vi8HgEFeNOGBhXrSEQu8tq4jjYh2oQvsJUkGK7CAiULI4VMud5Uk9Xc4uaG2cseHqmkFFRknDtYRo6DZ3bEQYqhAKCfoFqYiD1DM0OQWoWqe6zLudcy2AawxRlsXr+zmqLZn02BlrP3nWudd+gbRdQoOQ9b9ZFZp8Slum6hUYPu2WcHIzZKCPfUw4y3EZ2/sk3BsCyU4nFivhasgZTC0QEKFwLh4RS5/ACBziGtJvUXeF8Cx5+eczJKA+OBmUYJS0C9iUFSMpTaODD4DbP8i+cc/C1G6SdWlwPx09AZePwDfa2/ZC174bwt2fOyBsq9YHE5aUWPiGCMS9z6jnpuYs1K4sfR3xQ4fd89CsKEj9N8ICQRGxU8Fs/KR8i8azEmbdXMt+HLQU7iFOIJfpyQ/TqR4k2L+v51Blw2AQ/QawzNsncaog2HHk2I4BsgdxrxQ2nvQT4mb7pcoOyZ4ZRpRK14BoNt9q94NSYc/Z9GsaQ5eCMlGHojVz/RiKkRTUGX/uQNiWqpWg0AWW4/TiT/glgEzMignXC71gEiiM8JsRAc0EQbLyQ4jhkyqEgfFEwC8NU1hh4On2ku+Kzss5LPql1mpZhG/1gGdZlAgiyPCB5jb6iHLA==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(23010399003)(261102123227099003)(261026140227099003)(5023799004)(11063799006)(261022105027099003)(261021121427099003)(261021135927099003)(261022075727099003)(56012099006)(261026121527099003)(261028144727099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	boyNZQJVTmnkRamo9SSop6Dj3ZrVYBffgiS7nJkeehk4onheXfbAoL7EWVAW9pC0skJw7eTUa7B3cl4Onr2B70t2hnGU07bQkKXz1jSbvEFG8DYdqgRUnNG6DYPhtwADTy7sF2XJf+3Gy2bJRFay1PW7ikqwTs6bXZO+2nJDQuXCEk+wraqcW8SjFar/JJYBq42r4elXJHWQUeLz7CTvBIdmjMyVR4AQiSqou/CcafQVDbkX3hCOB13L44WaS65ngWLCoq/bXPU6sWTS0gMRirSUuAvT+c/94rBKvcuS+OlK5yDHO0TgY/vrXVw+g6jlXAIvfazp6TmXEiXCjHUoUw9QrcfBq7sjeXtPLvGIc+UEzejyRJy52huhGI7YfMfg82hEGoi8Ap0g9y/u+XR0d5F0rvtLIzeA2blQgBpFS5YjSuKJISMk7mL9Cia/HEmq
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 20:43:53.0903
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d57bc1a5-314f-4c06-5a89-08df4746fd48
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN2PEPF0000A994.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB190143
 
-Apparently Sashiko has hit a little, but valid, interesting hitch on 
-this patch.
-
-Will need a respin.
-
-Regards,
-
-pw-bot: cr
-
-On 19/11/2026 15:04, Antonio Quartulli wrote:
-> xsk_get_pool_from_qid() checks the queue id against the stack's real
-> queue counts, which can be higher than the number of rings the device
-> has, e.g. after igb falls back from MSI-X to MSI on resume. Disabling
-> the pool of such a queue then passes a NULL ring to
-> igb_txrx_ring_disable().
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
 > 
-> Only disable and re-enable the rings the device has, as
-> igb_xsk_pool_enable() and igb_xsk_wakeup() already check.
-> 
-> Compile-tested only: the XSK pool path isn't reachable with the QEMU
-> 82576 setup used for the rest of the series.
-> 
-> Fixes: 80f6ccf9f116 ("igb: Introduce XSK data structures and helpers")
-> Cc: stable@vger.kernel.org # 6.14+
-> Link: https://lore.kernel.org/netdev/20261116153041.3002666-2-antonio@mandelbit.com/
-> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
-> ---
-> v3: new patch.
-> 
->   drivers/net/ethernet/intel/igb/igb_xsk.c | 7 ++++++-
->   1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/intel/igb/igb_xsk.c b/drivers/net/ethernet/intel/igb/igb_xsk.c
-> index ce4a7b5..8ed82bb 100644
-> --- a/drivers/net/ethernet/intel/igb/igb_xsk.c
-> +++ b/drivers/net/ethernet/intel/igb/igb_xsk.c
-> @@ -148,7 +148,12 @@ static int igb_xsk_pool_disable(struct igb_adapter *adapter, u16 qid)
->   		return -EINVAL;
->   
->   	rx_ring = adapter->rx_ring[qid];
-> -	if_running = netif_running(adapter->netdev) && igb_xdp_is_enabled(adapter);
-> +	/* The stack can know more queues than the device has, e.g. after a
-> +	 * fallback to fewer queues on resume: skip the rings it doesn't have.
-> +	 */
-> +	if_running = netif_running(adapter->netdev) &&
-> +		     igb_xdp_is_enabled(adapter) &&
-> +		     qid < adapter->num_rx_queues;
->   	if (if_running)
->   		igb_txrx_ring_disable(adapter, qid);
->   
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
--- 
-Antonio Quartulli
+This is a theoretical issue that has not yet been seen in production. It
+can, however, be reproduced manually. It was found because we hit a
+similar issue in production last year that caused OOB network traffic to
+stop when our UEFI FW could not process packets fast enough during HTTP
+boot to keep the RX FIFO drained (see cover letter for more background
+about how this affects the network).
 
-CEO and Co-Founder
-Mandelbit Srl
-https://www.mandelbit.com
+After fixing the FW to prevent that case from occurring, we decided it
+would be good to add protection to our kernel driver to ensure that a
+kernel panic does not leave the OOB MAC in a state where the RX FIFO can
+continue to fill while nothing can drain it.
+
+Chris
 
