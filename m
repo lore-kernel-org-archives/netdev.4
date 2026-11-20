@@ -1,106 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134681;
-	b=4vN/P6+6SorcjB6nBP3WBsK1tq+fFhFB03xU7WIPXXFYBnFRTDhret9GokyZ7BpLuJnQ
-	 NFvPuj2JHg3rRZWgVey6K7YQPXHPjoU7E5CD6G6ohqPVfeVi9n0Z9qlSK8YS3wcZ8ko3L
-	 1X3LApYR/FX7RpYQP6dF6GnqrJHboNnTerGaHG7qCXKnn6JMlkz7nWzgzevE3sLO9wC+o
-	 pMud96xMzpcfLV8oSsNq096J9Df/h8T3DXGpgYmhNgkm4vSzB4le6rqKbqofuwxcrJG4f
-	 +xvOVdit/0gw1VsE1gHkAuShq2B86rYwndLMybYEtJzGvCssfM4xui+Z25dDC6OggSQ==
+	t=1795134722;
+	b=HVrWwHFyP3YgwCNrBdKKLuAYuSiri6lDddS704qPRUBFLhS9PWp7XViqzq9wZzpTL412
+	 5rnuGNFyt+GaLUJtlJUqJ2gNC65zKVLZCrkgikciljVLhPP/hA2vylzo2ppufIuWrh4qp
+	 C8E7LlbWxWjPSW1ia+T4I4Gs+bO0LpArem8J/Mn49qevdWnoZXjUk0siHGT+z75nVvKv1
+	 DYLp7HgH3JKLrogoIPpURgF6x1mv9hI3ef09oQIALroJieUtvljkIbohfl8yYlkVywL6u
+	 eJj3h6zGITtb6aedd54b6mSwzKoyAYDV4TEwyhSrgs9CKONHtVg8Eg4foG0ABeTJpew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134681;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134722;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
-	b=D0mIXPIW63H8OSz47UO5h+EN4Tm1JQSfr1SHdQFWxILErk8mX6e5QAwSfbq2GEe/gPM+
-	 5Z4jTR/aV6Dbb7UZFDyiHPcO/u0SYuq2ht0adBnnXVFtGMJdRotse/prnRRwN79gIU8jJ
-	 3KleJe9DKbNqy8/Cg04hxnK5tYrem3gfkyMp2EbDHGQalaJoOdhgbXfc7uM0ZRmWHXbwc
-	 io3C6rTFL/aE/0cb5vQ9XJJgoq5IFH+D1FVJqHQmQr/xd7AO1/5Ch9N8hnyisYFm3L1EF
-	 iYHm/6+rpYznCe4DtS3x3hCtpW2KCybT57XK5EZa3QgpxUBSRH/ryQ7/E/d0uecVpZA==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=mZzEzgMMxjB3j+vPh5g8u5NJjrN6f+VQAyZJOgWj1P0=;
+	b=pwZf1Ma1nNBgm8of9l+oEJgwxRQ+qfL0ZPxpC5+VJWkLd3Oa0bN6my0wbZmbBg5eoped
+	 K1IsybVAawf/tOmQQPLtuvjv2d/E3MxMA85AzYFkJt5/0cPRPVkZifSXDtyo+L45iuXlE
+	 /BbCJ4CtBlIUKqXDXQxSKQeUtHxOeS5B8zBzfoe/Qin1ObQcoja1Ug0eEvYJZL+Qfyblz
+	 2Qww2oxbQfXLBu7m0bIG1DCKRYEeW/pXnEpmVNY4JBJdnHmbU1sZ704RwDUFhLdh4JaWf
+	 qjWiy+YlGxiLVmDNDDHmnDeAQBQVL+1s3UQbsIvRSlkNEKDlRLcPLYf24IMiYWpLjdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JtKGSFFu;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J1PZDsZF;
+	arc=none smtp.remote-ip=74.125.229.135
+Received: from mail-dl2-f7.google.com (mail-dl2-f7.google.com [74.125.229.135])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC1C606A326
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:31:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC1C606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EE1460A2604
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:32:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EE1460A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JtKGSFFu
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b08a162d4bso230475a91.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:31:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J1PZDsZF
+Received: by mail-dl2-f7.google.com with SMTP id a92af1059eb24-139b659a45eso36298c88.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:32:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795134680; x=1795739480; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
-        b=JtKGSFFuZ37OqBXPbDHC1v8kICm6XKkcO5sFrHNQM4ceEFl4ENKQ66mtQ6mD4AyZNY
-         U5vZo3qQm2BbdPVp24dPvclYKKKU1gbAtsICRk6SeO9YFUOgAczmBy2Om6Lt9vK/OYrm
-         y1kLaGumQITlISvqdrmH84JEcdiq0Rb81AAURpGYrvUxfWKGnDccij2EtTG722TjzC/a
-         0ZRxvc3jn+fsFnGSnV1gycG8QtUmUq9C9OZ904CxWwD5AhVJ3G+gb/TRIDBN3JCyYqdl
-         IybEUtBNhGYaGVB6OWt/Y7EKtv/Bv5sAwX4p777McHQtKOUnToTmo3Y0tL85sLK9M/Py
-         KzNg==
+        d=gmail.com; s=20260707; t=1795134721; x=1795739521; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mZzEzgMMxjB3j+vPh5g8u5NJjrN6f+VQAyZJOgWj1P0=;
+        b=J1PZDsZFoBAXVvY8eLaT3O9ZAxsKHQPQZXVEpTBdAF/zGKg2Yz5aa3BWEF/jSek5Jr
+         J3xF+pqrXvgbWIMVnaqbVbdUxElYIsIH+tJYALqOqxLkcMUhSCHsuRMD8HAPIpLKaoYW
+         4/MwUy0c8p/OzEv0bDCBWuDkOBx5o8PscdEBB3qLQ9RfgDU4vXPYpDE3t3zsK1SPpRcY
+         h9L2yZt8MhkdGQma/ctNPuJVV106bV/lmPIQ9JVrHl1BQmR922qMxGprNIA4pqnbz2tJ
+         lO1WmLpm7cDaZf57/6aCtonm6Pp9+O8XE++K/6rWIJn8VnlbuY4xrM4W2d5mStYHtMRq
+         u3eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134680; x=1795739480;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20260707; t=1795134721; x=1795739521;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
-        b=Fs06FDJL6ZvTv3bLApwv+XpCkv4HpoR7q9cCx5IVOMFE595DSM6h5cv2VRYBcfF8Fp
-         Q1ESMD2FmqL1J1FV05ryUJ/D9cvZxymGQU9PEEu0ZzNP6i362Bx/q5OENanvUzeB31/f
-         5NKO+vEwxtHDAN2kVlqyPamfswceXITD6ROtD6i7hgb0PEYC+/rKT2H2Xzm+rUJxl24E
-         a3s6m38RvZg3kWUKipvHWAOc7iXq66/hI2AAlbB4iqHj1wNP8JXLsDdSKiE7J27WkN8e
-         WfFkuzZrFFP3e24wOWhOm9svKdIHt9JDrxccv7iC5qaOdTbB7taLDc+RBMNknQDYYbNy
-         xJsg==
-X-Forwarded-Encrypted: i=1; AL+hErHeRnk/FEh72L5991JFZ11saNGimFC740KM1KGg1caF2LWHbQuSrrhPw8OHUmcVCHPHJ1OQdrw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9caxkAlijzYTcvAKM/cDOzKdVVOu505mAOG1IfjMwqLvehQr8C
-	wyienfOE4oE3k3dW0nj6GvOSYCgwcsPeBMVZYY6I1PujEK2o1raDyT3vcoK7iU1xQR9xPveDDgJ
-	Cxjx8
-X-Gm-Gg: AZFdTZeICo0514n+laCIs6CJ2HN5IraFpSQjAQRYR3ViViVWW8J0gRO85rweJ8kDWiD
-	2fxngO9pkgK8Jpdak/33CYtO1JoWcOKKnFI/eG2AtmwwXK/SiIg20r3gomoVIsLFgZW6tqCWcnQ
-	pPvIzlSish2jHA/V+sV5pLnv2Oel/aacn/9phSZZZbq7+Jl9Ks5B8quLoDqzghMwc9zfVxTlZ7n
-	zGnXZrTfhErIrlzYYQsXGq+xVoPVk1EYlt51p4R+uoery/26SqIohxw+RxZsBssD3wWfZXDMWGl
-	MF1HyFg0WQFGxZWD2G5seipXpaQWwIFo1C4sDEyttFoUOCyKXL46oaLcu/wvGEcxF226IzTwsTa
-	Z0vlYDTI7TMMwEJJNkHhRD7dKMC9iA4VkHo1LgLT7hcUyCGB9k/CdwlPzccdeXXxJzjcS7szDKA
-	FUfEM2lCXkWT89Bs5RekEXA3A6lfBDtkGIBrRKJglyODgZRF8QZopeiP5720PGtsidwsf78Mjev
-	sAfz5r7H7xgCZ0iSTyJEh4wmrlgF6H9u+XQrwuJDfa9aWNLT+KLMSiF0H3Q8TQq2txEtE7dYaCl
-	HYAO6fTHYBEwpozVgvjKSuqn1RHGuxV0vs39S64/BhA=
-X-Received: by 2002:a17:90b:390c:b0:3a7:9e3d:b3 with SMTP id 98e67ed59e1d1-3b41c9beafamr876819a91.66.1795134680373;
-        Thu, 19 Nov 2026 16:31:20 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:55::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad47091sm1615819a91.10.2026.11.19.16.31.19
+        bh=mZzEzgMMxjB3j+vPh5g8u5NJjrN6f+VQAyZJOgWj1P0=;
+        b=CAOE0ofslaOZNnfbCRmumEYMLpFtlVVyFzEXTQy/uYHS2SRFTa6nkhekyjpnSEcs1j
+         JGMO3LWtar5Ryz1fln2FfFTbzL0+99/o0gdWZ+ny9gnYdssS62ABOtu84z+YHaNlT16C
+         C76bg3e3unspPqgFEil+0n6WML9yRZxTtFNC9hHwyFnXOJmLBg+78L/NTdNKn1ksYj3s
+         ktnkwechopJn06K2BN41s7ogzaNqj3eKDGdep3BXGWmlet9BsVflqmwlhFoC14u7V4UB
+         NKdTPquyx2vUAeMN83lXDBLvHhAgow2CBRIStze1zCSQOwXr/16hw2/qj+540EcDGA4d
+         RXWA==
+X-Forwarded-Encrypted: i=1; AL+hErHuoWJUJ2XWRrj4nu+torA0rqQDBR/wI3EfJb399xyOtOWiiYwUBS/778efcxjLnRAqKcFcblU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kCKtG9IkQIXbfKllhVow3O6rdUUZpSa/vwXRdnNqc6am3B6pH
+	opCDx9Vtq8D4gna+YuNgs2TdAFiz9P9aXW4GWCW0BB0q8bRvmYkbIpI+sR3nJH2XZs4=
+X-Gm-Gg: AYBFou3Bd5AYpccKaN9ck4eqMGMOsArUxgAM/OJy8dgRFPk//NwATsJL7tG4J4x26da
+	F++VVD0A29cU1rc36CUZua5ZMZHYph2s0PwmqLmluxX67olyyldpKHPYu1gEKj+yneHIOVhfd92
+	7eMLUsNUmAcFIy3VAo2plSm+Rz9nQNwRQhLc1UdanB+fJFk53b0qV4tNxu1PxDpYUWqZXxfUbD8
+	lmNU6yl38GuEWjeCME3FZYMDE45E3MruKwR+m9WQN1Oli+afcjpBVxyl6malQaLn2SLkfrfrR0j
+	VIld4rUs2zBab+3sa8tOSm4yNLGDiXTMBP7nvYgYzy2C9CvpgbUW3jAGUnYI6VfGSdnFUlz39OV
+	5IaWDAr/a8aw4STwu75wH8LnSvhcAyGefDS51dUBjOR80W23WKukP/ou8Qzqbd/OBmky2fOtKyI
+	uXNpozwYP+NfVXbEiD8I4IsvT3G373OqyOKoubKOZmAtKKEGuk3inyLMex0C9LLrMGJqjgnqTW7
+	PEkwn5juJD1F/L7ZyaGo9g2cupKgAiSFEhdSpR1J+GWSBHMVXwP8OGKMWXvaomf1Mxv2hcNvEwR
+	3DGk5FVFg7R/o2PAZr45hVgTs91TVqgXA+pgw03jFzTYVQ==
+X-Received: by 2002:a05:7022:7f01:b0:1b5:1a6c:af64 with SMTP id a92af1059eb24-1b5568c0fa1mr1258049c88.17.1795134721419;
+        Thu, 19 Nov 2026 16:32:01 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:63::])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm2282420c88.1.2026.11.19.16.32.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:31:19 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:31:18 -0800
-From: Joe Damato <joe@dama.to>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: tariqt@nvidia.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	horms@kernel.org, linux-kernel@vger.kernel.org,
-	daniel.machon@microchip.com
-Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
- doorbell fix
-Message-ID: <av+U1gCrKGy+SuGU@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Jakub Kicinski <kuba@kernel.org>, tariqt@nvidia.com,
-	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, daniel.machon@microchip.com
-References: <20261117155353.2250540-1-joe@dama.to>
- <179493106742.3291.11434436383058043225@kernel.org>
- <avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
- <20261119143852.3bca9000@kernel.org>
- <av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
- <20261119160559.45b9fc7f@kernel.org>
+        Thu, 19 Nov 2026 16:32:01 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:24:58 -0800
+From: Stanislav Fomichev <sdf.kernel@gmail.com>
+To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Alexander Duyck <alexanderduyck@fb.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Magnus Karlsson <magnus.karlsson@intel.com>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Pavel Begunkov <asml.silence@gmail.com>, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org, Simon Horman <horms@kernel.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, kernel-team@meta.com, 
+	John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
+	Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Weiming Shi <bestswngs@gmail.com>, 
+	Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, 
+	Bobby Eshleman <bobbyeshleman@meta.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, io-uring@vger.kernel.org, Mina Almasry <almasrymina@google.com>
+Subject: Re: [PATCH net-next 3/7] net: Admit native XDP on provider queues
+Message-ID: <av-TQztlq185q6VW@devvm16445.scu0.facebook.com>
+References: <20261117164700.2157816-1-bjorn@kernel.org>
+ <20261117164700.2157816-4-bjorn@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,61 +114,76 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261119160559.45b9fc7f@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117164700.2157816-4-bjorn@kernel.org>
 
-On Thu, Nov 19, 2026 at 04:05:59PM -0800, Jakub Kicinski wrote:
-> On Thu, 19 Nov 2026 15:34:21 -0800 Joe Damato wrote:
-> > On Thu, Nov 19, 2026 at 02:38:52PM -0800, Jakub Kicinski wrote:
-> > > On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:  
-> > > > The only fix in this series is the deferred doorbell flush (patch 5), but I
-> > > > need the other code (patches 1-4) for SW USO support I plan to submit next
-> > > > if this series is applied.  
-> > > 
-> > > Not sure if this is what you meant but this may read as if you were
-> > > sending a fix for net-next for convenience of sending more patches.
-> > > To be clear - that's not a valid excuse. That said, here, we're talking
-> > > about a 10 year old error path bug which nobody apparently have been
-> > > bothered by. We don't have space in net for such things at this point
-> > > of the cycle, anyway :S  
-> > 
-> > I'm probably just being dense and not following what you mean here.
-> > 
-> > I was looking at a local branch that implements SW USO in mlx4 and it was
-> > getting to be quite long with a lot of patches. I thought that breaking it up
-> > and moving some of the patches into a standalone series would make it easier
-> > to review.
-> > 
-> > I suppose you are saying I should have just kept it as one longer series,
-> > instead?
+On 11/17, Björn Töpel wrote:
+> XDP and memory providers are currently rejected on the same device.
+> Header-split RX keeps headers in normal memory, so a program can
+> filter packets without reading the provider payload.
 > 
-> No, not at all. 
+> Keep this restriction unless the driver declares xdp_unreadable
+> support. Admit native XDP in either attach order on these drivers.
+> Existing header-split checks require frags-aware programs.
 > 
-> You said "The only fix in this series is....I plan to submit next if
-> this series is applied". Which triggers my suspicion that you packed
-> a fix with -next stuff for expedience / not having to wait for a
-> net->net-next merge before you send the rest of USO. I don't think
-> that's what you meant but since I had to ping Tariq anyway I decided
-> to wag a finger at you. 
+> The driver must mark provider fragments and reject XDP_TX while those
+> fragments remain. The core rejects helper access and frame redirects.
+> 
+> Keep generic and hardware-offloaded XDP rejected. Generic XDP builds
+> an xdp_buff from an skb without carrying the unreadable flag. Its
+> transmit and redirect paths also bypass the native driver guard.
+> 
+> Signed-off-by: Björn Töpel <bjorn@kernel.org>
+> ---
+>  Documentation/networking/netmem.rst |  8 ++++++++
+>  include/net/netdev_queues.h         |  6 ++++++
+>  include/net/xdp.h                   |  5 ++---
+>  net/core/dev.c                      | 28 ++++++++++++++++++++++++++--
+>  net/core/dev.h                      |  1 +
+>  net/core/netdev_rx_queue.c          |  2 +-
+>  6 files changed, 44 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/networking/netmem.rst b/Documentation/networking/netmem.rst
+> index 6871dcdd700c..1ac94fc9d667 100644
+> --- a/Documentation/networking/netmem.rst
+> +++ b/Documentation/networking/netmem.rst
+> @@ -131,6 +131,14 @@ Driver RX Requirements
+>     circulation times, such as when userspace holds a reference in zerocopy
+>     scenarios.
+>  
+> +8. XDP programs run next to unreadable memory providers only if the driver
+> +   sets netdev_queue_mgmt_ops.xdp_unreadable, and only in native mode. The
+> +   programs see the headers in the linear part, and helpers that reach
+> +   unreadable fragments fail. Attach payload fragments with
+> +   xdp_buff_add_frag(), which marks unreadable ones, and drop XDP_TX of a
+> +   buffer for which xdp_buff_is_frag_unreadable() is true: the payload is
+> +   mapped for receive only. Redirects of such a buffer fail in the core.
+> +
+>  Driver TX Requirements
+>  ======================
+>  
+> diff --git a/include/net/netdev_queues.h b/include/net/netdev_queues.h
+> index c5335e935b7d..4f6702b284b4 100644
+> --- a/include/net/netdev_queues.h
+> +++ b/include/net/netdev_queues.h
+> @@ -199,6 +199,11 @@ enum {
+>   *
+>   * @supported_params:	Bitmask of supported parameters, see QCFG_*.
+>   *
+> + * @xdp_unreadable:	Native XDP programs may run on queues with unreadable
+> + *			memory providers. The driver builds XDP buffers with
+> + *			xdp_buff_add_frag(), and drops XDP_TX of a buffer for
+> + *			which xdp_buff_is_frag_unreadable() is true.
+> + *
+>   * Note that @ndo_queue_mem_alloc and @ndo_queue_mem_free may be called while
+>   * the interface is closed. @ndo_queue_start and @ndo_queue_stop will only
+>   * be called for an interface which is open.
+> @@ -229,6 +234,7 @@ struct netdev_queue_mgmt_ops {
+>  				    struct netlink_ext_ack *extack);
+>  
+>  	unsigned int supported_params;
+> +	bool xdp_unreadable;
 
-Oh, OK.
-
-To be clear: I was not trying to circumvent the system or the rules and if you
-(or Tariq) prefers, I am happy to peel this apart and send it to net in the
-next cycle.
-
-I am not trying to rush anything in; I'm happy to wait until the next
-cycle if that is what is preferred.
-
-I included it to net-next because my perception (which is clearly incorrect)
-is that net is much stricter lately and issues which have never been triggered
-IRL or reported by users may not meet the bar required for net.
-
-I'll be more careful in the future; I just legitimately did not think this
-change would be accepted to net.
-
-> IOW I'm commenting purely on packing what can be perceived as a net
-> fix in a net-next series.
-
-Sorry for the confusion I caused :(
+Any reason this is not a new QCFG_ in supported_params ?
