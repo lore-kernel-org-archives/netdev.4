@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212055;
-	b=RxRhuUBzKdwf4JS+RiDDMn3Z72QPISBezRXRqZzfdbx8dgLo8Nl90xmac82hp8ctAnZg
-	 2y5sdKKbqVCW9ThDRhkFCvffqCkOADsEQFQ12DW3vFGcqM+mAk+AxdCP1B5Jxvo3h2iXy
-	 DZec0jh/0I8gFeZgYQhKG+exXlyV9mtwQynx9804RUz7VNeMtHEbm/qzEg61hmzXExGhN
-	 EB5tN1LECtcXechxAwQdxPZ4rh00P4vRgVmxZhCreUMunRC3H/G+1FpQeyvZ4pxOOwRyT
-	 naIex712Y1RS+9OBvbn6k+qaks83TIeOp51f/EHuuGSf0k+w2lqQyh85S2VjDAg0VrA==
+	t=1795212050;
+	b=xIjOzZ8tvx4UxnwU9gLztpiIijFOPPG6YykfkufnSSyqGeGvk8TinOAkmR9s48XzK/YG
+	 Me5rKQzzqpiMjuJxrGDgl08Bub/MILLWRtP7zsxTi8n6p444BFZDPw1IpH2Xwx7XWR/As
+	 1SbYwY1IcNBI36uyk4JXNC2LKddxFxbmOuQXBFTrooocQBMjEVYLnZyijc23c35SGL/TK
+	 v+7lB6lGDGVHjMsfRbAPfA/RmBQYN7qNfLUW2ZD3Ron9kUmnn4Z0Fpdpk0ns0sCcWtmAP
+	 DTpytNvrZ5N3waBu/LktcgKVDzVoOqyjjH6L31lpufEK1RUpbI39IUG7eHDO/7hqm3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212055;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212050;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=9Zn9OK3P0GPapzeQKIbZPwvIdHQqPvGIT2cs0W1rR9g=;
-	b=emHt0zB6oi5GHttq//vZmrz1Ue1vbPWQbk0Ry8seY8feC8iidTQgyNPRhTqZ6+5hbkYC
-	 49QRJ0G38t//KAxAnzCGSuPARbZmkkQsCdn/NCnmswjjThUzHuyTD9ocwX4H/+0PEfX06
-	 78cNcYaKUU16rclMuxXoykqSSTygb8Jat6JuGqsdeDqucTV2YynZ91/dLNywm22siNFXV
-	 m+KRayPfL0j/3eC1g1lP8+vF0Ay2v82daZRUPPbT5S8ylXQ+k8XyZ/dCe4GENtEpw4/L1
-	 AFnCp9He6C3Ds6NZMP1XRUWTEdMETci9vWGhMGQu7BdBlq8byQ9brFsOa9r2JLbqgnw==
+	bh=JNS1OF0Z2nig4XozI2HYyebi9JGCPjMbatPlkS7QwvQ=;
+	b=Bp9TD0cBj15QCOXbavqnbVB1nqL02qrVfRo3SRCkPnre4tsGx05xU7vOxKd6p41QIpjl
+	 ogOk4a3UwI8hHrxXGmGh51q+zMySJj/cgGZXulVCzJ3PeCrTmSRNkpnCPRf+yUhYJtS0Y
+	 evK6N9dC4qMoOzmTnwIJI46HbwIKnZQeDhLI8kWE0tCavR5PiJ/tdgFvSN/WxJB4FmVRo
+	 eRl8gfW8Uk72C0BNU/3RDXZdHDHQ8HInX8UZFE+amlFmnP/kfl+37VERZUJsVLyLpgRVp
+	 wAw5MgLYsnz6tZrszZ2b23Qbh1p6wQ9Evligoz6zZuMLMUQ2lHjPQI2Bulb9m+BSZzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lFrlU0a8;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KlFZGRAa;
 	arc=none smtp.remote-ip=198.175.65.11
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 045FB60A2606;
-	Fri, 20 Nov 2026 22:00:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 045FB60A2606
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7394B606A6BE
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 22:00:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7394B606A6BE
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lFrlU0a8
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KlFZGRAa
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795212051; x=1826748051;
+  t=1795212050; x=1826748050;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=79Vi1iqtA/28yjPminAcVGflVNOn+08MjEk6EYbSLTw=;
-  b=lFrlU0a8G0mL5pRSW5kn1DOoPStyTqo5YPoYt+1mYTBS56krw3qLpA4+
-   O1/Jfoe7GAWv016m+wIqi0Cg2bEdwRRhxJSu9DNNAbpuHpduq86WXmM0z
-   JgZL+6v1xo+2bodrAbpnrjI0hroiuxTTz9cIJoY8B0FIZTQOI86C5D3ob
-   MNngTZu1brA1dJWVqeL8VuG1jkNkymCREx5Se1TYJ7Gc72ulE5E0Sje+t
-   Q88cRdJ7XP8Wncro+dY1gRHUZcL3RrGmMDp7k5NOWzWcamz9fbxyjoFB6
-   aYBXfdM4wVPZHD0fmUz1zlSEqjL8IcqOD3L6ZD0n3a4dOQQrAwo7coph7
+  bh=3Tlelogsy64SRtXCCfDM7VGHDcEWwIbacaCFSg3S6rs=;
+  b=KlFZGRAaNMxZyDhbBvF9XMkNN4RzM6SxpdPph+/tTmSJw3xcZtl54Ddh
+   hO4g5UiumaZ+OvEVYG1USeI3Nv0B0r/6VxU8mtt8hjvG05LK+/XEZTEEL
+   0heOT2pgjYZK4lhUpyXaZor1e9pushSfs/auNjexXEDSQL8cJVgVA4qu6
+   t6cD+Yb48k9DrKGWHW2GuL0ztcHk4LOaK1f2kRNKOogey0F/QFkms2DqA
+   Fbp87bjDUSiQNxH8sHoOKIx1XIcXXjAdWFBe24yf/bF/z/2efPX4/UYRe
+   FLj4ZDFvFXny+O4AAzfEXrH1EYBgdkac02m7vgOsk/6MHpLsmbpVkEPCR
    g==;
-X-CSE-ConnectionGUID: JjWyv6gLTD+ZO0aPjDTgQA==
-X-CSE-MsgGUID: W62pZNkAT52IiQrpQcGINQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3995058"
+X-CSE-ConnectionGUID: NotziWwSQVGdxp7E5L27tw==
+X-CSE-MsgGUID: 6bBV1QaXSC6f6z+hxFZLXA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3995044"
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3995058"
+   d="scan'208";a="3995044"
 Received: from fmviesa004.fm.intel.com ([10.60.135.144])
   by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 14:00:37 -0800
-X-CSE-ConnectionGUID: m7wucdqGRW21rDICZbUC+g==
-X-CSE-MsgGUID: VGQXylz3SEmFptKtKn2s2g==
+X-CSE-ConnectionGUID: kr0IhE9MQu2IVOoA5/uUHQ==
+X-CSE-MsgGUID: N/tJ8tJKT3OGlJhQSjOKaw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10775827"
+   d="scan'208";a="10775821"
 Received: from anguy11-upstream.jf.intel.com ([10.166.9.133])
-  by fmviesa004.fm.intel.com with ESMTP; 20 Nov 2026 14:00:36 -0800
+  by fmviesa004.fm.intel.com with ESMTP; 20 Nov 2026 14:00:35 -0800
 From: Tony Nguyen <anthony.l.nguyen@intel.com>
 To: davem@davemloft.net,
 	kuba@kernel.org,
@@ -68,19 +68,19 @@ To: davem@davemloft.net,
 	edumazet@kernel.org,
 	andrew+netdev@lunn.ch,
 	netdev@vger.kernel.org
-Cc: Runyu Xiao <runyu.xiao@seu.edu.cn>,
+Cc: Linkui Xiao <xiaolinkui@kylinos.cn>,
 	anthony.l.nguyen@intel.com,
 	ripatel@wii.dev,
-	xiaolinkui@kylinos.cn,
 	xiaolinkui@126.com,
 	tomasz.lichwala@linux.intel.com,
-	jianhao.xu@seu.edu.cn,
-	stable@vger.kernel.org,
+	runyu.xiao@seu.edu.cn,
+	jedrzej.jagielski@intel.com,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
 	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
-	Jacob Keller <jacob.e.keller@intel.com>
-Subject: [PATCH net 4/4] net: fm10k: shut down the service timer during removal
-Date: Fri, 20 Nov 2026 14:00:20 -0800
-Message-ID: <20261120220022.3133664-5-anthony.l.nguyen@intel.com>
+	Alexander Nowlin <alexander.nowlin@intel.com>
+Subject: [PATCH net 2/4] ixgbe: fix incomplete ACI command buffer backup on retry
+Date: Fri, 20 Nov 2026 14:00:18 -0800
+Message-ID: <20261120220022.3133664-3-anthony.l.nguyen@intel.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20261120220022.3133664-1-anthony.l.nguyen@intel.com>
 References: <20261120220022.3133664-1-anthony.l.nguyen@intel.com>
@@ -95,46 +95,58 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Runyu Xiao <runyu.xiao@seu.edu.cn>
+From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-The fm10k service timer rearms itself from its callback. During PCI
-removal, timer_delete_sync() waits for a running callback but does not
-prevent a callback or another service path from rearming the timer. This
-can leave the timer referencing the fm10k_intfc after free_netdev().
+ixgbe_aci_send_cmd() saves only the first byte of the caller's buffer
+before an EBUSY retry, using kmalloc() plus a single-byte store. When
+retries are exhausted, the caller's output buffer is filled with
+uninitialized slab bytes, because only the first byte was saved before
+the retry. The firmware itself does not see this data, since the
+retryable opcodes do not set LIBIE_AQ_FLAG_RD, but the caller still
+receives garbage in its output buffer.
 
-Use timer_shutdown_sync() to permanently prevent rearming before teardown
-continues.
+Replace the kmalloc() plus single-byte store with kmemdup() so the whole
+indirect command buffer is saved before an EBUSY retry, skip the backup
+when buf_size is 0, and key the restore off buf_cpy instead of buf,
+exactly like ice_sq_send_cmd_retry() already does.
 
-The issue was identified by code inspection. No runtime reproduction or
-trace demonstrating the failure is available.
-
-The patch was not tested on real hardware. No hardware- or
-firmware-specific runtime result is available. Validation used source
-review and available build or emulation checks.
-
-Fixes: 54b3c9cfad6b ("fm10k: start service timer on probe")
-Cc: stable@vger.kernel.org
-Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
+Fixes: c9e563cae19e ("ixgbe: add support for devlink reload")
+Reviewed-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
 Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Acked-by: Jacob Keller <jacob.e.keller@intel.com>
+Tested-by: Alexander Nowlin <alexander.nowlin@intel.com>
 Signed-off-by: Tony Nguyen <anthony.l.nguyen@intel.com>
 ---
- drivers/net/ethernet/intel/fm10k/fm10k_pci.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/intel/ixgbe/ixgbe_e610.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/fm10k/fm10k_pci.c b/drivers/net/ethernet/intel/fm10k/fm10k_pci.c
-index afe939f8f4ef..c830417b112c 100644
---- a/drivers/net/ethernet/intel/fm10k/fm10k_pci.c
-+++ b/drivers/net/ethernet/intel/fm10k/fm10k_pci.c
-@@ -2243,7 +2243,7 @@ static void fm10k_remove(struct pci_dev *pdev)
- 	struct fm10k_intfc *interface = pci_get_drvdata(pdev);
- 	struct net_device *netdev = interface->netdev;
+diff --git a/drivers/net/ethernet/intel/ixgbe/ixgbe_e610.c b/drivers/net/ethernet/intel/ixgbe/ixgbe_e610.c
+index da8519065d81..a6dc214f7771 100644
+--- a/drivers/net/ethernet/intel/ixgbe/ixgbe_e610.c
++++ b/drivers/net/ethernet/intel/ixgbe/ixgbe_e610.c
+@@ -214,11 +214,10 @@ int ixgbe_aci_send_cmd(struct ixgbe_hw *hw, struct libie_aq_desc *desc,
  
--	timer_delete_sync(&interface->service_timer);
-+	timer_shutdown_sync(&interface->service_timer);
+ 	is_cmd_for_retry = ixgbe_should_retry_aci_send_cmd_execute(opcode);
+ 	if (is_cmd_for_retry) {
+-		if (buf) {
+-			buf_cpy = kmalloc(buf_size, GFP_KERNEL);
++		if (buf && buf_size) {
++			buf_cpy = kmemdup(buf, buf_size, GFP_KERNEL);
+ 			if (!buf_cpy)
+ 				return -ENOMEM;
+-			*buf_cpy = *(u8 *)buf;
+ 		}
+ 		desc_cpy = *desc;
+ 	}
+@@ -234,7 +233,7 @@ int ixgbe_aci_send_cmd(struct ixgbe_hw *hw, struct libie_aq_desc *desc,
+ 		    last_status != LIBIE_AQ_RC_EBUSY)
+ 			break;
  
- 	fm10k_stop_service_event(interface);
- 	fm10k_stop_macvlan_task(interface);
+-		if (buf)
++		if (buf_cpy)
+ 			memcpy(buf, buf_cpy, buf_size);
+ 		*desc = desc_cpy;
+ 
 -- 
 2.47.1
 
