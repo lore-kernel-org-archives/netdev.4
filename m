@@ -1,61 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206583;
-	b=YWurQ5LyoUTeN3fu9Mv40b2Hcdp/YDTHvtxKUhY7W66QS8tub+7PL3x9Vh8hV10RUs4o
-	 uh4VmkQzen25FatHBSQ3HRgcUdRmvy8AuETCrh2QK/55E3+XC/zob5X1RbWjpRsoc8Xaf
-	 vjucRSqgSQS5w9W9C4yoc6NXbkpEgCuiU++om9rYv955YMhbYaWJ/ZoD9vusHyVXSinKS
-	 zbOV9BjjxHmRpUA81OpfT0lt8r2ZvYshjyorm/tHwFNH55InVR4FXuyVKqHRWobS3/zxH
-	 QQfieTzKkAJwnCgKihszExYdmOWetIRprDEDTm/aCZokb1Es7DDipiBQ33v1f+v7W6Q==
+	t=1795206592;
+	b=OnKOPkc4Xcdu+918XQDeNUgapmUUa7IdZCM/wFGS/ntiUK/NS5HSIn4VRl0uF+PhUqgq
+	 G1lU9kcVgH+hq6GjdSRpv2doO2x+MswPh2AZ1lU8TgTMKRPmrdf6ef2YllgVgu4QnCMbe
+	 v6Md2K+y6h2AV1JEbIR+DE1mBFB4F2mPnxhmJI6Xl0lyBrW1WedK7VX2EUq+cCgx4vbtH
+	 Tmprfpd1HhGOoyQsbgNWRnuvzRsh/h8FILURF95BeIqskE8GM+GVh090bRnt9iz1fiKZc
+	 zO598dTWlMQ9tTaBA4oiMCKnqWBIdX3G8rpCpq0uit8i51klDUK3qCnkWnW8uPItAIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206583;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=hAknXHv/4i/SWTpoyAcIjrvHEB5Ii1/3j5H4a+yyAJ4=;
-	b=aQmHfduMkDR9YM5sxoJZC3XuAZJ8nwqdr0NysBnvjqrTCx0AAZ7+FumEp+KEgn5SJbit
-	 +fD39MY5cDA5UZepG72zWQAzW4SCZ4iAIzFoAbN9gWMaWzhQnYUZeraMoB6WQ3eLUJriN
-	 NfDbC/J2Yh/5BLlpjvoho2KaXZP+h9lTe/cqyIna8SERfgnhEwaMitoxgEA094EzPt4J7
-	 WRUkO4EAGPbzsr2LkewSVMJIAEQjx117lOpL/ur4RehaGlfaeOjnXIRDNgbzLoZCt3Pvo
-	 BmSLL30Y02M5oZhaJN/OlG+t9VmVo1Bm5FGDIpBmeJ2iaIgFMn5xfBTUoxvHJExwt9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206592;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=h3ow/BbNuDYJS6H6glK8M79YXas//OK5TqTnYZxokFg=;
+	b=JdCQaGH22wwSKBATJZn8dNtbFWmifbY4dsNrIb/BDOnWXUNnSoshmIq+7xudnju38SQ4
+	 RQJHz6gE3GCUb/89uRFjDj/+xYOLjePqovruLhD9Ur6ouKYoMvrcL7ypbyvyWEyHG1Wl9
+	 bUX7IMmazOYpLfiltgQ1tCcjVS4w3dVkZY7113zOr/hGjhWHgtIu31vS0FS7WK9i4Tl1b
+	 0rJp+v/fFVQjePBqQbwkF4vkQpiY1qO51sNMGwkQaHXDXEQH0APvYRvgYG4EoXuTqaSD8
+	 dCDfPtw98h518ofD4ujQpQjuHjDdMD7BlOj1Lp52zFkmSV2pNuTkgtCsJGE5LrFfHYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yoxcu.de;
-	spf=pass smtp.mailfrom=yoxcu.de;
-	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=j0hnwgwK;
-	arc=none smtp.remote-ip=194.36.144.171
-Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b="o/tPdefi";
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FC27606A32C
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:29:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FC27606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76819606A320;
+	Fri, 20 Nov 2026 20:29:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76819606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=j0hnwgwK
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FE381D86DDA;
-	Fri, 20 Nov 2026 21:29:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
-	t=1795206579; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=hAknXHv/4i/SWTpoyAcIjrvHEB5Ii1/3j5H4a+yyAJ4=;
-	b=j0hnwgwK7jTY3u1wdtWCuKCgPZt4poc0eG3y2vs7T5fGAqiNZfKCXgIsZC+eh+maUUxfXz
-	gpjbwEzXXdO6olEQgvKY4OgIzeCptQ6DOAgnnj4iIybUzd06Q+AXEgYEYT1gX4l86N6M6L
-	UvMLiciDRBed+y4YbsPkuazjXC8OA0u2aPPdnkEcKqNdO7Y/vhyb3I1T9bBo4JSFdUPA2w
-	vYJ2WOknx10voaPVsA0LtQuGzROp5CQEXatBfqqafCMVYZl+t0MRxbhplqvflsmjnTRkea
-	n3UPIOuiIT5t0z/HgGqZE9FjWPDs6IWGNvH80ZGi3KYDonlshR0IPYijcEs2Lg==
-From: Michael Auer <mick@yoxcu.de>
-To: Alex Elder <elder@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Michael Auer <mick@yoxcu.de>
-Subject: [PATCH net-next] net: ipa: report TX_SUSPEND wakeups to the PM core
-Date: Fri, 20 Nov 2026 21:29:30 +0100
-Message-ID: <20261120202930.345970-1-mick@yoxcu.de>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=o/tPdefi
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BFEA2A05A5;
+	Fri, 20 Nov 2026 21:29:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795206581; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=h3ow/BbNuDYJS6H6glK8M79YXas//OK5TqTnYZxokFg=;
+	b=o/tPdefi+2ABf9FFThFngDTSoPA+OXELbxYRO8BHg1OM3SrhVLoew99kekjJubfy5h5lnC
+	21OvNfu0HXrsmAO4ITRhT1VZwP+zPFK2AyYyQdASaBtAlcbhi7tZbM/w5JAQrl/xAz0s4s
+	srskIzhGgnYAGtpknfnkiNVcih1NV89tXe1vR02xQEKV0PiS15uY9yUImLeBQD1wFfli9H
+	Ztsnup79WLu6rv2JFJqV3BzZoF7VHVz8xp3eYBSs6pgbqwuFltSXEPCxOv4KYxZAdueiOV
+	9VLA5kck0vlrjWV0K1qssOfqavNQbqYLdQrgvg4sxi0aYHF6zDOygy4TUp6m9Q==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,61 +53,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Fri, 20 Nov 2026 21:29:40 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: netdev@vger.kernel.org, Carlos Soto <carlos.soto@broadcom.com>, Justin
+ Chen <justin.chen@broadcom.com>, Doug Berger <opendmb@gmail.com>, Broadcom
+ internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew
+ Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, linux-kernel@vger.kernel.org, Mlody12 mlody12
+ <kudzo51@gmail.com>
+Subject: Re: [PATCH net-next v5 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45
+ support
+In-Reply-To: <20261120194318.3952487-5-florian.fainelli@broadcom.com>
+References: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
+ <20261120194318.3952487-5-florian.fainelli@broadcom.com>
+Message-ID: <905c34c37a843cfc95f95e10b32f513e@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-Since commit 4b2274d3811a ("net: ipa: don't bother aborting system
-resume") the IPA driver reports no wakeup event. The IPA interrupt
-still wakes the system, but the wakeup source of the IPA device does
-not count it, so only /sys/power/pm_wakeup_irq shows the cause.
+On 20.11.2026 20:43, Florian Fainelli wrote:
+> Add Clause 45 read/write support to the UniMAC MDIO bus controller 
+> driver
+> by implementing the read_c45/write_c45 bus callbacks. Each access 
+> performs
+> the two-step C45 sequence (ADDR cycle followed by a READ/WRITE cycle) 
+> under
+> the bus lock and switches MDIO_CFG between C22 and C45 mode as needed;
+> MDIO_CFG is only written when the mode actually changes.
+> 
+> Since MDIO_CFG also holds the clock divider, unimac_mdio_resume() now 
+> takes
+> the bus lock around unimac_mdio_clk_set() so that it cannot race with 
+> the
+> read-modify-write done by the accessors. Resume may therefore wait for 
+> an
+> MDIO access that is in flight.
+> 
+> Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0 
+> even
+> when the controller is still busy. For C45 this would let the data 
+> cycle
+> or the next access's MDIO_CFG switch start while a frame is in flight, 
+> and
+> return the command bits instead of the read data. Check that the 
+> controller
+> is idle after every cycle, C22 ones included, and report a timeout 
+> instead.
+> 
+> Also skip the BMSR workaround read in unimac_mdio_reset() for children
+> compatible with "ethernet-phy-ieee802.3-c45", since such PHYs are not
+> expected to respond to C22 accesses.
+> 
+> Note that providing read_c45/write_c45 also makes the MDIO core scan 
+> for
+> C45 PHYs at registration time, on addresses that are not masked and do 
+> not
+> already have a C22 device. This is not the case when the bus is 
+> registered
+> from a Device Tree node, which masks all addresses.
+> 
+> The platform device that GENET instantiates when it is probed without a
+> Device Tree node (e.g.: ACPI) does not mask any address, so it is 
+> scanned
+> too. Its wait_func is bcmgenet_mii_wait(), which sleeps for up to a 
+> timeout
+> per frame since GENET's interrupt is not registered yet when the bus is
+> registered. That makes the scan slower at probe time on such systems, 
+> the
+> same way the C22 scan already is.
+> 
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
+> Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
+> Co-developed-by: Justin Chen <justin.chen@broadcom.com>
+> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
 
-User space that reads the wakeup sources cannot attribute a mobile
-data wakeup. Plasma's powerdevil, for example, turns the display on
-for every such wakeup.
+Forgot to mention: Your tag needs to go last (v3 had it right).
+You can keep my R-b as the changes are OK.
 
-Report a wakeup event when handling the TX_SUSPEND interrupt. This is
-pm_wakeup_event(), not a hard wakeup, so it does not abort a suspend
-in progress unless user space uses /sys/power/wakeup_count.
-
-Found and tested on a OnePlus 6 (SDM845, IPA v3.5.1): a push message
-over LTE wakes the phone from s2idle, and the IPA wakeup source now
-counts it.
-
-Signed-off-by: Michael Auer <mick@yoxcu.de>
----
-Tested on a OnePlus 6 with an sdm845-mainline 7.1-rc1 based kernel, in
-daily use since late September. On net-next it was only build tested
-(W=1, arm64 and x86_64 allmodconfig).
-
-The event is also counted when TX_SUSPEND fires after a runtime
-suspend while the system is running. If that is not wanted, the call
-could be limited to system resume. I kept the version I tested.
-
-Tool use: the analysis, the code and the commit messages were
-written with an LLM coding assistant (Claude Code). I reviewed all
-of it and tested it on my phone as described above.
-
- drivers/net/ipa/ipa_interrupt.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/net/ipa/ipa_interrupt.c b/drivers/net/ipa/ipa_interrupt.c
-index 766b094eb069..547ed67930d6 100644
---- a/drivers/net/ipa/ipa_interrupt.c
-+++ b/drivers/net/ipa/ipa_interrupt.c
-@@ -92,6 +92,11 @@ static void ipa_interrupt_process(struct ipa_interrupt *interrupt, u32 irq_id)
- 		break;
- 
- 	case IPA_IRQ_TX_SUSPEND:
-+		/* Data arrived for a suspended endpoint. Report it as a
-+		 * wakeup event, so user space can see what woke the system.
-+		 */
-+		pm_wakeup_event(ipa->dev, 0);
-+
- 		/* Clearing the SUSPEND_TX interrupt also clears the
- 		 * register that tells us which suspended endpoint(s)
- 		 * caused the interrupt, so defer clearing until after
-
-base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
--- 
-2.43.0
-
+Thanks,
+Nicolai
