@@ -1,66 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133820;
-	b=Id6FGl9jmphBZl2HAOif7T379dzooOfLGUYGhmu+UyVCjY2B9siCO8T93cAIx4JrLr7T
-	 yv0YSjDsIG8KcpNErCpQlBqzk4h2mnbnlIIMNe+vVTHbGSgG0BjoiAvY2cUgthGRodJYA
-	 z7qlDohi4ft6/r4ZtmThkHihqMHAvapbUGPDdi5c2jlEM3LFs6+sv3dTcjOtZydRG0Bwq
-	 5P4gEmYmFMyMmQd+9Wcf56ctWcPUOxcLx8gBff3qLEILiP5sUkD7YryCbX7+PoQke6n7H
-	 g39jRIGcpH1KhkfOP0Zel9HBpBrbMZ5A6NBg8KcoJo6eWvl4TNOk9nqSXAtyqdl7LbA==
+	t=1795133829;
+	b=acDedIxPY4JdV9XROmM4C+snkRpJRwCFAKdw397r5j0u6AsOoPYu301dMO120fJp0N8s
+	 q5EFKI2pDtSKibWN6OevbFrt7P3bWY5+vUEFm9CYnhCkDVh0HvzEGEL1pDbq/8+SmCsQZ
+	 0K7mWvYYT0mGsqEpocUCRW1f4Y2bXvdkbDTqUaPDYCInQX5H2BZVWjIMieso9FWYegWmx
+	 Xayp0LfOZh5sbMoET+/YPFCb5QYnLZC2qcE12mvdujgWMlTeyiDS4KokL92GRN0FLKJz1
+	 S2s9+qkktotSUL8Oqjgt3KQx5lcPyPm9NHR7AWbxTt2h+D//T81Qep+m32CELUHvZXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133820;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=UaidrchdsiA6ina6W5vc78SK6thsHus4W9FFXBWLfs8=;
-	b=HnGqs8h1SguEhhixdAgukH9PHcMKg6//PE8JsWJfLL56RHybxuY/cMMIHoCzCyV042oW
-	 b/ltdj2XIMV6Y5hAhJg28L1yeinz7rminM5CxRDxDQ748S8a5MPvJIs+GSiA/nYauZJ9s
-	 oH9EKN2jOrK82nQVVa0qExxRWDIri3wEfrBAMEv2M4jtn8V3co230i8Kl7rkRD39SyyI1
-	 DRzqpxSFI+OJTApooZQCObc9F2vrljJ+sQIxVj7eGQMwJCukAObCdkHk6BjT5FftWCRDg
-	 o/fu35Azk0FREB2oXtFi44tHqnuiupcw1r6mKw6cBLBCW7MPURow3O0JvfzRmvYOuyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133829;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=OLsKfGJGXGbCFEXjWw/sv6ne1Orj0T4H+oyWO2Za6zI=;
+	b=kh9H/qYkAyoF51IKk3uhcGcPesMRIkP3c4vbC+reNJnghSGE/4uvuo8mq5RPrDL26IZJ
+	 l7MgiwAnVNiMU0Tr51WG2Ea1gAABQZHI3pZssCLM+924U2L7CMCcolf2tmmE+m8iHPyll
+	 jQDiKH42/tEPny5XihqCiJAk0CO8zWPnnQTjl32eN/O5jWZU/ri1rlgPA9CJDFqJ2M0C3
+	 HXAGhUN5gsjItjoSPD2Eavwp5wWaNMjmoAmC8KdPOUb9+Mz+uz6MEH4A01RBWsWM+6DOY
+	 y1pHy53J9MkOKaahvqgFvd16atJGiKJ+c056WfiCx4sDLUL7QQy84xYiD6+uSZJkmjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b="Kw/m1nn5";
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cTawwDfV;
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C32BE606A320;
-	Fri, 20 Nov 2026 00:16:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C32BE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 733E6606A325;
+	Fri, 20 Nov 2026 00:17:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 733E6606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Kw/m1nn5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795133817;
-	bh=UaidrchdsiA6ina6W5vc78SK6thsHus4W9FFXBWLfs8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Kw/m1nn5uPO8sIjJtDnbS9vwZHOGeIIyv6jCAiZjfZqcMs9PfYN0Zu84MZXhXI2+l
-	 8VY2fpe/BgeMC2D+MZEFbir2yWm+v0rTo4/3r0ecDW8tCKVyarMELnpgMCZOnIt3kW
-	 0iYb+WIwvuljtEN2W9tGCMGiVvpGo9Rp1mZqoLP1NmdhuD5B8A0xzwCUrx/R8Z1lYj
-	 2pUcV72PNAgpMT77gSurAASzXvF0y1S1qXFEhcejdrmPsoEKBQYqpWtkJtNhK7CRSh
-	 T5WLE+NXOlfccAXSaHScs/X0au7VjVj86t/zTFVF+mRbdXcOsDPj421JZ4djs9x8MW
-	 t02UNDfBy259Q==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 52D17601C8;
-	Fri, 20 Nov 2026 01:16:57 +0100 (CET)
-Date: Fri, 20 Nov 2026 01:16:54 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: John <shffr@protonmail.com>
-Cc: "netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
-	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	"coreteam@netfilter.org" <coreteam@netfilter.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>
-Subject: Re: [REGRESSION] netfilter: flowtable: XMIT_NEIGH flows sent to
- 00:00:00:00:00:00 once the next hop's neighbour entry is gone
-Message-ID: <av-RdjXsq4IXsnMg@chamomile>
-References: <MAEpYNlWKRd7lM0j62YlEZ97Ux1h5AyjSuFRm4Lxk2Q6haeDGTKqX8lpDRZ8slvBu6qA7Bbt18zpr9fyF_jArrEemTgRqzqluxmsGH7UcFk=@protonmail.com>
- <avSIBUcLH4kZyISX@chamomile>
- <avTngTkNKE5ApQW8@chamomile>
- <LCJrB-Fde--T9NiYx2QfFb-X-9W-vsYYmtmrHwIKuKgM8enKRWF2DYypz2_zJKSKQBMUdb9sS6xMEfPihv1YO2FLjX1OUN-Td3Hq1eAdLgw=@protonmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cTawwDfV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795133829; x=1826669829;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=yEi5eshbfr2TQL5MUtp80HFRx4STfemmDqBrkrAfDFo=;
+  b=cTawwDfVty2TKcWPNW+YGMaMIWJCXpq3QL/aU2TJiy9fp2hZrSy8V2Op
+   WF1TaNuzfpe5SCPC4jkZRyW1+7T/c72xVQAE2zPnQWXUIFYOiV8nI6h+d
+   zeoRR3FIM4f/9weyISDdD+VBjZDlOFHeszhHO66pzfXCNL6gdDKu114Ug
+   K8eP2UfGrC6d/JLddGFEMyKXPNXVlRA/9UJ4zsjxX70uU+x9bDjJ88vme
+   arZpJYFuu6YF3DGHV6c2AqfCo1bM8P2iLkAp0bOt5OsaWm2gzDuJW9T89
+   1qI86XoQUErTOQN2u11tR4OejaavWDbASAWXxBr7dYYnIFV76TWP83C50
+   Q==;
+X-CSE-ConnectionGUID: Se7oxJ/KR6CGCLP4EqIYVA==
+X-CSE-MsgGUID: vObhtkkJQlucj/NwGKruyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4105498"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="4105498"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:17:08 -0800
+X-CSE-ConnectionGUID: 6P4Ifn6RQLWDsYJYpnLxHg==
+X-CSE-MsgGUID: UY+0hjRkSj2bHDcTgn6ASw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="11129307"
+Received: from vcostago-desk.jf.intel.com (HELO vcostago-desk) ([10.241.240.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:17:07 -0800
+From: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+To: Mohamed Dawod <mhm.dawod@gmail.com>, netdev@vger.kernel.org
+Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ ye.zh-yuan@socionext.com, linux-kernel@vger.kernel.org, Mohamed Dawod
+ <mhm.dawod@gmail.com>
+Subject: Re: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission
+ time estimate
+In-Reply-To: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+References: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+Date: Thu, 19 Nov 2026 16:17:06 -0800
+Message-ID: <871p8gtkzh.fsf@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,25 +81,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <LCJrB-Fde--T9NiYx2QfFb-X-9W-vsYYmtmrHwIKuKgM8enKRWF2DYypz2_zJKSKQBMUdb9sS6xMEfPihv1YO2FLjX1OUN-Td3Hq1eAdLgw=@protonmail.com>
+Content-Type: text/plain
 
-On Thu, Nov 12, 2026 at 09:08:27AM +0000, John wrote:
-> Hi Pablo, Thorsten,
-> 
-> Thorsten: I first saw this on 6.18.60 and have reproduced it on
-> 6.18.62 and v7.4-rc2. 6.18.63 has the same nf_flow_table_ip.c.
-> b5964aac51e0 came into 6.18.y with 6.18.45, the release named in
-> the thread you linked.
-> 
-> Pablo: on 7.4-rc2 your patch stops the black hole, but as you
-> noticed, one packet is still lost each time the next hop's entry
-> goes away, which with neighbour GC happens about every 75 s on a
-> long-lived flow. 6.18.44, before b5964aac51e0, lost nothing in
-> the same tests. On 6.18.y the patch only works together with
-> 871df5007eda.
+Mohamed Dawod <mhm.dawod@gmail.com> writes:
 
-For the record, I posted these series to address this issue:
+> cbs_dequeue_soft() estimates when the transmission of a packet completes:
+>
+> 	q->last = now + div64_s64(len * NSEC_PER_SEC, port_rate);
+>
+> len is an int and NSEC_PER_SEC is 1000000000L. On 32-bit architectures
+> long is 32 bits wide, so the product is computed in 32 bits and wraps
+> before it is widened for div64_s64(). For a 1242 byte frame the product
+> is 1242000000000 mod 2^32 = 754451456, which gives a transmission time
+> of about 60 ns at 100 Mbit/s instead of about 99 us.
+>
+> As a result q->last stays almost equal to now and the packet sending
+> time is ignored again, which is the problem 'commit 961d0e5b3294
+> ("net: cbs: Fix software cbs to consider packet sending time")'
+> set out to fix. The throughput becomes
+>
+> 	idleslope * port_rate / |sendslope|
+>
+> instead of idleslope.
+>
+> Measured on a BeagleBone Black (32-bit ARM, CPSW, 100 Mbit/s full
+> duplex) with software CBS (offload 0), one UDP flow with a 1200 byte
+> payload (1242 byte frames), sendslope = idleslope - 100000. The rate
+> was read from the qdisc byte counters:
+>
+> 	idleslope [kbit/s]   before [Mbit/s]   after [Mbit/s]
+> 	10000                11.1              10
+> 	20000                25.0              20
+> 	30000                42.9              30
+>
+> Cast len to s64 so the multiplication is done in 64 bits on all
+> architectures.
+>
+> Fixes: 961d0e5b3294 ("net: cbs: Fix software cbs to consider packet sending time")
+> Signed-off-by: Mohamed Dawod <mhm.dawod@gmail.com>
 
-https://lore.kernel.org/netfilter-devel/20261119090736.3342541-1-pablo@netfilter.org/T/
+It seems that you had tool issues and the diff ended up being
+duplicated. With that mechanical/process issue fixed:
+
+Acked-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+
+It seems that it would also save CPU time, less 'qdisc_watchdog' being
+scheduled without being able to make any progress.
+
+
+Cheers,
+-- 
+Vinicius
