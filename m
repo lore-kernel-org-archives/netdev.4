@@ -1,68 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795198443;
-	b=kLtRWXbdMWZfMmQwT0K6HZ50oPJs3anxaxpamyF/nrwhH2vclby96d9RwtlLPtlqm4TI
-	 XIPtYlCigyLMLRIXptmroNVwKvKfyZQO+MWANonj3dyNYh2tu7AXeRuCznhAmKLi/1X+j
-	 IoQYNc44ixAEK3KG49M6b9upyfrVr7lOUdWFqrKCjjsnlCXvAWeCd7xvaSITykcHRoAt1
-	 o+BGH4HHvn0eRXz7/RFkoX4I/SSyk02IVomKaB97es67yBV5aoTzy9RI9V26Z2GES50jI
-	 Iff2mW8oaj2mraJOpg/B/DIafX/WL3Fxlz8+rjR0dfGK902owU2i9pIsXanALY56PBg==
+	t=1795198625;
+	b=5h+yfFQTjRLiM1b18fbXqQAV70bHUHuKhrFkF0QZpxLCHUpBVutF+VKHDdNoHSsdjNIS
+	 EeOaw4nmZqst/2hyPN5Wu3PrwrNWXIJrYk45vye7o4lL5vcWBvWIm5CAos2ql76VPNbBe
+	 f1+E08NPNdq4s+N5nGYHVt9iOB57IuDtHDkZ/DfFfX3M/S2lACiC3dVnMfXVLP04MWCvY
+	 vLVbbtjh+AFdhi5Xx4luAFHS6tiefkIKMX/6hatI4yqBwsUdnN03tXGB0G6u3+3JuOV+W
+	 UWtX0R3DDUJ4Ut0ixoIEhFQ5ph4naCw9t/urmJ6lZlNh4AV62+UlpIvqEt1BfqWFsAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198443;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198625;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=DcwRzEeD46myz9Fmt8Eed/ljFm/hXw/AXj1bwn9CAlg=;
-	b=hWKxTg2EGedJHvf+DkEHBWAyv4MhccDpCGaySRvovHIO9fXkKT4cKu/NG8MhF8I5J+uH
-	 adfybXxqWj01ouZ2pfuVcx7ICh75KUORhcdDjih4b6dr2HHbE8WQoQZwfR07qOb6QrAps
-	 Aq6BYe6VXt05aID3tzz4UczdolYNx1AGXjc2X8p4ZozMHxTGybFys29zsexxXvBBa7nf7
-	 J0oedJICbKTLGc8AbfMiVKISWIry8ZihR5MbL3cEPfrfFMSW+pu6W8VK3Oqg7zPEtrqSj
-	 gQLBplPs5qOKJEzOaB9IoSDYjHrwQuPCoNweXaH+qpi2J9yHGNaPOpqxMUA3mjY+ifA==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=kHnPkHdygJLWUd6Raio1OZlzrSr7Mg2iPFJR6vcJsn0=;
+	b=zgPXnpDV6SoTqwzntHhzHeShTUtCoxEh3gdckCaR7rY6Ld389L7w032nbK1JDr3EjxRV
+	 atY4PQzt0WUXR0sotbREfXEsAjkRbK6YgFc8yC2lT77BwXXcXZcd2FH0xmrOWo0d/C1UY
+	 nY2m86w2ng/t14zr06AwRrbLJCVZOuWm2Dg8971woDWizR0sntlWUVMPZYezxBEQTJwnV
+	 ROcKUuyRiW4YndaS5EFYQ8SP1DNczm1ALiG3FDhmg4/p2iFy0wUlZhlrMBlJ/1o28ROgU
+	 wPaS6fz/5FS1cWC48214LhV5s8CS9YX0ykQytA5BN2OgY+ZK4ZNsaarDFcxApSXIhLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6Qpl2wp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FDZ1T56E;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D49606C6D5;
-	Fri, 20 Nov 2026 18:14:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E062606BDCE;
+	Fri, 20 Nov 2026 18:17:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6Qpl2wp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4ADC1F01576;
-	Fri, 20 Nov 2026 18:14:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FDZ1T56E
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D22F71F00A3D;
+	Fri, 20 Nov 2026 18:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795198443;
-	bh=DcwRzEeD46myz9Fmt8Eed/ljFm/hXw/AXj1bwn9CAlg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=m6Qpl2wpDCNuq6MpMatGeD+57diXvt2gofBu0L5cIXnFYeUsy1gfoldTufmKQRv3f
-	 mLDOfSilHnbTmrzd7beW2RLqAnOJglQvIl/4LDpLsBQVKsgB+fWcSPUWtAO3esy+2K
-	 rARwnHlchx5yW6CCYk/OsVAN1avIf5coIqhrdaeBu56afKJS71Womm0Uvgy7ii3H5L
-	 OgYKi9ezrDy8NjqwBuMToW/8H+CtJFljKx1w7opVsQPRHwLgIez8zfeJXTZUzATv3e
-	 XhDm0nOxXLoxYD+r7ZBhaXGJ2sE4FORUlVOzaSBi2nMqWk9gcyGhTp0hJtgPRxaS8a
-	 ccapIsXYhKgIA==
-Date: Fri, 20 Nov 2026 10:14:02 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Dragos Tatulea <dtatulea@nvidia.com>
-Cc: Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>, Bobby Eshleman <bobbyeshleman@meta.com>, Carolina
- Jubran <cjubran@nvidia.com>, Cosmin Ratiu <cratiu@nvidia.com>, Daniel
- Borkmann <daniel@iogearbox.net>, David Wei <dw@davidwei.uk>, Erfan
- Sharafzadeh <erfansh@meta.com>, Gal Pressman <gal@nvidia.com>, Jacob Keller
- <Jacob.e.keller@intel.com>, Kaifeng Wang <kaifengw@google.com>, Leon
- Romanovsky <leon@kernel.org>, open list <linux-kernel@vger.kernel.org>,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Matt Fleming
- <mfleming@cloudflare.com>, Mina Almasry <almasrymina@google.com>, Nikolay
- Aleksandrov <razor@blackwall.org>, Saeed Mahameed <saeedm@nvidia.com>,
- Simon Horman <horms@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Stanislav Fomichev <sdf.kernel@gmail.com>, William Tu <witu@nvidia.com>
-Subject: Re: [PATCH net-next V2 00/13] net/mlx5e: Add netdev support for
- data direct
-Message-ID: <20261120101402.44f66da2@kernel.org>
-In-Reply-To: <b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
-References: <20261110183826.2927274-1-tariqt@nvidia.com>
-	<b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
+	s=k20260515; t=1795198624;
+	bh=kHnPkHdygJLWUd6Raio1OZlzrSr7Mg2iPFJR6vcJsn0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FDZ1T56EY/NGSZoTmntCLex0+4xeE8PucuiZ4OpXHfBdGoiLzo9IrSDqKpJcWcAEx
+	 HknAu50zTJt9dXHaiwcX0LMuj3DCFHLZKTlZ0YSp49BB1UazfGAdNiorcEbNBdAlE0
+	 Jm9XmV45fyiwhBKVkrrMsFJuZMkH80dEj76iDZAD5W2/MMLs8dD601KcImYLSCmqnA
+	 RsuHa3JuDXI8q0CnuESnUy9+uoR0ap/AR56Kh1DZuL9oQd9rYo460sqP0G7aiGVMdG
+	 ikxyOkxyt/pNSE1U3xl1nLM3UxG/UnmmNBmnk44dmqDb2p3sgftQKUtl/+bp4ieAy4
+	 ZzkCSKckENgFA==
+Date: Fri, 20 Nov 2026 18:16:52 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Luigi Rizzo <lrizzo@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Jens Axboe <axboe@kernel.dk>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	"Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, Matthew Wilcox <willy@infradead.org>, 
+	Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Simon Horman <horms@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+	Willem de Bruijn <willemb@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	Joshua Washington <joshwash@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, Christoph Hellwig <hch@lst.de>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>, 
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, iommu@lists.linux.dev, 
+	netdev@vger.kernel.org, linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+Message-ID: <awCOitDwwIoz632b@gremlin>
+References: <20261109182533.3594984-1-lrizzo@google.com>
+ <20261120010655.467825-1-lrizzo@google.com>
+ <awBYFhnpFGtEXZ6r@gremlin>
+ <8c9bd441-db5e-4857-8e39-79f147422454@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,19 +84,18 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8c9bd441-db5e-4857-8e39-79f147422454@kernel.org>
 
-On Fri, 20 Nov 2026 15:39:21 +0100 Dragos Tatulea wrote:
-> While working on V3 I realized that keeping the core part in
-> this series is not the best approach. Initially it made sense
-> because the change was small.
-> 
-> I think I should re-spin it in a separate series with netdevsim
-> based selftests for the new APIs. I would base it on Mina's devmem
-> leased queues unregister [1].
-> 
-> Any reason not to?
+On Fri, Nov 20, 2026 at 05:12:25PM +0100, David Hildenbrand (Arm) wrote:
+> On 11/20/26 15:54, Lorenzo Stoakes (ARM) wrote:
+> > TL;DR: NAK. All of it. (And yeah, I'm steeling myself for the inevitable 'oh
+> > Lorenzo' :)
+>
+> Oh Lorenzo ... you are absolutely right.
 
-Hard no, please read the netdev maintainers profile. netdevsim is not
-a sufficient consumer to merge an API.
+:)))
+
+--
+Cheers, Lorenzo
