@@ -1,55 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170390;
-	b=PIdGqAPw7nW4O41s4lIpRU+KCqF8HqCo5G8PIZsABVm5GBpcULRrX5t1nt8K7jviH9EI
-	 4WV0EM3MuNt8TYPtcYrGcB33S575WkGwWBsMWw5BLMVkSYWXziwBsmEoFKZZzN1gpjtkI
-	 w9BYcBYpmPfNleo9pRrg6ultavFXkrJG8Hd88QIW1m/90FgSNF4eVymbtA99FS5KXOjAE
-	 PZso26w0dr8KOX9MIDmWBnCWF/y5WZr1hRE8ZCJ96zKJfvWexr8LsTUSTQPFx0HLe2WVz
-	 B5qRLddkJr0/iRyyVHwESZEZb1SMAR0bSpeniFTShkrYRxkLwhj3gDnP4+PCeGXH8nQ==
+	t=1795170505;
+	b=jpJc5aOIIeCbcC07A7PCj44wp4R8i3y7N4YNGBP4A5CrPB+Icy+2LBNK4XypmsYDE9SQ
+	 V/xffPgiGPBeP7ZbE+QB9k9McqtEbQ87jICrz7MTvWUG5qqwWUlrImy5I/nds0mbWMikf
+	 Sbq3xkKsZgiyY+6f6+sIDU3RGtTGzzrmcL9mECyJ/BiqA95WRoKgK3mviJ8zxKE1rSkpR
+	 XWCpi6RMkj1LGG4fhRU6K5H0li/cjAUvc4kksvQfDcira1XprP5fLPyKua3qNSoIvnQeU
+	 seW1KtSVbxgiGzXo9vAQm/oYfCA2AFkrNG/cOD1RglJtARSRSitAE3T5LfQBvi49iLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170390;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=4Q9cykivHH5mxJVtfGYRt3xlZL1C+m1wYeWWK/+Ovrs=;
-	b=LN48QcVtbwKL9HEyYXmzCmxfoUaKq/scb+KbYgEjoCSbI+xAm1e1SYdckeSCQM9eygLL
-	 BewK7/RJmjO+K+gTao9OATfqaJMwb0uvQYujWUldH/cgload3hdOStad2sdAyfwBiB6Vd
-	 Hsv1Rf+BvdHYrvY3/CL1HOwu2HKnOuEDszmFUJJES64Is4kAPwNU+TLabVLhwyjUDxmHB
-	 85Oj+gM5aQmTCf+LqKqcMlldT9ifrDLQmrCFjXCu2C37ZtJvxysDY2PtRERpsObib9b3B
-	 C8dDSU/2UjBwJ9NtkXt3Phwe8sIzOEgXtRHuRDK9RyEseMNOCxmqbqZhPRFDOvXlq+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170505;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=VNOkihmfuxQHasaFJdR1bkBsLJOvAyscg1Qc15Sryxw=;
+	b=wZCCjnu6QRlKcHzktlqYz+xJS2mt376ZDPfGC6SnnP7GqHpMqtj7B6InQeKN5ch2Raek
+	 i6na6Eq/0qiAN5xMeVHGLxvzisQz4+esRGcrhDVxajmEeET9+tpo+uF5fRXZ0PHQAfhku
+	 ZjFuTsbJbhQPqSIijDD6M7uCzJSB14rtwVQz1BVNFIZAJbAGBS9bdcuodOrYgKpShrt+h
+	 UprOf2ze0WKJk2XDjU4ZTAwC1wq4YFvwOHM6YLJ/DYbvtuwaMj+5JesDa6hJkvuXYjmBr
+	 wd+1sYWTbbF74+m0yuiDdko66t/xsvUuEILidMhVoRea7izUth71Oa5Q2YRlZlLelrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jZnaMncg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=kernelriot.com;
+	spf=pass smtp.mailfrom=kernelriot.com;
+	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=sC1GMEwa;
+	arc=none smtp.remote-ip=74.208.142.49
+Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFDA4606A325
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:26:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80EB6606A320;
+	Fri, 20 Nov 2026 10:28:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80EB6606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jZnaMncg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CFCD1F000CF
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:26:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170389;
-	bh=4Q9cykivHH5mxJVtfGYRt3xlZL1C+m1wYeWWK/+Ovrs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jZnaMncglEptk+X7ntBjARCmWSIi5dqMIzRQ80OlPoVzq2f8cr9PXcjFUBHK89XT5
-	 EVK7nFio69dLYg0iUCSvG0yyRjpaX6kHfWYnQwDyBJVF88SWt0Ju4iJMVrD31u88nu
-	 gDXPpuUfLCnTawVUIf7VHugwNCZbbwtr7H0W8wtx9zkZfiRIj70CqG10Qfc2vPeQLG
-	 LG5Eazuk8/Dtr3GItxIb8C2YyS9ExlejSCkhSNzi7AnD2+I/YNPP8TnM4KYJ1VMAwj
-	 oh0qXHMg12bprUxehQ0S9ktdQurVEAyBEfTeBJ2PM8l3ON1XPFtl8x9yV5MiEmksrZ
-	 4do2Xl1y+RRiw==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c10dc41270so672464e87.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:26:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHRQGR/LCkokNdeFbh9zQ7VPdjLmDG938UBiEwj1QLQlQg8fy6iERrtrga9+gORvSQPBGvkpSw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/KGjwNZXhbqebe25m/Lw+B7QoPmqY6CnTPpL6zk8Cvr9JWOHjS
-	TlKQ2UIcO48DZtQLkRfySsKt3wAmaXZO6ZlP76rrREvsQOmUPn+h+ftWykQ9nnO1fOcQ5pf1x9G
-	jYb8FEo0j0O+WaD3M47NvlIaadY7sx9o=
-X-Received: by 2002:ac2:4c49:0:b0:5bf:b5f8:645c with SMTP id
- 2adb3069b0e04-5c1bc7ad590mr775346e87.11.1795170388330; Fri, 20 Nov 2026
- 02:26:28 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=sC1GMEwa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
+	s=kr2026; t=1795170503;
+	bh=l1EI+mpAa57uBbUK8AVL1RHaWOFwGCZ4WQgzuhAVFKc=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:From;
+	b=sC1GMEwa3ijSEUBodg3jnnlp9bXBIUW0AjR1r0vWnyaDOuo2vHwMVFsbjs/2QVQrL
+	 USeIT4vB6jVfJIotQ3C4NOPKiuEohoPQt3JiRZct6nm2ajirSW9MpGfpGCxzMK8DF7
+	 rNjTnrmk6mf4g4Rrefn03WGDNZnfwGoVCLVmGov4vKt+dh2a/cxc9rth2XXlHWiegP
+	 GG/R2vPWtF2WDQQIrS/iJ1wj3doDjbFehySkICMsVNpHCZYE7HOvjLrRUIGQBA8ygT
+	 OJyuhRWKJW1mFe7aeCB6+a5G/SpuFlVECwBiQvQYDQzAcoFewO+en7Zt6V/fMtdYwu
+	 99P48oGnQEZBA==
+Received: by mail.kernelriot.com (Postfix, from userid 995)
+	id 785768D801; Fri, 20 Nov 2026 10:28:23 +0000 (UTC)
+From: Magnus Leatti <magnusleatti@kernelriot.com>
+To: Yao Zi <me@ziyao.cc>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Nespolino <g.nespolino@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 0/2] net: stmmac: dwmac-motorcomm: shutdown hook and Wake-on-LAN from S5
+Date: Fri, 20 Nov 2026 07:27:52 -0300
+Message-ID: <20261120102754.778283-1-magnusleatti@kernelriot.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,61 +73,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112-gemini-ethernet-fixes-3-v8-0-f55bd43e02d3@kernel.org>
- <CAD++jL=BZYKywoLY7rqh6+j5X1jpjXBA0OdDAJ-DCaqYMZoVjQ@mail.gmail.com> <20261119165240.293dfbd6@kernel.org>
-In-Reply-To: <20261119165240.293dfbd6@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Nov 2026 11:26:15 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnP2EfgM_isbdmidLOc0ZUaoq+bgD+cvw9sKLJCynniWw@mail.gmail.com>
-X-Gm-Features: Aa3M54oyoQKq0BaLB8-y9ZWsKinjQ9sTQy8DFuv-whOKqt6XJr7_zIkX8m6kfUQ
-Message-ID: <CAD++jLnP2EfgM_isbdmidLOc0ZUaoq+bgD+cvw9sKLJCynniWw@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 00/19] net: ethernet: cortina: Fix Gemini
- RX/TX buffer management
-To: Jakub Kicinski <kuba@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>
-Cc: Hans Ulli Kroll <ulli.kroll@googlemail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>, 
-	=?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
-	Myeonghun Pak <mhun512@gmail.com>, Eric Dumazet <edumazet@kernel.org>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 1:52=E2=80=AFAM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
+YT6801 accepts "ethtool -s eth0 wol g" today, but ignores magic packets.
+This series makes S5 Wake-on-LAN work. My patches here touches only the
+glue.
 
-> > I think it could be applied and then maybe I can follow up some
-> > of the comments later once this is landed and the ethernet is
-> > working properly.
->
-> Ugh, not only is this pile over 15 patches
+v1 called stmmac_suspend() from .shutdown and Yao rejected that [1].
+This is the design proposed by Yao, remove the device at shutdown, reset
+the chip and let it arm itself.
 
-I blame that on Sashiko's constant "oh by the way fix this too"
-and ability to find otherworldly error paths...
+Patch 1 just wires .shutdown to the existing remove.
 
-> it also fell victim to the
-> mass rename of kmalloc to kmalloc_obj that landed in Linus's tree :/
+Patch 2 arms WoL: after remove, it resets the chip, restores the cleared
+packet-wake bit, enables PME and drops to D3hot.
 
-Oh Christ :D
+Changes from v1:
 
-> Please:
->  - rebase
->  - drop all the Fixes tags here, net-next =3D=3D no Fixes tags
+ - Wake uses the eFuse address, not whatever the driver programmed.
+   r8169 works the same way.
+ - Magic Packets only.
+ - D3hot now. No more polling so D3hot is clean.
 
-NB: the Sashiko used by netdev insists on us adding these so we
-are giving incoherent messages here. Clearly Sashiko can see
-the prefix on each series and know whether Fixes: are applicable
-or not. We need to fix the Sashiko
-prompts. (I can perhaps do it if I know how, Roman?)
+Tested on a Celeron N3350 mini pc, NIC soldered, net-next at
+6964ff21c5d8 with storm fix [2].
 
-Sometimes Fixes: are used for "nonurgent fixes" in other kernel
-trees but maybe it just doesn't work with netdev.
+  net-next  wol g                   no wake, 3 of 3
+  patched   wol g                   no wake on the address in use,
+                                    wake on the eFuse address, 5 of 5
+  patched   wol g, 15 min off       same, 1 of 1
+  patched   wol ug                  same, 1 of 1
+  patched   wol u, unicast frames   no wake, 1 of 1
+  patched   wol d                   no wake, 1 of 1
+  patched   wol g, interface down   no wake, 1 of 1
+  patched   wol g, wakeup disabled  no wake, 1 of 1
+  patched   wol g, reboot           reboots, link back, 3 of 3
+  patched   wol g, kexec            new kernel, link back, 1 of 1
+  patched   wol g, hibernate        same, resumes, link back, 2 of 2
+  patched   wol g, cable out, in    no wake, 2 of 2
 
->  - chop off the stats patches (14 patches should be left for v9, reset
->    after the previous stuff is applied)
->
-> Consider the 15 patch rule a hard one.
+19 patched shutdowns, all clean.
 
-OK I fix the fixes! I'll also squash the patch that was
-considered for squashing since it makes Sashiko happier.
+Hibernate on this box ends in a normal power-off (S4 is off in the
+BIOS), so it goes through .shutdown and arms the same way.
 
-Yours,
-Linus Walleij
+The last row is a true power loss: So if power drops, it just won't
+wake. Meaning: It needs to be shut down cleanly through the driver
+again. FWIW the vendor driver does the same: wakes after a normal
+power-off, sleeps through everything after a power loss. So its a
+hardware thing and not something a driver can fix.
+
+Giuseppe, your Tested-by was for the v1 design so I couldn't carry it
+over :(. I'm sorry, could you test again?
+
+Sashiko's nagging on patch 1 of v1 [3] came from calling
+stmmac_suspend() in .shutdown. v2 doesn't, so it's gone.
+
+BTW stmmac has an old bug here: if a resume fails, NAPI stays off, and
+then closing the interface just hangs in napi_disable().
+
+Changes in v2:
+ - .shutdown no longer calls stmmac_suspend(). It removes the device.
+ - A reset arms the chip, no more OOB WoL or MAC address writes.
+ - D3hot at power-off, v1 stayed in D0.
+ - Magic packet only, on the eFuse address.
+ - The wake condition is read under RTNL.
+ - Added Suggested-by Yao on both patches.
+
+v1: https://lore.kernel.org/netdev/20261116091757.1656602-1-magnusleatti@kernelriot.com/
+
+[1] https://lore.kernel.org/netdev/avsTEglKKD_wl_Fi@pie/
+[2] https://lore.kernel.org/netdev/20261113103236.2184751-1-maxime.chevallier@bootlin.com/
+[3] https://lore.kernel.org/netdev/179499351041.3136.14889707783816630750@kernel.org/
+
+Magnus Leatti (2):
+  net: stmmac: dwmac-motorcomm: remove the device at shutdown
+  net: stmmac: dwmac-motorcomm: support Wake-on-LAN from S5
+
+ .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 37 +++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+
+
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
+-- 
+2.56.1
+
