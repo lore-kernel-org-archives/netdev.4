@@ -1,99 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.29
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795163721;
-	b=4WkTI7F6yffcwMrko5BO7NbaetL8MYFLxrtJuA4/RNcmjfzqog+p6ZaSFJ4pz+QmvbLT
-	 BDgdjn2QaxZd3XEkg2kwyy/6+Z3vcDE6BLglWt8cX8Cb0yVJAzidOMIrdBkNF7LMC59YV
-	 UduSDPAlT0v37Ugsf9jvByEQ+WIMBAsb6yJ+0GBuCWHVqb5y8yFtiPYv4+wySUIi8dFHQ
-	 jEjhq3rPxuebRqm/aICzKSXxYFA2wtbYL1KOkh6glqCJHFOoMaq0Hy0H3/pg1p+dKXLu7
-	 PzOCwyBc2MvmNoAFJb4hBfNsNs2Lc/7bwA6zUTQUCuYj1ttpSVSbZcHEI4pySsEq3Hg==
+	t=1795164269;
+	b=h3Mu+Y0tu8xaZ+sKuYp9kfOokKPm+iknX/x0cz4AHak520fcEdp0eRkQK2jEFH9gJWwZ
+	 n4C77FPUOwiBm8zpetdwaAkpzZp6LB9rGo0KWbklQB+HdVm5jNfOvbplJ8xGDHE6EYV04
+	 Z7CACez4sXQ7kAxMrGbP6fKrnr31BS48rF44pvKCosyZTUUkw7TiRBdfxjamHQFkqyJKt
+	 N4NyJWgvRn/fIK6f7H/3NduRbUcUolZgyOw0i8Gu3Y9BSPgoI2ag79mkp1FyhuSKvvjK2
+	 3hO1OL7VSQccj5gGmj9JxOeZcleZgwu74UeTvYFJTJiWIvxLxg4glB1EqWBlw+O4bLQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163721;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=cGln8FVjtHumSWCLAXROuRIIllin/ovk1fH3wXcljBI=;
-	b=dwvLnpPFbmUjzLAyHw65xXNxkjE8iU0PI2/jDMyoyB83ud8Z3OIrYFFVvc/0ji0zFcP8
-	 WUpEexhZIFcojv575t/PUYrriBW35++E0a0+A3Dv2NX9MPBNHRH419zmiiGeEBh9EEg9g
-	 8dLeZARzB5Vn5cLarq8jyATpLNWC0R3Le37OZ9G0UP6PZNHJ6jjtqrdHyVRPRdcP1rB0c
-	 ImleR82ysRPNWNe1DGrFZi1ToMEttseskupzE2+6sXJ4cP6AjXlLEsysRH9Nym2qVdEpv
-	 DILVbNelpfo+DYcE9NVwoW6TCf65feqwmNHAKJ/SoyeXynF8jV9iFI3j7QVWYRHakUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164269;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-ID:X-B4-Tracking:X-Change-ID:To:CC:
+	 X-Mailer:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
+	b=SUt1b7uW5EmFXDUn6PBpg28uo0d7UOQbpTfOtyvbI4QxdJRUclxQemcDSTVmMRaDZ84P
+	 JPpkCBrFgw/kqeQ4KyHw8hpFkqGt+kFoCX+9KyOO1sLhyeajzx1+n4TJnmpF4abi78r/7
+	 xfuCbsNYfFFVSjVIsJfCW7ioOSFuA9UiJtnZWQXwgxUjAMXqMf/+ylU8icq3RtezjAI1Q
+	 4nfO4YtOhye6oKsMiLuE3cxpMlMtduJs9YV3YaCBald8S4l39tt/sNJi8i6ipKPWTgVRq
+	 Zag3j2D14cDv2Y2CKWE+9wHUEoJqpREe58vSp9b+EsQyncyyqhwv05aZEt1kxrcObCA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wy6Z7ILg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=r2VGvuuC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.29
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010029.outbound.protection.outlook.com [52.101.201.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECE9B606A32C
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:35:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECE9B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CFFA60A5BCB;
+	Fri, 20 Nov 2026 08:44:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CFFA60A5BCB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wy6Z7ILg
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f04f61282dso280915ad.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:35:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795163720; cv=none;
-        d=google.com; s=arc-20260327;
-        b=g4ehJSWz2nENzWMwAsbIeW8S5/29whfggYnUJR2TsrZZGdxsktvPgQI5PAJpLvha0b
-         uJgoLN6X0Jh3njawwv9u3ldyB4A7OVIe6E9wgG6WDlJV9+tVv59faw/DUHJaFWXOnd+1
-         k7kOICCY2wfCu/wRCT5BD8rxDtD7JGsavHkTAbd66bNY0r4/typK7+8RN46lLDwVz0fq
-         Nu6nMbuLbXt2RrhUU/9zaVs81q18d5/8OiRxnM7iNBX3DKfOzLBch/f2AGwQWHHLzDf/
-         9V350qx/vMZ1Q1LRL/CqeI+RUAmET004I/kR2P3cU9VRiyRIcJ/eoWWpr4fz/tRM6eGC
-         bOMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=cGln8FVjtHumSWCLAXROuRIIllin/ovk1fH3wXcljBI=;
-        fh=8ZX6UjX6UqYxNU487ayzACsXgkfI/nIU5u1WnbrkJmU=;
-        b=au2i0gIaFVoG57VlIorT3StorHFuxokYsamk8U7BFIGz2yJ9sLCX1DuGY+mW3YU8iS
-         U3uBYnqwTI/mYuEqgfS6YwM8Za6O4rzWyrVXk1vHv+G5FJ3HWD3Yrg52fXqwzljbdHD1
-         WwARCmGzb2z28t/WN/bY18fJrFO+Ct3BRoyTcgrQEHwIyHY7ARqp6jvThaAPVW181pN/
-         dPAT9Xvr6qDipvSJHqd1i6CcHkRp0YZia1HgO2cG2/OPUJBoTwCxm2CFe8zLUOBJNmRP
-         uLEjwLS5SEU6s8brgYE1sBPqQdWAElIOThgkR+TPZpIRAolPC36QM5xZlWnEGmcwgThh
-         ftkw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795163720; x=1795768520; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cGln8FVjtHumSWCLAXROuRIIllin/ovk1fH3wXcljBI=;
-        b=Wy6Z7ILgOLM2fUZXsbr3x0WQLIBU6wqEujOcxj1NG50vFoGWDBe1eMaFnv8Ik4B7nc
-         jlooG2p2jfpy3NjrkYB5JZPCZmvWstYOue1dL8fdI6otQVRsBtZD3bVCVGig0TM1Z7ET
-         YKTXHcn94TCnPkMq+BL97VyAIJ8mZ5jBwzjbvGbIBipgDWeMczKWsA2hxcUqZgemIWE9
-         MQtHy8PXbhe9OAqysauHn/J7kDE6eOksZdddISNs8nKbA3fOZj2YCaWOIesl3nkJnQHi
-         3qKFfjBrmUBBz+XGPlbL/oLoGlaWSkzOwWuPULdr0RJ3PitUYx5pbpJ8b+VdRMpGTsRY
-         dZpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795163720; x=1795768520;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cGln8FVjtHumSWCLAXROuRIIllin/ovk1fH3wXcljBI=;
-        b=DpwZ721XMD4pkpdis3b9Q2PS2JI178A6w/wjCMlOqMkkc2pKxkdUP59XBdlMwfoPba
-         sTSHQRW0TZ+yo3ex3XJ5H1G/JGBTkodq+W+LKkc9JBmCatdIuGZYUwfa6pmm4+NaAlrI
-         MVNFcuE2m5beTg2V+NkproG+qurIt0FkdmgjALTW+NQMBHnuYKLmUreqJ0RgpNBRTzz9
-         P2W2O5L9wLnC8AYBGUebeEgnXaSobrgMqfL2fDZ515QXMhC9BHWcPN/FZ5B6zjUnVvIL
-         XWVSAqZsTXGS95A+H6PL7nxFfC089XYFt+Uuf3ssxRiPmEvWfl06T8eif4AUWIfU4lMA
-         6abg==
-X-Forwarded-Encrypted: i=1; AL+hErGGoV979QN4M/rLJCW0aPZyeh+gnPA+UTYH5l3Ba0XOTRjwhrPIrzYtRLGTTGwId3+kZCKXQSc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8AHOXDBBrdIpt7LVExlqXaUTbaOB1nYlL1Ob2WX6xgaZau3KC8
-	ZTcmgLeOpggXbXrqpecJ9ZkD2LueuvtRzbJQymJwqyHM5kFo2PfjS2QXLmvm7NHVsnD4qCf9Mkg
-	kFBiGxAen1ZNUAX0LouVI15ftJB3jjRY=
-X-Gm-Gg: AZFdTZcmUhwhPFEwqHzgWnAy8hOL53RRCsMnMi+J4YSOGgWTi7w8IXGiJO4Mk8RC5nD
-	tDeThskkwPT/XyxfUyoohoIc+8ddYthVrQVcBVCgKuBswC1gFsBZTdj2ZTDOBU/dmHdpiGqnp0M
-	pnBvu4MJCieGX7DTzHcmNoxh1+NMJy/MfzFP7He89QksV5fNq8Bt10chwrIdHX3tITacIaMxf+e
-	WKNzCf52hNyN/BigY7anWWV8feYAA2Zr1fUUYXfIJwIALsZWT8bv+SRQKdfzZKx2hVyxfZXKjT5
-	pNJ7jATMGJPDU/ODymA22eEQ7FFnDh4Xm/hNWASgu83mTDDOgJFltuH1jQC54P3daqdNJ92C0Ui
-	uMw4kVJCfwKeEwMEiypt7c8C9UyE2kN4bYFVnIp8=
-X-Received: by 2002:a17:902:ef45:b0:2ef:d7ed:80dc with SMTP id
- d9443c01a7336-2f03f1e0d55mr25140855ad.49.1795163720037; Fri, 20 Nov 2026
- 00:35:20 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=r2VGvuuC
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AhZJxyVX8ijao1uKcD/kl1Lfc9jrsYE7cYQZcP2+Yv91HLjVGxEXzWrnGccUOAm5rA2QTJQwmYT7D93XeFMz2MD2vY6miCRGy0Ti4/jTXjzcpminxg/iAgFsehNYMZZc0pHIUm6FSwxsIw0gTD9gH7OL1XeFyUpivtCM5A96VokqmaxApcwDcVe0iVvFjjVfcEkqANY4sOcCTHfsMtakECGy4klwQZsLp4XujaR8ZobI1pLKuFVBR2aVL2pcGiZCwcK/7rZ/aoUJqUjqMm3N+f/+SmJzWBm570JJOsgc0bDPEcEaIwlbm/Vgb9iikwZeu+URPtgp0cvsH9ZbiOHurg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
+ b=o8oTPNS9yUl+/NAT3vFq7ebCJ2FwFI7D6aUAxiHh8drO7kwXhrBENctwsfjKXLRukdjlnOEo/+A9B788UxnPOvYBJpU2QDY8I+rTJrpjh61YQMP//kWkzWxteuF/Nl4GLFUEpxKI7ydhnNbtLnAc4Uh2ZTzRjgma4Ou1GVvZCoT3PWy3BHvAm0ox/ThgsyEYy9fmUTZaQIRydjV/6oCHokHB1mNa1etaf8QKX6xN/XMdd+Aa8XXnFsQeyYVD1eftG/WwIBCikY6enA2ZLQnBclCS3QeLqvt/xXwedb9COuNmoCCsuY9gc5x/j8E8ol+hxfdR0LQEUxWkKTRQ/kVPiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
+ b=r2VGvuuCBZ+0Hp0M3M3p1zNY4azhM8b9ZCMatthQ4FnVbTPfISGbsAAhkbjfrw0XmDHR2qNYdfiKhwiEwM58FAe4e9d5oWM1KZ2MHT9ny7YW2NEVn4c3tHoeuYerZyoFmCYmA2hNHM+kmmw9qPFMCgWb0rfnXZAix667QIug7dE=
+Received: from PH5P220CA0013.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::10)
+ by PH7PR12MB8121.namprd12.prod.outlook.com (2603:10b6:510:2b5::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 08:44:24 +0000
+Received: from SJ1PEPF00002326.namprd03.prod.outlook.com
+ (2603:10b6:510:34a:cafe::3b) by PH5P220CA0013.outlook.office365.com
+ (2603:10b6:510:34a::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 08:44:24 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF00002326.mail.protection.outlook.com (10.167.242.89) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 08:44:23 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 02:44:21 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 02:44:21 -0600
+Received: from xcbalexaust42x.amd.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
+ Transport; Fri, 20 Nov 2026 02:44:20 -0600
+From: Alex Austin <alex.austin@amd.com>
+Date: Fri, 20 Nov 2026 08:44:04 +0000
+Subject: [PATCH net] sfc: create PPS workqueue before registering phc
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,206 +107,125 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119165340.1071525-1-magnus.karlsson@intel.com>
- <20261119165340.1071525-6-magnus.karlsson@intel.com> <av9Ia2gpMyF9jTuE@boxer>
-In-Reply-To: <av9Ia2gpMyF9jTuE@boxer>
-From: Magnus Karlsson <magnus.karlsson@gmail.com>
-Date: Fri, 20 Nov 2026 09:35:05 +0100
-X-Gm-Features: AclHuK_6RZLdCqEfKboKrqBzIVM-urAOCv16V7vZrfePzBVVCw2zR12hPxAdyU4
-Message-ID: <CAJ8uoz0cv7j7=nHt6ikw4JnJOHA0NTstjN1iKYswGjH8jeWBZw@mail.gmail.com>
-Subject: Re: [PATCH net-next 5/5] selftests: net: add AF_XDP USO test
-To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, netdev@vger.kernel.org, sdf@fomichev.me, 
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, bjorn@kernel.org, kerneljasonxing@gmail.com, 
-	intel-wired-lan@lists.osuosl.org, anthony.l.nguyen@intel.com, 
-	przemyslaw.kitszel@intel.com, jacob.e.keller@intel.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
+X-B4-Tracking: v=1; b=H4sIAFQIAGsC/yWMywrCMBQFf6WctYEmRhf+ikjQ21O9LmLMrQ8o/
+ XejLmdgZoaxKg27bkblU01vuYFfdZDLMZ/pdGiM0Iet96F3NkoqxdLrnkZ9u8AhUiTKOm7QolL
+ Z9G+4R+aEw1/a43SlTN8VluUDtEcVgncAAAA=
+X-Change-ID: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
+To: Andy Moreton <andy.moreton@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Richard
+ Cochran" <richardcochran@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-net-drivers@amd.com>,
+	<linux-kernel@vger.kernel.org>, Alex Austin <alex.austin@amd.com>
+X-Mailer: b4 0.15.2
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002326:EE_|PH7PR12MB8121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87752a44-3e44-4583-4a57-08df46e27a26
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|23010399003|376014|36860700016|1800799024|18002099003|11063799006|56012099006|261022105027099003|261026140227099003|261026121527099003|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261009223027099003|261009220027099003|261009221227099003|261009223327099003|261021135927099003|261009221727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	+hWBd6gk8BFuZjni6g+q3vv04xC34RiPlOZgAP4+CINjontVDjsIxerTIrCKX/Gzi6ILtqlljNwrHGmo9KZVLS75s52ePD4wuZO3zbEdLtDfC/xRoQVPmLKLST1TH9iLYbkzJgPwDqB2U2RffpGiN0u8rRS7nUU9TwSvdPXVf4mQ1GgjvtxYbjTX3FY5wpe6iPzKmYkuqGzOrIqnrbxJmLeV5xEQellFhRBCwu+/ToXdGBZ2uOC4YIrrO6I+3GuJ4CikYvDNRYyc2axmpiNyH3eKESJwNY4oPVHw8yJrnYcX+ma1gjFXdcTiY1V+8i40j9ii9JT+357c7Mzv+bkDcf7L0cFXtlltD9YuezEbmz7Z3yht46pXKGJ/CuwiII/1fs8bWPKIOOASBv07DASYVLY1W0TcnT+5QOg+GA6eWIz1I/mEZhL64Y4B/T2NoBDNmcY3pkuPBvjf3csFlX9T/EdKk4KRZITP687G1jEtLgrnP5yr6KZ4/DBOjeOfmcMd+/FnyexD0T0TQEkwkKa0RWxqhN6LNPgu/1FFaSBTv0opgIJh4QrhqmiSOV5QdsEAIhUtcnRZcgXQAVBtTfjTnTi+T98s4U6846+rIKbnq4pXNN8UqV7KoEYZFrQewHviZRHAMdz158MljEMQ2TZRa8zWhDDawh7Wh0uRek561Zqs3PzsPqA3nLMrRmlEWwC/1U1dUiHzK5MCDpXY0oRfMQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(36860700016)(1800799024)(18002099003)(11063799006)(56012099006)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261009223027099003)(261009220027099003)(261009221227099003)(261009223327099003)(261021135927099003)(261009221727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	OQCzSCEOZl7xMeQmOeYJY/uS3/uWJWOjJTPZbk+egnUX04WpRA8EXHZ0nle76KGFqa+GTpSC3AjI2AoBw5wWRCi41rVETcL6a2FWuspYeew2sHgsHFLOdJ4jeuhXGuFfJG0GXsCbCmmcY9Fj3dR5nf/by0odFXDgLc34mJYtALl6ebAVmUjpkV6/5kAdx1ZzxEPbdltFDuWIjm5k37dkb/936H2I4bEID7SwAujmb7DF8BRfro7gW7Fc9w5wLqUp3g1xSG/V52K5rCp3WyS/zfxV55FrhcvqSZDlbP9y8OvFKOA3tgDraZ/tGRBfEsL6ylhiyhzCKLcu6DbWnemapqU8rPDqfW9gWMbFdGq/MG0SdVV0LYscmUfs4XJv0YL1VIr0lggUPvJjwTaENbxp7H9+OwIfKE+Rvuzoxm8G+rJQCjEMdZr/84++bpv2nnmi
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:44:23.4885
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87752a44-3e44-4583-4a57-08df46e27a26
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF00002326.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8121
 
-On Thu, 19 Nov 2026 at 20:05, Maciej Fijalkowski
-<maciej.fijalkowski@intel.com> wrote:
->
-> On Thu, Nov 19, 2026 at 05:53:40PM +0100, Magnus Karlsson wrote:
-> > Add xsk_uso, a functional test for AF_XDP UDP segmentation offload in
-> > copy and zero-copy mode. It sends USO requests from an AF_XDP socket
-> > and checks the datagrams received on a packet socket: the number of
-> > datagrams, the IP and UDP lengths, the checksums and the payload, for
-> > IPv4 and IPv6, and single and multi-buffer requests. It also checks
-> > that invalid requests are dropped and counted in tx_invalid_descs.
-> >
-> > The test needs root and physical NICs with an MTU of at least 1448,
-> > either two connected ports (-i TX_IFACE -r RX_IFACE) or one in NIC
-> > loopback (-l -i IFACE). Virtual devices such as veth pass the packet on
-> > without segmenting it. Zero copy (-z) also needs a native XDP program on
-> > the interface. Standalone checksum offload cases run only with -C, as
-> > they test the existing checksum offload rather than USO. As it needs
-> > real hardware, it is built but not run by default, like xdp_hw_metadata.
-> > It uses the AF_XDP library in net/lib/xsk.
->
-> I assume the end goal for xdp_hw_metadata is to pull in its contents onto
-> xsk python runner. What is the case for this one?
+Registering the PHC before creating the PPS workqueue leaves a small
+window for PTP_CLK_REQ_PPS to be requested and a NIC generated PPS event
+to arrive before the workqueue exists. Create the PPS workqueue before
+registering the PHC.
 
-It should be merged into the python runner that you are working on.
-But I need that to land first before I can move this. You could say
-that this patch is just temporary until your stuff has landed.
+Fixes: 7c236c43b838 ("sfc: Add support for IEEE-1588 PTP")
+Signed-off-by: Alex Austin <alex.austin@amd.com>
+---
+ drivers/net/ethernet/sfc/ptp.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-> Also since you're adding support to copy mode i assume veth runs would be
-> welcome...
+diff --git a/drivers/net/ethernet/sfc/ptp.c b/drivers/net/ethernet/sfc/ptp.c
+index 37511f234d76..ad6a4e7d990f 100644
+--- a/drivers/net/ethernet/sfc/ptp.c
++++ b/drivers/net/ethernet/sfc/ptp.c
+@@ -1633,26 +1633,26 @@ int efx_ptp_probe(struct efx_nic *efx, struct efx_channel *channel)
+ 
+ 	if (efx->mcdi->fn_flags &
+ 	    (1 << MC_CMD_DRV_ATTACH_EXT_OUT_FLAG_PRIMARY)) {
++		INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
++		ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
++		if (!ptp->pps_workwq) {
++			rc = -ENOMEM;
++			goto fail3;
++		}
++
+ 		ptp->phc_clock_info = efx_phc_clock_info;
+ 		ptp->phc_clock = ptp_clock_register(&ptp->phc_clock_info,
+ 						    &efx->pci_dev->dev);
+ 		if (IS_ERR(ptp->phc_clock)) {
+ 			rc = PTR_ERR(ptp->phc_clock);
+-			goto fail3;
+-		} else if (ptp->phc_clock) {
+-			INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
+-			ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
+-			if (!ptp->pps_workwq) {
+-				rc = -ENOMEM;
+-				goto fail4;
+-			}
++			goto fail4;
+ 		}
+ 	}
+ 	ptp->nic_ts_enabled = false;
+ 
+ 	return 0;
+ fail4:
+-	ptp_clock_unregister(efx->ptp_data->phc_clock);
++	destroy_workqueue(efx->ptp_data->pps_workwq);
+ 
+ fail3:
+ 	destroy_workqueue(efx->ptp_data->workwq);
+@@ -1702,16 +1702,16 @@ void efx_ptp_remove(struct efx_nic *efx)
+ 
+ 	cancel_work_sync(&efx->ptp_data->work);
+ 	cancel_delayed_work_sync(&efx->ptp_data->cleanup_work);
+-	if (efx->ptp_data->pps_workwq)
++	if (efx->ptp_data->pps_workwq) {
+ 		cancel_work_sync(&efx->ptp_data->pps_work);
++		destroy_workqueue(efx->ptp_data->pps_workwq);
++	}
+ 
+ 	skb_queue_purge(&efx->ptp_data->rxq);
+ 	skb_queue_purge(&efx->ptp_data->txq);
+ 
+-	if (efx->ptp_data->phc_clock) {
+-		destroy_workqueue(efx->ptp_data->pps_workwq);
++	if (efx->ptp_data->phc_clock)
+ 		ptp_clock_unregister(efx->ptp_data->phc_clock);
+-	}
+ 
+ 	destroy_workqueue(efx->ptp_data->workwq);
+ 
 
-While veth accepts USO, it will never segment the packet. The skb will
-just be delivered to the other side as is, so we need real HW for
-these tests.
+---
+base-commit: 9068e05d35f3b02a802f520e664032f802bcd2e9
+change-id: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
 
-> Did you try to point AI to my set and ask whether it would be able to
-> produce python runner for that? Or do we don't want to have this CI'ed ?
+Best regards,
+--  
+Alex Austin <alex.austin@amd.com>
 
-I am sure that is possible, but I will spend those tokens once your
-move has landed. We definitely want this to be in the CI and
-integrated with your stuff.
-
-> >
-> > Missing prerequisites are reported as skips. In zero-copy mode, the
-> > device must report xsk-zerocopy and tx-uso-zc, and checksum-only cases
-> > need tx-checksum. In both modes, cases that produce more than one
-> > datagram need tx-udp-segmentation, including the invalid ones, which
-> > would otherwise be dropped for lack of the offload whatever their
-> > headers. Cases that need more descriptors than xdp-zc-max-segs are
-> > skipped, and so are binds that the device refuses with EOPNOTSUPP.
-> > Receive-side UDP GRO (rx-udp-gro-forwarding, rx-gro-list) must be off,
-> > as it would merge the segments again before the packet socket sees them.
-> > USO with launch time must succeed in copy mode and be dropped in
-> > zero-copy mode.
-> >
-> > Signed-off-by: Magnus Karlsson <magnus.karlsson@intel.com>
-> > ---
-> >  tools/testing/selftests/net/.gitignore |   1 +
-> >  tools/testing/selftests/net/Makefile   |  10 +-
-> >  tools/testing/selftests/net/xsk_uso.c  | 954 +++++++++++++++++++++++++
-> >  3 files changed, 964 insertions(+), 1 deletion(-)
-> >  create mode 100644 tools/testing/selftests/net/xsk_uso.c
-> >
->
-> ...
->
-> > +
-> > +static void get_mac(const char *name, unsigned char *mac)
-> > +{
-> > +     struct ifreq ifr = {};
-> > +     int fd = socket(AF_INET, SOCK_DGRAM, 0);
-> > +
-> > +     if (fd < 0)
-> > +             ksft_exit_fail_msg("socket: %s\n", strerror(errno));
-> > +     snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-> > +     if (ioctl(fd, SIOCGIFHWADDR, &ifr))
-> > +             ksft_exit_fail_msg("MAC address for %s: %s\n", name, strerror(errno));
-> > +     memcpy(mac, ifr.ifr_hwaddr.sa_data, ETH_ALEN);
-> > +     close(fd);
-> > +}
-> > +
-> > +static unsigned int get_mtu(const char *name)
-> > +{
-> > +     struct ifreq ifr = {};
-> > +     int fd = socket(AF_INET, SOCK_DGRAM, 0);
-> > +
-> > +     snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-> > +     if (fd < 0 || ioctl(fd, SIOCGIFMTU, &ifr))
-> > +             ksft_exit_fail_msg("MTU of %s: %s\n", name, strerror(errno));
-> > +     close(fd);
-> > +     return ifr.ifr_mtu;
-> > +}
->
-> this is a lib content which i'm also adding, so we're gonna clash.
->
-> > +
-> > +/* Virtual devices have no backing device, and pass GSO packets on whole. */
-> > +static bool is_physical(const char *name)
-> > +{
-> > +     char path[64];
-> > +
-> > +     snprintf(path, sizeof(path), "/sys/class/net/%s/device", name);
-> > +     return !access(path, F_OK);
-> > +}
-> > +
-> > +static int ethtool_ioctl(const char *name, void *cmd)
-> > +{
-> > +     struct ifreq ifr = { .ifr_data = cmd };
-> > +     int fd = socket(AF_INET, SOCK_DGRAM, 0), err;
-> > +
-> > +     if (fd < 0)
-> > +             return -1;
-> > +     snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", name);
-> > +     err = ioctl(fd, SIOCETHTOOL, &ifr);
-> > +     close(fd);
-> > +     return err;
-> > +}
-> > +
-> > +/* Returns whether the netdev feature called @feature is active on @name. */
-> > +static bool feature_active(const char *name, const char *feature)
-> > +{
-> > +     struct ethtool_gfeatures *features = NULL;
-> > +     struct ethtool_gstrings *strings = NULL;
-> > +     struct ethtool_sset_info *sset;
-> > +     unsigned int count, blocks, i;
-> > +     bool active = false;
-> > +
-> > +     sset = calloc(1, sizeof(*sset) + sizeof(sset->data[0]));
-> > +     if (!sset)
-> > +             ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
-> > +     sset->cmd = ETHTOOL_GSSET_INFO;
-> > +     sset->sset_mask = 1ULL << ETH_SS_FEATURES;
-> > +     if (ethtool_ioctl(name, sset))
-> > +             ksft_exit_fail_msg("ETHTOOL_GSSET_INFO: %s\n", strerror(errno));
-> > +     if (!sset->sset_mask)
-> > +             ksft_exit_fail_msg("%s reports no feature strings\n", name);
-> > +     count = sset->data[0];
-> > +     blocks = (count + 31) / 32;
-> > +     strings = calloc(1, sizeof(*strings) + count * ETH_GSTRING_LEN);
-> > +     features = calloc(1, sizeof(*features) +
-> > +                       blocks * sizeof(features->features[0]));
-> > +     if (!strings || !features)
-> > +             ksft_exit_fail_msg("calloc: %s\n", strerror(errno));
-> > +     strings->cmd = ETHTOOL_GSTRINGS;
-> > +     strings->string_set = ETH_SS_FEATURES;
-> > +     strings->len = count;
-> > +     features->cmd = ETHTOOL_GFEATURES;
-> > +     features->size = blocks;
-> > +     if (ethtool_ioctl(name, strings) || ethtool_ioctl(name, features))
-> > +             ksft_exit_fail_msg("ethtool features: %s\n", strerror(errno));
-> > +     for (i = 0; i < count; i++)
-> > +             if (!strncmp((char *)strings->data + i * ETH_GSTRING_LEN, feature,
-> > +                          ETH_GSTRING_LEN)) {
-> > +                     active = features->features[i / 32].active & (1U << (i % 32));
-> > +                     break;
-> > +             }
-> > +     free(features);
-> > +     free(strings);
-> > +     free(sset);
-> > +     return active;
-> > +}
-> > +
-> > +static void get_xdp_features(unsigned int ifindex, uint64_t *xdp, uint64_t *xsk,
-> > +                          unsigned int *zc_max_segs)
-> > +{
-> > +     struct netdev_dev_get_req *req;
-> > +     struct netdev_dev_get_rsp *rsp;
-> > +     struct ynl_error yerr;
-> > +     struct ynl_sock *ys;
-> > +
-> > +     ys = ynl_sock_create(&ynl_netdev_family, &yerr);
-> > +     if (!ys)
-> > +             ksft_exit_fail_msg("YNL: %s\n", yerr.msg);
-> > +     req = netdev_dev_get_req_alloc();
-> > +     if (!req)
-> > +             ksft_exit_fail_msg("netdev_dev_get_req_alloc failed\n");
-> > +     netdev_dev_get_req_set_ifindex(req, ifindex);
-> > +     rsp = netdev_dev_get(ys, req);
-> > +     netdev_dev_get_req_free(req);
-> > +     if (!rsp)
-> > +             ksft_exit_fail_msg("netdev dev-get: %s\n", ys->err.msg);
-> > +     *xdp = rsp->_present.xdp_features ? rsp->xdp_features : 0;
-> > +     *xsk = rsp->_present.xsk_features ? rsp->xsk_features : 0;
-> > +     *zc_max_segs = rsp->_present.xdp_zc_max_segs ? rsp->xdp_zc_max_segs : 1;
-> > +     netdev_dev_get_rsp_free(rsp);
-> > +     ynl_sock_destroy(ys);
->
-> you really should look at python drv-net infra...
