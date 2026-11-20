@@ -1,92 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202620;
-	b=R6FinAU1VjL8wEKVL91NrugKNayH+UkLPWZ+Wg7pDgHqjHLyT9q11EPXwq3WcHVP/gE3
-	 2p5HK1b8It7o3ig8ovx85hpVICI8KNwjM0X7U39EUMH4CEtI7ej5bikYJsIMJLNXQDCkn
-	 nO7MyBg4ft7KH/u54xwRWw1ZXWmfW8wgC8O7mPBmY4OevLpLfReozt9CiQSJCzScmYuVM
-	 I6K799v8BSSWEWHaj9FjDbsLW5DJq4yvgLWwIXeA3OIVJH+8ShiXrDji6fTlCStV4WHE+
-	 CIaZ5x31qPid+S8GTIWqYI3p6MFwAG1C643e/tC0phVv2GOfPWiC7p+znBiwixD4B1w==
+	t=1795202651;
+	b=5qnq+RzK6xY2wnaFNPezIBbFY/tUeWEvtCL8SASSNrU75JrsfoIbYOILM9tdNRH3XGhC
+	 m1tR8KRYCnMrTILXjgjPBMA9HQI5V0yGdsHoHpKix2bXWg4AJ2aG1/3RM9rzk+m3lYXkF
+	 lCvxKrCxyos0NmUqhgFzMHZj2nJ9MODkhMJmqMXgL1vs3eZiQlSFGdZfngfE7Ws5D4Env
+	 +r4lsbTV9t4FmUC+/TLXIY/pqbOyyYeSrQxUQc34k6SKZkDSbWtMewVzN2mlmG6H74dpp
+	 BJ+RoOG1ssv8NarRv/dkOugbE3xtNbd0t6pe4HiQHyroV1OJQg2HWIaIqVLUCunXNeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202620;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202651;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=WA5kH6g2rHXaT3SqVp79TdqL6vsLj+rBSzEJqsx/Hwc=;
-	b=xh7gd7HX9vdHbmarEn8yvVspbth8EXttNmpt2dqBFlbtzi6LtKGUDi5b3QKkxwj9DD5y
-	 bCCZqSz9yZvIwCgxrajQOoS8O3/9hyN3JjYWPZOO1WfcIrCdfS2OHmZjq5eLBgviww70S
-	 TTCbL4HwT/TAHkW4mu4k7EaBqUl5VVu9kG+9YL6A0DIBT4w6DeW9TWx5k66G0280cbPQO
-	 DbZP70r4dgdSMIVSO43zc5dBn/MVfsO5q4qX/i/cdM/+dvpaFkGwGYPsyS+h7OVXbBsQN
-	 EG09+4BVGEAzcRH06Q727mKJIPKXYTRBapEWAlWw5J2ukHr9SrsRts+Q3Hk2OVIGgaA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=qHo6CdyCabm8XH8aUppzEr5dak8Hjpei/j+QDqjBmtE=;
+	b=dd+eL8kVKog6onCjOhONvhEtXVelWCopEa+/C0VpYZhCXSiiwLm+JtzZ5VtHe5R0T5e5
+	 GACff50mN564JHr590BlTPWPfDpcflEj2NVbmllkmvpCDMb0lOdgxPcN6O3qbHjYSNEXd
+	 qFmerZOHlnDPdXw31TrhYRmoJtstdZ4yggoEZpDczyl91M2guSXBW8NE9MUR15B4TSqDE
+	 h85oQec57sHogyOhSENwS9gadNdSqeGFtAAe3FOPcY8RB9idzCHT0cA2i5t9HVAKEKe98
+	 1vQfILqQ1esiIW1zZiMYw733KbbyaQhT5wrNK+DO9pJ5HNoMWZiK/RODBXglVQqvM3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openai.com;
-	spf=pass smtp.mailfrom=openai.com;
-	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=TIUK28Kr;
-	arc=none smtp.remote-ip=209.85.210.52
-Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com [209.85.210.52])
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=MWX3rqdu;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B1FF606A6E8
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:23:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B1FF606A6E8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89648606A331
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:24:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89648606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=TIUK28Kr
-Received: by mail-ot1-f52.google.com with SMTP id 46e09a7af769-862d919fb1cso754607a34.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:23:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=MWX3rqdu
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a358881793so700878f8f.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:24:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openai.com; s=google; t=1795202618; x=1795807418; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WA5kH6g2rHXaT3SqVp79TdqL6vsLj+rBSzEJqsx/Hwc=;
-        b=TIUK28KrHHS/jEIHaRwd4V3J2bTkqF68AyeJA7kxAxFkCrDgrzR0UWEsPIpj2OLGnF
-         wnMAFZO0ockNTR/JIsRZw23QC4Jqil0LamS8z1CgD8Sc04RBrwMS91VYsq0h6YV1zFHx
-         uGq0Epykbl00jRMqwPJTZUoP7R6mG5B19s8fY=
+        d=blackwall.org; s=google; t=1795202649; x=1795807449; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qHo6CdyCabm8XH8aUppzEr5dak8Hjpei/j+QDqjBmtE=;
+        b=MWX3rqdub2/YZr8awmCv4sB0tcy8MHCXgd/nQ9Qka8sg9rdMObkifriYyu/68Pf7T9
+         9NHP7i1U/6cGX3M7BxhI8rAnPJ213jGK186ZTspzL0EL97GSkkd5uhNeMn/jo71E0MC+
+         opCDBFvJ5Ovww+WSm018f804RJubnFFJAUTrJgGhxsg/s/QMtaB13mYZx6Hbr2QAdZJL
+         Bi1DC4t1adzP6EGUm1Z5b5fRWMylX8yBQcU+a0A5BhAHfNkyetgqiDBBr/mo1BzyznAa
+         2qJUkjU4xpeCnetqQ9wNT45LJhhlgmjfPfxYZtHEa/tCnC82kEK9aKKGyu6vAa2TNZ2a
+         etTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795202618; x=1795807418;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795202649; x=1795807449;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WA5kH6g2rHXaT3SqVp79TdqL6vsLj+rBSzEJqsx/Hwc=;
-        b=Z3Gu2bYWAMUtxFRJyRTQIjhVhveHkDkPESTfqIoEoyYN0tNbJsqe6G3Jak81sCb5Qw
-         MZhxI1bk8nl+qVekfKic1a+z898lJhM2P+mpJuT9Dv2F5Z9+HUGSPC6thYJX1iOeCWeq
-         xxAwy9efVcuUK2/Q1cFTuRfXh7rI9zjtkeiWGmrDZPzLR4Ix1rMvdkOzSoPFdce+zeSo
-         Xzyn/ffMyjp1p12WGQ/5eTwtRnD3kjnhqg6vW90sFUE2skeKhuDUW24xl3gAEyxvHKeR
-         4g+wCG9h8ue0Ylg51HhftJGHx2/iqT4f4KXhS0dfqFnc4wg39w5kGPcWPiZ/UlfcFmXL
-         w9Yw==
-X-Gm-Message-State: APuU4Z9/JsHeRvuAP3bwB2oAlATsIFtH0lizZlkQK2s8Bjd8feboWgss
-	us3fcbwmHsuu/Cman+kYF8HCRFaORozcxoTkCGcyqhkmRk1DUtIZkdxotxIoUf3ct89AZzSxoME
-	vzNuDkQc=
-X-Gm-Gg: AYBFou1ZL5S4JzFHEJ6OgbfjPsJtJIF2PoaazT4ivgZAhYDnRUugJL4Xv70A3CyK7Dc
-	l3Bv5wAiiPLBjjxxSZf/ua7Q22gz432sPggxvxqNRkBG5Jie/ZzqkH62KpgyHWIcwywKBpauC2d
-	rH7ot/C0XTV/fXEFolWaHRO7KSY34E10GzUPzhI8CZMwBVF+kl0rI1gn1sni0KRtEO59V0oaDgE
-	wY1dTFKpuBUhMUbK8Mm0+N+n4xidBHO5yEf6D0y/0gOt3bey9Xfajttt4rIkPqJ+VgIK5n4jGIb
-	obvrUliRDQTWXMnHtmpxx40NSA3/xH8VVVisPIGrZ3NWnMxqrmG+7zsGG6EWqBpyHpqLznfpeHJ
-	l4Ow1RXtl5F4PjKrLq6Gh3FySt9jqMp6k+6mYCJoh4Q6rauxUqH1pvu0YyqAXiPC6sciRSb20te
-	5LbKme2XvEgqv4I6RHv0BntJ/WnZYa5dyOdINOXRGRKQEBrk4mdjLMrFNmig1q2+98qcnClVc7Y
-	eKyE/rjjf3zaiOvi1eUCRFR/nkScdlPK1ixjiA/yf6E23C/rh1B92LMbPCaN7dQlKmsoukIHxGN
-	Esn+xnEVtzExlkNB3RhsMkhym8l2mRPQ5lxNWpgsEldrH8vGufplQOyvmvebcDfr0qd3gggVa+6
-	0GLe3REkKombNuXuRhfF29LhRspzi5Q==
-X-Received: by 2002:a05:6830:640b:b0:862:a000:c45c with SMTP id 46e09a7af769-86315963a10mr5573204a34.25.1795202618333;
-        Fri, 20 Nov 2026 11:23:38 -0800 (PST)
-Received: from com-75606.corp.openai.org ([199.47.143.1])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f6d33sm2639106a34.18.2026.11.20.11.23.37
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 11:23:38 -0800 (PST)
-From: Kyle Zeng <kylebot@openai.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	linux-kernel@vger.kernel.org,
-	Kyle Zeng <kylebot@openai.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v4] net: preserve skb header offsets during headroom changes
-Date: Fri, 20 Nov 2026 11:23:30 -0800
-Message-ID: <20261120192330.48965-1-kylebot@openai.com>
-X-Mailer: git-send-email 2.55.0
+        bh=qHo6CdyCabm8XH8aUppzEr5dak8Hjpei/j+QDqjBmtE=;
+        b=Ok3+MycXRfRiLq/VPJA+J1j/oKRrgdX5Nsb3PRVPcFluTid6UDOtChTl7dqf6dyHZ9
+         Qrz3wAser/aGbqGtk7DWUBDc4VSeNADKcAa0GgwGEk7ZkzJ0xnltCoJMvvm0BLOAyNIf
+         068W/CvGlo8xcvNTUWX2FgT183d+E7ND8a7P0auabTCcioKplWkDUgm72TEMIfGE90r0
+         DgIqhGSQvv47wk5GIeJPLsFFQvAASgjEEYbkkyrcGmPfwPcfBWZqGWDdLpPzZHrn+7Kz
+         PQUE2IN+bTODPeVwyFw8RevVMHjBdxsnEk+CY4j2A25M4wjDmflLHR3RLh6KzyXZMBhC
+         tO2A==
+X-Forwarded-Encrypted: i=1; AL+hErE7WElSeCZ9Net2jKO8R3T2JnT4QkcxWWK5wLFWQsUV3FUWBhmFZ54lyjnr9vQQurPvJCMmVzw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yoZyfqcCrL6oEj8X1HVrNAKw7vX1Y2+t0DW56b6TdpyXrtAgZ
+	JsFQpgAyyy/pRlS+3BnuhYzBqdPcHuIb04rD6lcVoZupNrqB5Wnf3lmfV1h8UtP/3rsZgx1MjOY
+	DWdZZUp7Ku9sN
+X-Gm-Gg: AYBFou1S+LufUVmCzg3x3H4Fk7EOImrHBwEyT1/LMET6tVQ5TXbhlqNTibYkKmc1Ig3
+	a46qomWOo3VnCMU631BTbPDIB2ndJMm2pTq22usIbni3ZHbtIhpzi3PIasuhaZmiC9/2S8tx3Id
+	7OnYG6X/zOj1KlLe3vyH7YPlz+klQoQjbc3xwG0n1Unx7NKbuYiRO9cj8HBXATQjz/1Ol1S6p+Q
+	JWWfbhKVcNLwpnzyfYBolc9B0EyYA2mBhnB2epwZdNP0JPU+P/HkKF7kbSO+t2QK+l97yFU/tK9
+	2rJmxZfpg9xGc+t28xPsiyzKu+bLS6WmJ9MO9SWBGTwNCRtfRQsIr6la5qsQ51WTdIPMwjhjN0K
+	cE+bG6TFgPUf6umbcHB34muAkk/BLwqx6mcy41424i5jVeKxpjkd8s7oioDeNsfaHH7HBrkloSk
+	h/wwBxrPTnRkvbrKoq9TpApomqJ3JxQ7nmxSAL70/yTrLapHiSZTjo+FDrINnm+V9+lmHth6cy2
+	dMjc/JETDZM1hYnOwfM4N6dah9z/TYANx1UMm+K8C89JimZn3V/SmK5DS9duZK5d7B56pcS6yJv
+	PteNvmdtY6z6o20vCFgDb7tmP9ik9V/0QN8NeDCL41BmbcR9iqVjLu5pMZo=
+X-Received: by 2002:a05:600c:a0b:b0:4b7:6a8b:9df2 with SMTP id 5b1f17b1804b1-4bb8882432bmr91151435e9.25.1795202648785;
+        Fri, 20 Nov 2026 11:24:08 -0800 (PST)
+Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895eec06sm36376085e9.2.2026.11.20.11.24.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 11:24:08 -0800 (PST)
+Message-ID: <27bfa146-0512-4e35-9e68-fbc8c50ef405@blackwall.org>
+Date: Fri, 20 Nov 2026 21:24:06 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,150 +92,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 0/8] bpf: add bpf_sk_assign support on egress
+Content-Language: en-US, bg
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Joe Stringer <joe@wand.net.nz>,
+ Paul Chaignon <paul@isovalent.com>,
+ Alasdair McWilliam <alasdair.mcwilliam@isovalent.com>, netdev@vger.kernel.org
+References: <20261119142231.2612515-1-razor@blackwall.org>
+ <DN0A2SUOYS26.1M5IXC6G41RLL@gmail.com>
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <DN0A2SUOYS26.1M5IXC6G41RLL@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-An MPLS LWT route over a netkit device configured with large headroom
-can make aligned skb expansion wrap the 16-bit network_header.
-Neighbour output interprets the resulting negative skb_network_offset()
-as a large unsigned pull length, causing eth_header() to write outside
-the skb allocation.
+On 20/11/2026 21:17, Alexei Starovoitov wrote:
+> On Thu, Nov 19, 2026 at 06:22 AM Nikolay Aleksandrov <razor@blackwall.org> wrote:
+>>   .../selftests/bpf/prog_tests/assign_reuse.c   | 625 +++++++++++++++++-
+>>   .../bpf/prog_tests/sk_assign_netkit.c         | 586 ++++++++++++++++
+>>   .../selftests/bpf/progs/sk_assign_lifetime.c  | 182 +++++
+>>   .../selftests/bpf/progs/sk_assign_netkit.c    | 153 +++++
+>>   .../selftests/bpf/progs/test_assign_reuse.c   | 174 ++++-
+> 
+> 1700 lines of selftests. Pls dont.
+> Tell your bot to make it absolutely minimal.
+> 
+> pw-bot: cr
 
-Reject growth that cannot preserve the network, set MAC and transport,
-recorded inner-network, or partial-checksum offsets. Do not relocate a
-set MAC or transport header onto its unset value. Check the actual
-post-pop positions in skb_mpls_pop(). In native MPLS, bound the post-pop
-offset before decoding labels; reject excessive LWT headroom before
-reading the IP header.
+Yep, sure I fealt nervous about that, even though I've reviewed it.
+v2 takes a simpler and more narrow approach anyway, so tests are fewer
+but I'll try to keep them as concise as possible
 
-The issue was found by an LLM.
-
-Fixes: 1a37e412a022 ("net: Use 16bits for *_headers fields of struct skbuff")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kyle Zeng <kylebot@openai.com>
----
-Changes in v4:
-- Move the native MPLS headroom check before label decoding and
-  multipath selection.
-Changes in v3:
-- Check the actual post-pop MAC/network positions and reject the MAC
-  unset value in skb_mpls_pop().
-- Check a set outer MAC header and a recorded inner network header
-  during positive relocation.
-- Move the MPLS LWT entry check before reading the IP header.
-
-v3: https://lore.kernel.org/netdev/20261113235019.74384-1-kylebot@openai.com/
-v2: https://lore.kernel.org/netdev/20261110051258.64350-1-kylebot@openai.com/
-v1: https://lore.kernel.org/netdev/20261030042246.74144-1-kylebot@openai.com/
-
-I have a reproducer for this issue and can share via DM.
-
- net/core/skbuff.c        | 35 +++++++++++++++++++++++++++++++++++
- net/mpls/af_mpls.c       |  3 +++
- net/mpls/mpls_iptunnel.c |  3 +++
- 3 files changed, 41 insertions(+)
-
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 1ac1e327ac4c..bc836adafecd 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -2130,6 +2130,28 @@ struct sk_buff *skb_clone(struct sk_buff *skb, gfp_t gfp_mask)
- }
- EXPORT_SYMBOL(skb_clone);
- 
-+static bool skb_header_offsets_fit(const struct sk_buff *skb,
-+				   unsigned int nhead)
-+{
-+	if (!nhead)
-+		return true;
-+	if (nhead > U16_MAX - skb->network_header)
-+		return false;
-+	if (skb_transport_header_was_set(skb) &&
-+	    nhead >= U16_MAX - skb->transport_header)
-+		return false;
-+	if (skb_mac_header_was_set(skb) &&
-+	    nhead >= U16_MAX - skb->mac_header)
-+		return false;
-+	if (skb->ip_summed == CHECKSUM_PARTIAL &&
-+	    nhead > U16_MAX - skb->csum_start)
-+		return false;
-+	if (skb_inner_network_header_was_set(skb) &&
-+	    nhead > U16_MAX - skb->inner_network_header)
-+		return false;
-+	return true;
-+}
-+
- void skb_headers_offset_update(struct sk_buff *skb, int off)
- {
- 	/* Only adjust this if it actually is csum_start rather than csum */
-@@ -2317,6 +2339,9 @@ int pskb_expand_head(struct sk_buff *skb, int nhead, int ntail,
- 		return -EINVAL;
- 	}
- 
-+	if (unlikely(!skb_header_offsets_fit(skb, nhead)))
-+		return -EINVAL;
-+
- 	if (unlikely(skb_shared(skb))) {
- 		DEBUG_NET_WARN_ON_ONCE(1);
- 		return -EINVAL;
-@@ -2535,6 +2560,11 @@ struct sk_buff *skb_copy_expand(const struct sk_buff *skb,
- 		return NULL;
- 
- 	oldheadroom = skb_headroom(skb);
-+	if (unlikely(newheadroom > oldheadroom &&
-+		     !skb_header_offsets_fit(skb, (unsigned int)newheadroom -
-+						  oldheadroom)))
-+		return NULL;
-+
- 	n = __alloc_skb(newheadroom + skb->len + newtailroom,
- 			gfp_mask, skb_alloc_rx_flag(skb),
- 			NUMA_NO_NODE);
-@@ -6804,11 +6834,16 @@ EXPORT_SYMBOL_GPL(skb_mpls_push);
- int skb_mpls_pop(struct sk_buff *skb, __be16 next_proto, int mac_len,
- 		 bool ethernet)
- {
-+	unsigned int headroom = skb_headroom(skb);
- 	int err;
- 
- 	if (unlikely(!eth_p_mpls(skb->protocol)))
- 		return 0;
- 
-+	if (unlikely(headroom >= U16_MAX - MPLS_HLEN ||
-+		     (unsigned int)mac_len > U16_MAX - MPLS_HLEN - headroom))
-+		return -EINVAL;
-+
- 	err = skb_ensure_writable(skb, mac_len + MPLS_HLEN);
- 	if (unlikely(err))
- 		return err;
-diff --git a/net/mpls/af_mpls.c b/net/mpls/af_mpls.c
-index ad4ad6f2001a..f6b77570ca48 100644
---- a/net/mpls/af_mpls.c
-+++ b/net/mpls/af_mpls.c
-@@ -403,6 +403,9 @@ static int mpls_forward(struct sk_buff *skb, struct net_device *dev,
- 	if (!pskb_may_pull(skb, sizeof(*hdr)))
- 		goto err;
- 
-+	if (unlikely(skb_headroom(skb) > U16_MAX - sizeof(*hdr)))
-+		goto err;
-+
- 	skb_dst_drop(skb);
- 
- 	/* Read and decode the label */
-diff --git a/net/mpls/mpls_iptunnel.c b/net/mpls/mpls_iptunnel.c
-index 1a1a0eb5b787..5123394234cc 100644
---- a/net/mpls/mpls_iptunnel.c
-+++ b/net/mpls/mpls_iptunnel.c
-@@ -59,6 +59,9 @@ static int mpls_xmit(struct sk_buff *skb)
- 	    !dst->lwtstate || skb_warn_if_lro(skb))
- 		goto drop;
- 
-+	if (unlikely(skb_headroom(skb) > U16_MAX))
-+		goto drop;
-+
- 	skb_forward_csum(skb);
- 
- 	tun_encap_info = mpls_lwtunnel_encap(dst->lwtstate);
-
-base-commit: 2800868f63227c8237d70c41e70d441c919620d6
--- 
-2.55.0.openai.911.g06873a30d2f3
+Cheers,
+  Nik
 
