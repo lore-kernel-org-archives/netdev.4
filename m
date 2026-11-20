@@ -1,97 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795190729;
-	b=RbHQjDsDtif2vKvob36tynxo3lhOntqutMm9zBgBSqpHnrbxtxWUzIh/QssCfJgBb/nw
-	 QKsf1obdRJiQgbhpxfMB521AyQazWHCA+RgzCRBVqdX0Wsa4VPRPpTCsvV15RoP3MP23o
-	 dqQWrmeEFxuHQGIMNCWQXG1CBwwlMkbY93w6xhrcYPI08RzGlaEkKVaYdiRlJ2orbiCDR
-	 1xtmM6vzvzJ3h0raFefSdSLnM60pDSZa7OJfCLeIbxP4dT15Wr5mjAoEdcJs92J8Y9Xw3
-	 SIlNGoJVYGzd/a9t0puborL+cN2OtlM8aBJuedU8cc+VnYfvt5rd4Vs0VZkJh1WjhlA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190729;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=D5qRI4h4vBd2n5ugHmd5LfCCF82oMGWtSg5RhJQE2Qw=;
-	b=l/xBSLAWdj3u+DJYT8MLucH+tjUXUoQ3yP8U1h7Mz3j7y/IRcmusup8B2Qgrb/y1KWW5
-	 D5SGFzngDTQyBDN3XYeLXJhdXdt3HMZVFVXjIm1XTRYfPzrfGk/1e5w+bxk1us3fGKyfl
-	 C+kFW5V6nFZZtfbkVL4fg+udn0PtNniktHCUu0PLv22A6CTzUKw3a5+WJ/dwLkv1OmLnQ
-	 V2VDp0yO6TvG1SEtbP5xuaDnaGa8xdu6ncX5FYuTR/ufVNZjbq3+BPPzNpBLJs3pOGYpC
-	 rOr/dKc1BwfU62jcDxc8dmrNcNHOnf7XX6sn/IKlbwiwQDGBZajII2zsqVF9l4zdD4w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=K6Nn0dYI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
-Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795190777;
+	b=XCAdGoCLZSi+o6tRQS/KFNiGgq8kCkDUBItq3MUPwbTZ0/voHMihLeVDmh6BQOcmt0ch
+	 Mft1pwWjdu/GX6vgeu44RUArtmMJxOC+Yk0BNUNygA1t5ULpoXt3ixFkDxrY+w75nq+8u
+	 twX3kR+ahlaHpZm0ieBESxpR9uqqtUMOEK9U4SI3uiqeqKIgcdMta1e/aeRzUP3BnJ0Ap
+	 YCwLmSp2lkFNfYZPy/TD8Wpod5MOQB8TE3GrQJl99h4d2uQxmsN1bM7iI88/T9j6szoWn
+	 1RkaUu4XgXXI6Ndgg5x0nJ/37f2m9YZZyU2X1mRvSjo3IRilNjipSppXKUF9neoC62Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190777;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-SRS-Rewrite;
+	bh=/ihHdUU+jVviFggXvCzCtgwm16AszawpC1LIVwl/qQE=;
+	b=M933Fq3k4VXDvN49FVDh1BRXO6ye4rV6iF2ZUBKaKKrmuq+xVAqXX6pu2nPSG+Jz0nT0
+	 0+fm/uW+InwSaFCgatKb4oYRu9nkbUkSZpHWsFo1eUjXEZ2qh+DsBVyEXJEqP0ZRIFPuR
+	 nFcTyUXGunEQV2sFwElla4u9NkM04iQDwllUu0QszzFP4uXG+sxFk2D9CcilBcltWJrEy
+	 QXzlx+dOZB3z/hYpaE+ZfpxZPjy5wqsfswcCPWfdWEST1tBDjG3/lggaQvcNAbOCqoGrn
+	 CbAlTgmc6V0JgQVe0US81tMa2gcld74UGo+3BRpULcSJZtEukbR/pH+FIKVWmhv61EQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=infradead.org;
+	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b="ZB+h/5GB";
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8D14606A32C
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:05:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8D14606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABB03606A32A;
+	Fri, 20 Nov 2026 16:06:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABB03606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=K6Nn0dYI
-Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b360828905so9195307b3.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:05:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795190728; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nkClEJ9N9FUMN2xYVny6z8jEoBEj/CreHWZbIlQDWDlrf2z+GF3lBTVxCnmOq+PbGJ
-         Xy506vt0yGxrRsz9SmUnJ/grv4MSJs7acMX5n7sMAIM6FCqEqwmpcL6H/zjiK/pmnTyS
-         5sSqbFYC3/n4nTg8ozzhBn4oWIGihnvJUNbcFUNjQvEj9i7E3TD8h8CcJ4JXD9H7O+/h
-         p+tebf2jFb5YQCzsB99Jnojv8IP1mxW60edyB3gw8fe5GS86PLJmfaBSLLdZ/5J9dRAx
-         KoItaRU7VjAlvmKuwwOf+FxOO4ocBqE6rQbfd4eDZ8Uh4VtxSdefqOtU+FnoxaAbPewP
-         l3zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=D5qRI4h4vBd2n5ugHmd5LfCCF82oMGWtSg5RhJQE2Qw=;
-        fh=rll41j+0/C0sNOooCCV6B716tfHH9WdNI76vysY2SjA=;
-        b=N5TJEtMYb2S6Wa6ZK8qaMtu/66tWacqguz/cfi9iRR87VEGkPUkrZjR+KfqKzA6dF0
-         J7sdrJ4DUCPlXSytRI0XHHB7YCCzcDHKSf1mZ4SDq4kE7fkp30THnup7j7owFZsFBHYa
-         O8jxRiH+hy28MJLnSSc0af3PuLCYdCE0ilnPlPY5VwjEjHCDWMcLFTjLX9I92OoUMxl3
-         gPvmPryqx6grHrGnwcbLaCVuTWxIUB1asiJfPBCKw6MS2QjJqVYTADcL2bvY09Mbmx6i
-         wGniy2cVNm+UQaP6LI52HJR2MAyEXeFFPPCO0SJw8GJ2Cu7b252suHgVtkObx2cYxeL7
-         uo8w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795190728; x=1795795528; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=D5qRI4h4vBd2n5ugHmd5LfCCF82oMGWtSg5RhJQE2Qw=;
-        b=K6Nn0dYIebQ5u8bEJ1qwH/Xj1OSc/jWHWSxf/kAmX7N/lz6XVvlCxcaj0RLD/vLojt
-         7EBsCoFW2xYaaJqwRxsQDtO51IXyz6cV6SWmrutsRBazzRiom8lRBUdiemPWWRgNqVrS
-         NCPUrTrjo9bj4jkIGtSTAw3akvQcYdHFPM5BA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795190728; x=1795795528;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=D5qRI4h4vBd2n5ugHmd5LfCCF82oMGWtSg5RhJQE2Qw=;
-        b=EMAnUUfh0IqgtY4XwJHao+7sJtVc4GYKRzUCdM78mh8GbAJTiIM8DLGPJB2HpVmLD0
-         XqTJI/AQAnhYVC6JCR7jXyqywYkyb15BAbL6MvEtpGYgd7cz5iVsmkvi1PbwR3KvOG85
-         a/7zzpqiAYxgo8Lw3SrtMQ3lEEj8n/VVU9PMT94geGTrl4tmK4I4DeOchu8Js8fIflhv
-         LUw1T9ltoRl0oRosWz0//vv6LkIPkBnMCITuNFRfjSXW7WzshhM5DB29OZo4tgG7iskG
-         frsoeAPO0FSgHSCVT4h/AEQz7qFzTScftXM3oXR4FjPOX6tLQ51YUsqYvAjwqLYr4NcF
-         CYcg==
-X-Gm-Message-State: APuU4Z8nIOy0ax2eu0J7velQIKiuXuytkRGjjBhLMP7uHCV5xF1ac9Qq
-	4g5b8ZTgIQ598W3ZjCzbKn+mZ/kL6Qn6sBv8DmZuu2KgC4dW1uFHn+cf8eBiK9p9fhsOxzDSkhl
-	4e1cw0a7hQ+BkiWXyOn6l5X4YwrIgT1Vfu3nCJ4RxwOFe0Uitz60=
-X-Gm-Gg: AZFdTZeANZvJfzwgBfHH6HBMIza5wNqd5FGcTgxgCv2UvrNV4BJG5Dt8h4MMiOC7SMS
-	uOlq4rF6Yk1FElUIvY5fciq9dp1nnXNB4cwFW4/FMSqfYs8mnMZ9HBHkKBDH2ywcNnkv1yZXPS3
-	2OEGqnMeuyZsG6fICqKD+E9FMJIyULmEMT7UYH7cRYkoEfRI2U2GgllfvXqJmc7szHJTLAKfN7N
-	SrIKzlw71RkyENh0pP9EBjXoL8hohV8cNQrNZqox+RV+Fcm6fJQCgoLe5c6Vhb6cFgO55MWZNqY
-	/GiWs8ok8Ek2x61hGGeIVe6PpO46knW6JswHeVZZOR56w6J8pMwIN+kenh3gi0Hsg7LBL3UTowT
-	XX9ZnONPjwtt4AxHtRmTKv5vk0ynbne8bwfgB21R795pfAu81pFrmDiePBFQ9UaTdwxZFrvqbZY
-	op7EFREMgfjb4umX07SRlg
-X-Received: by 2002:a05:690c:4a09:b0:8b4:d1d3:36b1 with SMTP id
- 00721157ae682-8b52031c312mr14043177b3.3.1795190727625; Fri, 20 Nov 2026
- 08:05:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZB+h/5GB
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/ihHdUU+jVviFggXvCzCtgwm16AszawpC1LIVwl/qQE=; b=ZB+h/5GBbqvAkJ54ekxLjvGA9O
+	D9LNJkH8aKH9mziEUcEVeeNVW2eYGGN+jTB+vaoKK2DQgefgBdVSUC0euwaul76MaXXzFGDda38w+
+	CV0HQYku2mlycBmx7xX50bcgh02e8WB6duHoVw6iN5E4vh+UiiLohZ0W4TpcgZ4sOV99I5tvJit2c
+	68reAYpL8/lyYbw3n35mPFLIMmbRicjxfdsTw5KiOvU8QL/I+AfqCK8T2Ep/sGYTxHxleNyUs6cJ9
+	Fyt0bfHGbyQV6TfKt92/kvpu1GtQWsEPV/dyOSyL9dPgWZDp2vTpqx/50Qk3hkzlOf+tFUU/u/Sb/
+	2OzNA4UA==;
+Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUR7u-0000000FVv0-3ZjW;
+	Fri, 20 Nov 2026 16:06:14 +0000
+Date: Fri, 20 Nov 2026 08:06:14 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Khan Zhao <zhaoguohan@kylinos.cn>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Jason Wang <jasowang@redhat.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	kvm@vger.kernel.org, virtualization@lists.linux.dev,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH RFC] vhost: set dirty log bits without pinning pages on
+ x86
+Message-ID: <awBv9nN-ZkyKi3vT@infradead.org>
+References: <af7f05bf637337d35fdd10f3e0dbb5e39d7780e7.1794480795.git.mst@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,48 +70,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CORE-J9UK.v1.r0.20261120103344@mojatatu.com> <179518966319.3291.5653366565460355407@kernel.org>
-In-Reply-To: <179518966319.3291.5653366565460355407@kernel.org>
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-Date: Fri, 20 Nov 2026 11:05:14 -0500
-X-Gm-Features: Aa3M54o0Ta4AC0N37lo8mG_wIU7T1CO3mQnLv3LZLQgqwYQpH6Oxq6D75p0ceNg
-Message-ID: <CAM0EoMkqsLHFfthUzA4cD4XLH_bSs6nA+Rf0_4+j7m07wZOu-w@mail.gmail.com>
-Subject: Re: [PATCH net-next 0/1] net: neighbour: skip the stale dst lookup
- for a redirected skb
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Jiri Pirko <jiri@resnulli.us>, Victor Nogueira <victor@mojatatu.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af7f05bf637337d35fdd10f3e0dbb5e39d7780e7.1794480795.git.mst@redhat.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
 
-On Fri, Nov 20, 2026 at 10:47=E2=80=AFAM <netdev-bot+sinfo@kernel.org> wrot=
-e:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
+On Thu, Nov 12, 2026 at 05:53:47AM -0500, Michael S. Tsirkin wrote:
+> vhost had a TODO to replace page pinning with a version
+> of set_bit that works on userspace memory, since forever.
+> 
+> It is really best to avoid GUP on fast path entirely.
+> Implement set_user_bit and use it in vhost, to do just that.
+> 
+> Should not be too hard for non-x86 too.
+> 
+> Reported-by: Khan Zhao <zhaoguohan@kylinos.cn>
+> Link: https://lore.kernel.org/all/20261112085631.128819-1-zhaoguohan@kylinos.cn/
+> Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
+> ---
+> 
+> 
+> lightly tested. pls test and resubmit with your tool.
+> 
+>  arch/x86/include/asm/uaccess.h | 18 ++++++++++++++++++
+>  drivers/vhost/vhost.c          |  7 +++++++
+>  2 files changed, 25 insertions(+)
+> 
+> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
+> index 3a0dd3c2b233e..ba1e7c3f83c8e 100644
+> --- a/arch/x86/include/asm/uaccess.h
+> +++ b/arch/x86/include/asm/uaccess.h
+> @@ -594,6 +594,24 @@ _label:									\
+>  	__ret;								\
+>  							})
+>  
+> +/* set_bit() on a byte of user memory; returns -EFAULT on fault. */
+> +#define set_bit_user(nr, addr)					\
 
-It is a followup of the thread listed on the cover letter. The
-original thread is derived from a sashiko followup of "pre-existing
-bug"
+Please make this an inline that actually has proper __user annotations
+for sparse type checking.
 
-cheers,
-jamal
-
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
