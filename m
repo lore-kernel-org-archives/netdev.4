@@ -1,82 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795150059;
-	b=0oyslFgCqqJHGzCIExwtUKWxMOLg0nMJh8Zqvzwq4xOR9cRsrOHw9WQJ9rA+pVAICEwe
-	 h51B7caK23USyKsUqLG96zwl6rx71iE8QKFZM9DMwau2MxLE53SbX0GIJmZRTop5U0QNZ
-	 qiqYjAI2PZ+d3EYQzUBLDIfkfqpwIPX56gzVcb7As7W3HlefjW25zLlyc47mdlFqqYx55
-	 7U64wUVXz3LT4ZILiF7RsqsJOdEZmPy2QMzaZLJV6FbO6+vodATe7R85bnwAKeEfQx/Cp
-	 81hByfGwabSwI/r9pH/9+Bp5aauneN70SIFBzHZ6pd/rZQQKmsU0fKv1txrT5b2wtYw==
+	t=1795150061;
+	b=A5ET644dvGUJU4gp+tDobq0+zaY3ooq93RAHdUysPuzi/utFeLuSmUNiCQoYWGcizTVz
+	 I8DX8Q9EVCs/Cy6+HBZBin75WWNzUqWK17BANkJbTHOm0WWCG56QpbfsZ0uWVaPekvT5K
+	 Uji6v6o0StrEpp5/JIFnxFSsT4Ov5UtJMp/V6eWeI2O3RHhg4vyPmKqcVYVnNSQYniPQd
+	 e73b1wQdcuEn/j8dz3kkLa3nEfWogCRXqQqphaPRKjLRmEvSKgKWBXMmfU4LS9PXZuF9e
+	 9iZzvphnVGIxjdO4IHd1K2irlg+tNlKLJY0S1al4Q3gces6QTQdE+CW3JTwR8lWLK0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795150059;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795150061;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=wyC9d9SoyF2ZyiffP4QhM0CpfiDlvbBQ1BMIgXdq5yQ=;
-	b=iHKOqI81pdxnaoJOC0mh7thil13ZkUheAwW8wWjpsJzrOOnFIzHxDgVVqhD7W4HsiOOF
-	 DHCUqGFQMKXbPnXlH/ddHJPRax38r5CCcXQZBkemyTQspSF1GyfH3SckZM5uKKppVLM4R
-	 9S9J8CR5ZDlrXCOxye+7NhoDSXFWU2+VHQ4qTGnIRE84/79D2M2ES2fw0nejosKWC33jB
-	 cfYQxC//ECQ4zKw/7jVmsc06GK9c971u37BPFG40vEQ45pyDMk9IB43nIlYNuD0yxbhdP
-	 592LiMhSf+ZpyvK6XvBk4usIMQZTD54nQw8f21P5sD+qUtrgiz6rRnRleh+h5rmvJKg==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0Dbq0OftwgQ34TazviunYALXf3whbrl1E7GgWxSH2CM=;
+	b=a4zHne74jnR/AJtXB4p3tQBCtbtFqKltlwOJ31CVmMyVzSVtxEQmzD+P+JJvuq+xwSnN
+	 1TNlRy7YHwKqgyP2F6WHkx3bZmYx39inRwoBSyQ2AV0zO4ZHQgd5mV4Ipa0IxvHv+6dEP
+	 my6khgPu5Nusq4MjERbBojyuC5BwgTbmEPmzByDjn9/4wn1Nkak1eyKHHZz0Ffp2ffQ7L
+	 0sxxgOKZq7DQxwAxTtOzYuq+ttyLA1zufXrmmnIGjo6+sqogk3iPrZaxEUBrLbIKTftxq
+	 NNw5LSQ9IylwSEpIqy6E261CXdgwHaIFlYeZXPtJb6dhQCkBotzpDQbzOA+Sz+39XNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i8mYi8U3;
-	arc=none smtp.remote-ip=209.85.217.47
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com [209.85.217.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="NpQBk/bP";
+	arc=none smtp.remote-ip=209.85.217.41
+Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com [209.85.217.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 358FF60A261D
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:47:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 358FF60A261D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 940AC60A2619
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:47:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 940AC60A2619
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i8mYi8U3
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-7cc53938a8fso402501137.2
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:47:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NpQBk/bP
+Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-7cc0ccc2fddso176954137.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:47:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795150057; x=1795754857; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wyC9d9SoyF2ZyiffP4QhM0CpfiDlvbBQ1BMIgXdq5yQ=;
-        b=i8mYi8U3VAPe+YTVRMGfFkkk6yvsF+ifOjSeb8wrHPb3Fwg90VuJ4zu37PPCiYYbe7
-         hSDLRrH0Gd92ggFp2YaZFnAQavgeRhn+ubDFl/wAnMRC8rbZKB0g9WbBSFkEDFkSkUqY
-         2ZSAtjpwo+oWfW1g84onxpuReIjwGprvnOGpGn2EFV5HGSvEbLm6Gwgr58JCyOv/Hu9r
-         yskk726/zlD2H6ZCUIt5vFM8ZiBeR5QTQV9r5j74MnwYFV8OlXwYsGXn7ABQ0m1tf/XL
-         aG0t//3QbyG5OrdxEQhWpn9DZtzfIcOZnOAXmmI5f69iaxi3x4W1Eurb/RHRyB4Lhkp8
-         esrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795150057; x=1795754857;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795150058; x=1795754858; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wyC9d9SoyF2ZyiffP4QhM0CpfiDlvbBQ1BMIgXdq5yQ=;
-        b=x85JOaLPIemMV6j2bfgYgBiiigKqI3L6MRHp4FIIrl/hOpLxxzo6lMXQW9izyNUi3v
-         3TzVsQp8SikzjvDyhED2jUqeZnMWSFAaRc6EKFzgUeUlkaJ9g2NsSX26W4qiXpq9dUKX
-         KchA5IDYYanma1Zf/XxKjKH/vRFl3aS2KPZjZaovNAvjIQ1rcsqnBuaV9xdtaha9+x4M
-         q3isNpeUog6ucIPomPtlW57g/xswcKGWJaX8FVipphA77KjG3W4t3qdR8wRLK6Du8JXp
-         CZ0qgbQhBHW2i4rActO0EEJI0zqQrnyV5u2cZRyTy3E8iIlbdjKOetG+XM4MPPFLXy6a
-         XI6Q==
-X-Gm-Message-State: APuU4Z9OkTVyPWhSJPSqrdOC5hZRIJFODUoTQqTaie7S6ppNn4fS5vIo
-	FICrW9pMOW31X0SOLRlWo3UtTl0HTak82kaoOrx7/9K1JDxYTP8gP2ibrOxFag==
-X-Gm-Gg: AZFdTZevoKRYgXvBIkqz6yYLAlo2eN3QzYyJE+ZCruk6wr89488IxkVyoqbE31uebp+
-	/52Nd57/8npSJYw/dk7SlbTSq5ACO1gZnc36UU+h4dUfKTkeUSEcAZkm6IfwdMcPHFHZr1UAwez
-	eRw/PzJiZ1bI7LjV7iyEz6h0bAL+34R/9pzdQVBcseeLuc49GzzwVcN3f3fkKmIPyt8gNez7iIy
-	6oS3GlWRSPE9POpVCfYt7YOlIwf7wwAssUs3nZSlH/MXGIE1X8pYwhe2DOeuMXaxQF6e4HYXWpw
-	aitIqlt/qVGjZg/aWR9eN/9V97jeyXj+RL1ynbU8/GBjsrwY12zrs+a7vqa6rwZXy9YotVL3vtA
-	rvOiqG94l2OAhBLK/Gyms86nH3muTdFWux80ere6vxJqzs0gOT1e7fSt5D+0FGdnCTrxLCCgNmw
-	UlTixeMQnXJZfRzszBXg1lwL/AZ8Stv9TW1vjWVPPJNoYT2J3pIIadtiy+ecBXxIsInnc3VhHET
-	UUqS8II5okkg2FDJa4uo9VUXqxp6+jE446MJTZC7Ax2tjdIMgRktpAJkHK3w4RyT5vvbdYOye6R
-	u1n0Lfz/9PuzCw1oEGWn9Sd0UTj2RBlH+zV5yzNmMsseGMxBvVK5VZb2GQ1rerwFcB5ahA08yS3
-	V0cdVxAkpuqXVA5cGr4KV2AFsne6FoWYOXLwKp69z15S7NGE7cHnBvQPw3OqO+wj0Qu5vcZpwDF
-	lzZi8jqcUq/sbg/nh0/Bs38larabsQC6o=
-X-Received: by 2002:a05:6102:5698:b0:7d2:8610:3223 with SMTP id ada2fe7eead31-7d73968ae3emr871696137.34.1795150057173;
-        Thu, 19 Nov 2026 20:47:37 -0800 (PST)
+        bh=0Dbq0OftwgQ34TazviunYALXf3whbrl1E7GgWxSH2CM=;
+        b=NpQBk/bPFyAoyifff8Y3lUh9ltTSbHuXPlEFnA03Bvxh/H29BwSig8VG2apfymDedN
+         /CYusUZf9L/wIamya4mlXtKNQ+XH3ULrc8Y4atiDRKM1J6XrsndkTniolWlDlH+l9EJ2
+         evz5wzs0/xr2BwKqGLn0L/+cWzR3tzpbH1d6aOWY9SJ7AzyvFPx1V0OUCZYaChT95Nm+
+         jj7Td5WWox+EhpRrjrSFaLT4v28Ks6RVKTV+ac4KcHXZcNqgnUq2aSG5pAZ/z6LdRf/Q
+         yi3NxSjqHIIR9lmNe84LctiSB0SheNWgTjmWJt/jl8wVGwNdKU2uFFAHnMhUPBYo03J8
+         xDhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795150058; x=1795754858;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0Dbq0OftwgQ34TazviunYALXf3whbrl1E7GgWxSH2CM=;
+        b=JSkFWr7F/6YVx1hQ+2MPqcwcoWCGP/T+ZkBDKRoFTSTwLRspnxfwLHfiZ7gDgmq5ju
+         aVj1sj9QBC6TUAeXx93HTBrlQcnyjsTND/8JaOrPU9yN92tWTrMoHJy0GhVCh32/WtJ2
+         8/NfvivQP9S562JTlqcS8VS6dfmjkVqbkvUW4buE7nU/Zj9Jgz0Lb6m7shW/t97gFkB6
+         6Z8LxlGY5glMdzg3+w6MfAzPmKVEmx7Ybx5FvQPw6DpOAQ9He/4s++dGeAgem/7HTFY+
+         IohtKuU6hC1ef8mMnTTv/T8YlAuGn9j3tUEs0E4p1bT64HYocpd78eZgbJxDbtbuBjN8
+         i5aQ==
+X-Gm-Message-State: APuU4Z8B3vl7foeuIPkUd07co67tbulW5hg6c02tZIJLVWe35lanp5Ok
+	Dxa9KCAhCm3KsD8DVt7ZVrG16HTCQo+3Yr3RwXerC8S8c0XzPF81tWsynbfi9g==
+X-Gm-Gg: AZFdTZfRfwm6HIZaUE5k9WHrP3g8/oWWa2T5eXrnmItxBbnj1JSMnr0hVSMaInGeNGZ
+	ijGVpRlDBD3rQhFOtpSvfp+giMjd3oHgNvHjRpb5UND5cJRL1QIacoKnHfIsqmDtbmKAeBgamFl
+	3z1dHkXJ1IM7dikY6rJYMbIOCZnf9FzKozlUwrFP/txrTWFbDGxLimVCtLo4NtiWa1Jv2sECmhq
+	6Gxx3T/2f10zKJY0G7IQ5CtOlBhHtrEhm4GILFpYCU2Pl1LxEvjlIbKOR53Q2+muEQGUD0ZNtTM
+	IJUk0FGH/FQAL/aAOnWKMnxUIosB0JjS5/x7WPv3/5KtQSNPCuCm8HkEByDxO4udmbyzsiZoqvg
+	dBrrInoY7IgckPQCqkgs1FX6wjeFZp5Ndp5nLryP2GhoDDN9Y4B9L1t7ynGpAYySVxvsboWeVUm
+	krWXWIcqkuRn1ArHXPBF17Xfzk1TAI01BBdo3Tn7ld8YkI6SfFxcX/cqpOkJw+QWj37p40iXvDU
+	PO4NJdVbZOQCdAgjWZ9Bd3bhH96OKVPnKIW7tVZ1d3jq7Hj8kwt6CJfsie5EQQQb4BJMwhmzov4
+	dtBaGe6sp4ey7wOdssp3DIccSp9jGXl2GQexeGO/SDYnErd20fgAJDhhF14a7pu8Wv2YaRyc0Si
+	N0ZsPkdtxVmyOJoGteZ5OxPV1keWK7/8HfDU+GGMn1wvu6tvIugoGwmb6hdPuHveJrTwegOCcL5
+	1dxnHYhaDc7w==
+X-Received: by 2002:a05:6102:292a:b0:7a6:d11b:16ea with SMTP id ada2fe7eead31-7d73935fb84mr699060137.6.1795150058439;
+        Thu, 19 Nov 2026 20:47:38 -0800 (PST)
 Received: from willemb.c.googlers.com.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f92680sm1966811137.5.2026.11.19.20.47.36
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f92680sm1966811137.5.2026.11.19.20.47.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:47:36 -0800 (PST)
+        Thu, 19 Nov 2026 20:47:38 -0800 (PST)
 From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
 To: netdev@vger.kernel.org
 Cc: davem@davemloft.net,
@@ -84,11 +86,15 @@ Cc: davem@davemloft.net,
 	edumazet@kernel.org,
 	pabeni@redhat.com,
 	horms@kernel.org,
-	Willem de Bruijn <willemb@google.com>
-Subject: [PATCH net v2 0/2] net: gso: fraglist segmentation fixes
-Date: Thu, 19 Nov 2026 23:46:38 -0500
-Message-ID: <20261120044733.222627-1-willemdebruijn.kernel@gmail.com>
+	Willem de Bruijn <willemb@google.com>,
+	stable@vger.kernel.org,
+	Hassan Sultan <hassansultan@google.com>
+Subject: [PATCH net v2 2/2] net: gso: fall back to skb_segment when fraglist cannot satisfy checksum
+Date: Thu, 19 Nov 2026 23:46:40 -0500
+Message-ID: <20261120044733.222627-3-willemdebruijn.kernel@gmail.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+In-Reply-To: <20261120044733.222627-1-willemdebruijn.kernel@gmail.com>
+References: <20261120044733.222627-1-willemdebruijn.kernel@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,66 +108,162 @@ Content-Transfer-Encoding: 8bit
 
 From: Willem de Bruijn <willemb@google.com>
 
-Fix two issues when segmenting SKB_GSO_FRAGLIST packets.
+skb_segment_list() keeps the original headers and checksum state of the
+frag_list members. It ignores the checksum features and does not set up
+the SKB_GSO_CB() checksum state. This breaks:
 
-Patch 1 unshares the head before the TCP fallback to skb_segment()
-rewrites the TCP checksum field.
+1. Outer tunnel checksums. __skb_udp_tunnel_segment() and
+   gre_gso_segment() compute these with gso_make_checksum(), which
+   reads stale SKB_GSO_CB() state, and needs an inner payload sum that
+   skb_segment_list() does not compute.
 
-Patch 2 falls back to skb_segment() in more cases where
-skb_segment_list() produces incorrect checksums: tunnels with outer
-checksums, and CHECKSUM_PARTIAL packets sent to a device without
-checksum offload.
+2. CHECKSUM_PARTIAL packets, e.g., from veth or tun, sent to a device
+   without checksum offload. Unlike skb_segment(), skb_segment_list()
+   does not resolve these.
 
-Testing
+Extend the existing fallback to skb_segment() for modified geometry and
+SKB_GSO_DODGY, from
+commit 17bd3bd82f9f ("net: gso: fix tcp fraglist segmentation after pull
+from frag_list"), to when:
 
-Tested in virtme-ng. A sender injects TCP and UDP GSO packets (20
-packets of 20 segments of 1000B) over a veth with TSO disabled. The
-peer veth has GRO and rx-gro-list enabled, and forwards the fraglist
-skbs to a tap device without offloads, in three ways:
+- skb_tnl_header_len() is non-zero: UDP, GRE and MPLS tunnels (case 1).
+- the features cannot checksum a CHECKSUM_PARTIAL packet (case 2).
+- skb->encapsulation is set: encapsulations not seen by
+  skb_tnl_header_len(). For example, ESP with xfrm offload in transport
+  mode, as skb_segment_list() does not copy the ESP header and IV to
+  the frag_list members. IPIP and SIT are excluded too, for simplicity.
 
-- routed
-- routed into a vxlan device with udpcsum, over the tap
-- bridged
+Share this test between TCP and UDP in skb_gso_fraglist_ok().
 
-Each for IPv4 and IPv6, and with sender checksum offload enabled
-(CHECKSUM_PARTIAL) and disabled (complete checksums): 24 cases.
+This moves some correctly handled tunnel traffic to the slower
+skb_segment(). Fraglist GRO is off by default.
 
-A reader on the tap verifies the IP, TCP and UDP checksums of every
-segment, including inside vxlan. For TCP, a packet socket on the
-ingress veth holds clones of the GRO packets, and checks whether their
-TCP checksum field was modified in place.
+Discovered through analysis by an LLM. Reproduced on an unmodified
+kernel and verified with LLM-generated reproducers in virtme-ng.
 
-- net/main: 14 of 24 cases fail.
-  CHECKSUM_PARTIAL to the tap has incorrect L4 checksums, routed and
-  bridged. Vxlan has incorrect outer UDP checksums: with IPv6 inner
-  packets always, with IPv4 inner packets only with CHECKSUM_PARTIAL.
-- This series without the skb_cow_head() of patch 1: the bridged TCP
-  CHECKSUM_PARTIAL cases, IPv4 and IPv6, modify all clones. Routed
-  cases are not affected, as ip_forward() unshares the head.
-- This series: all 24 cases pass.
-
-Changes
-  v1 -> v2
-    - new patch 1/2
-    - patch 2/2: move the test into helper skb_gso_fraglist_ok()
-    - patch 2/2: rebase onto commit 22b7cb932c6a ("udp: check frag_list
-      IP family before using skb_segment_list()")
-    - patch 2/2: commit message: explain the skb->encapsulation test,
-      reference the existing skb_segment() fallback, drop the claim that
-      skb_segment() is always safe
-  v1: https://lore.kernel.org/netdev/20261111221129.829218-1-willemdebruijn.kernel@gmail.com/
-
-Willem de Bruijn (2):
-  net: gso: cow head on tcp fraglist fallback to skb_segment
-  net: gso: fall back to skb_segment when fraglist cannot satisfy
-    checksum
-
+Fixes: 9fd1ff5d2ac7 ("udp: Support UDP fraglist GRO/GSO.")
+Fixes: bee88cd5bd83 ("net: add support for segmenting TCP fraglist GSO packets")
+Cc: stable@vger.kernel.org
+Reported-by: Hassan Sultan <hassansultan@google.com>
+Signed-off-by: Willem de Bruijn <willemb@google.com>
+---
  include/net/gso.h        | 33 +++++++++++++++++++++++++++++++++
- net/ipv4/tcp_offload.c   | 10 +++++++---
+ net/ipv4/tcp_offload.c   |  5 ++---
  net/ipv4/udp_offload.c   |  5 +++--
- net/ipv6/tcpv6_offload.c | 11 ++++++++---
- 4 files changed, 51 insertions(+), 8 deletions(-)
+ net/ipv6/tcpv6_offload.c |  6 +++---
+ 4 files changed, 41 insertions(+), 8 deletions(-)
 
+diff --git a/include/net/gso.h b/include/net/gso.h
+index 119fc4c170e1..6cf6a6dee234 100644
+--- a/include/net/gso.h
++++ b/include/net/gso.h
+@@ -3,6 +3,7 @@
+ #ifndef _NET_GSO_H
+ #define _NET_GSO_H
+ 
++#include <linux/netdevice.h>
+ #include <linux/skbuff.h>
+ 
+ /* Keeps track of mac header offset relative to skb->head.
+@@ -39,6 +40,38 @@ static inline int skb_tnl_header_len(const struct sk_buff *inner_skb)
+ 		SKB_GSO_CB(inner_skb)->mac_offset;
+ }
+ 
++/**
++ * skb_gso_fraglist_ok - test whether skb_segment_list() can segment an skb
++ * @skb: SKB_GSO_FRAGLIST skb to segment
++ * @features: features for the output path
++ * @hdrlen: transport header length
++ * @proto: network protocol, for checksum offload
++ *
++ * Return: false if the skb must be passed to the more general skb_segment().
++ */
++static inline bool skb_gso_fraglist_ok(const struct sk_buff *skb,
++				       netdev_features_t features,
++				       unsigned int hdrlen, __be16 proto)
++{
++	/* Geometry modified, e.g., by a pull from frag_list */
++	if (skb_pagelen(skb) - hdrlen != skb_shinfo(skb)->gso_size)
++		return false;
++
++	if (skb_shinfo(skb)->gso_type & SKB_GSO_DODGY)
++		return false;
++
++	/* Tunnel headers and outer checksums are not rebuilt */
++	if (skb->encapsulation || skb_tnl_header_len(skb))
++		return false;
++
++	/* Checksums are not resolved in software */
++	if (skb->ip_summed == CHECKSUM_PARTIAL &&
++	    !can_checksum_protocol(features, proto))
++		return false;
++
++	return true;
++}
++
+ static inline int gso_pskb_expand_head(struct sk_buff *skb, int extra)
+ {
+ 	int new_headroom, headroom;
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index 520778c5ca7f..7691be01da4d 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -105,11 +105,10 @@ static struct sk_buff *tcp4_gso_segment(struct sk_buff *skb,
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+-		struct tcphdr *th = tcp_hdr(skb);
+ 		int err;
+ 
+-		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
+-		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
++		if (skb_gso_fraglist_ok(skb, features, tcp_hdrlen(skb),
++					htons(ETH_P_IP)))
+ 			return __tcp4_gso_segment_list(skb, features);
+ 
+ 		err = skb_cow_head(skb, 0);
+diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+index b77ae2f00c62..243bd75302d8 100644
+--- a/net/ipv4/udp_offload.c
++++ b/net/ipv4/udp_offload.c
+@@ -519,8 +519,9 @@ struct sk_buff *__udp_gso_segment(struct sk_buff *gso_skb,
+ 		 * the frag_list skbs still have the IP family we segment for,
+ 		 * as their network headers are not rebuilt.
+ 		 */
+-		if ((skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size) &&
+-		    !(skb_shinfo(gso_skb)->gso_type & SKB_GSO_DODGY) &&
++		if (skb_gso_fraglist_ok(gso_skb, features, sizeof(*uh),
++					is_ipv6 ? htons(ETH_P_IPV6) :
++						  htons(ETH_P_IP)) &&
+ 		    ip_hdr(skb_shinfo(gso_skb)->frag_list)->version == (is_ipv6 ? 6 : 4))
+ 			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
+ 
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index 0914f95f100c..71feb92aeac2 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -9,6 +9,7 @@
+ #include <linux/skbuff.h>
+ #include <net/inet6_hashtables.h>
+ #include <net/gro.h>
++#include <net/gso.h>
+ #include <net/protocol.h>
+ #include <net/tcp.h>
+ #include <net/ip6_checksum.h>
+@@ -177,11 +178,10 @@ static struct sk_buff *tcp6_gso_segment(struct sk_buff *skb,
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+-		struct tcphdr *th = tcp_hdr(skb);
+ 		int err;
+ 
+-		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
+-		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
++		if (skb_gso_fraglist_ok(skb, features, tcp_hdrlen(skb),
++					htons(ETH_P_IPV6)))
+ 			return __tcp6_gso_segment_list(skb, features);
+ 
+ 		err = skb_cow_head(skb, 0);
 -- 
 2.56.1.750.gf70dc682cf-goog
 
