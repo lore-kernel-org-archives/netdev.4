@@ -1,22 +1,22 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.45
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.29
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795206280;
-	b=ENvg/3gkKgG4Xoh8nEzV//RzqesZz/HfT8WwH2/M/DjC8b2XCp8s43TBE/C1rdm94Ymr
-	 51lHqeDB33t+Oq+wNoWTxylGniiRp+UWokb16/Vb7YvBwkYqfjHQoj0nE4xYY3NEIZP8v
-	 LmKSnVDsOCgGCg+/p1PtZ9Sdqkck2Q0L9p8i8Mj4AfzfkcyFWKJgQlmX4CTm2jAjRvVhh
-	 /NfnT109WgTFI3S4CUQ6nG6CHVxYEtBDC+lm2S1jk9IQiVREjIiVceKNg0VqZgIng6Llg
-	 /zP+C2aZGQnrGLf55okJupe+H5BDJKXkvdpzxJLUoFarwPopsQklSTyHZu07qwbD9nQ==
+	t=1795206288;
+	b=YriQdpu5DCvZrheOcgYMtnjUvBn2hvRKZ2DikhW5eOsr9Lbyjzf374pWP8kR8NIWLvbQ
+	 671oLualCNqoWwHyGpJhUM6o4DDqNXvXCQwhRj2VP/8l0uiRgBuOPYYNpQKylQB4HDQSm
+	 trzTpWLr84Y/iOkx/NNwBPf9ui3mqDzAVShwkoUVE9g20PbmO8/ss7JhRz7/zauz6vODu
+	 Jhtt+abtOIzAgrKeU7p9hBZEiiPNBdlo+2yWmO9Cmg/2I5wWWA6F3en2WIhcUxo9BVkDM
+	 XCL87JlIPlhb5yh9+apFhmiWUHxnFv+zXSKZ/6xDNO4apbfK7lsvHkbuAsT/a58RDfQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206280;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206288;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
@@ -26,83 +26,81 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+OQlO/rragLCNOXxskl27qyKpMoYP3Zw8d23r0cHjec=;
-	b=bG/3xrJ+0XmCBNuNtLjVxkw9BcR9tXP1uJQ54PbOkW22n2UjT2Jzw6oFg1KtJVclfmHQ
-	 HxkMnCmKpj+/MOw1by6lZ0sgxbEagl/mE+A8GV+sScLzceUB7YXY6sWamzDgOsS/r6yTu
-	 XO6CaX+7dfTECoObW0+vxpzfFouFKG2jCcgtmRwO6en4SDJJP7l1Uyl3abqRt10O8drEP
-	 miSHns0DJUvDDw9cplAjbfmYBa5quwTf7THuLhnae6ftbexkYTUDtzb3sddRgBPKSpQug
-	 HSexKFace/WVirLu3l2uDF43jron7OkciebpOib2y+0NWtPmm3oHT5oH1YW7HaoESaA==
+	bh=fOjzkhKVe6wqjHjm/25kVAoDYXWVerreZf2WrlgkF9E=;
+	b=h4kaJYlyBrDEJZKPFTjN+NfmhcbWx6K0a6HjfXNCMKknb7GCRPEWs1+eRgCdiKSLbtMt
+	 YHhq4tcYNruYb+m/QV/lV/Vau0sj/RvgV1JV+RxdeSpaofoNZpWZ1wLf/dNcXJwTvstR8
+	 CTzQOarFELuu4fYQIqscf3eWlNb4aBCO4elcCmRdhzag8hpC2v/MIXWhO3W9RmOsTmAat
+	 HdhzZZgieDxL+H4jtPxRGcoSgU0g7AGY3OBUvHzFyYhMuSFPBUG9TSeAFu7aMIseIFq+P
+	 3HaRlc+DCFTf7k+9rKnk/OwgbKqmhDCZODT5gY30oFC9dxXxopjehe0Tevi7GskMY/A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=QY1Vqez2;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.45
-Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011045.outbound.protection.outlook.com [40.107.208.45])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VVdKLcqW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.29
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010029.outbound.protection.outlook.com [52.101.193.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AB06606A6D2;
-	Fri, 20 Nov 2026 20:24:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AB06606A6D2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 511F8606A332;
+	Fri, 20 Nov 2026 20:24:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 511F8606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=QY1Vqez2
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VVdKLcqW
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rDGmy1Lb3qi8XwYFHBu5A/Nyc40EnypC9IQXCmZmfJSYpScO1mVGW4Fn+kN9pkduKR5hzD6wBAzzxX15dP8HzmDaapqK2uGL2A5IhcIsbh+MVbOhjhQ9K2KHBOQYpoMNdFuZ99Ad1aNZdIEfreSsK/jIquIDERCsA1JsGmL2HM1K4KrEo7RTOgFeDbpLemqsH6uxLiXZDnDTEHcpXDo9sq6SYLVJWiEdVkvIfmZr5Ty2GbHpIy5+PHnS7YQ6BeEQoT9Zi5W/pfvDXhieAIGpnKzQGqM5k6UXKZYGUIgbYqCvmj7rpGEuKqL1IHoSaKYtdIs+WAAzLMD1Tz5hGUSdXQ==
+ b=wIJTTtbNoB6TU2652hOXXsGOSRsp8n46iImpnpHyJrf8HTZXOCbiqyvcPi35WD61AHiwr6XwqxOddrfpTEytv37S0snqOl3a7VHQTHmszC9qhnqCM75AzQrLOakst4VEgleXNAEaMFSn3TTuTmMcDROBXqh6eC9losE2mXv3npbgkyb+OyCBlZgcVT9X/koKvEHLQZECtQZqkQZLwIHlyefpDkpdA/3dVcRiZVhEGRN5m0uRB8MU2M83AlOuEAr/UlEKEwMibLmo6RjKuQotr0wY0XMzLY2jFAfTn4hqBhPzcjF7VgdOFwpp+05FiPUs5CS2cTRTDEaBWl++koaURw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+OQlO/rragLCNOXxskl27qyKpMoYP3Zw8d23r0cHjec=;
- b=i7rcqWXeYRupORJz+6q2KVNvAQHUbQzpK9JoZClWUNE8ym/H8oODqA8Eo3+JHEe+C/9k+ft1y/6T/7ugYVpd+CsxYZwybfuu2tU6KyxUkr7QNw70vWEyblNW5rj9W/AopjTQDZrQyv8JCgWVmjS/rzZ2TscT+VpJY4nmoLIZ25rRUWrn2qF1wONe5oQ278VxSU8Y+rZwBWm84U2nbIgeq/QsLqVI3iMc3g135NuIbtgRSs8pEBEt1YtXi31xh88ETx40z3s/Ne1I0A90eqOie3XZ3UMo5M5D0Hvi07D/GzWjAg9GqP3/ipgYTqSJwIuNyiHogRSbq2oVHoVP97/xVw==
+ bh=fOjzkhKVe6wqjHjm/25kVAoDYXWVerreZf2WrlgkF9E=;
+ b=sEMcF8nCgR+jD/e5Jh1Z86Zcf4E8Psn7B25OoZoUYFlRyRVpDw+ge6Sun10rqcbSGPABpatuK3s6yQL3AGZcEi1nJl0geJv2SpTDSKeqequrDGoiz9imTRpLyapg0rEkJve2jSzI5e5czyl92rnpA6XksIiwetGUe8Y/1UBcV7+ly2h86Gf4Py5DkCp89RU5x7xqFUB4TOz9WlwmJi3lEWSWj812ZlP3Op3fplr9JjKZ93MRlFG1MrsHQN5rEdQGpd3hhO9u0owXm8Z5gLPEHNs+Q6U1Bn/OZGmNx5s3dY/ugLeqlMyTs/RypoqV8v1yVp6pGal+OJE6OYYE0gklxQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+OQlO/rragLCNOXxskl27qyKpMoYP3Zw8d23r0cHjec=;
- b=QY1Vqez2Gu9A3Ta8FGLXbfkJyWi17YP7X+Vpo3+u5XBC8sA9IjoTKDzyZqduTbuAqqa2GbCAtUre38fAdiSluLezqTI8cpqz6X2It3qoB2He6B4msQXGpdrstJs0No1ZZOcJYaFZ7YFy8ta1Jy2jqNL+R1P4VmeWdvbfskjWjkF1BioqtFXvJcPJ/qZSzHOfDiyZB2aEvYWG5eoffx7m5ti4ZCjQJyR48IzHt8AMAgpxHtYaL6YJ5i/FMcnseZtIY4liZsCK+WX4vK08MvletPmAOFsRZJA01PexMx82jMY0SL7n2Gr8ln4iLGQg8XqqEkdEzRwkx1BnEtVtOrSRkA==
-Received: from BLAPR03CA0046.namprd03.prod.outlook.com (2603:10b6:208:32d::21)
- by CH1PPF946CC24FA.namprd12.prod.outlook.com (2603:10b6:61f:fc00::61c) with
+ bh=fOjzkhKVe6wqjHjm/25kVAoDYXWVerreZf2WrlgkF9E=;
+ b=VVdKLcqWnWR+bOFuhE/zEeahwjQNo7PIVWrlye+X4y1Yi5uAAo8ViIq+mYdWSF0jckDQAL5eNt1/mB3Lm6ugvpSsxq1U1m0ONjdfp6P9b+xzQgkCn7FHZNRJxDay3sUrZ0yh/GXkkYb3jFXOrjLNhYMRTmMtx+k+BU1oFQT/GZrxwL3rTq7Fuj2Dv8h9O4i+nPsaNJG3yjO0APBmOeQZQF8YeD+e0iTXLxTwEmGOZqBHI4GPaOIeH56q4fZuk9GWNyYueLpNFXMbR+IQBw/0Z3ew/EV/ZoaiAAKP+oBuDKzxvpM53kbJs8vjS9UFlUyWLPa3wYWVOGyW9X76bJbh4Q==
+Received: from BN1PR12CA0027.namprd12.prod.outlook.com (2603:10b6:408:e1::32)
+ by LV3PR12MB9260.namprd12.prod.outlook.com (2603:10b6:408:1b4::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Fri, 20 Nov
  2026 20:24:35 +0000
-Received: from BN2PEPF0000A88E.namprd04.prod.outlook.com
- (2603:10b6:208:32d:cafe::81) by BLAPR03CA0046.outlook.office365.com
- (2603:10b6:208:32d::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.11 via Frontend Transport; Fri,
+Received: from BN7PEPF0000009C.namprd04.prod.outlook.com
+ (2603:10b6:408:e1:cafe::92) by BN1PR12CA0027.outlook.office365.com
+ (2603:10b6:408:e1::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
  20 Nov 2026 20:24:35 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN2PEPF0000A88E.mail.protection.outlook.com (10.167.248.180) with Microsoft
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN7PEPF0000009C.mail.protection.outlook.com (10.167.248.148) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 20:24:34 +0000
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 20:24:35 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 12:24:17 -0800
+ 2026 12:24:16 -0800
 Received: from vdi.nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 12:24:16 -0800
+ 2026 12:24:14 -0800
 From: Chris Babroski <cbabroski@nvidia.com>
 To: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
 	<kuba@kernel.org>, <pabeni@redhat.com>, <davthompson@nvidia.com>,
 	<cbabroski@nvidia.com>
-Subject: [PATCH net-next v1 1/2] mlxbf_gige: protect against MAC disable during TX
-Date: Fri, 20 Nov 2026 15:24:02 -0500
-Message-ID: <7742d597c5321d5cb587180c1d29eccffa9d51bc.1795206150.git.cbabroski@nvidia.com>
+Subject: [PATCH net-next v1 0/2] mlxbf_gige: disable MAC after panic
+Date: Fri, 20 Nov 2026 15:24:01 -0500
+Message-ID: <cover.1795206150.git.cbabroski@nvidia.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1795206150.git.cbabroski@nvidia.com>
-References: <cover.1795206150.git.cbabroski@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,119 +116,83 @@ X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
  rnnvmail201.nvidia.com (10.129.68.8)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000A88E:EE_|CH1PPF946CC24FA:EE_
-X-MS-Office365-Filtering-Correlation-Id: 73351434-a068-4155-4366-08df47444af0
+X-MS-TrafficTypeDiagnostic: BN7PEPF0000009C:EE_|LV3PR12MB9260:EE_
+X-MS-Office365-Filtering-Correlation-Id: b46fb927-1393-4e2a-6f54-08df47444b5f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|36860700016|1800799024|82310400026|10067099003|261026140227099003|11063799006|56012099006|261009223027099003|261021121427099003|261021135927099003|261102123227099003|261021123027099003|261022105027099003|261028144727099003|22082099003|18002099003;
+	BCL:0;ARA:13230040|23010399003|36860700016|376014|82310400026|1800799024|261026140227099003|261026121527099003|261021135927099003|261021121427099003|261022105027099003|261022075727099003|261028144727099003|261021123027099003|261102123227099003|56012099006|11063799006|10067099003|18002099003|261009223027099003|6133799003;
 X-Microsoft-Antispam-Message-Info:
-	fYqzb/Dnu+dMhvWGUeeQ5BxXoTVoA1VaUdYbN58JfHiFQhvp7Nv8EseBWoizclxYgHr2Oh3Q48Q/DSsh0bhXMMut5yOdxVmhQDubDET5sBDRIR+Ofz/XOsgw2hztN877CuedEW+brjIVdN+89i5qaCfoBITkCQ794qtqUZEuU3cyaLXDstgKy52kCK/8HJqf66aoEt4Ms3UQ0qMKqlAZQvNC3Pe4f7HFM3jNnSicBWh+ouAhRFPyDlSgA5k83JO4hxKgr1Ag/dylmkboy+IebDQyfBx2bh98cAYV4+f5yFmXbowA8gBq/JUm2rskAwECqKgZPAA8f8H3CuUt5+TTrfmGFfpy61v+xgmTPZfy0e69GwVD3R2/ZIQEKKkX9fVklW4sO2ETDnKLFHG+HVEeFY9rJudiV7iJTC7iuHh16TGZmNSvG5nDynHtH08ykZ3RuSQU+E0s6o6A8VJDKpEvI8oW5SaieDwzRkjYHN+yjyUKvIM9cPvd442FOzcSl1V8A7oFqsjlz+jDNswBpGyFAe/N6abI1OdebV6jmWdKY3n1OqqevYZAKqAlqFv3vY+BvKKRJw+aKRs/snL2XeGq6/UFDCRtvVnaNiW8kjtkPIJxK1yN3D7vd8J6Wax7yfG8eQgy6OKV1SsYPTrzaDjz/V/hgHkrcB1iWeygpTFFZMB4+7EFVyZLeOYVYFyC9tzJcyaYP2MOIJMtV/AMzc6wNg==
+	K7ZItRYY2FrlVgyTur0A4t2++AzIdSNnzCBMBfIUA8yre7NFRs+bx3L9ms1Uu4E2bRjlOaGj6G4+ZvmwuV97kw7bBQtAxXM0eawC8Cus/S/dyYxOi7xZf5JFkZcxUFcGzi7h1L1TffxQS+Jt04OM4naV0jJSa69XnkSQwXPvX+iOP2RSLGF4TePo1y+qyIUH2GuW/Yupjj9tF+O9Ax5LzehgXBFRm+dcKOvsPIk8TRyr3sMo27tZSHfQ8a8ukbdGweY/r4btq+xn9KzUJdAIJaTtRX/jDU1K+4JUj+tZfgCYikDbMd9emHAYWhWb8VPl8xHO8B1rW0WE6Z279GfmsdiInJa528kab5RlULEGW4EzHx5ftGwq+fFsxHelIytaa6250BQYiWrxt8Ras9msAXm37gy4zU8mw5PEKhyu9Fu5LTdWK0cj7CjtmZMvMZ3sEnSDjcJPbS4mfSrCQ0uFy5QW5UBh9XEJBr/8oHx2mcQeGpqNHq0SuSnWZ7jRd8hHk8FPEYBHTqiYeJvTK0BzX+0XiO5Aa0m3y4JvAYbtrPoN49rv1JpZgUoH330Ma+2FOP/29bJOy+Y1fS8utwhTQGpadu4Veihb+QfJe4HSwuVSZv1wLpuUTFlltFfYnIsGTu1JMCkDvmR5Q98j003ZL7z0enij79Tc9kLklo6LNFT0FoqNu5/fdC0OdULU/6MsHuNkEzC/Kmw44n04XjdJZw==
 X-Forefront-Antispam-Report:
-	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(1800799024)(82310400026)(10067099003)(261026140227099003)(11063799006)(56012099006)(261009223027099003)(261021121427099003)(261021135927099003)(261102123227099003)(261021123027099003)(261022105027099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(82310400026)(1800799024)(261026140227099003)(261026121527099003)(261021135927099003)(261021121427099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021123027099003)(261102123227099003)(56012099006)(11063799006)(10067099003)(18002099003)(261009223027099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	73w8pLGnSiGIfFrhl8kLPyfN1t+uZbRV038SLAPUVfQxUtiODICfUkBzl6IGHWz7Wg/Dy+SLmb5UAJ+gVAuj46E3ZnwL2O7eoahaHgRlaClObCQypAFR8IKk9C9OpL+qhRDIj9aax7kA5uSi4nXeNU0poUnHKxWrXcKfM9kqdWVTgWjRrQ3Y1kyguDDhWaC4xk6OQo9OJuN9dioNkhM/DzzjGwQ9nI/rlfc5wELDSOK+1UbzmwnPP6vtpkTzbPWqTrWAJVeapd1ZhliCto3hAQrIuxzmRRvquJUA+hiT9s+TzphImyPWk91LPaLMU7Q3+jyLHKJ4tlyTgYvHd39IiDlJvgVcXPtaNWjQpGUebGjOn8AGNx+Fy8iE2SQIK/SXyOVyBSzmQqelum1GmjLipctRKnqOwMS4u8/V+foFnXw6RSmHwgrXWgMVRteOREky
+	KsvEUo7ffWSk9orY7qqNO72GMSCqRhKdAYx3Jom+/upGqvAjEXuDRzxjYwLRECl/FylSacyH4J3feO17i+iPxXIXAId2bngqJWElL0VW0QVwOyOaQGU673cTqekUtxf9TfVA1xBLJt+oIbldq0gbTHe0RBlXLhXBexzLW5u+JeH+6QwVWdLoRF+0SSQDibfNZq/ThwSXVeczAxIxWBHbMOcbDALdNHfOlf0TiNvpqo+6EcwUFLgZmLnnw7a3iHZZkORmIO7Yo4kaSH8fpP3fvHoSuyAMztt9g+pQx61xlPMoPLqsyRxdwno37VGQRMs33LzypREqLk7KDK0cFBWCmi600HxdmxKKRZ/u4yDcjynUrxsb2H+OB07gD5Qs7EoC3uL1+g9GOo9CPjZu43iqiacp/GAx8/rExa/D89W8Dd/6rJbszViT1air30ub4abw
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 20:24:34.8841
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 20:24:35.6010
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 73351434-a068-4155-4366-08df47444af0
+X-MS-Exchange-CrossTenant-Network-Message-Id: b46fb927-1393-4e2a-6f54-08df47444b5f
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	BN2PEPF0000A88E.namprd04.prod.outlook.com
+	BN7PEPF0000009C.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF946CC24FA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9260
 
-On BlueField, firmware can disable and reset the OOB MAC when it handles
-a fatal error or panic. If Linux is still actively transmitting packets
-while the MAC is disabled, then it's possible for the HW consumer index
-to be reset while the SW completion index in the driver remains the
-same. This can cause the two indices to suddenly become far apart, with
-a difference that is potentially larger than the TX queue length itself.
+Background
+----------
+On BlueField 2 and BlueField 3 the MAC HW is designed to repeatedly send
+pause frames to its link partner when the RX FIFO is full. The internal
+Ethernet switch on BlueField that is connected to this port is also
+designed to stop traffic on all ports when it receives a high number of
+continuous pause frames from one of the ports.
 
-Previously, mlxbf_gige_handle_tx_complete() would continue to loop
-around the TX queue, counting packets and freeing their memory, until
-the two indices were equal. If entries were already freed the first time
-through the queue, then a second attempt could cause a NULL pointer
-dereference.
+What this means is that when the MAC RX FIFO cannot be drained (e.g. due
+to panic), it is possible to reproduce a scenario under steady and high
+network load where the network becomes inaccessible for other devices
+connected to the 3-port switch, namely the OOB host and DPU-BMC.
 
-Bound the loop over the length of the TX queue so entries are not
-handled more than once, and check that the skb at tx_wqe_index is not
-NULL before handling.
+What this patch series does
+---------------------------
+Register a panic notifier at highest priority that disables MAC RX and
+clears the RX FIFO to ensure that the MAC can no longer receive packets
+or send pause frames after a kernel panic.
 
-After the loop, set the SW completion index to the new HW consumer index
-to prevent future polls from walking the queue again. In normal
-operation the loop already exits with the two indices equal, so there is
-no change in behavior.
+Add protection in the mlxbf_gige driver for the case when firmware
+disables the MAC after handling a fatal error or panic that the kernel
+could not detect.
 
-TX is not recovered after a sudden MAC disable. If firmware has disabled
-the MAC then the system is in a state where it will be rebooting
-automatically or needs manual intervention to recover.
+Testing
+-------
+The following testing was done:
+* Verified no performance difference when testing with iperf.
+* No regressions found when copying large files to and from DUT.
+* Repeated module load/unload succeeds.
+* Bringing interface down and up repeatedly succeeds.
+* Flooded the interface with broadcast packets to keep MAC RX FIFO full
+  while monitoring pause frames received on the internal 3 port switch.
+  With this test setup verified pause frames stopped after:
+  * ATF FW panic
+  * kernel panic triggered with sysrq
+  * power off
+  * reboot
+  * module unload
+* No unexpected kernel Oops or warnings when implementing custom ATF FW
+  to disable OOB MAC while mlxbf_gige is actively draining the RX queue.
 
-Signed-off-by: Chris Babroski <cbabroski@nvidia.com>
----
- .../mellanox/mlxbf_gige/mlxbf_gige_tx.c       | 29 ++++++++++++-------
- 1 file changed, 19 insertions(+), 10 deletions(-)
+Chris Babroski (2):
+  mlxbf_gige: protect against MAC disable during TX
+  mlxbf_gige: disable MAC after kernel panic
 
-diff --git a/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c b/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c
-index 04982e888c63..73c3033591d5 100644
---- a/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c
-+++ b/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c
-@@ -130,6 +130,7 @@ bool mlxbf_gige_handle_tx_complete(struct mlxbf_gige *priv)
- 	u64 *tx_wqe_addr;
- 	u64 tx_status;
- 	u16 tx_ci;
-+	u16 entry;
- 
- 	tx_status = readq(priv->base + MLXBF_GIGE_TX_STATUS);
- 	if (tx_status & MLXBF_GIGE_TX_STATUS_DATA_FIFO_FULL)
-@@ -143,7 +144,8 @@ bool mlxbf_gige_handle_tx_complete(struct mlxbf_gige *priv)
- 	 * to be supported, that is TX consumer index wrapped from 0xFFFF
- 	 * to 0 while TX completion index is still < 0xFFFF.
- 	 */
--	for (; priv->prev_tx_ci != tx_ci; priv->prev_tx_ci++) {
-+	for (entry = 0; priv->prev_tx_ci != tx_ci && entry < priv->tx_q_entries;
-+	     priv->prev_tx_ci++, entry++) {
- 		tx_wqe_index = priv->prev_tx_ci % priv->tx_q_entries;
- 		/* Each TX WQE is 16 bytes. The 8 MSB store the 2KB TX
- 		 * buffer address and the 8 LSB contain information
-@@ -152,18 +154,25 @@ bool mlxbf_gige_handle_tx_complete(struct mlxbf_gige *priv)
- 		tx_wqe_addr = priv->tx_wqe_base +
- 			       (tx_wqe_index * MLXBF_GIGE_TX_WQE_SZ_QWORDS);
- 
--		stats->tx_packets++;
--		stats->tx_bytes += MLXBF_GIGE_TX_WQE_PKT_LEN(tx_wqe_addr);
--
--		dma_unmap_single(priv->dev, *tx_wqe_addr,
--				 priv->tx_skb[tx_wqe_index]->len, DMA_TO_DEVICE);
--		dev_consume_skb_any(priv->tx_skb[tx_wqe_index]);
--		priv->tx_skb[tx_wqe_index] = NULL;
-+		if (priv->tx_skb[tx_wqe_index]) {
-+			stats->tx_packets++;
-+			stats->tx_bytes += MLXBF_GIGE_TX_WQE_PKT_LEN(tx_wqe_addr);
-+			dma_unmap_single(priv->dev, *tx_wqe_addr,
-+					 priv->tx_skb[tx_wqe_index]->len, DMA_TO_DEVICE);
-+			dev_consume_skb_any(priv->tx_skb[tx_wqe_index]);
-+			priv->tx_skb[tx_wqe_index] = NULL;
- 
--		/* Ensure completion of updates across all cores */
--		mb();
-+			/* Ensure completion of updates across all cores */
-+			mb();
-+		}
- 	}
- 
-+	/* At this point the completion index should be equal to the
-+	 * consumer index. If they aren't then the driver is out of sync
-+	 * from the HW's state and needs to be adjusted.
-+	 */
-+	priv->prev_tx_ci = tx_ci;
-+
- 	/* Since the TX ring was likely just drained, check if TX queue
- 	 * had previously been stopped and now that there are TX buffers
- 	 * available the TX queue can be awakened.
+ .../ethernet/mellanox/mlxbf_gige/mlxbf_gige.h |  2 +
+ .../mellanox/mlxbf_gige/mlxbf_gige_main.c     | 39 +++++++++++++++++++
+ .../mellanox/mlxbf_gige/mlxbf_gige_tx.c       | 29 +++++++++-----
+ 3 files changed, 60 insertions(+), 10 deletions(-)
+
+
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
 -- 
 2.34.1
 
