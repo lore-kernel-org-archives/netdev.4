@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795171546;
-	b=lBzo6hSPSEU5yTPLN7tRZHvGQve1l5nQMbzDf/dUAZIDYktTmQvrtd3s3rta6I7oqObO
-	 iK6ePQzAbu3/mAPSJRhE4Fqy84l9b28iUGPLdgkDt1lbdo3yj4FFOccCm9fjgpGIiM/PH
-	 okaHxzLansfnZhUO3nR3magEHGC5A5r0x5zKPohwsFkm/ucZz8TxEIV94UifS9189dtPb
-	 oKdOyvEBGm03gCe074AM7CFhQxqGcSEnZaJcQyq66MuReFr6k4C3iqj5mnmi8q0GpM7xt
-	 AqvPkoIkJKiZIy4ustG9Wgg86YceGUTBy5yGdWH4p6sjPLUAmO1yX/yo0gRjUkfctfQ==
+	t=1795171543;
+	b=nh/pcNI+YIKqOCTMbH/95REgn5HP6xFylOFE6TRo+lcYxSwAbBctmt8zIr8dF4uTNHmT
+	 BLV6Yk6zVBd9PzGcjdBcmH3LG1kFiGAsOVXGdYaoPT9JLBW+dO0Uxe9jqgB7AqAWumSCe
+	 t44bsPMIgBeR7tYMw8tbBV93QJW8cWfTAYpyZ58Y6pPa0F298kykoGqNxEjL9pTxcDXco
+	 wbjrOEj7FAb97S2gWTRqHBwA6zMiaqfA7HBADGN4sh681UAuQqa08ZruzCXr3hr1dCtqm
+	 Xg7R7Z2lZqdexTyXi/oBtDX9k2g4xrOQX0b2n1Xfw1N7IP9a7rnkPuNWsX/nPDDvAqQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171546;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171543;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zV76d2YESqZWH1Drxbc6WOxz9N8JdPgmkEvh2BgOs8w=;
-	b=FDPA1BXobooI7ZELJDqW5Y9f/l1v48/4YfvXVCR8i/6QB/lexYUGHZolSU1GBpM5DEIc
-	 V1/cpr0w/NPruVf5BCKA+xAWIXlhvvCaow48KJihyzQahFH+vUMF0tkgOKq/LhOJ2IfaZ
-	 KaaWCnLo5C4Txb03lEnYJgGDnlJqwTTCoFFCHxo81+lnhOgF9FXflYSvoarCq34yWk72w
-	 hv7E9ZAqcAJ6Oy13bMJK9NytvR1v71DQPeYgx5Q2j6v0Ak/25wo2hFKLJWiTZjtrv3X2L
-	 hjDn40KhYogyVdHBzXCVtDmvcGKwjudepUhRsf06+ZMSXdWyO9ZjYJFbroiW2/4Bxdw==
+	bh=ULv9Bdwa1mzjUCCyb50Jfy/iR+5Oeq3ji6ZCzv6E3po=;
+	b=vqx43eVajseByQhA44ToN7/VJdjzkyONhlEx7FPmLyLW2Lj3qJoEIFpcZFFHyR6Y2KhW
+	 LPYHkKL7yu7a51v2giitDtuL7fxmFjwqzhItn31cZfpXoeNKezFeEjzavwQ+/ErFqGg9C
+	 b1QD7Hqk/cD/bm9BBLu7eEaLTZADnoS7+TQbc3lThFLlJZykK0WrkOK9I/YHYlBxcCdXG
+	 QJK45icycXOWiRzazVtlmDEApFWLu9aXvAr+yZtaCYQD1VuCa6/FuUfDfSAvWe0cOeyWx
+	 0M5TB9g4fY2KqHB321TETTa3cM6HSYBzERCVv5T1vTCHoKqHYZjogcAxGyurxEmKiQw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ofN5+2Rg;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="JDK8l/2I";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0993460A2602;
-	Fri, 20 Nov 2026 10:45:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FB2B606A33D;
+	Fri, 20 Nov 2026 10:45:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ofN5+2Rg
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JDK8l/2I
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795171545;
-	b=erjKfiLbH4VmyWm/vH6eraONIRQFtJGHSZ2rF1w7s/jOzWgQ7xKlOXTLnRVX+LObXTXK
-	 f3tol8Vuw/++D2kgKJL/Xjj7SuH2wSH7O3erZ6ECL0ovJVdHeN4qhUGKyVZY7MebartSp
-	 XF0fJkqK2c3onyCINEZhXb9sMskTRtBPNuDRwTccofVeO+t1aP4Ypi95PYGaHA1V8e3GU
-	 uAbLFHFG/65d6+BXbPNvSi5wh+Cr4+YxYIzN0mjHwdE74oWfQltrWDNn+gEwr0ExypVdv
-	 WK8QedC20tt1pxsmE4u8oHByJ+F1FnXaTSi/aLYrT06FQ8rXp3arwHeUi9PJnTK24Cg==
+	t=1795171542;
+	b=dKbHhZ5Y7PcP22YOo3dHPjyO6pFHhV9KNC1wTNidLmVyimy0BB99vPtJuh5tYRbPblYV
+	 o5tHyneF6qVAZ5ZbOYLNJEM42pYBxz7TuKuAkcdqMvZ//gdv4E57qOcM5VOvndyIWoTJT
+	 UGGx5aSY6SwdT5OfNj1SfGESpH7ZrCRcxCdoBdJBm3GNp6Yo+ZI4Vco2yZ6ED6W7ROHBu
+	 ji/ClNlpdC0qb7c0iOi+cSnEFHlqN8KOg16oAEkY4EckTqtLzzGFzuQHIGOusupjgM1sD
+	 UtvcDE59EgFUVbqgVr/G4TvCBEg/CQWlRTHC0x3vH3ZmkUcyE0Gw7/unJbIk919M5ig==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795171545;
+	c=relaxed/relaxed; t=1795171542;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zV76d2YESqZWH1Drxbc6WOxz9N8JdPgmkEvh2BgOs8w=;
-	b=yC1Zr83yXrCPxLUCjeCitboHmpL48k9jMsk5RcUZIn96mEfGARMv+GGlD9ptgqEzoPGS
-	 ebj6Vna6T4PDlLv7CvZJ6pvLPiKEzxyr4N22vgOjX4dc9Fp3hdvT1JXq6Zm4XGOy1DEKY
-	 HqcGc1j2KNfuxGyCJ3ODZUH3FspjdKokZW4fcTxYI21xAb5ZiFLhMAM6VniOCkFZRoJuY
-	 POyswzIOtq8ekoAqaDa0coM6jbqE28kGIdh0f3rZCr5goNlbidEH259BM3c3TiFKAPryT
-	 xJeYrzvkzgDVrzNANvJ8dgd+TUfQ4uEN9VLzF7VXlF9qYMvZgKNFNczrEBW5cHUetzA==
+	bh=ULv9Bdwa1mzjUCCyb50Jfy/iR+5Oeq3ji6ZCzv6E3po=;
+	b=DryIxU6djca4XCGrI7Xy+YsKoXkD6Y/0bfLTQiX/cy5neAcIxswALWKpGEcTxdWmZlws
+	 5m633KuH2Od/FFbaYcHFFodaVbcZhSz+uYRfpzVyuzOXFfl7yP0jdO46ooUgD0hzWBs5q
+	 PPywdPpIHUi0zZtWXPsud5mTWojmv5XMDZI0AbkTCKytT/uK6KJIH8NnElsgdD0Zpecpk
+	 y3Aay5ijvcAYanqnqH4KqeMs4UYHJEgJR7ApqjuhFfIJBJ6u0LPgdxm9XGtIeyxcKLG8W
+	 O0Hfrj7Sdyv+aAFovvhrZLxrdsKTdEUcfv9ytI/MIrFh+p669FtQhcC/6PjuLj6NKPQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 540D21F000ED;
+	by smtp.kernel.org (Postfix) with ESMTPS id 1EBE01F000D0;
 	Fri, 20 Nov 2026 10:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795171545;
-	bh=zV76d2YESqZWH1Drxbc6WOxz9N8JdPgmkEvh2BgOs8w=;
+	s=k20260515; t=1795171542;
+	bh=ULv9Bdwa1mzjUCCyb50Jfy/iR+5Oeq3ji6ZCzv6E3po=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ofN5+2RgS1WQyGc8LnWVpkkg071Bdcjc12jiYj2XOCuE8RpY+zlvPYy/ObozTO90l
-	 z1QgVs2sy/IaFVgvddVHLjgtLbgltobHGw+M15NMOca8AAOG2rIVt3VeQhinUuDpfg
-	 uQ9egm+VLf8aR6anVFCZwwn5UnbNQW3ZKfCP8/cnq2VZTMsN5nh26APqnd5Z+RC7wW
-	 JvNaQSe0cjFuGoMoNSNA7zrl43QTyP77AP4O700oqBTFz6dgvx+5wB+uNKQA1p25Xs
-	 DU2XNget67QmUQgNE7SHULxNLqlzzhi1P+z8lC6qVIDDEgABA6M9WnhJ8LUpWE8SP7
-	 gcpazKyGrdtwA==
+	b=JDK8l/2I1yOVrldLOFPwF0zm0NFHXwviqT9VVbtv8xT6pUCOQM3tf0EHTUbILC5Ay
+	 TPHuEtZwC5+v+P9piVpeuTQ14XjL93jWCcbZYfeMZ5/FZCHwGORiMO6aCt2RC0OK+v
+	 GG3YTXzg9flY4fw6+K1UAzD1tnUwUKUyWI4zMQCy7llGH7llcPw9/IoN1DDJA8DyMA
+	 ZpOnJ8fl6Wi8KthVL/16Q10o8aI3VDD1TORIpe3zL17ZUkX6tJTtcEvBEUkLcoBeaG
+	 rliJYC07ER58S8Fy5STyiOJhj5d1LfiL1XWscZX4tJXsHMfbXZ+175/emeaPsV+XvO
+	 miixZzsxcOMRg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D301249810;
+	by lkml.kernel.org (Postfix) with ESMTP id 9FA94497D5;
 	Fri, 20 Nov 2026 10:45:32 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 10:45:34 +0000
-Subject: [PATCH net-next v4 3/5] net: stmmac: Balance runtime PM when the
- probe fails
+Date: Fri, 20 Nov 2026 10:45:32 +0000
+Subject: [PATCH net-next v4 1/5] net: stmmac: dwmac-sun8i: Put the EPHY
+ clock and reset after the MAC
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-sun8i-emac-mux-uaf-v4-3-57eba8915f25@gmail.com>
+Message-Id: <20261120-sun8i-emac-mux-uaf-v4-1-57eba8915f25@gmail.com>
 References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
 In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
@@ -101,11 +101,11 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
  linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795171532; l=980;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795171532; l=2122;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=97PW5UFQBSB4Dnlh/PFE17fL8cbRuMGnU3dk5Q8efjw=;
- b=syVtZ25ayULnjArOlHLxIBpunZ75gTnHIIXt5gPUQe7+pDpaMqHQdKfqpEUV/1vcpQIO9NpYf
- OnUsSNj0EnoCp2Dj28a93ZUH7bmc+xg4Xi5RzTQLjCRcZG/0jfLPOa3
+ bh=zeDU/ie5mpEDPgDE4ZGiqAqgOX9E3SDKKC5wYWtaBU0=;
+ b=t/igZe+xTX/0i5PLRfuaa1Gv+fjIDiunNi9b8S5A+ogJpuhxE/sI+198+B+rfmqwhYg382Lpz
+ opxtf4+8pQwC1U4RUjk6F22wyRVooUvNNchEEitqd61roewZ0fdpDIE
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -116,30 +116,67 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-__stmmac_dvr_probe() enables runtime PM and takes a usage count before
-it registers the MDIO bus, but its error path undoes neither. After a
-failed or deferred probe the device never runtime-suspends.
+sun8i_dwmac_exit() unpowers the internal PHY through ephy_clk and
+rst_ephy, but the probe error path and sun8i_dwmac_remove() put both
+before stmmac_pltfr_remove() calls it. If mdio_mux_init() fails after
+the scan of the internal bus has powered the PHY, this is a
+use-after-free.
 
-Undo both, as stmmac_dvr_remove() does.
+Put them after stmmac_pltfr_remove(). The explicit unpower in remove()
+is then redundant.
 
+Suggested-by: Chen-Yu Tsai <wens@kernel.org>
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f256244ce0d1..4ebf4b625374 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -8407,6 +8407,8 @@ static int __stmmac_dvr_probe(struct device *device,
- error_pcs_setup:
- 	stmmac_mdio_unregister(ndev);
- error_mdio_register:
-+	pm_runtime_disable(device);
-+	pm_runtime_put_noidle(device);
- 	stmmac_napi_del(ndev);
- error_hw_init:
- 	destroy_workqueue(priv->wq);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 2ece7ba9dd73..9fb398f7cf9e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -1236,7 +1236,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 		ret = sun8i_dwmac_register_mdio_mux(priv);
+ 		if (ret) {
+ 			dev_err(&pdev->dev, "Failed to register mux\n");
+-			goto dwmac_mux;
++			goto dwmac_remove;
+ 		}
+ 	}
+ 
+@@ -1244,12 +1244,11 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
+-dwmac_mux:
+-	reset_control_put(gmac->rst_ephy);
+-	clk_put(gmac->ephy_clk);
+ dwmac_remove:
+ 	pm_runtime_put_noidle(&pdev->dev);
+ 	stmmac_pltfr_remove(pdev);
++	reset_control_put(gmac->rst_ephy);
++	clk_put(gmac->ephy_clk);
+ dwmac_syscon:
+ 	sun8i_dwmac_unset_syscon(gmac);
+ 
+@@ -1262,14 +1261,12 @@ static void sun8i_dwmac_remove(struct platform_device *pdev)
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
+ 	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+ 
+-	if (gmac->variant->soc_has_internal_phy) {
++	if (gmac->variant->soc_has_internal_phy)
+ 		mdio_mux_uninit(gmac->mux_handle);
+-		sun8i_dwmac_unpower_internal_phy(gmac);
+-		reset_control_put(gmac->rst_ephy);
+-		clk_put(gmac->ephy_clk);
+-	}
+ 
+ 	stmmac_pltfr_remove(pdev);
++	reset_control_put(gmac->rst_ephy);
++	clk_put(gmac->ephy_clk);
+ 	sun8i_dwmac_unset_syscon(gmac);
+ }
+ 
 
 -- 
 2.55.0
