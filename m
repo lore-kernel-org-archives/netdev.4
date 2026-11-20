@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795146758;
-	b=TMW6C6RNMW2CPhPzCU42hIWEwmxRUXgEuGRnV5E9rBFPgy3W7v10bLarksrArDK6aYSz
-	 CxDXUPWqV8VGriGqLzg3DnUunJwp4PqldHcM52QN/dNX4JnhoOE9/njxu6MooVBUJn6Ku
-	 29Kgm1Px8pHOoH6/REby9N/w31sdFwM2RRJocak03PzrH38QDcB4jTKUJJLos3X9j5JeO
-	 +XbodyCs7LBKRvbTRt0IFwmhXxzNoYMdoM2Kn3nDKq7VnOIAkFBMLnoxEYnT16IrAX5cP
-	 DhkbEIbimFcLmSRRZFFEyPfLP1fP4V9j5yRmtNtfugZHNDeYBHvQnddlw/o5re9Lo9Q==
+	b=DLRQYnEhjRoBp6hU+XHik6sf5fBZtNB5/WL0CUxtFMPxQjmSI1sJX5WuFMSbBi1JkuZE
+	 MC6Hl3GPPyDU4tkeTFohgsr7QKBL6FQ5Sv3R4VcXw7xkMSKqpVxu1dGB4IRtc3VYoTRuQ
+	 JukU3L5pNm1FcYmfLyl45z8tc7ul63udDoAWLlMHvYXJ6KTHuORAlIG7L0CD96Y4UzEK0
+	 AczW2Wbv7dvddYcSuXMeRaGrwQctClIdRQz7xumbsVzidp7sCfQTy1jXB5sjkIE+vbEt3
+	 xpwSBqPtVR8cGhjXCvwwJitnbsBOzaZXWXOfSRMpZ0khFpqGIWQo0NVndbg8BxE8Avw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795146758;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=klgUdxa1dZUtPqjmCxuiv0T9jZ4+oOgpT2KpFZ9XMUI=;
-	b=MW4jaJdrpWW3/Xc+o9n1Ru0QiDxeANB7voKxWOklehjn9Qkj530bBNACCgSIZmB9Vx72
-	 mQq5E9hQTgExpcPFiN1Zw9N53f1GTUZGUMCMhFM+qa674hxd8H4W+AD59g2x+T4z4KObI
-	 zjht8r5kL6NiypaxyWIvaWGoYhe5Hxh/yZ7wkhyJWBUZOdHuf2Czki5/MbnWST8CfFl8f
-	 oslC1ujC6tojiKMUQe2SmKKM8+BAYx/8jUn4BKGpnMg0hqNVGO2a1PM17vj/ISS9X9g/e
-	 1xGru2lBfbd+ruxEvkPqoFjpPYwoQJhXjWBNO+hi63WSLf7VOlO0s80mWkbrVaRxNVQ==
+	bh=TckOpSCF4iEZFCBFTSewT6s57Y/7oijnIAPHpSjFe/I=;
+	b=s6ME5aeXDQBVIGzisGdPG891ycgn0J58y12T/WT7qMX3xaFiA4Fhq/RtsBcoXqeAlFwb
+	 BzHQLWINh/Db6xq1/x/b38V+PqQLcatUeD+F5ujDAWg/vNV2cHXWceIOzH/06AKZOMcHJ
+	 c6gjy6ndNlS+ksXUj6Hj9N+t98vb6MnL+/DEzbdbJKCQptNv23UJAGS0oTLxUP4zI9cOz
+	 PklW9DpXe7zj8fy7B045MW1/4YTKmoinPRlUrJs21Nk1Gke5K0nxsf2KEAG1H4zN+5E0e
+	 4/lEpCD9Pzaf7VSDZymBlIZFLvAQjayKguhLQLSO8T5U/XWkY6s+r9Xo4rmsT2n+RDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iBNAbd8Z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V9RRlvaI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 986CB606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D917060A260A
 	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:52:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iBNAbd8Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E75F71F000D2;
-	Fri, 20 Nov 2026 03:52:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V9RRlvaI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 669381F000D4;
+	Fri, 20 Nov 2026 03:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795146758;
-	bh=klgUdxa1dZUtPqjmCxuiv0T9jZ4+oOgpT2KpFZ9XMUI=;
+	bh=TckOpSCF4iEZFCBFTSewT6s57Y/7oijnIAPHpSjFe/I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iBNAbd8ZTWL2qo8Ik7r+3ung/iivorLTDgKm2YRrWRKCP/d4P+B9EahUanba0ERdl
-	 yvsUX6xGh8jGKOMKtxo4tfJRywQVMux4CVs6T4K8XGftYb1XW8hEn8ufGcuV8Eh445
-	 XvZ5wbtyC8L1LFDN6Z7XE3flJTBJ089+s6UplM+rtbuk9ofmTw8MfBNaPo3FA5KWKi
-	 uTf3uxtK7nv9cx/z5NqA6E9WTvOpD/R/T4c2PtYUrnsd7BwVSHShl1EhzLcAT6hrsJ
-	 c6HXOIbbxKCZjSY+oXdfz+/dEI+QtwdCwm+mVyWh+z7FR6sSov75tg95/AUe3uyi/c
-	 xC5aAOm+JUqRg==
+	b=V9RRlvaIG2VmvbUWkBL2aMNfDw+dyhSPdcfLtOjLe6WvBTcidisKL0zbbSTHZ0RTI
+	 CRanYgCcVOfWw6LvzLNxWBHRmkS8I7uPxXJqZ4dWekBTQtiWjqQ4sfifjHc4u6ND/w
+	 V7RTlDljh3//inm8ywt/NC9QosDeCW5oDdz5Vps9YnaB9PfUGEDXIeoySxGuqYWWj3
+	 P9ciOqs7aeTOhDx+qPceiVOfoPjWvAEDACkvP2Q5odTDsbiOGoBEUJ4DHvKaQlSB0k
+	 RsM74iLLomCL6oVbeX8HaDYNArNOQWnFGhUCAI623J6iKq0ykMqKUlaFy8n8CLQRq4
+	 kHanw/jtdH0Eg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: davem@davemloft.net,
 	michael.chan@broadcom.com
@@ -52,9 +52,9 @@ Cc: netdev@vger.kernel.org,
 	bjorn@kernel.org,
 	joe@dama.to,
 	Jakub Kicinski <kuba@kernel.org>
-Subject: [PATCH net-next v2 4/7] eth: bnxt_en: explicitly keep device-only memory on the device's node
-Date: Thu, 19 Nov 2026 19:52:11 -0800
-Message-ID: <20261120035214.369158-5-kuba@kernel.org>
+Subject: [PATCH net-next v2 5/7] eth: bnxt_en: allocate fast path DMA rings on the queue's NUMA node
+Date: Thu, 19 Nov 2026 19:52:12 -0800
+Message-ID: <20261120035214.369158-6-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120035214.369158-1-kuba@kernel.org>
 References: <20261120035214.369158-1-kuba@kernel.org>
@@ -70,48 +70,103 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Context memory (and the FW crash dump buffer which reuses the same
-helpers) is used by the device, once set up the host only touches it
-on the slow path (diagnostics, FW trace). Pass the device's node to
-bnxt_alloc_ring() rather than NUMA_NO_NODE to make it clear that this
-memory is not meant to follow any queue.
+Descriptor rings, completion rings, NQs and the TX push buffer are
+accessed by the host in the fast path, and so is the SW state around
+them, which we already allocate on the node of the CPU expected to
+service the queue. The DMA memory itself comes from the device's node,
+though, as that's what dma_alloc_coherent() always uses.
 
-Ring page tables are only read by the device, annotate their
-allocation so that they stay put once the ring pages start following
-the queue.
+Use dma_alloc_coherent_node() for the ring pages and the TX push buffer.
+Pass the queue's node for completion rings and NQs as well, they used
+NUMA_NO_NODE so far since @nid only affected the SW rings.
+
+Ring page tables are only read by the device, keep them on the device's
+node.
+
+Note that queue restart only reallocates the Rx descriptor rings.
+Completion rings, NQs and Tx rings will follow IRQ affinity changes
+only on the next full reconfiguration.
 
 Reviewed-by: Björn Töpel <bjorn@kernel.org>
 Reviewed-by: Joe Damato <joe@dama.to>
 Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 ---
 v2: no change
-v1: https://lore.kernel.org/20261118023905.3050661-5-kuba@kernel.org
+v1: https://lore.kernel.org/20261118023905.3050661-6-kuba@kernel.org
 ---
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c | 24 +++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index 7acf74822e64..265ee15b6b35 100644
+index 265ee15b6b35..a74599c1447a 100644
 --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
 +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -3784,6 +3784,7 @@ static int bnxt_alloc_ring(struct bnxt *bp, struct bnxt_ring_mem_info *rmem,
+@@ -3795,10 +3795,10 @@ static int bnxt_alloc_ring(struct bnxt *bp, struct bnxt_ring_mem_info *rmem,
+ 	for (i = 0; i < rmem->nr_pages; i++) {
+ 		u64 extra_bits = valid_bit;
  
- 		if (rmem->flags & BNXT_RMEM_USE_FULL_PAGE_FLAG)
- 			pg_tbl_size = rmem->page_size;
-+		/* Only read by the device, keep it on the device's node */
- 		rmem->pg_tbl = dma_alloc_coherent(&pdev->dev, pg_tbl_size,
- 						  &rmem->pg_tbl_map,
- 						  GFP_KERNEL);
-@@ -9259,7 +9260,8 @@ static int bnxt_alloc_ctx_mem_blk(struct bnxt *bp,
- 	rmem->flags = BNXT_RMEM_VALID_PTE_FLAG;
- 	if (rmem->depth >= 1)
- 		rmem->flags |= BNXT_RMEM_USE_FULL_PAGE_FLAG;
--	return bnxt_alloc_ring(bp, rmem, NUMA_NO_NODE);
-+	/* Host only uses it on the slow path, keep it on the device's node */
-+	return bnxt_alloc_ring(bp, rmem, dev_to_node(&bp->pdev->dev));
- }
+-		rmem->pg_arr[i] = dma_alloc_coherent(&pdev->dev,
+-						     rmem->page_size,
+-						     &rmem->dma_arr[i],
+-						     GFP_KERNEL);
++		rmem->pg_arr[i] = dma_alloc_coherent_node(&pdev->dev,
++							  rmem->page_size,
++							  &rmem->dma_arr[i],
++							  GFP_KERNEL, nid);
+ 		if (!rmem->pg_arr[i])
+ 			return -ENOMEM;
  
- static int bnxt_alloc_ctx_pg_tbls(struct bnxt *bp,
+@@ -3817,7 +3817,6 @@ static int bnxt_alloc_ring(struct bnxt *bp, struct bnxt_ring_mem_info *rmem,
+ 		}
+ 	}
+ 
+-	/* Only the SW ring follows @nid, DMA memory is on the device's node */
+ 	if (rmem->vmem_size) {
+ 		*rmem->vmem = vzalloc_node(rmem->vmem_size, nid);
+ 		if (!(*rmem->vmem))
+@@ -4212,10 +4211,11 @@ static int bnxt_alloc_tx_rings(struct bnxt *bp)
+ 			/* One pre-allocated DMA buffer to backup
+ 			 * TX push operation
+ 			 */
+-			txr->tx_push = dma_alloc_coherent(&pdev->dev,
+-						bp->tx_push_size,
+-						&txr->tx_push_mapping,
+-						GFP_KERNEL);
++			txr->tx_push =
++				dma_alloc_coherent_node(&pdev->dev,
++							bp->tx_push_size,
++							&txr->tx_push_mapping,
++							GFP_KERNEL, nid);
+ 
+ 			if (!txr->tx_push)
+ 				return -ENOMEM;
+@@ -4357,7 +4357,7 @@ static int bnxt_alloc_cp_sub_ring(struct bnxt *bp,
+ 	rmem->pg_arr = (void **)cpr->cp_desc_ring;
+ 	rmem->dma_arr = cpr->cp_desc_mapping;
+ 	rmem->flags = BNXT_RMEM_RING_PTE_FLAG;
+-	rc = bnxt_alloc_ring(bp, rmem, NUMA_NO_NODE);
++	rc = bnxt_alloc_ring(bp, rmem, nid);
+ 	if (rc) {
+ 		bnxt_free_ring(bp, rmem);
+ 		bnxt_free_cp_arrays(cpr);
+@@ -4388,7 +4388,8 @@ static int bnxt_alloc_cp_rings(struct bnxt *bp)
+ 		cpr->bnapi = bnapi;
+ 		ring = &cpr->cp_ring_struct;
+ 
+-		rc = bnxt_alloc_ring(bp, &ring->ring_mem, NUMA_NO_NODE);
++		nid = bnxt_cp_num_to_node(bp, i);
++		rc = bnxt_alloc_ring(bp, &ring->ring_mem, nid);
+ 		if (rc)
+ 			return rc;
+ 
+@@ -4410,7 +4411,6 @@ static int bnxt_alloc_cp_rings(struct bnxt *bp)
+ 			tx = 1;
+ 		}
+ 
+-		nid = bnxt_cp_num_to_node(bp, i);
+ 		cpr->cp_ring_arr = kcalloc_node(cp_count, sizeof(*cpr),
+ 						GFP_KERNEL, nid);
+ 		if (!cpr->cp_ring_arr)
 -- 
 2.56.1
 
