@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795214600;
-	b=0FU9PHhBZNOhHKuu87TMA9tbVxczuCONoYmNqI0JjHFKmPmETw1JzGmnue26bzy7dnbY
-	 T5c+IjNzW1+stL3uVdtwRVPZFnigp6N/vGmBaDLliLVufRlkYZDDljz4zA5SqYvmYpYnb
-	 uAmIUYm9t698pFFAWdkS6GbshbGl/P2LVKvAaAadWR3L7w8CzeY/f4Utza4WKAPUrKCRv
-	 Zx5LVrbyE0/mekegbwBHt7NfwY2YI+aottlKIwH3Q5cWHda2prWpQNtElAbmRWFfZ/G07
-	 m6112BzZslUkbYLXXARx48RYHB+Y2Y/gFP3PlbSw/+tF1I8CCKPE6d4K7+mu+rF/dmw==
+	t=1795214601;
+	b=fbDQf5Rx/wjUhmQsQIqz6JJQ2euvSokWflsLPlfuIGyoIJC8rLWmKp5X/LC60CpVvoBZ
+	 HByqtgsQ0SqjOYiPPsTYPPehhNxMdbW2KrVujl0JUvWTAsKWEt5cATSv7DzFF9ulYKmNA
+	 XJfk1ECiIdLWgkZi+pLIa6O+Tc43BWC4l8B8wvMOvUlb0YFTRfelOlv8eNngzxjepJE8B
+	 4oXSP3AvlfNHkAqlUy43l38BRd/P/1F/4uHss+fO7igm1YYaOQd/bsDO4llW0u8lxQL4R
+	 SY/VV+kxH+qEWfubGK7O91ZNotR4yT6V/kprkzWhgPTAd+KoW3CdMQZOT6aAZSohCcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795214600;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=k7///D2GpwDVsxdaecpWEeDbjNHzOzf2WS/HKDmWM6o=;
-	b=f1mekIJaSnScFun59Ot+XfmE7trP2JuHzPqBWwc9yj66wKXNmWy6miSsMASfvsSuVPa2
-	 /vc370Ra4cOj91MqlHIbyRRfYHjh8NT+jRFYUmqRB/acnMaBRYFm1TAAFIAXRdbJIWKTp
-	 hfNwI+2S1Sy1+suVkaaNNyiNx9EKAPZSYQgMDRMQL4vI3MLH7BjyA3tfvcdGEfZ4dR3l1
-	 jD8w4gWTFEIaBDIMv8o8frNqmdM8RKPT/j5Zt8B/Y/KLiZ4mepG+ra7nzxE60tE2ijslY
-	 9vqIM384bLq24PbxEGrtkpKvKJ94ohhsyEitGCjsmPRHXiw+wYVHuoiS7m5nT+q39Wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795214601;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=3DG5zJYI4bk0cn71OCAq0KXTmjsN6G/9bGdpWXwzxBE=;
+	b=5WI9AKmye50Dc0iHGqJs1we1QDvMxK5+xT614Li2BmEpHUYOlW9Coh3ckN3ZIB5ri5nl
+	 ZPoDp46dVEBoktdEEXkBjeOHKk9w+aUfCmuxWSNBc8GNo6gx01Ow1vbL3WACqqgvpPEEc
+	 17GIpXbXW4D7lbGSrhJud1T+/qG3MagxDLPVh6/+gY+n5iE9ABSxorQ28f/IOCzXQvMWf
+	 UudMwFDlJ19Iuzwx7irog51cqusLHRuOS3SIy3jOLg5Ui2uSSoPpsNs8dat0JU4sOGv3/
+	 fboNkCNhuLljnWt48yjZ17f77DGeq5h4We8BpqyFRuXdFKUgtyUjId91u2K9WZ1UWGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ojnz9cUk;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ozgXlMcE;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2612606A690;
-	Fri, 20 Nov 2026 22:43:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2612606A690
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B60A6606A6A4;
+	Fri, 20 Nov 2026 22:43:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B60A6606A6A4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ojnz9cUk
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B1FBA4C35;
-	Fri, 20 Nov 2026 23:43:08 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ozgXlMcE
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8A3D4A023C;
+	Fri, 20 Nov 2026 23:43:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795214589; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=k7///D2GpwDVsxdaecpWEeDbjNHzOzf2WS/HKDmWM6o=;
-	b=ojnz9cUk+nVbpninVIQT3Xy5i7W/KapsCZujeFo2hXAE9wKptf2Mo+mlv4RA8S4IuLEjws
-	cZj7dtAZmmAUZpM/t8LQyfRSboAF4nsbl1OYCP5ctxEhZnyNKwfc5q6DgcAhlJ8CkP40OB
-	tN5cJ02Ytq0pQ4JUiHgO9ZdbvQyKGTmplkGYgnjB3xDUqfLvxu8dbl+aE5xi8qvQNZFxgH
-	qI9qfBuLE8LZo1rg53BK+zLmGjDtDYwNAXV0yPLw3L/zZarAXdcMNsnoQIdcIbhK4igxup
-	dO4tdf0KGOxu2i/9GmAUpZbqefUTwyqzC7mKEMQ4qlY9T6apMqdUvSSlXvqLHA==
+	t=1795214587; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=3DG5zJYI4bk0cn71OCAq0KXTmjsN6G/9bGdpWXwzxBE=;
+	b=ozgXlMcE5PA6NUhIGtKRpQpp9Q0feeiCsP0ZDA6McYR+yYg5Mf0FUhDgDT/wmaMj/VKM6N
+	GK04FNp/Kqls0IxudVx6Sx3lVkIMxp/leRF7ZADHYaYD163Up0+rlW/vwlXHuYRKPBcHXf
+	ypz1EC55x2u6vEKg8hktxVOKuNs2P43K6+rKuagmRHsiIdVELixv1S2Wi2f3edoIiXoOdk
+	pfSfU3tdN8PJ6CAhjpnTKDQbauK9d3i0Sq1uQ0msO7bv/8bwk46dw7SRiKLBucePWMrzzP
+	kD7l6YRaiGXXWC0sfzwBkAhPxuqBVN8inoXmL7TqjcumKbYHbuFFADd2XQOZkQ==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Fri, 20 Nov 2026 23:42:36 +0100
-Subject: [PATCH net v2 2/5] net: bcmgenet: accumulate the DIM packet and
- byte counters
+Subject: [PATCH net v2 0/5] net: bcmgenet, systemport: DIM and Rx discard
+ fixes
+Date: Fri, 20 Nov 2026 23:42:34 +0100
+Message-Id: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,9 +59,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-nb-genet-dim-stats-net-v2-2-1a7cece7dd1a@tipi-net.de>
-References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
-In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0Jm7Zi2RKyuvIdhQekUxsRC2ko0h
+ Lvb4gFcvpn3/18hUmCKcK1WCLRw5MlnUIcK+rHzAyHbzKCEaqSUGr3BgTwltPzEmLoUsZBpTON
+ sLeqLdpDDcyDH7734DlmA9neML/OgPpXKoo0c0xQ++/wid/nf0iJRoKyNOp+cJKH1LfHM5XW0B
+ O22bV/7orGV1QAAAA==
+X-Change-ID: 20261118-nb-genet-dim-stats-net-b6b6fd30398f
 To: Doug Berger <opendmb@gmail.com>, 
  Florian Fainelli <florian.fainelli@broadcom.com>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -75,39 +77,47 @@ Cc: Justin Chen <justin.chen@broadcom.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-net_dim() computes rates from the difference between two samples and
-needs running totals, but bcmgenet_desc_rx() passes the counts of the
-last poll. Adaptive coalescing then picks profiles from wrong rates.
+Sashiko has flagged a few genet bugs over time. I'll work through them
+as time permits, fixing the ones that seem worth it.
 
-On a CM4 at a steady 300 Mbit/s UDP, DIM changed profile about 1000
-times in 20 s. With the fix it settles, and Rx interrupts drop from about
-4500/s to 2240/s.
+DIM on genet and systemport wants running totals but gets per-poll
+counts, so it picks bogus profiles from the wrong numbers.
 
-Accumulate the counters instead.
+The series also fixes DIM getting stuck after a down/up or suspend and
+resets the Rx discard count with the ring.
 
-Fixes: 9f4ca05827a2 ("net: bcmgenet: Add support for adaptive RX coalescing")
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+Patches 1-3 have been tested on a Raspberry Pi CM4. I don't have any
+systemport hardware, but the bugs there are the same.
+
 ---
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Changes in v2:
+- genet: flush the DIM work instead of cancelling it, which also covers
+  WoL suspend (Sashiko)
+- genet: reset DIM before switching to running totals, so a stale sample
+  can't wrap after a reopen (Sashiko)
+- genet, systemport: run net_dim() before napi_complete_done(), so no
+  DIM work can be queued after napi_disable()
+- systemport: add the same DIM reset (Sashiko)
+- systemport: the set_coalesce vs DIM work race is pre-existing and left
+  for a separate patch
+- Link to v1: https://patch.msgid.link/20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088@tipi-net.de
 
-diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-index f702916e7bfa..f9f38445568f 100644
---- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-+++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-@@ -2486,8 +2486,8 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
- 		bcmgenet_rdma_ring_writel(priv, ring->index, ring->c_index, RDMA_CONS_INDEX);
- 	}
- 
--	ring->dim.bytes = bytes_processed;
--	ring->dim.packets = rxpktprocessed;
-+	ring->dim.bytes += bytes_processed;
-+	ring->dim.packets += rxpktprocessed;
- 
- 	return rxpktprocessed;
- }
+---
+Nicolai Buchwitz (5):
+      net: bcmgenet: keep DIM from getting stuck after close or suspend
+      net: bcmgenet: accumulate the DIM packet and byte counters
+      net: bcmgenet: reset the Rx discard count with the ring
+      net: systemport: restart DIM from the default profile on start
+      net: systemport: accumulate the DIM packet and byte counters
 
--- 
-2.53.0
+ drivers/net/ethernet/broadcom/bcmsysport.c     | 20 ++++++++++++--------
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 19 +++++++++++++------
+ 2 files changed, 25 insertions(+), 14 deletions(-)
+---
+base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+change-id: 20261118-nb-genet-dim-stats-net-b6b6fd30398f
+
+Best regards,
+--  
+Nicolai Buchwitz <nb@tipi-net.de>
 
