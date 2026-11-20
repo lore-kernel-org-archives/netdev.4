@@ -1,80 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133004;
-	b=uhqHuaYB8tb6+ElGTmhYq2LYX0cVhS6y2DI6jN43FMt6p/NkYO0zAbClmvYotHw8EiF0
-	 uLp+HvWe2vl9LmiGODqbFIXER9jx0dGrooZL2LIxcVTv6MpsSzn5/h0BqVEYqxNtY4req
-	 Mimvm0DELUDUuSVu5Il/QMTxbe32QkhUNt9Z5tZykCkGOaeqKVg2bwhxRZBuSEu3C5XMD
-	 OD/TWXpaEE0CQb7Y8EyuNkKnIYEX4b7zUOkXLeBYJEBsLRd/sDJRDXP/aY7F9cWwxO3Cy
-	 9Cf4msoIfe+tXgxO42n7hrbLtmGuu1cbAUgIYAK/1dlPzM24gJ6Psjnu0qfERuNoq1Q==
+	t=1795133005;
+	b=l9A3aiiM/BeK0wmSZ54WOVaGzWJvpVqyG5DYpVKPT1X+kv+9bI4X6l4FSEEx+1CR1Zvj
+	 YRMUkbmYEVi/zw6uxrEwxiug/uktfUIs2V5lqlQeqtiA4IA3rPGc/IEh64c4WNo+I783j
+	 dHSPPc4bJUfHHY+neXLqWGAkQPT5I+rIJj0ILZIWtzsRv5PzAaBuJ15s0wg40sEqUJAlq
+	 aaw4ojirQRcglvzLncUBwK9ga9Y4psx0LHs1ONfUmPuzte3yo4P8x+J2yrmvSh42xf5cA
+	 tUBcucuzMvmPHAAS2adpq0/YsAka/djDMABOAKRBJU6KrA1EFk284ent19V+J6J37SA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133004;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=wuFYAqMFIHPd1hwTyymqcslxKmJuI6m5bbi1sHkUZCw=;
-	b=eDvBwZHvy8CudZd1o65dvvocLdT2RyYNhm5nipTNDS7nXVz1zfPvimJHQJodp6Y7zdnQ
-	 EUw8f9ZDfaiMkhJgmZnx5ELkinA0+CNbc0ZYHjRbiBeQrJHDDxS+qlVuZo53uxbhcfsMG
-	 M3nF9nn/onb1JG0R+vi7sagBn9N+wF3jSxBomjjxuP1gNT4UqdKo3aGhCn5W6Xc4ciMe5
-	 o14G1UZO7BlyqM66FrxYYpBbP8DG6qKjGsooYCQXAgxTOsv9xONtplqA1e1ycBJsInO+A
-	 IshunKWu5OyEQ3s7eFyLqJgPbJYu3D8UTz/w8KS5DWIaQ2Mj+bykQ67h2yhS3oEId7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133005;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=qX3sjmsKWyJLgJKQz7CR3/3TQ9oKhkHisfSxdP4egWY=;
+	b=ZRtEF806BnzKn7oH9Qdji/lQPK21/DDGLmfPvjSzNfFv+l91p0cAjl4bd8+pv+50OL13
+	 pykAR28zgdMKrSGdetyQtsyeJTwBqF0Hgd3Ounogf/vauRTb1sPEL8bjyyA1NB6va5zPd
+	 KzLpjijVCay2QnjXWJuAvKFefSp6Yziwt18Prxqqd/WvYFGzKMY37/1gugeoyZ7jH66AJ
+	 isf0t9BMM5e/B2rZiNoxBv2hzTQIfyEpUNbS+Sye2HnSxWLzLPHqOKXDXfWpM/56Opj0b
+	 6rUUhAsjmNdXlq11Zckreg3k35JmAFY8T1V2KLxevZaqjxtLKd8pkcgqVcPiGuh1jqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=RJGRXxjk;
-	arc=none smtp.remote-ip=66.163.184.199
-Received: from sonic301-30.consmr.mail.ne1.yahoo.com (sonic301-30.consmr.mail.ne1.yahoo.com [66.163.184.199])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CCf1ah2r;
+	arc=none smtp.remote-ip=209.85.222.180
+Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com [209.85.222.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EED50606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D8CD606A330
 	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:03:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EED50606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D8CD606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=RJGRXxjk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133003; bh=wuFYAqMFIHPd1hwTyymqcslxKmJuI6m5bbi1sHkUZCw=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=RJGRXxjkDDew8IJ+M/KtuvzkmMnJszrQXnviQTQz1I8Wlh1pXNoyuhC8gX7D0t1Iq8T+zaGIhHyMSPfiVJ8moJnjElleXoYA3Nf2KvVvZLEylNZXncoiEB6qz65j+X8YvZNGuu2ZXd1/Su4odMI1RLlIsImBKEHO/OoMu1kPMeOrKUPxw4yvjpDz8moHl9AVMq0g5fFPgKJOy/MPKPQYkGGmohIuysrNOgwNkSxb09wF/bOXCsfDtkmEvF5kby9QzqJzrvLrPy/2fMKwdtLxt78SY4rMaRnhUy11Oayfy98pJPaXaCXnGQRSDNWZDmeq2gfWDfxDEw68su4l1fOicg==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133003; bh=OGU18fQBgwfGJnSsfQG7mHcYxG3iFaDRTmx6tIxoxdP=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=YPOchR6wkPcj5QAxirWgrI8/+GIqP4ccRiI+GYo1L/n94jVOtRz4KMAi1NvketsKrHUw/q+hWAKH0Gmti4DjDUbdiWuzjETWFAM7Aib5qiupdGKYuQEaVFSeXm+WZC1f6DxWXuWRttABY1TG7Q/FCe7BpUmiU+m+f4SQdZqBSbsyFdO7n6jZ45D/RjVRkpHL8BSKm0G8CxSSXDq4h+fMN4FIrVBnnPlOvkzGIn3pcxIna7suY6b2K3P2xZGS5aWIJDT3QWVebTsPtJy6V+MD8uFT0btvlUc8sKXW8507ezQYMRTtbGi5ollss9HPYGkWi/05osYu9F0bw5HCY1wlYA==
-X-YMail-OSG: L3hzCwcVM1ls7l7hhzIUfEoFCju7YDRgQVpblDGrYTY_LcEMkMVj8x3D7HVGgct
- vzYWhRJOsT2ekiVwiBzUtsZLWFupCVDfYi3.VXiFdr9qRY243T1DwYt.VpolAA0upStIzhRvdUFk
- SCqKlGMhOHwhAz3dBQD7SjEP_BjjmD8l9RCKGSyAjZRRhjRVEOsNZGCGJM0t4nZDEgXJ98AvF_x3
- q8icCrbaQRZae1N3IIzt.up7C1Rn6Y9eChU3ZqHJoK7Bz3oWNE4QTknRi.MmG3oH0BffXKSPHAo0
- CvccQLr2vfGioww1k7rC7RhOhs7VQujw_t_5ohZJkWR_z9r4AFaT3CiXwnMIkiVbQmuwKv1zx6Nf
- .8J2JD13xQ8N9bK.qgkOcAe9zGcqVy_YuqU12D9abG3s1piKxlin2DEN0Sp8rZlBZSPAweK6YoYP
- OecUqOrPVkpdGX3NGDO0nSEVAPcHVcAPFG5Zz0vtVJcwsUrMpgjWKEWl51KT2jbzQGuGOQjez7.B
- 7O7XYZj1d8mEPEbb39pviF2dXRZL25Sk2_3Z_JONzbY1wjs8DOq.HpQRR_q0Dm37aFPiQ3qQ7dZn
- EqFWXj4sCLR1Ezw4bG8e76U33s1N4ykzasak5K5A05wXcREl93VuFOIO.R9Po9qt4gGegVL1ZrPa
- ekE.DzKvOGxoGPTHvKcih69OaWt1nZEeIg_ZLreHPTdJD2G_.ewWLgBO7Gz0EB0KG2jsIbEHOhPb
- 7MFO2uSEj.ROdeM7C6ltA9iaYU3YxAu8ipW1gzlr1WdoPQzxkHwNcWkHZcVF8VbdN0lzEi_yt.Ti
- X_51POT0zgZkUk4Kxf4B6IblSV1iRbcjh6x3aXogySpYz45BdnWx7Sgn1wrkRSBM.8Ip5hbqUFHp
- tJ1BpBL8Wx_jTNbJc.zKZpWo9jEe3aX4FNUfrBzlzXZG.fdIxk0sOv7DYF_qR2Gsc7A2UNHcTn._
- Wm9V3ygL.QyBWqEAN3puR2mYLduv8wLETJssNKA.wK96iODOIg4ToVw6hGttf.Vf.gapiJtNHILJ
- XTxbz5kezgBlifPOcyKjxyy2XB9w81NkYidfho8KCAjyKDJpbTrRYfme1t_1KMeoirerG0x7GE41
- OkMoqkuSP8agnudJc3cizlw5q3c3lKlPE7XaOoKn3LmhV3m2XNYEZ44adoNHhb8rceNVd393MyKP
- itKjc9AmA6RhBvHVQyEPpQYHSdCRe291W44cEgEMpeiCejVmgZxR0VgvPG9.1fR9ZDYe1LyR2fXv
- JC9NNStQqRCyI9fpZYseiSF3tcpG.KCnkqMiDJ9aJQvItICmY6XW3XbkOeRpom1tpLKraca6Z_hU
- NMJ1Cxe0EFUkdlkggtwkeMjB2j60QLBoa6TPeurtwc.Gg_4toZsOsz7l7Sq2.sHu28OjiylGpoLe
- FYvpooCDaAzjBnqiI3yvvk9GpbLjZYD7LJgHHNPB3YS2PYR4HVZ9jEtM7hmwtozZjtaHlfUXwOHQ
- oBejhlndQzDFbRME4veH0wkZG9iFJATIcR_CTxo_baHp2q_m1SWbBZ5tz.AvENITffluEqo5qQvn
- hOfZJUsxMdm4UE6ycRJuF7zINs5yqqNWFrnfi0ZP6VpevJI8CNsTxJ3tHWj7acA3HjaWdz_1pJXT
- YP4sOocZvH3i0V6aWNAWwAOiNCAspAXBP0pIdF6uu2U02qVcEG0JW5MMgMwHK.c9B0W7pDtNALNK
- N0HNnYHXiM_wsRXsQXyZh8CB8wVLey9FJo1n7XptW.6GfmoGSuo.9oJzN3C27oPVhstv6kFsr65Y
- 3yig69ESEHC4MfO6nJWd8o4mJyB.wL8HPu2vaRNdR3lcXSq47LUYQ.7q5yszb7XpspUir72YkcPf
- 0CxTODmqS9PjWj_wMlnZk1Xwxt7gFYXzk3tI8m8Po1d66dDikyp6ps9lE_aPX7KPlAojwym_SkOP
- uJ86jIuWGWBN9c1dUchVSBrpvbgvEbHBS0ZAqGACbmnrXdSdMhL462vA_90f8JcC2A.SSsArb5cA
- jsRUevMx9Keo0Fh5jRLwdIjQ4eSD6ZnLv6oPmXnTacOIFdZpY6cgO7syYB4iXcvABJ_nNaHtz_kG
- WRnJ12kpwEnWZ0xDSkF8vLKOBBEOoFfZjM2Wo8bsYNBxug3zVwzrIOhfGNaA4kYIP.hPC0Z7VF35
- lqJXR5xI5Qy87NTij_UPzBP9Kd1.z1HbC0l24cKdRvAiBHrU9NMvGHFdlGGXYmlaNQxyRMq6Bp0c
- cUM7hA47jaftguJVNv_ed7jLzkyAdk4fQr0r.ImUf4RJogopLTu2S83BrtF.S9R5dvvmyEJXkEgH
- JUs72T8GQNiBGkAXifDAKp_p.AiWYJig__.vdrZwX.7FFFg--
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 5845e7fb-6e1f-4d76-b195-a54d4e647736
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Fri, 20 Nov 2026 00:03:23 +0000
-Received: by hermes--production-ir2-7c4859dc89-hgxcv (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 593bf2bae9bfde17a013aac51d1a9d38;
-          Fri, 20 Nov 2026 00:03:18 +0000 (UTC)
-Message-ID: <327a4005-9e2f-4df8-bf08-a344eae345db@yahoo.com>
-Date: Fri, 20 Nov 2026 01:03:15 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CCf1ah2r
+Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-9496400270fso31790685a.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:03:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795133002; x=1795737802; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qX3sjmsKWyJLgJKQz7CR3/3TQ9oKhkHisfSxdP4egWY=;
+        b=CCf1ah2rUECxTd+CtbA6vuqAb10VO+eDjDXTYB1a9zilYGbdU37tb3+N1yeAPobi30
+         dcyu63Q5edMJ9S4lGe+Dx0X1G0ct20tWnsQef+en9swzcaua7AKXV6ERLS3XWVSD5jZW
+         n/w2+4mlCjqfvJ1wl6+oZyXKAd7T7XD7iA/yCQ8ZalDWLIm+D1GwVLA+HvB/zwtkll/P
+         6nGi9wjoqhzVVUXYvY2LOolFRbEslxOs+vlVZJ++tbN9fIJEq3TLiS1ZbvWB0Zz9NDxg
+         LH6nAdizTPNmyMF5OdCBTC5MB2iYZHa2F5bkFGu1FnX1zCL44IuX9o8rlv4BP1Fg25dB
+         fNiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795133002; x=1795737802;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qX3sjmsKWyJLgJKQz7CR3/3TQ9oKhkHisfSxdP4egWY=;
+        b=x0onhTVd9auxbrbfBd3ycEqnU6LHeI9n9gRiCGcPyTlfuG6cNRIAi7nPorG6UW3Dj4
+         +exmeeVN9kqeHc97YCz5Nn1TJEzqVqo2BCMKNwAIxG02uMSlqL1VtQ9hUjU4Xe1YzL3u
+         FmMsFElOvFL2Sm+43dVI2twd+7YMaVvGSA+scGtgu0YlfqAWOhbiXXuOyXXJVwmsGIDF
+         CRaZjDGBH+B2t0BVZVJuJnewukCmH1N7SmosFHGWa7cEGZ/UqW57pdNPV8gZaMppc5qD
+         /d5CdUsQtBcRIrPuTSKKOFOwTg+blgtsw3Rcio4sr/TVBsumBYJUIn8tqWNuGSP8G9JC
+         FBqA==
+X-Forwarded-Encrypted: i=1; AL+hErEAdlXYfRwGOuuYOMjqDmdAQa4e+ayCg0SmKJO3pTnI/XXLtFfq/7GC3/ZNquKP44lh1oNDUl8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9lHtwBDC09eKI3j4erufEf46kKzN05qPjy0ZIDrRwEIlYCKyws
+	OyuAQQNJyprwk+T37GWA1FQrvyc1NC+ZrXvlHzfWSi0GuVabVtwlWGfsDukPcg==
+X-Gm-Gg: AYBFou38q31WN/MPJFMH9FMs7c87mjtV3cRAnSBXJcen69ewE7pYICtVxXLzLQCLNOC
+	PeYAjAmwLnXJAgOBO34iVS0SFyGjD4yREfHPIzbLBr0ZgNwgSDfpmAm5n4O0uWiS/gCJbMgeKHI
+	fsg7e3fTrVZO0Uap0lCKShn3tUvyu2N6JErlzrsF3Ug/50n3goKwGCCn7aP6BHenAi6JXJbC0Xp
+	Wi/M/gZB9noMazuSGHvfyy+KHBj4Is73OxRCLwqr2Gq6A8KFpwxSHXHtawsW6jjZLJjPugOckCo
+	NzEDU41/iz/sn+7W51+H4L8Cxki77FUAByNGVRxDfb5/NAhPiutQL/o5hgPbPyNJNYbrFyuU1QR
+	LZy7znYUJWYe//ozKP/mQtDz/e99LwAjRLe8KC3p8Kvzfw6eo2MxCV/oy4NTqJnmQEpdF08n6oJ
+	4VizsTAan3mvvm6ZfvnrZKhXgebLySZouK/eqd8bqCL/pWQ3+JAvAu687b4xrEa9JrOFz9ZWX20
+	w564Zd0WyMvEvPE5En/cKF5izhUxvFDuYjmdCXME8ChmKJECW/w56OXlY3yVDZ2A2urJ1jAxicC
+	jXOk9fpTH3LX5hZYzezai/eTuyZsDg02RF6aSRhzFg0vp9TiP9QxQY32E6AYkn/z++8SB5yIu8W
+	xaPKrmwnw/jhjaCfeS0DYGjeJg2s4iaquXmIUtnSdsTVWkAOzucHseIhLaYSPfoWI
+X-Received: by 2002:a05:620a:45a4:b0:945:ad46:5e19 with SMTP id af79cd13be357-949ba9f9eafmr234949485a.38.1795133002061;
+        Thu, 19 Nov 2026 16:03:22 -0800 (PST)
+Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34ae74sm74818085a.8.2026.11.19.16.03.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 16:03:21 -0800 (PST)
+Date: Thu, 19 Nov 2026 19:03:21 -0500
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>, 
+ "David S . Miller" <davem@davemloft.net>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, 
+ Willem de Bruijn <willemb@google.com>
+Cc: Kuniyuki Iwashima <kuniyu@google.com>, 
+ Simon Horman <horms@kernel.org>, 
+ netdev@vger.kernel.org, 
+ Eric Dumazet <edumazet@kernel.org>
+Message-ID: <willemdebruijn.kernel.e221ffaa921e@gmail.com>
+In-Reply-To: <20261119072258.3157902-5-edumazet@kernel.org>
+References: <20261119072258.3157902-1-edumazet@kernel.org>
+ <20261119072258.3157902-5-edumazet@kernel.org>
+Subject: Re: [PATCH net-next 4/4] tap: remove tap_get_tap_dev() and
+ tap_put_tap_dev()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,171 +106,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v12 06/13] net: dsa: realtek: rtl8365mb: refactor
- VLAN 4k handling
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
-Content-Language: pl
-In-Reply-To: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Move the family-specific VLAN 4k table accessors behind struct
-rtl8365mb_family_info, so that family D can provide its own versions
-without is_d() checks in the shared code. The existing code becomes the
-family C implementation and is otherwise unchanged: rename the
-functions to rtl8365mb_c_vlan_4k_read() and rtl8365mb_c_vlan_4k_write(),
-export them and call them through the family info.
+Eric Dumazet wrote:
+> tap_get_tap_dev() takes a reference on tap->dev, released by
+> tap_put_tap_dev().
+> 
+> This comes from commit 8f475a318aaa ("macvtap: introduce
+> macvtap_get_vlan()"), when q->vlan was read under rcu_read_lock_bh()
+> and the reference was needed to use the device after
+> rcu_read_unlock_bh().
+> 
+> Both remaining callers, SIOCGIFHWADDR and SIOCSIFHWADDR, hold RTNL
 
-No functional change.
+Iff respinning would be worthwhile to add when the condition that
+required the dev_hold went away.
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
----
- drivers/net/dsa/realtek/rtl8365mb.h      |  5 +++++
- drivers/net/dsa/realtek/rtl8365mb_main.c |  2 ++
- drivers/net/dsa/realtek/rtl8365mb_vlan.c | 21 ++++++++++++---------
- drivers/net/dsa/realtek/rtl8365mb_vlan.h |  7 +++++++
- 4 files changed, 26 insertions(+), 9 deletions(-)
+Apparently very soon after the introduction in commit 441ac0fcaadc
+("macvtap: Convert to using rtnl lock").
 
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index a9bf4f2..be0f49e 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -10,6 +10,7 @@ enum rtl8365mb_family {
- };
- 
- struct rtl8365mb_jam_tbl_entry;
-+struct rtl8365mb_vlan4k;
- 
- struct rtl8365mb_family_info {
- 	enum rtl8365mb_family family;
-@@ -18,6 +19,10 @@ struct rtl8365mb_family_info {
- 	int (*ext_config_forcemode)(struct realtek_priv *priv, int port,
- 				    bool link, int speed, int duplex,
- 				    bool tx_pause, bool rx_pause);
-+	int (*vlan_4k_read)(struct realtek_priv *priv, u16 vid,
-+			    struct rtl8365mb_vlan4k *vlan4k);
-+	int (*vlan_4k_write)(struct realtek_priv *priv,
-+			     const struct rtl8365mb_vlan4k *vlan4k);
- };
- 
- const struct rtl8365mb_family_info *
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index d59f15c..ed7078e 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -756,6 +756,8 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
- 	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
- 	.ext_config_forcemode = rtl8365mb_c_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_c_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_c_vlan_4k_write,
- };
- 
- /**
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-index 8d49ffa..566c6bc 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-@@ -48,12 +48,13 @@
- 
- #include "rtl8365mb_vlan.h"
- #include "rtl8365mb_table.h"
-+#include "rtl8365mb.h"
- #include <linux/if_bridge.h>
- #include <linux/lockdep.h>
- #include <linux/regmap.h>
- 
- /* CVLAN (i.e. VLAN4k) table entry layout, u16[3] */
--#define RTL8365MB_CVLAN_ENTRY_SIZE			3 /* 48-bits */
-+#define RTL8365MB_C_CVLAN_ENTRY_SIZE			3 /* 48-bits */
- #define RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK		GENMASK(7, 0)
- #define   RTL8365MB_CVLAN_MBR_LO_MASK			GENMASK(7, 0)
- #define RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK		GENMASK(15, 8)
-@@ -182,10 +183,10 @@ struct rtl8365mb_vlanmc {
- 	u8 meteridx : 6;
- };
- 
--static int rtl8365mb_vlan_4k_read(struct realtek_priv *priv, u16 vid,
--				  struct rtl8365mb_vlan4k *vlan4k)
-+int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
-+			     struct rtl8365mb_vlan4k *vlan4k)
- {
--	u16 data[RTL8365MB_CVLAN_ENTRY_SIZE];
-+	u16 data[RTL8365MB_C_CVLAN_ENTRY_SIZE];
- 	int val;
- 	int ret;
- 
-@@ -230,10 +231,10 @@ static int rtl8365mb_vlan_4k_read(struct realtek_priv *priv, u16 vid,
- 	return 0;
- }
- 
--static int rtl8365mb_vlan_4k_write(struct realtek_priv *priv,
--				   const struct rtl8365mb_vlan4k *vlan4k)
-+int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
-+			      const struct rtl8365mb_vlan4k *vlan4k)
- {
--	u16 data[RTL8365MB_CVLAN_ENTRY_SIZE] = { 0 };
-+	u16 data[RTL8365MB_C_CVLAN_ENTRY_SIZE] = { 0 };
- 	u16 vid;
- 	int val;
- 
-@@ -282,6 +283,7 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 			   struct netlink_ext_ack *extack,
- 			   bool include)
- {
-+	const struct rtl8365mb_family_info *fi;
- 	struct realtek_priv *priv = ds->priv;
- 	struct rtl8365mb_vlan4k vlan4k = {0};
- 	int ret;
-@@ -296,7 +298,8 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 		return -EINVAL;
- 	}
- 
--	ret = rtl8365mb_vlan_4k_read(priv, vlan->vid, &vlan4k);
-+	fi = rtl8365mb_get_family_info(priv);
-+	ret = fi->vlan_4k_read(priv, vlan->vid, &vlan4k);
- 	if (ret) {
- 		dev_err(priv->dev, "Failed to read VLAN 4k table\n");
- 		return ret;
-@@ -313,7 +316,7 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 		vlan4k.untag &= ~BIT(port);
- 	vlan4k.ivl_en = true; /* always use Independent VLAN Learning */
- 
--	ret = rtl8365mb_vlan_4k_write(priv, &vlan4k);
-+	ret = fi->vlan_4k_write(priv, &vlan4k);
- 	if (ret) {
- 		dev_err(priv->dev, "Failed to write VLAN 4k table\n");
- 		return ret;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-index 27a526b..009b127 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-@@ -18,6 +18,13 @@ enum rtl8365mb_frame_ingress {
- 	RTL8365MB_FRAME_TYPE_UNTAGGED_ONLY,
- };
- 
-+struct rtl8365mb_vlan4k;
-+
-+int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
-+			     struct rtl8365mb_vlan4k *vlan4k);
-+int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
-+			      const struct rtl8365mb_vlan4k *vlan4k);
-+
- int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
- 				 u16 *pvid);
- int
--- 
-2.53.0
+> for the whole time the device is used. tap_del_queues() clears q->tap
+> under RTNL, before the device can be freed, so a non NULL q->tap
+> guarantees the device stays around until rtnl_unlock(). TUNSETOFFLOAD
+> already relies on this.
+> 
+> Use rtnl_dereference(q->tap) directly.
+> 
+> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+
+Reviewed-by: Willem de Bruijn <willemb@google.com>
 
