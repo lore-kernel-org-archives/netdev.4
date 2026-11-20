@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209462;
-	b=Sp0HRm1PoDxlKFezHCtQpYvNvdpC9mtjGxb+k1NtNpPp441yKtVEy4pGGWlKXLRyFpCV
-	 Fklho66k+vqpgCoqOxtHRwENIUFdKsxNOmYStkSPxsk7zWDU8ab1y6OOoDYzd+ggk8OFc
-	 8AmMsjwHsDwvO76jOLOoQhnbHVJVm+jR53WJcb9KpH9xj8ThEh+E7w8c6ol9UI2Tisq/V
-	 cjxvkHmUUWuPGeJrgw1yRkJDZWjPxdHz/CK+PRsudVgKFXiullTIwimOv6LsVsKzMbDZc
-	 OveB/zUs0hUW+yB+DI817kTSB+RmC78tcscrdiEgaKszvxcs9pO1PYa3jN0MCanXrYA==
+	t=1795209464;
+	b=Uxrhyp0c+XqxmJnTelO6RYu6D7kSDHZcjnSCCHC7vYPA4DFKoqWBhjGnYLWRdjA2ZXO3
+	 NIVTXiZXbQDTZg7APWJQt1hV3TJTr6wbghBhZ+6NIK1ghfar+FNGteuJvjV9ZW5a7kcMx
+	 bQIjjHANF/dbRPSVxBMaCoktNuZNlx+LMpgOw2wMXOGveGc+IyquaPrgJhcXxIZAhKEH9
+	 giaR6qFo60mUTdMYF8YIkio0av1TV/ptsVFlV40sweOO3rmjRxzhew0URNktLRV05vsu1
+	 ZRzouvN5Gd4Dh/smTfzVFsqO/49FkysFKoNfSzkri6ZMwukM/cwei12dfq/rRnlmf2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209462;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209464;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=NnepT7a4oGWZ7w+mt7+G6UJ7Y+69gUMiWBnQOoUpVLw=;
-	b=uT2O9xOmx8JcdrhQP/GhG8UhYcZrCD4xsy8likIbGoI9PliqSoPdaXavW7s2oFOgO4yS
-	 1zQl/QIYlWCjmXwHjZyz3VuqCc74mVvR/p464LZLZXn3gDDphVbee6QU7o6zMlVMNKH8d
-	 IIrN5NdU2innwpSp+zsmh1oyEN1+lIig4YWICtFh7m7CLEhT+CelLHWczXlnsRW8Q6g0o
-	 L9NKt3XO9cT5XT8J5SgwnjxermIxYLOQw3KkEzQqxhf4F/GN2rou0YlbEwCOCI0aZh7++
-	 mMZGmjJ8bahoSXJr/WOnh3PL+tZ0hxF3Xf7rNZmJ0hBB0/ZsxxaQsfgiuILoYNWrB4A==
+	bh=aruSc4nOT7OxSafy72XKe9N+IixJMjlArgP/iv4iezA=;
+	b=WdCr5j238JbXttqD9MiuVw8Srn0In5X3UfJKkPeYkyJ1bbNC7NsTPikXN2Qy338fYGSu
+	 V2aXMDZ6QCSUitRKbplsjYGDt9BREHVZC+1DXTmKEo59JW+mcOEhaYVDMNnrsiTwQ7qN6
+	 wWlCVH3Quld5QiO8O9jFGyF8ebjyr2xpw4FowvUCPV4o6HxRtocvl/0Fi0mDkR6HJNlup
+	 2Kd5H9aR5f0w10WxveoZ86qC/3fvbxe5hpiDkfEnTltMUVTikMsp1Xmlxr+shG7oDn/JB
+	 dhMwGvAePIPafrEXO91goWSrPdB92WPRd/CTvo1NIwT26G36hGObmexYl2IfPijhgIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="XomsUE/G";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4DPGTk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CA0D606A6A7;
-	Fri, 20 Nov 2026 21:17:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37F7060A2601;
+	Fri, 20 Nov 2026 21:17:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XomsUE/G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 861991F000F2;
-	Fri, 20 Nov 2026 21:17:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4DPGTk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E7911F00A36;
+	Fri, 20 Nov 2026 21:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795209462;
-	bh=NnepT7a4oGWZ7w+mt7+G6UJ7Y+69gUMiWBnQOoUpVLw=;
+	s=k20260515; t=1795209463;
+	bh=aruSc4nOT7OxSafy72XKe9N+IixJMjlArgP/iv4iezA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XomsUE/GmoSFHEaP0eFWafWcXMcVGN4Bp/OF8g+AMnkGTnGQCKLEud21npnIF1Niy
-	 fOiAuUTAI2JbuT7uYUzxI2dRZnrmkLEHSLt6926voQOM7II0wI5a/vj0YaE/Gqch0o
-	 JCHA8HCDmQkA9T8Mykty2une/xx90bw0E2fN6C7EqoBbU2XHISt2h3/RjJQ+4I01rf
-	 mU31l//xCozDk5Sc7Wa2LsWNepk7O4PkZQ/DT7CmuhhatLojOH+1UgDC8+PzjL7Lww
-	 111Q21b7c52PvxjnHurrf9W9WONUTDiroeP7yfRYH3tKFu+W5PCrg8dMoPa08xIb08
-	 AOvD9hIVyeihw==
-Subject: Re: [PATCH net-next v3 1/2] net: sfp: add 2500base-X quirk for ODI
- DFP-34X-2C3
+	b=iH4DPGTk4uHDfZWYu5WCjHeuYKjyjkkSleD2C9+KXVyUlsT1Z53/FP+sq18hGXALG
+	 LnwloQrJvmDTixp2TbCdc+GOKnFKfzkLbXLbvx57hMcri+PX9EwB9E+ZXxAexi53Za
+	 O4muY+kzxbfYfQH3OgE1vXXvgdb2hduC1HpRJ6VRHTNHH9cvRNfKXLWeJd2vy8bpPF
+	 AQjTbwdSvBnIOx83lP9eGEKygx4GAIw4oZATp2NeXc7HsWUnXfZ5ZJqyjqvKjqZTD5
+	 HcZ0RvnGghClKy+Ia7lb1JPTWoPs3wGJdEXtS/ud6edMmgxWv8gooZ36AMFvvfci+s
+	 sYX3WfU7L2wXA==
+Subject: Re: [PATCH net-next v3 2/2] net: sfp: sort OEM and Turris SFP quirks
 From: netdev-bot+sashiko@kernel.org
 To: github@bumblecito.com
 Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 21:17:41 +0000
-Message-ID: <179520946109.3135.2775052387986633073@kernel.org>
-In-Reply-To: <20261118162323.436219-2-github@bumblecito.com>
-References: <20261118162323.436219-2-github@bumblecito.com>
-X-sashiko-severity: Medium
+Date: Fri, 20 Nov 2026 21:17:42 +0000
+Message-ID: <179520946280.3135.6308725941538199399@kernel.org>
+In-Reply-To: <20261118162323.436219-3-github@bumblecito.com>
+References: <20261118162323.436219-3-github@bumblecito.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,132 +63,99 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The only test reported is a 2500 Mb/s link brought up after
-  speed and duplex were forced and autonegotiation was disabled by hand.
-- [Low] The patch adds SFP_QUIRK_S("ODI", "DFP-34X-2C3",
-  sfp_quirk_2500basex) to sfp_quirks[] in drivers/net/phy/sfp.c (lines…
+- [Low] The commit message says the patch keeps the OEM entries "in the
+  vendor table's alphabetical order", but the resulting sfp_quirks[]…
+- [Low] After the reordering, the comment "// HORACO HC-10GE-113C uses
+  Rollball protocol to talk to the PHY." (sfp.c:620) heads a block with…
 
 --
 
-net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
+net: sfp: sort OEM and Turris SFP quirks
 
-This commit adds an entry to sfp_quirks[] that applies
-sfp_quirk_2500basex to the ODI DFP-34X-2C3 XPON module. It was tested on
-a Horaco ZX-SWTGW2C8F switch, with speed and duplex forced and
-autonegotiation disabled.
+This commit reorders the sfp_quirks[] table in drivers/net/phy/sfp.c. It
+moves the UBNT, Walsun and YV entries to after the OEM block, and sorts
+the OEM and Turris entries by part number. No quirk matches or fixups are
+changed.
 
 > diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
-> index 915156743701b..960ac89cc2a0b 100644
+> index 960ac89cc2a0b..33349c3556b31 100644
 > --- a/drivers/net/phy/sfp.c
 > +++ b/drivers/net/phy/sfp.c
-> @@ -614,6 +614,9 @@ static const struct sfp_quirk sfp_quirks[] = {
->  	SFP_QUIRK("Lantech", "8330-265D", sfp_quirk_2500basex,
->  		  sfp_fixup_ignore_los),
+> @@ -617,33 +617,24 @@ static const struct sfp_quirk sfp_quirks[] = {
+>  	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
+>  	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
 >  
-> +	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
-> +	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
+> -	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
+> -
+> -	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
+> -	// Rollball protocol to talk to the PHY.
+> -	SFP_QUIRK_F("Walsun", "HXSX-ATRC-1", sfp_fixup_fs_10gt),
+> -	SFP_QUIRK_F("Walsun", "HXSX-ATRI-1", sfp_fixup_fs_10gt),
+> -
+> -	SFP_QUIRK_F("YV", "SFP+ONU-XGSPON", sfp_fixup_potron),
+> -
+>  	// HORACO HC-10GE-113C uses Rollball protocol to talk to the PHY.
+>  	SFP_QUIRK_F("OEM", "HC-10GE-113C", sfp_fixup_rollball),
+> +	SFP_QUIRK_F("OEM", "RTSFP-10", sfp_fixup_rollball_cc),
+> +	SFP_QUIRK_F("OEM", "RTSFP-10G", sfp_fixup_rollball_cc),
 
 [Severity: Low]
-What does this module actually report in its EEPROM?
+Should there be a blank line after the HC-10GE-113C entry?
 
-sfp_module_parse_support() in drivers/net/phy/sfp-bus.c can already turn
-on 2500base-X without a quirk in two cases. One is the FC speed bits
-with br_nominal >= 31. The other is the bit-rate fallback:
+In the rest of sfp_quirks[], a comment applies to every entry up to the
+next blank line. The Walsun, Fiberstore SFP-2.5G-T/SFP-10GM-T and Lantech
+comments each cover two entries this way.
 
-drivers/net/phy/sfp-bus.c:sfp_module_parse_support() {
-    ...
-	if (linkmode_empty(modes) && br_nom) {
-		...
-		if (br_min <= 3200 && br_max >= 2500) {
-			phylink_set(modes, 2500baseX_Full);
-			__set_bit(PHY_INTERFACE_MODE_2500BASEX, interfaces);
-		}
-	}
-    ...
-}
+Because RTSFP-10 and RTSFP-10G now sit directly under it, the HORACO
+comment reads as if it also describes those modules. They are different
+modules, and they use sfp_fixup_rollball_cc, not sfp_fixup_rollball.
 
-So the quirk is only needed if the EEPROM falls outside both rules. A
-typical case is an xPON stick that reports 1000BASE-LX at about 1300MBd.
+Before this patch, the HORACO comment covered one entry and was followed
+by a blank line. The RTSFP entries were in the uncommented SFP-10G-T /
+SFP-2.5G-* block. Could a blank line or a separate comment be added for
+the RTSFP entries?
 
-Most of the nearby xPON entries record this as "can operate at
-2500base-X, but reports <X> in its EEPROM". Examples are Huawei MA5671A,
-Hisense LXT-010S-H, Hisense ZNID-GPON-2311NA, HSGQ, FS GPON-ONU-34-20BI
-and Alcatel G010SP. The OEM SFP-2.5G-BX10-D/U and LH03-B/LH20-A entries
-have no such comment, though.
+[ ... ]
 
-Could the commit message and the table comment say what the module
-reports for nominal bit rate, BR min/max and compliance codes? The
-vendor name and PN strings would help too, for example from ethtool -m.
-The strings matter because sfp_lookup_quirk() needs an exact vendor/part
-match after trimming.
+> @@ -652,11 +643,20 @@ static const struct sfp_quirk sfp_quirks[] = {
+>  	// match the part as a prefix.
+>  	SFP_QUIRK_F_PREFIX("OEM", "XGSPONST2001", sfp_fixup_potron),
+>  
+> +	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
+> +
+> +	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
+> +	// Rollball protocol to talk to the PHY.
+> +	SFP_QUIRK_F("Walsun", "HXSX-ATRC-1", sfp_fixup_fs_10gt),
+> +	SFP_QUIRK_F("Walsun", "HXSX-ATRI-1", sfp_fixup_fs_10gt),
+> +
+> +	SFP_QUIRK_F("YV", "SFP+ONU-XGSPON", sfp_fixup_potron),
+> +
+>  	SFP_QUIRK_S("TP-LINK", "TL-SM410U", sfp_quirk_oem_2_5g),
 
-The later commit "net: sfp: sort OEM and Turris SFP quirks" does not
-change this entry.
+[Severity: Low]
+The commit message says:
 
-[Severity: Medium]
-Does the link come up with this entry under the default phylink
-configuration?
+    Keep OEM entries together in the vendor table's alphabetical order
 
-The commit message says the link was established "with speed and duplex
-forced and autonegotiation disabled". sfp_quirk_2500basex() only adds
-the link mode and the interface:
+Is the vendor order alphabetical after this move? The UBNT, Walsun and YV
+block now sits between OEM and TP-LINK, which gives this vendor order:
 
-static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
-				struct sfp_module_caps *caps)
-{
-	linkmode_set_bit(ETHTOOL_LINK_MODE_2500baseX_Full_BIT,
-			 caps->link_modes);
-	__set_bit(PHY_INTERFACE_MODE_2500BASEX, caps->interfaces);
-}
+    ODI, OEM, UBNT, Walsun, YV, TP-LINK, Turris, XikeStor, ZOERAX
 
-It leaves the Autoneg bit that sfp_module_parse_support() always sets:
+In alphabetical order it would be:
 
-	phylink_set(modes, Autoneg);
+    ODI, OEM, TP-LINK, Turris, UBNT, Walsun, XikeStor, YV, ZOERAX
 
-sfp_quirk_oem_2_5g(), by contrast, calls sfp_quirk_disable_autoneg().
-
-With this entry, the default path looks like this:
-
-  1. sfp_module_parse_support() sets Autoneg.
-  2. sfp_quirk_2500basex() adds 2500base-X and keeps Autoneg.
-  3. phylink_choose_sfp_interface() picks 2500base-X.
-  4. phylink_sfp_set_config() uses mode = MLO_AN_INBAND.
-  5. phylink_pcs_neg_mode() takes the Base-X without a PHY branch. When
-     the PCS reports no inband caps, or reports both enable and disable,
-     the advertised Autoneg bit selects in-band negotiation:
-
-		else if (linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
-					   advertising))
-			neg_mode = PHYLINK_PCS_NEG_INBAND_ENABLED;
-
-Suppose the module's 2500base-X SerDes does not do clause 37 style
-in-band negotiation. On such hosts, would users need to run
-ethtool -s ... autoneg off to get a link after inserting the module?
-
-Could the entry also disable autoneg? Alternatively, could the commit
-message confirm that the module links up with in-band AN enabled?
-Several accepted xPON entries also use sfp_quirk_2500basex with Autoneg
-left set, so this may be fine if the module does negotiate.
-
-There is also the test host. The Horaco ZX-SWTGW2C8F is RTL930x based,
-and this tree has no mainline MAC/PCS/switch driver for it. The only
-RTL930x code under drivers/net is drivers/net/mdio/mdio-realtek-rtl9300.c.
-Was the test run on a downstream kernel? If so, could the commit message
-say so?
-
-The later commit "net: sfp: sort OEM and Turris SFP quirks" does not
-change the ODI entry either.
+These are the only lines that this patch moves between vendors, and they
+are still out of order. Would it make sense to put UBNT and Walsun after
+Turris, and YV after XikeStor? Then a later patch would not need to move
+the same lines again.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118162323.436219-1-github%40bumblecito.com
