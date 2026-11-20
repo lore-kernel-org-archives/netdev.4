@@ -1,58 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206425;
-	b=3fOq+gh0qZAYRkYI+qdoSqh7aW4CVPoMDSC5nvY6Mv9Npp79nUx7V4PJGzTPRvGLuP8b
-	 lv9KKYS0jqSKlglpRoZXY4U1p6XVaGvdeuFAIroM7RnwFYr/Rm0rq6dVphoE/mCPw2qDa
-	 bDaGeuFJaYHsvMnbzON/W9UlwhFPMlMVWMMZKeyuxJB/rxjQ+eHPtsvSkYqVt6fb3pCEb
-	 ru/65/bahWzzDoVhEQyb6pssuD4L8H9AvtgaZ1/9QY1Fit+6DbFiOtkf/envZtvNuBs4T
-	 FHeXwi+4TCh4rH8km6NPLX288wCdkk+Hlbz3MRxQUmji3NOHB3PHiUGj23OPv1QVTNg==
+	t=1795206583;
+	b=YWurQ5LyoUTeN3fu9Mv40b2Hcdp/YDTHvtxKUhY7W66QS8tub+7PL3x9Vh8hV10RUs4o
+	 uh4VmkQzen25FatHBSQ3HRgcUdRmvy8AuETCrh2QK/55E3+XC/zob5X1RbWjpRsoc8Xaf
+	 vjucRSqgSQS5w9W9C4yoc6NXbkpEgCuiU++om9rYv955YMhbYaWJ/ZoD9vusHyVXSinKS
+	 zbOV9BjjxHmRpUA81OpfT0lt8r2ZvYshjyorm/tHwFNH55InVR4FXuyVKqHRWobS3/zxH
+	 QQfieTzKkAJwnCgKihszExYdmOWetIRprDEDTm/aCZokb1Es7DDipiBQ33v1f+v7W6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206425;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=WB0EZxT0dyd8JUf18/AuzMZ5JlGz5D/bgFKYFc6MzC3GcDoml1WFFuoDD1oyzJOSxPYo
-	 RnYGl/ee5qoxTZZCu5fW5y86wgMMTqj/byUgUJjAyLyoWv4nSTR5X7VsQq1kcN3HR5dBX
-	 EXc58BoXdAvzGEIFF9FqEjkq3kmLLU0kq59UjdqY2gnuE3NfgNjfLhaEnYznuig4WcR2y
-	 X5dH0a/ExxH1jtqKTXmjYoZX0dity27rAPNqPEx2fv7nhNUQ4SBSBwcX0ku6I/q+b7YOq
-	 psY6Qfy/QJq0sk2N7vlVmUd17GF7TdrmDB5qvTGNDTqPs2pfNXYaHY4D1h61Vk2kWOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206583;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=hAknXHv/4i/SWTpoyAcIjrvHEB5Ii1/3j5H4a+yyAJ4=;
+	b=aQmHfduMkDR9YM5sxoJZC3XuAZJ8nwqdr0NysBnvjqrTCx0AAZ7+FumEp+KEgn5SJbit
+	 +fD39MY5cDA5UZepG72zWQAzW4SCZ4iAIzFoAbN9gWMaWzhQnYUZeraMoB6WQ3eLUJriN
+	 NfDbC/J2Yh/5BLlpjvoho2KaXZP+h9lTe/cqyIna8SERfgnhEwaMitoxgEA094EzPt4J7
+	 WRUkO4EAGPbzsr2LkewSVMJIAEQjx117lOpL/ur4RehaGlfaeOjnXIRDNgbzLoZCt3Pvo
+	 BmSLL30Y02M5oZhaJN/OlG+t9VmVo1Bm5FGDIpBmeJ2iaIgFMn5xfBTUoxvHJExwt9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eK++v5+j;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=yoxcu.de;
+	spf=pass smtp.mailfrom=yoxcu.de;
+	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=j0hnwgwK;
+	arc=none smtp.remote-ip=194.36.144.171
+Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EC7B606A33B;
-	Fri, 20 Nov 2026 20:27:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FC27606A32C
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:29:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FC27606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eK++v5+j
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 074A81F000CA;
-	Fri, 20 Nov 2026 20:27:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795206424;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=eK++v5+j6gNqbk0sWKjlxq2XeOqiO7hNZua5OLVVkNZfFeOZh5dCiESKKOL/Nd7Gj
-	 JrBXeddyJqYEL13sAWrOrbmU5dS7WQZOcap0gYvfJe1yDYzF+ph95UQAkRyLuJ5q2T
-	 2+yL3HpXKLiVcf0DpAd16qPgS+nK4SsMowRxW4Eh0misgeULnOOITYnllptV0WANop
-	 Zehyx4KdaZzWnY7pUTiSe75CLk6dbtLX7cfrbUHcRLWt8JrsLGidhAF3fQeGG9nA09
-	 Pux3yGp8Dj99KOOE3tlOfYbwkz5HX0A56xk5lMdXbkPTxgG9vglETqHkGZrthBTgJM
-	 jSVQN+RPFDgHA==
-From: netdev-bot+sinfo@kernel.org
-To: Chris Babroski <cbabroski@nvidia.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, davthompson@nvidia.com
-Subject: Re: [PATCH net-next v1 0/2] mlxbf_gige: disable MAC after panic
-Date: Fri, 20 Nov 2026 20:27:03 +0000
-Message-ID: <179520642352.3294.1018427060462107443@kernel.org>
-In-Reply-To: <cover.1795206150.git.cbabroski@nvidia.com>
-References: <cover.1795206150.git.cbabroski@nvidia.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=j0hnwgwK
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FE381D86DDA;
+	Fri, 20 Nov 2026 21:29:36 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
+	t=1795206579; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=hAknXHv/4i/SWTpoyAcIjrvHEB5Ii1/3j5H4a+yyAJ4=;
+	b=j0hnwgwK7jTY3u1wdtWCuKCgPZt4poc0eG3y2vs7T5fGAqiNZfKCXgIsZC+eh+maUUxfXz
+	gpjbwEzXXdO6olEQgvKY4OgIzeCptQ6DOAgnnj4iIybUzd06Q+AXEgYEYT1gX4l86N6M6L
+	UvMLiciDRBed+y4YbsPkuazjXC8OA0u2aPPdnkEcKqNdO7Y/vhyb3I1T9bBo4JSFdUPA2w
+	vYJ2WOknx10voaPVsA0LtQuGzROp5CQEXatBfqqafCMVYZl+t0MRxbhplqvflsmjnTRkea
+	n3UPIOuiIT5t0z/HgGqZE9FjWPDs6IWGNvH80ZGi3KYDonlshR0IPYijcEs2Lg==
+From: Michael Auer <mick@yoxcu.de>
+To: Alex Elder <elder@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Michael Auer <mick@yoxcu.de>
+Subject: [PATCH net-next] net: ipa: report TX_SUSPEND wakeups to the PM core
+Date: Fri, 20 Nov 2026 21:29:30 +0100
+Message-ID: <20261120202930.345970-1-mick@yoxcu.de>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,22 +65,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi!
+Since commit 4b2274d3811a ("net: ipa: don't bother aborting system
+resume") the IPA driver reports no wakeup event. The IPA interrupt
+still wakes the system, but the wakeup source of the IPA device does
+not count it, so only /sys/power/pm_wakeup_irq shows the cause.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+User space that reads the wakeup sources cannot attribute a mobile
+data wakeup. Plasma's powerdevil, for example, turns the display on
+for every such wakeup.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Report a wakeup event when handling the TX_SUSPEND interrupt. This is
+pm_wakeup_event(), not a hard wakeup, so it does not abort a suspend
+in progress unless user space uses /sys/power/wakeup_count.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Found and tested on a OnePlus 6 (SDM845, IPA v3.5.1): a push message
+over LTE wakes the phone from s2idle, and the IPA wakeup source now
+counts it.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+Signed-off-by: Michael Auer <mick@yoxcu.de>
+---
+Tested on a OnePlus 6 with an sdm845-mainline 7.1-rc1 based kernel, in
+daily use since late September. On net-next it was only build tested
+(W=1, arm64 and x86_64 allmodconfig).
+
+The event is also counted when TX_SUSPEND fires after a runtime
+suspend while the system is running. If that is not wanted, the call
+could be limited to system resume. I kept the version I tested.
+
+Tool use: the analysis, the code and the commit messages were
+written with an LLM coding assistant (Claude Code). I reviewed all
+of it and tested it on my phone as described above.
+
+ drivers/net/ipa/ipa_interrupt.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/net/ipa/ipa_interrupt.c b/drivers/net/ipa/ipa_interrupt.c
+index 766b094eb069..547ed67930d6 100644
+--- a/drivers/net/ipa/ipa_interrupt.c
++++ b/drivers/net/ipa/ipa_interrupt.c
+@@ -92,6 +92,11 @@ static void ipa_interrupt_process(struct ipa_interrupt *interrupt, u32 irq_id)
+ 		break;
+ 
+ 	case IPA_IRQ_TX_SUSPEND:
++		/* Data arrived for a suspended endpoint. Report it as a
++		 * wakeup event, so user space can see what woke the system.
++		 */
++		pm_wakeup_event(ipa->dev, 0);
++
+ 		/* Clearing the SUSPEND_TX interrupt also clears the
+ 		 * register that tells us which suspended endpoint(s)
+ 		 * caused the interrupt, so defer clearing until after
+
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.43.0
+
