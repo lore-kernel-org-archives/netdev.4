@@ -1,49 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143013;
-	b=P2erbzEJBaqRaa0rwbMUkJdnwQlheQIM+ESZMhQiVDvhR/Emv1xieCMFgt4j8gLmlLSR
-	 dZEC4ZpIaa/fE+Klbe086lesLtCQ/dUF+cTwyyJYsA8T0ZvMFzoRKUJNWrtDN2+AtHqpF
-	 4wZd81Jd7k6OvKZZsyXT8We3qpswCuSvVwEn4e2V7jOwIaVUvUR4bmyvAQO02DwUjuPTu
-	 tqHXn6uCd55FerPM3uCTQ9smwQXOY9OWWdcOieCo5VuNtAvg8xMIFIhjK+m16klv7j89z
-	 b52/yf15juU68/afYmiET/xZoRZgfUCgxCAplugLP5eNsbLgV42qa+LGlFnlMBCDmlw==
+	t=1795143157;
+	b=ZQtbSxlzgou6S2SL7EDaCIvLTRykI/uZ1DZtQFKTQJiTNQbAgrFabFWsP7mtMYwJeEfL
+	 c3V1DcBnfKChgfmRmhc1c67+uljegSnHCjO5tR/EuRQK3kbrnWGwR4ADWV4h1crlqbV1x
+	 ZlONXa7CDc109XXJKzB/tu/7Mqpxh+tPu2CieXKBTLB2423aEb4HnU7Yoy4MjjKpb0KAb
+	 o4GKrD06tswNIrTyDZhTQqDfyNP3BwvkRHOKL5UtapMM/vv6qDZNbyNl83qzAcuUVtPVJ
+	 9rp9svBRDhIZSxjlrJyfKZF5XvnMLWl02tu/k3+xade0FdolpsckR3OD3jAfehr1QEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143013;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=HEvoiHJLgjOKNE7UKzLefC+jchL+IpgC5O4X9JUdA8c=;
-	b=vW1DLiNpKTmDBGdWVWHHUm/WmdOaybkpZt5xnHi6px3EGBN8+ygXEOX+OZS7EaE7LQ1Q
-	 UQTc9CreW2IbX9t3Dkex3CVihVES0IypZDKkWiC8oQZwIpm1E7yJgexLPepiDLsioUGiL
-	 jCn0tZYozTjO0OWWHdRSeXcjAhW2S4D1aPPlj3JKD0SwBhcGO8M1PZja8NoGgwMC9EyJc
-	 8Cwtm8yf+daWCZYXngkmiFX9Z6rzOloxXYPgY/AlLnahx/qH5Ypw/+T5X7zUxURnakNLe
-	 fdQk5YGuxnUMdPfO2T8QCYWHk4N3Werb19xfyu2v3gBOOXEwAtO0qP38xadbAFpK/Lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143157;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=R0byDOCbMpV3cQA2Ji1YPCftT8TMg7Mfe6FkmiCQqg8=;
+	b=2mu/yK+gbdnDEaXqldN3EU0q3hos6V9vfVY4vzM9MVbjMNXJYuykwE7U1sYnXewqC7YJ
+	 N63oB5isEFB9i2K96u3puHetCi23v4N/xQOJsP2KQeQU8IsJJYwPVHIZZBJkH3GBOHDrC
+	 vbEZgfcCjvUTrUhCRb4QfN2wzvF16s4WQX8Mk/CcxC1OJAQPRbMuVhygyNr+ypeE/lnrS
+	 5LBXoo8UFi+q+Ohqlet4v0MwutV5CmSAyhX9StetonT6w//SRJZRP+rFlFjMnSEQY2Eb/
+	 khCrDdYJXiQg+1LbApgYSdGFn2oUzBTvmxntK5yE9lod2uA7b0oauyg7aRGAr0wDCdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EDomxy9T;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OplKmHka;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29665606A335;
-	Fri, 20 Nov 2026 02:50:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1446606A320;
+	Fri, 20 Nov 2026 02:52:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EDomxy9T
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE93F1F000D0;
-	Fri, 20 Nov 2026 02:50:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OplKmHka
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B33F51F000C4;
+	Fri, 20 Nov 2026 02:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795143012;
-	bh=HEvoiHJLgjOKNE7UKzLefC+jchL+IpgC5O4X9JUdA8c=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=EDomxy9T6TEyy2QmVmrTyU7eJZgRkZ3nasYKHC+GgPGQnNSpDgjod48YVkxYjEGtG
-	 9L0mp5ntuw58J0bc226BTqFhs0cGfD/6Ru8WXi9Alwa/58MdIeppDzR7XYXlhG8p42
-	 lEh2o8BqkiCP03ARv7ZtSN5o6XQ7RYwySF3iVVWqTkXGSZ0F6bTUQXkuWT+0x+P0ZF
-	 wby1g2l8+DRDRZ1u+tdh0LLk/oAq5zOP2SxlN5tRxq4JTk72ZiZzinh/3949K2AcLf
-	 BfqkJ6sfnnz/tRwvmQ+eIvXGaclWAjyoIhikufR/7MF7bxPObo2RCsl43KodU10QUj
-	 hQsNN9y01dEmA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B450B3808209;
-	Fri, 20 Nov 2026 02:50:12 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795143157;
+	bh=R0byDOCbMpV3cQA2Ji1YPCftT8TMg7Mfe6FkmiCQqg8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OplKmHkaXP0+9LAR+1s78FFbADek7xjUP8lCFnHJAHEe2AR+mmsU2BLpfjlyO4cSG
+	 DIsark2S4lCPmElRHghfXIizkXzkWND7304LIEeP+qwEqY+UegBkgtmIdDWQTYC433
+	 MenIYqM9E1ATX9aASYkGrP+vpouC/gjvlqu1P05E2QBhwh1FwAoqHzqwW14lrttXVG
+	 tERf2wrrxivL42/IFQVBUtoPG9SCW+XYF7qpYgTA5h6D7PiMqBd7tm0MlgkrFq6VpY
+	 Lj8ftVfZaOZYJ1kMc1IznkJVlkJvRFA4b0jwE42eRzRqlN8huoOta+NVrQaBcx679O
+	 B1I+tomvnEhxQ==
+Date: Thu, 19 Nov 2026 18:52:36 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Sahil Chandna <sahilchandna@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org, Haiyang Zhang
+ <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
+ <decui@microsoft.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Wei Hu <weh@microsoft.com>, Konstantin Taranov
+ <kotaranov@microsoft.com>, Simon Horman <horms@kernel.org>, Erni Sri Satya
+ Vennela <ernis@linux.microsoft.com>, Aditya Garg
+ <gargaditya@linux.microsoft.com>, Manish Awasthi
+ <mawasthi@linux.microsoft.com>, Breno Leitao <leitao@debian.org>,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
+ paulros@microsoft.com, stable@vger.kernel.org
+Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and
+ minimum interrupt moderation
+Message-ID: <20261119185236.09603dbd@kernel.org>
+In-Reply-To: <cc705453-0794-494f-adb9-b6fb71254ba7@linux.microsoft.com>
+References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
+	<cc705453-0794-494f-adb9-b6fb71254ba7@linux.microsoft.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,42 +69,11 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] MAINTAINERS: Update AMD XGBE driver maintainers
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179514301127.3992568.16003960745670956201.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:50:11 +0000
-References: <20261118143910.3573840-1-prashanthkumar.k.r@amd.com>
-In-Reply-To: <20261118143910.3573840-1-prashanthkumar.k.r@amd.com>
-To: Prashanth Kumar KR <PrashanthKumar.K.R@amd.com>
-Cc: netdev@vger.kernel.org, pabeni@redhat.com, kuba@kernel.org,
- edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
- linux-kernel@vger.kernel.org, prashanthkumar.k.r@amd.com,
- SarathBabuNaidu.Gaddam@amd.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
+On Thu, 19 Nov 2026 15:52:40 +0530 Sahil Chandna wrote:
+> LGTM, Reviewed-by: Sahil Chandna <sahilchandna@linux.microsoft.com>
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 18 Nov 2026 20:09:10 +0530 you wrote:
-> Remove Raju Rangoju, who will no longer be maintaining the AMD XGBE
-> driver, and add Sarath Babu Naidu Gaddam as a maintainer to help with
-> its ongoing development and maintenance.
-> 
-> Cc: Sarath Babu Naidu Gaddam <SarathBabuNaidu.Gaddam@amd.com>
-> Signed-off-by: Prashanth Kumar KR <prashanthkumar.k.r@amd.com>
-> 
-> [...]
-
-Here is the summary with links:
-  - [net] MAINTAINERS: Update AMD XGBE driver maintainers
-    https://git.kernel.org/netdev/net-next/c/bc84a86664ea
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+The tag needs to start at the start of the line, otherwise tools wont
+pick it up.
