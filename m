@@ -1,60 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168664;
-	b=0Vdds9NeMG1gx1/vW1GZaRVBTEeKxC4+0jkhorgKe8Kcddq+nxW89zFXkjmf7yr/xrGr
-	 7Ffxnc/WcZRKvmalplBOMeq+Y1El29gWtw169ZSXnbW7ewVMpwnhILPiOc1CRqKXVsPBl
-	 Twk9ODg7nYOCnbj4IQp4fLnHAfdASoZsVIomaBwLRA9baYjatffPsZ+9IZeCc3i87iOcV
-	 mLdAcZmalPDuaIZVjd/8zr2hjiiLQ4lVacdJCJUKByxPx271UfcDA/MBtNFHIrA5RiTqA
-	 6g1GMg4HL+Zk3bO5XhQf3A5oraKxFuV6uHuu48jAPdu54x6ttvGFHfinrbfCbcZPcqw==
+	t=1795168682;
+	b=ud3kqsmmP/bPlz2IJXFc7mwDIbTmQbcuIOzatjBmV1U4MPjrSR+z19DmNjGgSSx1Xmlm
+	 VD1rdPzNbYo1Z/664xfen0coN5rOIQigpMJQoClVMP+iF3lJkm1OyGhNN1aMGciRrPNZx
+	 2TAAHth28TeZjy+HCmL9UC7caikQgDPBNK1ipiq+ZPtdWJjfUpJ2ME1vtVLL+QnMDr/B0
+	 njISgHCpZbUfGBRhqDINnaODztvZzWcYB593jXQ6F/+2WyUk3QrmiQFjPHbc4fD4gK8HK
+	 BE/NmXSZQFAeoWPYO5INUy3xF2b3Ux0VuBVh6oOk9LINaELjdq4lBNuV3cJP92r0R4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168664;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=US+BwjsBu2YGs4iPWGc7Xdq/wpYAMCQoXR2jUtQoE6E=;
-	b=syCAF3tW8nzoTMkCX1mEpvxu/mYw2eKVGWK+3uRG0fR6mfOVifxED4RriuzmoAkgNtGn
-	 PfHu07i5VDzg6bNM4KQ7hJhBsYwByvispzTkSdcrr7KDPbEkRCInY1NgeV7IlAYgKD1MX
-	 dU4+ozpt6tnhVlND8zedHIefUW2q7C9Ago6e8kjCmY9WAqmv1lOLqwsFfW7e7Y2KS3Fe9
-	 wkLwyGvavIWjz9fXOPxR539YM0YVfBSRmYZftwbOwoGuwagWFGj+vOyZdLwo2w0IinMUH
-	 SNigyXdls7AqWSl4oWH1qV0FjX+dVxx127BaDPoeIRCq8pdkn0OPlTHEgmHg8Ne6d2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168682;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=18K2QVX9wsuXcDjVy4klLRXHgcGtXDEcAsxGkgJfiz8=;
+	b=gbpr9DMwUVSveZwtBoFazfF7pHD6veyB5fTaHG9pQajBIjMKdLyDWi1IkdEMKuOStx5q
+	 urzIwC9xoh6ZRzOnHuLfPlGt5cjBb+pEAkh0SIkExx/NAp5h28Dh2WB1O0tAzNflhpqVs
+	 VGyhmjDafsHvvztxOGopCWz6Gsy1HDk1hs/19sMw/mD1cqsPtjSD2hmk1PYiXIVF0GXk/
+	 I7Jhs4lKEHOeqLHSpdOIzAJom0/S7HbzZWflhJnGVfGmUQbBAyv6F/oQdP6yfDc4v93p2
+	 cQ78PRixLiQGYsgyJMn1oAaxH8t7/ltuOprZOIVjPrrlWPfUGkYzGY/pIneikp1pqwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clpYv4nf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=vIJ0WrAH;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3389E606A320;
-	Fri, 20 Nov 2026 09:57:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ED0F606A320;
+	Fri, 20 Nov 2026 09:58:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ED0F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clpYv4nf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B161F000CA;
-	Fri, 20 Nov 2026 09:57:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795168663;
-	bh=US+BwjsBu2YGs4iPWGc7Xdq/wpYAMCQoXR2jUtQoE6E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=clpYv4nf7GoRQgSzznc2rvcK1WJk2g6BZeRgeLlN/EqEoj9aMQbtcGbmNUqwvfUhx
-	 LbSiYfDczBc6J7XGGTObjzBJPhpvPyEBAOHv69laqE0zi/4u0JV6nWPkrLvrvd6hHP
-	 Y6QpmtSIUtqA1EZqlbzlnbzSqZe2iDSZeVpYLcqMpUmOwaEfGmTcYFbokGkmQWi2Lx
-	 z/XGdDS16hb36EF9zk6iyRcO15vU+yfqJ1T9rOi4oIqzWRRDucyWDWwYy/rZMPjRVT
-	 PD4bkkJMDbjWQrBQVQX0G2rfXYBh2HBPDrM2Zm0IEdAPlzQ2rDOKA/ybnsSefWLOkt
-	 0fZOFFPowLENg==
-Subject:
- Re: [PATCH net] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
-From: netdev-bot+sashiko@kernel.org
-To: jiayuan.chen@linux.dev
-Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
- kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, weiwan@google.com, soheil@google.com,
- shakeel.butt@linux.dev, linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 09:57:42 +0000
-Message-ID: <179516866272.3136.232647069823092530@kernel.org>
-In-Reply-To: <20261119090828.343748-1-jiayuan.chen@linux.dev>
-References: <20261119090828.343748-1-jiayuan.chen@linux.dev>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=vIJ0WrAH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795168682; x=1826704682;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3pe3cqwMoeM9BUmbzWe8+5h4ErVAO7PLZ1zk5jx0Ijg=;
+  b=vIJ0WrAH0cOABYwTU71zkROyPfAav6Dqd3oGbfYt3qqrmOJwgcYe5T0Y
+   buVOz2HJvYgn1h/nlbaxLRYHswvqEUboXMT9mN6tg+UvOCFxvnrID61X0
+   NqysiA4gk6iSj41QUD0JKSHemtq4wqbFkPl8TaIMgvnPxNtb9Vz3AOL6C
+   e3X8mluLbkJ0Kj3hYz3EMJwoGkPRC2c7RzwFjJFRMWlr0s+83lrsXK40i
+   XoEAKnzIjIXdsV7fpU7lH0AsHJIVRwb5dBEymfsdgktB4JJIhGnQW1Wx0
+   JcfhQ9mOWY9Nr6iUBXN7YW1gN8QPey/3gB8/fEMrSpPZ75x/1FAxJ3YoX
+   A==;
+X-CSE-ConnectionGUID: JnaHMu3yQ7S4W16Kr4Rk/g==
+X-CSE-MsgGUID: P4BY+QXbReyZQZX4cfRE2Q==
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="77585934"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Nov 2026 02:57:55 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 20 Nov 2026 02:57:54 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 20 Nov 2026 02:57:51 -0700
+Date: Fri, 20 Nov 2026 10:57:50 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Ian Rogers <irogers@google.com>
+CC: Horatiu Vultur <horatiu.vultur@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<llvm@lists.linux.dev>, Elkin Cruz <elkin@google.com>
+Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
+ fails in xmit
+Message-ID: <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
+References: <20261119170729.1524516-1-irogers@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,119 +83,86 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261119170729.1524516-1-irogers@google.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+> When all LAN966X_MAX_PTP_ID timestamp slots are in flight,
+> lan966x_ptp_txtstamp_request() returns -EBUSY without queuing or freeing
+> skb, and lan966x_port_xmit() returns that negative errno directly from
+> .ndo_start_xmit. Because dev_xmit_complete() treats negative return codes
+> (< NET_XMIT_MASK) as packets already consumed by the driver, skb is never
+> freed or requeued, permanently leaking the sk_buff and its socket
+> sk_wmem_alloc accounting.
+> 
+> Free skb with dev_kfree_skb_any(), increment tx_dropped, and return
+> NETDEV_TX_OK when lan966x_ptp_txtstamp_request() fails.
+> 
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
+> coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
+> -Wimplicit-int-enum-cast; not tested on Microchip LAN966x hardware.
+> 
+> Fixes: 77eecf25bd9d ("net: lan966x: Update extraction/injection for timestamping")
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  .../net/ethernet/microchip/lan966x/lan966x_main.c  | 14 +++++++++-----
+>  1 file changed, 9 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> index b8696fc7e9b9..9c722d23e0bb 100644
+> --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> @@ -392,6 +392,7 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
+>  	struct lan966x_port *port = netdev_priv(dev);
+>  	struct lan966x *lan966x = port->lan966x;
+>  	__be32 ifh[IFH_LEN];
+> +	netdev_tx_t ret;
+>  	int err;
+>  
+>  	memset(ifh, 0x0, sizeof(__be32) * IFH_LEN);
+> @@ -404,8 +405,11 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
+>  
+>  	if (port->lan966x->ptp && skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) {
+>  		err = lan966x_ptp_txtstamp_request(port, skb);
+> -		if (err)
+> -			return err;
+> +		if (err) {
+> +			dev_kfree_skb_any(skb);
+> +			dev->stats.tx_dropped++;
+> +			return NETDEV_TX_OK;
+> +		}
+>  
+>  		lan966x_ifh_set_rew_op(ifh, LAN966X_SKB_CB(skb)->rew_op);
+>  		lan966x_ifh_set_oam_type(ifh, LAN966X_SKB_CB(skb)->pdu_type);
+> @@ -414,12 +418,12 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
+>  
+>  	spin_lock(&lan966x->tx_lock);
+>  	if (port->lan966x->fdma)
+> -		err = lan966x->ops->fdma_xmit(skb, ifh, dev);
+> +		ret = lan966x->ops->fdma_xmit(skb, ifh, dev);
+>  	else
+> -		err = lan966x_port_ifh_xmit(skb, ifh, dev);
+> +		ret = lan966x_port_ifh_xmit(skb, ifh, dev);
+>  	spin_unlock(&lan966x->tx_lock);
+>  
+> -	return err;
+> +	return ret;
+>  }
+>  
+>  static int lan966x_port_change_mtu(struct net_device *dev, int new_mtu)
+> -- 
+> 2.56.1.708.g77570a6a1d-goog
+>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Hi Ian,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks for the fix. The issue is real, and also on my backlog of work to
+upstream.
 
-- [Medium] The new sk_forced_mem_schedule(sk, 0) only runs on the success
-  path of skb_zerocopy_iter_stream().
-- [Low] In tcp_sendmsg_locked() (net/ipv4/tcp.c), the MSG_ZEROCOPY branch
-  only pre-schedules memory when the skb is not pure: `if…
+Just a heads up, I expect the AI review to flag issues in this area. The lan966x
+PTP TX path has a number of known problems that I am are going to address in a
+PTP series soon. I'll go through the findings once the review is in and follow
+up on this one.
 
---
-
-tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
-
-The MSG_ZEROCOPY path in tcp_sendmsg_locked() can append to a skb that
-already holds copied data. In that case only the user length is
-scheduled, but the pinned pages are charged by truesize. This commit adds
-sk_forced_mem_schedule(sk, 0) after a successful skb_zerocopy_iter_stream()
-so that sk_forward_alloc does not go negative.
-
-> diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-> index 832b25ddd3c2e..9f8c0954001bb 100644
-> --- a/net/ipv4/tcp.c
-> +++ b/net/ipv4/tcp.c
-> @@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
->  			if (err < 0)
->  				goto do_error;
->  			copy = err;
-> +			/* Pages were charged by truesize, not by copy. */
-> +			sk_forced_mem_schedule(sk, 0);
-
-[Severity: Medium]
-Can sk_forward_alloc still go negative on the error path? The new call
-only runs when skb_zerocopy_iter_stream() succeeds, because the
-"if (err < 0) goto do_error" check comes first.
-
-In skb_zerocopy_iter_stream(), the truesize charge made by
-__zerocopy_sg_from_iter() is undone on -EFAULT only if ___pskb_trim()
-succeeds:
-
-net/core/skbuff.c:skb_zerocopy_iter_stream() {
-    ...
-	if (err == -EFAULT || (err == -EMSGSIZE && skb->len == orig_len)) {
-		...
-		if (!___pskb_trim(skb, orig_len)) {
-			skb->truesize -= delta_truesize;
-			sk_wmem_queued_add(sk, -delta_truesize);
-			if (!skb_zcopy_pure(skb))
-				sk_mem_uncharge(sk, delta_truesize);
-		}
-		skb->sk = save_sk;
-		return err;
-	}
-    ...
-}
-
-___pskb_trim() fails when the skb is cloned and
-pskb_expand_head(skb, 0, 0, GFP_ATOMIC) fails.
-
-Suppose the write queue tail skb is not pure, so only copy was scheduled,
-and it is cloned. If the user iovec faults after some pages are pinned and
-the atomic allocation fails, those pages stay charged by truesize. The
-caller then jumps to do_error without running the fix-up.
-
-A later non-zerocopy sendmsg() under tcp_mem pressure would then get a
-negative copy back from tcp_wmem_schedule(). That is the same case the
-commit message describes.
-
-Would it work to call sk_forced_mem_schedule(sk, 0) right after
-skb_zerocopy_iter_stream() returns, before the error checks? On the paths
-that do undo the charge, the call would do nothing.
-
-[Severity: Low]
-This isn't a bug, but does the new comment hold for pure zerocopy skbs?
-Earlier in this branch, the pre-schedule is guarded:
-
-	if (!skb_zcopy_pure(skb)) {
-		copy = tcp_wmem_schedule(sk, copy);
-		if (!copy)
-			goto wait_for_space;
-	}
-
-__zerocopy_sg_from_iter() also skips the charge for pure skbs:
-
-net/core/datagram.c:__zerocopy_sg_from_iter() {
-    ...
-		sk_wmem_queued_add(sk, truesize);
-		if (!skb_zcopy_pure(skb))
-			sk_mem_charge(sk, truesize);
-    ...
-}
-
-So when SKBFL_PURE_ZEROCOPY is set, no pages were charged to
-sk_forward_alloc. sk_forced_mem_schedule(sk, 0) is still called anyway.
-
-In that case it does nothing, unless sk_forward_alloc is already negative
-for some unrelated reason. Then it would force-charge without any warning
-and hide that imbalance.
-
-Could the call use the same !skb_zcopy_pure(skb) check as the
-pre-schedule? Alternatively, the comment could say it covers the non-pure
-case.
-
->  		} else if (zc == MSG_SPLICE_PAGES) {
->  			/* Splice in data if we can; copy if we can't. */
->  			if (tcp_downgrade_zcopy_pure(sk, skb))
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119090828.343748-1-jiayuan.chen%40linux.dev
+/Daniel
