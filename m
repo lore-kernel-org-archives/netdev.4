@@ -1,65 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180250;
-	b=WeEQ+sxYtShUkCehaHmjiRgVZ1JkuLRksZvKrtaCONJphv08N/79QmlAOydiXW9rx21R
-	 pmgdGiDpoiaHCc/2VcxW2oYMkwmuvvei5+dZv6YitqMJCStvEq9+c1ZDo9oiRa/mBsPkS
-	 JxZaZcas6sIr46ikxcjto8B1iLnPLZ0q0tJ5fLwcAwzmXqzUB18R6DWqkoON6ECxNG4dm
-	 w1sGnPzfjF+jOOX4XTvHbQRm+26sMgr44owfxRrG6jFAPG+hsGnGYyg0/xQNbDYzWuPnY
-	 HzWGAWFv6xKN/cb9sZg65Zgzlp7yyNmjvLERMQfQ+rdxcGPyoKuAnO+v60eTJCYT9Yg==
+	t=1795180513;
+	b=JwHkVig05cOeVqEbBo9YZfl6PZU8CWClI5jaJ7hx68bMYC1RhAjXTzU0OSSfDglY8aPP
+	 4i06LzeFNq2ikxP3QnPYzqbc2mcPUQk0L3IRuvRQvxHJRdUAK1LkAILpjax2A5eRAjJ9G
+	 7ErPv2yquh6Zgl0TGmQEe7CxROkNNS8lu5YQ3cDdpK5FOghBSqAWGaNxwjZo8F8W4ULm5
+	 wCIsMghuoDt8ieHAQnbLTbNJnaUQ/J97wos66vukm/1effQeuTFOzjXxuwCCr7maE4wYF
+	 Ws8pGdWtVi+Fox8TjbjthnncTiLlGurvXOHpLe7DIZjUBy9zHs8zeGtloL9/NrnFYAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180250;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180513;
 	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=vjG9ZmNvZoaC5K/Y526JjO1OvZEaHYF3hX86jRUEixU=;
-	b=uWYwRKL72+NWXIz45kjqURZOUOnIb63M7tjYjz8Dk5wfMP2MPCRvIY0oGjz9f6ZOEw/K
-	 M+6c63Zv+Ix66a7XGgwAhzqd0SSgiS1bf6ki6t6jL6X1zrBJJMBYSTpW0bSOeXkBS8UgC
-	 Dq2f5a/ZQivaKLIyg0Aa3ea9tXqblQWOtgVINIwf59nNODEaBEtbhB7RmdZ2y715IRiar
-	 wUDPvgzOdCHIXeq8qLJ1l/SqNrChp9YUme9MdcI0OrHeC/CEr6DFFIkQgwEidmS/tGSJW
-	 r6DKdGhEGydsbTWjINp7mZIJcLA51jHHKnMYUpI3ZglNruOVwGlmjACSFFooxot3MAw==
+	 In-Reply-To;
+	bh=87xES/UahubkQyAyp8NUVzMMkGv6XmiLeVblJoAL/58=;
+	b=hh5QqW1GglyJs1RXCrhmVKXDGEXjxpPue3omtgBU6RAGm/HTS1Pu1gROVKLW+eYh8cUW
+	 fQNKK2+WL0y3eHwvg3P3bm17e4b3wHoSTS66QAkFvVxIFbSbyEE9sSpK6j5vOfUMyJTL/
+	 QrWATMeNdAaTfRkMPXdGfvns3yiWkpBSN0pJKbr7j0KGjIvrSe0iOHqqIARa7g7/Xb8IA
+	 LXPNOTMJYNAMaTC3Vg/Q01JK9agEx6Jn3DfXcTImGSEXK1AtOIt77V+eZzinETu3mzpy3
+	 xHE3VNYKkzW1iB4SEIRAzTvxNi0Cz1bfo/O498ES5GBXBszxWOe5m+Pt+LDPVELClcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=lunn.ch;
 	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=TfwImNmM;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Q6oql7QO;
 	arc=none smtp.remote-ip=156.67.10.101
 Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50580606A339;
-	Fri, 20 Nov 2026 13:10:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50580606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75325606A325;
+	Fri, 20 Nov 2026 13:15:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75325606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=TfwImNmM
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Q6oql7QO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=vjG9ZmNvZoaC5K/Y526JjO1OvZEaHYF3hX86jRUEixU=; b=Tf
-	wImNmM2JCSYXU+nQeXN1DZMzfOHvN9ykh6/nd+SKnCH6PC9kiBGt1iy7I7FjUDGg8xlinIRrU6cF7
-	pWJMkYdOBV6GgM2ZsuSHIiqlU6BaJOjK+WVY8ZEb43i+nOUFie45no2KcBVlbMdcyAY78qZXafCiR
-	QVbrnqU1+vJS0Os=;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=87xES/UahubkQyAyp8NUVzMMkGv6XmiLeVblJoAL/58=; b=Q6oql7QOXNJleW0MlN3DBIPY7L
+	8dIFuiQ90WDqK2AsOXchSNpFPcypeoKezR0iUii9wlg5CcwdgTTh6rIxMVNO4I+yKAmylEwRL2isF
+	WPq3eQrj9ZGymcu76bTGTR+dRnyC8y+EMFhj+r3n0w23NUWv+gOTVTcDX4hUbYsZ4TIg=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xUOO1-000ILG-QY; Fri, 20 Nov 2026 14:10:41 +0100
-Date: Fri, 20 Nov 2026 14:10:41 +0100
+	id 1xUOSC-000IOg-N3; Fri, 20 Nov 2026 14:15:00 +0100
+Date: Fri, 20 Nov 2026 14:15:00 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Alvin =?utf-8?Q?=C5=A0ipraga?= <alvin.sipraga@analog.com>
-Cc: Rustam Adilov <adilov@disroot.org>, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
+To: Zhao Li <enderaoelyther@gmail.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Taiga Ogawa <zectaiga@gmail.com>
-Subject: Re: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C
- tag variant
-Message-ID: <e9964125-48a8-4a0a-aedf-1c22aed891c4@lunn.ch>
-References: <20261119165129.26693-1-adilov@disroot.org>
- <awA2z07l0ZvzcWtc@analog.com>
+	Eric Woudstra <ericwouds@gmail.com>,
+	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>,
+	"Lucien . Jheng" <lucienzx159@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: phy: air_en8811h: check PBUS register
+ read errors
+Message-ID: <439bfedb-fc9f-4e41-a87d-f5e6a3b7950c@lunn.ch>
+References: <20261120062001.38233-1-enderaoelyther@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,31 +69,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <awA2z07l0ZvzcWtc@analog.com>
+In-Reply-To: <20261120062001.38233-1-enderaoelyther@gmail.com>
 
-On Fri, Nov 20, 2026 at 01:09:42PM +0100, Alvin Šipraga wrote:
-> On Thu, Nov 19, 2026 at 09:50:51PM +0500, Rustam Adilov wrote:
-> > The RTL9607C family of SoCs have an embdedded switch that utilizes
-> > the same Realtek CPU Tag protocol 4 with 8 bytes in size but have
-> > a bit different of a layout. And that layout is also different for
-> > TX versus RX sides and introduces new fields not seen by RTL8_4.
-> > 
-> > Add basic necessities for this cpu tag variant to function.
-> > 
-> > Tested-by: Taiga Ogawa <zectaiga@gmail.com>
-> > Signed-off-by: Rustam Adilov <adilov@disroot.org>
-> > ---
-> > Tested on OpenWrt with 6.18 kernel version [1].
-> 
-> Mainline doesn't have the requisite DSA driver to make use of this
-> protocol. Andrew, is it normal to accept tag protocol drivers without
-> the corresponding DSA driver?
+>  		/* We do not know what errors this check is supposed
+>  		 * catch or what to do about a failure. So print the
+>  		 * result and continue like the vendor driver does.
+>  		 */
+>  		if (pbus_value & AN8811HB_CRC_ST) {
+> -			air_phy_buckpbus_reg_read(phydev, mon3, &pbus_value);
+> +			ret = air_phy_buckpbus_reg_read(phydev, mon3,
+> +							&pbus_value);
+> +			if (ret < 0)
+> +				return ret;
 
-At minimum, i would like to know the DSA driver is on the way. It
-could be posted as an RFC. Best would be to make it a patch series,
-the tag driver and a minimal DSA driver. That would be normal.
+Please could you explain your understanding how this change and the
+comment go together? You did read the comment didn't you?
 
 	Andrew
