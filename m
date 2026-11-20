@@ -1,47 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186254;
-	b=Fs958Xe8rbERJD1C3Aoy3f/qAUqVsu9hv+fg7F4KgTUwJ9OBSqajwJ49HNVwwetH67Va
-	 kYQ1ocABXvICyDBtjEnuaTb9Ow6odarTxzMzfapOvgFN019AwZjK/tJE/3KmRsHr/CpML
-	 VJ/kBf4d3f1xhRWBYhfz2QwCQiQhtwg6aucBmqYJVY5GsfDTp7kru8/xsDtLd1rVd4GUP
-	 ISW2VJ4hF7yjI54ns3upv8Xxn+WhuopcCPDarTHU51NCmmxY+QDiUJL18gZUnRq+OKMM5
-	 vEgAfCdbWv6Q2+6OyEleKborH2siAAXT7fSTwGry5AgTvxmRwyYZEArc/mKrXnI5oCQ==
+	t=1795186390;
+	b=Ufg3iulB6ZO6p8ORtMCXmDsTxPACr/K/1qTuuyuMc5ULkcSfon1LMm1WtRX0e3H8SgGN
+	 HjetI6fczuYywm0M/98fOCqk9lk9Uj/aDDT2CCmWSXrOpu0AXJjvJOF/FFBp9/lbRXGqg
+	 OEFmL4+P3NZGjdQzpKdrb9DKMfGQg/LAbgJgUIVLmrOYWpjojhbdCaSB5NJLoc0+HnfIE
+	 LleGr/Ma/V/vap3UZbRZmGIqSO73/v21OVeIMQXGVd1wIXA7jxozBI7xvzn5MGi3XcP9W
+	 YaHDmGs4s8IcjyUSJjhp/YEX3ac0EMtNPeGMHWtAoAvUP7l7/c1+iSe2z9Ol5IE41Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186254;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=xq95c6hIWcCI3WqchLYfnMuxNwOv/S9CL+ROrCSXBhM=;
-	b=HBsZtT5TTviof3q5h4X5E3EWz6nAmCRbt/qZtT1qWVa02v0tJVbZF4neeJosuyW+p6Q8
-	 rEG2tZyBakIIHk8lZ+nPyAl2UIkKdAYZmqoLCp53/O1UXOtElkg3ZXYeSIv0KwX8zumSC
-	 ijjnH1H7kqoNqxtBAjmeyct4ichTVGf31yDZnVxiANvqMNVcmWY6s7YZZ3QDQAL9Bq+gR
-	 VqnSIcskxmsPQiYuoFaB/J0+S44J+sJpqNlExyFKXvltmeJjGJqg/5DJjjzhfN4SV94A0
-	 5KMyVm/P6bZ4t/SgzPThFxIdKbUYjaGpTXJlQjDGdulHtnaxCmhDxfOTS3n/xxsY+6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186390;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc;
+	bh=iBP+b6prP6kyCPScuNa8zQ2uYPSjomx3LSDLJkMRsj4=;
+	b=spbnHpl7AZTiuU4I9Z5J5+VuwRS9IGqVHUtcCA5skJNBUfvmfeq5Nx9k0iG0tOiUgI6U
+	 932spWZuU3PdwBmABzGkA2g/8aFhoMEx+nVxRLmMbSAV/w/e7+mb5ecIb56le+AsENnWH
+	 oDbQTwbsWYyV7Aog598Kuw1FygvBEG8oJWFrs125jYr3ZpGOcG6t6N04tWHkYKnIpUU+l
+	 KtonlYBwtmq98Yv06k6xMDh4HLselWxHkqJJ9mEqU+ARohTwABHPUmtT3k7i3zfAYtV5x
+	 DvBmUojOyOVdILFGV89QxMWFqekSDt/TfhivdIuH5WAlzQkeBeh6RmcySYr+qHI7BMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDJERDe8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Wjfs8+jL;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="B/P0r81C";
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7DC960A2602;
-	Fri, 20 Nov 2026 14:50:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EF78606A333;
+	Fri, 20 Nov 2026 14:53:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EF78606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDJERDe8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA28C1F000C4;
-	Fri, 20 Nov 2026 14:50:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186254;
-	bh=xq95c6hIWcCI3WqchLYfnMuxNwOv/S9CL+ROrCSXBhM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=UDJERDe8PnZB1vOH24dOpCbmainn8Hh0UD2lEFg/YrTup19QRCBPDL/nCUh/y3eyE
-	 ddVze9nrfVeMYdqTJMKCQ/tQqNvYZF/lw9zgCNDAWw42uN0za3Xgfdaxs7piMesz9q
-	 L+q7zo9uRfCL1wiw8DpfJCDDafB/W5MWhF4c6DZS4sf1KY4M2YjiVE3PWP/6NC/Au+
-	 Ao1QBDJ2O7twRSqcPxaOenXtuz80qVMoI5EnyjWsmItikCYDxcL+YJC1LeDTJz5aC9
-	 7TafH6IpaYo974AB3F3RenjehzX6ViQB8Me6uzTYS1p2uzeRpVsH5t5sJYfCtrwQ26
-	 7pcMaI0ksFWPw==
-Message-ID: <be78bd95-cb61-4e50-9452-93e567d174a8@kernel.org>
-Date: Fri, 20 Nov 2026 15:50:48 +0100
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Wjfs8+jL;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=B/P0r81C
+From: Vasilij Strassheim <v.strassheim@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795186387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iBP+b6prP6kyCPScuNa8zQ2uYPSjomx3LSDLJkMRsj4=;
+	b=Wjfs8+jLwZFhTJO1wbR2IhC06W8LE4oMzBM1nIERkNpssNL8eibxzQtKmtvhF7M8N/8/DS
+	xBVEKiKzcZ2aShE3dmigBB4P1yN18ZvFZj57oGUp4FD1jfbWBut2bobL8yL089k7a3t1oQ
+	kJC9g5EluKwvDUBNUeECqc1QYWDEXrCemGMAv5LGYtG8EGflbvoHkzdCjBiTSM8Ptrbwz8
+	UjL0rV/GMqul4t3IHxfEz3PuNJV35YM6WQ13sizFKuRTkVwx1ajmDb918VJN3n50I8lvFh
+	47QEpX58LmZ1eEisfypxkuSTEWjuCXMbrreiSQdBPf8MoRXb51b4av6t+AtS+w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795186387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iBP+b6prP6kyCPScuNa8zQ2uYPSjomx3LSDLJkMRsj4=;
+	b=B/P0r81Co3DWzjv7xpdy2YORB1iaTu6HASsaIE1xcB4wO53rISO3Bwpeivg+8OGyhNwAsi
+	LSRH10Nb4q5RVdAw==
+Date: Fri, 20 Nov 2026 15:52:18 +0100
+Subject: [PATCH net-next v5 1/9] dt-bindings: vendor-prefixes: Add soce
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,95 +68,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net 2/2] selftests: net: check UDP tunnel GRO virtio
- offsets
-Content-Language: fr
-To: Bryon Fryer <bryon@fryer.io>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- horms@kernel.org, jasowangio@gmail.com, kuba@kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- pabeni@redhat.com, shuah@kernel.org
-References: <20261112030708.1915665-1-bryon@fryer.io>
- <20261112030708.1915665-3-bryon@fryer.io>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261112030708.1915665-3-bryon@fryer.io>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-devel-vstrassheim-soce-dsa-ml-v5-1-5de9225715e6@linutronix.de>
+References: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
+In-Reply-To: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, Eric Dumazet <edumazet@kernel.org>, 
+ Lee Jones <lee@kernel.org>, Eric Dumazet <edumazet@kernel.org>
+Cc: Vasilij Strassheim <v.strassheim@linutronix.de>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, mfd@lists.linux.dev, 
+ Martin Kaistra <martin.kaistra@linutronix.de>, 
+ Benedikt Spranger <b.spranger@linutronix.de>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Hello,
+Document binding for System-On-Chip Engineering, S.L.
 
-On 12/11/2026 04:07, Bryon Fryer wrote:
-> Feed ordinary Geneve/TCP packets through a NAPI TAP and bridge into a
-> virtio-header TAP. Require a multi-segment GRO aggregate and compare its
-> exported transport and checksum offsets with parsed wire headers. Include
-> a GRO-off packet-integrity control. No output or no merge is not a pass.
+Link: https://soc-e.com/
+Signed-off-by: Vasilij Strassheim <v.strassheim@linutronix.de>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-I *think* this series is causing the veth.sh selftest to flake:
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5471a06f93f1..20a850a6e86f 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1599,6 +1599,8 @@ patternProperties:
+     description: Standard Microsystems Corporation
+   "^snps,.*":
+     description: Synopsys, Inc.
++  "^soce,.*":
++    description: System-On-Chip Engineering, S.L.
+   "^sochip,.*":
+     description: Shenzhen SoChip Technology Co., Ltd.
+   "^socionext,.*":
 
+-- 
+2.39.5
 
-https://netdev.bots.linux.dev/contest.html?executor=vmksft-net-dbg&test=veth-sh
-
-Logs:
-
-
-https://netdev-ctrl.bots.linux.dev/logs/vmksft/net/results/918887/55-veth-sh/
-
-https://netdev-ctrl.bots.linux.dev/logs/vmksft/net/results/918887/55-veth-sh-retry/
-
-Maybe because the new tun_vnet_gro test leaves a tunnel socket behind?
-
-Could you please check the whole net selftests on your side? (or your
-new test, then veth.sh)
-
-I suggest dropping the series for the moment to see if it improves the
-situation on the CI side, there are some comments on the patches anyway.
-
-pw-bot: cr
-
-Cheers,
-Matt
