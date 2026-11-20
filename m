@@ -1,92 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795211852;
-	b=bytg9cynI04buwrt+K5LGvzyDUywMmi4L6zqgxtVQcfY7M4JONUzxHeTlCFpooxZ6qxu
-	 6q0gGPZ4E8z/JuKL3Pb6ajskvCh939+cTrb7rxvKUkHJ0UzgQhyA8PaGH8Yg1CIXVRGV8
-	 RnhCABCmIB6rG4HA4kmjrTtk4amcQbZ2PRVkz23gmVwOvP3a/yRFEDTB1xel673KAIBlC
-	 Ucv/v5Vep7lCez24zMnjyNKHXdQ+yJ2d43qW6xgQUnmQXNtEyu2Whx0L08T3jiM4Uivv9
-	 4/9vXlfWhEDN1nKIwOQ6lPxWhUYHigbtLVuI65kSF8F07UytAQtVp9jDvim57wbFHoA==
+	t=1795212001;
+	b=jPmUorJrt2hsnIVkuShkAmAxy/3fqjp1suutHmdLRmm7M64x7ZbZWgJKnvJRBNgudCOQ
+	 4rqb8tOQJUQdmq/glClWDJjf9DYe5IkTsHuREkghYQqjixu3zXyO3LXhumIBDebjE+9fi
+	 9VgePlaIEGEkQoBzuXexmSeqWRmzodyXSZ/5xZY0hAT0CeU6i2D75LOgCO1wQktB3W9aR
+	 jTvZBdY7PjJIqIM/LuoFimsbgO2AgtuVXvHoI0RroB/SvLiWASQ6bsbyaw+TTNF/nPx1m
+	 3rmblW5KRsV/EWhIkdURopi/+TZ1arXAGMWM39iUDBuDWtSvsYlAaB4Jv+k+FAlWaLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211852;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212001;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=WB5YrOS6lqLstUxpR641Ej+II1QcAH7KNtKBVfA2Css=;
-	b=OlYZlAPeZyNTh9vFXqhnjpqX5qNsU7TuG5ey/o/HBrPO7AUbyfuhHeW48ge7j3knOpS0
-	 WRIJ5W4+QFg8UobFMQRFxji4gR3vmSyntpw9ODpyl2OIiY9h/rc4HjtlGwhjjhbOeZWSG
-	 t/DMPkxWHx8vgZS88ciz20R5voWx0fZp7uTmeZCTpXN0i8L+Umqt8fpScZD2e6dSEI4rE
-	 eJLFioeOgq0aFboeZ4SGSqwkMgI0iUcYwfm6aimh65UMajTtlGM2ixJ6i9P1fQSUSRJnI
-	 4pWiduje3TgxYtZ3JZPMvoRhg5/gBgbbacdneqdxVsHFouq/SqyTJRsNSUG1fPMPYtQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=iLQP55WEAO3To1ycZ2DTaKrIVxUYismiwOyaOgIWcZY=;
+	b=N90dkGwG6Tk0k6E4jpC0Zo4SCcPFhRW1ZROqGPKCL+DVzkvYrm2NOINjDUYLcYPOV9Bf
+	 HWngG33ZRbYeroKyVV9Vbn2yovj2YF+1nh7l2ygOVmKq1ZgkSmC+kIhpLFYKHQxsb2U56
+	 A84bUsWu1rwbEovHFq/KiMuB3c5ghRkfhtutCm0yr1kpxG7mEMRvuwAq8UJEmlSaMPOFc
+	 qS6UnJV1ZMqUHS5zd++7KNT0kPk7jkOpbH79sLd8MlDi9yxgjHc7ds7tIu+9NDXTyxy8D
+	 2v83R9lYeKQU5GHlG/igkHPGKwIbGvKYmsGTuu/v0cELH2FkI6/LK5sOvhBWR1Bf6bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openai.com;
-	spf=pass smtp.mailfrom=openai.com;
-	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=JJAwoK30;
-	arc=none smtp.remote-ip=209.85.210.42
-Received: from mail-ot1-f42.google.com (mail-ot1-f42.google.com [209.85.210.42])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Er5l/pkd";
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DBE0606A695
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:57:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DBE0606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25A1A606A6BF
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:59:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25A1A606A6BF
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=JJAwoK30
-Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-86298f9267fso819218a34.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:57:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Er5l/pkd
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-382f4710a17so2283155eec.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:59:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openai.com; s=google; t=1795211844; x=1795816644; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WB5YrOS6lqLstUxpR641Ej+II1QcAH7KNtKBVfA2Css=;
-        b=JJAwoK30Z1NZo+0BdT3kGKTbsyhKp5l/wQRPEFpuJAUf4wvXTrfuvAsRQLGftwhXCW
-         HZUTPSz5NOyoO5gFt/kRZfjmv+KKl98aEJ5V0unKlYr3cpvh12gaqVuGtlbxMegMakYP
-         m9RRIE87hmvsP4x41we1T51ftahG6tS3jMLhI=
+        d=gmail.com; s=20260707; t=1795211998; x=1795816798; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iLQP55WEAO3To1ycZ2DTaKrIVxUYismiwOyaOgIWcZY=;
+        b=Er5l/pkdXn25K6Gxgm3+U3U4Q7jkdZKVw377ETY6fO8WqxeCTK++16osJI1ChN3SJL
+         hGw/MJJuhWV55SOiNiSFOocFBRyAGqUefO8XLpYYA2fo5lSh8FOKfs8nPvL2tmpFORB1
+         2KKbPklk5CX8iOsiWQkKwPbI0OAPapyJ661G2/LVRDVuuzhiThrjOdBnTda8x5QmPLBi
+         ABKL+hvo84nmMbiqlE4z4m5wTE79brewi3WBC/jL5UWKTRzJmXS5VbrsWxX/3OmC/2ca
+         weOVYVEY3qEd1xbBlKf7ZwUMhjPvs3NHmQj6SmbQuRpfNhpDmjIf7t9jyP3CGLySMbLc
+         QxNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795211844; x=1795816644;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=WB5YrOS6lqLstUxpR641Ej+II1QcAH7KNtKBVfA2Css=;
-        b=2nHKsYd8wMrHDZY1Cei1AoOd0nRLp3SX9v1+zPPg18JPtS57R7Qdby3uNhTq19dEm1
-         0Omd7u3kIvxJTBuJ6MvL0vAvqissn6xdU1LlFtLUQDh5tc2xH97VKR2KLYkv7qjOmbCb
-         UDbQ4KZQO5u4Wx3eANFg1gE1n4M7IWduEb6jyycYpYEHF1sau6AJyxLU6NIndNJjD6HV
-         kx+5P6D2QtCxaclv/CcW5mDL/jKannUkP93JitkpOGyQZO0Tz5yyxuCcpiJluDvwhMyl
-         BxMwuKFsvCTbH3DZMaCXvslmno+0kkio85MC0xDdWsIzHyhiPsZW7yGYTmRHweWoMgzE
-         f2qg==
-X-Gm-Message-State: APuU4Z93in8BetiAWgO2NOBWM/ruwxXAe8I2YdobhMgeZuLow7EVQEhY
-	7VLjjxqUnK082Fd8+LDGqH2FCbtZiBOrIMCWbwl+2nkjLiLej30WBqJaMUGTbrt16PQ16x+Jy7v
-	7GNu/xWI=
-X-Gm-Gg: AYBFou3W1U/8AUZWbcCdzYdDK0HNoOvdxatt1sCHcL2GLw/p/r69Fx4sLQBll7bGdyg
-	5nGuvYKKEsNV9XdLCMvbG+vf+pTeA4quk8tDdSc24EPQox6EdNU2ZIE+jGEVNVBhEr/f2PoDn8D
-	xInr7CalFaD9ReE8Hj9akaF8gW1d9Q4nB0HGHtDV1DyYGrbBBK6oWS7NnmZnGJ4sZ+Zo/Am8wQa
-	0xOrAfmGftYLZlqD5tyyjNxqgEPZ+Z6HpakRDmNFqNBVFTzYwE2n64joV8hqrpEpnK8UflCFSJe
-	y0YkP4NplRPKyy89KArKO4z0Y8OvloIUN1mkWe0039p/+GyPmk1QeUcRKaOlK0etcgVhGGCwGpl
-	4VZw65L+6UMKO0c4F9BJa1M/y7N0UCDyVUjofeX4rNkk0ns0SuSpbH9vzP8mXZfjZXtrS5a/Dpl
-	mcLzwLjtR1xenkvkVuXm9/2B9SjHzO0NOy3/vny3kQejSYyPLJ3YM+eW8j2lWIul80h5JNQ7Uq8
-	3JTQgFrUROVM8jSVY4PdBTDhkAqcxvyrTk52D7t8NC9FXIAdJD5v74zqPSgVy9gfUm1SMzyeU+k
-	QB9iCqLxfyWV6lH/6ZWrvPLiHwTqA3qxkzi7Di0rErvf62kpnuXz5lmi+x2UmmKGzty6QjtbjZD
-	uhwcdSamz
-X-Received: by 2002:a05:6808:6707:b0:573:b33c:1e5f with SMTP id 5614622812f47-57a09504f06mr5047696b6e.12.1795211844221;
-        Fri, 20 Nov 2026 13:57:24 -0800 (PST)
-Received: from com-75606 ([199.47.143.1])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc61659cb8sm4099130fac.17.2026.11.20.13.57.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 13:57:23 -0800 (PST)
-Date: Fri, 20 Nov 2026 13:57:21 -0800
-From: Kyle Zeng <kylebot@openai.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, jhs@mojatatu.com, jiri@resnulli.us,
-	kuba@kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net/sched: serialize autonomous timers with qdisc
- resets
-Message-ID: <awDCQf7I1sG9LTLa@com-75606>
-References: <20261110044450.51921-1-kylebot@openai.com>
- <179465832501.2199510.6314071993812416961@kernel.org>
+        d=1e100.net; s=20260707; t=1795211998; x=1795816798;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iLQP55WEAO3To1ycZ2DTaKrIVxUYismiwOyaOgIWcZY=;
+        b=03ZC0OWCxDVeEcVX0x2crWw6/WBjA6Z609z/Pr/C78EdZ+5AUcmZyfqw7vKllB0YjM
+         Vk+rEcmWwgbPJOSRDnB+p/n8yy88aBsfQeVbgWAMUVqDNYVWSLr1EpRwJQ30QAb27FCt
+         U7KOVSK/hJWLCGMb7tuesHs2sVPzmC3Q2zukYse+ZYJJSIp3h9eX+uQMu+6GAXNtd4Lk
+         vXt87s+ztgBy9gp+SMUtztbrSXynbSA3efTN5S1qjt4y9jHFS9FuU+E33SxliNJZI4In
+         qVPPRo/34ELe/MovfSAPVHvH3MhqIUXYZGtSZtrJRKSKxaLXnrspvJcSucfT5cw38Txk
+         NvLQ==
+X-Forwarded-Encrypted: i=1; AL+hErErDooINVC46+LmtwRFs2It0t0BFI6Any3f9Hj+Y8euD0ZcdCm3yUOA6GrQKQ2mkQDkMh4KvNs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BuiXWYFoc7HILhVt5Q4dUh+nwryJlzgxv6A23IrRFw7D4pNJU
+	oTnXtBrBTFJdudBdBCos0Dlid9p4Q+CM9Xjkk6FMn98ua6BMzOkmtCZC
+X-Gm-Gg: AZFdTZch0anMcCLKmhlKv4Y++YB14vJn6HSJogNgZ9XiWTtwpXTcMZpb/la4gJJ/y7/
+	ITAVtJK2Zfs9hZEYBAnJTAA+8xCiBJAgxTWAUp7tp89veCrERL9Nlfn+i6KLjf3nHv4JQJ/sAHL
+	W4QaxXNe6Tsb74ys78GpjnPRujSLid8qQwoDq5Z79UH+SgaQvrahVRPTaHFCz0xsdxqQzwIS6MI
+	zZueV0C9M7m09LFJIffqR1PkQ30zoXn1JQ472dO4szXjKIS96LzM8LqPuQQVHR8Dl/Su6VxZPOW
+	ZyK6peXFy6rxblZ2itF/2542A83ePG1ZN1wpRBKa1yhykwV6O9dg27t7O15qNZedFVpJ4cHqvXz
+	K4Jz3RaUaQTFkmk3EaRQhQc0lFwFdvvS2gA0Tnzkf6Ex9zeoSUUPkgq07OYBkBnYW/YS+VdXdpa
+	k/iA1MXkdo3wj85PTErU5ar41uKFJsppKAf70CE1bsrCwUnm24FVyzfR4eJcDDcgmWLTBl1Yvay
+	iPGrq0ezICH9VfCR5ihhgxs5th0Y40QQSnhSICRMFtYjaAHZy9yjuGvJ+QmPmImcKmxarMIDfL1
+	U0ZWKbEVG/eApDxPiS6fn2gAkVg0JLt4MsrjbIQNeXPrZudpupyCGtgNd+PJ+lXHEcaPKZWsYtL
+	GlUFLkVJGfA==
+X-Received: by 2002:a05:693c:20c8:20b0:381:53ed:1c4b with SMTP id 5a478bee46e88-38571518db2mr4304389eec.34.1795211997878;
+        Fri, 20 Nov 2026 13:59:57 -0800 (PST)
+Received: from ?IPV6:2a03:83e0:1151:15:18db:c1e7:4974:be38? ([2620:10d:c090:500::5:5388])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm10667785eec.24.2026.11.20.13.59.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 13:59:57 -0800 (PST)
+Message-ID: <15afeebe-4d31-47e2-8a1d-40aac1419438@gmail.com>
+Date: Fri, 20 Nov 2026 13:59:56 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,280 +93,229 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179465832501.2199510.6314071993812416961@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: mlx5: Allow police as the last action of
+ a TC rule
+To: Mark Bloch <mbloch@nvidia.com>, netdev@vger.kernel.org
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
+ cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119040010.1405900-1-mohsin.bashr@gmail.com>
+ <5c493bd0-31f5-430a-844a-ad011a5f0ba8@nvidia.com>
+Content-Language: en-US
+From: Mohsin Bashir <mohsin.bashr@gmail.com>
+In-Reply-To: <5c493bd0-31f5-430a-844a-ad011a5f0ba8@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 14, 2026 at 12:12:05PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 � High: 2 � Medium: 1 � Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The fix does not cover HTB offload mode.
-> - [High] net/sched: sfq_perturbation() runs on detached child before
->   qdisc_reset()
-> - [Medium] The new qdisc_lock_root_sleeping() relies on a stated
->   invariant: the sleeping root only changes in dev_graft_qdisc(), under...
-> 
-> --
-> 
-> net/sched: serialize autonomous timers with qdisc resets
-> 
-> This adds qdisc_lock_root_sleeping(). The helper takes the sleeping
-> root's lock under RCU and retries if the root changed while it waited.
-> The SFQ, RED, PIE, FQ-PIE and DualPI2 timers now use it.
-> 
-> Default qdisc attach and shutdown now go through dev_graft_qdisc().
-> __qdisc_destroy() holds the tree lock across the final qdisc_reset().
-> The final resets of TAPRIO children move to taprio_destroy().
-> 
-> > diff --git a/include/net/sch_generic.h b/include/net/sch_generic.h
-> > index 1acaadb3e2cf0..e234256e6ae81 100644
-> > --- a/include/net/sch_generic.h
-> > +++ b/include/net/sch_generic.h
-> > @@ -608,6 +608,26 @@ static inline spinlock_t *qdisc_root_sleeping_lock(const struct Qdisc *qdisc)
-> >  	return qdisc_lock(root);
-> >  }
-> >  
-> > +/* The caller must hold rcu_read_lock().  dev_graft_qdisc() changes the
-> > + * sleeping root under the old root's lock, so retry if it changed while
-> > + * we were waiting for that lock.
-> > + */
-> > +static inline spinlock_t *qdisc_lock_root_sleeping(const struct Qdisc *qdisc)
-> > +{
-> > +	struct Qdisc *root;
-> > +	/* Lock of the sleeping root observed under RCU. */
-> > +	spinlock_t *lock;
-> > +
-> > +	for (;;) {
-> > +		root = qdisc_root_sleeping(qdisc);
-> > +		lock = qdisc_lock(root);
-> > +		spin_lock(lock);
-> > +		if (root == qdisc_root_sleeping(qdisc))
-> > +			return lock;
-> > +		spin_unlock(lock);
-> > +	}
-> > +}
-> 
-> [Severity: Medium]
-> Is the invariant in this comment complete? qdisc_root_sleeping() reads
-> qdisc->dev_queue->qdisc_sleeping. qdisc->dev_queue can also change, and
-> there it changes without any root lock held:
-> 
-> net/sched/sch_htb.c:htb_offload_move_qdisc() {
->     ...
-> 	if (!(cl_old->leaf.q->flags & TCQ_F_BUILTIN))
-> 		cl_old->leaf.q->dev_queue = queue_new;
-> 	cl_old->leaf.offload_queue = queue_new;
->     ...
-> }
-> 
-> When destroying is true, both dev_graft_qdisc() calls around this store
-> are skipped.
-> 
-> One possible sequence:
-> 
-> 1. An HTB offload root is replaced by mq. At the same time, an unlocked
->    filter request holds a reference on the old HTB through
->    __tcf_qdisc_find() -> qdisc_refcount_inc_nz().
-> 
-> 2. mq_attach() grafts each txq to its own mq child. queue_old and
->    queue_new now have different sleeping roots, O and N.
-> 
-> 3. The delayed final put calls htb_destroy() ->
->    htb_destroy_class_offload(..., destroying=true). The driver reports
->    a moved classid. htb_offload_move_qdisc() then switches the moved
->    leaf L from queue_old to queue_new with no lock held.
-> 
-> 4. htb_destroy_class(moved_cl) -> qdisc_put(L) -> __qdisc_destroy(L) ->
->    sch_tree_lock(L) now takes N's lock and calls qdisc_reset(L).
-> 
-> 5. Suppose L is an SFQ whose sfq_perturbation() validated O before the
->    switch and still holds O's lock. sfq_rehash() and sfq_reset() would
->    then run at the same time on L.
-> 
-> Can this still reach the final-reset-vs-timer corruption this patch is
-> meant to close?
-> 
-> The two plain reads of qdisc->dev_queue in qdisc_lock_root_sleeping()
-> also race with the plain store in htb_offload_move_qdisc().
-> 
-> The window looks narrow, since the timer has to hold O's lock from
-> before the dev_queue switch until __qdisc_destroy() takes N's lock. It
-> looks reachable on PREEMPT_RT or with vCPU preemption.
-> 
-> [ ... ]
-> 
-> > diff --git a/net/sched/sch_sfq.c b/net/sched/sch_sfq.c
-> > index 8bbcfc9e85d94..2bd3fc65053ac 100644
-> > --- a/net/sched/sch_sfq.c
-> > +++ b/net/sched/sch_sfq.c
-> > @@ -611,8 +611,7 @@ static void sfq_perturbation(struct timer_list *t)
-> >  
-> >  	get_random_bytes(&nkey, sizeof(nkey));
-> >  	rcu_read_lock();
-> > -	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
-> > -	spin_lock(root_lock);
-> > +	root_lock = qdisc_lock_root_sleeping(sch);
-> >  	q->perturbation = nkey;
-> >  	if (!q->filter_list && q->tail)
-> >  		sfq_rehash(sch);
-> 
-> [Severity: High]
-> Does this close the window for a detached tree that still holds
-> packets?
-> 
-> Since 47e8dbb6e763, a root qdisc_graft() calls
-> dev_deactivate(dev, false). The old tree therefore keeps its packets
-> until this qdisc_reset() runs. Several things happen before we get
-> here:
-> 
-> - dev_graft_qdisc() has switched every txq's sleeping root.
-> - qdisc_graft() has done rcu_assign_pointer(dev->qdisc, new ? :
->   &noop_qdisc).
-> - __qdisc_destroy() itself has done qdisc_hash_del().
-> - gen_kill_estimator() has run, and it can block in
->   timer_shutdown_sync().
-> 
-> During that window, an SFQ child C of the old root still has q->tail
-> set and an armed perturb timer. One possible sequence, for example
-> deleting a root prio 1: that has an sfq child with perturb set:
-> 
-> CPU1 (RTNL)                          CPU2 (perturb timer)
-> qdisc_graft(dev, NULL, ...)
->   dev_graft_qdisc() per txq
->   dev->qdisc = &noop_qdisc
->   notify_and_destroy()
->     qdisc_put(old)
->       __qdisc_destroy(old)
->         qdisc_hash_del(old)
->         gen_kill_estimator()
->                                      sfq_perturbation(C)
->                                        qdisc_lock_root_sleeping(C)
->                                          locks new root, passes
->                                        sfq_rehash(C)
->                                          qdisc_tree_reduce_backlog(C)
->         sch_tree_lock(old)
->         qdisc_reset(old)
-> 
-> The timer validates the new sleeping root. That is the same lock
-> sch_tree_lock(old) takes later, so the rehash and the reset are
-> serialized.
-> 
-> However, the tree that C belongs to is no longer reachable.
-> qdisc_tree_reduce_backlog() looks up TC_H_MAJ(C->parent) with
-> qdisc_lookup_rcu() on the live device. The old root is gone from
-> dev->qdisc and from the hash, so the lookup returns NULL and hits
-> WARN_ON_ONCE(parentid != TC_H_ROOT).
-> 
-> If some live qdisc happens to match that major handle, the dropped
-> count and drop_len are subtracted from its q.qlen and
-> qstats.backlog instead. Those packets never belonged to it, so its
-> q.qlen can underflow.
-> 
-> As far as I can tell, qdisc_tree_reduce_backlog() no longer returns
-> early when n and len are both 0. A rehash that drops nothing
-> therefore still walks the parents.
-> 
-> This needs only CAP_NET_ADMIN in a network namespace owned by an
-> unprivileged user namespace. With panic_on_warn, the WARN becomes a
-> panic.
-> 
-> The timer behaviour predates this patch. But the commit message says
-> the validated root remains current until the timer unlocks, and that
-> the final reset is now serialized with autonomous timers. Holding a
-> current root's lock does not mean sch is still part of that root's
-> tree.
-> 
-> Should the old tree be emptied before it is unpublished, as
-> dev_deactivate() did before 47e8dbb6e763? Or should the autonomous
-> timers be stopped, or skip their work on a detached qdisc, before
-> the hierarchy is unlinked?
-> 
-> [Severity: High]
-> Does this cover HTB offload mode?
-> 
-> In offload mode, htb_init() sets TCQ_F_MQROOT on the HTB qdisc, so
-> sch_tree_lock(htb) takes qdisc_lock(htb) itself. Each offloaded leaf is
-> attached directly to its own txq. qdisc_root_sleeping(leaf) is
-> therefore that txq's qdisc_sleeping, never the HTB:
-> 
-> net/sched/sch_htb.c:htb_graft() {
->     ...
-> 	if (q->offload) {
-> 		/* One ref for cl->leaf.q, the other for dev_queue->qdisc. */
-> 		qdisc_refcount_inc(new);
-> 		old_q = htb_graft_helper(dev_queue, new);
-> 	}
-> 
-> 	*old = qdisc_replace(sch, new, &cl->leaf.q);
->     ...
-> }
-> 
-> htb_graft_helper() -> dev_graft_qdisc() sets dev_queue->qdisc_sleeping
-> to new. qdisc_replace() -> sch_tree_lock(sch) then takes the HTB's own
-> lock. Under that lock, qdisc_purge_queue(old) -> qdisc_reset(old) ->
-> sfq_reset() runs.
-> 
-> With an HTB offload capable device (for example mlx5) and an SFQ leaf
-> that has perturb set, can the following happen?
-> 
-> CPU1 (RTNL)                          CPU2 (perturb timer)
-> htb_graft()
->   htb_graft_helper(dev_queue, new)
->                                      sfq_perturbation(old)
->                                        qdisc_lock_root_sleeping(old)
->                                          locks qdisc_lock(new), passes
->   qdisc_replace()
->     sch_tree_lock(htb)
->     qdisc_purge_queue(old)
->       sfq_reset(old)                   sfq_rehash(old)
-> 
-> The reset holds the HTB's lock and the timer holds new's lock, so
-> nothing serializes them. Would this corrupt the slot lists, q->tail,
-> q->ht and the per-slot skb lists that the commit message describes?
-> 
-> htb_delete() in offload mode seems to follow the same pattern. First,
-> htb_destroy_class_offload(..., false, ...) calls
-> htb_graft_helper(dev_queue, NULL). The txq's sleeping root becomes
-> noop_qdisc, or new_q after htb_parent_to_leaf_offload() for a last
-> child. Then:
-> 
-> net/sched/sch_htb.c:htb_delete() {
->     ...
-> 	sch_tree_lock(sch);
-> 
-> 	if (!cl->level)
-> 		qdisc_purge_queue(cl->leaf.q);
->     ...
-> }
-> 
-> Meanwhile the leaf's timer takes noop_qdisc's lock or new_q's lock.
-> 
-> This race existed before this patch. However, the commit message says
-> the patch closes timer races "with queue resets during graft". Should
-> qdisc_replace() and qdisc_purge_queue() under an MQROOT parent also be
-> serialized against the child's sleeping-root lock?
-> 
-> -- 
-> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110044450.51921-1-kylebot%40openai.com
 
-Thanks. I agree with these findings.
 
-The patch fixes stale-root lock acquisition and serializes the final
-reset, but it does not establish stable queue ownership for offloaded
-HTB, serialize every offloaded-leaf purge, or prevent detached SFQ
-from accounting against the live hierarchy.
+On 11/20/26 1:14 PM, Mark Bloch wrote:
+> 
+> 
+> On 19/11/2026 6:00, Mohsin Bashir wrote:
+>> From: Mohsin Bashir <hmohsin@meta.com>
+>>
+>> In switchdev mode, mlx5 offloads police only when other actions follow
+>> it. TC needs no extra action for a police-only rule to work. The mlx5
+>> driver makes every police rule forward to the post meter table, but for
+>> a rate police it adds that forward only after verify_attr_actions() has
+>> checked the rule, so the check rejects it. The ok result of police is
+>> also handled as pipe. In TC, ok accepts the packet and ends the action
+>> list, whereas mlx5 goes on with the actions after police.
+>>
+>> Support police as the only action of a rule. Set the forward while
+>> parsing police, as is already done for police with mtu, and forward
+>> an ok result to the end of the TC chains, as the driver does when it
+>> offloads the gact ok action. This also changes existing offloaded rules
+>> where police is followed by other actions. Before, an ok result ran the
+>> actions after police. Now it accepts the packet, as TC does. The
+>> upcoming selftest series also relies on such rules for TC offload
+>> validation.
+>>
+>> When police is the last action, a pipe result also ends the action
+>> list, so forward it to the end of the TC chains too. Otherwise it is
+>> sent back to the post action table, and with two police actions the
+>> packet loops through the second police. A jump counts from the start
+>> of the action list, so its target may be an earlier action or police
+>> itself. Reject jump when police is the last action.
+>>
+>> The patch was tested on a ConnectX-7 in switchdev mode with the
+>> commands below. It was verified, using the hardware drop counter, that
+>> the rules are offloaded and limit the matching traffic to the
+>> configured rate, that the second police of the two police rule only
+>> sees the packets conforming to the first, and that jump on the last
+>> police is rejected.
+>>
+>>    tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>      ip_proto udp dst_port 5201 \
+>>      action police rate 100mbit burst 1m conform-exceed drop/ok
+>>
+>>    tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>      ip_proto udp dst_port 5201 \
+>>      action police rate 200mbit burst 1m conform-exceed drop/pipe \
+>>      action police rate 100mbit burst 1m conform-exceed drop/pipe
+>>
+>>    tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>      ip_proto udp dst_port 5201 \
+>>      action police rate 100mbit burst 1m conform-exceed drop / jump 1
+>>
+>> Cc: Carolina Jubran <cjubran@nvidia.com>
+>> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+>> ---
+>> Changelog:
+>> v2:
+>>    - Treat pipe on the last police as ok and forward it to the end of the
+>>      TC chains.
+>>    - Reject jump when police is the last action, since the jump target is
+>>      counted from the start of the action list.
+>>    - Update commit message
+>>
+>> v1: https://lore.kernel.org/netdev/20261117031337.4126403-1-mohsin.bashr@gmail.com
+> 
+> I think we can keep this patch small and tighten the JUMP checks:
+> 
+> for each police branch using JUMP:
+>      reject unless police is the first action
+>      reject unless the target is a later, existing action
+>      reject if skipped actions include anything other than DROP/OK
+>      reject if the countdown would count two separate actions as one
+>             (e.g. repeated uses of a shared action)
+> 
+> That keeps the simple forward jumps working and leaves the new OK/PIPE
+> support intact. It rejects some valid configurations, but that seems
+> better than offloading them with different behavior.
+> 
+> Broader JUMP support would need more work on the action parser to make
+> sure hardware behaves the same as software. I'd handle that separately.
+> 
+> Unless there's a concrete use case, I'd keep backward jumps unsupported.
+> We don't want to offload steering loops, intentionally or by mistake.
+> 
+> I'm not sure which JUMP cases you need. Would this be enough for your
+> use case?
+> 
+> Mark
 
-These are distinct, pre-existing issues. I would prefer to address
-them in separate patches and keep v2 focused.
+Thanks Mark, I believe this should works for us (at-least for now). We 
+mainly need police as the only action and pipe or ok on the conform 
+side, so for now we don't need jump beyond what's supported today. I'll 
+add these checks in v3,
 
-Kyle
+> 
+>> ---
+>>   .../mellanox/mlx5/core/en/tc/act/police.c     | 11 +++++++-
+>>   .../net/ethernet/mellanox/mlx5/core/en_tc.c   | 26 ++++++++++++-------
+>>   2 files changed, 27 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> index 1bd1c94fb977..faa0822b1136 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> @@ -49,6 +49,14 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
+>>   	if (err)
+>>   		return false;
+>>   
+>> +	if (flow_action_is_last_entry(parse_state->flow_action, act) &&
+>> +	    (act->police.exceed.act_id == FLOW_ACTION_JUMP ||
+>> +	     act->police.notexceed.act_id == FLOW_ACTION_JUMP)) {
+>> +		NL_SET_ERR_MSG_MOD(parse_state->extack,
+>> +				   "Jump on last police action is not supported");
+>> +		return false;
+>> +	}
+>> +
+>>   	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
+>>   }
+>>   
+>> @@ -94,13 +102,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
+>>   		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
+>>   			return -EOPNOTSUPP;
+>>   
+>> -		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>   		attr->flags |= MLX5_ATTR_FLAG_MTU;
+>>   	} else {
+>>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
+>>   		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
+>>   	}
+>>   
+>> +	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>> +
+>>   	return 0;
+>>   }
+>>   
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> index 1d35c97aea0b..7e7111e6d058 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> @@ -3874,7 +3874,7 @@ static int
+>>   alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>>   		  struct mlx5e_tc_act_branch_ctrl *cond,
+>>   		  struct mlx5_flow_attr **cond_attr,
+>> -		  u32 *jump_count,
+>> +		  u32 *jump_count, bool last,
+>>   		  struct netlink_ext_ack *extack)
+>>   {
+>>   	struct mlx5_flow_attr *attr;
+>> @@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>>   	case FLOW_ACTION_DROP:
+>>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>>   		break;
+>> -	case FLOW_ACTION_ACCEPT:
+>>   	case FLOW_ACTION_PIPE:
+>> -		err = set_branch_dest_ft(flow->priv, attr);
+>> -		if (err)
+>> -			goto out_err;
+>> +		if (!last) {
+>> +			err = set_branch_dest_ft(flow->priv, attr);
+>> +			if (err)
+>> +				goto out_err;
+>> +			break;
+>> +		}
+>> +		fallthrough;
+>> +	case FLOW_ACTION_ACCEPT:
+>> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>>   		break;
+>>   	case FLOW_ACTION_JUMP:
+>>   		if (*jump_count) {
+>> @@ -3967,7 +3973,7 @@ dec_jump_count(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+>>   static int
+>>   parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+>>   		  struct mlx5e_tc_flow *flow, struct mlx5_flow_attr *attr,
+>> -		  struct mlx5e_tc_jump_state *jump_state,
+>> +		  struct mlx5e_tc_jump_state *jump_state, bool last,
+>>   		  struct netlink_ext_ack *extack)
+>>   {
+>>   	struct mlx5e_tc_act_branch_ctrl cond_true, cond_false;
+>> @@ -3980,7 +3986,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+>>   	tc_act->get_branch_ctrl(act, &cond_true, &cond_false);
+>>   
+>>   	err = alloc_branch_attr(flow, &cond_true,
+>> -				&attr->branch_true, &jump_count, extack);
+>> +				&attr->branch_true, &jump_count, last, extack);
+>>   	if (err)
+>>   		goto out_err;
+>>   
+>> @@ -3988,7 +3994,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+>>   		jump_state->jumping_attr = attr->branch_true;
+>>   
+>>   	err = alloc_branch_attr(flow, &cond_false,
+>> -				&attr->branch_false, &jump_count, extack);
+>> +				&attr->branch_false, &jump_count, last, extack);
+>>   	if (err)
+>>   		goto err_branch_false;
+>>   
+>> @@ -4052,7 +4058,9 @@ parse_tc_actions(struct mlx5e_tc_act_parse_state *parse_state,
+>>   
+>>   		dec_jump_count(act, tc_act, attr, priv, &jump_state);
+>>   
+>> -		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state, extack);
+>> +		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state,
+>> +					flow_action_is_last_entry(flow_action, act),
+>> +					extack);
+>>   		if (err)
+>>   			goto out_free_post_acts;
+>>   
+> 
+
