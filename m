@@ -1,108 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.230.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194895;
-	b=FzpZ+gmYwIyZGZxUX+0wj6Khtea2VQbVUSPlZVzeeTTaSvUYyA7j66ItOPg6qITF6l7t
-	 14eY6XGPpVSKZzI5/HjbYovjmZzRZLPs28cRv4NvqGcKpnfNkhzzFhwGCGEcpMXO6G2/i
-	 daB3Q0sWxtQWAhr/GjI/735iROqF7xgbjcs7nU55So5eZcmzB+kGOk1rn43D6tqyYhV2I
-	 l7zTST4jdfmBY0gDmvHcj6Uv/Fy4Yxc/cXyY6lxib4zBeSEUgL2IGA+B0DX6fCoJeT86R
-	 ukHudwMxdva/eayGltGLbtsbXQx75wqSnE/r5+fohUEqfmsqvm52tp/JyLnavrABFvg==
+	t=1795194968;
+	b=Vkvq7FTGFtn/g6RmzPPpVLndeUoBaV90T3ak81Dyfh1ShJ4kj/s0puKs2X322cRIKHRZ
+	 2BB4WMMTopQMi8sd8zRQs/ojSKaRcH2m8hlD5zL8jwZ1SUh16pFS3XMfs2vCcVC6tCni/
+	 heZqu1y8Kk5mw/Ahmwk+2Tm4jvLg1+Ak4ooV87FzN8KcAw8IBAUID5381t3t8F9O9z6Gg
+	 ewjTr/ncl+jMHyfzoA/doWW2wYAY3GvNyoWt8reKmyHegx2mFVllQ1XOs7QlJekPe3ZqT
+	 Uo3iXjuU8g0VJcnjrp2mpdCt9hJUjVpfw9UFssEa9GDrDyjfGtjidzdCa3iBmRZRaMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194895;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194968;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=LkHPVV5puI4vDTHgviLsfMcYaMRsroW0UN+lwZ6xwNI=;
-	b=M2v+3sdTrzZMQdQyp/RVKPx8iWtKgWlYDPIRR2v9HIb0iozBgaTLsfKvvMjgdVZ9VMvg
-	 LW10orGzMGwz0ERgcEdOyMxP6EGMQ9ICT/U+vZZYL9bLJWD+eko02nNqhCERpGaOgLPRF
-	 pIa2Zv6Et+uvDFq4D3Y/ESb8hQmd6yvtXitP8AxMJ4P8JHhKVAR0Lj34HTBh0K6vNnmr3
-	 4XCxyBhq0E5QQWsGg2kWhb808cbfghBIBklbCEWmC3MmFkjICugeVWlnyta7TwOeIQdYn
-	 5A+qXjaTOOCs5GSl993cgWEiT5jnf/Kh4RgiaYJ743Z5QL5rNXroZh8AHv9xPllnazg==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Ad10zri1NeUwfB8wT8cUAMe2pfsqkPCnj1XoQxSAtyM=;
+	b=nuUlBniKhZ53SK7WjsZRrTR1ZbpyE5Ctps7TSjWOKwmkGj8NIu5ZiAsOHnCufLdBmwJI
+	 YQNcnHKInxc+piNVYMvEGh5m6M8PaJPpuwqOIrGm5mn3Lw9VHLRlJ3V56gNtvCuKhXNpG
+	 U+7lawjC2bHBE0Xk3mABmsM+iTfJhiM3Jp0PT2Iwd7d/gZ9x1gDmhKKt7UyiHeT3hR7Es
+	 +YPpIaUArf59uD+JZqBviOpN+HR6jpSvDvyxCojQbDnuzlrYY3KqEphJe5s2xkcgwrHit
+	 TIVAmGuitLCaqOvKsRe51iojl6SrWq+FRRX9Yrf6/s4Cu52bR/6evMLevVo+a5NicNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h5JzbllR;
-	arc=none smtp.remote-ip=74.125.230.195
-Received: from mail-qk2-f3.google.com (mail-qk2-f3.google.com [74.125.230.195])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AYj1Kphy;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B5E6606A33F
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:14:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B5E6606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CAFE606A33E
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:16:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CAFE606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h5JzbllR
-Received: by mail-qk2-f3.google.com with SMTP id d75a77b69052e-536403312b1so5222821cf.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:14:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AYj1Kphy
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-38431138772so1429834eec.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:16:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795194894; x=1795799694; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LkHPVV5puI4vDTHgviLsfMcYaMRsroW0UN+lwZ6xwNI=;
-        b=h5JzbllRY3FFd7SIlh0QHu3I3pNyf2yBnW2eYr8i9y2WY8PUKpO6C0LnWiy/0p0xH9
-         Efz3vuIykc6aRoNZE3Ar6sFTIWmBCvtC6CWCwJu2ipXHHsgbLsUhDIWVqKO5P/9SVZLK
-         IEZDUKZFV79jb8XUORh13uLelSXXNTemAw1RfDRIJh4C4RmqHr94Aw1JHoU4EtWxjeM3
-         RbZJp4jfvF55Q1A+Ix1ERuQ8Iyp8iv0qki41OhjQ3wNcd1Uk8XX50JJyTil6lCuvX94K
-         zasNhD4NETRKK/ruAOeeFZKNgz5N2pOn6TxPQDJWzHWaB+ZwXPwPfFXSnFrc9ccFzUoI
-         6DCQ==
+        d=gmail.com; s=20260707; t=1795194966; x=1795799766; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ad10zri1NeUwfB8wT8cUAMe2pfsqkPCnj1XoQxSAtyM=;
+        b=AYj1KphyjjLBd4V/PI0NWhMVoZYCdmaZRrY06hloFeD+T8gHDVou4ZKAzkkBMJMpFS
+         DD/OL5TJJ4YfVrhga+du0R6u9ks2KrZUCMJ6/WAwoKqXfkGxIFmPiSRnB9/1vup0Ucfh
+         MHHy1HihObWfHY1g5UY4DJSh3d6sPl2alK7+CMx3bzJexjOquxX/BeGJbcPU2IyS0BCO
+         y6O5u7IsCb8I6xcx7K9hvraMy1APDNKGB1ZTtC97fX1s7LOGk4cOSmoqwTjtJ93uggvo
+         Lg5Cz9LcamiyjmNa1aEXv4huAQlai0tFrqkYHpOfqqFHQJnaHrx+RTge4kaGB1t4SnLS
+         NCmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795194894; x=1795799694;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LkHPVV5puI4vDTHgviLsfMcYaMRsroW0UN+lwZ6xwNI=;
-        b=SxgkYMRfeDyns0LGk+n5YtDw2OxyRFb0L4b5G8xks/J2iLcqMkrolSp/k4pPVlJZ2r
-         ry6GrxK5BJ2A2U3+9JFRynKdvdjPREJN/5RfD+rAp/BeTq9oRrHH8f8MPJPsVsTgvw1l
-         /2BNArLDLP/eHPGsxhZ3AkDibBWXi4eBuf7zBntWNUpt9nwxDQpFQXveaGCKk/O2mB2F
-         4qxq8V1qw5ol+eY/OoxAojHcEdCdkV/WpKRZ5VmTtz78CRBpae0wl365/ynqLkHMOBll
-         jdfr1O1paWaP670XuSVKw7Qn8zbJffqYOPYzcdg/DzYYTsd4TuTKgMuHsY8b1XFg3hrk
-         XkHQ==
-X-Forwarded-Encrypted: i=1; AL+hErHZEZNuEkdeoN0/Xhqg+WvVm0SNOPalzucNjoPsQkr2EJHc8ZfP8a5VgJUmAhSAeWB38P8JRDI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95h64f8BebITN9wDOk29hM5Z+Nt63+mVLk+P+6qvOVXsMRyktp
-	0YigB45UJjZl+Ga8CzgTFEQGGSYKdfG0terUml+JWqKQoQW9IwvGQqUM
-X-Gm-Gg: AYBFou2syT8tHilUcjrpe8g77pkeAtDYPxql77GZ4O9g5y9CUbctHRPUgbPQbl1iwu+
-	SrGdKovnY5o2QVZsUFosbHacqD18K/F78vz81TOlfLXHXET8dGuxMFMg0aqf0JI7932dhO4nV02
-	pf+rP45p+RYaFJBkGv/GdaVpjTRbnb1Rqj3+hNqbHEbL+5lgobvCXX6SjZwMSE3Q1qFxwjzD6E9
-	lYI46WASUOhMldSbQ8jWNJw9waT/JD6tmLI1nx5GGU+QwGpqFMgYaxXcOpVMKTzj23RER+zUO5o
-	MXuvqK7o2CltIeY0Xpsf4lGYWkf1zyAOwjsXxO5Ecpf/ZXTvnGlTfT33NzmgwQ+4Vji+LK1pvKU
-	j4II4yZFuOd362VIXywwIabO+zCKMzqLrFNZW44kVPkVez1T0FP7HJNogroFhIqjdGfr16bARZI
-	f0EV18N4bVYR9rD0Z8+Hnd/mWu7rSaAJIoLVBPQ9QLmQ9vVmUjFqun68OMplnLtBFYmk7Nz6PIi
-	K+D2zndzfuos9DZnKh8uuevSTLeRFxnsjYrSEeSb8JTIPEH3qK6R1EK/uWgUgYlaFmHVmZMyUIo
-	vByZLTBhikGfIZlab5JFgbM=
-X-Received: by 2002:ac8:5f0b:0:b0:54b:5cc6:6036 with SMTP id d75a77b69052e-55d76afed61mr72126961cf.58.1795194893996;
-        Fri, 20 Nov 2026 09:14:53 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:68::])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788116c9sm27280191cf.4.2026.11.20.09.14.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:14:53 -0800 (PST)
-Date: Fri, 20 Nov 2026 09:14:49 -0800
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: Dragos Tatulea <dtatulea@nvidia.com>
-Cc: Mina Almasry <almasrymina@google.com>, 
-	Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
-	Bobby Eshleman <bobbyeshleman@meta.com>, Carolina Jubran <cjubran@nvidia.com>, 
-	Cosmin Ratiu <cratiu@nvidia.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	David Wei <dw@davidwei.uk>, Erfan Sharafzadeh <erfansh@meta.com>, 
-	Gal Pressman <gal@nvidia.com>, Jacob Keller <Jacob.e.keller@intel.com>, 
-	Kaifeng Wang <kaifengw@google.com>, Leon Romanovsky <leon@kernel.org>, 
-	open list <linux-kernel@vger.kernel.org>, linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, 
-	Matt Fleming <mfleming@cloudflare.com>, Nikolay Aleksandrov <razor@blackwall.org>, 
-	Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, 
-	Stanislav Fomichev <sdf@fomichev.me>, William Tu <witu@nvidia.com>
-Subject: Re: [PATCH net-next V2 00/13] net/mlx5e: Add netdev support for data
- direct
-Message-ID: <awB_rJxrIDQ3u-73@devvm16445.scu0.facebook.com>
-References: <20261110183826.2927274-1-tariqt@nvidia.com>
- <b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
- <CAHS8izMhSVabXgMmNbHHLm8cYqW_EVQbpXME2z_tUEJuN2BTnA@mail.gmail.com>
- <0a1be802-1c53-46ff-a08c-614c3a2d6f41@nvidia.com>
+        d=1e100.net; s=20260707; t=1795194966; x=1795799766;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ad10zri1NeUwfB8wT8cUAMe2pfsqkPCnj1XoQxSAtyM=;
+        b=sxaFHyJyw+iAtIHIO8NWBajkrhlrqOjVm6i15EomMh2NbWQkKErgPhIrTHA8egb/18
+         Mfkf7aWUTIrXQGv9bNmbufuaNCUKOzJ2gCFnC4iFvtpGl1j2dl8pVtK732tpTfspsusB
+         MSLl1c4ApvGU/F3VTfD2p3I0fXt/nPFYCxnUbJisbhwEqj1PnlmWp7OmJeSYIihUSTxB
+         NyMSZ2L5gGad6THmEb54aN3vHo2PRmIiabqQ/J4HNTlbjriM/6h3O8hKKOtHFGI31cWz
+         mO6VZFJ6qxyZRvgXwGNI61Y9Qt1bmwkEOx1JMAt0fkH+BwYSG3ICGzV9RngrhbXNVEfz
+         Lg+A==
+X-Gm-Message-State: APuU4Z+ZDeKZerZ5ozRM3v78EjOqxSvOZE6zlNfz6DIE6jpzn2+dy4nJ
+	ACUw3fTkrsrv/IXi2k2UgNNFEMy1F6Rk8q1S7xs6YxtiW12ojAFjPhhT7vu98ZraFN0=
+X-Gm-Gg: AZFdTZfes5Le9sRtdb4o8oHjzBtn5iwxAeej9s6+KKkC+0bl4h4roxMar5R8tXGyjn3
+	BCU8WC/xq0M5Zvx4vr6xgTaXPWK0byMrPHjg2eRJsATIJggLW0IBO29NtyLpYOlxdMvUskPsgtU
+	Dtd0IMmNusr8ZPifvdTPSUXHv7VgzDtOdA2SsPh1Jm74HA8OXjaFNsXyRzcDkSfLbmB0IjVl9+x
+	BjTLz29PKKQ9ixvdlCqzUkBnYIg0KCOIW1O089b7bqBvv/IFil0+TyS1ECdDEEvGBUocCwm5BmQ
+	NzTLw/0mtzBVV225ENS+fj+6TbQ7O4sHFzPT2hCXQbYAUvfZGMwV1mVpf4LW761yFsHMbQtT2KB
+	6mawtLouMIHkOKtt2VZkjK1gQOuY00kNAUOOsnSy3xhh1jGECwCSjiolytSmyEIX3WusuTAzh7X
+	kdrbqE4C4w5LLuyWWwk2ou4uwJX0W2fbK0I1SHpdiJhrx7ddeK+7Q+HjDj9+zLBb07ZyixFVfuL
+	s8HwWKqHmhQcVIgxT4SV69GIeQm+dcdPoYNgxPUYAjA04D5xa7HKlRJkC3fhKzlbfOqdt71Tv/D
+	eQtB5Jq2eUmMWM9lylrZ4dm77fYIYxkW4+dZSllo15oqefiyxi/shxSUzgQ=
+X-Received: by 2002:a05:7301:7188:b0:384:b800:2adf with SMTP id 5a478bee46e88-38571027b9dmr3560666eec.27.1795194966043;
+        Fri, 20 Nov 2026 09:16:06 -0800 (PST)
+Received: from localhost.localdomain ([1.238.129.195])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm10816041eec.28.2026.11.20.09.16.02
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 09:16:05 -0800 (PST)
+From: Sangmin Lee <45sangmin99@gmail.com>
+To: netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	David Ahern <dsahern@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Willem de Bruijn <willemb@google.com>
+Subject: [PATCH net-next v2] docs: networking: correct skb_shared_info field reference
+Date: Sat, 21 Nov 2026 02:11:31 +0900
+Message-ID: <20261120171131.73045-1-45sangmin99@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,97 +102,57 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <0a1be802-1c53-46ff-a08c-614c3a2d6f41@nvidia.com>
 
-On 11/20, Dragos Tatulea wrote:
-> On 20.11.26 17:38, Mina Almasry wrote:
-> > On Fri, Nov 20, 2026 at 6:39 AM Dragos Tatulea <dtatulea@nvidia.com> wrote:
-> >>
-> >> Hi all,
-> >>
-> >> On 10.11.26 19:38, Tariq Toukan wrote:
-> >> [...]
-> >>>
-> >>>  .../ethernet/mellanox/mlx5/core/data_direct.c |   9 +-
-> >>>  drivers/net/ethernet/mellanox/mlx5/core/en.h  |  14 +
-> >>>  .../ethernet/mellanox/mlx5/core/en/params.c   |  18 +-
-> >>>  .../ethernet/mellanox/mlx5/core/en/params.h   |   2 +
-> >>>  .../mellanox/mlx5/core/en/reporter_rx.c       |   1 +
-> >>>  .../mellanox/mlx5/core/en/reporter_tx.c       |   1 +
-> >>>  .../ethernet/mellanox/mlx5/core/en_common.c   |  38 ++-
-> >>>  .../ethernet/mellanox/mlx5/core/en_ethtool.c  |  67 +++++
-> >>>  .../net/ethernet/mellanox/mlx5/core/en_main.c | 253 +++++++++++++++++-
-> >>>  .../net/ethernet/mellanox/mlx5/core/en_rx.c   |  33 +--
-> >>>  .../net/ethernet/mellanox/mlx5/core/en_tx.c   |   4 +-
-> >>>  .../net/ethernet/mellanox/mlx5/core/main.c    |   1 +
-> >>>  include/linux/mlx5/driver.h                   |   1 +
-> >>>  include/net/netdev_queues.h                   |   1 +
-> >>>  include/net/netmem.h                          |  24 ++
-> >>>  net/core/devmem.c                             |  85 ++++++
-> >>>  net/core/devmem.h                             |   6 +
-> >>>  net/core/netdev_queues.c                      |  51 ++++
-> >> While working on V3 I realized that keeping the core part in
-> >> this series is not the best approach. Initially it made sense
-> >> because the change was small.
-> >>
-> >> I think I should re-spin it in a separate series with netdevsim
-> >> based selftests for the new APIs. I would base it on Mina's devmem
-> >> leased queues unregister [1].
-> >>
-> >> Any reason not to?
-> >>
-> > 
-> > I honestly wanted to comment that you should base it on the leased
-> > queues series from me but didn't want to be annoying, especially
-> > because I made you wait for the previous series.
-> >
-> I realized that quite a few changes were needed after your series
-> so I decided to base it on it.
-> 
-> > My series creates binding->bind_dev, and binding->map_dev, and core
-> > will (should) handle things correctly across both devices. This seems
-> > perfect for you, because you have a bind device and a separate map
-> > device and their lifetime is different.
-> > 
-> In my series I am actually skipping leased rx queues in
-> net_devmem_unbind_dma_dev() because we need some kind of notification
-> mechanism + netkit implementation. I think this should be added later
-> if there is a usecase. For now mlx5 simply doesn't support the combo.
-> 
-> One note on net_devmem_unbind_dmabuf(). Posting it here as I don't
-> find the right place to mention in your series:
-> 
-> @@ -234,8 +234,17 @@ void net_devmem_unbind_dmabuf(struct net_devmem_dmabuf_binding *binding)
->                                 busy = true;
->                 }
->  
-> -               if (binding->direction == DMA_FROM_DEVICE && !busy)
-> +               if (binding->direction == DMA_FROM_DEVICE && !busy) {
-> +                       struct net_device *map_dev = NULL;
-> +                       netdevice_tracker dev_tracker;
-> +
-> +                       /* Leased queue: attachment readers hold map_dev's lock. */
-> +                       if (READ_ONCE(binding->map_dev) != binding->bind_dev)
-> +                               map_dev = net_devmem_lock_dev(&binding->map_dev,
-> +                                                             &dev_tracker);
->                         net_devmem_dmabuf_binding_unmap(binding);
-> +                       net_devmem_unlock_dev(map_dev, &dev_tracker);
-> +               }
->                 WRITE_ONCE(binding->bind_dev, NULL);
->         }
-> 
-> map_dev devmem lock is taken to prevent use after free in
-> netdev_has_dmabuf_binding() when called in parallel with
-> net_devmem_unbind_dmabuf(). As this can happen in my series I added it
-> there.
-> 
-> Waiting for feedback from Stan/Jakub/Paolo for a few more hours and
-> will post the series tomorrow.
+The skbuff documentation refers to skb_shared_info.refcount,
+but struct skb_shared_info has no such member. The actual
+field is skb_shared_info.dataref.
 
-More and more workloads are moving into ns/netkit setup on our side,
-so it would be nice to have netkit support as well. We can start with
-what you have so you're not blocked for too long, but we do want the
-netkit portion as well :-)
+Correct the reference to match the structure definition. Use an inline
+literal so the field name renders without a leading ampersand.
+
+The discrepancy was identified with assistance from
+GPT-6.2-Astra (xhigh) and manually verified against
+include/linux/skbuff.h.
+
+Codex built the affected page with Sphinx and verified the corrected
+field name in the HTML output.
+
+Fixes: ddccc9ef5599 ("skbuff: add a basic intro doc")
+Reviewed-by: Willem de Bruijn <willemb@google.com>
+Signed-off-by: Sangmin Lee <45sangmin99@gmail.com>
+---
+Thank you, Willem.
+
+I've always wanted to contribute to open source, but I was hesitant
+to jump in. Your thoughtful review made me feel welcome and excited
+to keep contributing.
+
+Changes in v2:
+
+- Use an inline literal for skb_shared_info.dataref so Sphinx renders
+  the field name without the leading ampersand.
+
+v1: https://lore.kernel.org/netdev/20261119164351.49040-1-45sangmin99@gmail.com/
+
+ Documentation/networking/skbuff.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/networking/skbuff.rst b/Documentation/networking/skbuff.rst
+index 94681523e..15a9a9399 100644
+--- a/Documentation/networking/skbuff.rst
++++ b/Documentation/networking/skbuff.rst
+@@ -21,7 +21,7 @@ to as shared skbs (see skb_shared()).
+ 
+ skb_clone() allows for fast duplication of skbs. None of the data buffers
+ get copied, but caller gets a new metadata struct (struct sk_buff).
+-&skb_shared_info.refcount indicates the number of skbs pointing at the same
++``skb_shared_info.dataref`` indicates the number of skbs pointing at the same
+ packet data (i.e. clones).
+ 
+ dataref and headerless skbs
+
+base-commit: 362917b0b26bd16587d41a37f5fd1c252099a73c
+-- 
+2.50.1 (Apple Git-155)
+
