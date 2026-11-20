@@ -1,73 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795205659;
-	b=hGR7jTXZ8NVvzTIYvQKEQQ/CI3U10okE+ivFTW8EGwrmXMN1uf2Zop80Jxn0ggQvrSPh
-	 lRf6Cv17IMdaCDGnvNPjd1VWz1IB4fWpRm2N6tpUCuCdCrCEOrol9TOSp04dIxMHDQ69Y
-	 aLzVlFuZLzIU1ZDgKCLjrs9HiSm6yzYVewqfcXudQcA9NqwA9/rTveiMOTX0aHN+6oM9v
-	 4szQ4IVy0eBq4f6UWJNxOIUfIzxBvbDT7yU9qQriN9/+yskacT+Fh2cz6hrH/36s9uy0h
-	 H7YSQzU0mIzeOd19rAsCSYzWk4CEnEruL3YlBE34nLzui9pkiK/u0PxHZSPr68VAtbQ==
+	b=w97HsvF6CPu0gDgDSqy5cC1IXBJo/bl+cq0OTjvArqQYmKDvhdY+tMUrnMAxsHLF/ttl
+	 qwsqW1PHkxqzrxBbbYeZFOg4Y7lI9MD8/XPmimH33j/2g1Cabknkr6ag1cBEvFHUYksy5
+	 HvpS6rwySY34oCQ5io4xn9L7aGmNRjUa+u3HC8MTBn9OsXXmxTa0fUPPo0poDTwMVdeKN
+	 GKdOe/z1IjlT1sBWwqPnrXqndbZexTszxAxYtnsQvgWIlkZf5Fe6z/NX/+durRHZ/fk2x
+	 Wp7ldXkOx8ojVOkNtwh6nqwK4UZB8QBTzAwsMJE2AdVNChpmpZYhnp6pReBWiHUZWoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795205659;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
 	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=HfSPNpjxfbCet7HZvv4D4XcilBzUF4litjLuOvyUKWI=;
-	b=NfY2rEIKUmbhzxR6ywXOPNiWU/YW646Qm4MXIhUb8yYcke2Nl21gTmfK9ZhU4WxpT2Yc
-	 wUMdom1cpo9z7K0XVvwwo9CK+UEQ/d4Mf9Uzbwrnl2c0fHKJZX561757fq+yumOTPulDF
-	 QWS5mGMOVZjmtM1CG0F7e1c/IVFxVzCzld4fUvrFAhqEpRBicUQeQSkBVeu5CJFVVsOss
-	 w8f1s4iYN2/Yj5bG8WEGUvcfdr9dPgW75/Q30IfwlyxjzH+On24D/WiVoHGaYTlal62ol
-	 DAYK9m8gTWl40ehWmeZel3/GJQndFWvIK5B0fRZAWLA23hm9eonoev6j6fWHBmNwU/g==
+	bh=H3BiHe0rG2TmoW/r+SjBA6X3M7NG4Ot2Tx8CRGAsZTk=;
+	b=pibf8y4gxo7KgJj+Mokw1Ry0kPyHrwAFuKTmegk3avydGjPeQNuQGkg5EF1RIOrwMwbS
+	 ZfOQsjBMmQAVnlttvflNGikZk9slvIFwOITPt+BFZ+OSklZW15IdxaPknoBjLpekQ5WSE
+	 dQpl7NIaMmOsuxECE/Jz4qFqZISrLLiS2u/yryGvLEfFXtAG2VSk/2SOcwNH7LJia6ERV
+	 cGg1A40NQEh5xU0m1/SKT7avx9lEPVxTHMNX7creqA/M9SQzTUDYn73pQiw5AhKubmtDB
+	 pYyw5hhjP3D28Aa8MZtOI24m57A+SXmwF5Seg6HC/Fqmm43ypQdlg3xk0p+aOjj4L1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Mn8fBnKA;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="BpZwQV/T";
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 401DC606A331
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:14:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 401DC606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AD24606A6D8
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:14:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AD24606A6D8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Mn8fBnKA
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-386177b0516so2702286eec.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:14:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BpZwQV/T
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1383723dfddso1379533c88.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:14:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795205656; x=1795810456; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795205655; x=1795810455; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HfSPNpjxfbCet7HZvv4D4XcilBzUF4litjLuOvyUKWI=;
-        b=Mn8fBnKAkvMvCswoslJ+0y1VYSR5y2G0o8XMjrSjWinR+r76uoRCAVeSPsj0+SsfGR
-         PZ8qetTBAtwx9id/W48g1xy9d4eeYdhNyRjkbnv1SVpIcaFw0iYRmS+A0b6ClvFnnYmm
-         TU2AXaVwjN4bMLr4rKMcOIPWjQYhQlCpgXncaKJnXX1AFrLVm8FwFxKyeuvE4kXYU4s6
-         yECyD2+HcQQ5TfRpBCFBNWn+ro6kPC9oHLA2MZgABDQebPiBMMBeaBBZn2MwQn5rrqD2
-         sv3jG/HOa2MPxk3Xm3RL8pcnz4eDFPivIMEsIGQ8sKPYQkzRhHEhtSxC/XoTTzbdnB0C
-         EoUg==
+        bh=H3BiHe0rG2TmoW/r+SjBA6X3M7NG4Ot2Tx8CRGAsZTk=;
+        b=BpZwQV/T4gp2JcLLQBbQ515GRf5zHx4o1tJI8dkZi1CpM0iKvj9vDE8ibfOI66gvr+
+         MzNpb+lCrHEEYHcnLO5uuxbuaZu65+x8iMmC40+6AzrgZUFuw+LwmdEgX2FLgbxCJ6Un
+         i8PU6axJJdAHVPZc0sgHcJdkzvOqBIpYm7zQ3hWacLcA243SfFtLV2FaNMVjMFhQlusn
+         b53hcX6eNddniqvhqVJMzuDfrz3aBtq4gGGvWGsACIc2aXJ8ZLVsdjL5VZ81PO8c8cKo
+         i5VUcwCNn0IxHmrF2FzVl+YucQANcpe6FW1y6WxSn+cv4njhaySVjWiO6h6m38a3K8jj
+         0uDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205656; x=1795810456;
+        d=1e100.net; s=20260707; t=1795205655; x=1795810455;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HfSPNpjxfbCet7HZvv4D4XcilBzUF4litjLuOvyUKWI=;
-        b=Blj8D5WAyhDxyEI21x/JaWMMYYWHM5JI4jSsYWb69dt/ZStNNU9Z2b/0zI96o7vTu6
-         gZRH0+jsyg4P0fKU7FPk0TaIZwpxUBDXgAMgeaQqFSNvlkmd23e1TvC2NRi7Ok5Cwpx7
-         VPERiyXfv488DKfGXj/RWVesz4iOF0jGIrqxnOqqGcmdnNjPk8OleoPE53YZX7F1BB/E
-         IJ3GtOngiAXg6QVSvSPKXQI8lNPqNRRHil7odUz8mvACYFa5+aF388oa0wYX2KfWVUsA
-         FGIPxGUDTZpGbRxzt5rRRaZHOwHceLJSfNGZrTw7xWrWnMKh1l5uTntwajZaE8Rogplt
-         DeyA==
-X-Gm-Message-State: APuU4Z8/1cE2NoQahOb+WCrngKdVqLPsnVqK8uq5wOUmcBXjDfoxU1Xd
-	/9vVIl2+PmWZFDAnlw/j+GZvti7Jrpqr9tKEXjHRLO5eLo/mXnIqY6DenFlhGPM+CTvpvZQJRkG
-	I+L+/n+j6upbTkeqgd3lEOVon0f+IF7LnhP19Glrfp9vBxRwzwZHSgoxjwt/DjM2bVQwE70I1FB
-	7Lm331gOY+8VRCy8zjLFF2kef6JEUPlkIX1wDF8L6BTzt4Wfc8m3mYi7KZ+NlCP8k=
-X-Received: from dybtt7.prod.google.com ([2002:a05:7300:f407:b0:369:f864:c5e])
+        bh=H3BiHe0rG2TmoW/r+SjBA6X3M7NG4Ot2Tx8CRGAsZTk=;
+        b=yR/PrTe5Q8Kcs7IIbg6bjzT8STXnmSYMry8vkapYcV83UbpG9Xts7QAtL05LDP+dJu
+         Qemy/xWuwZ6YKlzWHUcOtJBHbM67Hs8ZPKKJBjSKagOdWDIaOpTvv776T1R6mkFDGLbR
+         fO2rsD7A+2bBhDHRXMyiYhxLvVnfnbmrLS6u3eXsC7gmykpT7m5DnepzE6GJqSfT7aUv
+         UtsSKLIIfn6FkQtg4XT38SgrSioEfeJpyA9ZfrhIzwKfAuf/vNXKOvt2OdBeQ+lr0IwO
+         tIZOwLIC+S7TBWI/EyCTtVyv9dR5OPaD5l3sr5OlpMVSqfMDlsQ7NJ19D+lam0BC/MGv
+         qcSQ==
+X-Gm-Message-State: APuU4Z9yTUjaf9D/CFP0dyNdaXaVkUON9C6/Q+Iajo3OgBeaqOPvm01X
+	2bcZLYCdPxeKWBdc19EBbQqmlB1dt5UjNCs5A+JSr2U50ZHGkfKuf0McTIw7w42U5FvUf09KLLj
+	I+1G5LApDBK47Y+s2P9RGUI3Hm+jw318l1F8o/cufJYf/zhIY9VPzKxPszRrUBJJsSC1PCAX55y
+	GhVGnbnD78Fobf+2u7WUMUJEChBh/RRD5yc2qU4RfN8zHGI29TVFViOr4HQI+OcZE=
+X-Received: from dyz23.prod.google.com ([2002:a05:693c:4097:b0:36a:ead:4dcc])
  (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:693c:80c2:b0:35d:4185:5395 with SMTP id 5a478bee46e88-3856eb492ccmr3982799eec.16.1795205655814;
- Fri, 20 Nov 2026 12:14:15 -0800 (PST)
-Date: Fri, 20 Nov 2026 20:14:06 +0000
+ 2002:a05:7301:6182:20b0:381:fe77:7d31 with SMTP id 5a478bee46e88-3856f14707amr3800370eec.12.1795205654796;
+ Fri, 20 Nov 2026 12:14:14 -0800 (PST)
+Date: Fri, 20 Nov 2026 20:14:05 +0000
 In-Reply-To: <20261120201408.3445445-1-almasrymina@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -80,9 +80,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120201408.3445445-1-almasrymina@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120201408.3445445-6-almasrymina@google.com>
-Subject: [PATCH net-next v6 5/7] net: kunit: attach net_iov frags to target
- skbs in unreadable tests
+Message-ID: <20261120201408.3445445-5-almasrymina@google.com>
+Subject: [PATCH net-next v6 4/7] tcp: propagate skb_zcopy() uarg in tcp_mtu_probe()
 From: Mina Almasry <almasrymina@google.com>
 To: netdev@vger.kernel.org
 Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>, 
@@ -95,60 +94,58 @@ Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>,
 	Bobby Eshleman <bobbyeshleman@meta.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In netmem_ref_test_net_iov(), the target skb passed to skb_shift() has
-no fragments and unreadable == 0 while shifting from an unreadable
-net_iov skb. In netmem_ref_test_try_coalesce(), subtest 3 manually sets
-to->unreadable = 1 on a linear skb with nr_frags == 0, which cannot
-occur in real code where skb->unreadable tracks unreadable fragments.
+tcp_clone_payload() takes references on source skb fragments when
+building an MTU probe skb, but never attaches the source skb's zerocopy
+ubuf_info (uarg) to the probe skb. When tcp_mtu_probe() subsequently
+frees fully consumed source skbs via tcp_eat_one_skb(), skb_release_data()
+drops their uarg references and can deliver the zerocopy completion to
+userspace while the unacknowledged probe skb still references the user
+buffers.
 
-Give both target skbs an initial net_iov fragment from the same binding
-before shifting or coalescing so the tests remain valid once memory
-provider compatibility is enforced across skb_shift() and
-skb_try_coalesce().
+Additionally, tcp_can_coalesce_send_queue_head() only checks
+skb_pure_zcopy_same() (which compares SKBFL_PURE_ZEROCOPY), allowing
+adjacent zerocopy skbs with different uargs (or a mixed-zerocopy skb and
+a non-zerocopy skb) to be coalesced into a single probe skb that can
+only hold one destructor_arg.
 
+Reject coalescing across different skb_zcopy() uargs in
+tcp_can_coalesce_send_queue_head() and propagate the uarg to the probe
+skb via skb_zcopy_set() in tcp_clone_payload().
+
+This is a pre-existing issue found by manual code inspection and LLM
+review; it was not triggered in production. Verified with the net_core
+KUnit test suite; not tested on real hardware.
+
+Fixes: 736013292e3c ("tcp: let tcp_mtu_probe() build headless packets")
 Signed-off-by: Mina Almasry <almasrymina@google.com>
+Acked-by: Stanislav Fomichev <sdf@fomichev.me>
 ---
- net/core/net_test.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ net/ipv4/tcp_output.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/net/core/net_test.c b/net/core/net_test.c
-index 19f422300d9c..1cfa947c11f2 100644
---- a/net/core/net_test.c
-+++ b/net/core/net_test.c
-@@ -1099,6 +1099,9 @@ static void netmem_ref_test_net_iov(struct kunit *test)
- 	copy = alloc_skb(0, GFP_KERNEL);
- 	KUNIT_ASSERT_NOT_NULL(test, copy);
- 	copy->pp_recycle = 1;
-+	skb_fill_netmem_desc(copy, 0, netmem, 64, 16);
-+	copy->len = 16;
-+	copy->data_len = 16;
- 	KUNIT_EXPECT_EQ(test, skb_shift(copy, skb, 16), 16);
- 	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 3L);
- 	KUNIT_EXPECT_EQ(test, atomic_long_read(&binding.ref.data->count),
-@@ -1730,18 +1733,19 @@ static void netmem_ref_test_try_coalesce(struct kunit *test)
- 	from = alloc_skb(0, GFP_KERNEL);
- 	KUNIT_ASSERT_NOT_NULL(test, to);
- 	KUNIT_ASSERT_NOT_NULL(test, from);
--	skb_put(to, skb_tailroom(to));
- 	to->pp_recycle = 1;
--	to->unreadable = 1;
- 	from->pp_recycle = 1;
--	skb_add_rx_frag_netmem(from, 0, niov_nm, 0, 64, PAGE_SIZE);
-+	skb_add_rx_frag_netmem(to, 0, niov_nm, 0, 32, PAGE_SIZE);
-+	napi_pp_get_page(niov_nm);
-+	skb_add_rx_frag_netmem(from, 0, niov_nm, 32, 64, PAGE_SIZE);
- 	napi_pp_get_page(niov_nm);
+diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
+index 19059d03152e..bedf828cc0e0 100644
+--- a/net/ipv4/tcp_output.c
++++ b/net/ipv4/tcp_output.c
+@@ -2664,7 +2664,9 @@ static bool tcp_can_coalesce_send_queue_head(struct sock *sk, int len)
+ 		if (len <= skb->len)
+ 			break;
  
- 	clone = skb_clone(from, GFP_KERNEL);
- 	KUNIT_ASSERT_NOT_NULL(test, clone);
- 	KUNIT_EXPECT_TRUE(test, skb_try_coalesce(to, from, &fragstolen,
- 						 &delta));
--	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 4L);
-+	KUNIT_EXPECT_TRUE(test, to->unreadable);
-+	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 5L);
- 	KUNIT_EXPECT_EQ(test, atomic_long_read(&binding.ref.data->count),
- 			base_iov_ref);
- 	consume_skb(from);
+-		if (tcp_has_tx_tstamp(skb) || !tcp_skb_can_collapse(skb, next))
++		if (tcp_has_tx_tstamp(skb) ||
++		    !tcp_skb_can_collapse(skb, next) ||
++		    skb_zcopy(skb) != skb_zcopy(next))
+ 			return false;
+ 
+ 		len -= skb->len;
+@@ -2718,6 +2720,7 @@ static int tcp_clone_payload(struct sock *sk, struct sk_buff *to,
+ 	WARN_ON_ONCE(len != probe_size);
+ 	for (i = 0; i < nr_frags; i++)
+ 		skb_frag_ref(to, i);
++	skb_zcopy_set(to, skb_zcopy(tcp_send_head(sk)), NULL);
+ 
+ 	skb_shinfo(to)->nr_frags = nr_frags;
+ 	to->truesize += probe_size;
 -- 
 2.56.1.750.gf70dc682cf-goog
 
