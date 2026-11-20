@@ -1,61 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795153111;
-	b=Dv21FYxGQwJUws5QSJCY+NQn0Nrin5z246asXjeF5ac17eiLHlyRoQu0sE0V3/Bd8nYE
-	 pb2jUrklwCogfxDQnlHqbpb6mMG0shSM+HMGvj80ZaqXjDAI9I2zUygcye//GV0Bj7kgb
-	 fa5Lbr6ZN7+32of25WVTG2fynEw/ScgjlhkEBqXJ0Szbdiqt6K8wyVX4vry8f4WDY7CVX
-	 99+dEewrBmvYK0AEVtjF8Ujx32IGX703xC022fxTlX702nT3AOYI4q5MOVYaSmFj4u3iz
-	 0yn0uEAbos222QleBJnehEpROpYqswPmyRvepb+nYcj84VA7g4PpErKw0DyJfCoaRjg==
+	t=1795153799;
+	b=2KNlRT9855b36ZrbqpzVmg1bS7qjFvgOPeibXlvAXZAzrOqvHHMZfnNOpN4jT/gaPG5j
+	 Jieomjd71UqJH0s/WaKw4FSXmgNAW2Nw+EwH2UmO/aJAh6/FKbsXWkqNXAi00yJ2dkC5v
+	 rw+OxZbpquFfcl2bMsQgrt3Q6GPrYkuj+3Cj4ixkh0ggFMMFYdgQLZ9lpYKMimPtsz3dT
+	 fqYRcWtHSBxF/hoohGWg6P9P6zcSqg3vNPQsBuLSAnBkbzdgPUa9BP12VCVk0CS7U8bDg
+	 rytihcWnMfW8USjwi2aNvSGJasv6UIDGBEYwcDlAcMHtzUB8iQHF4e3ZwaY/NLMhqWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795153111;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=XOjSlJvgQP4Iaas7h11mJ3/93ER6A7G5BBfYIFJUboE=;
-	b=I40BVI3aekuBYBu0qOGB6aG/HISEkYZhKgq2j4tuw0M9h3Hbs23KpLK/RSM1vTGS1lt2
-	 zLIiPA7HCorcg8mXNjJ/ve/HdLpURXonwVy+2HRbAXno4TICdX7rkCW6enI7lkK0A8nEt
-	 7PoymdL6InVDJczeao7JKR2CYPkZINJ3vvZooAsE2T7goLO/CXEGI1iT1sN14t6ffOHqF
-	 NEBE/sbURp5zXO/j3wDTHPUU8hYxU4lZqYiuzi0IndNCabw5sJkAa6ZARJCAJRYv4rg/V
-	 I3bJSu/sh81rz8F9YFrtqgrng8STk9oqNS9ZeDAjItfkZv8kgrr81u+Ho1JME3Yi7dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153799;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=8UF8BKZr/PlanibZT8mYgrWg11NSrRSfUMYZM1sw1ow=;
+	b=zJf9oVJSBwU543GC4w0iB4H7Ev+vXX1AuMcEmj+RoG7Z4JStrTNEUbqspWwF1CH+gA9K
+	 Q0xUlx0bcOds6F0vRpLTKnEuLFE0hkHijhjB8VQtSOBgulfSSEB7ZW6tQy8W1c+atNfA3
+	 +PuZ1vBBWoP6YHvKjzXdcy17IPv6AArX8msF1lNrY7PSJ7KVQFYW62GXlT7BJWu0eoCuY
+	 XehMGpPwUtHpDx8ei59d5I4Jrb26oNY3sBUWr3T7sZl1vhy2GSKvhTu0nFxkGmjOBu3ZR
+	 1H1qRsjRG2JOENdO6467iX3jgfxNfprULewiB7ywwoEfxyhC8J+Jp1utQxlcCD83DgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GdCyH9kV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cvOQrSaR;
+	arc=none smtp.remote-ip=74.125.82.69
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4E79606A320;
-	Fri, 20 Nov 2026 05:38:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25348606A325
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 05:49:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25348606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GdCyH9kV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93A3E1F000C6;
-	Fri, 20 Nov 2026 05:38:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795153111;
-	bh=XOjSlJvgQP4Iaas7h11mJ3/93ER6A7G5BBfYIFJUboE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GdCyH9kVDo50BeQqxTan6qurJr8c8eoUCjmIdh9CL7hoAeBKzdvJzcDyH1Fz3g+qa
-	 v2YJHqvY03WqpGhspapq3VoZIaUdf1ALBUflZpZ+Op4atVN35MC68xiHeigqFZbeW6
-	 ZxRDAPy5OWKWSfV6LzuV9wdoM7TMJ7Fo8O5m0SbmFzcxFwap4bLTB/JxOOpeB7CoGb
-	 B9MoNQfxV7e/chTSD1q1WZL0oeM8Til5eUJSZncGsNYuw0vvSS/Xa9GS2Jyecniasb
-	 v0UUyPB9fuj+EhPjaZm2jlk33/5RgZDayVmG2JXtfVO89bugn9Ez8+QbuAzoAmM9c7
-	 Qw9QcUA3Sl2JQ==
-Subject: Re: [PATCH net-next v4 1/4] net: phy: Map C45 probe read errors to
- -ENODEV during bus scan
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-Date: Fri, 20 Nov 2026 05:38:30 +0000
-Message-ID: <179515311013.3136.13885466048757926038@kernel.org>
-In-Reply-To: <20261119005943.999981-2-florian.fainelli@broadcom.com>
-References: <20261119005943.999981-2-florian.fainelli@broadcom.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cvOQrSaR
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1a5005fd0f8so1123246c88.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 21:49:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795153798; x=1795758598; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8UF8BKZr/PlanibZT8mYgrWg11NSrRSfUMYZM1sw1ow=;
+        b=cvOQrSaR2mrHRMOAsAe0QrLi0fTMNmQ8zRmvDoSy+opL4iSRI5PHwbxj5NQzo0xIM8
+         YMi54dvwySBqnghmqhwy0MTaS5q0ByfMJUAl2uDB19XH+CcpL3S0kyyugj5BkbQL+FnX
+         k0mFEngdiTfdqbLuw8dwNZxL1gIjWSkw5Ksb/n2NJJACY3dsvpMl+q+tJSbE2IPULI9l
+         6MM4lPMiN+bYTDQxGP3Kx8zXZyQu5QMZDxml0xMSkw2EaaqWGsXYo0a5WY/+xeKp92TR
+         FsWCspBIPxHgelRbeiU2udJy0xDdhpKEh4WqHeE6KJoQWGBpUlHXhOJlwGTqIvjdjvTW
+         Bjuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795153798; x=1795758598;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8UF8BKZr/PlanibZT8mYgrWg11NSrRSfUMYZM1sw1ow=;
+        b=rzDI3eZ8kHiQMbVh23C3ji+QA21BsPdZGOaPPeYYrCH7qiWmOX1snf7D1yiCcPgQwf
+         iElipQhV+8fnIBjKqvXY5q3ykPzaaPSCgvrtHr1QdciwFrpWOk3tJXVGAsBlydeZMt9r
+         JeMEVtakj42x+vlgs9br8GBPCrDqnG26XMZZb1Rd4LOYtKabQFvqzcV5wmBMLhoZbKXH
+         DHp9Zwl3xzGzmhKTXPz5XbFn0rSDSzMN5ko6flQuH/+iOH4rKXvfHre0udfXxT1DvXm7
+         ke7gH4n/FO7Pg+/ifDFVOgV+0B9+ht12s1p/6n5GMoBiTIGLlXYjJBZodB9RsRGsgrXE
+         kUUQ==
+X-Gm-Message-State: APuU4Z8vnP7PgRJf7rQqJCIPsxFXI4Op/aAvUHmXWDDWf6ftC1+NXpiV
+	ggXvJaYUBjvXAUWAwAyFr8tRqpKkONaBEogowbTT7SMYTfZKQqXjIqejZ33kzmj05/QAg3zDn+Q
+	Qf4q8bGpovoeOhk/oOhl/e/U9unEfENI9FF2x7zOXmK01Oc4HgrCNhfw6tvczJzRL3h4uWEiMr6
+	7xzj3QQZ7K5eT3Iz8xYx6Vw4VPkPOX0ddRZggtB9WHOC1qOZ976m+KUdEMKRFQwrM=
+X-Received: from dlbrc10.prod.google.com ([2002:a05:7022:ea8a:b0:1ac:f9af:14c])
+ (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:701b:2616:b0:1b3:ba92:145a with SMTP id a92af1059eb24-1b5568e0a27mr1762200c88.19.1795153797762;
+ Thu, 19 Nov 2026 21:49:57 -0800 (PST)
+Date: Fri, 20 Nov 2026 04:59:11 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,173 +75,119 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261120045918.1239746-1-almasrymina@google.com>
+Subject: [PATCH net-next v4 0/7] net: devmem: support leased RX and TX queues
+ on netdev unregister
+From: Mina Almasry <almasrymina@google.com>
+To: netdev@vger.kernel.org
+Cc: Mina Almasry <almasrymina@google.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org, 
+	Weiming Shi <bestswngs@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Bobby Eshleman <bobbyeshleman@meta.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Support leased RX and TX devmem bindings when either the virtual device
+(e.g. netkit) or the physical backing net_device is unregistered:
 
-Low priority / nit picks for your consideration:
+1. Pass struct net_device **dev_ptr to net_devmem_lock_dev() so callers
+   can lock either binding->map_dev or binding->bind_dev.
+2. Rename binding->dev and binding->vdev to binding->map_dev (physical
+   DMA device) and binding->bind_dev (device passed to bind-rx/bind-tx).
+3. Introduce netif_lease_valid() and guard netif_mp_open_rxq(),
+   netif_mp_close_rxq(), and netif_rxq_cleanup_unlease() against an
+   unregistering physical device reached through a queue lease.
+4. Fold net_devmem_lookup_dmabuf() into net_devmem_get_binding() so the
+   xarray lookup, validation, device check, and reference acquisition
+   run under a single rcu_read_lock() section.
+5. Always populate bind_dev on RX and TX bindings and handle teardown
+   and netdev unregistration of both bind_dev and map_dev, waiting for
+   synchronize_net() after clearing NET_DEVMEM_BINDING_LIVE before
+   unmapping bindings whose map_dev is unregistering.
+6. Resolve the physical backing map_dev in netdev_nl_get_dma_dev() for
+   leased RX bindings, lock map_dev around net_devmem_bind_dmabuf() on
+   bind-rx when map_dev differs from netdev, assert both devices are
+   locked, and check netif_lease_valid(map_dev).
+7. Add kselftests in nl_netdev.py covering leased RX and TX devmem
+   bindings across both virtual-first and physical-first netdev
+   unregistration orders.
 
-- [Low] The -EIO/-ENODEV -> -ENODEV mapping in get_phy_c45_ids()
-  (drivers/net/phy/phy_device.c) applies to every caller, not only…
-- [Low] The commit message gives the UniMAC MDIO block (MDIO_READ_FAIL)
-  as its example of a controller whose read_c45() reports an empty…
-- [Low] The patch rewrites the kernel-doc of get_phy_c45_ids() (lines
-  826-828) and of the exported phy_get_c45_ids() (lines 1107-1109).
+These issues were discovered during AI code review (Sashiko) of the
+earlier non-leased devmem unregister series (and subsequent mailing list
+review) and confirmed by code inspection (not observed in production or
+reproduced on real hardware). Tested with the nl_netdev.py selftest on
+netdevsim added in this series.
 
---
+v4:
+- Rebase onto latest net-next/main.
+- Fold net_devmem_lookup_dmabuf() into net_devmem_get_binding() under a
+  single rcu_read_lock() (deferring net_devmem_dmabuf_binding_get()
+  until after all checks pass) and update net_devmem_dev_unregister() to
+  use a two-pass loop with a single synchronize_net() after clearing
+  NET_DEVMEM_BINDING_LIVE and before unmapping bindings with
+  map_dev == dev (Paolo).
+- Document issue discovery, validation, and testing in commit messages
+  and the cover letter (netdev-bot+sinfo).
+- v3: https://lore.kernel.org/netdev/20261115022607.348112-1-almasrymina@google.com/
 
-net: phy: Map C45 probe read errors to -ENODEV during bus scan
+v3:
+- Rebase onto latest net-next/main.
+- Add netif_lease_valid() helper and keep lease validity checks in the
+  lease-aware callers (netif_mp_open_rxq(), netif_mp_close_rxq(),
+  netif_rxq_cleanup_unlease(), and net_devmem_bind_dmabuf()) rather than
+  inside __netif_mp_open_rxq() / __netif_mp_close_rxq(), and document why
+  mp_params is cleared directly when !netif_lease_valid(dev) (Stanislav,
+  Sashiko).
+- Guard the bound_rxqs loop in net_devmem_unbind_dmabuf() with
+  if (binding->bind_dev), keep the !netif_is_queue_leasee(dev) guard in
+  net_devmem_dev_unregister() in patch 4/6 until patch 5/6 resolves
+  binding->map_dev to the physical device so the series is bisectable at
+  every commit, and document the use-after-free in dma_unmap_sg_attrs() on
+  physical netdev teardown in patch 5/6 (Sashiko).
+- In nl_netdev.py, verify dmabuf and lease on the physical queue after
+  binding, skip when queue_create returns EOPNOTSUPP, probe the physical
+  device on EOPNOTSUPP so a broken lease lookup is not masked as SKIP, and
+  clean up nk_ifname between loop iterations (Sashiko).
+- v2: https://lore.kernel.org/netdev/20261108055809.2122934-1-almasrymina@google.com/
 
-This commit makes get_phy_c45_devs_in_pkg() return the raw bus error.
-get_phy_c45_ids() now maps -EIO/-ENODEV to -ENODEV for the devices in
-package reads, both in the MMD loop and in the MMD 0 fallback, which
-matches what get_phy_c22_id() does. With this, mdiobus_scan_bus_c45() can
-skip empty addresses on controllers that report an empty address as a bus
-error.
+v2:
+- Split patch 3/4 from v1 into 3 smaller commits (patches 3/6..5/6).
+- Clear rxq->mp_params and return 0 in __netif_mp_close_rxq() whenever
+  dev is already unregistering, avoiding queue reconfiguration on an
+  already-shut-down map_dev during cascaded lease teardown (Sashiko).
+- Drop unnecessary xa_erase() in net_devmem_unbind_dmabuf() and use a
+  local map_dev variable in net_devmem_get_binding() (Stanislav).
+- Restore ASSERT_EXCLUSIVE_WRITER(binding->bind_dev) in
+  mp_dmabuf_devmem_uninstall(), drop redundant bind_dev->reg_state check
+  in net_devmem_bind_dmabuf(), and expand commit message rationale
+  (Dragos, Stanislav).
+- v1: https://lore.kernel.org/netdev/20261103232659.1340283-1-almasrymina@google.com/
 
-> MDIO controllers that report a read from an empty address as a bus error
-> (e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide read_c45()
-> with unmasked addresses therefore cannot be registered: the C45 scan fails
-> on the first empty address.
+Mina Almasry (7):
+  net: devmem: pass net_device pointer to net_devmem_lock_dev()
+  net: devmem: rename binding dev and vdev to map_dev and bind_dev
+  net: guard memory provider RX queue open and close on unregister
+  net: devmem: fold net_devmem_lookup_dmabuf() into
+    net_devmem_get_binding()
+  net: devmem: always populate bind_dev and detach both devices on
+    unregister
+  net: devmem: resolve physical map_dev for leased RX bindings
+  selftests: net: add leased devmem RX and TX netdev unregister tests
 
-[Severity: Low]
+ net/core/dev.c                           |   2 +-
+ net/core/dev.h                           |   7 +
+ net/core/devmem.c                        | 178 ++++++++++++-----------
+ net/core/devmem.h                        |  31 ++--
+ net/core/netdev-genl.c                   |  59 +++++---
+ net/core/netdev_rx_queue.c               |  31 +++-
+ tools/testing/selftests/net/nl_netdev.py | 159 +++++++++++++++++++-
+ 7 files changed, 333 insertions(+), 134 deletions(-)
 
-At this commit, drivers/net/mdio/mdio-bcm-unimac.c does not set
-bus->read_c45 yet. The UniMAC example therefore can't reach
-mdiobus_scan_bus_c45() here.
 
-The read_c45 support comes later in the series, in "net: mdio:
-mdio-bcm-unimac: Add Clause 45 support". In that patch
-unimac_mdio_do_read() returns -EIO when MDIO_READ_FAIL is set.
-
-Could the commit message say that the UniMAC case depends on that later
-patch? That would help anyone who backports this fix on its own through
-the Fixes: tag.
-
-> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-> index b39e945cebd73..79f3fa1e9a036 100644
-> --- a/drivers/net/phy/phy_device.c
-> +++ b/drivers/net/phy/phy_device.c
-
-[ ... ]
-
-> @@ -810,8 +823,9 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
->   * the PHY identifiers for each device. Return the "devices in package"
->   * and identifiers in @c45_ids.
->   *
-> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
-> - * the "devices in package" is invalid or no device responds.
-> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
-> + * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
-> + * reads that look for a device), or %-EIO on any other bus access error.
->   */
-
-[Severity: Low]
-
-Is this list of return values complete? Further down in
-get_phy_c45_ids(), the Device Identifier loop still returns the error
-from phy_c45_probe_present() unchanged:
-
-drivers/net/phy/phy_device.c:get_phy_c45_ids() {
-    ...
-		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
-			...
-			ret = phy_c45_probe_present(bus, addr, i);
-			if (ret < 0)
-				return ret;
-    ...
-}
-
-So whatever errno the controller's read_c45() returns for MDIO_STAT2 can
-reach the caller. That could be -ETIMEDOUT, or an unmapped -EIO/-ENODEV.
-The same call in the first loop is mapped.
-
-The raw return predates this patch. However, the new kernel-doc here, and
-the same new wording on the exported phy_get_c45_ids(), now reads as a
-complete list of zero, -ENODEV or -EIO.
-
-Should this call site be mapped too? The alternative would be to word the
-kernel-doc less strictly.
-
-[ ... ]
-
-> @@ -844,8 +858,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
->  				continue;
->  		}
->  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
-> -		if (phy_reg < 0)
-> -			return -EIO;
-> +		if (phy_reg < 0) {
-> +			ret = get_phy_c45_probe_err(phy_reg);
-> +			if (ret != -ENODEV)
-> +				return ret;
-> +
-
-[ ... ]
-
-> +			devs_in_pkg = 0xffffffff;
-> +			break;
-> +		}
->  	}
->
->  	if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff) {
-> @@ -855,7 +881,8 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
->  		 */
->  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
->  		if (phy_reg < 0)
-> -			return -EIO;
-> +			/* returning -ENODEV doesn't stop bus scanning */
-> +			return get_phy_c45_probe_err(phy_reg);
-
-[Severity: Low]
-
-The subject limits this change to the bus scan. However,
-get_phy_c45_ids() is shared by every get_phy_device(bus, addr, true)
-caller and by the exported phy_get_c45_ids(). Is the new return value
-intended for those callers as well?
-
-Some of them now get -ENODEV instead of -EIO when the devices in package
-reads fail:
-
-drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
-    ...
-		if (rc == -ENODEV)
-			dev_err(&mdio->dev,
-				"MDIO device at address %d is missing.\n",
-				addr);
-		else if (rc)
-			goto exit;
-    ...
-}
-
-Previously this aborted the bus registration. Now it logs the message and
-continues.
-
-drivers/net/phy/sfp.c:sfp_sm_probe_phy() {
-    ...
-	phy = get_phy_device(sfp->i2c_mii, addr, is_c45);
-	if (phy == ERR_PTR(-ENODEV))
-		return PTR_ERR(phy);
-    ...
-}
-
-The SFP state machine now retries and then reports "no PHY detected".
-Previously it went to SFP_S_FAIL.
-
-gpy_probe() in drivers/net/phy/mxl-gpy.c now passes on -ENODEV from
-phy_get_c45_ids() instead of -EIO.
-
-This does look consistent with existing phylib behaviour.
-get_phy_c22_id() already applies the same mapping for every
-get_phy_device(..., false) caller. The phy_c45_probe_present() branch has
-also done it for C45 since commit 17b447539408.
-
-Could the commit message mention these non-scan callers? As written, the
-subject suggests the change only affects mdiobus_scan_bus_c45().
-
-[ ... ]
-
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119005943.999981-1-florian.fainelli%40broadcom.com
+2.56.1.750.gf70dc682cf-goog
+
