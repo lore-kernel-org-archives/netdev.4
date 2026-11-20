@@ -1,49 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142414;
-	b=Y6APXasn+3TruCnKURfi8p/bNoNkShbVhtvmuFVehtYCQWEKcOaiBcjT83UHA++z0YmZ
-	 2wL32+gJ9STZiJFsF6ypjlgnRp4QNjHDgkIJZ91spgDBa9a7NJ443ANiTNjOvMnEY8i0R
-	 PumbYhU8VGDVoUqWtbOEr6rxMRLj+ChgPOjBFQCh/zVdgqbUsBH52WFJtIM9Gan0Z+euw
-	 rUfH7hDaFD2SEgOVsubZKWs6yqtYXsOL+DA3WGTkTbAvXygAi1f/L13cwV8PQ5eUGF7hn
-	 jHzJAfRiv+fZJOkw1Gs1sg50S4tNAn3LVc6XqyANX6eM6fL4nAW/VKkiHCYwwquvxSA==
+	t=1795142442;
+	b=za6aL1SEERN5s6RXTMQ6yTC6sZGKrDYIxXzcPy8czY6D5CMCljQAi+bT0mmW3LkIZsce
+	 kA7WavlCr5Xego6Fu2u9wXbqH+gfQFiYmoRwbhBH54YsXASVPY1FKmQlyaWEbku0lNj/p
+	 yc0vUvQP84q+noPUxzljPzOBPfzCaELlyFp6A+LF/94ASKe1Jr/4r4LziOxweYw8Daqz9
+	 fQR37olMvImI3HGCt4XaB2dj4AC2m/Bua4BpUfVM8YFN0pbf30zqjh9e7odXbQF1V7I00
+	 C3xZ9WoFkiS6VrWbxQ9oyfg1j9h6wMVIVLh4ANBYHNa6ANJy8wtCcoh9mgx5RjwK0cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142414;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=zkb4KGS/rU88to2Q3/dDhQzFO/0JWY7PV9ThQpsdqe8=;
-	b=nQnXtiFubZbMz/hGpwC+OHelzM7mStBHwZxvvNu6I2deYK0qMWtpNJ86DxOyv/Xio6y4
-	 efnJu20fQW93VxzbGiZW/UjlVZajSGa9d2wndElkBRyF1Qxmik1BVcP9J8W3s6xrLsFtM
-	 7STY1HlWnF6R4psdQ/xk39kcRHwAXiZnkYoMtGiXvo/zu6mCiPFCvMdcSHr16jTP5Tk4N
-	 I27b9AD1+khKwSeG1YdGgsUEKhjpOstdM01zHLWUB7hsEIA3UmpUiE7EjlMXoK2u4eJhQ
-	 aOCzlQgkADfSVWu1NcSPv0NjWppyzUVk+v+ap+osP5Ard+E4AfWtLM2AJFSyEQFQG3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142442;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mfZO18oBQCqCq+e1KaZpH5JcESLIsSMc1CQXDKdj9vQ=;
+	b=LIXDOAtUW/LMPk1XjtkjF9MK2DxuRBFg9A8EceFcqxewYvq86DVi7QExkREq3MwuhRBS
+	 a+GUzabuxlZzAVVqPr1MXAlu19jH3IDK2+nsLhIGAO7fNOdDCp06by4OSGqe1ama4jr0D
+	 /biuBMrpS9i+OURlysV6V9gotBURnsYOSNQnHC5W67DLcAkOIdX/Al4IVusRHqPW7RkDY
+	 KMaz/C/cg+coOie2YMJKbyuZ9HmJLME1FHCPaD4UJX7KVml82lb+s3A75t2DaSsTCNzFN
+	 0qKld4WLcso+71Bb1BtomOtiMfw3QUXffWuQfMywJSfKOLt3Vf9nOI7GhErfn+Gjdig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiF4DPPL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DzpN55KN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3870C606A33A;
-	Fri, 20 Nov 2026 02:40:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BBE0606A320;
+	Fri, 20 Nov 2026 02:40:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiF4DPPL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 760E51F000D1;
-	Fri, 20 Nov 2026 02:40:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DzpN55KN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 700CD1F000CA;
+	Fri, 20 Nov 2026 02:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795142413;
-	bh=zkb4KGS/rU88to2Q3/dDhQzFO/0JWY7PV9ThQpsdqe8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=XiF4DPPL2mouSOQ+l9EcdGGMWwK/C9WTjqD8oEJv1OyvLUecMl9pF+NiO1UUGhY8E
-	 1E47vzOnXdvzaU124SxPQzgPU36MaUN8jyhegFhTRXJvaSWircrjS8xetuwM4qJk+3
-	 cBgaXrwtWuCX6iy8ASL7eg9G/gm53aA6z/5Rg122KFwO7u0onjfgcZQa4uZE1E1IzC
-	 15SfvN1JqXwV+c+HzSENi38vQQAxcr5Cb+LlAKL0BvJb29m+2OuWWGjjARQmw4v9pj
-	 z7qh3mnGe4r+RsRyEuzTEyP/nQA/gBY+qbn06sZnJ8TpYv0n0dtd7gpt7v3Y1/ETbW
-	 xIVEQJzHdGGgA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 6E52D3808209;
-	Fri, 20 Nov 2026 02:40:13 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795142441;
+	bh=mfZO18oBQCqCq+e1KaZpH5JcESLIsSMc1CQXDKdj9vQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DzpN55KNH8/zEt6qh3mo1+T/3Bfkc64+7CO307ROnadCVmKibu0VuKniwggNmIDDA
+	 fgq2AyFAgD0R2W32HmlefMLQFSk2Kg4olhOVZrUl2QbhBJhhp8sUm4CMgI6BRrQhNL
+	 fm6/L8k5Lxi2qGWSzO4puoIP98Eat8oD9xeT5CnMa9qO0kfqTLoLAP0M1Unn2XlIOs
+	 YNEBy2tZZfIUuXdW+AOvEQvd2wBRnAbcsy/2hjViq8Rvlt80RZV3X2p+ydLqjoTHqg
+	 Xw0KJhlw56rqx4ASLuhQzN6HxNWMt0GMCGyzFCzDaCRXNFLQDD/X7oMQXN/dCyX9W1
+	 reHd7EHnIRV4w==
+Date: Thu, 19 Nov 2026 18:40:40 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, stable@vger.kernel.org, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
+ <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
+ Iwashima <kuniyu@google.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 1/2] tcp: fix shift-out-of-bounds in SYN-ACK
+ retransmit timers
+Message-ID: <20261119184040.6a4542f4@kernel.org>
+In-Reply-To: <20261118144249.358481-1-jiayuan.chen@linux.dev>
+References: <20261118144249.358481-1-jiayuan.chen@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,50 +64,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net/mlx5e: SHAMPO: Do not merge packets with
- different
- kTLS RX state
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179514241203.3989712.957393796041614444.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:40:12 +0000
-References: <20261118144042.1916204-1-tariqt@nvidia.com>
-In-Reply-To: <20261118144042.1916204-1-tariqt@nvidia.com>
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- benishay@nvidia.com, borisp@nvidia.com, cratiu@nvidia.com,
- dtatulea@nvidia.com, gal@nvidia.com, khalidm@nvidia.com, leon@kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
- saeedm@nvidia.com, witu@nvidia.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
+On Wed, 18 Nov 2026 22:42:37 +0800 Jiayuan Chen wrote:
+> req->num_timeout counts the SYN-ACK timeouts of a request and is used as
+> a shift amount:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 18 Nov 2026 16:40:42 +0200 you wrote:
-> HW-GRO (SHAMPO) sessions are not terminated by HW when the kTLS RX
-> offload indication in the CQE changes. The driver applies the offload
-> metadata of the first packet in the session only, so ciphertext and
-> plaintext can end up in the same skb under a single skb->decrypted
-> indication, and resync requests carried by non-first packets are lost.
-> 
-> Do not merge a CQE whose decryption state differs from skb->decrypted,
-> which the first packet of the session sets. Never merge a CQE that
-> carries a resync request or a TLS error, so that each of them starts a
-> session and is handled.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net] net/mlx5e: SHAMPO: Do not merge packets with different kTLS RX state
-    https://git.kernel.org/netdev/net/c/e421df3c8386
-
-You are awesome, thank you!
+As Eric predicted this does not apply after Chris's series,
+please rebase & repost.
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+pw-bot: cr
