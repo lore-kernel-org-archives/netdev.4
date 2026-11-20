@@ -1,62 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134771;
-	b=FgwDOs4LwEsxo/1YPopSHe8ZaaFvkiBVD/rQo/C4D67GE4qUwywy9SjcIbSImYksQK0S
-	 mwh6+qphnalMHkPY2i05EX6LiMp3tlXINeTm2koX0iuYa+Wv5ZUdCvPOPctV0djihBf/T
-	 WZxsYP98K1XLe4oG6auptlKz+M2Q/a+2sNHmi/o6dczXE3xBRS7EpQl4hroUCDct15D6l
-	 IamRvIhcs0Rqkfo6A6PAeJkj8KirdvXsEs0qQar8hApin/FNQ4tpqhqgb2iIi92y/6CDU
-	 1mLfLYpqTCM0f7M68hVYPb+wD0P4URVUH6jt11CEMybKwUxjzz6Cs2K11kWg4aKWQCw==
+	t=1795134819;
+	b=KmKAjuQDh+nQ48X1VVGbuCeTQz9zcmF+AtHSupEqg8u27foS4H0Yqb9dnY4pGeFKrKUF
+	 g2dmXiJ2gAIed0JNO1TqGOrRZMRByZLQi+/1EdN6Lz8hKkj7zX/2oSw6JRJAY/OPnMrZp
+	 Cw3ri5y/uENaaapcPxw43zBiFmd2NTYp4tWk/5YOnpbmpV49apzSWC0W3tuiYaRg9Y6mo
+	 bM678GazmEUysRbON8nkJp+VtbtImFCjkn1IPMckbkfs0HVbME38EquZz3vFC9ZZ4X0NF
+	 sThhdedewOdG3Ip0dJygvggKn+ehh6vb2aasCLZpaKpxE53k6OGjatn/5RGy0f7hD4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134771;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=0+p5F6UjuL6OfA6Mf7qPhNuAY34vL75GLKxclpi3YVs+BUviJ4MWaBSLGfeUx5QD94MV
-	 9ulJfA+m2Z3HYQTYZYBYBp+7wRhwtrdSvFEasj/GZmzhiVOkXaZIxOioo4Wb6dChArEC1
-	 KY99hpvY7g9RGXpy4b5pY858vu8mcHYa5SxpCdpmPeMtVUv44xB1vGTWtQI60mPKDY7Ob
-	 Pnr89CQcw+7/fCY1reYb1hyrbbbBJtxV5IThVSZfi9t0Qn/XDLxZEKxbL4J30VajsLLOM
-	 LWehwAtULjBN9v3rodSYPBnkQsA75qkmVq/qVEsmDeVR6F+k7wBbKq5Mx7epf4hji+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134819;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=mSl/c/kHf5zuY8pdtj2+wYd0RoijkekTtzlrrbwzeoc=;
+	b=MK7hpeL7htcv8N+2V9hB4vxT5TCH6Ej55cG2cnb58Yu6JJIHB3SXEx3XhsnYQurie7jB
+	 O2nes01HvfrfbGxvSgMM5AqJiDPdfzgx5mVt2mZMdlfG/54gUOacPfMj/MI2MB9BCOMRU
+	 O0McbL2vlicYSWfqPmL6UYnRmfWHIZbQFVgMywhPt2QODpiMAz2BvcIXeWPQ/adJdgVvH
+	 RRoYqdFS7GwTu7+d9NENuPdLq8yrk89V2vJNpFXQl1jgZjXiP9dh/nvRXShpd0zR0vgcA
+	 sITberzPac/DEsONEUN7AS/qWhDZ2vHH9dQw2IUlUr6ve7ZqVV2aGdLdCjwh946DT+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eqiHA5PC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=N4ROEuDt;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43343606A33B;
-	Fri, 20 Nov 2026 00:32:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D1E1606A325;
+	Fri, 20 Nov 2026 00:33:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D1E1606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eqiHA5PC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A001F000C6;
-	Fri, 20 Nov 2026 00:32:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795134770;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=eqiHA5PCDgrPKC8JpGnvfhD1amaiqdB6dsQ8XrG9i89QYe6NNf01k+GTw+ckwjnTt
-	 Iev/qipELvzIifZh7DUxJi35DirV1lS/X72PMTlGO/jWc2Hc7J4+s38jURh7djjG5v
-	 zglRmIyZUwVH9vtMRQJbtsyD0dg5czCJflY08XZUXgfqR1vdnwNuq+uUiApnXIO20F
-	 gsBfhwSuUZjWtZDwfZ7PvzftSLpVKoWmdZVZv3FPEo8G35Qixl0VGqBkg8e6hJpDXk
-	 7SFf8qlaZ37o+Yx723gN4Z+zNfgL4tCNzYhFhZESa4TXsva3PogM6JSZddJ5LWKULw
-	 QOTthqlSFXz4w==
-From: netdev-bot+sinfo@kernel.org
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, rosenp@gmail.com,
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: bgmac: unregister the fixed PHY on probe failure
- and removal
-Date: Fri, 20 Nov 2026 00:32:49 +0000
-Message-ID: <179513476984.3291.1559548469790216407@kernel.org>
-In-Reply-To: <20261120003044.2366432-1-florian.fainelli@broadcom.com>
-References: <20261120003044.2366432-1-florian.fainelli@broadcom.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=N4ROEuDt
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=mSl/c/kHf5zuY8pdtj2+wYd0RoijkekTtzlrrbwzeoc=; b=N4ROEuDtvCtMSaSXYnxRwqjD4j
+	hyZojSrbTM7aUYrEzfFUGyzavOtLFcLjSbRONorQ+LT0kVcFR6svT2aA/Yk55YAr8OGTm1cQ41Zab
+	i/hBrwVnQ5CIeo+LbkhqK2gkElzIzdJnxi+whxvIqlXTcFmUSyfmNhLzYBTbfTUxodGg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xUCZ7-000AH8-Fw; Fri, 20 Nov 2026 01:33:21 +0100
+Date: Fri, 20 Nov 2026 01:33:21 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Bastian Germann <bage@debian.org>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>
+Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+Message-ID: <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
+References: <20261119231319.1256419-1-bage@debian.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,30 +66,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119231319.1256419-1-bage@debian.org>
 
-Hi!
+On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
+> The "broken-turn-around" property is documented in mdio.yaml for any
+> MDIO device, but the MDIO core currently parses it only for PHY devices
+> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+> switches, are registered through of_mdiobus_register_device(), where the
+> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+> still treat the turn-around/read failure as an error.
+> 
+> Parse the property when registering a non-PHY MDIO device and set the
+> corresponding bit in phy_ignore_ta_mask before registering the device.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+What switch is causing you problems?
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+I do wounder if the call in fwnode_mdiobus_phy_device_register()
+should be hoisted up into of_mdiobus_register_device, were it would be
+common for both PHYs and MDIO devices.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+       Andrew
