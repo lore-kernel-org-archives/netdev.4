@@ -1,100 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216447;
-	b=Qm1tg5KGghkb3+S5YedgtcVKpu4lQer/YT5kboOhWywyLZyV0AFuIYsFhIvbHTBmarC4
-	 BYzmsufPmwS4sNwrLp3LqOHCa6H77S5MmIQ67uTDa1Njc1QxUPSKJZIVEbb0onvDBWRMu
-	 Gl/orlQeFaGRiKROVa1lcD7DzDpXfUg5/7ppITldgAFJFCXtKUqhsBG+Nq9mhzCxOtyDr
-	 ckLEsNNLmr2zrQjUxRp8rlFHIpH9iV2df9xFeoWEBy8E01g1dqlhYvByrW/rox4wwxRXh
-	 b8UiHx8b+33NpcfgHC2fCWTXgrY2BHKiSMCgGzODMI8f8oDT7oZsHDWtzc43wrST2gQ==
+	t=1795216661;
+	b=hG+kUooUh4wcBjuO19Gc/uFPW6cyh+HbycJbtGk22XWprAQrdWTrNAJhsntHfnSnRwW/
+	 hhoftnUthYUMGVpXmOS2Hs1Dd2a7hAkoiNSBoNSkruv34HJdxe0vVv6NhJusti1fMd3Kr
+	 jVEdpghY0nrNJV0K6eNAnsydtzzXfZe2VzRpEBZnWR5/0uJ76CgYq3YRw/k3rgsDJ5hpR
+	 ic5QFK3H0M0LH63H748sJ3kUBLwPSZmntb1MVMb3y1zQUWJHipz3fhLIe2YaF1ODT8YtI
+	 KjAjbh1+TC5jevSZDvvxDOesJnZRET//D8NqHxUxMKVeZN2ZoVDmVoCJXLilwOTrWIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216447;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216661;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=SQiSSUnkgfdQDioXSaElBSsat+w/04YkyQNDvuI8C3M=;
-	b=o5dm2uxRFS8XGElf077Xf7dma4JO6/YOd85lIC2iCr1wXWNHImURlvbRFTPPISBDcgs9
-	 8x9g3f24NSJWVRdZjGs+7rZSWX8my+w+BkLu6bzLlS7frTkNsA4F5kyfNVsDwFGauYUo0
-	 1q6gwx2HR6CwOlMIRsDs5pNnAbnwdfYUWMB0YY4HrcI3Iw4Ww8tPgCzNSNOaQPGOHcHJZ
-	 ROCsTjTks+akJWeSYqP3U5mKVi/9oOVWeOcytCJ/gpoKld1eI2VoaIxlL2XBufmUpFaCm
-	 vOeFQA/ud1bVImqKo/JGG6h0hNM1gBb/Mx084n8z/v7Yx81dGPq86FeYiE69+zmvNKQ==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=726kVL6F6TcMsPO3zHhLa7Egh+S7OR+DlorMBz5s0zc=;
+	b=tzd2Fscdmj1vz38O57O2DzCAA+ZXbcWXa3lwpT8gNqC8PVFMVD9wNrWvWkxWqHZ+naPD
+	 acH0LysvIRRvKSGYLmrSbF0nEu9o3/8vlXkw5ZvNHdqkrwWdBBJflho/7xmmZQg6c89Df
+	 m3G8cF3Llr2HYqekYfndXRI3zyxannyYNPJRelxLSvJ06NJoMXNwIhjMk0PyZxJSn7KuJ
+	 ULLW0ybBH5uADd2J0PsQxLcmYGm5s5MDQkmijzXrK5mVLIHsJQvPuolv3cNXsabtRrR3q
+	 AyXJmCQW+KjXJEZ3AjU7LEAU3W9+ZSCuC2j/zldXVV3KjuuQ4O/wQhp3X3mDYG0ryUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MuZh3eT/";
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oD80inq1;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD25F606A33B
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:14:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD25F606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7070E606A332
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:17:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7070E606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MuZh3eT/
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4ac109a8a12so794512f8f.3
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:14:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oD80inq1
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso16148415e9.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:17:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795216443; x=1795821243; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SQiSSUnkgfdQDioXSaElBSsat+w/04YkyQNDvuI8C3M=;
-        b=MuZh3eT/vZxJJ/N89NPDd5NNty+NyzEGy7GKK0yySN6e/qsLHlQsHAJtbF9v7ULWyV
-         7yqkHgJzD/+gL3YbrTL0nn1ypGlsmkO162LbIOZDykZyzWGZ70N1A11uRjrnH4l+V8Og
-         XXdRSv5nEGEOatS5j5PWmZ+W+bGC7MPRLOt4IaaDdRUIX9kR4KdDYRaCzogDSG+1bihL
-         iDhMDU28Ut5bAZBNsqt/0JS1NY+VVDO07++ELiy2qoMuDvTQOrvtnZj69y0aJy5oPIED
-         3KcctILSm4VfDr3tPl0uq4adrPLY0GnZNoHkcBN8zrmKhQxc7hDho6jjgpq29oofmf9U
-         fY5A==
+        d=gmail.com; s=20260707; t=1795216660; x=1795821460; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=726kVL6F6TcMsPO3zHhLa7Egh+S7OR+DlorMBz5s0zc=;
+        b=oD80inq1OCi7sES2mZDguKm7iyjfIQpmNo57rsodReJicMZiMJ6FTJg1dEvz8vLIze
+         Iy7ugQ9nzgZFaYlcarFHnSoY6M1asQ05+hnWEjOVVAWuLGcA72nzo2Om76rkqGpmFxZ8
+         7jU8oVXrWNa9gUvrdtwjG9aDYv7MEv1agucz/fVVZnyDF7DyyZeweEg9XEacOHHch7hu
+         NYKudRf1jwDyP8HHjL824XRBWRJXj4iTPzSmVcj5WCQElNJXKXzHOvWhzU4wfIjn8xCi
+         XwSu9OhPflwp2fqeB/NNKfXrDUD5VheszfxMeFQQYrBPKaAoV0EnZDIZM0LAGfqSL7Oq
+         PxHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795216443; x=1795821243;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SQiSSUnkgfdQDioXSaElBSsat+w/04YkyQNDvuI8C3M=;
-        b=inpWNEochTgCFHPMpyzoTBYL1K6bntcgo33CpoBLwcNiIWN5ZoD9jlWzk4FTCT4Yt4
-         NwTuPV8DrcJh8esu/hRR2M5va+KonxHekQONds0NH/Gv9Z5URW7SWBrA77ZVrCF+BLdc
-         S9On1ujuUN3mPxFeqbo5JuX9pakx/aauccRsrP8pu6G5XgYjr4Qf+kn8eCuEmGyGW7YU
-         c6byVng4aAcSB3/vett10Gs/EzEK0DKpyMipOR9HYtPugr5ChYz1P2zh8Ra1s27ExXq9
-         fUrZJfE4d9YyQTp8IiIdFPkT/M3fUnnKNNiU2y1e9sAT/YQbNYYIpfqamEl2ZxUw5E6E
-         A0Jg==
-X-Forwarded-Encrypted: i=1; AL+hErGtpXUc6kmTleBNMZS+bk4gH7Rt5RdGiWoVYqG5/Fl5vdE8JtsERtWuMtimQ5YKBqBgS+juZLI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/qiNy31gpVBZ17PbMQN5CsUKcBsuIilGNyyvfbUD+/qFn9j4oC
-	09yQr8SYVFWqe8UTzuID3Tekr3mO/6kNE+DH1JUDUuX6+Soz1TJmc/0=
-X-Gm-Gg: AZFdTZeaH/FKZHT7mQF77qM/x/jQImFN/WPjapghyZmMYXDbjzXa8TGIgPuufirZN7G
-	8+1AbDu2jm4JniH9vpC7ZiK/081fCnlRsO67e/uRIVVJ50dAI8aKqvjaceWZ2cjTGM5jAwtu4YG
-	6JU0i999vid9TS+ylrEUkB/vjJIdBtloFnR61WeEbTeVdeke14LrqrAD1iKO9GdenUlGMKrlqMF
-	wCPDn9qfj9KjrRmEYRzNzFcnVgfzDJhZMegLfxHuFAEWFpQ+mjoDz7fhhQxW/DW3VYw+d3B1kBT
-	rXG8Uf5+urHJZWzZmMvr+JsSXqZ2ChrH/fahQKSMa0xg9R4svCmypCa6lxPhTzP80Z9K5E6dohy
-	S1h6RSylkxKLWyGGR2k6ALGzAvKjaSdWpPTLZMZ059eEqt5h/pjZ5Vkhv/+7mNgHTuGK4nX1xSe
-	uOk0t0LegOwKXysEAIxwRtwskrrihiLn8ETnVVE3WYlWWRztO9jxy8ErVx6RQ09EA4xs2WKZrJT
-	q9sEkysOuU6L1HYXl18NPqv5KLhI6OEfpRm1gsCgmnFqlg2WADG2muvUbY/Pp4TGtgL2qKpO8l2
-	QM1wxLGFsbRznx5hZ96RkKiwr4V7
-X-Received: by 2002:a05:6000:2c04:b0:4ad:2699:74ec with SMTP id ffacd0b85a97d-4ad269975e8mr6501403f8f.39.1795216443071;
-        Fri, 20 Nov 2026 15:14:03 -0800 (PST)
-Received: from localhost.localdomain ([2001:41d0:303:db6b::])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm8151832f8f.58.2026.11.20.15.14.02
+        d=1e100.net; s=20260707; t=1795216660; x=1795821460;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=726kVL6F6TcMsPO3zHhLa7Egh+S7OR+DlorMBz5s0zc=;
+        b=jbm3xKPxJ3QcWxasvuXm60SNGX3jKpxRLKPR67pUDF4SpMd5uOAGl1rkwgilNLJPb9
+         mvSutl5S9b6p2XqFaOgWWBAwwkNzUwm1TMpQyzWAxMC18pJ/3F/WyqJ01Zzt0MUGd8IF
+         fS9kn1m6eIa4gRCLeKh+TFvRzR9D2J6WVTzWyB0ZqLVJpAWA7XreD4BHehD/9YDAgeCX
+         EqCD/Z0UYMqFZc7EWKIpWEpHrUvxfDD0IcYJlumnvgBulgipOC64nwgyD+iHoF7ACHru
+         gs5wxBKiLr49DaLd0+QtZD7XkxMjv51Yh4+fys9uZcQuZ5Nme2TsGix+ze96tqYG416s
+         F7/A==
+X-Forwarded-Encrypted: i=1; AL+hErFaPHKSguRFnkfmQLZQSMDhxPp1jMOS1W3Klkrsi2CoX4a9KppWd6JWR7QIGjFADr/R77UCvVs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9I/dbPEVSjrFg/iKU5RrtcyaNYno3s7l8FaGmVez5qbHkOv/tX
+	tYlXDmcuVy7ZodBRUcjKH2zaTO9xXk+W6io9MWky85YI7J1neVJm2Egz
+X-Gm-Gg: AYBFou0wQ3K5B1SWc5wqKjvYPFym+/AH62W1LIw9Q5frlyU0ostYMUEwXwe28L+FpKO
+	gwilxgalGdAccifkCjpvTlcfAIe6XtJkWJm12xBEVGeOKo/UMojq1ZbFxxnl85UUG22zex+JqyF
+	XgpB+aXb6rJvRkyPclsFAbvKPdXb8QRYe+Xb7bjTSe9QwPjIWblNX7Kdq7D2q0KJZ5zzEEqssJo
+	yfDd1PpLiDaYPtil73lGhPUAvsG5EvJwUWN/ojSXuL7mg2IhQ97ECHp6zWjFq1uzKi/XDLtukZH
+	He8NbKOjKjPs+xhQHfLSSzfXXAz4AyqCI0x+ieR65LpulY0sfDeBGx66C8ElwFXDNA/SfkI63Zg
+	CfXJN/jTw/DdYi8tjngf0uPUbIvVbh/5CYLA9R/NCpMYwRAuniHfReQpDI8L7P9N8kbTbYDOKyg
+	th+beJLOffRFfU6c5CrnTQr16sKwuZcf4DA7FkxLAusR8deMytaM/4ehdFZGnmgM68E3lKgWWVb
+	QHOFoN/gaCNIX8Qm95MSQ0cMlPEgufOCyaT8G0tQv6REZJUnIHAhq0CkU54QdJ61D5Hd+Nn/ppq
+	DPNOg1pcBaurPU/s5Cz9ggmx3SQaXzCFyfD1xMHjTgFMpybLvu1C4KgpoD2HB19ANKSzBiHT+Lm
+	nLhnKJRxW9/h1mH5pz6SIZHSWitNz9dKZcw8=
+X-Received: by 2002:a05:600c:820c:b0:4bb:6f6a:1976 with SMTP id 5b1f17b1804b1-4bb887c2923mr101689825e9.2.1795216659651;
+        Fri, 20 Nov 2026 15:17:39 -0800 (PST)
+Received: from pc.tail250202.ts.net ([87.110.86.243])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm151650265e9.15.2026.11.20.15.17.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:14:02 -0800 (PST)
-From: Tristan Madani <tristmd@gmail.com>
-X-Google-Original-From: Tristan Madani <tristan@talencesecurity.com>
-To: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 net] net/sched: cls_flow: pin file with get_file_active before reading f_cred
-Date: Fri, 20 Nov 2026 23:13:54 +0000
-Message-ID: <20261120231354.1361803-1-tristan@talencesecurity.com>
-X-Mailer: git-send-email 2.47.3
+        Fri, 20 Nov 2026 15:17:37 -0800 (PST)
+Date: Sat, 21 Nov 2026 01:17:35 +0200
+From: Janis Edvarts Lacis <janislacis06@gmail.com>
+To: Antonio Quartulli <antonio@mandelbit.com>
+Cc: intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>, Kurt Kanzenbach <kurt@linutronix.de>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net v4 1/4] igb: don't touch rings that don't exist when
+ disabling an XSK pool
+Message-ID: <xupy6jbpnziq2qji54zjbvm7neggrwkxg3sfrhlolmrd6ysifl@zptk6ynkbu5f>
+References: <20261120210134.133238-1-antonio@mandelbit.com>
+ <20261120210134.133238-2-antonio@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,79 +107,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261120210134.133238-2-antonio@mandelbit.com>
 
-flow_get_skuid() and flow_get_skgid() read sk->sk_socket->file->f_cred
-without holding a reference to the file. Since the file slab uses
-SLAB_TYPESAFE_BY_RCU, a concurrent close() may free and recycle the file
-object, causing stale credential data to be read through f_cred.
+On 20 Nov 22:01, Antonio Quartulli wrote:
+>xsk_get_pool_from_qid() checks the queue id against the stack's real
+>queue counts, which can be higher than the number of rings the device
+>has: on 82576, enabling VFs leaves a single Tx queue while keeping two
+>Rx queues, and igb can fall back from MSI-X to MSI with a single queue
+>on resume. Disabling the pool of such a queue, e.g. one bound to queue 1
+>before enabling VFs, then passes a NULL Tx ring to
+>igb_txrx_ring_disable().
+>
+>Only disable and re-enable the rings the device has: skip the queue if
+>it has no Rx ring, and only the Tx part if it has no Tx ring, so that
+>an Rx ring using the pool still stops using it.
+>
 
-Pin the file with get_file_active() before accessing its credentials and
-release with fput() afterwards.
+What happens if a pool is bound to, say, queue 1 and the socket stays 
+open across a runtime resume that falls back from MSI-X to MSI 
+(queue 1 becomes invalid)?
 
-Found by manual code inspection; not triggered at runtime.
+If the socket is closed after igb_rtnl_resume_task() has reduced both
+real queue counts to one, xsk_get_pool_from_qid() will return NULL for
+queue 1. As I read it, igb_xsk_pool_disable() then returns -EINVAL
+before doing the cleanup and resources get leaked.
 
-Fixes: 0ede61d8589cc ("file: convert to SLAB_TYPESAFE_BY_RCU")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
----
-Changes in v2:
-- Use get_file_active() instead of get_file_rcu() since socket->file is
-  not __rcu-annotated, fixing sparse warnings (Jakub Kicinski)
-- Include discovery method per sashiko-bot request
+I may be mistaken here, if so, please let me know :)
 
- net/sched/cls_flow.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
-
-diff --git a/net/sched/cls_flow.c b/net/sched/cls_flow.c
-index 2ef449706638b..8653e6fdcfa2a 100644
---- a/net/sched/cls_flow.c
-+++ b/net/sched/cls_flow.c
-@@ -17,6 +17,7 @@
- #include <linux/ipv6.h>
- #include <linux/if_vlan.h>
- #include <linux/slab.h>
-+#include <linux/fs.h>
- #include <linux/module.h>
- #include <net/inet_sock.h>
- 
-@@ -208,10 +209,16 @@ static u32 flow_get_rtclassid(const struct sk_buff *skb)
- static u32 flow_get_skuid(const struct sk_buff *skb)
- {
- 	struct sock *sk = skb_to_full_sk(skb);
-+	struct file *filp;
- 
--	if (sk && sk->sk_socket && sk->sk_socket->file) {
--		kuid_t skuid = sk->sk_socket->file->f_cred->fsuid;
-+	if (!sk || !sk->sk_socket)
-+		return 0;
-+
-+	filp = get_file_active(&sk->sk_socket->file);
-+	if (filp) {
-+		kuid_t skuid = filp->f_cred->fsuid;
- 
-+		fput(filp);
- 		return from_kuid(&init_user_ns, skuid);
- 	}
- 	return 0;
-@@ -220,10 +227,16 @@ static u32 flow_get_skuid(const struct sk_buff *skb)
- static u32 flow_get_skgid(const struct sk_buff *skb)
- {
- 	struct sock *sk = skb_to_full_sk(skb);
-+	struct file *filp;
-+
-+	if (!sk || !sk->sk_socket)
-+		return 0;
- 
--	if (sk && sk->sk_socket && sk->sk_socket->file) {
--		kgid_t skgid = sk->sk_socket->file->f_cred->fsgid;
-+	filp = get_file_active(&sk->sk_socket->file);
-+	if (filp) {
-+		kgid_t skgid = filp->f_cred->fsgid;
- 
-+		fput(filp);
- 		return from_kgid(&init_user_ns, skgid);
- 	}
- 	return 0;
--- 
-2.47.3
+Best regards,
+Janis
