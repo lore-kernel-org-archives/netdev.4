@@ -1,109 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139803;
-	b=vmdBWtm51qeyMEqJRDl674mz8hZmVm9obzzWrTzTQyWao5d4ExsEVYV6LtBqwTqTh2do
-	 wdm+nhVueZHPVlGmnU//geqNySxSkHzzYuvIcELHb61dumq26H8aY2by6K+uAYxAc3Yq6
-	 Os21nVBqJMNuX0AUlNN9wRogRTYVQrBSLfZEOka9Kxo8DaBWPOuqXgIcOCv6PcMTyj8/v
-	 YvC9lZNSO4pYn2jSUFx8QV0Kaqn77hoIiuUligYz4Kc5t3orfm50tdl96+talDo56jtxT
-	 uIJK6w7i72hxUZtOrHhcVIYZL0Tl5jF4+1eUsvyGfipzGErcMNx970GaJABChdcrkGg==
+	t=1795140008;
+	b=URUvl6gzsnrptttELTEjBNxdwgpVi2TZqd5GuFXF9Mno55EB4SB1t5p2AClN1sVlXFhB
+	 lPF0alHKAxP6IS3ryEltZ76FVLgNyE7iqdF0nA59r6uYBTNiyVjqXutiy1E27KqBnVChn
+	 pzBaJeCstXY+/zEmnVSzQs4j/bKWvHemur39v/iZOwdIHQvt5uYUNrrB6ojh5Eqtk487T
+	 NGcSpcCMRt4H1PsvOPloQz/SvEbgCcGJ7POD2znILXLwGuePvR9jcErEP/ESYvwc8S8ia
+	 NGDJs763zOLy09243sINC2JrYStuFvPugCsJ+waj/g2Y06I1z7/fbE3O4y8Z9jkThvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139803;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=LR2B26HtxaHxg7a5ph6Qay3k33nHcyeCg9k+gslMQ+A=;
-	b=qQw6dxGoo3ZM9UptzVsuMGLsb040fdt3axGM+zyBN2/ryVWOar8AY+nweh0vxV2ZI037
-	 +djCh60vVysHYTof7m+GpU/IE93xlOuaGrhYZUAEDgujROEqzq2d1cQrhoaOfjEKhWlbX
-	 aim1jWYeMKh1Rg3okq4lvmvUOOXj65w7HFvS153hLF4HQxDdOs8qt4poVyuR8AdYlbNOT
-	 M4kGqdyUMG5UHyzY+rbwID6x+lPjkNlnx7PRsN/8+qTXNFHVdKNirKkBX9BQuEF/8tO2w
-	 HTOruNHVVpKmRNKfjk3Ejly9Nzyg1L7o1XZYrdxf2/6/WSi+rzDnXqBnw6/WF3j/KGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140008;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=+1N0HRY7e4qg3hsUey9t5xr0GAHQl5sEuJ1qjlEcbpc=;
+	b=GA2v+QgfHhdbeeprSUCcurRiJQW2+0qSTgAWwOPhcoFVTjQhoKDrAzmP72C8tlvMoSmI
+	 w7Ce0m2Lc9HbiWbShc/U0eetAO2D6vj1SOS/EtJF5U+WIbS+FQpK6SVfbyf3KLothf2sG
+	 G035ppbQDDAGvYowrEKyBRycGLhlQmeeTDcRRtvl6KnbPqgiJkkyZfb7j/ePe/LonluHP
+	 +eCOixR/alyI5ZTqmdj/WKNTHQrzg0gUfvP1lKMuLVhtrvX8CvTE/ksBgLhEdL4DLdJnZ
+	 CaVBGd+IBs3pr/oWzu44yMlGjCFC7Wpq+Zw5tRIyuYmuQG2c9RBFEdvwYwC2fXUQQ4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JwMRdYeq;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UfZW8I1d;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 226D1606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:56:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 226D1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EC55606A325;
+	Fri, 20 Nov 2026 02:00:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JwMRdYeq
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b3a9a4a765so276178a91.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795139802; x=1795744602; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LR2B26HtxaHxg7a5ph6Qay3k33nHcyeCg9k+gslMQ+A=;
-        b=JwMRdYeqg4g+oaIIij7D+9eeI8UsfeB8XrsqYWn/lpYVs6dFxvCKKiBUqsSKv09qu0
-         zDUYGeOoEynr7CSzJg0Q2M6SK4rcdV2ylx79mCwkRjmETbPZnkM6tfPYjZ+HeFXUONQo
-         mHbcpttNUaBJUGa1P/4tyDVS/QfJQkoVnLu0EkqdVDTf2x6GqtI5h/HGN+ErQUPMp/pS
-         xQm6ykT3RisuBi//q6huBXbiCN0rfzW5vCsQJVh9h4prT+J5D0DxSvH24VlMJUsX2Y1c
-         7i5nsYletYcQ6Byf282j7HbBE4VdgMO9T5an6TTTC1WQ/hTl2JBsMSH/T2upYZYMPhWZ
-         sjwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795139802; x=1795744602;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LR2B26HtxaHxg7a5ph6Qay3k33nHcyeCg9k+gslMQ+A=;
-        b=sixay1kRKcv8w6AyWWhmJIigPeb4Dk/qc9+2j5d0RpI8GZYvzoi3XnSvlTkeS9BO6x
-         OWcbCOS6Tj4OwuXKQb933d//X26sbGbC+xNbTv3z/AXosugn3faaiE8jTwVyjO5Ydtyy
-         wWrGr800F5tRYH9cHGcd26I1TdK+qGrgvd53wLVk1PX03dNkdRr95SOFj+VI3GY62Szd
-         VCgaGiKhPXy7418jEeCzzJrM3pa0YWfZ/09ghyV5jbz5ctzR7u6Xz2rogJO/wTw0U9HD
-         /hAk+/1jYi/OJkd2ZYL9vwzPjk0mHI2aHdPRHBhQeMWiM1cI4pfcAZCpMQ3o3PZhiQcw
-         DlNw==
-X-Gm-Message-State: APuU4Z9rzwGVDUoOsFKUWSoQUTSF0Vh4f1hpTRxCtD4QjHXncS/slg4Y
-	CFh+DdMCqzec9sH+VYM88VXyqCmA8ZWCt1smGN2GwacyYkX8+U1ddhv+kJCMWWkG
-X-Gm-Gg: AZFdTZdCXep4S69WxuOsNilkPBGVnAi0QgddpNm55WYy9kewZXxjcJBjKRYUxTinTEG
-	Nl0Wf1lSnOS1fpDGrNpb8dz7gGGJnBIGWmo0KsrIynWyQcpmwhdU0B1TyRGUcbFd4JjzkVVtEcH
-	fOZ9AoxoyqnEwL/NeobWIqliLSItklA7mjitighAMbAZ+N23ubo8bGHawZB7lDy1MIHnQl0Cl5x
-	mo3lZ2Xii5u8YbwlPr0l641M2TTNwffHolIEs8QzlRdKrTvfoOj+mESS9g9Byeb/l/XgNcqt0px
-	rReSJktp6xddFGAXHw2pnN24DO87IaGgf8Un68gytnX2Xb4KVecna7ev4dZmswSEF6l6TuDXSkR
-	SwiBGK2C6LuuwB518IxV4Ieqmwf+Kbu5BViu3COtcoRt0QjtEbABJL6ho65ZKwCbYrlejPlSwsq
-	c416D0z5E4X/JYlESjoAk16LEc1QkEZ3f2KeQmcKop5VlmYEZuk64MJ0tNushYJ4baAH1Fy5ZX1
-	I0Ej2YoO3c/qewgkQRvah5HqQWi5RKRPLgJW42V5JDSZsjAY/Et3ZyJ/L4ygAZtlX+GKzN7olxz
-	x+YIKniulPNKvznAQry9fuAbhr94+QxgQ6fvYbpYgUuw/YfaNvU=
-X-Received: by 2002:a17:90b:388c:b0:3b0:a378:1cf with SMTP id 98e67ed59e1d1-3b41c9b2d39mr1237682a91.22.1795139802471;
-        Thu, 19 Nov 2026 17:56:42 -0800 (PST)
-Received: from u.. (61-222-64-201.hinet-ip.hinet.net. [61.222.64.201])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5355957a91.8.2026.11.19.17.56.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:56:42 -0800 (PST)
-From: Tim JH Chen <tim770802@gmail.com>
-To: netdev@vger.kernel.org
-Cc: chandrashekar.devegowda@intel.com,
-	haijun.liu@mediatek.com,
-	ricardo.martinez@linux.intel.com,
-	loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	ilpo.jarvinen@linux.intel.com,
-	sreehari.kancharla@linux.intel.com,
-	m.chetan.kumar@linux.intel.com,
-	horms@kernel.org,
-	linux-kernel@vger.kernel.org,
-	tim.jh.chen@wnc.com.tw,
-	Chih.Hung.Huang@wnc.com.tw,
-	Tim JH Chen <tim770802@gmail.com>
-Subject: [PATCH net v7 6/6] net: wwan: t7xx: fix memory ordering in t7xx_dpmaif_rx_stop()
-Date: Fri, 20 Nov 2026 09:55:56 +0800
-Message-ID: <20261120015556.131547-7-tim770802@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120015556.131547-1-tim770802@gmail.com>
-References: <20261120015556.131547-1-tim770802@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UfZW8I1d
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 098BE1F000C6;
+	Fri, 20 Nov 2026 02:00:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795140008;
+	bh=+1N0HRY7e4qg3hsUey9t5xr0GAHQl5sEuJ1qjlEcbpc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=UfZW8I1dAgFqk989xLTrU6wd05EufM1Kv5g9R4bm9JLETmHe2I6dNvfgfuL3XKfz8
+	 f6rI7SFJUChX4tWtt2HmT539/3g9V8LvLT7pBT2d1sKafZ6w4mlT9FAOuxo3xzOzQ4
+	 LoVNN6O+SeIDc2xU945z0j9FC4nIlUdygLzp1DKg3aZCRgDjvmlgVJqeoavZyteBta
+	 2ZwMqWkEDBYJ1vmFle7Y95HQNHbRhh11qkPGSuuyQ9IrxwBF8EPN8swUSbefkFW8TZ
+	 zlHiIPXZqMtF5Jnpr5/TKn3zWzVvPtnDVUePiAHAbCYjjXuOMXWH618EtB3BhpeE6t
+	 aMAJG0xb+6RbQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F16E93808209;
+	Fri, 20 Nov 2026 02:00:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,95 +54,61 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3 0/7] net: bcm4908_enet: TX ring and DMA fixes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179514000678.3977048.3079257794014702506.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:00:06 +0000
+References: <20261113235847.517308-1-kudzo51@gmail.com>
+In-Reply-To: <20261113235847.517308-1-kudzo51@gmail.com>
+To: Kordian Chmielewski <kudzo51@gmail.com>
+Cc: netdev@vger.kernel.org, f.fainelli@gmail.com,
+ florian.fainelli@broadcom.com, rafal@milecki.pl,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
 
-t7xx_dpmaif_napi_rx_poll() sets rx_processing, issues smp_mb(), then
-reads que_started. t7xx_dpmaif_rx_stop() reads rx_processing first and
-clears que_started afterwards. With this order the stop can read
-rx_processing == 0 while a new poll reads que_started == true, and the
-poll runs after t7xx_dpmaif_rx_stop() returns.
+Hello:
 
-Clear que_started before waiting for rx_processing, so the two sides use
-the same store, smp_mb(), load order. Use WRITE_ONCE()/READ_ONCE() on
-the two accesses that form this handshake; the other accesses of
-que_started are on the same side of the barrier or on paths that
-t7xx_dpmaif_rx_stop() serialises through rx_processing.
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-With the new order a poll that is already past its que_started check
-when the queue is stopped finishes its pass with que_started == false,
-which used to be rare (only after the stop timed out). In that state
-t7xx_dpmaifq_release_pit_entry() returned 0 without touching the
-hardware and the caller zeroed pit_remain_release_cnt, so the entries
-consumed by that pass would never be released to the hardware. Move
-the check to t7xx_dpmaif_pit_release_and_add() and keep the pending
-count, so the entries are released by the first poll after the queue
-is restarted. The hardware is still up during that pass because
-t7xx_dpmaif_rx_stop() waits for it before the hardware is stopped.
+On Sat, 14 Nov 2026 00:58:40 +0100 you wrote:
+> These fix the BCM4908 Ethernet driver. Patch 1 fixes a TX stall seen
+> on a TP-Link Archer AX6000 under sustained load. Patches 2 to 7 come
+> from reading the code and from review, and have no reproducer.
+> 
+> Tested on an Archer AX6000 with OpenWrt and Linux 6.18.55, whose driver
+> differs from net only in one tree-wide change, with the LAN going
+> through this driver: TX and RX at line rate (941 Mbit/s TCP), and four
+> ifdown/ifup cycles of the conduit while it was sending. I ran the same
+> again, plus a UDP stream at 1 Gbit/s (944 Mbit/s received), with the TX
+> ring shrunk to 16 descriptors for the test, so that the queue was
+> stopped and woken over and over (about a million qdisc requeues in a
+> minute, with the ring full or nearly full in a third of the one-second
+> samples). No stall, no errors in the counters, no DMA timeout warnings.
+> 
+> [...]
 
-Fixes: d642b012df70 ("net: wwan: t7xx: Add data path interface")
-Signed-off-by: Tim JH Chen <tim770802@gmail.com>
----
- drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 23 ++++++++++++++--------
- 1 file changed, 15 insertions(+), 8 deletions(-)
+Here is the summary with links:
+  - [net,v3,1/7] net: bcm4908_enet: fix the TX ring wrap
+    https://git.kernel.org/netdev/net/c/4f8b1a7cf754
+  - [net,v3,2/7] net: bcm4908_enet: drop a TX frame whose DMA mapping failed
+    https://git.kernel.org/netdev/net/c/e1d4683fb4cb
+  - [net,v3,3/7] net: bcm4908_enet: release the TX ring on stop
+    https://git.kernel.org/netdev/net/c/e2785f0ff0a2
+  - [net,v3,4/7] net: bcm4908_enet: unmap the buffer of a dropped RX frame
+    https://git.kernel.org/netdev/net/c/1b48d619448c
+  - [net,v3,5/7] net: bcm4908_enet: unmap RX buffers on stop with their mapped size
+    https://git.kernel.org/netdev/net/c/1da02595e8d2
+  - [net,v3,6/7] net: bcm4908_enet: publish the buffer address before OWN
+    https://git.kernel.org/netdev/net/c/4d47e6c2f3ce
+  - [net,v3,7/7] net: bcm4908_enet: order the TX ring index accesses
+    https://git.kernel.org/netdev/net/c/ebe31472ad0a
 
-diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-index a7d6289415b1..d70ef315f5f5 100644
---- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-+++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-@@ -240,9 +240,6 @@ static int t7xx_dpmaifq_release_pit_entry(struct dpmaif_rx_queue *rxq,
- 	unsigned int old_rel_idx, new_rel_idx, hw_wr_idx;
- 	int ret;
- 
--	if (!rxq->que_started)
--		return 0;
--
- 	if (rel_entry_num >= rxq->pit_size_cnt) {
- 		dev_err(rxq->dpmaif_ctrl->dev, "Invalid PIT release index\n");
- 		return -EINVAL;
-@@ -565,6 +562,14 @@ static int t7xx_dpmaif_pit_release_and_add(struct dpmaif_rx_queue *rxq)
- 	if (rxq->pit_remain_release_cnt < DPMAIF_PIT_CNT_THRESHOLD)
- 		return 0;
- 
-+	/* The queue is stopped: keep the count, the entries are released by
-+	 * the first poll after the queue has been restarted.
-+	 * t7xx_dpmaif_rx_stop() waits for this poll before the hardware is
-+	 * stopped.
-+	 */
-+	if (!READ_ONCE(rxq->que_started))
-+		return 0;
-+
- 	ret = t7xx_dpmaifq_release_pit_entry(rxq, rxq->pit_remain_release_cnt);
- 	if (ret)
- 		return ret;
-@@ -844,7 +849,7 @@ int t7xx_dpmaif_napi_rx_poll(struct napi_struct *napi, const int budget)
- 	/* Ensure rx_processing is changed to 1 before actually begin RX flow */
- 	smp_mb();
- 
--	if (!rxq->que_started) {
-+	if (!READ_ONCE(rxq->que_started)) {
- 		atomic_set(&rxq->rx_processing, 0);
- 		pm_runtime_put_autosuspend(rxq->dpmaif_ctrl->dev);
- 		dev_err(rxq->dpmaif_ctrl->dev, "Work RXQ: %d has not been started\n", rxq->index);
-@@ -1127,14 +1132,16 @@ void t7xx_dpmaif_rx_stop(struct dpmaif_ctrl *dpmaif_ctrl)
- 		struct dpmaif_rx_queue *rxq = &dpmaif_ctrl->rxq[i];
- 		int timeout, value;
- 
-+		WRITE_ONCE(rxq->que_started, false);
-+		/* Order the que_started store before the rx_processing load.
-+		 * Pairs with the smp_mb() in t7xx_dpmaif_napi_rx_poll().
-+		 */
-+		smp_mb();
-+
- 		timeout = readx_poll_timeout_atomic(atomic_read, &rxq->rx_processing, value,
- 						    !value, 0, DPMAIF_CHECK_INIT_TIMEOUT_US);
- 		if (timeout)
- 			dev_err(dpmaif_ctrl->dev, "Stop RX SW failed\n");
--
--		/* Ensure RX processing has stopped before we set rxq->que_started to false */
--		smp_mb();
--		rxq->que_started = false;
- 	}
- }
- 
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
