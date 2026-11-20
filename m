@@ -1,80 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133335;
-	b=wvgWig6h8ZXv/U7n9D99gPJ3TK3nBFrrrAUYFngELLD37S+FrrQfGE84h3bv62dNcJsc
-	 2BCRU1HaaTc3JqdwPMQWR80nK7fFf6TS4jxak5rFk5hvwaVmImU26FqUJE5bDBsEjZTsc
-	 D1Dp/kznPcOgzWcuaFjzayhGfPwfcxKxUf2hR0yTcs9ebd+L4iIz4WLDPVysv/Y+njEOv
-	 UeibHxDpAWyq3XVo3c43i7xmE8eIlPVcbpkpq7P4QZmizGrb/1Vkg8c6wZPG1IUHZFRf/
-	 fQh2dO8sE6Gh/PDkqxuTtA9jJe76YQ06JCBgdSD+PgDh6Ylh1GaJW6vRjpfDpDQgUsg==
+	t=1795133394;
+	b=Ltrow/uP+N4J8WAav2Yx3mgwK7ahRdSgMkYKZxAhCbIkh+6MQdqA71M0ZeYVtDduOy70
+	 oX0LB6AhYWdz+LofrrJ6aihzSTiIQB8Yzk8TqEsvbO5dK/PRo0+kOqQb8Vuhzv5RztzWo
+	 9lhn4r9YMHC2WJtvmpLPs7aeMA3w7hXAHtAf4aHhytt5kDreX6z/bwRTLMPZNjBKGE8AS
+	 uLZBmK+MXFPjqxOAWmkx0hCYe3yiQMsVyVNP9FWDPJP9tayrf+xItOkpuCKLicLWV0T/7
+	 TkbJhM2lnPwMShqjf5lbtXLqH35/83Lfs7m5y5bWO/Yx0bGHWsEhDKKHUX8zADQjTzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133335;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133394;
 	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
 	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:X-Mailer;
-	bh=4Vg7N3oYshy3EEXzhRxXXAH88TafQV+Xi5HI17lnSNQ=;
-	b=ftgFeavFePZkZRIGbxUO5fBJ8Gn7Nc7o6qwg1wQa7Nf4ZOtrAGjIjxMOpkCLHOcWanEV
-	 A4tcgStA9olehMnWGvQkXvDf5Bh1GglrxABIgoyrXXhed0h1JLvhuPdhOj2H+EmkN/I+S
-	 bVvSOQS6BaSoYrNugQtoYkKAR9rDjFpi8GGeFw/mlBDJRmvBLNTMZHagJpcXcF8XDXjWG
-	 R1FWrlqZc6+06BkDTQU0hEHlW9yfX+7abxylVVrKxU2mSiWIcw45zh6El+ibkGk+6Rrwy
-	 wvNeiIVLvnwLrLWz+bj4qgtIPQISq4uXc1V1T/hy86Sa3IdGY2aWdW10G3Pn3OiYTdg==
+	bh=zFsE2OBRDF5jIRbcmqp1WRJG/783QQpzfaQ8RI3g+mw=;
+	b=JRTUyt5rBCgdMuHZ0ivA9w86UAJ1lK4oneFBCZhFGKgOkjRj2dNw33/ImYZu9/ZPfT7Q
+	 Gh8WjBSOYtgeV3O3sUJV/FwpDRyIUB17XZ4P+fWurCCVX1z+x8+RoSOevyKVsfJyUOxbU
+	 P3/evdqnD1tK4hRxeshuAyRCziZegmgIUjlqLEsqV+l0xxTnXJZpIQpHt93/PY8lSmUnZ
+	 QJK8fJ2oBAgeyBVdDo3oOnFAnv+WX0pantoncLLpNjFk7iVnAAI113yLwlLBejlUVJzEi
+	 05JOJcSf9Izjs5FHMYRDGlyLrVFii/zwuvV0e+ydyqbuXtqdCBop3kZh/ENwGg3J/HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yahoo.com;
 	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=jYl7tj24;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=awuEPJur;
 	arc=none smtp.remote-ip=66.163.184.44
 Received: from sonic317-33.consmr.mail.ne1.yahoo.com (sonic317-33.consmr.mail.ne1.yahoo.com [66.163.184.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63565606A338
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:08:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63565606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B48160A2607
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:09:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B48160A2607
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=jYl7tj24
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133330; bh=4Vg7N3oYshy3EEXzhRxXXAH88TafQV+Xi5HI17lnSNQ=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=jYl7tj24CsbNyhb05DyW+LaUUcLWY/2EuE7rj/VuIDn3IalrST1HSmj+fOXzwno6ZIcLIZ7SkekevpcbYg0L5zMk0RMJA8BYoXuLdp9fsDp43/WpfNoB2UIDv1RVY2w/Gy3tT3gLPxJ5pB9X45aNGUBiHtkxvjnmiGBhZ/X0BmRoTb56czz6ec+amCfzrgufO7LpLjoZzSZVJLJh6kWlsCcRL63+ueV3ujp1OGF8PBKBAW1VsHZxiGExJKkCe0LD285ADLGNejMWJP2VnVEvrMQP0X8N81tMX9uT2YYfqcERLMbd1Zq3QxcV6sFILtgRhGVcDpPNc9YNSPZpNpOFgA==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133330; bh=QYwR9E3g95uG4COJQzwe3y24YAgYYO95sOV4UshUDr4=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=NHPMISLvruegXXOGg4OEA0U7AoVoJ52ISfw9/W3oSqubCkGKTXsXnDbCqD4J3/G5rl3lYf2Vziysu4Atuq70GV9qJofBfILuxEp/PzSFvBFIe4gb/EYYEDk3io8dmf588MfCvWwYGAyDNz+7gHVeAlUbm/VbGVms3ZZCvTxnnKXeykwE8tkmga9DHExig9AZ3XQrhybnPLglJglzfCz01kwsf28Xyk7pyZFGcW0sOaIi+56xht0ocDqNdE8XLQij8NaoH5y/tkREYGNdnyeyk61IwXZIaR9Z9/KSj+M1iZAnqRTQAJ4ernJDCDYGNAgRYPGqewYaeUoYhiAU1R4/8A==
-X-YMail-OSG: w59OyagVM1m58e_R35lc2n5p47zcl0sKKwrODwoI4NdBlY4p0hLDbDsI.dGDdDH
- fpsTph0VmkHmw5hOu1kHSprcAwZc0PstD.GtdYDKvtdyHJPnsZlywdg87REqflc_7JBTztoJ8VjN
- OSce0DGdZ04f0Xab5vP5FYswpG1xLbWHrLNxU_KWRdnoZEUfU2VYrmp_BHncPrDPIaWFofBgcYU7
- 0gMwbjegROp.Zmg4aW5gJQOzi8wd_el7LgXV75D3A.SMneCgIRNQOdnNj_YS1XlTFyFuJykNaj7u
- 1JT_CsNUbs5P727M515HlPMQUKcjJ59ATRHDlqZDXgTHhJRS1OkQ_ox3rkhjQuEVUOmmZierR6pm
- sF5Uv0kwPvi2tHM91KQQqpcLZy8oTZCOG4__aD_kEnmttB2n._VWxQy5mNShNg5A2adNGHGg3uoD
- zYuQD87fR1reLXLhMaVuuITSgxSIB6CnAcBTv6sTJWWvzFtrALjS1UzP8vE2awwijsFhF4SQwrXa
- nfmFY2viNCuKf6bskzvx5He8KSKJPwRSaA8XXe9fuifKdhts_f7n4.6lBM6XH7LCg6iw009SFivR
- Gzw51U2YBdtvwWWdizuIWa64gZzyUmlI9w7kHmKvz_QAU663gSEggIDw1yLz5xlqHXbe1BdfJN.B
- 37dJ4_BCMKGW47b71r_SCwsV0cKjgQcUevsQfGk7kHV4oF2XpOuj7HIw8kKqRdgOggpEe2QekcEf
- .hptT4vyj.ngker9p7aCljT4K9gqEXL37FRo1S7Vj3_zxLRNIgUPGvgRogYjGnFZEsbexrcjREaS
- 02DY5u5nUelbJkmlZRAwNAifyywG_iBkFsDgv6xNwFdTUJP0I5KXtvxAG8T4m7OVI0DAHNkfRTTv
- uMPQhsCbNFvG_I.fGAnyZ6R1nlV8gsvuohqQrFP79y6vYhs56VqL4C53by.JJB3ee9qF5V5ADrWy
- YzNTRilymlLFAZEwyB99BdeXDSsjizeK5q1jvFV5FteijZwpZcfeqYr5O0CTb0ylYKpwe1OjBuZJ
- aTDcsn.xUw4ULU0X09.TeL397E0SSp5Exz_8jx6II2zdYGAA.IvQcibarzkxSHuq2i4kAWVBmPkM
- l1uxyIUuymdbgU8iAnk.yG_qVF4Q56VtA1x5hplRli6p8Z8MZuaYSCRghhEC3rSog1AarFDp6Nxu
- AwTfEmLHr.YzmbSYfhXOSeBr8inwyTzkLTGbQGVlDmVyUDqkfKS6pV19towPvTAlXOCRAEsdQ9St
- RfscO.dDHOCCSVQr6O_Bp5vZctTWp_p_OZjrbkK1cG4OjXXqU_wHJi20Prd_j4YCH_smptnVovHq
- a5_kq7MF_wVq42S1QzmwMHDjIJNxyNAeh0vue6wh7NMlELqxqQAvyQRo6XZjucWKl1kcoZ3.qBUV
- L2r4f4CAIkAJW3U5yiiu5aavoxwEx_7HTaRz5JEvSAGU2hfb4.uLrccW1ba7df0.pAkNgVxGVyua
- A4fYIcPtIM...w3T6YOFLpSDwxwld0vaLHCu_ocJX_tYTh10.dzYtVPKEhHLldTxFBLTFloKbK.M
- R8OIrtzzIile_sEKSdjOxCEEjTTcMnZpSB0EmIoadVhzm3A0G2lB9h20mCd7EFmSfCsKhU_4NVay
- vUwtHt2GLWGPVwMOfFTUq_rLD_pFogNDqB7pmrT5x1yjspUAcNgL5wuluhx9vw.Vw40YFPaigZq9
- 3kP_XNI..xG5dVz1vyyrJuvUJLzwdAazRRMzB6A5hMNfMiQOJymfzc2ks5108yevLsH5tkEqfw7Q
- I5gPFf3MlpDN0FQ5PUB.0rtRhkQu92NqeJ9KbeC3gDTYAazIEPmkf14UCSv8H1_z3xZzas662Klx
- JP85id2ZGPdylqoPpoGT.iM6XBr3n7EJ9staY3DYzl1QHelt.4uVvKjmx0j.OAN0DhYK4zLLfWgK
- lU16kF0uKzxoyGiZtPtCY7fl8Z9kshj8YlORj0zyrDIWaQKMg8h_IRhtbCB2WnrhAxOmjotHPaJI
- bzdgucHd0EpOFGdjpJ6.R0nIu9MJmCH5807Wi36ZZz61cqiqMBj3v8KqDAL9tQ3ytyb_n1EMbWqV
- .9cM805QYmuWgidzzyCpNey61yUrR7n2adedy4ipr11RLrTBTF2yn4e2ECzw6iypISSaRYO2Jqhm
- QwlqdHJFu1cR3qdqvh4AvT2Y2h84NrSDGlloWcHkNeU.M0hkE7gx5x4XyD2FekbmmE9kMc_6keK4
- .al2e_e.QXzVAvptiCwYtCUhbe.0LlHy.58rS4VF0RwUTnUo5943A6H38cwRqflfOPaYRcCvNGo6
- s_zi_VHzfhSoM2LYmXbvDvMHHzMF6hC1TYy9z.XyFHbJ7O9m0rHE-
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=awuEPJur
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133385; bh=zFsE2OBRDF5jIRbcmqp1WRJG/783QQpzfaQ8RI3g+mw=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=awuEPJurjLgAjNnZu178Lio1rNzpgqa5CrWmBvkjXUSPM/U3p+QfJFlxes9vm7Fg3aHwjjrfseRrAUsiqSwdr29ibVRcXA/E60LECAigl6ZCWNwAaUZMeC0W53cxIY3EyMzS1ebmEaNt3qVLXYT7Zl1wtPN433iFdsF0FJIAn7GJMqtBzDC6yHoa/APtFQ0Dix2W6itNJrwuCwRtoPbAKaLkRz2iYmUNBKfgvYVbHCho6l30Jegfy3G+eh5XochfDEpZyK3mdMyuyyeCmjCVL5HZJMI3+OVs4I5SpPetHSb0J2Je6lIuMph6tdy8qnusETbCxzX1oyG3rcJPaJYnoQ==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133385; bh=xPZEfhPGtSPakXkaoG4c1vehkvRNb8q4Y7CTpMtlSvp=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=c+B0A9Lfk0nW92iimTQTuOQkWo8VW2rCvc8X2xLtJBRIBxl7ufBwqNYKW+oE+tyNjbMb44A1ymAK/TuUXJfnUDffYHjnauyK51M8HbalyL4uAxGbN2IrQNoDSCGetywdC3rBTDSUUt4gWQU4+UhKWJe8Hwz07cUVbv5mbv38EWjk7IssIJAyWC8j6C8esJj9k/xzKM73RtfVlnbOrKxvc4eBmi2DmSfBuwvn3Hnluiwslp95g+tawIYHixW5V8JcyYPQOmem6XzTZkcb7Dxd1rZlRSVHwZZtMRumVT15GWk+OYo9fI7NcL3CV0kPw1dfO9ul173huWhCvHHzgXKyZw==
+X-YMail-OSG: Q1do08kVM1k3tN2543KBi3ZdL8py2xKRiHnjCchWlud.X.rbB2eb0YwH4mV877u
+ T_SRybJ5ewhmw0ln34Hh9D.ADykocUH_LQndB7WMtYIMp.N9ZfnD0uhLimyaowUqSBCmv_y0FMhn
+ Pv1265KbkblWrYNRm34HT1Vl2dME32pyUB5wxyDuH6dBhNfLs73rc2VuzTfxHZ8xTUEk6FDVT7Xm
+ pJ6WlEHYXglTXdb6WPXUMlZQQZP5vJn8nak897GKpo6HvtSjtWIJQ4Wzk_SilnsSCv71GyP3f6WH
+ _FZbIMxaR0HFZV_W0M8KVCXgEUz5vzPq25bStmVueUjrti1tmj88_BvjEP8tz8EuzaaiIbwunsyb
+ 82VySudBNXyyBWJrM3pze3SkYPYBMTGtUgmATo8IydiqlsTa3SdqjAn6WyxtWM4AX_YIQbxcv9Ls
+ CIUG9kArzYJ8rk2.KdIZz5R4qBAIfsCP9DvtJvOhezuePnoYFnafq97bIIf9l1kU_onzUkxufFva
+ MdgG4hPkgvHZnIGPjfljBTFLC_PVVYtBsLttN7D6g4Mv3oiTbTPZvOC71BhNwxqqsXjcO615pl5t
+ yASFQNyo6uubFmsQUM6kpAJVKi7kd3VtqJSAQPC3CbE7Z9w.W4YUnsd2kPnhDHDPsC8X0nqiIjMR
+ T823XC5OBv9XG8sW_YYWMcUB1bGP1jikOoO0XlJw1Y23juY6_u_dPBbcG2owqss_ooNcMGMtIbg2
+ EH9KjfMgZQWkeuYJnnmo15DBBe5Hc8zCUav7WKrha2c1jlxppYVJT_j6K7Y3Ec_0Y0k.1AFVO0My
+ dEHiRrhIGMFUiyyvBjpISm.UFda4.w7TOsdSim3b_OgarfPTKdWh5s6VBQxNy0BtnRTgjERjZ26m
+ RmRmrSFrc2yEA8CTDDcPrbXlhyr9SSPuC4PAPeP6eyEsNyqzAyzwgo9KxLEfsiogBnZUcMU5EzUw
+ z3gV2D9AZGxkKBhrjOTP2.kyHfxch.JlnT.P0QPH7alTb4OZCkv.mR6u9E85Bl19OsurkuzOgDb5
+ UBMg41CJrCkDpy4ekFwhWicuoCxPe1b73dwWbqBwtH_rLx9DkIygNydfXIJqMXo2aYDaNMwX0AMD
+ 0jGfIJzfmaCxdqbUZUNGYYfGMxpk4tawuf9PfLVNYuA2UV4Ghqj2E53ws5129LTV8y1Ach4ChPTb
+ bttoIzqk8D00VfOiFutm5178CLRcvnwUVo6nXa13UnpFC2OtT1psRstNjXlJaY37fPgApJqKqEFi
+ BPrP32giHXwbWzT0UOOwcsVJlc8gDxrXLu1gJr8DNnroifIuuPlsuoV0jxNd98omxhKhROluf4sM
+ 4EYa4I1CVYez1UqVWFduqeGU3YM2LwBJ_q2BRqcJdCu15DTvvOWwrNLY3hj4uga1XdZfI4iIKKOh
+ _UmHmTWap1OdZzbdCT32ais.UfIIrhI06NluBjQrkIFJM2RTQOigKtTnVelynevlDKVa0sKct.o2
+ X4S0rw6MXCiiamElcm9G91HncCRkX9TxdvoI8jbc8T36hwkQ2bpfHPNmczUTuZQrp9vqPWykp2CI
+ e_731x2.d0Y8_eYiL5ppWUn0Pi2hfS4S4WQBjG6QuOlgi6HGYjRT1Fn1Lpi7jOhvFybuEBx6T3Su
+ vjeQ6bn83Ooa3NvIy35sxfVSVp0XQWaafHXsOEtmxeyUiMxtGhUgw8X60GYrEPimt9GHaDga2AJz
+ FXVOGF1pRzWI4SaweXDqyB2Yv0f_hciUVmOHCyu9NBr0wp90iVI2sx_jHHoRQml2YOjXfp.byHYM
+ _EbXfabrXu0H2CEUY4XN0e4qw9xN1.v5OE.KSLus.bbe93mpHr4ZjgwW9l8dqXJmdf826I4k6ZxY
+ OhAxhds6TP5RU9av1hnxcA_8d7O_yPbwfH6NUsRra_tUZfQiC40iD2FPUDqLHnA0M2qn7hD9kCXs
+ wBXvqGSX17UmT3VPNBvn_dIKnUen1MmEPW1ptByNgIKUcmVWdjd9Mfe.MwqWfvvUCsR77gyg69pq
+ zRJRlCe2kWPC4LsSzNV1Kc6LX6Qwlte0Wui5vy_KJ.DQl67GnAa0jIJK1NvDUBy8gFCK6GYdeQ6F
+ X81N7feMdPmYVsZnjTtzk9nOKpM74AgjCX3Q1EwoBsfDvHF_qwEleUuDnhqcWYDhU5IPGEz8bj6L
+ 4ZO60iVofZ_qcgJhd7QV7jkgggSJJDbE82CCCTDfUieMOxxk81xRZxdT3ZBbiULZbeYq8a0f_mdV
+ 4aZuEFmN1iqpZOF6tn.U0GHH2rCdCjm6XmeWgAXcTtR8kLLyHIXhg8_jup1bSkFepbqQyOqGyF4D
+ 2gi8DP6gEK5W0rrlSde2j0.rnAq9CnIFODlrGecAhDjmXI2nQDFbO
 X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: aa6f1d8b-29c0-4e45-8e1d-517b7eb58d3a
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Fri, 20 Nov 2026 00:08:50 +0000
-Received: by hermes--production-ir2-7c4859dc89-hgxcv (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 3f78fcc602d196eece77e35b70852337;
-          Fri, 20 Nov 2026 00:08:47 +0000 (UTC)
-Message-ID: <ca39376d-37b6-43e0-9dd5-7d431d335e63@yahoo.com>
-Date: Fri, 20 Nov 2026 01:08:44 +0100
+X-Sonic-ID: 2949d025-65bc-4da1-af09-66d802d6495b
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Fri, 20 Nov 2026 00:09:45 +0000
+Received: by hermes--production-ir2-7c4859dc89-lmzdv (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 99fbd7daef1faee536e088399b678797;
+          Fri, 20 Nov 2026 00:09:40 +0000 (UTC)
+Message-ID: <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
+Date: Fri, 20 Nov 2026 01:09:37 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,8 +85,8 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v12 12/13] net: dsa: realtek: rtl8365mb: make L2/LUT
- access work on family D
+Subject: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add support
+ for RTL8367S-VB
 From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
 To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
@@ -101,538 +101,174 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-The L2 lookup table on family D switches (e.g. RTL8367S-VB) differs
-from family C in ways that make the current FDB/MDB code misbehave:
+Add the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip table.
+It is the first chip of family D, whose handling was added in the
+preceding patches, so this is the patch that makes it reachable.
 
- - An L2 entry is 5 words instead of 6, with a different field layout
-   in words 3 and 4 (port, age, static and multicast member bits).
- - There is no EFID and no per-bridge FDB isolation. The register at
-   0x0A32, used as the per-port EFID register on family C, is the LUT
-   aging timer on family D, so writing an EFID there corrupts it.
- - In the table access interface, the SPA field is 3 bits wide and the
-   address register is 12 bits wide, with no address extension bit.
- - Only ports 0..7 are present in the LUT and there is no
-   FLUSH_PORT_EXT register.
- - A VLAN-unaware bridge reaches the driver with VID 0, where the chip
-   learns in SVL (IVL=0, FID=0). An entry programmed by DSA with IVL set
-   gets a different key than the learned one for the same MAC, so both
-   coexist and the learned one keeps winning.
+The SGMII/HSGMII SerDes of this chip sits on port 6 and the
+MII/TMII/RMII/RGMII interface on port 7, as on family C, but the external
+interface indices are one lower (EXT0 and EXT1 instead of EXT1 and EXT2).
+The chip reuses the existing initialization jam table, taken as is from
+the RTL8367C code; it has not been compared with the vendor RTL8367D
+initialization. It was used on the tested hardware (see below).
 
-Teach the table and L2 code about these differences. The L2 entry
-layout is selected through struct rtl8365mb_family_info, the other
-differences with rtl8365mb_is_d(). Family C behavior is unchanged.
+The chip has 8 ports (0-4, 6 and 7), which is described by port_mask in
+its chip info, as for the other chips. rtl8365mb_family_d selects the
+family D implementations added in the preceding patches: the force-mode
+configuration, the VLAN 4k accessors, the PVID handling and the L2 entry
+(de)serializers.
 
-Specifically:
+The L2 learning limit is the same as on family C (2112 entries), as
+given by the Realtek rtl8367 common API (rtl8367_common V1.4.2), so
+RTL8365MB_LEARN_LIMIT_MAX needs no per-family handling; only its
+comment is updated.
 
- - rtl8365mb_table: use the family D port mask and address width, and
-   read the hit address from status bits [11:0].
- - rtl8365mb_l2: add family D unicast/multicast entry (de)serializers.
-   The IVL bit is set only for a non-zero VID, so VID 0 produces the SVL
-   key (IVL=0, FID=0) and static unicast and multicast entries match the
-   learned ones in a VLAN-unaware bridge. IVL_EN of the VLANs follows
-   the VLAN filtering state (see the VLAN 4k patch), so the key matches
-   the one the chip learns with in VLAN-unaware and VLAN-aware bridges.
-   Entries read back with IVL=0 are reported with VID 0. Use age 6 for
-   static unicast entries as the vendor code does.
-   Look an entry up before deleting it, so that a missing entry is not
-   allocated by the delete; as the key has no EFID, an entry found on
-   another port or one that is not static is left alone.
- - rtl8365mb_main: make port_set_efid() a no-op on family D, add a LUT
-   init step that clears IPMC_HASH and BCAM_DISABLE and writes 3000 to
-   the aging timer register, as dal_rtl8367d_l2_init() does in the
-   vendor RTL8367D API (the unit is not documented), and do not
-   advertise fdb_isolation. Without EFID the bridges cannot be told apart
-   in the LUT, so set max_num_bridges to 1. DSA allocates bridge numbers
-   system-wide, so this does not stop a bridge that already has a number
-   from another switch from being offloaded here as well. Bridges that
-   are offloaded together share the LUT and are separated by the port
-   isolation masks only.
+Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port over HSGMII
+(2500base-x) to an IPQ5018) with bridge VLAN filtering and per-port
+PVIDs, and on a TP-Link EX511 v2 (RTL8367S-VB, CPU port over 1G SGMII
+to an IPQ5018). RGMII mode has not been tested. See the cover letter for
+details.
 
-Without EFID, FID 0 is shared by every port that is not in a VLAN-aware
-bridge: standalone ports, ports of bridges left to software and the
-offloaded VLAN-unaware bridge. There is no isolation between them in the
-LUT, only the port isolation masks. DSA does not program FDB/MDB
-entries of standalone ports here, as fdb_isolation is not set, so those
-ports get no host address filtering and their traffic goes to the CPU.
-A MAC learned in FID 0 on a bridge port may therefore also be hit by
-traffic from a standalone port, or from a software-bridged one, until
-the entry ages out or is replaced. Static multicast entries written for
-a VLAN-unaware bridge use the same key and do not age, so the same may
-apply to them. This was observed by Gustavo Foletto Mora: with the hosts
-on standalone ports of the same switch, unicast to a host was dropped once
-its MAC had been learned on the VLAN-unaware bridge side. With learning off
-on the bridge ports it was forwarded, and with a VLAN-aware bridge it did
-not happen.
-
-A host on an offloaded port can use this to keep the MAC of a standalone
-port in FID 0 on its own port, so that traffic arriving on the
-standalone port for that MAC is dropped until the entry ages out. This
-needs a host on the local L2 segment and is bounded by the aging time.
-Avoiding it needs a per-bridge FID. VLAN 4K entries carry a FID, but
-they only classify bridges whose ports have a PVID; a bridge without
-VLANs is classified into FID 0, so that does not help the VLAN-unaware
-case. It is a known limitation of the chip without EFID.
-
-Register layouts follow the vendor RTL8367D API; the code itself is an
-independent implementation.
-
-Tested by Gustavo Foletto Mora on a TP-Link EX511 v2 (RTL8367S-VB, CPU
-port 6 over 1G SGMII to an IPQ5018). With a VLAN-aware bridge: per-VID
-FDB readback, static entries replacing learned ones and being deleted
-again on every port and VID, the same MAC as a static entry on two
-VIDs, MDB entries, VLAN add/delete churn, and moving a port to a second
-bridge (handled in software). With a VLAN-unaware bridge: a static entry
-with VID 0 replaces the learned one and traffic follows it, a static
-entry pointing at the ingress port drops the frames, the MAC relearns on
-the original port after the delete; traffic to the bridge MAC no longer
-floods to the WAN port; MDB entries limit the flood to the group
-members and the flood returns after the delete. Unicast and multicast
-forwarding were also checked with loopback cables between user ports
-(known and unknown unicast, static entries on the wrong port, MDB, 20k
-full-size pings without loss or port errors). MACs of foreign ports
-(a veth standing in for a Wi-Fi station) become entries on the CPU port
-through assisted learning. Real Wi-Fi stations, RGMII and 2500base-x
-were not covered by this test. Leaving a dynamic or foreign-port entry
-alone in l2_del_uc() was not exercised.
-
-Nothing points to them until the family D info is added together with
-the chip table entry in the last patch. Until then they are not static
-and are declared in rtl8365mb_l2.h, so that the build does not warn
-about unused functions.
-
-Reported-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-6708118180
 Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Tested-by: Stanislaw Pal <kuncy7@gmail.com>
 Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
 Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/net/dsa/realtek/realtek.h         |   4 +-
- drivers/net/dsa/realtek/rtl8365mb_l2.c    | 126 +++++++++++++++++++++-
- drivers/net/dsa/realtek/rtl8365mb_l2.h    |   6 ++
- drivers/net/dsa/realtek/rtl8365mb_main.c  |  58 +++++++++-
- drivers/net/dsa/realtek/rtl8365mb_table.c |  44 ++++++--
- drivers/net/dsa/realtek/rtl83xx.c         |   5 +-
- 6 files changed, 226 insertions(+), 17 deletions(-)
+ drivers/net/dsa/realtek/Kconfig          |  3 +-
+ drivers/net/dsa/realtek/rtl8365mb.h      |  4 --
+ drivers/net/dsa/realtek/rtl8365mb_main.c | 55 +++++++++++++++++++++---
+ 3 files changed, 51 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/dsa/realtek/realtek.h b/drivers/net/dsa/realtek/realtek.h
-index c166719..920db50 100644
---- a/drivers/net/dsa/realtek/realtek.h
-+++ b/drivers/net/dsa/realtek/realtek.h
-@@ -78,7 +78,9 @@ struct realtek_priv {
- 	 * create/update it. l2_(add|del)_uc uses a single table op and,
- 	 * internally, it might not need this lock. However, altering FDB
- 	 * may still collide, as well as l2_flush, with fdb_dump iterating
--	 * over FDB.
-+	 * over FDB. On the RTL8367S-VB (family D), l2_del_uc also looks the
-+	 * entry up before writing it, as two separate table queries, so it
-+	 * does depend on this lock.
- 	 */
- 	struct mutex		l2_lock;
- 	struct mii_bus		*user_mii_bus;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.c b/drivers/net/dsa/realtek/rtl8365mb_l2.c
-index cd5b333..e98ba5c 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_l2.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_l2.c
-@@ -45,6 +45,21 @@
- #define RTL8365MB_L2_MC_D5_MBR_HI2_MSK		GENMASK(7, 7)
- #define   RTL8365MB_L2_MC_MBR_HI2_MSK		GENMASK(10, 10)
+diff --git a/drivers/net/dsa/realtek/Kconfig b/drivers/net/dsa/realtek/Kconfig
+index f1530ba..e366632 100644
+--- a/drivers/net/dsa/realtek/Kconfig
++++ b/drivers/net/dsa/realtek/Kconfig
+@@ -35,7 +35,8 @@ config NET_DSA_REALTEK_RTL8365MB
+ 	depends on NET_DSA_REALTEK_SMI || NET_DSA_REALTEK_MDIO
+ 	select NET_DSA_TAG_RTL8_4
+ 	help
+-	  Select to enable support for Realtek RTL8365MB-VC and RTL8367S.
++	  Select to enable support for Realtek RTL8365MB-VC, RTL8367S and
++	  RTL8367S-VB.
  
-+/* Family D unicast (auto-learn / static) entry */
-+#define RTL8365MB_D_L2_UC_D3_VID_MSK		GENMASK(11, 0)
-+#define RTL8365MB_D_L2_UC_D3_IVL_MSK		BIT(13)
-+#define RTL8365MB_D_L2_UC_D3_PORT_LO_MSK	GENMASK(15, 14)
-+#define RTL8365MB_D_L2_UC_D4_PORT_HI_MSK	BIT(0)
-+#define RTL8365MB_D_L2_UC_D4_AGE_MSK		GENMASK(3, 1)
-+#define RTL8365MB_D_L2_UC_D4_STATIC_MSK		BIT(6)
-+
-+/* Family D multicast entry */
-+#define RTL8365MB_D_L2_MC_D3_VID_MSK		GENMASK(11, 0)
-+#define RTL8365MB_D_L2_MC_D3_IVL_MSK		BIT(13)
-+#define RTL8365MB_D_L2_MC_D3_MBR_LO_MSK		GENMASK(15, 14)
-+#define RTL8365MB_D_L2_MC_D4_MBR_HI_MSK		GENMASK(5, 0)
-+#define RTL8365MB_D_L2_MC_D4_STATIC_MSK		BIT(6)
-+
- /* Port flush command registers - writing a 1 to the port's MASK bit will
-  * initiate the flush procedure. Completion is signalled when the corresponding
-  * BUSY bit is 0.
-@@ -240,6 +255,78 @@ void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc,
- 	data[5] |= FIELD_PREP(RTL8365MB_L2_MC_D5_MBR_HI2_MSK, val);
- }
+ config NET_DSA_REALTEK_RTL8366RB
+ 	tristate "Realtek RTL8366RB switch driver"
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+index 9a69e85..c280e62 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb.h
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -43,10 +43,6 @@ struct rtl8365mb_family_info {
+ const struct rtl8365mb_family_info *
+ rtl8365mb_get_family_info(struct realtek_priv *priv);
  
-+void rtl8365mb_d_l2_data_to_uc(const u16 *data,
-+			       struct rtl8365mb_l2_uc *uc)
-+{
-+	u16 id = FIELD_GET(RTL8365MB_D_L2_UC_D3_VID_MSK, data[3]);
-+
-+	rtl8365mb_l2_data_to_mac(data, uc->key.mac_addr);
-+	uc->key.ivl = FIELD_GET(RTL8365MB_D_L2_UC_D3_IVL_MSK, data[3]);
-+	/* D has one shared VID/FID field, selected by IVL */
-+	uc->key.vid = uc->key.ivl ? id : 0;
-+	uc->key.fid = uc->key.ivl ? 0 : id;
-+	uc->key.efid = 0;
-+	uc->port = FIELD_GET(RTL8365MB_D_L2_UC_D3_PORT_LO_MSK, data[3]) |
-+		   (FIELD_GET(RTL8365MB_D_L2_UC_D4_PORT_HI_MSK, data[4]) << 2);
-+	uc->age = FIELD_GET(RTL8365MB_D_L2_UC_D4_AGE_MSK, data[4]);
-+	uc->is_static = FIELD_GET(RTL8365MB_D_L2_UC_D4_STATIC_MSK, data[4]);
-+}
-+
-+void rtl8365mb_d_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc,
-+			       u16 *data)
-+{
-+	/* A VLAN-unaware bridge reaches us with VID 0. The chip learns such
-+	 * traffic in SVL (IVL=0, FID=0), so use the same key here, otherwise
-+	 * the static entry never matches the learned one. Only a real VID
-+	 * selects IVL. IVL_EN of the VLANs follows the VLAN filtering state
-+	 * (see rtl8365mb_d_vlan_4k_refresh_ivl()), so this matches the key
-+	 * the chip learns with.
-+	 */
-+	bool ivl = uc->key.ivl && uc->key.vid;
-+	u16 id = ivl ? uc->key.vid : uc->key.fid;
-+
-+	memset(data, 0, RTL8365MB_D_L2_ENTRY_SIZE * 2);
-+	rtl8365mb_l2_mac_to_data(uc->key.mac_addr, data);
-+	data[3] = FIELD_PREP(RTL8365MB_D_L2_UC_D3_VID_MSK, id) |
-+		  FIELD_PREP(RTL8365MB_D_L2_UC_D3_IVL_MSK, ivl) |
-+		  FIELD_PREP(RTL8365MB_D_L2_UC_D3_PORT_LO_MSK, uc->port & 0x3);
-+	data[4] = FIELD_PREP(RTL8365MB_D_L2_UC_D4_PORT_HI_MSK,
-+			     (uc->port >> 2) & 0x1) |
-+		  FIELD_PREP(RTL8365MB_D_L2_UC_D4_AGE_MSK, uc->age) |
-+		  FIELD_PREP(RTL8365MB_D_L2_UC_D4_STATIC_MSK, uc->is_static);
-+}
-+
-+void rtl8365mb_d_l2_data_to_mc(const u16 *data,
-+			       struct rtl8365mb_l2_mc *mc)
-+{
-+	rtl8365mb_l2_data_to_mac(data, mc->key.mac_addr);
-+	mc->key.vid = FIELD_GET(RTL8365MB_D_L2_MC_D3_VID_MSK, data[3]);
-+	mc->key.ivl = FIELD_GET(RTL8365MB_D_L2_MC_D3_IVL_MSK, data[3]);
-+	mc->member = FIELD_GET(RTL8365MB_D_L2_MC_D3_MBR_LO_MSK, data[3]) |
-+		     (FIELD_GET(RTL8365MB_D_L2_MC_D4_MBR_HI_MSK, data[4]) << 2);
-+	mc->is_static = FIELD_GET(RTL8365MB_D_L2_MC_D4_STATIC_MSK, data[4]);
-+	mc->igmpidx = 0;
-+	mc->priority = 0;
-+	mc->fwd_pri = 0;
-+	mc->igmp_asic = 0;
-+}
-+
-+void rtl8365mb_d_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc,
-+			       u16 *data)
-+{
-+	/* Same as for unicast: VID 0 means a VLAN-unaware bridge, use SVL. */
-+	bool ivl = mc->key.ivl && mc->key.vid;
-+
-+	memset(data, 0, RTL8365MB_D_L2_ENTRY_SIZE * 2);
-+	rtl8365mb_l2_mac_to_data(mc->key.mac_addr, data);
-+	data[3] = FIELD_PREP(RTL8365MB_D_L2_MC_D3_VID_MSK, mc->key.vid) |
-+		  FIELD_PREP(RTL8365MB_D_L2_MC_D3_IVL_MSK, ivl) |
-+		  FIELD_PREP(RTL8365MB_D_L2_MC_D3_MBR_LO_MSK, mc->member & 0x3);
-+	data[4] = FIELD_PREP(RTL8365MB_D_L2_MC_D4_MBR_HI_MSK,
-+			     (mc->member >> 2) & 0x3f) |
-+		  FIELD_PREP(RTL8365MB_D_L2_MC_D4_STATIC_MSK, mc->is_static);
-+}
-+
- /*
-  * rtl8365mb_l2_get_next_uc() - get the next Unicast L2 entry
-  * @priv: realtek_priv pointer
-@@ -310,8 +397,11 @@ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
- 	 * OS's back. As a trade-off, these will show up as permanent to users.
- 	 */
- 	uc.is_static = true;
--	/* age greater than 0 adds/updates entries */
--	uc.age = 1;
-+	/* age greater than 0 adds/updates entries. D has no EFID, so efid
-+	 * is not serialized (bridges are isolated by the port isolation
-+	 * masks only). Vendor code writes age 6 for D.
-+	 */
-+	uc.age = rtl8365mb_is_d(priv) ? 6 : 1;
- 	fi = rtl8365mb_get_family_info(priv);
- 	fi->l2_uc_to_data(&uc, data);
- 
-@@ -349,6 +439,38 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
- 	fi = rtl8365mb_get_family_info(priv);
- 	fi->l2_uc_to_data(&uc, data);
- 
-+	if (rtl8365mb_is_d(priv)) {
-+		struct rtl8365mb_l2_uc found = { 0 };
-+
-+		/* Do not blind-write: look the entry up first (as the vendor
-+		 * code does) so a missing entry is not (re)allocated. The
-+		 * lookup and the write are separate table queries, so this
-+		 * is not atomic; it relies on FDB operations being
-+		 * serialized by the caller.
-+		 */
-+		ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
-+					    RTL8365MB_TABLE_OP_READ, &addr,
-+					    RTL8365MB_TABLE_L2_METHOD_MAC, 0,
-+					    data, fi->l2_entry_size);
-+		if (ret == -ENOENT)
-+			return 0;
-+		if (ret)
-+			return ret;
-+
-+		/* The key has no EFID on family D, so the entry found may
-+		 * belong to another port or bridge: leave it alone. DSA only
-+		 * programs static entries, so leave a dynamic one alone too,
-+		 * as the hardware may have relearned or aged it since the
-+		 * lookup.
-+		 */
-+		fi->l2_data_to_uc(data, &found);
-+		if (found.port != port || !found.is_static)
-+			return 0;
-+
-+		/* rebuild the write payload: the read overwrote data[] */
-+		fi->l2_uc_to_data(&uc, data);
-+	}
-+
- 	/* it looks like the switch will always add/update the entry,
- 	 * even when age is 0 or uc.key did not match an existing entry,
- 	 * just to immediately drop it because age is zero. You can still
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.h b/drivers/net/dsa/realtek/rtl8365mb_l2.h
-index a9f9ae4..5bb4e32 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_l2.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb_l2.h
-@@ -13,6 +13,7 @@
- #include "realtek.h"
- 
- #define RTL8365MB_C_L2_ENTRY_SIZE		6
-+#define RTL8365MB_D_L2_ENTRY_SIZE		5
- /* Highest L2 entry size of any supported chip, used for sizing */
- #define RTL8365MB_L2_ENTRY_SIZE			RTL8365MB_C_L2_ENTRY_SIZE
- 
-@@ -24,6 +25,11 @@ void rtl8365mb_c_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data);
- void rtl8365mb_c_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc);
- void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc, u16 *data);
- 
-+void rtl8365mb_d_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc);
-+void rtl8365mb_d_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data);
-+void rtl8365mb_d_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc);
-+void rtl8365mb_d_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc, u16 *data);
-+
- int rtl8365mb_l2_get_next_uc(struct realtek_priv *priv, u16 *addr, int port,
- 			     struct realtek_fdb_entry *entry);
- int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+-int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
+-				     bool link, int speed, int duplex,
+-				     bool tx_pause, bool rx_pause);
+-
+ static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
+ {
+ 	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
 diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index b83e393..dc436ee 100644
+index dc436ee..1386e1f 100644
 --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
 +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -437,6 +437,18 @@
- #define RTL8365MB_LUT_PORT_LEARN_LIMIT_REG(_physport) \
- 		(RTL8365MB_LUT_PORT_LEARN_LIMIT_BASE + (_physport))
- 
-+/* Family D LUT configuration */
-+#define RTL8365MB_D_LUT_CFG_REG			0x0A30
-+#define   RTL8365MB_D_LUT_CFG_BCAM_DISABLE_MASK	BIT(6)
-+#define   RTL8365MB_D_LUT_CFG_IPMC_HASH_MASK	BIT(4)
-+/* On family C this address is the per-port EFID register! */
-+#define RTL8365MB_D_LUT_CFG2_REG		0x0A32
-+/* Written as a whole register, as dal_rtl8367d_l2_init() does in the
-+ * vendor API: the field layout and the unit of this value are not
-+ * documented.
-+ */
-+#define   RTL8365MB_D_LUT_AGING_DEFAULT		3000
-+
- /* Port isolation (forwarding mask) registers */
- #define RTL8365MB_PORT_ISOLATION_REG_BASE		0x08A2
- #define RTL8365MB_PORT_ISOLATION_REG(_physport) \
-@@ -2695,6 +2707,10 @@ static int rtl8365mb_port_pre_bridge_flags(struct dsa_switch *ds, int port,
- static int rtl8365mb_port_set_efid(struct realtek_priv *priv, int port,
- 				   u32 efid)
- {
-+	/* Family D has no EFID; see RTL8365MB_D_LUT_CFG2_REG. */
-+	if (rtl8365mb_is_d(priv))
-+		return 0;
-+
- 	return regmap_update_bits(priv->map, RTL8365MB_PORT_EFID_REG(port),
- 				  RTL8365MB_PORT_EFID_MASK(port),
- 				  efid << RTL8365MB_PORT_EFID_OFFSET(port));
-@@ -3431,6 +3447,23 @@ static int rtl8365mb_change_tag_protocol(struct dsa_switch *ds,
- 	return rtl8365mb_cpu_config(priv);
- }
- 
-+static int rtl8365mb_d_lut_init(struct realtek_priv *priv)
-+{
-+	int ret;
-+
-+	/* After the jam table: lookup multicast by MAC (not DIP) and keep
-+	 * the CAM enabled.
-+	 */
-+	ret = regmap_update_bits(priv->map, RTL8365MB_D_LUT_CFG_REG,
-+				 RTL8365MB_D_LUT_CFG_IPMC_HASH_MASK |
-+				 RTL8365MB_D_LUT_CFG_BCAM_DISABLE_MASK, 0);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_write(priv->map, RTL8365MB_D_LUT_CFG2_REG,
-+			    RTL8365MB_D_LUT_AGING_DEFAULT);
-+}
-+
- static int rtl8365mb_switch_init(struct realtek_priv *priv)
- {
- 	struct rtl8365mb *mb = priv->chip_data;
-@@ -3520,6 +3553,15 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
- 		goto out_error;
- 	}
- 
-+	if (rtl8365mb_is_d(priv)) {
-+		ret = rtl8365mb_d_lut_init(priv);
-+		if (ret) {
-+			dev_err(priv->dev, "failed to init LUT: %pe\n",
-+				ERR_PTR(ret));
-+			goto out_error;
-+		}
-+	}
-+
- 	if (mb->sds_supported) {
- 		ret = rtl8365mb_sds_raise_rate_limits(priv);
- 		if (ret) {
-@@ -3672,9 +3714,19 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
- 		goto out_teardown_irq;
- 
- 	ds->assisted_learning_on_cpu_port = true;
--	ds->fdb_isolation = true;
--	/* The EFID is 3 bits, but EFID 0 is reserved for standalone ports */
--	ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
-+	if (!rtl8365mb_is_d(priv)) {
-+		ds->fdb_isolation = true;
-+		/* The EFID is 3 bits, but EFID 0 is reserved for standalone */
-+		ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
-+	} else {
-+		/* No EFID, so bridges cannot be told apart in the LUT: allow
-+		 * at most one offloaded bridge. Bridge numbers are allocated
-+		 * system-wide by DSA, so this does not stop a bridge that
-+		 * already has a number from another switch from being
-+		 * offloaded here as well.
-+		 */
-+		ds->max_num_bridges = 1;
-+	}
- 
- 	ds->configure_vlan_while_not_filtering = true;
- 
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_table.c b/drivers/net/dsa/realtek/rtl8365mb_table.c
-index f3c8749..6b1323f 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_table.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_table.c
-@@ -5,6 +5,7 @@
+@@ -89,6 +89,14 @@
+  * things will work out-of-the-box for other chips, and a careful review of the
+  * vendor driver may be needed to expand support. The RTL8365MB-VC seems to be
+  * one of the simpler chips.
++ *
++ * The RTL8367S-VB (chip ID 0x6642) is not part of the family listed above. It
++ * belongs to a newer generation, which this driver calls family D. Its
++ * registers differ in the VLAN table, the external interface speed and RGMII
++ * configuration, the SerDes, the L2 lookup table (FDB/MDB entry layout, no
++ * EFID, LUT configuration registers) and the table access control register,
++ * so the code paths specific to it are selected with rtl8365mb_is_d() or
++ * through struct rtl8365mb_family_info.
   */
  
- #include "rtl8365mb_table.h"
-+#include "rtl8365mb.h"
- #include <linux/regmap.h>
+ #include <linux/bitfield.h>
+@@ -119,9 +127,9 @@
+ #define RTL8365MB_NUM_PHYREGS		32
+ #define RTL8365MB_PHYREGMAX		(RTL8365MB_NUM_PHYREGS - 1)
+ #define RTL8365MB_MAX_NUM_PORTS		11
+-/* Valid for the whole family except RTL8370B, which has 4160 entries.
+- * RTL8370B is mentioned in vendor code but it might not even belong
+- * to the same RTL8367C family.
++/* Valid for the whole RTL8367C family (and for family D, RTL8367S-VB)
++ * except RTL8370B, which has 4160 entries. RTL8370B is mentioned in
++ * vendor code but it might not even belong to the same RTL8367C family.
+  */
+ #define RTL8365MB_LEARN_LIMIT_MAX	2112
+ #define RTL8365MB_MAX_NUM_EXTINTS	3
+@@ -799,6 +807,10 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
+ 					    bool link, int speed, int duplex,
+ 					    bool tx_pause, bool rx_pause);
  
- /* Table access control register */
-@@ -16,10 +17,13 @@
- /* Should be one of rtl8365mb_table_l2_method enum members */
- #define   RTL8365MB_TABLE_CTRL_METHOD_MASK	GENMASK(6, 4)
- #define   RTL8365MB_TABLE_CTRL_PORT_MASK	GENMASK(11, 8)
-+/* Family D: SPA is 3 bits */
-+#define   RTL8365MB_D_TABLE_CTRL_PORT_MASK	GENMASK(10, 8)
++static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
++					    bool link, int speed, int duplex,
++					    bool tx_pause, bool rx_pause);
++
+ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.family = RTL8365MB_FAMILY_C,
+ 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
+@@ -817,6 +829,24 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
+ };
  
- /* Table access address register */
- #define RTL8365MB_TABLE_ACCESS_ADDR_REG		0x0501
- #define   RTL8365MB_TABLE_ADDR_MASK		GENMASK(12, 0)
-+#define   RTL8365MB_D_TABLE_ADDR_MASK		GENMASK(11, 0)
++static const struct rtl8365mb_family_info rtl8365mb_family_d = {
++	.family = RTL8365MB_FAMILY_D,
++	.jam_table = rtl8365mb_init_jam_8365mb_vc,
++	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
++	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
++	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
++	.vlan_port_get_pvid = rtl8365mb_d_vlan_port_get_pvid,
++	.vlan_port_reset_pvid = rtl8365mb_d_vlan_port_reset_pvid,
++	.vlan_pvid_port_set = rtl8365mb_d_vlan_pvid_port_set,
++	.vlan_pvid_port_clear = rtl8365mb_d_vlan_pvid_port_clear,
++	.l2_entry_size = RTL8365MB_D_L2_ENTRY_SIZE,
++	.l2_data_to_uc = rtl8365mb_d_l2_data_to_uc,
++	.l2_uc_to_data = rtl8365mb_d_l2_uc_to_data,
++	.l2_data_to_mc = rtl8365mb_d_l2_data_to_mc,
++	.l2_mc_to_data = rtl8365mb_d_l2_mc_to_data,
++};
++
+ /**
+  * struct rtl8365mb_chip_info - static chip-specific info
+  * @name: human-readable chip name
+@@ -907,6 +937,19 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		},
+ 		.num_tx_queues = 8,
+ 	},
++	{
++		.name = "RTL8367S-VB",
++		.chip_id = 0x6642,
++		.chip_ver = 0x0010,
++		.family_info = &rtl8365mb_family_d,
++		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
++		.extints = {
++			{ 6, 0, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
++			{ 7, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
++				PHY_INTF(RMII) | PHY_INTF(RGMII) },
++		},
++		.num_tx_queues = 8,
++	},
+ };
  
- /* Table status register */
- #define RTL8365MB_TABLE_STATUS_REG			0x0502
-@@ -29,6 +33,8 @@
- #define   RTL8365MB_TABLE_STATUS_HIT_STATUS_MASK	GENMASK(12, 12)
- #define   RTL8365MB_TABLE_STATUS_BUSY_FLAG_MASK		GENMASK(13, 13)
- #define   RTL8365MB_TABLE_STATUS_ADDRESS_EXT_MASK	GENMASK(14, 14)
-+/* Family D: the address is bits [11:0], there is no EXT bit */
-+#define   RTL8365MB_D_TABLE_STATUS_ADDRESS_MASK		GENMASK(11, 0)
+ enum rtl8365mb_stp_state {
+@@ -1959,9 +2002,9 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
+ 	return 0;
+ }
  
- /* Table read/write registers */
- #define RTL8365MB_TABLE_WRITE_BASE			0x0510
-@@ -59,6 +65,7 @@ int rtl8365mb_table_query(struct realtek_priv *priv,
+-int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
+-				     bool link, int speed, int duplex,
+-				     bool tx_pause, bool rx_pause)
++static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
++					    bool link, int speed, int duplex,
++					    bool tx_pause, bool rx_pause)
  {
- 	bool addr_as_input = true;
- 	bool write_data = false;
-+	bool is_d = rtl8365mb_is_d(priv);
- 	int ret = 0;
- 	u32 cmd;
- 	u32 val;
-@@ -91,7 +98,13 @@ int rtl8365mb_table_query(struct realtek_priv *priv,
- 		case RTL8365MB_TABLE_L2_METHOD_ADDR_NEXT_MC:
- 			break;
- 		case RTL8365MB_TABLE_L2_METHOD_ADDR_NEXT_UC_PORT:
--			cmd |= FIELD_PREP(RTL8365MB_TABLE_CTRL_PORT_MASK, port);
-+			if (is_d) {
-+				cmd |= FIELD_PREP(RTL8365MB_D_TABLE_CTRL_PORT_MASK,
-+						  port);
-+			} else {
-+				cmd |= FIELD_PREP(RTL8365MB_TABLE_CTRL_PORT_MASK,
-+						  port);
-+			}
- 			break;
- 		default:
- 			return -EINVAL;
-@@ -146,8 +159,9 @@ int rtl8365mb_table_query(struct realtek_priv *priv,
- 	if (addr_as_input) {
- 		ret = regmap_write(priv->map_nolock,
- 				   RTL8365MB_TABLE_ACCESS_ADDR_REG,
--				   FIELD_PREP(RTL8365MB_TABLE_ADDR_MASK,
--					      *addr));
-+				   is_d ?
-+				   FIELD_PREP(RTL8365MB_D_TABLE_ADDR_MASK, *addr) :
-+				   FIELD_PREP(RTL8365MB_TABLE_ADDR_MASK, *addr));
- 		if (ret)
- 			goto out;
- 	}
-@@ -177,13 +191,23 @@ int rtl8365mb_table_query(struct realtek_priv *priv,
- 		}
- 
- 		/* If so, extract the address */
--		*addr = 0;
--		*addr |= FIELD_GET(RTL8365MB_TABLE_STATUS_ADDRESS_MASK, val);
--		*addr |= FIELD_GET(RTL8365MB_TABLE_STATUS_ADDRESS_EXT_MASK, val)
--			 << 11;
--		/* only set if it is a L3 address */
--		*addr |= FIELD_GET(RTL8365MB_TABLE_STATUS_ADDR_TYPE_MASK, val)
--			 << 12;
-+		if (is_d) {
-+			/* Bit 11 is "TYPE" in the register map, but the entry
-+			 * index (2048 hash + 64 CAM) needs 12 bits; the vendor
-+			 * code reads [11:0] as well.
-+			 */
-+			*addr = FIELD_GET(RTL8365MB_D_TABLE_STATUS_ADDRESS_MASK,
-+					  val);
-+		} else {
-+			*addr = 0;
-+			*addr |= FIELD_GET(RTL8365MB_TABLE_STATUS_ADDRESS_MASK,
-+					   val);
-+			*addr |= FIELD_GET(RTL8365MB_TABLE_STATUS_ADDRESS_EXT_MASK,
-+					   val) << 11;
-+			/* only set if it is a L3 address */
-+			*addr |= FIELD_GET(RTL8365MB_TABLE_STATUS_ADDR_TYPE_MASK,
-+					   val) << 12;
-+		}
- 	}
- 
- 	/* Finally, get the table entry if we were reading */
-diff --git a/drivers/net/dsa/realtek/rtl83xx.c b/drivers/net/dsa/realtek/rtl83xx.c
-index ad42c05..cfe7d42 100644
---- a/drivers/net/dsa/realtek/rtl83xx.c
-+++ b/drivers/net/dsa/realtek/rtl83xx.c
-@@ -602,7 +602,8 @@ int rtl83xx_port_fdb_add(struct dsa_switch *ds, int port,
- 
- 	/* Bridge ports use bridge.num as EFID, while standalone ports use
- 	 * EFID 0. FDB entries for the CPU port follow the bridge EFID due
--	 * to assisted learning.
-+	 * to assisted learning. Chips without an EFID in their L2 table
-+	 * (RTL8367S-VB) ignore it in l2_add_uc().
- 	 */
- 	efid = db.type == DSA_DB_BRIDGE ? db.bridge.num : 0;
- 
-@@ -654,6 +655,8 @@ int rtl83xx_port_fdb_del(struct dsa_switch *ds, int port,
- 	/*
- 	 * DSA_DB_BRIDGE ports use bridge number [1..N] as EFID, while
- 	 * DSA_DB_PORT use the default EFID (0), not used by any bridge.
-+	 * Chips without an EFID in their L2 table (RTL8367S-VB) ignore it in
-+	 * l2_del_uc().
- 	 */
- 	efid = db.type == DSA_DB_BRIDGE ? db.bridge.num : 0;
- 
+ 	const struct rtl8365mb_extint *extint =
+ 		rtl8365mb_get_port_extint(priv, port);
 -- 
 2.53.0
 
