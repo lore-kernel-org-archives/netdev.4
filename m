@@ -1,65 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133513;
-	b=anzitFDfk7Q3wWlCM7l1GFCBuIGwcXDqiFXQo3eYdMJtBrQqinVNcq0uZ4V3r9R9M9xR
-	 z8H8n87mqnT4fDie1rWfiA8PKXOTs/ZEs7/gfjPcF2hlDbwS58MOhNkDU8k1Fe6t1yzhP
-	 Ojyp60bdbNV2DoiP11DzU32r5l5tM+onwt2/neR6an1V7eNx8/qO/LZ2V/u5qifoAqI1X
-	 H/B6E5Y3hfxnau1SDqygLo3UGDGaaEJmlPgTUoDLrwoQ5h7X3V5zFu3mh1JFlq9Fl0bO/
-	 rvnJd3Vo719SBbEP2sMDZ7iwcgSNLIEUmYI26nKtPFD6TYyHjLPG8au0BlUYFb2X7tA==
+	t=1795133731;
+	b=lkgBaQhVx72KGgnkAYktae1E6Us/ojhfPTdkvAn4ErOAwgGIDfWsJlm3E+jL7upGrhl6
+	 4cJ+cZo9wnMtZg7KXn2si+inT5EAGRKy2Z76XVV2nU4W/48apczc+PzgXvoMeasR5262T
+	 Vtxhf0T5+G/IbF0p5+3pTYQXrdDHu+2B7N64fs96nji99kBGEgAhxTYNaruxA5BeD8svY
+	 JZXl9mO/ZumhzanTad39B5eX2/Ceq7E0v4P0Y3IXtFBpQ3fuzx5J0QQlOqfWDrSgN11F0
+	 Sy/NnLqsTHT+fxjwn8Aw0zOgaS7A+eUskPPZyQbVpVLRO/VVmfXlpp1D+R9g92sbNGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133513;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133731;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=GCUENms0Eg+zy1gRC4+um4g3Klzq7iMeIXkFPj0+DsI=;
-	b=hZ8RCgEA/r43V4tKaA/mbYDcW5brp2FHqN2ZD2btMDDqfcUmr/EGnk6HA1fEwz16D/sa
-	 assUlNkMdVpHAqk/P5JbHNS0WAcV2kG7+hJZ0YhWAHc9rij4vhxUvAmEmYiKxZLgjSwj5
-	 SIf8oRRAdhkcARLg3NzqoknGdhzQgMSLrxnIfx/0TTa5H+g2dpKHq5YKXQd5FX8fcF+UL
-	 hEDhxCsQDrBcNh+n3xrViAi+bhWqacCy+NHJrC9XRAUCZdhMKJjTl9lH7VwspWqUegdkA
-	 NhvFyxSuqm5x9mE6LO8L+e0QtJCxXSl32H8Dp+t1xdLXVzFj22qINPP/rGmujdKiiwA==
+	bh=TGAIFdomBs3si+EC7jlWvCPtv3g04WD3unZgP0aqsRs=;
+	b=mta4P7Sf6qVgQ/f+NZoBcmx9hMXTq8wKDoJDzXlTqPLJtxU8TgLZBSLOmigfw2kT2xTk
+	 muYYeBnBRQbLGitd9zCQHT/ij52wmlXgRegQZvKFCN11CQ6L8bADkV9XMmjYgzt4AaYoB
+	 qywRGu0ZGuhGlUUP4zxR+3UY/b0fdi+IcXgwjF4R4Sg4bwLtgTy7sSBgNr8w5wsqUh6DP
+	 7WfUPi7dhuYfFP5pqactmXubqRtiXdP+aT87rGqdTxeZ12XTQ0HCcFiAWp+J5EuTat26i
+	 psAJYr3mxuaawmT1TGdlIZDSC6+sxtuhRRrarMat5WF1NSKBZtj+fk4RIw4k4xsWRhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kRQ7/C0f";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KLPRhAlk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 308CB60A2600;
-	Fri, 20 Nov 2026 00:11:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C86FB606A320;
+	Fri, 20 Nov 2026 00:15:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kRQ7/C0f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52B5B1F000CA;
-	Fri, 20 Nov 2026 00:11:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KLPRhAlk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19A5C1F000C4;
+	Fri, 20 Nov 2026 00:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795133512;
-	bh=GCUENms0Eg+zy1gRC4+um4g3Klzq7iMeIXkFPj0+DsI=;
+	s=k20260515; t=1795133731;
+	bh=TGAIFdomBs3si+EC7jlWvCPtv3g04WD3unZgP0aqsRs=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=kRQ7/C0f8r5gpJCV38GIqMKqTE8KoilEbFEHcXcWJZpuQ1ZqdZ9KpLDOS5z4lqMsS
-	 +NXr7y8Aw0vXzMBLumsq9BTQMqtS1UGiJBTnjX6IyDaeYr3/4Ad4+a6PgAuNe/d+wx
-	 YKpGn0eal0CK1ZteXl3WXH6g5iaJVHalixU//2WW/W2oJDnByEOBle1wdK6mQSWxCJ
-	 yYnUFMF4qUuBqwYiHbDxqDoqqWjwKNDzb/AxXKR6hHMg+qjjh7SV683H5xXdwD2OpT
-	 HhePPyxwkuYGgD6Jkire9ewfL9QeumC8auK3CTLdjUPGMcEeprdMLE/bHcBWk2fiNf
-	 Tlb6L0UkCAlUQ==
-Date: Thu, 19 Nov 2026 16:11:51 -0800
+	b=KLPRhAlk0ACgoitR9dLSZc3QKxc0o++8F0qqYvsmSbK7V1dXjT4dMeJGQzET+kktK
+	 AmU+MiMATEvybCn7HFe4fKUhlk6lnlb42s4TehuYLcyXdxUbJnzCziYhMtVzohJakn
+	 nsDf7SxVQcNog2tbeEuI9i6UGmgSfBr79+0jRdpVNTcaSx94Nflcc+RDYb400Jw1wr
+	 jsa7zJc8JRUxSV5bfP5s73sSzrAAE22670vm9kOLt0ReM8f6CsOGEGszaQWipdrSaQ
+	 i6FtU8us7QgWrF0VpUOiycqY/Pj+N0wPokqagyYwqO/s+quN1XX3PBZkFVgx1uc1qJ
+	 fbhmG8XFquWcA==
+Date: Thu, 19 Nov 2026 16:15:30 -0800
 From: Jakub Kicinski <kuba@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- LABBE Corentin <clabbe.montjoie@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
- offload setting
-Message-ID: <20261119161151.5251fc86@kernel.org>
-In-Reply-To: <CADvTj4oJ6HDR2k6qVgefUX-h0TGh2n+AO5gx_dcJFzzWML+2UQ@mail.gmail.com>
-References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
-	<20261119144848.4ddd88cb@kernel.org>
-	<CADvTj4oJ6HDR2k6qVgefUX-h0TGh2n+AO5gx_dcJFzzWML+2UQ@mail.gmail.com>
+To: "Daniel Zahka" <daniel.zahka@gmail.com>
+Cc: <netdev-bot+sashiko@kernel.org>, <alexanderduyck@fb.com>,
+ <kernel-team@meta.com>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+ <edumazet@kernel.org>, <pabeni@redhat.com>,
+ <dimitri.daskalakis1@gmail.com>, <mohsin.bashr@gmail.com>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>
+Subject: Re: [PATCH net-next 3/4] eth: mpnic: sync unicast and multicast
+ address lists
+Message-ID: <20261119161530.0dc624d4@kernel.org>
+In-Reply-To: <DMY9FTQ22U8T.JKYB4HL8J8PH@gmail.com>
+References: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
+	<179499313262.3136.12811016164943625265@kernel.org>
+	<DMY9FTQ22U8T.JKYB4HL8J8PH@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,24 +67,18 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-On Thu, 19 Nov 2026 16:32:58 -0700 James Hilliard wrote:
-> Would it make sense to address the `rx on` drops in a separate
-> follow-up along the lines of Oleksij's dwmac4 fix [0]? On sun8i that
-> would mean enabling error forwarding to DMA and passing packets whose
-> only error is an IP or transport checksum up as CHECKSUM_NONE, while
-> still discarding frames with a bad FCS or other fatal RX errors.
+On Wed, 18 Nov 2026 05:21:44 -0500 Daniel Zahka wrote:
+> > Would it make sense to flush stale entries from both lists before either
+> > add phase runs?
+> >  
 > 
-> If we leave the checker enabled in both modes, `rx off` would only
-> control whether the driver reports a checksum as verified. In that
-> form the follow-up would replace the conditional bit-27 write rather
-> than depend on this patch.
+> I see this more as a low severity issue, because having the device be in
+> promiscuous mode when a slot is free is not incorrect, just not optimal.
+> 
+> If anything I would probably just rerun __hw_addr_sync_dev() on the uc
+> list again after the mc one, if the first call returned -ENOSPC. I
+> didn't think that was really worth it when this same comment came up in
+> local review though.
 
-I'm not very clear on the changes needed to get to "bad L4 csum packets
-still reach the stack" / correct behavior. Would you be willing to
-sketch the full series out already, and then we decide what gets
-applied where?
-
-What I would like to avoid is us applying this fix to net (which
-seems legitimate on the surface), but then following up with another
-fix which unconditionally clears EMAC_RX_DO_CRC since AFAIU we
-need to clear it for the correct behavior.
+Ack, IIRC the MAC table is at least 100 addrs, so micro-optimizing 
+the ~128 -> 127 transition isn't worth the LoC.
