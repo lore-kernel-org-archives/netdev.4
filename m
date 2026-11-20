@@ -1,58 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199459;
-	b=o41+Emi8PbWWgIBU4Zsr/QCg6HkBiBGbfGegn4Idyg5R6/9fJWPnxUv7j04QWU5yQV2l
-	 DZ5NiOMVWbo4jusPncTe95Oj+G1saUoRSKRI+6/JzgE2kwrJTvBGigJJhHbIXIyZ/URCR
-	 895auuy587umZkAn0wDqeIx5cneh/4C5Wzw3B3gvmsK9RDrEdnSuHWMsGXWJpKL++wHy/
-	 WygsBT6L87P6zbsY8NtlVBVxfF2PNgjtYYILBPRMiNaMcb1Dlw2cnedxT8uBtc3Bj0Jnb
-	 q+pbFqmpKe1wuAzX256pCA2PRSbp8yT0NwpcUoLfTAIN4WSoI3lxVRCluwDDxxwb6XA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199459;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=sAbuJKLmKtX7zPRK5+klIxJMc8Ksx7mRqYtHwGJgnFE=;
-	b=eQ2c+de/f+BGZWj/BsnkRbUeG8ljzWLM7ZukeVaR/+hswIo0h1/DI9UwLQMGrPs2wGn+
-	 gkBijzeOBprJCmHlZKwtmtv3WzYzxf2dJX/XKGCqvDoBG5RkIBAnNHcfWQOtje7T0Cq7z
-	 1KvUyPfkQDEt9AAgb4RYcOY+SAS5OKznh0QFcr//px2r5YAXhfIjmmd4ew8Ols8/EG6fe
-	 ifAltEbY48jftFpcKVG9Lx8u6EWJTAzHLxLe2xzluqpDtFaE/VYUuSlBAVQ+Y++WznGbE
-	 vTRlue7tlDzkg6JTRdqVpLNdLQVvo1v/8Lqp3pINfzs/yDMXIWdtTor64HzD7Z9aDOQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0SwakPSZ;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795199546;
+	b=jI0tthOhw5ne7JMEezdwD9nO+aIlouv5C1gLLpmqpUlvsv/q2PQUZlnV9ZLCewo0rEUD
+	 m36O0FSFvnoa3SKpkl6duKVb5XGGz03eCUFQenXCyG5UuBBu1OAyBJbNLVvRiTj0Y6tHy
+	 eK/jpERY6YVDM/dxmn5RWrznAbT45aKRvl9GbSOFW8CpkHelNdK83hbxpZI23vcVXfQ9d
+	 3oSkfIFYafY8bjEdz0d1RUIsRANcB4muNssjSkCZwnGNkoZ/LFI0tNyje03f83E9QFrqf
+	 Ijaz8YVwYGqOFtt/JCPEnZSJOOK9jHvAqFUUOLptfCEmHv9prDNT0YTbTUSv/p550wA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199546;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qdpiEp0f2c3LjxTdYPvRzKuFSHht9K4INL82GKB/8H8=;
+	b=x3Ug4tlmv8g+Fq9zhn5J+NVyJRBOu0kixUY3RN1yHrCZXOhV1EAbyDX2p1C8y56t8IbB
+	 6LiT9crIo64L/NJBc3FDw+VWs+o3ozx7KHg3clrHc+KLajMvJjxq5VFoHzHTkOAStWahr
+	 vOTVm0xpSy4mt4pjaZUpBnT5TcMX3qwUgdZhoPCJ5HIHIjl2pNgkJ/kk3oXC2zGkHTYPK
+	 qQTSHOK3Z2Cw7P3khl6SHr5yCqubfEEVcqIjDUZzg/Z45h3uUZj1qNkPwHjbGxpTcNwNf
+	 PEPfuSdFhWqDAiCGfNcBy71AGjvYwz1TCETvy6sYMG6EGrSYU4Wng/wQUasXF68T6ug==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndOHic+M;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F6F160A2600
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 18:30:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F6F160A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C8E0606A32C
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 18:32:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C8E0606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0SwakPSZ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E63034E4168D;
-	Fri, 20 Nov 2026 18:30:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 97ACB601B9;
-	Fri, 20 Nov 2026 18:30:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F167A11BC0B11;
-	Fri, 20 Nov 2026 19:30:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795199452; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=sAbuJKLmKtX7zPRK5+klIxJMc8Ksx7mRqYtHwGJgnFE=;
-	b=0SwakPSZBT7Srp6ifOCuTk901V1MDOLJ95w6eUyIPnxnDN1rqr8c9wxBUD+Els4Do/uYyJ
-	YWqN28XO8H5bz2M4jELqVmCFNiOXut0WRGfQksK28DOOR7Zo3WPuoHE3PrNCrCfzN/LLOA
-	AX5kXIjAy8v8Xymhqi9sGgw4A94ofJiravElwHRPJzrbF4U3OGi3y05ED5Nh9VOgf5AHXe
-	JbZH0usF3xSRnjV90zJIkCq+tCQZu1t/PZmLsupsFJIhL9uVwsKefi+jrAQiLMxqaVMw/i
-	QT+V0EPlH9nZr8sgL2H7yec2LOADcjOlVjrTsHWHu2GSEQ5fxX/UzLXDQ9tzsg==
-Message-ID: <a91278be-9c14-4769-81f1-38497c38c47b@bootlin.com>
-Date: Fri, 20 Nov 2026 19:30:01 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndOHic+M
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso9165495e9.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:32:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795199544; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hXOpXIQ+6Q8uxc8p3Bn41tA4JCSGCfCXmAuINCvU02tTURyVoGlzn8SR7ww0Bx2A0H
+         /3LJwkrnSrN7FaAonubhdBZwqxx69XYAKfC5vn6WQXqRX1xn5JeaCrHLtRuLwE14e/F3
+         zjuyd2xgrByTHwoOt3VaQ8sWZz7Y7pR5GZyo0CzhQfEGpqYVtyLRaHBe2dn6ZBaQYnF1
+         MEIYmSYr01FKSWJJD9ypIRSFU9h1hJVMxIM5Bv6JnJrQgx5l/UjHAQebAOSAz/4dWVR/
+         f4pZmgleCuTS4e92A0218DsoiPICbGypkPwd9+xkI8xpgnaSLK0K2qVdSVmZ/4yK+BmJ
+         TUew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qdpiEp0f2c3LjxTdYPvRzKuFSHht9K4INL82GKB/8H8=;
+        fh=JxjH4JdFHbKY1XI5YrjpdawkW5lBj/B0eSV4r24Y6HA=;
+        b=IBJs2irRp9TMXBhtl3e0c6VNj1GX3mqOvc7epmxjbh2sFgEHPN9u5Vw7Ldz5maW9Hi
+         v9c8W8PZ5A1y1eZe09W3W5o5xUDOwMMFVATS1kJIk4r5bCN5rH/tGzwaVLaj/bAgvmXA
+         83ksjVlDKWxzibq1qIbFJPhmyJ7yz0JEfn97tOEDvT00aQWKTEK0CN4PIHXNuVwSbUUg
+         Kqa5qlp8576BpeR1pjLyp5h4/g5JOcgqt9lHLkyHQ51MLYiJ0n2PFCJtcHLeFOHjiUpy
+         a90MUQ4hCrMJ1TTHolH6P8sMzcZTkyJyhG9/D2F+T7HbJJGc0xW053UjMLTKN7V+EmzA
+         a08Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795199544; x=1795804344; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qdpiEp0f2c3LjxTdYPvRzKuFSHht9K4INL82GKB/8H8=;
+        b=ndOHic+MgMREurcnuv6YefFBdrW1f2TPWdybI5XVPKnjFI8WjmT6RA/QWtOnB5XBVS
+         GMWl5n09lfCOi2/7Uq1tQywzWoYrxo2vIWwsl3aNJMf4OmyMFpCKPz0OmGoZ6rh6OpLD
+         zfoiz8Ticj3GpEvz3uVg9eP9cD4zOXI6/PK1gZI3rzDCIkxraeWmjnw5HkqwSYBggann
+         heYBS6nzbsM6oQJO+wgY+Habe3yEkIi50cqviD64INGQYBDyDJLQk2HgEICwAmIhTyfz
+         bWEyhQ1TENjuqotyWLA2oqUeRhxHl/3vUxUNhZQiTKglUyacSS/H4KzQgXUI8vshKpE/
+         SR0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795199544; x=1795804344;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qdpiEp0f2c3LjxTdYPvRzKuFSHht9K4INL82GKB/8H8=;
+        b=iT15+m0Hpssbe8uBpYOs65ph7PrshPxJhGvQzol41a3nn9UfunGOLDdIGewLEW4GAu
+         SFldjP+7HEmSK/3vzrdRx62Hf7jOfA3BCB3uCSkdroplWuFeUpHLDP42AWNdzthor1Fj
+         eH1pnay8OEeuKVIDkYx4N3w6uWb11rlWCjAqQiHEX6RB1kzrqVPg1ZPN4RR45/ly0YXo
+         ePjSJmi5z/9I3QbRNWOyBO3kWHPQVA/9Oag8rD6RcriWkk4c4eeb8ZCPsDMptPwfVsPh
+         vc2KlEGjuiwulwqAcNUT7yEQeRi0dn5xGMB02a8Xq7JrnN3mElznsWhAgZKEtoefoLQV
+         8dCw==
+X-Forwarded-Encrypted: i=1; AL+hErFRNyc6PJ+w1bF/KvYZoNcYYtPQnFvFQt2K8UvrdZMaKk1r+R3x81m6Fl4bIK6O5gshxQY/SSY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/fosQ//FmodQfFTVLvGKRiKEV8Rbo7pocq+GrEb6Hiw9yE2dQG
+	Hd9PrLb9hPuECJW/A1VGA+PQ+EAdb5ohHlzmciDcvfXnNoU76hHYH00qxcRWWUTV+tPWSvuWeMN
+	ShkeYm6+RaovKJvCaAov71Bgts+hdaUI=
+X-Gm-Gg: AYBFou0FGgtROrZm1UDeAXDe0AQ7kk5y+VEk2617D2ddmrqdM5UToDabxvC2WYHE+XV
+	BV1aGHtvOHoiMVVLrZNozYIDrx6vTz+zbOn13Tab9KvNdR5jcxGX494ORE4cAzkxhdSAmfXSFZp
+	POq+jNh+3c6z1bbQ2i1ekedlNP0vNeV81T6nfQgKpWy0d/fdeBJ1unbGqbvE0Hl5mSI3Yc17jOG
+	Mu61cb8ZgsgIJdkuKlA64VYlTtyVfUTObjUTXCl/27JkUz5oY2XGjl0DSX7rBEPiecXSGE2VF5Y
+	Uhb1DS5cjd/7JYPWdV6kW3xfLDIjbcmVB7+2hMiQQe/PnJSYmDn7KWzM2zLHE7ptlXPw0Gu8uTy
+	3wRLFmrPjpSUF/fNpvGU5jlnNWg76wOi85zgaM7NurSK6ktvpjnwMK88GcL1Z0NzQJOMDAwl9bp
+	p3vkh70u8r02s8fYtCWlK+S/h3gygneOGdT1V24pO+ip0Ny5ssLJOpDi2dDw==
+X-Received: by 2002:a05:600c:4f4c:b0:4bb:8503:69f4 with SMTP id
+ 5b1f17b1804b1-4bb888097a2mr107166235e9.5.1795199543982; Fri, 20 Nov 2026
+ 10:32:23 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,51 +105,109 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-sun8i: support ethtool
- rx-all
-To: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- LABBE Corentin <clabbe.montjoie@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <20261120-submit-sun8i-rx-features-v1-v1-0-5058fecba6b3@gmail.com>
- <20261120-submit-sun8i-rx-features-v1-v1-2-5058fecba6b3@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120-submit-sun8i-rx-features-v1-v1-2-5058fecba6b3@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20261120002549.1908299-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <0ff0a7ec-b899-4668-a245-196ed1032548@linux.dev>
+In-Reply-To: <0ff0a7ec-b899-4668-a245-196ed1032548@linux.dev>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 20 Nov 2026 18:31:58 +0000
+X-Gm-Features: Aa3M54r8rrZ0zrmXAOHeL5MeMKEwVaPZYcTvPMAdXWb5WEiB_5oOfQ2UQLAY5MQ
+Message-ID: <CA+V-a8tsZiLZ24KO=RaQogQ-2d=Wuug3U1ZX-fi=HqvpOZb98Q@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 03/24] net: dsa: Kconfig: Expand config
+ description to cover RZ/T2H and RZ/N2H ETHSW
+To: Clement Leger <clement.leger@linux.dev>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Simon Horman <horms@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>, 
+	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+Hi Clement,
 
-On 11/20/26 16:32, James Hilliard wrote:
-> Packet captures on sun8i cannot currently inspect frames the driver
-> discards for Ethernet errors. Add opt-in rx-all support for complete
-> frames with a reported wire error and for runts the MAC can forward.
-> 
-> Set the runt-forwarding bit at hardware initialization and when rx-all
-> changes. Serialize live updates with the DMA controls in the same
-> register. Deliver these frames without claiming a verified checksum or
-> including them in the good-packet and good-byte totals. Keep counting
-> the wire errors even when the frames are delivered.
+Thank you for the review.
 
-This deserves a series on its own. it's not only about sun8i, it add the
-whole plumbing to stmmac itself. Is it something you've used and needed ?
+On Fri, Nov 20, 2026 at 9:32=E2=80=AFAM Clement Leger <clement.leger@linux.=
+dev> wrote:
+>
+>
+>
+> On 11/20/26 01:25, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Update the Kconfig entry for the RZN1 A5PSW tag driver to reflect that
+> > the same tagging format is also used by the ETHSW blocks found in Renes=
+as
+> > RZ/T2H and RZ/N2H SoCs.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> > v4->v5:
+> > - No change
+> >
+> > v3->v4:
+> > - No change
+> >
+> > v2->v3:
+> > - No change
+> >
+> > v1->v2:
+> > - Updated description for Kconfig entry to cover RZ/T2H and RZ/N2H ETHS=
+W
+> > ---
+> >   net/dsa/Kconfig | 9 +++++----
+> >   1 file changed, 5 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/net/dsa/Kconfig b/net/dsa/Kconfig
+> > index bdeb60af764b..3c18314aee95 100644
+> > --- a/net/dsa/Kconfig
+> > +++ b/net/dsa/Kconfig
+> > @@ -199,11 +199,12 @@ config NET_DSA_TAG_RTL8_4
+> >         switches with 8 byte protocol 4 tags, such as the Realtek RTL83=
+65MB-VC.
+> >
+> >   config NET_DSA_TAG_RZN1_A5PSW
+> > -     tristate "Tag driver for Renesas RZ/N1 A5PSW switch"
+> > +     tristate "Tag driver for Renesas RZ/N1 A5PSW and RZ/T2H, RZ/N2H E=
+THSW"
+> >       help
+> > -       Say Y or M if you want to enable support for tagging frames for
+> > -       Renesas RZ/N1 embedded switch that uses an 8 byte tag located a=
+fter
+> > -       destination MAC address.
+> > +       Say Y or M if you want to enable frame tagging support for embe=
+dded
+> > +       switches found on Renesas RZ/N1 (A5PSW) and RZ/T2H, RZ/N2H (ETH=
+SW)
+> > +       SoCs. These switches use an 8-byte tag located after the destin=
+ation
+> > +       MAC address.
+>
+> Hi Prabhakar,
+>
+> I would fold that in the commit that adds support for the  RZ/T2H, RZ/N2
+> itself (ie patch 23: net: dsa: rzn1-a5psw: Add support for RZ/T2H
+> Ethernet switch)
+>
+Sure, I will squash this in the next version.
 
-This feels a bit strange as you answer to the series info bot that this
-comes from Jakub's comment on the previous series, but I don't really
-see the connection except that Jakub mentions RX_ALL.
+Cheers,
+Prabhakar
 
-If you want and need this feature, you can submit that separately.
-
-Maxime
-
+> Thanks,
+>
+> Cl=C3=A9ment
+>
+> >
+> >   config NET_DSA_TAG_LAN9303
+> >       tristate "Tag driver for SMSC/Microchip LAN9303 family of switche=
+s"
+>
