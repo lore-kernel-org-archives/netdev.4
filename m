@@ -1,60 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.189
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795157485;
-	b=y0M6JqSjH2ZSZkre2/aaAftHGkVwgGdN2HSJvLROCwEjzZAOciwexv9kDNd8SDaCkwLn
-	 SUHOkci+ve2W/wJwV+iQ3q6/bdWeVq//gZwDrsuhJUGYWb98xVyI9aDWjlNSdW7HKhErH
-	 4ghK4Ey1L0Y4JLEwqw02sEJ1D2e1ufhbG+J/meenEQe4qHRXrOHYHpa/f8TXZsBpDW1AE
-	 w1EEAhOaCb077So/36t+gckNso6Gl8eOfFTtmofdIIFrb3p1Q/6M9Q70kLoWl16lDiVl3
-	 RopmC8zD6rRkCHiDDhODxv94C6CAMt5w2ycmhlXlWQwUwSfSIPLSfVCmz7ymfvqV1qA==
+	t=1795157524;
+	b=FtgYfPh2UR3PUJ9c5zySEG7NShqJ/+NymdTXOB23SPSuuaBcKyKvis6JmCbyFtyelag+
+	 07VtqBh5Kq36R/HI5RiP3OcWI1Gbygp9X3hcNmp682LAsBJrB6UmYdIHtusMZYgtPMtAD
+	 0a+wN06KEkmk/pSe3B6uv/WKEf3HezoiAKdtvzy32P3Igf+RrpPpmgLQRhXeaVtHLRKat
+	 sggS7LMm7Kf1fRbQunnzPvlZnWV9Amu8vpZTvOgIEIWhxmnNMqZ0/raJc8YPW0NBCaj0j
+	 /U6FSQr69q9tpxaxRsGviQpBo3F/jnWSjmmoCCAPjJ2Jr2vWDcmMUQyRl8i7tad575A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157485;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=1g1qowK/Vhy/51ATJ4wve21dh0EgoCYYqHxYRokZ4Cs=;
-	b=GuBgUrY5u95keMtz6o9EDvLQGBUR42NgIIVvWnv8BSEZ5+w259fVsW6S8afM0cj0KKeW
-	 MVwpp3krF9pClXBD4YRvnqCv6q9NpGYdoTou3O7ugc5sU8PRPHheqLDnxhYJeWdffuifm
-	 BKSy7hyQ4cdEcFw7sp9nzWr++mU3ng2+A+/yP7lfJcOVypHSzMtrHSJvV6OoNTQImD++S
-	 dcfOlz8ZNe/set8iMg/UBPvUH2IzRTuA1+7UhswGCdbVrKnH4l8rmGsfiJdov27pCudS/
-	 FFH1iOHQIzssepbRvitvbIXsu1XTzg3J6n5mhCdVODVyOlJ50R2QER6PsFYuIgHuBRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157524;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0z0AzJNanfrVB85wgMFdgJJ5GkqCfeRb/cYUccsjyJg=;
+	b=syVHb9SzaiepQfp8s3gHQBrxuv16Cj7gB7UvUnb9kpDCuGXBXng0wvbn6QYyNzR45HHR
+	 z3eKrfior1tvav2B4r+psbMj5bxpZjXd0pM8r8orYGj9xkRkB+PkiHvxWzO2FP/4BbawF
+	 8O9ia4srkwqcTkHXMO4rMtLHovg81qYxpF41YV3xwPm9a+5MRelawjZA/cZbE7NEu3OWH
+	 X5oJvV5rWYlYfH/AfOfDHmdoHF4alrUk1MMU6SpthvPJX11g1gT3352jIfDolfuUo1eI2
+	 7ADocQUOdcs2gs4Ww0GBWn0Bl8IXBblR3xYAzylwg4WbA8yMVteBsgw3aYx6NKEgZOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TyGyL+pv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jcMVexTx;
+	arc=none smtp.remote-ip=95.215.58.189
+Received: from mta1.migadu.com (out-189.mta1.migadu.com [95.215.58.189])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C36A606A33E;
-	Fri, 20 Nov 2026 06:51:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09535606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:52:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09535606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TyGyL+pv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F361F000C4;
-	Fri, 20 Nov 2026 06:51:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795157484;
-	bh=1g1qowK/Vhy/51ATJ4wve21dh0EgoCYYqHxYRokZ4Cs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=TyGyL+pvUVyjqSzJMtV6EH6roUrKZbb9TejLfSQgNn6/Cg+1TDAJmvomZIhnT7+7E
-	 tUSgd3y/cyEkt263xOaPoa9E2ZNvcFsVI28ztYrjNHqxlrIr7HsTg8hgUQgTlrWknv
-	 F/O0aqOs1yTlQ/E+hUqX1LiRNxZNWTshEubFMqBXOZSssGfuNaJIPV6N07KuXAzlr0
-	 8vpGB1SKBdKwhokLEzPq1botFI2N4m9D05PWC+4smWR3/ympqz/kPcoyR/LOW/N6CR
-	 LEvfZR07SblM3XdBCzVjg6Kl+ueNDvtUdPPNPLVMZ5quM5slrC23usEsPVbJD9nWCn
-	 KlNYaaag13SYA==
-Subject: Re: [PATCH net-next v3 2/2] selftests: drv-net: run tls_hw_offload on
- netdevsim
-From: netdev-bot+sashiko@kernel.org
-To: jiayuan.chen@linux.dev
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- john.fastabend@gmail.com, sd@queasysnail.net, shuah@kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Fri, 20 Nov 2026 06:51:23 +0000
-Message-ID: <179515748385.3136.10275675955381531740@kernel.org>
-In-Reply-To: <20261119064902.242502-3-jiayuan.chen@linux.dev>
-References: <20261119064902.242502-3-jiayuan.chen@linux.dev>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jcMVexTx
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Ro9VE7XGMtGJmsM9mnH8HIatHqmwaoWhZDuLhhpiHfI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795157521; v=1; x=1795762321;
+ b=jcMVexTxKDTegToAManw+obcFWicIYkyNWBbQ8bHPCWoQIHS8oeNmQEtnoc/bqLFcE+AsWYk
+ E5gvqiIkV2ACvfJguuJ26FIkKntFy9f//Qh74GihVulthqtUrTbP1pAWX2XuMuoeTRR35PbGo5H
+ /3N2qFbMT7WVqAGzErsSYReM=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ef437e63efd8efa5;
+	Fri, 20 Nov 2026 06:52:00 +0000
+X-Mizu-Trace-ID: ef437e63efd8efa5
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <18426bef-b231-4685-bda7-665becfc6528@linux.dev>
+Date: Fri, 20 Nov 2026 07:51:58 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,126 +58,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v5 10/24] net: dsa: rzn1-a5psw: Fix MDIO clock
+ divider calculation
+To: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+ Ralph Siemsen <ralph.siemsen@linaro.org>, linux-renesas-soc@vger.kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ stable@vger.kernel.org
+References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20261120002549.1908299-11-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Language: en-US
+From: Clement Leger <clement.leger@linux.dev>
+In-Reply-To: <20261120002549.1908299-11-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/20/26 01:25, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> The MDC frequency is hclk / (2 * CLKDIV + 1) on RZ/N1 as well as
+> RZ/T2H and RZ/N2H. The existing calculation uses the wrong divisor
+> formula and can set MDC above the requested clock-frequency.
+> 
+> Calculate the smallest CLKDIV that keeps MDC at or below the requested
+> frequency.
+> 
+> Fixes: 888cdb892b61 ("net: dsa: rzn1-a5psw: add Renesas RZ/N1 advanced 5 port switch driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v4->v5:
+> - New patch
+> ---
+>   drivers/net/dsa/rzn1_a5psw.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
+> index 7fd2652813ac..df3b3f75b489 100644
+> --- a/drivers/net/dsa/rzn1_a5psw.c
+> +++ b/drivers/net/dsa/rzn1_a5psw.c
+> @@ -11,6 +11,7 @@
+>   #include <linux/if_bridge.h>
+>   #include <linux/if_ether.h>
+>   #include <linux/kernel.h>
+> +#include <linux/math.h>
+>   #include <linux/module.h>
+>   #include <linux/of.h>
+>   #include <linux/of_mdio.h>
+> @@ -1104,7 +1105,7 @@ static int a5psw_mdio_config(struct a5psw *a5psw, u32 mdio_freq)
+>   	u32 cfgstatus;
+>   
+>   	rate = clk_get_rate(a5psw->hclk);
+> -	div = ((rate / mdio_freq) / 2);
+> +	div = DIV_ROUND_UP(DIV_ROUND_UP(rate, mdio_freq) - 1, 2);
+>   	if (div > FIELD_MAX(A5PSW_MDIO_CFG_STATUS_CLKDIV) ||
+>   	    div < A5PSW_MDIO_CLK_DIV_MIN) {
+>   		dev_err(a5psw->dev, "MDIO clock div %ld out of range\n", div);
 
-- [Medium] In read_nic_stats()
-  (tools/testing/selftests/drivers/net/hw/tls_hw_offload.py:128-131),…
-- [Low] Several comments still describe a real-hardware-only setup, but
-  after this patch the default run (no NETIF) uses a netdevsim pair that…
+LGTM,
 
---
+Reviewed-by: Clément Léger <clement.leger@linux.dev>
 
-selftests: drv-net: run tls_hw_offload on netdevsim
+Thanks,
 
-This drops nsim_test=False from tls_hw_offload.py, so the test runs on the
-default netdevsim pair when NETIF is not set. It also makes
-read_nic_stats() skip the ethtool -S snapshot when a local netdevsim
-device was created by the environment.
-
-> diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-> index e720ce6547610..1197f17caa13c 100755
-> --- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-> +++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-> @@ -125,6 +125,9 @@ def read_nic_stats(cfg):
->      # before/after-delta caveat as read_tls_stats(): these are device-wide,
->      # so concurrent kTLS traffic on this NIC would perturb the deltas.
->      stats = defaultdict(int)
-> +    # netdevsim has no ethtool -S, and the NIC counters below are optional
-> +    if cfg.get_local_nsim_dev():
-> +        return stats
->      output = cmd(f"ethtool -S {cfg.ifname}").stdout
-
-[Severity: Medium]
-Does this guard check the right thing? The comment is about the driver,
-but get_local_nsim_dev() only returns self._ns. That is set only by
-create_local() when NETIF is not in the environment:
-
-tools/testing/selftests/drivers/net/lib/py/env.py:NetDrvEpEnv.__init__() {
-    ...
-        self._ns = None
-    ...
-        if "NETIF" in self.env:
-            if nsim_test is True:
-                raise KsftXfailEx("Test only works on netdevsim")
-            self._check_env()
-    ...
-}
-
-If NETIF names a netdevsim port, self._ns stays None. The test then falls
-through to cmd("ethtool -S ...") with the default fail=True. netdevsim
-has no get_sset_count, get_strings or get_ethtool_stats, so ethtool exits
-non-zero and cmd() raises CmdExitFailure. run_tls_test() does not catch
-it, so all 8 variants fail at the first snapshot. Any other TLS-offload
-netdev without ethtool stats would fail the same way.
-
-The test header already says these counters are optional:
-
-    # counters. Each counter is checked only when present.
-    ...
-    # Missing NIC crypto counters remain optional.
-
-The get_local_nsim_dev() docstring also discourages this kind of use:
-
-    Using this method is discouraged, as it makes tests nsim-specific.
-    Standard interfaces available on all HW should ideally be used.
-
-Would a driver-agnostic check be simpler? For example, run ethtool -S
-with fail=False and return the empty stats dict on a non-zero exit. That
-would cover the default nsim pair, NETIF=netdevsim and any stats-less
-driver, with about the same amount of code. The commit message mentions
-the NETIF case but doesn't say why the environment check was chosen
-over a capability check.
-
-[ ... ]
-
-> @@ -307,7 +310,7 @@ def test_tls_offload_record_type(cfg, record_type):
->  
->  def main() -> None:
->      """Set up the DUT/peer environment and run the offload test suites."""
-> -    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
-> +    with NetDrvEpEnv(__file__) as cfg:
-
-[Severity: Low]
-This isn't a bug, but with netdevsim now the default environment, a few
-comments still describe a real-hardware-only setup. Should they be
-updated?
-
-The comment in read_tls_stats() says:
-
-    # sock_net(sk)). The test runs on a real NIC in the host namespace, so
-
-The header of tls_hw_offload.c says:
-
-    * Tests kTLS hardware offload between two physical nodes using
-
-The run_tls_test() docstring says the remote:
-
-    source/sink and may run any kernel without HW offload. Both sides run
-
-On netdevsim this isn't true. drivers/net/netdevsim/tls.c says:
-
-    /* Emulated kTLS offload.  No crypto is performed: TX puts the record on the
-     * wire as plaintext, so the RX side has to be offloaded on netdevsim as
-     * well, otherwise the core runs the software AEAD over plaintext and fails
-     * the connection with -EBADMSG.
-
-So on the default nsim path, the peer has to receive with HW offload.
-If its RX offload were turned off, the test would fail, even though the
-docstring says that setup is allowed.
-
->          cfg.bin_local = cfg.test_dir / "tls_hw_offload"
->          cfg.bin_remote = None
->          cfg.tls_skip_reason = None
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119064902.242502-1-jiayuan.chen%40linux.dev
+Clément
