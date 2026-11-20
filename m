@@ -1,49 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795140613;
-	b=FtCWrF0MFc0MFYkJKcXgS+THySunB2q86mTYG+WnoKoRk0ikupcpIketxscDV5GbuovO
-	 RBEc/7rdnAeLU+djZV5a47AhnITaokROS3GwYVHL8LUpIhcI+pK2dVe/huhJth+rZZTfv
-	 LGr1J72ZcfbSAkPT/IruDxbKr+u4OLPtTvMoFXbmDMhuMGOq6SW2KgrWMttt0qVBAKRj7
-	 v07pXTfL07Tozw+r4CwklaYEAJdwIlK1Jx9q2Iq0v1FX6QO3w6VrO6VsDicvwfIZfA1Mp
-	 yHRFJiKveHBSudoLdYlCMovlrcs6KNwEtt7y0BGjm+j/9CgoDB2BZHqQ1i+14bZHysA==
+	t=1795140796;
+	b=qXVnY/KjgDDaFY5Adcit/Qi6ZAJyFBr/67zmAuoltrzY4BDi1zlLRyyfjFRDbGTzx58M
+	 Tzl6G5H6AiyzLfrOWPa2FqPDih/ObzSZOi2uA7/Roeh6vU91WNCGYFpMDxJCE9743pWnc
+	 nBtLsix22YQ9DBoKCqcC2pKRST8sbC+7lC5QLKek+0CJuh5Ir47G3ugFiEfVWFXSEAy+T
+	 0kx5qy6kDhDdEEkOxVh0VhwCzGeuAq6k68HN0LtOFwPfJdKC71+ZKOo29AwpTaGWSdQRK
+	 IV5O7LSm/XcCAfDbGduUnPlhtzqipkLIzlnLY9d9YWfPRJWQ/gctAONBCRCsLSxL0YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140613;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=+qtJFN7QZfkUAvN4tcrM+mBSIcyecVu9QDWttC0tv7w=;
-	b=0OtYb0zlx5eQL4FOYcsZ0I82G308EIwSmZpB6iuv8tfed3PzyxVJwuu8kU/fN2H3LNLK
-	 RbamVjMfGgM6oOrFVuNH+8vWu4Th6yC1hHbEHnDX2ApsP2NbNcjjnxxZnQgqxIyUvWmrG
-	 yRz9x1bY0MEErVNnR26PMvUzDn6l5azgQH93lX/r8HV3fRr7fsYySKWr4brp6h8xpi4GP
-	 Lq9I3aQbGyKUGwDHOJ6b+ac4CBm6wbLRNdPda1ezc2K6BobJlEIcYILVhEnFru64GVmNE
-	 rU/1/shyjMACQDVLpv5f5P+eK4YSg807U3+2WIWJNWyZzBf1IzMysfjUa+EQ6SQ5vFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140796;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ws6BnD7DvrtX7tpZzVtK4JHO3eme1zv2JhnGB9HbSQY=;
+	b=RZafpf9GI1W0gXsT8HH5uD8VbNL/BixqgBS1mCrh+uEUxQX1CT693IQkhEynY/4oTBbH
+	 fslVcglPjJ3cw44pTevPmMKm5IUa4WkosvBFvgUAwlXVqh1KzNfh6UfTkeLFFtVkDfHrc
+	 RG2thuqQK/P8QFRfKxQPpjkDRnWvv2DDHrfAw33HGXoNiAyW0ehROlIky2NJUY8NNSJIr
+	 BIlEso5ClO9OiRTMTsYCHcmGWeFfEvnwFs5pHWgnJZxdXtKEuFdbzukPHgd67yHXPbprf
+	 fnKuLJRzHtVPXdF8/kQuCJOsHGtOaoEiE8SfX5jdm8jmerLpKcHIqLgWFoQZJtRbT6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hvtP7O7j;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SL55XnNI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8149E606A334;
-	Fri, 20 Nov 2026 02:10:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B74D606A326;
+	Fri, 20 Nov 2026 02:13:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hvtP7O7j
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4276D1F000D1;
-	Fri, 20 Nov 2026 02:10:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SL55XnNI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D2991F000C4;
+	Fri, 20 Nov 2026 02:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795140613;
-	bh=+qtJFN7QZfkUAvN4tcrM+mBSIcyecVu9QDWttC0tv7w=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hvtP7O7jK1zryM/ExBbjIJX7Lv273rghFzUz1iHciwHCPbG6Rk58KkZvnvB397/OW
-	 gFQYqEE90GfSsTaK/4PraNIhEkUC9iIdcaCmN/sq5U6/rUE7poy3zVl7Fl5G0gica6
-	 +XvEksMCff0BK1eiBS0tlwHLEfWwd9/us7HmfoGHBbBLRcqq6n0Bz3f6pLSwgu1P/k
-	 Bl90g5KB1VX/tlxVxLJqdiFCJxwKw5/mnMVlgRFo6h9VQKRPDmMZ/B0BjNf1r/FZqS
-	 0CSI8Qk2wZFNDB3gp76s7RVrT+LcrJk2Xv/B0T3ot6REPy86j+7tCj+Q7F5XY4mz11
-	 wQ9Z+0yGX0zXQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A2EE3808209;
-	Fri, 20 Nov 2026 02:10:13 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795140795;
+	bh=ws6BnD7DvrtX7tpZzVtK4JHO3eme1zv2JhnGB9HbSQY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=SL55XnNIR1wy0o5ZKorhvb8MyeWJhn7wF+uTS1ukf6zCbZ2lMRbVz8390mfnAe7fv
+	 rs2RYHdeH++oDr9ry6K3PhiZubVnDrMgD81Ox9bLWfe3Gi2aLaVbud2mp+p5ihR4Yk
+	 zW1FeObElDiOdXQrEdxXyIHorJ5y/2E2z5af7BnplJDYYjXTS7Tqrb+IkAI/zw5jYT
+	 JZygLDIbKC4JJ2xeg6sjnObF7oMcBAIUrinfSqs95Of1IXKWsV2WYs86dGJ/VXJDpq
+	 CAa6k2iuWHQVBf0qMIE364UzHAO261lTtl1wraAtTs0qNCr3neTFpfC/+aZ9KojbI1
+	 MG1KqMg6eNKgg==
+Message-ID: <677402dc-c023-4c41-b437-f29083ab2a35@kernel.org>
+Date: Thu, 19 Nov 2026 19:13:14 -0700
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,50 +51,229 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v4] net: phy: aquantia: Poll global status
- register for provision ID
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179514061177.3979015.6848094959866976600.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:10:11 +0000
-References: 
- <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
-In-Reply-To: 
- <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
-To: Hongmei Xu <hongmei.xu@oss.qualcomm.com>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- sagar.cheluvegowda@oss.qualcomm.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 2/3] ipv6: add ip6_dst_lookup_flow_cookie
+To: Ralf Lici <ralf@mandelbit.com>, netdev@vger.kernel.org
+Cc: Ido Schimmel <idosch@nvidia.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Neal Cardwell <ncardwell@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>,
+ Steffen Klassert <steffen.klassert@secunet.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, Florian Westphal <fw@strlen.de>,
+ Sabrina Dubroca <sd@queasysnail.net>,
+ Antonio Quartulli <antonio@mandelbit.com>, linux-kernel@vger.kernel.org
+References: <cover.1794906743.git.ralf@mandelbit.com>
+ <7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com>
+Content-Language: en-US
+From: David Ahern <dsahern@kernel.org>
+In-Reply-To: <7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 16 Nov 2026 19:14:50 +0800 you wrote:
-> According to the AQR113 PHY databook, after firmware reset, a 20ms
-> timer needs to be engaged to allow the supplies to settle prior to
-> allowing the PHY to boot. The working flow is:
->   -After the 20 ms timer has completed, hardware state machines
->    designed to guarantee PLL and band-gap stability engage.
->   -After the PLLs and band-gap are locked and functioning properly,
->    the processor and digital circuitry are released from reset.
->   -The PHY image is then loaded through MDIO boot-load and the
->    processor boots.
->   -After the processor boots, any provisioned register values are
->    set, and the PHY enters the provisioned operating state.
+On 11/17/26 2:21 AM, Ralf Lici wrote:
+> Persistent dst caches read the validation cookie with rt6_get_cookie
+> after route lookup has returned. For routes without their own sernum,
+> this reads the current fn_sernum of the associated node. A concurrent
+> FIB change or xfrm policy insertion can therefore pair an old dst with a
+> new serial, allowing subsequent dst_check calls to accept the stale
+> result until another relevant change.
 > 
-> [...]
+> Add ip6_dst_lookup_flow_cookie to return the dst together with its
+> validation cookie. Sample the cookie between two reads of the IPv6
+> generation and return cookie 0 if the generation changed. This lets the
+> route dst serve the current packet while preventing its subsequent reuse
+> through cache validation. xfrm bundles retain their existing validation
+> through their own route and path cookies.
+> 
+> For nexthop-object dsts, return the pre-lookup generation and require
+> the supplied cookie to match rt->sernum in ip6_dst_check. This also
+> rejects a dst allocated with a newer serial after route selection.
+> Existing callers passing rt6_get_cookie retain their validation
+> behavior.
+> 
+> The generation checks require writers to publish routing changes before
+> advancing the serial. Move the serial updates in fib6_ifup and
+> fib6_ifdown after rt6_multipath_rebalance, preserving their existing
+> invalidation scope. Otherwise, a lookup can observe the new serial while
+> selecting a nexthop using the old ECMP bounds, without detecting a
+> generation change.
+> 
+> This establishes the API and writer ordering needed to address late
+> cookie sampling. The following patch converts selected socket cache
+> users while other persistent caches are left for follow-up conversions.
+> 
+> Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+> ---
+> Changes since v2 https://lore.kernel.org/all/e48cac0cdf9f3adcedecbbfff4a314a98bc22d01.1794384146.git.ralf@mandelbit.com/
+> - Move the serial update after rt6_multipath_rebalance in fib6_ifup and
+>   fib6_ifdown. (Sashiko)
+> - Clarify that this introduces the new API while the following patch
+>   converts *some* users to it while leaving the rest as follow-up.
+> 
+> Changes since v1 https://lore.kernel.org/netdev/e40f48e925a0950eac99a3f084e485e82cabe88f.1793806941.git.ralf@mandelbit.com/
+> - Fix kdoc return statement in ip6_dst_lookup_flow and
+>   ip6_dst_lookup_flow_cookie. (NIPA)
+> 
+>  include/net/ipv6.h    | 13 +++++++++++
+>  net/ipv6/ip6_output.c | 51 +++++++++++++++++++++++++++++++++++++++++--
+>  net/ipv6/route.c      |  8 +++----
+>  3 files changed, 66 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/net/ipv6.h b/include/net/ipv6.h
+> index 579df1516d25..5a6c66504056 100644
+> --- a/include/net/ipv6.h
+> +++ b/include/net/ipv6.h
+> @@ -1062,6 +1062,11 @@ int ip6_dst_lookup(struct net *net, struct sock *sk, struct dst_entry **dst,
+>  #if IS_ENABLED(CONFIG_IPV6)
+>  struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, struct flowi6 *fl6,
+>  				      const struct in6_addr *final_dst);
+> +struct dst_entry *ip6_dst_lookup_flow_cookie(struct net *net,
+> +					     const struct sock *sk,
+> +					     struct flowi6 *fl6,
+> +					     const struct in6_addr *final_dst,
+> +					     u32 *cookie);
+>  #else
+>  static inline struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk,
+>  						    struct flowi6 *fl6,
+> @@ -1069,6 +1074,14 @@ static inline struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struc
+>  {
+>  	return ERR_PTR(-EAFNOSUPPORT);
+>  }
+> +
+> +static inline struct dst_entry *
+> +ip6_dst_lookup_flow_cookie(struct net *net, const struct sock *sk,
+> +			   struct flowi6 *fl6, const struct in6_addr *final_dst,
+> +			   u32 *cookie)
+> +{
+> +	return ERR_PTR(-EAFNOSUPPORT);
+> +}
+>  #endif
+>  
+>  struct dst_entry *ip6_sk_dst_lookup_flow(struct sock *sk, struct flowi6 *fl6,
+> diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
+> index 3cc911f6618e..b87ccb5586cf 100644
+> --- a/net/ipv6/ip6_output.c
+> +++ b/net/ipv6/ip6_output.c
+> @@ -1279,8 +1279,7 @@ EXPORT_SYMBOL_GPL(ip6_dst_lookup);
+>   *
+>   *	This function performs a route lookup on the given flow.
+>   *
+> - *	It returns a valid dst pointer on success, or a pointer encoded
+> - *	error code.
+> + *	Return: a valid dst pointer on success or a pointer encoded error code.
+>   */
+>  struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, struct flowi6 *fl6,
+>  				      const struct in6_addr *final_dst)
+> @@ -1300,6 +1299,54 @@ struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, st
+>  }
+>  EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow);
+>  
+> +/**
+> + *	ip6_dst_lookup_flow_cookie - perform route lookup on flow with ipsec
 
-Here is the summary with links:
-  - [net-next,v4] net: phy: aquantia: Poll global status register for provision ID
-    https://git.kernel.org/netdev/net-next/c/d3f362a76211
+what makes this an ipsec lookup?
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> + *				     and return the matching dst cookie
+> + *	@net: Network namespace to perform lookup in
+> + *	@sk: socket which provides route info
+> + *	@fl6: flow to lookup
+> + *	@final_dst: final destination address for ipsec lookup
+> + *	@cookie: where to store the cookie for the returned dst
+> + *
+> + *	Same as ip6_dst_lookup_flow, but also returns the cookie describing
+> + *	the routing state the dst was obtained from. A caller caching the dst
+> + *	should use this cookie when validating it with dst_check. If the
+> + *	IPv6 FIB changed during the lookup, a route dst no longer validates
+> + *	with it. An xfrm bundle is validated by xfrm and ignores the cookie.
+> + *
+> + *	Return: a valid dst pointer on success or a pointer encoded error code.
+> + */
+> +struct dst_entry *ip6_dst_lookup_flow_cookie(struct net *net,
+> +					     const struct sock *sk,
+> +					     struct flowi6 *fl6,
+> +					     const struct in6_addr *final_dst,
+> +					     u32 *cookie)
+> +{
+> +	const struct rt6_info *rt;
+> +	struct dst_entry *dst;
+> +	int gen0, gen1;
+> +
+> +	gen0 = rt_genid_ipv6(net);
+> +	/* read the generation before looking at the FIB or xfrm policies */
+> +	smp_rmb();
+> +
+> +	dst = ip6_dst_lookup_flow(net, sk, fl6, final_dst);
+> +	if (IS_ERR(dst))
+> +		return dst;
+> +
+> +	rt = dst_rt6_info(dst);
+> +	*cookie = rt->sernum ? gen0 : rt6_get_cookie(rt);
+> +
+> +	/* keep the FIB and cookie reads before the final generation read */
+> +	smp_rmb();
+> +	gen1 = rt_genid_ipv6(net);
+> +	if (unlikely(gen0 != gen1))
+> +		*cookie = 0;
+> +
+> +	return dst;
+> +}
+> +EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow_cookie);
 
+I think this can be a standalone patch introducing a new API
+
+> +
+>  /**
+>   *	ip6_sk_dst_lookup_flow - perform socket cached route lookup on flow
+>   *	@sk: socket which provides the dst cache and route info
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index cc505817399b..c54844b83828 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -2817,7 +2817,7 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+>  	rt = dst_rt6_info(dst);
+>  
+>  	if (rt->sernum)
+> -		return rt6_is_valid(rt) ? dst : NULL;
+> +		return (rt6_is_valid(rt) && cookie == rt->sernum) ? dst : NULL;
+
+unrelated change to both the new API and the ordering changes below. It
+deserves to be a separate patch with its own clear explanation of why.
+
+>  
+>  	rcu_read_lock();
+>  
+> @@ -4911,8 +4911,8 @@ static int fib6_ifup(struct fib6_info *rt, void *p_arg)
+>  	if (rt != net->ipv6.fib6_null_entry && !rt->nh &&
+>  	    rt->fib6_nh->fib_nh_dev == arg->dev) {
+>  		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
+> -		fib6_update_sernum_upto_root(net, rt);
+>  		rt6_multipath_rebalance(rt);
+> +		fib6_update_sernum_upto_root(net, rt);
+>  	}
+>  
+>  	return 0;
+> @@ -5015,8 +5015,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+>  			}
+>  			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
+>  						   RTNH_F_LINKDOWN);
+> -			fib6_update_sernum(net, rt);
+>  			rt6_multipath_rebalance(rt);
+> +			fib6_update_sernum(net, rt);
+>  		}
+>  		return -2;
+>  	case NETDEV_CHANGE:
+> @@ -5024,8 +5024,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+>  		    rt->fib6_flags & (RTF_LOCAL | RTF_ANYCAST))
+>  			break;
+>  		rt->fib6_nh->fib_nh_flags |= RTNH_F_LINKDOWN;
+> -		fib6_update_sernum(net, rt);
+>  		rt6_multipath_rebalance(rt);
+> +		fib6_update_sernum(net, rt);
+>  		break;
+>  	}
+>  
+
+And then these ordering changes need to be separate patch with an
+explanation.
 
