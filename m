@@ -1,61 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212784;
-	b=fBldAxmTfsfOXm6Tyj+3qmrlTxUDfCDmlsLrRD9K1ikt+/tAR0zpZMgj8ALwejCQWMtq
-	 cCf0Oqls8qAE3425gvgE1iZNx5crCyVCWIGEWZKNQISI5v0dyjWslBd2HBuu7yKm0BNPI
-	 ByTh5vVUTwTBiIerInjMzdJxoSHpBEGVvoaJbdhAhwI4lQ3nTWnZYUEBKw9mrVCvlf0sY
-	 ngl6p+zW7U2QXzBStrCoK9sb9faBhmYvtMLeE3dJods3a+jIlfX579By85BiNLMUFIbXo
-	 w3UrBAKr/2J049i07+mpyU5aqd2uy0BNTbyrd7Eh0hkuv75d6yHLzv06ulQb8rrDs0g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212784;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=RAg6Mpdcvh/+KxfIFzt5il4MRvFCLhL1yfr5pd9t0uU=;
-	b=AZnEmzV5UUH6tEwTqW+ZsD3B/YHXJeJr5qGs0NwuExlr1kPs+sn/ollNsmm7PETv0yNv
-	 0Eaflxbohfl9LKaYBpPNvQT8cCufRN5dCeANnEtQf/l8WQ1+AwuKf2sk/Pu40eAKdKxRp
-	 PBr2g0qK5xWRRm7B+p2kI5hclnQnZoAoMFYEMlZBCX7azSZRmvYEdA4FZIfgJFjk2iU7c
-	 2xkbvh3KqDaeNGxTEv94olEAUMp5VXX3MwSrpZEFlIws19T/Sl1sbCSqcDr0osJ+HNa8B
-	 VP9ZAwRlkgXqvmHyPdlL1IpdXKcxr+91v/KxNcCmft8jQE7T5baqsFxrs5CQdh/flhg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbGS0YAn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795212907;
+	b=oZWU7NDjhXIoVM67ECC8+X3oqJpRPFIrJ+hfCK6JCdGBRQwjh6Es7g9lee6XNOWMDRKY
+	 nFrsdMBDmtza+gtLvurPk8feFX0fZqN7G43XyLUsLEbBBF0Z4Bx9FqV8ajPfuKISuEvcs
+	 Oyqit5KD9vmZ1m3Y4dg3WJvmvmWjqYLPDe7IGyWimlSLjWKRjH9ok7Iaxu7H9K70zfyOG
+	 A3L1Al3ncDz2f/X8XBiomXhgf8gT237JGHp22aiyWNS1Op4xw0G8kxfyEZrzI3lN++BXG
+	 AxkaFuQ7/QwYvU20NS1WmswWQkVkCqJ5ivJR4j+oRQ3bqWcCsM5x7S80MU6Ja4fw13Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212907;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
+	b=gUF5Lu03fKboYInzsPhjx7xMq8Nkf3lGLqbXv+99PQL1A15oLMxlpNhZ1Y9BcLMunBk8
+	 q2uuJ6RNxPFcd136kjwYH01s63e1+NDTLvSrv/duCr8XK1wIy1hU4qMD0x0ohD2olEplt
+	 XVqhYXBcA0dSSubHWp16v0ocv0qPdJormoZDcYoTk8wNZGeUqbFj7Xfybgiax6Ta5/GEA
+	 KZOJ9ctnaljSYgAtyB6//sKvKmEQO8Z/ekigJLvF622khkZxqx70pXPzfixZIObOVr0+b
+	 FRUZQsrv0oI1DWt6bgWy4oan+bcsTql916jI/16xFG4GaHLJt1hxe6kxJq9wRAh2CQA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l3SOdlg4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EC3E606A68E;
-	Fri, 20 Nov 2026 22:13:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC24E606A699
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 22:15:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC24E606A699
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbGS0YAn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61AD41F000C4;
-	Fri, 20 Nov 2026 22:13:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795212784;
-	bh=RAg6Mpdcvh/+KxfIFzt5il4MRvFCLhL1yfr5pd9t0uU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=bbGS0YAnzWyC9pNnjeqTIN4We0y2jDbCIvxCiwfv1iPgiLdN0KneN/C9T1GT1w6Xn
-	 25Ug2RfndDjIeKLkSxH/HLc2ZICbcKv3pJYODnW3L7ikp9NoyF8yfpGJYq0QtfG53w
-	 y8lI9GmkbaOX0EiwXfC4/lUL4m/+VkEDHireXy+2MADHTQYdR51UL2RdI1VHC2FH95
-	 vRd4ScRbSo4zZPfJNrl9ibYOyR2LR6J3VV2sIkVdjudnv3xPFe3yiLHfr2XC1t4xrv
-	 gLDSPj32vVoA5CRKEhG3WsX8LPjaCosUG6er0vb7/If7gOIAUysx7V1L5tFSmV75Hq
-	 bf5A23hfp0XUw==
-Date: Fri, 20 Nov 2026 14:13:02 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
- michael.chan@broadcom.com, manishc@marvell.com, joshwash@google.com,
- hramamurthy@google.com, tariqt@nvidia.com, saeedm@nvidia.com,
- daniel@iogearbox.net, hawk@kernel.org, sdf@fomichev.me, willemb@google.com,
- przemyslaw.kitszel@intel.com, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next 3/8] net: state the "XDP excludes HW-GRO" rule
- in the core
-Message-ID: <20261120141302.5bb2b7ae@kernel.org>
-In-Reply-To: <willemdebruijn.kernel.7756e60d4e06@gmail.com>
-References: <20261118232315.3593731-1-kuba@kernel.org>
-	<20261118232315.3593731-4-kuba@kernel.org>
-	<willemdebruijn.kernel.7756e60d4e06@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l3SOdlg4
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-70b875f6f13so1084887eaf.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:15:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795212902; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sQmtRtZHtBq+QjpVsCMtU4aAsNdtMrQAwIuFIF7jlYurqjDziPzxG6+M/37f8MbjyQ
+         FWEjW8D4fG7VBRkgUyZRYGe+sLLU3KIOrfg+exWVjUBeFNFHEtzCHregVMXXDHqxEz86
+         L5WAli/qrg6PloCjsWqDIv388OWiqWps/glfK0AmATWbecpB5b2A9gViXGHbY1kxdoVt
+         wCeU86uIwwnkcxBV8biSg7OYEtrkp2Djn+hwpSaniXaox7fwmb9THr0iwJ8k90Kngbgm
+         5FCF0N1ZFtS+3oGLoDJIXlNiGEEI+LDFswt6ovBp+pYApFxi+n+v63KMXjbCX2KV+UTi
+         azug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
+        fh=Oh5IhsrQ53anB/yL9QQ01jtuX8niojyIzwni9+Lg3gw=;
+        b=BJvHAYOCR+LHSwVdCqgw1P8jeUQlhQcVaYpmwYhTmb67+Inny4wewc7BdUbkHXvF4W
+         pIIyddgjzcLoATBsbXgqcQtuQ/eQbbiGAITnEZMud4kDc/gXb6KJoCJ37JvQd7lsWYEG
+         5x6DGebvjqzWtZRmbyNP5JgFHmte83yOMqqWA4klWDdQaP7Lm6TZ29mmj9lnHSrGMTBX
+         igTop725tGtBAqkjxyxc2wGuK97BGXCWqFIbTt7akuAtFdlwcNkd5DarIL6jZbpG5Yh8
+         H57b0f03y2B6PLq3sDmwa0vBDxdaTp85jwuFTb2/1p+HCLZYblCNsjKLiLcLSOftY/q3
+         Ds4g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795212902; x=1795817702; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
+        b=l3SOdlg42qbKIlI9+Ac4MBHXRldrvquCDkj/z4faFkQvuVq4q6ueXT7hGjf1x2DZ6J
+         xr0kGpYWy6XzLMIYfaRXYEt32hzwIUIh5GcDjS5qMo+NTm/W2h4QLrWT0vjrrNJqAY/V
+         DaHg/hTmuXLf/SbZgeXG7LYeRhLX6xEIsHTO6045XjdtPDKJm9dClJoHuo7IikmLqZyI
+         LHip8V4qxMZCOM5nMYFwgXFSqKhOQGq15asHuhcCUR+1HQYSdRVD1FRKEvvrmiwEApWn
+         r/Lj6QL4JWoSFYjlCjmkEgRPT9oWf0bS7UiyNNPJvMB1PL+uXio1JWvcqawJCFSR4NEc
+         ME/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795212902; x=1795817702;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
+        b=IHGnj5/YJ2MdiL5izchNygXyGJaYop3BoADssyqtmykAv+EOaa3iPx0NuKkEiaNf7S
+         54FEbvy5J/jsilpLHiiF2oHEog1hvfmFiYs2nIAsi2wqAc3TDxf+1QL4dwe5yLr02a8y
+         n0dAx+zfCMh+8OSsIXKg++LRAE8pg9yq1WyqZQvnvI+TJ8QhoLmd2deIsHlIHWz+sZoD
+         1LTRQLoaE+Xs4U46AJSjgRTSzOAsA7odsWgVxK/tcuNcg8t0fyU4BAJMrH90Lulmxwmz
+         5XgcFv+D0USM7YYm5B8ggvadZpeyudWXPh01xjq5DryG14AFr9ShVk7Rz0FbNidAhf08
+         encA==
+X-Gm-Message-State: APuU4Z+i8YgdCCo2GHQtlx8HmzHtrm+Ap3Im9vh4qXjRkmVtuIi6VirC
+	ENoUl/X8K8D2UzTmgYBN582icwRQEw8QhN5Tk2y+gwQi6kkNAQM1roSg/9CSbINmsYtRdSnKqqJ
+	jvLj2OHV/xtWfDxd8xxzRjTsPzb6Q/B0=
+X-Gm-Gg: AYBFou2IyU6AmtaZhq7PGkHE6QyU7bCjFJZhVuMU1HtbcZCary6fRNECq2WVUizkK3s
+	Pj+sfS6t1rtncZavta8XAFYfCRU9+csfwOSu86kaTwiGdYxepWDf6XfL64yXb6hJRegqLl8PYPa
+	qBps1fZUUw5aXKNhImorRs9KZ9Dfr+Q0TtahmGGQr9UHltOrLw7i05yicEsYBAvSO/Vlm7NI/hw
+	f5EeAZXNHxxxiU/cfGX99XwbwdcCkkIvkxIwNPADlO8HRZfyx0OVm4/YH6xEe5SZhhEBXdGG4r0
+	vJWF2cGm2Z+Yq2nhPiMJVTwpGV5HhAUkq/39RYkaoZxs6bS2iwCBSb7DpWWukdlKrtIvdhs1E/Q
+	bamPzG1r/g1x06Cs0qukUpA296kVg9uuGEA0K
+X-Received: by 2002:a05:6820:4615:b0:6f8:8385:52a with SMTP id
+ 006d021491bc7-71b395ac078mr3579653eaf.58.1795212902477; Fri, 20 Nov 2026
+ 14:15:02 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,35 +103,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <CORE-5IQX.v1.r0.20261120050801-1@mojatatu.com>
+In-Reply-To: <CORE-5IQX.v1.r0.20261120050801-1@mojatatu.com>
+From: Eyal Birger <eyal.birger@gmail.com>
+Date: Fri, 20 Nov 2026 14:14:24 -0800
+X-Gm-Features: Aa3M54rA3AVclKtpTsDBdZrwTvIcM9OP1ypUCaxAnAe_aZyVGm-fhga0xkyXQgY
+Message-ID: <CAHsH6Gt7RkR1kKXQaQUdz-_8VYXfW7NcwPxNtzwaHtBYWgRuqA@mail.gmail.com>
+Subject: Re: [PATCH net] net: xfrm: interface: restore dst_orig on every xfrm interface
+To: Jamal Hadi Salim <jhs@mojatatu.com>
+Cc: netdev@vger.kernel.org, Steffen Klassert <steffen.klassert@secunet.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Martin KaFai Lau <martin.lau@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, ipsec@lists.linux.dev, 
+	bpf@vger.kernel.org, stable@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>, 
+	Victor Nogueira <victor@mojatatu.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, 19 Nov 2026 17:59:08 -0500 Willem de Bruijn wrote:
-> Apparently drivers can enable HW_GRO in some edge case (that can be
-> plugged itself?):
-> 
->     The rule is only enforced at attach time (dev_xdp_clear_rx_agg). Later
->     recomputes don't re-check after ndo_fix_features. Example:
->       1. Attach a multi-buf XDP program to mlx5 with HDS off. HW-GRO goes off.
->       2. Enable tcp-data-split. rings.c:253 only refuses this for
->          single-buffer XDP, via dev_xdp_sb_prog_count().
->       3. The next feature recompute runs mlx5e_fix_features(), and its
->          "Keeping HW-GRO enabled" block (en_main.c:4643) sets GRO_HW again,
->          after this strip. HW-GRO is now on with XDP attached.
->     This already happens today, but once 5/8 removes mlx5's own XDP check
->     the core is the only guard, and it misses this case. Either add a
->     post-fix_features check here (warn and strip, or refuse the change), or
->     make the HDS-enable path in rings.c refuse while any XDP program is
->     attached and the driver ties HDS to HW-GRO.
+Hi,
 
-Enabling of HDS can't happen in the sequence you describe, driver
-checks:
+On Fri, Nov 20, 2026 at 6:09=E2=80=AFAM Jamal Hadi Salim <jhs@mojatatu.com>=
+ wrote:
+>
+> Found while auditing the xfrm metadata consumers of a steered packet. One
+> of them is an xfrm interface, which restores the original route before th=
+e
+> xfrm lookup; the swap warned on the metadata dst still installed in the
+> skb, and only the collect_md arm restored the route at all.
+>
+> The issue:
+> An xfrm interface takes the if_id and the underlying device either from i=
+ts
+> configuration or, in collect_md mode, from the xfrm metadata on the skb.
+> When that metadata also carries the route the packet arrived through,
+> xfrmi_xmit2() puts the route back on the skb, because the xfrm lookup tak=
+es
+> the address family from it. skb_dst_set() expects the dst slot to be empt=
+y
+> for a reference counted dst and warns when it is not, so the route landed
+> over a metadata dst that was still there; a kernel built with
+> CONFIG_DEBUG_NET=3Dy panics on the first packet that takes this path when
+> panic_on_warn is set.
+>
+> Two more defects sit in the same place. An interface with a configured
+> if_id never restores the route: it takes the metadata dst as it is, whose
+> address family is AF_UNSPEC, so the lookup finds no policy and the packet
+> is dropped as a link failure instead of being transformed. And the restor=
+e
+> moved the route out of the metadata dst, which a clone of the skb shares,
+> so the clone that reached the interface first left the original packet wi=
+th
+> nothing to restore.
+>
+> The same slot overwrite is in the unstable helper a tc-bpf program uses t=
+o
+> attach that metadata: bpf_skb_set_xfrm_info() records the route as dst_or=
+ig
+> and installs a per-cpu metadata dst over it. The per-cpu dst is shared by
+> every invocation of the program, so the restore cannot keep anything in i=
+t.
+>
+> The Fix:
+> Restore dst_orig in both arms of xfrmi_xmit2(), taking a reference with
+> dst_clone() so the metadata dst keeps its own, and empty the counted slot
+> with skb_dst_drop() before the route is installed. The helper allocates a
+> metadata dst per skb instead of a per-cpu one, so the route it records
+> belongs to that skb and is released with it; the per-cpu allocation is no
+> longer used and goes away.
+>
+> Conditions to recreate the bug:
+> A tc-bpf program that records the route as dst_orig with
+> bpf_skb_set_xfrm_info() is self-contained: the overwrite is in the helper=
+,
+> so the first packet that calls it panics inside bpf_skb_set_xfrm_info() o=
+n
+> a CONFIG_DEBUG_NET=3Dy build with panic_on_warn=3D1.
+>
+> An interface with a configured if_id shows its own defect without any
+> other patch: it drops the packet as a link failure without consulting the
+> outbound policy. And a clone made after the metadata was attached consume=
+s
+> the route before the original packet arrives.
 
-static bool mlx5e_ethtool_set_tcp_data_split(struct mlx5e_priv *priv, 
-...
-        if (tcp_data_split == ETHTOOL_TCP_DATA_SPLIT_ENABLED &&                 
-            !(dev->features & NETIF_F_GRO_HW)) {    
+Thank you for the fix!
 
-and with XDP attached GRO_HW is not in features (only wanted_features)
-
-Thanks for the reviews, I'll spin v2 before EOD
+Reviewed-by: Eyal Birger <eyal.birger@gmail.com>
