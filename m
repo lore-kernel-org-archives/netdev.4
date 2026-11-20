@@ -1,60 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133731;
-	b=lkgBaQhVx72KGgnkAYktae1E6Us/ojhfPTdkvAn4ErOAwgGIDfWsJlm3E+jL7upGrhl6
-	 4cJ+cZo9wnMtZg7KXn2si+inT5EAGRKy2Z76XVV2nU4W/48apczc+PzgXvoMeasR5262T
-	 Vtxhf0T5+G/IbF0p5+3pTYQXrdDHu+2B7N64fs96nji99kBGEgAhxTYNaruxA5BeD8svY
-	 JZXl9mO/ZumhzanTad39B5eX2/Ceq7E0v4P0Y3IXtFBpQ3fuzx5J0QQlOqfWDrSgN11F0
-	 Sy/NnLqsTHT+fxjwn8Aw0zOgaS7A+eUskPPZyQbVpVLRO/VVmfXlpp1D+R9g92sbNGw==
+	t=1795133820;
+	b=Id6FGl9jmphBZl2HAOif7T379dzooOfLGUYGhmu+UyVCjY2B9siCO8T93cAIx4JrLr7T
+	 yv0YSjDsIG8KcpNErCpQlBqzk4h2mnbnlIIMNe+vVTHbGSgG0BjoiAvY2cUgthGRodJYA
+	 z7qlDohi4ft6/r4ZtmThkHihqMHAvapbUGPDdi5c2jlEM3LFs6+sv3dTcjOtZydRG0Bwq
+	 5P4gEmYmFMyMmQd+9Wcf56ctWcPUOxcLx8gBff3qLEILiP5sUkD7YryCbX7+PoQke6n7H
+	 g39jRIGcpH1KhkfOP0Zel9HBpBrbMZ5A6NBg8KcoJo6eWvl4TNOk9nqSXAtyqdl7LbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133731;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=TGAIFdomBs3si+EC7jlWvCPtv3g04WD3unZgP0aqsRs=;
-	b=mta4P7Sf6qVgQ/f+NZoBcmx9hMXTq8wKDoJDzXlTqPLJtxU8TgLZBSLOmigfw2kT2xTk
-	 muYYeBnBRQbLGitd9zCQHT/ij52wmlXgRegQZvKFCN11CQ6L8bADkV9XMmjYgzt4AaYoB
-	 qywRGu0ZGuhGlUUP4zxR+3UY/b0fdi+IcXgwjF4R4Sg4bwLtgTy7sSBgNr8w5wsqUh6DP
-	 7WfUPi7dhuYfFP5pqactmXubqRtiXdP+aT87rGqdTxeZ12XTQ0HCcFiAWp+J5EuTat26i
-	 psAJYr3mxuaawmT1TGdlIZDSC6+sxtuhRRrarMat5WF1NSKBZtj+fk4RIw4k4xsWRhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133820;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
+	bh=UaidrchdsiA6ina6W5vc78SK6thsHus4W9FFXBWLfs8=;
+	b=HnGqs8h1SguEhhixdAgukH9PHcMKg6//PE8JsWJfLL56RHybxuY/cMMIHoCzCyV042oW
+	 b/ltdj2XIMV6Y5hAhJg28L1yeinz7rminM5CxRDxDQ748S8a5MPvJIs+GSiA/nYauZJ9s
+	 oH9EKN2jOrK82nQVVa0qExxRWDIri3wEfrBAMEv2M4jtn8V3co230i8Kl7rkRD39SyyI1
+	 DRzqpxSFI+OJTApooZQCObc9F2vrljJ+sQIxVj7eGQMwJCukAObCdkHk6BjT5FftWCRDg
+	 o/fu35Azk0FREB2oXtFi44tHqnuiupcw1r6mKw6cBLBCW7MPURow3O0JvfzRmvYOuyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KLPRhAlk;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=netfilter.org;
+	spf=pass smtp.mailfrom=netfilter.org;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b="Kw/m1nn5";
+	arc=none smtp.remote-ip=217.70.190.124
+Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C86FB606A320;
-	Fri, 20 Nov 2026 00:15:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C32BE606A320;
+	Fri, 20 Nov 2026 00:16:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C32BE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KLPRhAlk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19A5C1F000C4;
-	Fri, 20 Nov 2026 00:15:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795133731;
-	bh=TGAIFdomBs3si+EC7jlWvCPtv3g04WD3unZgP0aqsRs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=KLPRhAlk0ACgoitR9dLSZc3QKxc0o++8F0qqYvsmSbK7V1dXjT4dMeJGQzET+kktK
-	 AmU+MiMATEvybCn7HFe4fKUhlk6lnlb42s4TehuYLcyXdxUbJnzCziYhMtVzohJakn
-	 nsDf7SxVQcNog2tbeEuI9i6UGmgSfBr79+0jRdpVNTcaSx94Nflcc+RDYb400Jw1wr
-	 jsa7zJc8JRUxSV5bfP5s73sSzrAAE22670vm9kOLt0ReM8f6CsOGEGszaQWipdrSaQ
-	 i6FtU8us7QgWrF0VpUOiycqY/Pj+N0wPokqagyYwqO/s+quN1XX3PBZkFVgx1uc1qJ
-	 fbhmG8XFquWcA==
-Date: Thu, 19 Nov 2026 16:15:30 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Daniel Zahka" <daniel.zahka@gmail.com>
-Cc: <netdev-bot+sashiko@kernel.org>, <alexanderduyck@fb.com>,
- <kernel-team@meta.com>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
- <edumazet@kernel.org>, <pabeni@redhat.com>,
- <dimitri.daskalakis1@gmail.com>, <mohsin.bashr@gmail.com>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>
-Subject: Re: [PATCH net-next 3/4] eth: mpnic: sync unicast and multicast
- address lists
-Message-ID: <20261119161530.0dc624d4@kernel.org>
-In-Reply-To: <DMY9FTQ22U8T.JKYB4HL8J8PH@gmail.com>
-References: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
-	<179499313262.3136.12811016164943625265@kernel.org>
-	<DMY9FTQ22U8T.JKYB4HL8J8PH@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Kw/m1nn5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1795133817;
+	bh=UaidrchdsiA6ina6W5vc78SK6thsHus4W9FFXBWLfs8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Kw/m1nn5uPO8sIjJtDnbS9vwZHOGeIIyv6jCAiZjfZqcMs9PfYN0Zu84MZXhXI2+l
+	 8VY2fpe/BgeMC2D+MZEFbir2yWm+v0rTo4/3r0ecDW8tCKVyarMELnpgMCZOnIt3kW
+	 0iYb+WIwvuljtEN2W9tGCMGiVvpGo9Rp1mZqoLP1NmdhuD5B8A0xzwCUrx/R8Z1lYj
+	 2pUcV72PNAgpMT77gSurAASzXvF0y1S1qXFEhcejdrmPsoEKBQYqpWtkJtNhK7CRSh
+	 T5WLE+NXOlfccAXSaHScs/X0au7VjVj86t/zTFVF+mRbdXcOsDPj421JZ4djs9x8MW
+	 t02UNDfBy259Q==
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 52D17601C8;
+	Fri, 20 Nov 2026 01:16:57 +0100 (CET)
+Date: Fri, 20 Nov 2026 01:16:54 +0100
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: John <shffr@protonmail.com>
+Cc: "netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
+	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+	"coreteam@netfilter.org" <coreteam@netfilter.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>
+Subject: Re: [REGRESSION] netfilter: flowtable: XMIT_NEIGH flows sent to
+ 00:00:00:00:00:00 once the next hop's neighbour entry is gone
+Message-ID: <av-RdjXsq4IXsnMg@chamomile>
+References: <MAEpYNlWKRd7lM0j62YlEZ97Ux1h5AyjSuFRm4Lxk2Q6haeDGTKqX8lpDRZ8slvBu6qA7Bbt18zpr9fyF_jArrEemTgRqzqluxmsGH7UcFk=@protonmail.com>
+ <avSIBUcLH4kZyISX@chamomile>
+ <avTngTkNKE5ApQW8@chamomile>
+ <LCJrB-Fde--T9NiYx2QfFb-X-9W-vsYYmtmrHwIKuKgM8enKRWF2DYypz2_zJKSKQBMUdb9sS6xMEfPihv1YO2FLjX1OUN-Td3Hq1eAdLgw=@protonmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,21 +70,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <LCJrB-Fde--T9NiYx2QfFb-X-9W-vsYYmtmrHwIKuKgM8enKRWF2DYypz2_zJKSKQBMUdb9sS6xMEfPihv1YO2FLjX1OUN-Td3Hq1eAdLgw=@protonmail.com>
 
-On Wed, 18 Nov 2026 05:21:44 -0500 Daniel Zahka wrote:
-> > Would it make sense to flush stale entries from both lists before either
-> > add phase runs?
-> >  
+On Thu, Nov 12, 2026 at 09:08:27AM +0000, John wrote:
+> Hi Pablo, Thorsten,
 > 
-> I see this more as a low severity issue, because having the device be in
-> promiscuous mode when a slot is free is not incorrect, just not optimal.
+> Thorsten: I first saw this on 6.18.60 and have reproduced it on
+> 6.18.62 and v7.4-rc2. 6.18.63 has the same nf_flow_table_ip.c.
+> b5964aac51e0 came into 6.18.y with 6.18.45, the release named in
+> the thread you linked.
 > 
-> If anything I would probably just rerun __hw_addr_sync_dev() on the uc
-> list again after the mc one, if the first call returned -ENOSPC. I
-> didn't think that was really worth it when this same comment came up in
-> local review though.
+> Pablo: on 7.4-rc2 your patch stops the black hole, but as you
+> noticed, one packet is still lost each time the next hop's entry
+> goes away, which with neighbour GC happens about every 75 s on a
+> long-lived flow. 6.18.44, before b5964aac51e0, lost nothing in
+> the same tests. On 6.18.y the patch only works together with
+> 871df5007eda.
 
-Ack, IIRC the MAC table is at least 100 addrs, so micro-optimizing 
-the ~128 -> 127 transition isn't worth the LoC.
+For the record, I posted these series to address this issue:
+
+https://lore.kernel.org/netfilter-devel/20261119090736.3342541-1-pablo@netfilter.org/T/
