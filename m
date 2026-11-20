@@ -1,64 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.63
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164347;
-	b=CyFvm8odzAfGzhn8z9gveFjAqqsPXq4kZKWkpOhu5kYsZ+kbXrPGnOcbgaNpx16o10Id
-	 3+NQtXDweXvlqf0fu3Q8c0+qA3I5yrQEgLferqMvms21Q4j2DWwbsD8t44kvEnz9M/b6F
-	 kyKjmVXxr6QqVa0JIs2vss9Y9iMNsqY+xsLODdWjNR6CcTDbZ9iV7JGtYQOziG41EpkwN
-	 C/z+xxMzbDQ/50iXCi+LDLqjNGqwX/HC+gcZX/U06Q4LDx9ofA9AvI8TQX8cB7yohKCuA
-	 veXu03ezIg9hEFwoOFdO7cNzSGO39kCXrwdFCD7k3TNQXwdjAxyFglbPJANAz1lJhKg==
+	t=1795164352;
+	b=Eu/M25QB+3i9wHgq/8AwyvCrHp5DARQLGb141OTfSbm+TSxp28BnaG6g76WrHjZLoSmy
+	 VQ4+wdf0z9O4DYOSjuVxdThkulT0SIp5OCEV/Uz/WV6S8+mDM4eEpOPjeybZI2G8mUcTA
+	 2B+RhmyfMoXWHSO6S3lJCZSHpeopu8dp2y4G59gSPR3H59hdcjvEF2x4sDWPZkKctInjq
+	 i4CYVHMJgSiotds0LphAuJlnzrvTJKuKUfMryU83U/qRA6/NQHIYKWvgftYFPd55t0U2b
+	 QmOIbloLbvoj6d0C4G9HhRL67mRJujzc8E/ZlrtuDdyrWsshoaW1wfP/tuBNU7y/ioA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164347;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 DKIM-Signature;
-	bh=4VvTXkf2XeNKXdsZD2LZXbg3e98NlnzNngOW4jq286s=;
-	b=KJWLl9Y1lFU+PeXS9by+Dxkp8OgAU9YMCVojagX+HRR/YUt4FsRdA+o/ZJ/Md/JLZEHd
-	 F23hqZGskW+GTUUVgQYkhUfqNoAX4Yo/4qWIIF1KiBwxi+K+S6JPdfeD7L1wlMv22g++y
-	 zvE0iCZynn4gHaP7O45dk+Zu3XYYzyEiezgYVZCzy/id5wf0PHLiEipaysJ4GYysiEfBG
-	 R0Xk3d5OFl+NsIeRJyN1hUR8bgO5A0hydzaCfb9HtsYh96TiinTVxrRh5TsD7RU4czqrU
-	 yJoNAy8AWxFIza71Kdfop+LIEDqHhqWkBEHuBbPyRefSihNt1D94h6fReEBcJjCdYJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164352;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=h9SZ7oit3rf7L0k3/vYhwQ/SCR9NX7RR4atVgmcpOZI=;
+	b=lKUMAgwMYkzjlN86zerQ0cMDKFyVFAUiCA0wPsyekDU6b//CVMx2CqQsiQqz6QNxCsEZ
+	 z39dNCQg40mUeGAWnmWGc0Y4mHhyQSL32HQVUFwJrbN604aB3vi5tlcKfp/gim/VuWDYY
+	 eklsimWPzl+CZ5qcUefOmZGODzZJQo/fGBsNLIWe6FxiFo6G47MH52m57uVxXMYJF1Erf
+	 AWtlCKlPzE/dGSthuw1/wrMi92DwM6XtaVfNd6/Qk6flF9ShieR8CWOrWIH9WXThK1GHI
+	 ZAus+A2aPTtxaMXA8cyJNq6h/cZhcs+pAYKEKIToHjf4mG0/XztcxcO8AZtxR6GyvBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=poczta.fm;
-	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b="T/tpUyWN";
-	arc=none smtp.remote-ip=217.74.67.63
-Received: from smtpo63.interia.pl (smtpo63.interia.pl [217.74.67.63])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nDDetwm1;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82ED606A88F
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:45:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82ED606A88F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01988606B4AF
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:45:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01988606B4AF
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=T/tpUyWN
-Received: from nr200 (unknown [80.68.231.31])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Fri, 20 Nov 2026 09:45:32 +0100 (CET)
-Date: Fri, 20 Nov 2026 09:45:30 +0100
-From: Slawomir Stepien <sst@poczta.fm>
-To: bot+bpf-ci@kernel.org
-Cc: ast@kernel.org, daniel@iogearbox.net, davem@davemloft.net,
-	kuba@kernel.org, hawk@kernel.org, john.fastabend@gmail.com,
-	sdf@fomichev.me, bpf@vger.kernel.org, netdev@vger.kernel.org,
-	maciej.fijalkowski@intel.com, tianyi@cloudflare.com,
-	tavip@google.com, toke@redhat.com, aleksander.lobakin@intel.com,
-	ilias.apalodimas@linaro.org, lorenzo@kernel.org,
-	magnus.karlsson@intel.com, ihor.solodrai@linux.dev,
-	edumazet@kernel.org, pabeni@redhat.com, andrew+netdev@lunn.ch,
-	horms@kernel.org, andrii@kernel.org, martin.lau@linux.dev,
-	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
-	jolsa@kernel.org, memxor@gmail.com, shuah@kernel.org,
-	linux-kselftest@vger.kernel.org,
-	syzbot+ff145014d6b0ce64a173@syzkaller.appspotmail.com,
-	stable@vger.kernel.org, martin.lau@kernel.org, mason@kernel.org
-Subject: Re: [PATCH v7 bpf 2/5] xdp: introduce xdp_convert_skb_to_buff()
-Message-ID: <awAIqhZWK9mr_zGQ@nr200>
-References: <20261119133032.2015656-3-sst@poczta.fm>
- <fd9b43958f6297b0031158bd33bdc6cc54f3c9338a4ee2e30bd6e50acf775a60@mail.kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nDDetwm1
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-490f38e9688so413285f8f.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:45:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795164350; x=1795769150; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=h9SZ7oit3rf7L0k3/vYhwQ/SCR9NX7RR4atVgmcpOZI=;
+        b=nDDetwm1tmYlMjIVqJLFKe1gaSh6r8MNX4r1kvlThsCDDkBwuBVMVnrnJ/9qdLgDtE
+         wVNIjFvU7Kxre4hSpD8jh1Kb5DQvH4wHzgZN51j5IEytJMI2UmY0/cWa/4FjXnupBUA2
+         7YMnQDq6+0OBtxcA5AL0LkXP/wpdGCJAKgM553Bxf9uGVIH9Jo6eNBD28xOkQKj5z59b
+         Hpf1OYgcmfTFphqf2487tJwRHtRLXR4RJygNt+PyX5Uil9E5gsQ30v7usfG3oqXkX/NZ
+         98RmZaZTsfjcHnAc0YFAqRXJ5j+zXPKqVtGBgPovml7Fs9Fxv3JG2sfz/giagTj4Dj08
+         Rzzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795164350; x=1795769150;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=h9SZ7oit3rf7L0k3/vYhwQ/SCR9NX7RR4atVgmcpOZI=;
+        b=AK04zNSdhgroivjIT0YsnArnhNQydrkWtZEkzeunI8WxWuV1gPYZxjLLbum6aPiyA6
+         3p/MkBeS9k2c2T10SlWXH8x7jKQSlhJ7MF1IIuA53IoaBI5nAaaOC4EIp4AX3wuHlqkh
+         HPpnTpEyv3uEL7IBAqg9dFF10MmAE56irpx0oZTJ835rH5TRJmmQbLjWR2KYCPs6Nox9
+         YqKqpJ0ZDCoGffgsd4GFrpuyf/Kaky/bVKbGpUZB7dkczjZrFZbVM0WqCEg1kDcMDWEk
+         3gv/ZojM4phCoUes7ReAW32bvp6D7GF8Nq+IfxhQ4+p7iNjbIGGr/x2eUaveOsbUypy1
+         wrfw==
+X-Forwarded-Encrypted: i=1; AL+hErFBkviCH25mpqG9KePVUwwkMtm0i8FI+S/yKDKOfGm0/9rjZ2SgC5m+Cnr8CrfCoRO/eyOR7wY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uvFchMSRiMR3AI/Coh24ez0BBeDcRlIjSXyUCwFzKPe5KgYiT
+	9OAlay9b3LTx8dfi7yuprYnyjrYUUvrV0EXsGuX1YzwHcZnF715s+rAw
+X-Gm-Gg: AZFdTZck+j3O442+KTiwPbLPYcV0on605SPhF2clZylO9dhy3Gg70vTpN8fi43HJNWN
+	j7rD0iRHrf5wBklTgniDt6DCLCDMFrFudaPalKCf0ldOshxA80ckI3F4nExwN4xxir9hQMVX1GT
+	+fItXRQZQlH4h2FmSE1faaodvpwjyiwUERF2daAYY6FXP464Hnnd7WIR1a5XxQ1NHTat98z+KkI
+	NQ6K4Z3hyGPPEs1+p7mZu86ntCjTFovAh3bQmVQsFwecGAaBRLRIiXMJNLdh9sdWVZUMEB6FALL
+	n7jbpEMl9NIMVE8KiLrFXjKHQnOO+uQSBF5jcE/jloZg7THsG31c0paprUNR8T4KXh//1JcFMZ0
+	jUSH5RtUf/AL1rwXg/WC5/DIGc8Hzg188nQG6N0qbhMMok6b2rxylvouaNTICntVlWfRHn0ieqm
+	FbxFpAd5tCC12y/A4wQKooMdyX9VGywPvoWj/xu0un4c/xY+Ph5j/viLHqebId3vDAFHIBro1H4
+	0yMIQ1we40dyJitVwgcaC9jHBW89duG8Dk5M23R8sde6+5GGa0rmXPf3crEt4jx7U2oSh0B7HZh
+	J/l7oMPCtk9W81zMhShSng==
+X-Received: by 2002:a05:6000:2288:b0:4ab:1d39:92cb with SMTP id ffacd0b85a97d-4abab6de737mr3978948f8f.2.1795164350141;
+        Fri, 20 Nov 2026 00:45:50 -0800 (PST)
+Received: from fedora ([5.131.7.59])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm4121178f8f.7.2026.11.20.00.45.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 00:45:49 -0800 (PST)
+From: Petr Vaganov <petrvaganoff@gmail.com>
+To: alex.aring@gmail.com,
+	stefan@datenfreihafen.org,
+	miquel.raynal@bootlin.com,
+	linux-wpan@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	phoebe.buckheister@itwm.fraunhofer.de,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Petr Vaganov <petrvaganoff@gmail.com>
+Subject: [PATCH v2 net] mac802154: fix uninit-value in ieee802154_header_create()
+Date: Fri, 20 Nov 2026 15:45:37 +0700
+Message-ID: <20261120084537.31991-1-petrvaganoff@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261116065235.27348-1-petrvaganoff@gmail.com>
+References: <20261116065235.27348-1-petrvaganoff@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,92 +108,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fd9b43958f6297b0031158bd33bdc6cc54f3c9338a4ee2e30bd6e50acf775a60@mail.kernel.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795164337; bh=4VvTXkf2XeNKXdsZD2LZXbg3e98NlnzNngOW4jq286s=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	b=T/tpUyWNIBy5mAXGlC65E8/588bEAvTDs3fLQFnzPRJNU87ADHOgwp89hhFYNyY3U
-	 K2/s1S8Sjy45DwfdGPSuWqO2ZIHaZmKXKHxuYaJXAAy8QWfNcxpDUjCq5DsXvmSai+
-	 irHYLrWoQjdczFqq+KHoDzhRZOx1kA58lHZU4zto=
+Content-Transfer-Encoding: 8bit
 
-On lis 19, 2026 14:11, bot+bpf-ci@kernel.org wrote:
-> > xdp: introduce xdp_convert_skb_to_buff()
-> 
-> TL;DR:
-> - Commit message calls the bug a page leak; it may be a use-after-free of
->   page_pool pages
-> - Stable Cc 6.4.x predates the Fixes: tag (v6.9)
-> - kdoc may overstate mem type usage (nit)
-> 
-> > Then when bpf_xdp_adjust_tail() calls
-> > __xdp_return(), it acts incorrectly due to mem type not being set to
-> > MEM_TYPE_PAGE_POOL and causes a page leak.
-> 
-> Is "causes a page leak" the full impact?
-> 
-> The mechanism is bpf_xdp_adjust_tail() -> bpf_xdp_frags_shrink_tail() ->
-> bpf_xdp_shrink_data() -> __xdp_return(netmem, MEM_TYPE_PAGE_SHARED) ->
-> page_frag_free().  That ends in put_page_testzero() on a page_pool page.
-> 
-> With page checks enabled this is reported as "page_pool leak" and the page
-> is not freed.  Without them, page_pool keeps _refcount at 1 and counts
-> fragment users in pp_ref_count, and skb_pp_cow_data() allocates
-> fragment-sized chunks.  A single page_frag_free() can therefore hand back
-> to the buddy allocator a page that other skbs or pool->frag_page still
-> use, which looks like a use-after-free rather than only a leak.
-> 
-> Could the commit message describe that?
+During fuzz testing, the following issue was discovered:
 
-Yes, I will add that do commit message in v8.
+BUG: KMSAN: uninit-value in ieee802154_hdr_push_sechdr net/ieee802154/header_ops.c:54 [inline]
+BUG: KMSAN: uninit-value in ieee802154_hdr_push+0xa62/0xb20 net/ieee802154/header_ops.c:108
+ ieee802154_hdr_push_sechdr net/ieee802154/header_ops.c:54 [inline]
+ ieee802154_hdr_push+0xa62/0xb20 net/ieee802154/header_ops.c:108
+ ieee802154_header_create+0xa83/0xd20 net/mac802154/iface.c:396
+ wpan_dev_hard_header include/net/cfg802154.h:525 [inline]
+ dgram_sendmsg+0xc6d/0x15d0 net/ieee802154/socket.c:677
+ ieee802154_sock_sendmsg+0x8f/0xd0 net/ieee802154/socket.c:96
+ sock_sendmsg_nosec net/socket.c:711 [inline]
+ __sock_sendmsg+0x2f3/0x360 net/socket.c:726
+ ____sys_sendmsg+0x960/0xc30 net/socket.c:2581
+ ___sys_sendmsg+0x285/0x3e0 net/socket.c:2635
+ __sys_sendmmsg+0x33c/0x950 net/socket.c:2724
+ __do_sys_sendmmsg net/socket.c:2751 [inline]
+ __se_sys_sendmmsg net/socket.c:2748 [inline]
+ __x64_sys_sendmmsg+0xc6/0x150 net/socket.c:2748
+ x64_sys_call+0x12a8/0x3cf0 arch/x86/include/generated/asm/syscalls_64.h:308
+ do_syscall_x64 arch/x86/entry/common.c:47 [inline]
+ do_syscall_64+0xd9/0x1c0 arch/x86/entry/common.c:78
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-> > Cc: <stable@vger.kernel.org> # 6.4.x
-> 
-> The Fixes: tag points at e6d5dbdd20aa, which first landed in v6.9.  Before
-> that, generic XDP linearized every skb and never set the frags flag, so
-> this bug cannot occur on 6.4 through 6.8.
-> 
-> The later veth patch in this series (1d3541dbf827) appears to be why 6.4.x
-> is listed, since it uses this helper and needs it as a backport
-> prerequisite.  Could the commit message either say that, or align the
-> stable range with the Fixes: tag?
+Uninit was stored to memory at:
+ ieee802154_hdr_push_sechdr net/ieee802154/header_ops.c:51 [inline]
+ ieee802154_hdr_push+0xa5b/0xb20 net/ieee802154/header_ops.c:108
+ ieee802154_header_create+0xa83/0xd20 net/mac802154/iface.c:396
+ wpan_dev_hard_header include/net/cfg802154.h:525 [inline]
+ dgram_sendmsg+0xc6d/0x15d0 net/ieee802154/socket.c:677
+ ieee802154_sock_sendmsg+0x8f/0xd0 net/ieee802154/socket.c:96
+ sock_sendmsg_nosec net/socket.c:711 [inline]
+ __sock_sendmsg+0x2f3/0x360 net/socket.c:726
+ ____sys_sendmsg+0x960/0xc30 net/socket.c:2581
+ ___sys_sendmsg+0x285/0x3e0 net/socket.c:2635
+ __sys_sendmmsg+0x33c/0x950 net/socket.c:2724
+ __do_sys_sendmmsg net/socket.c:2751 [inline]
+ __se_sys_sendmmsg net/socket.c:2748 [inline]
+ __x64_sys_sendmmsg+0xc6/0x150 net/socket.c:2748
+ x64_sys_call+0x12a8/0x3cf0 arch/x86/include/generated/asm/syscalls_64.h:310
+ do_syscall_x64 arch/x86/entry/common.c:47 [inline]
+ do_syscall_64+0xd9/0x1c0 arch/x86/entry/common.c:78
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-Sure, v8 will describe that in v8.
+Both ieee802154_header_create() and mac802154_header_create() declare
+struct ieee802154_hdr hdr on the stack and clear only hdr.fc via
+memset. This leaves hdr.sec uninitialized.
 
-> > diff --git a/include/net/xdp.h b/include/net/xdp.h
-> > --- a/include/net/xdp.h
-> > +++ b/include/net/xdp.h
-> 
-> [ ... ]
-> 
-> > +/**
-> > + * xdp_convert_skb_to_buff - build an xdp_buff on top of an skb
-> > + * @skb: skb to describe, packet data is taken from its MAC header onwards
-> > + * @xdp: xdp_buff to initialize
-> > + * @xdp_rxq: Rx queue info to attach to @xdp
-> > + *
-> > + * The memory type set on @xdp_rxq is only used to release fragments that
-> > + * the XDP program consumes; the head can not be freed from under the skb.
-> > + * A non-linear @skb is expected to have gone through skb_pp_cow_data(), so
-> > + * all of its fragments are page_pool backed.
-> > + */
-> 
-> This isn't a bug, but is the "only used to release fragments" statement a
-> property of this helper, or of its current caller?
-> 
-> It holds for generic XDP.  However, the veth patch later in this series
-> (1d3541dbf827) converts the xdp_buff to an xdp_frame on XDP_TX and
-> XDP_REDIRECT, where the head is released through the same mem type, and it
-> has to overwrite rq->xdp_rxq.mem after calling this helper.
+There are two ways uninitialized hdr.sec fields can be read:
 
-True, will add that info to commit message in v8.
+1. ieee802154_header_create() had a pre-existing assignment:
 
-> The kdoc also does not mention that the mem type stays set on the caller's
-> possibly shared @xdp_rxq after the call.  Should the kdoc say that these
-> properties depend on the caller?
+       hdr.fc.security_enabled = cb->secen;
 
-Yes I agree. Will add in v8.
+   This could set security_enabled = 1 from a stale cb->secen (e.g.,
+   after WPAN_SECURITY_ON followed by WPAN_SECURITY_DEFAULT), even when
+   mac802154_set_header_security() returns without initializing hdr.sec.
+   ieee802154_hdr_push_sechdr() would then read uninitialized hdr.sec.
 
+2. mac802154_set_header_security() never writes sec.frame_counter.
+   ieee802154_hdr_push_sechdr() copies it from the stack into the skb
+   before mac802154_llsec_encrypt() sets the real value. If encryption
+   fails, or via AF_PACKET taps in dev_queue_xmit_nit(), the
+   uninitialized bytes are exposed to userspace.
+
+Fix both issues by replacing memset(&hdr.fc, ...) with
+memset(&hdr, ...) in both functions, which zeros hdr.sec entirely
+before mac802154_set_header_security() is called. The stale
+hdr.fc.security_enabled assignment is also removed as it is now
+superseded by the full zero-initialization.
+
+Found by Linux Verification Center (linuxtesting.org) with Syzkaller.
+
+Closes: https://syzkaller.appspot.com/bug?extid=60a66d44892b66b56545
+Closes: https://syzkaller.appspot.com/bug?id=23f21e76e9d2d1ed587cb5e71515260d6d025b63
+Fixes: f30be4d53cad ("mac802154: integrate llsec with wpan devices")
+Cc: stable@vger.kernel.org
+Signed-off-by: Petr Vaganov <petrvaganoff@gmail.com>
+---
+Changes in v2:
+- Replace memset(&hdr.fc, ...) with memset(&hdr, ...) in both
+  ieee802154_header_create() and mac802154_header_create() to also
+  zero hdr.sec, closing the pre-existing uninitialized sec.frame_counter
+  read on the normal TX path (noted by Sashiko AI review).
+- Rename subject to reflect this is a bug fix, not a cleanup.
+
+ net/mac802154/iface.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/net/mac802154/iface.c b/net/mac802154/iface.c
+index f437b8daa00d..36bdd7558810 100644
+--- a/net/mac802154/iface.c
++++ b/net/mac802154/iface.c
+@@ -366,9 +366,8 @@ static int ieee802154_header_create(struct sk_buff *skb,
+ 	if (!daddr)
+ 		return -EINVAL;
+ 
+-	memset(&hdr.fc, 0, sizeof(hdr.fc));
++	memset(&hdr, 0, sizeof(hdr));
+ 	hdr.fc.type = cb->type;
+-	hdr.fc.security_enabled = cb->secen;
+ 	hdr.fc.ack_request = cb->ackreq;
+ 	hdr.seq = atomic_inc_return(&dev->ieee802154_ptr->dsn) & 0xFF;
+ 
+@@ -433,7 +432,7 @@ static int mac802154_header_create(struct sk_buff *skb,
+ 	if (!daddr)
+ 		return -EINVAL;
+ 
+-	memset(&hdr.fc, 0, sizeof(hdr.fc));
++	memset(&hdr, 0, sizeof(hdr));
+ 	hdr.fc.type = IEEE802154_FC_TYPE_DATA;
+ 	hdr.fc.ack_request = wpan_dev->ackreq;
+ 	hdr.seq = atomic_inc_return(&dev->ieee802154_ptr->dsn) & 0xFF;
 -- 
-Slawomir Stepien
+2.55.0
