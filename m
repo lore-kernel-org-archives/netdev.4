@@ -1,79 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795164675;
-	b=2+h99gHcuNfcL82oTlT4WpVG7w8hiouhecK1K1udA1rgwYcIbrdb1VeZxRMtmGSOOQHL
-	 cs09cUUsfll6BJbum4KSa7s4tkB38a1sBSj8M2OmTtf7nDLhzD0GX4y8ZFkv4G0qBS5Qh
-	 gSR1h/8kPjlYtwsjh76RczmHmro/6Mki4JF0Mw6jGAlNp5v7WNV7N/nrtZ7JRtPIErI+4
-	 ktE5lePnVfZBXkfk1x/1ij8k44sPnZr16KJh+jwLStkI2CAemQ1wbRHBhsDu0RRbsjnAG
-	 LHrdzpH09k5VyrazCzXzADEmO5YFiSGVKcR7nGoP3nlwqo3Leoi2mHiCBGixgMU0dFg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164675;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=X3OqZ3ppIXhEWYEEUB0+dySLF8XbZ804ezxGDpnSDLI=;
-	b=L67UiTM8xAetb1Yp6G51asg++PoGnmU1fPDhrVhNTt4zAlzjrNqkYEz2c53PFpwTCvAY
-	 zaskLiQHB/kIJ9VernU6nKippQV55e8L0QxBCdTGiTrF7hdjsPCHsD9oLEwvOSdKdOgrN
-	 k8qp6B1+X1GuW4xoUaiUYjWww1BQjWZ4eeNXoaspdPCLvnEJUnQRXs2RzDBw+CieexwQd
-	 nN2sy6hxvI1hwaD2a5Gr8VU0eS6hp0kCQAtYWI4xNcfD9Gswfgw8q7cJDhNyWYyTlsh27
-	 z4zk7Isr6YUspTvOWhka4WyDxy/OvVlSyoEk6mScZvFZQaQDAPzxsiYpyg8Ma7Y3RIg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="f8/yMJkf";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42477606A32C;
-	Fri, 20 Nov 2026 08:51:14 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f8/yMJkf
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795164674;
-	b=zimM3smVD3z3AqS3SOJzRCA8/2yhGtyYuYGyqju2PT+7M1osdzfdmu5mUM+S25L/nA8+
-	 qDKiKFKXvoiKTnS68A9GKda2NH2120iNCCM2xTUMKfJCheWrkMCBCj5RfPIucJk6BhPGw
-	 F55g6t3vcCaKTJ70e9Ec7ueRq9LSZi9f+fmOFsjSEipmqftojMCkXOGFiYvy+tXz0Jzq4
-	 fwxjjCKUWyIJ/98aqsnLBIXZXrKS0tQVCzjNPMeIoY1Dn4Q8XYAsnYe3TBy6gogqpNrhV
-	 dG8gNedIKNOIXHez1gW15dcNVlnb6ohvNU5eyzjYUmosOPPbKhN23iITMU+EpqTELug==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795164674;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=X3OqZ3ppIXhEWYEEUB0+dySLF8XbZ804ezxGDpnSDLI=;
-	b=xsugVrFfLQ6KzSmWeCScqdYBe1Wp1qYSEnAf37dyOrwF+3tRX0WGIbWth5bu0k30Da5A
-	 Sj4JnBiIrtTyES9hadCUVY8UKHmb6PbnAdT15zafGKXdAldb/ESeEogN2OC5e7c3Ik6v0
-	 7ZNVwkVNUHN5oXLPLkdqrDOcdXFfGcGx7/ZkP4h/4CQ9u0u6iJL1P8HOK1t/NO3hjFZ7+
-	 z4/HjhThqg539Bial4t2AY138FYntV+fh31nQk0hNhcHaM+xYxqLsxKWVlOzORG5ms0mZ
-	 dlMirtT3f1m31WwTDHPEKbIPJhRYJ1D8J/kRx1gSYWVHsJjX/TX4gLQvZUCWFjYXbvg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795164919;
+	b=IYcriv7aUQCS0bSExPesRhZTgV6bNMH8aX7T7Zg1iK80fShReZaCrTOfZNKC3IChuVl7
+	 TdVUJQp9MX9hhQRMYfTSEcctsKkBJ+HiXiKiVRuQ8PBdNEfh5JGgMes/Dw/8RhhOsLYJW
+	 C06uD9bjJdIW9zkHUMLT2ZtCzfxeUEJtvk3I8sEtZtacPkQFtrSsB3FWziCRIYm14NEaF
+	 wmuPifJSP6Z2P/5UcMEvq/1TxfX4wnVDteXaoXuJZ5BCeY3eYwvM172t1wK/CoglhJSw/
+	 xUtny73roQVaUKCIh8oW7lFJOqD1yT/JWAD2IQqqDfLsAe1mi8bizMEr9ZNJTsonqiw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164919;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=wAR1oj0jWIAovH51D7/UJIXhhjioZB8Lads3EGhnueg=;
+	b=BvJk+d3v2YRJSbPsil1jX63W6jz95xnIPzRi7c7WlkSfmVts8zjeGZlvXcPIHRnCU+Cy
+	 1mKo/ATHZiDHi7PGfH6mfmuWODIDw/si8i3uiMX4LtrFUZyFZ2p/AEe7jmDWbi9yRvbFu
+	 tkMQNPSgtHxrgamdlaXD1Y9cHFInvNPUGy+18ryJnxwJShkknZCBEIjsTkb9axPuJyKaT
+	 30GVT+uWkxZg6P/6i1/XBRg+p/MYqzGC0+6acFeKdRx1Q+DuIu14nhfaCVDsDyJdsKF2M
+	 NJKjyPw+02nrbmRzqZ1FSXxEEo656XBPoGYOpRqOlpQFY4VyvWXAYydnj2lUZ6X+NdQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=E3l4bOAh;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=4HPvNy8N;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3F7E31F000CA;
-	Fri, 20 Nov 2026 08:51:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795164674;
-	bh=X3OqZ3ppIXhEWYEEUB0+dySLF8XbZ804ezxGDpnSDLI=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=f8/yMJkfguEKXqLZluIBOh4Cbru7FgWitzxO6ojQLtCwgUwAKSqxHlja6jsgJm+kk
-	 XEkao54PlSQC8fIvos440tPTXY+ccXBeMoXuP/TRpkvbk9fRwzb+kTzl8ZLs3qlwpk
-	 1d2BKqWIqvHmtu0gEvAiqvyya2G0wuAdqz7p6EPRkAyz6QGbzCJyR7JqjBMKtvBpy4
-	 F8W6oq+p+qtOx301L3+HzmlR3cDLwnyzlf2Qn8bW/9BXqlcON1cmyKDb4I+hbYxXLB
-	 nIzHD5cRI5UE9jZJ0bsCiTWn34xTKVWLkX7uYVsRZtfc7spwN7OrML1+7nvLYzY98L
-	 vS/K/RVvRh3iA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B44E649784;
-	Fri, 20 Nov 2026 08:51:13 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 08:51:13 +0000
-Subject: [PATCH net] l2tp: require CAP_NET_ADMIN to join the l2tp multicast
- group
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBDD7606A33C
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:55:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBDD7606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=E3l4bOAh;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=4HPvNy8N
+Date: Fri, 20 Nov 2026 09:55:15 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795164916;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wAR1oj0jWIAovH51D7/UJIXhhjioZB8Lads3EGhnueg=;
+	b=E3l4bOAh4Lz+vtRgjzgzdnOA264kWgZobWfzWWE5l5r2YcXcCltD0neH4nJxOdwzbdJ0+h
+	7Si5CQPtPY7DOxuOfWpOutGN7m9aMTpfEmDikBrwM4vIlPvr5rgcVN6q/M6RG/g3nKCKiL
+	nruFQqZqo06n8jp1aqMBuMaz9VPhB9mBK4qSmSdS9HHdPDEcZmmlCghL3Fts1RrG6zQ0NQ
+	bnQWKO0HGJsOSlVJTkBSiz+biIUkV3i8FeT1hP5EdX7UbsMcB3kTP+AkXowsMBsON7f3hS
+	PNCDSMS8KiBkurCfuMvzMOS2KVSUJbSg1AROe6JdSpAfQWNESwKXQXe+njqx1Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795164916;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wAR1oj0jWIAovH51D7/UJIXhhjioZB8Lads3EGhnueg=;
+	b=4HPvNy8NowoI7bx1eiCDLjfNa00rXxUgpeSkao88Wr8bSCperDDAiPvgRUm0+ef4RG/b7X
+	k522PmiYBxiRZ7Aw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: netdev@vger.kernel.org, "(JC), Jayachandran" <j-rameshbabu@ti.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Chintan Vankar <c-vankar@ti.com>, Danish Anwar <danishanwar@ti.com>,
+	Daolin Qiu <d-qiu@ti.com>, "David S. Miller" <davem@davemloft.net>,
+	Felix Maurer <fmaurer@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Neelima Muralidharan <neelima@ti.com>,
+	Paolo Abeni <pabeni@redhat.com>, Praneeth Bajjuri <praneeth@ti.com>,
+	Pratheesh Gangadhar TK <pratheesh@ti.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Eric Dumazet <edumazet@kernel.org>
+Subject: Re: [PATCH net-next v10 3/8] hsr: Add a magic header for sending PTP
+ packets
+Message-ID: <20261120085515.Yd_dUps9@linutronix.de>
+References: <20261104-hsr_ptp-v10-0-2c4a38ad973c@linutronix.de>
+ <20261104-hsr_ptp-v10-3-2c4a38ad973c@linutronix.de>
+ <20261110131214.5i4b3jt7iigbewsw@DEN-DL-M70577>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,100 +87,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-l2tp-mcast-perm-v1-1-22dbffa88655@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAKAGsC/yWMwQrCMBAFf6Xs2YUmQsX+SvGQpK+6YmPIpkUo/
- fdGPc7AzEaKLFDqm40yVlF5xwrm1FB4uHgHy1iZbGs7Y2zLL1sSz8Fp4YQ8s790cOE8wrsr1Sp
- lTPL5HQeKKHT7S138E6F8X7TvBxXVuZ54AAAA
-X-Change-ID: 20261120-l2tp-mcast-perm-b76eac3deba9
-To: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
- pabeni@redhat.com
-Cc: stephen@networkplumber.org, linux-kernel@vger.kernel.org, 
- maoyixie.tju@gmail.com, netdev@vger.kernel.org, horms@kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795164672; l=2848;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=QYL5ERiD0rSoT6Kdzd/1Vi1hg5wYDxhdVPE3t1Z9Y9s=;
- b=/Egw0ayNzFvVWWOtDuOcExSGyss8K0jQOh1ad6zGfq1b5fOJ/5JqirMhiR2tEPNh0XdBYhN9R
- Ftjyjx8iaT3AOSZLEaxtcmaHOfN7pSFwGvxzOQznLpgYuBVe0gC/yn3
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261110131214.5i4b3jt7iigbewsw@DEN-DL-M70577>
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+On 2026-11-10 14:12:14 [+0100], Daniel Machon wrote:
+> Hi Sebastian,
+Hi Daniel,
 
-The l2tp generic netlink family sends a notification on its "l2tp"
-multicast group whenever a tunnel or session is created, modified or
-deleted. The message is built by the same l2tp_nl_tunnel_send() and
-l2tp_nl_session_send() helpers as the replies to TUNNEL_GET and
-SESSION_GET, so it carries the tunnel and session IDs, the addresses
-and ports, the statistics and, for L2TPv3 sessions with cookies
-configured, the local and peer cookies.
+> > --- a/include/linux/if_hsr.h
+> > +++ b/include/linux/if_hsr.h
+> > @@ -3,6 +3,7 @@
+> >  #define _LINUX_IF_HSR_H_
+> > =20
+> >  #include <linux/types.h>
+> > +#include <uapi/linux/hsr_ptp.h>
+>=20
+> Is this needed?
 
-The tunnel and session commands, including the GET commands, need
-CAP_NET_ADMIN in the user namespace owning the network namespace
-(GENL_UNS_ADMIN_PERM), but generic netlink lets any user join a
-multicast group by default. So an unprivileged user in the same network
-namespace can read all of this by joining the group. Configured cookies
-help an L2TPv3 endpoint reject blindly injected packets, and leaking
-them weakens that.
+hsr_device.c needs the defines and the struct hsr_inline_header from it.
+Let me move it there where it used.
 
-Commit ed267f783c0c ("l2tp: send netlink notifications in the tunnel's
-net namespace") already noted that a listener needs no privilege, but
-only stopped the notifications from reaching other network namespaces.
-This patch handles listeners in the tunnel's own namespace.
+> > =20
+> >  struct net_device;
+> > =20
+> > --- a/net/hsr/hsr_device.c
+> > +++ b/net/hsr/hsr_device.c
+> > @@ -223,24 +223,71 @@ static netdev_features_t hsr_fix_features(struct =
+net_device *dev,
+> > =20
+> >  static netdev_tx_t hsr_dev_xmit(struct sk_buff *skb, struct net_device=
+ *dev)
+> >  {
+> > +	enum hsr_port_type req_tx_port =3D HSR_PT_NONE;
+> >  	struct hsr_priv *hsr =3D netdev_priv(dev);
+> >  	struct hsr_port *master;
+> > +	bool has_hsr_header =3D false;
+>=20
+> RXT.
 
-Mark the group with GENL_MCAST_CAP_NET_ADMIN, as was done for gtp in
-commit db627e71b6da ("gtp: Require 'CAP_NET_ADMIN' when joining the gtp
-multicast group"). genl_bind() then requires CAP_NET_ADMIN in the user
-namespace owning the network namespace, the same capability and
-namespace as the tunnel and session commands.
+ups.
 
-Found with a static analysis tool and checked by hand.
+> > =20
+> >  	rcu_read_lock();
+> >  	master =3D hsr_port_get_hsr(hsr, HSR_PT_MASTER);
+> > -	if (master) {
+> > -		skb->dev =3D master->dev;
+> > -		skb_reset_mac_header(skb);
+> > -		skb_reset_mac_len(skb);
+> > -		spin_lock_bh(&hsr->seqnr_lock);
+> > -		hsr_forward_skb(skb, master);
+> > -		spin_unlock_bh(&hsr->seqnr_lock);
+> > -	} else {
+> > -		dev_core_stats_tx_dropped_inc(dev);
+> > -		dev_kfree_skb_any(skb);
+> > +	if (!master)
+> > +		goto drop;
+> > +
+> > +	skb->dev =3D master->dev;
+> > +	if (skb->protocol =3D=3D htons(ETH_P_1588)) {
+> > +		struct hsr_inline_header *hsr_opt;
+>=20
+> Is 'hsr_opt' a leftover name from a previous version? I would have expect=
+ed it
+> to be something like hsr_inline_hdr.
 
-Fixes: 33f72e6f0c67 ("l2tp : multicast notification to the registered listeners")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Tested in QEMU (x86_64): three listeners join the "l2tp" group, then
-root creates an L2TPv3 tunnel and a session with a cookie.
+Right. Let me rename it.
 
-Before:
-  root: joined, gets TUNNEL_CREATE and SESSION_CREATE (with the cookie)
-  root without CAP_NET_ADMIN: same
-  nobody: same
+> > +		struct ethhdr *eth_hdr;
+> > +		unsigned int hdr_len;
+=E2=80=A6
+> > +		eth_hdr =3D skb_pull(skb, sizeof(struct hsr_inline_header));
+> > +		skb_set_network_header(skb, hdr_len);
+> > +		skb->protocol =3D eth_hdr->h_proto;
+> >  	}
+>=20
+> I think that is a big ptp-hsr specific block in a hot xmit function. Pers=
+onally,
+> I would probably have put that into a helper hsr_ptp_parse_header() or
+> something. Not a big deal though.
 
-After:
-  root: joined, gets both notifications
-  root without CAP_NET_ADMIN: EPERM
-  nobody: EPERM
+Hmm. Hot or not there is a comparison at the begin and it should jump
+over it. Moving into a function shouldn't change the outcome since the
+compiler will inline it. It might look nicer and the "error" path is the
+same so let me make it a helper as suggested. There is just req_tx_port
+and has_hsr_header that needs to be passed around but that is doable.
 
-This covers joining the registered group. Joining a group ID before any
-family owns it is a separate genetlink issue, handled by "genetlink:
-Reject joining multicast groups no family owns".
----
- net/l2tp/l2tp_netlink.c | 1 +
- 1 file changed, 1 insertion(+)
+> > +
+> > +	skb_reset_mac_header(skb);
+> > +	skb_reset_mac_len(skb);
+> > +	spin_lock_bh(&hsr->seqnr_lock);
+> > +	hsr_forward_skb(skb, master, req_tx_port, has_hsr_header);
+> > +	spin_unlock_bh(&hsr->seqnr_lock);
+> >  	rcu_read_unlock();
+> > =20
+> > +	return NETDEV_TX_OK;
+> > +drop:
+> > +	rcu_read_unlock();
+> > +	dev_core_stats_tx_dropped_inc(dev);
+> > +	dev_kfree_skb_any(skb);
+> >  	return NETDEV_TX_OK;
+> >  }
+> > =20
+=E2=80=A6
+> /Daniel
 
-diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
-index 89ef04c78787..98290cc956fe 100644
---- a/net/l2tp/l2tp_netlink.c
-+++ b/net/l2tp/l2tp_netlink.c
-@@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
- static const struct genl_multicast_group l2tp_multicast_group[] = {
- 	{
- 		.name = L2TP_GENL_MCGROUP,
-+		.flags = GENL_MCAST_CAP_NET_ADMIN,
- 	},
- };
- 
-
-
-
-
+Sebastian
