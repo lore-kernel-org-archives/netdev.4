@@ -1,88 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210089;
-	b=TBZC/kBpPAAzj+GHp03q877gGySocX3zlTzSP1Ol2FknixNbIeQaULfHINkYNOgin3iB
-	 tAP0z+fWJyosfP1fOB6TSDsNana3S0sL2b9KN+3UYpBF2RkGzcBom/HsMA7qiupN2frTx
-	 SQdZKB4PPUkXxwTgeRvagQ4xztXeL+6CMl7Y6EJxZccpb5WvvI9E9tmBUmmLsH7t5ZxB+
-	 NPInXeoYDRGyRw3UUFcBHhUR7iAcghlXR0O/5ecfePwz6wqrbDNBQ6MvPNdPaIxs/APCz
-	 mP/kT0ucD15J1PL969nrpqbGSvE6IfEKFYmSyipWeOpR2zoPJEj+NWt5zwFDBXb+9YQ==
+	t=1795210216;
+	b=uW/lDIrorOUzgMKi/4vTq2CJMCRNy0Ot7XdzCpcLzsOYWlNUDnCEI5vJ1H5/vBpYo0tm
+	 ejJrr0VE9z9hcGP8sJNLQqawh1pSQUqfwX7t5E9ihZugJ2hQPF5jJqzc2brBklf2IJwRh
+	 vFINFR0LDIHvi/WJYg6we3qRWLSwjvr7bUdDMMIAozT7Ol+nMhyObmOFAFPZpTWHX5MKy
+	 LVzZxi0sK3TDnkNXzaJuTTm8yHn0Cd8vibAxv+ajOIbgI4Bb0BYsjB4OD7c4+7PrC7DMi
+	 6Hrv839zAdd5SYh1jYCTJLchWQ3eBbf0TXzcb55jINBZWXpIRfmqb7DREBZ32cvGGvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210089;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=djWeAX1LeVmUiJ144ujbOmLsl/46HHhdv4BSJSqbZfY=;
-	b=WEcAc8vHaJdwpJirOkqnGCEfFksqFzcVE1SX8bwX8myGPp0ZoN8HCJMtv/CsvRoVJLP4
-	 DTZU2NfwPRL0qHJug4KwkLEAk/fbTraoK7Dsc2GOVhv4a2Nu3wubHUs/ji2gWDQfK7sCL
-	 AKjHNMcZQRevADO/enT6H3w9G/lsZTaUukmEDZiECh5fAsoAO0Erg09BtZEzmp/5RgduU
-	 lQTNq8XqMMz3Oc0ZA3hDttU8nIhEONTZsI73cC6EYLQBF1cyzbzQVG9+BmdwgIz6zbxVI
-	 gPcRWEHshucprDFWREr9h8MXIlN7uILeeembdjRcEar6yEiJ9pBS6F4zKtW/kKMi/pg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210216;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=zVMPNS9d+k0WzK5AcTZvqCESA9rhwI1dzla95MLvaAU=;
+	b=O2hv1/JImPkEj3eIdjpZoLbSKiYqLy9aDkw2iMmeOJ694kKyQ/gBdyL5q4cIuQLLDezL
+	 z60M3thAtlOpmjOwv+x7Z6AewjmkxjaZv4vTpMUxdrtdSrri6eIBpRHPR9MBrX6Z2InR/
+	 cgUWoSouqcOVIIhBk8N/A9Hvy45c/CX7l/TdCbnjRIe3ImfGvA7EmT4H8B2ThPZRXXhSd
+	 cnnIRfT7vdFjIuBI1JDrTNb/Ij+9NQ0RcwmNk5c5ucRGP9PWPlj6VbsFROUxTEuxseJuh
+	 4j4oCPra+b/7OHzNexHWDO677PN+aY0lRzYawfjaj+d51xDf+ESROmyxsDG8a1ucYGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Be6FxUvP;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RvqRRR1L;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51279606A6A2
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:28:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51279606A6A2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60E9E606A6A6;
+	Fri, 20 Nov 2026 21:30:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Be6FxUvP
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a5348aaba5so1156235e9.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:28:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795210088; x=1795814888; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=djWeAX1LeVmUiJ144ujbOmLsl/46HHhdv4BSJSqbZfY=;
-        b=Be6FxUvPoX7GO9DbG/L1PwSrJb1bWoAgimnvXCLJcHyXTjABEvlZqaXvx0p7gUIGHY
-         wgQPSL0IzvwaW2Yg364amqbZH104TuVp0MQoIJ3cTjoQwIKd1bDIIOwmipk1MyPDqAfx
-         SRn2cDCCEXNr0Er/UJTovDI+LFVihYGIIVVOeXmB7mAcazV3TNa7SCe1Vg0kPa2Uu+Gw
-         xEYMcUg2CWB2tMEo9Cd+j0FmK1JAqhFw//abMJKLYg8E9WV2ToiWZOxE+OShe3tnqPlD
-         +GjQn5F/JjU219eLfSfhTeVoQfQTzlhB5BE4wTA+z1Qbjxn7ucIFhashQy2DNtSpDL0G
-         5tmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795210088; x=1795814888;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=djWeAX1LeVmUiJ144ujbOmLsl/46HHhdv4BSJSqbZfY=;
-        b=s9sa5MTWSDWaX/FXYWezH+HvWMo/8xqfVeHoqLIC2NWYPYC723830u6hriUxG1ittT
-         qnEWZlixtKSH6Pun0mJfHj9j/zmngV6jyIFz1KHh02aSaCvnCjaXNJAQN71PY/ZWC84W
-         RnR0zaCP3+rth6ywTQdxEO/bsgihXJkUweUSJj0En+ADiK7nRR4n6bkuSngY2pfRy70Q
-         yvrF2IisCIUy/BP/At/5kwddH5nASua35zA0v7LWb1yjrcVemyJU+baJFAltp5zAFFP3
-         m5evfhuARrL7YAzKWgK9YyUuiqQZa2paQvmLM4CIbAni/11rBVM/3zHsQ/z91ZBBC+RC
-         TZFg==
-X-Gm-Message-State: APuU4Z/SFzBsnVDbc02uKuZ5LfcF9QUsCiWRu0YYqeGjttgTJ6N0jetG
-	VbgSoztghb8AbENRLYEkc3JWCC9ubvFNCiK0uaVPp5eaekN78keRdNTX
-X-Gm-Gg: AZFdTZehYx76R8ZDN5DiJvgM3xqJz4PFwHQ+tiLSAukom5IAGzpogxHYTPoAOu8EmeC
-	PhVbH2au6va31A/FJh2SL2q2kTfvvZ5RrMKNj2UQwHH2F0zJkyPJmNihabM0vaYSAon0XwYa6HO
-	7ZxfROqXZTYmMARdF6VqtIekqLlMyWy4DKOrw9wT+KygghcAdqID3auf+sT3OGUWIVaVLVoEAn1
-	aAy/DaUuNYUVF5erJsFvNF6X5BWBeP92uQCiuTqpXj6VmfUV5TSXMK6EY+0eG9EavZEYrGKhkfj
-	tL4ePyk0HPQkq28VNGpMaHZXK7oqlyXs5xhoNaCb0z5Dxcgfye8pnCSHgp+Fegz0cepJwRaybxe
-	Juz7/59fVpjAggkDTnTB65+y7gqLxEavs+nRzG/dpugrFO8evzerd1aI0Y3/rmMrq/Yd3lOVWRW
-	EZQNQLXPcRkfbureqIYEaBCGXY8YDhwkdxW3e9GcbUm4MBoiAcI9tgr7L9ajpuBf+Xzl+muEj3Z
-	s2Tm1KFrhAa2IdTJspn56M/qx9bP43n15t2QO2CxpqQSoP14F7/yEZZeWtmEg3sHmwyk0nuMQxP
-	1LlT84xWnqAmA9eGuyCbHCkC6YcsBmkZ2IdaQIU5vmcvS2rpMbzZ9wfUsc8gVC0MBh2xBy3EEmP
-	TT+Fb3QV9HKqHowDbFShKGmU4XgouUryOenbislvtVQ/vLAdGNBuqihAsm+yxew4LRjHMeu8WB0
-	HmZcIrOAfSkuE5a/0dSgnpSnZaBSFjJ/0LbtVn7OCuVyoJoCs=
-X-Received: by 2002:a05:6000:4308:b0:48e:6651:d82b with SMTP id ffacd0b85a97d-4abae12d0acmr10655671f8f.2.1795210087424;
-        Fri, 20 Nov 2026 13:28:07 -0800 (PST)
-Received: from ?IPV6:2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d? (dynamic-2a02-3100-65ed-08fc-216e-bbeb-a7f9-ea1d.310.pool.telefonica.de. [2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b205443sm7919950f8f.39.2026.11.20.13.28.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 13:28:06 -0800 (PST)
-Message-ID: <967fd174-41f5-4ff8-834c-19483dcb342e@gmail.com>
-Date: Fri, 20 Nov 2026 22:28:04 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RvqRRR1L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A5A1F000C0;
+	Fri, 20 Nov 2026 21:30:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795210216;
+	bh=zVMPNS9d+k0WzK5AcTZvqCESA9rhwI1dzla95MLvaAU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=RvqRRR1LN7Ne9+SOccNFlpczKOQXNtrYX9XYLZ8ENMacJj1v7YIDY7NKVBAIAR+ZZ
+	 /Chm0AlH7AnweE5An0iLxg+lAxeDf/vLd8JMzeCyNgSEXS/F9+jv6TmWsuxebfy4Xv
+	 x8270VC6vD6ONpnOaMoZg4Mj2H582jBURGLlD+aek2Q3URXkube2DTKG8BqsJaGxfR
+	 NWFuhE0TxdiwANrPAzD+7GICa9I6r7aj8lTg4UbP3ZI6uY5hihmq8CIKhnbA32Zh4E
+	 hnZNFS78GLtCK0eDL9eFLTOma7leaD2+RcGk/B8giL4HR+2V/fncyqkN6L3mM4IB9q
+	 gMmKyd8KkAx0g==
+Message-ID: <cff77c51-64d1-4cc0-9da3-41832d3015b5@kernel.org>
+Date: Fri, 20 Nov 2026 22:30:07 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,78 +51,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v10 1/4] net: hsr: keep GRO disabled on HSR/PRP ports
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
- shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
- qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
- bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
- liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
- lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
-References: <20261117141922.20-2-xiexinet@gmail.com>
- <179514132000.3136.2415655157145361596@kernel.org>
-Content-Language: en-GB
-From: Xin Xie <xiexinet@gmail.com>
-Autocrypt: addr=xiexinet@gmail.com; keydata=
- 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
- sNySbH3veZ/55EtlXA==
-In-Reply-To: <179514132000.3136.2415655157145361596@kernel.org>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next v3 2/3] mptcp: avoid wrapping blackhole timeout
+Content-Language: fr
+To: Yingjie Wang <x-professor@outlook.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "corbet@lwn.net" <corbet@lwn.net>,
+ "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
+ "rdunlap@infradead.org" <rdunlap@infradead.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "edumazet@kernel.org" <edumazet@kernel.org>,
+ "ncardwell@google.com" <ncardwell@google.com>,
+ "gang.yan@linux.dev" <gang.yan@linux.dev>,
+ "kuniyu@google.com" <kuniyu@google.com>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>,
+ "martineau@kernel.org" <martineau@kernel.org>,
+ "geliang@kernel.org" <geliang@kernel.org>,
+ "ycheng@google.com" <ycheng@google.com>,
+ "weiwan@google.com" <weiwan@google.com>, Gang Yan <yangang@kylinos.cn>
+References: <cover.1794847474.git.x-professor@outlook.com>
+ <33f003b094444e37f11f9328c783d8c5a42e841a.1794847474.git.x-professor@outlook.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <33f003b094444e37f11f9328c783d8c5a42e841a.1794847474.git.x-professor@outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
-> So the SET reply says GRO is wanted but not active. A later
-> ETHTOOL_MSG_FEATURES_GET then reads dev->wanted_features in
-> features_prepare_data() and shows GRO as not wanted.
+Hi Yingjie,
 
-This is intended, and the commit message says so: a GRO request on a
-member is dropped, not kept pending. While GRO stays off,
-ETHTOOL_SFEATURES returns no ETHTOOL_F_WISH and the netlink SET reply
-shows the bit as not applied. A later GET reads the stored request,
-which no longer has GRO; a SET reply and a GET can already differ in
-the same way for a bit outside hw_features.
+On 16/11/2026 17:46, Yingjie Wang wrote:
+> mptcp_active_should_disable() calculates the active-disable interval as
+> multiplier * blackhole_timeout * HZ. Since all operands are 32-bit, a
+> large blackhole_timeout can wrap the delay, even on 64-bit kernels, and
+> make active MPTCP available again while the blackhole is still present.
+> 
+> With HZ=1000 and the maximum multiplier of 64, any timeout above 67108
+> seconds wraps. For example, 67109 seconds should produce 4,294,976,000
+> jiffies (about 50 days), but the calculation truncates it to 8,704
+> jiffies (8.7 seconds).
+> 
+> This issue was found using a static analysis tool. It was confirmed with
+> a loopback reproducer that induces 12 MPTCP blackholes and opens another
+> connection 10 seconds later: with a 67109 second timeout, the unpatched
+> kernel retried MP_CAPABLE. The reproducer needs neither kernel
+> modifications nor error injection.
+> 
+> Compute the interval in u64 and cap it at MAX_JIFFY_OFFSET before adding
+> it to the saved timestamp. On 32-bit kernels, the cap keeps the interval
+> within the range that time_before() can compare. The sysctl input range
+> is unchanged; values whose interval exceeds the cap are shortened to it.
+> 
+> With this patch, the same reproducer fell back to TCP without retrying
+> MP_CAPABLE. The MPTCP selftests were not run; none of them sets this
+> sysctl.
+> 
+> Fixes: 27069e7cb3d1 ("mptcp: disable active MPTCP in case of blackhole")
+> Reviewed-by: Gang Yan <yangang@kylinos.cn>
+> Signed-off-by: Yingjie Wang <x-professor@outlook.com>
+> ---
+>  net/mptcp/ctrl.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/net/mptcp/ctrl.c b/net/mptcp/ctrl.c
+> index 63c5747f0f63..0b10e94e7f43 100644
+> --- a/net/mptcp/ctrl.c
+> +++ b/net/mptcp/ctrl.c
+> @@ -487,6 +487,7 @@ bool mptcp_active_should_disable(struct sock *ssk)
+>  	unsigned long timeout;
+>  	int disable_times;
+>  	int multiplier;
+> +	u64 delay;
+>  
+>  	pernet = mptcp_get_pernet(net);
+>  	blackhole_timeout = READ_ONCE(pernet->blackhole_timeout);
+> @@ -501,12 +502,17 @@ bool mptcp_active_should_disable(struct sock *ssk)
+>  	/* Paired with smp_mb__before_atomic() in mptcp_active_disable() */
+>  	smp_rmb();
+>  
+> -	/* Limit timeout to max: 2^6 * initial timeout */
+> +	/* Limit the backoff multiplier to 64. */
+>  	multiplier = 1 << min(disable_times - 1, 6);
+> +	delay = (u64)multiplier * blackhole_timeout * HZ;
+>  
+> -	/* Paired with the WRITE_ONCE() in mptcp_active_disable(). */
+> +	/*
+> +	 * Cap the delay for safe jiffies comparisons on 32-bit systems.
+> +	 * The timestamp read is paired with WRITE_ONCE() in
+> +	 * mptcp_active_disable().
+> +	 */
 
-> Could the request stay in wanted_features, with only the computed
-> features masked here?
+Same here: no need to modify the comment here.
 
-Masking only the computed features is what v7 did, and it breaks veth,
-which adds and deletes its NAPI instances according to wanted_features;
-the commit message names the two failures. Changing veth is a separate
-matter and not part of this fix.
+pw-bot: cr
 
+>  	timeout = READ_ONCE(pernet->active_disable_stamp) +
+> -		  multiplier * blackhole_timeout * HZ;
+> +		  min(delay, MAX_JIFFY_OFFSET);
+>  
+>  	return time_before(jiffies, timeout);
+>  }
+
+Cheers,
+Matt
 -- 
-Xin
+Sponsored by the NGI0 Core fund.
+
