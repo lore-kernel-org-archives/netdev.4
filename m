@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.172
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795212907;
-	b=oZWU7NDjhXIoVM67ECC8+X3oqJpRPFIrJ+hfCK6JCdGBRQwjh6Es7g9lee6XNOWMDRKY
-	 nFrsdMBDmtza+gtLvurPk8feFX0fZqN7G43XyLUsLEbBBF0Z4Bx9FqV8ajPfuKISuEvcs
-	 Oyqit5KD9vmZ1m3Y4dg3WJvmvmWjqYLPDe7IGyWimlSLjWKRjH9ok7Iaxu7H9K70zfyOG
-	 A3L1Al3ncDz2f/X8XBiomXhgf8gT237JGHp22aiyWNS1Op4xw0G8kxfyEZrzI3lN++BXG
-	 AxkaFuQ7/QwYvU20NS1WmswWQkVkCqJ5ivJR4j+oRQ3bqWcCsM5x7S80MU6Ja4fw13Q==
+	t=1795213179;
+	b=Zrkp8lCJ2Fca9lCuuBfkNs3dxFiPo77qlH/HO/IDbctwSig3dFLCq6qpXLiR8ywvGR4p
+	 HZ3Z6kKRWXWN7clN9o7/2FekZwDuzw8pYVpcGKIjFfHTnMLMKRk8/oKcL54YDTCJlsanI
+	 tuiRHFVtCxd8vsYhpNYzwsY4BUk7zSwnTrTT6W2W4vPNOQE+5/Ce2GBeEnwfoQcu0vhCi
+	 Dsc72a/k1ZfNxGP01p7kvtlMPRhcjJbsjQInTFnsR//sLYp/o8QiOJaSsulFwigSCwUqe
+	 efxVhy7U+ngMlMpejjOcb/7aWdcPWmOLmduIIp3KMhBxqDYf1By2RsJpz2ngNTOMnPQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212907;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795213179;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
-	b=gUF5Lu03fKboYInzsPhjx7xMq8Nkf3lGLqbXv+99PQL1A15oLMxlpNhZ1Y9BcLMunBk8
-	 q2uuJ6RNxPFcd136kjwYH01s63e1+NDTLvSrv/duCr8XK1wIy1hU4qMD0x0ohD2olEplt
-	 XVqhYXBcA0dSSubHWp16v0ocv0qPdJormoZDcYoTk8wNZGeUqbFj7Xfybgiax6Ta5/GEA
-	 KZOJ9ctnaljSYgAtyB6//sKvKmEQO8Z/ekigJLvF622khkZxqx70pXPzfixZIObOVr0+b
-	 FRUZQsrv0oI1DWt6bgWy4oan+bcsTql916jI/16xFG4GaHLJt1hxe6kxJq9wRAh2CQA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=lyB7pBhelWiMZxoILdMDCkgdjQJ6OIrw6GhR8XWtqsw=;
+	b=4ONAHGUPjxec0WTo5gdxBQGbDRl7D3H1fUQBzMQRB+mxzoPI/oc7Pmgj+VijP6jPr7Yc
+	 xHhlHiCaBVLbYeTqanHBesNe2j3HtJKJf0YxHOK283Zjnn44y43TJ235/oRM7QIzFD/ss
+	 I3TVWLzxVwPMh6ijfo59NatQ34yJ1GVjmeFGUcrSZwXc5UXQC3V2/yGdEVIGtk/V+INe/
+	 FWKhJNPb0kgGsu5MD7xNsr6NpzpG5JBCBAi2DPZP+Te+oXplydum9dbJiqptDVcObHpVE
+	 ykSflVYCwsZiEun3CzB5YU6BMOZjsf5ie/nLNsQ5vIQePtwAEN0rM/c9jnysdkSqMRA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l3SOdlg4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
-Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Feew1EaK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC24E606A699
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 22:15:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC24E606A699
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A46E0606A32A
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 22:19:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A46E0606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l3SOdlg4
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-70b875f6f13so1084887eaf.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:15:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795212902; cv=none;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Feew1EaK
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdb2dfcca94so608760a12.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:19:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795213177; cv=none;
         d=google.com; s=arc-20260327;
-        b=sQmtRtZHtBq+QjpVsCMtU4aAsNdtMrQAwIuFIF7jlYurqjDziPzxG6+M/37f8MbjyQ
-         FWEjW8D4fG7VBRkgUyZRYGe+sLLU3KIOrfg+exWVjUBeFNFHEtzCHregVMXXDHqxEz86
-         L5WAli/qrg6PloCjsWqDIv388OWiqWps/glfK0AmATWbecpB5b2A9gViXGHbY1kxdoVt
-         wCeU86uIwwnkcxBV8biSg7OYEtrkp2Djn+hwpSaniXaox7fwmb9THr0iwJ8k90Kngbgm
-         5FCF0N1ZFtS+3oGLoDJIXlNiGEEI+LDFswt6ovBp+pYApFxi+n+v63KMXjbCX2KV+UTi
-         azug==
+        b=Fx/9enHK4xJl7ZYH2EHrkYx9ETI1MuI/gjdi56LRSOiqnRHgwTyehJI7AoLZIiVCK7
+         mYc8o7oFtSUw8NNJvEf2ObaXQHMiwJxWWermT6/vgiH8uBE6l2N/dbOHGBinZn5Ks8xl
+         AJ2zBSQNXHzik7RVyP7oZS9pHAtuAur6q0zQt1LGmMa8inz3F0p5RHYwCExmNkOfxgYj
+         HjCpa8h3dmOlmFCsMKMsE8S5nrTlLYrX6zLink7KmSa+xfQoW5gXiCRx4qC3sZSlxXpL
+         +uaL8sF6/kAOxY+H6w5ZsNIgiLlDpDDk2ja+g39R23JpMiHTxmB72agAoa4gWMLIFULG
+         dyjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
-        fh=Oh5IhsrQ53anB/yL9QQ01jtuX8niojyIzwni9+Lg3gw=;
-        b=BJvHAYOCR+LHSwVdCqgw1P8jeUQlhQcVaYpmwYhTmb67+Inny4wewc7BdUbkHXvF4W
-         pIIyddgjzcLoATBsbXgqcQtuQ/eQbbiGAITnEZMud4kDc/gXb6KJoCJ37JvQd7lsWYEG
-         5x6DGebvjqzWtZRmbyNP5JgFHmte83yOMqqWA4klWDdQaP7Lm6TZ29mmj9lnHSrGMTBX
-         igTop725tGtBAqkjxyxc2wGuK97BGXCWqFIbTt7akuAtFdlwcNkd5DarIL6jZbpG5Yh8
-         H57b0f03y2B6PLq3sDmwa0vBDxdaTp85jwuFTb2/1p+HCLZYblCNsjKLiLcLSOftY/q3
-         Ds4g==;
+        bh=lyB7pBhelWiMZxoILdMDCkgdjQJ6OIrw6GhR8XWtqsw=;
+        fh=0fz5sA3ex2UmhfI180dxsUk1HHdgoBlFm4y8ASGeL4c=;
+        b=lxgNSaS+hPk6V0+1yz/zHoLjSHsMcWNN9nZxhxjQ1j/U2E+doglyPxSrnO7ZD+Cp1e
+         1A3lKvAeWBCnZ2xGSGUwLlDdyuCAk/N4hh/CYrM/xGu5UYmmc8etfU70MABvJe4/TxYq
+         yItJAfQO4xPdvt+sV/I7BqZJK9LjjqyOLC6rJAnBWdQdX+BFXntPBeTFKZ93V0M0xvlY
+         lylw+dFFO+JqDF9bABKzgFglDdiwuZj1IP9WvPcflq44/MtA/szMvFVMstWyUYqxdQAh
+         j4HXUm3FO71oaRoXFF/zZ5Ki46VAgfAtyADeQH6b57o6o6LgG8IIswVyI0Q2tOeiFqrN
+         kbmA==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795212902; x=1795817702; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795213177; x=1795817977; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
-        b=l3SOdlg42qbKIlI9+Ac4MBHXRldrvquCDkj/z4faFkQvuVq4q6ueXT7hGjf1x2DZ6J
-         xr0kGpYWy6XzLMIYfaRXYEt32hzwIUIh5GcDjS5qMo+NTm/W2h4QLrWT0vjrrNJqAY/V
-         DaHg/hTmuXLf/SbZgeXG7LYeRhLX6xEIsHTO6045XjdtPDKJm9dClJoHuo7IikmLqZyI
-         LHip8V4qxMZCOM5nMYFwgXFSqKhOQGq15asHuhcCUR+1HQYSdRVD1FRKEvvrmiwEApWn
-         r/Lj6QL4JWoSFYjlCjmkEgRPT9oWf0bS7UiyNNPJvMB1PL+uXio1JWvcqawJCFSR4NEc
-         ME/A==
+        bh=lyB7pBhelWiMZxoILdMDCkgdjQJ6OIrw6GhR8XWtqsw=;
+        b=Feew1EaK7N0s1mma9t00+LZMVwCs0/T9pYThqqLOqmMw6zRnYk7QlKhRHfUr4B0Rss
+         6YF6+fP9HXnRArF/rYopiqOWX5YHsjT8uZ7uQ4BkTSFIL7sDdidBNEz2+ELf636/zh4H
+         3kpGhn+0eCPSiCL3Wr1guQmDCZKh6hbC1dqOLwhvuJANvyPGxXhp1yiQFLRx4BwvvXn4
+         0YR/kK2MK746Kb4BFYVCt9TEQCiIo+pt+5pvY+X18VkN6/kGDJLEFVk7rvGOcTq4+XLo
+         L4djyDg0Ik6/OBxF13h7Q8UoehUzGSIJxaC6t2TiAQAW9MOzpHleUGdrS25FVof30Shi
+         foag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212902; x=1795817702;
+        d=1e100.net; s=20260707; t=1795213177; x=1795817977;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=S8E5/bKsqcml1NiDKuxtkXF2hepTan04xWFr5FhLnOc=;
-        b=IHGnj5/YJ2MdiL5izchNygXyGJaYop3BoADssyqtmykAv+EOaa3iPx0NuKkEiaNf7S
-         54FEbvy5J/jsilpLHiiF2oHEog1hvfmFiYs2nIAsi2wqAc3TDxf+1QL4dwe5yLr02a8y
-         n0dAx+zfCMh+8OSsIXKg++LRAE8pg9yq1WyqZQvnvI+TJ8QhoLmd2deIsHlIHWz+sZoD
-         1LTRQLoaE+Xs4U46AJSjgRTSzOAsA7odsWgVxK/tcuNcg8t0fyU4BAJMrH90Lulmxwmz
-         5XgcFv+D0USM7YYm5B8ggvadZpeyudWXPh01xjq5DryG14AFr9ShVk7Rz0FbNidAhf08
-         encA==
-X-Gm-Message-State: APuU4Z+i8YgdCCo2GHQtlx8HmzHtrm+Ap3Im9vh4qXjRkmVtuIi6VirC
-	ENoUl/X8K8D2UzTmgYBN582icwRQEw8QhN5Tk2y+gwQi6kkNAQM1roSg/9CSbINmsYtRdSnKqqJ
-	jvLj2OHV/xtWfDxd8xxzRjTsPzb6Q/B0=
-X-Gm-Gg: AYBFou2IyU6AmtaZhq7PGkHE6QyU7bCjFJZhVuMU1HtbcZCary6fRNECq2WVUizkK3s
-	Pj+sfS6t1rtncZavta8XAFYfCRU9+csfwOSu86kaTwiGdYxepWDf6XfL64yXb6hJRegqLl8PYPa
-	qBps1fZUUw5aXKNhImorRs9KZ9Dfr+Q0TtahmGGQr9UHltOrLw7i05yicEsYBAvSO/Vlm7NI/hw
-	f5EeAZXNHxxxiU/cfGX99XwbwdcCkkIvkxIwNPADlO8HRZfyx0OVm4/YH6xEe5SZhhEBXdGG4r0
-	vJWF2cGm2Z+Yq2nhPiMJVTwpGV5HhAUkq/39RYkaoZxs6bS2iwCBSb7DpWWukdlKrtIvdhs1E/Q
-	bamPzG1r/g1x06Cs0qukUpA296kVg9uuGEA0K
-X-Received: by 2002:a05:6820:4615:b0:6f8:8385:52a with SMTP id
- 006d021491bc7-71b395ac078mr3579653eaf.58.1795212902477; Fri, 20 Nov 2026
- 14:15:02 -0800 (PST)
+        bh=lyB7pBhelWiMZxoILdMDCkgdjQJ6OIrw6GhR8XWtqsw=;
+        b=1fAh0nmx0/bmgtRI+xe6FTGNcBLG6/zXtt55z4mPIKENG/7fNstaw+d0rb4JMEVauc
+         681d0sMfGXsggf+PL+iVGD3n/sgU0+aL4Fd1nmYW2ipKv0MA4VQB8BVqy6AbFQLXb5me
+         6frqr09k3sAwaqKCZzyWWMbRp87SRB9wTojGdHbs1nWDlr/jQOumnkYGWoQsFXmmB9b6
+         xLR2ANOU8+aQ7aOXzWMpv83AN6M3FiBlFElggFhu+t4SOTwGAFqoM4LJBdEVVwjh5o7W
+         p6FcX6SJUknS786KenIbyxdhhlBnoVidgphHyK+zx4bzMFFOO4JhiRXExUMZywNvriO7
+         4hKw==
+X-Forwarded-Encrypted: i=1; AL+hErEb/GfefMcZdEtC6la4P+eKPJJByTfg334inY1GkPJIult4qde5wYAwrJJw1h1v7AxjdkCalig=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5wwDj1u7mVf6exKHrB6M8MDiwV9XAcUnBaWBgqY2LBczdlVEo
+	x8dY7lWyS/4rjecl/HkL2pJUh4XDf9cWiuuZBHsOanKp8pUHNCkAhx7lrWMjlvdhTFcGigSbPJR
+	ed20l22lDXosrKzbNIXTGwiSNlF0/gKwSJAYrhMH2
+X-Gm-Gg: AZFdTZfhcW1hS92pe+ZBCfJcWs3P8GXP+wcqYW4lzlX0Z9NLN5zHd9lA0FencipXTbR
+	Go0qatY+/kdo8gqFKyWxAGXgg/xl0PTQtPMFFGde9vBTbTLiOCbW1wDU/yahnBJnPIeKo6XRg1k
+	mcXHfVYqyvOJLJR5twq/+EL9OxovyreA3Jb6s62foW0LExhBm7d1bfDo8x/0zVEns+Yb3s13t1v
+	JUepMHG0d3llk2c6CLmY2k7KE4rURiadCuau3VBU6sSqDK3ubcEOEEBYPyQVu4Mlh7QUlp/nr+0
+	cmZ6vGEKy2xO+nLorv7txkkyvcPhp5YcIM3Y4iGGpEn85OYnaYDxbo7nDXU4Vj7sxEREdDPi7a+
+	YD5VYkgsxH0kCDnJH2Dax2bINpExIB6ze8UF9RpTqTawQAhB+vT90jQbXSOJEAlrZbiSbSA==
+X-Received: by 2002:a17:90b:5346:b0:3b0:9976:c1c6 with SMTP id
+ 98e67ed59e1d1-3b41c9bbe00mr3841890a91.66.1795213176411; Fri, 20 Nov 2026
+ 14:19:36 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,95 +104,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CORE-5IQX.v1.r0.20261120050801-1@mojatatu.com>
-In-Reply-To: <CORE-5IQX.v1.r0.20261120050801-1@mojatatu.com>
-From: Eyal Birger <eyal.birger@gmail.com>
-Date: Fri, 20 Nov 2026 14:14:24 -0800
-X-Gm-Features: Aa3M54rA3AVclKtpTsDBdZrwTvIcM9OP1ypUCaxAnAe_aZyVGm-fhga0xkyXQgY
-Message-ID: <CAHsH6Gt7RkR1kKXQaQUdz-_8VYXfW7NcwPxNtzwaHtBYWgRuqA@mail.gmail.com>
-Subject: Re: [PATCH net] net: xfrm: interface: restore dst_orig on every xfrm interface
-To: Jamal Hadi Salim <jhs@mojatatu.com>
-Cc: netdev@vger.kernel.org, Steffen Klassert <steffen.klassert@secunet.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Martin KaFai Lau <martin.lau@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, ipsec@lists.linux.dev, 
-	bpf@vger.kernel.org, stable@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>, 
-	Victor Nogueira <victor@mojatatu.com>
+References: <26fb4276-5615-45fb-9cb9-fa5e872d8e7b@kernel.org> <0469d224-3baa-48c2-9d28-ac0d9fa2ec73@kernel.org>
+In-Reply-To: <0469d224-3baa-48c2-9d28-ac0d9fa2ec73@kernel.org>
+From: Pin-yen Lin <treapking@google.com>
+Date: Fri, 20 Nov 2026 14:19:24 -0800
+X-Gm-Features: AclHuK8oVuADkC2YXI4drSb7odw_l4s27U6niEVD7WV6Nn9XTJ5BynoS6ANasOQ
+Message-ID: <CAHwYsirFS4nAuvXQA-eOgqq8n=29tfvvUvuk2QygrbCt0pcz3w@mail.gmail.com>
+Subject: Re: [TEST] Google's Netdev-CI: missing results
+To: Matthieu Baerts <matttbe@kernel.org>
+Cc: Sheena Mohan <sheenamo@google.com>, Netdev <netdev@vger.kernel.org>, 
+	Willem de Bruijn <willemb@google.com>, Jakub Kicinski <kuba@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi,
+Hi Matthieu,
 
-On Fri, Nov 20, 2026 at 6:09=E2=80=AFAM Jamal Hadi Salim <jhs@mojatatu.com>=
- wrote:
+On Fri, Nov 20, 2026 at 1:08=E2=80=AFAM Matthieu Baerts <matttbe@kernel.org=
+> wrote:
 >
-> Found while auditing the xfrm metadata consumers of a steered packet. One
-> of them is an xfrm interface, which restores the original route before th=
-e
-> xfrm lookup; the swap warned on the metadata dst still installed in the
-> skb, and only the collect_md arm restored the route at all.
+> Hi Sheena,
 >
-> The issue:
-> An xfrm interface takes the if_id and the underlying device either from i=
-ts
-> configuration or, in collect_md mode, from the xfrm metadata on the skb.
-> When that metadata also carries the route the packet arrived through,
-> xfrmi_xmit2() puts the route back on the skb, because the xfrm lookup tak=
-es
-> the address family from it. skb_dst_set() expects the dst slot to be empt=
-y
-> for a reference counted dst and warns when it is not, so the route landed
-> over a metadata dst that was still there; a kernel built with
-> CONFIG_DEBUG_NET=3Dy panics on the first packet that takes this path when
-> panic_on_warn is set.
+> (+ cc Pin-yen)
 >
-> Two more defects sit in the same place. An interface with a configured
-> if_id never restores the route: it takes the metadata dst as it is, whose
-> address family is AF_UNSPEC, so the lookup finds no policy and the packet
-> is dropped as a link failure instead of being transformed. And the restor=
-e
-> moved the route out of the metadata dst, which a clone of the skb shares,
-> so the clone that reached the interface first left the original packet wi=
-th
-> nothing to restore.
+> On 23/10/2026 17:52, Matthieu Baerts wrote:
+> > I'm working on the Netdev CI, and I notice that the runners on Google
+> > side are frequently missing results:
+> >
+> > https://netdev.bots.linux.dev/flakes.html?tn-needle=3Dgoogle.*vlan-py&m=
+in-flip=3D0&br-pfx=3Dnet-next-hw
+> >
+> > (Look at the non-coloured blocks.)
+> >
+> > Is it normal? Do you mind looking at that please? :)
+> >
+> > Note that when an active runner doesn't process a branch, we cannot mar=
+k
+> > the whole batch being validated as "not causing regression" because it
+> > is lacking some validations. So when this happens, the end result is
+> > marked as "pending". That's not an issue when it is once in a while, bu=
+t
+> > here, it looks "too frequent" not to be reported.
 >
-> The same slot overwrite is in the unstable helper a tc-bpf program uses t=
-o
-> attach that metadata: bpf_skb_set_xfrm_info() records the route as dst_or=
-ig
-> and installs a per-cpu metadata dst over it. The per-cpu dst is shared by
-> every invocation of the program, so the restore cannot keep anything in i=
-t.
+> Lately, it looks like the situation got worst: 3 days without results.
+> Because it is blocking all the other HW tests, I temporarily disabled
+> the two Google runners: results (if any) are still fetched, but ignored.
 >
-> The Fix:
-> Restore dst_orig in both arms of xfrmi_xmit2(), taking a reference with
-> dst_clone() so the metadata dst keeps its own, and empty the counted slot
-> with skb_dst_drop() before the route is installed. The helper allocates a
-> metadata dst per skb instead of a per-cpu one, so the route it records
-> belongs to that skb and is released with it; the per-cpu allocation is no
-> longer used and goes away.
->
-> Conditions to recreate the bug:
-> A tc-bpf program that records the route as dst_orig with
-> bpf_skb_set_xfrm_info() is self-contained: the overwrite is in the helper=
-,
-> so the first packet that calls it panics inside bpf_skb_set_xfrm_info() o=
-n
-> a CONFIG_DEBUG_NET=3Dy build with panic_on_warn=3D1.
->
-> An interface with a configured if_id shows its own defect without any
-> other patch: it drops the packet as a link failure without consulting the
-> outbound policy. And a clone made after the metadata was attached consume=
-s
-> the route before the original packet arrives.
+> Do you mind improving the situation, please?
 
-Thank you for the fix!
+Thanks for looping me in.
 
-Reviewed-by: Eyal Birger <eyal.birger@gmail.com>
+This was caused by two conflicting patches ([1], [2]) on the mailing
+list. [2] removed .resizing from struct htable, which [1] references.
+Our runners currently build from a full distro kernel config (which
+enables CONFIG_IP_SET), so kernel compilation failed and no test
+results were uploaded.
+
+Results for google-gve are being reported again today now that [2] is
+no longer in the testing branches. Sorry for the inconvenience and for
+blocking the other HW tests.
+
+We will update our testing infrastructure to use a minimal kernel to
+avoid unrelated build breakage in the future.
+
+[1]: https://lore.kernel.org/all/20261117092731.14656-1-onleaf322@gmail.com=
+/
+[2]: https://lore.kernel.org/all/20261117101018.523826-1-fuchen.dust@gmail.=
+com/
+
+Thanks and regards,
+Pin-yen
