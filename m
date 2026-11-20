@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795141206;
-	b=eYlr3A6KsZTgRyUJ7HMkoCnwIUCbRNwzZYHTJr0cK5ccU9Yl0WysbyJJeuvfXFN1sDwm
-	 jgtZOEoslnh/hZGviE6H3lNlE0laJiIs9IlGtXkgMfXYSvUGAOQiIUeWD37DUqVU7+GaQ
-	 F/h6Zd3xEljtjv7SPEoksAkCbi15lBE5pQlPgUim+H1UzgIPTIVVaxWs5BpOCpjB1au+i
-	 5SjhbmO+JC6Xlku2y7kL6e5MaKJLh0Mw+5UkKfFpleosnAGtSnGmUJnuEhfvp0DLCqI1D
-	 t+zPGy1VMZ/G/oXAWaqCnXV1NfJ3jkyzEnFdF7daQzlg0GV5eu6zMUKiK9PXxh2c2iQ==
+	t=1795141209;
+	b=I+BiXQB4TI7KPHEFhBAabxOxsl7jrC4itAik5dG8QpcFrThc5vI+scJKyPzaM4A02VkP
+	 WAVch3KhL+l8af7JQ85ZOEbEqeFtrT9U1HADiiitqBi6TxsFaOzf0Mp2WpLmzUQF925Wv
+	 Q2jObH9G0OFDy4I7HgN80JqONd9jGGtCbbOv69hqfd9WSw7VJWv/EVSsgUmJkt7ONYrpz
+	 KB0ccc91wkakUgoCeHQ3tijVZyVaKEwcLFDXxFCRgH2JCws2M2LzfQNodABTvKxppCAuI
+	 DP902ZnGN/OB3c6XmQeNxq+264Zckx4sLelZ0Yz5b+1QEtgg8UrcSKa/fX6/llbmQNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795141206;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795141209;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=x1c+OZN74ZYwtE3WiEL44d5tdZ3m6forxJPuQ8GDPfM=;
-	b=MJUHJrNvVrmZhdcaXzr97Wi7m+ag7wgr54S1cMeWH+oSupzjPg4+QOvEkzDcJOrCwQSZ
-	 OQOKjJSAh6AE8d+CQgeyexi4cEYwwVt/3YgNtWarVVtKFify0568V2kYO08mlR8HJ0dK6
-	 efCiFFaaBwuCnDEe3kBM75Xht5CCYdqP9wxj3uYvO3wjfkGP8C89O3FwQDWGTkJtk2n5x
-	 Ps7YFrgzhUyvCOz0IPYdINWz1J3FIa/6ukdIPmoDpOJIzuNLWLqpqmtibikQL+KPzPmX5
-	 pUWb8OAmEGD26dV+RmB2JMhmfhqziynzIn1Em0Q0cZ8vCL42Lr4zsP/UTUWUBc9wLlg==
+	bh=mfJyAF4Nrl+hgTB1RD7oeC4gMN7pBo8CsmEpvgXkV68=;
+	b=Z7sxUJ1OmSyxRH8BbR+IXRmcP8pjnCUuTKmJtfHSl/yEhQXA7xwB6DZgJB72onIQcrHG
+	 QcW7KTym33n8lGkbYjPrUMT5VxHsnWh6lpWzYgLUhnr+Sghbs9sZJrWJIletaUoRUjZC6
+	 bt7P5+yhjIUJyeiveaGG/NMFxC81II2Q23s7SDmooo4Uon5zxMnIVOQr6TAaZMjOrAPFs
+	 Cpmk74DyMYkIpGd5hi1606NOKqCIjY19i2YxRI/5LQoN0ziXFxnmLoEViBGpo0cuNV62c
+	 x6oGyr+ZpqXz4RuMBznYxrf6+MiPCRiV2RECZCBF1qPCcHMy3GK8+kKf3jxMPiETH3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jRjpQu1y;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m+LG1K9b;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29B8B606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:20:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FB38606A320;
+	Fri, 20 Nov 2026 02:20:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jRjpQu1y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBBBD1F000C4;
-	Fri, 20 Nov 2026 02:20:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m+LG1K9b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06E711F000C4;
+	Fri, 20 Nov 2026 02:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795141205;
-	bh=x1c+OZN74ZYwtE3WiEL44d5tdZ3m6forxJPuQ8GDPfM=;
+	s=k20260515; t=1795141209;
+	bh=mfJyAF4Nrl+hgTB1RD7oeC4gMN7pBo8CsmEpvgXkV68=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=jRjpQu1y5111tZBgUF4VnCfeFclrjv86VsMxsdxfWm7ztow021sVlcxJz94B9PgeJ
-	 7HawZKbQsm/5kgf+b25CCsdehLEFCuCSBwl+oq3BinH5bpyeeubq8tvGPNOqCV86tr
-	 kij4Vixc3r+MaKjHm974Mq9AUtsu3yzPNQOy2MH2zcJgJOzuCEjT3kY3PaZ6a0rCaw
-	 VsCnf9mX6vyvT+W3avYgsQcQEf9dljJ9MLmqzA0fTRTmhwFhPT3W+sf4pneabl6/uG
-	 hOrAYEOB5ncbtTbT1uBtgL7oMXnciBmoNTFwB+UZ8y+O4PPHHznHiUtYHuRR0ny674
-	 mJDYgHagbGPqA==
+	b=m+LG1K9bvGCj2R2kG8VaDT0ED2pIi/KORQkjlzO1qsGLGLRn5bB9VbcEpODdxY0xn
+	 f7KeMnyZ+DefcVHOfVI6EUb7PLXyagaWfTs8NADjgD7LS2vgchej+xdeiuwzGYYxZN
+	 r6kbiD32Cmk3/KmIDICo4aHlt1C7sC0xVpEP0BYsVydoLfwfCqgy28alOLSuy82ISd
+	 Ga9F5rg0uc9d0nhY4K2JEN7sBUvxjL9I1fQcEBSog2JS8FIKZwSYJpzEe/AXrLYYAY
+	 CAW/opvXrZ63KGXjYfxlGo2Xme9+CbQF/tCIZtIOF7gC0Rx0IWEZoMtZt5RN+3hyey
+	 XgpzZaeKHucnw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43513808209;
-	Fri, 20 Nov 2026 02:20:05 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15A83808209;
+	Fri, 20 Nov 2026 02:20:08 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,41 +54,41 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] MAINTAINERS: add Willem de Bruijn to networking
- maintainers
+Subject: Re: [PATCH net-next] net: dropreason: add
+ SKB_DROP_REASON_FRAG_MEM_LIMIT
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179514120453.3982074.9533130612474958102.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:20:04 +0000
-References: <20261118195525.3449546-1-kuba@kernel.org>
-In-Reply-To: <20261118195525.3449546-1-kuba@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org, andrew@lunn.ch,
- willemb@google.com, edumazet@kernel.org
+ <179514120753.3982074.11609481457097425457.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:20:07 +0000
+References: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+In-Reply-To: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, alex.aring@gmail.com,
+ stefan@datenfreihafen.org, miquel.raynal@bootlin.com, dsahern@kernel.org,
+ idosch@nvidia.com, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ linux-kernel@vger.kernel.org, linux-wpan@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 18 Nov 2026 11:55:25 -0800 you wrote:
-> Willem is one of the pillars of the community and already
-> maintains a bunch of core protocols and pieces of the stack.
-> Make Willem a maintainer of all of networking.
+On Wed, 18 Nov 2026 15:05:19 +0800 you wrote:
+> This is used to track fragments dropped when the reassembly memory is
+> over the limit (ipfrag_high_thresh, ip6frag_high_thresh).
 > 
-> Acked-by: Andrew Lunn <andrew@lunn.ch>
-> Acked-by: Willem de Bruijn <willemb@google.com>
-> Acked-by: Simon Horman <horms@kernel.org>
-> Acked-by: Paolo Abeni <pabeni@redhat.com>
-> Acked-by: Eric Dumazet <edumazet@kernel.org>
-> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+> Fragments dropped because high_thresh is 0 get this reason too, the
+> same way they are counted in IPSTATS_MIB_REASMFAILS.
+> 
+> Tested with pwru.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] MAINTAINERS: add Willem de Bruijn to networking maintainers
-    https://git.kernel.org/netdev/net/c/d0c28729c10f
+  - [net-next] net: dropreason: add SKB_DROP_REASON_FRAG_MEM_LIMIT
+    https://git.kernel.org/netdev/net-next/c/2cb41b6bea62
 
 You are awesome, thank you!
 -- 
