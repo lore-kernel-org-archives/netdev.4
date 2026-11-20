@@ -1,73 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795205661;
-	b=X0PY+SyiKL5bgME8TSTbvP7w1f7eTVE7lm1jQyd9UrvbhY2ALP16eRcJORmXQHkPeBeS
-	 F5lsxOOzLxQDgZcDk2kvdq8jLH4ca9BB6kozRBrYX84Ijb/OgUloVLYRviJjdY+zVDH1Y
-	 /7BV6WJtmmtyMExftcqncYcRs6GlQz+Q96VArB/v6BVd2QpQUCIVuzvHSc3NYUt8d2OJD
-	 u+pTIYqVjoplyJrop48giUbE69lpFyWkjayyg2HkLoVztDOiwi4lDhKJMfYVP301uK+hK
-	 a7Jo+T+IXvm6/iKgbFQ6Mt2fBjM3efYrpP30I0NntHuHav3DsBPo2Cr0ZzH78n/No9A==
+	b=3Xp/+9lAbAQGlWwIOzKoL2jcz9GFF2po0KptrRDCQvbTsic0PMG+RUMKoSp0YNprLJrK
+	 2FhTFWtbNw0iLgMvnw1pTYGsfS2QQF4SIIUV/z4YjzDsH/yFH3A8GCiMYtKMoafq+bHEe
+	 RNwRkH60Uo+heKEx2Y9RBzi8hhI2IfDiR2qZLG7RLBFPVNfx8lDdqsGwKyJP2aiBsdQE5
+	 nBDA/O7tBqLmb85ZzfDU/nyptlkF67Wa7rFCrWfvry4a7vBABUCL/3ysT6xq29dc3T4t4
+	 naHcGyieYWMMToFVyX+IAeeGGJ9re7OcZuO5lOvQftwyIyMpYx108btbtQIU4JK8PVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795205661;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
 	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=RYXg0B4XcZd7l5X1Kl/tzzwPWSC8fGJzkL6gcZJW3y0=;
-	b=IkX0t/e2jhTkq9OUVdho2KrQvJjCkeKBpmyalfWVJX2Cyg9MSGgsGnCpVQm9/TPgF5/h
-	 SMTv2zJq4KXStfMuH3ZOLtY8q2x6/8mzCkIRjSYIUnqekfh+YDw1oyN9+jZjxaunAh0Dh
-	 +v2fiPf8M8LMnw+1AhUlFyXh9dDXIdjL0QizhB6khN8KANCdjk1fOgQkhATMDFbp39S0a
-	 Qqk2W4vuRnO/eYUINGoNz2CmarA9bzdBpyOsaaaXNJgneMIuNXsOFjp2+J4rFzGEIh6RS
-	 EkkgWDeTAd4X7T/PYMrYtJGn8esbLY37Qg6Wd6xTKl+uRPFiOSRRF2rgKQ+//lgslyQ==
+	bh=2Ct3kYTyYXnyej+Byik8bcduRVve0+j2vmJbuwTKNMg=;
+	b=c7fQl06RS7CY3hRj2tJ4brAM3k9JHBKtrFTR0BIVG2Ix7G715gZBBuO0Ov3kLGChsgyv
+	 /GNGSHAPZEEiH4+p+LuXKCT8bdBkAup8vg3vhL4452z8qc1zsJPuVfFsgmXirsEhYXEqd
+	 hD1c8gvxW4qR2iXfY+jkZUtpheBWwMgtyuMyxYyUO7ifcCEPdoZkdUyYsliFAjj2iu6lA
+	 G+TBX+9gpDjqEVQWrIvgfo7h8B1w30fnN5Xg3PO7nFwXngTfhqQtLhyUKiFDp2JDQoQNV
+	 7FXvvyJAXuYQ/W96WA7Pi85UuZor2AC+ZjLpOWnuV2p7E0l3LPS99BPkNagvr6E6s8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VPJZtaTy;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pLigCP2N;
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F6E3606A6C4
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:14:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F6E3606A6C4
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A600606A6C6
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:14:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A600606A6C6
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VPJZtaTy
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b53bfc9534so366081c88.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:14:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pLigCP2N
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3ae17c536so1246737c88.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:14:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795205660; x=1795810460; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795205652; x=1795810452; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RYXg0B4XcZd7l5X1Kl/tzzwPWSC8fGJzkL6gcZJW3y0=;
-        b=VPJZtaTyp72bsdGUOZbxiMs+5buZSckqYEb7Ym0a/hr95OrFaEOj8U3DcLnrXzZRRU
-         qrxmXv7pS9g+4KEdKYUhymBm4kqsCE7O0o5SmouqLTnzERnQ3s7U0vO8A/XoCFUCu9Je
-         65smX703li2Mc/hb2dAPA+o1QgkJyed78ovlm+H2K6oYmq9Ptmj/95y/ZC0mnqACBd/t
-         Ba3bv3Ah1+7hgYFpLuZN5AN9FKvjte4aghBYADj3P5o835uN6J7Io1yCbDImmPfDlMj+
-         UMbiwnbTct16waVf/Hylwh9aS5+fZd7oVuYHxqAKdepNg6ALUzhHyDW6gUEzDrIq3ZqQ
-         XI6Q==
+        bh=2Ct3kYTyYXnyej+Byik8bcduRVve0+j2vmJbuwTKNMg=;
+        b=pLigCP2NewfTVUzj5X1BBt+7oneO46bJZwJKbK86ELkzhT3CY7Gi2j2XpmGTejToxn
+         AvqliF+eHxqwh3TilcPyOjj2Y6WPxga01U0fNyAj2W7W5bbgql7UJ90sz2P3osFMdriQ
+         NyFUXTsOmosfCACsOOeG7lGsLG7kB7FdVdzJY2Ya2wiIL+V4gQQfkZTTvlyP1V9LBWfS
+         dz2QM6obcIZO8l2XNFdtPZrDVaJyH3bBg3q9qxIpXjxOLtjxVk+SKip9eI9s/T2Xr00e
+         XDWGFUvpDoBAZzf9OOg61qtbgAoICz6Th28aPbccXSGOSiYg376Wf3LOYQc6ELeO8yo7
+         R/Xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205660; x=1795810460;
+        d=1e100.net; s=20260707; t=1795205652; x=1795810452;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RYXg0B4XcZd7l5X1Kl/tzzwPWSC8fGJzkL6gcZJW3y0=;
-        b=nXBvC6p1gng+iP/PdDgcxd/I9SEoRL8DUj7GgK2Suszo6DflfoEXzBkgiyVro2+sr9
-         uHYfcV61bwds8ML4XXKKbHYGId8MP1KCMcIPhvc2OOVwa4TVYJ+roKsVVxfnv8bmFQg+
-         zxs4AUnt2QRcn+awP+H0GGnwA2YJBfg1rpW6QxKHDOoExdvmyFpcVJhg1fqxnCyE4KnC
-         ctd044oC+fA8B8Ta5Fu506wMKiPDmbqUcKi/67s2ttnvwCfmMvMp77gWLTTBnBkXLucH
-         pRlGuXmWME4iwRnEbbfbwEHp9lwgStInP5JdturfPFlgW4S4mPLzwUyNbBMUjlJfOhUJ
-         Zdrg==
-X-Gm-Message-State: APuU4Z8djU69N2MMkJDGUedk1bTQ9kjL+ZkTEwNt1y5bnK0NunEgEumI
-	cGFFpQNCtOh4A6TkC3EA99jWZNNp18U+cWOOZOMyHYS3MqHn8hFdsroedi9cv7gidr9JDReKpqj
-	zKevHYQuR7nIzSNAM3fvM0gbEarROQy4X6fBMEKiIPmVkO9zGooNzJ4MO5LCn+2f79eld3m6hKc
-	sWVSNlGIBcnELksy8Ul8dBOvOSl4GDEvFAhSnQkIP/aJDK+hvWroqfNzr6NaJWyM8=
-X-Received: from dldyq13-n2.prod.google.com ([2002:a05:701b:454d:20b0:1b2:3bcd:9068])
+        bh=2Ct3kYTyYXnyej+Byik8bcduRVve0+j2vmJbuwTKNMg=;
+        b=o+fUtdaFBPC7yJiuKC3QnzYqWnsPJRVbnS1EELsCnMq3nDURpvPTIE68jRs5UqTiQC
+         WqwbVqG+Y6edMQ+C6pWC5joT9r4Fn6n11zK5rPYbbr+EaLi3JoFE+md5bVeTgVRNW2tx
+         QkgF8Vq0kMtNxTOlw1eZu6Gu75Wr87I3wu4S0givjZOWkHlqS2okejklDTcbl/lVhxJn
+         Oy3jtePvmbaZmZvFEaJq2do8y8+uYwfBuTCk7P01Op7/mnUC/SRYIVNiKdfmaqFJJ/U4
+         Gf440IjZBUxxN0V5k1NAQIpFG1azSmMdANum7dp6D3AnkufeJ9Se7WD1X+vM83Lsa+iT
+         IYqg==
+X-Gm-Message-State: APuU4Z9YnvIhRYDcyhe367/tBVnQ2PPQGSFCCxAeeiTOmwG/x4X01M7j
+	Gr4oghUa/vyKPEtI/LBVPU6W8tyaMJTkyWxqSEOFt6VvRqRJeHEUVvxnWEbpBMO5t+PJ9LQY+Ss
+	NbDW1lwpbqsNPp0/oXHhzfhJxH+vqriJyai8wPflcVZfb2fNwJRd8Rg+mKok6y/0tsl2t/qq9f2
+	SA17RmEzsNAoyHCd0zaiD/oegnNW9lB3CyvJa1+KEgMHu1BjBjAYM+rHhIKenaAv0=
+X-Received: from dlam5-n1.prod.google.com ([2002:a05:701b:2085:10b0:15d:6b8d:2adc])
  (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:4182:20b0:151:2e62:fe6d with SMTP id a92af1059eb24-1b5568a2ef4mr4036848c88.22.1795205659863;
- Fri, 20 Nov 2026 12:14:19 -0800 (PST)
-Date: Fri, 20 Nov 2026 20:14:08 +0000
+ 2002:a05:701b:2804:b0:1b5:434d:b61b with SMTP id a92af1059eb24-1b5568cd633mr3451533c88.22.1795205651562;
+ Fri, 20 Nov 2026 12:14:11 -0800 (PST)
+Date: Fri, 20 Nov 2026 20:14:03 +0000
 In-Reply-To: <20261120201408.3445445-1-almasrymina@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -80,8 +80,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120201408.3445445-1-almasrymina@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120201408.3445445-8-almasrymina@google.com>
-Subject: [PATCH net-next v6 7/7] net: kunit: test incompatible memory provider rejection
+Message-ID: <20261120201408.3445445-3-almasrymina@google.com>
+Subject: [PATCH net-next v6 2/7] net: devmem: prevent mixing TX bindings and
+ reject non-devmem xmit
 From: Mina Almasry <almasrymina@google.com>
 To: netdev@vger.kernel.org
 Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>, 
@@ -94,86 +95,144 @@ Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>,
 	Bobby Eshleman <bobbyeshleman@meta.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Add KUnit subtests in netmem_ref_test_try_coalesce() verifying that:
+Two devmem TX paths do not validate the fragment memory provider or
+binding strictly enough:
 
-- skb_try_coalesce() rejects coalescing two NET_IOV_DMABUF skbs
-  belonging to different bindings, and
-- skb_try_coalesce() rejects coalescing a NET_IOV_DMABUF skb with a
-  NET_IOV_IOURING skb.
+- When sending with MSG_ZEROCOPY and SCM_DEVMEM_DMABUF across multiple
+  devmem TX bindings on the same TCP socket, tcp_sendmsg_locked() and
+  zerocopy_fill_skb_from_devmem() only check skb_frags_readable(skb),
+  allowing fragments from two different devmem TX bindings to be
+  appended into the same skb.
+- validate_xmit_unreadable_skb() checks the binding direction and
+  target device only when net_is_devmem_iov(niov) is true, allowing
+  unreadable skbs backed by non-devmem net_iov providers (such as
+  forwarded io_uring zcrx RX skbs) to bypass validation on
+  NETMEM_TX_DMA devices. Using netmem_to_net_iov() also assumes
+  frags[0] is a net_iov without checking first.
 
+Add net_devmem_skb_binding() to return the devmem binding of an skb's
+first fragment (all fragments in an skb share the same memory source).
+In tcp_sendmsg_locked(), check net_devmem_skb_binding(skb) != binding
+only when a devmem binding is active so normal non-devmem TX keeps a
+single unlikely(!skb_frags_readable(skb)) check with no extra taken
+branch. In zerocopy_fill_skb_from_devmem(), check
+net_devmem_skb_binding(skb) != binding and return -EMSGSIZE instead of
+-EFAULT so tcp_sendmsg_locked() starts a new segment instead of
+aborting the send with an error. In validate_xmit_unreadable_skb(), use
+skb_frag_net_iov() and drop unreadable skbs on NETMEM_TX_DMA devices
+unless frags[0] is a DMA_TO_DEVICE devmem net_iov bound to dev.
+
+This issue is theoretical and was found by manual code inspection and
+LLM review; it was not triggered in production. Compile-tested and
+boot-tested with the net_core KUnit test suite; not tested on real
+hardware.
+
+Fixes: bd61848900bf ("net: devmem: Implement TX path")
+Fixes: ae28cb114727 ("net: check for driver support in netmem TX")
 Signed-off-by: Mina Almasry <almasrymina@google.com>
 ---
- net/core/net_test.c | 49 +++++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 47 insertions(+), 2 deletions(-)
+ net/core/datagram.c |  4 ++--
+ net/core/dev.c      |  8 ++++----
+ net/core/devmem.h   | 22 ++++++++++++++++++++++
+ net/ipv4/tcp.c      |  4 +++-
+ 4 files changed, 31 insertions(+), 7 deletions(-)
 
-diff --git a/net/core/net_test.c b/net/core/net_test.c
-index 1cfa947c11f2..3efff3f5368a 100644
---- a/net/core/net_test.c
-+++ b/net/core/net_test.c
-@@ -1639,9 +1639,10 @@ static void netmem_ref_test_try_coalesce(struct kunit *test)
- 		.nid = NUMA_NO_NODE,
- 	};
- 	struct sk_buff *to, *from, *clone;
--	struct net_iov niov = {};
-+	struct net_iov_area area2 = {};
-+	struct net_iov niov = {}, niov2 = {};
- 	struct page *pp_page, *reg_page;
--	netmem_ref pp_nm, niov_nm;
-+	netmem_ref pp_nm, niov_nm, niov2_nm;
- 	struct page_pool *pool;
- 	long base_pp_ref, base_iov_ref;
- 	int base_pp_page_ref, base_reg_ref;
-@@ -1753,6 +1754,50 @@ static void netmem_ref_test_try_coalesce(struct kunit *test)
- 	consume_skb(to);
- 	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 2L);
+diff --git a/net/core/datagram.c b/net/core/datagram.c
+index 489d92fe6dae..9d4192b1042e 100644
+--- a/net/core/datagram.c
++++ b/net/core/datagram.c
+@@ -712,8 +712,8 @@ zerocopy_fill_skb_from_devmem(struct sk_buff *skb, struct iov_iter *from,
+ 	size_t virt_addr, size, off;
+ 	struct net_iov *niov;
  
-+	/* 4. Reject coalescing net_iov skbs from different bindings. */
-+	net_iov_init(&niov2, &area2, NET_IOV_DMABUF);
-+	niov2_nm = net_iov_to_netmem(&niov2);
-+	netmem_set_pp(niov2_nm, pool);
-+	netmem_or_pp_magic(niov2_nm, PP_SIGNATURE);
-+	atomic_long_set(&niov2.desc.pp_ref_count, 2);
-+	to = alloc_skb(0, GFP_KERNEL);
-+	from = alloc_skb(0, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, to);
-+	KUNIT_ASSERT_NOT_NULL(test, from);
-+	to->pp_recycle = 1;
-+	from->pp_recycle = 1;
-+	skb_add_rx_frag_netmem(to, 0, niov_nm, 0, 32, PAGE_SIZE);
-+	napi_pp_get_page(niov_nm);
-+	skb_add_rx_frag_netmem(from, 0, niov2_nm, 0, 32, PAGE_SIZE);
-+	napi_pp_get_page(niov2_nm);
-+	KUNIT_EXPECT_FALSE(test, skb_try_coalesce(to, from, &fragstolen,
-+						  &delta));
-+	consume_skb(from);
-+	consume_skb(to);
-+	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 2L);
-+	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov2.desc.pp_ref_count), 2L);
+-	if (i && skb_frags_readable(skb))
+-		return -EFAULT;
++	if (i && net_devmem_skb_binding(skb) != binding)
++		return -EMSGSIZE;
+ 
+ 	/* Devmem filling works by taking an IOVEC from the user where the
+ 	 * iov_addrs are interpreted as an offset in bytes into the dma-buf to
+diff --git a/net/core/dev.c b/net/core/dev.c
+index 1a63f6b939f7..5bb300083b7b 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -4189,10 +4189,10 @@ static struct sk_buff *validate_xmit_unreadable_skb(struct sk_buff *skb,
+ 
+ 	/* All net_iovs in an unreadable skb share the same binding. */
+ 	if (shinfo->nr_frags > 0) {
+-		niov = netmem_to_net_iov(skb_frag_netmem(&shinfo->frags[0]));
+-		if (net_is_devmem_iov(niov) &&
+-		    (net_devmem_iov_binding(niov)->direction != DMA_TO_DEVICE ||
+-		     READ_ONCE(net_devmem_iov_binding(niov)->dev) != dev))
++		niov = skb_frag_net_iov(&shinfo->frags[0]);
++		if (!niov || !net_is_devmem_iov(niov) ||
++		    net_devmem_iov_binding(niov)->direction != DMA_TO_DEVICE ||
++		    READ_ONCE(net_devmem_iov_binding(niov)->dev) != dev)
+ 			goto out_free;
+ 	}
+ 
+diff --git a/net/core/devmem.h b/net/core/devmem.h
+index c4f476947dfa..c685288f5021 100644
+--- a/net/core/devmem.h
++++ b/net/core/devmem.h
+@@ -10,6 +10,7 @@
+ #ifndef _NET_DEVMEM_H
+ #define _NET_DEVMEM_H
+ 
++#include <linux/skbuff.h>
+ #include <net/net_namespace.h>
+ #include <net/netmem.h>
+ #include <net/netdev_netlink.h>
+@@ -117,6 +118,21 @@ net_devmem_iov_binding(const struct net_iov *niov)
+ 			    struct net_devmem_dmabuf_binding, area);
+ }
+ 
++static inline struct net_devmem_dmabuf_binding *
++net_devmem_skb_binding(const struct sk_buff *skb)
++{
++	struct net_iov *niov;
 +
-+	/* 5. Reject coalescing net_iov skbs from different providers. */
-+	net_iov_init(&niov2, NULL, NET_IOV_IOURING);
-+	to = alloc_skb(0, GFP_KERNEL);
-+	from = alloc_skb(0, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, to);
-+	KUNIT_ASSERT_NOT_NULL(test, from);
-+	to->pp_recycle = 1;
-+	from->pp_recycle = 1;
-+	skb_add_rx_frag_netmem(to, 0, niov_nm, 0, 32, PAGE_SIZE);
-+	napi_pp_get_page(niov_nm);
-+	skb_add_rx_frag_netmem(from, 0, niov2_nm, 0, 32, PAGE_SIZE);
-+	napi_pp_get_page(niov2_nm);
-+	KUNIT_EXPECT_FALSE(test, skb_try_coalesce(to, from, &fragstolen,
-+						  &delta));
-+	consume_skb(from);
-+	consume_skb(to);
-+	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 2L);
-+	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov2.desc.pp_ref_count), 2L);
-+	netmem_clear_pp_magic(niov2_nm);
-+	netmem_set_pp(niov2_nm, NULL);
++	if (skb_frags_readable(skb) || !skb_shinfo(skb)->nr_frags)
++		return NULL;
 +
- 	page_pool_put_full_page(pool, pp_page, false);
- 	page_pool_put_full_page(pool, pp_page, false);
- 	__free_page(reg_page);
++	niov = skb_frag_net_iov(&skb_shinfo(skb)->frags[0]);
++	if (!niov || !net_is_devmem_iov(niov))
++		return NULL;
++
++	return net_devmem_iov_binding(niov);
++}
++
+ static inline u32 net_devmem_iov_binding_id(const struct net_iov *niov)
+ {
+ 	return net_devmem_iov_binding(niov)->id;
+@@ -250,6 +266,12 @@ net_devmem_iov_binding(const struct net_iov *niov)
+ {
+ 	return NULL;
+ }
++
++static inline struct net_devmem_dmabuf_binding *
++net_devmem_skb_binding(const struct sk_buff *skb)
++{
++	return NULL;
++}
+ #endif
+ 
+ #endif /* _NET_DEVMEM_H */
+diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+index d510e982dcea..94dee9f1017a 100644
+--- a/net/ipv4/tcp.c
++++ b/net/ipv4/tcp.c
+@@ -1254,7 +1254,9 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 		trace_tcp_sendmsg_locked(sk, msg, skb, size_goal);
+ 
+ 		if (copy <= 0 || !tcp_skb_can_collapse_to(skb) ||
+-		    unlikely(skb_frags_readable(skb) != !binding)) {
++		    (unlikely(binding) ?
++		     net_devmem_skb_binding(skb) != binding :
++		     unlikely(!skb_frags_readable(skb)))) {
+ 			bool first_skb;
+ 
+ new_segment:
 -- 
 2.56.1.750.gf70dc682cf-goog
 
