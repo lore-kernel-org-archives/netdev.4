@@ -1,57 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170752;
-	b=yR2J2mVV8pi3ifevQUu9oO92LVFFV9SIiLl9g4oEKzrhVKbaTbI1OdFwR7VHXe5GSpzl
-	 jSAhgLv3RvB6LIzKyqno799hJJ6n7jqhfD8kydJ8x8wbKEVDPkkYiakWzr9GnGHNPAQE2
-	 K0QUSBpg12/XEs6BzTdf2rANhVMp+XMEDBsJ7GNe4wdDlLwbilViFFY0ZlxzU8/9dgqdE
-	 W72H/jkhseft0bz7SCR388g4IKi+ravPjF0ZvsLimtvD65JFTA4ODbwpTWEw0v2m8NWXw
-	 p829GP4EMwdjvt5hVXSAphO4ryi++eAjdBjOGuOhGasbzbRz1uZfM6Uq8AYK8HJzWLg==
+	t=1795170758;
+	b=KcZ7IkR5t7e3pATGs4J5zdyPYkMFVdk7Vue652X2N0CliY94L1igY5Rwiadtqh/09dDr
+	 yAVja1y6EJwNRKVZmtTZGT6awZ/qU0ZQqhXnH3CiEpzn7qZqS4tCLYd95/DUBCjXGtL4x
+	 IBY7dIXwGE1RB0Jft4nwfTXW+ukmEggxigydBgek/UsbuImAfizEJCh4wgF2zOaQhXUI0
+	 qfj9SdWZ/InasMUSs/5gwzR2M2A3J3eOy2sjhhx/v3CCTOAMLi6UNwLh86V6hwTXs+uYG
+	 ZFfe0IvGIsW1Z6DbgCbc2BWfh88FuaLdBhGL4gOFyDdKCF94Yh7vqOX2PMQy6Uw2Gig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170752;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170758;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=e6hDYPQhaY8CoMDDeLmCdNx7Wja3y+/nUyU+mS5UbXo=;
-	b=XNl9V3l7SdldX0QlEzFs3W1z0kgGETJQY4cnEoi0noCf2QLDo6RyIkNXpLtpSakEOOhX
-	 sS1qAkJQmAVfpTEiF+pVuDxQNjKkhlDSycEJywB6JO326YGrnr/zJBFg2Z0XBZoUznFPT
-	 BBqGFnvoDErJtDl4FiITKdlKdp/w/V5OzIdjvt+QOjcGtZPqAaA3NshLcjOTB9GEgu/w+
-	 TfHjLNeBKQd/QNpXTZnJ+ixGJpSIXvOxIgEF/HI1aY6hl7YCY6HuaCQSTP8GZ8m2j32FV
-	 32wDmcP/REchxm3qHbkdyC2GzJgh44RrJXKagQ2vbtEIY51wNiQF8mr0cRKIHSc5gow==
+	bh=4w47F1oOudqCCMJksXFKfd7JVduY8lHHMV19vhSptJo=;
+	b=k0579IQqCCLj72BvghrqocWcNd9zQ8GucWAMazf1pRaXN4/EslTw3O4Z9owX4soOc+AQ
+	 gSZjzvrGxrjNzo1lCZUdw0np7xVnB5KgGVuTP9/KBxk8A3PMqahZ/daS4fvfd3kTrpisz
+	 XypFEkLj6Xl3ODphYRxNgjlps3dbYGcaCZJh9usNHPunvKaLhwkanTHV7MJH5E2XYrO4r
+	 uCujUkRJvc8stA1hZMdapT1ibjV61q7Z2DL6zo7crfBFWbxMr9IFamnvoPMFGfK/ckdmb
+	 qavcLfhlk9BfS2NPctVl7OCvL+oiKgAOGxDgo3qyPkFs3ivnsB+lgX/9yTsUDPMMbCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hNIyLLyh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PALy035L;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFBC4606A337;
-	Fri, 20 Nov 2026 10:32:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA0F606A338;
+	Fri, 20 Nov 2026 10:32:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hNIyLLyh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E391C1F000CF;
-	Fri, 20 Nov 2026 10:32:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PALy035L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B553D1F000E0;
+	Fri, 20 Nov 2026 10:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170751;
-	bh=e6hDYPQhaY8CoMDDeLmCdNx7Wja3y+/nUyU+mS5UbXo=;
+	s=k20260515; t=1795170757;
+	bh=4w47F1oOudqCCMJksXFKfd7JVduY8lHHMV19vhSptJo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hNIyLLyheQ75viP3v0AcpR3vFZ039HFBJ21gZ14pKuiQFvvDi9F0JB1g2OuUXx3YA
-	 B+7EFFschpESmsJTqrHjTzUTzgaq/rztImX2q88IwMLAqCzUnlKQELj4IQEOaJpXjY
-	 3q0bWr8ssPPg2pO+YyM88rQxUYbx7e8EeyfZ/+6Rf5lWxFCb2egrHFvKJ5LXQlyxbj
-	 3ejWhhtR9bakRay69ihAz3WkhEKMjt2hXEixBys7Xc7Vz2FQGlKoHEPtN1EnMjky1E
-	 uJJWzS0RzcZxG/RML5BrhmTQ/6vbUxlVW9ByhekbrykgAd2aMG12HaF2a26bjHvduH
-	 MZXhUDqKaXycw==
-Subject: Re: [PATCH net-next v4 2/3] ipv6: Cache pmtu for all paths of a
- multipath route
+	b=PALy035LgsUPHsychnN6eW9sJZvQZ416VbtvD2aHoRuz5jP/MoLSYjqwdbQRfFsfE
+	 Ohpi2Q40SSuwGRpHELNWO0lEmlNCWMKu3yAZwxG/MfAtoWuLYnuBHKCrsMl6WVxzny
+	 a4JmJdJfKkkw2Uk1b+E/HtNnf4nIo68sO84ox2rRLljKuNXuDM/GL6la0gjFhxgtsI
+	 nEUf3hTWUJZA3xJ/ZT7FhPto8HyjGjI3NscMDathwjHyDA/cx7Bqtnw3EQf9kLu8Ba
+	 RzZyvQTCkYhvbP27SPob0QOXJOBJqyI+RLxg5DI33RAsM376ZiCB7LrqNMJXUFCHty
+	 Ccl8vyyNE6RTQ==
+Subject: Re: [PATCH net v3 05/10] net: au1000: serialize TX completion with
+ packet submission
 From: netdev-bot+sashiko@kernel.org
-To: deliran@verdict.gg
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Fri, 20 Nov 2026 10:32:30 +0000
-Message-ID: <179517075051.3136.16687841105573859548@kernel.org>
-In-Reply-To: <20261117193141.27004-3-deliran@verdict.gg>
-References: <20261117193141.27004-3-deliran@verdict.gg>
+To: f.fainelli@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, shaojijie@huawei.com, horms@kernel.org,
+ runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
+ linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
+Date: Fri, 20 Nov 2026 10:32:36 +0000
+Message-ID: <179517075632.3136.4816970691265925776@kernel.org>
+In-Reply-To: <20261117193223.2795612-6-f.fainelli@gmail.com>
+References: <20261117193223.2795612-6-f.fainelli@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,137 +78,81 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In __ip6_rt_update_pmtu() (net/ipv6/route.c), the from_lookup
-  branch is meant to skip a blackhole nexthop.
+- [Medium] au1000_tx() (drivers/net/ethernet/amd/au1000_eth.c) now holds
+  spin_lock_irqsave(&aup->lock) for the whole transmit path.
 
 --
 
-ipv6: Cache pmtu for all paths of a multipath route
+net: au1000: serialize TX completion with packet submission
 
-This commit makes ip6_update_pmtu() cache a Packet Too Big pmtu on every
-path of a multipath route, the same way commit 7d3f3b4367f3 does for IPv4.
-It walks the fib6_nh entries of a nexthop object or the siblings of the
-fib6_info, and it skips siblings that are not in the tree and nexthops
-replaced by a blackhole.
+This patch takes the IRQ-safe aup->lock in both au1000_tx_ack() and
+au1000_tx(), so TX descriptor reclamation and queue state changes are
+serialized. When au1000_tx() reclaims a completed descriptor at tx_head,
+it now also advances tx_tail. The skb is now freed with
+dev_consume_skb_any() after the lock is released.
 
-Link: https://lore.kernel.org/netdev/ad29493c-9e48-4a94-b327-e47af3a9d137@kernel.org/
-
-> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-> index 04098cf32eabe..a835abc698d25 100644
-> --- a/net/ipv6/route.c
-> +++ b/net/ipv6/route.c
+> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+> index 1935b1d4b1738..805aabc6721b8 100644
+> --- a/drivers/net/ethernet/amd/au1000_eth.c
+> +++ b/drivers/net/ethernet/amd/au1000_eth.c
 
 [ ... ]
 
-> @@ -2939,55 +2982,80 @@ static void __ip6_rt_update_pmtu(struct dst_entry *dst, const struct sock *sk,
-
-[ ... ]
-
-> -		res.fib6_flags = res.f6i->fib6_flags;
-> -		res.fib6_type = res.f6i->fib6_type;
-> +	arg.daddr = daddr;
-> +	arg.saddr = saddr;
-> +	arg.res.f6i = f6i;
-> +	arg.res.fib6_flags = f6i->fib6_flags;
-> +	arg.res.fib6_type = f6i->fib6_type;
+> @@ -972,21 +976,25 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
+>  	u32 buff_stat;
+>  	struct db_dest *pDB;
+>  	int i;
+> +	unsigned long flags;
 >  
-> -		if (res.f6i->nh) {
-> -			struct fib6_nh_match_arg arg = {
-> +	if (f6i->nh) {
-> +		if (!from_lookup) {
-
-[ ... ]
-
-> +			if (match.match)
-> +				rt6_nh_update_pmtu(match.match, &arg);
-> +		} else if (!nexthop_is_blackhole(f6i->nh)) {
-> +			/* A blackhole nexthop, swapped in by a replace since
-> +			 * the lookup, must not get a usable exception.
-> +			 */
-> +			nexthop_for_each_fib6_nh(f6i->nh, rt6_nh_update_pmtu,
-> +						 &arg);
+>  	netif_dbg(aup, tx_queued, dev, "tx: aup %x len=%d, data=%p, head %d\n",
+>  				(unsigned)aup, skb->len,
+>  				skb->data, aup->tx_head);
+>  
+> +	spin_lock_irqsave(&aup->lock, flags);
 
 [Severity: Medium]
-Can a concurrent nexthop replace put a usable exception on a blackhole
-fib6_nh here?
+With this lock taken here, the rest of au1000_tx() runs with local hard
+IRQs disabled until the spin_unlock_irqrestore() at the end. That
+includes the packet copy and the zero padding loop:
 
-nexthop_is_blackhole() and nexthop_for_each_fib6_nh() each read
-f6i->nh->nh_info (or nh_grp) separately, using rcu_dereference_rtnl().
-replace_nexthop_single() in net/ipv4/nexthop.c holds only RTNL when it
-swaps the pointers:
+	pDB = aup->tx_db_inuse[aup->tx_head];
+	skb_copy_from_linear_data(skb, (void *)pDB->vaddr, skb->len);
+	if (skb->len < ETH_ZLEN) {
+		for (i = skb->len; i < ETH_ZLEN; i++)
+			((char *)pDB->vaddr)[i] = 0;
+	...
 
-    rcu_assign_pointer(old->nh_info, newi);
-    rcu_assign_pointer(new->nh_info, oldi);
+On Au1000/Au1500/Au1100, MIPS_ALCHEMY selects DMA_NONCOHERENT. That
+makes the dma_alloc_coherent() buffer uncached, so every store into
+pDB->vaddr is an uncached bus write. A full frame is up to about 1514
+bytes.
 
-Say "ip nexthop replace id N blackhole" runs between the two reads. The
-check then sees the old non-reject nh_info. The walk then passes the
-blackhole nh_info's fib6_nh to rt6_nh_update_pmtu().
+The RX side has only NUM_RX_DMA (4) hardware buffers, and they are
+serviced only from au1000_interrupt()->au1000_rx(). Before this patch,
+the RX interrupt could preempt the copy.
 
-That fib6_nh has fib_nh_dev set to loopback_dev, so fib6_mtu() returns the
-mtu6 of lo. Any Packet Too Big mtu from IPV6_MIN_MTU up to that value gets
-through.
+Could this longer IRQ-off window on every transmit lead to more RX
+overruns (RX_MISSED_FRAME) under combined TX/RX load? It would also add
+interrupt latency for the rest of the system on these single-core
+parts.
 
-ip6_rt_cache_alloc() builds the dst from arg.res.fib6_flags and
-arg.res.fib6_type. Those were copied from f6i (RTN_UNICAST), not
-RTF_REJECT/RTN_BLACKHOLE. rt6_insert_exception() has no reject_nh check,
-so a usable dst on lo goes into the exception bucket of the blackhole
-fib6_nh.
+The copy does not appear to need the lock. Suppose au1000_tx() has
+checked, under the lock, that TX_DMA_ENABLE and TX_T_DONE are clear at
+tx_head:
 
-For a single nexthop replace, nh_rt_cache_flush() returns early:
+  - au1000_tx_ack() stops at the first descriptor without TX_T_DONE.
+  - It never touches the tx_db_inuse[] buffers or tx_head.
+  - ndo_start_xmit is already serialized by the TX queue lock.
 
-net/ipv4/nexthop.c:nh_rt_cache_flush() {
-    ...
-	if (!replaced_nh->is_group)
-		return;
-    ...
-}
+Would it be enough to hold aup->lock only for the descriptor state
+check, the tx_tail/tx_full handling, and the final len, buff_stat and
+tx_head updates, and do the copy and padding outside it?
 
-So the exception is not flushed.
-
-Later lookups take the blackhole branch of __find_rr_leaf():
-
-	if (nexthop_is_blackhole(f6i->nh)) {
-		res->fib6_flags = RTF_REJECT;
-		res->fib6_type = RTN_BLACKHOLE;
-		res->f6i = f6i;
-		res->nh = nexthop_fib6_nh(f6i->nh);
-		return;
-	}
-
-res->nh is the same fib6_nh. ip6_pol_route() then finds the exception
-through rt6_find_cached_rt() and returns it instead of the discard dst.
-
-Would this override the configured blackhole for that daddr until the
-exception expires (ip6_rt_mtu_expires)?
-
-Locally sent packets would go out lo instead of failing with -EINVAL.
-With forwarding enabled, forwarded packets would loop through
-ip6_forward() on lo until the hop limit runs out.
-
-Before this patch, the nexthop path only used fib6_nh_find_match() with
-the dev and gateway of the looked-up dst. That could never match the
-loopback fib6_nh of a blackhole, which has no gateway.
-
-The commit message says:
-
-    - siblings not in the tree and a nexthop replaced by a blackhole are
-      skipped.
-
-That only holds when the replace does not happen between the two reads.
-The later selftest patch in the series does not touch net/, so this race
-is still there at the end of the series.
-
-Could reject_nh be checked for each fib6_nh during the nexthop walk? One
-way is a small wrapper callback that tests
-container_of(nh, struct nh_info, fib6_nh)->reject_nh before calling
-rt6_nh_update_pmtu(). Another is to dereference nh_info once and use that
-snapshot for both the check and the walk.
-
->  		}
-> +		goto out;
-> +	}
+>  	ptxd = aup->tx_dma_ring[aup->tx_head];
+>  	buff_stat = ptxd->buff_stat;
+>  	if (buff_stat & TX_DMA_ENABLE) {
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193141.27004-1-deliran%40verdict.gg
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193223.2795612-1-f.fainelli%40gmail.com
