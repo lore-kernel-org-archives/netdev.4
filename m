@@ -1,75 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.59.177.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147515;
-	b=BhiQsapDxW+EchhgSjAAetnpJEDDIuzpZBa/06hPlJK04RK7fCP+U2uJ7HvqhUNqXzTz
-	 LOjD+rtXLYR7VlCdEfFPa9UlYylhWko47LEo5d80W8MJKrwjBe2OnX5sCE4ZoLQTqFEf6
-	 NupF0xEhY4sVyTycWhhP/8XsbYFjIg21gy2OeuYmoWTGkptP6a8bfVcJE1XxlR9OaVim6
-	 j1LrnnNewIOUo/9LzuDuWCL5w5YwZ3rHXBM0N5WQY4FPS6GQN+EusJJGo/7mETgvHm9Y2
-	 Fg14BBi7+PjLrvcKuGwLUUXtDqaXaLuB5exwFqvBHtdYEnHPGIFoe8Wx6fyhZx6DN7Q==
+	t=1795147905;
+	b=vF1I1gnYADglpoW/LtePvOOfVrPJTM+jvznUqshP81AyWi+btwzba+PbR6Lr5cDZCsn1
+	 10WxGYxW0eeLApVEk3ANVKG3uMHsf3z1SaawHI+L16wxea2zwyTPwslfBAXufF2uPirEJ
+	 xKkIAeGm35n+4YcXqJlH43WI/Aa6fXcUziE9d2jaAc0v8tAnjJnPYL6GCWb9TtVqeEjZz
+	 Hgyyk9hCgcytdrU78aehp0duP5eKsuJjEQD6FpeGX8NanYYITiu4f7RXYpLnBLZ4JWH5v
+	 ZAB71b6pklCrcv+bOtSv32OzSHoYq2ILJCp1N6mKOLuNGne9e+s4H6HL5WH43MWJVFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147515;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dXZ+MkOfcbD9xgZMo78VM9d3Xg0HFryzSuLW2pgi6sg=;
-	b=CXeg9Yt2q8nCwvCraI9wnnkLKkTfMm0RvUrJEPrwT/1HnPd23aqCAgYzSEEaitGJSrqs
-	 KqHglgBAJn3q/BFEsWMltHAzcbRp0X2y9UrdqpnyFC56kGOE65cN1rE73wbqq8TfqoR5T
-	 uMf2AdDcBFksw7YHAc1NM2Hk45xzfQALlK5Qs83eG32QhZT+zJIPzjrfXhkxcqz5eirqC
-	 kNZvUxQ+tOGTf/HIcSSKZkwCtHcbcVZRlYyI2WYQ6mRwg7Z7sXt3PsJyZMd3UQL85ak7O
-	 2/RIBiZ8GW2NL82iesYViowCWEkFV5se7Fp+MdkVTul5v7iA2YIHs9VY53qVIFvRwow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147905;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=1KipBeg4bEBACcMpYCXGhCQsswY5pv2jIIeEp+mXN6o=;
+	b=bzcG+uQDcLGk2oVJTg6kpCzQwNLmbfIpW5VxMfhPErMOWmy+NfqMX8xZ2ThlxQDBoZIU
+	 WDaphgkYaoWBBffKiZ0SNAvcdx7lE1ZRXJ9aSqgsIyRWxFMVs6WaPCvQbHw/Vt7u4qrNJ
+	 4meXmMKIXQaLd7K4C+qGm2YQaI5ZcziJt7TZ3mlqKSCjBVoL7AvBXLEnLWpamOOPpcOBi
+	 L3XzOx4Y24Fn74W3ZBT8cpe6ADZxVH5IQ149JGUaYssTRuPT0ve3mXJGiiQxkiNydb+sJ
+	 YKgueepExR4M20kgFuRqRFzHuw7cGCPNiZIZGKdWH2ITXxJ4erbqAGI3hESM3BkcWHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dRK1+2Id;
-	arc=none smtp.remote-ip=95.215.58.98
-Received: from mta1.migadu.com (out-98.mta1.migadu.com [95.215.58.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=MeieaKoH;
+	arc=none smtp.remote-ip=52.59.177.22
+Received: from smtpbgeu1.qq.com (smtpbgeu1.qq.com [52.59.177.22])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A18D2606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:05:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A18D2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8120606A325
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:11:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8120606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dRK1+2Id
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=R7dRqapwywAAqTCXIxiiZZ/ZqPLt+Ab1/NlMn2/RS/Q=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795147512; v=1; x=1795752312;
- b=dRK1+2IddyCulMueGpkaxdSy6TeN4oOBbGRxUAf7Nu3IMOtR1g5KGwnjlnHCXR8Ys1SLbGKR
- AdasdnBzwDPDuvPUzMJ/x/2DbDiBJIqZuvObNF/BXiKboDHjz0OJtrNRMgcidA9yH8t7ZXadYOF
- NKnMaWD250LJBh2/aNTNsdDg=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b2d00adc90459cdf;
-	Fri, 20 Nov 2026 04:05:12 +0000
-X-Mizu-Trace-ID: b2d00adc90459cdf
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Kyuwon Cho <kyuwoncho18@gmail.com>,
-	Eric Dumazet <edumazet@kernel.org>,
-	stable@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH net v4 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
-Date: Fri, 20 Nov 2026 12:04:36 +0800
-Message-ID: <20261120040447.195446-2-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120040447.195446-1-jiayuan.chen@linux.dev>
-References: <20261120040447.195446-1-jiayuan.chen@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=MeieaKoH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795147871;
+	bh=1KipBeg4bEBACcMpYCXGhCQsswY5pv2jIIeEp+mXN6o=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=MeieaKoHtJ202+ZQjbcvmHD+vMPJJ5hK3eeZWWRodQ7Q6TYfyfOX6b6WcYtSRSWN0
+	 N6F9QiRoFKHfsiilRmIvrarMwIA8Fa061LRPlMNPsN5MDBzBAn+ae8WKPfD+I8beh2
+	 NoHz3HM1grY8GqGuLk9Pr+w9qk4DkmzCqM1L2D2s=
+X-QQ-mid: esmtpgz13t1795147866t7b901aed
+X-QQ-Originating-IP: X39v3b1V1pZr7zv+DHmO9Xhhq+bYP6YnDteibVLxE5E=
+Received: from localhost.localdomain ( [61.183.83.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 20 Nov 2026 12:10:39 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 15957770864087808587
+EX-QQ-RecipientCnt: 7
+From: Wentao Guan <guanwentao@uniontech.com>
+To: edumazet@google.com,
+	ncardwell@google.com,
+	kuba@kernel.org,
+	kuniyu@google.com
+Cc: netdev@vger.kernel.org,
+	melotti@google.com,
+	Wentao Guan <guanwentao@uniontech.com>
+Subject: [PATCH net-next v2] tcp: cancel cloned request timers without waiting
+Date: Fri, 20 Nov 2026 12:09:55 +0800
+Message-ID: <72918C6B4A6E0CC7+20261120040954.57832-2-guanwentao@uniontech.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,107 +72,67 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Nkqq4bFvvULWz95bU5HFK0PE4DBFOQ90leBLHMttQbkaBxAg+wgsCanF
+	KKMsG8uv4jDSk8HRWxL99tq3hj+iU36pH7wWr8GmFHZYGhP/tv9swjf4qyFNVYC3ldoJZDx
+	GRUqinHKyM/wRGsy+/PTCogPUQnq8ANk3QEBFaek3tv4piEOjJujb1wjRnUwW2E+iLliZnC
+	Y5KXfDO8qexKRJ61nqivQbGNNgMT/JRhliGpJggpYpX/OohcZd1k63d2hcMCzFzNk121VIA
+	uXsjjKm+VIJuPq9LQYW0nQEHgsD8NaCH23iWKNprgDRAW8CtB5KkTekpPivelPnhI7eFz7T
+	cVX6gG6O0QTSBZ/q1bw727lBLNHyi9YqPcl35fbWCOM7XS8D79Hw/+Rd6gHDi+DuXfhqGLc
+	j7X+Uk5hjQK/2p6uHV+zSCI1tanQLdGpfnySdRWu5i/Eq55ft9OCjQb+8ggblXgrAhtR/Mh
+	03ASLAXlxts827U3KzAggjYrbsd6TF8SJUITXSxrxoTxaotwYgUFjoL1wYaHWmm1gF4zXce
+	EVzyNW4XZizgKnjDXquQE6utyMkLqI+m+f7j9mvpNvExwDZwNIynRSGUtVgbGv8IYkLbneS
+	nK/aPlq28ZbHw29oU0KqTH4CH5ieWgc7jZOmp3iG7GwweBTAtocuJC9htFg6lOdxQHyWs3e
+	cyB/lwcCRDoO2blLSOR5JDjbQjcVhF3o5R2PVvW01vD0xKEC+XARAxuw0n1Z8Wyg0sOcCXi
+	d/Q4zMDcfGoLKqdrp+dG0v6JGyPTzKdBXB4j9dJpRZAHUCpMgpQ0hrN7nNx0Edfgg+iA1po
+	0sVNTzsMFySaOQBLHFrsHkcG+9oCadP1rJbtwOWXG65DawVWK3zhJdjbBl92oCi1qff2jXr
+	evkOok9gkzX5nPcQ4oFmebTo6mr+z7g85scv68wGgUfsTYG2Z8teuF1fz7nBr67SmNNajNZ
+	F4dRasCLVPwjsNsLKqopJUpTvvk0eR7Ddfljhrd0YDJUDkv5QC2qaw+/X0y61JzZNjuPR5k
+	PBBDF0ABOeI9nU2P2K8gRmUCMxqKlo27LrqHTB721bG6fy5THlN9A4t+a6LN7esFzCyUn4O
+	wI89n+rZG4Q
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 
-icsk_backoff is used as a shift amount in inet_csk_rto_backoff():
+When a cloned request is migrated again, its timer has the same lockdep
+class as the running request callback. Using timer_delete_sync() through
+__inet_csk_reqsk_queue_drop(..., false) can therefore trigger a
+recursive-locking splat and disable lockdep.
 
-	u64 when = (u64)icsk->icsk_rto << icsk->icsk_backoff;
+The clone is unhashed when inet_ehash_insert() fails, so
+reqsk_queue_unlink() is a no-op. Its timer is pinned to the current CPU,
+allowing it to be cancelled without waiting for its callback. Use
+timer_delete() and drop the timer reference directly instead of
+synchronously deleting it through the queue helper.
 
-It can go past 63 on the paths of both callers:
+This change depends on the request lifetime changes in 
+commit 4e2b3ef19e0e ("inet: reject unhashed sockets during established lookups")
+Without them, __reqsk_free() frees nreq immediately and the pending
+timer can still trigger a UAF.
 
- - RTO: tcp_retransmit_timer() increments it on every backed-off RTO
-   with no cap of its own, then an ICMP unreachable goes through
-   tcp_ld_RTO_revert().
- - zero window probe: tcp_send_probe0() increments it up to
-   tcp_retries2, and tcp_probe_timer() calls the helper in its orphan
-   check. commit 6d4634d1b091 ("net: Limit logical shift left of TCP
-   probe0 timeout") clamped tcp_probe0_when() but not this one.
-
-Seen on the RTO path with tcp_retries2=255 and a silent peer:
-
-  UBSAN: shift-out-of-bounds in ./include/net/inet_connection_sock.h:258:40
-  shift exponent 73 is too large for 64-bit type 'long long unsigned int'
-  Call Trace:
-   <IRQ>
-   dump_stack_lvl+0xc1/0xf0
-   dump_stack+0x10/0x20
-   __ubsan_handle_shift_out_of_bounds+0x1d1/0x390
-   tcp_ld_RTO_revert.cold+0x16/0x92
-   tcp_v4_err+0xdb3/0x13e0
-   icmp_socket_deliver+0x1a7/0x390
-   icmp_unreach+0x2dd/0xe50
-   icmp_rcv+0x93e/0xe30
-   ip_protocol_deliver_rcu+0x36b/0x3e0
-   ip_local_deliver_finish+0x37d/0x620
-   ip_local_deliver+0x165/0x1d0
-   ip_rcv+0x284/0x320
-   __netif_receive_skb_one_core+0x16b/0x1c0
-   __netif_receive_skb+0x21/0x150
-   process_backlog+0x37e/0x1200
-   __napi_poll.constprop.0+0xa5/0x5e0
-   net_rx_action+0x4c0/0xf70
-   handle_softirqs+0x204/0x9b0
-   __irq_exit_rcu+0x13c/0x220
-   irq_exit_rcu+0xe/0x20
-   sysvec_apic_timer_interrupt+0x92/0xd0
-   </IRQ>
-
-tcp_retries2 does not need to be changed for the RTO path: with
-TCP_USER_TIMEOUT and TCP_RTO_MAX_MS set on the socket,
-retransmits_timed_out() only looks at the elapsed time.
-
-The zero window probe path gives the same splat from tcp_probe_timer().
-
-On x86-64 the shift count is masked, and the u64 can already be 0
-before that (e.g. icsk_rto == 200 and icsk_backoff == 61). An orphan
-that should be dead can then be seen as alive in tcp_probe_timer(), and
-tcp_ld_RTO_revert() can end up with a smaller RTO than intended.
-
-Cap the shift at 32: any non-zero icsk_rto << 32 exceeds TCP_RTO_MAX, so
-the min_t() result is what the unbounded math would give. The
-ilog2(TCP_RTO_MAX / TCP_RTO_MIN) + 1 bound of tcp_probe0_when() does not
-fit here, as icsk_rto has no TCP_RTO_MIN floor the way tcp_probe0_base()
-has.
-
-Found by checking sysctl ranges against their users. Reproduced the RTO
-path in a VM with UBSAN: a - r - b netns, tcp_retries2=255 and
-tcp_rto_max_ms=1000 on a, blackhole route on r for 75s, then switch it
-to unreachable. With this patch the splat is gone on both paths.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Closes: https://lore.kernel.org/netdev/179499954853.1440581.6627074959099619480@gmail.com/
-Suggested-by: Eric Dumazet <edumazet@kernel.org>
-Link: https://lore.kernel.org/netdev/CANn89i+=QRibXsm6tw-eVwhB3wjOtgF-MtVu0G--K5=oWP97+A@mail.gmail.com/
-Cc: stable@vger.kernel.org
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-Tested-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
 ---
-v3 -> v4: rebase, update the commit message. No code change.
-v2 -> v3: mention the zero window probe path, add Reported-by/Closes
-(Eric) and Suggested-by/Link (Neal), say how it was found and tested,
-point Fixes at 1da177e4c3f4. No code change.
+changlog v1->v2:
+ Modify commit message as Kuniyuki Iwashima suggested.
 ---
- include/net/inet_connection_sock.h | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+---
+ net/ipv4/inet_connection_sock.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/include/net/inet_connection_sock.h b/include/net/inet_connection_sock.h
-index 903499581db7..562e12033a5d 100644
---- a/include/net/inet_connection_sock.h
-+++ b/include/net/inet_connection_sock.h
-@@ -255,9 +255,10 @@ static inline unsigned long
- inet_csk_rto_backoff(const struct inet_connection_sock *icsk,
- 		     unsigned long max_when)
- {
--        u64 when = (u64)icsk->icsk_rto << icsk->icsk_backoff;
-+	u8 backoff = min_t(u8, 32U, icsk->icsk_backoff);
-+	u64 when = (u64)icsk->icsk_rto << backoff;
+diff --git a/net/ipv4/inet_connection_sock.c b/net/ipv4/inet_connection_sock.c
+index 6c079929e06f6..346d0015a140d 100644
+--- a/net/ipv4/inet_connection_sock.c
++++ b/net/ipv4/inet_connection_sock.c
+@@ -1121,8 +1121,8 @@ static void reqsk_timer_handler(struct timer_list *t)
+ 			return;
  
--        return (unsigned long)min_t(u64, when, max_when);
-+	return (unsigned long)min_t(u64, when, max_when);
- }
+ 		if (!inet_ehash_insert(req_to_sk(nreq), req_to_sk(oreq), NULL)) {
+-			/* delete timer */
+-			__inet_csk_reqsk_queue_drop(sk_listener, nreq, false);
++			if (timer_delete(&nreq->rsk_timer))
++				reqsk_put(nreq);
+ 			goto no_ownership;
+ 		}
  
- struct sock *inet_csk_accept(struct sock *sk, struct proto_accept_arg *arg);
 -- 
-2.43.0
-
+2.47.3
