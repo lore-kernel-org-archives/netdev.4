@@ -1,100 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795184799;
-	b=pr8nOLqYzVRQne6JI3Bf+/YRG6RmxshcTpNLmRy2rlyYe0Y2yWaYuNJCVuvLYOzqO1/W
-	 0FZjXgLE2thCh34DikfU3ZeZFghSyPWPzNbazsVHvPZown6V3sI2xq4NrFmV2DXEfvmt7
-	 1bo80vgM46UtyZSV9/OkkEFrEnCE4guDbq3n0Tkjq2oyW3ghJ3Wo1oPIwFlaUJ/gcEDxg
-	 y/Gff3YtBdghqTaEu8F9o1Wz2dS9tK58b5cRLtG8tTq4a877h5hrFNw2MW3iLHSlZrCZi
-	 RfbYTLInFA6Klk4tvoTAYeOlzMDL3hOnnA6Bq5nfPVvqM4Vb4rNoSpCAkSmbfh9K2uw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184799;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=C0hn7BxUfynH0D6hp5wIqTAHOmIKvssBciDk5OTln7U=;
-	b=R+azYjKO+nsMI0AWAtiFBgUJKNV5G/uHF9sWpmW7aKj1myemR1V8ZK669o+LDjXdDy/J
-	 reD7UrtF0v3wnc9PNrqmR8Zj9/KQqpbFENH2t9Zs6PaJ2pNGc701M7NOPuarsgu8jSt5L
-	 ySUrJP1FRouYdAo0GqPpCRZqigLG3QLygHZN7caqh8XWzFR3mzphRuh3Ao6Q99hVk5NIp
-	 pvCTNR22GqUvS+mZTsH6C+m7oNJIme7ZpxwZnVi0gFYLC4oc4ZjTlfu6fcB4MKPoqIsAf
-	 HLEVRklvi4uPMMIB4S9BNq7Lss5paj74sbtOHk4TwBpKmVxgiVEbdVFoPuj0dwU+SxA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YNDSWA7A;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
-Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795185378;
+	b=4rsm1foqnkpu+T54GblDZWTH64ZsrcvUp+CzjnhT85jZVkSUX3w8uZrU1cv4NonVLLWz
+	 xAjZ3b+KMOLRa9As7hWYgrkzwJWCbB7M1ejM0uMpBwuRjL0Crr6O6498CG1HW7hq3Hd9x
+	 YpQ1Sp//bdqpRH7uSK63qsRZIya68IbZUiY4ZmqIu1+xCZPtzrxQn+FNZkdDWrARGNZOl
+	 FoiAUSS7g332dcXjghKXNwD9lHjNXbp49wIqhOFf+iDeXYzquF8C7UHZiCooTnIbRXcUP
+	 0vSqWs6GHbYch4sB8KSc+STuL3Qobx8vfKzZpTbv2kE139CfL4+20glcVgRkyJrMxkA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185378;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=aMOyn5lZK8F+FC2nwU9eJQ2Ic0u6hcRi/jhTZjj9Mvk=;
+	b=SXbV2UmOan9DT0ZkCT6fAX+8M0In42eG3MPoqKJ+Ti/EbDZ0BdKuqYlaRxcHqj3qFZIE
+	 WV6Ps4CHTkT3rTdg3CHME/D6b+qbbdfTqC4qpAnK/+lfUWG4ufGlI2edMJRqFguDfYVPb
+	 2gB/hB7w/rjY/2kNKnldwKkgdfdXUjbbHXWDIVkHVDGMM+Y5a4x8SnjFWrxvZ9BBqIDLl
+	 0sOq4mXgnAy9zqBpdagCR/hBZkiEJ/3oCH+fvFwBq8wd6MGKjERet6tWJAsr/QlTE+4Vj
+	 gemtetjuOGn4Q2VMRTuL3ViAlXNlsDQ2aZR7hnKcsJ0o5x4VeyGi1qKekJG7bimU8Yg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="RF/8DK12";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 320FE606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:26:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 320FE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9BA5606A320;
+	Fri, 20 Nov 2026 14:36:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YNDSWA7A
-Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-66fc7e0ab25so118494d50.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:26:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795184798; cv=none;
-        d=google.com; s=arc-20260327;
-        b=R6TOZgW7F/yk0/VteO78ZuNBx2TYY5PgYstqorzYF2QEPYJg96QteKmEVeq9Skeqdn
-         nospEvgDQsEVWIRIduCWazjuE4Eo6sIy23+CQAdbfS18gN87mLEW4EzSfpIwROiE6MXp
-         OYbiLh4BCjsl1J18nM9VFTZ+DtKOAWei45GcIQACBuJj2stA6raGaZMnAUq8ObEmfOXn
-         xUryFUxaNJOr+zoKLyiXAWK/VGgMN4p0SbJ5It1N/eNiYfq1jMLEpyVHAqIPcmCYFs6Y
-         8xVdJq7CaKS8m8a14qGtDAa1elPd/+aEicqBKfpAKQ9Wm0R+yx8wv9MiCK4AC/BeRNpP
-         46uA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=C0hn7BxUfynH0D6hp5wIqTAHOmIKvssBciDk5OTln7U=;
-        fh=snrGQ0KISHEq/h7FWAFVvYFhMz6qQe0anSvdRlZ9SHA=;
-        b=CXKR3kityPWFTDWHK0IIkQGWQFExYD93N9pF507gdG0mQdPM0Ui9ZIjwv6VHSKlKfj
-         TDTJBazKHaWXFPjy5V4eW7xo0ROxE+9emoFOdKSRFv9xxWDIlRcbe82p0Q5HjTTxeMhw
-         WxoIwHzJuGTzDTwXh4qNb2XeakqtURMRDZqktWFNpCRmhDA8xAiNplNGH5/M05tXWCI7
-         wsXm5SaxqgYo9EeqdLq1ARxeToO6j+r76QEVRi9xJOdNNwENkooIElbhYSmTtv4yHcrF
-         tlT3sJrdDW8p3vryoU7K0c9ylXvHEvtfQJhu8sWPUoafXZHkZ5peupzNIB/cylGkH/HJ
-         kpKQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795184798; x=1795789598; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C0hn7BxUfynH0D6hp5wIqTAHOmIKvssBciDk5OTln7U=;
-        b=YNDSWA7AHnhUQ0y8K6nao7g4a5Rx1hcYBaU0qFNN4Nh7UAqtMlfhsb9EIeWr2iQGu1
-         EiCdjHWGSKj3jp2so1TuKMdKy+qRWaSeY7HqM3Js3n0sT+CX0x3229kN7E1RWJKIh+aH
-         34zFaIusHxFVtWVl7UhjUjXdXyabINjK/Vbr9JGeKZYkjkZHBbIJ9niw1s/2UZraDDow
-         XCDN9/3tS7eYMOnysta8D0iRBoCoEDqbahXz9lZn6IRVoFT2MbLMZRpC45IE2Ej1CeoY
-         L5XD3gIx1o6MFNRskYQXRzbZNHVVhEPbeKWEqLqZlk4iizCrgXJZRY7a0lC3S/m5yIKu
-         z+uA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795184798; x=1795789598;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=C0hn7BxUfynH0D6hp5wIqTAHOmIKvssBciDk5OTln7U=;
-        b=LJGFJeHKr6KuphY2KUzjFfi5ibnLaQnPXFoqpGnQawGbrhvhHR5ES8MtDrmhsGwmRd
-         tJFikm82jWP6M6rResilRD10bKSmE0/rK/SUIg1mBxq7apFnnKoq8lWaoVf2eHoz47S5
-         vzFE2bGkw5AUL1TRp6sAcl5OlLZLqxWwXKaE/CVkSgzMf/hNm49EJ4z6IXjvK7CQpksm
-         KuEqj2a84H0f66z047x+SpK51ObhcrIfVthqIqnQ3it/jxxDAG2/y0GH0f+AF3SppWfI
-         uYHGLDNsTD6jkuoenxu8TO8ceiP7J4iuH0SczJXpb6ggFZhxiafH5dsVhAOuclgM4AfT
-         NXTg==
-X-Forwarded-Encrypted: i=1; AL+hErGrF3mHmLyUqzt6k99jedA0YrsO9owUapH22GFEaV+CafX6rGHBjaZUD5uuiuU1zFEANPBtYg8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96r+DEP6zDqcH1D1MW+2SUws7kllriYSCqbXhvvmKuK0F0RZVN
-	jYR2uyfYKPuqJugzU77lnxJQePE0X1MCublRKYnbw7AsO3E8UEDI5rFuzUkvJu4eQ428mI9oGY3
-	4SFGs2E+OdujrNqGgT4bQ7/ldkwsUzu4=
-X-Gm-Gg: AZFdTZfbPGZGJ8rLWu+ohbAYxUAXwqCGbLj48oDLtkTWOUqOvvFsTVcIpl/e+vL+2TJ
-	v1vx65EuEipD8olPDAygwQnAU7wQoTExVwEKiK/DY+PcezyfDSOB4jWGPUeGCloTKFhj4vpEx4e
-	DyEZqbuOyPJIPAdxzCmHmBFK5dJhkhnTdTZo8B6XgRdwkyTEt7JQQt4GY3dOkBGY8nOw/q3yRY/
-	ZNDPxuQ3J6u1LDscFlGpVQVKB1/lVpPwwwSLdlKaPcJc92eQcFXIh1ACRSm76b2duf4yuurI/qF
-	N3M3e573Ucvt2S5CtfqgzrkBLK1Y/oFfpUcczgend+LvZsm3mGBmqbz+sABSqtq9L/l1hYO49gr
-	ZH1pbPrqAKab71WkpJW5AiYw2RKUyuRrKeaLBoyx5T0E96lLqcE+/W8r3KB1qQWfTJF1cnGPAEc
-	VGJgPT5eFvNJIDGHM=
-X-Received: by 2002:a05:690e:191b:b0:675:6a0a:383d with SMTP id
- 956f58d0204a3-67df40dcbd6mr2898128d50.0.1795184798260; Fri, 20 Nov 2026
- 06:26:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RF/8DK12
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634851F000CA;
+	Fri, 20 Nov 2026 14:36:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795185377;
+	bh=aMOyn5lZK8F+FC2nwU9eJQ2Ic0u6hcRi/jhTZjj9Mvk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RF/8DK121mnm1zavjVGPB5fyWIqpsPt3RkMcjQSO7nVuLPyzhULSY7VJ8tgWd92Wp
+	 m5/EkyNoU7Wy4FnigM6acB0fR/zU0d3cp8AC20ZBhGM89M7sbu+VtMLyw7smiDGJ7o
+	 qmEKeFVaAhuRrAiQ+TtwLA1QhlytBk+Rsa/JEFprCx9SYgRIT8gVSpAjDxclmIO0rp
+	 GLaWW4nrUAxaPB1Jp2uViccsPQI9r+3tNEFsHjAkkI8hAsb+Y/lNbK9SIufkMhzsWe
+	 1kZV6p0c5oYrljsBgA65aUmPYzUz4Xzgg/0LNXnoqGa/PAie0cI8Ui6afRuhiln2Dv
+	 Hox4znu0xNXxQ==
+Date: Fri, 20 Nov 2026 14:36:06 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Luigi Rizzo <lrizzo@google.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Jens Axboe <axboe@kernel.dk>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	"Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, Matthew Wilcox <willy@infradead.org>, 
+	Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Simon Horman <horms@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+	Willem de Bruijn <willemb@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	Joshua Washington <joshwash@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, Christoph Hellwig <hch@lst.de>, 
+	Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>, 
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, iommu@lists.linux.dev, 
+	netdev@vger.kernel.org, linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+Message-ID: <awBaxljohIuCg-UY@gremlin>
+References: <20261109182533.3594984-1-lrizzo@google.com>
+ <20261120010655.467825-1-lrizzo@google.com>
+ <20261120135013.GO3115493@ziepe.ca>
+ <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,51 +86,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
- <112154f6-53f9-4cb7-9124-aba263b097b5@lunn.ch>
-In-Reply-To: <112154f6-53f9-4cb7-9124-aba263b097b5@lunn.ch>
-From: Vladimir Oltean <olteanv@gmail.com>
-Date: Fri, 20 Nov 2026 16:26:25 +0200
-X-Gm-Features: AclHuK-bnfljFOPgRxCAe6UslGe3HEuoBhmEL1577xic6EWvyu9qSiL0MyPdaOY
-Message-ID: <CA+h21hq0EqJZFh_Kv64TR-oL4j=n61XK1xzzL_GMXLZr-=4PHQ@mail.gmail.com>
-Subject: Re: Proposal: per-lane PHY polarity get/set via ethtool PHY tunables
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "Doddagoudar, Susheela M" <susheela.m.doddagoudar@intel.com>, 
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>, 
-	"Lindberg, Magnus" <magnus.k.lindberg@ericsson.com>, 
-	"Chintalapalle, Balaji" <balaji.chintalapalle@intel.com>, "D H, Siddaraju" <siddaraju.dh@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
 
-On Fri, 20 Nov 2026 at 15:29, Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Fri, Nov 20, 2026 at 12:45:56PM +0000, Doddagoudar, Susheela M wrote:
-> > Hi All,
+On Fri, Nov 20, 2026 at 03:19:34PM +0100, Luigi Rizzo wrote:
+> On Fri, Nov 20, 2026 at 2:50 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
 > >
-> > I would like feedback on a proposed ethtool netlink interface for getting and setting
-> > the polarity of individual PHY lanes.
+> > On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
+> > > This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PISA
+> > > ("Pre-mapped IOVA Superpage Allocator"). The text below follows
+> > > Documentation/core-api/pisa.rst (patch 25/25), which has the details.
 > >
-> > USE CASE
-> > This helps debug link-up failures caused by swapped lane polarity. A user can read and flip
-> > the polarity of a lane at runtime to see if the link comes up.
+> > I thought the conclusion was to just do this stuff in netdev pagepool,
+> > now you come with an enormous AI series spread across the entire
+> > kernel?
 >
-> Isn't swapped lanes a hardware problem? The PCB layout is wrong. The
-> poor person who first brings up the board needs to figure out what the
-> PCB designed did, but after that it is just Device Tree properties.
+> There were surely comments claiming nothing outside net/ cares or needs this.
 >
-> I don't see a need for ethtool.
+> I respectfully disagree, witness is the fact that e.g. there was already an
+> io_uring proposal which is smaller, but does not address applications
+> that want to use the standard disk I/O paths (libaio, buffer cache etc)
 >
->   Andrew
+> Nothing has changed from the initial series in terms of size, use cases or
+> subsystems involved. Large files are placed where they should,
+> the series covers the same three use cases (disk, network, CoCo), and
+> touches three parts which it has to touch: mm (most of it; it is a
+> memory allocator
+> extension after all), dma (it hooks into map and unmap, not a large change)
+> and net (the pagepool change is a couple of lines; the tx path needs to
+> touch more places because the current stack assumes all paths have
+> the same I/O requirements).
 >
+> For CoCo, there are very fine grained controls so the bounce buffers
+> can be enabled only when they don't pose a risk, which in turn
+> depends on the threat model.
+>
+> Specifically, for network tx buffers or disk writes, the user-to-kernel copy
+> is basically a bounce buffer provided it is used correctly and not leaked
+> elsewhere (which is the design; of course the implementation
+> needs to be verified and possibly fixed so that it matches the design).
+>
+> cheers
+> luigi
 
-It's not a hardware problem, it's a solution to complex routing.
-More details in commit fceb17ac05e772ffc82f1f008e876bf7752f0576.
+NAK.
 
-Anyway, I also don't see a need for ethtool.
+Cheers, Lorenzo
 
-To the OP: have you seen
-https://elixir.bootlin.com/linux/v7.3.1/source/drivers/phy/phy-common-props.c#L128
-https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/phy/phy-common-props.yaml
-?
-
-They are already used from some Ethernet PHY drivers.
+--
+Cheers, Lorenzo
