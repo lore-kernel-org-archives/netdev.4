@@ -1,58 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167134;
-	b=G7L/V3dnuwpcu2Kbk7Kqs7/0IyJ4iY/tr3WmyicGdmaSt0tFqUKCtApN/SBnY0+o5wBd
-	 Bx0MR7r4gkvUk+1RHDf5VfF/zPL00kTMQ2Nk0CYgZuQw6o7y1tTZBQvlmycZbTHG+Vn81
-	 My5cIg2m9K97l2G2oBl/Mpc8cMa7tG35D5GwxIZV9+eS+U3zJSux6km+xbtW/JwxmOO7k
-	 +87s1GRJGn2kIrx6didVlXy5dV1NEvEROjgjeKkr2VncQFEmbWIX/sWru4kg1XtmhAD8q
-	 sr8v8oED5gTK+CyQWHpVY24cU5yX6rFKwjFRAJgTm8dbtlSo7Owq8K3pUH0m3lA7RQg==
+	t=1795167152;
+	b=dO1ufL0XJUR+NzjqoVVZVdI6OX907lEMIi4Yan7oSk+Y3irLHX+zeK6tvk0g0W40GtVG
+	 ZUk13xvyPbwHoIZb59AwrTZ0qVL2MJxX7TlOv8TS/fhTa5A0KPlUNVFv3brMV5aIqC+aV
+	 dnANXrMafxFZS34pf0/3gdZhhnswRFqvd8Du+GnPm8ErXhvnzva2zfZaUmpxqOUi+UuuE
+	 MPedRBYCYnFEZ80mm9DEoyxfGwXqB9Fl3ARNK8xKZigfEeRfgTxllLxsE199Wa3orhTSy
+	 CmZHNQFTZkmtpVqEG9o09Ec9KbNJtl3bVLxZvxDeh9DZ0WLGQoenhf1oa2TTtyFMjtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167134;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=NOdHN8HSi06sDrJLUdjkF+/dA9o+toApfuz7TH64mOw=;
-	b=ZFnjwt6SKYTpnLA28Cbj4ewpLoenXHwJfNSDt1+ljrr6c806akQHPSEWfQs2zNfy7Apu
-	 FJl1+W2sQWN9RQ9lI8Ya93fQGjrSnGzaUzpGvE7hr/QCUNOlengXzLSr/X8UX7Q1rKUzE
-	 d4KusKbaTBgaKAVIP8sk2Xw1SiJHiM0iDGrPg1qugshWQPb2sYVjVpO90OVkCo7TgAFH/
-	 /u9aKLN4Hso+6Xab2219afPxn30BmTkqXb/8YOKPW0XNugJZM5vjziPhWPtbsI+CC1HHP
-	 bYMSp3r0IhNhdIwA1crYTZZVzESbiy1wIdlIu0S2DpFcv9OhqxIK8KpTlFqSUJ2yDFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167152;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=Wl+1Y8SscpZu5c/+A8SGiP7r5RTTmIzRVOYemhTE16s=;
+	b=Pb1Fs9PWkURtJrb3mz8u6qm3ClNZTVh1cOIQ76KS4xhXyxH/MQhWUv9LQc69BuAzn4sg
+	 wPl8wXx7/eY4vC72zr1qXTVssMzMmVlMAvx4/XPql/InBhaITboO6yND7I575uhRWopjN
+	 kH9NJxvuVwwmc/ZUNcvPNfUXNB49QuFNPvn+qxsbXGbSBvVxJZ7KsKhdnuWR1DmtOV8AR
+	 wckF4GvLNPq/GeLOr25xKGz6DdvuM24nbt8KCVTC1LshaTTjIDH3MttUid4G/VYGhe+Ud
+	 lKoJsHh0+hMFUtMh62zkNUBVYylqRx4geNjoKShfjgra8W7lH1zrWbBBtf5Nf0/AUEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xS1lnJG;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=kPZ0LKFM;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C10606A337
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:32:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C10606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FD90606A339
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:32:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FD90606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xS1lnJG
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0DF491A1740;
-	Fri, 20 Nov 2026 09:32:11 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C7E3A6017D;
-	Fri, 20 Nov 2026 09:32:10 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BB32611BC0EC9;
-	Fri, 20 Nov 2026 10:32:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795167129; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=NOdHN8HSi06sDrJLUdjkF+/dA9o+toApfuz7TH64mOw=;
-	b=0xS1lnJGlmwliZy8MMggKiEvVyPYie91pstHyIlVCfKnUZl+K9fiSAoHeuM1sxmGCl/WIL
-	iOeXaqpzFKJ1PBmMXGtDnfeggNgvqyJ4eLiHih72EgzNnvf9YkZzhZcoHPtnfmwbs3Gc7Y
-	6063AIdoqm1KYWamSxnlj4fMf4SR5fllXmmLNvVYYLIAFmudegaicrIyiapkzOCu6Fh6TM
-	4hvBrZafbqnTjhHPYVjS1OIQIw+Nm9eEnLPzdFiNWOEg/lmt59YdZZqRObu989gAr2YocD
-	tSanyMLyCWdvKhJI7fpKykRVtP9XYbM9fLWcRFh5EAsNw9vhLqqSg/Vw1BmTpg==
-Message-ID: <c84543f7-b824-4da8-9f8a-8e15d8f89140@bootlin.com>
-Date: Fri, 20 Nov 2026 10:32:01 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=kPZ0LKFM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=Wl+1
+	Y8SscpZu5c/+A8SGiP7r5RTTmIzRVOYemhTE16s=; b=kPZ0LKFMaWfHPifU/dVu
+	TJNP7mHIWypkmCCedPnNOz/ifdUipTy/3tXcXyLNlNmgqUBIpk2CGdos2ejOlBOM
+	f6GNsB9tggi6IfuaMWWrTuQpakEuiZxTK+3wnAss35LtptnBPq9+k6IUmYnRSkTG
+	grnoZZle0gvFHBIs/szATkBReI+ypE+6F5NB8ktO4V13txFmkrQ0SwOdtTuOx8Jh
+	CPKnAc51CMRLpwQHa2eAvOD9k3/5AfFixDpAQCnF89I60vL84/ouxK95+iZBDpBS
+	diUZScPReLqoC3+aknLHMej6XZWnWKz8jTDavjV+xUxOoxZiFrRo5yC9cdL62FIp
+	+g==
+Received: (qmail 1417033 invoked from network); 20 Nov 2026 10:32:27 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 10:32:27 +0100
+X-UD-Smtp-Session: l3s3148p1@YeMm7LFgsrcujnuU
+Date: Fri, 20 Nov 2026 10:32:25 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 3/6] ARM: dts: renesas: r9a06g032: Add #reset-cells to
+ system controller node
+Message-ID: <awATqUeXeKfiTEr7@shikoro>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-3-feee2bb28bb4@reliablecontrols.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,47 +85,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
- lock when setting a power limit
-To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <179515691045.3136.13671979747174463292@kernel.org>
- <20261120083312.2324522-1-github@szelinsky.de>
-From: Kory Maincent <kory.maincent@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120083312.2324522-1-github@szelinsky.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tO7PsHmg5vUk1tXy"
+Content-Disposition: inline
+In-Reply-To: <20261119-rzn1-miic-resets-v1-3-feee2bb28bb4@reliablecontrols.com>
+
+--tO7PsHmg5vUk1tXy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Nov 19, 2026 at 09:57:45AM -0800, Kyle Hendry via B4 Relay wrote:
+> From: Kyle Hendry <khendry@reliablecontrols.com>
+>=20
+> Update the rzn1 system controller node with cells for the reset controller
+>=20
+> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
+
+I'll leave the final decision for Geert, but I think this can be merged
+with patch 6. But in general:
+
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
 
+--tO7PsHmg5vUk1tXy
+Content-Type: application/pgp-signature; name=signature.asc
 
-On 11/20/26 09:33, Carlo Szelinsky wrote:
-> On Fri, 20 Nov 2026 06:41:50 +0000, netdev-bot+sashiko@kernel.org wrote:
->> The check now runs under the lock. Is admin_state_enabled &&
->> isr_pd_detected enough to show that the PI is powered and has a budget?
-> 
-> No. This is the same point as on v3 and v4. The patch only moves the
-> old check under the lock. Kory agreed to leave it for a follow-up [1].
-> 
-> Kory, one question: we are at v5 now, and most new findings are older
-> problems outside this series. What do you suggest to get it merged
-> faster? I am happy to fix the older problems in follow-ups.
+-----BEGIN PGP SIGNATURE-----
 
-You have my R-by on all the series so we can only wait for a net 
-maintainer to take it. Jakub, Paolo, would it be possible to take it?
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsAE6kACgkQFA3kzBSg
+KbYHmQ//Y9yJPTxYFP3eZThxeShEaRY1gN9JF9+fsHlS4f68NrnD+ZoqB+MSggDt
+WmHizS0YVZ6+5OcWSPmVWn4aNnXbrXFeCDSNQgIFmjQBwcvA+1uaI8rc7Ul4kAhH
+VS2Z0tdur0JMIGv5C5r20jw/4AwfDLMOrui++tjwvf9yXH7kwIRlFKzQuEz+bM8D
+b4yuwxMNe4gClr/ava4ydeaunSjwP16Y6BAQUVv9sUuwp6jto+6NOKCe+a40n5Mq
+XoaCKUcHmwkic9+GeX69q3Hn/eBR0+Pe3ESiLvnm+pElticVOd4oUVJbNMthWeqa
+fIdIpUDZN5V0AoJ6Sr0HTGoKzAPRtFo0QuWrarhUJ7HZIqx4eqEnmkUAFiwx6wjj
+GIO89J+jfg5CghQ1vfIbvODH2+XwoPbHKbgCX21tf0xTVp+GA7Zf6DdOHlhz3oPR
+VMcpZi+y7mkxNv104VmDyVmqunHr7ZU+UgIBsfvakdjsFRdqoK69se9o88wRHQH3
+DNNmqKjydp/Rru6DsoXZ9kWlpYyl5lKPvn8qBGuyQ84PSKmEeNDGflfqv3mGKW34
+PryStiAR9UV8IO+MJXH+U0qWQVYKyXGFXFWI7qcx3YhaG9gyiTLig3/fzFKmyNFY
+j7PF+L1bbq7gHKaN5CG0N6zk3uAFgzKBzfHNhydRzY+0r+Vj5dA=
+=nOOC
+-----END PGP SIGNATURE-----
 
--- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
-
+--tO7PsHmg5vUk1tXy--
