@@ -1,96 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196246;
-	b=ZO1oIMjdwyRN61yMGcXGLH2ja2Z7Bu5PBAx7iQuvTTQpFfPJnbc4oxn2OeCy1xZ8nAJ4
-	 fjENrMSZaMigCf9GrxVOJmr1I2aatzwLOCmIO6128Jo84fEKfqKOIsAOEgVNfAJikbiMK
-	 zKga7nkoZ7HElr/rifxZKu7URoVd0r1hpry9L0CnyTt0WNtN4LmUuLGCFG681vHpZozC+
-	 cLs6w3eR+YJsZ7Y41W0tfvAzwOkgRDw7AmZ+CqrGPYc4dhxxnIN4Q7EZBbSzAY+nscoEt
-	 EfQfk+DbMMi303fgyLOyDFAZwBG5+EM0G1WSlQBlerPxlGODFnesLNxGKED78Vefzng==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196246;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795196253;
+	b=bcjEO0JLlB4bz+pfm6gbV4TDnIB2WbZbrfLbPd/stinlNkV2x7N2YOePOoSQqfXARtUJ
+	 /b9Y3GtCAHb4ZoUXUBKYAdPROMz1C3Ex83JvWMTgRFfTjTsmzdwyCfkdy5062IwZ67qOj
+	 yyF0E4Ce2/O07vL5WZOK7a1XTQ92aOIhUfwKlAOEXTJ/jSUymN7MfsiaphwQLhNPPtYX2
+	 wJ3H3Jzl3sqz0dER1nCU9rcD/JPlDrg2Ob04ubqXkX1Y28gRQ1vyDEU+ZmWNmwmY3xDXY
+	 kbflQuQtdMhnTgzMGFNdRvLOX4KIhdohAK5AtTTnQb9/eSsX7tYeG4VuN/lsisGgxOw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196253;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=2pQ/nw5caVi4RbK1CcsBfPp7aScPNttl9DankhCdcO4=;
-	b=GLsK6jyAQPiziGJFvRYDAYx8LM7zPv3Ajqe8/Y7NTABzRgpr6P32aJ8imqh/dTf6WASe
-	 oJCph8N6oxL+r7AuMNzc2vHrQsZvyxNJ0QCXNvPkqDfI7crEmEfQRlFbzfXgHLqOdskHo
-	 kt2IgdQHvnsJjKa0WdN+gEaHI+yUL3JjP114Z+6pAMvzpOjT5uDa9S/6kzvjN1LgnEX1g
-	 cTw7hA86Wsku9m+PIFlcNTW4OhM1Ybp8MgmsX+rnOwBHPScUjltMnxIlNaSvDZrAeO1nM
-	 ygzcSotQzqECNveJ2bAqpRHBq0B3AbBJybq0SxNPO3EiekOOs8YXGL4S6qf8O877mWA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SBs2GTH4;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
+	b=mPnNX6yMpMQ/mMBTUUHkuh6EdolS6UEiDcZ5y1iiwyJBH1Kk1QZLh4iVHpqdW2kw1pj6
+	 aBJOb7QLCIpNxtIw9Bv3fWk94ZxhiTWmFEVKeSMPUkv8kzaFFqVCr8U5IKTVCAGNvtcZ6
+	 Kn5z0MwgOtIC0RjFJMWtposnIMYPrV9LaMrgc8NIJ/M5IGLHlKY9RRA/fRpIRIb5h7k9J
+	 /dDWOak3qe2ctgsxFjDswaCxmvk6fkYUHcpvBUmZeObNFgxrQyRGzttDRuY3HgHAZlO3N
+	 ledVXvpyZYsla2cHFE/BHPkulgO3CJ0+H/Z0TJH4BCQonhfPvNeqM6DgGhabMTHvtXg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HyEFdSiv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97C0E606A331
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:37:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97C0E606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A3E2606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:37:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A3E2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SBs2GTH4
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-886e61fa30fso521809b3a.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:37:25 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HyEFdSiv
+Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-533202fe429so375171cf.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:37:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795196251; cv=none;
+        d=google.com; s=arc-20260327;
+        b=g/n7BmRQBNLGP/q42EfcghkFGTz1DmURdQ5w3QecoLscJ7m1UceekiSmYz87+7gfJB
+         KlkBYoNJBDb1LfpIIlVxFeRaRsPC8qmFAolBDZ68f4PKlDkfcQXzMBIvOZbnL84u2Oj8
+         Qunq4Cxmu2uXNLxVx5qMfd5HjFP3eCDaWlqMxnGVZQ09/96RxtRycQeJbgNxnFOF2vdj
+         NOJPIef+m9qpGrnl876Zg9nm8E+F4LeTnsNVrPu1Or6CPwN/nxya5wN7hvD5EsL9F4re
+         rBERfubn3eixanVtp6tvAsbzF1j/vaJ9JlUbD1tivpyoHMCcNHX6faGjF2gbNPIR3+/6
+         0Yug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
+        fh=ZLeaZQVHkt7INUtVgyBBj/qV2kuXSOj0RJihAL0gwjY=;
+        b=AXhWdN0KufxLRlT9gixwXavNZhbUp/z7fSFQPuf33Toe6kk80P5zQ8cULvWi7su0lI
+         gtC7h5H2aQn+tV6pv3kKjt+/81SaAejshJTW1JeXIxf1Uk6Y6p7t/fqYP7XSCr74FMni
+         3GcZVqUTeoWhG84zyqDE7SO/0iMZdFiUJ4y+pcm3+fAA/rx7xXm7aXD89UMzyHX6LNLR
+         Mpjuj9f9Y8nMeFLG1jCyNq9G3G9rxYVqtFrgyPtiTbGW0Y6W7aiAJFZNkOMrgm8zdMt3
+         p1gicYF8P0N4tnFGI9y+kuyEwf6Shtnsp2hG2o4sjCwSY924DyfzNv5h6SMHPi86reeW
+         DG4Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795196245; x=1795801045; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2pQ/nw5caVi4RbK1CcsBfPp7aScPNttl9DankhCdcO4=;
-        b=SBs2GTH4L8M6Rb3Jxgh9y0QVbTov6iGvVd3DR49NC6s9S08jVl74nb1GLcO6K0JVJU
-         sTM0P0mcCw+V0jB0osrRwu6gKBN0NzZPLk4s0iltsU4bG897u6qvjehhROtlzjAwGjqF
-         A0SUUdE3OYJSXQnXeKotKuZjWZx5joSo9uFFE0YfG2BLwFL4GnRm0bcYYuWERvOZfz6L
-         AI2AK9jkAlzdBZWqseJTZztDIMfxSXtzOeB0/F4FhkJD2J/OQOx5B7lWdyaBZ4BoWs+b
-         CK1/UK85l84CX+80sK0sT9jmzeIOW9NYRioDQLJoy17gJ9q/0/QgqRVGJRRa1uVsRu71
-         +aNA==
+        d=google.com; s=20260707; t=1795196251; x=1795801051; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
+        b=HyEFdSiviiH5O/7TZuD1vGZ+kM18wepe6pgn2HElMQnBbttGCrDUA+C67r84fRUXe0
+         bLnMusdd0pjNDYDtKZDpXupbhCn9zuKytmUv8E0LGfClDQuCtH+TpMkxOFRJgK7Rhww2
+         a7P2rxNb2mnrU21GBAJ4+mWeTT3WK7yOtke7efzrV+Mhc+6TT53lGQik1nKVPlc1lfGP
+         OTy4cJdsSf7Kt85FbR015QEXuyjagBSTnBc3lktgJtgnvRyqB0JeRaFviUSjvG4Kt5Dp
+         S+u84LWIVt+1BqKckZCqP+lfhH7Nv+HaLIRTXAY9XEuX11Oa55b8JxEL1Tp3/ZvMPOyk
+         l5HA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196245; x=1795801045;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2pQ/nw5caVi4RbK1CcsBfPp7aScPNttl9DankhCdcO4=;
-        b=gtIzn//A/1SQiSmotDNRx5jFsYPwkrI+i6kZlwK3ToReSx5ye0rFt4T5VSe/Q91zxL
-         odyHJ4uy78mAJofknu45chyctFAWSnAw8J4tmEzWX/F4kqrKcG7Hbtn9HqNa3WO88kNm
-         Gr3Y/cZ1cOVHkwD65GyBZacXj/KLpJdmiocRZvAGLAripSrZhw8ogQPCf2y3cE+b7RbI
-         ks+/JbJ9hxPF6+X7xaqfoqbtC/T357+Q3k15AQA3S1+ryQjH5KeXRR6XjQryU0MvSjra
-         jbxTWVIC8G2XqoqrUOCCDOWsQp1q38zfHh+iQZtq10a0k0MuX/MgK4fIzS3Jb91fnjdy
-         7/Xw==
-X-Gm-Message-State: APuU4Z9vyh44jtfCfej60xLP0agqku/yuaGwTgaPchVkW34JKa7JQR+t
-	WdoorsWjioFCfrIPc3k/4kHTXNYnDPsICHDKLrxL1J4zaulKg+dR0lI12dp3+x+G
-X-Gm-Gg: AYBFou1QJfYITjT8mN3Miv6XvmRKmsO92HBWftUFIqw6DhlZKQfiF2Pad29zm32GAUq
-	AERnFGacj/Le9WG4FKBCO0QOlcJu4n5zVYnVqcfckQAUByFIK+y20KfqOjn1ssATcgFXKe1orQY
-	Akf1FJ0N+OSxS65VgkyrbnW3/t+G8gmhF8Ukx985mcVrrVX8C8IcT1upT6y6qSeCFe08o71iLyU
-	3ILfKc/R+cDEwdLzOPCjNUdv22ii69gied+q78UFSldzO6frd5PzY9lFd3m41gsVedqTPTu1aXn
-	KWINbQJzGsu+P0fVirGwuHDmCQ+JIL2WRKyVhn4wGPf3nHqkaSyj1OodAdlC7rqp5NL82SVtHdn
-	35EWt0GrJ8mi6m5d8mPa3borkFj+goOdQ7FbnUS9X1V6ATs1Jn8oVgLI3z7z+WrmaBGR62CBfCL
-	2fRGy6iHBuU+8KehDA5DWYgQ3ucvz4sHPlUWEMouZQOXGnE1b9hPJbYEbGG4fye0wUcLt+iZ3Rj
-	j4EyBMqmZSefGs54HY0kDBP2PRQb6NRPFlxh26jHIFGqf3zr3PwtkrcENMe3KbEbpOT3a3IwZLG
-	JPxOujLkk8BRDpLMF2bSw3z4DJUa2gvldM0LK6vqEWN8Ybn3z8Oc
-X-Received: by 2002:a05:6a21:4d8e:b0:3fa:10b3:c8f1 with SMTP id adf61e73a8af0-4014d25ddfbmr3224637637.41.1795196244659;
-        Fri, 20 Nov 2026 09:37:24 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873c1d71dsm1853608b3a.53.2026.11.20.09.37.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:37:24 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
-To: netdev@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	stable@vger.kernel.org,
-	Jian Shen <shenjian15@huawei.com>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Zhangfei Gao <zhangfei.gao@linaro.org>
-Subject: [PATCH net] net: hix5hd2_gmac: do not release the RX ring on interface close
-Date: Sat, 21 Nov 2026 01:36:56 +0800
-Message-ID: <20261120173702.1551838-1-mmyangfl@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795196251; x=1795801051;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QRKvnlsdzu3jXDaX4UB8D7CCbipvvMVl8tWANK/PyeU=;
+        b=jXvzCJPSruvG8r9DKqfAbCsUbBTX/eEM8lCrEuxpiqFeP2VGZAatgd5iAE/abU9hSo
+         wQDAli+bUQC53Dem8aY4GJR74tTmWpxxMKQo/r/SWIMlc0uQHKvORrshi0diH/wT99OC
+         CbUUfUuFuHk06pJhfqeyRYk6mIE0ZDipqL57K/niZAraJayfbZZIJ6iuph4u2APRHopK
+         3s6IvqHyckD5qpzddt0Q3tRFDRLFPiLSIcj8zxff8ZYFjFihviEb+0TF5I3mXVio21+G
+         i2zgCEqCqma2bJ59lQpJ5bCvJNT5cOgO3kGBOhuK9mBbbJR1IAkrZXwY9WZibJSxFHMB
+         lsYg==
+X-Forwarded-Encrypted: i=1; AL+hErEp43NExA9++BahriAvDhlwTdsCkTsP6USU7exB6PQPeaGJx/lrF0Tne/jqii0WU9lHdC7zbBg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7EmmdJ8dnE4Tz6VkEBLvbYm1Sl8b4Gmv75sc2qJoMuylrALzl
+	hPV0PJhcIYBZDulc7ncYa0n30Fv4pV/FFRzn3e/CKBbQAVWfRSmMBcCmYyPD9sP94GTuK3d7UxP
+	Oka27mbpZC5uel7UwolqIzKc/ZZhBlJADMCdKlpLc
+X-Gm-Gg: AZFdTZcP30bmOEezFyLNnuSyGem9kLrtS/glIG29L5VJ8VcD0kFsRD56CnwlhqLK/7t
+	9aZMVHgif6Occp9USaHblhqcTPIyWLjHo73na8+L3aqIQ1dKT5zlQE8GYG78mv9LJzla0/YuLM/
+	aQgxEQA5Pb+PM0uH6DIxcEB7mmuZAMqTLnKHYTpM6AZhOiqt5EnfjGayr/UWvGNkIANg3PFUEGf
+	gHm5gafthgQonA8MceYyV/EAbn/oz65TTZjcsc2uGdYrl8BlE2mW6wpJ8lT++oWjjgiWA7f20oN
+	oHoGpH4tdQCnlE8gQAj90zWFsmhglpEffg8J63DVazSD+/N2ToM32DExdwZb98pWlEgye/SiamR
+	j5ENDYkLqU6Hxr8pz43kOyR4lokrDNLtmStDh
+X-Received: by 2002:a05:622a:420a:b0:536:934f:7da2 with SMTP id
+ d75a77b69052e-55d78e6fe63mr22944711cf.2.1795196250681; Fri, 20 Nov 2026
+ 09:37:30 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,81 +104,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261119170354.1509589-1-irogers@google.com> <BL1PPFB0715B38BE20BB0B4087ABC66BD9EDB792@BL1PPFB0715B38B.namprd18.prod.outlook.com>
+In-Reply-To: <BL1PPFB0715B38BE20BB0B4087ABC66BD9EDB792@BL1PPFB0715B38B.namprd18.prod.outlook.com>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 20 Nov 2026 09:37:18 -0800
+X-Gm-Features: Aa3M54r5Jmnt4Ssp-wBby_ZlWdHK7iMTTCVJuGgQMqW36wSMvbgVZ0tFQ-QRjgE
+Message-ID: <CAP-5=fVj+nAvGW9m9L2AxPqzw63PDqCawS=9a6jVh1fc7ob-dw@mail.gmail.com>
+Subject: Re: [EXTERNAL] [PATCH net] net: marvell: prestera: Fix skb leak on
+ error in prestera_rxtx_xmit()
+To: Elad Nachman <enachman@marvell.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, Elkin Cruz <elkin@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-hix5hd2_net_close() frees the receive buffers while the free queue still
-holds the descriptors the block has already fetched.
+On Thu, Nov 19, 2026 at 9:39=E2=80=AFAM Elad Nachman <enachman@marvell.com>=
+ wrote:
+>
+> > prestera_rxtx_xmit() is invoked directly from prestera_port_xmit(), the
+> > driver's .ndo_start_xmit() callback, whose return type is netdev_tx_t.
+> > When skb_cow_head() or prestera_dsa_build() fails, prestera_rxtx_xmit()
+> > returns NET_XMIT_DROP (0x01, a qdisc congestion code rather than a
+> > netdev_tx_t value) without freeing skb.
+> >
+> > In dev_hard_start_xmit(), any return code other than NETDEV_TX_OK (0x00=
+)
+> > is treated as a busy/requeue condition unless dev_xmit_complete() holds=
+;
+> > for an unrecognized positive value like 0x01, the core neither frees no=
+r
+> > requeues the skb (or hits the unrecognized-return WARN path), leaking
+> > the packet buffer.
+>
+> Did you check it yourself or was this sentence AI generated?
+>
+> Please check here:
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/netdevice.=
+h#L122
+>
+> and here:
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/netdevice.=
+h#L144
+>
+> You indeed need to free the SKB, but as long as rc < 0xf (which is true f=
+or both the
+> NET_XMIT_DROP and the NETDEV_TX_OK cases), the behavior of dev_hard_start=
+_xmit() is the same:
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/net/core/dev.c#L4074
 
-A port that keeps receiving then DMAs arrived frames into buffers the
-slab has already taken back; on Hi3716cv200 the descriptors at the next
-open all carried the previous session's stamps, and the frames received
-then came up as slab garbage -- six parsed as LLC, the rest with an
-unrecognized ethertype.
+My mistake on that paragraph - you are completely right. Because
+NET_XMIT_DROP (0x01) is < NET_XMIT_MASK (0x0f), dev_xmit_complete()
+returns true and dev_hard_start_xmit() assumes the driver already
+consumed the skb, which is why returning without freeing skb leaks it.
 
-Do not release the receive buffers, their descriptors and the queue
-pointers on the close, until the device goes away, so the block keeps
-ownership of every address it prefetches.
+> >
+> > Free the skb with dev_kfree_skb_any(), increment the core tx_dropped
+> > counter via dev_core_stats_tx_dropped_inc() (so .ndo_get_stats64 report=
+s
+> > the software drop), and return NETDEV_TX_OK.
+> >
+> > Found by enabling Clang's -Wassign-enum on an x86_64 allyesconfig build=
+,
+> > with AI coding assistant help to audit the warning and prepare the fix.
+> > Build-tested with Clang; not runtime-tested on Prestera switch hardware=
+.
+> >
+> > Fixes: 501ef3066c89 ("net: marvell: prestera: Add driver for Prestera f=
+amily ASIC devices")
+> > Signed-off-by: Ian Rogers <mailto:irogers@google.com>
+> > ---
+> >  drivers/net/ethernet/marvell/prestera/prestera_rxtx.c | 9 +++++++--
+> >  1 file changed, 7 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c b/dr=
+ivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+> > index c4ea247d2470..7ac9220d33c5 100644
+> > --- a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+> > +++ b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+> > @@ -817,13 +817,18 @@ netdev_tx_t prestera_rxtx_xmit(struct prestera_po=
+rt *port, struct sk_buff *skb)
+> >       dsa.port_num =3D port->hw_id;
+> >
+> >       if (skb_cow_head(skb, PRESTERA_DSA_HLEN) < 0)
+> > -             return NET_XMIT_DROP;
+> > +             goto drop_skb;
+> >
+> >       skb_push(skb, PRESTERA_DSA_HLEN);
+> >       memmove(skb->data, skb->data + PRESTERA_DSA_HLEN, 2 * ETH_ALEN);
+> >
+> >       if (prestera_dsa_build(&dsa, skb->data + 2 * ETH_ALEN) !=3D 0)
+> > -             return NET_XMIT_DROP;
+> > +             goto drop_skb;
+> >
+> >       return prestera_sdma_xmit(&port->sw->rxtx->sdma, skb);
+> > +
+> > +drop_skb:
+> > +     dev_kfree_skb_any(skb);
+> > +     dev_core_stats_tx_dropped_inc(port->dev);
+> > +     return NETDEV_TX_OK;
+>
+> For the sake of clarity I would return here NET_XMIT_DROP . The behavior =
+in dev_hard_start_xmit() would be the same.
+> There are 53 drivers which currently return this value, this is not an is=
+olated case of just the prestera switchdev one:
+> https://elixir.bootlin.com/linux/v7.4-rc1/C/ident/NET_XMIT_DROP
+>
+> The rest of the patch is fine.
 
-The sibling hisi_femac has the same defect and resets the port before
-freeing its ring, as in commit d54b21d82430 ("net: hisilicon:
-hisi_femac: Stop the receiver before releasing the RX ring"); this one,
-however, has no reset feature and has to keep them alive across a close.
+Sounds good (I had used NETDEV_TX_OK to match prestera_sdma_xmit()
+just above and avoid Clang's -Wassign-enum on netdev_tx_t, which is
+how I spotted the missing free). I'll send a [PATCH net v2] keeping
+'return NET_XMIT_DROP;' and fixing the commit message.
 
-Fixes: 57c5bc9ad7d7 ("net: hisilicon: add hix5hd2 mac driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Yang <mmyangfl@gmail.com>
----
- drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+Thanks,
+Ian
 
-diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-index 12a5657653f8..8c67a0670cbb 100644
---- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-+++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-@@ -792,7 +792,7 @@ static netdev_tx_t hix5hd2_net_xmit(struct sk_buff *skb, struct net_device *dev)
- 	return NETDEV_TX_OK;
- }
- 
--static void hix5hd2_free_dma_desc_rings(struct hix5hd2_priv *priv)
-+static void hix5hd2_free_rx_buffers(struct hix5hd2_priv *priv)
- {
- 	struct hix5hd2_desc *desc;
- 	dma_addr_t addr;
-@@ -810,6 +810,13 @@ static void hix5hd2_free_dma_desc_rings(struct hix5hd2_priv *priv)
- 		dev_kfree_skb_any(skb);
- 		priv->rx_skb[i] = NULL;
- 	}
-+}
-+
-+static void hix5hd2_free_tx_buffers(struct hix5hd2_priv *priv)
-+{
-+	struct hix5hd2_desc *desc;
-+	dma_addr_t addr;
-+	int i;
- 
- 	for (i = 0; i < TX_DESC_NUM; i++) {
- 		struct sk_buff *skb = priv->tx_skb[i];
-@@ -873,7 +880,10 @@ static int hix5hd2_net_close(struct net_device *dev)
- 	hix5hd2_irq_disable(priv);
- 	napi_disable(&priv->napi);
- 	netif_stop_queue(dev);
--	hix5hd2_free_dma_desc_rings(priv);
-+	/* free rx buffers when device goes away, not when interface closed;
-+	 * the hardware prefetches rx descriptors and cannot be expelled
-+	 */
-+	hix5hd2_free_tx_buffers(priv);
- 
- 	if (dev->phydev) {
- 		phy_stop(dev->phydev);
-@@ -985,6 +995,8 @@ static void hix5hd2_destroy_hw_desc_queue(struct hix5hd2_priv *priv)
- {
- 	int i;
- 
-+	hix5hd2_free_rx_buffers(priv);
-+
- 	for (i = 0; i < QUEUE_NUMS; i++) {
- 		if (priv->pool[i].desc) {
- 			dma_free_coherent(priv->dev, priv->pool[i].size,
--- 
-2.53.0
-
+> >  }
+> > --
+> > 2.56.1.708.g77570a6a1d-goog
+> >
+>
+> Elad.
