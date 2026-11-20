@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210211;
-	b=xFdamHWe4TY9QT7Ur7+nCNtGdjF178mc6aMGk7wEMtP7imLapoFc9LcthrLfJ2oeMaZF
-	 NB7w0m5jiGQkQK+SAHS9yQv6HDCH1aqUmvVtZOf9s5pDbAJKh5OwzZz0yheKMQpxa1RYo
-	 uiJFbFRvvmdZgL/R5IqVv/Hh8KEbpdD48voxWflgYYjc1kmnsgzSBxoV2g3fN0+3ulq3g
-	 DaFR1EjUtSt3EJy/LsGULZU/HUiChrmTrsPyOna+6pCc2XNIb745Is/9riqOLzIYea9Oh
-	 esgMVRcD0TNiGHx6eBc5ZiyFPrMF35X4skougy+r1eJBLJB6ykxxzTiAs62zZXi3YGA==
+	t=1795210229;
+	b=XAqytNBHVLmarwkNl5nxPo4YQSh5++Nuq5ACA3D0ZJAplBHFiLTq+WHXJmdIa11TVVxF
+	 XaqpWYsQFk0BrRzRCbo7sE6KVHsj5mb3T6nufGw39wHWMbuaf/TXhEg+IhLe8W1JwbXzR
+	 cXhoQuObuPF5EYkHkhnBhA8b8qvKJKmqD0Ovh8JS5yqG+ZHlpsk2DYb4+4BISo6TRlsfX
+	 2V6C8ncwkEmmaKV77PByJcpl1aZ5TB1zCyfaJ/Oy7O8KZ/fHxQmDU1sjooao2h0K9XCGX
+	 8R6i8y4eKkYDomCevegMLC9PNUHl0/qAbhhCJIPXwT/SCwRPoiONOFiAFZPwmSHQNig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210211;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210229;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
 	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=sw31mzwT+UqmrkUG9lWyVe9VpMnfxIYOQHb/oNJWdSM=;
-	b=CZUWH3c0w2MYAkAwERVOqxBiUnAvt/bp+UvYK3K49Ft1ouHKl+U6ENqOqqH4fFGhHoNc
-	 zGfzZL549g1ZGA1f0gW70hO1s/C2F7Bv4ylymYy7PSjX/fdW4/S4eBVBBvjDbGJpBh2gM
-	 uRJG9jSRbMl3q2SjnrteqvGqdNylDCOMt/lgVfDql6l0Yx4KMK5lql83Jfz3jX20bTuw/
-	 1pA1ajI9RAQP02pyPa0/B6u+5DcAZwAvf9NPnB7UeclFO2Qg2CJA6tpY4071jeH7r+oP/
-	 vbV8Vx7BLSWQ+PoL2tQYbkrzJ3mVYu6GXMq83GBT5jBW/WPjjFoLSTiifFOlIjNUVKQ==
+	bh=n1FExJ2YYOcMBjxKbzlEbZLCmz73/PfKMECGOdwKHZ4=;
+	b=QNerugSa1dSlkaj29+7coPXU6pQu32ULyRSK2m7xjIiq15+Oc8+bOL4gmhPHXp/zvcE6
+	 BBymjpsa3kQLRw8v1vA6444a3I0aBzbsf7qconJRcO1T2eh9NI+zirDtd0UvRPelguyyT
+	 UlzCbSwt9deamsonYlqHspG1YiSMhaKqwwEZtwgdwR5d0nciT48K3h4DUb9tGC6ZFOzI/
+	 30bXYyD0qeckUFGBdMHeLxGjVCLPIvN5UOiqLYdQRzQW3peaS3zk98VOfEBAbpiJ3cVs/
+	 4AY7yYZZd6b896CvKJkpbLmcyeSbHeP4PM6ZMyEOwfb9EatjDDhUbXl5/eeLnKTIT8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CVHlY6ck;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGJ2dXSK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F452606A335;
-	Fri, 20 Nov 2026 21:30:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C0F7606A6B8;
+	Fri, 20 Nov 2026 21:30:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CVHlY6ck
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C1CB1F000CF;
-	Fri, 20 Nov 2026 21:30:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGJ2dXSK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02FDD1F000E0;
+	Fri, 20 Nov 2026 21:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795210211;
-	bh=sw31mzwT+UqmrkUG9lWyVe9VpMnfxIYOQHb/oNJWdSM=;
+	s=k20260515; t=1795210228;
+	bh=n1FExJ2YYOcMBjxKbzlEbZLCmz73/PfKMECGOdwKHZ4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=CVHlY6ckQW+B8DeE7Y5kZ1gXkFtA6laawbursrs25Wzkgv26yQAzria8BE55QHvV8
-	 UGO5+nHU37RqSmx9TCbMa93IrXvSDncgtddF4WPyNvl39LE9ONq9hM+Cb3UoogjLxO
-	 peZYTzIud0fKNxWJ9tTm/rE+2tHC3jwH9KQ2yiRHBuXU2NIce/nfnki2iPHnAQvmHc
-	 pLpU4UCoRcF+/eYJ0Nz8poNqbOtWqlMlEpK96JK4eXKfLLW862uQz7ziou+ihyQxq4
-	 i/uEC8kPzX9D65w9AEe9MECWKppE5iqWr/3kus44fzGU3o9zi2hqGiR9i1QQXKfjmw
-	 aY75os8wqoc9g==
-Message-ID: <656870cc-3a3b-433c-ba8a-dc883c4fb414@kernel.org>
-Date: Fri, 20 Nov 2026 22:29:57 +0100
+	b=DGJ2dXSKcMyS7zYe1iaZ1FoWLjdXOHgpDLM2FlrUdOGCsnej0rvhOPzFOsam/88c2
+	 SLtHiUjjsNBJuCuWyhrjDDIlmpL8rmHs/2C13eERhmuLDZemLigJYn0LEo+ISLq3HN
+	 li++buSPJwvFolr4WT70hbSQkt7LODWYJMWHzgSlFuNRD8R2V4GTP3loRrF8gkf6Rh
+	 jokLMWdhmGK9Pdq8vQs2EBmdgE+3gCoBOQk98PtXlDOE5bFrbspEBL9ejKA/pxyao7
+	 y96eKwPdX1mHcE9Vor6kj2b5cunJqUb8zGvtvnbH6cY7Vg+15bjyqW+5EasBqf4KRW
+	 rLNZZn2fZeg7g==
+Message-ID: <38afe45e-7c7d-4b91-9436-020ded6ca6fc@kernel.org>
+Date: Fri, 20 Nov 2026 22:30:21 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,8 +52,7 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next v3 1/3] tcp: avoid wrapping Fast Open blackhole
- timeout
+Subject: Re: [PATCH net-next v3 3/3] mptcp: limit blackhole_timeout to one day
 Content-Language: fr
 To: Yingjie Wang <x-professor@outlook.com>
 Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
@@ -75,7 +74,7 @@ Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
  "ycheng@google.com" <ycheng@google.com>,
  "weiwan@google.com" <weiwan@google.com>
 References: <cover.1794847474.git.x-professor@outlook.com>
- <963cd91054a37f6308da9a327d9bb027a0306cb6.1794847474.git.x-professor@outlook.com>
+ <568bf901e401ab7186ba2af8fabdaeb6cadfd800.1794847474.git.x-professor@outlook.com>
 From: Matthieu Baerts <matttbe@kernel.org>
 Autocrypt: addr=matttbe@kernel.org; keydata=
  xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
@@ -121,119 +120,71 @@ Autocrypt: addr=matttbe@kernel.org; keydata=
  JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
  lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
 Organization: NGI0 Core
-In-Reply-To: <963cd91054a37f6308da9a327d9bb027a0306cb6.1794847474.git.x-professor@outlook.com>
+In-Reply-To: <568bf901e401ab7186ba2af8fabdaeb6cadfd800.1794847474.git.x-professor@outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
 Hi Yingjie,
 
 On 16/11/2026 17:46, Yingjie Wang wrote:
-> tcp_fastopen_active_should_disable() calculates the active-disable
-> interval as multiplier * tfo_bh_timeout * HZ. Since all operands are
-> 32-bit, a large tcp_fastopen_blackhole_timeout_sec can wrap the delay,
-> even on 64-bit kernels, and re-enable active Fast Open too soon.
+> net.mptcp.blackhole_timeout accepts any non-negative int as the initial
+> period for disabling active MPTCP after a blackhole, and the period can
+> then grow 64-fold. A multi-day initial period is not useful, and on
+> 32-bit kernels, values above about 1,073,741 seconds at HZ=1000 are
+> shortened by the MAX_JIFFY_OFFSET cap even on the first blackhole.
 > 
-> With HZ=1000 and the maximum multiplier of 64, any timeout above 67108
-> seconds wraps. For example, 67109 seconds should produce 4,294,976,000
-> jiffies (about 50 days), but the calculation truncates it to 8,704
-> jiffies (8.7 seconds).
+> Limit the writable value to one day, matching
+> net.ipv4.tcp_fastopen_blackhole_timeout_sec, and document the limit. The
+> default of 3600 seconds is unchanged.
 > 
-> This issue was found using a static analysis tool. It was confirmed with
-> a loopback reproducer that induces 12 Fast Open blackholes and opens
-> another connection 10 seconds later: with a 67109 second timeout, the
-> unpatched kernel retried active Fast Open. The reproducer needs neither
-> kernel modifications nor error injection.
-> 
-> Compute the interval in u64 and cap it at MAX_JIFFY_OFFSET before adding
-> it to the saved timestamp. On 32-bit kernels, the cap keeps the interval
-> within the range that time_before() can compare, which limits the longest
-> backoff there to about 12.4 days at HZ=1000.
-> 
-> Also limit the writable initial timeout to one day, so the exponential
-> backoff does not start from an impractically long period. Writes above
-> 86400 seconds, which were previously accepted, now fail with -EINVAL and
-> leave the current value unchanged. The wider calculation is still needed
-> below that limit, as the 67109 second example shows.
-> 
-> With this patch, the same reproducer kept active Fast Open disabled, and
-> the sysctl accepts 86400 and rejects 86401. The TCP selftests were not
-> run; none of them sets this sysctl.
-> 
-> Fixes: cf1ef3f0719b ("net/tcp_fastopen: Disable active side TFO in certain scenarios")
+> Writes above 86400 seconds, which were previously accepted, now fail
+> with -EINVAL and leave the current value unchanged.
 
-I guess you can drop the Fixes tag, not to backport this to stable as it
-somehow changes the behaviour as Eric said in the v2. Same ton the later
-patches.
+Why did you split this patch in 2 for MPTCP, while it is in a single
+patch for TCP? Can you avoid the split for MPTCP.
 
+> Suggested-by: Eric Dumazet <edumazet@kernel.org>
 > Signed-off-by: Yingjie Wang <x-professor@outlook.com>
 > ---
->  Documentation/networking/ip-sysctl.rst |  1 +
->  net/ipv4/sysctl_net_ipv4.c             |  1 +
->  net/ipv4/tcp_fastopen.c                | 12 +++++++++---
->  3 files changed, 11 insertions(+), 3 deletions(-)
+>  Documentation/networking/mptcp-sysctl.rst | 1 +
+>  net/mptcp/ctrl.c                          | 2 ++
+>  2 files changed, 3 insertions(+)
 > 
-> diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-> index 0b7bfbd98a92..dc33f82a8997 100644
-> --- a/Documentation/networking/ip-sysctl.rst
-> +++ b/Documentation/networking/ip-sysctl.rst
-> @@ -1055,6 +1055,7 @@ tcp_fastopen_blackhole_timeout_sec - INTEGER
->  	get detected right after Fastopen is re-enabled and will reset to
->  	initial value when the blackhole issue goes away.
->  	0 to disable the blackhole detection.
+> diff --git a/Documentation/networking/mptcp-sysctl.rst b/Documentation/networking/mptcp-sysctl.rst
+> index b9b5f58e0625..ca00253c8ae9 100644
+> --- a/Documentation/networking/mptcp-sysctl.rst
+> +++ b/Documentation/networking/mptcp-sysctl.rst
+> @@ -63,6 +63,7 @@ blackhole_timeout - INTEGER (seconds)
+>  	blackhole issue goes away.
+>  
+>  	0 to disable the blackhole detection. This is a per-namespace sysctl.
 > +	The maximum value is one day (86400 seconds).
 >  
->  	By default, it is set to 0 (feature is disabled).
+>  	Default: 3600
 >  
-> diff --git a/net/ipv4/sysctl_net_ipv4.c b/net/ipv4/sysctl_net_ipv4.c
-> index 9df93ad219db..fb0f3124836d 100644
-> --- a/net/ipv4/sysctl_net_ipv4.c
-> +++ b/net/ipv4/sysctl_net_ipv4.c
-> @@ -1152,6 +1152,7 @@ static const struct ctl_table ipv4_net_table[] = {
->  		.mode		= 0644,
->  		.proc_handler	= proc_tfo_blackhole_detect_timeout,
->  		.extra1		= SYSCTL_ZERO,
-> +		.extra2		= &one_day_secs,
+> diff --git a/net/mptcp/ctrl.c b/net/mptcp/ctrl.c
+> index 0b10e94e7f43..1f167f72c1f5 100644
+> --- a/net/mptcp/ctrl.c
+> +++ b/net/mptcp/ctrl.c
+> @@ -20,6 +20,7 @@ static int mptcp_pernet_id;
+>  
+>  #ifdef CONFIG_SYSCTL
+>  static int mptcp_pm_type_max = __MPTCP_PM_TYPE_MAX;
+> +static int mptcp_blackhole_timeout_max = 24 * 3600;
+>  #endif
+>  
+>  struct mptcp_pernet {
+> @@ -350,6 +351,7 @@ static struct ctl_table mptcp_sysctl_table[] = {
+>  		.mode = 0644,
+>  		.proc_handler = proc_blackhole_detect_timeout,
+>  		.extra1 = SYSCTL_ZERO,
+> +		.extra2 = &mptcp_blackhole_timeout_max,
+
+Could we also use a variable called one_day_secs like with TCP?
+
 >  	},
->  #ifdef CONFIG_IP_ROUTE_MULTIPATH
 >  	{
-> diff --git a/net/ipv4/tcp_fastopen.c b/net/ipv4/tcp_fastopen.c
-> index 7f7eb3cc1c04..883f0f1e7e07 100644
-> --- a/net/ipv4/tcp_fastopen.c
-> +++ b/net/ipv4/tcp_fastopen.c
-> @@ -613,6 +613,7 @@ bool tcp_fastopen_active_should_disable(struct sock *sk)
->  	unsigned long timeout;
->  	int tfo_da_times;
->  	int multiplier;
-> +	u64 delay;
->  
->  	if (!tfo_bh_timeout)
->  		return false;
-> @@ -624,12 +625,17 @@ bool tcp_fastopen_active_should_disable(struct sock *sk)
->  	/* Paired with smp_mb__before_atomic() in tcp_fastopen_active_disable() */
->  	smp_rmb();
->  
-> -	/* Limit timeout to max: 2^6 * initial timeout */
-> +	/* Limit the backoff multiplier to 64. */
->  	multiplier = 1 << min(tfo_da_times - 1, 6);
-> +	delay = (u64)multiplier * tfo_bh_timeout * HZ;
->  
-> -	/* Paired with the WRITE_ONCE() in tcp_fastopen_active_disable(). */
-> +	/*
-> +	 * Cap the delay for safe jiffies comparisons on 32-bit systems.
-> +	 * The timestamp read is paired with WRITE_ONCE() in
-> +	 * tcp_fastopen_active_disable().
-> +	 */
-
-I don't think modifying the comment is worth it. If someone wants more
-details about the capping, they can already you long message, no need to
-add noise everywhere with long LLM generated comments.
-
->  	timeout = READ_ONCE(sock_net(sk)->ipv4.tfo_active_disable_stamp) +
-> -		  multiplier * tfo_bh_timeout * HZ;
-> +		  min(delay, MAX_JIFFY_OFFSET);
->  	if (time_before(jiffies, timeout))
->  		return true;
->  
+>  		.procname = "syn_retrans_before_tcp_fallback",
 
 Cheers,
 Matt
