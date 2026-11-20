@@ -1,97 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795150128;
-	b=lSF5iMF07kc6H/99SMD/hVM5fPHYQ9xpgas9Whca2Te5RjBlw9LXFNHxZ6J8J1rrYWuv
-	 aF7TslbGi4JKP7/c+jzNM0RjhDej9E4wVxR2Qcam4z8p09w5FCKTlkKcjJKudB1v94xkY
-	 R3+X8kwjfCOBrsgB3H4E+dm6Shmjsk9mJvhlSuQHHbxyOsXUlyR0SJe8Sjy0KThow3U8S
-	 xFkHynRh57jgNtEY1/sPsMSc7Ld+8mWqRnMIeJvzAr7e0omVV4dAGyhKhewMZbzPWsKMW
-	 kUPdALLiWDJrR5sWDgbqsVDcLubs9gISq5MLQBeEOtHM6JL+JDZoWjXCcyXaXvBd9DQ==
+	t=1795150512;
+	b=iNTRe1qyi2JdYA5DDhSaqrgoCPE3NxgoJumV2vY4e5k5IpGzHKXiWfmhhAoDw+TvQja3
+	 sy8/qobR2wJ9wmS65jDoxgfXmZp+BdcNQIZfTcejxhkzS17l4qIecpdXXZdWPRZ2QJjar
+	 A9I7fFF6MDtTUxOluWmPn1hEIdNEUf9sLHPqkpJ+KfVh8y5GvbQo7/GowPGLub5W7gSE4
+	 JCHM3zDpQZKG65d0OVdMT5oQeK51kTpCeNjxaYXqX65G3s1RF2CL9hBFC4GkEwe7LK58H
+	 QFoTmgpV/o2Wuzp8fnC4f8sYoOFZolj29bnxyYbTcOI3Tfy2xfOnrMpmddWSMYQBmpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795150128;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795150512;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=DRQ8FJYGIZUkw4F+I+/Zgmh7s38pPQn6pzLuYXKpMfs=;
-	b=k/fXWokYiqwpX/7BOcYaDGRIc8hCkZFe5kUfg4blrwrCCFbr7tuMLr0lvO55EO3IxNq5
-	 FogNVVlQDISUfcPu3LnAx95mMBfCOs+Ixw7k4tSUkP4S+KIkVypSGwwPMnAPBC/+Xhj9y
-	 0cgZs5cUSPdzePMMHpD8z4y7FIRv4+vrRa7QpF6ZLRKCZhvL1FzJEMVnS0t3ZvzmZw2mS
-	 cNcEJTp2JByb0y87d8HIquQWKIKKOCabtZ4u7Tn2KSOhkMFVTMSphYaSoprxRvsq+KkA+
-	 B54tt2GgDdbqtLxJPnX1Nv2JqQsl3SFkheJOZnDZfxYINp97JJvvY0zSd8Ld9z78ZoA==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=b425B+NzbMYveC6zvY2QQ/ZSXAP0RoAZgNUrzyAtO5M=;
+	b=apTfXKdBSUV5Wem360MLjlQaULjOtDz9vLH2e5PiYUkqMIn7punnqw9wOrGzvbsx+e94
+	 6YbYM5K5Vnv6BdbVusSXcBMXgr0qPj6Co9zz/DjvlQs2jVCR7ofMR4vt0+Kn0IhJJx0ib
+	 yRGCXW9CSKQwgQ92Wj2Cbjj3QVJvtILZ0r/V4SXIoqxcrM+XuEX38fUUrfx2OXm9KFs2t
+	 oQh1Zx8xuRZz2yLl4o2iiM212W8FyZ1bCLJw03+nKODEv8VOg1tMqnLQvPCc9UBCaC/yn
+	 1/lN26jTG+1h4wy5KX7kgrSUfkKSEZLpsYGEm3ejRtspqw3BNzOgCTDtkxnZSiJ24GQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a1eR9bRU;
-	arc=none smtp.remote-ip=74.125.82.46
-Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQRXPFvg;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B586A606A33E
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:48:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B586A606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B24B606A325
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:55:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B24B606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a1eR9bRU
-Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b3b4944a0eso445541c88.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:48:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQRXPFvg
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-372bdb942dbso622351eec.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:55:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795150127; x=1795754927; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DRQ8FJYGIZUkw4F+I+/Zgmh7s38pPQn6pzLuYXKpMfs=;
-        b=a1eR9bRUgrHLFXzjPI0/J37qkzhcDJ6vQhaX0eYOSoBcAofQNz4LAWcL8koUKFBSCA
-         UKTOHCsl/jFThHWhR3uOouyLaagiyrV1R5Bs5QJga2dYScelfvrHq+4nP6W2mxm+2yWa
-         Ps3HEVjMpahzvtZgUrjHsbWVDck8ZN67Oxc+nxFd+x0pEze3L3Q0kTbQb9OepwZSt+4m
-         rKmnPD+jt8yNoQ96ZzHSAix/ySc3o/gGPyQ/uMnkEdc+8/aYVXUAZFS1odFd7XEiCYUM
-         4Vy2XVVghXdcJ9xjPNN0zNZfh+6bYi5XM/cOXqWYOOj4fWmmELmkos0okFeD0gJW8ZuV
-         LMvg==
+        d=gmail.com; s=20260707; t=1795150511; x=1795755311; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b425B+NzbMYveC6zvY2QQ/ZSXAP0RoAZgNUrzyAtO5M=;
+        b=OQRXPFvgbSwnd0BPSVz+i9nknnhmYWeFGubuUys7HEd6bnKi0+1wqaw/Ohfnu/Rkdf
+         kuOzX/bj3K7AJmAykWhiOu6PgZbsW7xhW9BgzvAjYX488lOYW3I1SWiW7e+7e5Ro/N5d
+         H19ndzy3r34Zp3pzZHbMAUXtc5qkMtf4ZDdK4ki3t4Pn/qwN5tpRJJnuRuAGrtf9O9LG
+         DFRRt7jj3+qtim4U5zMajd9708s+FbCybT4f7GA4ef4U6Q+HJJoFaShk3Em8hVh9DHyy
+         xhmuQz5Ux3uR4kKOeuZxH8AaC7FAaSog9Q7IAgJBLt/JqQVlAuRd81bmCeisAFyUO43p
+         NNIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795150127; x=1795754927;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=DRQ8FJYGIZUkw4F+I+/Zgmh7s38pPQn6pzLuYXKpMfs=;
-        b=TIzXPrVxDj7UE7ltkRWgShuMTlee9aG08bPkfjla+Sk1uEBo3bGmLsQV63LaWAGklU
-         u8t3UKWdnEGtB+odj5i3kcAxnEc5sIxqSQEffyQpUyM5wcolhqAgtCPiiLL8CsW3ww/9
-         cnUn30GT9S+/b3RnDZ9JblyZvZ4MG0q/LhibWOj8FXrPVOTtGBjaGNdRYNdbz0O9D6a6
-         NdvbdWT43H4KVLjTeNIESHhlmHoQhOYy5UeJcJV+U8RuQHmddUNgiprmdy8n1CjWVBnR
-         1VcrnkPthcyd4ktzKeg+g9G79kYqwhzIKjYc5mdlzs860OhX6+1kIYigWVh6Br+4uNQK
-         bIQg==
-X-Forwarded-Encrypted: i=1; AL+hErEaijjN1NQJkweY3/TnXF37Aivc0BcH22abAmEcWtSRmRiphpkyWIBF9+rfnB32vnr8szyrOZg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+EwFyQU6b7a/x33Isy/M/Gm5tJ3Iv6ir0l+M3JjGEUT/d5D2s
-	EVcec/VbT0rOR25CfxoDTVe6C8KPQlan8eK8DuKVXvFWTR/WZawcW90O
-X-Gm-Gg: AYBFou1VOgquIJsMeBf5uFmGEjdBkQdXiWREoPmSVxKIxX+zAe+dlScqPUvln4rWCZa
-	p82M6TujdwBUFM2v3wk6sUXXfnbyG7zhE11yMa0+jpVyRP4UxNdAFp7szF8eu/IS5n2/aQbZPRo
-	GoOTWVRIm/nW1dIo6wC3YjYzxvT+LN4+J/7Qcgddq+HU+YFngbSwjOirMOo2b6oMmwGtcWlQiLh
-	YMXxFWxcxGIsta+hRQtkHPnBKAdIMEYgG4UarLm9DFMnNZJNv3nFCjWWBrt5+2cE1HFyyQDA3Z9
-	qu0TSfagJuIvCSj4fPiBE5MUifzh82IoggkAuDfngFM8QtvOhb1nx9xIWKKdTlFiTpHvbLDL2EN
-	5MefOO6Uyy12ao+W38SIMq10w/O63it5o6aRVqX84Kg/i7cIpPmAMYv/WA5tMVcYVSZJBzLGo1Q
-	gG3uQxN4ovwvziBT09EcE5dMNFUGwliKWcnwRiT0YK3CUEsCaAVwfRjljsbJPEmdU0JazKfZsJW
-	/iwNtoi/w7s6vL3IAw4ESicUnGUtcyfUeryH7K+B2r5MuF2aAO2EShA1tYnoEPE8oka50DseDDw
-	FN1LDxziSX+LsIt7DDggAzE7FkHYtw==
-X-Received: by 2002:a05:701b:2901:b0:143:3c9f:10a6 with SMTP id a92af1059eb24-1b5567b315cmr1736664c88.4.1795150126565;
-        Thu, 19 Nov 2026 20:48:46 -0800 (PST)
-Received: from gmail.com ([2a03:2880:9ff:64::])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm3953343c88.13.2026.11.19.20.48.45
+        d=1e100.net; s=20260707; t=1795150511; x=1795755311;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b425B+NzbMYveC6zvY2QQ/ZSXAP0RoAZgNUrzyAtO5M=;
+        b=ZrQT4ipQQhIy2PNWuJfLEAMnUI11He9kKgkUAOr5sjpbdp3pHCfm9QhKSOd02rdN9Y
+         s2HmgTQWiLOmhtp/GQEeSVlWVLKgxJ6VG+VZh8HwW9sIG6SMlp5t9F5RyWHtAFSMw6XT
+         dsgWuVJ8VWGtUR5fynF1150LcLNKPI8D9uQRti5EdsgKlX4pTK5666YVOFiHFmV4Vs5+
+         4kFPDoEqrYzNX+uTC8/LOsKcv/iDP6jpK7B6WWQhx77ZzkQaTYvgHFlpAW6QnnocJ+Eh
+         jQtUb8EfkTEoK39kp0ndNlDoBGtFw4+UFskdVENNkkDZVWxAUNPADJzfZfxqa1VlkXaA
+         rfXQ==
+X-Forwarded-Encrypted: i=1; AL+hErEJ+YRW3kz/01NPDbfHXqj60cNYvqW2DM4gMSlvhKJouqAUqY+7qjERDwLr87VMv1SLZOzOMMU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UZf2nJdfuALVc2b5GfHZqbyWW8TzZBPUSosE87XsfrgSyXI9+
+	1WHHJJvuVmVkxiZXx5D2c+P83piI9EjLBRBZuRCobgj0vH1NQ1QFIbA8
+X-Gm-Gg: AZFdTZe65jjxQyLuY+tj8E2oXhIZCyRUEJlv7s2HOaW0fEkcznCKbfFIv5fXOAtTyho
+	DdgemgCdKCIlt6bit3CYIBoV3DA+Wlw8YVdv6COM2ceJLn2CH6bHOeqVsHgdMZ/lO7xK5vahfd4
+	iQJKKpBnfrJnK0O24mm8r2c9dZJZNwKpL1ICpYocLXAPvzJEGSo+zLn23EE3SBCHyR/I00nHxED
+	1d5/LRETP1ES+pmQZoVKnnxRc6CUd7HYzDc1hr+Iko0J9yZBPgwuTXE4xNzKKug92mzl7ZWv5aE
+	emKLwCpmJxdbzLw7U/DgSuSB7p8lgEz+4JQKEl6lZaCaX4gZLYHNO+aLt+I8pXDQHo//DBIABhg
+	DgVj+92XQ1bvgYx+WHaq1weppnw18v0y2NytcN5n/uyP3Hkg8R6cToptojCGEh9HQ8KIe6DuhFl
+	pL9OEeNjmwgvudE3I4BHSoybKa1XMnvzoWsckR+U7puN+Ngyt2WOJyLSd47Eeqqxqu0qEO+avp9
+	RGMmuz9gyLk1pEmeapCdahVIfBa0KHk92Q3Uhf0HpVOKe8EBraqByM9dnjSBi/fK6XybX+429vi
+	jXkZEdaZLjEdd+siQfaR3t1gFlgYA2AdGKjbbX07sZKQDIsO/8efqBewC87Y2oHdg/Q=
+X-Received: by 2002:a05:7300:c7c4:b0:376:13e5:e8fe with SMTP id 5a478bee46e88-3856c4b839cmr1475580eec.3.1795150511071;
+        Thu, 19 Nov 2026 20:55:11 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646632b9sm3623340eec.1.2026.11.19.20.55.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:48:46 -0800 (PST)
-Date: Thu, 19 Nov 2026 20:48:03 -0800
-From: Narcisa Vasile <narcisav.kernel@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: narcisav.kernel@gmail.com, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, netdev@vger.kernel.org,
+        Thu, 19 Nov 2026 20:55:10 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Xin Long <lucien.xin@gmail.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Jun Yang <junvyyang@tencent.com>,
+	linux-sctp@vger.kernel.org,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] eth: bnxt: report TX HW GSO queue stats
-Message-ID: <av/RAwaDfiQnPmbF@gmail.com>
-References: <20261116204313.23023-1-narcisav.kernel@gmail.com>
- <179499144094.3136.198428718668517773@kernel.org>
+Subject: [PATCH net v2] sctp: fail the association when the INIT-ACK cannot be processed
+Date: Fri, 20 Nov 2026 13:55:05 +0900
+Message-ID: <179514851805.604157.8527055700821138420@gmail.com>
+In-Reply-To: <CADvbK_citvtZ4eumLcx_szUvth7sQMP1oKu0mLbo0a3bD-eSxQ@mail.gmail.com>
+References: <CADvbK_citvtZ4eumLcx_szUvth7sQMP1oKu0mLbo0a3bD-eSxQ@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,78 +105,180 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179499144094.3136.198428718668517773@kernel.org>
 
-On Wed, Nov 18, 2026 at 08:44:00AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
-> 
-> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > index 6846a27bfef4c..1a7a93bf684ac 100644
-> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > @@ -869,6 +869,11 @@ static bool __bnxt_tx_int(struct bnxt *bp, struct bnxt_tx_ring_info *txr,
-> >  		cons = NEXT_TX(cons);
-> >  		tx_pkts++;
-> >  		tx_bytes += skb->len;
-> > +		if (skb_is_gso(skb) && !tx_buf->is_sw_gso) {
-> > +			txr->tx_hw_gso_packets++;
-> > +			txr->tx_hw_gso_wire_packets +=
-> > +				skb_shinfo(skb)->gso_segs;
-> > +		}
-> >  		tx_buf->skb = NULL;
-> >  		tx_buf->is_ts_pkt = 0;
-> 
-> [Severity: Medium]
-> Can this over-count wire packets for GSO skbs that were sent through the
-> TX push path?
-> 
-> This block runs before the is_push early-out. It treats every completed
-> skb with skb_is_gso() && !is_sw_gso as segmented by the hardware.
-> However, the push path gate in bnxt_start_xmit() does not exclude GSO
-> skbs:
-> 
-> 	if (free_size == bp->tx_ring_size && length <= bp->tx_push_thresh &&
-> 	    skb_frags_readable(skb) && !lflags) {
-> 
-> The push BDs never set TX_BD_FLAGS_LSO or tx_bd_mss, so the NIC sends
-> the skb as a single frame.
-> 
-> Take an idle ring with tx_push_thresh at 164 and a GSO skb of 164 bytes
-> or less. Two examples are TCP with a peer-advertised MSS of 48 and 96
-> bytes of payload, or UDP_SEGMENT with gso_size=8 and 80 bytes of
-> payload. Either skb would be counted as 1 hw_gso_packet plus gso_segs
-> hw_gso_wire_packets, even though only one frame went on the wire.
-> 
-> tso.py reads these counters, so could this give misleading results
-> there? Fixing the push path issue described below would also fix this.
-> 
+sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
+If either fails to allocate memory, sctp_cmd_interpreter() stops there,
+but the association stays: with the peer marked AUTH capable and
+asoc->shkey still NULL, a chunk that the peer wants authenticated, such
+as the ABORT built by close() with SO_LINGER {1, 0}, takes a reference
+on the NULL key:
 
-This couldn't give misleading results there, since no GSO skb in tso.py
-can be 164 bytes or less, so none can take the push path.
+  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113)
+  Write of size 4 at addr 0000000000000018
+  Call Trace:
+   sctp_auth_shkey_hold (net/sctp/auth.c:113)
+   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
+   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
+   sctp_close (net/sctp/socket.c:1564)
 
-> [Severity: High]
-> This is a pre-existing issue and was not introduced by this patch, but
-> should bnxt_start_xmit() keep GSO skbs out of the push path?
->
+Process the INIT-ACK and set up the association key directly in
+sctp_sf_do_5_1C_ack(), and fail the association if either step fails.
+SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY have no other users, so
+remove them.
 
-This patch doesn't introduce the push path issue (the high severity one).
-The medium severity issue is a symptom of this pre-existing high one.
-Both need a GSO skb of 164 bytes or less sent on an idle TX ring to manifest.
-If the preexisting push path bug is ever hit, the stats added by this patch
-would cause hw_gso_wire_packets to be over-reported by gso_segs - 1 for the
-skbs which take the push path.
+Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
+Suggested-by: Xin Long <lucien.xin@gmail.com>
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
+v2:
+- As Xin suggested, process the INIT-ACK and set up the association key
+  directly in sctp_sf_do_5_1C_ack() and fail the association with
+  SCTP_CMD_INIT_FAILED, instead of skipping AUTH in sctp_auth_send_cid().
+  Remove SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
+v1: https://lore.kernel.org/netdev/179505710266.3511678.14017674052424733262@gmail.com/
 
-I think this patch can be merged as is.
-If it's worth fixing, the push path issue can be addressed independently
-with a one line change in bnxt_start_xmit(). With that fix in place, the
-stats would also report correctly, with no other change needed.
+The patch was written with LLM assistance; we reviewed and tested it.
+With it, the reproducer from the report no longer triggers the report,
+also when the injected failure hits sctp_process_init() instead of the
+association key.
 
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116204313.23023-1-narcisav.kernel%40gmail.com
+ include/net/sctp/command.h |  4 ----
+ net/sctp/sm_sideeffect.c   | 40 --------------------------------------
+ net/sctp/sm_statefuns.c    | 15 +++++++++++---
+ 3 files changed, 12 insertions(+), 47 deletions(-)
+
+diff --git a/include/net/sctp/command.h b/include/net/sctp/command.h
+index 2058fabffbf6..8596e96c321a 100644
+--- a/include/net/sctp/command.h
++++ b/include/net/sctp/command.h
+@@ -34,7 +34,6 @@ enum sctp_verb {
+ 	SCTP_CMD_GEN_SACK,	/* Send a Selective ACK (maybe).  */
+ 	SCTP_CMD_PROCESS_SACK,	/* Process an inbound SACK.  */
+ 	SCTP_CMD_GEN_INIT_ACK,	/* Generate an INIT ACK chunk.  */
+-	SCTP_CMD_PEER_INIT,	/* Process a INIT from the peer.  */
+ 	SCTP_CMD_GEN_COOKIE_ECHO, /* Generate a COOKIE ECHO chunk. */
+ 	SCTP_CMD_CHUNK_ULP,	/* Send a chunk to the sockets layer.  */
+ 	SCTP_CMD_EVENT_ULP,	/* Send a notification to the sockets layer. */
+@@ -86,7 +85,6 @@ enum sctp_verb {
+ 	SCTP_CMD_ASSOC_CHANGE,	 /* generate and send assoc_change event */
+ 	SCTP_CMD_ADAPTATION_IND, /* generate and send adaptation event */
+ 	SCTP_CMD_PEER_NO_AUTH,   /* generate and send authentication event */
+-	SCTP_CMD_ASSOC_SHKEY,    /* generate the association shared keys */
+ 	SCTP_CMD_T1_RETRAN,	 /* Mark for retransmission after T1 timeout  */
+ 	SCTP_CMD_UPDATE_INITTAG, /* Update peer inittag */
+ 	SCTP_CMD_SEND_MSG,	 /* Send the whole use message */
+@@ -117,7 +115,6 @@ union sctp_arg {
+ 	struct sctp_association *asoc;
+ 	struct sctp_transport *transport;
+ 	struct sctp_bind_addr *bp;
+-	struct sctp_init_chunk *init;
+ 	struct sctp_ulpevent *ulpevent;
+ 	struct sctp_packet *packet;
+ 	struct sctp_sackhdr *sackh;
+@@ -158,7 +155,6 @@ SCTP_ARG_CONSTRUCTOR(CHUNK,	struct sctp_chunk *, chunk)
+ SCTP_ARG_CONSTRUCTOR(ASOC,	struct sctp_association *, asoc)
+ SCTP_ARG_CONSTRUCTOR(TRANSPORT,	struct sctp_transport *, transport)
+ SCTP_ARG_CONSTRUCTOR(BA,	struct sctp_bind_addr *, bp)
+-SCTP_ARG_CONSTRUCTOR(PEER_INIT,	struct sctp_init_chunk *, init)
+ SCTP_ARG_CONSTRUCTOR(ULPEVENT,  struct sctp_ulpevent *, ulpevent)
+ SCTP_ARG_CONSTRUCTOR(PACKET,	struct sctp_packet *, packet)
+ SCTP_ARG_CONSTRUCTOR(SACKH,	struct sctp_sackhdr *, sackh)
+diff --git a/net/sctp/sm_sideeffect.c b/net/sctp/sm_sideeffect.c
+index 35f540fb15fc..a95bf10b852b 100644
+--- a/net/sctp/sm_sideeffect.c
++++ b/net/sctp/sm_sideeffect.c
+@@ -698,32 +698,6 @@ static void sctp_cmd_assoc_failed(struct sctp_cmd_seq *commands,
+ 	sctp_add_cmd_sf(commands, SCTP_CMD_DELETE_TCB, SCTP_NULL());
+ }
+ 
+-/* Process an init chunk (may be real INIT/INIT-ACK or an embedded INIT
+- * inside the cookie.  In reality, this is only used for INIT-ACK processing
+- * since all other cases use "temporary" associations and can do all
+- * their work in statefuns directly.
+- */
+-static int sctp_cmd_process_init(struct sctp_cmd_seq *commands,
+-				 struct sctp_association *asoc,
+-				 struct sctp_chunk *chunk,
+-				 struct sctp_init_chunk *peer_init,
+-				 gfp_t gfp)
+-{
+-	int error;
+-
+-	/* We only process the init as a sideeffect in a single
+-	 * case.   This is when we process the INIT-ACK.   If we
+-	 * fail during INIT processing (due to malloc problems),
+-	 * just return the error and stop processing the stack.
+-	 */
+-	if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init, gfp))
+-		error = -ENOMEM;
+-	else
+-		error = 0;
+-
+-	return error;
+-}
+-
+ /* Helper function to break out starting up of heartbeat timers.  */
+ static void sctp_cmd_hb_timers_start(struct sctp_cmd_seq *cmds,
+ 				     struct sctp_association *asoc)
+@@ -1397,16 +1371,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
+ 					SCTP_CHUNK(new_obj));
+ 			break;
+ 
+-		case SCTP_CMD_PEER_INIT:
+-			/* Process a unified INIT from the peer.
+-			 * Note: Only used during INIT-ACK processing.  If
+-			 * there is an error just return to the outter
+-			 * layer which will bail.
+-			 */
+-			error = sctp_cmd_process_init(commands, asoc, chunk,
+-						      cmd->obj.init, gfp);
+-			break;
+-
+ 		case SCTP_CMD_GEN_COOKIE_ECHO:
+ 			/* Generate a COOKIE ECHO chunk.  */
+ 			new_obj = sctp_make_cookie_echo(asoc, chunk);
+@@ -1772,10 +1736,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
+ 			sctp_cmd_peer_no_auth(commands, asoc);
+ 			break;
+ 
+-		case SCTP_CMD_ASSOC_SHKEY:
+-			error = sctp_auth_asoc_init_active_key(asoc,
+-						GFP_ATOMIC);
+-			break;
+ 		case SCTP_CMD_UPDATE_INITTAG:
+ 			asoc->peer.i.init_tag = cmd->obj.u32;
+ 			break;
+diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
+index 64519fd8f943..598eafdc5261 100644
+--- a/net/sctp/sm_statefuns.c
++++ b/net/sctp/sm_statefuns.c
+@@ -603,13 +603,22 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct net *net,
+ 
+ 	initchunk = (struct sctp_init_chunk *)chunk->chunk_hdr;
+ 
+-	sctp_add_cmd_sf(commands, SCTP_CMD_PEER_INIT,
+-			SCTP_PEER_INIT(initchunk));
++	if (!sctp_process_init((struct sctp_association *)asoc, chunk,
++			       sctp_source(chunk), initchunk, GFP_ATOMIC)) {
++		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
++				SCTP_U16(SCTP_ERROR_NO_RESOURCE));
++		return SCTP_DISPOSITION_CONSUME;
++	}
+ 
+ 	/* SCTP-AUTH: generate the association shared keys so that
+ 	 * we can potentially sign the COOKIE-ECHO.
+ 	 */
+-	sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
++	if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
++					   GFP_ATOMIC)) {
++		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
++				SCTP_U16(SCTP_ERROR_NO_RESOURCE));
++		return SCTP_DISPOSITION_CONSUME;
++	}
+ 
+ 	/* Reset init error count upon receipt of INIT-ACK.  */
+ 	sctp_add_cmd_sf(commands, SCTP_CMD_INIT_COUNTER_RESET, SCTP_NULL());
+-- 
+2.43.0
+
