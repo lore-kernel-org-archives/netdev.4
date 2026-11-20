@@ -1,101 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795140856;
-	b=Xwldr6J7mDu0g0MQjxP0p0rPMsRDChcur12uEXilhQvi+yTCFgluhbtAOuCzcLJef9jA
-	 hpXcFhltMlT/ce2q7ZJM/1ME5zbqRG04B6wqOk21dnwMQkP4SZJ7VTLDxUw3bUGgj2CIy
-	 GoZBoVhGM0rY2e+RhXsGau4aHcPi4x8/qlq1h4iKNXbC0NbbbkoNq0TqKhDe3kXXr6w8x
-	 msA94jy1V967BOeDF9SIHc8jzTb4K/7wIPiZcN6tP42c7OIXoLnyGo57nFM+jE1+K08sx
-	 0kCH+06/elpIrU3veApskWJGNDIB6pMyFHMxS2Ix7UPAwGdBA8Rkt/3zZabjBarXqxg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140856;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795140963;
+	b=vB1rarxrVRQ5aPqMk4OisZ9Ij+Z6RyO8BVMpUI/cbBg0OIfBEfJr52aNbXmyw911vejs
+	 +z83KU8KuAxeN7VMQYl09qR6U/AFRARIm1sZg9/HoqmYKb+7bHcCBvLOQqTfeRosiGkEW
+	 /kB9/k9S3sy6Gz1/uize6wElSd6W183JNsnJyascs9/2XTg9fiFhQXE9XSdwHfOD0eQ3L
+	 46rBn4qjR20z/0HFRJNum4lHXjdaZDTX+hqq9b34vHFQZhufJy7yqFI9RdS4yWcFiu4T+
+	 ztUrLnBFB6fvMR05DcwViJJE5qFbHuQ1uNbTzFkRQoxgPeXONQ6pG54FoaWOoWeIYVQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140963;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=qwnuquGI33r38NkoJ7hs4vNmYK6M6vYCCd5IUaSABRI=;
-	b=sGF+aRW1tOmPVMytuxnGR46YLkPQkMN+01nC+55uaJyWzqE8T2i5XVD0emY8hSPEF5Ai
-	 7jE+i6g5uk+/SrAaE9PunV8u1DmvvDhfBk1Y9QhFPBRdWlYlCt16468IXHUEevHhnEOMu
-	 vgR2H2pehUlCyYQ2tuO0mz6xUOyaPkYWcDKZtRjBPeeDfcVP1LpV8F1+zdu19cNTKAop4
-	 vOo7AmwJPbM7K4xlw1T8LFk0mzT2UJzQHS3/k8GLX7fsG9vv4LmzBl+UQCb/Is3efQ38c
-	 88hWRxWaUyMLthhLLt5/NGfHYbuXyuSGbcu42RrHBl4iB/LMovd/yB0lslryG3dcceA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=wNFHaznprkYFxrl6N69NiI4gThn5TQVVfoHkGgTnqYU=;
+	b=K8LH5v4GE/ggzg+jzSpGhY0Ygtlbr+OQhe0bBGkxWs0S8hHf/2frzkyfKCppDKn7UjdK
+	 GPEXtQ75SpnhAcBhSg4ijOHjPCHXgF+ehmwZxn9WEjP7Sjgg/unroKXyFqAquzqBEeqW7
+	 gFqDVjxtwmU/PLVr5DAaJ7tGHDPiXZ3X1cHgf6e5YaAZUkW7fpxNjgycxnsHFncmBWtx3
+	 AJCzALWzqXCRvfmugyiwpL6J9NXrFj7wYWQQw3RGVM9RIHYudIjiDAKJd2f2rlYJz0DqY
+	 93zyC5HSK9N0gppd8OK5Pb9ylHvuhMLgmxJ+7LrWKq+xixWH1CJvosvWhp1e0QRNgBw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0kW6cvAn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
-Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Uuu1/tF0";
+	arc=none smtp.remote-ip=209.85.222.174
+Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com [209.85.222.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69CEB606A326
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:14:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69CEB606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E8B7606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:16:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E8B7606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0kW6cvAn
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3acf82fdcdbso2814231fa.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:14:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795140854; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Vl6Hv6t1JEVjzeaiU1RDJ2KBcsOTda0cjeg7tsfB3aB2N0g1cwXRGLKpWcln1cCrpO
-         HFiZFQw6LdvNlBJwg13qbMewJmZz78Qxe6p6kSbjvWO650pRRh9s2p4Pq8AIzdpQsdfn
-         qvKUMUrLYt6NUCK0T7d/r4Fd3bzd5p9PAPo3kQ1agNNcOIj6HWmnmKXMxh2Kn1F3JlmS
-         hJ0op0pYqLLuWjjiXKYdEH2bxh1pOiFts/mUrcc4XRU3XsuMuGiczhb+/9m6VMD00mxz
-         xzV1B2P2/DroywnKkNk6KSsufnjl0Cf5xx+pGqv9e+fXxPheUGsnOTspep0cXBKdKPVF
-         q+tg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qwnuquGI33r38NkoJ7hs4vNmYK6M6vYCCd5IUaSABRI=;
-        fh=8Usd3OzGvHNPWBLWoyPNQ4ddQawVO1uyQVGHdj0AdgA=;
-        b=PXxqF5JkzJ92iIxVMO4TO3vw4rdsbE2iCHylEx/orwLYVaEWt7dTqE977R705uRPlH
-         DBgdsqmQ6p8FiqW94qX8vn5ZZJ2DQXKQOGCOAYXouf/Tvn47y88WdH7Wmf28Y/oEpFtO
-         yThxZ8vt/Ig5wE4FK3A0F+nf+fckan3yBAgnbsklAGICl1v7kCVTAvQZusgBAOthi5+4
-         xSYtnuAjanRBM4bjPfj+pId0HbkSlQDwnDhO5J4sSZrJ3EwK5Y5juIQTdXKxjQ0SL4Q9
-         DkHhhWZg8j5BohQevmmpR3QzC3mu/A8ckuyjelnFl0WoRkfu6Slceroe2nke8ltr7ie0
-         TMyA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uuu1/tF0
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-9495c633eb5so24385685a.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 18:16:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795140854; x=1795745654; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qwnuquGI33r38NkoJ7hs4vNmYK6M6vYCCd5IUaSABRI=;
-        b=0kW6cvAn/u+46Lzn5PS5Ap1ds5CSsxACBzwVNGwMkfr9zxFjcoHXKiffC4lGn8qlQY
-         gs7g1FBDGe6wQWann4Oy7uOgIecc8hJkQTZ3qWIkID4t5qKNm/h6wSUI2atR5eOlCecm
-         8i1FnV+oBCkpLJjK3JYYTIkD8/nTc5an8UxL63Ga4WvDa2ffgApPIpkMgiuSyymvvW88
-         /wD8rfyomJiqtAKs3/N5UlIM1NSfpiLZwWppBVb81NfG6FBXAW88pLA2NsweTADdsNet
-         sfXVR128Lbw3O1/hsvm2sQwRPC7J26DbYtfuM0wz+Dr0pMwLL8puyKMlmouaL24huHYV
-         2Anw==
+        d=gmail.com; s=20260707; t=1795140961; x=1795745761; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wNFHaznprkYFxrl6N69NiI4gThn5TQVVfoHkGgTnqYU=;
+        b=Uuu1/tF0lfIbNcFFA5RelpnOOFHlqPgFEyge8uGAAcpVNHYb7VRu86qDPllD877b9H
+         b9JCgahf7j9nr9Wk6YQR7CItht+a7kIhxujCe3BohcxwygPWFJZ2BLNQOlPk6Z9Sp6fG
+         2f69HceylDSJmVPnPVb3gKoEUOjeQR/gqbHI4crJrVMh4s0FET4VBwA2pkyZDP9aBRph
+         CKimzSVZH7kKCxujyQvrrNOBVYCipYLA3h4TrVcYRdX7pltjiL2jCFYhhSdyAqQlh5XK
+         JJ9ZfEOb2S+rumA8JkDSIAnQFPcEuCbZTJ4QgokWnZUfWzABlTrNAdzdGY1C6ZJ/6gyr
+         21nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795140854; x=1795745654;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qwnuquGI33r38NkoJ7hs4vNmYK6M6vYCCd5IUaSABRI=;
-        b=1RIJr5jagi2cF0dozLDNuEZXr/gK5BIhaRvT0TP925/HIBX8qId6YBO7Xu82S/Jo9C
-         OO14JkTypI/D/AYXryZXCrN00JbWRchjcy7nde79kjRyCOm4ggFCS+vDAxicmSjlGfyg
-         5ef6IqkEKCyuBmoDvEjk+xvpnQ6eB1aY0qDPqZqQBC+VHCp/L/IsLMjACxDf6UiLQa20
-         n7KyCOVAf/bpTkT2PjuQXvTpgxgJzPEX7FXEMmLSqAKezI74are5H71ssd/pQyNrUw++
-         HkpRl/VTkvt4YJCGbAtEQjXR/S/RIaZ1nydw0axf1Zid6uqnOIIZcwg0PrnBitH4SSSP
-         y8ZA==
-X-Forwarded-Encrypted: i=1; AL+hErEOrGhG2/+98ULQeWI0s3rrRbuiyctBEObk97DFEsBnceNFKX0JNba8/mpg8rZQIRvVNudshLw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++rLwj17UGej/l95qnbMT7Wv2cK+tgyrlSKdCLn2P6mDsPnVtj
-	dB3tAC0y02LlLIJflrvVTnGQBx/TxJZmW7dOcggWKhxTLVQtLvZ3BOJnolzzP4ZumIcKgbi+djx
-	9MlvdHB2O01cbFFIbSUG/C75AC9+2jEA=
-X-Gm-Gg: AZFdTZeg42R3rsGuk+o8XOyOSQUMlo2VQi3sxsSFWvTt2Q7eehxc1SyZC2iBdX7l41t
-	XGabtBo7qeOL+11eLBwaHqMhBz+NIZ8xvln+rXactxDZpg0pszlo+gVEAoZmIBHreNLM+MkzCji
-	uxTZs4p6xCJRgGiWq2iBUAUePL9pkyQWexRyL+grCyRmZTdCYOSam8LRon3tb1UF8BoCP/SjkmK
-	PXq8OlbK8DI3RCBwd/duxksJ9QMhsMYSuRRsWRqt364rEVJycLM/c9BRW662HSgGSIE50CUo3FN
-	YgQhBKj6qYfI8e8I4Tu3GXvz7A4nqC8MRqvc6H7Z2SLumd9j6Re6bxgIgMziQw75BFjp6mrjmL0
-	nm95TohDJ54+NzCTbYvEUZtCtER+sp+aJepQvEQOSD7+hlXYBGea5SYcogphB6ni7GP56+/fSyS
-	pHLLx7IsYWpbFTTU8BzG8EDoop07hUa44ejteTEOYCr7RCQog+zmuxycQO4J0HS484aGvWeK0=
-X-Received: by 2002:a05:6512:3d27:b0:5bf:c2fa:3261 with SMTP id
- 2adb3069b0e04-5c1bc8507bbmr399936e87.62.1795140854265; Thu, 19 Nov 2026
- 18:14:14 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795140961; x=1795745761;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wNFHaznprkYFxrl6N69NiI4gThn5TQVVfoHkGgTnqYU=;
+        b=aXlI9vHaC3/60dbUA0Ni/Mh+vlyaIPcEbrVqmH6BDkTiKTek7XGBWCW6r+0QFTwO+f
+         +TJapXcI0WsS3QIeCiPSyRswqgTAsLRGlhVjqCoO7ilrQnp1QgFVDQqwXeUOoWCYAC7x
+         5aX3y9pRaSzcto2Of3WoAYhziEQUJxM0zxyiBKEaPLEMZ4PCv+1fCMHdQJJs51ZF9sgr
+         VsBCbOw9p4jruQttxM+VWswqB+yn2ypIfY2I4DDuLOH8WnTMMv3lw/o65yMU+64XRnMH
+         12oIIBio5BtlwjvW/rIwPeCCO004LYFvgX72YyOLKPDFPwzMs0htsIIbcenctQ1D2uKN
+         6ajQ==
+X-Forwarded-Encrypted: i=1; AL+hErFKxfWav1ZMenA0dGe+MXAWtBsora09DYVibHU2XM601Sn+MSfGgB9QVQG/agpYy33OsxQYf14=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8y0lezsMS14bwLEncID/pz/a8FelG6TO8CZ1Y3/1ALrv3lTkEc
+	736pimQCb+R2sAYqFQQeVabJqijafP2ntcoVsKjZ6pCI+nrrl7VEDOtH
+X-Gm-Gg: AYBFou3OsdUyMuqhAOnJwkah/sY7swrwtilwlKHnSuh2D0rHVHAa5AZE7IjT+a4fL1W
+	TLCMhstP1zfCXLIMT/6qNh0vwROWH9vSxFCj6UTG+9FueyaGwaA4ZbxLN5Sp+7zLn/K4597Kps6
+	Umlj+ZOGhO7ySEfqEfxa4BLYueV8Z6+FYxXmmB9XL337aJQsOxt1Acu1d4a0/6JqmwMLV6XFPit
+	574psD2km6k3rQfJSUhl1GLAlV8rX5dnROgdxeeAb8ioyr5ibh6Fu9CMtgLybEm8QlglmlW1N4f
+	2TE1zxTNIyl6EQcJfQrMagRDE3v91/s5IKPIiNsSLnBsm74yQf0L2Ol+fObkE3k4j43npngx5kD
+	YNfnHoh0k5khTK90Fc0iLQHzIn/15fJbbc0u4EM5Bxj6XotHKmwYIJS6MYiqQzMfbXMRg76hIzQ
+	4InKpmy4C+bgjBBKb4YcxW8prGO5zExbM8tQEq9drE3ElsMeN2urcJBgJk6Ab7+G0BxNtt2Q7Jx
+	JP6FVzwTvcJ2ubUu1+hagyJcsPUTblAGhAPayc8CapC2wDBv2JtMCVUvjKiePDFrHoh8iwDbYiA
+	z0w+//L5UOrgFqk0vOVyNQ51z1/kO4t6OueUrVFuFup00zBO6uQtHNCL2cjsTPIHPo0xZXdT7Fk
+	=
+X-Received: by 2002:a05:620a:2b9a:b0:93c:62c4:e2e2 with SMTP id af79cd13be357-949ba8246e2mr284773685a.12.1795140961426;
+        Thu, 19 Nov 2026 18:16:01 -0800 (PST)
+Received: from linux.. ([8.34.174.240])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3bec3dsm91755285a.23.2026.11.19.18.16.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 18:16:00 -0800 (PST)
+From: Changyul Lee <lcy8047@gmail.com>
+To: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Gal Pressman <gal@nvidia.com>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Changyul Lee <lcy8047@gmail.com>
+Subject: [PATCH net v2] net/mlx5e: Skip hairpin entries not ready in debugfs dump
+Date: Thu, 19 Nov 2026 21:15:57 -0500
+Message-ID: <20261120021557.1630138-1-lcy8047@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,50 +106,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260901083325.3445-1-kerneljasonxing@gmail.com>
- <178847847848.4131868.16090144540850507396@kernel.org> <CAL+tcoDpyG-Hy9mtDnLSGu0nvU_VDqTjs-k51r2+OPwVyHtABA@mail.gmail.com>
- <CAL+tcoC=w6j+1p8ovjbLxgb1QdL3ipic0nMOvX_9OJrspSQS2Q@mail.gmail.com>
- <arKm5gCaERk6MaGA@boxer> <CAL+tcoB8f7H1ptcEk1iVH065AcUNPEL2V1gKoJacwr3zndfPWA@mail.gmail.com>
- <DU4P194MB29716D57A08053EAF2AF4F8FA7792@DU4P194MB2971.EURP194.PROD.OUTLOOK.COM>
-In-Reply-To: <DU4P194MB29716D57A08053EAF2AF4F8FA7792@DU4P194MB2971.EURP194.PROD.OUTLOOK.COM>
-From: Jason Xing <kerneljasonxing@gmail.com>
-Date: Fri, 20 Nov 2026 10:13:35 +0800
-X-Gm-Features: Aa3M54pa6BuImF-JDf3h3rfZH2I-9jKwu2Mik1fylUySCS_D0U-LbD7MWemGb7k
-Message-ID: <CAL+tcoCKk1kLqYp8DJuVmj3wf--zPDfSkAGPGoJGr5ELR_nmBA@mail.gmail.com>
-Subject: Re: [PATCH net v2] xsk: set network header on skb at generic transmit
-To: James Sawyer <jamessawyer@outlook.com>
-Cc: Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	"David S. Miller" <davem@davemloft.net>, Magnus Karlsson <magnus.karlsson@intel.com>, 
-	Bjorn Topel <bjorn@kernel.org>, Jonathan Lemon <jonathan.lemon@gmail.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, 
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 10:10=E2=80=AFPM James Sawyer <jamessawyer@outlook.=
-com> wrote:
->
-> On Thu, Nov 19, 2026, Jason Xing wrote:
-> > James, I would add your tested-by/reported-by tag if you don't mind.
->
-> Hi Jason,
->
-> Thank you, I'd be glad to. Please use:
->
-> Reported-by: James Sawyer <jamessawyer@outlook.com>
->
-> I tested the v3 hunk (skb_reset_network_header() at the top of
-> xsk_skb_init_misc()) and it closed the issue. I will run v4 through the
-> same test when you post it and reply with Tested-by, so the tag matches
-> the patch that was actually tested.
->
-> Thanks for taking this forward.
+mlx5e_hairpin_flow_add() adds a new hairpin entry to hairpin_tbl and
+drops hairpin_tbl_lock before creating the hairpin, and sets hpe->hp
+only after mlx5e_hairpin_create() returns. Other users of the entry wait
+for res_ready, but debugfs_hairpin_table_dump_show() does not, so
+reading hairpin_table_dump in that window dereferences a NULL hpe->hp,
+or an ERR_PTR when the creation fails.
 
-Thanks for your report and the careful testing! Will send it by Sunday
-this week.
+Skip entries whose res_ready is not completed or whose hp is an error.
 
-Thanks,
-Jason
+Fixes: 8a0594c09610 ("net/mlx5e: Add more information to hairpin table dump")
+Signed-off-by: Changyul Lee <lcy8047@gmail.com>
+Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
+---
+Changes in v2:
+ - Point the Fixes: tag to 8a0594c09610, which added the hpe->hp
+   dereference to the dump (Tariq)
+ - Add Reviewed-by from Tariq
+
+v1: https://lore.kernel.org/all/20261119012707.555494-1-lcy8047@gmail.com/
+
+Found with a static analysis tool we are developing.
+
+Compile-tested only, with x86_64_defconfig plus MLX5_CORE_EN,
+MLX5_ESWITCH, MLX5_CLS_ACT and W=1.
+
+ drivers/net/ethernet/mellanox/mlx5/core/en_tc.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index 1d35c97aea0b..c6623f13261b 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -1067,12 +1067,15 @@ static int debugfs_hairpin_table_dump_show(struct seq_file *file, void *priv)
+ 	u32 bkt;
+ 
+ 	mutex_lock(&tc->hairpin_tbl_lock);
+-	hash_for_each(tc->hairpin_tbl, bkt, hpe, hairpin_hlist)
++	hash_for_each(tc->hairpin_tbl, bkt, hpe, hairpin_hlist) {
++		if (!completion_done(&hpe->res_ready) || IS_ERR(hpe->hp))
++			continue;
+ 		seq_printf(file,
+ 			   "Hairpin peer_vhca_id %u prio %u refcnt %u num_channels %u num_packets %lu\n",
+ 			   hpe->peer_vhca_id, hpe->prio,
+ 			   refcount_read(&hpe->refcnt), hpe->hp->num_channels,
+ 			   BIT(hpe->hp->log_num_packets));
++	}
+ 	mutex_unlock(&tc->hairpin_tbl_lock);
+ 
+ 	return 0;
+
+base-commit: 342e62fd34c2674e82bffc89cb5c7091924986d9
+-- 
+2.43.0
+
