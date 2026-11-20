@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795152544;
-	b=A2eZ4Qsh7fs0SqWCXguqr+1XKfGVh5p45Ey6A4ap8P40NMK9c+dRLTBtafKWJGn8Jjis
-	 hoaLNssGI9MLRI/WHpxGXsnVAGSC1P/jiXj/4gfoikNTSmc3MsOE21+8uJOUnGbN6fyQP
-	 OkQd6ssS1efyDq3UiUfWIll8pDAUNQh+jloVc9KjX2YUSN1xMH3DSZhjDQq1uFmpGb0sk
-	 gBKHyuNR+6LKLesg7E273d2LrWjObmaCA0P50MA1wW4e2f3cz2Na7BcDqEXhE2L0IN8L2
-	 U1T7G0EeUjqdbiya0MU/Twzeu+lgrAmNarys6nlH+n3zwxW0skB44z57p3KLqXJKKSg==
+	t=1795152545;
+	b=ofP20ybVKLiFKOXWqBecjlzsiMTf2g/llZemT2kYmgib3J7D9/siufn5gPVpbTy38+mf
+	 X1wO26dCREwoongdYhsiqScQXGqRRUoCReYmCxjkZuBw7q+bEf3vM6HVgl2a0eRauh/zF
+	 sR48Vq0YvoJysViJSfnseDrEnIQD4KJ8ayhACN9gXS+xbTQw75qGMxwSErnvmK5dGJ/fn
+	 3/DXb7dhxlF6GJJeCjqsuv40rWVDh1fUL9n0JWHmGoKZ94L8JgluJMaStOesGlScCKzRV
+	 0pw+unUGbHIrZxBjQpEk3WJrVxlwK9xNsfAGRQP7f4tmPELhSIREsUPagdbDLgWD/ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795152544;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795152545;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=BzRqkoKY7TOZjy4PeTC0fGp+7EcA4Wr9Q3Dsl2M1Gk4=;
-	b=kmyUMyBvHbqz+YYRBRao7RIFCVZl0ihfa62xXsOivSdevHgJWxb8VJCbTIKE6n0W76oE
-	 pGSeiZZ66kHTGufAaBbQn8Wr9cyqMomP4U8jM1pN5PiuZLDaQdSnq2l/d8kT5Gf4fJIjP
-	 1WHqAwtqm20+LBJgo84X/c5Jrf8obwvalWk/ml6JCwvqw3Xcxt7gsKfma10MNc+N1OUjy
-	 GO0WQmvTamrDc048GsO+H7tWNuBANZKB0ZWgob7eJ21grL17ZQIXefea90pR0BQrsvXhn
-	 kSKZlB8dvkERV77E+DAOd8MCMtvOtUj4i4qB/SynvZCk0jsxvfjLyWqVCKxZ7/AErIA==
+	bh=XQbeFADGAxZRqiiyyzZqdT0TUYW6vebXpKkZsSMdm7I=;
+	b=h56ho0JcZq/YkSwYUGQ9xsxKaCmBHIA5+cyyxS00u6TnR0853NSruBLB9UGAq7DCguru
+	 5esznmJkV+IjHuJe3dD49fU83KsH7+MHb/OsejFQVBmtGEi9/IrPINiQS0RwCVoCnLv9H
+	 aLooxI53KG9iufLDvNWGiCQQ7GX66wCX2HobJvnL+wULcgNR5MzH9InnLSB7Vjg2E8RGM
+	 /DWEXVWVV16fiIBfA0b/QMU2z+tTSRs0oEkcQSGfa5JnzXX1DqCCWeM2P/Ik92d+9U/Gr
+	 zokHQ9sRJgA65zTEYLzYAPQLtM/KYvv+WHXUc3msxcp0Xlm/6i1Hw57hH8zi2tDNHNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDrxCa6Q;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZkTVKZs;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE748606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 05:29:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70357606A331
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 05:29:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDrxCa6Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90F961F000C6;
-	Fri, 20 Nov 2026 05:29:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZkTVKZs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D3EA1F000E0;
+	Fri, 20 Nov 2026 05:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795152544;
-	bh=BzRqkoKY7TOZjy4PeTC0fGp+7EcA4Wr9Q3Dsl2M1Gk4=;
+	s=k20260515; t=1795152545;
+	bh=XQbeFADGAxZRqiiyyzZqdT0TUYW6vebXpKkZsSMdm7I=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dDrxCa6QiZO+hK4yBy3l0ZuR6H1K5Zkjx9kMwDE2ko++b5u/hv3I3QDxPmeLllW6a
-	 GgX+y2lE9SN3AT9sEk+9H0kAKcky7q22JnLaDiufv/8LXmLgsiwtzEuyMkXEp/VYAZ
-	 skrKdv+1xJVvwN7FpMHW8YsSAysRrOyjOsPtqjKN1bazD11PE1PhiRx07P3E8RxCId
-	 8OnEqmRVkTiqxFkn+TGAfcnn0sqld16bUBGYfuR6761n/1lYZpmZLEHmtmFAd085Hd
-	 U0Qi4yYFWL1N2I9xll/8FxygKBh2/RR6ncS0n+G+i20UxVRZvwzLliWxVq6nsJIW6V
-	 Wi/JnP5eZTtPw==
-Subject: Re: [PATCH v2 1/3] net: thunderbolt: Stop queueing Rx buffers if
- allocation fails
+	b=kZkTVKZshZIIejCZ05KmH8k0vp9NMEWNkwabMyDBJVROuioOlTRMbYSoYHVaHTT/v
+	 TAigmhTpymF7fuTTNkRcVDzu+iG266Nb8nirjlBkO3s78nnRBZgDuBJrmxSbifn2Bo
+	 QhbxVhCVVPZqI3bNh05oMnhih2gTTO9k6xBfDrfwHov3fmSOm/ZBlzLjE3Xl8xw7KK
+	 gvOOhYm1g+/ZEVVbJfqTEmiz7xkNQ+hKpjbC1uHNBebB1kEK8bkederkHSTtdDm+Ne
+	 +/MKqI0/VrJuyaY5eORBhICJZgBYFyMbFIfzEMeuMfCgZ+tcsNePahe7nFnJcWhtmJ
+	 6DjmYlKOu5bxw==
+Subject: Re: [PATCH v2 3/3] net: thunderbolt: Free partially completed skb
+ when the link is torn down
 From: netdev-bot+sashiko@kernel.org
 To: mika.westerberg@linux.intel.com
 Cc: netdev@vger.kernel.org, YehezkelShB@gmail.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Date: Fri, 20 Nov 2026 05:29:03 +0000
-Message-ID: <179515254314.3136.10991358568283987720@kernel.org>
-In-Reply-To: <20261116142613.876208-2-mika.westerberg@linux.intel.com>
-References: <20261116142613.876208-2-mika.westerberg@linux.intel.com>
-X-sashiko-severity: Medium
+Date: Fri, 20 Nov 2026 05:29:04 +0000
+Message-ID: <179515254415.3136.13667031381014860776@kernel.org>
+In-Reply-To: <20261116142613.876208-4-mika.westerberg@linux.intel.com>
+References: <20261116142613.876208-4-mika.westerberg@linux.intel.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,7 +66,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 1 (1) · Medium: 0 (1) · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -74,152 +74,178 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] This patch moves NAPI enable/disable into the connection
-  lifecycle, but the new code is not serialized with teardown.
+- [High] The patch only partly closes the leak it claims to fix.
+
+Pre-existing issues:
+- [High] tbnet_connected_work() and tbnet_tear_down() are not serialized.
+- [Medium] tbnet_tear_down() treats `login_sent && login_received` as
+  proof that tbnet_connected_work() acquired the connection resources.
 
 --
 
-net: thunderbolt: Stop queueing Rx buffers if allocation fails
+net: thunderbolt: Free partially completed skb when the link is torn down
 
-When Rx buffer allocation fails, tbnet_alloc_rx_buffers() no longer frees
-buffers that are already queued, and the callers are updated to match.
-If tbnet_poll() cannot refill the ring, it keeps polling so it can retry.
-NAPI enable/disable moves out of ndo_open/ndo_stop and into the connection
-lifecycle: it is enabled after the rings are primed and disabled before
-they are stopped.
-
-Closes: https://sashiko.dev/#/patchset/20260902082128.1148463-1-mika.westerberg%40linux.intel.com
+This patch frees a partially assembled multi-frame Rx skb (net->skb) in
+tbnet_tear_down(), after NAPI has been disabled and the rings stopped.
+This keeps the skb from leaking when the link goes down mid-packet.
 
 > diff --git a/drivers/net/thunderbolt/main.c b/drivers/net/thunderbolt/main.c
-> index cf51b9c39f4ee..1593ad76e645a 100644
+> index f76b4d134b330..2b95df73c6e51 100644
 > --- a/drivers/net/thunderbolt/main.c
 > +++ b/drivers/net/thunderbolt/main.c
-
-[ ... ]
-
-> @@ -366,6 +368,21 @@ static void tbnet_free_buffers(struct tbnet_ring *ring)
->  	ring->prod = 0;
->  }
->  
-> +static inline void tbnet_napi_enable(struct tbnet *net)
-> +{
-> +	napi_enable(&net->napi);
-> +	net->napi_enabled = true;
-> +	/* Run once in case an Rx interrupt arrived while NAPI was disabled */
-> +	napi_schedule(&net->napi);
-> +}
-> +
-> +static inline void tbnet_napi_disable(struct tbnet *net)
-> +{
-> +	if (net->napi_enabled)
-> +		napi_disable(&net->napi);
-> +	net->napi_enabled = false;
-> +}
-> +
->  static void tbnet_tear_down(struct tbnet *net, bool send_logout)
->  {
->  	netif_carrier_off(net->dev);
-> @@ -404,6 +421,8 @@ static void tbnet_tear_down(struct tbnet *net, bool send_logout)
->  		if (ret)
->  			netdev_warn(net->dev, "failed to disable DMA paths\n");
->  
-> +		tbnet_napi_disable(net);
-> +
->  		tb_ring_stop(net->rx_ring.ring);
->  		tb_ring_stop(net->tx_ring.ring);
+> @@ -428,6 +428,9 @@ static void tbnet_tear_down(struct tbnet *net, bool send_logout)
 >  		tbnet_free_buffers(&net->rx_ring);
-
-[ ... ]
-
-> @@ -678,7 +702,9 @@ static void tbnet_connected_work(struct work_struct *work)
+>  		tbnet_free_buffers(&net->tx_ring);
 >  
->  	ret = tbnet_alloc_tx_buffers(net);
->  	if (ret)
-> -		goto err_free_rx_buffers;
-> +		goto err_stop_rings;
+> +		dev_kfree_skb_any(net->skb);
+> +		net->skb = NULL;
 > +
-> +	tbnet_napi_enable(net);
+
+[Severity: High]
+Does the err_napi path in tbnet_connected_work() need the same free?
+
+It runs the same Rx quiesce sequence but leaves net->skb set:
+
+drivers/net/thunderbolt/main.c:tbnet_connected_work() {
+    ...
+err_napi:
+	tbnet_napi_disable(net);
+err_stop_rings:
+	tb_ring_stop(net->rx_ring.ring);
+	tb_ring_stop(net->tx_ring.ring);
+	tbnet_free_buffers(&net->rx_ring);
+	tbnet_free_buffers(&net->tx_ring);
+	tb_xdomain_release_in_hopid(net->xd, net->remote_transmit_path);
+	tbnet_connect_failed(net);
+}
+
+tbnet_napi_enable() is called before tb_xdomain_enable_paths(). With the
+software connection manager, tb_tunnel_alloc_dma() places the "DMA RX"
+path before "DMA TX" in tunnel->paths[], and tb_tunnel_activate()
+activates the paths in that order. Rx can therefore be live while Tx
+activation is still running.
+
+If the peer sends a multi-frame packet in that window, tbnet_poll()
+stores the partial skb in net->skb. Suppose Tx path activation then fails
+(a hop write error or a cable unplug). Control goes to err_napi. The
+pages held by the skb were already detached from the ring
+(tf->page = NULL), so tbnet_free_buffers() does not free them.
+
+tbnet_connect_failed() then clears login_sent. After that, every
+tbnet_tear_down() call from tbnet_stop(), tbnet_shutdown() or
+tbnet_remove() skips the block that contains the new free:
+
+	if (net->login_sent && net->login_received) {
+
+Wouldn't free_netdev() then leak the skb along with up to
+MAX_SKB_FRAGS+1 Rx pages?
+
+If the peer logs in again instead, tbnet_poll() starts with the stale
+net->skb and net->rx_hdr. Could tbnet_check_frame() then take the middle
+of packet branch and drop the first valid frame of the new connection?
+
+Would it be better to free the skb at the common Rx quiesce point, for
+example in tbnet_napi_disable() after napi_disable(), or also at
+err_napi?
 
 [Severity: Medium]
-Is this tbnet_napi_enable() serialized against tbnet_tear_down()?
+This isn't a bug introduced by this patch, but the block that holds this
+free treats login_sent && login_received as proof that
+tbnet_connected_work() allocated the HopID and started the rings. Is
+that always true?
 
-tbnet_connected_work() reads login_sent && login_received once under
-connection_lock and then drops the lock. Nothing checks the state again
-before the rings are restarted and NAPI is enabled here.
+tbnet_login_work() sets login_sent and queues connected_work.
+tbnet_handle_packet() sets login_received and also queues it. If
+tbnet_tear_down() runs from ndo_stop, shutdown, suspend or
+disconnect_work before that work executes, stop_login() cancels it:
 
-On the teardown side, stop_login() calls
-cancel_work_sync(&net->connected_work) before tbnet_tear_down() takes
-connection_lock. A TBIP_LOGIN from the peer can still queue connected_work
-after that point:
+static void stop_login(struct tbnet *net)
+{
+	cancel_delayed_work_sync(&net->login_work);
+	cancel_work_sync(&net->connected_work);
+	...
+}
 
-tbnet_handle_packet()
-    mutex_lock(&net->connection_lock);
-    net->login_received = true;
-    net->remote_transmit_path = pkg->transmit_path;
+Both flags are still true, so the teardown block runs anyway. Wouldn't
+tb_ring_stop() then hit the "already stopped" dev_WARN for rings that
+were never started? And wouldn't tb_xdomain_release_in_hopid() trigger
+the ida_free() "which is not allocated" WARN for a HopID that was never
+allocated?
+
+The peer chooses remote_transmit_path. If another in-HopID user on the
+same XDomain holds that ID, could ida_free() release that user's
+allocation instead? That part is speculative.
+
+The new dev_kfree_skb_any(NULL) itself is harmless in this case.
+
+[Severity: High]
+This is a pre-existing issue, but this free assumes two things: that NAPI
+is quiesced, and that this block actually runs. Are
+tbnet_connected_work() and tbnet_tear_down() serialized enough for that?
+
+tbnet_tear_down() calls stop_login() before it takes connection_lock. The
+protocol handler is still registered, so a TBIP_LOGIN that arrives in
+that gap can requeue connected_work:
+
+drivers/net/thunderbolt/main.c:tbnet_handle_packet() {
     ...
-    mutex_unlock(&net->connection_lock);
+			mutex_unlock(&net->connection_lock);
 
-    queue_work(system_long_wq, &net->connected_work);
+			queue_work(system_long_wq, &net->connected_work);
+    ...
+}
 
-This can happen on the disconnect_work path (peer LOGOUT followed by
-LOGIN), or during suspend while netif_running() is still true. If
-connected_work gets connection_lock first, it sees connected == true,
-because login_sent is still set from the old session.
+tbnet_connected_work() checks the flags under the lock, then drops it.
+The HopID allocation, tb_ring_start(), the buffer allocation,
+tbnet_napi_enable() and tb_xdomain_enable_paths() all run without the
+lock.
 
-If the peer reuses the same HopID, tbnet_tear_down() disables NAPI, stops
-the rings, frees the buffers, releases the HopID and clears both login
-flags. connected_work then allocates the HopID, restarts the rings and
-calls tbnet_napi_enable(). NAPI is now enabled while login_sent and
-login_received are both false.
+If the old connection still holds the HopID,
+tb_xdomain_alloc_in_hopid() returns a different ID and
+tbnet_connect_failed() clears login_sent. If that happens before
+tbnet_tear_down() takes the lock, wouldn't the whole teardown block be
+skipped? That would leak the paths, the NAPI state, the running rings,
+the buffers, the HopID and net->skb. tbnet_stop() would then call
+tb_ring_free() on running rings while the DMA paths are still active.
 
-The next tbnet_stop()->tbnet_tear_down() then skips the block guarded by:
+If connected_work gets past the HopID allocation instead, its
+tb_ring_start(), tbnet_alloc_rx_buffers() and tbnet_napi_enable() calls
+can run concurrently with the tb_ring_stop(), tbnet_free_buffers() and
+dev_kfree_skb_any(net->skb) here.
 
-    if (net->login_sent && net->login_received) {
+tbnet_napi_disable() also checks a plain bool that connected_work writes
+without the lock:
 
-So neither tbnet_napi_disable() nor tb_ring_stop() runs. Because this
-patch removes the unconditional napi_disable() from tbnet_stop(),
-tb_ring_free() runs and net->rx_ring.ring is set to NULL while NAPI is
-still enabled.
+static inline void tbnet_napi_enable(struct tbnet *net)
+{
+	napi_enable(&net->napi);
+	net->napi_enabled = true;
+	...
+}
 
-Could an already scheduled or busy-poll tbnet_poll() then run against a
-freed or NULL Rx ring? On the next ndo_open, would napi_enable() on an
-already enabled NAPI hit the BUG_ON(!test_bit(NAPI_STATE_SCHED, &val)) in
-napi_enable_locked()?
+static inline void tbnet_napi_disable(struct tbnet *net)
+{
+	if (net->napi_enabled)
+		napi_disable(&net->napi);
+	net->napi_enabled = false;
+}
 
-If the peer's new LOGIN carries a different transmit_path,
-tb_xdomain_alloc_in_hopid() succeeds right away, and connected_work can
-run at the same time as the locked part of tbnet_tear_down().
-tbnet_napi_enable() can then run before tbnet_napi_disable(), which calls
-napi_enable() on an enabled NAPI. Or it can run after it, in which case
-napi_schedule() lets tbnet_poll() run at the same time as tb_ring_stop()
-and tbnet_free_buffers(&net->rx_ring).
+If tear_down reads napi_enabled before it is set, napi_disable() is
+skipped. Can tbnet_poll() then run while the rings, buffers and net->skb
+are being freed?
 
-Does that match this part of the commit message?
+In that case connected_work also finishes bringing the link up with the
+login flags already cleared, so later tear_down calls skip cleanup. If
+NAPI was still enabled from the old connection, could napi_enable() also
+hit its BUG_ON?
 
-    We prevent tbnet_poll() from being called when the connection
-    is torn down and buffers are released by disabling NAPI before the rings
-    are stopped
+The peer controls when TBIP_LOGIN and TBIP_LOGOUT arrive. A LOGOUT also
+leads to tbnet_tear_down() through disconnect_work.
 
-napi_enabled is a plain bool. It is written in tbnet_connected_work()
-(including the err_napi path) without connection_lock, and read and
-cleared in tbnet_tear_down() under connection_lock. Can it reliably track
-whether NAPI is enabled?
-
-The race between connected_work and tbnet_tear_down() itself seems to
-predate this patch: rings could already be restarted with the login flags
-cleared. This patch adds NAPI enable/disable to that unserialized handoff
-and drops the unconditional napi_disable() from tbnet_stop().
-
-Would it help to re-check the connection state and do the ring start and
-NAPI enable under connection_lock (or with a generation/state check)? Or
-to make the NAPI disable in tbnet_tear_down() independent of the login
-flag test?
-
->  
->  	ret = tb_xdomain_enable_paths(net->xd, net->local_transmit_path,
->  				      net->tx_ring.ring->hop,
-
-[ ... ]
+The unlocked check-then-setup in connected_work and the stop_login()
+call outside the lock predate this series. The napi_enabled flag was
+added earlier in this series by "net: thunderbolt: Stop queueing Rx
+buffers if allocation fails".
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116142613.876208-1-mika.westerberg%40linux.intel.com
