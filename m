@@ -1,47 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186720;
-	b=q8lCYBOYnzM5TpAcXN3UskqH9p+5O8WvUUGtO7KWJxFGrf2TOJId6i0cEn2MxN+PZyrb
-	 xkzYsyzWQzdYQY5d5klLzVXeKuGBNivz/ArCKVl/EXQZSga/GHbdNXtORRytIkzXcdXEz
-	 wB48u2+mqY51XwUa2j2kcA2sXZpA4WsFpx8Bby0XdN7yAt8YS8B+SL+Rw4SfaE20tnaKo
-	 j53YWQnQpBhH3Tkqy0dfUXYCg8OxdhCccNFUiSGz5OX9k/FzwO/4xb//XaOUkdVoWrtMv
-	 zKIIgjUOEuVuVXUV9pvHDWATzf7NKh6FyTl009W3NNTvnGxjztpBaEACBBSbLnU26+w==
+	t=1795186758;
+	b=bvkvCojwMEIuJZ3zjVGnXnA/CVtp0cnu5pCZeF1DyHuSws0QbEhGAVHOp/ouz8UcwNBU
+	 rqtuYDP7Nar/o/UxaD0h6F1027qoNloFe7P/m60mILw+s1GSm8k7RsvdXH9U/EBRml9Wa
+	 9rs23IExFruTfLuBfXrlqf2XxfI/maqxWNbjlD2h6UMCzBLHHkX0L/KSoUNiWd0OJJpPa
+	 2hhK3ILb/988+8kRntJRRU0rpc42fCjkgcLRg0pTu67ZOsg1HIgmpSGAFj/aoaCl8bBHD
+	 G9fa86qGgQpNqbnA80wZDoITHBj49M+ptaalYm8YesOLwV8bQoVXwlfatyLkv6VIVDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186720;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=ffzCtB1XDBdjH4GLa/H0NDzYUrlRWJv6NL3GPNbLVuk=;
-	b=l5c23LizbKNYEvhWOIn5L4sxLLzC7XguBl5XGrGACN/uUM5kSEo2U1ml7TAkrcjrwWOs
-	 FUNA1gQTodb+X7qBMW9fCMoEXSO9pQiBZURwWOVQZ4skAiLn/rqbcgJ9s+2aRdaeXM4oM
-	 NzxGbf4KAfTWxON8fgB9nvCHhyBfmm/MQWFnv8TIXy19eypUi3DNNy++JXBsTvE4X/fcu
-	 AibWBayE9Ia6uNwMIlX73E+Ubrl8OuJY2A427uIlqC4OuCQFYn8Qn6BZ0aSahkHUUqgrb
-	 HlXie6vu7pzuo0T4dzJxqx13Wtz9VI90BcMCLxXp6gX7JwhT6N+P9cbDeft7a+114tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186758;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=swYxzWf5VVARgWiORetPyRqONCj9VdpGStrv3wX4KxU=;
+	b=BbX+Yso5w2Gd8I0hybz/fV3BF3hjluBqt24Sn75QapOksgT/7tcw+RoDPkbDz+zshtcr
+	 ayHr2dvb+L0jLVuR9mgb0nlrEWov8ayriP1O+b8cwLp60g9OP+53sQdJn3zsaOElfCGmJ
+	 BpIklEmBzvM/tVHHEMuYyjMf+Iqe3KxTClvgcyrc3urCX0B+cUNR4EEgJoky49v5Qh6qr
+	 w501SHYiQiThBHxstNpkpUSA5Ag55ghsNy7MxGDfwWty8lOxvJCrKFEYIwrz6xK669ujs
+	 Uz/KQrsEy5z1pCGOuRqAymDkO2IJ4d7o2+FQHykZ4Z8QEL891BjfpRGPpe4owtnz2lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lcH5oTjo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kEnxlnIA;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90AF0606A336;
-	Fri, 20 Nov 2026 14:58:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9617260A2601
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:59:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9617260A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lcH5oTjo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C97161F00A00;
-	Fri, 20 Nov 2026 14:58:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186720;
-	bh=ffzCtB1XDBdjH4GLa/H0NDzYUrlRWJv6NL3GPNbLVuk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lcH5oTjoE6ZZrSnyQq04PwTyKInBI7yU2CJHG9d1Fb+vsWOz8CEYeYxGejVHG+PJ3
-	 e5KX1tjOi9vF6vJGOpIUAOSVd9Kxr3wLVpvlfSHMffY55PkSGLr4QP0dOJEcCCbNO6
-	 wcZyiYQvCaBAQ2rqU0RXs6jhGetZweaai4XI+bhWBlhiYTYH57zieFo2zQfjKQH3vG
-	 DNCQ6wEouN7cjkCWNSHsFwIkeB8WOcTQx4j1OmG6HxvWJGnFGzIDmCHqQn0xeFHO/d
-	 o53nzMuwJTFeoYL9bc/Hm7AWYNMnr1Bm6OPAs7vlGw7kF6ddSzxcgAL77CJ3IqbxJS
-	 eAqP0nwy/Aq+Q==
-Message-ID: <929c8f04-182f-49a4-8190-f21fc2aae881@kernel.org>
-Date: Fri, 20 Nov 2026 15:58:35 +0100
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kEnxlnIA
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2e9d7791b00so8845685ad.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:59:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186758; x=1795791558; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=swYxzWf5VVARgWiORetPyRqONCj9VdpGStrv3wX4KxU=;
+        b=kEnxlnIA11QPdxy0xiNbjI6WmXRz927tNWoUoSR0Dqr3zS9xINUl7tQYwDqtFs4MFt
+         YqvUMTg9rhTVQFalZhNbws7euOL2qa4+1r44/m3MvVfXc7Da4ZoZlEXdy2o3ZVQydQhT
+         3zfDpv5DuJjpWpKzKI9qYM9Ah+POJWywuB2bLm5jzz30E0BDXd++/6sr8d8WZpZc/+Nm
+         o8MqC/0WDUDlk8m8HG+aU7s1I7K6vQVgFPYIWBHHqp+QjAys0BzcwAcgh5nWVqjqzi0K
+         loLaERpCb6nZDJDiS3nqRbCfyipcMuuNrkc/SXt8gIv/+od3tTxpm4erpjJXX0Pduwox
+         L5Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795186758; x=1795791558;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=swYxzWf5VVARgWiORetPyRqONCj9VdpGStrv3wX4KxU=;
+        b=Joy7e6+pfncLjOoHYSum4vGs4RHVRZjVwI89bHVBDIckKfVJy13nW4EtJWHTcz5sws
+         cwzC7kKJnuHJ1t0BguJvyr7+nJshRpmDYkqdShHY29ct3KBi5QO9tQCip3P1QhFRrP1p
+         cjItzLlyjlIfL6PaR9LkCZ3gNdujza5m+M01hpZsUywdh4ffFQx2AfeXhp9Ba0kbST9Y
+         l6yU5nw8NXvw8tpLux/4E6p78MYYrriZgXvA+ME+dg6/N2ZSnU3/gl7rMnsqwXa0sC22
+         66gQoy5NWjDL2cB2qSoAoOe4aGJqdkpGCsanghhivMmkt4bzvmhXcG8Hg1VhVP48/ODO
+         A77A==
+X-Forwarded-Encrypted: i=1; AL+hErEgTj3eobX1Z+Q2cQiCm9jfD30Vkv6VJnsrgJRNgiKBD4x3ldnZawp0M1GLj67QLgYvkRejN1U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/i+rBQO8q/LG16MSK/sgGyBJefyMVRNXBX3dLwoMFGHYo6yN7y
+	+INMbLIPLyszhQ77G0OGwxQ/q5hgOyNUSztG0I55PuPwzPUACPTr7BcK587MWBxRlRA=
+X-Gm-Gg: AZFdTZfxvw667XwvBvJSxFMlFHc5wHcrDJ7YSbziMq9EH6hVFT5Vn1wFX9a2DC5VfnP
+	f6wF3zso+9uda1zRba6ZAiB5Ll04+UZi/WXuS4CIcoNZWTs2SkdXfUMny1RkzQV1TTqhaA927I3
+	NprxkimStkjq0GAqoQtWyKVzTAQX7OVVLYZ6TSvZTMxOX7ppUU6NznoeRTXqygFxoTRLdadZCPF
+	EZOIn82WoRVrii6ca+U1e4o9bbKRhPXwFPlzNDBqiDmS5slrbIhL8P0AF7+PbFByIhY2qD5XkbN
+	KsNjUTR6Md0H1icCFDXs9sgRW5t+WmGng4ZQ+/1CF6B7ju+RwBgu3+2BwJut/iSJ8zRKXPOk2ME
+	NzKwcPOcDabl9e4NyQQdVjONhccnASFnalJVUph9+ZjGfPJzh32DsCScRLFFJHy3f5TufcVRaNi
+	joMbYExMOAD+YbYFC2Ms1fvEGEanQlGm9TVSUs4isBjXlfxEdyYu56OdDmXsHeJ79Om/vYa4Ult
+	c5loOaD4g5SLERkY3K9i35wEj0dFdQE0BsjY7vHGkrSWof6DPNtUIPFU8vdHXQwi7xikZ3GLvB4
+	UG9eUgwbkxCNVDbwemgE5lMEnXP2HUAWVAJ9Eg9lhyr7VRUCdGDJIreyv3tXG1uwZrxLirNfT6l
+	IZERc9SK3Cg31CMHxw7+ZGBtZYgA7SSOwgeat
+X-Received: by 2002:a17:903:94b:b0:2f0:3618:f170 with SMTP id d9443c01a7336-2f03f1acb10mr31323285ad.66.1795186757992;
+        Fri, 20 Nov 2026 06:59:17 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1058fesm15977965ad.48.2026.11.20.06.59.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 06:59:17 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: alexanderduyck@fb.com
+Cc: kuba@kernel.org,
+	netdev@vger.kernel.org,
+	kernel-team@meta.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	daskald@meta.com,
+	mohsin.bashr@gmail.com,
+	bobbyeshleman@meta.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] eth: fbnic: validate the Rx completion buffer index
+Date: Fri, 20 Nov 2026 23:59:11 +0900
+Message-ID: <20261120145911.3127855-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261009175358.1598001-1-yhlee@isslab.korea.ac.kr>
+References: <20261009175358.1598001-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,109 +109,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v3 net-next 3/7] tcp: Stop collapsing if not bloated.
-Content-Language: fr
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>,
- "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Mat Martineau <martineau@kernel.org>,
- Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuni1840@gmail.com>,
- netdev@vger.kernel.org, mptcp@lists.linux.dev
-References: <20261119071649.374106-1-kuniyu@google.com>
- <20261119071649.374106-4-kuniyu@google.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261119071649.374106-4-kuniyu@google.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Kuniyuki,
+On Sat, Oct 10, 2026 at 02:53:58AM +0900, Yehyeong Lee wrote:
+> The buffer ID in an address/length Rx completion descriptor is a 16 bit
+> field, FBNIC_RCD_AL_BUFF_PAGE_MASK being DESC_GENMASK(15, 0) once the
+> fragment bits are removed, so the device can name any index from 0 to
+> 65535.  fbnic_pkt_prepare() and fbnic_add_rx_frag() feed that value
+> straight into fbnic_page_pool_get_head() and fbnic_page_pool_get_data(),
+> which use it to subscript qt->sub0.rx_buf[] and qt->sub1.rx_buf[].
 
-On 19/11/2026 08:15, Kuniyuki Iwashima wrote:
-> Even when a skb is not bloated, tcp_collapse() starts collapsing
-> if the next skb has overlapping data.
-> 
-> Also, tcp_collapse() does not stop until it reaches the tail or
-> unmergable skb (SYN/FIN, unreadable frags).
+This is superseded by v3:
+  https://lore.kernel.org/all/cover.1791775409.git.yhlee@isslab.korea.ac.kr/
 
-(...)
-
-> On the other hand, if an overlapping skb on the OOO rbtree cannot
-> be collapsed, we skip the range instead of breaking out, as
-> splitting the range could insert the tail nskb after that skb and
-> break the same rbtree ordering.
-
-Thank you for having added this ...
-
-> Another notable thing is that tcp_skb_can_collapse_rx() now checks
-> candidates against the first skb before mptcp_skb_ext_move(),
-> not against each nskb.
-> 
-> When a skb with an MPTCP ext spans multiple nskbs, collapsing
-> previously stopped at the next skb with the same ext because later
-> nskbs lacked the ext.
-> 
->    skb1 (ext A),                  skb2 (ext A)
->   nskb1 (ext A), nskb2 (no ext)             ^
->                         ^- not collapsible -'
-> 
-> Now such skbs are also collapsed with the redundant ext dropped,
-> while the first nskb still carries the same mapping in sequence
-> order.
-> 
->    skb1 (ext A),                  skb2 (ext A)
->   nskb1 (ext A), nskb2 (no ext) <-' collapsed into nskb2
-
-... and that!
-
-Acked-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
-
-Cheers,
-Matt
--- 
-Sponsored by the NGI0 Core fund.
-
+Best regards,
+Yehyeong Lee
