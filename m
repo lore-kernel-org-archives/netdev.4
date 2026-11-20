@@ -1,138 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795203565;
-	b=zSV6DwBDEglu3PB4JQNYDc5SRNRKpTDdaf4wOSFM1SC2QEorxI4sMzWJudc4Mb0vrGD2
-	 I3jw3LHPGc5SaI7nZpHYImKDtCn2AeYWFvWSF2mp/ZNEHuF7Z9ZrH6aTZ0La6UL4S80lY
-	 265jVZSTfKQ14flI+UMckYnVG+wLdA2iL65bQ9403/CDFJw0/6Mn9n+D6POGs3yEPQ+dP
-	 b4Vb+pOCOx/uT3sMXNbBwx/6r4BKHWv0MP/BX+Q4zMduFRoZFdoJ7syVhPwyEorETgsHz
-	 rUPZZaJQNRk6gK3nBEXq4jrM3ECEx+BREQn4O+6g2Qurs2i6j4xLM2MOYpZMR+ZhlDA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795203565;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=5+UyzqvattFPBKixMc5DKiQN+B4NXHINUW8NTyNw7HY=;
-	b=iPyL7EpTHnpu0Z2xv8sN2784oOECuUSrljeoelYqeTykn3euguIZUez9zPE8ldhNnSlM
-	 fkGkfNAD8wQv8LobBpJ5PsUMcYQpSIc4szigHn7ba9exEKUsDfQn4AceMvUAC30ZlhiJS
-	 ZVDu3iF4E2RfGl0I9IPDCsL3xcf130me/HYxplJTTZF/xYzD+WcIXVRYtABxqcsMWP71a
-	 3oTxv1BzZ4nyG5gv7m7LA5yTGOjmeDhG719zrsq1OkqQqha7kq1BQ3YvhMKd0/Vb5cZXF
-	 Zi1/mrVZ1VDsEuS/fq/JPh+v1CgeIKH5x8bPtEU84adOIvXOyYa9lUd3rVGRfYaQVAg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=L+4GG2lb;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=ebUq6D6F;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.98
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795203815;
+	b=S1FMpqshZ+x2oiFlLjc+VN83RdoEsY6MkVunbr92oBCOmlM8lvFqzxRm7Y+Pozo4d1jr
+	 No/mqSm1w15Zb+1VlUgulZpB28dFhJNDLCWopEYt2Y8xHoy4Et1+RzKYkkH2D9Y2y/X3R
+	 0cn5cpkabWjiWs3J+pNgb6QQ54Xptr/RFZuhsdRGgqOSrkcWT36g66RY6Ehu4l7vOZFIG
+	 3orgR9AsuLXIRQZYNRd/ca8jkjZi2Aeyfuca1ydTStC/F5skhiryW6oN5sw+itbYsuomV
+	 D2pF0zE5521rWs7T+/2V3BzkiwuI3Pwzh3pSVUI7ZY7yQhwHeE6sELmauLWiNL6/OVw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203815;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=bqfxo02cv7XdOidoPvshJk+rCtgTOdkCm1Lgkb3y+RQ=;
+	b=UPIPcJLfh1QyZ22Ujxlv9dNXNTVY1FRmCkqJNvHZoFng1UfzoWuuVHKlK4AGcQ2aSM5B
+	 hBu5Pyn2GpPdXiKI/8XVoxMOJimZ0HhKQ00OlvvjrAAgyq70mlovanPwjutLt5vYy1mSw
+	 HTlgbL81rzOVh6fZ53qoXVD5gMRkiILGWybbbKxKzEUaLwKgGaPjWFsyIYg2KuJAsfUSj
+	 aIgaJas9gCvaP2D4arXEWOPa6PotZ9ax2e4XNgg/feiAf3pcxjjzHzwDEaN/zJotK97NN
+	 qJY7N8KV/XHHc6i+4BgLPufiW3dmZcwTU/X7ZYgXmxXGBjDXg+p7nBrHVGcyhpamalQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=WXZl8cYv;
+	arc=none smtp.remote-ip=209.85.217.98
+Received: from mail-vs1-f98.google.com (mail-vs1-f98.google.com [209.85.217.98])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 297BA606A6C5;
-	Fri, 20 Nov 2026 19:39:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 297BA606A6C5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6277C606A6F7
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:43:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6277C606A6F7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=L+4GG2lb;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=ebUq6D6F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795203561; x=1826739561;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=4EOaF6OPwknYaOYOqVcuk00cLewl8s/frEbMqRXKPe4=;
-  b=L+4GG2lbRuO/d0joYEuE+GWuQ83DzY1D9MX4Mi2G0s8XuHP4aM7L8aFF
-   o+6st7njmrsHgMfvcaVFECm50bs3FlQmSmbwJ9jYanamYvfDPlCHWUsr3
-   e03TOM1X1rJ9Jh5x56V96SOsijGbHDrPKz4mzOeU5qfOXHnlt+ShImOgX
-   zdfj1r8AVhy+QaU7xC/DZIUx7MBPgs+nvV2VOA3Y4tGHjvUdKM1ljwjEc
-   vdGr0PsosBMZc1KDgW/757VuunNAWM+ScPI+T1jZhGwU9Bat3bt7Yh88o
-   himoSxGwqpKLvLn2kkFYe7hUFcAk9DXMJ/ryKd2FDWRuCm48pLM8fccQJ
-   A==;
-X-CSE-ConnectionGUID: u3LnG6B5QTCMoL4eTUXCzw==
-X-CSE-MsgGUID: EINlz16LTVKFmUfBlXJe8g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4190512"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4190512"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:39:21 -0800
-X-CSE-ConnectionGUID: AoPFjjO6T7Kt0/jszL4vKA==
-X-CSE-MsgGUID: lVkGefacROyNMzF3BzkqKg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10766763"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:39:21 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 11:39:19 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 11:39:19 -0800
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.9) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 11:39:19 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z3clmvZ4y4FfQXgHiUh3GAe1hJlapO+93SAutVCKrlNV6v2gNypNmRvDUCPrDfuIjfSJWLda5lAR98oHpJ5w208KxQovGobKnVsfniIHIIl56W/3GRYLdVcqP6FHUfskhesljSlUC8ueTfgvL2wR/LRF/kBccQQwA4uy9Y7pTB0m7hy/BSlcnMdpaBZay6nsuxPsPoDiYtOh2kWLNqbyarvUVxqBSeALWTrvE660QJrbcyenpZHnsPCJJ4Q3ENwxwBwbjhVePfr2QMi5B6+64jrtU0XgKrVS2wgmOSamPaiwC+X8OpyeJeQrBr2NPcEN+z1i8745jy3caPry4KGdPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5+UyzqvattFPBKixMc5DKiQN+B4NXHINUW8NTyNw7HY=;
- b=C35uQge2pYeW2v9Fb5h9qGeWPm4kH/yLmC1gmYlwDx6CExMZjiCcmDqbK0UeWhPZTbcQolmLvWdcteNZCxc6V2vfXVM9B9JtS+2fV/Upy1U869HLhCjiM5qeFNKYkl+d9bGuY7BkeunLNHjxcxbDwhnal4ShwBPlMi9AjAqIR/i/2f6kbKLmLymYngvXCFPloQ3q6BSptmpIWNXLJ63UKFg9nLLunIkoo/JlCxhH/y2hVBkm0/++Guv4YzOucB9bC7GSUO51nKdxJHplV5EeMTtNH1Cjyi9rvzJ5i06XfPmsELIG/1AA2EoMFVjSqHzhcjEnONiUpia3g8ySBlUQMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5+UyzqvattFPBKixMc5DKiQN+B4NXHINUW8NTyNw7HY=;
- b=ebUq6D6FBs8SmNS/sl3rTEatbhO3kpy7o9LByxs2wuoP9Pp6/KCGZ/OAfSaYDnF5Dsx6IA9aQ8jOhIyYDrMQfvZkzt5GNRJELu/KpDelyRfo39KF1DrQ3mfzBIDjwVFao6NUaHPJ+Zjd3EWywbm3G+ILdYgDU9h4q2pES17FI3E=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV2PR11MB868673.namprd11.prod.outlook.com
- (2603:10b6:408:422::13) by DM3PPF2DEFDE2DF.namprd11.prod.outlook.com
- (2603:10b6:f:fc00::f17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 19:39:15 +0000
-Received: from LV2PR11MB868673.namprd11.prod.outlook.com
- ([fe80::5bfd:6afe:a9db:b7de]) by LV2PR11MB868673.namprd11.prod.outlook.com
- ([fe80::5bfd:6afe:a9db:b7de%4]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 19:39:15 +0000
-Date: Fri, 20 Nov 2026 20:39:09 +0100
-From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-To: Jason Xing <kerneljasonxing@gmail.com>
-CC: <magnus.karlsson@intel.com>, <sdf@fomichev.me>, <davem@davemloft.net>,
-	<edumazet@kernel.org>, <kuba@kernel.org>, <pabeni@redhat.com>,
-	<horms@kernel.org>, <alobakin@pm.me>, <netdev@vger.kernel.org>,
-	<bpf@vger.kernel.org>, <stable@vger.kernel.org>, James Sawyer
-	<jamessawyer@outlook.com>,
-	<syzbot+f16c1b285c9f63994eec@syzkaller.appspotmail.com>
-Subject: Re: [PATCH net v4] xsk: set network header on skb at generic transmit
-Message-ID: <awCh3QpbrfyZqPsH@boxer>
-References: <20261120073917.63158-1-kerneljasonxing@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120073917.63158-1-kerneljasonxing@gmail.com>
-X-ClientProxiedBy: DUZPR01CA0040.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:468::18) To LV2PR11MB868673.namprd11.prod.outlook.com
- (2603:10b6:408:422::13)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=WXZl8cYv
+Received: by mail-vs1-f98.google.com with SMTP id ada2fe7eead31-7d2ee9e7093so390520137.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:43:28 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795203807; x=1795808607;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bqfxo02cv7XdOidoPvshJk+rCtgTOdkCm1Lgkb3y+RQ=;
+        b=QQJMp7aisKOmN04rxlaOQnUcRtdQX70IJkGmKVnMdFn6BWD65V0pNKVOTQeA4GSpEM
+         gLOJaf81MwPYYf5wnT1isqXEfEy8CZAsCRS5RAQmRaWsHxuPUyAI7HInLvrUE0tEWvjW
+         iOWIGIhwjapkyyelKXO8XQ4SN3xnLj+AImwr7ivS++gcSlk46l6PLuEhtwcOOnUvIpET
+         3xgEXs92qsRYoiTidcxrkOP44ck3P15YWU1rhqyUiWpBKRXb3Po/nD5OP09PIYOb3olg
+         R6Uv/FvUk976onKrq2ZP/p5TQ1bAbddyNmf+z6wzSfmQQymBUtqJUSZO8ui4ZBhI7FwK
+         /fcQ==
+X-Gm-Message-State: APuU4Z9rTtICJFKI2fai/NhIOdn1N6rajw3lk3qm82JGBRyiQg3FAsOV
+	UlatUOts9suK1xn8tjaNRDutlUZr0h0ZwFLwbOWVgo+/ps4F0AahgZ9cygRteBgaorfPXApVJED
+	snRmvPya+dnXM4D05T43h6iNPADNkKdviPdxh/MiHs8zbKlWfL+Fo3qhLDg7oVMqof6z3q02950
+	3Fp351QrtlfvjT7Df99ztDs7uYZukvwIzkXC5tH6TbDHU+lW92qBJJ6W0SfTZEmDLMqdbUNS/Gw
+	MT+nzD2u0OZUDbJ
+X-Gm-Gg: AZFdTZf8+CIHHx52LN1kEp6bY+9S/AjRTHpjJbaNQh69z0eHg5WyoxBaORISH79czdH
+	eVTnDQes3KTFFeSyxECq56ybZ25d134kt+hglMkceXFbug3tOELWGLSGxDfrWo5idwvCdnpNp7C
+	ccHs2mhtYBWFwIwzI5rlqWaZ5mF27J/cY3ETcpxYqkLy21+O0Q5SmCU5r6Ru0JbEo4w27KvFowR
+	fyEe9O/TedhMni00w6KP9uc4LzTdC3GLtIX9rDY2w+sGk2AUT8uDA/1/KYUeqffHHdVlYeDyFnI
+	x84Ik0iOdXl89B9MTBhhGUIdNeQVwLAuVBP4ywlAvqZkHYQkPrG/Q4PFWru9HwFiGy6lARVQaa/
+	TmQVQw3zNX8mVjhpiDg6yTS2ICuQN0BMYhnLrlnZex/89mfzD1mBVoa84ZkGbyj4GlQaQmvbZK6
+	AO9iEP0aqVZ/DPNNIjSG9JV1rWQItbOfH2Y2CLTtdQ
+X-Received: by 2002:a05:6102:e14:b0:7cc:2c29:54ef with SMTP id ada2fe7eead31-7d7395922b0mr1992085137.19.1795203807221;
+        Fri, 20 Nov 2026 11:43:27 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-7d6e7f48cf6sm34331137.7.2026.11.20.11.43.26
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 20 Nov 2026 11:43:27 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-9210bbc04abso25748596d6.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:43:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795203806; x=1795808606; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bqfxo02cv7XdOidoPvshJk+rCtgTOdkCm1Lgkb3y+RQ=;
+        b=WXZl8cYvpFG8cHc/xUx0t/1emScPnxYc00xEMCYEFq9BLWlV5KG62i+7ZMDa/G6tIK
+         lzBvbLllUfE3Tb+DvEMTzKJqo0Owfykcqy/C9hORWDK3IzOmQ/z5gVmkVAOg4feAGmbf
+         S79sFD+la3wjTDGuHYXzANkGurNEkv4XbXd0s=
+X-Received: by 2002:a05:6214:80db:10b0:921:33f4:2d97 with SMTP id 6a1803df08f44-92134b3ffe9mr57108496d6.36.1795203806461;
+        Fri, 20 Nov 2026 11:43:26 -0800 (PST)
+X-Received: by 2002:a05:6214:80db:10b0:921:33f4:2d97 with SMTP id 6a1803df08f44-92134b3ffe9mr57108106d6.36.1795203805843;
+        Fri, 20 Nov 2026 11:43:25 -0800 (PST)
+Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0e35sm33847286d6.20.2026.11.20.11.43.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 11:43:25 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Doug Berger <opendmb@gmail.com>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Mlody12 mlody12 <kudzo51@gmail.com>
+Subject: [PATCH net-next v5 0/4] net: mdio: Clause 45 support for mdio-bcm-unimac
+Date: Fri, 20 Nov 2026 11:43:14 -0800
+Message-Id: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -142,139 +116,106 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR11MB868673:EE_|DM3PPF2DEFDE2DF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 385b18f0-7134-4a62-48a4-08df473df5f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261021121427099003|261102123227099003|11063799006|10067099003|56012099006|18002099003|22082099003|261009223027099003|6133799003|4133799003;
-X-Microsoft-Antispam-Message-Info: UzE6kO4ZFYt0mQNTwSUPWWvc/KwNgK7ZOb7X7Nzo+HeaXZlK9r46iSwsJw0U9GNeUwA3qZgxjUNnMc1HoLeGG+NeJw8xVVjTcKMuMjgYKq2K90/NHAe9sQSC4SoOwvJXn3c1SFD6ABLxpy1HPnaPyqzE2XU7ks9G5WMQMnrBPKTr8qCTHd5m7q/WhYgTRePA/kehr/+mMbHENlRWlWKspoPpI+iXfvwr931nFO0lAQBRgUXtOnSMkVNSrXFDN8WWD+9JovLQgS+oxT8B7d6JpCMinrlsq1ehbggcD37Lu42U0nxQl2mBprdYQldWbJGwm+po28rkn7nBkhI0p9MRmuadn3L2GGgTnkWCI7YZHGmnEL4kAgxiSoCjlLcelBbSc/A2Nxq/cqR+tm5wiWybhTKygH3BIwvxOr/XYXdN9R4ZvodLr8lm195UOe0tLA9DqWkhHzlsUcofQd0AOzoMussCz9/hCFyzv0AeHx8gyc5ACivVmNyONPLkMO91WkJXL39GZhJVLPxSDxyzu3uRPMOQRuG1U9/UL8Rp0l2uT1sbwUGSYY5Cwo9VLgMPUTDJahKGVKc9a5PKcYVPMC+EvmH9L+PQD/OpkorPI/Ydz539+myVPdGh29gt0cfCVMds
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR11MB868673.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261021121427099003)(261102123227099003)(11063799006)(10067099003)(56012099006)(18002099003)(22082099003)(261009223027099003)(6133799003)(4133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z/ZiLqGEOmZ9dc6W0cPGXQ5DLRcBezjaG7Bjx4dxtOQBBo3Ep4HNK3Z9fXzy?=
- =?us-ascii?Q?PaR7PlRaxhqgdzRnQHVfyiuLN1rmkCXosDoO9QaZ4RKcLN2Wj6QFCGhoBANo?=
- =?us-ascii?Q?V4V6x5Y0UJy3UB+3TRUs9jp0srH1Uc7orPvWZh3R1mLRD0AmjwTrnrsnkXxv?=
- =?us-ascii?Q?B1y/x88jGOEYue97HVRDKdqHgfhbQVae4gDsuE06RuX22cixOI6buJzP6Dq7?=
- =?us-ascii?Q?M1JTHQmEvGS+gTMJ/UqMAHnz41GfTh4ZZTaGzcO3P5sTpwcV8nrRdN90KDau?=
- =?us-ascii?Q?Jhq/UUYiRyOVXAAgxQgiBBx1kZXKKld872FRk3grF4VJH12p67/v86aUoo8F?=
- =?us-ascii?Q?BMEOFvk+rzrU7TSx1CtCgRiRI0jxMmuWCQGxwApoT6So32FjZCmBhGOyswmB?=
- =?us-ascii?Q?xDCjJf1JKIGdP4lAmaP6KEZnLn//Yddo/tNHYJJ/xj3wtSTC9OH9otug1du2?=
- =?us-ascii?Q?4YzS8mAp+ZOEC1D9IRCwzH87vD8fZpLD5BGWkH9tAnwHzvZWX++CVM2T60lc?=
- =?us-ascii?Q?+GEEZ/5EciDU7LIQgJhY3kgV5X/o8AvgaJSqwCxFZpa3PwJZQ+afqArS6AwA?=
- =?us-ascii?Q?BnFiJ3PB5IU7h5tp/4xdVpVuRB8RnY6nP7oNbdBpvDXxDYByVfA1wgNjrJFk?=
- =?us-ascii?Q?b1UZ2c/zgqBLn8ZYlK8ov48fYRok6jSDVSWxGtOpkCDYGGPm4Lb19fluRHet?=
- =?us-ascii?Q?D28Us5IBW7bTSRfADGseZ9mcEEi4gksoMVzo5ah9rimtcUJhocDgsmRcou0l?=
- =?us-ascii?Q?sWh6BGfYMw8l/W4oPxQsh2XTrp1y9bTMjRJn56O6clc7MosSQTM8RfRiqjQC?=
- =?us-ascii?Q?534hTagNvz9jl5LXW9miZAfiKZ1BynfLUWqu7C5QyEBBj1UKZDw2sTNiUOPf?=
- =?us-ascii?Q?ZOoG0NpFD7ixTGQR6hLk/oWAs+BRXuUUg84epNxjseGUWRxQJpt1Z/ObMcpu?=
- =?us-ascii?Q?sxmV1GqvoMZKS4PXRDFukry/gGYZu//0SMVFBtLGuEbY4DeYmT6mYcgANxZO?=
- =?us-ascii?Q?ew2OuJV0uzlHH4XKVxPpnfyLc5XzRD6XamkkXSv9ZA3k2tcHqhSZ5QlbONGb?=
- =?us-ascii?Q?uOxhX4w7AbezrHa8O24mAwczZFHgOMcyiUPzq5rFWaiyaEf0gkzgTiKn2p0h?=
- =?us-ascii?Q?mBWa57qjV3KrSvgYS3mcfdI+yF8nqboRe037jHju6vfENWm5UKqhno5tO0sn?=
- =?us-ascii?Q?sk7Xa0G9HFYUxBjF8SWK2D1q2WIWmNIrF2y6Zn2D3SPW4j0tE6bkLHuPdfQ3?=
- =?us-ascii?Q?eunLU8Gwb2ppgwcoiU49YGCVrxICd2adcELZ4w+KN2vMZxHPej064FSqRiRU?=
- =?us-ascii?Q?LOKJ0BW6C9MCTDJzyCGR1r9Rno+rO0IF+y7PzyCRDkhp0pfOKVZ+Ny6CMLE0?=
- =?us-ascii?Q?kzj9peh+hI9a95EiJcjWDFUP1rMap1RkUTCE2pfVOKBoOPtp3qCVpduLofAw?=
- =?us-ascii?Q?t5LyJ7dMN3CRE2U5e7IIlmC90bM+k6PdgVKcD2lqidqc7SKwlZPC0Cvud+T0?=
- =?us-ascii?Q?etmheOUV0iHTLqJ+X4G1GjYvroeu9nh9Xf41bHzZ0F413Af/Zbrx8Fs1TZps?=
- =?us-ascii?Q?yci+GRjkH7ntHS5pC2THy94cDsKtD+hTX24yJ9e1OsRjWuCUkPS6Pamqac6E?=
- =?us-ascii?Q?S3o3WGxwYtnyjX0aVfpN+7PUj5K1hgeZwQasoHQyj/WMO4OZJx+qz6zjNZ0c?=
- =?us-ascii?Q?DmHsnMVpNnjP3vyzpwAKtBnuPuGcne9h96I3xwiSmOoSVsGsYBZ20LwNBGDk?=
- =?us-ascii?Q?Y8W6ufqDQcZTHmT+HewMBjMQrvsYpI4=3D?=
-X-Exchange-RoutingPolicyChecked: JqTwLSLP/jAGJ1N6+NIdRnn+3OTwzw6EHxGB+snR3/wZN8r2LNiJOm4h1H5PQfD3K41Ms94qcKCHWlrc7sEi4/Ww6MJXnCDG2ffq8szIyd8Jy4veMwGfCWzHF5z7oaUO48tYt0lGSSia0xYaloXWTWDUj7bcFgtVk/fRTKurHHALTw6zaJlbnUM5mu+Gl3v3HeWRzRG6s+mjwGGx0RM4NwnH/ueu0mrOrp2gZ/p4kpodhbZo1F8FZWGC9ogk7kcGupp7dEo6+MCTV17TYeVR3SS73e7WIs3JymB0AAJ8ivEXTdPVbbcW46LY4cTxMdalRoKEBAWvZ6xzvVMM2GpG7A==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 385b18f0-7134-4a62-48a4-08df473df5f2
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR11MB868673.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:39:15.5611
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ig8MpVHRRttzhtFgldJr5h58E4VWwDkR7t4o2t5xT8aecPIRWemNekKCbFJ03mcvx/RzUBTeJNN4hmqxbntSkuLpIsAD3PWnQV6ffB/320E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF2DEFDE2DF
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Fri, Nov 20, 2026 at 03:39:17PM +0800, Jason Xing wrote:
-> When constructing an skb in the XSK generic transmit path, neither
-> xsk_build_skb() nor xsk_build_skb_zerocopy() calls
-> skb_reset_network_header(). After __finalize_skb_around(), the
-> network_header offset defaults to 0 (pointing to skb->head). The
-> subsequent skb_reserve(skb, hr) moves skb->data forward by hr bytes,
-> but leaves network_header still at 0. This makes skb_network_offset()
-> return a negative value (-hr).
-> 
-> When such an skb reaches a tunnel driver like ipgre_xmit(), the call
-> chain pskb_inet_may_pull() -> pskb_network_may_pull_reason() computes:
-> 
->     pskb_may_pull_reason(skb, skb_network_offset(skb) + nhlen)
-> 
-> The negative int from skb_network_offset() is implicitly promoted to
-> unsigned int, wrapping around to a huge value. This triggers the
-> DEBUG_NET_WARN_ON_ONCE(len > INT_MAX) in pskb_may_pull_reason().
-> 
-> Call trace from syzkaller:
->   ipgre_xmit+0x958/0xcd0 net/ipv4/ip_gre.c:658
->   __netdev_start_xmit include/linux/netdevice.h:5400
->   netdev_start_xmit include/linux/netdevice.h:5409
->   __dev_direct_xmit+0x4b6/0x730 net/core/dev.c:4942
->   __xsk_generic_xmit net/xdp/xsk.c:1079
->   xsk_generic_xmit+0x277a/0x40a0 net/xdp/xsk.c:1120
-> 
-> Reset the network header so skb_network_offset() is valid (0). For the
-> non-CHECKSUM_PARTIAL case, unlike AF_PACKET, AF_XDP does not need to
-> locate the real L2/L3 boundary: an AF_XDP frame is always a complete,
-> opaque blob from userspace. So resetting the network header is enough
-> to restore the invariant and avoid the crash.
-> 
-> Note this is not sufficient for CHECKSUM_PARTIAL skbs, where drivers
-> derive the L2/L3 split from the header offsets for checksum offload;
-> that will be handled separately after this patch.
-> 
-> Fixes: 3914d88f7608 ("xsk: Respect device's headroom and tailroom on generic xmit path")
-> Cc: stable@vger.kernel.org
-> Reported-by: James Sawyer <jamessawyer@outlook.com>
-> Reported-by: syzbot+f16c1b285c9f63994eec@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=f16c1b285c9f63994eec
-> Signed-off-by: Jason Xing <kerneljasonxing@gmail.com>
+This patch series adds support for Clause 45 MDIO operations within the
+mdio-bcm-unimac driver. The series breaks things up in this way:
 
-Reviewed-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+- make the C45 bus scan done by the MDIO core carry on when nothing
+  answers at an address, as the C22 scan already does
+- scope the existing defines to make it clear what is C22 vs. C45
+  specific
+- rework the polling completion loop to be a tighter loop
+- add support for clause 45 operations
 
-> ---
-> V4
-> Link: https://lore.kernel.org/all/20260902121028.74092-1-kerneljasonxing@gmail.com/
-> 1. use the one-liner change to fix non csum case at a minimum. As for
->    csum, since the blamed commit is different, I plan to cook a patch to
->    fix that[1].
-> 2. revise the commit message accordingly.
-> 3. add James reported-by tag since he spotted this and sent this in
->    private.
-> [1]: https://lore.kernel.org/all/CAL+tcoB8f7H1ptcEk1iVH065AcUNPEL2V1gKoJacwr3zndfPWA@mail.gmail.com/
-> 
-> V3
-> Link: https://lore.kernel.org/all/20260901083325.3445-1-kerneljasonxing@gmail.com/
-> 1. remove the misleading description about af_packet
-> 
-> V2
-> Link: https://lore.kernel.org/all/20260826012052.51028-1-kerneljasonxing@gmail.com/
-> 1. add more clarification about why we don't probe the header like packet at
-> the end of the commit message (Jakub)
-> ---
->  net/xdp/xsk.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/net/xdp/xsk.c b/net/xdp/xsk.c
-> index f22f9a2cdbbe..52d538160e0a 100644
-> --- a/net/xdp/xsk.c
-> +++ b/net/xdp/xsk.c
-> @@ -948,6 +948,8 @@ static int xsk_skb_init_misc(struct sk_buff *skb, struct xdp_sock *xs,
->  {
->  	int err;
->  
-> +	skb_reset_network_header(skb);
-> +
->  	err = xsk_skb_destructor_set_addr(skb, addr);
->  	if (unlikely(err))
->  		return err;
-> -- 
-> 2.43.7
-> 
+Changes in v5:
+
+- patch 1:
+  - the commit message now says that mdio-bcm-unimac only provides
+    read_c45() with patch 4, which enables the UniMAC case, so that a
+    standalone backport knows about that dependency
+  - the commit message now lists the callers other than the bus scan that
+    see -ENODEV instead of -EIO (of_mdio, sfp, mxl-gpy), which is what C22
+    callers already get
+  - the vendor MMD presence check done while reading the identifiers and the
+    reads of the per-MMD identifiers are intentionally not mapped, since
+    they only happen once a device has answered; say so in the commit
+    message and reword the kernel-doc of get_phy_c45_ids() and
+    phy_get_c45_ids() to document "a negative error code" rather than -EIO
+    as the only alternative to -ENODEV
+- patches 2 and 3: no changes
+- patch 4:
+  - check that the controller is idle after every cycle (the C45 ADDR and
+    data cycles as well as the C22 ones) instead of only after the ADDR
+    cycle, since a wait_func() such as bcmgenet_mii_wait() returns 0 even
+    when it timed out with START_BUSY still set, which could return the
+    command bits instead of the read data or switch MDIO_CFG in the middle
+    of a frame
+  - the commit message says that unimac_mdio_resume() waiting for the bus
+    lock means that resume may wait for an in-flight MDIO access
+  - the commit message says that the C45 scan is slower than the C22 one on
+    the platform device GENET registers without a Device Tree node (e.g.:
+    ACPI) because bcmgenet_mii_wait() sleeps per frame until GENET's
+    interrupt is registered. This is not worked around in this series;
+    making bcmgenet_mii_wait() poll in that window would be a separate
+    GENET change
+
+Changes in v4:
+
+- patch 1:
+  - when the read of the devices in package registers of an MMD fails with
+    -EIO or -ENODEV, treat it like an all Fs reply and probe MMD 0 instead
+    of returning -ENODEV right away, so that PHYs that only respond on
+    MMD 0 (e.g.: Cortina CS4315/CS4340) are still found on controllers
+    that report a bus error for an MMD that does not answer. The remaining
+    MMDs are not probed, to keep the cost of scanning an empty address
+    bounded. -ENODEV is only returned if MMD 0 does not answer either
+  - add a Fixes: tag
+  - update the kernel-doc of get_phy_c45_ids() and phy_get_c45_ids()
+  - the code changed since Nicolai's Reviewed-by tag was given, which was
+    kept, please let me know if it should be dropped
+- patch 2: no changes
+- patch 3: reword the comments about the poll timeout, which applies to each
+  frame, a C45 access waits once for each of its two frames
+- patch 4: no code changes, the commit message now mentions that the C45
+  scan also runs for the platform device GENET registers without a
+  Device Tree node (e.g.: ACPI), since it does not mask any address
+
+Changes in v3:
+
+- patch 1: collect Reviewed-by tag from Nicolai Buchwitz, no code changes
+- patches 2 and 3: no changes
+- patch 4:
+  - after the ADDR cycle, make sure the controller is idle before starting
+    the READ/WRITE cycle, since a wait_func() such as bcmgenet_mii_wait()
+    returns 0 even when it timed out with START_BUSY still set
+  - take bus->mdio_lock in unimac_mdio_resume() around
+    unimac_mdio_clk_set(), such that its read-modify-write of MDIO_CFG
+    cannot race with the C22/C45 clause switch done by the accessors
+
+Changes in v2:
+
+- add patch 1, since providing read_c45/write_c45 makes the MDIO core scan
+  for C45 PHYs on all addresses that are not masked. On a bus registered
+  without a device tree node (e.g.: GENET with ACPI) a read from an empty
+  address fails with -EIO, which get_phy_c45_ids() passed up instead of
+  mapping it to -ENODEV, and made the whole bus registration fail. Reported
+  by Nicolai Buchwitz.
+- patches 2 and 3: collect Reviewed-by tags from Andrew Lunn and Nicolai
+  Buchwitz, no code changes
+- patch 4: no code changes
+
+Florian Fainelli (4):
+  net: phy: Map C45 probe read errors to -ENODEV during bus scan
+  net: mdio: mdio-bcm-unimac: Define MDIO_OP_SHIFT
+  net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
+  net: mdio: mdio-bcm-unimac: Add Clause 45 support
+
+ drivers/net/mdio/mdio-bcm-unimac.c | 162 +++++++++++++++++++++++++----
+ drivers/net/phy/phy_device.c       |  50 +++++++--
+ 2 files changed, 184 insertions(+), 28 deletions(-)
+
+-- 
+2.34.1
+
