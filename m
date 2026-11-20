@@ -1,118 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795135967;
-	b=BWPZW0mR5jEehFwxRzwC00vsxktHRV3mQnWUd8DAxjPegh/ivcy3otxnbTrqwRoI8N/s
-	 mBiH8/uMD+1u9iUUv0x2pLsi12+L2xFlVJiInyxVoALhdJ3mZpDRUZ625N+84dFUpAZOT
-	 apnvzwtZ3pXs857pSaFRijxZljCaTE2pPM4X4WpOKiDJUHItJdYM0MHPPFMyfGZjyW0zw
-	 8UmfdHrjnVUSOlbKVvXbU1I6bqCm56aFGy77bc+FRReYgUGBlj5aLGXSwnwPaa9BLVjHO
-	 wpp77DfXEXgLSeAH3EIC9kSiFzowtYsOQabcn39yeV5jDjfGWzc+RKf97F5+J2XPDKQ==
+	t=1795136823;
+	b=LI16wIMnSoMSmJezvPufua1npZZ3pHgohc2UDzaU9L1Y1EdLCeF8mAblVFwzARZ3l10g
+	 aevJ6jgfs0F4jYBHlQretDpXPVjXUzJoP1dy0WA4CHoO/VUnKbc02dFdqsoHfqhq6IKfH
+	 qZyqQi6SZjxyYmwTW4iyZQAxLAK16WSeNaSatdlnj/xgeZUmRlRrWFykzkXdV34Q1Wktg
+	 onmZjjCWq65P5B2mEmf8+Y/YnliOq5izNxHinCIC9d144jIMjuFLZVGCsXz0fh9DZyq1x
+	 oOBR0H1+UnaTz+8jktSd5HwgMJIVRsgP8EVm4sAoslG2O7ftybpNBQ/Lw2P5tQqm/5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135967;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=lfYDwuZSFviGTTlMEh9cD/tenkn6JZrvdi0nKAxg6CA=;
-	b=TZ65et6qefK0/QXpzWryaI6Bnr58bwUl00+jRHovon0PSIJrg81lB8+yy1aegAJGCCs1
-	 R4XfXRfyy85SbaaYRgKZgQ0uPDbybJ5N95X2KrvE6wFeiB5+spLnnvTTCj9d5f0XQgV2s
-	 dJ7FBWCa1uMiFUhZxPm5xANCAf/zMWpjAYQGOCiES93gJK2WPeXcNZS3z44ge+P80XIGw
-	 Ln/S876V/60kYtiUr45Urcg2hIMgCXIliSGuO2OLJ/V9/1fSSuKyxg7zPSLo7hfj3yhZj
-	 6tfIL5kzDW+Ry3II8oHYBxpHEz6Vlux5QTn47uREngD/PtvfupQXRP+UbFPzqaS99bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795136823;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=vRgEV73buW9GBPSCDuFlhibk7fFdXhSeJd+kw3YQM8A=;
+	b=DQ/lHrimT8MshFE29W5C0V2/1nH+1SPPOGi8SWGrXMbvl6UBh+/CT3b4kpwlWiAUnU4Q
+	 OadR9dFdB+9r+TOwXTfmqSBPpZlPLOs2gJzs1DTXCuQXB0Nl1g0xkPIDlGTSfHvvDWBpF
+	 udGu9YogGyCDwNmM52ovvlrJv38h9BrRQFT1fH7wVzskd7Gf5bh8lzg6/Wh+iP9kfukn0
+	 +9Vwp4u5H6IaR2blajAujlZNPMfyzRDAX+4LhaLQXIgY1EwaErz5Pk30tmPxHi6dnmXk6
+	 UuyCeFoYEccOG8KWCUHwKSI+b81SB/jm9kgfixIIAW+Wq4YvvTbRw3COyqMCDMqO+tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NSs0bbHT;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jofrHLu+;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--lrizzo.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WVKxr1b9;
+	arc=none smtp.remote-ip=209.85.218.70
+Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com [209.85.218.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A011606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:52:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A011606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7333B606A33C
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:07:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7333B606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--lrizzo.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NSs0bbHT;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jofrHLu+
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK0GL2H2608072
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:52:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=lfYDwuZSFviGTTlMEh9cD/tenkn6JZrvdi0
-	nKAxg6CA=; b=NSs0bbHTM+DMflHZBwkB14CcEwBV8yJyaGR0G4JTv1s6aIPWc5D
-	eJ8CzYxbgd3W8ozUL2zf8aaMEci57f3ZMj7mhwfS2ADwaxVxHGxoXqvsfTsx08Ei
-	HWnFHi0Ms6wqLa56dulDFnMMIIxrqqLm/CEE1LfirKLL2Sx3BOcfIiTfY5Ym6Q5+
-	IleabaGHQ15IlPFU0PrFpUNb1DIGjfIvCVlWXsu0bIEDchi2ogvr+cx3MTTzwvcz
-	vkCm2kz4YvKL4ogz/XekRN0XqlonhZ5x/lvwxERCwIIR0fH9RGcPOUsnN5awKyQe
-	P4iN3Cq8OJ02saT4ZgYuSoJQjIKePOQW/DQ==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j22ugtt0t-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:52:45 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3846d5f54c1so356677eec.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:52:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WVKxr1b9
+Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-c508f61e492so24032766b.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:07:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795135965; x=1795740765; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lfYDwuZSFviGTTlMEh9cD/tenkn6JZrvdi0nKAxg6CA=;
-        b=jofrHLu+7pqT9dFoB37pfuzKQ747HyETox6wgdwV4cSq5Gg1C6JbBw0G0ZyYo5scCs
-         ESR7dDbd94+F1df02d+m9xA/rFlbR4WSKDua+XzgUOVxnM9ARLPPKas5mru6P5Zel4+3
-         sUEqDnr7YrWE97we3epLTp4r03lHRJz1MJQ5ktbVPAxJiwIcLU3xVeYmHK6zjz1+Lf9w
-         LrihoIDVj7+CxlJ7H+uLpUQVnpfWV2MALEfOwIn8wDym4tvoLFIDx4mULgqm/c42ouC5
-         BPwZj/iO/iZCZe1ZwQOdVfCgiv5zrG79QcydOOoEoJ/g19JHoQXqTVP000iguzuA3H8h
-         J1WA==
+        d=google.com; s=20260707; t=1795136821; x=1795741621; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vRgEV73buW9GBPSCDuFlhibk7fFdXhSeJd+kw3YQM8A=;
+        b=WVKxr1b9L0sg1AFlRl7Eju1mFkQp5d+tTsGWPzGubiEk+ofpyaUOW6iPmQlPq7c5Lf
+         Ajhbb31GF8MP4qI9Os42jLYtpt11ep5EtJ2K73i8mdN5bDDW/EuoCH5JgzRZIC6rYb9u
+         /m19FjcQxjfZAImfEJXa3yQZcb28vk1JjUpSHcW3N/xsccaHZqbxpGSL2g7alwNTBF7X
+         guVZlh2nZJFRJHP1xFCKKf/vsteFLHbWJ9beu6bdQ+nllhsZ/1J81sK2LIfmDpd8isGu
+         YA4qcxa0RPPqgNGPlep6h0NAdTlTGAiB5yxp9mpmmZGBv/QwalDcWfgqrhM4Vjf40Z0y
+         HrqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795135965; x=1795740765;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795136821; x=1795741621;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lfYDwuZSFviGTTlMEh9cD/tenkn6JZrvdi0nKAxg6CA=;
-        b=WVcwJX6+cAT+0dpvUyDPAbaTWR1dj2bmssPhtaP8pEYf6uFy2Jz1fBzdr+CI4OT4kQ
-         Qu0yl/OzJ4isQMITJmu2bFxEjYTBvaS2jXgya6CVlsI836upNqg2YsGDYhXNuMIfZG65
-         wFwTl57KV/tyZDhop0emkPjpZCny0zjBPK6mZX9TqtSuYiB0TYY0yZpwRRhxBmzm+WA+
-         2ca7uqTMDDcQS1d8rml5GdrdYvE/ICRd4tZ4rtHar5YOmgljZoP4f5c7gX8IaWT+054W
-         0vJ15Israb/aQ5vj7T2CCZ43wsHia/oIF6LQZQMoCzxHjd4ED14AG4gfE8BSzf1umHbs
-         DPoQ==
-X-Gm-Message-State: APuU4Z8D6ZvW1N+Rep0plkvdh903R1vRhdwJEMgk+qCtl/6i52aF0G8l
-	q14Lkwdeat9FzZ5A5W578MSRbNO2c2awhr/uL2PLwqXq3W+R+KtRkWLqVvm5mhjjmFvgmmMzULR
-	b8DdayiCKDrV1tSaa7q6MPolYZiNHPOMuyR8YwKqYsQScbUncNEEibEmzahU=
-X-Gm-Gg: AZFdTZeK4YOfxcVQBg7VV/0puK1Fj37TKfKHernlIae2kopdifJYsiWdST0OeRo7CXQ
-	sFGtPqxlWtyL04+o9uvYkUY829IQ9AsCmUJOgWGgAauCTeyvw049WwYGvNoBl8KVS2fB40BPLbm
-	somRlx6RBSxi3Nk7ODwEQ1IBm0t+Y51Wqm40Vlz48lkcfjbkq1CWDmJ4C3Y5SWFy09A0RR0Jzvm
-	YvGLW2PIaa58SJWgaqhBThMTh20Ws5ei0jX3iwRgzDJGHs3FnZdMbAyOHK6CI2C03p6kLSmL8aP
-	TqSNrJAWPB8xAUdp0FkjHbNOJn+3RJGayUMEILOGSNOyfvp8z+ceXAwdsSAqGgAAABq2H77PhvJ
-	cl7dY4h/rfiycTCmL0o6CPc+Vtc4uzfmxClbbCXIbrk+EqmLDkuVNouNXnmCtY8qlDELJKhCBWY
-	euAbVrK7LKWMyNUPQcALDg+X5MpAEG6whorP48
-X-Received: by 2002:a05:7300:e9cd:20b0:36c:f88b:caae with SMTP id 5a478bee46e88-3857025cda6mr1224978eec.22.1795135965126;
-        Thu, 19 Nov 2026 16:52:45 -0800 (PST)
-X-Received: by 2002:a05:7300:e9cd:20b0:36c:f88b:caae with SMTP id 5a478bee46e88-3857025cda6mr1224946eec.22.1795135964551;
-        Thu, 19 Nov 2026 16:52:44 -0800 (PST)
-Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm2164705eec.16.2026.11.19.16.52.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:52:44 -0800 (PST)
-From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-To: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, lorenzo.bianconi@oss.qualcomm.com,
-        hongmei.xu@oss.qualcomm.com,
-        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
-        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>,
-        Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-Subject: [PATCH net-next v5] net: stmmac: dwxgmac2: enable L2 split header support
-Date: Thu, 19 Nov 2026 16:52:43 -0800
-Message-Id: <20261120005243.3724402-1-sagar.cheluvegowda@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+        bh=vRgEV73buW9GBPSCDuFlhibk7fFdXhSeJd+kw3YQM8A=;
+        b=m173l+Wgof4ullYaoKMZt47tt/TjBu07BPdHMcx4WpisdirxneWP44GKjv8tQUJndX
+         ntXflL2mvJnXjMx0lvqKI0NSnUjlAVBixdlrcBKzJTQWry5W6cNmAYffa0ojEX2jcSTj
+         WxZHJMK86OYj0zXQyVga+jkn3petXpdJ1xLsOpc43ZJDaa6tflVkTNN6TnGLKWA1g2b0
+         cTwgChPZp0Z3z1RmZsyDh0jsBEIvKUEqaiIFTpyKjrPVxGT4u7fdJDrvuLXr+uZORFyi
+         aMnDuU6ExtqD/lu109Nb/ujKwZGgiUiadWEyvT6fceK55WiRw8PBn6RC5owCBqS+ykyk
+         cgpw==
+X-Forwarded-Encrypted: i=1; AL+hErGGYzkSqGmSNT288eaNPbk0fbGyG7YGy6S2KksSoPsX+7B/PzYm7T5CWaULm5mfEfRbwhqMbSA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z979QTZYgKvdSAqdxpEG9B0m/qrheIXSZWb43qqW7+lJJR/SAah
+	Ti5OjuawvdaQapL53kz0ng4N8q05DXJYgf7J8dhysxt110Sgwl/pZ+GCJHBUiv4jRd44ndmCBIM
+	+nPdOXw==
+X-Received: from edj9-n2.prod.google.com ([2002:a05:6402:3249:20b0:6b7:e5f7:4663])
+ (user=lrizzo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:3b94:b0:c26:1649:47ad
+ with SMTP id a640c23a62f3a-c513ab209f4mr107142966b.35.1795136820223; Thu, 19
+ Nov 2026 17:07:00 -0800 (PST)
+Date: Fri, 20 Nov 2026 01:06:30 +0000
+In-Reply-To: <20261109182533.3594984-1-lrizzo@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -121,245 +78,472 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: kNXli-TvdZRFmx0Ob8vM_jESgMIHnMsh
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAwMyBTYWx0ZWRfXxRvk6T9m4ujf
- u4B2JzLt4kX6XM+d1yqY7ghd6q2MA7yYJnC58HrzoiBg0czlaxtV9DMH+2RfGiuoi3wB/n+0j7g
- 9jvzZAuQyt/4h/1FRoGy0KriAr2y+DU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAwMyBTYWx0ZWRfX5cMbo4liYd5U
- lzmEyjSAHqSAhqaaJMB3b8ziet4EbbXUpaPWwN90LEH2jSbVXKisWdZmopI+V6TJYLG1ipENFJi
- Z+soR0kyxUp/qTanI1wrRPpBlMqeXdiUbpY6eYUdYBgCJNb3Anx8G84CCStg1VVH1HFAMY44czR
- NBbw7pFyLztrGHPxmOeqA8Q7a1y7WSyMgARJN9yYjHVcVhx7KMxQ0ouhH985Uvbo2PgBgfOkMWX
- ozeeo76qupDv36H2CwYlyMb+M+PXHdtpX5jHKQT+D9v8Cy4lVVWMwLwjNkU8ZUa/rgpTVfhsl71
- MCoKSklRW7PpGRTxb8xWM76Vbwk90TI7N677/3VcuwKzLeTnCAYA/0i2KeKUZaAR2gqMDKbZOGX
- rRQLCnvHGumhIw9YqAe8EaGAsvRMqajmsR+ZAClTfJgpDupMB0gzBXbRRNOoqDN4Z4Awk5clUQS
- JJW4GuY8zdI05ag+9gw==
-X-Authority-Analysis: v=2.4 cv=YeEodARf c=1 sm=1 tr=0 ts=6aff99dd cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=GebObiA6MxcdEQzCM0oA:9 a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-ORIG-GUID: kNXli-TvdZRFmx0Ob8vM_jESgMIHnMsh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_01,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 clxscore=1015 priorityscore=1501 adultscore=0
- bulkscore=0 impostorscore=0 suspectscore=0 lowpriorityscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200003
+Mime-Version: 1.0
+References: <20261109182533.3594984-1-lrizzo@google.com>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261120010655.467825-1-lrizzo@google.com>
+Subject: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator for
+ DMA and CoCo
+From: Luigi Rizzo <lrizzo@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
+	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
+	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	Christoph Hellwig <hch@lst.de>, Jason Gunthorpe <jgg@ziepe.ca>, Dragos Tatulea <dtatulea@nvidia.com>, 
+	Naman Gulati <namangulati@google.com>, Pranjal Shrivastava <praan@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
+	iommu@lists.linux.dev, netdev@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Luigi Rizzo <lrizzo@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-When split header is enabled, XGMAC2 only splits IP packets that are
-untagged or VLAN stripped, at the L3/L4 header boundary. Other packets,
-such as tagged AV packets, can't use the split-header path.
+This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PISA
+("Pre-mapped IOVA Superpage Allocator"). The text below follows
+Documentation/core-api/pisa.rst (patch 25/25), which has the details.
 
-Add a config_l2_split MAC callback for the MAC-global part of split
-header and implement it for XGMAC2: select split at the L2 header offset
-(SPLM = L2OFST) and enable Split AV (SAVE_EN) in XGMAC_EXT_CFG1,
-extending the dwmac4 sequence added by commit d10f1a4e44c3 ("net:
-stmmac: Programming sequence for VLAN packets with split header") to
-XGMAC2. The databook states that L2 split is not supported for packets
-with variable preamble, so also clear VPRE in XGMAC_EXT_CFG0 while L2
-split is enabled.
+=== OVERVIEW
 
-The callback is called once, only on split header capable cores, and
-reverts SPLM/SAVE_EN when split header is disabled, e.g. when RX
-checksum offload is turned off. VPRE is left cleared, as it is reserved
-on cores without variable preamble support. The callback is not
-implemented for XLGMAC, which shares the XGMAC2 DMA ops but uses offset
-0x140 for XLGMAC_RXQ_ENABLE_CTRL0.
+PISA is an extension to the page allocator: requests with __GFP_PISA
+return memory that makes I/O-related operations cheaper when using DMA-FQ,
+DMA, or Confidential Computing swiotlb. I/O devices can individually opt
+in to use PISA for specific buffer classes (e.g. read or write data,
+headers, zerocopy, ...). Relevant kernel subsystems (mm, iommu, dma, disk
+I/O, page cache, the network stack) are modified to make use of PISA
+memory for opt-in devices.
 
-Also make dwxgmac2_get_rx_header_len() follow the databook's "Header
-Length Availability in RDES2" table: HL is only valid on the first
-descriptor, and L34T is only valid on the last one. For non-IP packets
-RDES2[1:0] carry AV status, so HL is RDES2[9:2].
+The design and implementation have the following main goals:
 
-Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
-Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
-Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
----
-v5:
-  - Move the XGMAC_EXT_CFG0/EXT_CFG1 programming out of the DMA
-    enable_sph op into a new config_l2_split MAC op implemented only
-    for XGMAC2. The shared DMA op also ran on XLGMAC, where 0x140 is
-    XLGMAC_RXQ_ENABLE_CTRL0, and cleared the RX queue 4 enable bit
-    (Sashiko)
-  - Program it once instead of per RX channel, only when sph_capable,
-    and revert SPLM/SAVE_EN when split header is disabled (Sashiko)
-  - Clear the SPLM field before setting it (Sashiko)
-  - Describe the FD/LD handling as following the databook rather than
-    as a fix
-  - Fix line length warning
-v4: https://lore.kernel.org/netdev/20261015221215.1714047-1-sagar.cheluvegowda@oss.qualcomm.com/
-  - Only read the header length on the first descriptor (FD=1)
-v3: https://lore.kernel.org/netdev/20261013192759.776537-1-sagar.cheluvegowda@oss.qualcomm.com/
-  - Use zero-padded 0x00000140 for XGMAC_EXT_CFG0
-v2: https://lore.kernel.org/netdev/20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com/
-  - Add XGMAC_CONFIG1_SPLM_MASK and use it in XGMAC_CONFIG1_SPLM()
-v1: https://lore.kernel.org/netdev/20260922232116.889630-1-sagar.cheluvegowda@oss.qualcomm.com/
+- no changes to individual device drivers (or minimal changes for NIC
+  drivers that use custom RX page allocators)
+- minimize changes to base code: in most cases one or a few lines of code
+- safety: PISA memory is only used for devices that opt in, and it is
+  returned to the buddy allocator only after IOMMU mappings and IOTLB
+  entries have been flushed
+- no dependency on struct page or struct folio
+- compile-time option to disable or enable PISA
+- zero runtime overhead when no devices opt in (static keys and inline
+  hooks)
+- minimal overhead when in use (direct PFN lookup in a flat metadata
+  table)
+- keep memory overhead as low as possible (adaptive shrinking and
+  compaction of memory)
 
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  9 +++++++++
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 20 +++++++++++++++++++
- .../ethernet/stmicro/stmmac/dwxgmac2_descs.c  | 16 ++++++++++++++-
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  4 ++++
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  5 +++++
- 5 files changed, 53 insertions(+), 1 deletion(-)
+=== MECHANISMS
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index f8ab347f7b5b..7f43a0b17083 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -167,6 +167,12 @@
- #define XGMAC_HW_FEATURE4		0x0000012c
- #define XGMAC_HWFEAT_EASP		BIT(4)
- #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
-+#define XGMAC_EXT_CFG0			0x00000140
-+#define XGMAC_EXT_CFG0_VPRE		BIT(8)
-+#define XGMAC_EXT_CFG1			0x00000144
-+#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
-+#define XGMAC_CONFIG1_SPLM_MASK		GENMASK(9, 8)
-+#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
- #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
- #define XGMAC_MAC_FSM_CONTROL		0x00000158
- #define XGMAC_PRTYEN			BIT(1)
-@@ -434,13 +440,16 @@
- #define XGMAC_RDES2_L4FM		BIT(28)
- #define XGMAC_RDES2_L3FM		BIT(27)
- #define XGMAC_RDES2_HL			GENMASK(9, 0)
-+#define XGMAC_RDES2_NONIPHL		GENMASK(9, 2)
- #define XGMAC_RDES3_OWN			BIT(31)
- #define XGMAC_RDES3_CTXT		BIT(30)
- #define XGMAC_RDES3_IOC			BIT(30)
-+#define XGMAC_RDES3_FD			BIT(29)
- #define XGMAC_RDES3_LD			BIT(28)
- #define XGMAC_RDES3_CDA			BIT(27)
- #define XGMAC_RDES3_RSV			BIT(26)
- #define XGMAC_RDES3_L34T		GENMASK(23, 20)
-+#define XGMAC_RDES3_L2T			GENMASK(19, 16)
- #define XGMAC_RDES3_ET_LT		GENMASK(19, 16)
- #define XGMAC_L34T_IP4TCP		0x1
- #define XGMAC_L34T_IP4UDP		0x2
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 09194b9d8322..58d7433e8b17 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -1412,6 +1412,25 @@ static int dwxgmac2_config_l4_filter(struct mac_device_info *hw, u32 filter_no,
- 	return 0;
- }
- 
-+static void dwxgmac2_config_l2_split(struct mac_device_info *hw, bool en)
-+{
-+	void __iomem *ioaddr = hw->pcsr;
-+	u32 value;
-+
-+	/* L2 split is not supported for packets with variable preamble */
-+	if (en) {
-+		value = readl(ioaddr + XGMAC_EXT_CFG0);
-+		value &= ~XGMAC_EXT_CFG0_VPRE;
-+		writel(value, ioaddr + XGMAC_EXT_CFG0);
-+	}
-+
-+	value = readl(ioaddr + XGMAC_EXT_CFG1);
-+	value &= ~(XGMAC_CONFIG1_SPLM_MASK | XGMAC_CONFIG1_SAVE_EN);
-+	if (en)
-+		value |= XGMAC_CONFIG1_SPLM(1) | XGMAC_CONFIG1_SAVE_EN;
-+	writel(value, ioaddr + XGMAC_EXT_CFG1);
-+}
-+
- const struct stmmac_ops dwxgmac210_ops = {
- 	.core_init = dwxgmac2_core_init,
- 	.irq_modify = dwxgmac2_irq_modify,
-@@ -1451,6 +1470,7 @@ const struct stmmac_ops dwxgmac210_ops = {
- 	.config_l3_filter = dwxgmac2_config_l3_filter,
- 	.config_l4_filter = dwxgmac2_config_l4_filter,
- 	.fpe_map_preemption_class = dwxgmac3_fpe_map_preemption_class,
-+	.config_l2_split = dwxgmac2_config_l2_split,
- };
- 
- static void dwxlgmac2_rx_queue_enable(struct mac_device_info *hw, u8 mode,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-index 6719ac6e395b..b28aa39f9947 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-@@ -292,8 +292,22 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
- 
- static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
- {
--	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
-+	u32 rdes3 = le32_to_cpu(p->des3);
-+
-+	/* HL is only defined on the first descriptor */
-+	if (!(rdes3 & XGMAC_RDES3_FD))
-+		return;
-+
-+	/* when FD=1 and LD=0, HL is RDES2[9:0] */
-+	if (!(rdes3 & XGMAC_RDES3_LD)) {
-+		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-+		return;
-+	}
-+
-+	if (rdes3 & XGMAC_RDES3_L34T)
- 		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-+	else if (rdes3 & XGMAC_RDES3_L2T)
-+		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
- }
- 
- static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, bool is_valid)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 8ae95e91a36a..80131fdda2d5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -410,6 +410,8 @@ struct stmmac_ops {
- 	int (*fpe_map_preemption_class)(struct net_device *ndev,
- 					struct netlink_ext_ack *extack,
- 					u32 pclass);
-+	/* L2 header split, MAC-global part of split header */
-+	void (*config_l2_split)(struct mac_device_info *hw, bool en);
- };
- 
- #define stmmac_mac_pcs_init(__priv) \
-@@ -492,6 +494,8 @@ struct stmmac_ops {
- 	stmmac_do_callback(__priv, mac, config_l4_filter, __args)
- #define stmmac_fpe_map_preemption_class(__priv, __args...) \
- 	stmmac_do_callback(__priv, mac, fpe_map_preemption_class, __args)
-+#define stmmac_config_l2_split(__priv, __args...) \
-+	stmmac_do_void_callback(__priv, mac, config_l2_split, __args)
- 
- struct ptp_system_timestamp;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f256244ce0d1..0c333d14be4d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3832,6 +3832,8 @@ static int stmmac_hw_setup(struct net_device *dev)
- 
- 	/* Enable Split Header */
- 	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
-+	if (priv->sph_capable)
-+		stmmac_config_l2_split(priv, priv->hw, sph_en);
- 	for (chan = 0; chan < rx_cnt; chan++)
- 		stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
- 
-@@ -6467,6 +6469,7 @@ static int stmmac_set_features(struct net_device *netdev,
- 		bool sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
- 		u8 chan;
- 
-+		stmmac_config_l2_split(priv, priv->hw, sph_en);
- 		for (chan = 0; chan < priv->plat->rx_queues_to_use; chan++)
- 			stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
- 	}
-@@ -7430,6 +7433,8 @@ int stmmac_xdp_open(struct net_device *dev)
- 
- 	/* Adjust Split header */
- 	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
-+	if (priv->sph_capable)
-+		stmmac_config_l2_split(priv, priv->hw, sph_en);
- 
- 	/* DMA RX Channel Configuration */
- 	for (chan = 0; chan < rx_cnt; chan++) {
+PISA returns order-N blocks backed by 2MB physically contiguous pages, so
+it can use 2MB IOMMU leaves and reduce the IOTLB pressure by up to 512x.
+PISA maps memory in pre-allocated per-domain IOVA ranges, and recycles
+blocks and mappings until the 2MB page is returned to the buddy allocator.
+This makes most of dma map/unmap a no-op, also avoiding related VM exits
+in overcommitted VMs. In Confidential Computing VMs, PISA pages are also
+decrypted, removing the need for bounce buffers.
+
+The kernel identifies devices and sockets that use an IOMMU or
+Confidential Computing and have opted into PISA, and allocates (or
+migrates) I/O buffers using PISA memory so that DMA mapping and unmapping
+are mostly no-ops. All the above makes performance comparable to identity
+mode, with isolation better than DMA-FQ and comparable to DMA.
+
+Devices that do not opt in continue to use their native DMA/DMA-FQ mode.
+
+=== PERFORMANCE
+
+Your mileage may vary. Enabling the IOMMU will increase load on various
+system components (CPU, IOTLB, bus latency, increased locking
+serialization) but the impact on throughput will only show up when one or
+more of these resources become fully congested.
+
+Some anecdotal data:
+
+NVMe: fio throughput in IOPS, 4KB random reads, O_DIRECT, on an x86 system
+with 8 NVMe disks capable of 1.7M IOPS each
+
+    drives      DMA     PISA    identity
+    1           380K    1.7M    1.7M
+    8           1.3M    13.5M   13.5M
+
+Network: throughput in Gbps on a Confidential Computing VM, 200G NIC
+
+    flows/mtu   swiotlb PISA
+    1/1460      36      65
+    1/4148      45      65
+    16/1460     130     170
+    16/4148     130     182
+    256/1460    140     170
+    256/4148    140     182
+
+Network: throughput and SMMU performance counters on a large ARM64 system
+with 2x200G NICs running bidirectional traffic (this shows the effect of
+IOTLB thrashing)
+
+    === DMA-FQ (total throughput ~440Gbps)
+    25,757,488      smmuv3_pmcg_*/event=0x80/   IOTLB lookups
+    16,634,941      smmuv3_pmcg_*/event=0x81/   IOTLB misses
+
+    === PISA on top of strict DMA (total throughput ~745Gbps)
+    22,693,218      smmuv3_pmcg_*/event=0x80/   IOTLB lookups
+        30,536      smmuv3_pmcg_*/event=0x81/   IOTLB misses
+
+=== COMPARISON WITH STANDARD DMA MODES
+
+PISA layered on top of strict DMA, compared with identity, DMA-FQ and
+strict DMA ( > means PISA is better ):
+
+                                      identity   DMA-FQ    DMA
+  dma_map cost                          ~=         >>       >>
+  dma_unmap cost                        ==         >>       >>
+  IOTLB friendliness                    na         >>       >>
+  Buffer shared across domains          na         <=       <=
+  Memory remains accessible to device   >>         >>       <=
+  Needs bounce buffers                  >>         >>       >>
+  Page alloc/free cost                  >=         >=       >=
+
+- dma_map/dma_unmap cost: once a 2MB PISA page is mapped in a domain's
+  reserved IOVA window, dma_map_*() is an offset lookup and dma_unmap_*()
+  is a no-op, avoiding IOVA tree allocation, page-table walks, and
+  synchronous IOTLB shootdowns.
+- IOTLB friendliness: 2MB IOMMU leaves reduce IOTLB pressure by up to 512x
+- Buffer shared across domains: even in DMA-FQ and DMA, sub-page buffers
+  from task_frag or skb head slabs can cause the underlying page to be
+  mapped across multiple domains. PISA exhibits the same behavior, just at
+  2MB granularity.
+- Memory remains accessible to device: in identity mode all of RAM is
+  always accessible. In DMA-FQ, pages returned to the buddy allocator
+  remain accessible until the flush queue drains. PISA and DMA both unmap
+  the page and perform a synchronous IOTLB flush before returning memory
+  to the buddy allocator. In all modes, pagepool keeps receive buffers
+  mapped and accessible to the device while queued in the rx socket
+  buffer. PISA expands this visibility also to page cache and O_DIRECT
+  pages.
+- Needs bounce buffers: in Confidential Computing VMs, PISA allocators
+  pre-decrypt 2MB pages in place, avoiding swiotlb bounce-buffer copies.
+
+=== BACKGROUND
+
+Enabling the IOMMU costs CPU to install and remove PTEs on dma_map/unmap,
+CPU and latency to flush the IOTLB, and higher DMA latency from IOMMU page
+walks when the working set exceeds the IOTLB size. The last one is among
+the biggest bottlenecks for high speed devices: network devices have very
+little IOVA locality, which makes the IOTLB almost completely ineffective.
+
+The known mitigations are recycling buffers and mappings (common for
+queues and RX buffers, but not for network TX buffers), lazy IOTLB flush
+(DMA-FQ, which recycles memory without waiting for the flush), and larger
+mappings (not currently pursued by the kernel). PISA combines them:
+
+- intercept the small set of functions used to allocate, map, unmap, and
+  free device-accessible memory (rings and buffers)
+- return memory backed by physically contiguous 2MB pages and 2MB IOMMU
+  mappings
+- heavily recycle memory and mappings
+- wait until the IOTLB has been flushed before returning unused PISA pages
+  to the system
+
+=== IMPLEMENTATION AND CODE LAYOUT
+
+PISA is implemented by a few groups of commits:
+
+- mm: infrastructure for per-page metadata (no dependency on struct page),
+  hook into alloc_pages(), PISA optimizations (per-cpu caches, shrinker,
+  background zeroing)
+- driver core: per-device sysfs entries to opt in
+- iommu/dma: manage PISA IOVA ranges and intercept map/unmap
+- block, mm, net: transparently upgrade pages to PISA for disk I/O and
+  network tx zerocopy
+- net: identify sockets that need PISA pages, hook PISA into page frags,
+  skb heads, page_pool
+
+The code layout now matches the "allocator" nature of PISA: most of the
+code is in mm/, and iommu and net only carry subsystem-specific changes.
+
+  mm/pisa-*.c                            metadata, allocators, per-node
+                                         reservoir, user and page-cache
+                                         pages (~5100 lines)
+  drivers/iommu/pisa-map.c               IOVA ranges, map/unmap
+                                         (~500 lines)
+  net/core/pisa-net.c, include/net/pisa.h
+                                         socket and skb glue (~450 lines)
+  include/linux/pisa*.h                  public API and inline hooks
+
+The functions that need to be intercepted are few:
+
+- page_pool_dev_alloc*(), socket TX page frags, __free_pages()
+- dma_alloc_attrs(), dma_map_*(), dma_unmap_*()
+- __filemap_get_folio_mpol(), ractl_alloc_folio(), writeback_get_folio(),
+  __bio_iov_iter_get_pages(), madvise()
+
+and most devices automatically inherit the benefits. Fast-path hooks are
+guarded by static keys: pisa_key remains disabled (a single NOP) until the
+first device opts in via sysfs. NIC drivers that do not use page_pool need
+a few lines to pass __GFP_PISA_RW when allocating RX buffers; gve is
+converted as an example.
+
+=== INTERNAL MECHANISMS
+
+- PISA metadata: each 2MB page used for PISA memory is identified by a
+  compact index (slot). Two flat arrays in virtual address space, with
+  holes mapped read-only to a zero page:
+
+  1. pisa_pfn2slot[pfn >> PISA_ORDER] (4 bytes per 2MB physical frame)
+     packs the status flags and the slot. It is populated for system RAM
+     at boot or on hotplug, and grows by 4KB for each 2GB of physical RAM
+     regardless of RAM layout.
+
+  2. pisa_meta_array[slot] (256 bytes per 2MB PISA page) holds struct
+     pisa_meta: base PFN, flags, free/clean/dirty subpage bitmaps, the
+     bitmap of IOMMU domains with an active 2MB mapping, and list/RCU
+     linkage. Backing pages are allocated on demand up to pisa.max_pages
+     (default 1/8th of RAM).
+
+- Per-domain reserved IOVA ranges: PISA reserves on each domain an IOVA
+  range covering the slot table, and a page is mapped on demand at offset
+  slot * PISA_SIZE in each domain that requires it. This makes PA-IOVA
+  translation just an addition, uniquely identifies PISA IOVAs, and does
+  not expose physical addresses.
+
+- alloc_pages() compatible allocator: a pisa_alloc object serves
+  fixed-order allocations, returning objects fully compatible with those
+  of the page allocator. alloc_pages() and related requests are routed to
+  PISA via __GFP_PISA, which makes it easy to select PISA pages where
+  needed (two lines in page_pool, similar small changes in page frag
+  refill and disk I/O buffers).
+
+- Safe release of memory: freed blocks return to PISA with mappings still
+  active. When all blocks of a 2MB page are unused the page becomes idle;
+  idle pages above pisa.max_idle are released after pisa.idle_ms, or by
+  the shrinker: mappings are removed, a synchronous IOTLB flush is issued,
+  and after an RCU grace period (and re-encryption if needed) the page is
+  returned to the buddy allocator.
+
+- Memory compaction: partially allocated 2MB pages are classified as dense
+  (preferred for new allocations) or sparse (left to drain). For user
+  pages, pisa.scrub_migrate also migrates live 4KB pages out of old sparse
+  2MB pages in the background.
+
+=== MODIFIED KERNEL APIS AND CONTROLS
+
+Opt-in is per device, through
+/sys/devices/.../pisa_{coherent,rx_bufs,tx_bufs,tx_skb_heads,tx_zerocopy}.
+
+- Streaming DMA map and unmap: a buffer belonging to a PISA page is mapped
+  via the domain's reserved window with a simple addition, typically
+  reusing existing mappings; unmap is a range check and a no-op. Under
+  dma-direct, decrypted PISA pages are mapped without swiotlb bounce.
+- Coherent DMA (pisa_coherent): sleepable allocations up to 2MB are carved
+  out of the per-node order-0 allocator.
+- Network receive buffers (pisa_rx_bufs): a two-line change in page_pool
+  adds __GFP_PISA_RW, falling back to the buddy allocator on exhaustion.
+- Socket TX page fragments (pisa_tx_bufs): fragments come from PISA pages
+  mapped DMA_TO_DEVICE, only for data routed to an opt-in device with a
+  DMA parent. Loopback, virtual devices, kTLS, sockmap, KCM and MPTCP use
+  ordinary pages.
+- Small skb heads (pisa_tx_skb_heads): served by an
+  skbuff_small_head_pisa slab cache backed by PISA memory mapped
+  DMA_TO_DEVICE. Never used in Confidential Computing, where it would
+  expose kernel pointers; tx-copybreak avoids the swiotlb cost there.
+- Zerocopy receive: RX buffers from PISA pages can be mapped into user
+  space by TCP_ZEROCOPY_RECEIVE.
+- Zerocopy transmit (pisa_tx_zerocopy): MSG_ZEROCOPY sends migrate
+  eligible user pages into DMA_TO_DEVICE PISA blocks on a best-effort
+  basis. With pisa_tx_bufs also set, TCP copies the pages that could not
+  be migrated.
+- User and disk I/O pages: madvise(MADV_PISA) migrates private anonymous
+  pages into PISA and MADV_NOPISA migrates them back. For block devices
+  with pisa_rx_bufs (reads) or pisa_tx_bufs (writes) on a parent device,
+  new order-0 page-cache folios are allocated from PISA, and writeback and
+  direct-I/O bio preparation migrate eligible folios.
+
+Global controls are pisa.* parameters: max_pages, reservoir_max, max_idle,
+idle_ms, pcp_batch, compact, target_usage_percent, old_ms, scrub_max,
+scrub_migrate, user_max_pages. Counters are in
+/sys/kernel/debug/pisa/allocs.
+
+=== LIMITATIONS
+
+- Not compatible with PREEMPT_RT (enforced at compile time).
+- Only DMA-coherent devices can use PISA (enforced at runtime).
+- IOMMU mappings follow the direction the allocator was created with:
+  descriptor queues and receive buffers are DMA_BIDIRECTIONAL, disk and
+  network write buffers and socket TX fragments are DMA_TO_DEVICE.
+
+=== CHANGES SINCE v2 [1]
+
+The changes are too many to list in detail; at a high level:
+
+- Code layout: the allocator moved from drivers/iommu/pisa-*.c to
+  mm/pisa-*.c (and CONFIG_PISA to mm/Kconfig). Only the IOVA window and
+  map/unmap code is left in drivers/iommu/pisa-map.c, and the network
+  hooks moved from include/net/sock.h to include/net/pisa.h and
+  net/core/pisa-net.c. See CODE LAYOUT.
+- Flags renamed to __GFP_PISA and __GFP_PISA_RW
+- Reworked metadata: a flat pfn-indexed table plus compact per-page
+  slots, with the per-domain IOVA window indexed by slot.
+  Saves one load access in the hot paths, and
+  removes several tuning knobs while allowing 57bit address space
+  with negligible memory overhead
+- Net: the opt-in flags of the leaf devices are cached on struct
+  net_device, and MSG_ZEROCOPY migration has its own per-device knob,
+  pisa_tx_zerocopy.
+- Confidential Computing: added arm64 Realms support.
+- Compaction is driven by a target usage (pisa.target_usage_percent)
+  instead of pisa.wasted_pct.
+- Series reorganized (mm first, then iommu/dma, block, net, drivers), with
+  the three IOVA window patches merged into one.
+- Fixes for the issues reported on v2 by the automated review.
+- Added NVMe and Confidential Computing results.
+
+=== CHANGES SINCE v1 [0]
+
+v1 presented DMA_PMD as a set of pools and an arena under drivers/iommu,
+called explicitly by page_pool, the socket code and four NIC drivers.
+
+- Renamed DMA_PMD to PISA.
+- Restructured as an extension to the page allocator: callers pass
+  __GFP_PISA / __GFP_PISA_RW to alloc_pages() instead of calling a
+  dma_pmd_pool, and the code moved from drivers/iommu/ to mm/ (see CODE
+  LAYOUT).
+- Per-NUMA-node allocators with per-CPU caches replace the per-CPU and
+  per-queue pools; the dma_pmd_arena for dma_alloc_attrs() is merged into
+  the per-node order-0 allocator.
+- The per-driver TX header bounce buffers (gve, mlx5, idpf, bnxt) are gone,
+  replaced by a PISA-backed slab cache for small skb heads.
+- New: user pages (MADV_PISA, MSG_ZEROCOPY) and disk I/O (O_DIRECT and
+  page cache), with compaction and background migration.
+- Opt-in is through per-device pisa_* attributes and pisa.* parameters;
+  metadata and static keys are activated on the first opt-in.
+
+
+[1] v2 (PISA)
+    https://lore.kernel.org/all/20261109182533.3594984-1-lrizzo@google.com/
+[0] v1 (DMA_PMD):
+    https://lore.kernel.org/all/20261003212241.3432303-1-lrizzo@google.com/
+
+Luigi Rizzo (25):
+  mm: Introduce CONFIG_PISA and metadata table
+  mm: Add PISA allocator lifecycle and page recycle hook
+  mm: Add per-NUMA-node PISA page reservoir
+  mm/page_alloc: Extend alloc_pages() to __GFP_PISA and PISA block
+    allocation
+  mm: Add global cap and shrinker for PISA pages
+  iommu/dma: Map PISA memory in a per-domain IOVA window
+  driver core: Add per-device pisa_* sysfs attributes for PISA optin
+  iommu/dma: Use PISA for coherent DMA allocations
+  mm: Add per-CPU block caches to PISA allocators
+  mm: Add background page scrubber for PISA allocators
+  mm: Migrate user pages into PISA
+  block, mm: Support PISA for disk I/O and scrub migration
+  net: Cache leaf PISA TX flags on struct net_device
+  net: Use per-node PISA allocators for skb_page_frag_refill()
+  net: Use PISA for page_pool memory
+  mm/slub: Add SLAB_CACHE_PISA_RO for PISA-backed slab caches
+  net: Allocate small skb heads from PISA
+  net: Migrate user pages into PISA for MSG_ZEROCOPY
+  mm, iommu/dma: Support decrypted PISA pages
+  arm64/mm, mm: Support decrypted PISA pages in Realms
+  mm: Add PISA statistics and debugfs
+  net/libeth: Use GFP_KERNEL when pre-filling RX rings
+  net/gve: Use GFP_KERNEL when pre-filling RX rings
+  net/gve: Use PISA memory for RX buffers
+  Documentation: Add PISA architecture documentation
+
+ .../admin-guide/kernel-parameters.txt         |    7 +
+ Documentation/core-api/index.rst              |    1 +
+ Documentation/core-api/pisa.rst               |  485 +++++
+ arch/arm64/include/asm/pgtable.h              |   28 +-
+ block/bio.c                                   |    9 +
+ drivers/base/core.c                           |   78 +
+ drivers/iommu/Makefile                        |    3 +
+ drivers/iommu/dma-iommu.c                     |   49 +-
+ drivers/iommu/iommu.c                         |    7 +-
+ drivers/iommu/pisa-map.c                      |  488 +++++
+ .../ethernet/google/gve/gve_buffer_mgmt_dqo.c |    8 +-
+ drivers/net/ethernet/google/gve/gve_rx.c      |   40 +-
+ include/linux/device.h                        |   32 +
+ include/linux/gfp_types.h                     |   14 +-
+ include/linux/huge_mm.h                       |    7 +
+ include/linux/netdevice.h                     |    4 +
+ include/linux/pisa-iommu.h                    |  141 ++
+ include/linux/pisa-mm.h                       |  205 ++
+ include/linux/pisa.h                          |  356 ++++
+ include/linux/sched.h                         |    4 +
+ include/linux/slab.h                          |   10 +
+ include/linux/swap.h                          |    1 +
+ include/net/libeth/rx.h                       |   11 +-
+ include/net/pisa.h                            |  204 ++
+ include/trace/events/mmflags.h                |   11 +-
+ include/uapi/asm-generic/mman-common.h        |    2 +
+ kernel/dma/direct.c                           |   11 +
+ kernel/exit.c                                 |    2 +
+ kernel/fork.c                                 |    2 +
+ mm/Kconfig                                    |   35 +
+ mm/Makefile                                   |    3 +
+ mm/filemap.c                                  |   12 +-
+ mm/huge_memory.c                              |   36 +-
+ mm/ksm.c                                      |    3 +-
+ mm/madvise.c                                  |   19 +
+ mm/memory.c                                   |    8 +-
+ mm/migrate.c                                  |    3 +-
+ mm/page-writeback.c                           |    9 +
+ mm/page_alloc.c                               |   10 +
+ mm/pisa-alloc.c                               | 1758 +++++++++++++++++
+ mm/pisa-kunit.c                               |  778 ++++++++
+ mm/pisa-meta.c                                |  834 ++++++++
+ mm/pisa-node.c                                |  567 ++++++
+ mm/pisa-priv.h                                |  319 +++
+ mm/pisa-user.c                                |  898 +++++++++
+ mm/readahead.c                                |    3 +-
+ mm/slab.h                                     |    3 +-
+ mm/slab_common.c                              |    2 +-
+ mm/slub.c                                     |   23 +-
+ mm/swapfile.c                                 |    3 +-
+ mm/userfaultfd.c                              |    7 +-
+ net/core/Makefile                             |    1 +
+ net/core/datagram.c                           |   17 +-
+ net/core/page_pool.c                          |    3 +
+ net/core/pisa-net.c                           |  264 +++
+ net/core/skbuff.c                             |   33 +-
+ net/core/sock.c                               |   31 +-
+ net/ipv4/esp4.c                               |    7 +-
+ net/ipv4/ip_output.c                          |   20 +-
+ net/ipv4/raw.c                                |    6 +-
+ net/ipv4/tcp.c                                |   17 +-
+ net/ipv4/tcp_output.c                         |   14 +-
+ net/ipv6/esp6.c                               |    7 +-
+ net/ipv6/ip6_output.c                         |   20 +-
+ net/ipv6/raw.c                                |    6 +-
+ 65 files changed, 7907 insertions(+), 92 deletions(-)
+ create mode 100644 Documentation/core-api/pisa.rst
+ create mode 100644 drivers/iommu/pisa-map.c
+ create mode 100644 include/linux/pisa-iommu.h
+ create mode 100644 include/linux/pisa-mm.h
+ create mode 100644 include/linux/pisa.h
+ create mode 100644 include/net/pisa.h
+ create mode 100644 mm/pisa-alloc.c
+ create mode 100644 mm/pisa-kunit.c
+ create mode 100644 mm/pisa-meta.c
+ create mode 100644 mm/pisa-node.c
+ create mode 100644 mm/pisa-priv.h
+ create mode 100644 mm/pisa-user.c
+ create mode 100644 net/core/pisa-net.c
+
+
+base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
 -- 
-2.34.1
+2.56.1.809.ga0b61035b5-goog
 
