@@ -1,67 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216190;
-	b=oa/F3b9pUEJcU3EhgzVE+0dPKwQBrs02BaUFXhp047Z/oK6XL7Bdak+pCC0A35RfzBsw
-	 xx9FNEe1AwFWjstmd7FHPSDZXwTRtQeYQeOYRBjLibkdR8ye2Lvfd/xintUTugzyvmDn8
-	 vRyo8hC0EQasTLdT5bOXj6/TZmOFfJWxYFD9fatl2wNONfzVke0u7+GldJmfTp7itN/oH
-	 zukV6FCz+LWxWfLhT4CmlUD1kbrvh6r6jUAFlMy1WGh1sNpdKVI/EzwLUwHhlf5hU6CN5
-	 TC6hSW4Mw2ebcRmw8oGaX0aVMH87W4t6dXLNhVZeC7AmqtknNIVGGuILj9nU8+/mlVQ==
+	t=1795216445;
+	b=Bh9z2nOnnLh+U+z2nCbBU8pwpkgERwIegPtC+p0/rbayQvzILoj/PiR3pexFtbwKbEAR
+	 +NVGKdCXv6cDJOnmO7Qlmq2wQKL0wxvXZYd9mThSrncJPEZ3cQSAddsYpN0eo/Tlrmqmy
+	 rSbbXLbcme4daChobEDoYxr/PY8sVdh/0BXvjv+ZI2ilmtrVWCfFUKxORu19DUyaMDM3b
+	 CUnbP2lSPb3w3ATCInD20E1WlJ1jlU3caUT2Sry6F08ptxadUIjOj7Ok+foAbTlYboIqf
+	 nokpAo1e2uyK0nvxHaZjPBraVF++pgAwwZ5g4wUN8Rm+y/v6yz15E3aTq5Hd+RyoYtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216190;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=OOa4MkrKn92gWVHykXzYb5CjJjtJtag6Vo9U5D+8IkA=;
-	b=er06/Kt1wrKy5W3ZI9wKbemgaP/dLgIizoklUiRGVLLCxkUAwdrNjrVbfj6V9yY1TKHM
-	 bj5sB2DOb5zmWoHx6N5rrKSGtnoIEIcsi5l+2TBepwNsZf64GZEbXPw1ptK4QUatUZ5qV
-	 wkHrnU005GSOL/yGcIpWcrQYpzqZ3VG7dKLkzf/ALlno8/awotkAuTOksq9sfLwH5yqbJ
-	 XSgglE+XuLcDIsiOUpX3vfK3YKyxHXSfW/BbJby0nHndqdlEc1z7vlqXNLZA9RMp3K1EW
-	 qAbvSfug1kIpxbGPDBI0deEoOKOri2VRCtE46ClOzbNwhJgLAxuU+U8QpnyPo5/pa/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216445;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=pbzULJXRQ2wCr9lbRVnvc7ssE8ui2PghOhpvECt+S+Q=;
+	b=sNqHSmrP3mi+tL9xNJHc1f56xm2LqEXBNusd8kzLkkgDMXP8XI3VyNKxIXWHKilTeV+N
+	 DyWZKghbCkSbt6a53u5ShZXiCyaaE2C3ZwG2P15byXCxCTlmxQo9Pk0YD/160KoWu2Rjk
+	 LrCN/2+ONw4d8h20eJPGePAoHMlJyVhJkDWlGfSpT0gToB73FWYFhvwDCTisGZq3+MU5B
+	 3HMKop04j/GQreG+W4rNXuG6t+6jBvZZW5BqBeisKdfPgQV48VSAm0GKUFrHdRxdm2erv
+	 OEcPsN5VMgquXAwUAbXWNRx7SPRlpHpGlCdWsLSq0g3R5LazaZqyml9PZWnMP1Z2IJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=KfgkeEgB;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=d3DcsOsC;
+	arc=none smtp.remote-ip=91.218.175.41
+Received: from mta0.migadu.com (out-41.mta0.migadu.com [91.218.175.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D636C606A6B2;
-	Fri, 20 Nov 2026 23:09:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D636C606A6B2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F999606A687
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:14:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F999606A687
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=KfgkeEgB
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=OOa4MkrKn92gWVHykXzYb5CjJjtJtag6Vo9U5D+8IkA=; b=Kf
-	gkeEgBBHORRcMYIxDWNNwkPVNW8EV+dkyZMOEGfzg2DEphlNOLWs/eIlXjv2lFDGOsOycVsyPDfg5
-	GhnyCvK1+AOxXA5Tg0YUEAE1GVMhQ4jwAPA7aGbgaQhcw7SDMmu17PmfNbss1zdacceA1ZsvV/R8n
-	kQ9qCjZzAePr5jA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUXjY-000O5B-KF; Sat, 21 Nov 2026 00:09:32 +0100
-Date: Sat, 21 Nov 2026 00:09:32 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bastian Germann <bage@debian.org>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-Message-ID: <140da060-0de5-4f2a-8809-b05f2015c2b4@lunn.ch>
-References: <20261119231319.1256419-1-bage@debian.org>
- <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
- <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
- <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
- <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=d3DcsOsC
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=pbzULJXRQ2wCr9lbRVnvc7ssE8ui2PghOhpvECt+S+Q=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795216442; v=1; x=1795821242;
+ b=d3DcsOsCTUNgEzkQJDeozoJsEypOyZErLY2SAyZkW//ipSFsc/+IKBqwjoQ57NZLaxCBRzoK
+ 2qeeM0XIx90k628u8yiLjsT8DwXfzxwR0WkIgExg78sP0MXAgN1pC8hMOzVscNrlnj3x8BEWEQw
+ 6H6eHumAVMKS1ZQUaHn8fWvA=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 625310cc214a2384;
+	Fri, 20 Nov 2026 23:14:02 +0000
+X-Mizu-Trace-ID: 625310cc214a2384
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+To: Ralf Lici <ralf@mandelbit.com>
+Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
+	davem@davemloft.net,
+	dsahern@kernel.org,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	kuba@kernel.org,
+	kuniyu@google.com,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	razor@blackwall.org
+Subject: Re: [PATCH net-next v4 2/4] ipv6: take fib6_sernum from a sequence shared by all netns
+Date: Fri, 20 Nov 2026 18:13:53 -0500
+Message-ID: <20261120231353.4189980-1-qiliang.yuan@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120175241.289834-1-ralf@mandelbit.com>
+References: <20261117-bug-net-netns-move-rcu-barrier-v4-0-43e1ca0aac7f@linux.dev> <20261117-bug-net-netns-move-rcu-barrier-v4-2-43e1ca0aac7f@linux.dev> <20261120175241.289834-1-ralf@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,23 +76,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
 
-> It is with the TI CPSW3G MDIO controller (ti,davinci_mdio, ti,cpsw-mdio).
-> As this is on a AM64x, errata i2329 applies and davinci_mdio runs with
-> bitbanging.
-> 
-> The mv88e6085 (88E6341) is configured in multi-chip/indirect mode at  reg =
-> <1>.
-> It does not use multiple addresses.
+Hi Ralf,
 
-O.K, that is good.
+On Fri, Nov 20, 2026 at 06:52:41PM +0100, Ralf Lici wrote:
+> What the atomic_set
+> changes is the ordering. It comes after the full barrier of the cmpxchg,
+> so nothing orders it before the node stamp in fib6_update_sernum: a
+> reader can sample the new fn_sernum while still reading the old
+> generation (this one is allowed on arm64).
+[...]
+> The late store also loses the guarantee that a reader seeing a value
+> sees the routing changes published before it.
+[...]
+> Drawing from the shared sequence but publishing with a cmpxchg on the
+> per-netns counter keeps both, at the cost of a wasted draw on
+> contention:
 
-So the concept is sounds, it is just a question of if the parsing of
-the property should be done once at a higher level, since it is
-supposed to be a common property.
+Thanks for the careful review. I wrote both cases as litmus tests and
+herd7 agrees: the stale generation and the late store of a smaller
+value are both reachable with atomic_set() and forbidden once the
+value is published with atomic_try_cmpxchg() on the per-netns counter.
 
-   Andrew
+> 1/4 has the same pattern for rt_genid, and IPv4 bumps can run
+> concurrently too, since xfrm policy insertion does not hold RTNL.
+
+Right. I'll publish with a cmpxchg in both 1/4 and 2/4 in v5, as you
+suggested, and Cc you on it.
+
+Thanks,
+Qiliang
