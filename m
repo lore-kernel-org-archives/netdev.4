@@ -1,56 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210870;
-	b=w16jAVBDgPqzHFfzfDkwzFH+7dR6cEDjwWEJ520Ndozu1dMbPtrhhb1FLV+MWIW0YEHJ
-	 sbZXi1pKYB8ZBIG7yHWiTSqli67U+GuEXy5zd4C700sjyNaFKuvR0mZsLU81twuT+XVDo
-	 IOHF3l+4D6aKSB4pL5ODfb2zMR8mfulUx5sd4DM9TH57shIGfRs4wVZo3NBd03emHvUR2
-	 iFbm4usKv4+Om+9kvmmD4uF7556nQQ4b6lgvdlw4glQrYGGhFPJGlzrztNcFdhKjG7yFZ
-	 79EYN+fCZPvSgKqHYToVLoSgS313aziNfgBIl7J97YHi9bO0pgJZtBwU73KknsCFQfw==
+	t=1795211059;
+	b=riZOj5FXF2bN+hrn/gyZNV+T73tqzPiPXaDqFojvQeL7/GsE1oefiR3tk/4DRSXxOaKL
+	 do0V+8ndD6wG4VDTS2esUxtHM4kYFkdV1QT3Ab6jRqxZoCfAU0wRg3uj9wqH76eAVLK4O
+	 MOkOSLPA7KAjBMjxwNHfqRtIhg5xtM5BpDhE1tHKYocLmAK58Ftk0XC3bfBKef8WQjwmo
+	 9hNp2VcFkTRqYIGozt9BV4oqDQqZnbqo4YdUqxqf8asDUShbsbNUDBlPUkGtWknVS5MBN
+	 ZLXo+E/19Fw/cwWVofIfPxEtbq5idtkFams8DL9QfcGQbhAtetsuolpFIXJ/RibXFhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210870;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Debian-User;
-	bh=NZXQEsjOM4B642/ZpzASwtNwupxC2GG162cV9G+p03o=;
-	b=SGGCCJdO9xDGfFW/P1QZ4KEeaHCqOFQt6Ze+gBtTe8yTM366O1oy/V70Lpo8Fn2M8oa+
-	 AVt96UyOEkue2qF0lOCeYBpnEoCXQn/jsb/Ux7HhSY3WWBZqq+/1Os8ZzFgHZRpHx1sHu
-	 fXJDNLbW17sLQ78khitPOxlI3ljGGzoycSUeHO2+DBviyj9QYgt51di8lRhheEONks4HF
-	 YzzuzFRiGxQxOHGHCKASsgETd5g9WjDvl6qoHsRpNcr9pgF59rKfqKxxaT7X15ARBBTe+
-	 joNAV3L3zZ7PLgog/Y/Tj0bE/ROdXrTKhlfm3MuXpFTZS4velw/J9ZniXul2WGQkQSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211059;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=nQPsyAfPITnc8nPJ0x4PphI6WYhqgT5+1sVMxYgDGX8=;
+	b=lXUBjF32gb+2rMJiRA19vlNniAp3vgEhOMdHHWgEfODeERdkqdCCO+/N2PtDOdaOImyX
+	 XHFjG6C63TPNNoEQJsOceoVIeH7lfxmty2hOqAEtf6W/PcaeBbFaCOWsv4/a8Qgxc3bLE
+	 yBF0dQLZHW5oyjD+vWi47pX9g5tmoZFOTolQMs+TMGw2Nj2t0GEnR7E9yX4zyzntaWnb6
+	 fpoznUd//jQJyYe5WTx/Z0p68qoIOHbG51vOmg0rpmU/KMyA4fu2j+IB9XDDqUe9PnqOu
+	 AafLVDoMDY0NrJ0yCobJWZmFZn3P8bxb6epddfgKThKaHI1GcHkR7tuAeFKgKMcbN/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=UP4CVf8Y;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=stellman-greene.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ezVSYIi8;
+	arc=none smtp.remote-ip=209.85.222.171
+Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com [209.85.222.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2DDC606A68D;
-	Fri, 20 Nov 2026 21:41:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2DDC606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59F88606A68E
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:44:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59F88606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=UP4CVf8Y
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-ID:Content-Description;
-	bh=NZXQEsjOM4B642/ZpzASwtNwupxC2GG162cV9G+p03o=; b=UP4CVf8Y6KwCNEDtivb0OtIv+u
-	lRWvCcDUiCJuZR0fZuuKEsrIgNf4c1W2tBuMOS07adsoO0A7PCgSSFocC3+jzVp0nreCLd15BQS0H
-	d/m5iWVJD+c7CRissT5iETIa9R54FPsu/8dCbQBvuoDG3Yfwn0p504fdR9LeXyeeXEB3wKlSPzMGD
-	Ox2ULoYLSB9JJNj5rbUnXnwBMSnw4tmpUYDDREQOsI8LvkPFah5PAiO/NaKlcT/Ak8it0qKYgkASD
-	7JFJiSN9mK84+yaMm37MLOxrlaW2opDddy1gbx/T94CwTS/yBXnciXO2bB0Qy5v0dahlG8yVEop5f
-	kR7Gai9A==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
-	(Exim 4.96)
-	(envelope-from <bage@debian.org>)
-	id 1xUWLp-003AbH-2j;
-	Fri, 20 Nov 2026 21:40:58 +0000
-Message-ID: <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
-Date: Fri, 20 Nov 2026 22:40:55 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ezVSYIi8
+Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-949589c1495so128173785a.3
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:44:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795211058; x=1795815858; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nQPsyAfPITnc8nPJ0x4PphI6WYhqgT5+1sVMxYgDGX8=;
+        b=ezVSYIi8tLByxNajlltBBgLnQ/sRRbAnlFJ4dAKOoRwG6Zl3azd+s/BBDJ89tgcLX+
+         YZXuXZw1nceAJqutY9sZ+iqBiTEMn+TbZbs8J/wQI0vxMkON2aDhIh/WmJk5oU4XT1Wb
+         aoNuJTbC+Ux0/yEsygbQ8ZPvcwK3/u6zLMLnsbE1ZASZdZxPV3OnoNHQUEb+FgpBjVwi
+         E2dShug1ZHZUKOpn4rZcsGw/IJZKSrh5Lqe38L6dyTewujrwo6+/kv/orH4e4PVfj8vn
+         YKx3//a1fw5IPEMldB35X3DSd7H+R+sP4Coj1nXgn4JrgrCjlS7WoXaqrEx19MqhQNhg
+         0mQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795211058; x=1795815858;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nQPsyAfPITnc8nPJ0x4PphI6WYhqgT5+1sVMxYgDGX8=;
+        b=GKBWTAKpPRWXRuwPzpIbp99iYdgYxkk8n4N/X012pX3wBeeLsZeVUfDOs2V4w/9qeF
+         s+xXHbL+R2kQ0B11i6hQanjQmtS9MmF8yERgUMOs599qCauJCSSDPvjYKf62aDIZ/oje
+         lVUvQlVw3FriREaDtONj9Wu8ssTRtrQpzupheaBBXUYt63lDvFncktLhHs5Xgay3gv1R
+         HsNYMBHEB7Zgqgl3Ona9aAEZhj8+MFQApgFfKCKCU+UDZCeYRjoTudwPUiokVqBBtipw
+         ZHHgHha2LX6EGUkTd4eKG6BTC6lfzF50VYYWpfC7WAJveY47l/VYFSycQ0us9n1KCr+h
+         oWUw==
+X-Forwarded-Encrypted: i=1; AL+hErG6KtNL701V5dIp6PXi5U/ftMrXL0IQ2/JWsXQKXb0ryswTsVLsu5tjo8eQo3po/8/J+pWStcY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8qjl0clR2Jjd48/2QFkXPfSLvOOXn/ZdhAzhAXQLZmzEBYo8zs
+	GF336YQ2tA5o7WWuQ7HgubdHqVhKcAnB9Jo32V0fLVqOvWg/Oazhw7ho
+X-Gm-Gg: AYBFou30y4/PfCig7XovKZwAI7hREht95nlx2AjxJ8UIsEpdoNRGFO42MIYVrm3qMgZ
+	LaXnYaeJ7WmDcKtwUIKBH+Bppv2NZ1DYJ+6BtwyEyI8l7wKK7VIpmJlhvk+p7/Kv7y0mfoiXhjW
+	Mf/3yg/A7mSbyK7SWC3O1sO0xshTJNWP7YUvBZoD+qmzOFjZhyN/1+QxZr3F2cO3/e0k3b+xUrK
+	gMZvEjNmjHAj61+del6GFamt6LpD9h2uqz/iFtnzyg7qjBkzxD29Q9rmEarfqOOwygNpYMyl0zu
+	LuoGbGykttZlDTDc8jWDuawAS5uAnYS0S1C7DF3qbfVO+/TacoslHftHNFRMKpC8yi7S1wGOxa9
+	QErEmyYhoRo139kxZDqgDpm4WDqF8QHlz68ZEAi/y0tb2TWprhiuYwegf255IzId5tTsAZ2TfpD
+	ENnjZ6Rjqoi8hfNXcaP1c9X2UmmndgPxsibijJuje1lK+2SaIY+DbqgApl33ElZYVDHn8B4RboG
+	SQqTwzQVhdHgDLhn6k3cZO7ybki4CcMnxTpC1asKe6HfU9PRenc5Q2cmFIqzimnl2CdmkTfCFbi
+	U8CQVvRW0HcnBt2qtiG7wC8wr+HdW4uX2brzf3Q+UvUV3XQWR1XKy5UMKsjTrsIjLs6Nt742ezs
+	2WKzAL7qLeF8DO9PiS0vqjkJRPvTA8WShxFE99Wf4+603n25JaY3BTFKhoNjzLRWy5Uz5xnrybs
+	HX4vwkqZqyXjlo9YnhBIGUACQ1bi0=
+X-Received: by 2002:a05:620a:6c18:b0:949:49f0:3adb with SMTP id af79cd13be357-949ba81a58dmr698065585a.3.1795211058306;
+        Fri, 20 Nov 2026 13:44:18 -0800 (PST)
+Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a4d9:d040:5fad:8738])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949c555faf9sm170267385a.0.2026.11.20.13.44.17
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 13:44:17 -0800 (PST)
+Sender: Andrew Stellman <stellman@gmail.com>
+From: Andrew Stellman <astellman@stellman-greene.com>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-afs@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] rxrpc: Fix RxGK server to reject an expired ticket
+Date: Fri, 20 Nov 2026 16:44:11 -0500
+Message-ID: <20261120214411.44916-1-astellman@stellman-greene.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <179520152436.3135.2656252511958141770@kernel.org>
+References: <20261119184541.26343-1-astellman@stellman-greene.com> <179520152436.3135.2656252511958141770@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,45 +108,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
- MDIO devices
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- Vladimir Oltean <olteanv@gmail.com>
-References: <20261119231319.1256419-1-bage@debian.org>
- <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
-Content-Language: en-US
-From: Bastian Germann <bage@debian.org>
-In-Reply-To: <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Debian-User: bage
+Content-Transfer-Encoding: 8bit
 
-On 11/20/26 01:33, Andrew Lunn wrote:
-> On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
->> The "broken-turn-around" property is documented in mdio.yaml for any
->> MDIO device, but the MDIO core currently parses it only for PHY devices
->> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
->> switches, are registered through of_mdiobus_register_device(), where the
->> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
->> still treat the turn-around/read failure as an error.
->>
->> Parse the property when registering a non-PHY MDIO device and set the
->> corresponding bit in phy_ignore_ta_mask before registering the device.
-> What switch is causing you problems?
+On Fri, 20 Nov 2026 19:05:24 +0000, netdev-bot+sashiko@kernel.org wrote:
+> This check only works when the ticket's expirationtime turns into a
+> positive number of seconds in key->expiry. Two cases get past it.
 
-It is with mv88e6085.
+Both cases are real. I reproduced them under QEMU with v1 applied: a
+ticket with an end time half a second before or after the start of 1970
+gets a connection and a reply, and one with an end time a day before
+1970 gets no abort, so the client times out.
 
-I have just found that Nathan Rossi sent basically the same patch as
-<20210217044443.1246392-1-nathan@nathanrossi.com>.
+v2 compares the ticket's end time with the current time before the key
+is built, as rxkad does. One check covers both cases and a normal
+expiry, and rxrpc_preparse_xdr_yfs_rxgk() is left alone. I'll send it
+as a new thread.
 
-> I do wounder if the call in fwnode_mdiobus_phy_device_register()
-> should be hoisted up into of_mdiobus_register_device, were it would be
-> common for both PHYs and MDIO devices.
->
->         Andrew
+pw-bot: cr
