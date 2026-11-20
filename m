@@ -1,54 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167336;
-	b=UadT1tr5g92WlgeMpEwu1N219pcV9O92+0eC4tse/Fpqh/LPWmUJ0Qkz7GA+bnu+HMXp
-	 VxDIJ0dDj3L44bsvRA4NFA3eWLdzMnXmvO/GWGjNMamB0jbD4ub21KEdPvQY/b83Z2F6y
-	 VawDm3jnehW9JbVV0zvlH0DWn0+/KrdDpDTXPlVPNjushDvOCvfXsi+clN+8iYhFHIFtb
-	 1tnkeOs42r1eeNt/tiAp8AbzlEbCIrqVyZUcPygGDM8Zq3vbwUQtB9A0cdTT0lfi0SnHD
-	 M/OLR+6I5DQ4Ac5FG9mdKF+g5OBtI+nsfLEy3KHAzm0kHDlyAGLJ80d21O409nu4CzQ==
+	t=1795167404;
+	b=Uml/2LwUOj67AXU+Xhg+Dj3wXDSS78obHRgU4cGfNyLuDlx2bGUIhZpMDCOqhYM+DLwR
+	 MgBshhFuUzT8cYaYo0ZimV2INRTyHMgMQc1TomDHC36SJSGDipjZwKq+KhvXf3w1H/oYT
+	 2cpDbveRZfevISRurHqn5+Av0J/1eBVDqsywNVdCeBG4fcz7h9BrenGV81Egvkw45/WFo
+	 tYk1qIKA0zItjEhCh4hLc6JIGLScgXUmclBbD1dsdEFmIeJ9L2R3JhHL8EuslTIs+L1E3
+	 lgXxKRUtp3tw0tFE8HYeFxj3XngLsO6GSYBxdsO2DIH3wMFC8J8V9tzSTPE3zwDpe7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167336;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=43AS4amyalzgXE0K6sJkFXQxyxxUIzihdzn0SjkUBf0=;
-	b=W71GTE0XZ/71oY5i7IomDwu/dz+EivRdaQwSsmbiVurdeMxwNJ15zAUjNdFViz5raVdF
-	 Qph+pi2xFosykL9H8OeYmhXqLuyHPt3BtBWhJ8vfWWhh60BNV3vCHGWQ0chKhhoGwxeEb
-	 Py3FIfl0xBI/O/UupTg1UTXPmVav4u+gsRrYhp4qFZzYAF6nu6sp5suBCGhGE3BcNdiAn
-	 KqztyP5qPl9bQD/FZ99IVvi3mvpSBYxal8/n3YqWTIsiGo8VDh8xBC69ecCsIYDsZwzB4
-	 2wV7akvXjAw3NGk2cWnhKp43AayYFv+8FTGcSXjEF2/IT4MBwmpJmQHW4pfkgqZEqjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167404;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=So91x0Lm6FFXZPsRtztla5NmfBkqi+/5d9nBKO8vGEU=;
+	b=tOGPugvSIJCQWmNW0LebFxaLi2zacaukRT5pt/jvr42uIksv/HRbOm/W/H4dyZGfHZwW
+	 5Ba+hEzbw+/vbIJEApHTuS08RLH/ScxXpGfmmZAnybDNC4HfotML6NyARfVi4ssjYm2h/
+	 /30ROlRofnHbjxWXfCIiM4vuwOqiZzDDbkFuFuySzu664bfcu8jJJETAA/wiD+Kfxiy/H
+	 5xvpPwyaG0pZB+wdPZirH4+pDRQhkavFVKOhRH2r/gd6oiFWgVgeuO427ixzPXXDsM2ds
+	 tTaW86hRLaMwKZ9nGI+6W/VyIYWvhI1+T/6aXlLvPZ1+M6jX/OcD/t4+5hMIRO1nQyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RIDEQ8ct;
-	arc=none smtp.remote-ip=91.218.175.15
-Received: from mta0.migadu.com (out-15.mta0.migadu.com [91.218.175.15])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=xRRxn6xG;
+	arc=none smtp.remote-ip=195.10.208.62
+Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB43A606A325
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:35:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB43A606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A722606A320;
+	Fri, 20 Nov 2026 09:36:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A722606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RIDEQ8ct
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ZflrbahZsofPbCrWMnIKEw5KReETDYjuOB4jROTcdaE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795167334; v=1; x=1795772134;
- b=RIDEQ8ctHIrwE8ojKHe9U6bAca4iJ3jXJlZPLc68RGyIwL/hGRITNsbW6P4IpVUWfleDg653
- t117hqcZ92+p7b8Ouni3OvxGt+w3eUwFPNHNiSvkm7EXoluQAEjnDHukXonkHgv2BeV4NkHq+L1
- Et0uYfgnoU1JwwxUPAQ3dPcs=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 49724b56a0ec4ac1;
-	Fri, 20 Nov 2026 09:35:28 +0000
-X-Mizu-Trace-ID: 49724b56a0ec4ac1
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <30b4eece-f79c-4a8a-971b-e5566b96d878@linux.dev>
-Date: Fri, 20 Nov 2026 10:35:27 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=xRRxn6xG
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jW9Fy2BqTzKmw4;
+	Fri, 20 Nov 2026 10:36:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795167398;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=So91x0Lm6FFXZPsRtztla5NmfBkqi+/5d9nBKO8vGEU=;
+	b=xRRxn6xGRUL2B8UjXkGQsG7XtEnI4Dc9js/MmqHn3whrWXsEo926NZXI+0dKv6xoPtm/Hf
+	F3Zl4qI0v3cUOc8xQeBoax6MLx5+VdD0JnRtipKmXB4A4co17ZULc+k51a74uIbRzomZ09
+	Nu/i4xI7srr2DA9d+4ZAALDqOrm2RCEI2n8cawxCZGk1JeZ2QS4h/SEs3hGh5lWsnrUUkf
+	IyA5OLZIbpSuf5gRK9P+Ir5FN1DJYh5vEB2a4S5RzUc53Wdq/FCK0kyRLBQyWWfE57a+/A
+	d5HQxyKsdR0vMGgDnGE1p4cPYk9UskV4ognXrrkeVKaKU33viYxHdsUytGOgLg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Florian Westphal <fw@strlen.de>,
+	Xia Yan <yanxia@cmss.chinamobile.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Antonio Quartulli <antonio@mandelbit.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v4 1/5] ipv6: stamp the default route node with a fresh serial on link failure
+Date: Fri, 20 Nov 2026 10:36:16 +0100
+Message-ID: <79fea581787dd175005d81090d246e982a07cc51.1795166508.git.ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795166508.git.ralf@mandelbit.com>
+References: <cover.1795166508.git.ralf@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,130 +87,87 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5 18/24] net: dsa: rzn1-a5psw: Get pattern
- matcher register offsets from OF data
-To: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
- Ralph Siemsen <ralph.siemsen@linaro.org>, linux-renesas-soc@vger.kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- Prabhakar <prabhakar.csengg+renesas@gmail.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-19-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Language: en-US
-From: Clement Leger <clement.leger@linux.dev>
-In-Reply-To: <20261120002549.1908299-19-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jW9Fy2BqTzKmw4
 
+ip6_link_failure invalidates the cached dsts of an RTF_DEFAULT route by
+writing -1 into the node's fn_sernum. Once the node already holds -1,
+another link failure leaves the serial unchanged, so dsts cached with
+that cookie can survive subsequent failures.
 
+The assignment also leaves net->ipv6.fib6_sernum unchanged, making the
+invalidation invisible to lookups watching the namespace generation.
 
-On 11/20/26 01:25, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> The RX pattern matcher registers are located at different offsets on
-> RZ/N1 and RZ/T2H/RZ/N2H. While RZ/N1 uses 0x3e80 for RXMATCH_CONFIG
-> and 0x3eb0 for PATTERN_CTRL, RZ/T2H and RZ/N2H use 0x3f00 and 0x3f40,
-> respectively.
-> 
-> Move the base offsets of both register arrays into struct a5psw_of_data
-> and use the correct values for each SoC.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> v4->v5:
-> - New patch
-> ---
->   drivers/net/dsa/rzn1_a5psw.c | 10 ++++++++--
->   drivers/net/dsa/rzn1_a5psw.h |  8 ++++++--
->   2 files changed, 14 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-> index 9475e53752ce..6f3f902f9f4c 100644
-> --- a/drivers/net/dsa/rzn1_a5psw.c
-> +++ b/drivers/net/dsa/rzn1_a5psw.c
-> @@ -112,7 +112,9 @@ static void a5psw_port_pattern_set(struct a5psw *a5psw, int port, int pattern,
->   	if (enable)
->   		rx_match |= A5PSW_RXMATCH_CONFIG_PATTERN(pattern);
->   
-> -	a5psw_reg_rmw(a5psw, A5PSW_RXMATCH_CONFIG(port),
-> +	a5psw_reg_rmw(a5psw,
-> +		      A5PSW_RXMATCH_CONFIG(a5psw->of_data->rxmatch_config_base,
-> +					   port),
->   		      A5PSW_RXMATCH_CONFIG_PATTERN(pattern), rx_match);
->   }
->   
-> @@ -953,7 +955,9 @@ static int a5psw_setup(struct dsa_switch *ds)
->   	a5psw_reg_writel(a5psw, A5PSW_MGMT_CFG, reg);
->   
->   	/* Set pattern 0 to forward all frame to mgmt port */
-> -	a5psw_reg_writel(a5psw, A5PSW_PATTERN_CTRL(A5PSW_PATTERN_MGMTFWD),
-> +	a5psw_reg_writel(a5psw,
-> +			 A5PSW_PATTERN_CTRL(a5psw->of_data->pattern_ctrl_base,
-> +					    A5PSW_PATTERN_MGMTFWD),
->   			 A5PSW_PATTERN_CTRL_MGMTFWD);
->   
->   	/* Enable port tagging */
-> @@ -1348,6 +1352,8 @@ static const struct a5psw_of_data rzn1_of_data = {
->   	.npcs = 4,
->   	.cpu_port = 4,
->   	.tag_proto = DSA_TAG_PROTO_RZN1_A5PSW,
-> +	.rxmatch_config_base = 0x3e80,
-> +	.pattern_ctrl_base = 0x3eb0,
->   };
->   
->   static const struct of_device_id a5psw_of_mtable[] = {
-> diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
-> index 942931cbc402..5c5f5ec25774 100644
-> --- a/drivers/net/dsa/rzn1_a5psw.h
-> +++ b/drivers/net/dsa/rzn1_a5psw.h
-> @@ -74,10 +74,10 @@
->   #define A5PSW_VLAN_RES_VLANID		GENMASK(16, 5)
->   #define A5PSW_VLAN_RES_PORTMASK		GENMASK(4, 0)
->   
-> -#define A5PSW_RXMATCH_CONFIG(port)	(0x3e80 + 4 * (port))
-> +#define A5PSW_RXMATCH_CONFIG(base, port)	((base) + 4 * (port))
->   #define A5PSW_RXMATCH_CONFIG_PATTERN(p)	BIT(p)
->   
-> -#define A5PSW_PATTERN_CTRL(p)		(0x3eb0 + 4  * (p))
-> +#define A5PSW_PATTERN_CTRL(base, p)	((base) + 4 * (p))
->   #define A5PSW_PATTERN_CTRL_MGMTFWD	BIT(1)
->   
->   #define A5PSW_LK_CTRL		0x400
-> @@ -239,6 +239,8 @@ union lk_data {
->    * @tag_proto: DSA tag protocol used by the switch
->    * @management_port_fixed_frame_len: Fixed frame length for the management
->    *   port to account for the HW issue.
-> + * @rxmatch_config_base: Offset of the RXMATCH_CONFIG register of port 0
-> + * @pattern_ctrl_base: Offset of the PATTERN_CTRL register of pattern 0
->    */
->   struct a5psw_of_data {
->   	unsigned int nports;
-> @@ -246,6 +248,8 @@ struct a5psw_of_data {
->   	unsigned int cpu_port;
->   	enum dsa_tag_protocol tag_proto;
->   	unsigned int management_port_fixed_frame_len;
-> +	u16 rxmatch_config_base;
-> +	u16 pattern_ctrl_base;
->   };
->   
->   /**
+Use fib6_update_sernum under tb6_lock to allocate and stamp a fresh
+serial. This makes repeated invalidations distinguishable and allows the
+lookup-cookie generation checks introduced later in this series to
+detect them.
 
-Reviewed-by: Clément Léger <clement.leger@linux.dev>
+Advancing the namespace generation also invalidates unrelated dsts using
+nexthop objects, which are validated against that generation. This
+happens once per ip6_link_failure call, so once per queued skb when the
+neighbour of the default router fails. These are error paths and add no
+cost to the fast path.
 
-Thanks,
+Found while reviewing the IPv6 routing code to address the dst-cache
+race.
 
-Clément
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+---
+Changes since v3 https://lore.kernel.org/netdev/5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com/
+- Note that the generation advances once per ip6_link_failure call.
+  (Sashiko)
+- Widen the rt6_exception_net comment. (Sashiko)
+
+Changes since v2 https://lore.kernel.org/all/143461e2c94a20060ff4c7d6e5eb46c47ac46aa0.1794384146.git.ralf@mandelbit.com/
+- Add a Fixes tag referencing the initial git import. (Sashiko)
+- Clarify that the nexthop-object invalidation is a harmless side
+  effect, rather than a deficiency being fixed. (Sashiko)
+
+No changes since v1 https://lore.kernel.org/netdev/5b039a5a24808f2678eedd283c29f8dae514ef5e.1793806941.git.ralf@mandelbit.com/
+
+ net/ipv6/route.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 4a4c5ace63c5..bbe6d67bb696 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -1531,9 +1531,11 @@ static struct rt6_info *rt6_make_pcpu_route(struct net *net,
+  */
+ static DEFINE_SPINLOCK(rt6_exception_lock);
+ 
+-/* Exceptions are accounted to the netns their dst was allocated in.
+- * Unlike dev_net(dst->dev), it does not change when the device moves to
+- * another netns or when dst_dev_put() points the dst to blackhole_netdev.
++/* Return the netns the dst was allocated in, which owns the fib6 table of
++ * its route. Exceptions are accounted to it, and ip6_link_failure advances
++ * its generation. Unlike dev_net(dst->dev), it does not change when the
++ * device moves to another netns or when dst_dev_put() points the dst to
++ * blackhole_netdev.
+  */
+ static struct net *rt6_exception_net(const struct rt6_info *rt)
+ {
+@@ -2873,13 +2875,13 @@ static void ip6_link_failure(struct sk_buff *skb)
+ 			rt6_remove_exception_rt(rt);
+ 		} else {
+ 			struct fib6_info *from;
+-			struct fib6_node *fn;
+ 
+ 			from = rcu_dereference(rt->from);
+-			if (from) {
+-				fn = rcu_dereference(from->fib6_node);
+-				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
+-					WRITE_ONCE(fn->fn_sernum, -1);
++			if (from && from->fib6_table &&
++			    (rt->rt6i_flags & RTF_DEFAULT)) {
++				spin_lock_bh(&from->fib6_table->tb6_lock);
++				fib6_update_sernum(rt6_exception_net(rt), from);
++				spin_unlock_bh(&from->fib6_table->tb6_lock);
+ 			}
+ 		}
+ 		rcu_read_unlock();
+-- 
+2.56.0
 
