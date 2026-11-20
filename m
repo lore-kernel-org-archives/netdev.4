@@ -1,96 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795161310;
-	b=H3vC+pU9aPZAESnW98YwuM4npOClULs6FxHCHqK20joiMcAUvN8ZkjNC5x50A3BNV76+
-	 78j2BW4j6BnADcFUZvKLgXbJhDmv0G4R1sjF9qyvzvr000RIvc9GuJOgfV96FUJnYdJkR
-	 PSybMTLGoBlo4nkyHv0Gi+kYPbWx2cFJ98FvG6Sgb+CVJ4RBQMyjHavlbn7h0gKDe+FAO
-	 pkcWVSIlEnSqGXfnKarR2quGKdvZENrKlSZHggFZw6TCgk/1Ns2gf38b/NJsmyDp8sa1q
-	 a3u6+Ihc30/Ew/ffh1wT4RNflYzJsI7unvti5r6PhBSzoyF6wjveJJM4tMTfJXPbBDg==
+	t=1795161394;
+	b=Yw9hitqyXePX1jV1OaTyl8gJOv8wA+YV4Q1kCmzD5AQd3tghfrqh65N6+0APWNyTHoyd
+	 qimwHj46kOhTwAZkH9hCCFhkZ+yOjrfTLvBz3eOiwnYRK7VzE+7NcGXp4mDWnsN8bdFpC
+	 zXMPm9mRQ9OtEvEzqt1OEDG2ig+KIU7hj5Bwzds3BWS8zT+bIUkNebEMcBPtYCCn+oNPp
+	 vNxz01TE03H+cVfW57kBpEEs6ig8pPsWRO6p2zYChwcovKWOWSzVW7evM96LDpnQJ4/Gi
+	 Z+l1DucUAbI+KfoGSSjS4rOwF46Lf1ZfhqFOn5TMh4oR131sm1YKG7Zjbj2gVpxmYeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161310;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=++UQ42/+mh10cd5bdbFo3XyNe3E6KwnEO9Zqkc0vqdY=;
-	b=QRWEDM+ZW3H3Xm+Hf3aS+LuMfIeqFk6lzZuDD8VH+Eti/YjTIe4M87GO+65i/ZUsxvQc
-	 0W6REQlpOi3N57DQAlhQ+DitHqxc7PpK8KhtQEIrELgEBgPWIjUM3j0VYdLef+oOLlYth
-	 oQSa2t/CVBlVznBXepxNESJEd02/rewJ4FN8Cl43AueDVfKFEhoy4f0Gcb8kPc7oXZfLM
-	 Dmm+r7D+aYj+D5wrj5AbTgcfbUxOPycNrlX9/9wjQQWuXuAdqA3rA9qYRR5pqdGNhc9lp
-	 JbCMhYu2at7oz+6OhDW6A5rJ496jAwFQ12tUXDKjIBuz45T6rWeVk3kbG5NgxwjHjng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161394;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=gAl2ZVcUXTJM4d+7Xp/kQi7sWyZ9rO0zFNBkXMsjWX0=;
+	b=mNAfCXQBA5jo9TgDU0qwhnhk0kFNUuIeCtfRm7MS059eFCWE3f6wePrsEcpGf4d69Gc3
+	 Wk+Dqx2XK7/PXnfKjUo9e/vyz+CosjNde72f2JFLKZhIMLUv47OqWOxO+fc9VzrM8qoSn
+	 Wfe/7noxQsWOaDf9BpP7SnX+aVd41wOqa4kPMbQ1qReqKylffq/SIG4gyN3vXXmiD9MdG
+	 D1DM7PkTCbdK9cyUhH9ljOF9M03tddp1DU5MH9yoJJiAhhE5fNvOrU72ao2uS1HcyQpOU
+	 1NRdrpVmKPWA931Cpy5x1QSarMjor9GqSpy05fHACIC3fVTQEjaJFk/fEy9BBZwjtTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wUBEbIS8;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=YExmTbxo;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17755606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:55:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17755606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA07B606A320;
+	Fri, 20 Nov 2026 07:56:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA07B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wUBEbIS8
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f04b676219so1086765ad.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:55:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795161309; x=1795766109; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=++UQ42/+mh10cd5bdbFo3XyNe3E6KwnEO9Zqkc0vqdY=;
-        b=wUBEbIS84kpxvuTsx6OT5CuUPO5Bnsqu25pXTlbgK64jb5OSL6wcz/Y5omuHE2XZIp
-         9HSbRO59tt5I5w0TiXv1IMKb5OVls+234e8AS2rnCqEej2VbKf3VAH+97Xe0xs5S7kHP
-         F/vT3DWfRxP0Xv1wrO3aYuPCb851D3aYNRrUoa143jBjQn1ujn+icu0pG2HtkEgGNlyp
-         KzgkwzO28kPSn74BOudXBjQUdQazK/YRndN2ItZdE0Njj8uRjSgGGzJS7ENayCy+Mfzg
-         SQrexaIpPtsZ38CvRkPEv/9S8I+aaDyaTPT9P0SLse1Oj5Mdval4TuDPSvjR2NsOTMwm
-         5avw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795161309; x=1795766109;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=++UQ42/+mh10cd5bdbFo3XyNe3E6KwnEO9Zqkc0vqdY=;
-        b=qIDf4AoI/XXPAD4442GjQTozm10IfmMOEPhgz50WIHP2Be6xfoYTLwV47MwryvH0YQ
-         rPc9clIbl1jUC3idNVQl4ZcscCnRex4r3ECJukmqd7/HmGTedOC1dqHJ/1WuiQabUfX0
-         xa0rZxfPQnzbHM51kVOpvGlidJSEU0263mgx/WS2PvwdvlhFXpXpUAM9iwQxL51QaI24
-         00ZrXDJPMOGIm1vF3zr8phrqstF6pngETfBS0+kbZYohJlfRjvnHEPB+By8aqQSZj/q9
-         68Pu7CgDTtfJfjNUTprx86n7dLQbqpCMdPRRMyKxbhOb4mGDGhIp8HVuL6eD530VPGLV
-         l7rQ==
-X-Gm-Message-State: APuU4Z+qtnFvc6jyQJWcNrN2Hws13YvW+1kldTp4Ilf8zGwxg+Fj/j+9
-	1GZ73jUbYyPeSexIwttermvGmX13HmflBWEHrrP3RS0ATZ5khZpY1Bc9QaCU8RrswTm9dRWd
-X-Gm-Gg: AZFdTZfW7hnWoYOxo4R9dAaOFmiaZ3+1Y7J7W/PvW0rncTVn4O5pyWpJU5IWUZCWiiB
-	nbRuX6TGZZ8l6MchsgH179oXBCzFfBX3o4Tc230NcB36hQdORYx6zU1g6fQlCxSHmJ4H7KTMEXk
-	5cdncLpMai5ls1SplPlxiRC84bZMmAF0GcMCLqXtziAfkE3TP6BlWbF4ZRWRGWyoICybtJtzm2b
-	TvFLigXHmelULDcc9JdlgByDEVVb6k248Pk/ZWYfJ75dC57wRLcHPvXbzqA/3FBuWWNXLpdPlua
-	9M5JVxm0vNHPMsirYLsrv3S808u2x1f3NfxMzeAdNjzQ6sNczzLEl9lsdYGYdSUAlximkmPIlga
-	6nOumUqVRhY+esQU+pv5H1s5BV3TjfBL9yryhQqRHx4Vg0Ypsx5OR3k8sFN8MolPG+eNttwImgK
-	NLob0ZQhYpbLOJEdG8af6BA7jGlFV3RzdtGWt6Z/AT7PjqRQWJ8PqPrr2EIseGKxdTkl22QKj2d
-	gZYE/4r+ByI8DDlGHlO6j3tGnMgF5Qc9FtQOM+eMKxParnSjp/ls8TSi1IqP3EknmlrTL5+6pvM
-	hTLp6Pvaww3+HuDlDU4jNrlmLQlr1IC3SquR96+IaQzWx1I=
-X-Received: by 2002:a17:903:2b0f:b0:2ef:d9b8:463 with SMTP id d9443c01a7336-2f03f186250mr24454025ad.35.1795161309252;
-        Thu, 19 Nov 2026 23:55:09 -0800 (PST)
-Received: from revrse.tailec2828.ts.net ([166.111.83.77])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2f03ee84871sm11010785ad.8.2026.11.19.23.55.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 23:55:08 -0800 (PST)
-From: Lin Lei <llleigoing@gmail.com>
-To: netdev@vger.kernel.org,
-	mptcp@lists.linux.dev
-Cc: matttbe@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	willemb@google.com,
-	horms@kernel.org
-Subject: [PATCH net v2] mptcp: exclude MSG_PEEK from receive buffer autotuning
-Date: Fri, 20 Nov 2026 07:54:59 +0000
-Message-ID: <20261120075459.2862977-1-llleigoing@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=YExmTbxo
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id DB895206E9;
+	Fri, 20 Nov 2026 08:56:30 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id zA6t1mgFjdmQ; Fri, 20 Nov 2026 08:56:30 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 1CE272068C;
+	Fri, 20 Nov 2026 08:56:30 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 1CE272068C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795161390;
+	bh=gAl2ZVcUXTJM4d+7Xp/kQi7sWyZ9rO0zFNBkXMsjWX0=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=YExmTbxoI6nYtIM8/QLDjhOYs26udnaL7I7uqi4vL1gEQZDn3Mx2FtbXG2xxIRNob
+	 Fg9tUFz/jQ8/e9E4ELFmrOSNBaq9ZsxFPtFC2VF0YjSMiVtjoLpsBW4eQGawRnlSZW
+	 PdixfvJfCJDRhMWkWZaLmbYeFp09nJ83We1ZFxkFHFJUDZbIPtppKYQ8LvbRLB6Ztl
+	 rUVAZ5tDh8bUGdma5mmtUdBdmHcgdTquuhFVGAcV5UYFN+FNNvlgezTdRXnJspxVAG
+	 S9CpXPandEuK+fVDaRWaQxIjnIP2u43xXjxIpEx2HiV7uKIU0EJ7VRDF8RhUbRt3eG
+	 NqnqAC/Kvbd+g==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
+ 2026 08:56:28 +0100
+Received: (nullmailer pid 1740373 invoked by uid 1000);
+	Fri, 20 Nov 2026 07:56:28 -0000
+Date: Fri, 20 Nov 2026 08:56:28 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Rustam Mustafin <rmustafin@cloudlinux.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH ipsec] xfrm6: gate the local error on the frame's own
+ socket
+Message-ID: <av_9LIb7im4b-HcG@gauss4>
+References: <20261114125552.1319352-1-rmustafin@cloudlinux.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,56 +83,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261114125552.1319352-1-rmustafin@cloudlinux.com>
+X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-__mptcp_recvmsg_mskq() passes bytes copied by MSG_PEEK to
-mptcp_rcv_space_adjust(), although those bytes remain in the receive
-queue. Repeated peeks count the same data as new application
-consumption and can inflate the receive-memory budget. Subtracting the
-unread queue at a measurement boundary cannot undo that repeated count.
-
-The receive path originally skipped this adjustment for MSG_PEEK.
-Commit 581302298524 ("mptcp: error out earlier on disconnect") moved
-the adjustment calls without preserving that check.
-
-Only adjust receive space for non-peeking reads. Keep the returned
-byte count unchanged.
-
-A loopback test leaves a fixed 32 KiB queue unread and peeks 4096 times.
-Before this change, sk_rcvbuf grows to the configured 8 MiB limit.
-Afterwards, both the budget and the queue remain unchanged, and a
-subsequent consuming read returns the original data intact.
-
-Fixes: 581302298524 ("mptcp: error out earlier on disconnect")
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
-Signed-off-by: Lin Lei <llleigoing@gmail.com>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 ---
-Changes in v2:
-- Send this fix separately from the other patches.
-- Update the author and sign-off and add the Reviewed-by tags.
+Author: Rustam Mustafin <rmustafin@cloudlinux.com>
 
-v1: https://lore.kernel.org/all/20261117052200.1507847-4-llleigoing@outlook.com/
+xfrm6: gate the local error on the frame's own socket
 
- net/mptcp/protocol.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+This commit changes __xfrm6_output() to check skb_to_full_sk(skb) instead
+of the sk argument before calling xfrm_local_error() on an oversized packet.
 
-diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
-index b375da1f17fed..ca0ebcf11e02c 100644
---- a/net/mptcp/protocol.c
-+++ b/net/mptcp/protocol.c
-@@ -2216,7 +2216,8 @@ static int __mptcp_recvmsg_mskq(struct sock *sk, struct msghdr *msg,
- 			break;
- 	}
- 
--	mptcp_rcv_space_adjust(msk, copied);
-+	if (!(flags & MSG_PEEK))
-+		mptcp_rcv_space_adjust(msk, copied);
- 	return copied;
- }
- 
+> diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
+> index 44b221a09a0c8..54fcf4b430915 100644
+> --- a/net/ipv6/xfrm6_output.c
+> +++ b/net/ipv6/xfrm6_output.c
+> @@ -95,7 +95,10 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+>  		skb->ignore_df = 1;
+>  		goto skip_frag;
+> -	} else if (!skb->ignore_df && toobig && sk) {
+> +	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
+> +		/* xfrm_local_error() reports to skb->sk; a forwarded frame
+> +		 * sent through a UDP tunnel has none, sk is the tunnel's.
+> +		 */
+>  		xfrm_local_error(skb, mtu);
+>  		kfree_skb(skb);
+>  		return -EMSGSIZE;
 
-base-commit: 4d67cf2fd2352f130c42494a933ba9158b925c65
--- 
-2.43.0
+Should the earlier xfrm6_local_dontfrag(sk) check in __xfrm6_output() also
+use skb_to_full_sk(skb), as xfrm6_tunnel_check_size() does?
 
+net/ipv6/xfrm6_output.c:__xfrm6_output() {
+    ...
+	if (toobig && xfrm6_local_dontfrag(sk)) {
+		xfrm6_local_rxpmtu(skb, mtu);
+		kfree_skb(skb);
+		return -EMSGSIZE;
+	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+		skb->ignore_df = 1;
+		goto skip_frag;
+	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
+    ...
+}
+
+When a caller passes sk == NULL while skb->sk is a local UDPv6 or RAWv6
+socket with IPV6_DONTFRAG set, such as ip6_tnl_xmit() ->
+ip6tunnel_xmit(NULL, skb, dev, 0) where skb_scrub_packet() clears
+skb->ignore_df, xfrm6_local_dontfrag(sk) evaluates to false on NULL and
+this change routes the packet into xfrm_local_error() instead of
+xfrm6_local_rxpmtu() (or into ip6_fragment() via
+ipvlan_process_v6_outbound() -> ip6_local_out(dev_net(dev), NULL, skb) when
+skb->ignore_df remains 1).
+
+Conversely, if a forwarded frame (skb->sk == NULL) is sent through
+udp_tunnel6_xmit_skb() on a tunnel socket with IPV6_DONTFRAG set,
+xfrm6_local_dontfrag(sk) returns true, xfrm6_local_rxpmtu() does nothing
+because skb_to_full_sk(skb) is NULL, and the frame is dropped without
+reaching ip6_fragment() to send an ICMPv6 Packet Too Big.
+
+In addition, callers such as vrf_process_v6_outbound() pass raw skb->sk as
+sk to dst_output(), so if skb->sk is a TCP_NEW_SYN_RECV or TCP_TIME_WAIT
+mini-socket, xfrm6_local_dontfrag(sk) reads sk->sk_protocol and
+inet_sk(sk)->inet_flags out-of-bounds past struct tcp6_request_sock or
+struct tcp6_timewait_sock.
