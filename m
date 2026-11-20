@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134359;
-	b=MlMA5jVZXd/pDbPFQkcTW7y0YFGMQnHzZNJ0pkZ2ShPiVZrAKxGVJy3ng30moPR4eXqU
-	 HSXa9JeAt2QhJRs4/hLDKc9MZJdGGBdR+tf4Am3DvjWAsx7AwkPTd/KkauF2q6lSaFOeY
-	 LqMJyLrmd28Eg9AjLrbGA5ADFHsfPchyRXTjVsxow+zDjLX+kqWALQhsZx/5suJJgyYxQ
-	 2csaMwKgkRLcABJiS9wQlhjhFL/UUAtFNiaqRso2hLA1LRc2WJC9tixBtRhudcL6a9y5W
-	 JoscHbr8Eae8kdgkNopAIx+yNKbmSYNBffU+/B1C3Bs8DKauavSC4HX8nr8gFpLBifg==
+	t=1795134360;
+	b=0YbsLuNuIBab983ySik7TuzFCEMwUi6MpA6qr19TyDn96xILQKRq3Nsi2putJ45hI8cT
+	 1G/2fjCbCAt2nsPa+9sB6aiqF+0a74Rz5KLMMfz/OxTkxa3p0Thggdh4GHkz+icvl2hWX
+	 lnEUUL9OtTWumoHLg8+jszN1qc6nHw0Z6curEir4+kygUWA3rAPW3jLI2w++Wqo1AQWmH
+	 0cvnfFQPkpXiz4Whq7oD1aKJa6RbrEoqKXKoC+wrRY27dappQ4G57NL6DALaD4//qOJT8
+	 D0Vs/udLqnkSxAe71YSVVYVujDgPUD0yHZqWAXhImzB/Je1SbndoeiGoEdpJ/TCuxyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134359;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134360;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=xaopBpwoWF+RnZA2cd1duCoPdrlWpidx5tjByE/+bhY=;
-	b=moNkcCx+MKUskP6Ixo3QHCLTneSkI2IDdLnEWWGzB3bQjoT41TFQL2U8YQ3G5sSMtlIe
-	 3E9Eh3gmiAV3bP9D30Pv3S9nSzwU+Frr+MtwGwNrMjIWkcTn0MumMQVCy8o57ZPj3CQJF
-	 SVtVNzvF9cp69Ig1RXl6WTkm0uX5eCmOo+jDViItw7aH6hY9n4d9XVx6Le5vgCeG6rwHz
-	 k3L/YcVz6k8cPJAmfMteU2UvJrYm7BuT2f4Fu5ALrI+9DtvkmfV/ynsxXieC1DpvDoZak
-	 GAQr8oDcIl3g2oZGjfgnmONQ46NxM6tck6Q813HABmEpet1/900zViTtpXiFMD7A7vA==
+	bh=bhbKHe/N0fySKrFN6ia55guV8HN6/nTA4LCSOFT6YVg=;
+	b=hHlEiWvlSXRLXJEXIrssCfRgo6aLZJ4JFXkFrumjUQsBILJ/6y3mwP3qtCEIVQc/YCu3
+	 6hd1nMrvABURemVkwoQLqRzfE8KxXj4p8DDCRMWsU91GKmsELLt1Il3u7HSDpMr33DfyX
+	 R8aJAffOTAwOc0DDsTyJI3r4sj0MjjPdQMAe3tZCW1s+w0XPUbAWs8vvsKOU6c73HSLsf
+	 vBU3StLE6tyPsM0TtkTpxhTaAeRVdlao/NgYnNlQh+tu36qJ0QtBiDEoMqFyIZ4h2vSK3
+	 EbfTXYRQCE0KdT+xQ9fnwdX7+v0xw9Sdth9Ogqe5gOnQzoecyf8WxpkUal6o1wB7RsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y+68JXiw;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sCvk3CNl;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4DFE60A261E
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:25:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4DFE60A261E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8FDD60A2620
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:25:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8FDD60A2620
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y+68JXiw
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-497614c95f0so210867f8f.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:25:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sCvk3CNl
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso2379905e9.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:25:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795134357; x=1795739157; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795134358; x=1795739158; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xaopBpwoWF+RnZA2cd1duCoPdrlWpidx5tjByE/+bhY=;
-        b=Y+68JXiwd/j08nP+pIDYDnrw+BUax68CSMjbEUagvJEJ1zGW2O7NTGBVo22nVZVbcd
-         kjPzUA+KXrlyPpF0QX0Kd4xaVh/It/jnKEcSbZ5yP7HFEwEPf1io5L7Piply6x5s4TEn
-         0AEFaNip/3lk3KPAkrxqE4U5kju9s3r/QvZ/ViR8/KM6Zx5IapY9LGd4bjCC5AMEgVpB
-         TaJyZNVj1RrHswqWcyaPCyYCqDOz8UxjHM3rMAC85EHFmtKsaN2pOS2BLUmXPMK/7Km7
-         1bLbV8WaxLIl1E0p5vaLuqA7GItq1UWIYfiZQcsbRSgP3fIdi3yPNl1paaDacZqJjGgk
-         0LFA==
+        bh=bhbKHe/N0fySKrFN6ia55guV8HN6/nTA4LCSOFT6YVg=;
+        b=sCvk3CNlCaauGT0hbbzIMlnQbz+vkZUbNf4XP+JktkcRg37kmLqstmZzaWor9gHStR
+         qjkXJ1+rCAFygoKR1LgrlRWb3q4eVHXRKVrs5hbPCDqfmz4OIyPJ6ysdWE4mp5rN5Uzx
+         ZDBtAoHquxFB3ca+2w9oWvU67/JyVgL6gGkUsND69UZCj4m2HAjeuGSN5lJVePHMAe26
+         UY4u7r3k2yaw6ULxwQYP5GgmEEIHAEt/Q5XGq1uHwc6vLvJGEt3a3XyhfpVwhgPjOhWN
+         vUffZMCxnLsCSLonlg+2rBf75P0bXtXsGtUhSB+WKIZyt7vfdJhi7nqli2L4glXrypzA
+         XetQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134357; x=1795739157;
+        d=1e100.net; s=20260707; t=1795134358; x=1795739158;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xaopBpwoWF+RnZA2cd1duCoPdrlWpidx5tjByE/+bhY=;
-        b=s1HZPZTfiW6HtVPcyGYC0Q/Vc+Jq6j4+3EPYLtx8PWhQBQcYN1as3EvCdcUjAr2dj2
-         bMyKgIOP9ux+w8Y5qXk+R889k06WNMZLxpuCT9rOVtIpgtg4ZVwaAXc5gw2F1dK7AuRm
-         8/fX9ndk5zM9ajzbKTQEAzOabYTy5rrjIs02JyC5WwVfsVMvN2rcIFOOppenRvQEKxj0
-         +XhmWbyALMndvj3fpP91fPJSPbbgWdm5UVoDBoPv5Jhsz5yS+wK7zdQhGJOn8u2KYXt/
-         9fbUxhE3D9gXXS7azNprAlKI93ZMVSPCxk8PzMW0c70sm5C6hinEhoYEVej+4wpfVdcl
-         8qsw==
-X-Forwarded-Encrypted: i=1; AL+hErFulWw9RlEIz5QLa/swSLS/dI8d7ETyHIHm1UfyXEWzBFRcHorO/jkCV/nWtUuforPeqLk/jFQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OP8dLOM62RAPxyts86/XkcGWGpMplhrSN1qd8MzqA4xICqegl
-	gCN83/IE8+bn3T6eNe/xZ+RFriE8vaJyJMKX4vRQrCXWhXP/xOI2ewKi
-X-Gm-Gg: AZFdTZedMf4GkZUvU4PX/YoN2mBhYqswnstyyo+tK6uHBjEdKB1ukPGchE9eQswhulu
-	lmGDxxL9ENKZf7OM5p1tDQoiOvVm/OjJgAGCRIF+8g0GCZ9xmOnr2Lh9cIbaYlIyrIv0RD2x9X5
-	cx8uaH8tSSHlK8BROV5oKKia5lLzpNovTPxKKGy1Dy2HT4NFFI9rvKk5r2kK/sQ4kkcdo5acsl8
-	LOOmBHuEjAs0SWxhtDIDGrQv/JnY+C3ZJd5DGgSV5mebAB+7yXOXGYlHjwg3hmFx/g5hzYtReMZ
-	eM0B93X79FeI0J5yzMay3D2qAY82rFgfcbQO3B9PCOb5WDxphEVlFFdSyE75CcMYshGsIc28rnU
-	/O1Hs2bTnPAvCVCsCfFolI4xrxA8z5ux4qzXp+yTNt5o7bAGtZJwMPNpqC7b60iNONPr2Ip0RYn
-	KWZ21x4fyBz1vUBdZj4LW2OoS/BLx3Jt/2DaAmx3kYIg6E8muv/GmqeeTRdORU78YEcGwWC/dQj
-	ZpSLHV35gdZISlBFEKVVyuK9cCAeACx3NrG2/whKOdZBWh1ovw0/AS4Ily8ls8BxDBWLsmt85yI
-	nzyzRPrCKZTWkEey+mm1oLORukS62zbqKVr4xRcU7Y0MhU3Y7cxFRhMEiBCYnnqlk/yGErgxDbm
-	C3tQWDaKwUCj6yZ+SJweAicxHHjDUPiALn3WJUGjlfTcwhei7usc3LlC+VeSCe04vpnqTAeIr
-X-Received: by 2002:a05:6000:4705:b0:48d:f851:ee5f with SMTP id ffacd0b85a97d-4abb225e5f9mr2180361f8f.24.1795134357345;
-        Thu, 19 Nov 2026 16:25:57 -0800 (PST)
+        bh=bhbKHe/N0fySKrFN6ia55guV8HN6/nTA4LCSOFT6YVg=;
+        b=onAVliL7nA9+y0je4IAr52hQxCuFhUQuAv0tYjRRehSVa2JE4vJqnNcXYz0ywQSCeS
+         ltQXqvyp6Qv0u9FHlnIwA3CxBgPeUedWIgzQvKK2DCw71T0izcYbjkl9mQqXQxcqotIq
+         kP0H6gGC2HN3i9bV1ryOVkHqBzX08XIhS9TralJu1X7RJtiHDrNWUPTmr+X6TX91hf4p
+         x/Yl8/s0v0NnMxOSR+HfOsQBlx5Jy8iU1xyyuzrd1QHBOL1unT+INUIv1c5YyC0hLqXv
+         NFK+jHKdw+GAXwV9I5l4q05HlQm8UC1z4KuJoX1finxSVa8DXKwjdKU1IkD1DpBaVnbN
+         QDtA==
+X-Forwarded-Encrypted: i=1; AL+hErEgSsmovRycETD2u6X8lpQjwOYjEKJrUxSBrWYtTzm7q2Vl8Y6sXtRpCxeaZodAfSvtS9Tvqqc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z89dY86BXfrNOS3Ex2pPjceKzG1db5lC/PnzrxYPUpIMcBXwfxx
+	iQf7/TZDkqfh3rTSANd2ot28zqMXkK5i9AMsrESfzr4vPU4C0etP9h1f
+X-Gm-Gg: AYBFou1dBcdf34ERPUWt21eaMmrPagAGosrPJ5rn8K5kxEK8Tr4MkrthbGjR0Rv393u
+	zA7tqbiN7auqHkDmk7Y02pAyqwkpZZnim9vlid78owbwDBOzWszpKiI2ZgSOFx3+vltLe8/8oXS
+	QeiaOfYV41jCdkUiRFYTIaWjHN1oGHbAycpf+ewyZEU6CjRgKcgKcBc6Ltx4J9vshCQKDkPbNBp
+	ENoW6JTYWB7OWN1oCL/Lus/uhHIJ7AL0juL3Bsi02oFS77AzwjX0xKxYIo2WVBHucJs7UBLDXUh
+	v/XXaR259HBbEu+LGq90EXirVHj2XFmt1cewtI249ooNJ5m6rUan0fhPqQxZSdzKU/BRY/9d8lm
+	XQGTwhU1Z+vVcR7uKpCjRJ7+ydKaQOWQMyPtB4VHByx4+78lOGbjfDispEEr+FYowOTrFYFFFDY
+	b4Kc34CeIOl3oMRVSCGVh4PNTtolaYzmLXvUN5xPbfXG8C/6zmbNTVtMZT5pZIAHgAhRGResOcg
+	uLj36VbQ0772ZymenjGTtj+g8a8DpOHiNUAiTN5mkmLFttKLZf/6ptdKfpFriA3hhIzPup+6ai4
+	sPOWx4tDETWG4skDYRb8TqN7cL6C8DtihVlw8nbFQa9V/IWz02zc7vL/CIH54PrCzCJ13Tr/Aai
+	1ywvrhj7Zo6HF52G4YWgnS6AAFuWn8bhGhct4q8rVckcy2OPNHP7VMg5e9cqweUY58lNqeIMI
+X-Received: by 2002:a05:600c:3555:b0:4a1:9663:7639 with SMTP id 5b1f17b1804b1-4bb8882907fmr26927905e9.34.1795134358211;
+        Thu, 19 Nov 2026 16:25:58 -0800 (PST)
 Received: from iku.lan ([2a00:23c8:254f:fd01:c5c5:590b:f4b8:3e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm2629998f8f.55.2026.11.19.16.25.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm2629998f8f.55.2026.11.19.16.25.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 19 Nov 2026 16:25:57 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
@@ -106,9 +106,9 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v5 03/24] net: dsa: Kconfig: Expand config description to cover RZ/T2H and RZ/N2H ETHSW
-Date: Fri, 20 Nov 2026 00:25:13 +0000
-Message-ID: <20261120002549.1908299-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v5 04/24] net: pcs: rzn1-miic: Select ETHSW port speed through SWCTRL
+Date: Fri, 20 Nov 2026 00:25:14 +0000
+Message-ID: <20261120002549.1908299-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
@@ -125,48 +125,141 @@ Content-Transfer-Encoding: 8bit
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Update the Kconfig entry for the RZN1 A5PSW tag driver to reflect that
-the same tagging format is also used by the ETHSW blocks found in Renesas
-RZ/T2H and RZ/N2H SoCs.
+On RZ/T2H and RZ/N2H, the ETHSW MAC speed is not fully controlled
+through the switch registers. COMMAND_CONFIG_Pn.ENA_10 has no effect
+on the actual MAC speed, and 10 Mbps and 1000 Mbps operation must
+instead be selected through SWCTRL.SET10 and SWCTRL.SET1000,
+respectively.
+
+Without updating SWCTRL when the link speed changes, ETHSW ports
+cannot operate correctly at 10 Mbps.
+
+Select the ETHSW port speed through SWCTRL when bringing up the link
+to ensure the MAC operates at the negotiated speed. Limit this
+behaviour to the converters routed to ETHSW ports so that RZ/N1
+remains unaffected.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 v4->v5:
-- No change
-
-v3->v4:
-- No change
-
-v2->v3:
-- No change
-
-v1->v2:
-- Updated description for Kconfig entry to cover RZ/T2H and RZ/N2H ETHSW
+- New patch
 ---
- net/dsa/Kconfig | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ drivers/net/pcs/pcs-rzn1-miic.c | 39 +++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/net/dsa/Kconfig b/net/dsa/Kconfig
-index bdeb60af764b..3c18314aee95 100644
---- a/net/dsa/Kconfig
-+++ b/net/dsa/Kconfig
-@@ -199,11 +199,12 @@ config NET_DSA_TAG_RTL8_4
- 	  switches with 8 byte protocol 4 tags, such as the Realtek RTL8365MB-VC.
+diff --git a/drivers/net/pcs/pcs-rzn1-miic.c b/drivers/net/pcs/pcs-rzn1-miic.c
+index 682a73cf5a87..96f4cb533a71 100644
+--- a/drivers/net/pcs/pcs-rzn1-miic.c
++++ b/drivers/net/pcs/pcs-rzn1-miic.c
+@@ -11,6 +11,7 @@
+ #include <linux/clk.h>
+ #include <linux/device.h>
+ #include <linux/device/devres.h>
++#include <linux/ethtool.h>
+ #include <linux/mdio.h>
+ #include <linux/of.h>
+ #include <linux/of_platform.h>
+@@ -52,6 +53,10 @@
+ #define MIIC_CONVRST_PHYIF_RST_MASK	GENMASK(4, 0)
  
- config NET_DSA_TAG_RZN1_A5PSW
--	tristate "Tag driver for Renesas RZ/N1 A5PSW switch"
-+	tristate "Tag driver for Renesas RZ/N1 A5PSW and RZ/T2H, RZ/N2H ETHSW"
- 	help
--	  Say Y or M if you want to enable support for tagging frames for
--	  Renesas RZ/N1 embedded switch that uses an 8 byte tag located after
--	  destination MAC address.
-+	  Say Y or M if you want to enable frame tagging support for embedded
-+	  switches found on Renesas RZ/N1 (A5PSW) and RZ/T2H, RZ/N2H (ETHSW)
-+	  SoCs. These switches use an 8-byte tag located after the destination
-+	  MAC address.
+ #define MIIC_SWCTRL			0x304
++#define MIIC_SWCTRL_SET_SPEED_10(x)	(BIT(0) << (x))
++#define MIIC_SWCTRL_SET_SPEED_1000(x)	(BIT(4) << (x))
++#define MIIC_SWCTRL_SET_SPEED_MASK(x)	((BIT(0) | BIT(4)) << (x))
++
+ #define MIIC_SWDUPC			0x308
  
- config NET_DSA_TAG_LAN9303
- 	tristate "Tag driver for SMSC/Microchip LAN9303 family of switches"
+ #define MIIC_MODCTRL_CONF_CONV_MAX	6
+@@ -197,6 +202,7 @@ struct miic_phy_link_cfg {
+  * @rsts: Reset controls for the MII converter
+  * @of_data: Pointer to OF data
+  * @link_cfg: MIIC PHY_LINK configuration
++ * @conv_conf: Matched MODCTRL configuration of the ethernet port muxes
+  */
+ struct miic {
+ 	void __iomem *base;
+@@ -205,6 +211,7 @@ struct miic {
+ 	struct reset_control_bulk_data rsts[MIIC_MAX_NUM_RSTS];
+ 	const struct miic_of_data *of_data;
+ 	struct miic_phy_link_cfg link_cfg;
++	const u8 *conv_conf;
+ };
+ 
+ enum miic_type {
+@@ -230,6 +237,10 @@ enum miic_type {
+  *  before access.
+  * @miic_write: Function pointer to write a value to a MIIC register
+  * @type: Type of MIIC
++ * @swctrl_conf_start: First configuration value of the switch ports whose
++ *  speed has to be selected through SWCTRL
++ * @swctrl_conf_count: Number of switch ports whose speed has to be selected
++ *  through SWCTRL, 0 if not needed
+  */
+ struct miic_of_data {
+ 	struct modctrl_match *match_table;
+@@ -247,6 +258,8 @@ struct miic_of_data {
+ 	bool init_unlock_lock_regs;
+ 	void (*miic_write)(struct miic *miic, int offset, u32 value);
+ 	enum miic_type type;
++	u8 swctrl_conf_start;
++	u8 swctrl_conf_count;
+ };
+ 
+ /**
+@@ -383,6 +396,27 @@ static int miic_config(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 	return 0;
+ }
+ 
++static void miic_swctrl_set_speed(struct miic *miic, int port, int speed)
++{
++	const struct miic_of_data *of_data = miic->of_data;
++	u8 conf = miic->conv_conf[port + 1];
++	u32 val = 0;
++	int sw_port;
++
++	if (conf < of_data->swctrl_conf_start ||
++	    conf >= of_data->swctrl_conf_start + of_data->swctrl_conf_count)
++		return;
++
++	sw_port = conf - of_data->swctrl_conf_start;
++
++	if (speed == SPEED_1000)
++		val = MIIC_SWCTRL_SET_SPEED_1000(sw_port);
++	else if (speed == SPEED_10)
++		val = MIIC_SWCTRL_SET_SPEED_10(sw_port);
++
++	miic_reg_rmw(miic, MIIC_SWCTRL, MIIC_SWCTRL_SET_SPEED_MASK(sw_port), val);
++}
++
+ static void miic_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 			 phy_interface_t interface, int speed, int duplex)
+ {
+@@ -415,6 +449,8 @@ static void miic_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 
+ 	miic_reg_rmw(miic, MIIC_CONVCTRL(port),
+ 		     (MIIC_CONVCTRL_CONV_SPEED | MIIC_CONVCTRL_FULLD), val);
++
++	miic_swctrl_set_speed(miic, port, speed);
+ }
+ 
+ static int miic_pre_init(struct phylink_pcs *pcs)
+@@ -599,6 +635,7 @@ static int miic_match_dt_conf(struct miic *miic, s8 *dt_val, u32 *mode_cfg)
+ 		if (miic_modctrl_match(table_entry->conv, dt_val,
+ 				       miic->of_data->conf_conv_count)) {
+ 			*mode_cfg = table_entry->mode_cfg;
++			miic->conv_conf = table_entry->conv;
+ 			return 0;
+ 		}
+ 	}
+@@ -875,6 +912,8 @@ static struct miic_of_data rzt2h_miic_of_data = {
+ 	.reset_count = ARRAY_SIZE(rzt2h_reset_ids),
+ 	.miic_write = miic_reg_writel_locked,
+ 	.type = MIIC_TYPE_RZT2H,
++	.swctrl_conf_start = ETHSS_ETHSW_PORT0,
++	.swctrl_conf_count = 3,
+ };
+ 
+ static const struct of_device_id miic_of_mtable[] = {
 -- 
 2.56.1
 
