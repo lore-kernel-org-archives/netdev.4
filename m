@@ -1,54 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158211;
-	b=lsD1gOdoW+levGpYF3k4rsLgl+fHyemYmjR/lRVKv9u5LuS/Se5aI5FXTSYSUF9hVQqk
-	 SgDF/TKQLyFSY8EmEdy0b0FpjW4aSOkRkeoMnEgRMtbZokzxpETQku50WE4Ly3OOH6Y55
-	 vN7zQFLIMS2KEZ2GZwJjcxnoQiaJtQKsOt2fK6u7206ImdsmcF7pcPzjQMSOWF0MYfduR
-	 TRJBMhQeDz2X30Wne90pwv95pYXaJ+Bu8lztPBtS+syitxKen7C7bn4MSvr13/NDaXLLz
-	 SRYorJY/PhwfT3qSvAD86b7qclXem9ePp6l4+gZXXwgr6KYNcthWHzK0YxfXz5/a6/Q==
+	t=1795158679;
+	b=ThKBHLwlFM1tSmQeW4CEr1jCa+YLnRzRTgRWH+RNYiJgGA5xifawXS6z0HEakiHScUn4
+	 q88qd0ii/3L+U24cNYI0HXd0NnmvMwgv4Svd2/pd7apx30noIBFPx/nhS07RQgb4Aqj6j
+	 1Yw9Z4P4QOKgjKMW1tMmvnMuRGVv7xdCjzRKIzGqJrxYyHDF19IZwOnlIqdxp7YEVJyto
+	 en53THvH4SJ22EH3Ui2UV52m0uR/yJiMmsd5p4KDMIPGPOV7bX78YJKVFs64czWeiHA+o
+	 sF8uXnNROcqY2QOF6o+RmPK2rR52cAwTVH9nRx5NcmQAZKGMchw8INrCF3recyQnTQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158211;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=uHwvIe5lHvX4OsC6ONaqL5E8BXvpSUpMKavi/gOZ90U=;
-	b=XyumJFx4GWmB+OOYA1WpK+fKB80xus96CfCqxWkBlGqFrSC1cYQJDSBTIZeR13m9c0xp
-	 nPjVVRfEl2EPE2hfns/GkMHaFB9/Ukk1DWDSX2B5NFu/+XsqWfenIfzIaimdDVJxRcKmK
-	 oFDaxlJ8GPXsOUUEbFBxJKzmpgt+pPClT5T0b48Tt//eRmn2CevDgx2QZ/e5SdSPwEymc
-	 xk6k52Y9M1EISPFDNkWZsCCRIkgvLfU0JoCf4Ny2/mUHo/Tftnd/cT5u6bhalwswyK2I9
-	 BCEbl9NgC3gZWGfITCvt1f51zp8CTcU7AIhMtr19E3SGkgHNH2apC5GxfzkoGwQ9UVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158679;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=+DqeLXTbuKh5VVoCRVxV9j5x7CUCICaFzKJDzMFjyF4=;
+	b=AUp/El3nvm3MNGXXwgucB+PTzNnX3EJySiXjKixqbCQ7oGj3udW6tLQejjsLfxKzULqh
+	 OWVmKWAZg2mWYrH5GYoudKhDZfLjzUifeeYuD1c1cOzAjhYZc7IWhDawQSXVvdEyQJTUZ
+	 B9ZkIuKMEJrrwrsNt+InIhd9pgNunzIVLE4Ue+flrEWt8K9EixtoXOn87HoQR3wkRRkz6
+	 4Ob4XcZ5wddsWXFtU4LIbU3Iv53GBo/nH3mDs5G7vieIaAfAhlI0FxVwp23wgbrU34BmC
+	 5Q5wdmw+54wyQMCFLQfjx5DWmcJ4SpTbYYkT8l4Zg32LRCzreC5HCGsA3cvPipJm52Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="m/vqxZSA";
-	arc=none smtp.remote-ip=95.215.58.130
-Received: from mta1.migadu.com (out-130.mta1.migadu.com [95.215.58.130])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MTRNBpkR;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB059606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:03:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB059606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9CEC606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:11:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9CEC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m/vqxZSA
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=iKGCF34JO5kdAIXGWAc1gSdXT5fwS16EI82kRXr3nRg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795158208; v=1; x=1795763008;
- b=m/vqxZSA/mVSIeHOWHgXEDeZvlu4k91nK1kqekCD0zeiwhoObFOicTFYz1s0RByuMM5WkB6v
- xgan2aaiEwAQDYimMXXFQcss1CT7MHBQ1L1VZo41ScHMev1bitfGBlTy9qqgBs7lj/dHO+Art7U
- gPuMDE//lYar8GeByq2VESnk=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 517fa123e3c93d7a;
-	Fri, 20 Nov 2026 07:03:28 +0000
-X-Mizu-Trace-ID: 517fa123e3c93d7a
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <348c15f4-529f-4d03-8362-ccac24722ebb@linux.dev>
-Date: Fri, 20 Nov 2026 08:03:24 +0100
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MTRNBpkR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=+DqeLXTbuKh5VVoCRVxV9j5x7CUCICaFzKJDzMFjyF4=; b=M
+	TRNBpkRnxeVAws52leRBrCd6ElyxuJcGQsuRYRG6jpVfXq0G5Hpjw5E8f32+Okno
+	qvgpqvBQWD9P9hPqQ4uwAinKXYnR9MgRP3hbMbFw/bMCqquIGGz2V3VgVv1szoDi
+	ZsV22eqCGYUMuqW/BXUfftrekELGkUjZMHIIqWDrdk=
+Date: Fri, 20 Nov 2026 15:10:45 +0800 (CST)
+From: "Lange Tang" <lange_tang@163.com>
+To: "Jakub Kicinski" <kuba@kernel.org>
+Cc: "mst@redhat.com" <mst@redhat.com>, "Eugenio Perez" <eperezma@redhat.com>,
+	"jasowangio@gmail.com" <jasowangio@gmail.com>,
+	"xuanzhuo@linux.alibaba.com" <xuanzhuo@linux.alibaba.com>,
+	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"Tang Longjun" <tanglongjun@kylinos.cn>
+Subject: Re:Re: [PATCH 1/3] virtio: add virtqueue_get_last_used_idx() helper
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20261112085123.276997b4@kernel.org>
+References: <20261109094310.103979-1-lange_tang@163.com>
+ <20261109094310.103979-2-lange_tang@163.com>
+ <20261112085123.276997b4@kernel.org>
+X-NTES-SC: AL_Qu2SB/2et04v4yCRbekfmUgRg+c/XsK4svUj24VVOJF8jCDp+SEJYHZTFGvuwfi3ASqsmSO8ahFRxdZ2Wohybrgl6SutMcW08aThePl8uLus7w==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,146 +69,16 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5 16/24] net: dsa: rzn1-a5psw: Choose tagging
- protocol based on compatible string
-To: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
- Ralph Siemsen <ralph.siemsen@linaro.org>, linux-renesas-soc@vger.kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- Prabhakar <prabhakar.csengg+renesas@gmail.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-17-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Language: en-US
-From: Clement Leger <clement.leger@linux.dev>
-In-Reply-To: <20261120002549.1908299-17-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Message-ID: <1067ca32.5945.1a1f7cb1971.Coremail.lange_tang@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:aigvCgDnz8V28v9qdXxyAA--.306W
+X-CM-SenderInfo: 5odqwvxbwd0wi6rwjhhfrp/xtbC-RZ0omr-8nZkMAAA34
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-
-
-On 11/20/26 01:25, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Prepare the A5PSW driver for forthcoming RZ/T2H ETHSW support by making
-> the DSA tag protocol selectable through SoC match data. The RZ/N1 A5PSW
-> and RZ/T2H ETHSW share the same tagged frame layout, but interpret the
-> ControlData field differently, so the tag protocol cannot remain fixed.
-> 
-> The common tagged frame structure is:
-> 
->    +----------------------+-------------------------------+
->    | Field                | Size (octets)                 |
->    +----------------------+-------------------------------+
->    | Preamble             | 7                             |
->    | SFD                  | 1                             |
->    | Destination Address  | 6                             |
->    | Source Address       | 6                             |
->    | ControlTag (0xE001)  | 2                             |
->    | ControlData          | 2                             |
->    | ControlData2         | 4 (timestamp, portmask)       |
->    | Type/Length          | 2                             |
->    | Payload              | 0..1500 / 0..9000             |
->    | Pad                  | 0..42                         |
->    | FCS                  | 4                             |
->    +----------------------+-------------------------------+
-> 
-> The ControlData semantics diverge between the two switch families:
-> 
->    +---------+----------------------------------------------+
->    | SoC     | ControlData bits                             |
->    +---------+----------------------------------------------+
->    | RZ/N1   | [0-3]: ingress port                          |
->    |         | [4-15]: reserved                             |
->    +---------+----------------------------------------------+
->    | RZ/T2H  | [0-3]: ingress port                          |
->    |         | [4]: timestamp timer select                  |
->    |         | [5]: reserved                                |
->    |         | [6]: RED period indicator                    |
->    |         | [7-15]: reserved                             |
->    +---------+----------------------------------------------+
-> 
-> Because these differences affect protocol semantics, select the tag
-> format through compatible specific data. This allows the driver to
-> choose the appropriate tagging protocol for each SoC while preserving
-> the existing RZ/N1 behaviour.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> v4->v5:
-> - No change
-> 
-> v3->v4:
-> - No change
-> 
-> v2->v3:
-> - No change
-> 
-> v1->v2:
-> - Updated commit message
-> ---
->   drivers/net/dsa/rzn1_a5psw.c | 5 ++++-
->   drivers/net/dsa/rzn1_a5psw.h | 2 ++
->   2 files changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-> index 8d7cad90d613..c59d881ce10f 100644
-> --- a/drivers/net/dsa/rzn1_a5psw.c
-> +++ b/drivers/net/dsa/rzn1_a5psw.c
-> @@ -99,7 +99,9 @@ static enum dsa_tag_protocol a5psw_get_tag_protocol(struct dsa_switch *ds,
->   						    int port,
->   						    enum dsa_tag_protocol mp)
->   {
-> -	return DSA_TAG_PROTO_RZN1_A5PSW;
-> +	struct a5psw *a5psw = ds->priv;
-> +
-> +	return a5psw->of_data->tag_proto;
->   }
->   
->   static void a5psw_port_pattern_set(struct a5psw *a5psw, int port, int pattern,
-> @@ -1330,6 +1332,7 @@ static const struct a5psw_of_data rzn1_of_data = {
->   	.nports = 5,
->   	.npcs = 4,
->   	.cpu_port = 4,
-> +	.tag_proto = DSA_TAG_PROTO_RZN1_A5PSW,
->   };
->   
->   static const struct of_device_id a5psw_of_mtable[] = {
-> diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
-> index 26d201931453..58690f5f3887 100644
-> --- a/drivers/net/dsa/rzn1_a5psw.h
-> +++ b/drivers/net/dsa/rzn1_a5psw.h
-> @@ -236,11 +236,13 @@ union lk_data {
->    * @nports: Number of ports in the switch
->    * @npcs: Number of PCS connected to the switch
->    * @cpu_port: CPU port number
-> + * @tag_proto: DSA tag protocol used by the switch
->    */
->   struct a5psw_of_data {
->   	unsigned int nports;
->   	unsigned int npcs;
->   	unsigned int cpu_port;
-> +	enum dsa_tag_protocol tag_proto;
->   };
->   
->   /**
-
-Hi Prabhakar,
-
-Reviewed-by: Clément Léger <clement.leger@linux.dev>
-
-Thanks,
-
-Clément
+QXQgMjAyNi0xMS0xMyAwMDo1MToyMywgIkpha3ViIEtpY2luc2tpIiA8a3ViYUBrZXJuZWwub3Jn
+PiB3cm90ZToKPk9uIE1vbiwgIDkgTm92IDIwMjYgMTc6NDM6MDggKzA4MDAgTG9uZ2p1biBUYW5n
+IHdyb3RlOgo+PiArLyoqCj4+ICsgKiB2aXJ0cXVldWVfZ2V0X2xhc3RfdXNlZF9pZHggLSBnZXQg
+dGhlIGxhc3QgY29uc3VtZWQgdXNlZCByaW5nIGluZGV4Cj4+ICsgKiBAX3ZxOiB0aGUgc3RydWN0
+IHZpcnRxdWV1ZSB3ZSdyZSB0YWxraW5nIGFib3V0Lgo+PiArICoKPj4gKyAqIFJldHVybnMgdGhl
+IGluZGV4IG9mIHRoZSBtb3N0IHJlY2VudGx5IGNvbnN1bWVkIHVzZWQgYnVmZmVyLgo+Cj5rZG9j
+IG5lZWRzIFJldHVybnM6IChtaXNzaW5nIDopCgpGaXhlZCBpbiB2MiwgdGhhbmtzLgo=
