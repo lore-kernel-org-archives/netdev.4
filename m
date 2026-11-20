@@ -1,103 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795161972;
-	b=5Ay4fQYPKBYirfK/c4duyv8if8gTCRCtUDFao0fHkWuamexYLRUiecYxARBsvQTwWXzP
-	 edrGZ4rtMJtUeK1IiYyQPdZ5paHvl/i5TcZ2/NzPP61TsnI6I7Tyu5gnPqKKEDYSn6XoL
-	 UqY/YhlkB7t0hzDFjLsK88lWrYZVXOnVGfEy2V3ArsJzCM5LhqKYhnHtqdwAxMZDGjFnw
-	 e/VqQd4X8B4CR/wAfFWEveQgkVOtphZS8zbM4X0+FV3sImzQu/9vuWuTYHPKdtRRvh7cY
-	 dJjb2lZ3wxm6O+zQrDFJp6nTzEQcyG9aFkXGMGfskOnQyA94plK6NaS0Igpkr3LrFtg==
+	t=1795162127;
+	b=cRRasoQTObwdC/WtvTrU3Fd8kuQaVwJV18tht7O7FGKDpbK7L9Z1u2vcDLmrbP6L0ICG
+	 pS8J/zfTkBKcWL/slWeK0tS+fa41sQhuVQyNB+iSHt0lpO5iBAvUQiS3SXrgU3YtrvVN6
+	 +HAeNuKPIbKOgzmy/fc+Wnv/wmZVTxzH7FVfSoxLRi6nld/VhRAvekc6s++ubRGQTxHF4
+	 d2LrjGRxhWdvE+PMajx2foPZjezTiC6kMNnVAFNRPFrTZZ9ICc1JLxYe5AgWP9qSUF4D5
+	 nOgSP1ALSXP0NMsQeuy0VIyuCR7HFxWJpruEeGiMaJzOQc/rShKmeSOuRBFhw65DyzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161972;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=VsLypriGHYKlhMV5iYD5eFrEKHOuZT3YxctC/v+kE4I=;
-	b=MqAedgjNDHs2aJp3kJTY0aIn91B/dhE+XnI4xVKDZ+tADF9mePNE0sQ9oGhYFkfxEd0z
-	 XU0QEPY7zNJHFwvjL8YecBS8do31x/WSx9hTYCfUEtQFdf2XeA/FCdyTtXcVBgPsTA6WV
-	 DQoZauej52AffQrA4RY5Z7mPlTgiU+RuB4aC9YCRaQiE7eUcb7BJLbymaU0szwkmz/Zf+
-	 coqW0023mldTJIAYmUEuSLuLKpVcYPRO5dPeFaQo7DD7/st5IvK8+YTSWPUTuLYxNg6mG
-	 G858cxiQmQ+am0+1a0XWmPpq6saw9rV3BVyERwG15ORIUWiHasbch0faICk0FPrq6OA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162127;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nhWTtz/XtWf+zHzkg8QT/u7XDoQ0xAQ0UFQlVcaEpd4=;
+	b=4USGx7nU205lARgP8/HDMojtNV3S9Dy3CAbuVMSlQgfXg8a19uE++7GCxTO+NrZXTFce
+	 Q8KX7f9QfjO5hWvd6kdgdDKiEr8yy9Gcl+vstmYOz1yJukXOXHfB5bIB7DRUDsCvja5Fm
+	 2ZqFU1eDKnbRxV8lX46t2HvYovtD+QyCkcCzGoKyjMzm6OCjHThz0mvWMz+etUjca4tej
+	 37f8cwYZRPIC3JiuTKVyuE6Yc7LRUt6R1UhG2/Rj5rJMivZ2ulbiixFm78lNdoazYaOui
+	 S1J8uBaPv5eaVcygetjd8CD/l0hzRwgxIC3LqaU6bFGB2DBWL/oxK4zixZBD3sYAXCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OWUfjfHx;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=oNThT0mS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30AE0606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:06:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30AE0606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F661606A331;
+	Fri, 20 Nov 2026 08:08:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OWUfjfHx
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cd69954c755so463442a12.3
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:06:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795161971; x=1795766771; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VsLypriGHYKlhMV5iYD5eFrEKHOuZT3YxctC/v+kE4I=;
-        b=OWUfjfHxuYt4V1jGwmz/2HCdpMlrlpw+tzw9TYEdKZNMXbwxyQjYJ+sH0XQaDzks0m
-         UP058cznjWvdBiwpxJ/KxV6RTgdfEfnHBy/M7hPeM3j/ssgrfrwJMqTZmt0sMpDLdVaM
-         jQLXT4AK6F1bzkZLDHjc6n7Kls/PLhz8Nuk5NzzckCYWEwoGZAYN2hkbpgIK47ACbR9n
-         jvUvQOHLn0OE+ZR9wM/aBs3y4PkN51vnVUixwzic1jHyVL/l4ALkF1Zg6GE33uPlT8cT
-         lCaQ2lpiSTHkiUHrr1H+qrFE8kbaTlLdFFpydq0scKjPWKbTomD/ObKXvuuJ08AP/vLd
-         X/Tg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795161971; x=1795766771;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VsLypriGHYKlhMV5iYD5eFrEKHOuZT3YxctC/v+kE4I=;
-        b=uU2lTjK9zOjplPMVasG4vGUN8YAyL2QOyHow3cv+eetcLbgSM/MEbmU376QQEV/5xh
-         78qZz4m/p0ccwe1iVAODerUA+BvOCyWT3xZSALl35Y9hKTwqkiNvyxChIOpS4RTEd0Xe
-         LuKeZD9ULUXkAgg9vEUowvD1aHTPbzX4w7zw5DrFaCKZaFb2Dr8YDZdRzB4Z1pfy4MNZ
-         C7gooAhVijKXnFWbtQNNnOKBs4+7uMUy0ov6DYEBQUiYdCG43dCKYQlMI1Mn/7iR5Pak
-         JH9A8iayoaSyl8KT/xWUo0Ded45xavNUbWuIAS+3EeLuE4ZveSwdXWx45x/g+MEdJwfo
-         o3+g==
-X-Forwarded-Encrypted: i=1; AL+hErF0NjI7imkh060E1MOnqPAAslLFjgCRl2cahKdPdpM5vPk+BbwIoTVDyCT8TVUecbJHbrd4VGI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9nw3Ehcz9VPEMrgSgIY5RbPEBMcNtD8mihV55ebC64KKCgFqCY
-	WaMPYiFHBSyVlH8MTvxtB46SlCOIP1tyt60evHcZsv/N5pVLhB4OLspB
-X-Gm-Gg: AZFdTZf4AdBwaCdAFBvHpU5hMyLhVR+4GlraVNfZZAJmDDD7nF4qNraZkU1Eej3hRb+
-	u5bWvazTnXF9C6ebgepPQDAdlCxJdKbtSJhZDG5aS/ndy+/7BjzTRrJnMkb4khTnwf72ISJe8KH
-	Lo0dxpMr+yAux3PuGM2uWAcRqfmET1KxSK1gI2CMztWJW5l4D6Ggf15CUDlv8IBJVWe+qwB8hoG
-	w+7jhWITAedYc0+u7s33SsbeCIRqdoEPCpA+G19ttTXKucISv5Kd80gMCsYhwCXkCP+NO4VGx6x
-	8BHUjEPxfeGUOKyVaZxgbdby3Zm/WwK4iNwCfhzVTfZ5OekRL3Qqk8HQPfgSvq8f6ysPxloUD9+
-	w3TIQ1Ktl03blsbUGp6te1k/jh2qtswWoi+B+ntPtJNi2/x3a9M+X5q2UfdC1JOeL736KV6hRVj
-	nOM/zCJLY+77Ms5if/hIJb8JthjgR2glo0uxC7Og3ywyQ0Wa07kDSPBdITY3SASFr9hJrgFSVmc
-	96Yr/KIiJK3kudE2xznvJGdaTdFfX95e7JLz7LGsJ6jFpoK+LAVsgEZkhdX/PaOuKMgyBT5kpbq
-	LlayWPIrdc0pF8Y5S8D6lSq248O55YrY3H0FO+P0KZDX5w==
-X-Received: by 2002:a17:90b:2fd0:b0:3ac:a521:95c with SMTP id 98e67ed59e1d1-3b41cb235aemr2207271a91.58.1795161971489;
-        Fri, 20 Nov 2026 00:06:11 -0800 (PST)
-Received: from revrse.tailec2828.ts.net ([166.111.83.77])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-cde6d0285c3sm948556a12.20.2026.11.20.00.06.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:06:11 -0800 (PST)
-From: Lin Lei <llleigoing@gmail.com>
-To: matttbe@kernel.org
-Cc: edumazet@kernel.org,
-	llleigoing@outlook.com,
-	netdev@vger.kernel.org,
-	mptcp@lists.linux.dev,
-	ncardwell@google.com,
-	kuniyu@google.com,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org
-Subject: Re: [PATCH net 3/3] mptcp: exclude MSG_PEEK from receive buffer autotuning
-Date: Fri, 20 Nov 2026 08:05:58 +0000
-Message-ID: <20261120080558.2866468-1-llleigoing@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cab39a1c-056f-488f-b217-194af2056db2@kernel.org>
-References: <cab39a1c-056f-488f-b217-194af2056db2@kernel.org>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=oNThT0mS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 042371F000CA;
+	Fri, 20 Nov 2026 08:08:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795162127;
+	bh=nhWTtz/XtWf+zHzkg8QT/u7XDoQ0xAQ0UFQlVcaEpd4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oNThT0mSGG6kUZAwqZsOB53nYtEkre5+BXqj2CeCW2DezGxoseqckwyiR/VE/H5rV
+	 fasb29VNh/hB3PNLtjFkss79IjJ2QxSftm4LCX3QTWO6ojWb5uhH6sv3drEWCZAFZL
+	 WHSdRIgt+zBwwz1WhpggeQETXK/uvYvzW9vMcVhg=
+Date: Fri, 20 Nov 2026 09:08:23 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	linux-bluetooth@vger.kernel.org,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
+	oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
+	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	MPT-FusionLinux.pdl@broadcom.com,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Zhihao Cheng <chengzhihao1@huawei.com>,
+	linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>, linux-usb@vger.kernel.org,
+	Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
+	linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
+	devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org,
+	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
+	linux-f2fs-devel@lists.sourceforge.net,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	intel-gfx@lists.freedesktop.org,
+	Matthew Brost <matthew.brost@intel.com>,
+	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
+	intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v2 08/12] docs: ioctl-number: update USB entries
+Message-ID: <2026112013-crave-ocean-6117@gregkh>
+References: <20261119053514.255348-1-rdunlap@infradead.org>
+ <20261119053514.255348-9-rdunlap@infradead.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,28 +111,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119053514.255348-9-rdunlap@infradead.org>
 
-Hi Matthieu and Eric,
+On Wed, Nov 18, 2026 at 09:35:09PM -0800, Randy Dunlap wrote:
+> Update the list of files where USB ioctls are defined.
+> 
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> ---
+> v2: no change
+> 
+> [Since having multiple maintainers trying to merge these would
+> cause some conflicts, it would be more manageable for Jon to
+> take all of these through the docs-next tree.]
 
-> It looks good to me too, please send a v2 with the Signed-off-by:
-
-Thanks for the reviews. I sent the fix as a standalone v2 with my
-corrected sign-off and both of your Reviewed-by tags:
-
-https://lore.kernel.org/all/20261120075459.2862977-1-llleigoing@gmail.com/
-
-> @Lei: could you open a PR on this separate repository with a new test,
-> please?
-
-Thanks for the script, Matthieu. I used it as the basis for the test
-and opened the PR here:
-
-https://github.com/multipath-tcp/packetdrill/pull/214
-
-I ran the test three times each on IPv4, IPv6 and IPv4-mapped IPv6.
-Before the fix, SO_RCVBUF grew from 8192 to 50237 bytes in all nine
-runs. With the fix, it stayed at 8192 bytes in all nine.
-
-Thanks,
-Lin
+Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
