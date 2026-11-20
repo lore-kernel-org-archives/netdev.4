@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795141322;
-	b=vV6iChbj/mxnGnRV/gkeOfuVIAZvHgXVjTSKLfWbY7avoP/o81oUD/x5zDZZKqm+dc9d
-	 CW22vnQRfIxfS5acORCEkQg8VcJvN/tic6h8p5oVnCSI2qXCo/A6L/1rvfiUAeKCcHOrG
-	 V2IpY7Shqwhb7pkPDgPovb1qvlQz6Y8qhHtqJdHSPMvJXZ6RRGOS7LxbF7UjU3EVeEfNx
-	 tvbOLtJceqqiIKq4qyGbbdm9r5PWas6ad6+oOWnVqa8wjIjxaQYj/83iMFqsHkFavJAsZ
-	 sKkUWQ7kvOKtRVKQkMLDcPoJ8J5djBXxE7Djq3UiU4uZzeh1DxDK0qd23WLDBWOxOrA==
+	t=1795141327;
+	b=xKk21sHVEf8EYPERtqcKWMRW6TuYygh9Y3chdAEKtKH0Xtcejn/VUdx6D5Rkh+558DJ3
+	 Zy9GnX/3GtuZ4v8HziAACXU7CUUZ70uApUHQufIkzDSqcao0PasUj6EMUN7srhntySku9
+	 W4PDxgB+RC2fg+3aLq+scJMFzuDqYCrpRijGE8Q7lqbkPCBE6GWV6AF/Ph44OhzZcOi8+
+	 pGg89Qh+BD6tXVk7LUhLxCAoXnFjhNkAo3Ttrf+/ZKJ4WoxI3c7hqCx8EePFUaodFtrFi
+	 tWjz8LokUROOomHMjwdhjbxdbYQcJoQ1YwcvZGWrhAvIheYrk3RA0kBQpWa0w5qBMLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795141322;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795141327;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=gDfMbB0iLO5147W7hciH56ETASFEwnLRXOCRyFYMdqQ=;
-	b=eTOsGB64fWo7Nhdh/bMEBzRsgI56YzMO7QO1hNfuEKUdGXjQzypq5MyvDLqy1BQmNmUO
-	 ukcej3Mw7hq9Gre73VaTIwFU1XUmppU3afWZgL6jUESYSjhWwSER9YYArVFFdvr5o+kLJ
-	 kji7TNVtdx2FU4k/+poLVDdYAKgywrHRBauGsvC9xJ/tWVWn+NoNaBFNRlmJYbTEvzlST
-	 VZnSEy6z8XMeY6afq9rspsvbKFy6YRHTE2G4+HmJHnKDrIL6JvWoPe9mJYnkEPUpTx5Z3
-	 iUGTYL85deBkW6CiRGSLyD2dGrkf2sDE1oA10WmQRHWnxNv7OhLUIt5vZnSgiccf3jA==
+	bh=5dvu3zNUsJdRmPMmPyJKE6OQ1/TPrIM97wi+LUF7hSs=;
+	b=4wN4R5Aczdt5GRNn4vI6FbnL1kNNjgyb+oOkkdrt38L3B8P0YJMJLWaD7aFmUIvel6d+
+	 xCCIYkYrnrJPBm/yJBG5JcGi6le31QpxTotLD1VaL1HiEPNyfymWjvsSfk/egK7om4x9V
+	 r5aHmgBmEEpOjUXaGLrs1l/3rSMUq3a3DlEF0q6DTpxdgjXjfmwOvtFSXLni4dPeNauLH
+	 5vUfGGC/XQx6L9xGFDYSxzoa+g3G+v3qSiRLlpc2juwt9yd6m7qYKHQp7ztXRU/yLjsqv
+	 H3rvz1n0jBdPkxTrP0MQQ+d3jd3s9ykzTkU0Pms5XHIh163rtSsgbD8tE4UKpSTLsxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T031gPTS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FahRO3RF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16ECE606A320;
-	Fri, 20 Nov 2026 02:22:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 740D960A2617;
+	Fri, 20 Nov 2026 02:22:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T031gPTS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72EDE1F000CA;
-	Fri, 20 Nov 2026 02:22:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FahRO3RF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC7281F000C6;
+	Fri, 20 Nov 2026 02:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795141321;
-	bh=gDfMbB0iLO5147W7hciH56ETASFEwnLRXOCRyFYMdqQ=;
+	s=k20260515; t=1795141327;
+	bh=5dvu3zNUsJdRmPMmPyJKE6OQ1/TPrIM97wi+LUF7hSs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=T031gPTSzRGf5px/5xZoOAaCt9a/jrJuJTElhgersdptRgSVlRj30JsYC4srxx9Xc
-	 XLIw2JLsLZefBUuNyA+0lGphtfeDK0ZylsU3w/oskVDoh8W+gTxvWTauOkS9MJjMJB
-	 zWiTOyvjzeQj1IVGa/MAzyBdkwEUXYgeImNGAhG4e5WxD79Qtqq9Fh8XTolVi5+Vrj
-	 oYKR3NC+VR7uLE0fQFUtg5M85u5mfYCGQCF2tJgH/lVToFLyw+31Eu2i/O3aQK6uJ6
-	 LVf6VXN3VRVzDc632HVrsybjl81+SDk1/FfbUugS8CUyzFd3/DGoA7zMeQm+MNjxAB
-	 etliTNMtri2Hg==
-Subject: Re: [PATCH net v10 1/4] net: hsr: keep GRO disabled on HSR/PRP ports
+	b=FahRO3RFt67vKK1SWuNVpSW+qqt6m+bvoWT63PmZZgW5OBzuPHdL2u/GneW8ijRC2
+	 2JbsTCQ0bQH392x+uqWC7gh3Z8acm8P02m1UwQb16ItCDpgkcXwm7oD9qsUKY0B6WT
+	 csgUf0aBzlAZYJeI3sebK0CD9qU4loWHuDVNFC434N82OjJZgWDi3hBcq/AF6JzHEl
+	 wGP4rWMNYXk/zXBf78aY6ybtui+TiuNstmevtjCcIKXREcXHJeCxMqut0M+0Onh0L2
+	 Kz318/3uerFVjUCbDLK1XlbGrkvQxcM9FFZd5X3h2iD3IU+jijRtuMyHa/bWBsPynT
+	 BO5kdV/lheWsA==
+Subject: Re: [PATCH net v10 4/4] selftests: net: hsr: verify GRO policy and
+ ordered forwarding
 From: netdev-bot+sashiko@kernel.org
 To: xiexinet@gmail.com
 Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
@@ -51,10 +52,10 @@ Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
  liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
  lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
-Date: Fri, 20 Nov 2026 02:22:00 +0000
-Message-ID: <179514132000.3136.2415655157145361596@kernel.org>
-In-Reply-To: <20261117141922.20-2-xiexinet@gmail.com>
-References: <20261117141922.20-2-xiexinet@gmail.com>
+Date: Fri, 20 Nov 2026 02:22:05 +0000
+Message-ID: <179514132547.3136.13495496804508264681@kernel.org>
+In-Reply-To: <20261117141922.20-5-xiexinet@gmail.com>
+References: <20261117141922.20-5-xiexinet@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,104 +80,106 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] When dev->hsr_port is set, __netdev_update_features()
-  (net/core/dev.c) clears NETIF_F_GRO, and NETIF_F_GRO_HW if it is in…
+- [Medium] The single-producer ordered cases in hsr_ordered_forwarding.sh
+  can fail even when the kernel is correct.
 
 --
 
-net: hsr: keep GRO disabled on HSR/PRP ports
+selftests: net: hsr: verify GRO policy and ordered forwarding
 
-This patch adds an hsr_port role bit to struct net_device and sets it on
-HSR/PRP slave and interlink devices. While the bit is set,
-__netdev_update_features() removes NETIF_F_GRO and configurable
-NETIF_F_GRO_HW from both dev->wanted_features and the computed features.
-The attach is refused if software GRO is still on after the update.
+This commit adds two HSR/PRP kselftests, and both run one shared Python
+helper. hsr_gro_superpacket.sh checks the GRO policy on HSR members, the
+refusal of unsupported port types, and TCP forwarding from the interlink
+and from a PRP SAN. hsr_ordered_forwarding.sh checks the ordering of
+local and interlink data, supervision frames, concurrent producers and a
+sequence-number wrap.
 
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index 3c58db732761a..1f51a55ff2b08 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -11289,6 +11289,21 @@ int __netdev_update_features(struct net_device *dev)
->
->  	features = netdev_get_wanted_features(dev);
->
-> +	/* A direct HSR/PRP port needs per-frame metadata. Drop software
-> +	 * GRO and configurable GRO_HW from the request as well as from the
-> +	 * features passed to ndo_fix_features(): drivers such as veth
-> +	 * derive state from wanted_features and need the requested and the
-> +	 * active bit to agree. Fixed-on or driver-required GRO_HW is left
-> +	 * to the driver.
-> +	 */
-> +	if (dev->hsr_port) {
-> +		netdev_features_t gro = NETIF_F_GRO |
-> +					(dev->hw_features & NETIF_F_GRO_HW);
-> +
-> +		dev->wanted_features &= ~gro;
-> +		features &= ~gro;
-> +	}
+> diff --git a/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py b/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
+> new file mode 100755
+> index 0000000000000..17055d9329b3d
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
+> @@ -0,0 +1,1468 @@
+
+[ ... ]
+
+> +def ordered_send(lab, sock, producer, first, count, port, segment=0):
+> +    """Send count datagrams, or UDP GSO aggregates of 16; return the payloads."""
+> +    expected = []
+> +    if segment:
+> +        sock.setsockopt(socket.IPPROTO_UDP, 103, segment)
+> +    blocks = 16 if segment else 1
+> +    size = segment or 64
+> +    for number in range(count):
+> +        payloads = [ordered_payload(producer, first + number * blocks + n,
+> +                                    size) for n in range(blocks)]
+> +        body = b"".join(payloads)
+> +        require(sock.sendto(body, ("239.0.0.9", port)) == len(body),
+> +                "short UDP send")
 
 [Severity: Medium]
-Does clearing dev->wanted_features here make the ethtool uAPI report a
-GRO request on an HSR member incorrectly?
 
-With the legacy ioctl, ethtool_set_features() in net/ethtool/ioctl.c
-stores the request, calls __netdev_update_features(), and then works out
-ETHTOOL_F_WISH from dev->wanted_features:
+Can the single-producer ordered cases fail on a correct kernel because
+this sender is not pinned to a CPU?
 
-net/ethtool/ioctl.c:ethtool_set_features() {
+ordered_send() runs in the main thread, and the main thread never calls
+os.sched_setaffinity(). Only the producer threads in ordered_concurrent()
+are pinned.
+
+The frames go through the veth t0 to the interlink dil. There is no XDP,
+and GRO is forced off on HSR members. So veth hands each frame to the
+backlog of the CPU that sent it:
+
+drivers/net/veth.c:veth_forward_skb() {
+	return __dev_forward_skb(dev, skb) ?: xdp ?
+		veth_xdp_rx(rq, skb) :
+		__netif_rx(skb);
+}
+
+The netif_rx path then calls enqueue_to_backlog(skb, smp_processor_id(),
+...).
+
+Threaded backlogs are always used on CONFIG_PREEMPT_RT, and also with the
+thread_backlog_napi boot option. With them, ____napi_schedule() only wakes
+the per-CPU backlog thread:
+
+net/core/dev.c:____napi_schedule() {
     ...
-	dev->wanted_features |= wanted & valid;
-	__netdev_update_features(dev);
+	if (use_backlog_threads() && thread == raw_cpu_read(backlog_napi))
+		goto use_local_napi;
 
-	if ((dev->wanted_features ^ dev->features) & valid)
-		ret |= ETHTOOL_F_WISH;
+	set_bit(NAPI_STATE_SCHED_THREADED, &napi->state);
+	wake_up_process(thread);
     ...
 }
 
-On a member, "ethtool -K <port> gro on" ends with GRO cleared in both
-wanted_features and features. The call therefore succeeds without
-ETHTOOL_F_WISH, even though GRO stays off.
+As a result, sendto() returns before the frame is processed. The same can
+happen without threaded backlogs when NET_RX is deferred to ksoftirqd.
 
-include/uapi/linux/ethtool.h documents the flag as:
+Suppose the sender migrates from CPU X to CPU Y in the middle of the loop.
+The backlog threads of X and Y can then run hsr_handle_frame() for dil at
+the same time. They take seqnr_lock in arrival order, so a later send can
+get a lower HSR sequence number and appear earlier on dil, da and db.
 
- *   %ETHTOOL_F_WISH - some or all changes requested were recorded but the
- *      resulting state of bits masked by .valid is not equal to .requested.
+The test still requires the exact send order in ordered_data():
 
-Is that contract broken in this case?
+    require([row["payload"] for row in incoming] == expected_inputs,
+            "actual UDP ingress input set/order differs")
 
-On the netlink side, ethnl_set_features() in net/ethtool/features.c
-builds its reply from the local req_wanted bitmap:
+It also requires it through verify_udp(..., input_order=True) in
+ordered_data(), ordered_supervision() and ordered_wrap(). ordered_wrap()
+is the most exposed: it sends up to about 65k warmup datagrams plus 256
+more, and all of them are checked with input_order=True.
 
-	bitmap_xor(wanted_diff_mask, req_wanted, new_active,
-		   NETDEV_FEATURE_COUNT);
+Would pinning the sending thread to one CPU for the ordered cases, or
+pinning the whole process in ordered mode, avoid this?
 
-So the SET reply says GRO is wanted but not active. A later
-ETHTOOL_MSG_FEATURES_GET then reads dev->wanted_features in
-features_prepare_data() and shows GRO as not wanted. Can the SET reply
-and the GET that follows it disagree about the same request, and can the
-ioctl and netlink interfaces disagree with each other?
-
-The commit message describes this behaviour:
-
-    A GRO request on a member is dropped,
-    not kept pending: while GRO stays off, the legacy ETHTOOL_SFEATURES
-    ioctl returns no ETHTOOL_F_WISH for it, and the netlink reply still
-    shows the request as not applied.
-
-The other core paths seem to handle this differently.
-netdev_sync_upper_features() and ndo_fix_features() only mask the
-computed features, so a bridge port's LRO request still returns
-ETHTOOL_F_WISH. dev_disable_lro() and dev_disable_gro_hw() clear
-wanted_features only once, when they are called. This new branch erases
-the request on every recompute.
-
-Could the request stay in wanted_features, with only the computed
-features masked here? veth's use of wanted_features (veth_gro_requested()
-reads dev->wanted_features) could then be handled separately.
-
->  	if (dev->netdev_ops->ndo_fix_features)
->  		features = dev->netdev_ops->ndo_fix_features(dev, features);
->
+> +        expected.extend(payloads)
+> +        # Keep capture receive queues bounded throughout long wrap warmups.
+> +        if number % 8 == 0:
+> +            lab.observe(0)
+> +    lab.observe(0.1)
+> +    return expected
 
 [ ... ]
 
