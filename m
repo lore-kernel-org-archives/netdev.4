@@ -1,94 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149194;
-	b=01gNQ2iHya1u9UfjDvLoQkRGtHzI1LlIbWGV/idPRVm8qnuXCYhbovEFZ7VZgo51JFGg
-	 OttLlmJD75V2F4MOThnrhN242AtY8MQKWpMXZ+HPQFGNOndfiA2LbTCLfXVKwV9z6gHiQ
-	 +UVxpGAWkGBXnCbIjkEIEUTpZ777ck58saliJgkrPtNxCkhMVTgI6g2Vnih6wRrq9k8gI
-	 rVfAOfkXPU2NQt0csIEkfdMaStJQ4/qKWO5OVcH3A6af2wevkeZ6rVGMGCwCnS2G0U/0e
-	 w5JL7yg1MeH1iLYh+TKyLoD9+qt/CU5tJ9ttWXgv+wUvBvcMjA8T5Wh4ztZvqYNv3Vw==
+	t=1795149216;
+	b=E0Q/4Tp99U2i0LELoYNmuXeUYbK9jIQ56/6AqlofXhEVhBPjm/CXsPnapHPqZ2RZnvhD
+	 oZz4zUMblwjOReGSu0RWjJ5ZyXLDw3LP3KTA6IUAdHI3sFeXmjdGcnL07XbIf+z1Arj17
+	 gAfFczxmbIH9h9aEeahY2ANg3QoUI/q+nYHg80Frgg+L5R8iABtAedmqXBAC/Gps/s6Uw
+	 aR/NCa+i6GQ/Bcd3Fyw6XgHWtdCfcCYoQ7ZuF74rbazmAjtRUaBzyoj2oaW0SAFzDHnId
+	 IfiFCe4C3Ge6sXGqPEbQmVebY8Y3a2DknVEZtyVOgvgqxC99G+K7z9uBZVlCI+cXsHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149194;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149216;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
 	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Received:X-Received:MIME-Version:References:In-Reply-To:From:Date:
 	 X-Gm-Features:Message-ID:Subject:To:Cc:X-DetectorID-Processed:
 	 Content-Type;
-	bh=d5O9UucWE9TKWg9Jis0AJBUXAKU+IEf9vXup+G4RQfs=;
-	b=VfEd3/AOFGhkOkOVz4txTyI5F6cISxnEXVK7xoNbXWpRjVdf2rWlH5tNkPAO35z5JqdA
-	 AkSwfsh94O0hCQ2FEeDYJGjQI0bb9CBAZ+d+OP+olI+zHRDtROiUovhu/y9GLwxT3/IVz
-	 Uvci+RGJsDsBcIbSxkeZDhAiEAMojBQ9Wvdp/cHdcRJ2F4afN4SngYYAfJTGhe5K1de+K
-	 JcC+Z+sKvDJMyq65XjUDhEPqzV1rOm9v8Q8HsANJJ4NGLBnt9B7ZrzyMHyjDsfDsEn+4q
-	 PZ8lSPQPqUuLleSc4TFPQXyXGiyGdt5NELYpJqFQX3eBNQ3NmJMwDTp5PrVvSxx02nA==
+	bh=G4b9YdrbhE9n5OHD/L5wqetVq2iK0ZTbEG6Yuhm9CSY=;
+	b=Ma3uKcj2waTTH+HO1d/0Yb1YU5x2kf2jiHWKAFce5iY5zNCXJVkZr0OyYkztysCrMM7T
+	 +gUYTRzvFkTswKffTeq+sjB4xWEMg8rSd6FA6G8dLkqM3N7oL0YYkTQ6eML1Di+fXgbh8
+	 q9kDE7IKCjmUT2cRN2BzzyDtBxbFvIc1w0yrrLh34Uqs0HKUZ7omleb2keSAbWODhKv43
+	 noyP0WGS0qBTKluFq4lbsrv4IMn8Xd++/uv2C1kyvf0AIZS+V66dZsNo9A8B5ZnWW5TB1
+	 LnHigzAks4PMxzNVs7U/1ePYahuuXz8nOojcQYXZHeMMvh4/4WdzrfBcEMtc7Hd4pJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=TR7BsgTN;
-	arc=none smtp.remote-ip=209.85.216.98
-Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=eM6ITIz5;
+	arc=none smtp.remote-ip=209.85.214.227
+Received: from mail-pl1-f227.google.com (mail-pl1-f227.google.com [209.85.214.227])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC9460A2603
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:33:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC9460A2603
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54DE7606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 04:33:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54DE7606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=TR7BsgTN
-Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3ae2b7e1e17so332613a91.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:33:13 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=eM6ITIz5
+Received: by mail-pl1-f227.google.com with SMTP id d9443c01a7336-2ee1b65fdbcso1397455ad.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:33:36 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795149193; x=1795753993;
+        d=1e100.net; s=20260707; t=1795149216; x=1795754016;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=d5O9UucWE9TKWg9Jis0AJBUXAKU+IEf9vXup+G4RQfs=;
-        b=oTq00ww8XHiOJwCDQnWll7htgk+yOo+A0swCR27DtTkA+fZQzAaN1QDJ92qs/5Pie4
-         xOv5R3JBk6MGMG/AjcHYBW9UHo8lrSd/7oH+eKZVVJ1tTrwvV1Onz/CZNKxUFeNUsvLH
-         sTlQvXaIix4qeIiXNqJn6yhIdvtTQV9t2txyjGm/lJEBS6y0rzh0n3SkxjQxz95bjOrN
-         Tb6UQkOiDFzbnUDz9QO1DVoArKp9bYeK/Bjmbs0CkdxW/BcpawIV7e/NhjaO5koQ/+FM
-         WVxa60q0RIL80HB+symXD5uwj1dhwY/LfNmiHi5TZCReWOqh1VMoG8VrnPANOcKhDcEN
-         gaSQ==
-X-Forwarded-Encrypted: i=1; AL+hErEt0oGi34wlnzAJeQe/H1fSSMGflZPLrC4cWYRLRaPRRwZXloFutXVLwlAbD7eLgyvsZNvobIo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OfkdrSP9anijIvmpNi3Q8HMg/I+NjV0kyg9dPt0ohd3QejdCg
-	n0S0rqwe5qsxWwfonU9tlQMlfJmOoCegNEu9YzKi2cGzQMpgq/zSPwe4yNfeZ1KJB2REach4382
-	x6Ckx3OLsw3J8ESUJxQdeIU3UideW1OluYe53daKUqS3IvzT1CFF0wDFzQd85zK1+22mP4m132t
-	GaVFJ6NrV+MRg6WNoa/tJPZB+i9N2Yd4gif7RvD7X3UY0p0QEjVR1MEpMaO+7xaDiP4kThnCwiP
-	W6yMuJVDVrp3w==
-X-Gm-Gg: AZFdTZdktMPCmEgbBa1il7bNzKX0kPx+1Y2v2ip/c/WevtoFRWEI3PO5APyu/n6+jLI
-	IwKHuj16lY6AQOZIUSfcJGc+e0RtOYT/MW/DRi05xYjbx6erut4T15adheMZToE7yMlrgFrIEuq
-	XrTuzeL2vDhZ1LtGz/b+KgYP4Fj2ctgKxURtkXCZOVnPCxyq1shHiyRxtLpN937sRMHxRE6KeA9
-	Iqm96+yZC9ocbLkc0ZdWDRhnZ/YnBoIEOPFlx5Dzo9QrmaS+lFwdAxt4aNzrgtqD9pIFGds0afx
-	MXZVBqgmqQnaSUg4e7kh1h9ijdDh+gLivZKfwl71WUzZ6FGP498FbMJBuSfvXVp67XSYp+8lePd
-	+JjIaNFZ1s22blIVNXcGtg7igw+fTKyVqAUbZP0aky4zZTLgMMxLFYiaJfWIoxwYl8DSbyVdufm
-	91MHbKriFyPzBc9tqa0gzCNB1L9Pi3Ko8ViZO/Lg==
-X-Received: by 2002:a17:90b:3891:b0:3b4:127a:2bc2 with SMTP id 98e67ed59e1d1-3b41c8d9bfamr1624499a91.14.1795149192963;
-        Thu, 19 Nov 2026 20:33:12 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b42005a1a1sm755907a91.0.2026.11.19.20.33.12
+        bh=G4b9YdrbhE9n5OHD/L5wqetVq2iK0ZTbEG6Yuhm9CSY=;
+        b=GyBteblsxdSbXfKNHdVJMprzB+j7afyzaqEQYiSAJm6/RinOE4TQ2amXFGVePvNSBW
+         fyLdwxINrWUgUoTk7PyDw4xqE8qlSF5RnYVpgTTUj8ZiEq2ZBz/JkMup/K9jY2r9uFZo
+         hUT8f8FpzV8BwYp9txZf1mb+5LrsHphLjbiEdWbC32WJuIxlw4yiU8Tiv4eCMmNdsnjq
+         FpuQWhnEfzy5VxV4PKc5WZrRe0ruzVhlJrr3Tl+lFOb3D1dK7q/4iXcHBt/KYEFzupF7
+         CLa6TSm6YybQYCZTMgRo9/HA6y7M48BmGKQc46ntv8TEvXVhJQB+4k8HRvebN0xhmc1P
+         bBTw==
+X-Forwarded-Encrypted: i=1; AL+hErGxQLFLMOxqbiAeDa3UZcRI/nCjfGI63nPN1YW0X6nYKzI4xZ/7RTjcOnQg0Mh3fFMdNfC+NSE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8GzpGn+BGyqu9STcsaaq1Y6FRr4lCfcSlQl87ELBpzODeB5k71
+	7/eRh1vf5KyISvRBB4eXTkLQkqYOHB5/Vv+9gs/npq8LcsJAU4OC9PHo7dBsMWbvAVtwxjq6/hH
+	Rt3/5wP0xhX2Ph1rTiO5xIaauBgdEfOpKqGpQ5mnImpDNubM6mHuBdqG6/g02wOom3xt5F/kCJx
+	lqbSYpanKjFWE7QJ0T+ECgE4MGXtEAMkJNjXHrLjUjxHse/MH5wSwvZSlFw6EWA0lDKS6xbcnNu
+	cUl2RvpePQHOw==
+X-Gm-Gg: AZFdTZf9qen4ZzF8sDVxpA5vwGuUNDHD6jo749aRbjZZO3n50Jtm71MST79xsJckpvV
+	03BGKQCZKYoPZ2tzM/JtKT2NFH5j5FJcfO+MunUsGDKiih7QjpM80+hsMHgyYiIeRlL1zWEDjcK
+	DIygJrjdr3C/N+EJqbPtq4lczuinynQ9mma12YXyKNtb0U9Zxb0es+9d/NTRgOEOpzfauPSq6PD
+	OSnOiuPtQXWN6cnUtQt+g9xyualFflU2JJyEUXmA24e+dqM579ZS0cltOkxmCYBGGTOhHVzlh0N
+	SIG2c+xTZ6QMTg6beUx1RNc0zpIB2WlSw9uEQ6+Ro9LDvSnVDD8zcdth4RYhZVGkkMEN1+iVtp/
+	20t2tz9rnfwyXzy3WEJXu+NgkhX0agFAFAJ2UoLC4hJtRixHHPWErFJQpx5cwC3MObkK65706kc
+	c+gUYwft/c8oRKiVJ5sTC1/x85SnzuZC13oFo=
+X-Received: by 2002:a17:90a:e70c:b0:3b0:d551:ab2 with SMTP id 98e67ed59e1d1-3b41c955b0emr1555683a91.51.1795149215427;
+        Thu, 19 Nov 2026 20:33:35 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41ae59fa2sm1147034a91.8.2026.11.19.20.33.35
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 20:33:12 -0800 (PST)
+        Thu, 19 Nov 2026 20:33:35 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b691cf0eeaso738299b3a.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:33:12 -0800 (PST)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8b647bbf87aso478684b3a.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 20:33:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795149191; x=1795753991; darn=vger.kernel.org;
+        d=broadcom.com; s=google; t=1795149214; x=1795754014; darn=vger.kernel.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=d5O9UucWE9TKWg9Jis0AJBUXAKU+IEf9vXup+G4RQfs=;
-        b=TR7BsgTNSpOCtqfJvTtlJUiQpznR+fhwhEnSsrkcp0yHvDstth1iBCFvRitIq/lKb1
-         919ucLtlViefe6jo3pOxf+QBO1pmJM0b1WsXLcQAY9KvDxqjENOV0PJdQAwFQO74qafi
-         PKdl4b8+058ecrc+bUq3dv35+s8+MNZ35M+48=
-X-Forwarded-Encrypted: i=1; AL+hErFel2qto7D80Y3SirNZakolV5JFUcsp3wvgr/ULHWbrxqU6DXT9/c6e5Tdr3/qluA9MmEdga7Y=@vger.kernel.org
-X-Received: by 2002:a05:6a20:9183:b0:3e2:2021:89c with SMTP id adf61e73a8af0-40148dca737mr2146946637.5.1795149191241;
-        Thu, 19 Nov 2026 20:33:11 -0800 (PST)
-X-Received: by 2002:a05:6a20:9183:b0:3e2:2021:89c with SMTP id
- adf61e73a8af0-40148dca737mr2146911637.5.1795149190779; Thu, 19 Nov 2026
- 20:33:10 -0800 (PST)
+        bh=G4b9YdrbhE9n5OHD/L5wqetVq2iK0ZTbEG6Yuhm9CSY=;
+        b=eM6ITIz5Q2GDbC5ZBZpr4Du9ANQyggKL4EMrDAdgepPhoP6P+pZHwREgMsui9Sl0lf
+         kJRERNvQBN5wFbD3A8eBqducN05L4ephPLB7jMMshbqp0ak5qhnE5cFI/petTozpc3rh
+         kwYIB1u0dVf2xPX2By/QGyTVWdYltClidCJ6o=
+X-Forwarded-Encrypted: i=1; AL+hErE1UebuWJzmTv7yKJcrtOYBPqyZJyTwQKRsfIeQK/ahO0pzMjtMAvIv+nNWHV4ZGBke8ZCk/Gc=@vger.kernel.org
+X-Received: by 2002:a05:6a00:2ea2:b0:881:e266:c3c5 with SMTP id d2e1a72fcca58-8c8792c30a5mr1865662b3a.2.1795149213634;
+        Thu, 19 Nov 2026 20:33:33 -0800 (PST)
+X-Received: by 2002:a05:6a00:2ea2:b0:881:e266:c3c5 with SMTP id
+ d2e1a72fcca58-8c8792c30a5mr1865642b3a.2.1795149213216; Thu, 19 Nov 2026
+ 20:33:33 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,13 +98,13 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120034645.364630-1-kuba@kernel.org>
-In-Reply-To: <20261120034645.364630-1-kuba@kernel.org>
+References: <20261120034645.364630-1-kuba@kernel.org> <20261120034645.364630-2-kuba@kernel.org>
+In-Reply-To: <20261120034645.364630-2-kuba@kernel.org>
 From: Pavan Chebbi <pavan.chebbi@broadcom.com>
-Date: Fri, 20 Nov 2026 10:02:57 +0530
-X-Gm-Features: AclHuK8Nvh-rLJ6tKBFqK4oS7kYPwIeQAGqfkus_xkmCB73QDinWd-6zJUgp3f0
-Message-ID: <CALs4sv3LxZ6cvuGotXkCn2ok7d90TLb5UbwVJFpd1uabmj0OYQ@mail.gmail.com>
-Subject: Re: [PATCH net 1/2] eth: bnxt_en: restore Rx coalescing after
+Date: Fri, 20 Nov 2026 10:03:21 +0530
+X-Gm-Features: AclHuK8Rl4rcofJKUZz5W5yXOA6za1t9sFq4ajvqhTA7AKieHCEw4ouL9kp_xAs
+Message-ID: <CALs4sv0ors7z7XSS0G6YYNtFe0B7LMBPAe4pyuD=AUvmDUOg_w@mail.gmail.com>
+Subject: Re: [PATCH net 2/2] eth: bnxt_en: restore Tx coalescing after
  re-allocating the completion ring
 To: Jakub Kicinski <kuba@kernel.org>
 Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com, 
@@ -113,42 +113,39 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
 	ajit.khaparde@broadcom.com, michal.swiatkowski@linux.intel.com
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000e332d00660adbd98"
+	boundary="000000000000390a060660adbf47"
 
---000000000000e332d00660adbd98
+--000000000000390a060660adbf47
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Fri, Nov 20, 2026 at 9:16=E2=80=AFAM Jakub Kicinski <kuba@kernel.org> wr=
 ote:
 >
-> With TPH enabled, queue restart frees and re-allocates the Rx
-> completion ring in the FW, to apply the new Steering Tag. The new
-> FW ring starts with default interrupt coalescing parameters. The
-> driver programs coalescing only at open, from ethtool and from DIM,
-> so after a restart the ring ignores the configured settings, while
-> ethtool keeps reporting them.
+> With TPH enabled, queue restart also frees and re-allocates the Tx
+> completion rings which share the NAPI instance with the Rx queue.
+> Same as on the Rx side, the new FW rings start with default interrupt
+> coalescing parameters, and the configured settings are applied again
+> only at the next open or ethtool change.
 >
-> Re-program Rx coalescing of the ring after allocating it. Use DIM's
-> current profile if adaptive coalescing is enabled, the static
-> settings otherwise. The per-ring DIM values may be stale when DIM is
-> off, ethtool changes to static coalescing don't update them.
+> On P5+ chips the Tx completion rings are separate from the Rx ones
+> even in combined channels, and the Tx settings do take effect. On a
+> BCM57508 the completion latency of sparse Tx traffic follows
+> tx-usecs, it's ~20us with tx-usecs 1 and ~220us with tx-usecs 200.
 >
-> With rx-usecs 1000, re-allocating the ring on a BCM57508 lowers the
-> latency of a 1 byte ping-pong on that queue by ~250us. Latency goes
-> back up once ethtool re-programs coalescing.
+> Re-program Tx coalescing of each completion ring after allocating it.
+> DIM only manages Rx, the static settings always apply to Tx.
 >
-> Fixes: 6b6bf60fc95f ("bnxt_en: Reallocate RX completion ring for TPH supp=
-ort")
+> Fixes: fe96d717d38e ("bnxt_en: Extend queue stop/start for TX rings")
 > Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 > ---
->  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 24 +++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
+>  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
 >
 
 Reviewed-by: Pavan Chebbi <pavan.chebbi@broadcom.com>
 
---000000000000e332d00660adbd98
+--000000000000390a060660adbf47
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -241,13 +238,13 @@ eIj4fd2b29HwMCvfX78QR4JQM9dkDoD1ZFClV17bxRPtxhwEU8DzzcGlLfKJhj8IxkLoww9hqNul
 Md+LwA5kUTLPBBl9irP7Rn3jfftdK1MgrNyomyZUZSI1pisbv0Zn/ru3KD3QZLE17esvHAqCfXAZ
 a2vE+o+ZbomB5XkihtQpb/DYrfjAMYICVzCCAlMCAQEwYjBSMQswCQYDVQQGEwJCRTEZMBcGA1UE
 ChMQR2xvYmFsU2lnbiBudi1zYTEoMCYGA1UEAxMfR2xvYmFsU2lnbiBHQ0MgUjYgU01JTUUgQ0Eg
-MjAyMwIMClwVCDIzIfrgd31IMA0GCWCGSAFlAwQCAQUAoIHHMC8GCSqGSIb3DQEJBDEiBCAMkBZl
-S3nEeDxy7kUyO2nJBxeGRNzcYiJqo6mVDFdBBzAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwG
-CSqGSIb3DQEJBTEPFw0yNjExMjAwNDMzMTFaMFwGCSqGSIb3DQEJDzFPME0wCwYJYIZIAWUDBAEq
+MjAyMwIMClwVCDIzIfrgd31IMA0GCWCGSAFlAwQCAQUAoIHHMC8GCSqGSIb3DQEJBDEiBCCAvg7i
+WUGNKpi4YwPY9uNofGdVn7D1jcfQdWrQ0LCyBjAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwG
+CSqGSIb3DQEJBTEPFw0yNjExMjAwNDMzMzRaMFwGCSqGSIb3DQEJDzFPME0wCwYJYIZIAWUDBAEq
 MAsGCWCGSAFlAwQBFjALBglghkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEHMAsGCWCG
-SAFlAwQCATANBgkqhkiG9w0BAQEFAASCAQBA1+ZMJZe8KSUKIBWWYAfsEUi5Oe6ppNc7DZBRdchh
-73oUvHxbBgtJPijzRgyxDmFvxYrNY7wZJ/0/C+XxT6PF4fGOQ5/oJ+Hv8oYMp6RTFimvKTXCiUIy
-6VYV46ivAG6FLKjZEKRotwzkrwebDiZDAZVa8g/vLWW7G/MHacUpDkfmKg9T1DAMgWUuvbzH3ihi
-3usnk5no0SLNDlVhqnXxFhrFV6qwW7zzL0hlQW5G/PU9ZImk1/o/rvlDdPZoro/wBUnLPFcgGrn+
-t+HvhHUiTzysGmb58yOsMvFooaoTRIzEzJxVRmcmIlK9DgdJ+qWDUFofVqctvdcFl+GOIsD9
---000000000000e332d00660adbd98--
+SAFlAwQCATANBgkqhkiG9w0BAQEFAASCAQCkyAebJovGjIHBXs0jJW/6PNPLTrKjRW1zrHwb37vK
+GYslBt6Aw8QPHSTigbAb5KXWW7z2uqo91PoL0U/vtrw0TKHMIYCNYLNIXWMU1x3lJZhUPXXyWGts
+VERFfIkdpLGJw4zooTN4378WBlmDdqiNvqGd79jCwD6KHTz6fd8vbQinw/y004yF1gU7hy0W/Uxs
+OCEQkIq4v69G11+/g3s0ELhlyjPTLA5w4SA6NgCfXy0MLZRpg9Z7QQgPpzv9yaLdyd5ZdP6bkdpK
+HVN1JSpts6nZhzpjQIqlwb04y4OosL/xEOkBfCfjCopaR2qbbWHWBhFbVRIcubuZmTiiX79o
+--000000000000390a060660adbf47--
