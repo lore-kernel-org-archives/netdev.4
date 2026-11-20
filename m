@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.21.23.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.37.83.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186047;
-	b=DxGtT9F8jYfvBKql8pxxKVkSe4cexljzWQw24kU8h6nTigohYj3qz5OTBOGrmLauYhE2
-	 CJqv6NLd5A3zIRy51OUEp7WKz0KpZdt8honhz/z2UDNhEXUN71gFsFHBpWq9H7Nj63Pol
-	 3Xoux+PmkBQvmtj6N10M3AaN9OlArdsBkPbTU6MuhE1XykK57hU1O0zs7VkkcT4EF+Y5X
-	 5i3DOeE4O0oW/kY0hzXhsnpSkHo8j6uuqkvJdNGfb4Piq2e32lAaTqnwP7JxPquYpBQMY
-	 KjV58X54pUyyS5krif2Mk3ZRf0DTabWNdkJpiBx8OtUJCKhkHCf8DZl8o7L6hEaJ9oA==
+	t=1795186133;
+	b=Wjorpx3hm31SLCW4hzm8F3LXB5ktsDmOkp6IhObURbRiNF00mfe9Yhp0Rg3zZpffoJ/N
+	 VseIG8u9A7ZVzALAOsiOQKT0FTf5IOkRUWrbHahsJPkxtQGDWkiUjoniwYv/gEQ/73zC9
+	 dC2sW/9DsFivcX6xeFm99JNA2UzFIJaepbFpyFnza870LyboqMuGP2GBrSJ9WahuOzNYj
+	 2sZC2UVrUKVk3bpNzZcYYRV07zpbRg9YyN91oJf7E7EN+NOcw254kppXqVbN+orjSG8Ln
+	 69MSsJiYt0TrdH0Sknbi8xT6IO5lDgRyHDfQVSaSShM1NBlKDORu+0hPAyKxyzjm+vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186047;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 MIME-Version:Date:From:To:Cc:Subject:In-Reply-To:References:
-	 Message-ID:X-Sender:Content-Type:Content-Transfer-Encoding;
-	bh=7lDtZ3hGN9b/G+u+R6RW+gOmPSbNNpP4+cp9diJUF44=;
-	b=0ggHSgtUhqHL8gSfZu/K7g6J21rEZZC+pOLacxjYUuImkmlUMzZiwVx7z/QmaoECn9/L
-	 wmCKqXa4ELHD/n6AqtpNWilYZA9E/n0gYIEf0L3ApTXuyhwG6+Z3Jp0TuDT8PmsZcoDH6
-	 O2VQWZMJVl/a7d00GpB4lwfcFEZx6Ikh6Dzxz2mo8fzK8YHVR56wX2xoL2WpStqDcWdqz
-	 iH61PZ/v6JXbtgOAx1p7YeZKOc+LAZwRnWkipq4pOVHWrqX31LSRSZJEoklVoFOs1UrRH
-	 j+zsnHP0lliVecSxWIKksN1MBkdfU12ns29FEOyYAJbRomIAPiLredkqL4CRa+6/JOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186133;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=7D+iGOe/KpM/TS77r7xebwxtnpAOr+lYRPP6a0rvnqI=;
+	b=ztDXcEb/6n8UcR5OhaW0/O0jpTLyOn0FBZH2MYmZVCz6uwXC7tQ4eWDxY8bhGTKsR+Cg
+	 jlAiXsCSwrW9eSYsILqeyf6z99TPhECcDM3H1dr8xzykTCv1gfJU17oKHpY1NKaYh/2+U
+	 yWAlVD1F/4p9xD6au6woz8PHXeP0g/Nq6LziAoI1QLRnfaht63pGATYCwpsPHxknKW6pH
+	 JNmenCdW67E+JP3Jbr3pNPDSTRu/4tR2zY6s+M7VKu1Tsm6eLVh7Ngm9+R4L60tktnt9+
+	 FJqRCXnv5jiiEkr755aWCp/LUKEkggIS552+himhVF4y1vcRu+Yz43DiKnmEPP2ZFXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=disroot.org;
-	spf=pass smtp.mailfrom=disroot.org;
-	dkim=pass header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=WMddph2n;
-	arc=none smtp.remote-ip=178.21.23.139
-Received: from layka.disroot.org (layka.disroot.org [178.21.23.139])
+	dmarc=pass header.from=dfb.sh;
+	spf=pass smtp.mailfrom=dfb.sh;
+	dkim=pass header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b="VYV8+/wG";
+	arc=none smtp.remote-ip=54.37.83.207
+Received: from frkn.dfb.sh (frkn.dfb.sh [54.37.83.207])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C4C3606A326;
-	Fri, 20 Nov 2026 14:47:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C4C3606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=disroot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=disroot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62FC6606A325;
+	Fri, 20 Nov 2026 14:48:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62FC6606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dfb.sh
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dfb.sh
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=WMddph2n
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CE9A180489;
-	Fri, 20 Nov 2026 15:47:25 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 73qYHBJgtuIa; Fri, 20 Nov 2026 15:47:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1795186044; bh=p4wlwrOxllXj04UsD2WxdhJIRf9fiYXFmoCz4Fpl6a0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WMddph2nrb2s3I/T0hD9n7ZhDlnuEToadvNgL85j7KrwFAUhPO/091e4b1EJa0YGd
-	 FEoN6b7rlnA/gIIKD5K2L5IvxqgXBRr/iIVGL2NU2p2+sar7/1n1uwUkcBaRGVOH/h
-	 21yY9N9EEBO24tOdkMn7pQO9adKKMIKnHfGZK2zmvS1MJhfxtvCjoWfRHDWJ7nUvc3
-	 hJzDtbjDdutcZUJhiOeSV/54L02rDQKsfO6BQ8f5m+ON5o3S4XXdZgohFLhNyYed41
-	 Qq4XJ88GjLGhtnC3DSfvemg/SoUQagoOdtddepkuYQbUKp10z8tkKZxoX35Sf0K8md
-	 B0+iepISaYzPQ==
+	dkim=pass (2048-bit key, unprotected) header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b=VYV8+/wG
+DKIM-Signature: v=1; a=rsa-sha256; s=frkn; d=dfb.sh; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1795186110; bh=7D+iGOe/KpM/TS77r7xebwx
+	tnpAOr+lYRPP6a0rvnqI=; b=VYV8+/wGjSctNVH/vkN2cXA7AQygrOigiAPjV5J/GQ3KlVvWs6
+	nMVvjGl0ydQADFRpVKAMn01k46MvIA4Nf+VtAlB54l9T7Zku9tXHsjYdFwjyz4bCpXtMmSGtgev
+	u+trRgi3JO/eLiJw3Dg6k7Da/vGXbEeODORev+oY+gbir0nYNrkqUcscYooWFAmy20oe1k6ACn6
+	STzi8ID6vjoewR8a3Npw7h81VDoOpswakaH2HHzfPuiddbgVPxoXlDQBZ4WMR+F7I9Gz/HPndK0
+	VhvtKJ456Lb5u49Z3ILMr3Bo44SMJt47DzsSIPjTURnPevWMYO81P40uv3CrNUNbG/A==;
+From: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+To: stable@vger.kernel.org
+Cc: "Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Nikolai Kalinin <nikolai@kalinidze.me>,
+	netdev@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 6.6.y] virtio_net: check RX buffer length before DMA sync
+Date: Fri, 20 Nov 2026 15:48:28 +0100
+Message-ID: <20261120144828.1573321-1-vladimir@dfb.sh>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,100 +67,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 14:47:24 +0000
-From: Rustam Adilov <adilov@disroot.org>
-To: =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon
- Horman <horms@kernel.org>, Linus Walleij <linusw@kernel.org>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Taiga Ogawa
- <zectaiga@gmail.com>
-Subject: Re: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C
- tag variant
-In-Reply-To: <awA2z07l0ZvzcWtc@analog.com>
-References: <20261119165129.26693-1-adilov@disroot.org>
- <awA2z07l0ZvzcWtc@analog.com>
-Message-ID: <b1cd757ad411aa74cb2934ccea0924e0@disroot.org>
-X-Sender: adilov@disroot.org
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hello!
-On 2026-11-20 12:09, Alvin Šipraga wrote:
-> On Thu, Nov 19, 2026 at 09:50:51PM +0500, Rustam Adilov wrote:
->> The RTL9607C family of SoCs have an embdedded switch that utilizes
->> the same Realtek CPU Tag protocol 4 with 8 bytes in size but have
->> a bit different of a layout. And that layout is also different for
->> TX versus RX sides and introduces new fields not seen by RTL8_4.
->> 
->> Add basic necessities for this cpu tag variant to function.
->> 
->> Tested-by: Taiga Ogawa <zectaiga@gmail.com>
->> Signed-off-by: Rustam Adilov <adilov@disroot.org>
->> ---
->> Tested on OpenWrt with 6.18 kernel version [1].
-> 
-> Mainline doesn't have the requisite DSA driver to make use of this
-> protocol. Andrew, is it normal to accept tag protocol drivers without
-> the corresponding DSA driver?
+[ Upstream commit 29dfa436bc488056a84ee423ba82336db453e2a6 ]
 
-I suppose that is fair. I guess that also means i need to hold on to
-the PHY support patches until then too?
+An RX queue that uses the DMA API (rq->use_page_pool_dma, for example
+with VIRTIO_F_ACCESS_PLATFORM) syncs each received buffer with
+page_pool_dma_sync_for_cpu() using the length the device wrote to the
+used ring, and checks that length against the posted buffer only after
+the sync.
 
-> I can see that the OpenWRT kernel has a DSA driver using it. Why not
-> submit that together with this? Otherwise it is kind of dead code IMO.
+With SWIOTLB bouncing (swiotlb=force, or a confidential-computing
+guest), the sync copies from the shared bounce buffer into the guest's
+private page, so an oversized length also copies the bytes the device
+wrote past the posted buffer over the neighbouring page pool fragments.
+The later check drops the packet, but the copy has already happened. A
+malicious device, such as a host the confidential guest does not
+trust, can overwrite guest kernel memory next to an RX buffer with
+bytes it chooses, which is enough to take an unprivileged guest
+process to root.
 
-Yeah but right now it is not upstream ready yet. Ideally i would like it to
-merge with rtl8365mb dsa driver cause by all accounts the embedded switch in
-RTL9607C is very much like rtl8365mb but connected over MMIO. So that is my
-overall plan.
+Check the length before the sync in the per-fragment loops.
+receive_buf() has to sync the header before the length check, because
+the mergeable error path reads num_buffers from it, so limit that sync
+to the posted length. A device that reports correct lengths sees no
+change.
 
-I am already working on making the downstream dsa driver follow the rtl8365mb
-in every case, mdio [1], irq [2], mdb plus vlan [3] but it is kinda messy as
-VLAN side is very much like family D which is still being worked so nothing
-concrete yet... and the table part is currently being provided by downstream
-otto-table driver but we could just as well copy rtl8365mb_table in process.
+The driver has synced with the device's length since
+commit 295525e29a5b ("virtio_net: merge dma operations when filling
+mergeable buffers"), at first in virtnet_rq_unmap(). Commit 24fbd3967f3f
+("virtio_net: add page_pool support for buffer allocation") moved the
+sync to the page_pool call sites that this patch changes, so the patch
+applies to v7.1 and later. Older kernels need a separate backport that
+limits the sync in virtnet_rq_unmap().
 
-After then introduce something like realtek-mmio (similar to realtek-mdio
-and realtek-smi) and bam, we can straight up share the rtl83xx code :)
+Found by an LLM code review agent auditing users of the DMA API; the
+fix and this changelog were also written with an LLM coding assistant
+and reviewed by us. Reproduced in QEMU with swiotlb=force and
+iommu_platform=on, a test-only device change that reports a used length
+64 bytes past the posted buffer and writes a marker there, and a guest
+kprobe module that reads the buffer after the sync: without this patch
+the marker reaches the guest page for small and mergeable buffers; with
+it the packets are dropped and counted in rx_length_errors. The
+virtio_net selftest basic_features.sh passes with and without mergeable
+buffers.
 
-But maybe i should really jump straight to it and not slowly converting
-the downstream dsa first (which wouldn't really be relevant anyway?).
-If it turns that i do need DSA for this be also accepted then maybe.
+Fixes: 295525e29a5b ("virtio_net: merge dma operations when filling mergeable buffers")
+Cc: stable@vger.kernel.org
+Co-developed-by: Nikolai Kalinin <nikolai@kalinidze.me>
+Signed-off-by: Nikolai Kalinin <nikolai@kalinidze.me>
+Signed-off-by: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+Link: https://patch.msgid.link/20261110-b4-virtionet-rxlen-v2-1-6ec5aa0edf9f@dfb.sh
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+[ vladimir: 6.6.y has no page_pool RX buffers. A queue in premapped
+  mode (rq->do_dma) syncs small and mergeable RX buffers in
+  virtnet_rq_get_buf() with the length from the used ring, before any
+  length check. Limit that sync to the length of the posted buffer; the
+  existing checks then drop the packet. Tested with the reproducer
+  described above: without this patch the marker reaches the guest page
+  for small and mergeable buffers; with it the sync stops at the posted
+  length and the packets are counted in rx_length_errors. ]
+Signed-off-by: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+---
+ drivers/net/virtio_net.c | 51 +++++++++++++++++++++++++++++++---------
+ 1 file changed, 40 insertions(+), 11 deletions(-)
 
-> As a side note, it's unfortunate that Realtek recycles
-> EtherType/protocol ID values for seemingly different formats. At first I
-> thought this should be its own file/module, but I can see why you put it
-> here. My one concern would be whether the semantics for the common
-> fields are actually the same for both protocols? If not then maybe it's
-> better to separate them after all to avoid confusion.
+diff --git a/drivers/net/virtio_net.c b/drivers/net/virtio_net.c
+index fe0e647808cd..d1e4052c6a25 100644
+--- a/drivers/net/virtio_net.c
++++ b/drivers/net/virtio_net.c
+@@ -488,19 +488,32 @@ static unsigned int mergeable_ctx_to_truesize(void *mrg_ctx)
+ 	return (unsigned long)mrg_ctx & ((1 << MRG_CTX_HEADER_SHIFT) - 1);
+ }
+ 
+-static int check_mergeable_len(struct net_device *dev, void *mrg_ctx,
+-			       unsigned int len)
++/* Length of the mergeable buffer that add_recvbuf_mergeable() posted. */
++static unsigned int mergeable_ctx_to_buflen(void *mrg_ctx)
+ {
+-	unsigned int headroom, tailroom, room, truesize;
++	unsigned int headroom, tailroom, room;
+ 
+-	truesize = mergeable_ctx_to_truesize(mrg_ctx);
+ 	headroom = mergeable_ctx_to_headroom(mrg_ctx);
+ 	tailroom = headroom ? sizeof(struct skb_shared_info) : 0;
+ 	room = SKB_DATA_ALIGN(headroom + tailroom);
+ 
+-	if (len > truesize - room) {
+-		pr_debug("%s: rx error: len %u exceeds truesize %lu\n",
+-			 dev->name, len, (unsigned long)(truesize - room));
++	return mergeable_ctx_to_truesize(mrg_ctx) - room;
++}
++
++/* Length of the small buffer that add_recvbuf_small() posts. */
++static unsigned int small_buflen(const struct virtnet_info *vi)
++{
++	return vi->hdr_len + GOOD_PACKET_LEN;
++}
++
++static int check_mergeable_len(struct net_device *dev, void *mrg_ctx,
++			       unsigned int len)
++{
++	unsigned int buflen = mergeable_ctx_to_buflen(mrg_ctx);
++
++	if (len > buflen) {
++		pr_debug("%s: rx error: len %u exceeds buffer length %u\n",
++			 dev->name, len, buflen);
+ 		DEV_STATS_INC(dev, rx_length_errors);
+ 		return -1;
+ 	}
+@@ -645,11 +658,27 @@ static void virtnet_rq_unmap(struct receive_queue *rq, void *buf, u32 len)
+ 
+ static void *virtnet_rq_get_buf(struct receive_queue *rq, u32 *len, void **ctx)
+ {
++	struct virtnet_info *vi = rq->vq->vdev->priv;
++	void *buf_ctx;
++	u32 buflen;
+ 	void *buf;
+ 
+-	buf = virtqueue_get_buf_ctx(rq->vq, len, ctx);
+-	if (buf && rq->do_dma)
+-		virtnet_rq_unmap(rq, buf, *len);
++	if (!rq->do_dma)
++		return virtqueue_get_buf_ctx(rq->vq, len, ctx);
++
++	buf = virtqueue_get_buf_ctx(rq->vq, len, &buf_ctx);
++	if (!buf)
++		return NULL;
++
++	/* The device chooses *len. Sync only the buffer that was posted, so
++	 * that a larger *len cannot copy over the buffers next to it.
++	 */
++	buflen = vi->mergeable_rx_bufs ? mergeable_ctx_to_buflen(buf_ctx) :
++					 small_buflen(vi);
++	virtnet_rq_unmap(rq, buf, min(*len, buflen));
++
++	if (ctx)
++		*ctx = buf_ctx;
+ 
+ 	return buf;
+ }
+@@ -1905,7 +1934,7 @@ static int add_recvbuf_small(struct virtnet_info *vi, struct receive_queue *rq,
+ 
+ 	buf += VIRTNET_RX_PAD + xdp_headroom;
+ 
+-	virtnet_rq_init_one_sg(rq, buf, vi->hdr_len + GOOD_PACKET_LEN);
++	virtnet_rq_init_one_sg(rq, buf, small_buflen(vi));
+ 
+ 	err = virtqueue_add_inbuf_ctx(rq->vq, rq->sg, 1, buf, ctx, gfp);
+ 	if (err < 0) {
+-- 
+2.54.0
 
-They do share the same semantics except reason part as its numbering seems
-to be a bit different, 80 is reserved, 0 is normal forward. More documented
-by the RTL9607C CPU NIC Application Note at [4] and the hwnat driver [5]
-
-Anyways, thanks for review! I partially also wanted to announce our presence
-to rtl8365mb folks by this patch as we may share the space soon :)
-
-[1] https://github.com/openwrt/openwrt/pull/26779
-[2] https://github.com/openwrt/openwrt/pull/26593
-[3] https://github.com/openwrt/openwrt/pull/26415
-[4] https://github.com/jameywine/realtek-doc/blob/main/datasheets/RTL9607C%20CPU%20NIC%20Application%20Note.pdf
-[5] https://github.com/jameywine/GPL-for-GP3000/blob/main/linux-5.10.x/drivers/net/ethernet/realtek/rtl86900/FleetConntrackDriver/include/rtk_fc_mgrTRx.h#L540
-
->> The RTL8_4AP name was mostly chosen because Realtek gave the RTL9607C
->> family of SoCs a codename "ApolloPro" in their SDK, hence "AP" part.
->> Originally it was named RTL8_4_RTL9607C but that feels weird.
->> 
->> [1] https://github.com/openwrt/openwrt/pull/26496
->> ---
->>  include/net/dsa.h    |   2 +
->>  net/dsa/tag_rtl8_4.c | 193 ++++++++++++++++++++++++++++++++++++++++++-
->>  2 files changed, 194 insertions(+), 1 deletion(-)
-> 
-> Kind regards,
-> Alvin
-
-Best,
-Rustam
