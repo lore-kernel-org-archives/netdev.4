@@ -1,95 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795138211;
-	b=1HPQbvRQ53dCEPFIoVtSfjL6do3O/YOV1whGhBzJmM/0g1oxapCSCsLLhOUpE2dYFpZr
-	 p/wGst75CuODKzH8asmUUPt03HBDRMngElFhlXbXNxm6Q5Qv7ESs7M5fTnRiiidtXiXxi
-	 Tvp3nNcBo1Q7K8RUDVsWQpzQAQudTKl75M2dVsPNICzg0l8b+p/CN1cbiZJM3xfDyb3qN
-	 352uzb5TrfnWL/bE4tUtoftAWEPvR7pjPeNMa4TAkJZrc5+OcktUogmYizaDs/7qYxtmo
-	 LFVsPBf/rK9d7/bZx3hLmQ10Ucqtt/V/yIhsZv9AD3gTGvj/VO/eDHLsdNzemtsV86g==
+	t=1795138212;
+	b=t86QaVyUMD8wIcaSzGQjBu0ruaOfSCfFzs7PE1dUSUPPTqZ5hXsHcpbLcstuFouVmLZA
+	 1kN9+OweXWJT3gw+Y6x+NUyR5zMsG/6iOCFellIzE4RS9WIN/gX/a3nv4ysu3eB+ydDRR
+	 2dHb0/FgVWWwWJ1b1qMrIuHUB9RTXMILCI8I83sCCJMxL3+OtE0RHr9oel9t7ZWIwgA4F
+	 P0PZfWvuuXdUldBxqM5jKE+k/1OHzHgse9uGFWk37nFXwL2ztsklSvujZ3iAcqTDdXX8z
+	 xtCykDZQVTzMvktRoLdPbCxoou1xwT4mrnfdyEEMJp4hnjrgFYJMsk81P1IIepBhCDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795138211;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795138212;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
 	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=DogjnX7odJq4nJPh28tR4uppaDz3yFM8sHDB/Ua/LW4=;
-	b=S+ZOs1NonNQmlMPpFhW8EhFcmHlnFHSv1QyNLgE7doZ8dFTUWwI/62hsliQZnIPjUFi3
-	 tk7XFdNGpD6RXhWR2S7Jrvjt4dMFQpIRmOmoJeRvBMdzqKubYf7YHe2X4xi0b/hsv/z6b
-	 j3dj2avjOvZ1Ys/GsxUBJTWg4okg8kwnr3tC75/vcNY3e2gt9P1e23ww5K1k46/nwsOyo
-	 F8TfOq9u2yFOHxKA4XktzdNlezQvIYq1IoOhWzBBiloHbPm+dyBSLbyrMJO0sFspAEDDB
-	 aE32NsyDUjlnjPH6YpY+D6EGzlXeLcqxctSZdYQSJmURokpofH3SabmrVR35lwDzPKQ==
+	bh=Mk0Law1Gk18UNYa/iw+PdM+DrzxT4J8m/4kcydmECHk=;
+	b=ZeIE249Th2W2GlI/rnGZ2ITqou7j+YArzCpphqBGuMSHTNU/JWxaesp0nxHOT795NQGQ
+	 m7QtPKHrUIsm1DvjmEearSpnYBp77AjTOrioMl6ZjiWvOdlV9ouGg6Yx+YTSlytIKgDe5
+	 qNAg0DBH/v7wHIjrnAapQp8Bdo/6/IqYajdi1P+6cZiEubJgGkTcue4Q7akuU1IDw9gsw
+	 lvreKGscfJNrAlByAc5y+qXWOFq5bQjWwtFwrlQf+K0pKVJa0f7V1n9rNfSYqOEk0zSi7
+	 Bl/0XVr2byy30DVQJkfZJIqLdgnn3HWQEnjlROrsvJKCWSXAyOwxi/Kz3YHBqSDp4tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=JHYzlEYQ;
-	arc=none smtp.remote-ip=209.85.216.97
-Received: from mail-pj1-f97.google.com (mail-pj1-f97.google.com [209.85.216.97])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZpYHCvI5;
+	arc=none smtp.remote-ip=209.85.216.98
+Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D1DF606A339
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:30:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D1DF606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB3D9606A336
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:30:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB3D9606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=JHYzlEYQ
-Received: by mail-pj1-f97.google.com with SMTP id 98e67ed59e1d1-3b08cf16decso284447a91.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:30:10 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZpYHCvI5
+Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3b0ae87069dso194299a91.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:30:11 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795138210; x=1795743010;
+        d=1e100.net; s=20260707; t=1795138211; x=1795743011;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DogjnX7odJq4nJPh28tR4uppaDz3yFM8sHDB/Ua/LW4=;
-        b=y8cKDrrWZnlvVJGFj7087Y9srECb1bwbKfB4ETg1ebLWCrGrxH5WXsIyeTCJZm3C8f
-         /AZVasNOOki/hV9mfNISIqzKx/H4bi8xfY+KV4JUs0xhuExB8ClZhrPz7NZhN+tQbF31
-         oCGsHUnKwyb4T6NU+w3aKp5X8zj6Lbr9mY8jzRaGcv+ggXO49aulmn7T8zZPKgjMsAxX
-         lRF7pvjvnGGCkfJ5vTDu1Ttvf4tO7nQp+QzaKOVxUKFaolRXWz5RGEicjJ6enrnpPIbB
-         hdEcs3v21K99ixvMNGtPuG7Q6pXTwj/Vxlrmd/0KYSyyl431rkYlhh+/+1FZUk3xkQ5W
-         FWzA==
-X-Gm-Message-State: APuU4Z+WABicxQseMBZMILQG0N9/We7a4q8MzY/lb5rNM7vaNTbWSJ7C
-	HDFBRlJxz9wybkMh46FADAfgtLyDkUSrqP3+eKslfgNn3xYRlsbH+EllP6vzBCaaV+tFC3ylw9E
-	4OWbb1ZHPqQVDKlowzZTmZpIrKQBj39Qb2xz9Z5dNxts7iwQav+5Ggu3srFEZl2721Q0QDo3aPr
-	2kzITnxrBFJwicvdshGSv1zHCuDKbRkhNFUa7MK5dxyW2UlYsPg7vUBADejAG9dc3xxF0G5GdC+
-	LRaTxJshbA=
-X-Gm-Gg: AZFdTZdep5KpLoqUuCC3iPphRk5i6p6zHKXFz2ZfRt4womweGYibWUIO9vt8subxj4J
-	jDwU7nVVe8mBWhz7IUVgBJdM00fSVbQ68pJcnq335j5f7AiSHxpDYFAijJTX3RQEI55hMBobO8/
-	yO5Qv6wSkw35FN3S9mvDkafc9dpoYbtQqbutOhuIhB+Y29cNmcUpqpp2VxecwFh+0h1y3Z3wDZQ
-	/zb7xnX6M/0QG6sGrUV8dMCb6TBzGpBQdwBq2dMbWt/NuPLpIkg3EYOChbLPrvZH00Wp9MTZX0D
-	EVmq+uDBeq/hm6McjAjVI0K/rKDX8/f9ARGNZdAg/qxh+pO29PkG+2iG9dboV/WBb3328G04FJI
-	+xTFvEOBoaxQi4wqLMVQiqJkDPi4oySLM8rRUWyh1R/FVNiICnBxNX6puP/8a3S7UDf6WBXqtUn
-	6Ai7+1TUy0c70d5Ei4AiQbptbKC8rfLb6th09Eew==
-X-Received: by 2002:a17:90b:3f43:b0:3ad:43c1:7d41 with SMTP id 98e67ed59e1d1-3b41c9080f2mr1039680a91.33.1795138209886;
-        Thu, 19 Nov 2026 17:30:09 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062eb7cdsm2066674a91.8.2026.11.19.17.30.08
+        bh=Mk0Law1Gk18UNYa/iw+PdM+DrzxT4J8m/4kcydmECHk=;
+        b=KveK+Fq3+2TSd6qJB972fRe6wRDCOhgvYIo07BywwWYgTd9CCMK1LFXNihvsB6cW6F
+         ELTwwuK/cAzpAKkFPolxvu9NwOisC4Yxtwv/Er95NmwwxuiFz0jlO6o4H1yNdyRpXVpL
+         N5UZayDwKHmWSsM4Nf9jmM29suDS4BlQh1y3jfe4hSJMwsbq+OD5bsHGiuVoz5IFEctl
+         7vLLF+0XNFIrT+rpZY0ZqgaNMAhLQ5qqMbppht2YmqfE/TmxibNdzhHuZNDfQq4c4DXW
+         CoVgbTAJt/h8dxPf16gyGf0iFUdRm2acyDCxynGvhbNAAPqsIOUE7FLPiu2kz8+fQJvR
+         8QRw==
+X-Gm-Message-State: APuU4Z9lBSq8mIGhHtR9bsxumuQB+j/KUefyJxjus9MtbSRHDowKv8es
+	pWe0hfhJ4hgMAVnmV1V/ST8kOhtO0BWNm/fa+OBwwJigc+U5pJ9xqrucboSrJxp2ArntmGQ18Pm
+	tzOpavjFCL7aQOocOXnRrJiLCQ+lyTJJEv0qbieb9AkgRHcn/y8ym3T2UCCtR3/d6fEYp/Yv1xp
+	5yyMmDfXUGk+mq3MPe8ALPysSmguCEG4XE2kujj0v16VbIGcqaTc4Jy7J1k68j0Ir25DBIQDbGr
+	8ZRsV49SBE=
+X-Gm-Gg: AZFdTZc9fiQtBcrc/S4xWVLFI7GBJ4AO02UlXx5ZcIlDJ/CR+1Qvo0kjC6QCHxyK477
+	tV54MBeT+Q696yDGAEs/qcXq3p7kP6Gzd33EPD2YFFNvJrePdJBA+HGznaZKhske67iOqJKD25O
+	U97O60mRJM+UyZpiaB49OrhjteibDhBWAPFDoLN2lrCFsmnlXN8gRkNgHXvhSuUMh3VX6U1KK5P
+	qyhnZamUfBc7rbWWRkhko8JAEGMkqGH5GSFIbDFL9v1oIpjQn5cxUk4/RG47xJ+D0FMdo80A67r
+	tI5rqojomD+8xGtd34ia/kRbNqsw8K/lmvApafpunJMM7v8KazMjep1l7nLBlwJhYN4qNID/UIm
+	FnvF9PYGBgIr5B3XlBtHmjBVqywepD4f/SMhhWr6/0Iswg+Z7ZX8R6904+AXcoX9QUZaSr8oI4i
+	t6yiS81nDJpvZ50pOzbQE8smOnNqOqQn2dgdQ=
+X-Received: by 2002:a17:90b:35c3:b0:3b0:9782:8721 with SMTP id 98e67ed59e1d1-3b41c946374mr1042362a91.36.1795138211097;
+        Thu, 19 Nov 2026 17:30:11 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062e6c29sm2192296a91.7.2026.11.19.17.30.10
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 17:30:09 -0800 (PST)
+        Thu, 19 Nov 2026 17:30:11 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-55ba5fccc4aso8812651cf.2
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:30:08 -0800 (PST)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-9210ad74fdeso9580066d6.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:30:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795138208; x=1795743008; darn=vger.kernel.org;
+        d=broadcom.com; s=google; t=1795138210; x=1795743010; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DogjnX7odJq4nJPh28tR4uppaDz3yFM8sHDB/Ua/LW4=;
-        b=JHYzlEYQaekJFARih9aNfOaDcfnFdVdNs+/2Lk3N14+mfrC6cVg1e+DdR47B6KIQ2C
-         BYAoDCt5T3w33ewL7Mn4UXC8OxV6bSNOhn+rZSDZJTsacvoY5sfcKqlPPgg6Ik4ZV1GP
-         o59ItF/GbmJZF9g48bxEqjN1lqZ4cA6fzKvrI=
-X-Received: by 2002:ac8:5acd:0:b0:55d:48e2:1acc with SMTP id d75a77b69052e-55d76a2049emr30887391cf.35.1795138207690;
-        Thu, 19 Nov 2026 17:30:07 -0800 (PST)
-X-Received: by 2002:ac8:5acd:0:b0:55d:48e2:1acc with SMTP id d75a77b69052e-55d76a2049emr30887111cf.35.1795138207228;
-        Thu, 19 Nov 2026 17:30:07 -0800 (PST)
+        bh=Mk0Law1Gk18UNYa/iw+PdM+DrzxT4J8m/4kcydmECHk=;
+        b=ZpYHCvI5zUtndlyGYIau8gZrm/ec4nTRSdwMuBHhghnKvXuiIuY2RtMhSkMC8AOBEK
+         S99bDU7YeVGzBK4Euu87AMXmgxV05shhiDd07zjbYsBPiP12f7n/qKVlgoGD7Vcpa1zT
+         7qWQq5FNo13YOy8OHEOTUzCT+dxEqIlrN8S1c=
+X-Received: by 2002:a05:6214:20a7:b0:920:e412:e3df with SMTP id 6a1803df08f44-92134a6caaamr27785086d6.18.1795138209709;
+        Thu, 19 Nov 2026 17:30:09 -0800 (PST)
+X-Received: by 2002:a05:6214:20a7:b0:920:e412:e3df with SMTP id 6a1803df08f44-92134a6caaamr27784316d6.18.1795138209118;
+        Thu, 19 Nov 2026 17:30:09 -0800 (PST)
 Received: from lvnvda3289.lvn.broadcom.net ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b1e58sm12806616d6.12.2026.11.19.17.30.05
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b1e58sm12806616d6.12.2026.11.19.17.30.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:30:06 -0800 (PST)
+        Thu, 19 Nov 2026 17:30:08 -0800 (PST)
 From: Michael Chan <michael.chan@broadcom.com>
 To: davem@davemloft.net
 Cc: netdev@vger.kernel.org,
@@ -98,11 +98,10 @@ Cc: netdev@vger.kernel.org,
 	pabeni@redhat.com,
 	andrew+netdev@lunn.ch,
 	pavan.chebbi@broadcom.com,
-	andrew.gospodarek@broadcom.com,
-	Joe Damato <joe@dama.to>
-Subject: [PATCH net-next v5 4/9] bnxt_en: Refactor IRQs required logic
-Date: Thu, 19 Nov 2026 17:29:16 -0800
-Message-ID: <20261120012921.2537903-5-michael.chan@broadcom.com>
+	andrew.gospodarek@broadcom.com
+Subject: [PATCH net-next v5 5/9] bnxt_en: Reinit IRQ when configuring LRO/GRO/HDS
+Date: Thu, 19 Nov 2026 17:29:17 -0800
+Message-ID: <20261120012921.2537903-6-michael.chan@broadcom.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261120012921.2537903-1-michael.chan@broadcom.com>
 References: <20261120012921.2537903-1-michael.chan@broadcom.com>
@@ -118,63 +117,99 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Refactor the logic to determine the required IRQ vectors into a new
-helper.  Later patches in the series will make additional use of the
-helper.  There is no change in behavior.
+When configuring LRO/GRO/HDS, a new set of RX Aggregation rings may be
+required.  It is possible that the FW cannot grant the desired number
+of Agg rings, causing the driver to reduce the number of ethtool
+channels to adjust.  This means that the number of IRQs/NAPIs may
+change and we must set irq_re_init to true to make that work.  Without
+this patch, when the driver is eventually shutdown, some memory for the
+unused NAPIs may never be freed properly if the rings have shrunk.
 
+Fixes: 87c8f8496a05 ("bnxt_en: add support for tcp-data-split ethtool command")
+Fixes: 674f50a5b026 ("bnxt_en: Implement new method to reserve rings.")
 Reviewed-by: Andy Gospodarek <andrew.gospodarek@broadcom.com>
-Reviewed-by: Joe Damato <joe@dama.to>
 Signed-off-by: Michael Chan <michael.chan@broadcom.com>
 ---
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 26 +++++++++++++----------
- 1 file changed, 15 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c         | 11 ++++++++---
+ drivers/net/ethernet/broadcom/bnxt/bnxt_ethtool.c | 10 ++++++++--
+ 2 files changed, 16 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index 35dabc5adf04..f4eff048eea5 100644
+index f4eff048eea5..887a67d42bb3 100644
 --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
 +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -11732,9 +11732,22 @@ static void bnxt_clear_int_mode(struct bnxt *bp)
- 	bp->irq_tbl_size = 0;
- }
- 
--int bnxt_reserve_rings(struct bnxt *bp, bool irq_re_init)
-+static int bnxt_irqs_required(struct bnxt *bp)
+@@ -14154,10 +14154,11 @@ static int bnxt_set_features(struct net_device *dev, netdev_features_t features)
  {
- 	struct bnxt_en_dev *edev = bp->edev[BNXT_AUXDEV_RDMA];
-+
-+	if (BNXT_NEW_RM(bp) && !bnxt_ulp_registered(edev)) {
-+		int ulp_msix = bnxt_get_avail_msix(bp, bp->ulp_num_msix_want);
-+
-+		if (ulp_msix > bp->ulp_num_msix_want)
-+			ulp_msix = bp->ulp_num_msix_want;
-+		return ulp_msix + bp->cp_nr_rings;
-+	}
-+	return bnxt_get_num_msix(bp);
-+}
-+
-+int bnxt_reserve_rings(struct bnxt *bp, bool irq_re_init)
-+{
- 	bool irq_cleared = false;
- 	bool irq_change = false;
- 	int tcs = bp->num_tc;
-@@ -11758,16 +11771,7 @@ int bnxt_reserve_rings(struct bnxt *bp, bool irq_re_init)
- 		}
- 		return 0;
- 	}
--
--	if (BNXT_NEW_RM(bp) && !bnxt_ulp_registered(edev)) {
--		int ulp_msix = bnxt_get_avail_msix(bp, bp->ulp_num_msix_want);
--
--		if (ulp_msix > bp->ulp_num_msix_want)
--			ulp_msix = bp->ulp_num_msix_want;
--		irqs_required = ulp_msix + bp->cp_nr_rings;
--	} else {
--		irqs_required = bnxt_get_num_msix(bp);
--	}
-+	irqs_required = bnxt_irqs_required(bp);
+ 	bool update_tpa = false, update_ntuple = false;
+ 	struct bnxt *bp = netdev_priv(dev);
++	bool irq_re_init = false;
+ 	u32 flags = bp->flags;
++	bool re_init = false;
+ 	u32 changes;
+ 	int rc = 0;
+-	bool re_init = false;
  
- 	if (irq_re_init && BNXT_NEW_RM(bp) && irqs_required != bp->total_irqs) {
- 		irq_change = true;
+ 	bp->tx_wake_thresh = max_t(int, bp->tx_ring_size / 2,
+ 				   bnxt_min_tx_desc_cnt(bp, features));
+@@ -14184,8 +14185,12 @@ static int bnxt_set_features(struct net_device *dev, netdev_features_t features)
+ 		update_tpa = true;
+ 		if ((bp->flags & BNXT_FLAG_TPA) == 0 ||
+ 		    (flags & BNXT_FLAG_TPA) == 0 ||
+-		    (bp->flags & BNXT_FLAG_CHIP_P5_PLUS))
++		    (bp->flags & BNXT_FLAG_CHIP_P5_PLUS)) {
+ 			re_init = true;
++			if (!(bp->flags & BNXT_FLAG_AGG_RINGS) &&
++			    (flags & BNXT_FLAG_AGG_RINGS))
++				irq_re_init = true;
++		}
+ 	}
+ 
+ 	if (changes & ~BNXT_FLAG_TPA)
+@@ -14208,7 +14213,7 @@ static int bnxt_set_features(struct net_device *dev, netdev_features_t features)
+ 			return bnxt_reinit_features(bp, true, false, flags, update_tpa);
+ 
+ 		if (re_init)
+-			return bnxt_reinit_features(bp, false, false, flags, update_tpa);
++			return bnxt_reinit_features(bp, irq_re_init, false, flags, update_tpa);
+ 
+ 		if (update_tpa) {
+ 			bp->flags = flags;
+diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt_ethtool.c b/drivers/net/ethernet/broadcom/bnxt/bnxt_ethtool.c
+index ef4bea4a0f8c..0739cd80a966 100644
+--- a/drivers/net/ethernet/broadcom/bnxt/bnxt_ethtool.c
++++ b/drivers/net/ethernet/broadcom/bnxt/bnxt_ethtool.c
+@@ -853,6 +853,7 @@ static int bnxt_set_ringparam(struct net_device *dev,
+ {
+ 	u8 tcp_data_split = kernel_ering->tcp_data_split;
+ 	struct bnxt *bp = netdev_priv(dev);
++	bool irq_re_init = false;
+ 	u8 hds_config_mod;
+ 	int rc;
+ 
+@@ -876,8 +877,13 @@ static int bnxt_set_ringparam(struct net_device *dev,
+ 		return -EINVAL;
+ 	}
+ 
++	if (hds_config_mod &&
++	    tcp_data_split == ETHTOOL_TCP_DATA_SPLIT_ENABLED &&
++	    !(bp->flags & BNXT_FLAG_AGG_RINGS))
++		irq_re_init = true;
++
+ 	if (netif_running(dev))
+-		bnxt_close_nic(bp, false, false);
++		bnxt_close_nic(bp, irq_re_init, false);
+ 
+ 	if (hds_config_mod) {
+ 		if (tcp_data_split == ETHTOOL_TCP_DATA_SPLIT_ENABLED)
+@@ -891,7 +897,7 @@ static int bnxt_set_ringparam(struct net_device *dev,
+ 	bnxt_set_ring_params(bp);
+ 
+ 	if (netif_running(dev)) {
+-		rc = bnxt_open_nic(bp, false, false);
++		rc = bnxt_open_nic(bp, irq_re_init, false);
+ 		if (rc)
+ 			return rc;
+ 	}
 -- 
 2.51.0
 
