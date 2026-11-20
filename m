@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189395;
-	b=u7VlBt7hlBzTrxtd/cy1ToAaptU6N0TzUEOZ0REmlc0ddCorHXH7DgWsEIjbn4FNWQcb
-	 QexmQS+AtjyufxHnE28OBtkqvE5Zz90OcWHjrHMCHaEJRSD+3gIuXzPWLj7d7A4Gn6vos
-	 ErD8zVvtvLBfiUjFBXm/aVN0fp+L6vZSQbk5JJybaQBVRBGDjPMPUJVpFWtg7A67CxMPW
-	 bm7d/VRFrJ5BiBNKD2NUdrmJabdQLflRHQC/dbBpRa+yJZbWEr1cE6IZKGBTCWo1S4Mj7
-	 5cU+ZFTGWC/7iijShb2zMngZd9fFol62tIwUvQ5WXIiydSFJZZZQDUdcAQaXaNT8B8w==
+	t=1795189664;
+	b=oODF67/pAqtgBHr6yjeii55qVCdzLSjFchoVKXBc8qnWb8ybBUurmXKZB20eLhBqsYV0
+	 psc4x0NGCmDdrLt5UOjySpsLfK2srQ/m3InHJtSXGuvd44yWDTD6xy79bbguz7HF1UQHJ
+	 cvP01qBWD7+vx9ibOneX+PMbPeBaikR4MJA/9BOeVmgx+tXHAc0zxNWhIDmu3lEftlz9K
+	 WqKpLoW6E96fkCXJWeN+EUTaT5agdo27rX0gPL1hXgLcixEOmqZKTZ/C2SD6rOWpCsnkC
+	 nZnMX9KNCPsKEFGt9QSeBvy8IIWUnlVzC4b0yONvCW7BxDy/NZAj/ISrUKQ9iUQFYFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189395;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=skDAf6P5lMgExY8BT13Y0yOZuZ/PE0d0HM9IStj4YTI=;
-	b=X2RhokiVmKnFglL/WxfAoM3n+RYvPz5HvGLJbE6goppNuzL7aQBI0aZGmHagikxYdjty
-	 6OMZQaG0id0G+Al/h5RNCm33A/knrsPbhSPmC8Plu2ckqATKve2A3Mkjus0eXE/iFrsGH
-	 bC31bwT0pZ34Pg8BvMl6s/j2tFKMS7rqat2f3hyevh+dKMGo7D7etHERksGK/axfDSP6R
-	 NVlL07Imu5ARqmea/Q4GKTEnwKpUywTDtYhh1Q3lxhu0AU/VZCg+uFRQ+HT5TyhYpyoKQ
-	 gFz1cAuEPOCBu/wST7ObMTsGdwFkRbcIP4yntBQFfxVwxEZHTD8yhoxqzvMADK5a4Gw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189664;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=RWszjj99M/gXC43cpEK5UvOhucAfqztcJdmlLQegN9YXoJvT5/aVmaM3f7cHiSdKbNvp
+	 RMBr2yynRmilz+5NhJ7rv9hHujjorbIWpikZXFr6IXFdKkDcI5f51WSPfFyfxqAk98zyG
+	 liZbmQ/pUld4ScjukglM3c06z6ySgbgGAjecL4aHnZ6Izd7+P1u1AL3epzLyG/HDskKG5
+	 rg76H2qzb15HTcquoteLZY1wGKbFxEIYy9wChU+W3vCNXkMmag/qAgST7MAoCo7ja3HeR
+	 6Ppa/svZxo3oujNFDUfeinSUC1RJAwokHrLL+l6vQFi8PIrltnAqdP4XXnZ+6WiHZEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=GDB2RJq2;
-	arc=none smtp.remote-ip=209.85.160.172
-Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com [209.85.160.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mCLElhnF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46DDA606A33A
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:43:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46DDA606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89F9D60A2601;
+	Fri, 20 Nov 2026 15:47:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=GDB2RJq2
-Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-55c5b6584ceso7857361cf.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:43:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795189394; x=1795794194; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=skDAf6P5lMgExY8BT13Y0yOZuZ/PE0d0HM9IStj4YTI=;
-        b=GDB2RJq2D5tIv1MFCjPnPyGivBJ5YV2zQrS+IwFDnzFKZdJ6bCoM+PmK2uUUeM4s6e
-         64Mhlppqq8H8JC4tXzrliaR9JwB0YIbrH6+zEw3hWa6F3tm7oaG0JKskmqNv3hOdU7Xl
-         lnKnx7bGcd6BgipP6X+xp271I742oq7hW06PY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795189394; x=1795794194;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=skDAf6P5lMgExY8BT13Y0yOZuZ/PE0d0HM9IStj4YTI=;
-        b=Oz8bijRf6YJQE5eKcUQ/EACV87+7dD+57jAZPIDfYVCK84yojFg65w5VCQo8UYkjtH
-         JXiasNCBsDd17+JRHpzk1o/uKttMwHhdu5htmPcHD7RTbguQ6IbEkNTMyM2zDGlzMW/K
-         i+NuTP2TGw7g/Wu3Ft5KUqpFh8ftq2DwjAiDsw//dw5fXH2/yrtjZewQ7Vw6m9O6ruYT
-         cfwQMbpZPs7WtSUEwHA00NuAV2sW9Rp62BAglSN4X+8eDufT3Ayx3rVp/EIkgR9NscyV
-         xt4IoqbQmMi0wgvQwSOFgz9NLlbTN//haB6Gz4NsIZkfmWkDZQ/lGpCUDbLC70XJyUkc
-         xZyw==
-X-Gm-Message-State: APuU4Z/+xHa3RgZGwkk+67AxyG8tnRf7fz3ufGhVmDOq3b4rLoRSxwjC
-	j0Bqt+x+IlwX9Lf+hM17lhxzq5E+a/BSEid+FZcj+09cpnYoxv3chVlF0j/oeuKGYcRcsnBwjti
-	hhqQ=
-X-Gm-Gg: AZFdTZfgvt4ujDZvOTeUsKfIWH6gGtRuiv72GXkzIoK5M5LsKZZiv7MJ8iEGXt2p9aA
-	I4Zu1LCrp84gi7ysOppFQGvRupO4OkS7hSgNk1t+OoHV2Rtr82pOuNdG9k3j9TTcF8YSthJB5qA
-	ZzmBNowg0dg+zfGQve6YxvSNMRqJ/1c3d1txr6tzGGt21OqYgmpH+4ZcZ5shjFe8ZniL5kV5G9T
-	frVeKM7XklWlmuck6xN/FN5Pba+zE0K0DwxxZrOA30A1jP3f4tg1W/7qKafpYFx/bMFTHuOpjIZ
-	+fxNgPWfT/SAjvD8Ni48Koid/87fevCgG0lxkfQMD8rCcxyviOHt6/cWAA+0qte5vBmQCvlVIR8
-	kOkNNMYndoahYLypZAVbY0QlCARvgyg7SG6kRD0MjipJyxPFsbaZrBLHBYh2WOR++hcjvaxvW45
-	GKr3vx6RpwSbqtN0T3k4h8ShVnJQ0rDu+uohVQ2qpUqiUHoBRwwaGKnfkGEtbxo6tKC5e28yhiX
-	7WOmFd6diddvCOPG+7zrRlBZfAkEUkYYyt/nXH+3aP9Oj2GMtw0Fv2WvKQB6xrpDvt+iZvo5wQg
-	kj46gT6YVZ0ePjBtM70uIWOjgJnMWamU1H/CaaHcKancVa6u4n+koY2xR0L0j59GrCScRTYNNJV
-	S8xlM
-X-Received: by 2002:a05:622a:13c7:b0:55d:2f53:4e7e with SMTP id d75a77b69052e-55d76a5fa45mr64115931cf.68.1795189394179;
-        Fri, 20 Nov 2026 07:43:14 -0800 (PST)
-Received: from majuu.waya ([184.147.180.207])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d78451407sm25429451cf.2.2026.11.20.07.43.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:43:13 -0800 (PST)
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-To: netdev@vger.kernel.org
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	bpf@vger.kernel.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Victor Nogueira <victor@mojatatu.com>
-Subject: [PATCH net-next 1/1] net: neighbour: skip the stale dst lookup for a redirected skb
-Date: Fri, 20 Nov 2026 10:42:59 -0500
-Message-Id: <CORE-J9UK.v1.r0.20261120103344-1@mojatatu.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mCLElhnF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F76A1F000D1;
+	Fri, 20 Nov 2026 15:47:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795189664;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mCLElhnFr4/AoPZb/NFGMVEnmoeiSCitsPhZ7g8eiopeP+FrL4cYiweHZojEBbJ07
+	 l58B6XpHJh90KYGeE4RbARqUpV73QSEV4NN0OUuAjEPmaLvanU9OkQPYcVPuTJGt7t
+	 +k8Lhb1z+u8G6DgZ9msEEUWvJbuLoWNdzNPvA8wqn9g2dJpyrWXs1R5FPwB8wFz884
+	 cac2Grx6gLOYecXOqM/LabmTcybO1JjGUJ4KYYjUQJMAeSJNOFdBrGAayXuvOkao9f
+	 y6jedtFLBDSuPCqHhvSatkxjxN/UWXv8BV3MNnxoT5sYJS/hWdS84xAMg0/WmmJnkA
+	 CP/UpK9TyFuOQ==
+From: netdev-bot+sinfo@kernel.org
+To: Jamal Hadi Salim <jhs@mojatatu.com>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ Jiri Pirko <jiri@resnulli.us>, Victor Nogueira <victor@mojatatu.com>
+Subject: Re: [PATCH net-next 0/1] net: neighbour: skip the stale dst lookup
+ for a redirected skb
+Date: Fri, 20 Nov 2026 15:47:43 +0000
+Message-ID: <179518966319.3291.5653366565460355407@kernel.org>
 In-Reply-To: <CORE-J9UK.v1.r0.20261120103344@mojatatu.com>
 References: <CORE-J9UK.v1.r0.20261120103344@mojatatu.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,105 +65,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Alexei Starovoitov suggested guarding the re-lookup in
-neigh_update_process_arp_queue() with the skb's device instead of changing
-every producer that steers a packet to another device. This is that guard.
+Hi!
 
-The issue:
-neigh_update_process_arp_queue() re-looks the neighbour up from the skb's
-dst, because shapers, eql and sch_teql can output a packet through a
-different neigh object and it has to be reinjected at the top of the path.
-A packet steered to another device by bpf_redirect_neigh(), or by an nft
-"fwd ... device" rule, is parked on that device's neighbour while its dst
-is still the route that named the device it arrived on. The lookup returns
-the neighbour of that route, so the drained frame leaves the parking
-device with the arrived-on device's source address and that route's
-neighbour as the destination.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-The Fix:
-Skip the lookup when skb->dev is already neigh->dev; the parking neighbour
-is the top-level one in that case and can reinject the packet itself. A
-dst that is a route via another device, which is the sch_teql shape, still
-takes the lookup.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Some context:
-A route for one device is a normal thing to find on a frame that leaves
-another one; bpf_redirect() and mirred have always produced it, and the
-packet has to keep it for the xfrm, tunnel and lwtstate consumers further
-down. lwtstate, NBMA tunnels, the route realm and ICMP errors are
-unaffected, and the fast path does not change.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Conditions to recreate the bug:
-Two network namespaces joined by two veth pairs, va/vb in the first and
-va_peer/vb_peer in the second. vb_peer carries no address, so the
-neighbour for its side stays unresolved.
-
-    ip netns add ns1
-    ip netns add ns2
-    ip link add va type veth peer name va_peer
-    ip link add vb type veth peer name vb_peer
-    ip link set va netns ns1
-    ip link set va_peer netns ns2
-    ip link set vb netns ns1
-    ip link set vb_peer netns ns2
-    ip -n ns1 link set va address 02:aa:00:00:00:01
-    ip -n ns1 link set vb address 02:bb:00:00:00:01
-    ip -n ns1 addr add 10.10.0.1/24 dev va
-    ip -n ns1 addr add 10.1.0.1/24 dev vb
-    ip -n ns2 addr add 10.10.0.2/24 dev va_peer
-    ip -n ns1 link set va up
-    ip -n ns1 link set vb up
-    ip -n ns2 link set va_peer up
-    ip -n ns2 link set vb_peer up
-    ip -n ns1 neigh replace 10.10.0.2 lladdr 02:aa:00:00:00:ab dev va nud permanent
-    ip netns exec ns1 nft add table netdev t
-    ip netns exec ns1 nft "add chain netdev t c { type filter hook egress device va priority 0; policy accept; }"
-    ip netns exec ns1 nft add rule netdev t c fwd ip to 10.1.0.2 device vb
-
-One packet to 10.10.0.2 egresses va and the rule steers it through vb to
-10.1.0.2, whose neighbour is incomplete, so it is parked there with va's
-route. A cls_bpf program returning
-
-    struct bpf_redir_neigh nh = { .nh_family = AF_INET,
-                                  .ipv4_nh = htonl(0x0a010002) };
-
-    return bpf_redirect_neigh(vb, &nh, sizeof(nh), 0);
-
-in the same hook produces the same park. Making that neighbour valid
-drains the queue:
-
-    ip -n ns1 neigh replace 10.1.0.2 lladdr 02:bb:00:00:00:cd dev vb nud permanent
-
-The single frame that leaves vb_peer carries 02:aa:00:00:00:01 as its
-source and 02:aa:00:00:00:ab as its destination instead of vb's own
-addresses.
-
-Link: https://lore.kernel.org/netdev/DMX7RM93TMGR.AXFN4YJ55REF@gmail.com/
-Suggested-by: Alexei Starovoitov <ast@kernel.org>
-Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
----
- net/core/neighbour.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/net/core/neighbour.c b/net/core/neighbour.c
-index 887d2e35cd04..219dc89716f8 100644
---- a/net/core/neighbour.c
-+++ b/net/core/neighbour.c
-@@ -1334,9 +1334,11 @@ static void neigh_update_process_arp_queue(struct neighbour *neigh)
- 		 * the packet in the output path.  So what we need to do
- 		 * here is re-lookup the top-level neigh in the path so
- 		 * we can reinject the packet there.
-+		 * When skb->dev is neigh->dev 'neigh' is the top-level one.
-+		 * dst can be a route via another device after a redirect.
- 		 */
- 		n2 = NULL;
--		if (dst &&
-+		if (dst && skb->dev != neigh->dev &&
- 		    READ_ONCE(dst->obsolete) != DST_OBSOLETE_DEAD) {
- 			n2 = dst_neigh_lookup_skb(dst, skb);
- 			if (n2)
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.43.0
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
