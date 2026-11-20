@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218862;
-	b=vBETj4d5b91LdWBEcMD8ch0tnl9AE4nzL6kgv1tKBzo1cHSSiEOfdyTXXumEipRGzJc8
-	 kj4MWQB6T9Qrflkw+jxJF5ga3aK5L/LwO19p+EKRvQjbaJ44kMldntQVMzIuOrbB0ok1m
-	 s8KF5gXNbgAxWLljHDEzvqCRRVMVGgaEQ6hpbhQuqMncGqHrsJDnwB+6qZRD1JaYMuZYl
-	 STNqSFKn28OzQUwAPpKNkeIbRRvGtoCsv0/AGMrEbVZ1GMJgLTENLOOSxk4Qcw37XIeCX
-	 +vYyDFcq+TY3WxAeq9QhcIr1dsm4KEbQBXG/PUvv081HdSJyQ6nObBhvTHpbzuXEdFg==
+	t=1795218868;
+	b=b/jSoc+1RzDDYW+qzny9ATBfcsX4fQDDt32HPVq669IxhtuZMPvMM48qFvKgFCdS+iqC
+	 yA907gW0HRMyIf9SmqsPXt8kJsohXi2kNojccqKV/Fn9r0QhTMB3Tn5mhWrSJGgZQqxzY
+	 frHXq0gDt9212nbwouqplj5l9WNy5+/aLtxXxH/5owA8XxEI9U0NxqlvTIcVtZr5ll9c4
+	 5PAEMY7cYdctyKm0HyOJLHEcTO7wESwMKsDscYpB6R3gDmrSuApt0ieShP9gAMP7dqOGY
+	 uOdXy7lNWnnpVYngOO/7WRAXyLZ4nnEWwUCwR4JWaAlYxi4XeZnbcWYQSVf05oOqMpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218862;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218868;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=xJPZl5evGP8F6MuKELplPvTbH6ZVugBq2XkPlqpVuPc=;
-	b=PKZ3oE80XZwXgaOLrYYj8wH6r062+8nSjWo8xL9Vj9QKMLfUYJI0exvUAsME7jarbn2c
-	 awM9fFksOfhQPtExzX6cH4SjHll55dFJq3/Ycsdk79azBrwDYLDwpmRbmZsT8cw1yEIp2
-	 bpEnWWvYXSDSwlRtWTFFQUf3DH1ldwWiOAM4EI9RlDEFR26cPXgx2Tl5Z99VcyFYlDB0x
-	 T406nj/ksNKwYqlGLPTkWY3V2nJotobwrVtjBewaM0ZOOhIlz05ZLK7QS0rfBkeh31+GT
-	 4fwsHMPxBXnnTRry+iXfaky4fbjr6DOCwLxzQmP4hr5g7aXeNqzXfk2dou9Lh+pcFJA==
+	bh=hZJLnBgFl9nUYZKgeEIFAhh/Wdlz3vw3VQH6GGzsoIo=;
+	b=ZQBhZJSY5QI/fCk8jm3Kq+otZexM9ai/dvxAvd5L/boxT7QNLXoCHTDQ5CDJDwjuP+Pt
+	 jwMqw4i/evaoEGwOw1zPdPDlp9aYFsE275UWDaoznSmmo0ao3mcqCXDhQL4eWwd05JVJK
+	 KQxhgGLQgKDa0xs9SAjG0+y7MKuKmxCZXaMNAD5KQv4mJFh65BYfenqS1HLHHlp9XDIxq
+	 Q1dnpl08+nwckvwcQDfvxV7yr9R3/EATew1w28iTd1cfbnXSG2J5PkHmaOKxcdfugzGAj
+	 1WU5q3v228ij7lAatXfFfpxhCE0Ht4jbMXy6YEA+ZmpiBVK150uorEK3R5U0HfbDjDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+ga714s;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dwjz0sQ1;
 	arc=none smtp.remote-ip=209.85.128.42
 Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6EA606A689
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:54:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6EA606A689
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D03CC606A338
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:54:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D03CC606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+ga714s
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso10699935e9.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:54:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dwjz0sQ1
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso12908115e9.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:54:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795218858; x=1795823658; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795218857; x=1795823657; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xJPZl5evGP8F6MuKELplPvTbH6ZVugBq2XkPlqpVuPc=;
-        b=C+ga714sQWcJdkw0Xpdg2OlXKFgsE8ih8EnKXfjHIv0+JuGV5xpCD2uDyzNanM9Bm8
-         2yBgqByvdJNQYsQ2f4dULNyK4jgCwRB4kTTrzugaItKFVLNkEhhV9wRYhUX9VDGFntJB
-         hl3R5h+10CFCz8QSO2aHex0Y/B3s6zAHBUYZ2QBE+jphNfredA2I2vfUU07hywqWC79Z
-         bXm1tbuYqjLXo9FYW8gBtxuJNzmJBvLEF1LOGDcz2hOOcOeYOWhhrTjyGMnV8/qUn3An
-         j4Ozf+n12qMFyCOW1aGBhZae/fD97XB1N4cYsX7tN90dVVWYSTFrTXIhrdXH9AWR2OZt
-         hJyA==
+        bh=hZJLnBgFl9nUYZKgeEIFAhh/Wdlz3vw3VQH6GGzsoIo=;
+        b=Dwjz0sQ1v3COzUGY8HZbrkfCm7c6BUrGjxjSTBQdrnFHqhXKVqObKmm/vezoGl/bun
+         CbiQXBY5/L7m8NLsEa3IKQySQC71tGkCyEfVhW5kCipwOEYVPllXjsdgl4f5l8xI0rfc
+         KQgqrrtxsKusGd+xzO4KCmsVbeQRethoafcfF3Gh7dc9+dH/Ad9RE/j4g41Z8c6TQ44Y
+         lULCUv0yy1XYldsgUKGSjq7S7yN/y/RObd5uNnZF0oh6skNNb6uWDfbc+8/o+egrxyny
+         mrUWAdwrzbJn1yRacVKeuRZiE1QINUITMdEmorL8c4KRZObRLRf5HV1fCDl7KN1JOZB6
+         bKhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795218858; x=1795823658;
+        d=1e100.net; s=20260707; t=1795218857; x=1795823657;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xJPZl5evGP8F6MuKELplPvTbH6ZVugBq2XkPlqpVuPc=;
-        b=1Hy+AzhLTO2LMc4As6oz9+oINr6RSBqjCKu9C3OJfbHFqdYeB5TfzBxrmunH5zJzWH
-         8BU/48zwHgKcFY754PZocEQDO986AhaUTZ5szpSwMn7p0xx+ktJ+SiwpcxEdRUmf0FUD
-         MqZHpbNJovGSNn23j4rxzra2oo45Yk/IPL3CjR+K9y+qd5tII9vM3m0xr9M37KFBGVv6
-         sk/36O63zr1kXWhk/SwIkkk75KC/pjFFNwoBCPVOFucyn1zEIrZtuiqkWoNZjBX5FRHD
-         ed7QyyZ6iUDZZvLxVkv8fhfCL/PW4TrDMF/drHcApx2Qqae+3UllPcTkpaJCYBFCm6yD
-         1Scg==
-X-Forwarded-Encrypted: i=1; AL+hErH2Uii2P0bSJKJGvfd0KVw5LC1GH9iEujN38OzgwlF24HQAbH4UiQDR1eMm1tttverD2Ac/aRk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+vICmdSGdZ4gZog7Qm9ZELHaNRhVyv/yd+0wY4uFn7NvPyw0M0
-	Si+m17W5scs9OVx4+X4oikDGnOIgghzo08ZKphEtbEsF41N1RQllhUI=
-X-Gm-Gg: AYBFou2UgGY23k9+w0Iiz5ODeRxhKKe+qWDy5MgnxHxOJVAJ/gje5f/n89KPox8mhc1
-	jE4p3B3BYlxY689dX518oNue7CVN10vnPQeXqjCd5xbw6wlgHbaBzA6OoPlpe8/O2sd38FIAtDT
-	eb4k2N5796vIThPkjR+xJIXX3UOogNKS1i7aImxNPdaoQEXph3GYnGAntymQ4Hch4GT+6XXrXez
-	L257thKcCx/qDrS/nDflnVyf56fKhdpn14bkf6RWHpceMneGMYSVLgoLVDN5/oSCAtDVcR7AAhj
-	2fIo3Ahu2+W2imPFfMUvMXoxSMRxsYELffBMEpLw3PKGYgqogmIq5bTBezg9SZJmFoB6xWCFHFt
-	jMvTFfFKEzh2Vj19gfK+Fya++aQy9cur1oDx3N3mvy8Uk/e/w1xNJAonaq+vRJdcO6+abQGIA+u
-	e9F0Zdx16FROq4SW+m+IOROnXHtvIN1ghQ1w62oIegPfXuknSGuMwp6oFw3QNjCo6n6xDJeLBbh
-	VyhlzhdwBmn4PfyFQWagLzP3BhQid0vey3zbIC5N+0E55niXPpD6kHU2ksiUBHGMb5IvO3gf7SP
-	8ly5ATolvd/rsVA=
-X-Received: by 2002:a05:600c:3547:b0:4a2:a6e:80f5 with SMTP id 5b1f17b1804b1-4bb888098bfmr104741775e9.11.1795218857727;
+        bh=hZJLnBgFl9nUYZKgeEIFAhh/Wdlz3vw3VQH6GGzsoIo=;
+        b=OwV7FmlKGj+E1bJd4CPzyH/cljlN1Ye3ZfryOMXk72YVmOpqIuW5L+/wXMO9zfnrH2
+         gKGUorDRSweXQtelCTtsELDTk5K8rqGSyF94rafMZ2j4ReGJgCe3/FCPqZX15JVqU95r
+         Se3l3Is3+OK6iFn+xwffIx7/3lgPatwtijt3KMRrRiqkESiZ0FYAuPanWu0sTMj++V18
+         NqtY5699LXq8UgWiNC7g8jcGxmdbL3jU6G3ShPyYlUwcZEvB/GqaellZpe2Ws3ybyGsF
+         /inK50n10YxX2cGjLfrvDFtwlMaHE8V7qg6QmSGvguMxqCOzmTHR3d+WWu+tlD8d/skL
+         EVlg==
+X-Forwarded-Encrypted: i=1; AL+hErEONNhTy+70wsJ8M778IYa9OPGl7OsV+VLVXUIsl115+50nDAqXSASpdmmlr/bVTp342/Ktm9Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wUKTwVkgjtZ1cu/jCUrzLnNwzZPBnO3qwoSbcbx8hiHV8CERH
+	uzzXOitlciMFQOo+W79AcXkj72+ZGxdRHho47rlIqD7+zdVh4OmmEhc=
+X-Gm-Gg: AYBFou13zsfKILeBdZAWz+6NnWYo16JYnVfNHp2TID0747DpJ8eo8AcWX2XFKSxMvrz
+	LDSlrmXsYB9/vIEtLQTp9FHAuDvXskzF9btnqwIaO9XHNM0TQrlti4mYSyTjuVaY9EmROgdu579
+	2Wij21I9P2NEqjaxhtqtQj6Gg+x34N/lvGhaBRyLAsJQL8ht6vztcsGVOajKAM0QU594ZNWbHj8
+	di+NTWKhmNHKd6+y6OUvC++uBEPs3pDOI69ObvoTI0wkMYTq/qAgKCNcmzxbrKlv6toAt2c4Zuj
+	lGQFcp4UEr5f/ak2orRhlZXM/lOlS6wjPYuOCHxB4CJ1mIocs28Z/DfoloKd6veKLbr+pMY4yfF
+	q3s1qxvV9nIcwjYusZokbVswmOL78nNIeWbsnS1Z4mrhCgdWCbMfqzJWdKrPH9wkrsa+aSOQxQh
+	KFs5oOCn0/GP1tulh3srKJXhZmvuF6WzJ+kMRLCVBjNWUTto1jqp9YRJkzQ2XGnC24IdBK8+gMA
+	wf5cfHByxs0W4eseAq/qaMQ4O2i1lKeTyPN+cvWTzEdHGXpBAkmCCcz3hoNrnDKMYiLsTejefKh
+	NypXzeRuoA5SRRo=
+X-Received: by 2002:a05:600c:4515:b0:4bb:6f67:ca0b with SMTP id 5b1f17b1804b1-4bb888267f4mr109008965e9.29.1795218857190;
         Fri, 20 Nov 2026 15:54:17 -0800 (PST)
 Received: from localhost.localdomain ([2001:41d0:303:db6b::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm29426445e9.2.2026.11.20.15.54.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm29426445e9.2.2026.11.20.15.54.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:54:17 -0800 (PST)
+        Fri, 20 Nov 2026 15:54:16 -0800 (PST)
 From: Tristan Madani <tristmd@gmail.com>
 To: Samuel Mendoza-Jonas <sam@mendozajonas.com>,
 	Paul Fertser <fercerpav@gmail.com>
@@ -90,9 +90,9 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 net 2/2] net/ncsi: defer free of removed list entries to an RCU grace period
-Date: Fri, 20 Nov 2026 23:54:07 +0000
-Message-ID: <20261120235407.1911365-3-tristmd@gmail.com>
+Subject: [PATCH v2 net 1/2] net/ncsi: add missing rcu_read_lock to netlink and device list walks
+Date: Fri, 20 Nov 2026 23:54:06 +0000
+Message-ID: <20261120235407.1911365-2-tristmd@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261120235407.1911365-1-tristmd@gmail.com>
 References: <20261120235407.1911365-1-tristmd@gmail.com>
@@ -109,124 +109,159 @@ Content-Transfer-Encoding: 8bit
 
 From: Tristan Madani <tristan@talencesecurity.com>
 
-ncsi_remove_channel(), ncsi_remove_package() and ncsi_unregister_dev()
-each call list_del_rcu() and then immediately kfree() the entry.
-Concurrent RCU readers that found the entry before the removal can
-still dereference the freed object.
+The NCSI_FOR_EACH_DEV, NCSI_FOR_EACH_PACKAGE and NCSI_FOR_EACH_CHANNEL
+macros wrap list_for_each_entry_rcu(), but several callers never enter
+an RCU read-side critical section.
 
-ncsi_remove_channel() also kfree()s the channel filter buffers
-(mac_filter.addrs, vlan_filter.vids) while the channel is still on
-the list.  An unprivileged NCSI_CMD_PKG_INFO caller walking
-ncsi_write_channel_info() can follow vlan_filter.vids into freed
-memory.
+ncsi_find_dev() walks the global ncsi_dev_list without rcu_read_lock().
+ncsi_write_package_info() walks the package and channel lists in process
+context from the NCSI_CMD_PKG_INFO netlink handler, which does not
+require GENL_ADMIN_PERM -- any unprivileged user can trigger the walk.
+The dumpit callback ncsi_pkg_info_all_nl() has the same issue in its
+initial package lookup.
 
-Additionally, ncsi_unregister_dev() frees all packages and channels
-before calling disable_work_sync(), so the work function can run on
-already-freed structures.
+Without RCU read-side protection these walks race with
+ncsi_unregister_dev() which removes entries via list_del_rcu().
+kfree_rcu() on the free side would be ineffective without matching
+rcu_read_lock() on the reader side.
 
-Add struct rcu_head to ncsi_channel and free channels through a
-call_rcu() callback that releases the filter buffers and the channel
-together, so the memory remains valid for the full RCU grace period.
-Use kfree_rcu_mightsleep() for packages and the device structure
-which have no sub-allocations accessed by RCU readers.  Move
-disable_work_sync() before the package removal loop so the work
-function is quiesced before any structures are unlinked.
+Add rcu_read_lock()/rcu_read_unlock() around the list walks in
+ncsi_find_dev(), ncsi_write_package_info() (converting the early returns
+to a goto to consolidate the unlock), and ncsi_pkg_info_all_nl().
+
+The GENL_ADMIN_PERM handlers (set_interface, clear_interface,
+set_channel_mask) also walk these lists without RCU protection; they are
+less critical since they require CAP_NET_ADMIN, but should be addressed
+in a follow-up series.
 
 Found by manual code inspection; not triggered at runtime.
 
-Fixes: 2d283bdd079c ("net/ncsi: Resource management")
+Fixes: 955dc68cb9b23 ("net/ncsi: Add generic netlink family")
 Cc: stable@vger.kernel.org
 Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
 ---
- net/ncsi/internal.h    |  1 +
- net/ncsi/ncsi-manage.c | 28 ++++++++++++++++------------
- 2 files changed, 17 insertions(+), 12 deletions(-)
+ net/ncsi/ncsi-manage.c  | 11 ++++++++---
+ net/ncsi/ncsi-netlink.c | 32 +++++++++++++++++++++-----------
+ 2 files changed, 29 insertions(+), 14 deletions(-)
 
-diff --git a/net/ncsi/internal.h b/net/ncsi/internal.h
-index 2c9d1f22c16a9..2cb1cf653164c 100644
---- a/net/ncsi/internal.h
-+++ b/net/ncsi/internal.h
-@@ -239,6 +239,7 @@ struct ncsi_channel {
- 	} monitor;
- 	struct list_head            node;
- 	struct list_head            link;
-+	struct rcu_head             rcu;
- };
- 
- struct ncsi_package {
 diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-index ec7c0d8cf3d9f..d872351d40245 100644
+index 1d63958c4429b..ec7c0d8cf3d9f 100644
 --- a/net/ncsi/ncsi-manage.c
 +++ b/net/ncsi/ncsi-manage.c
-@@ -242,28 +242,33 @@ struct ncsi_channel *ncsi_add_channel(struct ncsi_package *np, unsigned char id)
- 	return nc;
- }
- 
-+static void ncsi_channel_free_rcu(struct rcu_head *head)
-+{
-+	struct ncsi_channel *nc = container_of(head, struct ncsi_channel, rcu);
-+
-+	kfree(nc->mac_filter.addrs);
-+	kfree(nc->vlan_filter.vids);
-+	kfree(nc);
-+}
-+
- static void ncsi_remove_channel(struct ncsi_channel *nc)
+@@ -419,13 +419,18 @@ void ncsi_free_request(struct ncsi_request *nr)
+ struct ncsi_dev *ncsi_find_dev(struct net_device *dev)
  {
- 	struct ncsi_package *np = nc->package;
- 	unsigned long flags;
+ 	struct ncsi_dev_priv *ndp;
++	struct ncsi_dev *nd = NULL;
  
--	spin_lock_irqsave(&nc->lock, flags);
--
--	/* Release filters */
--	kfree(nc->mac_filter.addrs);
--	kfree(nc->vlan_filter.vids);
-+	ncsi_stop_channel_monitor(nc);
++	rcu_read_lock();
+ 	NCSI_FOR_EACH_DEV(ndp) {
+-		if (ndp->ndev.dev == dev)
+-			return &ndp->ndev;
++		if (ndp->ndev.dev == dev) {
++			nd = &ndp->ndev;
++			break;
++		}
+ 	}
++	rcu_read_unlock();
  
-+	spin_lock_irqsave(&nc->lock, flags);
- 	nc->state = NCSI_CHANNEL_INACTIVE;
- 	spin_unlock_irqrestore(&nc->lock, flags);
--	ncsi_stop_channel_monitor(nc);
- 
--	/* Remove and free channel */
-+	/* Remove from list and defer free until after RCU grace period */
- 	spin_lock_irqsave(&np->lock, flags);
- 	list_del_rcu(&nc->node);
- 	np->channel_num--;
- 	spin_unlock_irqrestore(&np->lock, flags);
- 
--	kfree(nc);
-+	call_rcu(&nc->rcu, ncsi_channel_free_rcu);
+-	return NULL;
++	return nd;
  }
  
- struct ncsi_package *ncsi_find_package(struct ncsi_dev_priv *ndp,
-@@ -326,7 +331,7 @@ void ncsi_remove_package(struct ncsi_package *np)
- 	ndp->package_num--;
- 	spin_unlock_irqrestore(&ndp->lock, flags);
+ static void ncsi_request_timeout(struct timer_list *t)
+diff --git a/net/ncsi/ncsi-netlink.c b/net/ncsi/ncsi-netlink.c
+index 8cc538358f6a3..f3b403e1a2f2e 100644
+--- a/net/ncsi/ncsi-netlink.c
++++ b/net/ncsi/ncsi-netlink.c
+@@ -106,37 +106,42 @@ static int ncsi_write_package_info(struct sk_buff *skb,
+ 	}
  
--	kfree(np);
-+	kfree_rcu_mightsleep(np);
+ 	found = false;
++	rcu_read_lock();
+ 	NCSI_FOR_EACH_PACKAGE(ndp, np) {
+ 		if (np->id != id)
+ 			continue;
+ 		pnest = nla_nest_start_noflag(skb, NCSI_PKG_ATTR);
+-		if (!pnest)
+-			return -ENOMEM;
++		if (!pnest) {
++			rc = -ENOMEM;
++			goto out_rcu;
++		}
+ 		rc = nla_put_u32(skb, NCSI_PKG_ATTR_ID, np->id);
+ 		if (rc) {
+ 			nla_nest_cancel(skb, pnest);
+-			return rc;
++			goto out_rcu;
+ 		}
+ 		if ((0x1 << np->id) == ndp->package_whitelist)
+ 			nla_put_flag(skb, NCSI_PKG_ATTR_FORCED);
+ 		cnest = nla_nest_start_noflag(skb, NCSI_PKG_ATTR_CHANNEL_LIST);
+ 		if (!cnest) {
+ 			nla_nest_cancel(skb, pnest);
+-			return -ENOMEM;
++			rc = -ENOMEM;
++			goto out_rcu;
+ 		}
+ 		NCSI_FOR_EACH_CHANNEL(np, nc) {
+ 			nest = nla_nest_start_noflag(skb, NCSI_CHANNEL_ATTR);
+ 			if (!nest) {
+ 				nla_nest_cancel(skb, cnest);
+ 				nla_nest_cancel(skb, pnest);
+-				return -ENOMEM;
++				rc = -ENOMEM;
++				goto out_rcu;
+ 			}
+ 			rc = ncsi_write_channel_info(skb, ndp, nc);
+ 			if (rc) {
+ 				nla_nest_cancel(skb, nest);
+ 				nla_nest_cancel(skb, cnest);
+ 				nla_nest_cancel(skb, pnest);
+-				return rc;
++				goto out_rcu;
+ 			}
+ 			nla_nest_end(skb, nest);
+ 		}
+@@ -145,10 +150,11 @@ static int ncsi_write_package_info(struct sk_buff *skb,
+ 		found = true;
+ 	}
+ 
+-	if (!found)
+-		return -ENODEV;
++	rc = found ? 0 : -ENODEV;
+ 
+-	return 0;
++out_rcu:
++	rcu_read_unlock();
++	return rc;
  }
  
- void ncsi_find_package_and_channel(struct ncsi_dev_priv *ndp,
-@@ -1964,6 +1969,7 @@ void ncsi_unregister_dev(struct ncsi_dev *nd)
- 	unsigned long flags;
+ static int ncsi_pkg_info_nl(struct sk_buff *msg, struct genl_info *info)
+@@ -236,9 +242,13 @@ static int ncsi_pkg_info_all_nl(struct sk_buff *skb,
  
- 	dev_remove_pack(&ndp->ptype);
-+	disable_work_sync(&ndp->work);
+ 	package_id = cb->args[0];
+ 	package = NULL;
++	rcu_read_lock();
+ 	NCSI_FOR_EACH_PACKAGE(ndp, np)
+-		if (np->id == package_id)
++		if (np->id == package_id) {
+ 			package = np;
++			break;
++		}
++	rcu_read_unlock();
  
- 	list_for_each_entry_safe(np, tmp, &ndp->packages, node)
- 		ncsi_remove_package(np);
-@@ -1972,8 +1978,6 @@ void ncsi_unregister_dev(struct ncsi_dev *nd)
- 	list_del_rcu(&ndp->node);
- 	spin_unlock_irqrestore(&ncsi_dev_lock, flags);
- 
--	disable_work_sync(&ndp->work);
--
--	kfree(ndp);
-+	kfree_rcu_mightsleep(ndp);
- }
- EXPORT_SYMBOL_GPL(ncsi_unregister_dev);
+ 	if (!package)
+ 		return 0; /* done */
+@@ -255,7 +265,7 @@ static int ncsi_pkg_info_all_nl(struct sk_buff *skb,
+ 		rc = -EMSGSIZE;
+ 		goto err;
+ 	}
+-	rc = ncsi_write_package_info(skb, ndp, package->id);
++	rc = ncsi_write_package_info(skb, ndp, package_id);
+ 	if (rc) {
+ 		nla_nest_cancel(skb, attr);
+ 		goto err;
 -- 
 2.47.3
 
