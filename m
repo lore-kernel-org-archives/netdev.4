@@ -1,112 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795196627;
-	b=c6gGUMgZwx/H37F/rP7m9yr3hoj+DelOqinrsUBVjDbZRZqbJBTUu3Nm4OuT9zSa4s9y
-	 Cu1elEV6lQKkvo6lDqM8rD+BkAkRu/imuTUD3BZH8sjcet3C2sjjrt9m3ggMRqdZSRXqE
-	 /JAFN2kDGeur3GTjrtCxhFyc/PgKFJSH3lmJSi5QtI1/l/s/FcuAb92y7HsAzA0/QU1Gs
-	 JJnJL7T+kQg4e6UduvDoURR0eZTYv0vMKCguQf8/3RGsx8A6uMlN9CZlH/EXecpgURxG6
-	 sBNhClyk46Rd/bw0KdCOG94WytSd4z5WPxvjuaQia8HYWotMInc2A1vigkbNgoY9UAw==
+	b=vvWpJjJIsR6YYnVBlBW1nmOiI5PY4r862d4yXnonQ7nlX5Cr734aVDfuDABT+nAlQFbz
+	 2qMMeeCC3JRvGc78T90qW1igEdm9ZQJiy2VqQm8dO0cDLo1W2MIG7yTyQDukMa0i33b2/
+	 5GVOJEFnU6dJleRY3uvK3Z9vkkTfjOAr8W8i8z9MTHN3zRXolgO7F8qe3nrda6GsDR2N+
+	 6y50s7n+BVqDrNffrAWIWkriAG8Jh2Rkl4StNxTSQRLVWeRlBRWBJa9474rVz4m14BDfe
+	 OepOR7vu4jkOZvm2wOhJXYq4uWr7kZuoXiXMJw4Ottai9mTxvy0QwMf7KZOmXZmc8QQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795196627;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
-	b=0bhv4RU4tDZp1t1Yv2qJuTo7G+wFrPptm7Z5iDfgV24n8+1U7DIliTleiICBtM5vhCI7
-	 9D6/a1DrRnPqYzessZVedPyOeVRiDY9vEdlWhZ2Xnc7Whtqw36bcrP+hr1KYQ1FJmLvXD
-	 WSGizwppBNBYsOm3n4ld6BI7Ye+bZ774Cuy3ktHQH42FlwRV6f1xpkzYWpxwcmSsGtzdC
-	 clZYlQt5kUX/LVXm7sylp7zXW7CzBFHnxgTUUAV1nGRKcMHZ2JtXZCyHbztWpedc5EBjQ
-	 AXV1WDV42R2MadunlCzjmV2RPR1oFhDoGmJrSz3hyUjI93qRvUpT/ZOswhEJ6ngAyOw==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=9RS1aTZbvFjlQeMzAWvxNDOmSGxq+psns4GOzN5ypAs=;
+	b=f/X/DndkIig6E9mH3FSjWnSOhl28uLdmXqqs2NWdkhs2wak1gpunsT7+yRC33XhpzFau
+	 5ycO0fplbVaPA7KUQiuEjjbwM8mXXPd5SE5+T+34bC6CJpPqk3scpQzL7ByCx06RnAyzT
+	 XR2gAb2nuoR+LiX/bWBeF9kJwSY0NW5rKevSxJcnvyy/VXebqlxjc3y9Hspb79u8Q5Cin
+	 m3Tu5l2BFiAcnGxjN00gfWvt4ch2VGPxB0MpiW8HcwMjDcbe2byxbHTK88X0m/DkpZzlT
+	 J1FdaSb+GVqysyrb+8IT9M95anPo10STayLkcFraHZ6Ee20YO/RhtN3EEhDuwCDOesQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="W/YbbJT1";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=KioDSP8I;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J4iGkAy4;
+	arc=none smtp.remote-ip=209.85.222.48
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com [209.85.222.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AC9A606A32A
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:43:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AC9A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F966606A33C
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:43:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F966606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=W/YbbJT1;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=KioDSP8I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795196625;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
-	b=W/YbbJT1T6SPfyhgdV+k/AJsU52R5OTRWdc3fkr3VhM5KnxXlwD/MOnF8gpENvlc+5ccOH
-	MNrQRpSMjABb0TSp415Wva8bGXLsqbR1xyVz7OBMwJ4nzet6sz04HbZZjqrpKlM19Zacs5
-	6WtITXSrwfh5fBt4HoUA23R6U3J1Cbs=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-369-KxUWi17tP128BxMlT5F1Xg-1; Fri, 20 Nov 2026 17:43:43 +0000
-X-MC-Unique: KxUWi17tP128BxMlT5F1Xg-1
-X-Mimecast-MFC-AGG-ID: KxUWi17tP128BxMlT5F1Xg_1795196622
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a4654add56so7564705e9.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:43:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J4iGkAy4
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-9907a58f14dso339640241.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:43:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795196622; x=1795801422; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
-        b=KioDSP8Iyl4FnM43FYjKyB5+9zvHR8M6gyfSRy14jmsNMH7rP9Xt9yY7V42lSfg0TR
-         V/MUw1vy9X9jN27+neVPxgsnOMxxy7mJDtGhVNeyDpaS3aBQMKxlB43fpkT5nddD6FqK
-         Gq/QSHg1s1Bpi1fNplkZCIHGF0gl6nLxUxU8C8ecTNmbdjlAV01lH7LswXM0Q209qNkq
-         mK289KCOuMYWHwhdHW5N6ZLiTKMVNsP8q5KCXJyE+8eiaXvFlmSlgi6b5I+X2Rg8VHK1
-         mQ4TyqJeK4z0gAf9A+ZgnNHL3XIHRLyIpuIbADYXVRJcAafeLnBpNlkYDW3uUdpK/yil
-         oexw==
+        d=gmail.com; s=20260707; t=1795196624; x=1795801424; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9RS1aTZbvFjlQeMzAWvxNDOmSGxq+psns4GOzN5ypAs=;
+        b=J4iGkAy4Jk/VD59I2nqQ1enVY3HtGwVnhz0h5ynsHI2i38PPbVDFduQH6KVKdWejDO
+         dMCH6d2/hpoonk0tRwe7AZuXcMDT5P0e0GJtWIAg66q8ihXbrd2L7Nd6dDDuVxu27ADT
+         Iu8APcY6TUb7TKtt8nXxPLKUxc4wz0FHF+J0IebC6x1/B84QyivsAQ0dtfDfd5tU68Jb
+         SczJ3Vn/qdjwVWo9zC4pPOt9fyrOQ6u7RRc99OyVHBeuA5Lfuqeycm49O63oW2A+tlwT
+         TEHCoqTessyy01NuZYBX7gJafHh6cyJ/etkauWBqkJVAJZtShjbvkEayazif+Fw5xXZG
+         KflQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196622; x=1795801422;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pQ3fmyjnI7iaYkxdHU1FocI1IG6sGSuP8ezfFh3hoxo=;
-        b=h+wDQeqSvAQgB4Iq9w71Tb1WQcvPKmUp9sdX/2LOpu31yjMk1Iqon6MdOrF/NyBr/P
-         YIPmyHwgXGXu02p+lvoufoW6rtTB/6atqhQo9hvTYtHvDq3pha/l2Zo/a86/rC4KdPOq
-         yfal7AmEfO8KcL+V2fp+TJ3V0Xjxe/MfhkHZnJfh1BXq9fuBM4snu09TT6X4dBKU6tnD
-         7S7Nrx77JMqGs+tIMfq7pZ/9c9Hsjppsb119YT2DpV0IRa2QmYwlD7FFIKaIx5PgGIA4
-         MId5DHrpaGvSteSMYBVKfmsn5/eD1MDnvpgrX4yqaTxWChHwtniUPSSLWnrKqNC67xfL
-         yv4w==
-X-Forwarded-Encrypted: i=1; AL+hErF3RvzO6pF7C2mmtP9C25ZLlTm4VtDc2IonGcHytY5xrW52K/0t3yj1XKAQx7OHGWq9Y0IXiFE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/oYVmLEKld7jPkoj/NcV4YGPApxpnSA21wxckvkq9KnLTQLdZw
-	KRMMSFMEJAZNxdHPM6/odnA4Lvtpxp6aRmMmt5mWMIU/IIHJuTwyUHcS2kiszmZMf6dOYFuUwBE
-	KNd66VXqOpeY4gQHzMjl3MBMpmi5qSfUqyrylY0jwRLtcJB5CyY6+62zS1Q==
-X-Gm-Gg: AYBFou3dtXTlGpUy1srWHo7YcUV5fVegGlWVcVS+67q4jSiCPJRuup231lqGUunO3z7
-	cbbq6UTwkWOLi0fTL2vNn/N4L5pCM8PnwNZP2CBTZih8+8O0YKJvT7fDPHKZ8sainCLUAJEiDqG
-	p7Mtl8sRanO3rdW0CBOQRg1SVehz1YVH+gOA+359BXhrsfnOiyYs4zbL7TUmJfgzKaguDjlXqBg
-	YtP8bbCxcWN1IvoQin74Z/sqnvwb9cQr+iD1URLamiGWxys6al3W5J3KF6xyIKvjSbrZ2A5D5lV
-	5RKoff3jWTNGK28pO7111yUIzoaZcNZYIlumOpAaATyoercODi+rWpMRgzdcRstIfDlL/DpCCiO
-	PWZS9pXySxGhzUYWsPmqAnhkebpwQj3b9sTJOmgAMcgic
-X-Received: by 2002:a05:600c:a086:b0:4a7:6425:c274 with SMTP id 5b1f17b1804b1-4bb887c34bcmr93398475e9.2.1795196621623;
-        Fri, 20 Nov 2026 09:43:41 -0800 (PST)
-X-Received: by 2002:a05:600c:a086:b0:4a7:6425:c274 with SMTP id 5b1f17b1804b1-4bb887c34bcmr93397795e9.2.1795196620944;
-        Fri, 20 Nov 2026 09:43:40 -0800 (PST)
-Received: from redhat.com ([2a06:c701:73c1:fd00:6c8e:5a61:f533:519d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm158225955e9.14.2026.11.20.09.43.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:43:40 -0800 (PST)
-Date: Fri, 20 Nov 2026 12:43:37 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Longjun Tang <lange_tang@163.com>
-Cc: kuba@kernel.org, eperezma@redhat.com, jasowangio@gmail.com,
-	xuanzhuo@linux.alibaba.com, virtualization@lists.linux.dev,
-	netdev@vger.kernel.org, tanglongjun@kylinos.cn
-Subject: Re: [PATCH v2 1/3] virtio: add virtqueue_get_last_used_idx() helper
-Message-ID: <20261120124307-mutt-send-email-mst@kernel.org>
-References: <20261120071826.198604-1-lange_tang@163.com>
- <20261120071826.198604-2-lange_tang@163.com>
+        d=1e100.net; s=20260707; t=1795196624; x=1795801424;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9RS1aTZbvFjlQeMzAWvxNDOmSGxq+psns4GOzN5ypAs=;
+        b=xUzkaFbREwcNghfxivlFGR4BXP07snXUzajJ+WLw7zsjsdonom2vqsCboMnP8aAcSa
+         iKDh6ul8OFL+Jr0c8FJ1V/I2/3tnh8dSCjOXugMLEJ0E8CTidn0mrw2c+MtLtNqqEMt8
+         gsLPjUFVOOf3oLb7zAy+BjrrA9BV/EsK78DdrVPwUh+dODlnsCO7sv+fmxBxsdSv1ILH
+         p20C+XE0gmBfJiS406l5M1GUn3U4Gf+2SrSNnGMRLZubzMoQBrkxQFTQawYdarsAevV1
+         Z9HHZXLp9Ye975x3wNt+3BQ8JUvdQmbgCFf6kFD1bwnt745XW31S6Oc8XCMMqlaxNDUm
+         +HSw==
+X-Forwarded-Encrypted: i=1; AL+hErHSLFWlQE44B2HO/GRv5hqqqgrZOrBruT3TWosZ3HuZ07g+jkv82/ByLiYJMOLaWyLuExL0ZlU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+50ZC0X4Yig5CDZx3U9hDOviLegGca+OYiTKKqb6BeD5gjO+jl
+	y6VPoD7+XkSvkV/6eF0dvQ8Ev88kWfxNSQBWSmBf3i0wMmYWLFa47PF0
+X-Gm-Gg: AZFdTZdGtaGnr5EwaKzrxkoR+CV1BH1Uoz0yoT3FkIav9EXnR5BBRL58BV1Ym25tIzL
+	qy9kOQU91TUCjOtauiHG3IoKWVY3KcTekipuLwWMMLQxyo/PeshGP2a2U9fjRPwohKfYp6NaS12
+	H7POwWSS+EPTi9e9lIK6A6YN7/vQuQXMkNaLOqL0OWk24qm/+SX52HEG8DVBL6Yo3mDh/SybOsa
+	0GEd2VncJaIm2UVrmpj0oazaLnpcZPKYa/0Vj0wDVYDNbiuTXxBF3GVVmQP4jCUrfv9Wn3ZvbYD
+	Y0AERDTBPSte372cXufbsyl97U2RtACTORaRvEIdPzkKHPOCilCeSaLYhTs/mOfW06DI7w6an0t
+	/gWvyu+AwO2X9SOlEnTN+jpYGa0gv+Z7Iu5wxICrzg4I/THV0YyqnZgruWzhWxn3loD8CK6qgYK
+	6/NzmOnzltk40yMIiSXjUqitQgUmxOOYHBB/HFWJfL0jBQO55xhF9l7LRi0p9uZU70oYNet7uno
+	XARZxkiFsiHd8+S8twfbWmpGPFuRZp+U9imKgz8scI6o9OT9yem/cvVxx9lF0hnu24iJoHnvmLZ
+	AB7kp6lW9qaZiVsBRokEaIvpNuPFMtkeUAO1GZo7b1rT1RFMls38fpzgYT/+DNyTmcZECg==
+X-Received: by 2002:a05:6102:c54:b0:7c1:f530:2d8e with SMTP id ada2fe7eead31-7d7396a6024mr1680666137.35.1795196624132;
+        Fri, 20 Nov 2026 09:43:44 -0800 (PST)
+Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm3571363137.2.2026.11.20.09.43.43
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 09:43:43 -0800 (PST)
+From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Eric Garver <e@erig.me>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net 1/4] udp: Fix bind conflict check stopping at the first reuseport socket
+Date: Fri, 20 Nov 2026 12:43:38 -0500
+Message-ID: <20261120174341.35873-2-juanagusnicco@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120174341.35873-1-juanagusnicco@gmail.com>
+References: <20261120174341.35873-1-juanagusnicco@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,92 +107,86 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120071826.198604-2-lange_tang@163.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 03:18:24PM +0800, Longjun Tang wrote:
-> From: Longjun Tang <tanglongjun@kylinos.cn>
-> 
-> Expose last_used_idx through a new helper, which is used by both the split
-> and the packed ring and denotes the position the driver has last consumed.
-> It is useful for drivers that need to detect whether the device has
-> produced buffers that have not been consumed yet, by passing the returned
-> value to virtqueue_poll().
-> 
-> The split ring now writes the field with WRITE_ONCE() (the packed ring
-> already did) to document that the new reader can run concurrently with
-> the poll path.
-> 
-> Signed-off-by: Longjun Tang <tanglongjun@kylinos.cn>
+Since commit df560056d960 ("udp: inuse checks can quit early for
+reuseport"), udp_lib_lport_inuse() and udp_lib_lport_inuse2() report
+the port as free as soon as they find one overlapping socket that has
+SO_REUSEPORT and the same owner, without looking at the rest of the
+chain.
 
+This is only safe if overlap is transitive, and it is not:
 
+- A wildcard address overlaps specific addresses that do not overlap
+  each other.
+- A socket with no bound device overlaps sockets bound to different
+  devices.
 
-This kind of low level API is not reasonable in virtio.h
+As a result, an unprivileged user can bind an address and port that
+another user's socket holds, and receive its datagrams:
 
+  victim:   bind(127.0.0.2:P)
+  attacker: SO_REUSEPORT, bind(127.0.0.3:P)
+  attacker: SO_REUSEPORT, bind(0.0.0.0:P)     /* should fail */
+  attacker: SO_REUSEPORT, bind(127.0.0.2:P)   /* should fail */
 
+Only stop at a socket that matches the new one in family, IPV6_V6ONLY,
+bound device, SO_REUSEADDR and local address, and keep scanning past
+the other compatible sockets. Identical SO_REUSEPORT sockets, the
+workload the early stop was added for, still stop at the first one
+(binding 16384 of them on a KASAN build: 223 ms before, 222 ms after,
+3727 ms with the full scan every time).
 
-> ---
->  drivers/virtio/virtio_ring.c | 18 ++++++++++++++++--
->  include/linux/virtio.h       |  2 ++
->  2 files changed, 18 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/virtio/virtio_ring.c b/drivers/virtio/virtio_ring.c
-> index f683a2d6a200..e8af6d5c6432 100644
-> --- a/drivers/virtio/virtio_ring.c
-> +++ b/drivers/virtio/virtio_ring.c
-> @@ -1005,7 +1005,7 @@ static void *virtqueue_get_buf_ctx_split(struct vring_virtqueue *vq,
->  	/* detach_buf_split clears data, so grab it now. */
->  	ret = vq->split.desc_state[i].data;
->  	detach_buf_split(vq, i, ctx);
-> -	vq->last_used_idx++;
-> +	WRITE_ONCE(vq->last_used_idx, vq->last_used_idx + 1);
->  	/* If we expect an interrupt for the next entry, tell host
->  	 * by writing event index and flush out the write before
->  	 * the read in the next get_buf call. */
-> @@ -1072,7 +1072,7 @@ static void *virtqueue_get_buf_ctx_split_in_order(struct vring_virtqueue *vq,
->  	ret = vq->split.desc_state[last_used].data;
->  	detach_buf_split_in_order(vq, last_used, ctx);
->  
-> -	vq->last_used_idx++;
-> +	WRITE_ONCE(vq->last_used_idx, vq->last_used_idx + 1);
->  	vq->last_used += (vq->vq.num_free - num_free);
->  	/* If we expect an interrupt for the next entry, tell host
->  	 * by writing event index and flush out the write before
-> @@ -3236,6 +3236,20 @@ bool virtqueue_poll(struct virtqueue *_vq, unsigned int last_used_idx)
->  }
->  EXPORT_SYMBOL_GPL(virtqueue_poll);
->  
-> +/**
-> + * virtqueue_get_last_used_idx - get the ring's last consumed position
-> + * @_vq: the struct virtqueue we're talking about.
-> + *
-> + * Returns: the vring_virtqueue's last_used_idx.
-> + */
-> +unsigned int virtqueue_get_last_used_idx(const struct virtqueue *_vq)
-> +{
-> +	const struct vring_virtqueue *vq = to_vvq(_vq);
-> +
-> +	return READ_ONCE(vq->last_used_idx);
-> +}
-> +EXPORT_SYMBOL_GPL(virtqueue_get_last_used_idx);
-> +
->  /**
->   * virtqueue_enable_cb - restart callbacks after disable_cb.
->   * @_vq: the struct virtqueue we're talking about.
-> diff --git a/include/linux/virtio.h b/include/linux/virtio.h
-> index f923e42cfd01..1aed4d9235c8 100644
-> --- a/include/linux/virtio.h
-> +++ b/include/linux/virtio.h
-> @@ -112,6 +112,8 @@ unsigned virtqueue_enable_cb_prepare(struct virtqueue *vq);
->  
->  bool virtqueue_poll(struct virtqueue *vq, unsigned);
->  
-> +unsigned int virtqueue_get_last_used_idx(const struct virtqueue *vq);
-> +
->  bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
->  
->  void *virtqueue_detach_unused_buf(struct virtqueue *vq);
-> -- 
-> 2.25.1
+Fixes: df560056d960 ("udp: inuse checks can quit early for reuseport")
+Cc: stable@vger.kernel.org
+Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+---
+ net/ipv4/udp.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
+index 303d0102519a..446729b41d66 100644
+--- a/net/ipv4/udp.c
++++ b/net/ipv4/udp.c
+@@ -131,6 +131,15 @@ EXPORT_PER_CPU_SYMBOL_GPL(udp_memory_per_cpu_fw_alloc);
+ #define MAX_UDP_PORTS 65536
+ #define PORTS_PER_CHAIN (MAX_UDP_PORTS / UDP_HTABLE_SIZE_MIN_PERNET)
+ 
++static bool udp_lport_same_bind(const struct sock *sk, const struct sock *sk2)
++{
++	return sk2->sk_family == sk->sk_family &&
++	       ipv6_only_sock(sk2) == ipv6_only_sock(sk) &&
++	       sk2->sk_bound_dev_if == sk->sk_bound_dev_if &&
++	       sk2->sk_reuse == sk->sk_reuse &&
++	       inet_rcv_saddr_equal(sk, sk2, false);
++}
++
+ static int udp_lib_lport_inuse(struct net *net, __u16 num,
+ 			       const struct udp_hslot *hslot,
+ 			       unsigned long *bitmap,
+@@ -154,8 +163,11 @@ static int udp_lib_lport_inuse(struct net *net, __u16 num,
+ 			if (!bitmap) {
+ 				if (sk2->sk_reuseport && sk->sk_reuseport &&
+ 				    !rcu_access_pointer(sk->sk_reuseport_cb) &&
+-				    uid_eq(uid, sk_uid(sk2)))
+-					return 0;
++				    uid_eq(uid, sk_uid(sk2))) {
++					if (udp_lport_same_bind(sk, sk2))
++						return 0;
++					continue;
++				}
+ 				return 1;
+ 			}
+ 			__set_bit(udp_sk(sk2)->udp_port_hash >> log, bitmap);
+@@ -188,6 +200,8 @@ static int udp_lib_lport_inuse2(struct net *net, __u16 num,
+ 			if (sk2->sk_reuseport && sk->sk_reuseport &&
+ 			    !rcu_access_pointer(sk->sk_reuseport_cb) &&
+ 			    uid_eq(uid, sk_uid(sk2))) {
++				if (!udp_lport_same_bind(sk, sk2))
++					continue;
+ 				res = 0;
+ 			} else {
+ 				res = 1;
+-- 
+2.43.0
 
