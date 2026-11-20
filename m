@@ -1,83 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162378;
-	b=kIRx3si2lsBS8/cTG0pUz2WFYANKHnVAsE7vztjAk5Fs46b8YaLGMJXEfhi++7SZ8VI0
-	 ZIaXHFmSNsKrHLV/pWgi7TmJE+37Tp4D5z+OegbqNV8JH22ZNmoYVBJU3Jw6fDv1XQzeU
-	 5+dq1nsB6j1VQCWQN/4Q+GowviYP3YNavDaQdvGqFshyrSmtZuCPfwRSuO7d47xx9wkQf
-	 Jq2WieCjEmDOJSO3/yG15src9dXguSd3AQDOU2nbA37ZXqIrMlmtVS+qz16t2hPdfTCBj
-	 Iud4zOp6IwTbFRarDQXOFtJobUu0eeK8U4wWD+nUN2miyGj2INp9KDQCZebXSD3vVrQ==
+	t=1795162444;
+	b=5ng2d/rYLZ7iLw9TvLXqmbjRTGTWMSrhkskNzzxnY4FcA64fDzlm/e1wztcjH4esuNQ5
+	 692RBr/pu0NWiDKApvNtE0a19y21cTE6hOjy/wYVsQPWWmvXBzGTjSkOAdGzYwhzPzLBS
+	 vOndU+TVUNV4ajbraloEQoGhtF4jzjJ46Uusab8d1uU4AvrACmsMzwFZOkopjsz76ncEG
+	 bd/BPJC6nzPGmHwpxJyOPBXtJB7RWQhNe+wofGz6mMx+Vm1Ddqub6OJbEBCr+POXZwBB8
+	 KnwxFpBKOARMkpvtAdAu78iFsrAc/C+xmYe4ReYob+rmb7QyJdDPy1dYGB5QN3ZJN7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162378;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:
-	 X-Spam-Score;
-	bh=C90rrP7KJHqoSFgzxtV19Wc0HvG2xNRydf0PBWxlx9g=;
-	b=Hsgi4whihqGk8uKF6nol/7m5NbUBp8Om4bskfnQCbyneHzBJjNb7OFciQTy4b/38rv0r
-	 4Zba3RyH+vHziYQNlr/9azZ5T3RXHFzbi/JoQ0M+9Ft32AyNIJ0sF2bB0wA8wtzFiS7xW
-	 FzMapctubRI9tkatMwL7oRWT1slVo9O6YLU7tBU7EPeDun7uGCba/17SsJ5WIzx2/KNl1
-	 phmO9bvOPww51zxH1WUI9oJMbuIyy4BxPiDbpfNHoVkTchezCFRSXm8YFj6b0VZpwXWT6
-	 ohd4c09c8wMnP+FpHIVmQYZayc7gnSSAkE+qJ2eqLRFzssfbG96Iiwjk+jMeLlsGh1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162444;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=RpMYP0Ydd5BpVNbkK9E+iOAiDlzHS1ASNDtCYygPy+A=;
+	b=P/v6gyub6PQdEED//FzPCO3xa/WNivrQJQLXvxuwlzWv1ZPeDhhjs6CAhB5czstacGOs
+	 ko2ZLbzSf4mlpNNm3BM4Jy+jOJptuqZlQMyOY9CTXYHKc03hHcut8+nyk+qOcoX2d4Bvl
+	 aBlQRt3rDVGqLoEq6orxbdlz4KnUnSKl3ePgFFWx9TV9OggnnOLeWtjI8Q3OPpUFZiqrS
+	 A6JGG32eP0LGTZARt+tqTnaNOMuOBSr4Mb7aP67foWEsaLpKQ9Wnd5mKmICs/Xugczfbo
+	 nn2SboRmqUYhdISx0aGnXMagIL4vKTxIUyL3iKqzqCskv3WuheWa55F0whOeMig5wKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=rtt7f51p;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=rtt7f51p;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=iOT0uRHI;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BC32606A338
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:12:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BC32606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FCD2606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:14:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FCD2606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=rtt7f51p;
-	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=rtt7f51p
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=iOT0uRHI
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 4AA3F2069C;
+	Fri, 20 Nov 2026 09:14:02 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 5jVaYZugiYu4; Fri, 20 Nov 2026 09:14:01 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 6ADD61FA79;
-	Fri, 20 Nov 2026 08:12:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795162374; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=C90rrP7KJHqoSFgzxtV19Wc0HvG2xNRydf0PBWxlx9g=;
-	b=rtt7f51p5utY1GQFkgzM7zpTaO+QfTpjTeeanauddGjQeA1Sz6YpJCrPZTnkBQJ8ZoSBIN
-	mh42IGWwltn4gY4yYojs7zBKvlanKh64YWn50Uk3mFqp26siEbDrUbrKXxq4770sBC4Kul
-	wZIzMk2r979xFSnyc66oIp8NMoHUXP8=
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795162374; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=C90rrP7KJHqoSFgzxtV19Wc0HvG2xNRydf0PBWxlx9g=;
-	b=rtt7f51p5utY1GQFkgzM7zpTaO+QfTpjTeeanauddGjQeA1Sz6YpJCrPZTnkBQJ8ZoSBIN
-	mh42IGWwltn4gY4yYojs7zBKvlanKh64YWn50Uk3mFqp26siEbDrUbrKXxq4770sBC4Kul
-	wZIzMk2r979xFSnyc66oIp8NMoHUXP8=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 020621348F;
-	Fri, 20 Nov 2026 08:12:53 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id mSmxMQUBAGtgKgAAD6G6ig
-	(envelope-from <nik.borisov@suse.com>); Fri, 20 Nov 2026 08:12:53 +0000
-From: Nikolay Borisov <nik.borisov@suse.com>
-To: davem@davemloft.net
-Cc: kuba@kernel.org,
-	dsahern@kernel.org,
-	netdev@vger.kernel.org,
-	Nikolay Borisov <nik.borisov@suse.com>
-Subject: [PATCH] ipv4: fib_rules: Switch to using a for loop in fib_empty_table
-Date: Fri, 20 Nov 2026 10:12:42 +0200
-Message-ID: <20261120081242.318541-1-nik.borisov@suse.com>
-X-Mailer: git-send-email 2.56.0
+	by mx1.secunet.com (Postfix) with ESMTPS id ACDFE207E3;
+	Fri, 20 Nov 2026 09:14:01 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com ACDFE207E3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795162441;
+	bh=RpMYP0Ydd5BpVNbkK9E+iOAiDlzHS1ASNDtCYygPy+A=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=iOT0uRHIBBhzbHfkP3M6dsrg5PaePdDXNRVUpCrP2aZY+0DzUPYpFlobkAktZLRZ8
+	 Pv/Ior9Bq9Hu1ytd7BqSIA7QIhJ09YGhvAJcpeEzyGh/TDwWkwzcRe6v/Or1Ehh0rb
+	 kaz9JCmHq/AFuAvVjXxF0tDXTackN6ARjPQ7jy9RCFEHUw2tAfQLlsepDCxuKyb5NA
+	 EwBAem2xoAHH0k/SO/svDPAf/zGF6aLAhhc6nf7L2PLk7Hb/bqkJiEW02zBYQfmvhV
+	 Du9/rsd1qhidqreVf4AiPG2mYWvHsfn2sbFJ9yX92nbqg76sV/ge2hb7Nk7dN9pzjT
+	 MaPNtcSkOixOA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
+ 2026 09:14:00 +0100
+Received: (nullmailer pid 1759879 invoked by uid 1000);
+	Fri, 20 Nov 2026 08:14:00 -0000
+Date: Fri, 20 Nov 2026 09:14:00 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Cosmin Ratiu <cratiu@nvidia.com>
+CC: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Shannon Nelson
+	<sln@onemain.com>, Tariq Toukan <tariqt@nvidia.com>
+Subject: Re: [PATCH ipsec] xfrm: replay: Fix late packet handling with ESN
+ crypto offload
+Message-ID: <awABSJrYIhEIbSZY@gauss4>
+References: <20261110133821.2548903-1-cratiu@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,66 +83,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-11.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.995];
-	MIME_GOOD(-0.10)[text/plain];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	TO_DN_SOME(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email]
-X-Spam-Score: -11.80
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261110133821.2548903-1-cratiu@nvidia.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-Since commit efdfb1e27a33 ("ipv4: fib: bound automatic table ID allocation")
-added a sane bound to the loop looking for a table id the concerns in
-58075ff523af ("ipv4: fib_rules: Fix possible infinite loop in fib_empty_table")
-are rendered moot. Just revert the code back to a "for" loop, using the
-new bound. This makes the code's flow and terminating condition a
-lot clearer.
+On Tue, Nov 10, 2026 at 03:38:21PM +0200, Cosmin Ratiu wrote:
+> xfrm_replay_seqhi() guesses seq_hi for a given ingress seq per RFC 4303
+> section A2.2. Packets with seq < bottom are interpreted as being ahead
+> and the function returns the next seq_hi. xfrm_replay_check_esn() redoes
+> the same computation and defers to the ICV check.
+> 
+> On SW crypto, such packets then fail the ICV check and are dropped,
+> unless they're actual packets ~2^32 in the future (very unlikely).
+> 
+> But on crypto offload, the ICV check already happened in HW and isn't
+> repeated. xfrm_replay_advance_esn() then increments replay_esn->seq_hi.
+> 
+> The problem becomes visible when the HW state is renewed (e.g. bond
+> failover or mlx5 mid-sequence ESN state update). The newly offloaded SA
+> carries the wrong seq_hi and completely breaks ingress since all future
+> packets fail ICV.
+> 
+> This was verified on b2b ConnectX NICs, with an 'iperf3 -P 2' test over
+> a pair of SAs over a bond device in active-backup mode.
+> After ~10s of traffic at ~10 Gbps, replay_esn->seq_hi was ~2.5M due to
+> the two streams sharing the ESN state.
+> Forcing a bond failover on both sides breaks traffic permanently.
+> 
+> Fix this by dropping packets up to 2^31 before the replay window for
+> crypto offload, since the SW seq_hi guess cannot be validated. Packets
+> up to 2^31 ahead are accepted as new, same as old code. A burst loss of
+> more than 2^31 packets now stalls the SA (previously up to 2^32-wsize).
+> 
+> SW crypto is unaffected.
+> 
+> Fixes: 50bd870a9e5c ("xfrm: Add ESN support for IPSec HW offload")
+> Signed-off-by: Cosmin Ratiu <cratiu@nvidia.com>
 
-No functional changes
-
-Signed-off-by: Nikolay Borisov <nik.borisov@suse.com>
----
- net/ipv4/fib_rules.c | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
-
-diff --git a/net/ipv4/fib_rules.c b/net/ipv4/fib_rules.c
-index 060501b376a8..7fe3ec07618a 100644
---- a/net/ipv4/fib_rules.c
-+++ b/net/ipv4/fib_rules.c
-@@ -218,15 +218,9 @@ INDIRECT_CALLABLE_SCOPE int fib4_rule_match(struct fib_rule *rule,
- 
- static struct fib_table *fib_empty_table(struct net *net)
- {
--	u32 id = 1;
--
--	while (1) {
-+	for (int id = 1; id <= FIB_MAX_AUTO_TABLE_ID; id++)
- 		if (!fib_get_table(net, id))
- 			return fib_new_table(net, id);
--
--		if (id++ == FIB_MAX_AUTO_TABLE_ID)
--			break;
--	}
- 	return NULL;
- }
- 
--- 
-2.56.0
-
+Applied, thanks a lot Cosmin!
