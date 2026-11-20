@@ -1,67 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175166;
-	b=2bzBHq5WcVjR0YlgpYPK1DrNdu8Mx1om532+V4fQuJ6abCkhMCYjfysHqwUJKIxMwdHE
-	 aUxD2Ja0MytdQIII5Knos6W2mZ60lKnXx0Twz9EKyHFgWezVQxEKRRoIw24mBnrXaKDIJ
-	 0oe9R+3j40q0kpDWnKroZ5yK7ppUgjqI8oPo4DM9QGKI7eeI9OO0q/iTe3nr4ixAS9TCI
-	 CV1qC0a2Pg6ijxfFQpmcfLa+dz6FIPrYlodXRXXhA7Sml0pjvqTZscfvMBircK0SMB1yC
-	 AucWBSaj0YvpOy86Qc9DBZaYg+7yKaWET9UTRR4FGChHoPam/OWE3YPiqB/07LJqKHA==
+	t=1795175248;
+	b=dGno9LeifKotRFh9a2G/ebpW6rIgk7qWdDEpFFpLGDc0/HUCu5aCcOPZGmg5ByEaM3sP
+	 lJFighHsxIWqS0C8da1uwb4RpsShL60A4R1qR8ezSeBqsmZlceXQgEfT9dh94VPQCXaX3
+	 5pltQmy5lV8DqVtYTeX3RD+V1pwM5MDrgrqcgpNFTRFDcSmq0FWlQeZKZMlhL21sfVUuG
+	 6YQWKJ5QTO98vb0E9eSa0VEhSDunPfn2ZiK9JDAz8uihIVv8d/jv53cjMvUnAdXBng2U3
+	 IVumzhhVAJO7eqeP94Y9tQcb9tAZyJkyTxdxt0tZzSpMIhwG7ycjDuMc/L2SQtsPu2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175166;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=aMjxQu5DvNMxMD2QmUMgnuSCNhoUFHlBMLUHHCISx7E=;
-	b=l6BXJ3JRFHuYo9fSizsl8sVDkO+wS6YIBb3zC84dvsEMN4+kdSanEVOjh3MOivfmxCh5
-	 fcApSsywGG0VGi/yXYSzUpiabQ4m+AlsKFoJcK3lm5uvIW5o0hBionsXjQkIfYMtgAKCl
-	 2nLeBaOyamHtmaFb15Yd//v+WVxfYr/xKKfJ3zKSuIwG3VkI3F/SMo05e/shM5KVtTvJV
-	 CJVo9P+ljUQhCTgQJIuX/HmraMzxREaZF6Q17OiyYe+74zczZRdiEFySzuzZKNqohHx0x
-	 XrsNbt3KtwGn0O3vtX5tVWxxb3XOuGlf2J/pB1qMQb5nuTs6mcOni2AmSYetU4kGA3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175248;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=iyyk82KwD0gTHK6EesukEP1DVEZLAy4u41nZQjINL94=;
+	b=uvdgZCweNgpr2KfDGYxnWxyQfmuM5sAklaA1rtMMS5yS+r9jm8an5nlANIoW2bWa5AHV
+	 VxthLIPdo9/0QyVG8lOIOsVraP74g3FT3dz1PMus0IR1o3Psz6lrUXG7uzlcUQQMNXM7j
+	 OTgA6S0aIOd5rP4V1N++06tm39PseO6Ro7gHY5taC7HZBkAJVrthQLmcAvaDsjT8xYQpe
+	 mpLA5AGWmBx79F6Po0016LBldLZzOKjcU143LbsfnB+FXrqvAuqx3yGKfc0I/iXHMHvYY
+	 n8al/hNU2Y0/SLp/vk3pOJSprel7qwjvJEFq4GdLpFwUtg+MADtgo3HbCMr/bheZkhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nz/5t0En";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41FB460A381E;
-	Fri, 20 Nov 2026 11:46:05 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nz/5t0En
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FD381F000E6;
-	Fri, 20 Nov 2026 11:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795175165;
-	bh=aMjxQu5DvNMxMD2QmUMgnuSCNhoUFHlBMLUHHCISx7E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=nz/5t0EnMiLvCX7mt5E8GkcAaL4HeiOZ6kfivXi+TxRxH6eQHwq0Hx7OLaQm466sZ
-	 jn1bLwHjiIjTjeO+0u2lQ6BUW2PyqCSRDXb143ZmYFKHLoUph3GsGwkto1DgiLyewv
-	 hJ1hQZWqoWow1iH8xyRpyo/gBKKdwuzHZpa5TLoAorkG7hLXkwAFNsU6mcy3gBKYhD
-	 e0+3VPxIslhdgWAOU86+QjIw07qDV1kS0LvPIgRUgsMPQzrQ84g/UNauKhI48r1/Db
-	 wNgXwl6WORT91gljOAPbUm8elfw73+1XAigzU5bvsFDFS0CRi0mfjWoxQVL1ox064k
-	 Xb51+OwHzoUSw==
-Subject: Re: [PATCH net-next v4 10/10] net: stmmac: qcom-ethqos: add QCS615
- EMAC support
-From: netdev-bot+sashiko@kernel.org
-To: mohd.anwar@oss.qualcomm.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, afd@ti.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, richardcochran@gmail.com, andersson@kernel.org,
- konradybcio@kernel.org, alexandre.torgue@foss.st.com, peppe.cavallaro@st.com,
- joabreu@synopsys.com, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, lorenzo.bianconi@oss.qualcomm.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Fri, 20 Nov 2026 11:46:03 +0000
-Message-ID: <179517516381.3136.1746646208763714610@kernel.org>
-In-Reply-To: <20261117-shikra_ethernet-v4-10-c41902e5f2fa@oss.qualcomm.com>
-References: <20261117-shikra_ethernet-v4-10-c41902e5f2fa@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7566B606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:47:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7566B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=iyyk
+	82KwD0gTHK6EesukEP1DVEZLAy4u41nZQjINL94=; b=GiD6KoS3cmPa1hLcSgGg
+	v3rXdC4hqxx4lcmtFohEFZ82WB0mJn1C8BPAIK83TXXTwjD/0kSoTGS7dCIRncTA
+	vl9D37TI1R7DXDSQ4HG4BgkGpWCj1a9t8ivFrAB9IBfQv8oWp7XjQnlG1YcfZIsm
+	cT++Szewq/WJE/NwnfC69Qo3kuguYzAnIiZxw70arMz8AT2kjxj0qzIZtMK4YvqU
+	ro4PiOlX3hYF40O2A3NTM1z9W4E9ERqHZe3eMjUtjTpRvWNwInUbXwF4yMYGZ9H+
+	H7nWZQUWHwQwmoNMVKy6q4d0kOe12oXHaTvavqu9+c8S6XrzHgcSWYrI+wI4HOvQ
+	3g==
+Received: (qmail 1461023 invoked from network); 20 Nov 2026 12:47:19 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 12:47:19 +0100
+X-UD-Smtp-Session: l3s3148p1@CWpszrNgLOwujnuU
+Date: Fri, 20 Nov 2026 12:47:18 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 2/6] clk: renesas: r9a06g032: Add reset controller
+Message-ID: <awAzRgXaPNHcUC2G@ninjato>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,191 +81,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+>  struct r9a06g032_priv {
+>  	struct clk_onecell_data data;
+>  	spinlock_t lock; /* protects concurrent access to gates */
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Build error :( No addition of 'rcdev' to priv data!
 
-- [High] In drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c,
-  ethqos_set_clk_tx_rate() decides whether to double the RGMII link…
-- [Medium] In drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c,
-  the new qcs615_data descriptor has no .rgmii_por/.num_rgmii_por,…
-- [Medium] net: stmmac: qcom-ethqos: missing delay check in
-  ethqos_set_clk_tx_rate()
-
---
-
-net: stmmac: qcom-ethqos: add QCS615 EMAC support
-
-This adds a qcom,qcs615-ethqos match entry and a qcs615_data descriptor
-with phy_managed_delays enabled, so rgmii-id on QCS615 uses the
-DLL-bypass configuration. Before this patch, QCS615 nodes bound to the
-QCS404 descriptor through the qcom,qcs404-ethqos fallback compatible.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index a7fdba73da2ba..790159ae1be7a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -250,6 +250,13 @@ static const struct ethqos_emac_driver_data emac_v2_3_0_data = {
->  	.setup = ethqos_hlos_setup,
->  };
->  
-> +static const struct ethqos_emac_driver_data qcs615_data = {
-> +	.rgmii_config_loopback_en = true,
-> +	.phy_managed_delays = true,
-
-[Severity: Medium]
-This flag is meant to confine the new behaviour to tested hardware,
-but does the link clock rate follow it as well?
-ethqos_set_clk_tx_rate() decides whether to double the rate from
-phy_mode alone:
-
-	if (ethqos->phy_mode != PHY_INTERFACE_MODE_RGMII_ID ||
-	    speed == SPEED_1000)
-		rate *= 2;
-
-ethqos_fix_mac_speed_rgmii(), by contrast, only takes the DLL-bypass
-path when ethqos->data->phy_managed_delays is also set:
-
-	if (ethqos->data->phy_managed_delays &&
-	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID) {
-		ethqos_configure_rgmii_id(ethqos, speed);
-		return;
-	}
-
-Take a descriptor without the flag (qcs404, sm8150, sc8280xp, sa8775p)
-and phy-mode = "rgmii-id". The IO macro is still programmed through
-ethqos_rgmii_macro_init() for the MAC-delay path, with
-RGMII_CONFIG_DDR_MODE set and RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL
-cleared. That path wants 50/5 MHz at 100M/10M, but the link clock is
-asked for 25/2.5 MHz instead.
-
-As far as I can see this is also hit at probe, where
-ethqos_hlos_setup() requests the SPEED_10 rate before any link comes
-up.
-
-This commit message says the QCS404 RGMII clock source cannot provide
-those rates. ftbl_emac_clk_src in drivers/clk/qcom/gcc-qcs404.c only
-lists 5, 50, 125 and 250 MHz. On SM8150, link_clk would end up at half
-the rate the non-bypass configuration expects.
-
-Shouldn't the doubling be skipped only under the same condition that
-ethqos_fix_mac_speed_rgmii() uses, i.e. phy_managed_delays set and
-phy_mode == PHY_INTERFACE_MODE_RGMII_ID? Or is there a reason the
-earlier DLL-bypass patch in this series made the rate depend on
-phy_mode only?
-
-[Severity: High]
-The v4 note says phy-managed delays should only affect tested hardware
-(Shikra and QCS615). Does that also hold for the link clock rate?
-
-ethqos_set_clk_tx_rate() chooses the bypass rate from phy_mode alone. It
-never checks phy_managed_delays:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c:ethqos_set_clk_tx_rate() {
-    ...
-	/* Clock Rate Requirements:
-	 * MAC added delay: 250/50/5 MHz for 1G/100M/10M
-	 * No MAC delay (DLL bypass): 250/25/2.5 MHz for 1G/100M/10M
-	 */
-	if (ethqos->phy_mode != PHY_INTERFACE_MODE_RGMII_ID ||
-	    speed == SPEED_1000)
-		rate *= 2;
-    ...
-}
-
-ethqos_fix_mac_speed_rgmii() takes the bypass only when the flag is set:
-
-	if (ethqos->data->phy_managed_delays &&
-	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID) {
-		ethqos_configure_rgmii_id(ethqos, speed);
-		return;
-	}
-
-Take a descriptor without the flag (emac_v2_3_0_data, emac_v2_1_0_data,
-emac_v3_0_0_data, emac_v4_0_0_data) and phy-mode = "rgmii-id". At 100M
-and 10M, the IO macro is programmed for the DLL/MAC-delay path. The link
-clock, though, is set to 25/2.5 MHz, not the 50/5 MHz that the comment
-says this path needs.
-
-This commit's message also says the QCS404 RGMII clock source does not
-support 25 MHz and 2.5 MHz.
-
-The unconditional halving came from the earlier commit in this series,
-"net: stmmac: qcom-ethqos: add DLL-bypass for PHY-managed RGMII delays".
-That commit said "No change intended on existing platforms". Before it,
-clk_set_rate(link_clk, rate * 2) was always used.
-
-Could the rate check also be gated on ethqos->data->phy_managed_delays,
-using the same condition as ethqos_fix_mac_speed_rgmii()?
-
-> +	.has_emac_ge_3 = false,
-> +	.setup = ethqos_hlos_setup,
-> +};
-
-[Severity: Medium]
-Should qcs615_data also carry the POR table from emac_v2_3_0_data?
-
-static const struct ethqos_emac_driver_data emac_v2_3_0_data = {
-	.rgmii_por = emac_v2_3_0_por,
-	.num_rgmii_por = ARRAY_SIZE(emac_v2_3_0_por),
-	...
-
-The binding requires QCS615 nodes to use "qcom,qcs615-ethqos",
-"qcom,qcs404-ethqos". Until now they matched emac_v2_3_0_data through the
-fallback. The new, more specific qcom_ethqos_match entry now binds them
-to qcs615_data, where num_rgmii_por == 0.
-
-Only phy-mode = "rgmii-id" takes the bypass early return. For "rgmii",
-"rgmii-txid" and "rgmii-rxid", ethqos_fix_mac_speed_rgmii() still runs
-the full DLL/MAC-delay sequence, but this loop now does nothing:
-
-	/* Reset to POR values and enable clk */
-	for (i = 0; i < ethqos->data->num_rgmii_por; i++)
-		rgmii_writel(ethqos, ethqos->data->rgmii_por[i].value,
-			     ethqos->data->rgmii_por[i].offset);
-
-That leaves RGMII_IO_MACRO_CONFIG, SDCC_HC_REG_DLL_CONFIG,
-SDCC_HC_REG_DDR_CONFIG, SDCC_HC_REG_DLL_CONFIG2, SDCC_USR_CTL and
-RGMII_IO_MACRO_CONFIG2 to be read-modify-written on top of whatever the
-bootloader or the previous link-up left in them.
-
-The rest of the sequence sets bits for one speed and does not clear the
-other speed's bits:
-
-- ethqos_rgmii_macro_init() sets SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN at
-  10/100 and SDCC_DDR_CONFIG_PRG_DLY_EN at 1G.
-- The 1G path also sets DLL_EN and CK_OUT_EN in DLL_CONFIG, bit 26 of
-  USR_CTL, and DDR_CAL_EN, MCLK_FREQ_CALC and TRAFFIC_INIT in
-  DLL_CONFIG2.
-
-Only the POR write clears these bits.
-
-After a renegotiation from 1G to 100M (or from 100M to 1G), wouldn't both
-RX delay enables stay set, along with the 1G DLL settings?
-
-The commit message says:
-
-    The existing compatible binding and qcom,qcs404-ethqos fallback
-    remain unchanged.
-
-But the descriptor those DTs bind to does change, and only the rgmii-id
-bypass path was tested.
-
-Would adding the following to qcs615_data keep the previous behaviour for
-the non-bypass modes?
-
-	.rgmii_por = emac_v2_3_0_por,
-	.num_rgmii_por = ARRAY_SIZE(emac_v2_3_0_por),
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-shikra_ethernet-v4-0-c41902e5f2fa%40oss.qualcomm.com
