@@ -1,60 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795135037;
-	b=LI6I2n82pGzRfOrOu1cookqr14P9WaElKRGIl3YiXl9xkcRlzPgGE7zo6PmqV8YqqhfU
-	 rMIGwrRUOKcBe5etShyut0+SagDxC93nKowuVvPPgg8HDZ6Opeg+rBrtZ/Miy7bLFd9Is
-	 z9+1UZDz0KWFSFWkdvcjuIXBjKGiayZlEe0SF3lNIqFcmrrNNQeRPt48Pn1QGYgxAA0iX
-	 2oZ8OMG9Lutjen/3sdY7B1H91XAmLIkYZa+phz89EIaFxPHI3RZcmy3LsfnxVgxN/5LHB
-	 LCxzisn8FXjE2/5PSBE1XQkI0j/9DlC3W4V7EvQ/uHJNaBNmqtfJrFtUCi7X3TjTwgA==
+	t=1795135209;
+	b=pGbYKOZidYUM0Rl2UwLlDUaUV3BiqPNC7fAaxUlgP+B2XyBG2QLJAXCh4WeaRH0mt7Hq
+	 bAqp4ciixC0kjMWrzNlNy/tiQv6XUD8NDfaiSr59dphqXCPr7p7xj9/8WvO0Dcohs7mHN
+	 aJGAxb3c7pr0swBk7SJK2wwl6Zo14LncPMruBPl6XMKddZlSZETEGtFaSAG1b6jIE3iFC
+	 hfJexdBUMtXDZXOdSTPXMHFBYXBe7SNhTeME1GKYIX/izB5uAAec14hL86wNa+avJVHaD
+	 Hq2/d+YvnFJ2l4iWyCiOJ+nARo1vHOP7qj/QGutflXbnRlxSGFcWAulwvN3zfn2YUIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135037;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135209;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=DrrbwINR288U3qg6+I6TMA7RnL3ZKyVXSMBbB2qtvqs=;
-	b=R+0eP2zQTRzWUJhMlFbPmfnE3EM/9Q/QqWbc9N5j7iDJ8pFx1Kr0ZWuiEBuDZfEw3Jg1
-	 taRL2YpucqhHrlFBc0uMhVQJYO2ia9sPnSGmVjeeu9jtuzWzI0du9jc/NYlZkgU9UVGq0
-	 nsJUb1icrBYDmFPgu0H5hj+zPWueKu8zGGXCFms+6SGw3OwssNiptxODFqyTjU1I4HObs
-	 B1N71Pi1hphgEclXWi7dMYzdEXUiqmhjZy39VKTXRcT4LDKyTy3yb8vEISjCasYEfI1zZ
-	 ek6thWFF9OMallzVyKSYkp2/3TmxIGAMaPh9/98MUGPTjpmYxHgSEUFVHXj7VjPh4+Q==
+	bh=TnK7J16iivq4NpCynPGVy/NpFNzOE8A1Z99IAhn6oR8=;
+	b=Cdx3TOcii+nGFOjndTxLvAWfgJG3fBKeWoC1l/j3SZ/p4RhA/cEASyMBiBxL9AXBEzc7
+	 984f1YkBaXQfI8yPxTvc1e3qnb3+lo+g3kr79VyT+ZaxFCcdQmcSvwrWV9BgYKvMfZyHx
+	 Xr29rNw8hJRPEY48u/S7H2skY+CSl1XQVKupFC+m/oDmdlJ5k1N3q5MHVIfJrzqM94C3p
+	 em97M51cIVy5EcOKDRE2zVuGMr3ZxgRHhRbcn2J5Yjm0Gjewms+NX0SJ5inMAquhn71+U
+	 Nl2E8dF85E0y36X7UZ4VAuGmJ8nKGIko2vDo6+pdSMrwfezaAnX+U5v3j7O/5IQnT8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K9s0xqiz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PAhpHdZX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26399606A33D
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:37:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E74E8606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:40:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K9s0xqiz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 490EC1F000C6;
-	Fri, 20 Nov 2026 00:37:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PAhpHdZX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 462E71F000C4;
+	Fri, 20 Nov 2026 00:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795135037;
-	bh=DrrbwINR288U3qg6+I6TMA7RnL3ZKyVXSMBbB2qtvqs=;
+	s=k20260515; t=1795135208;
+	bh=TnK7J16iivq4NpCynPGVy/NpFNzOE8A1Z99IAhn6oR8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=K9s0xqizBH3Muaq4VDE/2AlSbXIpeuZBxMMyPY7xr7iR5oP8teF+A5GTxvgBofkVt
-	 vMY29jjdepjGip4C6pwDnKq4DIeKVjqMFQNbsAg1Mu0zTfe+zjsaE9qbrNHuq1L8ud
-	 RuA6tMyjsAo0aDjVhFe5pPDg3rQMxyNnhxeXWIJYKeyRmn70sfhP1cIP4dMJnppIyU
-	 u59iGev7Yl75NNDgIplQQKtLZZ/U39DW4fclNzunN2fB0p4flzuyiFnI6Na9YM9zcI
-	 zDNCP8hpkNFWvDNn3KiXSaGjl1r+IouRWqWX06esRxxkMior9XLc54gg6PY/pRuVOq
-	 7ZGvuiPSmL35Q==
-Date: Thu, 19 Nov 2026 16:37:15 -0800
+	b=PAhpHdZXjFodqjvCf9EH1NG0sQ1Jml/I+R2/yeIZYfmsCjU64NkXAOToXijGrUMGy
+	 xQiTgGj9doZ5ccffogF+ZW2yA8v9lj7690hAi6X6j+myFtELDWsEMB8HoiiDPQdNKr
+	 ryRLeqbnbq74n86D3XluP0zjnJ7KaV+oh9hfDFLhZ2BaiVi5vUnCfdjjHvpcadPRlM
+	 nOwOfauneH7n6WuPPkHc6hhg92uMn7p3Hf9pisxYJHf5H8qMcMOsOUXrhcfzJgbRkt
+	 u4yr0HwX3K0OSNfFtRah5X1fyHlxDp3/GvH89GKF0fNS+4Lj4U52I963x8TSdVGqeL
+	 ream7D0Pt7Umw==
+Date: Thu, 19 Nov 2026 16:40:07 -0800
 From: Jakub Kicinski <kuba@kernel.org>
-To: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: netdev@vger.kernel.org, aleksandr.loktionov@intel.com,
- andrew+netdev@lunn.ch, anthony.l.nguyen@intel.com, anzaki@gmail.com,
- brett.creeley@amd.com, corbet@lwn.net, davem@davemloft.net,
- edumazet@kernel.org, horms@kernel.org, jacob.e.keller@intel.com,
- jedrzej.jagielski@intel.com, jiri@resnulli.us, leon@kernel.org,
- mbloch@nvidia.com, mschmidt@redhat.com, ohartoov@nvidia.com,
- pabeni@redhat.com, poros@redhat.com, rdunlap@infradead.org,
- saeedm@nvidia.com, skhan@linuxfoundation.org, tariqt@nvidia.com
-Subject: Re: [net-next v6 00/15] devlink, mlx5, iavf, ice: XLVF for iavf
-Message-ID: <20261119163715.6c40b7a0@kernel.org>
-In-Reply-To: <20261117094913.100756-1-przemyslaw.kitszel@intel.com>
-References: <20261117094913.100756-1-przemyslaw.kitszel@intel.com>
+To: memoriaru@foxmail.com
+Cc: netdev@vger.kernel.org, daniel@makrotopia.org, andrew@lunn.ch,
+ f.fainelli@gmail.com, olteanv@gmail.com, pabeni@redhat.com
+Subject: Re: [PATCH net] net: dsa: mxl862xx: bound FDB dump walk with a read
+ limit
+Message-ID: <20261119164007.248c6d4c@kernel.org>
+In-Reply-To: <tencent_50548A0CA0A2E93225C5F5DD2DA865400607@qq.com>
+References: <tencent_50548A0CA0A2E93225C5F5DD2DA865400607@qq.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,16 +62,11 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 10:44:38 +0100 Przemek Kitszel wrote:
-> Also available here
-> https://github.com/pkitszel/linux/tree/xlvf-v6
-> 
-> The purpose of this series is to allow iavf to use more than 16 queue
-> pairs, in two modes: up to 64 and up to 256 queue pairs.
+On Fri, 13 Nov 2026 20:45:08 +0800 memoriaru@foxmail.com wrote:
+> If the firmware crashes or misbehaves mid-walk and never sets the last
+> flag, the driver spins forever with RTNL held, blocking all netlink
+> configuration and stack operations on the system.
 
-Taking the first two, as suggested on v5.
-I think you mentioned that remaining prep patches don't necessarily
-change either. But don't have time to review these right now TBH.
-While I have you - you replied to two out of my comments on v5,
-the most substantial about the shape of the API did not have a direct
-reply. I assume that you saw it..
+Patch does not apply, not sure this is worth fixing tho.
+I'm sure LLMs can point out 10,000 potentially unbounded loops
+in the tree. And you don't even have HW to test this.
