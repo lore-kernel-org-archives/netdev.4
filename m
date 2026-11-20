@@ -1,64 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795138664;
-	b=5Hw0sg0Pryh9A8AdK44mqdKcwyaYwsSltmpAyLeUyp3KMcw7UTKjbxK2ZDETManAr3eW
-	 Dr+8VJRFayNlEzROntiT/UDN8BRSD4LlZXMcG7PoAKF6VoaBhjnfFhv0Ds/kkIqHMYguH
-	 y/FTGYDBw+Z2zYPkMa5RlF2tll7e4ZITtf47DRotzrYaBc40jcXUhEONdkyGYkOzIeyVB
-	 /urbVy5fAklebySFqhXBIArD5FSGV+JGUzPm6oAlIhwFkeSuds3QAUDgQeD9NBtONj8JV
-	 459x25nsz4YYdXnSt3VKAP4BWdSbelqhbBSLcK6VuLGlfg130rEYCzsssuGI0zG76+Q==
+	t=1795139408;
+	b=tL4W6rfbLoKKm5q59vrto3T3VHFhJXYQ1NaiFu3NKfMpjAn0cOk2HA2+atmDGqIBO5Zp
+	 nsvLYwKCWmQ54R4HXWVPUzi1LoXVoYnzOoFq6k5TN4fQv6OHi0EUrc9a+ophJvADB2QzJ
+	 kemx0Eb6UdM7NyYSK6ANGVhF/LvRpvmH/8RGmPFWTkl9N+L+b0LKUtAjucAoBlDHuBLb9
+	 MAOSInikCFuHkLjnxGpedpCzLokWkSMMdi5Cv4HWrodCTVPhzXYuHpMXnV6UYhyjLh/nP
+	 ZKsFRDlXXo4au4adoKb18u7GIrxGNI/wNjasKf/gJIns1vPiTnANhnVAC8NhktvlF6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795138664;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=vk5kTLhPES228V4LF5kbKJpMQi2f/f/fok4/6jL/c4o=;
-	b=0KJZgSZL4oS65lQKt32++Uu9ji6axfH6vd//rNni6UJIP+mFUd8elsOVK1rv7b+GIxUZ
-	 oHAPbKZda7OxmgHUVLPKzewkA3Ta+6xNePhakj+tZKJllFnvw/RroJDnWJ0Je7uzHlffh
-	 ZEOupBpiLjLQwkLW+EuEo3OWoD3TQ7clsfQShpKc04doPM2ID83FdhByvjcYsylDZj3Rg
-	 EiyVIT8uwSDxWrfHcjz1klHAD+Q/lx6ELnzpOgD+CcTHddMDEp5Y6uzinV8+FXdTt3aG4
-	 bIE9ghRRpqpq4M/g5hk67OGsHbmqC6HPSSY5h2pfCHnSGnrMk/N2RVoqRhYbK3cUQ/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139408;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=xkeQUkQ9MaTrapcq04cr0AuQZjWL0stDXUyA4Hvb8Wc=;
+	b=ulrINpncWxlJu0QLu3NngG/dOgWenCxg3PkJJ8RChFBe9Ufqp1f3Ksz6t0KffYwlDS9+
+	 BROt7lIFDbDEVus6FTJ9JrJu0XVXq3iQlQKPN9/V/+BVaLBVK4o98JCcmoFBAHj38U0Rn
+	 VeFPQQFZCaswL0F4UqTj7accgdeV+iwWh2/H0qfA24FdqJEBy8iCfNRwCb3dhV3ZIpgIF
+	 Z5LrdKJd7JZrwXG7wcMZs8lPh0G/eG6gvO9uTDoTO9QDTOONTyXQwepE1V4WM6iBN9T0b
+	 F/E5yiMPwRihsBZdC2Q3TOie/qFGyD107vs7ci8jk2j58kNXuj+dHo1MEd6DbWSvf7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CzcRCndL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HiTsf+1O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89FF2606A320;
-	Fri, 20 Nov 2026 01:37:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DAF4606A320;
+	Fri, 20 Nov 2026 01:50:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CzcRCndL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D12BD1F000C6;
-	Fri, 20 Nov 2026 01:37:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HiTsf+1O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 076FE1F000C4;
+	Fri, 20 Nov 2026 01:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795138664;
-	bh=vk5kTLhPES228V4LF5kbKJpMQi2f/f/fok4/6jL/c4o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CzcRCndLWN4YEqnyKISKMfBfOsIvLWcLb3/Yw3lW2hrP7RnLPksJqQ6TOfNlmWQu1
-	 HW6ShgUbhVC0U2SUJ6c5jTFUteR4xqtaS7TsWdqMm82a4zUzMa+odxg17zQJsqxpim
-	 u6IZM8Tt8+wI1HK+uJt9RCsJAYLy80S7gOb/7Wr33J4s9/c328e/vAOV3oVr4h1cBp
-	 6x44oAJKAY/1T8vDR/XAouYFdrly/mr+oLDI3RCqwa2S36HgL77jC3/NzWLti4aYz0
-	 yQslN+sa5GdHquCxJ4b+MLckN9OK9jHqLKCurU8oSLE5FJWP1GjKIA/3bngzRuQGRt
-	 9TN6z/cbHnskg==
-Subject: Re: [PATCH net-next v3 2/3] rust: net: phy: make Device generic over
- a lock context
-From: netdev-bot+sashiko@kernel.org
-To: engineer.jjhama@gmail.com
-Cc: fujita.tomonori@gmail.com, tmgross@umich.edu, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
- aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com,
- tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, andrew@lunn.ch,
- hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 01:37:42 +0000
-Message-ID: <179513866237.3136.3197734576083995986@kernel.org>
-In-Reply-To: <20261117-exp-phy-rs-maybelocked-v3-2-4e183a7366a7@gmail.com>
-References: <20261117-exp-phy-rs-maybelocked-v3-2-4e183a7366a7@gmail.com>
-X-sashiko-severity: Medium
+	s=k20260515; t=1795139408;
+	bh=xkeQUkQ9MaTrapcq04cr0AuQZjWL0stDXUyA4Hvb8Wc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=HiTsf+1O4NSnNqpeZcGKpQLdOE8YUP9pEoJyyXRbh2s3l6ihClIb345qrp/14SVI5
+	 zWZEprNn6J7VlQVeVMKZH1xeyUVlEEYmubYMeSfLNkGvfEeUSt6iPR0dYRqgKjdfZE
+	 o+QRlRU1IS2xfa8ES7VRMAavD977tlKUovvZaS+kVCJft2yTGAferomrObpkBlYCIE
+	 oqX66AE4Do3q5L8rF5bgcIxLaRfXMVFcYwDetqq1uINBG/EXcKBHiM2pRwEsBSMzIN
+	 4OZb1SYxSPj/wCYpONsTLqI/me3gVIp/3lKDEZnWr15KtvrQt+8nWp9nOCAhcD5i8c
+	 yXx94t7xmU4qA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15773808209;
+	Fri, 20 Nov 2026 01:50:07 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,133 +53,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3 0/4] virtio_net: fix out-of-bounds accesses and a
+ heap
+ info leak via the device stats reply
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179513940678.3975042.856875230562263797.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 01:50:06 +0000
+References: <20261116092445.3391334-1-lian@is.s.u-tokyo.ac.jp>
+In-Reply-To: <20261116092445.3391334-1-lian@is.s.u-tokyo.ac.jp>
+To: Lianjie Wang <lian@is.s.u-tokyo.ac.jp>
+Cc: mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, xuanzhuo@linux.alibaba.com,
+ netdev@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-kernel@vger.kernel.org, michael.bommarito@gmail.com,
+ shina@is.s.u-tokyo.ac.jp
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hello:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On Mon, 16 Nov 2026 18:24:41 +0900 you wrote:
+> With the statistics reply, a device can make the driver write past the
+> ethtool -S output array (patch 1), leak stale heap or loop forever
+> (patch 2), and read past the reply buffer (patch 3). Patch 4 returns an
+> error when the statistics command fails.
+> 
+> Claude Opus 5.5 was used to audit the driver and draft the patches.
+> 
+> [...]
 
-- [Medium] This patch adds a formal `# Invariants` section to `Locked`:
-  "For the lifetime of a `&mut Device<Locked>`, no other thread accesses…
+Here is the summary with links:
+  - [net,v3,1/4] virtio_net: reject stats replies for queues outside the request
+    https://git.kernel.org/netdev/net-next/c/8c99fb84b512
+  - [net,v3,2/4] virtio_net: zero the stats reply buffer
+    https://git.kernel.org/netdev/net-next/c/48147635243a
+  - [net,v3,3/4] virtio_net: keep reads of stats records within the reply buffer
+    https://git.kernel.org/netdev/net-next/c/96b229723bb5
+  - [net,v3,4/4] virtio_net: report a failed stats command as an error
+    https://git.kernel.org/netdev/net-next/c/942d862f65b9
 
---
-
-rust: net: phy: make Device generic over a lock context
-
-This patch makes the Rust PHY Device type generic over a lock context.
-The context is either Locked (the default) or MaybeLocked, and methods
-that do not need phy_device->lock move to both contexts. The patch also
-documents when the Locked callbacks run without the lock and rewrites
-their SAFETY comments.
-
-> diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-> index 4604a9c0a5111..8cbb4c19dac1d 100644
-> --- a/rust/kernel/net/phy.rs
-> +++ b/rust/kernel/net/phy.rs
-> @@ -50,6 +50,55 @@ pub enum DuplexMode {
-
-[ ... ]
-
-> +/// - [`Driver::soft_reset`], which `phy_init_hw()` calls without the lock from
-> +///   `phy_attach_direct()` and `mdio_bus_phy_resume()` while the state machine is not running, and
-> +///   from MAC drivers that call `phy_init_hw()` directly, which are then responsible for exclusive
-> +///   access. `phy_mii_ioctl()` also calls it without the lock while the state machine may run,
-> +///   which is an existing PHYLIB race.
-> +/// - [`Driver::read_status`], when a MAC driver calls `phy_read_status()` directly. The MAC
-> +///   driver is then responsible for exclusive access.
-> +///
-> +/// # Invariants
-> +///
-> +/// For the lifetime of a `&mut Device<Locked>`, no other thread accesses the state of the
-> +/// `phy_device` that `phy_device->lock` protects.
-> +pub struct Locked;
-
-[ ... ]
-
-> @@ -309,10 +355,10 @@ impl<T: Driver> Adapter<T> {
->      /// `phydev` must be passed by the corresponding callback in `phy_driver`.
->      unsafe extern "C" fn soft_reset_callback(phydev: *mut bindings::phy_device) -> c_int {
->          from_result(|| {
-> -            // SAFETY: This callback is called only in contexts
-> -            // where we hold `phy_device->lock`, so the accessors on
-> -            // `Device` are okay to call.
-> -            let dev = unsafe { Device::from_raw(phydev) };
-> +            // SAFETY: `phy_init_hw()` calls this with `phy_device->lock` held, or without it while
-> +            // the state machine is not running or a MAC driver ensures exclusive access.
-> +            // `phy_mii_ioctl()` is an exception, see `Locked`. This is the `Locked` context.
-> +            let dev = unsafe { Device::<Locked>::from_raw(phydev) };
-
-[Severity: Medium]
-
-Does this SAFETY comment justify the from_raw() call?
-
-The new Locked invariant says that no other thread accesses the
-lock-protected phy_device state for the lifetime of a &mut Device<Locked>.
-from_raw() now also requires the caller to be in the Ctx context.
-
-However, this comment and the Locked docs above both say that
-phy_mii_ioctl() reaches this callback without phydev->lock while the
-state machine may be running.
-
-An SIOCSMIIREG write to MII_BMCR with BMCR_RESET set takes this path:
-
-ndo_eth_ioctl
-  phy_mii_ioctl()
-    phy_init_hw()              /* no phydev->lock */
-      drv->soft_reset()
-        Adapter::soft_reset_callback()
-          Device::<Locked>::from_raw()
-
-drivers/net/phy/phy.c:phy_mii_ioctl() {
-    ...
-		if (prtad == phydev->mdio.addr &&
-		    devad == MII_BMCR &&
-		    val & BMCR_RESET)
-			return phy_init_hw(phydev);
-    ...
-}
-
-At the same time, phy_state_machine() can hold phydev->lock and write
-speed, duplex, link, autoneg and state.
-
-This affects an in-tree driver. asix_soft_reset() in
-drivers/net/phy/ax88796b_rust.rs calls genphy_soft_reset(), which is
-only available on Device<Locked>. It reads phydev->autoneg and writes the
-phydev->suspended bitfield.
-
-Can that race with the state machine's writes to the same fields and to
-the neighbouring bitfields? That would be a data race reachable from safe
-Rust code.
-
-The C-side race in phy_mii_ioctl() was there before this patch. The
-Locked invariant and the "This is the Locked context" justification are
-new here, though.
-
-The commit message says:
-
-    Document when the `Locked` callbacks run without the lock, including the
-    existing phy_mii_ioctl() race, and fix their SAFETY comments.
-
-For soft_reset, the new comment itself says the precondition is not met.
-The later patches in the series only move suspend to MaybeLocked.
-
-Would one of these work instead?
-
-- take phydev->lock around phy_init_hw() in phy_mii_ioctl()
-- weaken the Locked invariant and drop the accessors that rely on it
-- give soft_reset a context that does not claim exclusive access
-
->              T::soft_reset(dev)?;
->              Ok(0)
->          })
-
-[ ... ]
-
+You are awesome, thank you!
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7%40gmail.com
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
