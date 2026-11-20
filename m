@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165729;
-	b=hM5phMAuSqDtzoJY1gSOi3OqymNs1+6ASYrhsG+Mlou69V2JwABqyXftZc0zPEesOlX3
-	 GggudHgSuEP1V13qWeuCaJmJprUIlB4sGYoBoZq9nftwMKC3pOr0e1hQfieaL+fmUEv4r
-	 Pjh8N+koQ7vlZGEFEnmrHr0M4V+XG7sH6GWSYS7CjFXD+JRLMmY8NGXdNJifOrZWndYZi
-	 SXyJkQQ5f3rWRNEuECpJj8AmZyFl9H0bs1c7maINN9zrm8BY8+//AogyWtpE2WVVWe0nv
-	 80YxBPqNwJROpD/bfUNfOIV+Pc8NRTorbCLNEXXj48/dfygxSIvfwR6CQXI6XxL49cg==
+	t=1795165791;
+	b=a3VIXs8XheD8XacJigjnaYTUgrrgiDE0l1/POe88I8eN1Fxki9o1x6f4T9OIEqAYo/3/
+	 1+iBt4XpPlElc1ioi2BSahroZoVplLTcuX7dEgYUgwjMYO5gHk8ieC+mQ7aQtW0y3mimV
+	 Icl+8z3IR/PaLMhezHmkd38d4Va306XLNPCSaQ+dAQDvvdfhAC3Ewf7k6h+SJClUqaaXM
+	 3aQtGUG0XT1VtsEUp4WrgihNmgsSX/KgwUmdVY7tNdZPq4I/xbwoGIerP1Pv0G8675+EU
+	 gwMnapGakCmD4SGrMamgYmpP/Yg/G2Ec4x8ULDrUnNX9SAemZm/F6fCOFhzzRLxbNOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165729;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165791;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:From:To:Cc:References:Autocrypt:Organization:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
 	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=6PXbXU0ka3epgNJUDE2l0N6gc+yYvl4PlstUHthWBu0=;
-	b=FDZpyU0JyNZOUCO5M/d/CHnIPlU0pg8gqQsuOULAeeyEXOa5w0dLljwGPNbRWnJW+VLz
-	 Eh1ip0FcaJuNYrACVH7NtzzqI3OZCN7fEHrA5ojdOm/xfoe6/Vrw1jbn6hbPLtAIBCM2y
-	 +PHmxBwLt5gHhg8JfsBwbOJQO7jU5rhYNi0yyT4AXQnG81eyhayUInF/RHmZ4bQby3FOW
-	 VqLoMqsgn8Xw60qnf8NJiExqeXgVoCC8R+lksCBliYJ+0b/oRvvEbcM9a3XODpK7kAx1o
-	 CE0ThVk2Bp/7xRDFKfdABVAZCVlPZ8nMNoczwv63NMDj5to5SjoMnjKrq3OqFcxRK8w==
+	bh=CmJfn24w4nWa5aEbsQ71x7lCN0xNaoRjheeUWow+eSQ=;
+	b=zCPpA5mNL4WfGiZp9G2P3Gz3nnnGGctsyWHoJZdXJmjHSes0a81jSgqlhba3/jkCQgxu
+	 PGhXzH6LMBwnFn/p96smqE8/YQ5bB1Vp/n6I/wy6idDQu2hoXFXdJj0S+HZhN13wvuRwf
+	 ph6GE0FBMZa5zKH/WqGWFYLWknSx/NFawu/tdAUY2qqZPMD+cu1QiOUpkXi07wPSsxKcW
+	 uVgB2L05lRflZbZfu1im3nMySt3vUuE+5pH+Ys19c2ePovk1so6383rhEOZQoh4cbfcWq
+	 mTJrbu+VZI9q/K1XY/4HF35ihTbsARHdpEYU80WZ72AAdWAtCjlfqKq7sndNaQnOQiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VjAsJkuV;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H0JPP9dk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7294606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:08:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C387606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:09:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VjAsJkuV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43F9D1F000C4;
-	Fri, 20 Nov 2026 09:08:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H0JPP9dk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910341F000C4;
+	Fri, 20 Nov 2026 09:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795165729;
-	bh=6PXbXU0ka3epgNJUDE2l0N6gc+yYvl4PlstUHthWBu0=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=VjAsJkuVtOlizVxwV7WLYnSocJhXnI9I29ebjM/gJnsPj68CYNfD0O1zcQF5Aan6U
-	 FsJy/80t/yEor2jlWhfS9+ozAuqv4vhb21fM2WsnLdE88TUfA10ctyHGhLmoa1DSIL
-	 eAzMyuMBGaWRG3t5vGWw4fSuRlVf9KihUYpI2PIQrHbcEvx6X7+hQEV3ztP6/oZ+zt
-	 MoU1I2k2z5iTyJh8cPwvAKSsj6cs2jUrfZc6RKL37Q06tK1iWtWd1a/BGrpqy2Zpz/
-	 Dn5xB8XzcZHGbUsAGDIy5yOVcE3lKgvtDVBEQaZJB144c1OWut6PK3fik8rwWsvn3E
-	 5RPnXsGMNARSg==
-Message-ID: <0469d224-3baa-48c2-9d28-ac0d9fa2ec73@kernel.org>
-Date: Fri, 20 Nov 2026 10:08:45 +0100
+	s=k20260515; t=1795165790;
+	bh=CmJfn24w4nWa5aEbsQ71x7lCN0xNaoRjheeUWow+eSQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=H0JPP9dkRORh9J+jSdChvaBtZmg6lvG8XWN1tb5itwlRDZd80p3CIL2gYWeZMDZb+
+	 N6a3J9YLpbKn75u5DwfJsgI8biAYKTIpTiGTlSCt/Mn0YpfZGB5KbnNaUBjyvYsNog
+	 8dMUdfZIvCkAnrN41LVPZOZ2YqRCHoPTdcci4DC8lMxvwP2ZQkdilf66Q0f4UGbcJm
+	 gICOS2sTbrE6sC07D/XbUO8HGGkZ69ORJdTpjxkmWwzLshZj1PrwR+I595juwIVGGh
+	 VdfOiZYsqANsDxo8N/RzG2DDIN7JJkineB8Ex2yvg00s+jWKARwEpLGjMHyTqXlRkd
+	 /25+4JL5pEN+w==
+Message-ID: <8093f0a0-3a87-4cd6-9c53-e575007a9762@kernel.org>
+Date: Fri, 20 Nov 2026 10:09:46 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,13 +52,17 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [TEST] Google's Netdev-CI: missing results
+Subject: Re: [TEST] Google's Netdev-CI: a few flaky tests
 Content-Language: fr
+To: Pin-yen Lin <treapking@google.com>
+Cc: Sheena Mohan <sheenamo@google.com>, Willem de Bruijn
+ <willemb@google.com>, Netdev <netdev@vger.kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>
+References: <224334a7-150e-4794-af72-596c3821558c@kernel.org>
+ <CADWJPTundpvzkpJrxva=M+6YF4zQ9dRSY78Xypi9B1NuH58Usw@mail.gmail.com>
+ <a9e4655a-0a12-4b40-9641-36e7acc2cdcd@kernel.org>
+ <CAHwYsiqOhntJR7D00vzRed1=eo+4xXnRdYtTD79zdL35RT9Kog@mail.gmail.com>
 From: Matthieu Baerts <matttbe@kernel.org>
-To: Sheena Mohan <sheenamo@google.com>
-Cc: Netdev <netdev@vger.kernel.org>, Willem de Bruijn <willemb@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Pin-yen Lin <treapking@google.com>
-References: <26fb4276-5615-45fb-9cb9-fa5e872d8e7b@kernel.org>
 Autocrypt: addr=matttbe@kernel.org; keydata=
  xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
  YBNdx5Xl74NLSgx6y/1NiMQGuKeu+2BmtnkiGxBNanfXcnl4L4Lzz+iXBvvbtCbynnnqDDqU
@@ -103,35 +107,43 @@ Autocrypt: addr=matttbe@kernel.org; keydata=
  JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
  lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
 Organization: NGI0 Core
-In-Reply-To: <26fb4276-5615-45fb-9cb9-fa5e872d8e7b@kernel.org>
+In-Reply-To: <CAHwYsiqOhntJR7D00vzRed1=eo+4xXnRdYtTD79zdL35RT9Kog@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Sheena,
+Hi Pin-yen,
 
-(+ cc Pin-yen)
+Thank you for this email.
 
-On 23/10/2026 17:52, Matthieu Baerts wrote:
-> I'm working on the Netdev CI, and I notice that the runners on Google
-> side are frequently missing results:
+On 20/11/2026 04:12, Pin-yen Lin wrote:
+> On Mon, Oct 26, 2026 at 9:41 AM Matthieu Baerts <matttbe@kernel.org> wrote:
+>> On 24/10/2026 19:49, Sheena Mohan wrote:
+
+(...)
+
+>>>       - napi-id-py & bond-options-sh: We will investigate both tests.
+>>
+>> When fixes are applied or unstable tests are blocked on your side, do
+>> you mind pinging me so I can remove them from this ignore list, please?
+>>
+>>   https://netdev.bots.linux.dev/contest/filters-hw.json
 > 
-> https://netdev.bots.linux.dev/flakes.html?tn-needle=google.*vlan-py&min-flip=0&br-pfx=net-next-hw
-> 
-> (Look at the non-coloured blocks.)
-> 
-> Is it normal? Do you mind looking at that please? :)
-> 
-> Note that when an active runner doesn't process a branch, we cannot mark
-> the whole batch being validated as "not causing regression" because it
-> is lacking some validations. So when this happens, the end result is
-> marked as "pending". That's not an issue when it is once in a while, but
-> here, it looks "too frequent" not to be reported.
+> Both napi-id-py and devmem-py should be fixed now given that [1] has
+> been accepted and merged to net-next. Could you remove these two from
+> the ignore list?
 
-Lately, it looks like the situation got worst: 3 days without results.
-Because it is blocking all the other HW tests, I temporarily disabled
-the two Google runners: results (if any) are still fetched, but ignored.
+Thank you for the fix and the ping, I just removed these two tests, plus
+psp-py for IDPF which seems to have been disabled on your side.
 
-Do you mind improving the situation, please?
+> The fix for bond-options-sh has been sent out as [2] and the
+> discussions are still ongoing on the mailing list.
+
+That's good, and the v1 already seems to help. Please ping me when the
+new version is applied.
+
+(Note: as mentioned on [1], the Google runners are currently disabled.)
+
+[1] https://lore.kernel.org/0469d224-3baa-48c2-9d28-ac0d9fa2ec73@kernel.org
 
 Cheers,
 Matt
