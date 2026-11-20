@@ -1,86 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.193
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134722;
-	b=HVrWwHFyP3YgwCNrBdKKLuAYuSiri6lDddS704qPRUBFLhS9PWp7XViqzq9wZzpTL412
-	 5rnuGNFyt+GaLUJtlJUqJ2gNC65zKVLZCrkgikciljVLhPP/hA2vylzo2ppufIuWrh4qp
-	 C8E7LlbWxWjPSW1ia+T4I4Gs+bO0LpArem8J/Mn49qevdWnoZXjUk0siHGT+z75nVvKv1
-	 DYLp7HgH3JKLrogoIPpURgF6x1mv9hI3ef09oQIALroJieUtvljkIbohfl8yYlkVywL6u
-	 eJj3h6zGITtb6aedd54b6mSwzKoyAYDV4TEwyhSrgs9CKONHtVg8Eg4foG0ABeTJpew==
+	t=1795134724;
+	b=DwL6nTXQvC9sITbP/ywZEkYG2X/S/NygHx1PcnDmk4a7FsASbiScpwCpnoYV2LU8UiRM
+	 OFZMKegJC4ieF/3z1ZSeMsNn/Gwx+U1xl0Jm1wpbmTwnkyMLavDwBxJz0WKBwFzb+k4bv
+	 hF08IFqZXEXZ0UJTorg4VvhY+njvGb97RqpL507VcaqFfdEczw7MmK797Zk/H0LqI3fOJ
+	 E9LeaYIFvam7/fjMIxzNFH6XczZod2zBfXQt4bDRM2nyJiO8fiTllYZHDJRFmaQwZLEAS
+	 0JfVcKRpGu6BpiNlfBAhCLoKjBik3geCpx4fK6nOqcIpeJ9aMUaR2rCXBfNIxTCaErQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134722;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134724;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
 	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
 	 In-Reply-To;
-	bh=mZzEzgMMxjB3j+vPh5g8u5NJjrN6f+VQAyZJOgWj1P0=;
-	b=pwZf1Ma1nNBgm8of9l+oEJgwxRQ+qfL0ZPxpC5+VJWkLd3Oa0bN6my0wbZmbBg5eoped
-	 K1IsybVAawf/tOmQQPLtuvjv2d/E3MxMA85AzYFkJt5/0cPRPVkZifSXDtyo+L45iuXlE
-	 /BbCJ4CtBlIUKqXDXQxSKQeUtHxOeS5B8zBzfoe/Qin1ObQcoja1Ug0eEvYJZL+Qfyblz
-	 2Qww2oxbQfXLBu7m0bIG1DCKRYEeW/pXnEpmVNY4JBJdnHmbU1sZ704RwDUFhLdh4JaWf
-	 qjWiy+YlGxiLVmDNDDHmnDeAQBQVL+1s3UQbsIvRSlkNEKDlRLcPLYf24IMiYWpLjdQ==
+	bh=qHpbo38glsjEEsMsljy1CpA8VnvlF4qhosKL0SjyrSU=;
+	b=SKmVphg14ceP9BxrXd7J7xUyNj24+7mDdZ7t4qeZlNPJyfIl1/olzXWYtZWx4nL2PJf6
+	 6x0Um/vwlwa5NSDTS2Q3sekArwxJOgmQlrOiYs+/zMDLCMBlRreW1S9Dw9W7iHC9PFsm2
+	 V1U4uT/k4o3hhfrU3Kox1XajOsHnoywKcpTKOAoNvH86hvDnYH37X8r2f/5+7/76gt1QD
+	 KcSufclXwJ8ZFRVa3zYGI6KZUY8dFLDlSc+KdNVDoSQTUfT2grPFJzjaqYhvqcouO65Mz
+	 w++jXmdlcqIjz5l2a5k94DSrjU8ABHolIGlvW1ubfaRdYWqiA2wHbpoKZj79KXS4CHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J1PZDsZF;
-	arc=none smtp.remote-ip=74.125.229.135
-Received: from mail-dl2-f7.google.com (mail-dl2-f7.google.com [74.125.229.135])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=phY967kf;
+	arc=none smtp.remote-ip=74.125.82.193
+Received: from mail-dy1-f193.google.com (mail-dy1-f193.google.com [74.125.82.193])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EE1460A2604
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:32:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EE1460A2604
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACDBF60A261E
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:32:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACDBF60A261E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J1PZDsZF
-Received: by mail-dl2-f7.google.com with SMTP id a92af1059eb24-139b659a45eso36298c88.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:32:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=phY967kf
+Received: by mail-dy1-f193.google.com with SMTP id 5a478bee46e88-382ecd5cf2cso318917eec.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:32:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795134721; x=1795739521; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795134723; x=1795739523; darn=vger.kernel.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :content-type:mime-version:references:message-id:subject:cc:to:from
          :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mZzEzgMMxjB3j+vPh5g8u5NJjrN6f+VQAyZJOgWj1P0=;
-        b=J1PZDsZFoBAXVvY8eLaT3O9ZAxsKHQPQZXVEpTBdAF/zGKg2Yz5aa3BWEF/jSek5Jr
-         J3xF+pqrXvgbWIMVnaqbVbdUxElYIsIH+tJYALqOqxLkcMUhSCHsuRMD8HAPIpLKaoYW
-         4/MwUy0c8p/OzEv0bDCBWuDkOBx5o8PscdEBB3qLQ9RfgDU4vXPYpDE3t3zsK1SPpRcY
-         h9L2yZt8MhkdGQma/ctNPuJVV106bV/lmPIQ9JVrHl1BQmR922qMxGprNIA4pqnbz2tJ
-         lO1WmLpm7cDaZf57/6aCtonm6Pp9+O8XE++K/6rWIJn8VnlbuY4xrM4W2d5mStYHtMRq
-         u3eA==
+        bh=qHpbo38glsjEEsMsljy1CpA8VnvlF4qhosKL0SjyrSU=;
+        b=phY967kf9V0w4X6QO0EE5tjsrC4Tea3WS0nk6BNiGcR+p3FtIb0e9GLhbL+NMk9zMG
+         qmfj6SqSfdH6XH/AhJsTiFEepvy7zHzzymWFflDAI6L44/pGPpmfiR5jfIOmzN7Y+PkA
+         PhsgMlkztWXiRGkox/4ArWbKtc3xJq0ZcZ43TOZSFprhwZMVfIOVNK/RVqDrIUYkloMo
+         HAUFx9Yx6xg37Z8tTkyJmk2MofiQ1dClNMNz6tawKx5sLyRG/hQ+SbNZE4xOMJ+8O1yb
+         dQIrb9IMG4U2I/83GqX7E4RME7I04WEF/d9PU4W3Riz1Jhk9iATiZvURXlj2KqLotPbb
+         osdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134721; x=1795739521;
+        d=1e100.net; s=20260707; t=1795134723; x=1795739523;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :content-type:mime-version:references:message-id:subject:cc:to:from
          :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=mZzEzgMMxjB3j+vPh5g8u5NJjrN6f+VQAyZJOgWj1P0=;
-        b=CAOE0ofslaOZNnfbCRmumEYMLpFtlVVyFzEXTQy/uYHS2SRFTa6nkhekyjpnSEcs1j
-         JGMO3LWtar5Ryz1fln2FfFTbzL0+99/o0gdWZ+ny9gnYdssS62ABOtu84z+YHaNlT16C
-         C76bg3e3unspPqgFEil+0n6WML9yRZxTtFNC9hHwyFnXOJmLBg+78L/NTdNKn1ksYj3s
-         ktnkwechopJn06K2BN41s7ogzaNqj3eKDGdep3BXGWmlet9BsVflqmwlhFoC14u7V4UB
-         NKdTPquyx2vUAeMN83lXDBLvHhAgow2CBRIStze1zCSQOwXr/16hw2/qj+540EcDGA4d
-         RXWA==
-X-Forwarded-Encrypted: i=1; AL+hErHuoWJUJ2XWRrj4nu+torA0rqQDBR/wI3EfJb399xyOtOWiiYwUBS/778efcxjLnRAqKcFcblU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8kCKtG9IkQIXbfKllhVow3O6rdUUZpSa/vwXRdnNqc6am3B6pH
-	opCDx9Vtq8D4gna+YuNgs2TdAFiz9P9aXW4GWCW0BB0q8bRvmYkbIpI+sR3nJH2XZs4=
-X-Gm-Gg: AYBFou3Bd5AYpccKaN9ck4eqMGMOsArUxgAM/OJy8dgRFPk//NwATsJL7tG4J4x26da
-	F++VVD0A29cU1rc36CUZua5ZMZHYph2s0PwmqLmluxX67olyyldpKHPYu1gEKj+yneHIOVhfd92
-	7eMLUsNUmAcFIy3VAo2plSm+Rz9nQNwRQhLc1UdanB+fJFk53b0qV4tNxu1PxDpYUWqZXxfUbD8
-	lmNU6yl38GuEWjeCME3FZYMDE45E3MruKwR+m9WQN1Oli+afcjpBVxyl6malQaLn2SLkfrfrR0j
-	VIld4rUs2zBab+3sa8tOSm4yNLGDiXTMBP7nvYgYzy2C9CvpgbUW3jAGUnYI6VfGSdnFUlz39OV
-	5IaWDAr/a8aw4STwu75wH8LnSvhcAyGefDS51dUBjOR80W23WKukP/ou8Qzqbd/OBmky2fOtKyI
-	uXNpozwYP+NfVXbEiD8I4IsvT3G373OqyOKoubKOZmAtKKEGuk3inyLMex0C9LLrMGJqjgnqTW7
-	PEkwn5juJD1F/L7ZyaGo9g2cupKgAiSFEhdSpR1J+GWSBHMVXwP8OGKMWXvaomf1Mxv2hcNvEwR
-	3DGk5FVFg7R/o2PAZr45hVgTs91TVqgXA+pgw03jFzTYVQ==
-X-Received: by 2002:a05:7022:7f01:b0:1b5:1a6c:af64 with SMTP id a92af1059eb24-1b5568c0fa1mr1258049c88.17.1795134721419;
-        Thu, 19 Nov 2026 16:32:01 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:63::])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm2282420c88.1.2026.11.19.16.32.00
+        bh=qHpbo38glsjEEsMsljy1CpA8VnvlF4qhosKL0SjyrSU=;
+        b=Sl5pxbxDceDd4G7YClDi97wWlhqxWLhmgNNn+kd7T8VCnWETUdfERVHOky4hk22g94
+         waYcgAARauvqubSNWHwW1KzWAGdsFuXA4dARmY1GIoyhXsq7HPfxWcAMosoYMjdkOv/3
+         uWOEf4Ge+B5y9wKHiL2kUP6jKoS27nYPfe8Bc2dwcDXB3rvR41vAZRE4T2TZ7p2w6sYq
+         o2wWZvznci597TB8itqa48a7g+QrZXtpcgdDhjAB1b3ZzZZL4mP1/XMJGEdCrb3F4/4x
+         F+mkXdDp+3T/nSdhfI/meGFobdi45AOu7ghmVIBN10sGSGW9PERfIoaGvRaoMlHh16uR
+         hdVw==
+X-Forwarded-Encrypted: i=1; AL+hErGkiXouv9pT0Bm3wrOlBmafpfi50qO3c8QtKzwcDl0px6x1pnPub1GVXECSp0O6PIP360bhpYw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pizhXjk08RcSvUR9K1gSHY9+t8yD+pjeU2UeLoJ7Vxuwob9Z4
+	u/qmfrbM/EvdBfeVAazOneX9qjtw+kOvLF1HOBiZFWxxf8PbuUSwdYhf
+X-Gm-Gg: AZFdTZcRMkQdFQC4pRrDoC7dfywi+Pvga8ptXyUG8jtJs2+pNpjuTsTfkBrKIlh2U4f
+	cPj3uLbs/8rdIc7ruvQtGbSgS+EmFd2biPVntiG7A8koFmqrdlzNHkFh4UfDb/vrvi/lxVayllS
+	CeZ0hHVhqxRpCUTjs1WJxEmg1Fwg0WP2CMSSJwRJ2QF2b2A1fznpwcibFnWPwepI8+gyv6QuvI6
+	HtbrLa37f/42kWmJcGPGSeH+mP8xYFbXwouUf9F30m29rAEZy78RGaxs0uZWkiLWlCfVSQLhvDn
+	hTaFUwIhMigudERhRYowg8+AZ4IEsHqT/buwv6M0GfQU1dSDJc2F5AMP5Rs981fbgIiwUzt3uzA
+	A1l5Q6jfMERI/AQu9UNZk4YrbkLFa8ZnYSBfAxCwf80kmu47iKAxbTF+AOb0FZPWwfcelAZ2V6E
+	i4KF4zaaYCxSl5d/mFkgt+/Opu9y98o6fZURzd1ahQuXGdm0+juQ4dzoEwXHDxbtGLtb5YQ21Vj
+	3oI2kKNPeM3+OS7xBWMufU/DXZ5o4hSWYQ+7T/h9dcQagnCGFnyV1/kiePTujznOCCEUpQ3Zc0n
+	WJYrljhy/WgC7Qwyf4NwQxc=
+X-Received: by 2002:a05:7300:d583:b0:384:d6eb:ec7c with SMTP id 5a478bee46e88-384d6ebf259mr2588423eec.22.1795134722796;
+        Thu, 19 Nov 2026 16:32:02 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:67::])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385616f0a3fsm2195980eec.0.2026.11.19.16.32.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:32:01 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:24:58 -0800
+        Thu, 19 Nov 2026 16:32:02 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:31:55 -0800
 From: Stanislav Fomichev <sdf.kernel@gmail.com>
 To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 Cc: "David S. Miller" <davem@davemloft.net>, 
@@ -101,10 +101,10 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, 
 	Bobby Eshleman <bobbyeshleman@meta.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-kselftest@vger.kernel.org, io-uring@vger.kernel.org, Mina Almasry <almasrymina@google.com>
-Subject: Re: [PATCH net-next 3/7] net: Admit native XDP on provider queues
-Message-ID: <av-TQztlq185q6VW@devvm16445.scu0.facebook.com>
+Subject: Re: [PATCH net-next 7/7] selftests: net: Test XDP on io_uring RX
+Message-ID: <av-Udp0GfOjxH9vq@devvm16445.scu0.facebook.com>
 References: <20261117164700.2157816-1-bjorn@kernel.org>
- <20261117164700.2157816-4-bjorn@kernel.org>
+ <20261117164700.2157816-8-bjorn@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -117,73 +117,329 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261117164700.2157816-4-bjorn@kernel.org>
+In-Reply-To: <20261117164700.2157816-8-bjorn@kernel.org>
 
 On 11/17, Björn Töpel wrote:
-> XDP and memory providers are currently rejected on the same device.
-> Header-split RX keeps headers in normal memory, so a program can
-> filter packets without reading the provider payload.
+> Native XDP must not access io_uring payload through normal packet
+> helpers. Compare ordinary page-backed RX with an io_uring RX queue.
+> Check header, fragment and boundary access, and verify the received
+> bytes through recv() and RECV_ZC.
 > 
-> Keep this restriction unless the driver declares xdp_unreadable
-> support. Admit native XDP in either attach order on these drivers.
-> Existing header-split checks require frags-aware programs.
+> Probe support by binding io_uring first and attaching a frags-aware
+> XDP_PASS program. Skip unsupported combinations, but fail later
+> attach, verifier and data-path checks. Require non-linear packets on
+> the selected queue. Use XDP links so the test cannot replace another
+> program, and restore header split, RSS and the flow rule.
 > 
-> The driver must mark provider fragments and reject XDP_TX while those
-> fragments remain. The core rejects helper access and frame redirects.
-> 
-> Keep generic and hardware-offloaded XDP rejected. Generic XDP builds
-> an xdp_buff from an skb without carrying the unreadable flag. Its
-> transmit and redirect paths also bypass the native driver guard.
+> An AI review found that ignoring io_uring setup errors could turn them
+> into capability skips. A process-local seccomp filter returning EPERM
+> reproduced this. The new XDP test now treats setup errors as failures.
 > 
 > Signed-off-by: Björn Töpel <bjorn@kernel.org>
 > ---
->  Documentation/networking/netmem.rst |  8 ++++++++
->  include/net/netdev_queues.h         |  6 ++++++
->  include/net/xdp.h                   |  5 ++---
->  net/core/dev.c                      | 28 ++++++++++++++++++++++++++--
->  net/core/dev.h                      |  1 +
->  net/core/netdev_rx_queue.c          |  2 +-
->  6 files changed, 44 insertions(+), 6 deletions(-)
+>  MAINTAINERS                                   |   2 +
+>  .../selftests/drivers/net/hw/.gitignore       |   1 +
+>  .../testing/selftests/drivers/net/hw/Makefile |  10 +-
+>  tools/testing/selftests/drivers/net/hw/config |   5 +
+>  .../selftests/drivers/net/hw/iou-zcrx.c       | 242 +++++++++++++++++-
+>  .../selftests/drivers/net/hw/iou-zcrx.py      | 108 +++++++-
+>  .../selftests/drivers/net/hw/iou_zcrx.bpf.c   | 111 ++++++++
+>  .../selftests/drivers/net/hw/iou_zcrx.h       |  34 +++
+>  8 files changed, 492 insertions(+), 21 deletions(-)
+>  create mode 100644 tools/testing/selftests/drivers/net/hw/iou_zcrx.bpf.c
+>  create mode 100644 tools/testing/selftests/drivers/net/hw/iou_zcrx.h
 > 
-> diff --git a/Documentation/networking/netmem.rst b/Documentation/networking/netmem.rst
-> index 6871dcdd700c..1ac94fc9d667 100644
-> --- a/Documentation/networking/netmem.rst
-> +++ b/Documentation/networking/netmem.rst
-> @@ -131,6 +131,14 @@ Driver RX Requirements
->     circulation times, such as when userspace holds a reference in zerocopy
->     scenarios.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 32e218c0fe68..ea383dd81668 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -14076,6 +14076,8 @@ T:	git https://github.com/isilence/linux.git zcrx/for-next
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux.git
+>  S:	Maintained
+>  F:	io_uring/zcrx.*
+> +F:	tools/testing/selftests/drivers/net/hw/iou-zcrx.*
+> +F:	tools/testing/selftests/drivers/net/hw/iou_zcrx.*
 >  
-> +8. XDP programs run next to unreadable memory providers only if the driver
-> +   sets netdev_queue_mgmt_ops.xdp_unreadable, and only in native mode. The
-> +   programs see the headers in the linear part, and helpers that reach
-> +   unreadable fragments fail. Attach payload fragments with
-> +   xdp_buff_add_frag(), which marks unreadable ones, and drop XDP_TX of a
-> +   buffer for which xdp_buff_is_frag_unreadable() is true: the payload is
-> +   mapped for receive only. Redirects of such a buffer fail in the core.
+>  IO_URING BPF-OPS
+>  M:	Pavel Begunkov <asml.silence@gmail.com>
+> diff --git a/tools/testing/selftests/drivers/net/hw/.gitignore b/tools/testing/selftests/drivers/net/hw/.gitignore
+> index 911a9bfeaf41..085aa8b17afc 100644
+> --- a/tools/testing/selftests/drivers/net/hw/.gitignore
+> +++ b/tools/testing/selftests/drivers/net/hw/.gitignore
+> @@ -1,5 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  iou-zcrx
+> +iou_zcrx.skel.h
+>  ncdevmem
+>  tls_hw_offload
+>  toeplitz
+> diff --git a/tools/testing/selftests/drivers/net/hw/Makefile b/tools/testing/selftests/drivers/net/hw/Makefile
+> index 429cb545a4f0..d7a1fea08ea7 100644
+> --- a/tools/testing/selftests/drivers/net/hw/Makefile
+> +++ b/tools/testing/selftests/drivers/net/hw/Makefile
+> @@ -10,7 +10,8 @@ HAS_IOURING_ZCRX := $(shell \
+>  	echo -e '#include <liburing.h>\n' \
+>  	     'void *func = (void *)io_uring_register_ifq;\n' \
+>  	     'int main() {return 0;}' | \
+> -	$(CC) -luring -x c - -o /dev/null 2>&1 && echo y)
+> +	$(CC) $(CFLAGS) $(CPPFLAGS) $(USERCFLAGS) $(LDFLAGS) \
+> +	$(USERLDFLAGS) -x c - -o /dev/null -luring 2>&1 && echo y)
+>  
+>  ifeq ($(HAS_IOURING_ZCRX),y)
+>  COND_GEN_FILES += iou-zcrx
+> @@ -98,5 +99,10 @@ include ../../../net/ynl.mk
+>  include ../../../net/bpf.mk
+>  
+>  ifeq ($(HAS_IOURING_ZCRX),y)
+> -$(OUTPUT)/iou-zcrx: LDLIBS += -luring -lpthread
+> +$(OUTPUT)/iou-zcrx: CFLAGS += -I$(OUTPUT) -I$(SCRATCH_DIR)/include
+> +$(OUTPUT)/iou-zcrx: LDLIBS += -luring -lpthread -lelf -lz
+> +$(OUTPUT)/iou-zcrx: LOCAL_HDRS += iou_zcrx.h $(OUTPUT)/iou_zcrx.skel.h
+> +$(OUTPUT)/iou-zcrx: iou_zcrx.h $(OUTPUT)/iou_zcrx.skel.h $(BPFOBJ)
+>  endif
 > +
->  Driver TX Requirements
->  ======================
+> +$(OUTPUT)/iou_zcrx.bpf.o: iou_zcrx.h $(selfdir)/bpf/bpf_kfuncs.h
+> diff --git a/tools/testing/selftests/drivers/net/hw/config b/tools/testing/selftests/drivers/net/hw/config
+> index 081155bf7847..ef77543b567f 100644
+> --- a/tools/testing/selftests/drivers/net/hw/config
+> +++ b/tools/testing/selftests/drivers/net/hw/config
+> @@ -1,4 +1,6 @@
+> +CONFIG_BPF_JIT=y
+>  CONFIG_BPF_SYSCALL=y
+> +CONFIG_DEBUG_INFO_BTF=y
+>  CONFIG_FAIL_FUNCTION=y
+>  CONFIG_FAULT_INJECTION=y
+>  CONFIG_FAULT_INJECTION_DEBUG_FS=y
+> @@ -9,6 +11,7 @@ CONFIG_INET6_ESP_OFFLOAD=y
+>  CONFIG_INET_ESP=y
+>  CONFIG_INET_ESP_OFFLOAD=y
+>  CONFIG_IO_URING=y
+> +CONFIG_IO_URING_ZCRX=y
+>  CONFIG_IPV6=y
+>  CONFIG_IPV6_GRE=y
+>  CONFIG_IPV6_SIT=y
+> @@ -20,7 +23,9 @@ CONFIG_NET_IPGRE=y
+>  CONFIG_NET_IPGRE_DEMUX=y
+>  CONFIG_NET_IPIP=y
+>  CONFIG_NETKIT=y
+> +CONFIG_NET_RX_BUSY_POLL=y
+>  CONFIG_NET_SCH_INGRESS=y
+> +CONFIG_PAGE_POOL=y
+>  CONFIG_SYNC_FILE=y
+>  CONFIG_TLS=y
+>  CONFIG_TLS_DEVICE=y
+> diff --git a/tools/testing/selftests/drivers/net/hw/iou-zcrx.c b/tools/testing/selftests/drivers/net/hw/iou-zcrx.c
+> index 91b025a8771e..f7e909fd6840 100644
+> --- a/tools/testing/selftests/drivers/net/hw/iou-zcrx.c
+> +++ b/tools/testing/selftests/drivers/net/hw/iou-zcrx.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/mman.h>
+>  #include <linux/errqueue.h>
+>  #include <linux/if_packet.h>
+> +#include <linux/if_link.h>
+>  #include <linux/ipv6.h>
+>  #include <linux/socket.h>
+>  #include <linux/sockios.h>
+> @@ -37,9 +38,13 @@
+>  #include <sys/un.h>
+>  #include <sys/wait.h>
 >  
-> diff --git a/include/net/netdev_queues.h b/include/net/netdev_queues.h
-> index c5335e935b7d..4f6702b284b4 100644
-> --- a/include/net/netdev_queues.h
-> +++ b/include/net/netdev_queues.h
-> @@ -199,6 +199,11 @@ enum {
->   *
->   * @supported_params:	Bitmask of supported parameters, see QCFG_*.
->   *
-> + * @xdp_unreadable:	Native XDP programs may run on queues with unreadable
-> + *			memory providers. The driver builds XDP buffers with
-> + *			xdp_buff_add_frag(), and drops XDP_TX of a buffer for
-> + *			which xdp_buff_is_frag_unreadable() is true.
-> + *
->   * Note that @ndo_queue_mem_alloc and @ndo_queue_mem_free may be called while
->   * the interface is closed. @ndo_queue_start and @ndo_queue_stop will only
->   * be called for an interface which is open.
-> @@ -229,6 +234,7 @@ struct netdev_queue_mgmt_ops {
->  				    struct netlink_ext_ack *extack);
+> +#include <bpf/bpf.h>
+>  #include <liburing.h>
+>  #include <ynl.h>
+> +#include "kselftest.h"
+>  #include "netdev-user.h"
+> +#include "iou_zcrx.h"
+> +#include "iou_zcrx.skel.h"
 >  
->  	unsigned int supported_params;
-> +	bool xdp_unreadable;
+>  #define SKIP_CODE	42
+>  
+> @@ -89,7 +94,11 @@ static struct sockaddr_in6 cfg_addr;
+>  static unsigned int cfg_rx_buf_len;
+>  static bool cfg_dry_run;
+>  static int cfg_num_threads = 1;
+> +static bool cfg_xdp;
+> +static bool cfg_pages;
+>  
+> +static struct iou_zcrx *xdp_skel;
+> +static int xdp_link = -1;
+>  static char *payload;
+>  
+>  #define MAX_CONNS_PER_THREAD	64
+> @@ -154,6 +163,139 @@ static inline size_t get_refill_ring_size(unsigned int rq_entries)
+>  	return ALIGN_UP(size, page_size);
+>  }
+>  
+> +static int probe_xdp(void)
+> +{
+> +	const struct bpf_insn insns[] = {
+> +		{
+> +			.code = BPF_ALU64 | BPF_MOV | BPF_K,
+> +			.dst_reg = BPF_REG_0,
+> +			.imm = XDP_PASS,
+> +		},
+> +		{ .code = BPF_JMP | BPF_EXIT },
+> +	};
+> +	LIBBPF_OPTS(bpf_prog_load_opts, load_opts,
+> +		    .prog_flags = BPF_F_XDP_HAS_FRAGS);
+> +	LIBBPF_OPTS(bpf_link_create_opts, link_opts,
+> +		    .flags = XDP_FLAGS_DRV_MODE);
+> +	unsigned int ifindex;
+> +	int prog_fd, link_fd;
+> +
+> +	ifindex = if_nametoindex(cfg_ifname);
+> +	if (!ifindex) {
+> +		error(0, errno, "if_nametoindex()");
+> +		return EXIT_FAILURE;
+> +	}
+> +	prog_fd = bpf_prog_load(BPF_PROG_TYPE_XDP, "zcrx_probe", "GPL",
+> +				insns, ARRAY_SIZE(insns), &load_opts);
+> +	if (prog_fd < 0) {
+> +		error(0, -prog_fd, "load XDP probe");
+> +		return EXIT_FAILURE;
+> +	}
+> +
+> +	/* The io_uring queue is already registered; never replace a program. */
+> +	link_fd = bpf_link_create(prog_fd, ifindex, BPF_XDP, &link_opts);
+> +	close(prog_fd);
+> +	if (link_fd >= 0) {
+> +		close(link_fd);
+> +		return 0;
+> +	}
+> +	if (link_fd == -EBUSY || link_fd == -EOPNOTSUPP) {
+> +		printf("Native XDP with ZCRX is not supported: %s\n",
+> +		       strerror(-link_fd));
+> +		return SKIP_CODE;
+> +	}
+> +	error(0, -link_fd, "attach XDP probe");
+> +	return EXIT_FAILURE;
+> +}
+> +
+> +static void setup_xdp(void)
+> +{
+> +	LIBBPF_OPTS(bpf_link_create_opts, opts,
+> +		    .flags = XDP_FLAGS_DRV_MODE);
+> +	unsigned int ifindex;
+> +	int prog_fd;
+> +
+> +	ifindex = if_nametoindex(cfg_ifname);
+> +	if (!ifindex)
+> +		error(1, errno, "if_nametoindex()");
+> +	xdp_skel = iou_zcrx__open();
+> +	if (!xdp_skel)
+> +		error(1, errno, "iou_zcrx__open()");
+> +	xdp_skel->bss->port = cfg_port;
+> +	xdp_skel->bss->queue_id = cfg_queue_id;
+> +	xdp_skel->bss->unreadable = !cfg_pages;
+> +	if (iou_zcrx__load(xdp_skel))
+> +		error(1, errno, "iou_zcrx__load()");
+> +
+> +	/* A link cannot replace another program and closes with the process. */
+> +	prog_fd = bpf_program__fd(xdp_skel->progs.iou_zcrx);
+> +	xdp_link = bpf_link_create(prog_fd, ifindex, BPF_XDP, &opts);
+> +	if (xdp_link < 0)
+> +		error(1, errno, "attach native XDP");
+> +}
+> +
+> +static void check_xdp(void)
+> +{
+> +	static const char * const locations[] = {
+> +		"header", "fragment", "boundary",
+> +	};
+> +	static const char * const ops[] = {
+> +		"load", "store", "dynptr read", "dynptr write",
+> +		"slice", "slice rdwr",
+> +	};
+> +	struct xdp_zcrx_stats sum = {}, *all, *s;
+> +	int ncpus, cpu, loc, op;
+> +	__u32 key = 0;
+> +	bool failed;
+> +
+> +	close(xdp_link);
+> +	xdp_link = -1;
+> +	ncpus = libbpf_num_possible_cpus();
+> +	if (ncpus < 0)
+> +		error(1, 0, "libbpf_num_possible_cpus(): %d", ncpus);
+> +	all = calloc(ncpus, sizeof(*all));
+> +	if (!all)
+> +		error(1, errno, "calloc XDP statistics");
+> +	if (bpf_map_lookup_elem(bpf_map__fd(xdp_skel->maps.stats), &key, all))
+> +		error(1, errno, "read XDP statistics");
+> +
+> +	for (cpu = 0; cpu < ncpus; cpu++) {
+> +		s = &all[cpu];
+> +		sum.packets += s->packets;
+> +		sum.tested += s->tested;
+> +		sum.wrong_queue += s->wrong_queue;
+> +		sum.bad_headers += s->bad_headers;
+> +		sum.linear_bytes += s->linear_bytes;
+> +		sum.frag_bytes += s->frag_bytes;
+> +		for (loc = 0; loc < XDP_ZCRX_LOCATIONS; loc++) {
+> +			for (op = 0; op < XDP_ZCRX_OPS; op++)
+> +				sum.errors[loc][op] += s->errors[loc][op];
+> +		}
+> +	}
+> +	free(all);
+> +
+> +	printf("XDP %s: queue=%d packets=%llu tested=%llu\n",
+> +	       cfg_pages ? "pages" : "io_uring", cfg_queue_id,
+> +	       sum.packets, sum.tested);
+> +	printf("XDP geometry: linear=%llu frags=%llu\n",
+> +	       sum.linear_bytes, sum.frag_bytes);
+> +	printf("XDP errors: wrong_queue=%llu bad_headers=%llu\n",
+> +	       sum.wrong_queue, sum.bad_headers);
+> +	failed = !sum.tested || sum.wrong_queue || sum.bad_headers;
+> +	for (loc = 0; loc < XDP_ZCRX_LOCATIONS; loc++) {
+> +		for (op = 0; op < XDP_ZCRX_OPS; op++) {
+> +			if (!sum.errors[loc][op])
+> +				continue;
+> +			fprintf(stderr, "%s %s: %llu failures\n",
+> +				locations[loc], ops[op], sum.errors[loc][op]);
+> +			failed = true;
+> +		}
+> +	}
+> +	iou_zcrx__destroy(xdp_skel);
+> +	if (failed)
+> +		error(1, 0, "XDP access checks failed");
+> +}
+> +
+>  static void setup_zcrx(struct thread_ctx *ctx)
+>  {
+>  	unsigned int rq_entries = AREA_SIZE / page_size;
+> @@ -217,6 +359,10 @@ static void setup_zcrx(struct thread_ctx *ctx)
+>  	};
+>  
+>  	ret = io_uring_register_ifq(&ctx->ring, (void *)&reg);
+> +	if (cfg_xdp && cfg_dry_run && ret == -EOPNOTSUPP) {
+> +		puts("Interface-bound ZCRX is not supported");
+> +		exit(SKIP_CODE);
+> +	}
+>  	if (cfg_rx_buf_len && (ret == -EINVAL || ret == -EOPNOTSUPP ||
+>  			       ret == -ERANGE)) {
+>  		printf("Large chunks are not supported %i\n", ret);
+> @@ -258,6 +404,34 @@ static void add_recvzc_oneshot(struct thread_ctx *ctx, int conn_idx, size_t len)
+>  	sqe->user_data = conn_idx;
+>  }
+>  
 
-Any reason this is not a new QCFG_ in supported_params ?
+[..]
+
+> +static void verify_data(struct thread_ctx *ctx, int conn_idx,
+> +			const char *data, size_t len)
+> +{
+> +	size_t offset = ctx->received[conn_idx];
+> +	size_t i;
+> +
+> +	for (i = 0; i < len; i++) {
+> +		if (data[i] != payload[offset + i])
+> +			error(1, 0, "payload mismatch at %zu", i);
+> +	}
+> +	ctx->received[conn_idx] += len;
+> +}
+
+Move some of the refactoring/fixes out into a separate patch?
+
+But in general feels like a wrong test to extend.. Why not call
+ncdevmem somewhere in python wrapper (and attach xdp prog that you have
+in this patch)? To decouple xdp testing from the entity that generates/receives
+unreadable frags.
