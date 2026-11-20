@@ -1,107 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173558;
-	b=ZgTdiQifzjvx8/Ew2zOjZXjCsM8GBUwic72SUWUeitB7jepJcLUFkVBCrggw7m/zvZlX
-	 xCv4WegUvfCOEdMJdoXG2h571+6HPsA8obEc0FBrqq77QzhBqWFDlQTCbwtufohmhSrtd
-	 Uo4CObr0caagbpsjix2klMAUM6O0DE9dYKfPJ2qoaqkkd52Aaj43pvtevgcshM/oEUMPZ
-	 k6B++ExKSQy1nAlU8PLHZX82V1SSH5P0xqkrvKVBH/qSLhygL59DeakssipMFxBjHzjdB
-	 /lB+bzPF4C8EEd3+hZvzfmH46C79Q8Co86xrD7eNgdEwS8MlJ6k+FtYKtGQYTOZAAIg==
+	t=1795174650;
+	b=3xxyY81UaLGlBWy1zQOXNoEc9zWMiZTBRWWS65xh6+Qbhx9Hez3mk7w4Dmou4HJ5UG+V
+	 irjqsSgLdkqRUKDneOYerRBZTxxo1+CLcgZ8dLbT5P9UnsL3lLp1UNFKu8O4HLEQH7urU
+	 uXL0Irf8iZatz2FP4yDWZTsgCzKE18BBeFVFN+MyGKSfIPP12GoW/sSTpuV9pMtl5lTQA
+	 qE8NaiIo29kKVgw1Iieo7ahIKF3QB09h55oXUdqG+2KwtEO7icchghYWN9/+fdkAaV95K
+	 /lefmT8dmArhtwBDcnMhhxQT5NaVvzOtpZoHLRzokYb4RUgtH6v0Zsq2GHz3Zc7laPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173558;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=cO7QiRpUot9Vz25lkQZDD0fNa3WCQpmTa73WBgTVjk8=;
-	b=c8f8ltQuAebCT9SSqoSpQ2Z4yACyhb4hSaShyuw6yFBwH4SCtWFiyqOLDXBbe2ZT0YuU
-	 O9orUxG6b7fl0iugrbyDH33YVVJNX2CIBzieF8LjAMeqhipc1UZkJD6OrOtfEugtu7Hfn
-	 0kQiFUh/V5vw275ck8HopTcP9unmG67IASjd6FU8IanR31NihDs2RIx9Zx37+l7sn5o0u
-	 NL8N3TIxRi8YtISXjS035GFag8n9Pg1VwlM/mqS5NwupWjONGhbfsDV/r2/Q2w3NAryv0
-	 DxRVaZDGB5g5Y5GndzuvY8xlUXMQjqQ26nAB5N53kWFzqAv3p8MrJqYlFmpzTiisL0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174650;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=bNDGK4UI7JVDed+fyjj3bo9xPV3mWmMM9QpU4oudZxc=;
+	b=tKvUg+AzPlQLH3WkPK1fLwJldVr1bS4A2uUWvcJvTHMdeXtThAm/yCYBCjE8iWoiWojq
+	 Nxq/KwR+wKnIh125GkzCygRudXQwf9uS//T9VWw/3D3jh2MXVagkwvBGmB3YZk4zPje5E
+	 WJIErsXyycd6WfvEWfHiB4lRTnMpYvzcFOV+tOnsN5CUIxi9dnQxTYEbL8sCNdqhEAqON
+	 rbRFHQ5n0fR6KpSH2cjL8Z1Yum2T5kndjHZs0VcuGtjB5QOsJw7xauUNdSPI89u22Xu2z
+	 aVs+Hf3J5NJMbT8Eny2I0ZO5fMKpoWMxVN3xHFb2Dd78zoiFsmNxdFhEsiB8Km+L7dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uvqD4Pve;
-	arc=none smtp.remote-ip=209.85.215.174
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="P/bTawFy";
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E41AA606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:19:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E41AA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EADB5606A325;
+	Fri, 20 Nov 2026 11:37:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EADB5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uvqD4Pve
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdddc79a4afso316846a12.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:19:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795173557; x=1795778357; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cO7QiRpUot9Vz25lkQZDD0fNa3WCQpmTa73WBgTVjk8=;
-        b=uvqD4PvefDfCYawdcK8xfOke5kh4ebqkVLbhfhlyznmi+YdFEJnYB7CLXX+DqFiLBi
-         +AUAn7T0N9wKeWlPwzfk/TfhssK5JetXq4D6Ut6A+OsxsT0aZwOsLDtP039n3y60/6Jg
-         7w39bpMSKj3XVfubN7DviLW+G0hW6VpYKSf1hYdEno2jT5ky/UV/+c8VjkvSgYyTY9yZ
-         2Asz1rjgQuM7Ex9rMxoDFJuFtHA40XPSM2/WXlXfi4EaYEWzfUgRqRPL1RmMoUZrkVxR
-         t+oZ6HleMIMRUAM6sHW89GT7YSyrDxDLav6AnF4UwNQcRxV8Ybw21iS5IrCB9P39yNEr
-         FVJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795173557; x=1795778357;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cO7QiRpUot9Vz25lkQZDD0fNa3WCQpmTa73WBgTVjk8=;
-        b=LfBFY221WdLY/8+olKfMPF0cHxJANelFSul1Zg8OHpqlbMbxp4aYeU8wj+Bcu0hrcV
-         tA3jq7VSkAZMKdSjHvrszeipD8E/4WixIYvFpJKf/qmeq7giYeBpNHSi7EmhsTiPhexP
-         xpR6XrIGNybBuji7rjcu+nCVZe9RV+I055g425wtwSZujIJpBc57bic5QaD3GFYtCaJw
-         OuUlgV+cYPYcVuX1Hnoh3/QesNhXhfPmLal3DC2iVaNPO1LfUWiL4MldnPmpOzwcaksM
-         9hctZpJ1VtSQqmsD1pK1mHQU7awsj4MwW2YcNXoT2Ual8nXa7PgR1Kg2ahnaEsqr8z1g
-         LXLQ==
-X-Forwarded-Encrypted: i=1; AL+hErGq84EgL1HcehgmxdvmLgtK4gMO/6XFPTzPUHjDtHaZLXw/4DNKcDK+MRvphfkJrSN+uTIetUc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6iJ6zmvGem3SXG++bPMHdTHnSpIORYd2XbbImlQChWX9KPeGu
-	UmNq6HhgeyLJ4UAfxhqBAcF/pJbtu1r46gs5DoUHOWh+myR0INsO2FIg
-X-Gm-Gg: AYBFou17yC9Ah16TMEAoHQuKIIStpU6GzKnzhHFJXydpj4QH1ZiWW7l1D3IsnRbpwIq
-	WkIz0HZruejGXGgpYKhnak1R0YH/ZB+F9xNUh/CJw9B64G1Q1EkdwiYpMpB1oWcDDYOXFh1nBVh
-	+q74C0z2so/Ya3npwjZSfK4+JllSJ13ncPNjV4FAkv4gt/Yan7EI+gZaSXf0bdPbVws8bUtrLk5
-	4uie5xmCKFodyj6snAL79AjCC12OAno4iEDLagcWakFmJjZLX3aFxmOeYJQwlJf6vO8XyLe47ru
-	Eo0/CpEaXC54gghAwjX19BILFqKJwRcDEhom6udvjuV7RGgWbQ837HhjsqRtcjpaO2LjCYumgCo
-	nz9WPkNJ78I1wV1/NuoE8AEoubA2YBJngOnjnX9VmRtDKJigEaQ8eFM9DAnM9i7Czmq6mWgUZnS
-	hKQwXp6Wk8MHfV/rOaXUSjY0e5fMMsauTpO1PR8hXrS3hU177tkxdeo1xyQ0djebsnJcyzc6Epr
-	lvxfyJIZNvTiO++lRENVQ4HlyozFQH/Lw69dSXd+v7W6M+5/6gZroeTGxYaq8rWYkDvZvnHeH3Y
-	xDUQ/CT9g9ORMX2MjMdKY3KI1+QXlU0ZCG3JqBvXmCLPiHti3e/G9c3isx2Fd4SzGF2oeopNbOJ
-	gISSaSrqsirLZ
-X-Received: by 2002:a05:6a21:4d8e:b0:3fb:a69:8480 with SMTP id adf61e73a8af0-4014e35c584mr2272208637.87.1795173556776;
-        Fri, 20 Nov 2026 03:19:16 -0800 (PST)
-Received: from JUNVYYANG-MC1.tencent.com ([43.132.141.24])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c14fsm1367050b3a.15.2026.11.20.03.19.13
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 03:19:16 -0800 (PST)
-From: Jun Yang <juny24602@gmail.com>
-To: pablo@netfilter.org,
-	fw@strlen.de
-Cc: phil@nwl.cc,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kadlec@netfilter.org,
-	aconole@redhat.com,
-	yifanwucs@gmail.com,
-	manizada@pm.me,
-	david.lee@trailofbits.com,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	junvyyang@tencent.com,
-	corvus@tencent.com,
-	stable@kernel.org
-Subject: [PATCH nf] netfilter: ipset: do not destroy shared extensions on hash resize
-Date: Fri, 20 Nov 2026 19:18:57 +0800
-Message-ID: <20261120111910.67379-1-juny24602@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=P/bTawFy
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAu3F01243432;
+	Fri, 20 Nov 2026 11:37:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=bNDGK4UI7JVDed+fyjj3bo9xPV3mWmMM9QpU4oudZ
+	xc=; b=P/bTawFyKmTrxJb9km1l+ZwZzpezT132SBswVnHDsPZD9Ar5pAyjhaioL
+	5tVE4omRNpgpgOzEC33IaeyxSkey/vQzvSe7SY+GRttclX4OfguUfAblDV/1+uvG
+	c2SqRDuULuR7JntMPS3Rzqa6CQwUK0f8ddCvLj/KOKOnH6MYtleWB6WnhXCvGNec
+	aPzTymsI1UjWe1t+1rXEl2/97WbgxwtUU4nVHz5Z3LtMyVlR4/Hb0M98owCmeGyj
+	dM/viX+cowVmkoxLm0KO6dqVKwEXnIEkf8RUzGD4t92P+oO20hqhZRRzdiP5aton
+	XHByEpjPaw3mhg8C9rlqE2ezbNNZw==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105s023h-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 11:37:14 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAo06g1107116;
+	Fri, 20 Nov 2026 11:37:14 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1bb5kunb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 11:37:13 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AKBbA2K50594184
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 11:37:10 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 15AB22004B;
+	Fri, 20 Nov 2026 11:37:10 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DA53820040;
+	Fri, 20 Nov 2026 11:37:09 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Fri, 20 Nov 2026 11:37:09 +0000 (GMT)
+Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 56341)
+	id C6087161068; Fri, 20 Nov 2026 12:37:09 +0100 (CET)
+From: Mahanta Jambigi <mjambigi@linux.ibm.com>
+To: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, alibuda@linux.alibaba.com,
+        dust.li@linux.alibaba.com, sidraya@linux.ibm.com
+Cc: hidayath@linux.ibm.com, pasic@linux.ibm.com, horms@kernel.org,
+        tonylu@linux.alibaba.com, guwen@linux.alibaba.com,
+        netdev@vger.kernel.org, linux-s390@vger.kernel.org,
+        linux-rdma@vger.kernel.org, Mahanta Jambigi <mjambigi@linux.ibm.com>
+Subject: [PATCH net-next] net/smc: validate smc_diag_req length before reading diag_ext
+Date: Fri, 20 Nov 2026 12:37:08 +0100
+Message-ID: <20261120113708.3950966-1-mjambigi@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,93 +96,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: 71PAhncLYfGjMu00Rerr-YyoUyRjLMKt
+X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6b0030eb cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=vWuhhF-FjSUm6uSirrwA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0NSBTYWx0ZWRfX1wCr0Mdwn2ZV
+ QAajzY4C5Ua/Vj/DO0RcinyOI3kByuAPNaREVHLCCYPFRGEl4v0ptGtHZsxONyCLIZmHfzZO0xc
+ 5urg6FMo9NvE45TRu8Aeium4c3zMn1I=
+X-Proofpoint-ORIG-GUID: ddHUqvYonBTXZ1aHdKK7-C_ZPon1CD4y
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0NSBTYWx0ZWRfX7BahzPQY2UM1
+ DUPL1RvsWD1i7vqybhmM4z24F4OauwHGWh8iR7VJGQUfISFmZrVTtSZLc/GlidiCfyXcY2kVvdf
+ n4WY8m0GmPOay4/Rp51SPFW2IyQ/wJ3/2viud9QWeiDgLOIhZA7UlEamp9QCPrdBcYvZ+vsDnj5
+ QW3Z4u0iuVMctdhKLInNkeslMFw9VUsERPmLfZugU0jpvHjY6NaXjzzmwhCaF3pdMKhHquCMeIw
+ H0/z4kDLWNVvAS0SqtRHOiDPD0W2UAfS3BR1qYVHsTTAHsliK2oWoInqJLgndZsc6piT31Af2WS
+ oONLi0aKipK2CYUt4i9mL/A/QLow7cqo8DIatX6ncl/iaEU/CPIvFDFRFenovYdp5koKhSjbREj
+ wap//JHmcSTJfPA73d3K0cOht36mrPHSmMtlrRT2c5FehUBXCei1DcDXfHXGlC4KOk7NMfuhAz9
+ pmSp+nTmqWziogY60QA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_04,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200045
 
-From: Jun Yang <junvyyang@tencent.com>
+__sock_diag_cmd() only validates nlmsg_len against sizeof(struct
+sock_diag_req) (2 bytes). smc_diag_handler_dump() schedules a dump
+without a further check, so the dump path reads diag_ext at offset 3 of
+struct smc_diag_req from uninitialised skb tailroom. Add the missing
+nlmsg_len guard, matching every other sock_diag handler.
 
-mtype_resize() copies the elements into the replacement table with a
-plain memcpy(), so the comment extension is shared between an element
-and its copy until the resize completes.
-
-Commit cffcf57bf03cb ("netfilter: ipset: exclude gc when resize is in
-progress") stopped gc from freeing it behind the copy, but the packet
-path still does: mtype_add() reusing a timed out element and
-mtype_del() destroy the extension on the old table before queueing the
-operation for replay.  The replay finds the copy in the replacement
-table and frees the same ip_set_comment_rcu again:
-
-  BUG: KASAN: double-free in rcu_free_sheaf+0x1b/0xe0
-  Free of addr ffff8881056b9480 by task poc/798
-   kfree+0x12f/0x4e0
-   hash_ip4_resize+0x1268/0x18e0 [ip_set_hash_ip]
-   call_ad+0x367/0x8e0 [ip_set]
-  Allocated by task 798:
-   ip_set_init_comment+0xbe/0x220 [ip_set]
-   hash_ip4_add+0x19c7/0x22f0 [ip_set_hash_ip]
-
-A replayed add can instead leave the copy holding the stale pointer,
-because ip_set_init_comment() is skipped for kernel side adds since
-commit a442c8a89fb9 ("netfilter: ipset: do not update comments from
-kernel-side adds"), and the second free then happens at set destroy.
-
-Destroy the extension on the old table only when the operation is not
-queued for replay: the replacement table owns the element from the
-replay on, and the old table is freed with ext_destroy == false.  An
-element deleted before the copy loop reaches it is not copied, so its
-comment is leaked instead of freed twice.
-
-Fixes: f66ee0410b1c ("netfilter: ipset: Fix "INFO: rcu detected stall in hash_xxx" reports")
-Cc: stable@kernel.org
-Reported-by: TencentOS Corvus AI <corvus@tencent.com>
-Signed-off-by: Jun Yang <junvyyang@tencent.com>
+Fixes: f16a7dd5cf27 ("smc: netlink interface for SMC sockets")
+Signed-off-by: Mahanta Jambigi <mjambigi@linux.ibm.com>
 ---
-A KASAN reproducer for this issue is available if requested.
+ net/smc/smc_diag.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
- net/netfilter/ipset/ip_set_hash_gen.h | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+diff --git a/net/smc/smc_diag.c b/net/smc/smc_diag.c
+index 15485a08d9a0..ed578279dcd0 100644
+--- a/net/smc/smc_diag.c
++++ b/net/smc/smc_diag.c
+@@ -245,6 +245,9 @@ static int smc_diag_handler_dump(struct sk_buff *skb,=
+ struct nlmsghdr *h)
+ {
+ 	struct net *net =3D sock_net(skb->sk);
 
-diff --git a/net/netfilter/ipset/ip_set_hash_gen.h b/net/netfilter/ipset/ip_set_hash_gen.h
-index 80ca523f304b..e84341ae9ab6 100644
---- a/net/netfilter/ipset/ip_set_hash_gen.h
-+++ b/net/netfilter/ipset/ip_set_hash_gen.h
-@@ -1068,7 +1068,11 @@ mtype_add(struct ip_set *set, void *value, const struct ip_set_ext *ext,
- 		data = ahash_data(n, j, set->dsize);
- 		if (!deleted) {
- 			mtype_del_cidr_all(set, h, data);
--			ip_set_ext_destroy(set, data);
-+			/* The resize copy shares this extension:
-+			 * the replayed add destroys it.
-+			 */
-+			if (!(t->resizing && ext && ext->target))
-+				ip_set_ext_destroy(set, data);
- 			t->hregion[r].elements--;
- 		}
- 		goto copy_data;
-@@ -1223,11 +1227,10 @@ mtype_del(struct ip_set *set, void *value, const struct ip_set_ext *ext,
- 			smp_store_release(&n->pos, --pos);
- 		t->hregion[r].elements--;
- 		mtype_del_cidr_all(set, h, d);
--		ip_set_ext_destroy(set, data);
--
- 		if (t->resizing && ext && ext->target) {
--			/* Resize is in process and kernel side del,
--			 * save values
-+			/* Resize is in process and kernel side del, save
-+			 * values.  The resize copy shares the extension:
-+			 * the replayed del destroys it.
- 			 */
- 			x = kzalloc_obj(struct mtype_resize_ad, GFP_ATOMIC);
- 			if (x) {
-@@ -1236,6 +1239,8 @@ mtype_del(struct ip_set *set, void *value, const struct ip_set_ext *ext,
- 				       sizeof(struct mtype_elem));
- 				x->flags = flags;
- 			}
-+		} else {
-+			ip_set_ext_destroy(set, data);
- 		}
- 		for (; i < pos; i++) {
- 			if (!test_bit(i, n->used))
++	if (nlmsg_len(h) < sizeof(struct smc_diag_req))
++		return -EINVAL;
++
+ 	if (h->nlmsg_type =3D=3D SOCK_DIAG_BY_FAMILY &&
+ 	    h->nlmsg_flags & NLM_F_DUMP) {
+ 		{
+--=20
+2.50.1 (Apple Git-155)
 
-base-commit: 4d67cf2fd2352f130c42494a933ba9158b925c65
--- 
-2.56.1
