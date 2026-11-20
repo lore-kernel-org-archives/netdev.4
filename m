@@ -1,54 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.23
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205072;
-	b=x2lsZdsWnBS9EFMjNiki9sRZk/lDKeaA7PLdLilNmUbbj8/Uogn95t7GQuJuCubxjsfw
-	 B45KYzUv8MSbiyRIp+6E6Cg61md2vQ8a8XUG9V5SRZSc+1e3Nkzvo+DTIQEIx16/gAYkR
-	 Ts1kZW/vKyjIoNqEACNlimP0oQhCnyURLkkoleahrqC19ZKk/v5amhsFq4R0dbazfLTKk
-	 vWvisGV8G7H6gSIb7Bx34Owcq5mlL+ZZKxLDRSjyKr8iQGeF6jsF0p//eBIo4NiY/1xIg
-	 xHMEPhyyATNUppjl22i5+352Zq2DoKAsYCEuT4rTwXfTNe1HZUDFqjuWgohYAXNUupw==
+	t=1795205203;
+	b=hLhpS+ST8Cqa4/XxPJ/XcNAfipmlreP97fXZqx1QaECEWHPhZk6fsp2mFg3cyiz1hKEQ
+	 B/WSgqAEpGIu4zBckMxUQLMv5+C3cxmLrqFseNicoT37YXRVjn/FshpD8S+92TEh6q29l
+	 QORLZItBDUFsE9pKbpcTMgUh+SlGXyl6cXiXVG3p7cxHnfXW/osiVRDhfwPXmOVL9jgWz
+	 crtx/c5rKc4i08sKffREy8pr/Pr0XVYssQW7EPpYE1ebPs117hQU1nAYdHwfhMu7sjS3v
+	 A3B1lDd1w2n5HXSOg4TJnNQhiiB2QwFQNz4toNHSzpo6KXGOLr5e5wXXwr9D8Afwoug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205072;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=DTPZmS/bPYDmH5Anx7Jvfyqcbc1hHGRWNW4JSBUYubU=;
-	b=DTqI63ih+XWocw4bKCP0020UPeipOy9cqk2+w864lQ7SYIU1sFLYobg+kPqkOLWmWUFo
-	 MWJ8xwNWAdNPEY4vUgUmH+SNILct2RYCLktQUOkfpwzlgFdi16cCNi9yJZqLvqjevEadF
-	 j5b8HeeOl+0RGYx5pXOmc7PR8FWVKhsMvlEZM8qizhIECDwlPALhLwmhfXsUdEVFDbEyI
-	 PVsBKNczaA+jia93K6OpcQ/O5plDWohuN4iriFsUVCug7cLauntha/IfoklrlnqBIK1ZQ
-	 cMhL4Z4THBhCXN73ujHcR9zWmAMoMYUg+4jUR1dOp67majkdGiJtVI+TM/yPP7pmH/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205203;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=5VbTKyUQtrAhX3grORwqbl6JK+pg2ixihCAArXS2TXE=;
+	b=GRk6M7V3YvPPyQ3zcz6qUT9w1FclwQrA9Sd5T2EclM8Wo+DOI230Ri/d/cwa7V/9UqNc
+	 pehcEfLG9hbEWZ3ZM6bFPDfVxVQcZzZGvs84BUSGXMKjQU47wURp7aZPoGyVt67YfHRK3
+	 zs/1WP5D2J7tXjBcIsEKZkCfU0s8jg2GvlJdkaH5jJeb7+GUg7mYE++3YBXL1Q6z3YR/E
+	 TFS0ri2/2bodYGd2+JvUXCDJBkV+UAxjSvFDb+B1urclmexYSApq98Ph2NpNL1qwCBYUr
+	 U5EXQTDTt9beCoV5DZ2cvCC4KGd/eeVG00A5q5TkbBu1Hq5UepC/R5ZG/0yebgsMi8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xEBdltaA;
-	arc=none smtp.remote-ip=91.218.175.23
-Received: from mta0.migadu.com (out-23.mta0.migadu.com [91.218.175.23])
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ViIAh6mj;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C347606A33F
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:04:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C347606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C52D9606A6D9
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:06:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C52D9606A6D9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xEBdltaA
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=5r9H/pB0QEAQGYTbE3jhgHps7RpjUGgAGmiNOnnASh4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795205069; v=1; x=1795809869;
- b=xEBdltaAJxn+uZNdQPmBHMUXp6XV3A2z1I36RxzDw7/KL2eD9D5bmeW2bV4Am0mv2c6Xun2T
- s8x0dsgPVeNm7HZmx9r9ermtSssW8ECCqTQ0N/hFbjdABaN6+F1K0UXpW8MXkTLBf8oSVjpSEg5
- hvWjJOCkAhVRP3OKV/SJxtJ4=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 79d02deefa817cdc;
-	Fri, 20 Nov 2026 20:04:29 +0000
-X-Mizu-Trace-ID: 79d02deefa817cdc
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <3b26635a-4ab4-450f-8626-e4737d16be12@linux.dev>
-Date: Fri, 20 Nov 2026 21:04:24 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ViIAh6mj
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-ccca948203aso1454389a12.3
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 12:06:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795205200; x=1795810000; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5VbTKyUQtrAhX3grORwqbl6JK+pg2ixihCAArXS2TXE=;
+        b=ViIAh6mjzBzn9IlM0DwNU0438MM2fVuM9DDLogvaV1d6GAkYu2LI0tzY4FJy9uGQxS
+         6bSlXKebplEx28kyQJdlhkZZA53gf3jUtAZrSq2FA6mr8DtC2TtQTh22x2p5jozMElep
+         DMvkCWz7uLzHfdIpQafXEsP9ezmIlpqUbJ9GRxKOBGMNirDizuFWc+z2bH5o4C4BhxIZ
+         Ilq/Ta1Qh0uUz/FDatdPeoaq06rmCWPblhWEFUMZBg+D0mqWjuam85s1zMEY9Elcrzu0
+         xwfGrS6Z6GyzxemmbrBb+wsCEeBie0MQnmTN+ShNVfGm7TgxSXMVRcQyCw88Hg68cMFB
+         Ww7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795205200; x=1795810000;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5VbTKyUQtrAhX3grORwqbl6JK+pg2ixihCAArXS2TXE=;
+        b=STEK1/vimIni5W5jz1LTPhypV+CPUAkWIrNz+2d66tZz8xiYsOioqZ4cVx41YPjtwE
+         Um3X261orN22JoHGZOa75yijJbJOP+1YmYWMh1AUrwD7ktcSizQm13hMyL5KPNkfh0oS
+         TZnSId6vS45ROvDIbrD6DAQBypA7OZ+g0p/yR9L5Mnsm9LtF2UZOC7fFOm1Gc9zH15q7
+         IGERB5M3sm+A8OdNW1bASTrlfpdGQUOqPWbVre7wQ17pR0jFXQDgGCimVwBpCpWCxjtN
+         XcIEz3Isz3tVU44O5r3Ul43FBo5cZjwUrwW7H+y/ZffpDyxAW9vHGiEA2Xd7vMR4l45e
+         onlQ==
+X-Gm-Message-State: APuU4Z/RUpXWQbLBLUB9QScDnizeIkDo0n51DIrjJCpOWxJtWFBmboRv
+	ZP905z4d32YaSuNA06fjsCvVWmHA12hb7DJDEMQB/FM+k9vuOMLEyqXnkM+yT2iP4QX6REil57j
+	kZQjLiaQ=
+X-Gm-Gg: AYBFou22bSdvzmFIaAYCrwKfdhlhUUouh+2pu2mIOH2HkZkuJLmUpusHEltdkL+0W2n
+	0jv6dEMLM2sop13kUntCwnkVlNK4ZoDFkHepajWgBfvEy7GjeMzarDkS1JFrZR7WoVtNPhKfirk
+	aF+9XXmsAqTnUyLM5wyq6S0UgGTb0cCfgACJboJyCejUFq0ohW3jbVzl67uNOjy4yjj0vglmRBS
+	UJB9O5c5DtigsdaUnmi853xb1j7hXesMJAa1RSS/jg45C8oStXL5KuQP9lQ1j+cCDvZZ6DdaRCm
+	zQEzg77XwCRYiYFvO2o/BnBiI73Gco9aEDxuQMUAn9fvz0JVG/XTqZbXM+iSayqouKdVrrVKMzM
+	xK4h059d4qB81QDyO5lefqt+JQDj+3VdxElmrkJaigdzYSQd+oCkPkteye9iSMA7UpPVutPrNxn
+	gCIVnYMslIhde/azaiH5rPjJn4RQNlSn/+9ohVPh3U8GvyZBRPSuH5N6G6EVlKyfwwuzmGAG0xg
+	t6x/4GKW4dI7O0pNVq1sKOxkddeX08Q0w8YWXR3bPwgLHvVD4MMQu8ItNZaAJs1JeFhRl+Gv3bL
+	ZN6a1uDbDsUR9Qnf1wQRGFToAGHuifrXHlW/5q3PIjwUMHl0pES3Z8l74R7P8bjQxIqY
+X-Received: by 2002:a05:6a21:e089:b0:3f9:20d7:984a with SMTP id adf61e73a8af0-4014a17aa71mr5227956637.13.1795205200153;
+        Fri, 20 Nov 2026 12:06:40 -0800 (PST)
+Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm1619282a12.18.2026.11.20.12.06.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 12:06:39 -0800 (PST)
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	Yuen Su <zypulsecore@gmail.com>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: [RFC next-net 2/3] ipv4: accept the reported route type when deleting a blackhole nexthop route
+Date: Fri, 20 Nov 2026 12:01:29 -0800
+Message-ID: <20261120200635.95798-3-stephen@networkplumber.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120200635.95798-1-stephen@networkplumber.org>
+References: <20261120200635.95798-1-stephen@networkplumber.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,174 +105,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5 20/24] net: dsa: rzn1-a5psw: Get lookup table
- size from OF data
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Florian Fainelli
- <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>,
- linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-21-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <99974c5f-c1c0-427c-ab10-a6559789f258@linux.dev>
- <CA+V-a8vikSkbxjoE+Wq+jZ1uQjtbu2VFttHEMGXHkWqqcqf6Lg@mail.gmail.com>
-Content-Language: en-US
-From: Clement Leger <clement.leger@linux.dev>
-In-Reply-To: <CA+V-a8vikSkbxjoE+Wq+jZ1uQjtbu2VFttHEMGXHkWqqcqf6Lg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
+fib_dump_info() rewrites rtm_type to RTN_BLACKHOLE for a blackhole nexthop
+object, before the nexthop_compat_mode bail-out:
 
+	if (fi->nh) {
+		if (nla_put_u32(skb, RTA_NH_ID, fi->nh->id))
+			goto nla_put_failure;
+		if (nexthop_is_blackhole(fi->nh))
+			rtm->rtm_type = RTN_BLACKHOLE;
 
-On 11/20/26 19:34, Lad, Prabhakar wrote:
-> Hi Clement,
-> 
-> Thank you for the review.
-> 
-> On Fri, Nov 20, 2026 at 9:44 AM Clement Leger <clement.leger@linux.dev> wrote:
->>
->>
->>
->> On 11/20/26 01:25, Prabhakar wrote:
->>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->>>
->>> The RZ/N1 A5PSW has 8192 lookup table entries, whereas the RZ/T2H
->>> and RZ/N2H ETHSW have only 4096 entries.
->>>
->>> Add the lookup table size to struct a5psw_of_data, derive the address
->>> mask from it and use it in the FDB and ageing code.
->>>
->>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->>> ---
->>> v4->v5:
->>> - New patch
->>> ---
->>>    drivers/net/dsa/rzn1_a5psw.c | 10 ++++++----
->>>    drivers/net/dsa/rzn1_a5psw.h |  4 ++--
->>>    2 files changed, 8 insertions(+), 6 deletions(-)
->>>
->>> diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
->>> index 7e9bc252d92a..c0c1f45852da 100644
->>> --- a/drivers/net/dsa/rzn1_a5psw.c
->>> +++ b/drivers/net/dsa/rzn1_a5psw.c
->>> @@ -311,18 +311,19 @@ static void a5psw_phylink_mac_link_up(struct phylink_config *config,
->>>    static int a5psw_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
->>>    {
->>>        struct a5psw *a5psw = ds->priv;
->>> +     unsigned int entries = a5psw->of_data->lk_table_entries;
->>>        unsigned long rate;
->>>        u64 max, tmp;
->>>        u32 agetime;
->>>
->>>        rate = clk_get_rate(a5psw->clk);
->>> -     max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * A5PSW_TABLE_ENTRIES * 1024),
->>> +     max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * entries * 1024),
->>>                       rate) * 1000;
->>>        if (msecs > max)
->>>                return -EINVAL;
->>>
->>>        tmp = div_u64(rate, MSEC_PER_SEC);
->>> -     agetime = div_u64(msecs * tmp, 1024 * A5PSW_TABLE_ENTRIES);
->>> +     agetime = div_u64(msecs * tmp, 1024 * entries);
->>>
->>>        a5psw_reg_writel(a5psw, A5PSW_LK_AGETIME, agetime);
->>>
->>> @@ -511,7 +512,7 @@ static int a5psw_lk_execute_lookup(struct a5psw *a5psw, union lk_data *lk_data,
->>>        if (ret)
->>>                return ret;
->>>
->>> -     *entry = ctrl & A5PSW_LK_ADDR_CTRL_ADDRESS;
->>> +     *entry = ctrl & (a5psw->of_data->lk_table_entries - 1);
->>>
->>>        return 0;
->>>    }
->>> @@ -638,7 +639,7 @@ static int a5psw_port_fdb_dump(struct dsa_switch *ds, int port,
->>>
->>>        mutex_lock(&a5psw->lk_lock);
->>>
->>> -     for (i = 0; i < A5PSW_TABLE_ENTRIES; i++) {
->>> +     for (i = 0; i < a5psw->of_data->lk_table_entries; i++) {
->>>                reg = A5PSW_LK_ADDR_CTRL_READ | A5PSW_LK_ADDR_CTRL_WAIT | i;
->>>
->>>                ret = a5psw_lk_execute_ctrl(a5psw, &reg);
->>> @@ -1357,6 +1358,7 @@ static const struct a5psw_of_data rzn1_of_data = {
->>>        .pattern_ctrl_base = 0x3eb0,
->>>        .vlan_res_vlanid = GENMASK(16, 5),
->>>        .vlan_res_portmask = GENMASK(4, 0),
->>> +     .lk_table_entries = 8192,
->>>    };
->>>
->>>    static const struct of_device_id a5psw_of_mtable[] = {
->>> diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
->>> index 29d205e2331d..fd523fe7bf47 100644
->>> --- a/drivers/net/dsa/rzn1_a5psw.h
->>> +++ b/drivers/net/dsa/rzn1_a5psw.h
->>> @@ -93,7 +93,6 @@
->>>    #define A5PSW_LK_ADDR_CTRL_WAIT             BIT(27)
->>>    #define A5PSW_LK_ADDR_CTRL_READ             BIT(26)
->>>    #define A5PSW_LK_ADDR_CTRL_WRITE    BIT(25)
->>> -#define A5PSW_LK_ADDR_CTRL_ADDRESS   GENMASK(12, 0)
->>>
->>>    #define A5PSW_LK_DATA_LO            0x40C
->>>    #define A5PSW_LK_DATA_HI            0x410
->>> @@ -210,7 +209,6 @@
->>>
->>>    #define A5PSW_LK_BUSY_USEC_POLL             10
->>>    #define A5PSW_CTRL_TIMEOUT          1000
->>> -#define A5PSW_TABLE_ENTRIES          8192
->>>
->>>    struct fdb_entry {
->>>        u8 mac[ETH_ALEN];
->>> @@ -241,6 +239,7 @@ union lk_data {
->>>     * @pattern_ctrl_base: Offset of the PATTERN_CTRL register of pattern 0
->>>     * @vlan_res_vlanid: VLANID field mask of the VLAN_RES registers
->>>     * @vlan_res_portmask: PORTMASK field mask of the VLAN_RES registers
->>> + * @lk_table_entries: Number of entries in the lookup table (power of 2)
->>>     */
->>>    struct a5psw_of_data {
->>>        unsigned int nports;
->>> @@ -252,6 +251,7 @@ struct a5psw_of_data {
->>>        u16 pattern_ctrl_base;
->>>        u32 vlan_res_vlanid;
->>>        u32 vlan_res_portmask;
->>> +     unsigned int lk_table_entries;
->>>    };
->>>
->>>    /**
->>
->> Hi Prabhakar,
->>
->> It would probably be better to fold all these commits that adds data
->> into bits of data in oa5psw_of_data into two commits: a first one that
->> prepares support for RZ/N2 and then a second one that add RZ/N2 support
->> itself. I'm not the net maintainer but your series is already quite
->> large just for this change so folding the commits make sense rather than
->> commitmaxxing.
->>
-> My intention here was to keep changes minimal so that it's easier to
-> review. Since the fixes patches will go as a separate series, I would
-> like to keep this as is. Hope thats OK.
+So rtm_type describes the nexthop object, not the alias, which keeps the
+type it was created with. fib_table_delete() matches the stored type, so
+the kernel won't delete a route using the type it just reported:
 
-Yes sure, I mean if it fits under the 15 patches limit, that is 
-certainly fine :)
+  # ip nexthop add id 301 blackhole
+  # ip route add 192.0.2.0/24 nhid 301
+  # ip route show 192.0.2.0/24
+  blackhole 192.0.2.0/24 nhid 301 dev lo
+  # ip route del blackhole 192.0.2.0/24 nhid 301
+  RTNETLINK answers: No such process
+  # ip route del unicast 192.0.2.0/24 nhid 301
+  #
 
-Thanks,
+"ip route flush" echoes the dumped message back, rtmsg header included, so
+it carries the rewritten type and fails with ESRCH. Because the rewrite
+happens before the compat-mode check, this breaks flush even with
+nexthop_compat_mode off, where there are no legacy attributes at all.
 
-Clément
+Accept RTN_BLACKHOLE on delete when the alias uses a blackhole nexthop
+object, so a route can be removed using the type that was advertised.
+"ip route flush type blackhole" works too: the type filter is applied to
+the dump in userspace, so the kernel only ever sees the type it reported.
 
-> 
-> Cheers,
-> Prabhakar
+Dropping the rewrite in fib_dump_info() instead would change what every
+existing dump reader sees.
+
+IPv6 is unaffected, ip6_route_del() doesn't compare rtm_type.
+
+Reported-by: Yuen Su <zypulsecore@gmail.com>
+Link: https://lore.kernel.org/netdev/CAC9WPdwmM4=64DH5nY85srnLhRBS7PkjR9vrsALpob-GutbmZw@mail.gmail.com/
+Fixes: 4c7e8084fd46 ("ipv4: Plumb support for nexthop object in a fib_info")
+Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
+---
+ net/ipv4/fib_lookup.h    |  1 +
+ net/ipv4/fib_semantics.c | 14 ++++++++++++++
+ net/ipv4/fib_trie.c      |  2 +-
+ 3 files changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/net/ipv4/fib_lookup.h b/net/ipv4/fib_lookup.h
+index 0b72796dd1ad..5109cc197de2 100644
+--- a/net/ipv4/fib_lookup.h
++++ b/net/ipv4/fib_lookup.h
+@@ -40,6 +40,7 @@ struct fib_info *fib_create_info(struct fib_config *cfg,
+ 				 struct netlink_ext_ack *extack);
+ int fib_nh_match(struct net *net, struct fib_config *cfg, struct fib_info *fi,
+ 		 struct netlink_ext_ack *extack);
++bool fib_type_match(u8 fc_type, const struct fib_alias *fa);
+ bool fib_metrics_match(struct fib_config *cfg, struct fib_info *fi);
+ int fib_dump_info(struct sk_buff *skb, u32 pid, u32 seq, int event,
+ 		  const struct fib_rt_info *fri, unsigned int flags);
+diff --git a/net/ipv4/fib_semantics.c b/net/ipv4/fib_semantics.c
+index db030bc26b6d..a089761e2104 100644
+--- a/net/ipv4/fib_semantics.c
++++ b/net/ipv4/fib_semantics.c
+@@ -1061,6 +1061,20 @@ int fib_nh_match(struct net *net, struct fib_config *cfg, struct fib_info *fi,
+ 	return 0;
+ }
+ 
++/* fib_dump_info() reports a blackhole nexthop object as RTN_BLACKHOLE
++ * whatever type the alias has, so accept that type back on delete.
++ */
++bool fib_type_match(u8 fc_type, const struct fib_alias *fa)
++{
++	const struct fib_info *fi = fa->fa_info;
++
++	if (!fc_type || fa->fa_type == fc_type)
++		return true;
++
++	return fc_type == RTN_BLACKHOLE && fi->nh &&
++	       nexthop_is_blackhole(fi->nh);
++}
++
+ bool fib_metrics_match(struct fib_config *cfg, struct fib_info *fi)
+ {
+ 	struct nlattr *nla;
+diff --git a/net/ipv4/fib_trie.c b/net/ipv4/fib_trie.c
+index 523a5a4228d0..c67df5aa1b96 100644
+--- a/net/ipv4/fib_trie.c
++++ b/net/ipv4/fib_trie.c
+@@ -1726,7 +1726,7 @@ int fib_table_delete(struct net *net, struct fib_table *tb,
+ 		    (fa->fa_dscp != dscp))
+ 			break;
+ 
+-		if ((!cfg->fc_type || fa->fa_type == cfg->fc_type) &&
++		if (fib_type_match(cfg->fc_type, fa) &&
+ 		    (cfg->fc_scope == RT_SCOPE_NOWHERE ||
+ 		     fa->fa_info->fib_scope == cfg->fc_scope) &&
+ 		    (!cfg->fc_prefsrc ||
+-- 
+2.53.0
 
