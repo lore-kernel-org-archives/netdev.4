@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.174
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.179
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795196030;
-	b=GQLJFzoQPi/0VEduvOjl//gR4R8Ys78tgDGtzbQVqq8fb435uRL2TwT4eD/SGbmkIqrW
-	 KVd5Gb+GRWAC8j7xgXk5Z8W77+I+autucls4IccE8TClyh61izeDspPCRUsBAEW6GpTr7
-	 K2err9oIx73ncsL+UQzdNIbFn0zE4tntX4dq/EfvsKchD7UMlt36QkotYlUunCZrhqsCp
-	 RefmUcdRJyDXptmPqhLlywtPTCZcTZIERHHeM62uTDBNKgzzmWPTmnh2Oj6ozWzFuezWO
-	 Onb5rK7EugV+tw5HoXqCJ/bI9HKNpEapb65xQpL34aQpRh+zo6wSRL3rSkfYIDLKctw==
+	t=1795196136;
+	b=BRBzYrEaOgTEgPl+jOf/Qyxy+vK0fKSE2hxnvc1XluBo6piNFHZhyjEnynIBxBuH2AYY
+	 Rjrzk452zn6mnMHX5XFdYPgoCjWVgdDKHc8gSyMu6KGiICNIvBowbj6kWLeMQGeCff19u
+	 9YrY69BZkP6uA0qqEIpCWlqx0H41CLhTe/JHxSw5QqBDSE96jJgrqvEIup3wGFAr+ieZv
+	 flZzoDsKqro3azTe1ZFNB06PVnVo5SDtKNTdOXOjOoU3dC9neAI0JZnovxv0wq+PUXMWA
+	 99P9NKn08W6DNVaarBvcHdWs/KyB4+dRclW0yA5lDv/b4uGKbYIiPZyul+/w2gTv38w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196030;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196136;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=t7VqJxD8mYb5fVhIvZtGeBcvOXArpyTEScr8Bn60wj8=;
-	b=hLygkfjhTULDR1nxnJkgApQZLiFscoMR4pVGi2EuGgLplG9Us1RF3wzpDUJLG9632o57
-	 MYqjUSy47ti/Wy/OHBn7NNbMRnoJLM55rRnLIp1sAR5zaBrZxOFCyBmiCr249YjjeF2Ct
-	 PVdTvcakJkQ6zdIWGfLvCVZdPWBLar6mj0dB7PMKiC8XJSZKZCsGkyWabwwxoDUoUyKfO
-	 LiI0Lh6+RqlyZRW3EYy3t1RztMR6hVlyP9z6qxMXq18cLxfUrjqG3Om6RxPB1dnbA5PjO
-	 FbpV4BWq0g1363Oobe8QBnrIocnt7cDZXjsLlj9mfutok9ICuEp1ZpaRRHn6SOvHLsg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
+	b=PA4UW5TnOi5WP21Z7GvEwjeEBkewh/ssg/R4un8T+Su4Dgq6eO8zQgFCKEinKfsa8jfB
+	 MYjGum0sVsIGRbYBesYb+OOC33JUSGPefeq+jy+rQCmwpp+Z+NlTjn2WB5JcaLjfhkMOu
+	 wViR2T1voKOOWt8hoJjbgEYUh8y4iwi70vLSZHm1x+c4UrxxACIM3QcmM/vqsQAOH+0yq
+	 xYpNOcPsKn9Dd4gah+SjVp1sx3tTd+tGE8ArVta0rr6ja5UUcxhv66wC5JdB07mMqCRED
+	 cmIv/6k8Gap3LvglPwOqyshadz4B1f8JswdqYoYpyDjcde+ny8t0Sj0OdITh8yJEEVg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BNCh40ll;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.174
-Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com [209.85.221.174])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="jJRLKT/l";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.179
+Received: from mail-qt1-f179.google.com (mail-qt1-f179.google.com [209.85.160.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB026606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:33:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB026606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B954660A261E
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:35:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B954660A261E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BNCh40ll
-Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5eab93a9862so306209e0c.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:33:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795196028; cv=none;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jJRLKT/l
+Received: by mail-qt1-f179.google.com with SMTP id d75a77b69052e-533202fe429so374461cf.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:35:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795196135; cv=none;
         d=google.com; s=arc-20260327;
-        b=EhMbxgnmivsC5Dd0PtD+u4X5vm3ZIIAtwEjB4/HiiNsRv7P19hQnywQjKylrH6Ntqs
-         MZArfmMsus03FOP9ammS+AjNN0NlL0CErfxPMabP/XRM+z/CtSNrEIGfr4tk7OrtrGTM
-         h+5ClHsHROhv4ET3qQUSx3pZXYbSZfAO/jEFJyorHLcqLInj0e89FbdRFwkHOHbkEXRm
-         CBfsH+qWs+qrY7OvDdPZxSJRxzhqc4N3o23kHo2SHi7bILo4x7TjKwnIYyQQjlL2315b
-         BE5oLQcjtDRDCAwaBa/5Gw2gBLeoIbU08qYfRc4oYihL7GfnUcXtBt9koDv9+iB61zht
-         85PQ==
+        b=d5b19IiSgLGL9KnFlcq+efBeRJw/UqYxlj+YKECGGn7yoJZVRdljGKUgO+db65B3pF
+         EnzjeDXHasLZ5PmxiLCgbe8IINBpx0Y/Gx1IHWL4UzoXVV6YT+KTVWNeSF/8fCOnCHjp
+         G9EvoUeN/e+9ZEYAP8AWP9rKcH5EWJKS17XTE5pt88Ws+4KkvLRiWcU9AsrTA17BjtBl
+         8wMUys04sSa+7XdyCn1vtv9Z9032T+qmWGRcyMed8y/Nb0eZdTjfDQifUJQnY1woSBNZ
+         1dESDQDHv2Wstspitd5utUd+33rAT6kTli2+Kdfg2kKAmxuQ2Qoo6El1BxmCjEXlq+y/
+         Lhxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=t7VqJxD8mYb5fVhIvZtGeBcvOXArpyTEScr8Bn60wj8=;
-        fh=Jnru1Gb72DcfmvZx2VqzsDEtr2uCZuWCx6FFwiya73M=;
-        b=InRDSd0zcs5FSjH8Cot7FWwQEGuxIpDCahjY2isv+VYsLKZA5n8I/T0Ghtkeq9MZYM
-         8uBD5BBS5jVTGRtEFktdN/IY7ZNwcHBoztKVXFmvk4vsYgj2sXVWgJ7YeYK6pL6+ZRzr
-         avbmdkHy9ot7WFrr78PZ5Jdbm+ZgEA/uUhK4IyZfDglNQQ6qGd3pDVpL/4CDCQkYO0Gv
-         Se1VhyagrO2jSbfiQXXbmsEQ/x2WeXZkQys0C8Li/rLsvDOuYQX3ffaCVFg/VM64GCew
-         Skreptd0c45Td2GtxIJhmSq6ES0dY7k8bq8RgBIMFL/GYJw0pNlUZ7tOows/5I/ZbK9J
-         aD3g==;
+        bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
+        fh=paZPjd3BHb6XKwvzWgfN6tCsfMZBB4IbGCM5UP7qavQ=;
+        b=YRRqRRo3MTYU2iXCUd/5TJqZYYhZURv5pHAgDopcdUuvVrJRogh7MYDmNL1kfb65uq
+         yKQGfZlFgLINfy+vu4JSjObEbdU8bIsOfEbb8W7/ypWrdKjGRG8s/OjK3SiUYM/rdVSL
+         rKk99WjAa1iUab7mSyPA0Ii1sloMyV9Y/MrPeCGacASyjx/3RTVNHo1UD8o60Gz9uj71
+         jK+oM/S4m3d+7VV3mijeJvqNxmBmHCts1PbNQaulAMlQAJsfTg3cQUu1tpYSYr+luJNs
+         054yEsvBBOPkolfc7WGNygluWJix7AR39v1NwFiuD+tBOLRsbjwq+CGt5j9mLuR8m/+R
+         ElpQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795196028; x=1795800828; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795196135; x=1795800935; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=t7VqJxD8mYb5fVhIvZtGeBcvOXArpyTEScr8Bn60wj8=;
-        b=BNCh40llylyfMoEcn+JRi3qBUCD77xmyvT0e7q6aQlRavrNfLzUiUXvCF8T5R48B3z
-         ginbpYCu8l+f+FG/sxK1aBbkDck7Fit3fvqUmSUmU/t7Ax8mBhK29Hv1+0a1zLq15NIz
-         uviJKfV8CqclQCAk1dTfgpvO2QijP+mqfd90Xap7w5M2VObqUtBWVdNdqdrdNkruvY0/
-         8N5DlZSuzBuTixLOt1XO8eIJNa+PtpSJp25D/EZzyndqz4ofZ5jvjTpaGjpM1ZpNCY4l
-         UHJqFd0il/rL29r+82RC/eLc7QLJ2QmqHiZklFYLrcwqVXIw9F5oLqzmGGgOGVAXiPQf
-         0v+Q==
+        bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
+        b=jJRLKT/lraFpDKgal3v/eW8XSXnxpwL0mki586jbw9Ogu3xBigwDAQ7MtIfOQ1d7AK
+         NkQMWlI5iCCo0VW+PmB4RZ3M4KLjeZeiQ3tZjS1vomO67l2BdsjeLF/CTGkUNkscLlVN
+         ILE2sm2Vh7PP+pfyM8tytpce7a1KhESmF7nHNU+zguVCEctrLuMFggFpZ5KlQJV/gpQV
+         PM9HDEjuLFBDqRRTFeGcvw+DBebCdT5T+pr3nWfLGAcQGKPxDqMPU3yTkl37rCi5HJJH
+         ElUcKpyKeYgST7+hP+Krz3f+4oivPVk5dqqKDc2XBG6Q3yszfd1v0JdkuORBx9lbz6n1
+         f9fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196028; x=1795800828;
+        d=1e100.net; s=20260707; t=1795196135; x=1795800935;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=t7VqJxD8mYb5fVhIvZtGeBcvOXArpyTEScr8Bn60wj8=;
-        b=XOO/DtwLPi1Qvq2iUV9smC/5vOEgk1IHqzUiETwPAMAm1usXG923s8agTmQf3NfM3Q
-         5y5mj4iqPCvoIH8UkaT9BIpTK/J7RDu5gOYJNJrhDlurGV6Ci9jNHsWtjE/u3lMnhVZi
-         Tk6z87v6nEN8gjUWuwgh1sod8w+akGMQDhW5E4KfDiwABzTuVHXmDxExOiN3vngcMESc
-         zyeDqCZSXGg0AJtbpS4FYOepqpD8pzxPYA2vEBUm7hu5HXD49Fwh1NDOpehtWC8Qp9KU
-         Tc8F2Tbo0gNFN0diRgqcHg3FxUnEPIO5ANOZaiDr+qW7SFv+ML/oNhGkWq1YTH/f5A7Z
-         iDBQ==
-X-Gm-Message-State: APuU4Z8jBHuYaIYXRhrFJeoLAzTKQoxVzaI8VSjwG/INQMa/6PsUFwnP
-	m/wL7Q2dFyM/UkJqfAz3k8CGU5QnvP3t/wAQLm3JDFUGKuEt/3tswuGeBiPIqIYJzw/HQX+HlbD
-	NbL+prx7KGNWjp1eSkjR7KMelFsLsa8Q=
-X-Gm-Gg: AZFdTZcJuvjZqqx3xLbCyztqF5dFkc3QkP080Q1d+uKumweUPhWRSOdZqiAedXBGjF7
-	DBDDqBZrzhINxXxVCk17lYmMpjQi34IkHhBAsYS24O+EFpCLw/CqRJtrnOqt5dYWAO27KiTujaF
-	MF+HIct6vQfDWk7LhGTZMC3iGlaQN6YQiAPQs/YX2W4ZMwCttw8/Fp/TmcLcWgJTpAgQW1/jutL
-	sPhqSlNcY2Ii9vO53ntP3WlEjJBsyKNbP+chODY2agjGW3E2HTIU6UszwKyWb9USBvUm2cuE1wC
-	Gj89e5GUoSVLOBuca8POJeD1Fvac4Lz267ohypzwkvtf0/8LM4ZBga9OZ9NVzmJpxMIlXq2StWw
-	F1Kh30MmXmP5LoNm5tM3ROIQ1XbOIKp/m/o7D4c+w/jQjgI8rYXdNpwXvqvVQLq/ocps2moDnGT
-	GJCa5dEWKcYiuKxtGNU9wU8gNRC8CJCDpaXVMI/KYmFUt7ENIOszL8te/LGwVeUrGmY9nHmx2ko
-	0KwrSPsoscJ/+ncAQt8sCWY3pxbFg==
-X-Received: by 2002:a05:6122:1d06:b0:5ea:9218:eac1 with SMTP id
- 71dfb90a1353d-5ee8af5443bmr1845996e0c.20.1795196028572; Fri, 20 Nov 2026
- 09:33:48 -0800 (PST)
+        bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
+        b=ZxGqQWYe2gEgxuM9y6YH0d33xxaRk0521aWut6B4hJsJ88HAXoBVNzKrdyt6blwH6t
+         0nJTkswDaB1cl08xsp2TJlA+Jr7Pq0/0UBSRHMk48DqK4eJj9a7wLqpZtOrIxJ6Ev9wj
+         g19De6j29CEvV0H38KldbSoaFXYTkNVeSqqa9Wk/yl1xHEZ5oJ5x9Ck5fjAA5pcZm80A
+         zFssaAU7PDXzmxcnblPnq+zaTj+paTJ9di5ADAVEWHxyyzmr6PqOioH9Q/VLYx0e+CqW
+         eHUmlWTiY3CG1UqU4O9U9iTC1P5y1ylP1Wzrc9CEIhNmSgwt/0zL27nbrB/P3Otq4/ct
+         C0PQ==
+X-Forwarded-Encrypted: i=1; AL+hErGGO7tFR8NWAhd3fa12WPLVvlaGmD9I4Dk1QTBFpOiCGz2AZlOYT7T1eHmjXXEtUyfSPnE44vk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kNQfr/qciavcXOinvZ4I6+cqIzW6+xtmN6z2mp2OPf92IMHku
+	Ro/QlvpWbnDSIhIOzuQ5knFecGfYzk+GCWEea+aYLxuPHCFQ/wZwR3iwaGtxeYTw0g1Q+p8RSxM
+	zP4DpQiiGBUza7TFK/EKJozKsc+864xiwml3wtRmn
+X-Gm-Gg: AZFdTZcOi8ItT9cQJ8nos8n8UQhs7K32o8XASeR9dcXDBi5AZ4gQGc00fsp/ZIebyWK
+	Vo7Od+/JHBXMNGobU1iZn42Mh17D9vAzYkzuVeZLWZm3b+qGSrjBhFK7m7uGqRn3NeJh4aIzY26
+	9gMMPeqkAKpsJoLVHbPJmwfn34c2qQgNa4NV44T4wyEvno6Z3MR4+ehhglMF3HQTga5m+0FPPn0
+	TBokPGdXOy1PEezCL1+NV1c8lk33Q8WJs4YmEgLDWvNBsR8K1ZdLiVG78Hi52ppd/+9qAvE0Rb6
+	HjAzNGTI+ZLI45d7+boLfdXuJ7SJTCelJpSBiP27fFzaISaRMuS2+TRmj25k3+UMMrXVac5Lj1c
+	PiZsW4jueld2H+YOF1CSGzRWP+DROhwwBcGKJ
+X-Received: by 2002:ac8:5c8b:0:b0:535:30a:76c7 with SMTP id
+ d75a77b69052e-55d790b2edemr23784471cf.3.1795196133385; Fri, 20 Nov 2026
+ 09:35:33 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,65 +104,141 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
- <20261119144848.4ddd88cb@kernel.org> <CADvTj4oJ6HDR2k6qVgefUX-h0TGh2n+AO5gx_dcJFzzWML+2UQ@mail.gmail.com>
- <20261119161151.5251fc86@kernel.org>
-In-Reply-To: <20261119161151.5251fc86@kernel.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 20 Nov 2026 10:33:37 -0700
-X-Gm-Features: Aa3M54rQjy3WuSYK7qM4qXKPc456YWlaTnH7_OIMqG9iK55grQSbT34CyqfskX4
-Message-ID: <CADvTj4o_hBYRzpQVvAcyP6MfYjpjy84iGxwoeDN59eVTbKszAA@mail.gmail.com>
-Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
- offload setting
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, LABBE Corentin <clabbe.montjoie@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+References: <20261119171014.1534691-1-irogers@google.com> <f712f16f-dd35-4afc-81db-4e93232846aa@bootlin.com>
+In-Reply-To: <f712f16f-dd35-4afc-81db-4e93232846aa@bootlin.com>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 20 Nov 2026 09:35:20 -0800
+X-Gm-Features: Aa3M54rHxE2SNl4cgtQPI_-lngqTQPH9-vUoYkTGGDewMSKBXdmwHC7t9x76wtU
+Message-ID: <CAP-5=fUPWc5GH6BQsN-+Di=LVb=dYcUu5Mo04Rp2ugsMzjYFEg@mail.gmail.com>
+Subject: Re: [PATCH net] net: pse-pd: pd692x0: Return fw_upload_err codes from
+ firmware upload ops
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 5:11=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
+On Thu, Nov 19, 2026 at 9:26=E2=80=AFAM Kory Maincent <kory.maincent@bootli=
+n.com> wrote:
 >
-> On Thu, 19 Nov 2026 16:32:58 -0700 James Hilliard wrote:
-> > Would it make sense to address the `rx on` drops in a separate
-> > follow-up along the lines of Oleksij's dwmac4 fix [0]? On sun8i that
-> > would mean enabling error forwarding to DMA and passing packets whose
-> > only error is an IP or transport checksum up as CHECKSUM_NONE, while
-> > still discarding frames with a bad FCS or other fatal RX errors.
+>
+>
+> On 11/19/26 18:10, Ian Rogers wrote:
+> > pd692x0_fw_reset() and pd692x0_fw_write() return negative errno values
+> > from i2c_master_send() directly as enum fw_upload_err instead of
+> > FW_UPLOAD_ERR_RW_ERROR, and pd692x0_fw_recv_resp() ignores negative
+> > errors from its trailing i2c_master_recv(). When a negative errno is
+> > propagated to the firmware upload core, fw_upload_error() rejects it
+> > as >=3D FW_UPLOAD_ERR_MAX, logs an invalid error code message, and
+> > reports "unknown-error" instead of "read-write-error" via sysfs.
 > >
-> > If we leave the checker enabled in both modes, `rx off` would only
-> > control whether the driver reports a checksum as verified. In that
-> > form the follow-up would replace the conditional bit-27 write rather
-> > than depend on this patch.
+> > Return FW_UPLOAD_ERR_RW_ERROR on I2C transfer failures and use
+> > enum fw_upload_err consistently across the PD692x0 firmware upload
+> > helpers.
 >
-> I'm not very clear on the changes needed to get to "bad L4 csum packets
-> still reach the stack" / correct behavior. Would you be willing to
-> sketch the full series out already, and then we decide what gets
-> applied where?
+> Please write a readable commit message with human hands.
+>
+> > Found via Clang -Wimplicit-int-enum-cast on an x86_64 allyesconfig
+> > build. Verified by building drivers/net/pse-pd/pd692x0.o with LLVM=3D1
+> > W=3D1 (-Werror) and -Wimplicit-int-enum-cast, and with a standalone C
+> > reproducer; not runtime-tested on PD692x0 hardware.
+> >
+> > Fixes: 9a9938451890 ("net: pse-pd: Add PD692x0 PSE controller driver")
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >   drivers/net/pse-pd/pd692x0.c | 81 ++++++++++++++++++-----------------=
+-
+> >   1 file changed, 40 insertions(+), 41 deletions(-)
+> >
+> > diff --git a/drivers/net/pse-pd/pd692x0.c b/drivers/net/pse-pd/pd692x0.=
+c
+> > index 7958f5741463..94a857eaa3de 100644
+> > --- a/drivers/net/pse-pd/pd692x0.c
+> > +++ b/drivers/net/pse-pd/pd692x0.c
+> > @@ -1455,6 +1455,8 @@ pd692x0_fw_recv_resp(const struct i2c_client *cli=
+ent, unsigned long ms_timeout,
+> >
+> >       /* Read remaining characters */
+> >       ret =3D i2c_master_recv(client, fw_msg_buf + 1, msg_size - 1);
+> > +     if (ret < 0)
+> > +             return FW_UPLOAD_ERR_RW_ERROR;
+> >       if (strncmp(fw_msg_buf, msg_ok, msg_size)) {
+>
+> The error will be catch anyway by the string comparison. If you want to
+> add a check on ret then add another error message.
+> This is not a fix.
+>
+> >               dev_err(&client->dev,
+> >                       "Wrong FW download process answer (%*pE)\n",
+> > @@ -1465,9 +1467,10 @@ pd692x0_fw_recv_resp(const struct i2c_client *cl=
+ient, unsigned long ms_timeout,
+> >       return FW_UPLOAD_ERR_NONE;
+> >   }
+> >
+> > -static int pd692x0_fw_write_line(const struct i2c_client *client,
+> > -                              const char line[PD692X0_FW_LINE_MAX_SZ],
+> > -                              const bool last_line)
+> > +static enum fw_upload_err
+> > +pd692x0_fw_write_line(const struct i2c_client *client,
+> > +                   const char line[PD692X0_FW_LINE_MAX_SZ],
+> > +                   const bool last_line)
+> >   {
+> >       int ret;
+> >
+> > @@ -1478,19 +1481,12 @@ static int pd692x0_fw_write_line(const struct i=
+2c_client *client,
+> >               line++;
+> >       }
+> >
+> > -     if (last_line) {
+> > -             ret =3D pd692x0_fw_recv_resp(client, 100, "TP\r\n",
+> > -                                        sizeof("TP\r\n") - 1);
+> > -             if (ret)
+> > -                     return ret;
+> > -     } else {
+> > -             ret =3D pd692x0_fw_recv_resp(client, 100, "T*\r\n",
+> > -                                        sizeof("T*\r\n") - 1);
+> > -             if (ret)
+> > -                     return ret;
+> > -     }
+> > +     if (last_line)
+> > +             return pd692x0_fw_recv_resp(client, 100, "TP\r\n",
+> > +                                         sizeof("TP\r\n") - 1);
+> >
+> > -     return FW_UPLOAD_ERR_NONE;
+> > +     return pd692x0_fw_recv_resp(client, 100, "T*\r\n",
+> > +                                 sizeof("T*\r\n") - 1);
+>
+> This is not a fix, just moving code around.
+>
+> For the rest, FW_UPLOAD_ERR_NONE is similar to ret =3D 0 so there is no
+> real issue, only some type mismatch and I am not sure these changes
+> should land as a fix.
 
-I posted the two-patch series [0]. The first patch fixes RX checksum
-handling in both ethtool modes. The second adds rx-all support.
+Sorry for the noisy diff and dense commit message - you are right that
+pd692x0_fw_recv_resp() (where fw_msg_buf is zero-initialized) and
+pd692x0_fw_write_line() didn't need touching, and all that type churn
+buried the actual change.
 
-> What I would like to avoid is us applying this fix to net (which
-> seems legitimate on the surface), but then following up with another
-> fix which unconditionally clears EMAC_RX_DO_CRC since AFAIU we
-> need to clear it for the correct behavior.
+The only two lines that return a negative errno (-EIO) as an enum
+fw_upload_err instead of FW_UPLOAD_ERR_RW_ERROR are:
+  1. pd692x0_fw_reset(): 'return ret;' when sending "RST" fails
+  2. pd692x0_fw_write(): 'return ret;' when sending 'P' fails (whereas
+sending 'E' right above it already returns FW_UPLOAD_ERR_RW_ERROR)
 
-We don't need to clear EMAC_RX_DO_CRC. On H616 I verified that setting
-RX_ERR_FRM lets packets with a bad UDP checksum reach DMA while
-EMAC_RX_DO_CRC is still set. The descriptor flags the checksum error,
-so the driver can pass the packet up as CHECKSUM_NONE while still
-dropping frames with a bad FCS by default.
+Would you welcome a minimal 2-line patch for net-next (without Fixes:)
+just changing those two returns to FW_UPLOAD_ERR_RW_ERROR, or would
+you prefer leaving it as-is?
 
-The new series keeps EMAC_RX_DO_CRC set in both modes. It replaces
-the conditional write in this patch, so there's no need to apply this
-patch to net first.
+Thanks,
+Ian
 
-[0] https://lore.kernel.org/r/20261120-submit-sun8i-rx-features-v1-v1-0-505=
-8fecba6b3@gmail.com/
+> Regards
+> --
+> K=C3=B6ry Maincent, Bootlin
+> Embedded Linux and kernel engineering
+> https://bootlin.com
+>
