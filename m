@@ -1,72 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170506;
-	b=FeeuCSQsbaSuYwYztB5QVRi4+VFVPNvR2wBjchQlEAouFn6ru4nGwkr2F7Zk03KtQDEe
-	 euTrkDeKaOGQShIZ0UR0H91qsn7fHi3hajWnYepJMR+p5hXh9M16PKwnkZZGDlqWD6bK+
-	 Y+7AJyWBiVwLC/kkxwazSmB+pZ04vN5Ahyy45+N2UqKNWiiukbSHgy3q8PBgZrPjLM2Xx
-	 owD0pf23Udmxdlp7G8ZKZ6d0FQ876dpOt6OMrq+Vb58dCuhtojfsdKp+6n58w59zQ0kTz
-	 U56MbRczq3pGgtjeqGZ3aUfgfSUm5B21BVy10WWur+IRqLAihqv+mCZKzNPL3+2F2eQ==
+	t=1795170750;
+	b=JVeCs7nHjlTON54mcN+R9O3ZVwPnq6GVG2PrkFYYH3RPhQJ7rlOSxmnNf1cbt05CoTyZ
+	 YHttXVNGLNEHmMJvcszhvjgNyh4ECVV1SL8ADmGvboRlpaRQlnTyRYYEntZ33Uyq5QsEs
+	 Fv4xlLa1lQyOK+gC2bTpGOaoQPMcrZ3BQATrs3HRqEzK18h4lLX7MHpZAc7FkaiFLOCAk
+	 /C8c2WRb/HxwbjH4fwhmxP7gi89z6EhIGnPeh0p13BLGqrGLggPFChYJmmch7o9IOuxvr
+	 71hKdcffSVpmTe6Zs0MPyXYWbBvgSpMfzoPO7M7u+VeyOw9Tx0Aj/rgUEcVUayYd5qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170506;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7Znv3S/0Risx4b0ZeRoP9GV1/qanj0FzXDAXhm0/Ink=;
-	b=J+pl3RW/RmZUetMwe+f/CqDTb4ai27g7+m4DSZhCSjmXtaY0mFLc22wLV7iEIMHpNjCd
-	 sTjtbCNSvNJHaYsJHZJmuEY4vHzbRZWq0GIKcta34qa+GduO4GhpIbqGhnfAF9dnWClbq
-	 v284EVyMXU1555gEQ/+ynUQHXxqSV7DjcAkckeSxgI70kC91gYJoiutLP7tIMB0BLnfDA
-	 SgLzKzlf19avO16u2S1JM/LyIHYlHCOfoaC4sCGHUBwcKGoMBUMNWAT/za+xgr6neMPsr
-	 8BrtzsichETmeLBeYSLROz28ZTbx6Zc88qoJX1uEa1oDctF0H8k0P0kgEs9WEPW2FGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170750;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=SnAqAg381veESmVUGrbbBgkSnsyfEytJcfyGHNrIA2Q=;
+	b=5IKwMeGbP8sxviKYxjCdD7YRGY35xe0YvPvTN39c7+usWSIxA4h7w2ClYvZMyVD7gZB9
+	 YPidHfxQ438zfk3TBazUWIdeOvnuffybxC1jCfsjBR4HUbk0sxwy4Z11QiyzHGD0G8A8T
+	 tLPH+K3xzuzIZTM8H/PCjCfTYIMhq6KtuCggqaMnJqxEN6N4/xllbkotbtARzHb9qGhIh
+	 RpQjPFFxqj+au7DMRVRglfOTblOXcRvHwhE2Pl2Aa3+cWhlOBd9lEruVx0kX70p9sJ764
+	 2h+54siFtHnHv744AZzKYHz92dmkFEp6omQ/3VK1JaiSJh0f39j1LX9OinnsPqbADvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kernelriot.com;
-	spf=pass smtp.mailfrom=kernelriot.com;
-	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=gF+a1XOk;
-	arc=none smtp.remote-ip=74.208.142.49
-Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cgQ7xvOM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E15D60A260C;
-	Fri, 20 Nov 2026 10:28:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E15D60A260C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADAFC606A320;
+	Fri, 20 Nov 2026 10:32:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=gF+a1XOk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
-	s=kr2026; t=1795170505;
-	bh=F37o9lPF5fbkfJltDpqXKh37zda6M0/QtC4EdaHujzs=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:From;
-	b=gF+a1XOkePhDL3DAVJAIDmYVUlHP/FgaKmR4N7xyWaGLU7TI1JSBSmO0tt6lf8JsP
-	 MDCtpH+SlqVxtj9xgNB46eptXDypNoUWifPSA7AhnymU//comVUbXk7kkNGeYjP1Ma
-	 MgVvTU1aCMmQCG2eXT1nvPxFQNO3L4VlBPgPiIyXGI+JxKev9yqoP06KK0RgFy30CP
-	 S54sQczd1d+/B3W8MdJJbx11vTRuGqlK3W8pWNgqg55Wf4wycUWzoSdAgqLXsw8eb+
-	 BIh8/0USwQR4tqFiCnmIUzkxXVtqXsryHO3/DxUourvLI6G8LHuarVnslng1dY5lNP
-	 TLN6ZbujgAwEw==
-Received: by mail.kernelriot.com (Postfix, from userid 995)
-	id 7D9D78D804; Fri, 20 Nov 2026 10:28:25 +0000 (UTC)
-From: Magnus Leatti <magnusleatti@kernelriot.com>
-To: Yao Zi <me@ziyao.cc>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Nespolino <g.nespolino@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 2/2] net: stmmac: dwmac-motorcomm: support Wake-on-LAN from S5
-Date: Fri, 20 Nov 2026 07:27:54 -0300
-Message-ID: <20261120102754.778283-3-magnusleatti@kernelriot.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120102754.778283-1-magnusleatti@kernelriot.com>
-References: <20261120102754.778283-1-magnusleatti@kernelriot.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cgQ7xvOM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 610A31F000C4;
+	Fri, 20 Nov 2026 10:32:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795170750;
+	bh=SnAqAg381veESmVUGrbbBgkSnsyfEytJcfyGHNrIA2Q=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=cgQ7xvOMY1CUiX0aYkbIQvGng8ZlUuGeFzZrfjUbTaFNa9DN6kgoTbyvXMWxe6Ljl
+	 CEec0denXCUf8fkH7k6AhvvSJGL+/F5tM2hbgbIcpxQAm1+zf0ha7900xL6zC3crrb
+	 Qtp3ODAO47xlsrDeTFJ44S/aFm8cnO/yYp2P8gqndS/3Wh8lzOWrul9KpCkcfrS5ql
+	 6ndE/zg8mjWAQ9UZvHKdfnDubebQe3tYHDDVX7YlhhXyj5mOb/B2uKfhU4pJQqM/6c
+	 gCeRiU+8qgwrycImQB5N5T8syCYIndrRKwCkKqxJuPYb6lLt+gFPtYrHysuoz8IXJK
+	 BeikglWnY4ZEA==
+Subject: Re: [PATCH net-next v4 1/3] ipv4: Check a Fragmentation Needed
+ against each path of a multipath route
+From: netdev-bot+sashiko@kernel.org
+To: deliran@verdict.gg
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+Date: Fri, 20 Nov 2026 10:32:28 +0000
+Message-ID: <179517074893.3136.1226707623351287544@kernel.org>
+In-Reply-To: <20261117193141.27004-2-deliran@verdict.gg>
+References: <20261117193141.27004-2-deliran@verdict.gg>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,111 +64,191 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-"wol g" is accepted, but the chip sleeps right through magic packets
-in S5: motorcomm_init() turns OOB WoL off and nothing turns it back on
-at power-off.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Turns out the chip can just arm itself. Hit it with a reset, OOB WoL
-comes right back on, and about 2-3 s later it has the PHY up, receiver
-running, the eFuse address loaded into the first MAC filter, and PMT
-ready for magic packets. Timed that from userspace without a driver
-bound.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-So on a power-off with "wol g": remove, reset, set WOL_CTRL_PKT_EN
-again because the reset clears it, enable PME, D3hot.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Notes:
+- [Medium] In net/ipv4/route.c, fib_nhc_pmtu() does not measure a path
+  the way its comment and the commit message say.
+- [Medium] ipv4: premature mtu clamping in __ip_rt_update_pmtu() locks
+  narrower paths
+- [Low] The fib_nhc_pmtu() comment (net/ipv4/route.c:1051-1055) says the
+  function returns 0, leaving the path alone, when what the path uses…
 
- - It wakes on the eFuse address, not the software one. Same as r8169.
- - Magic packets only. "wol u", reboot, kexec and interface down stop
-   at the remove.
- - Hibernation that powers off through .shutdown arms too, and resume
-   copes without a reset. Tried twice: woke on the packet, link back.
- - After a power loss (cable out and back in, BIOS set to stay off) it
-   won't wake until the next clean shutdown. The vendor driver does
-   the same, so that's the hardware.
+--
 
-With this the box wakes on a magic packet to the eFuse address, 5 of
-5. Without it, 0 of 3.
+ipv4: Check a Fragmentation Needed against each path of a multipath route
 
-Suggested-by: Yao Zi <me@ziyao.cc>
-Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
----
- .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 38 ++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
+This patch adds fib_nhc_pmtu() and calls it from __ip_rt_update_pmtu().
+Before the mtu of a Fragmentation Needed is cached in a nexthop exception,
+it is now checked against each path of a multipath route. The early
+returns based on the looked-up dst are kept only for callers whose dst is
+the path of their flow (from_lookup == false).
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-index 63ce2301a0f6..34abbdb645ec 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-@@ -12,6 +12,7 @@
- #include <linux/iopoll.h>
- #include <linux/module.h>
- #include <linux/pci.h>
-+#include <linux/rtnetlink.h>
- #include <linux/slab.h>
- #include <linux/stmmac.h>
- 
-@@ -27,6 +28,9 @@
- #define EPHY_CTRL				0x1004
- /* Clearing this bit asserts resets for internal MDIO bus and PHY */
- #define  EPHY_MDIO_PHY_RESET			BIT(0)
-+#define WOL_CTRL				0x100c
-+/* Magic and remote wake-up packet enable */
-+#define  WOL_CTRL_PKT_EN			BIT(1)
- #define OOB_WOL_CTRL				0x1010
- #define  OOB_WOL_CTRL_DIS			BIT(0)
- #define MGMT_INT_CTRL0				0x1100
-@@ -363,6 +367,38 @@ static void motorcomm_remove(struct pci_dev *pdev)
- 	stmmac_dvr_remove(&pdev->dev);
- }
- 
-+static void motorcomm_shutdown(struct pci_dev *pdev)
-+{
-+	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
-+	struct stmmac_priv *spriv = netdev_priv(ndev);
-+	struct dwmac_motorcomm_priv *priv = spriv->plat->bsp_priv;
-+	bool wake;
-+	u32 reg;
-+
-+	/* Userspace is still running and may close the interface */
-+	rtnl_lock();
-+	wake = system_state == SYSTEM_POWER_OFF && netif_running(ndev) &&
-+	       (spriv->wolopts & WAKE_MAGIC) && device_may_wakeup(&pdev->dev);
-+	rtnl_unlock();
-+
-+	/* The netdev is unregistered after this. priv and its mapping stay. */
-+	stmmac_dvr_remove(&pdev->dev);
-+
-+	if (!wake)
-+		return;
-+
-+	/* Reset re-enables OOB WoL; left alone, chip arms itself (eFuse MAC) */
-+	motorcomm_reset(priv);
-+
-+	/* The reset has cleared it. Without it the chip does not wake. */
-+	reg = readl(priv->base + WOL_CTRL);
-+	reg |= WOL_CTRL_PKT_EN;
-+	writel(reg, priv->base + WOL_CTRL);
-+
-+	pci_wake_from_d3(pdev, true);
-+	pci_set_power_state(pdev, PCI_D3hot);
-+}
-+
- static const struct pci_device_id dwmac_motorcomm_pci_id_table[] = {
- 	{ PCI_DEVICE(PCI_VENDOR_ID_MOTORCOMM, 0x6801) },
- 	{ },
-@@ -374,7 +410,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
- 	.id_table = dwmac_motorcomm_pci_id_table,
- 	.probe = motorcomm_probe,
- 	.remove = motorcomm_remove,
--	.shutdown = motorcomm_remove,
-+	.shutdown = motorcomm_shutdown,
- 	.driver = {
- 		.pm = &stmmac_simple_pm_ops,
- 	},
+> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+> index d0a5f6d77094c..b90eed715fb5a 100644
+> --- a/net/ipv4/route.c
+> +++ b/net/ipv4/route.c
+
+[ ... ]
+
+> @@ -1046,54 +1048,87 @@ out:	kfree_skb_reason(skb, reason);
+>  	return 0;
+>  }
+>  
+> -static void __ip_rt_update_pmtu(struct rtable *rt, struct flowi4 *fl4, u32 mtu)
+> +/* The pmtu to cache on a path for the mtu of a Fragmentation Needed, 0 to
+> + * leave the path alone: what it uses now, as ipv4_mtu() reports it, is not
+> + * above the mtu, or its pmtu is locked. An exception about to expire is
+> + * refreshed, a locked mtu is capped at what the path uses.
+> + */
+> +static u32 fib_nhc_pmtu(struct fib_nh_common *nhc, const struct fib_info *fi,
+> +			__be32 daddr, u32 mtu, bool lock)
+> +{
+> +	struct fib_nh_exception *fnhe = find_exception(nhc, daddr);
+> +	struct net *net = dev_net(nhc->nhc_dev);
+> +	u32 path_mtu = 0;
+> +
+> +	if (fnhe && fnhe->fnhe_genid == fnhe_genid(net) &&
+> +	    time_before(jiffies, fnhe->fnhe_expires)) {
+> +		if (fnhe->fnhe_mtu_locked)
+> +			return 0;
+> +		if (!lock && fnhe->fnhe_pmtu == mtu &&
+> +		    time_before(jiffies, fnhe->fnhe_expires -
+> +					 net->ipv4.ip_rt_mtu_expires / 2))
+> +			return 0;
+> +		path_mtu = fnhe->fnhe_pmtu;
+> +	}
+> +	if (!path_mtu)
+> +		path_mtu = fi->fib_mtu;
+> +	if (!path_mtu)
+> +		path_mtu = READ_ONCE(nhc->nhc_dev->mtu);
+> +	path_mtu = min(path_mtu, IP_MAX_MTU);
+
+[Severity: Medium]
+Does path_mtu here match what ipv4_mtu() reports for the path? The comment
+above and the commit message both say it does.
+
+ipv4_mtu() goes through ip_dst_mtu_maybe_forward(), which ends with:
+
+include/net/ip.h:ip_dst_mtu_maybe_forward() {
+    ...
+	res = mtu - lwtunnel_headroom(dst->lwtstate, mtu);
+    ...
+}
+
+rt_set_nexthop() sets rt->dst.lwtstate from nhc->nhc_lwtstate. The
+existing ip_mtu_from_fib_result() does the same subtraction:
+
+	return mtu - lwtunnel_headroom(nhc->nhc_lwtstate, mtu);
+
+fib_nhc_pmtu() takes fnhe_pmtu, fi->fib_mtu or nhc_dev->mtu and does not
+subtract the nexthop's lwtunnel headroom.
+
+For from_lookup == false, the check kept in __ip_rt_update_pmtu() still
+uses ipv4_mtu(dst):
+
+	if (!from_lookup && (rt->rt_mtu_locked || ipv4_mtu(dst) < mtu))
+		return;
+
+Take a nexthop with an lwtunnel encap of headroom H (MPLS, seg6, ...) and
+an ICMP mtu M, where dev_mtu - H < M <= dev_mtu:
+
+- ip_rt_update_pmtu() rejects M.
+- ipv4_update_pmtu() and __ipv4_sk_update_pmtu() accept M and create an
+  exception.
+- After that, ipv4_mtu() reports M - H for that path.
+
+The lock branch, min(mtu, path_mtu), also caps against the raw device or
+metric value rather than the ipv4_mtu() value.
+
+Should fib_nhc_pmtu() subtract lwtunnel_headroom(nhc->nhc_lwtstate, ...)
+the way ip_mtu_from_fib_result() does? If not, should the comment and
+commit message describe the raw value it actually compares against?
+
+> +
+> +	if (lock)
+> +		return min(mtu, path_mtu);
+> +	return mtu > path_mtu ? 0 : mtu;
+
+[Severity: Medium]
+When the Fragmentation Needed reports an mtu below ip_rt_min_pmtu,
+__ip_rt_update_pmtu() sets lock and replaces mtu with ip_rt_min_pmtu.
+This happens before any path has been compared against the reported
+value. fib_nhc_pmtu() only ever sees the clamped mtu, and its lock
+branch returns min(mtu, path_mtu), which is never 0.
+
+Take a path where path_mtu < reported mtu < ip_rt_min_pmtu. That needs
+either a device or route mtu below 552, or a raised
+net.ipv4.route.min_pmtu.
+
+The commit message's rule is to cache the mtu only where it is lower,
+so this path should be left alone. Instead:
+
+- fib_nhc_pmtu() returns path_mtu.
+- update_or_create_fnhe() then creates or overwrites an exception with
+  fnhe_pmtu = path_mtu and fnhe_mtu_locked = true, on a path that was
+  already narrower than the reported bottleneck.
+
+Before this patch, the old_mtu < mtu check ran ahead of the clamp. So
+on a single path route this could not happen. Now it happens for every
+path reached from ipv4_update_pmtu() and __ipv4_sk_update_pmtu(),
+single path routes included. It also happens for the narrower legs of
+a multipath route reached from ip_rt_update_pmtu() when the flow's dst
+is a wider leg.
+
+A locked exception there is not harmless:
+
+- rt_mtu_locked makes ip_dont_fragment() return false for
+  IP_PMTUDISC_WANT sockets. DF is cleared and traffic on that path
+  gets fragmented.
+- fib_nhc_update_mtu() does not raise a locked fnhe_pmtu when the
+  device mtu grows, so the path stays at the old value.
+- fib_nhc_pmtu() itself returns 0 for a locked exception. Every later
+  Fragmentation Needed for that destination is ignored on that path
+  until the exception expires.
+
+Should fib_nhc_pmtu() also be passed the mtu as reported? It could then
+leave the path alone when path_mtu is below that value, and only apply
+the ip_rt_min_pmtu clamp and the lock to paths the report actually
+narrows. Or is locking an already narrower path intended here?
+
+[Severity: Low]
+The comment says the path is left alone when what it uses now "is not
+above the mtu". This line returns 0 only when path_mtu < mtu.
+
+Take path_mtu == mtu with no valid exception, so path_mtu came from
+fi->fib_mtu or nhc_dev->mtu. This returns mtu, and __ip_rt_update_pmtu()
+calls update_or_create_fnhe() for that path. That call:
+
+- allocates a new fnhe whose pmtu equals the mtu the path already uses
+- may evict another fnhe through fnhe_remove_oldest()
+- marks nhc_rth_input and every per-CPU nhc_pcpu_rth_output of the
+  nexthop DST_OBSOLETE_KILL
+
+This also seems to contradict two statements in the commit message:
+
+  cache the mtu only where it is lower
+
+and:
+
+  A Fragmentation Needed that changes nothing costs the ICMP callers a
+  fib lookup and a look at the exception of each path.
+
+Should this return 0 at equality when path_mtu did not come from an
+exception that needs refreshing?
+
+> +}
+
+[ ... ]
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193141.27004-1-deliran%40verdict.gg
