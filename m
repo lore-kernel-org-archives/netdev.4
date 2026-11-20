@@ -1,71 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168424;
-	b=34bsj3Y3fYOv5snszLKbhumMgYI/cAeTXO1Xcov6YCkcEh0PddApuloZXf+wprTQbhHQ
-	 H06TBKOWQSkad/VvEfjviyti1ihJ8ywMgggzNZvgP9M3iDbBuyaUX+QBDBE7NlfxGx3Xt
-	 N54hDuPvd5e8P7yiukPM67zETN8iw4z25tLcoUT4wg5rel+zTmzSQnZIDMuMYSKcSKO5B
-	 6U4gbJB+XrWnk/da1UHNb8Z88FO0s4cgFiESf6Bf/a7HYK+nB9v6Fu5I+s8soMG5J8YEk
-	 JtcgSv5sZJfPKoJHAaRPxEPVvk3xmOZS14RCONnY88BT9+PGtCSF56ouZCPEd7TxjOA==
+	t=1795168426;
+	b=js/tstw71kj+BUej25bQ1+RoidR0L/KxBZi7bvLEQ3WQxpd+QpFzPG/zxNTpBkHH13E4
+	 JalKCw3N8LY5vcPs6UYwN9GXQqdPO6lW8sAnWBrRBv7DXtys7CrzZmh+YgBFrzO16etM3
+	 nk4/nAD3FiDLT8uZZyLUjtRjAcfDorlSV/KMt/IL4ceaFvUVgg9lfjK8IHaSA/1EusFwn
+	 A4jAIsIFV63+thtcdVm8muCbr5CAxxT1QYIy+qX0y75mHnsRC00sMd2G6gI5io1ujW6WN
+	 ok8hbd3cPnA/1JPSLnNEElM9n7TuOt4ShZ50scbzOl8c/v5QcKflF5urXz3U91m41/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168424;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168426;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
 	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=kVAcCf7YdsZJpIS81TVP41dIPlcYyJk0wj4QR9M2Nb8=;
-	b=HFtkXN+DluUC1kV9u4m801UtWF/u8qhM4eKpjrQihSWvxgtOazf43iOq6sdxF499zltl
-	 UN31g7HNf8jkJ2n3Baa8p9p/3pVcbQ2dyUyw/Gh9LHCqcgO/AyvI14P97DXOmjilzAr7C
-	 7JM73dPkbTMfG0+W17sajLhRHSzFKMj1rZqmW4vKjQKtjsAvFyW5JdR86XY8YfQjoxNLg
-	 zGdbJqBXLlYfJuwpupkNNvYquSZqN34VheQPCa3AYyqJXLClD+eu4UeipVkcmPs6+lY5d
-	 4LkkeXH740xVNFG5OdlfmkW4EGDpTSndaCppEARNIky0L65hwAlEoQq0z9KfmV52aBA==
+	bh=5ofwWF4BbSu2ZoIqY2hK6IvWa8riDyXLn0Lwxc6gChk=;
+	b=Ku/yX7m3SAwf2F+9HW6Nv9N7UN2widcFbl+/IVhA5tDMpEy6+ZVqSz2fp/5n4ihep0IK
+	 fOo3AMCIqTyZBh/vZy6sy2OLh101LZa2NQOegP8IYCWgo6n9UlDG6DQSvjdAX67+L6n06
+	 FfiHneCEM7fqiKUfOwOYWXhbBN7Piyh5f0Yu/r2nBDhxY1XPiKwGZCRKN7pQmSKlxUIPH
+	 ijnfvLyq+Ib22AeRYjX1j4+P67EIb7VjfMSbWHwSFR1uxywGPiCYfHoLTbeTpkG5TkOsl
+	 PQDWOKTrTilu92Gubs9/hJBzWs5dtgyuTKIFO002Pj4AOOacuHv9aumZKCWJSdnM81g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jKc5z3qn;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 138B9606A339;
-	Fri, 20 Nov 2026 09:53:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 138B9606A339
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=oNMk6ctz;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 96993606A33B;
+	Fri, 20 Nov 2026 09:53:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96993606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jKc5z3qn
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=oNMk6ctz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=jKc5z3qnKaFLYzTTaMZdrjHSZGTI6l4WURly0La+uATyMXCkG+81DAVnbeIfu4zIqYKzQBT99uMte
-	 d2WIixcAirOlJcrEqqAHv+Rb3lAcr/8rYhKCvDLnDldu7+q2iVm/bw0Te7eRXI3kRR3GqqM0jSaLP2
-	 eiTTlxyRCuek+oTk=
+	b=oNMk6ctzGqaLhfVyU3qsOK6FrF65dzVgWFJQCXhhOaAe+ByUhLuZlCgZ548DMNcGeAR3oF+0sgboG
+	 USb2XGDq0NvwlacFx92RLfh3cBW+pw84tkEdGpGm16pOfwYy/wHIRXY7Q/YZahnZvpMH8BpQKpADJF
+	 hq0VyMFL+yLiNOeM=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b0018a3f77-645bd;
-	Fri, 20 Nov 2026 17:53:39 +0800 (CST)
-X-RM-TRANSID:2ee26b0018a3f77-645bd
+	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b0018a4ceb-c82a4;
+	Fri, 20 Nov 2026 17:53:42 +0800 (CST)
+X-RM-TRANSID:2ee46b0018a4ceb-c82a4
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b0018a1aad-20e06;
-	Fri, 20 Nov 2026 17:53:39 +0800 (CST)
-X-RM-TRANSID:2ee96b0018a1aad-20e06
+	by rmsmtp-syy-appsvr10-12010 (RichMail) with SMTP id 2eea6b0018a444e-206a2;
+	Fri, 20 Nov 2026 17:53:42 +0800 (CST)
+X-RM-TRANSID:2eea6b0018a444e-206a2
 From: Aibing Chen <chenaibing@cmss.chinamobile.com>
 To: netdev-bot+sinfo@kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+Cc: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	linux-usb@vger.kernel.org,
 	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] net: hso: cap the MTU and drop oversized frames
-Date: Fri, 20 Nov 2026 17:53:37 +0800
-Message-ID: <20261120095337.1088-1-chenaibing@cmss.chinamobile.com>
+Subject: Re: [PATCH net] net/mlx5: fix a stack over-read in the QP debugfs files
+Date: Fri, 20 Nov 2026 17:53:40 +0800
+Message-ID: <20261120095340.1564-1-chenaibing@cmss.chinamobile.com>
 X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <179513801218.3291.4900870389760727017@kernel.org>
-References: <179513801218.3291.4900870389760727017@kernel.org>
+In-Reply-To: <179516120532.3291.16859269248680746966@kernel.org>
+References: <179516120532.3291.16859269248680746966@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,18 +83,22 @@ Content-Transfer-Encoding: 8bit
 
 Hi,
 
-Same provenance as for v1: the missing bound was found by code inspection,
-after the automated review of the companion skb_tx_buf fix in this driver
-reported that hso_net_start_xmit() copies skb->len bytes into the fixed
-2048 byte mux_bulk_tx_buf without a bound check, and that hso_net_init()
-never sets max_mtu.
+How it was found: by code inspection, not from a report or a tool - while
+looking at how the mlx5 debugfs field readers use the return value of
+snprintf().
 
-The overflow itself was not triggered at runtime; it is statically
-decidable from the code.  The additional paths listed in the review of v1
-(AF_PACKET with PACKET_VNET_HDR, tpacket_snd() with a vnet header, and a
-route MTU metric above the device MTU) are covered by the length check
-added in v2, which drops such frames with SKB_DROP_REASON_PKT_TOO_BIG and
-tx_dropped accounting.
+Was it triggered: no, I did not reproduce it at runtime.  It is statically
+decidable from the code: snprintf() returns the length the output would
+have had (23 for "Invalid transport type" plus the newline) instead of the
+number of bytes written (18), and simple_read_from_buffer() uses that
+value to bound the copy to userspace.  It is only reachable when the
+device reports a QP transport value that mlx5_qp_type_str() does not name.
+
+Hardware: not tested on real hardware, I do not have mlx5 hardware
+available.  The change only uses scnprintf() so that the length passed to
+simple_read_from_buffer() can no longer exceed the buffer, and enlarges
+the buffer so that the longest string still fits; neither needs device
+specific behaviour.
 
 Thanks,
 Aibing Chen
