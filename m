@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134371;
-	b=E8uJALsDqv1aYxNylfWyWI2t3K8dGgbNob31q7lV3Mrlznd0yoeEQRPGRRlqZ3xcnY61
-	 nXS/K/rSUvCzk+5y+fPSZ1054YuElG3iSqgwFSMpegq9Mjt7XUmP+h50jKYm8Am0oobp2
-	 /rx6TjEdDrP5ngGT8UGFpXaIXSpTcZMzGRt96A+HuzQPB7jGsV4vyHlcRnvWeA99UV9J8
-	 EDye/D5Fwt1xp1Nf3oMUFAgmFs6hom18GrNTpARQ//qw93fq03dERw7LVJEC3L8KT9wTj
-	 GR1Df7DOEUgXiIqJrp//isiB2+p6yoJPHcPSwT+vm41ol10AkjGCphjj9QjrsG2q5/g==
+	t=1795134373;
+	b=lxIN6LOXtwxXl6mFKJt3rUoBt7LdzAQUk8VWNo5sw7ILNotcA2rUriGR4AEUebieR4sy
+	 hlMXwWMzUtF+aCKQOZ47dsq7IwVYnzWQVVZIstuqfnkW/QMJJYoCisKv7oG/SC0aNgjeW
+	 teCygTtt7evvzRxr3LnuRfOJod3ZFo0Ztty7G0r8mFwu25gQhU8lMspAQByHPEDGeGVsr
+	 FUvKylhRkw44mHWMXPkpwauQWOMEUQziRzpBdhcOM7BbTy8YkiXxtYtq7MoYu2CuaSAMb
+	 gyF9LFVT92fFv4sGZxYi/A5Op2ZZ5GuqAx7sSr46DRGSUT/lpWtDY5otOJXNyjuHitQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134371;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134373;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=nuX7THCmnLqGa7+74d5AVQr2uRc60xlpjShzdknShgY=;
-	b=l0Ew5L0DSh0wdG/uEdsgDKtXx/30S2elBg07mqMIPi8G+ez7mWwkgfPiPSYfsSlOpZd2
-	 oUwA+w2X92ELtLB6+nS28EQLgQ/nmKi/Xgjre5Bv5IN1rVntHFu9+dy/2WZ9yJWzJfWC3
-	 SY6ejv1iPcLicjmYYgAAK4YWGU9YcpQ39lOR5FAl8miri3DTJ9qM04m8hUsPaZjNl8AZc
-	 Q8cJ+hpzXtCeQOp2v9hLKmPkwK9556t5PhjvGlhJijkn8zHwGmcxr41s6/1bqDK1SKamx
-	 9sJ63C/j07neq5OlNo3skA6414WDNv/77JRxo0USHVN0nRnFeZKXdaG8b9AqdhwbJBA==
+	bh=mOagZS7KAFKo44G+tzdlLS8PcffQ89K8YxtJsO34uKo=;
+	b=U1c0hJB4qGZ6IiIemHTnOc/CEEKb4tlr9GJEujDEx5IfI5Ukknkx+3p6MOU0k6MR9a9X
+	 r2XvvOZ1I/w78VEpMPARl9ujZwy8gi9Ixsfna+LFtSbxh/3GIFw1S/7c75DhsxHbMn/2c
+	 k9280VVLrJT4iAl5fgUKo9HxWmIrPTOUvXp+y4588m6K619YaqYSBRmtEs0HyyVXnP68a
+	 OAkl558+C57JJ2PUJ6un6CLKrV1nIhc0SxHDlcCigKP4kktTGMiaXXrhl4yAyecKWM8KL
+	 4j1L/F1ecx3hw/DAfZ+OKXe695yHOrZpzABtuANZLCXJ428DGKQ33evrsYlbQ3agJaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pHzM07bY;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xLHktkA4;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02F0B606A337
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:26:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02F0B606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7399D60A6F73
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:26:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7399D60A6F73
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pHzM07bY
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so249550f8f.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:26:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xLHktkA4
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a42b34e930so205001f8f.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:26:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795134369; x=1795739169; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795134372; x=1795739172; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nuX7THCmnLqGa7+74d5AVQr2uRc60xlpjShzdknShgY=;
-        b=pHzM07bYYYGn5CeLneZvIOorVvK6Rf9k0bjdAQ6X0SbjIKd5irJym8phnYbYlxyWMM
-         xV/FnriaQxuGZONNnClFSdnkZN+T7FBpYHnS9Zn/Uwf9KZKiXsKb/4h1KbJIvLNrf6Ty
-         b/1aYP5hC6Aj7v6zeSsKt8WexWzpYfgdJonvnQ8Tv9uG68d6x+Fn0o+NeVn9lyxu0zfD
-         mDGsz66EbJa4jA15U/yx4+aD/v61LcilNQfuE28rqPA6fBHcDcv1kkMQNEb7i2g9MVJy
-         WNZdvZznk4SiMhLwHmOdaRG+YF7ajrwZ1TjMbNaG7kMjXxbbZc15BVpbW56S45SetOdE
-         KjVg==
+        bh=mOagZS7KAFKo44G+tzdlLS8PcffQ89K8YxtJsO34uKo=;
+        b=xLHktkA4z+MREgOPIaJJMK0ppf56iAg34EROcEYPZDErtMcoCLZkusRo25bs7Lcfzg
+         AND9tJqUhGMi1CJH/aTmGB13Ix04icIlcBBz+TKYY6BRVlaSXWhFvk03Yw6qe+iF531D
+         f4joEXAW4puPL/fEhrAguYdMn4IZFPA50T3RxViYAH7YP0EI+8yQCacN1fakcOgGk4lb
+         /fqPdXMW7/ZC5tG03rW3bxiVhnfa1lpsTRKW0CBwtyqCVIkTNcLEq3Eg8x7q/o3++sB5
+         HMW2g9Q6Gk/PgnHsmmshl1rXa+fPuIqpU7Qlh6NdKquvv2yYPE5oyo8K3xV0s4vzn0Q1
+         Ro1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134369; x=1795739169;
+        d=1e100.net; s=20260707; t=1795134372; x=1795739172;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nuX7THCmnLqGa7+74d5AVQr2uRc60xlpjShzdknShgY=;
-        b=PAI6kDvHKSs+6pLmp2UtGpcPm6fbgCNK5rFf3eyz3FWVRuG8pgf7WmS1rFTJ4JWdsZ
-         iBj9QtFAbZA5gJV7rWRCerDomHJqItk1b+S0coCWoGk6RH249vPmMV1npiwNMgKefERM
-         HNXlEJdiUPIgOB/qvep0rT08WzlShl8+EEfIfFe8UtbmCbty/bGVXYmguKZBFM+XpXrE
-         qmz3mqQ9QiWj6pP4ny7sq+10J79UrWEN+5HZv+mEwjwqPron51nqoYfEP1qFv8SLpo4L
-         t27VsY9y0v2xevn+jxxkzbX8suwe7kvG69hTyGOBh+J0YNXfKt5fnFaiCKH5aeMZwjE1
-         hezA==
-X-Forwarded-Encrypted: i=1; AL+hErFr02qRm4Mnvp0OZUJhksGvP4ok10/lADvpIOmmmzF74IEV4LzJfQYSzE7tcX2pZD0tZsFj3Yw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rBTK1QT8aY6CtESIbk/8dKxQAXYz3HkXTuKCWayw5gSmhLkQd
-	6C99Wqcxuu6elSn98Zd8bAX+cjTQ991lapuxaWKo8dxDYlq+U5bqPnBp
-X-Gm-Gg: AZFdTZdCHHLdpmPgMRvHI4oGT8/OwV9Fya/gG8MLFK2QeISR4+wLh35ORSlmy855lD9
-	WPkmUV7LmxgUouO60aDbfeubcGsl0uGN1mkArIxTY2suZedU/r4yGWhl9uNMlJUJh6dzVoA874Z
-	Jx5JkX1TIASPPhWUyg8ant4QNJ4Da8vdK3wTL/DtMcDscZ54+vLggRIKsJ9kEInJAdagLcAQp4H
-	4+MEXm4CRqbRKMvX+tc39meJCkfDT+YnC3DFAWqcwl7qOe1DgsuJLjFc9ZzeqyI9V7O82vglrOD
-	LdFU2nkqEUhdAFMeYQ4nSgbaUVQ+f3UQHrw7dgtsBP9mQ0yjX/v9SwvD1EBkEh9j68RjtS0MJHu
-	qr8lO4DMIjIUpflARb1Moz3vF58Ii6lHCle3AdyCDoInnKkR9Quh9BVptM9kTVlVZsJ1+1mABuA
-	+svMo+TEzOMIcJy+BNBg8Aj/BQTr7Cnmk32wCV1tvOJOyjdyiRN9sCmG1NNkaA/8fQ+Z0JQalTa
-	XdhGXQZJkoD2pQJ6X0wkfV5uwIV6a9KqSube4/8geOnRRPTU1c2CwW5dGfR3Qv1kI4f4krn+SSw
-	YBmPgNWFfqefdwUJP76aykR4D2RHUr+iLX/kFSbpnPFA/80UWCVOe6ZDxl+gE3eEzcYgwQbGt7h
-	HyuuPs80t6DEX5au73V0DHxv77P3gi/ZIbfXW3jSTfAty3ZQ4wUDUKwUoLGBf4Jjk4WrgC1vc
-X-Received: by 2002:a05:6000:2dc7:b0:4a5:bb9f:9c3c with SMTP id ffacd0b85a97d-4abb4c7ac0dmr2588519f8f.53.1795134369416;
-        Thu, 19 Nov 2026 16:26:09 -0800 (PST)
+        bh=mOagZS7KAFKo44G+tzdlLS8PcffQ89K8YxtJsO34uKo=;
+        b=FPZct7JyAkm9zR49cC54KSotyXSTw+pHpob+93E65S039uXw5c4Ddp1jZuR2o/un1z
+         ZjqJBA+0e6U51A+ClglwI9pJZBvULmpbFz5286pQTwQGOZkHBfYSdyknhL7d6P6Rzqzv
+         MCtpxp+2WW7qJ0DWp08sXvwXpCfcx7IsuOoGKntQcmU69KMe3tjFHcasBKEmsURtBOlS
+         JXUBjYcGS09CZqD8MRm2P2sXHFCD43WSMKiFW+9Xjv95Iqy/NortngTzYmFMAmAullCx
+         3m+qkwFkn7J28C4XhZYNuTquuewfctU0fV+24x9wwZy+Gb923Kv8HroT4/Xm6vOV54n8
+         Zjzg==
+X-Forwarded-Encrypted: i=1; AL+hErFs7RGJ4zmNG2rDAiGujtB9BrQz7/XH/2GMkzzhJFaMznE7Z/9D8e1YfpFsZhL1Bnz7QE7naUE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8j5HVGQtjpXkBg4kOMfaaDGmQ+BHg8+lB3TVZmXzvAaqcHM2cC
+	19NvArfuL/Z1uB36yyJbT0quWXVv2G72Gn0OMh0hj6RzYrJAmN9c5I0l
+X-Gm-Gg: AZFdTZcPw0TsA84FDS6VlGU+bHGycPeuzw4OnzAaNvE6BJrrnYIqC0AoB2bslTrwxQS
+	6LrE/BarYwoUBirTA85wVlfnQgoSw87HdLnU3tnj9zUcqYaAa8hqczR+MmkIKPiOF9OTMNaAiFa
+	yG5tkYtNYj+X9/YCCU0QwiISSKOfFv9qL9k2gyIYp4wWWSeW8//lmswt1i9xIoxSbiS1QyNC5cq
+	n72DKskoVOrARy6DliXrOLXQZDv4hpWwM1vwGKz2/VfGSytvc0rzuO5ZLUJUNvC1US/iRQiep7T
+	1AcxPQCZX5wAe4LrXRoPFLvdIDo0QnXtMgLFPiOqwP8Y9ti9c+GbnK0OeoPuEQ1Wf5cba8iTAb7
+	uaAfYRE6lv9nGpiXn7Caq+eS3AAX8pq1sWLv8FEr3ae2k5Y0Fe0qbQTD02DrNGZGewTi1naHD2n
+	Kv58fxAuQJGbTwCSnqskNJAiojU1440ZMxGociyv+QI1SJdvqK70dGt0Nib5MdOTY5x+jZ3zvz3
+	m8/vZNB08y4dTYq4zB/NFtip3NxGjC9z4Bv1G5ezg5F3kZHLJHtocLDl8Ft1K9g9rvaxhbmtq4O
+	osmUEi5CG9aOXQ3r5oveAyqy2SfrMyZePkUtE8HaXF4s4dqxO2auLbIUF7vF3ZazFdIG0Gmt266
+	wF510tm8iLZa3bUf69Na7YYaZkY0WPLYf2qWw+OuqIbOn4R/ZIUK2CLWy7eFR6gYBuL93pgxf
+X-Received: by 2002:a05:6000:2506:b0:48d:ba3b:af36 with SMTP id ffacd0b85a97d-4abb47b0f64mr2492662f8f.37.1795134371827;
+        Thu, 19 Nov 2026 16:26:11 -0800 (PST)
 Received: from iku.lan ([2a00:23c8:254f:fd01:c5c5:590b:f4b8:3e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm2629998f8f.55.2026.11.19.16.26.08
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm2629998f8f.55.2026.11.19.16.26.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:26:09 -0800 (PST)
+        Thu, 19 Nov 2026 16:26:11 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@linux.dev>,
@@ -106,9 +106,9 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v5 17/24] net: dsa: rzn1-a5psw: Add fixed frame length workaround for management port
-Date: Fri, 20 Nov 2026 00:25:27 +0000
-Message-ID: <20261120002549.1908299-18-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v5 20/24] net: dsa: rzn1-a5psw: Get lookup table size from OF data
+Date: Fri, 20 Nov 2026 00:25:30 +0000
+Message-ID: <20261120002549.1908299-21-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
@@ -125,95 +125,106 @@ Content-Transfer-Encoding: 8bit
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-The ETHSW IP used in SoCs such as RZ/T2H and RZ/N2H has a hardware issue
-where the internal mgmt_tag_vld signal is asserted as a level instead of
-a single-cycle pulse. This causes the frame length counter on the
-management (CPU) port to over-increment, so valid frames are falsely
-detected as oversized and dropped.
+The RZ/N1 A5PSW has 8192 lookup table entries, whereas the RZ/T2H
+and RZ/N2H ETHSW have only 4096 entries.
 
-The recommended workaround is to program the maximum frame length
-register (FRM_LENGTH) of the management port with a fixed, large value.
-
-Add a management_port_fixed_frame_len member to struct a5psw_of_data to
-hold the SoC-specific value. When it is set, program A5PSW_FRM_LENGTH
-for the CPU port with this value in a5psw_setup(), and skip updating
-FRM_LENGTH for the CPU port in a5psw_port_change_mtu() so that MTU
-changes do not override the workaround.
-
-No functional change for existing SoCs, which leave the value unset.
+Add the lookup table size to struct a5psw_of_data, derive the address
+mask from it and use it in the FDB and ageing code.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 v4->v5:
-- No change
-
-v3->v4:
-- No change
-
-v2->v3:
-- Marked of_data as const pointer to avoid build warning
-
-v1->v2:
-- Added info about the IP issue and the workaround.
-- Updated commit message
+- New patch
 ---
- drivers/net/dsa/rzn1_a5psw.c | 17 ++++++++++++++++-
- drivers/net/dsa/rzn1_a5psw.h |  3 +++
- 2 files changed, 19 insertions(+), 1 deletion(-)
+ drivers/net/dsa/rzn1_a5psw.c | 10 ++++++----
+ drivers/net/dsa/rzn1_a5psw.h |  4 ++--
+ 2 files changed, 8 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-index c59d881ce10f..9475e53752ce 100644
+index 7e9bc252d92a..c0c1f45852da 100644
 --- a/drivers/net/dsa/rzn1_a5psw.c
 +++ b/drivers/net/dsa/rzn1_a5psw.c
-@@ -211,6 +211,10 @@ static int a5psw_port_enable(struct dsa_switch *ds, int port,
- static int a5psw_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+@@ -311,18 +311,19 @@ static void a5psw_phylink_mac_link_up(struct phylink_config *config,
+ static int a5psw_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
  {
  	struct a5psw *a5psw = ds->priv;
-+	const struct a5psw_of_data *of_data = a5psw->of_data;
-+
-+	if (dsa_is_cpu_port(ds, port) && of_data->management_port_fixed_frame_len)
-+		return 0;
++	unsigned int entries = a5psw->of_data->lk_table_entries;
+ 	unsigned long rate;
+ 	u64 max, tmp;
+ 	u32 agetime;
  
- 	new_mtu += ETH_HLEN + A5PSW_EXTRA_MTU_LEN + ETH_FCS_LEN;
- 	a5psw_reg_writel(a5psw, A5PSW_FRM_LENGTH(port), new_mtu);
-@@ -995,8 +999,19 @@ static int a5psw_setup(struct dsa_switch *ds)
- 		if (dsa_port_is_unused(dp))
- 			continue;
+ 	rate = clk_get_rate(a5psw->clk);
+-	max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * A5PSW_TABLE_ENTRIES * 1024),
++	max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * entries * 1024),
+ 		       rate) * 1000;
+ 	if (msecs > max)
+ 		return -EINVAL;
  
--		/* Enable egress flooding and learning for CPU port */
- 		if (dsa_port_is_cpu(dp)) {
-+			/*
-+			 * Workaround for ETHSW IP issue, mgmt_tag_vld is asserted as a level
-+			 * instead of a single-cycle pulse, causing the frame length counter
-+			 * to over-increment and trigger false oversize frame drops.
-+			 * The recommended workaround is to set the maximum frame
-+			 * length on the management port.
-+			 */
-+			if (a5psw->of_data->management_port_fixed_frame_len)
-+				a5psw_reg_writel(a5psw, A5PSW_FRM_LENGTH(port),
-+						 a5psw->of_data->management_port_fixed_frame_len);
-+
-+			/* Enable egress flooding and learning for CPU port */
- 			a5psw_flooding_set_resolution(a5psw, port, true);
- 			a5psw_port_learning_set(a5psw, port, true);
- 		}
+ 	tmp = div_u64(rate, MSEC_PER_SEC);
+-	agetime = div_u64(msecs * tmp, 1024 * A5PSW_TABLE_ENTRIES);
++	agetime = div_u64(msecs * tmp, 1024 * entries);
+ 
+ 	a5psw_reg_writel(a5psw, A5PSW_LK_AGETIME, agetime);
+ 
+@@ -511,7 +512,7 @@ static int a5psw_lk_execute_lookup(struct a5psw *a5psw, union lk_data *lk_data,
+ 	if (ret)
+ 		return ret;
+ 
+-	*entry = ctrl & A5PSW_LK_ADDR_CTRL_ADDRESS;
++	*entry = ctrl & (a5psw->of_data->lk_table_entries - 1);
+ 
+ 	return 0;
+ }
+@@ -638,7 +639,7 @@ static int a5psw_port_fdb_dump(struct dsa_switch *ds, int port,
+ 
+ 	mutex_lock(&a5psw->lk_lock);
+ 
+-	for (i = 0; i < A5PSW_TABLE_ENTRIES; i++) {
++	for (i = 0; i < a5psw->of_data->lk_table_entries; i++) {
+ 		reg = A5PSW_LK_ADDR_CTRL_READ | A5PSW_LK_ADDR_CTRL_WAIT | i;
+ 
+ 		ret = a5psw_lk_execute_ctrl(a5psw, &reg);
+@@ -1357,6 +1358,7 @@ static const struct a5psw_of_data rzn1_of_data = {
+ 	.pattern_ctrl_base = 0x3eb0,
+ 	.vlan_res_vlanid = GENMASK(16, 5),
+ 	.vlan_res_portmask = GENMASK(4, 0),
++	.lk_table_entries = 8192,
+ };
+ 
+ static const struct of_device_id a5psw_of_mtable[] = {
 diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
-index 58690f5f3887..942931cbc402 100644
+index 29d205e2331d..fd523fe7bf47 100644
 --- a/drivers/net/dsa/rzn1_a5psw.h
 +++ b/drivers/net/dsa/rzn1_a5psw.h
-@@ -237,12 +237,15 @@ union lk_data {
-  * @npcs: Number of PCS connected to the switch
-  * @cpu_port: CPU port number
-  * @tag_proto: DSA tag protocol used by the switch
-+ * @management_port_fixed_frame_len: Fixed frame length for the management
-+ *   port to account for the HW issue.
+@@ -93,7 +93,6 @@
+ #define A5PSW_LK_ADDR_CTRL_WAIT		BIT(27)
+ #define A5PSW_LK_ADDR_CTRL_READ		BIT(26)
+ #define A5PSW_LK_ADDR_CTRL_WRITE	BIT(25)
+-#define A5PSW_LK_ADDR_CTRL_ADDRESS	GENMASK(12, 0)
+ 
+ #define A5PSW_LK_DATA_LO		0x40C
+ #define A5PSW_LK_DATA_HI		0x410
+@@ -210,7 +209,6 @@
+ 
+ #define A5PSW_LK_BUSY_USEC_POLL		10
+ #define A5PSW_CTRL_TIMEOUT		1000
+-#define A5PSW_TABLE_ENTRIES		8192
+ 
+ struct fdb_entry {
+ 	u8 mac[ETH_ALEN];
+@@ -241,6 +239,7 @@ union lk_data {
+  * @pattern_ctrl_base: Offset of the PATTERN_CTRL register of pattern 0
+  * @vlan_res_vlanid: VLANID field mask of the VLAN_RES registers
+  * @vlan_res_portmask: PORTMASK field mask of the VLAN_RES registers
++ * @lk_table_entries: Number of entries in the lookup table (power of 2)
   */
  struct a5psw_of_data {
  	unsigned int nports;
- 	unsigned int npcs;
- 	unsigned int cpu_port;
- 	enum dsa_tag_protocol tag_proto;
-+	unsigned int management_port_fixed_frame_len;
+@@ -252,6 +251,7 @@ struct a5psw_of_data {
+ 	u16 pattern_ctrl_base;
+ 	u32 vlan_res_vlanid;
+ 	u32 vlan_res_portmask;
++	unsigned int lk_table_entries;
  };
  
  /**
