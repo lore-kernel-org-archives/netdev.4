@@ -1,63 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795154830;
-	b=0zWPuxXMdIZwQcvtyiygrhHfGlgYlxNhggBlzUQKIfkrPvhtz8rj5BjtQzJA47v0vh3N
-	 g8MDiRsjAHCsEo3Vm/vIAMfwoxbi/Be81hSiDFDm6DI5EaPLX9sNJEyjTjcTc2A5iIRhM
-	 B04OubN1KG5e2i4JPsA6GHfb/rBaS5o0gb9M9LAhY7oD/jSttuL05+hhe6FQ+vXQR5cmx
-	 sE29tf4Y92ef1gVxZFpoGNLc+GfwavPWiFhL5ikj60MzoHLiydRjQhw90fYWkI8giAiwg
-	 fb5CFQSe9G3LMInVk9Oorxz2d2wXV0DK4yeVgb4GsShI56HKIoCNOskYSJkIpMq4O/Q==
+	t=1795155011;
+	b=TqHN8f5mKKN0Wn1v/j9mLmRz0U4BneQOLtgJ02BouC9bRFYeANIboBocfb3PZYywhhey
+	 3QmvRbFDFLTdH3aOU3kNSKXHxKe5rdbE+781hnNuTiO76j309x4gFgefgW0dR+oNdRHO8
+	 lgSeOlGh/+OEzDdmTWxOPau9N0tZP/Atn7b2oFfOGt1/Ef8gVPndgeojrAtjjCgMfu8CS
+	 clLrxANS5NXj5yHYVN15TrZPvv6GytJ2ok051DJDKyIOYl8/UOJXtZWZL9xlWEiyIi+j8
+	 T6WijVBinzBwV7q6ClB5K6yCYLBOTlKPjWcxPfAZWJEZ/yH9AhAk1HSKYtIY3VB8vww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795154830;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=0oGjzRH+k/8DiJzENwKa/OrU1oqb5ZjOjEqz09VTOFNhEzY6HVYwyP/w6ZVX8CM2PrBF
-	 6kR1gDsZZL5w6FNezs8cGzmBJ0D2Cdz4EJaTGBfWJGfvUYtUQvbSipGtz69d7xORVp1Im
-	 lQ6PcwPXPY45creHzx+XH2+pPVLAeqAlVGmAkFcU8lRrHCMHRVOjs7qe7tjsY16yhS1Od
-	 emiJfnJHVUFlzSwdfD+Xkhj2SOxoIBGiV9+VDLmoCVAgpD314/SCtSpiyh/siDsqDNOLr
-	 dRizepxVb8yo0wnMvZpcp6cYVry21EfC4fs5rqGux1A0E27t+rWBm2C/hDtxs4Ricnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795155011;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=syOtg6Z3FNvjQ5DBiLQsQ1ZnNEfaeveUo5nGKZyYTfM=;
+	b=q9v8y6Tx4WoWlBDgiaWS9B//7CVUCKjfEUKOhtIP1UO+r9YK3RI0LyRa0PtjeCnSrgnE
+	 FY8snn4OkEawtuvlSr6blM71Sh3ry+1f1xpRGQUhgqtMfvocD56BBFbhZ87OhNMCHV2To
+	 NZ5VR3pXQE65J7biLnFeFXm+/cxF6jdc2mgfOyiPtjVPFK+gl9Fzw1ZG9Kfuealt+fh+K
+	 mkgf3+Uruw4tDHfKxIdTvTd8/02VExVFxRJpu3OMSClpaPgJxetU4Ns9dkUlZsL4RqGU7
+	 AKkghRXnWu1hjI4BJF0e9spO+5cpyalF0eRjMd2LxDsJDJFGPwXnk/n0JTGOTFtJzFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LuiKeaak;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hXUGkTvB;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DB1B606A50D;
-	Fri, 20 Nov 2026 06:07:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D971606A524;
+	Fri, 20 Nov 2026 06:10:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D971606A524
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LuiKeaak
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C46F11F000C4;
-	Fri, 20 Nov 2026 06:07:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795154829;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LuiKeaakr0NsA9l1iTn0cvPQ8JwC4D+7aWSbmRtfE5aoTS6a8JYVYb1Tqlq5SsBiF
-	 4RXlofsaNUXvaxpf+3+BCe0gLvubWRS86rhh35tKudzx0rZM+6GcdC9G5rfX7M3F7N
-	 y78jgfTC9itVP+n20wQhfKbsnpXqZWPOagYv+/kFZges7iyB7OB7fLKD8ugwxyFzch
-	 0FgG63StPKTG7k6linaEu7xJJ1uq01DMc+TS5TtzHM/MTsM+lv+d9adWQHb2bXwE6+
-	 nHzli0cJE1JX4CPFA6WuETjc0uc+v1u4e/oYhYwneMB+8/BL0ug4QwI7f7HS3zGjwS
-	 DShPMTCMU5bBA==
-From: netdev-bot+sinfo@kernel.org
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Yun Zhou <yun.zhou@windriver.com>,
- Maoyi Xie <maoyixie.tju@gmail.com>, Xuanqiang Luo <luoxuanqiang@kylinos.cn>,
- Ilya Maximets <i.maximets@ovn.org>, Frode Nordahl <fnordahl@ubuntu.com>,
- netdev@vger.kernel.org, stable@vger.kernel.org
-Subject: 
- Re: [PATCH net] ip_gre: fix stale header length after erspan version change
-Date: Fri, 20 Nov 2026 06:07:08 +0000
-Message-ID: <179515482829.3291.14775329880270454349@kernel.org>
-In-Reply-To: <20261120060254.3766851-1-bsdhenrymartin@gmail.com>
-References: <20261120060254.3766851-1-bsdhenrymartin@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hXUGkTvB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795155009; x=1826691009;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=6MYgJyOBpfQgSdjsR7lSUJEsvsAlWWHimqEm+Q7pJfc=;
+  b=hXUGkTvBhpW1GM3EEiiooYysvlszp8jMFmLdHwq3+EM0FFa8bcEhN/TQ
+   IeQ5p34tviCjXWgA1hf48Mm9C5dUj/0et+8++s7uFc+7Fbhbb2CUt4r8R
+   CGcou9hBGMz42IRhZFsxMKp8NCSDWk6ziZ3fwVJq0te199FPGRuJrBYlT
+   jhyObDKCu0cXZL08PXGXUhgFu+CnXX5QTWzvyJMe2C05ECxSHWy5oz1ex
+   hioG+tD6/7/tnD5tqvtmUSWXhn3gX09/0WjSl9qWt1qY1L7vjUu/bwqi1
+   38UgGr6+hvK1Etb1sWMqKH5SE+/p5/yoDdJGqQqMS6QETTPKkf61kJ0uV
+   g==;
+X-CSE-ConnectionGUID: W73rh6iMT5Wm84SuoIuUnQ==
+X-CSE-MsgGUID: UuV3KeytQjm028orE0D2uw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4030523"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4030523"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:10:08 -0800
+X-CSE-ConnectionGUID: 9JkuMbIiQzuuIn8yWWFq5A==
+X-CSE-MsgGUID: 6/TDC+NvTm6xNx+oMgBc4w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10637160"
+Received: from linux-pnp-gnr-1.sh.intel.com ([10.239.83.186])
+  by orviesa002.jf.intel.com with ESMTP; 19 Nov 2026 22:10:06 -0800
+From: Jiebin Sun <jiebin.sun@intel.com>
+To: edumazet@kernel.org
+Cc: netdev@vger.kernel.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	linux-kernel@vger.kernel.org,
+	tim.c.chen@linux.intel.com,
+	tianyou.li@intel.com,
+	wangyang.guo@intel.com
+Subject: Re: [PATCH] net: dst: Avoid false sharing between tclassid and __rcuref
+Date: Fri, 20 Nov 2026 14:14:30 +0800
+Message-ID: <20261120061430.3676313-1-jiebin.sun@intel.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <CAL4Wiio=6iUnMQM1Ry+fda3Y2Y3=d13_g42e5ZHhXHDmhp7eFA@mail.gmail.com>
+References: <CAL4Wiio=6iUnMQM1Ry+fda3Y2Y3=d13_g42e5ZHhXHDmhp7eFA@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,22 +87,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+Hi Eric,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Thanks for the review. I tested the field swap. On x86-64, dst_entry
+stays at 136 bytes and metadata_dst stays at 240 bytes. VXLAN
+metadata_dst allocations still fit in kmalloc-256. I included the
+pahole results in the v2 commit message.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Memcached over IPv4 loopback (64 threads, 5 runs of 60s each):
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+  +----------+-------------------+
+  | Case     | Throughput change |
+  +----------+-------------------+
+  | default  |           +32.55% |
+  | hit      |           +45.79% |
+  | balanced |            -0.12% |
+  | large    |           +45.62% |
+  +----------+-------------------+
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Thanks,
+Jiebin
