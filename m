@@ -1,92 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174650;
-	b=3xxyY81UaLGlBWy1zQOXNoEc9zWMiZTBRWWS65xh6+Qbhx9Hez3mk7w4Dmou4HJ5UG+V
-	 irjqsSgLdkqRUKDneOYerRBZTxxo1+CLcgZ8dLbT5P9UnsL3lLp1UNFKu8O4HLEQH7urU
-	 uXL0Irf8iZatz2FP4yDWZTsgCzKE18BBeFVFN+MyGKSfIPP12GoW/sSTpuV9pMtl5lTQA
-	 qE8NaiIo29kKVgw1Iieo7ahIKF3QB09h55oXUdqG+2KwtEO7icchghYWN9/+fdkAaV95K
-	 /lefmT8dmArhtwBDcnMhhxQT5NaVvzOtpZoHLRzokYb4RUgtH6v0Zsq2GHz3Zc7laPg==
+	t=1795174973;
+	b=IQWa+Ix5sbayJ35wOBfjy4+v7F9GZmJKpRAKtqOmh0cn5dgzGy7P0jJzK7AS+EvWODuI
+	 jONbfyG2DBNpHcxaJKqRl2G0FlOmSNUxHHot5JbZcjUxUu/qbZeyW5bVprnz9T59BKt2q
+	 Tbra6UBHsJ1wB9Z7wJvxUhmHtbpv5koObg9SfBcgBKc+5bSMtkd0rv5jdHkcAaOoGwZ4l
+	 WxVgrl9vX/jtwzuKSZQp5t7TjdMIqxzYyL0s4exyx18/nu/hPxIvMwuDmBY3fqCYBnUij
+	 jhvNvCa8N3w9X+kX8LK6SZb3Xe0ZfaohHgFXmgavEYqqqJn3W1abYoBFY4QoEdpMV6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174650;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=bNDGK4UI7JVDed+fyjj3bo9xPV3mWmMM9QpU4oudZxc=;
-	b=tKvUg+AzPlQLH3WkPK1fLwJldVr1bS4A2uUWvcJvTHMdeXtThAm/yCYBCjE8iWoiWojq
-	 Nxq/KwR+wKnIh125GkzCygRudXQwf9uS//T9VWw/3D3jh2MXVagkwvBGmB3YZk4zPje5E
-	 WJIErsXyycd6WfvEWfHiB4lRTnMpYvzcFOV+tOnsN5CUIxi9dnQxTYEbL8sCNdqhEAqON
-	 rbRFHQ5n0fR6KpSH2cjL8Z1Yum2T5kndjHZs0VcuGtjB5QOsJw7xauUNdSPI89u22Xu2z
-	 aVs+Hf3J5NJMbT8Eny2I0ZO5fMKpoWMxVN3xHFb2Dd78zoiFsmNxdFhEsiB8Km+L7dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174973;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=KmUpoxm4nBJnw9ISGVSuCY/zvYp9B1scb9wTk5sG9CQ=;
+	b=P4EL0en7Co8n5wb6TFNEuAp/AT7fdzjphyWwr/iqFTNdbuml0vhAqMuJL9L3v65soE6M
+	 w3Osjz2f/UzH/2vX3/9aovSsdxQdk9ybd/rd8IaHoupQkv6HEep+A0MzjglLK+X6dWI/7
+	 uaZwlklxXn4u0JccBc+yaCrbG1BuSQ8n2CoiOVbdwgH0nHUnHJp8n/CJlopoYkrk82sFc
+	 dsFPgocjEALJtbV7/kruD81i5i3AfgGs45d47jrXqbnGWDgD9Kb6nLH9QsrNGD++EY5dV
+	 yzxLgzl4rvzkqu36xFRLraI7XiNWfzph49KiYo5yuFsfeSVFuW5RB8/bh54DFYnu5xQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="P/bTawFy";
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="nZ5wW/EC";
+	arc=none smtp.remote-ip=209.85.214.169
+Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EADB5606A325;
-	Fri, 20 Nov 2026 11:37:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EADB5606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1357606A325
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:42:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1357606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=P/bTawFy
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAu3F01243432;
-	Fri, 20 Nov 2026 11:37:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=bNDGK4UI7JVDed+fyjj3bo9xPV3mWmMM9QpU4oudZ
-	xc=; b=P/bTawFyKmTrxJb9km1l+ZwZzpezT132SBswVnHDsPZD9Ar5pAyjhaioL
-	5tVE4omRNpgpgOzEC33IaeyxSkey/vQzvSe7SY+GRttclX4OfguUfAblDV/1+uvG
-	c2SqRDuULuR7JntMPS3Rzqa6CQwUK0f8ddCvLj/KOKOnH6MYtleWB6WnhXCvGNec
-	aPzTymsI1UjWe1t+1rXEl2/97WbgxwtUU4nVHz5Z3LtMyVlR4/Hb0M98owCmeGyj
-	dM/viX+cowVmkoxLm0KO6dqVKwEXnIEkf8RUzGD4t92P+oO20hqhZRRzdiP5aton
-	XHByEpjPaw3mhg8C9rlqE2ezbNNZw==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105s023h-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 11:37:14 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAo06g1107116;
-	Fri, 20 Nov 2026 11:37:14 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1bb5kunb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 11:37:13 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AKBbA2K50594184
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 11:37:10 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 15AB22004B;
-	Fri, 20 Nov 2026 11:37:10 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DA53820040;
-	Fri, 20 Nov 2026 11:37:09 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Fri, 20 Nov 2026 11:37:09 +0000 (GMT)
-Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 56341)
-	id C6087161068; Fri, 20 Nov 2026 12:37:09 +0100 (CET)
-From: Mahanta Jambigi <mjambigi@linux.ibm.com>
-To: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-        kuba@kernel.org, pabeni@redhat.com, alibuda@linux.alibaba.com,
-        dust.li@linux.alibaba.com, sidraya@linux.ibm.com
-Cc: hidayath@linux.ibm.com, pasic@linux.ibm.com, horms@kernel.org,
-        tonylu@linux.alibaba.com, guwen@linux.alibaba.com,
-        netdev@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-rdma@vger.kernel.org, Mahanta Jambigi <mjambigi@linux.ibm.com>
-Subject: [PATCH net-next] net/smc: validate smc_diag_req length before reading diag_ext
-Date: Fri, 20 Nov 2026 12:37:08 +0100
-Message-ID: <20261120113708.3950966-1-mjambigi@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nZ5wW/EC
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f0464dd6b6so2819235ad.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:42:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795174972; x=1795779772; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KmUpoxm4nBJnw9ISGVSuCY/zvYp9B1scb9wTk5sG9CQ=;
+        b=nZ5wW/ECWaibl6yEk9kWoU2seTnTybbGwffyLsyRVxjw+ydPUoM71pqQ06R/8ITYw2
+         uUMoLXrkmop7822Nf3s/h6kiyDB5A+kSX6o8TYa0nf31NNAnCuFhx5wJ7fCC28+Nc+0W
+         HlR8gRC/EnydzotVT9DFJDKCB6npJDIbIR4FmTGJ2vUUrkKeQeyBiyTsw5qOrIpOkjL8
+         2sHfKCPU6/F3+DS8O2foRr8Q94/Ph02IF+6J+HQLt0/MKY9qkuy70PPxnkHrY13yywcU
+         2VEBSgDJVrlxbdzO8kkvKKsDRrvwg28YQTSiS0lUO/UAKDogMP32EgY4ku7dyVEIRuUG
+         55Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795174972; x=1795779772;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KmUpoxm4nBJnw9ISGVSuCY/zvYp9B1scb9wTk5sG9CQ=;
+        b=FEgCFjMCr1fXAiY0CRPUkxpeGycMnPYJIPIi3Vb99uyexWLlkbefTYhfigz3be7x84
+         lXP3fl8PKm9QmzzudNyOY8GIbOrWvjomI7WeDwP1vLTtPenmkF/ZCDrYsE8sdoo9AhCI
+         NUQBcHEsl+Dn5x1hBWZS+Z3SDMDITM8l/8izNjzj3tM+WngHf/S17pz4RyfCHHBTTN2Q
+         k8HeGRS6VvBLu5Uw8FganVZBLgzz6ROkcp093SjRvuJWBOuzLRyZ9Sgfry0W1DJBMURI
+         ySnx33qYhoc0gyX0u4oI30SybR/TxQZcj1LimtOxXzSOceSmPmyCkTn+m6azZ0POEpim
+         1s1Q==
+X-Forwarded-Encrypted: i=1; AL+hErGo2IIF8yGaR5787HSxT75wWG/mS5Mmt51Fxtb33i0L8T7jDylnxQw7OcEe986C400TdrcvqAQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9V10O/n3qR9neTe7lcwJ5GeNj7CgAr1BQ/5Ud1uph/JPhKFRPl
+	x9uHQYPI/Su7Gk0jeEZQC9SQW0+TInvtfTywB51uzcej6IeThlJjTI6hZm/664fUK/Y=
+X-Gm-Gg: AZFdTZchZsBsMqsdPmOifppFG4QbpplOpifBcgVVbpRfWlbh1iiQKvYV09uZuAxbv8k
+	jgmk5DuQ4Z87ilL2oV8bIU31BBIhiO7WMGU7G1INaYJ3gdAsVZA1nPBIbiHIGkT26f5amLiMLhU
+	jk8e/L+OxBMn/08xkpv41HRds+UHMOlArGdkbck67SILaFicAvOu50XNpu+ixXbTInI/g/kgE08
+	+VjMLTsAtjF0CYr2L8P87CbC8sEBbqm4uKI2xV/HI+ex9FPO4UC0Rhi+QV4+XzQ3guJlhQp5aez
+	aoDTwOgNDzQxxTCpxlcxCY7W8Xm0XFNJfjqJYMz/b44kcYQIpPsYJFuc6bJq7dLds6HRZcC3mAv
+	5ZDS6enFRXuPVvSy+8BF8f6/CgGZ96nlUMPWNA4k+HPnOtZfAtt6LZ0avnamFzwxTXUqkgdBU1f
+	IlRFcTxrzbc4lyOomW/Fa/yc9sPodX5hTXTyPx79ySM/IOd8YujFGs7HOKn0kIdbUa2jQrZuUS3
+	JtE96859MoL/Wri8yUodKc7GYU/hNEZHE8jZvFTYmUkAf9WhbnP5yPZDRdybjKptIIQM5dnx5WM
+	DLQeAQHMzM2hpyNkzP0HzIFF+AiQ/lK361gIz0hO8ZmpM2iFKqkoZfbWpdiTR1KKO2qkOg8uQDG
+	BQS2HojbRMeH6yxbWHhh72OY0aPHLTdir8CvL
+X-Received: by 2002:a17:90b:3f0e:b0:3ab:1481:69e5 with SMTP id 98e67ed59e1d1-3b41c8ffb06mr2420129a91.11.1795174972276;
+        Fri, 20 Nov 2026 03:42:52 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm1226012a12.2.2026.11.20.03.42.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 03:42:51 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: alexanderduyck@fb.com
+Cc: kuba@kernel.org,
+	netdev@vger.kernel.org,
+	kernel-team@meta.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	daskald@meta.com,
+	mohsin.bashr@gmail.com,
+	bobbyeshleman@meta.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] eth: fbnic: validate the Rx completion buffer index
+Date: Fri, 20 Nov 2026 20:42:45 +0900
+Message-ID: <20261120114245.3072211-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261009175358.1598001-1-yhlee@isslab.korea.ac.kr>
+References: <20261009175358.1598001-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,63 +109,11 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: 71PAhncLYfGjMu00Rerr-YyoUyRjLMKt
-X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6b0030eb cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=vWuhhF-FjSUm6uSirrwA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0NSBTYWx0ZWRfX1wCr0Mdwn2ZV
- QAajzY4C5Ua/Vj/DO0RcinyOI3kByuAPNaREVHLCCYPFRGEl4v0ptGtHZsxONyCLIZmHfzZO0xc
- 5urg6FMo9NvE45TRu8Aeium4c3zMn1I=
-X-Proofpoint-ORIG-GUID: ddHUqvYonBTXZ1aHdKK7-C_ZPon1CD4y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0NSBTYWx0ZWRfX7BahzPQY2UM1
- DUPL1RvsWD1i7vqybhmM4z24F4OauwHGWh8iR7VJGQUfISFmZrVTtSZLc/GlidiCfyXcY2kVvdf
- n4WY8m0GmPOay4/Rp51SPFW2IyQ/wJ3/2viud9QWeiDgLOIhZA7UlEamp9QCPrdBcYvZ+vsDnj5
- QW3Z4u0iuVMctdhKLInNkeslMFw9VUsERPmLfZugU0jpvHjY6NaXjzzmwhCaF3pdMKhHquCMeIw
- H0/z4kDLWNVvAS0SqtRHOiDPD0W2UAfS3BR1qYVHsTTAHsliK2oWoInqJLgndZsc6piT31Af2WS
- oONLi0aKipK2CYUt4i9mL/A/QLow7cqo8DIatX6ncl/iaEU/CPIvFDFRFenovYdp5koKhSjbREj
- wap//JHmcSTJfPA73d3K0cOht36mrPHSmMtlrRT2c5FehUBXCei1DcDXfHXGlC4KOk7NMfuhAz9
- pmSp+nTmqWziogY60QA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_04,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200045
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-__sock_diag_cmd() only validates nlmsg_len against sizeof(struct
-sock_diag_req) (2 bytes). smc_diag_handler_dump() schedules a dump
-without a further check, so the dump path reads diag_ext at offset 3 of
-struct smc_diag_req from uninitialised skb tailroom. Add the missing
-nlmsg_len guard, matching every other sock_diag handler.
+This is superseded by v3:
+  https://lore.kernel.org/all/cover.1791775409.git.yhlee@isslab.korea.ac.kr/
 
-Fixes: f16a7dd5cf27 ("smc: netlink interface for SMC sockets")
-Signed-off-by: Mahanta Jambigi <mjambigi@linux.ibm.com>
----
- net/smc/smc_diag.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/net/smc/smc_diag.c b/net/smc/smc_diag.c
-index 15485a08d9a0..ed578279dcd0 100644
---- a/net/smc/smc_diag.c
-+++ b/net/smc/smc_diag.c
-@@ -245,6 +245,9 @@ static int smc_diag_handler_dump(struct sk_buff *skb,=
- struct nlmsghdr *h)
- {
- 	struct net *net =3D sock_net(skb->sk);
-
-+	if (nlmsg_len(h) < sizeof(struct smc_diag_req))
-+		return -EINVAL;
-+
- 	if (h->nlmsg_type =3D=3D SOCK_DIAG_BY_FAMILY &&
- 	    h->nlmsg_flags & NLM_F_DUMP) {
- 		{
---=20
-2.50.1 (Apple Git-155)
-
+Best regards,
+Yehyeong Lee
