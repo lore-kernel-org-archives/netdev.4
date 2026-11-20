@@ -1,101 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795211084;
-	b=37NyHAnj7zmW919sLoCKpyeCCuLTS7wgzPJf7LwabLU6myXTAqujIUpixJVz8mTDZpu4
-	 mAvyrMQMz9QxZD5cOmrCI5gGHFgHYuBnug5xNhsAggXDge5Kbf4Dq6Ujmm2G9Y++no9sZ
-	 tGo3GLGbmt4jBLnI8M38eupSL1AX1AuTSErj0NtizU31ADj0a6qS4iw/OFhJfh3pSP5El
-	 8iEjHlt3T+y/lekaOawuz9ZZ/NvtKWbL+bdXoOiKBk/eqDwdpCYh2O8daDcUnOYz/Dimk
-	 zUk7jQqGZ9Ffscfx7S/xwoT58VH1UNWDFNLn2BPAbmzmSOhI1IoH1iMDd8std+oR7Cg==
+	t=1795211119;
+	b=Ty6XFnT5rUrKGM3sBmnPvDP2vIdSIkfXWTQLJMLcowptCWzWjKy98QPrX8rg8ZKeKOgp
+	 8/Ga9EGbiksRsOXybmnM8zwbxaduBo0YpReuhdPkOG131A7G79wetT1f6BvkuhC5vWeCP
+	 bJ+O1SEf7UKYm4gS68VGW5XdwEgXyIbaGv4eQUls1eAuMoEhx/lfPPkWuoXOUJtgZdoiK
+	 98MGYj+IOSNq3K8KVlo3Hsi0i6y4oB87iglMAP7YMFzTlurJ661y251QTilBAXCDMU83J
+	 zyt5PapCeQ6PkjCakt8MCE1uZUt/pGMKK0L1h3v/tOC3UkEj7YifhfExRdki+wuECBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211084;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211119;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=p/0Ox3V5BO+3FpnWN22VOHbyRzkEWm7sZC7QWkt+6DI=;
-	b=06Tk1ozoikroIUt36QzUMPyFe5zonEu3FPBY7arC0gZLvolD/gVjo6mAE8qQ0hEcUpFG
-	 s4n7B2BxnshGyACtyxCZ+htkoHmR8dX6/XrGXHiq2gS3O3qYYW6WUvftNhV/JVGkEUGnC
-	 F7fVUJbJ46SSKnymAw5IKc4asMgXWGpiYRAEyuiH8JuvfxQaG37b2Rs8OkYLQJq7X2iKF
-	 Dvp5lYb6pr7FDJ95QXn8h0aDX1W5Dyn7+NCVx3lGWTkjH5cCbbkORr39fNQkSdIYw+FiX
-	 lyd3MMk9Tz2XI1lGzqFJWeo2lX51LVSnufXYsMj2eBRQXRY7g4u2OSicgv4GY2SRwlA==
+	bh=LQYysgp//9KShYReg1WCF+KgYK2YJRDdVhocAyIlPg4=;
+	b=enyb+rsgjbWP/Zmv9xHhxXYfXD0+wDJ55WHkfUQSbJpdTf+5T4gR/l/EDOEmICmREemx
+	 I9/c6K4Bmq64ws3HKVN36oLaNMxXMBN2jZw9diShcmrXH8xJ+2fP3mAM3voX8TKYDC8VP
+	 zbbg00H0F1UfdUvAsUSHJFwOKfb3WIlgENfx5VfCUxQmLgY0b/Emm4FP9sCZQZFeDpmrp
+	 ZyqvryuGzU3hZny2O3RpSPKnnIDh+oKH3iy2TXwbuBW589TSt4QoNqMQJaX/ZIh7JmAVH
+	 36pdUq5i6JnxpfKvxoRZVHX37n6Og09ogdfUfvMgpU9UjcypWUF793LmJAVxGtNJUZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VMmUAfIy;
-	arc=none smtp.remote-ip=209.85.222.180
-Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com [209.85.222.180])
+	dmarc=pass header.from=openai.com;
+	spf=pass smtp.mailfrom=openai.com;
+	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=C2jpFfSu;
+	arc=none smtp.remote-ip=209.85.160.54
+Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40D5D606A33D
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:44:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40D5D606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 897ED606A6B8
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:45:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 897ED606A6B8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VMmUAfIy
-Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-9495e8ae23aso117046685a.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:44:43 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=C2jpFfSu
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-49429181ce9so891191fac.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:45:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795211082; x=1795815882; darn=vger.kernel.org;
+        d=openai.com; s=google; t=1795211116; x=1795815916; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p/0Ox3V5BO+3FpnWN22VOHbyRzkEWm7sZC7QWkt+6DI=;
-        b=VMmUAfIyNMrmGOB7JZt9y9kNN1YLbwThlBQBxrf/KO4MG67XStnTce0XqCUS/3nHo0
-         Nky4kGslYEqsoTFHmxBnnwjmqXQE/7y9cQ7MU+wmcjBuLEJ9vnFLzJ0ygJAYFbNzfCRH
-         nYTMfSepxBopwhSVVNtceCH16ak2Yu89c0zlAzR1AFr/pzOH0/rtWWT81xI62Zho8LoB
-         kZUSuBctS5P6hj1ocFVe/I2Ho8qs1FHtiDfYAqpLdsCXZynvlOwcOrsR1/YMi5caFaGk
-         0Zwxp4dM+hXcIkCbYH4AL/mmEsZi2owEjok4zuxe6QgjFGC93ErTwGzsk6h35KmJXUaT
-         WcOA==
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LQYysgp//9KShYReg1WCF+KgYK2YJRDdVhocAyIlPg4=;
+        b=C2jpFfSuutuCZeuGrrbB6CPrXuCLHPjsYbHeZ0INc6l3v8QadfuYXncjt5KuVqhCt7
+         3SGz83K3k0XfOMALHygvAHc0p1IU97YYD7qpD97CXDb1KaWyKI9wQnFAKN+YjHjDDrKi
+         mrAFEuwoV4wVp4oMYecBLnGPaSrvpuSnn1QWA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795211082; x=1795815882;
+        d=1e100.net; s=20260707; t=1795211116; x=1795815916;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=p/0Ox3V5BO+3FpnWN22VOHbyRzkEWm7sZC7QWkt+6DI=;
-        b=ehKatIj4quP17ILqyk4BLaiXT2Qy/zUUOiy5pGKsucc/cjiFqRP63iVTWf1aH+cuh6
-         W23zsdHVFuVm0/Elkavh5uB0CWs4bW4/VmJMbAjLlCTS5z1MRj792qhZeozCE4iYMRez
-         YWxqoSJehLxkYL/R+UYzK8pWIOyGZ61mHWQrJobmAgh3qfnci+Dj76XFXcMF1b/v3I17
-         Ae7snNykJX2x85HhBnS4is5KkSkUAOKUdcttlU7zvbJFCLZwcYPl4De+ZTBendAjDHuF
-         NbIcWBR5LXUqgVJSmJF0XeJMryLbFS+7axKH8zoXf9yxf9JLsuXcpLlbUrowTr1H3Fy0
-         tFuw==
-X-Forwarded-Encrypted: i=1; AL+hErGPXZdjCejxmmLURtdzvgav+geKTewipq2Y9FGq3qoknVkcCZsfYe8JQqaGbTDelGL5NXkMOL4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VaoK2h9aJKSCreOxlx/VKbPazMJ2w+2cM5ClYLU8LoxualU87
-	+ZnuhIl+DPJv4GrQCbZIlPHgQf+vqQ/UFQyt5l3M3zB0XeNCt3cCbWXpuLS1tn6RqrI=
-X-Gm-Gg: AYBFou0t6QzybqlPDo1qQtO7RzD78xKajV1rOSof6JJtcSbVSpv1cphJW4E9NGPWIat
-	QVFz6jmBm2/1SX2sQ48QwvaroJXVFC8/K8AUflaW/W3PSuZrKRXy3gBRxU5Bwr9KYNm7exsN7BM
-	GSCaPKnJWcPswFdCbT3Q5O9ZLbQK33cgPFxYAAovHFLla2fXR1byzzVIKPm9wyE/LjWuM1y2bCI
-	QOO6JrVYFEbwZCirzGPK7h7SZmrkzpRVcue0Y6mI8PIhC6QBCyOp+tNB/2sOGfFCa6ASntqXh7G
-	OPou/ogsZkGjFvi90fRSlBtmpV+sSaxkOVvbfliiF3BOb2G2Pba1sb/a4pnoq71l3lDtes/hDSw
-	Y4/BJ3XLtgGGV1Ua+fKQfQUXiwKKcXStbc+VYKdQ8X75x4NodXNUKeu3Fz42/BNHLrn/oxX3DMW
-	MkQBlloGJr9s6848qLkBJHB0PXL4FiXIvSc33Ub4InQVrcRN/RJo51pjsD6NHrz1jAMvSPJe2x5
-	sZb+AbzcEWpVclX2anFtnqdKymAWmSeEipG/hVc0Cft9FBo5x27rSZEHoBxX4wEURgtG512OAfs
-	skODmyM+ZZWeQ6fOrfH4GQIgDRAyJXK5oGhfZLVRhb1VWFBpq7YUIWuA8ZN5YZUUiHcoRxSli+9
-	mAdWhMQ5oljS1kuxLr2kEgjqZ1xpciX6q4BG7K/3OcU6vVzK4WqSCnH/8M+XqwKrKQ/jY/47wjN
-	XvXWpMMt+EHkNIHKyZvMXiNZNd1KuRrdWhALvmTwLxz09k9At+
-X-Received: by 2002:a05:620a:28d5:b0:949:6d4d:2396 with SMTP id af79cd13be357-949ba9c6ac4mr704755285a.27.1795211082080;
-        Fri, 20 Nov 2026 13:44:42 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a4d9:d040:5fad:8738])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb031601sm290337685a.6.2026.11.20.13.44.41
+        bh=LQYysgp//9KShYReg1WCF+KgYK2YJRDdVhocAyIlPg4=;
+        b=gIC0CHgvcHaBN0GxNu66WL5X0QiekbHm29rCh7HoiNj13oLj2QhMAgQbR9HU9a75Fp
+         H0Vzg3IUYyPjuvPKkU4VXWe8662pAUtDM8PcAd0w4gjMluXFkANpeawTON3q9Xw31yDw
+         y2FNutz1cV957mwd4RnlCKJUUQMiMVJIXK+7ZYG//9D312/2z8jD6rXC1eJwcP4EWbkS
+         K7okPcd/uvrRu2gLG6Kq8gJ7NIQH4LhQm5J3wAj2DpUSTcU+Gcbayvw61C4G6gmdx1rc
+         O6HBlItFftPnlFe06p46LGRC2V3pwjUV9SJb9ncbXjGgBEmPp52VptVUjMPfdrsCbfCH
+         tC7Q==
+X-Forwarded-Encrypted: i=1; AL+hErGwW9RtvfOz/joSrcwMVNLMa3rGMBzmVviz61Fp01EPjUWTxpayek95llTykUItTRNxm7TDD/w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JaSkqaG3PRLWh6JRYMqi3F3BG4bjct9FrxQ09GwtHDK4no66K
+	vozKQamPlyAPfDzEAd0eMN9RBoXSo8X2DZ2TkwrnFY/isRxdidGE9SpvqHzvQPC2mOU=
+X-Gm-Gg: AYBFou22zmeKdjHOLbby9UMC+HdecuU5KvCRtAqtXs2GPciztihIyovrP618fBd8tgN
+	kSj35yZ1wSZyoxMR+kbYir2Puu4hpgIaRiMzh1WZPfaUkgkvQrbCUUWlMVjWgLrLnz2PA4c1jpV
+	wE4xdTIoT+uq6lMNDKSD8T48PfSGCfTQiFLuulVkZLVbyU7j0Chnr9tNr9xr328/9sogMRborMF
+	LwQmteaYR0WivOqj/r37C460mYjxsTBvRpZeN/gWiPacQzZtgnFjOOapx6uWfUpoB7VPA3cG4cT
+	5o6fgUFAzxkemeEYhHsG/UPP4fw9QlB2UA/8DMkKGsXW0IILJKN28GGhrNhza8wko387/gG6d6f
+	wWimtzB64XjdUtBTYxKQDoUnaAHRYTS0j11LZHjEeB6ESBfqizHBHjSxPS5Hams1AXCMmTdZCjg
+	r9nPdYGGMYPvc7va3js8mzDdJkPe8hsDaiSTDiAvHfh5p2kV9IAwQYa0RKInql0fgICTEVAb2IF
+	eu4eOuV27PYhsS48PoCDChE0JzoxgjMGnnNS0jUtJAzS7WWLWcF1Kchygg/mhVPTHaJbyh0c2A6
+	5kckw6SUuSSs9rYq3iDM+CDfoL+9qhNhoL4YO/R41QP2Oy+kFnYBzNeqssAub2oY2CfpTMiJA+X
+	UWyWpTzYyPbCQTGNOnSSK8VlFfgg+Dum3qmvlaEDpcGbEGWqMJCE=
+X-Received: by 2002:a05:6808:308d:b0:557:308a:9e9a with SMTP id 5614622812f47-57a095037bemr5687975b6e.21.1795211116347;
+        Fri, 20 Nov 2026 13:45:16 -0800 (PST)
+Received: from com-75606.corp.openai.org ([199.47.143.1])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a35c5ac5dsm3222237b6e.15.2026.11.20.13.45.15
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 13:44:41 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
+        Fri, 20 Nov 2026 13:45:16 -0800 (PST)
+From: Kyle Zeng <kylebot@openai.com>
+To: bpf@vger.kernel.org
+Cc: john.fastabend@gmail.com,
+	jakub@cloudflare.com,
+	jiayuan.chen@linux.dev,
 	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] rxrpc: Fix RxGK server to reject an expired ticket
-Date: Fri, 20 Nov 2026 16:44:39 -0500
-Message-ID: <20261120214439.44958-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+	alexei.starovoitov@gmail.com,
+	Kyle Zeng <kylebot@openai.com>,
+	stable@vger.kernel.org
+Subject: [PATCH bpf v2] net: skmsg: fix copy cursor when coalescing clones
+Date: Fri, 20 Nov 2026 13:45:11 -0800
+Message-ID: <20261120214511.25934-1-kylebot@openai.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,107 +99,75 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-rxgk_yfs_decode_ticket() decodes the ticket in a RESPONSE and builds a
-key from it. Nothing checks the ticket's expiration time before the
-connection is set up, so a client holding a token whose ticket has
-expired can still open a connection and have its calls delivered to the
-service. Section 6.3 of draft-wilkinson-afs3-rxgk-afs-08 says servers
-must reject connections secured with an expired token, and rxkad
-already rejects an expired ticket in rxkad_decrypt_ticket().
+A splice or zero-copy append can leave the destination copy cursor at
+sg.end. If sk_msg_clone() subsequently coalesces with the last entry,
+sg.end does not advance and the cursor still points at an unused slot.
+sk_msg_memcopy_from_iter() can then walk around the ring and write into
+older entries, including file pages spliced from a read-only descriptor.
 
-Compare the ticket's end time with the current time before the key is
-built, and abort the connection with RXGK_EXPIRED if the ticket has
-expired. The key's expiry can't be used for this. An end time less than
-one second from 1970 is truncated to 0 in key->expiry, which means no
-expiry. An end time one second or more before 1970 makes building the
-key fail with -EKEYEXPIRED, and rxgk_extract_token() drops the RESPONSE
-without aborting.
+Software TLS can reach this with an ordinary MSG_MORE send after a file
+splice and a splice from another TCP socket. Both TCP and the TLS
+encrypted-message allocation can use the sending task's page fragment,
+so the TCP-sourced plaintext can be contiguous with the next cloned
+encrypted-message range.
 
-A ticket that expires while a connection is open is not handled here.
-As with rxkad, the server keeps accepting calls on that connection but
-can't send replies.
+When coalescing with an exhausted destination, move the copy cursor to
+the tail and set copybreak to its old length before extending it. Find
+the actual tail on each iteration using the ring iterator, including
+when end wraps to zero. Leave an existing copy cursor unchanged and
+preserve the normal coalescing, reference counting, and memory charging.
 
-Reproduced on v7.4-rc3 under QEMU with the in-kernel rxperf server and a
-small userspace client. The client's token has an end time in the
-future, because the client won't use an expired token, but the ticket
-inside it (encrypted with rxperf's test server key) has expired. Without
-the patch, a ticket that expired 30 days ago gets a connection and
-rxperf reads the whole request. Only its reply fails, with -EKEYEXPIRED.
-Tickets with an end time half a second before or after the start of 1970
-also get a connection, and their replies succeed. A ticket with an end
-time a day before 1970 gets no abort, and the client times out. With the
-patch all four are aborted with RXGK_EXPIRED and no request data reaches
-rxperf. A token with an unexpired ticket works either way. No other
-kernel changes, debug code or error injection were used. There is no
-rxrpc selftest.
+The issue was found by an LLM.
 
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with the same tool and reviewed
-by me.
-
-Fixes: 9d1d2b59341f ("rxrpc: rxgk: Implement the yfs-rxgk security class (GSSAPI)")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+Fixes: fda497e5f5b8 ("Optimize sk_msg_clone() by data merge to end dst sg entry")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kyle Zeng <kylebot@openai.com>
 ---
-v2: Check the ticket's end time directly instead of calling
-key_validate() on the new key, which missed end times before or near
-1970 (Sashiko).
-v1: https://lore.kernel.org/netdev/20261119184541.26343-1-astellman@stellman-greene.com/
+v2:
+- Rebase onto the BPF fixes tree; no code changes.
 
-A reproducer is available on request.
+v1: https://lore.kernel.org/bpf/20261030042138.73739-1-kylebot@openai.com/
 
-David, this takes enum rxrpc_abort_reason to 128 entries. Your pending
-"rxrpc: Fix packet encryption error handling" adds one more, so with
-both it has 129. In a small test, clang treats a __mode(byte) enum as
-signed and warns that the 129th value wraps to -128. I can reuse an
-existing reason instead if you prefer.
+I have a reproducer for this issue and can share via DM
 
- include/trace/events/rxrpc.h |  1 +
- net/rxrpc/rxgk_app.c         | 11 +++++++++++
- 2 files changed, 12 insertions(+)
+ net/core/skmsg.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/include/trace/events/rxrpc.h b/include/trace/events/rxrpc.h
-index 56dc9b614071..684034c67c69 100644
---- a/include/trace/events/rxrpc.h
-+++ b/include/trace/events/rxrpc.h
-@@ -97,6 +97,7 @@
- 	EM(rxgk_abort_resp_short_yfs_key,	"rxgk-resp-short-yfs-key") \
- 	EM(rxgk_abort_resp_short_yfs_tkt,	"rxgk-resp-short-yfs-tkt") \
- 	EM(rxgk_abort_resp_tok_dec,		"rxgk-resp-tok-dec")	\
-+	EM(rxgk_abort_resp_tok_expired,		"rxgk-resp-tok-expired") \
- 	EM(rxgk_abort_resp_tok_internal_error,	"rxgk-resp-tok-int-err") \
- 	EM(rxgk_abort_resp_tok_keyerr,		"rxgk-resp-tok-keyerr")	\
- 	EM(rxgk_abort_resp_tok_nokey,		"rxgk-resp-tok-nokey")	\
-diff --git a/net/rxrpc/rxgk_app.c b/net/rxrpc/rxgk_app.c
-index 200a30064fae..93ee8b84316f 100644
---- a/net/rxrpc/rxgk_app.c
-+++ b/net/rxrpc/rxgk_app.c
-@@ -47,6 +47,7 @@ int rxgk_yfs_decode_ticket(struct rxrpc_connection *conn, struct sk_buff *skb,
- 	const struct cred *cred = current_cred(); // TODO - use socket creds
- 	struct key *key;
- 	size_t pre_ticket_len, payload_len;
-+	s64 endtime, now;
- 	unsigned int klen, enctype;
- 	void *payload, *ticket;
- 	__be32 *t, *p, *q, *tmp;
-@@ -96,6 +97,16 @@ int rxgk_yfs_decode_ticket(struct rxrpc_connection *conn, struct sk_buff *skb,
- 	 * the ticket.
- 	 */
- 	t = ticket + sizeof(__be32) * 2 + xdr_round_up(klen);
+diff --git a/net/core/skmsg.c b/net/core/skmsg.c
+index 8a3b8536c0c2..f47c59ba1ec6 100644
+--- a/net/core/skmsg.c
++++ b/net/core/skmsg.c
+@@ -103,16 +103,26 @@ int sk_msg_clone(struct sock *sk, struct sk_msg *dst, struct sk_msg *src,
+ 	}
+ 
+ 	while (len) {
++		int last = dst->sg.end;
 +
-+	/* Reject an expired ticket.  An end time of 0 means no expiry. */
-+	endtime = (s64)((u64)ntohl(t[5]) << 32 | ntohl(t[6]));
-+	now = div_s64(ktime_get_real_ns(), 100);
-+	if (endtime != 0 && endtime <= now) {
-+		ret = rxrpc_abort_conn(conn, skb, RXGK_EXPIRED, -EKEYEXPIRED,
-+				       rxgk_abort_resp_tok_expired);
-+		goto error;
-+	}
-+
- 	q = payload + 5 * sizeof(__be32);
- 	q[0]  = htonl(RXRPC_SECURITY_YFS_RXGK);
- 	q[1]  = t[1];		/* begintime - msw */
+ 		sge_len = sge->length - off;
+ 		if (sge_len > len)
+ 			sge_len = len;
+ 
+-		if (dst->sg.end)
+-			sgd = sk_msg_elem(dst, dst->sg.end - 1);
++		sgd = NULL;
++		if (dst->sg.size) {
++			sk_msg_iter_var_prev(last);
++			sgd = sk_msg_elem(dst, last);
++		}
+ 
+ 		if (sgd &&
+ 		    (sg_page(sge) == sg_page(sgd)) &&
+ 		    (sg_virt(sge) + off == sg_virt(sgd) + sgd->length)) {
++			/* Start copying at the newly cloned suffix. */
++			if (dst->sg.curr == dst->sg.end) {
++				dst->sg.curr = last;
++				dst->sg.copybreak = sgd->length;
++			}
+ 			sgd->length += sge_len;
+ 			dst->sg.size += sge_len;
+ 		} else if (!sk_msg_full(dst)) {
+
+base-commit: d5ba86298b45e1a81c578c499e9a222a3b734d5d
 -- 
-2.43.0
+2.55.0.openai.911.g06873a30d2f3
 
