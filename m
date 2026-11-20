@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795196471;
-	b=F9TA4mZKljzSt+ynGtcq3b5OKXbVqDkdqRoHLSS7jgC+EdJdWZBoWgOeNy6x8BXG8l0+
-	 7uu6BjOnZLEl5OIdRZW14H9SEfeBOgqtp6UHY9qK3jy89rVqNrpVa7I6yfBPcpAQmYwlY
-	 K9jFw8CNeBUkVtNov221ixHEPNz+rY6c3D3blorh86YERmVpuzRYiQZ2Uqat5nz38rTLf
-	 ANzWtjvR/j9Qd85K/JMMSXFMdtHo1yIWiaLdi7dyo1Gv8Es/M2mCvSPR4ptlrMxTJAKIT
-	 BXBRDdmc6NgsRGqqtEDBXeWb2q/pT1U+vOrUeRPajhMmQud8qUq6hlqhx3qKru7H+Ow==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196471;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795196625;
+	b=FruoJKzQP5R6iz+Hg2PAbIBNh5+3A9MCH+uybbscukdVMtoNgDXV9phLT/f0dolYl6DP
+	 Q+/wn26vAa05vH/mqWfxLk5TG6oBHFocmU5hVJVoKQNftqnZEmpwl/k1wPp9fPHRVxrdv
+	 sEi181WQZmkZz8OvdTWnRG2Se12dr7xPQEa3QWnbjV4DL8Vpwg3xjqfAf8MVocRe/WwGR
+	 9dxwLXMon2DOF8gKnFOZkozPhcLKNHg4hr0peTFdMdcGV2QIqBgRTiSYr1wTQEq9u04j4
+	 YzNYTlpy92cyjPuzc6dqYLnPPqWUx7CRhmT8/vEdlyzT4v98qIAR1toAo1so6c01CAA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196625;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
-	b=RptxPAnF1JO4V1hfosLkQ6c05xllS7/bBlvD/EPweCT5qwmAEAY4LHGSTteEP0r2GNPZ
-	 RL9lzV5h032M806lBxp65lm+i88Mt+M+tpyFDFlQti1Xw5Y0wjjhBseUJ1LqtS9EUya7S
-	 aIjUzx26j2nfuz2NUtMfQDAPORtgBn4Ep4Yvgyoeh6NIWk9+pMWgG+O0eKVIKt8c1q3VO
-	 qqSm4LiZswmQRlteMDLna9+lCRaZLDpAEg1ocnfmBJt00jbL5gD2bnV8bEKPOFmFygXyT
-	 sCz7jI8gBmQ5NrMe5a6I2FR3Qim1WudzCgIlvOP6BoDfJeFiVK3kRDRM2gKeJymza6A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H0YVwCbF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
-Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=5z1EgR65emUydSCqho9zKh6KfG5YB5vPm248oYuEGq0=;
+	b=S+GA/hSxUpc+5nm9VMmW0meEHPj9+ibb9305DtXWc+VK/Dwd4ZfEN8QWcoMMDUiOK0Fm
+	 5TgKXC7zdmq5GkABDW0cAku93YSYsD8jzehRWLWQ1CAz+vleQACnFCLhF3OACqOwD/eTY
+	 jokfe6acKnxzIxY0aQpMRZOj0+1O1SmeplTmdwsCsiEqKBSMRNGwy9RSUWe2cvtUqrSsB
+	 dvn0tgl9IGR/QxGzMW+c0PvgqXYHxupceafrXQZlbtRar81bfo+XijUfkNgD7VquXunNp
+	 GtQCee7GCK6feLgbrh1An4du/+Hc6/wIy/czKdv7QU2xSqNhlolAwi7Awm0/yjGhMoQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="znst8q/z";
+	arc=none smtp.remote-ip=209.85.217.50
+Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com [209.85.217.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C607D606A32A
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:41:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C607D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFA7C606A7C6
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:43:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFA7C606A7C6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H0YVwCbF
-Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-533202fe429so171cf.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:41:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795196470; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MAgIrCeyIYUQdJoH1k/zkjpbUZ+2+eVLQVMPgZu0L7bhL22sPE6BUObzeUq/Q5ZEPA
-         py7UO2ONWGQCKO46UxqFE0f8hEai4BDOEDDTEaORSckMV6LctBwwVnDTl3XjDzfqs9sv
-         pMtdIrTxdrzFAKm0vagziQnQBiSIlKozu1eQ1cEm76LIygPz/0XEILYbSRxNkNffzJ6z
-         jjGKC6SLAqNzieuxz+URcGH5BsuSxvuSH6DeqKR75EXH+XEofnA88Q5LrF9Rtbk5cSru
-         XXNUGGsQiZ2S4hbf41+hJ8ZhtTY5BYEjRxIpUNw/1lbEEj/Qo5YZ4tcQ0EYGZqlFa6KB
-         E4yQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
-        fh=X46ybOzdhMx7/TD00KhtvjLw8igNrz6uL5Qy+Yqgvww=;
-        b=czkF/3mdMTZYuKrREW9r3RqmodbBUIyqIH68sgg7L/sKv3rWPxqCiASI+AHiGDkE50
-         2VUvgwit0JxNx9kEegMgclErOhHII/nIX2hGNW9sHvgLwgNjuEjAtA39EyOeadLpC/v6
-         IRW7HIzpAMj3VbXq2z5Y/ksxwOg0zEzvlLHl/6bLrV9VWv1SQcK760xWnNZyDu5XF71b
-         lNbCD1Wsv+xBHdVBgU1aRFW2Zd923f+I8W9NpG5dyqAmU66FEZk98Pk4VevIvtckz0pf
-         Fzjdqp4BV5+hUIn085H+FqTHGbHkJxTD1tTqPiYr4gvZoWlKr6HrNppnqytCUNtt7Keg
-         O9Zw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=znst8q/z
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-745497ac8fcso465926137.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:43:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795196470; x=1795801270; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
-        b=H0YVwCbFtGsLhM2WgfyZ9CEZuscowg14WiA+lGcenJ4NsS++ZK28EXcnwg7wRJs1+8
-         +z5Yyobbdw8XfgEZXrC8PmpRdfpofq5yIe+YvuleuMfjNdXoKc50YW3DxeRi4OthuRqz
-         0tuKhB8OrCns8cXlXrDiBhdk9AcVh86nnuG7ZSmr8R2FYvQi1M0nS/u6ajkzKfVJ6nmL
-         NMqoouL4ZyyqnOsTslkUO4QzXWMDqWVdE4LaNW/uy9MML4lLgwtkOiMZKng/4b3yRM7Z
-         xhBSTJieuagig0YgfuCsKkLw/XhFOmV2jReuv3khWSxABqSkp6b77CoVKCc+9NPZMEUK
-         Qzhw==
+        d=gmail.com; s=20260707; t=1795196624; x=1795801424; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5z1EgR65emUydSCqho9zKh6KfG5YB5vPm248oYuEGq0=;
+        b=znst8q/zgI1dTcSh+97WdgRu1/7fSZ/YVcxApvB9sqUs7XECM7vkrHOqnlyTsAkq4m
+         Keo2PN2Fle/zyfoibUcwc/l3XWkZFvnbQN9Riw2C+YFt8webA6Ld7xML3JuFTVmKaz9K
+         0tLV+w0Z5Cd4lD0CWM8pIZepoDQEuFQrTZrYy7lRgzsaFboJiL9ieGwleMa01Au81/yR
+         sJnXpsssLc6Cun8Aj7JFPkxio/r6ebHLYTLvyXy+3LSRNou1x8M4nVl2vA9Xpa3Q61M9
+         vE7cicjhqH02ympWsnYRYQn6gk1P7buW0QYksCRuPOCf0vkn3lXeN3EPjoxdyXW/Xiii
+         kpQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196470; x=1795801270;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
-        b=Hx3fc1MKtaedfoE+GLiZp8RPZtOD0eHxkt2nxP8UiK7XHx8+ynULw711jzdoCehFQ2
-         yeFyyOQuS+8XaQd1PyvU1A5WEORGFNBgou1o5y+vLuK1QqQ07K0SwMcLciigoafenHr+
-         lzR6JipBruIxA3MLIat8FmtbikHcxZsCvbQrmVFygC+Li8NbdXFalWyNnNSwRBWI3CXT
-         5bgNBxHs/0TdKQUPufAy2L5J+WcsUcI5sKAd1r2vVl9UzPMoQszhpD2hERzfJOKSwOdz
-         /QAz8kZy3GBXhtsQeOD6gI0zVJHeaHOSN8xkfHQibw9dvjb+wFXY5CkxKWXgOGpZDbNC
-         3laQ==
-X-Forwarded-Encrypted: i=1; AL+hErEkw8lsdCQNTR2joSz5bTsTjBlijpEpGtqI5SIBlEcs7kgbadTKljChOySvdBe9/WvvzG9sQJ4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9oaKrrRxmVm2xj8U5fl6+UfCw4LrlQ5CdsPXHfRqdu0b/B83N/
-	ixsvoOgzcMNE31x1LnUjWzMpA/QE00CpjwqsEstegO1UjI+A23tVQMF4q92q8FTVJ0iGcwV4SSg
-	qVgqzvoSvDXLHv2PolC1tGF2gRNV9G3cw50GyUxMI
-X-Gm-Gg: AYBFou3xY1lEPb4SW0381gsLXrHd0eQHJd1aVTnykdiN7J2Cb0dYUMEx5XlgZheSRz0
-	JtamuxWrU9+51LyVUkTaVLUdp/uXk6BeXYV4hfDrUGXKNLA8B+z8TacjCe3hEPCctJo4AeagJQz
-	ra4+ZAvO5AnlCP36uIumyZ5l0swnbQWu6fsqdJZ6CSPOuSuDbqAndQQP1MCw1zTYQEzpEJ3sjTp
-	2wW925ZW2a85IeDogq+XQLdOnVljbrN/YqF8s7LhXTpgCl1emOBH7IXkw9Ndwst/Zn3Ao8E5k4P
-	feVmfj1Jw+t8X8+HisYjdDXMBcnwPElgkUqA5UzQSrB32j4C4Oe86r+o2mB77zMVANf3MTLcBOQ
-	ADjMK1lT1u7HWg6IET5P5YLRHEOpa/gWaSzao
-X-Received: by 2002:a05:622a:58c8:b0:55b:d494:187f with SMTP id
- d75a77b69052e-55d7911a3d1mr23325621cf.5.1795196469202; Fri, 20 Nov 2026
- 09:41:09 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795196624; x=1795801424;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5z1EgR65emUydSCqho9zKh6KfG5YB5vPm248oYuEGq0=;
+        b=U7LNx9Xq3L+G+5jGjYY1h7VBoIzLsg6Ymle9Fu6z3KmYxy3zsFfMhZYweUDcOEJ5BS
+         nLo2AOzy29j0b2/2bT6gJQyAWcKg4RnPeogWoMImaLPDG9IPIahtc6GoyWNMilSeQaps
+         Mc8jUqTbBIf9E0pYdcznKqZpX4PUJKIWJt5iIqZIHy5VEJ/FpwbfgPHpfh+JHxXYInUI
+         XA2M0+1qlt7OsFJn4laH0u/lPu7JklczTGNC2wdYIXjTDtwq/ir8lu0LZEWCUbGmwOG9
+         yrStoErzHHhuFb/nPkmETrbC4tskkUTgM9CcOb3ncUwAqYWSVFuMqV/aOhXU1GCruyzh
+         rf/A==
+X-Forwarded-Encrypted: i=1; AL+hErEhqr15yXk7smV5vmUQoLn2i0qvAF9BFGbcw3KX68yIa8c3aaLIO8UCNLPH6MWJSf6SIkgGazk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/aHygmbyow3Xb1k6PJIDVh1Saa6VC2MK9MAvCOhEDkqJ/o7Pv4
+	C6nSSWqxa3Me3y95nPP3tdQdoEgI5O6+d0oaHhZjaufaOk1u9BJLDREl
+X-Gm-Gg: AZFdTZdi7CjnzfDVIIqoBbI2bI1r0bnZy+Nf+TDwElj+Uo6tI81L6aC27snAUxWyABG
+	oTwgJzOdbzsCz61W445HCeLQnRIkED7Rpu4QnbrgKoY0FBpkWJR4H6+V/GxZ57P1k4Gtx3kmmEJ
+	wgGlr7JT7Qqxcm4OUy3tAqu94LfI92WzxG0oR28oE+lZQ4FFfe6sGAFwPNJqoqAslM/ZJ7/fdCv
+	UsVrgI3iDAEhn8u8YTwleKNksH8eotAzYi9Cqe5dPis/oxWxR/FXRq7ni/tSI7TM2OI6Q4IjhLH
+	tfliAp4Oz71rYxI5MMeZ3dowy9b1udhcFezpEboqI1X0dWX5b8HMN4RJlRqaW8zJxZPL+xvgRol
+	l2wwcIKLHRuIJQtt/QvaC6jblpBLU8CSZUoClISAOpsJ3hksPSQ8AfFlOXWXo69XGHYCJqQ/96f
+	du9++49UjSX8Pm5Eey2WHkwM4tBkZIL90Epd0myPegBgGcl4kxbz4h9MdVxoPEVUSgxFRhSaadk
+	zYjBSL5aMXbbvm2eK6+OCQO8l/TeGg3M2YBmS6qPdfDJkmbBYx5cT60CgsAX/eiMblX0PHMcI/A
+	8r9f2EOMtiFAflHZZIdU01pAuJhQlJZDVr8WhKYy+RD1GVOFcq+P/kXUMATFH2x7QbKCOQ==
+X-Received: by 2002:a05:6102:3f13:b0:7c3:9a36:bbda with SMTP id ada2fe7eead31-7d72b368b75mr1845474137.5.1795196622985;
+        Fri, 20 Nov 2026 09:43:42 -0800 (PST)
+Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm3571363137.2.2026.11.20.09.43.41
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 09:43:42 -0800 (PST)
+From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Eric Garver <e@erig.me>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net 0/4] udp: Fix bind conflict check bypasses
+Date: Fri, 20 Nov 2026 12:43:37 -0500
+Message-ID: <20261120174341.35873-1-juanagusnicco@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,123 +104,37 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119170729.1524516-1-irogers@google.com> <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
-In-Reply-To: <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 20 Nov 2026 09:40:57 -0800
-X-Gm-Features: Aa3M54oOzjegUxdpX7VNYBH8UxXyKYAg5jEgHWesrq6ha6qjCQCMQopqRhJhoB8
-Message-ID: <CAP-5=fWXrX+VTWP4r4daZPf8QHEEWEyfWaQ9L+oa80Y3YAZcBA@mail.gmail.com>
-Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
- fails in xmit
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Horatiu Vultur <horatiu.vultur@microchip.com>, UNGLinuxDriver@microchip.com, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 1:57=E2=80=AFAM Daniel Machon
-<daniel.machon@microchip.com> wrote:
->
-> > When all LAN966X_MAX_PTP_ID timestamp slots are in flight,
-> > lan966x_ptp_txtstamp_request() returns -EBUSY without queuing or freein=
-g
-> > skb, and lan966x_port_xmit() returns that negative errno directly from
-> > .ndo_start_xmit. Because dev_xmit_complete() treats negative return cod=
-es
-> > (< NET_XMIT_MASK) as packets already consumed by the driver, skb is nev=
-er
-> > freed or requeued, permanently leaking the sk_buff and its socket
-> > sk_wmem_alloc accounting.
-> >
-> > Free skb with dev_kfree_skb_any(), increment tx_dropped, and return
-> > NETDEV_TX_OK when lan966x_ptp_txtstamp_request() fails.
-> >
-> > Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
-> > -Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
-> > coding assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and
-> > -Wimplicit-int-enum-cast; not tested on Microchip LAN966x hardware.
-> >
-> > Fixes: 77eecf25bd9d ("net: lan966x: Update extraction/injection for tim=
-estamping")
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  .../net/ethernet/microchip/lan966x/lan966x_main.c  | 14 +++++++++-----
-> >  1 file changed, 9 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/dr=
-ivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > index b8696fc7e9b9..9c722d23e0bb 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > @@ -392,6 +392,7 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff=
- *skb,
-> >       struct lan966x_port *port =3D netdev_priv(dev);
-> >       struct lan966x *lan966x =3D port->lan966x;
-> >       __be32 ifh[IFH_LEN];
-> > +     netdev_tx_t ret;
-> >       int err;
-> >
-> >       memset(ifh, 0x0, sizeof(__be32) * IFH_LEN);
-> > @@ -404,8 +405,11 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buf=
-f *skb,
-> >
-> >       if (port->lan966x->ptp && skb_shinfo(skb)->tx_flags & SKBTX_HW_TS=
-TAMP) {
-> >               err =3D lan966x_ptp_txtstamp_request(port, skb);
-> > -             if (err)
-> > -                     return err;
-> > +             if (err) {
-> > +                     dev_kfree_skb_any(skb);
-> > +                     dev->stats.tx_dropped++;
-> > +                     return NETDEV_TX_OK;
-> > +             }
-> >
-> >               lan966x_ifh_set_rew_op(ifh, LAN966X_SKB_CB(skb)->rew_op);
-> >               lan966x_ifh_set_oam_type(ifh, LAN966X_SKB_CB(skb)->pdu_ty=
-pe);
-> > @@ -414,12 +418,12 @@ static netdev_tx_t lan966x_port_xmit(struct sk_bu=
-ff *skb,
-> >
-> >       spin_lock(&lan966x->tx_lock);
-> >       if (port->lan966x->fdma)
-> > -             err =3D lan966x->ops->fdma_xmit(skb, ifh, dev);
-> > +             ret =3D lan966x->ops->fdma_xmit(skb, ifh, dev);
-> >       else
-> > -             err =3D lan966x_port_ifh_xmit(skb, ifh, dev);
-> > +             ret =3D lan966x_port_ifh_xmit(skb, ifh, dev);
-> >       spin_unlock(&lan966x->tx_lock);
-> >
-> > -     return err;
-> > +     return ret;
-> >  }
-> >
-> >  static int lan966x_port_change_mtu(struct net_device *dev, int new_mtu=
-)
-> > --
-> > 2.56.1.708.g77570a6a1d-goog
-> >
->
-> Hi Ian,
->
-> Thanks for the fix. The issue is real, and also on my backlog of work to
-> upstream.
->
-> Just a heads up, I expect the AI review to flag issues in this area. The =
-lan966x
-> PTP TX path has a number of known problems that I am are going to address=
- in a
-> PTP series soon. I'll go through the findings once the review is in and f=
-ollow
-> up on this one.
+An unprivileged user can get a UDP socket bound to an address and port
+that another user's socket holds, in a state bind() would have refused,
+and receive that socket's datagrams. This series fixes three bugs that
+allow that and adds a selftest.
 
-Thanks for the heads-up, Daniel! Feel free to fold or supersede this
-in your upcoming PTP series if that's easier than taking it
-standalone.
+These are sibling vulnerabilities of the TCP one fixed by my
+commit f675070191f2 ("tcp: Fix the SO_REUSEPORT bind cache admitting a
+conflicting socket"). The one in patch 1 has the same kind of cause: a
+SO_REUSEPORT shortcut that lets one matching socket stand for every
+socket on the port. The other two predate git. All were discovered
+during an LLM-based audit.
 
-Thanks,
-Ian
+Juan Agustin Niccolini (4):
+  udp: Fix bind conflict check stopping at the first reuseport socket
+  udp: Keep the bound device on disconnect unless connect() set it
+  udp: Ignore a connect()-set device in the bind conflict check
+  selftests: net: Add UDP bind conflict tests
 
-> /Daniel
+ include/net/sock.h                            |   4 +
+ net/core/sock.c                               |   3 +
+ net/ipv4/udp.c                                |  69 +++++-
+ net/ipv6/datagram.c                           |  25 +-
+ tools/testing/selftests/net/.gitignore        |   1 +
+ tools/testing/selftests/net/Makefile          |   1 +
+ .../testing/selftests/net/udp_bind_conflict.c | 228 ++++++++++++++++++
+ 7 files changed, 317 insertions(+), 14 deletions(-)
+
+
+base-commit: 19a227903e65c7a9c179156485660a4e017575fe
+-- 
+2.43.0
+
