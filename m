@@ -1,102 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795185925;
-	b=zN/lrtDp457N+GN17HokqH28pHb44zPAfJMaNT4VE5F8uAZjy4IhyJIcIKyEowRMhLjc
-	 W/2gi/Etxbw6JQnED2hzZFScrLHBZZ70U6kSTrC4+BxRaXjkChOQPeqqoxqImTO28p4vc
-	 +otDqCGG+KSuCN2LmFkJU0OK+dzgb8NmLl4j86UWN7Cyw52VqI+iS2zdBj4zARIh2JOYI
-	 EX166G8EInvK8Hs+yGsgh5pbv5pb3Rv0HVXuPWyiIscENDtMKODLZvSnc+2cAWKZJYpmB
-	 iUYf3PvaMwyXotcC7/LM2WWSYr67/5Js+Mj42dQqPeakvo4eB+o58ua4kZxiU3F+h9w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185925;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=OM7YsIV/hvTviymzlQvqiY7ZSEwp78sZGDcRYlQvLWQ=;
-	b=VTfI7PX18+NVZ09eY7APT8cWmHIOFtUVGZlPN4/RND8BLZSq+PqQXZ00Jw0dXZwiWwyd
-	 MEs4qafZlTbncf5LB+qqqp6zn4++Jd6x+0FC3INTnZxrnJkdezFBSrmk5+aHUJeI6+Nwp
-	 wf8lkMqRAxdT6MxhBmU9SLO+W3jtgOV9PXJXTZx1J4+H0g07jSXQdzysVg/f4wbRcmPBN
-	 PVdVPZjDBv3TvVNCkhbyyyiBMWU2m101aLNzaBonRQobx+VtwhL4gJiz9uAVbkYJawoIm
-	 JwrSR5E4jG2IBeUBSpgkBw4UfkX2z122XPo4V0FP/5ofdWmRTWmkkhkTJf4x3vUEjRw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f633lngd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.21.23.139
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795186047;
+	b=DxGtT9F8jYfvBKql8pxxKVkSe4cexljzWQw24kU8h6nTigohYj3qz5OTBOGrmLauYhE2
+	 CJqv6NLd5A3zIRy51OUEp7WKz0KpZdt8honhz/z2UDNhEXUN71gFsFHBpWq9H7Nj63Pol
+	 3Xoux+PmkBQvmtj6N10M3AaN9OlArdsBkPbTU6MuhE1XykK57hU1O0zs7VkkcT4EF+Y5X
+	 5i3DOeE4O0oW/kY0hzXhsnpSkHo8j6uuqkvJdNGfb4Piq2e32lAaTqnwP7JxPquYpBQMY
+	 KjV58X54pUyyS5krif2Mk3ZRf0DTabWNdkJpiBx8OtUJCKhkHCf8DZl8o7L6hEaJ9oA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186047;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 MIME-Version:Date:From:To:Cc:Subject:In-Reply-To:References:
+	 Message-ID:X-Sender:Content-Type:Content-Transfer-Encoding;
+	bh=7lDtZ3hGN9b/G+u+R6RW+gOmPSbNNpP4+cp9diJUF44=;
+	b=0ggHSgtUhqHL8gSfZu/K7g6J21rEZZC+pOLacxjYUuImkmlUMzZiwVx7z/QmaoECn9/L
+	 wmCKqXa4ELHD/n6AqtpNWilYZA9E/n0gYIEf0L3ApTXuyhwG6+Z3Jp0TuDT8PmsZcoDH6
+	 O2VQWZMJVl/a7d00GpB4lwfcFEZx6Ikh6Dzxz2mo8fzK8YHVR56wX2xoL2WpStqDcWdqz
+	 iH61PZ/v6JXbtgOAx1p7YeZKOc+LAZwRnWkipq4pOVHWrqX31LSRSZJEoklVoFOs1UrRH
+	 j+zsnHP0lliVecSxWIKksN1MBkdfU12ns29FEOyYAJbRomIAPiLredkqL4CRa+6/JOA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=disroot.org;
+	spf=pass smtp.mailfrom=disroot.org;
+	dkim=pass header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=WMddph2n;
+	arc=none smtp.remote-ip=178.21.23.139
+Received: from layka.disroot.org (layka.disroot.org [178.21.23.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D071606A326
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:45:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D071606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C4C3606A326;
+	Fri, 20 Nov 2026 14:47:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C4C3606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=disroot.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=disroot.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f633lngd
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so11394985e9.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:45:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795185923; cv=none;
-        d=google.com; s=arc-20260327;
-        b=K6Qpzmd/PUoUyT7h6ossi9y0vT87ItpHwLojBaJZCS7hefKkAi2Hm74o3ANGibTY9n
-         YDwws0KrVy8pNW3CpNAscpG1tvv1qYXfliqY74yrwFTjuDToraNj5jv0RR4l86caLcrU
-         XiBaVu3edHKSIDB8LzSX0fYBL0Yo/UGd+UKM3asi7zXzkLC9l6UaVSu4ENHf6YO+M8Ie
-         /2jcegTVfwO/L+5njFceObDgijKUjWLESR1a9MJW+RtUZKdU3pYAzCujOSEgswvyrW8X
-         YUMsgrsZYQf9/HhGxkN0dGuRo7o32W2gm3AYUfUfwdfJP+d/kIBgsTSVf36FaeZpXGJH
-         q94Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OM7YsIV/hvTviymzlQvqiY7ZSEwp78sZGDcRYlQvLWQ=;
-        fh=it/ShN8qZKjjt/xfPjriL2Flddn9H4akBSYn/Vz/hu4=;
-        b=WpyuPYCWsMpwgOYn6Z78yUJtAlY19zFJ+PECPwe6JMjVJ0D+b1l6kNvbz7DR/sZhfA
-         kCnALMR18MP6xXlboHz4HRZ0MC94BYBwV7toYUinjOANrvh6Yq76Qy59uJ1kvbyLLSKT
-         0T390+m1SZtMWn+OLuG3uj23ARV0nJNgl95kM/ro9E3AtvQSFephJtFM1s7bE044x/uz
-         a4WZWJ9Ig5AQrPcCa6vEPtj/JRqB6mQZMqzE9yW0keDBaUwp4bmRl4YkE5GoDsrS1xyT
-         9cPLY2shYC33tkc8MhdX2j5XT2lH5gy4ThgUjZGhOQRUwCK94EDdm6WztUiypFjHnQIE
-         LC6A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795185923; x=1795790723; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OM7YsIV/hvTviymzlQvqiY7ZSEwp78sZGDcRYlQvLWQ=;
-        b=f633lngdGyeQgB25tTiMalyiPph+6hN8WmbHgECT82SJswThbaePLCy4l4EPftPtIp
-         PKShHiUnceLJ8YtKkiJ9WD4HOohsmUPru2Rk54Jp7v+h+lt0sXRUB2JmL+vGrnho9nNL
-         iNvOIx3kaDiNtxVzZSBikjptHRr4HrX4686RYbGwj4IMuKoAKLuUfOqJAi8gSRPaPPW8
-         BMOEIsSuJsOCSRF04JxQaO5ZeWJ6yMpC3+5AFtTLpXCYCXRwHkR2Kh9vOi95U2BEzdFO
-         6gFFqoSY53nH/uARMgEdZ9SRE2KvMbI/pXAxGuLZuo5Spmz6F1berC8LPUD2OBeVwLrd
-         2gCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795185923; x=1795790723;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OM7YsIV/hvTviymzlQvqiY7ZSEwp78sZGDcRYlQvLWQ=;
-        b=rS1i3o0Uau1gjbmBUUp+jgBuyQaBwTPsHvEPUXzD+uOKijbUTefQxDVhBil6y43XyE
-         eq6w/8DscKoAGMmBd68VBdgF+y477m57wA+dDVHA4WuZ9nscDAC9rlcSqHcLsriAUMcY
-         aOsxL7LpJKAo2MbNgbd9Ic+jrSJQ0Em/KAD12epngoh/0ft5cmkkeeDyyamTmFZUIHs9
-         9MTaXx+1mFL9zOR3x0DoBfvgf/M3C1SJNlxIBfFbz3XQ1KCjiBZp6Edkx2eP1cen51Uw
-         5a6aoFehHJV952s2qSUUqusYNeElE1ujln+XtFtMTbcIc0C6/ZRq0Ai1MkqtrzRAvOT7
-         6a5g==
-X-Forwarded-Encrypted: i=1; AL+hErETFGtFwEzhQgWpEzMOuLW0HxWsiCB11yVQ18Z4teDp6aQtRE9gwiw4LzK7tKztnJ9pHaK3Was=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KOcHhr8m5/OR6fU+BvNFCwBn8LCnSUI7Ru2DRMfRidcQywKSU
-	xs/YX6s1ZPQRi3p0qFmNBBKWzwYT6vjk4NzdSud8hKl+jSQvKKnJAvtybTgpg9tnkak9ssvRkiA
-	2G5asJlMDQMqIf48UHYvpITeYYsYrK5g=
-X-Gm-Gg: AYBFou08c8UFa2EbyFv1gFbHdeq1CnyheFw1U+aHG8myb3CAZElDu7YH/PF5aRZN6B4
-	xCAL6YtxNSo01u1ETOm00z2X2fIa+JJN84re4AMiSG4DjWjYUkBaGISu9zBsVtvJhHkC7B0sgqX
-	kJQiuSUdPawtnBhQtPpentLfOVhutKS0PcUrhXNoPsqBxquqIKRBwlfMob8EZnsbe3dEY3QVLNw
-	+9G3jdxCc6xOnzz18s+nuNxrSoZuD5ZyrMYp5S7/iqxhNquL+NhAZA4I7J+JiVQDM0JrFKJ8q52
-	zckGKSuDFRdZ6NQsNKSaJY0ycjhuzcUOcO0FezxqXERIfCGjToUDwZkTjHegu7x4HDsXGFGqL6H
-	Hm86bMtUcsCvdXmHEAz0socNOReYxwmHG5Kk3Q53c3/zp6TI8qKQ6WkF4Yp+d6xxKwFY5iRf17O
-	HI52j1uE5HKcRlwyolDcnmcPRJlt8VdUI64peYqGEY8bA4wRoRucnXdYSPW/mOJGArgi4X989m6
-	CY5PjzSzbVKtK6YE0lh
-X-Received: by 2002:a05:600c:848a:b0:4a2:1960:6fa with SMTP id
- 5b1f17b1804b1-4bb887fb678mr70511175e9.4.1795185923328; Fri, 20 Nov 2026
- 06:45:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=WMddph2n
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id CE9A180489;
+	Fri, 20 Nov 2026 15:47:25 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 73qYHBJgtuIa; Fri, 20 Nov 2026 15:47:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1795186044; bh=p4wlwrOxllXj04UsD2WxdhJIRf9fiYXFmoCz4Fpl6a0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WMddph2nrb2s3I/T0hD9n7ZhDlnuEToadvNgL85j7KrwFAUhPO/091e4b1EJa0YGd
+	 FEoN6b7rlnA/gIIKD5K2L5IvxqgXBRr/iIVGL2NU2p2+sar7/1n1uwUkcBaRGVOH/h
+	 21yY9N9EEBO24tOdkMn7pQO9adKKMIKnHfGZK2zmvS1MJhfxtvCjoWfRHDWJ7nUvc3
+	 hJzDtbjDdutcZUJhiOeSV/54L02rDQKsfO6BQ8f5m+ON5o3S4XXdZgohFLhNyYed41
+	 Qq4XJ88GjLGhtnC3DSfvemg/SoUQagoOdtddepkuYQbUKp10z8tkKZxoX35Sf0K8md
+	 B0+iepISaYzPQ==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,62 +58,100 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20261119191426.54709f08@kernel.org>
-In-Reply-To: <20261119191426.54709f08@kernel.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 20 Nov 2026 14:44:56 +0000
-X-Gm-Features: Aa3M54pSOd6vTx4q0dKEkhbWmYi38SveFg9iQJwARff5g85g_o0F_47BDGOOQQk
-Message-ID: <CA+V-a8vB25ypt5693HqdaRMefWUu5Dea52xY156jTT6roQ=q3g@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 00/24] Add ETHSW support for Renesas RZ/T2H
- and RZ/N2H SoCs
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@linux.dev>, 
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Simon Horman <horms@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>, 
-	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 14:47:24 +0000
+From: Rustam Adilov <adilov@disroot.org>
+To: =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon
+ Horman <horms@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Taiga Ogawa
+ <zectaiga@gmail.com>
+Subject: Re: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C
+ tag variant
+In-Reply-To: <awA2z07l0ZvzcWtc@analog.com>
+References: <20261119165129.26693-1-adilov@disroot.org>
+ <awA2z07l0ZvzcWtc@analog.com>
+Message-ID: <b1cd757ad411aa74cb2934ccea0924e0@disroot.org>
+X-Sender: adilov@disroot.org
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Jakub,
+Hello!
+On 2026-11-20 12:09, Alvin Šipraga wrote:
+> On Thu, Nov 19, 2026 at 09:50:51PM +0500, Rustam Adilov wrote:
+>> The RTL9607C family of SoCs have an embdedded switch that utilizes
+>> the same Realtek CPU Tag protocol 4 with 8 bytes in size but have
+>> a bit different of a layout. And that layout is also different for
+>> TX versus RX sides and introduces new fields not seen by RTL8_4.
+>> 
+>> Add basic necessities for this cpu tag variant to function.
+>> 
+>> Tested-by: Taiga Ogawa <zectaiga@gmail.com>
+>> Signed-off-by: Rustam Adilov <adilov@disroot.org>
+>> ---
+>> Tested on OpenWrt with 6.18 kernel version [1].
+> 
+> Mainline doesn't have the requisite DSA driver to make use of this
+> protocol. Andrew, is it normal to accept tag protocol drivers without
+> the corresponding DSA driver?
 
-On Fri, Nov 20, 2026 at 3:14=E2=80=AFAM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
->
-> On Fri, 20 Nov 2026 00:25:10 +0000 Prabhakar wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> The max series size in netdev is 15 patches:
->
-> Quoting documentation:
->
->   tl;dr
->   -----
->
->    - designate your patch to a tree - ``[PATCH net]`` or ``[PATCH net-nex=
-t]``
->    - for fixes the ``Fixes:`` tag is required, regardless of the tree
->    - don't post large series (> 15 patches), break them up
->    - don't repost your patches within one 24h period
->    - reverse xmas tree
->
-> See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#=
-tl-dr
->
-Thank you for the pointer; I'll make a note of it.
+I suppose that is fair. I guess that also means i need to hold on to
+the PHY support patches until then too?
 
-Cheers,
-Prabhakar
+> I can see that the OpenWRT kernel has a DSA driver using it. Why not
+> submit that together with this? Otherwise it is kind of dead code IMO.
 
-> Looks like CI has already wasted time processing this, so we'll let it
-> finish, but if you break this rule again you will get banned from the
-> list for 3 months.
+Yeah but right now it is not upstream ready yet. Ideally i would like it to
+merge with rtl8365mb dsa driver cause by all accounts the embedded switch in
+RTL9607C is very much like rtl8365mb but connected over MMIO. So that is my
+overall plan.
+
+I am already working on making the downstream dsa driver follow the rtl8365mb
+in every case, mdio [1], irq [2], mdb plus vlan [3] but it is kinda messy as
+VLAN side is very much like family D which is still being worked so nothing
+concrete yet... and the table part is currently being provided by downstream
+otto-table driver but we could just as well copy rtl8365mb_table in process.
+
+After then introduce something like realtek-mmio (similar to realtek-mdio
+and realtek-smi) and bam, we can straight up share the rtl83xx code :)
+
+But maybe i should really jump straight to it and not slowly converting
+the downstream dsa first (which wouldn't really be relevant anyway?).
+If it turns that i do need DSA for this be also accepted then maybe.
+
+> As a side note, it's unfortunate that Realtek recycles
+> EtherType/protocol ID values for seemingly different formats. At first I
+> thought this should be its own file/module, but I can see why you put it
+> here. My one concern would be whether the semantics for the common
+> fields are actually the same for both protocols? If not then maybe it's
+> better to separate them after all to avoid confusion.
+
+They do share the same semantics except reason part as its numbering seems
+to be a bit different, 80 is reserved, 0 is normal forward. More documented
+by the RTL9607C CPU NIC Application Note at [4] and the hwnat driver [5]
+
+Anyways, thanks for review! I partially also wanted to announce our presence
+to rtl8365mb folks by this patch as we may share the space soon :)
+
+[1] https://github.com/openwrt/openwrt/pull/26779
+[2] https://github.com/openwrt/openwrt/pull/26593
+[3] https://github.com/openwrt/openwrt/pull/26415
+[4] https://github.com/jameywine/realtek-doc/blob/main/datasheets/RTL9607C%20CPU%20NIC%20Application%20Note.pdf
+[5] https://github.com/jameywine/GPL-for-GP3000/blob/main/linux-5.10.x/drivers/net/ethernet/realtek/rtl86900/FleetConntrackDriver/include/rtk_fc_mgrTRx.h#L540
+
+>> The RTL8_4AP name was mostly chosen because Realtek gave the RTL9607C
+>> family of SoCs a codename "ApolloPro" in their SDK, hence "AP" part.
+>> Originally it was named RTL8_4_RTL9607C but that feels weird.
+>> 
+>> [1] https://github.com/openwrt/openwrt/pull/26496
+>> ---
+>>  include/net/dsa.h    |   2 +
+>>  net/dsa/tag_rtl8_4.c | 193 ++++++++++++++++++++++++++++++++++++++++++-
+>>  2 files changed, 194 insertions(+), 1 deletion(-)
+> 
+> Kind regards,
+> Alvin
+
+Best,
+Rustam
