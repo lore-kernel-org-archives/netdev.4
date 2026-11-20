@@ -1,53 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795214596;
-	b=G6dAa5aG16Cz/A7cDgOHUm5RzuMociYkddSErUJ/bHqQOHg3mdEjTRZ2cC1nHSQsBKfW
-	 ofzMsP4vvrFMWLvIFJnhYTwkWWMO4FOMNYI95p+866HaBBLDRiNeIgEWyem9jjFL4II2I
-	 Yn89BBCsEuejyHvnt0EPhqHmYJscfw1sgUnNn4EXCndYvJ65BaluPNGnKOBAYqh+9TW0R
-	 bEkw32KFLNwjuVPRG1WxcmNIZCd6v6uLJ9PG9rJuXx6RFt6BcSeir24ZXqi2RFEbJ7hIv
-	 LU9efyh38iIVmtskLpppdvYa7pC8otXtS/F3mTR+lx50kHJoVMiezYsBxsX6HD1rivQ==
+	t=1795214670;
+	b=kHhMjDpdR+pPMGGIrOvY5JXquhGCUwXAieeGXBxInGv2vBQTyDmsdXZ2A+2tl2ogldKh
+	 oJcl0Esvv6Qh5/Ok8zLF1UD3PDtG+vv/YItzqlKEKDW248G8JBJu5IwhtT3q0zj1uX+N2
+	 BT+sJdMCP71gcauiel9LUvcVAtQvBbqffV5Z5VaSculLrPWYbIj34JzrUOQvEUzfhclBb
+	 Ax5Z/uf71LUWMytzx7O0YlRKNtfxZ3mDn6N/c2fwzuxqaQw3hMX0zZdUF42ZZbUzzPAr1
+	 Ze6PWc7qs1mjkni2wBA8Iu8a6Tfcno7I3jIWuIWBuvje3Uz5X1fsPFFMQ2yzjaP/h1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795214596;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=beVIJzhO9G9mQP4NDpUbqUkjliEs+CDfS51LB2XvRJ0=;
-	b=NPNuFUpQXdO17OrtYesFsgNRHV2H9z3hh1J2CDiXXw9mWKXYyGbliNF7tbyKjZVhFG4r
-	 H/9jt1w27SK+txH+/kayipFSuzgzfuPnoXDTrP0VY/rsy7+t3nQYb6efnbs0/tcJUrFSO
-	 SH1ij/0fHbpRY0uxbLw6FPUkuRbIBLgdPQxcOu2JSKEGsst1OPC+TGnQMwLA0oa4nqHSS
-	 p7dxo+qvgXs2Rxdy+g7+WE9cjQnR9loNss6yLB1H/k/itjTAU+xZfD1sQemGTOLQ2E0MJ
-	 fcS1Cfomx0TUv+9e1vRTSdN3nOGRGJVdd1FMc+Zzk4HWcP6rFQ0h7s0tAWhCPeXbmtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795214670;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Debian-User;
+	bh=InAjMD74eqipW9lRsPsCI4Ai3lEa52iW7ZUScUMh4Xs=;
+	b=ta/aKaRwnpIc/we1SObKk9ZISLSsIt/70FsNI10dZ1fw60s/IlBY1PyqNjBPN9yVUbYs
+	 WVb6bVKu2mfxmrQXbTlQnP2UYQks21w23nthJ/X4q4mB6s30oI+Wzf5VDy8nXH9Bp/H6W
+	 /hlvUUgnjqwp/Z7JWrgBp3GGGXTtuw4aLH/lQZqDUEjtbEG5LqvKyzPGU2io7SUkOKGDH
+	 hNiw29UuQThpTHU9/6QV2HPDC0sQqOsXyWXw4B9H28v+nbIPJ9g0k3RrGtnmNgi8Q+lU8
+	 UScQcTJPErTAZfGLiTdk8GJVcCdyacPG3WNsScobOUOJLXtI+FbFWV+g3TCcC1WQwxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=dtENblfA;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=mKKTQTOl;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFDEF606A6B8;
-	Fri, 20 Nov 2026 22:43:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFDEF606A6B8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4288F606A68C;
+	Fri, 20 Nov 2026 22:44:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4288F606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=dtENblfA
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 53EF6A4C50;
-	Fri, 20 Nov 2026 23:43:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795214591; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=beVIJzhO9G9mQP4NDpUbqUkjliEs+CDfS51LB2XvRJ0=;
-	b=dtENblfAm+MeYpcHD8/wT+ZABx7V5L7ljJw5Z9MYZ6IydLl/pMDdvdSnRs0vTrqe4jaX67
-	Ryf5AyPsrMgwl8FhjslgqxW3neH+Gzlh6RH2t3+22tNRXIWa41AEJ7PmnniIRPtS9Fq9za
-	Fe0KfKn2h27i8aMz7BZSwB6rChhiUEvwyI1Cvo7KdCsYfid7ipMv1kjNDKCGR90yP5O8qH
-	CfdiCANZI194sxmRll+yxorE3E4mlbhIMqfKwRJ/gax1QFeb2bGo5y/6zjVAj/DUD8gRHI
-	X2xoHlvWX58PSxnAsXFZ4GMDYlFF6YNeJ5XRPIaUzQkl2RCNIgfnOZpdsQ0PTw==
-From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Fri, 20 Nov 2026 23:42:39 +0100
-Subject: [PATCH net v2 5/5] net: systemport: accumulate the DIM packet and
- byte counters
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=mKKTQTOl
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description;
+	bh=InAjMD74eqipW9lRsPsCI4Ai3lEa52iW7ZUScUMh4Xs=; b=mKKTQTOlQCONVf+xcZiJA/5+v6
+	/gWpjMTXY81UM5uPzbRoFjZGlsCYwXmoX0EbgwFeHcRdVdFZ9KwDBiia/uiXqqBjVTa1T+LBRJbZa
+	CY/4VcwtveScTi+pSLsJOQNG+FnfMXvcaUvhG7zPSYxXAAmliF/wke86YJQcNBz8VN+lm62EJXFSU
+	3Dyh3bDojacuQ/89s26+9uoCJTNbkp2q5nlMPOX9vDqs9tqCmlcTpvBDgTt3mNYCy6NPBkoxoVJAa
+	YkXqGBDCBtwPLISZH5YKsV1/kvYCAgl9ekaaTbHYINa5RIhKqLgJ8nWxLBkFgh2b8R8lXQvaEIrPb
+	CdkLOk8Q==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUXL7-003CmQ-2h;
+	Fri, 20 Nov 2026 22:44:18 +0000
+Message-ID: <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
+Date: Fri, 20 Nov 2026 23:44:16 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,53 +60,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-nb-genet-dim-stats-net-v2-5-1a7cece7dd1a@tipi-net.de>
-References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
-In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
-To: Doug Berger <opendmb@gmail.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Justin Chen <justin.chen@broadcom.com>, 
- Petri Gynther <pgynther@google.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Nicolai Buchwitz <nb@tipi-net.de>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
+ MDIO devices
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Vladimir Oltean <olteanv@gmail.com>
+References: <20261119231319.1256419-1-bage@debian.org>
+ <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
+ <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
+ <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
+Content-Language: en-US
+From: Bastian Germann <bage@debian.org>
+In-Reply-To: <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Debian-User: bage
 
-net_dim() computes rates from the difference between two samples and
-needs running totals, but bcm_sysport_desc_rx() passes the counts of the
-last poll. Adaptive coalescing then picks profiles from wrong rates.
+On 11/20/26 23:07, Andrew Lunn wrote:
+> On Fri, Nov 20, 2026 at 10:40:55PM +0100, Bastian Germann wrote:
+>> On 11/20/26 01:33, Andrew Lunn wrote:
+>>> On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
+>>>> The "broken-turn-around" property is documented in mdio.yaml for any
+>>>> MDIO device, but the MDIO core currently parses it only for PHY devices
+>>>> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+>>>> switches, are registered through of_mdiobus_register_device(), where the
+>>>> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+>>>> still treat the turn-around/read failure as an error.
+>>>>
+>>>> Parse the property when registering a non-PHY MDIO device and set the
+>>>> corresponding bit in phy_ignore_ta_mask before registering the device.
+>>> What switch is causing you problems?
+>> It is with mv88e6085.
+>>
+>> I have just found that Nathan Rossi sent basically the same patch as
+>> <20210217044443.1246392-1-nathan@nathanrossi.com>.
+> [Goes and find the thread]
+>
+> Are you bit banging as well? Or do you have another MDIO bus
+> controller?
+>
+> The point about the mv88e6085 using multiple addresses is valid. How
+> do you have the mv88e6085 configured?
 
-Accumulate the counters instead.
+It is with the TI CPSW3G MDIO controller (ti,davinci_mdio, ti,cpsw-mdio).
+As this is on a AM64x, errata i2329 applies and davinci_mdio runs with 
+bitbanging.
 
-Fixes: b6e0e875421e ("net: systemport: Implement adaptive interrupt coalescing")
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
----
- drivers/net/ethernet/broadcom/bcmsysport.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/broadcom/bcmsysport.c b/drivers/net/ethernet/broadcom/bcmsysport.c
-index 29e608e7daaf..0902dd0dd94b 100644
---- a/drivers/net/ethernet/broadcom/bcmsysport.c
-+++ b/drivers/net/ethernet/broadcom/bcmsysport.c
-@@ -844,8 +844,8 @@ static unsigned int bcm_sysport_desc_rx(struct bcm_sysport_priv *priv,
- 			priv->rx_read_ptr = 0;
- 	}
- 
--	priv->dim.packets = processed;
--	priv->dim.bytes = processed_bytes;
-+	priv->dim.packets += processed;
-+	priv->dim.bytes += processed_bytes;
- 
- 	return processed;
- }
-
--- 
-2.53.0
+The mv88e6085 (88E6341) is configured in multi-chip/indirect mode at 
+  reg = <1>.
+It does not use multiple addresses.
 
