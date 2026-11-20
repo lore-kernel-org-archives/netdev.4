@@ -1,79 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.203
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162444;
-	b=5ng2d/rYLZ7iLw9TvLXqmbjRTGTWMSrhkskNzzxnY4FcA64fDzlm/e1wztcjH4esuNQ5
-	 692RBr/pu0NWiDKApvNtE0a19y21cTE6hOjy/wYVsQPWWmvXBzGTjSkOAdGzYwhzPzLBS
-	 vOndU+TVUNV4ajbraloEQoGhtF4jzjJ46Uusab8d1uU4AvrACmsMzwFZOkopjsz76ncEG
-	 bd/BPJC6nzPGmHwpxJyOPBXtJB7RWQhNe+wofGz6mMx+Vm1Ddqub6OJbEBCr+POXZwBB8
-	 KnwxFpBKOARMkpvtAdAu78iFsrAc/C+xmYe4ReYob+rmb7QyJdDPy1dYGB5QN3ZJN7g==
+	t=1795162445;
+	b=smjvpiN9F6Rru/Ayw2V0wrvrJqLXCKB7LXx8pZuOyFlZRez3kC5l4Dboku8LSncTMRC+
+	 7/OEtyJck3ekAtqTYAHY4INk9TCW4aCfA7AsQIiquV4Ri0NcPYak30YATZOTAoVS/OJCS
+	 WQTtfsUMh1drBmPZijOZu6PupI4hVze/mTZhke4eWigdhay6HK8er+2yzW27kIRiRL76s
+	 RS+HWhI7lIbcfXgVfEapPWIYXBBd5PjLco1K/O+m1wl8VSEIU8hrPsyBIcQOdfSjLOnjJ
+	 YwpTit9IVDwIZPNtHI/3/XHgKHzWlW+rXYWPFy686CmUkQ734r2ZwzE/WBycL+1+sxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162444;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=RpMYP0Ydd5BpVNbkK9E+iOAiDlzHS1ASNDtCYygPy+A=;
-	b=P/v6gyub6PQdEED//FzPCO3xa/WNivrQJQLXvxuwlzWv1ZPeDhhjs6CAhB5czstacGOs
-	 ko2ZLbzSf4mlpNNm3BM4Jy+jOJptuqZlQMyOY9CTXYHKc03hHcut8+nyk+qOcoX2d4Bvl
-	 aBlQRt3rDVGqLoEq6orxbdlz4KnUnSKl3ePgFFWx9TV9OggnnOLeWtjI8Q3OPpUFZiqrS
-	 A6JGG32eP0LGTZARt+tqTnaNOMuOBSr4Mb7aP67foWEsaLpKQ9Wnd5mKmICs/Xugczfbo
-	 nn2SboRmqUYhdISx0aGnXMagIL4vKTxIUyL3iKqzqCskv3WuheWa55F0whOeMig5wKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162445;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=T0QMJszuIflUVnI8KlcqSRkClwadTrIU4ZiU7YrghCU=;
+	b=G7/KEWZLZzIS3LjHCSQTAu5Uf2RJibX3nZMzGDtby1Vbml9tnZmwRyfeX18E/dOLv4Yd
+	 LrDJFhUB4LWV5JQG/WmBatA242c/NHFN7IZUtT39qQJ5AXSH+LL7CT0JpJcMLKsToHmOC
+	 CmNy/JmbCz5hCgkeIE1rvkKZyvWic/HlmL5vTtTXyQf98tqOztuyat9mMVBcmtpjlQau2
+	 e3u4gahW04XusbqXaMrDeXLGsAEYp9iXe8Z1hpD2ExuSqdIi5KJPtxgz9L4AEt7C2b+uj
+	 lTULxcaCp6Dsv4QA9QF9Th4oEt4AgzF2FKS/Z9B1F2AqPbwF6sAKPIG4c+6xVk5hGhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=iOT0uRHI;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="02Lc/GYw";
+	arc=none smtp.remote-ip=74.125.231.203
+Received: from mail-oi2-f11.google.com (mail-oi2-f11.google.com [74.125.231.203])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FCD2606A326
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:14:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FCD2606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51380606A33D
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:14:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51380606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=iOT0uRHI
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 4AA3F2069C;
-	Fri, 20 Nov 2026 09:14:02 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 5jVaYZugiYu4; Fri, 20 Nov 2026 09:14:01 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id ACDFE207E3;
-	Fri, 20 Nov 2026 09:14:01 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com ACDFE207E3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795162441;
-	bh=RpMYP0Ydd5BpVNbkK9E+iOAiDlzHS1ASNDtCYygPy+A=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=iOT0uRHIBBhzbHfkP3M6dsrg5PaePdDXNRVUpCrP2aZY+0DzUPYpFlobkAktZLRZ8
-	 Pv/Ior9Bq9Hu1ytd7BqSIA7QIhJ09YGhvAJcpeEzyGh/TDwWkwzcRe6v/Or1Ehh0rb
-	 kaz9JCmHq/AFuAvVjXxF0tDXTackN6ARjPQ7jy9RCFEHUw2tAfQLlsepDCxuKyb5NA
-	 EwBAem2xoAHH0k/SO/svDPAf/zGF6aLAhhc6nf7L2PLk7Hb/bqkJiEW02zBYQfmvhV
-	 Du9/rsd1qhidqreVf4AiPG2mYWvHsfn2sbFJ9yX92nbqg76sV/ge2hb7Nk7dN9pzjT
-	 MaPNtcSkOixOA==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
- 2026 09:14:00 +0100
-Received: (nullmailer pid 1759879 invoked by uid 1000);
-	Fri, 20 Nov 2026 08:14:00 -0000
-Date: Fri, 20 Nov 2026 09:14:00 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Cosmin Ratiu <cratiu@nvidia.com>
-CC: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Shannon Nelson
-	<sln@onemain.com>, Tariq Toukan <tariqt@nvidia.com>
-Subject: Re: [PATCH ipsec] xfrm: replay: Fix late packet handling with ESN
- crypto offload
-Message-ID: <awABSJrYIhEIbSZY@gauss4>
-References: <20261110133821.2548903-1-cratiu@nvidia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=02Lc/GYw
+Received: by mail-oi2-f11.google.com with SMTP id 5614622812f47-5716f65170dso151446b6e.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:14:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795162444; x=1795767244; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=T0QMJszuIflUVnI8KlcqSRkClwadTrIU4ZiU7YrghCU=;
+        b=02Lc/GYw2gxzEmZruC8Z+5VLREVU/C4VyOlAiTMxbtK1EiR9O/InpVdhJt+jsuWdri
+         azz8I0igt9BvLiWPwUHwdpK0BHkPn4Lx8FuZqM4E9wyoyqch+PyPwaOBGlWraenWlBmy
+         aGiu/xLJvN5Eg8ammghkZk7ivQjJFM/+buBL9D0HCh/0P656asbkAQwatRP93Q0WwNJd
+         ShcYWOZPADssfVezfCfKh7pE+WJ21o+uIq6DqzhqRIn8YmMySwhWMlVzeDONdlO6kLLl
+         GatYTUYVUi0+ErEee8/+tAxo1dYdLt1DA3iqTS7u5nDLOa36q+Lm2WjY9Ut9DMeun4TU
+         Hnjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795162444; x=1795767244;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T0QMJszuIflUVnI8KlcqSRkClwadTrIU4ZiU7YrghCU=;
+        b=VFLJDP61ypJMQat5VJEDY54O3pV4og9qvt86lkd/nPVPAMsYPeez0C57AvqkZFMCf7
+         0BUjlsnO2yaNAsozRul0EXgqWRPbs+erJdkosGx+1cux7K6AKqL/cTPPtwDow3z5ZAQs
+         CXnbkgU9DayVmzwYmE1LnS3ehE/UiuBaONGP0PFgNTpKoLv1NX9dn2IdtXM8Wba/7CI2
+         wSs+M65n9RlSdgngWG8tDV+RbdsoFp4JUghdU8Zuh1aXr8qyeAYvgTu4CIHcyKQY29oC
+         hAjpCTuxILgdZl1R1B9eutkxM5Q1APaCQwyt/JHkzanNk5VZvKPeeWuk6CxTb8w+qOgf
+         Q3cw==
+X-Forwarded-Encrypted: i=1; AL+hErGc2XaF/jlESmZRaxpYILkAVUU7OcMB42hgGmgAUyOxFpRWtl6OIhzz/hIQEVrdpe9wsEHAVgY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/h+hADPbLieCAtyGN2Hb6XJUzxLy57UmFFZObMpYcqWfLljzH+
+	Y6a+qMzRjK9iMcDwWhTg5ddcnAus+1QEnJD8bnr8uC/4xNNrcO9E3uri
+X-Gm-Gg: AZFdTZcdWAFU10o/mCtayWLnNCRlawddTMhMbqh0l8jqpbPLgkPj0BNaKA/GChHT5CC
+	UkClEIILJsj96BPxuTpJNxhmH2V5QkR0Fnz6t7gfhK/Iew5GzHTPN8j+Sj/trxBjKuOLuQWXpXt
+	8fHjZxN2SqK8UZX34FEiWCoz2TCGWiPaKZZNRXLoTKVWeE1oRuub+t9Mnh/V0lfD0G8TTbieXVN
+	j8FWUKEAMaiXMU1gbZtXE6ja5ueL/cPaUwmpXQPPjAQnjWX2Ts8EjmivOFNwDrTyMYimeA4aK/s
+	eyAHRotoKXqP6sZtISB57jsFVaadTUY1GJPI+SOowqrJ9Z/lT5ICW8/Yyyqrt187UIZ/br4Spxf
+	Qb/uqxmM4NhpKODToXpy+untC4aj2yoIGhAuokP8Ew36poMroMXxu7KCKJYXPqyMwAmyHlLkd4O
+	OA76tS8I9rdRKek1PGHXwvrtYRfIxI4OT8kmOZPzOCO54XbXjNcu5tpLdxzDB6n3IvqIBimwXlF
+	xbZZb5iujg52uw4pKCzN3MFveQRJuceEnwpxPQt8vzppPYYdt/JrCrF/LkVkmoeDmYzoBvEGViA
+	vKw4BwKA0mTqEPSWECbdEIDeUZJXhqOjB4OeUrT0FLYJXp2Je0HiOY3ftwbrLjRhL6s=
+X-Received: by 2002:a05:6808:1387:b0:4f4:b62c:a3d8 with SMTP id 5614622812f47-57a0a937f43mr3229475b6e.33.1795162444278;
+        Fri, 20 Nov 2026 00:14:04 -0800 (PST)
+Received: from localhost.localdomain ([14.22.11.164])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a350548ffsm1497559b6e.11.2026.11.20.00.13.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 00:14:02 -0800 (PST)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: david@ixit.cz,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org
+Cc: oe-linux-nfc@lists.linux.dev,
+	netdev@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net] nfc: llcp: fix double put of nfc_dev on interrupted connect
+Date: Fri, 20 Nov 2026 16:13:54 +0800
+Message-ID: <20261120081354.4098856-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,43 +101,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261110133821.2548903-1-cratiu@nvidia.com>
-X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
- (10.32.0.171)
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 10, 2026 at 03:38:21PM +0200, Cosmin Ratiu wrote:
-> xfrm_replay_seqhi() guesses seq_hi for a given ingress seq per RFC 4303
-> section A2.2. Packets with seq < bottom are interpreted as being ahead
-> and the function returns the next seq_hi. xfrm_replay_check_esn() redoes
-> the same computation and defers to the ICV check.
-> 
-> On SW crypto, such packets then fail the ICV check and are dropped,
-> unless they're actual packets ~2^32 in the future (very unlikely).
-> 
-> But on crypto offload, the ICV check already happened in HW and isn't
-> repeated. xfrm_replay_advance_esn() then increments replay_esn->seq_hi.
-> 
-> The problem becomes visible when the HW state is renewed (e.g. bond
-> failover or mlx5 mid-sequence ESN state update). The newly offloaded SA
-> carries the wrong seq_hi and completely breaks ingress since all future
-> packets fail ICV.
-> 
-> This was verified on b2b ConnectX NICs, with an 'iperf3 -P 2' test over
-> a pair of SAs over a bond device in active-backup mode.
-> After ~10s of traffic at ~10 Gbps, replay_esn->seq_hi was ~2.5M due to
-> the two streams sharing the ESN state.
-> Forcing a bond failover on both sides breaks traffic permanently.
-> 
-> Fix this by dropping packets up to 2^31 before the replay window for
-> crypto offload, since the SW seq_hi guess cannot be validated. Packets
-> up to 2^31 ahead are accepted as new, same as old code. A burst loss of
-> more than 2^31 packets now stalls the SA (previously up to 2^32-wsize).
-> 
-> SW crypto is unaffected.
-> 
-> Fixes: 50bd870a9e5c ("xfrm: Add ESN support for IPSec HW offload")
-> Signed-off-by: Cosmin Ratiu <cratiu@nvidia.com>
+llcp_sock_connect() takes an nfc_dev reference with nfc_get_device()
+and always drops it on the error path when sock_wait_state() is
+interrupted.
 
-Applied, thanks a lot Cosmin!
+While the socket waits for the peer, nfc_llcp_recv_cc() can already
+have claimed it: the CC handler moves the socket from
+connecting_sockets to local->sockets and the reference now belongs to
+the socket. It is dropped exactly once, by nfc_llcp_recv_disc() or by
+llcp_sock_destruct().
+
+If the interrupted error path still unwinds that reference, the
+nfc_dev kref is put a second time. Once the refcount underflows, the
+device is released while it is still registered and in use:
+
+e.g. on v7.4-rc3 (KASAN build):
+
+  KASAN: slab-use-after-free in klist_next
+  Read of size 8
+  CPU: 2 UID: 1000
+  Read: klist_next <- class_find_device <- nfc_get_device <-
+        llcp_sock_connect <- __sys_connect
+  Allocated by nfc_allocate_device <- nfcsim_device_new
+  Freed by kfree <- device_release <- kobject_put <-
+       llcp_sock_connect <- __sys_connect
+
+The freed device is later used by nfc_llcp_tx_work(), which trips a
+KASAN use-after-free write in mutex_lock().
+
+Check whether the CC handler already claimed the socket - it is the
+only path that links a connecting socket into local->sockets - and
+leave the references with the socket in that case.
+
+This issue was discovered by Tencent CodeBuddy Security.
+
+Fixes: ff353d86a92e ("NFC: LLCP connect must wait for a CC frame")
+Cc: stable@vger.kernel.org
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+ net/nfc/llcp_sock.c | 50 ++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 49 insertions(+), 1 deletion(-)
+
+diff --git a/net/nfc/llcp_sock.c b/net/nfc/llcp_sock.c
+index 1e5ee4bcde68..22b2f65e984a 100644
+--- a/net/nfc/llcp_sock.c
++++ b/net/nfc/llcp_sock.c
+@@ -683,6 +683,36 @@ static int llcp_sock_release(struct socket *sock)
+ 	return err;
+ }
+ 
++/**
++ * llcp_sock_on_local_sockets() - check if a socket was claimed by a CC
++ * @local: the LLCP local the socket connected on
++ * @sk: the socket to look up
++ *
++ * nfc_llcp_recv_cc() moves a connecting socket to local->sockets when the
++ * peer answers with a CC frame.  Only that path links a connecting socket
++ * into local->sockets, so membership doubles as "the peer claimed the
++ * socket".  The caller must hold lock_sock().
++ *
++ * Return: true if @sk is linked in local->sockets.
++ */
++static bool llcp_sock_on_local_sockets(struct nfc_llcp_local *local,
++				       struct sock *sk)
++{
++	struct sock *s;
++	bool found = false;
++
++	read_lock(&local->sockets.lock);
++	sk_for_each(s, &local->sockets.head) {
++		if (s == sk) {
++			found = true;
++			break;
++		}
++	}
++	read_unlock(&local->sockets.lock);
++
++	return found;
++}
++
+ static int llcp_sock_connect(struct socket *sock, struct sockaddr_unsized *_addr,
+ 			     int len, int flags)
+ {
+@@ -781,9 +811,27 @@ static int llcp_sock_connect(struct socket *sock, struct sockaddr_unsized *_addr
+ 
+ 	ret = sock_wait_state(sk, LLCP_CONNECTED,
+ 			      sock_sndtimeo(sk, flags & O_NONBLOCK));
+-	if (ret && ret != -EINPROGRESS)
++	if (ret) {
++		if (ret == -EINPROGRESS)
++			goto out;
++
++		/* If the CC frame was processed while we slept, recv_cc()
++		 * moved the socket to local->sockets and the dev/local
++		 * references now belong to the socket.  They are dropped by
++		 * nfc_llcp_recv_disc() or llcp_sock_destruct(); unwinding
++		 * them on this error path would put the nfc_dev reference
++		 * obtained above a second time.
++		 */
++		if (llcp_sock_on_local_sockets(local, sk)) {
++			if (sk->sk_state == LLCP_CONNECTED)
++				ret = 0;
++			goto out;
++		}
++
+ 		goto sock_unlink;
++	}
+ 
++out:
+ 	release_sock(sk);
+ 
+ 	return ret;
+-- 
+2.43.7
+
