@@ -1,80 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145364;
-	b=dDChrXWZHSOebGnpCafJg1zJtDYJHW6lHXuinXNcwmfsFhSsBZptp/Un+Kpw/oXXomhs
-	 lNX3Vl9rq2QQEFFrxVYNoWDveYTqldKUVuuZvefXW6RI1Z/kLX1rLjTnM2NTBXXURrbGb
-	 yhEPzPtLMkTrWMsnJ1u+GLVj8XjSOrqISJCRRmWNtcEpdsVaou5QGeSdcTbndJ8a9MSlY
-	 qyPBoYIkOcvz3WhCGp4RYvhZaEYe6llfiX6VkNoIuJ7oHI7NbyingV9Jh6xvglXf9q12p
-	 hPx9XXmHGtVNtzpO3sCYO/Uw0RXTH1hTmWTbb8wBIe063wLMT73iAaWdJp19Y5wuFFw==
+	t=1795145440;
+	b=itBTvYywGH7P3nNXyVdy9s1Jr3sfjwWIkqjiZSkK9Nh0OuJAMnn538siM47z439nd4yW
+	 tEEaL/ce7NK3p7Zq7Fqk7l0P6phdZ2LLENJZribcew7WqxQtilZUDJvNI2k0H1b8qYjPt
+	 ACgcwcMCx9XXAWdrnrzkwNmOgGvjM3tcgKJJ1OuxAiEvfkTBtBUrFprzVyGgF5vDV1yaH
+	 jLv00sK4hkkY/ercrj3hj5aqaqyNEU3dqzo34+Bhl6HRC+531hL5CP6DiRFyzF6rJYNYE
+	 Q2xo+67+6LtKD/zpnnEdloqmPVOWU5i6bQkjKA1UP+ygh1vY0ry44+u4No/4yAAZxEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145364;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=dzVUz78BxetOP2oXgJlZ21u694OXSAGbMXxRsvn1+cc=;
-	b=TzPoeBNh4MiXLW9WqBkGyzwb3IqUSO4+Hr/7BfW4h80ASKZLmEDgzmoUytMNrv21mY4O
-	 QGGD6hqmuBNCF84djO3jzn8eBifZ68XqSpPHqaUpJWcsPMbH8oruvrQcSFA0lDUQ4ISZC
-	 jun0H8kVbLIr2PtmPGPcv98hN95wrY1swVsOMTp2kzFb1WkBVctqHf/uGJ/vNmkVDWWKA
-	 ViVvG0Up0BLtqPdsm44XaIVC+k+Dthuc6fOzxFihRMz8XCQsn3rqfGmcBDywBbM1vn3NA
-	 vYik7xWIpKnsa6TUFTzcDY64Ct0SXHzmTjbwqBfDfcB0toQI/OqU0PHPg+DunD5XjXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145440;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=svVu4tGtXkUqJeH2S67jLdV8xt9bisNFvl26L3qlsJI=;
+	b=d2g+Z9tt8M2CW/TMpT84cpEbH89E9TQ87/9pyRvA2VNR65VgLGQLoTCyOEK+l8s5rde9
+	 QVQa8as78o3SpcunU26OyhYqB7kXhST5e9QdxEG4yI2BTLQ33qNWTp8x54JGUar6RleYq
+	 lMFANiooOmlg5HHetxVtUXr3XQGCJzN0PxF1z0E5UdOONNeS0h1eS/sqE3BlTJuXrNsDT
+	 1H+eYpCH5FQ1nIo2GSP3kJSbN+a4mMmM57XEgS4NntTbQO9Py9ixbjCuZxcD0287EuDx5
+	 CvSXyro+vZGg+qlpFKtO4BDPZNHf/OMtdwd07yf/cw+7l+JrbgoyML/0MbTYDKglK4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=jZA2d5hO;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aDlHmmls;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC323606A325;
-	Fri, 20 Nov 2026 03:29:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC323606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70685606A330;
+	Fri, 20 Nov 2026 03:30:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=jZA2d5hO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=dzVUz78BxetOP2oXgJlZ21u694OXSAGbMXxRsvn1+cc=; b=jZA2d5hOJscMZXVYHnWV8ZIHJm
-	Ip/lIe51miww/tFzirFf08yKiOlUdSunJ9SotHkjlYwwvHOuOlyxq7GWP5SFUIsvfBoMFPnCwgNh1
-	f/7Gpr1unXRFFCi61wRuhr8dR/GD99XCydhxRVkle/lPa+XACwf2BldD+4tPKL/bxzP8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUFJF-000Bv7-Ty; Fri, 20 Nov 2026 04:29:09 +0100
-Date: Fri, 20 Nov 2026 04:29:09 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@linux.dev>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Ralph Siemsen <ralph.siemsen@linaro.org>,
-	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net-next v5 09/24] net: dsa: rzn1-a5psw: Fix
- VLANTransmitted counter offset
-Message-ID: <d4405a68-5df9-4e76-84ff-fa034f162429@lunn.ch>
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-10-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aDlHmmls
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D08DE1F000C4;
+	Fri, 20 Nov 2026 03:30:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795145440;
+	bh=svVu4tGtXkUqJeH2S67jLdV8xt9bisNFvl26L3qlsJI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aDlHmmlsjwOA5819XcEcfYMdn8JfR28OvPOsvKTx0IvSVNwF4EPrIIjThTpSF+xhV
+	 SXIPRVt5CWJJPkFXn7odk6Ivi9ct95PMwWeGhgTWFNEL+4c3dgZ8Z42kwOApD/aUun
+	 tzBSH/gg3LP56jeUxPpha5PSoe74n347ABHUEyl8Og9S5CvQFS6ZWMdYDzMgDhqe77
+	 Al1CohkjkRmIFvMoyFO1giovqfviL1u4aosq33NSQynsME8y92DXSa2xQYfOUVYbB2
+	 3ZQU1GeG+abQ4T+rdAmM3BbSBLnL4E3QyKQUq0rrb8+iCyDpISs/UlEf0ut57A1zEx
+	 qKDNUOyoYH+Xw==
+Subject: Re: [PATCH net-next v2 05/10] net/mlx5e: TC, reject a partial tunnel
+ key with tunnel mapping
+From: netdev-bot+sashiko@kernel.org
+To: acassen@corp.free.fr
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
+ jhs@mojatatu.com, jiri@resnulli.us, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+ bharat@chelsio.com, donald.hunter@gmail.com, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, dsahern@kernel.org,
+ idosch@nvidia.com, shuah@kernel.org, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, oss-drivers@corigine.com
+Date: Fri, 20 Nov 2026 03:30:38 +0000
+Message-ID: <179514543838.3136.15751272244504735479@kernel.org>
+In-Reply-To: <20261117092915.255194-6-acassen@corp.free.fr>
+References: <20261117092915.255194-6-acassen@corp.free.fr>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,23 +69,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120002549.1908299-10-prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-On Fri, Nov 20, 2026 at 12:25:19AM +0000, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> The RZ/N1 hardware manual places the VLANTransmittedOK counter at
-> offset 0x8f4, not 0x8ec. Correct the register offset so the driver
-> reads the counter from the right location.
-> 
-> Fixes: c7243fd4a62f ("net: dsa: rzn1-a5psw: add statistics support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-This again seems like a real fix, so should be for net.
+Low priority / nit picks for your consideration:
 
-Submitting these to net will also help with your patch count.
+- [Low] In mlx5e_get_flow_tunnel_id()
+  (drivers/net/ethernet/mellanox/mlx5/core/en_tc.c), the new check only…
 
-	   Andrew
+--
+
+I found one low-severity regression in this patch: the new check in mlx5e_get_flow_tunnel_id() refuses a VXLAN or Geneve rule that uses the full 24-bit VNI mask, even though the hardware programs it the same way as an all-ones mask. The reply below is ready to send to the list.
+
+net/mlx5e: TC, reject a partial tunnel key with tunnel mapping
+
+This patch makes mlx5e_get_flow_tunnel_id() reject flower rules whose
+enc_key_id mask is not all ones. The tunnel mapping keeps the matched key
+and uses it to restore metadata after a hardware miss. The change prepares
+for flower accepting enc_key_id masks.
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> index 1d35c97aea0bc..ba3aef3c80635 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+
+[ ... ]
+
+> @@ -2265,6 +2266,16 @@ static int mlx5e_get_flow_tunnel_id(struct mlx5e_priv *priv,
+>  	u32 value, mask;
+>  	int err;
+>  
+> +	/* The mapping restores the tunnel id of a packet missing in hardware */
+> +	if (flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_ENC_KEYID)) {
+> +		flow_rule_match_enc_keyid(rule, &enc_keyid);
+> +		if (enc_keyid.mask->keyid != cpu_to_be32(U32_MAX)) {
+> +			NL_SET_ERR_MSG_MOD(extack,
+> +					   "Partial match of tunnel key in chains isn't supported");
+> +			return -EOPNOTSUPP;
+> +		}
+> +	}
+> +
+
+[Severity: Low]
+Should this check depend on the tunnel type? For VXLAN and Geneve the
+tunnel id is a 24-bit VNI, but this check requires all 32 mask bits.
+
+The VXLAN and Geneve parsers already refuse keys that do not fit in 24
+bits:
+
+drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c:mlx5e_tc_tun_parse_geneve_vni() {
+    ...
+	if (be32_to_cpu(enc_keyid.key->keyid) >= MLX5E_TC_TUN_N_VNI) {
+    ...
+	MLX5_SET(fte_match_set_misc, misc_c, geneve_vni, be32_to_cpu(enc_keyid.mask->keyid));
+    ...
+}
+
+mlx5e_tc_tun_parse_vxlan() has the same check. The mask is then written
+into the 24-bit vxlan_vni or geneve_vni field of fte_match_set_misc, so
+MLX5_SET() cuts it down to 0xffffff. On the VXLAN-GBP path,
+tunnel_header_1 gets mask << 8, which is 0xffffff00 for both masks.
+
+As a result, enc_key_id <vni>/0xffffff and enc_key_id <vni>/0xffffffff
+program the same hardware match. Also, key & 0x00ffffff equals key for
+every key the parser accepts. So the wrong-tunnel-id case from the commit
+message does not seem possible with this mask.
+
+After "net/sched: cls_flower: add enc_key_id mask" later in this series,
+a VXLAN or Geneve rule with the natural full-VNI mask 0xffffff would get
+-EOPNOTSUPP on every tunnel-mapping path. That covers rules in a chain
+greater than 0, and chain 0 rules with goto or sample actions.
+
+Would it work better to compare against the id width of the tunnel (24
+bits for VXLAN/Geneve, 32 for GRE)? Another option is to compare the mask
+only over the bits the device actually programs.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117092915.255194-1-acassen%40corp.free.fr
