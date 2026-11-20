@@ -1,62 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.60.165
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171757;
-	b=trZDn2cpFT0djG8tMsFGShudp4tWDQ5sQMPK7ZGt5rXtOfuoEI7Y5kb8ZpZ84kDk+IKX
-	 OvkI3G0GCE6iKx+WTGOHwHr3Jk13cR/sdsb6FKfqCqY4XZ5Otl7MPFM/2N8AfEJGIN2xQ
-	 P7+6yns827nlchSZofXQacd/1SV4LQ7ymrsTlYUK8nBj5ysLqx1UCfyCMkYDhPGqowWXX
-	 Ek0N3++gPFlHn/R5Fl8Sl+pnDQb/I/LM/TslnbIbvtLnPQdcm96WfncHjNgUFGUwP2Yel
-	 bzn8GrJUj/iOTW5rQSygrx8jz4vHOtyTz2qYdUC4FV2p8fuVaGrZ/f4E+W20+woGnOg==
+	t=1795172169;
+	b=NzEwErtCX3t66BkUlawdUYxniCbuI5k9tQ+koH/9hhnKg4pXeqVW6rjol2VBzkVhPmxL
+	 P+oAQEhEqxJNl3AiUoOer0hvxPtXR4L5zRASdZRrX9Z29Q8PEb8qe9UGf/UTT1uVxlsyl
+	 XDoJDBMDGueXyKRltSaOVOqhlE3faR5BeNBC7034Nt63z5v9IdmB2bmWKh0T9TWansVsD
+	 phAavzaj6ZMKRVWAIzwaNjr52j2mQjf8DZgi19Um5kPUp/3XY7yFcXDYPQBSS0cQBsTZI
+	 VTtBpseAxneMvGQfWZgOkg+wCeOGFVFNHGrkQT9LZEf/wcRorknH29oC3lGtdeEPnOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171757;
-	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
-	 Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172169;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=iIVSA25moi7DnPZAUtOBii30CIkld3pdwPKkpGu8brw=;
-	b=3akC6I6SbfQ3nUZJCJoWiSgbQyM0rdZ0uBETf9JoQMgEPHgk/KLdKVehkXT5FcqgCB4P
-	 VzzrLRg3WrRuT/ugY6dw9FUiONUzGyENtRKvbsKK4ZIMEcQHNfTHHHaWBgZg5MUykwW0m
-	 1WG2Kq9a6SuPlDz42QYkuouXQZT5RSLlVU6fEptYkbUEi5BgmMgDpebIJoedahLyx2iHX
-	 GZlJY4cBMIokz7/cByE/xr8Q/bg93fVzpEvL6dSguYpcv60qZTEFaBpxcKP2yQmfJenz9
-	 udAzgruCIEQqcsD4Y0kad10v+v4F4mzHDHJyLYY9sedbMXXlBPG6+KhIcCXCbVhMEDw==
+	bh=l3UcI9yUrxVvioLldGrOSgry5dsxwU15rfB9+uaoMLM=;
+	b=rLi47lOuvd9DLNten3x+ZcEAtYgH0dVEuWiadwJMMa0y4DxtDBWU3HiKPMgcNex6+2nO
+	 TdvAQOGYafpgjC/p529UQ+rskByQd8qAJs4JePgUdolu8IViax1rrMR2jvll4Ij6qOgam
+	 WmAu360CVl5fc/lMhNY6uBpSthGu9pEpHqqL9X14qsQ/dEGwgQ+H10BqcMlf4Lh2qlgIY
+	 CDYauQBgQhQR62Ewo6gkaHPneJt5sex/VcHlHldphJA1DBnboAoc29kj+jY4WoOhFaJVI
+	 yZFI4Pk+16Lbq0wToLAC51whc4AiZ5yGJd0iHMUbU7hM8oEJmyHq6Z8OGB7ENlfIDng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yandex.ru;
-	spf=pass smtp.mailfrom=yandex.ru;
-	dkim=pass header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=ZkeQhw8K;
-	arc=none smtp.remote-ip=51.250.60.165
-Received: from forward105d.mail.yandex.net (forward105d.mail.yandex.net [51.250.60.165])
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=kpdBZ+GY;
+	arc=none smtp.remote-ip=115.124.28.75
+Received: from out28-75.mail.aliyun.com (out28-75.mail.aliyun.com [115.124.28.75])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8B59606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 10:49:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8B59606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A290E606A320;
+	Fri, 20 Nov 2026 10:56:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A290E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=ZkeQhw8K
-Received: from mail-nwsmtp-smtp-production-main-57 (mail-nwsmtp-smtp-production-main-57.yp-c.yandex.net)
-	by forward105d.mail.yandex.net (postfix) with ESMTPS id 5EBF5100058;
-	Fri, 20 Nov 2026 13:49:11 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-57 with ESMTPSA id 8nZfxaKnE8c0-LEEZR3Od;
-	Fri, 20 Nov 2026 13:49:10 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1795171750; bh=iIVSA25moi7DnPZAUtOBii30CIkld3pdwPKkpGu8brw=;
-	h=Message-ID:Date:Cc:Subject:To:From;
-	b=ZkeQhw8KfW93bncm4L7DWE+ymEmzX1ZBo1rwwa63H8B6xlmH9+IDxBoMS7DoCIb0U
-	 juH5oXNb6/cLDyAXUd4D3g8Ow8MNwEuFzpf9iVjJhM87xNyuJjvOhOp3qQZr8od6n4
-	 ZSguAHqTpsHgQ6ZGzV8GzyDlUSi/gokUEUrmjzyg=
-Authentication-Results: mail-nwsmtp-smtp-production-main-57; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Potnuri Bharat Teja <bharat@chelsio.com>
-Cc: Eric Dumazet <edumazet@kernel.org>,
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=kpdBZ+GY
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795172161; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=l3UcI9yUrxVvioLldGrOSgry5dsxwU15rfB9+uaoMLM=;
+	b=kpdBZ+GYaYGcT/CpNjOE65VWVvr6jIqNfNZ4YJQCXiYzSQKIJa3PPl5d9AJhbiHhsZuR+zBOJHBCmh1vPLXVR40ZJ1TfsxSfg7Ddduy8psDwlY5lsMPYdhBFGWg7M+FUgPO98ipsfS7ys4KOpnYBSQmQT1Chh1Bzn1GR4/kZ7zw=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.044391|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00812833-0.000228324-0.991643;FP=12542528845651154930|1|1|4|0|-1|-1|-1;HT=maildocker-contentspam033023087102;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k6Wwa0Q_1795172159;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k6Wwa0Q_1795172159 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Fri, 20 Nov 2026 18:56:00 +0800
+From: Fang Xieyan <fangxy@xiaopeng.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH] cxgb4: use kstrtou16_from_user() in tp_la_write()
-Date: Fri, 20 Nov 2026 13:49:07 +0300
-Message-ID: <20261120104907.831328-1-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.56.1
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Simon Horman <horms@kernel.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Maoyi Xie <maoyixie.tju@gmail.com>,
+	Guanglei Zhu <zhugl3@xiaopeng.com>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net v3 0/5] net: wwan: iosm: validate MUX DL lengths and offsets
+Date: Fri, 20 Nov 2026 18:55:54 +0800
+Message-ID: <20261120105559.54519-1-fangxy@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,41 +72,105 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Simplify tp_la_write() by using kstrtou16_from_user().
+The MUX downlink decoders trust several modem supplied lengths and
+offsets without bounding them against what actually arrived: the block
+size from the transfer descriptor, the ADGH datagram length, the ACBH
+block length, the command chain offsets and the declared parameter
+length. A truncated or enlarged DL block makes the driver read past the
+received data, hand the network stack an undeclared payload, or walk a
+command chain that loops or redecodes the same bytes. The aggregated
+datagram block path is already covered by commit 526b8ef54668 ("net:
+wwan: iosm: bound device offsets in the MUX downlink decoder") and is
+not touched here.
 
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
- drivers/net/ethernet/chelsio/cxgb4/cxgb4_debugfs.c | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
+This series adds those bounds. No command type, response or protocol
+semantics change, so a conforming modem behaves exactly as before. A
+parameter too short for the member its command type reads is dropped
+with -EMSGSIZE, which also ends an aggregated block at that command.
+Patch 4 is the prep change for patch 5; both carry Cc: stable, as patch
+5 cannot be backported without patch 4.
 
-diff --git a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_debugfs.c b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_debugfs.c
-index f521737d1275..ae9ab0d51e27 100644
---- a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_debugfs.c
-+++ b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_debugfs.c
-@@ -664,20 +664,13 @@ static ssize_t tp_la_write(struct file *file, const char __user *buf,
- 			   size_t count, loff_t *pos)
- {
- 	int err;
--	char s[32];
--	unsigned long val;
--	size_t size = min(sizeof(s) - 1, count);
-+	u16 val;
- 	struct adapter *adap = file_inode(file)->i_private;
- 
--	if (copy_from_user(s, buf, size))
--		return -EFAULT;
--	s[size] = '\0';
--	err = kstrtoul(s, 0, &val);
-+	err = kstrtou16_from_user(buf, count, 0, &val);
- 	if (err)
- 		return err;
--	if (val > 0xffff)
--		return -EINVAL;
--	adap->params.tp.la_mask = val << 16;
-+	adap->params.tp.la_mask = (u32)val << 16;
- 	t4_set_reg_field(adap, TP_DBG_LA_CONFIG_A, 0xffff0000U,
- 			 adap->params.tp.la_mask);
- 	return count;
+cmd_len is not a parameter bound in either path. In an aggregated block
+the boundary is next_cmd_index, or the end of the received block for the
+last command. In MUX Lite there is one command per skb, so the received
+length is already everything that command owns; the flow control decoder
+treats a mismatching cmd_len as a legacy device, so the field is a
+compatibility flag, not a length bound.
+
+Patch 3 bounds the ACBH command chain by the received length rather
+than block_length. Although the structure describes block_length as
+the length of the aggregated command block, the uplink encoder
+initializes it to the ACBH header size and does not update it as
+commands are appended, so it cannot delimit the received command
+chain. The field is sanity checked, while first_cmd_index and
+next_cmd_index are bounded against skb->len. The walk's
+array_index_nospec() call is removed: it bounded a byte offset by
+sizeof(struct mux_cmdh), zeroing every legal offset past that size.
+The offset indexes no array; array_index_nospec() is kept only for
+if_id, an actual array index.
+
+Patch 2 relies on the ADGH header check from patch 1, patch 5 on the
+ACBH validation from patch 3 and the parameter pointer from patch 4.
+Every commit applies and builds individually, W=1 drivers/net/wwan/iosm/
+is clean. Found by reviewing the DL decode path against the MUX protocol
+structures, not reproduced on a live modem: reaching it needs a device
+that truncates or enlarges its own downlink blocks. The series is based
+on net-next at 9068e05d35f3.
+
+Changes in v3:
+
+- Rebase onto net-next (9068e05d35f3) so the series applies on top of
+  66974df65a0b ("net: wwan: iosm: drop redundant skb->data check in MUX
+  DL decode"). Patch 1 no longer anchors its signature-length check on
+  the removed skb->data test; the check now sits directly before the
+  signature read. This clears the v2 patchwork context failure at
+  iosm_ipc_mux_codec.c:696 and the dependent context-hw gate failure.
+
+- Patch 5 wraps the over-long continuation line in
+  ipc_mux_dl_cmd_decode(): param_len now goes on its own line, clearing
+  the checkpatch "line length of 82 exceeds 80 columns" warning.
+
+- Cc Guanglei Zhu, whom get_maintainer.pl now lists for this file after
+  his review of 66974df65a0b (the v2 cc_maintainers warning).
+
+Changes in v2, all three points from the Sashiko AI review of v1:
+
+- Patch 5 bounds the MUX Lite parameter by the received length alone,
+  not by cmd_len: v1 dropped legacy FLOW_CTL (cmd_len 16..19) and
+  OPEN_SESSION_RESP (16..27) even when the parameter bytes had arrived,
+  defeating the backward compatibility branch in
+  ipc_mux_dl_cmds_decode_process() that exists for exactly these (the
+  protocol minimum for cmd_len is 0x10).
+
+- Patch 2 rejects adgh_len == packet_offset too: the zero length clone
+  reached ipc_wwan_receive(), which reads skb->data[0] without checking
+  skb->len. mux_dl_process_dg() already rejects the same case for the
+  aggregated path with dl_head_pad_len >= dg_len.
+
+- Patch 4 gains Fixes: 9413491e20e1 and Cc: stable@vger.kernel.org: its
+  by-value signature copied all twelve union bytes even for a four byte
+  response, and patch 5 bounds the session responses, so the two are
+  needed together. A prerequisite itself marked for stable and present
+  in the series need not be listed, per stable-kernel-rules.rst.
+
+Patch 1 is unchanged. Patch 3 changes only its changelog and comments.
+
+v2:
+https://lore.kernel.org/netdev/20261117173940.34970-1-fangxy@xiaopeng.com/
+
+v1:
+https://lore.kernel.org/netdev/20261112125201.1019-1-fangxy@xiaopeng.com/
+
+Fang Xieyan (5):
+  net: wwan: iosm: validate the MUX DL block length
+  net: wwan: iosm: validate the ADGH datagram length
+  net: wwan: iosm: bound the ACBH command chain walk
+  net: wwan: iosm: pass the DL command parameter by pointer
+  net: wwan: iosm: validate the command parameter length
+
+ drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 186 ++++++++++++++++-----
+ 1 file changed, 141 insertions(+), 45 deletions(-)
+
 -- 
-2.56.1
+2.50.1
 
