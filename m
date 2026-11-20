@@ -1,54 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795215035;
-	b=AvL//t/4MBFocO05Uxesepv7Ow5Ahcz5WmEy2wsMmLjcH5h2YOHhsUkf2r9n9a8OyUIp
-	 Q/d0TAXczOrZjXbBzbtP4nKftDfKVzahhTRCdRACQuHoVJr7ozEPaxD78uYspTAt7WpxF
-	 QQfcIhMShEEnbi99M8CUiA/V6/XrgFvBSrSX0QPJixzOt8zIyhzpYfoyJxt+H4PU/DtVW
-	 JtpFCdOWsRuWl1EMDc7IpGAbatF9rZI3YKY+PFVnDllcDqkj8X9Q9+SJo/L6vSZu+yFDx
-	 YZ7pAm36pPQMZXu5RVBrpdr3N5e9skEuUWAlrMIRNCAiQOgKegNAvDo8l3SU+5g+uww==
+	t=1795215456;
+	b=FeCdHelfp0eetm0TUiYbTsJ5EPcofa3rfC/vyMwh6EnYr97SlLlXKgK9kbtCTQBnvkPt
+	 OLIJu/GbfqlW1hMHH9t0fG2VhQsEuAEHNI2PRD+8QQI5jBnbAy/dyNX7FQGtt9DdA3akz
+	 aH/4j2LoOBskTmdxUTJFCj/ZswytZ7XSH9fZJ3H/49VXYYvysir44U7A5x7QyNuoLvF4Y
+	 5W/EgaLWWUzUJwHMzSIjohFklhtKZxcqYei0KoD2ZUCNY+yNilzHNvX4/9dhOXr1z3OOB
+	 koEW6ksnZe+uYWDj+kC3xiOTyYNiOQ5sA7W1MAiHjPzED/0Xr6TRzjV3IhaWyl8ecgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795215035;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795215456;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=teexMSd8PHdfaM03rUjjEKQ2tL2BcpPqCRX495L4lZM=;
-	b=rf+FYlPB6nIi0k9ZB8UufCGcgJ2rhE3JLwAy9w31f5bPnD9zGNg9UZZOoihWoM8utMRV
-	 vQ6/AoUGGjG+LA2YEaLfoFPf59TcNsTK3ATNQwMUct5takb7sVsFaoXjOSdYnwQoe2pDV
-	 jzTnnT7fB85iM+PmQ9oe3ygakgrAlwvR/DPoeVug8/PjF3TRtkNTUNkDK2L/s/+ifXed1
-	 ED7RtZ0z7w1h5AMm6zmNM5ee8ZXLV84pdrHKO+fudvxcUl1jod9Q8vNayOY29HbZ5i5IQ
-	 Ngj9gFrU277ZLUlFbD2p4ZZ8tqpjfMv40NOKCGggpldGg7tuHqVH8eJSoPN9C0cIlSw==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=ENZVxE0y8gjqKfjgJTUxW4TtHM8gnT28vUctdJcrMJE=;
+	b=JO3c49fndc0RlBk+PJL0YdTNFODnvXlSThH2rOS+HQ2Naqhuim1nRHNehgqhRccN8VM9
+	 zzNlwAG17WwO2l/+Q6TK9Bw6JE3CpJ64654EBum8Sl8rzSK2tTINmBfaD4zYW8gqlOlMO
+	 PcJ3Z/vA1XRyZK7MwSJgYvAWOY6y/Si8+UUIs7ON4sfD/6sMAbw3hmfbLxfG5X05JUb9c
+	 AKn7jOr9n720jIGWlYZHVQLI3MAtfeUVrs4ztEQ9zYV+Via7Ejl09g/78dOLUsIoQQyPp
+	 k27astCQWiQefP3xu6CPCT5//8/pA6BkAInhEqNHThr4rVNF/Bm+8TmT45vTPoXHXcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EKrcD2EY;
-	arc=none smtp.remote-ip=91.218.175.102
-Received: from mta0.migadu.com (out-102.mta0.migadu.com [91.218.175.102])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LBrxkvi3;
+	arc=none smtp.remote-ip=91.218.175.181
+Received: from mta0.migadu.com (out-181.mta0.migadu.com [91.218.175.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2988F606A689
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 22:50:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2988F606A689
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C924606A6A1
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 22:57:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C924606A6A1
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EKrcD2EY
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LBrxkvi3
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=rYwH//s3ZpyAARSSd1MnfBFwVXfqUmxKvytgZIbg1u8=;
+DKIM-Signature: a=rsa-sha256; bh=7yXPqyne3u8Dihg2TSmEFzSQTpqzV2N+LvG7O8qfd+Y=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795215020; v=1; x=1795819820;
- b=EKrcD2EYwrim8wKNjZask/JMVfOilOIWboPZPxjVypk3fDw9G7bE5j12jZooP21W0W+zGV8/
- THKr/md0GWRkwVS65SatZiGhtA7PiJKtjvbZmdcbKw6i+jQD4501gVGDv5827tvtdddyHUYeI5+
- UQBlL6Hi/9QaN+uA7Hxst2MA=
+ t=1795215452; v=1; x=1795820252;
+ b=LBrxkvi3Eh6lB6d2/Wud5uIPQDUksqCawyTdcFO5r/3pch7BUSliEuWjOLkd3XX3szeEDBhE
+ feaiLrLyniUQUfESb+RxDdQlnl8ZD5u6xHstLGSUKSTSsq6npD6HzakHIugDjifFkR/Q+h2U74z
+ FFIakGMJ3vyy34C5S82foBG8=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 15c7c981e0c8d853;
-	Fri, 20 Nov 2026 22:50:19 +0000
-X-Mizu-Trace-ID: 15c7c981e0c8d853
+Received: by smtp.migadu.com with ESMTPS id 05f9b90382653a16;
+	Fri, 20 Nov 2026 22:57:32 +0000
+X-Mizu-Trace-ID: 05f9b90382653a16
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <bd1ed1fa-2ff2-435c-8e0c-372802eb7187@linux.dev>
-Date: Sat, 21 Nov 2026 06:50:15 +0800
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eddy Tsalolikhin <eddsterxyz@gmail.com>,
+	Kyle Zeng <kylebot@openai.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v1] tls: fix ring wrap in sk_msg_memcopy_from_iter() after splice
+Date: Sat, 21 Nov 2026 06:57:19 +0800
+Message-ID: <20261120225720.89044-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,91 +72,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf v2] net: skmsg: fix copy cursor when coalescing clones
-To: Kyle Zeng <kylebot@openai.com>, bpf@vger.kernel.org
-Cc: john.fastabend@gmail.com, jakub@cloudflare.com, netdev@vger.kernel.org,
- alexei.starovoitov@gmail.com, stable@vger.kernel.org
-References: <20261120214511.25934-1-kylebot@openai.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <20261120214511.25934-1-kylebot@openai.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+tls_sw_sendmsg_splice() forces sg.curr = sg.end after adding the
+spliced page.
 
+The following non-splice sk_msg_memcopy_from_iter() is a do-while
+loop: it advances i with sk_msg_iter_var_next() and only then tests
+i != sg.end, so starting from sg.curr == sg.end it wraps the ring.
 
-On 11/21/26 5:45 AM, Kyle Zeng wrote:
-> A splice or zero-copy append can leave the destination copy cursor at
-> sg.end. If sk_msg_clone() subsequently coalesces with the last entry,
-> sg.end does not advance and the cursor still points at an unused slot.
-> sk_msg_memcopy_from_iter() can then walk around the ring and write into
-> older entries, including file pages spliced from a read-only descriptor.
-> 
-> Software TLS can reach this with an ordinary MSG_MORE send after a file
-> splice and a splice from another TCP socket. Both TCP and the TLS
-> encrypted-message allocation can use the sending task's page fragment,
-> so the TCP-sourced plaintext can be contiguous with the next cloned
-> encrypted-message range.
-> 
-> When coalescing with an exhausted destination, move the copy cursor to
-> the tail and set copybreak to its old length before extending it. Find
-> the actual tail on each iteration using the ring iterator, including
-> when end wraps to zero. Leave an existing copy cursor unchanged and
-> preserve the normal coalescing, reference counting, and memory charging.
-> 
-> The issue was found by an LLM.
-> 
-> Fixes: fda497e5f5b8 ("Optimize sk_msg_clone() by data merge to end dst sg entry")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Kyle Zeng <kylebot@openai.com>
+Reported-by: Eddy Tsalolikhin <eddsterxyz@gmail.com>
+Reported-by: Kyle Zeng <kylebot@openai.com>
+Fixes: c5a595000e26 ("net: tls, update curr on splice as well")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ net/tls/tls_sw.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-
-Hi Kyle, I also received same issue from somewhere, but I think we should fix the root cause(TLS).
-I have a fix patch and will send it shortly.
-> ---
-> v2:
-> - Rebase onto the BPF fixes tree; no code changes.
-> 
-> v1: https://lore.kernel.org/bpf/20261030042138.73739-1-kylebot@openai.com/
-> 
-> I have a reproducer for this issue and can share via DM
-> 
->  net/core/skmsg.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
-> 
-> diff --git a/net/core/skmsg.c b/net/core/skmsg.c
-> index 8a3b8536c0c2..f47c59ba1ec6 100644
-> --- a/net/core/skmsg.c
-> +++ b/net/core/skmsg.c
-> @@ -103,16 +103,26 @@ int sk_msg_clone(struct sock *sk, struct sk_msg *dst, struct sk_msg *src,
->  	}
->  
->  	while (len) {
-> +		int last = dst->sg.end;
-> +
->  		sge_len = sge->length - off;
->  		if (sge_len > len)
->  			sge_len = len;
->  
-> -		if (dst->sg.end)
-> -			sgd = sk_msg_elem(dst, dst->sg.end - 1);
-> +		sgd = NULL;
-> +		if (dst->sg.size) {
-> +			sk_msg_iter_var_prev(last);
-> +			sgd = sk_msg_elem(dst, last);
-> +		}
->  
->  		if (sgd &&
->  		    (sg_page(sge) == sg_page(sgd)) &&
->  		    (sg_virt(sge) + off == sg_virt(sgd) + sgd->length)) {
-> +			/* Start copying at the newly cloned suffix. */
-> +			if (dst->sg.curr == dst->sg.end) {
-> +				dst->sg.curr = last;
-> +				dst->sg.copybreak = sgd->length;
-> +			}
->  			sgd->length += sge_len;
->  			dst->sg.size += sge_len;
->  		} else if (!sk_msg_full(dst)) {
-> 
-> base-commit: d5ba86298b45e1a81c578c499e9a222a3b734d5d
+diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
+index 365c9485bb7c..d3a9b1c41de8 100644
+--- a/net/tls/tls_sw.c
++++ b/net/tls/tls_sw.c
+@@ -764,8 +764,10 @@ static int tls_sw_sendmsg_splice(struct sock *sk, struct msghdr *msg,
+ 		}
+ 
+ 		sk_msg_page_add(msg_pl, page, part, off);
+-		msg_pl->sg.copybreak = 0;
++		/* keep sg.curr on the last frag so a later copy won't wrap */
+ 		msg_pl->sg.curr = msg_pl->sg.end;
++		sk_msg_iter_var_prev(msg_pl->sg.curr);
++		msg_pl->sg.copybreak = sk_msg_elem(msg_pl, msg_pl->sg.curr)->length;
+ 		sk_mem_charge(sk, part);
+ 		*copied += part;
+ 		try_to_copy -= part;
+-- 
+2.43.0
 
