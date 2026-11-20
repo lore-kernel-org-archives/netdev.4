@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210249;
-	b=qXuIk0c0KHISeBl5S18dyo12gjtt2ELTWK5WKinJW2OygdDjabnWF4T3YPDfOaOqneG+
-	 IIytFLu2g2NVnp/iu+49BOLeouPNbMyYYOuB1vDkDa9HCMNjnvHyVwd2rBIq4lPEpTHWL
-	 bYGaNMNbllcAHO7CWI4Ij088OHBcDeKi+7sJh9Wl53Coi2ENkyg4IDNKSFxq8zcaTTqyG
-	 RtPNCCG2DRsOKLRxDdL2zsHmcO1SEZLQvJytch3bPu1KKQyWdCQYb3mV9Bc6//yFnUX6o
-	 8RAleJ6iGY75aM1iTQI+lMUSNFkO19Fd1DP72ak6AOxL/p1LiNkgBozE7go/uxprvDg==
+	t=1795210366;
+	b=B4K1udGgwFlaYA/OEj7tgwxL7dxoTAEIJ0teTaId+cqEGlYD2n72ZlBkdMN9ze47QiYQ
+	 D+vYs+Y+wP953MhHEWdnV+aCzOqAn4+ab+tX9EXsSs/VGi1M0COGAmLTATzFKxt6dHGwn
+	 92q0u4Sixnsmm6wv0JtOYItKvkr5ScFoRzQwqY5bO3KgcyXjN7PqqswvtZ09pEhvN4AH4
+	 kiAt5YhTsxcrovjlq8j2krIS71lyIWA4V8b1fAEQvRGSWD6JuXXuFDwACennWMaS/j9QZ
+	 wuN/VEKlKqmnuMzPk/UqpUn1sKv3KidVZXJ608EmNSv0kJTEoHf7sbxvh4CVO0kaH+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210249;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210366;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
 	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
 	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=a1ho229usvH7WXbHz/geyTJETW2rhXcPAgdJKyw9+jY=;
-	b=oDYNMSHxxq3A4HLppapUbM2WC6Wde9RVL9KbQOc8SdUkE9XSb6VU3WKpypV/N2fzLoV4
-	 t0JqWrtqLiA1b6s5DXLuWTGV0xYwhIUgEN/pbxIHvaeJcMVQ+1rEgxpLbAx1QaIfCvAeS
-	 CaJLRGy3fVaVS6WqTrAo9h0x7LL/kTb6zD587oNTyYtW/Wxu+DU1ofSPDeKRu18No6mlW
-	 ZxtlBUvIlicU2nVeTYA7gF7dhnPSjlptZVn0t5jm+08KDu/TkhkkObQRdH/NLOuJrOOWd
-	 DZmmKQqWmu/bUuCTRcH/UR92oSRmY3xm/zMg+oHDP/xqMau6Gw0erEMoz3exsQI7jGg==
+	bh=4p2T2Zg2uEfX0S3UgngIvYy2v+9xvr8BhJ1ygzeVIy8=;
+	b=CMDO9ryCEgn8lzE4LWnmvIfLNj3n+Ify8jHaJYWeRhTVLd7KDhJ7EvLp+ndjs7zYhzAX
+	 xSu7/9dG7oQ/zLfH7n8Xh25Gm9H4udFUnrlkEEe8tAjPbR80HOE6oqpfOWvpz2aRpNI3e
+	 U69esYa1nacHux8e8MZdLqC+ywBdmfDYmhP9W1WMSHBVmlBq8Nnxr3y2oYqzlPRG4kXHC
+	 50mgYVKEeCMhp94g2m98Nou8jQIDz7hk5z3q65nBBs5GH1RtBnM0bSkoL7HLen+/r5Xsn
+	 0yxvz0/+ENG9lI5VIrs5YGOQ5dzMxgg2HWnmXexHJU6gh1K7Gs/gywnXNwbAmQ6RLmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7vbJLAa;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sEkFnFKr;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7461606A6B9
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:30:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7461606A6B9
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A127606A6AB
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:32:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A127606A6AB
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7vbJLAa
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48df4f7ccf4so98931f8f.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:30:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sEkFnFKr
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb5e3cbf45so869775e9.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:32:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795210246; x=1795815046; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795210364; x=1795815164; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=a1ho229usvH7WXbHz/geyTJETW2rhXcPAgdJKyw9+jY=;
-        b=f7vbJLAauX1ju+cWR/RmICqMbM2gmqeyAfkOA+IV9lUo0n7cqt3FtIyoEBOCmidg4r
-         Y/00HD2ZViRnBRaMyjLwYyxKajWQbPmBRwIQeDGm4dKK72y/JS2CTjPrcFEvWbcOgnlh
-         Q0rssmXAUfQVfZ7kspfX7P+ghLUBLZaulP6GmPHa4My1mI8Cq2+Zx7cTQbH8+vqd37zQ
-         V1RHgHvnH15edOMT9iXCkWcyvnQ7wnuVKkQ93KHC6SIU4kR8C8ImnONF3sjwstaMPly+
-         d3PlW7FycgUnemmyMjswQBXnUXKj2umCWjGtKlroR49RMbH7NOcE+DKJWU5/Lmw3x3QB
-         7I8A==
+        bh=4p2T2Zg2uEfX0S3UgngIvYy2v+9xvr8BhJ1ygzeVIy8=;
+        b=sEkFnFKrbLKiLRg/2IWy9pVLL+6oFVl8o8YQE273/dZ+0JwnhrNtj1iaGush0cEzK0
+         INnm+iA6hWaWQX/Fnfv71VP2979ZVUDrHM4EdGUuxr82PKwuFX7vfPUQWnWiVTzpZM6R
+         UoayqILUGs/vBMSUfIOnU54pl2JyQ7/LYc+xKEl2eMfFN2Q7IuhnxYL7/x0/GtGb35O/
+         LBBIa7W9YuuFOM7IrJaPIWbyqWuhtyXndezJbYptud+1B5quwJoXE2NW5vIvelihvln7
+         PA2XZRtm/zIBLKFUCMlT5QBGuGxDVnnQLe44BKMSLuG0Cp+q3i6VCY34uvXl9FhXFYVS
+         J79Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795210246; x=1795815046;
+        d=1e100.net; s=20260707; t=1795210364; x=1795815164;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=a1ho229usvH7WXbHz/geyTJETW2rhXcPAgdJKyw9+jY=;
-        b=W3iK0y2ONE1y79zZZipj133L/j5icwU6F9LzZTyJFnCkIyMpxIt5gc3wBgEA+bi0L2
-         7o1cnL832SYGvJfiuVvzv/0viwYChb2UNGA/2Vxc6hU/qXbRd8YZOOTZpOR5+ZBwFAqe
-         Q1FKBXu9/ky8mlv6IinVf9XGyOTFIIF4EGcDU1cceU4FMwj3FnF94MgMz4/NnN/gDuFZ
-         SmkvXJZjMthLdmyIwfpyCLvaBcz5jMAe4jImL9xNkBNsVKy9OysMOOSLCSukinf5Ti7m
-         oa5puqiyDGWSDsvceEMnFcp5ZvNdR2690dqeYmOT3/9pOHUrlNQgLqR2+etsBMukuoFD
-         NCuw==
-X-Gm-Message-State: APuU4Z+laIwtyjO++b90N44tMIzEoI70IAvLwKQ+yJ1qRVQYlVKah5YI
-	UiYPsZMTlMDEVFYAU2wK7u8JuXdWz0OwfMrWMzxfghPAmKNqXUrjGy4p
-X-Gm-Gg: AYBFou3FB3IoR/I8kgQmi6n8RfqCcoKavdGq7a7oVDXXlYsMivsN0wzrduiEgo9uUND
-	c3WkYB4K2vTwVkCtLp5FRSCWrr2M+rF6wcyseQ9+rBEV8IgjCojCHsfeRX5OhIyBhLB7kwOQV50
-	Q4ByfKFb9z5k1yXGWEWcLW1BOFhKKE8IO1UHL0J0iVCBOEtka8GTwAjW/WfOiu8oB767gsCy39H
-	F8zXxaNmStC6QkCsD7d+/DlrKI7LNtG4QccJiiPG+NZsDlSw6Ge3Sa8Vx3WBipp3DlEUbcD2FKw
-	hECMOhDZxPKca3Cy+ju6/7iqS8fGCKaxAxXWl3Uc7teqEDJvB1/LOWHpEj3qvAcuHsl95TxoIKc
-	GPFm8q0f9yhxNM8U1ehcA7xGq3vM1yYSL+zWzh2iCtd0cw8zWsnKL9j6GAw7/V/ntzx/GSfyeYk
-	rZR0LJ9wYogCvp8QDlhTrEz9jUEpsUgYviwcPP/xxKFkr3AY0C9aX351FT7acP+qe57pfa0D8Xo
-	uBTez3aCGpKLgnFIzUXGkmLbd4ePcQXBcrRI6lEW98oJL46+yCq7B6efaJz27W7GCoSNelWlX1z
-	l9FAUFJVSRTObde4lKWfqKkW7bQyKZk//OlckYZ+/taF+B85QvvXtqoNH+ehmh7CztZASS3XqMP
-	cLqSsC+jqnOD5imFJK4uIXR42xN+xFtakS5UZKSvqqxsOSgFpquGmEyE3ltvs76MrE4xE08CW+W
-	I8JVKR086KJnyc98tVej5B/2cKCOPGnN3nqPILmsuIs+6f2ytwHvDdLuYaJ6/Do77dAvv7
-X-Received: by 2002:a05:600c:217:b0:4bb:6a02:d42e with SMTP id 5b1f17b1804b1-4bb887f3fb8mr69726355e9.1.1795210246073;
-        Fri, 20 Nov 2026 13:30:46 -0800 (PST)
+        bh=4p2T2Zg2uEfX0S3UgngIvYy2v+9xvr8BhJ1ygzeVIy8=;
+        b=bimXd4RE5nKQW6eo9u6zWzB9WKKnVSVh9M7/0EDWrFio8EzCYxzq1GTzggcxPvZQU4
+         mle6O8jd5XBZmXyQFFf90VaKl6UBta/GVRqu79bdd8sTEcWAzBKpzIaC+3l9ZEiAuR3q
+         SNvUs0SZBUU4uNTAIhwsKyS01Oi1XUaxbridciZMdzpZbcDabxU5J7AakoIidgpTcAHE
+         wHahy3vdvNdGOMUzXnwpPd/zAtdiYoIZluldTKp1PtHRyC+h5ff4iksUgbsMVID79ADr
+         Pphqh5UFzfSKJbwptAjYDzGrxgvmFKafJVbnW3jkX2xQVxjJ4HeKZC7CL/+dPf/L+tGA
+         h8kw==
+X-Gm-Message-State: APuU4Z8yCqgC7a4xQWdpAD7wa/AumQaiXWJuaBYDNFHUDH5czYhC7eTb
+	i0gcUaGiosMok3jnYXtpUFzmVdoXsIx03gQ35vvkPmOlkMfRwQPDvYkP
+X-Gm-Gg: AYBFou21c8KaNbSYu1xvr2PqLJ2HwJln0YxYsYOZjlR0Z1bcKxz4ZXsI3XZRbTKn/uw
+	IqdAVR9umGnFcU2KNdB6JU3yhitvxPngeEqbU33msV25kkDSgshUoxr58vBFy5NdLDdHvaOO1u1
+	/Im7PzhoU0LClPT/7yecMtbzKTsDOksGGV1LqYxr2HruhRwG9QycG2exHXWMOzhN0VbDbQVl4hb
+	NN3TjsxMOUeF3mJG4dARFPWA9QVIRsBUApZA0clCqOLvge4C/resjsWboRd7WSUWsVsi0AwZ8sT
+	hM8Q3hT7PFmGVZ3LDqmvIKF8M4KIIXLT4iW+u/KYYxmjDLirQoJAGDFntuCUOo4t2kQsnFhmU5d
+	VdiF3fYrj9gCeYdmd2B6cLj8LdiPWeGuxv+ShFhovzotxObVqzq7HnokGFz1wn4up5z9XVM41sd
+	f6tbipNMO3dbsD7UOfc+gDL3S5tHLcMBY6dhaZdN3WUc065lGBQwvddEsZ7U0m+0Gqly2IbModj
+	qGZJlcEydp7nFLxlC4zKHKgKKAOaouesLK/kqgEHMB9g71teXAB+Erg30BcM4EoHZiSc/FcSVfv
+	22oUwceCjQE8u/TZ171aqGwwGik4bSfRlJzuv2LPc6Du2yIm4A1aaCY7X6Mun+RZ0Kqjt4/zSYN
+	MrxODy3CCNk8ulBCnbAAbzv5k07R35fcpDnx6g2ABg1lRr4/DcpWPfHFtiJKeo/t3pmmN8hq8de
+	Ez1MW6B++NY7xTyLasyOo2Ot77ICuRRuCywAOBgsTHWKH8gYY=
+X-Received: by 2002:a05:600c:217:b0:4bb:6a02:d42e with SMTP id 5b1f17b1804b1-4bb887f3fb8mr69797915e9.1.1795210364452;
+        Fri, 20 Nov 2026 13:32:44 -0800 (PST)
 Received: from ?IPV6:2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d? (dynamic-2a02-3100-65ed-08fc-216e-bbeb-a7f9-ea1d.310.pool.telefonica.de. [2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm6400500f8f.46.2026.11.20.13.30.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895f7bc1sm37514135e9.3.2026.11.20.13.32.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 13:30:45 -0800 (PST)
-Message-ID: <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
-Date: Fri, 20 Nov 2026 22:30:44 +0100
+        Fri, 20 Nov 2026 13:32:43 -0800 (PST)
+Message-ID: <caa0bad2-0c73-4cc4-b0ca-360a568a1947@gmail.com>
+Date: Fri, 20 Nov 2026 22:32:42 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,8 +93,8 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v10 2/4] net: hsr: refuse forwarding devices as
- HSR/PRP ports
+Subject: Re: [PATCH net v10 3/4] net: hsr: segment GSO before per-frame
+ forwarding
 To: netdev-bot+sashiko@kernel.org
 Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
@@ -104,8 +104,8 @@ Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
  liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
  lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
-References: <20261117141922.20-3-xiexinet@gmail.com>
- <179514132185.3136.17085396682149520983@kernel.org>
+References: <20261117141922.20-4-xiexinet@gmail.com>
+ <179514132368.3136.11119943958824488606@kernel.org>
 Content-Language: en-GB
 From: Xin Xie <xiexinet@gmail.com>
 Autocrypt: addr=xiexinet@gmail.com; keydata=
@@ -142,37 +142,18 @@ Autocrypt: addr=xiexinet@gmail.com; keydata=
  +ZmcHnCzsuo6uuNYX8VvmWqYsVajykjnpjdCGmU89QUsVmrtnDPBrfr8VVJcZPnCJhE595Pk
  LO29Oj0au9kr7kMW5Q+fBeHj5zz6VggAaRRU74/sgtwLODBWESPZ9LqUUdB5L/XbrSq2VDlD
  sNySbH3veZ/55EtlXA==
-In-Reply-To: <179514132185.3136.17085396682149520983@kernel.org>
+In-Reply-To: <179514132368.3136.11119943958824488606@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
 On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
-> Can a plain veth slave still re-enter the xmit path of its own HSR master?
+> That covers only the gate drops, not the segment drops counted in
+> hsr_forward_skb().
 
-Yes. The redirect case exists without the patch, and the commit message
-lists it as not covered. seqnr_lock has been held across the port
-transmit since 06afd2c31d33 and 430d67bdcb04. The patch refuses port
-types that make no sense as HSR/PRP ports, which covers the syzbot
-topology, as Sebastian suggested [1].
-
-> Would it be
-> better to stop holding seqnr_lock across dev_queue_xmit() in this fix,
-> instead of adding a denylist that the planned lock narrowing would
-> replace?
-
-Releasing seqnr_lock before the port transmit closes the whole class,
-but it can reorder frames for receivers without aae9d6b616b5 ("hsr:
-Implement more robust duplicate discard for HSR"). It is left to
-net-next, where Hangbin's patch [2] fits.
-
-> Could this hunk move into the GRO policy patch, or could a stable
-> dependency note be added?
-
-No stable backport is requested for this series. The macvlan GRO check
-depends on patch 1 and makes no sense in a tree without it.
-
-[1] https://lore.kernel.org/netdev/20261014151838.6RyMIRVM@linutronix.de/
-[2] https://lore.kernel.org/netdev/20260805-hsr_deadlock-v1-1-d8a6f06fc5a8@kylinos.cn/
+Yes, the sentence is about the aggregates that hsr_forward_input()
+drops as a whole. A frame or segment that fill_frame_info() rejects
+later takes the existing tx_dropped path in hsr_forward_skb(), which
+the patch does not change.
 
 -- 
 Xin
