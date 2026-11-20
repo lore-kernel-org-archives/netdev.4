@@ -1,153 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.46.77
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795202977;
-	b=Ezs3l/0fUhYsTTXScOfS2GjPCK77sHy8ZGwuP1PYOf2IyQDMCCNYBw2qwiZmnuZa3kzK
-	 ocmCGOxw+E6jvuBQd8azp3xYSYO3h84Y+WkZxSSskhtP2CAnLkabrpwmCyLfglDv379QJ
-	 4gpdlkt4h3fryb+DnLz0bmkgORmce3gEkHvnmadVSUTI7JiPB0C797A7PeHkzad/XtKoC
-	 flY/zGB6ukEBtAM6tqDGNY73OwLaRwpzcRwXng9fiFMDKp7GjnwU0jWMQLvQYG3E7wH8U
-	 migzp5whzmPiYK6KqnIu99voLajh9xmyVAYgi5aga30GjN8Oqk2E1iL/ALzS4k1A3nA==
+	t=1795202992;
+	b=QgJnmCnoYvhkbG7X5drmwvS5ogCtleyRlno3rYeqBbWc3a/orr+0ReVBUCZLJsqVq+/i
+	 nDuE6W2vSC26G82etoo6VuN9wnnke7zrQwObO8E7xY1PkuZUCUm8o65s2PWqgidV1RUfX
+	 iERqJi5t7trnjzqhlSjLIN+USPw6zZtnbOfSPB1SczTc908jDMCW63sdYlLpm6g0/z8rv
+	 tGDjheUHKR5BFfY1l7kz/WTMa2AbDGSWfxIbVfZtiUZqy/Rqyw99mXPZkiciuF3v4VEVc
+	 26fvQBmn/4nbYRPEnPsv9Vpzx+knP4shNwjjlkFeCzg8ysaBBDJyMpOkMQnd8+4031A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202977;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-exchange-messagesentrepresentingtype:x-ms-publictraffictype:
-	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=PQWPF8RWBgEdZE6zv5GWAE5HWlwM5WpkQICwcPSXW0I=;
-	b=Ubl0ifRKCO/dMhaJVOjheMsFWrhWEFqcvaseJr123RnKavZwwf3TjbFqtjGOQfhZAVcE
-	 /MB9Cp7URWVUonn8MHAAbwHHGFlSRXMewQKuA1Lg2dje8N5oMseP94i/sGU33XESRD3A1
-	 vBSTrIkQigJ/KUaTQqz7E1Dvh0cd7XHl7HKnwWDh+PdKLO/3sH6Rp2X765uHRRwPTOOPM
-	 IyrqPO3mqBJIPp47Pc0wic0nn8/tEau0oRhwKEwFZD9eZNBg8vtSQbrJIRQY/agopCyd6
-	 DZoYSKdqf1PMjrNp34SDgpv65OMBcSLu4Z13onbw7rlXPqXUQqTLKFWcUC+11b/TC+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202992;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=fC+8G1FvYGo13nT/z8VOaxvmjaFeFWbWTyaE4x7H7KU=;
+	b=yR5My1WJblSRtUN8EwFtEfp29ESKzqf41484Fvoztq60spwZkR2IyoSVL0/zfsnpMXpr
+	 jXHlOqHBDpnu1R4V/RDgrID/EKaqzJ3dHbcsUWUx4wmxpP83Hh64d5HFgrRu9sHGQIfSE
+	 EZImcra+4V1Nhh0EWR/uYxPdq8BCiNc2WvQ6YVeAMwommAIv/sbp9a6JP9T+HK/WbBmXE
+	 IFngpi1fbq2wiTAm//Ts5+ExfVO4uDBNWdsBSnM1aDdIQ4PrDJnOCSL6dRmHB/MX5rSlI
+	 HNDhgymxMB+tf2PHdUy52+8d7zuyR/kJNM4B5hsU8n77VGs+h5okpgHuhwMye4CxQ9g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=JAhEm1vu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.46.77
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazolkn19013077.outbound.protection.outlook.com [52.103.46.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bUoVuok9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65F7060A3835;
-	Fri, 20 Nov 2026 19:29:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65F7060A3835
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 185E160A263E
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:29:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 185E160A263E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=JAhEm1vu
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uGZUyrapzscVd8N6IGPMPiUDAsaQ1fObLWNuoF6ACXpT76EBgSuVnTAk+J8ZAlg+fQn0nUU/+L1+ZDn8gpAR/CwnpWunAmdhCTwuNN7RDd+MvAw487Mz1o+yETiofKBC8fvdR4dZq/ze02sOxPF3kVvyUnFp+Bgxv9Z2BzWk7zncuzlgYZL06PwLxmn8c6eqeUGEdzinkKWuIWi3QWINeDcak0ZVy6E09Vl/SuZ9URu5MSWChVdUrL9r7wwRLDschxm2kewwPkcoQNJOBTZYHeLi8VpQF4wcyg8KoWX1ZAHYGWFZOypqZFHcXgt6qqNJ2/PSpnFwrJhXB4GkmKRdSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PQWPF8RWBgEdZE6zv5GWAE5HWlwM5WpkQICwcPSXW0I=;
- b=cgwlrIsuT2+gD+agCyQXCoZDDcGTDQn/oBmjYWVjwgEU+4t+zAxUlWIUhMft4qKgY36D9bfjKlnB3t7+ZYjfkUxoz4+2X9WZRyrBd5XhO0ACwJ7IFIsvmdcZ+CUyFtvHPmCRmdru6zKcbic9Ss+JH7rjRQX68JEMzfSLhngUaw0/BRQk6VNaOQ6uvjSBBRyFLYLbeWMuHRk9aiiC5fhhg6Zfs//HqOk/fY7rXfHSfvOennDC0a7uh8W8GvuMgoDuwoPhe2GSae/OBORFzFO+nEw37SYchJGp5zT3WYvfM+0yTF4Nd90Vszjk/OJxmmJkOF9It8vG1zX8e5SxUw6QxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PQWPF8RWBgEdZE6zv5GWAE5HWlwM5WpkQICwcPSXW0I=;
- b=JAhEm1vu9nzn2FZZiN8UOdxa6M2/39+SkPlPVSmlqj9wu1AHS3psXLmGOHvy77DS0Zuti4dZHTV2D+RZlrV4wFzbJOlXcPEshIHExLalRqkqFr9Te8pQCJe30vjzlC4/b5u9EIAjh+fN3QF6Qgslybpic8T06Iw9lUJn5M+9tHU+3uOYF/KWlI8bUNmNpZ+G5ibvp2zPqjZ6WhQbDkaXXwHIk7dKTDZLcFbOtxNo9QbMNPALJ8zK8FOUsfAhS1AF9KTvTRiSK/+695MkVGTmFjt/seT+41J23fC3mk4wRkt+yeeIZcoAVVbFGEIV0AdxHun4p5DWJAWmLdqlMgdFUw==
-Received: from DU4P194MB2971.EURP194.PROD.OUTLOOK.COM (2603:10a6:10:641::19)
- by VI6PPFBDD9B6FEA.EURP194.PROD.OUTLOOK.COM (2603:10a6:808:1::1e5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 19:29:33 +0000
-Received: from DU4P194MB2971.EURP194.PROD.OUTLOOK.COM
- ([fe80::e38e:ed60:52c6:4554]) by DU4P194MB2971.EURP194.PROD.OUTLOOK.COM
- ([fe80::e38e:ed60:52c6:4554%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 19:29:33 +0000
-From: James Sawyer <jamessawyer@outlook.com>
-To: Jason Xing <kerneljasonxing@gmail.com>
-CC: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
-	<maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Alexander Lobakin <alobakin@pm.me>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, "bpf@vger.kernel.org"
-	<bpf@vger.kernel.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: RE: [PATCH net v4] xsk: set network header on skb at generic transmit
-Thread-Topic: [PATCH net v4] xsk: set network header on skb at generic
- transmit
-Thread-Index: AQHdeMJYm6rj8qjagECM0thQDki24Lc3WWxg
-Date: Fri, 20 Nov 2026 19:29:33 +0000
-Message-ID:
- <DU4P194MB2971430F94C6FC2060BD5128A7782@DU4P194MB2971.EURP194.PROD.OUTLOOK.COM>
-References: <20261120073917.63158-1-kerneljasonxing@gmail.com>
-In-Reply-To: <20261120073917.63158-1-kerneljasonxing@gmail.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU4P194MB2971:EE_|VI6PPFBDD9B6FEA:EE_
-x-ms-office365-filtering-correlation-id: f97b5794-992a-43e0-59cd-08df473c9b31
-x-microsoft-antispam:
- BCL:0;ARA:14566002|25031999004|22091999003|24121999003|37011999003|31061999003|38102599003|41001999006|8060799015|8062599012|19110799012|15080799012|4140399003|51005399006|55001999006|24021099003|25010399006|440099028|3412199025|102099032|260806224601699006|40105399003;
-x-microsoft-antispam-message-info:
- =?us-ascii?Q?pTxNRvXp9J0IBunvUHHCslcLQTEHO/3sLtvNrd8W+u39ELcK6wAJ4ksWu9A1?=
- =?us-ascii?Q?x+vig+NmgJGlz/Frw42sMFQhLpBKnuxAq0+55xj03hyfta5rWcpgCJpKhpdZ?=
- =?us-ascii?Q?PFyeKJzv+kN8fX/o+uiFUycqEvfFRKcEwBepMQtXXgdMB2R/VdNmMCXNah3P?=
- =?us-ascii?Q?PRejaCzUiLtHR6ja2n9VoA26TP0gvc25VHg25n3GnEiI8MOeLykLuyS1khGa?=
- =?us-ascii?Q?nX5LkPxk8sZYb56zmyoK7vHLnDqS2FjpzJWmAPUhvGC9TW5W+7ypuz1r9cfa?=
- =?us-ascii?Q?2TwMFkx2AJ5iEp4q0nZhH7cwgVrU533BlQ5Ev7RpGVvx+bdtU2gAOkTHhzEW?=
- =?us-ascii?Q?cdX+WKIv+ElKWnAmKR86AcuRdoc0JPhZuS/Y7tbk7DJpdCg0l49pHcU3L07a?=
- =?us-ascii?Q?B3URvqQm6YILUDzh+azvXiscmgh9/0d1YFHuxdsfG16pEy9zwX0znrasB1AZ?=
- =?us-ascii?Q?KwrtwNIZoqkMNE5S002QVBP8BZNBEczYWPI/ESnDx4NivJTpdsilo2/Bx1sa?=
- =?us-ascii?Q?mSFN+f32lR912IUKTdmRIbpc+6mjYMML0NyzSDxpZgR5+fFn6Kjecnvjlz5R?=
- =?us-ascii?Q?7hdGbeO/Tj5XXjNkg9YySLo3Opusq7CYzh9VY4jIfT8t9v9NeSqtDbCX2yPP?=
- =?us-ascii?Q?HydjtT9mkX3c/+AB4t4vIT69k2oxXX5X+MWsDwUsvBH5UH0PfGbCY4QqyQT5?=
- =?us-ascii?Q?GWwuee74+U+ePo/BJnENo2wdMBB+B7tl0Msli8r47BWWsB/+nPR4Gh3bfcQ+?=
- =?us-ascii?Q?uFmpBXYIhbec89vLauGZ3R0ZQpEjs7UqYWZ8yoAgtoapndduv2p2A82SUVwQ?=
- =?us-ascii?Q?l6vxFRyjwozE9MK2moRvjbV4/cMrCABdVWq+2Yk9MareBuQlbWxGFEmKAnMo?=
- =?us-ascii?Q?Fwr6bO/WuRCdGPCS3w2JZHGkHYWAM0C9Fy8WAOCLKog3OVAYW/E0obvlkl0I?=
- =?us-ascii?Q?L6PabWqDPPAvr9L9+PnNTImUij4x5LJUH3OrC1cXZRYSvQ9V83keQuCmvjEM?=
- =?us-ascii?Q?rdeC99x8BTsd2zwtuUN+26ABnaZEsWou7BrwFBkEcwEnjkfwtsUHZln44V21?=
- =?us-ascii?Q?pt0yALXeeMFw4+LWHL+OrZUlC6Ln9imDLVnDczD1cYLNUCUTWp/1NEvYRlOg?=
- =?us-ascii?Q?pCsYlTGNGjUYTzWyiAqzA54NsQmNuO8vkjUmqJX/Ihl+xyEyzXxg57Nmnkhs?=
- =?us-ascii?Q?mTYnpED3YrKLz2LaEBbdZEQVf98HrBgmZIugGg=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?QOmHlmP6oQC0zgxOgT5g6rA5ms+OaiVJlP+OmL25Qso457hNOKk86UH3cIjl?=
- =?us-ascii?Q?DXCrjMfN+Y3ErpbSj14ZytqFVCd0LXMBogHGPqWCfAZp6g8abkgpO76EKufm?=
- =?us-ascii?Q?lbeJ+gyGaWL3jXN9wCXw5unKW92l/4maSVEGXtOiu73Mdy1kHZi7yizI3es5?=
- =?us-ascii?Q?bbO7/K6gxBWLPFnfUbNs34dglOMgaEsBAGNnKJKdP5eVaEGTYTbTbACgfogj?=
- =?us-ascii?Q?TraeWddj+ngrATmh4Qhyhc6f2+tQmxrY/jqWepGkxEOyoib893svCTuB7D7S?=
- =?us-ascii?Q?FcQ8it3X4iIiJ/gRK29QYZU6QCW0rf/yUX8YgPAXC9iiXUrgzxebdXwS/9Vu?=
- =?us-ascii?Q?GxnHn2AEobuk7Uu+Hru1/UxTDb8HkNxEpRr6ymYd3SA7b+NX9augPmMiVfiJ?=
- =?us-ascii?Q?O8NxwVeCJ0lW2zRbxxunXpVZ9tkpjQHDeX/14E1cKPG/G+GgQIDWMVvoptq3?=
- =?us-ascii?Q?RgNZ+CgXcXl8TK4dpYTK9zOTPmilnwSp/EbnV81NDbH+lN5gsOoLHTvl6Zrn?=
- =?us-ascii?Q?bZrpXlSHhkSn4HPBOGHQTOd3WDPWDMJhZnoBH/tgSGMVfj/CcwZGXSySz8T9?=
- =?us-ascii?Q?QwjTHNmO896WBSiPzbHEVNZq50bTHr2gkBCMBXA+PSJSWi8zDUG7Cwn5kMo/?=
- =?us-ascii?Q?chHel2ya1a8GgX2ObYqya2KbjnHfjzeWdh6v4obkYnlZ9/drsBcmJnahmcRw?=
- =?us-ascii?Q?6I1LqYPxcqc6pNqWJRbFuHpRonM1OP8PmlwOv4w54wijNVLj2QFEN6chzwXL?=
- =?us-ascii?Q?KtXnicvhYreGXZkXogNNVEX08LuzL6cPziidY6bYt5cHbogyXMvLAkMMbN9t?=
- =?us-ascii?Q?p2LxY0NJbqdr0/DsRnP5P1Kca6jp0Vxh2eGD7lXNsTssBYAIKAOxuS1zJgvn?=
- =?us-ascii?Q?ELbHGNmIbaD4NEGKysHywUMbq4AU18XGFv8D6zbCJfgTpepytDsG69SXWgs+?=
- =?us-ascii?Q?Jk0+JzQgpG8mAJwydS5lSuYgH0fq/D+oY5m4pcXxi/fHITNgwbUmQL8abJd1?=
- =?us-ascii?Q?YBmB11dRn6CffnYGYyOVY0Gh7t9+R2qIP8ro238TtO9M4ep6FFHAzE+Hk6DW?=
- =?us-ascii?Q?AC9VcC9sZKFjLGVqUr7SpkB/5wyFYxj+NkQe4Ghh/FeI2O15+dB282Tihnc2?=
- =?us-ascii?Q?ebK0/EKzCs5cD5bkgfEFWjDXs+yrFr/ZRr4DAzKyvxuz4IjAbABIsU2dwFH8?=
- =?us-ascii?Q?givd/0Q4XoiGSmLuHXe3MynMl0I6c1eCAlOHuKLM9MFonIlGEh+4zz7dXV9Y?=
- =?us-ascii?Q?F+TC+CVNSZbev7zUqEjhn8Zop5F1aXhDoFC4w/AnfUseiKlxnerSL+VYbrUP?=
- =?us-ascii?Q?od2WMM5IvP/Ms0bXCOyY6jCIkhd+UHunEfe2cB3HMRN+W6fpxiAG1zz0RKCo?=
- =?us-ascii?Q?lOQNLkhUt037Sr/O1KXKcnLqT1no?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bUoVuok9
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c51239b0e3bso213281766b.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 11:29:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795202989; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ZlAwcKCpevsc0GPZ/H/chy3uCCUh20R64BL4HVBBzx0dYdSBcl7P3ELfYFU0JgD4bo
+         JNjjlRIOSgXbVAXpi6Bf+gruQtiHMwWcnUp2rE2wRRSOQIVuKKEFDoM9tSHNkfXoYVx0
+         Jx7soE8mAGO8/4rCtAACyykr/meDKx0I7SB8FDcteTJnRy7d204lCpNPBX0ClXtml9QB
+         Bd1lun+ZZIW9EEYfbK6ieDI7f5W5/eaRJFAkJvDGH7Y15lCWke0xBfUhs0oiJCgMma4r
+         OjmWUdFyNRzI2J8Wezped8xUZo71OUogyRlF1GNBMBYCiMuaGXii6wX8rBNZzIRmyv08
+         PF7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fC+8G1FvYGo13nT/z8VOaxvmjaFeFWbWTyaE4x7H7KU=;
+        fh=OyvjyXYZlto0Uv+dRgjsElh9jDjIJBoazlu9mYze2AU=;
+        b=svRWk9+hUuFlbmtwP3LT06hDSP2ZGBXw0ehnUpsbmlVAgZaYoT+lC3UOpzN8kfrCnE
+         sctvw76jfoKH10OL3RuFKcQ7vH6Y+C0V+zsjI1FUGEJekOa3ynlqevcXaYiwPgb6QWe6
+         zuzTklIq3z1EcF0TRyEYUMaAqFLWJuLGOKFmvktyHD+qfNvu32qBArcCfBz6Xx96CDYm
+         hfBqvEwZK3KiArfg0OgGWGDaIMqYz7aMAom0UL8h1CYjpda7ygUuVoGDdAKqZAxUM4l8
+         OLWFftTeRrSSnaJVdtI0JpX3hJnk1+PNGx6Ye24paOj4GCm8MCntERswbN+5ML2bXXXP
+         7RMA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795202989; x=1795807789; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fC+8G1FvYGo13nT/z8VOaxvmjaFeFWbWTyaE4x7H7KU=;
+        b=bUoVuok9ZITcgLihiI+7J968zYkTWUWrusvXBCd5TGCAX0oY5A89t9/zFspC1iq4Q3
+         70oQIL47ELrZ77ppqvQulS7tCRyrnn5voEdyWb7PU2BVUpx2RbpoNkRALU9IEGogy1v2
+         37WXmRSeQIXUf/Qa76w2yb5PUyy4E543iufcL8LmjCVQdXui76kmVSbZzV2hc4R2Br1b
+         DctAGbvRMHwLAHZ5WrmO31G/0bNx6JwIHwhAAh4ixxwC/znMLDp/rIY1JCHNDH/p2bqy
+         vax2N7uaqa+/3cj6K8hoVtbxs9sPRACeHO27mUWHkFvxyXcmEvugP82bfrDVNOTvFFeq
+         +dZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795202989; x=1795807789;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=fC+8G1FvYGo13nT/z8VOaxvmjaFeFWbWTyaE4x7H7KU=;
+        b=n129HDWU+tsSBj5s8XfbPDtMj+Ie/euHxywShbZx/xoNgc/sh1XVkxK2WjdGqC5q01
+         UnF81pS9sT3hLccSctwoOv3QAsxtU4K9WjnUJ3dy0AEZoA0nzvn79D7Mqo9ojy8FGydO
+         gYxytVGBe+/S5kksqM0t2jSSppRrOsQFaneHpCygKUoVbhG8YalVvQmzaFFxr9EqhWHQ
+         YcM77NBc7PcedGXhRbUznSfZZIB+vzwY4Ts2pIS8cBMnjW58AcWnEptLEmzyqWHos6K9
+         K8HNsV14vW3J8iArnD/onB4BWQgCRlrcFjE6ugDH9xgi5g7zVd6SF5ZAX9cYw6ZFWNnO
+         6QZQ==
+X-Forwarded-Encrypted: i=1; AL+hErFbhnLHzcLyZkigXRYvP2fIqjV6zYQCz+K84RDJD9ueV/LC39T33N7/U8/DH8bEBy6byKgo7ZE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NU0zZNz5WbzMiTNHtCsIJeQNrIPk92obV+1bGo/kaZVWsX01f
+	ByWMOiSgjZOdS3/lM3+aiUiC3FJjdmFUvJEPxc/xHzveuWZCd0VcedXTXoRIabE2bKq4IPCRFHG
+	6KYwRjhMGwFuaYjSMZfrrHgc96f3Hk/vDj5MYq9M=
+X-Gm-Gg: AZFdTZfmMkCKuN16DjbRpsMtNC4QZb6meyjbhXLrDsFuTcmx8sPWi3n4VKGQyEfU3MM
+	BxRHp1xLx9ZICuAiYKWsdzo9kBo4OlPrXMgueS9CLO/EwIBZdSS48Iz5wPo68BKdGAkszwV0MlW
+	NDHQPNcK36T76qXgs8B5XHKMqp4UR5CJdHOJgKdC54ef3Qk6HiVvQGaa4P/yx3/k+j4jw9kSL+5
+	PNdIrkn+du8EI/y97HizceuoshRL0nj+6EleKYm+oGJMo61+WlOi50u1QBjwGe6at25gsURRdP1
+	b16qmWkbs+VARLTVTq4JfQcQQp4OxvBlRSOERytYLVeWArKJj9YhU7ZZvaELlGfFEXT2VGVHpRi
+	/vfyIAzWJN0W6GQNJ39BMEsMbXwoL/JUYUdajsONnNMnBnHONr17HxTkVURf8AywnsSnpu+0vh/
+	rNcy4g7cdEUZOcwg==
+X-Received: by 2002:a17:907:6024:b0:c41:1e13:8891 with SMTP id
+ a640c23a62f3a-c513a88b0e5mr266008966b.9.1795202989249; Fri, 20 Nov 2026
+ 11:29:49 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -157,38 +104,136 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU4P194MB2971.EURP194.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: f97b5794-992a-43e0-59cd-08df473c9b31
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 19:29:33.7143
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI6PPFBDD9B6FEA
+References: <179432406157.994134.6897059294926012210@kernel.org> <20261115161701.2351256-1-stijncleynhens@gmail.com>
+In-Reply-To: <20261115161701.2351256-1-stijncleynhens@gmail.com>
+From: Luiz Angelo Daros de Luca <luizluca@gmail.com>
+Date: Fri, 20 Nov 2026 16:29:35 -0300
+X-Gm-Features: Aa3M54roLAaHbrszK7dhOVz0ylLDdulRhF9t0J0W3KRLDQQsChPRJbY3Ar6o-dA
+Message-ID: <CAJq09z7Jg1Y+R5xmLeE7CSUvp7dtFKi6vLifDxdL+nh8VL3FdQ@mail.gmail.com>
+Subject: Re: [PATCH net v2 2/2] net: dsa: realtek: rtl8365mb: keep the neutral
+ PVID in VLAN-unaware bridges
+To: Stijn Cleynhens <stijncleynhens@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org, netdev-bot+sashiko@kernel.org, 
+	Linus Walleij <linusw@kernel.org>, =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>, 
+	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Mieczyslaw Nalewaj <namiltd@yahoo.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, Nov 20, 2026, Jason Xing wrote:=0A=
-> Reset the network header so skb_network_offset() is valid (0).=0A=
-=0A=
-Hi Jason,=0A=
-=0A=
-I tested v4 on net main (d7f2d9b6c), comparing the same commit with and=0A=
-without the patch on arm64 and x86_64.=0A=
-=0A=
-Without the patch, an AF_XDP copy-mode skb sent through a macvlan reaches=
-=0A=
-the lower device's netfilter egress hook with skb_network_offset() equal to=
-=0A=
--hr, and @nh reads return stale headroom, including another user's data.=0A=
-With the patch, @nh starts at the frame on every packet (300,000 per run).=
-=0A=
-The same test returned only the frame's own bytes, and the issue I=0A=
-reported no longer reproduces.=0A=
-=0A=
-Tested-by: James Sawyer <jamessawyer@outlook.com>=0A=
-=0A=
-Thanks for the quick turnaround.=0A=
-=0A=
-James=0A=
+> Luiz, this ties in with your mail. One correction first: the patch
+> does not move ports without a PVID to the bridge PVID, it does the
+> reverse, it keeps the neutral PVID on the ports of a VLAN-unaware
+> bridge. Your main point stands though, and I tested the SVL direction
+> on hardware.
+
+Thanks Stijn for all this effort and testing.
+
+> The switch has a port-based FID (enable mask at 0x07ac, one FID per
+> port from 0x07ad). I tried it on an RTL8367S and on an RTL8367S-VB, the
+> latter with the L2 entry layout from Mieczyslaw's v10:
+
+I will check Mieczyslaw's v10 after this patch. RTL8367D doesn't have
+an EFID. Without EFID, the same MAC appearing in the same VLAN for
+different bridges will collide in the L2 table.
+
+>  - The port-based FID alone changes nothing while the VLAN4k entry of
+>    the VLAN a frame is classified to has IVL set. The learned key
+>    stays {MAC, VID}.
+
+Wouldn't it be {EFID, MAC, VID}? Or, for standalone ports, {0, MAC, VID}?
+
+>  - With that VLAN4k entry in SVL, the learned key is {MAC, FID}, and
+>    the FID is the one of the ingress port, not the one in the VLAN4k
+>    entry.
+
+The FID in the VLAN4k might only be related to MSTP. It is not used in
+the driver yet, so I never figured out its actual purpose.
+
+>  - A static unicast entry written as SVL with the port's FID replaces
+>    the learned one in place. The roaming case from the commit message
+>    passes, 10 of 10 pings, on both chips.
+
+Great. That's what I was expecting. And does that replacement happen
+even if different VLANs are involved?
+
+>  - Multicast entries follow the port's FID as well. With an SVL entry
+>    whose only member is an unused port, 0 of about 40 frames reached
+>    the CPU while the ingress port had the entry's FID, and 38 (39 on
+>    the VB) once I gave the port another FID.
+
+OK.
+
+>  - Two VLAN-unaware bridges on the RTL8367S, each with its own FID: the
+>    same MAC and the same group in both give separate entries, deleting
+>    the group in one bridge leaves the other's entry alone, and traffic
+>    of one bridge does not hit the entry of the other.
+
+Here I wonder how the EFID would interact with that FID. I believe
+each standalone port requires its own FID, as they share the same
+EFID=0. However, each bridge has its own EFID, which should be enough
+to isolate entries from different bridges. But Mieczyslaw's code might
+have come up with a different solution.
+
+>  - Tagged frames, on both chips: with the VLAN4k entry of VLAN 20 in
+>    SVL, a station sending in VLAN 20 is learned as {MAC, port FID} and
+>    the roaming case passes, 10 of 10. With the entry in IVL as today it
+>    fails, 0 of 10.
+
+Great. We just need to avoid the same VLAN being used as SVL for one
+bridge and as IVL for another.
+
+> So for v3 I would drop patch 1, leave VLAN 0 in SVL, and:
+>
+>  - give each VLAN-unaware bridge its own FID and enable it on the
+>    ports of the bridge while they do not filter,
+
+And how does EFID fit into this?
+
+>  - keep the neutral PVID on those ports, as patch 2 does now, so that
+>    untagged frames are classified to a VLAN in SVL,
+OK
+
+>  - write the VID 0 FDB and MDB entries from DSA as SVL with the FID of
+>    the bridge,
+OK
+
+>  - as a separate patch, write a VLAN4k entry as IVL only while one of
+>    its member ports filters, and as SVL otherwise, so that tagged
+>    frames in a VLAN-unaware bridge are looked up by MAC as well.
+
+I'm not sure about that. We might need to avoid enabling the VLAN
+filter if there is another VLAN-unaware bridge also using that same
+VLAN (as well as avoiding adding a VLAN-unaware port to an IVL VLAN4k
+entry).
+
+> VID 0 is then no longer part of any lookup key, and multicast is
+> separated per bridge by the FID. vlan_filtering_is_global is not
+> needed. What remains is a VLAN that a filtering and a non-filtering
+> bridge on the same switch both use: it stays in IVL.
+
+OK
+
+> The FID is 4 bits on the RTL8367S and 2 bits on the VB, which limits
+> the number of such bridges.
+
+There are multiple FID's in the vendor code (it is confusing). You
+might be referring to:
+
+#define    RTL8367C_PORT0_PBFID_MASK    0xF
+#define    RTL8367D_PORT0_PBFID_MASK    0x3
+
+RTL8367C uses a 4-bit PBFID. I still wonder about the relationship
+between the EFID and the port-based FID defined in this register.
+
+> Does this direction work for you? As this is no longer a small fix, I
+> will send v3 for net-next, keeping the Fixes tag, unless you prefer it
+> in net.
+
+The Fixes tag is appropriate since the code is broken in this specific
+situation. Let's fix it in net-next and backport it to net. With all
+the expected changes, it might require manual intervention to get
+merged into all stable kernels.
+
+Best regards,
+
+Luiz
