@@ -1,185 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.182
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795192564;
-	b=D3eFBTB6ETuUK8yaW+qbv4eJICa4x4GElxRiy+fk1R+5jUF6L4dbyeffWZCoEGb9hvDW
-	 e9IoxKr+FIQ4NW4hxOdgFBUI//VMiROhFY3tnfu00Cdj80XnKAfJ0JBuCSaRaSuujsUwz
-	 cuvz0XW4Y7fBNJhUeskgKoq63WZa3m9OMDTCs13u26Ykps+AcP0JsJf3sCVkPcXIt6ySY
-	 glyaSNh+0LoBVFRZcOtG6RmqVaXquoe7QJbW667L/rb06WEQENczJYntkEzYgW0hGe9ed
-	 l4FmzCgqFM0FH3PYLa3TuoOPV4VdssCI+8VGe6JTbu6JBzTHT7rgPF8zKdtVHBbQhRg==
+	t=1795192669;
+	b=42o76v3hUKy05r8xuH4bPPluAIkr+l1X17dLJ1WIh0r8ZeZeikaUyyWU3/+X5OoqjeEj
+	 x8w8lyfw3t6XzKkYPh/JqOK38WoYv7aJsOVa17315HZIi01a7mOYN2lsCcRWJpXTTwiV3
+	 N8JlrlH2Q1E+E9tY0nYjPRtlG7sALkJ326FBa/z1qZxt+V9Flhbgz5+SOb1LT/hG+nrxy
+	 kZUJ2llr9U4+lK5PKWLS3xZaEygUJ1iRbT3flMEj34NR4a4brwo1ZODVT8kGFBWbg3Lia
+	 KpooaZt8NHpS0XCQsk5LnOjkpd5rlSSAWOgkEcR+SdtbdicA0ccL/5N8gSmmKNleVoQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192564;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=HYrYr0HVt9B7064J+GAaLs1aeEYmAnHkfde8HPP4vhQ=;
-	b=jmW4HDHmqx7hzqUrjY2pyTvIbhn2J9aEpSsMAV+2lBXcGmiDYuw3pQp8E/+tiv4vpEnT
-	 eVYMzSnWttHmbrF2s0lpI75o/+OXh3CPh465Zm04H9RTy256yL6UdxiI+TmcgYWmM2gwH
-	 G9t1YsXa3cQznkElgCybkew15kxUvco3okP5ovdlfcm5jzlgPZzqdsN2Ajx8En7Tr/uDh
-	 +izLjOIl+DJGaman6d9fQOjZCagPuEWcEjX9K8EXswez8kRaV5+fqjAYn8OicYg/k+s92
-	 XmtY3fuJ8VKPCdF98YuJJb6NPAcTc3ixJL5rd0H42WsJqGLZr/qh90hNdYY79IkdDfA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192669;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=8gVVdRXDHaBUhqI8CsaDjorE6ggyqAZgC0sVv6G0dYk=;
+	b=ysoXVav3FpusizVcdeHLchtTlBbOzGPNOqZo7U+kBc0sq5ulDk6AUbC19li4CyrIcRc4
+	 GvwtCGTjC9UWuv7DDfcm+wACDkBpnhI8T12l+Vz6S4+5PhvND4v/aQcJbmAJJP0U/Sa7R
+	 Gb7D9IH8WTAkDdfF1ZqTNcoQDzfE4cpBRRiwciwlVRtKyCVlyn6LqYGps3Jcp9XX1aA9T
+	 Dkfv8WrdxnmT0jf7WmykkHlDBWuZf4O9srZws94sOEJk7We4ZoBXpP4UXPe1erz60Sxoh
+	 4t6XsQuVgIK8z2hvnIiFzHPk+tIEPrGlbd6/G24kPVkLAPp5xeyci5oVbKxxyiQOWTQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=e05CyB87;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=UvP6W4vE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZOiu824+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA43A606A325
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:36:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA43A606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC0A606A333
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:37:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC0A606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=e05CyB87;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=UvP6W4vE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795192563; x=1826728563;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=Ymdub/SxHLNCo27za9KPtf1xs5KzgxeF02G2YANTmYo=;
-  b=e05CyB87tEs+yPm9ytUrhxmUQ1Cy3gaPf/cNR3TxfNeWp1rduuOkIqZ8
-   ur/b6jGMlKaEaIkEfyi50hduAvaM8Q9qvGaLqSxWJtnNbSCWR9azB4gcA
-   bmoT7LUdeCVoiEzoBUrVIvL9qKPs+etYUeLaS2ku1L1W+Y9Mc6l4PZ66U
-   McBrB72B+uPx9IWIES16Vd/O9d/Wm12ZXwodKIIcH6cHefcfWUB3q2NwX
-   NMS8rO8hg8LE7+hnhCJqsG06RCBnqpMjlMDCcdjlYc6q+oxpxzzB/XQGr
-   Q0oX6NtHYMQNtiLPO4J7TZd68brN2JsrrlEUz6FOAcdcGvVQkW3Rznqo9
-   Q==;
-X-CSE-ConnectionGUID: EaA0hCQwQlqf/KWV06LkfQ==
-X-CSE-MsgGUID: MNPk+kj9QQu2wF7IKbMKKg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4117155"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4117155"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 08:36:03 -0800
-X-CSE-ConnectionGUID: Gcy22PTKSi+ajEr/1+19mA==
-X-CSE-MsgGUID: SiweM+JkR6CFyNCi7F3KgA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11314833"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 08:36:02 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 08:36:01 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 08:36:01 -0800
-Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.3) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 08:35:59 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HVejNb6uhUUMnAPGCUTBMjnZUBO4JEHcAcH0XoeKEggJQ/y7GbE/TIuASBNMrMORu3uFpUuxuhEMRTyf6P2wTZzdj4ahRchNBIy8vz7KzvhIbPqbTSHh6XgZklN/aVexUoRoCTRS1M8MVTlxV9S0Amxm9JHTbXOnBre3VsPYt4KzaUXM3AE+o5hQAl4xkpNGKDL0IJ4v/vgPbCLc5gu3I8M+7HEdkuBZ19d2/owjD2lzjnBlKAC5NRCH0jDBJobGpvx58lJ3sq8or6kAAjqQUeGY2zWImGh29arlcRhmOu8kwuuTB5vpjaU1/mBeoTcBTUSdfqky/WnSPoaNo++1zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HYrYr0HVt9B7064J+GAaLs1aeEYmAnHkfde8HPP4vhQ=;
- b=kIiSXCEqQxD7awHKg3aCoFMMzhJb13vc4jpKjuI2rPLtVirdBXRLRGm+HPIpYLoDvxy+XQuJS656rDPEPSn3EvBbQpFYi8acJ9UtC2Rh7izJLefHeDWXtHJfwDHkJ3pYJdhKT5G/PsOMkimTG70tyTeyaq6vt4D2IxQN3f0E2x8oojgf1ppE6jszrTGA5GCkkeh4J1J7dzaxA1EvRKutl66t8T/mdBbkxoJN3NlRuDKpb3VXbsl1TPgsrfXoaioj99LZbecX8quX4DSCVZMs6cLq2zLiSDkWmkZxT2vTP05nvQRHwCVWGm0u3+qZkg8E/p3RdRBAD6fGT72gpptAxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HYrYr0HVt9B7064J+GAaLs1aeEYmAnHkfde8HPP4vhQ=;
- b=UvP6W4vEBJxryOzhGNt1Nw9kHWqNeSMIH19X6NVMBSOmnJib/90Aj9n48XfZIi41Hm/gLDiTkfOHAf0HqKQtmPUkuU9s7pf9ib4jXScGxEvl7RS+h9yAyl9nn6QApUcAxqJSLGktyWZinxb1c70+cMJD9gCIz4qvXbmxkQA18/w=
-Received: from BYAPR11MB2710.namprd11.prod.outlook.com (2603:10b6:a02:c7::24)
- by CY8PR11MB6963.namprd11.prod.outlook.com (2603:10b6:930:58::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 16:35:55 +0000
-Received: from BYAPR11MB2710.namprd11.prod.outlook.com
- ([fe80::3c1c:16b1:6e83:e3e2]) by BYAPR11MB2710.namprd11.prod.outlook.com
- ([fe80::3c1c:16b1:6e83:e3e2%4]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 16:35:55 +0000
-From: "Doddagoudar, Susheela M" <susheela.m.doddagoudar@intel.com>
-To: Vladimir Oltean <olteanv@gmail.com>, Andrew Lunn <andrew@lunn.ch>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>, "Lindberg,
- Magnus" <magnus.k.lindberg@ericsson.com>, "Chintalapalle, Balaji"
-	<balaji.chintalapalle@intel.com>, "D H, Siddaraju" <siddaraju.dh@intel.com>,
-	"Srinivasan, Vijay" <vijay.srinivasan@intel.com>
-Subject: RE: Proposal: per-lane PHY polarity get/set via ethtool PHY tunables
-Thread-Topic: Proposal: per-lane PHY polarity get/set via ethtool PHY tunables
-Thread-Index: AQHdePsv75/o6kmKb0KYb6sEq490B7c3HoXw
-Date: Fri, 20 Nov 2026 16:35:54 +0000
-Message-ID: <BYAPR11MB271098184A7A1689F5647937D2782@BYAPR11MB2710.namprd11.prod.outlook.com>
-References: <BYAPR11MB27105AFF28337302B1493FFFD2782@BYAPR11MB2710.namprd11.prod.outlook.com>
- <112154f6-53f9-4cb7-9124-aba263b097b5@lunn.ch>
- <CA+h21hq0EqJZFh_Kv64TR-oL4j=n61XK1xzzL_GMXLZr-=4PHQ@mail.gmail.com>
-In-Reply-To: <CA+h21hq0EqJZFh_Kv64TR-oL4j=n61XK1xzzL_GMXLZr-=4PHQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BYAPR11MB2710:EE_|CY8PR11MB6963:EE_
-x-ms-office365-filtering-correlation-id: 85351eb0-604d-481b-d386-08df47245923
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|22082099003|18002099003|261009223027099003|3023799007|3613699012|56012099006|4143699003|261022115727099003|261026140227099003|261026121527099003|261022105027099003|261022075727099003|261028144727099003|11063799006|38070700021|10067099003;
-x-microsoft-antispam-message-info: YXGKhkHzUcsdN0FyKuePpUucGlmCbYviV9r1k5zo12M48DR3QvvHe2rYv0z4clfriPXX8kaWqet3ofqXC9/I36Fg5gkAIjBAyqOGmPgTAsk/xO3zv3Ywv9bncnDYZnOxXOXxyf/Cpbwg61M1YRVZmG1g9WBRR0MJPG6cqNAhdg764D8gpTs4uCDdgWVA++1IEedtK38Aiu4OQVo0PbKNTJa5zZsqC460HpoUdf3gHUiYN//BIYRXWD9ueYGKwvc9k7QHVo3f9VUGkZ7fD1BxwPKyhWuqJe4n7NDK0MEzBVxyllzFEpA1yUqbzDvqLreb9nqbS3yEkG4M9jEaaD7aHGzHcNtRPKf3tkziT1mSrrmD9j96zzEQTXbLJOZ/3Jy2AkeHAML8f9vzD9J4OxMfqsRgdFaVeAcp0VvmUjWE18S8ua+gs9oueSDleFPUKvfve88CAxgpWsY0/4ff7aj/TXMrLv8pzBMkoxFt5sM1FxwiVSb2hrWpyHbcUdQ5MuhY6l01eZIz9Gey/TJ6AcPf8xTtPvbQAt7Da+e9QcOYweE0TJJfkL4A7WMLjtGAiDLJXFKIqMx/469/rgPxLmZ/RwzzYywOh5rvZXoMuh7jIEPow81aw+riGRP52oDvEByPQUMzQnwYTOLpZ07mawy8lzT4Aau8KskI2phLRleIqWEVj/KLvPiK4KXLUFqP7GZhWEHEkR4uVPJIkajKzfrfzw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR11MB2710.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(22082099003)(18002099003)(261009223027099003)(3023799007)(3613699012)(56012099006)(4143699003)(261022115727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261022075727099003)(261028144727099003)(11063799006)(38070700021)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?L19epukaoXl0sa48ICjxcVS2diKEWzp6bEJ8vhUp/NXv2ZvXLjYqzzvM8ptq?=
- =?us-ascii?Q?E6KO0cAph9LQldMX5ckTT16lB1GlLa6/XBaWDgxiqw5xaUk1j23HVHAbkN9T?=
- =?us-ascii?Q?kxFFn+2FUXcjNu2ZrErHKekR875A9nSklGx5Zs81NmClkJKdJjlzrKCydr5M?=
- =?us-ascii?Q?jFl8+ekLzvMaRYhOlnu+cveK0DQsld5Pq1d4avXN/RGd20rb4MZs3Jj0jwXT?=
- =?us-ascii?Q?foy1Ze8gJ3J6BxFuVHbwLiqzEJmK+PR6pAOnwsjOBVQNqMK8xDN0ulHLDWRx?=
- =?us-ascii?Q?JPjpjQtkxJQ/uUNjvYpngmWSzLtJ8I9b9oRmD0WevAxEX3ZAvZiTNHzWpxM+?=
- =?us-ascii?Q?kingxPL0ihyzr6DvN/8BZOiG4B6S8GxgHk9w5Gv2cnPgHrdSUievAgH894k2?=
- =?us-ascii?Q?waqcum+gh8C8pGc3EunSkDhMHfbElg3xHgDw8B/NeD5n7ay4KR+hP3x+ReeG?=
- =?us-ascii?Q?c5n5FvZYQw6Gwc7YTomhRp7exv542P4OiAakFLob7qym6ijKbj78WUj+kzUh?=
- =?us-ascii?Q?8Mhs2d4xe0xwIiuAJd+3zA/mfu47oqfngt25ZBmCYm+Mom/+hnlLJF/FGb1a?=
- =?us-ascii?Q?j4vgpdQlCfwuXvNTB0XLx5ETa5E6p5AivXBiSyWUdXNmznjoz4pklkw/ZsdJ?=
- =?us-ascii?Q?ni9ZNh41gHJiqtapEfAItrx+NfwMIqbR4JDP4fTJAKqoIPn0tGzMCR0L2qwl?=
- =?us-ascii?Q?3w/cC2t0BJcf+cemb6LgyGhDgORJv2s83KHvtWXB+nsBsgMvkZEK1qm68qa6?=
- =?us-ascii?Q?pkj+M0LsVIfFWDJvDh/+WvU9vz4HhIQ+ZRRXMqi5UBsDvcblzSkACvC2Gq0d?=
- =?us-ascii?Q?fI4yKvt5XQN8beUj286RXXYV/Od1aykpaTdPuxEYruB060qhx9VmK8vjh3Va?=
- =?us-ascii?Q?osqRg58nItvU7B2KCPZknfBCp4KA5K5J3PRqWIshEUmdK4jkmuhkIp7M3VF0?=
- =?us-ascii?Q?+8KJs2CLB9P6YphYJLAMMBnfFOVlSNs0TrXFbRyrQlHk//QZNiFeoInOgaw7?=
- =?us-ascii?Q?Vgx73dQfY70UbwsHLaKovXgUX6rLO+uQwZX28iCV6Brzetho/yToZqaUqF5X?=
- =?us-ascii?Q?ZLGa+ZHQLSWNVAFpasC9v9CJElsBCJqoHctqJxJU86iwKnOHlI4Svf6sc+a4?=
- =?us-ascii?Q?bQi2YEX8mqo5KUwo1uG97whLelCB6FX1L0h3QnzgMHpT3TuOOZQr/hsYVZ3z?=
- =?us-ascii?Q?f1bYPzNzc+JD6GWB+rtlrBqZ9veakXoSj1NI+RVK6cOTENeOIMqQQXtA5KKf?=
- =?us-ascii?Q?wgPlpbjkhHZavzhGz+ZARKdN62EhlGtxT+digJyeJ7fMorVRcxJPajoiyXiX?=
- =?us-ascii?Q?8+2BUMAHM4EwAJ8ye3yOc0dGw2DmL/DwH6p/POBbluasGXaqdneHezZTnpk5?=
- =?us-ascii?Q?jgHzycjDsY3fbeOxsYz53bLUhEN+U1JstqlsFbRUXF5GsyV1SSn9KIiKdbuG?=
- =?us-ascii?Q?PYxI1dIUeWYqDVaQLNMYSnW7aJMUQYYPDbljPtZ1fTrRBlHFrPwqxqQcjsn3?=
- =?us-ascii?Q?b8r8ZINAvIOmmXoe2ZxzGviJ8Hg/lAOLXTK5DJnXtnDQVmtSEskrGk8Q5Kxp?=
- =?us-ascii?Q?ctoIuGpJhAWeuT4awuCkMZ3KZ1FjLtGb/fHyjHcy9+0ZPqsVnO0ZJOFyWsrr?=
- =?us-ascii?Q?z9xzorI9FNMIBW4IUTOo+Of06QR+3oLJwTiDOLEk77gP8KhWBS2Uq/fdaCYp?=
- =?us-ascii?Q?5QtezxQFAYLAZbmlszgaLqRpGriWhFrDndxqma/qOgm8O9PZWBMRnlj235Y7?=
- =?us-ascii?Q?KedR02X5xZOtrWaSCGk69Sxg3doWkmM=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZOiu824+
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8b66d1a08ccso850059b3a.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:37:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795192667; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mdK30AuHFeOCDhpJ8Uk/HyXDXh9rOqUbH6lV34ucv+NE+8Q7PYO3qWdVznF3DiC49o
+         bcLWISu19WT/f1FjnlklHon3HsfQFCAre5EyhTEcc8lGNT+uFyh/dTiRW2ViOV1ixSG2
+         T0WYdszhresdG5iatHcYDMUntLoNE/7Bq5Eli6Yb6B1OmDRPuE2kLH0a7rnAjUn/HdvD
+         atVS8N3n9YRNMQ3ivCZPeF2XeOUUtSVqSR8P/uE6AV6+kPyuFPZFYw+xcfY0jFXifZWZ
+         /i4qxQ6EYsA+PZzl3rK/rlReSM9wTVoMkBQ5XWuMya4iAYbZLvFEFstnAqeZ3CnlaAvG
+         Eysw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=8gVVdRXDHaBUhqI8CsaDjorE6ggyqAZgC0sVv6G0dYk=;
+        fh=z8jk6RE/NM5bh4P5uSk6I8shkgELbPrwIzorNJhn2AI=;
+        b=mGFLX3JZhGyHoafZh+oMNtILEvHGsh3W07yZ8c+XvtW9/LpcovrzG5WLl6UwlmO0xH
+         iL7P+AAppRIU67lbCLQecYUKmhGUalTkL/aeQab3uo/DpOWFDg33p8i03Sctt4FJunF8
+         1WfvlRk2dfo7GmLigMmu1Oj4ZxlqZAEoqHY1bs5L7jzPXw1iDLytKrsm6DolAi+u3Ro7
+         L0QrkPCsejTyf5ps/VL+5Vb2rGPkuzOPis/tCdKfP9H6yGN8+JLwnJlduR4VUmw+qIiv
+         tZigabZ42mm0kxT4v9RMb73Kp8MVfQOXSTyU/LxAF8DWTgU9VRY0ixYKu3pzl8SWBnUP
+         629w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795192667; x=1795797467; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8gVVdRXDHaBUhqI8CsaDjorE6ggyqAZgC0sVv6G0dYk=;
+        b=ZOiu824+Qzybi4tCeLzrG2HfbR7LqOAvhjxtrLtycpDDlq5EvcJyn4toRCyBscyObG
+         2F3FyeyAse5cYOzzflbdnEcBAXNCHUklhH0M3CNUJAJBrGiheGthMtGLB+4AzMK7voLO
+         3PNSaKexaTcyBJ9ErwP0nWqVCqJK9Ai9tuRUpEKVZ3UGeYWKQsG/09x3la4TqHdesoHm
+         N+BqgDqothmocsIqqDFAcl0OcZpKk9P6XH99DiiPzydVWtUDABK982SCGULWGF/s6B5C
+         VPAUJhGNRfpKZg8aLC3X87wtQ7eL1lmIEUl50SFmUp+DbAGAyoKjf/abnBqXwUaKPuZD
+         srEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795192667; x=1795797467;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8gVVdRXDHaBUhqI8CsaDjorE6ggyqAZgC0sVv6G0dYk=;
+        b=D6V8DfX1BB8L1w4ZNcnHs3aruM+jHOZpzQuZy7eDAbTCbkae+1WlBm9gczTGjvuXJG
+         sbbX2WyCK8kQIXYk3NfYsYVGHWhpxMZlvqez+AlxEj312GPGgxI1ffEU7XZE4mSLxka6
+         jmb2H+yHHmwVy9N6ZfIZb386N6WjPTGXCTB85HV/FQ7yMJkw4G3l8UM9Y30LXG0docTG
+         sBcE8/OjQU6hVnYXaNVbV7V3fb1XHvJE5V4JHwBTq4jdR6YzT0rMC86YYtmenPPsF8xJ
+         DJtwHHwxF3qQTefLHREKwQBPRhWTMBczyoXMu3R0fMyO9lBtO4TDC/wi04eCDYbsY6ti
+         4ICQ==
+X-Forwarded-Encrypted: i=1; AL+hErF3so2xOa8toqv/7ASszFeA4BlOgSIzxwGavxvG+C7wGbxeZYZsYZn9suXBCFAO2V5bSXA9ywY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/bJ5mcSvE4ckRkH7uRHHaU4JVtpkNEG6S2x4WDX7GgJMd5bIxz
+	EP/DIRpo4QAsvCAEg3Wv+aGUAKWLdwhCQiWl8n3euSBzU+W9m6JbOZMcz+/mEDPshuuiR9cPuta
+	cI5pBGnI9yB6ryw7B08lkObK9A5a9FAo=
+X-Gm-Gg: AZFdTZf4KZrVIPf9QPfg5CisNJ3N456FqXmeRW7RZN05b192XC/wGMHFxnUsmiKl2pJ
+	SeQFZRx/W1XDPJa2PHUSnHzLsXGOqdt9ejxvbWXTPFpVaCwXY72mWmcXGiCDMCuiFi1ybSB43r8
+	wrhtZJD1BW7Wl5beFA55pSootWejZIHz9LwL+q5TmVpJO1kipXCVRWSjltParVzSSASHBaov5Na
+	8qHwNXb+0yRBxXD3gtKt6iAqDlmLGgnKxyNUmnLOCsM6djXbJWT8vX24Z55WcesSr/lu0CjTcXu
+	N+WusLjgIhhLLacueXKP+qHII5i5zA2KpsxfRtmHcxSq2Hcgmama9jW17in0mYwC1mxIECeNrDe
+	ZfwYMadJUklK/M/t+aAP7yZvd46lwb4Xxgy+Eobv2xD7XXpiaAcj1U2hhwMxQyRvdgXfhWisGvV
+	nViZyEVzY3yWS/WH+y3gcGclILpfLIk9tg3oJH9A==
+X-Received: by 2002:a05:6a00:2987:b0:8b6:3e44:8aaf with SMTP id
+ d2e1a72fcca58-8c87b4ee9c0mr3361079b3a.20.1795192666568; Fri, 20 Nov 2026
+ 08:37:46 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -189,83 +105,122 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: WX3uhsGizV7+SrdGwmc3acae4/TSYQACUuY4CPxWc/j0mWjZSznwPA4pBUg/AYlNXSNJLoInrjVuUc6I0/NrT2bcG2RdhWYh38onai6CmUmwSl/KwJ3X33qFbcoTnzpiYBTTKFbUd8oIOGUcTF+twmJYY8BsGjtDxClKltT350Zvg4Zu3OLc9Z4R/bjEdF2ySHuK9qzGKb/2OYM0DdYwptLmy7cF0QP0JfNIdB+HuBz/Ot1DFzgEHulgwjIkrznKWM896LEgwcCwYTWWsRO7tfbQiN4KDzs9ucE7XGEZSQd7RvwANo0NSiHIF7vMnKjB+FHCqKj5cZ/cujxKP8FxZg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR11MB2710.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 85351eb0-604d-481b-d386-08df47245923
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 16:35:54.9784
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: DfkWMU/oNvTNLre5+GPfj9teSJYPemmWreszVe+b/HMEJB2xIaqWOcBJlk5VPLAjYNIjetXacJuH3nr+ZVRLP5Z+Tp2v4EDgcO/UAQs2eNeiIOwr4CWe9Gsw7xJekQDe
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB6963
-X-OriginatorOrg: intel.com
+References: <20261120050108.426545-1-xuehaolin@uniontech.com>
+In-Reply-To: <20261120050108.426545-1-xuehaolin@uniontech.com>
+From: Xin Long <lucien.xin@gmail.com>
+Date: Fri, 20 Nov 2026 11:37:34 -0500
+X-Gm-Features: Aa3M54qNypMyBmyBYevUfk0cK2R-oXwezfsszARlwdxXW7NeEApwkkiP6N3Sz0g
+Message-ID: <CADvbK_fKB1P4c3KkZobQwGc84snyZG-b7NYXi7xPwN04ojcW9g@mail.gmail.com>
+Subject: Re: [PATCH net] sctp: fix race between sctp_sendmsg free path and peeloff
+To: Xue Haolin <xuehaolin@uniontech.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi All,
-
-On Device Tree platforms, inverted PHY lane polarity is described staticall=
-y via the PHY_POL_* properties.=20
-Non-DT systems, such as x86 platforms where polarity comes from firmware or=
- NVM, have no equivalent,=20
-and still need a way to set it at runtime for bring-up and validation.=20
-
-Two reasons a static description is not sufficient there:
-1.ACPI overlay-based workarounds require PCI re-enumeration, which tears do=
-wn the netdev.
-  =20
-2.Dynamic devlink port splitting changes the single- vs multi-lane topology=
- and, with it, the=20
-   per-lane polarity requirements. A runtime ethtool interface is needed to=
- override the probe-time
-   firmware or DT defaults after a split.
-
-Thanks,
-Susheela
-
------Original Message-----
-From: Vladimir Oltean <olteanv@gmail.com>=20
-Sent: 20 November 2026 19:56
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Doddagoudar, Susheela M <susheela.m.doddagoudar@intel.com>; netdev@vger=
-.kernel.org; maxime.chevallier@bootlin.com; Lindberg, Magnus <magnus.k.lind=
-berg@ericsson.com>; Chintalapalle, Balaji <balaji.chintalapalle@intel.com>;=
- D H, Siddaraju <siddaraju.dh@intel.com>
-Subject: Re: Proposal: per-lane PHY polarity get/set via ethtool PHY tunabl=
-es
-
-On Fri, 20 Nov 2026 at 15:29, Andrew Lunn <andrew@lunn.ch> wrote:
+On Fri, Nov 20, 2026 at 12:01=E2=80=AFAM Xue Haolin <xuehaolin@uniontech.co=
+m> wrote:
 >
-> On Fri, Nov 20, 2026 at 12:45:56PM +0000, Doddagoudar, Susheela M wrote:
-> > Hi All,
-> >
-> > I would like feedback on a proposed ethtool netlink interface for=20
-> > getting and setting the polarity of individual PHY lanes.
-> >
-> > USE CASE
-> > This helps debug link-up failures caused by swapped lane polarity. A=20
-> > user can read and flip the polarity of a lane at runtime to see if the =
-link comes up.
+> From: Haolin Xue <xuehaolin@uniontech.com>
 >
-> Isn't swapped lanes a hardware problem? The PCB layout is wrong. The=20
-> poor person who first brings up the board needs to figure out what the=20
-> PCB designed did, but after that it is just Device Tree properties.
+> sctp_sendmsg_to_asoc() may release the socket lock while waiting for
+> sndbuf space (sctp_wait_for_sndbuf) or connection establishment
+> (sctp_wait_for_connect).  During this window, another thread can peel
+> off the association to a new socket via getsockopt(SCTP_SOCKOPT_PEELOFF),
+> which migrates the association by setting asoc->base.sk to the new
+> socket and moving it to the new endpoint's association list.
 >
-> I don't see a need for ethtool.
+> When the waiting thread resumes, sctp_wait_for_sndbuf() detects the
+> migration (sk !=3D asoc->base.sk) and returns -EPIPE.  However,
+> sctp_sendmsg() still calls sctp_association_free() on the migrated
+> association when err < 0 && err !=3D -ESRCH && new.  This frees an
+> association that is now owned by the new socket, leading to a
+> use-after-free or double-free.
 >
->   Andrew
+> The connect-wait variant was fixed in commit f14fe6395a8b ("sctp: fix
+> race between sctp_wait_for_connect and peeloff") by adding the same
+> sk !=3D asoc->base.sk check that sctp_wait_for_sndbuf already has.  This
+> patch applies the analogous fix on the caller side: guard the
+> sctp_association_free() call with asoc->base.sk =3D=3D sk, and hold an
+> extra reference across the guard check so the association memory
+> remains valid even if the new socket is closed concurrently.
+>
+> Note that the sndbuf variant of this window predates the connect
+> variant: the unguarded sctp_association_free() in the sendmsg error
+> path existed before the sctp_sendmsg_to_asoc() refactor, and the
+> sctp_wait_for_sndbuf() sk revalidation check was already present in
+> v4.14.  The Fixes tag targets the refactor commit because that is
+> where the current code structure (sendmsg calling sendmsg_to_asoc
+> which sleeps) was introduced; earlier kernels have the same race in
+> a slightly different code layout.
+>
+> Discovered by manual code inspection, following the public report of
+> the SCTP local privilege escalation (Xint "NGINX2Root", 2026-11-18).
+> The issue was not triggered here and the fix has not been tested
+> against a reproducer; compile-tested only (make M=3Dnet/sctp).
+>
+> Fixes: f84af33138a8 ("sctp: factor out sctp_sendmsg_to_asoc from sctp_sen=
+dmsg")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Haolin Xue <xuehaolin@uniontech.com>
+> ---
+>  net/sctp/socket.c | 25 ++++++++++++++++++++++---
+>  1 file changed, 22 insertions(+), 3 deletions(-)
+>
+> diff --git a/net/sctp/socket.c b/net/sctp/socket.c
+> index b5a57f61ee6d..0039c54a55d6 100644
+> --- a/net/sctp/socket.c
+> +++ b/net/sctp/socket.c
+> @@ -2082,10 +2082,29 @@ static int sctp_sendmsg(struct sock *sk, struct m=
+sghdr *msg, size_t msg_len)
+>         /* Update snd_info with the asoc */
+>         sctp_sendmsg_update_sinfo(asoc, sinfo, &cmsgs);
+>
+> -       /* Send msg to the asoc */
+> +       /* Send msg to the asoc.
+> +        * Hold an extra reference for newly created associations so the
+> +        * memory stays alive across the migration check below; see comme=
+nt.
+> +        */
+> +       if (new)
+> +               sctp_association_hold(asoc);
+>         err =3D sctp_sendmsg_to_asoc(asoc, msg, msg_len, transport, sinfo=
+);
+> -       if (err < 0 && err !=3D -ESRCH && new)
+> -               sctp_association_free(asoc);
+> +       if (err < 0 && err !=3D -ESRCH && new) {
+> +               /* sctp_sendmsg_to_asoc() may have released the socket lo=
+ck
+> +                * while waiting for sndbuf or connect, during which the =
+newly
+> +                * created association could have been peeled off to anot=
+her
+> +                * socket.  The hold above keeps the association memory a=
+live
+> +                * across this check.  If the association was migrated,
+> +                * asoc->base.sk no longer matches @sk and the associatio=
+n is
+> +                * now owned by the new socket; freeing it here would lea=
+ve
+> +                * the new socket referencing freed memory (use-after-fre=
+e /
+> +                * double-free).
+> +                */
+> +               if (asoc->base.sk =3D=3D sk)
+> +                       sctp_association_free(asoc);
+> +       }
+> +       if (new)
+> +               sctp_association_put(asoc);
+>
+>  out_unlock:
+>         release_sock(sk);
+> --
+> 2.43.0
 >
 
-It's not a hardware problem, it's a solution to complex routing.
-More details in commit fceb17ac05e772ffc82f1f008e876bf7752f0576.
+I think this is a dup of
+https://lore.kernel.org/netdev/20261112172149.27355-1-yves.bieri@theori.io/
 
-Anyway, I also don't see a need for ethtool.
-
-To the OP: have you seen
-https://elixir.bootlin.com/linux/v7.3.1/source/drivers/phy/phy-common-props=
-.c#L128
-https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bin=
-dings/phy/phy-common-props.yaml
-?
-
-They are already used from some Ethernet PHY drivers.
+Thanks.
