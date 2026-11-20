@@ -1,69 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.120
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168038;
-	b=iipFzGBK1Nl2bxZbTWGoPNia91KP6Z8eU/BaZfgFgrm4j4mKCH9LYQXz1sYhCmaek5z6
-	 mNBL5BEGs13AAGyNHw4IexndYN3zt59tdLd25YrvjBF2IcbsPPsQe6ZLsPPGDiWCXIx1T
-	 Md3ydozQqB/wKeK/0eEATPL5EH6I/DTGMaEHbOiRx+JkUjU8duIcqB4uUh7lKdxWQwSIJ
-	 25VQkn/1575UGXfRl2rgCLkF0IJm6zHsf3CpyRuUCcjnb1QuM+5v4Tenn8aNtGJ0aa3Tb
-	 RMY9KszGIgMS+bWpI8s23w9BiiwXaymsjJX+RIKze6VskRnhrqWcuy7sZtGaUr1rQew==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168038;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=SvTdqnVwIENDhZTrSuh8g7cNIkRmaUcL7O5Mg6MGuzQ=;
-	b=uugNeAKM/+Nn5gWyIpy0xADmXDctpHXprenAzcbZJKjouXUbJWdQBwaDRKxiEf8ANkvl
-	 h5Yj1RE/STCLhJJ9SGBii3BR0/TX2iujbmkkYsmFXt16PrQ4Iw1TXjQmv1N3XHBOZEuIV
-	 wm+m1GRQdPsmndpuH26tip/9aHn4rV+Mmm7t3AzAkJH5oj0DDICpGyUsTAPBNLHlUUyju
-	 qAI440twuv5ljOIQ0co6jtRqa06DTuLqt/W6iDGyJW8D6Wl+3IpDIgd7xF59qLItQAe4i
-	 XfzHHqb1KOCtEuwSxs6x2jIj7a2BPFBm/KESpZa0o1Rz541AEBCHd09BvbATwW8rxzQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=J9AE9jX6;
-	arc=none smtp.remote-ip=95.215.58.120
-Received: from mta1.migadu.com (out-120.mta1.migadu.com [95.215.58.120])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795168316;
+	b=U3pvm5q+3tUnrUSHhhkUA1bpVKIowxD8U3Kl7eKj9s+JwRxCwTCVVpuwzt8wpP38cdB4
+	 BHk6HsT+jHJQd8nLzSMdMoG+DoWWuwqNNp3VebuqsoPn2yGiJCzuuR3bshyNr+s6sXyhk
+	 Hagk0RNJrIpfWQ94BRbdgSDj4ElPkeLSfhHj7stBwKhkIVBZEOJ3RcMY03VVyf2sSnLva
+	 HOrj8k3pfknaAGG4C+BwNHOP1xg7uuC0bfXGfV8CxgTPpAlBWwEuRlgfe/WKf7f/MEquz
+	 XLblzZKJpzVy2kB1I/LTy85i06KC/JJFOvFIhxz2lyEmfncTE5ug0Yu4r41OAoH2c6g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168316;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=+RPDxUUE8ecGFLx+xwdtSIuUUrICd//yV1ThZqH/7c0=;
+	b=njYl6xWkPwKZhkQ0aeR2SHvTEkQK88zDpHRiyOJCpT7qPwit/TR8OJwQE58SgUE7WAk3
+	 a0VQUwy2Zf2pV362gzodjKyuqOeW67F0y1/oKd2PydhDbbQpAHuNLcnb7XYfvZY+y/ld2
+	 4Png9+Gl1AuUuZHPQrUtZC0iz1Q+r1JfPllxuY5a2HCn5cTMRo5gaIBZfyZYjLjM+7sp2
+	 Oalw1ZWza2S7TDW6LQ820kUFQjCmMlw3IoaZPppYJtYl537Xwkg25URZYaHm8xQvAVfJN
+	 okkCVyShHNfGsNHCjh3dh6QeK9S0PaUEyTsv1HLM6oqEZuscZP2nfRPZQ0tKJ49Y/Wg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=EOf9plRh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80440606A33F
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:47:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80440606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AD84606A330;
+	Fri, 20 Nov 2026 09:51:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AD84606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=J9AE9jX6
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=rAEFlL3ehnQf0utZCaA12Sm49W28OORcQYGQItYKVKk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795168035; v=1; x=1795772835;
- b=J9AE9jX6wAeP3qm9/xD1RHirECT6wkPpuHj6mQ9BFWd3FeBysvnrai0d9kxxkVNpg3akTf8k
- OM4sAp+jZza22OKO4lC+HfVWzGPiMBykiT1aCQ7k+zGjZ7eOVzzwx5CHir9OGfExUkxkxwKSkuO
- 2OD8BetTI382/XPcTVjLmL18=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id fca0a44074f6fe16;
-	Fri, 20 Nov 2026 09:47:15 +0000
-X-Mizu-Trace-ID: fca0a44074f6fe16
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Eric Dumazet <edumazet@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Patrick McHardy <kaber@trash.net>,
-	Florian Westphal <fw@strlen.de>,
-	Hannes Frederic Sowa <hannes@stressinduktion.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] ipv4: fix conntrack defrag forwarding after ip_frag_reinit()
-Date: Fri, 20 Nov 2026 17:46:59 +0800
-Message-ID: <20261120094700.46500-1-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=EOf9plRh
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EE0AC202052;
+	Fri, 20 Nov 2026 10:51:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795168313;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+RPDxUUE8ecGFLx+xwdtSIuUUrICd//yV1ThZqH/7c0=;
+	b=EOf9plRhoaIyHuJ8i2XDVFFF6bW0crYfSbxsIDmHooUL365ZJRtqn42hXBmEhEzxE2r3b0
+	Fkh0pSJsyMwevJFrDxYxvqXpEI24IlsZiDr51c7gK3LaVtA6ee5oh10FOPq97fEpk19wtc
+	6nqHMsehe8maP9dO4hOZnGAE2rCcGi4j/iW+kaHdELwqr+nQhR3OU2uY9IamFfvvwvt+5p
+	HS9ggPM19wCygk6z/PixyTmyx5tadOlvdtWpuVSFFQ3gIjwvBebxkdv6w+NKdJzgGbNHmX
+	ruB4LBLHd/t/5LXg0G3yN5mnccyGGvNop/iz3eOk6eZk8hzvD0GF++eiKHQVZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795168313;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+RPDxUUE8ecGFLx+xwdtSIuUUrICd//yV1ThZqH/7c0=;
+	b=d0Uf/iooUfrBgLxg/abHnnQA2O9OiTsRMUpU4dN00YQMzoHwdWFVnpBFMggP1YhRshWw85
+	m0h4ksM3Kb/2muiY+T1XNJQnol72VMOllgsqB08nXJkPD2Fvz6gVAKrRbcNG4EUx7cSkCU
+	J4OwlN3XVAE9OYuvifgEk2DwPD6+Ya/a/nGHtZHkykQXJwkFTqKahcKdFO1tnlwF1j7lyZ
+	FoPj+bOuVlwwZRS/2ORTBvHqx2ynW2ScYd9M5P1a7s/3i13KC4WjM8vzE8ne0z/VLVvhcJ
+	z6eLVVUdQqi4kks1bLNaDnILbEj1MATFSSEIunuclMbVRQMxmKX1LIKWZ0uNuA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795168313; a=rsa-sha256;
+	cv=none;
+	b=bcl0fpD1WpLYMmLuo+02hRfslqOhIKM6UiHIqQWC7sQ4H9iXSUcqAlTTSNtMRTKtZaesUW
+	IdhRfHVgatRPm5yBOa2BM92JqUtdQZGFm5C2A3pKCQhThGINI3Qyzykm7jIEqdp30Cqu7E
+	lWpLAL+L/E4VBxcmGIyxcPF+Uyx3miiSpkJXEQYblyb6UdD/V430V0O5NjhXEn1O5ZD5id
+	BRbatTNhDTeAcKcalAX9GK9Y0F08XABzqoRR+Yn/G6lz5/CRmqyWcE2N2f3O/My0LAOaeu
+	fIl+Ohzg8S0gB6qclaT8M4uAwSgTcplIS9+LMVBqNPeLaWtGcUWGbAlm5WYONw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+Message-ID: <5d8530485716d129be2efa0518254e3322cecdb0.camel@pengutronix.de>
+Subject: Re: [PATCH 1/6] dt-bindings: clock: r9a06g032-sysctrl: Document
+ reset cells
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Stephen Boyd	
+ <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet	
+ <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Magnus
+ Damm	 <magnus.damm@gmail.com>, Fabrizio Castro
+ <fabrizio.castro.jz@renesas.com>,  =?ISO-8859-1?Q?Cl=E9ment_L=E9ger?=	
+ <clement.leger@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub
+ Kicinski <kuba@kernel.org>,  Paolo Abeni <pabeni@redhat.com>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Andrew Lunn	 <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King	
+ <linux@armlinux.org.uk>, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Date: Fri, 20 Nov 2026 10:51:52 +0100
+In-Reply-To: <awARmkCuelD_fdX6@shikoro>
+References: 
+	<20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+	 <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
+	 <awARmkCuelD_fdX6@shikoro>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,45 +109,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-q.max_size and max_df_size are used by ip_frag_reasm() to set
-IPCB(skb)->frag_max_size and the DF bit of the reassembled packet.
+On Fr, 2026-11-20 at 10:23 +0100, Wolfram Sang wrote:
+> Hi Kyle,
+>=20
+> thank you for this series!
+>=20
+> > =20
+> > +  '#reset-cells':
+> > +    const: 1
+> > +
+>=20
+> Maybe add the new property to the example below, too?
+>=20
+> > diff --git a/include/dt-bindings/clock/r9a06g032-sysctrl.h b/include/dt=
+-bindings/clock/r9a06g032-sysctrl.h
+> > index d9d7b8b4f426..e3059c50f7c3 100644
+> > --- a/include/dt-bindings/clock/r9a06g032-sysctrl.h
+> > +++ b/include/dt-bindings/clock/r9a06g032-sysctrl.h
+> > @@ -146,4 +146,7 @@
+> >  #define R9A06G032_CLK_UART6		152
+> >  #define R9A06G032_CLK_UART7		153
+> > =20
+> > +#define R9A06G032_RST_TS		1
+> > +#define R9A06G032_RST_MIIC		2
+>=20
+> I didn't find any listing of the resets in the RZN1 docs, so coming up
+> with arbitrary numbers as we need them seems okay to me.
 
-ip_frag_reinit() reuses the queue for a new datagram but does not
-reset them, so the new datagram inherits them from the old one.
+Why aren't we starting at 0?
 
-On a router with conntrack defrag, if the largest fragment of the old
-datagram had DF set and was larger than the egress MTU, a new datagram
-without DF gets DF set after reassembly and is rejected with
-ICMP_FRAG_NEEDED, even though all its fragments fit.
-
-Reset both fields.
-
-Fixes: 5f2d04f1f9b5 ("ipv4: fix path MTU discovery with connection tracking")
-Fixes: d6b915e29f4a ("ip_fragment: don't forward defragmented DF packet")
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-v1 -> v2: Target net
-v1: https://lore.kernel.org/all/20261119061751.222641-1-jiayuan.chen@linux.dev/
----
- net/ipv4/ip_fragment.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/net/ipv4/ip_fragment.c b/net/ipv4/ip_fragment.c
-index ef7fd61284a3..0688be8142c4 100644
---- a/net/ipv4/ip_fragment.c
-+++ b/net/ipv4/ip_fragment.c
-@@ -250,6 +250,8 @@ static int ip_frag_reinit(struct ipq *qp)
- 	qp->q.flags = 0;
- 	qp->q.len = 0;
- 	qp->q.meat = 0;
-+	qp->q.max_size = 0;
-+	qp->max_df_size = 0;
- 	qp->iif = 0;
- 	qp->ecn = 0;
- 
--- 
-2.43.0
-
+regards
+Philipp
