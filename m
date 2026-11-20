@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142412;
-	b=Vyyqa72Z7grDo5V8Y+omBLAEl6tmQ0SwxgSQ2rvyZOc+x357cOSTP49Gd7RQy4QZt0cP
-	 vy0Ozol/RHmD/C4bIp1csp/oV4lFu9UQVwwPaIlz6x2uvRT+6QS5RLpuklAqlxCYpR8qg
-	 NnT6RvyNrQePppeHleoatX0VGeb1KfbS9I1LNgVHiai2kAGhoUlUpiRuFbgDWv+Wu2Mor
-	 MqnlF+X0ahuOVIyEN3lQBQmjoXkoNrWlaBrq0YV2jleCQ5Z0u2UiX+MrBi1Hi8n1glLWy
-	 hj6FxAYHi3Jrrh7WnjP8dXehTMQiXmOxN9vLYe6KzZMOttuhZwRqzhclPMWHgsqpwZw==
+	t=1795142414;
+	b=Y6APXasn+3TruCnKURfi8p/bNoNkShbVhtvmuFVehtYCQWEKcOaiBcjT83UHA++z0YmZ
+	 2wL32+gJ9STZiJFsF6ypjlgnRp4QNjHDgkIJZ91spgDBa9a7NJ443ANiTNjOvMnEY8i0R
+	 PumbYhU8VGDVoUqWtbOEr6rxMRLj+ChgPOjBFQCh/zVdgqbUsBH52WFJtIM9Gan0Z+euw
+	 rUfH7hDaFD2SEgOVsubZKWs6yqtYXsOL+DA3WGTkTbAvXygAi1f/L13cwV8PQ5eUGF7hn
+	 jHzJAfRiv+fZJOkw1Gs1sg50S4tNAn3LVc6XqyANX6eM6fL4nAW/VKkiHCYwwquvxSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142412;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142414;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=VOP11MsXC4XqqMFXsauRTKJZG7dhWSQWYPs1r9JpjKc=;
-	b=BO7GvyyKSXytOPtK2vgM3oFxYXozIoVAvsVnvpEMmhaNEr8lURbf7zGGTUt8dVclM31u
-	 rAY4o5aCUqqQVs94RLGB5oc2i5smtIjqnQMbQEXhE9k6Ds/R831e3heyma8Dz5UZb0Gh7
-	 cvOoV+/JxJlExl3hvNt7t3KisXS87a/XoFBsX4ucpxLFWPyfdAH+zGZwNTLmj/bheF4a7
-	 HfX/NxjIltbixBBxrJBwYLCqgO7qHew8A9HLJlaseXCu0xLl1O9SbvrYinGfhOR+wdnMU
-	 0Uk+57/6kxJD3Z68EA8qG4yA/wZHalwusu6E6qnjY6Y50paUpCvJABi8tFdooQGH3Cw==
+	bh=zkb4KGS/rU88to2Q3/dDhQzFO/0JWY7PV9ThQpsdqe8=;
+	b=nQnXtiFubZbMz/hGpwC+OHelzM7mStBHwZxvvNu6I2deYK0qMWtpNJ86DxOyv/Xio6y4
+	 efnJu20fQW93VxzbGiZW/UjlVZajSGa9d2wndElkBRyF1Qxmik1BVcP9J8W3s6xrLsFtM
+	 7STY1HlWnF6R4psdQ/xk39kcRHwAXiZnkYoMtGiXvo/zu6mCiPFCvMdcSHr16jTP5Tk4N
+	 I27b9AD1+khKwSeG1YdGgsUEKhjpOstdM01zHLWUB7hsEIA3UmpUiE7EjlMXoK2u4eJhQ
+	 aOCzlQgkADfSVWu1NcSPv0NjWppyzUVk+v+ap+osP5Ard+E4AfWtLM2AJFSyEQFQG3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nHZA2bRV;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiF4DPPL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EF2E606A320;
-	Fri, 20 Nov 2026 02:40:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3870C606A33A;
+	Fri, 20 Nov 2026 02:40:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nHZA2bRV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 059731F000C6;
-	Fri, 20 Nov 2026 02:40:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiF4DPPL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 760E51F000D1;
+	Fri, 20 Nov 2026 02:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795142412;
-	bh=VOP11MsXC4XqqMFXsauRTKJZG7dhWSQWYPs1r9JpjKc=;
+	s=k20260515; t=1795142413;
+	bh=zkb4KGS/rU88to2Q3/dDhQzFO/0JWY7PV9ThQpsdqe8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=nHZA2bRVl/4h6FTNp6IHEe8Dt0P7y29W9tQYEo1/wWvyi+TeSbDV1QPvN55VtQWGl
-	 U867PaUSdm4CTELA7PeEDLnpXLzm1kNNMow2/iBS6+YUFDanKMPQF5Suws/9buxJkB
-	 wUvIQc3tBYwBW5gPpbdYfs//9BJeRXCrERR4QWZfoJIwYYOXVgR5qugwofz+ULlgNA
-	 e0X9eWXUdv7cmgofXXJfHlHYTBqrMyF1Z8ZMID/chQSyFy+/fJIUsYnyTxGtJZwd65
-	 6bnai+CaBPkR88CnRLWxy0BoOHi0HFsWDqa5rKdQ+6sTx/1tlOST+dTSOTMq0ACCWE
-	 uyBmhib5S4K0w==
+	b=XiF4DPPL2mouSOQ+l9EcdGGMWwK/C9WTjqD8oEJv1OyvLUecMl9pF+NiO1UUGhY8E
+	 1E47vzOnXdvzaU124SxPQzgPU36MaUN8jyhegFhTRXJvaSWircrjS8xetuwM4qJk+3
+	 cBgaXrwtWuCX6iy8ASL7eg9G/gm53aA6z/5Rg122KFwO7u0onjfgcZQa4uZE1E1IzC
+	 15SfvN1JqXwV+c+HzSENi38vQQAxcr5Cb+LlAKL0BvJb29m+2OuWWGjjARQmw4v9pj
+	 z7qh3mnGe4r+RsRyEuzTEyP/nQA/gBY+qbn06sZnJ8TpYv0n0dtd7gpt7v3Y1/ETbW
+	 xIVEQJzHdGGgA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15FD3808209;
-	Fri, 20 Nov 2026 02:40:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 6E52D3808209;
+	Fri, 20 Nov 2026 02:40:13 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,53 +54,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net 0/7] mptcp: misc fixes for v7.4-rc4
+Subject: Re: [PATCH net] net/mlx5e: SHAMPO: Do not merge packets with
+ different
+ kTLS RX state
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179514241052.3989712.5106945987218104039.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:40:10 +0000
-References: 
- <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
-In-Reply-To: 
- <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
-To: Matthieu Baerts <matttbe@kernel.org>
-Cc: martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- fw@strlen.de, dmytro@shytyi.net, netdev@vger.kernel.org,
- mptcp@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- quanyeyang@proton.me, petar.sakic@ink.fish, rameshkumar.t@phytecembedded.in,
- mason@kernel.org
+ <179514241203.3989712.957393796041614444.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:40:12 +0000
+References: <20261118144042.1916204-1-tariqt@nvidia.com>
+In-Reply-To: <20261118144042.1916204-1-tariqt@nvidia.com>
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ benishay@nvidia.com, borisp@nvidia.com, cratiu@nvidia.com,
+ dtatulea@nvidia.com, gal@nvidia.com, khalidm@nvidia.com, leon@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
+ saeedm@nvidia.com, witu@nvidia.com
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 16 Nov 2026 23:06:07 +0100 you wrote:
-> Here are some unrelated fixes:
+On Wed, 18 Nov 2026 16:40:42 +0200 you wrote:
+> HW-GRO (SHAMPO) sessions are not terminated by HW when the kTLS RX
+> offload indication in the CQE changes. The driver applies the offload
+> metadata of the first packet in the session only, so ciphertext and
+> plaintext can end up in the same skb under a single skb->decrypted
+> indication, and resync requests carried by non-first packets are lost.
 > 
-> - Patch 1: do not send data beyond the window announced by the peer. A
->   fix for v5.11.
-> 
-> - Patch 2: push pending data after a sendmsg copy fault. A fix for v6.1.
+> Do not merge a CQE whose decryption state differs from skb->decrypted,
+> which the first packet of the session sets. Never merge a CQE that
+> carries a resync request or a TLS error, so that each of them starts a
+> session and is handled.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,1/7] mptcp: do not use a raised snd_wnd for the send window
-    https://git.kernel.org/netdev/net/c/ec7cb74c1a7e
-  - [net,2/7] mptcp: push pending data after a sendmsg copy fault
-    https://git.kernel.org/netdev/net/c/68f465e3d9ce
-  - [net,3/7] mptcp: use sk instead of casting msk in check_fully_established()
-    https://git.kernel.org/netdev/net/c/bb6081907c60
-  - [net,4/7] mptcp: push queued data on passive TFO subflows becoming established
-    https://git.kernel.org/netdev/net/c/d7c650916aa1
-  - [net,5/7] mptcp: push queued data on subflows falling back at the handshake
-    https://git.kernel.org/netdev/net/c/595b7d49d4f1
-  - [net,6/7] mptcp: don't send a FIN before the pending data on fallback
-    https://git.kernel.org/netdev/net/c/d0e88ecfae68
-  - [net,7/7] mptcp: fix dummy mapping of overlapping segments
-    https://git.kernel.org/netdev/net/c/3d064436b287
+  - [net] net/mlx5e: SHAMPO: Do not merge packets with different kTLS RX state
+    https://git.kernel.org/netdev/net/c/e421df3c8386
 
 You are awesome, thank you!
 -- 
