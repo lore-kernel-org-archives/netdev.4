@@ -1,95 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.31
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795175440;
-	b=5PmeZCL2VMvGfjs5J/NRZzwDRhS4T9OUV1qQR2qLhO2XtlI7a1ASAxib20ssOOjx8r11
-	 RmvvXuT5hDrqS7kNV1nvy3FxZVBsLpEADJBR3hqarWfHxDRqNnUuLcNuBX6HQpBosI7gh
-	 BwHnLHit7d/jjCXuXc6e2cJ0qPqXonHRjd1fhOp6koF4Bnb1bn1vwFqxHEgWZgWR11Pni
-	 JAuaXImyESbmodsnjSnXS8BkMNiffnJhKQg3vYCZ/ExPrgMkzlziqzZUhFRdh7WtutwCj
-	 tGe6VLxBdDr/UNBVWfiEEypRPdUIeo149le/BzBHY1Vov0Uk9MtXj/1owHI+7+xK4OA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175440;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=/kqSB7gYtIU39EqOKcoNyONxEkdZXtSzm+zChb+W0To=;
-	b=eQgyVZ9KgjLHsKaQLbR9nXa3mBEjgwCMbyYVSMJ+znY4RBjQd6PwZCAcF5WGrL9tzmaF
-	 2ibsX4P4xIZRBwj7lJy9OTauXzcsPukpOFI3U4ScKkAO/8PZ2y76J4pkocP4VGjrRoEvt
-	 GdIBhU3Cg57RPPGIYz8cnkevPIDPAO8owBZJ9X1Agg0g81dpfToBbxbBoCrKEveqIwajV
-	 w9KkV3oQTbFyebxpbZUev9PONfJXzo23Pk3X7qwrsZpXA5Kw76Di0TT9anUA2CxW3hU+c
-	 aLa5Ir+vIpmDTKfU1ExNLEGpv9DNogqvPk7VxnGMPqYxI2p6vDxyzOWn8aXAg3okn3w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=4mMmrRA7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.31
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012031.outbound.protection.outlook.com [52.101.43.31])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795175835;
+	b=uAzSh2RHliAiFzAptmaFNnss597ZmrxdCLNXJvXwCA3bnfGuCDJpLd/RAE60n77JhToW
+	 ug45OHEYYKjBHYPJXojlogHwzH52bkx3x73zKy9j1vZxj47bJuhkLzl9yBiQ0+uJewzrG
+	 oAGcu2wGCnepMBFnL2IJmT1iuyyRSiuA1IU92NL+AFVY7IUQR8dOr1AGoWUZ6PCxy3JG8
+	 KxeC+vd/ONNiBRoCq8DJTNSmBy8myryk1Sw9HlhM1e1qX8ly/JZCgtGr9AxHtW18149Ry
+	 7ZKCqsH7HuGjsAPLAA3djK1nrprQiKVAfULzwKuW68jtsbYz9op+iZP89bWwY7N41dg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175835;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Subject:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:CC:X-Mailer;
+	bh=oCdr+PwiWxnHEBHyM6wpXGYbjiWS3gQP9jStR6G63R8=;
+	b=5HBrHJ3SY4SHZFAKpX8LoKakakFjWdmFaOuHQ+Jm7MJdAhz5vAjm/Z0A0MZJyNnh7Jaz
+	 cMIGezERHFmapTocuE5OipktBBRKy2JMfuPYGHw1jXXsir7NaqLhPOa6hLAddIw66s/tT
+	 bgqM15tW9SSVg66FeOuoKr5UO5BqJj8sjTTLppDa+F0QhAJyljv3KMwkdZSN3Rl8DYrlu
+	 CYjnnW1Qy9Ddh9deJGY3jsONvMyxZ6Igo8NyLboWXQ6KHZqmS5AwMhdE8stAbvrlMcMHh
+	 vW7ZkYHUcL+B0Tk5HMN1ByYu1ucbj/A7RFNQLsmGBH0VT9E1X8nZbAD0ycJ/kCut/Ag==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=065WFYHY;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 863C9606A32A;
-	Fri, 20 Nov 2026 11:50:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 863C9606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20388606A325;
+	Fri, 20 Nov 2026 11:57:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20388606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=4mMmrRA7
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wJMNsTypYRn0KMUAq1G/H15u2jTOEt5jlJ+5JnsSCKva4SzhUbZaiPkvmfRcRpth+qJ8fdUVaboONiw+jEVgZiYiqS6VVajjrERiXtka+XLICIXz4FyfEvn/zG5rquabQ6xa5sfEaK01c9n17ifeQH0YdA2OQHU5bOZnvSbCmhU1R56Im68xjdn9WZ1eqVod8KVgSpHC0ISjGU5umJHWOuW4sRF0+JIk2uAhf0VL6gnkl9H4AB8qTSVPUzdpl3W6gXsZLA42SHeyZbxPuBLKQc2eYQa5bE9vOAb0gOwLHvkhS0/Xa2aZztYxLzeR9CIUBIQGCi3PLoZvUV+E/SNpog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/kqSB7gYtIU39EqOKcoNyONxEkdZXtSzm+zChb+W0To=;
- b=ELQRhNgi0pahnYpdZWe+p/U7E2hQyHixpbXqkJMuIgLF8cPhkkAWtZOMtGZdH+itdREcdNFJZF6Mg4zvFx/24ObM0GERvuslCO5tB4rwZzXr/ImkptKhxVO+FZ+PPIvejZfMKrIEUK4077X5BMQ1oDTow5VF4MlhOastCtJtzVhZB/CvEFzuagGI9UkNOGZ+wZmCTZjF2tFuh1UwaEh3zgmRIJNEGmAa3On8s0F5kpB0uA8U2WKnKFzGqXsKyY/xBDPQUG6w2W/KUIlJJu5nTM+LDbLNIxIjxAb8+nefnx3mHVshtbVi8Xjif7f8QRp2VAJMSJoVkZVKn60Zk++ckQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/kqSB7gYtIU39EqOKcoNyONxEkdZXtSzm+zChb+W0To=;
- b=4mMmrRA7/WC3bs7Z7KzWa8m37apuR+0XHyO6/jmndIgLhHqgnbFJ4w52PZW+gGQFh4lkVYlsMwj3rJ/cncm57OehTE9mZonbziBDV7eSME1/00dd9QJQwspA8yRwbDWNoy8gxR1Dn6/tOjey/rjHoLtFDylqXp4hSShVg/+eFjA=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SN7PR12MB8817.namprd12.prod.outlook.com (2603:10b6:806:347::8)
- by SN7PR12MB6715.namprd12.prod.outlook.com (2603:10b6:806:271::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 11:50:33 +0000
-Received: from SN7PR12MB8817.namprd12.prod.outlook.com
- ([fe80::2315:726d:7ec3:416e]) by SN7PR12MB8817.namprd12.prod.outlook.com
- ([fe80::2315:726d:7ec3:416e%6]) with mapi id 15.21.0615.013; Fri, 20 Nov 2026
- 11:50:33 +0000
-Message-ID: <f17bcfed-9b35-4f87-bf3b-c99fb823c0b5@amd.com>
-Date: Fri, 20 Nov 2026 11:50:28 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] sfc: create PPS workqueue before registering phc
-To: Alex Austin <alex.austin@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, linux-net-drivers@amd.com,
- linux-kernel@vger.kernel.org
-References: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
-Content-Language: en-US
-From: Andy Moreton <andy.moreton@amd.com>
-In-Reply-To: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0666.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:316::17) To SN7PR12MB8817.namprd12.prod.outlook.com
- (2603:10b6:806:347::8)
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=065WFYHY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795175843; x=1826711843;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=nwRRbBo4QR08d+uEn4AGZsszpR6P1gLn0y/z3Dsp2G4=;
+  b=065WFYHYwOgFDQhB/zIp7I0Eb7wOzTWQq4+B5VfHodM46Svo7EEnISwY
+   nUaaHHTe8iUqSgbdD7ECbpeOGyR+S9VNezVbpeKO5x4CjkJ/BtCnzaaNQ
+   Hiq/Kzozz5vW2TAys8z7aNV1QkyFBfsHMj9beJuRza74oDrkUOsNfwOYP
+   HnIBHVsmpTDpRIWMu/76qPklDJaAPAjjEUbJVph7smuHxrkiu7BEnGvHe
+   TYe7Qyebst/p4acdPuPFtA9IUlkntSYacPXq99jzGr6amfoAid+QEqGNJ
+   sm49enKbOGs28hnQvkyLcEcXLpNBf3AqsaIOey92J7JOo+pSaueZC9/0U
+   A==;
+X-CSE-ConnectionGUID: x6sG15HiRgSWNyvCIZW25g==
+X-CSE-MsgGUID: fdBJd2GDRk+aeC0G9qD1uA==
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="77589742"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:57:21 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.56; Fri, 20 Nov 2026 04:57:13 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 20 Nov 2026 04:57:10 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Subject: [PATCH net-next v3 0/9] net: sparx5/lan969x: add support for
+ changing the MTU
+Date: Fri, 20 Nov 2026 12:56:57 +0100
+Message-ID: <20261120-sparx5-mtu-change-v3-0-55c272fe1acc@microchip.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,150 +75,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR12MB8817:EE_|SN7PR12MB6715:EE_
-X-MS-Office365-Filtering-Correlation-Id: b632ccd1-49bd-49ea-7069-08df46fc7bb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|22082099003|18002099003|11063799006|56012099006|261022105027099003|261026121527099003|261026140227099003|261028144727099003|261021135927099003|261021123027099003|261021121427099003|261009223027099003|261009221227099003|261009221727099003|261009223327099003|261009220027099003|261102123227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	1226t9FPhWvyhm7fvHtxdEKId6EZTraFD/xj0TqSIn/D6txwogPV7pQZmU4jZDJ9aar41UVjljv+mUgWQqM8Fr+F/5Kkfv+Z75Dg/SCxLvD4BzfSP62QFhylcrERy6c8Ev1eW2w5MwQNbOJePRWDgIiyaW1fWwg8eOokXGQtmeIF+74L9nrHJdovekP9XMkYjq24iNrUPLeGTOr+eRULYCXl5n+xDGjmT3kpNA9I449/mwF2n0waApfPXgsiPS+/OHlrvOnW/dRrgVBMyNf3ApDeCNMAjxV3txxOYMnc1FVw/A75XhnsCLEQoJ5/wH6xnxpt8TqjQ69wAfZcbxwU8DiRL9c57O15bCdbEPW8GOwcynuNUP914aMIDEQa4+vs3OPGmRxare6PjoccJAvaBecT0W3eKRU0+l3rMicyx7AyzZxhiut6+njUDiMVofKF7EWEgGilIRwg2oxJjmBO5Fr0s3tfCBUjULNL7z315faRJcgE6xpTe9g74ZKZhXM8i/B0Uru9wdo8NJD3YuVWljD4b25n4lUEdfTcY6c7nGkeFecWjhoQJjg0rUF2vK07iBBmzS9DhPn+7+BOKKfg1+x9o5qOaEaviaYAYzceJJQjisW3NemqWnPqPgRJhJIdR7yBpqgxE3ZhgWNs9KopWQWd5g5qwEJgjdPg0eMzaoA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8817.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021135927099003)(261021123027099003)(261021121427099003)(261009223027099003)(261009221227099003)(261009221727099003)(261009223327099003)(261009220027099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?NUFsbTVEc3NxenAvdXUwSlVPOVZFWWc1M3VnYVZPQjBTVFlHaE1saks1czFy?=
- =?utf-8?B?Qm9yNHFsODYzNXFybVI0bkRDWE1leVhmalVZSW5VR2R3UURlRzlvazg1MGRV?=
- =?utf-8?B?SFJlSXpNY29WWXFGaHRSU1MyaUpDZlVRZDFyWW9FNFZBMGtQYndpVHBYeDBo?=
- =?utf-8?B?UTVXNTlSd2Y1YVJCOE5MVmZBR2o0Z1pZMmJ0WnJzU044ZXFMUGluVWpjcisz?=
- =?utf-8?B?eGNlKzRKSitIcFpzb0w4eVZrNnVaOXdIUldobjFPNyswc2UvQzQ4Nk5venV1?=
- =?utf-8?B?VXJ3NDRnREtNUmpLQkNBWmNYeFlSTThRa0xFbVd3VEZZSDJwRFBDTGVrZDFk?=
- =?utf-8?B?SUc0YSt1UmE5OHhabitmak5GOGhZZGRYa1VHMWd6MzRxbXhXak13RWFjY3Zj?=
- =?utf-8?B?RU8va1grZnBiQmxtNkJaSWkvMXA3dFVybWdDa3Fma0RLYjlESDUvMXA5Qkp5?=
- =?utf-8?B?V2tlK05McC9JM1ZjVlQyaW9qeTdnL0VuUGh6L3ZIaUlwNWdoWmlHSkVLWlJp?=
- =?utf-8?B?U09aWGZuams3R2VNSFhZQStIUzlYY0hVemhRTERVSC9QYjZhK0pQSnpqdWs5?=
- =?utf-8?B?b0JOZi9NTCtEb0ZPOW51a0dQcEdZN2YvZ0YvZ1lqR2dydXVsQkRlQWJZWVIy?=
- =?utf-8?B?aUUwWXpSVUY0WHExWENVeTA1eWxXdThBNDBEaTlLVHArWnN5UHZTVytQcXFB?=
- =?utf-8?B?RFlmeHQ3bUZRQlhDY283aWJWdU5sdytEZVk0YU1NTVp6UmIzVUFpY1hIdFlx?=
- =?utf-8?B?YlFpTU0vZTFWdmVOUmRrcVhLTFdJRHdvL0hWL0FhcThMTDZQWkpCSnY5Vk5V?=
- =?utf-8?B?VSs0Qm1TSkFMV0gzc3JQT3p4VEIraitxUEpVaUxZNm1WYzZVVERCby9TT0Jv?=
- =?utf-8?B?RzQwaisxQ2JXUWQwZmVVSmYvd3ROWXFUYU81UE4wczRNNzlnWWI3VDNPSUZx?=
- =?utf-8?B?QkkzTWVBbkRMWHFsbUhlcE5rWDAvcXlpbEh0V2J6dFVWVzA3Wm5USjdMaEI3?=
- =?utf-8?B?MU40T3BzNk56N3B6bVBSdjNVaEVNczlySUJaaEs3T3BnMXFreWV1LzhjNFlk?=
- =?utf-8?B?RVFjSjVYeVJyYXRrRlVzSldDTFk0NzZjRy9vY2g4Ym1BQnJZTzl2a1hKUWtB?=
- =?utf-8?B?TTVyK0pHWkp4ck1SZDlKZ2VHdXpFN3UyZHF5RW1YN1hTSmZGanRzeXFFVFBj?=
- =?utf-8?B?MEdwRUI4UVowcytjWlVMZkdMSlJxVVZqak51bWhtWUQ0bXl1SFN1dHYwTXRz?=
- =?utf-8?B?ckdRVTU0YXdWdFpGOTVVSjBwRWJNamcxMUpGeHdxS1l3aEtjSXJhTlRLNmdu?=
- =?utf-8?B?UVdMeE0rNzZWb3Y2UTlwTHhmd3FycWNpVlVVQ0RmSTZHNHVtV05pQWVCVTNC?=
- =?utf-8?B?cjRYZ0loaE4xWGtwLytaZmxmZjJBRHZ2dS92NXk1SXlyMEZXTXpYMVNjR01q?=
- =?utf-8?B?WHJtdkRYYWhIaWs0ZGZRRjJ0SklkS2V5dVVVcHZhM3Irczd3dHFkcE5Ea2ZT?=
- =?utf-8?B?MUxYeHpIdllQcXI5WlBNYkx0ZWF5bXl6S0FVdGRheXpGS1RKM29Pek1tUWNV?=
- =?utf-8?B?OExhc3g0TncvWEdIS3pRUVNPOWQ1RDdqK3JML2RrbExJSnVBM2U0engrOFZE?=
- =?utf-8?B?am5iVWkzdms5RG43M0RadGpUdlM2WVNWaVVacW52ejVMZk1kZzJwcitzNkJQ?=
- =?utf-8?B?V0MvMWNJOHBIMXVDaXpvMDc3QmxKNk14ZUIvUkFJQVRCYlNHUXE0Tyt1ckQy?=
- =?utf-8?B?QVpRZVVkOHBJODAveWpwc1IzQU4rN080eDhubU9oQmlsT0ZFbDJPYWxvZ1VO?=
- =?utf-8?B?aWJHU1d4Q1kvM1k2aVJ4bjhHdzdGKzJPcWJCUUVubUIyalh4Ungzb3phVmp4?=
- =?utf-8?B?UGcxci90VzRlUm5rbkZqaysvNkhidHNpd0E5VGU5WUtkdmpkc3BvWnlsdmxK?=
- =?utf-8?B?UVIxeG90TE1zZU1iUlFQZ3k5Wm1rQTU1VHdyemxkYnI2V1JHaHBlZFZ1YmlJ?=
- =?utf-8?B?bm5MTUl5UGhIQ1E1ckFsYktGNmVNQkFyMnhLNURUM2NhR1NBNlVZd3BQZWlH?=
- =?utf-8?B?K2tnNjRjNVhjalRvN3A0VHIwdWl2a3N0R0tYZnJhVGlMeWxKR1lhOFJ2TVc0?=
- =?utf-8?B?bHppVENOVkpHdk8xMkVBeHJBblZhVnhJVXBFL1pRVUpMR3hUT1N4ckxYbTRr?=
- =?utf-8?B?cW0vS2NsWG1KMnFZa0g4OEFCZEhPZEtER2NWOVAvQjhUekpZZmNJUzBpakZk?=
- =?utf-8?B?OHZ0eWl4MTY5U1h0R1h2TUVXT21qRXNlWlBqS2lkQW9EUFlUZFhFOTRaVXdR?=
- =?utf-8?B?cFQ2VFZRQTM2U0lyNEQySm0zdG1uMGttTjMrUmtFOEg4b0ljeFlYdz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b632ccd1-49bd-49ea-7069-08df46fc7bb3
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8817.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 11:50:33.3547
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O3m5OtyEtPkL3LARF2xoNJh1cTUlXOqtPS5GgqY4VzOBSjGRvCUtlJQGBcDVdNtUYk1Rywj677YRK4Yqz9tURQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6715
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIk1AGsC/23NTQ7CIBAF4Ks0rMXwI8W68h7GBdDBsihtAElN0
+ 7uLxIUxXb68ed+sKEJwENGlWVGA7KKbfAn80CAzKP8A7PqSESOsJR0nOM4qLAKP6Ym/B70Eram
+ S1iiFym4OYN1SzRvykLCHJaF7aQYX0xRe9Vmmtf+4lBKx42aKCbZMaqXFmZxafh2dCZMZ3Hw00
+ 1jFzH4USvcUVhTRmY5yIeFs239l27Y3DXufcQYBAAA=
+X-Change-ID: 20260930-sparx5-mtu-change-d7ebb1a7fcaa
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
+ Cochran" <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>, Simon Horman <horms@kernel.org>
+X-Mailer: b4 0.14.3
 
-On 11/20/26 08:44, Alex Austin wrote:
-> Registering the PHC before creating the PPS workqueue leaves a small
-> window for PTP_CLK_REQ_PPS to be requested and a NIC generated PPS event
-> to arrive before the workqueue exists. Create the PPS workqueue before
-> registering the PHC.
-> 
-> Fixes: 7c236c43b838 ("sfc: Add support for IEEE-1588 PTP")
-> Signed-off-by: Alex Austin <alex.austin@amd.com>
-> ---
->  drivers/net/ethernet/sfc/ptp.c | 26 +++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/sfc/ptp.c b/drivers/net/ethernet/sfc/ptp.c
-> index 37511f234d76..ad6a4e7d990f 100644
-> --- a/drivers/net/ethernet/sfc/ptp.c
-> +++ b/drivers/net/ethernet/sfc/ptp.c
-> @@ -1633,26 +1633,26 @@ int efx_ptp_probe(struct efx_nic *efx, struct efx_channel *channel)
->  
->  	if (efx->mcdi->fn_flags &
->  	    (1 << MC_CMD_DRV_ATTACH_EXT_OUT_FLAG_PRIMARY)) {
-> +		INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
-> +		ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
-> +		if (!ptp->pps_workwq) {
-> +			rc = -ENOMEM;
-> +			goto fail3;
-> +		}
-> +
->  		ptp->phc_clock_info = efx_phc_clock_info;
->  		ptp->phc_clock = ptp_clock_register(&ptp->phc_clock_info,
->  						    &efx->pci_dev->dev);
->  		if (IS_ERR(ptp->phc_clock)) {
->  			rc = PTR_ERR(ptp->phc_clock);
-> -			goto fail3;
-> -		} else if (ptp->phc_clock) {
-> -			INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
-> -			ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
-> -			if (!ptp->pps_workwq) {
-> -				rc = -ENOMEM;
-> -				goto fail4;
-> -			}
-> +			goto fail4;
->  		}
->  	}
->  	ptp->nic_ts_enabled = false;
->  
->  	return 0;
->  fail4:
-> -	ptp_clock_unregister(efx->ptp_data->phc_clock);
-> +	destroy_workqueue(efx->ptp_data->pps_workwq);
->  
->  fail3:
->  	destroy_workqueue(efx->ptp_data->workwq);
-> @@ -1702,16 +1702,16 @@ void efx_ptp_remove(struct efx_nic *efx)
->  
->  	cancel_work_sync(&efx->ptp_data->work);
->  	cancel_delayed_work_sync(&efx->ptp_data->cleanup_work);
-> -	if (efx->ptp_data->pps_workwq)
-> +	if (efx->ptp_data->pps_workwq) {
->  		cancel_work_sync(&efx->ptp_data->pps_work);
-> +		destroy_workqueue(efx->ptp_data->pps_workwq);
-> +	}
->  
->  	skb_queue_purge(&efx->ptp_data->rxq);
->  	skb_queue_purge(&efx->ptp_data->txq);
->  
-> -	if (efx->ptp_data->phc_clock) {
-> -		destroy_workqueue(efx->ptp_data->pps_workwq);
-> +	if (efx->ptp_data->phc_clock)
->  		ptp_clock_unregister(efx->ptp_data->phc_clock);
-> -	}
->  
->  	destroy_workqueue(efx->ptp_data->workwq);
->  
-> 
-> ---
-> base-commit: 9068e05d35f3b02a802f520e664032f802bcd2e9
-> change-id: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
-> 
-> Best regards,
-> --  
-> Alex Austin <alex.austin@amd.com>
-> 
-Reviewed-by: Andy Moreton <andy.moreton@amd.com>
+This series adds support for changing the MTU on Sparx5 and lan969x.
+
+Currently, there is no ndo_change_mtu callback, and the MAC maximum
+frame length, the FDMA buffers, the queue watermarks and the TAS guard
+band are all fixed for a 1518 byte frame. This series makes them follow
+the MTU, and sets the maximum MTU from the 14000 byte frame limit of the
+MACs. As the FDMA is shared by all ports, new buffers are allocated
+while the FDMA keeps running, and the FDMA is only stopped briefly to
+replace them. Details are in the commits.
+
+Patch 1 makes the FDMA stop sequence actually stop the channels, and
+patch 2 frees the FDMA buffers on init errors and deinit. Until now, the
+stop sequence was only used on deinit. This series also uses it, and the
+new free functions, to resize the buffers.
+
+Patches 3-4 prepare for the MTU change, by adding a helper for setting
+the MAC maximum frame length, and by making the FDMA init and alloc
+functions operate on the rings passed to them.
+
+Patches 5-6 size the FDMA buffers from the port MTUs, and add support
+for resizing them.
+
+Patches 7-8 scale the queue watermarks and the TAS guard band with the
+MTU.
+
+Patch 9 adds the ndo_change_mtu callback and sets the maximum MTU.
+
+Tested on Sparx5 (PCB135) and lan969x (EV23X71A), by forwarding frames
+up to the MTU and checking that frames one byte over the MTU are
+dropped, by sending jumbo frames to and from the CPU while stepping the
+MTU up and down between 1500 and 9216, and by changing the MTU
+repeatedly while flooding the CPU with frames in both directions.
+
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+Changes in v3:
+- Rebase on net-next, which now has commits 81d2cf1c6d56 ("net: sparx5:
+  fix RX ring stall on frames from inactive ports") and 1a47bc214d00
+  ("net: lan969x: fix RX ring stall on frames from inactive ports").
+- Patches 1-2: drop the Fixes tags and the testing notes.
+- Patch 2: on Sparx5, clear the RX buffer slot as soon as the skb leaves
+  the ring, so that a frame dropped because of an inactive source port
+  is not freed again by sparx5_fdma_rx_free().
+- Patch 6: likewise on lan969x, clear the RX buffer slot as soon as the
+  page leaves the ring, also when it goes back to the page_pool.
+- Patch 9: extend the top RMON histogram range to the maximum frame
+  length.
+- Patches 5, 6, 9: use SKB_WITH_OVERHEAD() for the lan969x DB size,
+  and fit lines to 80 columns.
+- Link to v2: https://lore.kernel.org/r/20261111-sparx5-mtu-change-v2-0-59c91357e8f6@microchip.com
+
+Changes in v2:
+- Patch 1: add a Fixes tag.
+- Patch 2: also release the lan969x TX buffers that are still in flight
+  on deinit, store the length of the mapped TX buffers so that two-step
+  PTP skbs are not touched when unmapping, and add Fixes tags.
+- Patch 6: reuse the lan969x TX buffer release from patch 2, and mention
+  in the commit message that frames still in flight are dropped.
+- Rebase on net-next, which now has commit 873363ac591a1 ("net:
+  sparx5/lan969x: release the in-flight slot of a stale TX skb"), so
+  that a two-step PTP frame dropped by a resize no longer leaks its
+  timestamp slot.
+- Link to v1: https://lore.kernel.org/r/20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com
+
+---
+Daniel Machon (9):
+      net: sparx5/lan969x: stop the FDMA channels properly
+      net: sparx5/lan969x: free the FDMA buffers on init errors and deinit
+      net: sparx5/lan969x: add a helper for setting the MAC max frame length
+      net: sparx5/lan969x: pass the FDMA rings to the init and alloc functions
+      net: sparx5/lan969x: size the FDMA buffers from the port MTUs
+      net: sparx5/lan969x: add support for resizing the FDMA buffers
+      net: sparx5/lan969x: scale the queue watermarks with the MTU
+      net: sparx5/lan969x: scale the TAS guard band with the MTU
+      net: sparx5/lan969x: add support for changing the MTU
+
+ .../ethernet/microchip/sparx5/lan969x/lan969x.c    |  10 +
+ .../ethernet/microchip/sparx5/lan969x/lan969x.h    |   2 +
+ .../microchip/sparx5/lan969x/lan969x_fdma.c        | 185 ++++++++++--
+ .../net/ethernet/microchip/sparx5/sparx5_ethtool.c |   2 +-
+ .../net/ethernet/microchip/sparx5/sparx5_fdma.c    | 322 ++++++++++++++++++---
+ .../net/ethernet/microchip/sparx5/sparx5_main.c    |   2 +
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |  14 +
+ .../ethernet/microchip/sparx5/sparx5_main_regs.h   |  34 +++
+ .../net/ethernet/microchip/sparx5/sparx5_netdev.c  |  48 ++-
+ .../net/ethernet/microchip/sparx5/sparx5_port.c    | 123 +++++---
+ .../net/ethernet/microchip/sparx5/sparx5_port.h    |   5 +
+ drivers/net/ethernet/microchip/sparx5/sparx5_tas.c |  43 ++-
+ 12 files changed, 687 insertions(+), 103 deletions(-)
+---
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
+change-id: 20260930-sparx5-mtu-change-d7ebb1a7fcaa
+
+Best regards,
+-- 
+Daniel Machon <daniel.machon@microchip.com>
+
