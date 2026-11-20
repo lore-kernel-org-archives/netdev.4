@@ -1,100 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145955;
-	b=jBMeeVFHgyw2NcN4lwiBdQUbz3CUTof3WjxzdER6fuPKw+ukhgO/TuKR1nN8EXHO0j4q
-	 zWB6h1FE+wxZiOeruqcgKnVbMm8ZZkF890OSBpWs2rIGtCsJDbxVgfJKGQea8uEUsPYhX
-	 hPVpKtrh/NXwh30CGb5soJm8+nM14X385Obn1uiRq7mW1GmB5LVIIJ2s0ZPRJkFw+7XEp
-	 B4IutkqP9mBrwDEaOV3xbbtcDJkVLO850dproAyFHQYC2y5ZgdtUCUCIeHqCaWEa0U7Iy
-	 CHO6EJ0KDF6z+HhE7TdNO6jFmcJoBl/Qb1MfcBuFNaL5dmQTApNImFVHANte+cuPqrg==
+	t=1795145981;
+	b=lObNNR/JT7NRMjGD5v7gCvM/6qU71OxjkeJzNDk/wXnjdcxWt1PaP3XjA37nntUGz0JP
+	 A9ktQGnr2YBGmF2zBUt1HqXRYHu/LmbHDh4tWzd8qBB0xDXHiR/HE2lFRSh/+530u3JJo
+	 9jAXLOjSiBiCHuw+jK2dZC8IzVyPt8TD0EgsdDVjyNW+GQlEuOT+IjFPDDY4ijQ2dIRev
+	 vFwvX5PASSXQpwJL9Tv4rgrWRJHxbas9HtcYUQ9ClgLWFbdviaxmz8iLh4hRihLMtQghI
+	 4P+XkTm3qA+HH+69RHuIgt0I+EZGRzoliqunylGYZDhfyWi1+aRF4yoTyppnHPghKcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145955;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=BmL15il61u4HjD5Xp8Z160Kx1ZRWIG5s4ZIJmdF45ZY=;
-	b=05WqpLcyuQVZqD3eN3KQ3d6JGg2lJZHgxr7RssgE0eUpcXs6tcn7GZD3cfV/epazB01H
-	 tqbqVRMOGKcmTM75+xSyUznHJlZrI4jWuOnduGQCCf3zrXCChT9iaQcFAM3Tnkt//7Tpk
-	 0+apCeXDeReYPvi30Ocpka7kC2evKNJ9OK6YjqHWgiNpOYrmrX6vVlB57Fv5J2cN0qd87
-	 6NONTjyCnw7ESPuXFWMYdMbTOOWWWhuqkGLrOxtRpjGxUfk22njIynmVaYzYvrvySxa4a
-	 J0013kpaSIphz1XTiCwr1XbLKi20OCzMIyOtSYwyFFSYp2eHgMdAqlzDoKfAT2RD78Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145981;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=6ID25TASgB9mY3j+/9ivqOm1LKio+2OprW84VL0Grno=;
+	b=F2ALR8kWF+f2XIYn8F3lJk8/GtFX8i3YBmcimttYcBddQT97WN7CwP4jXielDHFNgawP
+	 G7yjceeqT4f2L7VQk3ZScpAQxquDGSPIGuhzfIZSpEzPcTAfe2Zc480XI7ot4wbzfXtRM
+	 SPK2YApzRXeNH85enKTobynNbsS2hefxNXHBzXXDGgqBmrVAOl67wayA00DJUxzx2DpT/
+	 INNJDQGJ3NwnHGCQ/tYt9WQRTrZjUKjoMsyL/vraaQeF2vpi3zulfJrMKYD5P8zp1c6St
+	 ozfeGD55l+FC0+64wPP5dH2vxg6p4VdR75uhRcyPQrPlENbYcvztNpzLBrTEij7Z20g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="kw/UvP5f";
-	arc=none smtp.remote-ip=209.85.160.182
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=RaDWpzLq;
+	arc=none smtp.remote-ip=54.204.34.130
+Received: from smtpbguseast2.qq.com (smtpbguseast2.qq.com [54.204.34.130])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15D55606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:39:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15D55606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A38606A325;
+	Fri, 20 Nov 2026 03:39:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72A38606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kw/UvP5f
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5363316fa0cso7230481cf.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 19:39:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795145954; x=1795750754; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BmL15il61u4HjD5Xp8Z160Kx1ZRWIG5s4ZIJmdF45ZY=;
-        b=kw/UvP5f8Ssgneb1e0sJ8ueeZn0zln5BkV/sY6CsHk10xIEt6eyS5r78VBD8FOj7Gj
-         Li9XS9cTTnooaPibSqVDZgJUZBbZnsUJw4I1+auAUkWjLo0rTbVAgyssqR0AN2/kti95
-         8tD5xxT91SnRVgUeWk0djds65QgacIBjiQBTnxqKFSZXKgg6nJgaTZ+hpfuH3NYcOHJU
-         +Kl9gzVfHQtINHzHnDputgKD5kgMLUqsmJEVXYge9zh7g99+bZ3FKAeIaWYkhiJ7JurC
-         Za7y++vI0gWvyglEsLj5Sbsae2ngj3W0Pi7OJ3ttDuoM2tM4rCLVZFUmVhPyZMkZ8H/+
-         rDTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795145954; x=1795750754;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BmL15il61u4HjD5Xp8Z160Kx1ZRWIG5s4ZIJmdF45ZY=;
-        b=C/ZkHZ1P07nkWTOk1gdQ4KnfZOatn3arRfjBgFeyRbK2+agE2Q8gXmLoz8IWEhUEwo
-         HnXKWe6FOvapOGqkPuNLxrXYz+3s9K529sDIq0cypTX9ft2sVo+/+DqskNqH5+LxDvao
-         K1md9uwMNkHoxNKxyKjScEnvxwBcbNv4d/EGt22FrtNhlrS+wPy9HeuCj0ooBJesouq1
-         pnUAv2yKUB/yq8NA4wXkltkdsjSujVM6AoUWam4bQ5kRYFdt4HFeNw9M/pj5NLjhvcdJ
-         esWirg5JLz4Q7sfyvio8kiptqkJTuIiBY0flhzErCGgfEMPoPLktrnFZXOLklx6opsPH
-         xCjw==
-X-Forwarded-Encrypted: i=1; AL+hErFxvzwTqwp4ge6Q8QD+R2HBRNvcxEea+KX1FsH1wTNxTBAcp1sqMv1c7M6pZf4Ct84Whfuv6SQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lau2VAoY159FcQ2r4fUBbvUJbXsQ51DULT/3Klbgpr5yve/Ap
-	Oj1mh7LwkVLpaNUdr5JC30lwsvPv8Tmz8za0LiNvZKBt/AV91BEuVCGM
-X-Gm-Gg: AYBFou2YF+hGc/SIMP80gXsuQ8eFqja9M+HuvEPRnbvovy9+X1nbTjyjlmnrla+TlEW
-	1C1rft0UNE5jeG2MIR0yWpg0Owbv+qpFnQwe4/zn1DxyXg7pdaiTGxwnRkGyzidmH10opFckGst
-	aVtenddz95WF7zQmNOB1aS7fWzRC7tdJGL0XUKPPokIUznHH7KvRQGmWJzCGHjo9722lCS2brrn
-	/LSw4GWmN2nEaA5OgBNCesZJEHWgWjHrdwvsn+fXt95OwDFQryJqFW8Hsveu3937zKdi9LHSxag
-	PDq3J4rqV9eZupTxvVu1Drp5E/5Z5hW9cig1P5vM5J3i4BA/CprZw8X6n59nxD9aCsH2UnZ7G+G
-	ZvFFoMDud/BQjjGhR7CtXVM2zSsBcGikZQOvn5YsUlVpCwp+P9qiUIJ+w9SH6chcEcsY6BgyPQy
-	CExzKKcNClhSGaa3TWVPmolaoNDtbWxVKjyG76H9PH4qs4Ydypt4YJbSHqnXb62MUC4jTNcmclu
-	gfbNm1zN27f1JfAO6tzs2Nfb6capF/rXCFGzzXSOyXVauQCJVopqZffBGavHNDbqlzI4v+reqkU
-	KXzr+ZuWg8iGNlQxcnW5eHlDvWqaDwZidOWLoXqPCqRvIbCUqVpDI+xxkoLOhveP9+6nQ0VJDo0
-	=
-X-Received: by 2002:a05:622a:313:b0:55d:1944:a2ab with SMTP id d75a77b69052e-55d76a5af8dmr35213321cf.49.1795145953682;
-        Thu, 19 Nov 2026 19:39:13 -0800 (PST)
-Received: from linux.. ([8.34.174.240])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7888fb27sm11535941cf.25.2026.11.19.19.39.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 19:39:13 -0800 (PST)
-From: Changyul Lee <lcy8047@gmail.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Marcin Szycik <marcin.szycik@linux.intel.com>,
-	Dave Ertman <david.m.ertman@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
+	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=RaDWpzLq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795145912;
+	bh=6ID25TASgB9mY3j+/9ivqOm1LKio+2OprW84VL0Grno=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=RaDWpzLqCdYYGRlKySuGUQaSPqkaLKbto6xE75Z7DkWkxQkTgTfeRG0R94NcJFHIo
+	 wZa943Zh1rATL+aq0YIJh0YyEYetiF/YBgVPubX62zIUIoXfixEo6Rm6SQSyUkWBcf
+	 FklDE/31hdDk2EvwxWiT95VlBDo+MowuMgkvLIjc=
+X-QQ-mid: zesmtpgz9t1795145907t2b7c356a
+X-QQ-Originating-IP: 2Dvc6PhiaE8wquu067dn3SVToxhwDgWWzXwvNhwqyak=
+Received: from PEN202512010004 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 20 Nov 2026 11:38:25 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 5714097690566660774
+EX-QQ-RecipientCnt: 10
+From: raoxu <raoxu@uniontech.com>
+To: mst@redhat.com
+Cc: jasowangio@gmail.com,
+	eperezma@redhat.com,
+	davem@davemloft.net,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux.dev,
 	netdev@vger.kernel.org,
-	Changyul Lee <lcy8047@gmail.com>
-Subject: [PATCH iwl-net] ice: hold a VF reference while creating LAG placeholder VSIs
-Date: Thu, 19 Nov 2026 22:39:10 -0500
-Message-ID: <20261120033910.1731258-1-lcy8047@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-kernel@vger.kernel.org,
+	raoxu@uniontech.com,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] vhost/net: Fix receive queue test in busy poll
+Date: Fri, 20 Nov 2026 11:38:24 +0800
+Message-ID: <1B3A1B72438119BC+20261120033824.681219-1-raoxu@uniontech.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,63 +75,96 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: N4kMhpKju7/pug6xHKTvHbdchBT/IBEy6aGk8cOlUz33hi8Qj9qKk5tl
+	QKAN9A5QI2vypQtXDC+lvRXzrp5RxsvkTRBRys8mK7lGs2KZ5tmCHrfrirdFMSmIHiCXJAK
+	clPUZd9F7/qorsVB4CddiztQNYlu6beQmVo2r2yLggA3uu0YVK1vCu2B3BVSo8LA3zP+rDn
+	28sdh0LC+Jg1Ys4G2x7+/9IjRVZ4+9NyAV3l9J+fjQ26kFFD3dhO/qTWmI+xuTM52kQaf//
+	plUnZL0+GUDFWBERGBdjY2pi/S6j4bh+gicodXtr6nDl21mF7eXU0KZNVzNr2z48XMAdT2f
+	x26Os8BHGNLwS5F3WCnmZ/fcpTjF1RiPJi6gKw+yrY9XwCZi6BTP2AYYLi22R2frK+uN0Xu
+	mVcsRkiP0M915XrEjLSXh+5UzyKS0MtKDbvXMO838UfyOI325p5SGFsKbWyt3R5qcAhQ4Tm
+	w5HCaIsSEBDvqVeN81rWamaJgR+U5sh8rLwZvMXt749NSaeh/+kM9GJaiP7pT8K8VAyFYtK
+	ZoLPQoTZeiYhsrBVmOrjpbbxZSjpqV8JUviv+ppXjvM5YlrzPHvnTzuMPfzwbkOlwyhPKul
+	3CtLQOubykvgiyPC8zOiUmM0I2edOoxuZ+74AWoFV/kdPcpZz4+nC7Mhr0W9AYKeLFDKXlY
+	9Gp52SqGvXltQvcgqC6s3avxCWBoItbpHA4acWscVPYPVhqg0kSJYgB/d+EL633dhDFeGEE
+	F2GaPqnpLCJdMreuggwjoNSj1qeGJxWfbS1sYgeEVJzyHWGS6+Do9iuZzq9FnlFRoXB+4oq
+	qJHSUQYqXjz2aoWMOWZTrTIXmL0qWir3Qw/5bV+5seH+ZtwKW9zZNnPBTjULfdS6vlvgKQ5
+	GGhG439/uZDSx0JPnJ1LLausWze/MXqKfI89LSwOxJRMR9q3VlTP/8V8Z7Oj6zztWIFMLGm
+	TC2ACTEPbeIO3xN5aTP6lmfbjDGjyYhEKyraEG3b8tPgX6LfGJSzFJGFWQKr17eneavmVjH
+	6WVi4a4cjyB2E+NRkl4irctZ/s+7PSxK2g6Wa4OeVpWFyo7yEcVHLgWJBoDvbDZ2R0xgnpC
+	p6J483PVEMJ76aQYexPo3g=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 
-When the secondary port of an active-active bond comes up, the driver
-creates a placeholder VSI for each VF. It walks the VF table with
-ice_for_each_vf() while holding only pf->lag_mutex. If SR-IOV is disabled
-during the walk, ice_free_vfs() can remove a VF and drop its last
-reference while the walk still uses it.
+From: Xu Rao <raoxu@uniontech.com>
 
-Taking table_lock or vf->cfg_lock here would reverse the lock order used
-by VF reset, which can hold both locks before taking pf->lag_mutex.
+sock_has_rx_data() returns a positive value when receive data is
+available. For sockets without a peek_len() callback, however, its
+fallback returns skb_queue_empty(), which has the opposite meaning.
 
-Iterate over VF IDs and look up each VF with ice_get_vf_by_id(). This
-holds a reference until ice_put_vf(), keeping the VF alive through
-placeholder VSI setup, even if ice_vsi_setup() sleeps.
+An AF_PACKET SOCK_RAW socket is accepted by get_raw_socket() as a
+vhost-net backend, and its socket operations do not provide peek_len().
+With busy polling enabled for this backend, an empty receive queue is
+treated as ready and a nonempty queue as not ready. This can make
+vhost_net_busy_poll() stop polling prematurely or fail to stop for
+queued receive data, and invert its receive-side scheduling decision.
+TUN and TAP backends provide peek_len() and are unaffected.
 
-Fixes: 28f073b38372 ("ice: Implement support for SRIOV VFs across Active/Active bonds")
-Signed-off-by: Changyul Lee <lcy8047@gmail.com>
+Negate skb_queue_empty() so the fallback matches the callback and the
+readiness checks in vhost_net_busy_poll().
+
+The issue was found during AI-assisted code review. The helper's
+incorrect result was confirmed on x86_64 running 6.6.0-amd64-desktop
+using a temporary diagnostic module containing the original and fixed
+helpers. An AF_PACKET SOCK_RAW socket, without PACKET_RX_RING, was
+bound to loopback in a private network namespace. Across three cycles
+of sending and receiving a 60-byte frame, the original helper returned
+1 for an empty queue and 0 for a queued frame. The fixed helper returned
+0 and 1 respectively, matching socket readability in all nine checks.
+This tests helper copies on real sockets, not the running vhost-net
+busy-poll path; the vhost-net module was not replaced.
+
+The patched drivers/vhost/net.o was also build-tested on the net tree
+with x86_64 GCC 12.3 and W=1 under allmodconfig and allyesconfig.
+No end-to-end vhost tests or kernel selftests were run.
+
+Fixes: 1576d9860599 ("tun: switch to use skb array for tx")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xu Rao <raoxu@uniontech.com>
 ---
-Found with a static analysis tool we are developing.
+Changes in v2:
+  - Target net and add the introducing commit's Fixes tag.
+  - Explain the raw packet socket backend and busy-poll decisions.
+  - State the AI-assisted discovery method and document the diagnostic
+    module test, its results and its helper-level coverage.
+  - Document the targeted build tests.
+  - Keep the code change unchanged from v1.
 
-Compile-tested only, with x86_64_defconfig plus PCI_IOV, ICE and W=1.
+v1: https://lore.kernel.org/virtualization/20261110051642.249640-1-raoxu@uniontech.com/
 
- drivers/net/ethernet/intel/ice/ice_lag.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+AI assistance: OpenCode was used to inspect the history, prepare and run
+the diagnostic module test, run build checks, and revise this message.
+The code change is unchanged from v1. The discovery method was confirmed
+by the author.
 
-diff --git a/drivers/net/ethernet/intel/ice/ice_lag.c b/drivers/net/ethernet/intel/ice/ice_lag.c
-index c4b8af01e2af..e0803c2a3e8c 100644
---- a/drivers/net/ethernet/intel/ice/ice_lag.c
-+++ b/drivers/net/ethernet/intel/ice/ice_lag.c
-@@ -1913,18 +1913,24 @@ static void ice_lag_monitor_act_act(struct ice_lag *lag,
- 				struct ice_vsi_cfg_params params = {};
- 				struct ice_vsi *nvsi;
- 				struct ice_vf *vf;
--				unsigned int bkt;
+ drivers/vhost/net.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
+index 4570a4ffbab2..10ed2d55ff07 100644
+--- a/drivers/vhost/net.c
++++ b/drivers/vhost/net.c
+@@ -538,7 +538,7 @@ static int sock_has_rx_data(struct socket *sock)
+ 	if (sock->ops->peek_len)
+ 		return sock->ops->peek_len(sock);
  
- 				params.type = ICE_VSI_VF;
- 				params.port_info = event_pf->hw.port_info;
- 				params.flags = ICE_VSI_FLAG_INIT;
+-	return skb_queue_empty(&sock->sk->sk_receive_queue);
++	return !skb_queue_empty(&sock->sk->sk_receive_queue);
+ }
  
--				ice_for_each_vf(lag->pf, bkt, vf) {
-+				for (u16 vf_id = 0;
-+				     vf_id < lag->pf->vfs.num_supported;
-+				     vf_id++) {
-+					vf = ice_get_vf_by_id(lag->pf, vf_id);
-+					if (!vf)
-+						continue;
-+
- 					params.vf = vf;
- 					nvsi = ice_vsi_setup(event_pf,
- 							     &params);
- 					ice_lag_aa_clear_spoof(nvsi);
- 					lag->sec_vf[vf->vf_id] = nvsi;
-+					ice_put_vf(vf);
- 				}
- 			}
- 
+ static void vhost_net_busy_poll_try_queue(struct vhost_net *net,
 
-base-commit: bf9edda440e747a4a9b351656a395f0b77cc1fef
+base-commit: 435cbdaf9b03687498dc16fe4af8d16a977e21d0
 -- 
-2.43.0
-
+2.50.1
