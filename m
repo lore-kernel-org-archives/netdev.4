@@ -1,67 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795160363;
-	b=jOIzcW0H2fD+yyHYY6po5PgIxNypZAmOb0ON+qqiQJMCUFsg3E58ksPTXMaeYzl6Pwht
-	 4MMxlFJ3ELtiCphFiYHNv+wO2WLgD6MZ1t/K0e0CBpZ7oXCkEkd2YRIm2JpCF3jsnO6UU
-	 Zxno9MF4TRNY0ZPcWnyIDbHuGieDdfWJM1CWYVcIME+JWmi2gP36r2ps2+tESP32cl+tZ
-	 SJTpDKpDHgda7M2o57IL0n2FOTShVkFkfmcrSOafmMl3oGP9FF45qipKPIWjhDmllRVqp
-	 gTN0gYTPSxNOFnTSU3JSypAmg9TD+5g8J0Nx1roSgjRMCxhH/QxuFObuXNV/2xJPcjw==
+	t=1795160399;
+	b=o/V5v3gHJ6o7aUTojaVZ1N0QH4KQFbLEwj4io/vYrf8AxgUYGfZ33fkntCVioRf1H/4f
+	 6vlr3ZKCxjDnhlh86DLEVNi1oZI94FnL5NmdrHJujIqCYFUrfaQ0sI11PXPSgAQuIM2Ed
+	 h4cnPpZ5rJVBK09M7pWKLDUdKFDoRpMzeYTMQpF94Tdp/8Y2CJYaCJm+PfI+lMrBdh4j7
+	 CUZVkIkzeGQGFM90NSOmA2KTEFZuSkinjoHvtcmZOPaSbq5WjqmBUC8xAcYLEv9kQ1ODN
+	 vway1HLWRMBxxNbxm0WrwbwaztiabmV5XXcYuDTmfHH4h2u/5kSd1+qVTU8RKT9Qhcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160363;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=Wbrp0Enu3xQncN9mhAX4135r3/WRAcDm9zUjrTj0T7o=;
-	b=DnzKhNXtTQCQvwLGl3XnCQmC0nF+7XksV50UYdU+xalhMqGLzzHcNl9m7M0KkQn8LAiE
-	 JkY30xD9Z8/D8e+yyozfW2Fsk1f6Ogydod+8GJmpnfXy101ZGrq0DZk3I/scjNmbQAVhJ
-	 NBonx2SVwY/Vwg5stlmaul+3bk4hURlSLgtMzFUiZBesk8XG0FtXpBTORqwu9o1QCarAo
-	 U6YMo3Lqps4mRCkVr93Fg95xubRjvXy6Sn/fuu5x0eUhWr/xNvYBCWUmYQ2lOC8IqmvQi
-	 AaZ2Ja2eP5ow5e6ouyKBty/TVNVezy2li8zvMrjClwkwAOkWxOWYrNsDjK58A73Xh5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160399;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=b/FH6II3bslDs5YBNTy7AYo6WlPjw5hNbX6vP68QInA=;
+	b=wLgnaQHpEjf0XxpJtqLx1GMvjYjtvDNXTKzBbK+VFarjIz1vC+KvQLlDpGYXF8bCUfDd
+	 rvn3GhzrCVvrQnVNm1etQK0pkFVbr6CrAOateg/f4pGdNoqni5SUxyX/bLfGOaeq9e+bq
+	 Pk3E2+QnXYjDYhYoDLTX2KWdIAN2Bd4dlm2FEvSQsSWnZLKVoAouj906yycjhX1xU1arO
+	 OlSssXUbol5052VrVxlPJrmLO/L9LPeVtJXPYc79oyVlunVkHgNJpSA0i3wSLBVDIwD6V
+	 CnJ3dx9C5FgPlFsG+NaeqLTjD+crVcsl+11eJGmEa0mBWMusO71AeTHydBPcUfDqAtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=HMRcDD42;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RG8t87Z7;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7B7060A2603
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:39:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7B7060A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF0F2606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:39:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF0F2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=HMRcDD42
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795160361;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Wbrp0Enu3xQncN9mhAX4135r3/WRAcDm9zUjrTj0T7o=;
-	b=HMRcDD42UBtaY656HKc2YHs+hr1UAAtLhb16otGtyrcYCtEM+AMY60q34z41eLb0WvrTMn
-	z5E8TlGNaAlMg7xAal/c2PgG+HaKWmLmUzA0/whbylo+LNGooKR8dR/YxTJ6ERTpDeVGxe
-	uMlFLYT19F/DxvOr6CVfbw5A2v5mgOU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-277-_y26HK1iOg-_PmG2ieL5rQ-1; Fri,
- 20 Nov 2026 07:39:15 +0000
-X-MC-Unique: _y26HK1iOg-_PmG2ieL5rQ-1
-X-Mimecast-MFC-AGG-ID: _y26HK1iOg-_PmG2ieL5rQ_1795160351
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 224C61956067;
-	Fri, 20 Nov 2026 07:39:10 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2FF61195B3C4;
-	Fri, 20 Nov 2026 07:39:02 +0000 (UTC)
-Message-ID: <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
-Date: Fri, 20 Nov 2026 08:39:01 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RG8t87Z7
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-385d8a00598so426261eec.1
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 23:39:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795160398; x=1795765198; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b/FH6II3bslDs5YBNTy7AYo6WlPjw5hNbX6vP68QInA=;
+        b=RG8t87Z7Z4ZkaeUQYwGbRWVes3PlJ9c1jMrnlHUNMrOp0w5G6vi/d7Bd8p0IQm5wwi
+         3hTOuQV1/cxn1TULStIq3x6tYI8z1/tH9ONYhTCiT7Knh5SGjq5NnSsDlS23DuhKirep
+         +0MiaZctbhZdloL/vvKhRpppDFypIIYKIu8emtcpzavAUhUv/9qc+6GnukGnczf1uPOS
+         G/qWZnXwzCs3D5B5EcO00c0cjRvzn7aep9z4OboyxVwlSGmhZNOSuIQ0NX2Z+zUadCwP
+         GJeHqlpdLAnD3sPW7vGc5gRgsGpteYXlG2SzwbvPU/HZV+9n5HMYmo58NiVbd1V5xmFL
+         Lvrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795160398; x=1795765198;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b/FH6II3bslDs5YBNTy7AYo6WlPjw5hNbX6vP68QInA=;
+        b=WDp6bsX4UIzcSCLUOnIb3tvDVbVmFhWls5s3QiQ5zsxU4Vf4sZRoDv84+WYhwCxPHI
+         Fh8Gz01cBBmB9V8Kgm/BsB+cmX4X46plp7YsUtwIDQ9IEqNrbVDPwt55WDFmvTx+Xkut
+         T0wGQdYgJZ1ZJP5+dkAInbaB0mDQRrxtEoChr1wmjJuoXm2cX4ScINkNtbpZj2Fuc419
+         c/DGntUi21pUJ4pOyqyBf8MjKYatNjqNsNUK8AXrc4Z5Sd9NN0pyDCSnB52A0KvRm1ww
+         IWFM/cCeh9ld7AAcbGHeSzJ6pJ6X7slBIZYODdD0h/b+FooVLY2T2OD3cshI8b0+52QC
+         DFGA==
+X-Gm-Message-State: APuU4Z+w6gtuZv538Whaz2agfgdnelXu1wimGs7CzaZDX1n08TkNdZQk
+	jxt/cEn+rJSFGODtWWMp3OMevj6dNygHYTJ3hf8IaPgO/003etCwNsbF
+X-Gm-Gg: AZFdTZets8iwiBVGcXz21kV3exc1ISTN7nt1eYSMfrPoVnPky3SB3mpsydAPNghYhPN
+	U0GP5rJBYtm7Ze4/AoyPSX1wSoiyErNFJ3mQyZMp621IFOMhbA1oIFbviaS+Jaa87Zcsq3EDrU7
+	Xr92nSZ0bP0wvvtuo5anTGl2VHm4tw7HQN5UGLA9tqDU1IzeNutgQM6hIzLZq6txEa4e6jjCNEY
+	UW/oy6w8CM+pdBYIYJ1hwicAW6JSiNL86B2vrYTtgTmWmExiFXJMBY8z6ya8YuL33PGfbSUsvNO
+	pnuwzuX51NzaK18V1My34lI//4LWvqlStVFuBvuxeebqGikJNEZH6LzA0lwAiHNKudwFOEjqbIE
+	DNRCImP/GssWEyi9PkWJi696CO2VcR75VXXAUk5O18Ku2jSb0hhvvUe4kD8GYm2xRjh4mCAOK/w
+	WvsAcwqjjFYzW3mc1l3QFnNbjpXJRB8KB1/JZGDnxRguOO/44oF4KaBssTHfaTI8pqEdJmBOlBq
+	AwYU0WX/oUsbHQZuoXMipBkuUgpD2K+9m2tUZC+AfX8GM3yL7WV+sDxUGZDCrGLXCaaMSnJ5dwa
+	P9n9eRBDWb86sYsiKqNb+femq+g0ambHLZyr0LhTYszO5O6N2dwX5BFbvmA92Fd27zfa/Ni+aPG
+	gIciPGKDkWCh3TE8DfBDJs+KUO/oSvO1VOw3M+LC2s21tgxbChzq0/htC2A==
+X-Received: by 2002:a05:7300:601e:b0:376:6aea:ab with SMTP id 5a478bee46e88-3856c5b58e2mr1958638eec.3.1795160397725;
+        Thu, 19 Nov 2026 23:39:57 -0800 (PST)
+Received: from localhost.localdomain ([38.58.103.204])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm6326640eec.11.2026.11.19.23.39.53
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 23:39:56 -0800 (PST)
+From: Jason Xing <kerneljasonxing@gmail.com>
+To: magnus.karlsson@intel.com,
+	maciej.fijalkowski@intel.com,
+	sdf@fomichev.me,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	alobakin@pm.me
+Cc: netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	Jason Xing <kerneljasonxing@gmail.com>,
+	stable@vger.kernel.org,
+	James Sawyer <jamessawyer@outlook.com>,
+	syzbot+f16c1b285c9f63994eec@syzkaller.appspotmail.com
+Subject: [PATCH net v4] xsk: set network header on skb at generic transmit
+Date: Fri, 20 Nov 2026 15:39:17 +0800
+Message-ID: <20261120073917.63158-1-kerneljasonxing@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,141 +105,85 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Jakub Kicinski <kuba@kernel.org>,
- Vadim Fedorenko <vadim.fedorenko@linux.dev>, Jiri Pirko <jiri@resnulli.us>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>
-Cc: netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
- <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
- <20261119133851.3f25074c@kernel.org>
-Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <20261119133851.3f25074c@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 22:38, Jakub Kicinski wrote:
-> Well, I'm not convinced. The relations between objects in DPLL are
-> already quite hard to follow, and objects from one driver routinely
-> "plug" into objects from another. The explanation of the locking
-> rules in patch 9 does not look clean or clear. The driver facing
-> API needs to be much more "dummy-proof".
+When constructing an skb in the XSK generic transmit path, neither
+xsk_build_skb() nor xsk_build_skb_zerocopy() calls
+skb_reset_network_header(). After __finalize_skb_around(), the
+network_header offset defaults to 0 (pointing to skb->head). The
+subsequent skb_reserve(skb, hr) moves skb->data forward by hr bytes,
+but leaves network_header still at 0. This makes skb_network_offset()
+return a negative value (-hr).
 
-Fair enough. The complicated part of the rules comes exactly from
-that: a pin registered by another driver, like the zl3073x pins that
-ice registers with its TXC DPLL or uses as parents of its RCLK pins.
-A message about such a pin runs callbacks of both drivers. I have
-prototypes of the first four ways below to lock this, each with KUnit
-tests, and would like your opinion before going further.
+When such an skb reaches a tunnel driver like ipgre_xmit(), the call
+chain pskb_inet_may_pull() -> pskb_network_may_pull_reason() computes:
 
-In all of them a domain is the set of objects created with the same
-module and clock_id, dpll_lock becomes an rwsem for the topology and
-lifetime, and a mutex per domain serializes the callbacks.
+    pskb_may_pull_reason(skb, skb_network_offset(skb) + nhlen)
 
-A) Pin's domain (this series)
+The negative int from skb_network_offset() is implicitly promoted to
+unsigned int, wrapping around to a huge value. This triggers the
+DEBUG_NET_WARN_ON_ONCE(len > INT_MAX) in pskb_may_pull_reason().
 
-    Callbacks of a pin run under the domain of the pin, whichever
-    driver registered them.
+Call trace from syzkaller:
+  ipgre_xmit+0x958/0xcd0 net/ipv4/ip_gre.c:658
+  __netdev_start_xmit include/linux/netdevice.h:5400
+  netdev_start_xmit include/linux/netdevice.h:5409
+  __dev_direct_xmit+0x4b6/0x730 net/core/dev.c:4942
+  __xsk_generic_xmit net/xdp/xsk.c:1079
+  xsk_generic_xmit+0x277a/0x40a0 net/xdp/xsk.c:1120
 
-    Pros:
-    * one domain lock at a time, so no lock order
-    * a request or a message about a pin is atomic
-    Cons:
-    * the callbacks of a foreign pin are serialized with the driver
-      that created the pin, not with the other callbacks of the driver
-      that registered it, so that driver has to protect the shared
-      state itself, and lockdep cannot check it
-    * restrictions for measured_freq_get, reference sync pairs and the
-      private data of a parent pin, which patch 9 has to explain
+Reset the network header so skb_network_offset() is valid (0). For the
+non-CHECKSUM_PARTIAL case, unlike AF_PACKET, AF_XDP does not need to
+locate the real L2/L3 boundary: an AF_XDP frame is always a complete,
+opaque blob from userspace. So resetting the network header is enough
+to restore the invariant and avoid the crash.
 
-B) Registrant's domain, deferred notifications
+Note this is not sufficient for CHECKSUM_PARTIAL skbs, where drivers
+derive the L2/L3 split from the header offsets for checksum offload;
+that will be handled separately after this patch.
 
-    Each callback runs under the domain of the driver that registered
-    it. A message about a pin takes the domain locks one after another,
-    and notifications from callbacks are queued and sent once the
-    domain lock is dropped.
+Fixes: 3914d88f7608 ("xsk: Respect device's headroom and tailroom on generic xmit path")
+Cc: stable@vger.kernel.org
+Reported-by: James Sawyer <jamessawyer@outlook.com>
+Reported-by: syzbot+f16c1b285c9f63994eec@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=f16c1b285c9f63994eec
+Signed-off-by: Jason Xing <kerneljasonxing@gmail.com>
+---
+V4
+Link: https://lore.kernel.org/all/20260902121028.74092-1-kerneljasonxing@gmail.com/
+1. use the one-liner change to fix non csum case at a minimum. As for
+   csum, since the blamed commit is different, I plan to cook a patch to
+   fix that[1].
+2. revise the commit message accordingly.
+3. add James reported-by tag since he spotted this and sent this in
+   private.
+[1]: https://lore.kernel.org/all/CAL+tcoB8f7H1ptcEk1iVH065AcUNPEL2V1gKoJacwr3zndfPWA@mail.gmail.com/
 
-    Pros:
-    * callbacks registered by one driver instance are always
-      serialized with each other
-    * one domain lock at a time, so no lock order
-    Cons:
-    * a request or a message about a pin registered across domains is
-      not atomic
-    * the most complex core: a notification queue per domain, a lock
-      per object to keep its messages in order, and pin setters split
-      into validation and apply parts
+V3
+Link: https://lore.kernel.org/all/20260901083325.3445-1-kerneljasonxing@gmail.com/
+1. remove the misleading description about af_packet
 
-C) Registrant's domain nested under the pin's domain
+V2
+Link: https://lore.kernel.org/all/20260826012052.51028-1-kerneljasonxing@gmail.com/
+1. add more clarification about why we don't probe the header like packet at
+the end of the commit message (Jakub)
+---
+ net/xdp/xsk.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-    Pros:
-    * callbacks registered by one driver instance are serialized with
-      each other and with the driver that created the pin
-    * a request or a message about a pin is atomic
-    Cons:
-    * the lock order comes from the topology, so a pin of A registered
-      with a DPLL of B together with a pin of B registered with a DPLL
-      of A deadlocks, and lockdep sees it only with a lockdep class per
-      domain
-    * a stuck foreign registrant stops the domain of the pin
-
-D) Merged domains (your suggestion)
-
-    Registering a pin with a DPLL or a parent pin of another domain
-    merges both domains. They are not split again.
-
-    Pros:
-    * the rules for drivers stay as they are with the global lock
-      today, and lockdep checks them; the only new one is that state
-      shared between chips not connected by a pin needs a driver lock
-    * a request or a message is atomic
-    Cons:
-    * only hardware not connected by pins runs in parallel; on the
-      GNR-D system the zl3073x and all ice PFs end up in one domain
-    * a callback that waits for the hardware, like the planned resync
-      for up to 1 s, or for firmware still stalls all DPLL devices in
-      the merged domain
-
-E) Global dpll_lock, slow callbacks asynchronous
-
-    Pros:
-    * no change in the core
-    Cons:
-    * the resync problems from my previous mail, and a callback that
-      waits for firmware still stalls all DPLL devices in the system
-
-I wrote before that stretching the domains would not improve
-anything on that system. That holds for the ToD stall I measured,
-but the zl3073x does not need to hold its channel lock across the
-edge waits. Without that, the remaining waits are the planned resync
-and output state callbacks, and with D they stall only the devices
-wired to that chip, which depend on it anyway.
-
-So I lean towards D, as it gives drivers nothing new to get right.
-Would that address your concern, or do you see a better way?
-
-It would be good to hear from the other DPLL maintainers as well.
-Jiri, Vadim, Arkadiusz, what do you think?
-
-Thanks,
-Ivan
+diff --git a/net/xdp/xsk.c b/net/xdp/xsk.c
+index f22f9a2cdbbe..52d538160e0a 100644
+--- a/net/xdp/xsk.c
++++ b/net/xdp/xsk.c
+@@ -948,6 +948,8 @@ static int xsk_skb_init_misc(struct sk_buff *skb, struct xdp_sock *xs,
+ {
+ 	int err;
+ 
++	skb_reset_network_header(skb);
++
+ 	err = xsk_skb_destructor_set_addr(skb, addr);
+ 	if (unlikely(err))
+ 		return err;
+-- 
+2.43.7
 
