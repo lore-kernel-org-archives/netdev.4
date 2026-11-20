@@ -1,60 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170756;
-	b=PcpdXUptrgFeIpz1ZwOfC5PStd+/5b4MpfSOQpH+wVhc+gUp0wdZh8ww7/aJQhPg0H5s
-	 uMyFrQHU1vgYIfJGG85aALYv82x1TQpJCewOGPN1lSiY4HWcFOVivEeQPaKleGFUNHCcb
-	 giZnIqfi/Wy5RZA807KkUz2T4hnRMEQXwue9b2h/TdjsgSeWhsytNxRCJKhxxGTc+Oq46
-	 uaxEmfU6vKUgx7Oa5iZZ9g6ctgoJxeGrtRsjM41+bTxlzm/FtX+K+kylUiZk9ufI6jCrd
-	 QP3HcfxbjU9nnLw+iPqrubXiP268zZJcfBoC5OSsddbR/LDJkEkztnRoQv9q7Q0YEtg==
+	t=1795170955;
+	b=Z//q4O1tJUFdy7ivc5jUQoJwcOM0lRQGcLNCsA1p57lbgC0kUdV8zsvnXV6dfWPgLZA8
+	 X9kr2JMgUCfznE1HfBg0us1+b7B2LkYkizYCx6AkAZa0Q8NIdIEVksra8u4vYTU5pg1OB
+	 zZw5hw+n/j8MzNWyTmAHe4iaYI0lc1i5kKRJHhfPmvmH38jTrLhbzoqyrP4tRM5SmyOH8
+	 nZOFVu0M7SSjZ3frwrMM+PcAVZnZzzjZGSO049UXqp2PpVebDha9TqggDJMWbU4ElF8ah
+	 AFqA66j65Ld6EsOJ97CYu0LFmjwLh6W034KeUU4AxMBmbgw09UabPI/ONHi26J55qJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170756;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170955;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=njj8qhypBIHm5MzN0dZcRldHSxSDov02gsixS2B6Rwo=;
-	b=EswuUOLZ/3/z6SlU2aXNXOCfFPRf3eAaPPFA/BLXqdhS54r/F+MJJqR/9oXuCTqZyxDp
-	 fK62WPl+iE01gTdO3PYVXE+RWQWaoVFLoQDVihZaZfDuVUdnT7ps/76BogBL9GS3mp+81
-	 rtUW4iIyJIsDW6BG39kQOVrpTq1D4M2WJRfVVFjJeLtkIWI8iNIHBPI/upsyow8ONm1Nj
-	 qIspyFASanF2NOZIVwRHERQ8hctIGB7NEr4lGD/XzjKbxTIAS3DaMEouKi64BdhOvLUyf
-	 ndbj5ZoFpPioS40ZvzEhiwrtlJ2OBgbgqr72SS1MUfyjDClR+eA1Chcxhg52mCzxcZg==
+	bh=/6h6kjv6DzEWQopVb09U0/FFqFvd3pADhGDuIrBHyOg=;
+	b=2a3TjFr29x3Zu/7NCM5i8rrXSRB570B1oR5Y4dDmlg5DgBX4FRO+fSfQb9XIFLZC/m0+
+	 V+qkH0WQxhgW88K9dG7z9thUrSc4GVSppB0GyZu8SCzdbLZfv6ztUJzSNQmEJ1NV/bKLP
+	 eGWAIoYA5J6Mzu5FNfY0fvIc9Cux1Vcx8bGueUt0amkI6oWs1ciTD5muU2xOZjtO0x/pt
+	 MB3QWwIzX4cdB7UOzNQN3X1Z524QRJD5c05Ufol9zZ65hRTi85YMdvkjNytEsme6oVAFi
+	 tTkrHKBrRHMv/ov2Cvd0cSJrBqwEZg++jqluq17RbIYMeM5tr98nA/oLERy7kaxsIVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KStwpshj;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HqyRHFzw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47D31606A326;
-	Fri, 20 Nov 2026 10:32:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44521606A32C;
+	Fri, 20 Nov 2026 10:35:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KStwpshj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16B491F000CF;
-	Fri, 20 Nov 2026 10:32:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HqyRHFzw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B46C91F000C6;
+	Fri, 20 Nov 2026 10:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170756;
-	bh=njj8qhypBIHm5MzN0dZcRldHSxSDov02gsixS2B6Rwo=;
+	s=k20260515; t=1795170954;
+	bh=/6h6kjv6DzEWQopVb09U0/FFqFvd3pADhGDuIrBHyOg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KStwpshjFBmKPgeiHLnE6umtDW42e21MLz2AaGKAf91ffcXm8b6qkrf7L6nM/tBnz
-	 FRI5uFt/cqQ/5xH6EB0w8CGf7H55032Y2/HpsENeWe7i7wTowsWrkJnDX57tzLYjG7
-	 jSPz9wLNvV0UNgMf7LxVx0Ju7jy70P/pR5pRgHMEW4RLSE0QETnet7ZoV/ntkpfpEy
-	 GYnZjnqfqYvf7cNb7ODdY3SXLJ4Ap/Yb6PJItAADcaQTnN8AwFfhiNI6bdYdHI79bb
-	 y8bz/mosmdSWm30mORRLdIRpdESja6FX+bKK7JocxhW89nFbTWDgSEm9evTl5m1OMB
-	 htCgkmhO2nEKg==
-Subject: Re: [PATCH net v3 03/10] net: au1000: disconnect the PHY before
- freeing the MDIO bus
+	b=HqyRHFzwZF9szW0t2JBSkCp90F5fgPsEoHBe1RkkBwJ3jzeRdsRPbN0d8Mu5kwB8T
+	 1FFb5VpXCPP+R6aOKTOif3hJmZ8HbPRxgzqGb/cn2L8k+s7DPq3E3s93dLI9JUCHH5
+	 sSnwM8S9X2GyxMvajOknN15mgdxDQMijGMGVlVC3BtfiYdDW6lxZXMzUAS2Z1sIC8r
+	 eCbRLalOBjmCce17J2m2088uFXy3cITA5jKeoyVZnjjysfKJETtJ7oPyaxvJLnEMtg
+	 MLzenA08P7p2Jxm4wc7szkt/HeghRrGlbNCAZYo6wwdWElwRGaWJI7QoZcfAuqPyr7
+	 yanY0PLezT6OA==
+Subject:
+ Re: [PATCH net] can: j1939: fix null-ptr-deref in j1939_session_completed()
 From: netdev-bot+sashiko@kernel.org
-To: f.fainelli@gmail.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
- linux@armlinux.org.uk, shaojijie@huawei.com, horms@kernel.org,
- runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
- linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
-Date: Fri, 20 Nov 2026 10:32:34 +0000
-Message-ID: <179517075464.3136.12005891937960917967@kernel.org>
-In-Reply-To: <20261117193223.2795612-4-f.fainelli@gmail.com>
-References: <20261117193223.2795612-4-f.fainelli@gmail.com>
-X-sashiko-severity: Low
+To: fuchen.dust@gmail.com
+Cc: robin@protonic.nl, o.rempel@pengutronix.de, mkl@pengutronix.de,
+ socketcan@hartkopp.net, kernel@pengutronix.de, linux-can@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, stable@vger.kernel.org,
+ kuba@kernel.org
+Date: Fri, 20 Nov 2026 10:35:53 +0000
+Message-ID: <179517095327.3136.15773180395913177394@kernel.org>
+In-Reply-To: <20261117103516.535910-1-fuchen.dust@gmail.com>
+References: <20261117103516.535910-1-fuchen.dust@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,92 +65,156 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-- [Low] The commit message of "net: au1000: disconnect the PHY before
-  freeing the MDIO bus" partly misstates what the patch fixes, and…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The patch fixes the symptom (the NULL deref in
+  j1939_session_completed()) but leaves in place the root cause that the…
+- [Low] The commit message understates how reachable the bug is.
 
 --
 
-net: au1000: disconnect the PHY before freeing the MDIO bus
+can: j1939: fix null-ptr-deref in j1939_session_completed()
 
-This commit adds phy_disconnect() calls to the au1000_probe() error path
-and to au1000_remove(), so that phy_connect() is balanced. It also makes
-au1000_reset_mac_unlocked() skip MAC control register accesses when
-mac_enabled is clear. It also resets the MAC in au1000_remove() after the
-PHY and MDIO bus are torn down.
+This patch adds a NULL check in j1939_session_completed() on the skb
+returned by j1939_session_skb_get(). The check runs before the skb is
+passed to j1939_sk_recv() and consume_skb(). Session deactivation and
+activation of the next queued session still happen unconditionally.
 
-> Balance phy_connect() on probe failure and removal. Otherwise PHY
-> interrupts, device references and the attachment to the freed netdev
-> survive teardown.
+> An inconsistent ETP session offset can leave the receive buffer lookup
+> unsatisfied when the session completes. The DPO receive path does not
+> validate the offset against the receive buffer, so completion cannot
+> assume that the lookup always succeeds.
 
 [Severity: Low]
-Can a PHY interrupt actually survive teardown in this driver?
+Could the commit message say more precisely how this is reached? As far
+as I can tell, any node on the CAN bus can trigger the NULL dereference
+in the unpatched code:
 
-mdiobus_alloc_size() sets every bus->irq[i] to PHY_POLL. au1000_probe()
-only writes a real IRQ into mii_bus->irq[] when aup->phy_static_config is
-set:
+1. Start a valid ETP transfer to a local address that has a bound J1939
+   socket.
+2. Send all the data packets.
+3. Send an ETP.CM_DPO with dpo * 7 >= total_message_size. This can be
+   sent before the receiver's txtimer sends EOMA, or after EOMA is sent
+   but before its echo comes back.
 
-    if (aup->phy_static_config)
-        if (aup->phy_irq && aup->phy_busid == aup->mac_id)
-            aup->mii_bus->irq[aup->phy_addr] = aup->phy_irq;
+The DPO is stored without any check:
 
-In that same case, au1000_mii_probe() returns before it reaches
-phy_connect():
+j1939_tp_cmd_recv()
+  j1939_xtp_rx_dpo(priv, skb, false)
+    j1939_xtp_rx_dpo_one()
+      session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
 
-    if (aup->phy_static_config) {
-        ...
-        if (aup->phy_addr)
-            phydev = mdiobus_get_phy(aup->mii_bus, aup->phy_addr);
-        else
-            netdev_info(dev, "using PHY-less setup\n");
-        return 0;
-    }
+Then the EOMA echo completes the session:
 
-That leaves dev->phydev NULL, so the new phy_disconnect() calls are
-skipped.
+j1939_tp_cmd_recv()
+  j1939_xtp_rx_eoma(priv, skb, false)
+    j1939_xtp_rx_eoma_one()
+      j1939_session_completed()
+        j1939_sk_recv(priv, NULL)
+          j1939_sk_recv_one()
+            if (oskb->sk == &jsk->sk)
 
-On the dynamic search path, which is the only one that calls
-phy_connect(), the PHY's irq is still PHY_POLL. That means no interrupt
-is ever requested, and phy_disconnect() never reaches
-phy_free_interrupt().
+A matching socket must exist, because j1939_session_tx_eoma() won't send
+EOMA otherwise. So the loop body in j1939_sk_recv() always runs.
 
-The device and module references taken in phy_attach_direct(), and the
-attached_dev pointer to the freed netdev, do look like real leaks. Should
-the "PHY interrupts" part be dropped from the message?
+This is a remotely triggerable crash. Would it help stable backporters
+and security triage if the commit message said so and included the
+trigger sequence?
 
-> PHY teardown can re-enable the MAC for MDIO even if the interface was
-> never opened. Reset the MAC after PHY and MDIO bus teardown, before
-> releasing descriptors and register mappings. Skip MAC control accesses
-> when mac_enabled is clear, since stopping an already clock-gated MAC
-> hangs MTX-1.
+> diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
+> index 8fcfd13e5e6f8..ecf7f245f8378 100644
+> --- a/net/can/j1939/transport.c
+> +++ b/net/can/j1939/transport.c
+> @@ -1244,8 +1244,10 @@ static void j1939_session_completed(struct j1939_session *session)
+>  	if (!session->transmission) {
+>  		se_skb = j1939_session_skb_get(session);
+>  		/* distribute among j1939 receivers */
+> -		j1939_sk_recv(session->priv, se_skb);
+> -		consume_skb(se_skb);
+> +		if (se_skb) {
+> +			j1939_sk_recv(session->priv, se_skb);
+> +			consume_skb(se_skb);
+> +		}
+>  	}
+>  
+>  	j1939_session_deactivate_activate_next(session);
 
-Would it help to say that the new mac_enabled check also fixes an
-existing hang when register_netdev() fails in au1000_probe()?
+[Severity: High]
+When se_skb is NULL here, doesn't this drop a fully received message
+without any notice and then complete the session as if it succeeded?
 
-Before this patch, the au1000_reset_mac() call just before
-register_netdev() gated the MAC clock and cleared mac_enabled. If
-register_netdev() then failed, the err_out path called
-mdiobus_unregister(), which does no MDIO access, and then called
-au1000_reset_mac() again:
+session->err is still 0 on this path. j1939_session_destroy() only
+queues RX_ABORT when err is set:
 
-au1000_probe()
-  au1000_reset_mac(dev);        <- clock gated, mac_enabled = 0
-  register_netdev(dev) fails
-  goto err_out
-    mdiobus_unregister()
-    au1000_reset_mac(dev)
-      au1000_hard_stop(dev)
-        readl(&aup->mac->control)   <- MAC already clock-gated
+net/can/j1939/transport.c:j1939_session_destroy() {
+    ...
+	} else if (session->err) {
+			j1939_sk_errqueue(session, J1939_ERRQUEUE_RX_ABORT);
+	}
+    ...
+}
 
-According to the commit message, this access hangs MTX-1. The message
-describes the PHY teardown case but not this change in the
-register_netdev() failure path. Mentioning it would show backporters
-which failure modes this patch fixes.
+That has these effects:
+
+- Errqueue listeners that already got J1939_ERRQUEUE_RX_RTS and
+  J1939_ERRQUEUE_RX_DPO never get a final event.
+- Documentation/networking/j1939.rst describes J1939_EE_INFO_RX_ABORT as
+  the event for an aborted reception, and it is never sent here.
+- The peer has already been sent EOMA and thinks the transfer succeeded.
+- The only trace is a netdev_dbg() in
+  j1939_session_skb_get_by_offset().
+
+The other RX lookup site treats the same condition as a fault and
+cancels the session:
+
+net/can/j1939/transport.c:j1939_xtp_rx_dat_one() {
+    ...
+	se_skb = j1939_session_skb_get_by_offset(session, packet * 7);
+	if (!se_skb) {
+		netdev_warn(priv->ndev, "%s: 0x%p: no skb found\n", __func__,
+			    session);
+		goto out_session_cancel;
+	}
+    ...
+}
+
+The root cause named in the commit message is still in place.
+j1939_xtp_rx_dpo_one() stores the peer's DPO without checking it against
+pkt.total, total_message_size or the CTS window:
+
+	/* transmitted without problems */
+	session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
+
+J1939_XTP_ABORT_BAD_EDPO_OFFSET and J1939_XTP_ABORT_EDPO_OUTOF_CTS are
+defined, but nothing sends them.
+
+Also, j1939_session_skb_get() looks up the RX skb using pkt.dpo * 7:
+
+	offset_start = session->pkt.dpo * 7;
+	return j1939_session_skb_get_by_offset(session, offset_start);
+
+An RX session only has a single skb, allocated in
+j1939_session_fresh_new() and covering [0, total_message_size). So this
+lookup only fails when the peer has sent an out-of-range DPO.
+
+Would it be better to validate the DPO in j1939_xtp_rx_dpo_one() and
+abort with J1939_XTP_ABORT_BAD_EDPO_OFFSET? Another option is to look up
+the RX skb without using dpo.
+
+If the NULL check stays, could this branch at least set session->err, or
+cancel the session with an abort? That way the failure is reported
+instead of the session completing as a success.
+
+The commit message also doesn't mention this change in behaviour.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193223.2795612-1-f.fainelli%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117103516.535910-1-fuchen.dust%40gmail.com
