@@ -1,64 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212469;
-	b=rDQou0sxxWNxkef7x12ZwgJ1nP5tEwP+gbiojUsWzDCfTBS9sLBYVTjT/AAPOtwUnHkE
-	 JIGKe3+dOEZxctVUw/UGk5Xffl8Y+u9sQBRBs7QrN8rB6e4kL0+KtronsQgV1mJzrn70U
-	 JFA/H7YofTisv7Wk0+VpHpS31OdoVHW9IFG6218xrO/trPg9AENM9tAhJhEhS7uRlRMbg
-	 GhJb9viFjNGAteP3z2SfPpuLFrStxxbol0NiIWF/JaRWk5TS3Om/RT2JCT/ELhS9M8OKu
-	 G/9J+7XevQ4vNCiqZ/zZSZtavkbfc1/SBxRyTGqwaHVRZe2hMpwoGWXYvu8ZkwuVLhg==
+	t=1795212784;
+	b=fBldAxmTfsfOXm6Tyj+3qmrlTxUDfCDmlsLrRD9K1ikt+/tAR0zpZMgj8ALwejCQWMtq
+	 cCf0Oqls8qAE3425gvgE1iZNx5crCyVCWIGEWZKNQISI5v0dyjWslBd2HBuu7yKm0BNPI
+	 ByTh5vVUTwTBiIerInjMzdJxoSHpBEGVvoaJbdhAhwI4lQ3nTWnZYUEBKw9mrVCvlf0sY
+	 ngl6p+zW7U2QXzBStrCoK9sb9faBhmYvtMLeE3dJods3a+jIlfX579By85BiNLMUFIbXo
+	 w3UrBAKr/2J049i07+mpyU5aqd2uy0BNTbyrd7Eh0hkuv75d6yHLzv06ulQb8rrDs0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212469;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=f4QmiUDZ4gx7yE4qy8MJEX6RsGlkm8gKrF4n69bocpk=;
-	b=2L1kF8h/nXputH81nkb0I5cVouM2AqZa3LeU4fMFHvuuvgBUdnpDPFiAStzRPbL8KBoC
-	 UCKKwpI5E7OsX0xeqpvpR2Mg9I8Y2+TESpQPyEP/Qbb5Q+uhi/PYYRkV1oibTYTad/Q9U
-	 wWCY/KDvbsUxa4JWRJ2UUwnyDCg14kN+PNiEz7zLR1UcfgJ7SpJwDeEwJejASuY+tQkzk
-	 RqRIDEtL1GhWxN1TLYxeswEnfWfMxTptUjj10IXc1jkwOb19l/GbcHPo5h5SXQDo4E9Z/
-	 I7RqpcZH8jsMSPOC++XsrDMWOAROP6tGRNG8Un41ZwX40VbP9gFf1QK5kQHzklXFJlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212784;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=RAg6Mpdcvh/+KxfIFzt5il4MRvFCLhL1yfr5pd9t0uU=;
+	b=AZnEmzV5UUH6tEwTqW+ZsD3B/YHXJeJr5qGs0NwuExlr1kPs+sn/ollNsmm7PETv0yNv
+	 0Eaflxbohfl9LKaYBpPNvQT8cCufRN5dCeANnEtQf/l8WQ1+AwuKf2sk/Pu40eAKdKxRp
+	 PBr2g0qK5xWRRm7B+p2kI5hclnQnZoAoMFYEMlZBCX7azSZRmvYEdA4FZIfgJFjk2iU7c
+	 2xkbvh3KqDaeNGxTEv94olEAUMp5VXX3MwSrpZEFlIws19T/Sl1sbCSqcDr0osJ+HNa8B
+	 VP9ZAwRlkgXqvmHyPdlL1IpdXKcxr+91v/KxNcCmft8jQE7T5baqsFxrs5CQdh/flhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uXuiJMgE;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbGS0YAn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AD45606A339;
-	Fri, 20 Nov 2026 22:07:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AD45606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EC3E606A68E;
+	Fri, 20 Nov 2026 22:13:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uXuiJMgE
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=f4QmiUDZ4gx7yE4qy8MJEX6RsGlkm8gKrF4n69bocpk=; b=uXuiJMgEfLJYDLoHXXzpu/YWwn
-	XsRznvpKS8qZsraSH4YXzz7wZ19KvMWC0JOL4d1tKiqoXdGqYey0DZqlcUSmvHDwhOHZd6H6KiCxv
-	MSRTrU4/D5DLaNtazXoJW5zyuu7voWAZBb+dh1XKXpljA1dZF/uJDf5dWrP4CeHe126Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUWlW-000Nl0-Qj; Fri, 20 Nov 2026 23:07:30 +0100
-Date: Fri, 20 Nov 2026 23:07:30 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bastian Germann <bage@debian.org>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-Message-ID: <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
-References: <20261119231319.1256419-1-bage@debian.org>
- <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
- <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbGS0YAn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61AD41F000C4;
+	Fri, 20 Nov 2026 22:13:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795212784;
+	bh=RAg6Mpdcvh/+KxfIFzt5il4MRvFCLhL1yfr5pd9t0uU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=bbGS0YAnzWyC9pNnjeqTIN4We0y2jDbCIvxCiwfv1iPgiLdN0KneN/C9T1GT1w6Xn
+	 25Ug2RfndDjIeKLkSxH/HLc2ZICbcKv3pJYODnW3L7ikp9NoyF8yfpGJYq0QtfG53w
+	 y8lI9GmkbaOX0EiwXfC4/lUL4m/+VkEDHireXy+2MADHTQYdR51UL2RdI1VHC2FH95
+	 vRd4ScRbSo4zZPfJNrl9ibYOyR2LR6J3VV2sIkVdjudnv3xPFe3yiLHfr2XC1t4xrv
+	 gLDSPj32vVoA5CRKEhG3WsX8LPjaCosUG6er0vb7/If7gOIAUysx7V1L5tFSmV75Hq
+	 bf5A23hfp0XUw==
+Date: Fri, 20 Nov 2026 14:13:02 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
+ michael.chan@broadcom.com, manishc@marvell.com, joshwash@google.com,
+ hramamurthy@google.com, tariqt@nvidia.com, saeedm@nvidia.com,
+ daniel@iogearbox.net, hawk@kernel.org, sdf@fomichev.me, willemb@google.com,
+ przemyslaw.kitszel@intel.com, bpf@vger.kernel.org
+Subject: Re: [PATCH net-next 3/8] net: state the "XDP excludes HW-GRO" rule
+ in the core
+Message-ID: <20261120141302.5bb2b7ae@kernel.org>
+In-Reply-To: <willemdebruijn.kernel.7756e60d4e06@gmail.com>
+References: <20261118232315.3593731-1-kuba@kernel.org>
+	<20261118232315.3593731-4-kuba@kernel.org>
+	<willemdebruijn.kernel.7756e60d4e06@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,35 +65,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 10:40:55PM +0100, Bastian Germann wrote:
-> On 11/20/26 01:33, Andrew Lunn wrote:
-> > On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
-> > > The "broken-turn-around" property is documented in mdio.yaml for any
-> > > MDIO device, but the MDIO core currently parses it only for PHY devices
-> > > in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
-> > > switches, are registered through of_mdiobus_register_device(), where the
-> > > property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
-> > > still treat the turn-around/read failure as an error.
-> > > 
-> > > Parse the property when registering a non-PHY MDIO device and set the
-> > > corresponding bit in phy_ignore_ta_mask before registering the device.
-> > What switch is causing you problems?
+On Thu, 19 Nov 2026 17:59:08 -0500 Willem de Bruijn wrote:
+> Apparently drivers can enable HW_GRO in some edge case (that can be
+> plugged itself?):
 > 
-> It is with mv88e6085.
-> 
-> I have just found that Nathan Rossi sent basically the same patch as
-> <20210217044443.1246392-1-nathan@nathanrossi.com>.
+>     The rule is only enforced at attach time (dev_xdp_clear_rx_agg). Later
+>     recomputes don't re-check after ndo_fix_features. Example:
+>       1. Attach a multi-buf XDP program to mlx5 with HDS off. HW-GRO goes off.
+>       2. Enable tcp-data-split. rings.c:253 only refuses this for
+>          single-buffer XDP, via dev_xdp_sb_prog_count().
+>       3. The next feature recompute runs mlx5e_fix_features(), and its
+>          "Keeping HW-GRO enabled" block (en_main.c:4643) sets GRO_HW again,
+>          after this strip. HW-GRO is now on with XDP attached.
+>     This already happens today, but once 5/8 removes mlx5's own XDP check
+>     the core is the only guard, and it misses this case. Either add a
+>     post-fix_features check here (warn and strip, or refuse the change), or
+>     make the HDS-enable path in rings.c refuse while any XDP program is
+>     attached and the driver ties HDS to HW-GRO.
 
-[Goes and find the thread]
+Enabling of HDS can't happen in the sequence you describe, driver
+checks:
 
-Are you bit banging as well? Or do you have another MDIO bus
-controller?
+static bool mlx5e_ethtool_set_tcp_data_split(struct mlx5e_priv *priv, 
+...
+        if (tcp_data_split == ETHTOOL_TCP_DATA_SPLIT_ENABLED &&                 
+            !(dev->features & NETIF_F_GRO_HW)) {    
 
-The point about the mv88e6085 using multiple addresses is valid. How
-do you have the mv88e6085 configured?
+and with XDP attached GRO_HW is not in features (only wanted_features)
 
-   Andrew
+Thanks for the reviews, I'll spin v2 before EOD
