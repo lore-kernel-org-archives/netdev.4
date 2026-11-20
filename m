@@ -1,108 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162279;
-	b=mG2/5H737Qnt0AXxv3kUZ8T5yjbq1tLeQhEsNUMkTLQ//QflSpOLGmiHSM4cFxR32Vyz
-	 mOjoZ/KeGb8GSmYJMdsH4Wsmgl+kqPIgUOOlHOVKengeAuNIzelbOcfUx7SoyLvbFjOVR
-	 PcflHfJ9t1dSbHyTVj+dtyOC/e4MnP6C8sWvXoEbnQo4qzbRyFlOm2undGLmWAwOTnqLu
-	 o+Crxnw8olVtY/yZyDI4cjG1odpGOl00BuBscPnLkveUYH9Ynv4WRqwYhRCED3aFGBGy1
-	 pfJgzjgQiHW0mZ+w1u0bWulE/ADpRwEin4TQY9fS4C5GBwQoTYJdDYFmggVEmtQNHEA==
+	t=1795162349;
+	b=TFMr0HKnyMpnvbNPeHTmN3uAD52gcvL4kgTVo15a/k+gR4FqS+p0ID62i0Sjtsqc10aF
+	 1MUZtiyyaUcnscb7ELeRPGqeIf8uX+2dLyOjpS2tFWAKPsol8GqJNrKtMZrWXJRb2Oiwe
+	 ACoHef0aJHXP7V6huzLXuzQAAP1di+zs6k1Rx/7/QfKcyIOtUlExcGeYw+NzF6EkA+23G
+	 A3F8LWgk2T17Zv/zQSpPbTIh4E9zwzfgQBNB52H8iXml14H/h1e+X3/gMVi5U+Zr0pOEB
+	 N9NN5qudZ93SAcz1QjND3UVB+JAsWiZvvJAVaZsN3XOe55yH7Noyhpq+hZ5UD3suDsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162279;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=GLTEhXxrmN8coLJWucp8fFY/jceHUAmhcGiMuOyr+Bw=;
-	b=2ExzMpI4CFksSJ+wY/YII/Vw+3Dr5mT8MhibZ/T33dZ1fcC5b9IFEsTDEtiog5yFD5ka
-	 BuZ+2c1CzjyWi2aK1Dyf+rbZ5AuTHvcM5UGO54CUBfVK157bPO1jCvdCq+mPun6g24+rp
-	 JzrxjkdJeFEIc53B+LIgZ7KbbHu5z2etF1CXaJbCR4IK7s61iUhGDsgYaFW60WXC0C2CY
-	 SACz+vE1csoTR3uB7QFjxwt5U/vOWhgSewKwYb0RUDJpZRmscRwNbgy1ily2LLYRrjLl6
-	 B+26OBIcfudi28Pc2NMrWsQZlw7StImtq5W7UWxgUeA4WXvfEeskusdkiwqJmPcwviA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162349;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=4vMb3ekuP5rbHIehlChmRxIZBP259zDPbkBrUKJPOh8=;
+	b=jhpCxNOP6VIOo4FXufD/HJDxT3NYXjUevayjkelDVhMjxpgRLs3h41IgA3WEtL11rNHz
+	 c5doDVfocqvP7KztZdXbaNIqLzlwhZWvAxmb3VhXGNygdB4yRpJYjLlUccWzhS3qyBu3+
+	 MzW0yEXm4VqgvzKGIoPQKKSOjmYyOA6XP5n73ViudydH678lNF/aK11CPIm+24DLsD26b
+	 W0sYkG0OM4rVF+7otd8ey9Eqa6nlVctbKnK9GRIWTab/wtvdBTKik/X8qx+TWJtkKpnBJ
+	 WAAtcyxQgkYuXLnfk6WVy0+LOs1cvgPaaDB210bj6juY+6D10SQ4ZgjIqPRRGcW18uw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YxsPbRcu;
-	arc=none smtp.remote-ip=209.85.167.49
-Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=uzYQJ5qk;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A3D360A2606
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 08:11:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A3D360A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6561606A320;
+	Fri, 20 Nov 2026 08:12:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6561606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YxsPbRcu
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5be3d5927ceso839381e87.3
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:11:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795162277; x=1795767077; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GLTEhXxrmN8coLJWucp8fFY/jceHUAmhcGiMuOyr+Bw=;
-        b=YxsPbRcuV/l+/JvljlytWzU2sXS/F3iac46dpyDAZtW300u9oogxHTx65mysM0H1CQ
-         4anLmb+HnBGtjdOEiw0b1w+4f66oEWkDhNyNq0oYlpYNv0LPNrR0Zq/a0B+VvYNxtmoz
-         8LgdvC4VWRQYbZghQsslqqnWuaEzxsv/acA1Z2AOK2sHUdsIXWPqsPhTMgBw8SDrBA28
-         QbiD+YzIDpOblPMehE4BumMr4lr/c+7wIMNGpMibtU/zHHt4BgBZFUIjTp5Rg0qBTVKj
-         fK+UGW/i+tRtU8rMsBlHDQFkeNA2w4r3A2HDoJjQEeFNZcV8mKD9D5nyXpViRm+sIV7w
-         n/FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795162277; x=1795767077;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GLTEhXxrmN8coLJWucp8fFY/jceHUAmhcGiMuOyr+Bw=;
-        b=hrhDtVWpZDvYq6keNbrzjxYAUb3JEdzKggfN5YnvgLMZZJ0mvaePD4/RMs52YTDDFH
-         klNZQnTvoIIcUdZkyJVizJaA+P3J+iaaCp0dGF/EuayyOgbLvhFWo8mnjaBZDsRrAr1f
-         RqIEmEC/Rl4sONAeCYbNncb8UweQtE9tL1/7mSW9jIK2g3GV7p1hl6SwNW8kAf/3RZlB
-         tueGd1kpLGNhk7FZ8UDsLLXTh0Tm0ViFs8fRTVi4zIIyOUPXT9yGK9MbVSZ+K24nSuzk
-         /QIClMDkJxSrnrRt1rGpLAtHBV2KI/Z6iM19LurZFzVy+hRH3/onV2BM5s8j3fAdWZ22
-         pdYw==
-X-Forwarded-Encrypted: i=1; AL+hErGtKycC8FCR1ZbuDghOgY0Ftvq1yJPxpGwDYuMezAM3aTje0MLzBvXbmdnkW4NBDNEw1SdjuOA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MKxTSYMsaJerhLR18JVZVmjEPxL+Pp2ocgoVKI2P52p3VOPKs
-	JkwnomxkeYwVMZOZmQSzJC6fRq9hIJPZyFB3VFLUreWXdC6S1Fx4lUPt
-X-Gm-Gg: AZFdTZfS4eaw3ubunkVT3ygQMeqm/C3eZyLVIqDIVDGG2odNOmhUoKDriBEzYOeBRGA
-	KnlqtAA1ecVtc7qpcLILJ6jmaWtRFhLzHgUszkUIvgSZZqacHBsRnxLSQszgoijhyeQbp2YN89H
-	1lgfzdE6PJOBt6xU0FbgF+RyRZtleBeHnEu1zS/DcoZ/IjHuL/U0KW+t32aXj/2i1SUcQq4uTZx
-	34Xo/mPKnK7GT3BJKn+q+15qn16iG0Mwmn8e+eF661RlEVxMGIsOAhE0ssDdB16R5nuQ4TVEqdT
-	JlxmJiFpjKPENIW1XRY4acNu2xxESVtinjA2DGhWLsfSBJscBMd1kAOHYb2aIz6qtRtlD72rxA9
-	d8d+IVzLOcAYcc4y/HwLs9vX/GGmxa0OXVhSzbLKsVjlhwlNK+XMxdXNSMhjpDJKYgwzDcIiu2Z
-	i0TLRwpRNoaUrBt4Bi2y0pvfFjTpsckEjlD4jU0AyGKb824Dv0pZaG6cgWWzNGTN/qqMCWhM0Ou
-	ulO50TTef7ENjMw23ooD0wO3AEMGr1Y7ZVXMzzsqYXGDsigdc/P8GIYxMdyaT6nb/JXLw8lyFfV
-	seDK6P8ecTiwyuY2YdyhYQhchYp3tP4pFUV3oGvH5tvNYfs=
-X-Received: by 2002:a05:6512:2255:b0:5bf:a349:d8d2 with SMTP id 2adb3069b0e04-5c1bc85bdb5mr680791e87.45.1795162277072;
-        Fri, 20 Nov 2026 00:11:17 -0800 (PST)
-Received: from NB-6746.corp.yadro.com ([188.243.183.76])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd018b3asm395463e87.32.2026.11.20.00.11.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:11:16 -0800 (PST)
-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	maxime.chevallier@bootlin.com,
-	pavel@ucw.cz
-Cc: Artem Shimko <a.shimko.dev@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH net-next v3 4/4] net: phy: dap8211r: add PHY LED control support
-Date: Fri, 20 Nov 2026 11:11:02 +0300
-Message-ID: <20261120081106.2919010-5-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120081106.2919010-1-a.shimko.dev@gmail.com>
-References: <y>
- <20261120081106.2919010-1-a.shimko.dev@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=uzYQJ5qk
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AK8BiJnA3244419, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795162304; bh=4vMb3ekuP5rbHIehlChmRxIZBP259zDPbkBrUKJPOh8=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=uzYQJ5qk83R6sDFwIISbiJ5oK4hURFziiBts83Tiywk9nUI/YJxNOopQ2ZBy9J1OY
+	 AfE3qnGQma/EbQlfreMF9lUHrl+EIX4euvE78mrXqY+rpXaGSNGNKXwZyOjT3tpYfK
+	 fayumIx9sCznUDc4fs3rqP3krLoAnxT6NrRfM7T4Ufp3Qz5KT0DGIqxN40ogLvypX6
+	 qWol6NhiRw+wCGeFxwF3eacUJeqHavoIxCIQvg6viy3zJw98JhBVoA2zIkbc/MXO6q
+	 jp1hVnGuwp7r/SU9rftiN1OKpv2cjjFCOHdD+Cls0M9ng2/KUnHBaEdTozFUuiiwab
+	 dlSEp9q6A36gA==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AK8BiJnA3244419
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 20 Nov 2026 16:11:44 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 16:11:43 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 20 Nov 2026 16:11:43 +0800
+From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Birger Koblitz <mail@birger-koblitz.de>, "netdev-bot+sashiko@kernel.org"
+	<netdev-bot+sashiko@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>,
+	"kuba@kernel.org" <kuba@kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, nic_swsd <nic_swsd@realtek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"edumazet@google.com" <edumazet@google.com>, "bjorn@mork.no" <bjorn@mork.no>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>
+Subject: RE: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
+ RTL8157 and RTL8159
+Thread-Topic: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
+ RTL8157 and RTL8159
+Thread-Index: AQHdcMMAVp0iERnuiECMnOxwgdqzp7cszWwAgAbBatD//87JAIAAMkyAgAF2UFD//+4SAIABqmQw
+Date: Fri, 20 Nov 2026 08:11:43 +0000
+Message-ID: <6a2c635ba56d4deab25a25db9af91c10@realtek.com>
+References: <20261110032416.16968-11-nic_swsd@realtek.com>
+ <179464851836.2199510.10154643847175029122@kernel.org>
+ <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
+ <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
+ <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
+ <b53ecd5dc96f4890956f051959b74e32@realtek.com>
+ <1543707c-c121-4c35-8849-c4db1a71fb57@lunn.ch>
+In-Reply-To: <1543707c-c121-4c35-8849-c4db1a71fb57@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,267 +95,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Add support for hardware-controlled LEDs and brightness on the DAP8211R
-PHY. The chip exposes three LEDs that can be programmed to react to link,
-speed, duplex, and TX/RX activity or be driven via the force mode.
+On 19/11/2026 9:58 pm, Andrew Lunn wrote:
+> On Thu, Nov 19, 2026 at 07:18:16AM +0000, Chih Kai Hsu wrote:
+> > On 19/11/2026 12:42 pm, Birger Koblitz wrote:
+> > > On 18/11/2026 2:42 pm, Andrew Lunn wrote:
+> > > >> I plan to add two new functions, rtl_nway_restart() and
+> > > >> rtl8152_get_link_ksettings, to replace mii_nway_restart() and
+> > > mii_ethtool_get_link_ksettings, respectively.
+> > > >
+> > > > Ideally, you should port this driver to phylink.
+> > > >
+> > > >        Andrew
+> > >
+> > > Indeed, all of the (integrated) PHYs on the adapters supporeted by
+> > > r8152 I looked at are already supported under
+> > > drivers/net/phy/realtek/ It should be straight-forward with many imme=
+diate
+> benefits.
+> > >
+> > > Birger
+> >
+> > I agree that a phylink conversion is a better long-term direction. I'd
+> > like to keep it out of this series. This series fixes and completes
+> > the existing RTL8157/59 support. The phylink conversion is a larger
+> > change. r8152 has no MDIO bus and accesses PHY through OCP registers.
+>=20
+> It does have an MDIO bus, it just used OCP registers to access it. But th=
+ere is no
+> reason you cannot export it using a normal Linux MDIO bus driver.
+>=20
+> > , and the MAC code also does PHY configuration,
+>=20
+> Which is a layer violation.
+>=20
+> > firmware patching, UPS and EEE handling that would need to move or
+> > coexist with the phylib drivers.
+>=20
+> Or just thrown away because the it already works in the PHY drivers and
+> phylink.
+>=20
+> > The two helpers here are self-contained and will be removed by the
+> > phylink port.
+>=20
+> phylink_ethtool_nway_reset and phy_ethtool_nway_reset exists, so there is=
+ no
+> need to add yet another version. phylink_ethtool_ksettings_set &
+> phylink_ethtool_ksettings_get and phy_ethtool_get_link_ksettings &
+> phy_ethtool_set_link_ksettings already exist, so there is no reason to ad=
+d new
+> ones.
+>=20
+> I'm tempted to just NACK it. The best pressure i can apply to make you mo=
+ve to
+> phylink is to not merge your patches. If you are adding stuff which shoul=
+d really
+> by done by phylink, i think it should be rejected.
+>=20
+>       Andrew
 
-Implement callbacks for led_brightness_set(), led_hw_is_supported(),
-led_hw_control_set(), led_hw_control_get().
+I will keep the MII APIs.
 
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
----
- drivers/net/phy/dap8211r.c | 215 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 215 insertions(+)
+Our read_mii_word() returns a negative errno when a PHY access fails, so th=
+at callers
+can stop early. The MII library does not check for it: mii.c uses the mdio_=
+read() return
+value as register content, so mii_nway_restart() and mii_ethtool_get_link_k=
+settings()
+treat an errno as bits.
 
-diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
-index f626b43fdee1..b0fb3cf89b55 100644
---- a/drivers/net/phy/dap8211r.c
-+++ b/drivers/net/phy/dap8211r.c
-@@ -12,6 +12,7 @@
-  */
- 
- #include <linux/bitfield.h>
-+#include <linux/bitops.h>
- #include <linux/errno.h>
- #include <linux/ethtool.h>
- #include <linux/kernel.h>
-@@ -57,6 +58,49 @@
-  */
- #define DAP8211R_DEFAULT_DEL_SEL	0xD
- 
-+#define DAP8211R_LED_ID_0		0
-+#define DAP8211R_LED_ID_1		1
-+#define DAP8211R_LED_ID_2		2
-+
-+/*
-+ * LED_COMCON force mode bits, per LED:
-+ * bit 2 - FORCE_EN (enable force mode for this LED)
-+ * bit 1:0 - FORCE_MODE: 00 = OFF, 01 = ON, 10 = blink mode1, 11 = blink mode2
-+ *
-+ * Only ON/OFF is supported.
-+ */
-+#define DAP8211R_LED_COMCON		0xA00B
-+#define DAP8211R_LED_FORCE_MODE_EN	BIT(2)
-+#define DAP8211R_LED_FORCE_MODE_MASK	GENMASK(1, 0)
-+#define DAP8211R_LED_FORCE_MODE_ON	FIELD_PREP(DAP8211R_LED_FORCE_MODE_MASK, 1)
-+
-+#define DAP8211R_LED_FORCE_EN(idx)	(DAP8211R_LED_FORCE_MODE_EN << 3 * (idx))
-+#define DAP8211R_LED_FORCE_ON(idx)	(DAP8211R_LED_FORCE_MODE_ON << 3 * (idx))
-+#define DAP8211R_LED_FORCE_MASK(idx)	(DAP8211R_LED_FORCE_MODE_MASK << 3 * (idx))
-+
-+#define DAP8211R_LED_0_CON		0xA00C
-+#define DAP8211R_LED_ACT_BLINK		BIT(13)
-+#define DAP8211R_LED_FULL_DUPLEX	BIT(12)
-+#define DAP8211R_LED_HALF_DUPLEX	BIT(11)
-+#define DAP8211R_LED_TX			BIT(10)
-+#define DAP8211R_LED_RX			BIT(9)
-+#define DAP8211R_LED_LINK_1000		BIT(6)
-+#define DAP8211R_LED_LINK_100		BIT(5)
-+#define DAP8211R_LED_LINK_10		BIT(4)
-+
-+#define DAP8211R_LED_LINK		(DAP8211R_LED_LINK_10	| \
-+					DAP8211R_LED_LINK_100	| \
-+					DAP8211R_LED_LINK_1000)
-+
-+#define DAP8211R_LED_SUPPORTED_TRG	(BIT(TRIGGER_NETDEV_LINK)	| \
-+					BIT(TRIGGER_NETDEV_LINK_10)	| \
-+					BIT(TRIGGER_NETDEV_LINK_100)	| \
-+					BIT(TRIGGER_NETDEV_LINK_1000)	| \
-+					BIT(TRIGGER_NETDEV_TX)		| \
-+					BIT(TRIGGER_NETDEV_RX)		| \
-+					BIT(TRIGGER_NETDEV_HALF_DUPLEX)	| \
-+					BIT(TRIGGER_NETDEV_FULL_DUPLEX))
-+
- static const int dap8211r_internal_delay[] = {0, 150, 300, 450, 600, 750, 900,
- 					      1050, 1200, 1350, 1500, 1650, 1800,
- 					      1950, 2100, 2250};
-@@ -139,6 +183,173 @@ static int dap8211r_modify_ext(struct phy_device *phydev, u16 reg, u16 mask, u16
- 	return ret;
- }
- 
-+/**
-+ * dap8211r_led_brightness_set() - Modify the LEDs common control register
-+ * @phydev: PHY device structure
-+ * @index: LED index
-+ * @value: ON/OFF value for force mode of the LED
-+ *
-+ * Enables force mode and sets the LED to ON/OFF state.
-+ * It will be disabled when hardware LED control is requested.
-+ *
-+ * Return: 0 on success, -EINVAL for an invalid LED index, or a negative error code
-+ */
-+static int dap8211r_led_brightness_set(struct phy_device *phydev, u8 index,
-+				       enum led_brightness value)
-+{
-+	u16 set, mask;
-+
-+	switch (index) {
-+	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
-+		mask = DAP8211R_LED_FORCE_MASK(index);
-+		set = DAP8211R_LED_FORCE_EN(index);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	if (value != LED_OFF)
-+		set |= DAP8211R_LED_FORCE_ON(index);
-+
-+	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON, mask, set);
-+}
-+
-+/**
-+ * dap8211r_led_hw_is_supported() - Check if the requested LED rules are supported
-+ * @phydev: PHY device structure
-+ * @index: LED index
-+ * @rules: Bitmask of requested netdev trigger rules
-+ *
-+ * Validates the requested combination of rules which can be represented in the
-+ * hardware register.
-+ *
-+ * Return: 0 on success, -EINVAL for an invalid LED index,
-+ *         or -EOPNOTSUPP if any requested rule is not supported by the PHY
-+ */
-+static int dap8211r_led_hw_is_supported(struct phy_device *phydev, u8 index, unsigned long rules)
-+{
-+	switch (index) {
-+	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return (rules & ~DAP8211R_LED_SUPPORTED_TRG) ? -EOPNOTSUPP : 0;
-+}
-+
-+/**
-+ * dap8211r_led_hw_control_set() - Write the LED control register
-+ * @phydev: PHY device structure
-+ * @index: LED index
-+ * @rules: Bitmask of requested netdev trigger rules
-+ *
-+ * Disables force mode and translates the requested trigger rules into
-+ * the corresponding bit positions of the LED control register and writes
-+ * the resulting value to the PHY.
-+ *
-+ * Note that the ACT_BLINK bit (13) must be set together with TX/RX rules,
-+ * otherwise the LED will not blink on traffic if no other rule (such as
-+ * link or duplex) is active.
-+ *
-+ * Return: 0 on success, -EINVAL for an invalid LED index, or a negative error code
-+ */
-+static int dap8211r_led_hw_control_set(struct phy_device *phydev, u8 index, unsigned long rules)
-+{
-+	u16 led_mode = 0, led_reg;
-+	int ret;
-+
-+	switch (index) {
-+	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
-+		led_reg = DAP8211R_LED_0_CON + index;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	ret = dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON, DAP8211R_LED_FORCE_EN(index), 0);
-+	if (ret)
-+		return ret;
-+
-+	if (test_bit(TRIGGER_NETDEV_LINK, &rules))
-+		led_mode |= DAP8211R_LED_LINK;
-+
-+	if (test_bit(TRIGGER_NETDEV_LINK_10, &rules))
-+		led_mode |= DAP8211R_LED_LINK_10;
-+
-+	if (test_bit(TRIGGER_NETDEV_LINK_100, &rules))
-+		led_mode |= DAP8211R_LED_LINK_100;
-+
-+	if (test_bit(TRIGGER_NETDEV_LINK_1000, &rules))
-+		led_mode |= DAP8211R_LED_LINK_1000;
-+
-+	if (test_bit(TRIGGER_NETDEV_RX, &rules))
-+		led_mode |= DAP8211R_LED_RX | DAP8211R_LED_ACT_BLINK;
-+
-+	if (test_bit(TRIGGER_NETDEV_TX, &rules))
-+		led_mode |= DAP8211R_LED_TX | DAP8211R_LED_ACT_BLINK;
-+
-+	if (test_bit(TRIGGER_NETDEV_HALF_DUPLEX, &rules))
-+		led_mode |= DAP8211R_LED_HALF_DUPLEX;
-+
-+	if (test_bit(TRIGGER_NETDEV_FULL_DUPLEX, &rules))
-+		led_mode |= DAP8211R_LED_FULL_DUPLEX;
-+
-+	return dap8211r_write_ext(phydev, led_reg, led_mode);
-+}
-+
-+/**
-+ * dap8211r_led_hw_control_get() - Read the current LED configuration
-+ * @phydev: PHY device structure
-+ * @index: LED index
-+ * @rules: Pointer to a bitmask where the current rules will be stored
-+ *
-+ * Reads the LED control register and translates the hardware bit
-+ * positions back into the corresponding netdev trigger rules bitmask.
-+ *
-+ * Return: 0 on success, -EINVAL for an invalid LED index, or a negative error code
-+ */
-+static int dap8211r_led_hw_control_get(struct phy_device *phydev, u8 index, unsigned long *rules)
-+{
-+	u16 led_reg;
-+	int led_mode = 0;
-+
-+	switch (index) {
-+	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
-+		led_reg = DAP8211R_LED_0_CON + index;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	led_mode = dap8211r_read_ext(phydev, led_reg);
-+	if (led_mode < 0)
-+		return led_mode;
-+
-+	if (led_mode & DAP8211R_LED_LINK_10)
-+		__set_bit(TRIGGER_NETDEV_LINK_10, rules);
-+
-+	if (led_mode & DAP8211R_LED_LINK_100)
-+		__set_bit(TRIGGER_NETDEV_LINK_100, rules);
-+
-+	if (led_mode & DAP8211R_LED_LINK_1000)
-+		__set_bit(TRIGGER_NETDEV_LINK_1000, rules);
-+
-+	if (led_mode & DAP8211R_LED_RX)
-+		__set_bit(TRIGGER_NETDEV_RX, rules);
-+
-+	if (led_mode & DAP8211R_LED_TX)
-+		__set_bit(TRIGGER_NETDEV_TX, rules);
-+
-+	if (led_mode & DAP8211R_LED_HALF_DUPLEX)
-+		__set_bit(TRIGGER_NETDEV_HALF_DUPLEX, rules);
-+
-+	if (led_mode & DAP8211R_LED_FULL_DUPLEX)
-+		__set_bit(TRIGGER_NETDEV_FULL_DUPLEX, rules);
-+
-+	return 0;
-+}
-+
- /**
-  * dap8211r_config_init() - Initialize PHY
-  * @phydev: PHY device structure
-@@ -227,6 +438,10 @@ static struct phy_driver dap8211r_driver[] = {
- 		.config_aneg	= genphy_config_aneg,
- 		.suspend	= genphy_suspend,
- 		.resume		= genphy_resume,
-+		.led_brightness_set	= dap8211r_led_brightness_set,
-+		.led_hw_is_supported	= dap8211r_led_hw_is_supported,
-+		.led_hw_control_set	= dap8211r_led_hw_control_set,
-+		.led_hw_control_get	= dap8211r_led_hw_control_get,
- 	},
- };
- module_phy_driver(dap8211r_driver);
--- 
-2.43.0
+When the errno is -ENODEV, nothing reaches the hardware. The device is gone=
+, so the
+write that follows in mii_nway_restart() is blocked as well. The remaining =
+case is a PHY
+access timeout, where the device is still accessible. The root cause there =
+is also that
+the MII library does not check the errno, so a future patch could make the =
+MII APIs
+check the mdio_read() return value and propagate the error. That would fix =
+it for
+every user instead of working around it in r8152.
+
+Moving r8152 to phylink is the direction we want to take. We want to study =
+the design
+before committing to it, and it's a larger change than this series, so I wo=
+uld like to
+separate it from this series.
+
+Meanwhile, the legacy PHY access may cause bugs if the driver and the firmw=
+are
+access the PHY at the same time. So, the TGPHY patch is needed for RTL8157/
+RTL8159.
+
+Best Regards,
+Chih-Kai
 
