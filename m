@@ -1,47 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210229;
-	b=XAqytNBHVLmarwkNl5nxPo4YQSh5++Nuq5ACA3D0ZJAplBHFiLTq+WHXJmdIa11TVVxF
-	 XaqpWYsQFk0BrRzRCbo7sE6KVHsj5mb3T6nufGw39wHWMbuaf/TXhEg+IhLe8W1JwbXzR
-	 cXhoQuObuPF5EYkHkhnBhA8b8qvKJKmqD0Ovh8JS5yqG+ZHlpsk2DYb4+4BISo6TRlsfX
-	 2V6C8ncwkEmmaKV77PByJcpl1aZ5TB1zCyfaJ/Oy7O8KZ/fHxQmDU1sjooao2h0K9XCGX
-	 8R6i8y4eKkYDomCevegMLC9PNUHl0/qAbhhCJIPXwT/SCwRPoiONOFiAFZPwmSHQNig==
+	t=1795210249;
+	b=qXuIk0c0KHISeBl5S18dyo12gjtt2ELTWK5WKinJW2OygdDjabnWF4T3YPDfOaOqneG+
+	 IIytFLu2g2NVnp/iu+49BOLeouPNbMyYYOuB1vDkDa9HCMNjnvHyVwd2rBIq4lPEpTHWL
+	 bYGaNMNbllcAHO7CWI4Ij088OHBcDeKi+7sJh9Wl53Coi2ENkyg4IDNKSFxq8zcaTTqyG
+	 RtPNCCG2DRsOKLRxDdL2zsHmcO1SEZLQvJytch3bPu1KKQyWdCQYb3mV9Bc6//yFnUX6o
+	 8RAleJ6iGY75aM1iTQI+lMUSNFkO19Fd1DP72ak6AOxL/p1LiNkgBozE7go/uxprvDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210229;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=n1FExJ2YYOcMBjxKbzlEbZLCmz73/PfKMECGOdwKHZ4=;
-	b=QNerugSa1dSlkaj29+7coPXU6pQu32ULyRSK2m7xjIiq15+Oc8+bOL4gmhPHXp/zvcE6
-	 BBymjpsa3kQLRw8v1vA6444a3I0aBzbsf7qconJRcO1T2eh9NI+zirDtd0UvRPelguyyT
-	 UlzCbSwt9deamsonYlqHspG1YiSMhaKqwwEZtwgdwR5d0nciT48K3h4DUb9tGC6ZFOzI/
-	 30bXYyD0qeckUFGBdMHeLxGjVCLPIvN5UOiqLYdQRzQW3peaS3zk98VOfEBAbpiJ3cVs/
-	 4AY7yYZZd6b896CvKJkpbLmcyeSbHeP4PM6ZMyEOwfb9EatjDDhUbXl5/eeLnKTIT8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210249;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=a1ho229usvH7WXbHz/geyTJETW2rhXcPAgdJKyw9+jY=;
+	b=oDYNMSHxxq3A4HLppapUbM2WC6Wde9RVL9KbQOc8SdUkE9XSb6VU3WKpypV/N2fzLoV4
+	 t0JqWrtqLiA1b6s5DXLuWTGV0xYwhIUgEN/pbxIHvaeJcMVQ+1rEgxpLbAx1QaIfCvAeS
+	 CaJLRGy3fVaVS6WqTrAo9h0x7LL/kTb6zD587oNTyYtW/Wxu+DU1ofSPDeKRu18No6mlW
+	 ZxtlBUvIlicU2nVeTYA7gF7dhnPSjlptZVn0t5jm+08KDu/TkhkkObQRdH/NLOuJrOOWd
+	 DZmmKQqWmu/bUuCTRcH/UR92oSRmY3xm/zMg+oHDP/xqMau6Gw0erEMoz3exsQI7jGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGJ2dXSK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7vbJLAa;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C0F7606A6B8;
-	Fri, 20 Nov 2026 21:30:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7461606A6B9
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:30:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7461606A6B9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGJ2dXSK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02FDD1F000E0;
-	Fri, 20 Nov 2026 21:30:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795210228;
-	bh=n1FExJ2YYOcMBjxKbzlEbZLCmz73/PfKMECGOdwKHZ4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DGJ2dXSKcMyS7zYe1iaZ1FoWLjdXOHgpDLM2FlrUdOGCsnej0rvhOPzFOsam/88c2
-	 SLtHiUjjsNBJuCuWyhrjDDIlmpL8rmHs/2C13eERhmuLDZemLigJYn0LEo+ISLq3HN
-	 li++buSPJwvFolr4WT70hbSQkt7LODWYJMWHzgSlFuNRD8R2V4GTP3loRrF8gkf6Rh
-	 jokLMWdhmGK9Pdq8vQs2EBmdgE+3gCoBOQk98PtXlDOE5bFrbspEBL9ejKA/pxyao7
-	 y96eKwPdX1mHcE9Vor6kj2b5cunJqUb8zGvtvnbH6cY7Vg+15bjyqW+5EasBqf4KRW
-	 rLNZZn2fZeg7g==
-Message-ID: <38afe45e-7c7d-4b91-9436-020ded6ca6fc@kernel.org>
-Date: Fri, 20 Nov 2026 22:30:21 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7vbJLAa
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48df4f7ccf4so98931f8f.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:30:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795210246; x=1795815046; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a1ho229usvH7WXbHz/geyTJETW2rhXcPAgdJKyw9+jY=;
+        b=f7vbJLAauX1ju+cWR/RmICqMbM2gmqeyAfkOA+IV9lUo0n7cqt3FtIyoEBOCmidg4r
+         Y/00HD2ZViRnBRaMyjLwYyxKajWQbPmBRwIQeDGm4dKK72y/JS2CTjPrcFEvWbcOgnlh
+         Q0rssmXAUfQVfZ7kspfX7P+ghLUBLZaulP6GmPHa4My1mI8Cq2+Zx7cTQbH8+vqd37zQ
+         V1RHgHvnH15edOMT9iXCkWcyvnQ7wnuVKkQ93KHC6SIU4kR8C8ImnONF3sjwstaMPly+
+         d3PlW7FycgUnemmyMjswQBXnUXKj2umCWjGtKlroR49RMbH7NOcE+DKJWU5/Lmw3x3QB
+         7I8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795210246; x=1795815046;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=a1ho229usvH7WXbHz/geyTJETW2rhXcPAgdJKyw9+jY=;
+        b=W3iK0y2ONE1y79zZZipj133L/j5icwU6F9LzZTyJFnCkIyMpxIt5gc3wBgEA+bi0L2
+         7o1cnL832SYGvJfiuVvzv/0viwYChb2UNGA/2Vxc6hU/qXbRd8YZOOTZpOR5+ZBwFAqe
+         Q1FKBXu9/ky8mlv6IinVf9XGyOTFIIF4EGcDU1cceU4FMwj3FnF94MgMz4/NnN/gDuFZ
+         SmkvXJZjMthLdmyIwfpyCLvaBcz5jMAe4jImL9xNkBNsVKy9OysMOOSLCSukinf5Ti7m
+         oa5puqiyDGWSDsvceEMnFcp5ZvNdR2690dqeYmOT3/9pOHUrlNQgLqR2+etsBMukuoFD
+         NCuw==
+X-Gm-Message-State: APuU4Z+laIwtyjO++b90N44tMIzEoI70IAvLwKQ+yJ1qRVQYlVKah5YI
+	UiYPsZMTlMDEVFYAU2wK7u8JuXdWz0OwfMrWMzxfghPAmKNqXUrjGy4p
+X-Gm-Gg: AYBFou3FB3IoR/I8kgQmi6n8RfqCcoKavdGq7a7oVDXXlYsMivsN0wzrduiEgo9uUND
+	c3WkYB4K2vTwVkCtLp5FRSCWrr2M+rF6wcyseQ9+rBEV8IgjCojCHsfeRX5OhIyBhLB7kwOQV50
+	Q4ByfKFb9z5k1yXGWEWcLW1BOFhKKE8IO1UHL0J0iVCBOEtka8GTwAjW/WfOiu8oB767gsCy39H
+	F8zXxaNmStC6QkCsD7d+/DlrKI7LNtG4QccJiiPG+NZsDlSw6Ge3Sa8Vx3WBipp3DlEUbcD2FKw
+	hECMOhDZxPKca3Cy+ju6/7iqS8fGCKaxAxXWl3Uc7teqEDJvB1/LOWHpEj3qvAcuHsl95TxoIKc
+	GPFm8q0f9yhxNM8U1ehcA7xGq3vM1yYSL+zWzh2iCtd0cw8zWsnKL9j6GAw7/V/ntzx/GSfyeYk
+	rZR0LJ9wYogCvp8QDlhTrEz9jUEpsUgYviwcPP/xxKFkr3AY0C9aX351FT7acP+qe57pfa0D8Xo
+	uBTez3aCGpKLgnFIzUXGkmLbd4ePcQXBcrRI6lEW98oJL46+yCq7B6efaJz27W7GCoSNelWlX1z
+	l9FAUFJVSRTObde4lKWfqKkW7bQyKZk//OlckYZ+/taF+B85QvvXtqoNH+ehmh7CztZASS3XqMP
+	cLqSsC+jqnOD5imFJK4uIXR42xN+xFtakS5UZKSvqqxsOSgFpquGmEyE3ltvs76MrE4xE08CW+W
+	I8JVKR086KJnyc98tVej5B/2cKCOPGnN3nqPILmsuIs+6f2ytwHvDdLuYaJ6/Do77dAvv7
+X-Received: by 2002:a05:600c:217:b0:4bb:6a02:d42e with SMTP id 5b1f17b1804b1-4bb887f3fb8mr69726355e9.1.1795210246073;
+        Fri, 20 Nov 2026 13:30:46 -0800 (PST)
+Received: from ?IPV6:2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d? (dynamic-2a02-3100-65ed-08fc-216e-bbeb-a7f9-ea1d.310.pool.telefonica.de. [2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm6400500f8f.46.2026.11.20.13.30.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 13:30:45 -0800 (PST)
+Message-ID: <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
+Date: Fri, 20 Nov 2026 22:30:44 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,143 +92,87 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next v3 3/3] mptcp: limit blackhole_timeout to one day
-Content-Language: fr
-To: Yingjie Wang <x-professor@outlook.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "corbet@lwn.net" <corbet@lwn.net>,
- "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
- "rdunlap@infradead.org" <rdunlap@infradead.org>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "edumazet@kernel.org" <edumazet@kernel.org>,
- "ncardwell@google.com" <ncardwell@google.com>,
- "gang.yan@linux.dev" <gang.yan@linux.dev>,
- "kuniyu@google.com" <kuniyu@google.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>,
- "martineau@kernel.org" <martineau@kernel.org>,
- "geliang@kernel.org" <geliang@kernel.org>,
- "ycheng@google.com" <ycheng@google.com>,
- "weiwan@google.com" <weiwan@google.com>
-References: <cover.1794847474.git.x-professor@outlook.com>
- <568bf901e401ab7186ba2af8fabdaeb6cadfd800.1794847474.git.x-professor@outlook.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <568bf901e401ab7186ba2af8fabdaeb6cadfd800.1794847474.git.x-professor@outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v10 2/4] net: hsr: refuse forwarding devices as
+ HSR/PRP ports
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
+ shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
+ qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
+ bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
+ liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
+ lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
+References: <20261117141922.20-3-xiexinet@gmail.com>
+ <179514132185.3136.17085396682149520983@kernel.org>
+Content-Language: en-GB
+From: Xin Xie <xiexinet@gmail.com>
+Autocrypt: addr=xiexinet@gmail.com; keydata=
+ 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
+ sNySbH3veZ/55EtlXA==
+In-Reply-To: <179514132185.3136.17085396682149520983@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-Hi Yingjie,
+On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
+> Can a plain veth slave still re-enter the xmit path of its own HSR master?
 
-On 16/11/2026 17:46, Yingjie Wang wrote:
-> net.mptcp.blackhole_timeout accepts any non-negative int as the initial
-> period for disabling active MPTCP after a blackhole, and the period can
-> then grow 64-fold. A multi-day initial period is not useful, and on
-> 32-bit kernels, values above about 1,073,741 seconds at HZ=1000 are
-> shortened by the MAX_JIFFY_OFFSET cap even on the first blackhole.
-> 
-> Limit the writable value to one day, matching
-> net.ipv4.tcp_fastopen_blackhole_timeout_sec, and document the limit. The
-> default of 3600 seconds is unchanged.
-> 
-> Writes above 86400 seconds, which were previously accepted, now fail
-> with -EINVAL and leave the current value unchanged.
+Yes. The redirect case exists without the patch, and the commit message
+lists it as not covered. seqnr_lock has been held across the port
+transmit since 06afd2c31d33 and 430d67bdcb04. The patch refuses port
+types that make no sense as HSR/PRP ports, which covers the syzbot
+topology, as Sebastian suggested [1].
 
-Why did you split this patch in 2 for MPTCP, while it is in a single
-patch for TCP? Can you avoid the split for MPTCP.
+> Would it be
+> better to stop holding seqnr_lock across dev_queue_xmit() in this fix,
+> instead of adding a denylist that the planned lock narrowing would
+> replace?
 
-> Suggested-by: Eric Dumazet <edumazet@kernel.org>
-> Signed-off-by: Yingjie Wang <x-professor@outlook.com>
-> ---
->  Documentation/networking/mptcp-sysctl.rst | 1 +
->  net/mptcp/ctrl.c                          | 2 ++
->  2 files changed, 3 insertions(+)
-> 
-> diff --git a/Documentation/networking/mptcp-sysctl.rst b/Documentation/networking/mptcp-sysctl.rst
-> index b9b5f58e0625..ca00253c8ae9 100644
-> --- a/Documentation/networking/mptcp-sysctl.rst
-> +++ b/Documentation/networking/mptcp-sysctl.rst
-> @@ -63,6 +63,7 @@ blackhole_timeout - INTEGER (seconds)
->  	blackhole issue goes away.
->  
->  	0 to disable the blackhole detection. This is a per-namespace sysctl.
-> +	The maximum value is one day (86400 seconds).
->  
->  	Default: 3600
->  
-> diff --git a/net/mptcp/ctrl.c b/net/mptcp/ctrl.c
-> index 0b10e94e7f43..1f167f72c1f5 100644
-> --- a/net/mptcp/ctrl.c
-> +++ b/net/mptcp/ctrl.c
-> @@ -20,6 +20,7 @@ static int mptcp_pernet_id;
->  
->  #ifdef CONFIG_SYSCTL
->  static int mptcp_pm_type_max = __MPTCP_PM_TYPE_MAX;
-> +static int mptcp_blackhole_timeout_max = 24 * 3600;
->  #endif
->  
->  struct mptcp_pernet {
-> @@ -350,6 +351,7 @@ static struct ctl_table mptcp_sysctl_table[] = {
->  		.mode = 0644,
->  		.proc_handler = proc_blackhole_detect_timeout,
->  		.extra1 = SYSCTL_ZERO,
-> +		.extra2 = &mptcp_blackhole_timeout_max,
+Releasing seqnr_lock before the port transmit closes the whole class,
+but it can reorder frames for receivers without aae9d6b616b5 ("hsr:
+Implement more robust duplicate discard for HSR"). It is left to
+net-next, where Hangbin's patch [2] fits.
 
-Could we also use a variable called one_day_secs like with TCP?
+> Could this hunk move into the GRO policy patch, or could a stable
+> dependency note be added?
 
->  	},
->  	{
->  		.procname = "syn_retrans_before_tcp_fallback",
+No stable backport is requested for this series. The macvlan GRO check
+depends on patch 1 and makes no sense in a tree without it.
 
-Cheers,
-Matt
+[1] https://lore.kernel.org/netdev/20261014151838.6RyMIRVM@linutronix.de/
+[2] https://lore.kernel.org/netdev/20260805-hsr_deadlock-v1-1-d8a6f06fc5a8@kylinos.cn/
+
 -- 
-Sponsored by the NGI0 Core fund.
-
+Xin
