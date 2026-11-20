@@ -1,109 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134656;
-	b=RA0Aluai7QUWBNolEo9Zizq+qyeeZm8hJvjNw+59yIvGy071FmsEDlXHTNaAQn+mj7Ie
-	 1nVxQaOx+/MdR2XZed1ovxIZmmNKTScwosjA6DIpn0tYDP3YLfqVupFy54Ogj5PUEu3M/
-	 zFU0EWp7fxncLGXMNBpTwxqhWr3i4ItXLnlF1jZN3WaJwjlzbzDkjvFEbkBA3vZj0ixGl
-	 mheHdwEX2Yglcn5OzOZ7ziOFbjJyLxx9fosf2Ilnn/Pg/LLi/BeZ0hHoBtx3HAjhrfith
-	 gvM4bOwxWLADbFvjEa3+lyMnP12t9Hwh2LMZ8kLWMsl/5Sjoaakyp9AJ0WhkjKwPwRA==
+	t=1795134681;
+	b=4vN/P6+6SorcjB6nBP3WBsK1tq+fFhFB03xU7WIPXXFYBnFRTDhret9GokyZ7BpLuJnQ
+	 NFvPuj2JHg3rRZWgVey6K7YQPXHPjoU7E5CD6G6ohqPVfeVi9n0Z9qlSK8YS3wcZ8ko3L
+	 1X3LApYR/FX7RpYQP6dF6GnqrJHboNnTerGaHG7qCXKnn6JMlkz7nWzgzevE3sLO9wC+o
+	 pMud96xMzpcfLV8oSsNq096J9Df/h8T3DXGpgYmhNgkm4vSzB4le6rqKbqofuwxcrJG4f
+	 +xvOVdit/0gw1VsE1gHkAuShq2B86rYwndLMybYEtJzGvCssfM4xui+Z25dDC6OggSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134656;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=hPlycAUHIGpsb7zDfAw9s4lP79BdcT6PyzBpqKrDoxI=;
-	b=Nf+0oBdOdPOnSp6D824I1gpRxLIKiwCfytq0C5D2MVhBCxtSbqzV3N9jS/GpjEyopWaE
-	 1flJjppcEZMNd3bEYBGcV1H/RsJlb8CH/TJz9cs1mhtQoBxESXxjJYyTsZX6LkaBeg+rY
-	 R2XUAR5NXScmoVYfCK6Z7qnC+qYxfSEaLQFMG0QhsGFE4kWOeobbySoi3235+LtZVfDuY
-	 cIobkTeHUurHjDDfxLQr41npftuvfDfOCnMvH6LYgrWW6dfKWQSZ7FQGzN9OgoXKjsTGh
-	 Qlpg9D8Y9zD+pCx/O0SLzZ1wHp6LMcuEk8uo1VHEG7/DLrwtsB5cRtYAf3hzMDo6E6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134681;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
+	b=D0mIXPIW63H8OSz47UO5h+EN4Tm1JQSfr1SHdQFWxILErk8mX6e5QAwSfbq2GEe/gPM+
+	 5Z4jTR/aV6Dbb7UZFDyiHPcO/u0SYuq2ht0adBnnXVFtGMJdRotse/prnRRwN79gIU8jJ
+	 3KleJe9DKbNqy8/Cg04hxnK5tYrem3gfkyMp2EbDHGQalaJoOdhgbXfc7uM0ZRmWHXbwc
+	 io3C6rTFL/aE/0cb5vQ9XJJgoq5IFH+D1FVJqHQmQr/xd7AO1/5Ch9N8hnyisYFm3L1EF
+	 iYHm/6+rpYznCe4DtS3x3hCtpW2KCybT57XK5EZa3QgpxUBSRH/ryQ7/E/d0uecVpZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QV9Knicy;
-	arc=none smtp.remote-ip=74.125.82.225
-Received: from mail-dy1-f225.google.com (mail-dy1-f225.google.com [74.125.82.225])
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JtKGSFFu;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13BEE606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:30:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13BEE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC1C606A326
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 00:31:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC1C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QV9Knicy
-Received: by mail-dy1-f225.google.com with SMTP id 5a478bee46e88-372bdb942dbso398714eec.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:30:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134650; x=1795739450;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=hPlycAUHIGpsb7zDfAw9s4lP79BdcT6PyzBpqKrDoxI=;
-        b=UCW6bWALw0RCD3KBE8VVuLL7HxXahth+8jUT/5b2dZVTfjOT/Szae+SwG2Kwi6qJkQ
-         ZZCr/E/ztyAbF33AqnriwcfXsqDkU166oU49wGsmsdWBiBL1Mon/M1u1iHljdiOH0Cy3
-         1m0cmRPxivjKEpiY0B2GBnz9AxK/uth7DBBRSYRJQiMHqQjB/4AwR0s62Lp4xxf4o6I/
-         K/kuunIQDHO1BK5VvHoHOEXUAZohs4TgJ8xVmxCmhzR8Se3zjD9xkoji25pY+BJnhpOl
-         IxPobgh1qgusuMiop5CJS3rdQxqKevYkUrkZwewTo5xi5zR5SgjdvepN+OoReEz/aCpj
-         qG1g==
-X-Gm-Message-State: APuU4Z9yO3FdDrzD40S3B0TuDnL9NFYYVu7iwQzpRkFKA/ilCfhIE6w2
-	xHUNT3Wb+8iKQjEyFCKbwoLzbBkL32iqngCilGmBJqcEBHx+A/4GBNMeeMvwGfBV6lQyogopdaO
-	Tyk1tClA+IRtpDh8BOlpp0DjiA01xLyRmfbK0VC6MYYyvPil1+nPUJKkkD/j+5dbj2aae6rvifq
-	Y58ibaxoa8H1xa8JENCL7nljWQkPi/SkK3pmiIFkzXiRIAGYrkZp053r4cbN4C8uRlPJUIFdQB1
-	JBNZ2MHJZug/KSG
-X-Gm-Gg: AZFdTZc1tpgYlUDTde6Gc9cIP3Xv9ggZks2jA9V+PIsXCaCuKRsrIGgZK4cbgAjCD1H
-	D/yhwxv/WgEfsVN7MocYK6Fmobgv+MskmYPMENj5Vmew9yxZaYpOAh6hiS9zSk67frBv+BNb/fg
-	uq1513e7vHpi+pcwMfgd4zm/GbBhd7YzzvnfqydHb7pYFoBIozPeILui6fx9Q9Nt3uHKgG0jQQ2
-	T+/g+QgG+2DKhKnmqSdPnU4yFDbBOErvJBoYVrnc9vZ8wiIXWJDRXzbkm5h2qcV1xdbn6XdhqE4
-	rCFPN6B7Xsl7S7LBmvLeEXyHI+QyFXX8apOZ55i1/uQf7CVP9ncx/dfZ57oy8YNlg117RlBFT7f
-	7Ts8RsCEl5MYVaLeMaHLPTqJiA2vZ3uVs5Iw3CEyHbkZmDsK6xDFFzSRyxWhxkTqJ3Bj3r/P9N4
-	zbmiK/IlTiRG8eYwqDAbFrac0VrHuF/BgXJxehZ4Xqx5g=
-X-Received: by 2002:a05:7301:170c:b0:36c:49a7:86ac with SMTP id 5a478bee46e88-38570847a6emr886211eec.37.1795134649948;
-        Thu, 19 Nov 2026 16:30:49 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-385673c6e98sm93013eec.16.2026.11.19.16.30.49
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 16:30:49 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b1755b2f26so319468a91.2
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:30:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JtKGSFFu
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b08a162d4bso230475a91.3
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 16:31:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795134648; x=1795739448; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hPlycAUHIGpsb7zDfAw9s4lP79BdcT6PyzBpqKrDoxI=;
-        b=QV9KnicyEfaQj76sJnxi2YQzpcTwpyJUm/TCluleXgKshsJQF0IwK3BSAmPbfOzARD
-         hiLltTC4mbV0DUAdqNC3OILem1qR024965aDhT0DQsOnD/+vkXbXIWAXRVnhDqLV2oG2
-         GZen+XuXhbgME5F9n/O7cZR/mJhWGtrJ42pY4=
-X-Received: by 2002:a17:90b:4ccb:b0:3ac:adce:60a9 with SMTP id 98e67ed59e1d1-3b41c7b6038mr1046180a91.9.1795134647979;
-        Thu, 19 Nov 2026 16:30:47 -0800 (PST)
-X-Received: by 2002:a17:90b:4ccb:b0:3ac:adce:60a9 with SMTP id 98e67ed59e1d1-3b41c7b6038mr1046147a91.9.1795134647328;
-        Thu, 19 Nov 2026 16:30:47 -0800 (PST)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40a878d50sm4008003a91.11.2026.11.19.16.30.46
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795134680; x=1795739480; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
+        b=JtKGSFFuZ37OqBXPbDHC1v8kICm6XKkcO5sFrHNQM4ceEFl4ENKQ66mtQ6mD4AyZNY
+         U5vZo3qQm2BbdPVp24dPvclYKKKU1gbAtsICRk6SeO9YFUOgAczmBy2Om6Lt9vK/OYrm
+         y1kLaGumQITlISvqdrmH84JEcdiq0Rb81AAURpGYrvUxfWKGnDccij2EtTG722TjzC/a
+         0ZRxvc3jn+fsFnGSnV1gycG8QtUmUq9C9OZ904CxWwD5AhVJ3G+gb/TRIDBN3JCyYqdl
+         IybEUtBNhGYaGVB6OWt/Y7EKtv/Bv5sAwX4p777McHQtKOUnToTmo3Y0tL85sLK9M/Py
+         KzNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795134680; x=1795739480;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
+        b=Fs06FDJL6ZvTv3bLApwv+XpCkv4HpoR7q9cCx5IVOMFE595DSM6h5cv2VRYBcfF8Fp
+         Q1ESMD2FmqL1J1FV05ryUJ/D9cvZxymGQU9PEEu0ZzNP6i362Bx/q5OENanvUzeB31/f
+         5NKO+vEwxtHDAN2kVlqyPamfswceXITD6ROtD6i7hgb0PEYC+/rKT2H2Xzm+rUJxl24E
+         a3s6m38RvZg3kWUKipvHWAOc7iXq66/hI2AAlbB4iqHj1wNP8JXLsDdSKiE7J27WkN8e
+         WfFkuzZrFFP3e24wOWhOm9svKdIHt9JDrxccv7iC5qaOdTbB7taLDc+RBMNknQDYYbNy
+         xJsg==
+X-Forwarded-Encrypted: i=1; AL+hErHeRnk/FEh72L5991JFZ11saNGimFC740KM1KGg1caF2LWHbQuSrrhPw8OHUmcVCHPHJ1OQdrw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9caxkAlijzYTcvAKM/cDOzKdVVOu505mAOG1IfjMwqLvehQr8C
+	wyienfOE4oE3k3dW0nj6GvOSYCgwcsPeBMVZYY6I1PujEK2o1raDyT3vcoK7iU1xQR9xPveDDgJ
+	Cxjx8
+X-Gm-Gg: AZFdTZeICo0514n+laCIs6CJ2HN5IraFpSQjAQRYR3ViViVWW8J0gRO85rweJ8kDWiD
+	2fxngO9pkgK8Jpdak/33CYtO1JoWcOKKnFI/eG2AtmwwXK/SiIg20r3gomoVIsLFgZW6tqCWcnQ
+	pPvIzlSish2jHA/V+sV5pLnv2Oel/aacn/9phSZZZbq7+Jl9Ks5B8quLoDqzghMwc9zfVxTlZ7n
+	zGnXZrTfhErIrlzYYQsXGq+xVoPVk1EYlt51p4R+uoery/26SqIohxw+RxZsBssD3wWfZXDMWGl
+	MF1HyFg0WQFGxZWD2G5seipXpaQWwIFo1C4sDEyttFoUOCyKXL46oaLcu/wvGEcxF226IzTwsTa
+	Z0vlYDTI7TMMwEJJNkHhRD7dKMC9iA4VkHo1LgLT7hcUyCGB9k/CdwlPzccdeXXxJzjcS7szDKA
+	FUfEM2lCXkWT89Bs5RekEXA3A6lfBDtkGIBrRKJglyODgZRF8QZopeiP5720PGtsidwsf78Mjev
+	sAfz5r7H7xgCZ0iSTyJEh4wmrlgF6H9u+XQrwuJDfa9aWNLT+KLMSiF0H3Q8TQq2txEtE7dYaCl
+	HYAO6fTHYBEwpozVgvjKSuqn1RHGuxV0vs39S64/BhA=
+X-Received: by 2002:a17:90b:390c:b0:3a7:9e3d:b3 with SMTP id 98e67ed59e1d1-3b41c9beafamr876819a91.66.1795134680373;
+        Thu, 19 Nov 2026 16:31:20 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:55::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad47091sm1615819a91.10.2026.11.19.16.31.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:30:46 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: rosenp@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net] net: bgmac: unregister the fixed PHY on probe failure and removal
-Date: Thu, 19 Nov 2026 16:30:44 -0800
-Message-ID: <20261120003044.2366432-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
+        Thu, 19 Nov 2026 16:31:19 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:31:18 -0800
+From: Joe Damato <joe@dama.to>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: tariqt@nvidia.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+	horms@kernel.org, linux-kernel@vger.kernel.org,
+	daniel.machon@microchip.com
+Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
+ doorbell fix
+Message-ID: <av+U1gCrKGy+SuGU@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Jakub Kicinski <kuba@kernel.org>, tariqt@nvidia.com,
+	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, daniel.machon@microchip.com
+References: <20261117155353.2250540-1-joe@dama.to>
+ <179493106742.3291.11434436383058043225@kernel.org>
+ <avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
+ <20261119143852.3bca9000@kernel.org>
+ <av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
+ <20261119160559.45b9fc7f@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -113,87 +110,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119160559.45b9fc7f@kernel.org>
 
-bgmac registers a fixed PHY, either for a chip without a PHY with
-bgmac_phy_connect_direct(), or through a fixed-link device tree node with
-of_phy_get_and_connect(). The error path of bgmac_enet_probe() and
-bgmac_enet_remove() only call phy_disconnect(), and
-bgmac_phy_connect_direct() does not release the PHY when connecting to
-it fails. The phy_device is leaked, along with one of the limited number of
-fixed PHY ids, which can make a later probe fail after repeated rebinds.
+On Thu, Nov 19, 2026 at 04:05:59PM -0800, Jakub Kicinski wrote:
+> On Thu, 19 Nov 2026 15:34:21 -0800 Joe Damato wrote:
+> > On Thu, Nov 19, 2026 at 02:38:52PM -0800, Jakub Kicinski wrote:
+> > > On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:  
+> > > > The only fix in this series is the deferred doorbell flush (patch 5), but I
+> > > > need the other code (patches 1-4) for SW USO support I plan to submit next
+> > > > if this series is applied.  
+> > > 
+> > > Not sure if this is what you meant but this may read as if you were
+> > > sending a fix for net-next for convenience of sending more patches.
+> > > To be clear - that's not a valid excuse. That said, here, we're talking
+> > > about a 10 year old error path bug which nobody apparently have been
+> > > bothered by. We don't have space in net for such things at this point
+> > > of the cycle, anyway :S  
+> > 
+> > I'm probably just being dense and not following what you mean here.
+> > 
+> > I was looking at a local branch that implements SW USO in mlx4 and it was
+> > getting to be quite long with a lot of patches. I thought that breaking it up
+> > and moving some of the patches into a standalone series would make it easier
+> > to review.
+> > 
+> > I suppose you are saying I should have just kept it as one longer series,
+> > instead?
+> 
+> No, not at all. 
+> 
+> You said "The only fix in this series is....I plan to submit next if
+> this series is applied". Which triggers my suspicion that you packed
+> a fix with -next stuff for expedience / not having to wait for a
+> net->net-next merge before you send the rest of USO. I don't think
+> that's what you meant but since I had to ping Tariq anyway I decided
+> to wag a finger at you. 
 
-Unregister the fixed PHY after disconnecting from it, in the same way
-as other drivers do, and when connecting to the PHY fails.
+Oh, OK.
 
-Fixes: c25b23b8a387 ("bgmac: register fixed PHY for ARM BCM470X / BCM5301X chipsets")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/net/ethernet/broadcom/bgmac.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+To be clear: I was not trying to circumvent the system or the rules and if you
+(or Tariq) prefers, I am happy to peel this apart and send it to net in the
+next cycle.
 
-diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
-index 9ef7307edd41..54092bfacd18 100644
---- a/drivers/net/ethernet/broadcom/bgmac.c
-+++ b/drivers/net/ethernet/broadcom/bgmac.c
-@@ -15,6 +15,7 @@
- #include <linux/bcm47xx_nvram.h>
- #include <linux/phy.h>
- #include <linux/phy_fixed.h>
-+#include <linux/of_mdio.h>
- #include <net/dsa.h>
- #include "bgmac.h"
- 
-@@ -1475,6 +1476,7 @@ int bgmac_phy_connect_direct(struct bgmac *bgmac)
- 				 PHY_INTERFACE_MODE_MII);
- 	if (err) {
- 		dev_err(bgmac->dev, "Connecting PHY failed\n");
-+		fixed_phy_unregister(phy_dev);
- 		return err;
- 	}
- 
-@@ -1482,6 +1484,22 @@ int bgmac_phy_connect_direct(struct bgmac *bgmac)
- }
- EXPORT_SYMBOL_GPL(bgmac_phy_connect_direct);
- 
-+/* Disconnect the PHY and release a fixed PHY registered for the connection. */
-+static void bgmac_phy_disconnect(struct bgmac *bgmac)
-+{
-+	struct device_node *np = bgmac->dev->of_node;
-+	struct phy_device *phydev = bgmac->net_dev->phydev;
-+
-+	if (!phydev)
-+		return;
-+
-+	phy_disconnect(phydev);
-+	if (np && of_phy_is_fixed_link(np))
-+		of_phy_deregister_fixed_link(np);
-+	else if (phy_is_pseudo_fixed_link(phydev))
-+		fixed_phy_unregister(phydev);
-+}
-+
- struct bgmac *bgmac_alloc(struct device *dev)
- {
- 	struct net_device *net_dev;
-@@ -1575,7 +1593,7 @@ int bgmac_enet_probe(struct bgmac *bgmac)
- 	return 0;
- 
- err_phy_disconnect:
--	phy_disconnect(net_dev->phydev);
-+	bgmac_phy_disconnect(bgmac);
- err_dma_free:
- 	bgmac_dma_free(bgmac);
- err_out:
-@@ -1587,7 +1605,7 @@ EXPORT_SYMBOL_GPL(bgmac_enet_probe);
- void bgmac_enet_remove(struct bgmac *bgmac)
- {
- 	unregister_netdev(bgmac->net_dev);
--	phy_disconnect(bgmac->net_dev->phydev);
-+	bgmac_phy_disconnect(bgmac);
- 	netif_napi_del(&bgmac->napi);
- 	bgmac_dma_free(bgmac);
- }
--- 
-2.53.0
+I am not trying to rush anything in; I'm happy to wait until the next
+cycle if that is what is preferred.
 
+I included it to net-next because my perception (which is clearly incorrect)
+is that net is much stricter lately and issues which have never been triggered
+IRL or reported by users may not meet the bar required for net.
+
+I'll be more careful in the future; I just legitimately did not think this
+change would be accepted to net.
+
+> IOW I'm commenting purely on packing what can be perceived as a net
+> fix in a net-next series.
+
+Sorry for the confusion I caused :(
