@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204833;
-	b=LCsBm0KCAAwJBzgh/6Vp+JF3ZzsChVFuk1G1r6mUHAM9HHHxDgrbGrIay8A3/tzZDXG/
-	 JH2FdgUkR0G2awLPsDCpNEcAbRUwc8MjVdj9DzT1p/etvWTnMBIyTVGmbNDVkba2vChGe
-	 marXzxP5/i6Nqti1PInyKaYeGH7vSekhriDhtiM8OHgM3Be4tQ7oynibJFCiO9UBTqZ02
-	 LERg77ruqMpSruv5ZKBQVLjGeDJLGBh9jhVz8Oqx6z6ABRRlzSce4BqvVacy3FoXtlc8j
-	 GUkWsgCb1ZnrPVq8giSAjOz2al35v3mMvyZgSTnjSkzYBbsj73z+hxopT2eB5FsjQIQ==
+	t=1795205072;
+	b=x2lsZdsWnBS9EFMjNiki9sRZk/lDKeaA7PLdLilNmUbbj8/Uogn95t7GQuJuCubxjsfw
+	 B45KYzUv8MSbiyRIp+6E6Cg61md2vQ8a8XUG9V5SRZSc+1e3Nkzvo+DTIQEIx16/gAYkR
+	 Ts1kZW/vKyjIoNqEACNlimP0oQhCnyURLkkoleahrqC19ZKk/v5amhsFq4R0dbazfLTKk
+	 vWvisGV8G7H6gSIb7Bx34Owcq5mlL+ZZKxLDRSjyKr8iQGeF6jsF0p//eBIo4NiY/1xIg
+	 xHMEPhyyATNUppjl22i5+352Zq2DoKAsYCEuT4rTwXfTNe1HZUDFqjuWgohYAXNUupw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204833;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205072;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=5QgfHDQQ4MSdGh+4Ts8IUMOxAYgDCdzXWqFzljmCVG4=;
-	b=xZJotGWsP/PcBCR6qIJcQjHxnSVABRSKoyRrvL4fcovmDtKiMACbOBsMkvyls2ry9l5t
-	 /BmpZm3HCcSiD8MweX+GM3U3gqJGYgQMiaxudmBeFl5lDOcJhpg83Vny3fOyT3mwqvnFU
-	 4+l3YjaAhnYT+ORlP1GoOnLD3SWxCyTxHaIafcFPBcx+z+P8qm8F98C/haemUrRn3+0YB
-	 7VeR23I0RX7S4rUEHpchbWyFo/c+NgEgGkgD2JGbd0y/2VXnUAv8EZp6lAU3L5rIwoHWX
-	 8wNX+KNx8Cev/Tfsg/1/f3R0QCdYeh1A63WcgUIzp66LV2PxHsi5nXlUw8Vro8tJAhQ==
+	bh=DTPZmS/bPYDmH5Anx7Jvfyqcbc1hHGRWNW4JSBUYubU=;
+	b=DTqI63ih+XWocw4bKCP0020UPeipOy9cqk2+w864lQ7SYIU1sFLYobg+kPqkOLWmWUFo
+	 MWJ8xwNWAdNPEY4vUgUmH+SNILct2RYCLktQUOkfpwzlgFdi16cCNi9yJZqLvqjevEadF
+	 j5b8HeeOl+0RGYx5pXOmc7PR8FWVKhsMvlEZM8qizhIECDwlPALhLwmhfXsUdEVFDbEyI
+	 PVsBKNczaA+jia93K6OpcQ/O5plDWohuN4iriFsUVCug7cLauntha/IfoklrlnqBIK1ZQ
+	 cMhL4Z4THBhCXN73ujHcR9zWmAMoMYUg+4jUR1dOp67majkdGiJtVI+TM/yPP7pmH/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="rKv1/lmr";
-	arc=none smtp.remote-ip=91.218.175.223
-Received: from mta0.migadu.com (out-223.mta0.migadu.com [91.218.175.223])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xEBdltaA;
+	arc=none smtp.remote-ip=91.218.175.23
+Received: from mta0.migadu.com (out-23.mta0.migadu.com [91.218.175.23])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCB7C606A6DD
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:00:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCB7C606A6DD
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C347606A33F
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 20:04:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C347606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rKv1/lmr
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xEBdltaA
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Uy/t5Hdz2eRHlZ3WuQOUva9nAZPCprYKY2wlV0ZSa2c=;
+DKIM-Signature: a=rsa-sha256; bh=5r9H/pB0QEAQGYTbE3jhgHps7RpjUGgAGmiNOnnASh4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795204829; v=1; x=1795809629;
- b=rKv1/lmrlKj9zRw0pAUymN+J4MTOxMvwQYTxndB1dOU1rJWrKIMU+NNBi1WyHSx8LeZkGin/
- Wfu4rh7M77NTdsuimrihBTU3f5Eoq9ge/dFjldRRX9mkd8G9QYml6H8uE1mVJ46LdnCTAnV0W1q
- csMKFczHRaSNltF7KP9sIiHg=
+ t=1795205069; v=1; x=1795809869;
+ b=xEBdltaAJxn+uZNdQPmBHMUXp6XV3A2z1I36RxzDw7/KL2eD9D5bmeW2bV4Am0mv2c6Xun2T
+ s8x0dsgPVeNm7HZmx9r9ermtSssW8ECCqTQ0N/hFbjdABaN6+F1K0UXpW8MXkTLBf8oSVjpSEg5
+ hvWjJOCkAhVRP3OKV/SJxtJ4=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b84f8d674bfff41c;
-	Fri, 20 Nov 2026 20:00:29 +0000
-X-Mizu-Trace-ID: b84f8d674bfff41c
+Received: by smtp.migadu.com with ESMTPS id 79d02deefa817cdc;
+	Fri, 20 Nov 2026 20:04:29 +0000
+X-Mizu-Trace-ID: 79d02deefa817cdc
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
-Date: Fri, 20 Nov 2026 20:00:27 +0000
+Message-ID: <3b26635a-4ab4-450f-8626-e4737d16be12@linux.dev>
+Date: Fri, 20 Nov 2026 21:04:24 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,146 +59,173 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Ivan Vecera <ivecera@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jiri Pirko <jiri@resnulli.us>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>
-Cc: netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
- <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
- <20261119133851.3f25074c@kernel.org>
- <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
+Subject: Re: [PATCH net-next v5 20/24] net: dsa: rzn1-a5psw: Get lookup table
+ size from OF data
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Florian Fainelli
+ <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>,
+ linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20261120002549.1908299-21-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <99974c5f-c1c0-427c-ab10-a6559789f258@linux.dev>
+ <CA+V-a8vikSkbxjoE+Wq+jZ1uQjtbu2VFttHEMGXHkWqqcqf6Lg@mail.gmail.com>
 Content-Language: en-US
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
+From: Clement Leger <clement.leger@linux.dev>
+In-Reply-To: <CA+V-a8vikSkbxjoE+Wq+jZ1uQjtbu2VFttHEMGXHkWqqcqf6Lg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-On 20/11/2026 07:39, Ivan Vecera wrote:
-> On 11/19/26 22:38, Jakub Kicinski wrote:
->> Well, I'm not convinced. The relations between objects in DPLL are
->> already quite hard to follow, and objects from one driver routinely
->> "plug" into objects from another. The explanation of the locking
->> rules in patch 9 does not look clean or clear. The driver facing
->> API needs to be much more "dummy-proof".
-> 
-> Fair enough. The complicated part of the rules comes exactly from
-> that: a pin registered by another driver, like the zl3073x pins that
-> ice registers with its TXC DPLL or uses as parents of its RCLK pins.
-> A message about such a pin runs callbacks of both drivers. I have
-> prototypes of the first four ways below to lock this, each with KUnit
-> tests, and would like your opinion before going further.
-> 
-> In all of them a domain is the set of objects created with the same
-> module and clock_id, dpll_lock becomes an rwsem for the topology and
-> lifetime, and a mutex per domain serializes the callbacks.
-> 
-> A) Pin's domain (this series)
-> 
->     Callbacks of a pin run under the domain of the pin, whichever
->     driver registered them.
-> 
->     Pros:
->     * one domain lock at a time, so no lock order
->     * a request or a message about a pin is atomic
->     Cons:
->     * the callbacks of a foreign pin are serialized with the driver
->       that created the pin, not with the other callbacks of the driver
->       that registered it, so that driver has to protect the shared
->       state itself, and lockdep cannot check it
->     * restrictions for measured_freq_get, reference sync pairs and the
->       private data of a parent pin, which patch 9 has to explain
-> 
-> B) Registrant's domain, deferred notifications
-> 
->     Each callback runs under the domain of the driver that registered
->     it. A message about a pin takes the domain locks one after another,
->     and notifications from callbacks are queued and sent once the
->     domain lock is dropped.
-> 
->     Pros:
->     * callbacks registered by one driver instance are always
->       serialized with each other
->     * one domain lock at a time, so no lock order
->     Cons:
->     * a request or a message about a pin registered across domains is
->       not atomic
->     * the most complex core: a notification queue per domain, a lock
->       per object to keep its messages in order, and pin setters split
->       into validation and apply parts
-> 
-> C) Registrant's domain nested under the pin's domain
-> 
->     Pros:
->     * callbacks registered by one driver instance are serialized with
->       each other and with the driver that created the pin
->     * a request or a message about a pin is atomic
->     Cons:
->     * the lock order comes from the topology, so a pin of A registered
->       with a DPLL of B together with a pin of B registered with a DPLL
->       of A deadlocks, and lockdep sees it only with a lockdep class per
->       domain
->     * a stuck foreign registrant stops the domain of the pin
-> 
-> D) Merged domains (your suggestion)
-> 
->     Registering a pin with a DPLL or a parent pin of another domain
->     merges both domains. They are not split again.
-> 
->     Pros:
->     * the rules for drivers stay as they are with the global lock
->       today, and lockdep checks them; the only new one is that state
->       shared between chips not connected by a pin needs a driver lock
->     * a request or a message is atomic
->     Cons:
->     * only hardware not connected by pins runs in parallel; on the
->       GNR-D system the zl3073x and all ice PFs end up in one domain
->     * a callback that waits for the hardware, like the planned resync
->       for up to 1 s, or for firmware still stalls all DPLL devices in
->       the merged domain
-> 
-> E) Global dpll_lock, slow callbacks asynchronous
-> 
->     Pros:
->     * no change in the core
->     Cons:
->     * the resync problems from my previous mail, and a callback that
->       waits for firmware still stalls all DPLL devices in the system
-> 
-> I wrote before that stretching the domains would not improve
-> anything on that system. That holds for the ToD stall I measured,
-> but the zl3073x does not need to hold its channel lock across the
-> edge waits. Without that, the remaining waits are the planned resync
-> and output state callbacks, and with D they stall only the devices
-> wired to that chip, which depend on it anyway.
-> 
-> So I lean towards D, as it gives drivers nothing new to get right.
-> Would that address your concern, or do you see a better way?
-> 
-> It would be good to hear from the other DPLL maintainers as well.
-> Jiri, Vadim, Arkadiusz, what do you think?
 
-I totally agree with Jakub. Current implementation of DPLL subsystem is
-over complicated, and all these complications came just to completely
-model what was designed for Intel NICs, basically ice driver. But now we
-are again back to the discussion how to complicate things further just
-to fit what was implemented in the new generation of the same hardware.
 
-Maybe it's time to step back and think if we really need all this, or
-find simpler way to express/model things?
+On 11/20/26 19:34, Lad, Prabhakar wrote:
+> Hi Clement,
+> 
+> Thank you for the review.
+> 
+> On Fri, Nov 20, 2026 at 9:44 AM Clement Leger <clement.leger@linux.dev> wrote:
+>>
+>>
+>>
+>> On 11/20/26 01:25, Prabhakar wrote:
+>>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>>>
+>>> The RZ/N1 A5PSW has 8192 lookup table entries, whereas the RZ/T2H
+>>> and RZ/N2H ETHSW have only 4096 entries.
+>>>
+>>> Add the lookup table size to struct a5psw_of_data, derive the address
+>>> mask from it and use it in the FDB and ageing code.
+>>>
+>>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>>> ---
+>>> v4->v5:
+>>> - New patch
+>>> ---
+>>>    drivers/net/dsa/rzn1_a5psw.c | 10 ++++++----
+>>>    drivers/net/dsa/rzn1_a5psw.h |  4 ++--
+>>>    2 files changed, 8 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
+>>> index 7e9bc252d92a..c0c1f45852da 100644
+>>> --- a/drivers/net/dsa/rzn1_a5psw.c
+>>> +++ b/drivers/net/dsa/rzn1_a5psw.c
+>>> @@ -311,18 +311,19 @@ static void a5psw_phylink_mac_link_up(struct phylink_config *config,
+>>>    static int a5psw_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
+>>>    {
+>>>        struct a5psw *a5psw = ds->priv;
+>>> +     unsigned int entries = a5psw->of_data->lk_table_entries;
+>>>        unsigned long rate;
+>>>        u64 max, tmp;
+>>>        u32 agetime;
+>>>
+>>>        rate = clk_get_rate(a5psw->clk);
+>>> -     max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * A5PSW_TABLE_ENTRIES * 1024),
+>>> +     max = div64_ul(((u64)A5PSW_LK_AGETIME_MASK * entries * 1024),
+>>>                       rate) * 1000;
+>>>        if (msecs > max)
+>>>                return -EINVAL;
+>>>
+>>>        tmp = div_u64(rate, MSEC_PER_SEC);
+>>> -     agetime = div_u64(msecs * tmp, 1024 * A5PSW_TABLE_ENTRIES);
+>>> +     agetime = div_u64(msecs * tmp, 1024 * entries);
+>>>
+>>>        a5psw_reg_writel(a5psw, A5PSW_LK_AGETIME, agetime);
+>>>
+>>> @@ -511,7 +512,7 @@ static int a5psw_lk_execute_lookup(struct a5psw *a5psw, union lk_data *lk_data,
+>>>        if (ret)
+>>>                return ret;
+>>>
+>>> -     *entry = ctrl & A5PSW_LK_ADDR_CTRL_ADDRESS;
+>>> +     *entry = ctrl & (a5psw->of_data->lk_table_entries - 1);
+>>>
+>>>        return 0;
+>>>    }
+>>> @@ -638,7 +639,7 @@ static int a5psw_port_fdb_dump(struct dsa_switch *ds, int port,
+>>>
+>>>        mutex_lock(&a5psw->lk_lock);
+>>>
+>>> -     for (i = 0; i < A5PSW_TABLE_ENTRIES; i++) {
+>>> +     for (i = 0; i < a5psw->of_data->lk_table_entries; i++) {
+>>>                reg = A5PSW_LK_ADDR_CTRL_READ | A5PSW_LK_ADDR_CTRL_WAIT | i;
+>>>
+>>>                ret = a5psw_lk_execute_ctrl(a5psw, &reg);
+>>> @@ -1357,6 +1358,7 @@ static const struct a5psw_of_data rzn1_of_data = {
+>>>        .pattern_ctrl_base = 0x3eb0,
+>>>        .vlan_res_vlanid = GENMASK(16, 5),
+>>>        .vlan_res_portmask = GENMASK(4, 0),
+>>> +     .lk_table_entries = 8192,
+>>>    };
+>>>
+>>>    static const struct of_device_id a5psw_of_mtable[] = {
+>>> diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
+>>> index 29d205e2331d..fd523fe7bf47 100644
+>>> --- a/drivers/net/dsa/rzn1_a5psw.h
+>>> +++ b/drivers/net/dsa/rzn1_a5psw.h
+>>> @@ -93,7 +93,6 @@
+>>>    #define A5PSW_LK_ADDR_CTRL_WAIT             BIT(27)
+>>>    #define A5PSW_LK_ADDR_CTRL_READ             BIT(26)
+>>>    #define A5PSW_LK_ADDR_CTRL_WRITE    BIT(25)
+>>> -#define A5PSW_LK_ADDR_CTRL_ADDRESS   GENMASK(12, 0)
+>>>
+>>>    #define A5PSW_LK_DATA_LO            0x40C
+>>>    #define A5PSW_LK_DATA_HI            0x410
+>>> @@ -210,7 +209,6 @@
+>>>
+>>>    #define A5PSW_LK_BUSY_USEC_POLL             10
+>>>    #define A5PSW_CTRL_TIMEOUT          1000
+>>> -#define A5PSW_TABLE_ENTRIES          8192
+>>>
+>>>    struct fdb_entry {
+>>>        u8 mac[ETH_ALEN];
+>>> @@ -241,6 +239,7 @@ union lk_data {
+>>>     * @pattern_ctrl_base: Offset of the PATTERN_CTRL register of pattern 0
+>>>     * @vlan_res_vlanid: VLANID field mask of the VLAN_RES registers
+>>>     * @vlan_res_portmask: PORTMASK field mask of the VLAN_RES registers
+>>> + * @lk_table_entries: Number of entries in the lookup table (power of 2)
+>>>     */
+>>>    struct a5psw_of_data {
+>>>        unsigned int nports;
+>>> @@ -252,6 +251,7 @@ struct a5psw_of_data {
+>>>        u16 pattern_ctrl_base;
+>>>        u32 vlan_res_vlanid;
+>>>        u32 vlan_res_portmask;
+>>> +     unsigned int lk_table_entries;
+>>>    };
+>>>
+>>>    /**
+>>
+>> Hi Prabhakar,
+>>
+>> It would probably be better to fold all these commits that adds data
+>> into bits of data in oa5psw_of_data into two commits: a first one that
+>> prepares support for RZ/N2 and then a second one that add RZ/N2 support
+>> itself. I'm not the net maintainer but your series is already quite
+>> large just for this change so folding the commits make sense rather than
+>> commitmaxxing.
+>>
+> My intention here was to keep changes minimal so that it's easier to
+> review. Since the fixes patches will go as a separate series, I would
+> like to keep this as is. Hope thats OK.
+
+Yes sure, I mean if it fits under the 15 patches limit, that is 
+certainly fine :)
+
+Thanks,
+
+Clément
+
+> 
+> Cheers,
+> Prabhakar
+
