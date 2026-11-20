@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139772;
-	b=ywugprbEEbX9ixF5Ksc7nDPWQ2efPz5XB3C6cIE78UB89I4mhG0Z33kWdo73U8I6dmM5
-	 2CzmNf06gCRWq+qb/7jHjvKTdV99LTkQjoWNvG3FASnBExFPj0Wz4r3BCiEBcZ1RJXpM0
-	 umEq/ukMR7WbYWJeKvLydYcs157ilyGTeDNTkTCID1rQFwMpCSFnvM3xdqDDjkyt8GrsH
-	 8KaXUaQ4l08SosrlZjf5aPxlClVDLkJWYheSQECo32eX6H9kKNWH+DKz98EZbpqf0+BBG
-	 gukhV14VF92TJfDFt6vFSAJ9xSas15zdM7FQ+j+N1fVkEq+KdUr9n4CbZFc+EHanaLg==
+	t=1795139779;
+	b=yUi2QyuhaSKNhhlgEQZ9rVQBksicIfShBrdPF8l8qREbLpnCmT1VsipEqSvkvg8pL/f8
+	 9yH0EZqJ7e+kTkpLWDkd9WgarwVfniriMWp6vtY7JXmhzcgLHVOwahdIKWicCDHRQY5vF
+	 qUCUZLTzmyVcsbJ18IswoqQOOuZRLuohGtcZBl2Heu77onIB+A3bw4H19zikVm90ST5kK
+	 1YNrbdFHo+Fy7mhyoqlSt5upI4DFCBnJl+O86FPqHXELz6RrnGgMNiUowXSYlyGIVN/Tu
+	 Pkr8QR8tluAWuLfoZWCsK13iUzHqgD7f1MIJbyMjRuStp+B2HI+mQoc8+6bl12m2xOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139772;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139779;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=oPmYdno3g8WSLKD4XaUSvZ7KnfsPKwYsTc83SiDb58I=;
-	b=pdCM01rhWYabwBBYtqzracR2OLlgt74HUTF3M0RsVcOGsRsue/PDp7JCQS+QnTtFber9
-	 IeeJbddJUb88Me2IXKPiVv0npa2OywOFFGX2pTUFPhRepSv2xa59m7Dxlb/X3WBKU4tOh
-	 PeYt9MpI/bQEpWo5bCmOw+dW1zlFOGrSWme9llbMmdrDWHAt/ys4homneBuN9PSdwc2nA
-	 GDmae1zsa0i5zYzXXwC0QHwDJFTVX9ZN40FsvG4by/+v71nubuT2LJ6//DXS6LAbi4T5O
-	 P5nwMO3QrlI2FDNAkEDYJm/4yWyeWdtSgJXW1DqQkQTaaUXIdhWzY/M92w+UWgBF/HQ==
+	bh=OkbhqlAyWh5/Yy+HX+TxYjT70VGm5Abq0fqJanB9ny0=;
+	b=CNpZRzGtKfxIK9SiY3slWJk97TxvaUykli8gOtZ0qkpMa19KrM56RFSWDGC2hDGF0Sge
+	 Z+wq8VSmfspvkZavbhXmEeepfYMTKCvHsTMLsCxBWatHgg7tg4270t8dq5RwIS7ywUtD+
+	 rphNuKaGpnt1Y+w2C4ru85hwn41NJCjfC6+3pP1bNZ+qoHy2ifvxQu3OedpyIFFuBZ+OU
+	 yjS2bfEVl8au5AeySbltOl3U7RczFBqHH8A16ZH2ZYzdIm8wRMCVW5bmIZjYqivGxYaPF
+	 3POrztVmilqEgoUSQj8HS7fOk+Mb5N6YFHyh2+0XmBl0P6xNhSKH9UkQbClZOIj5xig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vt8u0qdV;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ooFgZK/s";
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 460D0606A333
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:56:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 460D0606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FCB0606A325
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 01:56:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FCB0606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vt8u0qdV
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f00fc215f9so2560065ad.0
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ooFgZK/s
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b413997581so369942a91.2
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 17:56:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795139772; x=1795744572; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795139778; x=1795744578; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oPmYdno3g8WSLKD4XaUSvZ7KnfsPKwYsTc83SiDb58I=;
-        b=Vt8u0qdVzKznUyLCtJOxfbqD1RvjbGLJmsTkmayi633oL1nxvM3Cnxy+yTPRViS9rt
-         YIXnXBxOxjXB7icDJa6zR6KhnESI0iifY61PrUfAXarE7Oo78xwkhcnv7/6RGqD3NX23
-         yALY5UE+K1RqBmpIGL7knk9bddWE8tCNi1RRjqpydLWj2JdlmSo+oSR+D/t0DO3W4txI
-         pEf8dh/4ZMGmSbDthrRiQUxfhFf93+qsnqvuStnTAnYxgI+6K1wci/jwJj8EZapIsha7
-         KJBG+1UcejiyKPzX2Ctsd/DlIIDcn3uq0VooYmRGbJJcf64lmJbMw9ca48JZj1gw2kFj
-         3Hkw==
+        bh=OkbhqlAyWh5/Yy+HX+TxYjT70VGm5Abq0fqJanB9ny0=;
+        b=ooFgZK/sqcQ2p4MiFRiiHGZxovN89mDo7Hd/mc6MS7Q1wnI8wkrf9m5iw7oNEbPvvI
+         GUCR3ncfyOIn68toI0tJ1/KLiFGZayoWb86SlJq3ksvuyBGVVo6lgcJcOc/ocmVN8IW0
+         WjAfVBVR1J83C7C1rQndqUNCj0aOGBvsXXINe4eDZofH7aSZgZ1WzCOOaFkTTin9yOyL
+         FFgkFSe/Qw41Zcfukq9JgOdencE9ow0cbrzomt1oVUrcGAxU2D2OBxGb1wpRCanzjDbI
+         t0jx+JaGdnqUYrcCwyP3oq4HpS3cCbNiLSI9Stm9SIpQ3HUm6hKQwG0tW9uaDn8dsl1V
+         gWtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795139772; x=1795744572;
+        d=1e100.net; s=20260707; t=1795139778; x=1795744578;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oPmYdno3g8WSLKD4XaUSvZ7KnfsPKwYsTc83SiDb58I=;
-        b=K/6tw2xbxLDkNsbBjU3t5Q38gDNfF23JF0vAmvXKfdwewihnB0i6wluuw01DlU0eqy
-         vD+z4ZLIVsTvJeEaRjltCJtXIXzsM4nc6aB3FPnd9y/gO2Q1ArvWSNTEl1yDaLmFxXpu
-         WlnYsWmve55SZ6Je5PwXHFYScNvSsXNudJqBwJNIQtTkeOto+iLHdXeOpFodfgO+Mru/
-         ARrwaXsOSWjXMmaX+2MoGSq6lkeaJONJvDlmtbAjVvbB+9zS/G2SJ4gFRBUjpEjwIlbr
-         6QoNfPU3+gKOoCcjxCBTqVLwCZyLxyj15XjkeScDfIIeuA7oA7Y+sWTvJxRWe09EjbEy
-         6J+Q==
-X-Gm-Message-State: APuU4Z8UmwI3eq0YMNkD/BbnWkx+mxjvcjz9tAD7SsWWAb7iGoHvt3ia
-	2GmeCCMAkzUSxNeaulTp1h+InKMDOSKHlrGkqag1Y9ZRyoqJkfUt1kQpRu6YgadQ
-X-Gm-Gg: AZFdTZdPjuagm/rPQx4hA9/ERLpjZahg4o4aEe68T1v+xh8Qf4sHglGhpCrvhYz7EL/
-	mrhNEwULpuQjcxAR49hkbiD4I5UB/MfYYSnyFzuWAwSsstMdZf9c5wzobJsH80yjZwXZraL5o15
-	V48mFUh9GSVSGZoxqRP5eV+F6Ml0BVMCnRmHoRFkPlhg6nxsMSlfXR+pjtDuUr4f3HdIRbdBbbA
-	01a2pQuUNI2bl8vSne4lI8BvN768F37esO2/yS0qIhZ0rv1EuPAsZe6pB/230VyB+ECHPI4NeTj
-	N3RBFg4hjNUS2OjC/j9x8QS4iOBrrlzcdunQJdMDu+pNAJy5LSh4ivrXsXfQb+APmGdX0VW/prJ
-	bTSbuLA+nlq2qvcPg70pe/Xr0o7bVd0Dw6Ln9AWhVp/NoxyVmkXiz79DOQ3A9sXcFv7oex4gLfI
-	g31AsMsK7df5dovnrPW/wSn37SBfSFr/9t2g6GLZozTr3LwDinzUtXnbG54iJx1cOpaPMi+Kw+t
-	U9cYhaDmpasDYDXWscUGYZA4GNvuGRx6apWTkk/qz7+nHxTtcwtCW4jD3EVrZJvxuZRm++/+wLf
-	JfI2aKT5XF+TA6uRc/mPTL+ccTd+IGxQq1vlkTEPSRJ3fJnrGwo=
-X-Received: by 2002:a17:90b:4ec5:b0:3ac:7e3a:1033 with SMTP id 98e67ed59e1d1-3b41c96182bmr1177968a91.59.1795139771651;
-        Thu, 19 Nov 2026 17:56:11 -0800 (PST)
+        bh=OkbhqlAyWh5/Yy+HX+TxYjT70VGm5Abq0fqJanB9ny0=;
+        b=Io0ml8PeIODO9XMpvImCY/6vbMcvGuNnVVmfTHOrXAqzmkVggPoOtwaE0BXy0HEdhG
+         oHrq/BWi8kstsumqqLqqv5Ri+RX3h/+c95kbD2jI15PjahnY6ToOAYCRPen2nSnrvwk+
+         bZIKVvN+tulnrDnRRJnCzvbGW/+rylbLNBEco1q+pCWyFpZ7eg+F7ukcA3pqH2K2bFv1
+         LLg/15AwJJb9HmA0P0cbLViADVeYhTFeU85p4hkpvN6Loi1qRS6kCPq8CUhJtpnx2/+x
+         8dixAVBlpioQjSz/yIXmmKiCoi8sIDxh6uoZvWM+HiJxVellWd9heGIAO1zDSTJyEFXH
+         xQtA==
+X-Gm-Message-State: APuU4Z9Swh7zFvqksacbflTqY1SFpn5t6BC9mUABV9Hb0hUPbMPQGKoW
+	Pi2409HLsRIdO2GhOWJ3azqnNUYJ+yI7pSbAlVIitLfUc6atO8pclX0OJ7fhB9Zw
+X-Gm-Gg: AZFdTZeRXoflVIKDaArMAf/RRdcWN4q4aEGWYa/dzn3t0GsaLuuGzN9sadPgUM1Y+2H
+	tdz0ZS6apPAmYSiq0xHKhBZ9PjQo04Wj3NIcd4hDRQG+z9CDOi/2j/AOBxcy2xS6yNi+ve5IwnF
+	uahRGoIretKn5SLzaWEmezNe8BC38zqsh91OiWumeza5o6+I/4TT5GiDXKXOYusOUs6dhfiJU/G
+	Nc79vpeeMMZ2A/9zt+rPf9zTAGz0fLpOQkMRYAsCg6FgzF07PAl8AjJ1fb0zyDWkWHsMlFT4VRj
+	Nj9xDXlyFbTOpE0KCofJLrbChvmZHzmZ4GsutmKM26geOIhDhDFX1tk7yfJn9hhh8tucufECOos
+	TXiIfj0y3KvkYhxLf9oPJqL4K0mtEM+rj9gejADdrLNYAiHge0J81is94sXhXfgdS/XZC8EDE0S
+	YC87inZ4ljdnzPOsS4B1WvnZJkr30bBF5iECf2dG2H5c4/ofLuRD4/3Sj8xU/PuvyNVouaaX7XB
+	OyL2W6IKSv/Hff8khh2wPN3m222AY62Lp1hoo3TbLJi+jarOtoqFXKQfG8/O+rBjkSqDHQgQ0Hs
+	Cj4UV/4VqLd2FnFPGUlQQeHppPytQtJ+axbLnlyikbE6RpQe/2w=
+X-Received: by 2002:a17:90b:2cce:b0:3a4:967c:6947 with SMTP id 98e67ed59e1d1-3b41c909001mr1165606a91.21.1795139777792;
+        Thu, 19 Nov 2026 17:56:17 -0800 (PST)
 Received: from u.. (61-222-64-201.hinet-ip.hinet.net. [61.222.64.201])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5355957a91.8.2026.11.19.17.56.06
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5355957a91.8.2026.11.19.17.56.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:56:11 -0800 (PST)
+        Thu, 19 Nov 2026 17:56:17 -0800 (PST)
 From: Tim JH Chen <tim770802@gmail.com>
 To: netdev@vger.kernel.org
 Cc: chandrashekar.devegowda@intel.com,
@@ -98,9 +98,9 @@ Cc: chandrashekar.devegowda@intel.com,
 	tim.jh.chen@wnc.com.tw,
 	Chih.Hung.Huang@wnc.com.tw,
 	Tim JH Chen <tim770802@gmail.com>
-Subject: [PATCH net v7 1/6] net: wwan: t7xx: fix TX push kthread soft lockup on system suspend
-Date: Fri, 20 Nov 2026 09:55:51 +0800
-Message-ID: <20261120015556.131547-2-tim770802@gmail.com>
+Subject: [PATCH net v7 2/6] net: wwan: t7xx: fix runtime PM usage count underflow on -EACCES
+Date: Fri, 20 Nov 2026 09:55:52 +0800
+Message-ID: <20261120015556.131547-3-tim770802@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261120015556.131547-1-tim770802@gmail.com>
 References: <20261120015556.131547-1-tim770802@gmail.com>
@@ -115,103 +115,95 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-t7xx_dpmaif_suspend() stops the TX queues (que_started = false) but
-leaves dpmaif_ctrl->state at DPMAIF_STATE_PWRON. The TX push kthread
-only sleeps while the TX lists are empty or state != PWRON, so when
-skbs are still queued at the time the suspend callback runs its wait
-condition stays true and every iteration completes without doing
-anything and without sleeping: pm_runtime_resume_and_get() returns 0
-without resuming anything (the PCI core resumed the device before the
-suspend callback, and once runtime PM is disabled in the late phase an
-active device is reported as already resumed); t7xx_pci_disable_sleep()
-completes at once because md_pm_state is no longer MTK_PM_RESUMED;
-t7xx_do_tx_hw_push() returns immediately because no queue is started.
-There is no scheduling point in that loop, so the kthread spins on its
-CPU for the rest of the suspend/resume cycle.
+t7xx_dpmaif_tx_hw_push_thread(), t7xx_dpmaif_tx_done(),
+t7xx_dpmaif_bat_release_work() and t7xx_dpmaif_irq_rx_done() treat
+-EACCES from pm_runtime_resume_and_get() as success and proceed to
+access the hardware. That is intentional, but
+pm_runtime_resume_and_get() has already dropped the usage count it
+took before returning -EACCES, so the pm_runtime_put_autosuspend() at
+the end of each context (in t7xx_dpmaif_napi_rx_poll() for the RX
+interrupt) drops a reference that was never held.
 
-With s2idle and ASPM L1 enabled this was seen as a soft lockup after
-about a thousand suspend/resume cycles (the 981st in the capture below).
-The lockup was reported at different points of the suspend: while the
-device callbacks were still running, right after this driver's own
-suspend callback had stopped the queues, and after the wakeup interrupt
-but before any resume callback had run. Captured with kdump on an
-unmodified 6.19 kernel:
+Take the reference with pm_runtime_get_noresume() and resume with
+pm_runtime_resume(), so that exactly one reference is held on every
+path that touches the hardware, and drop it only on the errors that
+abort the operation.
 
-  mtk_t7xx 0000:56:00.0: PM: pci_pm_suspend returned 0 after 39260 usecs
-  ...
-  watchdog: BUG: soft lockup - CPU#4 stuck for 26s! [dpmaif_tx_hw_pu:764]
-  RIP: 0010:ktime_get_mono_fast_ns+0x2e/0xe0
-  Call Trace:
-   ? t7xx_pci_enable_sleep+0x44/0x90 [mtk_t7xx]
-   t7xx_dpmaif_tx_hw_push_thread+0x1f9/0x490 [mtk_t7xx]
-   kthread+0x10b/0x220
-   ret_from_fork+0x159/0x1d0
-   ret_from_fork_asm+0x1a/0x30
-
-Other captures sample the same loop in t7xx_pci_disable_sleep() or in
-the runtime PM put; all other CPUs are idle.
-
-The same loop runs after a resume that does not restart the queues (a
-modem exception found in the PM resume state, or shutdown) until the
-FSM takes the DPMAIF out of DPMAIF_STATE_PWRON.
-
-Once pm_runtime_resume_and_get() has returned, a runtime suspended
-device has been resumed and its queues restarted, so a TX queue that is
-still stopped at that point was stopped by a system suspend or by an
-exception. Skip the push in that case and wait on tx_wq until the queue
-is restarted or the thread is stopped; t7xx_dpmaif_resume() and
-t7xx_dpmaif_start() already wake tx_wq after restarting the queues.
-
-The check is not folded into the thread's main wait condition on
-purpose: a runtime suspended device also has its queues stopped and
-relies on this thread calling pm_runtime_resume_and_get() to be
-resumed when skbs are queued.
+-EACCES is only returned while runtime PM is disabled and the device is
+not active. Not observed; found by review.
 
 Fixes: 46e8f49ed7b3 ("net: wwan: t7xx: Introduce power management")
 Signed-off-by: Tim JH Chen <tim770802@gmail.com>
 ---
- drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 11 ++++++++---
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c | 14 ++++++++++----
+ 2 files changed, 18 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
-index 236d632cf591..798e4e95004f 100644
---- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
-+++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
-@@ -445,6 +445,7 @@ static void t7xx_do_tx_hw_push(struct dpmaif_ctrl *dpmaif_ctrl)
- static int t7xx_dpmaif_tx_hw_push_thread(void *arg)
- {
- 	struct dpmaif_ctrl *dpmaif_ctrl = arg;
-+	bool txq_stopped;
+diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+index 5af90ca6e063..77770869d575 100644
+--- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
++++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+@@ -911,8 +911,10 @@ void t7xx_dpmaif_irq_rx_done(struct dpmaif_ctrl *dpmaif_ctrl, const unsigned int
+ 	 * which can't be done from softirq context the poll function
+ 	 * is running in.
+ 	 */
+-	ret = pm_runtime_resume_and_get(ctrl->dev);
++	pm_runtime_get_noresume(ctrl->dev);
++	ret = pm_runtime_resume(ctrl->dev);
+ 	if (ret < 0 && ret != -EACCES) {
++		pm_runtime_put_noidle(ctrl->dev);
+ 		dev_err(ctrl->dev, "Failed to resume device: %d\n", ret);
+ 		return;
+ 	}
+@@ -1068,9 +1070,12 @@ static void t7xx_dpmaif_bat_release_work(struct work_struct *work)
+ 	struct dpmaif_rx_queue *rxq;
  	int ret;
  
- 	while (!kthread_should_stop()) {
-@@ -464,10 +465,23 @@ static int t7xx_dpmaif_tx_hw_push_thread(void *arg)
- 		if (ret < 0 && ret != -EACCES)
+-	ret = pm_runtime_resume_and_get(dpmaif_ctrl->dev);
+-	if (ret < 0 && ret != -EACCES)
++	pm_runtime_get_noresume(dpmaif_ctrl->dev);
++	ret = pm_runtime_resume(dpmaif_ctrl->dev);
++	if (ret < 0 && ret != -EACCES) {
++		pm_runtime_put_noidle(dpmaif_ctrl->dev);
+ 		return;
++	}
+ 
+ 	t7xx_pci_disable_sleep(dpmaif_ctrl->t7xx_dev);
+ 
+diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
+index 798e4e95004f..48558b98e7c6 100644
+--- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
++++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c
+@@ -162,9 +162,12 @@ static void t7xx_dpmaif_tx_done(struct work_struct *work)
+ 	struct dpmaif_hw_info *hw_info;
+ 	int ret;
+ 
+-	ret = pm_runtime_resume_and_get(dpmaif_ctrl->dev);
+-	if (ret < 0 && ret != -EACCES)
++	pm_runtime_get_noresume(dpmaif_ctrl->dev);
++	ret = pm_runtime_resume(dpmaif_ctrl->dev);
++	if (ret < 0 && ret != -EACCES) {
++		pm_runtime_put_noidle(dpmaif_ctrl->dev);
+ 		return;
++	}
+ 
+ 	/* The device may be in low power state. Disable sleep if needed */
+ 	t7xx_pci_disable_sleep(dpmaif_ctrl->t7xx_dev);
+@@ -461,9 +464,12 @@ static int t7xx_dpmaif_tx_hw_push_thread(void *arg)
+ 				break;
+ 		}
+ 
+-		ret = pm_runtime_resume_and_get(dpmaif_ctrl->dev);
+-		if (ret < 0 && ret != -EACCES)
++		pm_runtime_get_noresume(dpmaif_ctrl->dev);
++		ret = pm_runtime_resume(dpmaif_ctrl->dev);
++		if (ret < 0 && ret != -EACCES) {
++			pm_runtime_put_noidle(dpmaif_ctrl->dev);
  			return ret;
- 
--		t7xx_pci_disable_sleep(dpmaif_ctrl->t7xx_dev);
--		t7xx_do_tx_hw_push(dpmaif_ctrl);
--		t7xx_pci_enable_sleep(dpmaif_ctrl->t7xx_dev);
-+		/* A runtime suspended device was resumed above and had its queues
-+		 * restarted, so a stopped queue here belongs to a system suspend
-+		 * or an exception: wait for t7xx_dpmaif_resume() or
-+		 * t7xx_dpmaif_start() to restart it instead of spinning.
-+		 */
-+		txq_stopped = !t7xx_select_tx_queue(dpmaif_ctrl);
-+		if (!txq_stopped) {
-+			t7xx_pci_disable_sleep(dpmaif_ctrl->t7xx_dev);
-+			t7xx_do_tx_hw_push(dpmaif_ctrl);
-+			t7xx_pci_enable_sleep(dpmaif_ctrl->t7xx_dev);
 +		}
- 		pm_runtime_put_autosuspend(dpmaif_ctrl->dev);
-+
-+		if (txq_stopped)
-+			wait_event_interruptible(dpmaif_ctrl->tx_wq,
-+						 t7xx_select_tx_queue(dpmaif_ctrl) ||
-+						 kthread_should_stop());
- 	}
  
- 	return 0;
+ 		/* A runtime suspended device was resumed above and had its queues
+ 		 * restarted, so a stopped queue here belongs to a system suspend
 -- 
 2.43.0
 
