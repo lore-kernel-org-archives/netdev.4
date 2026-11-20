@@ -1,105 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156696;
-	b=RqCS9Ove8EruMwJYdNyGu4b7iTHpq+kbKiWDRUOHca7Zji+G8UqA7wwTfpVZ51d1IU6n
-	 59y7WWZFb+fj5qvLjjs1+aL0IlRJEPKokMVAJcj9cHiXLufduHVaHjgUtDR27FjpEPb6l
-	 liJBmBoVwTH6oCKre+G+Kg194eSy3uGzDC22jODo3pDt7y4EIAKqPOAJK2W66wUVyMXhI
-	 Qp2b/JPx+K3tXavNCFvHjQOcXB16k5YM/KztFNGnQfdPl763k4rt6SBA7sqXbRvjKkqcU
-	 bI4zA6YIJYQyDrKIPXU1lfDoRvBV1RLsQu4jL20GKLBNQXdZNYPhPOkaM/fiAO9Ykqg==
+	t=1795156909;
+	b=Pjwcfxbpdh0Lmy/bYELG8h1FdX9Zn8ApzLAbWAGHJPEUqG4B5sdQFwsPRT71PTWvHDPI
+	 I0E+qJD4iz6ls8p3pQ9Y4aZvR2xevjpBCdexiQvP4y3dir4vzY3h5jmDM9O989SfbU7Ty
+	 HWrvyij6P33IK82jQmiOlIu0AoVLDVS3myCoXv4q46TfCDo9Zus5yDPxapE1I/o3/96qb
+	 kMoqB4WnVh0Wn/tIrVJzN/7dXRzd94yCAyrX13AmwwKvcDPnaYG76ypfM+PUmbLX8hi9w
+	 55ykwIhs/9I+1fKuSbPz4zXz4fdhxl/CzcuWvgrMiooH+CWt1vd+NksbYVOtASI/GeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156696;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0L65Z0WSTeOd+xby5EcVaXJY0gvQ3mzLgWdfZRejqAg=;
-	b=zeolNjrFFJPDj5Z5sKMyjosVuVipcPwwjkQvWqsXNsLyRRTXbrDGJKF6t4mq/JiEc601
-	 Q6kzx+ldfHDEIbFcpI8/2G7VBOm6IN3fQIwDngopGzSVRqPQVKDy23zlJvLmb4SsjrIfp
-	 SO6pkc138pw93yMNGV/gX9z+GPRd7H9abzZCRs1Ro69enR/kNEM4e7YhiHAcnguibtjjn
-	 ZgySlksAclx1UxIUJ1g5meFN2D3yCOtc9Jq1YzIhbkqu1Eer22Ik8msfNb1xmRqcBLg6+
-	 tytF3XfWSYsRlFK+oOku9+0pETpSZYfMQh3eaPE5ZEubpZzoZ44XgTTxGfbUzDBJSEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156909;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=hel37/Epjlq7DaohvvHasctAg1zGKRp6Mh3HCFijiFE=;
+	b=nF0kEQGRLOd7VRob0PXx0XRs+hXUudw2M/3UGYq4bcbDSd7glT7j4iE1p+GCaDi1sVsh
+	 j7VhgMqeXflY4ERWGWGLwdDuwAE3JHWoppnPr0y5C7QMpxqt+SJMeJwGmMxg/P538eB29
+	 OG4Qz+MQu9R9uDdq3X8mGeOHZWsaR/ujX6g7RD3YzEZ/IZ2jFNiL/z876OgYCbIkFgl9j
+	 L/fOTEjOgUzYSC3gPy65hv001RyVtDkFneRlndO8S7vP6TONKsli/LqjqJyUIJd/E/vZq
+	 1f+UH9cWxxZMthyACv0afJIYqsJ0ONhlT+HibjvCiK+LVvkezu78UO624Q9G3/9eTOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UMe002Sw;
-	arc=none smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MoJnvdxp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F44B606A33F
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:38:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F44B606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30A49606A320;
+	Fri, 20 Nov 2026 06:41:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UMe002Sw
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c511cdd5a82so68876666b.3
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:38:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795156695; x=1795761495; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0L65Z0WSTeOd+xby5EcVaXJY0gvQ3mzLgWdfZRejqAg=;
-        b=UMe002SwitBG/rfcnmuW0FAnQ9MK8uY5mM+pW936m3VIbISOOZcfy4cojtbzPV9wTs
-         Zs1SMkId54N/ATXQZbESUzWkwxWDbhbGYrrGNu+fae5QAl8GEs3q5rv11WdKktYoYYck
-         dNZnurZPlTylLN5pVcxSd51jkwAVqkEIOpMtEKLnQWtxnbkMykQWg84/ZEpyZaG6egrv
-         PlDiom7x5Atr2TxDXxrN9xQzWP7iWp8BvY+LQqXwI9U+hFuSLC0M+DqYHLsiwiqFB4Qc
-         eysBlzu1BOSeaZyKEWkqxspG6sDMxbV4CuNcSrhbIxCGcFvIZvF0ok1qKmoc4OHqlMEl
-         gMcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795156695; x=1795761495;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0L65Z0WSTeOd+xby5EcVaXJY0gvQ3mzLgWdfZRejqAg=;
-        b=1vy0wtemjz6Z7wtSpOhbxO3ygcC7W4CyhIb8fixiBrTiAMtmSVWZYYb3B8sxjVokmv
-         bRCLzLOmVjmmfpW2l9h2GMT7FZ0Dk+lpguG0VJb9DQei9aqOUmbUL6skQ5VuCmxt20Zu
-         02cn2/ZIIFNfllb5yOSl32FTourpV8gTNy7hjOUR2Lyhv1W7Q//s4ALEqFUql1AyTPRq
-         ykex1Koyh/pgIo0/oafpFvssbwJILxVaD4dn/aNu6R8OFmczxc7J5D5Kby+JscO5IG0A
-         gu2YclonU7bZWuJGARpFcXbgKHZB6uWKc7CGZ9HxxGcVkVmWWr/rvNoZbTdNoUv2KI5V
-         kZKQ==
-X-Gm-Message-State: APuU4Z+jLbwDGob4ItHhGaRbszMfbTdmuEyESognvOHOwzObVmTaAvR4
-	jD5i0y8mIzx3XrKS2y2dAFT3OjXS7LEu0W0uTtsLkn6g3JhimqbXvqxL
-X-Gm-Gg: AYBFou3EZjx80Ise07WvomgkDjTaT93CIpdVLs20Ns5eEtmbSzvhV/38s2InYJDkAzz
-	tX27ETaSJk4ceP+49rDOo6kSbHAeXIpIb6/OvC1jjbB+AdgQvrMVygTxswG3HlLHfa+HD0uLMiH
-	cUkLLZq9M6rcG0nfxpDSgy0bIeJjSlKkn65W2+D80f9rD8/i/taHaq3+OxDeHCZSNCNtM6AJpoQ
-	cvnKCjaVRiSKgO1xp+YEtoubOgSMZ9Je4/Al0tdqo6zfoDKaVrqHKYS7FRoYI5CgevWb+d3ky2M
-	RdF3UOWrvfLGnfgXkJ122w/67pVimgbVhStsve6oCa6m/wJc/V2DRFRc55Mf7+KSbVRxhW1Mq5e
-	QVk4+xefEBmZJi6HwGwBH3mzgQyilzknssYDfGzhZ2MFc5ngpRRJJvp0ugob3zjJcrf3Emd2Q1E
-	o4zAE/u78QzJIib1QmoiM8nHrVSA9KMmgtfy45/CVZRKoEd5d7Aq94bTKlBn6A87KVRToXGSRzC
-	s9ndbmd2nWbIboF+vf8dEIdI/tj3nOcsjy6m0lbyjUufojbTlY2SGPld9j2tIzuyeBq9myUV65e
-	2E+ObCY5zYNsheBngK1yG7pbrHbPeWE8LAZ3hzTtuPAWs8brDOb7M541Dm8Q+2gQq6wzY3LFnMz
-	RiTK7eZUYbgm/pvkXog0QGSOkGtOAwRPRTbzBZPetVLLlK/Rho1g=
-X-Received: by 2002:a17:907:9306:b0:c25:afb6:2d91 with SMTP id a640c23a62f3a-c513a52ab6cmr181256866b.2.1795156694404;
-        Thu, 19 Nov 2026 22:38:14 -0800 (PST)
-Received: from dpawlik-thinkpadp1gen7.rmtpl.csb ([46.205.218.30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc2455sm66530966b.57.2026.11.19.22.38.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 22:38:14 -0800 (PST)
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-To: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk
-Cc: netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kabel@kernel.org,
-	petr.wozniak@gmail.com,
-	maxime.chevallier@bootlin.com,
-	olek2@wp.pl,
-	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH net-next v3 2/2] net: sfp: skip PHY probe on bridge-less OEM SFP-10G-T revisions A and B
-Date: Fri, 20 Nov 2026 07:37:56 +0100
-Message-ID: <20261120063756.3677554-3-pawlik.dan@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120063756.3677554-1-pawlik.dan@gmail.com>
-References: <20261120063756.3677554-1-pawlik.dan@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MoJnvdxp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E71291F000C4;
+	Fri, 20 Nov 2026 06:41:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795156908;
+	bh=hel37/Epjlq7DaohvvHasctAg1zGKRp6Mh3HCFijiFE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=MoJnvdxp7n9nMHpCSkBftVygNiGA/hQQIu+Xzg0NI353YyJGHQTbekN/UQPO5u6h1
+	 B4h3rVYp+Z4jJI5NDAFCEv24R6NPT2aK7fp5ilwvj2m4BC6tX13tDGAxdIkIfeDAd6
+	 GhPKaaqSvlFruVGcrQBPhn4te0bAePF7I/VuxG/F9KqOe5wSv64dl9sV4mrUvrwC4u
+	 Smwy6m/8xtiLpjXjI8M33VzV7/FsdGiPU5z71l+I2c1LYAvS+cXYhITWuwEsPy4Yz3
+	 ZAKMPPyCduxqSOzDa68cLqPitsZBAwWoZXWL3GFvp6Trj83e51DRr+cu/BhUW7T6nL
+	 8XgOwWtUD90Yg==
+Subject:
+ Re: [PATCH net v5 04/14] net: pse-pd: do not keep a failed IRQ in pcdev->irq
+From: netdev-bot+sashiko@kernel.org
+To: github@szelinsky.de
+Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, broonie@kernel.org, lgirdwood@gmail.com,
+ maxime.chevallier@bootlin.com, kyle.swenson@est.tech, ross@r-sc.ca,
+ netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 06:41:47 +0000
+Message-ID: <179515690732.3136.5656168477825917127@kernel.org>
+In-Reply-To: <20261118183957.2031311-5-github@szelinsky.de>
+References: <20261118183957.2031311-5-github@szelinsky.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,101 +66,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-"OEM SFP-10G-T" modules with vendor revision "A" have no RollBall
-I2C-to-MDIO bridge: page 3 of the 0x51 EEPROM passively echoes written
-bytes, so every RollBall command times out. With instrumented mdio-i2c,
-the CMD register reads back exactly the written command byte (0x02)
-forever, with no DONE and no I2C errors. 0x56 reads back all 0xff, so the
-PHY is not reachable at all. A genuine RollBall module with the same
-vendor and part number (revision "02", AQR113C PHY) on the same board
-answers DONE on the first poll and its PHY attaches within ~2 seconds.
-A rev B module with an RTL8261BE PHY, reported on the OpenWrt tracker,
-hits the same RollBall timeouts. The bridge probe added by
-commit 8fe125892f40 ("net: phy: sfp: probe for RollBall I2C-to-MDIO
-bridge in mdio-i2c"), since reverted, found no bridge on it, after
-which the module worked.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-That module reaches this quirk entry only because its part number is
-"SFP-10G-T" at that point: it is a rate-adapting module which reports
-"SFP-10G-T" with a 2.5G or faster peer and "SFP-10G-T-I" with a 1G
-peer, and only the former matches this entry, which is the sole entry
-forcing RollBall on it. The "SFP-10G-T-I" variant matches no quirk and
-keeps the default behaviour either way.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Because the SFP-10G-T quirk forces RollBall, the kernel retries the PHY
-probe 25 times at ~21 seconds per attempt, i.e. for over nine minutes,
-before giving up and falling back to inband mode. Each attempt runs from
-sfp_timeout() with rtnl_lock held, so for the whole window every rtnl
-user on the system stalls in ~21 second chunks, including the state
-machines of other SFP cages: insertion and removal of a module in another
-cage is only processed after the current attempt ends. In one test, a
-module pulled from the other cage kept being polled by phylib until the
-attempt ended, triggering a WARN from phy_error_precise().
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Give the SFP-10G-T entry its own fixup that skips the PHY probe for
-revisions "A" and "B", while keeping the forced extended compliance code
-so that the module still links up in 10GBASE-R inband mode as before.
-Other revisions keep the RollBall fixup unchanged.
+- [Medium] This patch keeps pcdev->irq accurate only when the IRQ request
+  fails.
 
-Tested on a Banana Pi BPI-R4 with rev A and rev 02 modules: the rev A
-module links up at 10G ~16 s after insertion instead of over nine
-minutes, and the rev 02 module is unaffected. No rev B module was
-available for testing; its match is based on the report above.[1]
+--
 
-[1] https://github.com/openwrt/openwrt/pull/22910
+net: pse-pd: do not keep a failed IRQ in pcdev->irq
 
-Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
-Link: https://lore.kernel.org/netdev/20260624084814.20972-1-petr.wozniak@gmail.com/
----
- drivers/net/phy/sfp.c | 26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+This patch clears pcdev->irq in devm_pse_irq_helper() when
+devm_request_threaded_irq() fails. Without that, the failed probe's
+pse_controller_unregister() calls disable_irq() on a line the controller
+does not own. pcdev->irq is now set before the request because pse_isr()
+can read it as soon as the IRQ is enabled.
 
-diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
-index 8406ad8ee786..431c0f773d35 100644
---- a/drivers/net/phy/sfp.c
-+++ b/drivers/net/phy/sfp.c
-@@ -496,6 +496,30 @@ static size_t sfp_strlen(const char *str, size_t maxlen)
- 	return size;
- }
- 
-+static void sfp_fixup_oem_10gt(struct sfp *sfp)
-+{
-+	char rev = sfp->id.base.vendor_rev[0];
-+
-+	/* Revisions A and B of this module have no RollBall I2C-to-MDIO
-+	 * bridge (on rev A, page 3 of the 0x51 EEPROM just echoes written
-+	 * bytes), so every RollBall command times out and the PHY probe
-+	 * keeps retrying for over nine minutes, holding rtnl_lock for ~20
-+	 * seconds per attempt. The PHY is not accessible at all, so use the
-+	 * module without one.
-+	 */
-+	if (sfp_strlen(sfp->id.base.vendor_rev, 4) == 1 &&
-+	    (rev == 'A' || rev == 'B')) {
-+		dev_info(sfp->dev,
-+			 "rev %c has no RollBall MDIO bridge, not probing for a PHY\n",
-+			 rev);
-+		sfp->mdio_protocol = MDIO_I2C_NONE;
-+		sfp->id.base.extended_cc = SFF8024_ECC_10GBASE_T_SFI;
-+		return;
-+	}
-+
-+	sfp_fixup_rollball_cc(sfp);
-+}
-+
- static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
- 				struct sfp_module_caps *caps)
- {
-@@ -643,7 +667,7 @@ static const struct sfp_quirk sfp_quirks[] = {
- 	// OEM SFP-GE-T is a 1000Base-T module with broken TX_FAULT indicator
- 	SFP_QUIRK_F("OEM", "SFP-GE-T", sfp_fixup_ignore_tx_fault),
- 
--	SFP_QUIRK_F("OEM", "SFP-10G-T", sfp_fixup_rollball_cc),
-+	SFP_QUIRK_F("OEM", "SFP-10G-T", sfp_fixup_oem_10gt),
- 	SFP_QUIRK_S("OEM", "SFP-2.5G-T", sfp_quirk_oem_2_5g),
- 	SFP_QUIRK_S("OEM", "SFP-2.5G-BX10-D", sfp_quirk_2500basex),
- 	SFP_QUIRK_S("OEM", "SFP-2.5G-BX10-U", sfp_quirk_2500basex),
+> diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
+> index 0cce17670d0b9..0894613515e0d 100644
+> --- a/drivers/net/pse-pd/pse_core.c
+> +++ b/drivers/net/pse-pd/pse_core.c
+> @@ -1341,14 +1341,20 @@ int devm_pse_irq_helper(struct pse_controller_dev *pcdev, int irq,
+>  	if (!h->notifs_mask)
+>  		return -ENOMEM;
+>  
+> +	/* pse_isr() can run as soon as the IRQ is enabled, and
+> +	 * pse_pw_d_is_sw_pw_control() reads pcdev->irq.
+> +	 */
+> +	pcdev->irq = irq;
+>  	ret = devm_request_threaded_irq(dev, irq, NULL, pse_isr,
+>  					IRQF_ONESHOT | irq_flags,
+>  					irq_name, h);
+> -	if (ret)
+> +	if (ret) {
+> +		pcdev->irq = 0;
+>  		dev_err(pcdev->dev, "Failed to request IRQ %d\n", irq);
+> +		return ret;
+> +	}
+
+[Severity: Medium]
+This covers the failed request. Can pcdev->irq still go stale on a normal
+unbind?
+
+The only caller of devm_pse_irq_helper() is tps23881. It registers the
+controller devres first and requests the IRQ after that:
+
+drivers/net/pse-pd/tps23881.c:tps23881_i2c_probe() {
+    ...
+	ret = devm_pse_controller_register(dev, &priv->pcdev);
+    ...
+	return tps23881_setup_irq(priv, client->irq);
+}
+
+tps23881_setup_irq() then calls devm_pse_irq_helper(). Devres releases in
+LIFO order, so on unbind or rmmod the teardown runs:
+
+devres_release_all()
+  devm_irq_release()
+    free_irq()
+  devm_pse_controller_release()
+    pse_controller_unregister()
+
+By that point pse_controller_unregister() no longer owns the line, but it
+still does:
+
+	if (pcdev->irq)
+		disable_irq(pcdev->irq);
+
+This is the same problem the commit message describes, except that the
+stale pcdev->irq comes from devres teardown and not from a failed request.
+
+Suppose another device requests the same line between free_irq() and
+disable_irq(). __setup_irq() resets the depth to 0, and this disable_irq()
+then leaves the line masked for that device, with no matching
+enable_irq().
+
+A future caller passing IRQF_SHARED through the exported irq_flags
+argument would hit this on every unbind, because the other sharers stay on
+the line after free_irq().
+
+Could pcdev->irq also be cleared when the devm IRQ is released? One option
+is a devm action registered before devm_request_threaded_irq() that resets
+pcdev->irq. Then pse_controller_unregister() would skip disable_irq() on
+this path too.
+
+>  
+> -	pcdev->irq = irq;
+> -	return ret;
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(devm_pse_irq_helper);
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118183957.2031311-1-github%40szelinsky.de
