@@ -1,80 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795155104;
-	b=dC6cc0UX+/QeiuwItO8uJoahWULy7bzPxVWoeFGCz/o6LJdgvylEjH+VnBgZ/zEybpev
-	 jwMVvhAc1qxElcouZm3E2vkc6Fqb+JtKLTDgYbIzuWVtrgGyY8JlGhFNwCwMHxD7eIz8m
-	 gNU5SrHMx3tvd5o8IhLnJ1f4aGhrbfNserMTz1fWkNgG+lFrCWETXW+7vZANTopSCjpOW
-	 VGN0tI2Vp3yFSsEUvs5aHOZdLxZcctLrl1gOqPOFr6bJuUz7NONeR/a/YwKFsZN7DDYx5
-	 bRh8q2JFjpmhF1gxQbbxJUFGJj3mMKtWoV0JVoUNMD9JvYGQ0Cl6VNVRGRCfgwzpLDg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795155104;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=FYeBjzzajzIMomxeTo2zsisJ34xurhqTEFFHes8PBtA=;
-	b=dNZBgUIPvVKJgXYt4zyLNAjYX5ZRn87E+IZR/TueReysJepcD4APfzL1x21a+pfOmKha
-	 fkw/nU7qJhLPjObePY1T1VoJ8Tm0xnnUl6dFeKH6rn18/PVvKvhzSGj9dBwjtoULTmaG4
-	 WvoO/C6PAUiajxsSYxuxZumF7NP1oMGJr23GJT24BW1sAZh7NG/hhR9m7dqWlKUBErieM
-	 4kPzJbaU32zDLh4D/vE/zpwgxbn4slAc2Pqm3v3NXM/3hSFUhxi93O/Eqr6jUH9OjYmcs
-	 TV4tT9GruqhgLSisxYci2ajjdV+11iV8HolAxnaOpWCPx3zwG7nW0tkTfT4Tlh2BUDw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ergzg1M5;
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.10
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795155160;
+	b=cUuv2je3SSWdLFGSP78sM1v/DGkxqoDnobkEq/Eynl91j2lzYrIcBI6+4AWVcn2JVLwt
+	 PGKMYKsfiFx1yv3r+h4bB2/BCRQjovoLwHqBCc1OwZKoiqdRPXW0v4+xAKhauMX1d23VI
+	 DrU7+NNA+shYSpTTR3iG6o1JeyMekN28semUTD2bWCE7z9PQIXT8AvgmmwC7BsZCyjqN1
+	 kv7dyvhUp+4l19omzW4CSusCqDAgCYoNeNnyHNeOYFxf2FmWqmhgl6aFKGC88Ze5eVGtr
+	 pZs7p6PPy0MOscLO29OuOOiVxG1hNlZHp4yuDSFxE+vFFD1a41N9fkurIQ/0+cORFmA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795155160;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=K9JfGQMU2goXJLe85ptXZvz7/zWBEF657E4/lwaUP0Y=;
+	b=aXqf5bWqbMOKc78WkFXWMHq6lt4gql9vbJjmMN3ejYW3tC45Rr/74LoSfnwc/TLw8vAJ
+	 Ov2jF+4fKeUu8qGu7sWIjKV75EueDaMD1PKywpwWNyLIQjeLQIxNlmk+RyiIoa0lAx1dM
+	 FPBUGWhyczUCuTOIRpSqIb6/nHYvco0OYSldh7wgxJ29N0RUpZxUdiCGwMEL7UsiNZNEi
+	 1B1FH3/9l20uvBsN0FZrIOfJycTcgrZsqIh32xGD+2QGxF5fY0OexRWrGvT4zM6ukeWmE
+	 iPTlrDsMo7FESpQpVHU+ryFpoYBzP9aDYdaMZObQUIl9ouLtD3PFpEeSX9mcRGKCz1A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=0wFDOqdj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.10
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011010.outbound.protection.outlook.com [40.93.194.10])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE130606A504;
-	Fri, 20 Nov 2026 06:11:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE130606A504
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63A4E606A512;
+	Fri, 20 Nov 2026 06:12:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63A4E606A512
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ergzg1M5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795155101; x=1826691101;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=ET3hYaVt3likaMaWJfcVbGlw5rGCcaMf5Eo/QWP0lnU=;
-  b=Ergzg1M5rt/AOYxfnELPnGWf4qFz4Ae/PNjigCLtz9V//NplP4jvlG6u
-   NDqZCDiefM+jbrlzlzSVJbbNLNrHa7Kku3D7xdqir9APy7ySNuQlO+Ya0
-   TS0wCCSG4+iO52uiAUrp+eX1jTtjB4nDbdlchXIPKMr1cjJvqSBCGOlby
-   REwxp78ibvktEe4CczKWKKN1lQiZf9W+Kzf66Dpl5ibJcaFddruun0Ie0
-   K18hOWEOSbko13Vc6nYcXJk06G6Lx/4DLOaWNixdYkw1sHVbuv3tpiWe4
-   IoKLW6CFL3NJdw+I6Cl05VKen85J8+f7z3H4CdQ1ARnmzpOTw5vpjzLUQ
-   g==;
-X-CSE-ConnectionGUID: WCzFodySSPmyGsbscBuV2g==
-X-CSE-MsgGUID: GQ/pXGfPR9+tC30XvBquLg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4020142"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4020142"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:11:40 -0800
-X-CSE-ConnectionGUID: ECHAyj5YRRmtLSXED1Ykkw==
-X-CSE-MsgGUID: 8xwWHaGuRJeLmtqHDFLhnw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10620274"
-Received: from linux-pnp-gnr-1.sh.intel.com ([10.239.83.186])
-  by orviesa006.jf.intel.com with ESMTP; 19 Nov 2026 22:11:38 -0800
-From: Jiebin Sun <jiebin.sun@intel.com>
-To: netdev@vger.kernel.org
-Cc: edumazet@kernel.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	linux-kernel@vger.kernel.org,
-	tim.c.chen@linux.intel.com,
-	tianyou.li@intel.com,
-	wangyang.guo@intel.com
-Subject: [PATCH net-next v2] net: dst: avoid false sharing between tclassid and __rcuref
-Date: Fri, 20 Nov 2026 14:16:04 +0800
-Message-ID: <20261120061604.3676605-1-jiebin.sun@intel.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=0wFDOqdj
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B4dchM9bg3sH1m8InLMCisVRNDDxajdhmzd1z2Vefti6TuCnJklN0swiKdGeEUPXWj0mUkONuFcfP1Cv8D+/9M9pptASkSAUcNi+D7NGQe2QyloHZfI8s1+EisH5VuJTOR7+w3FhTnrgYBYUZCgfX1xNUqIy2UAyDN1kmz77hPljDI9HOzZyIHRYEqPZbuwV8KMYRWjDkpG45iZRM/7nQDy6Me708vKEjPubBy1a4s6SovDrMjePnocI1icCqYP+fpOjoKtqiksMFYYKV3ImL2yOqReqZMewwweRl53PHTm8jPgNQwXmypP1yBzpdit44TrfZQq5DB1rbwZiqQNV4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K9JfGQMU2goXJLe85ptXZvz7/zWBEF657E4/lwaUP0Y=;
+ b=tYQx/I8KaYCteS1ZDacBJ/V5rQDk/zlAijizzKLfPTBXPQ9Do00KcDMRqjRe9xFmrDzYlc5rNsU0h9OrKg9xhXHrHY9CKsksjcDnud7F/vAElcKNQ9WHKK1OfCcpV7ih59IiKNu34gop2ly8R/UADg+WAA7U6rzvSUaniFwaCylHbsRBDlFq9dLG26Ved/IcqpwBVDn2fsPBqAlPQe9ENQVEyShV9/5HNl2n4MoXqT0c1TmTClGqMOzBmjSbXIlDdkwJB30S/mWCpUvBieZUibg8Opb83+YCEq0HWJaiqZVm69M5B/7Ru8ZaaJGxW5XBBlRVxivCXwg8kvXhHtxKGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K9JfGQMU2goXJLe85ptXZvz7/zWBEF657E4/lwaUP0Y=;
+ b=0wFDOqdjvjlgbK0VvJ7aTw4XiKHgJQHs74dRF+Sqew5dLvD0ofn3ofLA/D6hQ/y14UVSxLA/e8R7b0Tm6YqiA4hhCQoj54eAjCmsYNNJEGvUUqVMinL7DPH+3yIOEGpqjFRTr3kpiRWhJapDzFggl5hiZ9nV3XSwp1F67khZGqk=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
+ by DS0PR12MB6606.namprd12.prod.outlook.com (2603:10b6:8:d2::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 06:12:32 +0000
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2%3]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 06:12:32 +0000
+Message-ID: <0c2f1f3d-43a2-440d-8d09-652e159e82ae@amd.com>
+Date: Fri, 20 Nov 2026 11:42:22 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 1/8] dt-bindings: net: add Xilinx TSN Endpoint
+ Ethernet MAC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Srinivas Neeli <srinivas.neeli@amd.com>,
+ Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ Michal Simek <michal.simek@amd.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Eric Dumazet <edumazet@kernel.org>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+ git@amd.com, neelisrinivas18@gmail.com
+References: <20261113-patches_v2_external-v4-0-56bb26f042a4@amd.com>
+ <20261113-patches_v2_external-v4-1-56bb26f042a4@amd.com>
+ <13864fbe-6cd1-4d70-afee-bd3d3be163f3@lunn.ch>
+ <4254be1a-f80e-4389-b04d-9fd10c1b77b7@amd.com>
+ <ff25f481-3ea3-441c-826e-75c22b47fac3@lunn.ch>
+Content-Language: en-US
+From: "Neeli, Srinivas" <srneeli@amd.com>
+In-Reply-To: <ff25f481-3ea3-441c-826e-75c22b47fac3@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5PR01CA0280.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:21d::13) To SN7PR12MB8147.namprd12.prod.outlook.com
+ (2603:10b6:806:32e::5)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,113 +114,141 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|DS0PR12MB6606:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce43e65d-a4a1-444f-9b48-08df46cd4317
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|18002099003|22082099003|6133799003|3023799007|11063799006|5023799004|56012099006|10067099003|4143699003|261102123227099003|261102130727099003|261028144727099003|261026140227099003|261026121527099003|261022105027099003|261022075727099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	kvIc9GfhkumOCPZhRzJYGK/Wx/UZpVK3e1d7QGOC2Hc4TO15KTYrqJuZ+x+au6du1Q0OLaN0+jCPL9ZSnqqQXz1JTf0/vrvwdMucMVP4/KN/EvQHZJCV5n9ZDbHtkbsAeoQpQcDyRfOMrQxnmfI6rWo4TB3ovmvO1hAbpgk8kVtLhZSZRvDwGqujT+4l2e8SXJJK5ufROwi3RXQGrdK5vYsJjkYS0rgiNLe5Ag37AZcThsHhBx18XWxjkbaDjSdXkVgg3jn4UThY+8S2tJ+ikaarK3h0t5N3dC3sTynNoHL2LuGld9hBecYwGE3R+uXfQ4ITGmoer/9JIIpFDkwAThOUWptAJVN4EUIO8mt2ToMWFcBDL0jS12t5TeCdv2XTy2wZ/BuyvqQ/6TV5GxuZVnzAmGeO+j4q6AF7xeK3zAv1kZtHADLL5QKKjp2ep3DMuX+GPsVZTasSIgtOdTSGc7NMVKivhQNXCEZWUgTOdZQKeeSHx1yYySsqKxVULclM7sVerF5gDuzbTsNp1MZTFtMebckz8gt8SY7128T+z0SpS7vqWHnL+xlEQ4ngn9oKBxQkUxSz1WbiggioPkdvLfThQoINQzRwso+NC+Y9MVB3vGL/VnWVnUhxRebox/zx9Pi0z6nX8J0pL/cF8cbbay5iIB4+GMJfdYPDSUCWhDA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(6133799003)(3023799007)(11063799006)(5023799004)(56012099006)(10067099003)(4143699003)(261102123227099003)(261102130727099003)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?c3B1ODBOR2hTRVdXVjlqQllkR1dqZDdRUnE3MzJBSGZQZDRjbTJFeXZ5ZzZJ?=
+ =?utf-8?B?KzNzWHZDYm5wWEdZc0diK2w0Z2NaWmpUTGZEdWk2bEp3VklLQWJ6NDNBM2xX?=
+ =?utf-8?B?V0EwWlAyMjJ3Vm5RK3hvd1ZJNWowNE5LTFhzcU1GcXJLR1ZKbWFEVDRHMmRs?=
+ =?utf-8?B?TmdzWEdXNXVmb3RhVG9RRHhNUm5uRmQxZkVJWllFdXhQVG5ZUG0xNzlzeWFD?=
+ =?utf-8?B?QWYyNmRrbWx5Q1A0TjhlV05xT3Z4TWUxQ3NjUC8rT0ViTTE0OWtoeHk4bmVJ?=
+ =?utf-8?B?NlhOUVJ2a3Z4cEIxdUg4NC9GOVd6ZkZyTkdjQUdNbGdFQnMzajg0T052dEhN?=
+ =?utf-8?B?VkhuL3ZEQVlzN3JKdnFBdG9MUWtNZjV4bjlXR1FCT3RaME51ZFFjdFhROEpZ?=
+ =?utf-8?B?c1RrTHhNeWF4ZW9OeUlBU3JJUGpjTm1JY2JiQ2xMWi83UXpuV2JvMEN1eHFi?=
+ =?utf-8?B?VmpsRnpzYzhKOXFuZU4ra1N6MThlRFI3clZYdGZPWGFRUkI3MWRxU3d3TXl5?=
+ =?utf-8?B?bHJvNkxNUGYvNGdvTU5IdE1NS0FocVBxL1l4aDBGYmN2eWlRZ2JnTy9tZXVU?=
+ =?utf-8?B?VnJTOE1vWHNoN08zQUhnR05PeEZ4alRjeTlzdEFNRmtlZmdlcGpRODNSTUhm?=
+ =?utf-8?B?WGV3Y1BESnhIUEJ5bzZuOWJ0NHQxOUlCWWtIYVRGWXFxQWxtSDNqNWwwYUFV?=
+ =?utf-8?B?czROdGFOeXpVb0tMSW11OFdSa1FEd3Yrd013bDY1RVdHZ2RDSHYrZi80NmJj?=
+ =?utf-8?B?KzRPQ3lNRitZMU9FUmNpdzl2NVBNOWZWUHo0V05majF2U0JJY3dzM0EyV2Vo?=
+ =?utf-8?B?c2tLUkV5YlQ3ZU9aMnY5MEtsREFGUTFDNldxTkpjaTdLY1RSaVRxbmhnZzNG?=
+ =?utf-8?B?K1NzQU9sS1dsL0IyY202TThNWjllYmVVQ0ZWemFFck4veklyZ0d4YkNLWVRj?=
+ =?utf-8?B?WFpweVZBTWllUVp1T2l5dm8zTmVqRWV1VjdKdlQ5T0NHMExUSmZGUXpoZWhz?=
+ =?utf-8?B?VDN1YWNXTEdMZXdzUjA3MGREV3VDNDdDb20xbndhZXVhNUt6Um80ZTVsVzJr?=
+ =?utf-8?B?ajRnV0ZjZjV5Uks3QURRR3Y5S1g2M1BNMTlyOUdyMWJyekFpYjR4d29TMHlX?=
+ =?utf-8?B?VWlWS1Z5dFpJTi9qdWgzdlZmMFJXeHVkSFY5SjYvbWgrTGQwWkdLejFQbFdY?=
+ =?utf-8?B?ZFV2WTZJZU40V3BudkhPZGNUNFAralRLQVBiSmFLUUNQOUw3Nmx2R1h2YlN0?=
+ =?utf-8?B?MFl3eTdqTjkyNnV4dE9Ldjc2amJhM2kwZCthYVdONEsxK0wvczVpQjZMNVRm?=
+ =?utf-8?B?MnBDSmNoTU14VGc4bThNMEkzK1RyK3dRVkNyOWZxWWRVejdha3RQbFFacFpw?=
+ =?utf-8?B?MXd4UEZLY1NzTmtrMXkyT0xqak9kM2tySC9xY3NON1lYNHlWL1luUkhyNXdD?=
+ =?utf-8?B?MXhXdGk2U1Rwa1p2N0NEcGlnYmRaWWxkTWdvcXJIRXdTWENVTzFoWGllZGk4?=
+ =?utf-8?B?L1VSelloREYza2V4aXpUNjVLVktrbTYvUng1K1h6U2xoc3AwS25XTHJKSjM5?=
+ =?utf-8?B?VlpKbUxBaEdGVUw0bnQ4amcrQTFtdEcxMVBhanVydW1BVk05U3JKOTh0T2Nk?=
+ =?utf-8?B?Ym9mYUQvazVRRTdZcFVHaGV1Q3RqT3RsVFJQaVV0b29abDMwVkpWOHhqWnNu?=
+ =?utf-8?B?cE1HUVdLa0FXUVFXaEE2cTBEaUJIY29HUW5pdmhBb25vUzV6WDNaQ3pKemVq?=
+ =?utf-8?B?Q3E0d3djYlpZRU1BTVVLZThIc2YzZGVVSVNCWi9XanBSeVhxZkVpVWtidHA2?=
+ =?utf-8?B?VURqNGRMMFJjUkFPRzVTYVdZSzIrWS83aFJEbStQVjQ1aGlwZlpsTGdlTmhB?=
+ =?utf-8?B?dnk4b1lSS3FpUFNRZDBBQWpmS1FWSXlrdy8rK0RSL1kvN0xMNHdNc0NiQklP?=
+ =?utf-8?B?bC83Z0ZQT1VHWVBHbUo4MndUbDd6TlJ2TEtlMU85elgvbWNrU0xGZ1FSWVNw?=
+ =?utf-8?B?QVJpcTgra24rRUg0dFRUWlp0czVidTRzcWwrSzMrZ0RzWUlEUDdkOU5FTmx4?=
+ =?utf-8?B?dG5aZHpGSXNLZmFucG9kWHpLS2lRS1BqbXdWYXVnb3ZvUVlSSjVsRTNuODhH?=
+ =?utf-8?B?R25LKzlvVUhDWEVwUkw5U1UxQTBOZDBVZXhBaCtEVGxYKzRqODZ5UXZseDA5?=
+ =?utf-8?B?b2JmZEpwbG5oczZSNm91RXpGT3JYR2NwRjl6TjRWNlphOGNPN0JVVWFVWW1I?=
+ =?utf-8?B?MlN4V3VERUZWYTNmZEtHVXJkVUczcEVLUzRXOFB4cE1JSW5XakR5U2cvWWlM?=
+ =?utf-8?Q?h3UyxbweHJsqztjHq9?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce43e65d-a4a1-444f-9b48-08df46cd4317
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 06:12:32.1328
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: K+qPfxCtyWMlJEUY62JaF9l7GqB0IyAZtWVhtWDfi7H7fYHrJUorHrWX7MSNLnWt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6606
 
-On x86-64 with CONFIG_IP_ROUTE_CLASSID=y, ip_rcv_finish_core() reads
-dst_entry::tclassid from the cache line containing __rcuref. Concurrent
-reference updates cause false sharing with this load.
+Hi Andrew,
 
-Swap expires with {error, __pad, tclassid} to move tclassid and error
-into the first cache line without growing dst_entry. The structures
-that embed it, including rtable, rt6_info, and metadata_dst, keep
-their sizes.
+On 11/15/2026 3:13 AM, Andrew Lunn wrote:
+>>> Is this a synthesis parameter? No other switch that i know of has it
+>>> in DT. The driver hard codes the value based on the compatible. Why
+>>> does that not work for you?
+>>    Yes, MAX_LEARNING_ENTRIES is a Vivado synthesis parameter of the IP
+>>    (256 to 1920), and no register reports it
+> I assume that will be fixed in the next version of the IP?
+     Exposing synthesis parameters is standard behavior for FPGA IPs, 
+and not all of these are exposed through registers.
+     Hence, I am afraid there is no plan to change this in the IP.
+     For Xilinx/AMD FPGA IPs, these values can vary depending on the 
+Vivado configuration,
+     so the same compatible may have different values for the same 
+property depending on the design.
+     We have similar cases in the AXI Ethernet driver, for example, 
+xlnx,rxcsum and xlnx,txcsum, which are based on synthesis parameters.
+>
+> Are there many other synthesis parameter which are not exported in
+> registers? I just want to get an idea if this is a one off, or you are
+> going to add lots of DT parameters in the next set of patches.
+   Yes, there are a few additional parameters that we plan to expose 
+through DT properties in the upcoming series.
+   The TSN subsystem has several configurable parameters, and I 
+understand that DT should describe the hardware irrespective of its 
+usage by software.
+   But given the volume of such parameters, we are considering adding DT 
+properties in an incremental fashion, as and when there are consumers.
 
-pahole on x86-64 (sizes and offsets in bytes)
+>
+>>    The number of ports is fixed by the IP. The switch always has two
+>>    external MAC ports and one internal endpoint port, and no configuration
+>>    has more external MACs, so the binding never needs to grow another port.
+> And that is signed off by top management? The next switch you design
+> will be a fresh design, no reuse of the existing IP and will require a
+> whole new DSA driver?
+>
+>>    The switch node follows the IP's register map. The switch fabric and the
+>>    two MAC blocks are separate register windows of the switch IP, and each
+>>    MAC window also holds that MAC's MDIO controller and PTP block. The PTP
+>>    timer interrupt is shared by the whole switch, not owned by one port.
+>>
+>>    For these reasons I would prefer to keep the per-MAC resources on the
+>>    switch node
+>>
+>>>> +        switch@38000 {
+>>>> +            compatible = "xlnx,tsn-switch";
+>>>> +            reg = <0x38000 0x8000>,
+>>>> +                  <0x00000 0x14000>,
+>>>> +                  <0x20000 0x14000>;
+>>>> +            reg-names = "switch", "mac1", "mac2";
+> I ask, because it would not be too hard to swap this address map
+> around, put the switch registers first, and then the port registers,
+> and you could have as many ports as you want.
+>
+> Back to what you just said:
+>
+>> each
+>> MAC window also holds that MAC's MDIO controller and PTP block.
+> So the MDIO controller and the PTP block are MAC properties, so should
+> be inside the MAC node.
+>
+>> The PTP
+>> timer interrupt is shared by the whole switch
+> So that should be at the switch level.
+>
+> 	Andrew
+   Yes, I agree with your suggestion. I will move the MAC and MDIO 
+properties under ethernet-ports in the next series.
 
-  +----------------------+--------+-------+
-  | Struct or field      | Before | After |
-  +----------------------+--------+-------+
-  | sizeof(dst_entry)    |    136 |   136 |
-  | dst_entry.expires    |     24 |    96 |
-  | dst_entry.__rcuref   |     64 |    64 |
-  | dst_entry.tclassid   |    100 |    28 |
-  +----------------------+--------+-------+
-
-The IPv4 loopback paths are shown below.
-
-  TX: __dev_queue_xmit() -> skb_dst_force() -> dst_hold_safe()
-      -> rcuref_get()
-  RX: ip_rcv_finish_core() -> skb_dst(skb)->tclassid
-
-At the tclassid load, separate 30-second perf c2c runs recorded:
-
-  +----------+------------+-------------+
-  | Kernel   | Local HITM | Remote HITM |
-  +----------+------------+-------------+
-  | Baseline |       2624 |        2611 |
-  | Swap     |          1 |           0 |
-  +----------+------------+-------------+
-
-Memcached over IPv4 loopback (64 threads each, 5 x 60s,
-20s warmup, mean ops/s)
-Baseline: commit 6628e7d4c6b2 ("Linux 7.4-rc1")
-
-  +-----------+-----------------+
-  | Memcached | Improvement (%) |
-  +-----------+-----------------+
-  | default   |          +32.55 |
-  | hit       |          +45.79 |
-  | balanced  |           -0.12 |
-  | large     |          +45.62 |
-  +-----------+-----------------+
-
-Default client
-
-  memtier_benchmark -s 127.0.0.1 -p 11221 -P memcache_text
-    -t 64 -c 1 --pipeline=16 --test-time=60 --ratio=1:100
-    --data-size=32 --key-maximum=10000000
-
-Server
-
-  memcached -c 4096 -t 64 -u pnp -p 11221 -l 127.0.0.1
-
-Client variants
-
-  hit:      --key-maximum=1000
-  balanced: --key-maximum=1000 --ratio=1:1
-  large:    --key-maximum=1000 --data-size=1024
-
-Suggested-by: Eric Dumazet <edumazet@kernel.org>
-Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
-Reviewed-by: Tianyou Li <tianyou.li@intel.com>
-Reviewed-by: Wangyang Guo <wangyang.guo@intel.com>
-Signed-off-by: Jiebin Sun <jiebin.sun@intel.com>
----
-Changes in v2:
-- Swap expires with error/__pad/tclassid and show the pahole results.
-- Clarify the loopback path and keep the memcached and c2c tables.
-
- include/net/dst.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/include/net/dst.h b/include/net/dst.h
-index dbedfe72e1fd..a692fe85f4bc 100644
---- a/include/net/dst.h
-+++ b/include/net/dst.h
-@@ -30,7 +30,9 @@ struct dst_entry {
- 	};
- 	struct  dst_ops	        *ops;
- 	unsigned long		_metrics;
--	unsigned long           expires;
-+	short			error;
-+	short			__pad;
-+	__u32			tclassid;
- #ifdef CONFIG_XFRM
- 	struct xfrm_state	*xfrm;
- #else
-@@ -74,9 +76,7 @@ struct dst_entry {
- 	int			__use;
- 	unsigned long		lastuse;
- 	struct rcu_head		rcu_head;
--	short			error;
--	short			__pad;
--	__u32			tclassid;
-+	unsigned long		expires;
- #ifndef CONFIG_64BIT
- 	struct lwtunnel_state   *lwtstate;
- 	rcuref_t		__rcuref;	/* 32-bit offset 64 */
-
-base-commit: 66726ba54a01a2951688a56f5eb4d13d063acbea
--- 
-2.52.0
-
+Thanks
+Srinivas Neeli
