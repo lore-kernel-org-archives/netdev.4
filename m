@@ -1,49 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206592;
-	b=OnKOPkc4Xcdu+918XQDeNUgapmUUa7IdZCM/wFGS/ntiUK/NS5HSIn4VRl0uF+PhUqgq
-	 G1lU9kcVgH+hq6GjdSRpv2doO2x+MswPh2AZ1lU8TgTMKRPmrdf6ef2YllgVgu4QnCMbe
-	 v6Md2K+y6h2AV1JEbIR+DE1mBFB4F2mPnxhmJI6Xl0lyBrW1WedK7VX2EUq+cCgx4vbtH
-	 Tmprfpd1HhGOoyQsbgNWRnuvzRsh/h8FILURF95BeIqskE8GM+GVh090bRnt9iz1fiKZc
-	 zO598dTWlMQ9tTaBA4oiMCKnqWBIdX3G8rpCpq0uit8i51klDUK3qCnkWnW8uPItAIQ==
+	t=1795206829;
+	b=ejhBzwGQrkdmLvuSSK6raDlzqq4ZBZXJ7qnhA71aRNUfdJyKctH8U+qLfZCukGiaOiY/
+	 pej7TLICctop/eotIJ4iAvaGI7sDF4nYs65BYqCKeW3O37BmRe65fIRmSHIvk55zUOZ6N
+	 b25CF1mI5JNBzrlMIi92rxehG6rdyAn2HUuMyA6vrK2vmNK1g9bPdo0FaxttU7jEk+tl2
+	 OjWubT/Tjv/YPQoAUgjaW8ME5lz0pgP5mJLEuud3S1grpOTx/kytd42ViaUjO/UCbwBuL
+	 9HNaX2S110nsiJg6tVadz1XyiZbXizJJHIbu/TFTpX+1sIz3TyDMLtX6S70W9D3xUiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206592;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=h3ow/BbNuDYJS6H6glK8M79YXas//OK5TqTnYZxokFg=;
-	b=JdCQaGH22wwSKBATJZn8dNtbFWmifbY4dsNrIb/BDOnWXUNnSoshmIq+7xudnju38SQ4
-	 RQJHz6gE3GCUb/89uRFjDj/+xYOLjePqovruLhD9Ur6ouKYoMvrcL7ypbyvyWEyHG1Wl9
-	 bUX7IMmazOYpLfiltgQ1tCcjVS4w3dVkZY7113zOr/hGjhWHgtIu31vS0FS7WK9i4Tl1b
-	 0rJp+v/fFVQjePBqQbwkF4vkQpiY1qO51sNMGwkQaHXDXEQH0APvYRvgYG4EoXuTqaSD8
-	 dCDfPtw98h518ofD4ujQpQjuHjDdMD7BlOj1Lp52zFkmSV2pNuTkgtCsJGE5LrFfHYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206829;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:
+	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=hZm9lZhgjP3OUdGyGGXPNH376tgpFhHxDRPWMChVfQo=;
+	b=SWoOGzOr6wNBJ5KhRR2+eeIRBzk6hkD1OMObVtPoqbGBsSjJgYlzAFYivsxmFJZ3LA/3
+	 7/jdMNowhlQ+7dd/7Wwr4JMdEj8IFw8oeA+ORVGMoDiF4nzNipihuk6vNgqsdaM8joOWy
+	 zboELi+XUNvQx1ToX1b1kDsjYgw9FEZEIq4dgbHgBm7QLgcsPQKYXTQupx/x7lAGPQSi1
+	 UF4aGI6ciiqU04oMcclePohuEaREx++luTJ0KPfsuKmbGprKao8fOU1o/QUWYgv1j/+XJ
+	 t90iAdNgOTcQ5HqQE1rcxAzovnQVtnSyg4HXCXHFOauc2339noWDO5H5/xOpKnp3rOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b="o/tPdefi";
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=IGPBkBBm;
+	arc=none smtp.remote-ip=195.10.208.42
+Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76819606A320;
-	Fri, 20 Nov 2026 20:29:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76819606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA18260A2602;
+	Fri, 20 Nov 2026 20:33:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA18260A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=o/tPdefi
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BFEA2A05A5;
-	Fri, 20 Nov 2026 21:29:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795206581; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=h3ow/BbNuDYJS6H6glK8M79YXas//OK5TqTnYZxokFg=;
-	b=o/tPdefi+2ABf9FFThFngDTSoPA+OXELbxYRO8BHg1OM3SrhVLoew99kekjJubfy5h5lnC
-	21OvNfu0HXrsmAO4ITRhT1VZwP+zPFK2AyYyQdASaBtAlcbhi7tZbM/w5JAQrl/xAz0s4s
-	srskIzhGgnYAGtpknfnkiNVcih1NV89tXe1vR02xQEKV0PiS15uY9yUImLeBQD1wFfli9H
-	Ztsnup79WLu6rv2JFJqV3BzZoF7VHVz8xp3eYBSs6pgbqwuFltSXEPCxOv4KYxZAdueiOV
-	9VLA5kck0vlrjWV0K1qssOfqavNQbqYLdQrgvg4sxi0aYHF6zDOygy4TUp6m9Q==
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=IGPBkBBm
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jWRr33fXHz5vlP;
+	Fri, 20 Nov 2026 21:33:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795206819;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hZm9lZhgjP3OUdGyGGXPNH376tgpFhHxDRPWMChVfQo=;
+	b=IGPBkBBmfyWPT9KNs3XohQTh3sgzvSyuVUOo9WmuovDUMwEzWssc5oyugKzRgf1dL7Os7H
+	Plung0i0xrH0Y1cYq4OO9vbr/ttVWaGIzgtvU8M6zFihqTTAOUBIgI/lKFdGcslON1dvr5
+	qHhMjkFhcq/xwW+DLiXZwKasVBPYaVN8FNkYNLqHeUX+0Gi/CowhfgHOpuHs/Dn+wSZJKt
+	aR1RaERl+nq7pB4Aez+1w+lfpjy1sgx4ZsYZjCAe4OmISJ/18QdN1YqE90YHtUQ3P2quB4
+	qH4St5k4QpF5pHu7uxUX/0EYaZ5W9hUZYu4YPOsu7mqbb8xb6bjMlw8mVADRiA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
+Message-ID: <02a73961-95ab-4caa-85d8-ea92f916a0ab@mandelbit.com>
+Date: Fri, 20 Nov 2026 21:33:35 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,88 +66,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 21:29:40 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Carlos Soto <carlos.soto@broadcom.com>, Justin
- Chen <justin.chen@broadcom.com>, Doug Berger <opendmb@gmail.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew
- Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, linux-kernel@vger.kernel.org, Mlody12 mlody12
- <kudzo51@gmail.com>
-Subject: Re: [PATCH net-next v5 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45
- support
-In-Reply-To: <20261120194318.3952487-5-florian.fainelli@broadcom.com>
-References: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
- <20261120194318.3952487-5-florian.fainelli@broadcom.com>
-Message-ID: <905c34c37a843cfc95f95e10b32f513e@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 1/4] igb: don't disable rings that don't exist when
+ disabling an XSK pool
+To: intel-wired-lan@lists.osuosl.org
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Janis Edvarts Lacis <janislacis06@gmail.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>,
+ Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>,
+ Kurt Kanzenbach <kurt@linutronix.de>,
+ Maciej Fijalkowski <maciej.fijalkowski@intel.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, stable@vger.kernel.org
+References: <20261119140412.163202-1-antonio@mandelbit.com>
+ <20261119140412.163202-2-antonio@mandelbit.com>
+Content-Language: en-US
+From: Antonio Quartulli <antonio@mandelbit.com>
+Organization: Mandelbit SRL
+In-Reply-To: <20261119140412.163202-2-antonio@mandelbit.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-Rspamd-Queue-Id: 4jWRr33fXHz5vlP
 
-On 20.11.2026 20:43, Florian Fainelli wrote:
-> Add Clause 45 read/write support to the UniMAC MDIO bus controller 
-> driver
-> by implementing the read_c45/write_c45 bus callbacks. Each access 
-> performs
-> the two-step C45 sequence (ADDR cycle followed by a READ/WRITE cycle) 
-> under
-> the bus lock and switches MDIO_CFG between C22 and C45 mode as needed;
-> MDIO_CFG is only written when the mode actually changes.
-> 
-> Since MDIO_CFG also holds the clock divider, unimac_mdio_resume() now 
-> takes
-> the bus lock around unimac_mdio_clk_set() so that it cannot race with 
-> the
-> read-modify-write done by the accessors. Resume may therefore wait for 
-> an
-> MDIO access that is in flight.
-> 
-> Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0 
-> even
-> when the controller is still busy. For C45 this would let the data 
-> cycle
-> or the next access's MDIO_CFG switch start while a frame is in flight, 
-> and
-> return the command bits instead of the read data. Check that the 
-> controller
-> is idle after every cycle, C22 ones included, and report a timeout 
-> instead.
-> 
-> Also skip the BMSR workaround read in unimac_mdio_reset() for children
-> compatible with "ethernet-phy-ieee802.3-c45", since such PHYs are not
-> expected to respond to C22 accesses.
-> 
-> Note that providing read_c45/write_c45 also makes the MDIO core scan 
-> for
-> C45 PHYs at registration time, on addresses that are not masked and do 
-> not
-> already have a C22 device. This is not the case when the bus is 
-> registered
-> from a Device Tree node, which masks all addresses.
-> 
-> The platform device that GENET instantiates when it is probed without a
-> Device Tree node (e.g.: ACPI) does not mask any address, so it is 
-> scanned
-> too. Its wait_func is bcmgenet_mii_wait(), which sleeps for up to a 
-> timeout
-> per frame since GENET's interrupt is not registered yet when the bus is
-> registered. That makes the scan slower at probe time on such systems, 
-> the
-> same way the C22 scan already is.
-> 
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
-> Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
-> Co-developed-by: Justin Chen <justin.chen@broadcom.com>
-> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
+Apparently Sashiko has hit a little, but valid, interesting hitch on 
+this patch.
 
-Forgot to mention: Your tag needs to go last (v3 had it right).
-You can keep my R-b as the changes are OK.
+Will need a respin.
 
-Thanks,
-Nicolai
+Regards,
+
+pw-bot: cr
+
+On 19/11/2026 15:04, Antonio Quartulli wrote:
+> xsk_get_pool_from_qid() checks the queue id against the stack's real
+> queue counts, which can be higher than the number of rings the device
+> has, e.g. after igb falls back from MSI-X to MSI on resume. Disabling
+> the pool of such a queue then passes a NULL ring to
+> igb_txrx_ring_disable().
+> 
+> Only disable and re-enable the rings the device has, as
+> igb_xsk_pool_enable() and igb_xsk_wakeup() already check.
+> 
+> Compile-tested only: the XSK pool path isn't reachable with the QEMU
+> 82576 setup used for the rest of the series.
+> 
+> Fixes: 80f6ccf9f116 ("igb: Introduce XSK data structures and helpers")
+> Cc: stable@vger.kernel.org # 6.14+
+> Link: https://lore.kernel.org/netdev/20261116153041.3002666-2-antonio@mandelbit.com/
+> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+> ---
+> v3: new patch.
+> 
+>   drivers/net/ethernet/intel/igb/igb_xsk.c | 7 ++++++-
+>   1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/intel/igb/igb_xsk.c b/drivers/net/ethernet/intel/igb/igb_xsk.c
+> index ce4a7b5..8ed82bb 100644
+> --- a/drivers/net/ethernet/intel/igb/igb_xsk.c
+> +++ b/drivers/net/ethernet/intel/igb/igb_xsk.c
+> @@ -148,7 +148,12 @@ static int igb_xsk_pool_disable(struct igb_adapter *adapter, u16 qid)
+>   		return -EINVAL;
+>   
+>   	rx_ring = adapter->rx_ring[qid];
+> -	if_running = netif_running(adapter->netdev) && igb_xdp_is_enabled(adapter);
+> +	/* The stack can know more queues than the device has, e.g. after a
+> +	 * fallback to fewer queues on resume: skip the rings it doesn't have.
+> +	 */
+> +	if_running = netif_running(adapter->netdev) &&
+> +		     igb_xdp_is_enabled(adapter) &&
+> +		     qid < adapter->num_rx_queues;
+>   	if (if_running)
+>   		igb_txrx_ring_disable(adapter, qid);
+>   
+
+-- 
+Antonio Quartulli
+
+CEO and Co-Founder
+Mandelbit Srl
+https://www.mandelbit.com
+
