@@ -1,101 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209707;
-	b=OdK7rYQVandCgjVB73WyISgqNv4TIcW1tEwhX0PTwfcD5Qjun+tozNgaIa532reJpQQd
-	 OzmYVcXk2eQ9SVWCDlSHhOiftTEKxaQHzJGjf3Av5yThxMQ5UvJvd91we8QKuQWkWigmh
-	 TxaagAW/xeZjdQjE61/CwsjOeKrH5VTSwl2Tp/u54zmJQOjvr+csMKOEUTqkZm6t7m66j
-	 8RQoipu80X8BZZv9ENn5trRK4Lc74UllhlrReGw53Q5BmRbD2hp4EuDpCTY/Q/D2ms+iS
-	 NwbtYzTVWCwWi7A0f8vNGdd/PFYRAt+lSMR2hAJj8AABSHObgTb2RHWPLM0ERymsLbA==
+	t=1795210089;
+	b=TBZC/kBpPAAzj+GHp03q877gGySocX3zlTzSP1Ol2FknixNbIeQaULfHINkYNOgin3iB
+	 tAP0z+fWJyosfP1fOB6TSDsNana3S0sL2b9KN+3UYpBF2RkGzcBom/HsMA7qiupN2frTx
+	 SQdZKB4PPUkXxwTgeRvagQ4xztXeL+6CMl7Y6EJxZccpb5WvvI9E9tmBUmmLsH7t5ZxB+
+	 NPInXeoYDRGyRw3UUFcBHhUR7iAcghlXR0O/5ecfePwz6wqrbDNBQ6MvPNdPaIxs/APCz
+	 mP/kT0ucD15J1PL969nrpqbGSvE6IfEKFYmSyipWeOpR2zoPJEj+NWt5zwFDBXb+9YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209707;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210089;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=H6Box1rhQsdsUXQlMtIEaAYYl9sgKf4lvFMZa7C3ASc=;
-	b=wVKYw0oED3okLxvBrl/glAt5KRUBwByGh60fa0smd/0U4Gf5otRncyIBvAVmpPoaP3oC
-	 1T3ympMCoLWpY6r7xux739U7c7MyMTO/7I2sbjOgd+kqzq5TfVqvWcmSfRqDTiMycLQfQ
-	 ACQe0OpMK5zuh/s9p4cmR6iBTrADNfOPP8PfG2DKbBJSYhOv9xIUTSp4P8SHOaXKgTDfZ
-	 Lzsrk3G+M10Frb7DAL7ha3rP6V+/T6WtnnXUwgEhPfRYhUFRab0nNgKoxK7/9gzRPEq7l
-	 lC2AKRtPPOyesw5UT8q5di6xe25x5ju26igWJ+wiWHXP55MDQI2FcwNT8wg5Pz1F9qw==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=djWeAX1LeVmUiJ144ujbOmLsl/46HHhdv4BSJSqbZfY=;
+	b=WEcAc8vHaJdwpJirOkqnGCEfFksqFzcVE1SX8bwX8myGPp0ZoN8HCJMtv/CsvRoVJLP4
+	 DTZU2NfwPRL0qHJug4KwkLEAk/fbTraoK7Dsc2GOVhv4a2Nu3wubHUs/ji2gWDQfK7sCL
+	 AKjHNMcZQRevADO/enT6H3w9G/lsZTaUukmEDZiECh5fAsoAO0Erg09BtZEzmp/5RgduU
+	 lQTNq8XqMMz3Oc0ZA3hDttU8nIhEONTZsI73cC6EYLQBF1cyzbzQVG9+BmdwgIz6zbxVI
+	 gPcRWEHshucprDFWREr9h8MXIlN7uILeeembdjRcEar6yEiJ9pBS6F4zKtW/kKMi/pg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cwbigldT;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Be6FxUvP;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C047B606A6B5
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:21:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C047B606A6B5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51279606A6A2
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 21:28:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51279606A6A2
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cwbigldT
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38692f62b22so1126199eec.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:21:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Be6FxUvP
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a5348aaba5so1156235e9.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 13:28:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795209701; x=1795814501; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=H6Box1rhQsdsUXQlMtIEaAYYl9sgKf4lvFMZa7C3ASc=;
-        b=cwbigldT0pFQj4CfLxSnixHS5YrdAxx4PdBr68v4RtRCCmtgevXRlPbkMbSrX1Glo5
-         LC1NFnzCxssEmleKxL9layeVuUa92BM3eRpmHRaZJviq5YreZv86gduEISkytnsRbvap
-         N0Preykmc9LictH7xjo1ACJSC7v09MNAJRzM28f8R0bfEUf/2/NXBwkHN8DH3SHb+/EF
-         gPe8ZFLDHBNO9dsIBBo6It0T0n8/Kl6rB7D3Cr3L43aCb4e3Y40uBSbuF712KKAwEoUG
-         pwZ0p8qya2Gl4vUbfPNj897R6gHAb47Za/OdFVq7vtUDGcPGbHzUlX8MpOzWYnnOrVk6
-         R+xw==
+        d=gmail.com; s=20260707; t=1795210088; x=1795814888; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=djWeAX1LeVmUiJ144ujbOmLsl/46HHhdv4BSJSqbZfY=;
+        b=Be6FxUvPoX7GO9DbG/L1PwSrJb1bWoAgimnvXCLJcHyXTjABEvlZqaXvx0p7gUIGHY
+         wgQPSL0IzvwaW2Yg364amqbZH104TuVp0MQoIJ3cTjoQwIKd1bDIIOwmipk1MyPDqAfx
+         SRn2cDCCEXNr0Er/UJTovDI+LFVihYGIIVVOeXmB7mAcazV3TNa7SCe1Vg0kPa2Uu+Gw
+         xEYMcUg2CWB2tMEo9Cd+j0FmK1JAqhFw//abMJKLYg8E9WV2ToiWZOxE+OShe3tnqPlD
+         +GjQn5F/JjU219eLfSfhTeVoQfQTzlhB5BE4wTA+z1Qbjxn7ucIFhashQy2DNtSpDL0G
+         5tmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795209701; x=1795814501;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=H6Box1rhQsdsUXQlMtIEaAYYl9sgKf4lvFMZa7C3ASc=;
-        b=ALs5A+5VMKrqbYKFQKvmj5ZnWEE49koUswvQ7mXmIyoOGmmnCHY1CIfghFVTVHhfXI
-         jnCsmlt/5AFO9l0oKW4Uz8rrHK7Wvlsak02PT1wkLuvvAIsJMavOn3yJFk/5sPrinyPX
-         QdBvfUa49/fXuGEglerqJ51FRUMnfjd1OZ8N+geTnPdTGWe08AY7HS2aiF242NWNhcwM
-         9UNCFcAhES50sDAceVhEn9e0jG9fKY3w5B2aABQ1VeRgfUjimfnI2d49hBvCd5yatzTW
-         zNf7MSFa3/j9a885FrJ/RR12tZZfQhsBIbnaYt/dvNKj1cmAOTLO8qDA3oGtXeb9Avjs
-         wTvA==
-X-Gm-Message-State: APuU4Z+lKedFL3nAWWEyaT3dZEPCtZ43gx38uQYQlBlbsxzWG5yUMj6u
-	RN7xiXqKdgOOFSIpy6shUSSXDyv65H00WidyBg5/PKFyEq1Yr87VLfS/w82FQad0
-X-Gm-Gg: AZFdTZc99FtljxswQ48T0P+nY8+PCY1+EzFvenaoxxgJzSxDz/VqOcumWo34lryXiZR
-	OYUG0F/75qyeGtUOaRhjkxs8Z6VKDDUIXazAqY4Yh2LTQNZmm4fw4dcjwtdvjx5t83byacnZ9ta
-	I5PYV9gG+kuUdra8VRIBFd9/kIot4sA7GsM0xZxWizw4jFIJMKfClOL8BVDadK3fYn8by4rY05d
-	aIca4hIl7L2Vm9A8MAWY08pSAUke3AIt11P+il+28GE54ls6ApN4FsKUnq1/OzKNIeQJgdVb2xp
-	ADKOLt4+7cvLpKE6PLLBwwi3f93fQtBL7sbTuuQc4pS41+2BdlYYyxBeNhM4Ne3e4wnGnkE19eH
-	wua7fOsngBAP06vSJuvcRzNaP+QYUZvXgVYIDql/1t+PFEZfH71Y9O0dutxTLaedOilQ66ZYNX9
-	4Jo2dy0RcBIdmkSxK9eae9XyyC+EEhjtlbkYORokmAvD+OAi/pVZAHnPq+CV8TIF4hV0I96s0TA
-	bQkK9TcBXdNenp2ZWXTcSA75yvGP+lgL04AL9ytxM9tV+KOc5XgQhf422jH+PPxpNE7dhJ3VWwp
-	Y2W7+dRIIeiC/ijgo6ET601VbplLD8d/ADybUFMg06OeSTSyWRV6uK9td4pQNmg7toJIhGf30wo
-	M4z2iIJK6xQQVNqT8duRRMFRwVf2K
-X-Received: by 2002:a05:7301:53c3:b0:380:f8fd:d19b with SMTP id 5a478bee46e88-3856fb693d7mr4611208eec.38.1795209699830;
-        Fri, 20 Nov 2026 13:21:39 -0800 (PST)
-Received: from Mac.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm12039766eec.28.2026.11.20.13.21.38
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 13:21:39 -0800 (PST)
-From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	jiri@resnulli.us,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	richardcochran@gmail.com,
-	rmk+kernel@armlinux.org.uk,
-	vadim.fedorenko@linux.dev,
-	vladimir.oltean@nxp.com
-Subject: [PATCH net v3 3/4] ptp: ocp: report disabled SMA inputs consistently over DPLL
-Date: Fri, 20 Nov 2026 13:21:37 -0800
-Message-ID: <20261120-timecard-common-v3-33316bf475-3-ahmadexp@gmail.com>
-In-Reply-To: <20261120-timecard-common-v3-33316bf475-0-ahmadexp@gmail.com>
-References: <20261120-timecard-common-v3-33316bf475-0-ahmadexp@gmail.com>
+        d=1e100.net; s=20260707; t=1795210088; x=1795814888;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=djWeAX1LeVmUiJ144ujbOmLsl/46HHhdv4BSJSqbZfY=;
+        b=s9sa5MTWSDWaX/FXYWezH+HvWMo/8xqfVeHoqLIC2NWYPYC723830u6hriUxG1ittT
+         qnEWZlixtKSH6Pun0mJfHj9j/zmngV6jyIFz1KHh02aSaCvnCjaXNJAQN71PY/ZWC84W
+         RnR0zaCP3+rth6ywTQdxEO/bsgihXJkUweUSJj0En+ADiK7nRR4n6bkuSngY2pfRy70Q
+         yvrF2IisCIUy/BP/At/5kwddH5nASua35zA0v7LWb1yjrcVemyJU+baJFAltp5zAFFP3
+         m5evfhuARrL7YAzKWgK9YyUuiqQZa2paQvmLM4CIbAni/11rBVM/3zHsQ/z91ZBBC+RC
+         TZFg==
+X-Gm-Message-State: APuU4Z/SFzBsnVDbc02uKuZ5LfcF9QUsCiWRu0YYqeGjttgTJ6N0jetG
+	VbgSoztghb8AbENRLYEkc3JWCC9ubvFNCiK0uaVPp5eaekN78keRdNTX
+X-Gm-Gg: AZFdTZehYx76R8ZDN5DiJvgM3xqJz4PFwHQ+tiLSAukom5IAGzpogxHYTPoAOu8EmeC
+	PhVbH2au6va31A/FJh2SL2q2kTfvvZ5RrMKNj2UQwHH2F0zJkyPJmNihabM0vaYSAon0XwYa6HO
+	7ZxfROqXZTYmMARdF6VqtIekqLlMyWy4DKOrw9wT+KygghcAdqID3auf+sT3OGUWIVaVLVoEAn1
+	aAy/DaUuNYUVF5erJsFvNF6X5BWBeP92uQCiuTqpXj6VmfUV5TSXMK6EY+0eG9EavZEYrGKhkfj
+	tL4ePyk0HPQkq28VNGpMaHZXK7oqlyXs5xhoNaCb0z5Dxcgfye8pnCSHgp+Fegz0cepJwRaybxe
+	Juz7/59fVpjAggkDTnTB65+y7gqLxEavs+nRzG/dpugrFO8evzerd1aI0Y3/rmMrq/Yd3lOVWRW
+	EZQNQLXPcRkfbureqIYEaBCGXY8YDhwkdxW3e9GcbUm4MBoiAcI9tgr7L9ajpuBf+Xzl+muEj3Z
+	s2Tm1KFrhAa2IdTJspn56M/qx9bP43n15t2QO2CxpqQSoP14F7/yEZZeWtmEg3sHmwyk0nuMQxP
+	1LlT84xWnqAmA9eGuyCbHCkC6YcsBmkZ2IdaQIU5vmcvS2rpMbzZ9wfUsc8gVC0MBh2xBy3EEmP
+	TT+Fb3QV9HKqHowDbFShKGmU4XgouUryOenbislvtVQ/vLAdGNBuqihAsm+yxew4LRjHMeu8WB0
+	HmZcIrOAfSkuE5a/0dSgnpSnZaBSFjJ/0LbtVn7OCuVyoJoCs=
+X-Received: by 2002:a05:6000:4308:b0:48e:6651:d82b with SMTP id ffacd0b85a97d-4abae12d0acmr10655671f8f.2.1795210087424;
+        Fri, 20 Nov 2026 13:28:07 -0800 (PST)
+Received: from ?IPV6:2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d? (dynamic-2a02-3100-65ed-08fc-216e-bbeb-a7f9-ea1d.310.pool.telefonica.de. [2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b205443sm7919950f8f.39.2026.11.20.13.28.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 13:28:06 -0800 (PST)
+Message-ID: <967fd174-41f5-4ff8-834c-19483dcb342e@gmail.com>
+Date: Fri, 20 Nov 2026 22:28:04 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,46 +92,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v10 1/4] net: hsr: keep GRO disabled on HSR/PRP ports
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
+ shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
+ qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
+ bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
+ liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
+ lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
+References: <20261117141922.20-2-xiexinet@gmail.com>
+ <179514132000.3136.2415655157145361596@kernel.org>
+Content-Language: en-GB
+From: Xin Xie <xiexinet@gmail.com>
+Autocrypt: addr=xiexinet@gmail.com; keydata=
+ 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
+ sNySbH3veZ/55EtlXA==
+In-Reply-To: <179514132000.3136.2415655157145361596@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Disabling an SMA input clears its mux field. Zero is also the selector
-for 10 MHz, so a DPLL read reports 10 MHz while sysfs reports None. The
-DPLL core then treats a request to enable 10 MHz as unchanged and skips
-the setter, leaving the input disabled.
+On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
+> So the SET reply says GRO is wanted but not active. A later
+> ETHTOOL_MSG_FEATURES_GET then reads dev->wanted_features in
+> features_prepare_data() and shows GRO as not wanted.
 
-Substitute SMA_DISABLE for disabled inputs before looking up the
-frequency, as the sysfs path already does. The None entry reports zero
-Hz and a subsequent 10 MHz request reaches the setter.
+This is intended, and the commit message says so: a GRO request on a
+member is dropped, not kept pending. While GRO stays off,
+ETHTOOL_SFEATURES returns no ETHTOOL_F_WISH and the netlink SET reply
+shows the bit as not applied. A later GET reads the stored request,
+which no longer has GRO; a SET reply and a GET can already differ in
+the same way for a bit outside hw_features.
 
-Reported by the netdev Sashiko AI review and confirmed by code
-inspection. Source-derived C regression tests pass with ASan/UBSan;
-restoring the faulty selector, mask, disabled-state or DCF value makes
-the corresponding regression fail. Tests use stubbed MMIO, not hardware.
-The driver object builds on current net with W=1 and KCFLAGS=-Werror. No
-physical card was tested.
+> Could the request stay in wanted_features, with only the computed
+> features masked here?
 
-Codex prepared the fix, tests and changelog from the review and upstream
-source, at the request to separate common-driver fixes from WiWi support
-and validate removal ordering.
+Masking only the computed features is what v7 did, and it breaks veth,
+which adds and deletes its NAPI instances according to wanted_features;
+the commit message names the two failures. Changing veth is a separate
+matter and not part of this fix.
 
-Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
----
- drivers/ptp/ptp_ocp.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 95a4df468e79..653c3b1ca066 100644
---- a/drivers/ptp/ptp_ocp.c
-+++ b/drivers/ptp/ptp_ocp.c
-@@ -5889,6 +5889,8 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
- 
- 	val = bp->sma_op->get(bp, sma_nr + 1);
- 	val &= SMA_SELECT_MASK;
-+	if (sma->mode == SMA_MODE_IN && sma->disabled)
-+		val = SMA_DISABLE;
- 	tbl = bp->sma_op->tbl[sma->mode];
- 	for (i = 0; tbl[i].name; i++)
- 		if (val == tbl[i].value) {
+-- 
+Xin
