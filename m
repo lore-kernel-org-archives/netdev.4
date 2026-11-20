@@ -1,80 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158825;
-	b=fcpp2BfwXDuQ6FTm5KnODejpPoiKd6gazwnnUlJmdg8DebFAQAPht7XuTtkIc9hxZUuq
-	 K1WNuq7mtzHlQjmaRRpB5p6CA44ESr7dZD8BiRS3AlrEtGuga3WGcExRGhDf39YRTw3bL
-	 JB6DurTWFxZKj+SkG9WhpGOwOHT5o9VCczmaFQgOs9R7O3p5v5v+dSD5xzD+H7TBQtrNJ
-	 cjLqHcnkRMFeEgfTevhpD3X6SP8ZH3WlHvTa6fQo8jFHKutsHFC63AJ+FFhPpQeTdF+9b
-	 VzacSXGeLbC0NxC+mjCfDoA8dEaFGDm0GLjahJ4FBfRohx//XwPQnJgOSgXPwbDg/nQ==
+	t=1795158901;
+	b=GrjPGdY2jQz5dBbF9Sql/hCy32s64j7Hg/ccw/Wa1n+sJJ1OUTRiqOmqNcRznPzUQmZX
+	 nS+mCuq0VLUdjmOATLIFfjx28yIOHQUGAVvwMmW92KnhxiwZqQJjM1IZ25SD/0DqVV+nb
+	 V0NajOGzyZFpHBXpthzUOTi+EYAIYFRD1vvZpFE+iw5RWacRNbmDeVv/xG9bIOmZXa27h
+	 m1Wnw1khTkE1E5TGw1Adyn+P9XlEAnL7JoMJv9Nc/39jB/PRmQdvUZwGCcTouQqzfhgMT
+	 OeQFQQBkKrrQmQrqBigWNkLoOU2PvOmAAlE5gk7CbEPBJRt3iKqj/qzwzAZZ7dtrFYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158825;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=LB9wymtVohhmpOcRNEMKuhiXQ1mq5XK/YUMlCRu5VHU=;
-	b=czUxY0MEaQU61QSrb2uL9VnjhCkguY5vAt5UdTZt7UJkLqY++ZQojWYmaXVjU5hrIK7h
-	 TVQvZLC1rt1lzCURDpyd7xBDIqIqqYDrBCScbMw26/+UQ8K7wuQ55q2a/nH9nfjHvgfhN
-	 wxJrG1qqAXRoTfYqTpPqjU37HEDLpPGZlV2jV8qS92AkuoTVdRJhOZs/UvZ0coSH7jcJy
-	 HsqFn9Km1Tf8hYUNytgJJ3Px5Kigr8t9vrXmVirsc2EQN/DKjs/63nsuo1xSKNUX7c9Vs
-	 2zbzqOs/t4xOCWy1MBsGgSw46jhlIMGBqsdnAX0oyv6zB7lnvI3jOkfQVopb3IOw/4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158901;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=yMb4y4ic9DcyyykxkiIHneI0onsh6rE3fLC/W+8P3us=;
+	b=1LBRSjy7jamQhbHK6jnU99x+OLOU8LVrHzUdA5dtH1aA0nS1sMtvylf4rOCcRWpQkytg
+	 L+nGNr5tgMMwcx+Je4B+ptZj7yoMr+1WHdMSzNVo0qWvXL30jrJI/YMwzZAC/a2zzMYQl
+	 gyk+ZwGbCWjnZZFO1iSJQrRxCOSM1IkKya0eScSixsaay7ZcOs46BeGoQGW1vPrDKcoWA
+	 ZvTdTQKEKeTd7D0p2DVrrObWrDlmnW+OdS7VV94p5DoSBQMeEmY37IS0/KVb03Loe5aKP
+	 jyTjuNJk+mPDzkwkx9Tm6FzJIze2FO8jN5TDWSO++CJc7vQ81FyHSgQQLZrHk0T5Ttg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SmBCME1G;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GUHZcepy;
+	arc=none smtp.remote-ip=117.135.210.5
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2254F606A320;
-	Fri, 20 Nov 2026 07:13:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2254F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A474D606A320
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:15:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A474D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SmBCME1G
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 21E38207D8;
-	Fri, 20 Nov 2026 08:13:42 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id pKVg5zZ_qty8; Fri, 20 Nov 2026 08:13:41 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 7AE48206D0;
-	Fri, 20 Nov 2026 08:13:41 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 7AE48206D0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795158821;
-	bh=LB9wymtVohhmpOcRNEMKuhiXQ1mq5XK/YUMlCRu5VHU=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=SmBCME1GUjFJo2FT6pN9ojDF62kXxceM1TKgtTlbSlecg90SJiOn45q6Q3s4edxWy
-	 CKd9LRdGINW3CRx722ACJByOb9zyHmIZZ1afEtuqLaIZKQFpd2KLAQZ0PQkmipQUF2
-	 1ztlZsGDwmqy8j3AJpgsGI6iM/xBSd+pMRHF+s/FcZN/U2EGNVP1rr+W9Mk6dWKQGl
-	 QzavQldlzObeOJgXKOap43FKPQnryvXWFDhhEdkyGXE1XU0kAzOQRwTsTMHiHU+DPE
-	 0orBFf51TqNt+uAOlIX0eRx2Ry08dPc6pDyg/bij9+qLDuqSBNjQRjeFrIZdBXRlLX
-	 xSranQSAfNPoA==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
- 2026 08:13:39 +0100
-Received: (nullmailer pid 1694731 invoked by uid 1000);
-	Fri, 20 Nov 2026 07:13:38 -0000
-Date: Fri, 20 Nov 2026 08:13:38 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Paolo Abeni <pabeni@redhat.com>
-CC: Daniel Wade <danjwade95@gmail.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, Eric Dumazet <edumazet@kernel.org>, Jakub
- Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S. Miller"
-	<davem@davemloft.net>
-Subject: Re: [PATCH net] net: af_key: fix use-after-free in dump_sp() on
- policy migrate
-Message-ID: <av_zInP3LgU0gdIr@gauss4>
-References: <20261114223529.1791-1-danjwade95@gmail.com>
- <99480e51-50f7-425b-b8e9-95b7734c64bf@redhat.com>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GUHZcepy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=yMb4y4ic9DcyyykxkiIHneI0onsh6rE3fLC/W+8P3us=; b=G
+	UHZcepytsf56JjHWfP3+8Pco4H6saqByTM5jVkEXGyP3oDdFbIWsJLtxlf4kTCjk
+	hxz+ee8vT2IgPpRjTYeCcsZ7Q5UN+LpvUXNmZ7f1SAYaPCfheAvltsvsq993Aw7+
+	PtxRYE4sezlfBprJH6HgArx/TCxpj62amXQwvraBzg=
+Date: Fri, 20 Nov 2026 15:14:28 +0800 (CST)
+From: "Lange Tang" <lange_tang@163.com>
+To: "mst@redhat.com" <mst@redhat.com>
+Cc: "Jakub Kicinski" <kuba@kernel.org>,
+	"Eugenio Perez" <eperezma@redhat.com>,
+	"jasowangio@gmail.com" <jasowangio@gmail.com>,
+	"xuanzhuo@linux.alibaba.com" <xuanzhuo@linux.alibaba.com>,
+	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"Tang Longjun" <tanglongjun@kylinos.cn>
+Subject: Re:Re: [PATCH 2/3] virtio_net: introduce an RX queue watchdog for
+ stuck detection
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20261112175123-mutt-send-email-mst@kernel.org>
+References: <20261109094310.103979-1-lange_tang@163.com>
+ <20261109094310.103979-3-lange_tang@163.com>
+ <20261112175123-mutt-send-email-mst@kernel.org>
+X-NTES-SC: AL_Qu2SB/2et0At7iaQY+kfmUgRg+c/XsK4svUj24VVOJF8jCDp+SEJYHZTFGvuwfi3ASqsmSO8ahFRxdZ2Wohybrgll75L0dIR26Nc1Naf8dvUwg==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,75 +71,131 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <99480e51-50f7-425b-b8e9-95b7734c64bf@redhat.com>
-X-ClientProxiedBy: EXCH-03.secunet.de (10.32.0.183) To EXCH-01.secunet.de
- (10.32.0.171)
+Message-ID: <7158076d.5a7a.1a1f7ce82d5.Coremail.lange_tang@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:aigvCgC3_8ZU8_9qIX5yAA--.320W
+X-CM-SenderInfo: 5odqwvxbwd0wi6rwjhhfrp/xtbC-RSs2mr-81R3CQAA3T
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-On Thu, Nov 19, 2026 at 12:32:46PM +0100, Paolo Abeni wrote:
-> On 11/14/26 23:35, Daniel Wade wrote:
-> > pfkey_xfrm_policy2msg_size() derives an exported policy's message length
-> > from xfrm_vec[].encap_family. dump_sp() derives it twice: once through
-> > pfkey_xfrm_policy2msg_prep(), which allocates the skb, and again in
-> > pfkey_xfrm_policy2msg(), which fills it in.
-> > 
-> > dump_sp() holds net->xfrm.xfrm_policy_lock rather than pol->lock, so
-> > xfrm_policy_migrate() can rewrite encap_family between the two
-> > derivations. The second length is then up to 24 bytes per template
-> > larger than the first, and pfkey_xfrm_policy2msg() opens with
-> > memset(hdr, 0, size), clearing the difference into the skb's shared
-> > info. Four BEET templates put 80 bytes there, which reaches dataref:
-> > alloc_skb() had set it to 1, the memset makes it 0, and the skb_clone()
-> > in pfkey_broadcast_one() leaves two skbs sharing one head with a dataref
-> > of 1. Freeing the original releases a head the queued clone still points
-> > at, so recvmsg() copies freed memory to user space and consume_skb()
-> > frees it a second time. The CAP_NET_ADMIN that pfkey_create() and the
-> > xfrm netlink receive path check is namespace-relative, so an
-> > unprivileged user can reach this. SLUB's double-free check fires within
-> > a second of starting the reproducer; the oops kills a task, or panics
-> > the machine when the corruption lands in softirq context.
-> > 
-> > Racing SADB_X_SPDDUMP against XFRM_MSG_MIGRATE as an ordinary user gave
-> > 4585 use-after-free reports and 765 double-frees in 300s on mainline
-> > with KASAN and 8 CPUs. The reads reach user space (addresses trimmed):
-> > 
-> >    BUG: KASAN: slab-use-after-free in _copy_to_iter+0x1d8/0x1430
-> >    Read of size 240 at addr ffff88810f98d140 by task pfkey_dataref_o/433
-> >    CPU: 3 UID: 65534 PID: 433 Comm: pfkey_dataref_o Not tainted 7.4.0-rc2
-> >    Call Trace:
-> >     <TASK>
-> >     dump_stack_lvl+0x66/0xa0
-> >     print_report+0xd0/0x600
-> >     kasan_report+0xc6/0x100
-> >     kasan_check_range+0x105/0x1b0
-> >     _copy_to_iter+0x1d8/0x1430
-> >     __skb_datagram_iter+0xf8/0x820
-> >     skb_copy_datagram_iter+0x6c/0x1a0
-> >     pfkey_recvmsg+0x1ff/0x500
-> >     sock_recvmsg+0x15e/0x1a0
-> >     __sys_recvfrom+0x182/0x260
-> >     do_syscall_64+0x10b/0x5f0
-> >     entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> >    Allocated by task 433:
-> >     kmalloc_reserve+0x108/0x2b0
-> >     __alloc_skb+0x123/0x5b0
-> >     dump_sp+0xdf/0x490
-> >     xfrm_policy_walk+0x1d9/0x6c0
-> >     pfkey_do_dump+0x61/0x420
-> >     pfkey_recvmsg+0x358/0x500
-> > 
-> > Take xp->lock for reading across both calls, so both derivations see the
-> > same encap_family. xfrm_policy_walk() already calls dump_sp() under
-> > spin_lock_bh(), so the plain reader suffices, as in xfrm_policy_timer().
-> > The other callers of this pair are already serialized against migrate by
-> > net->xfrm.xfrm_cfg_mutex.
-> > 
-> > Fixes: 80c9abaabf42 ("[XFRM]: Extension for dynamic update of endpoint address(es)")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Daniel Wade <danjwade95@gmail.com>
-> @Steffen: do you prefer we take this one directly into the net tree?
-
-I'm Ok with taking it directly into the net tree. PFKEY
-is dead anyway, I plan to remove the implementation at
-the beginning of the next year.
+QXQgMjAyNi0xMS0xMyAwNjo1MTo0NiwgIk1pY2hhZWwgUy4gVHNpcmtpbiIgPG1zdEByZWRoYXQu
+Y29tPiB3cm90ZToKPk9uIE1vbiwgTm92IDA5LCAyMDI2IGF0IDA1OjQzOjA5UE0gKzA4MDAsIExv
+bmdqdW4gVGFuZyB3cm90ZToKPj4gRnJvbTogTG9uZ2p1biBUYW5nIDx0YW5nbG9uZ2p1bkBreWxp
+bm9zLmNuPgo+PiAKPj4gVGhlIGJhY2tlbmQgcmFpc2VzIGFuIGludGVycnVwdCBhZnRlciBhZGRp
+bmcgYnVmZmVycyB0byB0aGUgdXNlZCByaW5nLAo+PiBhbmQgdGhlIGh5cGVydmlzb3IgaW5qZWN0
+cyBpdC4gSWYgb25lIGlzIGxvc3QgKGUuZy4sIGEgdHJhbnNpZW50IEtWTQo+PiBmYWlsdXJlKSwg
+TkFQSSB3aWxsIG5vdCBiZSBzY2hlZHVsZWQgYW5kIHRoZSBkcml2ZXIgc3RvcHMgY29uc3VtaW5n
+Cj4+IGJ1ZmZlcnMuIFRoZSByaW5nIGV2ZW50dWFsbHkgZmlsbHMgdXAsIHRoZSBiYWNrZW5kIHN0
+b3BzIG5vdGlmeWluZywgYW5kCj4+IHRoZSBxdWV1ZSBpcyBsZWZ0IHBlcm1hbmVudGx5IHN0dWNr
+Lgo+PiAKPj4gQWRkIGEgcGVyLWRldmljZSB3YXRjaGRvZyB0aGF0IHNjYW5zIHRoZSBSWCBxdWV1
+ZXMgb25jZSBwZXIgc2Vjb25kIGFuZAo+PiBkZXRlY3RzIGEgcXVldWUgdGhhdCBoYXMgYSBub24t
+emVybyBiYWNrbG9nIHdoaWxlIG1ha2luZyBubyBjb25zdW1wdGlvbgo+PiBwcm9ncmVzcyBhbmQg
+cmVjZWl2aW5nIG5vIG5ldyBpbnRlcnJ1cHQgZm9yIHJ4X3dhdGNoZG9nX3RpbWVvIHNlY29uZHMK
+Pj4gKGRlZmF1bHQgNSwgMCBkaXNhYmxlcyBpdCkuIE9uIGRldGVjdGlvbiwgcmVzY2hlZHVsZSBO
+QVBJLgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogTG9uZ2p1biBUYW5nIDx0YW5nbG9uZ2p1bkBreWxp
+bm9zLmNuPgo+PiAtLS0KPj4gIGRyaXZlcnMvbmV0L3ZpcnRpb19uZXQuYyB8IDEwNCArKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPj4gIDEgZmlsZSBjaGFuZ2VkLCAxMDQg
+aW5zZXJ0aW9ucygrKQo+PiAKPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L3ZpcnRpb19uZXQu
+YyBiL2RyaXZlcnMvbmV0L3ZpcnRpb19uZXQuYwo+PiBpbmRleCBkZDJjNDFlZjZmYmUuLmVjN2My
+NDgwODBjNSAxMDA2NDQKPj4gLS0tIGEvZHJpdmVycy9uZXQvdmlydGlvX25ldC5jCj4+ICsrKyBi
+L2RyaXZlcnMvbmV0L3ZpcnRpb19uZXQuYwo+PiBAQCAtMzYsNiArMzYsMTAgQEAgbW9kdWxlX3Bh
+cmFtKGNzdW0sIGJvb2wsIDA0NDQpOwo+PiAgbW9kdWxlX3BhcmFtKGdzbywgYm9vbCwgMDQ0NCk7
+Cj4+ICBtb2R1bGVfcGFyYW0obmFwaV90eCwgYm9vbCwgMDY0NCk7Cj4+ICAKPj4gKy8qIFJYIHF1
+ZXVlIHN0YWxsIHRpbWVvdXQgaW4gc2Vjb25kczsgMCBkaXNhYmxlcyB0aGUgd2F0Y2hkb2cuICov
+Cj4+ICtzdGF0aWMgdW5zaWduZWQgaW50IHJ4X3dhdGNoZG9nX3RpbWVvID0gNTsKPj4gK21vZHVs
+ZV9wYXJhbShyeF93YXRjaGRvZ190aW1lbywgdWludCwgMDY0NCk7Cj4+ICsKPj4gICNkZWZpbmUg
+VklSVElPX09GRkxPQURfTUFQX01JTgk0Ngo+PiAgI2RlZmluZSBWSVJUSU9fT0ZGTE9BRF9NQVBf
+TUFYCTQ3Cj4+ICAjZGVmaW5lIFZJUlRJT19GRUFUVVJFU19NQVBfTUlOCTY1Cj4KPk5vIG1vZHVs
+ZSBwYXJhbXMgcGxzLiBUaGlzIGlzIG5vdCBhIHNhbmUgVUFQSS4KCkRyb3BwZWQgaW4gdjI7IHRo
+ZSB0aW1lb3V0IGlzIG5vdyBhIGZpeGVkIDVzIGNvbnN0YW50LgoKPgo+PiBAQCAtMzE4LDYgKzMy
+MiwxMyBAQCBzdHJ1Y3Qgc2VuZF9xdWV1ZSB7Cj4+ICAJZG1hX2FkZHJfdCB4c2tfaGRyX2RtYV9h
+ZGRyOwo+PiAgfTsKPj4gIAo+PiArc3RydWN0IHZpcnRuZXRfcnFfd2F0Y2hkb2cgewo+PiArCXUx
+NiBsYXN0X3VzZWQ7Cj4+ICsJdTE2IGNhbGxzOwo+PiArCXVuc2lnbmVkIGxvbmcgamlmZmllczsK
+Pj4gKwlib29sIHN0YWxsZWQ7Cj4+ICt9Owo+PiArCj4+ICAvKiBJbnRlcm5hbCByZXByZXNlbnRh
+dGlvbiBvZiBhIHJlY2VpdmUgdmlydHF1ZXVlICovCj4+ICBzdHJ1Y3QgcmVjZWl2ZV9xdWV1ZSB7
+Cj4+ICAJLyogVmlydHF1ZXVlIGFzc29jaWF0ZWQgd2l0aCB0aGlzIHJlY2VpdmVfcXVldWUgKi8K
+Pj4gQEAgLTMzMiw2ICszNDMsOSBAQCBzdHJ1Y3QgcmVjZWl2ZV9xdWV1ZSB7Cj4+ICAJLyogVGhl
+IG51bWJlciBvZiByeCBub3RpZmljYXRpb25zICovCj4+ICAJdTE2IGNhbGxzOwo+PiAgCj4+ICsJ
+LyogUlggd2F0Y2hkb2cgc3RhdGUuICovCj4+ICsJc3RydWN0IHZpcnRuZXRfcnFfd2F0Y2hkb2cg
+d2F0Y2hkb2c7Cj4+ICsKPj4gIAkvKiBJcyBkeW5hbWljIGludGVycnVwdCBtb2RlcmF0aW9uIGVu
+YWJsZWQ/ICovCj4+ICAJYm9vbCBkaW1fZW5hYmxlZDsKPj4gIAo+PiBAQCAtNDQzLDYgKzQ1Nyw5
+IEBAIHN0cnVjdCB2aXJ0bmV0X2luZm8gewo+PiAgCS8qIFdvcmsgc3RydWN0IGZvciBzZXR0aW5n
+IHJ4IG1vZGUgKi8KPj4gIAlzdHJ1Y3Qgd29ya19zdHJ1Y3QgcnhfbW9kZV93b3JrOwo+PiAgCj4+
+ICsJLyogUlggd2F0Y2hkb2cgdGltZXIgZm9yIHN0dWNrIGRldGVjdGlvbiAqLwo+PiArCXN0cnVj
+dCB0aW1lcl9saXN0IHJ4X3dhdGNoZG9nOwo+PiArCj4+ICAJLyogRG9lcyB0aGUgYWZmaW5pdHkg
+aGludCBpcyBzZXQgZm9yIHZpcnRxdWV1ZXM/ICovCj4+ICAJYm9vbCBhZmZpbml0eV9oaW50X3Nl
+dDsKPj4gIAo+PiBAQCAtMzA2Nyw2ICszMDg0LDgwIEBAIHN0YXRpYyBpbnQgdmlydG5ldF9wb2xs
+KHN0cnVjdCBuYXBpX3N0cnVjdCAqbmFwaSwgaW50IGJ1ZGdldCkKPj4gIAlyZXR1cm4gcmVjZWl2
+ZWQ7Cj4+ICB9Cj4+ICAKPj4gKy8qCj4+ICsgKiBBbiBSWCBxdWV1ZSBpcyBzdGFsbGVkIGlmIGl0
+IGhhcyBhIGJhY2tsb2cgYnV0IG1ha2VzIG5vIHByb2dyZXNzIGFuZAo+PiArICogZ2V0cyBubyBu
+ZXcgaW50ZXJydXB0IGZvciByeF93YXRjaGRvZ190aW1lbyBzZWNvbmRzLCB1c3VhbGx5IGJlY2F1
+c2UKPj4gKyAqIGFuIGludGVycnVwdCB3YXMgbG9zdC4gIE1hcmsgaXQgc3RhbGxlZCBhbmQgcmVz
+Y2hlZHVsZSBOQVBJIHRvIGRyYWluCj4+ICsgKiB0aGUgcmluZywgcmVmaWxsIHRoZSBidWZmZXJz
+Lgo+PiArICovCj4+ICtzdGF0aWMgdm9pZCB2aXJ0bmV0X3J4X3dhdGNoZG9nKHN0cnVjdCB0aW1l
+cl9saXN0ICp0KQo+PiArewo+PiArCXN0cnVjdCB2aXJ0bmV0X2luZm8gKnZpID0gdGltZXJfY29u
+dGFpbmVyX29mKHZpLCB0LCByeF93YXRjaGRvZyk7Cj4+ICsJdW5zaWduZWQgbG9uZyB0aW1lb3V0
+ID0gcnhfd2F0Y2hkb2dfdGltZW8gKiBIWjsKPj4gKwlpbnQgaTsKPj4gKwo+PiArCWlmICghcnhf
+d2F0Y2hkb2dfdGltZW8pCj4+ICsJCXJldHVybjsKPj4gKwo+PiArCWZvciAoaSA9IDA7IGkgPCB2
+aS0+Y3Vycl9xdWV1ZV9wYWlyczsgaSsrKSB7Cj4+ICsJCXN0cnVjdCByZWNlaXZlX3F1ZXVlICpy
+cSA9ICZ2aS0+cnFbaV07Cj4+ICsJCXUxNiBsYXN0X3VzZWQgPSB2aXJ0cXVldWVfZ2V0X2xhc3Rf
+dXNlZF9pZHgocnEtPnZxKTsKPj4gKwkJdTE2IGNhbGxzID0gcnEtPmNhbGxzOwo+PiArCQlib29s
+IGJhY2tsb2cgPSB2aXJ0cXVldWVfcG9sbChycS0+dnEsIGxhc3RfdXNlZCk7Cj4+ICsJCWJvb2wg
+cHJvZ3Jlc3MgPSBsYXN0X3VzZWQgIT0gcnEtPndhdGNoZG9nLmxhc3RfdXNlZDsKPj4gKwo+PiAr
+CQlpZiAoIWJhY2tsb2cgfHwgcHJvZ3Jlc3MgfHwgY2FsbHMgIT0gcnEtPndhdGNoZG9nLmNhbGxz
+KSB7Cj4+ICsJCQlycS0+d2F0Y2hkb2cubGFzdF91c2VkID0gbGFzdF91c2VkOwo+PiArCQkJcnEt
+PndhdGNoZG9nLmNhbGxzID0gY2FsbHM7Cj4+ICsJCQlycS0+d2F0Y2hkb2cuamlmZmllcyA9IGpp
+ZmZpZXM7Cj4+ICsJCQljb250aW51ZTsKPj4gKwkJfQo+PiArCj4+ICsJCWlmICh0aW1lX2FmdGVy
+KGppZmZpZXMsIHJxLT53YXRjaGRvZy5qaWZmaWVzICsgdGltZW91dCkpIHsKPj4gKwkJCXVuc2ln
+bmVkIGludCBzdGFsbF9tcyA9Cj4+ICsJCQkJamlmZmllc190b19tc2VjcyhqaWZmaWVzIC0gcnEt
+PndhdGNoZG9nLmppZmZpZXMpOwo+PiArCj4+ICsJCQluZXRkZXZfd2Fybih2aS0+ZGV2LAo+PiAr
+CQkJCSAgICAiUlggcXVldWUgJXUgc3RhbGxlZCBmb3IgJXUgbXMsIHJlc2NoZWR1bGluZyBOQVBJ
+XG4iLAo+PiArCQkJCSAgICBpLCBzdGFsbF9tcyk7Cj4+ICsKPj4gKwkJCXJxLT53YXRjaGRvZy5z
+dGFsbGVkID0gdHJ1ZTsKPj4gKwkJCXZpcnRxdWV1ZV9uYXBpX3NjaGVkdWxlKCZycS0+bmFwaSwg
+cnEtPnZxKTsKPj4gKwo+PiArCQkJLyogUmF0ZS1saW1pdCB0byBvbmUgZXZlbnQgcGVyIHRpbWVv
+dXQuICovCj4+ICsJCQlycS0+d2F0Y2hkb2cuamlmZmllcyA9IGppZmZpZXM7Cj4+ICsJCX0KPj4g
+Kwl9Cj4+ICsKPj4gKwltb2RfdGltZXIoJnZpLT5yeF93YXRjaGRvZywgamlmZmllcyArIEhaKTsK
+Pj4gK30KPj4gKwo+PiArc3RhdGljIHZvaWQgdmlydG5ldF9yeF93YXRjaGRvZ19pbml0X3F1ZXVl
+KHN0cnVjdCByZWNlaXZlX3F1ZXVlICpycSkKPj4gK3sKPj4gKwlycS0+d2F0Y2hkb2cubGFzdF91
+c2VkID0gdmlydHF1ZXVlX2dldF9sYXN0X3VzZWRfaWR4KHJxLT52cSk7Cj4+ICsJcnEtPndhdGNo
+ZG9nLmNhbGxzID0gcnEtPmNhbGxzOwo+PiArCXJxLT53YXRjaGRvZy5qaWZmaWVzID0gamlmZmll
+czsKPj4gKwlycS0+d2F0Y2hkb2cuc3RhbGxlZCA9IGZhbHNlOwo+PiArfQo+PiArCj4+ICtzdGF0
+aWMgdm9pZCB2aXJ0bmV0X3J4X3dhdGNoZG9nX3N0YXJ0KHN0cnVjdCB2aXJ0bmV0X2luZm8gKnZp
+KQo+PiArewo+PiArCWludCBpOwo+PiArCj4+ICsJaWYgKCFyeF93YXRjaGRvZ190aW1lbykKPj4g
+KwkJcmV0dXJuOwo+PiArCj4+ICsJZm9yIChpID0gMDsgaSA8IHZpLT5jdXJyX3F1ZXVlX3BhaXJz
+OyBpKyspCj4+ICsJCXZpcnRuZXRfcnhfd2F0Y2hkb2dfaW5pdF9xdWV1ZSgmdmktPnJxW2ldKTsK
+Pj4gKwo+PiArCW1vZF90aW1lcigmdmktPnJ4X3dhdGNoZG9nLCBqaWZmaWVzICsgSFopOwo+PiAr
+fQo+PiArCj4+ICtzdGF0aWMgdm9pZCB2aXJ0bmV0X3J4X3dhdGNoZG9nX3N0b3Aoc3RydWN0IHZp
+cnRuZXRfaW5mbyAqdmkpCj4+ICt7Cj4+ICsJdGltZXJfZGVsZXRlX3N5bmMoJnZpLT5yeF93YXRj
+aGRvZyk7Cj4+ICt9Cj4+ICsKPj4gIHN0YXRpYyB2b2lkIHZpcnRuZXRfZGlzYWJsZV9xdWV1ZV9w
+YWlyKHN0cnVjdCB2aXJ0bmV0X2luZm8gKnZpLCBpbnQgcXBfaW5kZXgpCj4+ICB7Cj4+ICAJdmly
+dG5ldF9uYXBpX3R4X2Rpc2FibGUoJnZpLT5zcVtxcF9pbmRleF0pOwo+PiBAQCAtMzIzMCw2ICsz
+MzIxLDggQEAgc3RhdGljIGludCB2aXJ0bmV0X29wZW4oc3RydWN0IG5ldF9kZXZpY2UgKmRldikK
+Pj4gIAkJbmV0aWZfY2Fycmllcl9vbihkZXYpOwo+PiAgCX0KPj4gIAo+PiArCXZpcnRuZXRfcnhf
+d2F0Y2hkb2dfc3RhcnQodmkpOwo+PiArCj4+ICAJcmV0dXJuIDA7Cj4+ICAKPj4gIGVycl9lbmFi
+bGVfcXA6Cj4+IEBAIC0zNzU5LDYgKzM4NTIsNyBAQCBzdGF0aWMgaW50IHZpcnRuZXRfc2V0X3F1
+ZXVlcyhzdHJ1Y3QgdmlydG5ldF9pbmZvICp2aSwgdTE2IHF1ZXVlX3BhaXJzKQo+PiAgCXN0cnVj
+dCB2aXJ0aW9fbmV0X3Jzc19jb25maWdfdHJhaWxlciBvbGRfcnNzX3RyYWlsZXI7Cj4+ICAJc3Ry
+dWN0IG5ldF9kZXZpY2UgKmRldiA9IHZpLT5kZXY7Cj4+ICAJc3RydWN0IHNjYXR0ZXJsaXN0IHNn
+Owo+PiArCXUxNiBvbGRfcXVldWVfcGFpcnMgPSB2aS0+Y3Vycl9xdWV1ZV9wYWlyczsKPj4gIAo+
+PiAgCWlmICghdmktPmhhc19jdnEgfHwgIXZpcnRpb19oYXNfZmVhdHVyZSh2aS0+dmRldiwgVklS
+VElPX05FVF9GX01RKSkKPj4gIAkJcmV0dXJuIDA7Cj4+IEBAIC0zODE2LDcgKzM5MTAsMTQgQEAg
+c3RhdGljIGludCB2aXJ0bmV0X3NldF9xdWV1ZXMoc3RydWN0IHZpcnRuZXRfaW5mbyAqdmksIHUx
+NiBxdWV1ZV9wYWlycykKPj4gIAlpZiAodmktPmhhc19yc3MpCj4+ICAJCXZpLT5yc3NfdHJhaWxl
+ci5tYXhfdHhfdnEgPSBjcHVfdG9fbGUxNihxdWV1ZV9wYWlycyk7Cj4+ICBzdWNjOgo+PiArCWlm
+IChkZXYtPmZsYWdzICYgSUZGX1VQKSB7Cj4+ICsJCS8qIEluaXQgbmV3IHF1ZXVlcyAqLwo+PiAr
+CQlmb3IgKGludCBpID0gb2xkX3F1ZXVlX3BhaXJzOyBpIDwgcXVldWVfcGFpcnM7IGkrKykKPj4g
+KwkJCXZpcnRuZXRfcnhfd2F0Y2hkb2dfaW5pdF9xdWV1ZSgmdmktPnJxW2ldKTsKPj4gKwl9Cj4+
+ICsKPj4gIAl2aS0+Y3Vycl9xdWV1ZV9wYWlycyA9IHF1ZXVlX3BhaXJzOwo+PiArCj4+ICAJaWYg
+KGRldi0+ZmxhZ3MgJiBJRkZfVVApIHsKPj4gIAkJbG9jYWxfYmhfZGlzYWJsZSgpOwo+PiAgCQlm
+b3IgKGludCBpID0gMDsgaSA8IHZpLT5jdXJyX3F1ZXVlX3BhaXJzOyArK2kpCj4+IEBAIC0zODMy
+LDYgKzM5MzMsOCBAQCBzdGF0aWMgaW50IHZpcnRuZXRfY2xvc2Uoc3RydWN0IG5ldF9kZXZpY2Ug
+KmRldikKPj4gIAlzdHJ1Y3QgdmlydG5ldF9pbmZvICp2aSA9IG5ldGRldl9wcml2KGRldik7Cj4+
+ICAJaW50IGk7Cj4+ICAKPj4gKwl2aXJ0bmV0X3J4X3dhdGNoZG9nX3N0b3AodmkpOwo+PiArCj4+
+ICAJLyogUHJldmVudCB0aGUgY29uZmlnIGNoYW5nZSBjYWxsYmFjayBmcm9tIGNoYW5naW5nIGNh
+cnJpZXIKPj4gIAkgKiBhZnRlciBjbG9zZQo+PiAgCSAqLwo+PiBAQCAtNjkwMCw2ICs3MDAzLDcg
+QEAgc3RhdGljIGludCB2aXJ0bmV0X3Byb2JlKHN0cnVjdCB2aXJ0aW9fZGV2aWNlICp2ZGV2KQo+
+PiAgCUlOSVRfV09SSygmdmktPmNvbmZpZ193b3JrLCB2aXJ0bmV0X2NvbmZpZ19jaGFuZ2VkX3dv
+cmspOwo+PiAgCUlOSVRfV09SSygmdmktPnJ4X21vZGVfd29yaywgdmlydG5ldF9yeF9tb2RlX3dv
+cmspOwo+PiAgCWRpc2FibGVfd29yaygmdmktPnJ4X21vZGVfd29yayk7Cj4+ICsJdGltZXJfc2V0
+dXAoJnZpLT5yeF93YXRjaGRvZywgdmlydG5ldF9yeF93YXRjaGRvZywgMCk7Cj4+ICAKPj4gIAlp
+ZiAodmlydGlvX2hhc19mZWF0dXJlKHZkZXYsIFZJUlRJT19ORVRfRl9NUkdfUlhCVUYpKSB7Cj4+
+ICAJCXZpLT5tZXJnZWFibGVfcnhfYnVmcyA9IHRydWU7Cj4+IC0tIAo+PiAyLjUxLjAK
