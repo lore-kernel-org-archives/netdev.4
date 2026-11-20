@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195800;
-	b=s25VlvL59izWhYIYd3lc6mkVvY3G9yEJc2Z5l24Q1kfknUmwUhT5m192IVtmxeue73I1
-	 DaGvVJbpdUeNQcK8Jh/WPy7Yr688FMq05SeR2Xv6dNHxxoGObYzji4paaKf2M8FepxGFp
-	 s0MPIdU/SW4d9R7oTKiyCqzYkd31Ge0xvMZpqjXbw2XcpXOQ2pPfPf6OtqKAq+GxIyaZt
-	 zRTtI/OgcJuvreH/USxLaDcd1mGwzxMIv2FjL6UUWldg6NICdjuSAJOZByvXLTrbu2YZu
-	 9o23MmUbQ5V7UcWG207nM7iI7HWlbCzB/BcWSB9htYtQS4kjeEFhgn61C6lDWphcBoA==
+	t=1795195804;
+	b=EYGFJ+c3apYn2dUV+XW7ca40QWDxxGyCMnf13/bllKcBWdW004vZQRx6EZh7va5gVZYv
+	 W/ijfHUjr/I6yvIVV6gr2QjXG4R9rbERxQRG8h4ew6y6TZY2ugrqep8frXm/ZkYAyllpK
+	 /Mfazv+YZelARKKa48C/gCnxEoJk5BtyiNRfe3OvMkEupuzd36iu0O8iiMcpx4ES8AnmS
+	 xXdDBDqDdT3JJggLj7RicxXeLBhDRL3dnyY5OkMJk8KMOXbXMPDVCilq8DfuOHc5htDlk
+	 s4zAEInFFykJPBERErillMjl7wl3QWa52u3FK9WOmcAWOFt1XJOzGxih+m1nzSUgdiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195800;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195804;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer;
-	bh=EXBjRTevrPqNGKq/HTyvo8yMIx2X5hlkH0XpMhR9I1s=;
-	b=zP0LrdznBK/rX2uloF7JuIgSl+yhNH2Fbu4nfwtSTx7iiWRxOHT4jMCTHJLfX5drEKzB
-	 ZuMN0Un7PVFxdIbG092sIy1wOCGEJLX4/4ocC8UHlKnWlnQ+kKAdDHoxdgtE69ys5pVY1
-	 35odMKXQ8FYuJgFSQdXh453p3eJQ2+awvXCH7GEZwTqY1Dly3LRDUcCEjvKfBWgVCagnu
-	 wsydzEWjNj3J8Ni7F0qHxIEamWlX1OuJBRUER1e4FnrUnFRYn5GPVq5KNQtWsspZhSyPc
-	 fMu+KIh+dxYP5YRGp2pW011PHo8tygZjVDgNGPgAbd8CxzDQJg37vqkvAyOxzRPmjfA==
+	bh=+sRfM+QesRgc7hmm5CwQohA6nJ9Y1PjQ8D3Scrdbkpo=;
+	b=LHuhn+Ebn/4lwFqEQuWSu52Gtw44x5t2s3sVHG6zpqL6TE1nEq+st0eDhNODPfoH1LiG
+	 s75/hFi94sNavDA9LjWYB4eNfQYqTedsS8LAGjyVrJPBtrywHAUw8NFyq9ay34WMwVtgR
+	 NPb2/S5/4jlU0+MMNHD/UJIUUIan4SkQ4lVvdboaNMYSESoftlF9gtMaej9Aw4KzRZ+oE
+	 VONn0CKF52RhCmMbLJylLsUnPda1Wi7Rcs5dv3brBwH5IQ5aG1GFzLXSn501KvyapAM18
+	 QNXuy5lPqTSKONoO4/Qi3/J8wqA/yGuIAxPOR/thXq3QybNaX9lygHH2mOY3zSLsItA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L5G1F7ga;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M1zyuLID;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D525D60A261E
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:30:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B572760A3809
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:30:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L5G1F7ga
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25E211F000F2;
-	Fri, 20 Nov 2026 17:29:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M1zyuLID
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDBBF1F000D2;
+	Fri, 20 Nov 2026 17:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795195800;
-	bh=EXBjRTevrPqNGKq/HTyvo8yMIx2X5hlkH0XpMhR9I1s=;
+	s=k20260515; t=1795195804;
+	bh=+sRfM+QesRgc7hmm5CwQohA6nJ9Y1PjQ8D3Scrdbkpo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=L5G1F7gaGrdTILTkcs8yIQCQnCbgtTwAnYKjxbuC9NzT4YvGr+AtsRRSts5C/mwbh
-	 golRZXZTYtYe91J2BvUgX4o2bmYQGVS6QZ7drvQ8zwXRY5cLPmi+XYcYb1+yWn25LJ
-	 +jjClO0rbolKqI632JFEC5nxNdZUJaduS070or7HfR9iS2Nhpbk0w2Mp/tqSHJe/z+
-	 GNC90n9QHfYvwDc6WY9zKZiVpxiYVj6kS657ngSk0VHpBEs0wG8e2RZHI2/FvVC4Q0
-	 KZ/QjJWidEo3fZwl0c+dIDwREDFfydR0EoVtA463WHHvmVGn6Y/WrpdvSw7Fade+It
-	 6UeiNDcUo645w==
+	b=M1zyuLID94krrwJuB/aMuT9pK6HEN7JK4jK7IlKX8C01CWnHaS+QaXSzMhMo8CZxo
+	 Bwnpe/i1eocbqK1s+Y6q4FpUzy2FnuilwwUzYViNCeXo2D1HPBPwuUQVW9xGGvO+YK
+	 Er4wHPA5/Ce4j0rW5TxHboSXhiREHKejq9D8Yu4rWhMb76llhwHB0LHRdaUh5ff7U+
+	 gQnq1seo9vswnsWUePCh8y8Ol5SWFhAsRPjrtp36GVm4OCaI3OgGO75F/gVR2T+Rm9
+	 sxn/Bliz1VwKKJ7OthI24OLfIILnxn9LI4Q1uiEVPNW6b5bBT5l//F+rg+aeCPsy8I
+	 KrrroVixFnnUA==
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Nov 2026 18:29:28 +0100
-Subject: [PATCH net-next v9 09/14] net: ethernet: cortina: Recycle claimed
- free queue pages
+Date: Fri, 20 Nov 2026 18:29:29 +0100
+Subject: [PATCH net-next v9 10/14] net: ethernet: cortina: Separate RX
+ buffer capacity from free queue size
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-gemini-ethernet-fixes-3-v9-9-298671d799d5@kernel.org>
+Message-Id: <20261120-gemini-ethernet-fixes-3-v9-10-298671d799d5@kernel.org>
 References: <20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5@kernel.org>
 In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5@kernel.org>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
@@ -67,316 +67,168 @@ To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
 Cc: netdev@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.16.0
 
-The preceding "Preserve in-flight free queue pages" fix releases each
-mapping after its last descriptor is claimed. Refilling therefore
-allocates and maps a fresh page at line rate even after the network stack
-has released all references to an old page.
+Containing a retained hardware read pointer can force an order-15 free
+queue even when the configured RX rings need far fewer buffers. Filling
+that descriptor ring requires nearly 64 MiB of pages on systems with
+32 to 128 MiB of RAM. Allocation failure persists across retries because
+the stopped DMA engine cannot advance the pointer.
 
-Keep the free queue base reference and streaming mapping after the
-fragments are claimed. Track fully claimed slots in a separate bitmap and
-inspect one at a time during refill. Recycle a page once its reference
-count returns to one. If the stack still owns fragments, unmap the page
-and relinquish the base reference before allocating its replacement.
+Keep the descriptor geometry required by the retained pointer, but size
+the RX buffer budget from the configured port rings. Bound the posted
+occupancy and refill work by that budget, including after dropping the
+free queue lock to allocate a page. Size page metadata and the NAPI refill
+threshold from the same budget.
 
-Reject pfmemalloc pages when recycling so emergency-reserve pages return
-to the allocator instead of remaining pinned in the free queue.
+For a retained pointer of 16384 and a requested buffer order of 10, this
+keeps the 512 KiB descriptor ring but posts 2044 KiB of RX pages instead
+of 65532 KiB. No hardware pointer-reset behaviour is assumed.
 
-This prevents retained pages from exhausting the finite metadata table
-and bounds the IRQ-disabled search to a bitmap lookup and one reference
-count check. It retains the existing free queue allocator without
-introducing a page pool.
-
-Recheck the recycle bitmap on each refill iteration and again after mapping
-a candidate page. If another RX path retires a page concurrently, release
-the candidate and return to the recycler before consuming another metadata
-slot. Retry recycling immediately when a retained page is discarded so
-other pending entries are examined before allocating a replacement. This
-avoids stopping refill while recyclable slots are pending.
+Found by review and checked with a ring-geometry model covering every
+supported retained pointer and buffer order.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/net/ethernet/cortina/gemini.c | 153 +++++++++++++++++++++++++++++-----
- 1 file changed, 131 insertions(+), 22 deletions(-)
+ drivers/net/ethernet/cortina/gemini.c | 40 ++++++++++++++++++++++-------------
+ 1 file changed, 25 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-index 9323e3d7af6d..2613f09a8f71 100644
+index 2613f09a8f71..8431f0a2e34a 100644
 --- a/drivers/net/ethernet/cortina/gemini.c
 +++ b/drivers/net/ethernet/cortina/gemini.c
-@@ -175,7 +175,9 @@ struct gemini_ethernet {
- 	struct xarray	freeq_mappings;
- 	unsigned int	num_freeq_pages;
- 	unsigned long	*freeq_page_bitmap;
-+	unsigned long	*freeq_recycle_bitmap;
- 	unsigned int	freeq_page_cursor;
-+	unsigned int	freeq_recycle_pending;
- 	spinlock_t	freeq_lock; /* Locks queue from reentrance */
- };
+@@ -168,6 +168,7 @@ struct gemini_ethernet {
  
-@@ -798,6 +800,34 @@ static int geth_freeq_alloc_slot(struct gemini_ethernet *geth)
- 	return slot;
- }
- 
-+static int geth_freeq_recycle_slot(struct gemini_ethernet *geth)
-+{
-+	unsigned int slot = geth->freeq_page_cursor;
-+
-+	lockdep_assert_held(&geth->freeq_lock);
-+
-+	if (!geth->freeq_recycle_pending)
-+		return -ENOSPC;
-+
-+	slot = find_next_bit(geth->freeq_recycle_bitmap,
-+			     geth->num_freeq_pages,
-+			     geth->freeq_page_cursor);
-+	if (slot == geth->num_freeq_pages) {
-+		slot = find_first_bit(geth->freeq_recycle_bitmap,
-+				      geth->freeq_page_cursor);
-+		if (slot == geth->freeq_page_cursor)
-+			return -ENOSPC;
-+	}
-+
-+	__clear_bit(slot, geth->freeq_recycle_bitmap);
-+	geth->freeq_page_cursor = slot + 1;
-+	if (geth->freeq_page_cursor == geth->num_freeq_pages)
-+		geth->freeq_page_cursor = 0;
-+	geth->freeq_recycle_pending--;
-+
-+	return slot;
-+}
-+
- static struct page *geth_freeq_claim(struct gemini_ethernet *geth,
- 				     dma_addr_t mapping,
- 				     unsigned int *page_offs)
-@@ -807,8 +837,8 @@ static struct page *geth_freeq_claim(struct gemini_ethernet *geth,
- 	unsigned long index;
+ 	spinlock_t	irq_lock; /* Locks IRQ-related registers */
+ 	unsigned int	freeq_order;
++	unsigned int	freeq_buf_order; /* RX buffer budget, independent of ring size */
+ 	unsigned int	freeq_frag_order;
+ 	struct gmac_rxdesc *freeq_ring;
+ 	dma_addr_t	freeq_dma_base;
+@@ -1099,15 +1100,17 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth)
+ 	unsigned int fragments = 1 << fpp_order;
+ 	unsigned int len = 1 << geth->freeq_order;
+ 	unsigned int ring_mask = len - 1;
+-	unsigned int remaining = geth->num_freeq_pages + (len >> fpp_order);
++	unsigned int buf_len = 1 << geth->freeq_buf_order;
++	unsigned int capacity = buf_len - fragments;
++	unsigned int remaining = geth->num_freeq_pages + (buf_len >> fpp_order);
+ 	unsigned int count = 0;
+ 	unsigned int rptr, wptr;
  	unsigned long flags;
- 	dma_addr_t page_mapping;
--	unsigned int slot;
- 	struct page *page;
-+	unsigned int slot;
- 	bool valid;
+ 	union dma_rwptr rw;
+ 	bool space;
  
- 	index = geth_freeq_mapping_index(geth, mapping);
-@@ -832,13 +862,8 @@ static struct page *geth_freeq_claim(struct gemini_ethernet *geth,
- 	xa_erase(&geth->freeq_mappings, index);
- 	if (!--gpage->fragments) {
- 		slot = gpage - geth->freeq_pages;
--		dma_unmap_single_attrs(geth->dev, page_mapping, PAGE_SIZE,
--				       DMA_FROM_DEVICE,
--				       DMA_ATTR_SKIP_CPU_SYNC);
--		gpage->page = NULL;
--		gpage->mapping = 0;
--		__clear_bit(slot, geth->freeq_page_bitmap);
--		put_page(page);
-+		__set_bit(slot, geth->freeq_recycle_bitmap);
-+		geth->freeq_recycle_pending++;
- 	}
- 
- 	*page_offs = mapping - page_mapping;
-@@ -932,26 +957,23 @@ static int geth_freeq_map_page(struct gemini_ethernet *geth,
- 	return 0;
- }
- 
--static int geth_freeq_add_page(struct gemini_ethernet *geth, unsigned int wptr,
--			       struct page *page, dma_addr_t page_mapping)
-+static int geth_freeq_post_page(struct gemini_ethernet *geth,
-+				unsigned int wptr,
-+				struct gmac_queue_page *gpage, bool recycle)
- {
- 	struct gmac_rxdesc *freeq_entry;
--	struct gmac_queue_page *gpage;
- 	unsigned int ring_mask;
- 	unsigned int fpp_order;
- 	unsigned int fragments;
- 	unsigned int frag_len;
-+	dma_addr_t page_mapping = gpage->mapping;
- 	dma_addr_t mapping;
-+	struct page *page = gpage->page;
- 	int ret;
--	int slot;
- 	int i;
- 
- 	lockdep_assert_held(&geth->freeq_lock);
- 
--	slot = geth_freeq_alloc_slot(geth);
--	if (slot < 0)
--		return slot;
--
- 	/* The assign the page mapping (physical address) to the buffer address
- 	 * in the hardware queue. PAGE_SHIFT on ARM is 12 (1 page is 4096 bytes,
- 	 * 4k), and the default RX frag order is 11 (fragments are up 20 2048
-@@ -963,9 +985,6 @@ static int geth_freeq_add_page(struct gemini_ethernet *geth, unsigned int wptr,
- 	fragments = 1 << fpp_order;
- 	ring_mask = (1 << geth->freeq_order) - 1;
- 
--	gpage = &geth->freeq_pages[slot];
--	gpage->page = page;
--	gpage->mapping = page_mapping;
- 	for (i = 0; i < fragments; i++) {
- 		mapping = page_mapping + i * frag_len;
- 		ret = xa_insert(&geth->freeq_mappings,
-@@ -974,6 +993,9 @@ static int geth_freeq_add_page(struct gemini_ethernet *geth, unsigned int wptr,
- 		if (ret)
- 			goto err_mappings;
- 	}
-+	if (recycle)
-+		dma_sync_single_for_device(geth->dev, page_mapping, PAGE_SIZE,
-+					   DMA_FROM_DEVICE);
- 	gpage->fragments = fragments;
- 	page_ref_add(page, fragments);
- 
-@@ -997,9 +1019,70 @@ static int geth_freeq_add_page(struct gemini_ethernet *geth, unsigned int wptr,
- 		xa_erase(&geth->freeq_mappings,
- 			 geth_freeq_mapping_index(geth, mapping));
- 	}
--	gpage->page = NULL;
--	gpage->mapping = 0;
--	__clear_bit(slot, geth->freeq_page_bitmap);
-+	return ret;
-+}
-+
-+static int geth_freeq_add_page(struct gemini_ethernet *geth,
-+			       unsigned int wptr,
-+			       struct page *page, dma_addr_t page_mapping)
-+{
-+	struct gmac_queue_page *gpage;
-+	int ret;
-+	int slot;
-+
-+	lockdep_assert_held(&geth->freeq_lock);
-+
-+	slot = geth_freeq_alloc_slot(geth);
-+	if (slot < 0)
-+		return slot;
-+
-+	gpage = &geth->freeq_pages[slot];
-+	gpage->page = page;
-+	gpage->mapping = page_mapping;
-+	ret = geth_freeq_post_page(geth, wptr, gpage, false);
-+	if (ret) {
-+		gpage->page = NULL;
-+		gpage->mapping = 0;
-+		__clear_bit(slot, geth->freeq_page_bitmap);
-+	}
-+
-+	return ret;
-+}
-+
-+static int geth_freeq_recycle_page(struct gemini_ethernet *geth,
-+				   unsigned int wptr)
-+{
-+	struct gmac_queue_page *gpage;
-+	struct page *page;
-+	int ret;
-+	int slot;
-+
-+	lockdep_assert_held(&geth->freeq_lock);
-+
-+	slot = geth_freeq_recycle_slot(geth);
-+	if (slot < 0)
-+		return slot;
-+
-+	gpage = &geth->freeq_pages[slot];
-+	if (page_ref_count(gpage->page) > 1 ||
-+	    !dev_page_is_reusable(gpage->page)) {
-+		page = gpage->page;
-+		dma_unmap_single_attrs(geth->dev, gpage->mapping, PAGE_SIZE,
-+				       DMA_FROM_DEVICE,
-+				       DMA_ATTR_SKIP_CPU_SYNC);
-+		gpage->page = NULL;
-+		gpage->mapping = 0;
-+		__clear_bit(slot, geth->freeq_page_bitmap);
-+		put_page(page);
-+		return -EAGAIN;
-+	}
-+
-+	ret = geth_freeq_post_page(geth, wptr, gpage, true);
-+	if (ret) {
-+		__set_bit(slot, geth->freeq_recycle_bitmap);
-+		geth->freeq_recycle_pending++;
-+	}
-+
- 	return ret;
- }
- 
-@@ -1034,9 +1117,22 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth)
+-	/* Bound retries and post at most one ring's worth of fragments. */
+-	while (remaining-- && count < len - fragments) {
++	/* Bound retries and post at most one buffer budget per refill. */
++	while (remaining-- && count < capacity) {
+ 		dma_addr_t page_mapping;
+ 		struct page *page;
+ 		int ret;
+@@ -1116,7 +1119,8 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth)
+ 		rw.bits32 = readl(geth->base + GLOBAL_SWFQ_RWPTR_REG);
  		rptr = rw.bits.rptr & ring_mask;
  		wptr = rw.bits.wptr & ring_mask;
- 		space = CIRC_SPACE(wptr, rptr, len) >= fragments;
-+		ret = -ENOSPC;
-+		if (space && geth->freeq_recycle_pending) {
-+			ret = geth_freeq_recycle_page(geth, wptr);
-+			if (!ret) {
-+				count += fragments;
-+				wptr = (wptr + fragments) & ring_mask;
-+				SET_WPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG, wptr);
-+			}
-+		}
- 		spin_unlock_irqrestore(&geth->freeq_lock, flags);
- 		if (!space)
- 			break;
-+		if (!ret || ret == -EAGAIN)
-+			continue;
-+		if (ret != -ENOSPC)
-+			break;
- 
- 		ret = geth_freeq_map_page(geth, &page, &page_mapping);
- 		if (ret)
-@@ -1049,6 +1145,8 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth)
+-		space = CIRC_SPACE(wptr, rptr, len) >= fragments;
++		space = CIRC_SPACE(wptr, rptr, len) >= fragments &&
++			CIRC_CNT(wptr, rptr, len) <= capacity - fragments;
+ 		ret = -ENOSPC;
+ 		if (space && geth->freeq_recycle_pending) {
+ 			ret = geth_freeq_recycle_page(geth, wptr);
+@@ -1143,7 +1147,8 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth)
+ 		rw.bits32 = readl(geth->base + GLOBAL_SWFQ_RWPTR_REG);
+ 		rptr = rw.bits.rptr & ring_mask;
  		wptr = rw.bits.wptr & ring_mask;
- 		if (CIRC_SPACE(wptr, rptr, len) < fragments) {
+-		if (CIRC_SPACE(wptr, rptr, len) < fragments) {
++		if (CIRC_SPACE(wptr, rptr, len) < fragments ||
++		    CIRC_CNT(wptr, rptr, len) > capacity - fragments) {
  			ret = -ENOSPC;
-+		} else if (geth->freeq_recycle_pending) {
-+			ret = -EAGAIN;
- 		} else {
- 			ret = geth_freeq_add_page(geth, wptr, page,
- 						  page_mapping);
-@@ -1065,6 +1163,8 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth)
- 			dma_unmap_single(geth->dev, page_mapping, PAGE_SIZE,
- 					 DMA_FROM_DEVICE);
- 			put_page(page);
-+			if (ret == -EAGAIN)
-+				continue;
- 			break;
- 		}
- 	}
-@@ -1109,6 +1209,7 @@ static void geth_freeq_release_pages(struct gemini_ethernet *geth)
- 		put_page(page);
- 	}
- 	xa_destroy(&geth->freeq_mappings);
-+	geth->freeq_recycle_pending = 0;
+ 		} else if (geth->freeq_recycle_pending) {
+ 			ret = -EAGAIN;
+@@ -1213,10 +1218,10 @@ static void geth_freeq_release_pages(struct gemini_ethernet *geth)
  }
  
  static unsigned int
-@@ -1155,6 +1256,9 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
- 	geth->freeq_page_bitmap = bitmap_zalloc(page_slots, GFP_KERNEL);
- 	if (!geth->freeq_page_bitmap)
- 		goto err_freeq_pages;
-+	geth->freeq_recycle_bitmap = bitmap_zalloc(page_slots, GFP_KERNEL);
-+	if (!geth->freeq_recycle_bitmap)
-+		goto err_freeq_page_bitmap;
- 	geth->num_freeq_pages = page_slots;
- 	geth->freeq_page_cursor = 0;
+-geth_freeq_page_slots(struct gemini_ethernet *geth, unsigned int order)
++geth_freeq_page_slots(struct gemini_ethernet *geth, unsigned int buf_order)
+ {
+ 	unsigned int fpp_order = PAGE_SHIFT - geth->freeq_frag_order;
+-	unsigned int slots = 1 << (order - fpp_order);
++	unsigned int slots = 1 << (buf_order - fpp_order);
  
-@@ -1182,6 +1286,9 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
- 	writew(readw(geth->base + GLOBAL_SWFQ_RWPTR_REG),
- 	       geth->base + GLOBAL_SWFQ_RWPTR_REG + 2);
- 	geth_freeq_release_pages(geth);
-+	bitmap_free(geth->freeq_recycle_bitmap);
-+	geth->freeq_recycle_bitmap = NULL;
-+err_freeq_page_bitmap:
- 	bitmap_free(geth->freeq_page_bitmap);
- 	geth->freeq_page_bitmap = NULL;
- err_freeq_pages:
-@@ -1212,6 +1319,8 @@ static void geth_cleanup_freeq(struct gemini_ethernet *geth)
+ 	if (geth->port0 && geth->port0->netdev)
+ 		slots += 1 << geth->port0->rxq_order;
+@@ -1237,7 +1242,7 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
+ 	unsigned int filled;
+ 	u16 rptr;
  
- 	geth_freeq_release_pages(geth);
+-	page_slots = geth_freeq_page_slots(geth, geth->freeq_order);
++	page_slots = geth_freeq_page_slots(geth, geth->freeq_buf_order);
  
-+	bitmap_free(geth->freeq_recycle_bitmap);
-+	geth->freeq_recycle_bitmap = NULL;
- 	bitmap_free(geth->freeq_page_bitmap);
- 	geth->freeq_page_bitmap = NULL;
- 	kfree(geth->freeq_pages);
+ 	geth->freeq_ring = dma_alloc_coherent(geth->dev,
+ 		sizeof(*geth->freeq_ring) << geth->freeq_order,
+@@ -1266,7 +1271,7 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
+ 	rptr = GET_RPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG);
+ 	SET_WPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG, rptr & (len - 1));
+ 
+-	expected = len - (1 << fpp_order);
++	expected = (1 << geth->freeq_buf_order) - (1 << fpp_order);
+ 	filled = geth_fill_freeq(geth);
+ 	if (filled != expected)
+ 		goto err_freeq_bitmap;
+@@ -1367,6 +1372,7 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
+ 	unsigned int new_size = 0;
+ 	unsigned int page_slots;
+ 	unsigned int new_order;
++	unsigned int buf_order;
+ 	u16 rptr;
+ 	int ret;
+ 
+@@ -1396,20 +1402,23 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
+ 			   other_port->rxq_order);
+ 	}
+ 
+-	new_order = min(15, ilog2(new_size - 1) + 1);
++	buf_order = min(15, ilog2(new_size - 1) + 1);
++	if (buf_order <= PAGE_SHIFT - geth->freeq_frag_order)
++		return -EINVAL;
++
+ 	rptr = GET_RPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG);
+ 	if (rptr >= BIT(15))
+ 		return -EIO;
+-	new_order = max_t(unsigned int, new_order, fls(rptr));
++	/* Contain the retained pointer without increasing RX buffer memory. */
++	new_order = max_t(unsigned int, buf_order, fls(rptr));
+ 	dev_dbg(geth->dev, "set shared queue to size %d order %d\n",
+ 		new_size, new_order);
+-	if (new_order <= PAGE_SHIFT - geth->freeq_frag_order)
+-		return -EINVAL;
+ 
+ 	/* Rebuild an idle queue to reclaim fragments which were never claimed. */
+ 	if (geth->freeq_ring && other_running) {
+-		page_slots = geth_freeq_page_slots(geth, geth->freeq_order);
++		page_slots = geth_freeq_page_slots(geth, buf_order);
+ 		if (geth->freeq_order >= new_order &&
++		    geth->freeq_buf_order >= buf_order &&
+ 		    geth->num_freeq_pages >= page_slots)
+ 			return 0;
+ 	}
+@@ -1426,6 +1435,7 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
+ 
+ 	/* Allocate a new queue with the desired order */
+ 	geth->freeq_order = new_order;
++	geth->freeq_buf_order = buf_order;
+ 	ret = geth_setup_freeq(geth);
+ 
+ 	/* Enable the queue interrupt only after successful setup. */
+@@ -1927,7 +1937,7 @@ static int gmac_napi_poll(struct napi_struct *napi, int budget)
+ 	unsigned int received;
+ 	bool reschedule;
+ 
+-	freeq_threshold = 1 << (geth->freeq_order - 1);
++	freeq_threshold = 1 << (geth->freeq_buf_order - 1);
+ 	u64_stats_update_begin(&port->rx_stats_syncp);
+ 
+ 	received = gmac_rx(napi->dev, budget, &freeq_consumed, &reschedule);
 
 -- 
 2.56.1
