@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795146759;
-	b=OX2fsr7gHLP0RTQvEWaaT+v3ZV16EmVnRv60nwWs66EoGcxJCYecl2X5mvdnpKMQTt3I
-	 G1I30KmlQQz2QK+yyafc3VQcaSM34nyszUYymMcGut62oe35iE9QrvUaCGgNlOUXL5GFJ
-	 gB7V/hBUebbKxFg9DHz0TpGhuJDjVI0yXSomYuwz1b3wtyW0ZxIXMTi1T8R32j5N76NoK
-	 Fv1CMzDFyAs7EIKMsVNKVLu80TI+0JaRdE1knaNL/uCDsteCPET5S9owBhR8f5XdqgfdW
-	 B325YBO2xPbp4GjlqTB5kMpom1nKbJd4fuu6mYtH208l4ViQu7BWJRkTNWNxWioZM6A==
+	t=1795146757;
+	b=yTeBYAIL7xvHl9HVAB9Y4F5uHhZO3B+ZqSIX/VX14vUqkZZeE5tbuvStTdS8JOMzmt/K
+	 rv/uJsc+HskEPEzh092HIPNwiGUYRo/ZYNsIrlN5bZIFoPeHg6SY3jFYdlseOKaZgy2JS
+	 4Zzktzs2UXCkqXyKyrvp4T6pSlveTCbgwU9R1tvRpKtlXhVPEcPpHy7cXhYeTF3yZBmYO
+	 WO0BlDDVlyEbMk0fxkMCxEI75yiFDuh/LvrdrgFSVYPWucubbolfW8JGPLXXWb99un/rn
+	 fmZMSaxtwNPKFNlrk+wAU2MiuRrgDgEHVfJFGvWNEYEVYTy2jlzwrUu/vkeqSlmNUQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795146759;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795146757;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=tgAHFf5QdCKXpzZymrYAsJ6lRzilvKK6wOHsRBEK0j4=;
-	b=AInVwbS8y7w7IgDkNoZQoa4kSZownPBG4AyEi7kBNYwUv6VMOq1+yMoZMcTvt5zSueoN
-	 98BWp7v+bEdaitREDFKiwipOCTKYxQP2XZbm0Nv1F2SfJKIconMt/Hkeo6ZKEKBiNOAOl
-	 fEqTh3b9kOfXE20meKuuRQU0nJcn7rJc4lcRbU6nxF+1QV0IJ9yzhWRDyrR/xdwOhvy/f
-	 Tl6VckiMweE5XpQoJYERItk5QKFMbN4/jgojVef9Zw33dHgP+eLWrDjF47Vqe9NMio3t9
-	 JWfkHqJb8yEj+rubINB+4ZqxpRgH8AQpYi3fYCBEpZLKr1KOFI0UHkdA0K/Nupt/gFA==
+	bh=lfTvYzeXPpR/6R7uzV+CfQVPpJsDwtzsO0q/lYLBBXA=;
+	b=vezMSbWG6j/hlz9Da1vWyExVVDrmUn+luuaRLCllU7TxLPYSlAGkCPk0o+8x8NvZLlvr
+	 U1flxeRcNVp/v8rW0NO03eqTK/SpTNnPpVi320BGLZwzmUU/MdwlFP1cMl+/DJRxGci02
+	 BJjnc0m4Sa33gZT6X5c2VKfr32ldYmt3SfDG3m+EI2EF9QXejxfTlmr+xdnJFHVeUVJY8
+	 MnVi5EQJM9lPf2n/rfvwnlhD87t+XJOLLm1LkzF5GpA3VVn0rDP1gaDKfpV4pyz8bA5AS
+	 SlCZRMFrzfM6d6kxiUhE3gI3ENqE0CTUdgZdzpDZX1ds6/Ts4fFoIIjxsNm+F8gymiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=APcrWea4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fXKwcwGC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDBCE606A33E
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:52:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 802CB606A336
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 03:52:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=APcrWea4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5904B1F000D2;
-	Fri, 20 Nov 2026 03:52:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fXKwcwGC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4BEF1F000CA;
+	Fri, 20 Nov 2026 03:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795146759;
-	bh=tgAHFf5QdCKXpzZymrYAsJ6lRzilvKK6wOHsRBEK0j4=;
+	s=k20260515; t=1795146757;
+	bh=lfTvYzeXPpR/6R7uzV+CfQVPpJsDwtzsO0q/lYLBBXA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=APcrWea4XAoaZ2OBHw7yWBOh1VbBB5jBJDQCrp5XIc/b9BejIHansG9elrx8Ow2hl
-	 +aPOPJsdvf5PTgwsszvhKUuOVL3pEOAR/Mr3gTTniBHbncEXj3uvODAg+8hM9qoq68
-	 TbOr+4lh39XJQai03QlulMl9CKTDSFgMPtJrNbHMKg+Sfgt5bUJtmaHDb7PM2srmn0
-	 taQMdXPe0Pea4yzIapghj1XbXybZqqSRk33IS6n+0RvfTEGXyJ3SwTyPPyaHEGrCJV
-	 lJjvnc7CeUknTtXxK3ePmINalwWzQCif2AK+ZpgUtYLv8Tx+011/Ww4jvxM71cDCcq
-	 86KS5F/UlUUeA==
+	b=fXKwcwGCHDYqe2AGKrfk8wFXe5XRrn0ARIfcJg9f2a2zfhDuDSbGeRu37F3qy901t
+	 oPHdNt0kIDJ02NIQzhf7B8vTkAwYHoMSlt66BAh9lEVsxr+GMh20gQr7OjhkKbT3qP
+	 E7K7g2dBNiuy0IQ85MSckaekD1eUkopD/a68HRtAZW8/kf14PyihQ4+IYybkzc9MLB
+	 isPcgEHf+pS3utZhvQ5QCeWzon466KRCkP3AVt3A1Ok1Sz76n+OKr5wUtqgDWjZfxF
+	 38e4b8UZUtEaiVgySre8x2KjnVME9V2PU7m/ydDAtAfsxiKhSf/M8MtoJQ9h9oyA5v
+	 P9X9T9ScmlQfA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: davem@davemloft.net,
 	michael.chan@broadcom.com
@@ -52,9 +52,9 @@ Cc: netdev@vger.kernel.org,
 	bjorn@kernel.org,
 	joe@dama.to,
 	Jakub Kicinski <kuba@kernel.org>
-Subject: [PATCH net-next v2 7/7] eth: bnxt_en: restart Rx queues when their IRQ moves to another NUMA node
-Date: Thu, 19 Nov 2026 19:52:14 -0800
-Message-ID: <20261120035214.369158-8-kuba@kernel.org>
+Subject: [PATCH net-next v2 2/7] eth: bnxt_en: follow explicitly set IRQ affinity when placing page pool
+Date: Thu, 19 Nov 2026 19:52:09 -0800
+Message-ID: <20261120035214.369158-3-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120035214.369158-1-kuba@kernel.org>
 References: <20261120035214.369158-1-kuba@kernel.org>
@@ -70,150 +70,170 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Rx queue memory is allocated on the node of the CPU servicing the queue
-when the device is opened. On a running device it only follows IRQ
-affinity changes if TPH is enabled, as a side effect of the queue
-restart which applies the new TPH Steering Tag.
+The driver picks the NUMA node for each Rx ring's page pool with
+cpumask_local_spread() at open. IRQ affinity configured by the user
+is already recorded by the driver and persists across close/open
+cycles. Use it instead of cpumask_local_spread().
 
-Schedule the affinity update work whenever the device supports the
-queue API, not just when TPH Steering Tag changed. Queue restart places
-all the memory it reallocates, other than the ring page tables, on
-the page pool's node, so compare the page pool's nid to decide if
-the queue has to move. Only consider queues whose IRQ affinity was set
-from the outside, so that moving one IRQ doesn't restart other queues
-just because CPU hotplug shifted our default spread.
+The affinity notifier runs without any of the locks held by
+the allocation paths, and copying a multi-word cpumask is not atomic.
+Like for the TPH Steering Tag, have the notifier compute the node
+(of the first online CPU in the mask) and publish it with WRITE_ONCE().
 
-Since we need queue state of the currently allocated queue to compare
-nid - check that the device is still up after errors.
+Queue restart (bnxt_queue_mem_alloc()) needs to resolve the NUMA
+node instead of copying the nid of the old page pool.
 
 Reviewed-by: Björn Töpel <bjorn@kernel.org>
 Reviewed-by: Joe Damato <joe@dama.to>
 Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 ---
 v2:
- - split the TPH condition in the notifier (Joe)
- - only compare the node of queues with IRQ affinity set from the outside
-v1: https://lore.kernel.org/20261118023905.3050661-7-kuba@kernel.org
+ - correct the comment on ring_nid, it's not only written by the notifier
+ - allocate ring_nid with kmalloc_objs()
+v1: https://lore.kernel.org/20261118023905.3050661-3-kuba@kernel.org
 ---
- drivers/net/ethernet/broadcom/bnxt/bnxt.h |  2 +-
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 53 +++++++++++++++--------
- 2 files changed, 35 insertions(+), 20 deletions(-)
+ drivers/net/ethernet/broadcom/bnxt/bnxt.h |  5 +++
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c | 46 +++++++++++++++++++----
+ 2 files changed, 44 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.h b/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-index 61b86fa9cadb..0334f24b7522 100644
+index 41d05efd6307..61b86fa9cadb 100644
 --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.h
 +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-@@ -2656,7 +2656,7 @@ struct bnxt {
- #define BNXT_RING_COAL_NOW_SP_EVENT	17
- #define BNXT_FW_RESET_NOTIFY_SP_EVENT	18
- #define BNXT_FW_EXCEPTION_SP_EVENT	19
--#define BNXT_TPH_UPDATE_SP_EVENT	20
-+#define BNXT_IRQ_AFFINITY_SP_EVENT	20
- #define BNXT_LINK_CFG_CHANGE_SP_EVENT	21
- #define BNXT_THERMAL_THRESHOLD_SP_EVENT	22
- #define BNXT_FW_ECHO_REQUEST_SP_EVENT	23
+@@ -2488,6 +2488,11 @@ struct bnxt {
+ 	 * rather than being our own default placement.
+ 	 */
+ 	unsigned long		*ring_affinity_set;
++	/* NUMA node of the first online CPU in the affinity mask if it was
++	 * configured explicitly by the user, otherwise NUMA_NO_NODE.
++	 * Written by the IRQ affinity notifier, readers must use READ_ONCE().
++	 */
++	int			*ring_nid;
+ 	int			max_irqs;
+ 	int			total_irqs;
+ 	int			ulp_num_msix_want;
 diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index 2c80a39eb8f0..cbd249788198 100644
+index 9ddd75a0fd2f..6e503822d7bb 100644
 --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
 +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -11978,18 +11978,17 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
- 	}
- #endif
+@@ -3823,6 +3823,20 @@ static int bnxt_alloc_ring(struct bnxt *bp, struct bnxt_ring_mem_info *rmem)
+ 	return 0;
+ }
  
--	if (!bp->tph_mode)
-+	/* Only Rx queues can be restarted to follow the IRQ */
-+	if (!BNXT_SUPPORTS_QUEUE_API(bp) || irq->ring_nr >= bp->rx_nr_rings)
- 		return;
++/* Node of the CPU expected to service cp ring @n. If user did not configure
++ * the affinity explicitly, use the default spread (historic behavior).
++ */
++static int bnxt_cp_num_to_node(struct bnxt *bp, int n)
++{
++	int nid = READ_ONCE(bp->ring_nid[n]);
++	unsigned int cpu;
++
++	if (nid != NUMA_NO_NODE)
++		return nid;
++	cpu = cpumask_local_spread(n, dev_to_node(&bp->pdev->dev));
++	return cpu_to_node(cpu);
++}
++
+ static void bnxt_free_one_tpa_info(struct bnxt *bp,
+ 				   struct bnxt_rx_ring_info *rxr)
+ {
+@@ -4025,8 +4039,7 @@ static int bnxt_alloc_rx_agg_bmap(struct bnxt *bp, struct bnxt_rx_ring_info *rxr
  
--	if (irq->ring_nr >= bp->rx_nr_rings)
--		return;
-+	if (bp->tph_mode) {
-+		cpu = cpumask_first(mask);
-+		if (!pcie_tph_get_cpu_st(bp->pdev, TPH_MEM_TYPE_VM, cpu, &tag))
-+			WRITE_ONCE(irq->new_tag, tag);
+ static int bnxt_alloc_rx_rings(struct bnxt *bp)
+ {
+-	int numa_node = dev_to_node(&bp->pdev->dev);
+-	int i, rc = 0, agg_rings = 0, cpu;
++	int i, rc = 0, agg_rings = 0;
+ 
+ 	if (!bp->rx_ring)
+ 		return -ENOMEM;
+@@ -4041,8 +4054,7 @@ static int bnxt_alloc_rx_rings(struct bnxt *bp)
+ 
+ 		ring = &rxr->rx_ring_struct;
+ 
+-		cpu = cpumask_local_spread(i, numa_node);
+-		cpu_node = cpu_to_node(cpu);
++		cpu_node = bnxt_cp_num_to_node(bp, i);
+ 		netdev_dbg(bp->dev, "Allocating page pool for rx_ring[%d] on numa_node: %d\n",
+ 			   i, cpu_node);
+ 		rc = bnxt_alloc_rx_page_pool(bp, rxr, cpu_node);
+@@ -11917,6 +11929,8 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
+ 				     const cpumask_t *mask)
+ {
+ 	struct bnxt_irq *irq;
++	unsigned int cpu;
++	int nid;
+ 	u16 tag;
+ 
+ 	irq = container_of(notify, struct bnxt_irq, affinity_notify);
+@@ -11924,6 +11938,14 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
+ 	cpumask_copy(irq->bp->ring_cpu_mask[irq->ring_nr], mask);
+ 	set_bit(irq->ring_nr, irq->bp->ring_affinity_set);
+ 
++	/* Readers can't access ring_cpu_mask atomically, so pre-compute
++	 * the info they care about (NUMA node, TPH tag) and store it
++	 * with WRITE_ONCE().
++	 */
++	cpu = cpumask_first_and(mask, cpu_online_mask);
++	nid = cpu < nr_cpu_ids ? cpu_to_node(cpu) : NUMA_NO_NODE;
++	WRITE_ONCE(irq->bp->ring_nid[irq->ring_nr], nid);
++
+ #ifdef CONFIG_RFS_ACCEL
+ 	if (irq->bp->dev->rx_cpu_rmap && irq->ring_nr < irq->bp->rx_nr_rings) {
+ 		int err;
+@@ -12001,9 +12023,15 @@ static int bnxt_alloc_ring_cpu_masks(struct bnxt *bp)
+ 	if (!bp->ring_affinity_set)
+ 		return -ENOMEM;
+ 
+-	for (i = 0; i < bp->max_irqs; i++)
++	bp->ring_nid = kmalloc_objs(*bp->ring_nid, bp->max_irqs);
++	if (!bp->ring_nid)
++		return -ENOMEM;
++
++	for (i = 0; i < bp->max_irqs; i++) {
+ 		if (!zalloc_cpumask_var(&bp->ring_cpu_mask[i], GFP_KERNEL))
+ 			return -ENOMEM;
++		bp->ring_nid[i] = NUMA_NO_NODE;
 +	}
  
--	if (pcie_tph_get_cpu_st(bp->pdev, TPH_MEM_TYPE_VM,
--				cpumask_first(mask), &tag))
--		return;
--
--	WRITE_ONCE(irq->new_tag, tag);
--	bnxt_queue_sp_work(bp, BNXT_TPH_UPDATE_SP_EVENT);
-+	bnxt_queue_sp_work(bp, BNXT_IRQ_AFFINITY_SP_EVENT);
+ 	return 0;
  }
+@@ -12018,6 +12046,8 @@ static void bnxt_free_ring_cpu_masks(struct bnxt *bp)
+ 	for (i = 0; i < bp->max_irqs; i++)
+ 		free_cpumask_var(bp->ring_cpu_mask[i]);
  
- static void bnxt_irq_affinity_release(struct kref *ref)
-@@ -14709,7 +14708,10 @@ static void bnxt_rtnl_unlock_sp(struct bnxt *bp)
- 	rtnl_unlock();
- }
++	kfree(bp->ring_nid);
++	bp->ring_nid = NULL;
+ 	bitmap_free(bp->ring_affinity_set);
+ 	bp->ring_affinity_set = NULL;
+ 	kfree(bp->ring_cpu_mask);
+@@ -12113,6 +12143,7 @@ static int bnxt_request_irq(struct bnxt *bp)
+ 		if (!test_bit(i, bp->ring_affinity_set) ||
+ 		    !cpumask_intersects(cpu_mask, cpu_online_mask)) {
+ 			clear_bit(i, bp->ring_affinity_set);
++			WRITE_ONCE(bp->ring_nid[i], NUMA_NO_NODE);
+ 			cpumask_clear(cpu_mask);
+ 			cpumask_set_cpu(cpumask_local_spread(i, numa_node),
+ 					cpu_mask);
+@@ -16478,7 +16509,7 @@ static int bnxt_queue_mem_alloc(struct net_device *dev,
+ 	struct bnxt_rx_ring_info *rxr, *clone;
+ 	struct bnxt *bp = netdev_priv(dev);
+ 	struct bnxt_ring_struct *ring;
+-	int rc;
++	int nid, rc;
  
--static void bnxt_tph_update(struct bnxt *bp)
-+/* Restart the Rx queues whose IRQ moved, if the move changed the TPH
-+ * Steering Tag or the node the queue memory should be allocated on.
-+ */
-+static void bnxt_irq_affinity_update(struct bnxt *bp)
- {
- 	struct net_device *dev = bp->dev;
- 	int i;
-@@ -14719,27 +14721,40 @@ static void bnxt_tph_update(struct bnxt *bp)
- 		goto unlock;
+ 	if (!bp->rx_ring)
+ 		return -ENETDOWN;
+@@ -16499,7 +16530,8 @@ static int bnxt_queue_mem_alloc(struct net_device *dev,
+ 	clone->rx_tpa = NULL;
+ 	clone->rx_tpa_idx_map = NULL;
  
- 	for (i = 0; i < bp->rx_nr_rings; i++) {
-+		struct bnxt_rx_ring_info *rxr = &bp->rx_ring[i];
-+		bool new_tag = false, new_node = false;
-+		int map_idx, err, nid;
- 		struct bnxt_irq *irq;
--		int map_idx, err;
- 		u16 tag;
+-	rc = bnxt_alloc_rx_page_pool(bp, clone, rxr->page_pool->p.nid);
++	nid = bnxt_cp_num_to_node(bp, idx);
++	rc = bnxt_alloc_rx_page_pool(bp, clone, nid);
+ 	if (rc)
+ 		return rc;
  
- 		map_idx = bnxt_cp_num_to_irq_num(bp, i);
- 		irq = &bp->irq_tbl[map_idx];
-+
- 		tag = READ_ONCE(irq->new_tag);
--		if (irq->tag == tag)
-+		if (irq->tag != tag) {
-+			if (!pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
-+				new_tag = true;
-+		}
-+
-+		nid = READ_ONCE(bp->ring_nid[i]);
-+		if (nid != NUMA_NO_NODE && rxr->page_pool->p.nid != nid)
-+			new_node = true;
-+
-+		if (!new_tag && !new_node)
- 			continue;
- 
--		if (pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
--			continue;
--
--		err = netdev_rx_queue_restart(dev, irq->ring_nr);
-+		err = netdev_rx_queue_restart(dev, i);
- 		if (err) {
- 			netdev_err(dev, "RX queue restart failed: err=%d\n",
- 				   err);
-+			/* Failing to start a new queue may close the device */
-+			if (!test_bit(BNXT_STATE_OPEN, &bp->state))
-+				break;
- 			continue;
- 		}
- 
--		irq->tag = tag;
-+		if (new_tag)
-+			irq->tag = tag;
- 	}
- 
- unlock:
-@@ -15183,8 +15198,8 @@ static void bnxt_sp_task(struct work_struct *work)
- 			bnxt_devlink_health_fw_report(bp);
- 	}
- 
--	if (test_and_clear_bit(BNXT_TPH_UPDATE_SP_EVENT, &bp->sp_event))
--		bnxt_tph_update(bp);
-+	if (test_and_clear_bit(BNXT_IRQ_AFFINITY_SP_EVENT, &bp->sp_event))
-+		bnxt_irq_affinity_update(bp);
- 
- 	smp_mb__before_atomic();
- 	clear_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
 -- 
 2.56.1
 
