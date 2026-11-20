@@ -1,80 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167066;
-	b=3F6AhxzUZ+9zsEd7qs6L0ACOFwGjre7yVgAoynKfgzU2ziOKiWFPYsIija6i4IwaqNdT
-	 YVhtNZKz/ATs8DOpEOZhhz+Mga3rwisOvh8c3MajkAlBV05jO92WDCCf82XOMEVftcHUO
-	 FCG1LnrdzSS4rohugxp9JTAdka/2/kHDrqYS7BVlxhXZtZ4csTyBVdChCD1pYmI4c13iU
-	 sOAI0QfmGR+DfJxDgth1IZJHfd/acxXibdZBzFwpu67iJm/Aqoe629L0e/XjWDFADKcha
-	 qAol0SKX3RjJ75p/rll6f0IbiW7cmRpCZx5s1iCL8UREvr6sK2u8QtEaAa6SwEFnhrg==
+	t=1795167134;
+	b=G7L/V3dnuwpcu2Kbk7Kqs7/0IyJ4iY/tr3WmyicGdmaSt0tFqUKCtApN/SBnY0+o5wBd
+	 Bx0MR7r4gkvUk+1RHDf5VfF/zPL00kTMQ2Nk0CYgZuQw6o7y1tTZBQvlmycZbTHG+Vn81
+	 My5cIg2m9K97l2G2oBl/Mpc8cMa7tG35D5GwxIZV9+eS+U3zJSux6km+xbtW/JwxmOO7k
+	 +87s1GRJGn2kIrx6didVlXy5dV1NEvEROjgjeKkr2VncQFEmbWIX/sWru4kg1XtmhAD8q
+	 sr8v8oED5gTK+CyQWHpVY24cU5yX6rFKwjFRAJgTm8dbtlSo7Owq8K3pUH0m3lA7RQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167066;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=OCf75Fx8Ai6t0lF3SSBe/SqcSWFA8siREMgmIjNPvtw=;
-	b=sbdSgWc1h9hi7t/vKZJlj7480+70O/GgnapW1x4DeKy7A3n1edZaqd0eJnpjBAUmoLrN
-	 tF9e5l4WKszmdNznceyicVBtR+F/mGQtZd1OPJS6WEUymAyEFfjfkhz5UU5CGJHBKXIyk
-	 ovATFUH1P5D77G52TWER54c9GYUCF7QgkdsEwxgbNDtprC2CRYnzpVH4oNeha1Rwbn9q0
-	 u8/Otv8zkv60OEbXr81j69im5MR2Y25YlUp8TgRzx5Vcp7YM4PNNdOawms4pkZPpPgauT
-	 MjFnnzyVAToOOQEGDAFfqMkEUVwkqhT/JPXt/338lyEyFUNsX/Eeg736guk2hYKeUng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167134;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=NOdHN8HSi06sDrJLUdjkF+/dA9o+toApfuz7TH64mOw=;
+	b=ZFnjwt6SKYTpnLA28Cbj4ewpLoenXHwJfNSDt1+ljrr6c806akQHPSEWfQs2zNfy7Apu
+	 FJl1+W2sQWN9RQ9lI8Ya93fQGjrSnGzaUzpGvE7hr/QCUNOlengXzLSr/X8UX7Q1rKUzE
+	 d4KusKbaTBgaKAVIP8sk2Xw1SiJHiM0iDGrPg1qugshWQPb2sYVjVpO90OVkCo7TgAFH/
+	 /u9aKLN4Hso+6Xab2219afPxn30BmTkqXb/8YOKPW0XNugJZM5vjziPhWPtbsI+CC1HHP
+	 bYMSp3r0IhNhdIwA1crYTZZVzESbiy1wIdlIu0S2DpFcv9OhqxIK8KpTlFqSUJ2yDFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=j4zY14Ej;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xS1lnJG;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E6AF606A320
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:31:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E6AF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C10606A337
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 09:32:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C10606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=j4zY14Ej
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=OCf7
-	5Fx8Ai6t0lF3SSBe/SqcSWFA8siREMgmIjNPvtw=; b=j4zY14Ejcq6UA7scHG1f
-	sESzw7YadTEDxETZXBudXGp9uvTVn7bd9oesG+nqEtKkcIXrpmgpvGqxIiwLPnFC
-	s7ZstBwtDTAbU9VCDYsuXdc9SDXSe8sCzGmAiVRi0Hw7Hw+Li+w7dAtgueHMNtFj
-	XNMnBbkGXftLrqlVwtMxjnKoWfmnZSmZZ/pDRvrYH11QCfNAIZCJBuiJ8hoalwhN
-	70LDwn9iZEnqgohgMGBl9FVpJptbRSd6KEA4/c0yQYhWBQy27Af/deQwdMabAE1N
-	ewpV+My+wK4S4K9rMKGuzKIr5QfY2bV/kKFdq5tNkGpDKiAlD9jJun26nbDYcZ1z
-	PA==
-Received: (qmail 1416495 invoked from network); 20 Nov 2026 10:31:01 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 10:31:01 +0100
-X-UD-Smtp-Session: l3s3148p1@fT0E57FgbpsujnuU
-Date: Fri, 20 Nov 2026 10:30:59 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: khendry@reliablecontrols.com
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 2/6] clk: renesas: r9a06g032: Add reset controller
-Message-ID: <awATU_lyjPBxThwq@shikoro>
-References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
- <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xS1lnJG
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0DF491A1740;
+	Fri, 20 Nov 2026 09:32:11 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C7E3A6017D;
+	Fri, 20 Nov 2026 09:32:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BB32611BC0EC9;
+	Fri, 20 Nov 2026 10:32:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795167129; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=NOdHN8HSi06sDrJLUdjkF+/dA9o+toApfuz7TH64mOw=;
+	b=0xS1lnJGlmwliZy8MMggKiEvVyPYie91pstHyIlVCfKnUZl+K9fiSAoHeuM1sxmGCl/WIL
+	iOeXaqpzFKJ1PBmMXGtDnfeggNgvqyJ4eLiHih72EgzNnvf9YkZzhZcoHPtnfmwbs3Gc7Y
+	6063AIdoqm1KYWamSxnlj4fMf4SR5fllXmmLNvVYYLIAFmudegaicrIyiapkzOCu6Fh6TM
+	4hvBrZafbqnTjhHPYVjS1OIQIw+Nm9eEnLPzdFiNWOEg/lmt59YdZZqRObu989gAr2YocD
+	tSanyMLyCWdvKhJI7fpKykRVtP9XYbM9fLWcRFh5EAsNw9vhLqqSg/Vw1BmTpg==
+Message-ID: <c84543f7-b824-4da8-9f8a-8e15d8f89140@bootlin.com>
+Date: Fri, 20 Nov 2026 10:32:01 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,91 +62,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wI2vg4tZYniA4rpi"
-Content-Disposition: inline
-In-Reply-To: <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
-
---wI2vg4tZYniA4rpi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Nov 19, 2026 at 09:57:44AM -0800, Kyle Hendry via B4 Relay wrote:
-> From: Kyle Hendry <khendry@reliablecontrols.com>
->=20
-> The rzn1 system controller has two resets that need to be cleared for the
-> mii converter to work. They are not directly associated with any clocks
-> so they need a reset controller to set them.
->=20
-> They are documented in the PWRCTRL_SWITCHCTRL (0x4000C188) register as:
->=20
-> Bit 3: RSTN_CLK25 - Active low Reset for Timestamp signal selection logic
-> Bit 4: RSTN_ETH - Active low Reset for RGMII/RMII Converter (50 MHz).
->=20
-> Add a reset controller and add resets for those bits.
->=20
-> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
-
-General approach looks good to me, just some minor comments...
-
-> +static const struct regbit r9a06g032_resets[] =3D {
-> +	RB(0x188, 3),
-> +	RB(0x188, 4),
-> +};
-
-Please add the DT name of the reset as a comment after each line.
-
- +	RB(0x188, 3),	/* RST_TS */
-
-or similar.
-
-> +static int r9a06g032_reset_set(struct reset_controller_dev *rcdev,
-> +				  const char *func, bool set, unsigned long id)
-> +{
-
-*func was likely debug help and is unused now and can go.
-
-> +	struct r9a06g032_priv *priv =3D rcdev_to_priv(rcdev);
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&priv->lock, flags);
-> +	clk_rdesc_set(priv, r9a06g032_resets[id], set);
-> +	spin_unlock_irqrestore(&priv->lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static int r9a06g032_reset(struct reset_controller_dev *rcdev,
-> +			  unsigned long id)
-> +{
-> +	r9a06g032_reset_set(rcdev, "reset", true, id);
-> +	udelay(5);
-
-For future reference, please add a comment pointing to chapter in the
-docs where it is saying 5us is needed.
-
-Rest looks good!
+User-Agent: Betterbird (Linux)
+Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
+ lock when setting a power limit
+To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <179515691045.3136.13671979747174463292@kernel.org>
+ <20261120083312.2324522-1-github@szelinsky.de>
+From: Kory Maincent <kory.maincent@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261120083312.2324522-1-github@szelinsky.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
 
---wI2vg4tZYniA4rpi
-Content-Type: application/pgp-signature; name=signature.asc
 
------BEGIN PGP SIGNATURE-----
+On 11/20/26 09:33, Carlo Szelinsky wrote:
+> On Fri, 20 Nov 2026 06:41:50 +0000, netdev-bot+sashiko@kernel.org wrote:
+>> The check now runs under the lock. Is admin_state_enabled &&
+>> isr_pd_detected enough to show that the PI is powered and has a budget?
+> 
+> No. This is the same point as on v3 and v4. The patch only moves the
+> old check under the lock. Kory agreed to leave it for a follow-up [1].
+> 
+> Kory, one question: we are at v5 now, and most new findings are older
+> problems outside this series. What do you suggest to get it merged
+> faster? I am happy to fix the older problems in follow-ups.
 
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsAE1MACgkQFA3kzBSg
-KbY8qBAAqsju+kzP2C7aoqbzO/2VbVOoegIp6nxG4ePZzZi7fWZwQQ2my2PZX8sJ
-Fv6oyXmr2Jh0iG+CBCfQTRRa34ya9bPAQv+wUspgT/B0TPGRxhuQ8jP1LUzfBidR
-ypH4KLVRvDAJMsKK9rdD2i4yI/3xqNpI0km+15IkqriDMXxU3J3fyWGTxCETKB8v
-KGT2dVv/GDC57K5DY5DCP8rczMcIBhFQgV07CJmrDo2w5Ze8dMABgqm3xe8SzDYU
-yVRl0Ccv2fLJpPmccasQzgg1aJi8KIbDAIVSTvMRVoZhiLRSOzUYQfuYJRpkMM6n
-OyYKl0mDwnJyeIJs8qGjEXl0w2osrHSKMdi7ItK/ndH3l/s2h3mK7KuTPWwg7aJW
-GuFgkcF1sbAS5EZN+Bv1nKPXFEEpgSWz1Kvwb3Yshn0PaGWP59NNq68u1oPzYrXc
-00HOP2cPycotBuSjW5YJm3F72vbRDV3uOX/+RcAyNj59elduY2oNFIYlYPDXDS+E
-8Zkcn9m5vGhJXyy8Qg2ysoc287fsThgO4EVyB4lYn4JmRW/1X4L4b7Zx9Lz5rK7M
-f2mrPxtHz1DpLc5bcIPfwlDr2zEgyeJKpNRmRwj4Q+DQRGFXL9pGSVCrvb9/e/9j
-sB6P90kZ2406EN8+l5Tf6AKtRh3gynP4vZpZ3ilJUpNcdsUFevg=
-=CdDX
------END PGP SIGNATURE-----
+You have my R-by on all the series so we can only wait for a net 
+maintainer to take it. Jakub, Paolo, would it be possible to take it?
 
---wI2vg4tZYniA4rpi--
+-- 
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
