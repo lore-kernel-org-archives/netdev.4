@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795140612;
-	b=FdQmDWw1VeciiZli6uzlISdsFbO2oYfKDwc1eMLZHAXECOsMV+NTKFuOqU6MqPrUFTg+
-	 yS6EXJjjaMC4TM5KbbFarSbAaPwV4Y8psxilHCgnOEvkZTHp/w6pQi1Qfgd/X6fMZelr6
-	 OKpK4l3JFkuJSRUaYNUAKLfvHpA5JpdaPlAU6EwdpOBVIU0IEzJuFqK+yASN88Tz7kTh/
-	 vK6pNFfgORsj2YQE2sybxGI0koGoNqbXDoyI791fNom7/tjEq1u7dWLUvxnqHgkhG1qCX
-	 fmxvpM/uSdfZDnNHxGnD/A/bRsVrzqq6dtiZQmk0mXSn7DKuklDdIZQBj+vyHDUgS2A==
+	t=1795140613;
+	b=FtCWrF0MFc0MFYkJKcXgS+THySunB2q86mTYG+WnoKoRk0ikupcpIketxscDV5GbuovO
+	 RBEc/7rdnAeLU+djZV5a47AhnITaokROS3GwYVHL8LUpIhcI+pK2dVe/huhJth+rZZTfv
+	 LGr1J72ZcfbSAkPT/IruDxbKr+u4OLPtTvMoFXbmDMhuMGOq6SW2KgrWMttt0qVBAKRj7
+	 v07pXTfL07Tozw+r4CwklaYEAJdwIlK1Jx9q2Iq0v1FX6QO3w6VrO6VsDicvwfIZfA1Mp
+	 yHRFJiKveHBSudoLdYlCMovlrcs6KNwEtt7y0BGjm+j/9CgoDB2BZHqQ1i+14bZHysA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140612;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140613;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=m6dX7bMKg0suoqPEar3y5ccuT+x7eN4my9DRKPnLM7s=;
-	b=YyxE23K7m0y8hWZrcAEnLjpu8KH811iIAo6N3B1H1sd3IKRJJOxcqhgoEdnqMYuzf+If
-	 KDUNZ9sWMkKoVIFT2DigYHgJi6IeSFKNqTbNz6JfWC6L1QooNH5Oxn7N46KC3B18Frb1o
-	 8wMzrMZEKiq5tQkzDwcMmQblELafhuldI3g3AYL3XYvHiqHH7Q3x+1+8vXBszHn2vZMur
-	 gJYUeYHxYCWSoWqk2L9xxMFlwijfCGDX7FWmuQtcIECTN8HqoPPtGpc4eD7s+7J1f3knm
-	 gI6jlMmOX6qfZTJ9PVPH8D0/dPa481AR7Llr5xrafNCK/vdUWkXuix2bNdDRevdAz6Q==
+	bh=+qtJFN7QZfkUAvN4tcrM+mBSIcyecVu9QDWttC0tv7w=;
+	b=0OtYb0zlx5eQL4FOYcsZ0I82G308EIwSmZpB6iuv8tfed3PzyxVJwuu8kU/fN2H3LNLK
+	 RbamVjMfGgM6oOrFVuNH+8vWu4Th6yC1hHbEHnDX2ApsP2NbNcjjnxxZnQgqxIyUvWmrG
+	 yRz9x1bY0MEErVNnR26PMvUzDn6l5azgQH93lX/r8HV3fRr7fsYySKWr4brp6h8xpi4GP
+	 Lq9I3aQbGyKUGwDHOJ6b+ac4CBm6wbLRNdPda1ezc2K6BobJlEIcYILVhEnFru64GVmNE
+	 rU/1/shyjMACQDVLpv5f5P+eK4YSg807U3+2WIWJNWyZzBf1IzMysfjUa+EQ6SQ5vFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mG0Nk3C4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hvtP7O7j;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19D41606A326
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 02:10:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8149E606A334;
+	Fri, 20 Nov 2026 02:10:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mG0Nk3C4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD8081F000CA;
-	Fri, 20 Nov 2026 02:10:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hvtP7O7j
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4276D1F000D1;
+	Fri, 20 Nov 2026 02:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795140611;
-	bh=m6dX7bMKg0suoqPEar3y5ccuT+x7eN4my9DRKPnLM7s=;
+	s=k20260515; t=1795140613;
+	bh=+qtJFN7QZfkUAvN4tcrM+mBSIcyecVu9QDWttC0tv7w=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=mG0Nk3C4rQ5sJaV2ZogJA8CQAZ/suL40j2a1moaJbpZE3hYg9tExWNDYfIVKJZ6j1
-	 ZW8xk1GcKPyUjzh+37a+YRyViWUH78O2p7/xkWY+FViUlI3gswsQma4vjL+lColtX+
-	 Ygubt1L6VlAvUPgb8TX+7zzJBeA7PgPoLTcVP0nzrafNao5vxgYzYidzFYlcIBRdJL
-	 ZVpHTFVtahpmQQprfUD0C5pO94ajt0z/qQKzlNAL+GqGU4gZgOvuqSqQXcIVpOC4lT
-	 aNg8rnA01CL1iJnGkvShYur369d7rd51KazlS+Cy9J4pq0o9pk7onU4/AYxQqNCDda
-	 DYZ/zOtMiPt2w==
+	b=hvtP7O7jK1zryM/ExBbjIJX7Lv273rghFzUz1iHciwHCPbG6Rk58KkZvnvB397/OW
+	 gFQYqEE90GfSsTaK/4PraNIhEkUC9iIdcaCmN/sq5U6/rUE7poy3zVl7Fl5G0gica6
+	 +XvEksMCff0BK1eiBS0tlwHLEfWwd9/us7HmfoGHBbBLRcqq6n0Bz3f6pLSwgu1P/k
+	 Bl90g5KB1VX/tlxVxLJqdiFCJxwKw5/mnMVlgRFo6h9VQKRPDmMZ/B0BjNf1r/FZqS
+	 0CSI8Qk2wZFNDB3gp76s7RVrT+LcrJk2Xv/B0T3ot6REPy86j+7tCj+Q7F5XY4mz11
+	 wQ9Z+0yGX0zXQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B456E3808209;
-	Fri, 20 Nov 2026 02:10:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A2EE3808209;
+	Fri, 20 Nov 2026 02:10:13 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,39 +54,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] mlxsw: Fix teardown order of CQ NAPI
- instances
+Subject: Re: [PATCH net-next v4] net: phy: aquantia: Poll global status
+ register for provision ID
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179514061027.3979015.1986878671638427049.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 02:10:10 +0000
-References: <cover.1794823524.git.petrm@nvidia.com>
-In-Reply-To: <cover.1794823524.git.petrm@nvidia.com>
-To: Petr Machata <petrm@nvidia.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- idosch@nvidia.com, mlxsw@nvidia.com
+ <179514061177.3979015.6848094959866976600.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:10:11 +0000
+References: 
+ <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
+In-Reply-To: 
+ <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
+To: Hongmei Xu <hongmei.xu@oss.qualcomm.com>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ sagar.cheluvegowda@oss.qualcomm.com
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 16 Nov 2026 11:16:45 +0100 you wrote:
-> There are the following principal objects for processing of hardware
-> events: event queue (EQ), completion queues (CQ), and receive and send
-> queues (RDQ, SDQ). RDQ and SDQ are then configured with a CQ to which
-> they report completion, and CQ is configured with an EQ, to which it
-> reports completion events. The order of configuration is therefore EQ,
-> then CQs, then RDQs and SDQs.
+On Mon, 16 Nov 2026 19:14:50 +0800 you wrote:
+> According to the AQR113 PHY databook, after firmware reset, a 20ms
+> timer needs to be engaged to allow the supplies to settle prior to
+> allowing the PHY to boot. The working flow is:
+>   -After the 20 ms timer has completed, hardware state machines
+>    designed to guarantee PLL and band-gap stability engage.
+>   -After the PLLs and band-gap are locked and functioning properly,
+>    the processor and digital circuitry are released from reset.
+>   -The PHY image is then loaded through MDIO boot-load and the
+>    processor boots.
+>   -After the processor boots, any provisioned register values are
+>    set, and the PHY enters the provisioned operating state.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,1/2] mlxsw: pci: Process EQ in the IRQ handler instead of a tasklet
-    https://git.kernel.org/netdev/net-next/c/a467c628a7cb
-  - [net-next,2/2] mlxsw: pci: Fix teardown order of CQ NAPI instances
-    https://git.kernel.org/netdev/net-next/c/b494a6d7da32
+  - [net-next,v4] net: phy: aquantia: Poll global status register for provision ID
+    https://git.kernel.org/netdev/net-next/c/d3f362a76211
 
 You are awesome, thank you!
 -- 
