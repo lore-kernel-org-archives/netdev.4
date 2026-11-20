@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218863;
-	b=xw78X/3qvPZ4ShHb/zuCII8miMhrEcFI+hSIx+TikJo8rGp/+N5x/aykyrMaoO9DT3tb
-	 wBXgmCdKrMtbog6TvE5CDFsFPmbZYsIHHrrMDCKKOgp8VGJ/ZooLcCrITIQgAfEzL5aUC
-	 wrFMO/VB/7DGTG0rbIx8MT/QFYNQCpBud6dM3+UFqu6kL6KvP8rlSkyH/TnMLanUh+R98
-	 q0VS2XxOKYXniJuDoaf7oxoTYFNB1Su/erE0yEHjRohY1vDvTf8GMsCCckDKSh3TCAjb4
-	 hRLiR4PWd33tQ8LNSuOOwZ5prkSWHG0Ph7hS1gHVgXGb+HIORXJzN6py/JisE9t2Izg==
+	t=1795218862;
+	b=vBETj4d5b91LdWBEcMD8ch0tnl9AE4nzL6kgv1tKBzo1cHSSiEOfdyTXXumEipRGzJc8
+	 kj4MWQB6T9Qrflkw+jxJF5ga3aK5L/LwO19p+EKRvQjbaJ44kMldntQVMzIuOrbB0ok1m
+	 s8KF5gXNbgAxWLljHDEzvqCRRVMVGgaEQ6hpbhQuqMncGqHrsJDnwB+6qZRD1JaYMuZYl
+	 STNqSFKn28OzQUwAPpKNkeIbRRvGtoCsv0/AGMrEbVZ1GMJgLTENLOOSxk4Qcw37XIeCX
+	 +vYyDFcq+TY3WxAeq9QhcIr1dsm4KEbQBXG/PUvv081HdSJyQ6nObBhvTHpbzuXEdFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218863;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218862;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7DqEQVPhr6GusklbRo0OOnhzJ3BLe/1hpOgbosdDgc0=;
-	b=1EVb+WOzQjkBUhOB1ET1ax8PetNO52vpNif2qP3cbVfKkq1tUqETz19oEOEEpN78Zo/u
-	 /8ZtcOahhdZxI2y711nYaziL6EC4eINYvx2cc0b06a1VcfQOgqHRM2soW8p7inCraPsQS
-	 8lAWWIZxyRFLR9glRKM424d2mmSHCikZMoyQr8AwnHhPu4XztDnYNbjIMVmh8bziRdjW1
-	 3oARQVOCnQK281BdW8UuHUSCbHYrQHsLLXGf7He8Zz8a/5woVf/91OqSJkP5foZUt0xrR
-	 FlqxfLHFEJCFo40poEitHb4aIy1YkuOJBRaj7G8lWFiPNmES41zVkO02JFzaqwBgRUw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=xJPZl5evGP8F6MuKELplPvTbH6ZVugBq2XkPlqpVuPc=;
+	b=PKZ3oE80XZwXgaOLrYYj8wH6r062+8nSjWo8xL9Vj9QKMLfUYJI0exvUAsME7jarbn2c
+	 awM9fFksOfhQPtExzX6cH4SjHll55dFJq3/Ycsdk79azBrwDYLDwpmRbmZsT8cw1yEIp2
+	 bpEnWWvYXSDSwlRtWTFFQUf3DH1ldwWiOAM4EI9RlDEFR26cPXgx2Tl5Z99VcyFYlDB0x
+	 T406nj/ksNKwYqlGLPTkWY3V2nJotobwrVtjBewaM0ZOOhIlz05ZLK7QS0rfBkeh31+GT
+	 4fwsHMPxBXnnTRry+iXfaky4fbjr6DOCwLxzQmP4hr5g7aXeNqzXfk2dou9Lh+pcFJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qKhq0UOe;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+ga714s;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F63B606A6A5
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:54:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F63B606A6A5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6EA606A689
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 23:54:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6EA606A689
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qKhq0UOe
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a210470b49so13126385e9.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:54:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+ga714s
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso10699935e9.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:54:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795218857; x=1795823657; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7DqEQVPhr6GusklbRo0OOnhzJ3BLe/1hpOgbosdDgc0=;
-        b=qKhq0UOe0Qr2kxLEutjuUqpHAhrmC9Dqv3mB07Hf00AC98Ax8lIaMxr8zNBLDU/E4E
-         mXzB8JthOrW9YmCtE0y2jdUaIPsWArhdL55i7ckNMG1WjkNiz7MHODhxNBZ8Ng7VcnGC
-         RbqzhhCCqfPTbus9VFMiXzypMmdB63oB8vU1xvcnAn0zqSfwMEdduF+QjijZjJkCdjkK
-         Yr911Tnget0k2LKUwmPIIdmoye6tRpRX4a3K66A4mE3u2Yk1xWn1CEciU41lgfLwXOeJ
-         bOh5IkQgQYugP19L0ZkLSEPQN/DJMP82NhzswkfKB7+/fbGzigN2Sx7B9kuowQe7wT2r
-         149A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795218857; x=1795823657;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795218858; x=1795823658; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7DqEQVPhr6GusklbRo0OOnhzJ3BLe/1hpOgbosdDgc0=;
-        b=NgjtCMyro/3i4XjnKuc/c4iwxIfp6VU2yjZY7TOcIzOSsCFzZnxg9nDeRpqHMGgdde
-         VH6bdStbQ81XUugRvamJQqbtsg1uNsHTMkwWzQXR/KIIzI9mLW759g01VTVYLtvP9K7J
-         qmKyk23l534XHE9NKlVObmltu8XGTSLT3Nn/hrdMnyKhTwjdPb6l8wR72SBEUFlZ3Mh1
-         P7cTAqc8y5pU9eenRymLIoinB3tUE5Rg/b62h4Run/+WKwhC7l0DtF7qNiWaXBp2D662
-         rh5sWACHDmbeaRyGy9ul0Gat8S9AUfiKnjyuZ4/2yx04qEFchZsMRAB5dJHM7L4A2Hu1
-         AVWw==
-X-Forwarded-Encrypted: i=1; AL+hErEF9JQllJF9Cy0515ZRh4ObplrUVV5VfrptjyjIk9MFx3aUcCfMHg5T8AjuDLcTJhfjYNC/aTE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/X4NfbedmYdCKCgjzE14iGF0j+ZS1eaOMXX2aKCc41EJH1mbQm
-	J6Tp7WU79RyeuEAEYxpTrL/XLqucbNvY1QruWkV3GzGXsf0OPaBQADA=
-X-Gm-Gg: AYBFou3CgzTeYHr835dkjrlvjgVgz+YJ2D/u1/f8skWrTkQdNkxiWZks0DDaM2i9ppN
-	PXSFXR92F/zCUSwwO1hQet6mWKP4p3AtrHaHU1JJrUfAwOd0LQFrUrhJtsQbWka9rR7IWqum3fp
-	R+7Ts3ZlMlyBJptvnTYeBDnfWtf6i2OmW1Brf98RndoS7J6fCHMU9UbB5HAPruB08e35sxq2vrC
-	ihq5qxt2vio8vEnbE4LbGU4zEO8yGGEDbRgebLzAgPuAN0/XmO1UJdwqPzT1dEyEo6pSNBJq447
-	vWq4jGXw3q2Rr0sx45Pe7FXzO5q//rssWA1AUdmTLUxE30Vab5WE5Q7nY0C7OcUYAb1QFzr/lBs
-	iDk/WOU/EyzInnkuTGP7ksMXY3x/1xlDQI+5pqGz6940t1MaWeghsUcXyQQ4b5gVk5YEXKtr/i2
-	snax6n+8L6T5k7gSIX3C0PHXKI8z5O8bfcp8ReBnPNqNU6BLYWRGyXjT/vY0sRD+1IVgSw2s7E3
-	/52hVHa5MtBlmH53SSnekO7KbRFdSxWEspeiHBWMXFxPaOjoyCPg7YVftIPdOPg+DUQsn7+d3Gj
-	YMNLMSS5NKBT1DU=
-X-Received: by 2002:a05:600c:4f4e:b0:4bb:6c71:b268 with SMTP id 5b1f17b1804b1-4bb8882672fmr115640335e9.6.1795218856735;
-        Fri, 20 Nov 2026 15:54:16 -0800 (PST)
+        bh=xJPZl5evGP8F6MuKELplPvTbH6ZVugBq2XkPlqpVuPc=;
+        b=C+ga714sQWcJdkw0Xpdg2OlXKFgsE8ih8EnKXfjHIv0+JuGV5xpCD2uDyzNanM9Bm8
+         2yBgqByvdJNQYsQ2f4dULNyK4jgCwRB4kTTrzugaItKFVLNkEhhV9wRYhUX9VDGFntJB
+         hl3R5h+10CFCz8QSO2aHex0Y/B3s6zAHBUYZ2QBE+jphNfredA2I2vfUU07hywqWC79Z
+         bXm1tbuYqjLXo9FYW8gBtxuJNzmJBvLEF1LOGDcz2hOOcOeYOWhhrTjyGMnV8/qUn3An
+         j4Ozf+n12qMFyCOW1aGBhZae/fD97XB1N4cYsX7tN90dVVWYSTFrTXIhrdXH9AWR2OZt
+         hJyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795218858; x=1795823658;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xJPZl5evGP8F6MuKELplPvTbH6ZVugBq2XkPlqpVuPc=;
+        b=1Hy+AzhLTO2LMc4As6oz9+oINr6RSBqjCKu9C3OJfbHFqdYeB5TfzBxrmunH5zJzWH
+         8BU/48zwHgKcFY754PZocEQDO986AhaUTZ5szpSwMn7p0xx+ktJ+SiwpcxEdRUmf0FUD
+         MqZHpbNJovGSNn23j4rxzra2oo45Yk/IPL3CjR+K9y+qd5tII9vM3m0xr9M37KFBGVv6
+         sk/36O63zr1kXWhk/SwIkkk75KC/pjFFNwoBCPVOFucyn1zEIrZtuiqkWoNZjBX5FRHD
+         ed7QyyZ6iUDZZvLxVkv8fhfCL/PW4TrDMF/drHcApx2Qqae+3UllPcTkpaJCYBFCm6yD
+         1Scg==
+X-Forwarded-Encrypted: i=1; AL+hErH2Uii2P0bSJKJGvfd0KVw5LC1GH9iEujN38OzgwlF24HQAbH4UiQDR1eMm1tttverD2Ac/aRk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vICmdSGdZ4gZog7Qm9ZELHaNRhVyv/yd+0wY4uFn7NvPyw0M0
+	Si+m17W5scs9OVx4+X4oikDGnOIgghzo08ZKphEtbEsF41N1RQllhUI=
+X-Gm-Gg: AYBFou2UgGY23k9+w0Iiz5ODeRxhKKe+qWDy5MgnxHxOJVAJ/gje5f/n89KPox8mhc1
+	jE4p3B3BYlxY689dX518oNue7CVN10vnPQeXqjCd5xbw6wlgHbaBzA6OoPlpe8/O2sd38FIAtDT
+	eb4k2N5796vIThPkjR+xJIXX3UOogNKS1i7aImxNPdaoQEXph3GYnGAntymQ4Hch4GT+6XXrXez
+	L257thKcCx/qDrS/nDflnVyf56fKhdpn14bkf6RWHpceMneGMYSVLgoLVDN5/oSCAtDVcR7AAhj
+	2fIo3Ahu2+W2imPFfMUvMXoxSMRxsYELffBMEpLw3PKGYgqogmIq5bTBezg9SZJmFoB6xWCFHFt
+	jMvTFfFKEzh2Vj19gfK+Fya++aQy9cur1oDx3N3mvy8Uk/e/w1xNJAonaq+vRJdcO6+abQGIA+u
+	e9F0Zdx16FROq4SW+m+IOROnXHtvIN1ghQ1w62oIegPfXuknSGuMwp6oFw3QNjCo6n6xDJeLBbh
+	VyhlzhdwBmn4PfyFQWagLzP3BhQid0vey3zbIC5N+0E55niXPpD6kHU2ksiUBHGMb5IvO3gf7SP
+	8ly5ATolvd/rsVA=
+X-Received: by 2002:a05:600c:3547:b0:4a2:a6e:80f5 with SMTP id 5b1f17b1804b1-4bb888098bfmr104741775e9.11.1795218857727;
+        Fri, 20 Nov 2026 15:54:17 -0800 (PST)
 Received: from localhost.localdomain ([2001:41d0:303:db6b::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm29426445e9.2.2026.11.20.15.54.16
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm29426445e9.2.2026.11.20.15.54.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:54:16 -0800 (PST)
+        Fri, 20 Nov 2026 15:54:17 -0800 (PST)
 From: Tristan Madani <tristmd@gmail.com>
 To: Samuel Mendoza-Jonas <sam@mendozajonas.com>,
 	Paul Fertser <fercerpav@gmail.com>
@@ -89,10 +90,12 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 net 0/2] net/ncsi: fix RCU list entry lifetime on package and channel removal
-Date: Fri, 20 Nov 2026 23:54:05 +0000
-Message-ID: <20261120235407.1911365-1-tristmd@gmail.com>
+Subject: [PATCH v2 net 2/2] net/ncsi: defer free of removed list entries to an RCU grace period
+Date: Fri, 20 Nov 2026 23:54:07 +0000
+Message-ID: <20261120235407.1911365-3-tristmd@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120235407.1911365-1-tristmd@gmail.com>
+References: <20261120235407.1911365-1-tristmd@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,52 +109,124 @@ Content-Transfer-Encoding: 8bit
 
 From: Tristan Madani <tristan@talencesecurity.com>
 
-The NCSI package/channel/device removal paths call list_del_rcu()
-followed by immediate kfree().  This races with concurrent readers
-(primarily the unprivileged NCSI_CMD_PKG_INFO netlink handler) that
-walk the same lists with list_for_each_entry_rcu() but never enter
-an RCU read-side critical section.
+ncsi_remove_channel(), ncsi_remove_package() and ncsi_unregister_dev()
+each call list_del_rcu() and then immediately kfree() the entry.
+Concurrent RCU readers that found the entry before the removal can
+still dereference the freed object.
 
-Patch 1 adds the missing rcu_read_lock()/rcu_read_unlock() to the
-reader paths so kfree_rcu() on the write side has matching readers
-to wait for.
+ncsi_remove_channel() also kfree()s the channel filter buffers
+(mac_filter.addrs, vlan_filter.vids) while the channel is still on
+the list.  An unprivileged NCSI_CMD_PKG_INFO caller walking
+ncsi_write_channel_info() can follow vlan_filter.vids into freed
+memory.
 
-Patch 2 defers the free side: channels use call_rcu() with a
-callback that also frees filter sub-allocations, packages and the
-device structure use kfree_rcu_mightsleep(), and the work is
-quiesced before packages are removed.
+Additionally, ncsi_unregister_dev() frees all packages and channels
+before calling disable_work_sync(), so the work function can run on
+already-freed structures.
 
-Pre-existing issues noted by sashiko-bot review -- dangling
-active_channel/hot_channel/preferred_channel pointers, unquiesced
-per-request timers, and the ftgmac100 unregister ordering -- are not
-addressed here.  They affect the overall NCSI teardown design and
-are better handled in a dedicated series.
+Add struct rcu_head to ncsi_channel and free channels through a
+call_rcu() callback that releases the filter buffers and the channel
+together, so the memory remains valid for the full RCU grace period.
+Use kfree_rcu_mightsleep() for packages and the device structure
+which have no sub-allocations accessed by RCU readers.  Move
+disable_work_sync() before the package removal loop so the work
+function is quiesced before any structures are unlinked.
 
-Tristan Madani (2):
-  net/ncsi: add missing rcu_read_lock to netlink and device list walks
-  net/ncsi: defer free of removed list entries to an RCU grace period
+Found by manual code inspection; not triggered at runtime.
 
- net/ncsi/internal.h     |  1 +
- net/ncsi/ncsi-manage.c  | 39 ++++++++++++++++++++++++---------------
- net/ncsi/ncsi-netlink.c | 32 +++++++++++++++++++++-----------
- 3 files changed, 46 insertions(+), 26 deletions(-)
-
+Fixes: 2d283bdd079c ("net/ncsi: Resource management")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
 ---
+ net/ncsi/internal.h    |  1 +
+ net/ncsi/ncsi-manage.c | 28 ++++++++++++++++------------
+ 2 files changed, 17 insertions(+), 12 deletions(-)
 
-Changes in v2:
-- Rework as a 2-patch series fixing both reader and writer sides
-  instead of a single patch that only fixed the writer side
-- Add rcu_read_lock() on the reader side: ncsi_find_dev(),
-  ncsi_write_package_info(), ncsi_pkg_info_all_nl() (sashiko-bot)
-- Defer channel sub-allocation frees (mac_filter.addrs,
-  vlan_filter.vids) to the RCU callback so readers cannot follow
-  stale pointers during the grace period (sashiko-bot)
-- Move disable_work_sync() before package removal in
-  ncsi_unregister_dev() so the work function is quiesced before
-  any structures are freed (sashiko-bot)
-- Fix Fixes: tag hash from 2d283bdd5b20 to 2d283bdd079c
-  ("net/ncsi: Resource management") (sashiko-bot)
-- Include discovery method per sashiko-bot request
-
+diff --git a/net/ncsi/internal.h b/net/ncsi/internal.h
+index 2c9d1f22c16a9..2cb1cf653164c 100644
+--- a/net/ncsi/internal.h
++++ b/net/ncsi/internal.h
+@@ -239,6 +239,7 @@ struct ncsi_channel {
+ 	} monitor;
+ 	struct list_head            node;
+ 	struct list_head            link;
++	struct rcu_head             rcu;
+ };
+ 
+ struct ncsi_package {
+diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
+index ec7c0d8cf3d9f..d872351d40245 100644
+--- a/net/ncsi/ncsi-manage.c
++++ b/net/ncsi/ncsi-manage.c
+@@ -242,28 +242,33 @@ struct ncsi_channel *ncsi_add_channel(struct ncsi_package *np, unsigned char id)
+ 	return nc;
+ }
+ 
++static void ncsi_channel_free_rcu(struct rcu_head *head)
++{
++	struct ncsi_channel *nc = container_of(head, struct ncsi_channel, rcu);
++
++	kfree(nc->mac_filter.addrs);
++	kfree(nc->vlan_filter.vids);
++	kfree(nc);
++}
++
+ static void ncsi_remove_channel(struct ncsi_channel *nc)
+ {
+ 	struct ncsi_package *np = nc->package;
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&nc->lock, flags);
+-
+-	/* Release filters */
+-	kfree(nc->mac_filter.addrs);
+-	kfree(nc->vlan_filter.vids);
++	ncsi_stop_channel_monitor(nc);
+ 
++	spin_lock_irqsave(&nc->lock, flags);
+ 	nc->state = NCSI_CHANNEL_INACTIVE;
+ 	spin_unlock_irqrestore(&nc->lock, flags);
+-	ncsi_stop_channel_monitor(nc);
+ 
+-	/* Remove and free channel */
++	/* Remove from list and defer free until after RCU grace period */
+ 	spin_lock_irqsave(&np->lock, flags);
+ 	list_del_rcu(&nc->node);
+ 	np->channel_num--;
+ 	spin_unlock_irqrestore(&np->lock, flags);
+ 
+-	kfree(nc);
++	call_rcu(&nc->rcu, ncsi_channel_free_rcu);
+ }
+ 
+ struct ncsi_package *ncsi_find_package(struct ncsi_dev_priv *ndp,
+@@ -326,7 +331,7 @@ void ncsi_remove_package(struct ncsi_package *np)
+ 	ndp->package_num--;
+ 	spin_unlock_irqrestore(&ndp->lock, flags);
+ 
+-	kfree(np);
++	kfree_rcu_mightsleep(np);
+ }
+ 
+ void ncsi_find_package_and_channel(struct ncsi_dev_priv *ndp,
+@@ -1964,6 +1969,7 @@ void ncsi_unregister_dev(struct ncsi_dev *nd)
+ 	unsigned long flags;
+ 
+ 	dev_remove_pack(&ndp->ptype);
++	disable_work_sync(&ndp->work);
+ 
+ 	list_for_each_entry_safe(np, tmp, &ndp->packages, node)
+ 		ncsi_remove_package(np);
+@@ -1972,8 +1978,6 @@ void ncsi_unregister_dev(struct ncsi_dev *nd)
+ 	list_del_rcu(&ndp->node);
+ 	spin_unlock_irqrestore(&ncsi_dev_lock, flags);
+ 
+-	disable_work_sync(&ndp->work);
+-
+-	kfree(ndp);
++	kfree_rcu_mightsleep(ndp);
+ }
+ EXPORT_SYMBOL_GPL(ncsi_unregister_dev);
 -- 
 2.47.3
+
