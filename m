@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795184326;
-	b=qXbimVEwia244AzJmfwV2+q8VMleKNQNdugMGnP6+Bug5cteTOcq/EQICOV+xoGBuRVx
-	 AcS89kDdBH0+er7HkbFUYID+qY0F24ifEyBe8NxsYKdOa+BUTxhR4aY5M+VAdTu8M5v2v
-	 1sFmXet+axS5uYVpoGlDCNZr3qcEu01BbRTBPlE9nZey0BQJGEv5jNMjZpG5b/gS0mARe
-	 +2z0JI6tWfczI13/hv0HA7MhbmsKqRpWAzeIKzFyT+He8fsUAzMz+zAhdL/VJPh81zRwv
-	 hbOuU/rG1vty41w1wAAMN7hJzhVrBLRnHyrT+BrPbXVccd6CY3DUgx8I+UCH47Bi5Ig==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.160.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795184413;
+	b=J87F+aYttsJGz5CiU5ND0ZvG1ne4JyDThinTfNltnu2UZI7B/0oSD60d/9JLHFhgAeDI
+	 v/1mFqtB0rlUenllr1Lm9L9ZplaC4Ib7nxIJ0i2RbygTkk8cV6dFqipJSrCZl0euJsgnv
+	 I179yWVxFwH0frj/QeqlZDuSGe0VPwPdKexONeVcR0XfJFUnjVyoMpUQCN/aEBxJDwrXV
+	 zecP1dZ/1YwMvZWq5ACX8PKlaNoTR4VI041PPBEg0v7ZLhSsBp316vKYuolmgV8zQMMN8
+	 NkIrcqqInozm1zeK8MvvifMTR0mV1PT0XLbsY23UOx6GhkP0cDjm7kv4suMkFjrIteA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184326;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184413;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-	b=11eaFU99jj4qs0ztGcWkDQqhoER5ruLWAc+h2qkS4a6CM1j5ZhAgB0s2ln8RWWfdKTO1
-	 6DrFL7L4UW9tCdaC+w48kH4SlC1UDQqtkeLqDsNpYaKVnkzocDRnIQdu8X+nQCuqV/53A
-	 caf43MXSTBT5S2ydbqpSNhVx68jMdsSug5IvBbffL6j49YftNKduKWatMUt2mbvZe6TRX
-	 PCDRo9JhZFQ+/lMkOc90Ekx2+udpnJXyamsPa5whrF0nU9kE/DkVpy3NhoSqAMbFItYWj
-	 PKfilOZCuyd/lXO8q+yoBZMbDGQzBeMLqTvqZgkhMsMESuyGv9PGSxjKqSwP0HBRuwg==
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
+	b=D+GHbhMjRnpnh2anLY8g9XggeL6CnCYCEQDLOekEX8FCXLYd8ECF7ynS3azkbCzEKmjV
+	 PXlsmkcNHjjhQiSsYRvfCd8F19CfTADN4rJoaOnv13bUx9rm7JPDSpBlOoKf/BpnqBWoa
+	 UwxgxPFxuyeGA+rZh3aGbzOjBOJRdqFMzqiJCpoAg9AahfzPqYEEl9kruLxOHizbZKisU
+	 4ItWk4HZ6MZqyjs/F7FmX7RM1HQ6m7uB1BzTsrWPkotWrMYw8wpRZG29hIAsstm0QN4sB
+	 flZPtb5Qu53qP4gsxZWEbgJPQoFsCGSCn9wW2GKRZjG1/YpW1Kk2rdItE1BduzPQMCA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2Ub1fv4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
-Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com [74.125.224.46])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPrxrTV3;
+	arc=fail smtp.remote-ip=209.85.160.180
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C7A260A2600
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:18:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C7A260A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79CF2606A332
+	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 14:20:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79CF2606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2Ub1fv4
-Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-67dae7d3f7dso1241772d50.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:18:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795184325; cv=none;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPrxrTV3
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-54492d8a988so289131cf.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 06:20:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795184412; cv=none;
         d=google.com; s=arc-20260327;
-        b=quGCukeWYrKCLci9+te/GlJcgtMcxBBuAHzFCaqgBn5NuPOYqaqKPAgU2FCae2MMb2
-         cxi6S2t3PasTPvLqaIV8XFbDm8310CVCEgA3Rsu8+hzVz7l4/wZPuVPY56EL6i/pG1d3
-         6Jl+3vV1F2FZwoZyNccVs+e/DL/+0Kj2+SaEpHw1+DF3u0C6SoXRJTKW/j5hyk86S5lq
-         vdhtoLZ0gpSBCNKsu0mdksnnTWgXxvHEaO9gykjOTaTRFbrW30qsfQ7eJHaT3QhIk80F
-         gg2rDbn9veXE79vkjCBu3mf4nP61WHgID5eqEa5glDgvwPTnJvktqJe6kz3nzJzlqjSH
-         H8/g==
+        b=fPvBtQTiKSsyg7j29oNe/GF/kc40Xt3jmkoiFwUruMivvR/sjNFBHrl0ju/pfKd1uR
+         DXBvRv9eFLpNpXyxInbVSYw56+khAGCmQEfxsvyt//1kso9aXIX1fw10t8UKdsMwmax4
+         qUauzJQjKTctiEkpDqPE6fA0oEIMKHW220cQ5N3k/V7jAZQr2e/TQJMFGGuWEf8HG924
+         T0ffz7GhFHGgpbMZPgj+x8Aj0EMzR4atfHcixp9sVubycxsZ+67ETItGm8HTyLnYeQJw
+         NaFVCULswdH6uDOHuyFHTl4PJt0mr6daZ8bN2+RAHQeLsRsFoKqpPN//dXZHeWj7gF1v
+         Q4SA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-        fh=r9MVfibCozEsVDwUmU4MqYKQE9pBubeCKx1XV1OIqSw=;
-        b=UnJVtEHfVvYj09Cpqgml/Qv3gq25f8qESNFSSmalgvK6q7mJaHOrNsEN1ZklqanaNl
-         /LlkDuTjVhcELUhxzwDvYe/oGgav3Nt/ieweTRJfLmkxFW4l72nz+3BZ+i7G+O+SE2M5
-         CMH77wVnSlYcschYhUm+E/sbSm4Q1wH57g5/yfYju5bN8mwAmgZXCZ7DkVfZ0ZrDQWRH
-         HGq83J6JIi7PbJKU2BMcf7oWbb7soBPChYLkSt0eSbj4yjnTcMZqQ2wdJVUFSo9p7kPX
-         s/q/D0TiAwswEZFwrX/lnX6ERa1tF37m7QWCPNctS2Y7F9d738m9I/JxEIjY0R7oYl00
-         kAFA==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
+        fh=LGFy9tkWhoCtyRu4gTc1Awe8DgLnsu6ZBTV03J2vyS8=;
+        b=MuZmRbQSLuASgv21HhHSgTOpGKr5claft5tUkooq6AfAV7HoGpEbefFYp6P/Q5As9n
+         J6A1f4hP+jC8nNZRXgeXX+RL5XwcKm2Eu3YOQECWoaRItFbFimg5Du7kZYiXof+mbOLv
+         0NySH+wGRLx9p6f1zTcwmyF9fR9+TO3knS0ITyQl2mMclH745I04Mc6L3hVOyQI/78Sl
+         xh4r/mVxjp5JLvFrxmpYOdsK5e14lnvuIEhC8564beww7NmohVaxUhhUa8LGbwlDMQ0d
+         cW+8gNjwVizr1ROmhCfj3l0+lJTSkdLg9k4u0wQX7lcH0iqOrc5KJgDo864n7LdkMxO5
+         uTJQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795184325; x=1795789125; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-        b=S2Ub1fv4QIMwpCH6y9qCpBAh5iD4X4i6Hsbg/PjVIMAUTA4MFr+DZSYbq2SZE5N1gY
-         952r7VvJsvDRJjvJ2iHlyZU40SjZG57KUrkjNWzyrxUV1fNPEIfnd4JREco+sVH7exGW
-         ToAIwpfIW5nXUhdFUndHmxdWXSKATRRJ0vLlkaZtub7PrCASbKqD8nSHfbTX4rTEF9tc
-         5lXCZtu9oRdFoNWMkZ7LWnqA2RFxF/b46sHofPW+2bZ4a1hOvMLIlXORlQlH0/1Ay+fR
-         X+JMzkbkUALsrIacS9/V7KAFL/UNTvL1kV6lRZBgOcfWcxXleZVQYG9CjPSX3wRCJvWQ
-         tAfA==
+        d=google.com; s=20260707; t=1795184412; x=1795789212; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
+        b=aPrxrTV3tjNKVZRe0o/QZnrHtJ88Cq0pnVQFh7mHgAvBJzDrEJpUWOT7AK49X/t9t1
+         p7Vunzt0X2Jci5rymoMAfsIElmpqm511Q1t7p8xn1jTunsDcwP+6GaXxEB2IFTgFyMZ9
+         0iof2il/XdRNNVwakcxSw0onlzvNI9i3hcQnJoO5i5GHUKuFzFtrzC3+IMt6INHHgjGk
+         xqTd0Wgb4Ec0WCLoQA1db0uoMdVOIYDq9ySwBT+7Mn0wwGKDTjTrt/aa7XbbUc+3QID5
+         2e3M416nZRs+/ass9ys+Ro5LBwyHkmnva3YwUsJ7NnD60k9CYZmdfaxSg5dN/4GGjxa8
+         eNnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795184325; x=1795789125;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-        b=tyuWMfBpJSJ+wJVD6LF/aJjVcIPrGgCWIMV2cvd1VU1X1m45tsKR6qQ43cPgsbKOHx
-         KHnNrqmzpsqmGqUK2iZPu7ow998tyV93xsST1FJeBjjeRmVzzhGk+rgoHENlgjC/d+KG
-         mtuf0pKSM19OEnfOhjNNHnX4Pedieh2aboreLpYMqZPMjKklWHJ5i30znaMIXxhCGGMs
-         T/l36gS3BIe9Q0OTFtOyuykXfLM9+NmwLA8nMTm6rzDZhk6ZM+uUYsIn6bVLkhaqiU9J
-         XYVZ4atY5M6XWt6oAwhUSzYvgWaazRM2QAyOhmkyxYXbfOiqrvsHwsCXme1VLpInLhUZ
-         pZxw==
-X-Forwarded-Encrypted: i=1; AL+hErH5cAbAOE+kGd6s94TkKejmoslSfiUs1u1ke3Xk86nRPSl/ZKXmfX4MDYI4eVnHwCPxVWoi/7U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dzkJxhnezgJ0ee+ZBWNnr+7tVYGw/9r04lXz+uIBTEB5occ26
-	cBeHyyFN405jjglokr0XB2ddE5NBTyfjI+guZjdIL2Ip7T1K2puAY7X/g38Mdk2jV3uo80AhCmn
-	A0Ip3NgQb6HVcCl5QAC5/NlLHIdCyb9k=
-X-Gm-Gg: AZFdTZebiJuG7KJyPFe+SPFTpFz/+6f9i8tRAS+EkXE6k0EAI+7N1Uf38/JArt5RCqK
-	U8hK2ZYSgrS63jXEgttDSh8zZP0V+CEjnc9OObRdnXCwPdCx6YG8RYdE6dAKu39RAfs560Al4tz
-	7UMnrXodEx+rDAwaujT44xK/gsPBIne43JuHNpX9ebogAO7Wqg3uYsqBKFZGemicbcTjWQJU0p5
-	OKBTvqYUJ3gAbM9N5wtuD3SFaCLL1JWvbuqaxX/CDnAXVRWG+daaO2bzGSu/ovSCKOaJBypIo+T
-	/hVUKMu8QRf/ru7PuMd3cQNkmGrcJRj8jPUsoQPlUXmvNLdyDCDrcKgOsweauJC52NbYCzefOqN
-	uTQHpDJ8tGqHIqUW9sawQpaXnvDoV1rmudwxa5716rUo+S+uFX5dBpHDCGiGu1PUHDKo+FMk8Pv
-	GnHXJx3A94XwSJGO8fng==
-X-Received: by 2002:a05:690e:478f:20b0:67d:99fc:2e27 with SMTP id
- 956f58d0204a3-67df43f3b0cmr804987d50.40.1795184325362; Fri, 20 Nov 2026
- 06:18:45 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795184412; x=1795789212;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
+        b=2l4Lj5EcSHZsFCOzzZvB/6g8FRShoC85Z9iLDskDSGOwDFR/nWrOp8P68MKwPhRYbv
+         v68Cs4aqUVmFBajdR9h7aP1fhq1FltTofHYNHNVjSNOygJ+inqmXstvaQAASF5Un6i8n
+         J1wdRd5C/4Kotg855ps4+zmTNNmpWCO/7KWV5N0d4xpDA3bvXcGdYhkcLAQLqPPZH6BX
+         VwgwYg9zd/Nvn7jsB8vundXdAekgw0/eaNc6VaTmowDcDQsBOw+ZRz8nJtpi0i8J2x3y
+         bPPyXLmYjvf0PLNfmrXT6BvdkR73H0k4srv05AQASGbl0xZS65gUzBEqi6g8afsv0zFJ
+         GrMg==
+X-Forwarded-Encrypted: i=1; AL+hErGZUsAoI5GqyWstlRtyPG8rY+AoG+mDKQMJk3Hyu5KCfl9VAO+ua0HvMKHEmWNJFVmnFnhSux4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8W2oYZnw2k2oiaTFnOqPR+5kpMKGhA/6D3y82YeygTwT/rj3pB
+	W7F1blmyNmt2oWdd3/hTGcFMlJk+l9phA+X/gvNm29d7YoPvXnDKb6ukfKu1YYBII0ArJ4US16h
+	F2U6yoy8LdS2Ekl7Hk2MpzQTTLT7SFaaOTLs4OaFX
+X-Gm-Gg: AYBFou3gBg76FNfJJh2+9yl6iT3wz7m4pk7hGlylU7Rxqm5oVPj1AnGI7cgzp5X4Atz
+	j832Xy+hQqNFtoqX3sqoflRR8SmcwN1PY1axQfBGtph38bsLRA9SRJFpBjVhckF9Xz7Eqe6Muv9
+	bMl1uO5VnT48lqRO1VLK0wZHtEIAJDUdxNV4Uh9Y8SifKa1LKDTn5SIhFgXnnojs7xdqg/psroZ
+	9LToNEqHjeWFl9LOHZL3nOQF8DVhhU//tcig1zcvM8EoFBc6sMmMIhFMTecW8OdCeUIfM8Hjx6+
+	5xrpkZrwjlpRnt+JCRGWA/eppYx16Au0iN+U9dX1t/O6XhcLIne7C405aZKa0J3fR0gy48rzBQC
+	ZdNJO1ws+wRrGZL9iNGd86Bgo3z4EDAiQPcTQcg==
+X-Received: by 2002:a05:622a:8c8:b0:55b:ce7e:e65 with SMTP id
+ d75a77b69052e-55d7a37902amr16973301cf.12.1795184411359; Fri, 20 Nov 2026
+ 06:20:11 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,30 +104,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com> <e5b0e0b7-6c68-4b9d-ad52-f83bde5e32f8@yahoo.com>
-In-Reply-To: <e5b0e0b7-6c68-4b9d-ad52-f83bde5e32f8@yahoo.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Fri, 20 Nov 2026 11:18:33 -0300
-X-Gm-Features: AclHuK_xpfbJPoEhoQpqqv5nViKMrJKk3pARB3vz01zc7O1qtz_EdUVXv0vSmLU
-Message-ID: <CAK+kzgzb0CZZ9JR0Rs+hjK8+nDitMGhyzNZ3o23NSfwaeZ_osQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v12 08/13] net: dsa: realtek: rtl8365mb: refactor
- PVID handling
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev
+References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
+ <20261120135013.GO3115493@ziepe.ca>
+In-Reply-To: <20261120135013.GO3115493@ziepe.ca>
+From: Luigi Rizzo <lrizzo@google.com>
+Date: Fri, 20 Nov 2026 15:19:34 +0100
+X-Gm-Features: Aa3M54r79-wonm4abHk_49DjjJPxLMhPkMzG33LcM6yDH6fwirGgzaIY398cqTc
+Message-ID: <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
+	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
+	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	Christoph Hellwig <hch@lst.de>, Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>, 
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, iommu@lists.linux.dev, 
+	netdev@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Tested on family D only (RTL8367S-VB, TP-Link EX511 v2), v12 as is: the
-PVID paths reached through the family info behave as with v11, PVIDs set
-and cleared on access ports, untagged and priority-tagged frames handled
-per PVID, deleting another VLAN keeps the PVID. The family C
-implementation is not exercised here.
+On Fri, Nov 20, 2026 at 2:50=E2=80=AFPM Jason Gunthorpe <jgg@ziepe.ca> wrot=
+e:
+>
+> On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
+> > This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PIS=
+A
+> > ("Pre-mapped IOVA Superpage Allocator"). The text below follows
+> > Documentation/core-api/pisa.rst (patch 25/25), which has the details.
+>
+> I thought the conclusion was to just do this stuff in netdev pagepool,
+> now you come with an enormous AI series spread across the entire
+> kernel?
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+There were surely comments claiming nothing outside net/ cares or needs thi=
+s.
 
-Thanks,
-Gustavo
+I respectfully disagree, witness is the fact that e.g. there was already an
+io_uring proposal which is smaller, but does not address applications
+that want to use the standard disk I/O paths (libaio, buffer cache etc)
+
+Nothing has changed from the initial series in terms of size, use cases or
+subsystems involved. Large files are placed where they should,
+the series covers the same three use cases (disk, network, CoCo), and
+touches three parts which it has to touch: mm (most of it; it is a
+memory allocator
+extension after all), dma (it hooks into map and unmap, not a large change)
+and net (the pagepool change is a couple of lines; the tx path needs to
+touch more places because the current stack assumes all paths have
+the same I/O requirements).
+
+For CoCo, there are very fine grained controls so the bounce buffers
+can be enabled only when they don't pose a risk, which in turn
+depends on the threat model.
+
+Specifically, for network tx buffers or disk writes, the user-to-kernel cop=
+y
+is basically a bounce buffer provided it is used correctly and not leaked
+elsewhere (which is the design; of course the implementation
+needs to be verified and possibly fixed so that it matches the design).
+
+cheers
+luigi
+
+> > - Needs bounce buffers: in Confidential Computing VMs, PISA allocators
+> >   pre-decrypt 2MB pages in place, avoiding swiotlb bounce-buffer copies=
+.
+>
+> It seems this was ignored too. We want the bounce buffers in CC. They
+> serve a security purpose. You cannot loose control of the shared
+> memory buffers have have them leak into SKBs, user mappings and so
+> on. It is not secure.
+>
+> I don't see how any of this is valuable or necessary for CC,
+> especially when we really don't even expect to have an vIOMMU for CC
+> very often..
+>
+> Jason
