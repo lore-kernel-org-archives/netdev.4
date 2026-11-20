@@ -1,106 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=154.81.10.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187222;
-	b=gITQmWqoGq1eiW1Ff8Wq/068uyCiuZQCtDUOFx95HudylbtOiU5RPMlpyqnBAk31POid
-	 ED8Jfg/dkOs05DqqBz272odPSUV6m/HzM6xS4hAr4FjQKWmHAgTNgDi0eS106/SVCTAgv
-	 7tSz9Ip6iqkzALnai5p7+ixlXruznrqlCs/YRga8e6qsy5VIJVjzCzuTMeHGWyXwFvoRM
-	 Uz8oKRQl5sAkiVo9kDgaomTi0IFamsUmpXLKghQKHtNWF0s2aMICeneXguFs1CbLRJvh+
-	 bNVGCArHQdhWxNEKMG+dkCrJlDUqRTIJi7lXvUiOuY4aaxOGXG4eDZKDbOFva6RW1hg==
+	t=1795187414;
+	b=wONSmUeweobfEFC/Ouqsoz1fvcd0P/kJnRfjFc39XPAr0Bh7O8brPBZcxVcE2bzZ7Ipv
+	 CrsO6LHUD4O4kpfZOAuglpBGgrYAMAVQKa9qsveNNRiibWZiOjaXn1SG4WgKC+phieFYR
+	 ui5k/gdzUIqGPw39TR+OglQxRAkNrK/FUsZzrUrFJiHUZKmT78trNBGhW20jHp5KWt9LH
+	 /Y+jC7w3W9ylgJi2NPaO3cfjaYrXanvrG0A+p8XCXxkcyCaGPYaPHKLSDsx5w4xQDyySu
+	 eHguhVqpwN+MTjnwy9IaKry//Sh33MQJEp8pyv3IT6OG65k3BWRSgPXXBHrsfXMLpNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187222;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=9CwbjPZ+Sgw1ndd0ojkmOYPv2IF6fDVO7S7jEJJhl8w=;
-	b=fk6lzUq0lQYuyI5iK0W2oA8mRvQDyUIni6UoaWZ4mMwpeJyAeDsqKxaHf7H0vGPHWhFt
-	 kEbequFVX4aH6xXmozYwnEqG6io+RagqHRBpo0La0sqyeXiR44kK21wpOu9w0C+vyPNzW
-	 tX8FeLyyq74NAP1svHTEVlw5g3YFqTtrjCkmUk5nfrgan2Hx21H4kr7TLYR7i6DCBfnqu
-	 7isoh9Z83ZGYnwEDowuwvVeTTwEy04lLac5xIq4TROmB5ApGA/HZH2OYOieBDZS61F+jB
-	 Lqo0LTaEZkvtsG72V+jKt2eiIsG6WHUJ/OGRfJEzfsvTlt8Q2x1O7qqfxJn2LniW0sg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187414;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=us7mbpzByrc6IYYiZEo/0XS2sJm4gcQN7+6PoaPd6bI=;
+	b=WRZa5dfVDLckyLFyJ64d/9GaOiDxm59pxktFqp3RijJJgd3IEdFLeZfR47d2mXRwyG92
+	 ygxPx0g+vlXhIExkLZ8BaZOxjRDIabPwMC/ctcK5LQ5X8UdnDxxGhcC0kBLeWCb7eLkV2
+	 ANV9+8wmPHywizNaKmokm5q5SpgEozkoiDqdYa/saesAC1qxuqTCAxnA21zYHqYUtLBoK
+	 OWDwJu5OY7OWbYrzdtp62/1hhUYA2SuMNyeTlT/5/UkMqEz5nZAl8iRb1zqGsKQ5BIJ4P
+	 2zztssiZ9qgFYPXbEXi94R3DumrJdgcjtgwUWc74oi6iPBDlIBXuQ5aq50vY7GhrELQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0bQoCqu7;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="fDE1ROF/";
+	arc=none smtp.remote-ip=154.81.10.146
+Received: from mail-m10146.netease.com (mail-m10146.netease.com [154.81.10.146])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A05F1606A32A
-	for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 15:07:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A05F1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D77E1606A320;
+	Fri, 20 Nov 2026 15:10:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D77E1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0bQoCqu7
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso1315079c88.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 07:07:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795187221; x=1795792021; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9CwbjPZ+Sgw1ndd0ojkmOYPv2IF6fDVO7S7jEJJhl8w=;
-        b=0bQoCqu7q7T4VRJfEcl6DHmTQUZfcAErx4Mut4fCBZtHuMa7mEvzTvUqd7GshdjA9p
-         YXPVJ3LD/on+QupQJxU76ZwNSyckAKmqJMB02KDUkmL3kQUYbKw5uKbzBputxAbXSD2a
-         UXcBe//Tj1Vy6TMbcVc+s9T+wNqHH6THQzOjfAN1KTeECfl6+pmsKf9nZoVWRP3mjg47
-         MbLYR6xF58rAm5K9anV4K+yOzp0LwMEDoAUvxCbhQ/nol5XzfEoO0ttgU+4c1a9N7Qvd
-         1XWomFeVN7FzjPwwOaKPpIiGp+U+PWBpDVAQHJEyhH2Irgl11tv553/jfKvT1lK8eF2p
-         ZgJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795187221; x=1795792021;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9CwbjPZ+Sgw1ndd0ojkmOYPv2IF6fDVO7S7jEJJhl8w=;
-        b=D52E9BAFm2ZRuZBifPz8XOHN7OCsUvXHSXISv4zmzEdJLiD1Ep2bkFMBICb9quk/xk
-         LpdhdUUWw5pNsSg2G83aXG7pXWy7vugSRaHn8fkVoQDY9InrtOgkOQgB/QtRW+VGx9P+
-         Q03wsdDws928K5WlGTAfZNhI3wYiXWKvBIK3x5AYthJUGSG8LLBeOAqRsw3YJai7p5r8
-         q3LUio2xgf0C1XHnVoEcDmDv2jPVTQwX5DSd5mOEijnqiuIDqx90nPZYJDIuGiPSb2zq
-         EQIhkau8ihcX7vRqk3w1sXdmyDWyypsUQ7dljkZMES/VNG3dNYOfqq/2CeREkJb2v5bj
-         KTrg==
-X-Gm-Message-State: APuU4Z/OEnSDiPlXq17O7maHfAnfNkG7xYfDbqktsf74Hpzdbp4ct3PL
-	v/6dtqG9ug6+WE2ggUkN2upTT0mTOrjzNoEHlIxEgRWS0VhAzRhTdeUt
-X-Gm-Gg: AYBFou3MNO1qCfmsTIrHjCaE4SshNST2ALNYa+ahqwOJTvAxa38yygcCXik5lb52WjX
-	nEyiSMq6MevGyL3humMMSA16vdILAQZW243IJV6QFLzTcgqsyLCrN/CIF3fbbFLB1JDqWHWxHuj
-	/2Og7c8cYwOMdW/6kAvObio89oOiX4Z7VlBjVB1yotzPwg6Tn995dtylKyvccUh0suTmMBCdQhM
-	FKGGJfYgBWxo/5qZ9lq8YdnMS+CodMHPgcuc72Jnx5JZuk4DjzzSeH0hqlnyC1NXtxL3ih8TiIN
-	myAD/Dvf0hj6KU1KN1pO3rFAb262F8nwS0FXFS9YESZOzAgYjRQHuZuwkOwnUOu/2Uqf4X65QZO
-	NyTYBRy8/wbGtf7jWgwjKhG7ANZ9cxZacqjq6u/q0hziTIFpAJE/Q0z96Kkeoou4Ekx/jyMzlU3
-	M3Jgrlp7VdTeJ2t8GpY5y0YeY7//QE4SrQgR9VyJ/DOv0iKquYEQvZX6iXp/58kxhSEj/00NQZf
-	npNeAJvTnEpReNdg95sp6XEg7x4rPZk5fdKL46PnqNMc7w0xxL+4p5cd02/D/3YmFZ22sa5xdBL
-	7RVMe5errEV9eSCZ271e7XPd258/nRpN9T7lQLqgMfYEu7VvYYFC3eEc8HhUQMxcv4NM6unFvSH
-	kNsVfL11n
-X-Received: by 2002:a05:7022:f907:b0:1b2:558a:d781 with SMTP id a92af1059eb24-1b5567b5788mr2642760c88.5.1795187220737;
-        Fri, 20 Nov 2026 07:07:00 -0800 (PST)
-Received: from IN01-9QQVVV3.CAMNWK.COM ([171.76.82.79])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm7844902c88.12.2026.11.20.07.06.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:07:00 -0800 (PST)
-From: Shitalkumar Gandhi <shital.gandhi45@gmail.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	intel-wired-lan@lists.osuosl.org
-Cc: netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	bpf@vger.kernel.org,
-	Shitalkumar Gandhi <shital.gandhi45@gmail.com>
-Subject: [PATCH iwl-next 2/2] ice: wait for one RCU grace period when destroying XDP rings
-Date: Fri, 20 Nov 2026 15:05:27 +0000
-Message-ID: <20261120150527.14649-3-shital.gandhi45@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120150527.14649-1-shital.gandhi45@gmail.com>
-References: <20261120150527.14649-1-shital.gandhi45@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=fDE1ROF/
+Received: from localhost.localdomain (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5571b3b0d;
+	Fri, 20 Nov 2026 23:10:00 +0800 (GMT+08:00)
+From: David Wu <david.wu@rock-chips.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	maxime.chevallier@bootlin.com,
+	joabreu@synopsys.com,
+	peppe.cavallaro@st.com,
+	luis.la@mail.de,
+	lorenzo.bianconi@oss.qualcomm.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	Anandu.Padinhare@electrifex.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	David Wu <david.wu@rock-chips.com>
+Subject: [RESEND PATCH net] net: stmmac: dwmac4: schedule RX NAPI on Receive Buffer Unavailable
+Date: Fri, 20 Nov 2026 23:08:05 +0800
+Message-Id: <20261120150805.763415-1-david.wu@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,50 +70,72 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1f981df5809cckunm25b76740482ac3
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHx5DVh1JS0xLGUJLHU5JSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=fDE1ROF/HErXOzZTrk28RcFqanGnvxfppXJn0ml7GTDlqAr7HYyapRj46zeBq4jyjXe4IAoEghzTvvstOo7oUVtomK8Qg5sIfvvuImaDoKdwMd6FbmRgm4+yaBJfwLMQQ7TEgR4Mkhl0CRPnrPYWaCvA80JoLh1TWGQBbXXwNrk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=us7mbpzByrc6IYYiZEo/0XS2sJm4gcQN7+6PoaPd6bI=;
+	h=date:mime-version:subject:message-id:from;
 
-ice_destroy_xdp_rings() calls synchronize_rcu() for every XDP Tx ring
-before freeing it. num_xdp_txq is sized to the number of CPUs, so on a
-large machine detaching an XDP program or rebuilding the VSI waits for
-well over a hundred back-to-back grace periods.
+Once the RX ring is exhausted, the RX DMA enters the suspend state and
+no more Receive Interrupts can be generated: incoming frames are kept
+in the MTL RX FIFO and are dropped once it overflows. The RX DMA only
+resumes after software refills the ring and updates the RX tail
+pointer, which is done by the RX NAPI poll (stmmac_rx_refill()).
 
-The wait makes sure in-progress ndo_xdp_xmit and ndo_xsk_wakeup calls
-have left the ring. Both return early when ICE_VSI_DOWN is set.
-ice_xdp_setup_prog() takes the VSI down before destroying the rings,
-and ice_vsi_decfg() runs on release or rebuild after the VSI has been
-closed, so a single grace period before the loop covers all rings. Do
-that, and use synchronize_net() as ice_qp_dis() already does since
-commit 405d9999aa0b ("ice: replace synchronize_rcu with
-synchronize_net").
+Commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
+enabled the RBU interrupt for dwmac4, but the interrupt handler only
+updates the statistics counter without scheduling the RX NAPI. The RX
+NAPI is therefore never invoked, stmmac_rx_refill() never runs, and
+the RX path hangs forever once the ring has been exhausted.
 
-Signed-off-by: Shitalkumar Gandhi <shital.gandhi45@gmail.com>
+Schedule the RX NAPI when the RBU interrupt is received, aligning the
+dwmac4 behaviour with XGMAC (commit 6338488356d2 ("net: stmmac: xgmac:
+Add RBU handling in DMA interrupt")).
+
+This can be observed on a GMAC4 based platform with Split Header (SPH)
+enabled under high TCP RX pressure, where the slower RX refill path
+lets the RX ring run dry.
+
+Tested with Split Header (SPH) enabled, running a large file download
+over TCP:
+
+- Without this change, the RX path hangs permanently once the RX ring
+  is exhausted: the RX tail pointer is never updated again and the
+  DMA channel status register latches the RBU bit, while the TX path
+  keeps running.
+
+- With this change, each RBU interrupt is handled and the RX path
+  recovers by itself. e.g. 3 RBU events within 6 ms during a download
+  peak, each one self-recovered (the RX tail pointer resumes advancing
+  right after), with no further RBU events afterwards.
+
+Signed-off-by: David Wu <david.wu@rock-chips.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/ethernet/intel/ice/ice_main.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-index 47c6798c9..ed5103e8c 100644
---- a/drivers/net/ethernet/intel/ice/ice_main.c
-+++ b/drivers/net/ethernet/intel/ice/ice_main.c
-@@ -2802,12 +2802,16 @@ int ice_destroy_xdp_rings(struct ice_vsi *vsi, enum ice_xdp_cfg cfg_type)
- 	}
- 	mutex_unlock(&pf->avail_q_mutex);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+index 02aa1a3dd1e2..de6bd6f8a7d5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+@@ -155,8 +155,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
  
-+	/* Let in-progress ndo_xdp_xmit and ndo_xsk_wakeup calls finish before
-+	 * the rings they may be using are freed. The VSI is down at this
-+	 * point, so one grace period is enough for all rings.
-+	 */
-+	synchronize_net();
-+
- 	ice_for_each_xdp_txq(vsi, i)
- 		if (vsi->xdp_rings[i]) {
--			if (vsi->xdp_rings[i]->desc) {
--				synchronize_rcu();
-+			if (vsi->xdp_rings[i]->desc)
- 				ice_free_tx_ring(vsi->xdp_rings[i]);
--			}
- 			kfree_rcu(vsi->xdp_rings[i]->ring_stats, rcu);
- 			vsi->xdp_rings[i]->ring_stats = NULL;
- 			kfree_rcu(vsi->xdp_rings[i], rcu);
+ 	/* ABNORMAL interrupts */
+ 	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
+-		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
++		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU)) {
+ 			x->rx_buf_unav_irq++;
++			ret |= handle_rx;
++		}
+ 		if (unlikely(intr_status & DMA_CHAN_STATUS_RPS))
+ 			x->rx_process_stopped_irq++;
+ 		if (unlikely(intr_status & DMA_CHAN_STATUS_ETI))
 -- 
-2.53.0
+2.25.1
 
