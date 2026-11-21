@@ -1,62 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304244;
-	b=PpmguAqeVFFiYT5XPOWxfpTe7HgRZpoJUWRGDyF8XXvhG/ZnWVXYrU9cX+k/FXEdOuvU
-	 aj9bCMpeOWQVOD98Re8c/w7eu5OXzYDvPKv8KvHnsYHi0iUhwlabN87ykJPhL2QHv4lGZ
-	 1KbOSaiXQtT35coQpR1zbAr3gCtwemyrjz7LGNj5lPSYxtf3rBf/yifDCUP3LBpXx5Ind
-	 7/6AQZXsXWVJTB63JazJTaIfr8cChstmU0kA133qKyVxPdyXyHyWZGzWv1tHJwmi56jrJ
-	 Qfj3IxYrcEPAiaRXlVopx2Xnaa2KG7IVIAsPDg32f1a2hFSVjC79OAAaI1L6EEBvsrw==
+	t=1795304665;
+	b=lcv8GaBP2JVOQ6MYpBG6X+s/bQezHgIgo9NS9pMFJeG0lWALvBNh2QO+a8SwFrFNENZh
+	 85Z2+JpZVmSl3SJJz8mwG4F2qii1e0pa/CaIfHHwnT4qB9zT0lEmexXq5UelML7zuFZtQ
+	 V7n1EEb1Bg9NRnWWz1JoIsT3fDc0Aygpn2IvAnEBAC6D0b0mzxUU7L4+AyuBb50MMTJ4n
+	 xFbCFj1yXB6PfVk3sRbqOAEGhUasQLhd6UXkI7A86092VPlcttpBOUoxjGk6dnhhuspgN
+	 XoMZgU5JSJxT6hswMEPlK8C7laGYnRdW/A78gnqx/tRRIEl/oUZRPIN7faK/Pxl4orw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304244;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=4KPjgcwe8LG/IWwYnJ9R321g+N2W83kSLrvRS4eTumE=;
-	b=B/ZGA8TVqZVrqGSliT6409/V1J/O5S9SnVySq79CJO8HNpBnSsYk13YnWOEbV3mroRPf
-	 +qZyF35O4gJNr4oASe7pYtrQssz9vjo8garNuneNhZG7R4uVC4iaWe4OX1ALsVTkrhA6Y
-	 NSsZQOWBG1Bg3lffEZWBM78KAVDfcRv1uVJr1LBOEd2M8zeGfgdwrWSDJRCVHdVxfrcXh
-	 SQ+A5IGhpOaXOgG1ZmK5UV6JpZVf6V1SAlqa5QtoNJtHXusZGgHQVRGdd1gsyf0fLNVOW
-	 jkJuCV0ZmS4qUfWiENz94yK2ioeePLzHY4Kc6W5DDPDr9G5169CAbSNCGMMY4djU1Lw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304665;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=sRkY7zM0xKaJxy4mzyL5E+209WLLZ6mGzirmGXa5UsA=;
+	b=raFdB9q7lAyms2FuGsNHAuwCsquLCDmK0tDO0SPSQcY6b+pBWwawAzt/IpDpHyQ5FH/8
+	 HRzNsuuahIpPDc+cjKa826GzCoQ8VZdMFMGwNChkzWOF0FaREJbKOjqza/XOYlws7mdKu
+	 PW6u4cN/CQVcfTIM4g/IqwDMTKciifYP6ee5JR9w8KHf0nAN/mldOKcC3uCxXIsMKugqO
+	 stjy6HdXT7DC+ojR/tj3Jl4s3/+ue6Mg0fdqA1knvrdFORlDGfUT6Fw18rha6ub10Fpnc
+	 1Fv1qGmEi2LgK27r78ZvPM7hl2Oi8k92pXG/MBBLZEJfVeHYb//kzHD3TCvKdxk5QZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UIHFr5AC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OCsPkCy5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C0E7606A320;
-	Sat, 21 Nov 2026 23:37:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA712606A335;
+	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UIHFr5AC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D120F1F000C0;
-	Sat, 21 Nov 2026 23:37:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OCsPkCy5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8053B1F000CF;
+	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795304244;
-	bh=4KPjgcwe8LG/IWwYnJ9R321g+N2W83kSLrvRS4eTumE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UIHFr5AC4HfoRTZvYJgLLAXJkU+5szVCiBbgx9r4K+94+Ds+B7yjso9fJ6UxO9NEr
-	 i5E2H7b/vZ1qERmmoa2esSnQLSm9XliE1WV6fGDRyvy6hzITvZxlT8AsyjJQXPmc/a
-	 ZJx7+Eama47+yuYIMr55ujcUBhgADMCMspwjvc+DsKoccgSTuuliBQH5IigyvvFSyP
-	 fOBupnfZfSSAVhdYk3lz/hjOu4fShjlZwLjJfRDk9iUPQcyJkIqI1xqAuxfd3W5QSf
-	 d6BPPlDUMUaWFgzb9j86AgUgrQZ3a0Z4in29ek7BKLimqDv2FuVA2OwlS4J6ZkJn1N
-	 48y3O526nAozA==
-Subject: Re: [PATCH net v7] tun: bound the NAPI receive queue
-From: netdev-bot+sashiko@kernel.org
-To: antonio@mandelbit.com
-Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, mst@redhat.com,
- eperezma@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, maheshb@google.com,
- peterpenkov96@gmail.com, netdev@vger.kernel.org,
- virtualization@lists.linux.dev, bpf@vger.kernel.org
-Date: Sat, 21 Nov 2026 23:37:22 +0000
-Message-ID: <179530424233.3135.6226986969775563090@kernel.org>
-In-Reply-To: <20261119153056.353156-1-antonio@mandelbit.com>
-References: <20261119153056.353156-1-antonio@mandelbit.com>
-X-sashiko-severity: High
+	s=k20260515; t=1795304664;
+	bh=sRkY7zM0xKaJxy4mzyL5E+209WLLZ6mGzirmGXa5UsA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=OCsPkCy5lB1nuG/GMENesGHpAm0+U044by7TZVn9nnFcS7qFuyG1kE554qObTnSLv
+	 SB1HX+zJrCDI+5Cs4sDk6NjBWGCcDFKcenq8DlMqo2XY4b888UbAi2a35JMHxgJh8/
+	 1vnB6BBwbKXGVTsLQ+8RoWUS8YXC6Dr5c6eR+kwwteMXU2E24y39UOLgSySsW8hiio
+	 AKDE0IWotxi/xOYG8T0xkJAknLTI7s5ZOBF24vKCvfpngcTCrVPkix3g8pfcliL0Z+
+	 xECnMLg49uPb1nDcGep67lKLccKfiVSs8cwrkD0J5s6/InWmBPS8Y9LD6m7L5N4tfk
+	 Cm1Y+LLX5UVdA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7743E391B08F;
+	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,141 +53,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v8] kcm: reject TLS on attached TCP sockets
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179530466302.1212208.15645522376520311508.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:44:23 +0000
+References: <20261116190111.3317976-1-rjethwani@purestorage.com>
+In-Reply-To: <20261116190111.3317976-1-rjethwani@purestorage.com>
+To: Rishikesh Jethwani <rjethwani@purestorage.com>
+Cc: netdev@vger.kernel.org, jiayuan.chen@linux.dev, stable@vger.kernel.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, ncardwell@google.com, kuniyu@google.com,
+ john.fastabend@gmail.com, sd@queasysnail.net, davejwatson@fb.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello:
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On Mon, 16 Nov 2026 12:01:08 -0700 you wrote:
+> Neither kcm_attach() nor tls_init() rejects the other, so KCM and kTLS RX
+> can be stacked on the same TCP socket in either order. This breaks in
+> several ways:
+> 
+> - KCM calls read_sock() from its receive callback in atomic context.
+>   With kTLS RX this reaches tls_sw_read_sock(), which can sleep.
+> - Before tls_sw_read_sock() existed, read_sock was tcp_read_sock(), so
+>   KCM consumed raw ciphertext from the receive queue that TLS parses.
+> - Both install socket callbacks. kcm_unattach() restores the pre-KCM
+>   sk_data_ready over tls_data_ready, so TLS RX stops getting notified.
+> 
+> [...]
 
-- [High] Bounding the IFF_NAPI queue by packet count only
-  (net_hotdata.max_backlog skbs per tun_file, ignoring size) does not…
-- [Medium] The patch silently changes behaviour for IFF_NAPI users who
-  set a finite send buffer with TUNSETSNDBUF, and the commit message…
+Here is the summary with links:
+  - [net,v8] kcm: reject TLS on attached TCP sockets
+    https://git.kernel.org/netdev/net/c/746dbdc5fa60
 
---
-
-tun: bound the NAPI receive queue
-
-This patch caps the IFF_NAPI sk_write_queue of each tun_file at
-net_hotdata.max_backlog packets. Excess packets are dropped and counted as
-rx_dropped in tun_get_user() and tun_xdp_one(). It also changes
-tun_napi_receive() to take at most budget skbs from the queue, so the rest
-stays visible to writers.
-
-> diff --git a/drivers/net/tun.c b/drivers/net/tun.c
-> index 86fd44e107550..b7432bd4d3f03 100644
-> --- a/drivers/net/tun.c
-> +++ b/drivers/net/tun.c
-
-[ ... ]
-
-> @@ -227,6 +228,16 @@ struct veth {
->  static void tun_flow_init(struct tun_struct *tun);
->  static void tun_flow_uninit(struct tun_struct *tun);
->  
-> +/* In IFF_NAPI mode written packets wait in the tfile's sk_write_queue for the
-> + * NAPI poll, which may run later in a kthread or ksoftirqd. Bound that queue
-> + * like the per-CPU backlog.
-> + */
-> +static bool tun_napi_queue_full(const struct sk_buff_head *queue)
-> +{
-> +	return skb_queue_len_lockless(queue) >
-> +	       READ_ONCE(net_hotdata.max_backlog);
-> +}
-
-[Severity: High]
-Is a packet count limit in tun_napi_queue_full() enough to prevent the
-global OOM described in the commit message?
-
-tun_get_user() takes total_len = iov_iter_count(from) with no upper bound.
-tun_alloc_skb() can then build an skb with up to ~544 KB of frags plus a
-linear remainder:
-
-drivers/net/tun.c:tun_alloc_skb() {
-    ...
-	if (len - linear > MAX_SKB_FRAGS * (PAGE_SIZE << PAGE_ALLOC_COSTLY_ORDER))
-		linear = len - MAX_SKB_FRAGS * (PAGE_SIZE << PAGE_ALLOC_COSTLY_ORDER);
-	skb = sock_alloc_send_pskb(sk, prepad + linear, len - linear, noblock,
-				   &err, PAGE_ALLOC_COSTLY_ORDER);
-    ...
-}
-
-tun_chr_open() sets sk_sndbuf to INT_MAX by default. With that, a single
-tun_file can still hold about max_backlog * truesize. That is tens of MB
-with 64 KB writes, and much more with multi-MB writes.
-
-The limit is also per tun_file. With IFF_MULTI_QUEUE, tun_set_iff() allows
-MAX_TAP_QUEUES (256) queues per device. The only gate is ns_capable() in
-the user's own namespace:
-
-	int queues = ifr->ifr_flags & IFF_MULTI_QUEUE ?
-		     MAX_TAP_QUEUES : 1;
-
-Even with 1400-byte packets that is roughly 256 * 1000 * ~2.3 KB, or about
-590 MB per device. A namespace can also create several devices.
-
-The commit message lists this under "Still open". Even so, the same uid
-1000 process limited to a 128 MB memcg looks able to reach a global OOM
-with larger writes, more queues or more devices.
-
-Would this need a truesize based limit, or charging the queued skbs to the
-writer's memcg, to close the reported DoS?
-
-[ ... ]
-
-> @@ -2043,6 +2055,19 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
->  		struct sk_buff_head *queue = &tfile->sk.sk_write_queue;
->  		int queue_len;
->  
-> +		/* Queue full: drop, and schedule NAPI, which a MSG_MORE sender
-> +		 * may not have done yet. Lockless: concurrent writers can each
-> +		 * still add one.
-> +		 */
-> +		if (unlikely(tun_napi_queue_full(queue))) {
-> +			local_bh_disable();
-> +			napi_schedule(&tfile->napi);
-> +			local_bh_enable();
-> +			rcu_read_unlock();
-> +			drop_reason = SKB_DROP_REASON_FULL_RING;
-> +			goto drop;
-> +		}
-
-[Severity: Medium]
-Is this behaviour change intended for IFF_NAPI users who set a finite send
-buffer with TUNSETSNDBUF?
-
-With a finite sk_sndbuf, tun_can_build_skb() refuses the build_skb path:
-
-	if (tfile->socket.sk->sk_sndbuf != INT_MAX)
-		return false;
-
-So every write goes through tun_alloc_skb()->sock_alloc_send_pskb(), which
-charges sk_wmem_alloc.
-
-Before this patch, skbs on sk_write_queue kept their wmem charge until the
-NAPI poll consumed them. A slow poll made a blocking writer sleep in
-sock_alloc_send_pskb(), and gave a non-blocking writer or vhost-net
--EAGAIN.
-
-After this patch, this branch fires first once sndbuf is larger than about
-max_backlog * truesize. That is about 2.3 MB for 1400-byte packets with the
-default max_backlog of 1000. The skb is freed, which releases its wmem, and
-tun_get_user() returns total_len.
-
-The writer then never blocks and never gets -EAGAIN. Lossless backpressure
-that the user configured becomes silent packet loss. The commit message
-only mentions sndbuf as being INT_MAX by default.
-
-Could this be documented? Or could a full queue block or return -EAGAIN for
-writers on the charged path? Exempting finite-sndbuf queues alone would not
-be enough, since the same user could set sndbuf to INT_MAX - 1 to get
-around the cap.
-
+You are awesome, thank you!
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119153056.353156-1-antonio%40mandelbit.com
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
