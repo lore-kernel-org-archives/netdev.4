@@ -1,45 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795259475;
-	b=h+xUjQlm6ByUyw1jQ4J3aLWHScetUtDsH5i1Ptuk/ZFFvjgkyEtcU7L4+usL7MZYrwcf
-	 gpSLCzDssUaKuOh+2pCyTBFmjx42U+T5K4QfTyCAg+PsggIBsVtZICK3X0hVzYjxy5PJT
-	 zuWaPKMABg5cYwInZF54ieZcap/W2gKBTyt/Q/xznrwXpZGvACrHAYvPeKdMizpVWBmw/
-	 VK8HCAx+bZZs0tYXbx017mZMNM8SKmqTSegItsvuQgB4lzlg0UxkgtFiTmV9LKPoae9ob
-	 0OFWTIMfx56AF+KgQ9OrP3urH9mr4vENXZNiJP5dJqrYBoYkvtFZvq7QYfgExVjgg2A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795259475;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=pc3/8eaz2R7en0wB3IVJjUSju2aIpRoh8x5NratlNNQ=;
-	b=ivgBx978G15BT/2XDBPx1mUgjFinUVRbZ9jEDbc74LQku9zYaNiRlzUNqi3qVrUEiKPv
-	 PfIE2xgu485jMx00wPKG4LTzgawQlVWbpgxZq29RKlX5OJKFiFzJSUDffJhmSJ6AU1PkI
-	 1z8zkboIRtL7jgdr6hKxc8u4e9eZuy7qr43qC20uouI43v4IizDpRp3fEuWnb+TnnLXYn
-	 0CIFT7vVB33st/eZ25sxEeJoIizsAsJzUmej0dnC3oeUrntYy1sO3OuwF7KxjAM/td9Up
-	 H84a8CkRNienIbS/g5LGjEBWlKsPjkfXP8dEJWJUOl4JzJjpP1kmw562DxSFUd8F+Iw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRyesDRR;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795260075;
+	b=cqbDhE4R5XxlAfPYwqxaB2iPY1eNQXiKIErzM9KpW0IaO8/u9pMVmSxhmIm8hsm50Htu
+	 m7T70bqs8vIvKHZg6lu7TISSix1AoPXb3SyTEYyDAUbxaQ9urFy7RVieMkGv36QYyfiDY
+	 BgyWejixmVK/0QcD5awupxLQIkQ1xcUgIlGcNK8lWetOfVLaQ2R8aUnsJ97tN5UzZCO90
+	 7f5MDqp+ORGhYUOgLWMmMr3uSu0JUqQpCdq1AzYPSpvPFINgoAerPnpjJY8uIYMvDLRAO
+	 Z9BBxV0uw/sL/QrTL0CaX9IJA/Ozvc76hQILKLLL6c43JquFPEBabIyJwKEy5psNiag==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260075;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=v89Ma1+8vB78QEhTByPdmvA0HsIyOPhOwYN2oIuTnQ8=;
+	b=sW/u0NlG4BB1Urr/Zkt1MAjCbwGPD3dfJgJ7XfMCjBhMZ10OwdbI4B/PGkGIsU1gIpk2
+	 7mgNFNPLoxUFojCJW1aoiXhocMoiwVPZHovKQLC6ewZZw1658qtBwF731RSlc9yRQva1K
+	 VPmbP7ZwY6xwBUvdbv5/oUtc8SMeZTGuuqhGQMaKtMkzsYQTcq21aASp6W7Rffx56u6C9
+	 k7ahn+UjgtJiy4skaVyfJ7/rlXLqTnLXYhCmemTGsrhrynnO1sUmGAy1ooFmpILpJcqyv
+	 R4Jlq9/olAw7zHxjCnHnkiIhlKKv7b619lqvfcmssYJjtuWvMiiS05pfKu8XDBsmeLA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DBXpkRjL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CB60606A32C;
-	Sat, 21 Nov 2026 11:11:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D44C8606A325;
+	Sat, 21 Nov 2026 11:21:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRyesDRR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E71D01F000C0;
-	Sat, 21 Nov 2026 11:11:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DBXpkRjL
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795260075;
+	b=tt5ZkQcohIxHc6r9947MVvF/N1zEcUl6l2fkJ6zVEVf8l2SciCTUXo5XQKpbXYdaGWa0
+	 xmnmNFWgqkdYxEeI6ZU+zkoLcJmrwR860RUrimxrJWrw0FmjIg2qeallGiSruLegQNPGB
+	 wGoonHkQ4LslpzAyQE0/7dNLS/yYA5yaYMa0XwsDRaAp7vEHKWXxXKj3JAEaqKPnpWAL0
+	 dV465XKbzQHur1V8uXBnmsMGLhRqL0dt2Gl4RTNDXMsWXBvw+1o0DZPx6m34HLWPAQ8LN
+	 RS2ahD4rtrzL2XlaP1ULrLmQjyQxglmKayHN+Yl6HoGM1nU52EvI9t9RZG1nadbBZ/Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795260075;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=v89Ma1+8vB78QEhTByPdmvA0HsIyOPhOwYN2oIuTnQ8=;
+	b=DbLsbgYgNuTPDe+VPfqTNcrqc3p1n/4/89v3ZXPEGG7wlBRwn8cRaBFDOUfLe6b080Nn
+	 4cv2XG64Oe04Cm1zQeM41d9KobDK6iCK94jLf8X7PXTeJ9O5WwR+7LsjnupSSN7rC83/i
+	 +hnXYEPATbAvndlK0q2Mkitv9FBaKeVcCocZoxyyvCC0lSL5GkfPS2abxgK0nITXrDJJF
+	 FoAFNwt20E6aHntkMXRL7b6hGjXlK94+OKAkxPaYl+R2x03z1fXHrq7ijwK9ruL0QgXsy
+	 dXuQxVIkGymer+w0+vYZlxOPDUspD/bnY/AsJaC9SCs4FNinIgzB3fRPfZNkeFwbD5w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id CC7351F000C0;
+	Sat, 21 Nov 2026 11:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795259475;
-	bh=pc3/8eaz2R7en0wB3IVJjUSju2aIpRoh8x5NratlNNQ=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=eRyesDRRrnGA4qkWPsWNmEDPNX5cBFgK5rTNvgPH6WFIOjDoJZkAZrjzjyaKM0Srx
-	 x2vUqChiO26jFcj8M6OJ36RuMsuXigPD0i6Sak/zkqhH+nI/gbHHsrCU+mDqMyNnnS
-	 nR2TOxKuV+kkV5qcjOoPlvf2GgRpQggIJlH6Mi8sqoIUj5TeRxoBcjr7zCgUO85Z7L
-	 axTWJG1XCiGpQNI9yu1Qf21umDXXMARk4d3LudGhP4knmkZoKvXOJS5VCKN0gxpPYM
-	 mg5JLjdFzQSomX2c8UWAuyl3CjRBpyuuMvZnBp77LdDCCtSmwe2YtiuNT5NDqMdCvJ
-	 LhMJt96dx5zGQ==
-Content-Type: multipart/mixed; boundary="===============1453606125876828301=="
+	s=k20260515; t=1795260075;
+	bh=v89Ma1+8vB78QEhTByPdmvA0HsIyOPhOwYN2oIuTnQ8=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=DBXpkRjLQHMQAZrtkrtjmFEMrQMP8zl6HtVpPk+pntGOeuk72p67b/v0zFz3LxJCY
+	 IemDI0xugsDSTSeWakkK78qibW129yDVmqYjuK/UFVI/ejj+aQs9eZSKEO0dTZ7sAE
+	 JpLwnwm5NEo9tkswP6Gd/KTl5QZpz2si6dAm+qVLo/lpGydheYC4xUTJUYQiw1b8fE
+	 7ENDrOaz5OHEyPvrT5sBeSKTzXfucag0X+E5AgN9iw7RBjiUSOE9MoWbbpvzcz+UZ2
+	 cGKVTlV/+QAIDnMuggzO/lUECnHkXlvEiQ5t5is01Sxe2S/mDgop5xzfDV6ylwBx//
+	 cnZjp/JjZn6sg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 2D4C74BC00;
+	Sat, 21 Nov 2026 11:21:14 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 11:21:13 +0000
+Subject: [PATCH net] nfc: only send the SE_IO response to privileged
+ listeners
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -49,110 +83,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <10c5af49a70a8f40bbcf3afaddefa15089060a8d1d1aac01d5810c5b088adc47@mail.kernel.org>
-In-Reply-To: <20261121103222.88209-10-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-10-jiayuan.chen@linux.dev>
-Subject: Re: [PATCH bpf 09/11] bpf, sockmap: Fix apply_bytes when a redirect sends only a part
-From: bot+bpf-ci@kernel.org
-To: jiayuan.chen@linux.dev,bpf@vger.kernel.org,ast@kernel.org
-Cc: jiayuan.chen@linux.dev,john.fastabend@gmail.com,jakub@cloudflare.com,davem@davemloft.net,edumazet@kernel.org,kuba@kernel.org,pabeni@redhat.com,horms@kernel.org,kuniyu@google.com,willemb@google.com,ncardwell@google.com,andrii@kernel.org,eddyz87@gmail.com,ihor.solodrai@linux.dev,daniel@iogearbox.net,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,shuah@kernel.org,rhkrqnwk98@gmail.com,mattia.meleleo@coralogix.com,mhal@rbox.co,linux-kernel@vger.kernel.org,netdev@vger.kernel.org,linux-kselftest@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Sat, 21 Nov 2026 11:11:11 +0000 (UTC)
-
---===============1453606125876828301==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261121-nfc-se-io-filter-v1-1-a28b383a6300@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAKh+AWsC/yWMwQ6CMBAFf4W8M5vQopXwK8SD1K0uIYV0qzEh/
+ LtFjzPJzAblJKzoqw2J36KyxAKmruCft/hgknth2MY6Y6yhGDxpsQsFmTMnak+2u7TO+WY8o2R
+ r4iCf33JA5IzrX+prnNjnY4Z9/wLFCu53eQAAAA==
+X-Change-ID: 20261121-nfc-se-io-filter-34287366c0b5
+To: david@ixit.cz, kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, 
+ davem@davemloft.net
+Cc: oe-linux-nfc@lists.linux.dev, horms@kernel.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795260073; l=3495;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=4d8GuF8Ba+/1/ZMaY9xY4YhAq9qRQO0d6gqeD0lMyaA=;
+ b=vkTC0F29g8hXjYrSjCLZgj7pbBGIXgpOYAbITdoHdXu6dorCWCCzSy5Gn+PVloXt0hZFJ+7Dz
+ 5XjXVYnDubNDiwi8tqI1BKFfpI+N+eFulezEa/3aeJ0mHSYwlsVR1oZ
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-> bpf, sockmap: Fix apply_bytes when a redirect sends only a part
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-TL;DR: The apply_bytes give-back in tcp_bpf_send_verdict() may leave a source
-socket permanently failing sendmsg() with -EPIPE after its redirect target
-closes, since the restored redirect verdict is never cleared.
+NFC_CMD_SE_IO sends an APDU to a secure element and needs CAP_NET_ADMIN
+(GENL_ADMIN_PERM). The response from the secure element is not sent
+back to the requester, though: se_io_cb() multicasts it with
+NFC_ATTR_SE_APDU on the "events" group, and generic netlink lets any
+user join that group. So an unprivileged user can read every response
+APDU that a privileged process exchanges with the secure element.
 
-> diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
-> --- a/net/ipv4/tcp_bpf.c
-> +++ b/net/ipv4/tcp_bpf.c
+The response has to stay on the multicast group, because that is where
+userspace reads it: neard's seeld sends NFC_CMD_SE_IO on one socket and
+handles the response on the socket it has subscribed to "events".
+Requiring CAP_NET_ADMIN for the whole group would also hide the device
+and target events from unprivileged listeners.
 
-[ ... ]
+So keep the multicast, but filter the receivers: deliver the SE_IO
+response only to sockets that were opened with CAP_NET_ADMIN in the
+initial user namespace, the capability that NFC_CMD_SE_IO itself needs.
+The check uses the credentials of the socket's opener, as
+do_one_broadcast() does, because se_io_cb() runs in the driver's
+context; a socket opened by a privileged process still gets the
+response after the process drops the capability or passes the socket
+on. Kernel sockets have no file and are skipped. Other events on the
+group are not affected.
 
-> @@ -566,6 +563,21 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
->  			msg = NULL;
->  			ret = 0;
->  		}
-> +		/*
-> +		 * Bytes that were not sent and come back, in msg or in the
-> +		 * next sendmsg(), are still covered by the verdict.
-> +		 */
-> +		if (apply && sent < tosend && !cork) {
-> +			psock->apply_bytes += tosend - sent;
-> +			if (eval == __SK_REDIRECT) {
-> +				psock->eval = eval;
-> +				psock->sk_redir = sk_redir;
-> +				eval = __SK_NONE;
-> +			}
-> +		}
-> +		if (eval == __SK_REDIRECT)
-> +			sock_put(sk_redir);
-> +		sock_put(sk_redir);
->  		break;
+Found with a static analysis tool and checked by hand.
 
-Can this give-back leave the source socket unable to send after the redirect
-target goes away?
-
-The give-back runs for every short redirect, whatever the error.  Some
-errors from tcp_bpf_sendmsg_redir() are permanent and send nothing
-(sent == 0):
-
-    if (!READ_ONCE(sk->sk_socket))
-        return sock_flag(sk, SOCK_DEAD) ? -EPIPE : -EINVAL;
-    psock = sk_psock_get(sk);
-    if (unlikely(!psock))
-        return -EPIPE;
-
-They happen when the target was closed (__tcp_close() -> sock_orphan()) or
-removed from the sockmap.  The same goes for an egress target whose
-connection was reset, where tcp_sendmsg_locked() returns -EPIPE.
-
-In those cases sk_msg_apply_bytes(psock, tosend) takes off tosend bytes and
-the new code adds tosend - 0 back, so psock->apply_bytes ends up at its old
-value.  When apply_bytes had reached 0, the code also puts back
-psock->eval = __SK_REDIRECT and psock->sk_redir = <dead target>.
-
-Nothing else clears that state.  The only writers of psock->eval,
-apply_bytes and sk_redir are this function, sk_psock_msg_verdict() (which
-runs only when psock->eval == __SK_NONE), the cork_bytes reset in
-tcp_bpf_sendmsg(), and sk_psock_destroy().  So every later sendmsg() on the
-source socket follows the same path:
-
-    tcp_bpf_sendmsg() -> tcp_bpf_send_verdict()
-      psock->eval == __SK_REDIRECT, prog not run
-      tcp_bpf_sendmsg_redir(dead target) -> -EPIPE, sent = 0
-      apply_bytes restored, verdict restored
-    -> sk_stream_error() -> -EPIPE (plus SIGPIPE unless MSG_NOSIGNAL)
-
-The source socket's own connection is healthy, but it can no longer send
-while it is in the sockmap.  The sk_msg program never runs again, so it
-cannot pick a new target or drop.  The dead target's struct sock also stays
-pinned by psock->sk_redir until the psock is destroyed.
-
-Before this patch the verdict always used up tosend bytes, even on failure.
-A redirect to a dead target failed at most about apply_bytes / tosend times.
-Then psock->eval went back to __SK_NONE, the prog ran again, and with the
-closed target gone from the map the lookup failed and the prog returned
-SK_DROP (or chose another target).
-
-The give-back is right for short sends the user is expected to retry
-(-EAGAIN, -ENOMEM from bpf_tcp_ingress(), a partial ret == 0).  Should it be
-skipped, or should the verdict be cleared, when the target cannot take data
-any more (for example -EPIPE)?
-
-No later commit in the series changes net/ipv4/tcp_bpf.c; the rest of the
-series only adds selftests.
-
-
+Fixes: 5ce3f32b5264 ("NFC: netlink: SE API implementation")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+Tested in QEMU (x86_64, KASAN) with a test-only NFC driver whose se_io
+answers from a work item. Four listeners subscribe to "events": root;
+a socket opened by root that then drops CAP_NET_ADMIN; and two sockets
+opened without the capability (root without CAP_NET_ADMIN, nobody).
+Root then does DEV_UP (which adds the secure element), ENABLE_SE and
+SE_IO.
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44896626218
---===============1453606125876828301==--
+Before: all four get SE_ADDED and the SE_IO response with the APDU.
+After:  root and the socket opened by root get both; the two sockets
+        opened without the capability get SE_ADDED only.
+
+Not tested on hardware (st21nfca and st-nci implement se_io).
+---
+ net/nfc/netlink.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/net/nfc/netlink.c b/net/nfc/netlink.c
+index 224bdfa2dd0d..ebacbdd7193b 100644
+--- a/net/nfc/netlink.c
++++ b/net/nfc/netlink.c
+@@ -1472,6 +1472,19 @@ struct se_io_ctx {
+ 	u32 se_idx;
+ };
+ 
++/*
++ * Only listeners whose socket was opened with the capability that
++ * NFC_CMD_SE_IO requires get the response APDU. Check the opener of the
++ * socket, as do_one_broadcast() does, since this runs in the driver's
++ * context. Kernel sockets have no file and get nothing.
++ */
++static int se_io_filter(struct sock *dsk, struct sk_buff *skb, void *data)
++{
++	struct file *file = dsk->sk_socket->file;
++
++	return !file || !file_ns_capable(file, &init_user_ns, CAP_NET_ADMIN);
++}
++
+ static void se_io_cb(void *context, u8 *apdu, size_t apdu_len, int err)
+ {
+ 	struct se_io_ctx *ctx = context;
+@@ -1496,7 +1509,8 @@ static void se_io_cb(void *context, u8 *apdu, size_t apdu_len, int err)
+ 
+ 	genlmsg_end(msg, hdr);
+ 
+-	genlmsg_multicast(&nfc_genl_family, msg, 0, 0, GFP_KERNEL);
++	genlmsg_multicast_netns_filtered(&nfc_genl_family, &init_net, msg, 0, 0,
++					 GFP_KERNEL, se_io_filter, NULL);
+ 
+ 	kfree(ctx);
+ 
+
+
+
+
