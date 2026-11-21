@@ -1,61 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289739;
-	b=E9Twxks1yMY9XabpLrKkuoSNbcYCFYoR732FhVsDYUMcPBNyhGcCAkm+xtlOUqhev9Rq
-	 VqrmxvqJx/kP6SpgAqdmER95hiCcqdUB5kwJkjo7ahxHFRNo0Q5hbVTJH2OUe21d/KXrT
-	 9qB26qGnVnG838McUq4SJ1TxDBemhYgfHyd/RHzY7V2H80rU8WuUqMRY9ATh9ceu8XFLZ
-	 Fzoh2l2LaVaX5vTj4Vgoj9F8cvwGVN988mEIj9e3m1SnBXfjTFbAgRP+sqVNvY6sWhxdK
-	 3QgLb7/zC/WNpF/gbZcR3LkzhJGyNXdSku1I0d/zEw2eGF5oXfFj38WU7aPHYRoVD8A==
+	t=1795289846;
+	b=g0nKIj+MZqJX3p6IJuQ2mzI6gLUPt7w8RMKVAAedwmGMrr4V/v4BgkskYUcKsS+QIIcu
+	 RU5FkzOHsJSzZk8bi4h3RIPPaOBkCPdONYOcyrGbFh/meeWrujsdyByF2NAJkyVZGnT4c
+	 5t1YDgOqwzKC+ThWCudi2ji1ULS/BbDS9IHV+/gAk81rtqyKa3ybwo3n/QQ16rA++7qa3
+	 kO6mkA4HfnKQk/j1iyf5FDzvyu9418jVzXECFYh2grqlBUpBP97QsJrpJdclQiCYLNx5T
+	 I2uTjWl19G5kAEgVEaN/lYePo+9eaeaega0lPT87AEorNkyzNQcXS3lhDycxBiJr6cQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289739;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=woUgHZr0uil9VFYYYYRHm8aIGID2QxRLbWy19xVONnI=;
-	b=1fEoDqiUAuG3DeGRX7CNN3avVuV4zejOnKgPHwPyv/rDKd3QMNz7BRZOz45ZNgi4ySSm
-	 YwTSfAhLjp/KsPkFSN2emMU6D+wNaHC/5P7BMaZSr6OMSYal2X4T8Vd6O25TLjEeX5zYa
-	 hazZMaKAW0C9KOE/rATOMDLy5Zc/4UD31QAyrlx1+7soVtJUyCOIdANex4sUx86O3RgJT
-	 xRIb4UmTC9Ty1i+V6ByvsIkCzoCY0Bf2Xu4UnVZWuyTRFaMP57STzQxOeV8H5qW0Bf+3l
-	 K1JBXfI7B2No+ELvX+J/qbU5AdJ4l6OktOL/v7JhaIzFnfw5dgYcYapDfoOxroYI6Tg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289846;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Debian-User;
+	bh=ZioayeppIOBHdNjSq6qe74+lfa9kFKgG5lBRMMYto9c=;
+	b=1Rk7hC+fKBf6T4ZxiXq0vd/YmLHny9yat77C7wVJktT98WdUVcyHHSKTAyHhT94Nieqh
+	 qvHCqU3cKQRHFnRYuVN2kYwH6e7dceo1LqDXdLySbZyYMvukYzvjc+VUm9e8DhRpjREsw
+	 7XQRjV8mB9oLHC4XYZkoA0nxZGpJ9S65LLaIeXMh9WGrYaq21CwVHxcfHJW0lfgUsWr7s
+	 xUmkTEC2TssoIB5fWeJxON/yC1vkYbNokNBrjVkH0XeAtDjCbb4nobfpCTbg2/RVd888O
+	 VkFe4qGy4qYyweGkFHc9jBCguZfZsXOIOIdpOzddK0MJQCTg1/QgqW/v63Ar3tYp3cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=m4xEfVgN;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b="RJ/qBsrZ";
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 856E8606A330
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 19:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 856E8606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23771606A320;
+	Sat, 21 Nov 2026 19:37:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23771606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=m4xEfVgN
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=woUgHZr0uil9VFYYYYRHm8aIGID2QxRLbWy19xVONnI=; b=m4xEfVgNc9OZJR6z5iG+QnFB4H
-	z2jVd4W5Tlhdl6kT5Soywj+i6duxMQH2z0hLPqfBsD/fomCJbEGIuKcacP7zSl/MJwOCQnYEkh2xU
-	TX5EscvEBCTYuyM1rflJd/8BqT2tQ0nyBIo5EzCs+U4r3XoLtXk4sTezTgPk0xBQoE+w=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUqs4-000UAd-OU; Sat, 21 Nov 2026 20:35:36 +0100
-Date: Sat, 21 Nov 2026 20:35:36 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: netdev@vger.kernel.org, Pantelis Antoniou <pantelis.antoniou@gmail.com>,
-	linuxppc-dev@lists.ozlabs.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net] net: ethernet: fs_enet: add missing
- MODULE_DESCRIPTION()s
-Message-ID: <3cd99f54-d5ec-44ae-878f-e8b1cf841703@lunn.ch>
-References: <20261121192343.932171-1-rdunlap@infradead.org>
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=RJ/qBsrZ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ZioayeppIOBHdNjSq6qe74+lfa9kFKgG5lBRMMYto9c=; b=RJ/qBsrZj4wkbyyVigtC9dV/UB
+	ab3MfTAA9Tc3nCpCYPpKvApyzwcD3vIy3rivSNawbm3dZLuJdl6tJiHDwLh7hTZG7sp30DYZnCVqe
+	TR5nkXJot5myNNeYDdY3YXBY3NR0dyunBbLyR6pG3Dwev+ip1bOT2S/ThbHyr5eMoKItcKKNXe68M
+	1/kGEwTtvwhwhbD7b6a8oOwO9zTJFa2GpprAZz4CP2MPw4Z/qeFNMtzc/FgXO193oEQWSKgkkNaNZ
+	KSTl2ow+svZWYUk1PWr3YgnxtY9A2HAu8q6xPxhl02dT+uhCsdUMu9gyLfMG3LT1gnqyOWzFOtIJU
+	oGKMrcsA==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUqti-003swJ-1q;
+	Sat, 21 Nov 2026 19:37:18 +0000
+From: Bastian Germann <bage@debian.org>
+To: andrew@lunn.ch
+Cc: hkallweit1@gmail.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux@armlinux.org.uk,
+	olteanv@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Signed-off-by: Bastian Germann" <bage@debian.org>
+Subject: [PATCH net-next v3] net: mdio: handle broken-turn-around for non-PHY MDIO devices
+Date: Sat, 21 Nov 2026 20:36:55 +0100
+Message-ID: <20261121193655.225520-1-bage@debian.org>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,30 +74,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121192343.932171-1-rdunlap@infradead.org>
+Content-Transfer-Encoding: 8bit
+X-Debian-User: bage
 
-On Sat, Nov 21, 2026 at 11:23:43AM -0800, Randy Dunlap wrote:
-> Add 2 missing MODULE_DESCRIPTION()s that are now required.
-> 
-> WARNING: modpost: drivers/net/ethernet/freescale/fs_enet/mii-fec.ko:
->   missing MODULE_DESCRIPTION()
-> WARNING: modpost: drivers/net/ethernet/freescale/fs_enet/mii-bitbang.ko:
->   missing MODULE_DESCRIPTION()
-> 
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+From: "Signed-off-by: Bastian Germann" <bage@debian.org>
 
-Hi Randy
+The "broken-turn-around" property is documented in mdio.yaml for any
+MDIO device, but the MDIO core currently parses it only for PHY devices
+in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+switches, are registered through of_mdiobus_register_device(), where the
+property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+still treat the turn-around/read failure as an error.
 
-Please could you target net-next, not net:
+Parse the property once in __of_mdiobus_parse_phys(), before the PHY and
+non-PHY registration paths diverge, and drop it from
+fwnode_mdiobus_phy_device_register().
 
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
-
-The changes themselves look O.K, so when you repost, please add
-my Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
-
+Signed-off-by: Bastian Germann <bage@debian.org>
 ---
-pw-bot: cr
+ drivers/net/mdio/fwnode_mdio.c | 3 ---
+ drivers/net/mdio/of_mdio.c     | 4 ++++
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
+index ba7091518265..129481e8a910 100644
+--- a/drivers/net/mdio/fwnode_mdio.c
++++ b/drivers/net/mdio/fwnode_mdio.c
+@@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
+ 		phy->irq = mdio->irq[addr];
+ 	}
+ 
+-	if (fwnode_property_read_bool(child, "broken-turn-around"))
+-		mdio->phy_ignore_ta_mask |= 1 << addr;
+-
+ 	/* Associate the fwnode with the device structure so it
+ 	 * can be looked up later
+ 	 */
+diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+index b8d298c04d3f..fe321fa16188 100644
+--- a/drivers/net/mdio/of_mdio.c
++++ b/drivers/net/mdio/of_mdio.c
+@@ -164,6 +164,10 @@ static int __of_mdiobus_parse_phys(struct mii_bus *mdio, struct device_node *np,
+ 			continue;
+ 		}
+ 
++		/* Common to PHYs and other MDIO devices */
++		if (of_property_read_bool(child, "broken-turn-around"))
++			mdio->phy_ignore_ta_mask |= BIT(addr);
++
+ 		if (of_mdiobus_child_is_phy(child))
+ 			rc = of_mdiobus_register_phy(mdio, child, addr);
+ 		else
