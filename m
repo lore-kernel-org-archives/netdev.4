@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795294542;
-	b=HdZGCetTMhpAMGUhtgHVRL9RmCAvuDh73qtSxf7jQDp+/pPNWcAxGt1RRPVP6Gg9l6YZ
-	 G6OftdpWvSAuuLu2PsRTty6Zvg/7NpiRD7cOXdawq2VVphDsRd7SBZcpWl8Yp6IRNjYR6
-	 IdrXizZuftpSZROlXPeBCAoP/IpkwoDkee9VP5fzDSpO5V/E4AE4/wyU7ci2fGizIbr7l
-	 irv8wrf+PB3Pnzkot8hnqe+VwDGgNMoe3znGRfYWCyFKoM81Po44K3O24YNxJGRgjxEVC
-	 pIn4C+FdzxrEW+oEntdtLiXnN/WuNqBJKlWTLZatxN4Ftxq1mrnob9NOGaQpoSststQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795294542;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795294622;
+	b=m/7sLgYDfYaeKgdVwLkjN2WhB22vEAOQm7oGJUub10uH9pNS5Eyb5oxugZ+/dIiQUWLg
+	 f6uZTnJU/7CEjru79WheIcmm0yzS8n+7KzadE1HLLR5tGA8uaK8D/4nTpDsFwgJizOMq+
+	 YA1lhV03fRDFjjqnHwn/SP7ka3KMFthEJ0payZLdxxDtv8UDjbMuOXUGAgrTQTw9qMFvm
+	 yXsh0zxAjQPYgkkgglodzV06gBxtLTLidJpWwZme+GxxxtO+a+syN1zErZumVH2TTCdjZ
+	 QWy/0xvjtWYZnziSycet2iwPMjCKbSZIO3Q6ku6cWFQWrQsPpRX+kI7YrdUpID3xWtg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795294622;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=iA9GCTJobddBAA9FdF1LmGHUJsNDSuUG1BPvcdAHjlw=;
-	b=au7Z1MLMjV8PJ6IHi0CPdPbaY26a2wrGI2CW1oWfybZl1Y927wmEgPB9amzhrqZR3fhw
-	 lfikAXXfBGjGyCg5G/9pWybwbDf3w6cKOZWqIBywgLZ4c60+b4J+m+q3GocD2lZj4gWp+
-	 UiOSbU1uw6aLq48oNAzTUaxWzTg9GocXbYv4Nsl5+b0LwlGwbLrNihM8Aur/HMS9Xs9d0
-	 +/L6voe+/PimHYmXNQDFYGtWEM9bU7S/f6lqG55lY5v76+UzzQ+kIYw0dfWbYJFSevCGk
-	 ivgX0QtG6IuLbUHMM5Ewi9Z5zcF2UuELH4kwODyGEf8F1DMWb6xGNeyEOWiVWOY1leg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=SWrnr1jp;
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
+	b=q+9la6NtcVzgDxtLJPU8fWBcQIwbOezSs+FGsRk++c8V5MSIh1XDLaHIgf4Tn6CpB+mn
+	 gm5uZS3Gn6224JKOz8ssP+/S7crb5uy1NYqLrGgPk54FsUSx4hFV+x5xFhSlcL2Db834T
+	 nISgmU8Kw20sq3I8x57LNtGMEE68JlMZxDwOHc5TWfoPrnLkVUjReFSb8CU6hhI5vCQ2Y
+	 uwMQp/OQZHSzPJ7oyxQYQbOvaqqYCQiwsy/9TcSbVXlbR2Fy0uRihwuI8+3onpH1Uqk4o
+	 u5OH5Po+sMd5orTjTbI4bxRX+3xkY86TIOvD8VOgta/9EbcH60GkqZg06a3A5pd8XRg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L8TpTXAE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
+Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A03E7606A68A
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:55:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A03E7606A68A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 700BB606A330
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:57:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 700BB606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=SWrnr1jp
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c4322d310e7so368200366b.0
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 12:55:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L8TpTXAE
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-679aeeddc6bso1917223d50.2
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 12:57:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795294621; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ca8xywQGX16vuXWKXhGsW/71UADqT8cCrwoN2yqeT6yyrg8CaMYHuO49rx0P8Q/u09
+         rv7R4jDv2zD6hXWPP3KGv6+NXg/7zLaTnvlScn8ymMBekPsnR6x/F2hrJeTjcPDzJEu9
+         f1ztS59SC1A2t8OccDJGCjIUZbBkmJtIMinvasxDke1COccL6K4SDCHAIdhJcAY1VTqx
+         CY7c4kWixazr7a0eII103zmjyCoXPyybZp0yOIQSalBYGlOofrRl9aPmJILJnVMVUG8E
+         nBPs4YatdaF1WE26Bslj+XZPUsPgeQFL0C6JX1oOaedLkpt/1Us3/HEUXEbVkjO76KN1
+         YgSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
+        fh=xu7u2sA8t8EJVsJsZkN/9gLfmqBhLzBy6XmzLAKjTv4=;
+        b=QU5XeYo9GSHyxt6XG71em+w58n1nt2Z1ti844aRkYRCNrz+3ch8mC0mqNZWKwff5v0
+         5PcnzZ2/9KzQNDoIpVN4oyn9xfQ8NJso1P7medupSy/2kDpsGRarbt7aQ61MxDP7kKfY
+         kYsaxJX5gZKU7AlV8+/5EsZ0FDohwPYWIpokUs3O/OBLglZT2PkslK3WYqud3knPzYka
+         BbXHnnbIGr2Pyy+JZnjO83uM9UnfiEQtBV/UaI1k47zbUcKUFtl/0gt5Ztg30JL7x5P5
+         8VT0HoA59bNtTz48aRhpjz2yQ7GXcjCorGkutfE9NUw1KNoGTOx35uK19wkPFVEC6c75
+         M/BQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795294540; x=1795899340; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iA9GCTJobddBAA9FdF1LmGHUJsNDSuUG1BPvcdAHjlw=;
-        b=SWrnr1jpRqwydClUqIexX/y9BrEY1O7F3o6N14dL1hRcy7OkQM8p2oxN46gplOcu1C
-         AKoPC+J5s5CeZTlfX5GrUMi7OVC8m7V7xuIKKDcU2Ew3pI8ZQA61VtLUC/07H0lgNwyL
-         W10qZZe7anhD+yQnlsbxk4buTTfPTdxbuVHjme9wS98IcsrrEz21A4qpHqKuubOvFxJB
-         7TkwiWfheEbN6SSQ5Q9DFbx2G5jF4c7HMnV1J2ttC47sccYTLtc/KAK3DbVMyoHZUypu
-         lNgjtPmEJ6YqOCMu8V3s6zyOS/0AH9i4XUSRrdK3NTal1OZZn8P9Bz7p3+vlBl86fo3K
-         fnGA==
+        d=gmail.com; s=20260707; t=1795294621; x=1795899421; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
+        b=L8TpTXAEpiXgcy2GKVxQnFmBuJH6vl2ptnjqIEIRtCqzlUq1sVsLGGfoaV5bjJA7vt
+         QA0lladoUwfZ90X//yMghSakFBIWC6KSCxJmehuZNTSpGV26w/lkvLis7LrBdN9X/ORd
+         o/951mpQU/H7ATA+4LnTTK2TEOrI8WYLlMhChTjwLOxL8mxy85MwoLjEUTyHNLCxjdQm
+         q1IlBMp4fSotbhCPl/XK2Cus/GMm/nrzzRxjLKU3+wyum+hSnGEqxWVPoNsMyxtiKUiH
+         BsPV82qfwYn55bVTvSQSgjvRC7qFFcltwpI9n0dq1dhOffwHFu1bJHpa/Stszx49sJiD
+         MgIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795294540; x=1795899340;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iA9GCTJobddBAA9FdF1LmGHUJsNDSuUG1BPvcdAHjlw=;
-        b=OsUjIrveSukEF9JOcm5t+uxRCIT9QDuKO9DfBkaveM+BCvBs6r2cS3DNzaBOCccO9W
-         pFwrE+45ABwUdzBqoqNHhe4kGT5WFVqMpG7uKPdwVRxSp5xAeialu33dz1boVi82BFzR
-         2C4jbC4Mohr3CzhJ+LmtYLevvAD/uPFope+8NAIdiS9l3JU14Iy3UKaxZzyrz3mRPftX
-         mC/oLPTXZncCZsm/ccgltPy9OJhl+SjtHk6D0zHg1mcrPfm097EQrezZKQ/uZ+H0uRGl
-         DWhrlRK2BRZl/7JJ3/R5/aWtUmXqe6xFhbXL5c/+8s5lkzlK57K5JRI3YOme+uSg9whg
-         TVCA==
-X-Forwarded-Encrypted: i=1; AL+hErGVB/VVcxqVi6YAcNRd+hfz1CRezB/m3pKCJB/mc58cJ0lp7TaqOUEOjTFBiaSHUYsdjt0Um6A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AoXeE84YhYYczPxcIj9zSGtf9J4I2ydCsGqa3lba22kQkHYLq
-	2ccX99MA94mNatftEALF/fUqTzJqCP36UZbxTBa+kFXC2ud7FMs0G8V/TAOhIKcUSg==
-X-Gm-Gg: AZFdTZd1WGk3+tladjyHDYTppKO9+8R4Cf2WM1hMW5831ucgdYM007JI3gPUstc+WcV
-	rbKs9Vr+WvbgUYP3owjdwZeDxLc2kNHC8fHYKCUb1QUl6BIBLne8i6NmvgwMlrqIbeOEOJSWHdE
-	AmZKHOm2OPUK+3xVkORHsJMTlvp7dzExJ2R7JWdQYPtbc04hj3eSPI+lL6KtbTIjZHnfpnkLngL
-	aJL0d6y/3SXnXbGWjbwl/uSRliseSH+kApns4tkWQE7rGXdkvv8JTT3ilg6aFMp+iyjsRrM5Sqo
-	za02KiequEp8Ca4XQJtdwqezca5OtQn9IWHkA5HXi8FVsMyL4c3L6CZABvkNvc+LHIeCNqwTcgR
-	7AA9PetCVUz2N6d4liqzyL/9rlQHNbLoXeipT+yiv/sxjZ4JqV7mmwXl1S+HphzKRrAFUQK30TW
-	wfSliOMyRvKTblSvHPdtGyCCc+IOiJdkidsYvK36asr5NIZdTbWyTnSWGe3q23x5ZYY1SzRdtti
-	kLKxfP+jmTh99Ys0pdKWHDvEj58BG9Ut/aTVAu/WBjQZDF3nZnkcWtE8DSpOmlaiEzN83jxviog
-	yY6ePLVKoUrlT22szEA/40DZqvUZSsXXvionPkIAyqBptqHv8U73tIj89dGc+SuZah24ZqKHYjw
-	AG/sN/8NSwNKT8rGWy6X1PhrFgAzuw1iNY1JBzcyRqdfaQ0STCJDW5fSSW16UD2BKFOhmpfjEad
-	yTiqlimD5OQTxycjVqKvYEQjGiAm9VLr4V4cXdSlm/62DObA14yzjF1dlBvp7rL091OUlR6Hl2a
-	Q/QHg85hw0lPzM08GJna8uIYzaHt9jcdqwr455te5avWX7rn1SQ8/451Ss7vP1VaJObFM+5Eu9j
-	bO/WYlIe4kCethL3eU/XMbQS5H5amEG2/MIUTSuTqzK+xMefO3Am6pnkYq7txJ/ZQHLjnqC4GqX
-	i
-X-Received: by 2002:a17:907:9693:b0:c4d:331c:2e97 with SMTP id a640c23a62f3a-c513ab47f5fmr622642366b.36.1795294539912;
-        Sat, 21 Nov 2026 12:55:39 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f2470dfa000000000000000a27.dip0.t-ipconnect.de. [2003:f2:470d:fa00::a27])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea28f4sm237136666b.33.2026.11.21.12.55.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 12:55:39 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: netfilter-devel@vger.kernel.org
-Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	netdev@vger.kernel.org,
-	bridge@lists.linux.dev,
-	coreteam@netfilter.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH nf-next v11 3/3] selftests: netfilter: nft_flowtable.sh: roam a host between two bridge ports
-Date: Sat, 21 Nov 2026 21:55:35 +0100
-Message-ID: <20261121205535.1888592-4-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261121205535.1888592-1-julius@bairaktaris.de>
-References: <20261121205535.1888592-1-julius@bairaktaris.de>
+        d=1e100.net; s=20260707; t=1795294621; x=1795899421;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
+        b=x7sYcGcndni43ljviI4ClKN4XYQe+NMsAbbUQSGKHNiET/lsWHKnJ/9gsM0zt63Glk
+         NWi9oIZQ63PLHQu+qxz/WCspz+q0Uxhr5gTHkF0/f9lcgwU5r+x0oy7qLZfdO/YAoy0P
+         1IA1OLFyJNl/4lKSBXZKVXKOO6X2PdB4pE0VwK8KII7t15FsaORcFhevK+LPg+sEs5+d
+         RiCPKHUvdD5FgjKDiarPWXTguozenoJZUm4k5LLY045v3MNHpFNP5X6uJ6aEu2bf6quC
+         yAHqPXdJxwYrgFSh3moOhKbuNda3BuFIC8w2VTj2QihVJtNWaSCbM0wTr1bA2zqqTN6J
+         08fw==
+X-Gm-Message-State: APuU4Z+1YeRvaNVwwrX2O5wKKE/7VhyUtQg2fhJrw4UL2rF9ng3DRm9X
+	zV48vXMeHxN3v4EZcbJZ4HMYh7x3Lpi8WXQ02PtkWZ2ZSsMJw5b2+BPIy177oo1YSoc9vIKnVB1
+	YIXLddbqnVCpAzYN9DDKW5hWF0ATuOik=
+X-Gm-Gg: AZFdTZd2/KAKjH3ssSsiG5ugbBR2joaPOb2s84q5wclKbM6BsCzrP5Tj8ywxbllm+D2
+	MqFZlYfIrJEQM4Q9K5s0RmyhFF0PaqNDNlmrv8nxUGz8hmk4Da6FxXCMNMfisCLyzNUmHBqH3Dj
+	KPbwhxmeyTCL0cGWVTEErW2U/1M453axkrM5MmLW4YBGUd/KU+nQ/ZqZigHjpMHJcg8iOoSeBVT
+	ohUddsvkomEliG7Bv32P6tAwTW3z32qC5igaHNWflhGi+BULly+Gk8Z2z9ZQsOw/gpxYaY5GRvM
+	pYehXdKVTjpWX/5xIYbIaUk9Z9qrKa2f9rGGDZ65FVHkDLt0anhIP25dWISMBLvPjyxsG4qHs36
+	d1DpIWrUzzOxIAR09em6NC18Kiv2WpATyh0giZ22CowOaA9oL450R+kjZZ/KfcDXoxt92ICP9Ti
+	TYPyKG0qmKP3M3TWNtHXRNbqQH8s7v
+X-Received: by 2002:a05:690e:47c9:20b0:67c:6e6b:2b58 with SMTP id
+ 956f58d0204a3-67df442352cmr1473959d50.29.1795294621418; Sat, 21 Nov 2026
+ 12:57:01 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,439 +104,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261121001414.724236-1-ralerrdirsardx@gmail.com> <179522023307.3294.6067722832080574797@kernel.org>
+In-Reply-To: <179522023307.3294.6067722832080574797@kernel.org>
+From: Artemii Mashanov <ralerrdirsardx@gmail.com>
+Date: Sat, 21 Nov 2026 23:56:50 +0300
+X-Gm-Features: Aa3M54rI9vOhz5FwN5wgejilnXxYc_imK086uF8S01hpRCkqWw3qDXtfbHw3p0s
+Message-ID: <CAGHp__ZrFmXW82R9hpyzRGL0ORdFF=Q-yvcNMFELRyHrfJMzJw@mail.gmail.com>
+Subject: Re: [PATCH net] net: mlx4_en: report the actual RX classification
+ rule count
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, Tariq Toukan <tariqt@nvidia.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	linux-rdma@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Move a host to another port of a bridge on the router while its flow is
-offloaded, and check that the transfer continues and is offloaded again.
-The cases are plain and vlan bridge ports, vlan ports whose real devices
-are ports of another bridge, "bridge fdb replace", a pinned and then
-deleted fdb entry, an aged out entry (the flow must stay), the plain
-case over IPv6, and a vlan_filtering bridge with untagged ports, with
-tagged plain and vlan ports, and with the router address on a vlan
-device on the bridge. Two cases give the ports vid 10 untagged while
-their pvid stays 1, with a host that tags what it sends: the router
-address on a vlan device on the bridge, and on the bridge with pvid 10.
-With "stack" the bridge port is a vlan device of another bridge, and
-with "stackout" the host moves from behind that bridge to a port of the
-outer one. Three cases check that the flow follows what the bridge
-delivers: the host's port is disabled and its vlan leaves the port
-(the flow must stop in both), and vlan_filtering is turned off before
-the host roams. In two cases the host is the remote end of an IPIP and
-an IP6IP6 tunnel on the router, whose flow transmits to the bridge port
-below the tunnel.
+Hi,
 
-Without the gc check the transfer stalls when the host moves.
+I found this while auditing ETHTOOL_GRXCLSRLALL handlers. Reading
+mlx4_en_get_rxnfc() showed that the original loop used rule_cnt
+as its stopping condition and could return success without
+reporting how many rule locations it had copied.
 
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
-v11: the host roams below an IPIP and an IP6IP6 tunnel on the router,
-which Pablo's series offloads as direct xmit to the bridge port
-v10: https://lore.kernel.org/netfilter-devel/20261115005555.645727-4-julius@bairaktaris.de/
+The ioctl behavior described in the commit message was inferred
+from the original code. I did not reproduce it through an ioctl
+on a running kernel. I tested the patched handler in a standalone
+harness with ASan and UBSan, checking the returned rule count and
+the -EMSGSIZE return when the buffer was too small.
 
- .../selftests/net/netfilter/nft_flowtable.sh  | 390 ++++++++++++++++++
- 1 file changed, 390 insertions(+)
+An earlier revision also built as mlx4_en.ko against Linux
+7.4-rc2. I did not test the change on real mlx4 hardware.
 
-diff --git a/tools/testing/selftests/net/netfilter/nft_flowtable.sh b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-index 449c518bd947..6ae84472790f 100755
---- a/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-+++ b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-@@ -851,6 +851,396 @@ test_ipip
- 
- test_bridge
- 
-+# set by setup_ns, which reuses a name it already holds
-+rns1="" rnsr="" rns2=""
-+
-+# Roam a host between two ports of a bridge on the router while its flow is
-+# offloaded, as a station moving between two access points attached to ports
-+# of one bridge. The host keeps its address and mac on a bridge of its own and
-+# roams by moving that bridge's port, so only the fdb changes. With a vid the
-+# bridge ports are vlan devices, whose ifindex differs from the device the
-+# flow transmits on. With "replace" the router's fdb entry is sticky and the
-+# move is a "bridge fdb replace". With "del" the host stays, its entry is
-+# pinned to the other port and then deleted, and a ping relearns it. With
-+# "age" the host stays and its entry ages out, which must not tear the flow
-+# down. A flow that stays on the fast path leaves no more than a few packets
-+# in the forward chain, the counter tells offloaded from slow path. The plain
-+# roam also runs over IPv6, and on a vlan_filtering bridge: with untagged
-+# ports ("vf"), whose fdb entries are keyed by the pvid of the port, with
-+# tagged ports ("tag"), and with untagged ports and the router address on a
-+# vlan device on the bridge ("upper"). "asym" and "asymkeep" give the ports
-+# vid 10 untagged while their pvid stays 1 and the host tags what it sends,
-+# with the router address on a vlan device on the bridge or on the bridge with
-+# pvid 10. With "stack" the port of br0 is a vlan device on br1, whose ports
-+# the host moves between; with "stackout" the host moves from behind br1 to a
-+# port of br0. With "block" the host's port is set to the disabled state,
-+# which must stop the flow. With "vdel" the host's vlan leaves its port, which
-+# must stop the flow, and with "toggle" vlan_filtering is turned off before
-+# the host roams. With "ipip" and "ip6tnl" the host is the remote end of a
-+# tunnel on the router, and the flow through the tunnel transmits to the
-+# bridge port below it.
-+test_bridge_roam()
-+{
-+	local vid=$1 how=$2 fam=${3:-4} vf=$4 trunk=$5 tun=$6
-+	local p0=sr0 p1=sr1 r0=rr0 r1=rr1 rbr=br0
-+	local mac=02:00:00:09:01:99
-+	local what="roaming on bridge${vf:+ with vlan_filtering}"
-+	[ "$vf" = tag ] && what="$what and tagged ports"
-+	[ "$vf" = upper ] && what="$what and a vlan device on the bridge"
-+	[ "$vf" = asym ] && what="$what, a vlan device on the bridge"
-+	[ "$vf" = asymkeep ] && what="$what and the bridge pvid"
-+	[ "${vf#asym}" != "$vf" ] && what="$what untagged on ports of pvid 1"
-+	what="$what${vid:+ with vlan ports}"
-+	case "$how" in
-+	block) what="$what, the host's port disabled" ;;
-+	vdel) what="$what, the vlan leaving the port" ;;
-+	toggle) what="$what, vlan_filtering turned off" ;;
-+	?*) what="$what by fdb $how" ;;
-+	esac
-+	[ "$trunk" = trunk ] &&
-+		what="$what whose real devices are ports of another bridge"
-+	[ "$trunk" = stack ] && what="$what on a vlan device of another bridge"
-+	[ "$trunk" = stackout ] &&
-+		what="$what from a vlan device of another bridge to a port"
-+	local ftdevs="rr0, rr1, rw0"
-+	local hn=10.9.1 wn=10.9.2 dot=. len=24 nodad="" ip6="" srv=10.9.2.99
-+	local min=10000000
-+	local dev old new slow fdb lpid cpid win=2
-+
-+	if [ "$fam" = 6 ]; then
-+		hn=dead:9:1 wn=dead:9:2 dot=:: len=64 nodad=nodad ip6=-6
-+		srv="[dead:9:2::99]"
-+		what="$what over IPv6"
-+	fi
-+	[ "$tun" = ipip ] && what="$what below an IPIP tunnel"
-+	[ "$tun" = ip6tnl ] && what="$what below an IP6IP6 tunnel"
-+
-+	setup_ns rns1 rnsr rns2
-+	# router solicitations of the host would pass the bridge and refresh
-+	# its fdb entry
-+	if [ "$fam" = 4 ]; then
-+		ip netns exec "$rns1" sysctl -q \
-+			net.ipv6.conf.all.disable_ipv6=1 \
-+			net.ipv6.conf.default.disable_ipv6=1
-+	fi
-+
-+	if ! ip -net "$rnsr" link add br0 type bridge \
-+	     ${vf:+vlan_filtering 1} 2>/dev/null; then
-+		echo "SKIP: could not add bridge for $what"
-+		[ "$ret" -eq 0 ] && ret=$ksft_skip
-+		return
-+	fi
-+
-+	ip link add sr0 netns "$rns1" type veth peer name rr0 netns "$rnsr"
-+	ip link add sr1 netns "$rns1" type veth peer name rr1 netns "$rnsr"
-+	ip link add rw0 netns "$rnsr" type veth peer name w0 netns "$rns2"
-+	if [ "$trunk" = stackout ]; then
-+		ip link add sr2 netns "$rns1" type veth peer name rr2 \
-+			netns "$rnsr"
-+		ip -net "$rns1" link set sr2 up
-+		ip -net "$rnsr" link set rr2 up
-+		ftdevs="$ftdevs, rr2"
-+	fi
-+	for dev in sr0 sr1; do
-+		ip -net "$rns1" link set "$dev" up
-+	done
-+	for dev in rr0 rr1; do
-+		ip -net "$rnsr" link set "$dev" up
-+	done
-+
-+	if [ -n "$vid" ]; then
-+		for dev in sr0 sr1; do
-+			ip -net "$rns1" link add link "$dev" name "$dev.$vid" \
-+				type vlan id "$vid"
-+			ip -net "$rns1" link set "$dev.$vid" up
-+		done
-+		p0=sr0.$vid; p1=sr1.$vid
-+	fi
-+	if [ -n "$vid" ] && [ "${trunk#stack}" = "$trunk" ]; then
-+		for dev in rr0 rr1; do
-+			ip -net "$rnsr" link add link "$dev" name "$dev.$vid" \
-+				type vlan id "$vid"
-+			ip -net "$rnsr" link set "$dev.$vid" up
-+		done
-+		r0=rr0.$vid; r1=rr1.$vid
-+	fi
-+	if [ -n "$trunk" ]; then
-+		ip -net "$rnsr" link add br1 type bridge
-+		ip -net "$rnsr" link set rr0 master br1
-+		ip -net "$rnsr" link set rr1 master br1
-+		ip -net "$rnsr" link set br1 up
-+	fi
-+	if [ "${trunk#stack}" != "$trunk" ]; then
-+		ip -net "$rnsr" link add link br1 name br1.$vid \
-+			type vlan id "$vid"
-+		ip -net "$rnsr" link set br1.$vid up
-+		r0=br1.$vid; r1=br1.$vid
-+	fi
-+	# the host moves from behind br1 to a port of br0
-+	[ "$trunk" = stackout ] && { r1=rr2; p1=sr2; }
-+
-+	ip -net "$rnsr" link set "$r0" master br0
-+	[ "$r1" != "$r0" ] && ip -net "$rnsr" link set "$r1" master br0
-+	ip -net "$rnsr" link set br0 up
-+	if [ "$vf" = tag ]; then
-+		for dev in "$r0" "$r1"; do
-+			bridge -n "$rnsr" vlan add vid 10 dev "$dev"
-+		done
-+		bridge -n "$rnsr" vlan add vid 10 dev br0 self pvid untagged
-+		for dev in "$p0" "$p1"; do
-+			ip -net "$rns1" link add link "$dev" name "$dev.10" \
-+				type vlan id 10
-+			ip -net "$rns1" link set "$dev.10" up
-+		done
-+		p0=$p0.10; p1=$p1.10
-+	elif [ "$vf" = upper ]; then
-+		for dev in "$r0" "$r1"; do
-+			bridge -n "$rnsr" vlan add vid 10 dev "$dev" \
-+				pvid untagged
-+		done
-+		bridge -n "$rnsr" vlan add vid 10 dev br0 self
-+		ip -net "$rnsr" link add link br0 name br0.10 type vlan id 10
-+		ip -net "$rnsr" link set br0.10 up
-+		rbr=br0.10
-+	elif [ "$vf" = asym ] || [ "$vf" = asymkeep ]; then
-+		# vid 10 leaves the ports untagged but is not their pvid; the
-+		# host tags what it sends, so the entry is learned in vid 10.
-+		for dev in "$r0" "$r1"; do
-+			bridge -n "$rnsr" vlan add vid 10 dev "$dev" untagged
-+		done
-+		if [ "$vf" = asym ]; then
-+			bridge -n "$rnsr" vlan add vid 10 dev br0 self
-+			ip -net "$rnsr" link add link br0 name br0.10 \
-+				type vlan id 10
-+			ip -net "$rnsr" link set br0.10 up
-+			rbr=br0.10
-+		else
-+			bridge -n "$rnsr" vlan add vid 10 dev br0 self \
-+				pvid untagged
-+		fi
-+	fi
-+	ip -net "$rnsr" addr add $hn${dot}1/$len dev $rbr $nodad
-+	ip -net "$rnsr" addr add $wn${dot}1/$len dev rw0 $nodad
-+	ip -net "$rnsr" link set rw0 up
-+	ip netns exec "$rnsr" sysctl -q net.ipv4.ip_forward=1
-+	ip netns exec "$rnsr" sysctl -q net.ipv6.conf.all.forwarding=1
-+
-+	# the host takes untagged frames into vid 10 and sends it tagged
-+	host_port() {
-+		ip -net "$rns1" link set "$1" master stbr
-+		if [ "$vf" = asym ] || [ "$vf" = asymkeep ]; then
-+			bridge -n "$rns1" vlan add vid 10 dev "$1" pvid
-+			bridge -n "$rns1" vlan del vid 1 dev "$1"
-+		fi
-+	}
-+	ip -net "$rns1" link add stbr type bridge
-+	if [ "$vf" = asym ] || [ "$vf" = asymkeep ]; then
-+		ip -net "$rns1" link set stbr type bridge vlan_filtering 1
-+		bridge -n "$rns1" vlan add vid 10 dev stbr self pvid untagged
-+		bridge -n "$rns1" vlan del vid 1 dev stbr self
-+	fi
-+	ip -net "$rns1" link set stbr address $mac
-+	host_port "$p0"
-+	ip -net "$rns1" link set stbr up
-+	ip -net "$rns1" addr add $hn${dot}99/$len dev stbr $nodad
-+	ip $ip6 -net "$rns1" route add default via $hn${dot}1
-+
-+	ip -net "$rns2" addr add $wn${dot}99/$len dev w0 $nodad
-+	ip -net "$rns2" link set w0 up
-+	ip $ip6 -net "$rns2" route add default via $wn${dot}1
-+
-+	if [ -n "$tun" ]; then
-+		local tn=10.9.3 wnet=$wn.0
-+		[ "$fam" = 6 ] && tn=dead:9:3 wnet=$wn::
-+		if ! ip -net "$rnsr" link add rtun type "$tun" \
-+		     local $hn${dot}1 remote $hn${dot}99 \
-+		     ${ip6:+encaplimit none}; then
-+			echo "SKIP: could not add tunnel for $what"
-+			[ "$ret" -eq 0 ] && ret=$ksft_skip
-+			return
-+		fi
-+		ip -net "$rns1" link add stun type "$tun" \
-+			local $hn${dot}99 remote $hn${dot}1 \
-+			${ip6:+encaplimit none}
-+		ip -net "$rnsr" link set rtun up
-+		ip -net "$rns1" link set stun up
-+		ip -net "$rnsr" addr add $tn${dot}1/$len dev rtun $nodad
-+		ip -net "$rns1" addr add $tn${dot}99/$len dev stun $nodad
-+		ip $ip6 -net "$rns1" route add $wnet/$len dev stun
-+	fi
-+
-+	# no neighbour probes, so the host only sends when it receives
-+	ip -net "$rnsr" neigh replace $hn${dot}99 lladdr $mac nud permanent \
-+		dev $rbr
-+	ip -net "$rns1" neigh replace $hn${dot}1 nud permanent dev stbr \
-+		lladdr "$(ip -net "$rnsr" -br link show br0 | awk '{print $3}')"
-+
-+	if ! ip netns exec "$rnsr" nft -f - <<EOF
-+table inet filter {
-+  counter roam_repl { }
-+  flowtable f1 { hook ingress priority 0; devices = { $ftdevs }; }
-+  chain forward {
-+    type filter hook forward priority 0; policy accept;
-+    meta oif "rw0" tcp dport 12345 flow add @f1
-+    meta iif "rw0" tcp sport 12345 counter name roam_repl flow add @f1
-+  }
-+}
-+EOF
-+	then
-+		echo "SKIP: could not load ruleset for $what"
-+		[ "$ret" -eq 0 ] && ret=$ksft_skip
-+		return
-+	fi
-+
-+	# the host discards what it receives, its socket byte counter is read
-+	rx_bytes() { ip netns exec "$rns1" ss -tin "dst $srv" 2>/dev/null |
-+		grep -o 'bytes_received:[0-9]*' | head -1 | cut -d: -f2; }
-+	rx_started() { local n; n=$(rx_bytes); [ "${n:-0}" -gt 0 ]; }
-+	# forward chain packets of the reply direction since the last call
-+	slow_pkts() { ip netns exec "$rnsr" \
-+			nft reset counter inet filter roam_repl |
-+		grep -o 'packets [0-9]*' | cut -d' ' -f2; }
-+	roam_listener_ready() {
-+		ss -N "$rns2" -lnt -o "sport = :12345" | grep -q 12345
-+	}
-+
-+	roam_stop() {
-+		kill "$cpid" "$lpid" 2>/dev/null
-+		wait "$cpid" "$lpid" 2>/dev/null
-+	}
-+
-+	timeout $((SOCAT_TIMEOUT * 5)) ip netns exec "$rns2" socat -u \
-+		OPEN:/dev/zero TCP$fam-LISTEN:12345,reuseaddr &
-+	lpid=$!
-+	if ! busywait "$BUSYWAIT_TIMEOUT" roam_listener_ready; then
-+		echo "FAIL: $what: listener did not start" 1>&2
-+		ret=1
-+		kill "$lpid" 2>/dev/null; wait "$lpid" 2>/dev/null
-+		return
-+	fi
-+	timeout $((SOCAT_TIMEOUT * 5)) ip netns exec "$rns1" socat -u \
-+		TCP$fam:$srv:12345 OPEN:/dev/null &
-+	cpid=$!
-+
-+	if ! busywait "$BUSYWAIT_TIMEOUT" rx_started; then
-+		echo "FAIL: $what: transfer did not start" 1>&2
-+		ret=1
-+		roam_stop
-+		return
-+	fi
-+	sleep 2
-+	slow_pkts > /dev/null
-+	old=$(rx_bytes)
-+	sleep 2
-+	new=$(rx_bytes)
-+	slow=$(slow_pkts)
-+	if [ -z "$slow" ] || [ $((${new:-0} - ${old:-0})) -lt $min ] ||
-+	   [ "$slow" -gt 100 ]; then
-+		echo "FAIL: $what: not offloaded before the roam:" \
-+		     "$((${new:-0} - ${old:-0})) bytes," \
-+		     "${slow:-no} forward chain packets" 1>&2
-+		ret=1
-+		roam_stop
-+		return
-+	fi
-+
-+	if [ "$how" = age ]; then
-+		# ageing_time is in centiseconds
-+		ip -net "$rnsr" link set br0 type bridge ageing_time 200
-+		win=10
-+	elif [ "$how" = del ]; then
-+		bridge -n "$rnsr" fdb replace $mac dev "$r1" \
-+			master static sticky
-+		sleep 2
-+		bridge -n "$rnsr" fdb del $mac dev "$r1" master static
-+		ip netns exec "$rns1" ping $ip6 -c 2 -W 1 -q $hn${dot}1 \
-+			>/dev/null 2>&1
-+	elif [ "$how" = block ]; then
-+		# the bridge no longer delivers there, nor may the flow; the
-+		# disabled state sticks without STP and keeps the fdb
-+		bridge -n "$rnsr" link set dev "$r0" state 0
-+	elif [ "$how" = vdel ]; then
-+		# the bridge no longer delivers to the host, nor may the flow
-+		bridge -n "$rnsr" vlan del vid 1 dev "$r0"
-+	else
-+		# roam: move the host bridge to the other port and send on it
-+		if [ "$how" = toggle ]; then
-+			ip -net "$rnsr" link set br0 type bridge \
-+				vlan_filtering 0
-+			sleep 2
-+		fi
-+		if [ "$how" = replace ]; then
-+			bridge -n "$rnsr" fdb replace $mac dev "$r0" \
-+				master static sticky
-+		fi
-+		ip -net "$rns1" link set "$p0" nomaster
-+		host_port "$p1"
-+		ip netns exec "$rns1" ping $ip6 -c 2 -W 1 -q $hn${dot}1 \
-+			>/dev/null 2>&1
-+		if [ "$how" = replace ]; then
-+			bridge -n "$rnsr" fdb replace $mac dev "$r1" \
-+				master static sticky
-+		fi
-+	fi
-+
-+	# the bytes in flight at the roam drain within the first seconds; a
-+	# stale flow delivers nothing after that, a torn down one resumes and
-+	# is offloaded again.
-+	sleep 4
-+	old=$(rx_bytes)
-+	sleep 4
-+	new=$(rx_bytes)
-+	slow_pkts > /dev/null
-+	sleep $win
-+	slow=$(slow_pkts)
-+	# before the host's FIN passes the bridge and relearns the entry
-+	fdb=$(bridge -n "$rnsr" fdb show br br0 | grep "$mac.*master")
-+	roam_stop
-+
-+	if [ "$how" = vdel ] || [ "$how" = block ]; then
-+		if [ $((${new:-0} - ${old:-0})) -gt 0 ]; then
-+			echo "FAIL: $what: $((${new:-0} - ${old:-0})) bytes" \
-+			     "delivered to a port that does not forward" 1>&2
-+			ret=1
-+		else
-+			echo "PASS: flow offload for $what"
-+		fi
-+	elif [ "$how" = age ] && [ -n "$fdb" ]; then
-+		echo "FAIL: $what: the host's fdb entry did not age out" 1>&2
-+		ret=1
-+	elif [ $((${new:-0} - ${old:-0})) -lt $min ]; then
-+		echo "FAIL: $what: transfer stalled after the roam" 1>&2
-+		ret=1
-+	elif [ "$slow" != 0 ]; then
-+		echo "FAIL: $what: $slow forward chain packets after the roam" \
-+			1>&2
-+		ret=1
-+	else
-+		echo "PASS: flow offload for $what"
-+	fi
-+}
-+
-+test_bridge_roam ""
-+test_bridge_roam 100
-+test_bridge_roam "" replace
-+test_bridge_roam "" del
-+test_bridge_roam "" age
-+test_bridge_roam "" "" 6
-+test_bridge_roam "" "" 4 vf
-+test_bridge_roam "" "" 4 tag
-+test_bridge_roam 100 "" 4 tag
-+test_bridge_roam 100 "" 4 "" trunk
-+test_bridge_roam 100 "" 4 "" stack
-+test_bridge_roam 100 "" 4 "" stackout
-+test_bridge_roam "" block
-+test_bridge_roam "" vdel 4 vf
-+test_bridge_roam "" toggle 4 vf
-+test_bridge_roam "" "" 4 upper
-+test_bridge_roam "" "" 4 asym
-+test_bridge_roam "" "" 4 asymkeep
-+test_bridge_roam "" "" 4 "" "" ipip
-+test_bridge_roam "" "" 6 "" "" ip6tnl
-+
- KEY_SHA="0x"$(ps -af | sha1sum | cut -d " " -f 1)
- KEY_AES="0x"$(ps -af | md5sum | cut -d " " -f 1)
- SPI1=$RANDOM
--- 
-2.53.0
+Thanks,
+Artemii
 
+=D1=81=D0=B1, 21 =D0=BD=D0=BE=D1=8F=D0=B1. 2026=E2=80=AF=D0=B3. =D0=B2 03:1=
+7, <netdev-bot+sinfo@kernel.org>:
+>
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
