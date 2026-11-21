@@ -1,76 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795265616;
-	b=YZoKeO7GR5x6GezRYW5JBInKvfqslr/sno3Z2SaTlL7QSdVNdGpTFhjVQR7q4beB25Is
-	 NIQ3Wd2RRa1QTShuFjrT774J9T0QsT5jx8eonVHiQGp+tTzGyeMBPuAWh2TkZm4qOLsob
-	 irKgaZ1gK9Yod13riPfue20V3QEWGqpFJ3cskx7woamzTEChdU8Xgj9Ae2GF0V90iPL78
-	 nKXFlou8QRwN2uyBxDeEqPmG9EE2WsI3EW96kzbxr9DtuOO2eRT+l96Hqpd6siZzVym5/
-	 skIV3STGJWb06WI4Epr7YbeWqdN3373vpiaLPPJSAPFe/MWV5cmIbOlh+AE7uqpAdLg==
+	t=1795266035;
+	b=Y6h3NsAfnlmItIsoYa6Ir5Dza+qutc+poSzrguPAVIOJ6E1wnktVThDzpb5c/LUTlXyb
+	 pSgok1vEDGKKH9h7u10r7IbI6K70ehKDiZSNsKXH4AFca4nd4xBTagn3ZnHdpw2Yt7IlG
+	 xMvZRSdxSxdv2IwGbetgQX8xu47H7+8nNoejg/3pVBnImSM+bCN1mjQw37rTIsHD/CpoT
+	 Ojg5J+chsCiXA6o1+ZKFAdIKyp6ijiyNvhy538x8v1XFkCnEdzUhrGTM9W7tdjVpdA8R4
+	 s0ufHxC7mBbpfzKNOzfPzfWHiJwYayfROWAkZMPEUD0yCVWTgXdpFK6NDCKxEfxcOqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795265616;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Debian-User;
-	bh=Kv39YFS3gCTmTIBEpLn+LTr7Kna7mVqtgec2/Wwwicg=;
-	b=HV/LvRIe7CQLRz4RRKp+1hWRwmUoSYbveOtP1msP931pWKmDcZC/XBP26BifRLbW1ppJ
-	 5GBMS+ICCpuxzeQjNxNzep+Zb9KgdmFLrkTbm6OFFuUfNKVA1wr8L+vdPAyVmHdlaRF71
-	 L/zFe8v6XMlcc8NqvgF6H3nmntb+azk8q+VIJJnpDqZwC3kdczzD2+LuiRAkToOF4nQOD
-	 nqlI7uEZX/NH8dTgLLf/CDpw6aOOjiGDLqxq/AsZeugWbLjdb7Fk0uxuXIVKApgme+ieg
-	 M3OeKmgyU6jknlkW9GjMaHgsbyDnHwp2FxsRNiUwClSoDVGdPPcdIxcB0ffYila8UHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266035;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=NXIuNB3ZQ4GT/Hz3ry1FYljBSts0wnPjJe/0CXC9B/Q=;
+	b=ik86/PEZ54ckwr6sKhdEZZyGhShBnwpygFaF9kCxH/Ap5BeKNfdeAeV3eDrV3d4j8KQA
+	 qffBRJHGbS1/uIbWJO4OXhKJgsXeOOddxjxiea8kd06+OsjOSls4vdMtkKCTYlj/Ptfeg
+	 r3HhacGfkrBJmDFyCigzCkfIFHU7ShBGcwA/4RF4f2nX8GG1gDMDw1Lu42QfQ65qozQMk
+	 FIiYMX2bAoJE/FpCql/lHif4kMZ+qRjLl6m5xkAkQP3jg8KS8owM3cZ09l4wfEBi/XSxg
+	 URFONmdQReshxwfYtSfWKcHkmNEtteyXS+SizS9JAFCf1JjqNfaoI5xYpcWG5ZqUO6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=D0Tve2Qu;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=RNtRAbmQ;
+	arc=none smtp.remote-ip=209.85.222.171
+Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com [209.85.222.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 799DF606A32A;
-	Sat, 21 Nov 2026 12:53:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 799DF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1C8606A330
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 13:00:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B1C8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=D0Tve2Qu
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Kv39YFS3gCTmTIBEpLn+LTr7Kna7mVqtgec2/Wwwicg=; b=D0Tve2QuWJTHNHXcUWkFbcPJC6
-	TOiab1mhHs6+yzFNQHQnVJYMmE0HwdjNO4aoMN/HLWc3urlQ9nXzmbb34/0NKQmmZYBczP5RgddvH
-	vzPz1NHrWYJie+e/K15GD8dlMYj/CXf9w0DKH/xT+vKgtCjYmNk69C+vpkiU9O7hPkWzKKLzrAg8f
-	Nf25l5vkdz8GZzeFje0DF2iR2MHUoNElJSn8yGmhHt0W4XZ0syoVlw9TUXq0J+bzrExPGV8ZX7Oht
-	60GhviSwhWNnr2BnnEi+keEhlEd9U+CK57Qc7Ndr6c3hpqyWnxHuLJc10iKwBlrRkHh3/olbdjqs0
-	hUkL9QWg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1xUkaj-003fOK-0z;
-	Sat, 21 Nov 2026 12:53:17 +0000
-Date: Sat, 21 Nov 2026 04:53:09 -0800
-From: Breno Leitao <leitao@debian.org>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Willem de Bruijn <willemb@google.com>, 
-	Neal Cardwell <ncardwell@google.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-kselftest@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH net-next 1/3] net/tcp-ao: convert the getsockopt helpers
- to sockopt_t
-Message-ID: <awGTN1cIEnnlAMPq@gmail.com>
-References: <20261112-getsockopt_phase7-v1-0-1eb759dd0929@debian.org>
- <20261112-getsockopt_phase7-v1-1-1eb759dd0929@debian.org>
- <avdxDgmlDBTRgqM0@devvm16445.scu0.facebook.com>
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=RNtRAbmQ
+Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-9496577d4c4so211391185a.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 05:00:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795266034; x=1795870834; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NXIuNB3ZQ4GT/Hz3ry1FYljBSts0wnPjJe/0CXC9B/Q=;
+        b=RNtRAbmQYXLSiaEjtX2aUWytq3ybkP6vzvMM/GYzBbb22sqY7OMQwI+6PVQp9DHcAr
+         lhyzXBhfLKqVcuJ8sVYNtP2aRDK4nll7J9DPE5KKQ2CAiVa+LkTWYungYQISMsCYyeh8
+         hpGt4X4Nli6qalkIo2q0QmQpZOhYwDWO5tabVR1HVgZiiW3bleQnCJNRgfq3ll0kyepq
+         3gsRAOgqgRVcju81U/9by/AXAbdfkcF2NzQSoJbhod4BZL71XZp0atz6aRPfoC9lunEa
+         hlKhShuYNK3XPf/2DcuSXs5DhYd1yfNh3h4hIJmP4ba3ACaEg6LShMxd5328jY0CMk/1
+         hndQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795266034; x=1795870834;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NXIuNB3ZQ4GT/Hz3ry1FYljBSts0wnPjJe/0CXC9B/Q=;
+        b=Vx+IddRbMfWjL0oZp+W5bWs9TQUEMn2+tKHQknKGOBnVxaKdqSonP8/elnjIbKTvdy
+         meOPLlr9CDQuQq+DkTbpHB+6Vz54hiloDt7xvOHzQDGM9FmpPR314ykFMhRihoSRiYys
+         yYxj2mBZ2UIllQGcpaTUSPyC/OtaG9iNiB5KFd2mupVM/HXbNkVkfx9Kyb+XnikBv1y5
+         rxIpw8VUIwAyntMjVgJUXfnBtUSxHImGP/GMtfUiKTdZv+wjdquA44M2xiI87sA2g/On
+         C6jWTRsHK9k2PKKyTYSGVGa8wR4Uk4ZZnWZe2qe7euUA13ukIrEV0EFC0xyKHi0V0qOy
+         SeaA==
+X-Forwarded-Encrypted: i=1; AL+hErHml6IFiNBxP+nGhs4iVq4Pf9U/p7ws+NjkmkK7H1IRefqZ5cl98s2PqTNNiZm3cpU6RxixuVs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92EtoZba+0TaF7FO0uPQ6de9z0blWnLK4W2ySY591RCTStiq5P
+	wzZEiXCbvqfYHO2Ltsa7UD0ZubUpFcLrKpzuuvzyjw3x23CTgUJhRZ6zf597r3Qo+AU=
+X-Gm-Gg: AZFdTZdp3D7v2YJpj+GElkaf88/PJvfDOo6Q22Wd56mnprwkySn4I6BZOkTd1pcZQOd
+	nJUdbfQuBQKCqEj2i33lfK57MXbV4XUtopf8hCE2HBed+Bt1wdXkxMtuppcI1p3sREkYIbkH+EU
+	oY0ZeAn6SbUpyGCXJZv/a3kyy7lwcy9sMtYUMyqLKCVljQx5EsXsnbU19ziLzrjXyc9lG8f4yfF
+	fIOGJE9UqqsKlKtvwevkNcazD+Zf1IISoWD6I9X9lBI4UMILzTXgILbsX+wYR3XwcWs9TOhCLmJ
+	hxNxifApkqyo2MQ+PNeYK8GojqL5SQP/8fT46C9Wx2yIF+/Njig+yGlbYRP/prsC0ajsUS6rmEH
+	jF/mNPRKqa3Idjbom/OctA22JO7WlfBGX13Rnj4dnaMSi8moWoyBAjySxPFbU22X1+bXtTrleFU
+	PKpNKpVu65Nocx4SJ4UvV8tEX3rVnFLQosQbUjgio4xEfHwue1RJQ07OffVzQOqKf/3g0tWNUTn
+	kN2sDsLddGd2K19JX07bGBZw6zJc8pMC8JuVLVmblxtnEtxKhk+IM8YCzomC8sWbr3Rm/Ji1LHg
+	wag6Fig4WEgnc1zmExDjq/RmVCfaG2H3OzyDuBcNBBjjeDGtIXmCH3g7uMBHzFwyBANkwrNW/nJ
+	dRfv71NKMoVFxsQJgOTKV1i3o3fJ7cZz1SHpAQ9eN/zzDCfo=
+X-Received: by 2002:a05:620a:2786:b0:93e:5677:317b with SMTP id af79cd13be357-949b35e9b3fmr1046746285a.25.1795266033942;
+        Sat, 21 Nov 2026 05:00:33 -0800 (PST)
+Received: from localhost ([204.244.107.52])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb427388sm408593585a.42.2026.11.21.05.00.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 05:00:33 -0800 (PST)
+Date: Sat, 21 Nov 2026 08:00:32 -0500
+From: Ralph Siemsen <ralph.siemsen@linaro.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, khendry@reliablecontrols.com,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 1/6] dt-bindings: clock: r9a06g032-sysctrl: Document
+ reset cells
+Message-ID: <awGV8BU_AfaXQyBv@maple.netwinder.org>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
+ <awARmkCuelD_fdX6@shikoro>
+ <5d8530485716d129be2efa0518254e3322cecdb0.camel@pengutronix.de>
+ <awAq7vxcY8CGjhNl@ninjato>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,62 +122,31 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <avdxDgmlDBTRgqM0@devvm16445.scu0.facebook.com>
-X-Debian-User: leitao
+In-Reply-To: <awAq7vxcY8CGjhNl@ninjato>
 
-On Fri, Nov 13, 2026 at 12:21:27PM -0800, Stanislav Fomichev wrote:
-> On 11/12, Breno Leitao wrote:
-> > @@ -2214,6 +2213,21 @@ static int tcp_ao_copy_mkts_to_user(const struct sock *sk,
-> >  	}
-> >  
-> >  	bytes_to_write = min_t(int, user_len, sizeof(struct tcp_ao_getsockopt));
-> > +
-> 
-> [..]
-> 
-> > +	/* The reply is up to nkeys entries, user_len apart, with the match
-> > +	 * count in the first entry's nkeys, so it can outgrow optlen. Size it
-> > +	 * by the keys on the socket rather than by the caller's nkeys.
-> > +	 */
-> > +	hlist_for_each_entry_rcu(key, &ao_info->head, node,
-> > +				 lockdep_sock_is_held(sk))
-> > +		nr_keys++;
-> > +	reply_len = max(array_size(min(max_keys, nr_keys), user_len),
-> > +			offsetofend(struct tcp_ao_getsockopt, nkeys));
-> > +	err = sockopt_expand_out(sopt, reply_len);
-> > +	if (err)
-> > +		return err;
-> > +	head = sopt->iter_out;
-> 
-> Is that faster / cleaner / more preferable than calling sockopt_expand_out
-> on every iteration hlist_for_each_entry_rcu below?
+On Fri, Nov 20, 2026 at 12:11:42PM +0100, Wolfram Sang wrote:
+>
+>> > > +#define R9A06G032_RST_TS		1
+>> > > +#define R9A06G032_RST_MIIC		2
+>> >
+>> > I didn't find any listing of the resets in the RZN1 docs, so coming up
+>> > with arbitrary numbers as we need them seems okay to me.
+>>
+>> Why aren't we starting at 0?
+>
+>I wondered as well but clocks are also starting from 1, so we could
+>argue with consistency.
 
-sockopt_expand_out() can't be called once something went through
-iter_out. It re-anchors the iterator at the head of optval, so it WARNs
-and returns -EINVAL if the iterator has already moved.
+The clocks use value 0 to indicate "no parent clock", but only for the 
+".source" element of struct r9a06g032. The encoding macros add and 
+subtract 1 to the clock IDs, so it should in fact be possible to use 
+0-based values even for the clocks. Too late to change now since the 
+values are encoded into DTBs.
 
-That check came in v2 of the series that added the helper [1], because
-a late call would rewind the write cursor. With a call per key, the
-second key would trip it.
+Thinking about it some more, perhaps instead of using 0 as the special 
+case for "no parent", we could set .source to match .index. In other 
+words a clock pointing to itself means "no parent". Worth changing? 
 
-So the size has to be known before the first entry is written, which is
-why the keys are counted first. ip_mc_gsfget() does the same and sizes
-its source list by min(sl_count, gf_numsrc). tcp_ao_info just keeps no
-key count, hence the walk.
-
-Sizing by nkeys alone doesn't work either: a large nkeys would hit the
-MAX_RW_COUNT check and get -EINVAL, where today it copies only the keys
-that match.
-
-The extra walk seems very cheap. The keys come from sock_kmalloc(), so
-optmem_max caps how many a socket holds, and the socket lock keeps the
-list stable between the two walks.
-
-I'll say this in the comment and resping a v2.
-
-Thanks for the review, you are being key to this whole convertion,
---breno
-
-[1] https://lore.kernel.org/20260914-getsockopt_phase6-v2-0-e48befc9602e@debian.org
+Ralph 
