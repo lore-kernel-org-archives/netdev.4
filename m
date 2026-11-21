@@ -1,100 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795294622;
-	b=m/7sLgYDfYaeKgdVwLkjN2WhB22vEAOQm7oGJUub10uH9pNS5Eyb5oxugZ+/dIiQUWLg
-	 f6uZTnJU/7CEjru79WheIcmm0yzS8n+7KzadE1HLLR5tGA8uaK8D/4nTpDsFwgJizOMq+
-	 YA1lhV03fRDFjjqnHwn/SP7ka3KMFthEJ0payZLdxxDtv8UDjbMuOXUGAgrTQTw9qMFvm
-	 yXsh0zxAjQPYgkkgglodzV06gBxtLTLidJpWwZme+GxxxtO+a+syN1zErZumVH2TTCdjZ
-	 QWy/0xvjtWYZnziSycet2iwPMjCKbSZIO3Q6ku6cWFQWrQsPpRX+kI7YrdUpID3xWtg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795294622;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.198
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795294780;
+	b=rLsrj2kKnc32tla5ddVXyYRlCvjSejaHlt6pFg0ZTrAjaGJSfHy5NEIZQCkAlhNTUztK
+	 8vIGCI94gDkcH3NvyLSeCRxRA10ZzqCXMCnFfRsC/9yEcScFpGB79ZOuQQY4oOh05PJQX
+	 jGRM93lrQJIIKHlqMX4rsn5kJ40YDyn2qO7iRmm/p+wrbhJI0z2kklXWTJsOEyO4XLVil
+	 oxNEvYhyCOfS8sh4hh/bl7MZR1rqag/+T5IeXug9BC6VGygKc0ssKsFLXucqPDcFGoVmd
+	 tQOfwXhnLjhb9UGsFnk45kBPgh9/evkVDSkqPnsBDid+F5BoekQlDgVwmuirSX7ndhA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795294780;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
-	b=q+9la6NtcVzgDxtLJPU8fWBcQIwbOezSs+FGsRk++c8V5MSIh1XDLaHIgf4Tn6CpB+mn
-	 gm5uZS3Gn6224JKOz8ssP+/S7crb5uy1NYqLrGgPk54FsUSx4hFV+x5xFhSlcL2Db834T
-	 nISgmU8Kw20sq3I8x57LNtGMEE68JlMZxDwOHc5TWfoPrnLkVUjReFSb8CU6hhI5vCQ2Y
-	 uwMQp/OQZHSzPJ7oyxQYQbOvaqqYCQiwsy/9TcSbVXlbR2Fy0uRihwuI8+3onpH1Uqk4o
-	 u5OH5Po+sMd5orTjTbI4bxRX+3xkY86TIOvD8VOgta/9EbcH60GkqZg06a3A5pd8XRg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L8TpTXAE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
-Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=RVGwbYQ/BaNH5jxmpcByIU0RN5kUZ7bBLT/Duqul7Nw=;
+	b=K4oPOviKugB7KUS6i9Q7uAC98lhQVXAVvmp5s7HmnVQpDbv3Q6tAkhJsU2UxKi0JcNOW
+	 sVRs/mM482KrbQ/P9hGHW1/1i7yoYCCfniwn9MzXcEsWvbi7P40lrCuhezXK0wDVobg76
+	 02A14HWV8DdNbnmgO/E3SHU4tBBssoJuz0+s0CVvxTw0a6SkxH2ENsl4qKMNI52INJB/5
+	 zoggPvomso2UYeLdefzYirSrCxG+pzt8OhbM241Dq9l6OmSwJq6T0wNqKZOj3FKFsJ7Zp
+	 V/cP+tfQhmvrd1++xj8B/HxS+I/7TOAYHHQ5r2OUyC3KXEH2TRtz3k/+Lm6CZ8STiBQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jcshLppX;
+	arc=none smtp.remote-ip=209.85.210.198
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 700BB606A330
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:57:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 700BB606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46B71606A320
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:59:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46B71606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L8TpTXAE
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-679aeeddc6bso1917223d50.2
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 12:57:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795294621; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ca8xywQGX16vuXWKXhGsW/71UADqT8cCrwoN2yqeT6yyrg8CaMYHuO49rx0P8Q/u09
-         rv7R4jDv2zD6hXWPP3KGv6+NXg/7zLaTnvlScn8ymMBekPsnR6x/F2hrJeTjcPDzJEu9
-         f1ztS59SC1A2t8OccDJGCjIUZbBkmJtIMinvasxDke1COccL6K4SDCHAIdhJcAY1VTqx
-         CY7c4kWixazr7a0eII103zmjyCoXPyybZp0yOIQSalBYGlOofrRl9aPmJILJnVMVUG8E
-         nBPs4YatdaF1WE26Bslj+XZPUsPgeQFL0C6JX1oOaedLkpt/1Us3/HEUXEbVkjO76KN1
-         YgSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
-        fh=xu7u2sA8t8EJVsJsZkN/9gLfmqBhLzBy6XmzLAKjTv4=;
-        b=QU5XeYo9GSHyxt6XG71em+w58n1nt2Z1ti844aRkYRCNrz+3ch8mC0mqNZWKwff5v0
-         5PcnzZ2/9KzQNDoIpVN4oyn9xfQ8NJso1P7medupSy/2kDpsGRarbt7aQ61MxDP7kKfY
-         kYsaxJX5gZKU7AlV8+/5EsZ0FDohwPYWIpokUs3O/OBLglZT2PkslK3WYqud3knPzYka
-         BbXHnnbIGr2Pyy+JZnjO83uM9UnfiEQtBV/UaI1k47zbUcKUFtl/0gt5Ztg30JL7x5P5
-         8VT0HoA59bNtTz48aRhpjz2yQ7GXcjCorGkutfE9NUw1KNoGTOx35uK19wkPFVEC6c75
-         M/BQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jcshLppX
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8a06750c74fso1562687b3a.0
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 12:59:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795294621; x=1795899421; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
-        b=L8TpTXAEpiXgcy2GKVxQnFmBuJH6vl2ptnjqIEIRtCqzlUq1sVsLGGfoaV5bjJA7vt
-         QA0lladoUwfZ90X//yMghSakFBIWC6KSCxJmehuZNTSpGV26w/lkvLis7LrBdN9X/ORd
-         o/951mpQU/H7ATA+4LnTTK2TEOrI8WYLlMhChTjwLOxL8mxy85MwoLjEUTyHNLCxjdQm
-         q1IlBMp4fSotbhCPl/XK2Cus/GMm/nrzzRxjLKU3+wyum+hSnGEqxWVPoNsMyxtiKUiH
-         BsPV82qfwYn55bVTvSQSgjvRC7qFFcltwpI9n0dq1dhOffwHFu1bJHpa/Stszx49sJiD
-         MgIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795294621; x=1795899421;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795294779; x=1795899579; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+f7+ztUOyhaovcSK8/cLlVw1Izw6zMt7sIYYHaQmuRQ=;
-        b=x7sYcGcndni43ljviI4ClKN4XYQe+NMsAbbUQSGKHNiET/lsWHKnJ/9gsM0zt63Glk
-         NWi9oIZQ63PLHQu+qxz/WCspz+q0Uxhr5gTHkF0/f9lcgwU5r+x0oy7qLZfdO/YAoy0P
-         1IA1OLFyJNl/4lKSBXZKVXKOO6X2PdB4pE0VwK8KII7t15FsaORcFhevK+LPg+sEs5+d
-         RiCPKHUvdD5FgjKDiarPWXTguozenoJZUm4k5LLY045v3MNHpFNP5X6uJ6aEu2bf6quC
-         yAHqPXdJxwYrgFSh3moOhKbuNda3BuFIC8w2VTj2QihVJtNWaSCbM0wTr1bA2zqqTN6J
-         08fw==
-X-Gm-Message-State: APuU4Z+1YeRvaNVwwrX2O5wKKE/7VhyUtQg2fhJrw4UL2rF9ng3DRm9X
-	zV48vXMeHxN3v4EZcbJZ4HMYh7x3Lpi8WXQ02PtkWZ2ZSsMJw5b2+BPIy177oo1YSoc9vIKnVB1
-	YIXLddbqnVCpAzYN9DDKW5hWF0ATuOik=
-X-Gm-Gg: AZFdTZd2/KAKjH3ssSsiG5ugbBR2joaPOb2s84q5wclKbM6BsCzrP5Tj8ywxbllm+D2
-	MqFZlYfIrJEQM4Q9K5s0RmyhFF0PaqNDNlmrv8nxUGz8hmk4Da6FxXCMNMfisCLyzNUmHBqH3Dj
-	KPbwhxmeyTCL0cGWVTEErW2U/1M453axkrM5MmLW4YBGUd/KU+nQ/ZqZigHjpMHJcg8iOoSeBVT
-	ohUddsvkomEliG7Bv32P6tAwTW3z32qC5igaHNWflhGi+BULly+Gk8Z2z9ZQsOw/gpxYaY5GRvM
-	pYehXdKVTjpWX/5xIYbIaUk9Z9qrKa2f9rGGDZ65FVHkDLt0anhIP25dWISMBLvPjyxsG4qHs36
-	d1DpIWrUzzOxIAR09em6NC18Kiv2WpATyh0giZ22CowOaA9oL450R+kjZZ/KfcDXoxt92ICP9Ti
-	TYPyKG0qmKP3M3TWNtHXRNbqQH8s7v
-X-Received: by 2002:a05:690e:47c9:20b0:67c:6e6b:2b58 with SMTP id
- 956f58d0204a3-67df442352cmr1473959d50.29.1795294621418; Sat, 21 Nov 2026
- 12:57:01 -0800 (PST)
+        bh=RVGwbYQ/BaNH5jxmpcByIU0RN5kUZ7bBLT/Duqul7Nw=;
+        b=jcshLppXGdP3eE8tP6dm/Df7IEarVkHSO/HEZ+WaKsqrmNtUq7UrTDn5UZozgWFeZR
+         4eaD2mgvmiytcgkRWU+OIRl57KrAtk24pQZ8jsamX0bkb7wQCLBDIK17FbMErGUYPfTW
+         DhJ1ECnS2HzLtqVFk+kQ+TUuDvQM5xfN20B/DNaFVwqJJgc/n+UISoCuJ5BAvnQ3XDTY
+         n+xl/12iGuqMdhl6IHmSPz9lLf4bqp3jUzXPYMNjDjZ+Hy+X36AidWIu91MIvwxJ58No
+         ddQbFn/G6T75wbcOaces1C8j4GatoCAYRu20uIvYHa5R+dtVdln+MxjdDk42SlxYFpBL
+         DO5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795294779; x=1795899579;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RVGwbYQ/BaNH5jxmpcByIU0RN5kUZ7bBLT/Duqul7Nw=;
+        b=YwpUdaxUxPkTC4skNTHO2IkdRxkxUwWAai7kGfnsLwWdeVoDxRMQoMzc7OqaXqJpoR
+         adnDhBjB7Ij4EXjTW1C3K5O/kwsdLNd0fM+cVdlws2TKA3JxfSVU2/hE7Q5C+u/rGbmj
+         t1pIq0++3AIIpK07EZ/VpbKIr0mVyKNq9bHw+7B8XcECYY1O1NflNYuAAOV/csBtwySA
+         UQBlEaIsqBXbwjYVDI61HgZJzMZw3ppmHkXLp70ADQAA8e9jU+5DOXpXkfbYU/H4I3Od
+         WbueBg8f8cabTeSNn1D07z7Pi3BVk0swglFWqd4AqaSqZqyBGVyQgaB5zNAKFVrrQhAY
+         Km2w==
+X-Forwarded-Encrypted: i=1; AL+hErGXaqtHHAuOPhfCeK6ZcxBQOFOyQt+3krqqF8y5MnJWlebflZg4SHd9Hx2bBICOnXDm5V4KWM8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+2CZ/VrAbOxSNXvyRTzM1xnBS4V5UF98syfNTgtu0NSm6zTeQF
+	Kqr5MVw+xhJOca2S7mRKIEOZ79Zh3Sn4T9W+oZcUBjpXKJRlx9RkSPWnlL90Bhvp7b+R9GTLdxn
+	ke8I0nA==
+X-Received: from pfld16.prod.google.com ([2002:a05:6a00:1990:b0:8a0:8283:82bb])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:898c:b0:3fb:5a07:e08b
+ with SMTP id adf61e73a8af0-4014e255372mr5415345637.80.1795294779171; Sat, 21
+ Nov 2026 12:59:39 -0800 (PST)
+Date: Sat, 21 Nov 2026 20:59:38 +0000
+In-Reply-To: <20261119192133.2632936-1-dmnk@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,68 +77,97 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261121001414.724236-1-ralerrdirsardx@gmail.com> <179522023307.3294.6067722832080574797@kernel.org>
-In-Reply-To: <179522023307.3294.6067722832080574797@kernel.org>
-From: Artemii Mashanov <ralerrdirsardx@gmail.com>
-Date: Sat, 21 Nov 2026 23:56:50 +0300
-X-Gm-Features: Aa3M54rI9vOhz5FwN5wgejilnXxYc_imK086uF8S01hpRCkqWw3qDXtfbHw3p0s
-Message-ID: <CAGHp__ZrFmXW82R9hpyzRGL0ORdFF=Q-yvcNMFELRyHrfJMzJw@mail.gmail.com>
-Subject: Re: [PATCH net] net: mlx4_en: report the actual RX classification
- rule count
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, Tariq Toukan <tariqt@nvidia.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	linux-rdma@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+References: <20261119192133.2632936-1-dmnk@google.com>
+Message-ID: <awIFzZAOeSiQsUCY@google.com>
+Subject: Re: [PATCH net] inet: release newly acquired port on
+ inet_csk_listen_start() hash error
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Dominik Maier <dmnk@google.com>
+Cc: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Joanne Koong <joannelkoong@gmail.com>, netdev@vger.kernel.org, 
+	dmnk+artist@google.com
+Content-Type: text/plain; charset="us-ascii"
 
-Hi,
+On Thu, 19 Nov 2026 20:21:33 +0100, Dominik Maier wrote:
+> When inet_csk_listen_start() is called on a socket that has not been
+> explicitly bound, sk->sk_prot->get_port() allocates an ephemeral port
+> and links the socket into bhash and bhash2 without setting
+> SOCK_BINDPORT_LOCK. If sk->sk_prot->hash() then fails (for example,
+> when a prior failed connect() left icsk->unhashed_state set to
+> TCP_SYN_SENT so inet_hash() returns -EINVAL), inet_csk_listen_start()
+> resets sk_state to TCP_CLOSE and returns the error without releasing
+> the newly acquired port.
+> 
+> Because inet->inet_num remains non-zero while SOCK_BINDPORT_LOCK is
+> unset, a subsequent Fast Open connect on a dual-stack AF_INET6 socket
+> can update sk_v6_rcv_saddr via tcp_v4_connect() without rehashing the
+> bhash2 entry. Disconnecting with AF_UNSPEC then invokes
+> __inet_put_port(), which locks the new address's bhash2 bucket while
+> unlinking and freeing tb2 from the original bhash2 bucket without
+> holding its spinlock.
+> 
+> Record whether icsk->icsk_bind_hash was already populated before
+> get_port(). On error, after transitioning back to TCP_CLOSE and before
+> purging the Fast Open RST queue, clear inet->inet_sport and call
+> inet_put_port(sk) if get_port() newly bound the socket. Sockets that
+> were explicitly bound before listen() retain their user-bound port.
+> 
+> This issue was discovered with an AI-assisted code review tool (ARTIST)
+> and reproduced in QEMU/KVM on an unmodified v7.4-rc3 kernel without
+> kernel modifications or error injection; a standalone reproducer is
+> available upon maintainers' request. An earlier revision of this fix was
+> verified against the reproducer in QEMU/KVM; this version, rebased onto
+> commit 342e62fd34c2 ("tcp: purge Fast Open RST queue when listen() fails"),
+> was checked with checkpatch.pl --strict.
 
-I found this while auditing ETHTOOL_GRXCLSRLALL handlers. Reading
-mlx4_en_get_rxnfc() showed that the original loop used rule_cnt
-as its stopping condition and could return success without
-reporting how many rule locations it had copied.
+Please move the last paragraph under ---.
 
-The ioctl behavior described in the commit message was inferred
-from the original code. I did not reproduce it through an ioctl
-on a running kernel. I tested the patched handler in a standalone
-harness with ASan and UBSan, checking the returned rule count and
-the -EMSGSIZE return when the buffer was too small.
 
-An earlier revision also built as mlx4_en.ko against Linux
-7.4-rc2. I did not test the change on real mlx4 hardware.
+> 
+> Fixes: 8cc3aef0cb19 ("tcp: Do not allow buggy transitions between ehash and lhash2.")
 
-Thanks,
-Artemii
+This is not needed.
 
-=D1=81=D0=B1, 21 =D0=BD=D0=BE=D1=8F=D0=B1. 2026=E2=80=AF=D0=B3. =D0=B2 03:1=
-7, <netdev-bot+sinfo@kernel.org>:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by LLM and not proven at runtime). If it was triggered
->    please include the symptoms, like the stack trace or kernel messages.
->
->  - What hardware the change was tested on. For driver fixes please
->    mention the device (and if relevant firmware version) used for
->    testing, or say that the change was not tested on real hardware.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+
+> Fixes: 28044fc1d495 ("net: Add a bhash2 table hashed by port and address")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Dominik Maier <dmnk@google.com>
+> ---
+>  net/ipv4/inet_connection_sock.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/net/ipv4/inet_connection_sock.c b/net/ipv4/inet_connection_sock.c
+> index 9a3b05e..2f367a1 100644
+> --- a/net/ipv4/inet_connection_sock.c
+> +++ b/net/ipv4/inet_connection_sock.c
+> @@ -1369,6 +1369,7 @@ int inet_csk_listen_start(struct sock *sk)
+>  {
+>  	struct inet_connection_sock *icsk = inet_csk(sk);
+>  	struct inet_sock *inet = inet_sk(sk);
+> +	bool bound;
+>  	int err;
+>  
+>  	err = inet_ulp_can_listen(sk);
+> @@ -1385,6 +1386,7 @@ int inet_csk_listen_start(struct sock *sk)
+>  	 * It is OK, because this socket enters to hash table only
+>  	 * after validation is complete.
+>  	 */
+> +	bound = !!icsk->icsk_bind_hash;
+>  	inet_sk_state_store(sk, TCP_LISTEN);
+>  	err = sk->sk_prot->get_port(sk, inet->inet_num);
+>  	if (!err) {
+> @@ -1398,6 +1400,10 @@ int inet_csk_listen_start(struct sock *sk)
+>  	}
+>  
+>  	inet_sk_set_state(sk, TCP_CLOSE);
+> +	if (!bound && icsk->icsk_bind_hash) {
+> +		inet->inet_sport = 0;
+> +		inet_put_port(sk);
+> +	}
+
+Please move this to the block above after ->hash() failure
+and call inet_put_port() before clearing inet_sport.
+
+---
+pw-bot: cr
