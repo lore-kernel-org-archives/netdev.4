@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304662;
-	b=2Mfa0gJvGi8ZFJ6nBdOQ8EVaWPB4pfSty7/CV98fs930yhK6Spj/3l2N5uWb6wZWy2Uw
-	 EoZejVjE5wGz+EGCNmnKmmTMuk0ZEw77nKhnTtB/OHu/uC0rKHpIi452M433X2gBXbTuO
-	 BFcXG4mLIoAgzF5ZKPsrktK/9PcBUpouOr/M9QtMpR8TkJfv3UsFAAisYHZoEICN0sP3x
-	 XptnZpz8CVzD88Ygvjnse6EiaxcOIf9goYbPm4rDA0gKFvkKsJSFXF7avRPoA0NOZovTx
-	 VbdjHjkFIvck3hwZJ0m3rOsAB2k//Rr17NvT2dGQqY8Vh2zKOHleyJWVsU+gKSQr1Eg==
+	t=1795304663;
+	b=D/GdYpAkxhPtEMyukeRj9FslQdvXxerowKdj/VtkYl5qWIoE680kwFYufMFlLe8by1XI
+	 CWvraoOSSJPc06QUN0eIcggQOULSeh25TBLUA6+Y0wXUVHaoUWvPnEezWYhVrEoHf3Imt
+	 TFpTa1pov+d+JxKKJXgMpfu2rqdwAhdOg9Kqyej9Ga6qz075lbfD9dFrtImZoc419itmh
+	 93aWhp8NCUhgLnGci12oY1itA9GSpzJvu7GlzOqZvkpNr9LL/k1HrKyL7T8rUiaAsL4eN
+	 NLEYhOgjE+3wGr/S8BKzyEpWy7MNawBbahGaT90tURTRDxd9qY5fJPkOZo4dnn6xYPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304662;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304663;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=eAH6oR/rt2izJh32uxloNKAo9wkoKxfTpTY+3FcUDAE=;
-	b=TCXdCjVGxrLM9LJXwnzQQCwxSZ1oDOP2DAtBBBZZ6vhiT931bLU42mPUzqjutH+E3XrR
-	 awwjNRL3Cxgg7zTBbFtDO2OPb5393MeuB1xYo57VywMsYjMwRXPIsgJkEazHt5hcUzwPG
-	 GNj/sNMlW3h/2oZhJyAl4YJR8L+4rrlx0Tyka3izlH5AY/f4Fjh/7+44M1Q8rDQjcYvkk
-	 DW+b7jC7IKqNRklW7PYtQjOJ1009O6F62bueHhJFVRgWFQGh7KYTSbRkbjARanDELAxeR
-	 tvRe8OcGkSFHkUMnu6h9usfRlMFcIbHgZ39asTlrUMGvLl0rP2oSmY4ZKwan0onZrxQ==
+	bh=bJv2CRi9uextI7SDskU+t+k/eig77lL331lPw8tX8+Y=;
+	b=1I3KWwQWdCh7ROlJto9K8dAM/vlPDu81zRoQPtCMPjpdD2NTPqT57ci8vxn3LPKEa9iL
+	 oZLNSAdlSF597cXpSV07IM+IDpMbWf2L5g8OtwdD+vY/6SWsqwfKmmGgis1Cm81DOrbqA
+	 flKkq9Hhd89sPWihm0vWrrLGWLavUz+IijXZE5yjrhzTong1HtFXD4lvYAmzWPXmAXB/Q
+	 y6wGJLj87zH40cTPRqphHZez6vPXqvWO/DNHpfzq5Xk9cV3wkdmpZ8a8FiBU0ZDV/Lkix
+	 2G9o8kTxdNa9RBEZL0ac99P9YZSFcouftaN9QALrzl4ylMdwI9ADzrLDc/D7+hSFrPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aqRzFgAJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbv8iWP4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6BC5606A333;
-	Sat, 21 Nov 2026 23:44:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C8E4606A337;
+	Sat, 21 Nov 2026 23:44:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aqRzFgAJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 804491F000C6;
-	Sat, 21 Nov 2026 23:44:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbv8iWP4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084531F000C0;
+	Sat, 21 Nov 2026 23:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795304661;
-	bh=eAH6oR/rt2izJh32uxloNKAo9wkoKxfTpTY+3FcUDAE=;
+	s=k20260515; t=1795304663;
+	bh=bJv2CRi9uextI7SDskU+t+k/eig77lL331lPw8tX8+Y=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=aqRzFgAJ4mhAp9SxhH4cSj+hENUOExjeM6B4OuOPtJUiazYKI/Ou2n5NV9byVeX35
-	 n+4JbtJchcIZmtajGqXr6QGETl5PFZRxcF6XDKQ83wNeCwvgylgtvw8wA7Cvt8qIBs
-	 Ory9AfyWi/9DB+t2oS3FPr+8Rx0woD/ZqdCKSqKAsd6qYPLagnavrY6migTHovP9Ip
-	 4YSq9d88nHlFwxIkqNM3lqPp2bSSKKEBBCp9FfkbRZxPGsGvmAyO0OWLKx0Ept2blJ
-	 InyNO5mDApVQb2bxDCGJc4JrSZX4slp/UWMXIJPBVODmX4nry4WC/de7oviZHP71Oh
-	 rTCOEB5e73yyA==
+	b=Nbv8iWP4eDIu7oYO4iAVCFUX/wOcOenIU8cUMWaTZezQZRRNPcPIirGaJpfk6OPjy
+	 aXhzmCYIb/kMAmBKmYcD/pOqlMBSy08l73X80CpSw37mOVbsHuYhZOSoKq/sOiqhec
+	 BHBYH7ahS5CwjhYrYr//gdhwPXbzlnsAoOPuYdAf04fDmYfmDsZG111IiFoK7Fn0Y5
+	 y9F5ocZ5JHYkzjf2o7sqXGJiicrr6r+DkEW4nv8QA3HvSjyS/xsQVfsuS+V/vO4Cb7
+	 8Jrmt0dp8gVz7QVpl+MF9bPFj9oHZ6Muo9pcJDFH2/ulB0+o7Gw9q8PZ0NM6Ol2320
+	 KEwOKiE2HTJKw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77426391B08F;
-	Sat, 21 Nov 2026 23:44:21 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15AF391B08F;
+	Sat, 21 Nov 2026 23:44:22 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,39 +54,40 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net/mlx5: E-Switch,
- skip vport change work for disabled vports
+Subject: Re: [PATCH net] net: initialize sk_peer_lock in cloned sockets
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179530466002.1212208.7295232184844541072.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 23:44:20 +0000
-References: <20261118165155.1946097-1-tariqt@nvidia.com>
-In-Reply-To: <20261118165155.1946097-1-tariqt@nvidia.com>
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, gal@nvidia.com,
- leon@kernel.org, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- mbloch@nvidia.com, parav@nvidia.com, roid@nvidia.com, saeedm@nvidia.com,
- shayd@nvidia.com, udar@nvidia.com, vuhuong@nvidia.com
+ <179530466152.1212208.3098530208274110712.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:44:21 +0000
+References: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
+In-Reply-To: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
+To: Henry Martin <bsdhenrymartin@gmail.com>
+Cc: edumazet@kernel.org, kuniyu@google.com, pabeni@redhat.com,
+ willemb@google.com, davem@davemloft.net, kuba@kernel.org, horms@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 18 Nov 2026 18:51:55 +0200 you wrote:
-> From: Uri Dar <udar@nvidia.com>
+On Wed, 18 Nov 2026 18:17:52 +0800 you wrote:
+> sock_copy() clones a struct sock with two memcpys that both include
+> sk_peer_lock.  sk_clone() re-initializes sk_lock, but nothing resets
+> sk_peer_lock, so a clone created while the parent's sk_peer_lock is held
+> inherits the lock in the locked state.
 > 
-> A vport change work can still be pending when its vport is disabled.
-> For an SF, the vport is then freed in FW and the work's query fails
-> with syndrome 0x29d722. A disabled vport has nothing to sync, so skip
-> the work.
+> The first getsockopt(SO_PEERCRED) on such a child spins forever in
+> queued_spin_lock_slowpath().  spin_lock() disables preemption, so the
+> task never schedules and its CPU stops reporting quiescent states; RCU
+> grace periods then stop and callers of synchronize_rcu(), such as
+> expand_files() from accept(), hang.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net/mlx5: E-Switch, skip vport change work for disabled vports
-    https://git.kernel.org/netdev/net/c/890f23ba87a7
+  - [net] net: initialize sk_peer_lock in cloned sockets
+    https://git.kernel.org/netdev/net/c/ff73a2bb558f
 
 You are awesome, thank you!
 -- 
