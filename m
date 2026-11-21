@@ -1,81 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795252371;
-	b=3D99uNIoIzyILnmgmBg4HYqaoB1cZbMB9Xm8m9ofG7OdjNEUqkphCIYPvSRQtpVPZLII
-	 RNg/OVGc3YOstZnDBKyJAcszQNcckYan598MMdarJZzNIV6Ta5xHKU3UzUKxGM8tUgsc9
-	 nVFqUyxrlDdVoZouqhNDNCSHrgh7jFlp7d/Dov1BaulVBjceAZ53bfbXoe6GO/bkXPnjm
-	 u45pW90EY0wRrWedGNS/safT75tZox/V6r8qfcglJ6nYWmyZQ1Q0VVBwkFvyV0uodW3ci
-	 vme7kxtR+aTTDLAdXWT+fnthOGNUtjCFuI7VF51Cx14943biK85QWWnJepJT6VFtSXg==
+	t=1795252372;
+	b=JMOfsb5l+/WyN4byhI4wtaU7yQzG72V9EOXQA4ywfOQS5Xxi7ENMdMDnVU4zovtsHEFW
+	 +g1q+AOYHH/NC7t4clTEpF4sYNtZdfuRbZ0SyR6H9PAq12MU3qAXTw9eSjV/v7HFyg+V/
+	 Fxl9JHVTdp1lJS7ui/qPYGZGf3dXZOQBta3b/EyJAw0dlwFXc+LLuSOLCpkTHK6QlcvVC
+	 BhQ1pKgKdNu9QivPDlq1MOAq2NRtfEihf710py/adqPZCPAwki5gL1iuECHTZjxLKBwNa
+	 8huTsNPz+Q809n8MeQ99Aqn574Dkkd0hGcI30j3X1RB+aYQQgekiJulGYOqeLNL50PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795252371;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795252372;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=vZBM5U+o5g5qr2VkJs5pxg0CB5Zub+BqFihXChYM5mQ=;
-	b=CIZdDDC/1V2pr4WjpCPfF+wbIOdEQ0yJ3WgrvmFi8A5k526Lm+PrrxJ8eb+fOnxpvPLZ
-	 ACvsookoBasbW3Ah9YLfPzE3L+EHf74vetq/uYvBkQFIu9fR/5sY9vcHKOmTzYJSqVv8b
-	 nHrEWfDRzc9v6IfHEwPlqzJdHlUixVADSXzjckPpSEgs6RjJnDa4jnRl7B7snIwU3QX64
-	 VfxEqk44pPMzwJqePB5xzNGJvfHWpucK33nHlLBGd5mSwJ4qEEfmh6P7i5wRPQqDG7hxZ
-	 9KqQLqXSMm9ERraf+fawSB1mL2IATrQNhFOeyXi1nG0sIwxFykETC8wSgh7rJNcVGGw==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=x2wI2DGWgtLPS/Hc6d4m8xkbV0mW64fjKMgg0xWLe9c=;
+	b=44C0pyOAJknegYy9dC+0AEk9OtHTEexnITvUbcsSaA7+sY+BQKn2ZUdaiqeV7TODazD3
+	 P1Tnit6EpJgPZEIInRSskrU+5VLSPC3Fn9zwuchytXaa9TV5MJn7UiyEju+vmQU5goQ4F
+	 +qboDSGvk7VzGkVa0V0KKGWswkGWAjpXfYUEMWfEPAeGFnZ1466DsY3DddNkSDy9OMmE0
+	 WPp7TtY2gq/WbIzA7zdFGe0+jESen13gjZ/SRyU7NWNMhQjjef1d0/Rdf6M5PN25RpTLi
+	 H/qMdXN4KAJAq9Gaohmx2WWaQ09i8VWY6GEBbrNuxRHI+OykmK1RraG3ncSmfjWqdAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EthhrU4q;
-	arc=none smtp.remote-ip=209.85.218.48
-Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a9o+KnlM;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17C82606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 09:12:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17C82606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03F2D606A330
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 09:12:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03F2D606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EthhrU4q
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c4d2b741ed9so291837166b.2
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 01:12:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a9o+KnlM
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c5133831027so250253866b.2
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 01:12:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795252369; x=1795857169; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vZBM5U+o5g5qr2VkJs5pxg0CB5Zub+BqFihXChYM5mQ=;
-        b=EthhrU4qZ5Aj8vFEJgZX3lbR4b8JbN7g4n4kGMPi4/QLADYqeR9t+7DvcVuoXr246g
-         6gROY8Tw5HF6N/CKEH9ZbsrytOq3GVCJpA1ylMI/eqCkGq5lY6WhXFdHGKbsJ5VKA+oA
-         79oWgzPtr7e6bb9gRsAqeeaoRQjkWkJ1uMraz1H9us7REcRorqAa3vq2FkcSym+i9Wko
-         JQzvPYHoF67W27CT43aRekz3pXzomLoO95ki32G+S6QfNmcnCX5gfllhAHIK7t66ReJJ
-         FVvP5BtAC7I5fcVlywWvtmEoj0ULm9XTWKbZT08bkltVdYv/DEuCoVv9vtwdqdTqhEzv
-         o2Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795252369; x=1795857169;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795252370; x=1795857170; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vZBM5U+o5g5qr2VkJs5pxg0CB5Zub+BqFihXChYM5mQ=;
-        b=eoVogiwkyzJnt5EZgcsomjjaPCNQne8rdUWqYXlpyUMmPEQ7pqcWYAKGGnuFcGa5xD
-         dQqskadV7MXKdPlmPYM7G7yppcwyhO3a2JnFilB6aHvpxOcNkkkzhfBuQ9x6IoGoHHmB
-         6JaBuTplyxa1yVTN5NLq5zf51sR1AsN77zqE4US11gCML5K5pZ0LP9halqkUVJLni8V6
-         isLOX6WOisJp9TB8aZDQnar+Yg+9qIW1Xnu2b17JlCfXPMTmeHKCoUP/K0OJHPsoXU4e
-         sqvJXrxjfLSIf1Ojibon7qAcrteMRlPbpXOWivG0k1jbX307iRnyeI9eoFbN6744IY7t
-         7ywA==
-X-Gm-Message-State: APuU4Z+v+XUJENjkTyfbEoL6a0NG1ucbrdtjDOUoxLbvKzUK0P5DHnLq
-	/VzJyz3LxygZzUzOhTV0PITiQvBXJ8SfZlmZapb0fEwF8e6McwLoSeor
-X-Gm-Gg: AZFdTZd5TDXXG5KgnG7Lj9tLxwBYqk9+VCzQLnisV0+n/pKwPAgXLa2sMuhadtUGCIi
-	CSOquNEhwz9/g0l8yd6sJuJZNiTmzm6lM5e7ALVpZVlTy6DvdH6NUFuyTdUEr7/9is+gB0/0fx9
-	07uPoeEqyImOplC12NcRfo2rrUXp5Yd2B5OcOigboBLpCIJkMhzqXixBh0gvKGtOP46EZL+2TB9
-	CBfH3badDoiN9fWNSUy6UYNl0BwtlQgRqkLE9jNlZyR+YNT7IxHgkQjIS30LLovYUrRy9ZFORDm
-	VhUrSZbi7khRHPYn/W/PW/0AMNPR+1RriW6OjStnpkEXVA50kHNDSAXQomQsr7LcLHElUEfAvq+
-	A212nALjiTcvZfsViLko55VLSscErbBZuCzP9AR4quwUuV/Bn+2gGHKI0DggCffkcD9KgCfbKhj
-	sOJhOBLuV1RXkxA+xR8kcJTyPq5B3TqGonxQSkpY/Wm3le94EKYDdyCER8D0QNKsVunh9p/b9F/
-	ZHFqYFXbRMGWHnO55h2/lnjMdyWGhJ7gvjptJBM1rEdFOwKJsp3c55+XYHFgYyQVuGGF0E/Wa1h
-	WJJ8IcSqfNuRnwbhgpLARYLDl7ux1OxaNWjaaZL3bKGerIylv00cIPAijvKpnmXPfoFoxp7paZ2
-	DNqdpGdwOpB4xUfN46/fIRnfPp5/33bzMFFk/lhEMG8vIXwnF2fxO
-X-Received: by 2002:a17:906:e081:b0:c41:1750:59a2 with SMTP id a640c23a62f3a-c513a5ea748mr428883566b.12.1795252369184;
-        Sat, 21 Nov 2026 01:12:49 -0800 (PST)
+        bh=x2wI2DGWgtLPS/Hc6d4m8xkbV0mW64fjKMgg0xWLe9c=;
+        b=a9o+KnlMFQ4v/wcDlEM7uvhnYsA36jHwD2RFWJJ9evclgtkLldO393niAQqvUTSfBw
+         3GJjP5JccEGTouWi7L9D0cfB5owU7L4IfgYEJYWxGFIlIG9rFxxNSOoKhQrgG+rUjE6/
+         9IQjU3IDA0aWyO7/n28L/ocmxXTO9lbu6TnrAAXr4BEZwke8r822Qy7jgqHxqjLydUwb
+         pnOmBKqwqScb1lZJ5kMFDhT5jPAj4U0LYNxgretvPyPQD0ZPn1vgh0t9cJrbPg0eDIaR
+         APF2tTmDYFfd65BfiSQGxyR69qZ14DRppJLndATOkS7Ho97cPBnjeZSYBoSc31i4VfGP
+         I9Cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795252370; x=1795857170;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=x2wI2DGWgtLPS/Hc6d4m8xkbV0mW64fjKMgg0xWLe9c=;
+        b=bTTVioXMfYsWdzD4fl+2RlaID+GfzwR5dB2CUnmQBZgFkPkPN3l7RowHbx8064GIJJ
+         7y28ddW87obCG4+X/wVFiBIPsr2/xcFDb1vRDzh2nVnsHAY1tZ6LGtI2rhxrUoTYZ4mV
+         MlJAR7Odq1AGTAnxg0Zboh6ytocWTgUtzSyHvY3dy3J3XqOTAJ+8AR90zPStG/AfeyMs
+         TCmwd72Jc19R4Su92RVBXi1KOpcqxqeJ9wYZQIuT/o6u+R3gk10qyLgvSAVe5S60jHeX
+         kKJGMJTsFR/yHL6QAp36piiuYBlVkZ0ZkIdkbdZN2XLA0CNtjEHtFp4k3l/Qbgqp4Ivr
+         /zBA==
+X-Gm-Message-State: APuU4Z/AeXpQm3OAviMG06bJoef/smSIWYu72iBYmBPsRHs9AvhJLAVX
+	dMZzPB2pbqOgg+VITsjKTm5WKsPYFFghAK1UEKGu/0UNZO/XcPMa/zsF
+X-Gm-Gg: AZFdTZc01RWsngybCt0SOa2E+JaeI1tcJZeFoSMrOdjWHdzapEs7axe+6Ge8RqHJ3pJ
+	4XXzaRLJiViL9zWP1qIueVa0C988uzfvYaqD1o1FOE/6+sPCK33bc1Y2MSmxPKxfaPz3nivKLC2
+	DcvuWtCUbecpJqEq8jh7peeSSM4PW2C5T5jggU6//pZXwRdk7W1T70h9EmbZoNkNYqniN8aM3Dr
+	nVNWdscXNJScUyjm3a56dQ0kJ+A3Lf6Z4+EIG3xTt1YsI99ncALJ1uMVFWriYl87Q12s3R/ENbt
+	/LF59Lbd+hkPf3AG3SDsVkO+DdMIpxYvachKIrXzbG4Kpcfch3Fck5F2MUouwYgjJhlTcZ5/cha
+	3aw8t0UUzzC/uZLniAk0jcQ1UmosNnUfHKFFmP5Za4HUQjSF70PqohUt/zSb099teptAdr4OAaz
+	R7XOzfhUK7fxT/Yjg8GFj4G7JdYmERFipebRflSl6vDS57++Q7PULpbcLWkpTFzfa4b1Ft1QagM
+	xeVdNtDMlOmCCeRp+uv8aE15rbH0VPcl31qhGlyjKcoiCO2OZAe3y1zah8Hw5dd2JxO0K+nBj8q
+	BWB3dFq2R5GC2C0VwdY1ONTa7/3Kdd084WqHSwcIbRZyfO04JmtW/eGcVgG1PBskKPuHjXHBmUi
+	DzshYfS1UfHXfIJoNAlbMbpL7tJ6Dv2yH4p9YbxBxdxabUOT/vq1e
+X-Received: by 2002:a17:906:1b45:b0:c4c:f85f:aa2b with SMTP id a640c23a62f3a-c513a817fc7mr386047266b.24.1795252370328;
+        Sat, 21 Nov 2026 01:12:50 -0800 (PST)
 Received: from dpawlik-thinkpadp1gen7.rmtpl.csb ([46.205.218.116])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae66053sm178197666b.19.2026.11.21.01.12.48
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae66053sm178197666b.19.2026.11.21.01.12.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 01:12:48 -0800 (PST)
+        Sat, 21 Nov 2026 01:12:49 -0800 (PST)
 From: Daniel Pawlik <pawlik.dan@gmail.com>
 To: andrew@lunn.ch,
 	hkallweit1@gmail.com,
@@ -92,10 +94,12 @@ Cc: netdev@vger.kernel.org,
 	maxime.chevallier@bootlin.com,
 	olek2@wp.pl,
 	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH net-next v4 0/2] net: sfp: skip PHY probe on bridge-less OEM SFP-10G-T
-Date: Sat, 21 Nov 2026 10:12:33 +0100
-Message-ID: <20261121091235.1447291-1-pawlik.dan@gmail.com>
+Subject: [PATCH net-next v4 1/2] net: sfp: move sfp_strlen() above the quirk fixups
+Date: Sat, 21 Nov 2026 10:12:34 +0100
+Message-ID: <20261121091235.1447291-2-pawlik.dan@gmail.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261121091235.1447291-1-pawlik.dan@gmail.com>
+References: <20261121091235.1447291-1-pawlik.dan@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,57 +111,65 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Some "OEM SFP-10G-T" copper modules have no RollBall I2C-to-MDIO
-bridge, but the SFP-10G-T quirk forces RollBall on all of them. The PHY
-probe then retries for over nine minutes under rtnl_lock before the
-module links up without a PHY. This series skips the PHY probe for the
-bridge-less revisions A and B, and leaves other revisions, which do
-have a bridge, unchanged.
+sfp_strlen() is defined after the quirk table, so the fixups that the
+table references cannot use it. Move it above the fixups so that the
+next patch can match a vendor revision with the same space and NUL
+padding rules as the vendor name and part number matching.
 
-Patch 1 moves sfp_strlen() so the fixup can use it, with no functional
-change. Patch 2 adds the fixup.
+No functional change.
 
-This does not re-introduce the generic RollBall bridge probe reverted
-in commit b521003c27eb ("Revert "net: phy: sfp: probe for RollBall
-I2C-to-MDIO bridge in mdio-i2c""): the probe path, its timeouts and the
-MDIO bus creation for genuine RollBall modules are untouched. Further
-bridge-less revisions of this part number may exist; they can be added
-once their lack of a bridge is confirmed on hardware.
+Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+ drivers/net/phy/sfp.c | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
-This series is based on net-next. Patch 2 has a trivial context conflict
-in the quirk table with the pending "net: sfp: add ODI quirk and sort
-SFP quirk entries" series [1]; I can rebase whichever lands second.
-
-[1] https://lore.kernel.org/netdev/20261118162323.436219-1-github@bumblecito.com/
-
-Changes in v4:
-- Use dev_dbg() instead of dev_info() in the fixup, quirks do not print
-  anything (Andrew Lunn).
-- Collect Reviewed-by on patch 1.
-
-Changes in v3:
-- Target net-next and drop the Fixes: tag: rev A never worked without
-  the stall, so this is not a regression (Andrew Lunn).
-- Split the sfp_strlen() move into its own patch (Andrew Lunn).
-
-Changes in v2:
-- Match the vendor revision with sfp_strlen(), so NUL-padded revisions
-  are accepted like the rest of the quirk matching.
-- Spell out in the commit message how the rev B module reaches this
-  quirk entry (its part number depends on the peer speed).
-
-v3: https://lore.kernel.org/netdev/20261120063756.3677554-1-pawlik.dan@gmail.com/
-v2: https://lore.kernel.org/netdev/20261118221450.1764790-1-pawlik.dan@gmail.com/
-v1: https://lore.kernel.org/netdev/20261116093605.294365-1-pawlik.dan@gmail.com/
-
-Daniel Pawlik (2):
-  net: sfp: move sfp_strlen() above the quirk fixups
-  net: sfp: skip PHY probe on bridge-less OEM SFP-10G-T revisions A and
-    B
-
- drivers/net/phy/sfp.c | 54 +++++++++++++++++++++++++++++++------------
- 1 file changed, 39 insertions(+), 15 deletions(-)
-
+diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
+index 915156743701..8406ad8ee786 100644
+--- a/drivers/net/phy/sfp.c
++++ b/drivers/net/phy/sfp.c
+@@ -482,6 +482,20 @@ static void sfp_fixup_rollball_cc(struct sfp *sfp)
+ 	sfp->id.base.extended_cc = SFF8024_ECC_10GBASE_T_SFI;
+ }
+ 
++static size_t sfp_strlen(const char *str, size_t maxlen)
++{
++	size_t size, i;
++
++	/* Trailing characters should be filled with space chars, but
++	 * some manufacturers can't read SFF-8472 and use NUL.
++	 */
++	for (i = 0, size = 0; i < maxlen; i++)
++		if (str[i] != ' ' && str[i] != '\0')
++			size = i + 1;
++
++	return size;
++}
++
+ static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
+ 				struct sfp_module_caps *caps)
+ {
+@@ -660,20 +674,6 @@ static const struct sfp_quirk sfp_quirks[] = {
+ 	SFP_QUIRK_S("ZOERAX", "SFP-2.5G-T", sfp_quirk_oem_2_5g),
+ };
+ 
+-static size_t sfp_strlen(const char *str, size_t maxlen)
+-{
+-	size_t size, i;
+-
+-	/* Trailing characters should be filled with space chars, but
+-	 * some manufacturers can't read SFF-8472 and use NUL.
+-	 */
+-	for (i = 0, size = 0; i < maxlen; i++)
+-		if (str[i] != ' ' && str[i] != '\0')
+-			size = i + 1;
+-
+-	return size;
+-}
+-
+ static bool sfp_match(const char *qs, const char *str, size_t len, bool prefix)
+ {
+ 	size_t qs_len;
 -- 
 2.56.1
 
