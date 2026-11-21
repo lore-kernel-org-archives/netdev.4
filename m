@@ -1,49 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795226429;
-	b=5hmEjEbUzRrza+TH1lJ5BAaB0vl7t4zQQQ7e8umn8BfX80EQP//9wjVZnfokTVv3VxcZ
-	 k7/QRv6sQzjFC/z9zsi7T379ax5heW+XgAFr+DSKEesabYwtSOq4caZlp+Y2kDtM6aB4s
-	 sIa6KWWuJsUTEixUM1rCJxdColaflAuglaBLJm+eoqj6e/jpnxvzbUQEdglwD7lwH7Dwr
-	 98b1aQqLII7JWRZmmWztohgJqVeNw5it5Bfx551PDmEQVOVfCLErYXa82R7tVgI8d/4b/
-	 oqtMChM0Gz8xdRainMQcs7aDFi1prQap8cCmaIqlTAApVFA7R/zp24FfyhDUU2XvYBQ==
+	t=1795226589;
+	b=lCjfQtOh2xoBm5Y06Gk7QJMAP+2vpO5pn5HuDTQB0mmjcVsVVFi3Vrhcw73zP1qBV/Gt
+	 NggpVs8Rbo3xsx838ukzI3T39g8b96RuTByK8gwQS29qxsTZMyu3dCgjiYfzfrAqaFdIE
+	 k6MZ0vbUUno+bppvfBhKaYINvyfQfATVbJ8X5IJ/inPyhrwsJghGx8oJkKCgr8ptwm9TV
+	 agujuW0Jdm11u34zFG3d7tR9FUfGcICxMBvbBQpl646xeQ1ZS24oKoQHxTkn8wLGEMTYT
+	 htYL57/QC1ZrzC1MPI9HPUU3a6gv3ANhjEeuw36lGus+CBd6WPHYHkS0UxvcjYXN5yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795226429;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=aPePkVdlv4Ua5CfKAyX0XpdHtZd7fuJYPmRxDSlARlk=;
-	b=h/ysBTyAsAQsLJtfmmueQi5o7hv/dsvUHD1c5MYMv+Ay7UBXUY2BhieRWqhJeYLLTuKb
-	 IqYkT19SHBlEe1mGnAI2Z6pmUIMe8Q96RzUWbfdqC0EGlbC+0CcpufJonob6mO0DOHwPd
-	 3wYUwI3pyOAkUm7HCNc3kX6zWhip87pXuRbvV6DRAZ9PV25TnefWRvg7Qx8f0dJidI4tN
-	 ukUndFAxYUpzcllItvi2lKu29UQpsCTQdawAGHBl6XnXIChS1QSmGooAj4QRTHugbd9MA
-	 0vtlrwCmjTmS6MVL+zcLL+eh4Cq53kuM8a1mF72kkKZqQRZBwYof1HKvpo+lLm6v9vg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795226589;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mchuVHlFnYU5zgCWTakjMGlmjLTHuywPhXqITRTH/FE=;
+	b=pgCkQTIJL9/olJ2P/TC9L1Lq8k79qxPVSOBbJf5OchWZA/D8mR7xH/+W4MHmYeVVug4B
+	 qM3g1wBoXqfEUG1TSwxJslsbDxP2bn3TtHa+9e1CmBPcQV6rMzEwZDHPoIM6ObAu93k47
+	 m3yRT4BTY9uHCjw1Qxz0mSsSwh1JwIRi0WknLhZ0f8u09YISdHSwX+TlmNiAwydWtfpiJ
+	 97rIuwgH7T8vScdKVvWpfsuxvsJa41nVr4NE5OpcOJ3kcTXL2gilIQr+GRBMvbfKAPmQh
+	 JasXAjwX0UPoLlmsawabIuSslQjye49apbXGG9OwutpjXzAmH/+20Yy0gkyN4/ucIXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H7uzfMBP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nD38McHw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51F27606A339
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 02:00:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E0AE606A683;
+	Sat, 21 Nov 2026 02:03:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H7uzfMBP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEAC41F000CA;
-	Sat, 21 Nov 2026 02:00:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nD38McHw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E736B1F000CA;
+	Sat, 21 Nov 2026 02:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795226428;
-	bh=aPePkVdlv4Ua5CfKAyX0XpdHtZd7fuJYPmRxDSlARlk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=H7uzfMBPCrJ7qvvWvG8qYCENMg/9pKvNYB0YTUAlxnlsl3NlXTvBXGlsR6CeCQ7/v
-	 Ya01uLqoih53FUI853qB27iCEtJ7H60yP6HBJhfeIBmm/BF9UC/JuNE1yD4+MuN/tf
-	 ZaU8FR/rK1mz3umQ4ekVcwEOLGRvqcb8F8I6RZidl9yaas+We7avwrQ4dgM5XfPskg
-	 xPlzQatusg35NEVK5Se/dMiziD1zAv0FbxiuWz/jVzcv0hbFefGnrwYEAdMgNGFvRL
-	 dT1h5lASd0kKTihG492xoNtJcbkl1cUdF2q+lPddfL0Jn4Ky+750gKI7d5eMIapzh7
-	 fnt8Jrl5d/+FA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43EA380AA5E;
-	Sat, 21 Nov 2026 02:00:28 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795226588;
+	bh=mchuVHlFnYU5zgCWTakjMGlmjLTHuywPhXqITRTH/FE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nD38McHwbWEPsR/Y4qfwpa0bIhERNb9cQc8T8e8+NZbC7ZbAXr4mDe+TeicoPkrnL
+	 hrzktdtrxTeRQjl1GNlsDndy2EzrtSd/C5UxSbDnNgI0GPAoVHaomoaQPsxHLqKJTH
+	 Y0pR55OB8EpVvTct0mZgffDQLwb9mRdMlnHAlPo5A1zKoGbsITaWOY9WfLOmWq0fVW
+	 5SGoUhmGkFP7KIWo1zgySyRzxhTZX3BcGH5UEYkOY8M1AvQNAYo/ekDGrjuNiY6c1u
+	 8gMwu+/2kCojNEO9929HP87LWfmUqVRgbiuXzWVE5ulgy5NzMzQ4MxyM25UJ6vRI0s
+	 gg7/QM+KX12oA==
+Date: Fri, 20 Nov 2026 18:03:07 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+Cc: "Maciej Fijalkowski" <maciej.fijalkowski@intel.com>,
+ <netdev@vger.kernel.org>, <bpf@vger.kernel.org>, <daniel@iogearbox.net>,
+ <pabeni@redhat.com>, <edumazet@kernel.org>, <horms@kernel.org>,
+ <davem@davemloft.net>, <shuah@kernel.org>, <hawk@kernel.org>,
+ <john.fastabend@gmail.com>, <sdf@fomichev.me>, <willemb@google.com>,
+ <petrm@nvidia.com>, <bjorn@kernel.org>, <magnus.karlsson@intel.com>,
+ <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH net-next] selftests: net: don't warn when bpftool is
+ missing
+Message-ID: <20261120180307.363312fd@kernel.org>
+In-Reply-To: <DMYSCT1OYI5F.2HSYP9MZ2BRJU@gmail.com>
+References: <20261118165338.1064930-1-maciej.fijalkowski@intel.com>
+	<DMYSCT1OYI5F.2HSYP9MZ2BRJU@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,43 +65,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] 6lowpan: nhc: use RCU instead of lowpan_nhc_lock
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179522642727.886068.16842769887373188114.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 02:00:27 +0000
-References: <20261118221820.1601273-1-edumazet@kernel.org>
-In-Reply-To: <20261118221820.1601273-1-edumazet@kernel.org>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- willemb@google.com, horms@kernel.org, netdev@vger.kernel.org,
- alex.aring@gmail.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 18 Nov 2026 23:18:20 +0100 you wrote:
-> lowpan_nexthdr_nhcs[] is protected by lowpan_nhc_lock, a spinlock
-> that is acquired with BH disabled for every compressed or uncompressed
-> packet, even though the table only changes when an NHC module is
-> loaded or unloaded.
+On Thu, 19 Nov 2026 01:11:08 +0000 Alexei Starovoitov wrote:
+> On Wed, Nov 18, 2026 at 08:53 AM Maciej Fijalkowski <maciej.fijalkowski@intel.com> wrote:
+> > Based on the bpf-net-xsk-move tag so it can go to net-next and bpf-next
+> > through another shared branch, as Alexei asked:  
 > 
-> lowpan_nhc_del() already calls synchronize_net() after clearing
-> its slot, so readers only need to be in an RCU read-side critical
-> section to safely use a struct lowpan_nhc.
+> Acked-by: Alexei Starovoitov <ast@kernel.org>
 > 
-> [...]
+> Thanks for the quick fix.
+> 
+> Jakub,
+> could you make another stable branch to pull?
 
-Here is the summary with links:
-  - [net-next] 6lowpan: nhc: use RCU instead of lowpan_nhc_lock
-    https://git.kernel.org/netdev/net-next/c/111e1b0b985e
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Are you sure we need to fix this? Do we care about the bot?
+We have a similar warning for having latest version of liburing
+in drivers/net. I think it's useful to let the user know that
+they are not building all the tests.
