@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795225809;
-	b=Mpa5Ei0mvwM3BY/9rXeADnyPjCHWFjx0d1ySNgiqnBL5pQapJU1uB0lTWesxZTuxiL/2
-	 XDuI6L0ri3EoW7F19UU5a3EXXcJ/YKfHmzsF4gvbWw2zEduASwEgYI31aR4/63ZGhYrLv
-	 XE96u69VwTSuU6Dm2ZH2cT5tLzM2SDOWcuelV4kwp/Cio+WzNtmq38EtsGGe0RASASham
-	 SKmx2UmiyEP7e1i8QG3dPgAP0jli8YvRdyExmTzs2GjLN+r701leveYaHpIiG15TJX6ef
-	 bkpAKv4r3Elw6LxvS64ccUb/biLFd/2SgkNtdALFGhCCAWGyyLAzeKw1y9vGgEl+ETg==
+	t=1795225813;
+	b=hrKViZ0t5DQZmbfihnys+725nf/4ELgHWb19J/4f8vlhxE7IsxaSh/NwWlZCL5260g9j
+	 VR8a8jHM7jZeNtVsXUoqhihw0qhxua3Po7k+qMVUe/Fn5eai7Nb/MVqsTjtoJ7A14swUN
+	 oa0rNb2z/CLXdUzbSPUnN8MQbEm0Gs5c1/3VeIRrFpw6FCT6SflcE0ViSnoPIKd8FIT02
+	 HVHZ5yADiUSLY11bpC3QfHX9OOcw11gj8P9iSjH1XQQF3NmOFNRR1n9fBwGyHKCcJb9oS
+	 kFgJbPl6Wd8WfDP3heC2LzWgA4MFYZ0L5IgBrwuaQ9APRAeg0uOPXfMmTpb5YiRF88w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795225809;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795225813;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=5y4IxJrjcm1T5YL+nxKNgdDItK+BLU1zQYGnvu1AgNg=;
-	b=FvKxr52L6DIukSNNjOz1uFNnWPySTs6J2BdiFqsNjvovQDD3+j9RCNJ3CCBjBKo87uD/
-	 BWRkZZiIVz5wjhobJqPfecw04FWDi8ZH3qJIFEGnZ/UpBMSZZKHQ4sKFZ4Av0dsWeuwcm
-	 4kDSChrL7edIUnW914HFPE2+vC5iCJU2KOllOr0AM7jT2yzdNHklnOpxjhc1sxNPRQcDE
-	 TZog7GkOw2tVkH6dJp+bN6rdJJBjGhIOLTJ7lmDqhhOX8tG1TgcBenxqIlKlScGM/CXIX
-	 ZDCe2gxV4n7/xDq4HwMAi9/IqPrAw2ZdFR8HHQk69gDF6gSLs7kleNAWjFH54/3OOvQ==
+	bh=EMCAKhcauQqF4krrprPAqbzo9TePN9barIrQOovM2kw=;
+	b=JU+TN8WbccRvia2zhIn9kMWjIp5SSh8xeaSJgHcdpyhemLl3TNbESwrPsUR8tIuLxthl
+	 GYyXG1kTKiE02Q49Ai5hU816snNRRKo4fdYYEmHKIUO3/zajLpESSWq013hz1BeJL9kJD
+	 8KobFztnDh7zx9p8BIKGHqNUqXmlTN4u1wSGBqWw5Cf1+/xUOpgzTGyvpd8oKKKjSnK96
+	 ITnL+Oph/pjEHLPNAsp6oXLqScue69s8Weq8WMDQoTAjD+HXTuoLcxtVPLm1Y9b+IeT9O
+	 BwJ5LW12cs3nj01KpXZgrH0iHmf/5GS4EiMJyNctyG6k7VdeeSGpFhrvRLuM9Wjk6tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JsZyyIwB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KqOFmsnc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FD97606A699;
-	Sat, 21 Nov 2026 01:50:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0411F606A6B7;
+	Sat, 21 Nov 2026 01:50:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JsZyyIwB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44D081F000C0;
-	Sat, 21 Nov 2026 01:50:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KqOFmsnc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA121F000E0;
+	Sat, 21 Nov 2026 01:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795225808;
-	bh=5y4IxJrjcm1T5YL+nxKNgdDItK+BLU1zQYGnvu1AgNg=;
+	s=k20260515; t=1795225812;
+	bh=EMCAKhcauQqF4krrprPAqbzo9TePN9barIrQOovM2kw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=JsZyyIwBCuipX9H34Gb8a/l8rBLIj5By/02vUSZZQybX0UPwtc20BjGAKK8pl8wPn
-	 DIqcXuuoaep9F4mRlLDZWmDu46VcOElr6zsmo5a/G/BpGlGxq5LAEAXumU6doM21Y6
-	 gKBSWIyfEevM+kvwxsGBQ4QQ+Jl2TO3K5q5xFXVFHNVmxZmWa/he133F4VSCUAmp1/
-	 FcaasQi84RfUEltYeejhuCMrUTZk9ae671nW+FgAx7TO+dKBYxE0DajGT7kOWajAOj
-	 bB/RhiuqsIi+RXTCF3LInnHHCypkQ2bAVeR1ltafkpeu/GicicotXx5rI7dNDGOxxZ
-	 AAVKyCJrjDPKw==
+	b=KqOFmsnc71y3ofBBu9xyCEYqK/DAyjN4APR5/FqaSuM1DtxL5iqyGya+mESPgCcop
+	 dH8vJ9HiKcdKBT68CfRcBujLEqZTNBYHJzxpoOgvpTleiX0jj5UuuGujucuR2rmRFR
+	 l8P1eRPBYlTrPu6Gx9aNotHFyNA/h8tQgy7JC4Ze6VcdiHzFpFqTMtG7Y87nCX7rzV
+	 DVkVJRmnK84cs52a66YyBoYLFRJxm2nuLhnUbk+Qf86y2UH6fI2s/Ad/xENvfW3czi
+	 vbD4JYCWJ3oG4CtztXK73BSaRQ2J7DeRd+TWBh6fOpHMp3w5VfN8J8/8Nr7WEyjENV
+	 DTPTUscPu8Z+w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3A2380AA5E;
-	Sat, 21 Nov 2026 01:50:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773C9380AA5E;
+	Sat, 21 Nov 2026 01:50:12 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,48 +54,39 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/5] eth: fbnic: miscellaneous driver fixes
+Subject: Re: [PATCH net-next v5] net: pcs: xpcs: make supported_interfaces
+ authoritative
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179522580703.882976.11494412446601207725.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 01:50:07 +0000
-References: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
-In-Reply-To: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
-To: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-Cc: davem@davemloft.net, alexanderduyck@fb.com, kuba@kernel.org,
- kernel-team@meta.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
- pabeni@redhat.com, shuah@kernel.org, hmohsin@meta.com,
- mike.marciniszyn@gmail.com, sdf@fomichev.me, bobbyeshleman@meta.com,
- bjorn@kernel.org, leitao@debian.org, horms@kernel.org,
- almasrymina@google.com, vadim.fedorenko@linux.dev, daskald@meta.com,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org
+ <179522581102.882976.1777503818733834004.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 01:50:11 +0000
+References: <20261117175215.3015703-1-coiaprant@gmail.com>
+In-Reply-To: <20261117175215.3015703-1-coiaprant@gmail.com>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: kuba@kernel.org, pabeni@redhat.com, andrew@lunn.ch, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
+ heiko@sntech.de, netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 17 Nov 2026 13:54:11 -0800 you wrote:
-> From: Dimitri Daskalakis <daskald@meta.com>
-> 
-> AI identified several bugs while I was working on unrelated parts of the
-> driver. fbnic_queue_stop() always waits on queue 0 to idle for rx queues.
-> fbnic_get_ts_stats() dereferences a NULL pointer when the interface is down.
-> And fbnic_{set|reset}_netif_napi does not account for disabled rings.
+On Wed, 18 Nov 2026 01:52:15 +0800 you wrote:
+> pcs.supported_interfaces is the mask of interfaces a given xpcs
+> instance actually supports. The compat table describes what the
+> Synopsys IP can do in general, but a specific integration may support
+> a different subset. For example, the RK3568 XPCS supports 1000BASE-X,
+> SGMII and QSGMII in hardware, but does not implement the C73,
+> 10GBASE-R or 2500BASE-X modes that the Synopsys compat table
+> advertises.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v2,1/5] eth: fbnic: wait on the correct queues in fbnic_queue_stop()
-    https://git.kernel.org/netdev/net/c/7bc16d84facd
-  - [net,v2,2/5] eth: fbnic: skip disabled Tx rings when setting the queue NAPI
-    https://git.kernel.org/netdev/net/c/561175f45a23
-  - [net,v2,3/5] eth: fbnic: skip freed Tx rings in fbnic_get_ts_stats()
-    https://git.kernel.org/netdev/net/c/729f807b58f6
-  - [net,v2,4/5] netdevsim: report fake timestamping stats
-    https://git.kernel.org/netdev/net/c/a6c99fc2d6dc
-  - [net,v2,5/5] selftests: drv-net: stats: query timestamping stats while down
-    https://git.kernel.org/netdev/net/c/43cb59e7a47b
+  - [net-next,v5] net: pcs: xpcs: make supported_interfaces authoritative
+    https://git.kernel.org/netdev/net-next/c/b09a65056479
 
 You are awesome, thank you!
 -- 
