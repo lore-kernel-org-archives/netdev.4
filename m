@@ -1,57 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302175;
-	b=Iuy/d1nNsj6zFP98lZUe8sMSY58pXs4tj9Mg6gZ3EsKvkO2uul8V2YCQa4BVcTvW+5L8
-	 4varhjxngBktvIji9+G2kySA99ZLq1g7wDdLw52surpz2XmJQFCJ/f17T2plIzpqqQUf+
-	 2wZDj+QKfJVXpTfiTzRld6aJXjPeY4G3wvM344uGH7FifxNPu9n5sq063XbjW4CxiBYii
-	 hEIFFLhfpzESlfilyy+LCq58z5nv8ZzOdeord/7arQ1dpsKDOvU7XtXpyLy5ExrsR81iJ
-	 EM0T1BriIIlBRTLWP00e3bw6ahjmG46D8uZ02AoZsWyrDevm040sH7CrKkRCi+STRjQ==
+	t=1795302183;
+	b=LimdWUeRDOFPHOKp6wUTB5gBcvwjVOQEe8Fkb2qN9Ijw86nseQmRgXKFmLFhoWJygseh
+	 Y9ER14owIhgno01V+a95s5n4B0OZ77FPWi17kMuQ8Uo9uiwDptPVv5y0eKXK9kFhxv2cr
+	 yDLlR2UdP1/GdfTpXHJSw/W+1OOrhN+Y4wZX0ABxKFW7eZctw41G2eBTzCgRXjD7vZ22z
+	 XW6UW3kgAebkRLpXpHcYTeRGKQ9p9Kce+edAPb4QLlW1/3hv/eeVVSP5ytoflP+uIHsZ0
+	 QUx2atnfwUWBwFaPatsttJNSyZxovyTVk6Bp6vLB2jg/X9BbEQfoTpPRSF1F0K5oVmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302175;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302183;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=BcwfrCF7f7T5NQYQ4yDuCUyKOzQJSTxR3lI9Uml7xAg=;
-	b=1J7U5SZT1JExbedEMity3KTi/dUWJeizRcBfV6p31fteYcnkNjj0KSqDlh077Y/nR7mU
-	 BfXyYhoeDRg8vFCYhiqm5PHksERxYj4JwudEIHxxVJL9omx04kzkZcG3j3OhmAUsUNvwY
-	 qJUR9r+8QShqjuL7qg+uDJDZybbWp9mHeGRfr1WRe57fn1SUH9iSmCYMcHvsJca2plIqO
-	 gBjFstOAUFPAK2HYdq8IV0JKK6pWEIKq0dnQ0FRWQc8s2DlzKnzJarsMuFyjMMy3HQd9N
-	 svX73yaBmuuL5CrkzXqkuctgHlXCw7r6MsM/dMm8xYohLp2t+lkzuMEkV89ONHCZi/w==
+	bh=YblPw0OxuKOe7mXetjre4GQOF68ty3iscXQRSGT3Ipk=;
+	b=KVPAbIvI61z7eopcb+NhvXSE+PColwM7gySSLc2yt+RKCWHB8xmEeYXSQL50r2wUnuPT
+	 evBZce9teTVbbFbvKTz0LR7Pom62XXzlCTH3HEHyZcMNQo6okDmmocKtiW9/ITZFUKYyi
+	 FX745fP6eDgQB3PsYiavZzewcMlqaZum30Alj00XRbgWXwJiAi/b7A9r3naarpCVR9yAm
+	 zQQd3rS8KOX8X6mb2L5xo6vo1UbckcR1gKrbPlea/U5whnMYAHs+h4rE/dEOE6emSt0kX
+	 HW3WSiOPKKMC7Xd0tGGAOnyhpKWnnZEockbQHmxv6825RcQ7wxmruyl9gJNLl1cYsKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFCFmOi+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JlshQYvk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821EB606A33E;
-	Sat, 21 Nov 2026 23:02:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 170C4606A684;
+	Sat, 21 Nov 2026 23:03:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFCFmOi+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53DF1F000C6;
-	Sat, 21 Nov 2026 23:02:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JlshQYvk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D4E61F000EE;
+	Sat, 21 Nov 2026 23:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302175;
-	bh=BcwfrCF7f7T5NQYQ4yDuCUyKOzQJSTxR3lI9Uml7xAg=;
+	s=k20260515; t=1795302182;
+	bh=YblPw0OxuKOe7mXetjre4GQOF68ty3iscXQRSGT3Ipk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KFCFmOi++nS91OlAYII9Okgq0ZwLlUgi8yRP2FFDoU0WUKA00+bNCHKa6kgrTjshN
-	 sNKw0hcEh63MyA1b2u3smhvQGM7EcGpZcKLmJaUkTbdV2XKJan0aZuA+wr9ZsIqtZT
-	 lOlAEHt7BJLHxZEYEo1My8K9VNdo4tMfXliwCOLbG4iFung8jXiyJfJqTnn0JfaCtC
-	 2UYP1Ygmq3tEoBCFcnSZkoIo0DpRIjLsejSjuztYzm4IgltN8XcO50ugXMMnm6F3If
-	 kU++mtWx1WbPoHtgbeS4Paw24aThJ/SxXUfgNKcCPwwQlNv56qaf0iN8VrbtJmGV6F
-	 qhhA80l+TlhMQ==
-Subject: Re: [PATCH net-next v4 4/6] net: mvneta: keep the TX rate limits
- across open and MTU change
+	b=JlshQYvkDrqUI4avQ0EoOMrhekBi/GfFka55sa+RsTzCoVm6ZnHWnfUmDQXyR3AoB
+	 LpJYm2PzRovVrADFdlmxclBMuqLyrRLBVfuQcuUXGtbwg7ZpcS4U8nYAVLk1AzfHsK
+	 Csstk96qvbyPaGoZ8jmCyQrfLIwIiF7HU9NuBfZq9jUsKlSDVNWjP30Ar9wOSUBO5e
+	 E2Ak7Vp1j9rpEpbDQVZ547NYvJLGL3HAJrT3S73zR/ogu88DMov2ahnYkONGQKwlAJ
+	 bA/4IdAfN0p7aGWumxW5kJ8bapl6DURD9wojzNm0zXueyEDlSgG6+Ba/J8EUlPwokO
+	 zvf+s1n4P3BuA==
+Subject: Re: [PATCH net-next v5 1/6] psp: support rx rekey operation
 From: netdev-bot+sashiko@kernel.org
-To: pepe.schlehofer@gmail.com
-Cc: netdev@vger.kernel.org, marcin.s.wojtas@gmail.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- maxime.chevallier@bootlin.com, w@1wt.eu, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 23:02:54 +0000
-Message-ID: <179530217425.3135.3188367185761117756@kernel.org>
-In-Reply-To: <20261118093012.90121-5-pepe.schlehofer@gmail.com>
-References: <20261118093012.90121-5-pepe.schlehofer@gmail.com>
-X-sashiko-severity: Medium
+To: daniel.zahka@gmail.com
+Cc: kuba@kernel.org, willemdebruijn.kernel@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, donald.hunter@gmail.com,
+ andrew+netdev@lunn.ch, shuah@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, willemb@google.com
+Date: Sat, 21 Nov 2026 23:03:01 +0000
+Message-ID: <179530218118.3135.6547111851222246419@kernel.org>
+In-Reply-To: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
+References: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,130 +66,129 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In this patch, a rejected mqprio shaper config leaves the new
-  `bucket_refill` copy set, and `mvneta_restore_per_queue_rate_limit()`…
+- [Low] The uAPI doc for the rx-assoc op in
+  Documentation/netlink/specs/psp.yaml now reads "If the socket already…
+- [Low] psp_assocs_key_rotated() (net/psp/psp_sock.c) now does a plain
+  read-modify-write `pas->prev_generation |= ~PSP_GEN_VALID_MASK` on…
 
 --
 
-net: mvneta: keep the TX rate limits across open and MTU change
+psp: support rx rekey operation
 
-This commit saves the refill value of each rate limited TX queue in a new
-bucket_refill field of struct mvneta_tx_queue. A new helper,
-mvneta_restore_per_queue_rate_limit(), writes the limits back from
-mvneta_start_dev(). Before this, mvneta_txq_hw_init() reset every limit to
-10.23 Mbit/s after ifup, an MTU change or resume.
+This commit lets rx-assoc run on a socket that already has full PSP
+state. It creates a new psp_assoc that keeps the existing Tx state and
+gets new Rx state. The previous Rx SPI and generation are kept as a
+fallback, so packets sent by the peer before it switches keys are still
+accepted.
 
-> diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-> index 76dfbc484269e..58453c69be361 100644
-> --- a/drivers/net/ethernet/marvell/mvneta.c
-> +++ b/drivers/net/ethernet/marvell/mvneta.c
+> diff --git a/Documentation/netlink/specs/psp.yaml b/Documentation/netlink/specs/psp.yaml
+> index f3266763c3253..d5713f5d1af7e 100644
+> --- a/Documentation/netlink/specs/psp.yaml
+> +++ b/Documentation/netlink/specs/psp.yaml
+> @@ -265,7 +265,9 @@ operations:
+>  
+>      -
+>        name: rx-assoc
+> -      doc: Allocate a new Rx key + SPI pair, associate it with a socket.
+> +      doc: |
+> +        Allocate a new Rx key + SPI pair, associate it with a socket.
+> +        If the socket already has PSP state, rekey its Rx direction.
+
+[Severity: Low]
+Does this doc match the behaviour for every socket that has PSP state?
+psp_sock_rx_rekey() in net/psp/psp_sock.c rejects the rekey unless both
+directions are set up:
+
+	if (!prev->tx.spi || !prev->peer_tx) {
+		NL_SET_ERR_MSG(extack, "Socket PSP state is not fully established");
+		return -EBUSY;
+	}
+
+So a second rx-assoc on a socket that only has Rx state still fails with
+-EBUSY.
+
+psp.rst describes this precondition, but the YAML spec, which ynl and
+the generated docs use, does not. Should the op doc say something like
+"If the socket already has fully established PSP state, rekey its Rx
+direction."?
+
+>        attribute-set: assoc
+>        do:
+>          request:
+
+[ ... ]
+
+> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+> index f2cba3fa3a235..c1e38845f08c3 100644
+> --- a/net/psp/psp_sock.c
+> +++ b/net/psp/psp_sock.c
 
 [ ... ]
 
-> @@ -5239,11 +5247,32 @@ static int mvneta_setup_queue_rates(struct mvneta_port *pp, int queue,
->  	val |= (MVNETA_TXQ_BUCKET_REFILL_PERIOD <<
->  		MVNETA_TXQ_BUCKET_REFILL_PERIOD_SHIFT);
->
-> +	pp->txqs[queue].bucket_refill = val;
->  	mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue), val);
->
->  	return 0;
->  }
-
-[Severity: Medium]
-Can a rejected mqprio shaper config leave bucket_refill set for some
-queues?
-
-mvneta_setup_mqprio() calls mvneta_setup_queue_rates() one traffic class
-at a time. If a later class fails (nonzero min_rate, a rate that is not a
-multiple of 10 kbit/s, zero, or above the maximum), it returns in the
-middle of the loop:
-
-mvneta_setup_mqprio() {
-    ...
-			ret = mvneta_setup_queue_rates(pp, txq,
-						       mqprio->min_rate[tc],
-						       mqprio->max_rate[tc]);
-			if (ret)
-				return ret;
-    ...
-}
-
-The queues of the earlier classes keep a nonzero bucket_refill.
-
-In net/sched/sch_mqprio.c, mqprio_enable_offload() sets priv->hw_offload
-only when the offload succeeds. So mqprio_destroy() takes the
-netdev_set_num_tc(dev, 0) branch and does not call the driver with
-num_tc == 0.
-
-That means mvneta_disable_per_queue_rate_limit() never runs, and it is
-the only place that clears bucket_refill. This also breaks the "0 when
-not limited" comment on the new field.
-
-For example:
-
-tc qdisc add ... mqprio ... hw 1 mode channel shaper bw_rlimit \
-    max_rate 10Mbit 10001kbit
-  mvneta_setup_mqprio()
-    class 0 sets bucket_refill for its queues
-    class 1 returns -EINVAL
-  hw_offload stays 0, mqprio_destroy() does not call the driver
-ip link set dev ... down; ip link set dev ... up (or an MTU change)
-  mvneta_start_dev()
-    mvneta_restore_per_queue_rate_limit()
-
-> +/* The TX queue setup overwrites the rate limits, program them again */
-> +static void mvneta_restore_per_queue_rate_limit(struct mvneta_port *pp)
-> +{
-> +	int queue;
+> @@ -302,8 +333,21 @@ void psp_assocs_key_rotated(struct psp_dev *psd)
+>  	 */
+>  	list_for_each_entry_safe(pas, next, &psd->prev_assocs, assocs_list) {
+>  		pas->generation |= ~PSP_GEN_VALID_MASK;
+> +		pas->prev_generation |= ~PSP_GEN_VALID_MASK;
+>  		psd->stats.stales++;
+>  	}
 > +
-> +	for (queue = 0; queue < txq_number; queue++) {
-> +		if (pp->txqs[queue].bucket_refill)
-> +			break;
+> +	/* Don't allow SPI from two generations ago to alias one from the
+> +	 * current generation. Rx rekeying under the same device key generation
+> +	 * is currently permitted, so skip if the previous SPI is from just one
+> +	 * generation ago.
+> +	 */
+> +	list_for_each_entry(pas, &psd->active_assocs, assocs_list) {
+> +		if ((pas->rx.spi ^ pas->prev_spi) &
+> +		    cpu_to_be32(PSP_SPI_KEY_PHASE))
+> +			pas->prev_generation |= ~PSP_GEN_VALID_MASK;
 > +	}
+
+[Severity: Low]
+Can these plain writes to prev_generation race with the Rx datapath?
+
+These assocs are still published through sk->psp_assoc. The only lock
+held here is psd->lock, which the pre-hook of psp_nl_key_rotate_doit()
+takes.
+
+The reader in psp_pse_matches_pas() runs without psd->lock and without
+READ_ONCE():
+
+	(pas->prev_spi && pas->prev_spi == pse->spi &&
+	 pas->prev_generation == pse->generation));
+
+It is reached from paths that hold only the socket lock or RCU:
+
+  tcp_v4_do_rcv() / tcp_v6_do_rcv()
+    -> psp_sk_rx_policy_check()
+      -> __psp_sk_rx_policy_check()
+        -> psp_pse_matches_pas()
+
+  psp_twsk_rx_policy_check()  (RCU only)
+    -> __psp_sk_rx_policy_check()
+      -> psp_pse_matches_pas()
+
+So a key-rotate running while PSP packets arrive on an rx-rekeyed socket
+is an unannotated data race that KCSAN would report. The field is a u8,
+so it can't tear, and the result is unordered against the rotation in
+any case.
+
+The existing pas->generation write already works this way. This patch
+applies the same pattern to a new field that the datapath reads, and
+adds a second write site in the active_assocs loop.
+
+Would it make sense to use WRITE_ONCE() here and READ_ONCE() in
+psp_pse_matches_pas()?
+
 > +
-> +	if (queue == txq_number || mvneta_enable_per_queue_rate_limit(pp))
-> +		return;
-> +
-> +	for (; queue < txq_number; queue++) {
-> +		if (pp->txqs[queue].bucket_refill)
-> +			mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue),
-> +				    pp->txqs[queue].bucket_refill);
-> +	}
-> +}
-
-At every later mvneta_start_dev(), would this find the leftover entries,
-turn the v3 limiter back on, and write back the limits of the rejected
-config?
-
-No mqprio qdisc is installed at that point, so tc cannot show or delete
-these limits. Installing and then deleting a valid shaper is the only way
-to clear them.
-
-Before this patch, a rejected config already left the hardware partly
-configured, but that state did not survive a port restart.
-
-The next patch in the series, "net: mvneta: validate an mqprio setup
-before applying it", appears to fix this. With it, mvneta_setup_mqprio()
-validates every class with mvneta_txq_refill_val() before touching the
-hardware, and bucket_refill is written only after that.
-
-Both patches carry the same Fixes: tag. Should they go to stable together,
-or should this patch only store bucket_refill once the whole config has
-been accepted?
-
-[ ... ]
+>  	list_splice_init(&psd->prev_assocs, &psd->stale_assocs);
+>  	list_splice_init(&psd->active_assocs, &psd->prev_assocs);
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118093012.90121-1-pepe.schlehofer%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-psp-v5-0-b9ec840e0296%40gmail.com
