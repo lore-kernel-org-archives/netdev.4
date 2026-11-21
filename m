@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795222110;
-	b=cJrlk2Es3D0wTyGE/LHe4f1KV0C2UW552+U5q49DgJ1AADKK+eQlkpsrMDfgl9R5CiqN
-	 eWB1AX09PnPUQAW9fjzlxj7DYZhs8iLJ0i6S3p75I+rbcIPtlyavcmKpy866+dVRR0QkS
-	 d5GEr3oqoXHLdHPrue5PpPQsHXRJFvASuLsGjwvKHnJCinaxEcGstDyb6FEcmG07w1pUO
-	 6OKsa9HhGL6cDg5rk2tw7EEOO645+ZX+zPfVhx7DqxmkyQC4YrpS/qKIzmAI059a6KvL6
-	 hLf75ZTJskDf3oJ0HFAbaCsgvTKpE//ixW8ETveB9nxBpSu0aRgYrn++ZGe2dC2iSaA==
+	t=1795222108;
+	b=AuDFp9F4pA8loOux+CKnB6mMC9wgnomvK8LVbSFEn5TjFsQFO7Chkcp79zed3n/MLE0u
+	 DV9Oib8p+pCAvG5jeCFrP+uIW+fopESDPED1mo+tyaTPyNsKBhnlwFDIR1DH+MQwGZpAX
+	 DGLtbLvbKXQC4upe1gTXm0Lnmybi/HEPH1rx1lRshqDtofuD7qj6W7CUW+llFU+MR2VtX
+	 aGv28JtnQZtjRIurH9FQgYKdpmIhEl7Mc39LoXAf7Mtz1pjF4oZgsbGeHXwNMYjPDtozq
+	 gUjuP6UZXM19wRnO6o++6Owr/VnBi9x3I3CzoIzWtgTsaiISAZs6VhCMHNq+EPq3oKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795222110;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795222108;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Tc6TK/KBjAbLx58dTXnOJ3m7v5JhUiW0lv9z1swNJhQ=;
-	b=1lRxZcbc+yB9HhAritAkf8ZHOXSMUj38Gm9kMwxEBdMI1ovwnpl328Pz4CYNU5yCGFCE
-	 qHUzsIh5DinDEQQsAha5imcw9/4cGJ1tkR49xNT9VFJx7WBFbvzzgWkyqUEafb+/xuP72
-	 3hRgyWC34Fn3RmGsTMuFWqxzJ/z2gHKaJq7wWrBfS/OryVb1+YdblQOwRjL2MkFfr5lpp
-	 icbKhT5swZuEHqx+n1fnaDmow/coKHYjxPA4K8qzDTzVe4eShx4hzTJ3Pk0bJxl4lWvJ9
-	 rXBw75mPLjVQBk9FCkvPdrFU7y3E1oN5wxSptGOZPvq37XokzXaYUlym4+ESZZqaz1A==
+	bh=MwfzvTv0x0cb0+KwHKdlTWaN0+a4w378ig/9ybBrmuY=;
+	b=RsJ30vqgtgw+kvAe9gxFhLg3hTEG/FT1rqOs8xOPlYClKSdV65HCCx4n5GmOjpH1ddTz
+	 Mn59tzldizz4kzSxwpqOm/VwVWOlXhgfDolawF6KerDhvFfJNYQrpCuRG+MIWFmUJ6dhQ
+	 r90T3thqPlXi8NIIKkVZbXl2rvbe4FqJ3jmGnY6tLNxNTXbWK0YSbWIPQaYv+W78XL5ie
+	 E434u8v2+FsiUhY3hCWBbPaAWT2VD/j4jfsA/k7sB/2z3DXzpt2B3xZmMm80qn/Xd5x4v
+	 mCn1fPhx+vUImQv7TmGnZeEcbTz1/6E6kXBD2n1z6pm1PQuVCITq1nPACXedShtaWQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vg3bBhNj;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bXgr5u+6;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 642D0606A6BC
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 00:48:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 642D0606A6BC
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F4E8606A6AA
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 00:48:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F4E8606A6AA
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vg3bBhNj
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso1903851c88.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:48:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bXgr5u+6
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-15ea896ddc8so2392844c88.0
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:48:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795222101; x=1795826901; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795222104; x=1795826904; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Tc6TK/KBjAbLx58dTXnOJ3m7v5JhUiW0lv9z1swNJhQ=;
-        b=vg3bBhNjEB242hXPLqjpLAPp0WhhP66cHZiWpSyyaLm/lNrdllpFMiJ/EC/2dsUW2e
-         OK6xnAlKsspPCOMkdwtyqJZzTiTn97XbgIwg5jkZMktUkoG6trJtKoOnQuA2TRMgZvAB
-         L4RN9f7kXD3tXFOg5jTt6CgSYGFzYCX77H3inO5gGCjRfeFYVvlZ8IYH9yxJhvsoQIrF
-         GUJ+eO0lpKPWpI+STIGLkWNgUiU8LFXfONj5SB3eS+Auj8t/dC7BhXbq8yaPRuS6LkKk
-         EJsgohJPaQud4WJwuWGiIIIa8B22aObhAIEq0aJQGXJV2xsFz9VhYKUviBJgdG7rsePt
-         wcQw==
+        bh=MwfzvTv0x0cb0+KwHKdlTWaN0+a4w378ig/9ybBrmuY=;
+        b=bXgr5u+6ih3KVrxqwFMuyBXs8vSIs9EdY9cgCC/4mkj1SVtcMA0sD1+9QNPGkShfjT
+         Q+5XEAre6TojMjEO1zYtL+xjHftp3xhF+nAb6LQvfh/SBATvhSIjEPRMbGboM1qCywly
+         uPHM7qioGeVFZ8DupT1bnmwDYAXSR0suLYxS2SWZTVnFjyVLQneaaEwMHv89Ev0GycDm
+         vlMk75Rb8KIYISHHOYOlaovX91q5tWsQafIFXi9B6vOTueJc/Jt/+NnhIP1uyUmkD1ev
+         aP5P4Z6SNTPsA//ibAfhDRNlm7pp6PgE2LKrDvkVJpVtAxEhYpEaCzTKeWdZMt4gRt5i
+         9N8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795222101; x=1795826901;
+        d=1e100.net; s=20260707; t=1795222104; x=1795826904;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Tc6TK/KBjAbLx58dTXnOJ3m7v5JhUiW0lv9z1swNJhQ=;
-        b=v7hmiCC0A/dzQ7uFNWu393/+CXGJyY2PqDUtIDp59lQNSSw74TmD85vzODLW/OQbrP
-         RWXQ4XK1eysI0r1DRWPqMzQyERTp23FaoFjTrdkNHFl5EaIZCqkaO+A2d3kzniYqvVSt
-         zadzoaSY510g5sCRiNw3ec58safa+mmDFHibxID9G3rBSBYmOZqX2S+XQ+tHv7iYbrxm
-         xmjZadx0OAkrdrTsMqcW5y+JgSsT5QJpaCFuYjK7UDgZD1G1skSRVYLF1ArJVKBFud86
-         hiMcZuC6SzCELiWa/gp0n+RAo0XP+yX5Q/AHszrisJkc33Pune1Yo4aIqZDn51/pc4xX
-         FJqw==
-X-Gm-Message-State: APuU4Z9dEkVedmkIwq7J3yAP7zT2PNDMko5+ht9EXlhlnhsCaWiqpSSb
-	rh3ABabxv3kpwSWLVVn3xzxjO8ICq/pVNga/CnjUKJ+6p/P/EEh0X+2eIdApYw==
-X-Gm-Gg: AYBFou1DobKt4F8nO0If8A6fFl6RZoyuQTggXwei0sc36VdUiSRfwk3PwdNh+OysqzA
-	0rGGEQT96UoGXbxv6ffYUfrG5XhGRBPYqggnam42cwEUzxoQ6yVRXLNJYgNSA6RQyiwJ7t9NXvQ
-	vl7ww0rjCp64obC0gVd/gZ2RXoi+ZKbax9mGY+2YKjVKwWixp/akIToElb1JV4p8hC+gELfU//V
-	6JIXZq4jbdIRhPyAMsYRamdA8WLBQfbm21dKhATT+kIZ1EhmHl3OZSF+3uUPLKLDwD9Ypt2GO2c
-	ZynH5VSS4rm4pSB8tNCTdNjUkyB2GNOJEhtrQM8+DJL5fQVc3p/2em1ynnqJeSiAgVIPK7bdEMB
-	qAi4vpobq/27zD+rpqpbjR1tuuTcM80I6sjDX15VbxE1ABVO95c2EmWrZZuZTNVMcLBk0VH5DE0
-	+QJ47sIAcZVUYi/n+pdheOzW+i3A3b67bxaZiAgu7Zk62+1fhI0CWfdmAOCeege2xWnbE0yYjpj
-	Mp8fz3UU3zYqbvhk5bdpC7pS903enLevJBz58OmdIVuWqBhu3C8/6url4CImTZDCgUNZdymANlf
-	M66CMMJ25GKW9Jv66fZWlJUA0Si7ZQ==
-X-Received: by 2002:a05:701b:42c4:20b0:1b3:aa92:b183 with SMTP id a92af1059eb24-1b556898c1bmr4575644c88.15.1795222101288;
-        Fri, 20 Nov 2026 16:48:21 -0800 (PST)
+        bh=MwfzvTv0x0cb0+KwHKdlTWaN0+a4w378ig/9ybBrmuY=;
+        b=mJvWaopd3QOXqqZBEXn52ssngRGCjC+vxashD2EKQRwnJpKt5Uzocy+FQyU6qC0xF3
+         3RsiWjMVQ29tEUvaXAIAYu/znP0oFdQFzB0uJjpN42Js4xyyRxxBGRm6LVbNOYHCnY/p
+         8jY659AdJDU0ChXulbct2Hi7C4nD6D0ossW0yE1W6v74Zq38zAw0QbfyfLSVqUeSRoTs
+         9AjD8NixsbIt2nBgcWf8vbX6OFeKRpzJdXbtVwygi7D46JlilCVPKSnQ/XN7DxgjcgN5
+         sASkZH95muelj/2yQGKo8VotlRvJG4jX+AijhBUdhXNKX9EWm4o+Vu5rPKGk+mNIY/YG
+         5U3w==
+X-Gm-Message-State: APuU4Z/37uM25Oda9NjqXLmsWgOpTCXH+iOIrFZ9jkh4whsAMRCLdN09
+	hxYrZoNCStmoeG3elLgv0dx0Xrre+YM0fmKIwEA/qWYbUnhGq+cYOY7aVxXc6A==
+X-Gm-Gg: AYBFou3HvklfDAl3SaoduPFyzSqFpxJ/U7nmsUSnC8SZmPCfJn0blF6HJJoTzKwhbpx
+	jcocWoJK1KNdaRUURiCgJ74/+cvgE722zdioMIYSxUoeMTCFm8LMN+CUCOHtTAePSH7Hc38UVls
+	nNlr2Z35Lsc2I+1XRYaTuEHwMNtmlhSjIHCsB+35tx4YI+ZwzbEOD2rJMurIzz3QUPJAzCNGdTb
+	2HixeRXZeNVyROtg16MaRSnjhIGXgu5FDI4OfUKC7XP7EME3XwKdPQLnb1pWIX85EnUgofsuwkS
+	8yNMsSqkebnk2OzRQhnloKeKraoUlGONnn+gzItoKAsD/8emtSKRB9F5OwTuwYwRIdP7bYQwuGi
+	SASKmBCDs1rP5J5MyUKLMUofi6yiRcmBvj4xlh8DRHysGYHeJuabkvkFjuMI8o2F5cUyxsliJNP
+	PcIMsgfQ6ZEjVVBuKhqXqLoE/1fjdjgHYjGIxxNNvFaCMlFjho7Mv6KwkWdMM9Co9UH3KtjVaUD
+	qOtos8OaEZlT1ti1g93ly3CcPK94Y7Ig+zPTiOqXThfJN86q6iOcuq9vOdJwvQeqdZFC6L6e6YQ
+	fHQ5xAcp
+X-Received: by 2002:a05:7022:295:10b0:183:e993:7901 with SMTP id a92af1059eb24-1b556898be9mr4256668c88.17.1795222104119;
+        Fri, 20 Nov 2026 16:48:24 -0800 (PST)
 Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm11462472c88.13.2026.11.20.16.48.20
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm11462472c88.13.2026.11.20.16.48.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 16:48:20 -0800 (PST)
+        Fri, 20 Nov 2026 16:48:23 -0800 (PST)
 From: Florian Fainelli <f.fainelli@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <f.fainelli@gmail.com>,
@@ -97,9 +97,9 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	linux-kernel@vger.kernel.org (open list),
 	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v4 06/10] net: au1000: restore receive filtering before enabling RX
-Date: Fri, 20 Nov 2026 16:48:05 -0800
-Message-ID: <20261121004809.1690280-7-f.fainelli@gmail.com>
+Subject: [PATCH net v4 08/10] net: phy: smsc: wait for LAN83C183 power-down recovery
+Date: Fri, 20 Nov 2026 16:48:07 -0800
+Message-ID: <20261121004809.1690280-9-f.fainelli@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261121004809.1690280-1-f.fainelli@gmail.com>
 References: <20261121004809.1690280-1-f.fainelli@gmail.com>
@@ -114,94 +114,116 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-MAC initialization overwrites the receive mode, dropping promiscuous and
-multicast settings after a watchdog reset without notifying the network
-stack. Restore the requested filtering before the control write that
-enables RX, avoiding a window with the wrong filter.
+The LAN83C183 uses the generic PHY driver, which returns immediately
+after clearing BMCR_PDOWN. Section 1.11 of the datasheet allows 500 ms
+before normal operation is restored. Starting the Au1000 MAC before the
+MII clocks recover can hang the MTX-1 when reopening its interface.
 
-Factor receive-mode programming into a helper shared by initialization
-and the receive-mode callback. Hold the address-list lock before the
-device lock through initialization so the filter snapshot stays current.
-Protect callback control-register updates with the device lock as well.
+Add a LAN83C183 driver entry and resume callback. Wait for recovery only
+when BMCR_PDOWN was actually cleared, and propagate MDIO errors without
+waiting. Resuming an already awake PHY does not incur the delay.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+This supplies the PHY recovery delay; it does not by itself fix the
+Au1000 MAC/PHY ordering on reopen. The companion patch, "net: au1000:
+keep the MAC stopped until the PHY link is ready", resumes the PHY
+synchronously before MAC initialization and stops the MAC before PHY
+suspend. Both changes are needed to address the MTX-1 reopen hang.
+Keep this PHY change first so the recovery delay is available when the
+MAC sequencing fix is applied.
+
+The specific PHY driver must be bound before the MAC attaches the PHY.
+For a built-in au1000 MAC used during early boot, enable CONFIG_SMSC_PHY=y.
+Module configurations must arrange for smsc.ko to be loaded before PHY
+attachment. If attachment falls back to genphy, loading smsc.ko later
+does not replace that binding and the recovery delay will not run.
+MTX-1 validation used CONFIG_MIPS_AU1X00_ENET=y and CONFIG_SMSC_PHY=y;
+the boot logs confirmed attachment to the SMSC LAN83C183 driver.
+
+The LAN83C183 and LSI L80227 document the same LSI/SEEQ OUI and model 4,
+so this ID match also binds the L80227 and applies the same conservative
+500 ms delay when clearing power-down. The entry otherwise uses generic
+PHY helpers and does not program SMSC-specific registers. Hardware
+validation is limited to the LAN83C183; the L80227 was not tested.
+
+Sashiko AI review identified the dependency, binding prerequisite and
+shared PHY ID.
+
+Fixes: be9dad1f9f26 ("net: phy: suspend phydev when going to HALTED")
+Link: https://pdf.dzsc.com/LAN/LAN83C183.pdf#page=44
+Link: https://datasheet.octopart.com/L80223-LSI-datasheet-11757091.pdf#page=73
 Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 ---
- drivers/net/ethernet/amd/au1000_eth.c | 23 ++++++++++++++++++++---
- 1 file changed, 20 insertions(+), 3 deletions(-)
+ drivers/net/phy/Kconfig |  2 +-
+ drivers/net/phy/smsc.c  | 27 +++++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-index 60631f0dce18..ea2766343d51 100644
---- a/drivers/net/ethernet/amd/au1000_eth.c
-+++ b/drivers/net/ethernet/amd/au1000_eth.c
-@@ -685,6 +685,8 @@ static const struct ethtool_ops au1000_ethtool_ops = {
- 	.set_link_ksettings = phy_ethtool_set_link_ksettings,
- };
+diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+index 30e9d22c8d1a..10466b2574eb 100644
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -421,7 +421,7 @@ config SMSC_PHY
+ 	tristate "SMSC PHYs"
+ 	select CRC16
+ 	help
+-	  Currently supports the LAN83C185, LAN8187 and LAN8700 PHYs
++	  Currently supports the LAN83C183, LAN83C185, LAN8187 and LAN8700 PHYs
  
-+static u32 au1000_rx_mode(struct net_device *dev, u32 reg);
-+
- /*
-  * Initialize the interface.
-  *
-@@ -706,6 +708,7 @@ static int au1000_init(struct net_device *dev)
- 	/* bring the device out of reset */
- 	au1000_enable_mac(dev, 1);
+ config STE10XP
+ 	tristate "STMicroelectronics STe10Xp PHYs"
+diff --git a/drivers/net/phy/smsc.c b/drivers/net/phy/smsc.c
+index 48487149c225..c0713017e54b 100644
+--- a/drivers/net/phy/smsc.c
++++ b/drivers/net/phy/smsc.c
+@@ -13,6 +13,7 @@
+  */
  
-+	netif_addr_lock_bh(dev);
- 	spin_lock_irqsave(&aup->lock, flags);
- 
- 	writel(0, &aup->mac->control);
-@@ -738,11 +741,14 @@ static int au1000_init(struct net_device *dev)
- 		control |= MAC_FULL_DUPLEX;
- 	}
- 
-+	control = au1000_rx_mode(dev, control);
-+
- 	writel(control, &aup->mac->control);
- 	writel(0x8100, &aup->mac->vlan1_tag); /* activate vlan support */
- 	wmb(); /* drain writebuffer */
- 
- 	spin_unlock_irqrestore(&aup->lock, flags);
-+	netif_addr_unlock_bh(dev);
- 	return 0;
+ #include <linux/clk.h>
++#include <linux/delay.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/mii.h>
+@@ -684,8 +685,33 @@ int smsc_phy_probe(struct phy_device *phydev)
  }
+ EXPORT_SYMBOL_GPL(smsc_phy_probe);
  
-@@ -1041,13 +1047,12 @@ static void au1000_tx_timeout(struct net_device *dev, unsigned int txqueue)
- 	netif_wake_queue(dev);
- }
- 
--static void au1000_multicast_list(struct net_device *dev)
-+/* Caller holds the address-list lock and aup->lock. */
-+static u32 au1000_rx_mode(struct net_device *dev, u32 reg)
- {
- 	struct au1000_private *aup = netdev_priv(dev);
--	u32 reg;
- 
- 	netif_dbg(aup, drv, dev, "%s: flags=%x\n", __func__, dev->flags);
--	reg = readl(&aup->mac->control);
- 	if (dev->flags & IFF_PROMISC) {			/* Set promiscuous. */
- 		reg |= MAC_PROMISCUOUS;
- 	} else if ((dev->flags & IFF_ALLMULTI)  ||
-@@ -1068,7 +1073,19 @@ static void au1000_multicast_list(struct net_device *dev)
- 		reg &= ~(MAC_PROMISCUOUS | MAC_PASS_ALL_MULTI);
- 		reg |= MAC_HASH_MODE;
- 	}
-+	return reg;
++static int lan83c183_resume(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = phy_modify_changed(phydev, MII_BMCR, BMCR_PDOWN, 0);
++	if (ret < 0)
++		return ret;
++
++	/* The PHY needs up to 500 ms to restore operation after power-down. */
++	if (ret)
++		msleep(500);
++
++	return 0;
 +}
 +
-+static void au1000_multicast_list(struct net_device *dev)
-+{
-+	struct au1000_private *aup = netdev_priv(dev);
-+	unsigned long flags;
-+	u32 reg;
+ static struct phy_driver smsc_phy_driver[] = {
+ {
++	/* LSI/SEEQ OUI 00:a0:7d, model 4; shared with L80227. */
++	.phy_id		= 0x0016f840,
++	.phy_id_mask	= 0xfffffff0,
++	.name		= "SMSC LAN83C183",
 +
-+	spin_lock_irqsave(&aup->lock, flags);
-+	reg = au1000_rx_mode(dev, readl(&aup->mac->control));
- 	writel(reg, &aup->mac->control);
-+	spin_unlock_irqrestore(&aup->lock, flags);
- }
++	.get_features	= genphy_read_abilities,
++	.suspend	= genphy_suspend,
++	.resume		= lan83c183_resume,
++	.set_loopback	= genphy_loopback,
++}, {
+ 	.phy_id		= 0x0007c0a0, /* OUI=0x00800f, Model#=0x0a */
+ 	.phy_id_mask	= 0xfffffff0,
+ 	.name		= "SMSC LAN83C185",
+@@ -887,6 +913,7 @@ MODULE_AUTHOR("Herbert Valerio Riedel");
+ MODULE_LICENSE("GPL");
  
- static const struct net_device_ops au1000_netdev_ops = {
+ static const struct mdio_device_id __maybe_unused smsc_tbl[] = {
++	{ 0x0016f840, 0xfffffff0 },
+ 	{ 0x0007c0a0, 0xfffffff0 },
+ 	{ 0x0007c0b0, 0xfffffff0 },
+ 	{ 0x0007c0c0, 0xfffffff0 },
 -- 
 2.53.0
 
