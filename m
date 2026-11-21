@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302176;
-	b=3z7vcGlmPiqKHzgc9gU87QlkU6wlGGly2BDPFUtp9GNfOvGXAAv/c+K3DPGiLoQVUUyG
-	 rvdSCnkHzgwSPIhOuXWGG659NTPb/ofH1DK4yRnkJAarC1dWeKSQaiiSB/tls0a6Ka123
-	 HU/kkJn05hGxf+UvHAwHgfVPvzSiKh67NT+SMXNfMs9k9wQz96JHxJ+hZ0XyzBcq2dLH8
-	 f2iLwY+aZgnja7nrwk06dln2GXOXYHCib6818MSHAx1VbIIV6gJGiqtrA09JBk0nPMs7o
-	 VYhJsvPGtBimxd4DQ59EiuH6Gle8r2Z4DOvwRSZ4jfZTfWqoE1YubH2AgWLMEHBPaIw==
+	t=1795302175;
+	b=Iuy/d1nNsj6zFP98lZUe8sMSY58pXs4tj9Mg6gZ3EsKvkO2uul8V2YCQa4BVcTvW+5L8
+	 4varhjxngBktvIji9+G2kySA99ZLq1g7wDdLw52surpz2XmJQFCJ/f17T2plIzpqqQUf+
+	 2wZDj+QKfJVXpTfiTzRld6aJXjPeY4G3wvM344uGH7FifxNPu9n5sq063XbjW4CxiBYii
+	 hEIFFLhfpzESlfilyy+LCq58z5nv8ZzOdeord/7arQ1dpsKDOvU7XtXpyLy5ExrsR81iJ
+	 EM0T1BriIIlBRTLWP00e3bw6ahjmG46D8uZ02AoZsWyrDevm040sH7CrKkRCi+STRjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302176;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302175;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=iFUv2lIek8geqEsLfyH9iDG/cs5MT6KhQ4IgQhPr934=;
-	b=XhiWvWSMNvcBhWQeLDI+9/mY6aKx9H9GGDGxg6/B7/ZFwUn5oWknfII3r/TIMA/umR6W
-	 PO6BsESmgcFGDnaYG1AnmjThQzhvqCG+6MR+mjy/vV6PvaQUuFO/z1nmY8kSbZO5T3fcb
-	 xVAY9U1xQFAiDHDhuADAlgWsfQuMnR0n8anmbxlyQ16rHQi+0Jh6oVzfeQ8JMlwXSWsT3
-	 apSK/Pzw/agvAGoL/giMYwpRouYTswTon9Qe7DKKSe+x1oZpYDY1B2Nzp2JonT9ddiDHm
-	 mjMqcDXMIUbE+J1SfeaNgX+KgEBvoE4RUHKr/YSETrkOEXGh9BF90H1nmaBQhSaOpSQ==
+	bh=BcwfrCF7f7T5NQYQ4yDuCUyKOzQJSTxR3lI9Uml7xAg=;
+	b=1J7U5SZT1JExbedEMity3KTi/dUWJeizRcBfV6p31fteYcnkNjj0KSqDlh077Y/nR7mU
+	 BfXyYhoeDRg8vFCYhiqm5PHksERxYj4JwudEIHxxVJL9omx04kzkZcG3j3OhmAUsUNvwY
+	 qJUR9r+8QShqjuL7qg+uDJDZybbWp9mHeGRfr1WRe57fn1SUH9iSmCYMcHvsJca2plIqO
+	 gBjFstOAUFPAK2HYdq8IV0JKK6pWEIKq0dnQ0FRWQc8s2DlzKnzJarsMuFyjMMy3HQd9N
+	 svX73yaBmuuL5CrkzXqkuctgHlXCw7r6MsM/dMm8xYohLp2t+lkzuMEkV89ONHCZi/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHTUg+gw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFCFmOi+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5C21606A331;
-	Sat, 21 Nov 2026 23:02:56 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHTUg+gw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1FC11F000C6;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821EB606A33E;
 	Sat, 21 Nov 2026 23:02:55 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFCFmOi+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53DF1F000C6;
+	Sat, 21 Nov 2026 23:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302176;
-	bh=iFUv2lIek8geqEsLfyH9iDG/cs5MT6KhQ4IgQhPr934=;
+	s=k20260515; t=1795302175;
+	bh=BcwfrCF7f7T5NQYQ4yDuCUyKOzQJSTxR3lI9Uml7xAg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QHTUg+gwjVJ9RhOLpnk3xBkp2Nsog6f74hYFwCkptMXJswYZtEJwWDORU5FsfrutW
-	 OhTjQA3CX3IaYFE+mRYo6FvDEF9rDBb7KeSY9ubxKj4oGhlFNy8dllF8zxGWnRwMDf
-	 jwnYD+y8oQYwOArE8/Gp3dhBJXJEYLd2MjEz/8XuYgnzwWubJr+PfK7opph2tGDzDD
-	 C0HPkrWecFiuKtCzHyF4F+EGCbTsltwLehECRxn8VZpqrfGD5ayW3UNQ5XWSGsfcVF
-	 DpJ/nUUsFJ0OQWjw6jVyINr6qsse1WFuPTo6mAt6JdjDwQBsh7tTlH9EQcvhx1dahi
-	 CgEqss/Kx8ZJw==
-Subject: Re: [PATCH net-next v4 6/6] net: mvneta: serve the TX queues in
- weighted round robin
+	b=KFCFmOi++nS91OlAYII9Okgq0ZwLlUgi8yRP2FFDoU0WUKA00+bNCHKa6kgrTjshN
+	 sNKw0hcEh63MyA1b2u3smhvQGM7EcGpZcKLmJaUkTbdV2XKJan0aZuA+wr9ZsIqtZT
+	 lOlAEHt7BJLHxZEYEo1My8K9VNdo4tMfXliwCOLbG4iFung8jXiyJfJqTnn0JfaCtC
+	 2UYP1Ygmq3tEoBCFcnSZkoIo0DpRIjLsejSjuztYzm4IgltN8XcO50ugXMMnm6F3If
+	 kU++mtWx1WbPoHtgbeS4Paw24aThJ/SxXUfgNKcCPwwQlNv56qaf0iN8VrbtJmGV6F
+	 qhhA80l+TlhMQ==
+Subject: Re: [PATCH net-next v4 4/6] net: mvneta: keep the TX rate limits
+ across open and MTU change
 From: netdev-bot+sashiko@kernel.org
 To: pepe.schlehofer@gmail.com
 Cc: netdev@vger.kernel.org, marcin.s.wojtas@gmail.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  maxime.chevallier@bootlin.com, w@1wt.eu, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 23:02:55 +0000
-Message-ID: <179530217537.3135.2864178231067849132@kernel.org>
-In-Reply-To: <20261118093012.90121-7-pepe.schlehofer@gmail.com>
-References: <20261118093012.90121-7-pepe.schlehofer@gmail.com>
+Date: Sat, 21 Nov 2026 23:02:54 +0000
+Message-ID: <179530217425.3135.3188367185761117756@kernel.org>
+In-Reply-To: <20261118093012.90121-5-pepe.schlehofer@gmail.com>
+References: <20261118093012.90121-5-pepe.schlehofer@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,103 +75,117 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] Nothing in the driver confirms that the fix works on Armada
-  370/XP.
+- [Medium] In this patch, a rejected mqprio shaper config leaves the new
+  `bucket_refill` copy set, and `mvneta_restore_per_queue_rate_limit()`…
 
 --
 
-net: mvneta: serve the TX queues in weighted round robin
+net: mvneta: keep the TX rate limits across open and MTU change
 
-This patch gives every TX queue the same WRR weight and clears the fixed
-TX queue priority. It writes both the newer register set and the separate
-version 1 arbiter registers listed for Armada 370/XP. While an mqprio
-offload is active, fixed priority stays in place.
-
-Link: https://github.com/openwrt/openwrt/issues/5411
+This commit saves the refill value of each rate limited TX queue in a new
+bucket_refill field of struct mvneta_tx_queue. A new helper,
+mvneta_restore_per_queue_rate_limit(), writes the limits back from
+mvneta_start_dev(). Before this, mvneta_txq_hw_init() reset every limit to
+10.23 Mbit/s after ifup, an MTU change or resume.
 
 > diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-> index 89ade2ed7ce49..35409695d3d78 100644
+> index 76dfbc484269e..58453c69be361 100644
 > --- a/drivers/net/ethernet/marvell/mvneta.c
 > +++ b/drivers/net/ethernet/marvell/mvneta.c
-> @@ -118,6 +118,7 @@
->  #define      MVNETA_HSGMII_SERDES_PROTO		 0x1107
->  #define MVNETA_TYPE_PRIO                         0x24bc
->  #define      MVNETA_FORCE_UNI                    BIT(21)
-> +#define MVETH_TXQ_FIXED_PRIO_REG                 0x24dc
->  #define MVNETA_TXQ_CMD_1                         0x24e4
->  #define MVNETA_TXQ_CMD                           0x2448
 
 [ ... ]
 
-> @@ -1632,6 +1640,39 @@ static void mvneta_txq_max_tx_size_set(struct mvneta_port *pp, int max_tx_size)
->  	}
+> @@ -5239,11 +5247,32 @@ static int mvneta_setup_queue_rates(struct mvneta_port *pp, int queue,
+>  	val |= (MVNETA_TXQ_BUCKET_REFILL_PERIOD <<
+>  		MVNETA_TXQ_BUCKET_REFILL_PERIOD_SHIFT);
+>
+> +	pp->txqs[queue].bucket_refill = val;
+>  	mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue), val);
+>
+>  	return 0;
 >  }
->  
-> +static void mvneta_txq_wrr_weight(struct mvneta_port *pp, u32 reg, u32 weight)
-> +{
-> +	u32 val = mvreg_read(pp, reg);
-> +
-> +	val &= ~MVNETA_TXQ_WRR_WEIGHT_MASK;
-> +	mvreg_write(pp, reg, val | weight);
-> +}
-> +
-> +/* With the default fixed priority, a busy queue starves the others.
-> + * The Armada 370 and XP manuals list separate registers for the
-> + * version 1 arbiter, which runs without a shaper, so set both.
-> + */
-> +static void mvneta_txq_wrr_set(struct mvneta_port *pp, int max_tx_size)
-> +{
-> +	/* In units of 256 bytes, must exceed the largest packet */
-> +	u32 weight = max_tx_size / 256 + 1;
-> +	int queue;
-> +
-> +	for (queue = 0; queue < txq_number; queue++) {
-> +		mvneta_txq_wrr_weight(pp, MVNETA_TXQ_WRR_ARB_REG(queue), weight);
-> +		mvneta_txq_wrr_weight(pp, MVETH_TXQ_WRR_ARB_REG(queue), weight);
-> +	}
-> +}
-> +
-> +/* Only the traffic classes of an mqprio offload keep the fixed priority */
-> +static void mvneta_txq_fixed_prio_set(struct mvneta_port *pp)
-> +{
-> +	u32 val = pp->txq_fixed_prio ? MVNETA_TXQ_FIXED_PRIO_ALL : 0;
-> +
-> +	mvreg_write(pp, MVNETA_TXQ_FIXED_PRIO_REG, val);
-> +	mvreg_write(pp, MVETH_TXQ_FIXED_PRIO_REG, val);
-> +}
 
 [Severity: Medium]
-Is the version 1 arbiter on Armada 370/XP actually running WRR when these
-registers are written?
+Can a rejected mqprio shaper config leave bucket_refill set for some
+queues?
 
-In the same legacy 0x24xx block, mvneta_defaults_set() writes 0 to the v1
-TXQ command register:
+mvneta_setup_mqprio() calls mvneta_setup_queue_rates() one traffic class
+at a time. If a later class fails (nonzero min_rate, a rate that is not a
+multiple of 10 kbit/s, zero, or above the maximum), it returns in the
+middle of the loop:
 
-drivers/net/ethernet/marvell/mvneta.c:mvneta_defaults_set() {
+mvneta_setup_mqprio() {
     ...
-	/* Disable Legacy WRR, Disable EJP, Release from reset */
-	mvreg_write(pp, MVNETA_TXQ_CMD_1, 0);
+			ret = mvneta_setup_queue_rates(pp, txq,
+						       mqprio->min_rate[tc],
+						       mqprio->max_rate[tc]);
+			if (ret)
+				return ret;
     ...
 }
 
-That runs from mvneta_init() and mvneta_resume(), and nothing in this
-patch sets MVNETA_TXQ_CMD_1 again. When an mqprio setup has no shaper, or
-when the offload is removed, mvneta_disable_per_queue_rate_limit() sets
-MVNETA_TXQ_CMD1_BW_LIM_SEL_V1, which selects the v1 algorithm.
+The queues of the earlier classes keep a nonzero bucket_refill.
 
-Suppose the "Legacy WRR" bit in MVNETA_TXQ_CMD_1 is what turns on WRR in
-the v1 arbiter. On 370/XP, would the weights written to
-MVETH_TXQ_WRR_ARB_REG() then be ignored? Clearing MVETH_TXQ_FIXED_PRIO_REG
-would also leave the arbiter in a mode the driver never programs, and the
-multi-flow TX starvation could still happen on those boards.
+In net/sched/sch_mqprio.c, mqprio_enable_offload() sets priv->hw_offload
+only when the offload succeeds. So mqprio_destroy() takes the
+netdev_set_num_tc(dev, 0) branch and does not call the driver with
+num_tc == 0.
 
-The 256-byte unit used for the v1 weight field seems to depend on the same
-assumption.
+That means mvneta_disable_per_queue_rate_limit() never runs, and it is
+the only place that clears bucket_refill. This also breaks the "0 when
+not limited" comment on the new field.
 
-The commit message says only the Armada 385 was tested, and on that SoC
-the two register sets are the same registers. That test doesn't exercise
-the separate v1 path. Could this be checked against the Armada 370/XP
-functional spec, or tested on 370/XP hardware?
+For example:
+
+tc qdisc add ... mqprio ... hw 1 mode channel shaper bw_rlimit \
+    max_rate 10Mbit 10001kbit
+  mvneta_setup_mqprio()
+    class 0 sets bucket_refill for its queues
+    class 1 returns -EINVAL
+  hw_offload stays 0, mqprio_destroy() does not call the driver
+ip link set dev ... down; ip link set dev ... up (or an MTU change)
+  mvneta_start_dev()
+    mvneta_restore_per_queue_rate_limit()
+
+> +/* The TX queue setup overwrites the rate limits, program them again */
+> +static void mvneta_restore_per_queue_rate_limit(struct mvneta_port *pp)
+> +{
+> +	int queue;
+> +
+> +	for (queue = 0; queue < txq_number; queue++) {
+> +		if (pp->txqs[queue].bucket_refill)
+> +			break;
+> +	}
+> +
+> +	if (queue == txq_number || mvneta_enable_per_queue_rate_limit(pp))
+> +		return;
+> +
+> +	for (; queue < txq_number; queue++) {
+> +		if (pp->txqs[queue].bucket_refill)
+> +			mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue),
+> +				    pp->txqs[queue].bucket_refill);
+> +	}
+> +}
+
+At every later mvneta_start_dev(), would this find the leftover entries,
+turn the v3 limiter back on, and write back the limits of the rejected
+config?
+
+No mqprio qdisc is installed at that point, so tc cannot show or delete
+these limits. Installing and then deleting a valid shaper is the only way
+to clear them.
+
+Before this patch, a rejected config already left the hardware partly
+configured, but that state did not survive a port restart.
+
+The next patch in the series, "net: mvneta: validate an mqprio setup
+before applying it", appears to fix this. With it, mvneta_setup_mqprio()
+validates every class with mvneta_txq_refill_val() before touching the
+hardware, and bucket_refill is written only after that.
+
+Both patches carry the same Fixes: tag. Should they go to stable together,
+or should this patch only store bucket_refill once the whole config has
+been accepted?
 
 [ ... ]
 
