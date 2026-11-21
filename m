@@ -1,57 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795287710;
-	b=BfvNZA+yzkYaxpzpeuLGYTWpWuU2+ktfJSkzW+4jHwMg6uzEsouT4zDUDjBh6r7R61/u
-	 YvBVebMzQUwpFBFfzHkn3NIixxcHvNjzGHcTjiS7+cSJt9JiV+52kEUHdiHGKrRpZQC7q
-	 Bo1K50bNUvxh9eVFAEcn9zJ0Uu18PaH3sn2gfGAU8EAOVE2hho7k/1Ztcf50napyFho2N
-	 kppr5lA6esX5pBcwlf2ogaw6Sn16mJGttLdZlvFtfJVOrrbEwUHLe14fTlmrG7lR5u4bo
-	 nA+lqr7wB4wZCBlu1zmPVYjx2qXytGAA0EVtauQtck48cYKCUplkZ4Q1C+u10+NY8fA==
+	t=1795288076;
+	b=MYqMKVVVUcGzxA7UhH8D6/KkEKdyNlUQKOmlGfIvRyAnELsiaVPIpWxsR0cXwO05Jxse
+	 oWp9kJntQPWNpcCRqEfAdKj9AIR1r9PEDDBDtfQKyquTpU/QqNPtRKe08iPODFsfxGTn5
+	 /gEjh3pT+A6Y440STBMU89Tn5KlmZOZVtIJ+N+nuJOtu3qy7uT2OtNFMu89dplvHeBUsu
+	 XOsgRsZhRCyTMBEAzOK7wxCwCZ3Nvd96VZXU9XyGSrTmSgdcH9F7CQRMlU+dhhyx6Dv1b
+	 6SqQUQU/5z1O3V7QBaJzSrOdeS7ODXktrkT5sOEqYGmG/dzgCQ7K+XgRGj81bqinRGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795287710;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=cXAX2m6JG5yf4JzUgA3dotq1f3OYESGFzlZjjaPicO4=;
-	b=sdFHZ++GE5eCeKK7m16xFdZF+hjp1s6HavvJNgtceu8oJE8B8LNwsuMYTdvkB0qLHTFo
-	 yqHbIZuYoFKWJ7pKz7d4nBo210bI33eL+MH9Oet2d90kh4D9xjgzqSlxNAWK4Fw9rG3Zi
-	 972LbUAXiNM2uGIvAqeOgy0hyxg0Dv4qdkjWgKCciMiW6rnmSAyKPEWjpITR6wfKG0GJ5
-	 mZrmd40oyAgFsupK/2PM7QVITymucxI6QsPBG/1UCzXEkVg7F1OYpIhltY67OXwbkkwi9
-	 ogjFj0REEOzZi6E8BP7lutYR9RwgErMx2GQt3hbiiUuSe8y+DNOdSQutoIahuCuQ2kA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795288076;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Debian-User;
+	bh=b08kfVCyZr2O+Mrdk0jPuzjAf5VkhdToQCa4SdwDN1s=;
+	b=2lWldEE37u0Ckd5eFdSvd/oFyshkhQ8uk2ALG0d/+/xPCT5CHkIhyhc5O4mubeyJtRM1
+	 W6gayvCc0CGr0k63m3YtXvZPVeGapgMQP/YZRfrxi42cR5pVJYs8PjihLBQ+uH2sCHbe+
+	 23o88Cs8slEPtR8sQF+rQbnjz5aD8L56pY66Aor63lMdUUFMKaeu8smKwvUX6j8PjaLo1
+	 nX5M87Wv8YtBWasdjaqeFid6lERy2IQTQdaQpstvnNl4kdV6Sd4HWl8rZZstUqNUzagVM
+	 NfgAfYuqo9Ge8RLGPSTDE801q/+zCrv8YCoI2vnRhjcwzbGbWWqKCYtfu4ZIZMnVpHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VWoNKsoy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=uVpsKodr;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 979B3606A330;
-	Sat, 21 Nov 2026 19:01:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BF32606A320;
+	Sat, 21 Nov 2026 19:07:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BF32606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VWoNKsoy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0B951F000C4;
-	Sat, 21 Nov 2026 19:01:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795287710;
-	bh=cXAX2m6JG5yf4JzUgA3dotq1f3OYESGFzlZjjaPicO4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=VWoNKsoyKP4QPDhjk1xqwWiDZNQTv7TbrlqFvlWIqWNMS6OPUX2Gd9hb5JNYAmFRI
-	 0foqEJOJ6Q+jqoMtm+G/IOCZPHmLB3j0SN+qzYv86LO/ry86AI78gqA9xYUqcPhFYo
-	 FGt+CwzDbbO/dCiyySNw+YgYEyeHrvpbxS3PGpcHzAp0q/aTWljaUUCEg46hPWNVrM
-	 lYvkKK+QVj8vBOD9IUCi8CbCNtVSUUT03kC0mmy8HlmsLKUJUPKSbH0/dE5M6aWUKW
-	 kP9NIBMNkSoBu7uCp0RZMI19/nb4qUKjr1zAvitqfjGAbxhPaEFpS0QkL32IHpXO5M
-	 V8TqCwcSZYUNw==
-Date: Sat, 21 Nov 2026 11:01:48 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [BUG] netdevsim: nsim_start_peer_tx_queue() indexes the peer's
- TX queues with an RX queue index
-Message-ID: <20261121110148.7ad389ae@kernel.org>
-In-Reply-To: <179505710275.3511681.13434978152402269948@gmail.com>
-References: <179505710275.3511681.13434978152402269948@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=uVpsKodr
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description;
+	bh=b08kfVCyZr2O+Mrdk0jPuzjAf5VkhdToQCa4SdwDN1s=; b=uVpsKodr/9E9dl8xS2rJciStvY
+	CZQE1B/FRs7nrHedZ3pFyrInAb9YGZuydRlzNXUOGJ+5zJDhEDgFVNl2cBYQPNORMpsOw7DsiGXLB
+	ZGT+nFScQL+U/oeFBSy2i6IyEZ+7ojKzxVAJyVL8qSYXmbK7XQO1TVV26wKg+Msn/IVS0EznVZUKB
+	V9fexNqLu1G3T/HOcx7CvLbCrpeOuaEX3uDChv3uOHRE6D9bK53eBA927JhL76WL/bfmEit0t5MOn
+	Bqul8FoC0E+elnJuFEboWeLUxEy3geLK1rcclMaNchaOGFSJpXAvMpmUvdZpBUi/mjlyVIXpc5e40
+	tmMPIUsQ==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUqQy-003rtM-0x;
+	Sat, 21 Nov 2026 19:07:36 +0000
+Message-ID: <ee0baf58-5795-424b-9a41-feb9a2e766fe@debian.org>
+Date: Sat, 21 Nov 2026 20:07:34 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,14 +60,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: hkallweit1@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
+ olteanv@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261121092933.186731-1-bage@debian.org>
+ <40db2715-55cd-46cd-a2fb-8ee11b571911@lunn.ch>
+Content-Language: en-US
+From: Bastian Germann <bage@debian.org>
+In-Reply-To: <40db2715-55cd-46cd-a2fb-8ee11b571911@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Debian-User: bage
 
-On Wed, 18 Nov 2026 19:05:00 -0800 (PST) Kyuwon Cho wrote:
-> A patch is attached (git format-patch against v7.4-rc3; it applies to
-> net and net-next):
-> 
->   0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch
+Hi Andrew,
 
-This is not how patches are submitted upstream.
-You can put the explanation slop in the cover letter.
+On 11/21/26 18:06, Andrew Lunn wrote:
+>> Parse the property in of_mdiobus_register_phy() and
+>> of_mdiobus_register_device() instead, so it is handled in one place for
+>> both PHYs and other MDIO devices, and drop it from
+>> fwnode_mdiobus_phy_device_register().
+> This seems odd. "handled in one place", yet you do it in two?
+>
+> Is there a reason not to do it in __of_mdiobus_parse_phys() ?
+
+Yes. My v2 draft was exactly that (which is the reason for the commit 
+message oddity) but I noticed that children with empty reg that are 
+handled in the auto-scan loop would then not get the bit mask set, which 
+is an unnecessary behavior change for PHYs. I will send a v3 with your 
+proposal. I am happy with either of them.
+
+Thanks,
+Bastian
+
