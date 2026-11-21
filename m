@@ -1,70 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295423;
-	b=axzKcI5yeUSlg5c3yhDEgUvOct0a5PtEMbQknNGGZKJnAwcZBtUPM1YqrbvYlVStPr39
-	 mJmfeY+OVdDzVnU0YDG6r8gwJagKH5VyuCvyH+j6G9PFhh9qpJMdfPUDS2uJ+TlFQLPDu
-	 iopgJWYJeBmGAu/WoykybuzjHiwGr2kOyDwG4JAhhc6THoBvkThNgVGK2GKex3T2xd0xB
-	 FYTnGdnsWLb8sKnWtJ4edCL7+4t4U6Jjp0dL5Bd9yzBVBlgX9cs3vWJMn4strMvHK39jH
-	 glTGMQeEyV4fNJCs6kJC4TEcmsLQ4UVAEutrh43bWBsRUO+QV8XBgMkAWcy2O455yTQ==
+	t=1795295665;
+	b=V4KT2jy5D5kz44QffFo2JApvH8zbrdaevA89i43z8+qM8rNRmsFPamMyYGslUWZimB0O
+	 8CQM//DtBiFS2zx0JCJx962zySprR8bT5Occm3R362iYXv+07adMW1m68Ip48WdGq8eZk
+	 K1YzTpkwtur7YVTal2Z6cL4j4NiM7QxkaNwDW6zcENM0aiV6hvTjiYJglzJb+50j5QNQi
+	 3aa2tCcqEkUtDooKNtNM/fW6Ihtoxo89S16uE0tNEzCRjVRQQQMMUeO1S9BKxiXN4Reit
+	 twrnhBUPfxcj+vHndEKUcRUkJvJP1ut9qr3weGZe1PVBW9c9xfyRYhx9owwOoLjw0xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295423;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=a2NKQrpvPoSFGsmTW495uzvdLwTr591GoJMHlrOmQEQ=;
-	b=DFm1qpFWuLZbbUXyYNuopor1or8Ii9lIy0pZN/J7cFPTYt7tbFr69EL984+eHJ5wKmJT
-	 ecKsB0QKU6xVlRHIhYXQbKRVULG8bOhzYTSoPjvGZpa5bzZJsR15jYCZt0eAv478cDVEw
-	 R/6ZOzL78fJG0lPtWsvC+QhceypdW8LoxG4zdl2YUGpA8Md5HjY3KuDwzD0GT3O09uDAV
-	 AhZgqBuDo/qPZMfBfNkatUypt6Eey1whHpy5jmU2MWyPaJbEPzWsU8BpJFrWT9+gDWMfW
-	 IxKLWuPXLOTgToAq8wnbciER/EWbWrdpuf+kgr8zLNMjQR70pgnUg1pv5T2on1WzKRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295665;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=ed8oxsSDzN5rqkrgHlXU5EuiHWlUsNR3iigXKB29wfQ=;
+	b=n7ZkjL3kwj/45ckFkyEcgA6Gu6otbJl4f3Ty3hVOKbRw102Xm8ohi7vWIvIJivgInDS9
+	 /0Nu1szQgo1mubjvhuob/40Zicu2/kFIVl8ot9WXsNyEY+fvLdYX59piWVEOI7eB3iG7w
+	 HM/P8uq/6rcbiJ96JU6LzMBYybuZUpedMT2+NPn5FUrjD1R3lg50qpXhG7ngDyRcSf5dS
+	 DvTqCzgEEq5/VEc7YUriLR0UzxjoyC2X6MNrUTNDbPs7Z0KnSACvWHx2Rfy7gboq/CF68
+	 WEyiiq97vh/sfDYc1GkWRYJX71Ht4EaA2AnUZNxOhgfYWdYNaleblD2JgUtA1FOYMuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=DY2yRP4Y;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=bairaktaris.de;
+	spf=pass smtp.mailfrom=bairaktaris.de;
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=lqlX8VdO;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id BBB0D606A320;
-	Sat, 21 Nov 2026 21:10:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBB0D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36FB1606A330
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 21:14:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36FB1606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=DY2yRP4Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795295417;
-	bh=a2NKQrpvPoSFGsmTW495uzvdLwTr591GoJMHlrOmQEQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DY2yRP4YffYyDEplaRFW/pR+w5WYQMzSAnb7Fk36iVoR6lArAINIhH4yZGJHAb0dY
-	 GyqdqR/PUsnmw/U/RiLkqioEnxytnFN3p4BAJKxfG1o9m6nPczFRm7LWhFIqUg6x3B
-	 1mAksXdhS4orAdS0EL0alcm8J07vtIwGf3OWUnLlbgks4fgPAdnLHquPZdTaTPA+gX
-	 1PQ4FmfxJRMnspWQtYKL0k+XLyUx8zPlGai6pNszjHpeyAv+uhEzTEj7+jKQtmj003
-	 4MebVVYykpa5sqbya9UPizyv/31eNY600yCp/P5vtvSvPuZ2T1u2Amngi0/Wr5c4z8
-	 aITV1Y64PIJ+A==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 7E49D6005A;
-	Sat, 21 Nov 2026 22:10:17 +0100 (CET)
-Date: Sat, 21 Nov 2026 22:10:15 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Julius Bairaktaris <julius@bairaktaris.de>
-Cc: netfilter-devel@vger.kernel.org, Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Eric Woudstra <ericwouds@gmail.com>, netdev@vger.kernel.org,
-	bridge@lists.linux.dev, coreteam@netfilter.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH nf-next v11 2/3] netfilter: flowtable: tear down direct
- xmit flows when the fdb entry moves
-Message-ID: <awIItwlvNhrdOdjn@chamomile>
-References: <20261121205535.1888592-1-julius@bairaktaris.de>
- <20261121205535.1888592-3-julius@bairaktaris.de>
+	dkim=pass (2048-bit key, unprotected) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=lqlX8VdO
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c516a160d24so15291966b.2
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 13:14:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bairaktaris.de; s=google; t=1795295663; x=1795900463; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ed8oxsSDzN5rqkrgHlXU5EuiHWlUsNR3iigXKB29wfQ=;
+        b=lqlX8VdOrUp3zsk8oWYswsKiMbmiseFgJ8uH9a25sUYf0I2UEN/N+oGluUtqV+jZ8v
+         2wfFl3FhgeBFP9tJH35qQE0ysN+eb0YLlXZlcaIVVpWC7cpayLNnlBQ0ob/VkbW60CrR
+         W0Id1BPh/fnpr+NPh3KcqxHKfKXAYzXHWVLylNoCra0MEW0LcJtDd46l1r8JMRgMpMt/
+         481AR2LANhl/qNgc4m1JVzeJ4lkAIChDetUKhsgb26pnj1BPaVGnBYwixmgMaS7kWYoq
+         xY5woKSQzPaFaDqpcTEazolA/QWpYCSCwnq//TgNQvPCZcZg4iRZvCdSsVErbMGPVJfv
+         V1og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795295663; x=1795900463;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ed8oxsSDzN5rqkrgHlXU5EuiHWlUsNR3iigXKB29wfQ=;
+        b=k8h25x/tyY/fe6PUUfzg72BG17HI78d543yGVfi2QPo4yS9dkoYNJPft1Rk/NP01zC
+         0X/Vg4Y0ShJZRoo3ID2onJoZ9TYZGhP3UANzBTUS/gCZji87snWYuiFBtA421+uCLyYF
+         D8RnJVev2si4H3hWAtDGLI3Tc8llZGg8sPMEqzDFG6v/qzauqF2E3FBOeNuKugNqdKGY
+         5NlT2PL7cIA6GTjsouxFQf+0l0fG++xF1Ds8cL13wtFs2x7J5l69PYCzQfRZ/cHrKc2a
+         OBxnC8KWxZlvy7gyhDCf/bdGPBkEWpI0w+7hkcRwPhZsIYeXvzG9F/HKkMbXYlsdVNC6
+         BDhQ==
+X-Gm-Message-State: APuU4Z8xO0asrxfmnR6D371VilWvlDq2kw9BwUYcbKZcG00Cp9d2KM96
+	q9iMb9hMTYfFbu00TpEasAR7JMQRB6vsdMUG2w+fQWXXsT4FFTX0IVJ265lf9LjvNkHkEk6D/ai
+	JzAfWFlxE
+X-Gm-Gg: AZFdTZeXdIwaxl/+ovo0YBulJvfosPRHU3V0LCt4bs6LBNIyyDi1ELLuQWwU8ILtdKH
+	RujECLxwpVqOOme2S+vMRuh5K+BpbJRqas8XBl/yrnPzR9lKSahT9oltIvDFvl6aBjDVkQzPua/
+	z/rn9RDx6L7xJ1jkqa4mHVC/QKnQeDCxTJsQ7lCPhIFdbXwPBPr7iHz4tXtGekgLFLjer3cFGbC
+	pVbNq7mFiSjsJd6OYdWY+jzRkDJfvjBreCYzGS9/fpmKJKIYV0Ck5SzpfWgdkLHbIgBLsgDbdUs
+	DqahqwrwAk8AU+rbuWy8c1VFkV5KLUM+UEsOlFgDYd3BDc8K/7zn5tWH+Y18TTfThVgbMZtIjPI
+	Na2MLzd1ywxDwtCHabviQcoXpcjmBI4RTTLfJi1BGnYh3CuUvyd/b1ZO5opCQQUo46WU+9ULY/Z
+	QOdGZjH1qerrZj6F7meiKLAG3Rd/faC7mvZas9Te+Lf2RWAVnsNlIiGLzgWkChtuj91buHJyXJw
+	IssPOSiWA1eu/P/eC3YRZ9d6C/NGqpaRhkaSy8vi7cUaqhqP3+T5T1/b6Rt3expMis2BWbFIesu
+	rS8GvOdW9QB5greqYnX4Z3n55ieDnXCSweUgBh2D9E50C/i/GSfFSTYJYlgUBqzb4vnPp2uySjV
+	1pMbD4/HfTgrT+mW81AdgAJijO52+SS1Jpl+Rkxu0vHJ1lgT/Q3AOjJ1ie3T/2uNSVNuFkq6ZTr
+	7i7iREnWOllz5X8q1sBbS+VoW2C455y6bXiiQcfz3tUAKjx5QosxZnqgGHVrpEJg55dHelu0rIU
+	D7gkx25/lHJUwsRSZidvYD0l4tdsu+HNOKJ6ztm5YcJmsfE790QTzXx1sRuvULIoKtOM+ZkfoBG
+	hnB1eOf7M7AW
+X-Received: by 2002:a17:906:130b:b0:c50:93b6:52fa with SMTP id a640c23a62f3a-c513a47e38bmr435535066b.2.1795295663493;
+        Sat, 21 Nov 2026 13:14:23 -0800 (PST)
+Received: from Desktop.tail070c67.ts.net ([113.30.183.63])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b03723bsm233079566b.87.2026.11.21.13.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 13:14:22 -0800 (PST)
+From: Julius Bairaktaris <julius@bairaktaris.de>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	dsahern@kernel.org,
+	idosch@nvidia.com,
+	willemb@google.com,
+	ncardwell@google.com,
+	kuniyu@google.com,
+	steffen.klassert@secunet.com,
+	nbd@nbd.name,
+	jiayuan.chen@linux.dev,
+	mfleming@cloudflare.com,
+	almasrymina@google.com,
+	bigeasy@linutronix.de,
+	richardbgobert@gmail.com,
+	ecree.xilinx@gmail.com,
+	bsdhenrymartin@gmail.com
+Subject: [PATCH net v6 0/5] ipmr: forward GSO multicast packets
+Date: Sat, 21 Nov 2026 22:14:17 +0100
+Message-ID: <cover.1795295554.git.julius@bairaktaris.de>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,107 +114,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261121205535.1888592-3-julius@bairaktaris.de>
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 09:55:34PM +0100, Julius Bairaktaris wrote:
-> From: Pablo Neira Ayuso <pablo@netfilter.org>
-> 
-> A direct xmit flow that reaches a bridge port keeps sending to that port
-> when the host moves to another port of the bridge, and packets from the
-> other side keep the flow from timing out.
-> 
-> The gc now checks the fdb entry after nf_flow_dst_check_gc(), through
-> nf_br_utils_hook, and tears the flow down when the entry points to
-> another port. An entry that aged out does not tear it down, because
-> offloaded packets do not refresh it.
-> 
-> One possibility to address this issue is to subscribe to
-> SWITCHDEV_FDB_DEL_TO_DEVICE event notifications, however, this requires
-> iterating over the whole flowtable whenever a fdb entry is removed.
-> 
-> The bridge port is found from out.ifidx through the vlan devices that
-> the forward path has below the port. The flow keeps the vid the forward
-> path looked the fdb entry up in: a vlan that leaves the port untagged
-> is in neither encap stack. struct flow_offload grows from 296 to 312
-> bytes on x86_64; its slab cache is cacheline aligned, so an object takes
-> 320 bytes either way.
-> 
-> The flow is also torn down when the port no longer forwards in that
-> vid, where the bridge would no longer deliver either: the port left the
-> forwarding state, the vlan left the port, or vlan filtering was turned
-> on or off. With two bridges on the path, at most two fit in a forward
-> path, the gc goes up from the inner bridge through the vlan devices
-> between them to the port of the outer one and checks its entry as well.
-> 
-> Neigh xmit flows need no fdb check: a forward path that crosses a bridge
-> always makes the flow direct xmit, and a failed walk is not offloaded.
-> 
-> Reported-by: Eric Woudstra <ericwouds@gmail.com>
-> Link: https://lore.kernel.org/netfilter-devel/20250925182623.114045-1-ericwouds@gmail.com/
-> Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
-> [julius@bairaktaris.de: find the bridge port below the vlan devices of the
->  path, keep the vid of the fdb lookup, keep a flow whose entry aged out,
->  check that the port forwards the vid, check both bridges of a stacked
->  path, follow struct net_bridge_dst, build br_nf_utils.o only with the
->  flowtable]
-> Link: https://lore.kernel.org/netfilter-devel/20261014210256.1573072-1-pablo@netfilter.org/
-> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
-> ---
-> v11: rebased onto Pablo's xmit series: the gc checks the fdb entry
-> after his nf_flow_dst_check_gc(), which replaces nf_flow_dst_check()
-> there, and his patch now sets out.h_dest for every xmit type
-> v10: https://lore.kernel.org/netfilter-devel/20261115005555.645727-3-julius@bairaktaris.de/
-> 
->  include/linux/netfilter.h             |  7 +++
->  include/net/netfilter/nf_flow_table.h | 22 ++++++++-
->  net/bridge/Makefile                   |  2 +
->  net/bridge/br.c                       |  2 +
->  net/bridge/br_nf_utils.c              | 35 ++++++++++++++
->  net/bridge/br_private.h               | 13 +++++
->  net/netfilter/core.c                  |  3 ++
->  net/netfilter/nf_flow_table_core.c    | 68 ++++++++++++++++++++++++++-
->  net/netfilter/nf_flow_table_path.c    | 29 +++++++++++-
->  9 files changed, 176 insertions(+), 5 deletions(-)
->  create mode 100644 net/bridge/br_nf_utils.c
-> 
-> diff --git a/include/linux/netfilter.h b/include/linux/netfilter.h
-> index e99afc1414cd..be85d8f68b45 100644
-> --- a/include/linux/netfilter.h
-> +++ b/include/linux/netfilter.h
-> @@ -67,6 +67,13 @@ static inline void nf_inet_addr_mask(const union nf_inet_addr *a1,
->  #endif
->  }
->  
-> +struct nf_br_utils {
-> +	bool (*fdb_valid_dst)(const struct net_device *dev,
-> +			      const unsigned char *addr, u16 vid);
-> +};
-> +
-> +extern const struct nf_br_utils __rcu *nf_br_utils_hook;
-> +
->  int netfilter_init(void);
->  
->  struct sk_buff;
-> diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
-> index 143bcfce3678..206296483fe1 100644
-> --- a/include/net/netfilter/nf_flow_table.h
-> +++ b/include/net/netfilter/nf_flow_table.h
-> @@ -121,6 +121,18 @@ struct flow_offload_tunnel {
->  	u8	encap_proto;
->  };
->  
-> +/* The outer of two bridges on the path: its vid, and how to reach its port
-> + * from the inner bridge.
-> + */
-> +struct flow_offload_br_outer {
-> +	u16				vid;
-> +	u8				present:1,
-> +					link_vlans:2,
-> +					link_untag:1,
-> +					link_8021ad:1,
-> +					inner_tag:1;
-> +};
+With fraglist GRO or UDP GRO forwarding on, a routed IPv4 multicast
+stream arrives as GSO packets. ipmr_prepare_xmit() drops every DF
+aggregate larger than the MTU, and ip_encap() sets no tunnel GSO state,
+so a GSO packet sent to a VIFF_TUNNEL vif is dropped during
+segmentation. Checking the segment length instead of skb->len relies on
+skb_gso_transport_seglen(), which reads the inner transport header:
+fraglist GRO does not set it for the inner flow of a tunnel, and the
+encapsulated UDP case counts the inner UDP header 8 bytes short. A
+fraglist packet in a tunnel that computes its outer checksum in software
+leaves skb_segment_list() with a wrong outer checksum.
 
-What scenario are you trying to support with this?
+Patch 1 sets the inner transport header of encapsulated fraglist
+packets.
+Patch 2 segments fraglist packets with a software tunnel checksum by
+skb_segment().
+Patch 3 counts the inner UDP header of encapsulated UDP GSO packets.
+Patch 4 sets up IPXIP4 GSO state, outer IP IDs and length in ip_encap(),
+and completes a pending checksum of an encapsulated packet before it.
+Patch 5 lets DF GSO packets pass when their segments fit the MTU.
+
+v5 patch 1 was applied as abccf171fa8e ("net: make room for the tunnel
+header in skb_segment_list()").
+
+Tested in QEMU (KVM), 3 runs with this series on net (acd205ab5c6d);
+comparisons on net ran on d5b89d55a322, 3 commits before it, which do
+not touch these paths, unless noted:
+- VXLAN with an inner UDP or TCP flow over IPv4 or IPv6, outer UDP
+  checksum zero or set, fraglist GRO on the router, forwarded unicast
+  and by an MFC entry over a 1400-byte route, 1000 packets per case: net
+  delivers 4 to 398 per case (4 runs of 16 cases); with this series all
+  1000 arrive with valid outer and inner checksums, also with checksum
+  offload on the egress, where skb_segment_list() still segments them,
+  and packets with a 1404-byte outer header are refused.
+- An IPIP aggregate built by GRO, routed to a tunnel vif: all 1000
+  datagrams arrive on net, carried in IPIP packets with 125 to 154
+  distinct outer IDs (3 runs); with this series every IPIP packet has its
+  own ID.
+- A TCP flow from a local VXLAN device (outer UDP checksum) behind veth,
+  so the aggregates the router builds are CHECKSUM_PARTIAL, forwarded
+  with and without checksum offload on the egress: on net (acd205ab5c6d)
+  156 to 1057 segments per 4 MB transfer leave with a wrong outer
+  checksum (2 runs of 3 transfers); with this series none, and every
+  byte arrives.
+- IPIP and VXLAN tunnels that end on the router, rx-gro-list on, inner
+  UDP and TCP forwarded: aggregated as on net (fraglist for TCP), every
+  payload byte delivered.
+- An encapsulated non-GSO packet with a pending checksum, forwarded and
+  sent locally to a tunnel vif: net hands the IPIP packet to the device
+  as CHECKSUM_PARTIAL (2 runs); with this series the checksum is
+  complete. With spliced payload, completing it moves the head; on a
+  KASAN kernel no report follows (3 runs).
+- An MFC entry to a plain and a tunnel vif, 4000 datagrams per arm,
+  UDP_SEGMENT, fraglist GRO and UDP GRO forwarding, DF set and clear,
+  software and device segmentation: 4000 of 4000 on the plain vif and
+  4000 IPIP packets with unique outer IDs, or the 100 GSO packets whole,
+  on the tunnel vif, all 12 arms.
+- A GRE GSO packet multicast-routed to a tunnel vif is dropped before
+  the vif counts it; with fraglist GRO routed into VXLAN and IPIP, every
+  segment reaches the peer.
+
+Changes in v6:
+- Patch 1 (new): set the inner transport header in the fraglist
+  completion of TCP and UDP, IPv4 and IPv6 (Sashiko on v5 patch 2).
+- Patch 2 (new): segment a fraglist packet with skb_segment() when a GRE
+  or UDP tunnel computes its outer checksum in software, because the
+  egress does not offload it or the packet is still CHECKSUM_PARTIAL,
+  which skb_segment_list() leaves wrong; found while testing patch 1
+  with an outer checksum.
+- Patch 4: drop only encapsulated GSO packets without SKB_GSO_IPXIP4, as
+  IPIP and SIT aggregates segment correctly (Sashiko on v5 patch 3);
+  complete the pending checksum of an encapsulated non-GSO packet before
+  ip_encap() (Sashiko on v5 patch 3); state why GRE and UDP tunnel
+  aggregates are dropped and what a device segmenting IPXIP4 gets.
+  Simon's Reviewed-by is dropped, as the code changed.
+- Rebase onto net.
+- v5: https://lore.kernel.org/netdev/cover.1794151759.git.julius@bairaktaris.de/
+
+Changes in v5:
+- Patch 3: drop an already encapsulated GSO packet in
+  ipmr_prepare_xmit() before the route lookup, so the vif does not count
+  it, and call iptunnel_handle_offloads() without error handling, since
+  skb_cow() leaves no header to unclone (Eric Dumazet, Sashiko). Simon's
+  Reviewed-by stays, as this is the change Eric asked for.
+- Outer tot_len 0 (Eric): 50 x 1310-byte datagrams merged by UDP GRO
+  forwarding make a 65528-byte packet, so the outer header gets tot_len
+  0 from iph_set_totlen(); before, htons() truncated it to 12. In 3 runs
+  nft ip forward chains still match it with meta l4proto 4 and
+  ip protocol 4 (100 of 100), while a netdev egress chain on the output
+  device does not match meta l4proto 4 (0 of 100), as
+  nft_set_pktinfo_ipv4_validate() takes the length from iph_totlen().
+  All 5000 segments reach the peer, with software and device
+  segmentation.
+- skb_gso_transport_seglen() also leaves out the inner SCTP header of
+  an encapsulated SCTP GSO packet (Sashiko on patch 2). That predates
+  this series, and multicast routing does not see such packets:
+  sctp_v4_addr_valid() and sctp_v4_available() reject multicast
+  addresses.
+- Rebase onto net.
+- v4: https://lore.kernel.org/netdev/cover.1792838740.git.julius@bairaktaris.de/
+
+Changes in v4:
+- Add patch 2 (Sashiko).
+- Patch 3: drop GSO packets that are already encapsulated, and set the
+  outer length with iph_set_totlen() (Sashiko).
+- Drop v3 patch 2 (TCP fixed-ID flag on encapsulation): multicast
+  routing does not carry TCP, and the flag also needs the decap and
+  GRE/UDP segmentation paths, which go to a separate series (Sashiko).
+- Rebase onto net.
+- v3: https://lore.kernel.org/netdev/cover.1792293419.git.julius@bairaktaris.de/
+
+Changes in v3:
+- Patch 1: name the VXLAN case, where a member has no headroom for the
+  tunnel header (Sashiko).
+- Add patch 2 (Sashiko).
+- Patch 3: reserve one outer IP ID per segment (Sashiko).
+- v2: https://lore.kernel.org/netdev/20261011162957.1328474-1-julius@bairaktaris.de/
+
+Changes in v2:
+- Add patches 1 and 3; v1 let DF GSO packets reach ip_encap() on tunnel
+  vifs, where they were dropped during segmentation (Sashiko).
+- Keep the additive MTU comparison and check mtu > encap before
+  subtracting, so a route MTU below 20 cannot wrap (Sashiko).
+- v1: https://lore.kernel.org/netdev/20261010131842.2157365-1-julius@bairaktaris.de/
+
+I used Claude (Anthropic) to help write these patches.
+
+
+Julius Bairaktaris (5):
+  net: gro: set the inner transport header of encapsulated fraglist
+    packets
+  net: gso: segment fraglist packets with a software tunnel checksum
+  net: gso: count the inner UDP header of encapsulated UDP GSO packets
+  ipmr: set up GSO state for tunnel vifs
+  ipmr: do not drop GSO packets that fit the MTU after segmentation
+
+ include/net/gso.h        | 24 ++++++++++++++++++++++++
+ net/core/gso.c           |  2 ++
+ net/ipv4/gre_offload.c   |  2 +-
+ net/ipv4/ipmr.c          | 34 +++++++++++++++++++++++++++++++---
+ net/ipv4/tcp_offload.c   |  6 +++++-
+ net/ipv4/udp_offload.c   |  6 +++++-
+ net/ipv6/tcpv6_offload.c |  6 +++++-
+ net/ipv6/udp_offload.c   |  3 +++
+ 8 files changed, 76 insertions(+), 7 deletions(-)
+
+
+base-commit: acd205ab5c6d762c7ab8f8413a5122e6f6fa2a59
+-- 
+2.53.0
+
