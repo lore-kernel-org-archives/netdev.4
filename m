@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795224008;
-	b=lYlmM32FbGgclmh+5yugKyKtaNz4mGtQ0KwdR92s0xknCjIKwjNZ6zqOJcIAlXXjibwe
-	 p9zlqZBMnMeqbpsKfpH3jh7pkpgb1GjnhPB2IRXbMX8j7yo0Y73acxy6tsp1aklRtKn/d
-	 x4+1qH7kiEf2idWfKgVv12kcwg22VG4jMAP7VSA5rA4G3VJ0NQVZxb+E3p65qC2mNlS3c
-	 E4ctIV2FShWbirT4O1aIm8OjWWbnsoymma8WupBB89BkQ2wpur7VqbF+pG6KvspSLWsDQ
-	 /zeK/V9MNLlYaQDaZDYjX6KLqLIfiH7+SQbWToqmqcy9VJxRXowGvdJEw12M4qGMpsw==
+	t=1795224013;
+	b=Doqpcuvui1MyowS7LZgGAoUarlCpf5PNBYHXoKhnUilNWqPQBqCxoX0v7VJWGqcjKv2X
+	 IDBVcwu2zTB86xQ/Ive15ZDWlyc9FCfVCfMBC4Ecz9XX5OvDNy84+EuSrs6DkKNvQQnUG
+	 nfhbySITG81ls8F1ifiCErefD2e7YzZzhCa5bHVBrxdtoUhwQ+q8cRaU9PUfhSQygb4Su
+	 g6gakq3JIhNBKvIhkhnDt1Tv3t0T0EvDwFsk1Wo0MfVd+4jAASz0bWtPG22U63/Wc6wcc
+	 2VvRtani/zXrxoPn5zAoGKH/pUhyAEzv43EFcOKg4qFQSSy/mAGZjYKZRCRBdt7hckQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795224008;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795224013;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=A63RxKAwkZzHm3paAKlK/vSXiupUAfz4QqcpNoWmH5U=;
-	b=roOxIEPekgMQdzXsSCRYIrCFFPwKfLDgdt3zO/3psLXS1CHLP6J7cmFtJHsA1e4N4Ujm
-	 yYFUW5oZPM8dbCGB/93S2EyoH9YhMttJCF5IkjeTyR/leRB9fzPkP9Zw9FP7XQ11vfSkR
-	 MwSBgXuhy+O3uKMYgdJHkPEkphQiXoKIEjrU2WPLP8I7RQZgMIEBbJ7z2iYD77lo9iEeK
-	 pcmOwY5YBYAAF2gRyQ5arb9SD/g7nwYZVACGll96UEryuJWF7i2uO9ZP5UpeZErq/rdqr
-	 YDLozw+8TWXW8lKKcasml0x6UXxcbv4II+xYscQsFhEe+xm6joFuzDHehvT+9qzxDRQ==
+	bh=XGM+SoSoXQSrfen5TCQgnE2je807VHAlIhCb4GyZuDc=;
+	b=obIMeFv4YDN5PDnpQqsuJeMCt0+S13+Q6u+/PeRVF7ruhbDY4W4kSqSjxXZp6HYIUVKE
+	 Vb0U9TXDU7oL85VrBkbq+Fz1D2H1dYHS1emMV4MeJKcASCtG1MKkBVw8RVCrlviC3KP9i
+	 738WgaYQvMyKjZ9l5ASiACwdHuFXi1Yh0lHJI7yQAI5UdZKkoYNA3Rhq1ymOjObsBYD5g
+	 A1LyMuCrNqRrTDzM6tys7xBHzX49geN47gl1eauS+Z9ZqkZe5DCFSWnwxH4ES10dgLHlD
+	 +usOh1NgQj8GadhhSarGcjzWW40vrMPmJwKnBIXZSmOsxgn6txkM+UIv8wAGAq7x1HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="i/t14ql0";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QK0Y7KKO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 065CE606A691;
-	Sat, 21 Nov 2026 01:20:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77C5F606A69A;
+	Sat, 21 Nov 2026 01:20:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i/t14ql0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF1B1F000C6;
-	Sat, 21 Nov 2026 01:20:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QK0Y7KKO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43FE91F000C0;
+	Sat, 21 Nov 2026 01:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795224007;
-	bh=A63RxKAwkZzHm3paAKlK/vSXiupUAfz4QqcpNoWmH5U=;
+	s=k20260515; t=1795224013;
+	bh=XGM+SoSoXQSrfen5TCQgnE2je807VHAlIhCb4GyZuDc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=i/t14ql03YL8lD31HV3R5rS+U+yvRGr70JIxa3SCNX0/3xdQs6LF67EOng+ACH+4m
-	 Oy0CWkUKZT4TMBuLKiy0Y0+AjMbJu3by2rmI5FTqtyUVaDTlEbX20AK+hk1K2q8C4L
-	 Ar7ooUAaFBCJnxPpcRw++tfBlyg5QI3VebEB2IszjgzG2GEI8IP643Kt1GRAAFNPBa
-	 Oe89+dY8S8vyg/wN6JghaodfexzrmtFQdg4wlrSA+rbGl49qip+B4Mtgq4fhZmtFX9
-	 cW/KsuVMsvPgY9n7VrlHGnNZbtrw33YDlta9TmkrrY8SxlPvl5lGncdBj8tGePJQwX
-	 49eUqEjyYvaEQ==
+	b=QK0Y7KKON3md5YCXX+p+r1UTzhlWdzaa+WY7VoJZxtxAXDKtY0vIU9tIk9pbu22dr
+	 XWdtZYr5gESfuAHW66Q8AjcSDUNN7lGgwVXUEGR4NNrd5UY+RtbsD5+rW5YUkvs5OD
+	 hatZ03vOP1bNWF2mv7HRck3f7gDvtsVnMyTxW8k2RFnLNaIda132VYgOYAe2q/qt78
+	 9jqYIhvIOive+k/9g7qNNxeq+rO/2baR6RieeTqwPjJoB3o1QzIjcgGNtT16YkpKd0
+	 YcX1/6i6+Jcvl26klZS4jEa/c0lSJ4KGSI28/tgYE0X5q+64EyxRJUEPYIiBhJzp0g
+	 89WR+O5/f5AlQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77454380AA5E;
-	Sat, 21 Nov 2026 01:20:07 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A482380AA5E;
+	Sat, 21 Nov 2026 01:20:13 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,46 +54,39 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net V2 0/2] net/mlx5: Fix HWS and DR steering memory
- safety
- bugs
+Subject: Re: [PATCH net-next v2] tools: ynl: render operations-level
+ fixed-header in docs
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179522400603.873873.14923348650809812923.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 01:20:06 +0000
-References: <20261118173227.1957670-1-tariqt@nvidia.com>
-In-Reply-To: <20261118173227.1957670-1-tariqt@nvidia.com>
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- acassen@corp.free.fr, valex@nvidia.com, erezsh@nvidia.com, gal@nvidia.com,
- kees+treewide@kernel.org, leon@kernel.org, linux-kernel@vger.kernel.org,
- linux-rdma@vger.kernel.org, mbloch@nvidia.com, moshe@nvidia.com,
- prathameshdeshpande7@gmail.com, saeedm@nvidia.com, horms@kernel.org,
- william@theesfeld.net, kliteyn@nvidia.com
+ <179522401177.873873.982060431560061008.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 01:20:11 +0000
+References: <20261117-ynl_fixed_header-v2-1-e7ac247956ee@kylinos.cn>
+In-Reply-To: <20261117-ynl_fixed_header-v2-1-e7ac247956ee@kylinos.cn>
+To: Hangbin Liu <hangbin.liu@linux.dev>
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ donald.hunter@gmail.com, wessel@jacobi.pw, rdunlap@infradead.org,
+ linux-doc@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, liuhangbin@kylinos.cn
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 18 Nov 2026 19:32:25 +0200 you wrote:
-> Hi,
+On Tue, 17 Nov 2026 11:16:40 +0800 you wrote:
+> From: Hangbin Liu <liuhangbin@kylinos.cn>
 > 
-> This series by Yevgeny fixes two memory safety bugs in the mlx5 software
-> and hardware steering code paths.
-> 
-> Both are missing-check or wrong-handling problems that lead to a NULL
-> pointer being inserted into an xarray, or an out-of-bounds write that
-> corrupts the kernel heap.
+> The doc generator only rendered keys on each operations list entry, so
+> operations-level fixed-header (the family default) never showed up in the
+> generated HTML. Add a fallback to emit the default_fixed_header on ops
+> that do not set their own.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,V2,1/2] net/mlx5: HWS, Handle NULL in vport destination action creation
-    https://git.kernel.org/netdev/net/c/c0ec15a58655
-  - [net,V2,2/2] net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
-    https://git.kernel.org/netdev/net/c/0e56ff4441ee
+  - [net-next,v2] tools: ynl: render operations-level fixed-header in docs
+    https://git.kernel.org/netdev/net-next/c/95efd17739e0
 
 You are awesome, thank you!
 -- 
