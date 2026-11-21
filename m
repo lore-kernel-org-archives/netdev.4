@@ -1,97 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289531;
-	b=MuBQqFmJ8uVuN8MFESmhgQOV0WBmGZUWGSNGgkDaX/fzhJD0l8Iz63QTP6vEhVZJNpUI
-	 nTX+n9ANT6Rn2mqiJiFOY2jgECCubrdG7j5gw8bknHq1AxBOol5HmDB3pPYhQ8qfiWbE+
-	 3YDMifIOMlzh0Nj5SfcNrS5dJvnO0nLXct8UWeHzlSEPZI1GLuoiG1dhO+0fnZrYfi42/
-	 FCbO1ryZpUaCzBSOvXt87tcTuzO/jw8/TCVoMgFplYkr+rNqNcWTK5x1gG2eCKjf5D+RP
-	 4UvAZvbo6OUoNr25HCUU/bM5gNS5QWl+eSbX0Cz8tkKZZ3e3UfciaCb4avyWS625phw==
+	t=1795289640;
+	b=LLkEGEGyRS9jO9dygyRpKTP7YG6tdAz/BL2aPMvFIlRd2UC4oJHkNj93Ufr44K1zf0I5
+	 wf8rqsK6ygrOJwR2YBDE8D+hhxe0zDSVMlIrGBGmxv8s8oonyfbA+1FAPFyjIZKKflGlj
+	 egtrAXINeVuGh5o0uygoUGKjBkbkvPgpMUdZBPIUPAvOzlWp3cL6NdwP+JX1TnRrZr38e
+	 QGVsmOpke3yEBGubNQsznettrR/akU/IuApa5YASIOLjC/vp+2inJ+IKdN2illzZixuL5
+	 G1AQJFXCbRNYIyhUls3xWF/9PlAojPDvXD2u4+dJVbQL3J1cwgZxie7P4h2vR8mBy/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289531;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289640;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=RtGGBcYFLH/+8lgOsFq33g5o0zMHPu1MjtNUHieI108=;
-	b=4fKun4qyQ0Gk0vT+IhrdSiLX8Elze6dHZSUZQcWgLr3gpJGfY6LCH4xKSTVGQJqeuovR
-	 Hlmydkt2uPX8Ng6bSDaIsTfFq851kU5qG8lr+Ted46j/kLmfPuSPfcx+TX5cEh5o0O/H8
-	 2daCaJ1W1n9zZguJIIJZ8o4wAmRJsWa9m16ukYEwrO8NztZXjQ7gfz5nqhN5VcfiLi4Td
-	 x8coPK81rNfFS8+hXPkUl5x/8pK4TxI99DzLEShG8VIi4Z5zhmGMEz3Anx5GssxbfKKT/
-	 iYRM65JQjQdYPgzNuREKygPJRttPzCCR3pRZGmYg3TJhsG1guoBBhxjqGCRIbzcKD1A==
+	bh=qkofz/lYLKL2hpqydjvK6PT32xSgmVVrNto+vh8mHvc=;
+	b=lGUofMN5P4letSVI+ezzuIkP47YghmWAqeDCTCGdd0SLnKl8EyXlouM+Nk/p+XyLx2sR
+	 eEJoBhnTzEVuc573J+OkOeDZOpXJdANDvRM3ItXlrz9i+i0PA0e/GzGvzJX8ZQtvn1PLJ
+	 57kJtuqYFOb3uAnDgdezZqm2IV+Bc/0JH15wXdbRbv1Qpi2xDdvH729P/Dz97pwz3EPLP
+	 8KXL9q2Y4AY7WI+RkTDJ3+rReKRjnBjcD/S7UP6Bty2hNDNcJCRlWVBxkxYc14117DRUc
+	 ofZx4rA3rNbqyFnx85v6aTKegyJB80LuLOM96m0lUsmnwX45LJP+avWETmVDkL/BLUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="goc/tD7G";
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=B3NvasS5;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F28F8606A684
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 19:32:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F28F8606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34638606A332
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 19:33:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34638606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=goc/tD7G
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cd69954c755so1513269a12.3
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 11:32:10 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=B3NvasS5
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3af93b85cso1172819a91.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 11:33:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795289530; x=1795894330; darn=vger.kernel.org;
+        d=iiitd.ac.in; s=google; t=1795289638; x=1795894438; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RtGGBcYFLH/+8lgOsFq33g5o0zMHPu1MjtNUHieI108=;
-        b=goc/tD7GgY57pBypEHGEz/djrG91+Qjb6dAF3/xnQIzzue6qu5+03oJ8AzmhyQsyL7
-         No9wKtNZtkB6P5JQTfVvtpPNLfBxMiGMI0WusktvGzXzNqZfOrLpFWE928XFa8u+4DpC
-         0z4awFPJw09YRNn6pvnitLTdy+nIdqjxL3T8yw9K64HbC25fV+YXNs5Fd/Ip1UuI9xvK
-         X+WoYfVKvdFUqVUQBP5vMDENrllPvcFz/mD52qsPofb4PhOsD51iXqn4EIWidMB2k0eP
-         Yc+dzFSdivAeNyIx0J6YVGLJoEDrgqskhbx6R+C2+OnqUmtkauP8fkMw8DHgG9LMDYoU
-         Edfw==
+        bh=qkofz/lYLKL2hpqydjvK6PT32xSgmVVrNto+vh8mHvc=;
+        b=B3NvasS5R/IpAlX35qIRffdT3cwwxA+C5KhRyjduvO6OfBM5PoxUFJ34UkMCznsPKs
+         +vrKPx8Z0obOdAXYWT4SbfTLGJe+7NSqTR/hbiBns8Q0974IPiWn1HvCs47vQmeAw7BM
+         ZQsCXjcTImbsXzOZ+Fx+dPYlnkaFqH7reEVr4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795289530; x=1795894330;
+        d=1e100.net; s=20260707; t=1795289638; x=1795894438;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RtGGBcYFLH/+8lgOsFq33g5o0zMHPu1MjtNUHieI108=;
-        b=xPNqlK9k5AiprZU7kWUKIm3e4ArsWBc7Ecsf+Ox741NuaP1xjEJMXGcvjXDK0HFphE
-         RbmN6VFEmlimHDq+qNmEmP74VGReXFRGvJ/QAyXNaiN8vWdnIjIhobBsPBDf/zcCysBZ
-         +KPlZv7EuZ87gdGDD3cUMv1Eq/KepcVngAMMQNklWL7yj1AOkCUyFIBHwW9fpbRPUxEB
-         +ICbFBt7B4xtDL35p7Q22yI0mYbZQdyUmQH1IVsFvoYqVg7/EAo6Xe9yyYaj9d1JMBcz
-         pSF9iRTseqb4DFPBLhtdUrUdA6gNWIvLky607ykZxD6TQp4wH0xulttHdwDmwIMGEyM7
-         xPbg==
-X-Forwarded-Encrypted: i=1; AL+hErFGSGoiiPy98dLVKa3Rndk5XdIhemyA3J8RWzv8I3SnbTOuY9bKY7nkiANpZXFySubs3grZxp4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/0f0EuRl9V+QZnQ6JuR7yXtmpcnOX9cfP/fWu4g8YEPFYPtQKG
-	luLRcUHIT0ysSok00nSSFwa0hSHZwfMBlH7ucBl3Zn3FI0lBMmypLHNV
-X-Gm-Gg: AZFdTZd/TZ5pHAYxl18norfGlHE7kcKYNUYbyvS7o/dVySOWsFYuHQ77fmHDnU5s9//
-	8HumsFBIKns/9ygSv96vKBiSV9n+5/Bxx0NpZUj3fDdTMRoeudr6T9T3RsH4xEE85sM3GUhasYG
-	AlbB8LkDNfXRD9vwnMLBPG0ur7Vvas6oM5DDoz9+R/UbW1rYZF+ZPwh4u8qtEltCkBcU0+SjjPr
-	o6k8jo0qhsobcxHch9nz1W5qaKUTxFOuu8oeB0hSdRspJl6ykd8YPIJum3gGfE+S5ZSpCn0NW7o
-	Wsh2lR2sjD2H6mLpqYfK60w6dW+7jFXvWn/SP1T6pEPNcAjCcO6WGAXQ/LDH4yhgUeuydIuNu9D
-	lWwHJzl6hzWB5OgIghNwz/imr0q53S+ASkLZHiMLgg5aTgLT/PX6hLr6sWol39JpWaNpQ2F6hNg
-	TnmONZ5Woow5CnaArtoaslcoYfdk3TIpeDDtd2KizWiA0d6aYh6cPfgabSPDoyS2ZZosf9bxhne
-	oWg8KJMQsp62ZN0SVNRidBhxCsnqW10tddUy4evoKAh/1F0I2BX5ovEVTOjzLXETqS0PLaLMb5C
-	QKt8/2qJYmIPPA5ww52udLAC2vbW9ZHdP4NCJw69w+DrY4pGx6USJc89zBhHfFdiI8o=
-X-Received: by 2002:a17:90b:442c:b0:3a8:9b79:e6ea with SMTP id 98e67ed59e1d1-3b41cb235cbmr6305923a91.59.1795289530104;
-        Sat, 21 Nov 2026 11:32:10 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120282sm28591205ad.59.2026.11.21.11.32.07
+        bh=qkofz/lYLKL2hpqydjvK6PT32xSgmVVrNto+vh8mHvc=;
+        b=IPcdkl8YruKrzwzr0WqC1b+c7chRlcvLdk8IJbat4om00WLpyhJDZX5z7+P9KXQcQi
+         b52tPfCiPAKRQxYCOZP3Kd0tFohUJDpWTVqab5es83HocaFGOumLz3283CMB2Tg3TbpK
+         wZzyR5P6p2MlLx3szJOubta+t3u5bFiG4beba0kvpZDFl3oaJWFi3TMbaVqYnqzybK03
+         yCZc1w2H1fUidn0PDN7m5SlJ9DJrG07ah/IgZ47zcHv2bTJEV5+xEPBw+X2TJAL6UATa
+         DsGDgCCBZoAxAiXolToBwsercGWFlUT48OHOndK29lpx2AhgS1yJYgusdwzV1IDQSRfY
+         95ig==
+X-Forwarded-Encrypted: i=1; AL+hErGZNoI1Y4MZlJs8d64LcnEYYHED1LE2kECm9uNQ4Qvi3azGVHdikzVE8kBChnB9jnzLhJ3qxWY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/YZG5xnEC5gHMAGrvGIrvdjwSI4ukGwogZq70x9FgvmKDmI6ga
+	DGDtWBCjf1Ck/611rDNyS0rtHud/QyJrFhqOedTzgJQxeq6d4YH9UQnC72RZF8od2aE=
+X-Gm-Gg: AZFdTZfINBP0T+0AQoXr1J9YxjmFzyfohPxTGhq9uLH5MXt1Nr15gYeCNJd5SVbV7Wt
+	9uNZyDC93H3WD3d3DBE8R+rD5XOeIJ51u3nivbOE//Ohp+sLzVIFDEjHxF+SiVMMn2ZtiQKDf6/
+	0wy5VWdDPOF68sr+GfdGvSYapCCzNqE4NDNnNQ3AWVtJyE00QcjIJoTvqkiR4a4HPM4lHFqEjBt
+	oWHtyybKeIw6sS0sMJ50w2wm5N1b/ivB+yt+zbZiAyZLSAr+4AVLYYmA2hZlvBkcRxxe29lF0ue
+	ENZfy50+45ChQEdI0tzRpYEyKhLrLDCeoHXc9KreoqnrWEfnW4/NxlK+usg3i6kwIzFVDwLe4Qy
+	7EDbc6KaJOCdS3jt/Qx/89jJibga8fjqQ9C6Sluss4GbN5/ZkNJ9n0wHJYGNf52gYR9iJeoG4td
+	OpfHX3ipTCBTmz+zk0HO8PTLDnDCeE4FOv/dMe94XC/kRsw6+SxBtoULLWWT0Z1oW+eBAGhflPO
+	qEyyAiFs2T/hTXk/40haSLg23ei6aJgx95GT4url7U4YrrZSV1qp2CPIYjhPTTQo+AEPO5NCGHd
+	IOR2bfPW5rinEdZh52o5TdHr5zurL/U3VbFi6clAyd8aDK1vVStUdGAuBjkCu9hdA6xnViKiiIH
+	kwkkiaOCoDpjf6dAUQDTLPt66wlJrl9pYchyyNyaRj89jtfmMTnfgCbx1KNGeMofX
+X-Received: by 2002:a17:90a:d2c7:b0:3b3:fe22:273d with SMTP id 98e67ed59e1d1-3b41c95b0cdmr6070089a91.41.1795289638560;
+        Sat, 21 Nov 2026 11:33:58 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b217a5bsm2686818a91.0.2026.11.21.11.33.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 11:32:09 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 1/1] netdevsim: bound the peer TX queue index in nsim_start_peer_tx_queue()
-Date: Sun, 22 Nov 2026 04:32:02 +0900
-Message-ID: <179528810243.2011658.9050974542546209152@gmail.com>
-In-Reply-To: <179528809256.2009509.5007624677973207521@gmail.com>
-References: <179528809256.2009509.5007624677973207521@gmail.com>
+        Sat, 21 Nov 2026 11:33:58 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: alibuda@linux.alibaba.com,
+	Dust Li <dust.li@linux.alibaba.com>,
+	Sidraya Jayagond <sidraya@linux.ibm.com>,
+	Mahanta Jambigi <mjambigi@linux.ibm.com>,
+	netdev@vger.kernel.org
+Cc: Tony Lu <tonylu@linux.alibaba.com>,
+	Wen Gu <guwen@linux.alibaba.com>,
+	linux-rdma@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>,
+	Piyus Kedia <piyus@iiitd.ac.in>
+Subject: [PATCH net] net/smc: validate the peer's CDC cursors against our own buffers
+Date: Sun, 22 Nov 2026 01:03:45 +0530
+Message-Id: <20261121193345.2148966-2-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261121193345.2148966-1-piyus@iiitd.ac.in>
+References: <20261121193345.2148966-1-piyus@iiitd.ac.in>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,42 +106,82 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-nsim_start_peer_tx_queue() wakes the peer's TX queue with the index of
-the RX queue being polled, and only compares this device's TX queue
-count with the peer's RX queue count. When the device is relinked to a
-peer with fewer TX queues while its RX queues still hold traffic from
-the old peer, the index is past the peer's TX queue array:
+A peer's CDC message carries two cursors that are offsets into buffers
+described on this side: the producer cursor counts the bytes the peer has
+written into the RMB we published to it, and the consumer cursor the bytes
+it has taken from the RMB it published to us.  Neither is checked anywhere.
 
-  BUG: KASAN: slab-out-of-bounds in nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60)
-  Read of size 8
-  Call Trace:
-   <IRQ>
-   nsim_poll (drivers/net/netdevsim/netdev.c:409)
-   __napi_poll.constprop.0 (net/core/dev.c:7997)
-   net_rx_action (net/core/dev.c:8217)
+smcr_cdc_msg_to_host() copies both into the connection as they arrive, and
+every later user treats them as trustworthy:
 
-Skip the wake-up when the index is not a TX queue of the peer.
+ - smc_cdc_msg_recv_action() adds the producer difference to
+   conn->bytes_to_rcv under a comment asserting
+   "guarantee 0 <= bytes_to_rcv <= rmb_desc->len", which nothing enforces;
+ - smc_cdc_handle_urg_data_arrival() reads
+   *(base + conn->urg_curs.count - 1), an unbounded index into the RMB;
+ - smc_rx_recvmsg() clamps only the first of its two ring chunks
+   (rmb_desc->len - cons.count) and uses the remainder unclamped for the
+   second, so bytes_to_rcv becomes a copy length.
 
-Fixes: ff2ac4df58ad ("netdevsim: implement peer queue flow control")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+A peer that reports a cursor larger than the buffer therefore makes the
+kernel read past it.  With a 64 KiB RMB and a forged cursor, KASAN on
+7.4.0-rc3 reports a 1-byte read in the urgent-data path and a 131072-byte
+read in the receive path, the latter via _copy_to_iter() - i.e. the
+out-of-bounds bytes are delivered to userspace by recvmsg().
+
+Validate both cursors where the message is accepted, next to the existing
+length and sequence-number checks, so that one test covers every consumer.
+Each cursor is bounded by the buffer its own arithmetic uses: the producer
+cursor by conn->rmb_desc->len as in smc_cdc_msg_recv_action(), the consumer
+cursor by conn->peer_rmbe_size as in the diff_cons calculation beside it.
+A cursor equal to the buffer length is legitimate (a full ring), so only a
+larger one is rejected.  An out-of-range cursor cannot occur in a correct
+peer, and the malformed message is dropped like any other.
+
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
 ---
- drivers/net/netdevsim/netdev.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ net/smc/smc_cdc.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/drivers/net/netdevsim/netdev.c b/drivers/net/netdevsim/netdev.c
-index eebc02ccc4a9..6e287ae692a8 100644
---- a/drivers/net/netdevsim/netdev.c
-+++ b/drivers/net/netdevsim/netdev.c
-@@ -53,7 +53,8 @@ static void nsim_start_peer_tx_queue(struct net_device *dev, struct nsim_rq *rq)
+diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
+index 32d6d03df..03ff10fef 100644
+--- a/net/smc/smc_cdc.c
++++ b/net/smc/smc_cdc.c
+@@ -466,6 +466,26 @@ void smcd_cdc_rx_init(struct smc_connection *conn)
  
- 	/* TX device */
- 	peer_dev = peer_ns->netdev;
--	if (dev->real_num_tx_queues != peer_dev->num_rx_queues)
-+	if (dev->real_num_tx_queues != peer_dev->num_rx_queues ||
-+	    idx >= peer_dev->real_num_tx_queues)
+ /***************************** init, exit, misc ******************************/
+ 
++/* A peer's cursors are offsets into OUR buffers: the producer cursor counts the
++ * bytes it has written into the RMB we gave it, the consumer cursor the bytes it
++ * has taken from the RMB it published to us.  Nothing else checks them.  smcr_cdc_msg_to_host()
++ * copies both into the connection, and from there smc_cdc_msg_recv_action() adds the
++ * producer difference to conn->bytes_to_rcv and the receive path uses that as a
++ * length - so a peer that reports more than the buffer holds makes the kernel read
++ * past it.
++ */
++static bool smcr_cdc_cursors_invalid(struct smc_connection *conn,
++				     struct smc_cdc_msg *cdc)
++{
++	if (!conn->rmb_desc)
++		return true;
++	if (ntohl(cdc->prod.count) > (u32)conn->rmb_desc->len)
++		return true;
++	if (ntohl(cdc->cons.count) > conn->peer_rmbe_size)
++		return true;
++	return false;
++}
++
+ static void smc_cdc_rx_handler(struct ib_wc *wc, void *buf)
+ {
+ 	struct smc_link *link = (struct smc_link *)wc->qp->qp_context;
+@@ -499,6 +519,9 @@ static void smc_cdc_rx_handler(struct ib_wc *wc, void *buf)
+ 			   conn->local_rx_ctrl.seqno))
+ 		/* received seqno is old */
  		goto out;
++	if (smcr_cdc_cursors_invalid(conn, cdc))
++		/* peer cursor outside the buffer it describes */
++		goto out;
  
- 	txq = netdev_get_tx_queue(peer_dev, idx);
--- 
-2.43.0
-
+ 	smc_cdc_msg_recv(smc, cdc);
+ out:
