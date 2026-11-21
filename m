@@ -1,94 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795249660;
-	b=1IGG4QR0DluiBOELcTSGNDUyCX7Xklrq4oMfScAkvDeknrrQF+YVO+rpjCPO122GK6be
-	 NvCMyjCHc2hQGo7kScHsNDZL0/eiuWoJwUQfqP7+KgZnrEoRCALPQl8CrQR7hJpKbsQQ0
-	 8gVf8cna0jPSAQrh1WT5Qyay2uGbfeDye1NDfU3sEGes6aSt1xv4NZODMHTevAO0kUw6h
-	 uG0qJyptlE/ExVmlrhYNaoq/cYb1i9dM2zeR8zxTcv6r/qYpfu3bRXOv3wqx+rEwQ0oE8
-	 ayjDWkVDB3BK8MPrxBukscAj0vH4nnuZUasjZlsUTQsPSmNV0TQZlY8E5bciHCRd22Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795249660;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:
-	 Message-ID:To:Cc:In-Reply-To:References:Date:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:
-	 X-Microsoft-Original-Message-ID:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=4uYADKCgxsml7OyEV1OzsaEmce/bIGwvtb9NkIGHbjY=;
-	b=HplV8Cm5kmvn96NvlkszP7ztMNxJDT3v0Zp3Mou7BNmniFab5FPLNUiRJaUW5nUduR1V
-	 /kLsc/B9TU7iJr2HSfbtvtmHY8XEyvtIOze2CxblwBZO90Tl4pOszSwTUnaJvQh3UE9v2
-	 MNTfatDscEFFLlmsTyVxYCmvoKqVM6VzKlDVVsSw4PFoR9BtEe1mzNi2dngMTJTONDJ5l
-	 EYM7jefsn6ZnCeDDHWFQuYx1Mjm9oqg+2Tx6U6V1YrS+7fCVGoZcMRGNqqtbXjFqusPQX
-	 nMe8bKOwMi0OxiKnSZGGjYwb5BbNUOQMeevVFWsuJL8xePjwmBGnvR1dC0LJnvWjn4g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hotmail.com;
-	spf=pass smtp.mailfrom=hotmail.com;
-	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=pnCGRDRb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.39
-Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazolkn19011039.outbound.protection.outlook.com [52.103.43.39])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795250252;
+	b=y0sZEeUWVnDjx13i23UC4UMKIHBDDA0d5s/b/6IbRLnemMigwayU4Ses/wB3B2GGoEZl
+	 s5Y+MGeZ9eTLnjJkr1tVIMXCyeo8Ops4VMJOzP3bu2LNz4a2/PCkCkk0IZtIZ5WfaCjs+
+	 qM5jXAzRfRSmnzlIqhXA4xSwk9f38BGdEc7jXsocfFsKV44i2cTIXb5M+cvuBhnLTZzNe
+	 Lp3EMEZMcp6FZGtqt0z+u1digQDlfsO2kk659XTuhjmZs9rKRQJ82Y2CuNqvnqGeJPs11
+	 T12arhUfXUm2O+zP4YEILRidemdizkW0aK+sO4G8QF3bmZ81aTuziNtLXkh1I5Y5gDw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795250252;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=k91HK40mTtE/BmAJ1Mcvc81qH3uQcXvyFodm9y1hP/w=;
+	b=Z0eLUr7MHut0j3RvuLvcyAoTqnV15N0vvkpO/goIX7e3Ug8zTRJQMoaAWNyVPi4HBXqX
+	 q2uKOjDB+HC/edkSKgXYsPDUItlao/y9OVaGRrf522+YQVuYoTffHYJAlY1EL62fQoYT/
+	 WPSwqxin/E+O3H+/aZeuoaM0QksiA3xGAVHBdYsIWmS9ytkVMyVOY7IwQvkPeOifbwDI/
+	 PvMkq9szC/639IleAjW8KjwS1/D+Ntid8g/R9pdWpxK3xV5kp0ATjgnCzrdLSTWXktrYO
+	 5pHRzr5kdZ6Nwza7HgravRgGOCaAw6RLeezuCfCDlIxXToUyeLNHh64DfpWQS68NfiQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q4kJ3hp9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE036606A332
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 08:27:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE036606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66C5D606A320;
+	Sat, 21 Nov 2026 08:37:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=pnCGRDRb
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b3fH0HzgZEC2L8JKlwvK4391mr3KxMJ7FvWYOj2drosTDXBDXoA7PPQipugb6yGr21Q/yGWMLSucvbjp6lRm2U8UJywc7ekewevi9KejHNZ7uhL4mk544TaBqyguAD92kvDhhONr3A+eqUj363gId09BQeb0ui7O+ZT8TB4Gyc602K+wA8KaG9Q38jl9YBetLbm8B2LXjy/XPnDSSPGD9VJ/SbBizTN4TULlIUJ1LjoI4sTHv2vgS5dOsPJtW/yLOH6h5n/Y9WzKpBBSgf3fleEdqSDegvOBzhHUrVkY6MGaAM11QEVnvMmhK5sq31HmPEb1faly8oJcy8axDUlqPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4uYADKCgxsml7OyEV1OzsaEmce/bIGwvtb9NkIGHbjY=;
- b=Z+cFxC0wPiz4sk7GagJMj37QcZcCRMX6kkuS6/U6iQGRPZLHFTGPhQjEgaJo94vRxevNU7CCnCW/vNGTiYe9cFPMEtCHF9Nz23ibie5doaptRezxhV1PAWh8dSXrjH0dTbTsEmhPrF/R8lW9CUJfJ+9l8s1OYZ/tG8pFmDZinXmV2eq3xExcMpqz0Q2BpQTV/TujdH30nD6YWw4uDSeG4k6NQTfpfwqLBGcZLA1m8rqis7cvdW7QfcLiNWejY6aV/pAhFu9Lp0MgCNQvOe1gQmATJ0erxr0dGfArYEVovQlYZTJS0d4nbpVXnsSqOpinGHmBaCGLeqQ+wh0aZh821Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4uYADKCgxsml7OyEV1OzsaEmce/bIGwvtb9NkIGHbjY=;
- b=pnCGRDRb50HV5BjUQCm+yx1JDG/Gs2ac5TNcZ7ri0Muvph/gKWY7vzag/f0vcJa/NL6AGuQDFnhLg851IpzCw8LVGk4SswTWnV8I7I0+rHXeVMeztnTKhYwbGv88NVjWa4sMUkuNDc/YW0BUfE9K6t2O1Du/mLmTacWNmgtMJycQxojuZKfjNPOqD3sf6t2E6ut9tQFue6bl4NpLijRVCePdqeHKQbRgRW2/5MUvwMoomlm5h7Eva3HqkRHDHnlq1N912idSGDHjJxCgWhexFOsUfSq2f1xZ+T7r61OqyT6yVN6QGVLNTpbrmjS0slrrDpYbYp/b7kVRqd1hvfFqmA==
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com (2603:1096:604:1e1::9)
- by OS7PR01MB11680.jpnprd01.prod.outlook.com (2603:1096:604:247::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
- 2026 08:27:35 +0000
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9]) by OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9%4]) with mapi id 15.21.0639.012; Sat, 21 Nov 2026
- 08:27:35 +0000
-From: "Jiaming Fan" <fan.jiaming@hotmail.com>
-Subject: =?us-ascii?Q?Re:_[PATCH_v2_0/3]_virtio=5Fnet:_introduce_an_RX_q?=
-	=?us-ascii?Q?ueue_watchdog_for_stuck_detection?=
-Message-ID:
- <OS3PR01MB10251CFF97E32B1E7B71D497CE7472@OS3PR01MB10251.jpnprd01.prod.outlook.com>
-To: "Longjun Tang" <lange_tang@163.com>
-Cc: <mst@redhat.com>, <kuba@kernel.org>, 
-	<eperezma@redhat.com>, <jasowangio@gmail.com>, 
-	<xuanzhuo@linux.alibaba.com>, <virtualization@lists.linux.dev>, 
-	<netdev@vger.kernel.org>, <tanglongjun@kylinos.cn>
-In-Reply-To: <20261120071826.198604-1-lange_tang@163.com>
-References: <20261120071826.198604-1-lange_tang@163.com>
-Date: Sat, 21 Nov 2026 08:27:27 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q4kJ3hp9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC6541F000C0;
+	Sat, 21 Nov 2026 08:37:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795250252;
+	bh=k91HK40mTtE/BmAJ1Mcvc81qH3uQcXvyFodm9y1hP/w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Q4kJ3hp9MJdTqS0w3N6iqenk9ff9yLPLt19Aj4YCaUxEFxFTKqW7MJ5d1111H8aPo
+	 N0MjvteCaWfDHkRnC3EPR+bNF72NsQyczNgtlfn9jP5S6vCIqRhpZQI38gX3zb/vQV
+	 wHDrHDgPCq0Pfy8BkMfY/mtkgJml/tTA9KbnmHRl5deTLTuRRirTADeQ2GwbMI3unv
+	 MzQBhNMyvQvtWfJY9jQiGk0edycdJNAlULRfK3Jxz7a59cX/ifaFtJ3jQ8qaJCZjQZ
+	 FRcziVpG+QBvNPY32h2i18LhlW1AeruE/+m9PF5khB9vgVm7O9JOWHl6WguYaW1pEp
+	 /ZktjJLIYQK3A==
+Subject: Re: [PATCH net v3] net/rds: defer CM id destruction to a workqueue
+From: netdev-bot+sashiko@kernel.org
+To: chenaibing@cmss.chinamobile.com
+Cc: achender@kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
+ linux-kernel@vger.kernel.org
+Date: Sat, 21 Nov 2026 08:37:31 +0000
+Message-ID: <179525025125.3135.10066600297379507793@kernel.org>
+In-Reply-To: <20261117082145.1737-1-chenaibing@cmss.chinamobile.com>
+References: <20261117082145.1737-1-chenaibing@cmss.chinamobile.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: TPYP295CA0059.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:8::20) To OS3PR01MB10251.jpnprd01.prod.outlook.com
- (2603:1096:604:1e1::9)
-X-Microsoft-Original-Message-ID:
- <520e7744-fc14-48e6-9db2-a611eaf6c7ef@milk.local>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,98 +63,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS3PR01MB10251:EE_|OS7PR01MB11680:EE_
-X-MS-Office365-Filtering-Correlation-Id: 47a35045-11e0-45b8-023c-08df47a949d4
-X-Microsoft-Antispam:
-	BCL:0;ARA:14566002|22091999003|24121999003|25031999004|15080799012|8022599003|6090799003|23021999003|5072599009|8060799015|19110799012|25010399006|24021099003|55001999006|440099028|3412199025|4302099013|1602099012|10035399007|3071699003|30101999006;
-X-Microsoft-Antispam-Message-Info:
-	=?utf-8?B?aGdPTHBuWWNJcHJxN1N2Yy82QmRoSkdOTUxueFIxRzNwSE9CL1JUUXdCUEpT?=
- =?utf-8?B?MDNSRXNrMkZlck5CeGxDWW0wV3FFbkQ3UUt0TWxzb1RQV0Q3SWlrU1VNNUNk?=
- =?utf-8?B?T21IcGpDRE50bEUxRzN4ZGdRYWhHbWpUSTFzWmxuaVR2ZGdOYVRYT3Z2Q2ZK?=
- =?utf-8?B?bzkrWDNhU2hnVFRUMDBSYWVGMHYvaEF2RzFyMUc5VXdRRGVPRDZXRkJ0WGdW?=
- =?utf-8?B?dTNWaExVeE5TL0dCeXk3Q2VoanN0UU9hYkpqK2J3SmNtUGo2MGF1eFViUnNP?=
- =?utf-8?B?WXpqZkZvdkp0YUlXUG5lOGRoc09GckpLclV5TUZjd3FwRkdYUHAyVXg2Z3Z0?=
- =?utf-8?B?YUJEZklZZFJzM2RvcjExMkd4ZGVBekFsbVgyTjVOais0bnZOOTZmLzFOUHNl?=
- =?utf-8?B?cDlRNmdxSXRtOW5lb2YxY3NHSnJJeGVya1J2aDNzbzhSeUhhYmN1Njd5SFBF?=
- =?utf-8?B?K2Q5UVZiaFFhUTNMWDkxbUdyVzMvQ2VxU09wNzc1TmNpandmTjhYNERNU0N3?=
- =?utf-8?B?V1p3MSswWFh3cVRQYUJHT3grcUk0bVJLS1F3ZjFOcmZ2R3RVNFVaZUx6NWd3?=
- =?utf-8?B?MHROMklXKzJ1ZUhnT2xpOXBDajlkWmY2ekpkT1hIZUZISGNKVUFGYW9qN3Bx?=
- =?utf-8?B?bUJBWHNvWEhYRXBCVERmTlQ2SXl6bXY3czBza0cxaWl5VHI2ZHR1bENsbUxI?=
- =?utf-8?B?T3ovWSswbXYyZDZsZ21YeEF5bHJyOHM1UXBTY21wbUhyRGNod0JGSnJ1N0hG?=
- =?utf-8?B?YnVGclBwSFEvR0pDS1BQQlIyR2U5WTJrZWhCT3kxcUd6bS9iYWtuZ09SbEdw?=
- =?utf-8?B?bUk0a21hNlVhQ3laT0E0U0l5MWVsYXgrQ0Z0NWZGZStCQ3pSOE1WREE5UDZT?=
- =?utf-8?B?VE5vUlFRaXdWNEpmTittMXFwSzQ5WG1MRnZGdkhJcTNSNW9HTkJTM3A0R2cz?=
- =?utf-8?B?TXZjNDV4Ky9hdUZHWmNkZEQxT2V3NytaM2Y0bmpoQnVzWnRTVkZTbGVrYTU0?=
- =?utf-8?B?VXNCL0xuVk91RXVFMk1CeGNkUUZWMFFXTzJiTHpuRHMwM2c1ZzVyT2Y0RWEv?=
- =?utf-8?B?MllPTEhZWkJkWTBoV3VYTHJxVklmRkp6UGM0WVF4RGhVWEkyeFVPUkJVQndB?=
- =?utf-8?B?aERrT0x0MkRUL3dpSFl4K3BTM013dis2N1BmcFdhM3o3Z2E2TWJudVNURmNp?=
- =?utf-8?B?cjdUeHE0YVIvVk1KQlFhQkMwa1I1ZlM3U2liK3ozZitrVDhkSUViUEF5UHl6?=
- =?utf-8?B?Zk9vVGFnTFhPMmdxZ1NNRGM5Y0dnYXBrMExxdU15dUpWeStXNlMvNFpyS2ox?=
- =?utf-8?B?anpZUmxaMzkvU01mK2tPak05NURQRUUxL1h6dEt3YkNEL3FZNVUwTGRGd0xW?=
- =?utf-8?B?WjBwRjhEODlXdGdBK1M2azZ4RVJkVzU3VElUb1U4b1dnY045WC9Icy9zWlg5?=
- =?utf-8?B?eFVIa3MxVyswa0R0cGY2R3AzVmhBWWt6M0UyOVhIRHRDZUZ4MnplTHkyRFh4?=
- =?utf-8?B?a3U2T2lCQWMyTmdUU0FGTDlmSGpXOEFiSUJqZ2ZLSFBSa0ZuTDlTMFFNSHpP?=
- =?utf-8?Q?d3gPS8zZ3Z6SKQAKrNi7V/tTU=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Z2dubXdsWmxEdHlxZTFWK0lTZCtTc3ZCYmErdHdwSlpGRytaTllmN1EwYjhW?=
- =?utf-8?B?UUtPVGJTdHdVNllRUWhUeTlvSVFnZWc3TVRQWUlOL0FGTXlGY1J1azhDYVVU?=
- =?utf-8?B?TkRwa2lNT3lKcVRBWXM1cVRDdFdVOG5mT0hSUjhWVWkrcXRqNW9NclkxN0hr?=
- =?utf-8?B?T2Y1RDdXYmlJa0ZFOHpqeVdPTWQzZG41cm4vUFdrZzAxd3VLN2pZcmNNSTZY?=
- =?utf-8?B?U283WGE4aGZsRFE4Qk5vRHRYMW5XWnlTWTRucjd2L04zbkZTYThhSStwZUFY?=
- =?utf-8?B?RVYwSC9INVhFb1JwSld3SVphejYxL1VOTDRBODFmNHFVM2lOWG8xbWl6TzNS?=
- =?utf-8?B?d0hveW5haUVDNVNlWituM0RxRFlCVGhZM3EyMmt4NFI2NjlqdmJWN3VmT3c4?=
- =?utf-8?B?V2YvZGRjSDVjN0diWXpUYjFGUmlUVDYwZzZabkRCR0orRUlUekYrRnFYYXNW?=
- =?utf-8?B?M2RJTDhYRUk2enFiZ1h2ZlF1RUFwT0s4MHhnNGdhQUZEbUVxbktjaVViaklN?=
- =?utf-8?B?eTRJQ25Bb2JBZFlBVGVtL1NBQ2NNbVRMZDNFellGb2E0TkZVbm1rcGlRbzBD?=
- =?utf-8?B?QnlCWVFjUzhoeStFajBXV3l4dlViZnN4K2lNUGFCS1R1dXNGTHd3OTNVbmpE?=
- =?utf-8?B?RFFvSmJueUtXZksxenBmcGtDckFueFFzYWt0K3VHR2pGTjh2Q1dZRXJuV0po?=
- =?utf-8?B?UlVVdVlCMStzRVZKWEthU0tackM5ZnJ1a1FEaGRDanhBTzFIeXlsWk0xY3E5?=
- =?utf-8?B?WDlmOTdaWmNPdnBtVy9zcVIzV1V4WFhhU1o5OUZCZEhTbDlmY3R5Sk5rNXV0?=
- =?utf-8?B?RnJVNWhmaVRqNEpqeElKU0NNVFB0Rk9ZTHlJNVd0MVBKVTUxdDZMN1JJNVVh?=
- =?utf-8?B?Q1NsMTRRT2VtYXRZekNOL0I4VVJ0c1Rpd01tZUtIQ21rNndOZk00UWtFTVd2?=
- =?utf-8?B?Y0ZtUzhGdlRjMWpTbk9TQklBQkp5RTkyQVpWaVJreSt5WDNwUkYyS0JIRUJm?=
- =?utf-8?B?aXBGY2FxM0ZhTkVQVUM1UWxIT000NGp4YS9OS0JMN1JuemNkVlZoUHlFZDNr?=
- =?utf-8?B?SmRGUW5tYUJyY3AxTE9WMWthN1F5WkZSRURONE9MTlpCSEpqb2taUmFWSWpp?=
- =?utf-8?B?cW14L1JzZmQ0ajJ6eHRSM1BoVEdRRzJVaDl5YWlFZ0VQUVFnTktDekpUbGF4?=
- =?utf-8?B?VmFVaWpKcXFXbWRud0h3eG0rRmh0R2R2KzlEWmtuTFhITW8ydXZvbWJCZUhN?=
- =?utf-8?B?QkRraWJPT09EcllLd2Ftb1NZcjVLMDY3cVdQeUtpMDdCcXlWOVFaMExsY0hn?=
- =?utf-8?B?RDV1cnREb0VVb3c1UlExMlRMMHFJRU93T0lEdmRCaTlUbzVqTjVYcVFObU1m?=
- =?utf-8?B?b2dORU9USHpzUzZFR1UxMHY2SlRZTUgrZkxoQy9wc2VYMVVLS0ZsSnc4dW8x?=
- =?utf-8?B?cGJYczJWM1diSG5jRGRoR2xNeTVMWGFqL2xpMi9hRTU1Y0ZReEE3OXlzeTNm?=
- =?utf-8?B?N2MrTGhFTlJLbEI3ZWM0aUsyOUJTMC9CUnQ1QmpJUTkwdDFETncxV0ROT1Js?=
- =?utf-8?B?TzRCTDd5TWRnNUhFdHQ1bnBJQzFadUlZMUVPUmdzTDVNNlZId041N0ExY05a?=
- =?utf-8?B?Mm5WWnI5bWFqNWFqOXgyWTFCWmovU1RhMzBMaUtxeXBIYlpPVGpqWi9kSUo0?=
- =?utf-8?B?V1JFbmlNcktiWjVOUlVFUGxxTFNCTjhZSU1XdU1wSWJJMUxXVDZtWFRTcVNn?=
- =?utf-8?B?Mk5XdFhqeGtjZzBJMFRMK3BuZEZMU0tmSVFCcXQ4cE5CMEFZRkxrOXZ0dW1a?=
- =?utf-8?B?MTFtNEFqTTlEZVE3UnhFTXJZLytMelVKUmFJeHJsR3hUajJQRVl0TDFINWRP?=
- =?utf-8?Q?oJih01rh722mP?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 47a35045-11e0-45b8-023c-08df47a949d4
-X-MS-Exchange-CrossTenant-AuthSource: OS3PR01MB10251.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 08:27:35.2714
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB11680
 
-Hi Longjun,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-I don't think this reasoning holds. You saw an RX stall, but that
-doesn't mean it was caused by a lost interrupt. Masking the interrupt
-injection only creates the same symptom, it doesn't reproduce what
-happened in production.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Michael posted a patch for a similar RX stall recently:
-https://lore.kernel.org/netdev/ad74886a8429a862c00d1e42f1dc746f2924b75f.179=
-5108341.git.mst@redhat.com/
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-So did your guest have IRQ deferral enabled (napi_defer_hard_irqs and
-gro_flush_timeout)? If so, you may have hit the race Michael fixed. It
-stalls the queue the same way without losing any interrupt.
+- [Medium] Each call to rds_ib_laddr_check_cm() (net/rds/ib.c) now
+  allocates a work item (kzalloc_obj(*w, GFP_KERNEL), line 439) and an…
 
+--
+
+net/rds: defer CM id destruction to a workqueue
+
+This commit moves the rdma_destroy_id() call in rds_ib_laddr_check_cm()
+to a work item on rds_wq, so rds_trans_sem is released before
+handler_mutex is taken. The work item is allocated before the CM id is
+created, and the address check fails with -ENOMEM if that allocation
+fails. rds_ib_exit() now flushes rds_wq after unregistering the transport.
+
+Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
+
+> diff --git a/net/rds/ib.c b/net/rds/ib.c
+> index 4ea9838d090c3..44b46defa1ae0 100644
+> --- a/net/rds/ib.c
+> +++ b/net/rds/ib.c
+
+[ ... ]
+
+> @@ -411,14 +425,28 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+
+[ ... ]
+
+> +	w = kzalloc_obj(*w, GFP_KERNEL);
+> +	if (!w)
+> +		return -ENOMEM;
+> +
+>  	/* Create a CMA ID restricted to IB devices and try to bind it. */
+>  	cm_id = rdma_create_id(&init_net, rds_rdma_cm_event_handler,
+>  			       NULL, RDMA_PS_TCP, IB_QPT_RC);
+
+[ ... ]
+
+> @@ -484,7 +512,9 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+>  		 cm_id->device ? cm_id->device->node_type : -1);
+>  
+>  out:
+> -	rdma_destroy_id(cm_id);
+> +	INIT_WORK(&w->work, rds_ib_destroy_id_work);
+> +	w->cm_id = cm_id;
+> +	queue_work(rds_wq, &w->work);
+>  
+>  	return ret;
+>  }
+
+[Severity: Medium]
+Is there anything that limits how many of these destroys can be pending?
+
+Before this change, rdma_destroy_id() ran synchronously. The number of
+live cm_ids could never exceed the number of threads inside bind() at
+that moment.
+
+Now each call keeps two objects allocated until the krdsd worker gets to
+the item: the work item and the rdma_id_private from rdma_create_id().
+The caller returns right away, so the producer gets no backpressure.
+
+An unprivileged user can reach this by calling bind() in a loop on an
+AF_RDS socket, using an address that no IB device owns:
+
+rds_bind()
+  rds_trans_get_preferred()
+    rds_ib_laddr_check()
+      rds_ib_laddr_check_cm()
+        kzalloc_obj(*w, GFP_KERNEL)
+        rdma_create_id()
+        ...
+        queue_work(rds_wq, &w->work)
+
+A failed laddr_check leaves the socket unbound, so the same socket can
+call bind() again at once. The rds_rdma module has to be loaded, but it
+can be autoloaded through SO_RDS_TRANSPORT.
+
+Neither allocation uses __GFP_ACCOUNT. Could the pending objects pile up
+as kernel memory that is never charged to the caller's memcg?
+
+rds_threads_init() creates rds_wq with
+create_singlethread_workqueue("krdsd"). That leaves one ordered worker to
+drain items that can be queued from many CPUs.
+
+The same workqueue also handles other RDS work:
+
+- the cp_wq for RDS IB and TCP connection paths
+- the TCP accept worker
+- message unpin work
+- rds_ib_dev_free()
+
+Could a backlog of destroy items hold up connection, accept and teardown
+work for every RDS user on the system?
+
+When rdma_bind_addr() succeeds (for example IPv6 on IPoIB), each pending
+cm_id also holds an RDMA_PS_TCP port until its destroy runs.
+
+There are a few possible ways around this:
+
+- return the cm_id to the caller and destroy it after
+  up_read(&rds_trans_sem)
+- limit the number of in-flight destroys
+- use a dedicated unordered workqueue and add __GFP_ACCOUNT
+
+Would one of these work here?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117082145.1737-1-chenaibing%40cmss.chinamobile.com
