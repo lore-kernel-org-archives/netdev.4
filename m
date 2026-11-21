@@ -1,69 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302101;
-	b=f/LNl6Rk9/aMFHr3Ntdc2azK48BD2OENOXgRNxGk3DhaM8wFX12IwRQqAW5xLqPdNNts
-	 7U8hE5Fp/UpmdXY2YVVHjjMXktO2broWnErHJero/jhGcsbYObnPeXD2ZzlM/843lKj5l
-	 DlNHowK067QoX+PjPu4gdCCTPFpDVCgBb1z1E3cJtY+WjnabJBgaF1PpfacOItNkdRZDI
-	 NYo6JrZtRl8j8goe6U6c6/Bwi6IV/gcPBO37Z+CwcI+cLlSMwxXMXDGFQmlAo6VLZUsR5
-	 YsEKGjk5YiawtrGhZwECGBSXnqHDpbe3lxGXmwPutGdw9MtxBOTebIgboDIMbXDdKfw==
+	t=1795302103;
+	b=Ym+3vWpzBy6+ALb1XvohsVQHmFCO8pVDnoIzLxdDgNp3PoyVPJ+g+d8KQeFn1sJaN5Sf
+	 tZbKtZ6ykliFABUKVCVhw/Uct+nBh4x18krkwpsX55Cs0D7W0z8sNPdYR7KKa8O6pwxl2
+	 Ug6HozGcoty0mbAymOOXeOPKDJLTBuzmz88fXWrer9g285MQZoqphdBYZssRVUm3JOwQb
+	 /CgNNaOTa3GUjsgP3AaqHs3oi9zRvkL5q7yiQxw/PQ0jhTVHoykkQmucaYtgWrTUgP5DT
+	 SMpesaHA7B1rLJdf9AomWl3PK13kp9dsNX702p93j9LtXJO08N8BUsvWQeG4AbAU2Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302101;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302103;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=5kAw8QmtVA3sbJWl4+dcG89mi1ccLjQcld0Yv3qxVIE=;
-	b=XUAVXmqY2eMwDVDuKH9O7fQoAJQ0fG4IZk4lDzqrfS9lcpdgYypP5tMVDzKXQEO4wuOu
-	 qpkLlMn3n5QIeWBsxb1NesdBs974Jfru/qp6FiowTWP0olW6QaMOaB2woXCUpXTpii/yp
-	 9HhAjzexjkKSv2Z4duWnlc263JOtiuN51D4ztrMWnMkrAO8oLBErROUD+agn6qXFQrSbP
-	 kRPPu3UBdRP+64KswKZLAELL0U4PieRmROoaOd1v6VWpTd2uWTxo2VO3bABEYGITraNzx
-	 1upb9x9jw8mLJgP63J4inHAZBMKEGcQv550nza9Gvy5g+/WsJW2m0sl/MjoJNf+tClw==
+	bh=QO3HSa5qAdTw3mfQgLt/Dphy+QuUemIkG5T78n8ZtyQ=;
+	b=sbQyfRR8rQH9Y4PNZShwID5j4WWXjFH8m5TNWnaHve1WfThkbvsXFkKy/Rs+l4UUNcsB
+	 YEiOx6aVz8KoZq79PvtIpjdCUrI/ew8n2n4LGJld1/lcQwsIzA4XM0aNjpQUcKFz/tYqn
+	 vRXPtc4zipwBrdTWtARXvTLvDK5z2P2vwLGWhjfLueNWy126mhnXpYXz8cAjr6K1nVb9E
+	 L5Y8cvoyysWOUeRQeNhfEQJekxEodcH5GZZEb/Otqji7VPyMFwpoecJXR7PB/F9EkAxkl
+	 kWvbYNL73VHypB4IJRbK06xDqOlo0ssmI2OzvBnDT0YXGooS4YNeRbHsjSjlpj+yVdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Yf3R92ha;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gv6JkGZ9;
+	arc=none smtp.remote-ip=192.198.163.7
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2B2A606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:01:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2B2A606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D2D8606A335
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:01:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D2D8606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Yf3R92ha
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gv6JkGZ9
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795302100; x=1826838100;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=UB1tVxw4gUb8UKh8+xQFzYnjo//hojbNVktzDudDK8M=;
-  b=Yf3R92haET7oNNihcbHyuLXPkCHbAxwkTcC2k+615/w+dxzlHfIxRs3g
-   oQtgBgYZ13fY3Igy36QbCoO3JXo8ShCEMDSOFRbNtnHpB8j/RkjVAUdVQ
-   4jQLdj5tHTWAf9qFYlLHD05hjzeIxgJDNTVmKcj0tUzkLC4vIPMVHX2vB
-   gwuW8jIPwwOccXffqDb3/AwXylGgm4JxaSLwlNJtD5DnfxymDTeAoEPXf
-   jboAtwIF6Np1Q7tQ0KvdE6A2MwhmpRcrEyQpgX4V2TFNVrHIDqcN1Pg5G
-   56ETBe+pKX/NnaoTP1dj3s9+bVOrboPyOhTMQE46W8BgcY7veI8xSY74r
-   w==;
-X-CSE-ConnectionGUID: n9VlAViyQpueWPniwRx1tQ==
-X-CSE-MsgGUID: mL2vRiQDR2ekdgKFuGicXg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4040158"
+  t=1795302102; x=1826838102;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=gyMMtMoqbmCAIvbb0u0BV7SJr1Q88toeLwLGaPEuA4Y=;
+  b=gv6JkGZ9rfMJz39XR+RA8j1oC/rLlVNJDFgRR4w8ed9z16H8xFGukz/4
+   jeTn1JlZCLjAOemyNC1bhpc8q9B9SwDKCZk0qNH55FhsRGywd4wlD4S/e
+   lF/F9UkGdS0BQ/k1D0Xf225BVsZSCdAzMCfAWvGFmrhUwyoVfdVnmQ8e8
+   NWcg5ZoE9gZGhZxCATg6yKsNerYexQHz0eBRZWdpROxdzC5atQPZU0L0M
+   fJWVADHzRIPCKBAw2PiKpFwesM9jzenMl97xhahNn5WB+n/QtiZIs6fyb
+   f7yiUg60U52SaE4yLmBhTITbhih47j8PVcmJObTEKfiZtk79qgb+SB4tU
+   A==;
+X-CSE-ConnectionGUID: /2SGZgPUTceoTUY/2Fqm3A==
+X-CSE-MsgGUID: KCcihwoaRTqz1o6JBzJ/HA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="3996952"
 X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="4040158"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 15:01:40 -0800
-X-CSE-ConnectionGUID: QqltqS8cSnq6cjV+UK/GjA==
-X-CSE-MsgGUID: TRsK95StS9eCX1LHtlXm1w==
+   d="scan'208";a="3996952"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 15:01:41 -0800
+X-CSE-ConnectionGUID: +Zkts9+HQyCua1sLcQkJ5Q==
+X-CSE-MsgGUID: uhpR6HtUSbq6NxegkyXKRw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="10857014"
+   d="scan'208";a="11273309"
 Received: from irvmail002.ir.intel.com ([10.43.11.120])
-  by orviesa003.jf.intel.com with ESMTP; 21 Nov 2026 15:01:34 -0800
+  by orviesa009.jf.intel.com with ESMTP; 21 Nov 2026 15:01:37 -0800
 Received: from pkitszel-desk.tendawifi.com (unknown [10.245.244.136])
-	by irvmail002.ir.intel.com (Postfix) with ESMTP id 2C91233BC4;
-	Sat, 21 Nov 2026 23:01:32 +0000 (GMT)
+	by irvmail002.ir.intel.com (Postfix) with ESMTP id 1FEF833BC5;
+	Sat, 21 Nov 2026 23:01:34 +0000 (GMT)
 From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
 To: netdev@vger.kernel.org,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -91,10 +91,12 @@ Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Petr Oros <poros@redhat.com>,
 	Donald Hunter <donald.hunter@gmail.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Subject: [PATCH net-next v7 00/15] devlink, mlx5, iavf, ice: XLVF for iavf
-Date: Sat, 21 Nov 2026 23:55:27 +0100
-Message-ID: <20261121230123.316391-1-przemyslaw.kitszel@intel.com>
+Subject: [PATCH net-next v7 01/15] iavf: keep RSS config across resets
+Date: Sat, 21 Nov 2026 23:55:28 +0100
+Message-ID: <20261121230123.316391-2-przemyslaw.kitszel@intel.com>
 X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20261121230123.316391-1-przemyslaw.kitszel@intel.com>
+References: <20261121230123.316391-1-przemyslaw.kitszel@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,221 +108,321 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Also available here
-https://github.com/pkitszel/linux/tree/xlvf-v7
-(no mlx changes, just kept series name)
+The RSS key and the LUT set by the user are overwritten with the
+defaults on every reset. Keep both. The LUT is replaced only when it
+uses queues the VF no longer has, or when it can't be resized to a new
+LUT size. ethtool_rxfh_indir_lost() needs rtnl, so it is called from
+iavf_finish_config().
 
-The purpose of this series is to allow iavf to use more than 16 queue
-pairs, in two modes: up to 64 and up to 256 queue pairs.
+PF may report a different RSS key or LUT size after a reset (ice will,
+once its VF RSS LUT can be changed via devlink), or stop offering
+VIRTCHNL_VF_OFFLOAD_RSS_PF, which means the default sizes. Reallocate
+both then, keep the key unless its size changed, and fold or unfold the
+LUT set by the user with ethtool_rxfh_indir_resize(). When PF gives the
+VF fewer queue pairs than it has in use (PF has lowered its limit on
+reset), reinit queues and MSI-X with that count.
 
-In order to support more queues for VF, we must give it a bigger RSS
-table (GLOBAL LUT or PF LUT). There are 16 GLOBAL LUTs on E810, and one
-PF LUT for every PF on given card. Both kinds could be (re)assigned to
-a VF, while a PF must hold at least one of them at any given moment.
-GLOBAL LUT allows VF to use up to 64 queues, PF LUT lets it use up to
-256 queues.
+Keep the RSS buffers on reinit after iavf_disable_vf(), they leaked.
 
-RSS LUTs are exposed to the user for assignment via devlink resources
-API, which I have extended to make it possible.
+Zero adapter->vf_res on a failed VF resources message, as
+iavf_disable_vf() does, instead of freeing it, ethtool ops use it while
+init retries with the netdev registered. Skip the rest of the
+VIRTCHNL_OP_GET_VF_RESOURCES reply handling when
+iavf_parse_vf_resource_msg() fails. It schedules a reset that redoes it,
+except when the reply has no LAN VSI.
 
-The first two patches of v6 are in net-next already, thanks Jakub!
-As he asked, v7 starts with two prep patches split out of the bigger
-ones: "iavf: keep RSS config across resets" fixes old iavf bugs that
-apply to every PF, and keeps the RSS config set by the user across
-resets; "ice: prepare RSS LUT config for runtime LUT changes" adds
-the locking and the queue caps needed to change an RSS LUT at runtime.
+Reset aq_wait_count when init starts over after the PF stopped
+responding. It was never reset, so once it reached IAVF_AQ_MAX_ERR, the
+first wait for a PF reply sent init back to __IAVF_COMM_FAILED.
 
-Devlink changes:
-1. Add a configuration mode (cmode) to resources, reusing the values
-   of enum devlink_param_cmode. Every resource reports its cmode, like
-   each param value does. Existing resources are "driverinit": a size
-   set by the user is staged as size_new until the next reload.
-   The driver applies the size of a "runtime" resource right away, via
-   .size_set(), or fails it with nothing changed, and reports the size
-   via .size_get(); occ is the current use, as before. ice RSS LUTs are
-   exposed that way. The first take on it was an RFC in Feb 2025, link
-   in the patch. I will do the iproute2 change for the resource cmode as
-   soon as this series is merged.
-2. (minor) Add devlink_alloc_drv(), to allocate a devlink instance for
-   a device on behalf of another driver. ice uses it for the VF devlink
-   instance, which has to be owned by ice regardless of the driver bound
-   to the VF device.
+Most of these issues are old and affect every PF, but are rarely hit.
+The rest of this series makes them common: the VF is reset on each
+change of its RSS LUT via devlink, and on init, after iavf asks the PF
+for more queues and waits for them in __IAVF_INIT_FAILED. Hence fix
+them first.
 
-There are also patches for Admin Queue extension, GLOBAL RSS LUT
-alloc/free, and two rather big "new opcodes" patches, by Ahmed (iavf)
-and Brett (ice).
-
-Finally there is a patch that adds devlink instance for VF and
-registers devlink resources on it, combined with all the glue code to
-make actual use of the whole series and accept the larger number of
-queues for VF. This (the last) patch contains usage examples.
-
-Each PF and each VF has one "rss_lut" resource, the size of the RSS LUT
-it uses, in entries: 64 (VSI LUT, VF only), 512 (GLOBAL LUT), or 2048
-(PF LUT). The "whole device" instance reports how many LUTs of each
-kind the device has (size), and how many of them are in use (occ),
-read-only. On a card with 8 PFs:
-$ devlink resource show devlink_index/11
-devlink_index/11:
-  name rss_lut_512 size 16 occ 0 unit entry dpipe_tables none
-  name rss_lut_2048 size 8 occ 8 unit entry dpipe_tables none
-$ sudo devlink resource set pci/0000:18:00.0 path rss_lut size 512
-$ devlink resource show pci/0000:18:00.0
-pci/0000:18:00.0:
-  name rss_lut size 512 unit entry size_min 512 size_max 2048 size_gran 512 dpipe_tables none
-
-The RSS indirection table set by the user is kept on a LUT change, and
-on reset: ethtool_rxfh_indir_resize() repeats it to fill a bigger LUT,
-and folds it into a smaller one. ice rejects a PF LUT change when the
-table can't be folded into the new LUT, or uses queues that the new LUT
-can't spread traffic to. iavf drops the table only when it can't be
-folded, or uses queues the VF no longer has.
-
-Things AI reports but I don't want to change:
- * hardening against a malicious or buggy FW: we have to trust the FW
- * hardening of the VF against a malicious or buggy PF: likewise, VF has
-   to trust its PF
- * iavf: ethtool -L max is the PF RSS region in LARGE mode, so iavf
-   asks only for queues that RSS can spread traffic to; ice never
-   grants a VF request for more queues than its RSS region, only the
-   admin can give a VF more, via sriov_vf_msix_count
- * iavf: fixes of older bugs that apply to every PF are in the first
-   patch, for net-next, not net: they are rarely hit without the rest
-   of this series, which makes them common
- * non-atomic updates of iavf adapter->flags: pre-existing pattern in
-   the whole driver, out of scope of this series
-
-AI also reports lock inversions around
-ice_tear_down_devlink_rate_tree(). They are pre-existing, patch 4/6 of
-my DCB series fixes them. That series also fixes other pre-existing
-issues reported by AI:
-https://lore.kernel.org/netdev/20261102105346.30739-1-przemyslaw.kitszel@intel.com
-
-My local Sashiko runs reported a few more pre-existing issues, I am
-happy to work on them.
-
+Signed-off-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+---
 v7:
- * drop the shared devlink patches, applied to net-next by Jakub
- * split out two prep patches, and put them first (Jakub)
- * devlink: resource cmode instead of .occ_set(), occ is the current
-   use again (Jakub); new DEVLINK_ATTR_RESOURCE_CMODE, reported for
-   every resource; runtime resources documented in
-   devlink-resource.rst; Alex's Reviewed-by dropped due to the rewrite
- * ice: one runtime "rss_lut" resource per PF and per VF, the size of
-   its RSS LUT in entries, switched in one step; the whole device
-   rss_lut_512 and rss_lut_2048 are read-only, size is the number of
-   LUTs, occ is how many of them are in use; no "rss" parent resource
-   (Jakub); a small deviation: a new size applies right away, it is the
-   LUT in use, not a cap for the next LUT allocation
- * ice, iavf: keep the RSS indirection table set by the user when the
-   RSS LUT size changes, and on reset: fold or unfold it with
-   ethtool_rxfh_indir_resize(), instead of resetting it to the default
-   spread; iavf keeps the RSS key set by the user across resets too
-   (Jakub)
- * ice: reject a PF LUT change when the user RSS table uses queues that
-   the new LUT can't spread traffic to, and RSS LUT changes with RSS
-   disabled, e.g. in safe mode
- * ice: cap the total count of queues of each type in the chunks of
-   ENABLE_QUEUES_V2 and DISABLE_QUEUES_V2, overlapping chunks made PF
-   repeat the work on the same queues many times (Sashiko)
- * ice: fail __ice_vsi_get_qs() when the queues don't fit in the
-   scatter count, instead of cutting the count to 16
- * ice: clear ICE_FLAG_TC_MQPRIO when the ADQ setup fails, it blocked
-   RSS LUT changes (Sashiko)
- * ice: unregister the VF devlink instances before pci_disable_sriov()
- * ice: return -ENOSPC from sriov_vf_msix_count when the VF queues
-   don't fit in one free range of PF queues, before anything is torn
-   down
- * ice: clear the disabled state of a VF whose VSI rebuild failed on
-   a PF reset, so a VFLR can recover it
- * iavf: check the length of the VIRTCHNL_OP_GET_MAX_RSS_QREGION reply,
-   and cap qregion_width (Sashiko)
- * iavf: clear IAVF_FLAG_REINIT_MSIX_NEEDED also on a reset while down
-   (Sashiko)
- * iavf: keep the RSS buffers on reinit after iavf_disable_vf(), they
-   leaked
- * smaller fixes, mostly after Sashiko review; per-patch changelogs are
-   under "---"
+ * new patch, split out of "iavf: use new opcodes to request more than
+   16 queues", as it applies to every PF (Jakub)
+ * keep the RSS key and the LUT set by the user across resets, and fold
+   or unfold the LUT with ethtool_rxfh_indir_resize() when the LUT size
+   changes, instead of filling both with the defaults; when the LUT
+   can't be kept, call ethtool_rxfh_indir_lost() from
+   iavf_finish_config(), under rtnl (Jakub)
+ * keep the RSS buffers on reinit after iavf_disable_vf(), they leaked
+   (me)
+---
+ drivers/net/ethernet/intel/iavf/iavf.h        |   1 +
+ .../net/ethernet/intel/iavf/iavf_ethtool.c    |   1 +
+ drivers/net/ethernet/intel/iavf/iavf_main.c   | 141 +++++++++++++++---
+ .../net/ethernet/intel/iavf/iavf_virtchnl.c   |   3 +-
+ 4 files changed, 128 insertions(+), 18 deletions(-)
 
-Previous versions (the v6 cover letter has the v2..v6 changelogs):
-v6: https://lore.kernel.org/netdev/20261117094913.100756-1-przemyslaw.kitszel@intel.com
-v5: https://lore.kernel.org/netdev/20261110141534.95614-1-przemyslaw.kitszel@intel.com
-v4: https://lore.kernel.org/netdev/20261103141646.303620-1-przemyslaw.kitszel@intel.com
-v3: https://lore.kernel.org/netdev/20261015185454.6332-1-przemyslaw.kitszel@intel.com
-v2: https://lore.kernel.org/netdev/20261009121433.30347-1-przemyslaw.kitszel@intel.com
-v1: https://lore.kernel.org/netdev/20260508124208.11622-1-przemyslaw.kitszel@intel.com
-
-
-Ahmed Zaki (1):
-  iavf: use new opcodes to request more than 16 queues
-
-Brett Creeley (2):
-  ice: add VF queue ena/dis helper functions
-  ice: introduce handling of virtchnl LARGE VF opcodes
-
-Przemek Kitszel (12):
-  iavf: keep RSS config across resets
-  ice: prepare RSS LUT config for runtime LUT changes
-  ice: add helpers for Global RSS LUT alloc, free, vsi_update
-  ice: rename ICE_MAX_RSS_QS_PER_VF to ICE_MAX_QS_PER_VF_VCV1
-  ice: bump to 256qs for VF
-  iavf: extend iavf_configure_queues() to support more queues
-  iavf: temporary rename of IAVF_MAX_REQ_QUEUES to
-    IAVF_MAX_REQ_QUEUES_VCV1
-  iavf: increase max number of queues to 256
-  devlink: add cmode to resources
-  ice: represent RSS LUTs as devlink resources
-  devlink: add devlink_alloc_drv()
-  ice: support up to 256 VF queues
-
- Documentation/netlink/specs/devlink.yaml      |  10 +
- .../networking/devlink/devlink-info.rst       |   2 +
- .../networking/devlink/devlink-resource.rst   |  19 +
- Documentation/networking/devlink/ice.rst      |  83 ++
- drivers/net/ethernet/intel/ice/Makefile       |   1 +
- drivers/net/ethernet/intel/iavf/iavf.h        |  36 +-
- .../net/ethernet/intel/iavf/iavf_register.h   |   2 +
- .../net/ethernet/intel/ice/devlink/resource.h |  28 +
- drivers/net/ethernet/intel/ice/ice.h          |   9 +-
- drivers/net/ethernet/intel/ice/ice_adapter.h  |  29 +
- .../net/ethernet/intel/ice/ice_adminq_cmd.h   |   1 +
- drivers/net/ethernet/intel/ice/ice_common.h   |   1 +
- drivers/net/ethernet/intel/ice/ice_lag.h      |   2 +-
- drivers/net/ethernet/intel/ice/ice_lib.h      |   5 +
- drivers/net/ethernet/intel/ice/ice_switch.h   |   5 +-
- drivers/net/ethernet/intel/ice/ice_vf_lib.h   |  36 +-
- drivers/net/ethernet/intel/ice/virt/queues.h  |   5 +
- drivers/net/ethernet/intel/ice/virt/rss.h     |   1 +
- .../net/ethernet/intel/ice/virt/virtchnl.h    |   4 +
- include/linux/net/intel/virtchnl.h            | 129 +++-
- include/net/devlink.h                         |  12 +
- include/uapi/linux/devlink.h                  |   2 +
- .../net/ethernet/intel/iavf/iavf_ethtool.c    |  61 +-
- drivers/net/ethernet/intel/iavf/iavf_main.c   | 360 ++++++++-
- .../net/ethernet/intel/iavf/iavf_virtchnl.c   | 295 ++++++-
- .../net/ethernet/intel/ice/devlink/resource.c | 727 ++++++++++++++++++
- drivers/net/ethernet/intel/ice/ice_adapter.c  |  19 +-
- drivers/net/ethernet/intel/ice/ice_base.c     |  14 +-
- drivers/net/ethernet/intel/ice/ice_common.c   |   5 +-
- drivers/net/ethernet/intel/ice/ice_ethtool.c  |  90 ++-
- drivers/net/ethernet/intel/ice/ice_idc.c      |  24 +-
- drivers/net/ethernet/intel/ice/ice_lag.c      |  54 +-
- drivers/net/ethernet/intel/ice/ice_lib.c      | 197 ++++-
- drivers/net/ethernet/intel/ice/ice_main.c     |  57 +-
- drivers/net/ethernet/intel/ice/ice_sriov.c    |  32 +-
- drivers/net/ethernet/intel/ice/ice_switch.c   |  52 +-
- drivers/net/ethernet/intel/ice/ice_vf_lib.c   |  85 +-
- .../net/ethernet/intel/ice/virt/allowlist.c   |   8 +
- drivers/net/ethernet/intel/ice/virt/queues.c  | 584 ++++++++++++--
- drivers/net/ethernet/intel/ice/virt/rss.c     |  54 +-
- .../net/ethernet/intel/ice/virt/virtchnl.c    |  36 +
- net/devlink/core.c                            |  24 +
- net/devlink/netlink_gen.c                     |   5 +-
- net/devlink/resource.c                        |  84 +-
- 44 files changed, 3021 insertions(+), 268 deletions(-)
- create mode 100644 drivers/net/ethernet/intel/ice/devlink/resource.h
- create mode 100644 drivers/net/ethernet/intel/ice/devlink/resource.c
-
+diff --git a/drivers/net/ethernet/intel/iavf/iavf.h b/drivers/net/ethernet/intel/iavf/iavf.h
+index 8c45536fd502..d174202bcd79 100644
+--- a/drivers/net/ethernet/intel/iavf/iavf.h
++++ b/drivers/net/ethernet/intel/iavf/iavf.h
+@@ -294,6 +294,7 @@ struct iavf_adapter {
+ #define IAVF_FLAG_SETUP_NETDEV_FEATURES		BIT(18)
+ #define IAVF_FLAG_REINIT_MSIX_NEEDED		BIT(20)
+ #define IAVF_FLAG_FDIR_ENABLED			BIT(21)
++#define IAVF_FLAG_RSS_LUT_LOST			BIT(22)
+ /* duplicates for common code */
+ #define IAVF_FLAG_DCB_ENABLED			0
+ 	/* flags for admin queue service task */
+diff --git a/drivers/net/ethernet/intel/iavf/iavf_ethtool.c b/drivers/net/ethernet/intel/iavf/iavf_ethtool.c
+index e7cf12eaa268..b76622fa9661 100644
+--- a/drivers/net/ethernet/intel/iavf/iavf_ethtool.c
++++ b/drivers/net/ethernet/intel/iavf/iavf_ethtool.c
+@@ -1846,6 +1846,7 @@ static int iavf_set_rxfh(struct net_device *netdev,
+ 		/* Each 32 bits pointed by 'indir' is stored with a lut entry */
+ 		for (i = 0; i < adapter->rss_lut_size; i++)
+ 			adapter->rss_lut[i] = (u8)(rxfh->indir[i]);
++		adapter->flags &= ~IAVF_FLAG_RSS_LUT_LOST;
+ 	}
+ 
+ 	return iavf_config_rss(adapter);
+diff --git a/drivers/net/ethernet/intel/iavf/iavf_main.c b/drivers/net/ethernet/intel/iavf/iavf_main.c
+index 4de3ea8525b3..c7b12de63c2f 100644
+--- a/drivers/net/ethernet/intel/iavf/iavf_main.c
++++ b/drivers/net/ethernet/intel/iavf/iavf_main.c
+@@ -1769,16 +1769,67 @@ int iavf_config_rss(struct iavf_adapter *adapter)
+ 	}
+ }
+ 
++static bool iavf_rss_lut_is_user(struct iavf_adapter *adapter)
++{
++	return netif_is_rxfh_configured(adapter->netdev) &&
++	       !(adapter->flags & IAVF_FLAG_RSS_LUT_LOST);
++}
++
++static void iavf_rss_lut_lost(struct iavf_adapter *adapter)
++{
++	adapter->flags |= IAVF_FLAG_RSS_LUT_LOST;
++	iavf_schedule_finish_config(adapter);
++}
++
++static int iavf_rss_lut_resize(struct iavf_adapter *adapter, u8 *lut, u16 size)
++{
++	struct net_device *netdev = adapter->netdev;
++	int old_size = adapter->rss_lut_size;
++	u32 *indir;
++
++	if (!iavf_rss_lut_is_user(adapter))
++		return 0;
++
++	indir = kmalloc_objs(*indir, max(old_size, size));
++	if (!indir)
++		return -ENOMEM;
++
++	for (int i = 0; i < old_size; i++)
++		indir[i] = adapter->rss_lut[i];
++	if (ethtool_rxfh_indir_can_resize(netdev, indir, old_size, size)) {
++		ethtool_rxfh_indir_resize(netdev, indir, old_size, size);
++		for (int i = 0; i < size; i++)
++			lut[i] = indir[i];
++	} else {
++		iavf_rss_lut_lost(adapter);
++	}
++
++	kfree(indir);
++	return 0;
++}
++
+ /**
+  * iavf_fill_rss_lut - Fill the lut with default values
+  * @adapter: board private structure
++ *
++ * Keep the lut set by the user, unless it uses a queue out of range.
+  **/
+ static void iavf_fill_rss_lut(struct iavf_adapter *adapter)
+ {
+-	u16 i;
++	int max = adapter->num_active_queues;
+ 
+-	for (i = 0; i < adapter->rss_lut_size; i++)
+-		adapter->rss_lut[i] = i % adapter->num_active_queues;
++	if (iavf_rss_lut_is_user(adapter)) {
++		int max_q = 0;
++
++		for (int i = 0; i < adapter->rss_lut_size; i++)
++			max_q = max(max_q, adapter->rss_lut[i]);
++		if (max_q < max)
++			return;
++		iavf_rss_lut_lost(adapter);
++	}
++
++	for (int i = 0; i < adapter->rss_lut_size; i++)
++		adapter->rss_lut[i] = i % max;
+ }
+ 
+ /**
+@@ -1805,7 +1856,6 @@ static int iavf_init_rss(struct iavf_adapter *adapter)
+ 	}
+ 
+ 	iavf_fill_rss_lut(adapter);
+-	netdev_rss_key_fill((void *)adapter->rss_key, adapter->rss_key_size);
+ 
+ 	return iavf_config_rss(adapter);
+ }
+@@ -2014,6 +2064,12 @@ static void iavf_finish_config(struct work_struct *work)
+ 	rtnl_lock();
+ 	netdev_lock(adapter->netdev);
+ 
++	if (adapter->flags & IAVF_FLAG_RSS_LUT_LOST) {
++		adapter->flags &= ~IAVF_FLAG_RSS_LUT_LOST;
++		if (netif_is_rxfh_configured(adapter->netdev))
++			ethtool_rxfh_indir_lost(adapter->netdev);
++	}
++
+ 	if ((adapter->flags & IAVF_FLAG_SETUP_NETDEV_FEATURES) &&
+ 	    adapter->netdev->reg_state == NETREG_REGISTERED &&
+ 	    !test_bit(__IAVF_IN_REMOVE_TASK, &adapter->crit_section)) {
+@@ -2459,16 +2515,19 @@ static void iavf_init_version_check(struct iavf_adapter *adapter)
+ int iavf_parse_vf_resource_msg(struct iavf_adapter *adapter)
+ {
+ 	int i, num_req_queues = adapter->num_req_queues;
++	struct virtchnl_vsi_resource *vsi_res = NULL;
+ 	struct iavf_vsi *vsi = &adapter->vsi;
++	u32 key_size, lut_size;
+ 
+ 	for (i = 0; i < adapter->vf_res->num_vsis; i++) {
+ 		if (adapter->vf_res->vsi_res[i].vsi_type == VIRTCHNL_VSI_SRIOV)
+-			adapter->vsi_res = &adapter->vf_res->vsi_res[i];
++			vsi_res = &adapter->vf_res->vsi_res[i];
+ 	}
+-	if (!adapter->vsi_res) {
++	if (!vsi_res) {
+ 		dev_err(&adapter->pdev->dev, "No LAN VSI found\n");
+ 		return -ENODEV;
+ 	}
++	adapter->vsi_res = vsi_res;
+ 
+ 	if (num_req_queues &&
+ 	    num_req_queues > adapter->vsi_res->num_queue_pairs) {
+@@ -2486,19 +2545,62 @@ int iavf_parse_vf_resource_msg(struct iavf_adapter *adapter)
+ 
+ 		return -EAGAIN;
+ 	}
++	/* PF could cut our queues on reset, e.g. when RSS LUT got smaller */
++	if (adapter->state != __IAVF_INIT_GET_RESOURCES &&
++	    adapter->num_active_queues > adapter->vsi_res->num_queue_pairs) {
++		adapter->flags |= IAVF_FLAG_REINIT_MSIX_NEEDED;
++		adapter->num_req_queues = adapter->vsi_res->num_queue_pairs;
++		iavf_schedule_reset(adapter, IAVF_FLAG_RESET_NEEDED);
++
++		return -EAGAIN;
++	}
+ 	adapter->num_req_queues = 0;
+ 	adapter->vsi.id = adapter->vsi_res->vsi_id;
+ 
+ 	adapter->vsi.back = adapter;
+ 	adapter->vsi.base_vector = 1;
+ 	vsi->netdev = adapter->netdev;
+ 	vsi->qs_handle = adapter->vsi_res->qset_handle;
+ 	if (adapter->vf_res->vf_cap_flags & VIRTCHNL_VF_OFFLOAD_RSS_PF) {
+-		adapter->rss_key_size = adapter->vf_res->rss_key_size;
+-		adapter->rss_lut_size = adapter->vf_res->rss_lut_size;
++		key_size = adapter->vf_res->rss_key_size;
++		lut_size = adapter->vf_res->rss_lut_size;
++	} else {
++		key_size = IAVF_HKEY_ARRAY_SIZE;
++		lut_size = IAVF_HLUT_ARRAY_SIZE;
++	}
++
++	if ((adapter->rss_key && adapter->rss_key_size != key_size) ||
++	    (adapter->rss_lut && adapter->rss_lut_size != lut_size)) {
++		u8 *rss_key, *rss_lut;
++
++		rss_key = kzalloc(key_size, GFP_KERNEL);
++		rss_lut = kzalloc(lut_size, GFP_KERNEL);
++		if (!rss_lut || !rss_key ||
++		    iavf_rss_lut_resize(adapter, rss_lut, lut_size)) {
++			kfree(rss_key);
++			kfree(rss_lut);
++			/* old buffers and sizes are kept, retry via reset */
++			iavf_schedule_reset(adapter, IAVF_FLAG_RESET_NEEDED);
++			return -ENOMEM;
++		}
++
++		if (adapter->rss_key_size == key_size)
++			memcpy(rss_key, adapter->rss_key, key_size);
++		else
++			netdev_rss_key_fill(rss_key, key_size);
++
++		kfree(adapter->rss_key);
++		kfree(adapter->rss_lut);
++		adapter->rss_key = rss_key;
++		adapter->rss_lut = rss_lut;
++		adapter->rss_key_size = key_size;
++		adapter->rss_lut_size = lut_size;
++		/* no queues yet on init, iavf_init_config_adapter() sets RSS */
++		if (adapter->state != __IAVF_INIT_GET_RESOURCES)
++			iavf_init_rss(adapter);
+ 	} else {
+-		adapter->rss_key_size = IAVF_HKEY_ARRAY_SIZE;
+-		adapter->rss_lut_size = IAVF_HLUT_ARRAY_SIZE;
++		adapter->rss_key_size = key_size;
++		adapter->rss_lut_size = lut_size;
+ 	}
+ 
+ 	return 0;
+@@ -2563,8 +2665,8 @@ static void iavf_init_get_resources(struct iavf_adapter *adapter)
+ 	return;
+ 
+ err_alloc:
+-	kfree(adapter->vf_res);
+-	adapter->vf_res = NULL;
++	/* keep it allocated, ethtool ops may run on reinit */
++	memset(adapter->vf_res, 0, IAVF_VIRTCHNL_VF_RESOURCE_SIZE);
+ err:
+ 	iavf_change_state(adapter, __IAVF_INIT_FAILED);
+ }
+@@ -2862,11 +2964,15 @@ static void iavf_init_config_adapter(struct iavf_adapter *adapter)
+ 	iavf_misc_irq_enable(adapter);
+ 	wake_up(&adapter->down_waitqueue);
+ 
+-	adapter->rss_key = kzalloc(adapter->rss_key_size, GFP_KERNEL);
+-	adapter->rss_lut = kzalloc(adapter->rss_lut_size, GFP_KERNEL);
+-	if (!adapter->rss_key || !adapter->rss_lut) {
+-		err = -ENOMEM;
+-		goto err_mem;
++	/* kept on reinit after iavf_disable_vf() */
++	if (!adapter->rss_lut) {
++		adapter->rss_key = kzalloc(adapter->rss_key_size, GFP_KERNEL);
++		adapter->rss_lut = kzalloc(adapter->rss_lut_size, GFP_KERNEL);
++		if (!adapter->rss_key || !adapter->rss_lut) {
++			err = -ENOMEM;
++			goto err_mem;
++		}
++		netdev_rss_key_fill(adapter->rss_key, adapter->rss_key_size);
+ 	}
+ 	if (RSS_AQ(adapter))
+ 		adapter->aq_required |= IAVF_FLAG_AQ_CONFIGURE_RSS;
+@@ -2967,6 +3073,7 @@ static int iavf_watchdog_step(struct iavf_adapter *adapter)
+ 			 */
+ 			iavf_change_state(adapter, __IAVF_STARTUP);
+ 			adapter->flags &= ~IAVF_FLAG_PF_COMMS_FAILED;
++			adapter->aq_wait_count = 0;
+ 		}
+ 		adapter->aq_required = 0;
+ 		adapter->current_op = VIRTCHNL_OP_UNKNOWN;
+diff --git a/drivers/net/ethernet/intel/iavf/iavf_virtchnl.c b/drivers/net/ethernet/intel/iavf/iavf_virtchnl.c
+index e6b7e8f82c7c..5578525d550e 100644
+--- a/drivers/net/ethernet/intel/iavf/iavf_virtchnl.c
++++ b/drivers/net/ethernet/intel/iavf/iavf_virtchnl.c
+@@ -2622,7 +2622,8 @@ void iavf_virtchnl_completion(struct iavf_adapter *adapter,
+ 
+ 		iavf_activate_fdir_filters(adapter);
+ 
+-		iavf_parse_vf_resource_msg(adapter);
++		if (iavf_parse_vf_resource_msg(adapter))
++			break;
+ 
+ 		/* negotiated VIRTCHNL_VF_OFFLOAD_VLAN_V2, so wait for the
+ 		 * response to VIRTCHNL_OP_GET_OFFLOAD_VLAN_V2_CAPS to finish
 -- 
 2.51.1
 
