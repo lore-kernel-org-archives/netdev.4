@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.251
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257399;
-	b=C3jxcbsM/PTlxd5s8BMsOuwawWwlMLgm19eGNa6DW3WN3S81WBxtgbWIwvChOdpIwH89
-	 9qVbqd8TYNXdfv2nMAdmIja6UOZppGhrIxD1sI91vginpdBJ2CpFUDWajoVUEbNervAar
-	 TAYrjcrPRFq2bAQznAD/q8mkoTZgHLaXwi2beY1IFNl642MFg//F+xQPINOc2dzK0zse5
-	 GgF0AJKe13c7o3D/78pFIQMJNABzA4nIcGQbTx8oCYG3fIK7zGhJRvXpYJunaiwhRYLg0
-	 aTge7ELevZgljZL0Pp3nrP/rx1ndHEhAJaoExJhdgDM2xyExvll2WqSUGinawo5ulow==
+	t=1795257421;
+	b=cM9P2BgGk/rXnQjdlrCd96lx8XfAmt94GoLFgq/kBpOU/wH5IEplIgQnmDQJp4i2/Meg
+	 fzfOcUnIwasNEvhxIn4TQ7sm+oA05+F9sKRHbxk2kEWBH/j/TcWxb7psiIEIPOkxbDoR8
+	 khPGdlp01iVE43yHJMJmabjBEwJo7kY30lZTPQBQNat9ZIhBLm6UOg+UVPQ7jVLodlTax
+	 zX8+FO6JxXe8GbP757BpoF+ZLAm4RPBSRLMfscnap7yfzGk3QIcDgXaK2w1JLtct7yuP5
+	 rg2KnU9i5ow99YHFTZdPokSHwuwzmweSradkucc2UN6llOiLVHEEOtToesct7Oy7GLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257399;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257421;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=zlgphkCqUOZkfZTPFhVitOlLwkz+8/Rg7msqF4mZoQ4=;
-	b=wIgMNNTx3nsN8V474jvGDnhEwG/5UJM6K4qL/mT8X11pq1snI5i2cxV2kzp239KAOpf7
-	 vP58nexWBwxhAGns9yBW8viVco578tpVe/3cM4CRB2nir3Hr7ZJBNnbs7CZenqpiyP2UZ
-	 LDtnSLEYo3SLUpupLt1VUqNkcPMVzO6M0yEtdGfJkL9sJcK1OPygR2cakqX2kjMj17ZgF
-	 2XJkKPNLxIvUarshASNIsvaW3C0udu8ckdF25ADLHghN9mxBph+GYzJGK/PUliPOhtjqb
-	 MdNdEMGNiLxzjx7soLeRTSoyxDffyyGiGJpXtgcQacno+bLPV0aH6ZA490w96Gbc7oA==
+	bh=fVafo7VVGOAxU7xppUD22xBkgF56cPIMm8sSKGz3KtE=;
+	b=wQD9MGkyNo8idnKVQMrd/Zd+aKabRdpFcjyUlqJlVYvV2jz14uDgVjZ+lgJu1llcmPAT
+	 mJx2zULIdkdhVm/rCVb3FBfEy3uZMPOpXtVZDgr9EGI1fZgLgXlb13V63jUSwaKQmAbkJ
+	 uB2av7Z1UzGUr46nhMxlqZ5qdSrisPVmmW9yoUBsaFuCUAVuaHLbhW2iCx705RGB17sM7
+	 q5O+PTQmUqQrX8wENBFWc3RoPAJk5mpjrjYF2nHuR14b7FOIQGP/Xyu0E87Oke+ONUVO9
+	 mg4IHBLMHqQdtDc/aDomqQzieeZbasXUyRjmVvZewcvDkp0EGAlvcwLPf1O4yMM7m1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QlIlaTTM;
-	arc=none smtp.remote-ip=91.218.175.39
-Received: from mta0.migadu.com (out-39.mta0.migadu.com [91.218.175.39])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="sRoH/BXB";
+	arc=none smtp.remote-ip=95.215.58.251
+Received: from mta1.migadu.com (out-251.mta1.migadu.com [95.215.58.251])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC7F8606A32A
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:36:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC7F8606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D662606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:37:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D662606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QlIlaTTM
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sRoH/BXB
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=HgIwESM6dA8y7hBlduhrBhg1MrV+gTYGCx00jHwO1zM=;
+DKIM-Signature: a=rsa-sha256; bh=Dh7M6YJjkXymTwAnjqzCtNUHOOr/CM690rfac9vffno=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795257397; v=1; x=1795862197;
- b=QlIlaTTMw54R/GcZCIMXzUIfT+ENjKi+D6EEg/SYguChwGg7zVV1iV/SaaHO3Kexv/aFYQfz
- vXj9IIfwLs82BKY9/IeVXDsvqgVbiElyxPKsbFaWdVba5Aug31Y+JAzDana6jvoeQIJaMU44PQU
- 9iGs+rjeohCLmtmaGWksEIvk=
+ t=1795257419; v=1; x=1795862219;
+ b=sRoH/BXBJQtDmlXqIe5iHh9CoD0BstGHepwOhz3gbkGjtyqd02U22THBXWmPBf2D2Fab/nfM
+ Y+bQL55Flq8ZBzbSarCDPdBhs9BCMjIyNvCDqxjK8PTkf8Aw18wlC1ErRKOYJsMrNY42vkAJg4r
+ 2K0IjLi5ulL1UYK/h1EOnEis=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f1a40ebd3524503a;
-	Sat, 21 Nov 2026 10:36:36 +0000
-X-Mizu-Trace-ID: f1a40ebd3524503a
+Received: by smtp.migadu.com with ESMTPS id d6b425b91883e4b8;
+	Sat, 21 Nov 2026 10:36:59 +0000
+X-Mizu-Trace-ID: d6b425b91883e4b8
 X-Migadu-Flow: FLOW_OUT
 From: Jiayuan Chen <jiayuan.chen@linux.dev>
 To: bpf@vger.kernel.org,
@@ -61,26 +61,26 @@ Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
 	Kuniyuki Iwashima <kuniyu@google.com>,
 	Willem de Bruijn <willemb@google.com>,
 	Neal Cardwell <ncardwell@google.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Eduard Zingerman <eddyz87@gmail.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Daniel Borkmann <daniel@iogearbox.net>,
 	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
 	Martin KaFai Lau <martin.lau@linux.dev>,
 	Song Liu <song@kernel.org>,
 	Yonghong Song <yonghong.song@linux.dev>,
 	Jiri Olsa <jolsa@kernel.org>,
 	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
 	Shuah Khan <shuah@kernel.org>,
 	Sechang Lim <rhkrqnwk98@gmail.com>,
-	Mattia Meleleo <mattia.meleleo@coralogix.com>,
 	Michal Luczaj <mhal@rbox.co>,
+	Mattia Meleleo <mattia.meleleo@coralogix.com>,
 	linux-kernel@vger.kernel.org,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 09/11] bpf, sockmap: Fix apply_bytes when a redirect sends only a part
-Date: Sat, 21 Nov 2026 18:30:10 +0800
-Message-ID: <20261121103222.88209-10-jiayuan.chen@linux.dev>
+Subject: [PATCH bpf 10/11] selftests/bpf: Fix errno expected by the wait send mem test of test_sockmap
+Date: Sat, 21 Nov 2026 18:30:11 +0800
+Message-ID: <20261121103222.88209-11-jiayuan.chen@linux.dev>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
 References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
@@ -95,98 +95,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-An sk_msg prog can parse the header of an application message and call
-bpf_msg_apply_bytes() with the message length. The verdict then covers
-the whole message, and the prog runs again at the next header:
+The test closes the redirect target while the sender waits for its send
+memory. A part of the data has gone out, so sendmsg() returns that part
+and the test calls sendmsg() again.
 
-  +-----+-----------+-----+-------+-----+------
-  | hdr |   body    | hdr | body  | hdr | ...
-  +-----+-----------+-----+-------+-----+------
-  ^                 ^             ^
-  prog: apply(len1) prog: apply(len2)
-                                  prog: apply(len3)
+With apply_bytes, the previous patch keeps the verdict for the bytes that
+were not sent. The next sendmsg() sends to the same target and returns
+-EPIPE, instead of running the prog again, which no longer finds the
+target in the map and returns SK_DROP, -EACCES.
 
-For SK_REDIRECT, tcp_bpf_send_verdict() takes tosend bytes off
-apply_bytes before the redirect. But the redirect can send only a part:
-the ingress target can't get more memory, or the egress target has no
-send buffer left. The rest stays in msg, or goes back to the user who
-sends it again. The verdict has already used up these bytes, so the prog
-runs on the rest, in the middle of a message:
+Accept -EPIPE as well.
 
-  +-----+-----------+-----+-------+------
-  | hdr |   body    | hdr | body  | ...
-  +-----+-----------+-----+-------+------
-  |<- apply(len1) ->|
-  |<-- sent -->|
-               ^
-               prog runs here and takes body as a header
-
-From then on the message boundaries are wrong.
-
-Give back the bytes that were not sent, and keep the verdict while
-apply_bytes is not 0. The bytes of a cork that fails are freed and
-reported as sent, so they stay used.
-
-Fixes: 604326b41a6f ("bpf, sockmap: convert to generic sk_msg interface")
 Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 ---
- net/ipv4/tcp_bpf.c | 22 +++++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+ tools/testing/selftests/bpf/test_sockmap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
-index da9caccfede79..25f222b569ec8 100644
---- a/net/ipv4/tcp_bpf.c
-+++ b/net/ipv4/tcp_bpf.c
-@@ -449,7 +449,7 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
- {
- 	bool cork = false, enospc = sk_msg_full(msg), redir_ingress;
- 	struct sock *sk_redir;
--	u32 tosend, origsize, sent, delta = 0;
-+	u32 tosend, origsize, sent, apply, delta = 0;
- 	u32 eval;
- 	int ret;
+diff --git a/tools/testing/selftests/bpf/test_sockmap.c b/tools/testing/selftests/bpf/test_sockmap.c
+index aaf2050e88450..771146268df77 100644
+--- a/tools/testing/selftests/bpf/test_sockmap.c
++++ b/tools/testing/selftests/bpf/test_sockmap.c
+@@ -566,7 +566,8 @@ static int msg_loop(int fd, int iov_count, int iov_length, int cnt,
+ 			sent = sendmsg(fd, &msg, flags);
  
-@@ -518,6 +518,7 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
- 		redir_ingress = psock->redir_ingress;
- 		sk_redir = psock->sk_redir;
- 		sock_hold(sk_redir);
-+		apply = psock->apply_bytes;
- 		sk_msg_apply_bytes(psock, tosend);
- 		if (!psock->apply_bytes) {
- 			/* Clean up before releasing the sock lock. */
-@@ -540,10 +541,6 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
- 					    msg, tosend, flags);
- 		sent = origsize - msg->sg.size;
- 
--		if (eval == __SK_REDIRECT)
--			sock_put(sk_redir);
--		sock_put(sk_redir);
--
- 		lock_sock(sk);
- 		sk_mem_uncharge(sk, sent);
- 		if (unlikely(ret < 0)) {
-@@ -566,6 +563,21 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
- 			msg = NULL;
- 			ret = 0;
- 		}
-+		/*
-+		 * Bytes that were not sent and come back, in msg or in the
-+		 * next sendmsg(), are still covered by the verdict.
-+		 */
-+		if (apply && sent < tosend && !cork) {
-+			psock->apply_bytes += tosend - sent;
-+			if (eval == __SK_REDIRECT) {
-+				psock->eval = eval;
-+				psock->sk_redir = sk_redir;
-+				eval = __SK_NONE;
-+			}
-+		}
-+		if (eval == __SK_REDIRECT)
-+			sock_put(sk_redir);
-+		sock_put(sk_redir);
- 		break;
- 	case __SK_DROP:
- 	default:
+ 			if (!drop && sent < 0) {
+-				if (opt->tx_wait_mem && errno == EACCES) {
++				if (opt->tx_wait_mem &&
++				    (errno == EACCES || errno == EPIPE)) {
+ 					errno = 0;
+ 					goto out_errno;
+ 				}
 -- 
 2.43.0
 
