@@ -1,89 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.208
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257373;
-	b=a0zYci4eWSxXeDznwftXZPXOkIwlrRLbgEYdPRQPa5odeNCt/Hey/b3mRsPhq/YPau7N
-	 ZL6PZ1LTQZd6mIvWKzPgouGHoszV/fIZ6vIMRw8ZoRXWgmfrE3sp8pXSsY0G7zxT6Y6uQ
-	 ljOEsEjKbf2vBEb8GIqCRnnsak8vN5FsvG0m+k5NzjS95a/bOWU99VOT/bbQXpoTTtieR
-	 F4qIS9WKt361K+ZATioEopY/Sa+JmTbVxg1ytUrzBvyjphtqlDSAdPahbfJCIBl86tj75
-	 PY/Yo+hLFUAR7PGgLdxW8JSn/mvU2g/W9bHy2IxBKzMCFaycwxujKC4wAeCnnblbgrw==
+	t=1795257387;
+	b=mMBW9g5lh4M3InbqQJhcfSxGpm4McJRPNr7A5Lbx2guZWQTRcedjW9T40qpuT3HhL0HN
+	 OB0iZd0DFuZih2dEYmYZ+a+/Vb7jIcTZqTOSJ4RmKEo6UFFf2Rpsju206JbwfHp2J6tLy
+	 H4bZBZoRMsduecl1ZluGCwG2V/Srn+CIXpKbUtMscNrJmqG79UIhG9XdvVUVKzqzmGoZd
+	 KTZnM+h5Y8LNNwgBQES3fsIwRq2dci4INPLX9qQeK6L0tttanAwgJI+zNM8gftEQaTNgb
+	 T5lQ3a6X1GBeRt2T4wunU4QjTwH7ODf/YW3MoXp0rodE1FMpyZ1nX2lKGNwHrTA3fFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257373;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YGxdIEBK4nhN8zWTjix49hEmEwb0PiL7QUXzou2sZ3M=;
-	b=ixkXi3CUzdYauhiyxMaDFnndrp5HBYwZikiwUFTIwr0Gn0Dm1aAS8XFYi1jhn40loCN1
-	 BMz5PhiHUgB1cylxfvcb7f1F7Ev6NC66woZ+3cVVpEIVfLaBPYuxGtsZGnuRRHHpmqfO4
-	 0OSE8BbQWzIch/CoNgEUqCFhpew244bxDZ38O20ml5zcO+qGLPWXZnF/T6QqwQCx52Ln0
-	 zd46anf2lHPN4cwfINKnNTGCmd1aVBfv5X2rOD8nMVKF4MifMx7GpKEpRs8WIhDWeT+Mm
-	 wNsFpxIIVHZDNubgBSHAtRvnw3njMfgHe8k+aOSPyQ2ArW2t/NsbhdbN5612kGHOBsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257387;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=7YilFJHIMBhnIWQiW5Cx1KzDPc6CgaF1NrneZ3Yl9/c=;
+	b=qb82boGtIt9pa0oi1m4se5LmgDXI4ZOjlJfsOZM+o2CZMJxjv1lCCgK3XRXpu5LfpBRW
+	 xZdYSlFJc9WzaaRjGyNzyPiTnN29NKnXkxh1dvDF3b5JVhMrSitWpHv7uveRj6kOH4rDo
+	 t0x1QXnUW10LEfTFjcSy3ZhwGB9dQmuqdGe9hrY031+ZPubKS7Ye0moNW5FUG9NB1/s4z
+	 PYMG9cOvrakWkfNDPQk2mXWHa36AJrNot9pf7U7fQWJyb8cvp5c9mK9cjUHikV6qec2TA
+	 ryX1kO9Ijw73oeNhdfQzx84jZgk+rdGtChAX9pl2nJLAJsIHM7wsX7bvGojZNSy8WeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VR2Ls9xS;
-	arc=none smtp.remote-ip=95.215.58.208
-Received: from mta1.migadu.com (out-208.mta1.migadu.com [95.215.58.208])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="rk4l/VVL";
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5979F606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:36:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5979F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F711606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:36:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F711606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VR2Ls9xS
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=F6mbGv0otCzbO29nBJTFtgeyT3LHv7cuLIogcFbt1PQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795257370; v=1; x=1795862170;
- b=VR2Ls9xSufn0eFHOjn8g0xm9BF/t9x05sG6bRF0JoYbXoqTJGLO54UD0PSxH6Mt+Tk6xw0CJ
- J0pRpLmacqCwFTZLfd/sTj62yVzOFttplJvhiBhUonk3GPhpxVbmjEAxsBInMAkstvbiTM5/wkn
- o4tsi99FunrFfEmXYTh1ijyo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 214c8295d155b3cc;
-	Sat, 21 Nov 2026 10:36:10 +0000
-X-Mizu-Trace-ID: 214c8295d155b3cc
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: bpf@vger.kernel.org,
-	ast@kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jakub Sitnicki <jakub@cloudflare.com>,
-	"David S. Miller" <davem@davemloft.net>,
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=rk4l/VVL
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id ACFAA4E41694;
+	Sat, 21 Nov 2026 10:36:25 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7A5B6603CF;
+	Sat, 21 Nov 2026 10:36:25 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 788A211BC045E;
+	Sat, 21 Nov 2026 11:36:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795257384; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7YilFJHIMBhnIWQiW5Cx1KzDPc6CgaF1NrneZ3Yl9/c=;
+	b=rk4l/VVLw7nlhVNhKX757qAzI0R2LnQyXJfiUk9qpvLXYPdQrjJOc/ascgg9Rg1wTCHI2X
+	rjYlT7z4B82aGaqj8Hgxi+TafGjXshQXYbLH9W0AwKlp5R+Bjh0xDKvIXWh0+ZsheQFS0z
+	ufF+FQff5HOSlzhSMLHTtx1P0XO8Bj0uKq5a7c/tszDE41Keqk6gtFvfI8P8CaHIvYh6fF
+	3H7ON6SOAyOvlRLm0gAga+NaftEsoJ7xPHPN1dn+F39FUOAlh7y8OE9EM8ZNiqx4oFJKVM
+	4FRYL9cwuQVXggDhyUlqE8iY6JHzQv1f9gt25xA66Kh4JZ7BtYo32KVWiYTFPw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
 	Willem de Bruijn <willemb@google.com>,
-	Neal Cardwell <ncardwell@google.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Shuah Khan <shuah@kernel.org>,
-	Sechang Lim <rhkrqnwk98@gmail.com>,
-	Michal Luczaj <mhal@rbox.co>,
-	Mattia Meleleo <mattia.meleleo@coralogix.com>,
-	linux-kernel@vger.kernel.org,
+	matttbe@kernel.org,
+	intel-wired-lan@lists.osuosl.org,
 	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 08/11] bpf, sockmap: Fix socket lock taken on a child before accept()
-Date: Sat, 21 Nov 2026 18:30:09 +0800
-Message-ID: <20261121103222.88209-9-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+	thomas.petazzoni@bootlin.com
+Subject: [PATCH iwl-next 1/3] igb: don't change the pause config when changing the link ksettings
+Date: Sat, 21 Nov 2026 11:36:10 +0100
+Message-ID: <20261121103613.166611-2-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261121103613.166611-1-maxime.chevallier@bootlin.com>
+References: <20261121103613.166611-1-maxime.chevallier@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,131 +80,35 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-A sockops prog can add a child that is not accepted yet to a sockmap at
-BPF_SOCK_OPS_PASSIVE_ESTABLISHED_CB. An sk_msg redirect to this child,
-ingress or egress, takes lock_sock() on it. If the listener is closed at
-that time, inet_csk_listen_stop() hits:
+When enabling link autoneg, or changing any setting while link autoneg
+is on, the flow control configuration is reset to the e1000_fc_default
+mode.
 
-	WARN_ON(sock_owned_by_user(child));
+Flow-control config should be changed through the .set_pauseparams()
+ops, let the configuration as-is in the .set_ksettings() path.
 
-WARNING: net/ipv4/inet_connection_sock.c:1492 at inet_csk_listen_stop+0x7ba/0xc40
-Call Trace:
- <TASK>
- __tcp_close+0xb64/0xee0
- tcp_close+0x24/0xf0
- inet_release+0x10a/0x240
- __sock_release+0xaf/0x270
- sock_close+0x18/0x30
- __fput+0x360/0xa90
- fput_close_sync+0xe6/0x1d0
- __x64_sys_close+0x80/0xe0
- x64_sys_call+0x2680/0x27e0
- do_syscall_64+0xe5/0x610
- entry_SYSCALL_64_after_hwframe+0x76/0x7e
- </TASK>
+Tested on i350-T4 cards.
 
-Commit 4aeaad1c536e ("bpf, sockmap: Check the target of an egress
-redirect before each send") already refuses an egress redirect to such a
-child, but only after lock_sock(). Refuse the ingress redirect too, and
-do it before taking the lock: a child has no sk_socket until accept()
-has taken it off the queue.
-
-sock_map_free() and sock_hash_free() also lock the sockets in the map.
-They can't refuse, so unlink such a child without the lock, as a delete
-from the map already does.
-
-Fixes: 604326b41a6f ("bpf, sockmap: convert to generic sk_msg interface")
-Fixes: 7e81a3530206 ("bpf: Sockmap, ensure sock lock held during tear down")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- net/core/sock_map.c | 27 +++++++++++++++++++++++----
- net/ipv4/tcp_bpf.c  | 10 +++++++++-
- 2 files changed, 32 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/intel/igb/igb_ethtool.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/net/core/sock_map.c b/net/core/sock_map.c
-index 6fc1d29ac6ed5..4a053846bd60e 100644
---- a/net/core/sock_map.c
-+++ b/net/core/sock_map.c
-@@ -386,6 +386,19 @@ static int sock_map_link(struct bpf_map *map, struct sock *sk)
- 	return ret;
- }
- 
-+/*
-+ * The listener frees a child that nobody has accepted yet without waiting
-+ * for the owner of its socket lock. Unlink such a child without the lock,
-+ * as a delete does.
-+ */
-+static bool sock_map_free_lock_sk(struct sock *sk)
-+{
-+	if (!READ_ONCE(sk->sk_socket))
-+		return false;
-+	lock_sock(sk);
-+	return true;
-+}
-+
- static void sock_map_free(struct bpf_map *map)
- {
- 	struct bpf_stab *stab = container_of(map, struct bpf_stab, map);
-@@ -402,12 +415,15 @@ static void sock_map_free(struct bpf_map *map)
- 
- 		sk = xchg(psk, NULL);
- 		if (sk) {
-+			bool locked;
-+
- 			sock_hold(sk);
--			lock_sock(sk);
-+			locked = sock_map_free_lock_sk(sk);
- 			rcu_read_lock();
- 			sock_map_unref(sk, psk);
- 			rcu_read_unlock();
--			release_sock(sk);
-+			if (locked)
-+				release_sock(sk);
- 			sock_put(sk);
+diff --git a/drivers/net/ethernet/intel/igb/igb_ethtool.c b/drivers/net/ethernet/intel/igb/igb_ethtool.c
+index ccc7302dc7bd..cfa36eab8b0a 100644
+--- a/drivers/net/ethernet/intel/igb/igb_ethtool.c
++++ b/drivers/net/ethernet/intel/igb/igb_ethtool.c
+@@ -322,8 +322,6 @@ static int igb_set_link_ksettings(struct net_device *netdev,
+ 						     ADVERTISED_Autoneg;
  		}
- 	}
-@@ -1228,12 +1244,15 @@ static void sock_hash_free(struct bpf_map *map)
- 		 * link to sockhash.
- 		 */
- 		hlist_for_each_entry_safe(elem, node, &unlink_list, node) {
-+			bool locked;
-+
- 			hlist_del(&elem->node);
--			lock_sock(elem->sk);
-+			locked = sock_map_free_lock_sk(elem->sk);
- 			rcu_read_lock();
- 			sock_map_unref(elem->sk, elem);
- 			rcu_read_unlock();
--			release_sock(elem->sk);
-+			if (locked)
-+				release_sock(elem->sk);
- 			sock_put(elem->sk);
- 			sock_hash_free_elem(htab, elem);
- 		}
-diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
-index 9715716518c49..da9caccfede79 100644
---- a/net/ipv4/tcp_bpf.c
-+++ b/net/ipv4/tcp_bpf.c
-@@ -188,9 +188,17 @@ static int tcp_bpf_push_locked(struct sock *sk, struct sk_msg *msg,
- int tcp_bpf_sendmsg_redir(struct sock *sk, bool ingress,
- 			  struct sk_msg *msg, u32 bytes, int flags)
- {
--	struct sk_psock *psock = sk_psock_get(sk);
-+	struct sk_psock *psock;
- 	int ret;
- 
-+	/*
-+	 * The listener frees a child that nobody has accepted yet without
-+	 * waiting for the owner of its socket lock.
-+	 */
-+	if (!READ_ONCE(sk->sk_socket))
-+		return sock_flag(sk, SOCK_DEAD) ? -EPIPE : -EINVAL;
-+
-+	psock = sk_psock_get(sk);
- 	if (unlikely(!psock))
- 		return -EPIPE;
- 
+ 		advertising = hw->phy.autoneg_advertised;
+-		if (adapter->fc_autoneg)
+-			hw->fc.requested_mode = e1000_fc_default;
+ 	} else {
+ 		u32 speed = cmd->base.speed;
+ 		/* calling this overrides forced MDI setting */
 -- 
-2.43.0
+2.56.1
 
