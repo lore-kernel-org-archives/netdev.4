@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304663;
-	b=D/GdYpAkxhPtEMyukeRj9FslQdvXxerowKdj/VtkYl5qWIoE680kwFYufMFlLe8by1XI
-	 CWvraoOSSJPc06QUN0eIcggQOULSeh25TBLUA6+Y0wXUVHaoUWvPnEezWYhVrEoHf3Imt
-	 TFpTa1pov+d+JxKKJXgMpfu2rqdwAhdOg9Kqyej9Ga6qz075lbfD9dFrtImZoc419itmh
-	 93aWhp8NCUhgLnGci12oY1itA9GSpzJvu7GlzOqZvkpNr9LL/k1HrKyL7T8rUiaAsL4eN
-	 NLEYhOgjE+3wGr/S8BKzyEpWy7MNawBbahGaT90tURTRDxd9qY5fJPkOZo4dnn6xYPQ==
+	t=1795304668;
+	b=TaiUmdw/drJWTSjlUvSzwNzbryYWgRuxQGJuSy/99xmDvEFbXsya+l3gY3JoPgNNxaKv
+	 v254GbgtYSBIAyVjRPUMiax24BSSFZWIaK4coJe6S8k6l9ZIqb/Rmu6916YQyryEKlbbA
+	 /cHH5ZrCZMRYnmkbZhtM6SRxLaCDyu+XhLnNBLmxwM7SPNLdAoY7oykABs8DJRXudKf/h
+	 vqksdMplHkszEvKNLxZoE0G1d8z+I0Itb7ieYDCH8aFZE43WwCncMnz6t6JNVnzec0LM/
+	 vtV39wfPGTnm/faWzEMgW6ZG9caTN4j6rr7A4JScE1sMZx363f9LcxqJhx95Ch+zzpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304663;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304668;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=bJv2CRi9uextI7SDskU+t+k/eig77lL331lPw8tX8+Y=;
-	b=1I3KWwQWdCh7ROlJto9K8dAM/vlPDu81zRoQPtCMPjpdD2NTPqT57ci8vxn3LPKEa9iL
-	 oZLNSAdlSF597cXpSV07IM+IDpMbWf2L5g8OtwdD+vY/6SWsqwfKmmGgis1Cm81DOrbqA
-	 flKkq9Hhd89sPWihm0vWrrLGWLavUz+IijXZE5yjrhzTong1HtFXD4lvYAmzWPXmAXB/Q
-	 y6wGJLj87zH40cTPRqphHZez6vPXqvWO/DNHpfzq5Xk9cV3wkdmpZ8a8FiBU0ZDV/Lkix
-	 2G9o8kTxdNa9RBEZL0ac99P9YZSFcouftaN9QALrzl4ylMdwI9ADzrLDc/D7+hSFrPw==
+	bh=ZJxIXFqAJYypPF+x9wsV4NgYYaa9n/Z9J2omV3TNaSA=;
+	b=bBn3PctZCV0OfybeNReL86DJKF5Y/hqF08bdYcuF9KpdP1ru8q4tqRgq/QPtn57fU1RV
+	 qTw2eqzt0UvN5VWOXjMdqsO0eWLx/q6fdjr0A3LDAY/HiRi7xGspwCYQz34DmPy4FgytE
+	 GTA9qX9L1iRsmTLkLqRZIEzyD4JDqdqgJV2AMUPxm2wkJTLfnofTlgbej9JaqHNvFAUfk
+	 Un3yhf/J4FwO9pboj6AFfv0DoUq8CfqVE7oCpyMXO8ptyx3/lKplkkqkNH0/uvxPDkTPs
+	 Iez+Inu5F5PK4affhX0P7Vgjg/pvvayH/C0qAv/qLIfscAwz95C1c7pq1/GB0rv5FNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbv8iWP4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IN1NlxRV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C8E4606A337;
-	Sat, 21 Nov 2026 23:44:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA414606A68D;
+	Sat, 21 Nov 2026 23:44:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbv8iWP4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084531F000C0;
-	Sat, 21 Nov 2026 23:44:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IN1NlxRV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 432A61F000D0;
+	Sat, 21 Nov 2026 23:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795304663;
-	bh=bJv2CRi9uextI7SDskU+t+k/eig77lL331lPw8tX8+Y=;
+	s=k20260515; t=1795304668;
+	bh=ZJxIXFqAJYypPF+x9wsV4NgYYaa9n/Z9J2omV3TNaSA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Nbv8iWP4eDIu7oYO4iAVCFUX/wOcOenIU8cUMWaTZezQZRRNPcPIirGaJpfk6OPjy
-	 aXhzmCYIb/kMAmBKmYcD/pOqlMBSy08l73X80CpSw37mOVbsHuYhZOSoKq/sOiqhec
-	 BHBYH7ahS5CwjhYrYr//gdhwPXbzlnsAoOPuYdAf04fDmYfmDsZG111IiFoK7Fn0Y5
-	 y9F5ocZ5JHYkzjf2o7sqXGJiicrr6r+DkEW4nv8QA3HvSjyS/xsQVfsuS+V/vO4Cb7
-	 8Jrmt0dp8gVz7QVpl+MF9bPFj9oHZ6Muo9pcJDFH2/ulB0+o7Gw9q8PZ0NM6Ol2320
-	 KEwOKiE2HTJKw==
+	b=IN1NlxRVeVKbq48bXpg4wDWt4o5OxPskrP6Ggf5uKIoUE+fwP376PCPMuVPXg2fUY
+	 aPNYv4Q0yxpHyX2RlvJ2a867Ss0FQy1eoAWh1A2KzBmovGeo9m8MzFDEdykhg9PcgH
+	 oo9ga00PI3UZh3hLnA9u8IFPdBWdZ576Z3iCSEy9cUcKzYGGnbyvqAjUkQLlXuGBU5
+	 gC2dpMQkUCpVedOFMYJSrAwgNNFySa+qw+JUgZa8YzAURChqrLHPZ9cCDM4KefoFMr
+	 dytkA9WO2RRU4qsNCPa3tHUBJn0+AeSVL7eRS+CUzSuVBA0RPxJn/zWDDJ/olimXCj
+	 v0nykTPbSwcRA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15AF391B08F;
-	Sat, 21 Nov 2026 23:44:22 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A34B391B08F;
+	Sat, 21 Nov 2026 23:44:28 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,40 +54,44 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: initialize sk_peer_lock in cloned sockets
+Subject: Re:
+ =?utf-8?q?=5BPATCH_net-next_v6_0/3=5D_dinghai=3A_firmware_handshake?=
+	=?utf-8?q?=2C_MSI-X_pools_and_async_event_queues?=
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179530466152.1212208.3098530208274110712.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 23:44:21 +0000
-References: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-In-Reply-To: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: edumazet@kernel.org, kuniyu@google.com, pabeni@redhat.com,
- willemb@google.com, davem@davemloft.net, kuba@kernel.org, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+ <179530466677.1212208.18435369009189702315.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:44:26 +0000
+References: <20261113134743145KUhKvpwU6uqR0QzymEP96@zte.com.cn>
+In-Reply-To: <20261113134743145KUhKvpwU6uqR0QzymEP96@zte.com.cn>
+To: Junyang Han <han.junyang@zte.com.cn>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, ran.ming@zte.com.cn,
+ han.chengfei@zte.com.cn, zhang.yanze@zte.com.cn
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 18 Nov 2026 18:17:52 +0800 you wrote:
-> sock_copy() clones a struct sock with two memcpys that both include
-> sk_peer_lock.  sk_clone() re-initializes sk_lock, but nothing resets
-> sk_peer_lock, so a clone created while the parent's sk_peer_lock is held
-> inherits the lock in the locked state.
+On Fri, 13 Nov 2026 13:47:43 +0800 (CST) you wrote:
+> From: Junyang Han <han.junyang@zte.com.cn>
 > 
-> The first getsockopt(SO_PEERCRED) on such a child spins forever in
-> queued_spin_lock_slowpath().  spin_lock() disables preemption, so the
-> task never schedules and its CPU stops reporting quiescent states; RCU
-> grace periods then stop and callers of synchronize_rcu(), such as
-> expand_files() from accept(), hang.
+> This series continues the DingHai (ZXDH) PF driver bring-up: after PCI
+> probing, it verifies the firmware version contract, waits for the
+> RISC-V management core to become ready, sets up the MSI-X interrupt
+> pools, and creates the async event queues through which the firmware
+> will report events.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: initialize sk_peer_lock in cloned sockets
-    https://git.kernel.org/netdev/net/c/ff73a2bb558f
+  - [net-next,v6,1/3] dinghai: add firmware version check and RISC-V readiness polling
+    https://git.kernel.org/netdev/net-next/c/a7e1c56d1f95
+  - [net-next,v6,2/3] dinghai: add MSI-X interrupt pools
+    (no matching commit)
+  - [net-next,v6,3/3] dinghai: add async event queue for firmware notifications
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
