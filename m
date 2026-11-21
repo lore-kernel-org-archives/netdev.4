@@ -1,69 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302123;
-	b=xaRlGQOLCUp/A8p0c/YLdQ43xyKT3lJji3YhDfyRNU8l5drUxvVddqRa/aq1j/uXiPvr
-	 78o4RdURuWbjAElEVxsTKm6KIF/CvqF8OCP6iqL/vAs6D+RyAv1hnmC7/TRAD23/cnd8W
-	 hFO5fqBkHbJvZy5mb9XIMgEkb/CSmeziVrIhHMXrpP8VhGHFQjIAXuWHBmbziGFzkK74A
-	 W34ekGMag2lgfbz/Pd9nBADctBxPs61w4565d31DYH6epEqhR30ZxdWF8tEG496ZvDSUV
-	 N60zVdFFTVbH3ozqXXi8Hh5WmLPpFsIRsP6u6GXlhsdaDVQYY5uKBWOvE0TTsxfEA2g==
+	t=1795302124;
+	b=PCAtcTK05/ForPo07aPuVr5GBNp68oGAez37pgLx/q4m96Fm7Yg3xRJ0M4GNHbfTdIG5
+	 tAXwrvlY23PawZfdHcIbf0rrpfJh0UpWJhxGG6U/jvYOlxPnYCsjeSBX2CMfgfymYihSi
+	 g5JJ0Ku4QmzNnultepQ9Rbd+t0N/k+Rd8k1JE0gU48t77q5lv9aAQ/MHSuvlZaYV5olnG
+	 d9XqRX7bud6r5IYvqYVPNQeAem8s32CKWYWFg7qITyb5ooAYpL/zQJ0Jv4QmwoonerHap
+	 nUJmm52lZCUchmv4HR5uwmySZ6+P8gudgfvGMxKEDgqatepAPf0VsV5RddIVCoupMdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302123;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302124;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Z9C6KNwo2afvwSSyO/owurJ3s/8Vbrw/h4J4mFjcRC0=;
-	b=EiQwXBzlnBzyARINOeVW7Lp91wSbl2CZqscmerZKGEqEa0IwwmwTB49i/izoo7iZI94B
-	 LtL9fLyJHrzGA+zNybeqELe45qUgjv1+h/lXI/er9WQwOMTl7WlovJQ14ip1Qe3wv45ue
-	 Ef5dZK3mw3vOjYoAkL5XwqWZUXBEnJ6hv8MMJaJHAOqDRltpa62Dtb2ULn7LHlpaI+gwN
-	 MQ77w9iXV6gXOd23FqBXhsnuCNiUnOKrCrBWzruyKu7cN56MLgBo+7p+C1c+rE7b3wk+X
-	 8A1cWYptmzP2c3vrKVZ3tCpPSarU3rN9Lkrqaz4oTkjEYrIcwuRzXFvyxsVV3njrdFQ==
+	bh=cU9WnaoehxuI49eUrlm9GN0wrBFyGYkD63yO6uYCEwo=;
+	b=q4QyPpvy6q4pQNZeNRS/jXbMluLQZpTdxGXboSRR6zVEsXBPSVhHNTqhSGF90zMq1a7Q
+	 m5Po8XolwU/kAlIG3CLlApbyS7+oU+hw6nHLavKGRt2D6mLjmF2aLpNvvXAOtyGODKWfw
+	 rOZnnOmJ7CSDQdscBxW7rQam0I+RPQV0OmshsSetVsA3Tq26e9dTUBQt3O0ttBhsqvKLx
+	 C+vEhD+u7IfRnOTNWld0QJXkGKZ9kDMagYgL6+/9OZ3IgOagnzFe7Ji8vlMiD4XFRRlrM
+	 h7uWOlWcXvSqQuCM7+5z9GvkYv0WXirnwznO4aAbge1ryXfSU7UmfaVSel8u7YS1bXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iyJJNpy0;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eV83Bz4x;
+	arc=none smtp.remote-ip=192.198.163.7
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C942F606A334
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:02:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C942F606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EF8D606A682
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:02:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EF8D606A682
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iyJJNpy0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eV83Bz4x
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795302123; x=1826838123;
+  t=1795302124; x=1826838124;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=AkIyG2nNRZpY8WQ/tUMRpru/IWVrIMML4c4rpWHTg0E=;
-  b=iyJJNpy0aF6qC4lQJW5gopNm0Qp55z/8yF0uA/KqU2xHbkV0E09BUKWL
-   7/BZo5dxP4JA0Nuq5d2LMadmJGw1IU8YSxImffGre38KhR+Q/T7tpvxxz
-   rvGxsMDYFggdrD4EUccNTH/NQTcZXq4OypYW2yoGBwq5xsjQqQYwG+1Ia
-   OTXf75X8Yfo5Q5olDV9Lw2ZDQRYBaYIgd+h7gkeKpMNqc2ch6LcGrFMft
-   XrwISB/L1XMLQ7/35bLz288bX3cZceKJw6TwY6s0S1eyg4duDy4LqzSOw
-   EnxiXWs4UNGoCTMbFsauhXWz/d5cebRn9zpxj6X5VdI9bsVSp5VsCXQX2
-   w==;
-X-CSE-ConnectionGUID: SjEavVErTP2/CxLxjJhoBQ==
-X-CSE-MsgGUID: m4rCFi+ZTXi4e3Sge8ICuQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4040257"
+  bh=HQQ8So0latE2A+M5hYI/Xw5a+O7jtyYd1q1SfCffWPk=;
+  b=eV83Bz4xXfeyHgXsCOnXLITOwMGIBEna9idZ2CJbtPlCLC0w1Oar1ISk
+   EWa23midkDLNXWwcoueYbuSl307TPYx2LA9aOdZdEtIkdDHBUHuB45pVq
+   Ra+YAK46+HyX5Sj0j6D/zP+iqO70DnKwwhYrwVknexQ6a2n3QPtqy390w
+   SjBJv1rUkwWShwxeXeUNPVf1YwQoD8Y0mvy0Ka3QKDi3DnhQX/m3LByo0
+   8y25HHVkpMPOVOPVsg6ClCTqHWJX60VlTlj8r0DLoOVWyYlPNmFsGis+j
+   p7LVyuVHnEWqvw0t05idkSNdp6qTRGrCr1kr5vjHHT2rzXCk7W0K2VYjg
+   Q==;
+X-CSE-ConnectionGUID: j2iybTMrTlKNg1LaNPqoTg==
+X-CSE-MsgGUID: Nig1zaoaSvOleyvCyzAEfQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="3996996"
 X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="4040257"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 15:02:02 -0800
-X-CSE-ConnectionGUID: xGHiRioaTm2fCBtCn6H80w==
-X-CSE-MsgGUID: wZpD7v0XRj29Ln2x1O8hjg==
+   d="scan'208";a="3996996"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 15:02:03 -0800
+X-CSE-ConnectionGUID: xarELCDQTp+iuOpEUBo2Bg==
+X-CSE-MsgGUID: K5nYcm2oTLmdcCifnbPTVg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="10857071"
+   d="scan'208";a="11273471"
 Received: from irvmail002.ir.intel.com ([10.43.11.120])
-  by orviesa003.jf.intel.com with ESMTP; 21 Nov 2026 15:01:56 -0800
+  by orviesa009.jf.intel.com with ESMTP; 21 Nov 2026 15:01:58 -0800
 Received: from pkitszel-desk.tendawifi.com (unknown [10.245.244.136])
-	by irvmail002.ir.intel.com (Postfix) with ESMTP id E6F9A33BC5;
-	Sat, 21 Nov 2026 23:01:53 +0000 (GMT)
+	by irvmail002.ir.intel.com (Postfix) with ESMTP id E215233BC2;
+	Sat, 21 Nov 2026 23:01:55 +0000 (GMT)
 From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
 To: netdev@vger.kernel.org,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -91,9 +91,9 @@ Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Petr Oros <poros@redhat.com>,
 	Donald Hunter <donald.hunter@gmail.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Subject: [PATCH net-next v7 11/15] ice: introduce handling of virtchnl LARGE VF opcodes
-Date: Sat, 21 Nov 2026 23:55:38 +0100
-Message-ID: <20261121230123.316391-12-przemyslaw.kitszel@intel.com>
+Subject: [PATCH net-next v7 12/15] devlink: add cmode to resources
+Date: Sat, 21 Nov 2026 23:55:39 +0100
+Message-ID: <20261121230123.316391-13-przemyslaw.kitszel@intel.com>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20261121230123.316391-1-przemyslaw.kitszel@intel.com>
 References: <20261121230123.316391-1-przemyslaw.kitszel@intel.com>
@@ -108,528 +108,350 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Brett Creeley <brett.creeley@intel.com>
+The size of a devlink resource set by the user takes effect only on
+the next reload, until then it is reported as size_new. That does not
+fit resources that the driver could change right away, like the RSS
+lookup tables, which ice hands out to its PFs and VFs.
 
-With new virtchnl offload/capability VFs are able to make use of more than
-16 queues. But the old opcodes were designed with a max of 16 queues,
-so new ones were added (by iavf/virtchnl commit of this series).
-Add handlers for VIRTCHNL_OP_ENABLE_QUEUES_V2,
-VIRTCHNL_OP_DISABLE_QUEUES_V2 and VIRTCHNL_OP_MAP_QUEUE_VECTOR here.
-Bigger RSS LUT support, later in the series, hooks them up, with the
-get_q_vector callback of SR-IOV VFs, and adds the handler of
-VIRTCHNL_OP_GET_MAX_RSS_QREGION, which is only allowlisted here.
+Add a configuration mode (cmode) to resources, reusing the values of
+enum devlink_param_cmode. Existing resources are "driverinit". A driver
+may make a resource "runtime" with devl_resource_runtime_register(),
+then DEVLINK_CMD_RESOURCE_SET calls its .size_set() callback with the
+validated size, which applies the change synchronously, or fails it
+with nothing changed. As for runtime params, the driver owns the value:
+.size_get() reports the size, so it stays correct also when the driver
+changes it on its own, e.g. when a device reset restores the default.
+There is no size_new for runtime resources, and occ is still the
+current use. A runtime resource must have no parent and no children,
+as the sizes in a resource tree are validated with size_new.
 
-Widen num_ring_{rx,tx} of struct ice_q_vector to u16, with the ring
-counts in ice_vsi_map_rings_to_vectors(), which the PF uses too, as a
-VF can map all its 256 queues to one vector.
+Report the new DEVLINK_ATTR_RESOURCE_CMODE for every resource, like
+params report the cmode of each value. DEVLINK_CMD_RESOURCE_SET may
+carry the expected cmode, and fails with -EOPNOTSUPP on a mismatch.
 
-If a VF wishes to request >16 queues it should first make sure that the
-PF supports the VIRTCHNL_VF_LARGE_NUM_QPAIRS capability.
-
-Thanks to Alex Loktionov for the message length validation.
-
-Signed-off-by: Brett Creeley <brett.creeley@intel.com>
-Signed-off-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Co-developed-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
 Signed-off-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
 ---
+RFC, Feb '25
+https://lore.kernel.org/intel-wired-lan/20250219164410.35665-3-przemyslaw.kitszel@intel.com
+
 v7:
- * cap the total count of queues of each type in the chunks of
-   ENABLE_QUEUES_V2 and DISABLE_QUEUES_V2, overlapping chunks made PF
-   repeat the work on the same queues many times (Sashiko)
- * accept only the itr_idx values of enum virtchnl_itr_idx in
-   VIRTCHNL_OP_MAP_QUEUE_VECTOR, 2 was accepted (me)
- * widen the u8 ring counts in ice_vsi_map_rings_to_vectors() to u16,
-   as num_ring_{rx,tx} (Sashiko)
- * thank Alex for the message length validation in place of his
-   Co-developed-by tag with a "# msglen val" note, which checkpatch
-   did not match with his Signed-off-by
- * commit message: the handlers get hooked up only later in the series;
-   mention the u16 ring counts (me)
-
-v5:
- * widen num_ring_{rx,tx} of struct ice_q_vector to u16, mapping all
-   256 queues of a VF to one vector wrapped them around (Sashiko)
-
-v4:
- * limit queue chunks to ICE_MAX_QS_PER_VF, the size of
-   vf->{rx,tx}q_ena, as num_vf_qs could be set higher via
-   sriov_vf_msix_count (Sashiko)
- * VIRTCHNL_OP_MAP_QUEUE_VECTOR: set ring->q_vector, num_ring_{rx,tx}
-   and {rx,tx}.itr_idx, as VIRTCHNL_OP_CONFIG_IRQ_MAP does (Sashiko)
- * look up the VF VSI once per message, make ice_vc_ena_txq_chunk()
-   void (Sashiko)
-
-v3:
- * reject VIRTCHNL_OP_MAP_QUEUE_VECTOR entries with an out of range
-   itr_idx (me)
-
-v2:
- * fix error response in one case of ice_vc_map_q_vector_msg() (Alex)
- * use ice_get_vf_vsi() instead of plain array access (Sashiko)
- * return VIRTCHNL_STATUS_ERR_PARAM on error (Sashiko)
- * commit message: GET_MAX_RSS_QREGION is handled only later
+ * rework: resource cmode instead of .occ_set(), occ is the current use
+   again (Jakub); was "devlink: give user option to allocate resources",
+   Alex's Reviewed-by dropped due to the rewrite
+ * new DEVLINK_ATTR_RESOURCE_CMODE, reported for every resource, and
+   checked when passed to DEVLINK_CMD_RESOURCE_SET
+ * document runtime resources in devlink-resource.rst
 ---
- drivers/net/ethernet/intel/ice/ice.h          |   4 +-
- drivers/net/ethernet/intel/ice/ice_vf_lib.h   |   1 +
- drivers/net/ethernet/intel/ice/virt/queues.h  |   3 +
- drivers/net/ethernet/intel/ice/ice_base.c     |   8 +-
- .../net/ethernet/intel/ice/virt/allowlist.c   |   8 +
- drivers/net/ethernet/intel/ice/virt/queues.c  | 349 ++++++++++++++++++
- 6 files changed, 366 insertions(+), 7 deletions(-)
+ Documentation/netlink/specs/devlink.yaml      | 10 +++
+ .../networking/devlink/devlink-resource.rst   | 19 +++++
+ include/net/devlink.h                         |  8 ++
+ include/uapi/linux/devlink.h                  |  2 +
+ net/devlink/netlink_gen.c                     |  5 +-
+ net/devlink/resource.c                        | 84 ++++++++++++++++++-
+ 6 files changed, 124 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/ice/ice.h b/drivers/net/ethernet/intel/ice/ice.h
-index d28ff576a342..4de947165a08 100644
---- a/drivers/net/ethernet/intel/ice/ice.h
-+++ b/drivers/net/ethernet/intel/ice/ice.h
-@@ -474,8 +474,8 @@ struct ice_q_vector {
+diff --git a/Documentation/netlink/specs/devlink.yaml b/Documentation/netlink/specs/devlink.yaml
+index 4706de628392..709e40f8afb4 100644
+--- a/Documentation/netlink/specs/devlink.yaml
++++ b/Documentation/netlink/specs/devlink.yaml
+@@ -917,6 +917,13 @@ attribute-sets:
+           Used with rate-set and rate-new to parent a rate object to a node on
+           a different devlink instance, enabling cross-device rate scheduling.
+           When absent, the parent node is resolved on the same instance.
++      -
++        name: resource-cmode
++        type: u8
++        enum: param-cmode
++        doc: |
++          Configuration mode of the resource, when a new size takes effect.
++          Runtime resources apply it immediately, others on driver reload.
  
- 	u16 v_idx;			/* index in the vsi->q_vector array. */
- 	u16 reg_idx;			/* PF relative register index */
--	u8 num_ring_rx;			/* total number of Rx rings in vector */
--	u8 num_ring_tx;			/* total number of Tx rings in vector */
-+	u16 num_ring_rx;		/* total number of Rx rings in vector */
-+	u16 num_ring_tx;		/* total number of Tx rings in vector */
- 	u8 wb_on_itr:1;			/* if true, WB on ITR is enabled */
- 	/* in usecs, need to use ice_intrl_to_usecs_reg() before writing this
- 	 * value to the device
-diff --git a/drivers/net/ethernet/intel/ice/ice_vf_lib.h b/drivers/net/ethernet/intel/ice/ice_vf_lib.h
-index a9e95c85bc98..396dfb2b2d97 100644
---- a/drivers/net/ethernet/intel/ice/ice_vf_lib.h
-+++ b/drivers/net/ethernet/intel/ice/ice_vf_lib.h
-@@ -125,6 +125,7 @@ struct ice_vf_ops {
- 	void (*clear_reset_trigger)(struct ice_vf *vf);
- 	void (*irq_close)(struct ice_vf *vf);
- 	void (*post_vsi_rebuild)(struct ice_vf *vf);
-+	struct ice_q_vector *(*get_q_vector)(struct ice_vsi *vsi, u16 vec_id);
- };
+   -
+     name: dl-dev-stats
+@@ -1240,6 +1247,8 @@ attribute-sets:
+         name: resource-unit
+       -
+         name: resource-occ
++      -
++        name: resource-cmode
+       -
+         name: pad
  
- /* Virtchnl/SR-IOV config info */
-diff --git a/drivers/net/ethernet/intel/ice/virt/queues.h b/drivers/net/ethernet/intel/ice/virt/queues.h
-index c4a792cecea1..223f609dd4f3 100644
---- a/drivers/net/ethernet/intel/ice/virt/queues.h
-+++ b/drivers/net/ethernet/intel/ice/virt/queues.h
-@@ -16,5 +16,8 @@ int ice_vc_cfg_q_bw(struct ice_vf *vf, u8 *msg);
- int ice_vc_cfg_q_quanta(struct ice_vf *vf, u8 *msg);
- int ice_vc_cfg_qs_msg(struct ice_vf *vf, u8 *msg);
- int ice_vc_request_qs_msg(struct ice_vf *vf, u8 *msg);
-+int ice_vc_ena_qs_v2_msg(struct ice_vf *vf, u8 *msg, u16 msglen);
-+int ice_vc_dis_qs_v2_msg(struct ice_vf *vf, u8 *msg, u16 msglen);
-+int ice_vc_map_q_vector_msg(struct ice_vf *vf, u8 *msg, u16 msglen);
+@@ -1913,6 +1922,7 @@ operations:
+             - index
+             - resource-id
+             - resource-size
++            - resource-cmode
  
- #endif /* _ICE_VIRT_QUEUES_H_ */
-diff --git a/drivers/net/ethernet/intel/ice/ice_base.c b/drivers/net/ethernet/intel/ice/ice_base.c
-index f65634e3d44e..2d58a92f2942 100644
---- a/drivers/net/ethernet/intel/ice/ice_base.c
-+++ b/drivers/net/ethernet/intel/ice/ice_base.c
-@@ -935,12 +935,11 @@ void ice_vsi_map_rings_to_vectors(struct ice_vsi *vsi)
+     -
+       name: resource-dump
+diff --git a/Documentation/networking/devlink/devlink-resource.rst b/Documentation/networking/devlink/devlink-resource.rst
+index b7172d94b2c6..cff32e5c661c 100644
+--- a/Documentation/networking/devlink/devlink-resource.rst
++++ b/Documentation/networking/devlink/devlink-resource.rst
+@@ -75,6 +75,25 @@ attribute, which represents the pending change in size. For example:
+ Note that changes in resource size may require a device reload to properly
+ take effect.
  
- 	for (v_id = 0; v_id < q_vectors; v_id++) {
- 		struct ice_q_vector *q_vector = vsi->q_vectors[v_id];
--		u8 tx_rings_per_v, rx_rings_per_v;
-+		u16 tx_rings_per_v, rx_rings_per_v;
- 		u16 q_id, q_base;
- 
- 		/* Tx rings mapping to vector */
--		tx_rings_per_v = (u8)DIV_ROUND_UP(tx_rings_rem,
--						  q_vectors - v_id);
-+		tx_rings_per_v = DIV_ROUND_UP(tx_rings_rem, q_vectors - v_id);
- 		q_vector->num_ring_tx = tx_rings_per_v;
- 		q_vector->tx.tx_ring = NULL;
- 		q_vector->tx.itr_idx = ICE_TX_ITR;
-@@ -956,8 +955,7 @@ void ice_vsi_map_rings_to_vectors(struct ice_vsi *vsi)
- 		tx_rings_rem -= tx_rings_per_v;
- 
- 		/* Rx rings mapping to vector */
--		rx_rings_per_v = (u8)DIV_ROUND_UP(rx_rings_rem,
--						  q_vectors - v_id);
-+		rx_rings_per_v = DIV_ROUND_UP(rx_rings_rem, q_vectors - v_id);
- 		q_vector->num_ring_rx = rx_rings_per_v;
- 		q_vector->rx.rx_ring = NULL;
- 		q_vector->rx.itr_idx = ICE_RX_ITR;
-diff --git a/drivers/net/ethernet/intel/ice/virt/allowlist.c b/drivers/net/ethernet/intel/ice/virt/allowlist.c
-index a07efec19c45..ef769b843c6f 100644
---- a/drivers/net/ethernet/intel/ice/virt/allowlist.c
-+++ b/drivers/net/ethernet/intel/ice/virt/allowlist.c
-@@ -95,6 +95,13 @@ static const u32 tc_allowlist_opcodes[] = {
- 	VIRTCHNL_OP_CONFIG_QUANTA,
- };
- 
-+static const u32 large_num_qpairs_allowlist_opcodes[] = {
-+	VIRTCHNL_OP_GET_MAX_RSS_QREGION,
-+	VIRTCHNL_OP_ENABLE_QUEUES_V2,
-+	VIRTCHNL_OP_DISABLE_QUEUES_V2,
-+	VIRTCHNL_OP_MAP_QUEUE_VECTOR,
-+};
++Runtime Resources
++=================
 +
- struct allowlist_opcode_info {
- 	const u32 *opcodes;
- 	size_t size;
-@@ -117,6 +124,7 @@ static const struct allowlist_opcode_info allowlist_opcodes[] = {
- 	ALLOW_ITEM(VIRTCHNL_VF_OFFLOAD_VLAN_V2, vlan_v2_allowlist_opcodes),
- 	ALLOW_ITEM(VIRTCHNL_VF_OFFLOAD_QOS, tc_allowlist_opcodes),
- 	ALLOW_ITEM(VIRTCHNL_VF_CAP_PTP, ptp_allowlist_opcodes),
-+	ALLOW_ITEM(VIRTCHNL_VF_LARGE_NUM_QPAIRS, large_num_qpairs_allowlist_opcodes),
- };
++The configuration mode (``cmode``) of a resource tells when a new size takes
++effect. The default, ``driverinit``, is described above. A driver may register
++a resource as ``runtime`` with ``devl_resource_runtime_register()``, then
++a new size takes effect immediately: the driver applies it right away, or
++fails the request with nothing changed.
++
++The driver owns the size of a ``runtime`` resource. There is no ``size_new``,
++``size`` is the current size reported by the driver, which may also change it
++on its own, e.g. a device reset may restore the default size. ``occ`` stays
++the current usage, if the driver reports it.
++
++Every resource reports its cmode in ``DEVLINK_ATTR_RESOURCE_CMODE``, like
++params report the cmode of each value. A ``DEVLINK_CMD_RESOURCE_SET`` request
++may carry the expected cmode, the request then fails with ``EOPNOTSUPP`` if
++the resource has a different one.
++
+ Port-level Resources and Full Dump
+ ==================================
  
- /**
-diff --git a/drivers/net/ethernet/intel/ice/virt/queues.c b/drivers/net/ethernet/intel/ice/virt/queues.c
-index a8a2f5e5b322..e8635236cb6c 100644
---- a/drivers/net/ethernet/intel/ice/virt/queues.c
-+++ b/drivers/net/ethernet/intel/ice/virt/queues.c
-@@ -1046,3 +1046,352 @@ int ice_vc_request_qs_msg(struct ice_vf *vf, u8 *msg)
- 				     v_ret, (u8 *)vfres, sizeof(*vfres));
+diff --git a/include/net/devlink.h b/include/net/devlink.h
+index 98bdde4f72ca..dc9a642796f2 100644
+--- a/include/net/devlink.h
++++ b/include/net/devlink.h
+@@ -420,6 +420,10 @@ devlink_resource_size_params_init(struct devlink_resource_size_params *size_para
  }
  
-+static bool ice_vc_supported_queue_type(s32 queue_type)
+ typedef u64 devlink_resource_occ_get_t(void *priv);
++typedef u64 devlink_resource_size_get_t(void *priv);
++typedef int devlink_resource_size_set_t(u64 size,
++					struct netlink_ext_ack *extack,
++					void *priv);
+ 
+ #define DEVLINK_RESOURCE_ID_PARENT_TOP 0
+ 
+@@ -1959,6 +1963,10 @@ void devl_resource_occ_get_register(struct devlink *devlink,
+ 				    void *occ_get_priv);
+ void devl_resource_occ_get_unregister(struct devlink *devlink,
+ 				      u64 resource_id);
++void devl_resource_runtime_register(struct devlink *devlink, u64 resource_id,
++				    devlink_resource_size_get_t *size_get,
++				    devlink_resource_size_set_t *size_set,
++				    void *priv);
+ int devl_params_register(struct devlink *devlink,
+ 			 const struct devlink_param *params,
+ 			 size_t params_count);
+diff --git a/include/uapi/linux/devlink.h b/include/uapi/linux/devlink.h
+index a6801feb7744..599fe8ecf512 100644
+--- a/include/uapi/linux/devlink.h
++++ b/include/uapi/linux/devlink.h
+@@ -650,6 +650,8 @@ enum devlink_attr {
+ 
+ 	DEVLINK_ATTR_PARENT_DEV,		/* nested */
+ 
++	DEVLINK_ATTR_RESOURCE_CMODE,		/* u8 */
++
+ 	/* Add new attributes above here, update the spec in
+ 	 * Documentation/netlink/specs/devlink.yaml and re-generate
+ 	 * net/devlink/netlink_gen.c.
+diff --git a/net/devlink/netlink_gen.c b/net/devlink/netlink_gen.c
+index 9e1b4c081a7b..16e70810a395 100644
+--- a/net/devlink/netlink_gen.c
++++ b/net/devlink/netlink_gen.c
+@@ -304,12 +304,13 @@ static const struct nla_policy devlink_dpipe_table_counters_set_nl_policy[DEVLIN
+ };
+ 
+ /* DEVLINK_CMD_RESOURCE_SET - do */
+-static const struct nla_policy devlink_resource_set_nl_policy[DEVLINK_ATTR_INDEX + 1] = {
++static const struct nla_policy devlink_resource_set_nl_policy[DEVLINK_ATTR_RESOURCE_CMODE + 1] = {
+ 	[DEVLINK_ATTR_BUS_NAME] = { .type = NLA_NUL_STRING, },
+ 	[DEVLINK_ATTR_DEV_NAME] = { .type = NLA_NUL_STRING, },
+ 	[DEVLINK_ATTR_INDEX] = NLA_POLICY_FULL_RANGE(NLA_UINT, &devlink_attr_index_range),
+ 	[DEVLINK_ATTR_RESOURCE_ID] = { .type = NLA_U64, },
+ 	[DEVLINK_ATTR_RESOURCE_SIZE] = { .type = NLA_U64, },
++	[DEVLINK_ATTR_RESOURCE_CMODE] = NLA_POLICY_MAX(NLA_U8, 2),
+ };
+ 
+ /* DEVLINK_CMD_RESOURCE_DUMP - do */
+@@ -969,7 +970,7 @@ const struct genl_split_ops devlink_nl_ops[75] = {
+ 		.doit		= devlink_nl_resource_set_doit,
+ 		.post_doit	= devlink_nl_post_doit,
+ 		.policy		= devlink_resource_set_nl_policy,
+-		.maxattr	= DEVLINK_ATTR_INDEX,
++		.maxattr	= DEVLINK_ATTR_RESOURCE_CMODE,
+ 		.flags		= GENL_ADMIN_PERM | GENL_CMD_CAP_DO,
+ 	},
+ 	{
+diff --git a/net/devlink/resource.c b/net/devlink/resource.c
+index c3cfda7ea070..2d31dac85eb1 100644
+--- a/net/devlink/resource.c
++++ b/net/devlink/resource.c
+@@ -20,6 +20,10 @@
+  * @resource_list: list of child resources
+  * @occ_get: occupancy getter callback
+  * @occ_get_priv: occupancy getter callback priv
++ * @cmode: configuration mode, when a new size takes effect
++ * @size_get: size getter callback of a runtime resource
++ * @size_set: size setter callback of a runtime resource
++ * @size_priv: size callbacks priv
+  */
+ struct devlink_resource {
+ 	const char *name;
+@@ -33,6 +37,10 @@ struct devlink_resource {
+ 	struct list_head resource_list;
+ 	devlink_resource_occ_get_t *occ_get;
+ 	void *occ_get_priv;
++	enum devlink_param_cmode cmode;
++	devlink_resource_size_get_t *size_get;
++	devlink_resource_size_set_t *size_set;
++	void *size_priv;
+ };
+ 
+ static struct devlink_resource *
+@@ -119,6 +127,7 @@ int devlink_nl_resource_set_doit(struct sk_buff *skb, struct genl_info *info)
+ {
+ 	struct devlink *devlink = devlink_nl_ctx(info)->devlink;
+ 	struct devlink_resource *resource;
++	struct nlattr *cmode_attr;
+ 	u64 resource_id;
+ 	u64 size;
+ 	int err;
+@@ -132,11 +141,22 @@ int devlink_nl_resource_set_doit(struct sk_buff *skb, struct genl_info *info)
+ 	if (!resource)
+ 		return -EINVAL;
+ 
++	cmode_attr = info->attrs[DEVLINK_ATTR_RESOURCE_CMODE];
++	if (cmode_attr && nla_get_u8(cmode_attr) != resource->cmode) {
++		NL_SET_ERR_MSG_ATTR(info->extack, cmode_attr,
++				    "Configuration mode not supported by the resource");
++		return -EOPNOTSUPP;
++	}
++
+ 	size = nla_get_u64(info->attrs[DEVLINK_ATTR_RESOURCE_SIZE]);
+ 	err = devlink_resource_validate_size(resource, size, info->extack);
+ 	if (err)
+ 		return err;
+ 
++	if (resource->cmode == DEVLINK_PARAM_CMODE_RUNTIME)
++		return resource->size_set(size, info->extack,
++					  resource->size_priv);
++
+ 	resource->size_new = size;
+ 	devlink_resource_validate_children(resource);
+ 	if (resource->parent)
+@@ -171,6 +191,13 @@ static int devlink_resource_occ_put(struct devlink_resource *resource,
+ 				  resource->occ_get(resource->occ_get_priv));
+ }
+ 
++static u64 devlink_resource_size(struct devlink_resource *resource)
 +{
-+	return queue_type == VIRTCHNL_QUEUE_TYPE_RX ||
-+	       queue_type == VIRTCHNL_QUEUE_TYPE_TX;
++	if (resource->cmode == DEVLINK_PARAM_CMODE_RUNTIME)
++		return resource->size_get(resource->size_priv);
++	return resource->size;
 +}
 +
+ static int devlink_resource_put(struct devlink *devlink, struct sk_buff *skb,
+ 				struct devlink_resource *resource)
+ {
+@@ -183,8 +210,10 @@ static int devlink_resource_put(struct devlink *devlink, struct sk_buff *skb,
+ 		return -EMSGSIZE;
+ 
+ 	if (nla_put_string(skb, DEVLINK_ATTR_RESOURCE_NAME, resource->name) ||
+-	    devlink_nl_put_u64(skb, DEVLINK_ATTR_RESOURCE_SIZE, resource->size) ||
+-	    devlink_nl_put_u64(skb, DEVLINK_ATTR_RESOURCE_ID, resource->id))
++	    devlink_nl_put_u64(skb, DEVLINK_ATTR_RESOURCE_SIZE,
++			       devlink_resource_size(resource)) ||
++	    devlink_nl_put_u64(skb, DEVLINK_ATTR_RESOURCE_ID, resource->id) ||
++	    nla_put_u8(skb, DEVLINK_ATTR_RESOURCE_CMODE, resource->cmode))
+ 		goto nla_put_failure;
+ 	if (resource->size != resource->size_new &&
+ 	    devlink_nl_put_u64(skb, DEVLINK_ATTR_RESOURCE_SIZE_NEW,
+@@ -514,6 +543,11 @@ __devl_resource_register(struct devlink *devlink,
+ 							  NULL,
+ 							  parent_resource_id);
+ 		if (parent_resource) {
++			if (WARN_ON(parent_resource->cmode ==
++				    DEVLINK_PARAM_CMODE_RUNTIME)) {
++				kfree(resource);
++				return -EINVAL;
++			}
+ 			resource_list = &parent_resource->resource_list;
+ 			resource->parent = parent_resource;
+ 		} else {
+@@ -527,6 +561,7 @@ __devl_resource_register(struct devlink *devlink,
+ 	resource->size_new = resource_size;
+ 	resource->id = resource_id;
+ 	resource->size_valid = true;
++	resource->cmode = DEVLINK_PARAM_CMODE_DRIVERINIT;
+ 	memcpy(&resource->size_params, params, sizeof(resource->size_params));
+ 	INIT_LIST_HEAD(&resource->resource_list);
+ 	list_add_tail(&resource->list, resource_list);
+@@ -622,6 +657,8 @@ EXPORT_SYMBOL_GPL(devlink_resources_unregister);
+  * @devlink: devlink
+  * @resource_id: the requested resource id
+  * @p_resource_size: ptr to update
++ *
++ * For a runtime resource, just get the size from its size_get() callback.
+  */
+ int devl_resource_size_get(struct devlink *devlink,
+ 			   u64 resource_id,
+@@ -634,6 +671,10 @@ int devl_resource_size_get(struct devlink *devlink,
+ 	resource = devlink_resource_find(devlink, NULL, resource_id);
+ 	if (!resource)
+ 		return -EINVAL;
++	if (resource->cmode == DEVLINK_PARAM_CMODE_RUNTIME) {
++		*p_resource_size = resource->size_get(resource->size_priv);
++		return 0;
++	}
+ 	*p_resource_size = resource->size_new;
+ 	resource->size = resource->size_new;
+ 	return 0;
+@@ -690,6 +731,45 @@ void devl_resource_occ_get_unregister(struct devlink *devlink,
+ }
+ EXPORT_SYMBOL_GPL(devl_resource_occ_get_unregister);
+ 
 +/**
-+ * ice_vc_validate_qs_v2_msg - validate all qs_msg parameters
-+ * @vf: VF the message was received from
-+ * @qs_msg: contents of the message from the VF
-+ * @msglen: length of @qs_msg
++ * devl_resource_runtime_register - make the resource size runtime configurable
 + *
-+ * Used to validate both the VIRTCHNL_OP_ENABLE_QUEUES_V2 and
-+ * VIRTCHNL_OP_DISABLE_QUEUES_V2 messages. This should always be called before
-+ * attempting to enable and/or disable queues on behalf of a VF in response to
-+ * the previously mentioned opcodes.
++ * @devlink: devlink
++ * @resource_id: resource id
++ * @size_get: size getter callback
++ * @size_set: size setter callback
++ * @priv: size callbacks priv
 + *
-+ * Return: If all checks succeed, then return true. Otherwise return
-+ *         false, indicating to the caller that the qs_msg is invalid.
++ * A new size of a runtime resource takes effect immediately: @size_set is
++ * called with a size that fits the size parameters of the resource, and must
++ * either apply it, or fail with nothing changed. The driver owns the size,
++ * @size_get reports it, also after the driver changed it on its own, e.g. when
++ * a device reset restored the default. Both callbacks are called with
++ * the instance lock held. The resource must have no parent and no children.
 + */
-+static bool ice_vc_validate_qs_v2_msg(struct ice_vf *vf,
-+				      struct virtchnl_del_ena_dis_queues *qs_msg,
-+				      u16 msglen)
++void devl_resource_runtime_register(struct devlink *devlink, u64 resource_id,
++				    devlink_resource_size_get_t *size_get,
++				    devlink_resource_size_set_t *size_set,
++				    void *priv)
 +{
-+	u32 max_qs = min_t(u32, vf->num_vf_qs, ICE_MAX_QS_PER_VF);
-+	u32 num_rxq = 0, num_txq = 0;
++	struct devlink_resource *resource;
 +
-+	if (msglen < virtchnl_struct_size(qs_msg, chunks, 0))
-+		return false;
++	lockdep_assert_held(&devlink->lock);
 +
-+	if (msglen < virtchnl_struct_size(qs_msg, chunks, qs_msg->num_chunks))
-+		return false;
++	resource = devlink_resource_find(devlink, NULL, resource_id);
++	if (WARN_ON(!resource || !size_get || !size_set))
++		return;
++	if (WARN_ON(resource->parent || !list_empty(&resource->resource_list)))
++		return;
++	WARN_ON(resource->cmode == DEVLINK_PARAM_CMODE_RUNTIME);
 +
-+	if (!qs_msg->num_chunks)
-+		return false;
-+
-+	if (!test_bit(ICE_VF_STATE_ACTIVE, vf->vf_states))
-+		return false;
-+
-+	if (!ice_vc_isvalid_vsi_id(vf, qs_msg->vport_id))
-+		return false;
-+
-+	for (int i = 0; i < qs_msg->num_chunks; i++) {
-+		struct virtchnl_queue_chunk *chunk = &qs_msg->chunks[i];
-+		u32 end;
-+
-+		if (!ice_vc_supported_queue_type(chunk->type))
-+			return false;
-+
-+		if (!chunk->num_queues)
-+			return false;
-+
-+		end = chunk->start_queue_id + chunk->num_queues;
-+		if (end > max_qs)
-+			return false;
-+
-+		/* chunks may overlap, cap the total work */
-+		if (chunk->type == VIRTCHNL_QUEUE_TYPE_RX)
-+			num_rxq += chunk->num_queues;
-+		else
-+			num_txq += chunk->num_queues;
-+		if (num_rxq > max_qs || num_txq > max_qs)
-+			return false;
-+	}
-+
-+	return true;
++	resource->cmode = DEVLINK_PARAM_CMODE_RUNTIME;
++	resource->size_get = size_get;
++	resource->size_set = size_set;
++	resource->size_priv = priv;
 +}
++EXPORT_SYMBOL_GPL(devl_resource_runtime_register);
 +
-+#define ice_for_each_q_in_chunk(chunk, q_id) \
-+	for ((q_id) = (chunk)->start_queue_id; \
-+	     (q_id) < (chunk)->start_queue_id + (chunk)->num_queues; \
-+	     (q_id)++)
-+
-+static int
-+ice_vc_ena_rxq_chunk(struct ice_vf *vf, struct ice_vsi *vsi,
-+		     struct virtchnl_queue_chunk *chunk)
-+{
-+	u32 vf_qid;
-+
-+	ice_for_each_q_in_chunk(chunk, vf_qid) {
-+		int err;
-+
-+		err = ice_vf_vsi_ena_single_rxq(vf, vsi, vf_qid);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static void
-+ice_vc_ena_txq_chunk(struct ice_vf *vf, struct ice_vsi *vsi,
-+		     struct virtchnl_queue_chunk *chunk)
-+{
-+	u32 vf_qid;
-+
-+	ice_for_each_q_in_chunk(chunk, vf_qid)
-+		ice_vf_vsi_ena_single_txq(vf, vsi, vf_qid);
-+}
-+
-+/**
-+ * ice_vc_ena_qs_v2_msg - message handling for VIRTCHNL_OP_ENABLE_QUEUES_V2
-+ * @vf: source of the request
-+ * @msg: message to handle
-+ * @msglen: length of the @msg
-+ *
-+ * Return: 0 on success or negative on error.
-+ */
-+int ice_vc_ena_qs_v2_msg(struct ice_vf *vf, u8 *msg, u16 msglen)
-+{
-+	struct virtchnl_del_ena_dis_queues *ena_qs_msg =
-+			(struct virtchnl_del_ena_dis_queues *)msg;
-+	enum virtchnl_status_code v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-+	struct ice_vsi *vsi;
-+
-+	if (!ice_vc_validate_qs_v2_msg(vf, ena_qs_msg, msglen))
-+		goto error_param;
-+
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi)
-+		goto error_param;
-+
-+	for (int i = 0; i < ena_qs_msg->num_chunks; i++) {
-+		struct virtchnl_queue_chunk *chunk = &ena_qs_msg->chunks[i];
-+
-+		if (chunk->type == VIRTCHNL_QUEUE_TYPE_RX &&
-+		    ice_vc_ena_rxq_chunk(vf, vsi, chunk))
-+			goto error_param;
-+		else if (chunk->type == VIRTCHNL_QUEUE_TYPE_TX)
-+			ice_vc_ena_txq_chunk(vf, vsi, chunk);
-+	}
-+
-+	v_ret = VIRTCHNL_STATUS_SUCCESS;
-+	set_bit(ICE_VF_STATE_QS_ENA, vf->vf_states);
-+
-+error_param:
-+	return ice_vc_send_msg_to_vf(vf, VIRTCHNL_OP_ENABLE_QUEUES_V2,
-+				     v_ret, NULL, 0);
-+}
-+
-+static int
-+ice_vc_dis_rxq_chunk(struct ice_vf *vf, struct ice_vsi *vsi,
-+		     struct virtchnl_queue_chunk *chunk)
-+{
-+	u32 vf_qid;
-+
-+	ice_for_each_q_in_chunk(chunk, vf_qid) {
-+		int err;
-+
-+		err = ice_vf_vsi_dis_single_rxq(vf, vsi, vf_qid);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static int
-+ice_vc_dis_txq_chunk(struct ice_vf *vf, struct ice_vsi *vsi,
-+		     struct virtchnl_queue_chunk *chunk)
-+{
-+	u32 vf_qid;
-+
-+	ice_for_each_q_in_chunk(chunk, vf_qid) {
-+		int err;
-+
-+		err = ice_vf_vsi_dis_single_txq(vf, vsi, vf_qid);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+/**
-+ * ice_vc_dis_qs_v2_msg - message handling for VIRTCHNL_OP_DISABLE_QUEUES_V2
-+ * @vf: source of the request
-+ * @msg: message to handle
-+ * @msglen: length of @msg
-+ *
-+ * Return: 0 on success or negative on error.
-+ */
-+int ice_vc_dis_qs_v2_msg(struct ice_vf *vf, u8 *msg, u16 msglen)
-+{
-+	struct virtchnl_del_ena_dis_queues *dis_qs_msg =
-+			(struct virtchnl_del_ena_dis_queues *)msg;
-+	enum virtchnl_status_code v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-+	struct ice_vsi *vsi;
-+
-+	if (!ice_vc_validate_qs_v2_msg(vf, dis_qs_msg, msglen))
-+		goto error_param;
-+
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi)
-+		goto error_param;
-+
-+	for (int i = 0; i < dis_qs_msg->num_chunks; i++) {
-+		struct virtchnl_queue_chunk *chunk = &dis_qs_msg->chunks[i];
-+
-+		if (chunk->type == VIRTCHNL_QUEUE_TYPE_RX &&
-+		    ice_vc_dis_rxq_chunk(vf, vsi, chunk))
-+			goto error_param;
-+		else if (chunk->type == VIRTCHNL_QUEUE_TYPE_TX &&
-+			 ice_vc_dis_txq_chunk(vf, vsi, chunk))
-+			goto error_param;
-+	}
-+
-+	v_ret = VIRTCHNL_STATUS_SUCCESS;
-+	if (ice_vf_has_no_qs_ena(vf))
-+		clear_bit(ICE_VF_STATE_QS_ENA, vf->vf_states);
-+
-+error_param:
-+	return ice_vc_send_msg_to_vf(vf, VIRTCHNL_OP_DISABLE_QUEUES_V2,
-+				     v_ret, NULL, 0);
-+}
-+
-+/**
-+ * ice_vc_validate_qv_maps - validate parameters sent in the qs_msg structure
-+ * @vf: VF the message was received from
-+ * @qv_maps: contents of the message from the VF
-+ * @msglen: length of the @qv_maps
-+ *
-+ * Used to validate VIRTCHNL_OP_MAP_QUEUE_VECTOR messages. This should always
-+ * be called before attempting map interrupts to queues. If all checks succeed,
-+ * then return success indicating to the caller that the qv_maps are valid.
-+ * Otherwise return false, indicating to the caller that the qv_maps are
-+ * invalid.
-+ *
-+ * Return: true if parameters are valid, false otherwise.
-+ */
-+static bool ice_vc_validate_qv_maps(struct ice_vf *vf,
-+				    struct virtchnl_queue_vector_maps *qv_maps,
-+				    u16 msglen)
-+{
-+	struct ice_vsi *vsi;
-+	int total_vectors;
-+
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi)
-+		return false;
-+
-+	if (msglen < virtchnl_struct_size(qv_maps, qv_maps, 0))
-+		return false;
-+
-+	if (msglen < virtchnl_struct_size(qv_maps, qv_maps, qv_maps->num_qv_maps))
-+		return false;
-+
-+	if (!qv_maps->num_qv_maps)
-+		return false;
-+
-+	if (!test_bit(ICE_VF_STATE_ACTIVE, vf->vf_states))
-+		return false;
-+
-+	if (!ice_vc_isvalid_vsi_id(vf, qv_maps->vport_id))
-+		return false;
-+
-+	total_vectors = vsi->num_q_vectors + ICE_NONQ_VECS_VF;
-+
-+	for (int i = 0; i < qv_maps->num_qv_maps; i++) {
-+		if (!ice_vc_supported_queue_type(qv_maps->qv_maps[i].queue_type))
-+			return false;
-+
-+		if (qv_maps->qv_maps[i].queue_id >= vf->num_vf_qs)
-+			return false;
-+
-+		if (qv_maps->qv_maps[i].vector_id >= total_vectors ||
-+		    qv_maps->qv_maps[i].vector_id < ICE_NONQ_VECS_VF)
-+			return false;
-+
-+		if (qv_maps->qv_maps[i].itr_idx != VIRTCHNL_ITR_IDX_0 &&
-+		    qv_maps->qv_maps[i].itr_idx != VIRTCHNL_ITR_IDX_1 &&
-+		    qv_maps->qv_maps[i].itr_idx != VIRTCHNL_ITR_IDX_NO_ITR)
-+			return false;
-+	}
-+
-+	return true;
-+}
-+
-+/**
-+ * ice_vc_map_q_vector_msg - message handling for VIRTCHNL_OP_MAP_QUEUE_VECTOR
-+ * @vf: source of the request
-+ * @msg: message to handle
-+ * @msglen: length of @msg
-+ *
-+ * Return: 0 on success or negative on error
-+ */
-+int ice_vc_map_q_vector_msg(struct ice_vf *vf, u8 *msg, u16 msglen)
-+{
-+	enum virtchnl_status_code v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-+	struct virtchnl_queue_vector_maps *qv_maps;
-+	struct ice_vsi *vsi;
-+
-+	qv_maps = (struct virtchnl_queue_vector_maps *)msg;
-+
-+	if (!ice_vc_validate_qv_maps(vf, qv_maps, msglen))
-+		goto error_param;
-+
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi)
-+		goto error_param;
-+
-+	for (int i = 0; i < qv_maps->num_qv_maps; i++) {
-+		struct virtchnl_queue_vector *qv_map = &qv_maps->qv_maps[i];
-+		struct ice_q_vector *q_vector;
-+		u16 vector_id;
-+		int vsi_q_id;
-+
-+		vsi_q_id = qv_map->queue_id;
-+		vector_id = qv_map->vector_id;
-+
-+		q_vector = vf->vf_ops->get_q_vector(vsi, vector_id);
-+		if (!q_vector)
-+			goto error_param;
-+
-+		if (!ice_vc_isvalid_q_id(vsi, vsi_q_id))
-+			goto error_param;
-+
-+		/* keep SW state in sync with HW, as ice_cfg_interrupt() does */
-+		if (qv_map->queue_type == VIRTCHNL_QUEUE_TYPE_RX) {
-+			struct ice_rx_ring *ring = vsi->rx_rings[vsi_q_id];
-+
-+			if (ring->q_vector && ring->q_vector->num_ring_rx)
-+				ring->q_vector->num_ring_rx--;
-+			ring->q_vector = q_vector;
-+			q_vector->num_ring_rx++;
-+			q_vector->rx.itr_idx = qv_map->itr_idx;
-+			ice_cfg_rxq_interrupt(vsi, vsi_q_id,
-+					      q_vector->vf_reg_idx,
-+					      qv_map->itr_idx);
-+		} else if (qv_map->queue_type == VIRTCHNL_QUEUE_TYPE_TX) {
-+			struct ice_tx_ring *ring = vsi->tx_rings[vsi_q_id];
-+
-+			if (ring->q_vector && ring->q_vector->num_ring_tx)
-+				ring->q_vector->num_ring_tx--;
-+			ring->q_vector = q_vector;
-+			q_vector->num_ring_tx++;
-+			q_vector->tx.itr_idx = qv_map->itr_idx;
-+			ice_cfg_txq_interrupt(vsi, vsi_q_id,
-+					      q_vector->vf_reg_idx,
-+					      qv_map->itr_idx);
-+		}
-+	}
-+
-+	v_ret = VIRTCHNL_STATUS_SUCCESS;
-+
-+error_param:
-+	return ice_vc_send_msg_to_vf(vf, VIRTCHNL_OP_MAP_QUEUE_VECTOR,
-+				     v_ret, NULL, 0);
-+}
+ /**
+  * devl_port_resource_register - devlink port resource register
+  *
 -- 
 2.51.1
 
