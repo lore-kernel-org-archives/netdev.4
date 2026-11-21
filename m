@@ -1,65 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795284786;
-	b=0jH0cO+ahX2TPgHZ8anUyD9B5P11QbiEQoi7KT8xVhC+VgHfoKxR6l0DWQp3OvL9Ryxe
-	 t/YVsTPdXZvACdxGEyDEmdEkX/2DR9ZZibhvtkg66wtopUk8ECt6hYljRaud/wegCYYqu
-	 xfEjv64XYNkxI3gyOHez20yK68MFfsxhitwBeKiPhRV92a/IBrhUyb85U8qRgR7fk7mJ1
-	 rEePst/Stpg6djw4in62Zf5AkVg/26ItVn6Ne259qUoMSlbQmQNUBt6zxt1CJAsFRZLAk
-	 K3JlmxZTzkHDFPOtkQayIs+7WF+Fk/D1A1Gtyzq4xt/5r4EVP+xcC5nN3mZMIbrhDuA==
+	t=1795285249;
+	b=U7CnhFvvBiXdkDkp8wwU1axm7xz6xe/74OPEWB7J6qb8UJNmQAIlMqKpIWgxo2pz6BGD
+	 1L8SKk0rS/SiRc/RIN9VqTlK4Nd3RWvfDUYBXOcuti8YPF0wjKir1vIWNaq18L7yILmj1
+	 j+WlFWJ70L3QGuyI1Lr6YntlMYneZPcHmG9NAV4G0nfj7LtDLC33S8hmtgpiUHaPs+ili
+	 WV3SVEDIgWDbr0V7A41Jlt3qdUWcUQx2Ei3PWQhpeRd+TQ4EE5IcZoKsTuQtCUa73Z1+m
+	 MIPKso9Mm/HobW4Ne78zokv7ENKIOg//+QjNCOE3miFzKII2T1eqf2YI8QZrJ4rQfuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795284786;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=OvcsXvmxV2NpAo9swbfL9baT0D2RJxOhrkhotTqp33Q=;
-	b=GAzjrDKU3VOc17Ynx+e4CqEngg8iBeEyeQ1sPnw0PtmYUPGrUD3woexOtSzX4ph08w2u
-	 swLMgUZZQPnz5lxxMUZCO0JU6n/PdDlE3dR/p1gJUuSwXzBmQiGqf2kYx+zFyLN+ALXCj
-	 uGPlxwvD4vReFb04jCGI7Lfx1K0PteoRjsR1E4Wdx7/90DIhHh/8I1wd5bepazI1IYaHq
-	 3dtI1h0GCbZhuojRFj7fkzGyuupHEsO/Org2H2ABO+olJ0rl1Qb7XXhI8AN5H02Zj9/jZ
-	 SipMoWrsl1k9BzGq4ITxHxNWMzmrWpZii4RQ9HWSi06MdY2iDVaR50DoeoXEX5O/yyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285249;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=KI1ORU4gc9du1NZSE0crgGckyJHWnAayP08t9HR4ogg=;
+	b=TJtH1I21ZbCFb9bRuaQWKl5dKIWawIDlMrsQEQovj8SffKOSiRPy/VpboEO196ne9/Wq
+	 T2jucaHmDnkXIXxISqWhW3C0a5e91t99DqGpIR9sZt4DfmYVn3uzteeKAMdxLgTnf/Vj5
+	 dEtBxAwn/Y84rQb2H7u9IciDCWXPSJAyGSVJdWu9VT8WdAnLvuw4pssUpssL6HYxpjYbg
+	 gg5T+aCx7I2fp38uwsYf3ISOohpSui2ERuN7uEfRsH95fnVZXlZIXndA/9/lyeYRqPIxU
+	 Q+NlCKM+5/zCFGZiYAQMvmrHPvRKW1T0jBvbGytHGAZWplfDLxKKJR1iTbxSLYYpo6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=gtzL7uqE;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y+Fg9iC2;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E490F606A32A
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:13:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E490F606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB05D606A32C
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:20:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB05D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=gtzL7uqE
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=OvcsXvmxV2NpAo9swbfL9baT0D2RJxOhrkhotTqp33Q=; b=gtzL7uqEKmM9OrMI93aDbnJ9HN
-	2wLP4MitspVQNyArBz+0yD9qGUwJCH+1foNqGriPr/E2bd7sKENPlNy6giHx0pcasgvLpbe/ufoU/
-	3l6m1ENOXkMvanQzoPOUW1Yc5oaN5fL0u7CzivgwcBpYm6z1M5skvI0kcVLqubf1umXo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUpZy-000TbP-0O; Sat, 21 Nov 2026 19:12:50 +0100
-Date: Sat, 21 Nov 2026 19:12:49 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>, matttbe@kernel.org,
-	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
-	thomas.petazzoni@bootlin.com
-Subject: Re: [PATCH iwl-next 0/3] igb: Align the flow-control behaviour with
- ethtool's specs
-Message-ID: <4efeed7c-da91-4886-9af9-67c1df07bcca@lunn.ch>
-References: <20261121103613.166611-1-maxime.chevallier@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y+Fg9iC2
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b4232374d6so2773865a91.2
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:20:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795285248; x=1795890048; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KI1ORU4gc9du1NZSE0crgGckyJHWnAayP08t9HR4ogg=;
+        b=Y+Fg9iC2oscQUEyWn6ySF9qUwqJ014h262RlMdXZ3G2FRej4k+dj8/yhEey/eFa6o9
+         LNyx7AVBaq92O2RyZ+R1s9EgX4vWQmp2t2+vojj3P7MXhE3yJAep7L2+3lCEEQhk6zd1
+         3T2oHM2NGfxU/z8AbZJjhq+eJQZuz4YG1ri91/DMtSo84cBe8Zay2Tf/N8IC4rBEmtff
+         TA3kZGy/D2iQ8VgMjNp/2PwKfuB2XonAEOOCAfhyvyiitB03OoPkj65APvuTGxH0Thus
+         p4Jf7bx6oHqfqWs6pFdOI6dCRhs3PawrBUTXoDoIJH0MoPpNxUHkDGhAr+7cjxR76Zl+
+         ZQ1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795285248; x=1795890048;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KI1ORU4gc9du1NZSE0crgGckyJHWnAayP08t9HR4ogg=;
+        b=REBijL/LKjAbahUNe0ThZWqRtCWYPgWS7ipaAY7M4O+48nzfyL8VoxhymA4OxJMVUQ
+         BvLXxdPCfAuXZTmUj5eKkyo0dHhsBr8DQhCU/X+KKaZtSEYmxsip8lEQhVQCsAZu/agd
+         4tpbbCMjok522Rm4+/g3cYFIkl0pmbmOOoJdgEqc2mQMVJPVdAlyosxLxE3UzxBo1ilw
+         TFMU99iQ68SArlOFSuBylKFAjX5h71Vg3M1n+v9wKu4GG+XMYvsm/r2TkHmyGd+TyhLf
+         2yeyf/+0TlzeIRrjxqaHIa0JG6B822119Vc7EfZYV0ZSztnFy+ECOYpHIBPW4VjX5SYZ
+         aybA==
+X-Forwarded-Encrypted: i=1; AL+hErHGwKTEsZEemKBly1n47fZx40A/k0F4o1UXdTr9TCNQBiy85IThqVOCIZ2VlNgzSAyHEUhNSBI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9nUN+jKikMz7B9GulXyCT87IIXbrnzT4C0zj1iQkCsoh62YpJw
+	t0aEvXwKdDxRGh2oVm9OFquwrntG9HY5UQAdS6GwEh7j278zzNIDJ3rV127S/zTcFAvCLMiwOns
+	5LbS47g==
+X-Received: from pjbnd6.prod.google.com ([2002:a17:90b:4cc6:b0:3b4:50ed:c55e])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e705:b0:3a0:9640:803a
+ with SMTP id 98e67ed59e1d1-3b41c7e118emr6746307a91.5.1795285247861; Sat, 21
+ Nov 2026 10:20:47 -0800 (PST)
+Date: Sat, 21 Nov 2026 18:20:47 +0000
+In-Reply-To: <20261117215554.68071-1-dennylin0707@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,24 +77,70 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121103613.166611-1-maxime.chevallier@bootlin.com>
+Mime-Version: 1.0
+References: <20261117215554.68071-1-dennylin0707@gmail.com>
+Message-ID: <awHetU_All3Iydgf@google.com>
+Subject: Re: [PATCH net] net/tcp-ao: fix reset key lookup for IPv4 segments on
+ IPv6 listeners
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net, 
+	dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	0x7f454c46@gmail.com, fruggeri@arista.com, noureddine@arista.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-On Sat, Nov 21, 2026 at 11:36:09AM +0100, Maxime Chevallier wrote:
-> Hi,
+On Tue, 17 Nov 2026 21:55:54 +0000, Hungyu Lin wrote:
+> tcp_ao_prepare_reset() looks up the key for a reset that is sent on
+> behalf of a listener by the address of the peer. It takes that address
+> from the IPv6 header whenever the listener is an AF_INET6 socket, also
+> when the segment is an IPv4 one that arrived on a dual-stack listener.
+> The address is then read from the middle of the IPv4 header, the key of
+> the peer is not found and the reset is not sent.
 > 
-> This series makes a few changes in IGB's ethtool flow-control
-> configuration to align it with the ethtool expectations.
+> The v4-mapped check that follows does not help: it looks at
+> sk->sk_v6_daddr, which is the unspecified address for a listener, and
+> it runs after the address has been picked.
 > 
-> This was found while upgrading the board farm that runs the stmmac netdev
-> CI tests. I've upgraded the HW and I'm now using a bunch of I350-T4 PCIe
-> cards (running igb) as peers for my tests. Since then, the flow-control
-> tests have started failing:
+> Use the protocol of the segment to tell the family, like
+> tcp_v6_do_rcv() does.
+> 
+> Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+> ---
+>  net/ipv4/tcp_ao.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/net/ipv4/tcp_ao.c b/net/ipv4/tcp_ao.c
+> index bb7bbc20ba3f..656dbf805cfc 100644
+> --- a/net/ipv4/tcp_ao.c
+> +++ b/net/ipv4/tcp_ao.c
+> @@ -813,14 +813,12 @@ int tcp_ao_prepare_reset(const struct sock *sk, struct sk_buff *skb,
+>  			sisn = th->seq;
+>  			disn = 0;
+>  		}
+> +		if (skb->protocol == htons(ETH_P_IP))
+> +			family = AF_INET;
+>  		if (IS_ENABLED(CONFIG_IPV6) && family == AF_INET6)
+>  			addr = (union tcp_md5_addr *)&ipv6_hdr(skb)->saddr;
+>  		else
+>  			addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
+> -#if IS_ENABLED(CONFIG_IPV6)
+> -		if (family == AF_INET6 && ipv6_addr_v4mapped(&sk->sk_v6_daddr))
+> -			family = AF_INET;
+> -#endif
 
-Yah! The tests are doing what they are supposed to do. I don't expect
-too many problems with devices using phylink/phylib. It is all the
-drivers which roll their own which get is wrong.
+No need to read sk->sk_family.
 
-	Andrew
+union tcp_ao_addr *addr;
+unsigned int family;
+__be32 disn, sisn;
+...
+if (IS_ENABLED(CONFIG_IPV6) && skb->protocol == htons(ETH_P_IPV6)) {
+	family = AF_INET6;
+	addr = (union tcp_md5_addr *)&ipv6_hdr(skb)->saddr;
+} else {
+	family = AF_INET;
+	addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
+}
