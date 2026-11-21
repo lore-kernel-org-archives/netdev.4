@@ -1,89 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257448;
-	b=Q3Uq2gnIt1p+NjuB4Qy37M0/QIhaxJoy2n7PHYRlsMSC+dau8/8D7RCjsROYETafBqG1
-	 JDaHIrL1evBvWa56H8/x7JIHq9Fjgq2J7rkW4bXm+uCx4R+RuIcoz3iHyMXOxrCYaJNFt
-	 jhTQtCqc/cz74L/4izInQKEJVAyoTX0KYtS1bBgjZWPgmFYKdZjXr6kHVxqW0iX4RCX3y
-	 U5KF0Em12Yth+iqw6U2EONE5tD/L0RmcFVK6LaRpKW9TAP1gI5ncoInSt5wiTCpHOmbu0
-	 ZpPGPdHB8VLr9+09Jgs9kx8LkWBQoNuMLoeK85KDQ7i2XxE+LR4uNrRTEIQ5oCfa7cA==
+	t=1795259438;
+	b=FkUzTpWqKRRqnFrvAc8f5SEnvvirbTrTuLBmpPHCRqprLM94dfBB4JKkuOrTvYwD2eu6
+	 vO1JfaiC2HEvy5s34JpesBrKnkSJpH2UG0s/lLdDWwFFfsiYdLlS0QY+w5T9Z0HiQjRFP
+	 ebt4ukc/c4YgYckmbRNE42+eYvp0ZNb8tjRPyjut2YY5VNgsyi6bAA8EKNgEL9J/ok0HE
+	 QRHO/FKVdUkw1nj18aux0WY23uaGiaHsQFChsx7Mv+KwNSuBahZPgkWwbXu4biiIKkNZY
+	 xNvF/SP6LP6k9oYoXaUJ1NI2oUMEBRnW9TFll8gGlQhCyl2GIXT4VBELqLCqSE9fi5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257448;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vzL7OZ78FCJCA7+dBpZt/8Px2Lw+1L+aRqKuEWDIegk=;
-	b=y8TpMtfcGvGn4FwQdCWh5nVrtr6ydmeCXFS7nHW4UmsC3Qi3KWNxFhog+erXUZMY61mS
-	 ji8G4T70uKSMicAmYYZ9/7oPWVo5k0tZ7sLtfBxsSoR3YFInmHIqNycoSoEADQ/DxrDgu
-	 whWSvLafQ06Ce+joGRONMQLEKucaL05ZrHV9avOrImzbxAiQqt+3AngKR5k1VCvMEYd1X
-	 dPhKzqJIBLI/8wSh0D6fOZCrZ4X9R3JMviXZ0Un20FrnswhG+cw8mGoDw52GVK1YRT6QJ
-	 TZ7pFbymvOBodfTRVpjyxy6CP/78WOEGU+YBSwr6AFbPoJwKksFxa49KU4uYNgNWrWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795259438;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=Ys3XKvaPTyX1fHC0lV0pst+tfGk0hnlCs8SXas4gV8I=;
+	b=hVTXgMpTh/zWRKSQm4aizydqmOaqqNJydEVorCXqHFJ0LOyXqvrW28pjkO/DM4eYmirB
+	 IHobbs8ycjyRHYC8Reei8J8A0brJYEoQGcwQ3KWhxQspO6Irib91sFlYds9Q5FaCxaqku
+	 oO8pGMZtM2coKqgUPKZDux1D15pbWd3dGbAJBxysGHNytdYLVVokj2+2H1qauFSTZD8Nm
+	 UEynlGJwSnJDdgeJripGvJEsMJnDgBiQW/V8IrEBO2Io49QzRPbU0WQadG1z8xcIfRjtT
+	 7DI2FaPB4OGfNgbmuNBzJNALeVLVpCAxme4zC8kvPJfDsvXVZnFa4TZ+jA9cjVOqQNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="JgWu5E/k";
-	arc=none smtp.remote-ip=95.215.58.18
-Received: from mta1.migadu.com (out-18.mta1.migadu.com [95.215.58.18])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=h-partners.com;
+	spf=pass smtp.mailfrom=h-partners.com;
+	dkim=pass header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=abr1Sa2Z;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E78606A330
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:37:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8E78606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4437D606A320;
+	Sat, 21 Nov 2026 11:10:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4437D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=h-partners.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=h-partners.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JgWu5E/k
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=w0drH2z2Hn/mfe5505Dfkw+sLs+x0GacfO7VVM4vud4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795257446; v=1; x=1795862246;
- b=JgWu5E/kaMnef7XHjxU+9ANa47PV67zYHfWXrdRdGyyXx4EYJKxK3BSrUL3p5fQi00RBp6Bh
- +fQ27JdBLY74h1G778GHZ5+hP0DtwkRSB7QnsJNY9IfwLKhLJ4/8Qx3RnaBEHzEn+faYr4ML0ty
- wWKg2UkG3YobylbhCTvJx4KQ=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 44b387aced1257de;
-	Sat, 21 Nov 2026 10:37:25 +0000
-X-Mizu-Trace-ID: 44b387aced1257de
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: bpf@vger.kernel.org,
-	ast@kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jakub Sitnicki <jakub@cloudflare.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Neal Cardwell <ncardwell@google.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Shuah Khan <shuah@kernel.org>,
-	Sechang Lim <rhkrqnwk98@gmail.com>,
-	Michal Luczaj <mhal@rbox.co>,
-	Mattia Meleleo <mattia.meleleo@coralogix.com>,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 11/11] selftests/bpf: Add test for apply_bytes when a redirect sends a part
-Date: Sat, 21 Nov 2026 18:30:12 +0800
-Message-ID: <20261121103222.88209-12-jiayuan.chen@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=abr1Sa2Z
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Ys3XKvaPTyX1fHC0lV0pst+tfGk0hnlCs8SXas4gV8I=;
+	b=abr1Sa2ZDCOp+djgHKJwfTXizfPE4F8N0k1zXffDKOkRf8YayZhTlvrm8f5MIOE3k2rIO3eYF
+	JDE9OahmcFTufkhbCCmcHVStpNSkEtAclvCsU/7RBP25SIAdQa/lC5NquWyD+I/GbwL05XTOLxz
+	KegOQ86fmTMfoewnFN3On0g=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jWqHN2M3Vz1prKM;
+	Sat, 21 Nov 2026 19:10:08 +0800 (CST)
+Received: from kwepemr100001.china.huawei.com (unknown [7.202.195.168])
+	by mail.maildlp.com (Postfix) with ESMTPS id 10F8540579;
+	Sat, 21 Nov 2026 19:10:23 +0800 (CST)
+Received: from huawei.com (10.50.159.234) by kwepemr100001.china.huawei.com
+ (7.202.195.168) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 21 Nov
+ 2026 19:10:13 +0800
+From: xietangxin <xietangxin@h-partners.com>
+To: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+CC: Dmytro Linkin <dlinkin@nvidia.com>, Vlad Buslov <vladbu@nvidia.com>, Jiri
+ Pirko <jiri@resnulli.us>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
+	<syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com>,
+	<gaoxingwang1@huawei.com>, <huyizhen2@huawei.com>, Xuanqiang Luo
+	<xuanqiang.luo@linux.dev>
+Subject: [PATCH net v2] netdevsim: fix rate node leak during reload and removal
+Date: Sat, 21 Nov 2026 19:08:58 +0800
+Message-ID: <20261121110858.1337003-1-xietangxin@h-partners.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,239 +75,84 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100001.china.huawei.com (7.202.195.168)
 
-An sk_msg prog parses the header of a message and applies its verdict
-to the whole message with bpf_msg_apply_bytes(), so it runs once per
-message, at the header:
+netdevsim allows switching the eswitch mode to switchdev with zero VFs
+and creating rate nodes on such a device. However during device teardown
+nsim_dev_reload_destroy() only drops the eswitch back to legacy when VFs
+were configured, so the rate nodes are never destroyed and trigger the
+WARN_ON(devlink_rates_check()) in devlink_free():
 
-  +-----+-----------+-----+-------+------
-  | hdr |   body    | hdr | body  | ...
-  +-----+-----------+-----+-------+------
-  ^                 ^
-  prog: apply(len1) prog: apply(len2)
+  WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c, CPU#2: bash/5032
+  Modules linked in: netdevsim ...
+  CPU: 2 UID: 0 PID: 5032 Comm: bash Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
+  Call trace:
+   devlink_free+0x18c/0x26c (P)
+   nsim_drv_remove+0x9c/0xb4 [netdevsim]
+   nsim_bus_remove+0x10/0x1c [netdevsim]
+   del_device_store+0x110/0x190 [netdevsim]
+   ...
 
-The test sends one such message and redirects it to the egress of a
-socket that has the smallest send buffer, whose peer has the smallest
-receive buffer. The redirect sends only a part, so send() returns
-early, and the test sends the rest:
+The rate nodes are also left behind on the devlink reload path, where
+they trigger the WARN in devlink_reload_reinit_sanity_check() instead:
 
-  +-----+-----------+
-  | hdr |   body    |
-  +-----+-----------+
-  |<-- send -->|
-               |<-->| send again
+  WARNING: net/devlink/dev.c:437 at devlink_reload_reinit_sanity_check+0x110/0x148, CPU#3: devlink/5205
+  Modules linked in: netdevsim ...
+  CPU: 3 UID: 0 PID: 5205 Comm: devlink Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
+  Call trace:
+   devlink_reload_reinit_sanity_check+0x110/0x148 (P)
+   devlink_reload+0x218/0x228
+   devlink_nl_reload_doit+0x3dc/0x5b4
+   ...
 
-Check that the prog ran once, at the header, and that the peer gets the
-whole message.
+Evaluate the eswitch mode check unconditionally, so rate nodes are
+destroyed whether or not any VF was ever configured. Note this also
+resets a zero-VF switchdev device back to legacy mode on reload, like
+the existing VF case.
 
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+Reproduce by:
+  $ echo "10 1" > /sys/bus/netdevsim/new_device
+  $ devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
+  $ devlink port function rate add netdevsim/netdevsim10/n1
+  $ echo 10 > /sys/bus/netdevsim/del_device
+
+Replacing the last step with "devlink dev reload netdevsim/netdevsim10"
+hits the devlink_reload_reinit_sanity_check() WARN instead.
+
+Fixes: 885226f5680e ("netdevsim: Implement support for devlink rate nodes")
+Cc: stable@vger.kernel.org
+Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/netdev/6af9824c.920b2b3a.148c65.0009.GAE@google.com/
+Reported-by: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
+Signed-off-by: xietangxin <xietangxin@h-partners.com>
 ---
- .../selftests/bpf/prog_tests/sockmap_basic.c  | 126 ++++++++++++++++++
- .../bpf/progs/test_sockmap_msg_apply.c        |  46 +++++++
- 2 files changed, 172 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/test_sockmap_msg_apply.c
+v2: add reload path description
+---
+ drivers/net/netdevsim/dev.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/sockmap_basic.c b/tools/testing/selftests/bpf/prog_tests/sockmap_basic.c
-index 1fef6ec2ba7ae..3979cbab7dc76 100644
---- a/tools/testing/selftests/bpf/prog_tests/sockmap_basic.c
-+++ b/tools/testing/selftests/bpf/prog_tests/sockmap_basic.c
-@@ -14,6 +14,7 @@
- #include "test_sockmap_drop_prog.skel.h"
- #include "test_sockmap_change_tail.skel.h"
- #include "test_sockmap_msg_pop_data.skel.h"
-+#include "test_sockmap_msg_apply.skel.h"
- #include "bpf_iter_sockmap.skel.h"
+diff --git a/drivers/net/netdevsim/dev.c b/drivers/net/netdevsim/dev.c
+index c6b17b387327..b483c25dfecd 100644
+--- a/drivers/net/netdevsim/dev.c
++++ b/drivers/net/netdevsim/dev.c
+@@ -1700,11 +1700,10 @@ static void nsim_dev_reload_destroy(struct nsim_dev *nsim_dev)
+ 		return;
+ 	debugfs_remove(nsim_dev->take_snapshot);
  
- #include "sockmap_helpers.h"
-@@ -1362,6 +1363,129 @@ static void test_sockmap_no_verdict_fionread(void)
- 	test_sockmap_pass_prog__destroy(skel);
- }
+-	if (nsim_dev_get_vfs(nsim_dev)) {
++	if (nsim_dev_get_vfs(nsim_dev))
+ 		nsim_bus_dev_set_vfs(nsim_dev->nsim_bus_dev, 0);
+-		if (nsim_esw_mode_is_switchdev(nsim_dev))
+-			nsim_esw_legacy_enable(nsim_dev, NULL);
+-	}
++	if (nsim_esw_mode_is_switchdev(nsim_dev))
++		nsim_esw_legacy_enable(nsim_dev, NULL);
  
-+#define APPLY_MSG_MAGIC 0xbeefcafe
-+
-+/*
-+ * One message: a header with its length, then the body. The sk_msg prog
-+ * applies the verdict to the whole message and redirects it to the egress
-+ * of b. b has the smallest send buffer and its peer the smallest receive
-+ * buffer, so the first send() stops in the middle of the message. The rest
-+ * must still go to b without another run of the prog.
-+ */
-+static void test_sockmap_msg_verdict_apply_partial(void)
-+{
-+	int a = -1, a_peer = -1, b = -1, b_peer = -1, s = -1;
-+	struct test_sockmap_msg_apply *skel;
-+	int err, map, one = 1, zero = 0;
-+	struct sockaddr_storage addr;
-+	size_t len, off = 0, got = 0;
-+	char *buf = NULL, *rbuf = NULL;
-+	int sndbuf, rcvbuf;
-+	socklen_t optlen;
-+	struct {
-+		__u32 magic;
-+		__u32 len;
-+	} hdr;
-+	ssize_t n;
-+
-+	skel = test_sockmap_msg_apply__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "open_and_load"))
-+		return;
-+	map = bpf_map__fd(skel->maps.sock_map);
-+
-+	err = bpf_prog_attach(bpf_program__fd(skel->progs.prog_msg_apply_redir),
-+			      map, BPF_SK_MSG_VERDICT, 0);
-+	if (!ASSERT_OK(err, "bpf_prog_attach"))
-+		goto out;
-+
-+	err = create_pair(AF_INET, SOCK_STREAM, &a_peer, &a);
-+	if (!ASSERT_OK(err, "create_pair"))
-+		goto out;
-+
-+	/* The peer of b gets its receive buffer before the handshake */
-+	s = socket_loopback(AF_INET, SOCK_STREAM);
-+	if (!ASSERT_GE(s, 0, "socket_loopback"))
-+		goto out_close;
-+	if (xsetsockopt(s, SOL_SOCKET, SO_RCVBUF, &one, sizeof(one)))
-+		goto out_close;
-+	b = xsocket(AF_INET, SOCK_STREAM, 0);
-+	if (b < 0)
-+		goto out_close;
-+	if (xsetsockopt(b, SOL_SOCKET, SO_SNDBUF, &one, sizeof(one)))
-+		goto out_close;
-+	optlen = sizeof(addr);
-+	if (xgetsockname(s, sockaddr(&addr), &optlen))
-+		goto out_close;
-+	if (xconnect(b, sockaddr(&addr), optlen))
-+		goto out_close;
-+	b_peer = xaccept_nonblock(s, NULL, NULL);
-+	if (b_peer < 0)
-+		goto out_close;
-+
-+	optlen = sizeof(sndbuf);
-+	if (xgetsockopt(b, SOL_SOCKET, SO_SNDBUF, &sndbuf, &optlen))
-+		goto out_close;
-+	optlen = sizeof(rcvbuf);
-+	if (xgetsockopt(b_peer, SOL_SOCKET, SO_RCVBUF, &rcvbuf, &optlen))
-+		goto out_close;
-+	/* Larger than what b and its peer can hold */
-+	len = 4 * (sndbuf + rcvbuf);
-+
-+	err = bpf_map_update_elem(map, &zero, &b, BPF_NOEXIST);
-+	if (!ASSERT_OK(err, "bpf_map_update_elem(b)"))
-+		goto out_close;
-+	err = bpf_map_update_elem(map, &one, &a, BPF_NOEXIST);
-+	if (!ASSERT_OK(err, "bpf_map_update_elem(a)"))
-+		goto out_close;
-+
-+	buf = malloc(len);
-+	rbuf = calloc(len, 1);
-+	if (!ASSERT_OK_PTR(buf, "malloc") || !ASSERT_OK_PTR(rbuf, "calloc"))
-+		goto out_close;
-+	memset(buf, 0xaa, len);
-+	hdr.magic = APPLY_MSG_MAGIC;
-+	hdr.len = len;
-+	memcpy(buf, &hdr, sizeof(hdr));
-+
-+	while (got < len) {
-+		if (off < len) {
-+			n = send(a, buf + off, len - off, MSG_DONTWAIT);
-+			if (!ASSERT_TRUE(n >= 0 || errno == EAGAIN, "send"))
-+				break;
-+			if (n > 0) {
-+				if (!off && !ASSERT_LT(n, len, "first send partial"))
-+					break;
-+				off += n;
-+			} else {
-+				usleep(1000);
-+			}
-+		}
-+		while (got < off) {
-+			n = recv_timeout(b_peer, rbuf + got, off - got, 0,
-+					 IO_TIMEOUT_SEC);
-+			if (!ASSERT_GT(n, 0, "recv_timeout"))
-+				goto out_close;
-+			got += n;
-+		}
-+	}
-+
-+	ASSERT_EQ(got, len, "received");
-+	ASSERT_OK(memcmp(buf, rbuf, len), "data");
-+	ASSERT_EQ(skel->bss->good_hdrs, 1, "prog runs on the header");
-+	ASSERT_EQ(skel->bss->bad_hdrs, 0, "prog runs in the body");
-+
-+out_close:
-+	free(buf);
-+	free(rbuf);
-+	close(s);
-+	close(a);
-+	close(a_peer);
-+	close(b);
-+	close(b_peer);
-+out:
-+	test_sockmap_msg_apply__destroy(skel);
-+}
-+
- void test_sockmap_basic(void)
- {
- 	if (test__start_subtest("sockmap create_update_free"))
-@@ -1438,4 +1562,6 @@ void test_sockmap_basic(void)
- 		test_sockmap_multi_channels(SOCK_STREAM);
- 	if (test__start_subtest("sockmap udp multi channels"))
- 		test_sockmap_multi_channels(SOCK_DGRAM);
-+	if (test__start_subtest("sockmap msg_verdict apply_bytes partial redirect"))
-+		test_sockmap_msg_verdict_apply_partial();
- }
-diff --git a/tools/testing/selftests/bpf/progs/test_sockmap_msg_apply.c b/tools/testing/selftests/bpf/progs/test_sockmap_msg_apply.c
-new file mode 100644
-index 0000000000000..6e24117933d03
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/test_sockmap_msg_apply.c
-@@ -0,0 +1,46 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_SOCKMAP);
-+	__uint(max_entries, 2);
-+	__type(key, int);
-+	__type(value, int);
-+} sock_map SEC(".maps");
-+
-+#define MSG_MAGIC 0xbeefcafe
-+
-+struct msg_hdr {
-+	__u32 magic;
-+	__u32 len;
-+};
-+
-+int good_hdrs;
-+int bad_hdrs;
-+
-+/*
-+ * Each message starts with a header. Apply the verdict to the whole
-+ * message, so the prog runs again at the next header.
-+ */
-+SEC("sk_msg")
-+int prog_msg_apply_redir(struct sk_msg_md *msg)
-+{
-+	struct msg_hdr *hdr;
-+
-+	if (bpf_msg_pull_data(msg, 0, sizeof(*hdr), 0))
-+		goto bad;
-+
-+	hdr = msg->data;
-+	if ((void *)(hdr + 1) > msg->data_end || hdr->magic != MSG_MAGIC)
-+		goto bad;
-+
-+	good_hdrs++;
-+	bpf_msg_apply_bytes(msg, hdr->len);
-+	return bpf_msg_redirect_map(msg, &sock_map, 0, 0);
-+bad:
-+	bad_hdrs++;
-+	return SK_DROP;
-+}
-+
-+char _license[] SEC("license") = "GPL";
+ 	nsim_dev_port_del_all(nsim_dev);
+ 	nsim_dev_hwstats_exit(nsim_dev);
 -- 
 2.43.0
 
