@@ -1,73 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285274;
-	b=wVhCHVqi4z81vABXKcabf6wvjPO/+muVAhs+wfkfFIGWQhJqGGnZuXg0nmUHtkm2Td0Y
-	 2Ums7Pqk6O0Tkorw/ySEjZ2z0JSSDmeCcgLF2Be01T0yD8S9aKDQBTE0oBcQ9BlJPVoKX
-	 y3YQ/iw4EFdUQd+CTrl9khZBQDR3hArb5saM0IdWE1UE+oTBvcUiEMl+cbnogK5la0sLW
-	 4k8oB1UJ1C83eQRCijhNSJ9GxFVEW+Kij0/iEfw5jHklAEsOLTFgHO0zEIOBrRkWSSm/I
-	 9eti6xefNq3B1MXtN7lSpKhfvvHUwekx8n6i0VNqAEWK43sOJD8lPJeaidtCgpR7ciw==
+	t=1795285382;
+	b=jHi3UN4FVa5jN4JrkKc0aVnIlaV2dCVFyDn3YasysGDr46dx/8Z/JHNjjX7V46c3Hrg3
+	 UDSUFYUCy+OCkmB1OFpmIz1glKZ0iqlufBd6QmQPoDdyLBSXd2UMXRy9YTrFqxprrVVKX
+	 VTFmYU5ufcgG3JG3URHFQ1p62DqYguv5Y4UsTtZR8yqmQsFCaAUmDoMvnD02RJP9s1I1q
+	 Gh77fy4UW/tKxVXaTIQjoknRuR7cR6OXe6w8mI/kcIghigYFXRgrFFkSY7k13qm6NimxH
+	 CupxHuZrlkZ+JibPMV8GO5V5PgtwvFw+6s7LX7X/Eo4yIvcU31YrBSCQI5jSPY+EMlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285274;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=yxgM3lL5dJcUlJkuBazw5/O5iusRITjr0SHudbZ9D94=;
-	b=NrdwKI0YrzbD2R81pShCLwc7cQr1cl8vLydJO71F1G48o1S4MxT73oyloyyAnSkvVMC9
-	 mqRlfU4Oh73fmrqHrQ5dFEY9LxttqxhlkkTyOFM2pVx+aOEM8awdm4XdINXVVDT7wou12
-	 pkRRQacnk5Nfeg2XwFHfS5lJhfWgQTaKn8alOeasP5QI8mw2j1nBOf+IInRd9Ow2BLL49
-	 fGfalpmSiSjL906Fk7PGexIwi31j/paQIvNJ4U/LfGWSi06gQyuKDxn9nU4/dW0qXpnzp
-	 Mw1FuME2dOaUn2J89FcK1NRA4wQsPRBNJJ1ZWIQWY40SuxtPznKqQkzqjImG5otxqRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285382;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=o9NEFNsCc2NcvWKzT31mhYcyJnIDEUd26l3VnghLY1E=;
+	b=yu9Kkx2mbb6t5KbfpO3+EZtanw0BPmS287C91qYLaUlL6zIDOdyed7FWhnratdn4k/yU
+	 arf7SwMunDgyk1VObn0HZX23/G7s1Ny3TSxnFziHZlTPwJmKdbOa05EdqR5Y7AVMw40sL
+	 8Mg+zz6vdmzKv8smdvKwuzeLGVbhBL6w+ajmBukvLsoZeEHeFOyi5Uuzo7b9KPliBWCd9
+	 8O5FBcXC4w8TOi7sz2buONJzLsh+qo7iVmRgrOqxP1/3Z1o1iWtvQ9VxFRnQDij5P23hU
+	 xiz6E7nLjNw9Tf4gQmV2CrWCRZcYs2h8BN6y81RiDPnedF+zOXit3y0HMnN2L8H2RvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=inria.fr;
-	spf=pass smtp.mailfrom=inria.fr;
-	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=LLzBEmLe;
-	arc=none smtp.remote-ip=192.134.164.83
-Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d+uj6aRa;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27477606A332;
-	Sat, 21 Nov 2026 18:21:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27477606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CCF8606A320
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:23:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CCF8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=LLzBEmLe
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d+uj6aRa
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4af52002471so2381165e9.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:23:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=yxgM3lL5dJcUlJkuBazw5/O5iusRITjr0SHudbZ9D94=;
-  b=LLzBEmLeI6fC0J2XKHrIvoM7YlTjRzAwNTxl2T29AIWbW+XmxSqNe0I0
-   2DK6vsZuAACJrPZGvYaNNj+tNASdj5BK6tdBkIgCt6Rv+DITrOKjbaT1P
-   qMY4Nmi+PWrh9QfVnTUNcIFJzjzr4q6Qe5EpiT1/v9e1/N9+0sWST4LJx
-   o=;
-X-CSE-ConnectionGUID: sOAZQ2ToT6KyN1NxUHuIOg==
-X-CSE-MsgGUID: yuLOLVsbQOeNW0qXuLI4zA==
-Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=yifei.sun@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.27,225,1787004000"; 
-   d="scan'208";a="306681189"
-Received: from 193.186.140.88.rev.sfr.net (HELO macbook.tail650e82.ts.net) ([88.140.186.193])
-  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 19:21:04 +0100
-From: Yifei Sun <yifei.sun@inria.fr>
-To: netdev@vger.kernel.org
-Cc: Yifei Sun <yifei.sun@inria.fr>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net 2/2] selftests: net: test IPv4 nexthop fallback in the same trie leaf
-Date: Sat, 21 Nov 2026 19:20:17 +0100
-Message-ID: <20261121182031.36626-2-yifei.sun@inria.fr>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261121182031.36626-1-yifei.sun@inria.fr>
-References: <20261121182031.36626-1-yifei.sun@inria.fr>
+        d=gmail.com; s=20260707; t=1795285381; x=1795890181; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=o9NEFNsCc2NcvWKzT31mhYcyJnIDEUd26l3VnghLY1E=;
+        b=d+uj6aRa0JypX9ox6qZscWxSUxC7fqg0E+T3t+0FHue6GwYr0GnyLPk0milV6Qx2sG
+         gZ0Yk8Q/1UC38PopKspEizuRHpxviyq0By6uWAwW008Tap/ZGuTO/Q4J55OXrLmBjNpZ
+         37Ba8lvXdMc0XdwkvP0A2GIIII5oZlzqGOigeYK6wRmJbqVTd0MvYqNS5MdV361f9vQ5
+         kc1Kyj31ddNQ4eUf3KbDLmmzUUkIt3dw1D2kCS+sSK05KrXgz3CvI/1dA73mt2KmcRZN
+         J9mW5kvXkzgQ4i02o9lspKbFcjuns+2Cc/CI0EFUTn6e30E3RlWqrhdczIjKvql5KEmW
+         mTsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795285381; x=1795890181;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=o9NEFNsCc2NcvWKzT31mhYcyJnIDEUd26l3VnghLY1E=;
+        b=C6hne86oSGyu3noAImNE/wmWWJEhKcsapssJgL/vRG24bP90+Gb8RI04XrCFhG0mf+
+         8qzqiGqg2mJW7KhsN1i5rqIQm4jSyFsB4lM2kmmSCww8JC+tRdX+cc7ZoEtTOPZszrwG
+         Y/meTOofnvBylAligdlezJlS6gw89M9vkWz8GIFnMJy7/6MSQ0lRmWjQOnCYhoTGW/EO
+         teA7mCKw+QD6ytojx3mMgUrmDVM9hOGkGD+mLgtvpKxQSS1HSzMFIeyEo4ikqcuiXMmf
+         66dihtwJN3RS/FyIO14i4z5pTdggl1HIZpVT6GnO0/wnaCQlxycJ1NS8iIuitmME83H+
+         rJMw==
+X-Forwarded-Encrypted: i=1; AL+hErHDgBW8lrf3OpJGQ/nzPdUx1wGoUD6KGSD1eKvBQVhUoI4ahQkXxHcgIoa4OjsvxEP5ZmGe930=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ZkKRl72UB/PZEdW6C71wBiZYS0eMIWYqGKl6umtJsalq/XMQ/
+	8WPNQXOs4+B+87+NAwbPXtwf2+siMOlR3gK+UNDMV5JAxreJvqC6V8Af
+X-Gm-Gg: AZFdTZcEI+3TDW10KYO6AkfkNrA0iYjS/0Evin0Df+McMvbeqnDDdVlKdoT8BhraDWg
+	MgTdgTRlqJfmEke75Si1nqOU3xQJkeTMWAMstpDUvFCQSx2tgEvUYoBP1CfEw982KlPQFwLTY/P
+	IJH/rP/hdMeE/HzzNTtvjxz0XXlKf7qPWUCLgsU/Dc9c6KVu8Ji5dxeFc43y4AdjLokzOq1DxYn
+	sShuxF7J8INTqvV9wBi8p2seRLE9A5ts/ds121q+CqnIFMaFyENXx4FLJUnGYS9Qi/RxfryjoWj
+	exNg05/etRQRpTkAFHufFq0rszV5YCye/m2G/DyHwmzLwzEDaFG758XFhrd1fVBr7pVYodkZ/lp
+	m39QgFFYgfaJUM24pDS+HuOfHEYrEJfJBtaoJBT6FQVEYzJk01vb3SUlrImVBOW4TpzkN0euudr
+	1oZN3KNpjMtm/RQxq+GWRlTKigt/GMKi7t/qfOv3PiHBh/VPHfx/0sLwxO876V64Z/iioTaP56h
+	gbidmfv5rUZjViF2XYiPouNI0fAddNdnBleV7eX/39ZCHb5dx2rr+pa4NI2iykVs2iWRbfdRUT3
+	8TifNXBH2yUmMuKrAfDIdMThQMGon5jiOn+fBrtdrnRBIkgAlu2O0mYxuP2lWZmUFYTouQ==
+X-Received: by 2002:a5d:5f88:0:b0:4a3:45b4:f0cc with SMTP id ffacd0b85a97d-4abb253e271mr13430436f8f.3.1795285380632;
+        Sat, 21 Nov 2026 10:23:00 -0800 (PST)
+Received: from Nuel20.localdomain ([102.90.87.129])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm14215507f8f.24.2026.11.21.10.22.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 10:23:00 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: tianyi@cloudflare.com,
+	hangbin.liu@linux.dev
+Cc: kuba@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	skhan@linuxfoundation.org,
+	kernel-team@cloudflare.com,
+	tianyi.gao@linux.dev,
+	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Subject: [PATCH net-next v5 0/3] selftests: net: veth: propagate check failures to exit status
+Date: Sat, 21 Nov 2026 19:22:14 +0100
+Message-ID: <20261121182217.4609-1-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,53 +114,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Check that a lookup bound to veth1 selects the nexthop object, while
-one bound to veth3 falls back to another route in the same trie leaf.
-Cover both a shorter prefix and a higher metric for the same prefix.
+Four checks in tools/testing/selftests/net/veth.sh report failures
+without setting ret, allowing the script to exit 0 even when a check
+fails. Set ret=1 in chk_channels() and the three "bad setting"
+negative tests identified by Tianyi during review of v2.
 
-Signed-off-by: Yifei Sun <yifei.sun@inria.fr>
+Patch 1 fixes the invalid TX channel test, which used nproc + 1
+to determine an out-of-range value. However, nproc can be lower
+than num_possible_cpus() when CPU affinity or cpusets restrict
+a process, meaning the kernel may accept the requested queue count.
+This could cause false failures on a correctly functioning
+kernel once earlier patches propagated test failures.
+
+Use the kernel-reported max_tx + 1 instead, ensuring the
+attempted value always exceeds the device's supported maximum.
+Spotted by Sashiko AI review of v2.
+
 ---
- tools/testing/selftests/net/fib_nexthops.sh | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+v5:
+  - Retarget to net-next and drop the Fixes tags
+  - Move the invalid-tx fix first, so no commit in the series can
+    report a false failure on a correct kernel.
+  - Fix the subject prefix on the invalid-tx patch, lost in v4's
+    send.
+v4: https://lore.kernel.org/all/20261119003003.40482-1-emmaonana18@gmail.com/
+  - Patch 2: use if/else instead of "&& { ...; } ||" chains, keep
+    lines within 80 columns (thanks Tianyi for the review).
+  - Add patch 3 deriving the invalid tx value from the kernel maximum.
+v3: https://lore.kernel.org/all/20261116084107.6675-1-emmaonana18@gmail.com/
+  - Add Tianyi Gao's Tested-by to patch 1.
+  - Add patch 2 fixing the remaining three checks.
+v2: https://lore.kernel.org/all/20261115214702.50817-1-emmaonana18@gmail.com/
+  - Correct Fixes tag to 1ec2230fc721.
+v1: https://lore.kernel.org/all/20261115212117.48496-1-emmaonana18@gmail.com/
+  - Initial posting.
 
-diff --git a/tools/testing/selftests/net/fib_nexthops.sh b/tools/testing/selftests/net/fib_nexthops.sh
-index adbec51917eb..38bb56f28187 100755
---- a/tools/testing/selftests/net/fib_nexthops.sh
-+++ b/tools/testing/selftests/net/fib_nexthops.sh
-@@ -22,6 +22,7 @@ ksft_skip=4
- # all tests in this script. Can be overridden with -t option
- IPV4_TESTS="
- 	ipv4_fcnal
-+	ipv4_oif_fallback
- 	ipv4_grp_fcnal
- 	ipv4_res_grp_fcnal
- 	ipv4_withv6_fcnal
-@@ -1535,6 +1536,28 @@ ipv6_res_torture()
- 	log_test 0 0 "IPv6 resilient nexthop group torture test"
- }
- 
-+ipv4_oif_fallback()
-+{
-+	local out
-+
-+	run_cmd "$IP nexthop add id 12 via 172.16.1.2 dev veth1"
-+	run_cmd "$IP route add 10.0.0.0/24 nhid 12"
-+	run_cmd "$IP route add 10.0.0.0/16 via 172.16.2.2 dev veth3"
-+
-+	out=$($IP -o route get fibmatch 10.0.0.1 oif veth1)
-+	check_output "$out" "10.0.0.0/24 nhid 12 via 172.16.1.2 dev veth1"
-+	log_test $? 0 "Lookup bound to nexthop device"
-+
-+	out=$($IP -o route get fibmatch 10.0.0.1 oif veth3)
-+	check_output "$out" "10.0.0.0/16 via 172.16.2.2 dev veth3"
-+	log_test $? 0 "Fallback to shorter prefix in the same leaf"
-+
-+	run_cmd "$IP route add 10.0.0.0/24 via 172.16.2.2 dev veth3 metric 20"
-+	out=$($IP -o route get fibmatch 10.0.0.1 oif veth3)
-+	check_output "$out" "10.0.0.0/24 via 172.16.2.2 dev veth3 metric 20"
-+	log_test $? 0 "Fallback to higher metric for the same prefix"
-+}
-+
- ipv4_fcnal()
- {
- 	local rc
+Omokefe Emmanuel Onanaroghene (3):
+  selftests: net: veth: derive invalid-tx test value from kernel max
+  selftests: net: veth: propagate channel-check failures to exit status
+  selftests: net: veth: propagate bad-settings check failures to exit
+    status
+
+ tools/testing/selftests/net/veth.sh | 31 +++++++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 8 deletions(-)
+
+-- 
+2.43.0
+
