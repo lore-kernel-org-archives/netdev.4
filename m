@@ -1,62 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795280254;
-	b=ZRw16JSRzfAErCMjuI2+DFAXD8AFvQMJFgjrPL3Ym9/bG3Pe5mkZ3UsWG9xnqyju4jzt
-	 BIDgu41QrDkJckguHNx3lkNARELYf5jH/cL6kLjdKM9WX02mwe83gJEvV7YMTgkkbd1GU
-	 brnLXKA1tIPlVwfxRWzg+B2JmARc7eWKt3akYkmLiaawt3QyBBTWY5AzWdG4S/JQ5B6X0
-	 pQxhPiHVAfgkz+2XR8onmvx3Y5pEMJYPw+sSQPirubPYICYuS1SzB07bH7JD+t0yTIVJi
-	 3f9Pi6ZDW0oVPaCABn9eE92jkNUfQ8TflJlaLcP5eFKj0Oz8gAgZFOv2SFRbOhJcYtA==
+	t=1795280777;
+	b=yGKIB9B+uimLTcGb/X9fjMyOiXXe5qxT3GNlqruTHOtpLcXKaUkj9N5LUlP9mvO8aiPz
+	 Nsbn2v2zAs7EjcYXOJwGPNajr94wnBoL7EZRHhUH/2y0zAel1YHJj5f6E+V5AHe2P3WGG
+	 DUpD3eGwoSq6kIAJuQ5mSX0xUeXkYzeqQJUcns7EikmdWqduaDTUfZgT4tJGA37s/OlXW
+	 KsYn3ScCJ0pC0pkxxk1Hol2o04qAfFNW31aM1znQTmXrc+1C5BsrlTSnHXznSeRwok4rW
+	 A9eny9xAdkWNvLRajzr/URGGhIMLi9JUeZ5KvO7nAE+omAFT+D0RtN3RUdQB5/u7IQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795280254;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280777;
 	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
 	 In-Reply-To;
-	bh=LXFMN0A5KMMIgyP36bowFYDX2PYKXarZkUD9AtYfP2M=;
-	b=c01UNtiU0/Lxej/yuOZY9iy3K0SDY0NyJd2/OMt86bsX05KthYeuyexczfrEYZG2SItV
-	 /iLWyFKdWpShM6UMpYvTUP2G6zsKNSbzQwXWAVCxFGUPcXZI/iDFrPkFPj4SugdnjhWiA
-	 0VPED3RB9nhqcGggEl3eaXXPx32mYBRr7fTV/u9Xc9YNCviFUPKyScwxfGCKfIuvFoTAZ
-	 Xaj+jWrEmPkPP5RNpUPd7CPALIkXWcl2dSCNGyCIMH/zPyJfBwymQu4k8t2nG1yn33rUq
-	 vj8cMlQ+uVo3dhyuLmEGknx6aT5sB7BSfHhTmbEZTalOYmSw6CKx7jaTImb3aU/A9OA==
+	bh=j3HTDtY2SjfXTVXAZ9+iTSjln9u/IeXUYygv1OTtYNg=;
+	b=Gh/Bu6rth3E3JdBFVwstaJlxM8xXbfJF7TNskSoJEhX5KANKEwbThhpU4TSbgkpw28Pe
+	 U0Vi2kmsZD9mQeLUDbpVY7BFSHMY5398UeGdEfBfpxB17U1PEiCYX3+6mnuzf4SSwk29I
+	 k1rXGJ3gKCTG7Z9Oafrn8XKSnILFOGu2XiCacNz0FnvVdijzWPwFz0tbFeQFMUh5snt6m
+	 BHi5qKCib9AN8DffzAYwn3ZmWpaLfgdovzJRN/eXJcSFuVP3hSuMpOW+XE3m6YZERE6+H
+	 vxHIuc0fYv33mBs7mGmlKUUC67hzMn19Z3G/wGkgcwAVpYYdfIudmhnTj0e3iZ5zg0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=lunn.ch;
 	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=loyOvsNb;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=YS3UJ8go;
 	arc=none smtp.remote-ip=156.67.10.101
 Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 929A9606A332;
-	Sat, 21 Nov 2026 16:57:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 929A9606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57C45606A32C;
+	Sat, 21 Nov 2026 17:06:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57C45606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=loyOvsNb
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=YS3UJ8go
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=LXFMN0A5KMMIgyP36bowFYDX2PYKXarZkUD9AtYfP2M=; b=loyOvsNbmPLRn5ehx6/BlR08Rk
-	it9MPCgP6qPenwuGlFHo+VyTW52vmw+7L1O40gySi/qpqo0HqX+luPTwv4fD6wPj4eLZyzdcg333c
-	z1IG4AFsSjEqSuok2XLpeh1C+/b1Zyquj0SwHPKlVxuDkdlwbW7EkdJ3TJ/0rtg8PHG4=;
+	bh=j3HTDtY2SjfXTVXAZ9+iTSjln9u/IeXUYygv1OTtYNg=; b=YS3UJ8goZoE1yA2BMToX7P6aca
+	2treLq4tBA1ufqOFkvhLK2iXhycZOF9o/tk5BJomEdMmsIR9bkesMf1F+cg/kS8AOtGDSc7e1E+QV
+	ozu+X3g/7CfbFwF3guGCvLYJa69d8hED+FT1XjWkdqkmpRL1scvDQE5IdGhvd+726wis=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xUoOj-000T6z-2I; Sat, 21 Nov 2026 17:57:09 +0100
-Date: Sat, 21 Nov 2026 17:57:09 +0100
+	id 1xUoXQ-000TAu-IZ; Sat, 21 Nov 2026 18:06:08 +0100
+Date: Sat, 21 Nov 2026 18:06:08 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Frank <Frank.Sae@motor-comm.com>, Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] net: phy: motorcomm: add led_brightness_set for
- YT8521
-Message-ID: <b8c387c7-f201-40d3-8f1b-3f8113ef6622@lunn.ch>
-References: <20261120100001.1568757-1-amadeus@jmu.edu.cn>
+To: Bastian Germann <bage@debian.org>
+Cc: hkallweit1@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
+	olteanv@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+Message-ID: <40db2715-55cd-46cd-a2fb-8ee11b571911@lunn.ch>
+References: <20261121092933.186731-1-bage@debian.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,31 +66,15 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120100001.1568757-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20261121092933.186731-1-bage@debian.org>
 
-On Fri, Nov 20, 2026 at 06:00:00PM +0800, Chukun Pan wrote:
-> Add support for manual brightness setting on YT8521/YT8531 PHY.
-> Testing with on/off and heartbeat on the Radxa E20C (YT8531).
+> Parse the property in of_mdiobus_register_phy() and
+> of_mdiobus_register_device() instead, so it is handled in one place for
+> both PHYs and other MDIO devices, and drop it from
+> fwnode_mdiobus_phy_device_register().
 
-Did you test enabling a mode which uses the hardware to blink?
+This seems odd. "handled in one place", yet you do it in two?
 
-Sometimes you need to take it out of forced mode. It could be that any
-value other than 0 in YT8521_LED0_CFG_REG does that, but there is
-nothing i can see here which suggests that.
+Is there a reason not to do it in __of_mdiobus_parse_phys() ?
 
-If 0 is forced, maybe add
-
-#define YT8521_LED_FORCED 0
-
-next to YT8521_LED_10_ON_EN ?
-
-Please also take a read of:
-
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
-
-You need to set the subject line.
-
-    Andrew
-
----
-pw-bot: cr
+   Andrew
