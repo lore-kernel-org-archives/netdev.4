@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795243151;
-	b=2nCicrDXvajv8YD2P4zMLZiE82DdF1BT6t4czz3lg5IyVgN7B6vYyuQHFwSj/RI5Sk1i
-	 8wn7oT9YjifgYlWEUEccAEdxPZ70uYzQiJKQrFuBbHj3blET8dVbtxIYyFJItTMF9u+oB
-	 YbAgAu2NYC9ElbWp/ODBqZAw9dEDnDJkpSDRKC74nEQ/XyqAWj5iBSfLIFe53RsZSkvVN
-	 wTFXjnZlRL3GywLiRZqNoTBuLh5RPVlfxgwzcnloNkAS6X+bzqEjYdvBi7N7TIu/X5m6Y
-	 BkD7b7f7zE2l+eAMwmFm0YaqIyXNG9VwVOiq/lWIoHkRON6pfsFMGgqybwfkdmwAxnQ==
+	t=1795243153;
+	b=QSNsiyQ2sg0u7Fdfb3d1Tg4+HeYlzeRJegE1hkfHnAxPQUH+QRFiB5J8jIV9O4Gm/Bvg
+	 NAw090gPThAOt0V06YqVmiCB6Z0fCUQDfiARCt58MD/CTNJJ6dFiZgYQCWepR3i8bBTe+
+	 ctNSVTn2nXW0r/ICaNjQzO8bzUt2wa7SFHo0N9zZHEHacUd2e1PmZSoeezJJuc/1+Aofr
+	 chmKGTHceZpdxYX3e8vc887pcbZi7fPg0fbuXETxfkDlpEM5jUiEUkcA1uAdGJu1RhGwf
+	 qjvGKprasf7intCm4FRjZnivC5TXDAIXyblNNvQziPYD/RDtmkVE6Y5MGcCUA/Khs5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795243151;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795243153;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=1c2Y6DLdeSlq9tmF9TErs1z/CKCH7BIITyy/dFDt3II=;
-	b=CWJK60BuL8VVuosxhhE5gM5RbNt47XAxgOPCh6kAbYakWN+jhYZ/kxUziqv19Sttd4eG
-	 h5wIbAOqfoSCBloBvXWnT+hBEKBh/VIyaWtiVgsYUsXoWEv3wxrm7V90Jy/wMukPSMqZb
-	 XBPdM8eNq1PLz3O4ZXUMz5jhaCDUQI89+cRFtQnc3rtCHFYUkU9VIp/xrClBWGZhBLrIw
-	 RNYVQNteAzbtOUXZ6ukEqkkcyrUOyAs6PatInbO9TYlpD5Id95ckSc8IOgPtnPp1YaBKv
-	 P7QJoeXT8VEUjgwcw2l3PYEWiuswmCg/USkC9O9aWI1k+CYVMzaQyiWGQ/Zh5daubCg==
+	bh=v+j65x4gbDESHhyNH4RkXTanWCtZ2LOAR4vwS7YDc54=;
+	b=lvU9+Vyy6Q2/y77BHtlrmlHEj8vlj9ayFIerLhK2hoJgcnyTP/C6bMozLBl3/1xh7K3z
+	 lP8DgDGuvS1yJBG8yD8kJ0zBD1UcxY70OBXi8I/EmNDGQBLhwknLkk4HdXUVvgWLguhQc
+	 0kzNI4e54S154CTgCMRR5XpLkMfvfGBGjZztosZGwGT8e6Z86iGiWqOLAWv8itBLTbsay
+	 Ro1dqZpnKKB7fBnuzuDeJKAb5npbHRcDW1WfLbSm1SNzNu43F/S7aPD/J6Wow3ftVZj/C
+	 KgD/tMe/reLWoW59PQpKPQ0+rI5dQLTGceZCZ1JS5SuJB/0S73IG6jFfrV/42SCMmIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZsaSQ6t;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UR2bALAe;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC3F4606A335;
-	Sat, 21 Nov 2026 06:39:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1282606A336;
+	Sat, 21 Nov 2026 06:39:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZsaSQ6t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D0DA1F000C4;
-	Sat, 21 Nov 2026 06:39:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UR2bALAe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F12C31F000CA;
+	Sat, 21 Nov 2026 06:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795243151;
-	bh=1c2Y6DLdeSlq9tmF9TErs1z/CKCH7BIITyy/dFDt3II=;
+	s=k20260515; t=1795243152;
+	bh=v+j65x4gbDESHhyNH4RkXTanWCtZ2LOAR4vwS7YDc54=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AZsaSQ6t1emdwE7mIuZN2eVvxba+/PsajWxmb6M+38yW0cIXiOOEgXn18+mbBplxH
-	 CR4gR1F+8jQaAN3uT7nOjIJPepH+JH44IVCJy90SNoaaIcY0PQiMc0GPYpb2i4eENR
-	 KuVPVNys0mJSW1AQ2sUorrefQ13UT/SaP0d7LrQvcVsu0S0QJoNY9TsNRYfnmc2J/f
-	 eHsxj5tNSAdCOzi6QuE85MmUE7eOUr2cmW7BFnw7CQ2Q4YU9YyfiOFZmb4wwhnlFYl
-	 VWx7bAiFuGrJVQvKFpmJswJtnE+d14WdTVzzCQ0+p6coNtBSLC1MWl761FycAeQq7D
-	 8Hx3Xr4mgv0yQ==
-Subject:
- Re: [PATCH net-next v3 1/3] r8169: hold MDIO bus lock while loading firmware
+	b=UR2bALAeyomwejY0t3EwfQZY234g4AjUYEBvTbWVZ7YUfjsUi15urUJyU+CbmUy7U
+	 lDhhw8NiYqoR0xzW4BAT6ESqKqUqxJbQK/7REmbdu1I/8lFif9FBCBqkeBWKGXTVp+
+	 VQgsbQQR6CnecCoY79ixfeJ2jDqEUKXuv9mGIvyhlL8IhXbMgyvWqFno4689oZSFFc
+	 Pp/rCnsmoGF4/AOQEv9lP83eDob0I9Q2X+Zw0fSPmbeVdb7gvdvqUolDgLW19MLnjV
+	 My0quYTjo2xFE37PwV6Gei4M/E9qv8g5/0oCf4IRakKBCg+Fqbpqz0EyKFs5UWDUwO
+	 GquTVe2atdbnA==
+Subject: Re: [PATCH net-next v3 2/3] net: phy: realtek: add PTP clock support
+ for RTL8127a
 From: netdev-bot+sashiko@kernel.org
 To: javen_xu@realsil.com.cn
 Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
  davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
  nb@tipi-net.de, maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, daniel@makrotopia.org, vladimir.oltean@nxp.com
-Date: Sat, 21 Nov 2026 06:39:10 +0000
-Message-ID: <179524315014.3135.14234749504647866339@kernel.org>
-In-Reply-To: <20261117060120.1175-2-javen_xu@realsil.com.cn>
-References: <20261117060120.1175-2-javen_xu@realsil.com.cn>
-X-sashiko-severity: High
+Date: Sat, 21 Nov 2026 06:39:11 +0000
+Message-ID: <179524315156.3135.8784098981517637477@kernel.org>
+In-Reply-To: <20261117060120.1175-3-javen_xu@realsil.com.cn>
+References: <20261117060120.1175-3-javen_xu@realsil.com.cn>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 7 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 2 · Low: 5
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,127 +76,362 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] NULL pointer dereference in r8169_apply_firmware()
-  (drivers/net/ethernet/realtek/r8169_main.c) on PHY-less RTL8116AF…
-- [Medium] r8169_apply_firmware() drops mdio_lock (line 2692) before it
-  restores the PHY page shadow `tp->ocp_base = OCP_STD_PHY_BASE` (line…
+- [Medium] The commit message says the clock 'is started from the system
+  time unless it is already running', and the comment in…
+- [Medium] The PHC is registered at PHY probe and stays available through
+  /dev/ptpN at all times, but none of its callbacks (gettimex64,…
+- [Low] The commit message only says a PTP hardware clock is registered.
+- [Low] The Kconfig help calls the PTP clock 'optional', but a failure in
+  the PTP block now breaks basic PHY operation.
+- [Low] rtl8127a_ptp_config_init() assumes that nothing after the PHY
+  driver's config_init resets the PTP counter.
+- [Low] rtl8127a_ptp_hwtstamp_enable() ends by setting BIT(15) of VEND2
+  0xa640, which the patch defines as RTL8127A_PHY_RST (lines 234-235).
+- [Low] The driver never sets the hardware rate-adjust state to a known
+  value.
 
 --
 
-r8169: hold MDIO bus lock while loading firmware
+net: phy: realtek: add PTP clock support for RTL8127a
 
-This patch takes the MDIO bus lock around rtl_fw_write_firmware() in
-r8169_apply_firmware(). The firmware sequence accesses PHY registers
-directly and bypasses phylib, so the lock is meant to stop other phylib
-users from interleaving their accesses with that sequence.
+This adds a PTP hardware clock for the PTP block in the RTL8127A internal
+PHY (RTL8261C). The clock is read, set, stepped and frequency adjusted
+through vendor MMD registers, and the patch hooks into the internal NBASE-T
+PHY driver's probe, remove and config_init. The clock is seeded from the
+system time in config_init when the counter looks like it has been reset.
 
-> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-> index f151ab6813932..34ea4640467cf 100644
-> --- a/drivers/net/ethernet/realtek/r8169_main.c
-> +++ b/drivers/net/ethernet/realtek/r8169_main.c
-> @@ -2686,7 +2686,10 @@ void r8169_apply_firmware(struct rtl8169_private *tp)
->  
->  	/* TODO: release firmware if rtl_fw_write_firmware signals failure. */
->  	if (tp->rtl_fw) {
-> +		/* Keep phylib users (hwmon, PTP) off the bus meanwhile. */
-> +		phy_lock_mdio_bus(tp->phydev);
+> diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
+> index ca2d515b77b36..e21d10e57a130 100644
+> --- a/drivers/net/phy/realtek/realtek_main.c
+> +++ b/drivers/net/phy/realtek/realtek_main.c
 
-[Severity: High]
-Can tp->phydev be NULL here?
+[ ... ]
 
-phy_lock_mdio_bus() dereferences phydev->mdio.bus->mdio_lock and does not
-check for NULL. Further down, the same function already guards its phylib
-call:
+> @@ -3413,7 +3428,9 @@ static struct phy_driver realtek_drvs[] = {
+>  		.match_phy_device = rtl_internal_nbaset_match_phy_device,
+>  		.name		= "Realtek Internal NBASE-T PHY",
+>  		.flags		= PHY_IS_INTERNAL,
+> -		.probe		= rtl822x_probe,
+> +		.probe		= rtl_internal_nbaset_probe,
+> +		.remove		= rtl8127a_ptp_remove,
+> +		.config_init	= rtl8127a_ptp_config_init,
 
-	/* PHY soft reset may still be in progress */
-	if (tp->phydev)
-		phy_read_poll_timeout(tp->phydev, MII_BMCR, val, ...
+[Severity: Low]
+This driver entry had no config_init before. After this change, the only
+way config_init can fail is an error from the PTP block. The Kconfig help
+calls the PTP clock optional, but rtl8127a_ptp_config_init() returns any
+error from rtl8127a_ptp_gettimex64() or rtl8127a_ptp_settime(). That
+includes -ETIMEDOUT from rtl8127a_ptp_poll(), which gives
+RTL8127A_PTP_CLK_CFG_EXEC only 1ms to clear.
 
-That check came in with commit dab515216deff5 ("r8169: add support for
-RTL8116af"). It suggests this function is expected to run with rtl_fw set
-and phydev NULL on 8116AF.
-
-On an RTL8116AF (RTL_GIGA_MAC_VER_52), rtl_get_sfp_mode() returns
-RTL_SFP_8168_AF. rtl_init_one() then skips the MDIO registration:
-
-	if (tp->sfp_mode == RTL_SFP_NONE) {
-		rc = r8169_mdio_register(tp);
-
-so tp->phydev is never set.
-
-The VER_52 chip entry has FIRMWARE_8168FP_3 as its firmware name.
-rtl_open() calls rtl_request_firmware() whether or not a PHY exists, so
-tp->rtl_fw is set whenever that firmware file is installed.
-
-rtl_hw_start_8117() checks tp->phydev before its own PHY access, but it
-calls the firmware helper unconditionally:
-
-	/* firmware is for MAC only */
-	r8169_apply_firmware(tp);
-
-So interface bring-up appears to reach the new lock call with a NULL
-phydev:
+config_init is reached through phy_init_hw() on attach:
 
 rtl_open()
-  rtl8169_up()
-    rtl_reset_work()
-      rtl_hw_start()
-        rtl_hw_start_8117()
-          r8169_apply_firmware()
-            phy_lock_mdio_bus(NULL)
+  r8169_phy_connect()
+    phylink_connect_phy()
+      phy_attach_direct()
+        phy_init_hw()
+          rtl8127a_ptp_config_init()
+            rtl8127a_ptp_gettimex64()
+              rtl8127a_ptp_clkadj_sts()
+                rtl8127a_ptp_poll()
 
-Runtime resume and the rtl_task reset path get there too.
+It is also reached on resume, through mdio_bus_phy_resume() -> phy_init_hw().
 
-Would it work to take and drop the bus lock only when tp->phydev is
-non-NULL? Without a phydev there are no phylib bus users to keep out.
+Would a transient PTP block failure then stop the interface from being
+opened or resumed?
 
->  		rtl_fw_write_firmware(tp, tp->rtl_fw);
-> +		phy_unlock_mdio_bus(tp->phydev);
->  		/* At least one firmware doesn't reset tp->ocp_base. */
->  		tp->ocp_base = OCP_STD_PHY_BASE;
+In the same way, rtl_internal_nbaset_probe() returns the error from
+rtl8127a_ptp_probe() as is. So an MDIO error in the disable sequence, or a
+ptp_clock_register() failure, fails the whole PHY probe. Other PHY drivers
+commonly fail probe when PTP registration fails, so the config_init path is
+the bigger concern.
+
+Could these paths warn and continue without a usable PHC instead?
+
+>  		.get_features	= rtl822x_get_features,
+>  		.config_aneg	= rtl822x_config_aneg,
+>  		.read_status	= rtl822x_read_status,
+> diff --git a/drivers/net/phy/realtek/realtek_ptp.c b/drivers/net/phy/realtek/realtek_ptp.c
+> new file mode 100644
+> index 0000000000000..9622571249f45
+> --- /dev/null
+> +++ b/drivers/net/phy/realtek/realtek_ptp.c
+> @@ -0,0 +1,401 @@
+
+[ ... ]
+
+> +static int rtl8127a_ptp_clkadj_sts(struct rtl8127a_ptp *ptp,
+> +				   enum rtl8127a_ptp_clkadj_mode mode,
+> +				   struct ptp_system_timestamp *sts)
+> +{
+> +	int val, ret;
+> +
+> +	val = rtl8127a_ptp_read(ptp, RTL8127A_PTP_CLK_CFG);
 
 [Severity: Medium]
-Should the tp->ocp_base restore move above phy_unlock_mdio_bus()?
+Can this run while the RTL8127A PCI function is runtime suspended?
 
-Right now the bus lock is released before the page shadow left by the
-firmware is reset. That makes the restore an unlocked write to state that
-the Clause 22 bus ops depend on.
+The PHC is registered at PHY probe and stays reachable through /dev/ptpN.
+None of gettimex64, settime64, adjtime or adjfine make sure the MAC is
+powered first. The register accesses end up as plain MMIO:
 
-The firmware can change tp->ocp_base in two ways:
+phy_read_mmd()
+  rtl822x_read_mmd()
+    rtlgen_read_vend2()
+      __mdiobus_c45_read()
+        r8169_mdio_read_reg_c45()
+          r8168_phy_ocp_read()
 
-  - r8168g_mdio_write() with reg 0x1f
-  - mac_mcu_write() with reg 0x1f after PHY_MDIO_CHG, which leaves a MAC
-    OCP base in it
+r8169 runtime suspends the function 10 seconds after the interface goes down
+or loses carrier:
 
-The comment above the restore says at least one firmware doesn't reset
-the value.
-
-Every C22 access builds its address from that shadow:
-
-r8168g_mdio_read() {
-	...
-	if (tp->ocp_base != OCP_STD_PHY_BASE)
-		reg -= 0x10;
-
-	return r8168_phy_ocp_read(tp, tp->ocp_base + reg * 2);
+drivers/net/ethernet/realtek/r8169_main.c:rtl8169_runtime_idle() {
+    ...
+	if (!netif_running(tp->dev) || !netif_carrier_ok(tp->dev))
+		pm_schedule_suspend(device, 10000);
+    ...
 }
 
-A C22 phylib user can be blocked on mdio_lock while this runs. One example
-is the PHY state machine running read_status after a link change, during
-the rtl_task reset or runtime resume. That user can wake as soon as
-phy_unlock_mdio_bus() runs and do its BMSR/BMCR access before the restore.
-The access would then go to a firmware vendor page or a MAC OCP derived
-address.
+In D3hot, r8168_phy_ocp_read() would return 0xffff as data.
+r8168_phy_ocp_write() is void, so after logging a timeout it drops the write
+and the caller sees success. The EXEC poll below then times out on
+CLK_CFG == 0xffff. Every PHC operation would fail with -ETIMEDOUT and add log
+noise while the NIC is idle.
 
-Paged accesses have a worse case. phy_select_page() reads reg 0x1f and
-gets the stale page from the shadow, and phy_restore_page() writes it back
-later. If the unlocked restore runs between those two calls, the access
-meant for the selected page goes to the standard page instead. The stale
-page is then written back, and later C22 accesses keep going to the wrong
-place.
+The device_link that phy_attach_direct() creates makes the PCI device the
+consumer and the PHY the supplier, so PHC accesses do not resume the PCI
+function. For comparison, r8169's own LED accessors wrap their MMIO in
+pm_runtime_resume_and_get().
 
-This only affects C22 users. The hwmon and PTP users go through C45 with
-absolute OCP addressing.
+This needs runtime PM to be allowed for the device (power/control=auto, as
+TLP or powertop --auto-tune set it). The existing realtek hwmon support for
+this PHY has the same exposure, but the PTP path is new in this patch.
+
+> +	if (val < 0)
+> +		return val;
+> +
+> +	val &= ~RTL8127A_PTP_CLK_CFG_MODE;
+> +	val |= RTL8127A_PTP_CLK_CFG_EXEC | mode;
+
+[ ... ]
+
+> +static int rtl8127a_ptp_hwtstamp_enable(struct rtl8127a_ptp *ptp, bool enable)
+> +{
+> +	int ret;
+> +
+> +	mutex_lock(&ptp->lock);
+> +
+> +	ret = rtl8127a_ptp_modify(ptp, RTL8127A_PTP_SYNCE_CTL,
+> +				  RTL8127A_PTP_SYNCE_EN, 0);
+> +	if (ret)
+> +		goto out;
+
+[ ... ]
+
+> +	} else {
+> +		ret = rtl8127a_ptp_modify(ptp, RTL8127A_PTP_INER,
+> +					  RTL8127A_PTP_INT_RX_TS |
+> +					  RTL8127A_PTP_INT_TX_TS, 0);
+> +		if (ret)
+> +			goto out;
+> +
+> +		ret = rtl8127a_ptp_modify(ptp, RTL8127A_PTP_CTL,
+> +					  RTL8127A_PTP_CTL_EN, 0);
+> +	}
+> +	if (ret)
+> +		goto out;
+> +
+> +	ret = rtl8127a_ptp_modify(ptp, RTL8127A_PHY_RST_CTL, 0,
+> +				  RTL8127A_PHY_RST);
+
+[Severity: Low]
+rtl8127a_ptp_probe() and rtl8127a_ptp_remove() both call
+rtl8127a_ptp_hwtstamp_enable(ptp, false). That path clears
+RTL8127A_PTP_SYNCE_EN, the INER RX/TX bits and RTL8127A_PTP_CTL_EN, and then
+sets RTL8127A_PHY_RST here.
+
+So every bind and unbind of the RTL8127A internal PHY now resets the PHY and
+turns off SyncE. Is that intended?
+
+The commit message only talks about registering a PTP clock. The v3
+changelog only mentions adding defines for the PHY reset register.
+
+If firmware or a PXE/UEFI environment brought the link up or enabled SyncE,
+that state would now be lost at PHY probe rather than at ifup.
+
+The follow-up patch "net: phy: realtek: add hardware timestamping for
+RTL8127a" keeps this sequence and also runs it whenever timestamping is
+toggled. Its commit message doesn't mention the reset either.
+
+Could the commit message describe and justify the PHY reset and the SyncE
+disable?
+
+[Severity: Low]
+The reset is asserted with a single read-modify-write of
+RTL8127A_PHY_RST_CTL, and the function then returns. Nothing deasserts
+RTL8127A_PHY_RST or waits for it to self-clear, the way genphy_soft_reset()
+polls BMCR_RESET.
+
+In rtl8127a_ptp_probe(), ptp_clock_register() comes right after this call
+and exposes the PTP registers to userspace. r8169 also keeps accessing PHY
+registers after PHY probe.
+
+If the bit self-clears but takes a noticeable amount of time, could accesses
+made during the reset be lost or see the pre-reset counter? That covers PHC
+operations and the counter read in rtl8127a_ptp_config_init().
+
+If the bit is level-sensitive, what releases it?
+
+> +out:
+> +	mutex_unlock(&ptp->lock);
+> +
+> +	return ret;
+> +}
+
+[ ... ]
+
+> +int rtl8127a_ptp_config_init(struct phy_device *phydev)
+> +{
+> +	struct rtl8127a_ptp *ptp = phydev->priv;
+> +	struct timespec64 ts;
+> +	int ret;
+> +
+> +	if (!ptp)
+> +		return 0;
+> +
+> +	/* Keep the clock running across a PHY re-init, a running PTP
+> +	 * client would otherwise see it jump. Only start it from the
+> +	 * system time if the counter has been reset.
+> +	 */
+> +	ret = rtl8127a_ptp_gettimex64(&ptp->info, &ts, NULL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (ts.tv_sec >= RTL8127A_PTP_RESET_SEC)
+> +		return 0;
+
+[Severity: Medium]
+Does this check do what the commit message says? The commit message says:
+
+  The clock is started from the system tinme unless it is already running
+
+The comment above says the clock is only started from the system time if the
+counter has been reset.
+
+The check tests neither of those. It tests whether the free-running counter
+has been running for less than 10 seconds since its last reset.
+
+config_init first runs from phy_init_hw() at ifup:
+
+rtl_open()
+  r8169_phy_connect()
+    phylink_connect_phy()
+      ...
+        phy_init_hw()
+          rtl8127a_ptp_config_init()
+
+The counter starts at power-on, or at the PHY reset that
+rtl8127a_ptp_probe() triggers during r8169 probe. More than 10 seconds
+before the first ifup is normal after boot, and with a delayed or manual
+ifup. In that case, wouldn't the PHC never be set and keep reporting
+seconds since reset, close to 1970?
+
+Also, rtl8169_init_phy() calls phy_init_hw() before r8169_hw_phy_config()
+and genphy_soft_reset():
+
+drivers/net/ethernet/realtek/r8169_main.c:rtl8169_init_phy() {
+	phy_init_hw(tp->phydev);
+	phy_resume(tp->phydev);
+	r8169_hw_phy_config(tp, tp->phydev, tp->mac_version);
+    ...
+	genphy_soft_reset(tp->phydev);
+}
+
+Any counter reset caused by those later steps happens after this check, so
+it would go unnoticed unless another config_init follows within 10 seconds.
+
+The heuristic can also overwrite a clock that a user deliberately set below
+10 seconds.
+
+Is there a more reliable way to tell that the counter was reset than its
+current value?
+
+> +
+> +	ktime_get_real_ts64(&ts);
+> +
+> +	return rtl8127a_ptp_settime(ptp, &ts);
+
+[Severity: Low]
+This seeds the PHC on the assumption that nothing after the PHY driver's
+config_init resets the PTP counter. Does that hold with r8169?
+
+As shown above, rtl8169_init_phy() runs phy_init_hw() before
+r8169_hw_phy_config(). For RTL8127A, r8169_hw_phy_config() calls
+rtl8127a_1_hw_phy_config(), which starts by loading the PHY MCU firmware:
+
+drivers/net/ethernet/realtek/r8169_phy_config.c:rtl8127a_1_hw_phy_config() {
+	r8169_apply_firmware(tp);
+	rtl8168g_enable_gphy_10m(phydev);
+    ...
+}
+
+genphy_soft_reset() runs after that, in rtl8169_init_phy().
+
+Suppose either the firmware load or the BMCR soft reset clears the PTP
+block. Then the value written here would be wiped on every open. The PHC
+would run from about 0 until some later re-init happens to see tv_sec < 10.
+
+Whether either step resets the counter depends on the hardware and can't be
+confirmed from the code. The ordering between the two drivers isn't
+documented, and the PHY driver has no hook that runs after the MAC driver's
+PHY setup.
+
+> +}
+> +
+> +int rtl8127a_ptp_probe(struct phy_device *phydev)
+> +{
+
+[ ... ]
+
+> +	ptp->phydev = phydev;
+> +	ptp->info = rtl8127a_ptp_info;
+> +
+> +	ret = rtl8127a_ptp_hwtstamp_enable(ptp, false);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ptp->clock = ptp_clock_register(&ptp->info, dev);
+
+[Severity: Low]
+Should the rate-adjust registers be set to a known value before the clock is
+registered?
+
+rtl8127a_ptp_adjfine() is the only code that writes the rate (CFG_TIME
+NS_LO/NS_HI, latched with RTL8127A_PTP_RATE_WRITE). Probe doesn't write a
+zero rate before ptp_clock_register(), and rtl8127a_ptp_remove() doesn't
+clear it.
+
+The driver already assumes that PTP block state survives a PHY re-init. If
+the latched rate also survives the probe-time reset, a rebind leaves the
+hardware running at the last offset the servo applied. Examples are rmmod
+and modprobe of realtek with the interface down, or a kexec or warm reboot.
+That offset can be up to max_adj, about 488 ppm. The new ptp_clock would
+meanwhile report a dialed frequency of 0.
+
+Whether the rate register survives the PHY reset isn't verified. linuxptp
+writes the frequency it reads back at startup, which hides most of the
+effect. Writing a zero rate at probe would avoid the mismatch.
+
+> +	if (IS_ERR(ptp->clock))
+> +		return PTR_ERR(ptp->clock);
+> +
+> +	phydev->priv = ptp;
+> +
+> +	return 0;
+> +}
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117060120.1175-1-javen_xu%40realsil.com.cn
