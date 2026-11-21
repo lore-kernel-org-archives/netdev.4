@@ -1,108 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285382;
-	b=jHi3UN4FVa5jN4JrkKc0aVnIlaV2dCVFyDn3YasysGDr46dx/8Z/JHNjjX7V46c3Hrg3
-	 UDSUFYUCy+OCkmB1OFpmIz1glKZ0iqlufBd6QmQPoDdyLBSXd2UMXRy9YTrFqxprrVVKX
-	 VTFmYU5ufcgG3JG3URHFQ1p62DqYguv5Y4UsTtZR8yqmQsFCaAUmDoMvnD02RJP9s1I1q
-	 Gh77fy4UW/tKxVXaTIQjoknRuR7cR6OXe6w8mI/kcIghigYFXRgrFFkSY7k13qm6NimxH
-	 CupxHuZrlkZ+JibPMV8GO5V5PgtwvFw+6s7LX7X/Eo4yIvcU31YrBSCQI5jSPY+EMlA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285382;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795285494;
+	b=JrPHVKYdt/lWfP/eIwir7X0mfXGv7PLfiV+UQjIjIe68aGfEtbaZ5NN7NmEa8dQxf1aC
+	 TBpJlGTaQCsmDmMypomueLsiNc5FPQaSVMzU+KnUoPa08zHtThuSlHm8QC581A5+CJ07F
+	 Ex2Pd2QhGjDfcyEctB/4y19xsEekOGMdYrHy5K7RIlhpt4t/ska9CoKxp9zmeO5avC3MX
+	 5qGCXfki6hUsh8C53fb00woJCqJ/TZffeVAyRI1bi6yG/VQSkUTfVJexBYVw5ERij1ypY
+	 0zYEffMfR5FqlzIC526SkM1n5gJwNQEUtlRX0wxwkfTkjFwWVkOCkPkDqrHqweE/msw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285494;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=o9NEFNsCc2NcvWKzT31mhYcyJnIDEUd26l3VnghLY1E=;
-	b=yu9Kkx2mbb6t5KbfpO3+EZtanw0BPmS287C91qYLaUlL6zIDOdyed7FWhnratdn4k/yU
-	 arf7SwMunDgyk1VObn0HZX23/G7s1Ny3TSxnFziHZlTPwJmKdbOa05EdqR5Y7AVMw40sL
-	 8Mg+zz6vdmzKv8smdvKwuzeLGVbhBL6w+ajmBukvLsoZeEHeFOyi5Uuzo7b9KPliBWCd9
-	 8O5FBcXC4w8TOi7sz2buONJzLsh+qo7iVmRgrOqxP1/3Z1o1iWtvQ9VxFRnQDij5P23hU
-	 xiz6E7nLjNw9Tf4gQmV2CrWCRZcYs2h8BN6y81RiDPnedF+zOXit3y0HMnN2L8H2RvQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=jJQLl9d27h6OnDO6RwhuNyq/zQGkbYpE0WHojvDdnfg=;
+	b=ce22bU+Wpj/u2fQ8WbY5y4Y4ONmPeLr0i6mvoHnwUthJ+MZd6WXVs+bGUhTh2lc9ekfU
+	 oG1y/E8ddjfzLaUnV47GHFfFhDv0xAc4lK25eDm8sQGHSclx7EOejVo/d3ey+7P7wMGqB
+	 hirRqzTHswFfC/oGVYysXSDm3T0Sr2wSbTeKv7wPD0b27t4CMcaT4mMp3eAAnWb5lev27
+	 j4P3zTpcfEk2AU0tapNgm8ZAtAUsgaj3T5JIYJXuCod7MTpNMY6mIfrCunR06LWkLuVz4
+	 3pRN3eiWQSZJv6g0GP1SWgrFN8/wKwLoJlfK94WlOSYYLVKnvp+4oUoC2fc/5zaBwMA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d+uj6aRa;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KvVCmyOW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.48
+Received: from mail-yx1-f48.google.com (mail-yx1-f48.google.com [74.125.224.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CCF8606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:23:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CCF8606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 935C3606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:24:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 935C3606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d+uj6aRa
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4af52002471so2381165e9.1
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:23:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KvVCmyOW
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-67be9601f31so1760184d50.3
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:24:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795285493; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GfbaLPeM1XDjMOqrkAr4FgJZNNRZJxgHpei3/ySFp3KlTVyAB+jUrYMVXB2NqTO9cA
+         ETWN+k4YKWuI+r+opoBAXISo1mKgiqfuJUjFCHuYfOsEaFiVNc5wHkyyGKa8BheLqk0H
+         Y8gGhCFKIIbDAksNLolgyIyS3UG2MA9SsrJO0ukXdoFNTPyYwy9SlFIaLTSuXDEmb1Wh
+         8JCJYtFRQu60GQI5lMlWl/CvY9fikUgFl2oK3o9ywck7Mrb+44VfMDkPwtk7NVEcox6x
+         aM3dOWFqs1lzmTwL9vZ4ookgaYwo0eQ4xl2SAB1h8OS/hOdg5HGTJNyVs64iK2ChqNmA
+         IVtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=jJQLl9d27h6OnDO6RwhuNyq/zQGkbYpE0WHojvDdnfg=;
+        fh=hPuNKX9dfY1huUh+fqq9U5/3qN7M+jgT00SCyw6V19Y=;
+        b=HQuDgTUBuXwcRDfUlGCP2BO/03EB2A9syffoAaEbAe7T6oZzOo0DGuwtHUlq1WYRiJ
+         fU880e6Pntqht/D465ZhGUUHaQPI/5fnZ/C1aAWxW2HqqoV3r0PUz+cQjOo2gDr12C4Q
+         2CL8ec8xLG4egrQThfJauU4e2MJ0yJcXBb6tctUitEwaOoKQ0TbQbxPc9ChOnB3QBXa0
+         slaBpmOnvn2XdG2lBlf14a7eRkNxdV6Y1mHDF8FdbF/RwuvmTsp0jEr1FLNouI9b3or1
+         cSyb3ULHhtOkChxn6aOalPmHS+U0V5FLbwtKUroTPSTcEoJgHGcWHDm/wyWoZSsF7n6C
+         0NvQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285381; x=1795890181; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=o9NEFNsCc2NcvWKzT31mhYcyJnIDEUd26l3VnghLY1E=;
-        b=d+uj6aRa0JypX9ox6qZscWxSUxC7fqg0E+T3t+0FHue6GwYr0GnyLPk0milV6Qx2sG
-         gZ0Yk8Q/1UC38PopKspEizuRHpxviyq0By6uWAwW008Tap/ZGuTO/Q4J55OXrLmBjNpZ
-         37Ba8lvXdMc0XdwkvP0A2GIIII5oZlzqGOigeYK6wRmJbqVTd0MvYqNS5MdV361f9vQ5
-         kc1Kyj31ddNQ4eUf3KbDLmmzUUkIt3dw1D2kCS+sSK05KrXgz3CvI/1dA73mt2KmcRZN
-         J9mW5kvXkzgQ4i02o9lspKbFcjuns+2Cc/CI0EFUTn6e30E3RlWqrhdczIjKvql5KEmW
-         mTsg==
+        d=gmail.com; s=20260707; t=1795285493; x=1795890293; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jJQLl9d27h6OnDO6RwhuNyq/zQGkbYpE0WHojvDdnfg=;
+        b=KvVCmyOWqy+cXvfoBKNNNRBT7cJ3XMHTmv33sXJblseu+84KJ0j88G9egt3cAWC1yS
+         9OQdFtD/f1f1G6vJ5SpbtRpUonbuI7v0JCGFwIB7Wr5gFxmH6MGCGOiNxL5BxYbd9xTb
+         qgX/RcDA6hQ/H3F6Ue8cy/5lLW9vCTypX5bgAxSZbIIzhs4X47dv7q9s2WMRziAjMTct
+         gSPuU4kgIrHaBxImDO0Bouu627uPxtcblkdGktS93WBI/F8XOnPwmQtea+2yVV/nMdt7
+         zSCRzDqhLDrdzI4cTnhw5VPcxSIzA+kfDEjnEujv3MxlmaKflPB3AJYCFB1+zF7iKEWA
+         BcyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285381; x=1795890181;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=o9NEFNsCc2NcvWKzT31mhYcyJnIDEUd26l3VnghLY1E=;
-        b=C6hne86oSGyu3noAImNE/wmWWJEhKcsapssJgL/vRG24bP90+Gb8RI04XrCFhG0mf+
-         8qzqiGqg2mJW7KhsN1i5rqIQm4jSyFsB4lM2kmmSCww8JC+tRdX+cc7ZoEtTOPZszrwG
-         Y/meTOofnvBylAligdlezJlS6gw89M9vkWz8GIFnMJy7/6MSQ0lRmWjQOnCYhoTGW/EO
-         teA7mCKw+QD6ytojx3mMgUrmDVM9hOGkGD+mLgtvpKxQSS1HSzMFIeyEo4ikqcuiXMmf
-         66dihtwJN3RS/FyIO14i4z5pTdggl1HIZpVT6GnO0/wnaCQlxycJ1NS8iIuitmME83H+
-         rJMw==
-X-Forwarded-Encrypted: i=1; AL+hErHDgBW8lrf3OpJGQ/nzPdUx1wGoUD6KGSD1eKvBQVhUoI4ahQkXxHcgIoa4OjsvxEP5ZmGe930=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZkKRl72UB/PZEdW6C71wBiZYS0eMIWYqGKl6umtJsalq/XMQ/
-	8WPNQXOs4+B+87+NAwbPXtwf2+siMOlR3gK+UNDMV5JAxreJvqC6V8Af
-X-Gm-Gg: AZFdTZcEI+3TDW10KYO6AkfkNrA0iYjS/0Evin0Df+McMvbeqnDDdVlKdoT8BhraDWg
-	MgTdgTRlqJfmEke75Si1nqOU3xQJkeTMWAMstpDUvFCQSx2tgEvUYoBP1CfEw982KlPQFwLTY/P
-	IJH/rP/hdMeE/HzzNTtvjxz0XXlKf7qPWUCLgsU/Dc9c6KVu8Ji5dxeFc43y4AdjLokzOq1DxYn
-	sShuxF7J8INTqvV9wBi8p2seRLE9A5ts/ds121q+CqnIFMaFyENXx4FLJUnGYS9Qi/RxfryjoWj
-	exNg05/etRQRpTkAFHufFq0rszV5YCye/m2G/DyHwmzLwzEDaFG758XFhrd1fVBr7pVYodkZ/lp
-	m39QgFFYgfaJUM24pDS+HuOfHEYrEJfJBtaoJBT6FQVEYzJk01vb3SUlrImVBOW4TpzkN0euudr
-	1oZN3KNpjMtm/RQxq+GWRlTKigt/GMKi7t/qfOv3PiHBh/VPHfx/0sLwxO876V64Z/iioTaP56h
-	gbidmfv5rUZjViF2XYiPouNI0fAddNdnBleV7eX/39ZCHb5dx2rr+pa4NI2iykVs2iWRbfdRUT3
-	8TifNXBH2yUmMuKrAfDIdMThQMGon5jiOn+fBrtdrnRBIkgAlu2O0mYxuP2lWZmUFYTouQ==
-X-Received: by 2002:a5d:5f88:0:b0:4a3:45b4:f0cc with SMTP id ffacd0b85a97d-4abb253e271mr13430436f8f.3.1795285380632;
-        Sat, 21 Nov 2026 10:23:00 -0800 (PST)
-Received: from Nuel20.localdomain ([102.90.87.129])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm14215507f8f.24.2026.11.21.10.22.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 10:23:00 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: tianyi@cloudflare.com,
-	hangbin.liu@linux.dev
-Cc: kuba@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Subject: [PATCH net-next v5 0/3] selftests: net: veth: propagate check failures to exit status
-Date: Sat, 21 Nov 2026 19:22:14 +0100
-Message-ID: <20261121182217.4609-1-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795285493; x=1795890293;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=jJQLl9d27h6OnDO6RwhuNyq/zQGkbYpE0WHojvDdnfg=;
+        b=k5xbfNERvMofmikoM6hgJomFpZlpu7eNMllgHrhs2/RWRf+Ft7IK+RJ9nUYXb0S1Q0
+         hkGqnGdCwnq8WxYMYdZeFxdDfapKRFHqYuTcOe5AKr8AfIkSySl3Tf287qwuN6xdSYjV
+         fzV/kE7Xp+Tan3admPNIyFTpulJO+URhb91vrwI05PfKGbJ5tFYcvs43VHnf3hGcXD96
+         x49p1N0B0RIl4yDl1q0r2qSsIArtoAqqS+uKCls2CGKx5pMgAmCSXs+Om2+49nRhX2pP
+         zD+7ZneL4pP3gqDpql13WvhGIMotqa+Po89JaMUYKmfcVuDxt/GobsGTT3I4uAt8N1qP
+         o2Ag==
+X-Forwarded-Encrypted: i=1; AL+hErEoi8h9MDFRBAk4W1lOsgMceJ9mksIu5mS4jpmB0PAvfGIa1t4oqb63QLKjuTGwK1wL49buRLs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9/ii3/WQvBd6jQ9k5RLRAx0+lktU1D/FYLfETMLpbg6Sf7NZOx
+	PHCkhxg1nrWH/UOgw1E+Rk3VIjdFRNLKdphQBHB+sYLK42riXT87ES2Hz3gAdHH80SV/imjeMA/
+	w+26pJq4B4guV/E2Nf4cOCQQOyoGXM8g=
+X-Gm-Gg: AZFdTZeGGk/BrPOQht6iLi6o7XzQg+DCmKIoy1XuZdMTKackKsEqfxbHJVDJxUOrXg4
+	OJ4xItJOD3LQ2HK0cIV5cCTgJndOZk1sQ7XwD0ItY6CR6EtEGTguOa0R3y6zvChH96O9aqAJVhq
+	7kqmKNsYxDD1Nykx9uUGlVxcb+oRjBO6KLoRIy8SIn+i+W8WAt0m7s9c1QB2V2/7J/SNbP2ec97
+	ASvtDTUHpDLcZO1wxz2WnvpC+y1WasJ8oKsOxDwzh/uq82U7cmQU14L0RVltQXJUKp2dSJK4juE
+	mHTJY8mV+ttF0ZWNLz3MnTcdtzvQDJKbgLWmvcJNstD7iYVLEQspBn6e8s9dDkCM1n6OE/h1Juf
+	fEDzKH8mWnyEGSsKJMgZgUw+1ZIr18P7F2FZhp9bLdRMe4ywQ6kGu5hBnBQckreZR0f9ssurr
+X-Received: by 2002:a05:690e:441c:b0:67a:2ca2:8a39 with SMTP id
+ 956f58d0204a3-67df42c44b5mr1420739d50.3.1795285493200; Sat, 21 Nov 2026
+ 10:24:53 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,52 +103,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+ <2cc3faa1-c9a6-43d2-a3c2-7dccb12f0273@yahoo.com> <CAK+kzgycrbHcEpXZhLTPXdWtCUh+WwoBA0mC7CaS2HO7nM81vQ@mail.gmail.com>
+ <b4f49c01-467b-4c16-bc47-b0f08ab48bce@yahoo.com>
+In-Reply-To: <b4f49c01-467b-4c16-bc47-b0f08ab48bce@yahoo.com>
+From: Gustavo Foletto Mora <gusfmora@gmail.com>
+Date: Sat, 21 Nov 2026 15:24:41 -0300
+X-Gm-Features: Aa3M54prqDFHToD-m4_afXfK5h3QfWDtz_Lzzt42xCFZtGEEkBsBe_5z6pffYRQ
+Message-ID: <CAK+kzgxEzCzq5EvRh9zqB8sc27B6bFws6zreP8MbO3s5mQQYUw@mail.gmail.com>
+Subject: Re: [PATCH net-next v12 07/13] net: dsa: realtek: rtl8365mb: set and
+ get vlan 4k for family D
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
+	gabonpivovich@gmail.com, contact@c127.dev
+Content-Type: text/plain; charset="UTF-8"
 
-Four checks in tools/testing/selftests/net/veth.sh report failures
-without setting ret, allowing the script to exit 0 even when a check
-fails. Set ret=1 in chk_channels() and the three "bad setting"
-negative tests identified by Tianyi during review of v2.
+Hi Mieczyslaw,
 
-Patch 1 fixes the invalid TX channel test, which used nproc + 1
-to determine an out-of-range value. However, nproc can be lower
-than num_possible_cpus() when CPU affinity or cpusets restrict
-a process, meaning the kernel may accept the requested queue count.
-This could cause false failures on a correctly functioning
-kernel once earlier patches propagated test failures.
+On 21/11/2026 Mieczyslaw Nalewaj wrote:
+> This path is only reached when the last port leaves a VLAN while
+> filtering is on (e.g. a port leaving a VLAN-aware bridge), which the
+> toggle test does not exercise, so I kept your Tested-by but would be
+> glad if you could re-run that case.
 
-Use the kernel-reported max_tx + 1 instead, ensuring the
-attempted value always exceeds the device's supported maximum.
-Spotted by Sashiko AI review of v2.
-
----
-v5:
-  - Retarget to net-next and drop the Fixes tags
-  - Move the invalid-tx fix first, so no commit in the series can
-    report a false failure on a correct kernel.
-  - Fix the subject prefix on the invalid-tx patch, lost in v4's
-    send.
-v4: https://lore.kernel.org/all/20261119003003.40482-1-emmaonana18@gmail.com/
-  - Patch 2: use if/else instead of "&& { ...; } ||" chains, keep
-    lines within 80 columns (thanks Tianyi for the review).
-  - Add patch 3 deriving the invalid tx value from the kernel maximum.
-v3: https://lore.kernel.org/all/20261116084107.6675-1-emmaonana18@gmail.com/
-  - Add Tianyi Gao's Tested-by to patch 1.
-  - Add patch 2 fixing the remaining three checks.
-v2: https://lore.kernel.org/all/20261115214702.50817-1-emmaonana18@gmail.com/
-  - Correct Fixes tag to 1ec2230fc721.
-v1: https://lore.kernel.org/all/20261115212117.48496-1-emmaonana18@gmail.com/
-  - Initial posting.
-
-Omokefe Emmanuel Onanaroghene (3):
-  selftests: net: veth: derive invalid-tx test value from kernel max
-  selftests: net: veth: propagate channel-check failures to exit status
-  selftests: net: veth: propagate bad-settings check failures to exit
-    status
-
- tools/testing/selftests/net/veth.sh | 31 +++++++++++++++++++++--------
- 1 file changed, 23 insertions(+), 8 deletions(-)
-
--- 
-2.43.0
-
+Done with v13-pre2 from the OpenWrt PR. In a VLAN-aware bridge, VLAN 50
+added tagged to lan2 and lan3 and used (the hosts are learned with
+VID 50), then deleted from both ports while filtering is on, then
+vlan_filtering 0: frames tagged with VID 50 are learned without a VID
+(SVL), and h1 -> h2 on VID 50 gets 20 of 20 replies. The toggles took
+30 ms. The rest of the toggle tests give the same results as on v12.
