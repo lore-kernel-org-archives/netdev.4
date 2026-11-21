@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795264947;
-	b=w8jvL2/vT0BVm5L5ljOc5GhEowsU5917DPeTYPAMGgkHUzQ5M598cm7ZOmZfdbB053su
-	 ven8OAYp/MLstpGKeTF6elnSfTpcJPUEUVHBdw/aEpchVi7R0DNbdl1o+U1bcyKUD5vH/
-	 VwoebKDAYcy2b1zuGGFvtHKHRLA5vpJqAaa/XVMwr048eA6nFrkn+ocmCwkkWLNWrhePM
-	 5RxBfRN286Hm7s4UsQ3F8wlju4OdmuNoapFhvtpGkNBCaxijRB+2zvz3m5+MbsOi/KSrU
-	 2fiSmTC9weu3+rsy5v3Mx/keCwsXA9ac8s7fTdibz1fiZyBOrixpWmvCSCXoIcUtAPQ==
+	t=1795264950;
+	b=QdWIXRQ7ps4oGHu3xF6RHPpLlGedTF1dozUxgUGsrZAmow7haF52TYn8JdXJzLM+TszW
+	 3Y6S1xm35x0KsQvhHNAZURnT4FqzinlIRNEvBZGTYRpgE7Sb0vNOGsFylmupkAQC8kIL3
+	 v8TUMGgH0pwVFrSir2mg1wwvG28kxONBsp/EPnEN6CI9MdvoCDpt5BGu2R/5PWfdUHJne
+	 15YdRM3ltAGijpY4yARfVTXduOeqlnUJM5ZyVYFbqO2mN4nExiViql3JNSmr9TOIMw4y0
+	 kSAVSdNvewdpMfuEDaShaa41Mv8PVOXEJqTmOsAOlZnN/G5UBF3MH/R8D6EkhiOP3Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795264947;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795264950;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=B2/Og1vypeSBCVc9jeVdKyeKApwX92hxBK+MvswlFtY=;
-	b=GVs3G5G9OrrlzOUtDixMT7cVhsSt2chit3yld2uCPafqlMI8YZK5fY/PoRIXJ2hQtje6
-	 GVZhPl0OHZr6FSXxGvLisdm6GH9Ta9/qp0NMPM4ahq1QzosLvPnQZsMYlQoSWe14TChnt
-	 +hg2Ee6oYdomsJgOhmsFu66FVDoW47jZt0w83wsHBc4XTc3PBUIwTP/kslL6FRq7LEDGt
-	 5V86fEnYoUENf5mABBV6v9f1BN1eMKtYSRYk5LNJSEH3fdftJgD1c5bfaf4o/ii+qmzZ+
-	 NhAjS1Q3xERZ1mGXruMkpxxdF4gc0WZbbwj6PKz9anMlbx5Ze9Y3La62/NJrK2BVdfA==
+	bh=mjG+VkWrf8qqhbRhT1SH5x21Ugamo0ZOZzv95akdBEw=;
+	b=OUr79QJw/fTJBZI1L0d91w2CPr7P4lccokRNe5gbKqdnojpKyEy9VIxcGfptrMQQM7Gi
+	 kix19taNel2SRsn5mTa7NYaQWg4gwnb/snNshrWIqF0+NBpk+gvY0s9OnenQs7EYqSdPB
+	 51c3T4HUfwI5kp8RkQ8JAQuwrMjmL1JxyWHIH4pfkgQp2sY7dRxHPB6WIOZXkiJziWtp0
+	 l2jpjvcPHa48lWYB7gzdjH122dxlafZ4sTnbH6yjXZiQmtdik45FAQHMhDSUEFNVihGGW
+	 I7mVzrCPLGhXhJQuWpFqiF68jm/c7YQy3VnJiYBAEQTibUzeIGTeqwTruJs6WB/6uLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GAz7spVA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b3XdX+k7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36B6B606A320;
-	Sat, 21 Nov 2026 12:42:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFC32606A33F;
+	Sat, 21 Nov 2026 12:42:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GAz7spVA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8975C1F000C4;
-	Sat, 21 Nov 2026 12:42:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b3XdX+k7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83EBA1F000C0;
+	Sat, 21 Nov 2026 12:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795264946;
-	bh=B2/Og1vypeSBCVc9jeVdKyeKApwX92hxBK+MvswlFtY=;
+	s=k20260515; t=1795264950;
+	bh=mjG+VkWrf8qqhbRhT1SH5x21Ugamo0ZOZzv95akdBEw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GAz7spVAlJE81+xSf+XW0qKODat2Co0f9qRxovKvZE2j5Say39TAbVdRJcO+KPKC8
-	 uWH8S3lX5gJS+2/khXlXvTKUNorI/LjccslStLDHvoORqKfB/pIz3FTdPyh+TDY/Am
-	 f1nJQaIRa+2E5de5GAS0FCy6B/ROxMmEJfP4RhdnlBTu4NgpWzAmGWr3GkFdQN1PNG
-	 blx+YMkDaJGdp2riXtM1Dw07F2aED5aKmldUjm0xkHg51UVZ95p/UdhmCEJHQ4fOJ3
-	 eUHxn+VrpXTtopf8GjJSU8VoTWbVsvefzmCHeNOg1FfAOdyv0O/WQUHo57hLDzzka5
-	 dy8jWQhjAtMiQ==
-Subject: Re: [PATCH net-next v12 1/6] net: wwan: t9xx: Add PCIe core
+	b=b3XdX+k7g1qeuHfzDQJ2iRYOka0gRH4z7tMVXXpWPkqQHaVgrj5LqgxEIQ1/97Okr
+	 km+kFLy/0aLmfzY0ZWlOQLjrAY26XFqIYLEb8QKkJTEONOi42uEE3BQOfaaTNPHGWl
+	 OOM35ISdapwx4EMXgrue9MxTdv55K8IkCCIDWId3kvxBW1Ts5acWFXEliUwyWvLUPc
+	 6lr3bpT9r74G99o54jliKym8RApKu4hxYmUVTjkmCdqQBtinP+bCmjzERGusjpzNJF
+	 F1H6Fn0e8Fs4Xxc1CiFdsAVEcDc7ATCALsFEB3QL3bT3PKJkrfZOx/FnIdM1MN7xDA
+	 V18GYmjwwfdXQ==
+Subject: Re: [PATCH net-next v12 4/6] net: wwan: t9xx: Add control port
 From: netdev-bot+sashiko@kernel.org
 To: jackbb_wu@compal.com
 Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
@@ -52,11 +52,11 @@ Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
  edumazet@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  linux-doc@vger.kernel.org
-Date: Sat, 21 Nov 2026 12:42:25 +0000
-Message-ID: <179526494505.3135.4658538684680862441@kernel.org>
-In-Reply-To: <20261117-t9xx_driver_v1-v12-1-e181b616b820@compal.com>
-References: <20261117-t9xx_driver_v1-v12-1-e181b616b820@compal.com>
-X-sashiko-severity: Medium
+Date: Sat, 21 Nov 2026 12:42:29 +0000
+Message-ID: <179526494911.3135.1691599071652469894@kernel.org>
+In-Reply-To: <20261117-t9xx_driver_v1-v12-4-e181b616b820@compal.com>
+References: <20261117-t9xx_driver_v1-v12-4-e181b616b820@compal.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,177 +69,223 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] mtk_pci_remove() resets the modem itself after
-  pci_save_state(), and mtk_pci_shutdown() reuses it on a kexec reboot.
-- [Low] mtk_pci_probe() enables the device with pcim_enable_device(),
-  which sets pdev->is_managed.
+- [Low] Two comments added in this patch give conflicting meanings for
+  -EBUSY, and neither matches mtk_ch_status_check().
+- [Low] The struct mtk_port comment (drivers/net/wwan/t9xx/mtk_port.h)
+  says tx_seq and rx_seq "are reset while the channel is disabled, so…
+- [Low] mtk_port_rx_dispatch() (drivers/net/wwan/t9xx/mtk_port.c) picks
+  the target port from the channel field of the received CCCI header,…
 
 --
 
-net: wwan: t9xx: Add PCIe core
+net: wwan: t9xx: Add control port
 
-This commit adds the PCIe core for the MediaTek T9xx 5G WWAN modem driver.
-It covers probe/remove, MSI-X setup, the MHCCIF event channels and the
-register accessors. On removal, and on shutdown during a kexec reboot, the
-modem is reset through ACPI MRST._RST, falling back to the MHCCIF
-DEV_EVT_H2D_DEVICE_RESET doorbell.
+This patch adds the port I/O layer and the port manager to the t9xx WWAN
+driver. The port table is built from a static config, TRBs are sent to
+CLDMA, and received data is dispatched to ports. struct trb gets a kref,
+and TX sequence numbers are stamped when a TRB is handed to CLDMA.
 
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci.c b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+> diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
 > new file mode 100644
-> index 0000000000000..cf59038f09067
+> index 0000000000000..eb5ea6741ed7f
 > --- /dev/null
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
-> @@ -0,0 +1,1034 @@
+> +++ b/drivers/net/wwan/t9xx/mtk_port.c
+> @@ -0,0 +1,641 @@
 
 [ ... ]
 
-> +static int mtk_pci_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+> +static int mtk_port_rx_dispatch(struct sk_buff *skb, void *priv)
 > +{
 
 [ ... ]
 
-> +	ret = pcim_enable_device(pdev);
-> +	if (ret) {
-> +		dev_err(mdev->dev, "Failed to enable pci device.\n");
-> +		goto log_err;
+> +	channel = FIELD_GET(MTK_HDR_FLD_CHN, le32_to_cpu(ccci_h->status));
+> +	/* A CLDMA instance carries the channels of one peer only (sAP or MD),
+> +	 * the peer of the port that armed this queue.
+> +	 */
+> +	if (MTK_PEER_ID(channel) == MTK_PEER_ID(port->info.rx_ch))
+> +		port = mtk_port_search_by_id(port_mngr, channel);
+> +	else
+> +		port = NULL;
+> +	if (unlikely(!port)) {
+> +		dev_warn_ratelimited(port_mngr->ctrl_blk->mdev->dev,
+> +				     "Failed to find port by channel:%d\n", channel);
+> +		goto drop_data;
 > +	}
-
-[ ... ]
-
-> +free_irq:
-> +	mtk_pci_free_irq(mdev);
-> +free_mhccif:
-> +	mtk_mhccif_exit(mdev);
-> +	pci_free_irq_vectors(pdev);
+> +
+> +	mtk_port_check_rx_seq(port, ccci_h);
+> +	port->rx_seq = FIELD_GET(MTK_HDR_FLD_SEQ, le32_to_cpu(ccci_h->status));
+> +
+> +	ret = mtk_port_get_ops(port->info.type)->recv(port, skb);
 
 [Severity: Low]
-Is it safe to call pci_free_irq_vectors() here and in mtk_pci_remove() when
-the device was enabled with pcim_enable_device()?
+Can two RX workers update the same port->rx_seq at the same time here?
 
-pcim_enable_device() sets pdev->is_managed. Because of that,
-pci_alloc_irq_vectors() in mtk_pci_request_irq() goes through
-pci_setup_msi_context()->pcim_setup_msi_release(), which registers
-pcim_msi_release() as a devres action.
+The target port comes from the channel in the CCCI header. The only
+filter is the peer ID. The queue that delivered the packet (the port
+passed in as priv, i.e. rxq->arg) is not used for the lookup.
 
-The kernel-doc of pci_free_irq_vectors() in drivers/pci/msi/api.c says:
+Each RX queue has its own rx_done_work. mtk_cldma_dev_init() creates
+drv_info->wq like this:
 
- * WARNING: Do not call this function if the device has been enabled
- * with pcim_enable_device(). In that case, IRQ vectors are automatically
- * managed via pcim_msi_release() and calling pci_free_irq_vectors() can
- * lead to double-free issues.
+    flag = WQ_UNBOUND | WQ_MEM_RECLAIM | WQ_HIGHPRI;
+    drv_info->wq = alloc_workqueue("cldma%d_workq_%s", flag, 0, hw_id, mdev->dev_str);
 
-After a failed probe, or once mtk_pci_remove() returns, devres calls
-pci_free_irq_vectors() a second time. Today that does nothing, because
-pci_disable_msix() returns early when !dev->msix_enabled. The TODO in
-drivers/pci/msi/msi.c says this implicit managed behaviour is going to
-change, though, so the driver would then be relying on an idempotence that
-may go away.
+So work items for different RX queues of the same CLDMA are not ordered.
+Later in the series CLDMA1 serves RXQ(0) for MDCTRL, RXQ(2) for MBIM and
+RXQ(5) for AT.
 
-This is still the same at the end of the series.
+Suppose the device puts a packet whose header names channel B on queue A's
+ring. Queue A's worker then runs mtk_port_check_rx_seq(), does the plain
+store to port B's rx_seq, and calls port B's ->recv(). Queue B's worker
+may be doing the same thing at that moment.
 
-> +	priv->irq_cnt = 0;
-> +disable_atr:
-> +	mtk_pci_atr_disable(priv);
+That seems to conflict with the comment in struct mtk_port:
+
+    rx_seq only from the rx_done
+    callback of the one queue serving this channel.
+
+Should dispatch reject packets whose channel does not belong to the
+delivering queue? Or should rx_seq be protected some other way?
 
 [ ... ]
 
-> +static void mtk_pci_remove(struct pci_dev *pdev)
+> +int mtk_port_ch_enable(struct mtk_port *port)
+> +{
+> +	struct mtk_port_mngr *port_mngr = port->port_mngr;
+> +	struct trb_open_priv *trb_open_priv;
+> +	struct sk_buff *skb;
+> +	struct trb *trb;
+> +	int ret;
+> +
+> +	/* The modem restarts its sequence numbering with the channel, and
+> +	 * the first packet after it is not checked.
+> +	 */
+> +	port->tx_seq = 0;
+> +	port->rx_seq = MTK_INVALID_RX_SEQ;
+
+[Severity: Low]
+Is the struct mtk_port comment right about when these counters are reset?
+
+    Both are reset
+    while the channel is disabled, so neither needs a lock.
+
+The reset happens at the start of mtk_port_ch_enable(), before the ENABLE
+trb is submitted. The channel is not always disabled at that point.
+
+The ENABLE can complete with -EBUSY in two places:
+
+- mtk_ch_status_check(), when usr_cnt is already >= 1
+- mtk_cldma_open(), when the queues already exist
+
+In either case the RX queue is already armed with rxq->arg == port.
+mtk_port_rx_dispatch() may be running this store at the same time:
+
+    port->rx_seq = FIELD_GET(MTK_HDR_FLD_SEQ, le32_to_cpu(ccci_h->status));
+
+There is also a second case. An earlier ENABLE that timed out may still be
+queued, along with its compensating DISABLE. That pair can arm the queue
+for a short time while a new ->enable() resets the counters.
+
+These are plain unsigned short accesses with no READ_ONCE() or
+WRITE_ONCE(). A late store from RX dispatch could undo the reset. The
+first packet of the new session would then be checked against a stale
+rx_seq and log a spurious "seq num out-of-order" warning.
+
+Likewise, a TX left in flight from an earlier session could be stamped
+with a tx_seq while the reset is happening.
+
+[ ... ]
+
+> diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
+> new file mode 100644
+> index 0000000000000..48fdadf96f00f
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/mtk_port_io.c
+> @@ -0,0 +1,236 @@
+
+[ ... ]
+
+> +static void mtk_port_internal_enable(struct mtk_port *port)
+> +{
+> +	int ret;
+> +
+> +	if (test_bit(PORT_S_ENABLE, &port->status))
+> +		return;
+> +
+> +	ret = mtk_port_ch_enable(port);
+> +	if (ret && ret != -EBUSY) {
+
+[ ... ]
+
+> +	set_bit(PORT_S_WR, &port->status);
+> +	set_bit(PORT_S_ENABLE, &port->status);
+> +}
+> +
+> +static void mtk_port_internal_disable(struct mtk_port *port)
 > +{
 
 [ ... ]
 
-> +	mtk_pci_free_irq(mdev);
-> +	mtk_mhccif_exit(mdev);
-> +	pci_free_irq_vectors(pdev);
-> +	priv->irq_cnt = 0;
-> +	pci_clear_master(pdev);
-> +	/* A dead link reads all-ones: keep the copy saved while it was up. */
-> +	if (mtk_pci_link_check(mdev))
-> +		pci_save_state(pdev);
-> +
-> +	/* Reset last: the endpoint comes back at power-on defaults, so no MMIO
-> +	 * and no MSI-X teardown may follow it.
+> +	ret = mtk_port_ch_disable(port);
+> +	/* -EBUSY is reported too: every queue has a single port, so a refused
+> +	 * DISABLE means its user count was already zero.
 > +	 */
-> +	ret = mtk_pci_pldr(mdev);
 
-[Severity: Medium]
-Could pciehp treat this reset as a surprise removal of the modem?
+[Severity: Low]
+Does this comment match what mtk_ch_status_check() does? The DISABLE path
+there is:
 
-MRST._RST in mtk_pci_pldr() is a platform reset that drops and retrains the
-link. The MHCCIF DEV_EVT_H2D_DEVICE_RESET fallback below may drop the link
-too, depending on the firmware.
+	case TRB_CMD_DISABLE:
+		if (trans->usr_cnt[que->hif_id][que->txqno] > 0) {
+			trans->usr_cnt[que->hif_id][que->txqno]--;
+			if (!trans->usr_cnt[que->hif_id][que->txqno])
+				break;
+		}
+		trb->status = -EBUSY;
 
-Neither path is wrapped in pci_hp_ignore_link_change() and
-pci_hp_unignore_link_change() on pdev->bus->self. Their kernel-doc covers
-this case:
+So -EBUSY comes back in two cases: when the count was zero, and when the
+count was decremented but is still above zero.
 
- * Mark the beginning of a code section causing spurious link changes on the
- * Secondary Bus of @pdev, e.g. as a side effect of a Secondary Bus Reset,
- * D3cold transition, firmware update or FPGA reconfiguration.
- ...
- * Must be paired with pci_hp_unignore_link_change().  May be called both
- * from the PCI core and from Endpoint drivers.
+mtk_port_ch_enable() has its own comment about -EBUSY:
 
-pciehp_ist() ignores the link events only when that bracket is set:
+    /* -EBUSY means another user already owns the queue, and the
+     * geometry it reports is that queue's - also valid here.
+     */
 
-drivers/pci/hotplug/pciehp_hpc.c:pciehp_ist() {
-    ...
-	if ((events & (PCI_EXP_SLTSTA_PDC | PCI_EXP_SLTSTA_DLLSC)) &&
-	    (pci_dpc_recovered(pdev) || pci_hp_spurious_link_change(pdev)) &&
-	    ctrl->state == ON_STATE) {
-    ...
-}
+This assumes a queue can have more than one owner, which conflicts with
+the "single port" claim above. Following that comment,
+mtk_port_internal_enable() treats an ENABLE that returns -EBUSY (usr_cnt
+1->2) as success and sets PORT_S_WR and PORT_S_ENABLE.
 
-Without the bracket, on a hotplug-capable upstream port,
-pciehp_handle_presence_or_link_change() would disable the slot, mark the
-device disconnected and re-enumerate it.
+The later DISABLE then takes usr_cnt from 2 to 1 and gets -EBUSY.
+mtk_cldma_close() never runs, and the RX queue stays armed with rxq->arg
+pointing at the port.
 
-Once the device is marked disconnected, pci_device_is_present() returns
-false. The 50 x 20 ms poll on mtk_pci_link_check() then runs to the end and
-the "device not back" warning fires. pci_restore_state() is then sent to a
-device the core has already given up on.
+Even with one port per queue, a leftover count can come from either of
+two failures:
 
-The core's own pciehp_reset_slot() brackets its link-dropping bus reset with
-these helpers. Would it make sense to do the same around both reset paths
-here? mtk_pci_shutdown() runs this same code during a kexec reboot.
+- An ENABLE times out and the compensating mtk_port_ch_disable() fails in
+  __dev_alloc_skb(). The ENABLE is still queued and later raises usr_cnt
+  to 1.
+- mtk_port_internal_disable() clears PORT_S_ENABLE, but the DISABLE skb
+  cannot be allocated, so usr_cnt stays at 1.
 
-This is still the same at the end of the series.
+If one owner per queue is meant to be an invariant, should an ENABLE that
+returns -EBUSY be treated as success? If not, should this comment and the
+one in mtk_port_ch_enable() be reconciled?
 
-> +	if (!ret) {
-> +		/* MRST._RST may return before the link has retrained, and a
-> +		 * config write the device does not take is simply lost.
-> +		 */
-> +		for (i = 0; i < MTK_PLDR_READY_POLLS && !mtk_pci_link_check(mdev); i++)
-> +			msleep(MTK_PLDR_READY_POLL_MS);
-> +		if (!mtk_pci_link_check(mdev))
-> +			dev_warn(dev, "device not back %d ms after reset, its config space may not be restored\n",
-> +				 MTK_PLDR_READY_POLLS * MTK_PLDR_READY_POLL_MS);
-> +	} else if (!mtk_pci_link_check(mdev)) {
-> +		dev_warn(dev, "PLDR failed (%d) and link is down, modem not reset\n", ret);
-> +	} else {
-> +		dev_warn(dev, "PLDR failed (%d), trying MHCCIF reset\n", ret);
-> +		if (mtk_pci_send_ext_evt(mdev, DEV_EVT_H2D_DEVICE_RESET)) {
-
-[ ... ]
-
-> +	/* The reset returned the endpoint to its power-on defaults: put back
-> +	 * the saved config space for the next driver that binds.
-> +	 */
-> +	pci_restore_state(pdev);
+> +	if (ret)
+> +		dev_warn(port->port_mngr->ctrl_blk->mdev->dev,
+> +			 "Failed to disable channel for port(%s): %d\n",
+> +			 port->info.name, ret);
 > +}
-
-[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-t9xx_driver_v1-v12-0-e181b616b820%40compal.com
