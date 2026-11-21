@@ -1,75 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257391;
-	b=hqjCLdHNqOgLcOEfA5Ib2MA2tV1y7DkxHIGBJmbDwV+Lkn+FJIFRwF2fayk6aoE283Ep
-	 Ukaw2U7/qicqvambnL5i8j6etjSgML+ZjSQtxn8lM3DViuxBnvIcjH6puUL0HCrKuC9tO
-	 T1jsfi0apKFViKKAg7CruXBC3ucYE2myk1x5t681er4HoPyU7uCXujBa9SBlNaxA5mym9
-	 7dQLSz3DmPVKhy/+rS65CD8Fc8FIqTq7sPeQEdDNTSjhOTpQ/iv7Dv6IVnueKx9OxVwJu
-	 w5Tg5123JgiY1XNR1za0pxEwHJNZoP/Yp1B/dyAwGbmM0G4CkjqVB6zuvBZmMGfEKeg==
+	t=1795257399;
+	b=C3jxcbsM/PTlxd5s8BMsOuwawWwlMLgm19eGNa6DW3WN3S81WBxtgbWIwvChOdpIwH89
+	 9qVbqd8TYNXdfv2nMAdmIja6UOZppGhrIxD1sI91vginpdBJ2CpFUDWajoVUEbNervAar
+	 TAYrjcrPRFq2bAQznAD/q8mkoTZgHLaXwi2beY1IFNl642MFg//F+xQPINOc2dzK0zse5
+	 GgF0AJKe13c7o3D/78pFIQMJNABzA4nIcGQbTx8oCYG3fIK7zGhJRvXpYJunaiwhRYLg0
+	 aTge7ELevZgljZL0Pp3nrP/rx1ndHEhAJaoExJhdgDM2xyExvll2WqSUGinawo5ulow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257391;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=a24bhYwRQlrJ8z4mZ8p6S5WIN7NkVtJONVg17lD3DVs=;
-	b=nkes3CUUjbs6fCdoKRD82ygGLzThmli3KjmLwGe5sFVtxi6e55FE/MuwhXUOf2ZG0qM/
-	 qn+bBPfjNjyuzWmyq3x8ET4Bco28nz+Ry3yiDeIJljNRAtvrrrhZBCCclhScEIGdt/RDP
-	 yaKeNBDeV9l51qEBAn6j929XLwTiThljyessXS9uraS0kMRWBKpqYQq+ZOz6cF1eONxka
-	 6oUq9qmEONXCnAYhQO4hL7pRLa1HCVB+wUZ/a1V3l/diJPsEJO19gMnTwFqoAkZN22MqZ
-	 Fk5S+tliFaVicO5VIhH4Mwtlsqtj98H9OzsCdpu9B0/zXTxf9Th1QTi6Nmx8nK5pb6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257399;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=zlgphkCqUOZkfZTPFhVitOlLwkz+8/Rg7msqF4mZoQ4=;
+	b=wIgMNNTx3nsN8V474jvGDnhEwG/5UJM6K4qL/mT8X11pq1snI5i2cxV2kzp239KAOpf7
+	 vP58nexWBwxhAGns9yBW8viVco578tpVe/3cM4CRB2nir3Hr7ZJBNnbs7CZenqpiyP2UZ
+	 LDtnSLEYo3SLUpupLt1VUqNkcPMVzO6M0yEtdGfJkL9sJcK1OPygR2cakqX2kjMj17ZgF
+	 2XJkKPNLxIvUarshASNIsvaW3C0udu8ckdF25ADLHghN9mxBph+GYzJGK/PUliPOhtjqb
+	 MdNdEMGNiLxzjx7soLeRTSoyxDffyyGiGJpXtgcQacno+bLPV0aH6ZA490w96Gbc7oA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=KN5OIDCJ;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QlIlaTTM;
+	arc=none smtp.remote-ip=91.218.175.39
+Received: from mta0.migadu.com (out-39.mta0.migadu.com [91.218.175.39])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39347606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:36:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39347606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC7F8606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:36:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC7F8606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=KN5OIDCJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id D3CFA4E4168A;
-	Sat, 21 Nov 2026 10:36:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A3723603CF;
-	Sat, 21 Nov 2026 10:36:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B3DDA11BC0EEE;
-	Sat, 21 Nov 2026 11:36:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795257388; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=a24bhYwRQlrJ8z4mZ8p6S5WIN7NkVtJONVg17lD3DVs=;
-	b=KN5OIDCJS3mC0DV+/tecB4+KKiXxsNzUimcVpOio47YJDKwEcksfwVowgpNyRg1ZD2lcIF
-	GQCVvuCIkvP3d2JHjffbMwDCyfNKdse6/EdBSRrf5HSrgciILsrR4FraaWAwOBqZmmo7wn
-	mc0JOhkUpwqBedgOLZngfuIqLKHmR9DgaMfctLk0qrQohs8x5857cQFqvHPjVsEXLRZJ+b
-	FIB63DuigV4QMezJhfc6TWMijigY8AG/YdQqDWlFWEgRF0gGkXbUpqCVCQEeA5gEv3rHLe
-	I0nxZtrA+tjwtcDhSiDJdxleiZz4LD0I8m2QzayyCkwLDvwVakqY90Ce5hWi5Q==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QlIlaTTM
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=HgIwESM6dA8y7hBlduhrBhg1MrV+gTYGCx00jHwO1zM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795257397; v=1; x=1795862197;
+ b=QlIlaTTMw54R/GcZCIMXzUIfT+ENjKi+D6EEg/SYguChwGg7zVV1iV/SaaHO3Kexv/aFYQfz
+ vXj9IIfwLs82BKY9/IeVXDsvqgVbiElyxPKsbFaWdVba5Aug31Y+JAzDana6jvoeQIJaMU44PQU
+ 9iGs+rjeohCLmtmaGWksEIvk=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id f1a40ebd3524503a;
+	Sat, 21 Nov 2026 10:36:36 +0000
+X-Mizu-Trace-ID: f1a40ebd3524503a
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: bpf@vger.kernel.org,
+	ast@kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Sitnicki <jakub@cloudflare.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
 	Willem de Bruijn <willemb@google.com>,
-	matttbe@kernel.org,
-	intel-wired-lan@lists.osuosl.org,
+	Neal Cardwell <ncardwell@google.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Sechang Lim <rhkrqnwk98@gmail.com>,
+	Mattia Meleleo <mattia.meleleo@coralogix.com>,
+	Michal Luczaj <mhal@rbox.co>,
+	linux-kernel@vger.kernel.org,
 	netdev@vger.kernel.org,
-	thomas.petazzoni@bootlin.com
-Subject: [PATCH iwl-next 3/3] igb: advertise symmetric pause only for full flow control
-Date: Sat, 21 Nov 2026 11:36:12 +0100
-Message-ID: <20261121103613.166611-4-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261121103613.166611-1-maxime.chevallier@bootlin.com>
-References: <20261121103613.166611-1-maxime.chevallier@bootlin.com>
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf 09/11] bpf, sockmap: Fix apply_bytes when a redirect sends only a part
+Date: Sat, 21 Nov 2026 18:30:10 +0800
+Message-ID: <20261121103222.88209-10-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,37 +94,99 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-When flow-control is "rx on, tx on", the "Pause" bit alone should be
-advertised, as per te linkmode_set_pause() implementation, which follows
-the 802.3 specs.
+An sk_msg prog can parse the header of an application message and call
+bpf_msg_apply_bytes() with the message length. The verdict then covers
+the whole message, and the prog runs again at the next header:
 
-The Asym bit is for asymetric configs, such as "rx on tx off" or
-"rx off tx on".  Let's align with the specs and not advertise ASYM for
-full flow control.
+  +-----+-----------+-----+-------+-----+------
+  | hdr |   body    | hdr | body  | hdr | ...
+  +-----+-----------+-----+-------+-----+------
+  ^                 ^             ^
+  prog: apply(len1) prog: apply(len2)
+                                  prog: apply(len3)
 
-Tested on I350-T4 PCIe cards.
+For SK_REDIRECT, tcp_bpf_send_verdict() takes tosend bytes off
+apply_bytes before the redirect. But the redirect can send only a part:
+the ingress target can't get more memory, or the egress target has no
+send buffer left. The rest stays in msg, or goes back to the user who
+sends it again. The verdict has already used up these bytes, so the prog
+runs on the rest, in the middle of a message:
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+  +-----+-----------+-----+-------+------
+  | hdr |   body    | hdr | body  | ...
+  +-----+-----------+-----+-------+------
+  |<- apply(len1) ->|
+  |<-- sent -->|
+               ^
+               prog runs here and takes body as a header
+
+From then on the message boundaries are wrong.
+
+Give back the bytes that were not sent, and keep the verdict while
+apply_bytes is not 0. The bytes of a cork that fails are freed and
+reported as sent, so they stay used.
+
+Fixes: 604326b41a6f ("bpf, sockmap: convert to generic sk_msg interface")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 ---
- drivers/net/ethernet/intel/igb/e1000_phy.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ net/ipv4/tcp_bpf.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/igb/e1000_phy.c b/drivers/net/ethernet/intel/igb/e1000_phy.c
-index cd65008c7ef5..98dda73d507b 100644
---- a/drivers/net/ethernet/intel/igb/e1000_phy.c
-+++ b/drivers/net/ethernet/intel/igb/e1000_phy.c
-@@ -1043,7 +1043,8 @@ static s32 igb_phy_setup_autoneg(struct e1000_hw *hw)
- 		/* Flow control (both RX and TX) is enabled by a software
- 		 * over-ride.
- 		 */
--		mii_autoneg_adv_reg |= (NWAY_AR_ASM_DIR | NWAY_AR_PAUSE);
-+		mii_autoneg_adv_reg |= NWAY_AR_PAUSE;
-+		mii_autoneg_adv_reg &= ~NWAY_AR_ASM_DIR;
+diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
+index da9caccfede79..25f222b569ec8 100644
+--- a/net/ipv4/tcp_bpf.c
++++ b/net/ipv4/tcp_bpf.c
+@@ -449,7 +449,7 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ {
+ 	bool cork = false, enospc = sk_msg_full(msg), redir_ingress;
+ 	struct sock *sk_redir;
+-	u32 tosend, origsize, sent, delta = 0;
++	u32 tosend, origsize, sent, apply, delta = 0;
+ 	u32 eval;
+ 	int ret;
+ 
+@@ -518,6 +518,7 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 		redir_ingress = psock->redir_ingress;
+ 		sk_redir = psock->sk_redir;
+ 		sock_hold(sk_redir);
++		apply = psock->apply_bytes;
+ 		sk_msg_apply_bytes(psock, tosend);
+ 		if (!psock->apply_bytes) {
+ 			/* Clean up before releasing the sock lock. */
+@@ -540,10 +541,6 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 					    msg, tosend, flags);
+ 		sent = origsize - msg->sg.size;
+ 
+-		if (eval == __SK_REDIRECT)
+-			sock_put(sk_redir);
+-		sock_put(sk_redir);
+-
+ 		lock_sock(sk);
+ 		sk_mem_uncharge(sk, sent);
+ 		if (unlikely(ret < 0)) {
+@@ -566,6 +563,21 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+ 			msg = NULL;
+ 			ret = 0;
+ 		}
++		/*
++		 * Bytes that were not sent and come back, in msg or in the
++		 * next sendmsg(), are still covered by the verdict.
++		 */
++		if (apply && sent < tosend && !cork) {
++			psock->apply_bytes += tosend - sent;
++			if (eval == __SK_REDIRECT) {
++				psock->eval = eval;
++				psock->sk_redir = sk_redir;
++				eval = __SK_NONE;
++			}
++		}
++		if (eval == __SK_REDIRECT)
++			sock_put(sk_redir);
++		sock_put(sk_redir);
  		break;
+ 	case __SK_DROP:
  	default:
- 		hw_dbg("Flow control param set incorrectly\n");
 -- 
-2.56.1
+2.43.0
 
