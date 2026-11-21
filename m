@@ -1,78 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296817;
-	b=LTK2sV7hNHe9KkyhyzveOa7cWr4vBhZr70EZYqffEBGBNb0q+BKgAx9HUYD3cZALwnZ+
-	 TnOO/1RlziZFI5ZiQBaqYHztuED/drR/Bq8YA+pz+jyfiJRDtLog6jretjIDzSLXemlFq
-	 zrhjudibL/GTBVviqqf+uAyYCnevO8g/Z58UMfjd8SxnOcGHoJ882GE3KrnOKKN2MPqit
-	 KITT8iWnlO0GG0k3mmszRDlRTyW2024Jt9TNnXdN88zRktXjCuGMudTxOSGkS85TCUJie
-	 A3JfNY7xytWtTxJC1uufzAGn3+1vehbXwd6lIMkBhH6NJAM4jcyHOqrp1IHDkRM/juQ==
+	t=1795296865;
+	b=Vt1FyoPPgzy4JCtOSZGGSo4IeOszc+aHy2ghmYSys9ps7UQn76N03Dl7xijF29F4JGBT
+	 2Wz2kyhzRxCDiyPsPjtLk6d+VgLPxHocaGrY+ILyySJcH/+df06fg3hOWZnnrXJzH2pVT
+	 9xSXXGxtkPsEEsxXlk7KaGKtjMYNn6SbvuBULojqtj7JwwFLm17JejegpHDk4LRqITr+t
+	 LOQobw+oDYl1BP3lb8tHEzrqEvsI49x42ojZk/rjQELIlMY8FhJdjvIGEdPv3yxTXkxt8
+	 CPx3qxF7kLIZgIsRGMaXu/nSecRfEkfWQ9p9/pGgOSSHqhQGAbj1eCL8R80UqSBDh1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296817;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lxD5zixKw7Tr1W31Lc/kVqjisXnCxr4/jEW2jAJqxqY=;
-	b=WnyNAzG5b5Diz6SYfDDmFbTeUKM3Eg2I5ynm/cF0Ublpwm+t2WnCSOi19S+K0OWwsWUA
-	 39C346KQm1qYgifj02YFDwgQALN51dW1FZ7fAeFFjIxbMZcAI/E/Jye/AKeEAQRW3+dG1
-	 dMRPBsTH0BVWrhCVkZfELG71dozGdrzbLpe/TLIKifpy2ZuoFMOEGhDouQgIw2l2jTUQ3
-	 NCJBIXdP8fPQ11ERsuwUBfmk4s/uE6Oa3QWLw7EUqc8yeHD1J1UhIYaKifvMvhfiPHvRI
-	 U+27OCoeV64x6fFGRl8xDo5aWsfTylYHrQoA8yOFWIrHXMKB/HkhVPbLX32HmP2G5Dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296865;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=mUChzLeVR2MtutKX97MdpZQXyx2OvW2YcvAen733fVE=;
+	b=hdluti0QyGzCc3QDhubZ8QqyDKxvKhVM1Kh1EryEqjySRgPZH2HulMRf+7MG8luWpv7T
+	 OO8hxoqd0M+X3z5/kV1apfBhj2b1c0reQo497xtggtR3QoUQuJ/y9G0H8oQ2Ro/kXVwmk
+	 fji11PuhVzTeYAow3eVXQcaBu/ILS/PCIvBEguraM9TqGZZTfAtvj3oU6hMRprhg0AF+b
+	 VvvB/zknynpbv46i0Lz09VVFeJqIkMmb4iQU5d2YEEIhMlg7ZjAqA7FzGSlBTjs5wPCDW
+	 2iZe6N//bAzUwNMiT+Lexdw79cdJlsu3rZIM6Fk8wp+zffT9tHmvQ7hxwTBWmzRXd4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=d0YsZAnp;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 092B2606A681
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 21:33:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 092B2606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b68e59ab33so1662951b3a.2
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 13:33:36 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795296816; x=1795901616;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lxD5zixKw7Tr1W31Lc/kVqjisXnCxr4/jEW2jAJqxqY=;
-        b=seC6/46o46pmGBV8S8xmrDLK5CBmgvW/4Kygam18ZY3zmgFZXDuC7Gg/8LsqGlAMhh
-         anwXNGxBSweU5XX8CDReyKJ+k1pP1EqZCiqPgUP49S37crUInxE6g+xwxvjrTvNprBis
-         ZPm9uTrNyrqSRTvZzRQx6pZDPFWvoSehgheIgZy6R47yYu/GG9F9KxqQdmIhmllECaS+
-         aF/Pi2pvGNpw1pwrkL5KT6s6KymTtzU5IrilOLNJiSMRHAmMng3XFuS2xnC6Advajjbe
-         dpIrVAXBY0Vi7l8J20IVTYqxhbBmD8Mq7R2HSCoJSEz9ajRBv1ZLd06kfS+H1gmtXehs
-         UkVg==
-X-Forwarded-Encrypted: i=1; AL+hErGzTMN771XGbPwFTE/TSgTpJcyQvnoRXRPRt2lELCBeBuJzic1/SJbW6iHA1/wZrQl3GIQDi6c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9IGQBmDsNuy/tI2N4MztBwX/OKccZjjquQrJ1wi41LTBNbu4SW
-	TNqFI+Fvg4Q4kdwyJHqHLcWbFlkaIkTudEEjH/s1OSpMAwQJYk4+mvDOW6MO/CW9
-X-Gm-Gg: AZFdTZdk28U/fuLGmx3UvE2TnU7dEzECyUNTdXZGs8Pq1vT3i77u58fgWdq2X4o1TkY
-	20ypZyl0dM9VfzimvSIbWk5tM/98adhZeTXuYUsTZrNiQfTJ1LdanrBDvR54FOjhseoPlhIvdtf
-	KUbgltA/iZ+nStFQlB3HbkK0fkyWtg2ixW5/grGGlvZi50f3/71MMV5ksC4F/nHr/W8/8ihh7mg
-	O9qop5vKPaV8uwgiixNNo3psK59JBig0X9XBFB9LjaZ9S1NjABGBytOl9bjTa2phoECw2W0Y1Iz
-	rILL5fiDGvBaaS/ZYUO/UAxyYPMYGEjPE21xxGH1KYmW9P9x4adDbCGmg2qGTn+DVwjMRszuRnb
-	8eZ417dBSKU3MJrSgaz+Bc5ACnp+9jqfRglnLrtsDGSrrrNMOBPntHCEQXMmnSK1WZq1GTUI7Nc
-	Iaz5TMA1N5kVH8l8FxNWwbIqH5AnYMvICrvYLLh56FD2W+SI8D2HCEQhEbFNDFZ+BV5SqR+WAfw
-	StY6CJxfUipHIrYqsDlcWU9MnQvHpMXRq3Vh4E3hr0IjNWHOtH0i7PJ5Y3N6g0CGYV/P6JT7Egu
-	FvNOOaQhGnf/9QAq1GaF1vBgzZ19ZMrxJ8OO49qf9bnR2r/cdPaJe7630UzBmqCDK6M8wHCJitB
-	Q7QtwQEU8fWJOO/w4PL4peZuUyw6GsmFUtTxUphf0MslzY9RutpKeOP2xpQ==
-X-Received: by 2002:a05:6a00:2987:b0:8b6:3e44:8aaf with SMTP id d2e1a72fcca58-8c87b4ee9c0mr6192564b3a.20.1795296816186;
-        Sat, 21 Nov 2026 13:33:36 -0800 (PST)
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com. [209.85.210.176])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c219sm3205824b3a.18.2026.11.21.13.33.35
-        for <netdev@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Nov 2026 13:33:35 -0800 (PST)
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8b66d1a08ccso1582214b3a.1
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 13:33:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHly8LVkAaunsDzeQ4u72hKZuaR9A3VS+LaH+j/MeRlp8RwvlWBQZshgsZfoceJJI0KCuSs1eE=@vger.kernel.org
-X-Received: by 2002:a05:690c:7206:b0:8b4:e51a:c4f9 with SMTP id
- 00721157ae682-8b52032b68dmr26349417b3.1.1795296389589; Sat, 21 Nov 2026
- 13:26:29 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECF3B606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 21:34:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECF3B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=d0YsZAnp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=mUCh
+	zLeVR2MtutKX97MdpZQXyx2OvW2YcvAen733fVE=; b=d0YsZAnpbPtYmpNcRM2C
+	SwMgfmHzUur9jym6TLvWP6yFBmfbiMz7GTVq2bYzCi9mo7w/J6gmvlLNeKVbxfEF
+	ATF4zA8/M6UHo+wOll0MTUswaIbCpJ1Cy5jtzOZl/mgbRMqPWKcWExP9YxEok13Z
+	IkGJniWBTahtwqByiPMbUSDp/SLEMvMN4U0kvyY9W8ZiSH1qWjNoV6WbzFV+FdWH
+	wAJmaZEnUv7xwJ+Njk39l7jlQO2linQutAXM61ddpShNXZOWt/oRVIdp8eRhi08J
+	/FKL7hwLS4TbZmfWrpqX0qscB2/JlqXozeMgtL1R1s0Idk1ooGu9sL+DfpM6hUYH
+	ew==
+Received: (qmail 1948086 invoked from network); 21 Nov 2026 22:34:21 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 21 Nov 2026 22:34:21 +0100
+X-UD-Smtp-Session: l3s3148p1@iaquH9BgZOIgAwDpTyYqANgHwk2rnHm5
+Date: Sat, 21 Nov 2026 22:34:20 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Ralph Siemsen <ralph.siemsen@linaro.org>
+Cc: khendry@reliablecontrols.com,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 2/6] clk: renesas: r9a06g032: Add reset controller
+Message-ID: <awIOXP337u_nHqnN@shikoro>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
+ <awATU_lyjPBxThwq@shikoro>
+ <awGZ-nCCbCNEuyr7@maple.netwinder.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,78 +87,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113121852.334604-1-tanure@linux.com> <20261113121852.334604-8-tanure@linux.com>
- <CAFBinCBZpruWYPrCWhRY146C9fd6ij2cOirJNORqAJFaiGZJ5Q@mail.gmail.com>
-In-Reply-To: <CAFBinCBZpruWYPrCWhRY146C9fd6ij2cOirJNORqAJFaiGZJ5Q@mail.gmail.com>
-Reply-To: tanure@linux.com
-From: Lucas Tanure <tanure@linux.com>
-Date: Sat, 21 Nov 2026 21:26:17 +0000
-X-Gmail-Original-Message-ID: <CAJX_Q+3X8BGwj5ydk2TN3tDNLrrhgfKx1X1LQqjePYXJwqs5LA@mail.gmail.com>
-X-Gm-Features: Aa3M54ryC1wrMtzkfpXZSCYbt8X4yrGmEQflHHmQnHyfNLikt3muwFhwFJm0PEo
-Message-ID: <CAJX_Q+3X8BGwj5ydk2TN3tDNLrrhgfKx1X1LQqjePYXJwqs5LA@mail.gmail.com>
-Subject: Re: [PATCH v7 7/7] arm64: dts: amlogic: t7: khadas-vim4: enable the
- ethernet port
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pTXDnQ8DG42W+K2e"
+Content-Disposition: inline
+In-Reply-To: <awGZ-nCCbCNEuyr7@maple.netwinder.org>
 
-On Sun, Nov 15, 2026 at 6:08=E2=80=AFPM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
->
-> Hi Lucas,
->
-> On Fri, Nov 13, 2026 at 1:19=E2=80=AFPM Lucas Tanure <tanure@linux.com> w=
-rote:
-> [...]
-> > +&ext_mdio {
-> > +       external_phy: ethernet-phy@0 {
-> > +               /* Realtek RTL8211FD-CG */
-> > +               reg =3D <0>;
-> We've been following this for a long time until someone found out that
-> RTL8211F has a broadcast feature.
-> Can you check the strapping registers (or simply see if the PHY
-> answers on address 1 as well)?
+--pTXDnQ8DG42W+K2e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Checked both. The schematic (v13a, page 9) straps PHYAD[2:0] to 001:
-RXCTL/PHYAD2 and RXCLK/PHYAD1 have 4.7K to GND, RXD3/PHYAD0 has 4.7K
-to EVDDIO. So the PHY sits at address 1.
 
-A scan from the running kernel agrees. It reads PHY ID registers 2
-and 3 at all 32 addresses through SIOCGMIIREG, which goes through the
-mux to the external bus:
+> The reset duration could vary for each reset ID, since they refer to
+> different hardware. There's probably no "optimum" value here.
 
-  addr  0: 0x001c 0xc916
-  addr  1: 0x001c 0xc916
-  addr  2..31: 0xffff 0xffff
+Figures 7.3. and 7.4. say "5us delay is recommended" when changing
+XXX.RSTN bits, at least for the NoC parts. Yes, we can agree to trust
+the driver authors to get it right, but we could also decide to make it
+hard to get wrong. Bigger delays can still be open-coded if needed.
 
-Address 1 is the strap. Address 0 is the RTL8211F broadcast address
-(PHYAD0_EN in PHYCR1, on after reset). The vendor tree uses 0 and
-only works because of that.
 
-> I'd appreciate it if you could update this patch so we can use this
-> approach as reference from now on.
+--pTXDnQ8DG42W+K2e
+Content-Type: application/pgp-signature; name=signature.asc
 
-v8 uses reg =3D <1>. The PHY attaches as mdio_mux-0.0:01, link at
-1Gbps/Full, 941/944Mbit/s with iperf3, no error. The commit message
-says where the address comes from and why 0 also worked.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Lucas
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsCDlwACgkQFA3kzBSg
+KbbM8hAArBvvQ3J6Gl2ZjLmVjeIL3UFqSTbiCDK7dNBn73kMdODTOv6XgDwwQCJ0
++RQVzZUoF483LdiGroT52MAKjlo1oWzk3gdMmtMt7FtGeZyFbC+E8jykCJNKM8tW
+TlPcVmrqpF94fiaGWpaa35ehTON2ezntNWShpvM/N5a467PfztHUKOEMyx7ERO/D
+q8Zn//i6qbQ/bci+hmagIMmDXFBiHV6akmDzttSbf4wZdH2u1yroItrahB3wTblE
+PL6B5BA4GjBL64FLKr8XW4NVDhxQmAVDoZdMlhUWjPS5vhqCPfS6NNuTLQUzUfWy
+E/BWwxn1CWMTxV+HhO4AXFVFrys9T42Z08ICAFOHjOleoLZplVkfMN+zIh3h7wBR
+o7iZb25vxWL2hu8UgGMc2sNo8OwT0PATXlCenrBuR/uqhSIsfhRCC/nF02/ZI47v
+ahSvFkWSufuVhwIhbUmk8U5Exgzj+Mg9c4TjhrRTK6MCDa4fpdCvNnpl1U72mJHR
+Xq3jgLhM+4bodCBDJQHXPVNZwkMbyKlTf+hPpav6okETuNgQ86XE+CNYNywhmnzJ
+Mlo12B/mYG5JwpKPGcR1smZkcwNsrp/A+I1asgC7fhSDs7eD5HXNlLBN92yrCTc4
+3LnPqGr6KuIzZPaT+I3FXAJ7Zoy5D41UpNpmpYtcFmsR2WAy6ys=
+=XIqi
+-----END PGP SIGNATURE-----
 
->
->
-> Best regards,
-> Martin
->
->
-> [0] https://lore.kernel.org/all/bc8c7c6a-5d5f-4f7c-a1e2-e10a6a82d50e@lunn=
-.ch/
+--pTXDnQ8DG42W+K2e--
