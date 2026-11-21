@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231945;
-	b=th/RsyRpW4GxU9cS7Ka7rjK7kYAiSDOZaGhETw5VSv2pYvLT7fX4Ijrd0Wrc2MfUOwYb
-	 fdy2qEUUzDFyIodDvxXeWS7nYf7LEp30dfDeq7yDyt6AL8buoZo1XEBIyMaCoImfHt4yi
-	 0rtcbwnqT7HY+jSbQ7JoKuHlHXUUdJix5k38LD77IQorx3WaVm8fNZGYH6LWJkSXs1CVp
-	 5vY6LBhWaTV+vlV4cvZW9bvFqWMJHmlBfxR1RpBeVsS5DQdiiD9Winh61XHsKlrGMsPxm
-	 Xn/6MvNC1WEG7kSS9BsWukDhtjystQX7c0LqVnG6Uhom39BeJaRK/q12Sad0tKLQU0g==
+	t=1795231946;
+	b=obNJ1GJZ7XUDSyTIsVsPCzO1No6kktyDjWqUyGO2ydOmTsuY1DLvXXIq1f/TNqlWuhrb
+	 2ycsMX4UKKR8Vn5WZCHRM49vaHQbO30Fa2GaszsYABy4Yhy4iLM+REAQk03FVw2W5opK7
+	 sNdc47WH2QC7LSz6m2ygDueZBaroeZL6rOhIhaoK5TqfsD3VeTQyTOKwGgBvjQcdbZXNS
+	 /Fk7WjRbyVFnQxbahu/yt5blR29S18h9ESImnfuiurBpEeYD1OFt7NcInOAtYYHJjT/Q6
+	 30pA8zK0hjRa2Q2pNCbGcZczdN74F6ypotrdzd+u4NmN+lyChRHGTSDat+Ksfw0neKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231945;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795231946;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=OFDri0UyRAP3wGFRIcdH4k8juV8Vp7q5ixeYNyrnwww=;
-	b=DxTe9ZI0HdXVhKYdsHk7rfnS2BNjxDDYscR5KoDgeVcsMj3CNceuPBQSt0bnBDHNBPz2
-	 dX8ksvWyJcKOyahZ/SgiTveIAzjr7zxQx4JmeITfFjkQjnQHemaqGqclmvVGXFEWwOR2Q
-	 tQWQN13lTcnNGI65eLmMp5TVGdpUXl9GPVAqTEXvZhnDkCc+0Lo0q5NOoQuhsrih7cYIk
-	 /vx4bu+q2oqIoNFS+k4bI9BHnA/hFXUw8wRXAnyF8/LHOUAfcidPAmYIt6AinDocZHQ92
-	 YMqXaI6FMudcRBsw5Yw2I+yZ43NBheK//4hlZy+2CvLfs5zCyK0khlfd8Vc/Eo5awVw==
+	bh=wKyVEUcCtfCHn35kKG+OhBaUhVfqRDXWHj3fUWM2PnI=;
+	b=bfhUuKvmHA6IXceSUggboWhTCrkIde/9fDxf6p4iafhxrSFVoGEIK5g7rCLAMtJ8qH6v
+	 ot0wdyqtZOSxgr7cRt646G+OXQVYy0eveiPtpMWhftCiS1c05flySp922yqZH+PqtIV4u
+	 dxpGSNXDxghrMvBOXtiRNGrKfFssCc7C5X1fLexDW7CROK7ULJb+o2v3bmigUXzIpR85s
+	 byfw9+TdSZJHRUHnBMiBEpeB1ujEZ5vonzhplZn20wHvBgdDNFyBL0GCRsfnQNPBK/6GW
+	 wWlpAa1aX3BGTkQoCXPQRgUmUAHEPivPOoAQUYnlQh8Il2zbp8Jo84lzoy7rySGsmWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fsvNnMGJ;
-	arc=none smtp.remote-ip=209.85.215.174
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eTeJbitp;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B782606A691
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 03:32:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B782606A691
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D46C606A6BA
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 03:32:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D46C606A6BA
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fsvNnMGJ
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so1573518a12.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:32:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eTeJbitp
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1402602a91.3
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:32:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795231942; x=1795836742; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795231944; x=1795836744; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OFDri0UyRAP3wGFRIcdH4k8juV8Vp7q5ixeYNyrnwww=;
-        b=fsvNnMGJgCyNufxEYRkG7xIICFlr0ulG1+Hqx4L+kBNUoAYtC5eVawZ9WE6CcLdGPC
-         BejJfG3EUCHJ5LFQKZWwwg1nG89wizo5++nG8Jm1UVqQI3OLykKgullreVbx9qVV5Yxl
-         +loFq78mtbywtMpp+5eYpkh0riuu/GG7s0nHHL4IAgRa+E1G36RGaVhQv9oqRwuDzbbQ
-         RcnPOExlNv2b6ph96twEDy2LSCxDltfO1dHOmYZnDovDvG4wQ4ZNibS3/+gkfbiWu4q3
-         uKbBpdQRnb09f4HZWakrm6wSDY9byWhxhDFfjdzFp4O9y0iqBoBUH/xCbEuzR0AqugCe
-         ud+w==
+        bh=wKyVEUcCtfCHn35kKG+OhBaUhVfqRDXWHj3fUWM2PnI=;
+        b=eTeJbitpwjDs4hlSJDGTuttmkRUMF4tl1m5yGVibUkdr+sxETj5oPeJ125LWqEf2ib
+         zTVY9tpEkuQXzZmLpnkn2WxMEtTEbm5pBX//mOdwTeQnV+fEXVZrRdLwP2EKZcNbAEiX
+         s4qp4GNJjdRMDYAIfqCHm8bj8OTBdd+SZ1jw7ApuUdbvIsTqtkWsznSbVFGtCYVxMAgM
+         wU0VrGdczPlBfY7CQmEAWMYKIZDvL1Fg+km/2hAd0V4h6RaZWYyynFG4k6DbCmYTuVqq
+         mbqFbJvOyV0nX8ysRo8mB6voWU2JzQgY3lYgjUEd6G1mCRNfIAN3lyMCZccDnfC1KuyS
+         8cQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795231942; x=1795836742;
+        d=1e100.net; s=20260707; t=1795231944; x=1795836744;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OFDri0UyRAP3wGFRIcdH4k8juV8Vp7q5ixeYNyrnwww=;
-        b=Ew5995SMiEpRtc07rXTt1qI3EK+mTQ+X5k1OzTVmNdRktBDuNZ/gakhvj6uyAbKTxg
-         bVKUxOPTIebB3nuQcEuTSz7XKjnA4x7JuzPobF9OH6rlg2Oi1ThU0pcggduZ7WTmYgon
-         8gf5Pihmrpc+epy9LPHI7yF2bv6ZRnaWAd9sn0+dMjuTUxDU/l2mBLYQyb5O+923zuCK
-         OzTUDD93KwCpArZB4CyFpLbgVtNPN3hLqdkIJUIQnw8YDSVXeOp+UN5h7KjMdgWrSCg3
-         dTBNrANh7VyIE+RhghkLhW8bBNoPu+OepLfHUNGIh4ocRnP2ehS7H/hx81zD0/yjAgSu
-         2p2A==
-X-Forwarded-Encrypted: i=1; AL+hErGz1WENsqRLd2TTiemRq65sAZm4ylB1BULW0ticHi/J6HI6LTG4eOVn0d8SlHYY1kaRRDqmly4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//q+qNqgu3T1tXXFPzlIF9R20a48nv/KzhzVprjizL3eV32u5a
-	SSjxl+UgZKkb58CjJtoNN2VM2bJxhKfyG1XgaI8eJemg6sbrQpe0lZAc
-X-Gm-Gg: AZFdTZfYobUD4NKzdhAsgVp0b2hTP1U+arB1egOl1G/ijZr3H+7Lx5ZEbfn0JEed6gf
-	o0wP44SN7Zh4WQ0o41FDyT73v4KDxXiVT7EjnrJtsWtTRK3Sq4G+pEGNzSoIjDHCLHU9rgtzIRi
-	96CLMYIQaf8o/2mCnwmZ+mWsUYdGIYCJZz+4mdE0r8RxVM71HHAq43+yheE2VU2nltQuHrs2/pz
-	WfKRVTt/oNuqbQbHOGYBIqWXCAvTijuf/6qGbd1mDcp0PErgkqRRvQtnkHVrgQfPDixaya5sr46
-	ild1n07O4R5U5/E+pDq638KIRBpI97bHz4bSb9FgV5wzastgmFNjmAlKLaaCx6grvvfRccpwj78
-	evTH7ldahT5MkRvoQV1kSvAQW+bO4+8a9oLtNpBkfpnunLl+HSG2Cs3LFYgtbM98y/v15iY3lrK
-	E74ucRdwZzH5ajstnmfo77a97eHuAUufdnw8fi29zwEyZ/v9JS8nxJdIbqWItm05mhkcmr5OzzN
-	8lyDVob4V4rJzQs9LpaFcsJevheAAquGVFJQDjZAmg0rZMcEW56jQSy1bjGMUHmvZF9h3vd6ofc
-	Sur981xKTFYgfRz0BHeWceMxS1VqMLh3yQE=
-X-Received: by 2002:a17:90b:2c84:b0:3b4:409:f173 with SMTP id 98e67ed59e1d1-3b41c7b6060mr5182254a91.5.1795231942484;
-        Fri, 20 Nov 2026 19:32:22 -0800 (PST)
-Received: from localhost ([2a03:2880:7ff:57::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b6fe711sm927346a91.1.2026.11.20.19.32.19
+        bh=wKyVEUcCtfCHn35kKG+OhBaUhVfqRDXWHj3fUWM2PnI=;
+        b=rEylKAWQub43iwBIREzvWP87z4hpRCZeoQV5BHLKvSGa8RVITpTIE6SHPsmyNnr27o
+         xcBh4LJoIqm6ZFukqyjzmq8TY5XqKkwreR/1pziC+GH+Yw8KZkFQ3b6pZmPiJjvtnZ0U
+         +sPxBlB2QjgPiMSWRGMEIAS8xM/0T05gulOL/NirpkD6JrIN3jQROTYVEpaAnc35MXi6
+         pFFIZNDtS5MZpGzaE4F3O9ktpURea3pc2qJHtFf+vbmE1Cc/s6vt9GykPb9p9+3T2h6t
+         Ketm3W/bpmn2bBWM4ObLasPpR19tzuHf7zdLddchcQBVx9Ba36BME1WTyBXeACHAQDSx
+         hK+Q==
+X-Forwarded-Encrypted: i=1; AL+hErEEBP6YpYgnWtS8AVI/DSAJp6lgE8svmslgcz1Qymm8IJ+SQJkdldtwW+GbXXKhnPGqKEZ60Ds=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ztEuXZ3lErtZtYaZVaEuNe6YcTYmQw2IgEWCgG6AxiEb3vw4V
+	xz84VG1DD5/WCSXnRLrT+xPi8QeO7d65Vyz3SkUrUAW4pZRIVtqgTuD1
+X-Gm-Gg: AZFdTZfZn3CKnKo/wYMUtLGJvnUQGU/dbJrIVbjX9SZPUcEGG/RC2RwCOXjR13Qp8dH
+	8ktE/KTF2SysRxxVEQ23AplpmYy+icY/ZbCPgKRB0av9qTxr2lcHDnn57Jbsib+Fn+iBla1w7f9
+	LXgp466fOayb7tK0XAoiznCbCp3n4ZuNdCbdaW+mIouxIaDyy7/hhAslzoiCS7FzWasB8RUIaOe
+	6wETsnDqLIBQTSk6e+quygm1DJ8syMo1kIjHavSWbeIvwuTeb+CaF+jUQt2RFaglBn6bsll3pxZ
+	lUlmGlGNYpxZpMmb4u2LnoVY+dvKXWbcU/8TzCfjlzUw4jBGYfcQ4/FdahCptNb/FZRC+5wJ2Sp
+	39CvOJDEy4pO7AB/uT5i0U1MuNtUP2d9qz1ag2Zgpki6icC6J072UlCEeFjJJV3ul5q1SQFx7Bw
+	ePcuXXZvjgcV3XwsA3flqrFNSF5s5Xw7yZqGoMb9BKWNgAiIEpNyhzee2Gi7fiDwOAYTnb33ZJq
+	5vdAu9ZsXgtvsLh3CeqoAXw+6jL9S/Ug6L5p6gdRF0kw7iE4QHS83Xexhp8IiHzqCF1rgEAXb66
+	oC8PRio5OViQFkXb6Dtp3gZeNGEZW/WA9aY=
+X-Received: by 2002:a17:90b:5289:b0:3a4:77b8:1770 with SMTP id 98e67ed59e1d1-3b41c8fe855mr5490388a91.15.1795231943663;
+        Fri, 20 Nov 2026 19:32:23 -0800 (PST)
+Received: from localhost ([2a03:2880:7ff:44::])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde7f91c6f5sm110062a12.27.2026.11.20.19.32.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:32:21 -0800 (PST)
+        Fri, 20 Nov 2026 19:32:23 -0800 (PST)
 From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
 To: "David S. Miller" <davem@davemloft.net>
 Cc: Alexander Duyck <alexanderduyck@fb.com>,
@@ -94,9 +94,9 @@ Cc: Alexander Duyck <alexanderduyck@fb.com>,
 	Dimitri Daskalakis <daskald@meta.com>,
 	netdev@vger.kernel.org,
 	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-Subject: [PATCH net 2/4] net: add netif_disable_subqueue()
-Date: Fri, 20 Nov 2026 19:32:13 -0800
-Message-ID: <20261121033215.1020506-3-dimitri.daskalakis1@gmail.com>
+Subject: [PATCH net 3/4] eth: fbnic: wait for in-flight xmit in fbnic_queue_stop()
+Date: Fri, 20 Nov 2026 19:32:14 -0800
+Message-ID: <20261121033215.1020506-4-dimitri.daskalakis1@gmail.com>
 X-Mailer: git-send-email 2.52.1
 In-Reply-To: <20261121033215.1020506-1-dimitri.daskalakis1@gmail.com>
 References: <20261121033215.1020506-1-dimitri.daskalakis1@gmail.com>
@@ -113,68 +113,40 @@ Content-Transfer-Encoding: 8bit
 
 From: Dimitri Daskalakis <daskald@meta.com>
 
-netif_tx_stop_queue() does not wait for xmit to finish, and with
-queue API disabling a single queue is becoming more common.
-Add a helper like netif_tx_disable() (which drivers commonly use
-when stopping the interface) but for one queue.
+fbnic_queue_stop() stops the vector's Tx queues with netif_stop_subqueue(),
+which only sets the stop bit. This races with senders who are already in
+fbnic_xmit_frame().
 
-Suggested-by: Jakub Kicinski <kuba@kernel.org>
+Use the new netif_disable_subqueue() helper prevent freeing rings
+while senders are still in xmit.
+
+This bug was found by AI and verified on HW.
+
+Forced by adding a 20ms delay in fbnic_tx_map() on Tx queue 5,
+binding devmem to rxq 5 under traffic:
+  before: BUG: kernel NULL pointer dereference, address: 000000000000002e
+          RIP: 0010:fbnic_clean_twq0+0xa8/0x290
+  after:  fbnic_queue_stop() waits for the in-flight xmit, no crash (10/10)
+
+Fixes: da43127a8edc ("eth: fbnic: support queue ops / zero-copy Rx")
 Signed-off-by: Dimitri Daskalakis <daskald@meta.com>
 ---
- include/linux/netdevice.h | 36 +++++++++++++++++++++++-------------
- 1 file changed, 23 insertions(+), 13 deletions(-)
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index 435be7880d7e..e716b98e8b4c 100644
---- a/include/linux/netdevice.h
-+++ b/include/linux/netdevice.h
-@@ -4980,23 +4980,33 @@ static inline void netif_tx_unlock_bh(struct net_device *dev)
- 	}						\
- }
+diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+index c0fe89425430..62b67940c13e 100644
+--- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
++++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+@@ -3191,7 +3191,7 @@ static int fbnic_queue_stop(struct net_device *dev, void *qmem, int idx)
+ 	for (i = 0; i < nv->txt_count; i++) {
+ 		if (nv->qt[i].sub0.flags & FBNIC_RING_F_DISABLED)
+ 			continue;
+-		netif_stop_subqueue(dev, nv->qt[i].sub0.q_idx);
++		netif_disable_subqueue(dev, nv->qt[i].sub0.q_idx);
+ 	}
+ 	fbnic_nv_disable(fbn, nv);
  
-+/**
-+ * netif_disable_subqueue() - stop subqueue and wait for xmit to finish
-+ * @dev: network device
-+ * @queue_index: sub queue index
-+ *
-+ * Stop the subqueue like netif_stop_subqueue(), but also make sure that
-+ * ndo_start_xmit() is not running on it once this function returns.
-+ * Does not synchronize with xmit of lltx devices.
-+ */
-+static inline void
-+netif_disable_subqueue(struct net_device *dev, u16 queue_index)
-+{
-+	struct netdev_queue *txq = netdev_get_tx_queue(dev, queue_index);
-+
-+	__netif_tx_lock_bh(txq);
-+	netif_tx_stop_queue(txq);
-+	__netif_tx_unlock_bh(txq);
-+}
-+
- static inline void netif_tx_disable(struct net_device *dev)
- {
- 	unsigned int i;
--	int cpu;
- 
--	local_bh_disable();
--	cpu = smp_processor_id();
--	spin_lock(&dev->tx_global_lock);
--	for (i = 0; i < dev->num_tx_queues; i++) {
--		struct netdev_queue *txq = netdev_get_tx_queue(dev, i);
--
--		__netif_tx_lock(txq, cpu);
--		netif_tx_stop_queue(txq);
--		__netif_tx_unlock(txq);
--	}
--	spin_unlock(&dev->tx_global_lock);
--	local_bh_enable();
-+	spin_lock_bh(&dev->tx_global_lock);
-+	for (i = 0; i < dev->num_tx_queues; i++)
-+		netif_disable_subqueue(dev, i);
-+	spin_unlock_bh(&dev->tx_global_lock);
- }
- 
- #ifndef CONFIG_PREEMPT_RT
 -- 
 2.52.1
 
