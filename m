@@ -1,133 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795281689;
-	b=Hv28vaV2iUqyHXyauJ7IKHhVwqXzikQ2GJhC87Vt6edUz7feQ4wLIa+g6prltbsa9t72
-	 +XsAie/+Rhu1XoMj5QLY51/USvz6EEcB8FOzSMuZqLgpAnXxihaCQEzR9ra9ZZEQobKYV
-	 OXdjJ3ZHGBSk/SXkTwitOFOuH6QnBmlvUd3zdYPNQRBp6NuPSSqc4Nt5hKdt0Kuse90ig
-	 dTm2t95Q6z3pLqDBfKpLT2qrgaKP9/51Oaimf843vmy0zKSCa1lR46Wp2Y7bK89Qc0t+Y
-	 QZdQbjYjMNzY/EHvroqUUY8ghetQbVgvl7I33dLfHZ4ReZb+g3L98SO527cPEfpXPsg==
+	t=1795281724;
+	b=O8NdLAxXCEFo/WTOUvMlLhStfOcqq1lt+Wu7m3LdoWl0jEUj519zVnGuUOyBKSqhYtrE
+	 WittAkt64GIiVAYFbRBKjFn31zyOY53c4HiWMNxjFMQxQTnSktVn800W2MZtohmCsHIZ4
+	 g6wpN4TgPx2+uU6jTLbHMMiRebfeHC8ExO/B5u4e49ojsy8ndl5uc9mXpQPcWGvpq/JDq
+	 ooLxaZCjww2gn0WgDm3ExLOBRP/ACwqrXGDzmHDfrEAs6Ion24GSYgkDrHKP3YK6dTkzs
+	 cFNJeHhSkL0DiFHmygZeeEisjfjaXCize0yFslkr3xCA5x+aQUTQzJMCsbnX7wY8p1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795281689;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=jSHfkzBiNByvDfDTLqOlddtpy57ZmGp+HuTqJSiKH9c=;
-	b=N8UTD4X3I2RKvZbF6yFgv3lAuhv3B3TqfVS/ns10tanjKSQNLHika+vUwS49aTsr95a/
-	 iQg2IVISoj6OCZ7YITenwc7/oW3GNPgfLlsKmbq4m7FK1FfT3ByeCmpzqslKxBahc/bti
-	 bciWdDx7a0IyonzcHN5qaiPwIfqcthQYWHll1njO+NNqaJmEXVbH2F4wamd8WEhMgZ6Rh
-	 oWd52u8w1GncCaDxIqfTb3WOjy1rkZL7nACzhE8vVN4v9SMjtpiS6s11TIErq84sO+Nut
-	 vF4NCbWJI8zcj2BcwSvMbtCmDrj8EnlyiLm5HC1CQpGzilmvb0Sh0Co8wS04wOUr8YA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795281724;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=ePFvBkH/2lgPeHgRGn3ywaoYuFfAZj1+wmWOZV/J9+A=;
+	b=mKCICOMdgCILwFT0Rs1tniNHaeQpWAYVFpjdn1B8VH9DuW9JSw8g561hJXtBq9gsGHjJ
+	 2BC8cJwKmwG5eVeFBEXUU5CCzZOtXGBKs1biDUy7kuKUWSJ1xdcNJaM9vsSrwefE+1+2o
+	 dNrb2UxsT/1ZGOqEnTiIH28+CaLiZcQrrGFHU8vALh+cDOWCZF41mJ9xbf5rCiCd56EnD
+	 OoKrvHlzImB4k0cOy6sgaO/UeiPFV9DlwqUfIQh0CLq41Z8TQ6hwIUqoUU8y2jRZtPxAt
+	 QumXs00mPXdx5osCLLpzTMEhZjsLUU0kONShZLYZLS8pihbnXu1h4qHqGC6HwgyENDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=R7QsBHkt;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hp1+y+zI;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="X/5uSnNT";
+	arc=none smtp.remote-ip=74.125.82.53
+Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5A05606A32C
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:21:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5A05606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E27D0606A680
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E27D0606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=R7QsBHkt;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hp1+y+zI
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ALFaU0H001747
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:21:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=jSHfkzBiNByvDfDTLqOlddtp
-	y57ZmGp+HuTqJSiKH9c=; b=R7QsBHkt5xgA0Bs5j6WT3Em5PY+MKTNHpjePdnLw
-	iYoyYWkmtrH9znByMBLdC/Q2/+wjNiOZdDnzuCNoS9uQ8O69TX0BYRTdseIFdqae
-	lkrH158vRG43lB6VUYR4mxU9i7hJECnrN0c6S30xJC2j8l5b4HfqvQlFLQ8T6R46
-	E+TJ+qx3+3rZ0si605OlitC9HeaMrnMFXrOus/5S8oLm9LJQRkD4It6V0Ugo4Nsu
-	bxFN/g+1/lWtylGjEbQfcbDbS2FfgU4rLuBRo/Fq9PzE6+7JO8+kfLDpYuUDYV+Q
-	Cv70wR3pjVsycAROUqPX885ssaugdoRAd6eaka9pwC0jpg==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j34ka1fg9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:21:27 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-9495dd0f07eso382344085a.0
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 09:21:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X/5uSnNT
+Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-15ea896ddc8so3190703c88.0
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 09:22:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795281687; x=1795886487; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jSHfkzBiNByvDfDTLqOlddtpy57ZmGp+HuTqJSiKH9c=;
-        b=hp1+y+zIAXy61mo0c6tUxhyAa3gBKf37XR8UceXycTL+XMoZs/JYoBpc4ddlDGaTbJ
-         qU77t/laooCyAKeAkXz/O24uAKVVZLWzfnhLT+DY7mUpbVU2zTxVwscNvXFjFgYDNBc/
-         t8xlycoklz/TV9bge4s+u9qYR4geuc4TZGXIahgqOWxbRaXIU6atSu5iU2r9OnvqkjNO
-         NPGwT8KehDwR/phuqT6U/FEvEYnS76qojCsR9ur2JSVMh/5Y/69Sgf5+y5d3oC1Y4ZTO
-         eVzfA1GDSSbMSghSru0znN1YBXfSkqh7a15Tm8kS1e4vzdBCgE+MSf02aMdET1YH8nVX
-         eRIw==
+        d=gmail.com; s=20260707; t=1795281723; x=1795886523; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ePFvBkH/2lgPeHgRGn3ywaoYuFfAZj1+wmWOZV/J9+A=;
+        b=X/5uSnNTi91LDYH/J2N15Ki5R8YCsuGepd2VbBp2pF2QVbDKtS38IVEAaI1sUz1h+c
+         gG76ZpIxq5PII7aIsaswnfeyhDDAUHdYYG3F73KdKYRiXuZ2iEE0YM+Nvw3YPOf2osna
+         0K8pBoAdEfrzseLp9mf9NytNLkVkPP0ofNw2TmJSsKCP1qeMQSjZ6rfN+ywEF/Vtw/kw
+         EhDpQ7Pn9sByHq9hP06olhULEWW/oeHHs47G3FlhRbPU8MSqkdRFHkSqNWso0+ebFXkb
+         aT2qgxOPNf6EdyYwHvoLG6PCPYDMFfj6KdsS8Za2DabY0p4cE6/QoOWDoBuRO2aVc1/w
+         xJGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795281687; x=1795886487;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795281723; x=1795886523;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jSHfkzBiNByvDfDTLqOlddtpy57ZmGp+HuTqJSiKH9c=;
-        b=BNTCcxXpD9UB+/iFmY6dY9ju3WNPa45r5zOOlptJJin0YC4ldLuAYvmEHYdSP5vQpB
-         yS+2FXFCaj2gQwi8fYRyUJtL42WB3WnuZO5QcerRf0toWRc65uTBVasLOYbbBHHUXHE0
-         i8Y5vVPdF2EUlrgKTjRw3SZlhsuH55XMKtdoI4WFiZuJP0YQUn4rLZRi2/VZBWYiHSfL
-         AXr22dblrLeKGwnbXkSNjxM6MU/Bus6TZC9HWVCvjdn+LmfLHfY2a/JeyC6tYkhD+8Qi
-         oWGTiWG/iysy282LHw+IbH0x6t6UA7CVt35qmkIYvrlDRythtDG/E7QSoHyx5SqZJFyZ
-         w94w==
-X-Gm-Message-State: APuU4Z8qdx/uOnj2FaqowUJPZAZ4vMr175XwHXsozHwbvwptF9vsxghI
-	TgmennlxXre1NmfYRfvKE1aqMxFsXhN1lzjJq3MkYLKMYaZkjklC1QcabDJqCAdqHB6VhW5fJNo
-	nGRbSSEOqQun1XG4Ksf/Z5CFt3KZrJmycJ7/yrtS2Vj+zLe80ijd3xjyDrJU=
-X-Gm-Gg: AZFdTZecTfg3pjPH6I9+9DA6t6tVd3ni8MQ6WI4+skg62PVtuq9VGPkAyOAjIjHq5WS
-	7eke3PTDfEcPdw3htHgzTG8ngZ4uJ29PpRCmNafClwfn4IXuaorrHYhp8A/FwXFGJUrx6OMTBQ1
-	e04aez2oY/QG5ap52b5FfGMsjhw64CqUPwnrajjWCm2cFHgrTirQspFV47f64BO7Ue789PieQbp
-	rf9GIcxJ9Quzulnfslk3yP9FGIrVFIZFI/jkjsrHQgAWndJLvCj44LzDdb6p6EWrZDSInX978QL
-	kATq7D+fE8rOLmGKEbI7NlCg/k5dkVlNwiOSP7hgq9SreWORRxu8NTX3OI2+4EdeD5ObYD+3/sk
-	G5mS1ywic1wzwugcR42Op/ERMwpiI22pHbxGnhSlBed9ttLj36M3L3YdUmbXb1DkIzQ==
-X-Received: by 2002:a05:620a:130d:b0:949:61a9:5a6e with SMTP id af79cd13be357-949ba9c732emr1108782285a.31.1795281686604;
-        Sat, 21 Nov 2026 09:21:26 -0800 (PST)
-X-Received: by 2002:a05:620a:130d:b0:949:61a9:5a6e with SMTP id af79cd13be357-949ba9c732emr1108777185a.31.1795281685977;
-        Sat, 21 Nov 2026 09:21:25 -0800 (PST)
-Received: from localhost ([188.152.73.83])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm58576735e9.5.2026.11.21.09.21.24
+        bh=ePFvBkH/2lgPeHgRGn3ywaoYuFfAZj1+wmWOZV/J9+A=;
+        b=PxtRbccL282UUUeXVKD5KHhRxIf3GBQfXbINGR5EDFNxJuHNnYet1icesBFoUDQlol
+         C8w06kIsYipFGG6X79+7avSFgNIOt2/2waZ136J/v6HI7Gt7arsL5JMej1CmNhWxqFJD
+         d34nv4qglMl8rxfJf7CXQQSAWE8XMcfyIWbeL7+Rx65Mm+GXSOOQdZ6RuGmXOC1/OVlM
+         h+2o+Z+fAeo1fiPk8YiahvOnv3PprcLKzHN05uKuflOw+ft9dVtyySWoBdp0yBPhlsK8
+         VUnR5wKsuLscTlwqudpJVSEq/CK0+nhQn1nj8NpXJyUixI1N8USC8oFYJTVWadeQ0Tqm
+         IW2g==
+X-Forwarded-Encrypted: i=1; AL+hErE1Q5CC03RgJ2hCmIhOBH1QVJ/8tajxsl+Djs6sSlZSzD7OqMrDl3wL7903aViEMqVNfGvOHr4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+O0lsifOfJqmarXWOt+LXpDuKLF5HIlLV1mmuW7oqj5xL7wTTF
+	I6HjN8kdCohaPD7xnxnlBPJOvBFiUWiuvYtLilPyx1jGtxWM9pOqH+kEHP5rbSJW
+X-Gm-Gg: AZFdTZdvameYT1m42aO+TI1EbQA5aiAM+FWGQSC1eP3cwUDuLbptiiqgXoxa4xqnnRY
+	hfk2CwQXtmmaPrk6jOYIhtquyXnF6Db3rKizL2B9KLYlrsCDhu81/VuOkTceVgnfIniKyBgmRqO
+	n853O0BqHVWaLIhu90NTy/WrWiORuP/7kc6fjMNufJjH78m5OYOVyBY/rsxKlcJEstJgDCqAWIx
+	jHfT/lNsa+yT+d0Pcx0KqO4xMrFOm1LF2C6A0sdSeKlvAq091B6R2mpbK/G8v2rBBN9rro5Pv86
+	mBMOsbI5BtQmIWZTJFXgcdKG/jtyZdm4RgbBSVHc10W2QpOoifl2mmU0cAkFwuLMjZ8bFgPxieF
+	TTUKB04jFiRLwskf07LZ/eGoq5xY8+Ua6kT2JekOcN/YK8LKI5weMyvJklXH12VlU6X6P2o768y
+	8iILmqIcU+2KTbG0r35y3EUJBmiGHJMvFzh0fO/zgOpw9EwbXRdRWT9i+0KIjTIYy6ckkKauFl1
+	BaOvsJus/h3Fl7YjJG+xYtFkeA7oaz+pxxnvBmrLGEEfpJTBgnCdV2pHhkAK2sC78mUhcx1YADo
+	03GZj9FDX0SWDLC3MnmsDip7CB72BEATeXmeag==
+X-Received: by 2002:a05:7022:f51b:b0:1b5:10cf:c458 with SMTP id a92af1059eb24-1b5568af41amr4974747c88.23.1795281722735;
+        Sat, 21 Nov 2026 09:22:02 -0800 (PST)
+Received: from [192.168.29.85] ([2405:201:8026:213e:5f92:c501:8e47:293d])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm15421187c88.8.2026.11.21.09.21.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 09:21:24 -0800 (PST)
-Date: Sat, 21 Nov 2026 18:21:23 +0100
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>,
-        Jose Abreu <Jose.Abreu@synopsys.com>,
-        Ong Boon Leong <boon.leong.ong@intel.com>,
-        Simon Horman <horms@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
-        Eduard Zingerman <eddyz87@gmail.com>,
-        Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-        Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-        Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
-        Emil Tsalapatis <emil@etsalapatis.com>,
-        Ihor Solodrai <ihor.solodrai@linux.dev>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        bpf@vger.kernel.org, Nicolai Buchwitz <nb@tipi-net.de>
-Subject: Re: [PATCH net-next v11 0/4] net: stmmac: introduce XDP rx
- multi-buff support
-Message-ID: <awHTE2FEu5SpyROj@lore-qca>
-References: <20261117-stmmac-rx-mb-v11-0-9fa5c34ef245@oss.qualcomm.com>
+        Sat, 21 Nov 2026 09:22:02 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -137,163 +88,181 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="o+3BUnz54sJmnQtN"
-Content-Disposition: inline
-In-Reply-To: <20261117-stmmac-rx-mb-v11-0-9fa5c34ef245@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDA2OSBTYWx0ZWRfX/4RoeLnrZ8wz
- TDSKqVB/EESRLZ9RNoLEhcCDh0sK8JJ9f696xtZoSBdxOIIGsr0e1ux06qtu19DpmE5j+9NDdLx
- o6S6BS53Gkd3202QgoJvduisxDQxEZkq1Hos+NINQPIks8DWGnEzoQij2CIy1p/+iXM1VrpIiya
- bYoQPS0s51GYuC1VT2049sfiIxJEFNzDM59xAfKmAFqXQWM6p46qYwFuXq/AZAfn+AvHBKn4eh/
- uw9W8Gy8MppEdjKfMLQI5RPjy2/OhgtMV01NdaLN+bGV6yXQZUNzcr6gn8b9bfH5f5E3WXsDWQ+
- c36K30pJy9y7J9sGSzvvSCwAFvTFnyt0iLpB7513pYVRPpuQf6kOo8bxuqsv6y/K7wQPDGmzymz
- h0Cg9K2olcvIugp0L8c2/2Aa3HDJt3tbyCdFgzjQQyLhZabARnVlM1LPcE9VUfSuoRvPoUxLJ2U
- VL3qI5i303UGF+FLWWA==
-X-Authority-Analysis: v=2.4 cv=RJEmjIi+ c=1 sm=1 tr=0 ts=6b01d317 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=iIgN2aIHOFbAZzYJiOYA:9 a=CjuIK1q_8ugA:10
- a=BKpwHOXHW2ddnCNaEzcA:9 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: pnH72ABhdWKB3PiAkYC_l_DUdBKBmB9E
-X-Proofpoint-ORIG-GUID: pnH72ABhdWKB3PiAkYC_l_DUdBKBmB9E
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDA2OSBTYWx0ZWRfX89j8wyF9xzBi
- DnSeO/5ND6wTzQ3Yo7Fxts5T47pbZdql+7SutfeiHBi0dIg1b7BcYNPvkM0Fpiqb2V4NcT58RY5
- 5qyKqSKQ5AUFOPOpq4hs9+vKMwMlGU0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-21_04,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 impostorscore=0 spamscore=0 suspectscore=0
- phishscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611210069
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] tcp: fix division by zero in tcp_cong_avoid_ai()
+From: mdshahid03@gmail.com
+To: netdev-bot+sinfo@kernel.org
+Cc: mdshahid03@gmail.com, edumazet@google.com, ncardwell@google.com, 
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, 
+ horms@kernel.org, netdev@vger.kernel.org
+In-Reply-To: <179517765144.3291.2370404794757115217@kernel.org>
+References: <20261120122348.207708-1-mdshahid03@gmail.com>
+ <179517765144.3291.2370404794757115217@kernel.org>
+Date: Sat, 21 Nov 2026 22:51:43 +0530
+Message-Id: <179528170353.493088.11313682897276891791.b4-reply@b4>
+X-Mailer: b4 0.16.0
 
---o+3BUnz54sJmnQtN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-> Rework stmmac_rx() to build the xdp_buff from all the descriptors that ma=
-ke
-> up a frame, so the XDP program runs on the whole (possibly fragmented)
-> packet instead of the first buffer only. Fix possible rx_q state leaks
-> when closing/opening the interface.
+First ,This issue is reported by Clang.
+218696:net/ipv4/tcp_cong.c:480:32: warning: Division by zero [clang-analyzer-core.DivideZero]
 
-I will repost v12 since this no longer apply to net-next.
+Second, I tested this issue on both original and patched kernels in qemu.
 
-Regards,
-Lorenzo
+To reproduce it,I created a BPF TCP congestion-control implementation
+using struct_ops.Its congestion avoidance callback deliberately call
+tcp_cong_avoid_ai() with w = 0. 
 
->=20
-> ---
-> Changes in v11:
-> - Fix kernel-doc for __xdp_build_skb_from_buff().
-> - Add sanity checks for xdp_buff_shrink_tail().
-> - Link to v10: https://lore.kernel.org/r/20261112-stmmac-rx-mb-v10-0-d3d0=
-4b65c6bc@oss.qualcomm.com
->=20
-> Changes in v10:
-> - Introduce __xdp_return_buff(), xdp_buff_shrink_tail() and
->   __xdp_build_skb_from_buff() helpers.
-> - Link to v9: https://lore.kernel.org/r/20261106-stmmac-rx-mb-v9-1-c099c9=
-23664b@oss.qualcomm.com
->=20
-> Changes in v9:
-> - Rebase on top of net-next main branch.
-> - Link to v8: https://lore.kernel.org/r/20261018-stmmac-rx-mb-v8-0-5f58c0=
-b25849@oss.qualcomm.com
->=20
-> Changes in v8:
-> - Add patch 'net: stmmac: fix VLAN tag stripping on non-linear RX
->   frames' to fix sw rx vlan parsing.
-> - Rebase on top of net-next main branch.
-> - Link to v7: https://lore.kernel.org/r/20261014-stmmac-rx-mb-v7-0-5d2d70=
-f052cd@oss.qualcomm.com
->=20
-> Changes in v7:
-> - Take into account the case where buf2_len is not 0 for the single
->   descriptor case if the interface is running in xdp mode.
-> - Report rx_not_ls bit if the packet is splitted over multiple
->   descriptors for dwmac100 and dwmac1000 cores.
-> - Link to v6: https://lore.kernel.org/r/20261012-stmmac-rx-mb-v6-0-222505=
-0915c1@oss.qualcomm.com
->=20
-> Changes in v6:
-> - Drop patch 'net: stmmac: allow non-linear xdp_buff in XDP mode' since
->   it requires some XDP fixes.
-> - Introduce patch 'net: stmmac: drop split frames on AF_XDP zero-copy
->   RX' to always drop XDP multi-buff frames for AF_XDP mode since it not
->   yet supported there.
-> - Introduce patch 'net: stmmac: drop multi-buffer frames in XDP mode' to
->   fix pending bugs due to missing XDP multi-buffer support before patch
->   'net: stmmac: rework stmmac_rx to support XDP rx multi-buff'
-> - Link to v5: https://lore.kernel.org/r/20261009-stmmac-rx-mb-v5-0-c38fa4=
-eaa138@oss.qualcomm.com
->=20
-> Changes in v5:
-> - Fix possible read after bound issue in patch 1/3.
-> - Do not allow parsing non-linear XDP buffers if the program loaded does
->   not support frags.
-> - Add patch 3/3 to remove MTU constraint for XDP prog.
-> - Link to v4: https://lore.kernel.org/r/20261006-stmmac-rx-mb-v4-0-efa4ca=
-974e3d@oss.qualcomm.com
->=20
-> Changes in v4:
-> - Reset in_progress flag when the packet is fully consumed.
-> - Advetise NETDEV_XDP_ACT_RX_SG capability.
-> - Link to v3: https://lore.kernel.org/r/20261004-stmmac-rx-mb-v3-0-50fa17=
-1af9ec@oss.qualcomm.com
->=20
-> Changes in v3:
-> - Return secondary page in case of error.
-> - Introduce stmmac_xdp_shrink_tail() to remove the ethernet FCS.
-> - Add patch 'net: stmmac: take ownership of saved RX state at poll
->   entry' from James.
-> - Link to v2: https://lore.kernel.org/r/20260921-stmmac-rx-mb-v2-1-6e826e=
-1ff306@oss.qualcomm.com
->=20
-> Changes in v2:
-> - Rely on xdp_buff_add_frag() to create xdp fragments
-> - Fix bugs in rx_q state recording
-> - Fix the corner case where we receive more than MAX_SKB_FRAGS fragments
-> - Cosmetics
-> - Link to v1: https://lore.kernel.org/r/20260918-stmmac-rx-mb-v1-1-0b4517=
-d404af@oss.qualcomm.com
->=20
-> ---
-> Lorenzo Bianconi (4):
->       net: xdp: add __xdp_build_skb_from_buff() helper
->       net: xdp: add xdp_buff_shrink_tail() helper
->       net: xdp: add __xdp_return_buff() helper
->       net: stmmac: rework stmmac_rx to support XDP rx multi-buff
->=20
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 231 ++++++++++------=
-------
->  include/net/xdp.h                                 |  39 +++-
->  net/core/filter.c                                 |  80 +-------
->  net/core/xdp.c                                    | 113 ++++++++++-
->  5 files changed, 254 insertions(+), 212 deletions(-)
-> ---
-> base-commit: 500da33276f5d81da764775223de9e9a251a4dbf
-> change-id: 20260918-stmmac-rx-mb-16469a2714ea
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
->=20
+..............................................................CRASH LOG START............................................................
 
---o+3BUnz54sJmnQtN
-Content-Type: application/pgp-signature; name=signature.asc
+[    2.632587][   T63] Oops: divide error: 0000 [#1] NOPTI
+[    2.632922][   T63] CPU: 0 UID: 0 PID: 63 Comm: tcp_zero_loader Not tainted 7.3.0-13252-g4b33dc21137f #1 PREEMPT(lazy)
+[    2.633123][   T63] Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+[    2.633262][   T63] RIP: 0010:tcp_cong_avoid_ai+0x50/0xa0
+[    2.633537][   T63] Code: 81 f9 ff ff ff 7f 73 63 89 87 a4 05 00 00 8b 87 94 07 00 00 01 d0 89 87 94 07 00 00 39 f0 73 08 8b 87 a4 05 00 00 eb 1a 31 d2 <f7> f6 89 97 94 07 00 00 03 87 a4 05 00 00 85 c0 7e 33 89 87 a4 05
+[    2.633718][   T63] RSP: 0018:ffffc900001c3a60 EFLAGS: 00000246
+[    2.633797][   T63] RAX: 0000000000000001 RBX: 0000000000000001 RCX: 000000000000000a
+[    2.633860][   T63] RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffff888005bbae40
+[    2.633922][   T63] RBP: ffffc900001c3a68 R08: 0000000000000000 R09: 0000000000000000
+[    2.633983][   T63] R10: 0000000000000000 R11: ffffffffc0000740 R12: 0000000000055506
+[    2.634045][   T63] R13: 0000000000044502 R14: ffffc900001c3b40 R15: 0000000000000000
+[    2.634137][   T63] FS:  00007f723dd62140(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+[    2.634209][   T63] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[    2.634262][   T63] CR2: 00007f723d55e000 CR3: 0000000005b61000 CR4: 00000000000006f0
+[    2.634387][   T63] Call Trace:
+[    2.634826][   T63]  <TASK>
+[    2.635067][   T63]  bpf_prog_a85a17f2ee3f38dd_tcp_zero_cong_avoid+0x35/0x37
+[    2.635473][   T63]  bpf__tcp_congestion_ops_cong_avoid+0x54/0xb0
+[    2.635549][   T63]  tcp_ack+0x154f/0x17a0
+[    2.635601][   T63]  tcp_rcv_established+0x1bf/0x7a0
+[    2.635644][   T63]  tcp_v4_do_rcv+0x5a/0x2c0
+[    2.635682][   T63]  ? __sk_flush_backlog+0x1a/0xd0
+[    2.635726][   T63]  __sk_flush_backlog+0x6c/0xd0
+[    2.635769][   T63]  tcp_sendmsg_locked+0xc9e/0x1170
+[    2.635821][   T63]  tcp_sendmsg+0x2c/0x50
+[    2.635856][   T63]  __sock_sendmsg+0x67/0x90
+[    2.635895][   T63]  sock_write_iter+0x122/0x170
+[    2.635940][   T63]  vfs_write+0x2e6/0x450
+[    2.635982][   T63]  ksys_write+0x74/0xe0
+[    2.636019][   T63]  do_syscall_64+0xad/0x290
+[    2.636060][   T63]  entry_SYSCALL_64_after_hwframe+0x74/0x7c
+[    2.636172][   T63] RIP: 0033:0x7f723df3983d
+[    2.636335][   T63] Code: e5 48 83 ec 20 48 89 55 e8 48 89 75 f0 89 7d f8 e8 e8 bd f7 ff 48 8b 55 e8 48 8b 75 f0 41 89 c0 8b 7d f8 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 33 44 89 c7 48 89 45 f8 e8 3f be f7 ff 48 8b
+[    2.636479][   T63] RSP: 002b:00007ffd27941000 EFLAGS: 00000293 ORIG_RAX: 0000000000000001
+[    2.636556][   T63] RAX: ffffffffffffffda RBX: 0000563e9d3212a0 RCX: 00007f723df3983d
+[    2.636613][   T63] RDX: 0000000000100000 RSI: 00007f723d45e010 RDI: 000000000000000a
+[    2.636669][   T63] RBP: 00007ffd27941020 R08: 0000000000000000 R09: 0000000000000000
+[    2.636724][   T63] R10: 0000000000000022 R11: 0000000000000293 R12: 00007f723d45e010
+[    2.636779][   T63] R13: 000000000000000a R14: 0000000000000000 R15: 00007f723e0ad000
+[    2.636872][   T63]  </TASK>
+[    2.636934][   T63] Modules linked in:
+[    2.637267][   T63] ---[ end trace 0000000000000000 ]---
+[    2.637450][   T63] RIP: 0010:tcp_cong_avoid_ai+0x50/0xa0
+[    2.637463][   T63] Code: 81 f9 ff ff ff 7f 73 63 89 87 a4 05 00 00 8b 87 94 07 00 00 01 d0 89 87 94 07 00 00 39 f0 73 08 8b 87 a4 05 00 00 eb 1a 31 d2 <f7> f6 89 97 94 07 00 00 03 87 a4 05 00 00 85 c0 7e 33 89 87 a4 05
+[    2.637469][   T63] RSP: 0018:ffffc900001c3a60 EFLAGS: 00000246
+[    2.637476][   T63] RAX: 0000000000000001 RBX: 0000000000000001 RCX: 000000000000000a
+[    2.637480][   T63] RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffff888005bbae40
+[    2.637483][   T63] RBP: ffffc900001c3a68 R08: 0000000000000000 R09: 0000000000000000
+[    2.637487][   T63] R10: 0000000000000000 R11: ffffffffc0000740 R12: 0000000000055506
+[    2.637491][   T63] R13: 0000000000044502 R14: ffffc900001c3b40 R15: 0000000000000000
+[    2.637494][   T63] FS:  00007f723dd62140(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+[    2.637500][   T63] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[    2.637504][   T63] CR2: 00007f723d55e000 CR3: 0000000005b61000 CR4: 00000000000006f0
+[    2.639981][   T63] tcp_zero_loader (63) used greatest stack depth: 12352 bytes left
+Killed
+.....................................................CRASH LOG END...........................................................................
 
------BEGIN PGP SIGNATURE-----
+On the Patched Kernel,I ran the same test with the same BPF program ,The
+callback excuted 224 times ,but no kernel crash occured .
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCawHTEwAKCRA6cBh0uS2t
-rHZUAP9xBnVCVSdCg2brXWGoEWn2rM2YtD6AdXf+gJE3UiWF0QD/QsC0Hdz3Rkst
-ExpAixwopSyaEXDDuDtGOW5Rw0yP9wg=
-=e5ZR
------END PGP SIGNATURE-----
+This confirms that the new zero-value check prevents the
+division-by-zero issue.
 
---o+3BUnz54sJmnQtN--
+.....................................................SUCCESS LOG START........................................................................
+
+Recent kernel messages:
+[    2.152243][    T1] rtc_cmos PNP0B00:00: setting system clock to 2026-11-21T14:35:33 UTC (1795271733)
+[    2.154790][    T1] rtc_cmos PNP0B00:00: alarms up to one day, y3k, 242 bytes nvram, hpet irqs
+[    2.154977][    T1] i2c_dev: i2c /dev entries driver
+[    2.156914][    T1] device-mapper: core: CONFIG_IMA_DISABLE_HTABLE is disabled. Duplicate IMA measurements will not be recorded in the IMA log.
+[    2.157092][    T1] device-mapper: uevent: version 1.0.3
+[    2.160122][    T1] device-mapper: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+[    2.161740][    T1] usbcore: registered new interface driver usbhid
+[    2.161756][    T1] usbhid: USB HID core driver
+[    2.162294][    T1] ipip: IPv4 and MPLS over IPv4 tunneling driver
+[    2.166604][    T1] NET: Registered PF_PACKET protocol family
+[    2.169587][    T1] 9pnet: Installing 9P2000 support
+[    2.170649][    T1] Key type dns_resolver registered
+[    2.197240][    T1] sched_clock: Marking stable (2171016244, 25654875)->(2200059312, -3388193)
+[    2.201533][    T1] registered taskstats version 1
+[    2.206129][    T1] Loading compiled-in X.509 certificates
+[    2.226957][   T55] cryptomgr_probe (55) used greatest stack depth: 15120 bytes left
+[    2.234348][    T1] Loaded X.509 cert 'Build time autogenerated kernel key: e8fda9cacabba08c333c311ed59e4dc8c8e12439'
+[    2.263741][    T1] page_owner is disabled
+[    2.266655][    T1] ima: No TPM chip found, activating TPM-bypass!
+[    2.266883][    T1] Loading compiled-in module X.509 certificates
+[    2.269914][    T1] Loaded X.509 cert 'Build time autogenerated kernel key: e8fda9cacabba08c333c311ed59e4dc8c8e12439'
+[    2.269977][    T1] ima: Allocated hash algorithm: sha256
+[    2.274434][    T1] ima: No architecture policies found
+[    2.277392][    T1] netconsole: network logging started
+[    2.359654][    T1] Freeing unused kernel image (initmem) memory: 2924K
+[    2.359849][    T1] Write protecting the kernel read-only data: 32768k
+[    2.360583][    T1] Freeing unused kernel image (text/rodata gap) memory: 372K
+[    2.361723][    T1] Freeing unused kernel image (rodata/data gap) memory: 1052K
+[    2.362634][    T1] rodata_test: all tests were successful
+[    2.363066][    T1] Run /init as init process
+[    2.363075][    T1]   with arguments:
+[    2.363084][    T1]     /init
+[    2.363093][    T1]     nokaslr
+[    2.363097][    T1]   with environment:
+[    2.363104][    T1]     HOME=/
+[    2.363112][    T1]     TERM=linux
+[    2.426402][   T58] mount (58) used greatest stack depth: 13520 bytes left
+[    2.467512][   T62] ip (62) used greatest stack depth: 13208 bytes left
+[    2.571410][    T9] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+[    2.714858][   T63] tcp_zero_loader (63) used greatest stack depth: 12888 bytes left
+
+TCP test completed. Entering shell.
+
+
+BusyBox v1.36.1 (Ubuntu 1:1.36.1-6ubuntu3.1) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+/bin/sh: can't access tty; job control turned off
+~ #
+~ #
+~ #
+---------------------------------------------------SUCCESS LOG END.......................................................
+I have collected the logs from the both kernels runs.
+
+Thanks
+Shahid.
+
+On 2026-11-20 12:27 +0000, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+> 
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+> 
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+> 
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+> 
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+> 
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> -- 
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
+> 
+> 
+
+
