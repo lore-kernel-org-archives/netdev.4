@@ -1,47 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.145
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795270765;
-	b=YbCkpOOfuDqayhsCMMkfpsfBGm6qbdntvfXUPFW7hd98wh+aI73mULU9SfBicuT2EaGz
-	 3a4puouA5L0iK1f8w7cyzDpsV67EoqjgcroSokNwSGr+4My9TjTCbCwdBTlvfXDgVDEbG
-	 CPqZPB9K9Yb0PV1NR+c20yDuvk5xIyvLsYUIL+kYT70yWqKkvLqUkNe86y35Zkq1YG3ho
-	 qO6YqsRLOqvLunNnvTDjumU2zD8rcyXUjGTwkcbt948OXIIdIxD3IaY+jCwQdvOiJoML7
-	 Wuwa2XxD/BHu8G2q8uY8RrOL/no0hZ5cwRc2bPBF2DLImeD2UX8x7ckh5eXBprEOSQg==
+	t=1795270764;
+	b=uMauK85g9IfoDGbvMkMMsOrE+Ud7ml48pGRv/lTEWqHspSvwLqd//PX5fRwlD6GUXLc9
+	 NKbABwaEl1OuZE3odD1P8WUUPirDZfKZ3awXsiEG3/Q+hoc26VZiSbx2NJ0FAopG0eOEN
+	 BpzwPcbu5iJ60Xu6c81j/ZS7/SGEpz5GgjENz+Gw88nfWOnr86CHJUDo7gQO/IEgUME1t
+	 AzPCttqKVTC0okIbSd1OPwa+QIaxyMxSf+Flu7V6uS78k+SHfJXkdThLBIFqfv8YtgCaM
+	 OrMhH0ayLJTq7gMqAULKKzv3v96OUX+FlM/vWXpAkrkDEawconY0YvBzNr57DtNwrUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795270765;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795270764;
 	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Pqdb1CZmw00+aWMEKUmzfViHJG+GiKGhJXCKYqajwNg=;
-	b=QzY4/E8sqSLZWqwWefC1A86nmlEUPthRRgkXqA8HvAI/NFm98i/rf2+yImgAreynkjwl
-	 GSLV1IvGuuiYnOlQY/cmcnw/8YkCNHj9J6AGXEDhLAFuT+IZ5iDSdmAIF4Rw/Cd5HYuJK
-	 tVJrpE4wuYqSFvKZhO/t9ZXs+4sQ3aMXvSjWcaZkLad7+IJ42crZGljG6siEYr+iyVg1B
-	 hq5kVMiNGLuaENBpwgls3aMxWWMj4Sr7XrHX3z77W9Z9boYOECeqN+beNon5wVuHLN3KA
-	 esxxcocZap0NRfStvmloFXHc8sATOKU1Re3xs5DgEqFgOEb2Otym6t3H3szSz/ZsWKw==
+	bh=dH3XbXnDqDUIiU7bFseXAANFSe3VoFujE+ufZbliiUE=;
+	b=3j2Z2LOQUKd33/B3PAov8xrOhYgra103N+XfkvlkBw/6wvUbcDwvIdv3QiX2djl23BMz
+	 iuTGO2+UTe1ypTRu42LsEZpKe/O7sJoTV82fIOv4CytfSKym9t77kRhPomHh/NU1i8y/L
+	 Nhx8IaWukiAWCN7o1Usm1yYqn96vCHpVDtfdbTzr7oi/Reg5WPx8EipL8y3i2LxczmLGO
+	 al0Ot3H/hPf9uRt9m8GFsg8ZFhHepn9Keb1V+/kzib6QtqCjlULDAs2j07CJH2yp8zeKf
+	 jUfWjLcHhg+ZNYduTuP7p1oWEEjEwUMy4tOw9zPPZ1xZ4w55gON/yl5V9RfZ38wuLvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=xiaopeng.com;
 	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=qeC99Cbo;
-	arc=none smtp.remote-ip=115.124.28.145
-Received: from out28-145.mail.aliyun.com (out28-145.mail.aliyun.com [115.124.28.145])
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=j3CjG3SF;
+	arc=none smtp.remote-ip=115.124.28.98
+Received: from out28-98.mail.aliyun.com (out28-98.mail.aliyun.com [115.124.28.98])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68226606A338;
-	Sat, 21 Nov 2026 14:19:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68226606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D3C3606A33A;
+	Sat, 21 Nov 2026 14:19:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D3C3606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=qeC99Cbo
+	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=j3CjG3SF
 DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=xiaopeng.com; s=default;
-	t=1795270755; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=Pqdb1CZmw00+aWMEKUmzfViHJG+GiKGhJXCKYqajwNg=;
-	b=qeC99CboETZZmO/pp6EHlJhZBWRlRw0+RBxEVbL9YJTD3QjWtf+AJjil8eidI8pnk9sIzcIIC7jdiGTkkbyTi5UqqIG8OlGjJ2aAZwoTsSqMEdl3hkjtrCTnLHbYEZTHEsvizi8odoXXafS/RSAc/6ThvkiGKFFQi5z6wNTJtf8=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04436263|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00745487-0.000394108-0.992151;FP=16019482191521677331|13|3|17|0|-1|-1|-1;HT=maildocker-contentspam033037026024;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k7GCEcI_1795270753;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k7GCEcI_1795270753 cluster:ay29)
+	t=1795270753; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=dH3XbXnDqDUIiU7bFseXAANFSe3VoFujE+ufZbliiUE=;
+	b=j3CjG3SFZtXsjDmFZrw+ps4y2DMi30dT+MvJerfMc9/2ndbLy6N4i29ZwmG/4m+YeCquZi4aFMAz58v5RjqJaTI+XTRDXNIpADCJo8qKNA6EA7KFO17Vf4DUAFBOCHlGgjNxzbLaBLKhKbXMVp7d3M0isXy8Xg8FB/ZtgYWjT/c=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04449996|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00378321-8.81247e-05-0.996129;FP=14274760503927538816|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045038069;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k7GCEaC_1795270749;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k7GCEaC_1795270749 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Sat, 21 Nov 2026 22:19:15 +0800
+          Sat, 21 Nov 2026 22:19:12 +0800
 From: Fang Xieyan <fangxy@xiaopeng.com>
 To: loic.poulain@oss.qualcomm.com,
 	ryazanov.s.a@gmail.com,
@@ -57,9 +57,9 @@ Cc: davem@davemloft.net,
 	zhugl3@xiaopeng.com,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH net v4 4/5] net: wwan: iosm: pass the DL command parameter by pointer
-Date: Sat, 21 Nov 2026 22:18:49 +0800
-Message-ID: <20261121141850.73754-5-fangxy@xiaopeng.com>
+Subject: [PATCH net v4 3/5] net: wwan: iosm: bound the ACBH command chain walk
+Date: Sat, 21 Nov 2026 22:18:48 +0800
+Message-ID: <20261121141850.73754-4-fangxy@xiaopeng.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20261121141850.73754-1-fangxy@xiaopeng.com>
 References: <20261121141850.73754-1-fangxy@xiaopeng.com>
@@ -74,118 +74,103 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ipc_mux_dl_cmdresps_decode_process() takes the twelve byte union
-mux_cmd_param by value, so every received command copies the whole
-union out of the skb even when its type only needs one member,
-reading past what arrived for a truncated response. The driver also
-builds its link status response inside the received block.
+ipc_mux_dl_acb_decode() walks the command chain of a received
+Aggregated Command Block. first_cmd_index is passed through
+array_index_nospec() with sizeof(struct mux_cmdh) as its bound, which
+treats a byte offset as an array index and drops every command at or
+beyond that offset. next_cmd_index is not validated, so the walk can
+read past the end of the skb, loop on an earlier command, or decode
+the header just read as a second command.
 
-Take the parameter as a const pointer and keep the lite path response
-in a local variable; the aggregated path sends no response parameter.
-The session response path still copies the full parameter union here.
-The next patch adds the received parameter length check and restricts
-each response copy to its own member. This change is a prerequisite
-for that fix and is tagged for stable alongside it.
+Bound every command offset by the received length and require room
+for a complete command header. Validate the next index before
+processing the command carrying it: it has to advance past the
+current header and leave room for a complete next header, and only
+zero terminates the chain. The offsets then strictly increase and the
+walk terminates. The array_index_nospec() call is removed and
+block_length is only sanity checked.
 
-Fixes: 9413491e20e1 ("net: iosm: encode or decode datagram")
+Fixes: 1f52d7b62285 ("net: wwan: iosm: Enable M.2 7360 WWAN card support")
 Cc: stable@vger.kernel.org
 Reviewed-by: Guanglei Zhu <zhugl3@xiaopeng.com>
 Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
 ---
- drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 29 ++++++++++------------
- 1 file changed, 13 insertions(+), 16 deletions(-)
+ drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 46 ++++++++++++++++++----
+ 1 file changed, 38 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-index a8448e273c02..3f93d7293785 100644
+index 65421f6b4c91..a8448e273c02 100644
 --- a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
 +++ b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-@@ -184,7 +184,7 @@ void ipc_mux_netif_tx_flowctrl(struct mux_session *session, int idx, bool on)
- }
- 
- static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
--					      union mux_cmd_param param,
-+					      const union mux_cmd_param *param,
- 					      __le32 command_type, u8 if_id,
- 					      __le32 transaction_id)
+@@ -526,30 +526,60 @@ static void ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
+ /* Decode an aggregated command block. */
+ static void ipc_mux_dl_acb_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
  {
-@@ -194,7 +194,7 @@ static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
- 	case MUX_CMD_OPEN_SESSION_RESP:
- 	case MUX_CMD_CLOSE_SESSION_RESP:
- 		/* Resume the control application. */
--		acb->got_param = param;
-+		acb->got_param = *param;
- 		break;
- 
- 	case MUX_LITE_CMD_FLOW_CTL_ACK:
-@@ -318,7 +318,7 @@ static void ipc_mux_dl_cmd_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- 	__le32 trans_id = cmdh->transaction_id;
++	size_t hdr_len = offsetof(struct mux_cmdh, param);
+ 	struct mux_acbh *acbh;
+ 	struct mux_cmdh *cmdh;
+-	u32 next_cmd_index;
++	u32 block_length, cmd_index, next_cmd_index;
+ 	u8 *block;
  	int size;
  
--	if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, cmdh->param,
-+	if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
- 					       cmdh->command_type, cmdh->if_id,
- 					       cmdh->transaction_id)) {
- 		/* Unable to decode command response indicates the cmd_type
-@@ -333,14 +333,15 @@ static void ipc_mux_dl_cmd_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- 			/* Decoded command may need a response. Give the
- 			 * response according to the command type.
- 			 */
-+			union mux_cmd_param response = {};
- 			union mux_cmd_param *mux_cmd = NULL;
- 			size_t size = 0;
- 			u32 cmd = MUX_LITE_CMD_LINK_STATUS_REPORT_RESP;
- 
- 			if (cmdh->command_type ==
- 			    cpu_to_le32(MUX_LITE_CMD_LINK_STATUS_REPORT)) {
--				mux_cmd = &cmdh->param;
--				mux_cmd->link_status_resp.response =
-+				mux_cmd = &response;
-+				response.link_status_resp.response =
- 					cpu_to_le32(MUX_CMD_RESP_SUCCESS);
- 				/* response field is u32 */
- 				size = sizeof(u32);
-@@ -500,26 +501,22 @@ static void ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
- 	u32 fctl_dis = IOSM_AGGR_MUX_CMD_FLOW_CTL_DISABLE;
- 	u32 fctl_ena = IOSM_AGGR_MUX_CMD_FLOW_CTL_ENABLE;
- 	u32 fctl_ack = IOSM_AGGR_MUX_CMD_FLOW_CTL_ACK;
--	union mux_cmd_param *cmd_p = NULL;
- 	u32 cmd = link_st;
- 	u32 trans_id;
- 
- 	if (!ipc_mux_dl_cmds_decode_process(ipc_mux, &cmdh->param,
- 					    cmdh->command_type, cmdh->if_id,
- 					    cmdh->cmd_len, size)) {
--		size = 0;
--		if (cmdh->command_type == cpu_to_le32(link_st)) {
--			cmd_p = &cmdh->param;
--			cmd_p->link_status_resp.response = MUX_CMD_RESP_SUCCESS;
--		} else if ((cmdh->command_type == cpu_to_le32(fctl_ena)) ||
--				(cmdh->command_type == cpu_to_le32(fctl_dis))) {
-+		if (cmdh->command_type == cpu_to_le32(fctl_ena) ||
-+		    cmdh->command_type == cpu_to_le32(fctl_dis))
- 			cmd = fctl_ack;
--		} else {
-+		else if (cmdh->command_type != cpu_to_le32(link_st))
- 			return;
--			}
++	if (skb->len < sizeof(struct mux_acbh))
++		return;
 +
- 		trans_id = le32_to_cpu(cmdh->transaction_id);
-+		/* No response parameter is sent in the aggregated protocol. */
- 		ipc_mux_dl_acb_send_cmds(ipc_mux, cmd, cmdh->if_id,
--					 trans_id, cmd_p, size, false, true);
-+					 trans_id, NULL, 0, false, true);
- 	}
- }
+ 	acbh = (struct mux_acbh *)(skb->data);
+ 	block = (u8 *)(skb->data);
++	block_length = le32_to_cpu(acbh->block_length);
  
-@@ -571,7 +568,7 @@ static void ipc_mux_dl_acb_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- 		     skb->len - next_cmd_index < hdr_len))
- 			break;
+-	next_cmd_index = le32_to_cpu(acbh->first_cmd_index);
+-	next_cmd_index = array_index_nospec(next_cmd_index,
+-					    sizeof(struct mux_cmdh));
++	/*
++	 * The uplink encoder leaves block_length at the ACBH header size.
++	 * It cannot delimit the command chain, so use skb->len to bound
++	 * the command offsets.
++	 */
++	if (block_length < sizeof(struct mux_acbh) || block_length > skb->len)
++		return;
++
++	cmd_index = le32_to_cpu(acbh->first_cmd_index);
++
++	while (cmd_index != 0) {
++		/* Past the block header, and a full command header fits. */
++		if (cmd_index < sizeof(struct mux_acbh) ||
++		    cmd_index > skb->len ||
++		    hdr_len > skb->len - cmd_index)
++			break;
  
--		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, cmdh->param,
-+		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
+-	while (next_cmd_index != 0) {
+-		cmdh = (struct mux_cmdh *)&block[next_cmd_index];
++		cmdh = (struct mux_cmdh *)&block[cmd_index];
+ 		next_cmd_index = le32_to_cpu(cmdh->next_cmd_index);
++
++		/*
++		 * The next index has to move past this header, stay inside
++		 * the received data and leave room for a header of its own.
++		 */
++		if (next_cmd_index != 0 &&
++		    (next_cmd_index <= cmd_index ||
++		     next_cmd_index - cmd_index < hdr_len ||
++		     next_cmd_index > skb->len ||
++		     skb->len - next_cmd_index < hdr_len))
++			break;
++
+ 		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, cmdh->param,
  						       cmdh->command_type,
  						       cmdh->if_id,
  						       cmdh->transaction_id)) {
+-			size = offsetof(struct mux_cmdh, param) +
+-				sizeof(cmdh->param.flow_ctl);
++			size = hdr_len + sizeof(cmdh->param.flow_ctl);
+ 			ipc_mux_dl_acbcmd_decode(ipc_mux, cmdh, size);
+ 		}
++
++		cmd_index = next_cmd_index;
+ 	}
+ }
+ 
 -- 
 2.50.1
 
