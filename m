@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244643;
-	b=R6zelO8KMsadLCcU6bjIj3srBM1e6XLDzapljuJUPErG82P1shoLXZDVEGA/sXyCE2au
-	 GI+OCFXWp4M/tnZERxwlxP1EcXw2sTaRQ7e4olfwOqw704LTF/8cUrwxRxun3eJohR6+Z
-	 1ANNgrQ9vz/LQbJyoik/GdXlmuGcMrGttympgrtfN2hQMk9T51p3OFU0Jf96Enbnp+MHd
-	 JBQvS/gVG4Vwp9roFctQkNTeZx8YNr633U3neJPPelwuXMbg+FSJFaTxscEIqWn9+nK1L
-	 OkR3O0U5MTGUsnp3vW5vR5mR+XUzubWc0exF9akevI551yQkXWBfupEIJpZofiLI77Q==
+	t=1795244645;
+	b=ug+Nc/FNTevIBq8UpSg5lbUzrJ+4+mDAk01G2onFSxpDGYLq3EpuM9jw3QDxH5+QDNyl
+	 wjvfndlGIrJj4LFVSqVhgFynM/KgIfRqIhVQJxrCLmCfLxXtwXbuPHW2QTrCbiy2YFhiS
+	 JGjUMGPzFoCxaXG0SEBZvfbjzixx2sUh5cUy6B1eOoc5uo8VgDBlazRzy8H4GhhK3lN5Y
+	 hLrYtNtxO4+Wnp+lcRByGe5apL4GFIUvO3xpFRvehYnk/rRxSlEveYpCt5lluBgi2hBw/
+	 FtTF3/GYLE1NnVrYoe152goQDP1OUJkAZIxJGm9RzmJCh5Z3+u6WIWfiz+n9mFK38Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244643;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244645;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ib1cVhC/gicU8Q7E4PlbGBhkmfSff8Izf/vgTL+7LIE=;
-	b=EI8p8yDOLKhBA8gqgeUKI6uSLq8ME5rfeXdgmEx1ngVuEv3I1ZrCaj9DQhBlwUY2FmWV
-	 r1V13Nx43wMatNCz82ZDGFRLkTI8IYZ++HMqH7ErO5I+cLzfryaBoXvfDggUGeN84Woow
-	 CoWCbAnbp7aEibgvoEFrmUVPZRgH0kWt0OHS/46skMv17ld+b9kqqO9GpaasgHrmHY1Eu
-	 ubr8bg2mHmUJsxFTxuv+M3lAzj8wwfkdn4eDDU9CFEjDzihI5mCo/qh0jRkfsYobDui5D
-	 lDJqyXavxX2BkTNJFLQhh/bFXeuCQ3fqzTvZSJvNO42ul5gG26yBwOjKnsDg4hdw9rg==
+	bh=GFxDU06BIZgGtUARWc9NeV60iSzeoOF/g56o3TTy0ac=;
+	b=Chl2Z0+vx471XOxJdBHBBE8xg1B7KSsFnVFGgDhAXSK9rAXSZGRqcrV//O50XhNPbXwS
+	 2Zub4wTV7IW05figVUelO8td1xF+D/ArEgRKvjPG3EQ8gZMLCPVeK3HwpGWHa1nX5zkYN
+	 ahSlWgb+ar0CaN0yAdwF6jrSBENpxnkntJrsQI+ySgU3MrCpRLHpxp9ZGRIQlde18ghkB
+	 rLbU8UG6jgs1cV1tpWrcNpUfpHjqFzF/p8JA4Nb7NGakNxAg3QvIabEtGSM3HfumvVX0q
+	 hlFei4R9vMA9BMtRHV11kglY3+/RrdsFJFJmzl8Jd5+cjOfcL8qmdFPP528YxRLzvgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QspA9gdF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fquC+A7F;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2E26606A320;
-	Sat, 21 Nov 2026 07:04:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3322606A687;
+	Sat, 21 Nov 2026 07:04:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QspA9gdF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C497B1F000C4;
-	Sat, 21 Nov 2026 07:04:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fquC+A7F
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19341F000C4;
+	Sat, 21 Nov 2026 07:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795244643;
-	bh=ib1cVhC/gicU8Q7E4PlbGBhkmfSff8Izf/vgTL+7LIE=;
+	s=k20260515; t=1795244645;
+	bh=GFxDU06BIZgGtUARWc9NeV60iSzeoOF/g56o3TTy0ac=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QspA9gdFBgd7721Lu04WSUlmobPeVzacnre8GSQwekrR+A6aMqBsHPhR3FPlFkIY4
-	 wVe120QesIPBq1IPa70Sbq2euDbb6Hn+KLBul53NXRC+Fqgvx4j7YcJFKq8XZNxN9Q
-	 wpP6oioVdSNhzR+DP9tFmzYhiiaWakgXNCJIYSmCnA5V3nGMLuj3rkVu9MnCQyiynQ
-	 RpPE8KaoH0kFEa7iSe04RmKermH0ONWB+d3yLY1iuJq1bZJfZs+lCOb72ACgvzP/ua
-	 Oy9nX+JmIgXpL6wCTnW/0yQvODn5xuuXROKa4uKqiDTgKDUw+hl3y9ew9YQTVmqRNO
-	 eQGLBDEBFUI0Q==
-Subject: Re: [PATCH net v5 2/5] net: qualcomm: rmnet: Size the first device
- from the requested data format
+	b=fquC+A7Fhgtqb+CScyvmiFeYox1t6JQkXLbvabOQ4J+2TtqORKZsou6ukvAf2/r9c
+	 zIc8Ntrf2dXV5n29ci/0xCinrj8+SVfhZG0EzP8d8eEPO1l7LflPA2Q+8OHUf1U/Q7
+	 +GSToeFepjhSlP8rHDoQ8ZbOBSYjGMB4vbmOgnXMIloYRlSJ1nABGOmny1dGSwoCkr
+	 whQGF03OmgBE+iS+cw1TPT8kUxTk4NVxj95gdbRxbAkQvlBiUiu7+4unFppAu6mO17
+	 NeJZCFwsZDW2nFoRrmODgsXrDiq/wSP+1jVQf1WU38Uz0uSnQJQFeY+wLjVK/AsCax
+	 ggPJ8OK6UPRUg==
+Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
+ dev_set_mtu() and restore on failure
 From: netdev-bot+sashiko@kernel.org
 To: subash.a.kasiviswanathan@oss.qualcomm.com
 Cc: sean.tranchetti@oss.qualcomm.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 07:04:02 +0000
-Message-ID: <179524464231.3135.13518069516506821127@kernel.org>
-In-Reply-To: <20261117060737.2764327-3-subash.a.kasiviswanathan@oss.qualcomm.com>
-References: <20261117060737.2764327-3-subash.a.kasiviswanathan@oss.qualcomm.com>
-X-sashiko-severity: Low
+Date: Sat, 21 Nov 2026 07:04:04 +0000
+Message-ID: <179524464443.3135.11939584752095940965@kernel.org>
+In-Reply-To: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
+References: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,56 +64,167 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] The commit message understates what the patch changes.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] rmnet_vnd_update_dev_mtu()
+  (drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c:447-473) now shrinks…
+- [Low] The commit message opens with "When the real device MTU or the
+  data format requires a smaller MTU, existing endpoints are shrunk by…
 
 --
 
-net: qualcomm: rmnet: Size the first device from the requested data format
+net: qualcomm: rmnet: Resize endpoints with dev_set_mtu() and restore on failure
 
-This commit moves the IFLA_RMNET_FLAGS merge in rmnet_newlink() so it
-runs before rmnet_vnd_newlink(), and passes the resulting data format
-down. The new device's MTU is then computed from the egress headroom of
-the requested format, not from the format already stored in the port.
+This commit changes rmnet_vnd_update_dev_mtu() so it shrinks existing
+endpoints with dev_set_mtu() instead of calling the ndo directly. As a
+result, MTU notifiers and link notifications are now delivered. If resizing
+an endpoint fails, the endpoints already resized are put back to their
+saved MTU, and the original error is returned.
 
-> net: qualcomm: rmnet: Size the first device from the requested data format
->
-> rmnet_newlink() sizes the first rmnet device from the data format
-> currently stored in the port, before the requested IFLA_RMNET_FLAGS
-> have been applied. The MTU therefore does not match the egress header
-> overhead of the format which ends up being used.
+> When the real device MTU or the data format requires a smaller MTU,
+> existing endpoints are shrunk by writing dev->mtu directly. No MTU
+> notifiers run and userspace gets no link notification.
 
 [Severity: Low]
-This isn't a bug, but is the "first device" wording narrower than what
-the patch does?
+Is the part about the real device MTU accurate?
 
-The reordering in rmnet_newlink() in
-drivers/net/ethernet/qualcomm/rmnet/rmnet_config.c is not limited to the
-case where port->nr_rmnet_devs == 0. Every newlink now merges
-IFLA_RMNET_FLAGS into the local data_format first, then sizes its device
-from it:
+rmnet_vnd_update_dev_mtu() has only two callers, rmnet_newlink() and
+rmnet_changelink(). The changelink call only happens when IFLA_RMNET_FLAGS
+is present, which means a data format change.
 
-	err = rmnet_vnd_newlink(mux_id, dev, port, real_dev, ep, extack,
-				data_format);
+When the real device MTU changes, rmnet_config_notify_cb() only validates
+the new value and vetoes it if needed:
 
-Before this patch, a second or later device on the same real_dev got its
-initial MTU from the port-wide format left by the previous newlink.
+drivers/net/ethernet/qualcomm/rmnet/rmnet_config.c:rmnet_config_notify_cb() {
+    ...
+	case NETDEV_CHANGEMTU:
+		if (rmnet_vnd_validate_real_dev_mtu(real_dev))
+			return NOTIFY_BAD;
+    ...
+}
 
-After this patch, that device is sized from its own requested flags. If
-no flags are given, it is sized from RMNET_FLAGS_INGRESS_DEAGGREGATION
-alone. Its default MTU can therefore differ by the size of the checksum
-header (no checksum vs CKSUMV4/V5).
+So endpoints are never shrunk on that path, either before or after this
+patch.
 
-The message also doesn't say that port->data_format is a single setting
-for the whole port, and that every newlink overwrites it.
+Could the commit message be limited to the data format case? As written,
+it suggests this fix also covers the real device MTU path.
 
-Could the subject and body say that every device created through
-rmnet_newlink() is affected, not only the first one?
+> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> index 8bf87c5ecb43b..dce436e4c6305 100644
+> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct net_device *real_dev)
+
+[ ... ]
+
+>  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> -		if (ep->egress_dev->mtu <= new_mtu)
+> +		ep->saved_mtu = ep->egress_dev->mtu;
+> +		if (ep->saved_mtu <= new_mtu)
+>  			continue;
+>  
+> -		err = rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
+> -		if (err)
+> -			return err;
+> +		err = dev_set_mtu(ep->egress_dev, new_mtu);
+> +		if (err) {
+> +			fail_ep = ep;
+> +			break;
+> +		}
+>  	}
+>  
+> -	return 0;
+> +	if (!err)
+> +		return 0;
+> +
+> +	/* Restore the endpoints which were already resized. Failures here
+> +	 * are ignored since the original error is the one to report.
+> +	 */
+> +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> +		if (ep == fail_ep)
+> +			break;
+> +
+> +		if (ep->egress_dev->mtu != ep->saved_mtu)
+> +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
+
+[Severity: Medium]
+Does this restore undo everything the earlier dev_set_mtu() calls did?
+
+Now that the shrink goes through dev_set_mtu(), netif_set_mtu_ext() runs
+the NETDEV_PRECHANGEMTU and NETDEV_CHANGEMTU notifier chains for each
+endpoint.
+
+A PRECHANGEMTU notifier can now veto the shrink. For example,
+team_device_event() does this:
+
+drivers/net/team/team_core.c:team_device_event() {
+    ...
+	case NETDEV_PRECHANGEMTU:
+		/* Forbid to change mtu of underlaying device */
+		if (!port->team->port_mtu_change_allowed)
+			return NOTIFY_BAD;
+    ...
+}
+
+Before this patch, the direct rmnet_vnd_change_mtu() call could not fail
+here, because new_mtu < ep mtu <= real_dev->mtu - old headroom. So a
+newlink or changelink with IFLA_RMNET_FLAGS that used to succeed can now
+return an error.
+
+If the veto happens on a later endpoint, the CHANGEMTU notifiers have
+already run on the earlier ones. If the temporary new_mtu was below
+IPV6_MIN_MTU, addrconf_notify() tore down IPv6 on those endpoints:
+
+net/ipv6/addrconf.c:addrconf_notify() {
+    ...
+	case NETDEV_CHANGEMTU:
+		/* if MTU under IPV6_MIN_MTU stop IPv6 on this interface. */
+		if (dev->mtu < IPV6_MIN_MTU) {
+			addrconf_ifdown(dev, dev != net->loopback_dev);
+			break;
+		}
+    ...
+}
+
+In the same way, inetdev_event() falls through to inetdev_destroy() when
+the MTU is below the IPv4 minimum.
+
+Restoring saved_mtu only creates a new, empty inet6_dev or in_device. The
+configured addresses, routes and per-device sysctls are still lost, even
+though the request returned an error.
+
+For example, take a real_dev MTU of 1284 with no checksum offload (4 bytes
+of headroom). Endpoint A has a lower mux_id, has IPv6 configured and is at
+1280. Endpoint B has a higher mux_id, is a team port and is also at 1280. A
+changelink that sets CKSUMV5 (8 bytes of headroom) gives new_mtu = 1276:
+
+  dev_set_mtu(A, 1276)  -> addrconf_ifdown(A, true)
+  dev_set_mtu(B, 1276)  -> vetoed by team_device_event(), -EPERM
+  dev_set_mtu(A, 1280)  -> A comes back with no IPv6 addresses
+
+Userspace also gets a shrink-then-grow pair of RTM_NEWLINK events for A,
+for a request that failed.
+
+The commit message says a failed request "does not leave some of them
+shrunk". That holds for the MTU values but not for the L3 state.
+
+Is this partial rollback intended? If so, should the commit message
+mention the new veto failures and the lost L3 state on endpoints that were
+already resized?
+
+> +	}
+> +
+> +	return err;
+>  }
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117060737.2764327-1-subash.a.kasiviswanathan%40oss.qualcomm.com
