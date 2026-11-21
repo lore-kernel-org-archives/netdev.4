@@ -1,74 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285249;
-	b=U7CnhFvvBiXdkDkp8wwU1axm7xz6xe/74OPEWB7J6qb8UJNmQAIlMqKpIWgxo2pz6BGD
-	 1L8SKk0rS/SiRc/RIN9VqTlK4Nd3RWvfDUYBXOcuti8YPF0wjKir1vIWNaq18L7yILmj1
-	 j+WlFWJ70L3QGuyI1Lr6YntlMYneZPcHmG9NAV4G0nfj7LtDLC33S8hmtgpiUHaPs+ili
-	 WV3SVEDIgWDbr0V7A41Jlt3qdUWcUQx2Ei3PWQhpeRd+TQ4EE5IcZoKsTuQtCUa73Z1+m
-	 MIPKso9Mm/HobW4Ne78zokv7ENKIOg//+QjNCOE3miFzKII2T1eqf2YI8QZrJ4rQfuQ==
+	t=1795285272;
+	b=HRPw1ShpAdcnHcip+QeEFicbRy8MboRPv62AaoLa76PfpNy8iKKgYtYkvf3MWb43echl
+	 qm5PjhtvbstSgPnHXIKhF9HvQx9qTxgjURfKL1q909oozFI8CEg5otIuSjDlk3+La8SmS
+	 PELs0a+/xZEo/CbcsJ3Po6i9I/VI+W8t4TYvo24srMkDpECuZtqjLM0Tcx4xx3+e6ZLmc
+	 2J9JYmZB6N7nhlcDoyNO60WmFXkJzl2Lny1U47P9DqUXFmQ9Z3v4+gkxCZ3ofkVUg6KwA
+	 CNDDsQkY31gVlj8YqERcpMtKLDK0NpjRSusJIhrbeyjwtSZl8SifG7G67PqBG64vKRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285249;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=KI1ORU4gc9du1NZSE0crgGckyJHWnAayP08t9HR4ogg=;
-	b=TJtH1I21ZbCFb9bRuaQWKl5dKIWawIDlMrsQEQovj8SffKOSiRPy/VpboEO196ne9/Wq
-	 T2jucaHmDnkXIXxISqWhW3C0a5e91t99DqGpIR9sZt4DfmYVn3uzteeKAMdxLgTnf/Vj5
-	 dEtBxAwn/Y84rQb2H7u9IciDCWXPSJAyGSVJdWu9VT8WdAnLvuw4pssUpssL6HYxpjYbg
-	 gg5T+aCx7I2fp38uwsYf3ISOohpSui2ERuN7uEfRsH95fnVZXlZIXndA/9/lyeYRqPIxU
-	 Q+NlCKM+5/zCFGZiYAQMvmrHPvRKW1T0jBvbGytHGAZWplfDLxKKJR1iTbxSLYYpo6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285272;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BiTHRKW3n1NEjNfmnAFRnK5r5gKkPivxMejwt+0oWMk=;
+	b=QB2ylhCd1NIkZXpuLkzJ05wckdscjkznqaQuGF06+uSAx9QmYJlf7sZL4gqslJwTfhfH
+	 gnbT0wiW7rJL+uOnqQp1QdFU302oH+UFRsGcx6Vx7/DddDg+5EwXjUleW8rUshK/1/HBm
+	 uo8vnVpJXMH8J6TbUorVdxydRhGEcVflPsKBL6MwRG7WNB6tgyCsTnpndJeUL8mLLVQAn
+	 DG4XV3CPjawVJ4cWQZSHSLrnPdP9W/kzWIfY3vUhVFasFdqQc3SJRbCNbfXPsXMOI9aUt
+	 5bmNxKFs5RVSyvRkC2lZeudBy0Ixgw48CPFGP+a6c3JAeBO/pKGO/pWFxf3N9DwbzZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y+Fg9iC2;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=inria.fr;
+	spf=pass smtp.mailfrom=inria.fr;
+	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b="HSPYYjR/";
+	arc=none smtp.remote-ip=192.134.164.83
+Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB05D606A32C
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:20:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB05D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C32B0606A320;
+	Sat, 21 Nov 2026 18:21:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C32B0606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y+Fg9iC2
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b4232374d6so2773865a91.2
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:20:48 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=HSPYYjR/
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795285248; x=1795890048; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KI1ORU4gc9du1NZSE0crgGckyJHWnAayP08t9HR4ogg=;
-        b=Y+Fg9iC2oscQUEyWn6ySF9qUwqJ014h262RlMdXZ3G2FRej4k+dj8/yhEey/eFa6o9
-         LNyx7AVBaq92O2RyZ+R1s9EgX4vWQmp2t2+vojj3P7MXhE3yJAep7L2+3lCEEQhk6zd1
-         3T2oHM2NGfxU/z8AbZJjhq+eJQZuz4YG1ri91/DMtSo84cBe8Zay2Tf/N8IC4rBEmtff
-         TA3kZGy/D2iQ8VgMjNp/2PwKfuB2XonAEOOCAfhyvyiitB03OoPkj65APvuTGxH0Thus
-         p4Jf7bx6oHqfqWs6pFdOI6dCRhs3PawrBUTXoDoIJH0MoPpNxUHkDGhAr+7cjxR76Zl+
-         ZQ1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285248; x=1795890048;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KI1ORU4gc9du1NZSE0crgGckyJHWnAayP08t9HR4ogg=;
-        b=REBijL/LKjAbahUNe0ThZWqRtCWYPgWS7ipaAY7M4O+48nzfyL8VoxhymA4OxJMVUQ
-         BvLXxdPCfAuXZTmUj5eKkyo0dHhsBr8DQhCU/X+KKaZtSEYmxsip8lEQhVQCsAZu/agd
-         4tpbbCMjok522Rm4+/g3cYFIkl0pmbmOOoJdgEqc2mQMVJPVdAlyosxLxE3UzxBo1ilw
-         TFMU99iQ68SArlOFSuBylKFAjX5h71Vg3M1n+v9wKu4GG+XMYvsm/r2TkHmyGd+TyhLf
-         2yeyf/+0TlzeIRrjxqaHIa0JG6B822119Vc7EfZYV0ZSztnFy+ECOYpHIBPW4VjX5SYZ
-         aybA==
-X-Forwarded-Encrypted: i=1; AL+hErHGwKTEsZEemKBly1n47fZx40A/k0F4o1UXdTr9TCNQBiy85IThqVOCIZ2VlNgzSAyHEUhNSBI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9nUN+jKikMz7B9GulXyCT87IIXbrnzT4C0zj1iQkCsoh62YpJw
-	t0aEvXwKdDxRGh2oVm9OFquwrntG9HY5UQAdS6GwEh7j278zzNIDJ3rV127S/zTcFAvCLMiwOns
-	5LbS47g==
-X-Received: from pjbnd6.prod.google.com ([2002:a17:90b:4cc6:b0:3b4:50ed:c55e])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e705:b0:3a0:9640:803a
- with SMTP id 98e67ed59e1d1-3b41c7e118emr6746307a91.5.1795285247861; Sat, 21
- Nov 2026 10:20:47 -0800 (PST)
-Date: Sat, 21 Nov 2026 18:20:47 +0000
-In-Reply-To: <20261117215554.68071-1-dennylin0707@gmail.com>
+  d=inria.fr; s=dc;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BiTHRKW3n1NEjNfmnAFRnK5r5gKkPivxMejwt+0oWMk=;
+  b=HSPYYjR/Zr29tCwa2+h9g0/n5xh3obrl7x1wprN/glMjEUC5DySZRYVX
+   h+KB43PxIMO+BHb5sjYGUpJQ9369GZmDzzEgIAJit+dek0Obn019u7U0q
+   zXFF/O1PifgfgSw0olbbkz216sXWXOa4yvhXbipvRcnWWYYWSPRicPIgB
+   c=;
+X-CSE-ConnectionGUID: COjrWgzxS2qBVH8SBH+IoA==
+X-CSE-MsgGUID: 9+G7ILc6Tze+/79Je3eaeg==
+Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=yifei.sun@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
+X-IronPort-AV: E=Sophos;i="6.27,225,1787004000"; 
+   d="scan'208";a="306681183"
+Received: from 193.186.140.88.rev.sfr.net (HELO macbook.tail650e82.ts.net) ([88.140.186.193])
+  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 19:21:02 +0100
+From: Yifei Sun <yifei.sun@inria.fr>
+To: netdev@vger.kernel.org
+Cc: Yifei Sun <yifei.sun@inria.fr>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net 1/2] ipv4: keep scanning the leaf when a nexthop object is unusable
+Date: Sat, 21 Nov 2026 19:20:16 +0100
+Message-ID: <20261121182031.36626-1-yifei.sun@inria.fr>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,70 +74,56 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261117215554.68071-1-dennylin0707@gmail.com>
-Message-ID: <awHetU_All3Iydgf@google.com>
-Subject: Re: [PATCH net] net/tcp-ao: fix reset key lookup for IPv4 segments on
- IPv6 listeners
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Hungyu Lin <dennylin0707@gmail.com>
-Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net, 
-	dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	0x7f454c46@gmail.com, fruggeri@arista.com, noureddine@arista.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 21:55:54 +0000, Hungyu Lin wrote:
-> tcp_ao_prepare_reset() looks up the key for a reset that is sent on
-> behalf of a listener by the address of the peer. It takes that address
-> from the IPv6 header whenever the listener is an AF_INET6 socket, also
-> when the segment is an IPv4 one that arrived on a dual-stack listener.
-> The address is then read from the middle of the IPv4 header, the key of
-> the peer is not found and the reset is not sent.
-> 
-> The v4-mapped check that follows does not help: it looks at
-> sk->sk_v6_daddr, which is the unspecified address for a listener, and
-> it runs after the address has been picked.
-> 
-> Use the protocol of the segment to tell the family, like
-> tcp_v6_do_rcv() does.
-> 
-> Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
-> ---
->  net/ipv4/tcp_ao.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/net/ipv4/tcp_ao.c b/net/ipv4/tcp_ao.c
-> index bb7bbc20ba3f..656dbf805cfc 100644
-> --- a/net/ipv4/tcp_ao.c
-> +++ b/net/ipv4/tcp_ao.c
-> @@ -813,14 +813,12 @@ int tcp_ao_prepare_reset(const struct sock *sk, struct sk_buff *skb,
->  			sisn = th->seq;
->  			disn = 0;
->  		}
-> +		if (skb->protocol == htons(ETH_P_IP))
-> +			family = AF_INET;
->  		if (IS_ENABLED(CONFIG_IPV6) && family == AF_INET6)
->  			addr = (union tcp_md5_addr *)&ipv6_hdr(skb)->saddr;
->  		else
->  			addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
-> -#if IS_ENABLED(CONFIG_IPV6)
-> -		if (family == AF_INET6 && ipv6_addr_v4mapped(&sk->sk_v6_daddr))
-> -			family = AF_INET;
-> -#endif
+With veth1 on 172.16.1.0/24 and veth3 on 172.16.2.0/24:
 
-No need to read sk->sk_family.
+```console
+$ ip nexthop add id 12 via 172.16.1.2 dev veth1
+$ ip route add 10.0.0.0/24 nhid 12
+$ ip route add 10.0.0.0/16 via 172.16.2.2 dev veth3
+$ ip route get fibmatch 10.0.0.1 oif veth3
+RTNETLINK answers: No route to host
+```
 
-union tcp_ao_addr *addr;
-unsigned int family;
-__be32 disn, sisn;
-...
-if (IS_ENABLED(CONFIG_IPV6) && skb->protocol == htons(ETH_P_IPV6)) {
-	family = AF_INET6;
-	addr = (union tcp_md5_addr *)&ipv6_hdr(skb)->saddr;
-} else {
-	family = AF_INET;
-	addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
-}
+When the /24's nexthop object has no path on veth3, fib_table_lookup()
+backtracks past the /16 in the same leaf. A socket bound to veth3 then
+ARPs for the destination instead of the gateway. Try the next alias,
+as for inline nexthops.
+
+Encountered this while work on a unrelated IPv4 SADR patch (not sure if
+this is even needed...)
+
+In QEMU with lockdep on 5e2976e52671, the selftest and device-bound
+ping and UDP failed before the fix and passed after it.
+
+Fixes: af7888ad9edb ("ipv4: Refactor nhc evaluation in fib_table_lookup")
+Signed-off-by: Yifei Sun <yifei.sun@inria.fr>
+---
+ net/ipv4/fib_trie.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/net/ipv4/fib_trie.c b/net/ipv4/fib_trie.c
+index 394df1de1281..2a670e9b0417 100644
+--- a/net/ipv4/fib_trie.c
++++ b/net/ipv4/fib_trie.c
+@@ -1591,7 +1591,7 @@ out_reject:
+ 						     &nhsel);
+ 			if (nhc)
+ 				goto set_result;
+-			goto miss;
++			continue;
+ 		}
+ 
+ 		for (nhsel = 0; nhsel < fib_info_num_path(fi); nhsel++) {
+@@ -1622,7 +1622,6 @@ set_result:
+ 			return err;
+ 		}
+ 	}
+-miss:
+ #ifdef CONFIG_IP_FIB_TRIE_STATS
+ 	this_cpu_inc(stats->semantic_match_miss);
+ #endif
+
+base-commit: d5b89d55a322b632e2b465b392a4c1d9d338db9c
