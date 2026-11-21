@@ -1,105 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231950;
-	b=Pks+p1UcPc9f9cClNNP290RSEUFnbVhRJV8XS3/bBj2rhAa9XJMqjisx27jS/KAoTWvF
-	 IefKqj2Sd3QQXcHcNaeJdqdUIInWH8rAQxMhR/aUYhIFPbvQWRl/BQQx2A60jY42CKtlv
-	 ukRpX4ZDer9I86zSF3jtLGOPGjXefMM5avY9WtAxFewgoWt4D4wsDtgQ2k2BHtmLGVjvV
-	 ISI9w3Sma6f6nZAZBbFheD9oQVONSBoAsgnBRWi30ztRy8WPZsdcGVF7ufiZRwLcgAn0w
-	 8N+RtJtr+3+AbbqN9HMoHI8I/+pREB6m9XrjEepKxcDWA40X8ywhIbggXh7cnv7A7Rg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231950;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=YOzNhjws3gldKpT9Gv1+KAocibW61jVtKAiqYleNLi8=;
-	b=AD4oaYoL6OgduunGtm1K8UfZF6+fjGy7YDfmmMQ/lrJ9igLQ19Zq5gHI9txpSrtEcGNL
-	 SHQKiY7xVH3PBEc5lortYWA/SrS/pTG9uAHn4jqsKY4G+iR/wKwgECfyDNTg7huE5LWis
-	 CJVYtZAOrWreDACtJdfw9tN9m0aqfwQLJ/C0xSHLqdvZzzP/3IvGleLi2q9E0ZrJ5JW1O
-	 +1Ico4rJyYoKEwgOEAbAvF1v6HFl3qTVgwObXKg7ibERCimXuHIQ9wQJgytro6XS9HsqI
-	 zfh90MrtQfVSCP513sEMHV5CdcAPY1QTbuHqFS/VUewqQWqIQi9jte2/Lalnqgn3yzA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jvqFB3mB;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795236222;
+	b=ozrzyD6kLpy+sM6aMtilnrDOhJ2PHXa0HkD1D/ZmEOquL6KFlrzgkr9mUnFNHmB2Ze+9
+	 jHwKRQqfJZ56FirgANTnl6bhiJTP1Wb2lCPLJ1S1jqKN+Xg63araN1QukU2FRRP7xZYvS
+	 2rWbB/gXqPT31PTBOQGECfX/7bK9+xDAcxEXJXmo5RtYewLgrzfjU7TaVcRG4iBmsoOYu
+	 REfUBWb6z4xhgfLziiXIcX2Rf80QtdSXxjSOwX7AVkmfTKMiswHMjPK3bcq84CyuPA/QB
+	 8igz/QsYzEYaQplXR+R3qBZBOFAA2yAo2EkcFZOyWUbKPu6HsTEQxM1il+qVBl3qoMA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795236222;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qY1ub7c2Cr86Gjk2134FfcaG8nBCJXS7pPNCP9Kqc4I=;
+	b=I2BDylpObafHjLerzxJ1PvykedyajQkj4NAt8gvR5KP66lnkKfX8g9fUI90IACOCfD7E
+	 Jjp/UXK/SBqN8N6iZSsIc7/PD/0Vin3pZFJO8BqYrWZv+FIDGKH0DGFNZWOZ1cnPVCLey
+	 BlllvQycVtGDRodWBhZYqQZGWdomUv1rvXlcql3Y6sgDfdZkyfzh7C2afyoakuravKHXa
+	 4IO/fMI5+He9h3XMnFkF6YUnTLQbTqeK70IIVrckBTIygJifkpvIVrkAuswG51gfT660F
+	 DCpILhbMEJ6ywroJDhKLh+hMmGD7K1Wr53jr0XBZFXKI6VBguRnZaNveBqEh7w+LUQQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mLVVxOgO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 477AE606A684;
+	Sat, 21 Nov 2026 04:43:42 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mLVVxOgO
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795236221;
+	b=DcnpDD8O83wYnQO1NrjM3K3l/Nb8THCUEln8TR/zRxEFNC1KttO6xTR+jlC3oSDZZ5oN
+	 XdaMqBRppD83gG2AVUGu+fiN+i6OnKWUNU8m8vHPNy+OQd/sDwiPY5iFU4pk43JL508D8
+	 2JPXNyoWR9e3FHcK+TOyXs2f7CNdAJMAIYC4YyuSGb0wXZlZwh4gWib5wY2grARl2jOHe
+	 ywi/FzrHqsOiPZWZQbEcpV7mCKxHfrR/eThtKEBkq18zOcyKC8yCxQ/GYYawYHZ8VZEY3
+	 iwiKBLVB4v/Uslph7q6XXY4ZtFBA3fhdgIa9+PPY2/nsYQYfSV7B5RPLAuGE9v1RJhw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795236221;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qY1ub7c2Cr86Gjk2134FfcaG8nBCJXS7pPNCP9Kqc4I=;
+	b=I73CmzviqKGLobaBM47Z+OIuBcaYpGvoXExiSwgKTQCUsNxaLNZIm8rRtmBnzxk/tdzs
+	 TWANhRzg04eKt6Je5mheekju/fNJl914mDxx9yePz36fYBc6rKW0V/rqbpvkfXsaR5dgO
+	 EHZFCMkV0jva6veoMZUZGiu6yJ1HKaAXO660jdhFRxUuZdbDq0hAeMMF1qw32EcxjA4nf
+	 hWsWqxtOSqLUNr1kJRexZNo0jSMS9zdDi8gGXoRS9hIWvEO0cBh88U+e4lFCnKBHjZmZY
+	 bDymyR4bmNVn4m6qUw+Ci2fB47Lw3qC9ikTXO/D+XGCbSk+m/529VTI1xLGxLJEvBTg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6042C60A2602
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 03:32:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6042C60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jvqFB3mB
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso892085a91.2
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:32:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795231945; x=1795836745; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YOzNhjws3gldKpT9Gv1+KAocibW61jVtKAiqYleNLi8=;
-        b=jvqFB3mBb2wdzjtQLWbusdrkQSN8++0yMhWzjYhLKRd9J5fAsOBbkSsXvsnzPApweC
-         3HrQZDbcrtVxt8hcsnINOMNRYIloMFdPBlbetXyzpf2f6nggscSe1rykkqTx93O2VBnQ
-         3CD5raLOblG19i3XwJ6UKCWrvKHl1XgwkPr9i6+SV2s6x/cGyCWXZSv8i9uY4OK4cfOY
-         NcdBNJ37KUDAMMsxQIkMa4hDVrLCp8dVjVPtuekVPRhYXgatVxE+ygxlz3f1srgGJG0c
-         TuyHvjQmdtBXt3uBDpIbO8Ld5XcN3WbmtsyVc8pyBgRZNtsxFPYlrVZAQsxDVNrYeHcM
-         SCMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795231945; x=1795836745;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YOzNhjws3gldKpT9Gv1+KAocibW61jVtKAiqYleNLi8=;
-        b=0QRgKLP+Nlk5DvqZUIIhJxQinSZzmQe8zNAfjqcVDMr0Lp2r/gZw+vqXjR7EsJZ0QQ
-         XU3dRApL1ALPhO5IlJNEEomMmluE3IV+ej5EGwPd5HoVhKL9MPPOj0uS6M3m9TLCEVdO
-         bOaDnV2pWuKckrIeEzBIGSsE39r2hPGzAdXiia/c290nfbBU6CvBhsaoiD5pugUNIV+7
-         lkPpEewp446NBYAqhsEKqp6FJHvQUPQNsS8WUWSUnyFASufVyPDg5ZOT3HS9vJVyysbY
-         2Mw1yjAHvpJxdGWsVshBoZogkJS/9v+syW4HUMpSpGUXw7lZtHh0KwW6QiOMiyqKMaLn
-         ROdQ==
-X-Forwarded-Encrypted: i=1; AL+hErFYzCKY/xHLgepiIqAvHeEFMqXnxYNl38wOkKxs7i6G4+qVnNdzcaig43aXJ+sTw/pvSVg/kuw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OaX9GB/10KErt4F3l9jtGCRhlLE6WcDJcyz5Tng7+NwrP1Aap
-	q1pHFgyl+Myyux5rKOU/2vK6xOZ4kEP+RbnoGdJlYDbOYIpNvCL5fw+2
-X-Gm-Gg: AZFdTZeBj/F9OYR99TZ+dgNFyM/Z6echt9HQliXape3csy2HXJnoYr899+0GEYEqyyO
-	sqJ5BHtpI7KnmyysEjH2yp6XfCtcPGf8OKDZmP+mU6WI6rQ0nHl145YSi/Wzg+II2YFwZz6ojv0
-	6Jz5S+krbf1FVLAvwNC23II22sRlwvpJge+Dx+/zsO9G8+voaRWqI/e7rm6VV2VLVOO4DrBkW9O
-	/+l6OBm84K/Uzn55pACmi412M1YOniCwPnZlsdkT9KTvG/rROQV0e4TFgcu21HVHJxMkA1gWy8L
-	P2NLgg29Vk1feigb/7Mag67L1WTEM3dOmZGMvh+EbeVFH3APlGKuRv4o7ArXTpgt5bSRMHNopRF
-	wvABM3+THuoNrKJUD6gaz9w9Y5nKsq255vWF7Bo0ISB5iF6v099Ig5Aci62L5Rto+zfCF4uVA+v
-	WVntdGEl1YViIcn7dNuCZp+IkiVjjALVV5UYREfnl0yZ6EgHyVn73td0Z2Ksi2+3LpuecQn3lGB
-	RjHpRnl8G8nByHuyRXKFCNuSB6AcJrOuIIy/olbJ9DUQ5ftcF4Ux9NnhDOV4VzE/gvW9K1emQ9a
-	HEv4vZZtP5CE7tBNiJ/ubzcLJQ1avwTqOG0=
-X-Received: by 2002:a17:90b:134e:b0:3b3:c2bf:de33 with SMTP id 98e67ed59e1d1-3b41c93a017mr4349532a91.40.1795231944761;
-        Fri, 20 Nov 2026 19:32:24 -0800 (PST)
-Received: from localhost ([2a03:2880:7ff:50::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d6349bsm9949306a91.9.2026.11.20.19.32.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:32:24 -0800 (PST)
-From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>
-Cc: Alexander Duyck <alexanderduyck@fb.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	kernel-team@meta.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	Mina Almasry <almasrymina@google.com>,
-	Dimitri Daskalakis <daskald@meta.com>,
-	netdev@vger.kernel.org,
-	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-Subject: [PATCH net 4/4] eth: fbnic: wait for both TWQs of a Tx queue to go idle
-Date: Fri, 20 Nov 2026 19:32:15 -0800
-Message-ID: <20261121033215.1020506-5-dimitri.daskalakis1@gmail.com>
-X-Mailer: git-send-email 2.52.1
-In-Reply-To: <20261121033215.1020506-1-dimitri.daskalakis1@gmail.com>
-References: <20261121033215.1020506-1-dimitri.daskalakis1@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 566EE1F000C6;
+	Sat, 21 Nov 2026 04:43:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795236221;
+	bh=qY1ub7c2Cr86Gjk2134FfcaG8nBCJXS7pPNCP9Kqc4I=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=mLVVxOgOYeEKxCC+VkEc6H8AVCkDs9FazYBCCJSneEI9T5Zjjjc2/2N9VJ0DnRdon
+	 r2PfqhPgKwYSFL9QsngdIpR6CbjYbyzFzHTH2xtKm9z0Kdn4jpaoFnf/3nZbNF9vEP
+	 7anPkktAsh3fdqCIBzaiG1tWhWbjODeB6FATwMAJ41hA9eKtTZBWZ/2PE6s/6vlzXf
+	 GJ3zNURvoBmuEReCB9VvqwaJSBvAL37KOb6J8NMDZF56/Ekel2+S40Pf5hfNL8H4U8
+	 7bAReJbpAnUuL+fM6jYh4CVj9toRQ3fUomc8htHElD3hN/WOWBBOelOiI+GGeKaNdy
+	 i1Hp33z7CtK0A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A8DF74BAF8;
+	Sat, 21 Nov 2026 04:43:40 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 04:43:41 +0000
+Subject: [PATCH net] net: stmmac: dwmac-sun8i: Limit the MTU to one
+ descriptor buffer
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,93 +83,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-sun8i-emac-mtu-limit-v1-1-22492842d318@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQrCMBAAv1L27EITdbF+RXpI47ZdMVGyiRRK/
+ 260xxmYWUE5CStcmxUSf0TlFSuYQwN+dnFilHtlsK0lY6xBLfEiyMF5DLngU4JkJHLdkVo6dXS
+ Gmr4Tj7L8tzeInKHfpZbhwT7/hrBtX+W/R0x9AAAA
+X-Change-ID: 20261121-sun8i-emac-mtu-limit-66a936064965
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ LABBE Corentin <clabbe.montjoie@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Russell King <rmk+kernel@armlinux.org.uk>, 
+ Nicolai Buchwitz <nb@tipi-net.de>, stable@vger.kernel.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795236220; l=2306;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=nONg0VC5sVpR9PeT7YPsWCSGoSka8xMNeopCkcw71rY=;
+ b=DUJUge213peq89DZSTZEFm8M6OTH3hROkg8KyslR/EHROF2fN+9kaQ/gVJtPjSlgug0E9VIqK
+ Q+Lvc+ZVqaUC1r3MJHA11IMqj8aJbOiLbvfs2DWW8RNLceQht0q7TVb
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-From: Dimitri Daskalakis <daskald@meta.com>
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-TWQ_IDLE, TQS_IDLE and TDE_IDLE have a bit per Tx work queue. Bit 2q
-is for TWQ0, and bit 2q+1 is for TWQ1. fbnic_wait_queue_idle() only
-tests bit q, which belongs to queue q/2. Thus, the wait covers a TWQ
-of the wrong queue (except when q = 0).
+Russell King pointed out in [1] that max_mtu ignores the 11-bit buffer
+size of normal descriptors. dwmac-sun8i always uses them in chain mode,
+so a frame must fit one buffer, but max_mtu is SKB_MAX_HEAD() (3712 on
+arm64). Sashiko asked in [2] for this to go in as a fix.
 
-Test both of the queue's TWQ bits in those registers.
+On an H616 the RX DMA fills 2044 bytes of a buffer and
+ndesc_get_rx_status() drops a frame that spans two. On TX the MAC cuts
+a frame after 2048 bytes (TX_FRM_LEN_CTL is clear). At MTU 2033 no UDP
+datagram gets through in either direction.
 
-This bug was found by AI and verified in QEMU.
+Limit the MTU so that a frame with two VLAN tags and the FCS fits 2044
+bytes (MTU 2018). MTU 2019-2026, which worked without VLAN tags, is now
+refused.
 
-Forced TWQ1 of Tx queue 3 to never read idle in QEMU, with rx 2 tx 2
-(queue 3 is the XDP Tx queue of rxq 1's vector), and bound devmem to
-rxq 1:
-  before: bind succeeds
-  after:  bind fails with ETIMEDOUT:
-    wait for queue Tx3 idle failed 0x0800(0): ffffff7f (mask: 000000c0)
-
-Fixes: da43127a8edc ("eth: fbnic: support queue ops / zero-copy Rx")
-Signed-off-by: Dimitri Daskalakis <daskald@meta.com>
+Link: https://lore.kernel.org/r/E1vLJcL-0000000ExBL-0GFe@rmk-PC.armlinux.org.uk [1]
+Link: https://lore.kernel.org/r/20261112-sun8i-emac-jumbo-v2-2-aca0cf23cf17@gmail.com [2]
+Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
+Cc: Russell King <rmk+kernel@armlinux.org.uk>
+Cc: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: stable@vger.kernel.org
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/net/ethernet/meta/fbnic/fbnic_txrx.c | 32 ++++++++++++--------
- 1 file changed, 20 insertions(+), 12 deletions(-)
+Tested on an Orange Pi Zero2 (H616) on net/main with and without this
+patch (RX fill measured on v7.3.5). Claude (AI) helped write this patch;
+I reviewed and tested it.
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
-index 62b67940c13e..fe769c33b117 100644
---- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
-+++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
-@@ -2532,36 +2532,44 @@ int fbnic_wait_all_queues_idle(struct fbnic_dev *fbd, bool may_fail)
- 	return err;
- }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 2ece7ba9dd73..1f4fa722529f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -6,6 +6,7 @@
+  */
  
-+struct fbnic_queue_idle_reg {
-+	u32 reg;
-+	u8 bits_per_q;
-+};
-+
- static int
- fbnic_wait_queue_idle(struct fbnic_net *fbn, bool rx, unsigned int idx)
- {
--	static const unsigned int tx_regs[] = {
--		FBNIC_QM_TWQ_IDLE(0), FBNIC_QM_TQS_IDLE(0),
--		FBNIC_QM_TDE_IDLE(0), FBNIC_QM_TCQ_IDLE(0),
-+	static const struct fbnic_queue_idle_reg tx_regs[] = {
-+		{ FBNIC_QM_TWQ_IDLE(0), 2 }, { FBNIC_QM_TQS_IDLE(0), 2 },
-+		{ FBNIC_QM_TDE_IDLE(0), 2 }, { FBNIC_QM_TCQ_IDLE(0), 1 },
- 	}, rx_regs[] = {
--		FBNIC_QM_HPQ_IDLE(0), FBNIC_QM_PPQ_IDLE(0),
--		FBNIC_QM_RCQ_IDLE(0),
-+		{ FBNIC_QM_HPQ_IDLE(0), 1 }, { FBNIC_QM_PPQ_IDLE(0), 1 },
-+		{ FBNIC_QM_RCQ_IDLE(0), 1 },
- 	};
-+	const struct fbnic_queue_idle_reg *regs;
- 	struct fbnic_dev *fbd = fbn->fbd;
- 	unsigned int val, mask, off;
--	const unsigned int *regs;
- 	unsigned int reg_cnt;
- 	int i, err;
+ #include <linux/clk.h>
++#include <linux/if_vlan.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/mdio-mux.h>
+@@ -1208,6 +1209,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 	plat_dat->mac_setup = sun8i_dwmac_setup;
+ 	plat_dat->tx_fifo_size = 4096;
+ 	plat_dat->rx_fifo_size = 16384;
++	plat_dat->maxmtu = 2044 - ETH_HLEN - 2 * VLAN_HLEN - ETH_FCS_LEN;
  
- 	regs = rx ? rx_regs : tx_regs;
- 	reg_cnt = rx ? ARRAY_SIZE(rx_regs) : ARRAY_SIZE(tx_regs);
- 
--	off = idx / 32;
--	mask = BIT(idx % 32);
--
- 	for (i = 0; i < reg_cnt; i++) {
--		err = read_poll_timeout_atomic(fbnic_rd32, val, val & mask,
-+		unsigned int bit = idx * regs[i].bits_per_q;
-+
-+		off = bit / 32;
-+		mask = GENMASK(regs[i].bits_per_q - 1, 0) << (bit % 32);
-+
-+		err = read_poll_timeout_atomic(fbnic_rd32, val,
-+					       (val & mask) == mask,
- 					       2, 500000, false,
--					       fbd, regs[i] + off);
-+					       fbd, regs[i].reg + off);
- 		if (err) {
- 			netdev_err(fbd->netdev,
- 				   "wait for queue %s%d idle failed 0x%04x(%d): %08x (mask: %08x)\n",
--				   rx ? "Rx" : "Tx", idx, regs[i] + off, i,
-+				   rx ? "Rx" : "Tx", idx, regs[i].reg + off, i,
- 				   val, mask);
- 			return err;
- 		}
--- 
-2.52.1
+ 	ret = sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
+ 	if (ret)
+
+---
+base-commit: d5b89d55a322b632e2b465b392a4c1d9d338db9c
+change-id: 20261121-sun8i-emac-mtu-limit-66a936064965
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
 
