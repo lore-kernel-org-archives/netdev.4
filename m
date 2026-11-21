@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231946;
-	b=obNJ1GJZ7XUDSyTIsVsPCzO1No6kktyDjWqUyGO2ydOmTsuY1DLvXXIq1f/TNqlWuhrb
-	 2ycsMX4UKKR8Vn5WZCHRM49vaHQbO30Fa2GaszsYABy4Yhy4iLM+REAQk03FVw2W5opK7
-	 sNdc47WH2QC7LSz6m2ygDueZBaroeZL6rOhIhaoK5TqfsD3VeTQyTOKwGgBvjQcdbZXNS
-	 /Fk7WjRbyVFnQxbahu/yt5blR29S18h9ESImnfuiurBpEeYD1OFt7NcInOAtYYHJjT/Q6
-	 30pA8zK0hjRa2Q2pNCbGcZczdN74F6ypotrdzd+u4NmN+lyChRHGTSDat+Ksfw0neKw==
+	t=1795231950;
+	b=Pks+p1UcPc9f9cClNNP290RSEUFnbVhRJV8XS3/bBj2rhAa9XJMqjisx27jS/KAoTWvF
+	 IefKqj2Sd3QQXcHcNaeJdqdUIInWH8rAQxMhR/aUYhIFPbvQWRl/BQQx2A60jY42CKtlv
+	 ukRpX4ZDer9I86zSF3jtLGOPGjXefMM5avY9WtAxFewgoWt4D4wsDtgQ2k2BHtmLGVjvV
+	 ISI9w3Sma6f6nZAZBbFheD9oQVONSBoAsgnBRWi30ztRy8WPZsdcGVF7ufiZRwLcgAn0w
+	 8N+RtJtr+3+AbbqN9HMoHI8I/+pREB6m9XrjEepKxcDWA40X8ywhIbggXh7cnv7A7Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231946;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795231950;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=wKyVEUcCtfCHn35kKG+OhBaUhVfqRDXWHj3fUWM2PnI=;
-	b=bfhUuKvmHA6IXceSUggboWhTCrkIde/9fDxf6p4iafhxrSFVoGEIK5g7rCLAMtJ8qH6v
-	 ot0wdyqtZOSxgr7cRt646G+OXQVYy0eveiPtpMWhftCiS1c05flySp922yqZH+PqtIV4u
-	 dxpGSNXDxghrMvBOXtiRNGrKfFssCc7C5X1fLexDW7CROK7ULJb+o2v3bmigUXzIpR85s
-	 byfw9+TdSZJHRUHnBMiBEpeB1ujEZ5vonzhplZn20wHvBgdDNFyBL0GCRsfnQNPBK/6GW
-	 wWlpAa1aX3BGTkQoCXPQRgUmUAHEPivPOoAQUYnlQh8Il2zbp8Jo84lzoy7rySGsmWQ==
+	bh=YOzNhjws3gldKpT9Gv1+KAocibW61jVtKAiqYleNLi8=;
+	b=AD4oaYoL6OgduunGtm1K8UfZF6+fjGy7YDfmmMQ/lrJ9igLQ19Zq5gHI9txpSrtEcGNL
+	 SHQKiY7xVH3PBEc5lortYWA/SrS/pTG9uAHn4jqsKY4G+iR/wKwgECfyDNTg7huE5LWis
+	 CJVYtZAOrWreDACtJdfw9tN9m0aqfwQLJ/C0xSHLqdvZzzP/3IvGleLi2q9E0ZrJ5JW1O
+	 +1Ico4rJyYoKEwgOEAbAvF1v6HFl3qTVgwObXKg7ibERCimXuHIQ9wQJgytro6XS9HsqI
+	 zfh90MrtQfVSCP513sEMHV5CdcAPY1QTbuHqFS/VUewqQWqIQi9jte2/Lalnqgn3yzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eTeJbitp;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jvqFB3mB;
+	arc=none smtp.remote-ip=209.85.216.53
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D46C606A6BA
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 03:32:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D46C606A6BA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6042C60A2602
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 03:32:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6042C60A2602
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eTeJbitp
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1402602a91.3
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:32:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jvqFB3mB
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso892085a91.2
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 19:32:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795231944; x=1795836744; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795231945; x=1795836745; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wKyVEUcCtfCHn35kKG+OhBaUhVfqRDXWHj3fUWM2PnI=;
-        b=eTeJbitpwjDs4hlSJDGTuttmkRUMF4tl1m5yGVibUkdr+sxETj5oPeJ125LWqEf2ib
-         zTVY9tpEkuQXzZmLpnkn2WxMEtTEbm5pBX//mOdwTeQnV+fEXVZrRdLwP2EKZcNbAEiX
-         s4qp4GNJjdRMDYAIfqCHm8bj8OTBdd+SZ1jw7ApuUdbvIsTqtkWsznSbVFGtCYVxMAgM
-         wU0VrGdczPlBfY7CQmEAWMYKIZDvL1Fg+km/2hAd0V4h6RaZWYyynFG4k6DbCmYTuVqq
-         mbqFbJvOyV0nX8ysRo8mB6voWU2JzQgY3lYgjUEd6G1mCRNfIAN3lyMCZccDnfC1KuyS
-         8cQg==
+        bh=YOzNhjws3gldKpT9Gv1+KAocibW61jVtKAiqYleNLi8=;
+        b=jvqFB3mBb2wdzjtQLWbusdrkQSN8++0yMhWzjYhLKRd9J5fAsOBbkSsXvsnzPApweC
+         3HrQZDbcrtVxt8hcsnINOMNRYIloMFdPBlbetXyzpf2f6nggscSe1rykkqTx93O2VBnQ
+         3CD5raLOblG19i3XwJ6UKCWrvKHl1XgwkPr9i6+SV2s6x/cGyCWXZSv8i9uY4OK4cfOY
+         NcdBNJ37KUDAMMsxQIkMa4hDVrLCp8dVjVPtuekVPRhYXgatVxE+ygxlz3f1srgGJG0c
+         TuyHvjQmdtBXt3uBDpIbO8Ld5XcN3WbmtsyVc8pyBgRZNtsxFPYlrVZAQsxDVNrYeHcM
+         SCMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795231944; x=1795836744;
+        d=1e100.net; s=20260707; t=1795231945; x=1795836745;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wKyVEUcCtfCHn35kKG+OhBaUhVfqRDXWHj3fUWM2PnI=;
-        b=rEylKAWQub43iwBIREzvWP87z4hpRCZeoQV5BHLKvSGa8RVITpTIE6SHPsmyNnr27o
-         xcBh4LJoIqm6ZFukqyjzmq8TY5XqKkwreR/1pziC+GH+Yw8KZkFQ3b6pZmPiJjvtnZ0U
-         +sPxBlB2QjgPiMSWRGMEIAS8xM/0T05gulOL/NirpkD6JrIN3jQROTYVEpaAnc35MXi6
-         pFFIZNDtS5MZpGzaE4F3O9ktpURea3pc2qJHtFf+vbmE1Cc/s6vt9GykPb9p9+3T2h6t
-         Ketm3W/bpmn2bBWM4ObLasPpR19tzuHf7zdLddchcQBVx9Ba36BME1WTyBXeACHAQDSx
-         hK+Q==
-X-Forwarded-Encrypted: i=1; AL+hErEEBP6YpYgnWtS8AVI/DSAJp6lgE8svmslgcz1Qymm8IJ+SQJkdldtwW+GbXXKhnPGqKEZ60Ds=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ztEuXZ3lErtZtYaZVaEuNe6YcTYmQw2IgEWCgG6AxiEb3vw4V
-	xz84VG1DD5/WCSXnRLrT+xPi8QeO7d65Vyz3SkUrUAW4pZRIVtqgTuD1
-X-Gm-Gg: AZFdTZfZn3CKnKo/wYMUtLGJvnUQGU/dbJrIVbjX9SZPUcEGG/RC2RwCOXjR13Qp8dH
-	8ktE/KTF2SysRxxVEQ23AplpmYy+icY/ZbCPgKRB0av9qTxr2lcHDnn57Jbsib+Fn+iBla1w7f9
-	LXgp466fOayb7tK0XAoiznCbCp3n4ZuNdCbdaW+mIouxIaDyy7/hhAslzoiCS7FzWasB8RUIaOe
-	6wETsnDqLIBQTSk6e+quygm1DJ8syMo1kIjHavSWbeIvwuTeb+CaF+jUQt2RFaglBn6bsll3pxZ
-	lUlmGlGNYpxZpMmb4u2LnoVY+dvKXWbcU/8TzCfjlzUw4jBGYfcQ4/FdahCptNb/FZRC+5wJ2Sp
-	39CvOJDEy4pO7AB/uT5i0U1MuNtUP2d9qz1ag2Zgpki6icC6J072UlCEeFjJJV3ul5q1SQFx7Bw
-	ePcuXXZvjgcV3XwsA3flqrFNSF5s5Xw7yZqGoMb9BKWNgAiIEpNyhzee2Gi7fiDwOAYTnb33ZJq
-	5vdAu9ZsXgtvsLh3CeqoAXw+6jL9S/Ug6L5p6gdRF0kw7iE4QHS83Xexhp8IiHzqCF1rgEAXb66
-	oC8PRio5OViQFkXb6Dtp3gZeNGEZW/WA9aY=
-X-Received: by 2002:a17:90b:5289:b0:3a4:77b8:1770 with SMTP id 98e67ed59e1d1-3b41c8fe855mr5490388a91.15.1795231943663;
-        Fri, 20 Nov 2026 19:32:23 -0800 (PST)
-Received: from localhost ([2a03:2880:7ff:44::])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde7f91c6f5sm110062a12.27.2026.11.20.19.32.23
+        bh=YOzNhjws3gldKpT9Gv1+KAocibW61jVtKAiqYleNLi8=;
+        b=0QRgKLP+Nlk5DvqZUIIhJxQinSZzmQe8zNAfjqcVDMr0Lp2r/gZw+vqXjR7EsJZ0QQ
+         XU3dRApL1ALPhO5IlJNEEomMmluE3IV+ej5EGwPd5HoVhKL9MPPOj0uS6M3m9TLCEVdO
+         bOaDnV2pWuKckrIeEzBIGSsE39r2hPGzAdXiia/c290nfbBU6CvBhsaoiD5pugUNIV+7
+         lkPpEewp446NBYAqhsEKqp6FJHvQUPQNsS8WUWSUnyFASufVyPDg5ZOT3HS9vJVyysbY
+         2Mw1yjAHvpJxdGWsVshBoZogkJS/9v+syW4HUMpSpGUXw7lZtHh0KwW6QiOMiyqKMaLn
+         ROdQ==
+X-Forwarded-Encrypted: i=1; AL+hErFYzCKY/xHLgepiIqAvHeEFMqXnxYNl38wOkKxs7i6G4+qVnNdzcaig43aXJ+sTw/pvSVg/kuw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OaX9GB/10KErt4F3l9jtGCRhlLE6WcDJcyz5Tng7+NwrP1Aap
+	q1pHFgyl+Myyux5rKOU/2vK6xOZ4kEP+RbnoGdJlYDbOYIpNvCL5fw+2
+X-Gm-Gg: AZFdTZeBj/F9OYR99TZ+dgNFyM/Z6echt9HQliXape3csy2HXJnoYr899+0GEYEqyyO
+	sqJ5BHtpI7KnmyysEjH2yp6XfCtcPGf8OKDZmP+mU6WI6rQ0nHl145YSi/Wzg+II2YFwZz6ojv0
+	6Jz5S+krbf1FVLAvwNC23II22sRlwvpJge+Dx+/zsO9G8+voaRWqI/e7rm6VV2VLVOO4DrBkW9O
+	/+l6OBm84K/Uzn55pACmi412M1YOniCwPnZlsdkT9KTvG/rROQV0e4TFgcu21HVHJxMkA1gWy8L
+	P2NLgg29Vk1feigb/7Mag67L1WTEM3dOmZGMvh+EbeVFH3APlGKuRv4o7ArXTpgt5bSRMHNopRF
+	wvABM3+THuoNrKJUD6gaz9w9Y5nKsq255vWF7Bo0ISB5iF6v099Ig5Aci62L5Rto+zfCF4uVA+v
+	WVntdGEl1YViIcn7dNuCZp+IkiVjjALVV5UYREfnl0yZ6EgHyVn73td0Z2Ksi2+3LpuecQn3lGB
+	RjHpRnl8G8nByHuyRXKFCNuSB6AcJrOuIIy/olbJ9DUQ5ftcF4Ux9NnhDOV4VzE/gvW9K1emQ9a
+	HEv4vZZtP5CE7tBNiJ/ubzcLJQ1avwTqOG0=
+X-Received: by 2002:a17:90b:134e:b0:3b3:c2bf:de33 with SMTP id 98e67ed59e1d1-3b41c93a017mr4349532a91.40.1795231944761;
+        Fri, 20 Nov 2026 19:32:24 -0800 (PST)
+Received: from localhost ([2a03:2880:7ff:50::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d6349bsm9949306a91.9.2026.11.20.19.32.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:32:23 -0800 (PST)
+        Fri, 20 Nov 2026 19:32:24 -0800 (PST)
 From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
 To: "David S. Miller" <davem@davemloft.net>
 Cc: Alexander Duyck <alexanderduyck@fb.com>,
@@ -94,9 +94,9 @@ Cc: Alexander Duyck <alexanderduyck@fb.com>,
 	Dimitri Daskalakis <daskald@meta.com>,
 	netdev@vger.kernel.org,
 	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-Subject: [PATCH net 3/4] eth: fbnic: wait for in-flight xmit in fbnic_queue_stop()
-Date: Fri, 20 Nov 2026 19:32:14 -0800
-Message-ID: <20261121033215.1020506-4-dimitri.daskalakis1@gmail.com>
+Subject: [PATCH net 4/4] eth: fbnic: wait for both TWQs of a Tx queue to go idle
+Date: Fri, 20 Nov 2026 19:32:15 -0800
+Message-ID: <20261121033215.1020506-5-dimitri.daskalakis1@gmail.com>
 X-Mailer: git-send-email 2.52.1
 In-Reply-To: <20261121033215.1020506-1-dimitri.daskalakis1@gmail.com>
 References: <20261121033215.1020506-1-dimitri.daskalakis1@gmail.com>
@@ -113,40 +113,89 @@ Content-Transfer-Encoding: 8bit
 
 From: Dimitri Daskalakis <daskald@meta.com>
 
-fbnic_queue_stop() stops the vector's Tx queues with netif_stop_subqueue(),
-which only sets the stop bit. This races with senders who are already in
-fbnic_xmit_frame().
+TWQ_IDLE, TQS_IDLE and TDE_IDLE have a bit per Tx work queue. Bit 2q
+is for TWQ0, and bit 2q+1 is for TWQ1. fbnic_wait_queue_idle() only
+tests bit q, which belongs to queue q/2. Thus, the wait covers a TWQ
+of the wrong queue (except when q = 0).
 
-Use the new netif_disable_subqueue() helper prevent freeing rings
-while senders are still in xmit.
+Test both of the queue's TWQ bits in those registers.
 
-This bug was found by AI and verified on HW.
+This bug was found by AI and verified in QEMU.
 
-Forced by adding a 20ms delay in fbnic_tx_map() on Tx queue 5,
-binding devmem to rxq 5 under traffic:
-  before: BUG: kernel NULL pointer dereference, address: 000000000000002e
-          RIP: 0010:fbnic_clean_twq0+0xa8/0x290
-  after:  fbnic_queue_stop() waits for the in-flight xmit, no crash (10/10)
+Forced TWQ1 of Tx queue 3 to never read idle in QEMU, with rx 2 tx 2
+(queue 3 is the XDP Tx queue of rxq 1's vector), and bound devmem to
+rxq 1:
+  before: bind succeeds
+  after:  bind fails with ETIMEDOUT:
+    wait for queue Tx3 idle failed 0x0800(0): ffffff7f (mask: 000000c0)
 
 Fixes: da43127a8edc ("eth: fbnic: support queue ops / zero-copy Rx")
 Signed-off-by: Dimitri Daskalakis <daskald@meta.com>
 ---
- drivers/net/ethernet/meta/fbnic/fbnic_txrx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.c | 32 ++++++++++++--------
+ 1 file changed, 20 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
-index c0fe89425430..62b67940c13e 100644
+index 62b67940c13e..fe769c33b117 100644
 --- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
 +++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
-@@ -3191,7 +3191,7 @@ static int fbnic_queue_stop(struct net_device *dev, void *qmem, int idx)
- 	for (i = 0; i < nv->txt_count; i++) {
- 		if (nv->qt[i].sub0.flags & FBNIC_RING_F_DISABLED)
- 			continue;
--		netif_stop_subqueue(dev, nv->qt[i].sub0.q_idx);
-+		netif_disable_subqueue(dev, nv->qt[i].sub0.q_idx);
- 	}
- 	fbnic_nv_disable(fbn, nv);
+@@ -2532,36 +2532,44 @@ int fbnic_wait_all_queues_idle(struct fbnic_dev *fbd, bool may_fail)
+ 	return err;
+ }
  
++struct fbnic_queue_idle_reg {
++	u32 reg;
++	u8 bits_per_q;
++};
++
+ static int
+ fbnic_wait_queue_idle(struct fbnic_net *fbn, bool rx, unsigned int idx)
+ {
+-	static const unsigned int tx_regs[] = {
+-		FBNIC_QM_TWQ_IDLE(0), FBNIC_QM_TQS_IDLE(0),
+-		FBNIC_QM_TDE_IDLE(0), FBNIC_QM_TCQ_IDLE(0),
++	static const struct fbnic_queue_idle_reg tx_regs[] = {
++		{ FBNIC_QM_TWQ_IDLE(0), 2 }, { FBNIC_QM_TQS_IDLE(0), 2 },
++		{ FBNIC_QM_TDE_IDLE(0), 2 }, { FBNIC_QM_TCQ_IDLE(0), 1 },
+ 	}, rx_regs[] = {
+-		FBNIC_QM_HPQ_IDLE(0), FBNIC_QM_PPQ_IDLE(0),
+-		FBNIC_QM_RCQ_IDLE(0),
++		{ FBNIC_QM_HPQ_IDLE(0), 1 }, { FBNIC_QM_PPQ_IDLE(0), 1 },
++		{ FBNIC_QM_RCQ_IDLE(0), 1 },
+ 	};
++	const struct fbnic_queue_idle_reg *regs;
+ 	struct fbnic_dev *fbd = fbn->fbd;
+ 	unsigned int val, mask, off;
+-	const unsigned int *regs;
+ 	unsigned int reg_cnt;
+ 	int i, err;
+ 
+ 	regs = rx ? rx_regs : tx_regs;
+ 	reg_cnt = rx ? ARRAY_SIZE(rx_regs) : ARRAY_SIZE(tx_regs);
+ 
+-	off = idx / 32;
+-	mask = BIT(idx % 32);
+-
+ 	for (i = 0; i < reg_cnt; i++) {
+-		err = read_poll_timeout_atomic(fbnic_rd32, val, val & mask,
++		unsigned int bit = idx * regs[i].bits_per_q;
++
++		off = bit / 32;
++		mask = GENMASK(regs[i].bits_per_q - 1, 0) << (bit % 32);
++
++		err = read_poll_timeout_atomic(fbnic_rd32, val,
++					       (val & mask) == mask,
+ 					       2, 500000, false,
+-					       fbd, regs[i] + off);
++					       fbd, regs[i].reg + off);
+ 		if (err) {
+ 			netdev_err(fbd->netdev,
+ 				   "wait for queue %s%d idle failed 0x%04x(%d): %08x (mask: %08x)\n",
+-				   rx ? "Rx" : "Tx", idx, regs[i] + off, i,
++				   rx ? "Rx" : "Tx", idx, regs[i].reg + off, i,
+ 				   val, mask);
+ 			return err;
+ 		}
 -- 
 2.52.1
 
