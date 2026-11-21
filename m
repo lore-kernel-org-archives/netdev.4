@@ -1,66 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295864;
-	b=qovaG4/rxu/iENdI8wgmoxQ+lWVuQQ1a1x2LM0Jt29v+ubznvx+1hizH1/gIrs1U6nxy
-	 NtKGrC5nlxAizO3ZQy3qYRU/vdzb7ibVMIT71763ZhUC3tdzckyrgcJ59D+ln/+wkpWlS
-	 1CEHpQVenjqweyNhDETbMn17Kq5otPhaW3ufvMGmMVVtutVG+tIZZPv+6nnukvqUWmybS
-	 2eR9FpFe+YMwfyUkoiEpIzm8xhH/lFtUMkgjyMrDPQhG/E7Rzj9FEep13KvBQS4eP59Ao
-	 CFwq9qrAd0nx/QsfRon5XAx5m4zZGHoebQFeOWx3YAIA3jzH3ycAKdyladUYhJX8RBg==
+	t=1795296260;
+	b=0j1/EPVhViZPx0S96S9ByOeGdwaeWsUBpbPe+ZPhZ6XP0W8WEhNNhzCSXd9vYOiJtjpk
+	 NgHO/Cvds0sx744o3hqlIzPOb2gXPHRNhixIoFMlpAeZlifn360RlCyzM0+YUGV0isGsB
+	 n93KVEBqRLVuCuLcZnd2qjXo+dq+jexfGNTz3ApuLu3dThbYFCiUjwomeR0ZvFUf1waz2
+	 e7tGAd/G85JII3BVzq2pABPc12lDATMNSTqVEh3vu2zGPRUJSPnqn0oBoPWz+P5tqOVy+
+	 gCqQQNmhrktCIXqNmfE/KKCjcv/CW71mdNae/qCfzOgxqLK1wtVmPhFvuHs7WTZQvzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295864;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=tcvRTnOwn9O3TTbSJaDM4Da7hwCv/Q3I4UX7KXPCWZQ=;
-	b=wrmvZiukxOpw+SwFbHQxrC/cHvohNAvOPc33xqT4J6AQZ3seN87cL8aIl9iWRxT2I7D6
-	 D5QuacekTcmw+do++rlUi9Cz4qG1G1/skHG/D5jLukQql3aZ3BwrAaNGc2/Xvzv7e/VJi
-	 pHBxJnsYb+Gcx42//+KSKId9vPxPrX5ylllc2F1Hieql267IfZWHooBa/6kENOt+x4uum
-	 B5qgDA4tuxLrZeN+64m7O2DtYREcOQXiAxm4s8ZlD4ZlVgQsXbhEgU6wI63iqYa0s+plv
-	 5e7C6rUO/lR8IW1G1s7zEr43ktBvkiUnDRbOieenA6txUhjehM5B2Q+9+3N9ovvaJRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296260;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=QnN9CxDyovVg8bGKbDx5lj1s9US1BmNCEq5WllIH360=;
+	b=m1Z2HSy9nG1eP9Sc1b/w871/JhLaU9mMWnjHcOwN/ejVGPoKAB3RpjNBQu7XeTr5+1Eh
+	 EPZK+HDswaiFkBhr7Oi60ql76MbD1CnSGgwqB+wQlqw/FNquy2X0gr2w6cLdrkwWPrECo
+	 oLkKNfMTfbZTXG3tJTBMRwPWp1Y39KdJrM9FCI76mqvT3JDvMz1hp3NJuifrB8v3M84Sn
+	 nVMTGcCxUojAYQJQMuXskv6qIcVVTi9JyUzwX13TXdetOeYG0D5UIG/eXYWT6NwYKFflI
+	 vgCRBV/uhuy28bcjsB+3xjP/w0WReg7B/AMA7Y3NCsq+KlzQjTMPbb+mfZCZJJaTxFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GTJa/YqV";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YW2xYQ6p;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E70606A334;
-	Sat, 21 Nov 2026 21:17:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A2D0606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 21:24:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A2D0606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GTJa/YqV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B35B1F000CF;
-	Sat, 21 Nov 2026 21:17:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795295864;
-	bh=tcvRTnOwn9O3TTbSJaDM4Da7hwCv/Q3I4UX7KXPCWZQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GTJa/YqVEp4Gt0S+Fx0JQjrXfuKdmeejH3MqQfeQrJjiaONe+UCxzDKqJ6CSJGRFh
-	 OC/LyocHpo735f0ArPe438Y+fBXOnWNMaMSkJXgx/E7VUJEa/iX3Y/eOwynIAIuL7R
-	 xRvWoNnILZFElNfVAoyoayMrTCUEQ7fz1g8OuJNm9nHi+/gsV1i2nRZkyItzNEpjvV
-	 DL3mOvK5EDtbXb7Rj90JvpZKDXKbfm6sIWPiFE7HdcF/TXahV0cw82qa/eTWKrwynu
-	 9D4RMSAQ9J+GyPxwTR4rpqAmDMq26fijY79LBxG2NsVz8eSPJkBHvxfNJkn3loFzrg
-	 VqZBOpnRZEKEA==
-Subject: Re: [PATCH net v6 5/8] ipv6: icmpv6: don't quote decrypted payload in
- icmpv6 errors
-From: netdev-bot+sashiko@kernel.org
-To: toddfreed@meta.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
- bjorn@kernel.org, borisp@nvidia.com, cratiu@nvidia.com,
- daniel.zahka@gmail.com, dsahern@kernel.org, dtatulea@nvidia.com,
- edumazet@kernel.org, idosch@nvidia.com, kuba@kernel.org,
- john.fastabend@gmail.com, leon@kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
- mbloch@nvidia.com, pabeni@redhat.com, raeds@nvidia.com,
- rrameshbabu@nvidia.com, sd@queasysnail.net, saeedm@nvidia.com,
- shuah@kernel.org, horms@kernel.org, tariqt@nvidia.com, weiwan@google.com,
- willemdebruijn.kernel@gmail.com, stable@vger.kernel.org
-Date: Sat, 21 Nov 2026 21:17:42 +0000
-Message-ID: <179529586258.3135.12190616828136497053@kernel.org>
-In-Reply-To: <20261117203137.804424-6-toddfreed@meta.com>
-References: <20261117203137.804424-6-toddfreed@meta.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YW2xYQ6p
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so21835095e9.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 13:24:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795296258; x=1795901058; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QnN9CxDyovVg8bGKbDx5lj1s9US1BmNCEq5WllIH360=;
+        b=YW2xYQ6p5a+/qxuh6gQeHzVZ3q+n02Ssc0O6m0bU+KNH5dQ6q3GV5o3oloT+NNbWA5
+         u9OZgm54775PMXQDC8bpf/J8uQDss7hnYA+QUxDR0JGdmoilqw5laNHTEN2N6UhpV7ge
+         Q/AG/VmHISqJFZm4JTQ0lmpnoQdpyXk2hp/nbQ8TyXol1P2k+U6CQZlqi2UlcNjUpHCD
+         nHpFKkki+pVOJvNQtcB9sTywJQNK9UcaoIC1wKqVZkrqk8oHvqVbI0Hf7hz1bGYrWVpn
+         kFQ+yhL2+RrO+AtSSHWxjyjRRDmbAUlzNN+bdxdp9tjiG1IjtWTYsyo7IPLGVZEiHF3S
+         q1Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795296258; x=1795901058;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QnN9CxDyovVg8bGKbDx5lj1s9US1BmNCEq5WllIH360=;
+        b=tLXsXtJ5GDf+cSjgPnCzP5IF7jWswTvaCR0Fv2v1KLGT1fsMkb1AwJs0hc/PvT5J4E
+         jLMQ6YdfHOYznPOvH+hDJxC2QBPd9itK6T/DgtWT6ZIjDJWcxEveveErFXl+pyuEziuD
+         mTIEY2cJ4ZdrPAFaEwzGpezkpDbb9BWl/ASUHh4VKN27AyiGbHPeVovB9SVelkZaBnjV
+         MVdotMPHNQJ8c4aTD/IwlNgyY10HH4Dm92arn8WGKRaDA92mp+dEHzmiFMbfAFVN15J2
+         J7YHse/4efL+Ytzj0k7hS1/iUzrGhRPrLqgqxXqKrIJNB49t4Ce01wKH5ISKthSBBeJS
+         7RtQ==
+X-Forwarded-Encrypted: i=1; AL+hErGKk2+Jz9Nj8/OppdNnrrm4cHSY44PF/KYZ7XBG+lYYQ5rLA50RQes+Cmf70pXwOKYSdE2tXZo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NahD+b4dsfE9R0PwPV/oGIYShgMDi0e65dHDrLLFdPk48N9Cw
+	zySprbbBJqkvcT1eqesTiI6TCtlrdvp2vYPTgRmlCHs02TOI+Ut56MAS
+X-Gm-Gg: AZFdTZf7aPspD6H038sN6YjfNLe8aXie5rDgrNb2Xahx+GZ6XPGISmDru3vjwymwcBV
+	ESQM2Suxw8K/wgtyZg/yUUnZUlpM6K/eucRk6ZMGyhoagpGC+ileQYQkqxjkjYW2FlpnpkZTBSH
+	7/e7bIxwQrE31F6TE8nN1bgm3H9smIV7VdODFLv2JirrRw5lo2vSVlwbd11B6T3wUBhocPOP2g+
+	r4gMgPbYNKvj9qVXKrbhnxM1v1aqp9qcgd9IBooF1p0xamu1eFwBkBCk1VJERoOArE9QZmHY0fG
+	ly42gjoFg/giwTYlbNf7ApcWNDvAIyIdq9NXBZo51G8ePA3fvbN65hxhT09OFAv07c79jFwMtkE
+	RbfBtyiB0QWwOa7Jxv2qrT2ayUgo9enjXkIVExx3mZWeBz891fVIglqWI2hwkk8VHrpS/taaogh
+	An4R2EGotrW4ExRXrVgkXG0oteHeS9eWMJ27QKXZWCvFLF8yeboDK69UprLoJs3GNjrttjE0X1D
+	hfR/COKQElkEdE15/h87M9wpq3ETv/UNKLRdzVfEHXfITn9PQPWlLIpifWoDa2Bym3fDW5cLr/o
+	g2FP084cbdDouQnwemE4rqfwsQ==
+X-Received: by 2002:a05:600c:4f15:b0:4bb:6861:657d with SMTP id 5b1f17b1804b1-4bb88923954mr173957455e9.21.1795296257761;
+        Sat, 21 Nov 2026 13:24:17 -0800 (PST)
+Received: from metepc ([46.197.185.3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb905f1489sm79231845e9.0.2026.11.21.13.24.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 13:24:17 -0800 (PST)
+From: =?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
+To: pablo@netfilter.org,
+	fw@strlen.de
+Cc: phil@nwl.cc,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	kadlec@netfilter.org,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	netdev@vger.kernel.org,
+	=?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
+Subject: [PATCH nf] netfilter: ipset: fix extension leak during hash resize
+Date: Sun, 22 Nov 2026 00:15:27 +0300
+Message-ID: <20261121212037.149722-1-omermetekaya0@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,119 +105,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+During hash table resizing, mtype_resize() skips expired elements
+without freeing their extensions. The old table is then destroyed
+with ext_destroy=false, so these extensions are never freed.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Fix this by calling ip_set_ext_destroy() on expired elements in the
+resize copy loop. The cleanup is done under the region lock with the
+bucket re-read into a separate variable to avoid races with
+mtype_add() concurrently reusing or reallocating the bucket, while
+preserving the original bucket pointer for subsequent loop iterations.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Discovered by Sashiko, not triggered, not runtime tested.
 
-- [High] The fix is incomplete on IPv6.
+Fixes: 80571a9ea4ca ("netfilter: ipset: Fix hash resizing with comments")
+Signed-off-by: Ömer Mete Kaya <omermetekaya0@gmail.com>
+---
+ net/netfilter/ipset/ip_set_hash_gen.h | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
 
---
-
-ipv6: icmpv6: don't quote decrypted payload in icmpv6 errors
-
-This commit stops icmp6_send() from sending an error about a received skb
-that the device has decrypted (skb->decrypted). An error about a locally
-originated decrypted skb is still sent, but only if its route goes to a
-local address (RTF_LOCAL). This follows the earlier IPv4 patch for
-__icmp_send().
-
-> diff --git a/net/ipv6/icmp.c b/net/ipv6/icmp.c
-> index d8203ebad8827..574a42d279e03 100644
-> --- a/net/ipv6/icmp.c
-> +++ b/net/ipv6/icmp.c
-> @@ -778,6 +778,15 @@ void icmp6_send(struct sk_buff *skb, u8 type, u8 code, __u32 info,
->
->  	np = inet6_sk(sk);
->
-> +	/* Don't send parts of a decrypted skb onto the network, see
-> +	 * __icmp_send(): no error about a received skb. Before the rate
-> +	 * limit, so that such an error costs no credit. The check of a
-> +	 * locally originated skb below needs the route of the error, which
-> +	 * is looked up after the rate limit.
-> +	 */
-> +	if (unlikely(skb_is_decrypted(skb) && skb->skb_iif))
-> +		goto out_unlock;
-> +
-
-[Severity: High]
-Does this cover the NDISC Redirect sent from ip6_forward()? That path also
-quotes the invoking packet, but it never goes through icmp6_send():
-
-net/ipv6/ip6_output.c:ip6_forward() {
-    ...
-	if (IP6CB(skb)->iif == dev->ifindex &&
-	    opt->srcrt == 0 && !skb_sec_path(skb)) {
-    ...
-		if (peer && inet_peer_xrlim_allow(peer, 1*HZ))
-			ndisc_send_redirect(skb, target);
-    ...
-}
-
-None of these conditions look at skb->decrypted. ndisc_send_redirect()
-then copies up to about 1200 bytes of the original packet into a new skb
-from ndisc_alloc_skb(), and that skb is not marked decrypted:
-
-net/ipv6/ndisc.c:ndisc_send_redirect() {
-    ...
-	rd_len = min_t(unsigned int,
-		       IPV6_MIN_MTU - sizeof(struct ipv6hdr) - sizeof(*msg) - optlen,
-		       skb->len + 8);
-    ...
-	if (rd_len)
-		ndisc_fill_redirect_hdr_option(buff, skb, rd_len);
-
-	skb_dst_set(buff, dst);
-	ndisc_send_skb(buff, &ipv6_hdr(skb)->saddr, &saddr_buf);
-    ...
-}
-
-ndisc_fill_redirect_hdr_option() calls skb_copy_bits() starting at the
-network header of the original skb. The decrypted L3/L4/payload bytes
-would then go out in cleartext inside the Redirected Header option.
-
-sk_validate_xmit_skb() drops the forwarded packet itself ("unencrypted skb
-with no associated socket"). That leaves the redirect as the only way this
-plaintext gets out of the host.
-
-On IPv4, the call chain ip_forward()->ip_rt_send_redirect()->icmp_send()->
-__icmp_send() reaches the check from the previous patch, because skb_iif
-is set. The commit message says:
-
-  as in the previous patch for icmp, don't send an error about a received
-  decrypted skb at all
-
-For redirects, though, IPv6 does not match IPv4. Nothing later in the
-series seems to change this.
-
-As for how a decrypted skb gets to ip6_forward(): the mlx5 PSP RX decrypt
-rule in setup_fte_udp_psp() matches only on ip_protocol == IPPROTO_UDP and
-the UDP dport. It does not match on the destination address.
-mlx5e_psp_offload_handle_rx_skb() then sets skb->decrypted. With
-forwarding enabled, a PSP packet sent to a non-local IPv6 address would be
-decrypted and then forwarded.
-
-kTLS RX offload can also produce a decrypted skb whose destination is no
-longer local. One example is when the local address is removed while the
-offload is still active.
-
-The !skb_sec_path() condition already keeps redirects from quoting frames
-decapsulated by IPsec. Would a similar skb_is_decrypted() check make sense,
-either in the redirect condition in ip6_forward() or in
-ndisc_send_redirect()?
-
->  	if (!icmpv6_xrlim_allow(sk, type, &fl6, apply_ratelimit))
->  		goto out_unlock;
->
-
-[ ... ]
-
+diff --git a/net/netfilter/ipset/ip_set_hash_gen.h b/net/netfilter/ipset/ip_set_hash_gen.h
+index 80ca523f304b..47aab02c9d23 100644
+--- a/net/netfilter/ipset/ip_set_hash_gen.h
++++ b/net/netfilter/ipset/ip_set_hash_gen.h
+@@ -823,8 +823,19 @@ mtype_resize(struct ip_set *set, bool retried)
+ 				if (!test_bit_acquire(j, n->used))
+ 					continue;
+ 				data = ahash_data(n, j, dsize);
+-				if (SET_ELEM_EXPIRED(set, data))
++				if (SET_ELEM_EXPIRED(set, data)) {
++					struct hbucket *cur;
++
++					spin_lock_bh(&orig->hregion[r].lock);
++					cur = __ipset_dereference(hbucket(orig, i));
++					if (cur && test_bit(j, cur->used)) {
++						data = ahash_data(cur, j, dsize);
++						if (SET_ELEM_EXPIRED(set, data))
++							ip_set_ext_destroy(set, data);
++					}
++					spin_unlock_bh(&orig->hregion[r].lock);
+ 					continue;
++				}
+ #ifdef IP_SET_HASH_WITH_NETS
+ 				/* We have readers running parallel with us,
+ 				 * so the live data cannot be modified.
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117203137.804424-1-toddfreed%40meta.com
+2.56.0
+
