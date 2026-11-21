@@ -1,58 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302180;
-	b=AGHGTRX/YVdAigE07dXM8ie3yGW5GiQAM0nkly3UEcn0/pcG0TYOLEHHpcupuPhghSZw
-	 SWHgkm+Y+z+k2jTgunodjbN2FQPJxp/qPrDhrLf57KLQRej79i+26XyZwgXYJVhbhPAqP
-	 EhCA+ps6XTHe25d26p1LiQohFkwg/D2X3iFd/8XhKuwxUvUntzu2zJKjSgIHugdko8xUX
-	 u8Ud/b3oK/wrDDN4m9soWKqFuv2cpUewq//uXpCUrZNtS2hix70O6+zrFhCVP9wrdcED4
-	 RcVwTLG+mn/YbknYoDCBrMoeE8SSvTEv5JKhifHcI14NxP5y9aXI4nWeJgywgCn3S4Q==
+	t=1795302184;
+	b=hiMBE1RlEUmhx+ZyOwPKy78CLugEA7m3BK/+kTBMtDralRVx475MxX6K4TCkdyzxP40x
+	 0Kyfem4I18BemxNYzpUKQglKSn5HvAa3r/o0vUHbTQaoG88k5uadFQQQOwdFBm4XC5/GC
+	 o2vzalsKYWVGlsaMp6mdNqm8BFN7CpKqJ4+vqI1R3/ADMUd5TSauKyIOKb8KiEOBHg+gx
+	 3OhBNnH7dNvFw53Iw8qRjRSMwfZ1k8I7wUELbZ5cdwu1NPrXRDPuwOTQu/GG36Tjb4jPX
+	 Tp8+jibpcM+wK3FZPtb3VzLGdCEVNbAw/VRHgSAohjUhAVi4H5T3UtVHAVryISIG4zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302180;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302184;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=vi6Jgwc6TTLYkbHGmqEuP1xt7X0Hvny/9CR4U2gZGgY=;
-	b=xbqrS7BYB/FwprffOjm0Rk1X6PGsNUaCMMPfymUIxhx6NTecGaUhgQhNUrpy8ZJlTPWg
-	 EuBGKGlDbmmu5wb5Z1d/ZV+9y19xNZBvVSCjOR/KGsw+XXakZ8oYLXRO1MfgnRctAT2W7
-	 U782fhaOzaBoqXt2GCF02JaA/JH2OOaAKJtgnNUbEJJFbcuinlTd8zEdi5GKXR9ySO3VT
-	 dlwiYs3UNjlx9fYtk6u44aNQQrXJUCApmGzZNjKeox1LkzTlk98r/eefb6sjjCYh1FaoP
-	 fR9OeGmgSwLOLyIlfPeWhfhjVMIvizRU2Y/skFhu4wn5b5NCez6a3nwWXhJ3rGC9Rhw==
+	bh=XcRczKWwU5ym95c9oT/UpnXRef3ufPr29kt2RL5hTFo=;
+	b=YtNla1N04h2O6+SNPnl9vs5bSHlyQ3fGPq3IcC0s1+Bwhk74mBhwxOVys6lVEDZlfz03
+	 vM1PcxmputWHalfqifPnPXFx9soDRjNVY0k9/oeKaQLIVHLeGehZ8pZGDpmZwRulwJIIw
+	 7gKLZewe5AwMlgya9t/ipD5XvCSKemEatw+oKsyF8wsqjSzWUWXXXF68v+y48Gs4CPMFG
+	 +rf6H3WEV3aWosXTMsUCimkmvGs15CDBna+kl1W3ciUzMPuAjV5dRMpm4YZmdgBNCGq29
+	 qy0AICC/b2r+u39MK3e8NUF7wwyFJGaHxY21/qsNaE0zTWRhYKTsDhyW0JPMXEqXbCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YYLLdz9o;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciNaogL4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35DD606A33F;
-	Sat, 21 Nov 2026 23:02:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF4DB606A6B3;
+	Sat, 21 Nov 2026 23:03:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YYLLdz9o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27B971F000E6;
-	Sat, 21 Nov 2026 23:02:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciNaogL4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 376C21F000C4;
+	Sat, 21 Nov 2026 23:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302179;
-	bh=vi6Jgwc6TTLYkbHGmqEuP1xt7X0Hvny/9CR4U2gZGgY=;
+	s=k20260515; t=1795302184;
+	bh=XcRczKWwU5ym95c9oT/UpnXRef3ufPr29kt2RL5hTFo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YYLLdz9osX2szQUNhd6zJ/6b9f6Tc7ycsLvdyYdL4B0Qi3bvBSsWXiBRkgCPmxXwg
-	 J07ix74tCN1Co2Z3/9IMJo/0sDnF9WvagXPN6E7jJuih6J34gFzzGgZ0GlJ84RNhse
-	 Fw/RJCIL6u6yz3KK+dLFBlCPz0Iy5pQTbxMawk4b+iVHWQGTjxI3af0eu524sEcde0
-	 Uz4ktTRygnLZ/DRGBvPAlwvJvfYJ+PfJ+Zx+pClRkmAS8B2XZTawY6Tlk5AV3EXIrk
-	 XqJZRzkDXiwKHghs9uuSRH+cVWa6PUMfvFVHpviJ5v9OWGsSEHNUaf2zMrImxdlDlC
-	 0BlZ1rLQiaZhg==
-Subject: Re: [PATCH v2 net-next 1/1] net: usb: rtl8150: break cycle between
- tasklet and URB
+	b=ciNaogL4aQTonU3P7r5sYZ319swbSvr17afipS2f9rwiNU7egTulspO514bgX2D4L
+	 LxIZKR8WdZ9TAYaQA5vNi1jlCoWMNKLFIlfI0fVynUgvCauuEJTkllN19acfc8RZJR
+	 bPyV7PXq9wQdht/Nb1zcW4DtScgohjz+woqzVQWSyVBouIVqwLxj/OlL1/HvxbNN0M
+	 8VEGCq8gd9z76YojQrF3sUDOYDNMI1sd2bP0Xe0klbCKanHV6F8lx32INVaeC+9VAh
+	 llNOnr2Xl/JAooPMdF79wO0bqO9CUrkzFTTr9zOfpAC6N4wyO9B2Tqq3SEiOhdcGAN
+	 lXbZp2g9Mh4yw==
+Subject:
+ Re: [PATCH net-next v5 4/6] psp: defer tx key deletions for SADB drivers
 From: netdev-bot+sashiko@kernel.org
-To: oneukum@suse.com
-Cc: petkan@nucleusys.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 23:02:58 +0000
-Message-ID: <179530217871.3135.15339133875090021236@kernel.org>
-In-Reply-To: <20261118133550.955312-1-oneukum@suse.com>
-References: <20261118133550.955312-1-oneukum@suse.com>
-X-sashiko-severity: High
+To: daniel.zahka@gmail.com
+Cc: kuba@kernel.org, willemdebruijn.kernel@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, donald.hunter@gmail.com,
+ andrew+netdev@lunn.ch, shuah@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, willemb@google.com
+Date: Sat, 21 Nov 2026 23:03:02 +0000
+Message-ID: <179530218277.3135.14647055020229146998@kernel.org>
+In-Reply-To: <20261118-psp-v5-4-b9ec840e0296@gmail.com>
+References: <20261118-psp-v5-4-b9ec840e0296@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 (1) · Medium: 1 (1) · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,227 +78,167 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Poisoning the URBs does not break the cycle.
-- [Medium] The tasklet/URB resubmission cycle from the commit message is
-  still open in rtl8150_close() and rtl8150_suspend().
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  read_bulk_callback() hands dev->rx_skb to netif_rx() (line 430).
-- [Medium] This problem wasn't introduced by this patch, but rx_fixup()
-  has a second self-rescheduling path that never touches a URB.
+- [Medium] With the -EOPNOTSUPP guard gone from psp_sock_tx_rekey()
+  (net/psp/psp_sock.c), any unprivileged owner of an established PSP TCP…
+- [Low] The applied commit message does not say that this patch turns on
+  Tx rekey for SADB devices.
+- [Low] The kernel-doc for psp_dev_ops::tx_key_add and ::tx_key_del in
+  include/net/psp/types.h still says only that each callback 'Can be…
 
 --
 
-net: usb: rtl8150: break cycle between tasklet and URB
+psp: defer tx key deletions for SADB drivers
 
-In rtl8150_disconnect(), this patch swaps usb_kill_urb() for
-usb_poison_urb() on all three URBs. The goal is to stop the rx_fixup()
-tasklet from resubmitting rx_urb. It also adds a second tasklet_kill()
-after poisoning, so the tasklet is stopped before the URBs and skbs are
-freed.
+This patch adds a deferred Tx key deletion queue for PSP devices that
+store Tx keys in an SADB. Before calling psp_dev_tx_key_del(), the core
+snapshots BQL queued byte counts per Tx queue and polls until those bytes
+have completed. It also removes the -EOPNOTSUPP restriction on Tx rekey
+for SADB devices and makes CONFIG_INET_PSP depend on CONFIG_BQL.
 
-> diff --git a/drivers/net/usb/rtl8150.c b/drivers/net/usb/rtl8150.c
-> index d51e43170e033..6d20f52d52efd 100644
-> --- a/drivers/net/usb/rtl8150.c
-> +++ b/drivers/net/usb/rtl8150.c
-> @@ -353,6 +353,13 @@ static void free_all_urbs(rtl8150_t * dev)
->  	usb_free_urb(dev->intr_urb);
->  }
->  
-> +static void terminate_all_urbs(rtl8150_t *dev)
-> +{
-> +	usb_poison_urb(dev->rx_urb);
-> +	usb_poison_urb(dev->tx_urb);
-> +	usb_poison_urb(dev->intr_urb);
-> +}
-> +
->  static void unlink_all_urbs(rtl8150_t * dev)
->  {
->  	usb_kill_urb(dev->rx_urb);
-
-[Severity: Medium]
-The commit message says the tasklet/URB cycle needs to be broken. Is it
-still open in rtl8150_close() and rtl8150_suspend()? Both stop rx_urb
-with usb_kill_urb() only, and neither one stops the tasklet:
-
-rtl8150_close() {
-    ...
-	if (!test_bit(RTL8150_UNPLUG, &dev->flags))
-		disable_net_traffic(dev);
-	unlink_all_urbs(dev);
-    ...
-}
-
-usb_kill_urb() raises urb->reject only while the call is running. If
-rx_fixup() is pending or looping when close runs, its submit fails with
--EPERM during the kill and it reschedules itself. The next run, after
-usb_kill_urb() has returned, then submits rx_urb successfully:
-
-rx_fixup() {
-    ...
-try_again:
-	status = usb_submit_urb(dev->rx_urb, GFP_ATOMIC);
-    ...
-}
-
-The tasklet can easily be pending at close time. read_bulk_callback()
-schedules it whenever the 4-entry rx_skb_pool runs dry, and it keeps
-looping while GFP_ATOMIC allocation fails.
-
-disable_net_traffic() has already turned the receiver off, so the
-bulk-IN URB just stays in flight. On the next ndo_open, rtl8150_open()
-refills and resubmits the URB that is still active:
-
-	usb_fill_bulk_urb(dev->rx_urb, dev->udev, usb_rcvbulkpipe(dev->udev, 1),
-		      dev->rx_skb->data, RTL8150_MTU, read_bulk_callback, dev);
-	if ((res = usb_submit_urb(dev->rx_urb, GFP_KERNEL))) {
-
-That would hit the "URB %p submitted while active" WARN_ONCE in
-usb_submit_urb() and return -EBUSY. Wouldn't every later open then fail
-the same way until the device is replugged or rebound?
-
-The suspend path looks similar. A tasklet submit can follow the
-usb_kill_urb() in rtl8150_suspend(), and a later resubmit of rx_urb
-after resume would then fail with -EBUSY.
+> diff --git a/net/psp/psp_main.c b/net/psp/psp_main.c
+> index ba44154cf8dc0..789315dae2373 100644
+> --- a/net/psp/psp_main.c
+> +++ b/net/psp/psp_main.c
 
 [ ... ]
 
-> @@ -970,7 +977,8 @@ static void rtl8150_disconnect(struct usb_interface *intf)
->  		set_bit(RTL8150_UNPLUG, &dev->flags);
->  		tasklet_kill(&dev->tl);
->  		unregister_netdev(dev->netdev);
-> -		unlink_all_urbs(dev);
-> +		terminate_all_urbs(dev);
-> +		tasklet_kill(&dev->tl);
+> @@ -75,7 +77,8 @@ psp_dev_create(struct net_device *netdev,
+>  		    !psd_ops->rx_spi_alloc ||
+>  		    !psd_ops->get_stats ||
+>  		    (!psd_ops->tx_key_add != !psd_ops->tx_key_del) ||
+> -		    (psd_caps->assoc_drv_spc && !psd_ops->tx_key_add)))
+> +		    (psd_caps->assoc_drv_spc && !psd_ops->tx_key_add) ||
+> +		    (psd_ops->tx_key_add && !netdev_need_ops_lock(netdev))))
+>  		return ERR_PTR(-EINVAL);
 
-[Severity: High]
-Does poisoning actually break the cycle here? It makes every resubmit
-fail. However, rx_fixup() reschedules itself after any submit error
-other than -ENODEV, and it never checks RTL8150_UNPLUG:
+[Severity: Low]
+Should the kernel-doc for tx_key_add and tx_key_del in
+include/net/psp/types.h be updated along with this check? It still only
+says:
 
-rx_fixup() {
-    ...
-	if (test_bit(RX_URB_FAIL, &dev->flags))
-		if (dev->rx_skb)
-			goto try_again;
-    ...
-try_again:
-	status = usb_submit_urb(dev->rx_urb, GFP_ATOMIC);
-	if (status == -ENODEV) {
-		netif_device_detach(dev->netdev);
-	} else if (status) {
-		set_bit(RX_URB_FAIL, &dev->flags);
-		goto tlsched;
-    ...
-}
+	 * @tx_key_add: add a Tx key to the device
+	 * Install an association in the device. Core will allocate space
+	 * for the driver to use at drv_data.
+	 * Can be left NULL if device does not store Tx keys and @tx_key_del
+	 * is also NULL.
 
-On a soft unbind (rmmod, sysfs unbind, or a forced unbind from
-usb_reset_device()), the device is still attached, so usb_submit_urb()
-never returns -ENODEV. Instead:
+With this patch, a driver that implements these callbacks needs an ops
+locked netdev. Without one, psp_dev_create() hits the WARN_ON and returns
+-EINVAL.
 
-- rtl8150_driver has no soft_unbind, so usb_unbind_interface() disables
-  the endpoints before calling ->disconnect. Submits then fail with
-  -ENOENT from usb_hcd_link_urb_to_ep().
-- After terminate_all_urbs(), urb->reject stays raised for good, so
-  submits fail with -EPERM.
+The driver also needs exact, in-order BQL accounting and has to follow
+the dql_reset() and real_num_tx_queues rules that psp_deferred_del_work()
+relies on.
 
-Either way, once the tasklet runs it reschedules itself forever.
+These rules are only written down in Documentation/networking/psp.rst,
+and the ops kernel-doc doesn't point there. A driver written from the
+struct documentation alone could hit the registration WARN, stall the
+grace period, or end it too early.
 
-tasklet_action_common() clears TASKLET_STATE_SCHED just before it calls
-the callback, and the callback sets it again. tasklet_kill() waits with
-wait_on_bit_lock(SCHED) in TASK_UNINTERRUPTIBLE, so it can only win
-inside that short window.
+Could the kernel-doc reference the new "Deferred Tx key deletion"
+section? No later patch in the series appears to update it.
 
-On a non-RT kernel, a waiter on the same CPU cannot preempt the softirq,
-so it only ever sees SCHED set. On UP, wouldn't this be a deterministic
-livelock? rtl8150_disconnect() would sit in D state holding the device
-lock while ksoftirqd spins. On SMP the waiter can keep losing the race.
+> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+> index d497f41c483e1..8de313805af03 100644
+> --- a/net/psp/psp_sock.c
+> +++ b/net/psp/psp_sock.c
 
-The loop can also start before this point. On a soft unbind with the
-interface up, usb_disable_interface() flushes rx_urb with -ESHUTDOWN
-while RTL8150_UNPLUG is still clear. read_bulk_callback() takes the
-default case to goon, the resubmit fails with -ENOENT, and it calls
-tasklet_schedule(). So the existing first tasklet_kill() already faces
-this loop, and on a soft unbind the new second one always faces it.
+[ ... ]
 
-Could rx_fixup() be stopped from rescheduling instead? For example, it
-could check RTL8150_UNPLUG on entry or treat -EPERM/-ENOENT as fatal.
-Another option is to disable the tasklet before killing it.
+> @@ -287,10 +302,6 @@ psp_sock_tx_rekey(struct sock *sk, struct psp_dev *psd, struct psp_assoc *pas,
+>  	struct psp_assoc *new;
+>  	int err;
+>  
+> -	if (psp_dev_has_sadb(psd)) {
+> -		NL_SET_ERR_MSG(extack, "Tx rekey not supported on this device");
+> -		return -EOPNOTSUPP;
+> -	}
+>  	if (!pas->peer_tx) {
+>  		NL_SET_ERR_MSG(extack, "Socket PSP state is not fully established");
+>  		return -EBUSY;
+
+[Severity: Low]
+This isn't a bug, but could the commit message say outright that Tx
+rekey is now allowed on SADB devices?
+
+The earlier commit "psp: support tx rekey operation" said SADB drivers
+would "return -EOPNOTSUPP for now". With this guard removed,
+PSP_CMD_TX_ASSOC on a socket that already has a Tx key now succeeds on
+mlx5, where it used to fail.
+
+The only explicit mention is "allow tx rekey on SADB devices" in the v2
+changelog below the --- line, and that part is dropped when the patch is
+applied.
+
+The same goes for the new registration requirement in psp_dev_create():
+
+	(psd_ops->tx_key_add && !netdev_need_ops_lock(netdev))
+
+The body only says drivers "must meet the requirements in
+Documentation/networking/psp.rst".
+
+> @@ -322,6 +333,7 @@ psp_sock_tx_rekey(struct sock *sk, struct psp_dev *psd, struct psp_assoc *pas,
+>  	list_move(&pas->assocs_list, &psd->stale_assocs);
+>  
+>  	rcu_assign_pointer(sk->psp_assoc, new);
+> +	pas->flags |= PSP_ASSOC_DEFER_TX_KEY_DEL;
+>  	psp_assoc_put(pas);
+>  
+>  	return 0;
 
 [Severity: Medium]
-This isn't a bug introduced by this patch, but rx_fixup() has a second
-self-rescheduling path that never touches a URB:
+Can an unprivileged user use up the device's hardware Tx key pool
+through this path?
 
-rx_fixup() {
-    ...
-	spin_lock_irq(&dev->rx_pool_lock);
-	skb = pull_skb(dev);
-	spin_unlock_irq(&dev->rx_pool_lock);
-	if (skb == NULL)
-		goto tlsched;
-    ...
+PSP_CMD_TX_ASSOC has no GENL_ADMIN_PERM. psp_sock_assoc_set_tx() enters
+psp_sock_tx_rekey() whenever pas->tx.spi is already set, and each call
+allocates a new hardware key:
+
+psp_sock_tx_rekey()
+  psp_assoc_set_tx()
+    psp_dev_tx_key_add()
+      mlx5e_psp_assoc_add()
+        mlx5_create_encryption_key()
+
+The old key then goes onto the deferred deletion queue, which has no
+upper bound:
+
+net/psp/psp_deferred_del.c:psp_deferred_del_queue() {
+	list_move_tail(&pas->assocs_list, &psd->tx_del.next);
+	schedule_delayed_work(&psd->tx_del.work, 0);
 }
 
-If dev_alloc_skb(RTL8150_MTU + 2) in fill_skb_pool() fails while the
-pool is empty, pull_skb() returns NULL and the tasklet reschedules
-itself. Poisoning in terminate_all_urbs() has no effect on this path,
-and RTL8150_UNPLUG is not checked.
+psp_deferred_del_work() handles one grace period at a time and polls
+every PSP_TX_GRACE_POLL_MS (1000 ms). Keys queued during a grace period
+wait for the next one. A single socket can therefore pin as many DEKs as
+it can rekey in that window, where before each socket held at most one.
 
-While GFP_ATOMIC allocations keep failing at disconnect time, can both
-tasklet_kill() calls in rtl8150_disconnect() stall the same way as
-described above? The stall ends once an allocation succeeds, so it only
-lasts as long as the memory pressure. A check for RTL8150_UNPLUG at the
-top of rx_fixup() would fix this along with the issue above.
+Suppose a queue below real_num_tx_queues never completes the bytes
+snapshotted in psp_tx_grace_start(). Would every later rekey then pin a
+DEK, a psp_assoc and a psd reference until psp_dev_unregister()?
 
->  		free_all_urbs(dev);
->  		free_skb_pool(dev);
->  		dev_kfree_skb(dev->rx_skb);
+When a grace period does end, psp_deferred_del_work() calls
+psp_dev_tx_key_del() for the whole batch while holding psd->lock. On mlx5
+each call is a firmware command:
 
-[Severity: High]
-This is a pre-existing issue, but can dev->rx_skb be stale here?
-read_bulk_callback() hands dev->rx_skb to the stack. When the pool is
-empty, it leaves the old pointer in place:
+	list_for_each_entry(pas, &to_free, assocs_list)
+		psp_dev_tx_key_del(psd, pas);
 
-read_bulk_callback() {
-    ...
-	netif_rx(dev->rx_skb);
-    ...
-	spin_lock_irqsave(&dev->rx_pool_lock, flags);
-	skb = pull_skb(dev);
-	spin_unlock_irqrestore(&dev->rx_pool_lock, flags);
-	if (!skb)
-		goto resched;
+Would that block other PSP netlink operations, and psp_assoc_free() for
+every socket on the device, until the batch is done?
 
-	dev->rx_skb = skb;
-    ...
-}
+The psp_assoc allocation uses GFP_KERNEL_ACCOUNT, but the hardware DEK
+pool is shared by the whole device and is not charged to any cgroup. One
+local user could make tx_key_add fail for other users' sockets. That
+includes sockets in other netns that were delegated the same device.
 
-The pool has only 4 entries and only the tasklet refills it, so this
-happens routinely. Nothing ever sets dev->rx_skb to NULL. The pointer
-is only replaced by a later successful pull_skb() in rx_fixup().
+The commit message acknowledges this ("users should avoid presenting PSP
+devices to users they don't trust to abuse this"). In the main netns,
+though, every local user can reach the device. Nothing later in the
+series appears to change these paths.
 
-If that replacement never happens, this dev_kfree_skb() frees an skb
-that the network stack already owns. It can fail to happen in two ways:
-
-- dev_alloc_skb() in rx_fixup() fails on the run during which
-  tasklet_kill() wins.
-- A completion passes the RTL8150_UNPLUG check just before set_bit().
-  Its tasklet_schedule() then runs while the first tasklet_kill() holds
-  TASKLET_STATE_SCHED through wait_on_bit_lock(). tasklet_schedule()
-  does nothing when SCHED is already set, so the tasklet never runs.
-
-The same stale pointer also seems to affect rtl8150_open():
-
-	if (dev->rx_skb == NULL)
-		dev->rx_skb = pull_skb(dev);
-
-Suppose a close/open happens while the tasklet is still looping on
-allocation failure. Wouldn't rx_urb then be submitted with the freed
-skb's data as its DMA buffer?
-
-Because of this, the "if (!dev->rx_skb) goto resched;" check in
-read_bulk_callback() also looks like dead code.
+Is a cap on the deferred queue length, or a per-socket rate limit,
+needed before SADB rekey is allowed?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118133550.955312-1-oneukum%40suse.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-psp-v5-0-b9ec840e0296%40gmail.com
