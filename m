@@ -1,129 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.150.75
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795273706;
-	b=eOzIw+BvAIqGWYF7PLz4t4KfJITTx24Fks7zX6Qr1ZemwJV90ySBqo8pWXholItaM0Ud
-	 OknwqscXs9MD1XgQWneASW4GH71Al5WQbtR+IThteiVtJuTdpq6F/ttW4QgjQCYfqSaw+
-	 xMaVEV7mW4VlBLWYen3lzmTxYdTPMlryVx9mRgNdYlHspcCDoKrw8TJSWM29YM+Xb8R2d
-	 IzikHWnlqUVf71/tm3VcnjSqcBD8jvX5UtVha6IIutyGe+XoxpAP3yDSauQEmHEKQLcOz
-	 MZ0kx1HejwbIABWmKsBdIisgqcKFkZQeQNLQTd9IS6vQCapAEba4jxEXKzDG+VKwI6A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795273706;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
-	 Received:Received:Received:Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:CC:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=gFa5jqHCdNLX5vQDwELQu+Fq5rGbFbsF6JEyF0tAFTo=;
-	b=1mnbIVyZXqu+MrTJUyLMFhvYlkMQzCAWelRRQ15HXX3UbdyZuEFvZFgRf0SIZjckK10J
-	 li5RSe7DDdFFcRDlSvvg+vhWN+BALzQOCLDUSihzhWmgbwgODCbT/hAXBZlX7oKCd5h64
-	 QaNv+izOa1eKTgz7sPCrZbUv/TFkpk0FqbfkEd5YSqM8KMlXEmSKT//NAzW2azAH5wGNK
-	 54tMg+Zw5UpVky8JgID2XZ9NJXGn8CtJ7UEyZjD7B38598UzyRYZwDRWUIOpiuTGPnBML
-	 b51VmZjA0J9RCOfYzJeav0ej0d2S4GnBAHEsSFLnJITG4QAdgtTBG/xEGpkYzCExbIg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ti.com;
-	spf=pass smtp.mailfrom=ti.com;
-	dkim=pass header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=a3ZeiawL;
-	dkim=pass header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=JLwwaHKa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.150.75
-Received: from mx0a-0002e601.pphosted.com (mx0a-0002e601.pphosted.com [148.163.150.75])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.22
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795273732;
+	b=EcFMMYCi0hSUxmMPjgJorJPrkQGX4XGc1EjIWYm9sxdV0khAHvInjOPAXSUboiEH5OaD
+	 Sty2he4d96xYyQDM99yvXcfQLUovk0n8sygZjK5vYuiIuJVI1Vu7Ht+y5pExBh2uEFF04
+	 rJpTfES1X/D+wXhjJV7gEbLm1ZtGB446A6ILNbfon6slOj5UU7e8Z5okkh4Uy7EhF7khq
+	 R2RpdyW6j0S42FtuN4MJKNiqtHr34FdjE6aE6DwnOY9HDpj4fOjE+RgZFxkF42xWzJWeH
+	 9lm5kqVLI3eDsuhfO8W0I0ltLfWN58vqpNc7ZA9/s0eW0j2KjSNIr5ubbWJze4fQGVQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795273732;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=nf5dZ0QHcFOV0D3Tnm+2uIHAt+M9+9e/y454KmdyMH4=;
+	b=lVTj50HBAwROz+EmNdrpsHP9FHozY+Q0PfTZPE5nbZjvK7DIdPlNkJj2ypGxde0znB/6
+	 bUS45W3jgU+B1F/Srorb/ZmpptyL+SoreP+Ql0ss49KiSjjkjMaR76darGjUxmkr3sIFJ
+	 JA1Yqr8L3RHQJYJp/NvOXuY1zYDMBHvdCuvpY78G84cay/I6qjYOnlyGAtIMKsi72RUIJ
+	 48lvHSG+ZmbnqL4nhkvv6i4aaFZnvonILG9ST0707eNl+NIa2DOqEVaAn1X+1MBTezWE1
+	 KHzZ2oDJuTpL2XJJ6CJHLRGkYgJBfuktNvKf6rraYsU9TakglBluPBXU9cYpkwEQUnQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=sC4WEbSQ;
+	arc=none smtp.remote-ip=185.70.43.22
+Received: from mail-4322.protonmail.ch (mail-4322.protonmail.ch [185.70.43.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A52B7606A320;
-	Sat, 21 Nov 2026 15:08:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A52B7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ti.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ti.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B871B606A320
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 15:08:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B871B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=a3ZeiawL;
-	dkim=pass (1024-bit key) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=JLwwaHKa
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6ALCFBKq2948666;
-	Sat, 21 Nov 2026 09:08:01 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=gFa5jqHCdNLX5vQDwELQu+Fq5rGbFbsF6JEyF0tAF
-	To=; b=a3ZeiawLECfeJbOGAR8tlzvrTyyenGFH6+bXwwjhJfQ6qn1p/a/+cEBKP
-	cwPUwHkmYUnWxin2F1hF32IzNURXagMgJV/VeaXFqK3eMHYOmEBV1wC1qpZYlL6N
-	nlPn2hBKnL/NVVXshlt2Qm5B+hdm5HfMLjDrKe1hkW/MDZsvAOau/YYL3LUgzD+x
-	3pSDy61kohEs90t8MiVSVysohibpWj8iBnXI4SoMej+x1NemM6n4iuDh5kuvh2G6
-	qcppe+Vd51joU9/zGXNnbxBeEGwpg4IcdnPLXRXJ5REgIQeTvFWu/ZSQ038J2jMM
-	rkT0VjrDF/4T2Z3UyD1R/10qzbp9Q==
-Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013031.outbound.protection.outlook.com [40.93.201.31])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4j2k2cq1yn-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 21 Nov 2026 09:08:01 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rl8S+LKQBKJeC2a8HnWlgISpHcmQqscHpx85Mke5yuA/x3RdT7mo1lqsZOHg2QzAegSQ6Crn0yEddm8vRhrKk2nsOaqsnSR25bQy5nCk2Aa3PIUKFuuGVx9h8cgV61tIUfrzhufw2VrCbpPmGv38kFP4R5RUNY955S19ONcTdRVp9Uc86B9ykVGduAhPKD3Gdf0BM3DFkNpw62v42i/8j2pb4C/pt7LtyXbQdIi/M2Vy+1hY974CemTIidNGolFu69e284JypNO5FX68x/on61dJoInx2tw42ThivrnW3FIZdgW8+IO2g0qKbO3kw2uxnwRkMHyfU6IPCOOooSZZNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gFa5jqHCdNLX5vQDwELQu+Fq5rGbFbsF6JEyF0tAFTo=;
- b=FSLNVk/NKpzzOcFzSomdKujy+Lp/12RtldDLxNEa4q1SClb0EUyvBcpZ8X+FiFPx5gP7zMF8r0JaQp62w99e0PqH/XsXtM/XVCoCBwsffX4TgiJf2ZcJjXiWwhemNkqlV20pih1KF+22tlhkG5Qd/AFQZrHQ3T8ZcPztnBHCKKmnM7Y3wSXqmt07fzoUm0kh8y4GUyeWPAvwnt1gRtQePcuzIktA8VaEeZBQPu/c7uSHX3JpOmA5DMOinXjRFQrttdn6mg/atgmxPS5HyfefyvwBe08smz/aj7+mdXvCvfy/PWDk5FwFmT1xQsKwARMKIPdNQSRElBOSmfJYFhXO/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gFa5jqHCdNLX5vQDwELQu+Fq5rGbFbsF6JEyF0tAFTo=;
- b=JLwwaHKajh3sYeiOaA06lrHgbeb7K7PWAPf4ghyQlCLfJa5GUypEE1myyKEz/EG8suH3Xq5x647ERf1JS7FdvWEFJLbuewtBhH3ZFjASeVMJYJGUEqJlXFJfJeTg4Zj4mfDjfCNh3n6Blt94K3i7mAwCxjiAMFYgmbRMEgTpGLk=
-Received: from CH0P221CA0004.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11c::14)
- by BY5PR10MB4324.namprd10.prod.outlook.com (2603:10b6:a03:205::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 15:07:57 +0000
-Received: from BN3PEPF00022BC9.namprd05.prod.outlook.com
- (2603:10b6:610:11c:cafe::30) by CH0P221CA0004.outlook.office365.com
- (2603:10b6:610:11c::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Sat,
- 21 Nov 2026 15:07:56 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN3PEPF00022BC9.mail.protection.outlook.com (10.167.248.218) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Sat, 21 Nov 2026 15:07:56 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 21 Nov
- 2026 09:07:40 -0600
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 21 Nov
- 2026 09:07:40 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Sat, 21 Nov 2026 09:07:40 -0600
-Received: from [172.24.231.93] (meghana.dhcp.ti.com [172.24.231.93] (may be forged))
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6ALF7ZLV042690;
-	Sat, 21 Nov 2026 09:07:36 -0600
-Message-ID: <c2167ce6-45da-4868-9212-db4811282e66@ti.com>
-Date: Sat, 21 Nov 2026 20:37:34 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=sC4WEbSQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795273727; x=1795532927;
+	bh=nf5dZ0QHcFOV0D3Tnm+2uIHAt+M9+9e/y454KmdyMH4=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=sC4WEbSQDEe4bxH5Lrzw7jAXL6H4FjenF02AZmSLZxA7aeRV+PJcLlOm6G9msuLaj
+	 9NHrM+AsAg/62SEHlkwtavHUGsDihn6lvf9oFn+UU6UDXzgXpM3hvGwzvx9hScIT/X
+	 LFk2rgNj2r4NJU3ta6s+4iffnKwdu9Hf6JId+Jt36PeLcfhFjh4AYyw6DyWRmeLlyn
+	 6SbX3f3NWHvyKpkqQLyDkBcaYo8mtCaK7AA4PgGTanMm4fhtWbSO8She9KpO+djLQN
+	 KyonfSXsvciUW7WEPqvCPhozP1+BuhS7vSX/aHXfoqhKPnUcv557BMUDnhzmFY/ypB
+	 +STm7gWUQpsPg==
+Date: Sat, 21 Nov 2026 15:08:43 +0000
+To: alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com
+From: Lee Keon-Hyeong <leegun25@proton.me>
+Cc: linux-wpan@vger.kernel.org, netdev@vger.kernel.org
+Subject: [PATCH net] mac802154: take RTNL around ASSOC RESP transmission
+Message-ID: <20261121150835.256812-1-leegun25@proton.me>
+Feedback-ID: 167971190:user:proton
+X-Pm-Message-ID: 526a5589f878115d95986fa28277bd3e46c7a6fb
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -133,125 +61,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 RESEND 0/3] Fix switch mode for offload and
- non-offload cases
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <diogo.ivo@siemens.com>, <haokexin@gmail.com>,
-        <philippe.schenker@impulsing.ch>, <devnexen@gmail.com>,
-        <horms@kernel.org>, <jacob.e.keller@intel.com>, <pabeni@redhat.com>,
-        <edumazet@kernel.org>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>, <danishanwar@ti.com>
-References: <20261112102140.2744508-1-m-malladi@ti.com>
- <20261119164407.1d2b3fa2@kernel.org>
-Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <20261119164407.1d2b3fa2@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC9:EE_|BY5PR10MB4324:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce417880-4f74-4f3c-08a5-08df47e13928
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700016|23010399003|18002099003|22082099003|3023799007|13003099007|261021121427099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261028144727099003|56012099006|10067099003|4143699003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	wJyQRM9EYeGT3YDaA3bs6+Wpw0ik2kyH+wAGXJo5BxlYvq/7UX2KsgDvNSgCavwZhFDKRbK/TeNwV+71ddqRaYNy4I73aUO1ReYGhV9lJ6uw5JczQ0K55EroNxQD8qIDR7xVxcRnS1tooUzyEiu8m/Iw5JzVKBrXKJgU3yTNam4o75ImSLMqTrtnzFLoW879Sbor+kXjidjnlRoimWhIgWj9YkaZo2NuXmvSBqZRw6qlcexL9paRSiWJlmSNF5yWH4qS0Ag35DM05vWdAX670zPcv3wY0dHro8RcU9aWpatwtW8VCE0FPLaK59CpP/08LeCAn+0g/7qftxabl5hO9bze/7M6r5LRaArJ5dQdCVD/X2pC/grfPHsjOMla9B/b7De4JycrQDN6IZXGssTiCTqhZuyHf3XmLhWheuWYfeIVzt46VjP9W2MJ68H1jfgFuJ8mxVw4hW7gDdFRFiIT5Ro93XX8n0n5yerSWHLEKuFuJFXm6Sya+fNrljoMMORaH1cOA55wzJ9DC1iVOFsHwhHMmAou07VVIwjWJH6ltv2BqiM1+684KmsbK5+Ha2IeYUK50N8SpE6fs11vPDqyAGIZoURq6ORuW5TF2lmd4JgsRtCrdx4Qgk499m2NfL0I+JCE+y3ycb9YwjgHNNNKxz54oFIRDqe6MXq2A1Wcv3Q=
-X-Forefront-Antispam-Report:
-	CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700016)(23010399003)(18002099003)(22082099003)(3023799007)(13003099007)(261021121427099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261028144727099003)(56012099006)(10067099003)(4143699003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	qgG/GY7+tVEkAmZs6srGiQIAN8t+h7BXXCAfWyEIchDW5CIVdX3dzcnDGRz/zxqxOttM+8MKBlXLuqjANQaQ0hSSLQONXDBEl/qzSMMUVYDFT6S6xEA30thl26LMYCVrnM9UWLe/IDIaylw+xM1b/2niSPA7KWh+hgDlxEM+aWt99yt2PiQp6lDBtXbpDhknKub7/gRtpjXzvYYlS0jFnj/N4t42sy4/Czxs0WHgNeL+cPsaGcniudFpGE09vF79bwonkN4NWAyLwP1edrlvHxSIKVcFrGSSIlwhDOekD57ZXMqLqI9EyvJdIcwJuyFvDl4Ztnmj2r9rzZnfukpuwkeiyzQsfnVZh8lXh1O6eGwD1LiFZbBxIu+L+L4sSScjYp0UqP36Szntt/mGbrpGpAb+ej4FW4JNPw7qJub9T6TzMROnu3TpqxiNaPfQQtW/
-X-Exchange-RoutingPolicyChecked:
-	O9Enozg9D+9BDbcuv9+MwwSa+X3iqE0ZxqkhDtwIjT/AkaTyi5L9RYEfKKDcokdCyartNONFCEJElpImdmVZILk6NFvBTePGYi+izXrVetOInz2cnaj9GTS7utUekBji8xanXzxlHDyO2BKXNfIzyRBq20iroJOZ4q/ijgNrbXKFZ6Pf+v85MuUKglVKGMYNXSQdIR/jt1QIggJ0Z3S3U9EvFGQxT2v5swhXKRH7nEX+CUMZrrDz69iZUPYFvuzUlfHdHwG4qAtwnfu3cyDaPz7ZiaCRBudQWG+5pbx/+kkw24Pqy3C/vL1kXsKmjSzUl8STm2mtoK6W4NukCBHMxw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 15:07:56.0883
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce417880-4f74-4f3c-08a5-08df47e13928
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN3PEPF00022BC9.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4324
-X-Authority-Analysis: v=2.4 cv=NYZzRGD4 c=1 sm=1 tr=0 ts=6b01b3d1 cx=c_pps
- a=7NCjPUurWbS4kF9YcBnZ4Q==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8
- a=sozttTNsAAAA:8 a=PCyyhxtqQNMI83KdRLoA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDA2MCBTYWx0ZWRfX4qlTSLrM1ICS
- RJ+DeJkNrQJuGPDrvu0Mqpd6GPhGuJ9JCU2zX4bIv1J+peblQgBSJe6YKq3SJPWkMWt3oj6rltG
- edg3lwxqk1r6yiJDOVhL6LUeMoVb9sJmgqnwv4PvbhjFv5qBFEDzwQJXcNMBq2LrSPnYXPIwLyO
- 0kNo1G+Y1Z8BeFXkQxieH7zeU1+iIn6fu1soBQXuCYkvxZFcybYEmKdevyRoCb9ssgIH30D0uup
- f719TXhKekV8ngQgafDqdpFzzUSrVRLot5QvwDbwbQIUjhfGmluvxMLS0Li7BO+nHMZdNIJ/Jbj
- 1uBI8NyIwAlv/kzsCPqyhW/8LqqD9t/JUdKwVBwM+8lDpaQWtEFgCIxEGhe+zImweqir6uZ2JQg
- iV2MPALR9WSFCh3GLz5VobQIvw9GWekzM6vGWEqPlvNN5LCRh+usgE3Lf2NcQy572czSb4eLd1q
- OQ2Mhper6PdnaMzH7vw==
-X-Proofpoint-ORIG-GUID: OWGJuJCY-_3eSaTOJFysYmDGHzsgmp4K
-X-Proofpoint-GUID: OWGJuJCY-_3eSaTOJFysYmDGHzsgmp4K
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDA2MCBTYWx0ZWRfX2WwM1nr9B/8l
- DMRkoCRE3v2+QN8eLSRQd6Mf/XAIC/8cYER5kk5RDnIA0DEo5KFDHJe8Vs/HKV+61352VN/V5uj
- bZ/0IXuW1tmRtfvwIfgmbfVGlU41fug=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-21_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 priorityscore=1501 lowpriorityscore=0
- phishscore=0 spamscore=0 malwarescore=0 clxscore=1015 adultscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611210060
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Jakub,
+mac802154_process_association_req() runs from the rx_mac_cmd workqueue.
+The missing RTNL was identified during an LLM-assisted code audit of the
+mac802154 association handling path.  The function builds the ASSOC RESP
+and sends it through
+mac802154_send_association_resp_locked() -> ieee802154_mlme_tx_locked(),
+which asserts the RTNL and calls ieee802154_sync_queue().  The worker does
+not hold the RTNL: this triggers an RTNL assertion failure whenever an
+ASSOC REQ reaches the response transmission path.  With panic_on_warn=3D1 a
+single unauthenticated frame panics the kernel, even with
+max_associations=3D0 (a rejected request still sends a response).
 
-On 11/20/26 06:14, Jakub Kicinski wrote:
-> On Thu, 12 Nov 2026 15:51:37 +0530 Meghana Malladi wrote:
->> v2: https://lore.kernel.org/all/20261027131732.3411403-1-m-malladi@ti.com/
-> 
-> What changed in v3? When was v3 posted (since this is a repost?)
+Take the RTNL before association_lock, matching the netlink lock order
+(RTNL then association_lock), and release it after the association lock on
+all exits.
 
-I first posted v3 on November 10 and resent the full series on
+Reproduced with a monitor/coordinator pair on mac802154_hwsim; the same
+test is silent with this patch.  On a CONFIG_PROVE_LOCKING kernel 86,891
+association requests were sent while the coordinator was brought down and
+up 1,200 times and recreated 71 times: no lockdep report, no hang and no
+warning, and the longest down transition took about 4 ms.  The
+panic_on_warn run (22,941 requests, 300 down/up cycles) also completed.
+There is no in-tree selftest for this path; the checks above use a
+dedicated hwsim harness.
 
-November 12. Here's the original cover letter:
+Fixes: 601f160b61b2 ("mac802154: Handle association requests from peers")
+Signed-off-by: Lee Keon-Hyeong <leegun25@proton.me>
+---
+ net/mac802154/scan.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/net/mac802154/scan.c b/net/mac802154/scan.c
+index d393b1f4e..49bc5d29b 100644
+--- a/net/mac802154/scan.c
++++ b/net/mac802154/scan.c
+@@ -826,6 +826,11 @@ int mac802154_process_association_req(struct ieee80215=
+4_sub_if_data *sdata,
+ =09=09return -ENODEV;
+ =09}
+=20
++=09/* mac802154_send_association_resp_locked() uses the MLME TX helpers,
++=09 * which require the RTNL.  Take it before association_lock to keep the
++=09 * same lock order as the netlink paths (RTNL then association_lock).
++=09 */
++=09rtnl_lock();
+ =09mutex_lock(&wpan_dev->association_lock);
+=20
+ =09memcpy(&assoc_req_pl, skb->data, sizeof(assoc_req_pl));
+@@ -895,6 +900,7 @@ int mac802154_process_association_req(struct ieee802154=
+_sub_if_data *sdata,
+=20
+ unlock:
+ =09mutex_unlock(&wpan_dev->association_lock);
++=09rtnl_unlock();
+ =09return ret;
+ }
+=20
+--=20
+2.55.0
 
 
-
-https://lore.kernel.org/all/20261110122700.1849634-1-m-malladi@ti.com/
-
-I reposted because I lately realized patch 3/3 was missing (could me 
-mail server glitch)
-
-I included the v2-to-v3 changes in the individual patch notes. Here's 
-the summary for the series:
-* Patch 1/3 adds a TX timestamp cleanup fix so reserved ERR_PTR(-EBUSY)
-
-   slots are cleared without attempting to free them as skbs.
-
-* Patch 2/3 changes the R30 race fix to stop and restart phylib around
-
-   the PRU firmware restart, so emac_adjust_link() cannot issue R30
-
-   commands while the firmware is stopped.
-
-* Patch 3/3 records the UC/MC flooding flags before issuing the firmware
-
-   commands and restores the flooding state after firmware restarts on
-
-   bridge and HSR unlink. It also carries the NULL emac check from v2.
-
-> You are expected to reply to the sashiko review, even if just
-> to confirm that it's correct.
-
-Yes, got it. Some series specifically ask for it and some don't. So it 
-slipped my mind while posting. I will keep that in mind for my upcoming 
-patches.
-
-Thanks,
-Meghana
