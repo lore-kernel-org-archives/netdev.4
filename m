@@ -1,62 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285960;
-	b=FmA1IwSBUu5FGXapyvhQ0PyG3/ma7DIfh6zI1DbF2tIwrrZfQ1Ewpe2XvmTNHZKWkGA6
-	 BSwdVQdZQXY6TgJ1QnhGkYwgrTVDjeK6nwnZdXeoRVjb/tboClwro17hP3orii11gvcJz
-	 w5pK7nAylFe09pUb7ilrKonjzo4YKPgVats2df5iO25nqoJboXZzLzT+kBWBluOZekzfi
-	 NLRoTW3VsE6c8vDaZiiDO8OsS0C4nqUGoCKEjSK2pKj70uoJLX5aB9CwJhQpw8USKDDn8
-	 KzDKWvX9UrxcTsclwY33hzLLK9jxo5G4ddAgX9Ey88o674Q5G2OmL4k8sPirwsboPdg==
+	t=1795286103;
+	b=Qv2m8Kb3ac7ouDqjr743gprviqsmcjB8oPpbmT4R/nyPM+9m12+SG/L/osyMIaJ4gt17
+	 6KBwHJL1rBnbRJerzzD6Ai0bGddNRL52xv95nELd6xB2oGXzkGyf1HoS0cWGIWtZnd8sH
+	 zfW9LiPj1dxae1dat0Wdq46OUO+gv0oo90vRz6JNMBiC5LCB9bdJsNzIa+1QlDZyqx/3P
+	 0ygUa77k4i0IsbuV2w4IMPPRCBPTP4PpOflOZ00By9qnx1HENb7BOrHFZa5W3bD8gElcY
+	 aBjkZpYJwkpMoAvKr62pHkmiSHNHq+lXNjc53yaZYXh50tO43ZY16wAh2GbY9O3Tk6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285960;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=fzDF0mKpBuN/Th1s2Wo0lqYfX3U1baz/HyUNpPlSrLo=;
-	b=BytIP781UMD6XQqWPVIZR280Tgc7TtzAhEobOZI5RXDu+/Ts8B6Z9a8ujp6KScHVw7mZ
-	 vW/8E0hbGsIa2CuB4A1/ybDSJQMtg9Ia+W2Zexi9WG+8DJGXrb+q+ZB7GkmuYfssizeIG
-	 3Xmiuj2caybA+vBJHMFyd2F8jM088STAkUX+Nrpt5chtReimPLYt2IZh2QelrnDznqBvV
-	 PJNxUsHRp2QtRUyYoeKSg/tQfSvpItcwvVft6tsrckCzOWbeVNJ/SL9rGvXIGQFq0mXZq
-	 Z/jw5AKfqabAPYbvgwV12MrCG1MTNOHVtc7ar2xEUG7g1J1G18fpSx4j5SrstJOFP0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795286103;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=4kKgSANEna6VIiJcypGE8a5TeyleL9ds1EVO6d2+m6c=;
+	b=395hiwP9omcjFZJPUf1c73jh+iPgwr6EpLN+DjCK5BmV1ePKyxXXjBMK5oESXeQUiaXZ
+	 C7tti1gT+3MxanaZVzAJHy42KQjUHFqK9x0Ly4G+vKGElrh/yOiyiJFfFp5glFCenadbR
+	 dtIXZlnA9b5TfqQ1INrqEls8O4rUAZQNWgDEEWJocZQuYIhgDYwf98sYVLXTWuzaQxMEb
+	 OxikzH4iD97i+TX1YCYrA8SH0AgOgQhFI8oq3ceZRZG95hfO2Ah7ysiFeTKMFRuaDRnhF
+	 fzatiR5RmT7c396cc+21Zix2E/ITuAgs/59O4Eb2hXrXjW2P/0igx+XR39WaVxkrCnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rbox.co;
-	spf=pass smtp.mailfrom=rbox.co;
-	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EFDz5rbI;
-	arc=none smtp.remote-ip=185.226.149.37
-Received: from mailtransmit04.runbox.com (mailtransmit04.runbox.com [185.226.149.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a3zTH0VM;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AACA606A320;
-	Sat, 21 Nov 2026 18:32:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AACA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA981606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:35:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA981606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EFDz5rbI
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <mhal@rbox.co>)
-	id 1xUpsz-00FCPW-7M; Sat, 21 Nov 2026 19:32:29 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
-	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
-	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
-	bh=fzDF0mKpBuN/Th1s2Wo0lqYfX3U1baz/HyUNpPlSrLo=; b=EFDz5rbIH+g3Jvyr3pCaQMqHvE
-	Kn/I9edyG1N0gh5sRV+4prgaDrHW/9+1lUDXxvyw/13jqjpFKvgxcqAMweZwnByS4RMV/o+YmAxQl
-	6m1qvQ/BP9jBipOxsU6AOHP4NkXDcuP+WNbqTZTJQMn7uETD2PV0XIRY+TKI1H1tKQARJGofrDay3
-	TUlOSDev30eao2yDOE5oq9wwsqAiUtu45EwgFDXBdvmbPOP2BDJEV+caWeLftroGEFQCrfhpLT7RS
-	eyYTNmAOXOD8xIpjrD3IW99ugwP4DiGGx/rCO4XZSCw9Ugl/6CZZ6oloY5zkl3cZfplw4DgVAZdQH
-	psjNF2ZA==;
-Received: from [10.9.9.72] (helo=submission01.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <mhal@rbox.co>)
-	id 1xUpst-000056-As; Sat, 21 Nov 2026 19:32:23 +0100
-Received: by submission01.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.95)
-	id 1xUpsr-0001IN-15;
-	Sat, 21 Nov 2026 19:32:21 +0100
-Message-ID: <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
-Date: Sat, 21 Nov 2026 19:32:15 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a3zTH0VM
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b42c3dba96so2189584a91.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:35:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795286102; x=1795890902; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4kKgSANEna6VIiJcypGE8a5TeyleL9ds1EVO6d2+m6c=;
+        b=a3zTH0VMfDOtA3qASaPnyRTKrbn0QPoswlB+TwNBUhyHrMnQxSfUx6JcQY0XZK4GFv
+         ddqpHhn/lT88Xod5yWmMdd0jBOfshGBd4bJ4tzLCmz4ocn+YIWEdPRuroOse/IE5dnLf
+         9v00BNW7ERSQF3WDPV2odW8vWdDVHs4+bin6/Q65eue9tF+EYuIDfTYGYN4en7Ft7qEz
+         vot/4Uoghuda1BQrflDK9a/770qtve9526opQe2mxjHfUoqCoiTDPH8yTroT1NFHhqDV
+         9SDCNx2Uj9G7wMKvLOMjyOaMwvfec7qEh6/BWqkRX+6mLuKJpht3T2zTAgF+pI4L36/c
+         RHyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795286102; x=1795890902;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4kKgSANEna6VIiJcypGE8a5TeyleL9ds1EVO6d2+m6c=;
+        b=HFGwkuBh10SI5/NOeWN5skcZzB+kAHWte0KdBly6gRl40JrAU54qfAIQVvDlx4NiRE
+         GPbcyWkKqO0G/WGphkfiWDXkvJD6KnZt8K2lopht84wNJyJO2bpiLxg9fvL8No5ZNXFg
+         vS0ELFcC57RUnh0BvuNoyfun3Z5nQ3WNFNCbgyo+D8IcEHjLntqxY5cqwSMRaLYPPTzP
+         qF0WryaJuo+Svzf+jJKTsuWdZ9uUNk7WszBj7Cb8N/Rk8S8PPNEalkZ37pL8eFr9Wqcz
+         UXxFvlwzqPfg2aEahNRC8Vi9Kzr/8dxHv9Zk1qOVAzDasdyPVyJK9p8U2BYqXDQglfmf
+         1riQ==
+X-Forwarded-Encrypted: i=1; AL+hErGwacvNFLWjzmQbyF/xsEK3ugv2ZPSsn/nYUvUGEV/Hgf1Vufw6ez7+73/08TW3EDzKmz72i+E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/XR2MkowAw1rFP/46bT/TrZvzCLm/CjiFFINnAbaTH3/eJEz5
+	OTf14d2GN2oe0sDFN8R+8rA9DhraItekWsEhtEkfAlaKkDQ2dY+lwoDHXPJ2b4zKshTtDsq6ZtY
+	cge9RIQ==
+X-Received: from pjbrm1.prod.google.com ([2002:a17:90b:3ec1:b0:3aa:fb90:d203])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e70c:b0:3ac:9df3:6b07
+ with SMTP id 98e67ed59e1d1-3b41c9234b2mr7049150a91.24.1795286101862; Sat, 21
+ Nov 2026 10:35:01 -0800 (PST)
+Date: Sat, 21 Nov 2026 18:35:01 +0000
+In-Reply-To: <20261118-tcp-mtu-probing-doc-v1-v2-2-e795f20b8cfe@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,99 +77,31 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Michal Luczaj <mhal@rbox.co>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-To: Bobby Eshleman <bobbyeshleman@meta.com>,
- Stefano Garzarella <sgarzare@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
- Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>
-Cc: virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
-Content-Language: pl-PL, en-GB
-In-Reply-To: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+References: <20261118-tcp-mtu-probing-doc-v1-v2-0-e795f20b8cfe@gmail.com> <20261118-tcp-mtu-probing-doc-v1-v2-2-e795f20b8cfe@gmail.com>
+Message-ID: <awHkTCbtUgkJoAW7@google.com>
+Subject: Re: [PATCH net-next v2 2/2] selftests/net: packetdrill: test tcp_mtu_probe_floor
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Yongjian Wang <echoowall@gmail.com>
+Cc: corbet@lwn.net, edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org, 
+	shuah@kernel.org, pabeni@redhat.com, rdunlap@infradead.org, 
+	linux-doc@vger.kernel.org, horms@kernel.org, ncardwell@google.com, 
+	skhan@linuxfoundation.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-On 11/18/26 02:34, Bobby Eshleman wrote:
-> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-> can complete the handshake, setting sock->state to SS_CONNECTED, and then
-> reset the connection, e.g. in vhost_vsock_reset_orphans(),
-> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-> connect() gets the lock back, it finds sk_err set and moves the socket
-> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-> and a connect() to a CID on another transport makes
-> vsock_assign_transport() release the transport the socket was connected
-> on.
+On Wed, 18 Nov 2026 16:10:53 +0800, Yongjian Wang wrote:
+> tcp_mtu_probe_floor has no selftest coverage.
 > 
-> Only move the socket back to SS_UNCONNECTED if it is still
-> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-> another connect() fails with -EISCONN.
+> Add a test where a full-sized segment keeps timing out without any ICMP
+> feedback. After the first detection falls back to tcp_base_mss, check
+> that each further retransmission timeout halves the MSS, and that the
+> MSS stops at tcp_mtu_probe_floor.
 > 
-> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-> Otherwise a second thread blocked in connect() on the same socket can
-> time out after the first one failed and called listen(), and overwrite
-> TCP_LISTEN.
+> Use tcp_retries1=1 and disable TLP, as in
+> tcp_mtu_probing_blackhole_no_tlp_retries1_is_1.pkt, so that every
+> retransmission comes from the RTO timer.
+> 
+> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
 
-Ohh, this took me a while.
-
-> +/* Avoid breaking the socket when another thread has changed its state while
-> + * we were asleep.
-> + */
-> +static void vsock_connect_close(struct socket *sock)
-> +{
-> +	struct sock *sk = sock->sk;
-> +
-> +	if (sk->sk_state == TCP_SYN_SENT)
-> +		sk->sk_state = TCP_CLOSE;
-> +	if (sock->state == SS_CONNECTING)
-> +		sock->state = SS_UNCONNECTED;
-> +}
-
-I was wondering why not
-
-	if (sk->sk_state == TCP_SYN_SENT) {
-		sk->sk_state = TCP_CLOSE;
-		sock->state = SS_UNCONNECTED;
-	}
-
-and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
-because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
-On connect's failure, the blocking path kinda-ignores such shutdown() and
-resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
-vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
-
-So how about being consistent:
-
-static void vsock_connect_close(struct socket *sock)
-{
-	struct sock *sk = sock->sk;
-
-	// we follow vsock_connect_timeout():
-	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
-	// and we do check sk_shutdown
-	//
-	// or am I missing something?
-
-	if (sk->sk_state == TCP_SYN_SENT &&
-	    sk->sk_shutdown != SHUTDOWN_MASK) {
-		sk->sk_state = TCP_CLOSE;
-		sock->state = SS_UNCONNECTED;
-	}
-}
-
-What do you think?
-
-I guess this approach also addresses "[Severity: Low] What happens if
-another thread calls shutdown() while a blocking connect() is asleep?". As
-for "[Severity: Medium] Can a connect() waiter that times out late still
-abort a newer connect attempt on the same socket?", isn't this the current
-situation?
-
-thanks,
-Michal
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
