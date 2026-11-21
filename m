@@ -1,65 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795264949;
-	b=QoH/+VaRnCdN3o9Y1+dYXhz5dDWPj0BTQYPfrJFe7BmM1hudjByFGVlIeOKJyk31IYPX
-	 dYn4oUD1huO446L+jPXVkXmDNV3MRhQ6FsAc2B6SHbtGjk0YuBMAO5u4rxOXe8ZoUhLLj
-	 n18GzxWKd55M8mYexzYbh+tUNqCSIFukoetypS6H/14wzIQgAwyoF28LfUVbf0W6fVgcX
-	 WI0HyRniVQUng5+gOOTV6iVjuLRnP8Iu9OBkOas+a3Q6z3PV5zLjt4/C4x/FOTFGlECq7
-	 PIKC9NN6TD74MzXYdgDS0Wv/G0d2cmr6InE3rZeiR1n7GN5mLIJ9bl74IJatB0JY5QA==
+	t=1795265616;
+	b=YZoKeO7GR5x6GezRYW5JBInKvfqslr/sno3Z2SaTlL7QSdVNdGpTFhjVQR7q4beB25Is
+	 NIQ3Wd2RRa1QTShuFjrT774J9T0QsT5jx8eonVHiQGp+tTzGyeMBPuAWh2TkZm4qOLsob
+	 irKgaZ1gK9Yod13riPfue20V3QEWGqpFJ3cskx7woamzTEChdU8Xgj9Ae2GF0V90iPL78
+	 nKXFlou8QRwN2uyBxDeEqPmG9EE2WsI3EW96kzbxr9DtuOO2eRT+l96Hqpd6siZzVym5/
+	 skIV3STGJWb06WI4Epr7YbeWqdN3373vpiaLPPJSAPFe/MWV5cmIbOlh+AE7uqpAdLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795264949;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=LLtVvNcvdiWE9Bm0C9C4fhNTth/wg7FRqwbs/4Sj6Dk=;
-	b=JPt0azhcBcmg5pgiG2kcseyap50H8nqaCu+f0/FCp02rKohqOSAFNPJSZSxo7goxvKum
-	 jf09vHIPJKENKW2pgtPc8OpvXnv5NXO7nZ5h5ebD+q1vU0+lpC99ETwRvS2QB2YUl6g8B
-	 zeYc0GYIdy6L8pNjNODCYq2sEIXxMicrYmL60qcsLjw5tnWAER3HmkmDXO0UWYwJ9kBHu
-	 z7j5IEiuCe3DL5fI0Jh3xndI3m6V0veKu5ryj9KdRxRmjxcaVsZPtWNY4EQiYx45yJTrf
-	 LMqYz6yL/7QftEeVNqvR6LRNGm2Ity2EV29vopnsHNFScSHzLqo5nBMM43oV/cyQVoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795265616;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Debian-User;
+	bh=Kv39YFS3gCTmTIBEpLn+LTr7Kna7mVqtgec2/Wwwicg=;
+	b=HV/LvRIe7CQLRz4RRKp+1hWRwmUoSYbveOtP1msP931pWKmDcZC/XBP26BifRLbW1ppJ
+	 5GBMS+ICCpuxzeQjNxNzep+Zb9KgdmFLrkTbm6OFFuUfNKVA1wr8L+vdPAyVmHdlaRF71
+	 L/zFe8v6XMlcc8NqvgF6H3nmntb+azk8q+VIJJnpDqZwC3kdczzD2+LuiRAkToOF4nQOD
+	 nqlI7uEZX/NH8dTgLLf/CDpw6aOOjiGDLqxq/AsZeugWbLjdb7Fk0uxuXIVKApgme+ieg
+	 M3OeKmgyU6jknlkW9GjMaHgsbyDnHwp2FxsRNiUwClSoDVGdPPcdIxcB0ffYila8UHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=echgHL+0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=D0Tve2Qu;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54454606A686;
-	Sat, 21 Nov 2026 12:42:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 799DF606A32A;
+	Sat, 21 Nov 2026 12:53:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 799DF606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=echgHL+0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FFC81F000C4;
-	Sat, 21 Nov 2026 12:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795264948;
-	bh=LLtVvNcvdiWE9Bm0C9C4fhNTth/wg7FRqwbs/4Sj6Dk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=echgHL+0OoagPMZ9zwm/xjZ2yloMB9WT+OohPiIJP8INhpDnZJEydHCfxrUVUKR2V
-	 FqQW6sGNyudsW3Qike7vYm6BhXmZF9oYOuETY3IzAbAxqKMo/P1cAPRfdGbUpm+Iyl
-	 +P+ZBuE2xe+09QDS5NAAUG6vQo1JljJeJ/C2/p2Cl63FSRTQatNKEurCR8cmcMoKPI
-	 O4jher4tqa4P8cTMP4TJ/xUdZ8X456gXCfZbBmh0KK0AJcb9eRRRCPbi6N5+NPuZvS
-	 9ThOelBVoQqBrdqyjrKIl/4jqDNuhJ1YCPdIqIb8r/IINgA/1I9Taun7T1OS2ZYi3x
-	 RLN4jeZLprsmA==
-Subject:
- Re: [PATCH net-next v12 3/6] net: wwan: t9xx: Add control DMA interface
-From: netdev-bot+sashiko@kernel.org
-To: jackbb_wu@compal.com
-Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
- johannes@sipsolutions.net, andrew+netdev@lunn.ch, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, wen-zhi.huang@mediatek.com,
- shi-wei.yeh@mediatek.com, Minano.tseng@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, robert_yu@compal.com, Jeff_Chang@compal.com,
- edumazet@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-doc@vger.kernel.org
-Date: Sat, 21 Nov 2026 12:42:27 +0000
-Message-ID: <179526494702.3135.6051033006782624225@kernel.org>
-In-Reply-To: <20261117-t9xx_driver_v1-v12-3-e181b616b820@compal.com>
-References: <20261117-t9xx_driver_v1-v12-3-e181b616b820@compal.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=D0Tve2Qu
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Kv39YFS3gCTmTIBEpLn+LTr7Kna7mVqtgec2/Wwwicg=; b=D0Tve2QuWJTHNHXcUWkFbcPJC6
+	TOiab1mhHs6+yzFNQHQnVJYMmE0HwdjNO4aoMN/HLWc3urlQ9nXzmbb34/0NKQmmZYBczP5RgddvH
+	vzPz1NHrWYJie+e/K15GD8dlMYj/CXf9w0DKH/xT+vKgtCjYmNk69C+vpkiU9O7hPkWzKKLzrAg8f
+	Nf25l5vkdz8GZzeFje0DF2iR2MHUoNElJSn8yGmhHt0W4XZ0syoVlw9TUXq0J+bzrExPGV8ZX7Oht
+	60GhviSwhWNnr2BnnEi+keEhlEd9U+CK57Qc7Ndr6c3hpqyWnxHuLJc10iKwBlrRkHh3/olbdjqs0
+	hUkL9QWg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xUkaj-003fOK-0z;
+	Sat, 21 Nov 2026 12:53:17 +0000
+Date: Sat, 21 Nov 2026 04:53:09 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Stanislav Fomichev <sdf.kernel@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Willem de Bruijn <willemb@google.com>, 
+	Neal Cardwell <ncardwell@google.com>, Daniel Borkmann <daniel@iogearbox.net>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-kselftest@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH net-next 1/3] net/tcp-ao: convert the getsockopt helpers
+ to sockopt_t
+Message-ID: <awGTN1cIEnnlAMPq@gmail.com>
+References: <20261112-getsockopt_phase7-v1-0-1eb759dd0929@debian.org>
+ <20261112-getsockopt_phase7-v1-1-1eb759dd0929@debian.org>
+ <avdxDgmlDBTRgqM0@devvm16445.scu0.facebook.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,250 +80,62 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <avdxDgmlDBTRgqM0@devvm16445.scu0.facebook.com>
+X-Debian-User: leitao
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On Fri, Nov 13, 2026 at 12:21:27PM -0800, Stanislav Fomichev wrote:
+> On 11/12, Breno Leitao wrote:
+> > @@ -2214,6 +2213,21 @@ static int tcp_ao_copy_mkts_to_user(const struct sock *sk,
+> >  	}
+> >  
+> >  	bytes_to_write = min_t(int, user_len, sizeof(struct tcp_ao_getsockopt));
+> > +
+> 
+> [..]
+> 
+> > +	/* The reply is up to nkeys entries, user_len apart, with the match
+> > +	 * count in the first entry's nkeys, so it can outgrow optlen. Size it
+> > +	 * by the keys on the socket rather than by the caller's nkeys.
+> > +	 */
+> > +	hlist_for_each_entry_rcu(key, &ao_info->head, node,
+> > +				 lockdep_sock_is_held(sk))
+> > +		nr_keys++;
+> > +	reply_len = max(array_size(min(max_keys, nr_keys), user_len),
+> > +			offsetofend(struct tcp_ao_getsockopt, nkeys));
+> > +	err = sockopt_expand_out(sopt, reply_len);
+> > +	if (err)
+> > +		return err;
+> > +	head = sopt->iter_out;
+> 
+> Is that faster / cleaner / more preferable than calling sockopt_expand_out
+> on every iteration hlist_for_each_entry_rcu below?
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+sockopt_expand_out() can't be called once something went through
+iter_out. It re-anchors the iterator at the head of optval, so it WARNs
+and returns -EINVAL if the iterator has already moved.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+That check came in v2 of the series that added the helper [1], because
+a late call would rewind the write cursor. With a call per key, the
+second key would trip it.
 
-- [Medium] In mtk_cldma_rxq_free()
-  (drivers/net/wwan/t9xx/pcie/mtk_cldma.c), the final ring-drain loop…
-- [Medium] mtk_cldma_hw_recovery() runs from mtk_cldma_start_xfer() when
-  one TX queue's UL start-address register reads 0.
-- [Medium] The driver says the CLDMA 'can lose its queue state, which
-  leaves zero addresses' (comment in mtk_cldma_drv_init()).
-- [Low] The patch adds TRB_CMD_STOP and TRB_CMD_RECOVER to the shared
-  enum mtk_trb_cmd_type in mtk_ctrl_plane.h, but nothing implements them.
+So the size has to be known before the first entry is written, which is
+why the keys are counted first. ip_mc_gsfget() does the same and sizes
+its source list by min(sl_count, gf_numsrc). tcp_ao_info just keeps no
+key count, hence the walk.
 
---
+Sizing by nkeys alone doesn't work either: a large nkeys would hit the
+MAX_RW_COUNT check and get -EINVAL, where today it copies only the keys
+that match.
 
-net: wwan: t9xx: Add control DMA interface
+The extra walk seems very cheap. The keys come from sock_kmalloc(), so
+optmem_max caps how many a socket holds, and the socket lock keeps the
+list stable between the two walks.
 
-This adds the CLDMA (Cross Layer DMA) control-plane transport for the
-t9xx WWAN driver. It covers the GPD ring handling for the TX and RX
-queues, the reset and re-arm logic for an instance, and a TRB service
-layer. Probe now attaches the transport context through the new
-mtk_pci_dev_init()/mtk_pci_dev_exit() hooks.
+I'll say this in the comment and resping a v2.
 
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_cldma.c b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
-> new file mode 100644
-> index 0000000000000..c0bafb39e4f5a
-> --- /dev/null
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
-> @@ -0,0 +1,1207 @@
+Thanks for the review, you are being key to this whole convertion,
+--breno
 
-[ ... ]
-
-> +static void mtk_cldma_rx_done_work(struct work_struct *work)
-> +{
-
-[ ... ]
-
-> +	ret = mtk_cldma_check_rx_req(drv_info, rxq);
-> +	if (!ret)
-> +		goto again;
-> +
-> +	/* -ENXIO means the queue has no start address programmed, which is
-> +	 * exactly what a restart installs, so consume need_restart first.
-> +	 * Only the resume below is skipped in that case.
-> +	 */
-> +	mutex_lock(&drv_info->rearm_lock);
-> +	if (!atomic_read(&rxq->need_exit)) {
-> +		if (atomic_xchg(&rxq->need_restart, 0)) {
-> +			if (!mtk_cldma_rxq_restart(drv_info, rxq)) {
-> +				atomic_set(&rxq->need_restart, 1);
-> +				mutex_unlock(&drv_info->rearm_lock);
-> +				goto again;
-> +			}
-> +		} else if (ret != -ENXIO) {
-> +			mtk_cldma_resume_queue(drv_info, DIR_RX, rxq->rxqno);
-> +		}
-> +	}
-> +	mutex_unlock(&drv_info->rearm_lock);
-> +
-> +	if (ret == -ENXIO)
-> +		goto out;
-
-[Severity: Medium]
-What brings this RX queue back when mtk_cldma_check_rx_req() returns
--ENXIO and need_restart is clear?
-
-mtk_cldma_check_rx_req() treats a zero SO_CUR_ADDR as lost state:
-
-    curr_addr = mtk_cldma_get_rx_curr_addr(drv_info, rxq->rxqno);
-    if (unlikely(!curr_addr))
-        return -ENXIO;
-
-The comment in mtk_cldma_drv_init() also says the device "can lose its
-queue state, which leaves zero addresses".
-
-In that case this worker skips the resume and goes to out. That path
-unmasks XFER_DONE and returns. It does not set need_restart, restart
-the queue or schedule any recovery.
-
-An RX engine with no address should not raise another XFER_DONE, so
-nothing reruns this worker. The only lost-state recovery is in the TX
-submit path:
-
-    mtk_cldma_start_xfer()
-        if (unlikely(!val))
-            mtk_cldma_hw_recovery()
-
-Could RX on this CLDMA instance stay stuck until the host happens to
-submit a TX on the same instance? On CLDMA0 (the SAP control channel),
-host TX may be rare after the handshake. Unsolicited device-to-host
-control messages could then sit there indefinitely.
-
-This depends on SO_CUR_ADDR reading 0 after the state is lost, which
-the driver's own comments say can happen.
-
-[ ... ]
-
-> +static void mtk_cldma_rxq_free(struct cldma_drv_info *drv_info, u32 rxqno)
-> +{
-
-[ ... ]
-
-> +	/* free rx req resource */
-> +	for (i = 0; i < rxq->nr_gpds; i++) {
-> +		req = rxq->req_pool + rxq->free_idx;
-> +		if (!(req->gpd->rx_gpd.gpd_flags & CLDMA_GPD_FLAG_HWO) &&
-> +		    le16_to_cpu(req->gpd->rx_gpd.data_recv_len)) {
-> +			if (!mtk_cldma_rx_skb_adjust(mdev, req)) {
-> +				rxq->rx_done(req->skb, rxq->arg);
-> +				req->skb = NULL;
-> +			}
-> +		}
-
-[Severity: Medium]
-Can req->skb be NULL when this loop reaches mtk_cldma_rx_skb_adjust()?
-
-In mtk_cldma_rx_done_work(), if both the reload and the recycle
-dma_map_single() fail, the slot is left empty:
-
-    dev_kfree_skb_any(rx_skb);
-    req->skb = NULL;
-    req->data_dma_addr = 0;
-    goto out_retry;
-
-The leading refill for an empty slot (the !req->skb branch) can also
-fail and jump to out_retry. The cancel_work_sync() earlier in
-mtk_cldma_rxq_free() can then cancel the requeued retry before the
-slot is refilled.
-
-mtk_cldma_rx_skb_adjust() dereferences req->skb unconditionally:
-
-    req->skb->len = 0;
-    skb_reset_tail_pointer(req->skb);
-    skb_put(req->skb, recv_len);
-
-mtk_cldma_rx_skb_adjust() already zeroed data_recv_len for that slot.
-To get here, the device would have to write a non-zero data_recv_len
-into a GPD with HWO clear, which it does not own. The driver already
-treats data_recv_len as device-controlled and clamps it against mtu.
-
-If that happens, would closing the channel oops on a NULL skb? Would a
-req->skb check here, like the one at the top of the loop in
-mtk_cldma_rx_done_work(), be enough?
-
-[ ... ]
-
-> +/* The device reported a zero TX start address: it lost its queue state. */
-> +static int mtk_cldma_hw_recovery(struct cldma_drv_info *drv_info, u32 qno)
-> +{
-> +	u64 val;
-> +
-> +	dev_err(drv_info->mdev->dev,
-> +		"CLDMA%d lost its queue state, re-initializing\n",
-> +		drv_info->hw_id);
-> +
-> +	mtk_cldma_rearm_queues(drv_info);
-
-[Severity: Medium]
-Is it safe to re-arm the whole instance here without a stop or a
-mtk_cldma_drv_reset() first?
-
-mtk_cldma_txq_free() and mtk_cldma_rxq_free() both reset the IP before
-they call mtk_cldma_rearm_queues(). Here, the only evidence is that
-one TX queue's UL start address read back as zero.
-
-mtk_cldma_rearm_queues() then does three things:
-
-  - mtk_cldma_drv_init() read-modify-writes UL_CFG and SO_CFG (the GPD
-    format bits) and other IP-global registers.
-
-  - On every published TX queue with tx_started set, it reprograms the
-    start address and issues UL_START.
-
-  - On every published RX queue, it sets need_restart, so
-    mtk_cldma_rx_done_work() later reprograms SO_START_ADDR and issues
-    SO_START.
-
-What if a zero read on one queue does not mean the whole instance was
-reset? Sibling TX and RX engines could still be running when they get
-these CFG writes and START commands.
-
-On TX, a START at the GPD currently being sent could resend or cut
-that control message. On RX, a restart could lose or corrupt the frame
-being written.
-
-If the hardware only reads zero after a full IP reset, the other
-engines are already idle and this does not apply. For comparison, the
-t7xx driver re-initializes in a similar way without a stop, but only
-reprograms the affected queue.
-
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-> new file mode 100644
-> index 0000000000000..3650878128a27
-> --- /dev/null
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-> @@ -0,0 +1,614 @@
-
-[ ... ]
-
-> +int mtk_pcie_hif_submit_skb(struct mtk_md_dev *mdev, struct sk_buff *skb, bool force_send)
-> +{
-> +	struct mtk_ctrl_blk *ctrl_blk = mdev->ctrl_blk;
-> +	struct mtk_ctrl_trans *trans;
-> +	struct queue_info *que;
-> +	struct trb *trb;
-> +	int ret;
-> +
-> +	trans = ctrl_blk->ctrl_hw_priv;
-> +	trb = (struct trb *)skb->cb;
-> +
-> +	if (trb->cmd == TRB_CMD_STOP || trb->cmd == TRB_CMD_RECOVER) {
-> +		trb->trb_complete(skb);
-> +		return 0;
-> +	}
-
-[Severity: Low]
-TRB_CMD_STOP and TRB_CMD_RECOVER are added to enum mtk_trb_cmd_type in
-mtk_ctrl_plane.h, but nothing implements them. The commit message does
-not mention them either.
-
-Here they complete immediately and never set trb->status. They also
-skip the trans->available check and submit_lock.
-mtk_cldma_trb_process() rejects them in any case:
-
-    if (!(trb->cmd > TRB_CMD_MIN && trb->cmd < TRB_CMD_STOP))
-        return -EINVAL;
-
-A caller trying to stop or recover a queue would get a successful
-completion, with whatever status was left in skb->cb, while the queue
-keeps running.
-
-No caller in the series issues these commands yet. Could they be
-dropped, or rejected with something like -EOPNOTSUPP until they are
-implemented?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-t9xx_driver_v1-v12-0-e181b616b820%40compal.com
+[1] https://lore.kernel.org/20260914-getsockopt_phase6-v2-0-e48befc9602e@debian.org
