@@ -1,72 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795293341;
-	b=JpTjPg6G3m+XDCu57OQewTsINegq01wYzciWvYg3W0I1US8BJIRj+VJtG5gJTKhOcN2y
-	 pVLSJ3tDLdJ8Up9rgoYdNkpLcn3xNeDpzCY3SFbnxhEeaMrWgfgT3uK4Hepuf7clUBJrY
-	 WigC+1cRjrsgijyaB3sERyhp6zoJh9DJm9D9PjzoRAaF5RsZqyS+PdEIvhK1SKlA7yq1X
-	 Jm2BV0QTb34/KqdFnt0u1T2V6+YvIsO2AcB/0tTyU4+EWnCOC/mlb1qFladay/qDOkzf0
-	 /sPLQ5tHkoqCZlfiG37p2EyG0nh7Iqv6Nx7zcpVcDxzkTtNgX6nUxnHWeRBLJ8ZYyOA==
+	t=1795293448;
+	b=e7hL5YhDs/aZjRAGm+DNWi/l7ImYgBTVOpm9nyJaHLjHLk6KyIN8R+J/pX+rLQHTfxwC
+	 3LF9UkaYdD4qMC8F5U1yUkQ/D5Z0C/tRcsxFttzM9Qwv+bLkCTqFoE0Ki50q9ABH3PYpm
+	 A2GIYp/3dK6Aeq+S4CJkNACgGK6eOgQWtqdeRKHP09TsQG7Ns3m6pWJVlUo0CeLoCQpPj
+	 Ks0aMk42JSo2gjFsXw5UgvsXB4ZaerIdiVJwqZ6HPijdzHMOs8cdusbsEc6aY0j+UB43U
+	 sspiCy1kf/eDoJLeG6E+yXN8LClMtQMJHD+Pkou+xZRGzETe+KVoO1AYDi/nhWJC8Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795293341;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=pOTuHvezpiFXq86+EB4R9oPI2G2W+RnJ+wr9wT+PyzI=;
-	b=3mRLuddWWgRFdIVWQIKzjGcRsM2iSEUNblyagjD7HWe6kw+RcN6896ohG4oSMVp6vRYx
-	 zjs2fyd6T1royUf4xrl0IIsbkpWv/FxQBVqLt9hXjzEocYk0USw5FCGUS3qZOWs9feuZq
-	 V6gCOv966t3LqV5NY9M/3+2k+HIzT1uVwQYegwKkxYIn+gahMGBNquO469QIXtAOJv1n+
-	 rCFaTY5uJ+i1FvtQbgLXqq8D0wTasKQ/D7eSAw84wRBCU1P/CSmQPIte3AaB8G7JaLfgF
-	 eLEePnE8x2sx8UJMo+8K8K2pYLMwrLdD41QlHUQDJkRa9Yday4iIDCHrAR76II/e1Rg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795293448;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ght0jMClRvRbVsMcJvSI10A8vVgfhTEERWLX+iA+QgI=;
+	b=TETybsTf89Vy9ShM4ud7vNw9IAj0V5WNTVZB2ts5mSfJDUmKlKmt8A6uBz3pBq+lqC0S
+	 Ykvc/NmXK7aFlr595LqfZNGOwJrT05WBb7PkDS+kRlMgnnYdVx2hVgZP3kWKe9QQp7hgD
+	 7i4fo4+PN7Kre7dJc20wPy0BS07OCqnNMvM6wM37uiKr8uKek+SypF49xhxVbXi6fx8lE
+	 7AhYTQNB/y7CKsK3qxkWiGMVgItveL5UgmZaPtwEpgPGGwfusF23EwSh8DBBib/IAY1E2
+	 zTMapt+SUEK5O6aEatFhIr3kPj/4Mg8RRkJQnKGaXTUt8gj9nuiT6/I0DsrGAL6sD7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aCHXgs4c;
-	arc=none smtp.remote-ip=209.85.215.197
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQaaQTSD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 134BD606A685
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 134BD606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D09A2606A32A;
+	Sat, 21 Nov 2026 20:37:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aCHXgs4c
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso1357859a12.0
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 12:35:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795293339; x=1795898139; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pOTuHvezpiFXq86+EB4R9oPI2G2W+RnJ+wr9wT+PyzI=;
-        b=aCHXgs4cJZZ7ZbFBtFjyZ8kjOZnPfVgM/LT0Y9/Pu1ssf96p65BMYoyHznD6Tvzoo3
-         r/L7u37JCkqW0xD7J979k5PV7ZwTxoy/OoLZtyuunf5LOS0/x5pU43FRkVXcTAwWG+gl
-         1Lz4t4VIL56UKMH3WRB8OocpFLk55U20nF92ctFGTDyxJTv+po46y5nia2deOKy0MUE0
-         qIsfp5fa5iYo9gZ0kSlpvK7p+v2ZLEjOwrfAhaNmLfhiVt9ElCP5QnGq+cBQ3z2Wm+Yk
-         iYc89ipvapEc5sJrIPb9OW+tJ7i+qn/BvUHrXt5+3G8lav8oWBCxzuQ1FwujXiC6Y0fd
-         yKgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795293339; x=1795898139;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pOTuHvezpiFXq86+EB4R9oPI2G2W+RnJ+wr9wT+PyzI=;
-        b=ThwpmQEl3+XgWhD2ruNd/p9os4RPG0TMNgD/sWSVs/4WDA1c6n4+MEj7fpFNOlXFMo
-         y3XLwehUf/IYAUMs1UDQpxeDvDSO9BKRlhp6HPk/4cNB+Pb3d0Xlx7gzTU0wMmLJ5jT1
-         nz3uCD9lP1R128YrQctmZCHXEz5FrcXRIuuIRkRc303cX0neXCWVkw+ODU4F+3QUarUS
-         5E4FaSmjQa0Yq9F9WwjIXxirZyfPmcXfL6AqhEgffNpizWlryVXlHGY6zla7qL1Chc2A
-         mqtmJyeSTzBv+Z9ixiiEN0GAT7L0I8CSt63zyZYfbfyqfawSg4PC+7ZMIP+p896iL5Fy
-         T7Dw==
-X-Forwarded-Encrypted: i=1; AL+hErHPRWAk9M1QAKzB/Z0n7FrtwyZhszuCMWBPrkqbZRvwDtmDVYwk6ljLWZfPpwYYd2Mv+15Q648=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8B5yiDGvdDPTeD0VPQOF/V0e84axBP2Qv4CkCdMrm8XyrGfCv2
-	E/PVlNkW5a8FH2VnAxvpNUZelQTCHPuq6yWpKYXIslEWU3765pzgr90gkWluF2HDhTEIKki6QmZ
-	tiNZXUQ==
-X-Received: from plq11.prod.google.com ([2002:a17:903:2f8b:b0:2f0:3fc0:c08])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ce85:b0:2ed:1350:59ff
- with SMTP id d9443c01a7336-2f03ef594c0mr67967415ad.3.1795293338956; Sat, 21
- Nov 2026 12:35:38 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:35:27 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQaaQTSD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3F21F000C4;
+	Sat, 21 Nov 2026 20:37:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795293448;
+	bh=Ght0jMClRvRbVsMcJvSI10A8vVgfhTEERWLX+iA+QgI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=LQaaQTSDhZob8ozFLXa9bJ8/+7zhC6zCRuIni14PFynEbyGw/jWytUlYhcBPWlui9
+	 gb6pgD0n8V4X9DuL5C22+jRh+8Yku087bdUvSpiJTn6C3FP4rKwK9bkEDIpz+7B0H5
+	 NJ38ol/VSL2fw8j7hrYKJZf0g1cYKDogGSwGUHtXVWVu3X5XB5rvyM+mswWymgU6f9
+	 c5TL/g7iQumBVH41rZ51KyMNGR+c4SiA90ifaEVkBqez2arnoBsLo6BTvkYcklZQDL
+	 qwchWyoBmHuIKfRBoWyeUf+oyQ+T4erqp6pEBhGa+ONFSR9MD+jSlNwSyEjUfkxGgH
+	 KyTDUFUD67tFQ==
+Subject: Re: [PATCH net v3] wireguard: drain per-peer queues with sentinels
+From: netdev-bot+sashiko@kernel.org
+To: carges@cloudflare.com
+Cc: Jason@zx2c4.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org,
+ wireguard@lists.zx2c4.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel-team@cloudflare.com
+Date: Sat, 21 Nov 2026 20:37:27 +0000
+Message-ID: <179529344756.3135.530687351541002943@kernel.org>
+In-Reply-To: <20261117-fix-wg-peer-removal-v3-1-36cf733c2d94@cloudflare.com>
+References: <20261117-fix-wg-peer-removal-v3-1-36cf733c2d94@cloudflare.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,131 +62,192 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261121203537.341320-1-kuniyu@google.com>
-Subject: [PATCH v1 net] tcp: Don't clear saddr before ->put_port().
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>
-Cc: Simon Horman <horms@kernel.org>, Joanne Koong <joannelkoong@gmail.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
 
-When CGROUP_INET4_POST_BIND or CGROUP_INET6_POST_BIND prog fails,
-__inet_bind() / __inet6_bind() calls sk->sk_prot->put_port().
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-For TCP, __inet_put_port() calls inet_bhashfn_portaddr() to get
-the corresponding bhash2 bucket.
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-inet_bhashfn_portaddr() requires saddr, but it is cleared before
-__inet_put_port(), leading to bhash2 lock mismatch.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This triggers list corruption or use-after-free by a conccurent
-thread touching the same bhash2 bucket, e.g. tcp_diag_dump()
-with TCPF_BOUND_INACTIVE. [0]
+- [High] peer_remove_after_dead() (drivers/net/wireguard/peer.c:128) now
+  runs a plain, non-expedited synchronize_rcu() for every peer it…
+- [Low] The patch adds the same rcu_read_lock()/rcu_read_unlock() section
+  to both wg_queue_enqueue_per_peer_tx() and…
+- [Low] peer_remove_after_dead() (drivers/net/wireguard/peer.c:96-98) now
+  puts two whole struct sk_buff objects (`struct sk_buff tx = { }, rx =…
 
-Let's clear saddr after calling sk->sk_prot->put_port().
+--
 
-[0]:
-BUG: KASAN: slab-use-after-free in tcp_diag_dump (net/ipv4/tcp_diag.c:415)
-Read of size 8 at addr ffff88810ae0e7a0 by task a/1007
+wireguard: drain per-peer queues with sentinels
 
-CPU: 10 UID: 0 PID: 1007 Comm: a Not tainted 7.4.0-rc3-00456-gd5b89d55a322 #295 PREEMPT(lazy)
-Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.17.0-debian-1.17.0-1 04/01/2014
-Call Trace:
- <TASK>
- dump_stack_lvl (lib/dump_stack.c:120)
- print_address_description (mm/kasan/report.c:378)
- print_report (mm/kasan/report.c:482)
- kasan_report (mm/kasan/report.c:595)
- sock_recvmsg (net/socket.c:1154)
- __sys_recvfrom (net/socket.c:2333)
- __x64_sys_recvfrom (net/socket.c:2348 net/socket.c:2344 net/socket.c:2344)
- do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
- entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
-RIP: 0033:0x7f2f268f8e92
-Code: 08 0f 85 91 41 ff ff 49 89 fb 48 89 f0 48 89 d7 48 89 ce 4c 89 c2 4d 89 ca 4c 8b 44 24 08 4c 8b 4c 24 10 4c 89 5c 24 08 0f 05 <c3> 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 f3 0f 1e fa 55 bf 01 00
-RSP: 002b:00007f2f26874d28 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
-RAX: ffffffffffffffda RBX: 00007f2f26879ce4 RCX: 00007f2f268f8e92
-RDX: 0000000000004000 RSI: 00007f2f26874db0 RDI: 00000000000007d7
-RBP: 00007f2f26874d50 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000021
-R13: 00007ffcbb216e70 R14: 0000000000000000 R15: 00007ffcbb216f77
- </TASK>
+This patch drops the device-wide flush_workqueue() calls in
+peer_remove_after_dead(). In their place it appends drain sentinels to the
+peer's TX and RX prev_queues and waits for them, then calls
+synchronize_rcu() and does per-peer flush_work() and napi_disable(). The
+crypto helpers that publish packet state and notify the consumers are now
+wrapped in RCU read-side sections, so the grace period covers them.
 
-Allocated by task 1009:
- kasan_save_track (mm/kasan/common.c:57 mm/kasan/common.c:79)
- __kasan_slab_alloc (mm/kasan/common.c:354 mm/kasan/common.c:380)
- kmem_cache_alloc_noprof (./include/linux/kasan.h:257 mm/slub.c:4720 mm/slub.c:5033 mm/slub.c:5047)
- inet_bind2_bucket_create (net/ipv4/inet_hashtables.c:162)
- inet_csk_get_port (net/ipv4/inet_connection_sock.c:573)
- __inet_bind (net/ipv4/af_inet.c:544)
- inet_bind_sk (net/ipv4/af_inet.c:470)
- __sys_bind (net/socket.c:1947 net/socket.c:1978)
- __x64_sys_bind (net/socket.c:1983 net/socket.c:1981 net/socket.c:1981)
- do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
- entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
+> diff --git a/drivers/net/wireguard/peer.c b/drivers/net/wireguard/peer.c
+> index 1cb502a932e07..25d87509df938 100644
+> --- a/drivers/net/wireguard/peer.c
+> +++ b/drivers/net/wireguard/peer.c
+> @@ -93,6 +93,10 @@ static void peer_make_dead(struct wg_peer *peer)
+>  
+>  static void peer_remove_after_dead(struct wg_peer *peer)
+>  {
+> +	struct sk_buff tx = { }, rx = { };
+> +	DECLARE_COMPLETION_ONSTACK(tx_done);
+> +	DECLARE_COMPLETION_ONSTACK(rx_done);
+> +
 
-Freed by task 1009:
- kasan_save_track (mm/kasan/common.c:57 mm/kasan/common.c:79)
- kasan_save_free_info (mm/kasan/generic.c:599)
- __kasan_slab_free (mm/kasan/common.c:267 mm/kasan/common.c:299)
- kmem_cache_free (./include/linux/kasan.h:239 mm/slub.c:2780 mm/slub.c:6637 mm/slub.c:6764)
- inet_put_port (net/ipv4/inet_hashtables.c:178)
- __inet_bind (net/ipv4/af_inet.c:554)
- inet_bind_sk (net/ipv4/af_inet.c:470)
- __sys_bind (net/socket.c:1947 net/socket.c:1978)
- __x64_sys_bind (net/socket.c:1983 net/socket.c:1981 net/socket.c:1981)
- do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
- entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
+[Severity: Low]
+This isn't a bug, but does peer_remove_after_dead() need two full struct
+sk_buff objects on the stack?
 
-The buggy address belongs to the object at ffff88810ae0e780
- which belongs to the cache tcp_bind2_bucket of size 80
+The prev_queue code and the new sentinel checks in wg_packet_tx_worker()
+and wg_packet_rx_poll() only touch NEXT(skb), which is skb->prev, and
+PACKET_CB(skb), which is skb->cb[].
 
-Fixes: 28044fc1d495 ("net: Add a bhash2 table hashed by port and address")
-Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
----
-Found while reviewing
-https://lore.kernel.org/netdev/20261119192133.2632936-1-dmnk@google.com/
----
- net/ipv4/af_inet.c  | 2 +-
- net/ipv6/af_inet6.c | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+The two sk_buffs plus the two on-stack completions come to several hundred
+bytes. That grows with KCOV, conntrack, lockdep or KASAN stack redzones.
 
-diff --git a/net/ipv4/af_inet.c b/net/ipv4/af_inet.c
-index 8822bae439f8..5d03a9149b40 100644
---- a/net/ipv4/af_inet.c
-+++ b/net/ipv4/af_inet.c
-@@ -549,9 +549,9 @@ int __inet_bind(struct sock *sk, struct sockaddr_unsized *uaddr, int addr_len,
- 		if (!(flags & BIND_FROM_BPF)) {
- 			err = BPF_CGROUP_RUN_PROG_INET4_POST_BIND(sk);
- 			if (err) {
--				inet->inet_saddr = inet->inet_rcv_saddr = 0;
- 				if (sk->sk_prot->put_port)
- 					sk->sk_prot->put_port(sk);
-+				inet->inet_saddr = inet->inet_rcv_saddr = 0;
- 				goto out_release_sock;
- 			}
- 		}
-diff --git a/net/ipv6/af_inet6.c b/net/ipv6/af_inet6.c
-index a9b8b4b42a1a..b85125c3f14b 100644
---- a/net/ipv6/af_inet6.c
-+++ b/net/ipv6/af_inet6.c
-@@ -398,10 +398,10 @@ int __inet6_bind(struct sock *sk, struct sockaddr_unsized *uaddr, int addr_len,
- 		if (!(flags & BIND_FROM_BPF)) {
- 			err = BPF_CGROUP_RUN_PROG_INET6_POST_BIND(sk);
- 			if (err) {
--				sk->sk_ipv6only = saved_ipv6only;
--				inet_reset_saddr(sk);
- 				if (sk->sk_prot->put_port)
- 					sk->sk_prot->put_port(sk);
-+				sk->sk_ipv6only = saved_ipv6only;
-+				inet_reset_saddr(sk);
- 				goto out;
- 			}
- 		}
+The file already uses a smaller layout-compatible stand-in for the queue
+stub:
+
+drivers/net/wireguard/device.h:
+struct prev_queue {
+	struct sk_buff *head, *tail, *peeked;
+	struct { struct sk_buff *next, *prev; } empty; // Match first 2 members of struct sk_buff.
+	atomic_t count;
+};
+
+Would a similar smaller object, covering only the fields the sentinel
+actually uses, be enough here?
+
+> @@ -105,28 +109,32 @@ static void peer_remove_after_dead(struct wg_peer *peer)
+>  	 */
+>  	wg_timers_stop(peer);
+>  
+
+[ ... ]
+
+> +	wg_prev_queue_enqueue_sentinel(&peer->tx_queue, &tx, &tx_done);
+> +	wg_prev_queue_enqueue_sentinel(&peer->rx_queue, &rx, &rx_done);
+> +	queue_work_on(wg_cpumask_choose_online(&peer->serial_work_cpu, peer->internal_id),
+> +		      peer->device->packet_crypt_wq, &peer->transmit_packet_work);
+> +	napi_schedule(&peer->napi);
+> +	wait_for_completion(&tx_done);
+> +	wait_for_completion(&rx_done);
+> +
+> +	/* Handle edge cases where a consumer can finish a packet before crypto
+> +	 * helper schedules the consumer again. Use RCU sync to ensure that all
+> +	 * notification helpers finish.
+>  	 */
+> +	synchronize_rcu();
+
+[Severity: High]
+Should this be synchronize_net() rather than a plain synchronize_rcu()?
+
+On the netlink path the caller holds RTNL, because wg_set_device() takes
+rtnl_lock() before it updates peers. synchronize_net() switches to an
+expedited grace period in that case:
+
+net/core/dev.c:synchronize_net() {
+    ...
+	if (from_cleanup_net() || rtnl_is_locked())
+		synchronize_rcu_expedited();
+	else
+		synchronize_rcu();
+}
+
+peer.c already uses synchronize_net() in wg_peer_remove() and
+wg_peer_remove_all().
+
+With WGDEVICE_F_REPLACE_PEERS (as used by wg setconf), the path is:
+
+wg_set_device()
+  rtnl_lock()
+  wg_peer_remove_all()
+    synchronize_net()
+    list_for_each_entry_safe(peer, temp, &dead_peers, peer_list)
+      peer_remove_after_dead(peer)
+        synchronize_rcu()
+
+So RTNL is now held for one normal grace period per peer. That comes on
+top of the expedited grace period that netif_napi_del() already costs for
+each peer.
+
+With thousands of peers, could wg setconf now hold RTNL for seconds or
+longer?
+
+Before this patch, removing peers from an idle device cost little more
+than the expedited grace period in netif_napi_del(). Removing a single
+peer through wg_peer_remove() now also adds a normal grace period under
+RTNL.
+
+The commit message gives RTNL latency as the motivation:
+
+  "Unrelated peers can keep those workqueues busy, delaying removal and
+  other users of RTNL."
+
+For bulk replacement, though, RTNL hold time seems to grow linearly with
+the peer count. WG_CMD_SET_DEVICE uses GENL_UNS_ADMIN_PERM, so
+namespace-scoped CAP_NET_ADMIN is enough to trigger this.
+
+Would either of these avoid it?
+
+  - use synchronize_net() here
+  - batch wg_peer_remove_all(): enqueue all the sentinels, wait for all
+    the completions, then do one grace period before the per-peer flush
+    and NAPI teardown
+
+wg_destruct() also reaches wg_peer_remove_all(), but it drops RTNL first,
+so that path only gets slower.
+
+[ ... ]
+
+> diff --git a/drivers/net/wireguard/queueing.h b/drivers/net/wireguard/queueing.h
+> index 663b19b783953..e8d912f36ed86 100644
+> --- a/drivers/net/wireguard/queueing.h
+> +++ b/drivers/net/wireguard/queueing.h
+
+[ ... ]
+
+> @@ -194,9 +204,11 @@ static inline void wg_queue_enqueue_per_peer_rx(struct sk_buff *skb, enum packet
+>  	 */
+>  	struct wg_peer *peer = wg_peer_get(PACKET_PEER(skb));
+>  
+> +	rcu_read_lock();
+>  	atomic_set_release(&PACKET_CB(skb)->state, state);
+>  	napi_schedule(&peer->napi);
+>  	wg_peer_put(peer);
+> +	rcu_read_unlock();
+>  }
+
+[Severity: Low]
+This isn't a bug, but wg_queue_enqueue_per_peer_rx() still has the old
+comment above this section:
+
+	/* We take a reference, because as soon as we call atomic_set, the
+	 * peer can be freed from below us.
+	 */
+
+kref_release() frees the peer through call_rcu(), so the peer can't be
+freed inside the new RCU section.
+
+wg_queue_enqueue_per_peer_tx() got the same code change, and its comments
+were updated to "Keep the peer alive across state publication and TX
+scheduling." and "Teardown waits for this section after the drain sentinel
+completes."
+
+Could the RX comment be updated to match, and also explain the new RCU
+section?
+
 -- 
-2.56.1.750.gf70dc682cf-goog
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-fix-wg-peer-removal-v3-1-36cf733c2d94%40cloudflare.com
