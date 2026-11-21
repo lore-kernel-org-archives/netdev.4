@@ -1,67 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304903;
-	b=I0rrWGa//i/MCjsST7jQdiPcU65smz9b6jUjl6qs4GYNr6HJjmWsIph4V9KuKC4i5zCE
-	 P4a2hVro99dAV5XDYd1DDI8vEecpN3xRoWElaEdQFqRtZ9sED9GXsvo8iiKImHrsDCgry
-	 riaZtAJvnEU0NLhrX6SHzKA7TYVMpanJNQVDWXrtJ0nK6f5iY7knORP5+1DQ1WOb7zAKO
-	 ww52cfXYGIBng78OhVwaRxDkQjZ8xkDOUS9/CUIRlWXczPIeQv+I6dlAOn1z2luELI4ug
-	 75I1pSEwiSZan4xZDXWD/rhDRHZb+MKTAiDx2xpgrMjUzvwbYjiVE5ibyEWuyP/y5gg==
+	t=1795305009;
+	b=VTw73ya3c0DMB2c6WlHDkfnQpQbGMNBswiKCn1PiCcjXxoDbcwwr2DkX8tZ79ORI0NbZ
+	 u9+q5mCXRJDMia9xq/CzE5RFQ06cDV2E5z9Xd0q9LfWG1kL3SfZC5YvHlZage1u46TykF
+	 k8tyXvlzmSb95JqDqovvebJkQZWLob7U7aGm0S+4/6J3iiwmy7JkbTDGHyrosAjsPeUkw
+	 +rGrDekg6eJwIXSWMiQxgU5GI+9AdXmoFdOM32IFZ4TiOWRlgFke/foiJcVp0eOSZOZZh
+	 wR4e18T9RPRRvRE2DRc3UIk9FdRlzH9dniLlQFGk3FaezejwmEluCeuVPMC4uISoCkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304903;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=RDuG/oqCdue4gGnPB/YmguD4LRbIPVedWxys3SblwxU=;
-	b=sCrzGfm8kvuZAJqMAPjhio3Xm+jzN8SUb9mniadKDSiSBa2wedKAoA+8d9u0XBHhgQv3
-	 BKOR/I5rlCSJ1UrIkBEo48Cy8ojeynTkvbyJkQrlZjl1rjAgHXvwBL2DarzxDysozVH/q
-	 Z+i6XNQ4ZEExg33F46wfHhF1gltNPcmy8idRmvS872OeXGab5ydcqWZ1pk2AnMZ4NqSTK
-	 t5OW0NGhTaOoZ8aOYEt4ojFw53EJLuxHadyOwj6BK2RzGm7UvR7UkwQrpvgbysWcalH4Q
-	 /Q++4vQkpGg2Km1aJU25TWlKgLKwItL3IplmeBHzK/+DCHhE6ErtGm5i01TGN9qErsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795305009;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=BoWjDlU4fOqWS1qCJrCy23RseH/raBFcQljY17gEYZc=;
+	b=eGNNbZN6uxFhZRloVA1RqXt7/EUlcIt8sUPU3Ln4JVS3+xhpPEIvEWjvnQisoYqWEXYG
+	 bQFxh7m7ec6b4CFlQu0CovBH6m7HcNJxUi5MP9uXpxX4RE5Hnmiu80p/Ypw+jZp+mHdLI
+	 68rq9ipLn22LfpRxmudqXntE6oOxW5a8c2G8axNDTcIvjzKZhwvh/wplyA0jlkzb3igOU
+	 y39Yx7i6xi9JftnJwaXRb/m3e5AKsedLC1QY/SF/nzuqX0gS25K/k+zLjajKtITizwhrE
+	 ipuMR0/ddAdy/bdu0kAsVhCHgbaL2BINHwDAXbhJJifnY5Q7vh7G43TASOF6igszfNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--bcochrane.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AaKtuOBf;
-	arc=none smtp.remote-ip=209.85.214.200
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OH7Nils8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD123606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:48:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD123606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--bcochrane.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68482606A33A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:50:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AaKtuOBf
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2efad644688so19022795ad.3
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 15:48:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795304902; x=1795909702; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:date:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RDuG/oqCdue4gGnPB/YmguD4LRbIPVedWxys3SblwxU=;
-        b=AaKtuOBfhsiB4ty7mir7taOY4iyI4ezUWWycMl8H3hRfB/STYON1UYG30tfhRpYVgo
-         HdQ2an9O0dfe/MzSB064WQuXcn2SF8/UjIXG+s2OQkS10Ey2XI5XmjqvPBYoldWONkKA
-         tbqDuCLchi6QJZJx+57znS2Z5Sg2otZ/hK44G27REyrU336+yA41DsGv4clzqaT53FBE
-         /5QX11bQZiQDaQIdcrTmifCr0w4PgjxEmOqGSoei6DJ0+2HLgHAPHMhhnBegXt6nx2QT
-         MbesRM7rCw1qxiOGrVYzICiep9MbaJ+6Ws58Jmqb+pYS7hI9nqVSSsmhTngO6S2Kbwcm
-         x92Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795304902; x=1795909702;
-        h=content-type:cc:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RDuG/oqCdue4gGnPB/YmguD4LRbIPVedWxys3SblwxU=;
-        b=kbCG2nPvhy0t8L+O+698p7fVI97ewdX1i5TgXdwEjLlXZ9mixC7pVARdyRnSEqLfjm
-         GiaUlUh1Ei/BpqX4txVJkbWw1/MZfxRfeZvJvhtxCogBKvbt5p2S+yTLPgnUlpSMhMnb
-         igW87mReLYtqfcajHBCuUaYmVt82ufVkB/F86FbCNpVbJ1AlQafOcovvJVmNZR1vObac
-         8eAM7fwEtYzhOdNgZ1eAm77WGCFmjnlfLYDbOZ6UhhmQGCbiBfJhRYbcoEq+x4cF8XEQ
-         qf2xAooad5ETmEyiXJLaP5wkX4EG6yZzDjKBPdnYTWzhCxGlrAT78UaCcj3KiYV77B7a
-         W15g==
-X-Forwarded-Encrypted: i=1; AL+hErHIfHy+M67iLtr40p3cDvqT7k8rtePsnKz+pSBgjfK4nH2hjLh5xHz4ZcyEbaxdComwHwIFVpo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+iP1xnKQ+JxcMDu0CMPhazhGPFk0W3/UX/MV8AcHph1AHRtIlk
-	fbwPQ4lVsg8/hTm54RUtVZxY7B4D/qfLyV5q5+W+7QToKio/nQYRVmCsG5f/W8KhuEsXaG9mwhj
-	KJtW2AU1j+XgJTlmt1w==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OH7Nils8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 435871F000C4;
+	Sat, 21 Nov 2026 23:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795305009;
+	bh=BoWjDlU4fOqWS1qCJrCy23RseH/raBFcQljY17gEYZc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=OH7Nils8eDjnsUSQ9Ozzo8j31uE1TbgebK8aINAJVIEuOvrq9rqR7S5540Uvw4YDC
+	 NhbcUnU902kT4v/dUvXt0raaBEhuZFDZycJ006xUgmM7fIopAs0Xwl6Ny9bLnZMvve
+	 GKPIDWrAgpEmZUPCvYbhx1TjYrnkz+5yP81/dmzFdH+8L019tGD2joXgyTBYZEOp6X
+	 viB2mVPFKSZSV3vTZ9my9D7GiYoMQ47TxsOk02jwipwfVLEpE7h5QGzSZaIy708fzV
+	 umd/8ab0dcBbEGvuJnIoLhFWNKE+F50TjQbvxLKxDaThQX+7RHRikgqapxrAEQ6HN/
+	 ApmHp8ELCph9w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A45E391B08F;
+	Sat, 21 Nov 2026 23:50:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,157 +53,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: from plnr4.prod.google.com ([2002:a17:903:1904:b0:2ef:db3e:d66])
- (user=bcochrane job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:298c:b0:2ef:d952:4a65 with SMTP id d9443c01a7336-2f03f1babeamr71244315ad.43.1795304901940;
- Sat, 21 Nov 2026 15:48:21 -0800 (PST)
-Date: Sat, 21 Nov 2026 15:48:04 -0800
-Message-ID: <18ea344bdf5a5efb.3137322e31392e3133312e3730.20002c.0000sendgmr@google.com>
-Subject: [PATCH 6.18] bnxt_en: Take RTNL before netif_close() when aborting FW reset
-From: Bryan Cochrane <bcochrane@google.com>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>, 
-	Michael Chan <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bryan Cochrane <bcochrane@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net/sched: em_text: pad the text pattern in
+ the
+ ematch dump
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179530500778.1221130.7273439049785357350.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:50:07 +0000
+References: <QDISC-7SHE.v2.r0.20261109072128-1@mojatatu.com>
+In-Reply-To: <QDISC-7SHE.v2.r0.20261109072128-1@mojatatu.com>
+To: Victor Nogueira <victor@mojatatu.com>
+Cc: netdev@vger.kernel.org, jiri@resnulli.us, jhs@mojatatu.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, sashiko-bot@kernel.org
 
-commit bf83b257423bb557b970df3d7ece32fbd85f3bd4 upstream.
+Hello:
 
-netif_close() must be called with RTNL held in addition to the netdev
-instance lock: __dev_close_many() asserts it, and the NETDEV_GOING_DOWN
-and NETDEV_DOWN notifier chains it runs rely on it for serialization.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Commit 004b5008016a ("eth: bnxt: remove most dependencies on RTNL")
-replaced rtnl_lock() with netdev_lock() in bnxt_fw_reset_task() and
-bnxt_fw_reset(). That is sufficient for the paths that only tear the
-NIC down internally with __bnxt_close_nic(), but the abort paths close
-the netdev via bnxt_fw_reset_abort() -> netif_close(), and the error
-path in bnxt_fw_reset() calls netif_close() directly. Those now run
-without RTNL and trigger a WARN_ONCE() cascade when a firmware reset is
-aborted:
+On Fri, 13 Nov 2026 16:10:03 -0300 you wrote:
+> This is a followup of commit 9c572a83037a ("net/sched: fix potential
+> stack infoleak in em_text_dump()") as reported by Sashiko.
+> 
+> The issue: em_text_dump() appends the text pattern with nla_append(),
+> which is a bare skb_put_data() and does not pad the attribute to a 4-byte
+> boundary.  When pattern_len is not a multiple of four the skb tail is left
+> unaligned.
+> 
+> [...]
 
-  RTNL: assertion failed at net/core/dev.c (1740)
-  WARNING: net/core/dev.c:1740 at __dev_close_many+0x1be/0x1f0
-  Workqueue: bnxt_pf_wq bnxt_fw_reset_task [bnxt_en]
-  Call Trace:
-   netif_close_many+0xb5/0x190
-   netif_close+0xa2/0xd0
-   bnxt_fw_reset_task.cold+0x8d/0x213 [bnxt_en]
-   process_one_work+0x19d/0x3a0
-   worker_thread+0x1af/0x320
-   kthread+0xe3/0x120
+Here is the summary with links:
+  - [net-next,v2] net/sched: em_text: pad the text pattern in the ematch dump
+    https://git.kernel.org/netdev/net-next/c/eb6d6c80d354
 
-followed by the same assertion from call_netdevice_notifiers_info(),
-fib_rules_event(), inetdev_event(), rtnl_fill_ifinfo(),
-devlink_compat_phys_port_name_get() and ip_mc_down().
-
-This was observed on a machine in real use with a BCM57504 (4 PFs,
-FW 236.1.153.0) running v7.1.6: the firmware crashed, announced a
-"Fatal firmware reset event" and then failed to come back within the
-advertised max wait, so bnxt_fw_reset_task() aborted the reset on all
-ports:
-
-  bnxt_en 0000:c1:00.1 eno16905np1: Firmware reset aborted
-  bnxt_en 0000:c1:00.1 eno16905np1: fw_health_status 0x448100
-
-Take RTNL (before the netdev instance lock, matching the OPENING state
-which already uses rtnl_trylock()) in the fw_reset_abort path of
-bnxt_fw_reset_task() and route the POLL_VF abort through that same
-path.
-
-In bnxt_fw_reset(), only a PF can reach the bnxt_get_registered_vfs()
-error path that calls netif_close(), so take RTNL up front via
-bnxt_rtnl_lock_sp() when BNXT_PF(bp) is true and keep bnxt_lock_sp() on
-VFs. That avoids dropping the instance lock mid-reset (which would
-expose a transient BNXT_STATE_IN_FW_RESET and let a concurrent devlink
-health recover set BNXT_STATE_IN_SP_TASK), avoids racing with
-bnxt_sriov_configure() updating active_vfs outside RTNL, and keeps VFs
-from contending on RTNL during recovery while PFs already run on the
-single-threaded bnxt_pf_wq.
-
-The bug was found by inspecting the kernel log of the affected machine
-and the driver source; the fix was prepared with the help of an AI
-coding assistant (Gemini based) and reviewed by the submitter. It is
-build tested (allmodconfig with W=1, plus the same change on top of
-v7.1.6 built as a module for the affected BCM57504 host). The aborted
-reset path itself only runs when the firmware fails to return from a
-reset, which could not be reproduced on demand.
-
-Fixes: 004b5008016a ("eth: bnxt: remove most dependencies on RTNL")
-Cc: stable@vger.kernel.org
-Signed-off-by: Bryan Cochrane <bcochrane@google.com>
-Link: https://patch.msgid.link/20261110044235.204386-1-bcochrane@google.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-[ bcochrane: backport to 6.18.y: 6.18 lacks bnxt_lock_sp() and
-  bnxt_unlock_sp(), so keep the existing inline BNXT_STATE_IN_SP_TASK +
-  netdev_lock()/netdev_unlock() on the VF branch of bnxt_fw_reset()
-  while using the existing bnxt_rtnl_lock_sp() / bnxt_rtnl_unlock_sp()
-  on PFs. ]
-Signed-off-by: Bryan Cochrane <bcochrane@google.com>
----
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 21 +++++++++++++++------
- 1 file changed, 15 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index 8ef1d9d2f..49e9470e1 100644
---- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-+++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -14538,8 +14538,12 @@ static int bnxt_get_registered_vfs(struct bnxt *bp)
- void bnxt_fw_reset(struct bnxt *bp)
- {
- 	bnxt_ulp_stop(bp);
--	clear_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
--	netdev_lock(bp->dev);
-+	if (BNXT_PF(bp)) {
-+		bnxt_rtnl_lock_sp(bp);
-+	} else {
-+		clear_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
-+		netdev_lock(bp->dev);
-+	}
- 	if (test_bit(BNXT_STATE_OPEN, &bp->state) &&
- 	    !test_bit(BNXT_STATE_IN_FW_RESET, &bp->state)) {
- 		struct bnxt_ptp_cfg *ptp = bp->ptp_cfg;
-@@ -14585,8 +14589,12 @@ void bnxt_fw_reset(struct bnxt *bp)
- 		bnxt_queue_fw_reset_work(bp, tmo);
- 	}
- fw_reset_exit:
--	set_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
--	netdev_unlock(bp->dev);
-+	if (BNXT_PF(bp)) {
-+		bnxt_rtnl_unlock_sp(bp);
-+	} else {
-+		set_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
-+		netdev_unlock(bp->dev);
-+	}
- }
- 
- static void bnxt_chk_missed_irq(struct bnxt *bp)
-@@ -15239,9 +15247,8 @@ static void bnxt_fw_reset_task(struct work_struct *work)
- 		bp->fw_reset_timestamp = jiffies;
- 		netdev_lock(bp->dev);
- 		if (test_bit(BNXT_STATE_ABORT_ERR, &bp->state)) {
--			bnxt_fw_reset_abort(bp, rc);
- 			netdev_unlock(bp->dev);
--			goto ulp_start;
-+			goto fw_reset_abort;
- 		}
- 		bnxt_fw_reset_close(bp);
- 		if (bp->fw_cap & BNXT_FW_CAP_ERR_RECOVER_RELOAD) {
-@@ -15374,9 +15381,11 @@ static void bnxt_fw_reset_task(struct work_struct *work)
- 		netdev_err(bp->dev, "fw_health_status 0x%x\n", sts);
- 	}
- fw_reset_abort:
-+	rtnl_lock();
- 	netdev_lock(bp->dev);
- 	bnxt_fw_reset_abort(bp, rc);
- 	netdev_unlock(bp->dev);
-+	rtnl_unlock();
- ulp_start:
- 	if (!rc)
- 		bnxt_ulp_start(bp);
+You are awesome, thank you!
 -- 
-2.56.1.750.gf70dc682cf-goog
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
