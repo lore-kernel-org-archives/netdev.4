@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795222102;
-	b=ayn7dxsnbO5UYpnPwvrD3jh10bbwLl9tte0Y18A0MqSZ95PU7VcSJVltUvHnKFv8JFPY
-	 KgIrFv3vFppJ8ReHIvH2/J8GxW0oQKIBCo8EoIokhjSlTSyuqOvQ32w11qdJYLPGS4GZX
-	 JQ6hL4jRcZM1+Doh7xD9dEa3on89PBko9wHmgCPCgMx6scQpKvJU5rWa+te2DsIk4mHsC
-	 MCmOnnlbOXuRaJe7eqFazrS1LrWeUFQHFdMrHRnFWWVDvZjIqwmn1OiQR25ujjAUY8qHw
-	 p568jDW72W8dM607taJjbAaIo7khDlH5u6jH73Ix/YcwIQdiaaF9t75arlNHB4ROywQ==
+	t=1795222097;
+	b=HeuvKKnNTRiDpUk3Xh8s2C/Ppy9bYH1AAqfcsBG8UGSC0htzQLGAUwTUupAb09g0rnt1
+	 BcX+u+96kVEUMFCrpUnPric9q9CwVDlK1sm/PqWyFo5gPKV1TQ6Hglv2/Vp+4a6ab5ozo
+	 OPareOYGuHfVxT85Q/0aMnfTGmv/k0ot5+HYKYxBUmH13IATwTMmf+UsntKFKF1xZ2jWF
+	 vuRJEz8cILPOgE1xRJKyP4cvgdINi6/fXkX8P4sGUGTMLxqqFL+LdABHYAA+7jqeg27gC
+	 H8QUnvsimKW5kTRD+xkpt1P6JDR7geknKkxhq7gTgGLvv+aOqNVAqEeYp9g0OikxD7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795222102;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795222097;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ozZ0zumvzuCL9uuVWsPAeJtjXgHGjtuy7R2140ToF1A=;
-	b=La7wLZZlH/odVBOIVtF20FsDFokjDNv0lyQLg5ALuFOUu7vDewxsXktrogSC+Iv2Lt/C
-	 MP35pLUK68OBHwk1ZbscMUS2sVAvxecXUC1iTfZgKMHSRY/yI/B2B0Fq1XerWGF6U4ahZ
-	 s7fQfzCCTrF7ZYkEyZqhp4m2jrMC9ooIbPkXd9VfloQCJbRYg6ihZB9yqClB+uKuBsThS
-	 yXVNZfEnCb9IKqu0PtDG+ZObfiVhhppvgP5A8DJMh6JJqTC/MgbvOOlM/j+daHvnmbZtf
-	 NkXLhsQkUuGZGkkCvOLBWMHo3edriq6iiv7l62hs78laXj8bWdD65qUFFxENxY6bl9Q==
+	bh=aFPoSxt0aWUwwqX5xUF8SwWRu98kYFqbtHO45/HLvLo=;
+	b=xJ49jTyZAO8Rd1D98aaQmuM9JnQ1MQZhZGG4nbI8nouWuQQ/xJJJUfxR1XIdtIC/a5d/
+	 Di11k3J1gdLHlDR694jR3l7AtHkf7/byJGrbw0UH4sf3LIqrxc3rDlRrBzBKyKrZOBW+k
+	 EXjywLm2WJjLQn2caI3b3ay0/q8xjEcut9sDkmDPpjYVTxOPV1pDvYZvUk8XotjLCurUM
+	 Apkix7GVk4RHKhkPZjyErLEJU4ymO5mgT0E1LxGtak742vWA/XEvvmN12132ZsgzU08Sd
+	 2tZ0h9C3JgP8rAFjH+x59l3xx9Xo1vfYjm/jZDu+HsHSXA48o+8oUcIkFDIrpKtwGxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HotPZOAg;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j5paIkky;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0BF1606A69E
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 00:48:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0BF1606A69E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E33E606A69C
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 00:48:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E33E606A69C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HotPZOAg
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-3869b68caecso395561eec.0
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:48:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j5paIkky
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-15dd124bbe7so3262053c88.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:48:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795222100; x=1795826900; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795222094; x=1795826894; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ozZ0zumvzuCL9uuVWsPAeJtjXgHGjtuy7R2140ToF1A=;
-        b=HotPZOAgPwOmEcx0nk72FGaClVUjzq46CIKkip8PTCbbKyMQ9dQI+E14RFUzVw9wUa
-         f8JsBwbC6gXKsK1vPQ7WJ0aiSwEopeg+M5I9bIPlqCDqLECo4RltNV2WpOUfbNiso4r6
-         v1Vuc069dKmjdo29TJz1AeWGNLxw2TwhggyWVzK5VLKa6aBbRBGU0JGWpvJJZTjRIzxi
-         9xu0HwJhGhwjQ/ONkvbqonFE6QMJFW86HWBSvKhk3vNv5wRbKfOAFswgz/kK6acVvUUW
-         L+tMrfk8LfQ0pk3gVRMzhOFZUvaZeEmsce6iddkjfNGUoJSA9oNdSmbcdPF0zoWjlx98
-         i22w==
+        bh=aFPoSxt0aWUwwqX5xUF8SwWRu98kYFqbtHO45/HLvLo=;
+        b=j5paIkkyGMRCwCSCH4OMqfQvxzsz+SywGoAE5feK9lOz4XS4Eqw1cD3uTlmZfBKjjO
+         exCM0RAmo0lrulEzkZU5k5cw4ilRr9p3f7+NGXbi1aukxxRwXjt32HAyoE52W3RCY+tY
+         Wvskq9pptmEjNfxP39rxtQNlg9UPRpNk1PHEo5igWrn1FQrus9fS8XyjTVpAZ1UmrmYX
+         fXWxMgmbqhY2MLnMvAGMb/kiKFK8ubD7ZqVLnWacsde+Awu7SAXVqzY3cGRyjMHXMQNF
+         zhL4LMYf5VAKXxJ2oLRosJLfI6k6RX+459QloyqO2M9rO+nS1K6lHZWS9TD1TXfrEKRN
+         LOCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795222100; x=1795826900;
+        d=1e100.net; s=20260707; t=1795222094; x=1795826894;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ozZ0zumvzuCL9uuVWsPAeJtjXgHGjtuy7R2140ToF1A=;
-        b=VEeXsxo1Cw1A7UP0hGrUbNPdrMiTFdZF9bXo7KNFG4GiRRr7CmJANc4Fx9f7BKpflX
-         jSx+9LgM6H8/d2ntpDSSFype1G4bBgbKvO5zmnTYE1nqXsCbCHND2mYz9jSXbjVD4VTi
-         pPJbFNLm5dddm37Uby4o9MUVRq2ajFPo4pfu2X//2IOYMs7Y9D4zEZcWWC/piChkyYlr
-         26zFBrN8tyLbnAkVtZdGP6ry0fiszJ0v2SSd31JzLeVDIzjmo2g6EZFF9imm7QtLHhsR
-         vDzW3sV7U/v7fMQUKVaVmrK3wE1edI9bNgvaqTMDUPajYDI0ah+YzbwDh9j1fDCXTyCu
-         ZKew==
-X-Gm-Message-State: APuU4Z8oia6VtN67CfrBK8ie9wqVWhzRKuiJLNZKWnGwLFitIrF33z7i
-	pzgMCQPoK9AB9OH8uPyqYrUGBDOKY6MpkC9H3glevXTvoVYpHLb3KcG4oUChdw==
-X-Gm-Gg: AYBFou1Vg4FyIHf/g2aSHrYjgasd40J39A5aNtjkkESHVPS4vsvQVY0DKVNVzcI3u7u
-	pTi8tWpmugW/La/bYWpDMAKwMdxiek9MF2wWhY9NMqNd00wn6b1PTMIt8kywA78Lh/uv7Y9sC2y
-	q9bsj+7YnJoaJe5Rd+i66lvlOwmIvySx4yymb1qJVGYie0YIL+9lmKop7J52oRE88AYMv8P5IJe
-	fwAFdsaxVH0Nc8fHPwW+UJJMLcJxuCkrXxsUs0JXq2cDAEnqtbvpwM+dO6nxY8I7fEs3mWOUfrR
-	QOC0bu+2ExfCjxYwOuEMgu4bmonWlFYDkYJIHW0M0sXjcqenLGjPDEgKPP0yOTqlewgy2v/QpKV
-	+2juybNYTQnutLe5ibKk0vECqwYNTXjvNBLdIL739gwJcxoTAscH8uxJRH0X6p2j/ujSsaAcgI7
-	XjRW5ZK8AHOH00bReY2+SkLSPJ5P5+AkMSsh4Ip87xzeevTsHYYc/ORP702KohwxfZ2oNRlwSAC
-	OZ5MX7sQ51EwUNoS84ojIMuNnOFzTWBF856mEuoaVAsKlnuTA3L09FPVgG8sibZGQ7poMWs/U2w
-	pvBQqn2O
-X-Received: by 2002:a05:701b:42d4:20b0:1b5:43d8:b82a with SMTP id a92af1059eb24-1b55689e7b7mr4531507c88.9.1795222100099;
-        Fri, 20 Nov 2026 16:48:20 -0800 (PST)
+        bh=aFPoSxt0aWUwwqX5xUF8SwWRu98kYFqbtHO45/HLvLo=;
+        b=wF2jMnfmUEmPDMgiBF9JrmgEaqnzpoVWQm5nE2DNb8cdfHPaJGqxNXb3vCmQv7yDvI
+         GJamStKMxMDwtVjpD6OuP4vqP0eHo2c4T4Yfsvx92pQMQB0KIUYAefeZL2RT3CL+g7KS
+         kBUoKuGym6SqhIErUpSzX3GfVSCwQx8R7g9/iGAutC1AHRYYfukt1gixdUxjlFLH9X1H
+         UhzSFQt7P05P7GV0n16EzXCPW8Td5yR8YrMxU22C3uZaSHO5BAOOETIvFuMURf/EdIzu
+         jBmK51e36WKAtY4kWl80hhyzdXp/EaKUL5bzfaanU/HohYQnBeTJ0jkMzdBAbgnO5uGn
+         6tnw==
+X-Gm-Message-State: APuU4Z/3QAwRcy7PKUbRW2A7YEZNBTb+9DDZ5czpU0NrLLQi05QHaOTo
+	o+k0O0KxgHR4G45Q+43fvX2afTAbwPCqPU2dOvOCg/C0E7jPmTO4lP4QQOcJaA==
+X-Gm-Gg: AYBFou0QamdXyFE8RG3U6djtJxV4Fr5tAwvpsxcN8Jb6pkrihc2pHDukWSsYAzluIxc
+	bhGED5qd6rU59hs2yK8dp/ax8z4jw5aSlEuICPFRWGZGCqp0+17w9sSugTNI0uW/mtlVAPnefyC
+	tf4YgbkAUoC7My9hg7sJmny+254v0jXRejR97ZYSMYXH+nxNdDkRLb/AXldx7wM3mXM6zt1TI5B
+	TP4itPONiD9j+vlSzfJQLXGa0BneBk70gzP88mfjtf9GawgzbRnIZgCh8EgadSYTEKFsE4nUemq
+	EUYyMQuj2rMTDvKi66bPTtaDRtJ+EWs7yaNmOnqYlbG39+UkSSrcujCEj/qC/o4cr+iedcLsQ9N
+	tdTcJxzxcr/uAMDDE44WSB6/t3DrH9liZhLDCZbeHmMnAS8fm8XaD2K9JzCW7/SbOF0t6lRI8FW
+	gB8OTEqUixMiT3B9IQ9m1RUdQfcCJFFgIjT+gMRgFZquO/P4Ua89eJZc4j4t/z5/h7HPNwi1P18
+	ePGWiIEABQH/5E6pHjOF0uH2RFNffnHS6OwOzcDgkzqqs28P/HXk87MoMWPP8yGTCsh63lRRzPp
+	XJkNRli281zVLOHyG80iKwddmo2S6J0=
+X-Received: by 2002:a05:701b:2313:b0:151:d6e5:596b with SMTP id a92af1059eb24-1b5568b31admr4284679c88.9.1795222094302;
+        Fri, 20 Nov 2026 16:48:14 -0800 (PST)
 Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm11462472c88.13.2026.11.20.16.48.17
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm11462472c88.13.2026.11.20.16.48.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 16:48:17 -0800 (PST)
+        Fri, 20 Nov 2026 16:48:13 -0800 (PST)
 From: Florian Fainelli <f.fainelli@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <f.fainelli@gmail.com>,
@@ -97,9 +97,9 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	linux-kernel@vger.kernel.org (open list),
 	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v4 05/10] net: au1000: serialize TX completion with packet submission
-Date: Fri, 20 Nov 2026 16:48:04 -0800
-Message-ID: <20261121004809.1690280-6-f.fainelli@gmail.com>
+Subject: [PATCH net v4 02/10] net: au1000: clear all-multicast mode when restoring hash filtering
+Date: Fri, 20 Nov 2026 16:48:01 -0800
+Message-ID: <20261121004809.1690280-3-f.fainelli@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261121004809.1690280-1-f.fainelli@gmail.com>
 References: <20261121004809.1690280-1-f.fainelli@gmail.com>
@@ -114,111 +114,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-TX completion runs in hard IRQ context while ndo_start_xmit updates the
-same descriptors and ring state without locking. An interrupt between
-netif_stop_queue() and setting tx_full can miss the wakeup and leave the
-queue stopped until the watchdog runs. Use the existing IRQ-safe device
-lock in both paths to serialize reclamation and queue state changes.
-Keep the packet copy and padding outside this lock so uncached DMA
-buffer writes do not extend the IRQ-disabled critical section.
-
-When submission reclaims a completed descriptor at tx_head, advance
-tx_tail and clear TX_T_DONE before dropping the lock so the interrupt
-handler cannot reclaim it twice. The TX queue lock reserves the idle
-descriptor while its buffer is filled; completion stops at a descriptor
-without TX_T_DONE and never accesses its payload. Reacquire the device
-lock to publish the length, DMA ownership and tx_head together. Consume
-the copied skb after releasing the lock with dev_consume_skb_any(),
-which also handles netpoll entry with hardware interrupts disabled.
+MAC_PASS_ALL_MULTI remains set after IFF_ALLMULTI is cleared or the
+multicast list shrinks below the filter limit. Clear it when programming
+the selective multicast hash so unwanted multicast traffic is filtered
+again.
 
 Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 ---
- drivers/net/ethernet/amd/au1000_eth.c | 22 ++++++++++++++++++----
- 1 file changed, 18 insertions(+), 4 deletions(-)
+ drivers/net/ethernet/amd/au1000_eth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-index 1935b1d4b173..60631f0dce18 100644
+index cd25248f4e3a..58bc8e1b539d 100644
 --- a/drivers/net/ethernet/amd/au1000_eth.c
 +++ b/drivers/net/ethernet/amd/au1000_eth.c
-@@ -872,7 +872,9 @@ static void au1000_tx_ack(struct net_device *dev)
- {
- 	struct au1000_private *aup = netdev_priv(dev);
- 	struct tx_dma *ptxd;
-+	unsigned long flags;
- 
-+	spin_lock_irqsave(&aup->lock, flags);
- 	ptxd = aup->tx_dma_ring[aup->tx_tail];
- 
- 	while (ptxd->buff_stat & TX_T_DONE) {
-@@ -889,6 +891,8 @@ static void au1000_tx_ack(struct net_device *dev)
- 			netif_wake_queue(dev);
- 		}
+@@ -1042,7 +1042,7 @@ static void au1000_multicast_list(struct net_device *dev)
+ 					(long *)mc_filter);
+ 		writel(mc_filter[1], &aup->mac->multi_hash_high);
+ 		writel(mc_filter[0], &aup->mac->multi_hash_low);
+-		reg &= ~MAC_PROMISCUOUS;
++		reg &= ~(MAC_PROMISCUOUS | MAC_PASS_ALL_MULTI);
+ 		reg |= MAC_HASH_MODE;
  	}
-+
-+	spin_unlock_irqrestore(&aup->lock, flags);
- }
- 
- /*
-@@ -972,21 +976,27 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
- 	u32 buff_stat;
- 	struct db_dest *pDB;
- 	int i;
-+	unsigned long flags;
- 
- 	netif_dbg(aup, tx_queued, dev, "tx: aup %x len=%d, data=%p, head %d\n",
- 				(unsigned)aup, skb->len,
- 				skb->data, aup->tx_head);
- 
-+	spin_lock_irqsave(&aup->lock, flags);
- 	ptxd = aup->tx_dma_ring[aup->tx_head];
- 	buff_stat = ptxd->buff_stat;
- 	if (buff_stat & TX_DMA_ENABLE) {
- 		/* We've wrapped around and the transmitter is still busy */
- 		netif_stop_queue(dev);
- 		aup->tx_full = 1;
-+		spin_unlock_irqrestore(&aup->lock, flags);
- 		return NETDEV_TX_BUSY;
- 	} else if (buff_stat & TX_T_DONE) {
- 		au1000_update_tx_stats(dev, ptxd->status);
-+		ptxd->buff_stat = buff_stat & ~TX_T_DONE;
- 		ptxd->len = 0;
-+		wmb(); /* drain writebuffer */
-+		aup->tx_tail = (aup->tx_tail + 1) & (NUM_TX_DMA - 1);
- 	}
- 
- 	if (aup->tx_full) {
-@@ -995,22 +1005,26 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
- 	}
- 
- 	pDB = aup->tx_db_inuse[aup->tx_head];
-+	/* The TX queue lock reserves this idle descriptor until submission. */
-+	spin_unlock_irqrestore(&aup->lock, flags);
-+
- 	skb_copy_from_linear_data(skb, (void *)pDB->vaddr, skb->len);
- 	if (skb->len < ETH_ZLEN) {
- 		for (i = skb->len; i < ETH_ZLEN; i++)
- 			((char *)pDB->vaddr)[i] = 0;
-+	}
- 
--		ptxd->len = ETH_ZLEN;
--	} else
--		ptxd->len = skb->len;
-+	spin_lock_irqsave(&aup->lock, flags);
-+	ptxd->len = max_t(unsigned int, skb->len, ETH_ZLEN);
- 
- 	ps->tx_packets++;
- 	ps->tx_bytes += ptxd->len;
- 
- 	ptxd->buff_stat = lower_32_bits(pDB->dma_addr) | TX_DMA_ENABLE;
- 	wmb(); /* drain writebuffer */
--	dev_kfree_skb(skb);
- 	aup->tx_head = (aup->tx_head + 1) & (NUM_TX_DMA - 1);
-+	spin_unlock_irqrestore(&aup->lock, flags);
-+	dev_consume_skb_any(skb);
- 	return NETDEV_TX_OK;
- }
- 
+ 	writel(reg, &aup->mac->control);
 -- 
 2.53.0
 
