@@ -1,49 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795219207;
-	b=uimEn7yI9tRtrusF3nph6Tl3WXtOn23OOYaDVMAcWl+64GXeA24CPP27IiP1x79k7Is8
-	 KpuadlKK04bedswi7SvkdRXrGD/zw6WYFm7JQTvG8iT6xJsPQg/5SxyVIcsqFH899EXLN
-	 0m6BV4hIRU3jOOKl9VSXttC/xvWM2FDWG4RVE63zDhpVFUM7nY/R7/ongJZa2uje3d8O1
-	 KwpUSP/ZgMLt8G/fJh6INcZIZvdhFhfat76BgkVcWs6KZH43Hiam6w0RcD0G0lwMjVmE9
-	 1mpy732y88qZrN7OxaMFHp5VBz1Jlu8NFgdLELkOizXOsTAgxhznCiujbajIOg74lVg==
+	t=1795219588;
+	b=XpIPJqjHrBhuj7qL0opZM++Zun0x2NO9VnUoRb9FxhbXMVJ+aAhHxqZ9yHqJ+tKEuuvW
+	 8Ia9dMGsI8jMF1AydnrdWoZ+jb1xOkQoWqh3k2cmwj8mLgAPCKXOfsWe1Wce5uWELw2KD
+	 67jHnubv4o5GRBtGjngzWUaZvwWB7AFLtWaWRGcgIvCbRl2K2ltG9Oj2sRLRMUdo+oN2l
+	 PMAMSDZSIR8GisX8jtC4R3qasUtFZdPfWnCim9+WErlClm8sO8roYBoxlcsofJoVhAiGi
+	 RcKzvLSUK5nR3SxEo01i8zhzgVZTHeDmU1Bm6z+qid+q1crG8MJ5xhAWNEUgEFmMORA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795219207;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=zIJCcnRs42Ibend6LFR4X1s5kjiXV/FF6JdjlWGdK18=;
-	b=XtWv63Dg5SxBD3cnXDIQt14nSHN5rVnE9KbK8AbKm1RXfVXC8viDU01VkNIYRNS0wPCy
-	 XcJ8u/MGNO8i+xdyMe2BG4V/H3rjlLT4Nz9bSEBsLwsvxkTimfrEHSNcm5xfsb9fItequ
-	 dxfELvf0VlAN552Q4KW+ryZlrK1d+U3wcDFNVpGaWkYJrotqAB5K/UOUYUKSEHzvYEBpO
-	 8A+FypZkWikmYkyRsAgOkwD8XxU7blsoF+foSsDPf4ppgmaRkcQY/Pn4BL1puZMiZoPWq
-	 c9lzEiHfk/WYNzL5XAbDr7zG8EMs05DPb/AFSaa9+pGcXdjt/YogbBV5G/TZVUTNS+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795219588;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=y9hC8BO0Mp4YVy4aHAIBzwFHt+H9i/iWRCKp/FODzSc=;
+	b=PUJjsrVxdlWhZQqlyStnLfzYQYA+AwOAYp7cdVHbAkDL1YbzRFid6YiJVUdvGpRLCi11
+	 UfqUr3XHyJsT51pLFlF2K3FVr5VAKM/mL/CGIcXz4j43RJe2xYOQRcRMesqPmzcELA/SP
+	 yBp9cVRxRsy9kgxZS0LfNkYSKx1vopTBs6pVY3vm8Zf4LnpC88Vm8Jp/zD6fw4MN4hFGX
+	 BlJtRx5HsbCkUIF7gM42ntzo74ga2h5zHyb0XLOggy7Fw/EXOpY1oNSBtDRNrnn6/OOkA
+	 nNE/QxzB23BpzMRjvdFjUf8v56qt8J6pt0VeXY0lDUlPLcGq8u2wSFz2/TzQ7np3aKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X2404+EH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JaadUWo2;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB9E606A6A1;
-	Sat, 21 Nov 2026 00:00:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FAD5606A6AA
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 00:06:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FAD5606A6AA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X2404+EH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F511F000C0;
-	Sat, 21 Nov 2026 00:00:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795219207;
-	bh=zIJCcnRs42Ibend6LFR4X1s5kjiXV/FF6JdjlWGdK18=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=X2404+EHmp7h2rjrQIXPGaSP6ZtPRRPA3cGzPH5H3MYPKf63xJYkd8wPpNUI8QXUG
-	 6mLJKWb1SdOb98bW/iOTvFD5FcO9g5k9ELWRSMB/4VTwr/7S65nHc7pMTkMpPIq0XR
-	 O1xw6SkiJFs/A0lzmYBcCWnb3nxvh0DJusgg5fTPWAtXVCqu0OriWXacpwh/S1CDG/
-	 9hxcPol4S79Vd6U8ldDn2efHVVcXF7sc7CQUwNCqYgoxn7a40UlNoPFq1wwd5O5XfA
-	 yCdR10LOyPbkV8nfXG0KtG0d81VKR1Ha2QE2YOL3sPP+6uTvMbah+f0dWdfNeQOlB+
-	 7b7CdtfJLBhVg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1554380AA4D;
-	Sat, 21 Nov 2026 00:00:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JaadUWo2
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b3acec6677so2147834c88.1
+        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 16:06:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795219577; x=1795824377; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y9hC8BO0Mp4YVy4aHAIBzwFHt+H9i/iWRCKp/FODzSc=;
+        b=JaadUWo2BmS24mgyyOvhRl/74/Q15imQqv1UnbHQrkWb3nuNIAOoacmTmtqOyf9khn
+         G7Qzcb67VMbDIlrmxjAJ1zAj/gt06pvWVi3jQpmuFzFdNC1zUw1yZF/iezgWniKkTThZ
+         Hzjs0bEo/8vobfK9Siebh+iuMrVc8wgIxi2qg/tTFdxI9QJ/gz+J/Wqa9AflbQgwOg+8
+         Y4Cdk3wcBRQkxGjkhEgLxX4u1uVqsTkQrXbQ++iW7ZtGhR/noEz1riZ3GAOcEkZ0hWBv
+         5IxyirtUebsNywLZEwGl7WcuUsB2neRcXlxzmpyLOazwyIidSwFGGYQXG0IY0mSUmflE
+         I+Vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795219577; x=1795824377;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=y9hC8BO0Mp4YVy4aHAIBzwFHt+H9i/iWRCKp/FODzSc=;
+        b=Qhn999EKK/Ej/EiIsmieyLtmP9XJeSnoEYWKs54Mjzl8bwirdnfEsxOVBTFpmU42Jt
+         kTarsqZPwoODD+A+nKNDCsvY/EpfL770//oVWydZY/O1IS/Y27kBX0cGvwbeJu5BWlG+
+         4hxHv3Xi3QW169/OosG0LNUj43sPFW9yzE2/c1yBBtGVKdcLtJizFZydX7sIl5DsUJ59
+         irJgxYz2SAQHKT/9QzTP8XoQCZoZWB41OPRM2Ve1SciJZNeDeRp5ELUjYjyjo8RByqEy
+         t9xK1YNKp7b7/tJJD7xmbrJHdt/vvr5cPLV1THT4TSC4pmFsS+gDShrtHHsgpmu0izeL
+         PtHA==
+X-Gm-Message-State: APuU4Z85PSVsOu3sojgr3FhlHiuyTQKeBsPhGNl6q+EbGb/CVBCB6GRZ
+	MMHmVBbNPfmWb/zsc2kf1rgvsGObCM4QyR9h4xDwzY6V/Xo6CggNRNkM
+X-Gm-Gg: AYBFou3smTf0bY/u6DmC3cSaW337XFKHILpdbOR5LhdfQNHkDnyA1TBl2Ly+ZTLYFLB
+	gFTTrfhHdg9Hh76GKZbItxrd7XBi4BbTQVrqynr9wROBT1e10MeBvSh5wSiKNtr0whMrrE2F0e1
+	/GZFu2+BEaRv3byTdtEAwbbEp6sdDgLxyA/SCrVJaEGQOm/Vo+TnF7NhfM5wJ++NKu0pdsqPk3x
+	D5XD59HQzM/qLPmK829wwgQtWRJ18P1Jct6gqi5dwxOGRUwEQKnQLUXDhIY9kiomtthCvGj9T37
+	3y7BWAdGPBKI55y1Z3i4YwjihHqw/AIqXbZznDx3R6IiITFa5yTbGlw256vwQGVkESTV2tY5pKW
+	pq+UpayQ1yWHtYUotgOR+w1IGJ5sw0EYUu80nmG72WPEMIEzSGyYsyfPosOtt6Ar9e1lU0+7xOo
+	hm07tRpAC4L4fPV3XhTVIduspDRFHaoT5XsgFlY6guQ5ycDmElKca6NAKpd9N4+2pd/frePaQEk
+	nKFWNHE/Pp3ulOSaMqBYBoVfUM4Oc5amvFMZLux5ENjxFH1Ee24VJDmDLUXdkhbW9MpINwdjIVL
+	RCVGKUvNG3S5bIcCE2rgB7Z+s5GwMsyLKJRQt5G95HCSJniKtcQTe4mT
+X-Received: by 2002:a05:7022:f106:b0:1b3:afa2:2d7e with SMTP id a92af1059eb24-1b5567dab3cmr3767017c88.1.1795219577218;
+        Fri, 20 Nov 2026 16:06:17 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm9946452c88.12.2026.11.20.16.06.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 16:06:16 -0800 (PST)
+Message-ID: <3f4424da-9244-483c-8662-2ba2d3b5eb94@gmail.com>
+Date: Fri, 20 Nov 2026 16:06:15 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,42 +90,123 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 05/10] net: au1000: serialize TX completion with
+ packet submission
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
+ horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ danny.kukawka@bisect.de, mugunthanvnm@ti.com,
+ sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
+ manuel.lauss@gmail.com
+References: <20261117193223.2795612-6-f.fainelli@gmail.com>
+ <179517075632.3136.4816970691265925776@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <179517075632.3136.4816970691265925776@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] eth: bnxt: report TX HW GSO queue stats
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179521920552.845527.13696974973741520819.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 00:00:05 +0000
-References: <20261116204313.23023-1-narcisav.kernel@gmail.com>
-In-Reply-To: <20261116204313.23023-1-narcisav.kernel@gmail.com>
-To: Narcisa Vasile <narcisav.kernel@gmail.com>
-Cc: michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 16 Nov 2026 12:43:13 -0800 you wrote:
-> Expose counters for HW GSO skbs and the wire packets they produce through
-> netdev queue statistics. Update the counters when TX completions are
-> processed.
+On 11/20/26 02:32, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
 > 
-> The tso.py selftests are skipped for drivers that don't report
-> these counters, so this also lets them run on bnxt.
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
 > 
-> [...]
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] au1000_tx() (drivers/net/ethernet/amd/au1000_eth.c) now holds
+>    spin_lock_irqsave(&aup->lock) for the whole transmit path.
+> 
+> --
+> 
+> net: au1000: serialize TX completion with packet submission
+> 
+> This patch takes the IRQ-safe aup->lock in both au1000_tx_ack() and
+> au1000_tx(), so TX descriptor reclamation and queue state changes are
+> serialized. When au1000_tx() reclaims a completed descriptor at tx_head,
+> it now also advances tx_tail. The skb is now freed with
+> dev_consume_skb_any() after the lock is released.
+> 
+>> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+>> index 1935b1d4b1738..805aabc6721b8 100644
+>> --- a/drivers/net/ethernet/amd/au1000_eth.c
+>> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+> 
+> [ ... ]
+> 
+>> @@ -972,21 +976,25 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
+>>   	u32 buff_stat;
+>>   	struct db_dest *pDB;
+>>   	int i;
+>> +	unsigned long flags;
+>>   
+>>   	netif_dbg(aup, tx_queued, dev, "tx: aup %x len=%d, data=%p, head %d\n",
+>>   				(unsigned)aup, skb->len,
+>>   				skb->data, aup->tx_head);
+>>   
+>> +	spin_lock_irqsave(&aup->lock, flags);
+> 
+> [Severity: Medium]
+> With this lock taken here, the rest of au1000_tx() runs with local hard
+> IRQs disabled until the spin_unlock_irqrestore() at the end. That
+> includes the packet copy and the zero padding loop:
+> 
+> 	pDB = aup->tx_db_inuse[aup->tx_head];
+> 	skb_copy_from_linear_data(skb, (void *)pDB->vaddr, skb->len);
+> 	if (skb->len < ETH_ZLEN) {
+> 		for (i = skb->len; i < ETH_ZLEN; i++)
+> 			((char *)pDB->vaddr)[i] = 0;
+> 	...
+> 
+> On Au1000/Au1500/Au1100, MIPS_ALCHEMY selects DMA_NONCOHERENT. That
+> makes the dma_alloc_coherent() buffer uncached, so every store into
+> pDB->vaddr is an uncached bus write. A full frame is up to about 1514
+> bytes.
+> 
+> The RX side has only NUM_RX_DMA (4) hardware buffers, and they are
+> serviced only from au1000_interrupt()->au1000_rx(). Before this patch,
+> the RX interrupt could preempt the copy.
+> 
+> Could this longer IRQ-off window on every transmit lead to more RX
+> overruns (RX_MISSED_FRAME) under combined TX/RX load? It would also add
+> interrupt latency for the rest of the system on these single-core
+> parts.
+> 
+> The copy does not appear to need the lock. Suppose au1000_tx() has
+> checked, under the lock, that TX_DMA_ENABLE and TX_T_DONE are clear at
+> tx_head:
+> 
+>    - au1000_tx_ack() stops at the first descriptor without TX_T_DONE.
+>    - It never touches the tx_db_inuse[] buffers or tx_head.
+>    - ndo_start_xmit is already serialized by the TX queue lock.
+> 
+> Would it be enough to hold aup->lock only for the descriptor state
+> check, the tx_tail/tx_full handling, and the final len, buff_stat and
+> tx_head updates, and do the copy and padding outside it?
+> 
+>>   	ptxd = aup->tx_dma_ring[aup->tx_head];
+>>   	buff_stat = ptxd->buff_stat;
+>>   	if (buff_stat & TX_DMA_ENABLE) {
+> 
+> [ ... ]
+> 
 
-Here is the summary with links:
-  - [net-next] eth: bnxt: report TX HW GSO queue stats
-    https://git.kernel.org/netdev/net-next/c/04c6b6c90e32
+Agreed. I have narrowed aup->lock to descriptor reservation and final 
+publication, moving the packet copy and padding outside the IRQ-disabled 
+critical sections.
 
-You are awesome, thank you!
+When submission reclaims a completed descriptor, it now clears TX_T_DONE 
+and advances tx_tail before dropping the lock. The TX queue lock 
+reserves that idle descriptor during the copy, while au1000_tx_ack() 
+stops at it because TX_T_DONE is clear.
+
+pw-bot: cr
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Florian
