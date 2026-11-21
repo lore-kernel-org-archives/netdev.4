@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795264953;
-	b=p2AMd4RP5OW+JEN/xm/r8WSxlgJFEIQ6WXjLXkrWg1LTEzkVm4/30Mdci/hpkxYXuACy
-	 D5729VfyjWln8qZB7TbDyaDYLEuVYgCND1S+LPsODgY65mf+JeDssOZoPsXMOWiSrUzXx
-	 DFPqGXMYyIsgJvJ22Qukg45j1g6Q2U7R3Gtjna58WGxqI4JfrQmXQwIwRk5GLuGh1S1Qo
-	 +l7ELrmH+Z+neGzGVSNoeEOYf+/1UFTLDIZwPm6d4N+ZcJ3NUsoVIkH3+uS1wkCie3Wms
-	 UXFWP6BZu4eEumCSgCaoggjAS1KoTVn6PoXzM0wM8mZAYYovWmJ3QPQrFv5/vJjjnrQ==
+	t=1795264949;
+	b=QoH/+VaRnCdN3o9Y1+dYXhz5dDWPj0BTQYPfrJFe7BmM1hudjByFGVlIeOKJyk31IYPX
+	 dYn4oUD1huO446L+jPXVkXmDNV3MRhQ6FsAc2B6SHbtGjk0YuBMAO5u4rxOXe8ZoUhLLj
+	 n18GzxWKd55M8mYexzYbh+tUNqCSIFukoetypS6H/14wzIQgAwyoF28LfUVbf0W6fVgcX
+	 WI0HyRniVQUng5+gOOTV6iVjuLRnP8Iu9OBkOas+a3Q6z3PV5zLjt4/C4x/FOTFGlECq7
+	 PIKC9NN6TD74MzXYdgDS0Wv/G0d2cmr6InE3rZeiR1n7GN5mLIJ9bl74IJatB0JY5QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795264953;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795264949;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=h5SjH6TV7y579PYYKZeassR489/yyrLDaR0+teMqfJI=;
-	b=X6r3ZzPq/inkRqZ0sYeg2krUS7eLqD88NiCA5JXxqcpFDRaJJOM8LHYd7uEcV3hh3L3k
-	 90b72fUFXvI3wlPM89KQloFCbZzBEFlCu1xBiJh+olqMDqUBw+JaH/V1yqgz3pl79IOOm
-	 CwK3ObhoYEuePb0EZlwbpLSXoNFYRNR2DEEGM2v0zTusMNx7g1rnpMYf/AtyER2tuON/U
-	 /KwyNTG6n/5R/dNNc9iW6zDyt/48y6+nHk7Bk+7cm/69AvYQIxM6Dj7Y+ivgYnGJxE90T
-	 FBhBjZsRsyohGblPQEcum2g+h682Nmh+jwzGTJPZP+gwySaei7XM9/Zhi/eER9KpwLw==
+	bh=LLtVvNcvdiWE9Bm0C9C4fhNTth/wg7FRqwbs/4Sj6Dk=;
+	b=JPt0azhcBcmg5pgiG2kcseyap50H8nqaCu+f0/FCp02rKohqOSAFNPJSZSxo7goxvKum
+	 jf09vHIPJKENKW2pgtPc8OpvXnv5NXO7nZ5h5ebD+q1vU0+lpC99ETwRvS2QB2YUl6g8B
+	 zeYc0GYIdy6L8pNjNODCYq2sEIXxMicrYmL60qcsLjw5tnWAER3HmkmDXO0UWYwJ9kBHu
+	 z7j5IEiuCe3DL5fI0Jh3xndI3m6V0veKu5ryj9KdRxRmjxcaVsZPtWNY4EQiYx45yJTrf
+	 LMqYz6yL/7QftEeVNqvR6LRNGm2Ity2EV29vopnsHNFScSHzLqo5nBMM43oV/cyQVoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LVAWv3eF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=echgHL+0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4B7F606A320;
-	Sat, 21 Nov 2026 12:42:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54454606A686;
+	Sat, 21 Nov 2026 12:42:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LVAWv3eF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 465701F000C0;
-	Sat, 21 Nov 2026 12:42:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=echgHL+0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FFC81F000C4;
+	Sat, 21 Nov 2026 12:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795264952;
-	bh=h5SjH6TV7y579PYYKZeassR489/yyrLDaR0+teMqfJI=;
+	s=k20260515; t=1795264948;
+	bh=LLtVvNcvdiWE9Bm0C9C4fhNTth/wg7FRqwbs/4Sj6Dk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LVAWv3eFhEkXj2Cs8vGzD8xqK4J4i02LJGdgwzzsxN/4IftJYR/kz6yRrZ+lZwAzu
-	 07oR9xpAzq1WIfQQadd7IY1/ZKPrZWBgZnRBsOmLBovhxEtla1EZXcsrr52EI/y9qk
-	 3iArU+dQnAHrKbb0AwdRUBQwYsdnuoin3/KeqxuuFifPcwl8OZ2/n8nbJ+Wui5Rtyf
-	 WbkxhuNBPVFhHA0eMd95lK3vpuf4J26owKojv5Ij+EqkBTdlJSwRb4fKek5v9oHJDE
-	 8wR7lWo8XC2iZaqNEkc3WTjghsGyKes4cyPZMI6CqbRf5oFLWWxV0Fhk0VlMu8ctLX
-	 w7WHwEIPLHO4g==
-Subject: Re: [PATCH net-next v12 5/6] net: wwan: t9xx: Add FSM thread
+	b=echgHL+0OoagPMZ9zwm/xjZ2yloMB9WT+OohPiIJP8INhpDnZJEydHCfxrUVUKR2V
+	 FqQW6sGNyudsW3Qike7vYm6BhXmZF9oYOuETY3IzAbAxqKMo/P1cAPRfdGbUpm+Iyl
+	 +P+ZBuE2xe+09QDS5NAAUG6vQo1JljJeJ/C2/p2Cl63FSRTQatNKEurCR8cmcMoKPI
+	 O4jher4tqa4P8cTMP4TJ/xUdZ8X456gXCfZbBmh0KK0AJcb9eRRRCPbi6N5+NPuZvS
+	 9ThOelBVoQqBrdqyjrKIl/4jqDNuhJ1YCPdIqIb8r/IINgA/1I9Taun7T1OS2ZYi3x
+	 RLN4jeZLprsmA==
+Subject:
+ Re: [PATCH net-next v12 3/6] net: wwan: t9xx: Add control DMA interface
 From: netdev-bot+sashiko@kernel.org
 To: jackbb_wu@compal.com
 Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
@@ -52,10 +53,10 @@ Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
  edumazet@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  linux-doc@vger.kernel.org
-Date: Sat, 21 Nov 2026 12:42:30 +0000
-Message-ID: <179526495086.3135.1342674464764018440@kernel.org>
-In-Reply-To: <20261117-t9xx_driver_v1-v12-5-e181b616b820@compal.com>
-References: <20261117-t9xx_driver_v1-v12-5-e181b616b820@compal.com>
+Date: Sat, 21 Nov 2026 12:42:27 +0000
+Message-ID: <179526494702.3135.6051033006782624225@kernel.org>
+In-Reply-To: <20261117-t9xx_driver_v1-v12-3-e181b616b820@compal.com>
+References: <20261117-t9xx_driver_v1-v12-3-e181b616b820@compal.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -69,10 +70,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 9 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 6
+Critical: 0 · High: 0 · Medium: 3 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -80,403 +81,238 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] If the modem reboots during the handshake, the FSM can report
-  READY falsely.
-- [Medium] mtk_cldma_rxq_restart() now calls mtk_cldma_stop_queue(DIR_RX)
-  before every restart.
-- [Medium] net: wwan: t9xx: mtk_cldma_start_xfer() returns -EIO on
-  concurrent stop
-- [Low] The subject "net: wwan: t9xx: Add FSM thread" understates the
-  patch.
-- [Low] When a TX or RX ring could not be stopped
-  (drv_info->ring_leaked), mtk_cldma_dev_exit() still calls…
-- [Low] The comment on the new field struct txq::is_stopping
-  (mtk_cldma.h) says it is "Set by err_work while it stops this queue,…
-- [Low] The comment on cldma_drv_info::quiesced (mtk_cldma_drv.h) says
-  the instance's "interrupt and workers have already been retired".
-- [Low] mtk_cldma_drv_quiesce() masks the CLDMA interrupt output by
-  writing LINK_ERROR_VAL to reg_cldma_int_mask…
-- [Low] mtk_fsm_feature_set_match() treats host-required features
-  inconsistently.
+- [Medium] In mtk_cldma_rxq_free()
+  (drivers/net/wwan/t9xx/pcie/mtk_cldma.c), the final ring-drain loop…
+- [Medium] mtk_cldma_hw_recovery() runs from mtk_cldma_start_xfer() when
+  one TX queue's UL start-address register reads 0.
+- [Medium] The driver says the CLDMA 'can lose its queue state, which
+  leaves zero addresses' (comment in mtk_cldma_drv_init()).
+- [Low] The patch adds TRB_CMD_STOP and TRB_CMD_RECOVER to the shared
+  enum mtk_trb_cmd_type in mtk_ctrl_plane.h, but nothing implements them.
 
 --
 
-net: wwan: t9xx: Add FSM thread
+net: wwan: t9xx: Add control DMA interface
 
-This commit adds an FSM kthread to the t9xx WWAN driver. The thread
-serialises device and OS events and notifies registered listeners of
-state transitions. It also wires the HS1/HS2/HS3 runtime feature handshake
-into the FSM, drives CLDMA instance init/exit from FSM states, registers
-the CLDMA IRQ, and adds ISR, error-recovery and quiesce logic.
-
-> net: wwan: t9xx: Add FSM thread
-
-[Severity: Low]
-This isn't a bug, but the subject covers only part of what this patch
-does. Besides the FSM core, it adds:
-
-  - the HS1/HS2/HS3 handshake
-  - CLDMA dev_init/dev_exit driven by FSM states, including the IRQ
-    registration
-  - the new mtk_cldma_isr(), mtk_cldma_err_work(), txq->is_stopping and
-    mtk_cldma_drv_quiesce() recovery and teardown design
-
-It also changes code from earlier patches in the series:
-
-  - mtk_cldma_rxq_restart() now stops the queue before every restart
-  - mtk_pcie_hif_exit() holds submit_lock across the whole teardown and
-    returns early on !available
-  - mtk_trans_ctrl_exit() now calls mtk_pcie_hif_exit()
-  - mtk_cldma_txq_free() and mtk_cldma_rxq_free() reorder their masks
-    and flushes
-
-The commit message does describe most of this. Would splitting it make a
-regression in one part easier to bisect or revert on its own?
-
-> diff --git a/drivers/net/wwan/t9xx/mtk_fsm.c b/drivers/net/wwan/t9xx/mtk_fsm.c
-> new file mode 100644
-> index 0000000000000..227dc31ed2773
-> --- /dev/null
-> +++ b/drivers/net/wwan/t9xx/mtk_fsm.c
-> @@ -0,0 +1,1002 @@
-
-[ ... ]
-
-> +static int mtk_fsm_feature_set_match(enum runtime_feature_support_type *cur_ft_spt,
-> +				     struct runtime_feature_info rtft_info_st,
-> +				     struct runtime_feature_info rtft_info_cfg)
-> +{
-> +	int ret = 0;
-> +
-> +	switch (FIELD_GET(FEATURE_TYPE, rtft_info_st.feature)) {
-> +	case RTFT_TYPE_NOT_EXIST:
-> +		fallthrough;
-> +	case RTFT_TYPE_NOT_SUPPORT:
-> +		/* A feature the device refuses fails the handshake only if
-> +		 * the host requires it.
-> +		 */
-> +		if (FIELD_GET(FEATURE_TYPE, rtft_info_cfg.feature) == RTFT_TYPE_MUST_SUPPORT)
-> +			ret = -EPROTO;
-> +		else
-> +			*cur_ft_spt = RTFT_TYPE_NOT_EXIST;
-> +		break;
-
-[ ... ]
-
-> +	case RTFT_TYPE_OPTIONAL_SUPPORT:
-> +		if (FIELD_GET(FEATURE_TYPE, rtft_info_cfg.feature) == RTFT_TYPE_NOT_EXIST ||
-> +		    FIELD_GET(FEATURE_TYPE, rtft_info_cfg.feature) == RTFT_TYPE_NOT_SUPPORT) {
-> +			*cur_ft_spt = RTFT_TYPE_NOT_SUPPORT;
-> +		} else {
-> +			if (FIELD_GET(FEATURE_VER, rtft_info_st.feature) ==
-> +			    FIELD_GET(FEATURE_VER, rtft_info_cfg.feature))
-> +				*cur_ft_spt = RTFT_TYPE_MUST_SUPPORT;
-> +			else
-> +				*cur_ft_spt = RTFT_TYPE_NOT_SUPPORT;
-> +		}
-> +		break;
-
-[Severity: Low]
-Should a host MUST_SUPPORT feature fail the handshake here too?
-
-The host marks QUERY_RTFT_ID_MD_PORT_ENUM and QUERY_RTFT_ID_SAP_PORT_ENUM
-as RTFT_TYPE_MUST_SUPPORT, version 0. If the device answers
-NOT_EXIST/NOT_SUPPORT, the branch above returns -EPROTO.
-
-If the device instead answers OPTIONAL_SUPPORT with a different
-FEATURE_VER, this sets NOT_SUPPORT and returns 0. Then
-mtk_fsm_parse_hs2_msg() skips the port enumeration:
-
-	if (cur_ft_spt == RTFT_TYPE_MUST_SUPPORT && query_rtft_action[ft_id]) {
-
-HS3 is sent and HS2_DONE is set. The FSM can then reach READY with no
-ports enumerated and no error logged.
-
-[ ... ]
-
-> +static int mtk_fsm_startup_act(struct mtk_md_fsm *fsm, struct mtk_fsm_evt *event)
-> +{
-
-[ ... ]
-
-> +	} else if (event->fsm_flag & FSM_HS2_DONE_MASK) {
-> +		if (fsm->fsm_flag & event->fsm_flag) {
-> +			dev_warn(mdev->dev, "Duplicate HS2 (hs%d), dropping\n", hs_info->id);
-> +			dev_kfree_skb(skb);
-> +			return 0;
-> +		}
-> +		ret = mtk_fsm_parse_hs2_msg(fsm, hs_info, skb);
-> +		if (!ret)
-> +			ret = mtk_fsm_send_hs3_msg(hs_info, skb);
-> +		dev_kfree_skb(skb);
-> +		if (ret)
-> +			goto hs_err;
-> +		mtk_fsm_switch_state(fsm, to_state, event);
-> +	}
-> +
-> +	hs_done_flag = READ_ONCE(fsm->hs_done_flag);
-> +	if (((fsm->fsm_flag | event->fsm_flag) & hs_done_flag) == hs_done_flag) {
-> +		to_state = FSM_STATE_READY;
-> +		mtk_fsm_switch_state(fsm, to_state, NULL);
-> +	}
-
-[Severity: Medium]
-Can mtk_cldma_start_xfer() return -EIO for a queue that err_work is
-already stopping? The first is_stopping check here is made under
-ring_lock, and ring_lock is then dropped while rearm_lock stays held.
-mtk_cldma_err_tx_one() sets is_stopping under ring_lock alone, without
-rearm_lock, so the write can land just after this check:
-
-  trb service thread                err_work
-  mtk_cldma_start_xfer()
-    takes rearm_lock
-    reads is_stopping == false
-                                    mtk_cldma_err_tx_one()
-                                      sets is_stopping
-                                      mtk_cldma_stop_queue()
-    tx start address reads 0
-    mtk_cldma_hw_recovery()
-      mtk_cldma_rearm_queues()
-        skips the start address
-        for this txq, is_stopping
-      start address still 0
-      returns -EIO
-    goto out, before the second
-    is_stopping check
-
-mtk_cldma_tx() then gets -EIO rather than -EPIPE, so its early return
-for a stopping queue is bypassed. It goes on to call
-mtk_cldma_stop_queue() and mtk_cldma_txq_flush() on the same queue
-while err_work is stopping and flushing it.
-
-The per-slot ring_lock keeps the two flushes from double-unmapping, but
-nothing orders the two stops. Suppose err_work's stop succeeds; it then
-flushes and clears is_stopping. If the stop in mtk_cldma_tx() times
-out after that, mtk_cldma_tx() sets is_stopping again. The queue then
-refuses every new request with -EPIPE until the channel is closed.
-Also, requests that the error path meant to complete with -EPIPE can
-instead be completed with -EIO by the other flush.
-
-The window needs a zero start address read. That is the lost queue
-state case mtk_cldma_hw_recovery() exists to handle.
-
-Should mtk_cldma_err_tx_one() set is_stopping under rearm_lock as well,
-so it cannot change while start_xfer holds that lock? Or should
-start_xfer re-check is_stopping under ring_lock before it turns a
-recovery failure into -EIO?
-
-[Severity: Medium]
-Can the FSM reach READY falsely if the modem reboots partway through the
-handshake? Nothing ever clears bits in fsm->fsm_flag.
-
-Suppose MD has finished HS2/HS3 and SAP has not, and then the device
-reboots:
-
-  fsm->fsm_flag has MD_HS_START | MD_HS2_DONE, state is BOOTUP
-  device reboots and goes back through its boot stages
-  mtk_fsm_early_bootup_handler() sees a new IDLE dev_state
-    mtk_fsm_idle_evt_handler() re-opens both HS channels:
-
-	for (hs_id = 0; hs_id < HS_ID_MAX; hs_id++)
-		mtk_fsm_unmask_ext_evt(fsm, fsm->hs_info[hs_id].mhccif_ch);
-
-  new MD HS1 is accepted in BOOTUP, and the host sends HS1 again
-  new MD HS2 matches "fsm->fsm_flag & event->fsm_flag" and is dropped
-    as a duplicate, so no HS3 is sent
-  SAP completes; the stale MD_HS2_DONE bit satisfies hs_done_flag
-    and the FSM switches to READY
-
-With later patches in the series, READY enables the MD ports even though
-the rebooted MD side never got HS3. The commit message only covers a
-reboot after READY.
-
-Should a new HS1 for a side clear that side's done bits?
-
-[ ... ]
+This adds the CLDMA (Cross Layer DMA) control-plane transport for the
+t9xx WWAN driver. It covers the GPD ring handling for the TX and RX
+queues, the reset and re-arm logic for an instance, and a TRB service
+layer. Probe now attaches the transport context through the new
+mtk_pci_dev_init()/mtk_pci_dev_exit() hooks.
 
 > diff --git a/drivers/net/wwan/t9xx/pcie/mtk_cldma.c b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
-> index c0bafb39e4f5a..aca2484c13681 100644
-> --- a/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
+> new file mode 100644
+> index 0000000000000..c0bafb39e4f5a
+> --- /dev/null
 > +++ b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
+> @@ -0,0 +1,1207 @@
 
 [ ... ]
 
-> @@ -214,21 +376,37 @@ static bool mtk_cldma_rx_check_again(struct rxq *rxq)
-
-[ ... ]
-
->  static bool mtk_cldma_rxq_restart(struct cldma_drv_info *drv_info, struct rxq *rxq)
->  {
->  	struct rx_req *req = rxq->req_pool + rxq->free_idx;
-> +	int ret;
-> +
-> +	ret = mtk_cldma_stop_queue(drv_info, DIR_RX, rxq->rxqno);
-> +	if (ret) {
-> +		/* Do not restart it; QUEUE_ERROR stays masked: TRB_CMD_DISABLE
-> +		 * tears the queue down and has the leak-the-ring handling for
-> +		 * a stop that timed out.
-> +		 */
-> +		dev_err(drv_info->mdev->dev,
-> +			"RX queue %u stop failed (%d), not restarting it\n",
-> +			rxq->rxqno, ret);
-> +		return true;
-> +	}
-
-[Severity: Medium]
-What brings this RX queue back after the stop fails? The caller in
-mtk_cldma_rx_done_work() has already consumed need_restart:
-
-	if (atomic_xchg(&rxq->need_restart, 0)) {
-		if (!mtk_cldma_rxq_restart(drv_info, rxq)) {
-
-Returning true means the restart is never retried. On the error path,
-the ISR left QUEUE_ERROR masked, and rx_done_work only unmasks
-QUEUE_XFER_DONE on exit. RX also has no equivalent of txq->is_stopping
-to record the state.
-
-If the stop completes late, the queue ends up stopped. No XFER_DONE
-arrives to run the worker again, so the RX channel stays dead while the
-port still looks open.
-
-If the hardware ignores the stop, the queue keeps running with its error
-interrupt masked.
-
-The comment points to TRB_CMD_DISABLE, but nothing issues one in this
-case. The reset-recovery path in mtk_cldma_rearm_queues() also goes
-through this function.
-
-[ ... ]
-
-> @@ -792,9 +1024,110 @@ static int mtk_cldma_hw_recovery(struct cldma_drv_info *drv_info, u32 qno)
->  	return 0;
->  }
->  
-> +/* Silence the IP's interrupt output as well as the vector: a handler already
-> + * past the mask unmasks it again on its way out.  Repeated calls are no-ops,
-> + * so the teardown path can run it again without unregistering twice.
-> + */
-> +static void mtk_cldma_drv_quiesce(struct cldma_drv_info *drv_info)
+> +static void mtk_cldma_rx_done_work(struct work_struct *work)
 > +{
-> +	struct mtk_md_dev *mdev = drv_info->mdev;
+
+[ ... ]
+
+> +	ret = mtk_cldma_check_rx_req(drv_info, rxq);
+> +	if (!ret)
+> +		goto again;
 > +
+> +	/* -ENXIO means the queue has no start address programmed, which is
+> +	 * exactly what a restart installs, so consume need_restart first.
+> +	 * Only the resume below is skipped in that case.
+> +	 */
 > +	mutex_lock(&drv_info->rearm_lock);
-> +	if (drv_info->quiesced) {
-> +		mutex_unlock(&drv_info->rearm_lock);
-> +		return;
+> +	if (!atomic_read(&rxq->need_exit)) {
+> +		if (atomic_xchg(&rxq->need_restart, 0)) {
+> +			if (!mtk_cldma_rxq_restart(drv_info, rxq)) {
+> +				atomic_set(&rxq->need_restart, 1);
+> +				mutex_unlock(&drv_info->rearm_lock);
+> +				goto again;
+> +			}
+> +		} else if (ret != -ENXIO) {
+> +			mtk_cldma_resume_queue(drv_info, DIR_RX, rxq->rxqno);
+> +		}
 > +	}
-> +	/* also read by the RX worker: no refill retry outlives the drain */
-> +	WRITE_ONCE(drv_info->quiesced, true);
 > +	mutex_unlock(&drv_info->rearm_lock);
 > +
-> +	mtk_pci_write32(mdev, drv_info->base_addr + drv_info->hw_regs->reg_cldma_int_mask,
-> +			LINK_ERROR_VAL);
+> +	if (ret == -ENXIO)
+> +		goto out;
 
-[Severity: Low]
-This isn't a bug, but LINK_ERROR_VAL is otherwise used only as the
-all-ones read-back value for a dead link. See mtk_cldma_check_intr_status(),
-mtk_cldma_stop_queue() and mtk_cldma_tx_done_work().
+[Severity: Medium]
+What brings this RX queue back when mtk_cldma_check_rx_req() returns
+-ENXIO and need_restart is clear?
 
-mtk_cldma_drv_init() writes 0 to the same register to enable it. Would a
-dedicated "mask all" constant be clearer here?
+mtk_cldma_check_rx_req() treats a zero SO_CUR_ADDR as lost state:
+
+    curr_addr = mtk_cldma_get_rx_curr_addr(drv_info, rxq->rxqno);
+    if (unlikely(!curr_addr))
+        return -ENXIO;
+
+The comment in mtk_cldma_drv_init() also says the device "can lose its
+queue state, which leaves zero addresses".
+
+In that case this worker skips the resume and goes to out. That path
+unmasks XFER_DONE and returns. It does not set need_restart, restart
+the queue or schedule any recovery.
+
+An RX engine with no address should not raise another XFER_DONE, so
+nothing reruns this worker. The only lost-state recovery is in the TX
+submit path:
+
+    mtk_cldma_start_xfer()
+        if (unlikely(!val))
+            mtk_cldma_hw_recovery()
+
+Could RX on this CLDMA instance stay stuck until the host happens to
+submit a TX on the same instance? On CLDMA0 (the SAP control channel),
+host TX may be rare after the handshake. Unsolicited device-to-host
+control messages could then sit there indefinitely.
+
+This depends on SO_CUR_ADDR reading 0 after the state is lost, which
+the driver's own comments say can happen.
 
 [ ... ]
 
-> +static int mtk_cldma_dev_exit(struct cldma_dev *cd, int hif_id)
+> +static void mtk_cldma_rxq_free(struct cldma_drv_info *drv_info, u32 rxqno)
 > +{
 
 [ ... ]
 
-> +	if (drv_info->ring_leaked)
-> +		dev_err(mdev->dev, "CLDMA%d rings leaked\n", drv_info->hw_id);
-> +	/* The leaked rings keep the pool busy: it keeps its pages and only its
-> +	 * bookkeeping is freed.  Not destroying it would leak the same pages
-> +	 * and the pool.
-> +	 */
-> +	dma_pool_destroy(drv_info->gpd_dma_pool);
+> +	/* free rx req resource */
+> +	for (i = 0; i < rxq->nr_gpds; i++) {
+> +		req = rxq->req_pool + rxq->free_idx;
+> +		if (!(req->gpd->rx_gpd.gpd_flags & CLDMA_GPD_FLAG_HWO) &&
+> +		    le16_to_cpu(req->gpd->rx_gpd.data_recv_len)) {
+> +			if (!mtk_cldma_rx_skb_adjust(mdev, req)) {
+> +				rxq->rx_done(req->skb, rxq->arg);
+> +				req->skb = NULL;
+> +			}
+> +		}
+
+[Severity: Medium]
+Can req->skb be NULL when this loop reaches mtk_cldma_rx_skb_adjust()?
+
+In mtk_cldma_rx_done_work(), if both the reload and the recycle
+dma_map_single() fail, the slot is left empty:
+
+    dev_kfree_skb_any(rx_skb);
+    req->skb = NULL;
+    req->data_dma_addr = 0;
+    goto out_retry;
+
+The leading refill for an empty slot (the !req->skb branch) can also
+fail and jump to out_retry. The cancel_work_sync() earlier in
+mtk_cldma_rxq_free() can then cancel the requeued retry before the
+slot is refilled.
+
+mtk_cldma_rx_skb_adjust() dereferences req->skb unconditionally:
+
+    req->skb->len = 0;
+    skb_reset_tail_pointer(req->skb);
+    skb_put(req->skb, recv_len);
+
+mtk_cldma_rx_skb_adjust() already zeroed data_recv_len for that slot.
+To get here, the device would have to write a non-zero data_recv_len
+into a GPD with HWO clear, which it does not own. The driver already
+treats data_recv_len as device-controlled and clamps it against mtu.
+
+If that happens, would closing the channel oops on a NULL skb? Would a
+req->skb check here, like the one at the top of the loop in
+mtk_cldma_rx_done_work(), be enough?
+
+[ ... ]
+
+> +/* The device reported a zero TX start address: it lost its queue state. */
+> +static int mtk_cldma_hw_recovery(struct cldma_drv_info *drv_info, u32 qno)
+> +{
+> +	u64 val;
+> +
+> +	dev_err(drv_info->mdev->dev,
+> +		"CLDMA%d lost its queue state, re-initializing\n",
+> +		drv_info->hw_id);
+> +
+> +	mtk_cldma_rearm_queues(drv_info);
+
+[Severity: Medium]
+Is it safe to re-arm the whole instance here without a stop or a
+mtk_cldma_drv_reset() first?
+
+mtk_cldma_txq_free() and mtk_cldma_rxq_free() both reset the IP before
+they call mtk_cldma_rearm_queues(). Here, the only evidence is that
+one TX queue's UL start address read back as zero.
+
+mtk_cldma_rearm_queues() then does three things:
+
+  - mtk_cldma_drv_init() read-modify-writes UL_CFG and SO_CFG (the GPD
+    format bits) and other IP-global registers.
+
+  - On every published TX queue with tx_started set, it reprograms the
+    start address and issues UL_START.
+
+  - On every published RX queue, it sets need_restart, so
+    mtk_cldma_rx_done_work() later reprograms SO_START_ADDR and issues
+    SO_START.
+
+What if a zero read on one queue does not mean the whole instance was
+reset? Sibling TX and RX engines could still be running when they get
+these CFG writes and START commands.
+
+On TX, a START at the GPD currently being sent could resend or cut
+that control message. On RX, a restart could lose or corrupt the frame
+being written.
+
+If the hardware only reads zero after a full IP reset, the other
+engines are already idle and this does not apply. For comparison, the
+t7xx driver re-initializes in a similar way without a stop, but only
+reprograms the affected queue.
+
+[ ... ]
+
+> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
+> new file mode 100644
+> index 0000000000000..3650878128a27
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
+> @@ -0,0 +1,614 @@
+
+[ ... ]
+
+> +int mtk_pcie_hif_submit_skb(struct mtk_md_dev *mdev, struct sk_buff *skb, bool force_send)
+> +{
+> +	struct mtk_ctrl_blk *ctrl_blk = mdev->ctrl_blk;
+> +	struct mtk_ctrl_trans *trans;
+> +	struct queue_info *que;
+> +	struct trb *trb;
+> +	int ret;
+> +
+> +	trans = ctrl_blk->ctrl_hw_priv;
+> +	trb = (struct trb *)skb->cb;
+> +
+> +	if (trb->cmd == TRB_CMD_STOP || trb->cmd == TRB_CMD_RECOVER) {
+> +		trb->trb_complete(skb);
+> +		return 0;
+> +	}
 
 [Severity: Low]
-Is it safe to rely on this? The kernel-doc for dma_pool_destroy() in
-mm/dmapool.c says:
+TRB_CMD_STOP and TRB_CMD_RECOVER are added to enum mtk_trb_cmd_type in
+mtk_ctrl_plane.h, but nothing implements them. The commit message does
+not mention them either.
 
-  Caller guarantees that no more memory from the pool is in use,
-  and that nothing will try to use the pool after this call.
+Here they complete immediately and never set trb->status. They also
+skip the trans->available check and submit_lock.
+mtk_cldma_trb_process() rejects them in any case:
 
-When ring_leaked is set, descriptors from this pool are still allocated
-and may still be a live DMA target. They survive only because of the
-current pool->nr_active busy branch. That branch prints "busy", skips
-dma_free_coherent(), and frees only the bookkeeping.
+    if (!(trb->cmd > TRB_CMD_MIN && trb->cmd < TRB_CMD_STOP))
+        return -EINVAL;
 
-Every bind cycle where a stop times out also leaks more coherent pages
-that nothing tracks.
+A caller trying to stop or recover a queue would get a successful
+completion, with whatever status was left in skb->cb, while the queue
+keeps running.
 
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_cldma.h b/drivers/net/wwan/t9xx/pcie/mtk_cldma.h
-> index 375b57f672188..f6d26b80589f5 100644
-> --- a/drivers/net/wwan/t9xx/pcie/mtk_cldma.h
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_cldma.h
-
-[ ... ]
-
-> @@ -101,6 +103,12 @@ struct txq {
->  	u32 wr_idx;
->  	u32 free_idx;
->  	bool tx_started;
-> +	/* Set by err_work while it stops this queue, and left set if the
-> +	 * stop failed: the device may still be walking the ring, so new
-> +	 * requests are refused with -EPIPE and the ones already queued are
-> +	 * kept.  Read under ring_lock by the producer.
-> +	 */
-> +	bool is_stopping;
->  };
-
-[Severity: Low]
-This isn't a bug, but err_work is not the only writer. mtk_cldma_tx()
-sets it from the trb service thread when mtk_cldma_start_xfer() fails and
-the follow-up stop also fails:
-
-	spin_lock(&txq->ring_lock);
-	txq->is_stopping = true;
-	spin_unlock(&txq->ring_lock);
-
-mtk_cldma_err_tx_one() then clears it unconditionally after its own stop
-and flush succeed, whoever set it. mtk_cldma_rearm_queues() and
-mtk_cldma_start_xfer() also read it.
-
-Could the comment describe both writers?
-
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.h b/drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.h
-> index f7b5018d3a737..b32301b0240ad 100644
-> --- a/drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.h
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.h
-> @@ -78,8 +78,17 @@ struct cldma_drv_info {
-
-[ ... ]
-
-> +	/* this instance's interrupt and workers have already been retired;
-> +	 * makes the quiesce safe to repeat on the teardown path
-> +	 */
-> +	bool quiesced;
-
-[Severity: Low]
-This isn't a bug, but mtk_cldma_drv_quiesce() sets quiesced before any
-retirement step runs. It sets the flag under rearm_lock, and only then:
-
-  - writes int_mask
-  - masks the vector
-  - calls synchronize_irq()
-  - unregisters the handler
-  - calls drain_workqueue()
-
-mtk_cldma_rx_done_work() and mtk_cldma_rearm_queues() read the flag while
-that is still in progress. So the flag really means retirement has
-started and no more work should be queued.
-
-Could the comment say that instead of "already been retired"?
-
-[ ... ]
+No caller in the series issues these commands yet. Could they be
+dropped, or rejected with something like -EOPNOTSUPP until they are
+implemented?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-t9xx_driver_v1-v12-0-e181b616b820%40compal.com
