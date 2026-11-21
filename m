@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302178;
-	b=1xm8aGIH7JaBZqOFJ8oNhzaezgQ43p3hOjqmdoUJSwVG2TVdP/XEfGLk/AKnGkH4BmeO
-	 gfFXgX8DIdt/udCeTk1JXVeAb3wypmm8KilcQigRfYLoYbbt2rjxZMObFbmrNR2Utsk71
-	 hfnI8j8k1QhjZ4CYcYLuy+TA1vJKIduBi9uS5IFa5Y+k6l2z6SOn4BAL9TEm3mm8ul7n3
-	 mLgzZ74rkVULl4bvPGxiwXiWfxxdiSPzHDN99e8sW6y6lnmIbAuIuP/r4nmB84VzjHGOL
-	 DsdZqvYL5q6lE+K/QXRR+6wZZklXm9uF7u8yseV1ptFyk5ZLIbL5h08yVHU77Py8OTg==
+	t=1795302180;
+	b=AGHGTRX/YVdAigE07dXM8ie3yGW5GiQAM0nkly3UEcn0/pcG0TYOLEHHpcupuPhghSZw
+	 SWHgkm+Y+z+k2jTgunodjbN2FQPJxp/qPrDhrLf57KLQRej79i+26XyZwgXYJVhbhPAqP
+	 EhCA+ps6XTHe25d26p1LiQohFkwg/D2X3iFd/8XhKuwxUvUntzu2zJKjSgIHugdko8xUX
+	 u8Ud/b3oK/wrDDN4m9soWKqFuv2cpUewq//uXpCUrZNtS2hix70O6+zrFhCVP9wrdcED4
+	 RcVwTLG+mn/YbknYoDCBrMoeE8SSvTEv5JKhifHcI14NxP5y9aXI4nWeJgywgCn3S4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302178;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302180;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=FK3dPssi5EMSDevwdCoFcG7tNlGhpdRScPG7jxoulKY=;
-	b=cGySHCq6HAc3v31QSCJ+GTaFF3qjB+n2DIVo/aJk7g2W4RAlMFo0Oy4/OcZf7+3TdLbb
-	 4G/5JJlJvRn8Zj1g+et9ZSDM8yzr47MIoq3kuA+MnvCwxqCrkKEXE3iTjC/6/7vR3PyVM
-	 BkNPYF/InS/EU34Sx/crt+DTrmjEpnG7rEI930WruQ7TugkD6Uj86xFlwVi1NVVdniWju
-	 GAN2Y3SDdHKnADdp04he8V/3JIOCtsTazG3bwfO1ChidS/5qCtaWZC2yZdNV8zRBYstat
-	 3wdT2qtHpdNn/w78WmNQCVY8mUUJ00GffgrUd0iwCwDVzA4gakBnR4wzmSjAftgbU0w==
+	bh=vi6Jgwc6TTLYkbHGmqEuP1xt7X0Hvny/9CR4U2gZGgY=;
+	b=xbqrS7BYB/FwprffOjm0Rk1X6PGsNUaCMMPfymUIxhx6NTecGaUhgQhNUrpy8ZJlTPWg
+	 EuBGKGlDbmmu5wb5Z1d/ZV+9y19xNZBvVSCjOR/KGsw+XXakZ8oYLXRO1MfgnRctAT2W7
+	 U782fhaOzaBoqXt2GCF02JaA/JH2OOaAKJtgnNUbEJJFbcuinlTd8zEdi5GKXR9ySO3VT
+	 dlwiYs3UNjlx9fYtk6u44aNQQrXJUCApmGzZNjKeox1LkzTlk98r/eefb6sjjCYh1FaoP
+	 fR9OeGmgSwLOLyIlfPeWhfhjVMIvizRU2Y/skFhu4wn5b5NCez6a3nwWXhJ3rGC9Rhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzuZIlaA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YYLLdz9o;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C38606A336;
-	Sat, 21 Nov 2026 23:02:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35DD606A33F;
+	Sat, 21 Nov 2026 23:02:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzuZIlaA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 656D91F000CF;
-	Sat, 21 Nov 2026 23:02:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YYLLdz9o
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27B971F000E6;
+	Sat, 21 Nov 2026 23:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302178;
-	bh=FK3dPssi5EMSDevwdCoFcG7tNlGhpdRScPG7jxoulKY=;
+	s=k20260515; t=1795302179;
+	bh=vi6Jgwc6TTLYkbHGmqEuP1xt7X0Hvny/9CR4U2gZGgY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bzuZIlaADQAdLtJnqyhO0OWhrbu0Ley041xIUMxViHB1v4orYyXIdcXMXxjGUD2H9
-	 qnHFqwlX+1NMQ252j80Ig+hoNv+4W3tQwZQS9Upr6Nsn4A+/7jEXPlDbcyOx8HOJWR
-	 AAlPKn6yIcypfhdkFLIid7v7dodX3qm1fBrTUV0f08r/1p/yPyWoXVEjsd+pFTPMS3
-	 HIaWdX7s0tzN5AXHok1uNuQN0OkvhM6MbcpBeOcEv31ou6xT64QnPNI0u2fofjk2aN
-	 NVcx/LLc7QSMyTmBI71TU/RMn26AYttUDJ4M8jLZZGxeEHO+HxJary12pHFPktQtA3
-	 ez2i/Is3FU4fA==
-Subject:
- Re: [PATCH net-next v3] mctp i2c: add sysfs control for mux child netdevs
+	b=YYLLdz9osX2szQUNhd6zJ/6b9f6Tc7ycsLvdyYdL4B0Qi3bvBSsWXiBRkgCPmxXwg
+	 J07ix74tCN1Co2Z3/9IMJo/0sDnF9WvagXPN6E7jJuih6J34gFzzGgZ0GlJ84RNhse
+	 Fw/RJCIL6u6yz3KK+dLFBlCPz0Iy5pQTbxMawk4b+iVHWQGTjxI3af0eu524sEcde0
+	 Uz4ktTRygnLZ/DRGBvPAlwvJvfYJ+PfJ+Zx+pClRkmAS8B2XZTawY6Tlk5AV3EXIrk
+	 XqJZRzkDXiwKHghs9uuSRH+cVWa6PUMfvFVHpviJ5v9OWGsSEHNUaf2zMrImxdlDlC
+	 0BlZ1rLQiaZhg==
+Subject: Re: [PATCH v2 net-next 1/1] net: usb: rtl8150: break cycle between
+ tasklet and URB
 From: netdev-bot+sashiko@kernel.org
-To: kenny_hsieh@jabil.com
-Cc: netdev@vger.kernel.org, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
- andi.shyti@kernel.org, peda@lysator.liu.se, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 23:02:56 +0000
-Message-ID: <179530217699.3135.2359467047069026979@kernel.org>
-In-Reply-To: <20261118100231.3827609-1-kenny_hsieh@jabil.com>
-References: <20261118100231.3827609-1-kenny_hsieh@jabil.com>
-X-sashiko-severity: Medium
+To: oneukum@suse.com
+Cc: petkan@nucleusys.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sat, 21 Nov 2026 23:02:58 +0000
+Message-ID: <179530217871.3135.15339133875090021236@kernel.org>
+In-Reply-To: <20261118133550.955312-1-oneukum@suse.com>
+References: <20261118133550.955312-1-oneukum@suse.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
+Critical: 0 · High: 1 (1) · Medium: 1 (1) · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,241 +76,227 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] mctp_i2c_controller_write() (drivers/net/mctp/mctp-i2c.c)
-  checks permission with ns_capable(current->nsproxy->net_ns->user_ns,…
-- [Low] Two inaccuracies in the commit message.
-- [Low] Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp documents
-  only two errors: EEXIST (adding a bus that already has a netdev) and…
+- [High] Poisoning the URBs does not break the cycle.
+- [Medium] The tasklet/URB resubmission cycle from the commit message is
+  still open in rtl8150_close() and rtl8150_suspend().
 
 Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch
-  makes it reachable from userspace.
+- [High] This problem wasn't introduced by this patch, but
+  read_bulk_callback() hands dev->rx_skb to netif_rx() (line 430).
+- [Medium] This problem wasn't introduced by this patch, but rx_fixup()
+  has a second self-rescheduling path that never touches a URB.
 
 --
 
-mctp i2c: add sysfs control for mux child netdevs
+net: usb: rtl8150: break cycle between tasklet and URB
 
-This patch adds write-only add_mctp_controller and remove_mctp_controller
-attributes to the mctp-i2c-controller device. Writing a bus name to them
-creates or removes an MCTP netdev for that bus in the controller's mux
-tree, so muxes instantiated at runtime without a devicetree node can still
-get a netdev. It also makes mctp_i2c_add_netdev() skip adapters that
-already have a netdev, and it now handles BUS_NOTIFY_REMOVED_DEVICE in the
-bus notifier.
+In rtl8150_disconnect(), this patch swaps usb_kill_urb() for
+usb_poison_urb() on all three URBs. The goal is to stop the rx_fixup()
+tasklet from resubmitting rx_urb. It also adds a second tasklet_kill()
+after poisoning, so the tasklet is stopped before the URBs and skbs are
+freed.
 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp b/Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp
-> new file mode 100644
-> index 0000000000000..4ee96254f57a4
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp
-> @@ -0,0 +1,24 @@
-> +What:		/sys/bus/i2c/devices/<bus>-<addr>/add_mctp_controller
-> +What:		/sys/bus/i2c/devices/<bus>-<addr>/remove_mctp_controller
-
-[ ... ]
-
-> +		Writing an I2C bus name such as "i2c-30" to add_mctp_controller
-> +		creates an MCTP network device for that bus, and writing it to
-> +		remove_mctp_controller removes it. The bus must be the
-> +		controller's root bus or a mux child below it. Adding a bus
-> +		that already has a network device fails with EEXIST, and
-> +		removing one that has none fails with ENODEV.
-
-[Severity: Low]
-Should this ABI description list the other errors the store can return?
-
-mctp_i2c_find_named() returns -ENODEV when bus_find_device_by_name() finds
-nothing, on both add and remove:
-
-	dev = bus_find_device_by_name(&i2c_bus_type, NULL, name);
-	if (!dev)
-		return ERR_PTR(-ENODEV);
-
-On remove_mctp_controller, ENODEV can therefore mean "no such bus" or
-"bus exists but has no netdev", and userspace can't tell which.
-
-It also returns -EINVAL when the name is an i2c client rather than an
-adapter, or an adapter outside this controller's mux tree.
-mctp_i2c_controller_write() returns -EPERM when the CAP_NET_ADMIN check
-fails.
-
-The text also doesn't say that a CAP_NET_ADMIN check applies, or that the
-netdev is created in the writer's network namespace.
-
-[ ... ]
-
-> diff --git a/drivers/net/mctp/mctp-i2c.c b/drivers/net/mctp/mctp-i2c.c
-> index b02476d338bbf..61dd4a9e72545 100644
-> --- a/drivers/net/mctp/mctp-i2c.c
-> +++ b/drivers/net/mctp/mctp-i2c.c
-
-[ ... ]
-
-> @@ -876,6 +894,9 @@ static int mctp_i2c_add_netdev(struct mctp_i2c_client *mcli,
->  	}
+> diff --git a/drivers/net/usb/rtl8150.c b/drivers/net/usb/rtl8150.c
+> index d51e43170e033..6d20f52d52efd 100644
+> --- a/drivers/net/usb/rtl8150.c
+> +++ b/drivers/net/usb/rtl8150.c
+> @@ -353,6 +353,13 @@ static void free_all_urbs(rtl8150_t * dev)
+>  	usb_free_urb(dev->intr_urb);
+>  }
 >  
->  	WARN_ON(!mutex_is_locked(&driver_clients_lock));
-> +	if (mctp_i2c_find_dev(mcli, adap))
-> +		return 0;
-> +
-
-[Severity: Low]
-The commit message gives this reason for the skip:
-
-  mctp_i2c_add_netdev() now skips an adapter that already has a netdev,
-  so a probe walk or an add notifier that reaches an adapter a second
-  time no longer fails on the duplicate mctpi2c name.
-
-Can a probe walk actually reach an adapter twice? mctp_i2c_probe()
-allocates a new mcli with an empty devs list. It holds driver_clients_lock
-for the whole i2c_for_each_dev() walk, and bus_for_each_dev() visits each
-device only once. The dev_groups attributes are created only after probe
-returns, so a sysfs add can't come first either.
-
-The duplicates that can happen seem to be on the notifier side:
-
-- an adapter is already on the bus klist, so the probe walk picks it up,
-  and then BUS_NOTIFY_ADD_DEVICE fires for it;
-- a sysfs add lands before the ADD_DEVICE notifier.
-
-Could the commit message describe those cases instead?
-
-The commit message body also doesn't mention that mctp_i2c_notifier_call()
-now runs mctp_i2c_notify_del() on BUS_NOTIFY_REMOVED_DEVICE. That reason
-appears only in the v3 notes below the cut line and in a code comment. The
-v3 notes are dropped when the patch is applied.
-
->  	snprintf(namebuf, sizeof(namebuf), "mctpi2c%d", adap->nr);
->  	ndev = alloc_netdev(sizeof(*midev), namebuf, NET_NAME_ENUM, mctp_i2c_net_setup);
->  	if (!ndev) {
-
-[ ... ]
-
-> +static ssize_t mctp_i2c_controller_write(struct device *dev, const char *buf,
-> +					 size_t count, bool add)
+> +static void terminate_all_urbs(rtl8150_t *dev)
 > +{
-> +	struct mctp_i2c_client *mcli = i2c_get_clientdata(to_i2c_client(dev));
-> +	struct i2c_adapter *adap;
-> +	int rc = 0;
+> +	usb_poison_urb(dev->rx_urb);
+> +	usb_poison_urb(dev->tx_urb);
+> +	usb_poison_urb(dev->intr_urb);
+> +}
 > +
-> +	if (!ns_capable(current->nsproxy->net_ns->user_ns, CAP_NET_ADMIN))
-> +		return -EPERM;
+>  static void unlink_all_urbs(rtl8150_t * dev)
+>  {
+>  	usb_kill_urb(dev->rx_urb);
 
 [Severity: Medium]
-Is a check against the writer's own netns user namespace strong enough
-here?
+The commit message says the tasklet/URB cycle needs to be broken. Is it
+still open in rtl8150_close() and rtl8150_suspend()? Both stop rx_urb
+with usb_kill_urb() only, and neither one stops the tasklet:
 
-Any task can do unshare(CLONE_NEWUSER | CLONE_NEWNET) and then hold
-CAP_NET_ADMIN in that namespace. So this check passes for anyone who can
-open the attribute, and the root-owned 0200 file mode is the only real
-gate. A privileged process could pass an open fd into a user-namespaced
-context, or an admin could chown the attribute to a delegated user.
-
-On add, mctp_i2c_add_netdev() does:
-
-	dev_net_set(ndev, current->nsproxy->net_ns);
-
-This puts the netdev for a physical I2C bus directly into a netns the
-writer owns. Moving a physical netdev out of init_net over rtnetlink needs
-CAP_NET_ADMIN in the source netns as well as the destination.
-
-On remove, the branch below never checks dev_net(midev->ndev):
-
-	else if (!mctp_i2c_find_dev(mcli, adap))
-		rc = -ENODEV;
-	else
-		mctp_i2c_remove_netdev(mcli, adap);
-
-A writer that has CAP_NET_ADMIN only in its own namespace can therefore
-unregister an MCTP netdev in init_net. That includes one created at probe
-time from the devicetree "mctp-controller" property. rtnetlink doesn't
-allow that.
-
-The commit message says "a write requires CAP_NET_ADMIN there, as for a
-netdev created over rtnetlink". That comparison seems to hold only for
-creating virtual devices.
-
-Would capable(CAP_NET_ADMIN) fit better here? mctp_serial_open() in
-drivers/net/mctp/mctp-serial.c already uses that check.
-
-> +
-> +	mutex_lock(&driver_clients_lock);
-> +	adap = mctp_i2c_find_named(mcli, buf);
-> +	if (IS_ERR(adap)) {
-> +		rc = PTR_ERR(adap);
-> +		goto out;
-> +	}
-> +
-> +	if (add && mctp_i2c_find_dev(mcli, adap))
-> +		rc = -EEXIST;
-> +	else if (add)
-> +		rc = mctp_i2c_add_netdev(mcli, adap);
-
-[Severity: High]
-This bug predates this patch, but the new store makes it reachable
-from userspace. Can a failed registration free midev twice on this path?
-
-mctp_i2c_add_netdev() calls mctp_register_netdev(), which reaches
-register_netdevice(). Several of its failure paths call ndo_uninit:
-
-- netdev_check_ops failure
-- pcpu stats allocation failure
-- a NETDEV_POST_INIT notifier veto
-- a netdev_register_kobject() failure such as ENOMEM
-- a NETDEV_REGISTER notifier veto, via unregister_netdevice_queue()
-
-The first four reach err_uninit:
-
-net/core/dev.c:register_netdevice() {
+rtl8150_close() {
     ...
-err_uninit:
-	if (dev->netdev_ops->ndo_uninit)
-		dev->netdev_ops->ndo_uninit(dev);
+	if (!test_bit(RTL8150_UNPLUG, &dev->flags))
+		disable_net_traffic(dev);
+	unlink_all_urbs(dev);
     ...
 }
 
-For this driver that is mctp_i2c_ndo_uninit()->mctp_i2c_midev_free(). That
-function does list_del(&midev->list) and drops the get_device() references
-on the adapter and the client.
+usb_kill_urb() raises urb->reject only while the call is running. If
+rx_fixup() is pending or looping when close runs, its submit fails with
+-EPERM during the kill and it reschedules itself. The next run, after
+usb_kill_urb() has returned, then submits rx_urb successfully:
 
-The error then comes back to mctp_i2c_add_netdev(), which frees midev a
-second time:
-
-drivers/net/mctp/mctp-i2c.c:mctp_i2c_add_netdev() {
+rx_fixup() {
     ...
-err:
-	if (midev)
-		mctp_i2c_midev_free(midev);
-	if (ndev)
-		free_netdev(ndev);
+try_again:
+	status = usb_submit_urb(dev->rx_urb, GFP_ATOMIC);
     ...
 }
 
-The second list_del() runs on poisoned pointers. The adapter and client
-refcounts are also dropped twice, which can free those devices while they
-are still in use.
+The tasklet can easily be pending at close time. read_bulk_callback()
+schedules it whenever the 4-entry rx_skb_pool runs dry, and it keeps
+looping while GFP_ATOMIC allocation fails.
 
-Before this patch, only probe and the bus notifier reached this path. Now
-add_mctp_controller lets a writer trigger it repeatedly.
+disable_net_traffic() has already turned the receiver off, so the
+bulk-IN URB just stays in flight. On the next ndo_open, rtl8150_open()
+refills and resubmits the URB that is still active:
 
-The v3 notes point to a separate fix for this double free:
+	usb_fill_bulk_urb(dev->rx_urb, dev->udev, usb_rcvbulkpipe(dev->udev, 1),
+		      dev->rx_skb->data, RTL8150_MTU, read_bulk_callback, dev);
+	if ((res = usb_submit_urb(dev->rx_urb, GFP_KERNEL))) {
 
-https://lore.kernel.org/netdev/20261118090515.3390034-1-kenny_hsieh@jabil.com/
+That would hit the "URB %p submitted while active" WARN_ONCE in
+usb_submit_urb() and return -EBUSY. Wouldn't every later open then fail
+the same way until the device is replugged or rebound?
 
-That fix isn't in this tree yet, and the err: path above is unchanged.
-Should that fix land before this patch, or together with it?
-
-> +	else if (!mctp_i2c_find_dev(mcli, adap))
-> +		rc = -ENODEV;
-> +	else
-> +		mctp_i2c_remove_netdev(mcli, adap);
-> +	put_device(&adap->dev);
-> +out:
-> +	mutex_unlock(&driver_clients_lock);
-> +	return rc < 0 ? rc : count;
-> +}
+The suspend path looks similar. A tasklet submit can follow the
+usb_kill_urb() in rtl8150_suspend(), and a later resubmit of rx_urb
+after resume would then fail with -EBUSY.
 
 [ ... ]
 
+> @@ -970,7 +977,8 @@ static void rtl8150_disconnect(struct usb_interface *intf)
+>  		set_bit(RTL8150_UNPLUG, &dev->flags);
+>  		tasklet_kill(&dev->tl);
+>  		unregister_netdev(dev->netdev);
+> -		unlink_all_urbs(dev);
+> +		terminate_all_urbs(dev);
+> +		tasklet_kill(&dev->tl);
+
+[Severity: High]
+Does poisoning actually break the cycle here? It makes every resubmit
+fail. However, rx_fixup() reschedules itself after any submit error
+other than -ENODEV, and it never checks RTL8150_UNPLUG:
+
+rx_fixup() {
+    ...
+	if (test_bit(RX_URB_FAIL, &dev->flags))
+		if (dev->rx_skb)
+			goto try_again;
+    ...
+try_again:
+	status = usb_submit_urb(dev->rx_urb, GFP_ATOMIC);
+	if (status == -ENODEV) {
+		netif_device_detach(dev->netdev);
+	} else if (status) {
+		set_bit(RX_URB_FAIL, &dev->flags);
+		goto tlsched;
+    ...
+}
+
+On a soft unbind (rmmod, sysfs unbind, or a forced unbind from
+usb_reset_device()), the device is still attached, so usb_submit_urb()
+never returns -ENODEV. Instead:
+
+- rtl8150_driver has no soft_unbind, so usb_unbind_interface() disables
+  the endpoints before calling ->disconnect. Submits then fail with
+  -ENOENT from usb_hcd_link_urb_to_ep().
+- After terminate_all_urbs(), urb->reject stays raised for good, so
+  submits fail with -EPERM.
+
+Either way, once the tasklet runs it reschedules itself forever.
+
+tasklet_action_common() clears TASKLET_STATE_SCHED just before it calls
+the callback, and the callback sets it again. tasklet_kill() waits with
+wait_on_bit_lock(SCHED) in TASK_UNINTERRUPTIBLE, so it can only win
+inside that short window.
+
+On a non-RT kernel, a waiter on the same CPU cannot preempt the softirq,
+so it only ever sees SCHED set. On UP, wouldn't this be a deterministic
+livelock? rtl8150_disconnect() would sit in D state holding the device
+lock while ksoftirqd spins. On SMP the waiter can keep losing the race.
+
+The loop can also start before this point. On a soft unbind with the
+interface up, usb_disable_interface() flushes rx_urb with -ESHUTDOWN
+while RTL8150_UNPLUG is still clear. read_bulk_callback() takes the
+default case to goon, the resubmit fails with -ENOENT, and it calls
+tasklet_schedule(). So the existing first tasklet_kill() already faces
+this loop, and on a soft unbind the new second one always faces it.
+
+Could rx_fixup() be stopped from rescheduling instead? For example, it
+could check RTL8150_UNPLUG on entry or treat -EPERM/-ENOENT as fatal.
+Another option is to disable the tasklet before killing it.
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but rx_fixup() has a second
+self-rescheduling path that never touches a URB:
+
+rx_fixup() {
+    ...
+	spin_lock_irq(&dev->rx_pool_lock);
+	skb = pull_skb(dev);
+	spin_unlock_irq(&dev->rx_pool_lock);
+	if (skb == NULL)
+		goto tlsched;
+    ...
+}
+
+If dev_alloc_skb(RTL8150_MTU + 2) in fill_skb_pool() fails while the
+pool is empty, pull_skb() returns NULL and the tasklet reschedules
+itself. Poisoning in terminate_all_urbs() has no effect on this path,
+and RTL8150_UNPLUG is not checked.
+
+While GFP_ATOMIC allocations keep failing at disconnect time, can both
+tasklet_kill() calls in rtl8150_disconnect() stall the same way as
+described above? The stall ends once an allocation succeeds, so it only
+lasts as long as the memory pressure. A check for RTL8150_UNPLUG at the
+top of rx_fixup() would fix this along with the issue above.
+
+>  		free_all_urbs(dev);
+>  		free_skb_pool(dev);
+>  		dev_kfree_skb(dev->rx_skb);
+
+[Severity: High]
+This is a pre-existing issue, but can dev->rx_skb be stale here?
+read_bulk_callback() hands dev->rx_skb to the stack. When the pool is
+empty, it leaves the old pointer in place:
+
+read_bulk_callback() {
+    ...
+	netif_rx(dev->rx_skb);
+    ...
+	spin_lock_irqsave(&dev->rx_pool_lock, flags);
+	skb = pull_skb(dev);
+	spin_unlock_irqrestore(&dev->rx_pool_lock, flags);
+	if (!skb)
+		goto resched;
+
+	dev->rx_skb = skb;
+    ...
+}
+
+The pool has only 4 entries and only the tasklet refills it, so this
+happens routinely. Nothing ever sets dev->rx_skb to NULL. The pointer
+is only replaced by a later successful pull_skb() in rx_fixup().
+
+If that replacement never happens, this dev_kfree_skb() frees an skb
+that the network stack already owns. It can fail to happen in two ways:
+
+- dev_alloc_skb() in rx_fixup() fails on the run during which
+  tasklet_kill() wins.
+- A completion passes the RTL8150_UNPLUG check just before set_bit().
+  Its tasklet_schedule() then runs while the first tasklet_kill() holds
+  TASKLET_STATE_SCHED through wait_on_bit_lock(). tasklet_schedule()
+  does nothing when SCHED is already set, so the tasklet never runs.
+
+The same stale pointer also seems to affect rtl8150_open():
+
+	if (dev->rx_skb == NULL)
+		dev->rx_skb = pull_skb(dev);
+
+Suppose a close/open happens while the tasklet is still looping on
+allocation failure. Wouldn't rx_urb then be submitted with the freed
+skb's data as its DMA buffer?
+
+Because of this, the "if (!dev->rx_skb) goto resched;" check in
+read_bulk_callback() also looks like dead code.
+
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118100231.3827609-1-kenny_hsieh%40jabil.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118133550.955312-1-oneukum%40suse.com
