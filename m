@@ -1,110 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.188.206
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795224253;
-	b=S6K39e9/qwMa2gdHilBgWbRBM4ct/L70rC6yhokr9Y9bxJM47U8jfAdRpoBgHyZbLI9I
-	 z8lFqFMbNprWb/1FaDiIvdK8IcBrjCmk5/oEw7aQZt1ab5fUa/Sb6cEveKG0xBcs2bGNa
-	 YNYhM/5NuXqEGC7BCC4wMUT/BJmSHQ/Aoh1JpJmOO6vqFNe6oTLExChskr2kV2eGjyybC
-	 OgGR5tBCCxR8GoZHv3oCxPmgkAqlm8huWt7/C5h3t7N2Di/mnOq8j2C1e2inwNB8PBFTf
-	 +rg+nDiwrxpEFJ3o0yMXoxE7wKX01Eyo3GJ3AKzp6QjjsFy//79ez6LBXIzCiYNQ0zg==
+	t=1795224649;
+	b=Q+2xJU2NGAiBR4jUm4tyorXSwkbCbRw1uc/jFBTNKMozO4RwOXHsAa4wYi3epC3vjpMy
+	 V13F4H4tzD4MzbHVNJ9cpQ3AH63oouLR9QgEYikOmETol7ooNq8GIvoa/g44I97I34ThG
+	 dgGOy+cWJ02Oo3GYxm6A5dXpZNIk/E3AXGzOeC3vqjoJngOuwnMM3O5MSjINwx1k8SN52
+	 PR4spHKL+3h7L6jZZcHHiGXM+KILbC7A/hZ3LLnPyOuHpz5Q2bdX7ycbKkqLnyvxO8z8u
+	 eyqNkyxFVs17K0Fyu48agUqdrpjZ6WkDIn205uMVvVWxe00e3w/H5gQWnDOPymf29/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795224253;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=CgSRkrT3C0ViBLHE9DlJxbToE1aRxdogX3+8Kv7zlYY=;
-	b=hGh+aTsMSHzGqAJ7R2ECkx5AUoK0+1NEQZN2QmKBnFUIplhV2HmgHYtsKC47C4XpNL8o
-	 NKajx6owYAoS5+i/6XYpnf4RmYq+NZfRlpFJ55SKgWDbcj0wpGa8dkyjbak0mz5KvlNKH
-	 0J3ukSPAg9tqy8L0NNut4rK8nLJRrS/SBbuE3rzohvcF9eoxBpNxflDNxqHGFZXAbhchM
-	 +1VjPvpZUnRwJ3Q807clZ63Sl1sRtvtpnN1OovixfvuWQpF35BwknDTqHy7aTB8WVXJMY
-	 DiTxdzOLJ5YRkyX4uKJOnbCI+SDa2px+kgnuvijKLASWqGlHfjUUcjQcOp63zzyaIew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795224649;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=H/fLUQKykp6YAzdbOaoQGF/zziiwf0Sk4tyD5JxGkxk=;
+	b=KZbcGzXNjWCzi4BDlQMWp6hFUX1wBE2yY0JtMAl9rL66agfI6S1Kuot4dmPT+WrJmWeW
+	 prPxNgB0WQ9yhWUo975zjByzSkXtJg6o1QnIQyWT4kYMmLwdv2EoJYcIA67wa5xL7mqum
+	 NoFs8vSgT8OzYqfXdWzKEMW7djfaPVOz53F9+bsupEzX9OmGAsNvAgkvz+MZfJnuAoOI8
+	 WqTXjk5X3Jhl7SDJiECEQNiGkTLgM/g8WEPUHFShCF6jK0BiLv8ZfebNyI+Fh0+7tbDet
+	 LrLWiV0AuAK1BwPwyqJRl1L3xqv6VtY/FOx45ynJXDmvyY1UHIrf8hYCGhk62o8FuEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudflare.com;
-	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=QTgeak9m;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=tHxybafh;
+	arc=none smtp.remote-ip=66.163.188.206
+Received: from sonic311-25.consmr.mail.ne1.yahoo.com (sonic311-25.consmr.mail.ne1.yahoo.com [66.163.188.206])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5FA4606A68F
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 01:24:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5FA4606A68F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E1C6606A320
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 01:30:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E1C6606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=QTgeak9m
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50cc8e0f84so238786266b.1
-        for <netdev@vger.kernel.org>; Fri, 20 Nov 2026 17:24:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1795224247; x=1795829047; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CgSRkrT3C0ViBLHE9DlJxbToE1aRxdogX3+8Kv7zlYY=;
-        b=QTgeak9mIs1Z8LVAaKgxdPGIhe77qyXmkMZCK4Wshq4NMtZVSLO6R8rxQwUG7Q2w/n
-         C1xC+tnusGY7NKssSWETx78hJWC79i1zwyoWNb6kHGOQvx9t4M/nGuwb3JAOE03ZKiNf
-         iLAGdxwXD1BhXDQbhJFeFwrB1+NMibLxhZ9xUqliWXDRCjGyZgIGUfb2F1S3GP00NdV0
-         bxGILYSTRRgko/IBHMchgMsG8nvuVMRIqNSkYOLZvBf+hT0nIxdKdDRKaEuXJcrO/sol
-         9hRVVkREtwFLhwURR9DnI1gq99ih5p6ByOY6ffTsPu4OfSiFcK5FH9mr1K+0znwZ4dVE
-         AuIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795224247; x=1795829047;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CgSRkrT3C0ViBLHE9DlJxbToE1aRxdogX3+8Kv7zlYY=;
-        b=rOUs3eG3uzmYU7t43tsXaKSVklGgAOWez+g3Yu9HaKykw6SrqzHMw8SkBLW+km5eYK
-         MMGw5B79KmVDWFoVJjjpCIgAk9XSIMpgSWxAcfqq9STXGcSapoyhOeLd/MSydCOorSsJ
-         njefNBan8AunXq36lttE0XXznrOg1w+ZKcd2h+IbvjOOMAC2/CLTYb8GJaRTjHHrk1yu
-         A8aNJ8BSbrMH/ZAEkWjc2mSeYVD4YtMCdlitN3j2ekJ9mZ9H645LmQdqV7EYnzJ1wMi4
-         QmfO0EurCvUFOvO/XmevzSB6lrlkIYoH+qicn37lWeOyXgnxlhfhttwbI/Z7lVhP8ZpJ
-         tbOA==
-X-Gm-Message-State: APuU4Z8BMNgmzvIEchHwZUCOSiF+IJ+zE/ZPipXZEjxAkSSlFpODGaWv
-	5yIS4wZZO/AgzwFtL6TcH0orUP2excZEdGwBx8YflmKqQsm1Lh+RmNQbv0jn5qEKcDaAAxPrKgo
-	UqDpzqDUAGA==
-X-Gm-Gg: AYBFou3h30Q2563P/k0ietq42IkpkZCmVIhc8b+bMeBqY4GuM0129L1weHI4jlseb4i
-	br37oYY4/JV5j/2wwempFOH5Ae6TDBm+7wtaGRxn3x3pS/oidxugvAauNHZfRPs80Vkda9VFtdf
-	UuqEwdCCSeT88L84EoHUQSvP4OqxwgQLuo07TWoIaO70ZYJln7riov0gX+3byWj4lIKn6u6FzTb
-	GyQbPQBv94SezSmxKbZ5e57Yp0Qskja+kYlw6twHR9Tmu3IWXhjx4yPz7DCMql+D0+tKTlmlbPW
-	E1FNxzGNQYXebvXo+DJ0+CQWWld4ErMttdCdg/va8uSwlsl3HyH5MLjXSO/JmRWDOJSYlnF/YWi
-	vKfwrsYeyJiQicX3znkSdHxkk2kF1d6+7XAeLaVMOOkFCfYUc8Q9sHgu1cExggK598OOHJVs653
-	cDfCQIfCaT7AqkH/GnrfP8cp4tX2ddLlS8PLkRJV1D3k2DQMEMVKhhT+cYU/g4Gt1z2QKOjRGB3
-	Dx33EBJX9ShZU6lBR3BuMyp1uVR5V79Z+k4UcUawkh7BCrrnsfbLJ8HyiQS4sheLOWx+nXTEiei
-	TqJ1bk+/OVCzS+FFJaUVOFXjyktqN3GEEJZNKTK5yj++KGTC1It9eRzXug==
-X-Received: by 2002:a17:906:7944:b0:c50:564b:c63 with SMTP id a640c23a62f3a-c513a43559cmr500636266b.6.1795224246891;
-        Fri, 20 Nov 2026 17:24:06 -0800 (PST)
-Received: from L9JK9NPFH9 ([104.28.20.56])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae6872asm143855266b.13.2026.11.20.17.24.03
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 17:24:05 -0800 (PST)
-From: Tianyi Gao <tianyi@cloudflare.com>
-To: netdev@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Paul Greenwalt <paul.greenwalt@intel.com>,
-	Alice Michael <alice.michael@intel.com>,
-	Eric Joyner <eric.joyner@intel.com>,
-	Jesse Brandeburg <jbrandeb@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	bpf@vger.kernel.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	Tianyi Gao <tianyi@cloudflare.com>
-Subject: [PATCH net] ice: do not report CHECKSUM_COMPLETE when an XDP program is attached
-Date: Sat, 21 Nov 2026 01:24:02 +0000
-Message-ID: <20261121012402.84848-1-tianyi@cloudflare.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key, unprotected) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=tHxybafh
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795224646; bh=H/fLUQKykp6YAzdbOaoQGF/zziiwf0Sk4tyD5JxGkxk=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=tHxybafhIQIrhdAo8wTY0Jft+CO5OOi5NLEy4U+2yOTH9Paq/f7YmNUg+ghdlUcKzA3NdqPBnOXDnuUv+WqIe4QYEiAiTGPLssfTZtKj52WuVwWSKiPmOv8z978RgmYr3p7nD0ArAN3zD8J7JzAQEBEacUXDegyUMicVei81meq+1f0eaLn9/rYV3f1+fD/dBTFP/uo0Pe6F7TV4DniyF4cerXqHtwBKKcLkQLwOCuKLW/4+DadyZFJnd+Rqpi5sqp55qAv12wsZkG8VWE/V8gTOdA6/XImAzuYll3O+l5rB/wuD5eXOXME8Ve+v3+KQCciMhAmTAux14mLjoECzUQ==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795224646; bh=ljt/M88KQtFRzXGhovpW6PD4kSRjq3i8zndoEm+mLWF=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=tIbTuH8HyZzI6heD2DyAhy4rcD+Ko2N2c5E1uScF3oLNRDLOx4uxlY3isHqgSlvAd45c5mjnUppvfN07x46KwjqXXq06+J+WyU39M+eCgjXxh4CwSj3KuSiEXPhSnSMi/WF1bR4B51ivmIx0gTi65lbd/ukHgUSqx6Dg/gganpLG6Bsj8gNJ6riSmTOFbvPXdcidWXn6fg760iHMc0oyKXyPiM+q3d1vQK/vxEWEwWVrnUZjTIFjXi1hSK9oPhauiXnvaSGNtL5mUtLxOdFlh1ZdwXkviAW77R0FrSSfY5nNbvVSeFiAdCpMYNbxsCjYsA6g0hh5HbXX8Kk+fbQ9OA==
+X-YMail-OSG: N7JXhWUVM1lNKCNkbb5g1WqfC4LFa_BX.vhcdnfL4HGXsdi0HKLnK.dIBpilzF.
+ 38HKoho1h.cgGboJzVbsle0YWLwLdiyRj.lKld20nW6X3EHjdzWWj3yh3ugkularqAN8oeNaHE28
+ jS4UwxMZC4LR5ZAy9BYtburtDnl89oJfUQ7F.Qbrpz60QAbF8ydoAGsgQ_Swi2LtRgu0iqjbW6_B
+ ufvzijfAksc2lIUOHzrtAZ2xT7HZSHt0y0qkGU.iDj5HMm91tFXnJoXu8dsHIxLqQIJxSZEG_7y5
+ PUux_3NVSqK1iQKdyTxH9BG0iRsF43C4Tq2puj2FJWYEKJhfStRG6No0A8Ki2XfJKIZTk06.857t
+ noNk35R7LI10kaOWw0PKiBMDdjld4mS3ytW51.4XxnbuKiKuZxT9C2mSPp3ipu0yul19ReMu3OrJ
+ Sme2LKgMtXpTzjW.EXXxMzQRJ2pVnkU64Y8AyBmKqz2wMOlkFSX1pdA2ymDQKEBWJuBpg_Vq7ZME
+ _fP0wGPMpmSL6I.BtN8WOfij4uTdzVxFRz.6Ih_F5lA.FvqhvVvZyFosFaJq6nTioLvl4rLcnhIC
+ i8eauSbIpVjngPAVgR04BXPuR1Tg4esHva3I101TQO..4BhugTIoNU7iSlTh7ZK.4P4ZoqAyDiN5
+ J2KFWNemC6iyxMqdHNNb9imJxEPuW56Vc870.r1kV0.9q6Fblosqf7KuNta0ORvVRMNZ3HitEm4x
+ 8_k130zX1dnzXOwdeuNLmBFJzQcC9sbG5tXDna.wKxhkcv0xfCec.p2WVMgarzqL3ZX0_hmflKY9
+ ozi7IBRckBKjE1CYhJA0hJ_CzVPM5YCkzuDsAayZN38HDCwHpi.G7cMZofxSR7legEw8vMOAI7EL
+ gw6r9EaaQZiHeFzqPKaYC.4G5fmhYhvhKHlCxTpsXYFbjZWEjTqKzyT_gvb2sdClUpm7z3sEG9Gp
+ MLXYIUAK2GKerJlr_c8pwG9kCIOQ4fW8d_xo2_JixWeo2mAKSp36HJrXEUrMSiYD7KRFwf2TYhv7
+ WyG9sU.k2du_Whh.O2KGtU.v6Ri3ZPNPUbZe3v7GbS7qKjQLAs0eo4zTkfBKw2yGbLr8NumSJKKK
+ yGnToeh.FA7__5KVMUV7J2s.cPiJ53_oxywxkSzRq41jUcG0T1bsaO9.xDrwaNCsCelipKAyng1C
+ Flrkbn3d2D1OAxcoAhREFf6N9siKs41KKfWKWEa5BZz6ZQe8PiLMxTi3SqnDvmPas0NTuKetKkQ3
+ MJmq25UWfr9L7utQhOkQ5ht_ujLBKUvTlTarQnZF_.cUioblI0D.Bbp5JvrDNtYe5vJnmzQroemw
+ pog1RoZJBR2ie4SENmTuRvNdZVtOmtTPV4516GFb5Qi1uCuPIr5.YKb9tDq0zSNcpdzPrV9R6GzT
+ FQ.cBx6.gxx6LdsJnaGdLbvJ39TvuiMfz23EPWDzAGgigON7KiCF7k8tzUZxzGIrD5Txjdh3723d
+ NnU98kBuToXifYBup3zjrtvgnztQnFc1MNK6YbL1goLXwMh_ginv73SQZ2YEPiLvVoM4oj3BhGVZ
+ 1U59rFM..gzbIj_.KoWFDzw1Qw8KsbGrfEl.1yZZN9bFpn2zkHDHG4ijw963jQnWitY1GX4MdnlD
+ GMlulxL5CFrZMgw9qkVb0xN.Eb_z5hPHLcNvxCyiy4cJDV_d7rerh34_ZTcz5CToSTnqXiOeRTfC
+ hasCSDgzcSqxAls.lJLqg2FdSiQsEOsfwS_ZtWx0YOSI6NNLDCzXrSSXnoE0VwxALPpHPlxAxNOl
+ DIeOOBvzaxdm7MuEQPXfyj.hwfFacctkMaKpV41z8_VoC8QivyU5BwfszwTYMBnh5PkWav5_Kxoe
+ 1RMu4dfo60rDgWnMeJDIBjG8XWgdICD2u32o.EBNlpLdWC57OGVv9GHBKTItGfpZVR6SmNGQrc33
+ n_X1t5Pb5fzv3M6celi1jsTZ9lqz8eRn3rdD_zjyReiQG4GZXULaK07KFmQKGe0XoeHLFVdrdPMw
+ 5GabkYUN32cu.twkGFJ5TcL1Eh3hwyQ3bRaSl_pDV5EvRc_UF_wGBfsGQScwAOFQRObeAxkpvLok
+ byNJrzfr_zk0i4fUtfo5EKT00H_LxziTI6fs9jJ16iDFRZkjT.UuYhfGFD3JJasTesPImnqxmFxn
+ ZHksMEfiQh44l1cmatnjDpu_d_doURuo3NC9lVnHz0mdGmidVCTv684Nnu7kTvxFr5EthtVYm2mN
+ F6i9mgOSDXeebLtDkdHDjC5gQWIhyUdqiJ5KqrR10YXLApxydOui7gKAl59EB7vls1nDENotfgqP
+ o.xrgwgZTQZ25WgYEFgWNE9scNd27LWS4oxbRg710MG4uy51MMA--
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 66f33bfb-bf22-4d06-a6b6-17825bfa4f41
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic311.consmr.mail.ne1.yahoo.com with HTTP; Sat, 21 Nov 2026 01:30:46 +0000
+Received: by hermes--production-ir2-7c4859dc89-fxzr8 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 74bbb69c767389f35a7e2c472ff01c44;
+          Sat, 21 Nov 2026 01:30:44 +0000 (UTC)
+Message-ID: <b4f49c01-467b-4c16-bc47-b0f08ab48bce@yahoo.com>
+Date: Sat, 21 Nov 2026 02:30:41 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,76 +84,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v12 07/13] net: dsa: realtek: rtl8365mb: set and
+ get vlan 4k for family D
+To: Gustavo Foletto Mora <gusfmora@gmail.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com,
+ gabonpivovich@gmail.com, contact@c127.dev
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+ <2cc3faa1-c9a6-43d2-a3c2-7dccb12f0273@yahoo.com>
+ <CAK+kzgycrbHcEpXZhLTPXdWtCUh+WwoBA0mC7CaS2HO7nM81vQ@mail.gmail.com>
+Content-Language: pl
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+In-Reply-To: <CAK+kzgycrbHcEpXZhLTPXdWtCUh+WwoBA0mC7CaS2HO7nM81vQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-On E830, ice reports CHECKSUM_COMPLETE with the generic checksum (GCS)
-that the hardware computes over the received frame. If an XDP program
-changes the packet and returns XDP_PASS, that checksum no longer
-matches. The stack then checks the packet again in software and calls
-netdev_rx_csum_fault().
+On 20/11/2026 Gustavo Foletto Mora wrote:
+> - Live vlan_filtering toggle on a bridge with a VLAN in use: IVL/SVL
+>   changes at once in both directions. [...] Each toggle that flips the
+>   switch-wide state took 20 to 30 ms.
+> - The rollback added in v12 is an error path I could not provoke here.
+>
+> The rest of the series passes my regression test on this board as with
+> v11: [...]
+>
+> Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
 
-On Cloudflare servers, an XDP load balancer removes the encapsulation
-of the packets that it accepts locally. Our production traffic hits
-netdev_rx_csum_fault() all the time.
+Hi Gustavo,
 
-Do not use GCS when the ring has an XDP program, as mlx5 has done since
-commit 5d0bb3bac4b9 ("net/mlx5e: XDP, Avoid checksum complete when XDP
-prog is loaded").
+Thank you for testing again, and for the timings.
 
-E830 also sets the L3L4P and checksum error bits, so the packet gets
-CHECKSUM_UNNECESSARY or CHECKSUM_NONE, as on E810. For example, a zero
-UDP checksum over IPv6 is marked as bad and gets CHECKSUM_NONE. A zero
-UDP checksum over IPv4 gets CHECKSUM_UNNECESSARY.
+In v13 I changed one thing in this patch after the automated review
+(Sashiko) of v12: an entry that loses its last member could stay in
+hardware with IVL_EN=1. rtl8365mb_vlan_4k_port_set() cleared its bit
+in vlan_4k_used, so rtl8365mb_d_vlan_4k_refresh_ivl() never visited it
+again, and after filtering was switched off, frames with that VID
+would still have been looked up with IVL instead of SVL (FID 0).
 
-Two pending series [1][2] give XDP access to the checksum status.
-Neither of them supports CHECKSUM_COMPLETE.
+On family D the emptied entry is now written back with IVL_EN cleared,
+as in its reset state:
 
-ice_rx_csum() reads rx_ring->xdp_prog again after the poll loop ran XDP.
-While ICE_VSI_REBUILD_PENDING is set, ice_xdp_setup_prog() can replace
-the program without stopping NAPI, so the two reads can differ. At
-worst, a packet in that poll gets CHECKSUM_COMPLETE as before this
-patch. The pointer is only compared with NULL, so this cannot crash.
+	vlan4k.ivl_en = vlan4k.member &&
+			rtl8365mb_d_want_ivl(ds, -1, false);
 
-Link: https://lore.kernel.org/all/20260715-bpf-xdp-meta-rxcksum-v5-0-623d5c0d0ab7@kernel.org/ [1]
-Link: https://lore.kernel.org/all/cover.1794281983.git.tianyi@cloudflare.com/ [2]
-Fixes: 905d1a220e8d ("ice: Add E830 checksum offload support")
-Suggested-by: Jesse Brandeburg <jbrandeb@kernel.org>
-Signed-off-by: Tianyi Gao <tianyi@cloudflare.com>
----
-Tested on an E830 (8086:12d2, board N31483-007, fw.mgmt 7.9.5, DDP ICE
-COMMS 1.3.63.0) with an XDP program that removes a UDP encapsulation
-header with bpf_xdp_adjust_head() and returns XDP_PASS. The kernel was
-based on 6.18.64, where ice_rx_csum() is the same as in net:
+The commit message and the comment in the code say so. Family C is
+unchanged.
 
-- Before: 63322069 netdev_rx_csum_fault() calls in 30 s.
-- After: 0.
-- Without an XDP program, the port still reports CHECKSUM_COMPLETE.
+This path is only reached when the last port leaves a VLAN while
+filtering is on (e.g. a port leaving a VLAN-aware bridge), which the
+toggle test does not exercise, so I kept your Tested-by but would be
+glad if you could re-run that case.
 
-On an E810, which has no GCS, drivers/net/xdp.py, ping.py and
-hw/csum.py give the same results with and without this patch.
-
-Request for comment: I also prepared a drv-net selftest for net-next.
-It removes 16 bytes from the UDP payload with bpf_xdp_adjust_head()
-and fails if the packet reaches the stack with CHECKSUM_COMPLETE. I am
-not sure we want to enforce this for all NICs, so asking here.
-
- drivers/net/ethernet/intel/ice/ice_txrx_lib.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/net/ethernet/intel/ice/ice_txrx_lib.c b/drivers/net/ethernet/intel/ice/ice_txrx_lib.c
-index e695a664e53d..ad22d855436e 100644
---- a/drivers/net/ethernet/intel/ice/ice_txrx_lib.c
-+++ b/drivers/net/ethernet/intel/ice/ice_txrx_lib.c
-@@ -123,6 +123,7 @@ ice_rx_csum(struct ice_rx_ring *ring, struct sk_buff *skb,
- 	rx_status1 = le16_to_cpu(rx_desc->wb.status_error1);
- 
- 	if ((ring->flags & ICE_RX_FLAGS_RING_GCS) &&
-+	    !READ_ONCE(ring->xdp_prog) &&
- 	    rx_desc->wb.rxdid == ICE_RXDID_FLEX_NIC &&
- 	    (decoded.inner_prot == LIBETH_RX_PT_INNER_TCP ||
- 	     decoded.inner_prot == LIBETH_RX_PT_INNER_UDP ||
-
-base-commit: 92e97d7cffc7ec6adfa4699203c18b1ab0c8b314
--- 
-2.56.0
-
+Best regards,
+Mieczyslaw
