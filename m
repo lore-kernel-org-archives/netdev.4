@@ -1,62 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289339;
-	b=KN4jHIhp/aNoEuJPWQ0bqGfaPoiCGw+xLlvqzdDDCdMONISg8pKEfyd3bXfGIgl3HJf+
-	 U5TfG11Bx12sY2l3bSP5cmXsazH7OPzCMLy0ZirO5w/o5voZE9Zalbeackg7WZe62TjZT
-	 /3EdP4hFxbzpEuKP8HkGLzEqaC/8opDgyXgNsVLN7kWL/jksnV+UhFGDswqq5m2PGApzz
-	 XtX2rSDPFgttB/+spymajyH8kj4t9/lQsnaKf1B3K7Z6frb2FypfhBzAtpeHxzzheX0tn
-	 eaeDjlF1iIzlv6i2WmfgA/n4NVYB79+BFIYzMIgiYlAzCgTRjI4p5etjRmudTuzAIeg==
+	t=1795289407;
+	b=EPcXKMEBU0Q9+oyzNqhsyk5tesGx5unBeFsT0zkhbF8RZ4VVnyD++5mx6Wj32gQGCsXD
+	 8CnaaUTYHnQnAHTGgWwQArGbZrVTa+UhUMFGK7mIC2/57RP5moFtI9RmB6kEWsULEoxcj
+	 d/ObRmgjURfF3lEs2kHaDQeNOdSZmhQQgzliSxSPll8ZJyfAWKZ6EfbqSYGgKkDTi7duy
+	 dV4mUjs53VgLbmeAyONa6j+7FSs58m9ocgbYbZRCrXaYjyb+ktoB1d/5yk50XHFUk8jHg
+	 ON1E0P8HV1eVLt+JIW5rKEGQkJ76SQAwDVUYUMY409xKy2+bzXoqCNNTo567wi2EDOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289339;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=ohB/e9rrmoUW18TlMcMuisQ3OjBltSZAwbjlv2zhJHQ=;
-	b=49aP26tJreuGxV2cdOPOo0iM/yY5fHrQGVAAzLfX1Py6oPcWjsCx2ScEA54+NKxe2oyL
-	 ZwS2qGNGwBBR48oVvIZEj++jK0JFNHttnwq0rZOpUEZPP2wBBgBUFec9dXobeGJnr4E+W
-	 6r5te+xrlAbqVAnbtCYyfR2HE2J8dF3sLA6a8CwtfMaSj8nrkA2E+qf+kLRNIMOBeV2Vq
-	 1LOKp1MmMXRhtwJYMXz6bxBIYJSNIgWPu6ySjdWwH1MQgB9dOBx9SvEakj9v55qBWqW4/
-	 lWICBPpIbtjGTm3YpV8Ut6ZID+gAbY21NLWU6rOIPBsepy+g+Kh7pdQZS54KAFouSfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289407;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=ya+NhNd1CcqJp1D4xAF8pRIQ5WA9rekIkUHynOGIv0g=;
+	b=lhRDfZg947Y3+ffofexDBf63EApC9t8+8xEDX1mizE5C1O3vqj6Tic+1dRYDBNoiJLdo
+	 IkgPHarRKIWUgPHBuQyYI5+t+/PmyUsAeYEgh14KIAm2HyYP99LWxYWCDcrtvQdiyl3y/
+	 ReEv0Sc/rtFZPwAAKdraFvWPq1N3gLq14zz2msL8fCZOA4g7V+sAe4P5NhGVcE6IrUVxb
+	 FR0evhgbDttKpvl4ebbszdZ2f0o6rVrx2/Mj35ZbfAfCp5k8oHbHm/fyC+IoSWZO2rhUd
+	 hk4RXYVphkfXrhko5yr6S3dqizQgd0sED0lkySzqkIptAOMS8DKXqIgkTwlO8yFP5Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=oLqujUKl;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3aMYHsr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15189606A320;
-	Sat, 21 Nov 2026 19:28:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15189606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87516606A32A;
+	Sat, 21 Nov 2026 19:30:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=oLqujUKl
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ohB/e9rrmoUW18TlMcMuisQ3OjBltSZAwbjlv2zhJHQ=; b=oLqujUKlQhmBa6VdqknYna0FGU
-	HeILxjYk2V8L97X4aO7SFp5pTZCr0d3CGYqRv9z9WxPUTljkjY5qDWIkvT+5TO63ZDJlfxYRIIuye
-	YGL/IN2teCHbHQyQjssktiDkcUudkS3pe6+Y0cfiiGn1z6pcY/4VCU8vd9KPfggboXzw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUqlU-000U6E-0g; Sat, 21 Nov 2026 20:28:48 +0100
-Date: Sat, 21 Nov 2026 20:28:48 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bastian Germann <bage@debian.org>
-Cc: hkallweit1@gmail.com, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
-	olteanv@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-Message-ID: <06addff8-09b0-4b76-aac7-11717fbdd9f9@lunn.ch>
-References: <20261121092933.186731-1-bage@debian.org>
- <40db2715-55cd-46cd-a2fb-8ee11b571911@lunn.ch>
- <ee0baf58-5795-424b-9a41-feb9a2e766fe@debian.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3aMYHsr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44BA41F000CF;
+	Sat, 21 Nov 2026 19:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795289407;
+	bh=ya+NhNd1CcqJp1D4xAF8pRIQ5WA9rekIkUHynOGIv0g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=F3aMYHsrOXJM+6ivSrF8HPD5oerwkdCKrO8EKg8E87kGC0EC1An8FlQvm1WKPrudX
+	 m0vArSt0kppfEv3xCApngi1AXZSFOWdnFyPCUhjcyQgcyHN0TfKMhkD0XZJaNwVAoD
+	 FAnZUxMi4iHd0+kd7tYmxM++++xqTgYsbJq7m9XD+ZtNkVOMANaUwm5EImfE4ntrEX
+	 JDVVsOjqsGirukhzvAh/Q5twCeYyfw+ANAec+IAIohbCtK2+jX/UEX/mzms+lDMoGt
+	 MZfXzTA3q5iW0MHAx+euaVtbAcTTnHCaRWBFragqu8EUWwUPO9vfsvO2rxgohei4P/
+	 YSLWp3r/Ob+nA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A441391B06F;
+	Sat, 21 Nov 2026 19:30:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,34 +53,50 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ee0baf58-5795-424b-9a41-feb9a2e766fe@debian.org>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/2] net: fix a pidfd leak with a short SO_PEERPIDFD
+ optlen
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179528940603.1145636.16413757332346392828.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 19:30:06 +0000
+References: 
+ <20261117-work-net-peerpidfd_short_optlen-v1-0-a93f56288501@kernel.org>
+In-Reply-To: 
+ <20261117-work-net-peerpidfd_short_optlen-v1-0-a93f56288501@kernel.org>
+To: Christian Brauner <brauner@kernel.org>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, kuniyu@google.com,
+ alexander@mihalicyn.com, netdev@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, sashiko-bot@kernel.org
 
-On Sat, Nov 21, 2026 at 08:07:34PM +0100, Bastian Germann wrote:
-> Hi Andrew,
+Hello:
+
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 17 Nov 2026 16:25:29 +0100 you wrote:
+> SO_PEERPIDFD caps optlen at sizeof(int) but never rejects a shorter one.
+> With an optlen of 0 to 3 getsockopt() still installs a pidfd and copies
+> only part of the fd number to userspace, or none of it. The caller can't
+> close an fd it doesn't know about, so the pidfd sticks around until the
+> process exits.
 > 
-> On 11/21/26 18:06, Andrew Lunn wrote:
-> > > Parse the property in of_mdiobus_register_phy() and
-> > > of_mdiobus_register_device() instead, so it is handled in one place for
-> > > both PHYs and other MDIO devices, and drop it from
-> > > fwnode_mdiobus_phy_device_register().
-> > This seems odd. "handled in one place", yet you do it in two?
-> > 
-> > Is there a reason not to do it in __of_mdiobus_parse_phys() ?
+> That's been the case since SO_PEERPIDFD went in for v6.5. When I moved
+> the code into a helper for SO_PEERPIDFD_THREAD in v7.4-rc1 I kept the
+> bug, so the new option has it too.
 > 
-> Yes. My v2 draft was exactly that (which is the reason for the commit
-> message oddity) but I noticed that children with empty reg that are handled
-> in the auto-scan loop would then not get the bit mask set, which is an
-> unnecessary behavior change for PHYs.
+> [...]
 
-Ah, O.K. I never liked that scan code filling in missing devices. It
-has a warning not to do that. So i don't know if it is actually used.
+Here is the summary with links:
+  - [net,1/2] net: don't leak pidfds through a short SO_PEERPIDFD optlen
+    https://git.kernel.org/netdev/net/c/fa827805a629
+  - [net,2/2] selftests/net: check that a short SO_PEERPIDFD optlen fails
+    https://git.kernel.org/netdev/net/c/c9b3eb7bfd7f
 
-Also, i could not find any in kernel dt blobs using
-broken-turn-around. So we are not going to break anything.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-    Andrew
 
----
-pw-bot: cr
