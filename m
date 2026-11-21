@@ -1,69 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302641;
-	b=JSaKVbOlgjZkYmuc9DugQ17OhgErYBWNbd04rE+KlvcJi97E8igCTLS9lFtS6kwmkMtL
-	 I6t+8YwXy9smVLWcJ5rv3LWeQAyYP2i3Z55qt29XzrwqlOLvcL7yXH1LdRJqI/K81klrJ
-	 T4Z9Oji2eb4HEJGuzRT7YU0Sf1n3i4MFxhLuRwZbJarPZOpXh8UKcb9uWuKyFBwC2J72r
-	 tvznPT7TvCSWqVOJNOpPmJvlPZ28x9xFD76SK7kvKTkTCqI+LT8iNfN+A0CSsbMHwWWDK
-	 ccjdpoQ0OfUIIUAmghHoevf0oW9GXz/Sib3EiUS57uavP2dz4sdB0ypoXFBRvZKzJiQ==
+	t=1795302934;
+	b=T/sZVlvK67W7DyJenkIGq5vhkjHKJm/t55DbJ/L0+b7mLE1SOZK1nD6mGFFuMjqhJ9MG
+	 j45KZHdWj5dKCY1fkSXsnFH8punRiBi2DXypLBj6kXEKbK0zdjk8ABPagd3aq4T3P8ruP
+	 /HjOSpDAVlJ/UZhSI07ZSQ8jhVC5Gip2c1d/YSDONhsuXUZFBGRUolQiKy69tj7Sf5WZS
+	 3qgnMzmLWOui4+sZkeJLE8WvscwT3pqtJ2tFqVJnU7aw5xNifGOgBJWxx/jOtpsROTw0H
+	 84stPl4bl5Pwk2DBKoaquiGNKm2aW9j/eEFxU/q3Rc/jXNlGIZ0bIX9cQc1ToFn8/eQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302641;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=E9/g6o7R3K4v+CNdU1O2I9n3rAKPMOd33E4vaKpYOIc=;
-	b=IJTXoVglYtu42cz9eXlICP764G6MjUYKrKuDlbUnycjw1V6kLkGKAHUt3mqwBIKEl8Eg
-	 ShYtl+PosAubXPnmlzmQB8H1Pwu8gHNCtOrZfyY/hQDQ2l+ArBuEjrHFknwwR1dv5jx9E
-	 RnFnbEpx9mCSg7++NyaaK3cptqA+mf9ygekUTD5695EupT6XOGMIGKPEfUDwn6vVBGMv0
-	 zDEEdwr7u/v5ophg0zy/XY6PZeE9a9A4VfSzcvAb8g07z6HSbx4xaEXyME8Dv8DzQATjH
-	 Yi+NdnXQ7Xc+l4qxgBgJdbEzCSdEpG8GnQyW7fNYhe3MUO18cc/87VKXSu5N/v5LQqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302934;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=vBXsqtkiOdQKt1ALymIhhIgXfqKF1Cbx8lZk/F2q0Ag=;
+	b=RiVKokoIu6SW5/SLdiWppLtyqWuTqtpZVuRcuAZeeKqNVGOvg8C3F+paMYP9jyEjYUtf
+	 CzpGZVct+NHU+6qC6FHpkgcO/7Zrn1Bt/St7UiSAoe5oPAdM6ME7WhwEHbfSVa3Nw/+Fo
+	 zJk88LevhJ6TJ+xeA/UEAU4fCRAPAWuZ/hMN0sPQSBOhuFVZZ4yyQNAZmDsci3CVkkseT
+	 LGcdCf1ajdnGubMXh26T19BZrDlEx56BBlAnvzWpUg17cwUJGXmShjO1pHnPUvtOZUnYa
+	 Otl1AXiDT2FBtGoDqtgAKOzLUwQZ0OJwXuEVwLlJXldghLy/sGe9NMC6uzXLyLlSAcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=hgKJt0zK;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nL20PqbZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F39F7606A320;
-	Sat, 21 Nov 2026 23:10:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F39F7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4943C606A32C;
+	Sat, 21 Nov 2026 23:15:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=hgKJt0zK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795302638;
-	bh=E9/g6o7R3K4v+CNdU1O2I9n3rAKPMOd33E4vaKpYOIc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hgKJt0zK8Ed92EIDgai/GbkljCzw05uxAoLux0phFBmi9iaYcpqV3aQll1LGlEBoC
-	 S22xC5ZE2lh8nXS47k2jgw4yLt0VVS3QkURh+GrpLV+94WMthQhhkNtR83hsgevEbD
-	 8XxowqhyeOfXtq43MPKG1AxeZ7CnSTADa6ZE5r8zQOVW/nDbj3GY/o1dn+BBJB7crZ
-	 hARAbIedqc3kqiqBlLLV2IIEey6kofjASM4H5ZbE0Dt5b1STQIkZIm4ZFZNb3POAar
-	 WodswVSvoMbwSK3wOe7CP6KU0KqUF4UASFVwBolnky70t93sbtx77H9nCF8ynefCcX
-	 neOYSt4Jlk5Rg==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 6A32460058;
-	Sun, 22 Nov 2026 00:10:38 +0100 (CET)
-Date: Sun, 22 Nov 2026 00:10:35 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Toshiaki Makita <toshiaki.makita1@gmail.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:NETFILTER" <netfilter-devel@vger.kernel.org>,
-	"open list:NETFILTER" <coreteam@netfilter.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH net 2/4] netfilter: flowtable: restore the GRE conntrack
- timeout on teardown
-Message-ID: <awIk65mKn6iBATE0@chamomile>
-References: <20261118201250.2075007-1-florian.fainelli@broadcom.com>
- <20261118201250.2075007-3-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nL20PqbZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB391F000C6;
+	Sat, 21 Nov 2026 23:15:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795302933;
+	bh=vBXsqtkiOdQKt1ALymIhhIgXfqKF1Cbx8lZk/F2q0Ag=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nL20PqbZLnvscMpIdrmOby/bXWqfqQAuyRpyKc1hzxu2ixtfprcIcprUhnhDGXvom
+	 fy1ruKNExDm7l6hHCitis5ETByf9UZegLEhfMq4gEcfopzUBRuweg+TRGyVUQf3+3f
+	 r6icGYBvHf/jBhlze3busugC/S5sn4ZqteFuVgfqmARqF0taYFmlcL4UH3mKlVRC0d
+	 5Z+NnlAIo6F1R8TYgz0I9x0CYqJ0iAJBrQZ+NOvNVKBJZx+X01RCasqjo91jK3/TTK
+	 K/6ynCsfOtkoWnAUmCaLJyHNSmMNEcXfbkxoJPaCk4PmlrgyqFNPUzSPkO3TbyRLDc
+	 YZIE9zKyUIICg==
+Date: Sat, 21 Nov 2026 15:15:32 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Cc: shyckless@gmail.com, netdev@vger.kernel.org, edumazet@kernel.org,
+ davem@davemloft.net, linux-kernel@vger.kernel.org, elb12345@hotmail.co.uk,
+ horms@kernel.org, pabeni@redhat.com
+Subject: Re: [PATCH net] vlan: require real device netns admin to change
+ GVRP and MVRP
+Message-ID: <20261121151532.56c16e89@kernel.org>
+In-Reply-To: <20261117-vlan-gvrp-v1-1-53a6b0775953@gmail.com>
+References: <20261117-vlan-gvrp-v1-1-53a6b0775953@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,60 +60,18 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118201250.2075007-3-florian.fainelli@broadcom.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Florian,
+On Tue, 17 Nov 2026 13:04:41 +0000 Suyuan Wang via B4 Relay wrote:
+> The same gap in macsec was fixed in commit ed502e485685 ("macsec:
+> require CAP_NET_ADMIN in the device netns for changelink"). Its author
+> described the identical VLAN case there and said a separate VLAN patch
+> would follow; I could not find one on netdev, so this is sent
+> independently.
 
-On Wed, Nov 18, 2026 at 12:12:48PM -0800, Florian Fainelli wrote:
-> flow_offload_add() sets the timeout of the conntrack entry to NF_CT_DAY
-> for every offloaded flow, and the GC keeps extending it for GRE too.
-> flow_offload_fixup_ct() only restores the conntrack timeout of TCP and
-> UDP flows when the flow is torn down, so an offloaded GRE entry which does
-> not see any other packet on the slow path stays for up to a day instead
-> of expiring after the GRE conntrack timeout.
-> 
-> Restore the GRE timeout, replied or unreplied, as for UDP. GRE has no
-> offload timeout of its own, flow_offload_get_timeout() uses the default
-> flowtable timeout for it, so use that one when the flow expired.
-
-I think GRE has never worked then. I have been a bit skeptical about
-this support, but tc/ct developers wanted to have this in.
-
-I think no crash is going, so let's better route this through
-nf-next.git.
-
-> Fixes: 4e8d9584d154 ("netfilter: flowtable: Support GRE")
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
->  net/netfilter/nf_flow_table_core.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
-> index 2aa2647ed9df..051b15aecd89 100644
-> --- a/net/netfilter/nf_flow_table_core.c
-> +++ b/net/netfilter/nf_flow_table_core.c
-> @@ -237,6 +237,18 @@ static void flow_offload_fixup_ct(struct flow_offload *flow)
->  		timeout = READ_ONCE(tn->timeouts[state]);
->  		expired = nf_flow_has_expired(flow);
->  		offload_timeout = READ_ONCE(tn->offload_timeout);
-> +#ifdef CONFIG_NF_CT_PROTO_GRE
-> +	} else if (l4num == IPPROTO_GRE) {
-> +		const struct nf_gre_net *tn = nf_gre_pernet(net);
-> +		enum gre_conntrack state =
-> +			test_bit(IPS_SEEN_REPLY_BIT, &ct->status) ?
-> +			GRE_CT_REPLIED : GRE_CT_UNREPLIED;
-> +
-> +		timeout = READ_ONCE(tn->timeouts[state]);
-> +		expired = nf_flow_has_expired(flow);
-> +		/* GRE has no offload timeout: see flow_offload_get_timeout(). */
-> +		offload_timeout = NF_FLOW_TIMEOUT;
-> +#endif
->  	} else {
->  		return;
->  	}
-> -- 
-> 2.53.0
-> 
-> 
+We can apply this as hardening but I'm not sure this is an issue.
+netns can already "disable" the vlan by deleting the interface.
+I guess we shouldn't let netns enable the vlan. But then again
+I don't see the use case for having a vlan that's not announced,
+or the harm announcing it would cause.
