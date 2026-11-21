@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795224012;
-	b=DJXgQVU3ZczlJRXtpPjl65hInIUTEYKTEw64panNjbjQ9GRJjilbATNe3L3N0Al5EX6E
-	 0opze3l6q/uvcsC5DRurrb9hZx3zWpUxq2z1AaX62sYSpBCkjoXq89PcCyeF2wcv+LlR9
-	 JjRBcCvXQJqB7SxPbaarQ+mtRAvQeOS2GkH6csLQMHX5WYjzhfsin1jCyyJIanA3iqHrE
-	 h/Am7jw8qL1CS85wkowi1z2w8IrtQQ2LTtX6qab6Qg513oePq9eTzwKIisb8TPfMlWg1d
-	 2HSzcWuYO0Afe9PkVG7use0VR7SCphQGhFUXap5nUEvokEBWAutW5cL5LXu6uS2kOqA==
+	t=1795224008;
+	b=lYlmM32FbGgclmh+5yugKyKtaNz4mGtQ0KwdR92s0xknCjIKwjNZ6zqOJcIAlXXjibwe
+	 p9zlqZBMnMeqbpsKfpH3jh7pkpgb1GjnhPB2IRXbMX8j7yo0Y73acxy6tsp1aklRtKn/d
+	 x4+1qH7kiEf2idWfKgVv12kcwg22VG4jMAP7VSA5rA4G3VJ0NQVZxb+E3p65qC2mNlS3c
+	 E4ctIV2FShWbirT4O1aIm8OjWWbnsoymma8WupBB89BkQ2wpur7VqbF+pG6KvspSLWsDQ
+	 /zeK/V9MNLlYaQDaZDYjX6KLqLIfiH7+SQbWToqmqcy9VJxRXowGvdJEw12M4qGMpsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795224012;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795224008;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=r+oIxWhyGPz2JARJQYxterEFNaP3XJclRaGriae8jbY=;
-	b=KynSd4H0aoIklh0CR1XKc6nt27kf2sbTfEnHb2sO9h5gGC2E8jpNeemqEYbGMl8t2w7M
-	 sT1CEq05jeujxmHCTAU4Ktb2yvnak5Ys64k6FluelqE9LMdArkOpamaFeYFgNKmo6Ho3V
-	 80Z3Snl9XSMUPXl5jXCd/FGOncnG3il6uzK0AX6kA34pJqjdOANzlGNsSHiE9k21j1PuG
-	 3avqvt+aL1bi6DCtlvtHhr/Ps5jGH5Mh2q4UTvmuDWrfhXxS+RVRYDx9k1zgEV7LpghKV
-	 CpgFTbijz9uP2yS/UpW0BJzVAf1fLYQ3h7kwe0Kg4PEXpZTBLqViYcqL6cqP7YGx2DQ==
+	bh=A63RxKAwkZzHm3paAKlK/vSXiupUAfz4QqcpNoWmH5U=;
+	b=roOxIEPekgMQdzXsSCRYIrCFFPwKfLDgdt3zO/3psLXS1CHLP6J7cmFtJHsA1e4N4Ujm
+	 yYFUW5oZPM8dbCGB/93S2EyoH9YhMttJCF5IkjeTyR/leRB9fzPkP9Zw9FP7XQ11vfSkR
+	 MwSBgXuhy+O3uKMYgdJHkPEkphQiXoKIEjrU2WPLP8I7RQZgMIEBbJ7z2iYD77lo9iEeK
+	 pcmOwY5YBYAAF2gRyQ5arb9SD/g7nwYZVACGll96UEryuJWF7i2uO9ZP5UpeZErq/rdqr
+	 YDLozw+8TWXW8lKKcasml0x6UXxcbv4II+xYscQsFhEe+xm6joFuzDHehvT+9qzxDRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Eb0/ZQZo";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="i/t14ql0";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85CC7606A33F
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 01:20:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 065CE606A691;
+	Sat, 21 Nov 2026 01:20:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Eb0/ZQZo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08E21F000C4;
-	Sat, 21 Nov 2026 01:20:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i/t14ql0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF1B1F000C6;
+	Sat, 21 Nov 2026 01:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795224011;
-	bh=r+oIxWhyGPz2JARJQYxterEFNaP3XJclRaGriae8jbY=;
+	s=k20260515; t=1795224007;
+	bh=A63RxKAwkZzHm3paAKlK/vSXiupUAfz4QqcpNoWmH5U=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Eb0/ZQZo5fwtw5op8iDzPWShehrloS/8KQttbMdJicH1zeogzqEG/6EnmfrczITUc
-	 +8M+bzjGFr/F9g3AXysV9xG+JHhSokqU7Fn3qMGPWyFPjDqJBDPk0E4+0AlEqYz4/E
-	 fUTyFeQAr1E38McanjjS8RVn6bJtLbalTj09PsKGVdtCbvcLxW8alpju36tS0TaWJJ
-	 /8lAMQsDGTBdY7CiYVTMNMTpiIrW+CL2axxlL63HcuVodZyVBiJkdV9dQU4DRDtjEE
-	 ddqBkSoj8rT0Zf8qZuuqJqEhLwh5TfAZNCzJdWBlnd3qEQ8WEEXt1Ajc0pz7XAHVDd
-	 baz5WdlMTx1jw==
+	b=i/t14ql03YL8lD31HV3R5rS+U+yvRGr70JIxa3SCNX0/3xdQs6LF67EOng+ACH+4m
+	 Oy0CWkUKZT4TMBuLKiy0Y0+AjMbJu3by2rmI5FTqtyUVaDTlEbX20AK+hk1K2q8C4L
+	 Ar7ooUAaFBCJnxPpcRw++tfBlyg5QI3VebEB2IszjgzG2GEI8IP643Kt1GRAAFNPBa
+	 Oe89+dY8S8vyg/wN6JghaodfexzrmtFQdg4wlrSA+rbGl49qip+B4Mtgq4fhZmtFX9
+	 cW/KsuVMsvPgY9n7VrlHGnNZbtrw33YDlta9TmkrrY8SxlPvl5lGncdBj8tGePJQwX
+	 49eUqEjyYvaEQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4471380AA5E;
-	Sat, 21 Nov 2026 01:20:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77454380AA5E;
+	Sat, 21 Nov 2026 01:20:07 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,42 +54,46 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] tcp: do not accept ACK of our ISS on active
- opens
+Subject: Re: [PATCH net V2 0/2] net/mlx5: Fix HWS and DR steering memory
+ safety
+ bugs
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179522401027.873873.9137118400296045450.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 01:20:10 +0000
-References: <20261118172654.1267071-1-edumazet@kernel.org>
-In-Reply-To: <20261118172654.1267071-1-edumazet@kernel.org>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- ncardwell@google.com, kuniyu@google.com, horms@kernel.org,
- flavius.mazilu@stud.acs.upb.ro, tuexen@fh-muenster.de, netdev@vger.kernel.org
+ <179522400603.873873.14923348650809812923.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 01:20:06 +0000
+References: <20261118173227.1957670-1-tariqt@nvidia.com>
+In-Reply-To: <20261118173227.1957670-1-tariqt@nvidia.com>
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ acassen@corp.free.fr, valex@nvidia.com, erezsh@nvidia.com, gal@nvidia.com,
+ kees+treewide@kernel.org, leon@kernel.org, linux-kernel@vger.kernel.org,
+ linux-rdma@vger.kernel.org, mbloch@nvidia.com, moshe@nvidia.com,
+ prathameshdeshpande7@gmail.com, saeedm@nvidia.com, horms@kernel.org,
+ william@theesfeld.net, kliteyn@nvidia.com
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This series was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 18 Nov 2026 18:26:52 +0100 you wrote:
-> Michael Tuexen asked on the tcpm list whether, after a completed
-> handshake, a segment with SEG.ACK == ISS is a duplicate ACK or a ghost
-> ACK [1]. Flavius-Romeo Mazilu noted that Linux gives a different answer
-> on each side of the connection [2]: passive opens send a challenge ACK,
-> active opens silently accept the segment.
+On Wed, 18 Nov 2026 19:32:25 +0200 you wrote:
+> Hi,
 > 
-> The first patch makes active opens (including Fast Open and
-> simultaneous opens) behave like passive ones, without changing
-> the value of tcpi_bytes_acked seen by user space and BPF.
+> This series by Yevgeny fixes two memory safety bugs in the mlx5 software
+> and hardware steering code paths.
+> 
+> Both are missing-check or wrong-handling problems that lead to a NULL
+> pointer being inserted into an xarray, or an out-of-bounds write that
+> corrupts the kernel heap.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,1/2] tcp: do not accept ACK of our ISS on active opens
-    https://git.kernel.org/netdev/net-next/c/a25df726c715
-  - [net-next,2/2] selftests/net: packetdrill: add tests for ACK of ISS
-    https://git.kernel.org/netdev/net-next/c/5fa71aea9d59
+  - [net,V2,1/2] net/mlx5: HWS, Handle NULL in vport destination action creation
+    https://git.kernel.org/netdev/net/c/c0ec15a58655
+  - [net,V2,2/2] net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
+    https://git.kernel.org/netdev/net/c/0e56ff4441ee
 
 You are awesome, thank you!
 -- 
