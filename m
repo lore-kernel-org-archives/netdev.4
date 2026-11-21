@@ -1,64 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795301798;
-	b=19VDs2IWlTMo0iLGHML/sGV7ImXX1mK/HJZqqheessDu6vVkAui6xZzvyc9xOWmly4lo
-	 EEUtPs+h+1kh3hSNqyFMsHa7oupL7+IHI+s/Dni2cqdFSayV2nId6ikWjbuV/SKLh011/
-	 B9Je9V3Yce7m3pFjYO2a59X2calpYdEqYJPkDbfL5m1V3EXxZoGiLo7ftcM4nkG5hv2th
-	 8D4CjkWog7VtWTghsItY3ECc+Z0lxdDRJ7PNWONVo9qjTbfq54MllkX12nr+L3y6yUIkr
-	 m2UDkAfmU6/RLx9uycuNjMWdYyjsxspuES8RBwly1uf+2L2pU0P29P9sJGz+Sf5F9WQ==
+	t=1795302006;
+	b=uSzgcZZnXufLPPqmzPIeJp1Xmfn/VdgWFoTMmgK8rGFAM49D8gVBwA0cBr06MdQE7KzC
+	 90dxUvGqxEcUV/May/T32hKKH4JFMkHQLL9KDrKa35Q25q31EflNI3r/ngj6/DWVlBHHx
+	 90E3l+nTFBAWNJ4BU7uddiuJM6ekpDkCAnvaa43sDwxnCRvAyS3rjfQiCMKr0tx0uVvTL
+	 RQag2Dps7BD4TonfNq+v59c50WxlYFgteSJKSv06/4UPMrMK1MVbFT5NF/sKIq86Phy3y
+	 HlEsOgB6zBPQfv8bbMWPUeiR5pypg84Bg7FpP4CxCFUBKrCuu5LjpeuddW/QO1takXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795301798;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=r2q3LlcXOhJE/UcBDtYyeeDxFGZavtW/dVlyD11nD44=;
-	b=iP8vEfNP58xil9K4Dd5Rcp/iRt+CaF8+63NXOTBqpmR/axoMltzeYPvXLKu6KOE1robx
-	 VnTr9aHApwUneUxTcC+wpI3uO3QSnF7aXML44RvNq7ReAWPsDgfBUDAok09fUwzCTYiQW
-	 0kSWpISSvj7JjOIlX2ISbS5udnLUVFQxtfQ8Og5uuj8RYSpP3emTcBnMA/cvwwwKgt5Uw
-	 8z0Iv+zE00W3AgpCGfQSn4EOwAMrNVzoFFA8K78ye2ALDUq5krwryLk3rolV9Tc9cPbTB
-	 dXhNTfncXEVTLXasj2u7wMiv5h6TlUVQgAi0sq9wdhnRYR3zzsMSQgrrOghzl/YaPxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302006;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=z4rexnvIm5FnZyCWzqvTkhyV4GsnZgJ1xSplkjE1oqo=;
+	b=21LPsSqKhAdjTagQFpyoSkcC7l5alOQfJ+P5I/B8s+puWX+Pj0snBOCvrjIeyCNs46IG
+	 UVJWECkJyW4OwtH/IJ2vFAfaH4bdDflKBqtGjlE9COEACcLOwI7xvOqTJdd83/M3wm1eu
+	 0+H4ZaYUHOZOtZV3uko0+WKv9y6VnKpPxFXzBJPKSLnz83YvJvLTdDm/K40CXfe1CfaWm
+	 do+7rS9p+uK55vQQJP5k9ej4rRLErghAuIydA6ngehWS7eB03FYXPShYAk+09KB/xWiIF
+	 Ej5IxhLOsVmks1gE+UnNNkLP8wuQ7MDueGUmvy4KbkrRKrH57PnckLGxG9mZxshrtTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g98bzIVj;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cnFsWUJY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 806EC606A320;
-	Sat, 21 Nov 2026 22:56:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8511606A331;
+	Sat, 21 Nov 2026 23:00:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g98bzIVj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D81A1F000C4;
-	Sat, 21 Nov 2026 22:56:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cnFsWUJY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB541F000C0;
+	Sat, 21 Nov 2026 23:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795301798;
-	bh=r2q3LlcXOhJE/UcBDtYyeeDxFGZavtW/dVlyD11nD44=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=g98bzIVjF7dsTPk0LCNmEnMGd7I8UNkcV0BYpfbjNjVtvp5uKbQPCCyMfjrk1S8ZM
-	 ijCNO/E4TofRPcHmCXc2H+nMObTE9l9tITZsgQbD/cRFGegBmzyKCje9n6zzH9F6ch
-	 gZYQl4qqIpjkNoJpq9lJgB1NhCi+Dp+qV97dy+mzmE4KAoJm9VPnHHUoU9vrQvDevZ
-	 hQgl4E+4XPUQvEki+kFVCbBPo9yo03KmX9ltn2BOJikuytMwxYXyg2MqCv2Zg0wF27
-	 sZVfYh9R2TxAYvIldqCao8WbiuZzSYg701NEensNoe2Ovj0Nx5e+IWzTmM5jEaHIUN
-	 nteLzy9C8yOnA==
-Date: Sat, 21 Nov 2026 14:56:36 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Cc: 1579567540@qq.com, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko
- Stuebner <heiko@sntech.de>, David Wu <david.wu@rock-chips.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro
- <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, Maxime
- Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH net-next v4 0/2] net: stmmac: Add RK3572 support
-Message-ID: <20261121145636.5c41bda1@kernel.org>
-In-Reply-To: <20261117-add-board-ok3572-c-net-v4-0-4e9da569395a@qq.com>
-References: <20261117-add-board-ok3572-c-net-v4-0-4e9da569395a@qq.com>
+	s=k20260515; t=1795302005;
+	bh=z4rexnvIm5FnZyCWzqvTkhyV4GsnZgJ1xSplkjE1oqo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=cnFsWUJYjsMMB1qUcEwRR5KNrUOYfjmr0wzxoxTyeBZm7ND1LLz6+Tu80KMAzYfky
+	 ikuG50acQAy80xFivlazD5NWgGBqjMQFr4f0AhuBhpbkDmPI8SWPd4jgPPVeXNyYhl
+	 QJMwCszB9H4fZr3ytZghqE6OyKs2ln5Y0zjetny9O7X1nN08GG/7m5qikFZJ+fgtrn
+	 je/iUeQNzT/LLZOMh0Zgw97+DfVIiZ2StVhSkz2u3jT6gdL+DJsFN28CscXgbo5LNS
+	 InANUbbKVtzBx9hfe1v+b0aNQbKiWcD8NOn406FmDDVOODJdfsMBggnc3wa2YJgolt
+	 DxvM0LVblmwlQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B449A391B08F;
+	Sat, 21 Nov 2026 23:00:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,25 +53,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/2] net: sgi: ioc3-eth: two teardown fixes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179530200427.1200626.11711075195497357752.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:00:04 +0000
+References: <20261116101934.25910-1-kaloz@kernel.org>
+In-Reply-To: <20261116101934.25910-1-kaloz@kernel.org>
+To: Imre Kaloz <kaloz@kernel.org>
+Cc: tsbogend@alpha.franken.de, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org
 
-On Tue, 17 Nov 2026 17:04:34 +0800 Cunhao Lu via B4 Relay wrote:
-> This is one of the subsystem submissions for RK3572 support.
-> 
-> This series adds the RK3572 GMAC bindings and support for both Ethernet
-> controllers in the Rockchip stmmac glue driver. It provides RGMII and
-> RMII mode and clock control, with MAC RGMII delays disabled.
-> 
-> The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
-> Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
-> The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
-> ports, a Type-C dual-role port, eMMC, microSD, and UART.
-> 
-> Testing was performed with Debian 13 minimal and Linux 7.3 on the
-> OK3572-C with the FET3572-C module.
+Hello:
 
-Series does not apply, please rebase on latest net-next/main
-and repost
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 16 Nov 2026 11:19:32 +0100 you wrote:
+> Two teardown fixes for ioc3-eth: probe never stores the net_device
+> that remove fetches, and the shared IRQ outlives free_netdev().
+> 
+> Tested on an SGI Fuel.
+> 
+> Imre Kaloz (2):
+>   net: sgi: ioc3-eth: set platform drvdata in probe
+>   net: sgi: ioc3-eth: fix IRQ lifetime against netdev teardown
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,1/2] net: sgi: ioc3-eth: set platform drvdata in probe
+    https://git.kernel.org/netdev/net-next/c/944841b8af49
+  - [net,2/2] net: sgi: ioc3-eth: fix IRQ lifetime against netdev teardown
+    (no matching commit)
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
