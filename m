@@ -1,96 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795278967;
-	b=G7w5HeO80ZCw38mtCHInKJkFbouwrR5SbBrHROAvw68p4KYXr/v6FR7qs4jP0TfABVru
-	 T9dPNWsopDwa7/PHdWv70RIVbCZEZlwASANbCkzTTXWsBHvzNget96ch5o/3VGAg6dNVe
-	 1rqHEAJsVfJGaF3LPukS2cr+krPy4xhd/tmVl1ya1SPQp8ZIXSUZ5ctqJBlyvSrMUeJXo
-	 uNyyGr3tGApgqidbPopQC9/KPBYflM8E9QzImjxBzD1G8IM0x5o2mis1jsTnhIj8Kv1EU
-	 yg6hgACAWyr8DbNHJGbimoD1Ok6hPr+6k84cx7TKhGD/7yXz79qPlV1Nsh5ja0wHoJQ==
+	t=1795280254;
+	b=ZRw16JSRzfAErCMjuI2+DFAXD8AFvQMJFgjrPL3Ym9/bG3Pe5mkZ3UsWG9xnqyju4jzt
+	 BIDgu41QrDkJckguHNx3lkNARELYf5jH/cL6kLjdKM9WX02mwe83gJEvV7YMTgkkbd1GU
+	 brnLXKA1tIPlVwfxRWzg+B2JmARc7eWKt3akYkmLiaawt3QyBBTWY5AzWdG4S/JQ5B6X0
+	 pQxhPiHVAfgkz+2XR8onmvx3Y5pEMJYPw+sSQPirubPYICYuS1SzB07bH7JD+t0yTIVJi
+	 3f9Pi6ZDW0oVPaCABn9eE92jkNUfQ8TflJlaLcP5eFKj0Oz8gAgZFOv2SFRbOhJcYtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795278967;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding;
-	bh=gsY52QypeM8c+C0yp8+SKsiWC6bxLPvGiy93DlD6Rc8=;
-	b=PG1xdjpfl31o8g8pg5zb2Qs750E0Jrq9a999D8GpkrK4mWm9mPifBTvJh6s5qK2JvLC/
-	 A2U1R7UJ/1kNh3bcRiZpWUSEIfzEkSDjU0fJxPW4kcJMUKJxD/tVyl17oRbUhoXpNh2Zz
-	 vRM5B/reFRYzy6LL0UdTqp0mMLdRBC0Byt89Hq7yF3XeFK0u5vwCZ30lgvJdlgueoNR5W
-	 n0JutCPFk+HhzgtafiERt6qMOOFt6wCK335mpm4txZm+2uFDsXPdsTd0UszG9R76z9OIY
-	 eW4U9uAa1w45WEL1pI/7qC04mfeMyMMk5iQBOhdOnbOaDAk6rB83wDqEiTxtcFWR9GQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280254;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=LXFMN0A5KMMIgyP36bowFYDX2PYKXarZkUD9AtYfP2M=;
+	b=c01UNtiU0/Lxej/yuOZY9iy3K0SDY0NyJd2/OMt86bsX05KthYeuyexczfrEYZG2SItV
+	 /iLWyFKdWpShM6UMpYvTUP2G6zsKNSbzQwXWAVCxFGUPcXZI/iDFrPkFPj4SugdnjhWiA
+	 0VPED3RB9nhqcGggEl3eaXXPx32mYBRr7fTV/u9Xc9YNCviFUPKyScwxfGCKfIuvFoTAZ
+	 Xaj+jWrEmPkPP5RNpUPd7CPALIkXWcl2dSCNGyCIMH/zPyJfBwymQu4k8t2nG1yn33rUq
+	 vj8cMlQ+uVo3dhyuLmEGknx6aT5sB7BSfHhTmbEZTalOYmSw6CKx7jaTImb3aU/A9OA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=BCL39XsV;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=0iwsuRgQ;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=loyOvsNb;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 543D9606A32C;
-	Sat, 21 Nov 2026 16:36:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 543D9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 929A9606A332;
+	Sat, 21 Nov 2026 16:57:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 929A9606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=BCL39XsV;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=0iwsuRgQ
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795278959;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=gsY52QypeM8c+C0yp8+SKsiWC6bxLPvGiy93DlD6Rc8=;
-	b=BCL39XsVRlrz6KdxJFHHebR55BJvQHoCt8ZxPc7K8/ttdBwSNTGCtlptjA1cW4BY0+wBj4
-	RH3WLbAaHmM0H+2IWsKQLwMcfFUzA6JTDaNt1T4rz01Ts6WJzvfd4Jp3POKAPsertmLMRM
-	tzkAS+Hp3MRejMVTPR7dq4F2uwEdJiRQLcw4h3GZM5cxk5FJ8f9CrM+Fa49IHe/1hd9UWl
-	zovlcNHQyrda5Ck/Kmhlmymz+vNuccTIuAJ+4mMVYWU+8YseGXDKwBNtZT4AWGHRvUSP5M
-	zCM6eiVmVszGQdEr3HHzvsin4z6Blo74uU5/QX2ZdrxPsyrwKvzDn/ijzTq4/A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795278959;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=gsY52QypeM8c+C0yp8+SKsiWC6bxLPvGiy93DlD6Rc8=;
-	b=0iwsuRgQbQpmYxaVF/OaVWMavCV4vkXiwwuaaTU6NvadceOzaAC4RhVgvi9Bx+KiHBoRIo
-	2JY6r0MKGTTfSzBQ==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Breno Leitao <leitao@debian.org>,
-	printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Rio <rioo.tsukatsukii@gmail.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Bradley Morgan <brads@mainlining.org>,
-	Pnina Feder <pnina.feder@mobileye.com>,
-	Alessandro Carminati <acarmina@redhat.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Dave Young <ruirui.yang@linux.dev>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Bradley Morgan <include@grrlz.net>,
-	Alex Elder <elder@riscstar.com>,
-	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	kexec@lists.infradead.org,
-	Gustavo Luiz Duarte <gustavold@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=loyOvsNb
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=LXFMN0A5KMMIgyP36bowFYDX2PYKXarZkUD9AtYfP2M=; b=loyOvsNbmPLRn5ehx6/BlR08Rk
+	it9MPCgP6qPenwuGlFHo+VyTW52vmw+7L1O40gySi/qpqo0HqX+luPTwv4fD6wPj4eLZyzdcg333c
+	z1IG4AFsSjEqSuok2XLpeh1C+/b1Zyquj0SwHPKlVxuDkdlwbW7EkdJ3TJ/0rtg8PHG4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xUoOj-000T6z-2I; Sat, 21 Nov 2026 17:57:09 +0100
+Date: Sat, 21 Nov 2026 17:57:09 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Frank <Frank.Sae@motor-comm.com>, Paolo Abeni <pabeni@redhat.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH printk v4 0/8] Introduce policies for unsafe flushing
-Date: Sat, 21 Nov 2026 17:41:48 +0106
-Message-ID: <20261121163557.963029-1-john.ogness@linutronix.de>
+	Eric Dumazet <edumazet@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] net: phy: motorcomm: add led_brightness_set for
+ YT8521
+Message-ID: <b8c387c7-f201-40d3-8f1b-3f8113ef6622@lunn.ch>
+References: <20261120100001.1568757-1-amadeus@jmu.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,74 +66,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120100001.1568757-1-amadeus@jmu.edu.cn>
 
-v3 is here [0].
+On Fri, Nov 20, 2026 at 06:00:00PM +0800, Chukun Pan wrote:
+> Add support for manual brightness setting on YT8521/YT8531 PHY.
+> Testing with on/off and heartbeat on the Radxa E20C (YT8531).
 
-Until now unsafe flushing is only performed at the very end of
-panic(), before entering the infinite loop. For other situations
-(such as panic-kexec or panic-reboot or emergency-reboot) no
-unsafe flushing is performed. The reasoning for this is because
-an unsafe flush could lead to fireworks, which could prevent the
-kexec or reboot from occurring.
+Did you test enabling a mode which uses the hardware to blink?
 
-However, some users may be willing to take on such risks in order
-to see panic output. Indeed, for the netconsole (which does not
-support safe atomic printing) it is a regression that such unsafe
-printing does not occur. [1] 
+Sometimes you need to take it out of forced mode. It could be that any
+value other than 0 in YT8521_LED0_CFG_REG does that, but there is
+nothing i can see here which suggests that.
 
-This series adds unsafe flushing policy flags per-console to
-allow individual consoles to perform unsafe flushing for such
-scenarios. The unsafe flushing is hard-code-enabled for the
-netconsole in patch 8/8. The justification is that this is not
-less safe than the legacy netconsole.
+If 0 is forced, maybe add
 
-Later these policy flags could be easily exposed to userspace
-via /sys/class/consoles/, once the sysfs per-console interface
-is available.
+#define YT8521_LED_FORCED 0
 
-The first 5 patches have no functional changes.
+next to YT8521_LED_10_ON_EN ?
 
-Changes since v3:
+Please also take a read of:
 
-- Restore WARN for non-panic hostile takeover attempts and
-  expand the comment so I don't attempt this again.
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
 
-- Rename nbcon_allow_unsafe_takeover() to nbcon_allow_unsafe()
-  because it now allows general unsafe usage and not
-  specifically hostile takeovers.
+You need to set the subject line.
 
-- In __nbcon_atomic_flush_pending(), additionally use
-  panic_on_this_cpu() to determine if a hostile takeover is
-  allowed.
+    Andrew
 
-John Ogness
-
-[0] https://lore.kernel.org/lkml/20261118230345.808560-1-john.ogness@linutronix.de
-[1] https://lore.kernel.org/lkml/20260915100140.3631650-1-ryan.roberts@arm.com
-
-John Ogness (8):
-  printk: Introduce and specify flush reasons
-  printk: nbcon: Move unsafe takeover check to higher level
-  printk: Move unsafe takeover check out of console_is_usable()
-  printk: nbcon: Use @reason instead of global variable to check flush
-    policy
-  printk: nbcon: Expand unsafe takeover check for general unsafe
-  console: Support unsafe flushing for panic/emergency restarts
-  printk: Add unsafe flush points for panic+kexec and emergency_restart
-  netconsole: Perform unsafe flushing on panic and emergency restart
-
- drivers/net/netconsole.c |   2 +
- include/linux/console.h  |  60 +++++++++++++++++-----
- include/linux/printk.h   |  20 +++++++-
- kernel/crash_core.c      |   1 +
- kernel/panic.c           |   2 +-
- kernel/printk/nbcon.c    | 105 ++++++++++++++++++++++++++++-----------
- kernel/reboot.c          |   1 +
- 7 files changed, 147 insertions(+), 44 deletions(-)
-
-
-base-commit: 52904cd86a5f8c83fd956d1b2b9cd12593597e7b
--- 
-2.47.3
-
+---
+pw-bot: cr
