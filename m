@@ -1,60 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.146.106.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795301453;
-	b=JsYK2YjlfmpC4UUcKNBiT/eUEsPWrPoQR3tcah1bIco68qIyHrzFomi7lZtl6nFXK5sj
-	 1qcVgYRgJC3HVqjGdRtF93hjMXNKD+zBXLn0qbUSe03cNzEhBMDKmAvVUGQEjeVIva4GR
-	 ipUcs26S//NYtU+NtS8r/E4t3/+GdbwauctB+PWjT59ypXh90d/XejdAX0pMz544aInZ3
-	 EnbN9e/4679F+zTPNgspT/+cu0BHLgzw0gCACam4g2IBIXbNIDZeAO7zKkx1vZvA631lX
-	 z+wgIa4WO1vAXakfImKI8ZsOIRxdh/d5AHTNO8pU6F0d822JJUWnqaxZLRrB7fTkGuA==
+	t=1795301744;
+	b=uuo7hh6qc5ECcp/9fbNH9agZpiE4c/kafFI2BR+3seO3EnQZu8+9Wv8aEocX+42QdVJS
+	 jbvfNpUCuUlIud+BFThN1+HplzLbUlztvN3vxQ102eRDKGtMbZ2Hsu/c+LyaZkNl2h6Mj
+	 +rxeU9++gHHtHihKu9CnJZaqTKAMkuYCxYXvWWlYTyzCaU1LVKe92Ie7lWL1vX1G2ldAS
+	 lQVgzawgKSEGXbB5UC9mtpkedDrOslAH+wQuScqD9RhVEN4gkD5RgoDyWyXcbg7aufPQC
+	 QsLe7nftCjhIeh6I/wBOJy7zkjRNn8W5E2lef24aDplOm64GgJePOLcDvteIg1ATygA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795301453;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=c5oP9ex2gKQC9XOc6NFSr7DB6WiPxByJ0WCu8nSvzmk=;
-	b=nfieodxy+COaDN9Olb/65gj6hveBGegouXgRgpROkXIHv+x43o5EmICZM+7Xbi6yeQU/
-	 uYx6KWzhfIiuiOhsgTK7E/UCLGim+E2Yd31J2TzfDFTEP/sNqcqMc+HvTtNjBvTqr1WvR
-	 fAS0o+mbMpwtmOFp2li39xX2bJC7p7nsmg0Bb76uKoZ85fH5MZ0QX6DHomTO4qRLwzyNG
-	 izilT90YAwDMf6ELJnMLHWqrsC5vkPQHluXzTbS88AIo7OPS9di8Iz2DMfZo0oEuBpT1f
-	 W5qbcNxh7rTIPIH3UdizBf5FMVJ6l6XTHWS5SipsxmeLDYQgtgQQ1ZTD7cNEioAdBkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795301744;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=RB/9j81snFU7XbDuV5JRsEuzbBLUE9tMHuPHwo5+5Ck=;
+	b=wPM4VVnQ0apFvvYUhGzgyhFzzp/4AwEA8crWz4qQ5nrMMHbAK4ifbCIXvXVSq1ankjP6
+	 6Lub7nfa7gTEqhhapkkzuOw1jD6y+8knUFSF1MgGxUVtckBc5KaDgl7qAcwyQ34mpAokz
+	 eMx9NHv0G0VzpqpWy4oVsHxEgVbHsNiGHRldgZZag6IbMsvB/tssmNuf7g6+F2OnrA5Lp
+	 fLo1ZJwT291whCCfYoEkhXVXi63iIosVDxM5e+mMZne+m3j2zQ5NBL0PPzw5D1kHxqG/J
+	 5mFbiup/lxWzucnY+dfGic0jGrk2hjqrknQdqmKZE2/QEvCVU4aLqfcypwUsaKNwnPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dressler.pro;
-	spf=pass smtp.mailfrom=dressler.pro;
-	dkim=pass header.d=dressler.pro header.i=@dressler.pro header.a=rsa-sha256 header.s=uddkim-202310 header.b=a37GJ+SR;
-	arc=none smtp.remote-ip=62.146.106.33
-Received: from smtp02-ext3.udag.de (smtp02-ext3.udag.de [62.146.106.33])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VD2ELxVV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B751606A330
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 22:50:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B751606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dressler.pro
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dressler.pro
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3853606A339;
+	Sat, 21 Nov 2026 22:55:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dressler.pro header.i=@dressler.pro header.a=rsa-sha256 header.s=uddkim-202310 header.b=a37GJ+SR
-Received: from machine (unknown [37.228.226.218])
-	by smtp02-ext3.udag.de (Postfix) with ESMTPA id CC089E0AFB;
-	Sat, 21 Nov 2026 23:50:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dressler.pro;
-	s=uddkim-202310; t=1795301451;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=c5oP9ex2gKQC9XOc6NFSr7DB6WiPxByJ0WCu8nSvzmk=;
-	b=a37GJ+SRKm8DuHf89VC2mIIj9kDyxzz5XV/hp/sKA0gYHDEKJivy0tKNqhtrirFJBu0F/A
-	KhYuzFuEXo79khPWrq/ARKHNQIf2ja1ZlAwZSiL9neAsuJ/jhg69bwTkjCpZGGlQcfczEL
-	8lcJQ+lpXL/5rzk40LoRZRru+fDB79F/olhiDu+fX4XcDWbtjsZIvfkKE8rXv5e4NE018o
-	ng/AXhS5MVRem7jZw0KvOFzgga/QTmWS9eZDWDU60FAHsGrjreYSn1eH3K1YJ/srlHkaMS
-	n1HiCKHjv5MfSguFDvk01VbtNCkPv4YKYVysretUItK9lyhtMhb/Coh5yHZkpA==
-Authentication-Results: smtp02-ext3.udag.de;
-	auth=pass smtp.auth=dressler-pro-0001 smtp.mailfrom=frank@dressler.pro
-From: Frank Dressler <frank@dressler.pro>
-To: netdev@vger.kernel.org
-Cc: stephen@networkplumber.org
-Subject: [PATCH iproute2] ss: show the process column for -T, -Z, and -z
-Date: Sat, 21 Nov 2026 22:50:31 +0000
-Message-ID: <20261121225031.106742-1-frank@dressler.pro>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VD2ELxVV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D77D1F000C4;
+	Sat, 21 Nov 2026 22:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795301744;
+	bh=RB/9j81snFU7XbDuV5JRsEuzbBLUE9tMHuPHwo5+5Ck=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VD2ELxVVPP85kZgWLBpmZFeOdKMCrTNR68j/Y7w3oBQeW9BC32ngLhU0cNVesm79Z
+	 Z14y74VzrVkTav/xhV5AEwfySTBsCWDF8AISI4O5KST7PEe5dgicsfx6WW5h4Zbo3M
+	 w5OBu5Cw1yo6QzHEIS6yScrez10I8dlb72ybWvbkEQmqa3W23T0NH/3smpLOAWcQ8b
+	 YAPlv6slNTD0pTYMK/fwlWMh7wjxB/Ysj6gMV/eiu2c0/d6rRmAyqf1u6DRqNVHZbU
+	 SUWnuTr2Jj46WzjneLDQVbm22tyv7kDCLeD8yCfRvwx5PNdMJkYyp1AF2i9V2er0zP
+	 6LnIxltQzemMg==
+Date: Sat, 21 Nov 2026 14:55:43 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Anton Danilov <littlesmilingcloud@gmail.com>
+Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon
+ Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, Ido Schimmel
+ <idosch@nvidia.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v7 0/8] tunnels: add core and gre drop reasons
+Message-ID: <20261121145543.52027d7d@kernel.org>
+In-Reply-To: <20261117211853.3733250-1-littlesmilingcloud@gmail.com>
+References: <20261117211853.3733250-1-littlesmilingcloud@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,33 +60,17 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-The process column was disabled unless -p was passed. However,
-ss with -T, -Z, and -z still collects the information, and the
-man page requires them to show it without -p.
+On Wed, 18 Nov 2026 00:18:45 +0300 Anton Danilov wrote:
+> Changes since v6:
+> - Rebase onto net-next a0aa9ceca03f as requested by Jakub.
 
-Fixes: 84c45b8acb30 ("Reapply "ss: prevent "Process" column from being printed unless requested"")
-Signed-off-by: Frank Dressler <frank@dressler.pro>
----
- misc/ss.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Conflicts again..
 
-diff --git a/misc/ss.c b/misc/ss.c
-index f4160f59..b5430a01 100644
---- a/misc/ss.c
-+++ b/misc/ss.c
-@@ -5787,7 +5787,7 @@ int main(int argc, char *argv[])
- 	if (ssfilter_parse(&current_filter.f, argc, argv, filter_fp))
- 		usage();
- 
--	if (!show_processes)
-+	if (!show_processes && !show_threads && !show_proc_ctx && !show_sock_ctx)
- 		columns[COL_PROC].disabled = 1;
- 
- 	if (!show_queues) {
-
-base-commit: 87cb3f4198507331b9308689d4a726d17db63dd3
--- 
-2.56.1
-
+Could you please rebase and move the drop reasons you are adding?
+Place them next to the existing tunnel reasons instead of at the 
+end of the list. The new drop reasons do not have to be added
+at the end. Grouping makes it both easier to read and avoids
+conflicts with unrelated fixes.
