@@ -1,57 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795220235;
-	b=U1nkDShGdhk+XtHG7BtB0V4+ACGoPFDasSnNq/lH8Rnz4IDVckl7Kg2nL7GVL+RCJrmy
-	 0/8+waCBBMlWoGQY/dhQrb6cqFkjjMK+Uje2nrfojEWOS6DMcliyMXhrWlYRdgn4OPlZH
-	 2RMOeE7Nq87RIpVjDnzAPGKcLDFqS0PoAN9BZbqQ/Eh7hQeOB1QDDAEUoe5bscjJQEyRa
-	 J3bjfAe8OVRdrATDH0u2QGb82ssOPP5CdN2n8teoALsZk7gLFY85gBNnI40p4D2p0TZpt
-	 QH7NlTp3zShd0UyoYTPPItXWzRuRDWSZ9QU9X2tJIaQdECrv2FNuRh9YG8mIjC0KrvQ==
+	t=1795220249;
+	b=ERrc8nYrL+jj08E8serUPwYfwZyaLphQVTgQ/Y2awBufFsXimtCMNUfsPl4nsJKz9SIG
+	 lvn9yD8SJjV4UiD4Yux2wSE0xNTgt/rGBde6h4f0DyKwL4HTxy5o7+5DheN19TKXW2mQq
+	 K2zFqtk0+FYKzlay33bHA9yFGuQlgGsPv/83OHoXkvwWgKKTdJ4F+PM0rnLYXEWlYHA+z
+	 IznjEuT7qFEbFw3A/XRFnnbA51P0r5ZeWRTC5pJhhtE3MTxS4xk+mtfyj0BrhQIe9ZWQR
+	 27DV2FrmQrN3rHSi2Kkt4HNvux0FS9QvdGRSyN9FH+6ch7KY0a/iocdb8afANQhAT6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795220235;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795220249;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
 	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=ldkjn0GAoSq0AadeiIO4zyyUD/VkbTdn0WpkhBoBAHEUuS+7jdDa3S6RXU9yy2dAopxi
-	 JxKn1mW0Ao+f4AWDleIeTIQzBx+X3TbRIT3g795y5iMAEpHBBLbP8xbasd+KqS8ifZg0m
-	 HSgY69ieZv2w3xi48JWMTeYE1HYIpfZO/S4cPNH5+oeN6YSiTEIqRtLtC9Bc1lZHaD02U
-	 eVJthiAYEKyUIRSnOxra8whjIObyxVIfW5N1dicnnG42jcow3zwkBrI4pApJIE9VwtjtS
-	 Zwy7LJqIddutMk51/XGkPgPEYhYRdMvrek1mYRclyYd6ltHZAluz6BMTtnuBRS9n6Ag==
+	b=bAz4P98v5Rd/JkY/sIIAZbkefFcSz5KF64EDjuCrhnYfx4v1rYrDeGUl/uSKDLeZQv6I
+	 J1eR7lUVfX/mIm1RjzqA2d1Lwuk4i6Lu1sn9/IeNnoo5PV3iJ9wze8PbU8PE20Ggu4mHZ
+	 rrJKsnz45Tc6aAjdJPPNgKUmh0Vuc8at3wUWykEIMCk0ohdUozVe7Xd0eZU8LUzxt6pzQ
+	 zWeDtESPQKW2Mb8ED95kgdk5uHJ3zizQbOsGnh8ec6Q2az3j6Lbr0Eb7vHVAsFRM8BA5E
+	 GqBMFdu0/emRf28jaA8VKfMvzVws+y6l5iDCFueMoSYGW3HAlhc+otQKrS8wXvSumww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZErb4B9E;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V5udVzHM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C461606A683;
-	Sat, 21 Nov 2026 00:17:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3F7C606A686
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 00:17:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZErb4B9E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C5ED1F000C6;
-	Sat, 21 Nov 2026 00:17:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V5udVzHM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A81D51F000E6;
+	Sat, 21 Nov 2026 00:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795220234;
+	s=k20260515; t=1795220249;
 	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZErb4B9EHESIYu3xvINTAS1QXCkS/kLr6+RshU1PGGm25B41/ysfSpfv5A2KQH7fd
-	 +YcCo3bs3CyL9j8giCQ/tTNstieLlF0ODxViNrSv4xb1cBagXUijJn9hqPKRfOL05Z
-	 079+2NjPzOK8//UmEcm7oe0dTvO9kksCk6HhfV8CghDT10SBrCCOKnS0l7qGtYjqqz
-	 xmg3iT5kagQ13k20qKTRWM2BlVkRWJ244p1p/MJ6sL+WAdqH1Q8dKsFE0j3MN6QG99
-	 mZ4wtv/j4crT9Bk8RemRi3hHI2SF9LVls0VSYILA1zMYduKCQT2rcJTlJFhGtLb1HN
-	 0iu71YbPHQTNQ==
+	b=V5udVzHM7YstZfJ/wcXBDYG14Hy3ryfnotpRWsUwkg6qqZdxuEaP+kS0GqVWaiXYU
+	 r35YufG6NPQxgu/ZqOkzVTgOv9g7n1UW01ydd7iJqrHnAkPqF0qyBob8FFhcdmxCB6
+	 hr7Yk0HRbqkhnP5SoavNWN7OOOEEyb86sNYtEPkSqJf/aNsWFqK/RfXOfLLWKXRAxy
+	 CaIe6OAmLoSzmIYoPDgFEZdpn90NHwS3FK2Ld79vJqbJsFvy6+zkb3G10IBhcbXOQz
+	 vsitufKJumcYsd0HdZ5GVXt9encuMynW2wcBdZ+yunjN7fXmUIh0eYXVg7eq9Rljxu
+	 /4oZjA0NCr+sQ==
 From: netdev-bot+sinfo@kernel.org
 To: Artemii Mashanov <ralerrdirsardx@gmail.com>
-Cc: netdev@vger.kernel.org, Tariq Toukan <tariqt@nvidia.com>,
+Cc: netdev@vger.kernel.org, Doug Berger <opendmb@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Nicolai Buchwitz <nb@tipi-net.de>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, linux-rdma@vger.kernel.org
-Subject: 
- Re: [PATCH net] net: mlx4_en: report the actual RX classification rule count
-Date: Sat, 21 Nov 2026 00:17:13 +0000
-Message-ID: <179522023307.3294.6067722832080574797@kernel.org>
-In-Reply-To: <20261121001414.724236-1-ralerrdirsardx@gmail.com>
-References: <20261121001414.724236-1-ralerrdirsardx@gmail.com>
+ Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net] net: bcmgenet: reject undersized RX classification
+ rule buffers
+Date: Sat, 21 Nov 2026 00:17:28 +0000
+Message-ID: <179522024822.3294.17329682912331634453@kernel.org>
+In-Reply-To: <20261121001550.732679-1-ralerrdirsardx@gmail.com>
+References: <20261121001550.732679-1-ralerrdirsardx@gmail.com>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
