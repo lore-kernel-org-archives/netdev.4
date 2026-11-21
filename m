@@ -1,104 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795288885;
-	b=BVROfIUZIaax7k4qNjByo8QpX15oKvTxDT7DqXBXDVBNCyEsWndJJLNEzZQmzPfezveW
-	 RjxdHuAZCg/IFgItdxPLajER+zmzjmAAq+thw/YHeKIajDzJ30VqKeoQuJtXqz/EksqDG
-	 HqnDiWvHYq95gCbd7npTs8g+2NClJZvqMqd7CtB35dxTWikSyTljvYPoCuiaE6H1tG78s
-	 K3IjctlYKVx1tp9sbGLH7kfDpHOeMvmDr1IKFOgdUnB+4Ww12U4xuigFRmVxHUT1nJHaP
-	 jueabUvSA+LO/k+ulqddL03zwknpvRAARVFGN8hmgp/A8ht73LOThEE3w1h0mT+sxiQ==
+	t=1795289025;
+	b=WRgFfvhAs+X0FEB+XejbO6xqGtHqeBUTdfs+HHvFQA8yRrgbhDiyl50uBjcSUkC2iTmB
+	 msQB7xxtS+NH+KdLc6RmeKnvCet8O46fEABO8ZivekRtKF97FFchilzrge7M6p6YojiLJ
+	 qPz+NXKXNXUu2JpH8LsYgZ/aXiomkHOGuCe5ngsuJflTub9kiy1Z/g4LFSOdh78eDmHxq
+	 bX+J1GSaDHDll1CqYok8OlKsvFgMGFwClqpT1Hkh7ESP76YlbCgQq8Ri6g9NAmflyW6GN
+	 dDyUUbOnSQAJ97Ly88tgtIY71mRJ7bMKT4Vz+dfTbsTFzDl7KbZ1fDrubmjTkQ9icAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795288885;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=NQO9BkHBvAZklmngPl8SstGhCBjCQ90cEtIj3WVrALs=;
-	b=2YUdHK+fVn8mK4idD7e7plZ1GZO2ASCRtROkwmCL++7Wz2LG3Jr75KMkCxnefyYZOeYX
-	 m3hSpXNExKgXmb+4MRAowdU1K7vdvgg5wbPu0AnlA1qNftcgC+lXi/2hkVMtc3x/o3wvt
-	 4Fu/wuCEJ6utGheSto2Z83HmquGeIqVSYF63HbpLLFOhTKlrIOzHgZ9RU7a0X69ZCf5cT
-	 sFPhhmR3jOm2KNgGKlYGlS/nULJChkI2j/vupXetU/piTcv+WSyMnV/2bNGKAiiTC0HGJ
-	 Hs76Yi47qg0A1SvyqLqzdH9ThiBXcAVF7VRtulAeYD5wb53v1bBDLcAPPoN2HnaCANw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289025;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=GqiMSWFjg1MsHTdt1zaF4HrbzuxDGISoMaceZCX5cFg=;
+	b=ljX35+xJCcdkR00K7S41nWv5Q7/i1yQD2yAEBVxqam1vG3afQE2jI1TE9KzRo83RBPjo
+	 wKcX3MIkBIcbRjC5eiAwAshnN8/N5xIFItgHdSg3Jv3rXYRd3uqMhbwzHRoAOCDmkHNBd
+	 X+JrM1M98l2tS1UsR2drFiUN3fBApp2ihz8ECL4ObwAsMNnRO6MINu7nKmprONu0Eaf4z
+	 0ZZKhz0d1CJ4/3eTIuB2CZ1couPShjSBDTvPyjlsINzgcAEIUEcvdI7Fr2VqMxnex3oEb
+	 D5aOIYC0WtcvY3W684PRAIT+HN32aPLgtr1mYCwVzxypfYJMA3pd8HKUPSrdTldzEVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=PqhLGW2V;
-	arc=none smtp.remote-ip=209.85.222.182
-Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com [209.85.222.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MzpQ85Nr;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1C96606A335
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 19:21:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1C96606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A76606A320
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 19:23:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90A76606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=PqhLGW2V
-Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-949664ee41cso228272885a.3
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 11:21:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795288884; x=1795893684; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NQO9BkHBvAZklmngPl8SstGhCBjCQ90cEtIj3WVrALs=;
-        b=PqhLGW2VioGEEjtCd7ZOc4EGOse7DMJ7Q2Xqhmk+/H8T+gAwE+4Dq3ViZ75fCWsuPp
-         NUrUgNGLqZNFlSWejps84ph0wTK0VNXce46/1dIycST6VPwQuW+BtJuDXXdpEeHpEMDS
-         cd2Cza7YkUMMvHP2ih5UdEes+rIeMXUhv2/M8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795288884; x=1795893684;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NQO9BkHBvAZklmngPl8SstGhCBjCQ90cEtIj3WVrALs=;
-        b=Jlwydsay8Bc6FKLZL7V09oZOCFM/m6AmuBZ/qqCwNkmHljqUu/Wb5EFwCery9qFJhK
-         oP5sDvvhjm0d2FDJMwMRMTvNdAOdCp1uT5Z55EsDeVlBRIKE0sknzk4TEMTWUa+ER5Yf
-         dIB/s3z70JZebDaevXs53frvKhh3php1aVew0LnsPAUKJPVDn4ht53VmwzuhTl3SlhN4
-         FAiLJe4EaFuJC+lIyaX+9fIPZbnCxDq0ZzC+sEuFBP1NcwG28NjJdsQ1bgsUpkuBakvh
-         f/Y+IXO8y+SoDKDb9mJoKspc/4vLeY9XZQBmQA8merhdy3wXyUKqMcuIJmWGZmcW+HhO
-         r+Rw==
-X-Gm-Message-State: APuU4Z+ZKHgldolqwkfEXldccC1AjgDdCdXM+eh9BuAHvZXchR0UhuFA
-	CCFYhbm9rQQ8ODKIZdh+nwKR4rzNA6JY5xXyvHFKKlcrm6eI6pXcM2AuUtV4VwkT6pZsSqsXrDM
-	wTMM=
-X-Gm-Gg: AZFdTZd9eQvUlqAKTkZyAyhwGvPuip0SRpI0qq/J1Q8dcQHwtdGl+4QawfYKg3L2H57
-	qlaa0y3mDte/jBVeENapUYqCq4XduNh3WZ8FV8xO2F3FvrHoj09GNcNnjkOLEby6V5R/vad+srZ
-	+WLE6TzhZcAkbgxvYKuXIqAeygpz/m/CQ+u8WOoLb1ErvaCWKBRIkMvG0ROdIy2UldbLzOsEQHq
-	bgA9IlZMLjxEUyhihUT9/5Fcw+m/0bIlPRQw35NQJg5CKRfqjPicqqLHP6V/aBsjly7SXtPllBe
-	UQvolX6xEdfEQMRg01S+ZChdqHGujLVhuDHgAraTQhCwix8kLB20M4N/q2mrB8ZIviZlxwOmQlN
-	fP6X9F7JejfXveDlNYYTUlbYtlG615EVEEV06RZkftFUNEHW5fyPKz0jcBtiyz/Wpl3BwjddYYc
-	0/8YlRCrk8g8A/sNPzJxsy16N9+rJVc5cfT9O7JtVLw8T+OQhbrgmq0kEKVcQ4dB9L+Rw7HDI5T
-	2XIBNdfj5Jww97Qpzc96ktf+P1EcC8PjEITw44duuDTrTyJRAbEhwkOPYheUiiq6mi8jYxu0t5q
-	nG/Fint1h+AYcMB6iuIj1mJFsnWO7D3KZ0vo9gqs439mKaDcWSNR5RV6ElhQpEMHiFI1Uknu1x9
-	HONPNw7oHZIRy03dl0R3h
-X-Received: by 2002:a05:620a:f0f:b0:949:57b4:388b with SMTP id af79cd13be357-949bab0eb6cmr1273911485a.41.1795288883784;
-        Sat, 21 Nov 2026 11:21:23 -0800 (PST)
-Received: from mbili.waya ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3cb882sm472764685a.27.2026.11.21.11.21.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 11:21:22 -0800 (PST)
-From: Jamal Hadi Salim <jhs@mojatatu.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MzpQ85Nr
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=GqiMSWFjg1MsHTdt1zaF4HrbzuxDGISoMaceZCX5cFg=; b=MzpQ85NrXGWQuhq1m46Vrn4LCB
+	E0dDEiNdWqXqfHX9+t3qAWNgk50PFdKqCfjcn5o2PO9uWxgem8gb4pc2ygRaWy2z+UUfRhtS/0uTD
+	cIFhWYqJ3hInRNweb2Fy++vMN91o/FuImxzLyOiN2zi7x9wK1rgFv1ZMBFYw8daZOBfeo/nUgr3Et
+	SJrURgbacufhVVbzSbMxYqbZpJptzyN4unntdClh2v0L6HIPkWKeHbIKogJFK07x9SRCDh23W2uPR
+	t1ODUk9d8c2OZ5H5GSD/j5MupjS4ZxHBJ1SCPKQ4oAQK2YmLCGPQ6BtRU+x8HNvpE2kYUtJoIEyp6
+	sgWiOJrA==;
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUqga-000000006s9-3k4l;
+	Sat, 21 Nov 2026 19:23:44 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
 To: netdev@vger.kernel.org
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S . Miller" <davem@davemloft.net>,
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Pantelis Antoniou <pantelis.antoniou@gmail.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	Victor Nogueira <victor@mojatatu.com>,
-	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	cake@lists.bufferbloat.net,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH net-next v12 4/4] net/sched: cake: hash before segmenting and reject an overlong split
-Date: Sat, 21 Nov 2026 14:21:10 -0500
-Message-Id: <QDISC-BA27.v12.r0.20261120184210-4@mojatatu.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <QDISC-BA27.v12.r0.20261120184210@mojatatu.com>
-References: <QDISC-BA27.v12.r0.20261120184210@mojatatu.com>
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net] net: ethernet: fs_enet: add missing MODULE_DESCRIPTION()s
+Date: Sat, 21 Nov 2026 11:23:43 -0800
+Message-ID: <20261121192343.932171-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,321 +69,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The Fix:
-with CAKE_FLAG_SPLIT_GSO, cake computes the flow/host hash keys, then
-splits a GSO skb into segments it accounts individually. Key extraction
-must run on the unsegmented skb -- skb_gso_segment() can rewrite an
-encapsulated packet's headers to the inner ones -- and the resolution
-must wait until the packet is admitted, since it commits the
-set-associative tags, host indices and way counters that a later
-rejection would leave mutated (a GSO skb whose segmentation fails was
-dropped with that state already committed).
+Add 2 missing MODULE_DESCRIPTION()s that are now required.
 
-Split cake_hash() into a side-effect-free cake_hash_keys(), run on the
-unsegmented skb, and cake_hash_resolve(), run only once the packet is
-admitted. Move the split-GSO path ahead of the resolution: sum the
-segment list, test the total against the ceiling before linking any
-segment, and drop the whole list on rejection so no persistent state is
-committed. The list is deferred to to_free so the tail segment's
-sock_wfree() never runs under the qdisc lock.
+WARNING: modpost: drivers/net/ethernet/freescale/fs_enet/mii-fec.ko:
+  missing MODULE_DESCRIPTION()
+WARNING: modpost: drivers/net/ethernet/freescale/fs_enet/mii-bitbang.ko:
+  missing MODULE_DESCRIPTION()
 
-Tag every deferred segment with QDISC_DROP_OVERLIMIT: __skb_gso_segment()
-keeps SKB_GSO_CB at cb offset 32, aliasing tc_skb_cb.drop_reason, and
-__copy_skb_header() copies it into every segment, so tagging only the
-head left the rest with GSO scratch (a headroom-sized value) as their
-drop reason, which __tcf_kfree_skb_list() would report as an unrelated
-core reason. The segmentation-failure return has the same aliasing and
-uses qdisc_drop_reason(..., QDISC_DROP_GENERIC) so its drop is still
-reported as a qdisc drop.
-
-Read q->config->flow_mode once with READ_ONCE() in cake_enqueue() and
-pass that value to both cake_hash_keys() and cake_hash_resolve(), and to
-the later flowchain calls (cake_get_flow_quantum(),
-cake_inc_srchost_bulk_flow_count(), cake_inc_dsthost_bulk_flow_count()).
-cake_mq_change() updates the shared cake_config outside the qdisc lock, so
-a reconfiguration could extract and resolve keys in different modes.
-
-Conditions to recreate the bug:
-  ip tuntap add tun0 mode tun
-  ip link set tun0 txqueuelen 32 up
-  ip addr add 10.99.0.1/24 dev tun0
-  # hold the tun fd open without reading so the backlog persists; a stab
-  # overhead of 1048468 accounts each 92-byte packet at 1048560 bytes, so
-  # 4095 queued packets leave 65519 bytes below QDISC_MAX_BACKLOG.  A
-  # 65000-byte UDP_SEGMENT payload with a 1400-byte segment size then has
-  # a segment sum past the remaining headroom, and cake rejects the whole
-  # split.  Setup needs CAP_NET_ADMIN; the payload itself does not.
-  tc qdisc add dev tun0 root handle 1: stab overhead 1048468 \
-      cake split-gso memlimit 512Mb
-
-Link: https://lore.kernel.org/netdev/179231933068.3135.80340792633077986@kernel.org/
-Link: https://lore.kernel.org/netdev/179269577270.3135.16072065138845192450@kernel.org/
-Reviewed-by: Victor Nogueira <victor@mojatatu.com>
-Acked-by: Toke Høiland-Jørgensen <toke@toke.dk>
-Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
-
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 ---
-v11 -> v12:
-- compare the split's segment sum against U32_MAX, the wrap boundary that
-qdisc_backlog_overflow() uses, instead of the post-add ceiling, which
-rejected a split up to two packet lengths before it could wrap.
-  (Sashiko nipa review of v11)
----
- net/sched/sch_cake.c | 133 +++++++++++++++++++++++++++++++------------
- 1 file changed, 97 insertions(+), 36 deletions(-)
+Cc: Pantelis Antoniou <pantelis.antoniou@gmail.com>
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
 
-diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
-index 803ead499ae9..24fff15f8f7d 100644
---- a/net/sched/sch_cake.c
-+++ b/net/sched/sch_cake.c
-@@ -709,19 +709,28 @@ static u16 cake_get_flow_quantum(struct cake_tin_data *q,
- 		get_random_u16()) >> 16;
- }
- 
--static u32 cake_hash(struct cake_tin_data *q, const struct sk_buff *skb,
--		     int flow_mode, u16 flow_override, u16 host_override)
-+struct cake_hash_keys {
-+	u32 srchost_hash;
-+	u32 dsthost_hash;
-+	u32 flow_hash;
-+};
-+
-+static void cake_hash_keys(const struct sk_buff *skb, int flow_mode,
-+			   u16 flow_override, u16 host_override,
-+			   struct cake_hash_keys *out)
- {
- 	bool hash_flows = (!flow_override && !!(flow_mode & CAKE_FLOW_FLOWS));
- 	bool hash_hosts = (!host_override && !!(flow_mode & CAKE_FLOW_HOSTS));
- 	bool nat_enabled = !!(flow_mode & CAKE_FLOW_NAT_FLAG);
--	u32 flow_hash = 0, srchost_hash = 0, dsthost_hash = 0;
--	u16 reduced_hash, srchost_idx, dsthost_idx;
- 	struct flow_keys keys, host_keys;
- 	bool use_skbhash = skb->l4_hash;
- 
-+	out->flow_hash = 0;
-+	out->srchost_hash = 0;
-+	out->dsthost_hash = 0;
-+
- 	if (unlikely(flow_mode == CAKE_FLOW_NONE))
--		return 0;
-+		return;
- 
- 	/* If both overrides are set, or we can use the SKB hash and nat mode is
- 	 * disabled, we can skip packet dissection entirely. If nat mode is
-@@ -756,50 +765,64 @@ static u32 cake_hash(struct cake_tin_data *q, const struct sk_buff *skb,
- 	switch (host_keys.control.addr_type) {
- 	case FLOW_DISSECTOR_KEY_IPV4_ADDRS:
- 		host_keys.addrs.v4addrs.src = 0;
--		dsthost_hash = flow_hash_from_keys(&host_keys);
-+		out->dsthost_hash = flow_hash_from_keys(&host_keys);
- 		host_keys.addrs.v4addrs.src = keys.addrs.v4addrs.src;
- 		host_keys.addrs.v4addrs.dst = 0;
--		srchost_hash = flow_hash_from_keys(&host_keys);
-+		out->srchost_hash = flow_hash_from_keys(&host_keys);
- 		break;
- 
- 	case FLOW_DISSECTOR_KEY_IPV6_ADDRS:
- 		memset(&host_keys.addrs.v6addrs.src, 0,
- 		       sizeof(host_keys.addrs.v6addrs.src));
--		dsthost_hash = flow_hash_from_keys(&host_keys);
-+		out->dsthost_hash = flow_hash_from_keys(&host_keys);
- 		host_keys.addrs.v6addrs.src = keys.addrs.v6addrs.src;
- 		memset(&host_keys.addrs.v6addrs.dst, 0,
- 		       sizeof(host_keys.addrs.v6addrs.dst));
--		srchost_hash = flow_hash_from_keys(&host_keys);
-+		out->srchost_hash = flow_hash_from_keys(&host_keys);
- 		break;
- 
- 	default:
--		dsthost_hash = 0;
--		srchost_hash = 0;
-+		out->dsthost_hash = 0;
-+		out->srchost_hash = 0;
- 	}
- 
- 	/* This *must* be after the above switch, since as a
- 	 * side-effect it sorts the src and dst addresses.
- 	 */
- 	if (hash_flows && !use_skbhash)
--		flow_hash = flow_hash_from_keys(&keys);
-+		out->flow_hash = flow_hash_from_keys(&keys);
- 
- skip_hash:
- 	if (flow_override)
--		flow_hash = flow_override - 1;
-+		out->flow_hash = flow_override - 1;
- 	else if (use_skbhash && (flow_mode & CAKE_FLOW_FLOWS))
--		flow_hash = skb->hash;
-+		out->flow_hash = skb->hash;
- 	if (host_override) {
--		dsthost_hash = host_override - 1;
--		srchost_hash = host_override - 1;
-+		out->dsthost_hash = host_override - 1;
-+		out->srchost_hash = host_override - 1;
- 	}
- 
- 	if (!(flow_mode & CAKE_FLOW_FLOWS)) {
- 		if (flow_mode & CAKE_FLOW_SRC_IP)
--			flow_hash ^= srchost_hash;
-+			out->flow_hash ^= out->srchost_hash;
- 
- 		if (flow_mode & CAKE_FLOW_DST_IP)
--			flow_hash ^= dsthost_hash;
-+			out->flow_hash ^= out->dsthost_hash;
- 	}
-+}
-+
-+/* Commit the flow into the set-associative table (q->tags[], host
-+ * indices, bulk counters). Only after the packet is admitted.
-+ */
-+static u32 cake_hash_resolve(struct cake_tin_data *q,
-+			     const struct cake_hash_keys *keys, int flow_mode)
-+{
-+	u32 flow_hash = keys->flow_hash, srchost_hash = keys->srchost_hash,
-+	    dsthost_hash = keys->dsthost_hash;
-+	u16 reduced_hash, srchost_idx, dsthost_idx;
-+
-+	if (unlikely(flow_mode == CAKE_FLOW_NONE))
-+		return 0;
- 
- 	reduced_hash = flow_hash % CAKE_QUEUES;
- 
-@@ -1765,13 +1788,17 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- {
- 	u32 idx, tin, prev_qlen, prev_backlog, drop_id;
- 	struct cake_sched_data *q = qdisc_priv(sch);
-+	int flow_mode = READ_ONCE(q->config->flow_mode);
- 	int len = qdisc_pkt_len(skb), ret;
- 	u16 flow_override, host_override;
-+	struct sk_buff *segs = NULL;
-+	struct cake_hash_keys keys;
- 	struct sk_buff *ack = NULL;
- 	ktime_t now = ktime_get();
- 	struct cake_tin_data *b;
- 	struct cake_flow *flow;
- 	bool same_flow = false;
-+	u64 slen = 0;
- 
- 	/* Classify first: a terminal verdict means do not enqueue. */
- 	if (cake_tcf_classify(sch, skb, &flow_override, &host_override, &ret)) {
-@@ -1788,12 +1815,52 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 					 QDISC_DROP_OVERLIMIT);
- 	}
- 
--	/* choose flow to insert into */
-+	/* Select the tin and extract the keys before segmenting:
-+	 * skb_gso_segment() rewrites encapsulated headers, which
-+	 * changes the keys.
-+	 */
- 	b = cake_select_tin(sch, skb);
--	idx = cake_hash(b, skb, q->config->flow_mode, flow_override,
--			host_override) + 1;
-+	cake_hash_keys(skb, flow_mode, flow_override, host_override, &keys);
-+
-+	if (qdisc_pkt_segs(skb) > 1 &&
-+	    q->config->rate_flags & CAKE_FLAG_SPLIT_GSO) {
-+		netdev_features_t features = netif_skb_features(skb);
-+		struct sk_buff *nskb, *seg;
-+
-+		segs = skb_gso_segment(skb, features & ~NETIF_F_GSO_MASK);
-+		if (IS_ERR_OR_NULL(segs))
-+			return qdisc_drop_reason(skb, sch, to_free,
-+						 QDISC_DROP_GENERIC);
-+
-+		/* we never use the original skb after splitting */
-+		consume_skb(skb);
-+		skb = NULL;
-+
-+		/* The split path accounts the segment sum, not the
-+		 * stab-adjusted qdisc_pkt_len(), so check that sum
-+		 * against the same wrap boundary as the enqueue guard.
-+		 */
-+		skb_list_walk_safe(segs, seg, nskb)
-+			slen += seg->len;
-+
-+		if (unlikely((u64)sch->qstats.backlog + slen > U32_MAX)) {
-+			qdisc_qstats_overlimit(sch);
-+			/* __skb_gso_segment() puts SKB_GSO_CB at cb
-+			 * offset 32, over tc_skb_cb.drop_reason; every
-+			 * segment inherits it. Tag each one with the
-+			 * qdisc drop reason.
-+			 */
-+			skb_list_walk_safe(segs, seg, nskb)
-+				tcf_set_qdisc_drop_reason(seg,
-+							  QDISC_DROP_OVERLIMIT);
-+
-+			return qdisc_drop_all(segs, sch, to_free);
-+		}
-+	}
-+
-+	/* Admitted: resolve the flow. */
-+	idx = cake_hash_resolve(b, &keys, flow_mode);
- 	tin = (u32)(b - q->tins);
--	idx--;
- 	flow = &b->flows[idx];
- 
- 	/* ensure shaper state isn't stale */
-@@ -1820,14 +1887,9 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 	if (unlikely(len > b->max_skblen))
- 		WRITE_ONCE(b->max_skblen, len);
- 
--	if (qdisc_pkt_segs(skb) > 1 && q->config->rate_flags & CAKE_FLAG_SPLIT_GSO) {
--		struct sk_buff *segs, *nskb, *seg;
--		netdev_features_t features = netif_skb_features(skb);
--		unsigned int slen = 0, numsegs = 0;
--
--		segs = skb_gso_segment(skb, features & ~NETIF_F_GSO_MASK);
--		if (IS_ERR_OR_NULL(segs))
--			return qdisc_drop(skb, sch, to_free);
-+	if (segs) {
-+		struct sk_buff *nskb, *seg;
-+		unsigned int numsegs = 0;
- 
- 		skb_list_walk_safe(segs, seg, nskb) {
- 			skb_mark_not_on_list(seg);
-@@ -1841,7 +1903,6 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 			qdisc_qlen_inc(sch);
- 			numsegs++;
- 			q->buffer_used += seg->truesize;
--			slen += seg->len;
- 			WRITE_ONCE(b->packets, b->packets + 1);
- 		}
- 
-@@ -1853,9 +1914,8 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		WRITE_ONCE(b->backlogs[idx], b->backlogs[idx] + slen);
- 
- 		qdisc_tree_reduce_backlog(sch, 1-numsegs, len-slen);
--		consume_skb(skb);
- 	} else {
--		/* not splitting */
-+		/* not splitting - skb pointer still valid */
- 		int ack_pkt_len = 0;
- 
- 		cobalt_set_enqueue_time(skb, now);
-@@ -1949,7 +2009,8 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		flow->set = CAKE_SET_SPARSE;
- 		WRITE_ONCE(b->sparse_flow_count, b->sparse_flow_count + 1);
- 
--		WRITE_ONCE(flow->deficit, cake_get_flow_quantum(b, flow, q->config->flow_mode));
-+		WRITE_ONCE(flow->deficit,
-+			   cake_get_flow_quantum(b, flow, flow_mode));
- 	} else if (flow->set == CAKE_SET_SPARSE_WAIT) {
- 		/* this flow was empty, accounted as a sparse flow, but actually
- 		 * in the bulk rotation.
-@@ -1958,8 +2019,8 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		WRITE_ONCE(b->sparse_flow_count, b->sparse_flow_count - 1);
- 		WRITE_ONCE(b->bulk_flow_count, b->bulk_flow_count + 1);
- 
--		cake_inc_srchost_bulk_flow_count(b, flow, q->config->flow_mode);
--		cake_inc_dsthost_bulk_flow_count(b, flow, q->config->flow_mode);
-+		cake_inc_srchost_bulk_flow_count(b, flow, flow_mode);
-+		cake_inc_dsthost_bulk_flow_count(b, flow, flow_mode);
- 	}
- 
- 	if (q->buffer_used > u64_stats_read(&q->buffer_max_used)) {
--- 
-2.43.0
+ drivers/net/ethernet/freescale/fs_enet/mii-bitbang.c |    1 +
+ drivers/net/ethernet/freescale/fs_enet/mii-fec.c     |    1 +
+ 2 files changed, 2 insertions(+)
 
+--- linux-next-20261118.orig/drivers/net/ethernet/freescale/fs_enet/mii-bitbang.c
++++ linux-next-20261118/drivers/net/ethernet/freescale/fs_enet/mii-bitbang.c
+@@ -218,4 +218,5 @@ static struct platform_driver fs_enet_bb
+ };
+ 
+ module_platform_driver(fs_enet_bb_mdio_driver);
++MODULE_DESCRIPTION("CPM2 Bitbanged MII driver");
+ MODULE_LICENSE("GPL");
+--- linux-next-20261118.orig/drivers/net/ethernet/freescale/fs_enet/mii-fec.c
++++ linux-next-20261118/drivers/net/ethernet/freescale/fs_enet/mii-fec.c
+@@ -216,4 +216,5 @@ static struct platform_driver fs_enet_fe
+ };
+ 
+ module_platform_driver(fs_enet_fec_mdio_driver);
++MODULE_DESCRIPTION("FEC MII driver");
+ MODULE_LICENSE("GPL");
