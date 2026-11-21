@@ -1,59 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302183;
-	b=LimdWUeRDOFPHOKp6wUTB5gBcvwjVOQEe8Fkb2qN9Ijw86nseQmRgXKFmLFhoWJygseh
-	 Y9ER14owIhgno01V+a95s5n4B0OZ77FPWi17kMuQ8Uo9uiwDptPVv5y0eKXK9kFhxv2cr
-	 yDLlR2UdP1/GdfTpXHJSw/W+1OOrhN+Y4wZX0ABxKFW7eZctw41G2eBTzCgRXjD7vZ22z
-	 XW6UW3kgAebkRLpXpHcYTeRGKQ9p9Kce+edAPb4QLlW1/3hv/eeVVSP5ytoflP+uIHsZ0
-	 QUx2atnfwUWBwFaPatsttJNSyZxovyTVk6Bp6vLB2jg/X9BbEQfoTpPRSF1F0K5oVmA==
+	t=1795302178;
+	b=1xm8aGIH7JaBZqOFJ8oNhzaezgQ43p3hOjqmdoUJSwVG2TVdP/XEfGLk/AKnGkH4BmeO
+	 gfFXgX8DIdt/udCeTk1JXVeAb3wypmm8KilcQigRfYLoYbbt2rjxZMObFbmrNR2Utsk71
+	 hfnI8j8k1QhjZ4CYcYLuy+TA1vJKIduBi9uS5IFa5Y+k6l2z6SOn4BAL9TEm3mm8ul7n3
+	 mLgzZ74rkVULl4bvPGxiwXiWfxxdiSPzHDN99e8sW6y6lnmIbAuIuP/r4nmB84VzjHGOL
+	 DsdZqvYL5q6lE+K/QXRR+6wZZklXm9uF7u8yseV1ptFyk5ZLIbL5h08yVHU77Py8OTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302183;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302178;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=YblPw0OxuKOe7mXetjre4GQOF68ty3iscXQRSGT3Ipk=;
-	b=KVPAbIvI61z7eopcb+NhvXSE+PColwM7gySSLc2yt+RKCWHB8xmEeYXSQL50r2wUnuPT
-	 evBZce9teTVbbFbvKTz0LR7Pom62XXzlCTH3HEHyZcMNQo6okDmmocKtiW9/ITZFUKYyi
-	 FX745fP6eDgQB3PsYiavZzewcMlqaZum30Alj00XRbgWXwJiAi/b7A9r3naarpCVR9yAm
-	 zQQd3rS8KOX8X6mb2L5xo6vo1UbckcR1gKrbPlea/U5whnMYAHs+h4rE/dEOE6emSt0kX
-	 HW3WSiOPKKMC7Xd0tGGAOnyhpKWnnZEockbQHmxv6825RcQ7wxmruyl9gJNLl1cYsKA==
+	bh=FK3dPssi5EMSDevwdCoFcG7tNlGhpdRScPG7jxoulKY=;
+	b=cGySHCq6HAc3v31QSCJ+GTaFF3qjB+n2DIVo/aJk7g2W4RAlMFo0Oy4/OcZf7+3TdLbb
+	 4G/5JJlJvRn8Zj1g+et9ZSDM8yzr47MIoq3kuA+MnvCwxqCrkKEXE3iTjC/6/7vR3PyVM
+	 BkNPYF/InS/EU34Sx/crt+DTrmjEpnG7rEI930WruQ7TugkD6Uj86xFlwVi1NVVdniWju
+	 GAN2Y3SDdHKnADdp04he8V/3JIOCtsTazG3bwfO1ChidS/5qCtaWZC2yZdNV8zRBYstat
+	 3wdT2qtHpdNn/w78WmNQCVY8mUUJ00GffgrUd0iwCwDVzA4gakBnR4wzmSjAftgbU0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JlshQYvk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzuZIlaA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 170C4606A684;
-	Sat, 21 Nov 2026 23:03:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C38606A336;
+	Sat, 21 Nov 2026 23:02:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JlshQYvk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D4E61F000EE;
-	Sat, 21 Nov 2026 23:03:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzuZIlaA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 656D91F000CF;
+	Sat, 21 Nov 2026 23:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302182;
-	bh=YblPw0OxuKOe7mXetjre4GQOF68ty3iscXQRSGT3Ipk=;
+	s=k20260515; t=1795302178;
+	bh=FK3dPssi5EMSDevwdCoFcG7tNlGhpdRScPG7jxoulKY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JlshQYvkDrqUI4avQ0EoOMrhekBi/GfFka55sa+RsTzCoVm6ZnHWnfUmDQXyR3AoB
-	 LpJYm2PzRovVrADFdlmxclBMuqLyrRLBVfuQcuUXGtbwg7ZpcS4U8nYAVLk1AzfHsK
-	 Csstk96qvbyPaGoZ8jmCyQrfLIwIiF7HU9NuBfZq9jUsKlSDVNWjP30Ar9wOSUBO5e
-	 E2Ak7Vp1j9rpEpbDQVZ547NYvJLGL3HAJrT3S73zR/ogu88DMov2ahnYkONGQKwlAJ
-	 bA/4IdAfN0p7aGWumxW5kJ8bapl6DURD9wojzNm0zXueyEDlSgG6+Ba/J8EUlPwokO
-	 zvf+s1n4P3BuA==
-Subject: Re: [PATCH net-next v5 1/6] psp: support rx rekey operation
+	b=bzuZIlaADQAdLtJnqyhO0OWhrbu0Ley041xIUMxViHB1v4orYyXIdcXMXxjGUD2H9
+	 qnHFqwlX+1NMQ252j80Ig+hoNv+4W3tQwZQS9Upr6Nsn4A+/7jEXPlDbcyOx8HOJWR
+	 AAlPKn6yIcypfhdkFLIid7v7dodX3qm1fBrTUV0f08r/1p/yPyWoXVEjsd+pFTPMS3
+	 HIaWdX7s0tzN5AXHok1uNuQN0OkvhM6MbcpBeOcEv31ou6xT64QnPNI0u2fofjk2aN
+	 NVcx/LLc7QSMyTmBI71TU/RMn26AYttUDJ4M8jLZZGxeEHO+HxJary12pHFPktQtA3
+	 ez2i/Is3FU4fA==
+Subject:
+ Re: [PATCH net-next v3] mctp i2c: add sysfs control for mux child netdevs
 From: netdev-bot+sashiko@kernel.org
-To: daniel.zahka@gmail.com
-Cc: kuba@kernel.org, willemdebruijn.kernel@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, donald.hunter@gmail.com,
- andrew+netdev@lunn.ch, shuah@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org, willemb@google.com
-Date: Sat, 21 Nov 2026 23:03:01 +0000
-Message-ID: <179530218118.3135.6547111851222246419@kernel.org>
-In-Reply-To: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
-References: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
-X-sashiko-severity: Low
+To: kenny_hsieh@jabil.com
+Cc: netdev@vger.kernel.org, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
+ andi.shyti@kernel.org, peda@lysator.liu.se, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Sat, 21 Nov 2026 23:02:56 +0000
+Message-ID: <179530217699.3135.2359467047069026979@kernel.org>
+In-Reply-To: <20261118100231.3827609-1-kenny_hsieh@jabil.com>
+References: <20261118100231.3827609-1-kenny_hsieh@jabil.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,129 +65,252 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
 
-- [Low] The uAPI doc for the rx-assoc op in
-  Documentation/netlink/specs/psp.yaml now reads "If the socket already…
-- [Low] psp_assocs_key_rotated() (net/psp/psp_sock.c) now does a plain
-  read-modify-write `pas->prev_generation |= ~PSP_GEN_VALID_MASK` on…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] mctp_i2c_controller_write() (drivers/net/mctp/mctp-i2c.c)
+  checks permission with ns_capable(current->nsproxy->net_ns->user_ns,…
+- [Low] Two inaccuracies in the commit message.
+- [Low] Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp documents
+  only two errors: EEXIST (adding a bus that already has a netdev) and…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch
+  makes it reachable from userspace.
 
 --
 
-psp: support rx rekey operation
+mctp i2c: add sysfs control for mux child netdevs
 
-This commit lets rx-assoc run on a socket that already has full PSP
-state. It creates a new psp_assoc that keeps the existing Tx state and
-gets new Rx state. The previous Rx SPI and generation are kept as a
-fallback, so packets sent by the peer before it switches keys are still
-accepted.
+This patch adds write-only add_mctp_controller and remove_mctp_controller
+attributes to the mctp-i2c-controller device. Writing a bus name to them
+creates or removes an MCTP netdev for that bus in the controller's mux
+tree, so muxes instantiated at runtime without a devicetree node can still
+get a netdev. It also makes mctp_i2c_add_netdev() skip adapters that
+already have a netdev, and it now handles BUS_NOTIFY_REMOVED_DEVICE in the
+bus notifier.
 
-> diff --git a/Documentation/netlink/specs/psp.yaml b/Documentation/netlink/specs/psp.yaml
-> index f3266763c3253..d5713f5d1af7e 100644
-> --- a/Documentation/netlink/specs/psp.yaml
-> +++ b/Documentation/netlink/specs/psp.yaml
-> @@ -265,7 +265,9 @@ operations:
->  
->      -
->        name: rx-assoc
-> -      doc: Allocate a new Rx key + SPI pair, associate it with a socket.
-> +      doc: |
-> +        Allocate a new Rx key + SPI pair, associate it with a socket.
-> +        If the socket already has PSP state, rekey its Rx direction.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp b/Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp
+> new file mode 100644
+> index 0000000000000..4ee96254f57a4
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-i2c-devices-mctp
+> @@ -0,0 +1,24 @@
+> +What:		/sys/bus/i2c/devices/<bus>-<addr>/add_mctp_controller
+> +What:		/sys/bus/i2c/devices/<bus>-<addr>/remove_mctp_controller
+
+[ ... ]
+
+> +		Writing an I2C bus name such as "i2c-30" to add_mctp_controller
+> +		creates an MCTP network device for that bus, and writing it to
+> +		remove_mctp_controller removes it. The bus must be the
+> +		controller's root bus or a mux child below it. Adding a bus
+> +		that already has a network device fails with EEXIST, and
+> +		removing one that has none fails with ENODEV.
 
 [Severity: Low]
-Does this doc match the behaviour for every socket that has PSP state?
-psp_sock_rx_rekey() in net/psp/psp_sock.c rejects the rekey unless both
-directions are set up:
+Should this ABI description list the other errors the store can return?
 
-	if (!prev->tx.spi || !prev->peer_tx) {
-		NL_SET_ERR_MSG(extack, "Socket PSP state is not fully established");
-		return -EBUSY;
-	}
+mctp_i2c_find_named() returns -ENODEV when bus_find_device_by_name() finds
+nothing, on both add and remove:
 
-So a second rx-assoc on a socket that only has Rx state still fails with
--EBUSY.
+	dev = bus_find_device_by_name(&i2c_bus_type, NULL, name);
+	if (!dev)
+		return ERR_PTR(-ENODEV);
 
-psp.rst describes this precondition, but the YAML spec, which ynl and
-the generated docs use, does not. Should the op doc say something like
-"If the socket already has fully established PSP state, rekey its Rx
-direction."?
+On remove_mctp_controller, ENODEV can therefore mean "no such bus" or
+"bus exists but has no netdev", and userspace can't tell which.
 
->        attribute-set: assoc
->        do:
->          request:
+It also returns -EINVAL when the name is an i2c client rather than an
+adapter, or an adapter outside this controller's mux tree.
+mctp_i2c_controller_write() returns -EPERM when the CAP_NET_ADMIN check
+fails.
 
-[ ... ]
-
-> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
-> index f2cba3fa3a235..c1e38845f08c3 100644
-> --- a/net/psp/psp_sock.c
-> +++ b/net/psp/psp_sock.c
+The text also doesn't say that a CAP_NET_ADMIN check applies, or that the
+netdev is created in the writer's network namespace.
 
 [ ... ]
 
-> @@ -302,8 +333,21 @@ void psp_assocs_key_rotated(struct psp_dev *psd)
->  	 */
->  	list_for_each_entry_safe(pas, next, &psd->prev_assocs, assocs_list) {
->  		pas->generation |= ~PSP_GEN_VALID_MASK;
-> +		pas->prev_generation |= ~PSP_GEN_VALID_MASK;
->  		psd->stats.stales++;
+> diff --git a/drivers/net/mctp/mctp-i2c.c b/drivers/net/mctp/mctp-i2c.c
+> index b02476d338bbf..61dd4a9e72545 100644
+> --- a/drivers/net/mctp/mctp-i2c.c
+> +++ b/drivers/net/mctp/mctp-i2c.c
+
+[ ... ]
+
+> @@ -876,6 +894,9 @@ static int mctp_i2c_add_netdev(struct mctp_i2c_client *mcli,
 >  	}
+>  
+>  	WARN_ON(!mutex_is_locked(&driver_clients_lock));
+> +	if (mctp_i2c_find_dev(mcli, adap))
+> +		return 0;
 > +
-> +	/* Don't allow SPI from two generations ago to alias one from the
-> +	 * current generation. Rx rekeying under the same device key generation
-> +	 * is currently permitted, so skip if the previous SPI is from just one
-> +	 * generation ago.
-> +	 */
-> +	list_for_each_entry(pas, &psd->active_assocs, assocs_list) {
-> +		if ((pas->rx.spi ^ pas->prev_spi) &
-> +		    cpu_to_be32(PSP_SPI_KEY_PHASE))
-> +			pas->prev_generation |= ~PSP_GEN_VALID_MASK;
-> +	}
 
 [Severity: Low]
-Can these plain writes to prev_generation race with the Rx datapath?
+The commit message gives this reason for the skip:
 
-These assocs are still published through sk->psp_assoc. The only lock
-held here is psd->lock, which the pre-hook of psp_nl_key_rotate_doit()
-takes.
+  mctp_i2c_add_netdev() now skips an adapter that already has a netdev,
+  so a probe walk or an add notifier that reaches an adapter a second
+  time no longer fails on the duplicate mctpi2c name.
 
-The reader in psp_pse_matches_pas() runs without psd->lock and without
-READ_ONCE():
+Can a probe walk actually reach an adapter twice? mctp_i2c_probe()
+allocates a new mcli with an empty devs list. It holds driver_clients_lock
+for the whole i2c_for_each_dev() walk, and bus_for_each_dev() visits each
+device only once. The dev_groups attributes are created only after probe
+returns, so a sysfs add can't come first either.
 
-	(pas->prev_spi && pas->prev_spi == pse->spi &&
-	 pas->prev_generation == pse->generation));
+The duplicates that can happen seem to be on the notifier side:
 
-It is reached from paths that hold only the socket lock or RCU:
+- an adapter is already on the bus klist, so the probe walk picks it up,
+  and then BUS_NOTIFY_ADD_DEVICE fires for it;
+- a sysfs add lands before the ADD_DEVICE notifier.
 
-  tcp_v4_do_rcv() / tcp_v6_do_rcv()
-    -> psp_sk_rx_policy_check()
-      -> __psp_sk_rx_policy_check()
-        -> psp_pse_matches_pas()
+Could the commit message describe those cases instead?
 
-  psp_twsk_rx_policy_check()  (RCU only)
-    -> __psp_sk_rx_policy_check()
-      -> psp_pse_matches_pas()
+The commit message body also doesn't mention that mctp_i2c_notifier_call()
+now runs mctp_i2c_notify_del() on BUS_NOTIFY_REMOVED_DEVICE. That reason
+appears only in the v3 notes below the cut line and in a code comment. The
+v3 notes are dropped when the patch is applied.
 
-So a key-rotate running while PSP packets arrive on an rx-rekeyed socket
-is an unannotated data race that KCSAN would report. The field is a u8,
-so it can't tear, and the result is unordered against the rotation in
-any case.
+>  	snprintf(namebuf, sizeof(namebuf), "mctpi2c%d", adap->nr);
+>  	ndev = alloc_netdev(sizeof(*midev), namebuf, NET_NAME_ENUM, mctp_i2c_net_setup);
+>  	if (!ndev) {
 
-The existing pas->generation write already works this way. This patch
-applies the same pattern to a new field that the datapath reads, and
-adds a second write site in the active_assocs loop.
+[ ... ]
 
-Would it make sense to use WRITE_ONCE() here and READ_ONCE() in
-psp_pse_matches_pas()?
+> +static ssize_t mctp_i2c_controller_write(struct device *dev, const char *buf,
+> +					 size_t count, bool add)
+> +{
+> +	struct mctp_i2c_client *mcli = i2c_get_clientdata(to_i2c_client(dev));
+> +	struct i2c_adapter *adap;
+> +	int rc = 0;
+> +
+> +	if (!ns_capable(current->nsproxy->net_ns->user_ns, CAP_NET_ADMIN))
+> +		return -EPERM;
+
+[Severity: Medium]
+Is a check against the writer's own netns user namespace strong enough
+here?
+
+Any task can do unshare(CLONE_NEWUSER | CLONE_NEWNET) and then hold
+CAP_NET_ADMIN in that namespace. So this check passes for anyone who can
+open the attribute, and the root-owned 0200 file mode is the only real
+gate. A privileged process could pass an open fd into a user-namespaced
+context, or an admin could chown the attribute to a delegated user.
+
+On add, mctp_i2c_add_netdev() does:
+
+	dev_net_set(ndev, current->nsproxy->net_ns);
+
+This puts the netdev for a physical I2C bus directly into a netns the
+writer owns. Moving a physical netdev out of init_net over rtnetlink needs
+CAP_NET_ADMIN in the source netns as well as the destination.
+
+On remove, the branch below never checks dev_net(midev->ndev):
+
+	else if (!mctp_i2c_find_dev(mcli, adap))
+		rc = -ENODEV;
+	else
+		mctp_i2c_remove_netdev(mcli, adap);
+
+A writer that has CAP_NET_ADMIN only in its own namespace can therefore
+unregister an MCTP netdev in init_net. That includes one created at probe
+time from the devicetree "mctp-controller" property. rtnetlink doesn't
+allow that.
+
+The commit message says "a write requires CAP_NET_ADMIN there, as for a
+netdev created over rtnetlink". That comparison seems to hold only for
+creating virtual devices.
+
+Would capable(CAP_NET_ADMIN) fit better here? mctp_serial_open() in
+drivers/net/mctp/mctp-serial.c already uses that check.
 
 > +
->  	list_splice_init(&psd->prev_assocs, &psd->stale_assocs);
->  	list_splice_init(&psd->active_assocs, &psd->prev_assocs);
+> +	mutex_lock(&driver_clients_lock);
+> +	adap = mctp_i2c_find_named(mcli, buf);
+> +	if (IS_ERR(adap)) {
+> +		rc = PTR_ERR(adap);
+> +		goto out;
+> +	}
+> +
+> +	if (add && mctp_i2c_find_dev(mcli, adap))
+> +		rc = -EEXIST;
+> +	else if (add)
+> +		rc = mctp_i2c_add_netdev(mcli, adap);
+
+[Severity: High]
+This bug predates this patch, but the new store makes it reachable
+from userspace. Can a failed registration free midev twice on this path?
+
+mctp_i2c_add_netdev() calls mctp_register_netdev(), which reaches
+register_netdevice(). Several of its failure paths call ndo_uninit:
+
+- netdev_check_ops failure
+- pcpu stats allocation failure
+- a NETDEV_POST_INIT notifier veto
+- a netdev_register_kobject() failure such as ENOMEM
+- a NETDEV_REGISTER notifier veto, via unregister_netdevice_queue()
+
+The first four reach err_uninit:
+
+net/core/dev.c:register_netdevice() {
+    ...
+err_uninit:
+	if (dev->netdev_ops->ndo_uninit)
+		dev->netdev_ops->ndo_uninit(dev);
+    ...
+}
+
+For this driver that is mctp_i2c_ndo_uninit()->mctp_i2c_midev_free(). That
+function does list_del(&midev->list) and drops the get_device() references
+on the adapter and the client.
+
+The error then comes back to mctp_i2c_add_netdev(), which frees midev a
+second time:
+
+drivers/net/mctp/mctp-i2c.c:mctp_i2c_add_netdev() {
+    ...
+err:
+	if (midev)
+		mctp_i2c_midev_free(midev);
+	if (ndev)
+		free_netdev(ndev);
+    ...
+}
+
+The second list_del() runs on poisoned pointers. The adapter and client
+refcounts are also dropped twice, which can free those devices while they
+are still in use.
+
+Before this patch, only probe and the bus notifier reached this path. Now
+add_mctp_controller lets a writer trigger it repeatedly.
+
+The v3 notes point to a separate fix for this double free:
+
+https://lore.kernel.org/netdev/20261118090515.3390034-1-kenny_hsieh@jabil.com/
+
+That fix isn't in this tree yet, and the err: path above is unchanged.
+Should that fix land before this patch, or together with it?
+
+> +	else if (!mctp_i2c_find_dev(mcli, adap))
+> +		rc = -ENODEV;
+> +	else
+> +		mctp_i2c_remove_netdev(mcli, adap);
+> +	put_device(&adap->dev);
+> +out:
+> +	mutex_unlock(&driver_clients_lock);
+> +	return rc < 0 ? rc : count;
+> +}
+
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-psp-v5-0-b9ec840e0296%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118100231.3827609-1-kenny_hsieh%40jabil.com
