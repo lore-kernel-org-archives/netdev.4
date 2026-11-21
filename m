@@ -1,109 +1,110 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795282116;
-	b=361k7qbfYAvJNirSfLUDcyWq3jeLVHW8MFeyvEp1uAzArvL64p7hbG47cD1+lso6m2Uc
-	 QWiz9KDOKtk2WdEuWNfrQRixwz1yP9n2HvI1zOayobnFqwr9I+kBp7lO7HXwNLzlNQXYr
-	 vjvOjLslGOOE0GI3f5amnIX7yE2ClBwTwT2J1UZaXsKKJ5LQDeUwpjnx8jAhxwJ22XwYV
-	 nz43m8LYpJpQyyDihmaeM9WaY7d3WzaONbKIdtpFszYQ/NPXi2pDRLpW+D2nnuM8wt5K5
-	 h7ICVAhYvU0wWRlqJ/puZpJs/zqtMKSXMaFoWnuRy4zaPrkDYxg6iH+l+nxPfdauNAQ==
+	b=wvlyjUDW2tfTSvBV2aaOtatPLVDLyhz1uSRBzhBfsfg1RcSACYwVklLDYgXOt4X1frGM
+	 sXJ/1zF/3LQu31kSAE58WeSCHrP7yMo0uFKLBawSHrXJ33/CPrc84pTZcS9FegVRH6v+p
+	 GB+z2xvizxYhi093/8t/CGhY1CtQ0UNS9EwEwo95KwXq+0/bGpaScOATZSykIuZvZuM3c
+	 a+0JIfXaPg0bdaYRVJqQkSQ3UebjgaeJcJ53pTKYKyu0XbmJ6a1cueL33DaqNLf7YvvEj
+	 MtxhNzpFuYEjDG5JRbGCy/A8rXP1XrKi7ijZ9AStORH9cvttQA0ygNaph3hONek6kpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795282116;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Received:X-Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=Atpvx34I5zy3w193SbuJM2Y7axw8mjZO4wtWdl2Uqks=;
-	b=O1vCQMcWx43kuNi4jc7Yjww4d9E/cIwRAMUvAG9xQRuq3fEEMSx5a9Zma3jndd+OTCm6
-	 KVOzrDZbB2ExLgSbMD8jHtfo0yhZTgzCrHIjBos3cVkbQHlorRpFgZRM8O/StIZ6YuQjs
-	 7ZDWQOvEdiEA0+eaWXLxp0pXcT3UVQgxYlJnnm7snuIyWBM9pi6NonE/d3dhhaKCY5871
-	 a8OlF6pp28PjqIa5ZJiSvlJMrWR2z+tg+jkJGxjYMfTkoaHK4LuHR+oVFXHeKTFJ9SPVQ
-	 4N7Hw/lejpk/msFOJbkhR9mlbU8mC09ZvEhWi3AJ/OzCTJPkUIAX6VJT2p5ZpoAm05A==
+	bh=heUKnejAm5jGj5TLnTY1uaqlIyiHEz5k7ilXGa71fFc=;
+	b=x/DJ1xc2RGv4+SqG6GTgN/1zYanTENSiI/GYyX9wRQR+yl2p0lWEGvQ7Psw6MUHarbfm
+	 FHIaPj6HC9XbnumAnRVHDA0WHc7+Rv+jcNcr/JcmdfYKMWuPOWmO+kNDcUwSG2ywH6cF2
+	 iL14/f7a2FvMMTGSsAvln3EPxWTuIu2BDRDO4LtLUUXAu3Epp036tOesvDEU1oXg/Us/L
+	 A/Yjkp091eDa7glwByvCagObHp4ms2X/23S5RJ/tkTOQEwCRS0vJ5b5TTSXvhfel3uguF
+	 pqrtFlpnYPDH5U+t+rsDQZ1Xa+36ZKXQG5XtxKHfnNAFWSezJzCsbQnPqddxLl/P9YA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=P1oeZPA0;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="GAcEC/tA";
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gRiSyNEm;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TfCw6UtO;
 	arc=none smtp.remote-ip=205.220.168.131
 Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 183B7606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:28:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 183B7606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73D38606A32A
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:28:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73D38606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=P1oeZPA0;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GAcEC/tA
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ALFa0wj001036
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:28:34 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gRiSyNEm;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TfCw6UtO
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ALFaBM93431871
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:28:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=Atpvx34I5zy3w193SbuJM2
-	Y7axw8mjZO4wtWdl2Uqks=; b=P1oeZPA0xKGWSh3+uHGn4Fy9q4Wn5Vl6U/BKvx
-	WiMjtEhZf2Jfllpsv2pepuNGRkejYJc9OxyprRFsDnWKtxZdVAmRUP9nZg4RckCg
-	0XvEvfAt2BjOZ2F2TpwsN3cW9betl2pMQGtyS2MI4vl/5anEwp64wUzvVbjvCZD+
-	bjFJWWnNmW3a/O1eXS3XEj4vSIswk3dCcTXZI9ptzONtnQ5eugd4NjwweIZEndtz
-	DmZtpmkul6SUOAg28rYJHhYk5PliKndZ/syF6YooWH3vzLAyxINPPiNaNA5uN/aO
-	KUlMT0ljMmvaROUSndP7B9DxRY6JcT8jXdg/CcQKblXIjcBw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j34ka1fxm-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	heUKnejAm5jGj5TLnTY1uaqlIyiHEz5k7ilXGa71fFc=; b=gRiSyNEmHndj6876
+	96wz/7K9Z0Odna6gDmMRy9uLSoQqLAOM9YHag3+ctAPHwxRwtfmKb1HB02yZIYsn
+	+l1J7Hzgjs2G7Wv2ZzX5eZkaGUGw5qVsf2T46PiWcBxkYZicW3bUQ4QEDSvVT32X
+	cPBr6IbBwqk3NDfmwC9KEAEPyeCw5yTlZdpsZePShyvA8i5ojq+2mFYNHgGmebbv
+	89PFa/3E4h+69co5QyANzsuy4dU9iBHDwTVbHrzho0hoF+C7EOn9b4LJsVaRqNQT
+	Z1QfNw7FIRfdoRxvjpB4WILdXOK8Gvqr7SBu1XkIlzKQUQ2EwtsD8ga+UNcBI5ex
+	cWG0yg==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j34fk1fhd-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:28:34 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-948d83322f6so336160685a.1
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 09:28:33 -0800 (PST)
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 17:28:35 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-94967c6d4f4so222626185a.2
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 09:28:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795282113; x=1795886913; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Atpvx34I5zy3w193SbuJM2Y7axw8mjZO4wtWdl2Uqks=;
-        b=GAcEC/tA+DtpZ5v9cYBFF480h6LJuDtVdB+1NCC+xFf0VvrHwPO+oMjexz39y0kSLi
-         yzz3VPoN6W15TY0LFRPaREjjd2GHtvBgzPkztmwghoKBFKZC55wV4vwdnjduw+MpucyX
-         ioah3XP+xfBrENrL9Fb4XhsW55dvjzGdXCa20sXtT8jCfjZZTaHTVpXl/C3dQu6BMRpP
-         4o6MvcX4mZ4pAVT/2rCu+HxGoX6Q6peabagWwoFB1SrMXtVKTm14SOCas28zPEjDD6aA
-         2i0RZpCvi2ULToxqs21DCNKGJnQWyUKsNx3oMQYchA2+a4sJ4dDo2KjoBU11D7jhzbT4
-         /hqw==
+        d=oss.qualcomm.com; s=google; t=1795282115; x=1795886915; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=heUKnejAm5jGj5TLnTY1uaqlIyiHEz5k7ilXGa71fFc=;
+        b=TfCw6UtOz/LRgavta8xT9vmEZWwDd+Z5SkJGA567u0iaSL8+8QD67A8p3urEcyvksF
+         PANcLIIeJUyocRY3NgTMOiRpNqoxCHqGFDEFDEj29bbcyUTaJcP95FMJ5L5hX17TnnTU
+         7ywomoAX+cosr6woynliQUZyMRNuZf9biNtn9tT4hSluHl0aqsOLGzEdIzmjjyygPPH3
+         MovBRP6EyuCtKCEYXeBgO8xbkbLQsBVAPvXRV5jNVCbe4UeY3fwUvdDPjH1ySzIJmbgd
+         Ay3hhPqwfrlmFHf4PBG1DW86XXqjNN59OwHTEQqK7WXAblUmiWryzoEOnTWVR6AibS6K
+         42bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795282113; x=1795886913;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Atpvx34I5zy3w193SbuJM2Y7axw8mjZO4wtWdl2Uqks=;
-        b=h5rULx7OHU+Z/60m0rDtEV3XDS5UZm8II0b5EJYcpT/KJ6gF3WSlf/FZsjOBhEPgeq
-         gDRuONUlQ5xFeK34LC2nDdEpfH8SCHEL8+jae3V8FN4QylNKAHEyxqzWQ6I2+KBNxhMj
-         sWiAbebykqPZhMAs5gB0bY4LlaG/9UO3bQyRdfYsxlI3EYGXnSvulNmxrw96UObOJQUE
-         BA4L0wVNw9gcnDkiHrh5f5Xjw+HnuCC2CVlwpArCKP4mVs7BytsWADOOOIp+pq7jiMpH
-         Q3KyxHoFyGPoeMAqwpnlrcCE/vD11y22KVO8mitoYSUOFc2NqZQROShye10xiRLPOhjc
-         1XRQ==
-X-Gm-Message-State: APuU4Z9tZud8oXRUfNh3psYdhxOCNHSLhtAIKb+MrU4qy7TRqXxn33Ff
-	mvXxVlB7S/ChuwuvJFG3iF2nNq3cAO+uK+pLix0Rl4YtMtq5EU43TJI4n+DG4nHi2+veg47iymZ
-	YlmoZPW8Zbv9t6TuM2eAinyWJ9sTlELv6M8EuKpRd2DuNvpddysz4jLHmyAw=
-X-Gm-Gg: AZFdTZfHStmXUblX9f5ytYf9/pqoK/ubYPqTJmLgorrn5NVgqMYQN1SAteukkYW/Gwo
-	0IqdbQX3MgQFhugIBU9s8HdL925IyIQp3w4XGaydhuRLekL2lj5QBDzffPHWSCoNKcbyL5CAuBA
-	Ci+LUFYwbfQifsXoMJNvlse+N6aWkk98Vjn2oCnT5hv1pRPFgFEOkoXb9GV1c0G0pl+X7133GLF
-	aCJWtCfWqmANgc2rnmDs4XfdJCy5LhD/ZU6Fd/Tc63T5YEvis9vB9RIGEnvC/u50TxD+kA703nd
-	VwTJnsBeYiVYHF0HUXH6E2UrWVNYI/aRaDy831xwShImixEnPpbMknm9XjAZVBe9BLWzlzVKTQ0
-	ViKBZZAz3OmzwvqC/0TguJo1e5T7MyecUAOmrhcoQl29ee7hgefOkdCy1BnqEjd8=
-X-Received: by 2002:a05:620a:458a:b0:949:5872:be1b with SMTP id af79cd13be357-949ba9fcc8fmr1063865085a.39.1795282113062;
-        Sat, 21 Nov 2026 09:28:33 -0800 (PST)
-X-Received: by 2002:a05:620a:458a:b0:949:5872:be1b with SMTP id af79cd13be357-949ba9fcc8fmr1063859885a.39.1795282112503;
-        Sat, 21 Nov 2026 09:28:32 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795282115; x=1795886915;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=heUKnejAm5jGj5TLnTY1uaqlIyiHEz5k7ilXGa71fFc=;
+        b=WwApJNeEWvZwi3ctMUKgZzTP64XeruSPFwoaHBmNtrIqAaD80yOuUDlUxSY0amiOzA
+         gyD9K9uPiog5EKyYU7A8NJEoorUw5oMGAqRXJTnKq9WIGw2E1e3EchdXb2WkssjGRiNH
+         1v87Pc/7V3b8UiZCOVX7qTfzXs0BnyabtW64Ew7LwVShsfZZNd9ppvltm7N38QFerN7n
+         mdthSYekCGAPfqhPlaqhe9aV7DX1BqCXU+M/dSZ3v9iVHjwFfECFvt1ms9pD0eCVuHKN
+         pxe5NVnBAlhRcGmHQiZX7j1fApY+4c1XlMOrrKxTnpamrMbwtdUU+AqNgGEK5Wob1NuS
+         DlNg==
+X-Gm-Message-State: APuU4Z/umKK+ipOAG3TK98107ur5/aTyd6uxqof8aAZP14uD/it9RwF/
+	QaPwORtF0j4rEasZdi7mEeloojn1G2Z+tdZsJu8ItmarOSHRhIdx1vleqLuGVpx3+nJcqDXtW67
+	g50cRDXY+rMiwzLTuERrfBMwoeo2K1SRkDbUcXMxqKgT8olzKJkQYqfwzxF0=
+X-Gm-Gg: AZFdTZfBgzAYla5rx1PLc9jiEuJhez3D4zEi/fgx6imfBRrO+4zno8TWu7bByTkogHS
+	GjmpYhJQYO1uaeKdS7zBC434o2VT/wOV2o/2l6YPwDz/WIkJUZunYJvbo4T0DRSarTYFa8tSOwl
+	lXCxWn35NolqONttWGczzEvwzlpvxcjy5CffAsBNGkuxJoB6hkR2oV23KdLFaFdoZGqHrpqBn/C
+	zBu2a/6ZYAZs4U/MU8AeEbdaDmCSBevA8NE0hMcqB6TG2vmAKVGbkvHx3e14L5E8t/niqngIJlG
+	68+ffrT9vgXC6SYtrPkgT01xPkp+c0Zd05eBIu0DByJa82GjQter09bltmdcbTu/1y4LOTa8/fN
+	1irot42eTBZc8gvGTpY8dHn/5KPl4a6SS0Sivpou5BbcZjXWo74jCjlzufSgCrv8=
+X-Received: by 2002:a05:620a:4446:b0:949:70f1:de2f with SMTP id af79cd13be357-949ba8260f2mr1052546385a.8.1795282114619;
+        Sat, 21 Nov 2026 09:28:34 -0800 (PST)
+X-Received: by 2002:a05:620a:4446:b0:949:70f1:de2f with SMTP id af79cd13be357-949ba8260f2mr1052542085a.8.1795282114034;
+        Sat, 21 Nov 2026 09:28:34 -0800 (PST)
 Received: from localhost ([188.152.73.83])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm70964255e9.4.2026.11.21.09.28.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399d52sm199723775e9.6.2026.11.21.09.28.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 09:28:31 -0800 (PST)
+        Sat, 21 Nov 2026 09:28:33 -0800 (PST)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net-next v12 0/4] net: stmmac: introduce XDP rx multi-buff
- support
-Date: Sat, 21 Nov 2026 18:28:11 +0100
-Message-Id: <20261121-stmmac-rx-mb-v12-0-3ae2f3bce174@oss.qualcomm.com>
+Date: Sat, 21 Nov 2026 18:28:12 +0100
+Subject: [PATCH net-next v12 1/4] net: xdp: add __xdp_build_skb_from_buff()
+ helper
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,14 +116,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XSS27DIBAG4KtEXpdoZnh31XtUXWAMjaXabm3XS
- hXl7iVetIiEDRKM+IB/uDRLmPuwNM+HSzOHrV/6aUwTpKdD409ufA+s79JCQ0AKLBq2rMPgPJv
- PbGgZKqGsI40iuCZt+ZxD7M+799qMYWVjOK/NW6qc+mWd5p/9oA33+mNyQ4YMWiFRdwKEiy/Ts
- hy/vt2Hn4bhmIbd2ygzCAuDkqGCIRUwRg6qYvA/AwFEYXAGTEJ0qNFFG3zFELmhCkMkI0QnvLN
- aBN5VDJkbtjBkMjw3SQnOITcVQ2UGUmGoZBCRBJkClx4rhs6NMg99y6OjTkMESb72FpMbZW/Nz
- YjSeGhJGmErhv038C5Tm3rrwVpviSsl2oqBkCF3gSCkm3S8A9Eq6VVb6y5iruhSST+V2eik5yJ
- EEvKBcr1efwFY0nK/ZgMAAA==
-X-Change-ID: 20260918-stmmac-rx-mb-16469a2714ea
+Message-Id: <20261121-stmmac-rx-mb-v12-1-3ae2f3bce174@oss.qualcomm.com>
+References: <20261121-stmmac-rx-mb-v12-0-3ae2f3bce174@oss.qualcomm.com>
+In-Reply-To: <20261121-stmmac-rx-mb-v12-0-3ae2f3bce174@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Andrew Lunn <andrew+netdev@lunn.ch>,
         "David S. Miller" <davem@davemloft.net>,
@@ -146,130 +142,150 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Ihor Solodrai <ihor.solodrai@linux.dev>
 Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         bpf@vger.kernel.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-        Nicolai Buchwitz <nb@tipi-net.de>
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDA2OSBTYWx0ZWRfX0q6otV20lqrP
- tuFvKMxq8kU2ETGyuoQAP4U6CgvbYej84Lnlml8f0oZ9SH4MY7ZgDPkCbBYseg3nVajMbJrpe5R
- FjL9JCN96ay5nk+rDmoagBPe8gqhIgv6MJfZZWQW6oTB40SnehfmyElV/nQ728LAtQi9f0euBzc
- 7a+Mu9xoqPnc5gKB9hf2uL6tSV27Kqn8Wq2t1zjzHlzWKYVuoOTjj2QWODUsnI2zIof6WKym/Qc
- 4FycZNnCHZ6KFX34IILkKkViNbvTyNMypc32qAJ6PCgaAkRStzXACdc4EvktfcDH49vE1fqkqwl
- +bmlMwWNRz666msBp59zPtwVsygyIe26HO3A3mlAOlbeNDvq4kYfPw3kQ22b54B9zk5blqXjFKg
- kNWXl3RecuZMzMcQJTzLoBR1qGcK39s4vi+hGGO6r0PapG9W1dXyEbK4uFXIH6pdnmP/ue+UBl0
- QPQBbp85kdF1b7DAQgQ==
-X-Authority-Analysis: v=2.4 cv=RJEmjIi+ c=1 sm=1 tr=0 ts=6b01d4c2 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
+X-Proofpoint-ORIG-GUID: JaDycoDs_7_Cb5qfPnbn4iatCHERT4cA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDA2OSBTYWx0ZWRfX9yolp4giK9RA
+ ykA05KZxjIKIqVhksNB1gKhlzmfzsWp1cpfxbXs2x2NN+vTQ3qOqM0F/9/hhseLLTUi/zqtRvlS
+ 88jnKCqHur/lSN4QkHEEp5+viT5Ta2DbwnEZ5txGPd0hDHhE24bSBbjNO50U0kIfa2OZ7sE1CHt
+ KeMzkbPAAE0nZczmzmvPYbc12Cf2ZGOvnik8sppTk7rJCf0qtcgih71UrVlYT0HhggSfawuu+N/
+ Fs0Difr56ySfBoOFOTK2cFA4XUZrb5X8iYqPOwoaHiKQ/Mhp0uUvCFhnRgzHpfjT38eNCSanU7I
+ +vtV0ClOIDu9mCxnEQD82pJ2aDChpav+Ch1pGrjj9IfMxWumhv5dMwtHbBaQeJWuzPzPzEkl/0Y
+ LEzc3D6oUtXuCRiuhiK7nlJNLhye2ozyYUponp9dJzZj11bxKeGcQQJfbktQoMnbcRvt7PGfmbx
+ J1YGon21DkpkH+EgSMg==
+X-Authority-Analysis: v=2.4 cv=PsUG/AM3 c=1 sm=1 tr=0 ts=6b01d4c3 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=UDig4O-PjbkV-u4TaL0A:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: L-O6c42vHVD1wLSkx8-6HMD2u8yTaMob
-X-Proofpoint-ORIG-GUID: L-O6c42vHVD1wLSkx8-6HMD2u8yTaMob
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDA2OSBTYWx0ZWRfXxC9suq1jp5AK
- EWkqmRtqAIuPNRWZxGZPvXGJrtQDLz3nX+LDQPRPPhsyRs990qdv+KxVZxfbjfr2a9R+5yS5Zwd
- 8frVq5iF/V+yW14mrUPjBePQ5FTHtuw=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=Tg0PG1yVOJps9yXbb-UA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDA2OSBTYWx0ZWRfX/vk+HszeiHnN
+ qkQGsiy8XFpdqG4FkwxQDs7tS/fPMn96/qDmO9niiONKKcSiLtkDKIVh5YF+nsQE/NRBanpedpR
+ Gphm9Ij0c64qmaUzEXdws1IpDM6eIOc=
+X-Proofpoint-GUID: JaDycoDs_7_Cb5qfPnbn4iatCHERT4cA
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-21_04,2026-11-19_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 impostorscore=0 spamscore=0 suspectscore=0
- phishscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611210069
+ phishscore=0 lowpriorityscore=0 adultscore=0 bulkscore=0 priorityscore=1501
+ impostorscore=0 spamscore=0 malwarescore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611210069
 
-Rework stmmac_rx() to build the xdp_buff from all the descriptors that make
-up a frame, so the XDP program runs on the whole (possibly fragmented)
-packet instead of the first buffer only. Fix possible rx_q state leaks
-when closing/opening the interface.
+xdp_build_skb_from_buff() always calls eth_type_trans() on the skb it
+builds, which pulls the Ethernet header and advances skb->data. Drivers
+that still need to process the L2 header before protocol parsing
+therefore cannot use the helper.
 
+stmmac is such a driver: its software VLAN path (stmmac_rx_vlan()) reads
+the VLAN tag at skb->data and shifts the MAC addresses over it, so it has
+to run before eth_type_trans().
+
+Split the implementation into __xdp_build_skb_from_buff(), which builds
+the skb (including the recycle mark, the Rx queue index and the frags
+info) but leaves skb->dev, skb->protocol, skb->pkt_type and the mac
+header unset, so the caller must initialize them, usually by calling
+eth_type_trans(). Make xdp_build_skb_from_buff() a static inline wrapper
+that still calls eth_type_trans() as before, preserving the behavior of
+existing in-tree users. A follow-up patch will let stmmac use it.
+
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
-Changes in v12:
-- Rebase on top of net-next main branch.
-- Link to v11: https://lore.kernel.org/r/20261117-stmmac-rx-mb-v11-0-9fa5c34ef245@oss.qualcomm.com
+ include/net/xdp.h | 29 ++++++++++++++++++++++++++++-
+ net/core/xdp.c    | 15 +++++++++------
+ 2 files changed, 37 insertions(+), 7 deletions(-)
 
-Changes in v11:
-- Fix kernel-doc for __xdp_build_skb_from_buff().
-- Add sanity checks for xdp_buff_shrink_tail().
-- Link to v10: https://lore.kernel.org/r/20261112-stmmac-rx-mb-v10-0-d3d04b65c6bc@oss.qualcomm.com
+diff --git a/include/net/xdp.h b/include/net/xdp.h
+index 07231adfb5f8..054748b37d7d 100644
+--- a/include/net/xdp.h
++++ b/include/net/xdp.h
+@@ -7,6 +7,7 @@
+ #define __LINUX_NET_XDP_H__
+ 
+ #include <linux/bitfield.h>
++#include <linux/etherdevice.h>
+ #include <linux/filter.h>
+ #include <linux/netdevice.h>
+ #include <linux/skbuff.h> /* skb_shared_info */
+@@ -379,7 +380,33 @@ xdp_update_skb_frags_info(struct sk_buff *skb, u8 nr_frags,
+ void xdp_warn(const char *msg, const char *func, const int line);
+ #define XDP_WARN(msg) xdp_warn(msg, __func__, __LINE__)
+ 
+-struct sk_buff *xdp_build_skb_from_buff(const struct xdp_buff *xdp);
++struct sk_buff *__xdp_build_skb_from_buff(const struct xdp_buff *xdp);
++
++/**
++ * xdp_build_skb_from_buff - create an skb from &xdp_buff
++ * @xdp: &xdp_buff to convert to an skb
++ *
++ * Same as __xdp_build_skb_from_buff(), but also calls eth_type_trans(),
++ * which sets skb->dev, skb->protocol and skb->pkt_type, resets the mac
++ * header and pulls the Ethernet header.
++ *
++ * Return: new &sk_buff on success, %NULL on error.
++ */
++static inline
++struct sk_buff *xdp_build_skb_from_buff(const struct xdp_buff *xdp)
++{
++	const struct xdp_rxq_info *rxq = xdp->rxq;
++	struct sk_buff *skb;
++
++	skb = __xdp_build_skb_from_buff(xdp);
++	if (!skb)
++		return NULL;
++
++	skb->protocol = eth_type_trans(skb, rxq->dev);
++
++	return skb;
++}
++
+ struct sk_buff *xdp_build_skb_from_zc(struct xdp_buff *xdp);
+ struct xdp_frame *xdp_convert_zc_to_xdp_frame(struct xdp_buff *xdp);
+ struct sk_buff *__xdp_build_skb_from_frame(struct xdp_frame *xdpf,
+diff --git a/net/core/xdp.c b/net/core/xdp.c
+index 1d679e8fd649..0db2f68afc5c 100644
+--- a/net/core/xdp.c
++++ b/net/core/xdp.c
+@@ -620,17 +620,22 @@ void xdp_warn(const char *msg, const char *func, const int line)
+ EXPORT_SYMBOL_GPL(xdp_warn);
+ 
+ /**
+- * xdp_build_skb_from_buff - create an skb from &xdp_buff
++ * __xdp_build_skb_from_buff - create an skb from &xdp_buff
+  * @xdp: &xdp_buff to convert to an skb
+  *
+  * Perform common operations to create a new skb to pass up the stack from
+  * &xdp_buff: allocate an skb head from the NAPI percpu cache, initialize
+  * skb data pointers and offsets, set the recycle bit if the buff is
+- * PP-backed, Rx queue index, protocol and update frags info.
++ * PP-backed, record the Rx queue index and update frags info.
++ *
++ * This routine does not call eth_type_trans(), so skb->dev,
++ * skb->protocol, skb->pkt_type and the mac header are left unset.
++ * Callers must initialize this state themselves, usually by calling
++ * eth_type_trans(), before passing the skb up the stack.
+  *
+  * Return: new &sk_buff on success, %NULL on error.
+  */
+-struct sk_buff *xdp_build_skb_from_buff(const struct xdp_buff *xdp)
++struct sk_buff *__xdp_build_skb_from_buff(const struct xdp_buff *xdp)
+ {
+ 	const struct xdp_rxq_info *rxq = xdp->rxq;
+ 	const struct skb_shared_info *sinfo;
+@@ -667,11 +672,9 @@ struct sk_buff *xdp_build_skb_from_buff(const struct xdp_buff *xdp)
+ 					  tsize, xdp_buff_get_skb_flags(xdp));
+ 	}
+ 
+-	skb->protocol = eth_type_trans(skb, rxq->dev);
+-
+ 	return skb;
+ }
+-EXPORT_SYMBOL_GPL(xdp_build_skb_from_buff);
++EXPORT_SYMBOL_GPL(__xdp_build_skb_from_buff);
+ 
+ /**
+  * xdp_copy_frags_from_zc - copy frags from XSk buff to skb
 
-Changes in v10:
-- Introduce __xdp_return_buff(), xdp_buff_shrink_tail() and
-  __xdp_build_skb_from_buff() helpers.
-- Link to v9: https://lore.kernel.org/r/20261106-stmmac-rx-mb-v9-1-c099c923664b@oss.qualcomm.com
-
-Changes in v9:
-- Rebase on top of net-next main branch.
-- Link to v8: https://lore.kernel.org/r/20261018-stmmac-rx-mb-v8-0-5f58c0b25849@oss.qualcomm.com
-
-Changes in v8:
-- Add patch 'net: stmmac: fix VLAN tag stripping on non-linear RX
-  frames' to fix sw rx vlan parsing.
-- Rebase on top of net-next main branch.
-- Link to v7: https://lore.kernel.org/r/20261014-stmmac-rx-mb-v7-0-5d2d70f052cd@oss.qualcomm.com
-
-Changes in v7:
-- Take into account the case where buf2_len is not 0 for the single
-  descriptor case if the interface is running in xdp mode.
-- Report rx_not_ls bit if the packet is splitted over multiple
-  descriptors for dwmac100 and dwmac1000 cores.
-- Link to v6: https://lore.kernel.org/r/20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com
-
-Changes in v6:
-- Drop patch 'net: stmmac: allow non-linear xdp_buff in XDP mode' since
-  it requires some XDP fixes.
-- Introduce patch 'net: stmmac: drop split frames on AF_XDP zero-copy
-  RX' to always drop XDP multi-buff frames for AF_XDP mode since it not
-  yet supported there.
-- Introduce patch 'net: stmmac: drop multi-buffer frames in XDP mode' to
-  fix pending bugs due to missing XDP multi-buffer support before patch
-  'net: stmmac: rework stmmac_rx to support XDP rx multi-buff'
-- Link to v5: https://lore.kernel.org/r/20261009-stmmac-rx-mb-v5-0-c38fa4eaa138@oss.qualcomm.com
-
-Changes in v5:
-- Fix possible read after bound issue in patch 1/3.
-- Do not allow parsing non-linear XDP buffers if the program loaded does
-  not support frags.
-- Add patch 3/3 to remove MTU constraint for XDP prog.
-- Link to v4: https://lore.kernel.org/r/20261006-stmmac-rx-mb-v4-0-efa4ca974e3d@oss.qualcomm.com
-
-Changes in v4:
-- Reset in_progress flag when the packet is fully consumed.
-- Advetise NETDEV_XDP_ACT_RX_SG capability.
-- Link to v3: https://lore.kernel.org/r/20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com
-
-Changes in v3:
-- Return secondary page in case of error.
-- Introduce stmmac_xdp_shrink_tail() to remove the ethernet FCS.
-- Add patch 'net: stmmac: take ownership of saved RX state at poll
-  entry' from James.
-- Link to v2: https://lore.kernel.org/r/20260921-stmmac-rx-mb-v2-1-6e826e1ff306@oss.qualcomm.com
-
-Changes in v2:
-- Rely on xdp_buff_add_frag() to create xdp fragments
-- Fix bugs in rx_q state recording
-- Fix the corner case where we receive more than MAX_SKB_FRAGS fragments
-- Cosmetics
-- Link to v1: https://lore.kernel.org/r/20260918-stmmac-rx-mb-v1-1-0b4517d404af@oss.qualcomm.com
-
----
-Lorenzo Bianconi (4):
-      net: xdp: add __xdp_build_skb_from_buff() helper
-      net: xdp: add xdp_buff_shrink_tail() helper
-      net: xdp: add __xdp_return_buff() helper
-      net: stmmac: rework stmmac_rx to support XDP rx multi-buff
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 229 ++++++++++------------
- include/net/xdp.h                                 |  39 +++-
- net/core/filter.c                                 |  80 +-------
- net/core/xdp.c                                    | 113 ++++++++++-
- 5 files changed, 253 insertions(+), 211 deletions(-)
----
-base-commit: d23de0bd0bfd62405e6c80028008838ec140af25
-change-id: 20260918-stmmac-rx-mb-16469a2714ea
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.56.1
 
