@@ -1,69 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795303433;
-	b=CJer7Vo6w+cVO3mjimKaGkxqq24FbzVG8xTRqLoUXy4gOEwK5LpCl/3ogG0TOcWLoYoZ
-	 jc75E4sdLWHvWS4y4eqvLeYuq1IzinNq046bv07BiVktDGHxGg5k4t/IY+sIdTrVmiKKe
-	 NQfEtWV3/bh5NWpt0XsGMdfdEIwzVB2NEZGWV5t0wIQ/gg4mzE+Ya2vtaA0v19215iBdY
-	 5HGCo+0A+kDZU918H6lUs46EJ/fphDymkmQExXyOwIQjI1xiIjI0tSYhYKpVP+Y99h+NV
-	 QA/zQinI7CC+4pDU29ze+Anb5Nh0f6iSYyr1YEVjHoCMt3bMOPG9mAbB33NLzuYyqgQ==
+	t=1795303603;
+	b=n2+AZyS2eViO/Z+cm4TxfuOGKMKqVlMcI6jcR0TkeEVQdUxVzuefs8MADjNRvQS3V2cx
+	 QZBkeEFAhVZzHHLqITzdc7PhxRdtcMDLbs0p7dI5wTAu0lnD3wP4snsF9PNk9FD5bt0D2
+	 jd6uEP37OURnJHcz2z/b09UIzpnUgVh7hSgIfP4LwqoHBb1SZVi0Y7prueebfz8ZxKCq+
+	 G2W9lT+Viw5gV/jjBu3ibgz9dtHOIE97iKofhjC4/nF035mVcHC3H9JtyRACWICGHa9MS
+	 Lo2rQ+6OYuDvFI88ZzbJMa9Ml2kUSDne6gcm+6MIlbWX0rZCRSLVBdCiytrlE+68H7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795303433;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=fiedK0LMLpg949+WbK0ZI33jcOksdkyv7tc4RWl8y2A=;
-	b=mZnpf2sJHN/BLHjN8L8Xw5IJHRi0K2okhcg/xrStlttF0zJTU9nD+OMG4olZRtghuR4Q
-	 OwV72FFLxrPDXffQ9h9L2lkoyoa6Rl/1DTlysuV/hqrHc91u0UMYVHZ6RVonVB2Et+dK1
-	 OXTjZJTR7+JS4eDzZPejGOrHr6z56fBa55HLw3b1A9gU/yOq9Y/gd6a3V+1y1RmXizEFo
-	 PWRvlhaCBGF3Ja3QX77eUzOvPeLUqu36uDtOhuNWb16/NLqxaUJ1jZp4eWJAmHi3rLSxJ
-	 AVtDlLLjhmyAyVxzQWFEMcD/ohvvv5Pvjp+poAGvYAD+UG/Wmd1nsjMSG6QBO8+FauQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795303603;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=swVWLdIORzAn0CH5DXvzx6L8MBh1Ls3/BIBJUSCbZaw=;
+	b=vYztEnYjbU35fX1SyY9e6zXFZ5GkCrAVuiIIyRjOC3D7F1TXvK5dBN9s6bXgZrECbTWj
+	 CDk4g4yiI1Fh0g60wf4Sa64Bb3V0UgarkWcaZGHIkB6cKb/wB1Dal0fTRl7nyRTt/3xY9
+	 qRJ2wCcbeJoTiRqSH6vGPxtRKUp+mFXdfe4xL6BK+eNfgFBTR7TrY1yEJUb6RDrXgbFBf
+	 r4on5o82wrFPG2aJHGMQ9XjyPwgW+FwSWGP6UhkUXOsTa3UWlyPHp96F45428rC9+XQyd
+	 UUU1FNETnxbDzqPuz2J/+AObTcoPikIVdEpv4guVImSpKNzkdfFtOx3Ix3ESdoeuoNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Mjx+VZY6;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jvdDXah3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id EF5C6606A320;
-	Sat, 21 Nov 2026 23:23:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF5C6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B33D606A320;
+	Sat, 21 Nov 2026 23:26:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Mjx+VZY6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795303430;
-	bh=fiedK0LMLpg949+WbK0ZI33jcOksdkyv7tc4RWl8y2A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mjx+VZY6SWzg/KaoyDuuSmFdlq4sBo+hlSCL36KiOWf6n2mE/5L9B6niEydtAleOl
-	 EsRkJSahZ9cBoBznJ++9fso4zUqu6BZ/iqjMSKsfZKJ1GWhCAoQ5hPy9vEM2UV29wE
-	 16ONdISWmn/t6imvu/MYuKesEBeB7+o85WN37KlfeInE7FyGz4m03DjvqkiAe8IdYW
-	 9DmMOUDGQDjR5Q7oWjyo9qM8ThXajcpQgc4Z86OSyD1asAKrFyR4VdhvnMK5pXBYml
-	 OT30tEid/wmyGpU0rX2a7BLC91sgzqJlnyp1PbpaKW/mqbVBbYyj0LnUDUei+luow8
-	 QttcYlDqqSZqQ==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 82C126005F;
-	Sun, 22 Nov 2026 00:23:50 +0100 (CET)
-Date: Sun, 22 Nov 2026 00:23:48 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Toshiaki Makita <toshiaki.makita1@gmail.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:NETFILTER" <netfilter-devel@vger.kernel.org>,
-	"open list:NETFILTER" <coreteam@netfilter.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH net 1/4] netfilter: flowtable: do not queue offload work
- after DESTROY
-Message-ID: <awIoBL3Rz5GbNs1l@chamomile>
-References: <20261118201250.2075007-1-florian.fainelli@broadcom.com>
- <20261118201250.2075007-2-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jvdDXah3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CDA1F000C4;
+	Sat, 21 Nov 2026 23:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795303603;
+	bh=swVWLdIORzAn0CH5DXvzx6L8MBh1Ls3/BIBJUSCbZaw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jvdDXah3Hd6doiFD8BxoHgq35Lk519EEEBXbpMJuqFLib6fkIPhQTywtVl4OuKslw
+	 +z9zD5VdozW41LO6u3zqgi8IdR40bMhuiAJt9ktLYmCNDyq1v+NNUXq0O2GECARiKh
+	 4J9jaPjF7JEaqSm1T0ZS5589PUyWa3pyglLtMj68yNyglQJa14hA4yVuxTwxli2amE
+	 L8hs4kF2pKQaEpSHLRxzS+poH9iska0Tl/BgHO5TQxPzeQ1b6UzMstZJOjEEiQIuw6
+	 jMW6GKRhahuSfwVOj5S1iTYosoY/h7W2gO/aXoeqxWiIKGQaEwXn5Hc3asD9TmMvTD
+	 0NIpotgHAqCgg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: ansuelsmth@gmail.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	horms@kernel.org,
+	corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	rdunlap@infradead.org,
+	lorenzo@kernel.org,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	p.zabel@pengutronix.de,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	rmk+kernel@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev,
+	zhengping.zhang@airoha.com
+Subject: Re: [PATCH net-next v22 01/15] net: phylink: make PCS phylink instance access RCU protected
+Date: Sat, 21 Nov 2026 15:26:40 -0800
+Message-ID: <20261121232640.1365293-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117123956.11981-2-ansuelsmth@gmail.com>
+References: <20261117123956.11981-2-ansuelsmth@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,90 +86,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 12:12:47PM -0800, Florian Fainelli wrote:
-> nf_flow_offload_refresh() can be reached by a packet path reader which
-> looked the flow up before it was torn down. NF_FLOW_PENDING keeps the
-> DESTROY work from being queued while another work item is pending, but
-> once the DESTROY work has run and cleared the bit, a reader can take it
-> again and queue a REPLACE (or STATS) work for a flow which is already
-> being removed.
-> 
-> GC removes a hardware flow after NF_FLOW_HW_DEAD is set, and frees it after
-> an RCU grace period, which the reader can outlive in a preemptible RCU
-> read-side section. The queued work then dereferences a freed flow and
-> the flowtable, and can program the hardware again with a rule keyed by
-> the freed flow's cookie.
-> 
-> NF_FLOW_HW_DYING is set when DESTROY is queued, and DESTROY needs
-> NF_FLOW_PENDING, so a work item which holds the pending bit and finds
-> NF_FLOW_HW_DYING clear prevents DESTROY from being queued until it
-> completes. Check it after taking the pending bit, and do not queue
-> anything other than DESTROY when it is set.
-> 
-> Not reproduced: this is a race between a long RCU read-side section and
-> the GC and offload workers. Found by review of a related change.
-> 
-> Fixes: c29f74e0df7a ("netfilter: nf_flow_table: hardware offload support")
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
->  net/netfilter/nf_flow_table_offload.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-> index 4365859220e6..62f460d38efa 100644
-> --- a/net/netfilter/nf_flow_table_offload.c
-> +++ b/net/netfilter/nf_flow_table_offload.c
-> @@ -1088,6 +1088,19 @@ nf_flow_offload_work_alloc(struct nf_flowtable *flowtable,
->  	if (test_and_set_bit(NF_FLOW_PENDING, &flow->flags))
->  		return NULL;
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: phylink: make PCS phylink instance access RCU protected
+
+This commit makes the phylink back-pointer in struct phylink_pcs RCU
+protected and reads it under rcu_read_lock() in phylink_pcs_change().
+phylink_destroy() now clears that pointer and calls synchronize_rcu(), so
+a concurrent phylink_pcs_change() should not run on a freed phylink
+instance.
+
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index e7734e45376cd..d9d0ace2042e5 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+
+[ ... ]
+
+> @@ -1295,10 +1296,10 @@ static void phylink_major_config(struct phylink *pl, bool restart,
+>  		phylink_pcs_disable(pl->pcs);
 >  
-> +	/* GC only removes a hardware flow after its DESTROY work has run, and
-> +	 * NF_FLOW_PENDING keeps another one from being queued, so nothing can
-> +	 * free the flow while this work is pending, unless DESTROY was queued
-> +	 * before we took the pending bit. A reader which found the flow before
-> +	 * it was torn down must not queue more work then, as the flow could be
-> +	 * freed before that work runs.
-> +	 */
-> +	if (cmd != FLOW_CLS_DESTROY &&
-> +	    test_bit(NF_FLOW_HW_DYING, &flow->flags)) {
-> +		clear_bit(NF_FLOW_PENDING, &flow->flags);
-> +		return NULL;
+>  		if (pl->pcs)
+> -			pl->pcs->phylink = NULL;
+> +			rcu_assign_pointer(pl->pcs->phylink, NULL);
+>  
+>  		if (pcs)
+> -			pcs->phylink = pl;
+> +			rcu_assign_pointer(pcs->phylink, pl);
+>  
+>  		pl->pcs = pcs;
+>  	}
+
+[ ... ]
+
+> @@ -2137,6 +2138,11 @@ void phylink_destroy(struct phylink *pl)
+>  	if (pl->link_gpio)
+>  		gpiod_put(pl->link_gpio);
+>  
+> +	if (pl->pcs) {
+> +		rcu_assign_pointer(pl->pcs->phylink, NULL);
+> +		synchronize_rcu();
 > +	}
-
-Maybe address by checking for the _CLOSING + _TEARDOWN flag? If those
-are set on, then hardware will be scheduled for removal soon.
-
-I guess there is also another hypothetical case where _CLOSING is set
-on, but HW_DYING was not set on yet?
-
-Probably the HW_DYING bit can go away, _CLOSING was added for hw
-offload specifically, to schedule the removal in hardware while the
-flow still remains with IPS_OFFLOAD.
-
-diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-index 11434cfb105b..7104d332d98a 100644
---- a/net/netfilter/nf_flow_table_offload.c
-+++ b/net/netfilter/nf_flow_table_offload.c
-@@ -1132,7 +1132,8 @@ void nf_flow_offload_refresh(struct nf_flowtable *flowtable,
-        if (!offload)
-                return;
- 
--       if (test_bit(NF_FLOW_TEARDOWN, &flow->flags)) {
-+       if (test_bit(NF_FLOW_CLOSING, &flow->flags) ||
-+           test_bit(NF_FLOW_TEARDOWN, &flow->flags)) {
-                clear_bit(NF_FLOW_PENDING, &flow->flags);
-                kfree(offload);
-                return
-
 > +
->  	offload = kmalloc_obj(struct flow_offload_work, GFP_ATOMIC);
->  	if (!offload) {
->  		clear_bit(NF_FLOW_PENDING, &flow->flags);
-> -- 
-> 2.53.0
-> 
-> 
+>  	cancel_work_sync(&pl->resolve);
+>  	kfree(pl);
+>  }
+
+[Severity: High]
+Can phylink_pcs_change() still use pl after kfree(pl) here?
+
+phylink_destroy() only waits for a grace period when pl->pcs is non-NULL.
+pl->pcs can be NULL at this point if an earlier phylink_major_config()
+switched to a NULL PCS. That happens when mac_select_pcs() returns NULL
+for the new interface, for example in the default case of
+mv88e639x_pcs_select().
+
+In that case phylink_major_config() cleared old_pcs->phylink and set
+pl->pcs to NULL without waiting for a grace period. A sequence like this
+looks possible:
+
+PCS driver threaded IRQ handler:
+phylink_pcs_change(old_pcs)
+    rcu_read_lock();
+    pl = rcu_dereference(pcs->phylink);
+    <preempted>
+
+Resolve worker:
+phylink_major_config()
+    rcu_assign_pointer(pl->pcs->phylink, NULL);
+    pl->pcs = pcs;    /* pcs == NULL */
+
+Driver teardown:
+phylink_stop()
+phylink_destroy()
+    if (pl->pcs) { ... }    /* skipped, no synchronize_rcu() */
+    cancel_work_sync(&pl->resolve);
+    kfree(pl);
+
+IRQ handler resumes:
+    phylink_link_changed(pl, up, "pcs");
+        /* writes pl->link_failed, may queue_work(&pl->resolve) */
+
+phylink_stop() does not seem to close this window. It only handles
+phylink's own link_poll timer, link_irq and resolve work, and the
+phylink_pcs_disable(pl->pcs) call gets a NULL PCS here. The mv88e6xxx PCS
+drivers use request_threaded_irq(), so with CONFIG_PREEMPT_RCU the reader
+can be preempted inside its RCU section.
+
+The commit message says the change will "syncronyze RCU to catch an
+execution of phylink_pcs_change()". This case still seems to be open at
+the end of the series. phylink_detach_pcss() only sets rcu_sync when
+pcs_list is non-empty or pl->pcs is non-NULL, and pcs_list stays empty for
+mac_select_pcs() drivers. The later READ_ONCE(pl->pcs) == pcs check in
+phylink_pcs_change() also dereferences the possibly freed pl.
+
+Would it make sense to call synchronize_rcu() unconditionally in
+phylink_destroy() (and later in phylink_detach_pcss())? Another option is
+to wait for a grace period whenever phylink_major_config() detaches the
+old PCS.
