@@ -1,49 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795221615;
-	b=tOWSCHkOtrolOOT8B2rPtXiySx8aOHQIcalZHkvcVObRhhbuclIVedrqnimQQW6BV6xS
-	 rZFBkRjgClFzKxg09uWMWgoCODVBTDgiuHblKEq5mQYTWi1jZBAoBm9AgvTYNBtQM8KvH
-	 6JHLdv83TiXXlEZpBIEd/jumbbVfzvXEKWk9te73Ssi2bR5cpgN9lCjftm7dBSyim32Me
-	 q0psYohJJ/hgVvp0NPBTsgTqFF53GdjHZUAJSnukIWZgsl9HMJp3dLpmDy9NhT1wIRsnT
-	 d43mbYcQn/UO0PC0wyVahTOu2Xj5A32Ge61nGB8+1pO1JorYQ8gTimOEi5smsH1ks1w==
+	t=1795221963;
+	b=U8tUzIm9gqAqhAYbBOXnZwlTi+haPHzmHkLKW4WOI+VKCZ0l7vZSZ5rJ1V94fcZLHAH8
+	 /k17AFsvwIwwwuAyxpzDJM6kr3LhEkadMrrAexNobe/LNIwgLNje/maFpDdu4P11+fJEI
+	 itt2nG2/iifTN4QvlDvNV6jVcffjZBoGLsfHblmO2+C0kP/hmMS+m8U12W36zPipeBrbM
+	 4RHzOCoIifAH99x33yBPWrchMMZMpyAaleFsl55CFcS2upZ82DGYkLTIcmZpqs+Ots5vW
+	 zF4/vyYUgwRpcZ/Lh60DcbcRFBN+rdSaRe8MDjkOanC9HItlzG1af2PP3x2dg03vAmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221615;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=VuKVXev8UIxrsWCdEYjjJ6A+0TY169PgQkoqU6UjXEQ=;
-	b=Q4DH25iTfvfMPOwL5xEzE0Ef8IazJHL7Za6Ezogkyw9Ga/4pNhc4BNYX/pgLCwpPMOLC
-	 EWrDMgLmGoRXub84XbaHCSE5mhThkCPLt5IImdDOljPZLto+kBbubAFAokOHWsttkA5X9
-	 W53up7XhBqO/BRrY3s5LwHq8qIPeqDln7xCB/ekSijPcVxFJaBZlJFnNGOzLEuiVG1xux
-	 N8FeNHB15Mqv0R65OqO9/YOeepaj/OWDO/QjOyt9yJVkAVrSN/WEqDYwAnOCJHijd7WDr
-	 ux0EJBO4LcSMX9ByajM4KrWJXUAzyBokVNffDVUlqXrAmGPtTVfTAoZZik1CL5oJi/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221963;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zVV1u4mdfEa+71QVfExLmY3W/TNv8r1nhMoxrEj/45c=;
+	b=35vsRls8P1FDdDehGG1Leq063nC1rAkS5Vbo/zuuKrDgD41BTZ5x0X10YzFyv8wIDnOJ
+	 l99htTSMW6csFRWlWSm5CoON+8l0JtyVcgPmGx1TYQnpI/rnTKAwtqiWc+4ptoIoi085d
+	 OQsAbeN958cVvQpi90DWB94vMwxYCuXBqkpzwrGqdHNihynjuF89l40vH8gvtf81lAW2v
+	 ru/hiz715pEF+Z/p8IMfFsUai/fshLCqR+xewP4MWQnfGj3qQqi2SOkVtJ47udiZ++9rO
+	 7E74w3Q3opeeNRu5S+l64SBuNDWolWdh4cpCb6nPyvxlRQE144+7NFbaaSzPd+iPBHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXZ8laQt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C0ixMRsY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FF47606A335;
-	Sat, 21 Nov 2026 00:40:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF84D606A6BE;
+	Sat, 21 Nov 2026 00:46:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXZ8laQt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80EA21F000D0;
-	Sat, 21 Nov 2026 00:40:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C0ixMRsY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47BB21F000CA;
+	Sat, 21 Nov 2026 00:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795221614;
-	bh=VuKVXev8UIxrsWCdEYjjJ6A+0TY169PgQkoqU6UjXEQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=YXZ8laQtv6e7vV48kw6IopHEDcFXxaysZ8DpSztti1dOXip2twXkvtE/Zo+gDfwK4
-	 V46syXyZgqR/0HTt8QMEVQkdH/RwaaTxbAJKA6Tv3Aug2paHP4UWWXGg5bmS4sJiGh
-	 dK6ZZG44KsBm7VgMAapp7+QVgUxF2cuvQsw3K6eAxr2h5HBULVAhSGZafMRtQvcc/+
-	 7iDwGd9QV9oyUcVBcGOHHjmjABuYb59GjQMQhgJgimKs/Bh0xXJqxfN9r4Ujsfl57j
-	 /x85hJ1sA+bS+BEm+/LqCAoV4mSbQG3fttzip3fdVM/Aab/4ym4BbSvdTjiHONJ7zg
-	 +Ij7Kihhtz9WQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773CB380AA4D;
-	Sat, 21 Nov 2026 00:40:14 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795221962;
+	bh=zVV1u4mdfEa+71QVfExLmY3W/TNv8r1nhMoxrEj/45c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=C0ixMRsYmnQsvPxUOAJUL4CWc1ZORHAvtzr/1U69M+NLovwI/CFQQmDX7n0kM1keU
+	 4AuWYXo432kd1UVvyoSaoELIWovQhrPuKAaKLEdkdTWlUlR/rmSDWC/WtysIlZlaMo
+	 a7HYIoitwMoissaeVXVkgRZ8acd7Syl5+r6Q5gTbBYSqRxH+wlpKZIVrFA+PSUXnhd
+	 9I2Dg+Ucl56KR4vNBkuIapcJ7TSdeJnNFvAdLu5oTiXvBakHaCLZhBt9cWNN0LfD24
+	 25vGglILK5tuHoz4Lzpy07VzdQP4Xad1HgBUx5NI5VXGIm0+3PFm/taQgHNsWb0ole
+	 bLbkOO+a/fzDQ==
+Date: Fri, 20 Nov 2026 16:46:01 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, Russell King
+ <linux@armlinux.org.uk>, Lorenzo Bianconi
+ <lorenzo.bianconi@oss.qualcomm.com>, Nicolai Buchwitz <nb@tipi-net.de>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Joseph Steel
+ <recv.jo@gmail.com>, Muhammad Nazim Amirul Nazle Asmade
+ <muhammad.nazim.amirul.nazle.asmade@altera.com>,
+ thomas.petazzoni@bootlin.com, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
+ from the descriptor
+Message-ID: <20261120164601.07f932cd@kernel.org>
+In-Reply-To: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
+References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,62 +69,29 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/6] seg6: fix skb checksum updates with
- CHECKSUM_COMPLETE
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179522161302.860209.8175109356029301481.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 00:40:13 +0000
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
-In-Reply-To: <20261118150251.65-1-andrea.mayer@uniroma2.it>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- shuah@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
- david.lebrun@uclouvain.be, daniel@iogearbox.net, m.xhonneux@gmail.com,
- dlebrun@google.com, hangbin.liu@linux.dev, justin.iurman@gmail.com,
- stefano.salsano@uniroma2.it, andrea@common-net.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
+On Wed, 18 Nov 2026 17:21:34 +0100 Maxime Chevallier wrote:
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+> @@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
+>  {
+>  	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
+>  		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
+> +		u16 proto = ETH_P_8021Q;
+>  
+> -		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
+> +		if (hw->desc->get_rx_vlan_proto)
+> +			proto = hw->desc->get_rx_vlan_proto(rx_desc);
+> +
+> +		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Heh, this function now does 3 indirect calls to get the info about 
+the stripped vlan. Isn't this slower than disabling the offload and
+stripping in SW at this point? Maybe the low-end CPUs are very
+different :) Or there's something else I'm missing?
 
-On Wed, 18 Nov 2026 16:02:45 +0100 you wrote:
-> This series fixes the skb->csum updates with CHECKSUM_COMPLETE when the
-> SRv6 code processes a received packet. In several places skb->csum is not
-> updated correctly:
->  - ipv6_srh_rcv() updates skb->csum with the wrong sign for the new
->    Segments Left and destination address, and not at all for the Hop Limit
->    decrement.
->  - advance_nextseg() and seg6_next_csid_advance_arg() in seg6_local do
->    not update skb->csum.
->  - The End.BPF program and seg6_bpf_has_valid_srh() can change the
->    packet without updating skb->csum.
->  - In L2ENCAP and L2ENCAP_RED mode, the MAC header put back in front of
->    the frame is not added to skb->csum.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,v2,1/6] seg6: fix skb checksum update helpers
-    https://git.kernel.org/netdev/net-next/c/47b2998b644c
-  - [net,v2,2/6] seg6: update skb checksum when ipv6_srh_rcv() decrements the Hop Limit
-    https://git.kernel.org/netdev/net-next/c/47f89dfc930b
-  - [net,v2,3/6] seg6: update skb checksum when SRv6 behaviors advance to the next SID
-    https://git.kernel.org/netdev/net-next/c/520989b4d32a
-  - [net,v2,4/6] seg6: discard CHECKSUM_COMPLETE after the End.BPF program
-    https://git.kernel.org/netdev/net-next/c/53e0a84a417d
-  - [net,v2,5/6] seg6: account for the MAC header in skb checksum on L2 encapsulation
-    https://git.kernel.org/netdev/net-next/c/e75bae5fcf5a
-  - [net,v2,6/6] selftests: seg6: add test for skb checksum with CHECKSUM_COMPLETE
-    https://git.kernel.org/netdev/net-next/c/612a37673567
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+(not really expecting you to do any digging, to be clear, just found
+the level of complexity in SW to support a trivial HW offload kinda
+funny)
