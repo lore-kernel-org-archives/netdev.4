@@ -1,60 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795286930;
-	b=r7mL5/s4iGS/2UJOJThoA++9GXvsqgm7YrWV65sEFi3Xe95GKVdDGnszc27DvRSRVBNu
-	 ++h5oXILXA2OW6P0Uw95mQmkc2ntDlDplHRdtie9ywwFrc8ZvHY7a/UUHhfNuo8TRY6af
-	 XXjA0oW/TkFdHZfSGqR3KUc2nrglNo8C2BEPOmdL/MN4VEbZFvUVq8I4wvBKWEIw/y5JC
-	 5pYABmZMtrVQ6VQeg4FdMTFLO4sfjeQf4/PNdolo0txvkko0xxUOZoSENbMn6wPKNO2+N
-	 c46ZgM5nB6FbHlVSRhbd0zcO4rSTc1AH2SBDL4S8jtpIhf1W1hkFDVZAzvd04a4xjqA==
+	t=1795287477;
+	b=L7bHhxjktaiZ2iROmiRMAmPscNDYTearA25k0RYcmcFl5NMts/9Gtmg3LItXVg9VSRM8
+	 DLQVTz2EBPcDEA74OHq5fTYR++87hzWXjrA0gwFZ8+t2XJ20epu/vj2f8EeLdMs9Yle9K
+	 usc1BHscp60aFFFYSZUbMTVMWtrGIf8b5bm6drWVKE3bcHgAv/TT8e8WM9tsNWLSfIldh
+	 /9zyq2BbV9wWB6AqGJuDrIHrR8dme6Iy3qNcYdz5EizKMYBRcoxyaKTadXbIM4hXrOd2x
+	 H3chubj6RDVF++g/+D66TCYzy3SvhSoincJu0nDVu7sxe9k56I2cfCeXc3YHgrMF0Rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795286930;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=16lpQsPZNjjC3ijLF2uUeyUfA1Z8rss5BZS9YEea6oI=;
-	b=KBpDeabRtad8rfuGsrIJxm4zVcMn34poqM7doRmNd34rKW6JmTUGs9fgttvSvRXoSBRy
-	 oAjze8cRcCBEpxNdRm+457HVby6LIrQUkgwp2FJ7vR0YAqUJ2sd4gBDnimg3bCQ7h13xP
-	 efi2LHx3lrcEj9kgUTSHBBTsPwAXspx2DGyUJeqJ2xqQpSb3h7+HCCN3TdFTgMgdsXXH9
-	 a7uhOBdGNP+hwJ9fpHAkBVb+rzTMGlAdPMjKzdQo51QT8Dwx35VhGhxQ3KW/4sFTxuUGV
-	 St5x02+/DkGWP7wu3d2GfRspMk262w+JsJWVrfcxcTVLQzc+GleYvSkUU7TrChroa6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795287477;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=B4MC1zwDtHKkfjjcvpHqhFzlxWejU3rmnKNPYLZVYM0=;
+	b=yX/j8H/Gv+ENE/XS33qQ3lDA6UqCYmGgst/0gFM+tUskI3iPLujbMfsCOfJSVlBKaWvY
+	 85mdgxC6HfMI5Yh4Q+sDi4b6MroR6bDmwipuFAy6IN0cJgoOWObem4102uQaUvPo8hdnT
+	 hNmGDM/kW8rn099gvYA2+B2cUblOer8/aFzqJhhMpP9E4n3yMijbkRIjPebYJ5IEQHGIZ
+	 TJbJA2S0hSzFrFPsBqezqsR2TLL9rEV/ADWm+wfES/RVXzfoOwOk800//feyF6eWo+g75
+	 OQdrZpPvCpQw0F0snXhVwiZ1xJjJaeloh82JqjXbCEo+bGvbh7x9MStOqBuTv9chnNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oh5HrPqG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="NF382s1/";
+	arc=none smtp.remote-ip=209.85.210.198
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC4E0606A331;
-	Sat, 21 Nov 2026 18:48:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95907606A320
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:57:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95907606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oh5HrPqG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 006491F000C6;
-	Sat, 21 Nov 2026 18:48:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795286930;
-	bh=16lpQsPZNjjC3ijLF2uUeyUfA1Z8rss5BZS9YEea6oI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oh5HrPqGRkyO7ppJt6h4uSXlrvmNrWHNchgqdd6z6gxcKAeBPxGpJJyaFE2exta+c
-	 8+Q1E8EcmvWswkOCt4RtRHKWOL0uja/zXXE2A0aKMuMlaBB+16sxSGI8Txwyuu6ytY
-	 CdijdiMLqAWDs0g9B67aKg8C5r2T2qOzAnqs3BA9R7o0tFSq9LOc54Yj5n7DWkaeOr
-	 Ex2YbDX4fI+VKowl9EldRvcTFFTW5p30eXeoscGmU4Oy4EZsXoPP7k5CMLy3MLhpx2
-	 OG7jy5sFRh8hgLzo38Fstay8YIYP7uiurNCExNBP2fOoSHpSy9xe3jrYNzhRjW99Wt
-	 qKu4PEbt+A3Bg==
-Subject:
- Re: [PATCH v3 net-next 5/7] tcp: Allocate all new skb before collapsing.
-From: netdev-bot+sashiko@kernel.org
-To: kuniyu@google.com
-Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, matttbe@kernel.org, martineau@kernel.org,
- horms@kernel.org, kuni1840@gmail.com, netdev@vger.kernel.org,
- mptcp@lists.linux.dev
-Date: Sat, 21 Nov 2026 18:48:49 +0000
-Message-ID: <179528692954.3135.2145920714638368553@kernel.org>
-In-Reply-To: <20261119071649.374106-6-kuniyu@google.com>
-References: <20261119071649.374106-6-kuniyu@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NF382s1/
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8b5d8de9619so2499154b3a.0
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:57:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795287476; x=1795892276; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B4MC1zwDtHKkfjjcvpHqhFzlxWejU3rmnKNPYLZVYM0=;
+        b=NF382s1/VdTVwSM770YoNpdZhfUYXc5xNd2j8nNkgdUywnOATf/HJomGaGY/5fm33i
+         H/dFTdWvxoMJMB8lX1VmlqMedkcl3UUFXcdCB1YnDvWyp1u3jLi2x06AbqKcfPxCnBuU
+         r6izioFqXM2Lllg+eYIFkjoHY1VYdwVVh+fq+tR5ajnovXnKKKovae+Yw8lISPrqfklv
+         tANItNNOaxXRRapyDPrqwEW3Ni+wn3L8XMt45r71QcccTFL+MZ4WFe5UQv2y3RbkWzDX
+         KtFyeZSj8YbB/5vDjbEqfmduP1D01VI6flbhIn8h4YK/w8kwxHDLF5hi20+XUpN/ERrH
+         ePlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795287476; x=1795892276;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=B4MC1zwDtHKkfjjcvpHqhFzlxWejU3rmnKNPYLZVYM0=;
+        b=09CV/hrsY/E26iIhEwNBmF84TDjq4RLBNXZ4tCwT0S46yikCXc9169cOgrV5PTYYkC
+         VyO60+Fw/WLfq+3m6gXAk1IpRf68J3b1OacVLsPhyNV+2p5m2hwCdZhncnUTiO91EM0j
+         RG4UWkiU1o4LNeSoOEdANkncqYKySZcn9FuqxeJYlO14g1GMV7F1UpFvh7eoEh7q5yHg
+         DRoVd67IujwRjuz0bUMj+z41rd0guOThPc9aW0Yc3jOK18uDkaGKUWq4TViwyxCjiSSR
+         QJV7RsutBThyV82qL+dtLvJR/JyVfZIAEnj7X2oIv/TVFgyFC1oBamcC0cfecE+/rJ6+
+         EMRw==
+X-Forwarded-Encrypted: i=1; AL+hErFbIU2UCUlf1Bfew17pz61Z9mSZYh7S37uxw1xLvyyJzyzqLh2I5J+Q6OXPQCNSAZN2GGeiEI4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1/1gUB07q+ShMDXQn+qdNIwmlEs4r5tJptHWZX/uzs4hitrXu
+	MxFVz2bqTSaaHq7hLdcOvYsk4wkFG2SjBRbX3vUQ7pzsj+Ow8oU4RHQV3O3XyNF2UVEUtP8iV/4
+	QgNkU0Q==
+X-Received: from pfnj20.prod.google.com ([2002:aa7:83d4:0:b0:8b7:600a:cc59])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:7e84:b0:3fa:1dbd:7f75
+ with SMTP id adf61e73a8af0-4014cd4a8dfmr6376382637.36.1795287475736; Sat, 21
+ Nov 2026 10:57:55 -0800 (PST)
+Date: Sat, 21 Nov 2026 18:57:55 +0000
+In-Reply-To: <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,116 +77,39 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com>
+Message-ID: <awHpd6a9_S_oI6kg@google.com>
+Subject: Re: [PATCH net] inet: reject unhashed sockets during timewait purge
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Wentao Guan <guanwentao@uniontech.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, imv4bel@gmail.com, 
+	martin.lau@linux.dev, jiayuan.chen@linux.dev, netdev@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Thu, 19 Nov 2026 12:11:14 +0800, Wentao Guan wrote:
+> A shared ehash can retain a stale pointer that is recycled as an
+> unhashed SYN-cookie request from another dead namespace. The namespace
+> recheck alone accepts that request, and
+> inet_csk_reqsk_queue_drop_and_put() can then operate on an uninitialized
+> timer.
+> 
+> This is the inet_twsk_purge() counterpart of the validation added for
+> established lookups. Recheck the nulls node after taking the reference.
+> If it is unhashed, drop the reference and restart the purge instead of
+> operating on the recycled request.
+> 
+> Fixes: 4e2b3ef19e0e ("inet: reject unhashed sockets during established lookups")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+The correct tag is
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Fixes: 740ea3c4a0b2 ("tcp: Clean up kernel listener's reqsk in inet_twsk_purge()")
 
-- [Medium] In tcp_collapse() (net/ipv4/tcp_input.c), the new
-  TCP_COLLAPSE_MAX_TOTAL_SIZE overlap check throws away the whole…
+otherwise looks good.
 
---
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
 
-tcp: Allocate all new skb before collapsing.
-
-This commit changes tcp_collapse() to preallocate every new skb for a
-sub-range into a temporary pool before copying. An alloc_skb() failure
-then no longer leaves partially collapsed duplicates in the queue. To
-bound that preallocation, the sub-range is capped at
-TCP_COLLAPSE_MAX_TOTAL_SIZE, except when the range is a single first skb.
-Overlapping OOO ranges that go over the cap are skipped.
-
-> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index 27ed9ba11ec9c..990e348963734 100644
-> --- a/net/ipv4/tcp_input.c
-> +++ b/net/ipv4/tcp_input.c
-> @@ -5822,6 +5822,11 @@ static struct sk_buff *tcp_skb_next(struct sk_buff *skb, struct sk_buff_head *li
->  #define TCP_COLLAPSE_SCALING_RATIO				\
->  	((TCP_COLLAPSE_MAX_SIZE << TCP_RMEM_TO_WIN_SCALE) /	\
->  	 (SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE)))
-> +/* Cap pool preallocation per sub-range to at most 16 skbs in seq
-> + * space.  A single first skb exceeding this is still collapsed,
-> + * whereas an exceeding overlapping ofo range is skipped.
-> + */
-> +#define TCP_COLLAPSE_MAX_TOTAL_SIZE (TCP_COLLAPSE_MAX_SIZE * 16)
->  
->  static bool tcp_collapse_skb_bloated(const struct sk_buff *skb,
->  				     u32 start, u8 scaling_ratio)
-
-[ ... ]
-
-> @@ -5926,8 +5933,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  		}
->  
->  		if (!overlap &&
-> -		    !tcp_collapse_skb_bloated(n, sub_end,
-> -					      TCP_COLLAPSE_SCALING_RATIO))
-> +		    (TCP_SKB_CB(n)->end_seq - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE ||
-> +		     !tcp_collapse_skb_bloated(n, sub_end,
-> +					       TCP_COLLAPSE_SCALING_RATIO)))
->  			break;
->  
->  		sub_end = TCP_SKB_CB(n)->end_seq;
-> @@ -5935,25 +5943,38 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  		n = tcp_skb_next(n, list);
->  	}
->  
-> +	if (sub_end != TCP_SKB_CB(skb)->end_seq &&
-> +	    sub_end - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE)
-> +		goto skip;
-
-[Severity: Medium]
-Does this goto skip discard the whole [start, sub_end) range in
-tcp_collapse()? That would include the bloated non-overlapping skbs
-gathered before the overlapping one.
-
-In the second loop, the new size cap is only checked when overlap is
-false. An OOO skb where
-
-    overlap = !list && before(TCP_SKB_CB(n)->seq, sub_end);
-
-is true gets added to sub_end with no size check. If that pushes
-sub_end - start past TCP_COLLAPSE_MAX_TOTAL_SIZE, skip sets
-start = sub_end and skb = n. None of the earlier skbs get collapsed,
-even though they were collapsed before this patch.
-
-Would it work to collapse only the prefix and stop before the skb that
-the overlapping one overlaps? tcp_data_queue_ofo() inserts a partial
-overlap after its predecessor, so the rbtree ordering should still hold.
-
-TCP_COLLAPSE_MAX_TOTAL_SIZE is 16 * SKB_MAX_ORDER(0, 0). With 4 KiB pages
-that is 60416 bytes of sequence space, which is less than one 64 KB
-GRO/TSO skb. Can a single overlapping retransmit that was re-segmented
-or GRO-aggregated trigger this?
-
-As an example, take contiguous bloated OOO skbs A1..A15 (about 22 KB),
-followed by B, which partially overlaps A15 and extends about 40 KB
-further.
-
-Before this patch the range is collapsed, saving roughly 16 KB of
-truesize. After it, nothing is collapsed, and the same thing happens on
-every prune while B stays queued. tcp_prune_queue() then falls back to
-tcp_prune_ofo_queue(), which drops OOO data.
-
-The commit message says:
-
-    Legitimate overlaps (retransmits with a different segmentation)
-    only involve a few skbs, so if an overlapping OOO chain reaches
-    the limit, we simply skip it.
-
-Is this accurate, given that the check counts bytes and not skbs? The
-message also doesn't mention that the non-overlapping skbs before the
-overlap are skipped as well.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119071649.374106-1-kuniyu%40google.com
+Thanks
