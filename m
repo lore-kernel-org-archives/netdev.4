@@ -1,99 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795285591;
-	b=5iDpEo2TPM2tly3c1c2uq60RK2FfrmhYVzwR+SrbaEHm4cXLRBk7soljJ8xko+fb/ZuJ
-	 HnhXjmrMb9T4aWaIMgoti3su3njkQf+7i/kf/bh8iLmwLNNRXjKjJAfPr0kFkEgeLrE8Z
-	 3aVrRUmb0hJEm/zTGELKv9krHWRIZtaud6LUNjFNRE5o3Tm7bpFogopGoJuEGNwXmzyJb
-	 FPAvRR9msDAtEtzTRYeYg4M6wjGVZOZlUg3LFGi1tTw1dhrSKMURxFEdjtQEN/5zuAU1k
-	 N19mJY4s92eBvNHdr3TUuWn1mUqWl4A6KpD0W3fiB7ZkstE7WHZl2H6EHc7WzwoYVYA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285591;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795285611;
+	b=LlvzaIa51tNPCJLLH4bkCzbHY7nPNS6mtQ6ucjnKuAHO0p+wni7aiTy9v/6rdScnCU2X
+	 pIJjan1q7mXpjYgFehEW27jBPYHcTyPB+++558XSmHffJgrjmt4xsB1/0mdJPHkJzmy9d
+	 Q/EM0LJUlNeyjarZc+fmLcsJYkzXnCyxgmbGXg3GmTHb4eOoz743i3Csl8d1Yu8JPp6xn
+	 4p8cNQ7euTJfqz7qcTmh/pFax7FfDkP3vnhg7eJWO/sx75Oapw9vuNAT+OYhzvL7QtG4X
+	 b7L4pzvClCPnaTyFg6Vvyh5c+oJvpoUNnrv2sBciK3c1CheS+AWQ4GHIE9798ngGvlw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285611;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
-	b=rI8l7aA4lUGPWh4lApMd8KquFS+XbA27Rhg+Kt1COckTqRuZlobWyg9WUxIb2/ErEmVj
-	 RX5lSWvWCs+jh8URAFHIqTIRKLtOhkjuHGxCbI+iPEU/zwwUoirjYBhVZHfB2oZdymOwl
-	 p4zWpuuHvgzUfbRNta5kNE/nIiVPSc6eXzO/or9tjhXovejotyugY73dW/MiOZ7RKM+pF
-	 F1jtrhmawB7IO8G79ZtueJhDluLzCU8XZ3E1fefvJqyr+I0SIEIE1dwjryVkHlxxXvs4w
-	 cZcEpWIQjmmh29eUgF0yYkmlOGmYoxW9hBzFDzdap3qDH2NT5/5iMuWvkfkVeZRwVzw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=pdXXKv//+YLQIm6mnt0NYSwAhGN57SfFKoOM0+stirY=;
+	b=SW9Q9yihEAgc65q+VFCOSgQJAxF5ZfELaA0prpsL/KromzreJm0WgcomtuAScfMyx0tk
+	 EvSMbAA7pLV6On39KXweX76fH0rPjVruCL3WOJ6hoVysVsSVIsGCXBhOGtfdLEOzdhV1c
+	 BGZ/FRevdq8T7cwbbNP8lqfxGXi+mLLN02JM1qbMBsbCHO+7zgx9E5sEwJTgfWDtPcCqb
+	 yGOuNMDCiyqpixSmD7VOKMaY5r6hQ1DcGU7nL0XzFyV+f4u+0PSCEJakuCmaVXkTRu7m5
+	 to3fX2TAbNoKJEH7AOQikDnytiQr9gFcMh5v+8p7G9pahO76LEg/USQLeDfES5YB3Xg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PT9tRHXr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
-Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fKvVJIJ3;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A27B606A320
-	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:26:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A27B606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39186606A32C
+	for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 18:26:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39186606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PT9tRHXr
-Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67db5e13b0cso1766893d50.3
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:26:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795285590; cv=none;
-        d=google.com; s=arc-20260327;
-        b=USxokIaiY4Mj9QxUbcz1M4Q0Z1NmyF/te/9bGM/EUwpKR2wPGB4prl/paybssvkgEO
-         dLUirg37TUlShfoq4j2EmFJoWszspu4tFwlKDa4LTzl4rTxvULXFY3KjpWQLzUgW3zVt
-         ah72DfYE1Js2/KUt2ObpUF+KpKKVeHrAvYSdbgXyGWXCAmha0Hj67b3qevBEyF89Z+na
-         QVe3af61NMh+S7O83BQ4Yy2QPSzCpKC8T51vv6AbphFuRUDhWak4BvPwX1uPO7tGYD9O
-         HchJyjAjJdMOgya/Auqo05Cw9hl+Joi8Xk6N+ucX+A4S7s9O0K3WiKac3cWSBZMCf2Qz
-         qBSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
-        fh=pV6ag7E+em8A+vXckVkHvbe7aLj6keeNX/issxSQE/k=;
-        b=A2tHS9R/GvmGvm43bKfQt4IfBIT2hhGMhrX4HnSInL6Z5ICPGttnfr5BySx50XCCYW
-         oyjK+B/m5g5kUcakRATDwAel6EhNLPbaggrDu6sOdQXhfpdjEgVgagRdyqBFKcoxBCob
-         PRlNoEkDA1D81vt/17GthDiDdc9dNXy2cf9EWgkE2w0MDxzzoHpmGI6xTEPo2g7E1cxq
-         nxTEID8sPerPqG0lTTe+B42ZKK4c975P+Bv9tSCmQREwZBVAGyYDwi+jy8gvUm/XZaq4
-         Y4LqxladBlLrIOz/YQf/HKfCTYdxn1Sl7kS9h1VYIiIsgqN2ZlHxciXhw8yo9wp7BS/X
-         WbRQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fKvVJIJ3
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb5e3cbf45so1616595e9.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 10:26:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285590; x=1795890390; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
-        b=PT9tRHXr7x7H83fcvieRWtgZstS1pyRyHtdXUNAQLs5Bmk4GCH2oq4T6hSnMh0OmLA
-         4BI1AN1z4+tUeXcai8Z9zODYlfPLYCn8yOhF1WkMdsRAhAXzcSNAjbimF4uZBN9fPEVU
-         G9FgCmawCLS6nvEU+xq7WVfSXrZ9cfKFEUl4WAcYwo4L6eCZ3oNZKNPbU+HvZXBzP9wh
-         HgEGgmT0tGx+964974FzslwpIrpeR1eNylFw4MLf0hD5nYZe/PKVcWZtBpYmfRQS9TqC
-         nbkSVNKRbVIaGPZx5tXzcKI6rhjPhaNqlWRYZR5czTFCo6zjJ0PT8jtt2K170dw8Denm
-         L2qA==
+        d=gmail.com; s=20260707; t=1795285609; x=1795890409; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pdXXKv//+YLQIm6mnt0NYSwAhGN57SfFKoOM0+stirY=;
+        b=fKvVJIJ3xbhMBJPHM5lDunHvwr/SsXQmTjyx6iydI08yXI/VFQAys1nPxfXh2/vKId
+         /j+pNTygWGLlZbjeaO8Yq02y6RA1fZ02FPFjhA3564s4/koTy8ZvpVZo6uUqgoytzELk
+         2ZC3WjtzjDSklWaf0cSW0ELGxJ0Kcf60hxCEJn1ZuxzlGjGZYwhTf5i/4c27bl6e7JLs
+         S0AUM7oLy+k0khZvIAu3zCW9H2YhrvOATfEyLUddeVsUB2kBLVROU1D0epJCMUoAsBgc
+         2dXeSUGNqUJ7Nc2tXt1cBJdPbHgiTAlX7jMa+ANtAOQk09A0bHT6c1S2HkKmMzjhcE/N
+         x/cQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285590; x=1795890390;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
-        b=gISCGYy/XiOoMJiG0bngAsuU+TftDHV86xu2t1WSiamG41hmim4er9amNhiAYDFCKD
-         573oJh4X74LsoI5fKC09KVE+iQm3EFMFTgg0kJgg7qESk/A44aEY4nTreQACPs18lOIX
-         sq0tydj4KbHYswV3d69wsopAm34QLM5qTa66WoeIcDo1mtFh0Kggsj10kqy6+7i5BNCL
-         ZzWBEvCwnu9LtYTF942/Zlb8ahqqDF8ROvAzGeunqtAYiDfzwY1AHS87u0BRtUgk3O46
-         KDlnnT/fkg9idlZ4/POo0v4mOkfFrw7W3mZI83Svt0FEhHvqb697dvjT60tbnCB5VHDw
-         /3Tw==
-X-Forwarded-Encrypted: i=1; AL+hErFBT2x/a7ajI+1ynM9EBiSYGb/WCje5JMvZuCSY8S+qNmjRpS7581iUvGJYxJOp3ZKLH9CiGdw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89vSoBLiBLhHbA1007cmPxf4ckf7L52SlLSl1NtL6QDcAlsEGT
-	aBFR1Lr6pjs9DRVLVmAu1EY6VBeWbz8vNTjhrBIrOxrl9jKg/MhWpbUGnPESt2luAwzGUrZhNAH
-	qCc7EINlMLLoNKrtLqpNOfULd0704OsY=
-X-Gm-Gg: AZFdTZfNJI7lmLBKCkmT0BF1sXLV7B8bjgM/vhDHw8UdhZyBviA/NnsUcE9JEbApUZZ
-	gfbNXV0blWC1lkxBDj0tcMOv5+XmVRdAdO6z6P1Tk3Gk+jS4XnojQdzh/2R7HNd+ve8KamN0Bxm
-	rgy84i1JtSloTYs2qalRsez/I/UMoVvn4YYnqCnvLiBBSI74VdeTGOD7J0GZFw5JtcSE3jq9scV
-	Dhb4fpq1+KUozOENEN8TybtR9S+ZdLRGAHLVYcBXzomB/G1ujIEbfyfmSqV36NlkpOPQGDPCkP3
-	y+Va+O7MXM3n+5rGlLTT/b0Jv3COif2vUkgtoJLWkEPUsKZdNZdZWuxKrcMGL+40q/IOt0uc8/4
-	UD0Fa5xhW5+2mxm1uH3n/lCxBrdgyiBzlG2VtDVeTaeivhjGhT/0ZuQPmI8hae5P7kbj9zYUA
-X-Received: by 2002:a05:690e:1512:b0:67d:eb6d:7451 with SMTP id
- 956f58d0204a3-67df4422c68mr2129437d50.33.1795285590320; Sat, 21 Nov 2026
- 10:26:30 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795285609; x=1795890409;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pdXXKv//+YLQIm6mnt0NYSwAhGN57SfFKoOM0+stirY=;
+        b=eeWi1VoPcHo6IXieizT0JYEc/aOaJMdcngCAB0DRsxrP01XfDmVJO465I2RARemZnE
+         0QUtsQXADiJNlwNB6+RqmFREGMBfjGYohNsv/q+bW96g8tkSDiTXfgqsdVNTcteL6SHF
+         BH83UEnWPc352e9S8ryZZRxB8ZJGS8lTxh0dfsVNCFaruOzbcaIgSDS9gx+BDNt5zitb
+         St/gOflLdlj3rDY3hKmcf9uRTNThhUDq7s8+j/kfsKLQqUAnLwFUTjbHqVZuTmXNZSFG
+         7R6bnmu7tizTjPc2Mw0TkhjbahP4SoxxiHLXWTRUH7By77kQ0l6NXuU48NDXwkmxrlKj
+         Z5Nw==
+X-Forwarded-Encrypted: i=1; AL+hErGO8hYR9bRQRAEsQLswwzKe5gQNQ0S+ZdEYgIBoCG5CWj3xXb38t84RzxeG0veVrLsg91rUbaU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+bi4IoJankqaorWeXjMsTpSQCfxorQL9iPX6T4bMbnb0tVFp5q
+	mk8CYtny3WYICXYrhjQNh2RgPNZlREekwD4wYsVxoNt2AIw1zeiklukp
+X-Gm-Gg: AZFdTZfDl05xmQ0VHTOmAcLzPN2uUxw/WLFn5St8Pg1VUzZYsfwlND/F0YAX1oTe8r1
+	1dPq7Pgp3gZ9ZHZoJzCdd/SPjeK6OEFzx0/Wys49y5hp/f5Phj9hzgmyg2hd5pB8s2frdeLZyT6
+	Du7C2d/JUiQZhiLuG01P6LLc8WNNnitPRcVvsIM6kM2Z05ZTHl+WH17s6m8ErL1aaZPOUlNaVXj
+	SPKZPA04G1BN/5UWACrr/ar5NAtX4hNTnpcrfZ7YDAaubl7mKqFnLsHsFuHXNmiNfb55PqR7Bgk
+	g0psXpHTpoWP/kY+mlnkPp6nnC762GgMl6GjsMErtXPCSD8aPHzilias8mFV77D6c30bsauNEFP
+	cCgtJeu/YgmwXhsktRCcczwAIodC9rwoKYzne+lrClaEassIh/2r8iXvCCev9G7J6NIv95evVRI
+	m5HMdWQBLpBuCdcSanGxCGTcYmxxf0aajTTy4MYdIPrbXhXDkOLmcvFgOlAUggtID4xCbOYyb03
+	ztKa1lt0wiZDMygGNNWOH+ATy7aatEIJMZwFwbLOqEHaWK3HIjP+scimoHeU8R97MBmG1KMNxwg
+	6+C8NLWlg3qldKxmBlUoG2XbogMAcV/ITOFg5nuZNwnbHFvRpfH0ntYdWRbf+EuTVhpT/g==
+X-Received: by 2002:a05:600c:8210:b0:4bb:7ad8:99f2 with SMTP id 5b1f17b1804b1-4bb88785da4mr143498125e9.0.1795285609454;
+        Sat, 21 Nov 2026 10:26:49 -0800 (PST)
+Received: from Nuel20.localdomain ([102.90.87.129])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm14215507f8f.24.2026.11.21.10.23.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 10:26:48 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: tianyi@cloudflare.com,
+	hangbin.liu@linux.dev
+Cc: kuba@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	skhan@linuxfoundation.org,
+	kernel-team@cloudflare.com,
+	tianyi.gao@linux.dev,
+	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Subject: [PATCH net-next v5 1/3] selftests: net: veth: derive invalid-tx test value from kernel max
+Date: Sat, 21 Nov 2026 19:22:15 +0100
+Message-ID: <20261121182217.4609-2-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261121182217.4609-1-emmaonana18@gmail.com>
+References: <20261121182217.4609-1-emmaonana18@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,74 +115,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
- <ca39376d-37b6-43e0-9dd5-7d431d335e63@yahoo.com> <1fb7feee-3e4b-4313-a596-29f2ad0de1dc@yahoo.com>
-In-Reply-To: <1fb7feee-3e4b-4313-a596-29f2ad0de1dc@yahoo.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Sat, 21 Nov 2026 15:26:19 -0300
-X-Gm-Features: Aa3M54ofyQJPd_0cDwuIs6-tjlhNQxU7Th9d_h6ZqzQRuI8H1WEx1muDgV81y4A
-Message-ID: <CAK+kzgwqPfWv6uOPd2SmBZ2dFWp7jTpL1YiQ01Gft+KnZ=gjFA@mail.gmail.com>
-Subject: Re: [PATCH net-next v12 12/13] net: dsa: realtek: rtl8365mb: make
- L2/LUT access work on family D
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Mieczyslaw,
+The "setting invalid channels nr" check treats CPUS+1 (CPUS=`nproc`)
+as an invalid tx count, but the kernel allows up to max_tx, for veth
+that is num_possible_cpus(). On hosts where nproc < num_possible_cpus
+(taskset/cpuset confinement, QEMU maxcpus slots, hotplug firmware),
+the ethtool -L call succeeds and chk_channels() reports a false
+failure. With failure propagation fixed, this fails the whole script.
 
-Tested v13-pre2's port-based FID on a TP-Link EX511 v2 (RTL8367S-VB),
-over loopback cables between bridge ports and standalone ports of the
-same switch:
+Query the kernel-reported maximum with ethtool -l (the same parsing
+idiom chk_channels() uses, first match) and attempt max+1, which is
+invalid on every host.
 
-- 0x07AC/0x07AD read back as intended: FID 1 on the ports of the
-  VLAN-unaware bridge (the uplink included), nothing on the standalone
-  ports or the CPU port, nothing in a VLAN-aware bridge, set and
-  cleared again by live vlan_filtering toggles, and cleared once the
-  ports leave the bridge.
-- What failed on v12 with the shared FID 0 now works: unicast between
-  two hosts on standalone ports through the VLAN-unaware bridge with
-  learning on (also when the bridge ports have a PVID, and with frames
-  tagged with a VID the bridge does not have), and static and group
-  entries without a VID no longer catch frames arriving on standalone
-  ports.
-- Everything else gives the same results as on v12.
+Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+---
+ tools/testing/selftests/net/veth.sh | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-One limitation remains in VLAN-aware bridges, unchanged from v12 as far
-as I can see: a frame tagged with one of the bridge's VIDs that enters
-a standalone port is looked up in that VLAN. With VLAN 50 tagged on two
-bridge ports and the hosts learned there, the frames that come back in
-through the hosts' own standalone ports are sent towards the bridge
-ports and dropped by the isolation; with learning off they reach the
-CPU. Untagged access VLANs are not affected. This needs the same MAC on
-a standalone port and in the bridge, so I think it is only a corner
-case.
+diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
+index 64c2a5a59821d..22246278e6049 100755
+--- a/tools/testing/selftests/net/veth.sh
++++ b/tools/testing/selftests/net/veth.sh
+@@ -463,7 +463,9 @@ fi
+ ip netns exec $NS_DST ethtool -L veth$DST combined 2 2>/dev/null
+ chk_channels "bad setting: combined channels" $DST $CUR_RX $CUR_TX
+ 
+-ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
++MAX_TX=`ip netns exec $NS_DST ethtool -l veth$DST |\
++	grep TX: | head -n 1 | awk '{print $2}'`
++ip netns exec $NS_DST ethtool -L veth$DST tx $((MAX_TX + 1)) 2>/dev/null
+ chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
+ 
+ if [ $CPUS -gt 1 ]; then
+-- 
+2.43.0
 
-Family D seems to have a setting for it. The Realtek API in the stock
-firmware has dal_rtl8367d_l2_lookupHitIsolationAction_set(), with no
-family C counterpart, which writes bit 0 of 0x0A10. The reset value 0
-drops a frame whose lookup hits a port outside the ingress port's
-isolation mask. I tried two test-only changes on top of v13-pre2:
-
-- 0x0A10 bit 0 set to 1: the case above works (20 of 20 replies), but
-  a frame for a host behind the port it came in on is flooded instead
-  of dropped, since the ingress port is not in its own mask. A static
-  entry or an MDB entry on the ingress port no longer cuts the traffic.
-- the same, plus each port in its own isolation mask: the switch still
-  never sends a frame back out of its ingress port (I checked that with
-  a single loop cable first), the case above works, and the static
-  entry and MDB tests pass again.
-
-That was a focused run only: the cabling check, isolation between
-standalone ports, the VLAN-aware bridge tests (load included) and
-unicast with learning in the VLAN-unaware bridge. If you want to make
-this change, I will run the full set of tests on it.
-
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-
-Thanks,
-Gustavo
