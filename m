@@ -1,114 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795374852;
-	b=sK8Bvy1mAxskrKVv5WZ7wHEBCDFc3etUp7LrIxGk1a69IOYlVYGPKgickqs1WAxcETBo
-	 /GNPU0FbTxcsyQLBCVSk8qkOn+ML0iSGEE0Yc5XLBNxKp1Jh6inz0FAD7xpK7S38p4jN+
-	 7n0EbgHSCONPgWNFxGLdQfD5i+xZzhhSFJ5DX8NizEYFATM1hAJIg5PzKOn4iLl8U8qWt
-	 4Gq8L+HgbrPghBpnNVxgIyhLrFfJ8SKlYWdqszxn6bDa+ZWSequ2iG3eBoZ5B5O8GQ3iy
-	 DCX/WEVpD6dfGZJAI4QLA/2mmxgbu1oQxYIVeBFuQCpEG/PYUzSd3zCsBgb07bvJblg==
+	t=1795375278;
+	b=BMWYFJYMIKyu+FtcH04arROUq2XqJSIwOwxPW9gnVix4knjZ8tbnRCCVoJeYhPovSuC4
+	 BtR9qdhJ0URDytDGIeTMovIimlHH2tI223R/21kQKPJyreoETmUbAW2wIhLq5jNmKNJop
+	 pGx8j9n1syD6+oltgFYgiK68QaYbSsctcnOiJHjgcP5IyO0T7SF5GdlCjfMxJ1gunMwFc
+	 OPWYv4qv8q83m/WKhqqacssOAWrHOOfCsKMQURgHspc+Js4kTM9YOHJjL8mfwE6L7mz9v
+	 VWqgaDNNdGvzIwsYMx7G94zGZoA1WGphldJdMR1lI3YWGm1hWC4oQCVuS/LP4+UKJ3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795374852;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=SPoTViWJGHL7QSLz+I0tDgbdnIX9thSbIOpbmEgxuw8=;
-	b=LqG/GM2bB7hnsDkir6+eA7FxlmivuWnaN7A8vfmbKuK4XRXk0PbgIDuI9KQEHFQ9h6ut
-	 uyPIJhN5Ei0g4skayfgydnP3/Ym2yYwu9Uc/XPbDQsuIT1IR7DaSJb8+AFnnUKyMzHObX
-	 DsUFJau2gx9mnK/m/XWIIBoW1rmJ52tVA1dSV0a7Z5wVL8HhZKZSVV5DiEyCjWyeh282N
-	 5FqapvXY3Owr7bRPncGP9+qhv4Nu4BrbI8DMkEQRLX7Vn9Q1u4ldV/px0ehqj3AWv2BbC
-	 W947X7w/re9CuvChE2opNoHPV14UCdhJ1B9N+tlXIG6+Rq8vP4HIq5rSs34zSMxkCOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795375278;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=ssnD6CL/F3PNz4sQoNGHOMcyfKPQ1JKhxPVaQ4iOjeQ=;
+	b=Ky+gEKClbYcK2/wis7F4kiY1BuV8Rf42ySKlMyYEJ/XU5e03FDXfHhJMBzEDKb23ubAL
+	 WCgPF7LvMKoWSTDfbl+BEyF8/w5KSqOymtoVqPORpkURJdIXjHCu4n3GXpkFuGtAECmCB
+	 +weql+jUnqYaFOg2R4FGInOHTuC+0gs61gMG7tJgDgM8GIWGPQfSV9F+ykZHXyZMpOtq1
+	 JR8xgNFnvfW+T6J+8gn+oLGZPJL/JtNZmMFA2FQ7bPoZKQZYffBnMfabki/ZcMfPFlEUl
+	 1R4TjS8ejOwkBoEMBV7OV2etc3tZKaa4mxX4XsAIhCfpI383UgiDJMkDRGfwpqrlDFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ZpAwrYuL;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I+9gw4J3;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=bairaktaris.de;
+	spf=pass smtp.mailfrom=bairaktaris.de;
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b="QBZ/WNkb";
+	arc=none smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74342606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:14:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74342606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56F09606A327
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:21:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56F09606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ZpAwrYuL;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I+9gw4J3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795374850;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SPoTViWJGHL7QSLz+I0tDgbdnIX9thSbIOpbmEgxuw8=;
-	b=ZpAwrYuLf5EdLloLxtncynvxdkf3IrcU3uWbIR/1vn8nDClXS68XwwZqoZEaHb4EEWypM7
-	if1l767wKwZ72NATFFD+S78SrI6tfnWhXMGf6KGmtG31XeFcBx1KlJPtHHT/yLha4LI1b3
-	bO8IaXfLRF2/9MoTLpg/x08hhJSGBzw=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-538-PBjbCXuzP16Pb8e31ril2Q-1; Sun, 22 Nov 2026 19:14:08 +0000
-X-MC-Unique: PBjbCXuzP16Pb8e31ril2Q-1
-X-Mimecast-MFC-AGG-ID: PBjbCXuzP16Pb8e31ril2Q_1795374847
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4a647e776b4so1848391f8f.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:14:08 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=QBZ/WNkb
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c516a574bffso86824766b.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:21:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795374847; x=1795979647; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SPoTViWJGHL7QSLz+I0tDgbdnIX9thSbIOpbmEgxuw8=;
-        b=I+9gw4J3CXiFaFKNO8WIQqKcUIlUxmMmLmeqeDzziAmXvCXmDmgPzFJrv1qGn61o9i
-         Lr3kEFiyPxYYT8ELEJS2aIroU6GwFekZNB7ohrLW5gm97gAwuRUbv0cNOZtkdNjHtO9+
-         P2MyFgopF4CcvZij8UHwjiiicla7IY2Pr6o2anJI+75rTB6OJPfQlIFQCKA0PWmHPN04
-         3qQy0rnJRuECatkNhiUkUEWO48rl5O8aNwbGNRr5NpqaMTlizV0rZipvIs8odH/R1le/
-         ZWNM0BdgolBZ5KBFI2ImmGtSGSCALIH9dX+t2tmX8p33ZpQngxHj6NZlnuDEQT2drhLO
-         2EkA==
+        d=bairaktaris.de; s=google; t=1795375277; x=1795980077; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ssnD6CL/F3PNz4sQoNGHOMcyfKPQ1JKhxPVaQ4iOjeQ=;
+        b=QBZ/WNkbKTQycfpNSrAfvc+jXxfplIY9RMRzJBcL1Kv9FJwNRZwFSqq+erJSTbxPKU
+         nVlOgbpXbP/Ry6Osozaf3MPxavPUtlG0+zPS6u0Aq8zH/Swk2g0Y6kcDL6ITM9xQBsdE
+         jxWdmYzbUxlcL9Lpyuk++La2wC0Gj8IZWu8+GLsr3qwXqHRAmc01iT/5zIBRVcdgB2ux
+         9I4lGp337BAwWsY6+Yfx4feHpms5LZkD+cvklA9ZelLjVOn6+RgzxAiQRdf74OmN0oaz
+         axGE6JzLMV4fre5HZUTtkToktzHC+8BgPwSc60T/XwxXBkY1L3Ot1yAqWITvmDzmmoDj
+         RdqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795374847; x=1795979647;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SPoTViWJGHL7QSLz+I0tDgbdnIX9thSbIOpbmEgxuw8=;
-        b=Rgcz1EXec58Sy59egbBxVseDTKBsGD1pmR6nC5DvDiklM0v+CPrUh6K1QovZs4XWvG
-         ykKLnkxhvei6UEsSpNVFWNP0DxtdQyYbsEF0e6E3ssH8CpwuQoSmheLhN+622y25U3jY
-         EDe5B4wKSIZS7BotNooz6h0ZF3R5+5JTTmEe9XarfNoW4t8NOJDL2J3mLlN8sidHGPau
-         aHYd3KXUa28S55cMvwua2jc3uddDml7Ik24JhQ35tXCX3sc5PcU3flbzoJILWr3NErH2
-         oHJnhYPzWFT8ZQzETQS3J+el8VF+A69pTclL5g7DLc4AakNrp2/D93VQE2FuqjANGJZw
-         QIZA==
-X-Forwarded-Encrypted: i=1; AL+hErH0UUJkV/hAdX7MCbqSJAjqNDkBEvH/8upkD2U/PR+1Wqyn2uwXrzJgC8sjp9WlSIP+KwsPlks=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DUs5GWVJXFHFSjwgofab14IPjHMwI3MrEhV+v5q80T/xWwdIj
-	qI6sbdrXPDXxMZ1JwDBMfxPOR7XjkssZbnp2ySEmk7iD3KAMyOkl6+vOievO49bpipMoJCuNgLC
-	Q23hSZfr7OCgjsVOLu5Y2+bFvCb+w4lynceBL3orNi/3PXq58vS6Jo8msaA==
-X-Gm-Gg: AZFdTZcqKZ6EOftvXsQXVlK6i38lq/nKPlPjomBwhiHgF9cRg62Ud8Pzp9kRt3nOxze
-	+G9ziInZcd0IaIb3s+o/repW/2L4gywl6IZTWCqqS72FPLuFAzFqidzmruTP1Tc3ukmApge3JT2
-	5jCS8lmClf21bByLsGqWll/xX0BO0BSAb/T1djuCfaitn1pjAX/Vtwug/ZbiIFk/alNCRA0Qv1I
-	/27BqurXTE/VvjN8a3v2ucINr5jID/o0gRJLTUID/Zp9pR/Sao68U66x/Li7NiCdYssx8hVFIu7
-	JZjZRjLKd5xOgmOGOMFvTbqBuQ5KNu3/wAyP9OYayvhnmIsShKlkJKyMTC9glXS8PH36sM9mTf+
-	6D95BeKkpPzc5poYBlTnviaD30j6NfbHC9JjsM+cT
-X-Received: by 2002:a05:600c:3b8c:b0:4b7:6c16:7b43 with SMTP id 5b1f17b1804b1-4bb8881d019mr195708875e9.10.1795374847345;
-        Sun, 22 Nov 2026 11:14:07 -0800 (PST)
-X-Received: by 2002:a05:600c:3b8c:b0:4b7:6c16:7b43 with SMTP id 5b1f17b1804b1-4bb8881d019mr195708385e9.10.1795374846810;
-        Sun, 22 Nov 2026 11:14:06 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1524:9e00:c39b:a740:e7:3fcf])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm198874085e9.2.2026.11.22.11.14.05
+        d=1e100.net; s=20260707; t=1795375277; x=1795980077;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ssnD6CL/F3PNz4sQoNGHOMcyfKPQ1JKhxPVaQ4iOjeQ=;
+        b=s+rg5uDTOVBD8Q/pjgmoaafYGcEKb3ZUiqPiZjRX1L9Nq6OLkJGmKVvyNnGmRszt4a
+         Uo8jJMFwCNsSRoCnQe97aNEb5+5qBsP92VCCLqAbpiRUYzI1bSDHuQFqGJpv9adm9w8C
+         hyD59orbhAkPpmFguFyHhN+/LOGWoFrlk+IhryLNG2DNZUEvaad3AROm9XhACq0eVOXW
+         dQltoBFoxF5XUY8O9aVpshiyXR31avWLYTDymaxluLscr5AzpbsfCXYdmx343x/PRv3x
+         dQdfE3Ifqr3krfeD3POeg1+Vu3oAsWXMZIDGaMdiTQlv57tLjGkHfZxOPdUiH0CYFlqN
+         PEew==
+X-Gm-Message-State: APuU4Z+er6JQcJCXQ1wvlm1F5NjqFqphdyJJ9ALhkh9I/A9B8dNKSewr
+	VOPlbUX4eDPP43agi5328SehMqXekzIxUR6buyU3WVZ8E8Z1j8itnfUxeXvjkjlNvg==
+X-Gm-Gg: AZFdTZfJh6aD+zYk4DENeJdepi3iHDVchyuif3hA+u6qIrlBxZzn7cCIlOMbc3IuUwj
+	4LlIgyfgQLS21nd3XENKe1YbcGPW4GtqpHqJhc2yE8prEsSaQt+xhJtKFSgOq2UZ1/lB4gBDWYl
+	hMOXv4iEaAfQPmvdK1nNii7MKPPGxr38NiwTlDYXYmUHZ5pMndcYRLUJcoqcuUHqkp+mWf169Hu
+	j7qClXN9JpY8vaJ1iLwwi2jWwcf3XL4wwm2R33yijzwMYVyAxWOAK8QBEVbM7U+zN3VI4k1kZpH
+	uQoGq3TgSIUg1+PfcCtKPeAlsido9kKn1g91B8ve4Jb+IO7DOkvN/6547APoSneN+8ZOMsWChFE
+	COD8hpvMUrhc4VcUoVtsRAIgqHKWl81c1f4lejeuTQXnCGG56rT/zt41WMjnoemHcB0BpBSFXt3
+	FWr6Ctybhj/bA131cXRMoDD+5s3shGXptyol5EiE/KYbeRhYVfZz43VM/XCtMqMagQUSz4LS0Wt
+	MXXLLUzKdObS+QkHtE8CCnFwPntAnqz8dPjG7NWKJRXv45xV4sjYsZeEMXM3/ylxD3f9gzWi3GT
+	yJX6HvS0zvu++L5/zGiNCzkFpSZtsofUOFKDVtxXH2IJhNZ2XgKfq1jfYh7QyqpJW5K68c+xFpt
+	91WFgzlaYWlhSfSk8TiCxfPpRD9sDIyESqRaExGCK6V0OWq1ylUCSgjkz+JSL2v5HhdrfbmfceD
+	G5MZn3wsUOkWbl3/o1RCkq6zcKuc+zup6av7L81SOy1YHF2jSAu3IMcnHJ13CROAPyphqE8hsCG
+	bZoigznjvP5obKt/elqfEM63UEld1zburHVnD8QsEsdCUwmuPKnN26FCitQya9Bk2FMpeRSphHp
+	4uTrN8wOL8YqWEED4GKA8LsYlgsGMZxFbOUm+K09rzkQgmMszER1WsJ0ODIvAFvZw5f3K9hp86s
+	t
+X-Received: by 2002:a17:906:f5a5:b0:c46:6a50:40c2 with SMTP id a640c23a62f3a-c513ac7e167mr774036666b.39.1795375276713;
+        Sun, 22 Nov 2026 11:21:16 -0800 (PST)
+Received: from Desktop.tail070c67.ts.net (p200300f24713a7000000000000000a27.dip0.t-ipconnect.de. [2003:f2:4713:a700::a27])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afeca8dsm338808566b.75.2026.11.22.11.21.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 11:14:06 -0800 (PST)
-Date: Sun, 22 Nov 2026 14:14:03 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Hengyu Liang <hengyul@cs.unc.edu>
-Cc: Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Paolo Abeni <pabeni@redhat.com>, kvm@vger.kernel.org,
-	virtualization@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] vhost/net: bound the count of VHOST_SET_FEATURES_ARRAY
-Message-ID: <20261122134901-mutt-send-email-mst@kernel.org>
-References: <20261122092235-mutt-send-email-mst@kernel.org>
- <20261122143829.2674252-1-hengyul@cs.unc.edu>
+        Sun, 22 Nov 2026 11:21:16 -0800 (PST)
+From: Julius Bairaktaris <julius@bairaktaris.de>
+To: Nikolay Aleksandrov <razor@blackwall.org>,
+	Ido Schimmel <idosch@nvidia.com>
+Cc: netdev@vger.kernel.org,
+	bridge@lists.linux.dev,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Jesse Brandeburg <jbrandeb@kernel.org>
+Subject: [PATCH net-next v2 0/2] net: bridge: switchdev state of fdb entries made dynamic or roamed
+Date: Sun, 22 Nov 2026 20:21:16 +0100
+Message-ID: <20261122192118.1204290-1-julius@bairaktaris.de>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,62 +106,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122143829.2674252-1-hengyul@cs.unc.edu>
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 22, 2026 at 09:38:29AM -0500, Hengyu Liang wrote:
-> On Sun, Nov 22, 2026 at 09:25:37AM -0500, Michael S. Tsirkin wrote:
-> > this is followed by:
-> >
-> >                 virtio_features_zero(all_features);
-> >                 argp += sizeof(u64);
-> >                 copied = min(count, (u64)VIRTIO_FEATURES_U64S);
-> >                 if (copy_from_user(all_features, argp, copied * sizeof(u64)))
-> >                         return -EFAULT;
-> >
-> > copies at most 8 bytes.
-> >
-> >
-> > did you test that this patch actually helps anything?
-> 
-> That first copy is bounded, yes. The unbounded part is the loop right
-> after it, which is outside the diff context:
-> 
-> 		for (i = copied; i < count; ++i) {
-> 			if (copy_from_user(&features, featurep + 1 + i,
-> 					   sizeof(features)))
-> 				return -EFAULT;
-> 			if (features)
-> 				return -EOPNOTSUPP;
-> 		}
+When the user turns an fdb entry that switchdev was told about into one
+added as "master dynamic", the bridge reports neither that change nor
+the entry's later deletion, so drivers keep the entry after the bridge
+dropped it. When the bridge withdraws an entry from a port's driver and
+keeps it, which that change and a learned entry moving to another port
+both do, the entry keeps the offloaded flag, so "bridge fdb show" and
+"bridge fdb flush ... offloaded" treat it as offloaded while nothing
+holds it.
 
-I see. So all it is doing is checking that these features
-are > 0 and erroring out.
-Let's just not do it - we don't have to.
+Patch 1 reports the deletion of such an entry to switchdev before the
+entry becomes one that is not reported, and clears the offloaded flag
+with it. Patch 2 clears the offloaded flag when a learned entry roams,
+right after the deletion is reported to the old port.
+
+Both were found by an LLM review: patch 1 in a review of the
+series "net: dsa: fix host fdb refcount when an entry roams", patch 2 in
+one of __fdb_update() while patch 1 was reworked after its v1 review.
+
+Trigger: patch 1, a local user with CAP_NET_ADMIN runs "bridge fdb
+replace <addr> dev <port> master dynamic" (or "... master use") on an
+entry that a switchdev driver offloaded; patch 2, an address learned on
+one bridge port is seen on another, as when a host moves, and the old
+port's driver had offloaded the entry while the new port's does not
+(DSA with assisted learning on the CPU port, entries learned by a
+switch). Shown in QEMU with dsa_loop. Impact: patch 1, the switch keeps
+the entry for the old port after the bridge dropped it; patch 2, a
+wrong "offload" flag in the bridge's view. No crash or memory
+corruption. CVSS 3.1: patch 1 2.3 (AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:N),
+patch 2 0.0. Until the fix: delete the entry and add it again instead
+of replacing it; the wrong flag of patch 2 goes when the entry ages out.
+
+In QEMU with KASAN, with dsa_loop given FDB operations and assisted
+learning on the CPU port, and a tc mirred redirect that delivers frames
+to a dsa_loop user port (test-only setup): a static entry on a user
+port replaced by "master dynamic", and an address learned on a veth
+port, which is a host address on the CPU port, replaced by "master
+dynamic" or "master use", are not deleted from the switch and are still
+shown as offloaded without the series, in 3 of 3 boots each. With it,
+each is deleted from the switch and no longer shown as offloaded, in 3
+of 3 boots each. An address learned on the veth port and then on the
+user port is still shown as offloaded with patch 1 alone and not with
+both, in 3 of 3 boots each.
+
+I used Claude (Anthropic) to help write these patches.
+
+v2:
+- net-next instead of net, so without the Fixes: tag; the commit that
+  introduced the filter is named in the first paragraph of patch 1
+  (Nikolay).
+- Patch 1 clears the offloaded flag with the withdrawal: a "master
+  static" entry the driver had offloaded kept it after "replace ...
+  master dynamic" deleted the entry from the hardware (Nikolay).
+  br_fdb_offloaded_set() assigns the flag instead of toggling it, so the
+  clear cannot be inverted by a concurrent report.
+- Call br_switchdev_fdb_notify() directly, no helper (Nikolay).
+- Drop the comments in __fdb_update() (Nikolay).
+- New patch 2.
+
+v1: https://lore.kernel.org/netdev/20261121191638.1724620-1-julius@bairaktaris.de/
 
 
-> It reads one u64 per iteration up to the count from user space. With
-> count = U64_MAX and a large zero-filled mapping, it only stops at the
-> first unreadable address.
-> 
-> Yes, I tested it, on the vhost tree at 44293796526f (KASAN + lockdep),
-> count = U64_MAX:
-> 
->   1 GiB zero-filled mapping:
->     without the patch: EFAULT after 27.4 s
->     with the patch:    E2BIG at once
-> 
->   2 GiB mapping, SIGKILL sent 1 s into the ioctl:
->     without the patch: the process is reaped 46.7 s after the kill
->     with the patch:    the ioctl has already returned
-> 
-> I have a small reproducer (a few lines of C). Since I found this with
-> the help of an LLM, Documentation/process/security-bugs.rst asks me to
-> treat it as public and not post the reproducer to a public list, so I
-> have not included it here. I am happy to send it to you off-list if it
-> would help.
-> 
-> Thanks,
-> Hengyu
+
+Julius Bairaktaris (2):
+  net: bridge: withdraw the switchdev entry of an fdb entry made dynamic
+  net: bridge: clear the offloaded flag of an fdb entry that roams
+
+ net/bridge/br_fdb.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+
+
+base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+-- 
+2.53.0
 
