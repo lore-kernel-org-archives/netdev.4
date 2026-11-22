@@ -1,98 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795336364;
-	b=V6fkEDfg869e2TbyMTH78ZykuUYiEVszbia9MmtuoxAzuPNNnOs22m+b0FRyTIUNZ+T6
-	 zi9WxeP/kGg96S/ppM2EW2lphyd9zilg3eR26u8xVlDlfGxbHYyTOe+6OX/NmQsWVpqyB
-	 RS5dFi/tjgfg4L+HcNwHkKUKCQjwZ2G1ICiaxfMWTx8O1TUevjfsuqpZrV+ggJhS7Mmf0
-	 9XLBX0U78sY3Wh6jar0pio9yc+A1T7f8im9rGcnw5lo5LYOYlux+3GQZFT3aBPAKT4cpX
-	 OB8gInamqLXQl3ehZtUIEXwTI5hRWErZ19zv+xZhsh0czXCaZZcrgm2+fHQWari7e4Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795336364;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
-	b=WdJZxyhNYK2YZjsTTv+871gxlRog9cnRfYmQoY4HCcwZQtGPX2KY1QjueSPosgUTD2PE
-	 dPrYnruehOyQ5FIrv4nFiQaiAJdwoTAkeBr8lyiunvrN8ZY3sg4B4Abo6TdmL94RaW3j1
-	 W8GOPgYH5h04mQJoMyZpC02Lv5JtIU+t1CtVKo1j/k4r8GFYMVxy80IKkLX6JHA6ASAoO
-	 a2+mbndHrcG1L4baYmklgKdYL9w+r5SRLmNW9KZzeJaKd2PuG0Z5Guh2saflmqCECWDct
-	 ZcIXkq8QpLXbCUllxMkBewhgjYXWV4XFsbCNTrg5pbiU696G5+XZ3nNWRJnap/HwrLA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XB7NeBRY;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795336427;
+	b=AaE+e+s5pnHc07fpa1egP7whBds8gWBJ2r3sxzt3JPagJCDzCj2q3sj0qZIElusyCu9X
+	 +VIkQHGMiuals5gW2Lm32EvB+GyjpWEC2vfUyNWtDCsH70LJ6cS+ZxK5KUBtqDdL6faQd
+	 91OaX1/O0HkSOTYyKZssyZEsg3GshTTztyS1SRaqVLtypdIBib64QmdCL2NXFW42KDnWi
+	 WUXwHg4fkEn2a0HTK5f4gFzbOO0KodPOQG12T1vzSx4uASf7BL5/+kLMnYoMvx6oBQskO
+	 PQ3ovuvVNnYXUPYDhLFHBPDd1KCpL11HfDmjTF9vekYbqnhLvWlLAvfhtStLiopm3uw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795336427;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=4B5xglvQmDMhBxbJuTEK9yBt10idEDUaQreE0rT6bZ8=;
+	b=sd6j1ZHrnrofo45/AXNCdKPXi5TyOKufWBqErgHXHLxTmVt+Sku7Ak9ZnEdWKH5OT3wY
+	 8tvjheq+YM2eXbtBqr/7JsXzab4RdkG04flaFGqCsxmGz6wbqckjrSENPtPdVi5N1HYjr
+	 4DmtUHQKDlmIE3CjxHYOe3t/kpyb95loWDXk8M6jBQ/G7G+eZ0MJyKmnkLn/aD8tKQBk+
+	 /16z42WorpG2E0IRvR1B0J7yczxPVOVSo8DUYJP/p9CcFzxbwb2+T54AQOHwZFb2AbEW2
+	 XEIQ+6Ej1DwKYlvhPe1gm5B2SyOBKNsNDMeBlNd0lp4Ovbe8rCQkRGUXTf+p5Ohvr3Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BXNQXGse;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78400606A320
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:32:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78400606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3687C606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:33:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XB7NeBRY
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so11171a12.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 00:32:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795336363; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Hynzeu0YuWIOZSLxOPFoUW+4ItIw2/py+SYNGbYbf9QZDGSrtg/INtbTK7tlEEvVx0
-         b76A6n5RZ9FjpCRCDH8/NOw9sCUwLCgG71lYcjgRDYxomgG+RKVd0qd8aUmeX4NbFsyz
-         rXtdGu9+IiPWOm9oXUr8JF/zmJrxbWl7PMhCyxG6RIZ27k+S+HRQBefO1iyiUvByiwPi
-         goZXSmERTWM7iYL5hy+KYuuVojp6VO1fyu7zsGD4ccAUucxy51s4WMvMHK8QcKVDkjqO
-         MfsjZPCAhKKk+j2VB2b8s+NS0++bGyayTSdOCoZ2DL490JhrxRCUQawbzosNiQ/GD7sM
-         6KIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
-        fh=pDsglMJuQskaY+Xc/MPkPzZSM+cKkJdwqbaFLfBO+uk=;
-        b=S6O3UsilkEXhionS2N5U2pXOlL9GprpoedELiFNMRpHJgCXmvKsJqOX4KVmvOIlUz4
-         xgNmt7suhKtMKFCkQVvShyeUgEAi4hGSh2NvN3wlFDavyl6k0fYmpH8/H9fyltxWhzy/
-         78ylMg9W+wvtsE/fUMoFsfmAqp9hQht+IKSpgTMqWpLdXTtLYCK0vAxXcgmBwDNtR8D0
-         sgQOMpV6j2GaPl/+l7K0/4a8ufcgBgq9ZDTBdf0OXcgiR7bb8ME/3R4qv17qAfQismDc
-         sRJboQWXpkAao1FKvNadb06GMoo+ZzfO/9sAoMo/LJlYhdGCe2CJUmtwpnEhvAGUshEE
-         Yx8Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795336363; x=1795941163; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
-        b=XB7NeBRY04euhXfWB/XxhB+DzTJzGlP9aMcTsxRixf44G2VojKxyLfPXDeVMXOFFTP
-         J4DpFjZ7vFnnGEq5ETvtfFNcf4yjWA/tKzm6BKpfkJk1DMPKFI/e8Vcu5IiKbZWhUDRq
-         4rIAr/b4CvqK5q1DHdNfGOQ6gZ46ae3x5Q6KYnbRoT/rKavQZE77Q/ZbXcmELdbQv/co
-         IuqV2pxrKPabINQ3ndT0E3PPCa07d9/7iYw3mhuAOYldrIKh9xtwjLUDKVAo68JRPzs1
-         5iUJaqhu2IsUisQZQ6FPqOAYMuD/9mx2P27dbuI7wSleqrbtVRyT8FmF7cXNmlLTS7Nu
-         k/2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795336363; x=1795941163;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
-        b=Ib1igl6ntGop98NVOr3oE1RyQ5kAuj3iQdjK5P5hE5/RE/jOmkH09YCkKBLc/O2n72
-         9ycBAp94p7k3txsokoGs+7bPTyC5VbJvh/dK2iVHYQe2sBaEMmispG0xV/FHgrIu7erk
-         JQ+YlLHsNtVjr59iqSmtG7/+NTD+tiCiDHHmMboCptzAx9Miko7qysp9o2qtWAzKuxCS
-         gS+yHXJcSJ3d8OsyTku6fwFIzovyK69/CgpPB8BKQ0ObQEnLOrfcZ1HaLDxtktZ5Co1l
-         VAo87SOSAr8OgbjB4b7SB7sn16+76nk2gQbNgF65w9sRBGJMrVyOh8QbO6c/33ijdhzx
-         ecRg==
-X-Gm-Message-State: APuU4Z83gLgPGWbpLsTfaE+2pG2lQMIzCCBMdEAijTNF+Wgy47n8UHCf
-	JkKUu+DCybe804LrAnS7i93VEh87altIhzOwa1wm7VNHj2SzjTkDf+5nxX7M6Sz4owPWGzKmnUI
-	RNuZ+rWcZWR3SFni6InugXWzRfCX2BgJPKPfqDxJHcA==
-X-Gm-Gg: AZFdTZcnJZGW9TI++tcQZHs0oLDvnZwe7SXzY6TN0iCPL+HfbEzqeNhdUK7Ytr+5idJ
-	VL0cTfPh7o2MUJEGELhtSc01Y7nVPKI7+Aa1jahQhLzf1KHC/rib4cAEqAn/7qOoRmJdVyfNgMV
-	zdexTHZ+rH06uj0Ya6ebaCNBhTgN799OuWwG2GvAYDkQsRdYkzqNCrk4JWSwJcxyu7wYkULiY96
-	QnVXbutmtDAd8jmQ5sG85cvzuIMNeeTEzJOXetkotTLikWTbHwC2eh+hTL6WEA1NEPdIUpe9sGK
-	n/aK7c2spZlspom4CQPj6teXayaw9Sbag5rZIzxzn+3SxaRFo9x+FvXt3rG+GWZBRGzF44RehSl
-	Wfr4WbEkjOVMSGb38ruVhz+VvNHWaBhn2Hn55AutNMuvMAabqPzdlwVMaZ6gIdYNBKgzcr47U
-X-Received: by 2002:aa7:d58b:0:b0:6aa:e44a:ae9e with SMTP id
- 4fb4d7f45d1cf-6ba1f76f20bmr5784629a12.1.1795336362700; Sun, 22 Nov 2026
- 00:32:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BXNQXGse
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C1341F000C0;
+	Sun, 22 Nov 2026 08:33:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795336427;
+	bh=4B5xglvQmDMhBxbJuTEK9yBt10idEDUaQreE0rT6bZ8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BXNQXGse0YqWdAeFQXiyYZ0W25gWqlyvrm4/12bemPjSAQ8SyBRjK1n1ti8007x3D
+	 b3WyV0M28eCucifIkbgO/H3R9cTzhx/biDeiqt56aXZLfEnpd7BoYVT/E0Nkp3ZJgL
+	 53MH1QUxphfcDOh+my4e1mjs9XV92C4JDOMzTYFBQW2YbdcLmQLqHYKORGvebi9/2X
+	 UOocyZaGhvV/1WPBbY6KNOJFZTebm0mlKYvPSA6MDMOOgWrEYzt8jgOwn4k+dRdXJL
+	 9N6LG28Rxh92YevQTtsfvizz8c6KPgQ/OHdJ0eDI8d2Yrvvb1tfU6VXPvqgdzkyuxc
+	 Kx5KJCnuEsk7w==
+Subject: Re: [PATCH net v8 1/2] net: wangxun: protect ring accesses with RCU
+From: netdev-bot+sashiko@kernel.org
+To: mengyuanlou@net-swift.com
+Cc: netdev@vger.kernel.org, jiawenwu@trustnetic.com,
+ duanqiangwen@net-swift.com, linglingzhang@net-swift.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, hramamurthy@google.com,
+ jacob.e.keller@intel.com, przemyslaw.kitszel@intel.com
+Date: Sun, 22 Nov 2026 08:33:45 +0000
+Message-ID: <179533642599.3135.8576432289828139956@kernel.org>
+In-Reply-To: <20261118081329.39551-2-mengyuanlou@net-swift.com>
+References: <20261118081329.39551-2-mengyuanlou@net-swift.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,51 +64,128 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118041238.14396-1-evostrov@amazon.com>
-In-Reply-To: <20261118041238.14396-1-evostrov@amazon.com>
-From: saeed bishara <saeed.bishara.os@gmail.com>
-Date: Sun, 22 Nov 2026 10:32:31 +0200
-X-Gm-Features: Aa3M54pZfE2KW1luQ6sOAJOOiUgk0uydYZlf6J4BSyxM_Kpl9YLALdVdQ9VZbPk
-Message-ID: <CAHfVqdVw9OQ4OPmpLp4pJQhFw_9E7SLwNDjYXYuuGkU95=gGdg@mail.gmail.com>
-Subject: Re: [RFC] net: ena: use tx-push-buf-len while tx-push is off
-To: evostrov@amazon.com
-Cc: netdev@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>, 
-	David Arinzon <darinzon@amazon.com>, Shay Agroskin <shayagr@amazon.com>, 
-	Arthur Kiyanovski <akiyano@amazon.com>, Gal Pressman <gal@nvidia.com>, 
-	Michal Kubiak <michal.kubiak@intel.com>, Paolo Abeni <pabeni@redhat.com>, 
-	Eric Dumazet <edumazet@google.com>, Kuniyuki Iwashima <kuniyu@amazon.com>, 
-	Shai Brandes <shaibran@amazon.com>, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 
-> - We still need to tell the device how many header bytes to pull.
-Just to be clear, the device eventually will read (pull) the entire packet
-I think  tx-push-buf-len should have been called tx-inline-header-len,
-as this is about how many bytes of the packet's header get written by
-the driver into the Tx ring descriptor.
-IMHO, we better introduce a new parameter, that is agnostic to
-push/pull mode, we can choose to deprecate the current one in the long
-term.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-> - We want to use tx-push-buf-len for this, with tx-push off.
->
-> ENA is the only in-tree driver that uses tx-push-buf-len, so this does
-> not change any other driver.
->
-> Example on a device that supports pull mode:
->
-> ethtool -G <dev> tx-push off tx-push-buf-len 224
-> ethtool -g <dev> -> TX Push: off, TX push buff len: 224
->
-> The core already allows this. net/ethtool/rings.c checks only the
-> capability bit and that the length is not above the max. It does not tie
-> tx-push-buf-len to tx-push.
->
-> In a 2023 review Gal Pressman suggested using tx-push-buf-len only when
-> tx-push is on. That was never added as code or written as a rule.
-> Link: https://lore.kernel.org/netdev/30cb3990-80ce-ca07-6d73-cdc00d0ad7b8@nvidia.com/
->
-> Request: Please confirm this is fine or if not can you please suggest another
-> way of achieving the pull mode len setup functionality.
->
-> Thank you
->
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The commit message describes VF suspend/resume changes that are
+  not in the patch, and relies on them to argue that the new __rcu /…
+
+--
+
+net: wangxun: protect ring accesses with RCU
+
+This commit marks wx->tx_ring[] and wx->rx_ring[] as __rcu. Readers are
+converted to rcu_dereference() or rtnl_dereference(). The reg_idx
+computation moves into per-ring allocation via wx_get_reg_idx(), and
+wx_xmit_frame() gains checks for a NULL ring or zero queue count during
+teardown.
+
+> The ring arrays are managed by wx_alloc_q_vector() and
+> wx_free_q_vector(), reached through wx_init_interrupt_scheme() and
+> wx_clear_interrupt_scheme(). The probe paths call
+> wx_init_interrupt_scheme() before the netdev is registered; the
+> allocation path only publishes rings with rcu_assign_pointer(), so no
+> RTNL is needed there. wxvf_resume() defers rebuilding the interrupt
+> scheme to wxvf_reopen_subtask(), which runs under RTNL. wxvf_suspend()
+> holds RTNL across wxvf_close() and wx_clear_interrupt_scheme(),
+> protecting control-path readers and serializing teardown against the
+> reset subtask. The service timer and work are drained before the PCI
+> device is disabled.
+
+[Severity: High]
+
+Is a VF hunk missing from this patch, or does this paragraph describe a
+different revision?
+
+The only change to wx_vf_common.c here is the rtnl_dereference()
+conversion in wx_configure_rx_vf(). wxvf_reopen_subtask() does not exist
+anywhere under drivers/net/ethernet/wangxun/. After this patch,
+wxvf_suspend() (which wxvf_shutdown() also calls) and wxvf_resume() still
+read:
+
+drivers/net/ethernet/wangxun/libwx/wx_vf_common.c:wxvf_suspend() {
+    netif_device_detach(wx->netdev);
+    wx_clear_interrupt_scheme(wx);
+    pci_disable_device(pdev);
+}
+
+drivers/net/ethernet/wangxun/libwx/wx_vf_common.c:wxvf_resume() {
+    pci_set_master(pdev);
+    wx_init_interrupt_scheme(wx);
+    netif_device_attach(wx->netdev);
+}
+
+So wxvf_suspend() takes no RTNL and does not call wxvf_close() on a
+running interface. It also does not set WX_STATE_DOWN and does not cancel
+service_timer or service_task.
+
+The new comment in struct wx says:
+
+    Control-path readers use rtnl_dereference() while holding RTNL.
+
+That only works if the writers in wx_free_q_vector() also hold RTNL. On
+this path, wx_free_q_vectors() zeroes the queue counts, NULLs each slot,
+and calls kfree_rcu() on the q_vector that embeds the rings, all without
+RTNL.
+
+Can the service task race with this? Suspend leaves the timer armed and
+WX_STATE_DOWN clear, so the check in wxvf_reset_subtask() still passes:
+
+wxvf_service_task()
+  wxvf_reset_subtask()
+    rtnl_lock()
+    wxvf_reinit_locked()
+      wxvf_down()
+        wx_clean_all_tx_rings()
+        wx_clean_all_rx_rings()
+      wx_configure_vf()
+        wx_configure_tx_vf()
+        wx_configure_rx_vf()
+
+wx_set_ringparam_vf() is another example:
+
+    rtnl_dereference(wx->tx_ring[i])->count = new_tx_count;
+
+None of these readers check for NULL or run inside an RCU read-side
+section, and some of them sleep, e.g. read_poll_timeout(). Could they
+dereference a NULL ring, or use a ring after its kfree_rcu() grace period
+has ended?
+
+On resume, wx_init_interrupt_scheme() publishes new zeroed rings with
+tx_buffer_info == NULL and desc == NULL, and sets WX_STATE_DOWN. Nothing
+reopens the device after that. netif_device_attach() then wakes the TX
+queues of a netdev that is still running, and its carrier was never
+turned off.
+
+The new checks in wx_xmit_frame() pass, because num_tx_queues is non-zero
+and the ring is non-NULL. Does wx_xmit_frame_ring() then dereference a
+NULL tx_buffer_info here?
+
+    first = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
+    first->skb = skb;
+
+Because suspend skips wxvf_close(), the queue and misc IRQs are not freed
+before pci_free_irq_vectors(). NAPI instances that are still enabled are
+passed to netif_napi_del(). The descriptor DMA memory, the buffer_info
+arrays and the page_pool are reachable only through the rings freed by
+kfree_rcu(). Do these leak on every suspend or shutdown with the
+interface up?
+
+Much of this VF lifecycle behaviour predates the patch. However, the
+commit message depends on the RTNL, close, drain and reopen changes to
+justify the rtnl_dereference() locking model, and those changes are not
+in the patch. Could the missing VF changes be included, or could the
+commit message and the struct wx comment be corrected to match the
+locking the code actually has?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118081329.39551-1-mengyuanlou%40net-swift.com
