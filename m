@@ -1,56 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795316870;
-	b=XLb2mttJB7Hdk8If2HwzFrAZNBidbsN1g4ALk6URKF8NHzH+TddfSODjR3vds9q80ee/
-	 xTjWDrOX7jeVRVQX0BbqXeJBoLysbgY74AseGlI8OrGQmHxi017aizJK6MmCDtr0pUA1y
-	 25MDQAhJUWwUud+RVHW+h/OxTLX9hR9Dof/IH49wdWqyrMMu7GrFguX4mmbol89XlwaVR
-	 px9iOKEUWx0R6UGo6Tc1eAu/SyOC16og2pdU+escNIdY2AhqfAT6jaI+5OzhJErJ6Lx15
-	 Dd9ljOxd/w6m5+ZbrYeLWkhc1VRu2xt20cbhxkf+Kdm2XBtl1iF3gt3f9KzgDV8qL7Q==
+	t=1795317167;
+	b=NYYJY5CNl7DIVoHpVqyl3z+OYN2p+hmmF4O26QS+YyX0FEsqgpTvVv+jJlm9/sBLGdn/
+	 POFaBb7HFSvCL3/HPYAWs8tglfoImv4H8T3AnRYGUVYR0ALYFev4u/FoXwhl8WhZ/1TDK
+	 vRQBeoL41FHsxMedaVcUungoRCqdggICF6ga1AvA2hya+dt8fxUQmQE7JTIBVecgBybNz
+	 Wf19+4iDxJlTYlckIzJ9vC1LgEFOUaP/KdYz+aeqy4oMNw0myo+XE50mPBlmz1M/hbZxZ
+	 PaPhjOer4+qvYOSdDvEWLUuxvt71xFlPZbvFJyYR40zJcKaTgRZPFAOcqt4y5uioQ8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795316870;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
-	bh=bwNd8sLw6hbTvYHt2WvzdcBYIoTOOkkWoTy5JkcEDe4=;
-	b=dLxmlRXELDRV+Cjxz7GjQT6Pmh7N3tAE+R7m08DUs5wHVheDPT1g87hAfjcMigR0l9qO
-	 Q6jezYpkokD+edeWwk+sdk0i2kK3srCkoRgqSqgrZvENcf1+P497kgRf2CLY33zBPpgRf
-	 Ak36T0CV5xDAM00JYZduX8BQchWmLFCKnbcYfw4cfZh74fbQEvLpz5vcjmC7Dk/9rxdIy
-	 eVtVDRiLEcc5Hg5cyg6dMgXFdFTLpGdTXduTFMJYpXGFlPD+tm9phrP1JvA/Y8KKdfdeR
-	 bc5yMT8ePPbCfrCWfxN+p2d6ujnRy6DLbCsjmCU/CjdVuvSHOFF2geWdDfh360t/7Qg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795317167;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=qWbjTcR3HaGSNIc9+8FK7LoXidspRfPiYaBy5iknZzAJVkG8fRJZGcMk9/RuTEK1zAT7
+	 jWjnUgVgFYDzR+srHdcpuzUxTdokI1OeNDKfIM2Q0XCVeRzqfkQgxZ5X5ENIES5ZpgksB
+	 WVIEdjBpIvGqJC/SHejLJJxJ0uf1YW2RBciyDErnIphU015B4NH+6khdvoY7cX7yahO/T
+	 eOU//44TOkm4HlB8vBfESWwGqLEflhEq5RlLZRFvEmh0PBSJXjSpm0hEoiul4HPI2GNW5
+	 qARLPX0/ooLibU6hSErdviNmHjgHoY+q019uQi0y54hLdlu7bcvta+sQ3nrzYm1PsUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pm.me;
-	spf=pass smtp.mailfrom=pm.me;
-	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=O1OiLEeP;
-	arc=none smtp.remote-ip=185.70.43.101
-Received: from mail-43101.protonmail.ch (mail-43101.protonmail.ch [185.70.43.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1Dj8N6+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34B9B606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 03:07:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34B9B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33C5A606A320;
+	Sun, 22 Nov 2026 03:12:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=O1OiLEeP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1795316866; x=1795576066;
-	bh=bwNd8sLw6hbTvYHt2WvzdcBYIoTOOkkWoTy5JkcEDe4=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=O1OiLEePNn4iDA7PsrfhjOqYPcVbTdj+2K5cdrcV1yS1rECRGiHFn8kNl2Qyankcn
-	 fu/OaRGf0VFQhuEMsujFik7y+8EFzAqxC+FUM0Mh6H8a+Js2jh+VKfXI/t6r0RIGlN
-	 VNkpH6V9ILDzLx/ReHSrSUS4XS0BCYVKAZHTv+YB/3pzZbCU2ZLbpSpsxq5nlXo/8m
-	 TFScUDdgKQ1s58fpGl3zAo7D9RvyR+KWVoYcJos6Li+AEIYhkWZk1Fi/lAgNqLeoLm
-	 Z8SxagMjW619bNY1D8dqJaSDrhOjjOg3/h2mwpjUbOUzNLwmaOBNVsypffhyB79QmQ
-	 xuOydqkD07rSw==
-Date: Sun, 22 Nov 2026 03:07:39 +0000
-To: Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-From: YanXin Li <fadouse@pm.me>
-Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
-Message-ID: <20261122030728.9368-1-fadouse@pm.me>
-Feedback-ID: 173252840:user:proton
-X-Pm-Message-ID: f9bcd3e369aefbc9e9addbe820e4d1c933c2307d
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1Dj8N6+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB981F000C0;
+	Sun, 22 Nov 2026 03:12:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795317166;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Y1Dj8N6+9GAAKTmZO0k0loFB4zVmLU3ep+YI/xKWuYwI9IlZMJ71SCzgnJ9QbJO6Z
+	 7kqmIcdWHPQ3ehGqjGuD0oXdnGoYzfv8u7u9yfEWBtHKQVuYpO8d2SljwbabISKHPb
+	 Pa18ZC2GgHsW9UQJOe1WLV1xFfepo/RJtQaGFMIMeL0lHW5EOjIUGI3K3/4EQfFgWM
+	 XafKVsWbaGnQ+W7HnvKJGUkQpFyqyUUEBPQb2nA7KOC86gZLzOxpGY5nMwzDv5kWDp
+	 BlE2m0Kl2U7lQ0y8i2BMWV6yBjwyYUsTEfohxALF3VCARBiY00CAvw0h+FlmJ7RBP6
+	 GmmDy4z53QKKA==
+From: netdev-bot+sinfo@kernel.org
+To: YanXin Li <fadouse@pm.me>
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping
+ rtnl_lock in load_metaops_and_vet()
+Date: Sun, 22 Nov 2026 03:12:45 +0000
+Message-ID: <179531716568.3294.6444529448687411104@kernel.org>
+In-Reply-To: <20261122030728.9368-1-fadouse@pm.me>
+References: <20261122030728.9368-1-fadouse@pm.me>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,155 +65,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2"; charset=utf-8
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2
-Content-Type: multipart/mixed;
- boundary=5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
-From: YanXin Li <fadouse@pm.me>
-To: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
-Date: Sun, 22 Nov 2026 11:07:28 +0800
-Message-ID: <20261122030728.9368-1-fadouse@pm.me>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
+Hi!
 
---5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-load_metaops_and_vet() unlocks rtnl_lock() to invoke request_module()
-when an IFE metadata provider module (such as act_meta_mark) is not
-yet loaded, re-acquires rtnl_lock(), validates the metadata attribute,
-and returns 0.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Returning 0 after dropping rtnl_lock() violates the serialization
-contract of RTNL-locked classifiers (cls_basic, cls_flow, cls_fw,
-cls_route, and cls_u32), which hold an unrefcounted filter pointer
-(fold) across tcf_exts_validate() -> tcf_ife_init().  A concurrent
-RTM_DELTFILTER can delete and RCU-free fold during the unlocked
-request_module() window, after which basic_change() executes
-list_replace_rcu(&fold->link, &fnew->link) and queues a second
-deletion on the freed filter.  Generic KASAN reports:
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-  BUG: KASAN: slab-use-after-free in basic_change+0xf4c/0x1220
-  Read of size 8 at addr ffff88800e043c58 by task test_act_ife_rt/101
-  ...
-  Allocated by task 101:
-   basic_change+0x1e0/0x1220
-  Freed by task 57:
-   ...
-  Oops: general protectio
-n fault, probably for non-canonical address
-  KASAN: maybe wild-memory-access in range [0xdead000000000120-0xdead000000000127]
-
-Every other TC module autoloader that drops rtnl_lock() during filter
-updates (tc_action_load_ops(), tcf_em_validate(), and em_text_change())
-returns -EAGAIN so tc_new_tfilter() and tcf_action_add() unwind and
-replay under a fresh RTNL critical section.
-
-Manipulating TC filters requires CAP_NET_ADMIN in the target network
-namespace, which is reachable by an unprivileged local user inside a
-user and network namespace when CONFIG_USER_NS=y, CONFIG_MODULES=y,
-CONFIG_NET_ACT_IFE is enabled, and an IFE metadata module is not yet
-loaded.
-
-When load_metaops_and_vet() drops rtnl_lock() and loads the requested
-metadata module, drop the module reference and return -EAGAIN so the
-caller replays the request with fresh lookups.  With this change, the
-same concurrent RTM_NEWTFILTER and RTM_DELTFILTER sequence cleanly
-loads act_meta_mark, replays without to
-uching the deleted filter, and
-completes with rc=0 and no KASAN or lockdep reports.  Exhaustive
-state-space interleaving checking confirms zero use-after-free,
-double-free, or deadlock paths remain.  A test case and full
-validation logs are available on request.
-
-The vulnerable code is present in upstream mainline v7.4-rc3.
-Runtime verification and fix validation were performed in an x86-64
-QEMU/KVM guest running v7.4-rc3 with Generic KASAN, UBSAN, and
-lockdep.
-
-Fixes: ef6980b6becb ("introduce IFE action")
-Cc: stable@vger.kernel.org
-Signed-off-by: YanXin Li <fadouse@pm.me>
----
- net/sched/act_ife.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/net/sched/act_ife.c b/net/sched/act_ife.c
-index 5a527da0056..5d6ca124e00 100644
---- a/net/sched/act_ife.c
-+++ b/net/sched/act_ife.c
-@@ -275,6 +275,14 @@ static int load_metaops_and_vet(u32 metaid, void *val, int len, bool rtnl_held)
- 		if (rtnl_held)
- 			rtnl_lock();
- 		ops = find_ife_oplist(metaid);
-+		if (
-ops && rtnl_held) {
-+			/* We dropped the RTNL mutex in order to perform the
-+			 * module load. Tell the caller to replay the request
-+			 * under a fresh RTNL critical section.
-+			 */
-+			module_put(ops->owner);
-+			return -EAGAIN;
-+		}
- #endif
- 	}
- 
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.43.0
-
-
---5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="publickey - fadouse@pm.me -
- 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
-Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me -
- 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
-
-LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCkNvbW1lbnQ6IGh0dHBzOi8vZ29w
-ZW5wZ3Aub3JnClZlcnNpb246IEdvcGVuUEdQIDIuMTAuMAoKeGpNRWFVdU9NUllKS3dZQkJBSGFS
-dzhCQVFkQXRuWWxTekhUTEhBMkl6dU5FMUF5OEpyS1VDeDZoUCsvdGM0TApEWENucmV6TkhXWmha
-RzkxYzJWQWNHMHViV1VnUEdaaFpHOTFjMlZBY0cwdWJXVSt3c0FSQkJNV0NnQ0RCWUpwClM0NHhB
-d3NKQndrUXVaMWd0K1htMlhSRkZBQUFBQUFBSEFBZ2MyRnNkRUJ1YjNSaGRHbHZibk11YjNCbGJu
-Qm4KY0dwekxtOXlaem0wQnAzZUVYUldrbklnQ2xXd3ZkeFptbzFYblZiNkZrYWpYVFZNMUIvakF4
-VUtDQVFXQUFJQgpBaGtCQXBzREFoNEJGaUVFbVVoYW8zWi9BbkJJNExCWXVaMWd0K1htMlhRQUFM
-cTJBUUQ3OEs2cGVkU1gzbGROCnlxZDNPSDF1TWpPM3Y3TFlNaE8rbDdjblNMV3JFQUQrT0NTcTEx
-U2VhS29ic1ZHckxlalRNc21Nc1BCOGpueGYKaWQzaENOK3Bld1RPT0FScFM0NHhFZ29yQmdFRUFa
-ZFZBUVVCQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRgpiRW02WXFYWDJqMnYyaUtEc1FNREFR
-Z0h3cjRFR0JZS0FIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBCkFCd0FJSE5oYkhSQWJt
-OTBZWFJwYjI1ekxtOXdaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnMKeW43OU5G
-cE5xa0h6K2l6cElMQm5VZ0tiREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6UWdE
-LwpjSUowODlKa25vZ1RzNnZ2UVorSjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNTOGFo
-NWRCWVphOUwrCkhxamJEbWVTZ0RvNTh1U3graVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1AgUFVC
-TElDIEtFWSBCTE9DSy0tLS0t
---5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f--
-
---------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wqsEARYIAF0FgmsCXHoJELmdYLfl5tl0NRQAAAAAABwAEHNhbHRAbm90YXRp
-b25zLm9wZW5wZ3Bqcy5vcmdJtaO558TQB98gEUUdYl0HFiEEmUhao3Z/AnBI
-4LBYuZ1gt+Xm2XQAAPBcAP9n1GXXp54EijQOjLaKgb7pOoaUjk7H/lGvqsPp
-1icC6gEAxXdOqzK4n/vow5pdf86mAPQMfvWwQ8WFdf2E9RR6Qw4=
-=VfXo
------END PGP SIGNATURE-----
-
-
---------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2--
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
