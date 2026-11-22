@@ -1,65 +1,70 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371895;
-	b=KK2kxrIkkNFRzou7OUotRXTX9uaG2yh84lHhcAryCGBbqLBFj1MrF05K023zjbQw5ljW
-	 AcPkEblgm9mhfu92AsQVlKzBLSXV/El0MbqNr5jhI3Bd+Ig6x9wMplehG+3ULRlKAT7Lg
-	 2WJd8lT7rEIB5Wlaa6yl0LKvU5+wUuM1baS6P0xhrhTrcsBi21lJ64I5x2viBsyRxKl4g
-	 h8ttIUJg2Px3iT4aD6ZbTAPxWyQa44AbvUjUsNVBJWGqC0AxEstqG3jDIiy+WMX25YJIW
-	 +loMphrjIktqnAV6Aq13jJCcAdOfQBCR0cBVL6MZJObSQ2Ku5VNeWt04xE+HycAyzOQ==
+	t=1795372743;
+	b=JPOXU4gXLml/4PtnsQMo8pLQboqXs05iKLclmQ8R/v9K9Ud8FfupjR+P6sB+dsjpp+zD
+	 BZaoVSPTasAhhfMrWduzpU8tvQhHFEz4TwWQOy2mFUrETzI6TSKINJlig25fKAXd5GOeP
+	 5JfrZ9vKXBeJSjRll0dx8nxUAuzz7/WD6JpSQKfi1VlIqcsWFfF/aGOc7hXOiYfBZlocY
+	 WpeRsPx1L+pslzOVq7TzfqJzAOBZP4zsWeAfBYn85DA3YSJIm+PtuBUP43e1nfmu5oVE2
+	 eKucpYbF6cLqroFrZpLAzX0aTQGn9X25Yb3zQLOcjluWtH7Ok03Gi3zbhJRt5remcog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371895;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795372743;
 	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
 	 In-Reply-To;
-	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=;
-	b=DWnL+MLS/NFdl4huDxJX3Uc6utVCWj+tBB+Dnfj/D2d5XcMcmSVtrgAklbQL93fq2A9M
-	 wbHCBPI3gfZzoqP8v8Ws676aFsRiUPgIo054A5MCPguwSRimOzZDYyuWoh4mfONwwRPxr
-	 srNHqt9LcjgMBEkeFGjhv2A5yjiau6/J0+onMUH4VRTh9f8uKMHMfm13h3m3dbVQAPn/N
-	 NAg5vu6Qk3YrpPbNB+C4TVeQQtFl8fRz80I6o/9k7KA4dZWPJHM4iN1NZu8fSNMun21wc
-	 wGvf7L4pq6zGSNPKevtPTcJ0IybBJL43p5FUSRMDA5mTbgeAlRf79COtDE3HjCLsJkw==
+	bh=lAtDglAyGhv+VlnVH8lG4/rJZAFJRFJmGCz7AGksEO8=;
+	b=t3J9c0XzjVbcbhj2Xpp/k6YXBoqktkgeDIHcIj7eG0gpXnSMA0G7/VB2TQ+459l9yp+a
+	 3+B6HX1t34L6YlPapLPFmHHsTPbWwjh/7el1Ns30acMWhIXVt78UTU4T5DLTveWbjEJNg
+	 d5hnJyRhr/mxaqb73pYcw8EBeaWJ68/zULoP8TG1pZ/qWZ2FbGv2FZ1TCSmk+ZJACGyxA
+	 0dC+GmMlmDfIA0SXF/w7JwO1yFq5fFUfqxqlqO7VsR4VCQNlkzvb19/3T6hI7FaqpErKD
+	 rja5stsFEqia80Dj0ADfTZuoNdpMZ/D4BjomFQigSfC8FE2ji09fjfDvLw+wUihWwAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=lunn.ch;
 	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="apS/MljX";
 	arc=none smtp.remote-ip=156.67.10.101
 Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BE6606A32A;
-	Sun, 22 Nov 2026 18:24:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BE6606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E6DA606A320;
+	Sun, 22 Nov 2026 18:39:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E6DA606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=apS/MljX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=; b=BsPCX8drszWkyXNyHqAHkJDoyN
-	6Z5KhKiCoIFTdy5cIoJRNHjbVJSqC9oMjYIAlfVpdYwfhjWGcmhpamxw35+z16Bq+xaF5I65ALA1N
-	kq8G/V3/CzkaBkYCaW0PsYmWhIuTSOmHcVHPHyvbMjlb27hsmcQU+uqElL4N0GcRwNPk=;
+	bh=lAtDglAyGhv+VlnVH8lG4/rJZAFJRFJmGCz7AGksEO8=; b=apS/MljXunN4YkuWtEK6bNo4wX
+	N5yhZYG4GXmfiJnlx/L2HsgUg73eqsMBWvOJ5/8iCw52H4lroAM5b7z9sTR8+S+b9yY6qbJvij+uD
+	/nGHDRbWh9GHsTBiXrF2xlyJHpPzZKdicP907fVrN2IxDB58ozMzr4mI2wa8R27UvTck=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xVCEs-000bMR-9t; Sun, 22 Nov 2026 19:24:34 +0100
-Date: Sun, 22 Nov 2026 19:24:34 +0100
+	id 1xVCSn-000bPx-Kt; Sun, 22 Nov 2026 19:38:57 +0100
+Date: Sun, 22 Nov 2026 19:38:57 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] ARM: dts: rockchip: Add support for RK3506
-Message-ID: <cacdc706-3fef-491b-bb3a-96728347a17e@lunn.ch>
-References: <20261122060114.773624-1-jonas@kwiboo.se>
- <20261122060114.773624-3-jonas@kwiboo.se>
- <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
- <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-sun8i: support ethtool
+ rx-all
+Message-ID: <ba116748-1650-4816-97a6-69eeecd4b2cb@lunn.ch>
+References: <20261122-submit-sun8i-rxall-v1-v1-0-607789772c56@gmail.com>
+ <20261122-submit-sun8i-rxall-v1-v1-2-607789772c56@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,54 +76,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
+In-Reply-To: <20261122-submit-sun8i-rxall-v1-v1-2-607789772c56@gmail.com>
 
-On Sun, Nov 22, 2026 at 05:01:08PM +0100, Jonas Karlman wrote:
-> Hi Andrew,
-> 
-> On 11/22/2026 4:46 PM, Andrew Lunn wrote:
-> >> diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
-> > 
-> >> +		gmac0: ethernet@ff4c8000 {
-> >> +			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
-> >> +			reg = <0xff4c8000 0x2000>;
-> >> +			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
-> >> +				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
-> >> +			clock-names = "stmmaceth", "ptp_ref",
-> >> +				      "pclk_mac", "aclk_mac";
-> >> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-> >> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-> >> +			interrupt-names = "macirq", "eth_wake_irq";
-> >> +			phy-mode = "rmii";
-> > 
-> > Sorry, missed this on the first pass of the patchset.
-> > 
-> > phy-mode is generally a board/PCB property, not a SoC property. It
-> > would only be a SoC property when the SoC cannot do anything other
-> > than RMII. But given this is snps,dwmac, i expect it can do other phy
-> > modes.
-> 
-> This SoC only support RMII mode, so I put the phy-mode at SoC level.
-> 
-> Datasheet for this SoC lists following:
-> 
->   RMII 10/100 Ethernet Controller
->   - Support two Ethernet Controllers
->   - Supports 10/100-Mbps data transfer rates with the RMII interfaces
->   - Supports both full-duplex and half-duplex operation
-> 
-> The Technical Reference Manual also only mention RMII:
-> 
->   38.2 Block Diagram
->   ...
->   The MAC only supports the PHY interfaces of reduced MII (RMII).
->   ...
->   MAC Supports 10/100-Mbps data transfer rates with the RMII interfaces.
+> +static void sun8i_dwmac_update_rx_ctl1(struct stmmac_priv *priv, u32 clear, u32 set)
+>  {
+> +	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+>  	u32 v;
+>  
+> -	v = readl(ioaddr + EMAC_RX_CTL1);
+> -	v |= EMAC_RX_DMA_START;
+> -	v |= EMAC_RX_DMA_EN;
+> -	writel(v, ioaddr + EMAC_RX_CTL1);
+> +	guard(spinlock_irqsave)(&gmac->rx_ctl1_lock);
+> +	v = readl(priv->ioaddr + EMAC_RX_CTL1);
+> +	writel((v & ~clear) | set, priv->ioaddr + EMAC_RX_CTL1);
 
-That is unusual, but O.K.
+Netdev does not like these magical guard constructs. scoped_guard is
+acceptable, but good old fashioned lock/unlock is preferred.
 
-For the Ethernet node only:
+It is also unclear why this now needs locks, when before it did not.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+This patch is too big, does too many things. Please break it up into
+smaller changes, with good commit messages, which are obviously
+correct.
 
-    Andrew
+	Andrew
