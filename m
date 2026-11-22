@@ -1,50 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795383133;
-	b=AlME3TQ/CvGKbaZrRtEm/dj2c/PB7sMl8iHN/7Gawly1mfoEM2x8dFeAF+qZ7XB4bwOB
-	 hb2bJFrIc8wcx/gfhlrDAoaHBhWALRQviR/WBKHTdlRIRZA57/UR8DxmeVH6fdY97TUyM
-	 b+xwg3vvd+8wkNdtC4j152rLT9qIB4nrZmKChOC71hQaYyik51j/hXU1qal/eZhAWDHFh
-	 wuHWfzHTTgwCqaMhgfTn2rfiDvgYwppcePaSL5zc3pCl7TkFJT91aPqj5Ah44myQ7U2ED
-	 IdvytgISRGBoK21TUazP2Hmd5KWltsO7e7lE70cXyEDdPSXb6tDOwuXeYolq1YCmc2w==
+	t=1795383134;
+	b=Zf6YDRlGGLW8EJ2uCndHSYreqgoEY7fTB39LO9lsyg/g8pK21E/dIEdXcm3xgiFPbkjh
+	 fDSNBMS4k/wgC5wdiWD7Tf9Wh4y1p4bvb/xZcaLGc1cnpsAqK0hxwzxOhmdKKpFN81bmE
+	 1JEj/l5zSFlQ2qn+CNh3hAKSgkn1klGrIeidPBvodXwxHCgx2G4Yb8zhvvMUyRumeNV6X
+	 QulGkLqGMjwVMJ2/yz6QgWl2JdeROtIgK1WL/yEEgh0AVrFlDVgfU/PvvWx5yIoiPf0zx
+	 C74E7G08hGIvw+sMiqJNgZKKtZ4V2Vgl/xMx6M6kI/6fs8aXLI4lEFv2+U8FHO6KqKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795383133;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795383134;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=x8bb8dSlnAi9xysbj9q54f2eazuM7V12au3HzFc3v2s=;
-	b=TROfhqHUSsj2m0c6Vs+b8+TQ6VcyGYvoFlX83CR0EL5YEdFl0hHsMEB2d8/Wz6aKwkZp
-	 HClDKenqRcKm8cS3ce/hWfwooGlz8ZuDJXIi78jrDVwiuoDWwau7BQtjysy7uXiKECFL9
-	 gyEZx3K2gyQu1U3EgiqSm9/q6cgsNQMwc5vKACBjnDw9CPk6pyZZOeJzVMOKFB2iksOwN
-	 RMfZyUGj+r7k0B5819DAE7qPSg07P//kl8xrzouSLGzX1YBDLnFpBVmECVZJUe/3kyUt7
-	 nxYaKQNO/ckReeltN3HLiwNE6pKvPBo87U6gieqL/5wxBOkJeuBUMdd4pW/j+g3Tq5g==
+	bh=otLKtm9dxa+ZgD89HretspvYixCQXscB6gt5AQosFiw=;
+	b=FdxeESywXvaZih0Vy1hlSW9w1QbA9VqJf79YSJPDX0K5Dq6H8AMtzT+ZFV0eD9fC9WvN
+	 ebKNvgUhlhwEfhs8GlPaBY3+63c0USOcmIGJtAC0o1Iy/W1ADz1o/t35OcWbnFsOOK0fI
+	 aOBCBtkVBReINLuZ7FUU7BgSZCNTUo+PK9Qmi1oOssnlavpVYnZgOL1dUYBevrVn7qp/a
+	 O9DWQDikfrcuJQWcBoYzsB58aWPNASxbywDh62yoASkB3UbaNhAakZA8KsC/hgeghu4ZH
+	 fBGgUJytoBzafudmUdBMDZUKepWN/dWbplvysmiEZUqu54hOMOqp3FZdFegug/JEiWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=corp.free.fr;
 	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=kd279qKG;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=F17Gn3pz;
 	arc=none smtp.remote-ip=212.27.60.169
 Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41C55606A33E;
-	Sun, 22 Nov 2026 21:32:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41C55606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C439860A2614;
+	Sun, 22 Nov 2026 21:32:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C439860A2614
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=kd279qKG
+	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=F17Gn3pz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1795383130; bh=T20bBXJlBwEbj1ZdlGMC/bOUUlcqtdRACZ/kT9wMq8k=;
+	t=1795383132; bh=jlX163X9reKSr0sXJC9UzaCho5WTL8oMw00fj7kfh68=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kd279qKGqfcJM/QiPOpx1tAn/UfCvidnvasUEgXMjULT/eJhPWdI/5IHnfE/ikJRm
-	 l1gJiUKuzf/UY7SDWCZ0tC/9lDNJCLW3R9JOGL95VipusnOQKwAoJn2gzUeoFNkQ/p
-	 CzuKt/QTnzp9RUEVjICyk0dgHNnvgw6w/kD5YGmJbP0q4pCZsyZnuJtfL52Ow0qoGX
-	 UzSQlb0DhZTdISuvBO3X7G1mvgdPnI1/C/2+22diPlxKB1E/7wXPNXlFBaJVl/QFiA
-	 aAmBTZX1FEgrTko3VUgPoRS2Jr7EeujKhH1KRVCZn8nRg/aX19Kugrmi4UXMrLYd/S
-	 wbTVO4M85PRqg==
+	b=F17Gn3pzPEnYQTsCEQyA510ztKql+n7NVfTFqgh8oERQTV2ps6Gy45f8gCgVNq3cA
+	 YSkIU+s7/Yu1zQACTYOQLRhuLkL/BwKjdqhGrAB4BTqqjdANBh9WyloaLaYDupxGwp
+	 iqb+QLhrRQRhAenoKa1Yy3DGQGuEcWJI5HShsd2cusjPlb9AbHN2ocbCR2sY9SQrSL
+	 iw0b1pz0ulCrx6dKut/8ehm9+nBNJMBpxvdOrGftydG6yqXtItYtOTq73E78IK0OhL
+	 XvlDClAPtT+yWP33fxF02cVz4LlF8/2aah/DM14nn2am23KWBZRdpkf/w24ULUev+a
+	 KCjxGIfBiLnHg==
 Received: from lnxos-dev.home (82-66-150-212.subs.proxad.net [82.66.150.212])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 7069944C0B51;
-	Sun, 22 Nov 2026 22:32:10 +0100 (CET)
+	by rcs.proxad.net (Postfix) with ESMTPSA id E85EF44C0B5C;
+	Sun, 22 Nov 2026 22:32:11 +0100 (CET)
 From: Alexandre Cassen <acassen@corp.free.fr>
 To: Saeed Mahameed <saeedm@nvidia.com>,
 	Leon Romanovsky <leon@kernel.org>,
@@ -73,9 +73,9 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	oss-drivers@corigine.com
-Subject: [PATCH net-next v3 07/11] selftests: forwarding: tc_flower: test the enc_key_id mask
-Date: Sun, 22 Nov 2026 22:31:55 +0100
-Message-ID: <20261122213200.3207385-8-acassen@corp.free.fr>
+Subject: [PATCH net-next v3 10/11] net/mlx5e: TC, match the tunnel key without a tunnel device
+Date: Sun, 22 Nov 2026 22:31:58 +0100
+Message-ID: <20261122213200.3207385-11-acassen@corp.free.fr>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261122213200.3207385-1-acassen@corp.free.fr>
 References: <20261122213200.3207385-1-acassen@corp.free.fr>
@@ -90,97 +90,483 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A filter on a block of tunnel keys must match a key inside the block and
-no key outside it. A second filter proves that the frame outside the
-block reaches the device.
+RSS can't spread GTP-U traffic between a few endpoints. The outer headers
+barely vary and the TEID is not hashed. A masked tunnel key partitions
+this traffic into RX queues. Other tunnels spread better under RSS. The
+same match still gives a block of tenants its own queue.
 
-A probe filter must dump its mask first. An old tc refuses the mask and
-an old kernel drops it. The test then only logs this. Reporting a skip
-would turn the exit status of the whole script into a skip. A tunnel
-device takes no skip_sw filter. The test only runs in software.
+Without a tunnel device nothing decapsulates. enc_key_id reads the tunnel
+header on the wire like cxgb4 and hns3 do on a physical port. The plain
+ip_proto and dst_port keys select the match register and its capability:
+
+  GRE     ip_proto 0x2f   misc.gre_key     ft_field_support
+  VXLAN   dst_port 4789   misc.vxlan_vni   ft_field_support
+  GENEVE  dst_port 6081   misc.geneve_vni  flex parser and
+                                           ft_field_support
+  GTP-U   dst_port 2152   misc3.gtpu_teid  flex parser
+
+These keys stay in the match. Without them a rule on a masked TEID of zero
+also catches all other IPv4 traffic on ConnectX-7. The port must be exact
+to name a tunnel. Only the default VXLAN port qualifies. The hardware can
+stop parsing any other while the rule stays. A keyless GRE packet reads as
+key zero like in software.
+
+The parse_tunnel ops can't serve these flows. The VXLAN and GENEVE ones
+check eswitch capabilities. The GRE one only matches gretap frames. A new
+op keeps each register in the file of its tunnel.
+
+This covers NIC and eswitch flows. The other tunnel keys stay refused
+without a tunnel device. On a VF representor the eswitch only reads the
+headers the VF inlines, which can stop before the tunnel header. Refuse
+the rule there unless the min inline mode is none.
+
+Refuse a VXLAN or GENEVE mask that leaves no VNI bit. Such a mask can
+enable the misc parameters with empty criteria. Firmware refuses this in
+a NIC flow group and tc only sees EINVAL. A rule without enc_key_id
+matches the same traffic.
+
+Software only has tunnel metadata after decapsulation. Refuse the offload
+without skip_sw to keep both datapaths from diverging. Such a rule stays in
+software. There a physical port reads key zero. Refuse a decap action too.
+In software it only releases metadata and such a flow has none.
+
+  tc filter add dev <dev> ingress protocol ip flower skip_sw \
+      ip_proto udp dst_port 2152 enc_key_id <teid>/<mask>    \
+      action skbedit queue_mapping <q> skip_sw
+
+  tc filter add dev <dev> ingress protocol ip flower skip_sw \
+      ip_proto 0x2f enc_key_id <key>/<mask>                  \
+      action skbedit queue_mapping <q> skip_sw
+
+Tested on ConnectX-7 with firmware 28.48.1000 on NIC flows. Also tested on
+the uplink and VF representors in dmfs, smfs and hmfs. This includes
+redirect to a VF. GTP-U needs flex parser profile 3 and GENEVE profile 0.
+GRE and VXLAN work on both. ConnectX-7 needs no inlining. The min inline
+check is therefore build tested only.
 
 Signed-off-by: Alexandre Cassen <acassen@corp.free.fr>
 ---
- .../selftests/net/forwarding/tc_flower.sh     | 59 +++++++++++++++++++
- 1 file changed, 59 insertions(+)
+ .../net/ethernet/mellanox/mlx5/core/Makefile  |  3 +-
+ .../ethernet/mellanox/mlx5/core/en/tc_tun.c   | 97 +++++++++++++++++++
+ .../ethernet/mellanox/mlx5/core/en/tc_tun.h   | 11 +++
+ .../mellanox/mlx5/core/en/tc_tun_geneve.c     | 38 ++++++++
+ .../mellanox/mlx5/core/en/tc_tun_gre.c        | 31 ++++++
+ .../mellanox/mlx5/core/en/tc_tun_gtp.c        | 36 +++++++
+ .../mellanox/mlx5/core/en/tc_tun_vxlan.c      | 37 +++++++
+ .../net/ethernet/mellanox/mlx5/core/en_tc.c   |  9 +-
+ 8 files changed, 258 insertions(+), 4 deletions(-)
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gtp.c
 
-diff --git a/tools/testing/selftests/net/forwarding/tc_flower.sh b/tools/testing/selftests/net/forwarding/tc_flower.sh
-index b58909a93112..0f725ec17468 100755
---- a/tools/testing/selftests/net/forwarding/tc_flower.sh
-+++ b/tools/testing/selftests/net/forwarding/tc_flower.sh
-@@ -3,6 +3,7 @@
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/Makefile b/drivers/net/ethernet/mellanox/mlx5/core/Makefile
+index f8d1696ab5eb..5d42c681dc7b 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/Makefile
++++ b/drivers/net/ethernet/mellanox/mlx5/core/Makefile
+@@ -46,7 +46,8 @@ mlx5_core-$(CONFIG_MLX5_CLS_ACT)     += en_tc.o en/rep/tc.o en/rep/neigh.o \
+ 					lib/fs_chains.o en/tc_tun.o \
+ 					esw/indir_table.o en/tc_tun_encap.o \
+ 					en/tc_tun_vxlan.o en/tc_tun_gre.o en/tc_tun_geneve.o \
+-					en/tc_tun_mplsoudp.o diag/en_tc_tracepoint.o \
++					en/tc_tun_mplsoudp.o en/tc_tun_gtp.o \
++					diag/en_tc_tracepoint.o \
+ 					en/tc/post_act.o en/tc/int_port.o en/tc/meter.o \
+ 					en/tc/post_meter.o en/tc/act_stats.o
  
- ALL_TESTS="match_dst_mac_test match_src_mac_test match_dst_ip_test \
- 	match_src_ip_test match_ip_flags_test match_pcp_test match_vlan_test \
-+	match_enc_key_id_mask_test \
- 	match_ip_tos_test match_indev_test match_ip_ttl_test
- 	match_mpls_label_test \
- 	match_mpls_tc_test match_mpls_bos_test match_mpls_ttl_test \
-@@ -280,6 +281,64 @@ match_vlan_test()
- 	log_test "VLAN match ($tcflags)"
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c
+index de74dbfe7b20..1e15456305cf 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c
+@@ -7,6 +7,7 @@
+ #include <net/gre.h>
+ #include <net/geneve.h>
+ #include <net/bareudp.h>
++#include <net/gtp.h>
+ #include "en/tc_tun.h"
+ #include "en/tc_priv.h"
+ #include "en_tc.h"
+@@ -996,3 +997,99 @@ int mlx5e_tc_tun_parse_udp_ports(struct mlx5e_priv *priv,
+ 
+ 	return 0;
  }
- 
-+match_enc_key_id_mask_test()
++
++/* Without a tunnel device the outer headers name the tunnel */
++static struct mlx5e_tc_tunnel *
++mlx5e_tc_tun_outer_lookup(struct flow_rule *rule)
 +{
-+	local ret
++	struct flow_match_basic basic;
++	struct flow_match_ports ports;
 +
-+	RET=0
++	if (!flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_BASIC))
++		return NULL;
 +
-+	# A tunnel device has no offload to take a skip_sw filter
-+	if [[ $tcflags == "skip_sw" ]]; then
-+		return 0
-+	fi
++	flow_rule_match_basic(rule, &basic);
++	if (basic.key->ip_proto == IPPROTO_GRE)
++		return &gre_tunnel;
 +
-+	# An old tc refuses the mask and an old kernel drops it
-+	tc filter add dev $h2 ingress protocol ip pref 1 handle 101 flower \
-+		$tcflags enc_key_id 256/0xf00 action drop 2> /dev/null
-+	tc filter show dev $h2 ingress pref 1 | grep -q "enc_key_id 256/0xf00"
-+	ret=$?
-+	tc filter del dev $h2 ingress protocol ip pref 1 handle 101 flower \
-+		2> /dev/null
-+	if [[ $ret -ne 0 ]]; then
-+		echo "SKIP: tc or the kernel lacks the enc_key_id mask"
-+		return 0
-+	fi
++	if (basic.key->ip_proto != IPPROTO_UDP ||
++	    !flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_PORTS))
++		return NULL;
 +
-+	tunnel_create gt1 gretap 192.0.2.1 192.0.2.2 dev $h1 key 300
-+	tunnel_create gt2 gretap 192.0.2.1 192.0.2.2 dev $h1 key 600
-+	ip link set dev gt1 master v$h1
-+	ip link set dev gt2 master v$h1
-+	ip link add gt-ex type gretap external # To collect tunnel info
-+	ip link set dev gt-ex up
-+	ip link set dev gt-ex master v$h2
-+	tc qdisc add dev gt-ex clsact
++	flow_rule_match_ports(rule, &ports);
++	/* Only an exact port names a tunnel */
++	if (ports.mask->dst != htons(U16_MAX))
++		return NULL;
 +
-+	tc filter add dev gt-ex ingress protocol ip pref 1 handle 101 flower \
-+		$tcflags enc_key_id 256/0xf00 action drop
-+	tc filter add dev gt-ex ingress protocol ip pref 2 handle 102 flower \
-+		$tcflags enc_key_id 600 action drop
-+
-+	$MZ gt1 -c 1 -p 64 -a "$(mac_get gt1)" -b $h2mac -t ip -q
-+
-+	tc_check_packets "dev gt-ex ingress" 101 1
-+	check_err $? "Did not match a key inside the mask"
-+
-+	$MZ gt2 -c 1 -p 64 -a "$(mac_get gt2)" -b $h2mac -t ip -q
-+
-+	tc_check_packets "dev gt-ex ingress" 102 1
-+	check_err $? "Did not receive the key outside the mask"
-+
-+	tc_check_packets "dev gt-ex ingress" 101 1
-+	check_err $? "Matched a key outside the mask"
-+
-+	tc qdisc del dev gt-ex clsact
-+	tunnel_destroy gt-ex
-+	tunnel_destroy gt2
-+	tunnel_destroy gt1
-+
-+	log_test "enc_key_id mask match ($tcflags)"
++	switch (ntohs(ports.key->dst)) {
++	case GTP1U_PORT:
++		return &gtp_tunnel;
++	case IANA_VXLAN_UDP_PORT:
++		return &vxlan_tunnel;
++	case GENEVE_UDP_PORT:
++		return &geneve_tunnel;
++	default:
++		return NULL;
++	}
 +}
 +
- match_ip_tos_test()
++static bool
++mlx5e_tc_tun_has_decap(struct flow_rule *rule)
++{
++	const struct flow_action_entry *act;
++	int i;
++
++	flow_action_for_each(i, act, &rule->action) {
++		if (act->id == FLOW_ACTION_TUNNEL_DECAP)
++			return true;
++	}
++
++	return false;
++}
++
++/* Without a tunnel device only the hardware can read the tunnel key */
++int
++mlx5e_tc_tun_parse_outer_key(struct mlx5e_priv *priv,
++			     struct mlx5_flow_spec *spec,
++			     struct flow_cls_offload *f,
++			     enum fs_flow_table_type fs_type)
++{
++	struct flow_rule *rule = flow_cls_offload_flow_rule(f);
++	struct mlx5_eswitch *esw = priv->mdev->priv.eswitch;
++	struct netlink_ext_ack *extack = f->common.extack;
++	struct flow_match_enc_keyid enc_keyid;
++	struct mlx5e_tc_tunnel *tunnel;
++
++	if (!f->common.skip_sw) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "enc_key_id without a tunnel device requires skip_sw");
++		return -EOPNOTSUPP;
++	}
++
++	if (mlx5e_tc_tun_has_decap(rule)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "enc_key_id without a tunnel device cannot decap");
++		return -EOPNOTSUPP;
++	}
++
++	/* The eswitch only reads the headers a VF inlines */
++	if (fs_type == FS_FT_FDB && !mlx5e_is_uplink_rep(priv) &&
++	    esw->offloads.inline_mode != MLX5_INLINE_MODE_NONE) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Flow is not offloaded due to min inline setting");
++		return -EOPNOTSUPP;
++	}
++
++	tunnel = mlx5e_tc_tun_outer_lookup(rule);
++	if (!tunnel) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "enc_key_id needs ip_proto 0x2f or the exact dst_port of a supported tunnel");
++		return -EOPNOTSUPP;
++	}
++
++	flow_rule_match_enc_keyid(rule, &enc_keyid);
++	return tunnel->parse_outer_key(priv, spec, extack,
++				       be32_to_cpu(enc_keyid.key->keyid),
++				       be32_to_cpu(enc_keyid.mask->keyid),
++				       fs_type);
++}
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h
+index d7c778bbb2ef..8eccaecb70b2 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h
+@@ -52,6 +52,11 @@ struct mlx5e_tc_tunnel {
+ 			    struct flow_cls_offload *f,
+ 			    void *headers_c,
+ 			    void *headers_v);
++	int (*parse_outer_key)(struct mlx5e_priv *priv,
++			       struct mlx5_flow_spec *spec,
++			       struct netlink_ext_ack *extack,
++			       u32 key, u32 mask,
++			       enum fs_flow_table_type fs_type);
+ 	bool (*encap_info_equal)(struct mlx5e_encap_key *a,
+ 				 struct mlx5e_encap_key *b);
+ 	int (*get_remote_ifindex)(struct net_device *mirred_dev);
+@@ -61,6 +66,7 @@ extern struct mlx5e_tc_tunnel vxlan_tunnel;
+ extern struct mlx5e_tc_tunnel geneve_tunnel;
+ extern struct mlx5e_tc_tunnel gre_tunnel;
+ extern struct mlx5e_tc_tunnel mplsoudp_tunnel;
++extern struct mlx5e_tc_tunnel gtp_tunnel;
+ 
+ struct mlx5e_tc_tunnel *mlx5e_get_tc_tun(struct net_device *tunnel_dev);
+ 
+@@ -115,6 +121,11 @@ int mlx5e_tc_tun_parse_udp_ports(struct mlx5e_priv *priv,
+ 				 void *headers_c,
+ 				 void *headers_v);
+ 
++int mlx5e_tc_tun_parse_outer_key(struct mlx5e_priv *priv,
++				 struct mlx5_flow_spec *spec,
++				 struct flow_cls_offload *f,
++				 enum fs_flow_table_type fs_type);
++
+ bool mlx5e_tc_tun_encap_info_equal_generic(struct mlx5e_encap_key *a,
+ 					   struct mlx5e_encap_key *b);
+ 
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c
+index ee04fcdca6ff..cc8c9d167d4a 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c
+@@ -4,6 +4,7 @@
+ #include <net/geneve.h>
+ #include "lib/geneve.h"
+ #include "en/tc_tun.h"
++#include "fs_core.h"
+ 
+ #define MLX5E_GENEVE_VER 0
+ 
+@@ -350,6 +351,42 @@ static bool mlx5e_tc_tun_encap_info_equal_geneve(struct mlx5e_encap_key *a,
+ 						     IP_TUNNEL_GENEVE_OPT_BIT);
+ }
+ 
++static int
++mlx5e_tc_tun_parse_outer_key_geneve(struct mlx5e_priv *priv,
++				    struct mlx5_flow_spec *spec,
++				    struct netlink_ext_ack *extack,
++				    u32 key, u32 mask,
++				    enum fs_flow_table_type fs_type)
++{
++	void *misc_c, *misc_v;
++
++	if (key >= MLX5E_TC_TUN_N_VNI || !(mask & (MLX5E_TC_TUN_N_VNI - 1))) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Tunnel key does not fit the 24 bit VNI");
++		return -EOPNOTSUPP;
++	}
++
++	if (!mlx5e_tc_tun_can_offload_geneve(priv) ||
++	    !MLX5_CAP_FLOWTABLE_TYPE(priv->mdev,
++				     ft_field_support.outer_geneve_vni,
++				     fs_type)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Matching on GENEVE VNI is not supported");
++		return -EOPNOTSUPP;
++	}
++
++	misc_c = MLX5_ADDR_OF(fte_match_param, spec->match_criteria,
++			      misc_parameters);
++	misc_v = MLX5_ADDR_OF(fte_match_param, spec->match_value,
++			      misc_parameters);
++
++	MLX5_SET(fte_match_set_misc, misc_c, geneve_vni, mask);
++	MLX5_SET(fte_match_set_misc, misc_v, geneve_vni, key);
++	spec->match_criteria_enable |= MLX5_MATCH_MISC_PARAMETERS;
++
++	return 0;
++}
++
+ struct mlx5e_tc_tunnel geneve_tunnel = {
+ 	.tunnel_type          = MLX5E_TC_TUNNEL_TYPE_GENEVE,
+ 	.match_level          = MLX5_MATCH_L4,
+@@ -359,5 +396,6 @@ struct mlx5e_tc_tunnel geneve_tunnel = {
+ 	.generate_ip_tun_hdr  = mlx5e_gen_ip_tunnel_header_geneve,
+ 	.parse_udp_ports      = mlx5e_tc_tun_parse_udp_ports_geneve,
+ 	.parse_tunnel         = mlx5e_tc_tun_parse_geneve,
++	.parse_outer_key      = mlx5e_tc_tun_parse_outer_key_geneve,
+ 	.encap_info_equal     = mlx5e_tc_tun_encap_info_equal_geneve,
+ };
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gre.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gre.c
+index 579eda89fc76..1a3d329408f4 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gre.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gre.c
+@@ -3,6 +3,7 @@
+ 
+ #include <net/gre.h>
+ #include "en/tc_tun.h"
++#include "fs_core.h"
+ 
+ static bool mlx5e_tc_tun_can_offload_gretap(struct mlx5e_priv *priv)
  {
- 	RET=0
+@@ -89,6 +90,35 @@ static int mlx5e_tc_tun_parse_gretap(struct mlx5e_priv *priv,
+ 	return 0;
+ }
+ 
++static int
++mlx5e_tc_tun_parse_outer_key_gre(struct mlx5e_priv *priv,
++				 struct mlx5_flow_spec *spec,
++				 struct netlink_ext_ack *extack,
++				 u32 key, u32 mask,
++				 enum fs_flow_table_type fs_type)
++{
++	void *misc_c, *misc_v;
++
++	if (!MLX5_CAP_FLOWTABLE_TYPE(priv->mdev,
++				     ft_field_support.outer_gre_key,
++				     fs_type)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Matching on GRE key is not supported");
++		return -EOPNOTSUPP;
++	}
++
++	misc_c = MLX5_ADDR_OF(fte_match_param, spec->match_criteria,
++			      misc_parameters);
++	misc_v = MLX5_ADDR_OF(fte_match_param, spec->match_value,
++			      misc_parameters);
++
++	MLX5_SET(fte_match_set_misc, misc_c, gre_key.key, mask);
++	MLX5_SET(fte_match_set_misc, misc_v, gre_key.key, key);
++	spec->match_criteria_enable |= MLX5_MATCH_MISC_PARAMETERS;
++
++	return 0;
++}
++
+ struct mlx5e_tc_tunnel gre_tunnel = {
+ 	.tunnel_type          = MLX5E_TC_TUNNEL_TYPE_GRETAP,
+ 	.match_level          = MLX5_MATCH_L3,
+@@ -98,5 +128,6 @@ struct mlx5e_tc_tunnel gre_tunnel = {
+ 	.generate_ip_tun_hdr  = mlx5e_gen_ip_tunnel_header_gretap,
+ 	.parse_udp_ports      = NULL,
+ 	.parse_tunnel         = mlx5e_tc_tun_parse_gretap,
++	.parse_outer_key      = mlx5e_tc_tun_parse_outer_key_gre,
+ 	.encap_info_equal     = mlx5e_tc_tun_encap_info_equal_generic,
+ };
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gtp.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gtp.c
+new file mode 100644
+index 000000000000..19c9bc1a30f5
+--- /dev/null
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gtp.c
+@@ -0,0 +1,36 @@
++// SPDX-License-Identifier: GPL-2.0 OR Linux-OpenIB
++
++#include "en/tc_tun.h"
++
++static int
++mlx5e_tc_tun_parse_outer_key_gtp(struct mlx5e_priv *priv,
++				 struct mlx5_flow_spec *spec,
++				 struct netlink_ext_ack *extack,
++				 u32 key, u32 mask,
++				 enum fs_flow_table_type fs_type)
++{
++	void *misc3_c, *misc3_v;
++
++	if (!(MLX5_CAP_GEN(priv->mdev, flex_parser_protocols) &
++	      MLX5_FLEX_PARSER_GTPU_TEID_ENABLED)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Matching on GTP-U TEID is not supported");
++		return -EOPNOTSUPP;
++	}
++
++	misc3_c = MLX5_ADDR_OF(fte_match_param, spec->match_criteria,
++			       misc_parameters_3);
++	misc3_v = MLX5_ADDR_OF(fte_match_param, spec->match_value,
++			       misc_parameters_3);
++
++	MLX5_SET(fte_match_set_misc3, misc3_c, gtpu_teid, mask);
++	MLX5_SET(fte_match_set_misc3, misc3_v, gtpu_teid, key);
++	spec->match_criteria_enable |= MLX5_MATCH_MISC_PARAMETERS_3;
++
++	return 0;
++}
++
++/* The driver offloads no GTP device so this only matches on the wire */
++struct mlx5e_tc_tunnel gtp_tunnel = {
++	.parse_outer_key = mlx5e_tc_tun_parse_outer_key_gtp,
++};
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c
+index 33911e72d20d..a2685ef5a35b 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c
+@@ -5,6 +5,7 @@
+ #include <net/vxlan.h>
+ #include "lib/vxlan.h"
+ #include "en/tc_tun.h"
++#include "fs_core.h"
+ 
+ static bool mlx5e_tc_tun_can_offload_vxlan(struct mlx5e_priv *priv)
+ {
+@@ -261,6 +262,41 @@ static int mlx5e_tc_tun_get_remote_ifindex(struct net_device *mirred_dev)
+ 	return ifindex;
+ }
+ 
++static int
++mlx5e_tc_tun_parse_outer_key_vxlan(struct mlx5e_priv *priv,
++				   struct mlx5_flow_spec *spec,
++				   struct netlink_ext_ack *extack,
++				   u32 key, u32 mask,
++				   enum fs_flow_table_type fs_type)
++{
++	void *misc_c, *misc_v;
++
++	if (key >= MLX5E_TC_TUN_N_VNI || !(mask & (MLX5E_TC_TUN_N_VNI - 1))) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Tunnel key does not fit the 24 bit VNI");
++		return -EOPNOTSUPP;
++	}
++
++	if (!MLX5_CAP_FLOWTABLE_TYPE(priv->mdev,
++				     ft_field_support.outer_vxlan_vni,
++				     fs_type)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Matching on VXLAN VNI is not supported");
++		return -EOPNOTSUPP;
++	}
++
++	misc_c = MLX5_ADDR_OF(fte_match_param, spec->match_criteria,
++			      misc_parameters);
++	misc_v = MLX5_ADDR_OF(fte_match_param, spec->match_value,
++			      misc_parameters);
++
++	MLX5_SET(fte_match_set_misc, misc_c, vxlan_vni, mask);
++	MLX5_SET(fte_match_set_misc, misc_v, vxlan_vni, key);
++	spec->match_criteria_enable |= MLX5_MATCH_MISC_PARAMETERS;
++
++	return 0;
++}
++
+ struct mlx5e_tc_tunnel vxlan_tunnel = {
+ 	.tunnel_type          = MLX5E_TC_TUNNEL_TYPE_VXLAN,
+ 	.match_level          = MLX5_MATCH_L4,
+@@ -270,6 +306,7 @@ struct mlx5e_tc_tunnel vxlan_tunnel = {
+ 	.generate_ip_tun_hdr  = mlx5e_gen_ip_tunnel_header_vxlan,
+ 	.parse_udp_ports      = mlx5e_tc_tun_parse_udp_ports_vxlan,
+ 	.parse_tunnel         = mlx5e_tc_tun_parse_vxlan,
++	.parse_outer_key      = mlx5e_tc_tun_parse_outer_key_vxlan,
+ 	.encap_info_equal     = mlx5e_tc_tun_encap_info_equal_vxlan,
+ 	.get_remote_ifindex   = mlx5e_tc_tun_get_remote_ifindex,
+ };
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index eab4d5417ce2..4b2794009a97 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -2787,16 +2787,19 @@ static int __parse_cls_flower(struct mlx5e_priv *priv,
+ 		if (err)
+ 			return err;
+ 	} else if (dissector->used_keys &
+-		   (BIT_ULL(FLOW_DISSECTOR_KEY_ENC_KEYID) |
+-		    BIT_ULL(FLOW_DISSECTOR_KEY_ENC_IPV4_ADDRS) |
++		   (BIT_ULL(FLOW_DISSECTOR_KEY_ENC_IPV4_ADDRS) |
+ 		    BIT_ULL(FLOW_DISSECTOR_KEY_ENC_IPV6_ADDRS) |
+ 		    BIT_ULL(FLOW_DISSECTOR_KEY_ENC_PORTS) |
+ 		    BIT_ULL(FLOW_DISSECTOR_KEY_ENC_CONTROL) |
+ 		    BIT_ULL(FLOW_DISSECTOR_KEY_ENC_IP) |
+ 		    BIT_ULL(FLOW_DISSECTOR_KEY_ENC_OPTS))) {
+ 		NL_SET_ERR_MSG_MOD(extack,
+-				   "Tunnel keys are only supported on tunnel devices");
++				   "Tunnel keys other than enc_key_id require a tunnel device");
+ 		return -EOPNOTSUPP;
++	} else if (flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_ENC_KEYID)) {
++		err = mlx5e_tc_tun_parse_outer_key(priv, spec, f, fs_type);
++		if (err)
++			return err;
+ 	}
+ 
+ 	err = mlx5e_flower_parse_meta(filter_dev, f);
 -- 
 2.43.0
 
