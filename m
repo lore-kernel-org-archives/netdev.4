@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.31
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795353660;
-	b=t9Oz0SXsEdk/mP7dsUgqid1cBVmfo3Y6Z4udxWCMDlys/5h7dI8yCS/L47R/udh9E7pG
-	 Geqwg8GxpjkzoJ/o1jxY/H2t6CGRW8Q/5aZJJ8BGosbtzrERHiT8IFDVJCoTXwxvOaD4w
-	 qOSLY7ODmJ9dj44bc+YQAi+Dvcxu/cU1rO2K1eQPb510Ck7B7GDu04CsLIGIIuGNz+5HD
-	 j/MOTrEIwD94VCe2Lv6gCIRHk5ers13R1J0/ueRr78cTSOp3g+IwatL/VTstP6qfH/x9X
-	 xtruPfN/s4aPDHjvEfiv5eBPlm0Ro4xTe0yly0Pj72OxS7DRG1VCjjpN7C2PlfyzVwA==
+	t=1795353843;
+	b=W8zxcYHc2MRDFRWBPRkBKRw5iEnTr+WmhBngk4V/MKNqx15JhdXKWRaMrf7OMSMiHQLC
+	 c35Cj4Xo5k2ax4D7CmuJzlZGbL4jfcwwxpS0Bt3crtB+RcllYO55qxekXsTqqsH/82nU/
+	 YUr/i4tuTXb34+v+iPXwiJKQl8Igo1b5Mw6pmd3TSr8ijcHgIE54QOSZ4+yrDvgog6HmN
+	 mcVjbZSAmlVRvs7HFKKNH8zPA9rpathtn0WGQzqDLbxAhUwrvbxOse+d8BPHq7L67aKRK
+	 Q8sNYMZV9fAi4U0Jl25tzUwPDoJ2L8BS9yMQxTm1As0U7DSVg3AjOoMaLWamwkpttPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795353660;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=eoP3hjAwq4Cw4bE/mFqEl7hyxh+jDCjYeuZjTBgdVoA=;
-	b=tCfuyY3ofTgeed6d55EN1WlvsMD+WPjfdpRAvM9IT8C+RYKAjrZoRzYZ1zAIWFB+omJa
-	 8OfPB8UTQnBgeNzRG/DRyrrKSGLVq1FFr9t++Uh8SG+7Di+U4nQDMNSdIHYCCixv6fXXk
-	 cQjoOls0XCJl0ktAXcEUjTkDSOpRN4eOHCs8lBUQN4ZBruYS19dkc+VnWN9gTH7KbdJ8S
-	 9hLZ7BCY0TGtTJsSavFRHPmSuTQTdbvBvUYIUbH+GuwO+hKh4tqI9hoWPNMY1O6zKnFFO
-	 Cd8t9F5v+wl1r6WbP5UtRFjje+lu0zubrDQiIEefcflSWEeUXYzoKbAlntb2vn+vBHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795353843;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LX1er8W69gZNUPbY/pjrjgdNZyTT7gzY53mg2yQt6WE=;
+	b=B0ea35cqhLujNEQYiD1yPLjv6VjQ07w3Toon4yhiINH1177T+FUBQmaE9jEIRgzNZdFc
+	 N6Zv/mB/YqQMJOU0RRXB+aCFhHd35i5laOj5CZ0CLOcLPtV+5HSIxrEqVrVbV+uOgSBZY
+	 Hsw3UZ77elCjhCSCIwe2Q9K02Wi5Zt5e4Vygb6oOU7U+c6Qtp7Og4Fl6aGo+y1g4YG52J
+	 VbpMdlsmVUvd1woy0IZJRxoWbEYk2ShhpuxWxZX099EjlCWGH+jdyZuqBT7W9l9NQalXm
+	 ADruG1nxPvd/40QxqVq28oDCc3eTrhnWvJxeYLXhtHRHCuut76IKGp0V9H9zkOxMQWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=rpoke7kI;
-	arc=none smtp.remote-ip=79.135.106.31
-Received: from mail-10631.protonmail.ch (mail-10631.protonmail.ch [79.135.106.31])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qw67LtmK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82E4606A32C;
-	Sun, 22 Nov 2026 13:20:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82E4606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF631606A33E;
+	Sun, 22 Nov 2026 13:24:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=rpoke7kI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795353654; x=1795612854;
-	bh=eoP3hjAwq4Cw4bE/mFqEl7hyxh+jDCjYeuZjTBgdVoA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=rpoke7kIbufv5EUE+v6QP9RKHaLv9d1qKHGkUFy0dbwBonBukYa4BaGXbmrm8WNVk
-	 m3uZZVey1t5mFukibLbam0SOEw8fBIt9sylsw0uynTm0vxf+RwueirbLJyiaScBMAl
-	 HVux3Ir16vSZ+lRQkEZ6T7U23zaAoORLPgu+3vJEFhv6hHMyWEOLoQMbvKLOLikTzQ
-	 LNmBXVTBRkdMVelcTB6RDEZpUzWwV3HA6hxJ+jdK7l8ie/oa6t1e6mvHjCFdz0J90y
-	 Ut6Rj2s11nbcT9bZcjbP5JHte8w3FaHTm9YqSHy9So6y5/tbfcchZf+3aj+EubmQJ+
-	 XmD2bDeMu9Eew==
-Date: Sun, 22 Nov 2026 13:20:46 +0000
-To: Tjerk Kusters <tkusters@aweta.nl>, Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Sven Auhagen <sven.auhagen@voleatech.de>, Richard Cochran <richardcochran@gmail.com>, Kurt Kanzenbach <kurt@linutronix.de>, Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>
-From: Tore Sinding Bekkedal <toresbe@protonmail.com>
-Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Paul Moses <p@1g4.org>, stable@vger.kernel.org, Piotr Kwapulinski <piotr.kwapulinski@intel.com>, Aleksandr Loktionov <aleksandr.loktionov@intel.com>, Alexander Nowlin <alexander.nowlin@intel.com>
-Subject: Re: [PATCH net v7 2/3] igb: only strip Rx timestamp header on the first buffer of a frame
-Message-ID: <d1cec124-8685-4be9-ae70-1142e3be4f88@protonmail.com>
-In-Reply-To: <20261120-igb-rx-ts-fix-v7-2-63b03045978e@aweta.nl>
-References: <20261120-igb-rx-ts-fix-v7-0-63b03045978e@aweta.nl> <20261120-igb-rx-ts-fix-v7-2-63b03045978e@aweta.nl>
-Feedback-ID: 21125876:user:proton
-X-Pm-Message-ID: 687ed69b38c3864e14592e27266a6843882b0919
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qw67LtmK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 972EA1F000C0;
+	Sun, 22 Nov 2026 13:24:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795353843;
+	bh=LX1er8W69gZNUPbY/pjrjgdNZyTT7gzY53mg2yQt6WE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Qw67LtmKJYCm1KNf4wobrqCnjN3Sq6JXdFKCGKWb9g1dVaOghe6vzsuebugpsn0tA
+	 a8kxJvBKL18Z+ZR66Sv5NZ9bDUg0a/OADpdMKtHJh4cy9+jEA+oXQFg+EcEGn5aIqa
+	 LHFCaSbzcxu4tQDT/+Z1Yao0S/5byPs88FyMLkxslOx7W/6v2RVHZ3G9EVmVhcz71g
+	 8YCVzsqaP+GXGxa2hm4aC9CtdvgXyfhQtcZU+Qs5Pi1b+R4K/aQhdrjkWQNSr97lUt
+	 yVWPXC5jJZI1dHEaCvzAIViHYrSV70QCgt2ObD4xGPQu4MhXMv5VfekDN3kbo+AVOn
+	 P6WIBMqOcNcZQ==
+Subject: Re: [PATCH v5 net 4/4] net: hns3: fix use-after-free in debugfs read
+ during reset/unload
+From: netdev-bot+sashiko@kernel.org
+To: shaojijie@huawei.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, shenjian15@huawei.com,
+ liuyonglong@huawei.com, chenhao418@huawei.com, yangshuaisong@h-partners.com,
+ ningwei15@huawei.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Sun, 22 Nov 2026 13:24:02 +0000
+Message-ID: <179535384216.3135.13172932788054177257@kernel.org>
+In-Reply-To: <20261118130330.3026625-5-shaojijie@huawei.com>
+References: <20261118130330.3026625-5-shaojijie@huawei.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,25 +64,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
 
-On 11/20/26 12:10 PM, Tjerk Kusters wrote:
-> This is easily triggered by a GigE Vision camera streaming dark frames
-> (mostly 0x00 pixel data) over jumbo UDP with PTP active on the receiver:
-Mostly commenting to make this thread searchable -
-We ran into it on a Ceph cluster: Proxmox VE hosts (kernel
-6.14.8-2-pve) with Intel I350 ports in an LACP bond at MTU 9000.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Enabling chrony's "hwtimestamp *" put the ports in HWTSTAMP_FILTER_ALL,=20
-after which jumbo frames arrived 32 bytes short (tcpdump: "total length=20
-9000 > length 8968") and were dropped. Small packets were unaffected, so=20
-  Ceph heartbeats kept passing while OSD traffic stalled, reporting=20
-laggy PGs and slow ops.
+Low priority / nit picks for your consideration:
 
-Note that removing hwtimestamp from chrony.conf and restarting chrony=20
-did not clear it; the ports stayed in HWTSTAMP_FILTER_ALL (using ethtool=20
--T") until the filter was explicitly set back to NONE.
+- [Low] The comment on the new `struct hnae3_handle::dbg_mutex` field in
+  drivers/net/ethernet/hisilicon/hns3/hnae3.h reads "protect debugfs…
 
-Thanks for the fix.
+--
 
+net: hns3: fix use-after-free in debugfs read during reset/unload
+
+This patch adds a dbg_mutex to struct hnae3_handle. The enet-layer debugfs
+show callbacks take it, and so do the reset, driver unload and ethtool ring
+resize paths, which keeps the readers away from priv->ring, priv->tqp_vector
+and ring->desc while those are being freed. The readers also check the
+device state on every iteration and return -EBUSY when the device is busy.
+
+Closes: https://lore.kernel.org/all/a0853cd9-cab5-441d-b181-8ba97f2f58b0@huawei.com/
+
+> diff --git a/drivers/net/ethernet/hisilicon/hns3/hnae3.h b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+> index 4286af9239b01..e94cc33da8643 100644
+> --- a/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+> +++ b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+> @@ -944,6 +944,7 @@ struct hnae3_handle {
+>  
+>  	u8 netdev_flags;
+>  	struct dentry *hnae3_dbgfs;
+> +	struct mutex dbg_mutex;	/* protect debugfs against reset/unload */
+
+[Severity: Low]
+This isn't a bug, but is this comment a little narrower and a little
+broader than what the lock actually does?
+
+On the writer side, hns3_set_ringparam() also takes h->dbg_mutex around
+hns3_init_all_ring(), the memcpy() restore and hns3_fini_ring() on the
+backup rings:
+
+> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+> @@ -1252,6 +1252,7 @@ static int hns3_set_ringparam(struct net_device *ndev,
+>  	if (if_running)
+>  		ndev->netdev_ops->ndo_stop(ndev);
+>  
+> +	mutex_lock(&h->dbg_mutex);
+>  	hns3_change_all_ring_bd_num(priv, new_ringparam.tx_desc_num,
+>  				    new_ringparam.rx_desc_num);
+
+Ring resize is neither a reset nor an unload, so the field comment does
+not mention it.
+
+On the reader side, only the enet-layer seq_file callbacks take the
+mutex (coal_info, rx/tx_queue_info, queue_map, page_pool_info, bd_info).
+The hclge-layer readers that hns3_dbg_common_init_t2() registers through
+ops->dbg_get_read_func() live under the same handle->hnae3_dbgfs tree,
+and they never take it.
+
+The commit message says the mutex is "used by enet-layer debugfs
+callbacks", but this comment is the only place in the tree that
+describes the lock's scope.
+
+Could the comment say that the lock serializes the enet-layer debugfs
+readers against the paths that free or rebuild priv->ring,
+priv->tqp_vector and ring->desc (reset, unload and ring resize)? Then a
+future writer would know it has to take the lock, and an hclge-layer
+reader would not assume it is protected.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118130330.3026625-1-shaojijie%40huawei.com
