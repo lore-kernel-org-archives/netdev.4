@@ -1,49 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795355770;
-	b=G/XcS5O5CBYLk50i63QxBUHQYaALQ0LEeuTYAWva73crQfKJLIooxqTCEXwV0838HuwA
-	 HfZPegoJ5zViOXJB2BrGlWisub3Yhw4zUNAn9BOT5p2A9f4zhVJ5VAb/ilgsEvinUB8jz
-	 ZSLMhUjvVDQeURNLJD0fJRGlGgZGka5RDc7E58wzgdqUEsOQrkiO0OZlCW9tSYEngYQta
-	 mwEEQtEsPcOzFXoQoZf4tSHF7NehZMIegmC7huukmFNNFicCwxcHOQ98Vl2SaBr1AII8d
-	 w3zmSiOf655EbcqMUOsnoSRY/8FOFfY/MFbC7sBUZQdZPKWzQv4MvoUisJIzFE6wQWA==
+	t=1795356172;
+	b=3A67U3qf9W/nq5JwTEHpDieCoNI3rZvLepfQ8iAfCDyQIlcar15FsNrR5ykGOBxa8Sia
+	 47X56ojeH+vUY+qQ2VP+CPV9PqHIhLjTO3YRp4EMCS6BU8RGeNxyxqRWVaOavRgf1rCwg
+	 hFGFzd7GEuM2WR2bt4Rz2t15dctPRrse+3oA2dz+c8VtRQlASCHxQzl7ocmg/v+mq4528
+	 ljBY/tzG+iMA5v/wutf/c1Q0XTVAs+WrZ9sGrAPah5ov1+TduJXUOzgrnx9x9dz4RfLbe
+	 W/Hr+o2fLrN3gQbkYKmgDQmh+LZChptahksZ9TcO+l4OG9w45kyY3uRj/0j+nNPGPLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795355770;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
-	bh=1hVZoLQbpumNWQB/Db+U+qcRPvEbe/nKL4FLHJv3bQo=;
-	b=VlscKw9JZ6KpX8sTV8vSApVwaa5DiQxJSIp6p7ev9k4LpG/A+JV7z3urjPXIiFlEYjxf
-	 b1/R8NbwPEa8BcuCmJYWHg/AddNloRDCl1B+7XhtmEMUfSayeyDTf+p8YZKMN3/4+GaDz
-	 HGxg4JrHlorcJRyGMXpMGo3cstAGI1yfdqEzLhFxbZRNLhuMUjTkUmV/2Hj9qLvg+0IBh
-	 iOSPxEujSPBQZLlbGS9uJzkXMVoOcjgZAAY3AB3DbjdZPlrxAiPpcIJxb3Wd9wtAPK5tF
-	 sFdt4XgmgUfpQ/vCqruOZ05jvCa3Alqzj6/9defCjSoKLZ1MImUscjfBuLJUO3LOewQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795356172;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer;
+	bh=onl/poboZkNxS7sIah0bvOjq6ruOD15HwZb7C8yumw8=;
+	b=M1ZpgG2AX3t4/dlvuQKU90qnNTeWbplo0419IXDKgdjBhHnsH0Lf+PGGOwreOtvx+zlL
+	 qwAOkthWXDpY01gBKUVNQH+Htie5mzLpJpfgVnJcAx7Z/CqYqxHarnnle/xlGvjJLzEWn
+	 80YFqTMgVUrWH4+9loX5Qpmm+zZb86RHgUfqgjwP8Rq5h6hw+d9byo49OUTEWfB43O7MV
+	 XzMIMVUdsflDBVB3xOnH6XYmm3sf5ysWnMab0I3U7X5P28mbPNb+t/HTOD1QouRgFMN2q
+	 CfW46ok1I1EE3boMb0Ugr6b3ZsSUT1/O77POyNjjoeIjpvl+u9YkCXJxubhNgVQVljA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zju.edu.cn;
-	spf=pass smtp.mailfrom=zju.edu.cn;
-	arc=none smtp.remote-ip=162.243.161.220
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4A663606A320;
-	Sun, 22 Nov 2026 13:56:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A663606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
-Received: from zju.edu.cn (unknown [123.60.231.41])
-	by mtasvr (Coremail) with SMTP id _____wDnQX109AJravYrAg--.9476S3;
-	Sun, 22 Nov 2026 21:56:04 +0800 (CST)
-Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
-	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgCXZ5xy9AJrZy7rAA--.47434S4;
-	Sun, 22 Nov 2026 21:56:03 +0800 (CST)
-From: Lin Ma <linma@zju.edu.cn>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: netdev@vger.kernel.org,
-	linux-afs@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lin Ma <linma@zju.edu.cn>
-Subject: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
-Date: Sun, 22 Nov 2026 21:55:15 +0800
-Message-ID: <20261122135515.3989708-1-linma@zju.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lI/5Yk22";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80FB4606A320;
+	Sun, 22 Nov 2026 14:02:52 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lI/5Yk22
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A68D1F000C0;
+	Sun, 22 Nov 2026 14:02:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795356171;
+	bh=onl/poboZkNxS7sIah0bvOjq6ruOD15HwZb7C8yumw8=;
+	h=From:Date:Subject:To:Cc;
+	b=lI/5Yk22pphQIKmQiI0IUKh7l61RDgEj69WTtHSsTMVkiSuFPtRkCZZ+wqQ4mTCW4
+	 z45o5DnnsXZRrsvhNQzbycAWd9fdHLngn4bJWWsoWz4itEP7lrLvr+HSO1WxFKKoDG
+	 xgldgOIpNynD25pAEpoUGJaAdOjhZ7PdVaRxWfGl2fwQ6NlU4ECZjr2nQPdATMubsR
+	 sVeV1/XShUCWpZniy8NTXPGaL5P9MTfyvAKBDqtLB/w0jUQDO9scXWeNu8MtEqA8V/
+	 dnqFK4eOJ3VgqQSz23GjuKalFYOVBlCGqYCMNMosrULsQBTE/MK0G2ZaZ09zBxh375
+	 ACsX2NiCG5ruA==
+From: Simon Horman <horms@kernel.org>
+Date: Sun, 22 Nov 2026 14:02:42 +0000
+Subject: [PATCH nf] MAINTAINERS: Retire as IPVS maintainer
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,59 +52,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zi_KCgCXZ5xy9AJrZy7rAA--.47434S4
-X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAksO
-X-CM-DELIVERINFO: =?B?9lThCwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
-	APHnkvfpsecr7gZmVpD/pedGd92A4lLsgoh9d9G8k0bpHiXESS7/P/JOrwuG5vkaigPSf5
-	J9xy+UDTstPT+2Y2s+2sMKpJUmxLph7ArZOOW9k3qDOJcZRMuJQjBWDLCVot+w==
-X-Coremail-Antispam: 1Uk129KBj93XoW7uw4DXF4kGFyxCr4fZrWrJFc_yoW8Gw1xp3
-	95ArsxKF97Kr4ayFs2yws7Aw18Z3WrJryjqr18uwsak393G34I9FWxGayYgF1rCw48JrWY
-	yFWYya43A3yDJrgCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
-	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAF
-	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
-	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
-	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
-	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
-	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
-	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
-	vjxU72NtDUUUU
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261122-ipvs-retire-v1-1-af35c7a4e2b8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAL2AmsC/x3MTQqAIBBA4avErBNS+rGuEi1Mx5qNyRgSSHdPW
+ n6L9wokZMIES1OAMVOiK1TItgF7mnCgIFcNqlOjlEoJijkJxpsYhTRe73aatesHqEVk9PT8txW
+ Ch+19P32LOU9hAAAA
+X-Change-ID: 20261122-ipvs-retire-1af8bc798d45
+To: Julian Anastasov <ja@ssi.bg>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>, 
+ Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
+ lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org, 
+ coreteam@netfilter.org
+X-Mailer: b4 0.14.2
 
-The fast path in rxrpc_resend_tlp() checks that tx_transmitted is before
-the end of the tail Tx queue segment, but doesn't check that it is at or
-after the segment's base.  If it is below the base, the wrong slot can be
-selected and rxrpc_retransmit_data() may dereference a NULL txbuf.
+In practice it has been some time since I've been actively working on IPVS.
+And likewise, IPVS is maintained in nf/nf-next rather than ipvs/ipvs-next
+for some time now. So this is somewhat overdue.
 
-This can happen when rxrpc_send_data_packet() fails to allocate its wire
-header after rxrpc_transmit_fresh_data() has advanced tx_qtail and tx_top
-but before tx_transmitted is updated.  A subsequent TLP probe can then
-enter rxrpc_resend_tlp() in that state.
+- Remove myself as IPVS maintainer
+- Romeve ipvs and ipvs-net tree
 
-Add the missing lower-bound check, matching the slower queue walk.  The
-reporter triggered this at runtime.
+As verge.net.au has, unfortunately, expired with little prospect of
+recovery, also:
 
-Fixes: 7c482665931b6 ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
-Signed-off-by: Lin Ma <linma@zju.edu.cn>
+- Add mailmap entry for horms@verge.net.au
+
+Signed-off-by: Simon Horman <horms@kernel.org>
 ---
- net/rxrpc/call_event.c | 1 +
- 1 file changed, 1 insertion(+)
+ .mailmap    | 1 +
+ MAINTAINERS | 3 ---
+ 2 files changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
-index fec59d9338b9..4fca790a007f 100644
---- a/net/rxrpc/call_event.c
-+++ b/net/rxrpc/call_event.c
-@@ -141,6 +141,7 @@ void rxrpc_resend_tlp(struct rxrpc_call *call)
- 	/* There's a chance it'll be on the tail segment of the queue. */
- 	req.tq = READ_ONCE(call->tx_qtail);
- 	if (req.tq &&
-+	    after_eq(call->tx_transmitted, req.tq->qbase) &&
- 	    before(call->tx_transmitted, req.tq->qbase + RXRPC_NR_TXQUEUE)) {
- 		rxrpc_retransmit_data(call, &req);
- 		return;
+diff --git a/.mailmap b/.mailmap
+index d73ec73e5ba9dd4ca678493346e250c016a036c8..56485c0b6779ef550c286de808995438856abb09 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -863,6 +863,7 @@ Simona Vetter <simona.vetter@ffwll.ch> <daniel.vetter@ffwll.ch>
+ Simona Vetter <simona.vetter@ffwll.ch> <daniel.vetter@intel.com>
+ Simona Vetter <simona.vetter@ffwll.ch> <daniel@ffwll.ch>
+ Simona Vetter <simona.vetter@ffwll.ch> <daniel@biene.ffwll.ch>
++Simon Horman <horms@kernel.org> <horms@verge.net.au>
+ Simon Horman <horms@kernel.org> <simon.horman@corigine.com>
+ Simon Horman <horms@kernel.org> <simon.horman@netronome.com>
+ Simon Kelley <simon@thekelleys.org.uk>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7336600952c8e48dd24f7a61fd45a202268d947c..e1cdfcfeb30235b0686a7c3c0c54dd5e43d48daa 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13852,13 +13852,10 @@ W:	http://www.adaptec.com/
+ F:	drivers/scsi/ips*
+ 
+ IPVS
+-M:	Simon Horman <horms@verge.net.au>
+ M:	Julian Anastasov <ja@ssi.bg>
+ L:	netdev@vger.kernel.org
+ L:	lvs-devel@vger.kernel.org
+ S:	Maintained
+-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/horms/ipvs-next.git
+-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/horms/ipvs.git
+ F:	Documentation/networking/ipvs-sysctl.rst
+ F:	include/net/ip_vs.h
+ F:	include/uapi/linux/ip_vs.h
+
+
 
