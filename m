@@ -1,52 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378639;
-	b=LeTKhCcfYD5OnpQ63dHXVR/GzgFy/CMsgwv2z1HXSSBwwHytBBGAOrx1jKmb+D7TwLQr
-	 0CFWY3nk84q97p/5v1E0sy/ypFZHSNESAg9DEqvpltln9JVGlUr7l8L9i+olYfMKXcUig
-	 Hes8iacm3auYEmogkCNY78OhzMbKcQBM1gMHqDM6gbM4OgjFLeIMLwRcpKOcZHPP+QwtP
-	 relguKrq56hlw0U3GWDeUkf4vPAaZHeNNgmhiwrFfU021oTgMDIm0MbGgWqqqZZbQA3E9
-	 tMw8NFuzuR5OofYPK+YoogvRSVaam2c6CYPsbufno3J+L6GPpw0GJJGmI4UcLer71QQ==
+	t=1795378804;
+	b=ivMoEHeWDznPnr9RHLl1a/82LK6YTFa46S312bTs+ETnkcs5N0yfQz17p0c76riHtkU0
+	 my2qx3eoz4gO2gI6ECxkrgM2nK3YTqFJ5UPFZmnyywpPQo+bFvdjld1skxrraqwe6NcK5
+	 aln2uQFVMm8lAIPNYTTkqy3uQMJh2VHYbB+6zKdYw/f4Pq4W3TkYom+iVMQgH4yhp4MJi
+	 oG3u4yjuK9ESwgFJuaX8bbIRaDn1pVgj94o1lPycDiytwSAaP7bywT6fXDU1aQsKTI5dL
+	 BdM+7WgiJrLaLmyWKEgiLD4m567fW6R1PJp7WIKJwM5I6potuG1fO4yVEEfLHHtUW4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378639;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=eRHsra6RBQdHsm+/rz4srEJmAl36q57hdP0Dh3GlsWw=;
-	b=CH07x0RV/Fvo02a9k04qtUtcmF5U6MZsoTF2ZnBpylfZCA8nJQPXkSjAYZm8aYIaUqY1
-	 11pDqgZoTLtPG8jx3XwW5jTV0k2KUpmvXdQ3zlU5FBzLpWjejdi8oMsFNKMi1sxXOsTQR
-	 wYKe1+u630YBLkmZ9xeuxRW4eSdG7PhknzLK/l5LwO7tKir8W4i+WcLFY4lGhxDGvy5Or
-	 fe5iUMu1g7mfkKRmBzdVkA2KpezEr78cTsQx4aaRF8d1dNEtsDdLqz3Vl2JQcscjBOLfR
-	 znvDGEF6/NlpKGGuorJ+B2qgmpmiA2mJ/U49ZP3/s1+/lSeMd819ml2QUFCTVGnGqZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378804;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=9FEIzTQEqkB/eIgyK+vZVtxbsx1bwiwbLuTEueuQG8w=;
+	b=llKLzifpmbsHCrfL9bgeW/HFaRmZEaRA1hHndjd7nwL+tCKKBVYHj/FCVt3fdS54NFBe
+	 7suXDpckQ1LholoKpqayHMzfKQjyawzAqOOM8V9pKUTORjAh66emtOLnwiGfaRrm610wL
+	 cSCCZ5NOeNMP1DRzGE58nJXFUjLwQ1Wtf/w986sh3knbx6eqNekh8aoPKqqVsJFXuF8v8
+	 0bAYoHNHqjLUdTla4TZxNolf9xrFqYGoKtBE5UA0D3DEgLyOPqS+QoFt1gDTW6Q3srhSJ
+	 k9FUZYdDqJayoQpfJSNv05ARVjCUlPmNjkfKgq5NB80r1FTJWNJn03pn3/1my0qlQZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=corp.free.fr;
-	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b="KV6a/Ax0";
-	arc=none smtp.remote-ip=212.27.60.169
-Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NyJ41vBG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9A65606A31E;
-	Sun, 22 Nov 2026 20:17:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9A65606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB223606A31A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 20:20:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=KV6a/Ax0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1795378630; bh=reaXzdgyMMqRj1zA2Esagitp1XJA0FQvEzoZ17ZFMmI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KV6a/Ax0sBJ8OshW7PRXLVfGl41wyZ6N/c3AOKxOLU/ncq+3wpMoUzOF1cgQam+X0
-	 gSlsHOJC9VonxEVes6wxFuYhlz4oAyN/vy17UgWpyJLXYG3BVax7T3gXf+W07SCZ/R
-	 OLtU4KJcK3Vz0AjJguVkD0M8M+xGCf903Z6/vwWmb0ecxVsd/ePR9pFJaK5+Pb7aRm
-	 i2ZmCGKRc8Acw3APo5oSKUxemfDzfFF4g7FpUNsd6zrKlcE597REeOHXftyoVjlsyl
-	 uG3Rq9STohXFHqb2T8HVOuQuyErCFnFeRzQSBgWOwnwA4K/KrwCzBQneySRRSzuY84
-	 OKZ7imniFQ22A==
-Received: from [0.0.0.0] (unknown [213.228.1.188])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 895A944C036C;
-	Sun, 22 Nov 2026 21:17:08 +0100 (CET)
-Message-ID: <3b3dff0d-e879-4a14-9f17-2b3015b6da39@corp.free.fr>
-Date: Sun, 22 Nov 2026 21:17:07 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NyJ41vBG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8C2A1F000C0;
+	Sun, 22 Nov 2026 20:20:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795378804;
+	bh=9FEIzTQEqkB/eIgyK+vZVtxbsx1bwiwbLuTEueuQG8w=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=NyJ41vBGeeG3X4NtEKJIhj++ci+qILm3NVR95FgyVfaoepAXuwMIbGlZnfzEzSSTs
+	 h1wXsw+xJer3joGS+R6ckqf1d+QbG6tx6XcFWa/zfbmmZyQX+NAjtX6P+19cC5WUJ4
+	 gLFdO3QeGDM+sLd/52xbupdiIUIrc048CxCn8R8Z9qQx+tHy13/xJS8rNHODB/R6lQ
+	 tQwLtb6Wt2mamrJ8Qo2k9+ATyjPatSU/4/obIDOD+V79IVNMWHbyLAdLcYMOOgEMm1
+	 o0PIUIfp9TLUzhcOLK0y7SxfE3wGSKRVfzec2nUpUP7hIHTI+K5+O0gXvbJuKfuJ9y
+	 ZtwUBBhZxG3Dg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ michael.chan@broadcom.com
+Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
+ andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com,
+ joe@dama.to, Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 1/7] eth: bnxt_en: order event data before
+ setting the sp_event bit
+In-Reply-To: <20261120035214.369158-2-kuba@kernel.org>
+References: <20261120035214.369158-1-kuba@kernel.org>
+ <20261120035214.369158-2-kuba@kernel.org>
+Date: Sun, 22 Nov 2026 21:20:01 +0100
+Message-ID: <87h5h81uvi.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,71 +61,31 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 05/10] net/mlx5e: TC, reject a partial tunnel
- key with tunnel mapping
-To: netdev-bot+sashiko@kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
- jhs@mojatatu.com, jiri@resnulli.us, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, michael.chan@broadcom.com,
- pavan.chebbi@broadcom.com, bharat@chelsio.com, donald.hunter@gmail.com,
- corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
- dsahern@kernel.org, idosch@nvidia.com, shuah@kernel.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- oss-drivers@corigine.com
-References: <20261117092915.255194-6-acassen@corp.free.fr>
- <179514543838.3136.15751272244504735479@kernel.org>
-Content-Language: en-US
-From: Alexandre Cassen <acassen@corp.free.fr>
-In-Reply-To: <179514543838.3136.15751272244504735479@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+Jakub Kicinski <kuba@kernel.org> writes:
 
-On 11/20/26 04:30, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Low]
-> Should this check depend on the tunnel type? For VXLAN and Geneve the
-> tunnel id is a 24-bit VNI, but this check requires all 32 mask bits.
+> Producers of sp_events may store data for bnxt_sp_task() right before
+> raising the event, e.g. the IRQ affinity notifier publishes the new
+> TPH Steering Tag, the async event handler records the FW echo request
+> data or the FW reset wait limits. set_bit() is not ordered, so on
+> weakly ordered architectures the event bit may become visible first.
+> If bnxt_sp_task() is already running it can consume the event and
+> read the stale data. The queue_work() which follows only re-runs
+> the task with the event bit already cleared, so the update is lost.
 >
-> The VXLAN and Geneve parsers already refuse keys that do not fit in 24
-> bits:
+> Add a helper which issues smp_mb__before_atomic() before setting
+> the bit, it pairs with the fully ordered test_and_clear_bit() in
+> bnxt_sp_task(). Use it for all events, including those which carry
+> no data, so that new producers don't have to think about it.
 >
-> drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c:mlx5e_tc_tun_parse_geneve_vni() {
->      ...
-> 	if (be32_to_cpu(enc_keyid.key->keyid) >= MLX5E_TC_TUN_N_VNI) {
->      ...
-> 	MLX5_SET(fte_match_set_misc, misc_c, geneve_vni, be32_to_cpu(enc_keyid.mask->keyid));
->      ...
-> }
+> Reported by an LLM reviewer while working on subsequent patches.
+> Very unlikely to matter in practice.
 >
-> mlx5e_tc_tun_parse_vxlan() has the same check. The mask is then written
-> into the 24-bit vxlan_vni or geneve_vni field of fte_match_set_misc, so
-> MLX5_SET() cuts it down to 0xffffff. On the VXLAN-GBP path,
-> tunnel_header_1 gets mask << 8, which is 0xffffff00 for both masks.
->
-> As a result, enc_key_id <vni>/0xffffff and enc_key_id <vni>/0xffffffff
-> program the same hardware match. Also, key & 0x00ffffff equals key for
-> every key the parser accepts. So the wrong-tunnel-id case from the commit
-> message does not seem possible with this mask.
->
-> After "net/sched: cls_flower: add enc_key_id mask" later in this series,
-> a VXLAN or Geneve rule with the natural full-VNI mask 0xffffff would get
-> -EOPNOTSUPP on every tunnel-mapping path. That covers rules in a chain
-> greater than 0, and chain 0 rules with goto or sample actions.
->
-> Would it work better to compare against the id width of the tunnel (24
-> bits for VXLAN/Geneve, 32 for GRE)? Another option is to compare the mask
-> only over the bits the device actually programs.
+> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+> ---
+> v2:
+>  - convert the producers which set the bit directly (Bj=C3=B6rn)
 
-
-No. This is the question of v1 [1]. On VXLAN and GENEVE, N/0xffffff matches
-the same packets as the exact key N and the exact key works in chains.
-A check per tunnel width would only accept a second spelling of the same 
-rule.
-
-[1] 
-https://lore.kernel.org/netdev/35bf2a1f-7f65-45fa-a854-dd4f4c4c0d90@corp.free.fr/
-
-
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
