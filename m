@@ -1,93 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795307342;
-	b=pbj/qPwN2Ji+E+JGgFEfK7gz9phBX/DuN5pAFbRfKnmJDFjhZa3WZX9kWmnoCdOuy7AS
-	 1gnHBGdOBOGguS6CBjaaRBxCOCz+jCPzlvG33gB5KAwE8evf/E/deSi6e1lNsY+KxFpyk
-	 qaXGYV7qne1VF/esyIhiT/QZ9xYuEdgbGlCFxvjImpapwfF5U1a8f7JSbJlLAtJu5cTJW
-	 RfjYuwkY8Pk6ynn/mjtKeJRKXrAsKaJnX/pZAxuMQoex13vIr/Z6PEYGFqpazLqd+n7jJ
-	 lJNsKEEaC4VFFje2ZmSod1MBuK0+vpmN7k9sET33Y8w6TgNuiHzBMM98t08FuPG8cyQ==
+	t=1795307341;
+	b=zxpw9mgqG4pAD+eTdZlVBFtG52HPf2PebuBW6Y/iqwPE8BqwnP3z0Cg7a+0Oh+HJI9dH
+	 swxJYJ8y4XQI/1949eqWEGc793mdS0IpnVw7qs4QBhwZB8tJuDaybnywMD+ND9LQvXQyD
+	 EHOzGv+WH0EFvJVRUhNXZBefuRNXKFGa46u16n1ujl+RycnFbpOhoM/0mbDEwh6VPkJ7+
+	 XNJBiUVjD3TVoE4NXnTJ1gXNCViYPOAuNgL0ix6DXgCPaWeavy3X2RMs8rU2A6A1wdWLA
+	 SBxzulxVyuOP/hpLao1uz09FnbQ6UbWKq1GCWuzuZ8eE+PP9p+0pQDGuG6n8lobnOKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795307342;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795307341;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=/G8cC/pM5VjvRhgMXJMZVgVOoW4lbOvXOfP2V18I4BA=;
-	b=Cf5mULbN3QsBi7PE3RN9CrminV8ocSsRbKNQtsp6XqTWeMkRETDTfPMBDYzEiQ1Aqxks
-	 ZgrwtqkLxQwgU+HAjH5IeiYboRmtbcAwDK7DvlmrJeaDDSw++N/fol+wQ33H7/qxOqGyc
-	 f/bGuLtRW0HV4/w7EiwlABmjbjNOv8FzVGcIgX7O18x1TY1C/weE8G1WrYQFJQyLfYTxu
-	 u5q47Z2Qb3TijtKM9TMzhETsDHiy1hI4kbZBv/0p6XxsI9JLYFeGmbCtt0frVY+epi8WL
-	 a5vfY7uK/TztAPOi+birwqMigo3D3x/+sp9IzKntVHUL6RQksLA/Hnr2MgLcA43qoGQ==
+	bh=89c9O/yAKJRdizL+0JjVNDt8ds8ZNxXapQLM6WrXSJo=;
+	b=D13PYVhSeUHjfIasH+Jl70CxXUPBaw0YEiaz5VvVbVJpstW254NQN5RVgF6Om3uMBtQJ
+	 O8bedvnzufpbJe9ZBS/wI7/xp/Mm5RFffr5AMW7ljYxINjby+w0ZleBkY7Q6ld3+FgE4P
+	 oueUdKkjP8iTkyvva5mXK2CqPMP50jGg4jADlpLLB30XCcUMz+91+aGibxfIQKAbtkpjc
+	 yDYKPefWEyTsvDZmGNCqz4nF0QOCz33Car5OJevp/OdE3CEGIFXSvHlFIKWWKWHW52Pvh
+	 uuaZ4TcTYzjCEffZ0tFh1Zfs088mTncqEjFkxfnry83tz+6sXAVSdYVJOsPU9Rq0qvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yUTVRPsG;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZ55sfqw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98F2E606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E943606A338
 	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 00:29:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98F2E606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yUTVRPsG
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-48e09aa5264so1118742f8f.2
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 16:29:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795307340; x=1795912140; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/G8cC/pM5VjvRhgMXJMZVgVOoW4lbOvXOfP2V18I4BA=;
-        b=yUTVRPsGn+svTDU9LnrNpZxovx2T/bDLx9rNuPeEfrA7Bys1MJC0dWAUytaphTT7aU
-         BKX3k3L+6K7pm4xlT30vdWtuvTHM7sGnkVwrrGxyhCxdczi1KG/ZXj3zSbRcmpsFraE7
-         /fXrEikEaKc03+6A5jb4QuIUfPnfZ6xkvJATm2S1Z+2MtHq2VSzsC2AZnt6DWCNUQc2b
-         38lOc7QQT33emlT3U2nNfakHpyBll4kvmd9DGUfOkuG7HZLZ4m2Fr8UqC0HFEztQQOD+
-         hLgIhUvMIbD6Nc1eXLM277NhCcfoM0euYspuYGbsLtJ1OY4UjVwz3+03Pjt9XMNPXJ9R
-         TXzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795307340; x=1795912140;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/G8cC/pM5VjvRhgMXJMZVgVOoW4lbOvXOfP2V18I4BA=;
-        b=jUT23bCG/5MH4rzE1+XzbPV5Juw8lb2wgLft+mqR8R28af8xKnWWNo6xra4CINAfnO
-         kjlxj3Psya5A9R3y/XKsVcQmwOwV1imXk5nveHfP22tdWv9wKB/RnK3tGdZSsXwCYOCx
-         S1785uLmps9i8oy5WY1nSYGVzzSmMfptjU8nTDN4wt1YIuBE4pNVYR1rSw5f+kjuce5I
-         +jEtb51BLQRsNG6fYno/IWmyIyElNNZBIGZoeR3xh0znXN3VpceMF4imzM5C8ql4OU1+
-         aAg5wL5uZCkfESqRHM00PiIfzhINGWalFkLfXmAhYM5VBe4l8MjmHSH6ngua9boJTdN1
-         yn1A==
-X-Gm-Message-State: APuU4Z+rJrzZrIb3vigU6xqJb43BEAtVjTUxSKWQRRRtsp9aiY3hg6/v
-	JtclgBez96B0PayXY9+BHjPjNq9nLN87NK5SM1hQ7HAJCK7I238sZSet
-X-Gm-Gg: AZFdTZdc6oLv4uKBryENBdSZ7BT0KvqUf8EjC+sOdUq341mxHWOIBAZRK3EczpuhlOt
-	fAf7cqyzrVejJSDIErWXTl/d1ZnqE1+wTMc7ikbCMIdszYuoE+PTpIds3pT35c1bNF7cC5WggpJ
-	aoxPGMyhCpm1q0Twr6jkbgkV1bJFeLELG4QxRJBD3XG0qt1Qe4iU2MofVyQccnhrvlHAiuA6K8C
-	vXEbBsIK5Zeld7SjNQOEeLvktzV6YJXN6zHbfUWnnxmE7k3Mgt+k2ga8Azwr41CMylU55nBkH6Z
-	YLv0ecHqgWLnfnFt3OtOqm2k9jGeiR1gY+TmHJ7ommUtzBB+5jhhgRtq7YMwbhTcZe2Z78Rx4q9
-	PModTBd6Vb6DcpI9K0W9EYnolYJRy+LvLwF+XrZWRZpiwaE7BMd9oRJ8QtOJWWG3MkWThmXMYqm
-	uNMBqhMlyxEW/PqYqxj0peAlN+KgzBiRepib7FDdWEX+acB2QB6W/48mL2rO11IecrbFFCYLTGu
-	y2ZswHhlGWBZEUoIfirofP6k+RsFxtkDkaFG8x50KsbdTPJRQ/WnmAKHG0Svmpc2+YIygQM0mUm
-	b8TAogHFljH7bQHPhTFKhLPY1Y/jB+9TPIQ8j9Q=
-X-Received: by 2002:a05:6000:2309:b0:4a7:45a2:ec26 with SMTP id ffacd0b85a97d-4abb0f3bc89mr16198391f8f.16.1795307339892;
-        Sat, 21 Nov 2026 16:28:59 -0800 (PST)
-Received: from Philipp-PC ([91.227.186.127])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm14415962f8f.31.2026.11.21.16.28.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 16:28:59 -0800 (PST)
-From: Philipp Sudakas <filzador@gmail.com>
-To: Ronak Doshi <ronak.doshi@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: netdev@vger.kernel.org,
-	Philipp Sudakas <filzador@gmail.com>
-Subject: [PATCH net 2/2] vmxnet3: keep the XDP program across device resets
-Date: Sun, 22 Nov 2026 03:28:47 +0300
-Message-ID: <20261122002847.616-3-filzador@gmail.com>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <20261122002847.616-1-filzador@gmail.com>
-References: <20261122002847.616-1-filzador@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZ55sfqw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C2B41F000C0;
+	Sun, 22 Nov 2026 00:29:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795307340;
+	bh=89c9O/yAKJRdizL+0JjVNDt8ds8ZNxXapQLM6WrXSJo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kZ55sfqwCaLPWjQIuuXDWbwCt4EM1BQtUrfE3YsBanoCQqIXzZUxtMAJOaHcNYYAS
+	 AxzQrtzKacYeaGNReBD+XWWaFTICpPRJJiN2UTq3DpP3iMYfm0zkHW0GPAdMj3iPwA
+	 fUi1CD6SBr9OIoYT8Yn2CvHKBEK8Mkz5/YrchG4fUHpzz9K473Ma22vPacZ58aXQSY
+	 oafPScAQKdtOMkMAPCqjpCUa7dVqna4RWWDYnYCuvIW11qYqSMwqXrXXkKg2Fj63YG
+	 jPQa9Y8sRS+TTb8iSwpnqXzZn4EvAfrIZetww6Br83fp6oahtfnOfYu5cZbWaG2tV8
+	 yb6/4swbS6iDQ==
+Date: Sat, 21 Nov 2026 16:28:59 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>
+Cc: Jacob Keller <jacob.e.keller@intel.com>, Petr Oros <poros@redhat.com>,
+ Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Magnus Karlsson
+ <magnus.karlsson@gmail.com>, <netdev@vger.kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, <edumazet@kernel.org>, <davem@davemloft.net>,
+ <andrew+netdev@lunn.ch>, <horms@kernel.org>, Przemek Kitszel
+ <przemyslaw.kitszel@intel.com>, Marcin Szycik
+ <marcin.szycik@linux.intel.com>, Aleksandr Loktionov
+ <aleksandr.loktionov@intel.com>, <intel-wired-lan@lists.osuosl.org>
+Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
+ 2026-11-13 (ice)
+Message-ID: <20261121162859.3522ab89@kernel.org>
+In-Reply-To: <fe1ce4cf-3400-4a87-8e46-072563f8fe9d@intel.com>
+References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com>
+	<20261118115915.116177-1-poros@redhat.com>
+	<CAJ8uoz0MMUx68rMZWoZs-JwjodpRixwQSrgpyta1NsanGPn=dg@mail.gmail.com>
+	<av2syi6lE/Vp86QW@boxer>
+	<f7f1ae2d-a623-4eb7-a178-c618316beaf5@redhat.com>
+	<0bb65ff3-2e27-4f2e-aaa3-2b8eb7cda356@intel.com>
+	<fe1ce4cf-3400-4a87-8e46-072563f8fe9d@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -97,63 +71,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-vmxnet3_rq_cleanup_all() clears adapter->xdp_bpf_prog. It is called
-from vmxnet3_quiesce_dev(), so on every MTU change, down/up, ring
-resize, reset work and resume. After that the driver no longer runs
-XDP, while the core still reports the program as attached, and the
-driver's reference to the program is never dropped: a later detach
-finds xdp_bpf_prog already NULL and returns early.
+On Thu, 19 Nov 2026 10:07:10 -0800 Tony Nguyen wrote:
+> An idea, but this would still increase the queue for netdev, would be a 
+> separate budget for non-Intel authored patches. This would allow 
+> community patches to continue flowing without being blocked by Intel work.
 
-Seen on 6.12.117 and 7.2.12: after "ip link set dev X mtu 1400",
-"ip link set dev X down; ip link set dev X up" or
-"ethtool -G X rx 512", the attached program is no longer called, and
-each detached program stays loaded.
+No extra patch budget will be provided.
 
-Do not clear the pointer there. The program is exchanged and released
-by vmxnet3_xdp_set(), which also runs when the device is unregistered.
-Rx rings are then recreated in XDP mode after a reset, as
-vmxnet3_xdp_enabled() stays true.
+As I think I mentioned multiple times netdev maintainers are happy to
+take patches directly. My understanding is that it's Intel that wants
+to feed the patches thru their internal QA and have the ability to work
+on timelines, let's just say, different than netdev works on.
 
-Since the program now survives an MTU change, reject an MTU above
-VMXNET3_XDP_MAX_MTU while XDP is attached, as vmxnet3_xdp_set()
-already refuses to attach a program at such an MTU.
+We wait for an ack/review of a maintainer, from Intel such acks never
+come. Przemek / Tony can start acking things directly on netdev.
+You can also add another maintainer to your entry, or split it up
+and designate even more people.
 
-The problem was found and analysed, and this patch drafted, with the
-help of an AI coding assistant. It was reproduced and tested on the
-reporter's lab systems as described in the cover letter.
-
-Fixes: 54f00cce1178 ("vmxnet3: Add XDP support.")
-Signed-off-by: Philipp Sudakas <filzador@gmail.com>
----
- drivers/net/vmxnet3/vmxnet3_drv.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-index fb98eb7..e84bf11 100644
---- a/drivers/net/vmxnet3/vmxnet3_drv.c
-+++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-@@ -2104,7 +2104,6 @@ vmxnet3_rq_cleanup_all(struct vmxnet3_adapter *adapter)
- 
- 	for (i = 0; i < adapter->num_rx_queues; i++)
- 		vmxnet3_rq_cleanup(&adapter->rx_queue[i], adapter);
--	rcu_assign_pointer(adapter->xdp_bpf_prog, NULL);
- }
- 
- 
-@@ -3663,6 +3662,11 @@ vmxnet3_change_mtu(struct net_device *netdev, int new_mtu)
- 	struct vmxnet3_adapter *adapter = netdev_priv(netdev);
- 	int err = 0;
- 
-+	if (vmxnet3_xdp_enabled(adapter) && new_mtu > VMXNET3_XDP_MAX_MTU) {
-+		netdev_err(netdev, "MTU %d too large for XDP\n", new_mtu);
-+		return -EINVAL;
-+	}
-+
- 	/*
- 	 * Reset_work may be in the middle of resetting the device, wait for its
- 	 * completion.
--- 
-2.47.3
-
+IOW I agree that the Intel process feels dated, and life would be
+easier if Intel switched to an upstream first process.
