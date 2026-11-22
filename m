@@ -1,73 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795381065;
-	b=ckLtjhfZWfy1PBBNm2BRjON8QZnRhH59JYdsHu2PGLqxH6exZv3FuHCu3615n9ix38hC
-	 jHyRs7/It4pRYg4S7mh+Gm3QCt9bBHU/ELLVcd5IhqQY6gkYnKDDlCE7+VlKlkvblMY8g
-	 dl3g87lwYPTKLYbvbPxXVjpuGVQJA5hZ6ds3mkTRXejbDD2YbBhrl63kTCdA8SL5Rqsmv
-	 BaclvSi+BI8DVG6RwKS+QrRSKfdAhszAGIvlYjIP5/FdCGnELt+Qa6rN+xuID8cmXI68g
-	 5fCPVcmM1eYtlmaYYVHHzVq9gAuAhi4tWQ6xB+d5J6YACQAa1spfwyqpEVxjkT1WuiQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795381065;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=iDERK68xOldbgeUiiGYyw/w8twcI1O8oq6PXPbGFfdU=;
-	b=y4WjCJotxiPzeOPDbZKO86B3SjnoeQMYFq6LuNgqwhIfDPXV76R4svc6TcbVktCr6MFe
-	 Np4hRz7MLTMRr4OVHLFZAOpd5LTMB2qx4qXDvAGjV1mjoYpczRbvOIYtQskD56rR4vOlv
-	 i7d48ramjQ39sH6sNy8k4LdrZxP2xTwx4P+c19VZ8ALU4DWMPRFO6UXgijQxmWhcfqis/
-	 wENsXo68WNWk3zu/XB8JupVSZ+TLkRJHZtCdhMxVC88RyNa21UP6+33iQ3T3eNLvkJSkt
-	 7Ohgcejt1Y6A2uwaTRX+O+26ZMcGtsFz5aS0ysEshWLQGLT/fsqHVWS5s17ZstyW88g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=bFKN3hQc;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795381365;
+	b=e3aI4FCngvjLJDRmoEdI04krQKMr7qlYInEoLQ/93xyRBO9lRKmgIofj+y5WbCvkP5l/
+	 VR7sxxs0tUN1tw9NKbVUa6l3fF3hRpxdqJrwNFw4rKoJKVxsaWoymLNW9eTWUltGsZ7rf
+	 twCEYHI+TiA3x4d9LP3lvUm23J+gdjdiSyp475mQslJ2PKw2FSl7r8Z8dMdQYPEBdWWBC
+	 XjztAH6ixXwntxcYKB3CWYVqvEGzMqLLA3G164f53KFpHIrNuN70NoccMA15fN3Mz5fmj
+	 lXc/vZJHhFIkGo2ZevjNUtyNjfADOiv2GQnfqSKp+TjkITSag2tuNj1wAnX109pVZ2A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795381365;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=pn7AXOK0vv7XoUam0J0U7bLVZ6v8zi99slOsZ4hNcmM=;
+	b=BX88TvsyJHON9Ro+YlZlcXwHsjyjFtdg84/S6BjtciKprKKwBbbWwTzkMpECr8zcF96e
+	 6Sz145IVD+D/HnQ7vpYQBQ9mIlAAuOLRQZpSIzgD1ifXSdYzvDVaA/rCUl49++CIR6MZm
+	 C7LECw2drmjnGvIHqhOFNr6NG1l9XyKEAThsjBNnFdEnKddPb0dlpxvqeoTByR5JF7P86
+	 ETMwmM+bOH+9o+g92QaiY9XNbdwJTOY+pdx0Qnvf/GNeGStTtuyuXLtCPxh06RTrgIeuZ
+	 znXE/cEDSvMjYYaIXsSmLu1KKgqfMurwrnrOTnjVVa2jmda5cYacOyrbHBt0joXG1BA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zlsBYq18;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E2C9606A31A;
-	Sun, 22 Nov 2026 20:57:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E2C9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D05D606A31A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 21:02:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D05D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=bFKN3hQc
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=iDERK68xOldbgeUiiGYyw/w8twcI1O8oq6PXPbGFfdU=; b=bF
-	KN3hQc8rftOmJOB85CjYZtIUwFRh3FHC98U/Jxsa5dG0F7/Q+MlsyaPWa6ziHHenmf2Xrj2E0WgEq
-	96ZmT9hIRl02+gh9IlaBgc6fG3CbNLOmyIHE7AhAIxGXG5T7dryZsIVsCAnsCt2JyeJxKxTa7CMy1
-	rHTAMPX0T/xRf2M=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVEcy-000cTP-42; Sun, 22 Nov 2026 21:57:36 +0100
-Date: Sun, 22 Nov 2026 21:57:36 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-sun8i: support ethtool
- rx-all
-Message-ID: <97515dd2-72b1-4275-910f-94336f8f18a4@lunn.ch>
-References: <20261122-submit-sun8i-rxall-v1-v1-0-607789772c56@gmail.com>
- <20261122-submit-sun8i-rxall-v1-v1-2-607789772c56@gmail.com>
- <ba116748-1650-4816-97a6-69eeecd4b2cb@lunn.ch>
- <CADvTj4pDQhnABu0GnsXN-mNhvdiHkwrrk3yJs5gq9RaMPWZFSg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zlsBYq18
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3ae6b4c669fso2926826a91.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 13:02:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795381364; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OPd2D/b0JeOEeR5Wv6+3GzlC1RrYFIY0D5cazrA4zfkeZGb1W+oAYecOsIqfRoUNSZ
+         aLGZB+8T3RJ3AdY13irV/d5FAFkdvCEi0Qz3QYNoFOnkBSzaw66NErfsNkCf/Hq1hSYv
+         LQiZLWkrb/3pwCCwwRhvsCjcKAcEPn2h1UlLa1acLpFISHEs/DT9QasFud12feZJHRpS
+         sSwc9ljRGa71Kmc8x5pPiqSlRpnjKkfQa/wlGlygbpZLHikhU31HdkjsHgVk4DMGCaGV
+         ABkASIiiyxOfKUHOe3Ijlf9QaqvRXUrNvLAbAOANH0sjSmRWq93NKMwCwxb++m0w1MNG
+         RFtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pn7AXOK0vv7XoUam0J0U7bLVZ6v8zi99slOsZ4hNcmM=;
+        fh=ksgzLJa024l4a335zlC7K8HR5ZCdtOkdRWVqi6s5Y3o=;
+        b=H/m65N2M7R3waasyyxMoO20erIoj4ROpfMjTv091HarmWzfbN8MRU12xv6FMx7TaNQ
+         fO00aEBdG43MXqGttmtuHRDIiojXnmR/Kdq/sbZgQXsMvZFypCsmcc3eO2erxyWgHqkq
+         5MMrLJDRCPm5WiJ3Vt/WNsirbMGxUd52kMPSWPqYi2vvnk9vfo+06hSMZ+NZG079xPQz
+         DLgNW1oG7IFmptt25+PIpzTCNBlnUQsotT0JQ7/g9REvXhHCoUrwzeHzIhNgEHGuJHFM
+         21LxcAjWhxFgVhkYMKp94o2L3EE3lX4bGIeBYvbaFZDl//J033g2YRs97gSpXoSixZwV
+         k4hA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795381364; x=1795986164; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pn7AXOK0vv7XoUam0J0U7bLVZ6v8zi99slOsZ4hNcmM=;
+        b=zlsBYq183P2jR915rVTxFxauPzMtvP/3QFSR94XstIUIk1+DQECZlj7+o2TCBTwO4Q
+         OQ+ry/tgUEUfXH7JkwtfbQgmYmGWP+sWmdEcSi47N1Tf9NGyLKDKI6NiEk/Q7/eG18UF
+         uovr7R4wYDgZC5HeOyVSSh6XTUW0oK4TTmdRi7p+bx2HychGJFIz3H99RjLd9/MX+YGH
+         rOayRZIQj3i7bi+YFqt16rsfPngcVCvVhFZEC5s1UY/sU+1MrNWV3E2DSk8yo4uV3N8H
+         EZug8sN4NQE4GBGoBtLRyflLwIrBc9/DDBx4x9SO7ZWe54jl2xq3Ob7I70FvrohJNZdU
+         dkEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795381364; x=1795986164;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pn7AXOK0vv7XoUam0J0U7bLVZ6v8zi99slOsZ4hNcmM=;
+        b=EiFE76iAYe7WeALKIPEQwheSJGjqeUP7zAmLIrT8eQBkUtbivD7nm/r+hX+HRPU6bB
+         67Bz8HDeYxw62OaN6zjL3eg5kaxBlgca9kXMG2U4TGISAs/4DPgdr2JQRCLtM1OWM75t
+         qO2eYXnwdIhO+mNL0GQc8+pLEybVe34o7iLeJM9zFPmbm9a4RLNd2dI41A6LDKVdmkQ4
+         CZUbKdU6uS2Ac4zITbrRfNu2mCNCzkkxGbb3XnjC5XpFFItE1R6cw4WUiMhwV1MZy1Cd
+         n4QOMo9gv4YLBauVZGN0LZ69bJrOP92TVgpJtk5306ptrqvm5Ad2iHC8ZxckZ+okRZCy
+         EhbQ==
+X-Forwarded-Encrypted: i=1; AL+hErFZPAAFcKKi4X8oFbx7xpBxnVngGitXixzONl/+5ru+W/2ptRO/HgLXrdfGgC1nMcy2hGJMAKU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Mb1g/xSAMxKM7ik2aKobQiD0HGIB1Zk5EjplnIREfU7nF80v4
+	PjGtLLnyX5mzaqkyoV0G8Lft4afyD4KB1e8LtmuGQjIBGAp3qgK6SEUInTD4VMrksU83G2u3/BM
+	9fqbnq62hDnnYAF/n7mRN+f7bVXsZd5M=
+X-Gm-Gg: AZFdTZewdxjhPBC/DLtZ0GVC+iOua78OpCV/lIiUdQEvI6Zp3AR1STtSQmd7YZJFePx
+	s2dS7ZVIhCHj/O6M8AYhU3ayuOtJuJA14SNpt0scpSlCL7AHzCFSJirzlSAwcwN1o34jpNWddYn
+	ZL8q5peMONnLiFa2Uy3cjWxFUOwBRoaVRqZDev56+NmUaC450Vf8LTBJMEutRzlqw0oPbDCQ2Gt
+	HDI2/41/M//VmI+am1G0nPT8Oi3g/z31YMPugWXyHAqyc4WaScs0ht1I5CyAPMm+OqSPcJ3mVGw
+	YDTDTYzt4k2+4hKuy8ziYOvQP+8hM2FHe3mtGOFO5qYBAsF424bNW7OIKMjUSbFyzEtdtjHDz2x
+	lk2rAHTL0mXmPCu5cCqjjbDgNhD7i4En22Jux7soPjTC3lAUJ1/5XlTBHGUybFdx+c7I7aw==
+X-Received: by 2002:a17:90b:554e:b0:3ac:860e:1af9 with SMTP id
+ 98e67ed59e1d1-3b41c981a67mr6077104a91.41.1795381363876; Sun, 22 Nov 2026
+ 13:02:43 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,55 +104,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4pDQhnABu0GnsXN-mNhvdiHkwrrk3yJs5gq9RaMPWZFSg@mail.gmail.com>
+References: <MA0PR01MB921746F36D90C7080287ACC9FD782@MA0PR01MB9217.INDPRD01.PROD.OUTLOOK.COM>
+ <9d8cdde77beedce76aaaa1c5a7a788dc@tipi-net.de> <CAH5Ym4h8-1mc+DX0Si7XROeGn9M72bQC+ooM05Y7ZmgTo+ON4w@mail.gmail.com>
+In-Reply-To: <CAH5Ym4h8-1mc+DX0Si7XROeGn9M72bQC+ooM05Y7ZmgTo+ON4w@mail.gmail.com>
+From: Sam Edwards <cfsworks@gmail.com>
+Date: Sun, 22 Nov 2026 13:02:31 -0800
+X-Gm-Features: Aa3M54oHW1FHI6GaA1OK0id-oEs8UcKMQfeywYsbJpKdYciL2E1UJ9KIq7wOQ5I
+Message-ID: <CAH5Ym4jkX_tD58Gtd-mzruB+hqHK7s_9knNWh+gMqUjwuYyVPA@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: retry a failed RX refill from a timer
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Anandu Padinhare <Anandu.Padinhare@electrifex.com>, maxime.chevallier@bootlin.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, David Wu <david.wu@rock-chips.com>, 
+	stable@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 22, 2026 at 01:05:48PM -0700, James Hilliard wrote:
-> On Sun, Nov 22, 2026 at 11:39 AM Andrew Lunn <andrew@lunn.ch> wrote:
+On Sun, Nov 22, 2026 at 12:20=E2=80=AFPM Sam Edwards <cfsworks@gmail.com> w=
+rote:
+>
+> On Sun, Nov 22, 2026 at 10:01=E2=80=AFAM Nicolai Buchwitz <nb@tipi-net.de=
+> wrote:
 > >
-> > > +static void sun8i_dwmac_update_rx_ctl1(struct stmmac_priv *priv, u32 clear, u32 set)
-> > >  {
-> > > +     struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
-> > >       u32 v;
+> > Hi Anandu
+> >
+> > On 20.11.2026 08:49, Anandu Padinhare wrote:
+> >
+> > > [...]
+> >
+> > > @@ -6164,6 +6205,8 @@ static int stmmac_napi_poll_rx(struct napi_stru=
+ct
+> > > *napi, int budget)
+> > >       u64_stats_update_end(&rxq_stats->napi_syncp);
 > > >
-> > > -     v = readl(ioaddr + EMAC_RX_CTL1);
-> > > -     v |= EMAC_RX_DMA_START;
-> > > -     v |= EMAC_RX_DMA_EN;
-> > > -     writel(v, ioaddr + EMAC_RX_CTL1);
-> > > +     guard(spinlock_irqsave)(&gmac->rx_ctl1_lock);
-> > > +     v = readl(priv->ioaddr + EMAC_RX_CTL1);
-> > > +     writel((v & ~clear) | set, priv->ioaddr + EMAC_RX_CTL1);
+> > >       work_done =3D stmmac_rx(priv, budget, chan);
+> > > +     if (unlikely(stmmac_rx_refill_needed(priv, chan)))
+> > > +             stmmac_rx_refill_timer_arm(ch);
 > >
-> > Netdev does not like these magical guard constructs. scoped_guard is
-> > acceptable, but good old fashioned lock/unlock is preferred.
+> > After a successful retry, doesn't this leave the last received frame in
+> > the ring until the next RX irq? Could the poll refill first?
+>
+> Do you mean "first as well" or "first instead"? Because "instead" can
+> cause avoidable packet loss:
+> 1) Initially, network is idle and ring is full of empty DMA buffers
+> 2) A burst of exactly one ring's worth of packets arrives
+> 3) The RX irq fires and stmmac_rx() attempts its refill-first (none
+> needed) then depletes the ring to the maximally-dirty state; the
+> refill timer is armed
+
+Thinking about it more: the "unreachable packet" problem happens at
+this point too, even with the "first as well" behavior.
+
+Maybe the best way to resolve it is to adopt stmmac_rx_zc()'s behavior
+of refilling during the loop?
+
+> 4) During the 10ms timer period, more traffic arrives
+> 5) The RX irq doesn't fire again because no additional DMA is
+> happening: there are no usable buffers in the ring. So we're forced to
+> wait out the timer.
+> 6) Any packets during this time (beyond the RxFIFO's capacity) are
+> discarded by the hardware
+>
+> But, "first as well" sounds good to me: before entering the main loop,
+> refill 1 buffer (if possible) just to ensure either the IRQ fires
+> again immediately (if the FIFO is holding onto another packet for us),
+> or the inaccessible ring slot is clean (if the FIFO is empty).
+>
+> Cheers,
+> Sam
+>
 > >
-> > It is also unclear why this now needs locks, when before it did not.
-> 
-> I added the lock because changing rx-all adds a new writer to RX_CTL1
-> while the interface is up. The runt-forwarding bit shares that register
-> with the RX DMA enable bit. If ethtool read the register just before
-> another CPU stopped RX DMA, writing it back with runt forwarding
-> enabled could also turn DMA back on.
-> 
-> I went back through the callers to see whether that can actually
-> happen. RTNL serializes the ethtool change with opening and closing the
-> interface, resetting it, and reconfiguring RX queues. Neither the sun8i
-> IRQ handler nor its TX completion path requests a DMA threshold change.
-> System suspend does stop RX DMA outside RTNL, but userspace is frozen
-> before the driver reaches that point on the normal sun8i suspend path.
-> 
-> So although the register is shared, I couldn't find a path where the
-> new writer races an existing one. I think we can drop the lock and
-> leave the existing DMA callbacks alone.
-
-And this is where, small changes, with good commit messages helps
-you. In order to write the commit message for a small patch adding a
-new lock, you would of done this investigation in order to write the
-commit message, answering the question "Why?"
-
-I don't say this just for reviewers benefit. It also helps you get
-your code correct.
-
-     Andrew
+> > > [...]
+> >
+> > Regards,
+> > Nicolai
