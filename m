@@ -1,84 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795358991;
-	b=wloIpDz5NeuPd6bp9cO0wHSdHok5lXQJXlojZ4wUs5ShvKok6ce+250YxbgySI0mhYho
-	 5J9m4LwrUgdJFz2VUJxFQjbu+rBFdVj1zCt/RcCu2nr6fgdwbM+H4gyjp/pJtAu1FLGXf
-	 aLQ6OYbyMPNJIRGFb1cTQLAHavMK8k89pzKC7lAapaOb9oDhUO6W9Qzh/oyTn3aScd4Xj
-	 OAMZ6iNKQHpr/sc4yz+7MUyJuCNnZiicu2uiP5Rr8btXhPipdyKJGhmPIaepyF+kcWa0K
-	 pObY/AtbKvHc5QK0d2ah7AmVu9JEsYOBak/YmXVyB0l4yLgS4Odk2nOI16W2YfH9bbQ==
+	t=1795359106;
+	b=Q8yeGHhvDSGl+D+nmKwNPLe8VwrxlWWsHxcowmRCQdLrvRD37IXlebez6YLFVC9NBg8l
+	 sApnPtHLbokeALJjshi+cxu0df6BcnsOY5Lf59ekXX8MOtGyAqMomwz6yxsYomD8QTbwP
+	 EsHSPADrW1+Ox4E0SYB272hppaEIltHLArxhEVoY1AcFh+wEtaP/Avfb3ozgeCPRj3rdu
+	 IwDGJMk/B1GQO0Bq+xPfPtjraP1umi1EEj450jzfjmEn+KAvL1IMV5CgNQkAvWoAVh0A8
+	 I73QXTO/4rpeoB1CW+AKkaH6otSFesEECm1/yenWLJQsCH8BbKnZmKzbhNjtpVkTYwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795358991;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=D7IyEM1xmU0ttRjHhZmbac+rxu8OBN35sVrm+mJoCRk=;
-	b=NClmxcXO8r57yLSQulsKvijLnYWgnZgZl889LI/TxZPDuDNWy4bGVeDDxuLZc7RV3a3Y
-	 EnbiB56KioRtZSyxBAbBZtKbZTlk3x72gbYnsLA4h/9R5IbbNH9u09MfYoqLxKv6rPM4s
-	 5J7rPTqFzB7hnm2QtgReL0HHqu+X0rcfytW5GmojY9YhbZjNjFltvuO/6OxU/X7pFdZOk
-	 WJxtedbdSd9j2yh+1DM3L61PnOe5f/T29OeNdfIrYJEXv7H8i5cuxoWYtEvxjAsinoRf6
-	 1O7iGRPzg9GMvvuocLezebT9tRqWgtetxjNVepTMUTCzZHMriTmGE+RjviOIfDjZMkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795359106;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pP1Eg7j0fEyC/wpQ+r82L7kkFTb9gJSOerVN41GQVUQ=;
+	b=dzrogdHi5PgGNqSApdm3PHWgV0quXWhNwHesT6NGMwNjf1zEU+yKb4Hvt5RTioGM3n/+
+	 vWdL6E5uSnAsBpvq338qdWgyBAOKqYlEcW+/gmABapC2kqejsA/7zYJUdIbMI90mF/t9f
+	 jSiIN/bMem4XL4HD2FiWJVNiKxBa6rOOXZzxTWaGxikpkzgEUXu5sNLCNEn1Q3f8n04qd
+	 YNXT4WBiiF4MHlFOXj17yBMAHNzw13SW1bfEsdLNR9pccujGWqo34whZwq74YTO/XRLrW
+	 w6wupvjLYmkPYGtZfXcyzryjm1c54BhVByNpfn4IZ08RRI6/aU+kqmINq8Y4fYFrMpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GpGtKWCC;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJnGbZJn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E10D5606A681;
-	Sun, 22 Nov 2026 14:49:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E10D5606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A94B2606A320;
+	Sun, 22 Nov 2026 14:51:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GpGtKWCC
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8F2744E416E5;
-	Sun, 22 Nov 2026 14:49:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5E1D460512;
-	Sun, 22 Nov 2026 14:49:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C139A11E60230;
-	Sun, 22 Nov 2026 15:49:45 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795358987; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=D7IyEM1xmU0ttRjHhZmbac+rxu8OBN35sVrm+mJoCRk=;
-	b=GpGtKWCCC3MKNfOoI9bnaurUaYqwDrMC0Zhaje4JhlVDcuunKO+frhiuzRN6tbh1rv51QB
-	N3cRNRiHcqOzw9JQHYjXb3DFyuZTgKiO2nHJDLD9SuhMH0U0DqDgL0O798PTLbhv5mPiWV
-	jxhTtAzYrlDl7Mhuyccnpac5QjlNLP2fyT+r06zaRDRrXga4giDTeLBuuWzGUakrodJpBP
-	fj1wUaU5XcRiBFU3oJiDIzptPkQIe9xBnia5O0k7let9FxVAu+fZJAS1uDeKvfO5Gi+20j
-	2dmChr5IAJip0AAjdvv0XlTMct7YQSh6+jcoetQjzb3XLj1ltzAMgvkK7uxF5Q==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH net-next 3/3] net: stmmac: dwmac-sun8i: configure the pause time for TX flow control
-Date: Sun, 22 Nov 2026 15:49:25 +0100
-Message-ID: <20261122144926.284857-4-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
-References: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJnGbZJn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F20B81F000C0;
+	Sun, 22 Nov 2026 14:51:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795359105;
+	bh=pP1Eg7j0fEyC/wpQ+r82L7kkFTb9gJSOerVN41GQVUQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PJnGbZJnz7BCoxtc8LVNsEWA+vw7UkZIG1UYvRus3e6zyDQUdNwU3TYCB/3y0GrWp
+	 97PNWkw5YG1g0Hid3jasu7S37JR7ohbB+3J0zAkMWt8vPSm79Fl+/dwJMBN03AwPV3
+	 ApmO5o415Ep14oTLaXTXsKAwCE1EfGltPOxUt8A6TWe+dmjEuN9ex4dAsAKX1DwWu9
+	 Pla2zp6F/JiJKV2xBwJBqHJpbksMNMTxMxtcCyoDchkzWJa9omPU5nCVJATYqC92xl
+	 g6eesqt6KHlIZW5KS1KzDQAanoo27/WXgawCgVZf/E8dV+nkGSgNgJ7JUC2CQrFaUR
+	 etLzzqtfEJ8sQ==
+Date: Sun, 22 Nov 2026 15:51:42 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@linux.dev>, 
+	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Simon Horman <horms@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>, 
+	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	Prabhakar <prabhakar.csengg+renesas@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH net-next v5 06/24] dt-bindings: net: dsa:
+ renesas,rzn1-a5psw: Limit port reg values
+Message-ID: <20261122-nifty-unnatural-caracal-1b3e4e@quoll>
+References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20261120002549.1908299-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,51 +68,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120002549.1908299-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-When sending pause frames for flow control, we need to indicate the
-number of quantums the peer should wait before sending more frames.
+On Fri, Nov 20, 2026 at 12:25:16AM +0000, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> The A5PSW has four external ports and a CPU management port, using
+> port numbers from 0 to 4.
+> 
+> Previously, the patternProperties expression only matched port nodes
+> with unit addresses from 0 to 4. This allowed port nodes with other
+> unit addresses to bypass the port-specific schema constraints.
+> 
+> Update the pattern to match all port nodes and limit their reg values
+> to a maximum of 4. This ensures the constraint is applied regardless
+> of the unit address.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v4->v5:
 
-This is maintained in stmmac's "pause_time" global variable (it's a
-module param).
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Let's program the pause time value, and also allow sending the
-zero-quanta pause frame when the peer can resume sending traffic.
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-index 75c743dfe348..613199da57c1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-@@ -232,6 +232,8 @@ static const struct emac_variant emac_variant_h616_emac1 = {
- 
- /* Used in EMAC_TX_FLOW_CTL */
- #define EMAC_TX_FLOW_CTL_EN             BIT(0)
-+#define EMAC_TX_FLOW_CTL_ZQP_FRM_EN	BIT(1)
-+#define EMAC_TX_FLOW_CTL_PAUSE_TIME	GENMASK(19, 4)
- 
- /* Used in EMAC_INT_STA */
- #define EMAC_TX_INT             BIT(0)
-@@ -784,10 +786,11 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
- 	writel(v, ioaddr + EMAC_RX_CTL1);
- 
- 	v = readl(ioaddr + EMAC_TX_FLOW_CTL);
-+	v &= ~(EMAC_TX_FLOW_CTL_EN | EMAC_TX_FLOW_CTL_ZQP_FRM_EN |
-+	       EMAC_TX_FLOW_CTL_PAUSE_TIME);
- 	if (fc & FLOW_TX)
--		v |= EMAC_TX_FLOW_CTL_EN;
--	else
--		v &= ~EMAC_TX_FLOW_CTL_EN;
-+		v |= EMAC_TX_FLOW_CTL_EN | EMAC_TX_FLOW_CTL_ZQP_FRM_EN |
-+		     FIELD_PREP(EMAC_TX_FLOW_CTL_PAUSE_TIME, pause_time);
- 	writel(v, ioaddr + EMAC_TX_FLOW_CTL);
- }
- 
--- 
-2.56.1
+Best regards,
+Krzysztof
 
