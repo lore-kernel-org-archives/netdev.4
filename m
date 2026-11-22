@@ -1,60 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795332582;
-	b=CdwcChLk40Vyc4sZ3mlyuyBui+px+57BsgW3CGy3PMkH8Un6UPK5qQa45b+1RXdOF1C7
-	 Sj8x8dEjTFE99gsrUEjdU24rF6Bwbh7A1HC69ObHl9qUr1RZeaLLQ08/Ze73BcxxJ/+va
-	 xMssudE5iByen6VYyJhxRPvz0x+3XgRdZbifhYso3Un9vRLya16Q+jJtuo475P4tMtcSn
-	 mG/FZfHlg2hP5F8LieR9o0hst0tZO62TkQ9WOHLW/91W24EH7pDD1ARkf0wdj2NuHulLZ
-	 HlYVjNBHRNyr7x1BDiLS4SGRmjT+jHFrLyZCCPcVoAowCKdkpnua8DruV1MeGuZNxRw==
+	t=1795332720;
+	b=hyHicioXJNdJX9RtqkcLiOETa8FvDDyiS9KS0lbKREkt5vQ3moCCpAn58uvHscDItKeY
+	 +RWMyn+fkxf3K1dPjKVO0tFjT7DQPI/ys7LlATRvgzadv8EiHztFs3GYtsnVoerhFchkI
+	 DsiWxqPEe24PgbRWaNkPfTwmk4VvFqnpHCHZuvHkI11ZvdF3eqZ13aH1BXI771j1gKVO5
+	 8whuVfStDqJNriAFQ584ysQ7wtNrbVBq74YYcUgvVM441sD1CdA7Cjp/LU35ozRE66xsS
+	 yDEjCK1jRvwwpg8ExmMGA4PJvE8wP7OgSu/Y38iX+njuAivHKQOjUVYEmc6R/jvkCRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795332582;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=HiA9PYZbAt9pSqWEX/fj1U6pPBAqKzZsNmZT9z0VVZs=;
-	b=sXLy9q4/wt+N1AZxClYrk4doGvUJuLd0p8k5qKTUXLG0g6Ew4LZZaA4IRX+k20CUYDic
-	 908TnJuAAlkXQ5yWCWGJ71RKTSmtUZnwYJczB5nMBegR74OayI1cVih+HJMi1cquUqGIV
-	 LRQ9+yMdnbGi7dtqMB7f3W6GdM26cdq5plE2PlpIENO2MtF8RT+jMQJ1OxJmoyRUHMQE/
-	 aVOMDbELlfpImvi9ZSk2X03N/50v80OLFtU0nbPrrxeY4USlo0KoU64sYItt8TY18061k
-	 7m4G0w4QgM9XJHRpZPT3a4kSylIuTHVFIXO88vGEsPkVHI/dKdgA1jLywOq75/d5U3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795332720;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=xgVBMAHpFXauZz1gV3iFhYHUEjmYQRD26/8ElLnj53I=;
+	b=k+2pDs28jFJcvgKiVsjx0e/M4SPWhNk+qpCC6lO2ciq3H2TR3PtAcpv50A4b1u9AKHsp
+	 7g4wM3wBR1E1/5Qilp7z/cFvnoiVWqdbCylihThLZaKT/c3VH6t5q6SmzVKmBK2s1sKF2
+	 19pwpbOahIeu+7qUQ808OmuRgDxfDnfPBkoRICZq5mgs9nNnIVZeSfb70+pW+x+seYYjx
+	 m/dJa6sJF3Mao7i4Qqs7K1QiXAg1ukBN46Lk6ykOQeTh7G8pzgEUxp5T15RlGTvW+vm2U
+	 LSg/bmqx3Q4mgebUPFNv4pzsrNm/PMt+3hrBoWXyebVO+yL1gN8NNG2AjLfydxV74VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MRiyKbKO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbkxsRwB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4361606A339;
-	Sun, 22 Nov 2026 07:29:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DF49606A320;
+	Sun, 22 Nov 2026 07:32:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MRiyKbKO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D8A1F000C0;
-	Sun, 22 Nov 2026 07:29:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbkxsRwB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C624D1F000C4;
+	Sun, 22 Nov 2026 07:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795332582;
-	bh=HiA9PYZbAt9pSqWEX/fj1U6pPBAqKzZsNmZT9z0VVZs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=MRiyKbKO6PQN6irifYg0CjjvrKrfqPk+LTEePHIgOcpSd2Ntwpr69j+XfY6rWMPVG
-	 XJzvHvuJf2rChX5yusT6p1/rsGJ8u97Q803jTEVmUaEDkVboBvruXN1M9gE2PKJsxZ
-	 U8tyz8da3mH6BbVENKZqz+Bu6dGMdYZ5CMl64V9H7SK0X+JfTRWbq4iEwg0/beslre
-	 9UO7YOuOytQ0lekIbAPp7McbtsBrMG2uqoWbfF+NpC3+jHxkEIV6lGfscckHlf+zdi
-	 pEP6qlMC2NEJjvy4oqwa+dtqGRj78eH+t7srb/nWefIhDCgq3gwUyqvSVId5Eu6v2d
-	 cqTxqqvKqUfPg==
-Subject: Re: [PATCH net v5 2/2] selftests/net/openvswitch: check that a failed
- set keeps the features
-From: netdev-bot+sashiko@kernel.org
-To: houminxi@gmail.com
-Cc: netdev@vger.kernel.org, aconole@redhat.com, echaudro@redhat.com,
- i.maximets@ovn.org, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- linux-kselftest@vger.kernel.org, stable@vger.kernel.org, matttbe@kernel.org
-Date: Sun, 22 Nov 2026 07:29:41 +0000
-Message-ID: <179533258159.3135.906610390890565632@kernel.org>
-In-Reply-To: <20261118065435.2367014-3-houminxi@gmail.com>
-References: <20261118065435.2367014-3-houminxi@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795332720;
+	bh=xgVBMAHpFXauZz1gV3iFhYHUEjmYQRD26/8ElLnj53I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IbkxsRwBBMEjo+WUxQrp7X1LmlXKug7cCt0VR69KiqdYMs9q5OovgeuiBrCYgxX1L
+	 /dC+oNKqoN0UWtF+ucJfWf3e/bYLp8ZjkfpFGL7vvYYbwCSpAG7KAahDKOZhb4B5bq
+	 5KtQx81wCrVRXASD2g9kiln9c7EJRQU6KFYdUJkbKeTP0/x2J7zTsZrlyT2MwUhtwv
+	 C1oICmAYYdlDif629MhzTpShnOfMMjvbeYiAvVKTfpsrjqdcxTUh7sY5qVHi0T/krd
+	 2VzBJ9AhyigvAgT8UdF0xda09leS1e7dBP6n4bRwAsQUm6JK7Scvxn0EfCbMlFhpqd
+	 fbmgdGsooWl4Q==
+Date: Sun, 22 Nov 2026 09:31:56 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Yishai Hadas <yishaih@nvidia.com>
+Cc: jgg@ziepe.ca, linux-rdma@vger.kernel.org, netdev@vger.kernel.org,
+	saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com,
+	kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org,
+	davem@davemloft.net, andrew+netdev@lunn.ch, dtatulea@nvidia.com,
+	moshe@nvidia.com, maorg@nvidia.com
+Subject: Re: [PATCH V2 rdma-next 21/21] RDMA/core: Report and enforce
+ adversarial mode via GET_CONTEXT
+Message-ID: <20261122073156.GA12665@unreal>
+References: <20261117170914.27410-1-yishaih@nvidia.com>
+ <20261117170914.27410-22-yishaih@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,122 +62,143 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117170914.27410-22-yishaih@nvidia.com>
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Tue, Nov 17, 2026 at 07:09:14PM +0200, Yishai Hadas wrote:
+> Userspace must know when a device is in adversarial mode, and an
+> unaware rdma-core must not get a context on such a device, as it
+> doesn't harden itself against the NIC.
 
-Low priority / nit picks for your consideration:
+Why is this a “must”? If it is required, please describe in the commit
+message the scenario that cannot be supported without this new UAPI flag.
 
-- [Low] The Reported-by trailer probably does not belong on this commit.
-- [Low] A comment in the new set-dp branch of main() in ovs-dpctl.py says
-  something the kernel does not do.
+> 
+> Report the mode with IB_UVERBS_CORE_SUPPORT_ADVERSARIAL in the
+> core_support of GET_CONTEXT and QUERY_CONTEXT. Add an optional
+> UVERBS_ATTR_GET_CONTEXT_FLAGS input, where userspace declares
+> UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED. In adversarial
+> mode, GET_CONTEXT without that flag fails with -EPERM, and so does the
+> legacy write() GET_CONTEXT, which has no way to pass it.
 
---
+The above is AI generated useless information, completely useless.
 
-selftests/net/openvswitch: check that a failed set keeps the features
+Thanks
 
-This adds a set-dp subcommand to ovs-dpctl.py that sends OVS_DP_CMD_SET.
-It also adds two selftests, dp_features and dp_features_recirc. They check
-that a set rejected for an empty per-cpu-pids leaves the datapath features
-unchanged. The config fragment also enables NET_SCHED, NET_CLS_ACT and
-NET_TC_SKB_EXT for the recirc test.
-
-Link: https://lore.kernel.org/netdev/998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org/
-
-> Reported-by: Matthieu Baerts <matttbe@kernel.org>
-> Link: https://lore.kernel.org/netdev/998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org/
-
-[Severity: Low]
-Does this Reported-by belong on this commit? The commit adds the set-dp
-subcommand, the two new tests and three config lines. It doesn't fix an
-existing defect.
-
-The kernel bug these tests cover is fixed in the parent commit "net:
-openvswitch: do not record user features when the change fails". That
-commit has no Reported-by.
-
-The commit message describes two problems:
-
-- a run that hangs when stdout is duplicated
-- a FAIL with no reason when the reason only goes to debug.log
-
-Neither can happen with the baseline openvswitch.sh, because the
-dp_features tests don't exist there yet. The report was probably about an
-earlier, unmerged revision of this patch. The linked message couldn't be
-checked from the tree.
-
-Documentation/process/submitting-patches.rst says the tag "is intended for
-bugs". Could feedback on an earlier revision be credited in the changelog
-below the --- line instead? If Matthieu reported the kernel bug, the tag
-could go on the kernel fix.
-
-> diff --git a/tools/testing/selftests/net/openvswitch/ovs-dpctl.py b/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-> index 1615843c225e4..efad71649a630 100644
-> --- a/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-> +++ b/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-
-[ ... ]
-
-> @@ -2961,6 +2980,23 @@ def main(argv):
-
-[ ... ]
-
-> +    setdpcmd.add_argument(
-> +        "-p",
-> +        "--per-cpu-pids",
-> +        type=str,
-> +        default=None,
-> +        help="Comma separated upcall pids, an empty string sends none",
-> +    )
-
-[ ... ]
-
-> @@ -3057,6 +3093,35 @@ def main(argv):
->              ovspk.upcall_handler(ovsflow)
->      elif hasattr(args, "deldp"):
->          ovsdp.destroy(args.deldp)
-> +    elif hasattr(args, "setdp"):
-> +        rep = ovsdp.info(args.setdp, 0)
-> +        if rep is None:
-> +            print(f"DP '{args.setdp}' not found.")
-> +            return 1
-> +        pids = None
-> +        if args.per_cpu_pids is not None:
-> +            # Empty entries are typos in a list the user did write, so drop
-> +            # them. An empty string leaves pids as [] and not None, which
-> +            # set() sends as an attribute with no payload: the kernel refuses
-> +            # that with EINVAL, and the selftest counts on the refusal.
-
-[Severity: Low]
-Is this comment accurate? The kernel only looks at OVS_DP_ATTR_PER_CPU_PIDS
-when the requested features include OVS_DP_F_DISPATCH_UPCALL_PER_CPU:
-
-net/openvswitch/datapath.c:ovs_dp_change() {
-    ...
-	if (user_features & OVS_DP_F_DISPATCH_UPCALL_PER_CPU &&
-	    a[OVS_DP_ATTR_PER_CPU_PIDS]) {
-		/* Upcall Netlink Port IDs have been updated */
-		err = ovs_dp_set_upcall_portids(dp,
-						a[OVS_DP_ATTR_PER_CPU_PIDS]);
-    ...
-}
-
-The !nla_len(ids) check that returns -EINVAL is inside
-ovs_dp_set_upcall_portids(), so it only runs on this path.
-datapath_policy[] has no entry for OVS_DP_ATTR_PER_CPU_PIDS.
-
-That means set-dp <dp> --per-cpu-pids "" gets an ACK when --features lacks
-bit 0x8. It also gets an ACK when --features is left out and the datapath
-doesn't report 0x8. In both cases the tool prints "DP '...' updated" and
-exits 0, not 22.
-
-Both current tests pass --features 8, so they do get EINVAL. Could the
-comment say that the refusal depends on the dispatch bit?
-
-The --per-cpu-pids help text "an empty string sends none" has a similar
-problem. An empty attribute is still sent, so the text reads as if no
-attribute were sent.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118065435.2367014-1-houminxi%40gmail.com
+> 
+> Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
+> ---
+>  drivers/infiniband/core/uverbs_cmd.c             |  5 +++++
+>  .../infiniband/core/uverbs_std_types_device.c    | 16 ++++++++++++++++
+>  include/uapi/rdma/ib_user_ioctl_cmds.h           |  5 +++++
+>  include/uapi/rdma/ib_user_ioctl_verbs.h          |  1 +
+>  4 files changed, 27 insertions(+)
+> 
+> diff --git a/drivers/infiniband/core/uverbs_cmd.c b/drivers/infiniband/core/uverbs_cmd.c
+> index aca7c6ab55cd..b78207a81091 100644
+> --- a/drivers/infiniband/core/uverbs_cmd.c
+> +++ b/drivers/infiniband/core/uverbs_cmd.c
+> @@ -292,6 +292,11 @@ static int ib_uverbs_get_context(struct uverbs_attr_bundle *attrs)
+>  		goto err_ucontext;
+>  	}
+>  
+> +	if (ib_dev->adversarial_mode) {
+> +		ret = -EPERM;
+> +		goto err_uobj;
+> +	}
+> +
+>  	resp = (struct ib_uverbs_get_context_resp){
+>  		.num_comp_vectors = attrs->ufile->device->num_comp_vectors,
+>  		.async_fd = uobj->id,
+> diff --git a/drivers/infiniband/core/uverbs_std_types_device.c b/drivers/infiniband/core/uverbs_std_types_device.c
+> index db65032e80b4..72c67f09533e 100644
+> --- a/drivers/infiniband/core/uverbs_std_types_device.c
+> +++ b/drivers/infiniband/core/uverbs_std_types_device.c
+> @@ -248,6 +248,7 @@ static int UVERBS_HANDLER(UVERBS_METHOD_GET_CONTEXT)(
+>  	u32 num_comp = attrs->ufile->device->num_comp_vectors;
+>  	u64 core_support = IB_UVERBS_CORE_SUPPORT_OPTIONAL_MR_ACCESS;
+>  	struct ib_device *ib_dev;
+> +	u32 ctx_flags;
+>  	int ret;
+>  
+>  	ib_dev = srcu_dereference(attrs->ufile->device->ib_dev,
+> @@ -255,6 +256,15 @@ static int UVERBS_HANDLER(UVERBS_METHOD_GET_CONTEXT)(
+>  	if (!ib_dev)
+>  		return -EIO;
+>  
+> +	ret = uverbs_get_flags32(&ctx_flags, attrs, UVERBS_ATTR_GET_CONTEXT_FLAGS,
+> +				 UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (ib_dev->adversarial_mode &&
+> +	    !(ctx_flags & UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED))
+> +		return -EPERM;
+> +
+>  	ret = uverbs_copy_to(attrs, UVERBS_ATTR_GET_CONTEXT_NUM_COMP_VECTORS,
+>  			     &num_comp, sizeof(num_comp));
+>  	if (IS_UVERBS_COPY_ERR(ret))
+> @@ -262,6 +272,8 @@ static int UVERBS_HANDLER(UVERBS_METHOD_GET_CONTEXT)(
+>  
+>  	if (ib_dev->ops.uverbs_robust_udata)
+>  		core_support |= IB_UVERBS_CORE_SUPPORT_ROBUST_UDATA;
+> +	if (ib_dev->adversarial_mode)
+> +		core_support |= IB_UVERBS_CORE_SUPPORT_ADVERSARIAL;
+>  	ret = uverbs_copy_to(attrs, UVERBS_ATTR_GET_CONTEXT_CORE_SUPPORT,
+>  			     &core_support, sizeof(core_support));
+>  	if (IS_UVERBS_COPY_ERR(ret))
+> @@ -303,6 +315,8 @@ static int UVERBS_HANDLER(UVERBS_METHOD_QUERY_CONTEXT)(
+>  	if (IS_UVERBS_COPY_ERR(ret))
+>  		return ret;
+>  
+> +	if (ib_dev->adversarial_mode)
+> +		core_support |= IB_UVERBS_CORE_SUPPORT_ADVERSARIAL;
+>  	ret = uverbs_copy_to(attrs, UVERBS_ATTR_QUERY_CONTEXT_CORE_SUPPORT,
+>  			     &core_support, sizeof(core_support));
+>  	if (IS_UVERBS_COPY_ERR(ret))
+> @@ -519,6 +533,8 @@ DECLARE_UVERBS_NAMED_METHOD(
+>  			   UVERBS_ATTR_MIN_SIZE(sizeof(int)),
+>  			   UA_OPTIONAL,
+>  			   UA_ALLOC_AND_COPY),
+> +	UVERBS_ATTR_FLAGS_IN(UVERBS_ATTR_GET_CONTEXT_FLAGS, u32,
+> +			     UA_OPTIONAL),
+>  	UVERBS_ATTR_UHW());
+>  
+>  DECLARE_UVERBS_NAMED_METHOD(
+> diff --git a/include/uapi/rdma/ib_user_ioctl_cmds.h b/include/uapi/rdma/ib_user_ioctl_cmds.h
+> index 816b3107464f..3e482a4338f9 100644
+> --- a/include/uapi/rdma/ib_user_ioctl_cmds.h
+> +++ b/include/uapi/rdma/ib_user_ioctl_cmds.h
+> @@ -101,10 +101,15 @@ enum uverbs_attrs_query_comp_cntr_caps_attr_ids {
+>  	UVERBS_ATTR_QUERY_COMP_CNTR_CAPS_SUPPORTED_QP_ATTACH_OPS,
+>  };
+>  
+> +enum uverbs_attrs_get_context_flags {
+> +	UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED = 1 << 0,
+> +};
+> +
+>  enum uverbs_attrs_get_context_attr_ids {
+>  	UVERBS_ATTR_GET_CONTEXT_NUM_COMP_VECTORS,
+>  	UVERBS_ATTR_GET_CONTEXT_CORE_SUPPORT,
+>  	UVERBS_ATTR_GET_CONTEXT_FD_ARR,
+> +	UVERBS_ATTR_GET_CONTEXT_FLAGS,
+>  };
+>  
+>  enum uverbs_attrs_query_context_attr_ids {
+> diff --git a/include/uapi/rdma/ib_user_ioctl_verbs.h b/include/uapi/rdma/ib_user_ioctl_verbs.h
+> index 21f86cc7bb1f..5861f34f8343 100644
+> --- a/include/uapi/rdma/ib_user_ioctl_verbs.h
+> +++ b/include/uapi/rdma/ib_user_ioctl_verbs.h
+> @@ -47,6 +47,7 @@
+>  enum ib_uverbs_core_support {
+>  	IB_UVERBS_CORE_SUPPORT_OPTIONAL_MR_ACCESS = 1 << 0,
+>  	IB_UVERBS_CORE_SUPPORT_ROBUST_UDATA = 1 << 1,
+> +	IB_UVERBS_CORE_SUPPORT_ADVERSARIAL = 1 << 2,
+>  };
+>  
+>  enum ib_uverbs_access_flags {
+> -- 
+> 2.18.1
+> 
