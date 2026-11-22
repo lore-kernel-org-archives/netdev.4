@@ -1,107 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795375363;
-	b=o5I+V9Fpqi8dKcLaEXhRwnue119nkF6H+tBXKLwtKHcgw7VYqBsE9MtbjkH+/8X0hCd/
-	 Ejc6A7D2SM9UCd7oJlBlXZ2tzpW+sBUXs2eI+ehLEV9khTVcFO2OGjGVJi2tLDfEV0ABD
-	 kCLH5Gh4/G0R4KuL/mAZ5I68Xmvf7capDFa+EeMDNq9kr/qHrggKZh3CITTvc+tsOZP3c
-	 o1x3U8JGIvJiYhnwGWs3MvWBchz0Ekplps29Ejk/WCkDv9/C9Bc3QnRmPsmJ7Op3rmoIa
-	 H8npJS4h97xFBvNm1cgdejRbPM0mBq2grJpZA16MW0714QMncXKXcqO3GbKJ/sybFLg==
+	t=1795376773;
+	b=jC+YLocWyHpLafNKaTFco3XQ8IJHCdzXaC4bdRFw0FEDKVv4Xi0JNJZfzA8i0aKSTjoh
+	 WjGX8Nr5PFyUjr3aon9qGFzI4LcVvje0S70V/W8mCV6Wl/QbPz1sL4b8ALhofYDrc/Hvd
+	 92x5nM9TTWOxOT5jSzoPwiINaXHDscsQ4u+cY8lPdJUVWA39kD0ikKvATFoAA5SBO07xN
+	 lMv0jLudRlrgK/xQcJGxOtDlFw2VIcwC/X9+JrBfBbMP6mCfytuGzEHoHEn5CEXnSjpN9
+	 dSuxMa6rzZIJ84LQ3wvX8TcvkLBYNiApsYx4hU9frUR+SZyvpU/IbSezprWJ8j4/C6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795375363;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=S37Kq7lpvR2YyR5RAVtCqH5zGZdjSyX6X5jAfIRmo9g=;
-	b=1mWvvIop4qKuGi99nwz53+yXO08iqglJIiY7uEcIYRJK0aTh7SNw3w7O9Qfajw5hzPWG
-	 rxDdvmAHHALjM58NskAivTs8vn0F7NkMT2oqpc3FOkPsK43hDEH+cj9l1Kt4nfzSLByOx
-	 BhaIxwKEFXE29qioJz/0H4ubwDF3F8vVIUUJj0iIDJMwT99Yz7sUZohNWGLCLpQy2jOI1
-	 Te/0AHvvkeUWC1jRQb78YMkSr6jgh2ayN8nCb3XnUsttFISnEleeTfmWhrz5ZXmX9YukH
-	 Mr3RNMOAZhkSWc8APLfA6rT9qtKRCzuNixdTLqTQM1Tl3i2FDpLIk4Ij93VWw0SWUSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376773;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=dbGXM1I9Jh83hjJSiKGDRAEmUJNnFhvU9Kb1A5Z3ub8=;
+	b=I/UgkBQACyRIRNkC5+EBn0ayKsDYyIAwD73EWuIWAAnzoX3EKghen/TZ4uifYZWLPKT5
+	 0srccBE56h3qecdDv+WueFqVB2cqhThV/eoEY1gbgHXzA4x0ud8q00rl6ApSggYk/zz53
+	 TVhn/csrXcHZEHf95FJBtSsZAT0hIWJDIzvaiT5g1WUEKuURrCFJN7rSveCqo/Vb2zvs2
+	 sOsi5TrGPU9Rv4dBlgVfDnUInGjv0Zch6btqKT3NQxFtgkgIjrW3+RN5ew++R1oJcD6AZ
+	 M7QTJKCNhUeSNKMRyl1ZePljwCvxrgj4Oe/Akkjhe5VkOP8Y8yhUYnMsBIkNaoOWyHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=qJt6HBS1;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=W0QWdRuz;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C83DC606A31A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:22:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C83DC606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AFCA606A31D;
+	Sun, 22 Nov 2026 19:46:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AFCA606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=qJt6HBS1
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so353869866b.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:22:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795375361; x=1795980161; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S37Kq7lpvR2YyR5RAVtCqH5zGZdjSyX6X5jAfIRmo9g=;
-        b=qJt6HBS13acmjm7PvKGvUPqpxRQL265cFb6Eti1Mfs3uadb1yfAfkDSSQIIfgJEhEB
-         /8p4RNVsdXzYZN9OEgXQeYru1m4PWxw6fbVBBZXpOYwsoc473++LzlwqqoOlHO/S0Mo7
-         tqiYg0mYNkDWYoQDWz5emlOao55jC0dba+zvYlBSMex9j9d0iC5LdIbkKUwgLV0CdFvq
-         KSBXhlwSJG4YSoi1omV0xgGH/olADmtmJ+HAYxkAMo2fpUlLwpVvxOmA5OIbYM1dWxLe
-         FWre/N1p2kZpZd3T/RmBAFSmldHxY2PBXhTek4/bS8mghIxUFti+YpPu4e88Quw+0w7x
-         x3MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795375361; x=1795980161;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S37Kq7lpvR2YyR5RAVtCqH5zGZdjSyX6X5jAfIRmo9g=;
-        b=o4Fil3jUAU5heIEJ/iX2aklj+lRVsPELztwF8la2CAA3MZKSeEaPj4UMfkebmufSE1
-         YEAGAov5g/OF2oY3qklth2gSiyG/xPfxjxILm2uhW3Yj2wgQ4zb2lfgC7P3SgHHs5qu9
-         2NniAD6ZP1pPi/I5k1MAI/R3CQJcN/WLF8CduqdfaxY2E6nk/GQ3LPCHUMGuiadAha6C
-         loT1ZDacTlQoJz2IB+vtUopnBxoAha7Il2MUhf8RTLEp5ntOKeTTAViXYgd4tZUyzQpM
-         5D82Zaj247PYMiFW7KXlxL+hOQ2WIOeUq01dDcLjdzedhO6IXLGzMrAIVMubbjQlYq0O
-         qeDg==
-X-Gm-Message-State: APuU4Z/XYGYR+C1/g/2n6jmBTvyaTYsXi1fXZoGMB20e9XrVQqaFTRoT
-	DYvWubylSl49vxR3oBbinXZEHb0wgGlLdHNE1QaFrxVvuwSjLDb9MjU8TOP8wTCCOg==
-X-Gm-Gg: AZFdTZfogVS3Zk73rXXZpWjVjiEY/krkn63SKSVCy49GUvdppIdiCv4MkAqODY5HG4K
-	HBNBIZTBqjGe9jK0pCcQMtdfsraL80LxUscx67N3qcR5Doch0gHWkPJJKGlCYkbb1uJ1gZCIn7m
-	jJ9cdP7onmB/nbH8wqWxy+l2+iQRubulelu8fvUvMcfAOonyz9D8bLKd97zoY0+LdBiggevtkMj
-	rjVwDO+nMh6tkvTUPw+K9FXXvZ2B3xS5oiD8o4Q4ZLZhs9FhMc1vMpVqR+dnSNkFs4t1kyT7bUp
-	S3KK9Q2KxGciQ3yJ+rkMAwEKFLOoaZiN8qKLa6jBRYSIBU2jLQ965bc74389k9FRpfVVx3M98aF
-	Hd0LpoC3OkOae7xyzzuUbJo/FXOGHuLm+ND3ZOVAoTeORGfBbgUDyglAql+NJc6gnH+WvBRnRB1
-	0RAUGYKWJudEH8N5VfFD9vxOILgKd+d/71UDJ4AC5deHb7eaj7rp6SU+CcwREUDqlAGd2ZkwWkq
-	zMk+PaFODFHJhzlNPO+AARJwjzxQu8qWoOfBEB12lmCxzqiglcbPJHAs6GjiPdIHrypMxsvGkKZ
-	nogWrQEJ7rdLRTD2wFDpoccZYFRFz7k6hZ7Tj/EcHNPmL/y7L72xNEtyp+m+CLLPxSOCSK6g9/r
-	MfuHkxZNCHou/BTOJCW224mqzgQmdVQnjPveZJfzdTR35YL8GYMSeUeoRQsReWm/qnt/wM63tae
-	W8hNS+z8THrRaJO8MSXJk5MZwmunwQTQj149+YN8rQZf0CgfYoBCvHzpp0FZeJdgFiMMIz3oD96
-	K7+MiEF8QGlEUwApzORHySiVvdNaQcGzXc8tsTWLEF+hFJDM78kZLDnbRqqQQqDoZrXXHNkiYZ4
-	oEDwtuLO/RNaqSoVN2PaSZ/ykf4oRM5vxVq/iFB4HOoM3BucGrGhLMNjx099klBAuLTag2cBXB2
-	5uQ==
-X-Received: by 2002:a17:907:3cb:b0:c51:40e:847c with SMTP id a640c23a62f3a-c513a84ab4emr462378966b.23.1795375361209;
-        Sun, 22 Nov 2026 11:22:41 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f24713a7000000000000000a27.dip0.t-ipconnect.de. [2003:f2:4713:a700::a27])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc316bsm332597066b.56.2026.11.22.11.22.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 11:22:40 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: razor@blackwall.org,
-	idosch@nvidia.com
-Cc: netdev@vger.kernel.org,
-	bridge@lists.linux.dev,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	willemb@google.com,
-	horms@kernel.org,
-	olteanv@gmail.com,
-	vladimir.oltean@nxp.com,
-	jbrandeb@kernel.org
-Subject: Re: [PATCH net] net: bridge: withdraw the switchdev entry of an fdb entry made dynamic
-Date: Sun, 22 Nov 2026 20:22:42 +0100
-Message-ID: <20261122192242.1205890-1-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <4937f07a-6238-4136-94ca-a98b2f4b8db5@blackwall.org>
-References: <20261121191638.1724620-1-julius@bairaktaris.de> <4937f07a-6238-4136-94ca-a98b2f4b8db5@blackwall.org>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=W0QWdRuz
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B0E63C69140;
+	Sun, 22 Nov 2026 19:46:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C804660512;
+	Sun, 22 Nov 2026 19:46:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8D16411E6033E;
+	Sun, 22 Nov 2026 20:45:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795376765; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=dbGXM1I9Jh83hjJSiKGDRAEmUJNnFhvU9Kb1A5Z3ub8=;
+	b=W0QWdRuzMqLYXnJk4odzdLYtZXZMIYtQYMT8IB7ANLCF8YMMTiCNE0IPROF+gKZ70cEG4k
+	LroyuHKdGOnJfOQsjOnHbeOH8d4V1ynY9uiW0G5q1sSQCz5un+v8sXg+3OaviQuacPA34d
+	PrT7yCOYJ/uYoSxmBVvu3UUbV0vNlVtZbyekIUzxcJrRsPN//WHz3OKjK3ZKsuqFCWPzzG
+	3kN5bcJZi1xEdWUvTD9Gf4zzyDNq8wXU2qsHXOCwyCPvgTBbcFIUsc9xoQmEUjX4va3MeU
+	qS4ialWhY1rtVmFR9sdwvGf4abv2UckG+1S4KdJnDLuszg9EvrF1W9oC6iiaLw==
+Message-ID: <9997f4e9-9453-4511-af3e-4be664a09281@bootlin.com>
+Date: Sun, 22 Nov 2026 20:45:47 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,32 +62,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v12 1/4] net: xdp: add
+ __xdp_build_skb_from_buff() helper
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
+ Ong Boon Leong <boon.leong.ong@intel.com>, Simon Horman <horms@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, peilinhe2020@163.com,
+ Peilin He <he.peilin@zte.com.cn>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ bpf@vger.kernel.org
+References: <20261121-stmmac-rx-mb-v12-0-3ae2f3bce174@oss.qualcomm.com>
+ <20261121-stmmac-rx-mb-v12-1-3ae2f3bce174@oss.qualcomm.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261121-stmmac-rx-mb-v12-1-3ae2f3bce174@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 22/11/2026 12:58, Nikolay Aleksandrov wrote:
-> I think this has never worked, so this patch can go to net-next.
+Hi Lorenzo,
 
-Agreed. v2 is for net-next:
-https://lore.kernel.org/netdev/20261122192118.1204290-1-julius@bairaktaris.de/
+On 11/21/26 18:28, Lorenzo Bianconi wrote:
+> xdp_build_skb_from_buff() always calls eth_type_trans() on the skb it
+> builds, which pulls the Ethernet header and advances skb->data. Drivers
+> that still need to process the L2 header before protocol parsing
+> therefore cannot use the helper.
+> 
+> stmmac is such a driver: its software VLAN path (stmmac_rx_vlan()) reads
+> the VLAN tag at skb->data and shifts the MAC addresses over it, so it has
+> to run before eth_type_trans().
+> 
+> Split the implementation into __xdp_build_skb_from_buff(), which builds
+> the skb (including the recycle mark, the Rx queue index and the frags
+> info) but leaves skb->dev, skb->protocol, skb->pkt_type and the mac
+> header unset, so the caller must initialize them, usually by calling
+> eth_type_trans(). Make xdp_build_skb_from_buff() a static inline wrapper
+> that still calls eth_type_trans() as before, preserving the behavior of
+> existing in-tree users. A follow-up patch will let stmmac use it.
 
-> This helper isn't helpful. Just call br_switchdev_fdb_notify directly.
+I've been questionning why we even do that in stmmac in the first place
+actually. This pretends to offload, but it's just to deal with the tag
+in the driver instead of later down the road.
 
-Agreed, v2 calls it directly.
+The original idea was for GRO back when it didn't handle vlan tags, but
+this isn't necessary anymore.
 
-> This comment is useless.
+There was a series in-flight to remove stmmac_rx_vlan altogether, but it
+seems to have stalled [1]:
 
-Agreed, v2 has no comments there.
+[1]: https://lore.kernel.org/all/20260914150612.9798-3-peilinhe2020@163.com/
 
-> I played around with the possible bits that can result from this change and I think
-> I got 1 bad case:
-> What if a user adds a master static entry (created with BR_FDB_ADDED_BY_USER but without
-> ext_learn) which is later programmed and gets BR_FDB_OFFLOADED set, then a replace with
-> "master dynamic"?
+Peilin He, do you have any plans to continue this ? If not, it may be good
+to pick this up instead of working around this.
 
-Agreed. v2 clears BR_FDB_OFFLOADED together with the withdrawal in both
-paths. Your sequence on a dsa_loop port leaves the entry without
-"offload" in 3 of 3 boots; v1 kept it in 3 of 3.
+Maxime
 
-pw-bot: cr
-
-Julius
