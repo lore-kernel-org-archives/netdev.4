@@ -1,61 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795359266;
-	b=VdUZ+utTSDRyMkM5O6tuhW5lcCliDOfDknc2YrnggqmzU65jyKTIkysMHUXiZ3GI2ETZ
-	 H+55QoD6gNgoRenlR3Shio5/zxhB/VY/yxiLefbcmISnY0bpOx9z19jIBTdFSbxOExy9H
-	 0ZOtJO8MmQ5PZjC8R8uulxPX+/4Zl2faublp7fh2NTAzl3lBYkpI/XgHAMAU0BoC8Dh5X
-	 Td6j676/rvLuLdHaqrvimpzkY04ZSdDSJBrqYyfprM8OUi1D7OBWuyN3GwrVCw8M321E7
-	 T8Xw3MGcq8udGZbZBElbonlPe9OjP7wpNWo70Csx/P9drQxBXLC+8cNufjaNZtboEwg==
+	t=1795359449;
+	b=l6Blh+wERC5ZfALSsIVX5HdYNfqbzJWKiTm9HCF/2Je8Sg8B0BOZbBOvaFtbAKzztyOh
+	 bo35Jxq1G9qPM4Ygqxy/vd+QXCdS4NS30F8SCdR7n7A7ndkGghi2BW5x6RDElTm+WtsaM
+	 yEOsB8Pt8/l36pTpcRwpnVpA0G7KczpBKCDQKIysehMO4ZoiQcL9VqM/HAmXNIyiipj2L
+	 kW6+eAAHiI9dMxUzGxf1Jpkno4udkTv23QUokZi3y40/M9wIZii8tEKRQQz5KOV6C4jTZ
+	 BcAeyyg4hWNNNqqjsH8K5MUYqkdWrWyMgXfGiR85E9LEgFNrFMc+lSn7M9SSI5VjB9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795359266;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iN/nddxdvRMLU2SkW9x6MGgEnBY1rvCW4Vq0IU091oo=;
-	b=BKzCrcpsy8nb59VbFmSXMpK8ieN+AfBwUVcDO20wuxSZnVXi/JFbdTsTfVbf6SIf33Cp
-	 oqEt4H63EiwxtBtyJ8jxhjDd/XdMiAPeTBHJq6BQDZ7k634l2fNrvX5RF6YgG5ROawNGC
-	 hhoqDGQpbuxx+2Sf3qlxuKmS7r3ub6iYuYRW0S/+jtdXrbW4BUA//YE5OZZQAd6xwMfe5
-	 k85BIzTFYt26ikm3YxRoe1u9lSJwXvM3z7umNP5zOxCZF/357954NsukHBIhsJLzW7b+n
-	 S92qPb/ai8CantnDeIvqjxIrF5LOWt0HRa/LN8qLYptD/oARbRlDMbX9W9uq71u2z/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795359449;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=dgr77IBaG36yPrVvVHp5fb9PwWOhrPlImk/xbQSfQ91e19Ve2Z8ez4rqBIKDjO8neAFf
+	 FAAoO5TGOpLmeeyJmUQyPbcwyitjrPSIlN/jb2YdCBXPN0GhlHR7WTaaWSkFXpyRw1rba
+	 JIb8JHDrMjbJibP85iMXC+E7tuHNzLpGKZJ6p7z51h5q+RY4re6SMKS8enI3/bHK1pN9K
+	 N3WDx43vJAT7asp1aS8fnbisCyg+d32vB9n7c7ZHhv35IRekzdOw6U8YHxTmIKt/kg6ea
+	 UAXif5UbexWm/urkr3yXLFOdHJl0MNIAbrh/qjdMeL60JXadUbitZ7OceZbYFBWtNJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BREg/BeO";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbIoYxIg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DAF4606A331;
-	Sun, 22 Nov 2026 14:54:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75B18606A320;
+	Sun, 22 Nov 2026 14:57:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BREg/BeO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C782F1F000D4;
-	Sun, 22 Nov 2026 14:54:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbIoYxIg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BD891F000C4;
+	Sun, 22 Nov 2026 14:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795359265;
-	bh=iN/nddxdvRMLU2SkW9x6MGgEnBY1rvCW4Vq0IU091oo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BREg/BeOBdwAJd7clok41drHWisly6ktafnWOSBCuiCCVtqMUhOgRXOEwR38UJAy6
-	 SX87epgJP2Eu3/QVf2oEeuJUxQeSoQPUGn+HKOjdaNa9OUPeHjnXQ0YHo60hQ40qld
-	 ZGvJcJACjFveYKOAsDYfsen3bCwOmfHTdhQZRIpnjsYR7/Hns1+932ozb3NSbNCzht
-	 WtVJ+0jfMxOtPFSTy876LCur3vTSDwZ68zPuQsT6RzZjKwlLt7HL3liB8bAbSFFHRe
-	 y1WnG2go3Kv9NPitpZ0YjStNAfPnQ4BP+uk3xqaqzSHqgETH7uoHTR+e7FcaMSc5H4
-	 i9dZCAoLIo6jQ==
-Date: Sun, 22 Nov 2026 15:54:22 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vasilij Strassheim <v.strassheim@linutronix.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Eric Dumazet <edumazet@kernel.org>, Lee Jones <lee@kernel.org>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	mfd@lists.linux.dev, Martin Kaistra <martin.kaistra@linutronix.de>, 
-	Benedikt Spranger <b.spranger@linutronix.de>
-Subject: Re: [PATCH net-next v5 3/9] dt-bindings: net: dsa: Add SoC-e SWIP
- switch function
-Message-ID: <20261122-camouflaged-pretty-camel-79f370@quoll>
-References: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
- <20261120-devel-vstrassheim-soce-dsa-ml-v5-3-5de9225715e6@linutronix.de>
+	s=k20260515; t=1795359448;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=nbIoYxIgMEEvmV/IselpUHfe912DaaXVtVVUkweDRzYMmg3rBab3HYWHLEsqVLUKW
+	 932HSa7mEBLx5c3/RVOm5ZY7XadKa/q7D45l/WrrBIea+qwGSGGn2vdwnxdGMcSdsC
+	 r1ddJUSeWPyQ/NCM9sEzlPK+iKuov0030cfZyGn8EIjt1sZGWSq/1smAKW4vfWznAG
+	 aRfXB9jUNVe6FXNv7bvC2fpFp/EczASWAutgJul3LH3da4pV29fRlgX4xitFM+X5rd
+	 T72GCrU4LzUkq7svySp4vMjZHhsAZOqS5+atSVZZVMMsgtSCCwOM/5mW9fzlJ9W7of
+	 27EnZLxDGJp3Q==
+From: netdev-bot+sinfo@kernel.org
+To: Aibing Chen <chenaibing@cmss.chinamobile.com>
+Cc: Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
+ Tariq Toukan <tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net/mlx5: fix a stack over-read in the QP debugfs
+Date: Sun, 22 Nov 2026 14:57:27 +0000
+Message-ID: <179535944764.3294.7333899043008623652@kernel.org>
+In-Reply-To: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
+References: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,46 +65,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120-devel-vstrassheim-soce-dsa-ml-v5-3-5de9225715e6@linutronix.de>
 
-On Fri, Nov 20, 2026 at 03:52:20PM +0100, Vasilij Strassheim wrote:
-> +$ref: dsa.yaml#/$defs/ethernet-ports
-> +
-> +properties:
-> +  compatible:
-> +    const: soce,swip-switch-00-04-0c-10
-> +    description:
-> +      This compatible identifies the register layout; its suffix gives
-> +      the offsets of the core version and feature identification
-> +      registers (0x00, 0x04, 0x0c, and 0x10). Port counts and optional
-> +      features depend on the FPGA synthesis configuration and are
-> +      detected at runtime using this register layout.
-> +
-> +  reg:
-> +    description:
-> +      Register window of the IP core. Switch register blocks are located at
-> +      offsets defined by the compatible. The MDIO controller and bus
-> +      multiplexer occupy separate subregions described by sibling nodes.
-> +    maxItems: 1
-> +
-> +  ethernet-ports:
-> +    type: object
+Hi!
 
-I guess this should follow:
-https://lore.kernel.org/r/20261120002549.1908299-7-prabhakar.mahadev-lad.rj@bp.renesas.com/
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-so: additionalProperties: true
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-> +    patternProperties:
-> +      '^ethernet-port@[0-9a-f]+$':
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-and:
-'^ethernet-port@':
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
-> +        type: object
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Best regards,
-Krzysztof
-
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
