@@ -1,54 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378264;
-	b=lF7jyGvpy74Zwi8yNZJkm1RdXzsK6apJhvs2ABcpuhRHaonlO3CMcdXzmqeFea/aEsU/
-	 3ZZsDBQan/6wMATPZ86W0YDTubAlLrHyX030x0T8szs4zwnC/G5bccquSaUmkGVd46Y2d
-	 H/7uRuRl0+9TJCnio1C3SRfyBa/DWmQOelCxFvvAt/x8G0D+/77kvyGH3EwET1Gm7jeE7
-	 H2vVeKhp5EgxN55DNkqU9qDmRKrBCAAG+1hOQOAUkVEVMimHweoBqJBB6f9dRJb6skxX3
-	 0IvJGvQ2t5qwz/gxLqJVxEt+QsUZ2F9iqZKa7SddU8PdqYBHqUTw0au3vsgMDM8QpKQ==
+	t=1795378422;
+	b=d7iNXX5rNCGbgsBYwukUYWjFwTnR1A0KCUyiIwlCeNvyJHMwiSkMULjNDBnASaOz46US
+	 aAGsx1k6l9MVFKNi1NveCtB/MDSVzbAD2sFxj7jMSU6WGCvmzxcDM7gWpL0biOdJB1h4T
+	 0Sk+F1bJt+P9WQ23sRTKY1eBNRwJfC2ZISZU2Fcg477PFZmGx74neDwhMPNjq6Wpel8xz
+	 SpOC5XEgM8QYND5sNL1r9iqdAJc/69LChbd58AzLGqmvcNoTmrR/wu93MO9ycvFBGK0Ir
+	 cztXiFCiiNPbsVjTjHYIcaHTVCuuILr/CEX8ehLwAx2kD8R0Ko8YtiCp5TAwMjHmKcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378264;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=sEFmpJ+5haC2V3cGEPxvQ+66RUItPjqbpYIsDv8CYnA=;
-	b=WoT9xMjik4Wf/n0FZjzkJ1TQw9lUEpvx/9vNSzLW699TZ8gY2NI7vlqalw9ebGUKljQj
-	 Azuytx3+jEp08e2VYiPE0AvKuQHQtuuG6qyg2PxWzLAUEwpD+WYiJNVu5fBt8H1RvOkqx
-	 HH/LCC9O9xctqhydzF7PTDjoFmdV4WtpicreKLjtjPhDRDUdH2CmZ9QvoIejriXozfhge
-	 HwFgDk3ACiYQdbK58PVlD/x53rp7Ke/NUAgyRg7Ejo2cwrYClDcvrbTTw1m7OOgkXm8Hw
-	 N1ZBX//Sn5BzgH6D72amSxf9DG4mOAYlany7s2psTpUvk+6U7UCbwP6SOCPs3/98hLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378422;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=51UHX4Srt09ec1lomLkwc4wOrxJotF+1iVMx5Ln4R3o=;
+	b=0V+NzHYlzbrrUtUHXKxIRFY5xeDM9l5YlFxvBIxPhwEFsWQG+98UdC+cZpdLR+ENM7RE
+	 RxNVmKT3PY/qEyGWpT4C365iTYqGB0hVqxFRRLzfAUuWNgnBEOd8tSk2LC0Go3vaCfkMq
+	 0KQNcodq8YbW8pvCXHVZscYFS48zJWT5j43V1yW+EwDmi6vz/royZ91EGJ2NIjakXkXfE
+	 3llTRKAEoI/9nXCmsqkaTDcuJvGt7WgDSB01DTZnaUFUuLUG9iMSbYFKjvLWp5OdvGcCS
+	 QalWFudcyCSAq3Pqo3vcMofVVPT7NFHNlPfeouhHQLV4nHTP0YzRV4BhgcoolU6NKEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F0l8kK+k;
-	arc=none smtp.remote-ip=95.215.58.36
-Received: from mta1.migadu.com (out-36.mta1.migadu.com [95.215.58.36])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZleViSN8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D37C6606A31A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 20:11:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D37C6606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FD28606A31D;
+	Sun, 22 Nov 2026 20:13:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F0l8kK+k
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=9xtLg+QL7UEJ3bDGk+v/3GEK098qo7k52kt3WPUoKNY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795378260; v=1; x=1795983060;
- b=F0l8kK+kv72h2/HbqRI7XHIIoPefYiB60U7zeKcJZGqFo5ygmQWKmzOoZKO9VLEyuv6YJFUI
- 2bj4lpQfwSkboXgtX7pWVKZv+sGIPwhfismp1eEkWXLOBHS3TNc142ojtumYbdsNCGQfDXYJSFd
- /xknEbg3dqQSoXfC/ala4Fxo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d133a507dbe3a231;
-	Sun, 22 Nov 2026 20:11:00 +0000
-X-Mizu-Trace-ID: d133a507dbe3a231
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev>
-Date: Sun, 22 Nov 2026 20:10:55 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZleViSN8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 238D81F000C6;
+	Sun, 22 Nov 2026 20:13:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795378421;
+	bh=51UHX4Srt09ec1lomLkwc4wOrxJotF+1iVMx5Ln4R3o=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=ZleViSN88BjY16Q2M+ZekAjLmnNSmmvQd8GG0EQA+eaDeU60Ht6xzWZjMGtYl8tWM
+	 rcjBHvA5ATc1dDgo18CWMB8xMVNa+gnQS3NJedaUcadHiJxSaHNuUAnJHuh9dwugn8
+	 rpDcjAcqIh3tuwrmJRpfMZnCbVioqbgAGezZ/wnx+H0h/QNuAToy0q5vHZ1wUhCg+A
+	 QFwXNz/7ogA5tOeI5tLRBgfjBxIe0J0GBPsm4ig2wshqfaMsD3VpuHB717dEkogmbx
+	 zm0wvsu4vygWPYpKl3sOYAq29l28SqW/mohimbgsKn3sVlWTff/zwi9xY9OHxlvClT
+	 rYDoHy/UMSN+Q==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Stanislav Fomichev <sdf.kernel@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Alexander Duyck
+ <alexanderduyck@fb.com>, Andrew Lunn <andrew+netdev@lunn.ch>, Alexei
+ Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Jesper Dangaard Brouer
+ <hawk@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Magnus Karlsson
+ <magnus.karlsson@intel.com>, Maciej Fijalkowski
+ <maciej.fijalkowski@intel.com>, Pavel Begunkov <asml.silence@gmail.com>,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, Simon Horman
+ <horms@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, kernel-team@meta.com, John Fastabend
+ <john.fastabend@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song
+ Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
+ <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
+ <ihor.solodrai@linux.dev>, Weiming Shi <bestswngs@gmail.com>, Nikolay
+ Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, Bobby
+ Eshleman <bobbyeshleman@meta.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ io-uring@vger.kernel.org, Mina Almasry <almasrymina@google.com>
+Subject: Re: [PATCH net-next 7/7] selftests: net: Test XDP on io_uring RX
+In-Reply-To: <av-Udp0GfOjxH9vq@devvm16445.scu0.facebook.com>
+References: <20261117164700.2157816-1-bjorn@kernel.org>
+ <20261117164700.2157816-8-bjorn@kernel.org>
+ <av-Udp0GfOjxH9vq@devvm16445.scu0.facebook.com>
+Date: Sun, 22 Nov 2026 21:13:38 +0100
+Message-ID: <87mrr01v65.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,86 +78,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 1/4] ptp: disable all timestamp channels after
- removing the user interfaces
-To: Ahmad Byagowi <ahmadexp@gmail.com>, netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, arkadiusz.kubalewski@intel.com,
- davem@davemloft.net, edumazet@kernel.org, jiri@resnulli.us, kuba@kernel.org,
- pabeni@redhat.com, richardcochran@gmail.com, rmk+kernel@armlinux.org.uk,
- vladimir.oltean@nxp.com
-References: <20261120-timecard-common-v3-33316bf475-0-ahmadexp@gmail.com>
- <20261120-timecard-common-v3-33316bf475-1-ahmadexp@gmail.com>
-Content-Language: en-US
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20261120-timecard-common-v3-33316bf475-1-ahmadexp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 20.11.2026 21:21, Ahmad Byagowi wrote:
-> PTP_EXTTS_REQUEST and extts_enable can enable channels without assigning
-> a PTP_PF_EXTTS pin. ptp_disable_all_events() only visits assigned pins,
-> so those channels can still generate events after the clock is released.
-> ptp_ocp exposes six timestamp channels but only four SMA pin descriptors;
-> the internal GNSS and PHC timestamp sources do not need an SMA assignment.
-> 
-> Disable each advertised external timestamp channel, followed by the
-> existing PPS disable, after posix_clock_unregister() has removed sysfs
-> and drained active ioctls. Keep the pin configuration unchanged.
-> 
-> Remove ptp_ocp's preliminary timestamp-disable loop. It runs before the
-> user interfaces are removed and can race with an enable: the enable sets
-> pps_req_map, detach clears it and disables the source, then the enable
-> rearms the source. Both later subscription disables can consequently see
-> an empty map and skip the hardware shutdown. With shutdown delegated to
-> the core, requests finish before the final disables and IRQ drains.
-> Keep the existing resource cleanup for probe failures without a clock.
-> 
-> Do not skip the shared PPS source's register disable when the final
-> subscription map is empty. An overlapping extts_enable sysfs request and
-> ioctl can leave an empty map with the source enabled. Once both interfaces
-> are drained, the core's final disables must still mask and drain the IRQ.
-> Preserve the shortcut while another PPS or EXTTS subscription remains.
-> 
-> The source-derived ASan/UBSan tests exercise late and in-flight enables,
-> the early-disable/map race, concurrent sysfs/ioctl requests, active IRQ
-> draining and shared PPS users.
-> KUnit tests exercise real PTP registration and unregistration in QEMU
-> with KASAN and lockdep, using a test callback without physical hardware.
-> 
-> The original teardown issue was reported by the netdev Sashiko AI review.
-> Codex revised the code, tests and changelog when asked to test Vadim's
-> cleanup approach, including unassigned channels and shared PPS behavior.
-> 
-> Fixes: a60fc3294a37 ("ptp: rework ptp_clock_unregister() to disable events")
-> Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
-> Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-> Link: https://lore.kernel.org/r/4e42134b-b017-4836-9772-9c1915b16e77@linux.dev
-> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
-> ---
->   drivers/ptp/ptp_chardev.c |  8 +++-----
->   drivers/ptp/ptp_ocp.c     | 17 ++---------------
->   2 files changed, 5 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
-> index f63b45f5ee6a..193e6baf2b47 100644
-> --- a/drivers/ptp/ptp_chardev.c
-> +++ b/drivers/ptp/ptp_chardev.c
-> @@ -53,11 +53,9 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
->   	unsigned int i;
->   
->   	mutex_lock(&ptp->pincfg_mux);
-> -	/* Disable any pins that may raise EXTTS events */
-> -	for (i = 0; i < info->n_pins; i++)
-> -		if (info->pin_config[i].func == PTP_PF_EXTTS)
-> -			ptp_disable_pinfunc(info, info->pin_config[i].func,
-> -					    info->pin_config[i].chan);
-> +	/* EXTTS requests do not require a pin assignment. */
-> +	for (i = 0; i < info->n_ext_ts; i++)
-> +		ptp_disable_pinfunc(info, PTP_PF_EXTTS, i);
-I thought we have agreed that time stampers and pins are different beasties.
-Still you provide time stamper index to pin function...
+Stanislav Fomichev <sdf.kernel@gmail.com> writes:
 
---
-pw-bot: cr
+> On 11/17, Bj=C3=B6rn T=C3=B6pel wrote:
+>> diff --git a/tools/testing/selftests/drivers/net/hw/iou-zcrx.c b/tools/t=
+esting/selftests/drivers/net/hw/iou-zcrx.c
+>> index 91b025a8771e..f7e909fd6840 100644
+>> --- a/tools/testing/selftests/drivers/net/hw/iou-zcrx.c
+>> +++ b/tools/testing/selftests/drivers/net/hw/iou-zcrx.c
+>> @@ -258,6 +404,34 @@ static void add_recvzc_oneshot(struct thread_ctx *c=
+tx, int conn_idx, size_t len)
+>>  	sqe->user_data =3D conn_idx;
+>>  }
+>>=20=20
+>
+> [..]
+>
+>> +static void verify_data(struct thread_ctx *ctx, int conn_idx,
+>> +			const char *data, size_t len)
+>> +{
+>> +	size_t offset =3D ctx->received[conn_idx];
+>> +	size_t i;
+>> +
+>> +	for (i =3D 0; i < len; i++) {
+>> +		if (data[i] !=3D payload[offset + i])
+>> +			error(1, 0, "payload mismatch at %zu", i);
+>> +	}
+>> +	ctx->received[conn_idx] +=3D len;
+>> +}
+>
+> Move some of the refactoring/fixes out into a separate patch?
 
+Ya, makes sense! Will do!
+
+> But in general feels like a wrong test to extend.. Why not call
+> ncdevmem somewhere in python wrapper (and attach xdp prog that you
+> have in this patch)? To decouple xdp testing from the entity that
+> generates/receives unreadable frags.
+
+Good idea, I'll try that!
+
+
+Bj=C3=B6rn
