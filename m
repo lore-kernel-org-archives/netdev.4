@@ -1,87 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795343023;
-	b=QfUl+vE6UJ/Jk6W5ZLIJCkhXSrECxACskDKCftIT4pBrg6GSKFHoNyNnHpdOxviLiAna
-	 16XLJ35pDoiIX++CTEXh4daBjO4Nxp1LBTh84lyVfeUlwOw7x66Cu1DZvKzNtbcwwgJs8
-	 fZW51Fyffak9UKAsYo3wvRbcofnmfMKjR7wPCqXK/mxJsOdvmktyjZOIbB5/jmynrc2M7
-	 VQ/B6ldNiwaP1n3tPQaGHf2dF7RIhpeC/xYTuo9gy98SuaprVLk21mY/AxbWVnlm82XL/
-	 mHpSUA+uPfdJym086ZCFB5+s0JMABHKgIEarxfFS9bflrg8vOxRX73/hp1O71NZmbpQ==
+	t=1795343053;
+	b=VFnc48WjkSA1Z68PFlH97D/8zW6grmce9Skn31Ws8BcFag6a2IsgUBQknM3jseRvx6+o
+	 eUGO1lzekQIiudyWvAZ1G5hV3l2r16VwssHNWVQxSYVvGizCvh+tz9LfwWzyYmfZc8aYL
+	 OOqXBLoTRJi0BWrcU9rbTiTK3HDkqjoR+FPgc2WUrc3Z5o4/n9REvKd9G6gBtFv1mhs3v
+	 v+eduvrpEb5u3ZfbCyf/BxsqvFsM9IcNKHz0ufN0TA9u5ecoOH8Na4ZqNfNvtIC8qTuDo
+	 sVzliqryDuYUbzxAJfSECmuKgWlLkiIhgMjIzpI4RXN72DHqLYSL2HB3vm6kAU+E0RA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343023;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343053;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Z5ElRnK1KcmWQzg796qjdcPFsrWyUv4vErbWyV6jKEg=;
-	b=y0hTsHoUff1hr/vJ2qvRrM9GlKUvb045HJ+2BUZhaZn4nyXHzLG1Bc5IQZCX9Z4S/rIm
-	 XmrzaifZvYnFHhYjExSzkUx1ZV74jB15yTwOmjVnaZcmcpVf8fKVcnwoX2ex5Nffg24P0
-	 Y4S10zPVhI3jaeZn5XkF4G26rFqdWYQEBzLRpj3HnvyAGlzwu/Jfi8rx12iM5QFUKCVUB
-	 FU0l6NNJ6zxvWMKSk2br7mx+wlwJje1B6Iupe2F+Q4H85rFDhwozuAwMBqpmnEe0evFWh
-	 FGchpXxXAMRRJM/XvWwIMXXla+PZ7XOlj7TjtbIPrdUURA26oluoCBkG2OqsClSPU+Q==
+	bh=reglDfAhKiwuYAIh/SV2FcRa1BwWNxgt4nMLKMTfz3c=;
+	b=Plnvu6qH0Ez/DRijO23lYGcGd441APNrJG9HO41smDmT5xAW4Vy2gM81MKcJiHbTP0jn
+	 /Uyj8fiKDliCFYhnf30vuBiinrzS9rIOplCo4tTnvYlyVRaYNrM8RjBJkQp6/in+4Kld8
+	 qXRCC0giKWKz7USYbgFX7L1eKu5HhnC9FeoeQBiaPtmJ5nWEKHVE+VDeasBkvxDY2Y0LO
+	 Gh7CWpplGIgn+PiNEvBWDuQzp/WaW8ACkhqjHQrHhC+LAwwLvR0l5XBMjQQp3o4/4HceV
+	 CxemtFkNPPWb+hXIDSMSq1jlYAteTcVBIpVGHFdaC4ZeBnQo1Gf9x43tZXpB0RsgZBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=YnhbfU8q;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ7coL3g;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1112C606A330
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 10:23:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1112C606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4576A606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 10:24:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4576A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=YnhbfU8q
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-491971ac844so2096639f8f.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 02:23:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ7coL3g
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8c4cc85a315so1792644b3a.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 02:24:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795343021; x=1795947821; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z5ElRnK1KcmWQzg796qjdcPFsrWyUv4vErbWyV6jKEg=;
-        b=YnhbfU8qYUZS02WO6s4axbDVc9h5DJFfk9I29JCcMD+styoAIUcakV4qcy+Z8bdNdg
-         Cd0WZIClm9yvpavsH0GTft0p7+xkTq18m3kLioc9gaqX+3RhvEkZ9XHI1M42q7TcxGMJ
-         ncAHuEQQQVAzdH+EG2Mm6oTLQJWqzzpnsQ0M04e8H9OnCZJX0bbKnHi7L3PzEAPuQ2vx
-         BQxa7dTyf91S1zFPTzyLrGIERlKTpYLDNNDGht9imCbXSXvQlos0uD0uhbJiW1rEPG1/
-         6kKbEG7As9IiyUtzO49ePN6W9jrjHmz4ZKvGhC7i+Ge7oc+Xm8oSEiLdpnZa4hWohYr+
-         tC+g==
+        d=gmail.com; s=20260707; t=1795343052; x=1795947852; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=reglDfAhKiwuYAIh/SV2FcRa1BwWNxgt4nMLKMTfz3c=;
+        b=ZJ7coL3gEISJl1PLlqY821FIpesNyJPZ9oZy8hSoA+OWxvgoggA01SeZsnpXWEw2ii
+         BFYB6oXqgYny6UHivRXVrZKQItcGULyRPqk4+TYm0rfdbv3JnwNZoU6+bxBC3dItO5Z1
+         asM/9muWf1EM+0ids3eOdYhVvAzVNIOgH2eXtFq5i5E6sOzJBRC26IKSuIrGPyqqaq+9
+         EuDPQTYq//irCGiWokrunYABuDiWXGFyUrnufK5GUK+D6jxE5KoMcPS1rV7b/inpi5bj
+         xgyuJX7CIwsOAIZtCtaWg5fagTJt4U5/3uXxmSCGMl1QO8WbMeI4e65ovcfeKR/5WzW1
+         oAvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795343021; x=1795947821;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795343052; x=1795947852;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z5ElRnK1KcmWQzg796qjdcPFsrWyUv4vErbWyV6jKEg=;
-        b=1LcG7Aon1mjoMEc0UDjcWcRiqJc1ax2dxRweeVD9GFAJfhVZY6HcpFAHhS3omeNXAT
-         3oRAJkYFQplVnYsHLZQq1PZk5yKc12W2SUW5lZb5GC0TULMO+iGgfbxelJZwq+jHZh4a
-         SKr8tmDT1n1MCUQ9CNWBj8Jv+Vd/iSHpxwh4Vexv0le6WVerYSqlaElB6RsFoM9b0V1Q
-         sxAckgMkFNhSC8A9l6xhbTl0vRDhjguAoXTroHr2EDlLM5ZNjmLZogEck9ZTq/M0xY4d
-         SySYHKQjXqQukogz3WgJVCkGu0Wmw2iBrJhX2YB1+3o7XKGifuwIhg/pvkbxj/XRIF1r
-         mj/A==
-X-Forwarded-Encrypted: i=1; AL+hErFMrdrc/nr0yjMPvuVG6llA+nJqfkqcXOrLw+XGFBSU9BtNeCHRNQyVqmGxQLWbLFHVyv80uHE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+B/++P18BD0QDlngPbfXbyOp/+NOnJBzzpXP0Oqpa6nINLfSwu
-	e6YwhxnzRg6dgM0nPcffi0iu7GLQXfoEexadwEw7LeUKU1qSVkVgl7suakUnxgwnE38=
-X-Gm-Gg: AZFdTZckNnIc0WTYbp18DSl4ngbckdmjwVbSbjyMXFu2wZnJeePIlIe6I+AB9J/sMNh
-	uAhKUDi97xG551qIPZyknIOsWCv1cspQW0ne49IEYCz6tGfvh5A2TZyK8EeIiI9NZFIcUwaxL+6
-	W4/RWV8+4X4DwcbT3mP2H1NB3YcgYKBwMbvJUhGr5wCqTxV4yCAO/9CEtTQiO0b336moh3BNcd6
-	DgZCA6EaRCifDb8V6GQgcBl9b4W7bP3x2dABQ+TiF1QJpQGysyqlt7ljDvZYGjOtGIfBo1ZUDky
-	KKqX57hzsPntMFsnrztZeXYGXclpJmjWprKzoXT4i0pSrySgn8gXdWiApx4CwfpG3KrrY+RqoPx
-	FpvdhQ7L1ZyFWgKEnPJpbjFDhu+4PwoCe4CDidDsJgyGjbrW7KeVjXsbxGvtQ2+730oEyWMT17O
-	rfuIR2v2NxIlqiEPT1YuG4oEzrHo/a/KBbNCmF/ap19O9ZDm2aLwgDijrnKbC7A4Gn36d3xSVGr
-	IZ6D0VcuWBftRW62JgAlNhbhlcVlOmq4R60FvH6DMLa264dQpvSj5NU9GTjEqcYfLVjdZ7U5xac
-	dVQa/iANSZOaIq33wy7QIfGpDMC/O53bCkU7f6KySp5GwVuBPsV4vX1Vo4Y=
-X-Received: by 2002:a05:600c:37c9:b0:4a4:4d57:8487 with SMTP id 5b1f17b1804b1-4bb887fe7f7mr158409615e9.5.1795343021420;
-        Sun, 22 Nov 2026 02:23:41 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm163162455e9.2.2026.11.22.02.23.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 02:23:40 -0800 (PST)
-Message-ID: <60766188-3c81-4d05-b684-811136c26f91@blackwall.org>
-Date: Sun, 22 Nov 2026 12:23:39 +0200
+        bh=reglDfAhKiwuYAIh/SV2FcRa1BwWNxgt4nMLKMTfz3c=;
+        b=k/jEapv9gTXIiVy4RwkclnJcemiXE50udhuSzkEYatP87MVkCjjzG4JFVDob0Omcvs
+         iCQ3U4R/68gFsMl3Uv68doBsmZ2So2b4/G4tVH79NpRn5rjUjyb28FsZtQ8ouCvLA1UM
+         Tdb30Oqtp2I6en0a9rF0G2JuYbYQSkV060ax/RBCyh5duj4vNgFNyiGPB9E6I7QAIywO
+         tLwsNUnDl34xcVDMDe948xXLqVrJM03n2RbDioCyKwwDucm9m+db0OYHfgEEo6tplMQ/
+         nCJnXghIzMykt40NTpmPY4B1x4jBVuz2fppfaLHrm1oyI4kTO08+XFt33H6/oO015/lX
+         ARMg==
+X-Forwarded-Encrypted: i=1; AL+hErGiYF/0hyT8nd55EIBLvx8Rvq5ZJgkFH0e20bKecW9sRabYxUwzbLqwLMnfqlOcCUqoSl3oNEE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+om+AwCyzd0q4gFTRtZVQNgsvxnZGCG4x2rKIqc2wZhRgdkTbj
+	IG/N0/kV68LQM4plIC3MBENMC5PkBxS6Hu/i/yLDcW3Imm9Z0MuhIzQX
+X-Gm-Gg: AZFdTZfpo2rrMukYWMO1Bm7DP39WFthNcJ2edGfidR0LJqP45VJQaUGfnIdqsQli3M3
+	mpP4bj507U/pUBlrFlPyiPsTA/+T0geti9KOiExo9OhVltY42aKOa1llGws8dqP4ZBakvHo1Pwn
+	O6wqwKbUUU7k/stmKJzVCvZTBr5Pu6yNHvYxdHtMD8nVxktN6C8Hxs35Lxwl3vdrger39cqeti8
+	yHmENUowmYTwHnM3dl375u7XVpsowEeoC9g7fn8uiOsWXG9kKZaanIDX+dMQkeU59UVV4jraT9d
+	EL4429v4BSucUVFWjzJ6QcHwU4unRew7W1KLRYrBsy2cKzFxXkxnN05fqpiZFb5xu+n9sy2v/Wj
+	htKdoGjXH+aQFnorxCe6JwAlHzVx2YwID3jccLRZbvnkzEH+ppGnOHyJzCevr+gHT2CbB88bOf8
+	vb6RVPmqrBZEn07tn+6TN7pzSKrrXnhtTCDA6PD8+1dezvHguwYxGMKVG7BHHDZQcbxBdBoRADW
+	valp2BhPBFZh+mTCmfssywPcLRVMMPIgypGyPrAQjqRJCwy7CkHjyClFUpHdeYmDLnKvxIDEsyM
+	o3qKydCsbOGpRDNOusY+datgvIV2G6IRUZRjQ655QfLLwWOHm4ALKkoXCAwDR9wMIjQ=
+X-Received: by 2002:a05:6a00:2389:b0:89d:7f51:6492 with SMTP id d2e1a72fcca58-8c87c38b44bmr7939461b3a.32.1795343052585;
+        Sun, 22 Nov 2026 02:24:12 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3968398b3a.36.2026.11.22.02.24.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 02:24:12 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net 0/1] ipv6: fix MSG_SPLICE_PAGES with a dst trailer in __ip6_append_data()
+Date: Sun, 22 Nov 2026 19:24:06 +0900
+Message-ID: <179534083350.2499182.16169984227830330896@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,51 +101,27 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 2/2] selftests: bridge_mdb: Test failed source list
- replace
-Content-Language: en-US, bg
-To: Ido Schimmel <idosch@nvidia.com>, netdev@vger.kernel.org
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- edumazet@kernel.org, willemb@google.com, horms@kernel.org,
- dsahern@kernel.org, shuah@kernel.org, bridge@lists.linux.dev,
- linux-kselftest@vger.kernel.org, kyuwoncho18@gmail.com
-References: <20261122072504.2623702-1-idosch@nvidia.com>
- <20261122072504.2623702-2-idosch@nvidia.com>
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <20261122072504.2623702-2-idosch@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 22/11/2026 09:25, Ido Schimmel wrote:
-> Add a test case for the issues that were fixed in "bridge: mcast: Fix
-> source list rollback on failure". Check that a failed replace of a
-> (*, G) entry does not change its source list, with one of the existing
-> sources specified twice and a new source.
-> 
-> Output without the fix:
-> 
->   # ./bridge_mdb.sh
->   [...]
->   TEST: IPv4 (*, G) port group entries configuration tests            [FAIL]
->           (S, G) entry for source 192.0.2.1 deleted after failed replace
->   TEST: IPv6 (*, G) port group entries configuration tests            [FAIL]
->           (S, G) entry for source 2001:db8:1::1 deleted after failed replace
->   [...]
-> 
-> Output with the fix:
-> 
->   # ./bridge_mdb.sh
->   [...]
->   TEST: IPv4 (*, G) port group entries configuration tests            [ OK ]
->   TEST: IPv6 (*, G) port group entries configuration tests            [ OK ]
->   [...]
-> 
-> Signed-off-by: Ido Schimmel <idosch@nvidia.com>
-> ---
->   .../selftests/net/forwarding/bridge_mdb.sh    | 23 +++++++++++++++++--
->   1 file changed, 21 insertions(+), 2 deletions(-)
-> 
+sendfile() of a UDPv6 datagram that needs fragmentation over an xfrm
+tunnel hits a WARN_ON_ONCE() in __ip6_append_data() and fails with EIO.
+The patch removes the MSG_SPLICE_PAGES branch that causes it, as
+proposed in the report; Ido asked for it to be sent as a patch.
 
-Acked-by: Nikolay Aleksandrov <razor@blackwall.org>
+Report: https://lore.kernel.org/netdev/179497871649.630760.14878797494884573363@gmail.com/
+
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype; the report has the reproducer. The
+patch was written with LLM assistance; we reviewed and tested it. With
+it, the reproducer runs clean and all its sendfile() calls succeed,
+where they all fail with EIO before.
+
+Kyuwon Cho (1):
+  ipv6: fix MSG_SPLICE_PAGES with a dst trailer in __ip6_append_data()
+
+ net/ipv6/ip6_output.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+-- 
+2.43.0
 
