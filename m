@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795370479;
-	b=LxUNrS2zTIa8F2m6yn2UC4xYeKcvVlslUhuajQujVc6LfeBElpHahiP4JOgFwmQmhVPN
-	 elKJO62us/ZD7n55/WbMkRY0buxVk07xsHvg2HzyNjraO9uJFf0tElKajQ5MroCqW0Qlm
-	 y17hVO9DCceAGRAxEQujoGvVHErqkWlK+LdsMkxi2Jd02iaN+2xMGyOtUBJxgDpJIdSSs
-	 OxSEIsauC6z2/JEvzQSbTd9tFI7H4dgpnontHT854sWmJhK1qHETQzf/7ZfwSdUmpPUhe
-	 bw4SZ0SFZ32/mefacwz7dZgv1Nol4WR8vnJtCx0It+/LeXqz4a1gVjMCHYB8w44B/9g==
+	t=1795370655;
+	b=3xEUGYrU7RcFaxQaOBQq8MD6VGAMXE++iYG5ErM6bBdfDTO/C7v2H6js4nc8AYGzcIYR
+	 1YjIGAiUzrJ8A6W3DnrWF3YfNVbMcBpxj+12Is9NB45G5uNRJEC66St6lEoTMW79NSmBL
+	 JoLa0xJJhxNguZx6EVdQOQDh4iK/uVax1wkT3aIh6AvEcBaJJty/TKIKuYyQ/KvtdRqAb
+	 20YCtrf2bCXG9uiqPMJI11zxjZtk6fCS4WIbCz474eW/8fXHGTSOdeqlKVFdBedWsue7e
+	 rjBCr1L5YUuYjuPHDiXfBoFy+m8QM8Pn8mFI0Kgh0QJ9Q1MHhS8qzKPLQT+6b5UkA4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795370479;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795370655;
 	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
 	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=Z60uyFtNx0VkzpRcWhKH9sXU8xECnZhyM4KOZOe5aGc=;
-	b=AJZBmfyxJxuu1K49bzUbQ5qvBjkmHPm2zD9Lfzs3TatFvJy7kFaB3CM8YoR58u5RDIL/
-	 GTvARYSupYPPqLFq3sb/kTJyJ7xe+L5gFZT+jZjJjpWdD35rO7l7yGR2ChLoULPIcBoXZ
-	 WHSWvwmCVC7NiEL28WdDY46W7IHKc9RQbaD7zHnxKcAhENrkz3NC2UHuj9lcv8cwL8+9M
-	 XNFkRqRmqWAlnLBdW2acqCzK22xp47wCLkhlzxaGsk0ctt+flyl3wk1W661wK8uoWaO8Z
-	 bKOnuJTpVwShp784ZIBdhNr12rW7//QLHRWgwKmhYV/m8YisifsOqsTpmGpHKEDRvuQ==
+	bh=6Lc651tZw591zP/x8gbrBWohPZ7rxL+7CL7hNZTGcfE=;
+	b=Igag3T0dOURVbK1kzaIX6Yc3lRQ1AmjhQQRnomPhNiD92H5a2nKuRhUL40flfuV4Juct
+	 qFicQquk+2esqeg9fbcH85/NeTqz7UtogzZ6zoJIhCP3+tNh+P7VnnoNmxWf+Kzn1gVlt
+	 q4MiDJpldSv9DdHpGPDYmiTRE/kx/MgVrl2qdtNrMRGCziedkAlUk8dFTPaZFzSBhgwni
+	 JrsJuBdujfbwMt+pQycuKTcHBQZtGpG/4XwB4uEiynOrttu3M6i4aQ3hBGkgRMNmTBxJj
+	 KVtnhIzijSeUbtUJgGJNiz4Fx+z7HbwOssW3BpyTZ6vZd/zdsVrvvcD3JzEeIQmGnnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b="CTNMY+A/";
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=C8Aia4O1;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E60606A32C;
-	Sun, 22 Nov 2026 18:01:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31E60606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C73A606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:04:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C73A606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=CTNMY+A/
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E227CA03D9;
-	Sun, 22 Nov 2026 19:01:11 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=C8Aia4O1
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 571F7A1583;
+	Sun, 22 Nov 2026 19:04:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795370475; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795370653; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Z60uyFtNx0VkzpRcWhKH9sXU8xECnZhyM4KOZOe5aGc=;
-	b=CTNMY+A/tNuJm6+ioyIbJFdxpOdWp+hvte3qKpCKloOoUBx7Np3NnT8y1pHHD7gJBI5TA0
-	92+uWojbeS7No/UvGcNnMK4+2FVIREH1yImWGjnpCMmK2gqr6yyzREWJ0qxaIz9Xbaut9c
-	qtCHtNEocCPO/7qCwxwFbvrnsZc0VPEvgWfInKbBQLKGdOHUQTwhsGlKM2uio6wv5UjHHv
-	A6xFHbjV6kYoFPzk22yGQ5vfdezNSmjYrrg6BYofd4xm6eWb0CW6m1My2JACuv6Licd/AA
-	PT9VlLcPqRn++GBUTp5d9ep1oUxm+Y0vYJRAP/HPiJVdWin1IoOsEwnsRcGnow==
+	bh=6Lc651tZw591zP/x8gbrBWohPZ7rxL+7CL7hNZTGcfE=;
+	b=C8Aia4O1UzdCosPUW+fBV5O/aDX9Y9p/gNu8GbiReBroU10OujAbziYi05tijAEWDD1awz
+	C+wIdv1qHxnv10+jIO+ZJ78e5tXY+JyGuPwwNnDxYeRiGjj2blWl/ucuLCjptUVJpDRPD6
+	IxKPiBFkpc3xMFcy0PoF4ckbV7EmCCU/sTZehnAH4k5tFVUr437CJBydvgQoVTnT+n9tMD
+	WYD8/YMBmb6WlDWTFY+TTUwQgGLrY77xJbBYM6rgQMiCgsjXKYudFxQq+c4pTwGDitZd+Z
+	N2A1t9Jy9hWFzu9FQh8MmMRXjkrIpLajoC7p5eMbxpFcpkpLi3x4IRkhc3ZLuQ==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,24 +53,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sun, 22 Nov 2026 19:01:11 +0100
+Date: Sun, 22 Nov 2026 19:04:12 +0100
 From: Nicolai Buchwitz <nb@tipi-net.de>
 To: Anandu Padinhare <Anandu.Padinhare@electrifex.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend
- <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Sam
- Edwards <cfsworks@gmail.com>, "Russell King (Oracle)"
- <rmk+kernel@armlinux.org.uk>, David Wu <david.wu@rock-chips.com>,
- stable@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: retry a failed RX refill from a timer
-In-Reply-To: <MA0PR01MB921746F36D90C7080287ACC9FD782@MA0PR01MB9217.INDPRD01.PROD.OUTLOOK.COM>
-References: <MA0PR01MB921746F36D90C7080287ACC9FD782@MA0PR01MB9217.INDPRD01.PROD.OUTLOOK.COM>
-Message-ID: <9d8cdde77beedce76aaaa1c5a7a788dc@tipi-net.de>
+Cc: maxime.chevallier@bootlin.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+Subject: Re: [PATCH net] net: stmmac: count XDP_PASS frames in rx_packets on
+ the XSK zero-copy path
+In-Reply-To: <PNYPR01MB11444552E41C2B17A992492C0FD762@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
+References: <PNYPR01MB11444552E41C2B17A992492C0FD762@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
+Message-ID: <76eb00ac442816ff06e7b9d338d9bf1d@tipi-net.de>
 X-Sender: nb@tipi-net.de
 Content-Type: text/plain; charset=US-ASCII;
  format=flowed
@@ -79,22 +74,42 @@ X-Last-TLS-Session-Version: TLSv1.3
 
 Hi Anandu
 
-On 20.11.2026 08:49, Anandu Padinhare wrote:
-
-> [...]
-
-> @@ -6164,6 +6205,8 @@ static int stmmac_napi_poll_rx(struct napi_struct 
-> *napi, int budget)
->  	u64_stats_update_end(&rxq_stats->napi_syncp);
+On 6.11.2026 07:12, Anandu Padinhare wrote:
+> In the AF_XDP zero-copy RX path, frames that the XDP program passes to
+> the stack are handed over by stmmac_dispatch_skb_zc(). That function
+> increments rx_pkt_n instead of rx_packets since
+> commit 133466c3bbe1 ("net: stmmac: use per-queue 64 bit statistics 
+> where necessary").
 > 
->  	work_done = stmmac_rx(priv, budget, chan);
-> +	if (unlikely(stmmac_rx_refill_needed(priv, chan)))
-> +		stmmac_rx_refill_timer_arm(ch);
-
-After a successful retry, doesn't this leave the last received frame in
-the ring until the next RX irq? Could the poll refill first?
+> stmmac_rx_zc() already adds every processed frame to rx_pkt_n, so each
+> XDP_PASS frame is counted twice there, and rx_packets, which
+> ndo_get_stats64() reports, never counts them: on a zero-copy queue
+> rx_bytes grows with the passed frames while rx_packets stays still.
+> 
+> Count the frame in rx_packets, as the regular RX path and the code
+> before that commit did.
+> 
+> Found while testing AF_XDP zero-copy on an ADSP-SC598 (adi-dwmac,
+> 100 Mbit/s link): rx_pkt_n grew almost twice as fast as the frames the
+> MAC delivered, while "ip -s link" counted almost none.
+> 
+> Tested on that board with a 6.18-based kernel, whose zero-copy RX
+> accounting matches net. An AF_XDP zero-copy socket on queue 0 received
+> frames of one EtherType while UDP traffic was passed to the stack. In a
+> run with 60 s of traffic before the change, rx_pkt_n was 1.88 times the
+> frames that reached the driver (MAC frames minus RX FIFO overflows) and
+> "ip -s link" counted 55 RX packets. In the same test with the change,
+> rx_pkt_n equals the frames that reached the driver and rx_packets 
+> equals
+> the frames passed to the stack.
+> 
+> Fixes: 133466c3bbe1 ("net: stmmac: use per-queue 64 bit statistics 
+> where necessary")
+> Signed-off-by: Anandu Padinhare <Anandu.Padinhare@electrifex.com>
 
 > [...]
 
-Regards,
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+
+Thanks,
 Nicolai
