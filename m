@@ -1,44 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795386445;
-	b=5rlo5S+h2toAWE8klvyHMp0UKkKMQxmnvXp3CWEvVyegP4IPxSuzBthxt4UlEWIdBpaM
-	 c44f1hJCgoEIH7UTtYWDAL16aEInvzhnvk0Rne2l5m7TGfvoFVZF3sHjpTTnPwF0hgMxI
-	 KBVtRhSc2DnHG4+RiphwuMsl4CbiYokYb8vKItVYH/Lm4cWftKswJGDbR4wuRy9yGG/OW
-	 jWhTaMT/2jx+zvrDtYCE1OwxLlgoWNJa2npE0ccpwG+ujOU+WRq5befWFlJoU/+0weFUF
-	 HVWtmtF39SKJ2ZcBc3GnRUYRA4g6UhvSMAp8jFi9lMylFIINv7n2RdxRbOaxV4OgHXA==
+	t=1795386447;
+	b=dFNQhpvULrlGcH8SUH0pgQqVVCW+RaHEebQ/k01kzuEsNzmQ6O0Q1QeQSmGUiLe2+Uh1
+	 jmq4QoSuAOc8BQ0CXCAoqwLoPxyKCT6i/wARRgM+3Xu60zASNsTFLtUmZQqCVMAGIC9Yv
+	 3lAbzN7QO98Hnr8oJxu7b4bhjd5kN4+XlXmfe10lDQVO6tXMR/nQGRGdftXkzWwvl4Rfa
+	 chuNXrAdvZNV0bkUCKg7zrrBCsSTUivQCO9TA5VP0A7IayMOPAETt1U5/9yFtxHS7CDax
+	 4XyC+QeVW2hYudgXf1jvCGzOHYshnRQ+kHXdJSu9WNjRpa9DjXbtM+kGjBZYWg3eYfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795386445;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795386447;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=2WZffXl3jyJwMwq1Py6aVFOiURpXuHsFngoCMEWO3L8=;
-	b=BEWiFLTl1kt+KkCB3dD/h8VXhG2wk/nlEP9BbOqT7RPSXuPtpEQ/riFsJ/ejQlfLUnTO
-	 NM2kOW8nEPmLIAcD3BgiAP6ZAYHyfw9fbzSweKgFeGb/in0PHI4IKvks2Con8u3dw982A
-	 Si9X/B/OqVBMJDJwinJLoqpGtoWwncw2uxhHWgF2AJBi8Rn/FnqLamSGinTvyHFSm1YZR
-	 QpmhKuOYzg/VIg8Xl6lnN3V7by4jh6gSm4oyuCsxUW9q5N0jPZHKAHwcGikX5qVR+2P98
-	 eAey98H4vkzK17sfBJIhpBqqCf88nIZgeCUNxcAb3Dx+oNFx/vPSrU/fbirTDry31ig==
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=SQGxreFvwYENeUZGV06pLRCy1qyVwBxoDVTj9ix/ieQ=;
+	b=s9/yqb1ezE4vvO0BVXVeKVmj4N/OxPoOly3hyT+/6C3npWCU2uTfeU2BeGmFseOPRnjR
+	 5PDDPrq+wxuCOzpJN2bUqqECVGynYQLsvq0ayMR41Ni37Aq0jtlDPreEjf5PHGFcHK0uu
+	 h+Ym1MlgBVPyJHgTALcumHo+892BpqOEYc+O7Was677ri/NcZi96eRwU47l8TMS/kvV+4
+	 Zd5KCiEQKhQaLgFVK3E/g2SdgleRe3ovug+O3qn/nDFkraMD4taY8GAy3x3v842+WeY2b
+	 Q+KaTW19FCppRIDeAYZbhBFnjyZjBhfNd4d8OlK+pVC6XfjkBTiUpoY4VLjTySWuBiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+85ME+L;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o2EN7JlE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7092606A31D
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:27:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0479A606A32C
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:27:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+85ME+L
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 140801F000F2;
-	Sun, 22 Nov 2026 22:27:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o2EN7JlE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 326971F000C0;
+	Sun, 22 Nov 2026 22:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795386445;
-	bh=2WZffXl3jyJwMwq1Py6aVFOiURpXuHsFngoCMEWO3L8=;
+	s=k20260515; t=1795386446;
+	bh=SQGxreFvwYENeUZGV06pLRCy1qyVwBxoDVTj9ix/ieQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=i+85ME+LacJSbtEWCRFts2exPWeFai6+QxAaMLYyfsrDnSsBsgWWp3mXam9Hljg+y
-	 TtyFRMNLwG5tcGUb38nhnJ5ftGeKhbBROh0VWOHeRdNlyFkK+fWIcIPkNcaPg77bsH
-	 CXISjIxGAs30yplOI4TM67stKPY7BOZCffG1Id7mqp+vYNZm1+Z4wCGekLfvku5xqJ
-	 iHyNziIfjSAm1/z5kENMYFN2xXXGC+JkBa0uGMT4xYFdar0kzilV9FoyGrzxfDfmWl
-	 eluseu0zxVioCOF7a/towZcroBsN5EnX/KXqhNpyS/homh4ETBWCv2X6l3O1COBnA7
-	 BtXltMCHBXqdw==
+	b=o2EN7JlE0M7ZKSZn+uAM3uIMYZ9hBC6R7NHzZa8y74hAqFGZ0AM01W93KCEtgjEEM
+	 Sd3o6Gs8YE9m3MB7w9p5v6ARWlJTL8De2+iNouAZCrPBcNZf/gSUj7YURuMkT4N21v
+	 2p/cf0AhLKm9/q0WcULsAg2vPjQFYevJuYT90ECPkPmzpn4rVCzMT0FgmMaDjcKhfV
+	 IkTp6AKf7a8/k1ncOwm2fHd8ts7ffn7o+xG92k5qz3Zlhn8fS+wGhFrSo++mHJuAXo
+	 1axAQVXhyqWDfTOFTBLM8cBP9F1mgZZ7Tv8XtmLEqeGwOXhg7DpYyOm0j4BSqDuaH0
+	 fEUxKrAaFc1Kw==
 From: David Ahern <dsahern@kernel.org>
 To: netdev@vger.kernel.org
 Cc: ralf@mandelbit.com,
@@ -51,9 +52,9 @@ Cc: ralf@mandelbit.com,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
 	"Claude Sonnet 5 . 5" <noreply@anthropic.com>
-Subject: [RFC net-next 3/6] nexthop: factor out nh_has_f6i()
-Date: Sun, 22 Nov 2026 15:27:01 -0700
-Message-ID: <20261122222717.126333-5-dsahern@kernel.org>
+Subject: [RFC net-next 4/6] nexthop: bump the IPv6 route generation on group changes
+Date: Sun, 22 Nov 2026 15:27:02 -0700
+Message-ID: <20261122222717.126333-6-dsahern@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261122222717.126333-1-dsahern@kernel.org>
 References: <20261122222717.126333-1-dsahern@kernel.org>
@@ -66,60 +67,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 From: David Ahern <dahern@nvidia.com>
 
-nh_rt_cache_flush() open codes a locked check of whether any IPv6
-routes use a nexthop. Move it into a helper, placed ahead of
-remove_nexthop_from_groups(), so the next patch can use it there as
-well.
+IPv6 dsts are invalidated by bumping the netns route generation, but
+two nexthop object changes did not do so:
 
-No functional change.
+ - Replacing a nexthop that is a member of a group only bumped if the
+   member itself had IPv6 routes, not when routes used a group
+   containing it.
+ - Removing a member from a group republishes the group array without
+   any bump, so dsts built from the old group stayed valid.
 
-Signed-off-by: David Ahern <dahern@nvidia.com>
+Bump in both cases when IPv6 routes use the nexthop, directly or
+through a group.
+
 Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+Signed-off-by: David Ahern <dahern@nvidia.com>
 ---
- net/ipv4/nexthop.c | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
+ net/ipv4/nexthop.c | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
 
 diff --git a/net/ipv4/nexthop.c b/net/ipv4/nexthop.c
-index 42e55b5a755e..53431fe7d328 100644
+index 53431fe7d328..7cf496589f4f 100644
 --- a/net/ipv4/nexthop.c
 +++ b/net/ipv4/nexthop.c
-@@ -2109,6 +2109,17 @@ remove_nh_grp_entry(struct net *net, struct nh_grp_entry *nhge,
- 	return false;
+@@ -2120,6 +2120,21 @@ static bool nh_has_f6i(struct nexthop *nh)
+ 	return have_f6i;
  }
  
-+static bool nh_has_f6i(struct nexthop *nh)
++/* true if IPv6 routes use @nh directly or through a group containing it */
++static bool nh_used_by_f6i(struct nexthop *nh)
 +{
-+	bool have_f6i;
++	struct nh_grp_entry *nhge;
 +
-+	spin_lock_bh(&nh->lock);
-+	have_f6i = !list_empty(&nh->f6i_list);
-+	spin_unlock_bh(&nh->lock);
++	if (nh_has_f6i(nh))
++		return true;
 +
-+	return have_f6i;
++	list_for_each_entry(nhge, &nh->grp_list, nh_list)
++		if (nh_has_f6i(nhge->nh_parent))
++			return true;
++
++	return false;
 +}
 +
  static bool __must_check
  remove_nexthop_from_groups(struct net *net, struct nexthop *nh,
  			   struct nl_info *nlinfo)
-@@ -2248,16 +2259,12 @@ static void nh_rt_cache_flush(struct net *net, struct nexthop *nh,
- 			      struct nexthop *replaced_nh)
- {
- 	struct nh_group *nhg;
--	bool have_f6i;
- 	int i;
+@@ -2127,6 +2142,7 @@ remove_nexthop_from_groups(struct net *net, struct nexthop *nh,
+ 	struct nh_grp_entry *nhge, *tmp;
+ 	LIST_HEAD(deferred_free);
+ 	bool need_flush = false;
++	bool have_f6i = false;
  
+ 	/* If there is nothing to do, let's avoid the costly call to
+ 	 * synchronize_net()
+@@ -2134,13 +2150,19 @@ remove_nexthop_from_groups(struct net *net, struct nexthop *nh,
+ 	if (list_empty(&nh->grp_list))
+ 		return false;
+ 
+-	list_for_each_entry_safe(nhge, tmp, &nh->grp_list, nh_list)
++	list_for_each_entry_safe(nhge, tmp, &nh->grp_list, nh_list) {
++		have_f6i |= nh_has_f6i(nhge->nh_parent);
+ 		need_flush |= remove_nh_grp_entry(net, nhge, nlinfo,
+ 						  &deferred_free);
++	}
+ 
+ 	/* make sure all see the newly published array before releasing rtnl */
+ 	synchronize_net();
+ 
++	/* a group lost a member: dsts built from the old group are stale */
++	if (have_f6i)
++		rt_genid_bump_ipv6(net);
++
+ 	/* Now safe to free percpu stats — all RCU readers have finished */
+ 	list_for_each_entry_safe(nhge, tmp, &deferred_free, nh_list) {
+ 		list_del(&nhge->nh_list);
+@@ -2264,7 +2286,8 @@ static void nh_rt_cache_flush(struct net *net, struct nexthop *nh,
  	if (!list_empty(&nh->fi_list))
  		rt_cache_flush(net);
  
--	spin_lock_bh(&nh->lock);
--	have_f6i = !list_empty(&nh->f6i_list);
--	spin_unlock_bh(&nh->lock);
--	if (have_f6i)
-+	if (nh_has_f6i(nh))
+-	if (nh_has_f6i(nh))
++	/* dsts are validated against the netns route generation */
++	if (nh_used_by_f6i(nh))
  		rt_genid_bump_ipv6(net);
  
  	/* if an IPv6 group was replaced, we have to release all old
