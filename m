@@ -1,89 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.128
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795347448;
-	b=ceLHXGAfy2C0gqxZlBFLmP+DJJUXlVUPUTAxroT25K7GuK3z0+09Vnq9lVnnEkYmQj4Y
-	 NRaz6vZEV8cqC8IaByqXRSinyPzqKYLyMg5RjEWda9sJZUNejRrK41KTDXbPMtG0voN7q
-	 rw8Gl7b3eVCGiWJmjYzbzdDVEwI0q9CsWczAVA/o35z8WD9GXEFL1bwp7mHkMUEmSjfsT
-	 udgaXlPdxdHRN4As6E9brOWL+wQRIHCVP3u4UbCu4R85hNFqbSJJd/WP4k4htADSo43pQ
-	 2DzJV7w6OyHED6AiWNd0mUjjIEj3SgC8N5gKr/i1XTT7ULHwRE8Fw0hcBTa0OZa4vrg==
+	t=1795347559;
+	b=y5wxMWta/ApiOM0YMV08sLU6306TrrkAdq99RuhZXKSlP19ExmwrjF2lSo8K0P5ilKJm
+	 MjL90BNhfCdeJfNTKh9yUctfUB3eIOvA6nbyrvCi71EVxdadYi17vPoofTX4h+hhV3cl0
+	 Unoa4CcNAVHumNBTYvqkMjGQ3IhvOfC4P3tmQUFmo1oVLxSQTd0YxDgL4HCySFGytb1lC
+	 eYIpSfPraLMDL+U4icvA2MwtuI2dsVKKeOPDFIZkcPdp0xmAzAzbmOyQN0NCRBBqCMLZt
+	 8NE+j/7p8HwkBxlDOKb8jSBwgzpfbAOPNNKCIscMMENhlbaoY6Y0gTIEUzkCzoovLHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795347448;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Gn+/1uCQ6mxawzpB0lRomnzHhX1NF/CsbSiAljPSAiA=;
-	b=n9MM0Wca9+IFuRy7ErQcBnnZ0WZv+iFA6qPazKczO6i+gieg8Jnqx2n8xCUHH7UsW/K4
-	 coPuTOUYhdwzUWYQW9F/Lu54ObVS/gZ0OPPnBP2WgKFI3FxNMRjMPmntevok+DaRxjuJa
-	 0gd144nDv2e6HZRkHFcYJ7Y2uJ3g4fMpvUGSYiPMx+44K4AYtyMQdw/zXTeg3NQy+N7CO
-	 WSHNwg6QxSdoZzUNxDvIITjCCRp8IOc+XdYg9bmP5Fh87Sop3bGljw1Ythae3lylgUu+F
-	 6Qy/YRPdEn2mv3e00cacsZlJkjtKRB37wcezB9KPpyLKiH1bzDYi3H6JMdWpd16653Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795347559;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=OfjJ0WvNmPf3yRVeCkab8QDdbLg01cA0144pAfNS/ko=;
+	b=ta51xCn99i3KOpCO9xWHJpSvK6je4J2qLJFXnzKv3EL5b4P9GNfUdG9PrtrQL1xxJ83O
+	 kY3TKyQSQjUWdsw8hui8Ggz5IXPI2pqPNFiykPddVrYksoyOJViFiUb/9BhYQ728ORbKZ
+	 NLbEGPQAJ/VCORPr1hjcEHsCcNAXMpCexV4jz7AQGh280LFYBPGuNny8hFTge/6be94df
+	 APofL1OnMq9bcbmmicaOwnsXAoPbkJlBs+vrMsq85gvon2Oe0TxUtLUEB7WBvo/X/c9fo
+	 nxlZKMIfGqy0ksgun7J4LqHCAzRly1x2hg5VNBjIimtwLeHpdOvP5LmUF5yqJ5LqUYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=foxmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=74.125.227.128
-Received: from mail-pj2-f0.google.com (mail-pj2-f0.google.com [74.125.227.128])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kOpbrZVn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2FBF606A32C
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:37:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2FBF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=foxmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pj2-f0.google.com with SMTP id d9443c01a7336-2ed216ed287so14244035ad.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 03:37:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795347446; x=1795952246;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Gn+/1uCQ6mxawzpB0lRomnzHhX1NF/CsbSiAljPSAiA=;
-        b=YteEZWUaCXuUAMcSAvoC2mqWB2PMiocCi6guig9qk+OYSAMSOnAk7NaVJ0yHveOhNh
-         dGA1QzNl1RUAiykt/yI+43EiDrKu0f42mK8ZrqxtxkRI4feuE5kt/BaIOGyXBRJc4KRg
-         GuoDuPbrjTBny9HYzRe7VLgqkfXZ09XL4nMITQUioe0W+hzTosmxDUBB+kk0o7xopoy/
-         yBENrR/I73pSN5Cg4wbd9tYEZs1qSEJrHaWpxfIO2vktzVmARhmTtYKno9VXGh4ib5B8
-         6POnCX4w27UoVAIUTwYGbg/Vqfv29CRxV+zn8rk5/xj1pfWuYNeDXRCS1DpLO5fKVrS8
-         tHCw==
-X-Gm-Message-State: APuU4Z/k9Vy0n0GDnIQVaWXPShx/vweiN10BYAhQFmP+seq2GwzOXxr+
-	PTDJA3gVpCbBxud/vsaIOonK6o9tTBaQowsYyFt8KgWABcSd+QgWlHy1
-X-Gm-Gg: AZFdTZdfLK2Dxy0H5CiSkHXPmCS37avSNTiX9QO3MaNYdqSETBW93GnfYis1mUePsfQ
-	t1uPRijDvfcXrByNCZf5piBXLDiZTUVbEbChNYOj+xuzVdW9JIOpX/zL9sMc6MXkFmoXKfdbPUf
-	tjqbWzj3ZTbtQAnf347jaY6NAsoZtKSOpqtTEjzblk0IBHGVQhOej0HBEG4IzyczK/5pm3XRRoo
-	JUiWcdTZwZKQE0Q4C+Xo9NWH+E/7XkUR/Lo3xz9nwFP1WxKUs4G4Tt/H68ZYqHHrUiUpuD+5S5L
-	NOyhBNS8TFTI07CfX4ozB6PPTFnXG8BcNPQFYpZ3sTb/5eOT3L1/Z4w6bkNjC7Blkel8KqkrB6E
-	Z4ZQO4ew1JJO1f+s39RT8u7oBVbZE5aeI4Y0vpT3LAoYwEUpdgp0oKQ80B6nxjpk+HkuLP0Mvg0
-	QiCNm/jtb+BiVYThXDApAhaTfs0W673QdvsR4INscKQIRrQew045lTLbnntPTYBR2GnAw2Lo/Zz
-	Or4wmR/HQ54kYzn7fmTNKL22n/y7unEXB4Ve/O8mDZGbEFgtAwPenkt5NjpKa1BNzmU62s6Zn10
-	7HEiVw8/+3X7uzQeJ0izDVWzzrCcnLgnsr/JPpcj4Jo7wg==
-X-Received: by 2002:a17:903:2b0f:b0:2ed:edf:4e7b with SMTP id d9443c01a7336-2f03f249c51mr86538085ad.38.1795347446143;
-        Sun, 22 Nov 2026 03:37:26 -0800 (PST)
-Received: from localhost.localdomain ([138.199.21.246])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f10c9casm36633105ad.52.2026.11.22.03.37.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 03:37:25 -0800 (PST)
-From: Jianlin Shi <shijianlin11@foxmail.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org,
-	mst@redhat.com,
-	jasowang@kernel.org,
-	eperezma@redhat.com,
-	xuanzhuo@tsinghua.org.cn,
-	andrew+netdev@amiga.org.uk,
-	davem@davemloft.net,
-	edumazet@gmail.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	talgi@efi.com,
-	hengqi@loongson.cn,
-	horms@kernel.org,
-	virtualization@vger.kernel.org
-Subject: Re: [PATCH net v3 0/2] virtio-net/dim: fix irq moderation init failure unwind
-Date: Sun, 22 Nov 2026 19:37:02 +0800
-Message-ID: <20261122113703.30415-1-shijianlin11@foxmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179533878871.3294.14009692721054097098@kernel.org>
-References: <179533878871.3294.14009692721054097098@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E25E606A32A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:39:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kOpbrZVn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE74D1F000D8
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:39:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795347558;
+	bh=OfjJ0WvNmPf3yRVeCkab8QDdbLg01cA0144pAfNS/ko=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=kOpbrZVnERYgmaaHoZkURlOzHTL+LmFRPMuRjwwd8z7TPSCj6Lk3JAEbho+16Z0/R
+	 apEgAP3EnQ5uxlyI7qAJyaD7CI5muLzZaudrhoiYnUwWOd+c+4H54zZ1ocD0jUedQg
+	 jBZ0cStZBZ/mLGr0V8v+gpT9duqIkGufxmUhwvviey5PImNCxB1AE8HsqfVmWAPUFr
+	 hrf3oI4Go6+NmSFQkOStXZXLHtl7rdCEDoxstXxHP5PXodvvdaQiSQGK7VlC2eTwvN
+	 WTN4tMGmaYk6ghQmHlRPX0UP+KHi8Hj4eJswJez/PSW+9LAMKQUSCUqB5JBW1Q47el
+	 lDsbMfWHFEvjA==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3ab3b29a1d4so17749311fa.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 03:39:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE0wF2jjHpt/iaWkJYOFyANY6T01Kej4C5FTNPUkfpiO/cPfKH1SE2a1X5tNdGJLtcJqQMuko0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8RrHjPUzoyA6XJ0VFAvripSWQc+n9Tlb456xkrEJ8VCrmSTJOR
+	atzQMrdOpK0Bi/+sIhoaj+g80Y+2bulJYtdZ2W5ZuF5bHC5uvz8Hgfs0A8xSSYwtxCXqY8utwkl
+	9823NQFjh8vymMWC9wUrlPo3tk2NSo+0=
+X-Received: by 2002:a05:6512:61aa:b0:5c1:57cd:5c3d with SMTP id
+ 2adb3069b0e04-5c1bc806a59mr2586829e87.23.1795347557053; Sun, 22 Nov 2026
+ 03:39:17 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,20 +59,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf@gmail.com> <20261122-sun8i-emac-mtu-limit-v2-2-c4081e5b83cf@gmail.com>
+In-Reply-To: <20261122-sun8i-emac-mtu-limit-v2-2-c4081e5b83cf@gmail.com>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 22 Nov 2026 19:39:05 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65_vY86WqvKr1m=g0N1Qr2UhLC1v3OHKPG3x+oURUKp7Q@mail.gmail.com>
+X-Gm-Features: Aa3M54rz_NQ7yOvBXle79aW57ZyemtshMgGI-7Gz1C236a3c9B6hMMfTmke5swY
+Message-ID: <CAGb2v65_vY86WqvKr1m=g0N1Qr2UhLC1v3OHKPG3x+oURUKp7Q@mail.gmail.com>
+Subject: Re: [PATCH net v2 2/2] net: stmmac: dwmac-sun8i: Limit the MTU to 2018
+To: aiyengar1990@gmail.com, Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	LABBE Corentin <clabbe.montjoie@gmail.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	Russell King <rmk+kernel@armlinux.org.uk>, Nicolai Buchwitz <nb@tipi-net.de>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I noticed this while working through the virtio-net probe error
-paths. It was not a production incident and not a syzbot report.
-I did not hit the allocation failure at runtime, so there is no
-stack trace.
+On Sun, Nov 22, 2026 at 5:13=E2=80=AFPM Arun Iyengar via B4 Relay
+<devnull+aiyengar1990.gmail.com@kernel.org> wrote:
+>
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+>
+> The H616 RX DMA fills only 2044 bytes of a buffer, so frames of 2045 to
+> 2047 bytes, allowed by the previous patch, are dropped. Limit the MTU
+> so that a frame with two VLAN tags and the FCS fits 2044 bytes.
 
-virtnet_probe() calls init_vqs() and then virtnet_init_irq_moder().
-If kmemdup() fails there, the error path does "goto free" and skips
-virtio_reset_device() and virtnet_del_vqs(), so the virtqueues and
-their DMA mappings leak. That only happens on ENOMEM during probe.
+FWIW I think this applies to all DWMAC cores.
 
-The dangling dev->irq_moder is not used on current mainline. That
-failure path never calls net_dim_free_irq_moder(). Patch 1 is only
-there so the unwind in patch 2 does not use-after-free the object.
+So I tried to do some research of my own. Google AI search pointed me to
+STM32F4 or STM32F7, and some Altera FPGAs (I used the Intel=C2=AE Arria=C2=
+=AE 10 Hard
+Processor System Technical Reference Manual"), that had some variant or
+version of the DWMAC core, and had proper programming guides.
 
-Jianlin
+The STM32F4 reference manuals has this note:
+
+Even when the start address of a receive buffer is not aligned to the
+system databus width
+the system should allocate a receive buffer of a size aligned to the
+system bus width. For
+example, if the system allocates a 1024 byte (1 KB) receive buffer
+starting from address
+0x1000, the software can program the buffer start address in the
+receive descriptor to have
+a 0x1002 offset. The receive DMA writes the frame to this buffer with
+dummy data in the first
+two locations (0x1000 and 0x1001). The actual frame is written from
+location 0x1002. Thus,
+the actual useful space in this buffer is 1022 bytes, even though the
+buffer size is
+programmed as 1024 bytes, due to the start address offset.
+
+The Intel one had the same note. It looks pretty much the same, but I didn'=
+t
+compare it word-for-word.
+
+So for normal descriptors the buffer size is bound to (2KB - bus width).
+Not tested, but I think there is more evidence supporting a cross-platform
+limit.
+
+
+ChenYu
+
+> Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/=
+net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 2ece7ba9dd73..ec401cae8187 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -1208,6 +1208,7 @@ static int sun8i_dwmac_probe(struct platform_device=
+ *pdev)
+>         plat_dat->mac_setup =3D sun8i_dwmac_setup;
+>         plat_dat->tx_fifo_size =3D 4096;
+>         plat_dat->rx_fifo_size =3D 16384;
+> +       plat_dat->maxmtu =3D 2044 - ETH_HLEN - 2 * VLAN_HLEN - ETH_FCS_LE=
+N;
+>
+>         ret =3D sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
+>         if (ret)
+>
+> --
+> 2.55.0
+>
+>
