@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795309280;
-	b=vbg+ZOejhx1GMCB7wHNdvPM9cTburMXQa+N4YmQeEg6w8k7bsOrW/ahD1aigTpGXr0Hi
-	 Qvyy+MN04YDcH2vymyu4I6sMj1IWxwUQNhZhpMwwTUhJhSMQ9Y9oiHE5m66PF9tN95kys
-	 UxYGl/uTQ1hh+D1TTKVAPH6gFFcig6aep1wdStUGmAgeDoIyMev5mjzrM98P5vuhWdKTV
-	 m1jEsR/gYtKohdZlAA3lfKdFwzZzZMtJ1TakrQaLZwh1K7xIYFCT5LXwpNVbVC/5KNGb5
-	 bEfVLDyPVFAm+4pAPwb8hV/O0S2nrP18aY1D1kEEYJdK9rJjUMl0+XxjHcVHoUJH4Vg==
+	t=1795309282;
+	b=knGeNdxKQ9g6m00VgyB6CGynL9HivHuKr/K5mq8UTAy19GIPOYVib5XC7HpvmUvnkAdG
+	 wmAmjmQMKcGdTvuWkTovTAAnlaQPHCYjWuX7dCn0jLdO4AzeB8vRVJxN+pp5LaT14mk0a
+	 DHqdWs/pyIbI7hXDlKCoKfHCP9HiCP/xh1xGAFjBuSJ3zOCfeSvtLYb3bEbwwFprZfePp
+	 zdPAbXM+la59Or9Mj9nlhCO783P1lpq2OEogNR9SVOeX58T+Km+2xEnTfYKaO2/vCcOP1
+	 lhGUNTX48s6VE9gnhtIGPsRQQH9QH8lI6Sy66rJ5n32gwT+ypdCsZzN+/AXAnDChOqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795309280;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795309282;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=quVP7eFuOB6NCi/gMfUaz9aG5iZL2P/TFfQvezix6f0=;
-	b=eKD93FBbIh5NQ9OMr6ibgF9+jFDe8YMtIOFkNObruVsxMAdjGu1aG6J/mwbYgovJjyhA
-	 78dX71Kp2bwdAIblDd4ZQ4o+cYw1LdqEodx/LkKmJTmBfHnOgcPhRxZmx9WuTDiFVODfB
-	 7n4z0PHxdYjneEREJDXLTs+B5jX+nKvqdofcpOvhfi+ygdDcl+aulmDAgBoSKURhVhp+F
-	 mclIRyAmy/8qvOJvyN9x8ItwP0bN9J4BKJhEaQdRWTlrs838DNP8JF1qLgLbV/io/NXw3
-	 f/JETygCpGef+WYyNVdUvx33O3BvcrSP1FR1mXbdCQJd9PhN2PWtwURHG2/WGsVv1HQ==
+	bh=tXjeZU5GSs/uz0hKlC0URJrZHP/eBhjfdOTv8TzdxBI=;
+	b=L3KW7YMP89OtJmXXZ/Gk87queKaqSLzDNZY3BEnaea5WR5Kehsr2U57qOHqeR0dJmx1J
+	 CimN8WbJ+36iKVCdL/J+7eyJeP0yZMEL8j+xbzeTNg9/Dvuuylu32z5GgVJrojy88/uOd
+	 n04CP/QpYBqD3FRdo+7O+ABV5hdHOGj+e7g11cA7oAEnzG2aPCNUs3NhYNN6wO2zM4bwb
+	 feX6SUhSaZc1F5R7S0806F8WNLXA1g08KjYNubIPJSwltis7I0rZfdwlVHvCuVSqVqLNS
+	 HApVJg12ZcatzDDoC4OwE42gH7zxNP0kYzLVGEnZrxJ6JY1p2WtiKqzO10CwoPkq+xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqAmX3sm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXyRtWqu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD5D1606A68C;
-	Sun, 22 Nov 2026 01:01:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0177D606A33F;
+	Sun, 22 Nov 2026 01:01:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqAmX3sm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F7371F000D8;
-	Sun, 22 Nov 2026 01:01:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXyRtWqu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 537981F000D0;
+	Sun, 22 Nov 2026 01:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795309280;
-	bh=quVP7eFuOB6NCi/gMfUaz9aG5iZL2P/TFfQvezix6f0=;
+	s=k20260515; t=1795309281;
+	bh=tXjeZU5GSs/uz0hKlC0URJrZHP/eBhjfdOTv8TzdxBI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YqAmX3smMMsbUMC+CDRI1AIv2gscCDdWBtyKKFtNs+kgRrITQFXTBwevU0FLgqxh5
-	 956/CmEHV2fx/mA2dj1e37OZwFkqLTGmB7Q+g4f1HU30K8YOrwC/drnszhNU6fpNB8
-	 6eZcCbngSK4n09d2m8YI7k7ONeOvWyiU4rlpfD5DaB3om3rv36dj5d+rPerVC5tgPH
-	 qf7UEKue4R519F92HCOHhjwhcICji5nD3nJbttAZmdAXDfgQilAtkK1Yg32Yvl27HS
-	 Wp8eGDZ3B2aOYdaDgQFuY7r+UslTWRVzEQzn376h5uz3vTX5kNVrH0OYpqT+XP3K3n
-	 tjZq128jiZNyA==
+	b=OXyRtWqu1BaINOKsbnlFoJ2y0Gvp7BI0djrH3TmiqcsghgQpgfSsnXBDT7seZ/TnP
+	 j2zQ5vS6aBifB92XgDGp1Mznl+y1Kg7VlmD+OZKwrTgG0bCIthcfBx53hvN7oTFcgx
+	 YVZuYCJm9IJMvynQfzrYPIENKh2y/168AGh7fhb5KelgDXWoGNYZKwssaUVugByKaR
+	 4+f6hNvRQ02rwvLmqEeQBC29EgaEK/9Efe7LyygoBnN61eWslITZA7frjh/iCnB9Nq
+	 ksSmGnodvQVCDjnjjuZTYBk0Jnmz7filLsTrikJQQ1vWHvFDJ16dbiN1z3Nu5tNMNK
+	 Q93O7NxqUUbmw==
 From: Jakub Kicinski <kuba@kernel.org>
 To: davem@davemloft.net
 Cc: netdev@vger.kernel.org,
@@ -59,9 +59,9 @@ Cc: netdev@vger.kernel.org,
 	przemyslaw.kitszel@intel.com,
 	bpf@vger.kernel.org,
 	Jakub Kicinski <kuba@kernel.org>
-Subject: [PATCH net-next v2 4/9] net: state the "XDP excludes HW-GRO" rule in the core
-Date: Sat, 21 Nov 2026 17:01:07 -0800
-Message-ID: <20261122010112.1471146-5-kuba@kernel.org>
+Subject: [PATCH net-next v2 6/9] eth: mlx5e: drop the now-dead HW-GRO and LRO vs XDP handling
+Date: Sat, 21 Nov 2026 17:01:09 -0800
+Message-ID: <20261122010112.1471146-7-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261122010112.1471146-1-kuba@kernel.org>
 References: <20261122010112.1471146-1-kuba@kernel.org>
@@ -76,267 +76,141 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-XDP has to see the frames as the wire delivered them, so HW-GRO must be
-off while a program is attached. Drivers currently open-code that policy,
-and they diverge: mlx5, gve and virtio_net refuse the attach, bnxt and
-qede clear the feature from ndo_fix_features(), and idpf does nothing
-at all and happily runs RSC under XDP.
+The core clears HW-GRO and LRO before ndo_bpf runs and keeps them off
+for as long as a program is attached. mlx5e_fix_features() never sees
+either with params->xdp_prog set, and packet merge is always off by the
+time mlx5e_xdp_set() gets called, packet_merge.type only follows the two
+feature handlers. If tcp-data-split keeps HW-GRO on, the core refuses
+the attach with -EBUSY before calling the driver.
 
-Clear HW-GRO in __netdev_update_features(), and make sure XDP setup
-paths refresh the features.
+The netdev_update_features() call at the end of mlx5e_xdp_set() was
+there to apply and release the XDP clause of mlx5e_fix_features().
+The core recomputes the features itself, on detach after the program
+is gone.
 
-Take extra care to make sure the disablement actually works, some
-drivers add the feature back in ndo_fix_features, even when removed
-from wanted features (mlx5 does for header-data-split).
+XDP features were only advertised with packet merge off, matching
+the old refusal. Key them off tcp-data-split instead, the only setting
+under which the attach is still refused.
 
-This change also removes the warn-only check dev_disable_gro_hw()
-performed. On mlx5 with tcp-data-split on, attaching a multi-buf
-generic XDP program reached generic_xdp_install(), whose
-dev_disable_gro_hw() cleared wanted_features, recomputed, saw
-mlx5e_fix_features() put NETIF_F_GRO_HW straight back, and splatted:
+The AF_XDP check stays, the core doesn't know about XSK pools.
 
-  ------------[ cut here ]------------
-  netdevice: eth0: failed to disable GRO_HW!
-  WARNING: net/core/dev.c:1880 at generic_xdp_install+0x135/0x190, CPU#53: ip/667
-  RIP: 0010:generic_xdp_install+0x17a/0x190
-  Call Trace:
-   <TASK>
-   dev_xdp_install+0x2aa/0x380
-   dev_xdp_attach+0x41f/0x460
-   dev_change_xdp_fd+0xbb/0x110
-   do_setlink+0xfb9/0x1030
-   rtnl_newlink+0x9f5/0xaf0
-   rtnetlink_rcv_msg+0x442/0x490
-   netlink_rcv_skb+0x16a/0x1a0
-   netlink_unicast+0x1fc/0x320
-   netlink_sendmsg+0x2d6/0x380
-
-and then attached anyway, leaving XDP looking at coalesced frames.
-The device also lost the bit from wanted_features for good, so HW-GRO
-never came back after detach - on mlx5 that took header-data split
-with it, and with it devmem and io_uring zero-copy Rx.
+This does change user visible behavior: attaching XDP with HW-GRO or LRO
+on used to fail with -EINVAL and now succeeds with them turned off.
 
 Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 ---
-v2: no change
-v1: https://lore.kernel.org/20261118232315.3593731-4-kuba@kernel.org
+v2:
+ - drop the netdev_update_features() call from mlx5e_xdp_set() (Dragos)
+ - key XDP features off tcp-data-split rather than packet merge (Dragos)
+v1: https://lore.kernel.org/20261118232315.3593731-6-kuba@kernel.org
 ---
- .../networking/net_cachelines/net_device.rst  |  1 +
- include/linux/netdevice.h                     |  6 ++
- net/core/dev.c                                | 97 ++++++++++++++-----
- 3 files changed, 81 insertions(+), 23 deletions(-)
+ .../ethernet/mellanox/mlx5/core/en_ethtool.c  |  8 +++-
+ .../net/ethernet/mellanox/mlx5/core/en_main.c | 40 +++----------------
+ 2 files changed, 12 insertions(+), 36 deletions(-)
 
-diff --git a/Documentation/networking/net_cachelines/net_device.rst b/Documentation/networking/net_cachelines/net_device.rst
-index 7620d3fcb8dc..25cf02a184ec 100644
---- a/Documentation/networking/net_cachelines/net_device.rst
-+++ b/Documentation/networking/net_cachelines/net_device.rst
-@@ -169,6 +169,7 @@ unsigned_long:1                     see_all_hwtstamp_requests
- unsigned_long:1                     change_proto_down
- unsigned_long:1                     netns_immutable
- unsigned_long:1                     fcoe_mtu
-+unsigned_long:1                     xdp_pending
- unsigned_long:1                     xdp_from_upper
- struct list_head                    net_notifier_list
- struct macsec_ops*                  macsec_ops
-diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index 0325c6f2a7d1..049538b13e61 100644
---- a/include/linux/netdevice.h
-+++ b/include/linux/netdevice.h
-@@ -2531,6 +2531,12 @@ struct net_device {
- 	unsigned long		change_proto_down:1;
- 	unsigned long		netns_immutable:1;
- 	unsigned long		fcoe_mtu:1;
-+	/**
-+	 * @xdp_pending: an XDP program is being installed, but is not in
-+	 *	@xdp_state yet. Most users should access it implicitly via
-+	 *	helpers like dev_xdp_prog_count(), rather than directly.
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_ethtool.c b/drivers/net/ethernet/mellanox/mlx5/core/en_ethtool.c
+index 8e7c748caf2d..da224ad3dea9 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_ethtool.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_ethtool.c
+@@ -488,9 +488,13 @@ static int mlx5e_set_ringparam(struct net_device *dev,
+ 	if (err)
+ 		return err;
+ 
+-	/* Might need to adjust HW-GRO if it was kept on/off due to hds. */
+-	if (dev->cfg->hds_config != kernel_param->tcp_data_split)
++	/* Might need to adjust HW-GRO if it was kept on/off due to hds.
++	 * XDP features depend on hds as well.
 +	 */
-+	unsigned long		xdp_pending:1;
- 	/**
- 	 * @xdp_from_upper: the program in @xdp_state was installed by an
- 	 *	upper device with netif_xdp_propagate(); it belongs to the
-diff --git a/net/core/dev.c b/net/core/dev.c
-index 4ca8a9f5a7a5..5d38cdb6c326 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -1902,23 +1902,6 @@ void netif_disable_lro(struct net_device *dev)
++	if (dev->cfg->hds_config != kernel_param->tcp_data_split) {
+ 		netdev_update_features(priv->netdev);
++		mlx5e_set_xdp_feature(priv);
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
+index 06a8a4be4be7..08568137d044 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
+@@ -4487,12 +4487,14 @@ static int mlx5e_handle_feature(struct net_device *netdev,
+ 
+ void mlx5e_set_xdp_feature(struct mlx5e_priv *priv)
+ {
++	struct netdev_config *cfg = priv->netdev->cfg_pending;
+ 	struct mlx5e_params *params = &priv->channels.params;
+ 	struct net_device *netdev = priv->netdev;
+ 	xdp_features_t val = 0;
+ 
++	/* XDP can't run with HW-GRO, and tcp-data-split keeps HW-GRO on */
+ 	if (netdev->netdev_ops->ndo_bpf &&
+-	    params->packet_merge.type == MLX5E_PACKET_MERGE_NONE)
++	    cfg->hds_config != ETHTOOL_TCP_DATA_SPLIT_ENABLED)
+ 		val = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
+ 		      NETDEV_XDP_ACT_XSK_ZEROCOPY |
+ 		      NETDEV_XDP_ACT_RX_SG;
+@@ -4604,17 +4606,6 @@ static netdev_features_t mlx5e_fix_features(struct net_device *netdev,
+ 		}
  	}
+ 
+-	if (params->xdp_prog) {
+-		if (features & NETIF_F_LRO) {
+-			netdev_warn(netdev, "LRO is incompatible with XDP\n");
+-			features &= ~NETIF_F_LRO;
+-		}
+-		if (features & NETIF_F_GRO_HW) {
+-			netdev_warn(netdev, "HW GRO is incompatible with XDP\n");
+-			features &= ~NETIF_F_GRO_HW;
+-		}
+-	}
+-
+ 	if (priv->xsk.refcnt) {
+ 		if (features & NETIF_F_LRO) {
+ 			netdev_warn(netdev, "LRO is incompatible with AF_XDP (%u XSKs are active)\n",
+@@ -5203,20 +5194,6 @@ static void mlx5e_tx_timeout(struct net_device *dev, unsigned int txqueue)
+ 	queue_work(priv->wq, &priv->tx_timeout_work);
  }
  
--/**
-- *	dev_disable_gro_hw - disable HW Generic Receive Offload on a device
-- *	@dev: device
-- *
-- *	Disable HW Generic Receive Offload (GRO_HW) on a net device.  Must be
-- *	called under RTNL.  This is needed if Generic XDP is installed on
-- *	the device.
-- */
--static void dev_disable_gro_hw(struct net_device *dev)
+-static int mlx5e_xdp_allowed(struct net_device *netdev, struct mlx5_core_dev *mdev,
+-			     struct mlx5e_params *params)
 -{
--	dev->wanted_features &= ~NETIF_F_GRO_HW;
--	netdev_update_features(dev);
+-	if (params->packet_merge.type != MLX5E_PACKET_MERGE_NONE) {
+-		netdev_warn(netdev, "can't set XDP while HW-GRO/LRO is on, disable them first\n");
+-		return -EINVAL;
+-	}
 -
--	if (unlikely(dev->features & NETIF_F_GRO_HW))
--		netdev_WARN(dev, "failed to disable GRO_HW!\n");
+-	if (!mlx5e_params_validate_xdp(netdev, mdev, params))
+-		return -EINVAL;
+-
+-	return 0;
 -}
 -
- const char *netdev_cmd_to_name(enum netdev_cmd cmd)
- {
- #define N(val) 						\
-@@ -6657,7 +6640,6 @@ static int generic_xdp_install(struct net_device *dev, struct netdev_bpf *xdp)
- 		} else if (new && !old) {
- 			static_branch_inc(&generic_xdp_needed_key);
- 			netif_disable_lro(dev);
--			dev_disable_gro_hw(dev);
- 		}
- 		break;
- 
-@@ -10576,7 +10558,7 @@ u8 dev_xdp_prog_count(struct net_device *dev)
- 	for (i = 0; i < __MAX_XDP_MODE; i++)
- 		if (dev->xdp_state[i].prog || dev->xdp_state[i].link)
- 			count++;
--	return count;
-+	return count ?: !!dev->xdp_pending;
- }
- EXPORT_SYMBOL_GPL(dev_xdp_prog_count);
- 
-@@ -10617,6 +10599,32 @@ static void dev_xdp_set_prog(struct net_device *dev, enum bpf_xdp_mode mode,
- 	dev->xdp_state[mode].prog = prog;
- }
- 
-+/* Try to clear HW-GRO before the driver reconfigures for XDP.
-+ * Driver may add features back in via ndo_fix_features(), due to feature
-+ * dependencies. In that case we can't run XDP at all.
-+ */
-+static int dev_xdp_clear_rx_agg(struct net_device *dev,
-+				struct netlink_ext_ack *extack)
-+{
-+	if (!(dev->features & NETIF_F_GRO_HW))
-+		return 0;
-+	if (!(dev->hw_features & NETIF_F_GRO_HW)) {
-+		NL_SET_ERR_MSG(extack,
-+			       "unable to disable HW-GRO, fixed on");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	netdev_update_features(dev);
-+
-+	if (dev->features & NETIF_F_GRO_HW) {
-+		NL_SET_ERR_MSG(extack,
-+			       "unable to disable HW-GRO, required by another feature");
-+		return -EBUSY;
-+	}
-+
-+	return 0;
-+}
-+
- int netif_xdp_propagate(struct net_device *dev, struct netdev_bpf *bpf)
+ static void mlx5e_rq_replace_xdp_prog(struct mlx5e_rq *rq, struct bpf_prog *prog)
  {
  	struct bpf_prog *old_prog;
-@@ -10650,11 +10658,17 @@ int netif_xdp_propagate(struct net_device *dev, struct netdev_bpf *bpf)
- 				       "unable to propagate XDP to device using memory provider");
- 			return -EBUSY;
- 		}
-+
-+		dev->xdp_pending = 1;
-+
-+		err = dev_xdp_clear_rx_agg(dev, bpf->extack);
-+		if (err)
-+			goto err_clear_pending;
+@@ -5241,10 +5218,9 @@ static int mlx5e_xdp_set(struct net_device *netdev, struct bpf_prog *prog)
+ 	new_params = priv->channels.params;
+ 	new_params.xdp_prog = prog;
+ 
+-	if (prog) {
+-		err = mlx5e_xdp_allowed(netdev, priv->mdev, &new_params);
+-		if (err)
+-			goto unlock;
++	if (prog && !mlx5e_params_validate_xdp(netdev, priv->mdev, &new_params)) {
++		err = -EINVAL;
++		goto unlock;
  	}
  
- 	err = dev->netdev_ops->ndo_bpf(dev, bpf);
- 	if (err)
--		return err;
-+		goto err_clear_pending;
- 	if (bpf->prog)
- 		bpf_prog_inc(bpf->prog);
+ 	/* no need for full reset when exchanging programs */
+@@ -5279,10 +5255,6 @@ static int mlx5e_xdp_set(struct net_device *netdev, struct bpf_prog *prog)
+ unlock:
+ 	mutex_unlock(&priv->state_lock);
  
-@@ -10667,11 +10681,22 @@ int netif_xdp_propagate(struct net_device *dev, struct netdev_bpf *bpf)
- 	old_prog = dev_xdp_prog(dev, XDP_MODE_DRV);
- 	bpf_prog_change_xdp(old_prog, bpf->prog);
- 	dev_xdp_set_prog(dev, XDP_MODE_DRV, bpf->prog);
-+	dev->xdp_pending = 0;
- 	dev->xdp_from_upper = !!bpf->prog;
--	if (old_prog)
-+
-+	if (old_prog) {
- 		bpf_prog_put(old_prog);
-+		/* The last program is gone, HW-GRO may be available again */
-+		if (!bpf->prog)
-+			netdev_update_features(dev);
-+	}
- 
- 	return 0;
-+
-+err_clear_pending:
-+	dev->xdp_pending = 0;
-+	netdev_update_features(dev);
-+	return err;
+-	/* Need to fix some features. */
+-	if (!err)
+-		netdev_update_features(netdev);
+-
+ 	return err;
  }
- EXPORT_SYMBOL_GPL(netif_xdp_propagate);
- 
-@@ -10880,19 +10905,36 @@ static int dev_xdp_attach(struct net_device *dev, struct netlink_ext_ack *extack
- 			return -EOPNOTSUPP;
- 		}
- 
-+		if (new_prog) {
-+			dev->xdp_pending = 1;
-+			err = dev_xdp_clear_rx_agg(dev, extack);
-+			if (err)
-+				goto err_clear_pending;
-+		}
-+
- 		err = dev_xdp_install(dev, mode, bpf_op, extack, flags, new_prog);
- 		if (err)
--			return err;
-+			goto err_clear_pending;
- 	}
- 
- 	if (link)
- 		dev_xdp_set_link(dev, mode, link);
- 	else
- 		dev_xdp_set_prog(dev, mode, new_prog);
--	if (cur_prog)
-+	dev->xdp_pending = 0;
-+	if (cur_prog) {
- 		bpf_prog_put(cur_prog);
-+		/* The last program is gone, HW-GRO may be available again */
-+		if (!new_prog)
-+			netdev_update_features(dev);
-+	}
- 
- 	return 0;
-+
-+err_clear_pending:
-+	dev->xdp_pending = 0;
-+	netdev_update_features(dev);
-+	return err;
- }
- 
- static int dev_xdp_attach_link(struct net_device *dev,
-@@ -10918,6 +10960,7 @@ static int dev_xdp_detach_link(struct net_device *dev,
- 	bpf_op = dev_xdp_bpf_op(dev, mode);
- 	WARN_ON(dev_xdp_install(dev, mode, bpf_op, NULL, 0, NULL));
- 	dev_xdp_set_link(dev, mode, NULL);
-+	netdev_update_features(dev);
- 	return 0;
- }
- 
-@@ -11390,6 +11433,14 @@ int __netdev_update_features(struct net_device *dev)
- 
- 	features = netdev_get_wanted_features(dev);
- 
-+	/* GRO_HW may be added back in via ndo_fix_features e.g. if driver needs
-+	 * it to honor the HDS config, clear it before the fix features call.
-+	 */
-+	if ((features & NETIF_F_GRO_HW) && dev_xdp_prog_count(dev)) {
-+		netdev_dbg(dev, "Dropping HW-GRO feature since XDP is attached.\n");
-+		features &= ~NETIF_F_GRO_HW;
-+	}
-+
- 	if (dev->netdev_ops->ndo_fix_features)
- 		features = dev->netdev_ops->ndo_fix_features(dev, features);
  
 -- 
 2.56.1
