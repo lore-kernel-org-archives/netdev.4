@@ -1,49 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795370655;
-	b=3xEUGYrU7RcFaxQaOBQq8MD6VGAMXE++iYG5ErM6bBdfDTO/C7v2H6js4nc8AYGzcIYR
-	 1YjIGAiUzrJ8A6W3DnrWF3YfNVbMcBpxj+12Is9NB45G5uNRJEC66St6lEoTMW79NSmBL
-	 JoLa0xJJhxNguZx6EVdQOQDh4iK/uVax1wkT3aIh6AvEcBaJJty/TKIKuYyQ/KvtdRqAb
-	 20YCtrf2bCXG9uiqPMJI11zxjZtk6fCS4WIbCz474eW/8fXHGTSOdeqlKVFdBedWsue7e
-	 rjBCr1L5YUuYjuPHDiXfBoFy+m8QM8Pn8mFI0Kgh0QJ9Q1MHhS8qzKPLQT+6b5UkA4w==
+	t=1795371173;
+	b=MVq3y8PWyHhfmk4uYk4jHtE3rej7W4c5lmFeN3tEukIIncvCeAP65UoUCuwZViWfIPYY
+	 6UyIKY34hw6/6P4BJ7zE4itfTAiJqLUqyRVpFxl0oeC7bi1Yh0nXmm26mArbrgUaIXVZG
+	 oRZzozzqSttts2wvIz+RJ3ViKUHApEKKvN0WczQzb3/gJGcTvqyVdlrc1hJs26wAYjKYC
+	 LF+HgMTHaXHK+MvphspfIoPbxqUycARe+XBjh/tDni7hfjiXg9PqKuuQkay8U8rJlpolp
+	 Y4GQqoXJVFP900DMKzbwssPb5aSx9ozPy0+b9vd1b257z7jt59Cg/PNzs6QhHPKC5/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795370655;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=6Lc651tZw591zP/x8gbrBWohPZ7rxL+7CL7hNZTGcfE=;
-	b=Igag3T0dOURVbK1kzaIX6Yc3lRQ1AmjhQQRnomPhNiD92H5a2nKuRhUL40flfuV4Juct
-	 qFicQquk+2esqeg9fbcH85/NeTqz7UtogzZ6zoJIhCP3+tNh+P7VnnoNmxWf+Kzn1gVlt
-	 q4MiDJpldSv9DdHpGPDYmiTRE/kx/MgVrl2qdtNrMRGCziedkAlUk8dFTPaZFzSBhgwni
-	 JrsJuBdujfbwMt+pQycuKTcHBQZtGpG/4XwB4uEiynOrttu3M6i4aQ3hBGkgRMNmTBxJj
-	 KVtnhIzijSeUbtUJgGJNiz4Fx+z7HbwOssW3BpyTZ6vZd/zdsVrvvcD3JzEeIQmGnnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371173;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Mo3kjI8Xpm7/wjLGyOU2Dz1FSRwjRmlKgOXYc5So1Wo=;
+	b=kHlJxd9Td+qnz48sxP3+6Sq0KQ0AhKBsYMoIln9uIW3EGXdVsRrr5mJUwntO7fSNXp++
+	 z6Vg2ABj0Ue0A3hR8bahx8MV8Bit7CQBU/aFFrUxji2ms6b/TiRHzUzx33mpVA26HIA+D
+	 tk1sg8SlEr22AeQyLP5S0mfp0tezXfbwk9b8vHRFP5EuLyFgDUmO3npuxh+mlOKY30Mcb
+	 yu+3cCZ1gcGYESGYogetEfsFdVNK87iyh8l/i31W51W5dl4Lm3/u/99Vwbev7vMzfO2cC
+	 pRvAZznQDW8kf4pDF+qkPm+WQ7YsPHxDi2DsYByT9NpVQiB8IZbhwq4XwdL/TPDgz4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=C8Aia4O1;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CRXAsa7W;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C73A606A320
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:04:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C73A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9563F606A32C;
+	Sun, 22 Nov 2026 18:12:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=C8Aia4O1
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 571F7A1583;
-	Sun, 22 Nov 2026 19:04:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795370653; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=6Lc651tZw591zP/x8gbrBWohPZ7rxL+7CL7hNZTGcfE=;
-	b=C8Aia4O1UzdCosPUW+fBV5O/aDX9Y9p/gNu8GbiReBroU10OujAbziYi05tijAEWDD1awz
-	C+wIdv1qHxnv10+jIO+ZJ78e5tXY+JyGuPwwNnDxYeRiGjj2blWl/ucuLCjptUVJpDRPD6
-	IxKPiBFkpc3xMFcy0PoF4ckbV7EmCCU/sTZehnAH4k5tFVUr437CJBydvgQoVTnT+n9tMD
-	WYD8/YMBmb6WlDWTFY+TTUwQgGLrY77xJbBYM6rgQMiCgsjXKYudFxQq+c4pTwGDitZd+Z
-	N2A1t9Jy9hWFzu9FQh8MmMRXjkrIpLajoC7p5eMbxpFcpkpLi3x4IRkhc3ZLuQ==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CRXAsa7W
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496DE1F000E0;
+	Sun, 22 Nov 2026 18:12:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795371173;
+	bh=Mo3kjI8Xpm7/wjLGyOU2Dz1FSRwjRmlKgOXYc5So1Wo=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=CRXAsa7WDcnr2ID5hW3MaNS8IBlTnwVXVJ8jXES1HeAZTZ3owWi7Jn6LnQROmNfCX
+	 Hi8rA/SLh+CHxEvOsm02vz7ws7HW6NjN7P+tmWSxuvjwiAp4kC4c/V8sgDRu5afefE
+	 FRdxn02SK7LycBgR4LtKd3nmhJX9Ax9nSonYf8Y9R4CQxHxVyMqLkJhvJQU7x78/KY
+	 Ab5BQZBvk4eMTPQXua0rXBa5nlfjtQXVNSJivVZef3T3NdY6gfAjmvKuPwd14N6daa
+	 g1qQgODYl562WzAX7PIj5fdjZij/aCqtQ4FqCm7Y5Csq8408v0v8sA7ZL5+/3l/OTF
+	 Sa59F0+lGszOQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
+ <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
+ <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Alexander Duyck <alexanderduyck@fb.com>,
+ kernel-team@meta.com, Andrew Lunn <andrew+netdev@lunn.ch>, Jesper Dangaard
+ Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, Pavel
+ Begunkov <asml.silence@gmail.com>, Jens Axboe <axboe@kernel.dk>, Andrii
+ Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
+ Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
+ <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
+ Mina Almasry <almasrymina@google.com>
+Cc: "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>, Weiming Shi
+ <bestswngs@gmail.com>, Nikolay Aleksandrov <razor@blackwall.org>, David
+ Wei <dw@davidwei.uk>, Alexander Lobakin <aleksander.lobakin@intel.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Stuart Clark
+ <stuclar@meta.com>
+Subject: Re: [PATCH net-next v1 00/11] xsk: Zero copy through page-pool
+ memory providers
+In-Reply-To: <20261110102039.1002605-1-bjorn@kernel.org>
+References: <20261110102039.1002605-1-bjorn@kernel.org>
+Date: Sun, 22 Nov 2026 19:12:48 +0100
+Message-ID: <875wxo3fbz.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,63 +79,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sun, 22 Nov 2026 19:04:12 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Anandu Padinhare <Anandu.Padinhare@electrifex.com>
-Cc: maxime.chevallier@bootlin.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-Subject: Re: [PATCH net] net: stmmac: count XDP_PASS frames in rx_packets on
- the XSK zero-copy path
-In-Reply-To: <PNYPR01MB11444552E41C2B17A992492C0FD762@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
-References: <PNYPR01MB11444552E41C2B17A992492C0FD762@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
-Message-ID: <76eb00ac442816ff06e7b9d338d9bf1d@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Anandu
+Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org> writes:
 
-On 6.11.2026 07:12, Anandu Padinhare wrote:
-> In the AF_XDP zero-copy RX path, frames that the XDP program passes to
-> the stack are handed over by stmmac_dispatch_skb_zc(). That function
-> increments rx_pkt_n instead of rx_packets since
-> commit 133466c3bbe1 ("net: stmmac: use per-queue 64 bit statistics 
-> where necessary").
-> 
-> stmmac_rx_zc() already adds every processed frame to rx_pkt_n, so each
-> XDP_PASS frame is counted twice there, and rx_packets, which
-> ndo_get_stats64() reports, never counts them: on a zero-copy queue
-> rx_bytes grows with the passed frames while rx_packets stays still.
-> 
-> Count the frame in rx_packets, as the regular RX path and the code
-> before that commit did.
-> 
-> Found while testing AF_XDP zero-copy on an ADSP-SC598 (adi-dwmac,
-> 100 Mbit/s link): rx_pkt_n grew almost twice as fast as the frames the
-> MAC delivered, while "ip -s link" counted almost none.
-> 
-> Tested on that board with a 6.18-based kernel, whose zero-copy RX
-> accounting matches net. An AF_XDP zero-copy socket on queue 0 received
-> frames of one EtherType while UDP traffic was passed to the stack. In a
-> run with 60 s of traffic before the change, rx_pkt_n was 1.88 times the
-> frames that reached the driver (MAC frames minus RX FIFO overflows) and
-> "ip -s link" counted 55 RX packets. In the same test with the change,
-> rx_pkt_n equals the frames that reached the driver and rx_packets 
-> equals
-> the frames passed to the stack.
-> 
-> Fixes: 133466c3bbe1 ("net: stmmac: use per-queue 64 bit statistics 
-> where necessary")
-> Signed-off-by: Anandu Padinhare <Anandu.Padinhare@electrifex.com>
+> Hi!
+>
+> AF_XDP zero copy needs a second RX allocator in every driver. This
+> series makes UMEM a page-pool memory provider instead: a page_pool
+> driver opts in, and keeps its refill, recycling and DMA sync code.
+> fbnic is the first user. Patches 1-7 are core, 8-11 fbnic.
+>
+> Since the RFC [RFC], net_iov is a first class netmem, the core owns
+> AF_XDP setup, and a refill contract replaces the NAPI kicks. The fixes
+> are out.
 
-> [...]
+Hey,
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Thanks for all the input!
 
-Thanks,
-Nicolai
+TL;DR for new readers: Too much churn, especially on the driver side.
+net_iov was not intended to be readable from the core side of things.
+
+The net_iov part needs some deeper thinking. UMEM memory is readable
+(the kernel can read the memory), but needs a non-page refcounting, and
+benefits from the rx_buf_len (larger chunks). iouring TCP ZC frags are
+also readable, and the kernel does read from it from time to time, but
+it still unreadable. I have some ideas how to fit UMEM to the puzzle.
+:-)
+
+I'm working on a v2, but it'll have a different take than this version,
+to try to reduce the amount of driver churn. It'll probably be an RFC or
+a brand new v1. I'll try to address all input from this design.
+
+
+Cheers, and thanks all!
+Bj=C3=B6rn
