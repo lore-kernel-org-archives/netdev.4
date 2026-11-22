@@ -1,58 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795313181;
-	b=W6XFIGsRITHrcDnCrv6KZVM+7MJrVYQf8nf9AFRces3I1sVCCQqSzQE7/AB0Uu3Ctw1n
-	 oJgHLTQ+aJdIRNlA4z5szAKh8wrLPKfgUoLlf0bOAXISxO3sTIfyJVU7oi/gXjgDfk6tj
-	 bh9FGmzPeDaNJUbqqPKw3LMjdKocUtsJjEi6ZaYtPKasvlJCkBQhiophcHv7YLWmniCIU
-	 JykflEarfN8Lz4Vir/0lwUhs9BY878WDriSzT3mPDmeJxjEqk0zAG+ssaNITxEQABv6LO
-	 aZhRZibFvGpySXDOg6Ey3wHALbPXst6gMi1clgvGYkoDuPRBOxjkIsZeCPUDD/yJqBQ==
+	t=1795316870;
+	b=XLb2mttJB7Hdk8If2HwzFrAZNBidbsN1g4ALk6URKF8NHzH+TddfSODjR3vds9q80ee/
+	 xTjWDrOX7jeVRVQX0BbqXeJBoLysbgY74AseGlI8OrGQmHxi017aizJK6MmCDtr0pUA1y
+	 25MDQAhJUWwUud+RVHW+h/OxTLX9hR9Dof/IH49wdWqyrMMu7GrFguX4mmbol89XlwaVR
+	 px9iOKEUWx0R6UGo6Tc1eAu/SyOC16og2pdU+escNIdY2AhqfAT6jaI+5OzhJErJ6Lx15
+	 Dd9ljOxd/w6m5+ZbrYeLWkhc1VRu2xt20cbhxkf+Kdm2XBtl1iF3gt3f9KzgDV8qL7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795313181;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=dEnkapeRnfFV6E+zu66FrpGD/YUjf1f+f1RLCOGBPoI=;
-	b=p2up024baxH4F2s9llTVx1Vy0yxQ2DQjCOKM6JJkIChCkmBvxNZMQd7WhP+Q3mT8DC1z
-	 Af3myXVLCo70kzHhHlHQ/+XrM9dzNYZNXzftGyEjMeRS78weQiQDHWozMP+1qGBf83qfH
-	 JqiBJ93tPn1S0U1lZs1EaWEf6cSgoOS4Gl1ht+xbvNmqikBY/5p9pbFLmXQ1TlF9/2P87
-	 MuHLSRvcHLSoZQOd4zVBGomnQpzy8JsbPZw4yJI+TcSLVppwkW47k2vJpHg+SH1zp0E+3
-	 bWFhV9s0RTndyZhVq55gVRiiON05FVKTh1uFIf89n+Jg9aWRuELTE31S//S1MXgmClg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795316870;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
+	bh=bwNd8sLw6hbTvYHt2WvzdcBYIoTOOkkWoTy5JkcEDe4=;
+	b=dLxmlRXELDRV+Cjxz7GjQT6Pmh7N3tAE+R7m08DUs5wHVheDPT1g87hAfjcMigR0l9qO
+	 Q6jezYpkokD+edeWwk+sdk0i2kK3srCkoRgqSqgrZvENcf1+P497kgRf2CLY33zBPpgRf
+	 Ak36T0CV5xDAM00JYZduX8BQchWmLFCKnbcYfw4cfZh74fbQEvLpz5vcjmC7Dk/9rxdIy
+	 eVtVDRiLEcc5Hg5cyg6dMgXFdFTLpGdTXduTFMJYpXGFlPD+tm9phrP1JvA/Y8KKdfdeR
+	 bc5yMT8ePPbCfrCWfxN+p2d6ujnRy6DLbCsjmCU/CjdVuvSHOFF2geWdDfh360t/7Qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YalRjlxg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=O1OiLEeP;
+	arc=none smtp.remote-ip=185.70.43.101
+Received: from mail-43101.protonmail.ch (mail-43101.protonmail.ch [185.70.43.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BADE606A320;
-	Sun, 22 Nov 2026 02:06:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34B9B606A32A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 03:07:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34B9B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YalRjlxg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A81B01F000C0;
-	Sun, 22 Nov 2026 02:06:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795313181;
-	bh=dEnkapeRnfFV6E+zu66FrpGD/YUjf1f+f1RLCOGBPoI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YalRjlxg68ljOxtTlXXmOhV7A1JdPSwzk9wrbMR8QTpe8ZaOHGWUTzwTYHfuJvIiA
-	 3z3KPYEPKX3Vb1Py0Po6ypLvmwv+DeTD4BskXbZZywwjegjgfcsMw3rpFGaqnxemTW
-	 83hSLPMiJA6q9LuSUuDj0XXvg37GBjuvpWyzJYTTzMPz6E1coIyzMmf0rICthhogB2
-	 5i9mpj6w65W+Gw6DIAUIxXOBSFc0ApOReUZdEoE09U0u7YO5pbxVYRU/WmUwQOf0TB
-	 ah7Flze1QxI7FqGwhZOnITb2bbBzGPQM+T2inpA6TFq1hXVxuUyvBVDmTKlzsucrV+
-	 oRWrXKQAyigOw==
-Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-From: netdev-bot+sashiko@kernel.org
-To: laixiangwu@cmss.chinamobile.com
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
- olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, kuba@kernel.org
-Date: Sun, 22 Nov 2026 02:06:20 +0000
-Message-ID: <179531318026.3135.909782780821579093@kernel.org>
-In-Reply-To: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
-References: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=O1OiLEeP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795316866; x=1795576066;
+	bh=bwNd8sLw6hbTvYHt2WvzdcBYIoTOOkkWoTy5JkcEDe4=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=O1OiLEePNn4iDA7PsrfhjOqYPcVbTdj+2K5cdrcV1yS1rECRGiHFn8kNl2Qyankcn
+	 fu/OaRGf0VFQhuEMsujFik7y+8EFzAqxC+FUM0Mh6H8a+Js2jh+VKfXI/t6r0RIGlN
+	 VNkpH6V9ILDzLx/ReHSrSUS4XS0BCYVKAZHTv+YB/3pzZbCU2ZLbpSpsxq5nlXo/8m
+	 TFScUDdgKQ1s58fpGl3zAo7D9RvyR+KWVoYcJos6Li+AEIYhkWZk1Fi/lAgNqLeoLm
+	 Z8SxagMjW619bNY1D8dqJaSDrhOjjOg3/h2mwpjUbOUzNLwmaOBNVsypffhyB79QmQ
+	 xuOydqkD07rSw==
+Date: Sun, 22 Nov 2026 03:07:39 +0000
+To: Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+From: YanXin Li <fadouse@pm.me>
+Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
+Message-ID: <20261122030728.9368-1-fadouse@pm.me>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: f9bcd3e369aefbc9e9addbe820e4d1c933c2307d
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,187 +60,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2"; charset=utf-8
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2
+Content-Type: multipart/mixed;
+ boundary=5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
+From: YanXin Li <fadouse@pm.me>
+To: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
+Date: Sun, 22 Nov 2026 11:07:28 +0800
+Message-ID: <20261122030728.9368-1-fadouse@pm.me>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+--5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+load_metaops_and_vet() unlocks rtnl_lock() to invoke request_module()
+when an IFE metadata provider module (such as act_meta_mark) is not
+yet loaded, re-acquires rtnl_lock(), validates the metadata attribute,
+and returns 0.
 
-- [High] The fix is incomplete.
-- [Medium] The new err_powers/err_disable_core_pwr paths in
-  mt7530_setup() disable core_pwr/io_pwr, but mt7530_remove() was not…
-- [Low] This is speculative and depends on the hardware.
+Returning 0 after dropping rtnl_lock() violates the serialization
+contract of RTNL-locked classifiers (cls_basic, cls_flow, cls_fw,
+cls_route, and cls_u32), which hold an unrefcounted filter pointer
+(fold) across tcf_exts_validate() -> tcf_ife_init().  A concurrent
+RTM_DELTFILTER can delete and RCU-free fold during the unlocked
+request_module() window, after which basic_change() executes
+list_replace_rcu(&fold->link, &fnew->link) and queues a second
+deletion on the freed filter.  Generic KASAN reports:
 
---
+  BUG: KASAN: slab-use-after-free in basic_change+0xf4c/0x1220
+  Read of size 8 at addr ffff88800e043c58 by task test_act_ife_rt/101
+  ...
+  Allocated by task 101:
+   basic_change+0x1e0/0x1220
+  Freed by task 57:
+   ...
+  Oops: general protectio
+n fault, probably for non-canonical address
+  KASAN: maybe wild-memory-access in range [0xdead000000000120-0xdead000000000127]
 
-net: dsa: mt7530: fix regulator leak in mt7530_setup()
+Every other TC module autoloader that drops rtnl_lock() during filter
+updates (tc_action_load_ops(), tcf_em_validate(), and em_text_change())
+returns -EAGAIN so tc_new_tfilter() and tcf_action_add() unwind and
+replay under a fresh RTNL critical section.
 
-This commit adds two error labels to mt7530_setup(). Error paths taken
-after the core and io regulators are enabled now disable them again. The
-common cleanup is guarded by a priv->id == ID_MT7530 check because MT7621
-shares the sw_setup callback but never enables the regulators.
+Manipulating TC filters requires CAP_NET_ADMIN in the target network
+namespace, which is reachable by an unprivileged local user inside a
+user and network namespace when CONFIG_USER_NS=y, CONFIG_MODULES=y,
+CONFIG_NET_ACT_IFE is enabled, and an IFE metadata module is not yet
+loaded.
 
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index d5a199293f78a..46f827838a519 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
+When load_metaops_and_vet() drops rtnl_lock() and loads the requested
+metadata module, drop the module reference and return -EAGAIN so the
+caller replays the request with fresh lookups.  With this change, the
+same concurrent RTM_NEWTFILTER and RTM_DELTFILTER sequence cleanly
+loads act_meta_mark, replays without to
+uching the deleted filter, and
+completes with rc=0 and no KASAN or lockdep reports.  Exhaustive
+state-space interleaving checking confirms zero use-after-free,
+double-free, or deadlock paths remain.  A test case and full
+validation logs are available on request.
 
-[ ... ]
+The vulnerable code is present in upstream mainline v7.4-rc3.
+Runtime verification and fix validation were performed in an x86-64
+QEMU/KVM guest running v7.4-rc3 with Generic KASAN, UBSAN, and
+lockdep.
 
-> @@ -2579,16 +2581,27 @@ mt7530_setup(struct dsa_switch *ds)
->  	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
->  		ret = mt7530_setup_gpio(priv);
->  		if (ret)
-> -			return ret;
-> +			goto err_powers;
->  	}
->  #endif /* CONFIG_GPIOLIB */
->  
->  	/* Flush the FDB table */
->  	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
->  	if (ret < 0)
-> -		return ret;
-> +		goto err_powers;
->  
->  	return 0;
+Fixes: ef6980b6becb ("introduce IFE action")
+Cc: stable@vger.kernel.org
+Signed-off-by: YanXin Li <fadouse@pm.me>
+---
+ net/sched/act_ife.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-[Severity: High]
-Is this fix complete? mt7530_setup() is only the sw_setup callback. On
-success it returns 0 with both core_pwr and io_pwr enabled.
-
-The real ds->ops->setup is mt753x_setup(), and it can still fail after
-that without disabling either supply:
-
-drivers/net/dsa/mt7530.c:mt753x_setup() {
-	int ret = priv->info->sw_setup(ds);
-	...
-	ret = mt7530_setup_irq(priv);
-	if (ret)
-		return ret;
-
-	ret = mt7530_setup_mdio(priv);
-	if (ret)
-		return ret;
-	...
-}
-
-mt7530_setup_irq() can return -EPROBE_DEFER from of_irq_get(), or fail in
-devm_regmap_add_irq_chip_fwnode(). mt7530_setup_mdio() can fail in
-devm_mdiobus_alloc() or devm_of_mdiobus_register(), and the latter can
-also defer.
-
-Later failures in the DSA core are not covered either. These include
-dsa_switch_setup_tag_protocol(), user MII bus registration, and
-dsa_tree_setup_ports/conduit/lags in dsa_tree_setup(). Those paths call
-ds->ops->teardown, but mt753x_teardown() only cancels stats_work.
-
-In all of these cases dsa_register_switch() fails and mt7530_probe()
-returns the error. That means mt7530_remove() never runs, and it holds
-the only matching regulator_disable() calls.
-
-The devm regulator handles are then released with a non-zero
-enable_count, which hits this warning:
-
-drivers/regulator/core.c:_regulator_put() {
-	/* Docs say you must disable before calling regulator_put() */
-	WARN_ON(regulator->enable_count);
-	...
-}
-
-The provider's use_count is also never dropped. Each -EPROBE_DEFER retry
-enables the supplies again with a new handle, so the count keeps growing
-and the switch stays powered and out of reset with no driver bound.
-
-Would it work better to move ownership of the regulators? For example,
-probe could enable them and register a devm action to disable them.
-Another option is to unwind in mt753x_setup() and mt753x_teardown() and
-change mt7530_remove() to match.
-
-> +
-> +err_disable_core_pwr:
-> +	regulator_disable(priv->core_pwr);
-> +	return ret;
-> +
-> +err_powers:
-> +	if (priv->id == ID_MT7530) {
-> +		regulator_disable(priv->io_pwr);
-> +		regulator_disable(priv->core_pwr);
-> +	}
-
-[Severity: Medium]
-Can this leave mt7530_remove() disabling the regulators a second time?
-mt7530_remove() was not changed, and it still disables both supplies
-unconditionally:
-
-drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
-	...
-	if (priv->id == ID_MT7530) {
-		ret = regulator_disable(priv->core_pwr);
-		...
-		ret = regulator_disable(priv->io_pwr);
-		...
-	}
-	...
-}
-
-Consider a multi-switch DSA tree where the MT7530 probes first.
-dsa_tree_setup() returns 0 while the tree is incomplete:
-
-net/dsa/dsa.c:dsa_tree_setup() {
-	...
-	complete = dsa_tree_setup_routing_table(dst);
-	if (!complete)
-		return 0;
-	...
-}
-
-So the MT7530 driver binds before ops->setup has run. When the last
-switch of the tree probes, mt753x_setup()->mt7530_setup() runs for the
-MT7530 that is already bound.
-
-If mt7530_setup() then fails, err_powers drops the consumer enable_count
-to zero. The error goes back to the other switch's probe, and the MT7530
-stays bound.
-
-On a later unbind, mt7530_remove() calls regulator_disable() again. That
-triggers the "unbalanced disables for %s" WARN in _regulator_disable(),
-which returns -EIO. The driver also logs "Failed to disable core power"
-and "Failed to disable io pwr".
-
-Before this patch, a failed setup left the regulators enabled, so the
-remove path was balanced.
-
-[Severity: Low]
-This one is speculative and depends on the hardware, but should the chip
-be put back into reset before the supplies are cut here? Every goto
-err_powers happens after mt7530_setup() has already released reset:
-
-	if (priv->mcm) {
-		reset_control_assert(priv->rstc);
-		usleep_range(5000, 5100);
-		reset_control_deassert(priv->rstc);
-	} else {
-		gpiod_set_value_cansleep(priv->reset, 0);
-		usleep_range(5000, 5100);
-		gpiod_set_value_cansleep(priv->reset, 1);
-	}
-
-err_powers only disables io_pwr and core_pwr. Suppose the reset GPIO is
-present and the supplies really turn off. The SoC would then keep driving
-the reset input at its run level into an unpowered chip, which could
-back-power it through the input protection diodes.
-
-mt7530_remove() already disables the regulators in the same order. This
-error path is new code, though, and could assert reset first.
-
-> +	return ret;
->  }
-
+diff --git a/net/sched/act_ife.c b/net/sched/act_ife.c
+index 5a527da0056..5d6ca124e00 100644
+--- a/net/sched/act_ife.c
++++ b/net/sched/act_ife.c
+@@ -275,6 +275,14 @@ static int load_metaops_and_vet(u32 metaid, void *val, int len, bool rtnl_held)
+ 		if (rtnl_held)
+ 			rtnl_lock();
+ 		ops = find_ife_oplist(metaid);
++		if (
+ops && rtnl_held) {
++			/* We dropped the RTNL mutex in order to perform the
++			 * module load. Tell the caller to replay the request
++			 * under a fresh RTNL critical section.
++			 */
++			module_put(ops->owner);
++			return -EAGAIN;
++		}
+ #endif
+ 	}
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118014114.1855-1-laixiangwu%40cmss.chinamobile.com
+2.43.0
+
+
+--5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+
+LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCkNvbW1lbnQ6IGh0dHBzOi8vZ29w
+ZW5wZ3Aub3JnClZlcnNpb246IEdvcGVuUEdQIDIuMTAuMAoKeGpNRWFVdU9NUllKS3dZQkJBSGFS
+dzhCQVFkQXRuWWxTekhUTEhBMkl6dU5FMUF5OEpyS1VDeDZoUCsvdGM0TApEWENucmV6TkhXWmha
+RzkxYzJWQWNHMHViV1VnUEdaaFpHOTFjMlZBY0cwdWJXVSt3c0FSQkJNV0NnQ0RCWUpwClM0NHhB
+d3NKQndrUXVaMWd0K1htMlhSRkZBQUFBQUFBSEFBZ2MyRnNkRUJ1YjNSaGRHbHZibk11YjNCbGJu
+Qm4KY0dwekxtOXlaem0wQnAzZUVYUldrbklnQ2xXd3ZkeFptbzFYblZiNkZrYWpYVFZNMUIvakF4
+VUtDQVFXQUFJQgpBaGtCQXBzREFoNEJGaUVFbVVoYW8zWi9BbkJJNExCWXVaMWd0K1htMlhRQUFM
+cTJBUUQ3OEs2cGVkU1gzbGROCnlxZDNPSDF1TWpPM3Y3TFlNaE8rbDdjblNMV3JFQUQrT0NTcTEx
+U2VhS29ic1ZHckxlalRNc21Nc1BCOGpueGYKaWQzaENOK3Bld1RPT0FScFM0NHhFZ29yQmdFRUFa
+ZFZBUVVCQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRgpiRW02WXFYWDJqMnYyaUtEc1FNREFR
+Z0h3cjRFR0JZS0FIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBCkFCd0FJSE5oYkhSQWJt
+OTBZWFJwYjI1ekxtOXdaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnMKeW43OU5G
+cE5xa0h6K2l6cElMQm5VZ0tiREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6UWdE
+LwpjSUowODlKa25vZ1RzNnZ2UVorSjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNTOGFo
+NWRCWVphOUwrCkhxamJEbWVTZ0RvNTh1U3graVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1AgUFVC
+TElDIEtFWSBCTE9DSy0tLS0t
+--5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f--
+
+--------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wqsEARYIAF0FgmsCXHoJELmdYLfl5tl0NRQAAAAAABwAEHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmdJtaO558TQB98gEUUdYl0HFiEEmUhao3Z/AnBI
+4LBYuZ1gt+Xm2XQAAPBcAP9n1GXXp54EijQOjLaKgb7pOoaUjk7H/lGvqsPp
+1icC6gEAxXdOqzK4n/vow5pdf86mAPQMfvWwQ8WFdf2E9RR6Qw4=
+=VfXo
+-----END PGP SIGNATURE-----
+
+
+--------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2--
+
