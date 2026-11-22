@@ -1,96 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.36
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795366331;
-	b=M8+/U5nchGn+KU7zz/u7PBttY6YphpKAjJmq0ID7CrNIP90TH/FF2XvN6M8Qnihr/bED
-	 4F/7UG63cOcZehCb73Ed1kLmQs4iyUWdPsTc1Kzr/I9pJ3qkP+4zGWk2V6dbz79UhLbSu
-	 QIBazPlO3PYBnu4X3OpAi6n0aN4Vq0yqvYdo6Xohvfeun9u5K2/PblK/UwiZNKXRU0tJn
-	 QEw1pigrkGXxsgNXAOFlMn2WBpTEE1R5Wa5h9NfDiEH7QEttCH0dr9tpd4N62FgwTNSJo
-	 WUIWhLedqR8R5Z8K3JL3gAe5yDPpHjcDQfIQfJa4uaogvpUIquK/eXm78sgd9zYouqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795366331;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=gg5CXwLELiiHT4sTbY1+2ax49goJ2iy/XRG996eDrek=;
-	b=0a+EnFBvfEjIr8uNLRM2t4jDpByM05neuuK62U9Pklo/f6+naP4rtI5oQ3OT1k7mQntd
-	 QO+pEiUNQAqFq8PG+WlfdKBx6r0OsHjX8f6WrcdFVnVS+wIvWH57pYVlF7ZvngoV+ZnZ/
-	 Z7naE9abb8N5wQT0Iq6ghw9uTZ1XquuKX5v5/Ac//77tgu4sEvn6YKQHo/r4CkL5dTYeP
-	 Q5vGgTS087w+xU6t5/zesQhW2y8koAIygadDT3KmqAXeDHM5l7ZS+VWBotY6jRixkt7jH
-	 TrBGCgKcGHUPdoD/aKPe9URUFs8wjnOAN/xsJZcMVG9umJ7mt5wxQ3ka2KjN5kS/d6Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PkTnxDqj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.36
-Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010036.outbound.protection.outlook.com [52.101.46.36])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795366585;
+	b=gA9jFk9AVCJVFZ5MKxFxZ/qBkfAhkc5k4dUj2b8mbWAQgr/vzL0iCvZj6SADGR4Jmu+c
+	 LIMcBqTFm7smkIXJw/Tu1MHVNgETtyuj65DCS/PYeEE1v/f1+oVCrT5u5YoxX8YZQAP82
+	 5BWJvxUIrjl2vOXy5T7mMnCln99ZEeYNwIlI0YkA9aXBkxyr5GKkBrhTZmcg9TZmX25KM
+	 /lGdYCyuDZWg7W341nXewkrYbsBgTAHGdkTdC6JteOGs2ze6CGvB+O7jeJfGT8kANVz4W
+	 7YvcDdwBrx9k2/QF36tBMrd4e/4S8z4Twc13z2X7aZ0G/d24cqz6WidVoVU53VT/JHA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795366585;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=r0teGaLFiZbnip2X0hbOa3BQ614Td9G1LXhr62qV31A=;
+	b=jWEvZ0uulQ23/IWToZbIe6x6F7AqhkgABweGdb1loGX4oEzQNS+wCObYvSR3Qwt6hkJE
+	 fbt+A2kq1mUcXzQ3Bv+DJWBejs0GqOsiV1lL5wOyfLuRBSGYwOeUZmTsGUcj81+R7p0PG
+	 GkMkAKINpn/m5pEpB4yCrbnblkhYAk1f7/aKG4eSmo/NJNyTO44DEOydii5J7ssI1N34L
+	 rkSFJtqg3VIMgcGjWDaOTnAnT2OQys/3eY3wLgleqNjXQS2SQ+57B5WpWTs6lXu7QgtLg
+	 rcixkY1lATDIbIIL72PLswC3u+JoP/xoMttXUT2YFYnmdtSrfEN04+vmEoFXCYcNIXw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUohEqQH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81056606A698;
-	Sun, 22 Nov 2026 16:52:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81056606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C8E2606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:56:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PkTnxDqj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eg/IMXNRRT+NK3D3ZrssAj1TeOceWNZkNMBIKFT4yHsyTr/uMw0OkzqT6S2yLsMbDbzNDP0zTJUfTQMo6oicQI7ykuHZIJj+MyzS+qeis3IvNDnAEMphCAWZzB9Zaz9YFfMjnCAWWYGPPbGJBoRnJbbaVsmKbQcMevwX8M1oHC5HZh39dztUkBAMlJzMChDJ9JJdFsO+RtenACnyQPiq8nri+QqVbV7Bu56gKlbiYK5A7oVW6M07ipuld9UnzhhLET+pKsfjUnaTMia24t9mo39vr830Hd0q2zDumyarN/bn/lSVjD86+wpJQDR4gxQsIj6GR/etR2gd9cRKWYFnXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gg5CXwLELiiHT4sTbY1+2ax49goJ2iy/XRG996eDrek=;
- b=W2naREfEepDCyGPtIivF07926CDLaI1zN5a6FJWiUjqkfrcu5FBkLU5j6tfkaVBNYalDd4kvy5heAT2DyctkkB8ulBEPi5cuyCkVSSFK8yEKE/vsDDyTircRWji6vPF3xyWjW47rRXweHeJ9cMZb4dDJplXd34fTfd8Pd5/p+IStjaDBK40IiCb199gH8oq/NK6zTnWIXoRItDe8SjiCA3Z33KaY6u5ZP2DkOTXukSMJXLCtSV8LGD1L4Ftf7nxfFfuUnsoVKd6VxDRcQx4Ec4TR6SsnveYY/aYeT9HskqhxOfdJAifC139/60+sFxHdrqDroT/K/LjQYP9v9dIdTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gg5CXwLELiiHT4sTbY1+2ax49goJ2iy/XRG996eDrek=;
- b=PkTnxDqjg3W7hiaxMAclQxwOXUP3Wb7Vomsr1p4TUHMkSjRKaXnKEYnhaYhDVqklb1GWiHj9p7L6l/jwALKwGJUPbLVuXgEgjJcEEpeNAjA40hZS72Vb7GIvM2HJ55WGY95Xacr25qWADFWpRqOC8om6A7XK5hgjK+IH1TS0MHz+519Zy4FYcALcNhY76p2wb1KLd3sBltoHJ++KtOXD9Bz9AQU8nqJAoUlXKk6zXcbbhiBHDRh8bPl3WHh64gBjL+REBrMJC027bHh6JKqO/Y9bXRpO74maEUM2Y5/mwOyWxZbOFWj/NB01AsjHBILM1PM06JmoxVd7OkSZ0NxIPw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by SJ0PR12MB7476.namprd12.prod.outlook.com (2603:10b6:a03:48d::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Sun, 22 Nov
- 2026 16:52:08 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
- 16:52:07 +0000
-Date: Sun, 22 Nov 2026 18:51:58 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: Vladimir Vdovin <deliran@verdict.gg>
-Cc: David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next v4 0/3] ipv4/ipv6: Cache pmtu on all paths of a
- multipath route
-Message-ID: <20261122165158.GA3020566@shredder>
-References: <20261117193141.27004-1-deliran@verdict.gg>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117193141.27004-1-deliran@verdict.gg>
-X-ClientProxiedBy: TL2P290CA0013.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:2::7)
- To LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUohEqQH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF9B41F000EF
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:56:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795366584;
+	bh=r0teGaLFiZbnip2X0hbOa3BQ614Td9G1LXhr62qV31A=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=ZUohEqQHZSFC/64bYg2uf7z2xhayzkxTB6MF49gU9OZp9iFnDYg1QyEMGRWipn8S1
+	 ILAD+xbGhrU1Z1zu5k0r6tkQ/RRTPnHNM/dwaPDWOmIdFQNiaufWQNilIuWRcckpXD
+	 oHSb2N8vDrUfwRoaZ9PsArpHQRz+ikKjZutJuOICcDDZgPaKkDx6B/LXT0T9+DoGy7
+	 TsqaGUhwFRZTL/wW/OHFyw161X8LxQND8HTzN/z8fRZsuvsHpLPipywWd6OhLoZyzJ
+	 8cLTLfos1iCfsPLTKXnK9nnJTeWy2QGb+mrO5hNOpC8fempSfe+i3i7xc28/TR/ZnE
+	 VLBxx+TE4zAtA==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3ab4354db11so24258701fa.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:56:24 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHeqV6zOoHD03veERa0SqPmQtl1vdm3Wu+UEWwLJfsnLNFRs0dpWjrZNSOa7hMQu/fM6cEY1Aw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UYYqvRM/xAwoyaOCgo5Kg5ZOJrjhDrYnbSTeLpLLZst7PtRkb
+	P7RnNvm4DysKTKrgvS51++84HZCUYgppQuGEYIm37pASa98SgD8Q4iFuReuSIvkQMh8251ysBIZ
+	BebjkbmoMBko3K9TZeOJ9C2dY3bPbD00=
+X-Received: by 2002:a2e:b8c3:0:b0:3ae:6f2b:6caa with SMTP id
+ 38308e7fff4ca-3ae7f9f6483mr26598401fa.11.1795366582998; Sun, 22 Nov 2026
+ 08:56:22 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,73 +59,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|SJ0PR12MB7476:EE_
-X-MS-Office365-Filtering-Correlation-Id: eeed7458-9aa2-41f7-dbb9-08df48b8f16c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|10067099003|56012099006|11063799006|261026140227099003|261026121527099003|261028144727099003|261022105027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	qkxh2h/9anWk5sCFQmTI/ygkNY+sjjbIMViCGiznhCPWHEnBzLi4pY0smfjy4RtgfYg9SakSEQDNKtp+DXt1mENgiUjkAE2AxaBiAwoGvNUBhKqdoWzff50SDq6xuwltZvh4y4v3sp4jjUsrCihf/Tz6yJcsUaI681zKxK0sAtOb1/yKc2Ac55k1qZ/seH6FlwdX7S3W245jRQrFZ2BNq/9wh6Lof1iyHIj7bpc1fnNcgszXl4HaJSEc9enc5ssa9HHFgrQsyi2bk34w/K2Ttfh1KlGoz/+C8npFWX6z6Ya2+WLtusef8ZQbKfusGZ5/bVo/HMwkEjH61e/MbzyCoDyNL49jLlJPD213OcuIa6o+0CP1bvVBIAfxzPHmIpjMZe4zWQ2fH7NQmsFL18ZreYAWX25LPC/Qpk2lte0RENy4n9YNTxPug7vzDBgQk5GWRBQLpsY3MM04TfBx2KHfeJTGu3Esw1dYXHaul5rd9RAPOlUQ/itXphz9f0eLTmirc2ar5hOvXTWdifCOg2THsBBPL3yUTpHP31tvHKj/wjkVZHYoQPyQ/dPLmaI5sqB9HPNADAeh5ZkAsp2M+kuBB9hI2YIy6clWkEhb8zJwD3ZV8+D1TSuxuvkH5V0scRlbjaR1DNhywu4UhywXBXKQX7voD4uW9d58JbeQQfCUfIM=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(10067099003)(56012099006)(11063799006)(261026140227099003)(261026121527099003)(261028144727099003)(261022105027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?bY5EEXU/w2zgPu6lwFycF96d4VwUJM5Yeq7QzoGX4Vcla+pIo08RitW5vSvP?=
- =?us-ascii?Q?nmp8T8mcmC+f3YXQDO3BnE6HLGKfh3wbmmFvrVj43s1cPqLrVO3hpWeqVKZP?=
- =?us-ascii?Q?xn2WD9VnUxzYoFvY6/GFWohbgI2JG58HbOEXGy7msBnOqU1Sa1hIu1Axb6nk?=
- =?us-ascii?Q?UYbEDPGsX1me+d3nsc26RphSZBEnP47u31QxuxA0MxgKxR0vF7wrAPii2Cxk?=
- =?us-ascii?Q?yV0RQR6qLmKcrHlGsus+CqDAmdwIL8BFY0myU/wdo+alH63LKh4QeLGDXaVN?=
- =?us-ascii?Q?lQW3GFlDOXf8Sf+K2vQmMh4VSgJMGU2+OwZOb6IL9TSjIPqJrp7CoO18IVXZ?=
- =?us-ascii?Q?Z3lQ8CKMMD+dWsMO7Skc93FIMUscVPkwHjFQBLqoi0PfE+ucQ6Yxf8SjN7r+?=
- =?us-ascii?Q?s5LExkbGbUxLqczZ1X6q8FYL171KUQ4WYXe2NvR9ofk0nNfoxodbD3on74+k?=
- =?us-ascii?Q?j9YOJbqJSPgEy4RyejVMK5h6P493G7JC91jEuAMtjTxXkwLwzSo4eCKXbDDE?=
- =?us-ascii?Q?sLEGBGpp5fT/K3FX1Musy/dkCJbfFX5WtUOq+FMVvxjzjGO9CiMsd0YxzQh7?=
- =?us-ascii?Q?Rr2TETHryBX1yR5Uk0+0AObY7hPTPpXBtYjW6IzkIET0cWOSAGUN+jvs4/8x?=
- =?us-ascii?Q?oHoal5SK9E/ZJTK9aBJX17Kes2pTKxgjx9XsmwARSMU4vbFHUPj0mYSVUcMX?=
- =?us-ascii?Q?73gAeHgQpr+BoXG0ZBFgxGIdoHIpoz0x5TqYgHghKT8sL/Tr/p+ZGQSn5R/Y?=
- =?us-ascii?Q?RYUsXFtEvtVPHXfPeala9igLrkSD9rYe25ARSBVA+txHaMclZs85VI5M/0Va?=
- =?us-ascii?Q?U9qrY0Kxe0ndRAzhlboJ1FlOU8Q+UusFJzSr+a6xD2LrDH4m+CVH8ydRGgiv?=
- =?us-ascii?Q?+PyOCscmjwIE3yWR1HoM33uaizVqoQ8WaQmWZeM63vzIgfA0uP38xuZoVVVV?=
- =?us-ascii?Q?bzVKWALsz9KHBW8BphfXaN2VczLz1kg9k9gcnpPm/86q0D48wkqJvAQ/WEUV?=
- =?us-ascii?Q?g4Uo+1MzPvfpbtZCbhPViNwr06TVRVt1xyyziKLMgaXIC50eROtF7x+oeN0m?=
- =?us-ascii?Q?sBsGZylXy5G7dYHHu/Yzf/odbg+yg6Yc1iBDKKcs6woQySahNCD+C4oW4dJ2?=
- =?us-ascii?Q?dF/H/n4YHOHde7Zzq6x0cyXHn3RZLu4Y9kNdJVENOrEFM6LyFUZtyX2+E/Ww?=
- =?us-ascii?Q?s6gsI716OP1k6kx3T5SCj97UAUQTgdK8XUcyAh7ZuL78046qvV/LRG1cINZY?=
- =?us-ascii?Q?yXIYma0CXdyo0JmbK/6k2FbEEE9SXS4366NHuFil8CQHQKwXNYgViWrmbOLp?=
- =?us-ascii?Q?hhTmJOll1aeSebdnStrE+wVqi8pRgqXpfkKXqGAs92jN+wdrkE18UkLlx4CV?=
- =?us-ascii?Q?G8fROqk6OzzFJZ43CTVGx8bSlnt0cGtY6cE7cKIWr9GTYIMbShmadIs+/8QA?=
- =?us-ascii?Q?QVR2t7BmBxwxPgkwKW+WZsxixPkwJYcQFz+Wy64JuRlYWKjbPpDstBUjeidt?=
- =?us-ascii?Q?OjXGwfNYXuzDOwaQ3g3I/AZ4ttx5UbQoRqQ4SyFG9ePSRFx5ba4NdVycUHsl?=
- =?us-ascii?Q?LEuhNxDWldu+sSJgAS63O7iBBuDxBxbztPNYpc+nLfXm+9Pg466uCI6SfxuO?=
- =?us-ascii?Q?uwip7n+WzLGMWp11QmvJ3MHePCmNTU4euNyfsY/8Im8bNAVyWeppKTyPkvkW?=
- =?us-ascii?Q?L6g45rprtVFfQOx1oI+6CNWa1yHuQ0eoo00fMXv7+eUgvFXX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eeed7458-9aa2-41f7-dbb9-08df48b8f16c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 16:52:07.2784
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /zrrhifsOeZTmkG7satUOjI0TTba0/AbMnRfqeBo/RFjomNgIOeJTR2EY1QXd+Mxadq3CI7X+P5eUomvfIkbqg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB7476
+References: <20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf@gmail.com>
+ <20261122-sun8i-emac-mtu-limit-v2-1-c4081e5b83cf@gmail.com> <d3af70f9334370a1d32511504aa14725@tipi-net.de>
+In-Reply-To: <d3af70f9334370a1d32511504aa14725@tipi-net.de>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 23 Nov 2026 00:56:08 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65RZAVX6FNV_y+TO+frP9RBCURZbW=B3Ws2_4f8f+1acQ@mail.gmail.com>
+X-Gm-Features: Aa3M54oulFi-3Qjl1WQec184X79yaVwtpOneI4puTLfYjiDU5sNNxxTSKipqNJ0
+Message-ID: <CAGb2v65RZAVX6FNV_y+TO+frP9RBCURZbW=B3Ws2_4f8f+1acQ@mail.gmail.com>
+Subject: Re: [PATCH net v2 1/2] net: stmmac: Limit the MTU of normal
+ descriptors to one buffer
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: aiyengar1990@gmail.com, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	LABBE Corentin <clabbe.montjoie@gmail.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	Russell King <rmk+kernel@armlinux.org.uk>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 10:31:38PM +0300, Vladimir Vdovin wrote:
-> IPv6 counterpart of commit 7d3f3b4367f3 ("net: ipv4: Cache pmtu for
-> all packet paths if multipath enabled"), deferred back then [1].
-> 
-> Patch 1 checks the mtu of a Fragmentation Needed against each path of
-> the IPv4 fan-out, not against the looked-up one, patch 2 does the IPv6
-> side, patch 3 adds the tests:
-> the IPv6 variant of the pmtu.sh multipath test and, for both families,
-> a multipath test with paths of different MTU. The IPv4 asymmetric
-> test fails without patch 1, the IPv6 tests without patch 2.
+On Mon, Nov 23, 2026 at 12:27=E2=80=AFAM Nicolai Buchwitz <nb@tipi-net.de> =
+wrote:
+>
+> On 22.11.2026 10:13, Arun Iyengar via B4 Relay wrote:
+> > From: Arun Iyengar <aiyengar1990@gmail.com>
+> >
+> > Russell King noted in [1] that max_mtu for normal descriptors,
+> > SKB_MAX_HEAD() (3712 on arm64), does not match the hardware. Their
+> > buffer sizes are 11 bits, and stmmac neither splits TX frames nor joins
+> > RX descriptors for them, so a frame must fit one 2047-byte buffer.
+>
+> AFAIU TX does split (jumbo_frm() in chain_mode.c).
 
-Please wait with v5.
+Yes. But it also assumes each buffer is 2KB or 8KB, which this series
+already says is not correct. (I do wonder why the size field is not
+size - 1.)
 
-Patch 1 and the associated selftest should be split from this series.
-Wait for the IPv4 part to be accepted, then send the IPv6 part. I will
-review both parts tomorrow.
+And also, if I'm reading this correctly, the jumbo frame conditional
+is only ever true if enhanced descriptors are available:
+
+
+    /* To program the descriptors according to the size of the frame */
+    if (enh_desc)
+            is_jumbo =3D stmmac_is_jumbo_frm(priv, skb->len, enh_desc);
+
+    csum_insertion =3D skb->ip_summed =3D=3D CHECKSUM_PARTIAL;
+
+    if (unlikely(is_jumbo)) {
+            entry =3D stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
+            if (unlikely(entry < 0) && (entry !=3D -EINVAL))
+
+
+I might have pointed this out in a reply to Arun's other patch, but here
+it is again. This seems to have been broke since 2014 by
+
+    29896a674c8e stmmac: fix chained mode
+
+> This makes RX the real limit as ndesc_get_rx_status() drops a frame that
+> spans more than one descriptor. Please say that instead, it should also
+> answer Chen-Yu's question about hardware vs driver?
+
+It's great that we have interest in getting this working again, and tools
+to help us get there.
+
+
+FWIW the the new "GMAC200" cores in the latest Allwinner SoCs, and the GMAC
+in Rockchip SoCs would also benefit. As far as I can tell they don't suppor=
+t
+enhanced descriptors, based on DMA cap values reported in debugfs.
+
+
+ChenYu
+
+> >
+> > Limit max_mtu so that a frame with two VLAN tags and the FCS fits.
+> >
+> > Link:
+> > https://lore.kernel.org/r/E1vLJcL-0000000ExBL-0GFe@rmk-PC.armlinux.org.=
+uk
+> > [1]
+> > Fixes: 48febf7e6476 ("stmmac: allow mtu bigger than 1500 in case of
+> > normal desc (V4)")
+> > Cc: Russell King <rmk+kernel@armlinux.org.uk>
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+>
+> > [...]
+>
+> Thanks,
+> Nicolai
+>
