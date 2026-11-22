@@ -1,78 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795338236;
-	b=2Z/aCyv/4Bwp8HsdXzYHcOppYzESHfsUlAfLD6b5JVobU97cPIffQvJM097QE6aFsD8b
-	 szUAPvEs2Opti4pxreI4bLm1epn91ebvKHbbluseEQKJBD+Mh3h/aJWdbZQ1RsM1/gicv
-	 04WeRwXa4+aj2aGy8YKRz7HkVJGuzl3GcFyr6slJrtWk7SqqWuMVUuNjP6kEqzvoYdf8w
-	 6tTUc6S+Xyq04tXA80doe1E6aKj0OcAv66iFXcA9dChXatR168RgfCpkEq/e0+AmGZT7C
-	 KdW4dkkBmzMsfj1WTNUXT9n6XG+w30pixrbGKg3k/ngMORlWhZKt/tb3K87f5lXVdMA==
+	t=1795338374;
+	b=0Zh7bTewzj06JrZiYWJ5eFklKvpyqjMcMZsHLnuvMYS7ZFL6B4vLVyLC6N51MvwoQ4VC
+	 Z+lrVNBnJA6Ww75Oxtwa/NqauLJwnVUmS5SvcZJDA0QtNCV2d2W/Lsd/MFN/uFRlO2Ius
+	 8AqPai+6nWj4r9aIpPGB1E3rNIChENsNYXMJnVCiR0D4MdNFLE1r63TQRAyODNnwUmHd0
+	 mpNZhlBAHoQk1uPAgFUv+tVeMS/5cEHvrQeBoaBcudFmcWPKvgvdwGnXXvAjurwQmP86T
+	 VmtJjic0hUed0I3/KpWHu926zAIJg5c0BnqB8ygjIxH94ARPSjcke8i1TrGFQznEehA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795338236;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=Q1DhCDTvrKUFmV4rM/Yb4wzHSmQHrL4w1MRg2+vD0j0=;
-	b=gObex5oVwwxYO3rCYV/g4TW0rqaTuj4WJUMCTF4KUuKHAj0ypRNNrtrijVJ7x2c/HKOM
-	 UOFd9ZQHlELjSOM2i9/IazvglG8daBwDkmRqMslqyp+hMrS5V/Lq7r+Krp+afXxVm1NAM
-	 uNCSKDeHDfUJYZY5iuAlw9QcEukIdxy+uRAyLY6PCll+PJ03nkOXBrhUSH3s8KG7USAM4
-	 vUVX+RvUUw2ayIIAt8aFWoSxWMiuy4UXeGhAnIAVQIz3/8PyrSKqVqZKVy1gZvwYHeG/B
-	 v9CZhYtIueBcad+wS98YZErqbeKKhjUba4zGVJpcwOWau6bHQGwW8QVau9ExGdZHPAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795338374;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=8vOXTOFvnrcmfNX9TrDkyysz8FDRPCViCUHoqkPWXYc=;
+	b=xutbHSPoOmSBVYGfbVsKpEQTQf+s0h7jDQ9bq9JgW1L/DJWXfZ3jKzVHys/X0JL97Tu8
+	 cPBvrz03qaYgZCX1j8pfdEPKZD0mHX7inMXBKJpMGIFOL0giiIdLT8yMp4j9lvCDL2SYE
+	 BvxMwkmVqPiWPy2WWMzEvhOhfUj/gLkpacA42GrSkWq8Wpt+NLIjLhEiwmQhBoGKgOuM4
+	 1bDvb3b9LRJTf/UgrMOy8ikhemwXj1P7LBHvGW1LYPVJO1zulK2uAl780xOQ3wkYbWKU3
+	 bVRo5Q9yUh0Q4+d+hHyjvHpxmZcTJRfnnhE8Z1XSY5L5u2QayBmcMwkazxa8vaomcKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=RX6VmKPt;
-	arc=none smtp.remote-ip=195.10.208.50
-Received: from mout-b-105.mailbox.org (mout-b-105.mailbox.org [195.10.208.50])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=foxmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=74.125.229.131
+Received: from mail-dl2-f3.google.com (mail-dl2-f3.google.com [74.125.229.131])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2574606A320;
-	Sun, 22 Nov 2026 09:03:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2574606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=RX6VmKPt
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-105.mailbox.org (Postfix) with ESMTPS id 4jXNR671Tgz9tp8;
-	Sun, 22 Nov 2026 10:03:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795338227;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q1DhCDTvrKUFmV4rM/Yb4wzHSmQHrL4w1MRg2+vD0j0=;
-	b=RX6VmKPtGbdvpm4XjGhSxcXW1c6be+X9OvA6nlhrfuHFtgBU9yLjzEVWk8wvJlV1tlBaa4
-	d3MTraQtUDtTq7pyktuxufS79T7uyzGoOnQSb+kuPRSTVIqQBLk0Y3pjx4GkF/yfD+3ms+
-	Tl55gc1Ig1LsI1CNYGShiJ8JSw/EdOklEgsdnH6O2rBNnCrSsYVy1gwJ5EoBbrXuhMqrVT
-	Dx4k83OyN5xWp40e9xKgjerPvxqB5IPwVZvzXkn5cSaELM067X//ESgOOcC8B/gf772sPN
-	rY5Pa5bHx/ZGsVUr/Bd74ESx6eL2dGV5/eirbQJlysGlKNPXfGXuXiF+NzMtIQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: Qiliang Yuan <qiliang.yuan@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v5 2/4] ipv6: take fib6_sernum from a sequence shared by all netns
-Date: Sun, 22 Nov 2026 10:03:34 +0100
-Message-ID: <20261122090337.43949-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261121-bug-net-netns-move-rcu-barrier-v5-2-100a3b5d9090@linux.dev>
-References: <20261121-bug-net-netns-move-rcu-barrier-v5-0-100a3b5d9090@linux.dev> <20261121-bug-net-netns-move-rcu-barrier-v5-2-100a3b5d9090@linux.dev>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43002606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 09:06:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43002606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=foxmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-dl2-f3.google.com with SMTP id a92af1059eb24-1521c45a248so2025258c88.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 01:06:13 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795338372; x=1795943172;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8vOXTOFvnrcmfNX9TrDkyysz8FDRPCViCUHoqkPWXYc=;
+        b=xvCR1YaKAvftKHABYj38eQNH7LxT58eNP24tmW0S/xBzGZmYGO1tj2RbfxMcZWrnUp
+         QAs4WrlsXBiJGiVCOyaLdjKYZFTWSk7RvhIb9EDZYoKBVvqxzTQhDrtpALwX1zYJRIbv
+         B1p6leYvoHiaVaOqw1yWk8Q0Fqvam6pBIcQLWlNxL7qT2CD+dBVRk6DnC1hWJYiMqTm8
+         r1zXaXJdxw0hSMBVmUXd23oyvSTV+fIdcV0g65i/NKIFBt79JSqctgcmgda+ewpgpMwI
+         nNsW67e/EhfCp0H8/iksLWKQoulR4JgfiYFh9UOXE3L2A9auwaKkSfZoFhIvQspvjeYl
+         Y2Ig==
+X-Gm-Message-State: APuU4Z9OAWMYipC0TOd5Wfjd6Sh3fEz3GqpumOu6P1JTnq/QKzjsA9Tk
+	G+ZpPMnHRNLjA5pQCeTQgpG3KLLvmpkQ6+hFXm5iyVR9swAKShRMrYESd1XmKgtl
+X-Gm-Gg: AZFdTZd+2sqVWZWGL+TZ7E4+I9MhLzy0drzvmMP5/SyHa9ad9iKtu0aIWOW3XP/uOoq
+	MaCyE+XIk+stsU+RJMLIK92pUVzxrI+vk0ZRGkMxvgz4u1KZvFAg56+5Nf6AZtRboItlWwKIpMw
+	E+KBg8Bh8BmAYQCfDID1ZVvo4f3v0pUW+zwW3VtlY0Lh8HHIBY7uRauVlZoqb2eKtmP4w74Ukl6
+	jgHoVKW/zY4lPVRPxZNvcFSYmlfgOYfLlWwME2oCNsNoPQsDLxkbOwFB9UUHB7+HjgM6vz1qzRj
+	pAfJibGWyP2af7yROyXxIx7jvni842nu7UzjTYQzKDuLExSNw86xurAIKbM15q3uUrGtHdh2vvx
+	iYnkEguy0io8Oc2vZOb2/FYWD1YwYt2//dwTjdlUeXmmMylC/9mxnwoWDiIpFcMrmZDfCwIddEj
+	G8+LNmJRVtIO4ihSUlgXIZhHfhRBEN4Y0nk3sslTepIKanC4TtuyafUwXT4XPpWxeeaMBoFESdv
+	eo8fOkMJJ/iivYEJmRuHUR6rL/0pStTqz/n6IVd3rB3LyAATpbW31hmwwo6yvT5MZIrnbPoxdKM
+	Z+jhmL5XLssEpk/4PXlpREUJCrfxuOO9UCVcHCafXHYRXlA=
+X-Received: by 2002:a05:701b:4308:b0:165:aced:1fde with SMTP id a92af1059eb24-1b56f87a910mr814282c88.0.1795338372101;
+        Sun, 22 Nov 2026 01:06:12 -0800 (PST)
+Received: from localhost.localdomain ([138.199.21.246])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm16839045c88.5.2026.11.22.01.06.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 01:06:11 -0800 (PST)
+From: Jianlin Shi <shijianlin11@foxmail.com>
+To: netdev@vger.kernel.org
+Cc: mst@redhat.com,
+	jasowang@kernel.org,
+	eperezma@redhat.com,
+	xuanzhuo@tsinghua.org.cn,
+	andrew+netdev@amiga.org.uk,
+	davem@davemloft.net,
+	edumazet@gmail.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	talgi@efi.com,
+	hengqi@loongson.cn,
+	horms@kernel.org,
+	virtualization@vger.kernel.org
+Subject: [PATCH net v3 0/2] virtio-net/dim: fix irq moderation init failure unwind
+Date: Sun, 22 Nov 2026 17:05:55 +0800
+Message-ID: <20261122090557.19766-1-shijianlin11@foxmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,50 +90,47 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jXNR671Tgz9tp8
 
-On Sat, 21 Nov 2026 18:21:20 -0500, Qiliang Yuan <qiliang.yuan@linux.dev> wrote:
-> A per-cpu IPv6 route of a nexthop object records fib6_sernum of the
-> netns it was created in, and rt6_is_valid() compares it with fib6_sernum
-> of the netns its device belongs to when the route is checked. Every netns
-> starts its fib6_sernum at 1 and increments it on each tree change, so
-> different netns often hold the same value.
->
-> When a device moves to another netns, such a route remains usable until
-> nexthop_free_rcu() releases it, and fib6_info_destroy_rcu() queues that
-> callback from inside an RCU callback, after the device has moved. If the
-> fib6_sernum of the new netns matches the cached one in that window,
-> ip6_dst_check() accepts the route and a socket in the old netns keeps
-> sending through a device that now belongs to another netns.
->
-> Take every fib6_sernum bump from one sequence shared by all netns, which
-> only hands out values from 2 up, and have rt6_is_valid() reject 1, the
-> value every netns starts with: fib6_add() publishes a route before it
-> bumps fib6_sernum, so a route looked up in between can record 1. 0 still
-> means there is no sernum to check. Any other value a route records was
-> drawn from the sequence, which no other netns holds until it wraps after
-> 2^31 bumps. fib6_new_sernum() callers only hold their own table's
-> tb6_lock, so bumps of one netns can race. Publish each value with a
-> cmpxchg on the fib6_sernum of the netns, drawing again if another bump
-> changed it first. As before, this orders the routing change before the
-> new value and the value before the nodes stamped with it, and keeps
-> fib6_sernum monotonic per netns.
->
-> A connected UDP socket in netns A caches a route through an IPv6 nexthop
-> object on a veth. The veth is moved to netns B and brought up with one
-> RTM_NEWLINK, then the socket sends 200000 datagrams. A route is added to
-> and removed from B 0 to 20 times before the move, 63 trials:
->
->                                      before   after   change
->   trials sending after move (count)       3       0    -100%
->   datagrams sent after move (count)    6634       0    -100%
->
-> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+net_dim_init_irq_moder() leaves dev->irq_moder dangling when
+profile allocation fails.  virtio-net probe then skips the
+virtqueue teardown if that init fails after init_vqs(), leaking
+the virtqueues and their DMA mappings.
 
-Reviewed-by: Ralf Lici <ralf@mandelbit.com>
+Patch 1 makes the dim init failure path clear dev->irq_moder, so
+net_dim_free_irq_moder() is a no-op afterwards.  Patch 2 sends the
+virtio-net failure through the existing free_irq_moder unwind
+(reset + del_vqs), matching the page-pool failure path.  Patch 2
+depends on patch 1.
 
-Thanks for picking this up.
+Changes since v2:
+
+- Resend as a new thread with a [PATCH net] subject prefix, as
+  requested by Michael S. Tsirkin.
+- No functional changes.  Both patches are identical to v2.
+
+Changes since v1 [1]:
+
+- Patch 1's commit message now documents the call sequence the
+  maintainer asked for: on current mainline the dangling pointer
+  is never dereferenced by the only in-tree caller (virtio-net
+  probe does "goto free", which only reaches free_netdev()).  It
+  becomes reachable once the caller unwinds through
+  free_irq_moder as patch 2 does, which makes patch 1 a hard
+  prerequisite rather than a standalone bug fix.
+
+- No functional changes; both patches are identical to v1.
+
+[1] https://lore.kernel.org/netdev/cover.1790751008.git.shijianlin11@foxmail.com/
+
+Jianlin Shi (2):
+  dim: clear irq_moder on init failure
+  virtio-net: unwind VQs when irq moderation init fails
+
+ drivers/net/virtio_net.c | 2 +-
+ lib/dim/net_dim.c        | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+Signed-off-by: Jianlin Shi <shijianlin11@foxmail.com>
 
 -- 
-Ralf Lici
-Mandelbit Srl
+2.43.0
