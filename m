@@ -1,57 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795336242;
-	b=mW4N73JjqVODJ+6xJj2iWGEnSRiHh/Ycns7a703/QM2jFursWWtxLe1OKzP0ctUrV2q1
-	 7P3/VGRdU4fDLr/vfqw4/ngAtvRqD7dY2fC2BYCtMs8j4HNRuAON4EknfdQnHNJ7pKHQi
-	 gkEcaOCjzQs3aBUuh6gpTaE/5PaWN4S2CI1C5lCkv8gVjk38UoxDfZPyak7/OufLGTlyK
-	 4s9AI2xam+OXKJwtH34k3xDsBGVlIfXz/++ABp/VRvThPVjfHlAcUVAhPOMyqn39zJ3on
-	 wmXMnO5864tFsIXApSLQzonQNUrp0fb/yCez+BdFF2k+1/aQfzfS3P2rkxJiEUORFng==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795336242;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=QghZHONbcC8cXlUHYrkvEWHCcbkwipOQI37JigyXCY4=;
-	b=cl8dnhNuW8Qr+JYsinmteI3NRwhcbUUssimmQK4y8GtfoQZ5TCk5p0wPiJKjqQt7ad9T
-	 h/Q8Jet7IfeLVoAiuGpImahGVDPIxeIdHjlFjA97IpFj34YKSTswBkdwypUOjANXbt9xm
-	 fNJicX8NAnBEulk6D+sFdMAbX5SdVs6VRzAs5JsEKG9jtyL4ljiFc2c/1Nu12biRffeTm
-	 7jUtHyPr7AbN3YQX9NrqwWXtk/tCzBygUWxouuEhuwsMzKS/VXK6uErddY0tLBMaNQUPD
-	 d/etFWQDWjrYJj7KDOyqCBXgKsQ3R5SKWI9ABTqkRLUhXHCA3Mo48crTW+fv/SfNxGQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLq5cGQc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795336364;
+	b=V6fkEDfg869e2TbyMTH78ZykuUYiEVszbia9MmtuoxAzuPNNnOs22m+b0FRyTIUNZ+T6
+	 zi9WxeP/kGg96S/ppM2EW2lphyd9zilg3eR26u8xVlDlfGxbHYyTOe+6OX/NmQsWVpqyB
+	 RS5dFi/tjgfg4L+HcNwHkKUKCQjwZ2G1ICiaxfMWTx8O1TUevjfsuqpZrV+ggJhS7Mmf0
+	 9XLBX0U78sY3Wh6jar0pio9yc+A1T7f8im9rGcnw5lo5LYOYlux+3GQZFT3aBPAKT4cpX
+	 OB8gInamqLXQl3ehZtUIEXwTI5hRWErZ19zv+xZhsh0czXCaZZcrgm2+fHQWari7e4Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795336364;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
+	b=WdJZxyhNYK2YZjsTTv+871gxlRog9cnRfYmQoY4HCcwZQtGPX2KY1QjueSPosgUTD2PE
+	 dPrYnruehOyQ5FIrv4nFiQaiAJdwoTAkeBr8lyiunvrN8ZY3sg4B4Abo6TdmL94RaW3j1
+	 W8GOPgYH5h04mQJoMyZpC02Lv5JtIU+t1CtVKo1j/k4r8GFYMVxy80IKkLX6JHA6ASAoO
+	 a2+mbndHrcG1L4baYmklgKdYL9w+r5SRLmNW9KZzeJaKd2PuG0Z5Guh2saflmqCECWDct
+	 ZcIXkq8QpLXbCUllxMkBewhgjYXWV4XFsbCNTrg5pbiU696G5+XZ3nNWRJnap/HwrLA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XB7NeBRY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8465C606A330;
-	Sun, 22 Nov 2026 08:30:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78400606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:32:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78400606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLq5cGQc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F8A1F000C4;
-	Sun, 22 Nov 2026 08:30:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795336242;
-	bh=QghZHONbcC8cXlUHYrkvEWHCcbkwipOQI37JigyXCY4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iLq5cGQc/vWiTcdo4ee7/AsWiieeWDKdVAvRIW8QInXxgsM2G/SkfO6vWhLfO2szX
-	 QQM/DkM/bCFN4ppMdjxSP+47NFIt/W3A3rqKFDbuIvxIUD/lfQ74aKPMXyXC/KlSuL
-	 HkIfJ3ExOHv4nY/0gnCNGbaB3Q27HqLL4k7BsuCojxg1IJdYnbh1liInuqU0mUOI8h
-	 We3n/c50sXSD1QvXjVz1Ee59Ja5u6TCxbgGIUXQAIyAISNtPdo9eq60AKtErYluED9
-	 I7T5sT0MPymg8sGEbO+sacpjo7ZtX64M8c5GVeMNM2zT1sODezzo5VIlZQ2rQx79MJ
-	 yeOxKhw1c5OEQ==
-Subject: Re: [PATCH] net/nfc: fix skb ownership on data exchange errors
-From: netdev-bot+sashiko@kernel.org
-To: luob87709@gmail.com
-Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz,
- netdev@vger.kernel.org, kuba@kernel.org
-Date: Sun, 22 Nov 2026 08:30:41 +0000
-Message-ID: <179533624147.3135.15529520698659254387@kernel.org>
-In-Reply-To: <20261118081341.1514-1-luob87709@gmail.com>
-References: <20261118081341.1514-1-luob87709@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XB7NeBRY
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so11171a12.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 00:32:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795336363; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Hynzeu0YuWIOZSLxOPFoUW+4ItIw2/py+SYNGbYbf9QZDGSrtg/INtbTK7tlEEvVx0
+         b76A6n5RZ9FjpCRCDH8/NOw9sCUwLCgG71lYcjgRDYxomgG+RKVd0qd8aUmeX4NbFsyz
+         rXtdGu9+IiPWOm9oXUr8JF/zmJrxbWl7PMhCyxG6RIZ27k+S+HRQBefO1iyiUvByiwPi
+         goZXSmERTWM7iYL5hy+KYuuVojp6VO1fyu7zsGD4ccAUucxy51s4WMvMHK8QcKVDkjqO
+         MfsjZPCAhKKk+j2VB2b8s+NS0++bGyayTSdOCoZ2DL490JhrxRCUQawbzosNiQ/GD7sM
+         6KIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
+        fh=pDsglMJuQskaY+Xc/MPkPzZSM+cKkJdwqbaFLfBO+uk=;
+        b=S6O3UsilkEXhionS2N5U2pXOlL9GprpoedELiFNMRpHJgCXmvKsJqOX4KVmvOIlUz4
+         xgNmt7suhKtMKFCkQVvShyeUgEAi4hGSh2NvN3wlFDavyl6k0fYmpH8/H9fyltxWhzy/
+         78ylMg9W+wvtsE/fUMoFsfmAqp9hQht+IKSpgTMqWpLdXTtLYCK0vAxXcgmBwDNtR8D0
+         sgQOMpV6j2GaPl/+l7K0/4a8ufcgBgq9ZDTBdf0OXcgiR7bb8ME/3R4qv17qAfQismDc
+         sRJboQWXpkAao1FKvNadb06GMoo+ZzfO/9sAoMo/LJlYhdGCe2CJUmtwpnEhvAGUshEE
+         Yx8Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795336363; x=1795941163; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
+        b=XB7NeBRY04euhXfWB/XxhB+DzTJzGlP9aMcTsxRixf44G2VojKxyLfPXDeVMXOFFTP
+         J4DpFjZ7vFnnGEq5ETvtfFNcf4yjWA/tKzm6BKpfkJk1DMPKFI/e8Vcu5IiKbZWhUDRq
+         4rIAr/b4CvqK5q1DHdNfGOQ6gZ46ae3x5Q6KYnbRoT/rKavQZE77Q/ZbXcmELdbQv/co
+         IuqV2pxrKPabINQ3ndT0E3PPCa07d9/7iYw3mhuAOYldrIKh9xtwjLUDKVAo68JRPzs1
+         5iUJaqhu2IsUisQZQ6FPqOAYMuD/9mx2P27dbuI7wSleqrbtVRyT8FmF7cXNmlLTS7Nu
+         k/2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795336363; x=1795941163;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yJ6P/F1jFJr0lVYrdtAG0eMDCHBsrJpW/xU1AvPrpGs=;
+        b=Ib1igl6ntGop98NVOr3oE1RyQ5kAuj3iQdjK5P5hE5/RE/jOmkH09YCkKBLc/O2n72
+         9ycBAp94p7k3txsokoGs+7bPTyC5VbJvh/dK2iVHYQe2sBaEMmispG0xV/FHgrIu7erk
+         JQ+YlLHsNtVjr59iqSmtG7/+NTD+tiCiDHHmMboCptzAx9Miko7qysp9o2qtWAzKuxCS
+         gS+yHXJcSJ3d8OsyTku6fwFIzovyK69/CgpPB8BKQ0ObQEnLOrfcZ1HaLDxtktZ5Co1l
+         VAo87SOSAr8OgbjB4b7SB7sn16+76nk2gQbNgF65w9sRBGJMrVyOh8QbO6c/33ijdhzx
+         ecRg==
+X-Gm-Message-State: APuU4Z83gLgPGWbpLsTfaE+2pG2lQMIzCCBMdEAijTNF+Wgy47n8UHCf
+	JkKUu+DCybe804LrAnS7i93VEh87altIhzOwa1wm7VNHj2SzjTkDf+5nxX7M6Sz4owPWGzKmnUI
+	RNuZ+rWcZWR3SFni6InugXWzRfCX2BgJPKPfqDxJHcA==
+X-Gm-Gg: AZFdTZcnJZGW9TI++tcQZHs0oLDvnZwe7SXzY6TN0iCPL+HfbEzqeNhdUK7Ytr+5idJ
+	VL0cTfPh7o2MUJEGELhtSc01Y7nVPKI7+Aa1jahQhLzf1KHC/rib4cAEqAn/7qOoRmJdVyfNgMV
+	zdexTHZ+rH06uj0Ya6ebaCNBhTgN799OuWwG2GvAYDkQsRdYkzqNCrk4JWSwJcxyu7wYkULiY96
+	QnVXbutmtDAd8jmQ5sG85cvzuIMNeeTEzJOXetkotTLikWTbHwC2eh+hTL6WEA1NEPdIUpe9sGK
+	n/aK7c2spZlspom4CQPj6teXayaw9Sbag5rZIzxzn+3SxaRFo9x+FvXt3rG+GWZBRGzF44RehSl
+	Wfr4WbEkjOVMSGb38ruVhz+VvNHWaBhn2Hn55AutNMuvMAabqPzdlwVMaZ6gIdYNBKgzcr47U
+X-Received: by 2002:aa7:d58b:0:b0:6aa:e44a:ae9e with SMTP id
+ 4fb4d7f45d1cf-6ba1f76f20bmr5784629a12.1.1795336362700; Sun, 22 Nov 2026
+ 00:32:42 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,241 +102,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261118041238.14396-1-evostrov@amazon.com>
+In-Reply-To: <20261118041238.14396-1-evostrov@amazon.com>
+From: saeed bishara <saeed.bishara.os@gmail.com>
+Date: Sun, 22 Nov 2026 10:32:31 +0200
+X-Gm-Features: Aa3M54pZfE2KW1luQ6sOAJOOiUgk0uydYZlf6J4BSyxM_Kpl9YLALdVdQ9VZbPk
+Message-ID: <CAHfVqdVw9OQ4OPmpLp4pJQhFw_9E7SLwNDjYXYuuGkU95=gGdg@mail.gmail.com>
+Subject: Re: [RFC] net: ena: use tx-push-buf-len while tx-push is off
+To: evostrov@amazon.com
+Cc: netdev@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>, 
+	David Arinzon <darinzon@amazon.com>, Shay Agroskin <shayagr@amazon.com>, 
+	Arthur Kiyanovski <akiyano@amazon.com>, Gal Pressman <gal@nvidia.com>, 
+	Michal Kubiak <michal.kubiak@intel.com>, Paolo Abeni <pabeni@redhat.com>, 
+	Eric Dumazet <edumazet@google.com>, Kuniyuki Iwashima <kuniyu@amazon.com>, 
+	Shai Brandes <shaibran@amazon.com>, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+> - We still need to tell the device how many header bytes to pull.
+Just to be clear, the device eventually will read (pull) the entire packet
+I think  tx-push-buf-len should have been called tx-inline-header-len,
+as this is about how many bytes of the packet's header get written by
+the driver into the Tx ring descriptor.
+IMHO, we better introduce a new parameter, that is agnostic to
+push/pull mode, we can choose to deprecate the current one in the long
+term.
 
-Critical: 0 · High: 1 (2) · Medium: 0 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The fix is incomplete.
-- [Low] The commit fixes skb leaks that users can hit, but it has no
-  `Fixes:` tag and no `Cc: stable@vger.kernel.org`.
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it runs
-  through the rawsock error branch that the patch modifies.
-- [High] This problem wasn't introduced by this patch, but it is in the
-  function the patch changes.
-
---
-
-net/nfc: fix skb ownership on data exchange errors
-
-This patch documents that a data_exchange_cb_t callback takes ownership
-of a non-NULL skb regardless of err. It frees the skb on the rawsock and
-LLCP error paths and on the NCI loopback lookup failure, and clears the
-Digital DEP response pointer after the callback is invoked.
-
-> diff --git a/include/net/nfc/nfc.h b/include/net/nfc/nfc.h
-> index bcafab5c53e51..d3c2d67357f1b 100644
-> --- a/include/net/nfc/nfc.h
-> +++ b/include/net/nfc/nfc.h
-> @@ -37,6 +37,8 @@ struct nfc_dev;
->   *
->   * When a rx or tx package is lost or corrupted or the target gets out
->   * of the operating field, err is -EIO.
-> + * If skb is non-NULL, ownership is transferred to the callback regardless
-> + * of err. Providers must not access or free skb after invoking the callback.
->   */
->  typedef void (*data_exchange_cb_t)(void *context, struct sk_buff *skb,
->  								int err);
-
-[Severity: High]
-With this rule the callback owns a non-NULL skb whatever err is. Are
-there other data_exchange_cb_t implementations that still return early
-on error without freeing it?
-
-In drivers/nfc/st21nfca/dep.c, st21nfca_im_recv_atr_res_cb() and
-st21nfca_im_recv_dep_res_cb() both start with:
-
-	if (err != 0)
-		return;
-
-They are registered as the callback to nfc_hci_send_cmd_async() from
-st21nfca_im_send_atr_req() and st21nfca_im_send_dep_req(). When the chip
-answers with a non-OK HCI result, the path is:
-
-nfc_hci_resp_received()
-  __nfc_hci_cmd_completion(hdev, nfc_hci_result_to_errno(result), skb)
-    st21nfca_im_recv_atr_res_cb(ctx, skb, err)  /* or _dep_res_cb */
-      return;
-
-Nothing on that path seems to free the response skb. Is it leaked on
-every failed ATR_REQ or DEP_REQ? In the DEP_REQ case the upper layer also
-never gets a completion.
-
-In net/nfc/nci/hci.c, nci_hci_data_received_cb() has:
-
-	if (err) {
-		nci_req_complete(ndev, err);
-		return;
-	}
-
-nci_add_rx_data_frag() can hand the original skb plus a non-zero err to
-nci_data_exchange_complete() through its "if (status) { err = status;
-goto exit; }" path. This needs NCI_DATA_EXCHANGE to be set when the frame
-arrives, because nci_data_exchange_complete() only calls the callback
-after test_and_clear_bit(NCI_DATA_EXCHANGE) succeeds.
-
-Should this branch call kfree_skb(skb) as well?
-
-The HCI wrapper callbacks hci_transceive_cb() in net/nfc/hci/core.c,
-pn544_hci_data_exchange_cb(), st21nfca_hci_data_exchange_cb() and
-microread_im_transceive_cb() all have a default branch like:
-
-	default:
-		if (err == 0)
-			kfree_skb(skb);
-		break;
-
-That branch only runs with an unexpected async_cb_type. Under the new
-rule, though, wouldn't it leak the skb when err is non-zero?
-
-The subject says this fixes skb ownership on data exchange errors.
-Should these callbacks be converted too?
-
-> diff --git a/net/nfc/digital_dep.c b/net/nfc/digital_dep.c
-> index 968547c306a5d..c7f5378cd12e2 100644
-> --- a/net/nfc/digital_dep.c
-> +++ b/net/nfc/digital_dep.c
-> @@ -882,6 +882,7 @@ static void digital_in_recv_dep_res(struct nfc_digital_dev *ddev, void *arg,
->  
->  exit:
->  	data_exch->cb(data_exch->cb_context, resp, rc);
-> +	resp = NULL;
-
-[Severity: Low]
-This fixes skb leaks that users can reach: rawsock_data_exchange_complete()
-and nfc_llcp_recv() on NCI or HCI error completions, and
-nci_nfcc_loopback_cb() when the connection lookup fails. Should the
-commit carry Fixes: tags and Cc: stable@vger.kernel.org?
-
-The hunks also depend on each other. Before this patch, the exit: path
-in digital_in_recv_dep_res() with rc != 0 freed resp after the callback:
-
-	if (rc)
-		kfree_skb(resp);
-
-A backport that took only the rawsock and LLCP hunks would turn Digital
-error paths into a double free, for example the NACK bit case
-(rc = -EIO; goto exit;).
-
-Could the commit message say that the resp = NULL change has to go
-together with the rawsock and LLCP frees?
-
->  
->  error:
->  	kfree(data_exch);
-
-[Severity: High]
-This is a pre-existing issue and wasn't introduced by this patch, but it
-is in the function being changed. Several error paths in
-digital_in_recv_dep_res() jump straight to error: and free data_exch
-without ever calling data_exch->cb(). For example:
-
-	if (resp->len < size || dep_res->dir != DIGITAL_NFC_DEP_FRAME_DIR_IN ||
-	    dep_res->cmd != DIGITAL_CMD_DEP_RES) {
-		rc = -EIO;
-		goto error;
-	}
-
-The CRC failure path does the same once the NACK retries run out, or
-when the frame is shorter than 4 bytes:
-
-		PROTOCOL_ERR("14.4.1.6");
-		goto error;
-
-Other cases:
-
-  - the DID bit is set
-  - the I-PDU PNI does not match
-  - digital_in_send_nack(), digital_in_send_atn(),
-    digital_in_send_dep_req(), digital_in_send_saved_skb() or
-    digital_in_send_rtox() fails
-  - the ATN/NACK count or the RTOX value is invalid
-
-Take a raw socket connected to an NFC_DEP target on a Digital driver.
-rawsock_tx_work() does:
-
-	sock_hold(sk);
-	rc = nfc_data_exchange(dev, target_idx, skb,
-			       rawsock_data_exchange_complete, sk);
-
-Only rawsock_data_exchange_complete() drops that reference and clears
-tx_work_scheduled. If the callback never runs, does the socket reference
-leak? If so, rawsock_destruct() never calls nfc_deactivate_target() or
-nfc_put_device(), the target stays active, and later
-nfc_activate_target() calls fail with -EBUSY.
-
-tx_work_scheduled would also stay true, so later sendmsg() calls queue
-data that is never sent.
-
-A remote peer can reach these paths by sending a malformed DEP_RES. The
-resp = NULL added here sits between exit: and error: and does not cover
-them.
-
-[ ... ]
-
-> diff --git a/net/nfc/rawsock.c b/net/nfc/rawsock.c
-> index f7d7a599fade7..3bf65b1fbe255 100644
-> --- a/net/nfc/rawsock.c
-> +++ b/net/nfc/rawsock.c
-> @@ -156,8 +156,11 @@ static void rawsock_data_exchange_complete(void *context, struct sk_buff *skb,
->  
->  	pr_debug("sk=%p err=%d\n", sk, err);
->  
-> -	if (err)
-> +	if (err) {
-> +		if (skb)
-> +			kfree_skb(skb);
->  		goto error;
-> +	}
-
-[Severity: High]
-This is a pre-existing issue and wasn't introduced by this patch, but
-this error branch can get a positive err from the NCI path.
-nci_rx_data_packet() does:
-
-	nci_add_rx_data_frag(ndev, skb, pbf, conn_id, nci_to_errno(status));
-
-but nci_add_rx_data_frag() declares the last parameter as __u8:
-
-static void nci_add_rx_data_frag(struct nci_dev *ndev,
-				 struct sk_buff *skb,
-				 __u8 pbf, __u8 conn_id, __u8 status)
-
-So a negative errno is truncated to a positive byte. For example,
--ETIMEDOUT (-110) becomes 146 and is passed on as err.
-
-rawsock_report_error() then does:
-
-	sk->sk_err = -err;
-
-That leaves sk_err at -146, so sock_error() returns +146. In
-rawsock_recvmsg() that value comes back as rc:
-
-	skb = skb_recv_datagram(sk, flags, &rc);
-	if (!skb)
-		return rc;
-
-Doesn't this make an error look like a 146-byte read with no data
-copied?
-
-This affects MIFARE, Jewel, FeliCa and ISO15693 targets on NCI
-controllers whenever the frame status byte is non-zero, for example when
-the tag leaves the field.
-
-Should the status parameter of nci_add_rx_data_frag() be an int?
-
->  
->  	err = rawsock_add_header(skb);
->  	if (err)
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118081341.1514-1-luob87709%40gmail.com
+> - We want to use tx-push-buf-len for this, with tx-push off.
+>
+> ENA is the only in-tree driver that uses tx-push-buf-len, so this does
+> not change any other driver.
+>
+> Example on a device that supports pull mode:
+>
+> ethtool -G <dev> tx-push off tx-push-buf-len 224
+> ethtool -g <dev> -> TX Push: off, TX push buff len: 224
+>
+> The core already allows this. net/ethtool/rings.c checks only the
+> capability bit and that the length is not above the max. It does not tie
+> tx-push-buf-len to tx-push.
+>
+> In a 2023 review Gal Pressman suggested using tx-push-buf-len only when
+> tx-push is on. That was never added as code or written as a rule.
+> Link: https://lore.kernel.org/netdev/30cb3990-80ce-ca07-6d73-cdc00d0ad7b8@nvidia.com/
+>
+> Request: Please confirm this is fine or if not can you please suggest another
+> way of achieving the pull mode len setup functionality.
+>
+> Thank you
+>
