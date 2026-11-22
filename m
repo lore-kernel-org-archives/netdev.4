@@ -1,61 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380069;
-	b=yQv+c2wt4/Z8PD/WTAv44EBJR7Ud60g6me28IxZrsdYnXZZYW3Wxsm5GYItktjVH84uD
-	 T3D0738Fzr/9vbsx0zvyDdwi7YsTi9ZLOgXchU+4UN6ah76J8ptS1RPuIHoRa8wPc7ari
-	 affMEBqirieCmpi9HT3TuZbIguR2QmRTgS701zDB6qPJmR+cTycSDrusZ1H/8T7kXW93z
-	 GP5ghBeLXRqP/vrIx3qR7nLxmh5pZkT/pfKloS02/z3/KyYAKUYzYkuSA33QKy/uztLoW
-	 MVDot6aFUpwVGqh7kLTuTcq4o9JqsG7y1xG7EqNdyTjOxlGDhxfs++73wPqDKNgmIKw==
+	t=1795380190;
+	b=Cn9rb3LKS02bz/ODrhcVGeTN50ZS7dy6ib+RX6K1FYpyfUOLHjUPvKtPsTUlfrEGB4Y/
+	 vBla3IrESb8NobXDAdT2AXpnSKKn2MClvChcNUbbqNShwK66tUPecILRvftnnCu0/Gws+
+	 i/eAY8rkq0T6WdACnpLPhwWmOozrjbov3dzzolpcmGqq/nW7EDwNDEwbvnkOsdjkbyqIH
+	 VgqqOeqzdObQ5fmiUbytP5zZrWZlaDUkQtYnSxG1aGGXJyluYZW2zu6+itUrIZ0Ukybk2
+	 gqV+u/RjVK98s9tld9bZbrKTDBAMwjk8ONZnPlnWeigYZsVhYIfr2zwuq7wjtkS57AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380069;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=jY1YA6TtVOdv5RNG1Xq9oOiUJTyNDkuqwgtxjcAS01Q=;
-	b=deXi4qSzWo3MMPyRaEEG3JechcRzEqaryca5ylehK+6vTphI3fO1cHWnVZPKpO47SBaW
-	 1VTrXLIAO9OUSLNEUjqivuvJu9Tl5DlPL0kr6hRlXzQOk5kc+4dvx2Q3mtvQZNG7lJk7C
-	 B6MRQRkOLRgsVvoMQzXIZ+iHM7T1jjGYmEBTPVT5v8FnUJxo7YAbgBO6ytmhIVdk2fCp0
-	 cRAmSz511Xqn+slQj/crk/nuRqZJQXw2vg3go+wLwxC3lPJIGgX914+G9d9aA3n3vGtn7
-	 7Q4zH1PaALAJT1MWAUzKeM4JtcUCB9E3U9ZkXzhM2EVrZFmloZryozLIq9zcCxmgI8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380190;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=f3WCN5DK2nraEF7E6NFOd/Lnddtr3bK2epIP1vkXLx8=;
+	b=1ELGF/r8CK8fBZAzuDUdV+0kTLvdUAn94LzDPiimUR5+KFEcDT8tg1mDvRRY8s/xbm3W
+	 8uxq/+RbSig99ETA6mXLpTi8QgNNka2xlyUC+BpsJMV4DC4yqbC2S1ixIDOtwe0cahBw1
+	 FpvkeQ/lyvYUkF+HxP91dUZ4rvmXVTJHHfRn2isiPTh+JAxeGsH2EUo5k7RKITX5nqPHs
+	 XfwRirQ8zvKYx6Z/EZV63Px6NJazgQYZ+gPiA5AVq0MrcLRNw5NQfrG00xzM6tQ5a/59d
+	 ZJKcAdcy+i1HZzfUsZTfMWE7kFQDiFF1KceZJA1WHwqLdblc2gytf6Ciy4zCYZYRJXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nz+Ub0iR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=corp.free.fr;
+	spf=pass smtp.mailfrom=corp.free.fr;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=qmEXXjbL;
+	arc=none smtp.remote-ip=212.27.60.169
+Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 386D3606A338;
-	Sun, 22 Nov 2026 20:41:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17411606A31A;
+	Sun, 22 Nov 2026 20:43:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17411606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nz+Ub0iR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2545E1F000CF;
-	Sun, 22 Nov 2026 20:41:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795380068;
-	bh=jY1YA6TtVOdv5RNG1Xq9oOiUJTyNDkuqwgtxjcAS01Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Nz+Ub0iRILd7o2nsmH6f5OVO0Zk+GpSx7+DjXGzhcLbHSkUh25D83ZqCRtoEht+B7
-	 Mds0EhJnh876LezUiI0a1XTxOWTUrpDDx04C3yfNd+vnc5e2pWlS+i1WW4FHggNpbN
-	 upZPbys7m2sk/RJ6BIxcN1+/88YUPx/He5gP3FRdld6IJIb2LdM7aU7Tt62ce37lm4
-	 MT41VTDzp/XH8DN8ScmrGH1EjnebBQPsgPgkEgE6vMemyTNVocWeV39+flAPYrojhG
-	 OiFfhHNnSWZtd6GbTbN2cLCs5H3owrlRgaS3d1HEnFbu4AkELaXRghBwK9umDSJiD6
-	 rkFDGvOs74idQ==
-Subject: Re: [PATCH net 2/4] ptp: ocp: use hardware selectors in DPLL
- frequency operations
-From: netdev-bot+sashiko@kernel.org
-To: ahmadexp@gmail.com
-Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev,
- richardcochran@gmail.com, andrew+netdev@lunn.ch,
- arkadiusz.kubalewski@intel.com, davem@davemloft.net, edumazet@kernel.org,
- jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org,
- pabeni@redhat.com
-Date: Sun, 22 Nov 2026 20:41:07 +0000
-Message-ID: <179538006772.3135.15875996486888374193@kernel.org>
-In-Reply-To: <20261118-timecard-common-301f823ddd-2-ahmadexp@gmail.com>
-References: <20261118-timecard-common-301f823ddd-2-ahmadexp@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=qmEXXjbL
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
+	t=1795380188; bh=YiA403p8mPlqP8u3u6soZWq/iuKhibw6d6FJkg8XKC8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qmEXXjbLtA0Fs08Bf3JJqdbeFGFTO/66kTjgQybHUcZVMHcZWKkUWR3omqyuq6yoO
+	 fgbuwKh/F6Mo3w3jzNFCrl+jmTznzWMla7WKxnEmHnNSliWDSWR69mshSl7F6O4IKR
+	 Y9ICJ+jgnEHmQOe4lepBn/HxMszHwV+dwPzWlvF4dIojEGeFFxbF8Xsfdh9R+FQLqK
+	 g1R7QKKsGsCVIzqOnvZCMZKyiA+f49jJ2R/Z6/buDOzVF5Wa5aIsLyNcc4guIA42kD
+	 udp/scXvBIssJkrkcEZegirFhpvVExCLquH2R1/B9KuOtdrd/4vTZYlTZ9UOmYi5qt
+	 OL1xNhp81Go8A==
+Received: from [0.0.0.0] (unknown [213.228.1.188])
+	by rcs.proxad.net (Postfix) with ESMTPSA id 4AE9D44C026E;
+	Sun, 22 Nov 2026 21:43:06 +0100 (CET)
+Message-ID: <9e26c923-381e-4b2f-a267-d5dcfc4cbb4f@corp.free.fr>
+Date: Sun, 22 Nov 2026 21:43:05 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,144 +56,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 08/10] net/mlx5e: TC, offload RX queue mapping
+ in NIC flows
+To: netdev-bot+sashiko@kernel.org
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
+ jhs@mojatatu.com, jiri@resnulli.us, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, michael.chan@broadcom.com,
+ pavan.chebbi@broadcom.com, bharat@chelsio.com, donald.hunter@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ dsahern@kernel.org, idosch@nvidia.com, shuah@kernel.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ oss-drivers@corigine.com
+References: <20261117092915.255194-9-acassen@corp.free.fr>
+ <179514544232.3136.10984795533608621568@kernel.org>
+Content-Language: en-US
+From: Alexandre Cassen <acassen@corp.free.fr>
+In-Reply-To: <179514544232.3136.10984795533608621568@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+On 11/20/26 04:30, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Medium]
+> The queue index is only checked against num_channels here, when the rule
+> is inserted. What happens to the offloaded rule after a later
+> "ethtool -L combined N" with N <= rx_queue?
+>
+> tc_act_parse_rx_queue() stores the direct TIR number in nic_attr->rx_tirn.
+> mlx5e_add_offloaded_nic_rule() then programs it as a TIR destination.
+>
+> On the channel switch:
+>
+> mlx5e_switch_priv_channels()
+>    mlx5e_deactivate_priv_channels()
+>      mlx5e_rx_res_channels_deactivate()
+>        mlx5e_rx_res_channel_deactivate_direct()
+>          mlx5e_rqt_redirect_direct(&res->channels[ix].direct_rqt,
+>                                    res->drop_rqn, NULL);
+>
+> mlx5e_rx_res_channels_activate() then re-points the direct RQTs only for
+> indices below the new channel count. The FTE still points at the direct
+> TIR for rx_queue, and that TIR's RQT now points at the drop RQ. Hardware
+> drops the matched flow, but tc still reports the filter as in_hw.
+>
+> The ethtool core check (ethtool_get_max_rxnfc_channel() and
+> ethtool_get_max_rxfh_channel() in net/ethtool/common.c) only knows about
+> ntuple and RSS users. So the reduction is allowed, and nothing
+> re-validates, reprograms or removes the TC rule.
+>
+> The drops are counted on priv->drop_rq_q_counter, and
+> mlx5e_grp_q_update_stats() reports them as rx_if_down_packets even though
+> the interface is up.
+>
+> The commit message acknowledges this:
+>
+>    "Reducing the channel count below the queue of a rule drops its traffic
+>    until the channel returns."
+>
+> Could the driver track the queues used by TC rules, so that set_channels
+> can refuse the change as it does for ethtool's own rules? Alternatively,
+> could it reprogram the affected rules so they don't keep dropping
+> traffic?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
 
-- [High] ptp_ocp_dpll_frequency_get() (drivers/ptp/ptp_ocp.c) still fails
-  with -EINVAL for an enabled, direction-configurable SMA input that has…
-- [Medium] The patch says index passing makes DPLL frequency_set "fail on
-  ART" and fixes that by choosing the table entry by frequency and…
+Not in this series. The commit message and the documentation describe 
+the drop.
+ice behaves the same. It checks the queue of a TC rule when the rule 
+goes in and
+its set_channels ignores TC rules. Tracking the queues of TC rules would 
+help
+every driver that offloads queue mapping. That is a separate change.
 
---
 
-ptp: ocp: use hardware selectors in DPLL frequency operations
 
-This commit changes ptp_ocp_dpll_frequency_set() to pass the selector
-table value instead of the table index to ptp_ocp_sma_store_val(). It
-also masks the direction enable bit in ptp_ocp_dpll_frequency_get()
-before the table lookup, so enabled pins whose direction can be changed
-find a matching entry.
+> [Severity: Low]
+> Is it safe to read priv->channels.params.num_channels here without a lock?
+>
+> mlx5e_setup_tc() sets f->unlocked_driver_cb = true, so this path can run
+> without rtnl:
+>
+> mlx5e_configure_flower()->...->parse_tc_nic_actions()->parse_tc_actions()
+>    ->tc_act_can_offload_rx_queue()
+>
+> This path doesn't take priv->state_lock either. Meanwhile,
+> mlx5e_switch_priv_params() and mlx5e_switch_priv_channels() overwrite the
+> structures with plain struct copies under state_lock:
+>
+>      priv->channels.params = *new_params;
+>      ...
+>      priv->channels = *new_chs;
+>
+> The two sides share no lock, so this is an unannotated data race that
+> KCSAN would likely report.
+>
+> The check is also check-then-act:
+>
+> CPU0 (tc filter add)           CPU1 (ethtool -L combined 4)
+> reads num_channels == 8
+> accepts rx_queue == 7
+>                                 switches channels, direct RQT 7 now
+>                                 points at the drop RQ
+> installs FTE to direct TIR 7
+>
+> The filter add succeeds, but its traffic is silently dropped. Direct TIRs
+> exist for all max_nch indices, so the rule still references a valid TIR.
+>
+> The commit message mentions this window too ("A channel change racing
+> with the range check of a new rule has the same result").
+>
+> If the channel reduction issue above is fixed by tracking TC queue usage,
+> would this check also need to run under priv->state_lock?
 
-Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
 
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 478f7012b23e2..d449ed8ca2d8a 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -5900,7 +5900,8 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
->  	tbl = bp->sma_op->tbl[sma->mode];
->  	for (i = 0; tbl[i].name; i++)
->  		if (tbl[i].frequency == frequency)
-> -			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
-> +			return ptp_ocp_sma_store_val(bp, tbl[i].value,
-> +						     sma->mode, sma_nr + 1);
+The first part is the question of v1 [1]. The count can change right 
+after the
+check with or without the lock and the rule always points to a valid TIR.
+Tracking would need its own locking in that separate change.
 
-[Severity: Medium]
-The commit message says passing the index can "fail on ART". Can a
-10 MHz request on an ART input reach this line?
+[1] 
+https://lore.kernel.org/netdev/5c2301d9-d62a-49f7-9d0b-87a7c254a514@corp.free.fr/
 
-The ART input table lists the 10Mhz entry at 1 MHz:
 
-static const struct ocp_selector ptp_ocp_art_sma_in[] = {
-	...
-	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-
-ART pins advertise ptp_ocp_sma_freq (1PPS, 10MHz, IRIG-B, DCF77). So
-dpll_pin_freq_set() accepts 10000000 and rejects 1000000.
-
-A PIN_SET of 10000000 on an ART input passes the core check. It then
-matches no entry in this loop and returns -EINVAL, so the corrected
-tbl[i].value is never passed on. With this patch, it looks like PPS1 is
-the only input function that can be programmed on ART through DPLL.
-
-The same entry also affects ptp_ocp_dpll_frequency_get(). By default
-ART SMA1 selects 0x08:
-
-ptp_ocp_art_sma_init() {
-	...
-	bp->sma[0].default_fcn = 0x08;	/* IN: 10Mhz */
-
-For that pin, the getter reports 1000000 Hz, which is not in the
-advertised frequency list.
-
-The table entry predates this patch, but the ART fix depends on
-tbl[i].frequency being correct. The later patch "ptp: ocp: correct the
-DCF output frequency" fixes a similar table mismatch for DCF but leaves
-this entry unchanged.
-
-Should ptp_ocp_art_sma_in[] list the 10Mhz input as 10000000 as part of
-this fix?
-
->  	return -EINVAL;
->  }
->  
-> @@ -5918,6 +5919,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
->  	int i;
->  
->  	val = bp->sma_op->get(bp, sma_nr + 1);
-> +	val &= SMA_SELECT_MASK;
->  	tbl = bp->sma_op->tbl[sma->mode];
->  	for (i = 0; tbl[i].name; i++)
->  		if (val == tbl[i].value) {
-
-[Severity: High]
-Does this still return -EINVAL for an enabled input that has more than
-one destination?
-
-The commit message says that without the mask "an enabled,
-direction-configurable pin has no matching table entry and its DPLL get
-or dump fails". The sysfs ABI allows several input destinations, and
-sma_parse_inputs() ORs them into one selector:
-
-sma_parse_inputs() {
-	...
-	ret |= ptp_ocp_select_val_from_name(tbl[dir], argv[idx]);
-
-For example, writing "IN: TS1 TS2" to smaN gives 0x000C. After
-ptp_ocp_sma_store_val() adds SMA_ENABLE, 0x800C is written to the GPIO
-map.
-
-On readback, sma_op->get() returns 0x800C, and the new mask turns it
-into 0x000C. Each entry in ptp_ocp_sma_in[], ptp_ocp_adva_sma_in[] and
-ptp_ocp_adva_x1_sma_in[] has a single bit set. Nothing matches
-val == tbl[i].value, so the function returns -EINVAL.
-
-The sysfs reader for the same register treats it as a bitmask:
-
-ptp_ocp_show_inputs() {
-	...
-		if (val & tbl[i].value) {
-
-The -EINVAL reaches the DPLL netlink code:
-
-dpll_nl_pin_get_dumpit()
-  dpll_cmd_pin_get_one()
-    dpll_msg_add_pin_freq()
-      ptp_ocp_dpll_frequency_get()  -> -EINVAL
-
-dpll_nl_pin_get_dumpit() only skips -ENODEV and -EMSGSIZE, so this
-error stops the global pin dump. Pins after this one, including pins
-from other DPLL drivers, are not reported.
-
-dpll_pin_freq_set() also calls frequency_get first and returns early
-with "unable to get old frequency value". As a result, the pin cannot be
-recovered through DPLL frequency_set.
-
-The later patch "ptp: ocp: report disabled SMA inputs consistently over
-DPLL" only adds the disabled-input override, so this remains at the end
-of the series.
-
-Should this lookup match selector bits the way ptp_ocp_show_inputs()
-does, instead of requiring an exact match?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-timecard-common-301f823ddd-0-ahmadexp%40gmail.com
