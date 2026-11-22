@@ -1,59 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795330747;
-	b=tdd0yV/wDWVgmiqC8o9N5IihGIG4IGcPoWhmAkuRODfwdM9JX3JDjf+9uyDiE25NZCGX
-	 tEON/TZuOPTfn0D/RfjJ0o5xCMi+RIJ/uvO7OIKHtF+UI1UymB4qWfDc1fdV5ggfExh5b
-	 xj3IqKo81cREaPI1OSz6txyuKHL4UAXsmpAgf+GiTFYDWo6nGsPspqfzMHwtjCzmHhtPS
-	 nZ1xrBvxe+OMrSlMimMyGZflA/HrJ9JMVr4swn0sXiYIk7n0ISYa9QrUX0SfzzPzhFpmD
-	 sevRAO2d5VOxv60boPdDjEESEHgCsitny8INcIY2ouCOJIsIKtGcvGnuEvO4mZdtVJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795330747;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=V/48laXJQkbdxZn/Y74K7XNybzq3LqLMyqUr/rnTTBI=;
-	b=pq63MNojVrShlQ+Nxp5LKy26YMO4/niOUSfE7Cn00hWmcHg2PiE7qlE3ynSAcgPO7Wim
-	 PvsKvSr0zVhlwAFc9Ea0Fz7yzHKJ4CrthKVQDrYr5bJqeoYMsB++ohmi2bqhpN5Rn6Ew/
-	 /e117LjKtXxTRvysZGcgg30L70PGIMRDGnif6cb3kiCpo1uQfSF0wNLXS6gIRcVWqhx0G
-	 ZCbdIA4AXQ+0ZUuf8CXcoK0EF+iim53QDWFwg8H+Go9w+rO6aEqcsTludWgREQrvY1dgZ
-	 az9A7wy38y8LVfuZSqO8vazqRB6GZCJw9sY0zqlIjTR6NVpEH/f8K1K/yA+SwH+Wr0w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F6srZpZ8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.5
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795332335;
+	b=qTQopgK7eygEHon/TkdyCBC6Q1RHij32e3wH4x1JSYty41XKC5na2yIrn6leti8M4rCV
+	 SwMXCZwt09X8y1UxEKIIxAneF6dL37i2mv9T9SIM0frycC3gwQJlZt1oN74RXjEn72P7y
+	 Jt4InnGyNiJycUOpimXlQtB6HEENUUG9BAKJZPCmo6ncYUqd99Xa2ToB11JoM4r+Hm8Jp
+	 mXGrHyAXoETii4rXP5TtZTsQA5DBbRnb2+Wzga2K1ePdU8EewRM+F5b7422dRyd4wUXbY
+	 V7VfwlNeHRyNFVgiqma6u3c9C8zfdlJ2Mwn2iYh2SzMTLUnapJFXtvSl/tRsEFeA5fw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795332335;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=EMY7DJIOerV5r7YOeatV6kOfxXbiHjnusDoSrKo5ls0=;
+	b=zxAbUxCqZT5SkJacLfiYiG2DJnjGLRumUcMTivIT5A/6T87ob1hiEvKOPawKnSElVCQW
+	 KV+FOQRBUcgl5Gj8FgUZ9mQDYDW2/Qoig627KD+JjR8qv6kGDqrzUAyvqoASfSnnIOj2W
+	 yUZSvh18MbeDHK/VBWZWWn/kh06J0wOygXFMk4X77Ulbj08GFFPCU7RkbLkLUkndT8hb3
+	 7igl5sUZjiVrUNc2emVf3NaUrCchq43sxC4oapV2AazterZrdWlKrliobKJIzVrvAxk07
+	 51EEhDhQmvsftd0Sx9adKF0RDtVgDg4qL5sn0ozuKCLX6PXnB3mc6TeuPvY3sOLwOCw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="tmQrm/11";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.5
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010005.outbound.protection.outlook.com [52.101.193.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A99C7606A320
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 06:59:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44B50606A320;
+	Sun, 22 Nov 2026 07:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44B50606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F6srZpZ8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBFDD1F000C0;
-	Sun, 22 Nov 2026 06:59:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795330747;
-	bh=V/48laXJQkbdxZn/Y74K7XNybzq3LqLMyqUr/rnTTBI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=F6srZpZ8vB3nFw8tMBPPrPRjY1hTVDC5tMwHKVwYSFo8iQ3OMQYMo+NfbHHwjm1Le
-	 uVUtoKc1pn2BDiPODxo2CfvN8kiAzvVF2osRIRkvoGLOSlQKyeQ5DScUf9cKrkD59v
-	 +zklWVBz6fBLwn7kaJDKFQxDMj+NdygEjoQ9MKnj/wpw9zoIwvUU5uKFKCLDadd7BF
-	 j3wql3kzJH7TauCjiBGjBu61TfLkYXyrw7N4sSG4wT1B/IqvJlTeU11DVH0Rd22Zo6
-	 8NFuPxqr0x45KvFkkcphnGOPmNtQMWwink5YVmM1l166l2ks/PdN3YxnGtsTI40QDJ
-	 Py8WQKStLWOCQ==
-Subject: Re: [PATCH net v2] ipv6: addrconf: regenerate missing host route on
- RTM_NEWADDR
-From: netdev-bot+sashiko@kernel.org
-To: 847807867@qq.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
-Date: Sun, 22 Nov 2026 06:59:06 +0000
-Message-ID: <179533074631.3135.9591129364058936619@kernel.org>
-In-Reply-To: <tencent_98F714E924966679E826125C2CB18B092A07@qq.com>
-References: <tencent_98F714E924966679E826125C2CB18B092A07@qq.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tmQrm/11
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N32h2TGmODo3vw21t1HBXCEuCYz/rLwILEQ8nJxtv/W8BgIhjNoFW5VlpzwBGrEtqvlLpFP/EzFlkl9EO50UU96VVq34HQ+C3SPA64zmhjo1gdGZwEfJ2gHVrRtrxHruvm+Ji1t2h4sWUB8usE5ZRa16DMl48918D4VHZ5MHxtTqOpEAGHJU2qhBigoI5kzyIZOT6gABCqZIgaDFx0y0DS90A4oB9MjTn84En24qnPfgIh0lRyi+Uic9JnhxEVxTl/4WDhOPlMDewQ9jhS8qKOQYEkmefgnnZsgHFM4dHX2mVd/EZERi1AoS0uGDiRF1a3uOR+uc64ywUT521Lnomw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EMY7DJIOerV5r7YOeatV6kOfxXbiHjnusDoSrKo5ls0=;
+ b=P9Sd09211tZlzFDpTe6iTZ4NCOwc/r7WZfPWNcZzBFXT0SNShLG4T0FzEQaLLbVh7fnSGNzgDcbHp7bq/mnFo7DXQztCoKTNRf6DVjbaVYfnn+XAOibfdo+NYLW7mFKT5lTbm3QwDFvqrV4AC6YzFkFxnIEXYfAjA02bCD/0bvEk2h9QkUgP9ZohaCqNL99ncudPKn5LSj46Wo3se3KH2a3570yxSpRokmcRQth4g7tjCx+x2MiwT7inqohmYfB0aw+e1uXkzbrDotacEFFDRQQMN2+x7QOZno3CUK6wnpxMCuk9I5mZO37MzSOTYAVUvCeZn4AAhXzA/KvG3uYI1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EMY7DJIOerV5r7YOeatV6kOfxXbiHjnusDoSrKo5ls0=;
+ b=tmQrm/11ohSM/JSCeOZtpJQT7ehkyCcLjbCbUsOi7+RCHL21EcMTAfpMGXq079uXHqIm2teNJfOe6fvOZOWNaWttdCta7IUi7dq+C5OFKhA+omkLn779UUs7swkKgKoRpOA98jCtbop4JEYLpK5IJqSvisNZFsU3ZzCBPPp1ZIoWq6YvXnM3NHehV3x8JbAEd2qUZbJqYMSuOLNn2YewdwSnZdii5o/CLOEZdrPNCxZB2A5aKhGTqJgnacpgD0z9G/xjsN5pWdBiJYB9Cn9I1XjzUh31rtSSqQcBFgitabEVzB2AYLPLHnKTriDX2o74XmTBo5MTUXjpEoVFJX9nNQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by SJ2PR12MB7963.namprd12.prod.outlook.com (2603:10b6:a03:4c1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sun, 22 Nov
+ 2026 07:25:28 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
+ 07:25:28 +0000
+From: Ido Schimmel <idosch@nvidia.com>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	edumazet@kernel.org,
+	willemb@google.com,
+	horms@kernel.org,
+	razor@blackwall.org,
+	dsahern@kernel.org,
+	shuah@kernel.org,
+	bridge@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	kyuwoncho18@gmail.com,
+	Ido Schimmel <idosch@nvidia.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net 1/2] bridge: mcast: Fix source list rollback on failure
+Date: Sun, 22 Nov 2026 09:25:03 +0200
+Message-ID: <20261122072504.2623702-1-idosch@nvidia.com>
+X-Mailer: git-send-email 2.56.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TL0P290CA0006.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:5::9)
+ To LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,333 +105,182 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 (1) · Medium: 2 · Low: 3
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The fix does not address the root cause its own commit message
-  names.
-- [Medium] The new RTM_NEWADDR branch in __ipv6_ifa_notify() calls
-  fixup_permanent_addr() for any address with ifp->rt == NULL on an…
-- [Medium] ipv6: addrconf: __ipv6_ifa_notify() inserts routes when IPv6
-  is stopped
-- [Low] The commit message ("regenerate the host route with
-  fixup_permanent_addr()") and the new comment in __ipv6_ifa_notify()…
-- [Low] The commit message says that when "an interface MTU drops below
-  IPV6_MIN_MTU, addrconf_notify() stops IPv6 on the interface via…
-- [Low] The kept pr_warn("BUG: Address %pI6c on device %s is missing its
-  host route.\n") now fires only when fixup_permanent_addr() returns…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the same root
-  state the patch handles (a kept address with ifp->rt == NULL on an up…
-
---
-
-ipv6: addrconf: regenerate missing host route on RTM_NEWADDR
-
-This patch changes __ipv6_ifa_notify(). When RTM_NEWADDR arrives for an
-address that has no ifp->rt on an up device, it now calls
-fixup_permanent_addr() to regenerate the host route instead of only
-warning. The warning remains only for the case where
-fixup_permanent_addr() fails.
-
-Closes: https://syzkaller.appspot.com/bug?extid=af16ddc8fd22a1d135f8
-
-> When an interface MTU drops below IPV6_MIN_MTU, addrconf_notify()
-> stops IPv6 on the interface via addrconf_ifdown(). With
-> keep_addr_on_down enabled, permanent addresses are kept but their
-> host routes are deleted and ifp->rt is cleared; recovery is expected
-> to happen when the device is brought up, where the NETDEV_UP path
-> runs addrconf_permanent_addr().
-
-[Severity: Low]
-Is this true only for the loopback device? On the NETDEV_CHANGEMTU path,
-addrconf_notify() calls:
-
-	addrconf_ifdown(dev, dev != net->loopback_dev);
-
-addrconf_ifdown() only looks at keep_addr_on_down when unregister is
-false:
-
-	if (!unregister && !idev->cnf.disable_ipv6) {
-
-On any other device the idev is marked dead and every address is
-removed. Through this path, the state described (a kept address with
-ifp->rt == NULL on an up device) can only happen on lo.
-
-Could the commit message say that?
-
-> That recovery never happens when IPv6 is stopped through the
-> NETDEV_CHANGEMTU path: the device itself never goes down, so no
-> NETDEV_UP event follows when the MTU is restored. The address is
-> left with ifp->rt == NULL while the device is up, and every later
-> RTM_NEWADDR notification only warns:
-
-[Severity: High]
-This paragraph names the NETDEV_CHANGEMTU restore path as the root
-cause, but the patch doesn't change that path. When the MTU is restored
-on an existing idev, addrconf_notify() still only does this:
-
-	if (idev) {
-		rt6_mtu_change(dev, dev->mtu);
-		WRITE_ONCE(idev->cnf.mtu6, dev->mtu);
-		break;
-	}
-
-It doesn't call addrconf_permanent_addr(), set IF_READY, re-add ::1 or
-restart DAD.
-
-The addresses kept by addrconf_ifdown() stay PREDAD/TENTATIVE with
-ifp->rt == NULL:
-
-	if (keep) {
-		state = INET6_IFADDR_STATE_DEAD;
-		ifa->state = INET6_IFADDR_STATE_PREDAD;
-		if (!(ifa->flags & IFA_F_NODAD))
-			ifa->flags |= IFA_F_TENTATIVE;
-
-		rt = ifa->rt;
-		ifa->rt = NULL;
-
-After a plain MTU flap, nothing sends RTM_NEWADDR for these addresses,
-so the new code in __ipv6_ifa_notify() never runs. addrconf_ifdown()
-also removed ::1 and cleared IF_READY. So IPv6 on lo stays broken after:
-
-	ip link set lo mtu 1279; ip link set lo mtu 65536
-
-The new code only runs when something later forces DAD to complete, as
-in the syzbot reproducer. The first IFF_NOARP toggle only sets IF_READY
-and calls addrconf_dad_run(idev, false), which skips PREDAD addresses.
-The second toggle gets to:
-
-	addrconf_dad_run(idev, true)
-	  -> addrconf_dad_begin()      (IFF_LOOPBACK branch)
-	    -> addrconf_dad_completed()
-	      -> RTM_NEWADDR
-
-Does this silence the warning but leave IPv6 broken on the device?
-
-Would it be better to fix the NETDEV_CHANGEMTU branch instead? When idev
-exists and IPv6 was stopped (IF_READY clear), it could do the same
-restore as NETDEV_UP. That would replace this notify-time workaround.
-
-> diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
-> index 4b0cb7d23541d..70230ffdc077f 100644
-> --- a/net/ipv6/addrconf.c
-> +++ b/net/ipv6/addrconf.c
-> @@ -6357,17 +6357,17 @@ static void __ipv6_ifa_notify(int event, struct inet6_ifaddr *ifp)
->  		/*
->  		 * If the address was optimistic we inserted the route at the
->  		 * start of our DAD process, so we don't need to do it again.
-> -		 * If the device was taken down in the middle of the DAD
-> -		 * cycle there is a race where we could get here without a
-> -		 * host route, so nothing to insert. That will be fixed when
-> -		 * the device is brought up.
-> +		 * Otherwise, if the host route is gone while the device is up
-> +		 * (e.g. dropped by addrconf_ifdown() for a low MTU and the
-> +		 * address kept by keep_addr_on_down), regenerate it.
->  		 */
-
-[Severity: Low]
-This comment and the commit message describe the change as only
-regenerating the host route. fixup_permanent_addr() also does this:
-
-	if (!(ifp->flags & IFA_F_NOPREFIXROUTE)) {
-		addrconf_prefix_route(&ifp->addr, ifp->prefix_len,
-				      ifp->rt_priority, idev->dev, 0, 0,
-				      GFP_KERNEL);
-	}
-
-	if (ifp->state == INET6_IFADDR_STATE_PREDAD)
-		addrconf_dad_start(ifp);
-
-So a prefix route is added from inside the RTM_NEWADDR notify handler,
-and DAD may be started. The new call site also drops two things that
-addrconf_permanent_addr() has: the IFA_F_PERMANENT filter and the
-delete-on-failure handling.
-
-The DAD start branch doesn't look reachable today. Every RTM_NEWADDR
-producer that can see rt == NULL runs after addrconf_dad_work() has
-moved the state from PREDAD to DAD. The prefix route insertion does
-happen, though.
-
-Could the comment and the commit message mention these side effects?
-
-> -		if (ifp->rt && !rcu_access_pointer(ifp->rt->fib6_node)) {
-> -			ip6_ins_rt(net, ifp->rt);
-> -		} else if (!ifp->rt && (ifp->idev->dev->flags & IFF_UP)) {
-> -			pr_warn("BUG: Address %pI6c on device %s is missing its host route.\n",
-> -				&ifp->addr, ifp->idev->dev->name);
-> +		if (!ifp->rt && (ifp->idev->dev->flags & IFF_UP)) {
-> +			if (fixup_permanent_addr(net, ifp->idev, ifp))
-
-[Severity: Medium]
-Can this put routes back on a device where IPv6 has been stopped?
-The only gate here is IFF_UP. addrconf_ifdown(dev, false) can run
-while the device stays up, for example:
-
-- on lo, in the NETDEV_CHANGEMTU branch, when the MTU drops below
-  IPV6_MIN_MTU
-- at the end of NETDEV_UP or NETDEV_CHANGE, when dev->mtu is below
-  IPV6_MIN_MTU
-- under NETDEV_CHANGEUPPER
-
-In each case rt6_disable_ip() flushes the routes and IF_READY is
-cleared. Kept addresses are moved to PREDAD and ifa->rt is set to NULL.
-
-addrconf_del_dad_work() uses cancel_delayed_work(), which does not wait
-for an addrconf_dad_work() that is already running. That work may be
-blocked on rtnl_net_lock(), for instance one queued by
-addrconf_permanent_addr() or addrconf_dad_run() just before the MTU
-check. Once addrconf_ifdown() drops RTNL, the work sees PREDAD and
-calls addrconf_dad_begin(). There, the completion fast path runs
-before the IF_READY check:
-
-	if (dev->flags&(IFF_NOARP|IFF_LOOPBACK) ||
-	    ...
-	    ifp->flags & IFA_F_NODAD) {
-		...
-		addrconf_dad_completed(ifp, bump_id, send_na);
-		return;
-	}
-
-	if (!(idev->if_flags & IF_READY)) {
-
-addrconf_dad_completed() sends RTM_NEWADDR. With this patch,
-__ipv6_ifa_notify() then calls fixup_permanent_addr() and ip6_ins_rt().
-That reinstalls the prefix route and the host route while IF_READY is
-clear and dev->mtu is still below IPV6_MIN_MTU. This breaks the
-expectation that no IPv6 routes stay installed on a device after
-addrconf_ifdown() has stopped IPv6 on it.
-
-Before this patch, the same sequence only printed the warning, because
-ifp->rt was NULL. Routes on a stopped device are new behaviour.
-
-Should the regeneration also require IF_READY in ifp->idev->if_flags?
-Or should addrconf_dad_begin() check IF_READY before it takes the
-completion fast path?
-
-[Severity: Medium]
-Should this check IFA_F_PERMANENT? fixup_permanent_addr() is written for
-permanent addresses. It installs the prefix route with expires == 0 and
-flags == 0, and its only other caller, addrconf_permanent_addr(),
-filters on the flag:
-
-	if (ifp->flags & IFA_F_PERMANENT)
-		list_add_tail(&ifp->if_list_aux, &tmp_addr_list);
-
-A kept address can stop being permanent while ifp->rt is NULL. Say
-addrconf_ifdown() has kept the address as TENTATIVE, and then an
-RTM_NEWADDR arrives with NLM_F_REPLACE and a finite valid_lft. That goes
-through inet6_addr_modify(), which clears IFA_F_PERMANENT:
-
-	ifp->flags &= ~(IFA_F_DEPRECATED | IFA_F_PERMANENT | IFA_F_NODAD |
-			IFA_F_HOMEADDRESS | IFA_F_MANAGETEMPADDR |
-			IFA_F_NOPREFIXROUTE);
-	ifp->flags |= cfg->ifa_flags;
-
-It also installs or refreshes the prefix route with RTF_EXPIRES, but
-ifp->rt stays NULL.
-
-DAD can complete later, for example when an IFF_NOARP toggle forces
-addrconf_dad_run(idev, true). Then this runs:
-
-	addrconf_dad_completed()
-	  -> ipv6_ifa_notify(RTM_NEWADDR)
-	    -> __ipv6_ifa_notify()
-	      -> fixup_permanent_addr()
-	        -> addrconf_prefix_route(..., 0, 0, GFP_KERNEL)
-
-fib6_add_rt2node() treats the existing expiring route as a duplicate
-nexthop. It clears that route's expiry instead of returning -EEXIST:
-
-	if (rt6_duplicate_nexthop(iter, rt)) {
-		...
-		if (!(iter->fib6_flags & RTF_EXPIRES))
-			return -EEXIST;
-		if (!(rt->fib6_flags & RTF_EXPIRES)) {
-			fib6_clean_expires(iter);
-			fib6_may_remove_gc_list(info->nl_net, iter);
-
-Does this turn the expiring prefix route into a permanent one? An
-expiring prefix route learned from an RA, with the same prefix and
-metric, would be hit the same way. Before this patch, this path only
-warned and never touched the prefix route.
-
-> +				pr_warn("BUG: Address %pI6c on device %s is missing its host route.\n",
-> +					&ifp->addr, ifp->idev->dev->name);
-
-[Severity: Low]
-fixup_permanent_addr() only returns non-zero when addrconf_f6i_alloc()
-fails:
-
-		if (IS_ERR(f6i))
-			return PTR_ERR(f6i);
-
-So this message now reports a memory allocation failure. A failed prefix
-route add is ignored, and the function still returns 0.
-
-addrconf_permanent_addr() reports the same error from the same helper
-with net_info_ratelimited(). Should this one be ratelimited too, and
-drop the "BUG:" label? The string is the same signature syzbot matched
-for this report, so allocation failure injection could produce new
-reports.
-
->  		}
-> +		if (ifp->rt && !rcu_access_pointer(ifp->rt->fib6_node))
-> +			ip6_ins_rt(net, ifp->rt);
-
-[Severity: High]
-This is a pre-existing issue, not one introduced by this patch. The
-state this patch handles (a kept address with ifp->rt == NULL on an up
-device) can also lead to a NULL pointer dereference. The regeneration
-here runs too late to prevent it.
-
-addrconf_dad_begin() inserts the host route for optimistic addresses
-without checking ifp->rt:
-
-	if (ifp->flags & IFA_F_OPTIMISTIC) {
-		ip6_ins_rt(net, ifp->rt);
-
-__ip6_ins_rt() then dereferences rt->fib6_table. All of this happens
-before any RTM_NEWADDR notification reaches __ipv6_ifa_notify().
-
-A possible sequence with CONFIG_IPV6_OPTIMISTIC_DAD=y:
-
-1. Set keep_addr_on_down and optimistic_dad on a non-loopback device
-   that has IFF_NOARP set and a permanent address.
-
-2. Take the device down. addrconf_ifdown() keeps the address as PREDAD
-   and TENTATIVE with ifp->rt == NULL.
-
-3. While the device is down, send RTM_NEWADDR with NLM_F_REPLACE, a
-   finite valid_lft and IFA_F_OPTIMISTIC. inet6_addr_modify() keeps
-   IFA_F_OPTIMISTIC because the address is TENTATIVE, and clears
-   IFA_F_PERMANENT:
-
-	if (!(ifp->flags & IFA_F_TENTATIVE) || ifp->flags & IFA_F_DADFAILED)
-		cfg->ifa_flags &= ~IFA_F_OPTIMISTIC;
-
-4. Bring the device up. addrconf_permanent_addr() skips the address
-   because it is no longer permanent, so ifp->rt stays NULL. IF_READY
-   is set, and addrconf_dad_run(idev, false) skips PREDAD addresses.
-
-5. Clear IFF_NOARP. NETDEV_CHANGE calls addrconf_dad_run(idev, true),
-   and dad_work enters addrconf_dad_begin(). The device is no longer
-   NOARP or LOOPBACK, so the optimistic branch calls
-   ip6_ins_rt(net, NULL).
-
-Can this oops the kernel? It needs CAP_NET_ADMIN, which an unprivileged
-user has inside its own user and network namespace.
-
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|SJ2PR12MB7963:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1be2a8c4-09cf-4616-2131-08df4869c832
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|6133799003|18002099003|261009223027099003|261021121427099003|261021123027099003|261022105027099003|261026140227099003|261026121527099003|261028144727099003|56012099006|10067099003|261102123227099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	/XABfpr/Ye//dlEz6zLWkF4K0vEmbstnVKZyWHkufQKziJ7kQgO/n3cM1ORSYiZffCVJuM3S9RLAxmINjIt0M/BYv49sIHC9K+0q2QAemUIz+L1zlPJ0K8yYvig45SC4M37hfP+jaIuYgSuNtl9MkzcJqNwhSIDYXSszIL+Ksm+kPbiPh12Hugfjznp2olapTPY30cLiCL/ttYDSjEMBdU4O1OhcrhehdrSUvZ67Epvx0qH5AWkoG+sZNaDGyJo4rPRp1Bqa+UlL+cYHJ8yBX06A6eIqFtTi3k3k9bW2mJNhIcq77Gh37DG3QkIxB8Qr/geQcwHQsT2WifIhbSoDB5fC+l/FqyVhjooqz+TAFLQ2v74bNofpKhHV5sALpwZHgGuA7l/kKFoCScGpl9u+eVl4Eg4yCNv1wkvX0+guveeaCzNh4GRNRXke7tCRkv6X4AZHVh6XHDG04ieIiIgmIV5cBRvY1VkL39uSBjpT0Mise5LR3egfXAwQyCoTGaxZxPKVpHp4+k5y7ymP0WCnOS8ED5P5kmtZj6Xx/rwIsCIan6FbGI+CsW8phiQ41cXPTPUOW+etzHqLDqvrOJ8z0Iy06OTpLONu/4F7Yzg1NldwiRd8UeOdwGrYwvFZJXEIcTygwg6FJWwqjnhFQtFALXwe5AqhtMZzMDVwKj6P1cw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(6133799003)(18002099003)(261009223027099003)(261021121427099003)(261021123027099003)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(56012099006)(10067099003)(261102123227099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?S1jGE0q1MxaA5tQjY1Eeto6mfjg9v40vzfztnzTLFrzOcx6UqQShMWiWcgjY?=
+ =?us-ascii?Q?T8472M2z+okBcIlnBZWrBnznUTAw0BhQiLxaRuzN3QwZ/Lkbn+pDOfv4X2w+?=
+ =?us-ascii?Q?936rW3OEHI23HgR8k4Xg/LipCg7unmUSXal7RpCvmvVlReDsRaLvrTJpRgcA?=
+ =?us-ascii?Q?gdFnpGD9akPy/hDfTMeJSDGe23Ky/rOP/Qzp1ocssk3LkCEkNTZws0Xb2Fpq?=
+ =?us-ascii?Q?sNLLb+jXdFNT9t7oPlPm1ePPBtm3SneuqeaZLUiqVQQmZuNNjvvnnQuwujRQ?=
+ =?us-ascii?Q?w80AOAb6xOX5o3dgmiT09CBFZG8Knd+UflE/4cNRWqtjVYkKYkhST+1zrHuW?=
+ =?us-ascii?Q?c0uUeoXHw6kc5aGAH8idL9+fdWjhkTAjUn/Wnhs4wOaGqk4BKO4Wf5gBhTgR?=
+ =?us-ascii?Q?Dk6BmgBI4oaTdUwh/GQmdLLhCdqzGljvxB0V0KnvZnf8ti3tYVhmv5g8RvQR?=
+ =?us-ascii?Q?8dP6rEjBZSuxEsT7g1RAaGJJ2RltxB4wztWFf/KOt/cMWSuhAUNZdNN6QOUC?=
+ =?us-ascii?Q?TItZPa8Ffhth3QV+DS/ylHWdtJXgteIMaifclNP8OnsUl1uDBlM5wB03zNjm?=
+ =?us-ascii?Q?/fN0HmyqKgYn/9baAF1Oyo3f4wS9EiOSAB39N0dwfyxOOLlI8ItigTK+gJBx?=
+ =?us-ascii?Q?mnhbDwS8IjhRWRhy/BLKago7lp51vUgp0pJase6fYxPHJnWNL71DE6g3q9HD?=
+ =?us-ascii?Q?7eq8d1dskaMAgSM/9Cm4xnKAf4NdKY0Ze0wuKJTnjNFzJQw8YcfQLWOUCa4F?=
+ =?us-ascii?Q?5CrBMStzRDhZ56BxKa2Zy66jQx0CZbT3PTeVAi9+U3FEgvraDjyZae2gbZWT?=
+ =?us-ascii?Q?aXd1cUfGtx667++3YxdYAEbfX7xQrgodcxjIGtdWRKpxZZdcK3C/jvskJNdS?=
+ =?us-ascii?Q?9GwMSIDmTqD/BJtUrua5v7YCPghUeZYTmhU0MHIpx1X4lmjO1O1X9BwLDfAP?=
+ =?us-ascii?Q?M9/IuRru1Dykzy4hkQr73t6MBBHUekLMChP+aM2QUzM0C7GFTqFeoNzfkA/q?=
+ =?us-ascii?Q?1Yu5sUU0g9U12iEOJoBmsbZBz+Fk+lWZ8Xg0Y/1DWSr+YG6RxNPSqkieDR6a?=
+ =?us-ascii?Q?uXrCmS/xHcBOUKR1rqnyJrp94mKw2IIukfPQB2BV+UgddhUscyEmCRJcPSa4?=
+ =?us-ascii?Q?EA4srYFLMfVbJ4bISGH40eK9715Uug9VU5bZgL8B6CZIBpXtg3Q5Ax3Z52Pz?=
+ =?us-ascii?Q?CAuL6itQLqJ8y024EAJIE3pPExtvySILZoVMD6/XrvBZNA/2wZOgVcNFwcLA?=
+ =?us-ascii?Q?FXLARHvlGbAXxF2YD2YCCiO+TO1ckYizAB9TXBi/X9b+WtZi18Y8FdF1+N86?=
+ =?us-ascii?Q?fKyp4lMhcNdeIwPSCTKl1vm9bo6EYEc7t4uWahyGNVktvrxcdw/pYEZBr4v/?=
+ =?us-ascii?Q?IZt/IiQK69RbHt0SpJftW8ga8vuFTWvvKG+cQZ6ZYnvR0kdWd1eaozOJRiJ3?=
+ =?us-ascii?Q?srcj8rij8ApQVsuA5BgqaKphYkoTb3GZwPDhUhANTzG0RrLtJh3G6JtmX980?=
+ =?us-ascii?Q?OJHiwhTxhCxDtQPmtIweeLi87f7veD5AN8T2Xy0ty78upupB8UVPxm9m4vdu?=
+ =?us-ascii?Q?R73cTBZB8UHXy6zVVkfulKTLKdUVJowG3xOg5hGCznny6U0iYUiM0P7lj+3T?=
+ =?us-ascii?Q?k6Ki1ASsLaQwEPlqUJZxAwvNtrfI4ZuE2TTRRJ9vM4+RS6U6xfoX+uacM37h?=
+ =?us-ascii?Q?dBMdEKXUu0MPbtUrGHFU11qP34lbhBzcY75rhxNqL2s0Mano?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1be2a8c4-09cf-4616-2131-08df4869c832
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 07:25:27.8865
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sIm74rqKKK+6vCY/eyR+BzX4wqKSq6Z7dqWJ4YLzIjqPzWX12wJKYwYHzsGYeruagD9njTZeA7zQUwXxtu6gcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7963
+
+When the bridge fails to add or replace an MDB entry with a source list,
+br_mdb_add_group_srcs() rolls back the operation by looking up and
+deleting the source entries of all the sources that were already
+processed. This is wrong for two reasons.
+
+First, with NLM_F_REPLACE, a source can appear more than once in the
+source list. Its source entry is deleted when rolling back one
+occurrence and the lookup fails for the other, triggering a
+WARN_ON_ONCE() [1].
+
+Second, when replacing an existing entry fails, sources from the new
+source list that already existed before the replace are deleted together
+with their (S, G) entries instead of being kept.
+
+Fix by marking source entries that were created by the current operation
+and only deleting them on failure.
+
+[1]
+WARNING: net/bridge/br_mdb.c:901 at br_mdb_add_group_srcs+0x310/0x440, CPU#10: repro/304
+[...]
+RIP: 0010:br_mdb_add_group_srcs (net/bridge/br_mdb.c:901 (discriminator 2) net/bridge/br_mdb.c:924 (discriminator 2))
+[...]
+Call Trace:
+ <TASK>
+ br_mdb_add_group_star_g (net/bridge/br_mdb.c:1021)
+ br_mdb_add_group (net/bridge/br_mdb.c:1082)
+ br_mdb_add (net/bridge/br_mdb.c:1097 net/bridge/br_mdb.c:1360)
+ rtnl_mdb_add (net/core/rtnetlink.c:6925)
+ rtnetlink_rcv_msg (net/core/rtnetlink.c:7178)
+ [...]
+
+Fixes: 61f2183512a7 ("bridge: mcast: Support replacement of MDB port group entries")
+Cc: stable@vger.kernel.org
+Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Closes: https://lore.kernel.org/netdev/179489219555.3099318.10297266282803881244@gmail.com/
+Signed-off-by: Ido Schimmel <idosch@nvidia.com>
+---
+ net/bridge/br_mdb.c     | 29 ++++++++++++++---------------
+ net/bridge/br_private.h |  1 +
+ 2 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/net/bridge/br_mdb.c b/net/bridge/br_mdb.c
+index 0adcd1524ab2..be65976c2f32 100644
+--- a/net/bridge/br_mdb.c
++++ b/net/bridge/br_mdb.c
+@@ -867,6 +867,7 @@ static int br_mdb_add_group_src(const struct br_mdb_config *cfg,
+ 			NL_SET_ERR_MSG_MOD(extack, "Failed to add new source entry");
+ 			return -ENOSPC;
+ 		}
++		ent->flags |= BR_SGRP_F_NEW;
+ 	} else if (!(cfg->nlflags & NLM_F_REPLACE)) {
+ 		NL_SET_ERR_MSG_MOD(extack, "Source entry already exists");
+ 		return -EEXIST;
+@@ -883,31 +884,24 @@ static int br_mdb_add_group_src(const struct br_mdb_config *cfg,
+ 	if (err)
+ 		goto err_del_sg;
+ 
+-	ent->flags = BR_SGRP_F_INSTALLED | BR_SGRP_F_USER_ADDED;
++	ent->flags = BR_SGRP_F_INSTALLED | BR_SGRP_F_USER_ADDED |
++		     (ent->flags & BR_SGRP_F_NEW);
+ 
+ 	return 0;
+ 
+ err_del_sg:
+-	__br_multicast_del_group_src(ent);
++	if (ent->flags & BR_SGRP_F_NEW)
++		__br_multicast_del_group_src(ent);
+ 	return err;
+ }
+ 
+-static void br_mdb_del_group_src(struct net_bridge_port_group *pg,
+-				 struct br_mdb_src_entry *src)
+-{
+-	struct net_bridge_group_src *ent;
+-
+-	ent = br_multicast_find_group_src(pg, &src->addr);
+-	if (WARN_ON_ONCE(!ent))
+-		return;
+-	br_multicast_del_group_src(ent, false);
+-}
+-
+ static int br_mdb_add_group_srcs(const struct br_mdb_config *cfg,
+ 				 struct net_bridge_port_group *pg,
+ 				 struct net_bridge_mcast *brmctx,
+ 				 struct netlink_ext_ack *extack)
+ {
++	struct net_bridge_group_src *ent;
++	struct hlist_node *tmp;
+ 	int i, err;
+ 
+ 	for (i = 0; i < cfg->num_src_entries; i++) {
+@@ -917,11 +911,16 @@ static int br_mdb_add_group_srcs(const struct br_mdb_config *cfg,
+ 			goto err_del_group_srcs;
+ 	}
+ 
++	hlist_for_each_entry(ent, &pg->src_list, node)
++		ent->flags &= ~BR_SGRP_F_NEW;
++
+ 	return 0;
+ 
+ err_del_group_srcs:
+-	for (i--; i >= 0; i--)
+-		br_mdb_del_group_src(pg, &cfg->src_entries[i]);
++	hlist_for_each_entry_safe(ent, tmp, &pg->src_list, node) {
++		if (ent->flags & BR_SGRP_F_NEW)
++			br_multicast_del_group_src(ent, false);
++	}
+ 	return err;
+ }
+ 
+diff --git a/net/bridge/br_private.h b/net/bridge/br_private.h
+index 014d0b8db8c7..97ad9d7bab27 100644
+--- a/net/bridge/br_private.h
++++ b/net/bridge/br_private.h
+@@ -347,6 +347,7 @@ struct net_bridge_fdb_flush_desc {
+ #define BR_SGRP_F_SEND		BIT(1)
+ #define BR_SGRP_F_INSTALLED	BIT(2)
+ #define BR_SGRP_F_USER_ADDED	BIT(3)
++#define BR_SGRP_F_NEW		BIT(4)
+ 
+ struct net_bridge_mcast_gc {
+ 	struct hlist_node		gc_node;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_98F714E924966679E826125C2CB18B092A07%40qq.com
+2.56.0
+
