@@ -1,50 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795383132;
-	b=ipoktkDm5cqLDpbxTzDfnAA8oYvEu0qRB49U3VlNyyJzBwJHUyUf5VHvcjP7YpVug+du
-	 vdv2PThMobHuKH3B4NGI6tiYeFQITaVh5QlqVr7R+0J0kE53/zy/lPf+YK7SSFp8U3dq7
-	 P2DgMu/C/n3Ya4d5yYkWzh3y9oCIMd+WtXpItbv3K4KtI7D+cX6IpxrFRp8JWzOY4UcHB
-	 MzNh2tdz6AZnKkkWNs0QVRv5lz1KsBMFQMKAUDH2Jj1bNCp4UmKIPydWEiakHbzc41uRl
-	 4zgxJIT7qKBJ5WWxfzCI2JFVjAAs1McSLs10Gh7rWda61PxTwWfgMpTB4eMNQ3LVFdA==
+	t=1795383133;
+	b=jYRemaUUhIgN/tQMPhWbgXV/VrMWa86A+SW1hpu5EftcSvU3nhDTeY+tb8YY7xCibjXM
+	 HuquREsPL9A8mdaprmSVAahQBvFeNgHzEOsxPc9YFQ36v0Rv4edGYxN+i+VsmL8CSufGT
+	 m9F7mXjm6FHcC3N3rd2CeO96LJdkslwtwqRwj9nvL0IpF2np3ojIWYln8exJv9XF2sPUD
+	 LTXfka2n8/d4IEaqJztKlyYkz2gq4f8+e78qYFaEln8RoKkngYiHcOfzi7Ck9RRU4FYFo
+	 297OmKJz7zgHR2kPy/fvbIVVO6/7eFTw1sQA7Pc1tceTk6dCm8DDlXGOWpxL9opN6QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795383132;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795383133;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=QpXJymSL48oHV5Gty6tREKnyHspYs4HJDm5tg/o9etQ=;
-	b=U3KAdvxDhwVNEOwBCinR1k/8LtUDhW9wDeimNNU9AECSIeqkckNX5xosTiQNuUf6qxvc
-	 h2fZ+WxB0+j1DoqZpVXeXwW4b5nwVp3938bmaZwZldfhzR4bGNm+HY0HiLLU6fruq9RGU
-	 ZznK/2RStkcpR83y6gJA6U0DkcG4QI6WxvBKG1d+XhzPo4toZdKIpGVKvH5p1WmUrxm29
-	 8b40HC+EaEP9yvO2Gy/4TEBLJP3tuICFrRDnZdMLY6Y0qQLsAbGGK/wfdGRGWly7oVwNL
-	 owlDdqBfXvbiiukkaxNoso0E2iK4EMY9Kjg70vi+vwhhDeG0GLIQezqZOdPVUWxSnRQ==
+	bh=uj1e2akn2qsyRZEvnz2C69jZ6R01/xhn0vkqiFnsCAE=;
+	b=FFrmDWPpMZX+hk1hn8EAJXcJzzD3ck0pk5ZX1VJ2ztC21fwGRA1zShRMAAMEoZT4j3lF
+	 Lhcp1v37YW+yHScV+1fvBnRe0Qmdm7JvPLKHKbhshA6eikzpWsBLfh6XCiicI+AVtxcMN
+	 y3fm82J1c3YUjwSV+vcNDlErdKK2IpAh9tWr1nSS+k3H8IaTD6rmVKS3dK7YnG8/MoNsl
+	 s2OMAFkr74Giww7XaFbvrCcK1k+8oAWQeazKwaGiGdKmFW1GC0xJjPw05BrL+NRfRAwzC
+	 3ruYR0Rqr29jL0SRcV+rk1NJD7rd0IQgkLiyOJUR9J7WoEkid+XFWW5FlHXGDyx4ONQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=corp.free.fr;
 	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=TxDaeuln;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=O8PlNNc4;
 	arc=none smtp.remote-ip=212.27.60.169
 Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41C3E606A33C;
-	Sun, 22 Nov 2026 21:32:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41C3E606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADE8D606A6B4;
+	Sun, 22 Nov 2026 21:32:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADE8D606A6B4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=TxDaeuln
+	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=O8PlNNc4
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1795383129; bh=9RTIFcQyd9tjIJwC9OkGdscO68l46ebZ0ckUIssCKmo=;
+	t=1795383131; bh=026vuuHh/T9A1Eft9SNnKsLEY3/cuC4z+0Un1kIxXPM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TxDaeulnvByl3AbhOx1Mjm6LekRHIpx4JE8HM3iqE9aqoxBmmCeBIcwj9XjZJQ7+g
-	 7sh+GQhxxSO9IH2WvIsPw78YwGchtOEomrVtWVHjphODQoneE0kdp8iPTDAk7htgB5
-	 u7guwG1Ws0GfJJJORRYiRnaxOem942ee1ZeVzRKmxjkIquqqqX5dbdhWWtHuhm7+70
-	 MGiUx9+f3Wi+PDJnxGBDyg+fRUlTFRyVudGtGnuksNsCrd8fsl5ccYiEcTXRjuc1Kn
-	 JMabWolZOJFGWdVANTqcp6Y3vpSqjdbvjNfErIC+rVEaCgcrF0I7HZZQHUvY2duuSC
-	 uQLF3QOpis8vA==
+	b=O8PlNNc4omU6cQmfJZ1FWdotUFmGYlFBMR8UKGXFAA5lwgS6QxD3fupCEDS1sXi2R
+	 VTQWKRioLUA+188F6nyHvK3rHkpgoxLDE7+X+fD0kWgG1ToWpZyHmYN7P8F3DL/OfE
+	 OxH18nVOTnTMhd+ZsBcBt7oXBq+24mghPczDd6We+9ThIlu3p2nKmdBUwuZ5P3HKSK
+	 wok+8iJrjVDUmv1u4xHMzP1yBmprGsdFzvrAwxo6FaUTZId3wi1Gh97CoZFwV9pv0N
+	 NV8sYRrzdK0gBxpjmqKptEfTUr7+xRtDaXGaStXLM4O7TRW86mmJ5K4uk2Aa9buxVP
+	 hMELAB+EyXTHg==
 Received: from lnxos-dev.home (82-66-150-212.subs.proxad.net [82.66.150.212])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 6D82044C0B49;
-	Sun, 22 Nov 2026 22:32:09 +0100 (CET)
+	by rcs.proxad.net (Postfix) with ESMTPSA id E955744C0B52;
+	Sun, 22 Nov 2026 22:32:10 +0100 (CET)
 From: Alexandre Cassen <acassen@corp.free.fr>
 To: Saeed Mahameed <saeedm@nvidia.com>,
 	Leon Romanovsky <leon@kernel.org>,
@@ -73,9 +73,9 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	oss-drivers@corigine.com
-Subject: [PATCH net-next v3 05/11] net/mlx5e: TC, reject a partial tunnel key with tunnel mapping
-Date: Sun, 22 Nov 2026 22:31:53 +0100
-Message-ID: <20261122213200.3207385-6-acassen@corp.free.fr>
+Subject: [PATCH net-next v3 08/11] net/mlx5e: TC, offload RX queue mapping in NIC flows
+Date: Sun, 22 Nov 2026 22:31:56 +0100
+Message-ID: <20261122213200.3207385-9-acassen@corp.free.fr>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261122213200.3207385-1-acassen@corp.free.fr>
 References: <20261122213200.3207385-1-acassen@corp.free.fr>
@@ -90,51 +90,173 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Tunnel mapping stores the matched tunnel key. The metadata of a packet
-missing in hardware after a goto chain or a sample is restored from it.
-A partial enc_key_id mask would restore a wrong tunnel id. Flower is about
-to accept such masks.
+skbedit queue_mapping steers a flow to one RX queue. ice, hns3 and
+octeontx2 already offload it. Add it to mlx5e NIC flows. The rule points
+to the direct TIR of the channel like ethtool steering rules.
 
-Tunnel options with a partial class or type are already rejected here.
-Rules without tunnel mapping keep working.
+The direct TIR takes over the destination of the rule. The action must
+come last and cannot follow a terminating action such as ok, goto or
+mirred. A goto would also unbalance the reference count of its chain
+table.
 
-Found by an AI code review agent while auditing the users of enc_key_id.
-Tested on ConnectX-7 with firmware 28.48.1000 in switchdev mode.
+Reducing the channel count below the queue of a rule drops its traffic
+until the channel returns. The direct RQT of an inactive channel points to
+the drop RQ. ethtool refuses such a change for its own rules but nothing
+tracks the queues of TC rules. A channel change racing with the range
+check of a new rule has the same result. Direct TIRs exist up to the
+maximum channel count. The rule always points to a valid one.
+
+Tested on ConnectX-7 with firmware 28.48.1000.
 
 Signed-off-by: Alexandre Cassen <acassen@corp.free.fr>
 ---
- drivers/net/ethernet/mellanox/mlx5/core/en_tc.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ .../net/ethernet/mellanox/mlx5/core/Makefile  |  3 +-
+ .../mellanox/mlx5/core/en/tc/act/act.c        |  1 +
+ .../mellanox/mlx5/core/en/tc/act/act.h        |  1 +
+ .../mellanox/mlx5/core/en/tc/act/rx_queue.c   | 67 +++++++++++++++++++
+ .../net/ethernet/mellanox/mlx5/core/en_tc.c   |  4 ++
+ .../net/ethernet/mellanox/mlx5/core/en_tc.h   |  1 +
+ 6 files changed, 76 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/rx_queue.c
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index 1d35c97aea0b..ba3aef3c8063 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -2257,6 +2257,7 @@ static int mlx5e_get_flow_tunnel_id(struct mlx5e_priv *priv,
- 	struct tunnel_match_enc_opts tun_enc_opts;
- 	struct mlx5_rep_uplink_priv *uplink_priv;
- 	struct mlx5_flow_attr *attr = flow->attr;
-+	struct flow_match_enc_keyid enc_keyid;
- 	struct mlx5e_rep_priv *uplink_rpriv;
- 	struct tunnel_match_key tunnel_key;
- 	bool enc_opts_is_dont_care = true;
-@@ -2265,6 +2266,16 @@ static int mlx5e_get_flow_tunnel_id(struct mlx5e_priv *priv,
- 	u32 value, mask;
- 	int err;
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/Makefile b/drivers/net/ethernet/mellanox/mlx5/core/Makefile
+index a1871259210d..f8d1696ab5eb 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/Makefile
++++ b/drivers/net/ethernet/mellanox/mlx5/core/Makefile
+@@ -56,7 +56,8 @@ mlx5_core-$(CONFIG_MLX5_CLS_ACT)     += en/tc/act/act.o en/tc/act/drop.o en/tc/a
+ 					en/tc/act/vlan.o en/tc/act/vlan_mangle.o en/tc/act/mpls.o \
+ 					en/tc/act/mirred.o en/tc/act/mirred_nic.o \
+ 					en/tc/act/ct.o en/tc/act/sample.o en/tc/act/ptype.o \
+-					en/tc/act/redirect_ingress.o en/tc/act/police.o
++					en/tc/act/redirect_ingress.o en/tc/act/police.o \
++					en/tc/act/rx_queue.o
  
-+	/* The mapping restores the tunnel id of a packet missing in hardware */
-+	if (flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_ENC_KEYID)) {
-+		flow_rule_match_enc_keyid(rule, &enc_keyid);
-+		if (enc_keyid.mask->keyid != cpu_to_be32(U32_MAX)) {
-+			NL_SET_ERR_MSG_MOD(extack,
-+					   "Partial match of tunnel key in chains isn't supported");
-+			return -EOPNOTSUPP;
-+		}
+ ifneq ($(CONFIG_MLX5_TC_CT),)
+ 	mlx5_core-y			     += en/tc_ct.o en/tc/ct_fs_dmfs.o
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.c
+index 0380a04c3691..9b5d7d5ee271 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.c
+@@ -41,6 +41,7 @@ static struct mlx5e_tc_act *tc_acts_nic[NUM_FLOW_ACTIONS] = {
+ 	[FLOW_ACTION_ADD] = &mlx5e_tc_act_pedit,
+ 	[FLOW_ACTION_CSUM] = &mlx5e_tc_act_csum,
+ 	[FLOW_ACTION_MARK] = &mlx5e_tc_act_mark,
++	[FLOW_ACTION_RX_QUEUE_MAPPING] = &mlx5e_tc_act_rx_queue,
+ 	[FLOW_ACTION_CT] = &mlx5e_tc_act_ct,
+ };
+ 
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.h b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.h
+index 2e528b2c34d6..e6df5f0f27a7 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.h
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.h
+@@ -94,6 +94,7 @@ extern struct mlx5e_tc_act mlx5e_tc_act_sample;
+ extern struct mlx5e_tc_act mlx5e_tc_act_ptype;
+ extern struct mlx5e_tc_act mlx5e_tc_act_redirect_ingress;
+ extern struct mlx5e_tc_act mlx5e_tc_act_police;
++extern struct mlx5e_tc_act mlx5e_tc_act_rx_queue;
+ 
+ struct mlx5e_tc_act *
+ mlx5e_tc_act_get(enum flow_action_id act_id,
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/rx_queue.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/rx_queue.c
+new file mode 100644
+index 000000000000..32598a216300
+--- /dev/null
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/rx_queue.c
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0 OR Linux-OpenIB
++
++#include "act.h"
++#include "en/tc_priv.h"
++#include "en/rx_res.h"
++
++/* No action runs after a terminating one */
++static bool
++tc_act_rx_queue_is_reachable(struct flow_action *flow_action, int act_index)
++{
++	struct mlx5e_tc_act *tc_act;
++	int i;
++
++	for (i = 0; i < act_index; i++) {
++		tc_act = mlx5e_tc_act_get(flow_action->entries[i].id,
++					  MLX5_FLOW_NAMESPACE_KERNEL);
++		if (tc_act->is_terminating_action)
++			return false;
 +	}
 +
- 	esw = priv->mdev->priv.eswitch;
- 	uplink_rpriv = mlx5_eswitch_get_uplink_priv(esw, REP_ETH);
- 	uplink_priv = &uplink_rpriv->uplink_priv;
++	return true;
++}
++
++static bool
++tc_act_can_offload_rx_queue(struct mlx5e_tc_act_parse_state *parse_state,
++			    const struct flow_action_entry *act,
++			    int act_index,
++			    struct mlx5_flow_attr *attr)
++{
++	struct flow_action *flow_action = parse_state->flow_action;
++	struct netlink_ext_ack *extack = parse_state->extack;
++	struct mlx5e_tc_flow *flow = parse_state->flow;
++
++	/* The direct TIR takes over the destination of the rule */
++	if (!flow_action_is_last_entry(flow_action, act) ||
++	    !tc_act_rx_queue_is_reachable(flow_action, act_index)) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "RX queue mapping must be the last action and cannot follow a terminating action");
++		return false;
++	}
++
++	if (act->rx_queue >= flow->priv->channels.params.num_channels) {
++		NL_SET_ERR_MSG_MOD(extack, "RX queue index out of range");
++		return false;
++	}
++
++	return true;
++}
++
++static int
++tc_act_parse_rx_queue(struct mlx5e_tc_act_parse_state *parse_state,
++		      const struct flow_action_entry *act,
++		      struct mlx5e_priv *priv,
++		      struct mlx5_flow_attr *attr)
++{
++	attr->nic_attr->rx_tirn = mlx5e_rx_res_get_tirn_direct(priv->rx_res,
++							       act->rx_queue);
++	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
++
++	return 0;
++}
++
++struct mlx5e_tc_act mlx5e_tc_act_rx_queue = {
++	.can_offload = tc_act_can_offload_rx_queue,
++	.parse_action = tc_act_parse_rx_queue,
++	.is_terminating_action = true,
++};
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index ba3aef3c8063..2326fb21da66 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -1267,6 +1267,10 @@ mlx5e_add_offloaded_nic_rule(struct mlx5e_priv *priv,
+ 		dest[dest_ix].type = MLX5_FLOW_DESTINATION_TYPE_TIR;
+ 		dest[dest_ix].tir_num = nic_attr->hairpin_tirn;
+ 		dest_ix++;
++	} else if (nic_attr->rx_tirn) {
++		dest[dest_ix].type = MLX5_FLOW_DESTINATION_TYPE_TIR;
++		dest[dest_ix].tir_num = nic_attr->rx_tirn;
++		dest_ix++;
+ 	} else if (attr->action & MLX5_FLOW_CONTEXT_ACTION_FWD_DEST) {
+ 		dest[dest_ix].type = MLX5_FLOW_DESTINATION_TYPE_FLOW_TABLE;
+ 		if (attr->dest_chain) {
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.h b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.h
+index e1b8cb78369f..254ea76fcbe9 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.h
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.h
+@@ -66,6 +66,7 @@ struct mlx5e_tc_update_priv {
+ struct mlx5_nic_flow_attr {
+ 	u32 flow_tag;
+ 	u32 hairpin_tirn;
++	u32 rx_tirn;
+ 	struct mlx5_flow_table *hairpin_ft;
+ };
+ 
 -- 
 2.43.0
 
