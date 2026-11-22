@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795359558;
-	b=HQRa+6tIJ+QMzIf5A8H+kUu4uFV91QGpDAebSHWkjGXacPPJs3Uo7f5+amC2oKAtuRSz
-	 nqoNizl+irwpB3Y0WDu4gDxQDA6M6KPuUuPeHIC3YNYSZ9PtYejjqS2kyxbPLXsTisbnD
-	 aDW0MonTTD2JYl9ZS9YchpecTiO4ZKCXG9ndrFtAGyRlu3sDl2B2vTII/vEAg4Q/CPLEL
-	 e/Z8nXgWQy0EjpU6r/PQrm7Phw5O91JULwkCh6TDQ/rvB+Qmmnbd6RyVS3Y9UBSVKfBMQ
-	 qb+7qr6Cf1JhT+m8lE07sEfvkR5sksoHm2qn8BEINqsVpCCBI2R5Iw9Cea650zEqkww==
+	t=1795359561;
+	b=AC8MH6pvkBYSUiF8uEstnEQnnfsXxuzQSxGw+w+dgGE9+wkKlF4ELh9Vr0BbXgr6L24+
+	 0jVOuaWGuEbMgMuE5DLxti2FriC3zhC+OvMYzcPg+0JHW6UTR+88PCPgjJQhqbEKLbz+K
+	 bTsrrHY/lxdRVENHNMC9V36LRnZrPIk/S9VPG5mNfKkRhWoFL/V/dz1bql9caA8zQ7/eQ
+	 /EUbMC0x+nFTBXNnegPObqvrQ8hZWarW4BvLrEzwvW1HQQ/kv2Y9rnSsG4/QlK0dY3B7/
+	 a9p5mFOnPlIdE4LxL9XNMDZK8csGecCDdFQDVGgpPZbXLxUX+0paMNNOXpNUYJ5SwpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795359558;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795359561;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=plElw4fcYLBxg4fD+bZ2DHkzdJMahDB/p7c8IvT1/p4=;
-	b=OMzaYWX/JUagUl1T4sSq0Ao+i4GPQjvefx30GzgKtn1yA6N31eYAihqM2poM67TfusQh
-	 CYhEyMOwznrmszN4J1+RnneoTR8+Hqe9KikzdLnd3xrWBjVqfKy6fGVrfa/u0RAgDPg8r
-	 IoRXsp+eaflnDM5M4AWhdp2J0sKAazdNNb/sYeHlNfpJ/KngnW0mA+BjEg/Gat0G4SQkB
-	 7a11aLzLryo1WwXZ4a3/ZVxL4K54eoNShSWiQPOrOuKXEX0kTFwUp+sN06yThBkqHM9sv
-	 DDAyhLxSaRYfvYPGXbmMCoLfAr/vxDP5P+caAAt6r1wHCfZQHmLqG2cc3PhSeKxJj0w==
+	bh=yQ1mnXXpX8Ppp4sEQBFb/1XPRgAsvxmRrXL11uhRxSE=;
+	b=uH1PVjeuN5B3MmMdADbAV+YW96fSGY1ku4zDZizpC6mYdcg1DmQiqqYJdKaxczdtH14v
+	 G2PbMpSRKUIjx4w9pk6zLa6MSpBHUTEyRH2wXlRUO2jmfSwjdLC5YXSdErqVlhpPBb3Cl
+	 CDjbpR09/20NgFLrkOnVdTuBqYOuqFPV27O9bpB64tO/+xQYJ2tZdXWDEdBRSDZlHKXYK
+	 cWfrAu1EdB5wdI0ICjH3lJ/ZxiZXjCtmW7dmv6Yfmn9m/rea1LjYBgSVolxAbppmHP66S
+	 3J07z2uoo5r1OQtvEDOiz9iXaCJ0/zOSeJF0A0LbsecZmwiLbyyt0eUAvFb1INDUp4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CS9zI3YD;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aERxkzmF;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C019606A332
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 14:59:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C019606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34366606A683
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 14:59:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34366606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CS9zI3YD
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so1218592a91.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 06:59:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aERxkzmF
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b421e8d111so1595679a91.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 06:59:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795359558; x=1795964358; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795359560; x=1795964360; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=plElw4fcYLBxg4fD+bZ2DHkzdJMahDB/p7c8IvT1/p4=;
-        b=CS9zI3YDt9LvNhrX12gIocCmaB1DqKi4uyRpsQfMjHgMk0zDOCuBE3RgYQtN89b6c4
-         Rj7cbTMaMUUe0JWTSx8uo5J1+Mz9fWnxKuqSqcVLV+HbzRv/UjNaSVbUnk1dt2/pZlZM
-         77uv47fSQMTAq7Qh3V1H6DyXzyA0rtY1Ce+31ic6F942FIQgg27p5mEAunoT/ycsZr9I
-         0X+eYlzErJ3KwEg5zPwYm7jg2cL6LMnGoemmM2abKeV291vpvELsAEUC+fVulhqdwRkj
-         X8DKJ1JiMGRlwnz9qj26+XghLL0GZ7fFS8eHif7uoagh6qHwgv8TlCFk2nP93fnn2LEF
-         CfWg==
+        bh=yQ1mnXXpX8Ppp4sEQBFb/1XPRgAsvxmRrXL11uhRxSE=;
+        b=aERxkzmFuUkN28xwnMV1dFYkCXVVdce4HrnW4wlWu+Vro5TiEF3rTpC+Uugv183fkX
+         A6ZpX9AEls9XQSb9KG1roun4Mh4hI4AyH9jCQwNk6jXUat87UolGU1I8aSqD1tkhAryb
+         16XVE94Xth0TzQprV4d6mTthSdL4UpQDZEq/t6+5PPmEM+HeA94udq8xvbEZCKMdigzT
+         iPvoQ27LHnqBJi3yTaptb4Qbkm4F4uHhpisdrGQk9hwpndsmtQNK425Vojir9hUKWTcb
+         AuX6kHkfMa5RpeaPnh1CyPNTfAeMJwhJgjzF0lcdnHivZyJsFD7IvdGF5Wm3Cxvy1zSe
+         r6Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795359558; x=1795964358;
+        d=1e100.net; s=20260707; t=1795359560; x=1795964360;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=plElw4fcYLBxg4fD+bZ2DHkzdJMahDB/p7c8IvT1/p4=;
-        b=eBU3Ojn0cxhnc6feQoyVhRpe25PCxd9okUcu58tXPHJB2CbLnVjrMzCJXMZIFjuS8p
-         b66Noz83GilS8J6pFZeZdRFw8nDP5wTcTPPc7LbrOOLKFIshT5FBw/14PlNKBfdvc7j7
-         HrOtyz+OVGjYTAGa3uoKLQDKuo/00VEQjdPFVnqbli6grXipoOtB1Q6vjnq3G0SfvUDq
-         FNy+1J4B/i6TS+6wvlUjOGzxinxL1wfwo5MwkqNL+fFK5i8Qk6SlxDLnMHg3keA7jRuW
-         Q8upzNi8eWfxoP4xcP8CPRuJP1TBmbY89XCAp+W0lGQpMlwZWwnS4DV7fG7Nns4hLzqq
-         0m9g==
-X-Gm-Message-State: APuU4Z/gbZHv5GqNNjXYwEMDJcswgzXFqs8K5wzCarOf2uHIjlZ91qrK
-	b0B0sY9Xi+q+7w7kOTt5KPrwf3QYCzfbP3ZlmabiXu2M01bS23oA/7WfXu3Eicot
-X-Gm-Gg: AZFdTZdkOgDSdPYy71vehCZe3/UzYAdVTASGSRTADQAZ7KYYb3vZEpX3KX0j2vXCtrF
-	FqphHip5iqjQVVlIjboz00L0/XoyUIwmBkMZycH8NPz+Fl2TPiBi460IiLQfYU88k/h/V4Gy7/B
-	h9XnTxmmSeyR5a7Y7dAuET78s/7+0D3Y5dW8ESd1CzLsN4EqPRmJQN9Ww6I/gBnH+Me1JFEd1w9
-	+KcHzYaEZOfavnF0GpeUa4n/pmdhK6QMx6myNoMhgdk+kwkEWrIErQUxXdgMAokgphTk4/r0JJz
-	bh2bidjTmMBUPG2mbRRVl2YDiijU4s9RkTuypH3vU8N3BDdC1C7ziJiA2dHXYmWsSOFfq5x6DHR
-	zQNNpTP4pCe0z6dKpAiByPsafTrHSdcDyLBgYM8ykR43+ZXMF2Fp7AqEh6cJwb7SvHaV3DX3HGu
-	qUfNf8qLLgty/U9K+USgpBScYai83upvq9kpa0i8aVHGNQBSgM5Ef/Y7cGdGeefkt+ERq1StZUL
-	++OEYkRaW01DLGYijLHaeO6BA8xaVjGGTxnCEoZX+KHGB1aGERvdmRSBzWPKTCnynM1fP/LULsE
-	WJ1GeqV4aLhfxqB/exxyuS2NgE//R2EwGBaLznSaePxQKQZHwCZHoCZNPCgSNj/Y8VM=
-X-Received: by 2002:a17:90b:3c11:b0:3a6:f1d2:57f3 with SMTP id 98e67ed59e1d1-3b41c97bc96mr8597683a91.58.1795359557713;
-        Sun, 22 Nov 2026 06:59:17 -0800 (PST)
+        bh=yQ1mnXXpX8Ppp4sEQBFb/1XPRgAsvxmRrXL11uhRxSE=;
+        b=xXL5KZf4qtUj7POD1q1tMEzAwbC0AASmXzmT0ypqvtVdIL4QfUf/wqxsDF5pyNVctg
+         TmYvi+l1OPjtVuMj0w0DvNtwKc6HzvLVaM91ag8M5RKNk20AYxqI7LslZ09vvGtPhU2S
+         bYcEDBjQE+UFijL3PWTl8PdstI1RZGskNHu8t6tQi9gDqgKr6F59m9vvOLS7dtETaSRH
+         81reCxHID+2ouOqQjPvC73U4AgAwDSFB8UCVGPA/VdXkzslAvNU0w1Jrij6ziCHLhQNF
+         UJnitlqppNverLFLPtcUrwYsbXJfFav+Z94h/pmBWPIGfwcso+Cr5pIFNV10O7iOHpQs
+         j9Sg==
+X-Gm-Message-State: APuU4Z/oPHTf4zuhuwIHgUC+ov7i8bPEd3Q4Z0jHXJ0mfdWf4CjVMxyB
+	Z4ZJFTaeOv3MeQZ7pv8wfrDV4x+nqzZ1wsxI7nmxf1Y+OeMsQ+TU0C1aTcmsboNs
+X-Gm-Gg: AZFdTZew5Fms9hzimO4vug4jFHKpolgx9EHjGlFmZ8kC7QwPrJoDxX9UBBHJv44t0Mv
+	A231JuAWsu5kX2JrxacgNZ/JK4/eJLUvs73QkLuG1kZWX+/LFbOnP3go4ndrnQltot0w5gAwbNT
+	ZGqvtZ8brnrojCUfObm3xzBICrhg/an3Eh6v2HiLSOjchwpfqBO5eghpuQL/u2tS+nSUFe5j3iG
+	/dGizb0Rxt1KuEhT70SSJwB1RzYu823S3xk3F8Z8KM4rmW4cZQ0JjJsQlgYeHVR2DZjdetVohGC
+	iCJ4FV55RkJVObwTxGgOzdWUapkV0fnMJUhM1/BHdww6qv/yKG9hXca757IjroOfDwctwRbpQ+K
+	3g/rvWnFO2Km8Fiun0sbqge+wM7+866L4RxlbEdLDbbMHpVm5oWUkC6wscUqEciCihjj32qhqCF
+	S6KQmSjhJ7vnLlP0sL+BszRpRiz/nqlLGT/CWuxK9ysJau/OuxC9NC6ajokJrYTkPhFkeJLvx+2
+	/+bq2yVRHnm1GfrupIRFikdtPBVQbMIpjJ+rWLZPBg6e1YF4MG2IODmbjsPmGFwfeU3i7nrvSVp
+	/069lBkiM3CRRwmUyzF3twhKd7kRnAMsYzwFJ/4xJZAFw6m5CQqKJKOOX22498Nfad4=
+X-Received: by 2002:a17:90a:e7d0:b0:3a7:3474:b1ee with SMTP id 98e67ed59e1d1-3b41cb3276cmr8477165a91.60.1795359560597;
+        Sun, 22 Nov 2026 06:59:20 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm16387442a91.10.2026.11.22.06.59.15
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm16387442a91.10.2026.11.22.06.59.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 06:59:17 -0800 (PST)
+        Sun, 22 Nov 2026 06:59:20 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Jay Vosburgh <jv@jvosburgh.net>,
@@ -87,9 +87,9 @@ Cc: Jay Vosburgh <jv@jvosburgh.net>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Hangbin Liu <hangbin.liu@linux.dev>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 1/2] bonding: reject a non-Ethernet 802.3ad slave even when the type matches
-Date: Sun, 22 Nov 2026 23:59:09 +0900
-Message-ID: <179535729502.2645501.7669047222441539373@gmail.com>
+Subject: [PATCH net v3 2/2] bonding: don't let an 802.3ad slave change its type
+Date: Sun, 22 Nov 2026 23:59:10 +0900
+Message-ID: <179535729502.2645501.271186140389290426@gmail.com>
 In-Reply-To: <179535729502.2645501.5219010464870440@gmail.com>
 References: <179535729502.2645501.5219010464870440@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -103,73 +103,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
-devices") rejects a non-Ethernet first slave in 802.3ad mode, but only
-when enslaving it changes the bond's type. A bond keeps the type of its
-last slave after that slave is released, so a bond that once had an
-ARPHRD_TUNNEL6 slave can be set to 802.3ad and take another TUNNEL6
-device, such as a second bond prepared the same way, without the check.
-bond_open() then adds the 8-byte lacpdu_mcast_addr to that slave with
-dev_mc_add(), which copies the slave's 16-byte addr_len:
+A bond can be a slave of another bond. Enslaving a non-Ethernet device to
+an empty inner bond changes the inner bond's type in bond_setup_by_slave()
+after NETDEV_PRE_TYPE_CHANGE, and nothing refuses that while the inner
+bond is a slave of an 802.3ad bond. The outer bond then adds the 8-byte
+lacpdu_mcast_addr to a slave whose addr_len is 16, the same global
+out-of-bounds read as when such a slave is enslaved directly:
 
   BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
-  Read of size 16 at addr ffffffff878a2940 by task test/114
+  Read of size 16
   Call Trace:
-   <TASK>
    __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
    dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
    bond_open (drivers/net/bonding/bond_main.c:4405)
-   __dev_open (net/core/dev.c:1762)
-   __dev_change_flags (net/core/dev.c:10022)
-   netif_change_flags (net/core/dev.c:10087)
-   do_setlink.isra.0 (net/core/rtnetlink.c:3294)
-   rtnl_setlink (net/core/rtnetlink.c:3633)
 
-An unprivileged user can set this up in its own user and network
-namespace.
-
-Check that an 802.3ad slave is an Ethernet device before the type
-handling, for every slave.
+Refuse NETDEV_PRE_TYPE_CHANGE for a slave of an 802.3ad bond, as team
+does for its ports. Other modes still allow it, as
+bond-eth-type-change.sh expects.
 
 Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
-Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 ---
- drivers/net/bonding/bond_main.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ drivers/net/bonding/bond_main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index 042d7c75548f..bcc12ef34d9a 100644
+index bcc12ef34d9a..1a926b8d28b0 100644
 --- a/drivers/net/bonding/bond_main.c
 +++ b/drivers/net/bonding/bond_main.c
-@@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 		return -EPERM;
- 	}
+@@ -3981,6 +3981,10 @@ static int bond_slave_netdev_event(unsigned long event,
+ 	slave_dbg(bond_dev, slave_dev, "%s called\n", __func__);
  
-+	if (slave_dev->type != ARPHRD_ETHER &&
-+	    BOND_MODE(bond) == BOND_MODE_8023AD) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "8023AD mode requires Ethernet devices");
-+		return -EINVAL;
-+	}
-+
- 	/* set bonding device ether type by slave - bonding netdevices are
- 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
- 	 * there is a need to override some of the type dependent attribs/funcs.
-@@ -1960,12 +1967,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 	 */
- 	if (!bond_has_slaves(bond)) {
- 		if (bond_dev->type != slave_dev->type) {
--			if (slave_dev->type != ARPHRD_ETHER &&
--			    BOND_MODE(bond) == BOND_MODE_8023AD) {
--				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--					     "8023AD mode requires Ethernet devices");
--				return -EINVAL;
--			}
- 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
- 				  bond_dev->type, slave_dev->type);
- 
+ 	switch (event) {
++	case NETDEV_PRE_TYPE_CHANGE:
++		if (BOND_MODE(bond) == BOND_MODE_8023AD)
++			return NOTIFY_BAD;
++		break;
+ 	case NETDEV_UNREGISTER:
+ 		if (bond_dev->type != ARPHRD_ETHER)
+ 			bond_release_and_destroy(bond_dev, slave_dev);
 -- 
 2.43.0
 
