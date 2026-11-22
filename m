@@ -1,103 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795332342;
-	b=OO9fu1JO3noNDTkunVHDqZh2k9o660VLV9Fn7T54LpxdiJCBvCa7VNtOiDC5cVlyjla4
-	 yJ23C+xXUhul5E7AgHI6rWAA8y0OG7MzpCplZkDVUHUEeA/+AMrj/V/NrxRiQOh+fvkfs
-	 y68BwmkpoaWi0hoy1CqS1GdOFDA/8Lt5ilccxMCF0gjmck8SWZLYdxNGJbOHlmWkfFNgC
-	 cp3dcXmcrzf17BSg4en0QqKolB7PXlm4kLHl8dgJn+pcsT6Dp4Olc+a8tOh6NtqTXUYQN
-	 HZNsK9ij+o0/bgpyOrjoX8u5Us6cbha7X5sZnDL0BlAeUIIEVcQ382XfwiwWNkFZ6vQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795332342;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=WCZate8X2fWlqf2Jlj+3L5Aa6pNXKCWjylCRCfTpxQ8=;
-	b=fl39vKSPc89u99tnbMe4nL1WVf3jP2rsZkYB1jF+UwyPsZrpovfkTjKpwzBLSSADJJGm
-	 jASVk5Kkt5pniGMss2nT3IMeN/VdAvuKHiT1LgIaZntUqTLHBOiEcBuDCWsXczhKvCHPn
-	 FYAOOZCeLBWLo6r9XcTgaCPlNCs42qLTJAIR5LQovnanWF0l/afXxbKgp94o3/3hv567T
-	 zqVjgwKCSGX5XO6OhkPfeX0scY2CF0GTH612q45VMqs5MRYaT/dOdIfGyP0TyNpldCSHp
-	 i5Y4G7v/VAfvXteIzoeTf/PLdPhFYj2kmIrKhb0wCpBLLQwEc7pvUnRKcw0gwcKybDQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="hzT3sX/N";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.54
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010054.outbound.protection.outlook.com [52.101.193.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795332424;
+	b=Bei/y3+2LRtG0nmkldZNg9NKbcv0IExSI55Igsl7o1EST+HBJ0D+69vCeFURQu5JXVyK
+	 FoPNijhJAq8IfHf4LOQfDUiVkDDYWjV/SFgQVBUE3Rzh5UvKopvMBPywO1Iu6oHA1NiyZ
+	 0s4CXczyaXJwOvuloWTD0GVx2CEgAx2Q0wH0NgkN6skssYJSxW9LF0k+b/xFbO6mOuncd
+	 Wi/VI2Y1xwdhStVFROuNhxzSaD7JJTZJ/yF8GA+UNjk7NAd9b48eRWLOM+Z6y4S73wRiV
+	 Rala51wlt3gddYKL7eExy7McIm3UNvEHlKvZxfaIEZXPZSZctk/MDrlduaMkPqPnN0w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795332424;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=jRxJug/Y1WR98+oKDtwiqnL5a0+fWq49VTbpoM67nmI=;
+	b=djlvEhV6zoZVYjOT/GuBSVJvPuTGclXxwclS0X+GYT4bUgAWjhZ6Y87AAdsKKOCTISDq
+	 4IjUg1ZRc1/o0xRsRrzFvVzrLoOnv/kqQMonKiqQBjiSDH46WTqS206Q2SJfU7Fdt9IPz
+	 UjZyg7Sc3HCSV8xi+Ge4gqVRaPnvuD/phFCQI7rxMue79jeLpljFB7ogRsc7OMLup19f9
+	 qZ+MrOcYCYsktGs0yRN7NQcq0B0EcAK3f4uqx7sZ8LuOgyOIyiqdojRfHzSqjrfFwQfaI
+	 HyFJ6Pq5rUJhssMOGH2rJU63qxlyzkI6U7FciZ17wjrCK/dmHshDpSfVtXrMHc1D5fg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l0msyFkP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 281F6606A32A;
-	Sun, 22 Nov 2026 07:25:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 281F6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0383606A32A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 07:27:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=hzT3sX/N
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VSvgMcc3c+eQx8aK3fyDAtaiC9MMX1C1reuJzJkQikR75IoxjBVahUbngnb5y90RGLDzhgjXMKmqEmDvCLL6svhfoOMd8rnHCHyQKqayTd5jsSalM47x+OVmnZr6eLdrJQFNWpMHGyJojsOdPg95uuds+N0G5pnt3Wpg12CQ/68XzGLn1Gv9F03Y++Cyyzt8Yjfkjb1lN2l1jArGDn8djw9eKAy6Mbt08gVl758L21HaGztKuqdsx5N0w9GzQl57Y/phTRW0LtenEoDz+Kl9dk1CXbdR/yPRR+Gs67bh+FQUuaY4iMTDPeQ8La1AzoAtlI0nbDmV9CNeV90H3jQSUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WCZate8X2fWlqf2Jlj+3L5Aa6pNXKCWjylCRCfTpxQ8=;
- b=KTzVEvLKm/QZ5p/FqQg/FoMg7cMQdIAq+4RiL25gquF1pG1WclDwObTrLPYzIOcR1Ivb5PDfdKkEYASgUWYahgabeyYK4PLKz03hnclUKrEjZbaIAGwbnMPEKv4oecKs9eSQENlScetCQFIs01xb9ffS2QWD38FNXn/tiuTvU/eHFUuE68Hk/QopC8EqWJuuHbfIL3te6n+44emdkI2fy2BrOUlBXjes4WVWqGEFG13P88wWMi7IoMtYFpSLIzhfAUFGf+p+UEYo1j3d3tdCwI83kQmoHjKsFom2ZqyUZmkg6noS6qLM4pZo8jfoDIjJeSM9sZ3SjQVKveufbogsNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WCZate8X2fWlqf2Jlj+3L5Aa6pNXKCWjylCRCfTpxQ8=;
- b=hzT3sX/NPAy1gGwtcO9kM1n0/z1tkB2UUflZiRnxIIddOqowBfTiud4pAsroUHU4s+jv/lPDFVwaB4/xkzYtrocCRWaZZDATyuQHIxvWClUQbiB6LN0dgZ+GMaHGJYiBHiT9h7TH4yMeeIC+VozzsKrvsJrK+JQakUNAeeQ4cyTCpXqwyM0pT2VRIxtZvt8z19LixySbLpPAXZWib7jqsRxi5CqF8QIaCZHn5tMfwcmf5TaT4VEufimEBVvHnZ26Yq4YwwxJ/KGaNEBWUIEq70pJvgNYWl/ROSl7vYMFXiwIaclX4xMui/gVx4oKQdEPh9iV+B3nXFFKftyhwBXQcA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by SJ2PR12MB7963.namprd12.prod.outlook.com (2603:10b6:a03:4c1::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sun, 22 Nov
- 2026 07:25:36 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
- 07:25:36 +0000
-From: Ido Schimmel <idosch@nvidia.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	edumazet@kernel.org,
-	willemb@google.com,
-	horms@kernel.org,
-	razor@blackwall.org,
-	dsahern@kernel.org,
-	shuah@kernel.org,
-	bridge@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	kyuwoncho18@gmail.com,
-	Ido Schimmel <idosch@nvidia.com>
-Subject: [PATCH net 2/2] selftests: bridge_mdb: Test failed source list replace
-Date: Sun, 22 Nov 2026 09:25:04 +0200
-Message-ID: <20261122072504.2623702-2-idosch@nvidia.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261122072504.2623702-1-idosch@nvidia.com>
-References: <20261122072504.2623702-1-idosch@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TL2P290CA0025.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:3::20) To LV8PR12MB9407.namprd12.prod.outlook.com
- (2603:10b6:408:1f9::13)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l0msyFkP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 935791F000C4
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 07:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795332424;
+	bh=jRxJug/Y1WR98+oKDtwiqnL5a0+fWq49VTbpoM67nmI=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=l0msyFkPyB+xNT/EtiFWeLs3ZlxfKzwRdt825DqvyElIxKtc8QSgv8Gm6/P1g1kTw
+	 TtaIaEVpGkNBqwVDgA8CDheK9igAP1RPCrYWCWupaT9HOcdpLf9pDTFQ+FuI0gnE4r
+	 kTfuSrG9U37ogNPNorXhPNzXCA2UNeThZ9MfcL7Tkx/x8IjNuSoCmb7iUasrj0K715
+	 CEYB60KH1+zTiUEJRQv9bjMP2OsOTrNvJ+JAEYJ4ghgyteF00pSuiL/96Y2nWjiXXc
+	 jRlGDCIfMrnXI+VrWoZ8dANwfJKTEtAP5J4SZcuEySQ8tOTT4sVInouS8xiQED7JMR
+	 ptgKd5NceEcVA==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3acd239776cso18935331fa.0
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 23:27:04 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErENuzeG/ocgxujZIFe4qhrequ+DynX8fE1Crwc2XqOZK6N8MebAHaFK+AebDgLteHohVUD11k4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VWHxzct+s3N8wvnKcC5HgjkkgHapXyDr4pInPk14UNZyignqK
+	+l9iomBQIZoO56SQgJXR88hgzJU3Kq31MXyQZEeF7DaNBIWs10i0JbYheHkbZ6h7NnPZyDfk3Ue
+	T+K4ld8UgIiLbKxgBQVTAXqNwbhvcYdc=
+X-Received: by 2002:a2e:a98d:0:b0:3ae:7eee:15d2 with SMTP id
+ 38308e7fff4ca-3ae7fa63ad1mr24050091fa.18.1795332422005; Sat, 21 Nov 2026
+ 23:27:02 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,136 +59,99 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|SJ2PR12MB7963:EE_
-X-MS-Office365-Filtering-Correlation-Id: a781b6ae-04d3-4201-c0e6-08df4869cd89
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|6133799003|18002099003|22082099003|261009223027099003|3023799007|261021121427099003|261021123027099003|261022105027099003|261026140227099003|261026121527099003|261022075727099003|261028144727099003|56012099006|10067099003|261102123227099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	onsob16pgyXZ/V+i/merykmMW53OAEusdqSQ3LlqrI6nva/eQSH61H3wFy3i/iO1eYTMEQgEj8IM/YgJOuhMyOK3Ax/LcInCQH25ZGgr20PXjPhooH5PkTAfsM1zcHmZZET778Dfb60g8fVa8w8k6FBgk1EN0yDc6TQ0rebAFxEPvINfa8xbu5O3VcOZM/qfJcF/rXERQ+y+7IK9Ub+5Yn4j8qz5B3GdNFNbHfB7DVUwwP0kf0Gs5NUV0M3cOdWtSoAWq2Fm8N1R8YDshwmlN2gSz6G/nnvfLpWzE2kYGNjzO263MuSxKcfD2AtLDw3nLNDnVfBlQfKTe5qNw35LSo0BOUkTC/LXKMg/fvG+CIeldwpbyU3qNcMdUyTSosRE1miVz5f3NmKfCSBA/j7KRTSp11Nb6ARKCTnGQWhAFSIg6u3NsHjaOu3+EeGkhrubK+xtbbTX45OHE5T8h8JmIz2zZSep9gJ06e12RH8SA+MFy98twwZLJtKvzWAR3onSk27a4rYTYJbhfATVy7qYWsUeRziKxVAb3o/zpE+Ckv9OpIy6o93D6nyJsh5PywxVl64KaU/kvO2YtXI8TftJab+0kRZPgpaBWle3gQP+esUlbRdPOi435WniO7SwFkSYS12RjfgfyLQm5v1y0mty8jSyy9YDE9kPqGn3Q9Cdzes=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(261009223027099003)(3023799007)(261021121427099003)(261021123027099003)(261022105027099003)(261026140227099003)(261026121527099003)(261022075727099003)(261028144727099003)(56012099006)(10067099003)(261102123227099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?ugmnoDz266Cj2QpE7hXPgHLfiRYNMKyUoVWj5wvcWXW/1t1VufP6TqnphMhy?=
- =?us-ascii?Q?tbNHvC9kSx8eAaoXGx02MpQXlnfDFpmdxB1WYQTXyQErJt4YSgVpMjGxrDV6?=
- =?us-ascii?Q?JPqR6yK2KG8ZPWw8hXuutdzj6BzUtntG017sIFfcHAlCoN5Lsa68qmG2ac68?=
- =?us-ascii?Q?dmcobQ/hEqFhLdcql0FkhJkMe4cvfpwvqEAZY4gfuJf8+EZtDQwlDTiGGPdE?=
- =?us-ascii?Q?XLL8sAcCzdsM3VzHF1EMGiy3vVT6YIu+pDYnu+3i21E+Upy9REh4pZz1iPLQ?=
- =?us-ascii?Q?KRM8oR7McGCVwFMHYSUq9IgNAoXEmt05pP9XUNKDQsrz8XtiWgmgX/w9hUFX?=
- =?us-ascii?Q?NOtnQMuQqaWkBOgjd0c5QWbmAZKtU+v9XlBGOhqplTNa8hb7okN1ZS7u6qoU?=
- =?us-ascii?Q?qyvmEUTmttbot2PDyJeimiI5WfSOp+MhOXFPMWEkbDhOX5VkTFVVDMPOgMu7?=
- =?us-ascii?Q?M7OJ5JsLqW+Ia+ATCyk8HexyZu2tyFvtiJKF8rL/WDpgMRFU4fKEF9AdOiu+?=
- =?us-ascii?Q?KdcUcg4FuXTC4uptSvXUGmNIOcjvGwlKbog0h/PKc6OZ1kTa9+CmrrRVCw3g?=
- =?us-ascii?Q?YCWswJXlOLSdWzW2Rh1AN0c/R3HD6Y2TBKROC5sg+Aiw6XSN0X+B4epRf/Ok?=
- =?us-ascii?Q?VYMcQjQD8Dk1OxhH2AQQbd5IJFsSwOSj/es9SxzDnuod7litFYmfIZqnzIF7?=
- =?us-ascii?Q?r/1j7n1iUHsJvKERITo/c5IGk+FBCDcAhwQi1f7kYPPYZrzCFlKZUa4IrbXD?=
- =?us-ascii?Q?xE9WbAzK5q3o4d9rntMbQPxXjnhDIOFWPhfTFFLh07JLxPlh9cEMPrGk+Q7w?=
- =?us-ascii?Q?CYZdF2DGfKN7ECep9N5E0qYY3qUvQ0j5I/LYzMz+66YMBpWBCyYkNETAF7/f?=
- =?us-ascii?Q?qq/JtbFLCN2l/nmlBRwqrLWkRIhR22samLpWmfiwBy6e/C9ItD4G7CiT1zYG?=
- =?us-ascii?Q?SMXjX6w3sUC6gzVV45yj7R6W5P55p0YIKccw5wRmXpyn/OSaaOF+m1z93rHI?=
- =?us-ascii?Q?vIHa5Jex/O5FuVYLpO3RFkKvZQ1hnbcinhpEr8RBYX9UHAGGb9HIdys9G+Ar?=
- =?us-ascii?Q?OYfQL+foB72BESw5MuI075DbJ/d81o/kIuplxjoX2/EKCGTuM1rGy/3dkiSC?=
- =?us-ascii?Q?CsG9URJt0Q70b5//W+prO5akmsVhEkciAam3ygiPkPTWF/Nznqj4fJtdWinI?=
- =?us-ascii?Q?+UBcP4uaJ1hqRCFJwMC67dbPsH97XyBn46DXG/Q4cAh6ZDR/NTH01STdM1JU?=
- =?us-ascii?Q?fDxRgSY8nCwji1GRmzvmCwguvroAEmN9blo1EDyNUg7NtEEFcdjyfCCQrdGK?=
- =?us-ascii?Q?iAZg5/9lhB2sFw8/59YhuDKHt00hGwVr7kYEoO79hZ0J9D3KYz1x4DJ3m0bz?=
- =?us-ascii?Q?bx0xpVJaBq8q/J28ZlC1zfJ/aziw3o+Wo2SWToQ6IMdHWl1WrjTpzHWUyuba?=
- =?us-ascii?Q?GiG47mw/ruzGp1gQ9AkZlKcCBpTaDrMBbgj5snnK2da03UDSGzZPg0hntPmZ?=
- =?us-ascii?Q?Wis91hf5UURlCcLrqpN8RU45Mm9ghA6ej4eEXpZyvWPZaTk01lKwm/xWkQMA?=
- =?us-ascii?Q?1hocA62pnYeCQ3QcWDLTlaxgpgxm/oMCM1ajPCwWxYTctU9Nn2xDMCxAyfPA?=
- =?us-ascii?Q?NpNKGw9W1Qmz5rUoS6/OEaQGXFdCSNQCoBmlTkzmJpdu9HIpApR7PIWcrm6z?=
- =?us-ascii?Q?iEFzmAUxDbWCfsnb1NOYBGgSD2zBTYJ0l3W6GDz/QPsaoOS5?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a781b6ae-04d3-4201-c0e6-08df4869cd89
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 07:25:36.8454
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CL1K2dt7teQx0VAxatqjAHjcUbK0gpepItTud5dn+rz+YJ3+upMsOUTl0gnK9+GzqrRW3XZjcf2bsnWkGXttvQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7963
+References: <20261121-sun8i-emac-mtu-limit-v1-1-22492842d318@gmail.com>
+In-Reply-To: <20261121-sun8i-emac-mtu-limit-v1-1-22492842d318@gmail.com>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 22 Nov 2026 15:26:49 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65w3cVgxb_G38UgKEa4ErKLN4qiF05N3nmdJbmPeRRNBg@mail.gmail.com>
+X-Gm-Features: Aa3M54rfrvVdNKa1udG-e9AkPOB_QrPlPhXGt3xZXT_wwKFSdTyEz2lu2p5fCqA
+Message-ID: <CAGb2v65w3cVgxb_G38UgKEa4ErKLN4qiF05N3nmdJbmPeRRNBg@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Limit the MTU to one
+ descriptor buffer
+To: aiyengar1990@gmail.com
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	LABBE Corentin <clabbe.montjoie@gmail.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	Russell King <rmk+kernel@armlinux.org.uk>, Nicolai Buchwitz <nb@tipi-net.de>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add a test case for the issues that were fixed in "bridge: mcast: Fix
-source list rollback on failure". Check that a failed replace of a
-(*, G) entry does not change its source list, with one of the existing
-sources specified twice and a new source.
+On Sat, Nov 21, 2026 at 12:43=E2=80=AFPM Arun Iyengar via B4 Relay
+<devnull+aiyengar1990.gmail.com@kernel.org> wrote:
+>
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+>
+> Russell King pointed out in [1] that max_mtu ignores the 11-bit buffer
+> size of normal descriptors. dwmac-sun8i always uses them in chain mode,
+> so a frame must fit one buffer, but max_mtu is SKB_MAX_HEAD() (3712 on
+> arm64). Sashiko asked in [2] for this to go in as a fix.
+>
+> On an H616 the RX DMA fills 2044 bytes of a buffer and
+> ndesc_get_rx_status() drops a frame that spans two. On TX the MAC cuts
+> a frame after 2048 bytes (TX_FRM_LEN_CTL is clear). At MTU 2033 no UDP
+> datagram gets through in either direction.
+>
+> Limit the MTU so that a frame with two VLAN tags and the FCS fits 2044
+> bytes (MTU 2018). MTU 2019-2026, which worked without VLAN tags, is now
+> refused.
 
-Output without the fix:
+So what's the overall plan? Limit it first to make things work, get the
+fix backported, and then fix jumbo frame (>2K) handling so it works
+for any MTU value?
 
- # ./bridge_mdb.sh
- [...]
- TEST: IPv4 (*, G) port group entries configuration tests            [FAIL]
-         (S, G) entry for source 192.0.2.1 deleted after failed replace
- TEST: IPv6 (*, G) port group entries configuration tests            [FAIL]
-         (S, G) entry for source 2001:db8:1::1 deleted after failed replace
- [...]
-
-Output with the fix:
-
- # ./bridge_mdb.sh
- [...]
- TEST: IPv4 (*, G) port group entries configuration tests            [ OK ]
- TEST: IPv6 (*, G) port group entries configuration tests            [ OK ]
- [...]
-
-Signed-off-by: Ido Schimmel <idosch@nvidia.com>
----
- .../selftests/net/forwarding/bridge_mdb.sh    | 23 +++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/net/forwarding/bridge_mdb.sh b/tools/testing/selftests/net/forwarding/bridge_mdb.sh
-index e86d77946585..712b9a5a0e5f 100755
---- a/tools/testing/selftests/net/forwarding/bridge_mdb.sh
-+++ b/tools/testing/selftests/net/forwarding/bridge_mdb.sh
-@@ -293,6 +293,7 @@ __cfg_test_port_ip_star_g()
- 	local grp=$1; shift
- 	local invalid_grp=$1; shift
- 	local src_prefix=$1; shift
-+	local invalid_src=$1; shift
- 	local src1=${src_prefix}1
- 	local src2=${src_prefix}2
- 	local src3=${src_prefix}3
-@@ -487,6 +488,23 @@ __cfg_test_port_ip_star_g()
- 
- 	bridge mdb del dev br0 port $swp1 grp $grp vid 10
- 
-+	# Check that a failed replace does not change the source list.
-+	bridge mdb add dev br0 port $swp1 grp $grp temp vid 10 \
-+		filter_mode exclude source_list $src1,$src2
-+
-+	bridge mdb replace dev br0 port $swp1 grp $grp temp vid 10 \
-+		filter_mode exclude source_list $src1,$src1,$src3,$invalid_src \
-+		&> /dev/null
-+	check_fail $? "Managed to replace source list with an invalid source"
-+	bridge -d mdb get dev br0 grp $grp src $src1 vid 10 &> /dev/null
-+	check_err $? "(S, G) entry for source $src1 deleted after failed replace"
-+	bridge -d mdb get dev br0 grp $grp src $src2 vid 10 &> /dev/null
-+	check_err $? "(S, G) entry for source $src2 deleted after failed replace"
-+	bridge -d mdb get dev br0 grp $grp src $src3 vid 10 &> /dev/null
-+	check_fail $? "(S, G) entry for source $src3 created after failed replace"
-+
-+	bridge mdb del dev br0 port $swp1 grp $grp vid 10
-+
- 	# Check that protocol can be modified.
- 	bridge mdb add dev br0 port $swp1 grp $grp temp vid 10 \
- 		filter_mode exclude source_list $src1 proto zebra
-@@ -568,8 +586,9 @@ cfg_test_port_ip_star_g()
- 
- 	cfg_test_port_common "IPv4 (*, G)" "grp 239.1.1.1"
- 	cfg_test_port_common "IPv6 (*, G)" "grp ff0e::1"
--	__cfg_test_port_ip_star_g "IPv4" "239.1.1.1" "224.0.0.1" "192.0.2."
--	__cfg_test_port_ip_star_g "IPv6" "ff0e::1" "ff02::1" "2001:db8:1::"
-+	__cfg_test_port_ip_star_g "IPv4" "239.1.1.1" "224.0.0.1" "192.0.2." \
-+		"0.0.0.0"
-+	__cfg_test_port_ip_star_g "IPv6" "ff0e::1" "ff02::1" "2001:db8:1::" "::"
- }
- 
- __cfg_test_port_ip_sg()
--- 
-2.56.0
-
+> Link: https://lore.kernel.org/r/E1vLJcL-0000000ExBL-0GFe@rmk-PC.armlinux.=
+org.uk [1]
+> Link: https://lore.kernel.org/r/20261112-sun8i-emac-jumbo-v2-2-aca0cf23cf=
+17@gmail.com [2]
+> Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
+> Cc: Russell King <rmk+kernel@armlinux.org.uk>
+> Cc: Nicolai Buchwitz <nb@tipi-net.de>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+> Tested on an Orange Pi Zero2 (H616) on net/main with and without this
+> patch (RX fill measured on v7.3.5). Claude (AI) helped write this patch;
+> I reviewed and tested it.
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/=
+net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 2ece7ba9dd73..1f4fa722529f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -6,6 +6,7 @@
+>   */
+>
+>  #include <linux/clk.h>
+> +#include <linux/if_vlan.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+>  #include <linux/mdio-mux.h>
+> @@ -1208,6 +1209,7 @@ static int sun8i_dwmac_probe(struct platform_device=
+ *pdev)
+>         plat_dat->mac_setup =3D sun8i_dwmac_setup;
+>         plat_dat->tx_fifo_size =3D 4096;
+>         plat_dat->rx_fifo_size =3D 16384;
+> +       plat_dat->maxmtu =3D 2044 - ETH_HLEN - 2 * VLAN_HLEN - ETH_FCS_LE=
+N;
+>
+>         ret =3D sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
+>         if (ret)
+>
+> ---
+> base-commit: d5b89d55a322b632e2b465b392a4c1d9d338db9c
+> change-id: 20261121-sun8i-emac-mtu-limit-66a936064965
+>
+> Best regards,
+> --
+> Arun Iyengar <aiyengar1990@gmail.com>
+>
+>
