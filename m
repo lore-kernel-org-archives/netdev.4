@@ -1,104 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795363764;
-	b=H4CGNUUaIek7ZbEN4GkXOcn5OfXg3y9zCUmQLyBy5C1Zz5M+SyjKMfh5oUWlcXa6DGYv
-	 j9gXq/Ot3UcqmzpdOAFMK6IjkhaPAPYBXk9yY5I99znzHzmV7pn9+xtwgg7u5xq18uo+7
-	 dXmIQ0mN8WL0Try2hxf7wDF7viM13/eirVwxQMOxXX3VUuLULZ7dPNVWudsaMm2hzZsaN
-	 ISqy7QL7C0jiTxH/FKWa0oUBBEY4QhYO0BFa3L1EnwNvANvkYON+wIyA4ityWzrtxWWNV
-	 whvGVqkXN6kwZL9DiQ0pGlBF1rmLPjrxJj1zd6tQAokkP0X1gghdRoYVfaJU2mDmf0Q==
+	t=1795363767;
+	b=Muk4g1Z1aYkwpkLu1Gg+If+rO5T8XJi3pniXpWtkJlWzgkjhkW71XDBQKyBdk3eLK3bd
+	 AnTNQKf3WoEcuUuuTkXVW2HyRPHbjunpknQWDT3F/k+ioL3/gFipZouzDRfSQoz9bFMJ2
+	 8PvExfdzOO3TudpuN+5p+PvSGItyss4sf3r1gK2ORr40sgrEU8oFtHrgP8HjmDnYFFRyZ
+	 /GD9qMKZbC6aoiW5HU04WRJL6l3+bPHjIOXTnU9iGSH8RfSz7HqC5J7QOWWuhbarpcGyO
+	 +LuB/ysOAD6IIgV5TSJCp2jb+yKItg8j/P25ynGF4RN1Zej3UPdE/oG61mGeCN8UpLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795363764;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795363767;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:X-Developer-Signature:
-	 X-Developer-Key:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=H/uIhGC5ktRol+7sx9IjBt3hbLidfUuEYOqITaBP6p4=;
-	b=sjUQ07zkXqu+36Pu/xVe+EmGmIIhjdcFGhQQVD8VqNf4ZPD60PPc99CrzzH0FpJxZXtC
-	 uxTjXVbduo1/I9QW1ylUyQQGiLXYG69zNOQGC3renMt9eqxM1kgtF50DudvfFDh5E7Hvt
-	 Hn7wRHdvoqn6Cd51h5eZDk1U3zW/9ryg3Tu+XXprzdPzcyKn1bDWNlTRLLne2ftlgMcHU
-	 VtYVF9RZzTRk8ToHNgGSuv+77uG1Ke7r1olJNNntZtlkf0pTWlLfoGHuFxAM2YE3nagRI
-	 tFi0h5NnlWY+23cFmNBiX++RyVcWm16zEOCwWWDJe3Lxb1DIgvsfEo9kVdZRuIBwvGw==
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=dyOk/+hQC3dS2TdzY98Q2QJjFxp/lBW3s2x6G6KYsm8=;
+	b=wGAAEazVUGM8dGnmmyTy8ekakboEQOj8TiwPaCyB746utIxcBfsPwajoJ35ySJg3Erjr
+	 sOjqrjZuCLYcFFUQat4CEiMr/0FtIWuGtlqHtc+t2spr6qN80fMDf8f2GGAm3XxYUKULN
+	 IXyZSg8VCKLcpc5vBzbkucROiUcqiqm61BHYzmNakaLrsbprOAO3ArQsiNXaY0VC4x0vO
+	 oyNSeNxWYtjtLdH7oaBugOr6e2xIZnig0VEFrzM61bjxSEyIX0JX9i0YiKeJgDd3zSZTK
+	 zAmUVPXpJnWUZ00Jl/Vs1aeu827LHDjoA0t3oc9+Tzl3MNioDcMtxK3eWlplEuAKXlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="mtAQdl0/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NeZptIc5;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fo11p71u;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Ohn6LKTA;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5D03606A330
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5D03606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20140606A331
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20140606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=mtAQdl0/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NeZptIc5
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AMFQ8OA3787898
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:23 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fo11p71u;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Ohn6LKTA
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AMFRROo1250089
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=H/uIhGC5ktRol+7sx9IjBt3hbLidfUuEYOq
-	ITaBP6p4=; b=mtAQdl0/VUmsTmBfCdsUiZlwtJktWhyrddSFvdoDARKMDsTNwg7
-	1SmyLGMBNciWmtKHIeGNOeeL7ir2VLfswcIzeWnq2AUHdJY+pnkpSY/94BrU5QcB
-	8z/Vy+qoCcJbX3P7yOc8cDdFZ5tgs6oyLFYEOtuooRiluGFbgzkNt5M76iLUw/FG
-	8htUFfqpEWBHq0vSD/9fOQarjyjsezvEOVOk2Pc+CTZB0fGXKWbDOlhrsnUbXXI3
-	cYNDz+ow+YeikSSxDtz/vgB2GJCBMXk8RZyQtVIaoZqC9wTGvLNjYWgh0YknlPbZ
-	T6rUSEfzij8r6geVPJxujPz1eegQUn8YNHQ==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j33h33r0k-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=dyOk/+hQC3d
+	S2TdzY98Q2QJjFxp/lBW3s2x6G6KYsm8=; b=fo11p71ugXj+px95KD0I3tYDbTh
+	yS9cS8ycCi2GiMgJ1j8GedN7CBzMcbpWS4qXCxe2NuSKyGHBARcGIzocsdXToWVK
+	y1bcpA4Oc+uIVfCp5gmY4cRwXXK5FO1izXGR5WE+KUAnxFEdgYpa4D2VzoemGPUx
+	9QP3WefnhdCgec0yiiuJ82z0On3b11VWyTGY2JB89i0LnBcr1Wc/IjF+CXBN3Pq1
+	jlNK9H+2KMoKbuQVcYjXnaIFiIDh21fggm42Y5o87jwDTYfvqiSgdNMMEwexXVwM
+	htEp6POXtjAeln8wZE5NSqMceJ+3UgJjSlAUFW1XroSL2K/pTQ4etxW7wqw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j32w03rf3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:23 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5eac42e83e0so513988e0c.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:09:22 -0800 (PST)
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:25 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-94975041698so842875885a.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:09:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795363762; x=1795968562; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=H/uIhGC5ktRol+7sx9IjBt3hbLidfUuEYOqITaBP6p4=;
-        b=NeZptIc5x3Gdl7R1YrsUNR7gaLrT2n3hQn4XYyKfcx13nD0bdjM7nMhhEsa4CcNSOD
-         HttxArABNmKyc5sP6/TrYrV5WjE5bYyqRVkyYvPb8FVDcqDUrFIdAOGeRkdsfIJbj6AO
-         WSMCwrfNQYdLjbSWHtSVg1SVlLRR1m66yoTq2vKRcykj+TC8itUCRtu/lf2kdJur2Pi3
-         EQtVh9YDmICA8F8DFg6cwsT+QmG17N6OwrU1kDcsP97GFszUeTWw6g0l38AsYbdmCJ9L
-         WWLQcNATbUR7dG9B4lirQh4sf+ASZ4TzXXaAyCLfLGr80seWnEOS7Q5RnUJfcJNWoMUD
-         V98A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795363762; x=1795968562;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1795363765; x=1795968565; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=H/uIhGC5ktRol+7sx9IjBt3hbLidfUuEYOqITaBP6p4=;
-        b=f6F2XHd8nuFFkA41B79pjHyUaccXswGR460Kz217MJsBvzuO1K5Y4/ZCrzIVXM0PE0
-         cIlgZFDBEgr9Sm5SpiUVIhTZEw/yjFvzYkjUiLynAawHOU9m+lVYFujrHFQrlXV0i2rr
-         0epyEhkJF58AmlGpX+n1lJfCT2YiyixK5yth/bUHnvZmYWfWYTYW/4daaT7LE4Z+u99b
-         d7sLVQ3yJvaOXAaxZAeCmWDZtel1eJB/KeHVz78riL0F5K5fY6UTFYjHx7lk54QJqo9h
-         kprC0rcGF/V9GqbBCqUPg+jRJ0IKNWWYJp9CcsgVb2r9licw3KA5x6PpZyah53eRn2oj
-         YSPg==
-X-Forwarded-Encrypted: i=1; AL+hErE31i8Tm4eqA4Mbe+bTFvmsbkRuyBduwwcqnpNeyLxUGFbOUxLYOrq/bdShfQKc4pC969JW3v0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9s6/LY+GfTPU59oo/TvbcW71Z22HHehpJc3ZrzbTzDzMqsPn3p
-	ynQoKL2JQ+sLKQMoKDqBxVOgqu91pJAFlw67PO1oXmvvui6RVkWp0lGcrC4gc7hbvhu7X/Xc73k
-	Oc+JqGcO26YTqhDFAhQX5TGRDikYqK8JCb9r43cPNhaJXOk53+eYnb3DinMY=
-X-Gm-Gg: AZFdTZdKaz4Kb2b2J9yfDi004epNnMh/C8rHnNKrdRu6sTIWgZ7jsMlQlB1uaQQDEgS
-	vA1jXweD3EtPWzIGqfM6UNZ0GsRL5kZFWQ3gNTv6so/mtK9kvbOYRhCBOiIqRwfP3Kbe8RLaVdS
-	HmKaI/wgn8HL2BCnSdEq5Tok0ESfb1hG7X9Lc8GRlblyJ03K0idwrwcN/SeekSRlB5k+JrcLVZS
-	3lOwz93IFwGR8hHYTJ74sjUQVMsJ91kB6hrbwK4KDqhsV+u5+XlBhDLl1pMuGQk32W3bWrzl38D
-	f4GRQuP19MCsZIzCmwY0pRU/mYqCEL37O12IzydvicqTBTotfFRInUgVwm0SxHEMhcDh73jnaa8
-	RUXWoJCbjEXVRne03k8E1C4EerYcRTVC6eKLKM2oOrM0pgOgUApKdNkKhDz38Nw==
-X-Received: by 2002:a05:6122:d96:b0:5c8:46e3:ec57 with SMTP id 71dfb90a1353d-5ee8adf69a3mr4700284e0c.1.1795363761890;
-        Sun, 22 Nov 2026 08:09:21 -0800 (PST)
-X-Received: by 2002:a05:6122:d96:b0:5c8:46e3:ec57 with SMTP id 71dfb90a1353d-5ee8adf69a3mr4700265e0c.1.1795363761433;
-        Sun, 22 Nov 2026 08:09:21 -0800 (PST)
+        bh=dyOk/+hQC3dS2TdzY98Q2QJjFxp/lBW3s2x6G6KYsm8=;
+        b=Ohn6LKTA6BqWlHHewDtQ7Op8x6hmRoFhaIJODQDqQFArqnHYvGawbPNDi1hz6uIWEp
+         Z8V3Khewvqt5f1RJH4x83wTe97tjMNhutdFvXV/l/oVh+AM16Nx0lSk35BOVGhBZ9c0/
+         OwOYYxy+HHy7EB8utYXheQBKuNb0FfBTNbHKSs9jLHXux4+F5GIrHP+vW0IBr79wjvSe
+         wWJi2JsVkchgRhRpj5SfgiJ+raLyrgIubu+aDtbmgRx1iG8q0rnFPCv90Tcghy/pC9jk
+         EoBdxMqx0Gd5evRWmtwTF+DKMcxge5cqkMn/TSzCcFc81/D5nLJIKUsbbq8b5Zc4pSq8
+         QYgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795363765; x=1795968565;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dyOk/+hQC3dS2TdzY98Q2QJjFxp/lBW3s2x6G6KYsm8=;
+        b=seHFaiBPROwJ5zALadhWjUUm0kyfOibAS9hO0A5BgltYzqV85YWfjxfNnR+QYV4PRZ
+         99ecUL8TSHuHzRgw5nK921jdLwg6CJ/zU1fyXj0wMrcrIWEPYmmMdOHQvbJgFM8XgN/J
+         d7SyWrDhB5JBfnOCB9i/lZRjTIRqsitJwyELWK+XmcFEyu3PyZmJcuW7vrqPGiqf7uhZ
+         pMrUHGJfbdR3ngRvzkkVdEYQPx7+4J8vzxofsTf03qGLE6+jWcG33la0bvTBGThnv//V
+         N+Jasx0sJMwK5zOooAK+2Dx7wxb2aBLCmZ5tvCFQ/855nMyDixLJo4JlS7+foOghl3/O
+         ISbw==
+X-Forwarded-Encrypted: i=1; AL+hErGtNwxIo1vMoQH/YAQAqTw6lQrazm/4/kCHfei4N6Dg/+ORAxq1H9MLSIwEgc3Stmgqvr97nVU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Umk85sLsJxjb2Mm+A51H1LLvXlYS8V8dDHaxi15bm4Ha/ylZw
+	25DqpUX3zr3yeAx91AQgH3H0Zu4OeZAFNHxdWu+nwx20jt+V+M1QeWFktCGVM5LyPMkkXLyoGhJ
+	7b1sXYfko9HXNK1lOyoDpYqZsDrwwYPQAcC+IZGAeN4qld+6WjdNn0Sh5/dM=
+X-Gm-Gg: AZFdTZfMZlCj9nFRgisK+FQPCrirBwA2cUPySho1y1rQPCb5M0lsWz3BaknhFjF/Fof
+	mlawfvUIPiXyqva1OfHTl2SGd77v4VRUB41Id8plwdbmxmrbJaC1cQU3Opt9YdMBl3dAcpsmdR2
+	27W1G1WvQPiv5N6snQtOX1NzfqXxVvBlgj78rUg++TIkoMCoSOCWseRBZyOVTy6lBYyc1PiSrgl
+	Qmj0U8KrxrmdwqhGLeWSZq1quEf/db1lA+pYP2zkBeynv/QEn760dtjevwy73NsiR3jp/EeT3Rz
+	SlHcqhcYkD+OzKcYnXE+0YCL3ruUsVpJL7lHJuw6+hjRQzpR1o59ej+HBMbto6nNMs71/XEO/tS
+	bmE3C2X9XpdKukw07x1ze4gWNYir2CS6O+jHasRIf3EGKXEsqecqP/gE6SXvilg==
+X-Received: by 2002:a05:620a:2682:b0:949:671a:cc77 with SMTP id af79cd13be357-949b34035a5mr1661820385a.1.1795363765095;
+        Sun, 22 Nov 2026 08:09:25 -0800 (PST)
+X-Received: by 2002:a05:620a:2682:b0:949:671a:cc77 with SMTP id af79cd13be357-949b34035a5mr1661816685a.1.1795363764668;
+        Sun, 22 Nov 2026 08:09:24 -0800 (PST)
 Received: from quoll ([178.197.218.7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm320526755e9.6.2026.11.22.08.09.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm320526755e9.6.2026.11.22.08.09.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 08:09:20 -0800 (PST)
+        Sun, 22 Nov 2026 08:09:23 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 To: Hauke Mehrtens <hauke@hauke-m.de>, Andrew Lunn <andrew@lunn.ch>,
         Vladimir Oltean <olteanv@gmail.com>,
@@ -121,10 +122,12 @@ To: Hauke Mehrtens <hauke@hauke-m.de>, Andrew Lunn <andrew@lunn.ch>,
         linux-arm-kernel@lists.infradead.org,
         linux-mediatek@lists.infradead.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH net-next 1/2] dt-bindings: net: dsa: nxp,sja1105: Properly apply ports up to 11th port
-Date: Sun, 22 Nov 2026 17:09:08 +0100
-Message-ID: <20261122160907.200727-3-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH net-next 2/2] dt-bindings: net: dsa: Flag unexpected ethernet ports
+Date: Sun, 22 Nov 2026 17:09:09 +0100
+Message-ID: <20261122160907.200727-4-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261122160907.200727-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261122160907.200727-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -134,78 +137,211 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1186; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=k0dJnwwVOMUlPc+I5R+F03eCmWOTtijHmMPA/BB2GhY=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrAxOju/4Z86N0mMZw+6sMiO3a7sqHSvn4onpHC
- tSJ0snI4fGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawMTowAKCRDBN2bmhouD
- 12p5D/4xaQ/IqdB5b/zXL7JJOMdwpoOJvhCY5xO3BhYDj2VfkgaUsxoy2xYJmK30cmwXITVYD4r
- kvQ2E8lPZVSNbkquqmYyv1bWwufE0xZj+5gPZr1phRuJyyactBViEXTcJDcagSilgixm/PTF+u7
- z5y1S6qnTXywKiLuIQliVhMXJuBnHjNxqLe4mLuljad0siZklmDDulm8ia9LjSm+zmKXfJd36RV
- dutmfs5njSG1lRa/cSDh3xk2Rz9U1SNO045QHN70NfTgRT7qpXKTDYns+QvbrZmkF3qg2llRcw/
- wE/p/M24NbKFYpFCqVEDtz9JgoId3ADhL/pR1JRovVXsb0JQAtpwS4E0cnkKbKC3xCVOTJnzjlP
- qq8lb0t6g9QAkFLlbNjd1gU4o/f0gtTYuAgGO8LmT3oxxldhJwO7WeryuFoHONCFAMf6X+j2ooQ
- IUAYKNRsI3DHDl7un82Eo13QGV7OSjGroEWz04mzkajrj0Jhqt50VnGuVynmaLPlNs7lM2AbZvR
- b7i9+JQSwFl2bDlHFZ8LNYXGgKjm3hkUYhhpEv2uEq8wCfoD1RS1Z2vNl7dIaY8dyhnJLWyH265
- WS5FNaYYHg8yyxtirYCjADcL0ofnaweqCxmiu3Tr1P43bVhROoiAxR76amWY7rPkK5g5roH2N4s j6WjETiSGU4vMzw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6422; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=reMATxFxVxRB+raQ83jYfeaAK2V6mtUNc6Wp2ta7pEM=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrAxOkOJWDsz07omJXLZhaMWPp6woHPL8+pCClu
+ +kZC4bdMluJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawMTpAAKCRDBN2bmhouD
+ 1xQIEACaFedbtKzfFmbnBJcFU8CEz4FyuAcxxPgxdFqxRqpIg1xHeRGybC4E37WJVdFmDXL+IiM
+ FZdr8VzQM8M2DA6tywEWp/eKIa0cZKVKpdARltyyNDRG/YtWqJgjc5BMnYxsVAqb7Vo6kjQr5Vm
+ 9nVSouM8M+29Ue122ZMOG4/rUOQog384qunka/dtrk8IysLT+e6UvBvHLsiPuA95hYzqS9KOVzL
+ 3VHZybyVb6e2m2Y/r7XzFzlhR5H0EDq7gJ5NJy8MOG15tAcJ+TU3plPFRbtBjkSOB7i8Ubysvhr
+ xUQCrae3P5pSL4fWowBqQNdGvP3fPkhgA+w5tyOvHSAdCed5brmxQdvHogqCW4+KCWT+PWfpMQH
+ R7E1iMnrzjWZp2X9SbexuwXUPfw2orGQ5jZJslTL6ODd8dCeVJ/YuYRvCAVsGKviS5w5MsmZY3z
+ r5KeZ3KftGG2iI7ViBELF45gUtCNed55Qf+zyf4tmwZzBmPz7BisgagXHW2QHhCdw/R6L3sid4m
+ HnJPr8+IH6gyV7s8rtUJVLJImgJ495iS9vziAi328myZSRS3NjFllSR3IYkdwjgnXOHgWtYTbau
+ 4GUlpviCm+QmtNUAHyKzm7LGUNZsQzrtIigRBlx2oqktTVRCSLB7mGcLj6/GlI8SrWpa+q7CJCW LmkHerMGT7PwnEg==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=EsxHPicA c=1 sm=1 tr=0 ts=6b0313b3 cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDA2NCBTYWx0ZWRfXwvOY1RMsHopa
+ kOGbliHSp5cbIpIFSNfdGGKIU+p8FU8o2hUp74XG1D2SajIdlMT7q+Y5N8WwKMLWmoWTiV5qDMw
+ rxffReAX5ZwAqamLVxl7vndJBL4MvwP/pJOhYgth4TA+Dj5iiiNCYv3I8f2XVYT36ZRhnlLi8om
+ WccYewAqKie2tXptYVeZGKqtL1HpxLaIz9QjwoBVSwT5hGfhunMrQWCZahXdSUejF3o4X5oTRff
+ MDVIqsaIKgO47LRGoSldw+nh7iKZmmgOaGgsy9k8fnBluFEvh3yJZS4TXg5t5tP5HBy6cI19ert
+ DyiJupFoRFsIMIisbX6aRWtwSAj2oPkabmF76Hnz1qGLz/48bsaee22MFyMlH7TvQeAIPtWPzTH
+ 6pA03YugCMwKhFCh/+3WcTUggnRRi14Bu6KNu1DWm13DCUhQYrvHQnpippZLceWEUFFG97Y7MPR
+ tlmqxDjqJs4ZsThN32A==
+X-Proofpoint-ORIG-GUID: txjoczAaUqk-mQeuyJUt9cJpYgIMjHNo
+X-Proofpoint-GUID: txjoczAaUqk-mQeuyJUt9cJpYgIMjHNo
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDA2NCBTYWx0ZWRfX606pdA5tlw57
+ 0xAYhQ922HLsicETYFRJ6Zv1n7c2X/UbwBFXsQPYrQxkER+Ge/IR5jK76+2O0DVxos2anrz57T0
+ q386jcfnkPyw6o0kci1LU7sNLwGO8U8=
+X-Authority-Analysis: v=2.4 cv=S+dMU4sP c=1 sm=1 tr=0 ts=6b0313b5 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
- a=1gOBQcDwdZx5nJ0sStIA:9 a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-ORIG-GUID: SvcM8frF_WgH6Yb8ZHxIwmWW_G0P_OS4
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDA2NCBTYWx0ZWRfXzk3NBBap2bcC
- PsEBF/VDE7GttR29mlmVYExct4VLhMLrYT24JTVllJ03Rpb5tcI4f/A2OORG4G3UwVBuJlk1Y0x
- AY3lI/7odXPsWi5qUicRmslKR/FKbWzwyHpgrgSMZlV2eaSVTrWhetDn08b7Hq4QVx9Tm+gKim4
- w+Wfun/VBdDKICiBFeGNr8Gr7xge4WIIj6UzISZ7A1KwWG1ILY/WC9kBqbA/pb+fTt89FoCA9AY
- RorKFpxSpzsjl4V6aOCM5CukXMJxBOGuOb0VhepQ77yUZEDv0h0WfFwRVPf9fce4h4QWQyCjVIo
- BroLeENISW0EUl+hN+kQrTPwOzrEFVgpnus7Fa6Ycj3fJSg6JhQZePtijexN47PUGFQ5a/XlGVQ
- OjQzke7UHvegB7mcZt42/QxWEg5RC1wm6hj2McUhTDxqM9YlHiASCPVtw8L3oFrxnMurMN2vDkK
- J1iXQRbTtl29DdUyZvQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDA2NCBTYWx0ZWRfX5emAxSSic34s
- 7jfBui5qBA0o3ZdFwvSwPS5eHp/ClvvjrWKaENIw6zWpShAi2Aoulh3GnjiwHBwd4sUOGPyWp1w
- CaDbr6rtyPt9JVubG03pqPed4uG9e18=
-X-Proofpoint-GUID: SvcM8frF_WgH6Yb8ZHxIwmWW_G0P_OS4
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=DPh3dRPQxyF78rqZMbEA:9 a=IoWCM6iH3mJn3m4BftBB:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-22_03,2026-11-22_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 suspectscore=0 clxscore=1015
- adultscore=0 spamscore=0 impostorscore=0 phishscore=0 bulkscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611220064
+ priorityscore=1501 impostorscore=0 bulkscore=0 clxscore=1015 malwarescore=0
+ lowpriorityscore=0 spamscore=0 adultscore=0 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611220064
 
-nxp,sja1110 devices have up to 11 ports in DTS (highest port@a), so the
-pattern was missing applying schema to the last one.  Fix this by
-dropping the unit address from the pattern completely and adding proper
-constrain on the 'reg' property, so child nodes beyond port@a will be
-properly flagged as incorrect.
+Bindings which reference dsa.yaml ports and restrict their own
+ports to specific subset (e.g. with pattern "^(ethernet-)?port@[0-6]$")
+actually silently allow ports with any unit address, because they use
+"additionalProperties: true".  These additional ports are incorrect and
+should be flagged by the schema.  Solve this by dropping the unit
+address from the pattern completely and adding proper constrain on the
+'reg' property.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/net/dsa/lantiq,gswip.yaml        | 4 +++-
+ .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml     | 9 +++++----
+ .../devicetree/bindings/net/dsa/microchip,ksz.yaml       | 4 +++-
+ .../devicetree/bindings/net/dsa/microchip,lan937x.yaml   | 7 ++++++-
+ .../bindings/net/dsa/microchip,lan96455s-switch.yaml     | 6 +++++-
+ Documentation/devicetree/bindings/net/dsa/qca8k.yaml     | 4 +++-
+ 6 files changed, 25 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
-index 0486489114cd..e9b53820cc36 100644
---- a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
-+++ b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
-@@ -89,7 +89,12 @@ patternProperties:
+diff --git a/Documentation/devicetree/bindings/net/dsa/lantiq,gswip.yaml b/Documentation/devicetree/bindings/net/dsa/lantiq,gswip.yaml
+index 89f78a1bc113..83cdd6c80d09 100644
+--- a/Documentation/devicetree/bindings/net/dsa/lantiq,gswip.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/lantiq,gswip.yaml
+@@ -108,13 +108,15 @@ patternProperties:
+   "^(ethernet-)?ports$":
+     type: object
+     patternProperties:
+-      "^(ethernet-)?port@[0-6]$":
++      "^(ethernet-)?port@":
+         $ref: dsa-port.yaml#
+         allOf:
+           - $ref: /schemas/phy/phy-common-props.yaml#
+         unevaluatedProperties: false
+ 
+         properties:
++          reg:
++            maximum: 6
+           maxlinear,slew-rate-txc:
+             $ref: /schemas/types.yaml#/definitions/uint32
+             enum: [0, 1]
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index 90b3582b7619..80cda7ec5cb6 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -179,12 +179,13 @@ patternProperties:
+     additionalProperties: true
+ 
+     patternProperties:
+-      "^(ethernet-)?port@[0-6]$":
++      "^(ethernet-)?port@":
+         type: object
+         additionalProperties: true
+ 
+         properties:
+           reg:
++            maximum: 6
+             description:
+               Port address described must be 5 or 6 for CPU port and from 0 to 5
+               for user ports.
+@@ -208,7 +209,7 @@ $defs:
+     patternProperties:
+       "^(ethernet-)?ports$":
+         patternProperties:
+-          "^(ethernet-)?port@[0-6]$":
++          "^(ethernet-)?port@":
+             if:
+               required: [ ethernet ]
+             then:
+@@ -220,7 +221,7 @@ $defs:
+     patternProperties:
+       "^(ethernet-)?ports$":
+         patternProperties:
+-          "^(ethernet-)?port@[0-6]$":
++          "^(ethernet-)?port@":
+             if:
+               required: [ ethernet ]
+             then:
+@@ -246,7 +247,7 @@ $defs:
+     patternProperties:
+       "^(ethernet-)?ports$":
+         patternProperties:
+-          "^(ethernet-)?port@[0-6]$":
++          "^(ethernet-)?port@":
+             if:
+               required: [ ethernet ]
+             then:
+diff --git a/Documentation/devicetree/bindings/net/dsa/microchip,ksz.yaml b/Documentation/devicetree/bindings/net/dsa/microchip,ksz.yaml
+index 4ed13870ed3a..9cc14aa7b4b1 100644
+--- a/Documentation/devicetree/bindings/net/dsa/microchip,ksz.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/microchip,ksz.yaml
+@@ -129,10 +129,12 @@ allOf:
+       patternProperties:
+         "^(ethernet-)?ports$":
+           patternProperties:
+-            "^(ethernet-)?port@[0-2]$":
++            "^(ethernet-)?port@":
+               $ref: dsa-port.yaml#
+               unevaluatedProperties: false
+               properties:
++                reg:
++                  maximum: 2
+                 microchip,rmii-clk-internal:
+                   $ref: /schemas/types.yaml#/definitions/flag
+                   description:
+diff --git a/Documentation/devicetree/bindings/net/dsa/microchip,lan937x.yaml b/Documentation/devicetree/bindings/net/dsa/microchip,lan937x.yaml
+index 9973d64f15a7..36a7c81df747 100644
+--- a/Documentation/devicetree/bindings/net/dsa/microchip,lan937x.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/microchip,lan937x.yaml
+@@ -39,7 +39,12 @@ patternProperties:
    "^(ethernet-)?ports$":
      additionalProperties: true
      patternProperties:
--      "^(ethernet-)?port@[0-9]$":
+-      "^(ethernet-)?port@[0-7]$":
 +      "^(ethernet-)?port@":
 +        type: object
 +        properties:
 +          reg:
-+            maximum: 10
++            maximum: 7
 +
          allOf:
            - if:
                properties:
+diff --git a/Documentation/devicetree/bindings/net/dsa/microchip,lan96455s-switch.yaml b/Documentation/devicetree/bindings/net/dsa/microchip,lan96455s-switch.yaml
+index 517bc4c00de3..17e3c00f5a32 100644
+--- a/Documentation/devicetree/bindings/net/dsa/microchip,lan96455s-switch.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/microchip,lan96455s-switch.yaml
+@@ -105,11 +105,15 @@ properties:
+     type: object
+     additionalProperties: true
+     patternProperties:
+-      "^(ethernet-)?port@[0-8]$":
++      "^(ethernet-)?port@":
+         type: object
+         description: Ethernet switch ports
+         additionalProperties: true
+ 
++        properties:
++          reg:
++            maximum: 8
++
+         allOf:
+           - if:
+               properties:
+diff --git a/Documentation/devicetree/bindings/net/dsa/qca8k.yaml b/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
+index 167398ab253a..3840b336bdb9 100644
+--- a/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
+@@ -75,13 +75,15 @@ patternProperties:
+     type: object
+     additionalProperties: true
+     patternProperties:
+-      "^(ethernet-)?port@[0-6]$":
++      "^(ethernet-)?port@":
+         type: object
+         description: Ethernet switch ports
+ 
+         $ref: dsa-port.yaml#
+ 
+         properties:
++          reg:
++            maximum: 6
+           qca,sgmii-rxclk-falling-edge:
+             $ref: /schemas/types.yaml#/definitions/flag
+             description:
 -- 
 2.53.0
 
