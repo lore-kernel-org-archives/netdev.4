@@ -1,55 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795363274;
-	b=niC8I6gdUfyC0m0yEu9zrxyU/MaW2lD5AwLGbwsAPsYYqmuo19JjKf/aUFqK64GQiUnG
-	 RK5Z2l2GGJeM47Z/RndnaKQ5/UpylxQkHePuST8Td+t9q3zyD3GYBXh4BsnDOczXrB1tz
-	 3jEp6X+q1CxEdUl46ae06aMk7D7v9BNmGU2wdNQDBxnErzZB7Aimh7mu5yYMPcFsaJUK+
-	 Ib/9Jx/Redvn2A25AeX4bVuAlHZoGIJxXBCWnxunk3hd8iAbQipX6YHS0ggRQwk3hDO7b
-	 QxPe9XgnCVQeA0yeEFLd5bcsTGxsrsJk8sFbX2RFPWwUh+XO+7yU9mJ0mjtyFw5Vjsg==
+	t=1795363289;
+	b=BF0BTPJO/MEyHergk9P/dqHQ9JFrIZvs4fGenVMkpqYZT0jwR5mBM7t4m2Uw495QPq0g
+	 tQHUmtQKEuagXdDIwnWnjMBCdW7JvHCyyRoQg5GkiyLK5FSbhvEWslmBKPiXy47aQ4rX/
+	 6qg07d/uhUv6LvBcd8TN0R0oaVbRnMmo1JFngx5MKSaOjuWVGAwTrW68uES8RRfkO531T
+	 NsKQQn4FeTNb4ekeWYNTcLIW1UMiyOpcudsf2Zj6DAJaE7r/zb9lYx17ckU5B0qrKzoMP
+	 q/g6yu+bwvik+fU/YHi68nhaRNhHg+iG/JXhmZuHjrngn3gecpFaPIDqSaBp8fVfhKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795363274;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=/izPWKlba6hwEZVlAponaP1r95LRqIjVUfRXZ0aBzfg=;
-	b=CDPFp+I6Q2SVocJRKMegtszqKj0Dcdy1WRlUaiCORXLCsrFM9Pj7s0p0uIJxdbdVjjhj
-	 65Y4bPK7WHlfSK2o7AvQSXL3Juf+y2Zj2As4lbpvL7Lrei4E6HG2rTLCuL4M4SekEk2An
-	 9TEW/7a9k3JmhOeQFILUGlZnmmd2cixevh1WugZlQ+UVVSOUFL16lVY2NaQ46xFH/xIw/
-	 Ksi2dSt71dqZUQ363kihH0E7p9yenB08goigmEdrm3HFV3ZKdZbBcDKZPQ9rw4rGSDX3d
-	 xV5M0B1dG7iPaOlzII03uk1fwwDWsdtbMRfbIUc4MnzTHQDJJixSG9P0vCGxfCRehVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795363289;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0nnzDdRCsGSeP+fBdqjwR5i2BMDAgYKhOGLFfKlLzIo=;
+	b=lakzkGDSF5s6B4GxHqjinQ+MXnT6qqY4J4S+4sPkfZVcf2ETMx8vvJr16YUDAz5r39pl
+	 0l3Zu7hIkMrzwa/ZeXlJV5fqOJRs58pOwN8KLAET4VpZ2COBF1v52OFbHpYszPpFWyld+
+	 lkaO8tyROfGgJFVcxOGxBJ3L7oaQaRPgTTzUpCLSu1BP68NLzi6rz1BDRxlk9rhwHv9D2
+	 DPToqusb4nFWKC2P97TP8TVMnhQ3KyEKrFN8w6gsmtld388GhxaomA3w88Q7yR//ymYVB
+	 taLJIZDElxxOnNQLN4hKoCE2Odb1tfZay2vX5xpA+Kwm48wG/q3LmmUyjGk3Tkac1FQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LzfauxW3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=vyif8tzn;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b="qCOoQ/zO";
+	arc=none smtp.remote-ip=149.28.215.223
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2E83606A333
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:01:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B625606A331
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:01:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B625606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LzfauxW3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E19E1F000E1
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:01:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795363274;
-	bh=/izPWKlba6hwEZVlAponaP1r95LRqIjVUfRXZ0aBzfg=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=LzfauxW3rEExAgmdG4kLoxGoYz/MCia8CKAMKl83GyTQO0VtPeGsltO2V+0WDIzWj
-	 5iECqnhnsj/kKrsaZZtZk0JF7iqOz3ahCt6gKFZoeCjvUuH4G+mPSe+xwT74u1jd3i
-	 QF9gztIjuvKpikuFo71r975dBEJ0kr1hGDuDYjo/O/TRz+k3VHSfQI/wli9qg4Ng+3
-	 dBPEhXy5EWxAy6sz9xdKD6tt4S48iLgaF+amu2RYe3stbbjXIWbs98fXr1HI5mxKlg
-	 KICpVYQ9w6f7Vj+VrtZPVQwSY+uwspIRjAXPj8v0O4PDsMoo3TwFFPD+0XpeTJTuHV
-	 dYP13IXmp+OrA==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ab3b29a298so19659021fa.3
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:01:14 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE32WkKNjQy3gXDl3eJhnUdo8tYXIyxMvTmLVgB9DZTUSGCMs2vtjB0NykWC1oGTT7RFZzu6I0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WXrxT9jkA7Crk8k7V7KDyMlvJyvc/MKjpVnkx2tMyv/Ci8Lru
-	+4PEa5dvTq9kMn6K6AJU409ujPm1UHpbQ8Ipzhx1zCp1ZteGvl5vGof7q28FjSS4CY9QGmiwJc4
-	gheYR/CkpLRoc8tTF2gMeWLkDlU6dm28=
-X-Received: by 2002:a05:651c:1474:b0:3ab:f9b:974 with SMTP id
- 38308e7fff4ca-3ae7fac2697mr24800931fa.29.1795363272768; Sun, 22 Nov 2026
- 08:01:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=vyif8tzn;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=qCOoQ/zO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
+ t=1795363288; bh=0nnzDdRCsGSeP+fBdqjwR5i2BMDAgYKhOGLFfKlLzIo=;
+ b=vyif8tznTyZocjUubDiqQA4tctlb7WqLWFdnSYz3fXYX1PSZ39bBhcsUNhC76s+r6ksWInblA
+ qjvECIny3jwGR1pnuScaGzB3CDJrOjE8592dEqZB8B9iiasqwE87RnsQ6Xx3ZYyIvJHOUfmb6hM
+ UnYbeEtqCBmGswIr94foqklsHcPUm8S5lQ+2tx15/msQzoOqAu4hf2arzxh6691huMtiGCpAl3G
+ V7go7mo61qbSiyrA3Ge4J8AFIz+nYMdOOsg81j188VK7uVXqvOm3cjBG20f2AHHMyNckUtS7Jle
+ ZlQ/wDbQoCFx+Y4RBjyGL8YvXF9TI079vUnjK/jyHCFg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795363288; bh=0nnzDdRCsGSeP+fBdqjwR5i2BMDAgYKhOGLFfKlLzIo=;
+ b=qCOoQ/zO2A5/RxAeGJqaJcXbxtS2eNtUigi9ON6UKrmv398IFUZIHJqjQMWSzhYvBE/PxTmCJ
+ zv0LGx//AnSASsWwslar2toBlWwbvZd8sXGetIBj7ryoYDwCZZ5eiYtwseOUMaeAC1wnfXDR/gL
+ lwbxDywww7xlClBpnsmFZLw=
+CFBL-Feedback-ID: 6b0311c84993f8611a547daf:b2541adc3895f43479a7fd6879cc7454
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6b0311c84993f8611a547daf
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.19.37
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
+Date: Sun, 22 Nov 2026 17:01:08 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,37 +77,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122144926.284857-1-maxime.chevallier@bootlin.com> <20261122144926.284857-2-maxime.chevallier@bootlin.com>
-In-Reply-To: <20261122144926.284857-2-maxime.chevallier@bootlin.com>
-Reply-To: wens@kernel.org
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Mon, 23 Nov 2026 00:00:59 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65EZ3VP9HDyJps==0RcZ8fWTJuai2d-5ga0V4aEsrM8uw@mail.gmail.com>
-X-Gm-Features: Aa3M54qOwDNW1Yljk-lFISp4AdkVQZj8kdy4KwB-RgmQjeLm8Au5CMg40XaXguE
-Message-ID: <CAGb2v65EZ3VP9HDyJps==0RcZ8fWTJuai2d-5ga0V4aEsrM8uw@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/3] net: stmmac: dwmac-sun8i: allow controlling
- TX and RX flow control separately
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Willem de Bruijn <willemb@google.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>, 
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>, Nicolai Buchwitz <nb@tipi-net.de>, 
-	thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/8] ARM: dts: rockchip: Add support for RK3506
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20261122060114.773624-1-jonas@kwiboo.se>
+ <20261122060114.773624-3-jonas@kwiboo.se>
+ <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 10:49=E2=80=AFPM Maxime Chevallier
-<maxime.chevallier@bootlin.com> wrote:
->
-> Currently, the sun8i flow control setup only looks at FLOW_AUTO (which
-> is FLOW_RX | FLOW_TX), and enables RX/TX based on that.
->
-> Allow enabling RX/TX flow control directions separately.
->
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Hi Andrew,
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+On 11/22/2026 4:46 PM, Andrew Lunn wrote:
+>> diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
+> 
+>> +		gmac0: ethernet@ff4c8000 {
+>> +			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
+>> +			reg = <0xff4c8000 0x2000>;
+>> +			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
+>> +				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
+>> +			clock-names = "stmmaceth", "ptp_ref",
+>> +				      "pclk_mac", "aclk_mac";
+>> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
+>> +			interrupt-names = "macirq", "eth_wake_irq";
+>> +			phy-mode = "rmii";
+> 
+> Sorry, missed this on the first pass of the patchset.
+> 
+> phy-mode is generally a board/PCB property, not a SoC property. It
+> would only be a SoC property when the SoC cannot do anything other
+> than RMII. But given this is snps,dwmac, i expect it can do other phy
+> modes.
+
+This SoC only support RMII mode, so I put the phy-mode at SoC level.
+
+Datasheet for this SoC lists following:
+
+  RMII 10/100 Ethernet Controller
+  - Support two Ethernet Controllers
+  - Supports 10/100-Mbps data transfer rates with the RMII interfaces
+  - Supports both full-duplex and half-duplex operation
+
+The Technical Reference Manual also only mention RMII:
+
+  38.2 Block Diagram
+  ...
+  The MAC only supports the PHY interfaces of reduced MII (RMII).
+  ...
+  MAC Supports 10/100-Mbps data transfer rates with the RMII interfaces.
+
+Regards,
+Jonas
+
+> 
+> 	Andrew
+
