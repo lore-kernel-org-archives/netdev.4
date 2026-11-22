@@ -1,60 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795322444;
-	b=CWKUXlRBgIch91+4S6/u2MLCs6tBKmjUIypOo/0/ubTl8eVcQCMF5kYo76SvAp+pcnC5
-	 S0wpHjy3SUmhQl6/Tm08C3H+VcnouJ6kRFrY7bo939OLIj1CqK8z+ijtGZ5qXaA0B9kSf
-	 gb4CMv8uQSt+2Tk9iLQxbCyHS0Kdo6hFS3U92v+IW7/dAWdY5H87eJOJFL0uQS3uEEfXW
-	 9h24WMNqLUW7aeMEKLyE/F076zs/liPV5FztyzpugKx31rnwH8wknYhe6Ax/kzYSc6A9X
-	 cW/38jIMAZxsQKKMPAHfvawJqZd7LyTEKxdbR9N+8P0vehpr2YPu3ramOPVoNLPurXw==
+	t=1795323191;
+	b=gqVqV/AxZ9XcxgpFt7D3hD2OqYFul1EZDG1PA0TsdPgurQ4B2OVoydANVFtC6DVD7kr4
+	 xwrcoB1mobv9H+y/BCWnyZVjiW/QEHWrfJlcxjPqmmMgJ22mjra+lvcdGkNyFGnrI5ROI
+	 9KEEuiwHQ/LYkGQq1f7zgETiEbm0VhRWCeRxWr9mAqZoZUxbzzqHTPchm1Qlcv9Y95SX/
+	 /55LvJ5ElAF2tsPFVQb+9+WbvUr41/Id0BglsHd6XkPbIGsWYY15BeFt0QYeOuj/WGgag
+	 vWDdefMrb2x/yYelyCsWRsRylojh1nJBc72HRLacMg6aH+XxZl6sdKC6kbYkUrgZ+Gw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795322444;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=KrAhZ9E8WnWK+p3yZgfI3yb6F7sSSKosgOZao00gLAY=;
-	b=F2uQ7YyRqnzJS5QOEzWg9q2j5U26BBtfn0yD3aPOLQad5uBeAfu2ktaXFtKPqUvIh1zu
-	 UpVCW+3CiX9i3xrv6qigfadfI90/eD+wUoDranR7ajixi95fggWVyOqQZA1f4aT/YrDtb
-	 hkMPzNaLSlaU1HNN0pffqz+HGhYhVei/hLMPdEB+LC+LfgplPNwuTj8b0apotnwLS5ESX
-	 as9o4MHR9XSUKpak3juC33MvCdWlFg4pkE/UMLW5d8Pj4KhSJV1HAM57tXYuxCPD4DswA
-	 POG5YY9Lwz0MknW6+rHQft4sN642rSS4+ZphcBG8GYK+zmNaXeA+pPpz7apc1QDe71g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323191;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=p7rX67+fJl9J+Pa0Y3R1MHHrJYPdQ/dB5tLUZIlFfmY=;
+	b=4ojkyFzevo0JvIJ8z9c7L4gtzsJ4pbAggzJeQKHQQxjV5yOAbTpGf96m6dAhBFOpYfok
+	 SnytJsxExpVVyIz146rToQgRdeE6UZKcFuhiyaFomE/RHlYvcSFjg7n4iyn98P8DJmf1L
+	 HdhjjgFS3IBIGKT15WOl4v4GPNmKJcNRRDX1Q37CT/pB0hTAcTLAehFnofjbPjH2dNUXe
+	 +F+84jfxCmZMaJn/Acd27Vs+VVzMsREj3kEJY7PGAQdfrlDWXMq+rhnsL+W75mebTrdch
+	 oFj3L9xa8tR1ZD+O3rQNzoY1mJ3oBfBbzZ/aUgUPNm/U9ibjLyNOSK0/N2ZRh1jm1lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J5jaNfyP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KufALA6w;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44A1D606A320;
-	Sun, 22 Nov 2026 04:40:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 027F9606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 04:53:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 027F9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J5jaNfyP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 750EB1F000C4;
-	Sun, 22 Nov 2026 04:40:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795322444;
-	bh=KrAhZ9E8WnWK+p3yZgfI3yb6F7sSSKosgOZao00gLAY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=J5jaNfyP1cBFpKL1waHOYWo19pKbvibqIor7XBOU6oOJkia/IQ2vjZj6oSTK+9rjs
-	 Ol7Z+ofiGgYTdDird8e0LH9Wy4Ihe67GY0E1jVQ0awJUsOKdVT9drkS67tCMG4CTX7
-	 UJ97PlXQVbKaKnmmPuNtFFeTVPrx4AuZ7oxC/QbWhMi5ZTV0Lsb4/L3r8nb3koRd7p
-	 U42aXjG7bfjxpPqbcdZBV04bCpCf7ZRPM0cQ6RGtDLC7mFo7XPCmozRHg2bqTbxEJe
-	 uO6OAIuguAq+kfo4Yxq/2QIIip0CEUHhGASM7xPQkT8cwU5kILh7L5FxF2EIRTdJXr
-	 VJC6bF2JCHjwA==
-Subject:
- Re: [PATCH net v2] octeontx2-af: widen TX scheduler queue index to 11 bits
-From: netdev-bot+sashiko@kernel.org
-To: vmukunda@marvell.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, sgoutham@marvell.com,
- rkannoth@marvell.com, gakula@marvell.com, sbhatta@marvell.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, skoteshwar@marvell.com
-Date: Sun, 22 Nov 2026 04:40:43 +0000
-Message-ID: <179532244301.3135.14806986987888080886@kernel.org>
-In-Reply-To: <20261118042614.878448-1-vmukunda@marvell.com>
-References: <20261118042614.878448-1-vmukunda@marvell.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KufALA6w
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3869865a304so3656332eec.0
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:53:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795323190; x=1795927990; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=p7rX67+fJl9J+Pa0Y3R1MHHrJYPdQ/dB5tLUZIlFfmY=;
+        b=KufALA6wRFrtVpqYSS3Uz9b8K9wRn78NiNO1Xia3Cn20hfTqxcE7bareisQHrIpltF
+         XfXNkBcWwBAKYHsWB41WaYLOUSZNAndKBXFc3jKzhjP7wbFLkUNtiKeH+MB6AxX/B47M
+         X/rX9czHHT7qqFBI/2SS2E9dsYPwwzU5KzUboyWa66d2SudNF0UTC1qezpLb43YXqQyb
+         fLICsUxKerXMz6qx4PbIK3FkP2rphPcTRLugCskXdLyAF7reY8Y1BXnctLGTfEm5uItz
+         4wfxA7xjczmt2yoDgrXO90aTlVrDj4EbICfZQCqknXdiaMcK1dZlBQtanr2GIlvYVQ0h
+         ZXww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795323190; x=1795927990;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=p7rX67+fJl9J+Pa0Y3R1MHHrJYPdQ/dB5tLUZIlFfmY=;
+        b=cHE10bx7jLfXcoirnazXs+0lmwzjAR/wAuFRm2/V8KwXamAzTys8ZdamQ09VEwz9QV
+         lYyb+mJB3p7phH7uDIsYeHW62Fmp5t7j1XwqUPBbnVQcQ5Q2ZY92OoJ+vMsGzXRBWiw4
+         AcB+csZpAEV70E4VSnLv2vZAZ1FXyFAFpx3xHzOYs07f+OO+Ao1UIsMPkrzdzNuNGn03
+         gSjNleJUswRbGMMoD9HIB28VYq3tEtlEESKgD6+u3vcd5B6DCZkaOr7pIecInhyNJ7Eq
+         JaHKO+CxvL5w0ee1C2bFlXjX6lcGAuDEk4vevftKmhqmA0XV1DgzdDni0Vnc8/wbc2Cl
+         1myA==
+X-Gm-Message-State: APuU4Z9/81UewbuFO/mmT1r8bIcM0WHVRHOQ8T8q4IpbXPAYE54OpDPL
+	DivFKxGXidSyYglAJoiniMkb2010nMHrmx0BrTjqqPYRO9Tem9Fk1BUkq4Z188j7VY5IZDZwGA5
+	psliNJkYkQA==
+X-Received: from dycnb22.prod.google.com ([2002:a05:7301:b16:b0:383:7f56:6996])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:416:b0:356:7ddb:2e54
+ with SMTP id 5a478bee46e88-38570f27b33mr8386164eec.29.1795323189687; Sat, 21
+ Nov 2026 20:53:09 -0800 (PST)
+Date: Sat, 21 Nov 2026 20:53:05 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,102 +74,76 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261122045305.17511-1-irogers@google.com>
+Subject: [PATCH net v2] net: marvell: prestera: Fix skb leak on error in prestera_rxtx_xmit()
+From: Ian Rogers <irogers@google.com>
+To: Elad Nachman <enachman@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+prestera_rxtx_xmit() is invoked directly from prestera_port_xmit(), the
+driver's .ndo_start_xmit() callback, whose return type is netdev_tx_t.
+When skb_cow_head() or prestera_dsa_build() fails, prestera_rxtx_xmit()
+returns NET_XMIT_DROP (0x01) without freeing skb.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Because NET_XMIT_DROP (0x01) is less than NET_XMIT_MASK (0x0f),
+dev_xmit_complete() returns true and dev_hard_start_xmit() assumes the
+driver has already consumed or freed the skb, leaking the packet buffer.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Free the skb with dev_kfree_skb_any(), increment the core tx_dropped
+counter via dev_core_stats_tx_dropped_inc() (so .ndo_get_stats64 reports
+the software drop), and return NET_XMIT_DROP.
 
-- [High] This patch fixes 11-bit SMQ indices only on the NIX_TXSCHQ_CFG
-  register path, by widening TXSCHQ_IDX_MASK and NIX_TX_SCHQ_MASK.
+Found by enabling Clang's -Wassign-enum on an x86_64 allyesconfig build,
+with AI coding assistant help to audit the warning and prepare the fix.
+Build-tested with LLVM=1 W=1 (-Werror); not runtime-tested on Prestera
+switch hardware.
 
---
+Fixes: 501ef3066c89 ("net: marvell: prestera: Add driver for Prestera family ASIC devices")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
 
-octeontx2-af: widen TX scheduler queue index to 11 bits
+Notes:
+    v2:
+      - Keep returning NET_XMIT_DROP at drop_skb and fix the commit message
+        description of dev_xmit_complete() / dev_hard_start_xmit() (Elad
+        Nachman).
+    
+    v1: https://lore.kernel.org/r/20261119170354.1509589-1-irogers@google.com
 
-This commit widens TXSCHQ_IDX_MASK from 10 to 11 bits and extends
-NIX_TX_SCHQ_MASK through bit 26. With that, scheduler queue indices of
-1024 and above are no longer truncated on the NIX_TXSCHQ_CFG register
-path. The target is CN20K, where the SMQ field of the SQ context is 11
-bits wide.
+ drivers/net/ethernet/marvell/prestera/prestera_rxtx.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-> diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mbox.h b/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
-> index cece197d1074b..1b62f9d7f00a0 100644
-> --- a/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
-> +++ b/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
-> @@ -1164,7 +1164,7 @@ struct nix_txschq_config {
->  	u8 lvl;	/* SMQ/MDQ/TL4/TL3/TL2/TL1 */
->  	u8 read;
->  #define TXSCHQ_IDX_SHIFT	16
-> -#define TXSCHQ_IDX_MASK		(BIT_ULL(10) - 1)
-> +#define TXSCHQ_IDX_MASK		(BIT_ULL(11) - 1)
-
-[Severity: High]
-This fixes the txschq register path. Is there still another place on
-CN20K where an SMQ index of 1024 or above is cut down to 10 bits?
-
-otx2_setup_dev_hw_settings() sets CN10K_LMTST on every !is_dev_otx2()
-device, and that includes CN20K. As a result,
-otx2_pfc_update_sq_smq_mapping() in nic/otx2_dcbnl.c takes the cn10k
-request branch:
-
-drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c:otx2_pfc_update_sq_smq_mapping() {
-    ...
-	if (test_bit(CN10K_LMTST, &pfvf->hw.cap_flag)) {
-		cn10k_sq_aq = otx2_mbox_alloc_msg_nix_cn10k_aq_enq(&pfvf->mbox);
-    ...
-		cn10k_sq_aq->sq_mask.smq = GENMASK(9, 0);
-		cn10k_sq_aq->sq.smq = otx2_get_smq_idx(pfvf, prio);
-    ...
-}
-
-nix_cn10k_sq_ctx_s.smq is a 10-bit field, so bit 10 of the SMQ index is
-dropped. The mask also covers only bits 9:0.
-
-On the AF side, when is_cn20k() is true, nix_get_aq_req_smq() reads
-every request with the 11-bit cn20k layout:
-
-drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c:nix_get_aq_req_smq() {
-	if (is_cn20k(rvu->pdev)) {
-		*smq = ((struct nix_cn20k_aq_enq_req *)req)->sq.smq;
-		*smq_mask = ((struct nix_cn20k_aq_enq_req *)req)->sq_mask.smq;
-		return;
-	}
-    ...
-}
-
-In the cn20k layout, bit 10 sits where the cn10k layout has cq_ena, and
-that bit is 0 in both the value and the mask. So
-rvu_nix_blk_aq_enq_inst() calls is_valid_txschq() with (smq & 0x3ff).
-The masked AQ write then leaves bit 10 of the existing hardware SQ
-context unchanged.
-
-Depending on the old and new SMQ, would this give the following?
-
-  old < 1024, new >= 1024: the SQ is programmed to new & 0x3ff, which is
-  the wrong SMQ, or the ownership check rejects the request.
-
-  old >= 1024, new >= 1024: the ownership check runs on an SMQ the
-  function probably doesn't own, so PFC configuration fails.
-
-  old >= 1024, new < 1024: the AF approves SMQ X, but the hardware is
-  set to X | 0x400, which may belong to another PF or VF.
-
-The CN20K SQ init path in cn20k.c uses nix_cn20k_aq_enq_req and
-programs all 11 bits. The PFC path does not, and it is reachable through
-dcbnl ieee_setpfc -> otx2_pfc_txschq_update() ->
-otx2_pfc_update_sq_smq_mapping().
-
-The Fixes: tag points at b5dcdde074d5, which also added the cn20k
-decoding in nix_get_aq_req_smq(). Should the PFC remap be updated as
-part of this fix too?
-
+diff --git a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+index c4ea247d2470..e62378abcffc 100644
+--- a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
++++ b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
+@@ -817,13 +817,18 @@ netdev_tx_t prestera_rxtx_xmit(struct prestera_port *port, struct sk_buff *skb)
+ 	dsa.port_num = port->hw_id;
+ 
+ 	if (skb_cow_head(skb, PRESTERA_DSA_HLEN) < 0)
+-		return NET_XMIT_DROP;
++		goto drop_skb;
+ 
+ 	skb_push(skb, PRESTERA_DSA_HLEN);
+ 	memmove(skb->data, skb->data + PRESTERA_DSA_HLEN, 2 * ETH_ALEN);
+ 
+ 	if (prestera_dsa_build(&dsa, skb->data + 2 * ETH_ALEN) != 0)
+-		return NET_XMIT_DROP;
++		goto drop_skb;
+ 
+ 	return prestera_sdma_xmit(&port->sw->rxtx->sdma, skb);
++
++drop_skb:
++	dev_kfree_skb_any(skb);
++	dev_core_stats_tx_dropped_inc(port->dev);
++	return NET_XMIT_DROP;
+ }
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118042614.878448-1-vmukunda%40marvell.com
+2.56.1.750.gf70dc682cf-goog
+
