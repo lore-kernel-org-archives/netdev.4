@@ -1,63 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795362415;
-	b=DyoI8++s2VHTqbC+7xj6g0RZJWMcYaYQgNsSYtCpUa/m+MgUZHJaOs1fp/xikEPyrvto
-	 2/rTLa5gqT3t0BMUCD00BeGO0x3MzfLOxPbGjh7fRap30EEfKwXwyp11KZ3fdRVC7y7uB
-	 n8Y1WTzQy0XVhxu0Aob400TOePVRL1avIbsc88O6GTTkKj0ZVxbcEKPimFQhpFOoieuOV
-	 feqn/ey3guV9Tb25eVCQcfnmU/lCO37YW86/IGvvto3HrCQNfPPDoyKnftUxCeoePTZi9
-	 LnW0MgPEdMi+L7guSIfSAmLmumnVcNEWMsLhqvZaSNpDaUoNrPdIIudSDnp6h8TRg8Q==
+	t=1795362515;
+	b=qiK3MUPGyEchIwPxKw+qVLLZCuh17XZ6D10paXUQwJ7uKONGls4ctxwle29qqJe0K0Rb
+	 WehHv5LAmGyrS6YvFJ9Zf66aindh1eQxoMScw+2kzKUmepj+qQggyzeDZgN7kEOhtClko
+	 nzYW3KxQMoaBeB/ERZeeBvoevhOibl66z68qgyD6JMsFtTv/xEDEWkR7FBWn4/V15uOTg
+	 F7n8KKXn/Xe4DCvTIyIiIu1NvDPFRoCpOibRw7j4p9iotj4alW0jRbpcKtCItdPhje41U
+	 XOo3xM1Jnkhyw68UvKtE80r4SFTW0LugbHwu3Ko1MVr+9d6LQnD+VqcdY3V15oKOAag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795362415;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=yoDV+prWsX7guq+90WivZjKbCtQ+ft9UJtNUNcoppyw=;
-	b=osknN4tbsK/NKLzH/nPVy6Yelb0hAyPXbuOsBUrej8YnP0/uR/IDC4d4Us/Wxvro+av0
-	 XreJeF3SNMPya5yUlnTF3fYoXrnW4iM1zg60yIznk5RV+eJcus9Hh+Vnh5j0iyoMXh43E
-	 JzKJw2Vgrz1u5Lw8pertwqqPqUy9GrT9AEtbMV5d8AlUFW4BKOcCtJzZjOESGjByVA1eE
-	 To8VOPnIyee1bMMidIldp5kqEC4ZiDvBg1jt8UlhG/H0VcmDit2A17NL0MksL7A09zz9e
-	 A5MxQEX4Rbc0O4PJJFz5UtHqCyWxrtET9+uY+P6xAyQ70pekKVjnEqWYTwbIYLH9FjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795362515;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Transfer-Encoding;
+	bh=tpi/k1b3USKHOwp9PPTXHQukTIfxQUIEB/5FP/mhyf0=;
+	b=Z5aQzsJC2HqLKJx42wy4tt7Qnt0kSrDScnCPvQPaK4o+mI955gHpNddge33HBV5ZfeWz
+	 Dr6x9zOaqZFUu3tQfzXnkyFnyznnNmbYUEeYFqT4KBSu83btKMvlJEPRT/mQWPdTLN9r9
+	 3++gd2cyeEGFiLkf0aKgwVg/XDfHMgcyoUhi6voYDJfczxJvAUoRoUpoKWhQIPyV9fU9C
+	 emWFKrLWqK22FTgkpovJOpzaaRntaQtMTk7/QL/dxB0qsGFjgPB2CC6GF9Al5UVbXnWL3
+	 119DuioJwg29USYiKqTMzE9LQgQVMyflWSZT0UYMDYYo4MYaynR8qnai3r5ZxiKYcTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=FWAlQpvl;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0990C606A32C;
-	Sun, 22 Nov 2026 15:46:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0990C606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=h2QxIDAy;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id DA854606A320;
+	Sun, 22 Nov 2026 15:48:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA854606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=FWAlQpvl
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=yoDV+prWsX7guq+90WivZjKbCtQ+ft9UJtNUNcoppyw=; b=FWAlQpvl9OScDr7zh1eXy10phf
-	2k/eaxwZpN3S1rognH3ERyRNfvilejPDFDKo/iib74CPp4Cg+G2yEcaADYM383sGV/b1B1dDUsbrX
-	MAEm8LbHu+rIi4ix0YXUiKlHY/ULurJJRs64W1Ws2wAVrabjm0Ci2F5X8633lGtDqNp0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xV9m6-000aVN-A8; Sun, 22 Nov 2026 16:46:42 +0100
-Date: Sun, 22 Nov 2026 16:46:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] ARM: dts: rockchip: Add support for RK3506
-Message-ID: <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
-References: <20261122060114.773624-1-jonas@kwiboo.se>
- <20261122060114.773624-3-jonas@kwiboo.se>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=h2QxIDAy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=h2QxIDAyQ6AjiTtLOAHPYyqgFapkERNPrI5Xg9hH/Vg+Af/dILQpJUSE9X+bMUDjn2Uo2IR62HxYv
+	 TwJq+qf842mgYqtfyLJr8yJIoSkcXhv4b2mw+Bd7QKXG9anPVphuMvVaE+YOD67YqIWwRFFg7GcS3v
+	 e7MlIwY8bjlMzFnw=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86b030ec0b17-d4348;
+	Sun, 22 Nov 2026 23:48:28 +0800 (CST)
+X-RM-TRANSID:2ee86b030ec0b17-d4348
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from home-ubuntu-251 (unknown[180.106.213.53])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b030ecb7c2-72e24;
+	Sun, 22 Nov 2026 23:48:28 +0800 (CST)
+X-RM-TRANSID:2ee16b030ecb7c2-72e24
+From: Jingjing Xu <xujingjing@cmss.chinamobile.com>
+To: netdev@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	sdf@fomichev.me,
+	joe@dama.to
+Subject: [PATCH net-next] selftests: net: py: close the wait pipe after reaping a command
+Date: Sun, 22 Nov 2026 15:48:27 +0000
+Message-ID: <20261122154827.1272059-1-xujingjing@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,29 +71,62 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122060114.773624-3-jonas@kwiboo.se>
+Content-Transfer-Encoding: 8bit
 
-> diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
+Commands started with ksft_wait keep the parent write end in ksft_term_fd.
+After communicate() reaps the child, that descriptor is still open, so
+each completed command leaks a pipe in the Python process.
 
-> +		gmac0: ethernet@ff4c8000 {
-> +			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
-> +			reg = <0xff4c8000 0x2000>;
-> +			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
-> +				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
-> +			clock-names = "stmmaceth", "ptp_ref",
-> +				      "pclk_mac", "aclk_mac";
-> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq", "eth_wake_irq";
-> +			phy-mode = "rmii";
+Close the parent end after successful communication and clear its saved
+value, before decoding output or reporting a failed child exit status.
+Leave paths where communication has not completed unchanged.
 
-Sorry, missed this on the first pass of the patchset.
+Run this from tools/testing/selftests/net to repeat the supported pipe
+handshake. It prints 16 on the original helper and 0 with the fix:
 
-phy-mode is generally a board/PCB property, not a SoC property. It
-would only be a SoC property when the SoC cannot do anything other
-than RMII. But given this is snps,dwmac, i expect it can do other phy
-modes.
+  python3 - <<'PYCODE'
+  import os
+  from lib.py import bkg
+  child = ["python3", "-c",
+           "import os; os.write(int(os.environ['KSFT_READY_FD']), b'1');"
+           "os.read(int(os.environ['KSFT_WAIT_FD']), 1)"]
+  before = len(os.listdir("/proc/self/fd"))
+  for _ in range(16):
+      with bkg(child, ksft_wait=3): pass
+  print(len(os.listdir("/proc/self/fd")) - before)
+  PYCODE
 
-	Andrew
+Found by AI-assisted inspection. Both this reproducer and a C helper
+using the existing ksft_ready()/ksft_wait() functions confirm the fix.
+Normal completion, initialization EOF and nonzero child exit each leak
+16 descriptors before and none after; ordinary and ready-only controls
+remain clean. No kernel instrumentation or fault injection was used.
+No hardware suite was run. Timeout cleanup and a child exiting after
+readiness but before the parent's notification remain outside this fix.
+
+Fixes: 71477137994f ("selftests: drv-net: add a way to wait for a local process")
+Signed-off-by: Jingjing Xu <xujingjing@cmss.chinamobile.com>
+---
+ tools/testing/selftests/net/lib/py/utils.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/tools/testing/selftests/net/lib/py/utils.py b/tools/testing/selftests/net/lib/py/utils.py
+index 1727bc418073..72c5af28cc7e 100644
+--- a/tools/testing/selftests/net/lib/py/utils.py
++++ b/tools/testing/selftests/net/lib/py/utils.py
+@@ -105,6 +105,9 @@ class cmd:
+         if terminate:
+             self.proc.terminate()
+         stdout, stderr = self.proc.communicate(timeout=timeout)
++        if self.ksft_term_fd is not None:
++            os.close(self.ksft_term_fd)
++            self.ksft_term_fd = None
+         self.stdout = stdout.decode("utf-8")
+         self.stderr = stderr.decode("utf-8")
+         self.proc.stdout.close()
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
+-- 
+2.53.0
+
+
+
