@@ -1,104 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795365724;
-	b=KEVPu2XSDf4mPGCiXQrGndzf9EWW1caOMa/e8lS1Ikvw7IG9CDN+FQQCE32Lyvy4Dbd7
-	 1y3sJtuify3LW9lAxKCRax6sunC0e0z6NlbilZt3juvEAlUQjpOG7ECyPB85VJIjAEGFi
-	 AfH3RU888yvvzGKv6m+HfJ+x3EStK6N9XPPvLJbyChEXzxRUqjAc9RjYfQA6Rlfx5GCng
-	 aDhtW8dIIULe0b0cFBQ+vzvFA+7q9EfstNcxSOoeJGALPybeTk5mLjSiVdeMoI5ichb5j
-	 MQ9cfSwAlp0GCD7YOK+/nEEOCWUtTVS1aGaV+g7sW/D+xft7GSaHMNnZ+H04k1BNELA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795365724;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=r+azstJQBlGkRidMRHAdXxlGjDX4ypISpWhtS/MVgqA=;
-	b=0WCa7GquC/aj9t6pIA6AdocVSycEYcJa9w+2gw0W603xIG6wHgwfguWg7tlYgnGo1zL9
-	 +7dKj8mUvb4gxoz5zGRespbljYLduL/YxlN5bgpavq/hJ05FlWs88evlv7zpL6Ez4VE/W
-	 jQz+H/7OxWGdjaiwwSPETJjZhjbFSKM3babrerRZK0kxg3Bsplq6XoXEirAc+czscISDr
-	 08la7LNdXJ7hsdJteK5EGd4q/w8YEqtSFL0mcYM4LcQj4cS12Ls/qtL0Nppb/Hr/eknIA
-	 Fe8KG8FW6FZw/uTtOpcRHub2Vdm7FtCoA+9bv1UbZGn45FYxK1QZrGy930ULbpvET+g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=rU+Vj6Eq;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.2.61
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795365950;
+	b=muQEjadc4z4Ro1MUGiFA9GivnC9+gwKPrQeosiNcLzLM84Rb6E2N7e2t1m8wyPbdGo1e
+	 qCalj3Lll7bwl65FFKhr8aYuh5PMBuizAp6XOxY0oy1l5mSyJUt9gOmEGtWqqpP1vvWjF
+	 pvxGbFBQ0H0uVEempshFNLwL1J9etthigiv59tHzRjOHQtNVnW3Rh/7v+B/oP40slprvz
+	 mcxa59qb7oii9g1ZmpDkJyiTY7S+vvT5XIRb04DlZdHeuVrvblKB/qY/9xUgzHYtF2jDk
+	 uD/R7cfr5uHtQGQuyc0/9k42/ixo4l/k5BmF31xozxjQzvLgVQ9GQMRY5ebVR4E/vdQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795365950;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=lF5CeEItLt42/sGbDl8xkJ1TFb35Qztm89KYQm4SqIY=;
+	b=pvndwwQFm1oyzmL8KqK9hQZ6VDzFwunGYCm7rFddEz+AZd+EPSIAPXesihY5RC3LSxwT
+	 L8uPoBEdbIQ7XNfQVXeYA28CIGeTwvsTEqcDjgaVa/e3bHwmEIdZ2PDQBrLtgaXtOteNf
+	 y69hdxjyze2ZhakiodQxSeUd0w7MIU7SZ+N3ki9XSZPVevKgqJOiv7W4Yoe+4AQ3MtNyR
+	 gYkpbnqJVab1zzwTZO5k72GQKVIdFuGwe0ioCtCb3xAbReUhGIhR484jmyU9knhphS4+N
+	 SsMxjbvvh4WBdruDjFkQrFYkyDXjz/V0oEOleb0fsDJHzInf9Yt4P/00ysn70EpggnQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=CXZwtwmG;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.2.61
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazolkn19012061.outbound.protection.outlook.com [52.103.2.61])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 718A3606A680
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:42:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 718A3606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84329606A330
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:45:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84329606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=rU+Vj6Eq
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4d581da0aaso322691266b.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:42:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795365723; x=1795970523; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=r+azstJQBlGkRidMRHAdXxlGjDX4ypISpWhtS/MVgqA=;
-        b=rU+Vj6EqFLZtq17OykikcbR7CZ6nQcRm1ZcCcBNJHmhIDgQPzzfDcfwqSEsJaQvm2M
-         bflHZJdk+tdlUjnlKQXpl384X8OAE3gZS7irQnM0xo8AH/s/pAdzgYoTh29JnEb4oSD1
-         9KTnTw6Hqdx1P4gJ30al01fFHP//Jhkixb2rjcBN5bYfFoOtj3kRePsZu2bSPauGIZOd
-         JYRs+aNNx9/27liDqsDg9MW/M7gaCCr+DrX4+O09M/LZ80rvXmi2QCQYDEjCEFmUdMAT
-         YlCmTEq1MBgKcmWELV9fDs22V0cy5L4dDzo4jrZ+kHWZPvwf8hBOliJ3VQP1MIpxgm6y
-         pNVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795365723; x=1795970523;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r+azstJQBlGkRidMRHAdXxlGjDX4ypISpWhtS/MVgqA=;
-        b=sd/VnoHZj6LWvZDTUyatUArDaXSrqKl40+R5C92D2HNbbiLr6qjh8G4d3omSEs63M0
-         VcMsnJszJfNZI7+SMgKeo2+XtvG8x+WvVSubm2wxgbUO9X6sUwnh2CphpcBglF9Mb60d
-         XvVU9smTcmvSVS42EKrShz3Um892VrG8KJV7BfN+6Tk7sUAbNVkgYtF4L0y3skAenXNj
-         nTlKAMn0V5GX9EG98XFE2xLPXzMZ+8NlBv7WnYTzR0AHo5DRGmBXotwDlCjcq9GD/R1S
-         SThEnv8hVoPq72MAkdc5nb930YsAYcsO4TDkA9/gc8uQkso6bNiWvV2jj3iC/RyOa5ra
-         UipQ==
-X-Gm-Message-State: APuU4Z8MIuNdyYLUEbCBVixXRkTnq+U3f9L7UtRk65M3F9HjnhP4Qfyy
-	FQ32Y2sUX9BWXABgR91rW8tCvREwYP+Un+MlW46yDs1W/Rk1b9sO7RXwCDBha8cN3w==
-X-Gm-Gg: AZFdTZcM9iWbB3HleTMk0d8JppwI0uTjatQ/bUm7iKU7hdV9Ok/oQjkuG1RihB22zi2
-	RmSBbjrR9SUdvAoI7hwL92qzAqs42IObELL/+w9eUU+/+xp751aOugIb7RtJFcf/tLsc1DAYn+A
-	Xzalmrnt++jHX8IDi9wOOB0tjlK2JW41ArlM/ym1hqkNIPGg2bHKmDn+osu5mUccXHIOwnRHUI3
-	mhAMCC5lnAEcTFli44KS0NdUIa3wxw1CAc+xSrPInayauJ/yF7EGxSZV4zl3Oc/MqZ/yYcL5ShC
-	uQuxutgj4MJ8Qishs88hdLSyyp1WAm0/YQZBpCHY5EHxbecwA12vkpgfF+E+KFrrpIiMFuKZiXz
-	kUpkWVctyrYr9/n5GVkeFYrqyAbEPd/GdgnwcQY0uV9uEOHp5EwvQfF7pp72KX0hfHukTj/lQqG
-	HlpD0CPRuNbRENHw3fcAYZbzFZ8N3OTA1tfiqETJJtrUCw44bumjxtJpi3r7cPuQIvqVnIkvPh8
-	pokTQSMYhZR+f0MaeY5O9peiIok0XcGkDF1bF11seStzPzx/C3lc8+E46ePoFaqX3Kckvi2Nxl9
-	X9uNzTEVRiTB4ktFoen9EhoPHLSHCgP9Q0yOliW4ZSizxqJBUjQPlztnnb3kqNhP95/CEONTU56
-	gFO2pqliE4p/g2i8YtxmHrH++wWjFSJs+6eGREg5AM53pgKqmFPVQoHNMr9Uo8sKd3cezyFiPQu
-	+VjAVA04P3yJTZr07WBvnlPXzhrkeaari1IKX3Ukq1g75VRJLd9q5JjBW/z10M+NIFPrK9bVPg+
-	ZKMtFyv1nvGSxEknOO2DdHXlu+zXCWzhiSNJO42eJBod7IuT4W4VK+al4v0ZGiSb2V1y2xEFJLP
-	TMdh/MDRmzu2RCA60/SwkgvTRIiQ4hfpAqhKpLpf+trPhH7r+Rlh5M3TJYZc4jzCqcQV1P/uGcx
-	PvqvXlzHKJan8TjBI0bv4
-X-Received: by 2002:a17:906:3b04:b0:c29:3c97:c994 with SMTP id a640c23a62f3a-c513ab47f35mr594973966b.35.1795365722856;
-        Sun, 22 Nov 2026 08:42:02 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f247136100ed9c1e497de323a4.dip0.t-ipconnect.de. [2003:f2:4713:6100:ed9c:1e49:7de3:23a4])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afed51asm319489466b.76.2026.11.22.08.42.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 08:42:02 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: willemdebruijn.kernel@gmail.com
-Cc: netdev@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=CXZwtwmG
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RKfAsjrSy0a2J0RjQSK0gIQs6e5hlTcGNh5Ev+mMEcDzXc9cPzK22XGw7xybovhlwNHvej0Nwol/NChra96O2mcfJH+oN8Fn7J40TT4+5xndgOT6bzIzMmkiM+xnIsUX8o/B3v60xQhpR03mHVY71+SwaZid+29tVUKk0ibdvgvrrADG3yYV3UPdRJI/SSZP5rfUcj4oF2N9qE3v87gppjD7XGPRO7sfsLSXbNF5Ru426UaU/bbl1bAurLu312mH3qUilAh685FP0/+oAnmyx3E9vKdTCWbs5+B/V7YqfZF6xzS/E+RLRZfjLITvYeO7OYup3tt0KUEmxuGeFRdrLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lF5CeEItLt42/sGbDl8xkJ1TFb35Qztm89KYQm4SqIY=;
+ b=tufb5KhtJ/leZmJAppuur+6nZ/bMuciaibbirEDFbpZJrrl91kNkUfx7IoCU6mqh6gONgCqlLoDs57CnSJTcUWpmRldzQoJvgI+G//ciF1oDtJnRIZNZ6l8l7t0kJMbxoriH8OvdWW5o1k+isuKNDGm41YvKU4msGS5isoBXsQBvGaGzkedbdyfsjij4bIFENCrqBUCubaYebqIwmdy1+fwf/e3YH2tdU5P7eRvgr0dzH2AHsFbzlpLZyzYBIrBEYt2GSzXTAxA8GtewvagcQU89ZSXG4l1ZWODGXDLO7gn7ng87CD9QPsuiTcMmnGsCH4FOY0NRowFpD7i+6UsLLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lF5CeEItLt42/sGbDl8xkJ1TFb35Qztm89KYQm4SqIY=;
+ b=CXZwtwmGl2ynMBr1QblATXIZc/hNY8svrY3nQmBFjqznh8a6eAVfTNgEQCa9gTqDONWUlX/vHh/ySCNlAUqE4qpSiVxeVdRLbBXOiatzlImQ8uvzRS6PQZe7zaUBBSXd6NEz+K9Wdu4rZfaPdhIOvKsm0WvSDEIrqxnGGFK2/hWY6vlMXW/aHjR1zX8AM/ZlGm+TCNZFO4zxMdARTEVeLk3QjVZbnttxHdw1TZBUo0kYw1RF3VMAJbj0q/6XEQLDtSGse2UPI2Hm4QwLFF5XSl7U7mYlfSg7yg0tNQoiv2aMJZhJBhHB/r3ndntx9gZdH00lOIcUOG1RcSBVv3P5Jw==
+Received: from BN8PR06MB6177.namprd06.prod.outlook.com (2603:10b6:408:4d::27)
+ by DS0PR06MB10391.namprd06.prod.outlook.com (2603:10b6:8:200::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sun, 22 Nov
+ 2026 16:45:48 +0000
+Received: from BN8PR06MB6177.namprd06.prod.outlook.com
+ ([fe80::859d:df4a:66a3:142f]) by BN8PR06MB6177.namprd06.prod.outlook.com
+ ([fe80::859d:df4a:66a3:142f%3]) with mapi id 15.21.0639.011; Sun, 22 Nov 2026
+ 16:45:47 +0000
+From: b.lane130@outlook.com
+To: bharat@chelsio.com,
+	andrew+netdev@lunn.ch,
 	davem@davemloft.net,
-	kuba@kernel.org,
 	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	willemb@google.com,
-	stable@vger.kernel.org,
-	hassansultan@google.com
-Subject: Re: [PATCH net v2 2/2] net: gso: fall back to skb_segment when fraglist cannot satisfy checksum
-Date: Sun, 22 Nov 2026 17:42:04 +0100
-Message-ID: <20261122164204.4058652-1-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120044733.222627-3-willemdebruijn.kernel@gmail.com>
-References: <20261120044733.222627-1-willemdebruijn.kernel@gmail.com> <20261120044733.222627-3-willemdebruijn.kernel@gmail.com>
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: netdev@vger.kernel.org,
+	Bruce Lane <b.lane130@outlook.com>
+Subject: [PATCH] net: cxgb3: complete the cleanup operations on error paths
+Date: Mon, 23 Nov 2026 00:44:27 +0800
+Message-ID:
+ <BN8PR06MB6177F1B73B4D37AC2315B428A4462@BN8PR06MB6177.namprd06.prod.outlook.com>
+X-Mailer: git-send-email 2.25.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SE2P216CA0117.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c9::6) To BN8PR06MB6177.namprd06.prod.outlook.com
+ (2603:10b6:408:4d::27)
+X-Microsoft-Original-Message-ID:
+ <20261122164427.1517323-1-b.lane130@outlook.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,35 +98,102 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN8PR06MB6177:EE_|DS0PR06MB10391:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f8d23e2-8d54-43fe-28ca-08df48b80e88
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|5072599009|8060799015|41001999006|5062599005|23021999003|15080799012|19110799012|260925184616899003|24021099003|25010399006|8022599003|3412199025|440099028|12091999003|3071699003|1710799026;
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?UAqOwjpVpEuGTegNNs/zm6nZ2QJnpfiy14inRQYqsFkLHSXLLk06i8bTZtJq?=
+ =?us-ascii?Q?6Bxc7ddXuSHZ30s5VdyrCrgdW2duoFDv4FDiJUeKzcUMEn9WoCghVcnf6V+X?=
+ =?us-ascii?Q?FbwKGM/U/afah9puCcoe8WPHmkYPVrvPK1krJEze13PiijIT7hoscdNn+l8q?=
+ =?us-ascii?Q?wBupXvYAYGXXQu1u11Mp1A6tbDORoUSdq4coXvtyiE6D/CAF/Az3cvyI5evg?=
+ =?us-ascii?Q?yIeS/8wqpIS0JxgMe9BmJbgUiUBPCenTF2bs68+xf4CjsNCeAPPrrN6FkPNT?=
+ =?us-ascii?Q?Hvw96yav+jZ3ix1lAUOUB8R9sTrJfUFoemOgPH5rl5zNRVGm3UVqbQQYrEp8?=
+ =?us-ascii?Q?RTkDsXzenjLsBChAy2k3s545CCFx/g6nKq/r7ZPw3cCL+W4TA6d/sCCpQNmZ?=
+ =?us-ascii?Q?/Sqktlm36wZu9hGNxqh2DS9axA/i/lqhySKTmri+5cEZ8OQgwsG9mFMBpT6s?=
+ =?us-ascii?Q?1rZpDT193t7CJsiAQNhK7b8Cr8zNQjpTWkr6sKCsacMwANWtUMRDyoBOypue?=
+ =?us-ascii?Q?ijRfu3eat+C/gbHv04kPxTlHeFw5Wf8wB/8E7RzM1sfZZq+SPIof7gfdda6N?=
+ =?us-ascii?Q?ehCWjkvbqHqRa/eg0EtLi7fdKYQDWvr5aqeAHVe0MuaRaryWA28LZ4Agip0u?=
+ =?us-ascii?Q?uZ2VN1WzqeMV7fFMhXCquNwBfgOl1LpQPvQKJN59OtD47kwtWEXOLpsqV9ub?=
+ =?us-ascii?Q?4I5QS5AykmNzCcaUm3p5ByjTzefDqqN/c4WvpKZ7JGSbRBcmvGp+vaKvOgvU?=
+ =?us-ascii?Q?3kBHgGGienXi5RMXytpvF+/A6aaGxy7k2TaP86cZwXKtBPmCnqGTj9rGYxJg?=
+ =?us-ascii?Q?Zuea4hyJfLznxlp0w1McbAX4nHKXXx2bIlZd9hVB0UI+8sPKGgs50cL5vj6P?=
+ =?us-ascii?Q?m40rvkOkakpDQPKJdQtuY8B5rze+t9guWfDs85Slazsg/V831sWpgtfTCoCJ?=
+ =?us-ascii?Q?oMjsmqtvOCSWOC7fv4z2bFXxPU4zn9CexGlm398bth34tsF1PdC9W+gM+JXT?=
+ =?us-ascii?Q?Sg/4A7MglUEQji6uN4EeCAUH/w4D3GRcuCCDyrXOSG248BKQF5Rf3SO6qbR7?=
+ =?us-ascii?Q?GX1jFyXc?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?3Z1M2RbQNwwqOZlxq+yxS5cIyXO/UfaX1L2Thfhn6WeONMXKyWlIXNo2XwQN?=
+ =?us-ascii?Q?MuUeVfDXczZEYHDV8hVqwX6uC52rXvus6lpO7H68yhvoAQv7lDHEaIfh4skW?=
+ =?us-ascii?Q?lmcWTl2EmjNwrReotSovgM+3CzaBj9RENJDNb8Hdw5MvTsowE7ikdiriKCO3?=
+ =?us-ascii?Q?SFZBCuFyZUmTQoFJOwIDRlJQMGtXszqlzAWAQ0BNFzM70E5QzhL4COZYAbho?=
+ =?us-ascii?Q?UvNiG6FN2KoaUWUaLPmYL8xsV/VVO3MVpI6Oa5n8qhXD/nlMF/s9qXbJJiJn?=
+ =?us-ascii?Q?wZfod2LPItckWIkr45KQaVlnPIWU5pk10CLwZioKvyrzTo+4QJE0YIMTM0jA?=
+ =?us-ascii?Q?l9LIe/qmYJ2KNsCV9Qfr3q2o4VfD6iQ6Hc6negBTz5ltcAuazHsvqr2kPd0D?=
+ =?us-ascii?Q?YJWL2RD2ng2TLRJozT7dSGrGgR0dHQqnmTjymvtw3qu7uerhOsIik87qzg1F?=
+ =?us-ascii?Q?QerGL67XNf8LQmhpisFdyFoz0+bpne36JBBLKQ9Tw/CbEet2yGSUDjYdcQPt?=
+ =?us-ascii?Q?rQfEhaU2R3jZ2cjfOQL8vb769wkrASi8ZFTriVAFtCKdLSq4S/8tLdnl0S8W?=
+ =?us-ascii?Q?5DbxftRhAPiFLL2Xn8u/3/hxQ/SCxYnzIWWyzGgZ/sOl3g/UYqeT2ZQ8I3r5?=
+ =?us-ascii?Q?YQYc8qXxgHt0BLVZ60Lf0+42MUsYD2twGLh2Qtp7fdR75R5luiocD/7zzEK2?=
+ =?us-ascii?Q?+J+KIeoVAMcCYgBRcdUScL5Bb5Tcwdh4lhr/swOibkzGAwRr3+qLTqfoQasP?=
+ =?us-ascii?Q?0eAnjl8WBuMPZAlr7O34K5qEljzLH6CEDdm8T8N6T7iIsX9mUt/6gn4kagSG?=
+ =?us-ascii?Q?23a6Z+svWoiabRfNYTc1DFkJGlUANOL0AInNQHDbj0/mZc2vb3NLMnc1BaKL?=
+ =?us-ascii?Q?fMBoc8ygJNIS3my0EYosCGXm1075tf1f03WEDITzr+5oOvk+modBiHMsDGKx?=
+ =?us-ascii?Q?YeGu9m5wIA8En3N7m/JVs3bsW0/BSlcFPOUo+TzRMPckKarHQQeS9SzSRzpt?=
+ =?us-ascii?Q?hpYSWPNvdtTPygqz+GX+AxYojaqCzvS22egwmK98EHOotwoF4RtJ0uwkhjbf?=
+ =?us-ascii?Q?GlzZCNhRzAZrkuos9W3V2YVg7mcE0tpLoBgCSEoe3Nf1NXuSV0r9d0ggdxmT?=
+ =?us-ascii?Q?XnWKVqCzBU14njremonFTlhq1L+LhJszUxjfxNWi8Pk7XOCDkDNpxad7g7NG?=
+ =?us-ascii?Q?AkFHIyD2GjUBVKQb0jjFDpaRidkNFd5tgsxLRDNkB/Ab9wLS2dkJqAecWzLM?=
+ =?us-ascii?Q?WC+PNov7GHETFVpY5DG5P5TueFr+uPSnApKfCvfuyEKVHm3O1vThoGwsJGOn?=
+ =?us-ascii?Q?RWdR2pFN2AkIWRKlR3QP/QMRruxvjkQFAbFpz2MipdCJtDcrA3f1FebRFmyt?=
+ =?us-ascii?Q?oQn+2drTYPtUBeGAY9qnetdrCfeVQlm2h8P6k+P5KjI0ar25Pib2e95wum8V?=
+ =?us-ascii?Q?1iXLhiPXNcMj6UiJjTb+EetZbt8YGdwr?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f8d23e2-8d54-43fe-28ca-08df48b80e88
+X-MS-Exchange-CrossTenant-AuthSource: BN8PR06MB6177.namprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 16:45:47.6670
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR06MB10391
 
-Willem de Bruijn wrote:
-> 1. Outer tunnel checksums. __skb_udp_tunnel_segment() and
->    gre_gso_segment() compute these with gso_make_checksum(), which
->    reads stale SKB_GSO_CB() state, and needs an inner payload sum that
->    skb_segment_list() does not compute.
+From: Bruce Lane <b.lane130@outlook.com>
 
-Patch 2/5 of my "ipmr: forward GSO multicast packets" v6 changes the
-same three conditions for this case. With this series on net, the case
-from 2/5 (TCP from a local udpcsum VXLAN device, CHECKSUM_PARTIAL
-aggregates, forwarded with rx-gro-list on) leaves no wrong outer
-checksum, 3 of 3 cases in 2 runs, so 2/5 is not needed on top of it.
-The other four patches apply unchanged on top of this series.
+If sysfs_create_group() fails, the error path lacks some
+cleanup operations to release sources. Add corresponding
+cleanup functions under out_close_led label.
 
-https://lore.kernel.org/netdev/cover.1795295554.git.julius@bairaktaris.de/
+Signed-off-by: Bruce Lane <b.lane130@outlook.com>
+---
+ drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-> +	/* Tunnel headers and outer checksums are not rebuilt */
-> +	if (skb->encapsulation || skb_tnl_header_len(skb))
-> +		return false;
+diff --git a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c b/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
+index 3bee82bc0680..a6693f332d25 100644
+--- a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
++++ b/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
+@@ -3381,6 +3381,15 @@ static int init_one(struct pci_dev *pdev, const struct pci_device_id *ent)
+ 	return 0;
+ 
+ out_close_led:
++	if (is_offload(adapter))
++		cxgb3_adapter_unofld(adapter);
++
++	for_each_port(adapter, i)
++		if (test_bit(i, &adapter->registered_device_map))
++			unregister_netdev(adapter->port[i]);
++
++	cxgb_disable_msi(adapter);
++
+ 	t3_set_reg_field(adapter, A_T3DBG_GPIO_EN, F_GPIO0_OUT_VAL, 0);
+ 
+ out_free_dev:
+-- 
+2.25.1
 
-1/5 is still needed: the fraglist branches of
-tcp4/tcp6/udp4/udp6_gro_complete() leave inner_transport_header unset
-for qdisc_pkt_len_segs_init() and skb_gso_transport_seglen(). VXLAN
-forwarded with rx-gro-list on, 20 cases of 1000 packets, 2 runs: 34 to
-241 reach the receiver with this series, and with 1/5 and 3/5-5/5 on
-top every packet the router received, with valid checksums.
-
-Is v7 without 2/5, based on net once this series is applied, how you
-want the two combined?
-
-Julius
