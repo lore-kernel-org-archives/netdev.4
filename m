@@ -1,62 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=145.239.82.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795377692;
-	b=v302Ck64Ep1UctBLqruN63WlzURPONZbEiEWvgz/3ri896Usj9Nz2kYDFjtHoJOPlsdP
-	 eaKsB8Yg4CkYYqXfNY4vBU0XIKbFBY7O1BHjtEHticDKzoCeCERRUKV+ywslkD8EImUPb
-	 yQ6Aa0klm2pXBejGqMLnwkodn0jhFe792hhrkMjmC7/mz734cFVjz2ogzY3Ci67N1z26D
-	 klEROa5c7Bjitsbq8rl0vYexreawTxt5GCHFajAJLRwVkwUN1HFhskxmzEYPKjlw2z3hh
-	 ojsrYoPjn3G7QvIfrEeqJs7cNnV2KmDM1Ku1CWtAO+5tS249FZZebgMOBjNgDkbOkaw==
+	t=1795377687;
+	b=IEAFmaC7c0CE+4QLcArsQzhcGT2XdcBnhwTdzdro+H5QHd8XxL1mBNMkn2Fx30XMjBI2
+	 nukvqVkLLsn7oK0vt/sB1y2ib0X/m035pJ2E7EorOrjjOl1j1LzEdDLN1LwWf3aGAC/mu
+	 Z+hQKVxPBYLGhufFTl5liqxZ1+kEFiiKVtoMPX2UNoH0A3SmNrvyw3vtZgE2UltKLI3zV
+	 ggl3tfkBTCflLfdyXQq1lznoG5OvkIdN5mjZembxw0SgC+68uc2Nt2+lMjvZA+9gaIil2
+	 KJUNSF2I+vY1ZxBYSkQPOzNBOSnQSNJdcc+3CMEwOhxRtxUgw/WG4naz3taY2VGxayQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795377692;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ZmXFmGYYUTSy92iO1DLvq3rahLhGYek7nLjORxdp2X4=;
-	b=t3xOa321qPveuM8nJ1iSSxQrPBGzdGSfsbhVAzNpwkm+ALSLLapho4Tkg68PZNSngkci
-	 /QRksm4xgDi4iDWFe6Ky1IOLPyl+5sXzlR50OllkZayVoArYkcUU6bs+suEz52WDRPZUp
-	 hgKBv09modLLUoCPfQ8c9a2ZGQZW7wwwlNLUGMWQ7BbHZIf49T5LZ150hrRYZEIKQVB1a
-	 RqrXwuC9DBOBFNe3aVZ+ocn/MUQfLZF3FduaQrMY28xBbXx2ub6xK/yT0sbDrayyA3zY6
-	 f2mmn0XcPolq1o6PJ9zr7Z1L9xMiXTnXShxZInM30eOqcK92+SaJKVwPyHAINUOj5Lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795377687;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:
+	 Disposition-Notification-To:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:Sender;
+	bh=+FkGnM2fnU0IKINvnoMfZCIIgvS7HvGvB/+EcCAgPi4=;
+	b=Iiw8vLApl2xwVGHSaM8MOurVq9jy7a+O4O517oKIMaDW2EEnwaqID3O2T6wLOxSXf4L4
+	 Il8oXZ7+oY0ijQ/ByuhK7/bOFNywGRXKYRAglcxi1qcAkoCsyfFLryyOzOrLyS+YmLZo/
+	 aRv+fH76vJId+auHHtNpv9DaZwjWADB9tZvQHPIi14MFnLDtMEjQYYtT0lCFI7WKn9Rv2
+	 xBm4q6Q4Iu3yrdo2tSk2h9PFntHW8TX9LEN81oszYcJJomahitZsUKGLahznxikMJbhGS
+	 hol3RSXhSQJe6SeXLlttZqAOwRVJDboIJeJCxLqwvRKBEf+ljTyPooge7SJxUchESug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="I5/QcWRt";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=maciej.szmigiero.name;
+	spf=pass smtp.mailfrom=vps-ovh.mhejs.net;
+	arc=none smtp.remote-ip=145.239.82.108
+Received: from vps-ovh.mhejs.net (vps-ovh.mhejs.net [145.239.82.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF9B3606A333;
-	Sun, 22 Nov 2026 20:01:32 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I5/QcWRt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B49FE1F000CF;
-	Sun, 22 Nov 2026 20:01:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795377692;
-	bh=ZmXFmGYYUTSy92iO1DLvq3rahLhGYek7nLjORxdp2X4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I5/QcWRtvAIlbtNNwyaCrQcxPiuUdxYhJ5PzoWCTqcSS8+2yTpq3bNv9rPMGpUwL9
-	 zxMkW5eb1OlI/ovfmiqKxzGHc57vD1AEu666RNZS0DT1clSaLGNu/ZAZDnkKuEgkPU
-	 F2t0G//YZSWVkSS/px+PeBGLACO4GpjYCBP6naZ5AQBm2Ar4ODIzL9h066YYtJEkVg
-	 LZthX6SvXwKp7k28AkpsdUcRCKI9SFrMqoIxQHHiwJMLx+Jd7ZkkiMcq669RzLPWNI
-	 3vCcK5HZ3IsClYB18R4bIcnH3hDzWwYW8KWcy3SFZUYxVSN+HTLN5odYDu1r4gmUAb
-	 SINbg/XJdy3Jg==
-Subject:
- Re: [PATCH net-next v7 1/3] net: macb: cache ENST config across link down/up
-From: netdev-bot+sashiko@kernel.org
-To: theo.lebrun@bootlin.com
-Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- nb@tipi-net.de, pvalerio@redhat.com, vladimir.kondratiev@mobileye.com,
- gregory.clement@bootlin.com, benoit.monin@bootlin.com,
- tawfik.bayouk@mobileye.com, thomas.petazzoni@bootlin.com
-Date: Sun, 22 Nov 2026 20:01:31 +0000
-Message-ID: <179537769127.3135.3406600332849226108@kernel.org>
-In-Reply-To: <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
-References: <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55EE5606A320;
+	Sun, 22 Nov 2026 20:01:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55EE5606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=maciej.szmigiero.name
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vps-ovh.mhejs.net
+Received: from MUA
+	by vps-ovh.mhejs.net with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.100.1)
+	(envelope-from <mhej@vps-ovh.mhejs.net>)
+	id 1xVDkP-000000014eN-1meP;
+	Sun, 22 Nov 2026 21:01:13 +0100
+Message-ID: <5651d569-d291-48e1-b38d-8cbdb2c2f0a8@maciej.szmigiero.name>
+Date: Sun, 22 Nov 2026 21:01:13 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,115 +48,161 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 2/2] net: wwan: iosm: fix S3 resume by re-binding
+ the driver around it
+To: David Westen <davidlwesten@gmail.com>
+Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
+ johannes@sipsolutions.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org, nihaal@cse.iitm.ac.in, stable@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20261119042714.505405-1-davidlwesten@gmail.com>
+ <20261119042714.505405-2-davidlwesten@gmail.com>
+From: "Maciej S. Szmigiero" <mail@maciej.szmigiero.name>
+Content-Language: en-US, pl-PL
+Autocrypt: addr=mail@maciej.szmigiero.name; keydata=
+ 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
+In-Reply-To: <20261119042714.505405-2-davidlwesten@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Sender: mhej@vps-ovh.mhejs.net
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 19.11.2026 05:27, David Westen wrote:
+> On platforms where S3 cuts power to the WWAN card, the modem boots
+> again while the system sleeps, but the driver still treats it as
+> running. After resume its execution stage reads BOOT, and by the
+> first port open the boot code has crashed into the CD_READY stage:
+> 
+>    iosm 0000:03:00.0: PORT open refused, phase A-CD_READY
+> 
+> The modem then stays unusable until an ACPI reset.
+> 
+> Unbind the driver before S3 and bind it again after resume, as
+> commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by re-binding
+> the driver around it") already does for hibernation. The driver is
+> then torn down while the modem still answers, and the modem is probed
+> again once it has booted.
+> 
+> The target state isn't known yet when the PM notifier runs, so the
+> default suspend mode decides: the driver is re-bound unless "mem" maps
+> to suspend-to-idle, which keeps using the suspend/resume callbacks.
+> This changes behavior in a few cases:
+> 
+> - On platforms that keep the card powered in S3, the modem is now
+>    probed again on resume, which drops data sessions and recreates its
+>    ports.
+> - Entering suspend-to-idle or standby explicitly while the default is
+>    S3 also re-binds the driver.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+I think this re-binding should never happen on s2idle, even though S3
+might be the default mem sleep method.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+It looks to me that the only remaining case here is the "opportunistic
+sleep" code which does not use mem_sleep_current (so won't be covered by
+pm_suspend_default_s2idle()) - but uses autosleep_state instead.
 
-- [Medium] In macb_mac_link_up()
-  (drivers/net/ethernet/cadence/macb_main.c:1051), if the link comes…
-- [Low] The commit message describes a user-visible defect in the
-  existing TAPRIO offload, but the patch has no Fixes: tag.
+> - A suspend to S3 that calls pm_suspend(PM_SUSPEND_MEM) directly while
+>    the default is suspend-to-idle is not covered and fails as before.
 
---
+Are there any such pm_suspend(PM_SUSPEND_MEM) calls in the kernel (outside
+some test code)?
 
-net: macb: cache ENST config across link down/up
+> 
+> Fixes: 1f52d7b62285 ("net: wwan: iosm: Enable M.2 7360 WWAN card support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Westen <davidlwesten@gmail.com>
+> ---
+> 
+> Notes:
+>      Changes in v2:
+>      - New patch before this one: cancel the ADB timer in ipc_imem_cleanup().
+>      - Describe the changes in behavior and the remaining limits in the
+>        changelog, and say in the comment that the modem "may" lose power.
+>      - I also tried detecting the power loss on resume instead; my reply to
+>        the v1 review explains why v2 keeps unbinding before suspend.
+>      - Correction to that reply: the XMM7360 here does use MUX aggregation
+>        (CP capability 0x300), so the ADB timer is armed on it too.
+>      
+>      v1: https://lore.kernel.org/r/20261116031148.333990-1-davidlwesten@gmail.com
+>      
+>      Tested on an XMM7360 (ThinkPad X1 Carbon 6th gen, deep sleep) with this
+>      series applied to 7.2.15: the driver is unbound before suspend, and
+>      after resume the modem is probed again and comes up without an ACPI
+>      reset. Not tested on the XMM7560.
+>      
+>      The investigation and the patches were done with an AI coding assistant
+>      (Claude Opus 5.5). It read the driver and added temporary debug logging
+>      to record the execution stage around suspend and resume. We wrote the
+>      changes and the changelogs together, and I ran the tests.
+> 
+>   drivers/net/wwan/iosm/iosm_ipc_pcie.c | 9 +++++++--
+>   1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> index 49052eb511ba..13e81012d818 100644
+> --- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> +++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> @@ -534,12 +534,17 @@ void ipc_pcie_kfree_skb(struct iosm_pcie *ipc_pcie, struct sk_buff *skb)
+>   
+>   static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unused)
+>   {
+> -	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE) {
+> +	/* The modem may lose power in S3 and S4 and boot again on resume,
+> +	 * which the suspend/resume callbacks can't handle, so probe it again.
+> +	 */
+> +	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE ||
+> +	    (mode == PM_SUSPEND_PREPARE && !pm_suspend_default_s2idle())) {
+>   		if (pci_registered) {
+>   			pci_unregister_driver(&iosm_ipc_driver);
+>   			pci_registered = false;
+>   		}
+> -	} else if (mode == PM_POST_HIBERNATION || mode == PM_POST_RESTORE) {
+> +	} else if (mode == PM_POST_HIBERNATION || mode == PM_POST_RESTORE ||
+> +		   mode == PM_POST_SUSPEND) {
+>   		if (!pci_registered) {
+>   			int ret;
+>   
 
-This patch caches the TAPRIO/ENST schedule in bp->enst and writes it
-again from macb_mac_link_up(). If the link speed has changed, the cached
-schedule is dropped instead. It also caches the link speed in
-bp->speed_mbps, serialises taprio replace/destroy with bp->mac_cfg_lock,
-moves the per-queue config from kmalloc to the stack, and removes the
-pm_runtime_suspended() check.
+Thanks,
+Maciej
 
-> This causes trouble if the config is not compatible with the new open
-> and link-up. The two issues that can occur are a link speed change (as
-> all timings are configured in a unit relative to the link speed) or a
-> change in the # of queues.
-
-[Severity: Low]
-Should this patch have a Fixes: tag?
-
-The behaviour described here goes back to commit 89934dbf169e ("net:
-macb: Add TAPRIO traffic scheduling support"). In that code, the ENST
-registers are written only from macb_taprio_setup_replace(), using the
-link speed at the time of the tc command. Nothing rewrites them on
-link-up.
-
-So after the link renegotiates to a different speed, the byte-unit
-ON/OFF timings stay in hardware unchanged. The gate windows are then
-off by the speed ratio, for example 10x for 1000 -> 100. If register
-state is lost across close/open, the schedule silently stops being
-enforced.
-
-This patch depends on newer infrastructure (bp->mac_cfg_lock,
-bp->link_up), so it may not backport as-is. Even so, would a Fixes: tag,
-or a note on why this is net-next only, help record that released
-kernels have this problem?
-
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index 9f6111661b40d..1e06666921160 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-
-[ ... ]
-
-> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_config *config,
->  
->  	spin_unlock_irqrestore(&bp->lock, flags);
->  
-> +	if (bp->enst.speed_mbps && speed != bp->enst.speed_mbps) {
-> +		netdev_warn(bp->netdev,
-> +			    "TAPRIO dropped because link speed changed\n");
-> +
-> +		memset(&bp->enst, 0, sizeof(bp->enst));
-> +	}
-> +
-> +	macb_apply_enst_config(bp);
-> +
-
-[Severity: Medium]
-What happens to the installed taprio qdisc when this branch is taken?
-
-If the link comes back up at a speed other than bp->enst.speed_mbps,
-the cache is zeroed. macb_apply_enst_config() then writes the disable
-bits for every queue into ENST_CONTROL and zeroes each queue's
-ENST_START_TIME, ENST_ON_TIME and ENST_OFF_TIME.
-
-The taprio layer is not told about this. The qdisc stays installed in
-full offload mode, so tc keeps reporting a hardware-enforced gate
-schedule that the MAC no longer applies.
-
-The schedule also does not come back if the link returns to its
-original speed. Take 1000 -> 100 -> 1000: after the first change,
-bp->enst.speed_mbps is 0, so this check is skipped and the zeroed cache
-is applied again. Gating stays off until the user reinstalls the qdisc.
-
-Nothing can recompute the schedule later, because struct macb_enst only
-stores byte units. macb_taprio_setup_replace() converts the nanosecond
-values and then throws them away:
-
-    config.queues[queue_id].on_time_bytes =
-        enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
-    config.queues[queue_id].off_time_bytes =
-        enst_ns_to_hw_units(off, bp->speed_mbps);
-
-Could entry->interval and off be cached in nanoseconds instead? Link-up
-could then recompute the byte values for the new speed with
-enst_ns_to_hw_units() and check them again against
-enst_max_hw_interval(). A lower speed only raises the hardware limit,
-so the schedule would only have to be dropped when it really no longer
-fits.
-
-The later patches in this series that add set_channels and the Tx SRAM
-segment distribution do not change this path.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-macb-set-channels-v7-0-2dbc00f686af%40bootlin.com
