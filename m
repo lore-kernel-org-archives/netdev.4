@@ -1,104 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795390801;
-	b=wjgN+FcN2JC6p3R6p8Or/nfVO0gdNJNlGgR9WebUTJQGlLjx8XFyCGj7z4YM4Ps+I8Mz
-	 Vgud1aMpOa6UYgRH8ykVn7GLIA+UiHti17RQ6MX6bSSHcxYFH/v5pVZKXIVDktI3217Dr
-	 fv5l1tV1KmtkJoDCpMzNnQGdbrm2pKPlfsHoP93aLUTH/aDqT2LuWidf3/fBpZ9Ux0U6d
-	 GqnugrPtgk8DB89LFliLx6xbG/E1UNJZXVjrnSWhTcTD7gre9n71VPTqU8C+C2Q9Q9SJT
-	 D2XSuT1xZVlO5KBujhXLqtRw+b9GL6Oj5E0QNMbikvXGDXzngx3m8gmEPLYpGotYKfg==
+	t=1795391850;
+	b=USsRMk7MZWdbzhrTfB0a4M8+iv4pkDRn14YFKKBFGOyfC1Cje9glNTfLfiqbQkmjtZBZ
+	 pyZmRinGqbRAXcagzrAqMWW0MOJvVD1J+JYoh+0xQVDlhxI1unoqwDqVxNbxGhk6qD9Ex
+	 uTs3vNu93MHwVXmyDfQlE9sYHzLD0H2VCrbG3/CCYyLgse/ewC5bi9Xub3tN3srWBrEOK
+	 VGeGulXzdIs1IxkujZR6XAFsNKb7kmZOHBHMqZKYslllPRuktRsUjztna5o5dAgXA/Qtv
+	 lEGY3VHM3PBYCK7Yaen576ll/jdZ7v72jYhwP+w2/iEqmM6jxahpKzDEcSEXRzOf09A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795390801;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795391850;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TQb45l1RsU0Lz4sB7qqB+jyVNMLFZAFcVIiy/3FWzuo=;
-	b=1xmMHUiX66+EUTdpbPFNWtWyxfAFNGqpmxVsuZSBWr9qR2PGjfINpBOxGCb/vlduuOfB
-	 6ag5mx878gqjVaIsc6UdjTrgUsNHyHpRhuBA5Z6P/Qr60zC1mG9JXEv7IfoOM35vTGXpM
-	 hsxDYkh6rVoMYWtyaGCGE7YgS+H5FL/j4XBy56N3+IEh9bcKCQjGJnvDa2uyxju1BpGKI
-	 3k6OMP0lQzm5O6L3C9Uzve5hqBdkz2sZVT2qdp7UySnrrMTpB4wku04Rv/mZcJbm0tYTT
-	 KIGXHA0a5EjNxLzAKMh/NI+BPEy9bri8XH9MbzxZglocHnx75E/OAIzKbevqFJeT3/A==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=OWDvcWQJFaW+Q/Z3BycR33gTS+57k2jipoqFVw/ucn8=;
+	b=hDIUhPQ2nzWkF8PZMrVhzVpRJhh8eXlqUQssgwoCW3jzxbltLSDQm0t9cBPW6hf8FBzM
+	 greZtI1vcFIzmf1yhM61A/4c7lVkFJHUhCYSHhxRTfZiHGHSsJBeORNWHkRJFb4Pr2/S9
+	 ipIqF62kTeNf6QNIBgk0cgTrTvPOGv/yYyfviLGHiN6HNP6uc8CbwzW0AVt64uwho8SoL
+	 vp+itV2OrSmTjyeZ1DsPKQCpttbylFyX5EGgUHMFsbqYqNYG6CgBUrap8Dt+JTRsqf0EE
+	 sDhDS52YQWmH0wqA03A0Pk1qGaQAyYaBBf4MeHopTrQO8qL4JVhLPoG1uTJmj6GlCwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JoFkxyyJ;
-	arc=none smtp.remote-ip=209.85.222.181
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=jRy3l6Ar;
+	arc=none smtp.remote-ip=74.125.82.45
+Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A37E606A334
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:40:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A37E606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 922EA606A31A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:57:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 922EA606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JoFkxyyJ
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-94962d80d34so169642385a.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:40:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=jRy3l6Ar
+Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b3acec6677so3848443c88.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:57:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795390800; x=1795995600; darn=vger.kernel.org;
+        d=blockcast.net; s=google; t=1795391849; x=1795996649; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TQb45l1RsU0Lz4sB7qqB+jyVNMLFZAFcVIiy/3FWzuo=;
-        b=JoFkxyyJLHpNVekneO1pBCAfzUiuj6FsnPF+f9jmITq2rUJSsSdYR0bXQa/JDkA07z
-         3Ia4RY7sTeIL3ojqsk4+cE+v1ubAAIFukwpBSf5qBb+B69kKAdyyaUzoZvhIx9Ul+erW
-         jeFUD2Zz4k4eR076rfqWAorFnRQYaCePKKB5idvb0ueu0TtsuqcJkoc6OCH1Bv2URybb
-         f1FzDhCjPJKNBfl3JGgBdVs5SB2FeNYmPdlOgiyvlhOPAwglC0Gm0LG8ljywhCy98A7U
-         HRIo4uTy9rNe7EyJHc8pOfP3L7mhNLnB4X+DAh6EABpj2A1HY3aLgkz8S7xFQp8gFHLB
-         +wsw==
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OWDvcWQJFaW+Q/Z3BycR33gTS+57k2jipoqFVw/ucn8=;
+        b=jRy3l6ArLAvmqX2JCmmSSw1jPnFu7XKF3tr1v7xXmwpWJAJdlMeH0O2dM8kJN87DUL
+         Q9GYAIwIgYNMo6Jwe+BcDK8kMHiIUH0pzrIxBy5TMlqbAYDar5vefcmuxoX7o367/7aZ
+         Nf9g4XrP35n4qD/POLElajb8WRZvk9UR+GWyhVxvfk/jzEA0ilTe2+Mng7ZuvoPfbys6
+         eJhDSn9huxW7wPywERRvMkm/5N49QVmZh9naSdsy2crX/FRSJlGol/gXqdL5aSS9nuHY
+         crnvNl6WgSTj/kmKyz+NbaLM5Vci6p0LzUfXCfWuuoGp46Ir7EoVZsbRxCOKj+Y3rXSB
+         5lLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795390800; x=1795995600;
+        d=1e100.net; s=20260707; t=1795391849; x=1795996649;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TQb45l1RsU0Lz4sB7qqB+jyVNMLFZAFcVIiy/3FWzuo=;
-        b=2tnAPVz/BThp9ZuHbYhXrVyLHa6B9XMNKEywI3DKHY56MQtBErgVIbwZqNd40SXRMH
-         p+byYaaFOo5hLPP5LbKiExKo13J84nTdJf6DecObTnXmvnJxciriXy2bRN2QV6vtjHE6
-         qCRd0j9hs8OJt1v75iRHWHX+KpfkoLJ2A8lyHVGhCJyFj/fd4E+8Adt3Qbpfe2FxRNsi
-         7JKmDPLX1LkbWen6ydTIb5GHEurFU8zY6ibHqvv+KSkuNLyb0fUsnqi1jFw7BGsYanm1
-         2t83+XHlkJtUJ1r5oQz7oxVGOXgITNrERJCrNRwAn1FWNSMN4YOX+8GS9nAihQ5ThDE8
-         qBbg==
-X-Forwarded-Encrypted: i=1; AL+hErGJPhDHzvIHCJ+//23bf4BUUXLqnP2SMcwh47pvIFpaGbvOh5anmJXn8KppWQwDTCEXS9Ot3ik=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CVjgq9my8u+Noh6e8HZjeLFvhfVYbsOgrqOUj2rhojCLGM3T6
-	3PPqjzocnN1cFeXnyA8XoGVuPzUhAKa/SEkRnG8/2LmzeOreUlgDf9c3
-X-Gm-Gg: AZFdTZefBbHJkoBgCPxv1UZz/AhRzRPVs1gbb0JKAqn3qO5E1DydpvoGXBOqmxTw+JJ
-	X45nATlJW5aVCel9HeWylkyqIyERnoY6HiuxPzSK14nfA+ZNvvj7ViEWCVcwa9EM3ZUF57F7eBe
-	PgmXMTO0RpL1rBfqBAnx20IiuxFk8Th/BKVQwydHcH4xbGB4A51+EdPq9YyZMp37yOBchCwrPbi
-	7byeRBy45txbnlPOqAE+y6kY4KzPqZ5+3Df+ruEmPRa7H8fx+g9rtbmMzYltczGby9Z/szzbGP2
-	rUD+Xqzwh4s+Qm/fSFJb5eGfEn+XapsqZs+ywW4ZLKfriWo6chixcHgjEcXsySZAYYQzEB4n5QN
-	sza4tXi0GMkgJk6LDdU7tHhYz/eYoZPNyn/cOYSvRdWatrFOvEL1DAB9JuYuIjGz822lGpWcCrE
-	PY7ql1iK2pX9RDEeN/3hL0m1SUAKVmIEezSgPrIfBfsvKFOCg5gxU0uonDMn/8ci+OGeVA+PRbe
-	uVNjexQWNn2DwnAFu8VObf0eX6Hkc0xNRiCLrxHQ8NUHMhWw9K9A3LO0OlsgaSoKdy/ELByO318
-	QeM90JjcY5zIL7JHIM0DT7i50CCQdORKM+yzMtyTL3eDEBxvziGFCUnjy9yM+e+CLHvRWZBC88t
-	zGPIFpjekymKvKC6i98KarL8AZtf13hPMrMJwoH/qzstRHEEU3xMZTVnF5MEYB30ympeecW+zV8
-	Idfc0gcB5fysq5tge407NI+Pg5bw==
-X-Received: by 2002:a05:620a:4012:b0:949:3365:7402 with SMTP id af79cd13be357-949ba9b8ee1mr1662958685a.17.1795390800245;
-        Sun, 22 Nov 2026 15:40:00 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c8ee:a73:9097:862f])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41a341sm686330285a.37.2026.11.22.15.39.59
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 15:39:59 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: Jon Maloy <jmaloy@redhat.com>,
-	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
-Cc: "David S . Miller" <davem@davemloft.net>,
+        bh=OWDvcWQJFaW+Q/Z3BycR33gTS+57k2jipoqFVw/ucn8=;
+        b=2h4Ryg5puLvtO1Ipa2YD4Ctdh6tlAGgJF4pieWsNqupuewzICmvE8WWysETWBRE1Ns
+         jsJEWLFIZBnZj7YN4N41SbNnxAuC45Eu6pijlOCxXqrtnQLrTXzgFXwapJa7hvigzuUL
+         eAgc7gNng14QMi4TK7cXErDnVYDb6/Kz+tE2lc5dlNUEqQ5c38eAfJJBJ7+Qtti/Gsm6
+         TlmHx4+KoU+tBLyYK10Zt8Ni0GJOtkctJMbrFaKle2FxrTM5Kx5BrAbuQuEEZG0BbWIJ
+         yGRIAEHGJRmjFlUoErHmJnY23UER3SGoYCQPom7lkaKgtcjeaY59EP6sbKNkhl0sxwPN
+         Chcg==
+X-Gm-Message-State: APuU4Z9vdkaqmreUXXy2orrwMDXz4NTpk2a0lwf/thsXA0VQpShatgQm
+	1k1tn5AjgSbj9jPQn2U+9eguG5e8U4hQA7jqQN04cv5X0GtXupooUVMp7Ph4ykLwVMg=
+X-Gm-Gg: AZFdTZeXyMiqaX36CTEkzjMsgGY6I3ua/vbIyU/CVVAA9vxgXn1ImSEp2YqDxiknvFn
+	e+09AgQSm+91tQcqYfrYbg/p+1dAlUZaMg0l2seWau/POansNgxoRWcU/P2C3nlXIhCZtWtAGbN
+	uih+wvSzcL0R2e1X90PMYQdeqXuqZiVSaTLODL3gZg7q9O9AXi6IMoB+4pN00HZOMCA9qo5ybI7
+	7LOZtiDzIy8wiNGCpHJbqi2OA+POOw/EBvpp4mWsHTfLqF4Yv29yPkj5ExjKH+wv63tW3OPVeTX
+	Ibx9qbk8LT0JP0q32pd/zPeFc6a9szI5sGJ+pCGoSQpUXWv6BAIzP9V+cvznKXlS/Uh63MyUvUA
+	E3jiveAyqclEtGtwl8OMtKliFtYpgGARTK6RJSypbCIkOEQfgyKjpvLFPTWEiZyBQiUxstSNsRM
+	rguPqUYkHZd275+Kq0uYDFnklASlduXATUcoAqBp7Lr4RdUwgZ0lU1b4N4yEWZW5iyAgx/JdpXO
+	Al9dQPD3VH7GyJgVOdU+pjiYIEkdmEiiH6mITHompw+Ujy48V+Jtt+U5oVNT22hOXCH8DF3qe7b
+	eMzUzY7PokiptWjIKyDFAUX07zYZH7HA7r9vwwrJXZPF+WzXLvqZPKbYmi3x0cpWRE0AOZI66Qy
+	ZXLDqxGeFcYgpWFBslqB1j4TCAJO9HaobB7RCkEOOMb8q2LWLjb76
+X-Received: by 2002:a05:7300:de08:b0:382:42a:d3ea with SMTP id 5a478bee46e88-38570258929mr10259181eec.29.1795391848463;
+        Sun, 22 Nov 2026 15:57:28 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([69.25.95.32])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm34289386eec.26.2026.11.22.15.57.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 15:57:26 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: Taehee Yoo <ap420073@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Tuong Lien <tuong.t.lien@dektech.com.au>,
-	Ying Xue <ying.xue@windriver.com>,
-	netdev@vger.kernel.org,
-	tipc-discussion@lists.sourceforge.net,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Andrew Stellman <astellman@stellman-greene.com>
-Subject: [PATCH net] tipc: free the tunnel packets when failover tunnelling stops early
-Date: Sun, 22 Nov 2026 18:39:58 -0500
-Message-ID: <20261122233958.10462-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+	Simon Horman <horms@kernel.org>
+Subject: [PATCH net-next v3 0/3] amt: configurable per-tunnel limits, with bounded report work
+Date: Sun, 22 Nov 2026 23:57:21 +0000
+Message-ID: <20261122235724.2898320-1-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,107 +101,93 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-tipc_link_tnl_prepare() returns from the middle of its tunnelling loop
-when a packet does not fit the tunnel link MTU and the peer lacks
-TIPC_TUNNEL_ENHANCED, when fragmenting such a packet fails, and when a
-tunnel packet cannot be allocated. The tunnel packets already built on
-the local tnlq are leaked, and for FAILOVER_MSG the receive side
-hand-over at the end of the function (drop_point, failover_reasm_skb,
-deferdq) is skipped.
+A relay caps one gateway tunnel at 32 group and 128 source records, both
+compile-time constants. v2 made them configurable [1]. Sashiko and Paolo
+pointed out that at the new ceilings a single Membership Update can
+livelock the host: records are applied under tunnel->lock in softirq,
+and only the packet length bounds them [2].
 
-Purge tnlq on these paths and go on with the hand-over.
+This version keeps the processing in the RX path and bounds it instead:
 
-Reproduced on net (af6737b90668) under QEMU with kmemleak, with two
-guests joined by two TIPC eth links: MTU 9000 (active) and MTU 1500
-(standby). The receiving guest runs the same kernel with
-TIPC_TUNNEL_ENHANCED removed from TIPC_NODE_CAPABILITIES, to stand in
-for a peer whose kernel predates that capability; the sending guest's
-kernel is unmodified. The sender blocks the MTU 9000 link in both
-directions with tc, sends three 100 byte messages and one 4000 byte
-message, and waits for the link to fail. Without this patch that logs
+1/3 makes the A-B case of amt_lookup_act_srcs() linear. It used to
+    compare every source in the group with every source in the record.
+2/3 charges every group record for the passes it makes over its group
+    and stops applying records once a report exceeds twice the cost of
+    refreshing the tunnel's whole state. A record for a group the
+    tunnel has no room for does no walk and is not charged, so a host
+    joined to more groups than max_groups keeps its refreshes.
+3/3 is v2, with the source hash sized from max_sources and the group
+    ceiling lowered from 1024 to 512, which keeps one tunnel's worst
+    case at about 4.75 MiB.
 
-  tipc: Link tunneling error, too large msg <0, 2>: 4040!
+Measured cost of one Membership Update, in a UML guest (KASAN off, so
+these are slower than native and only comparable with each other), at
+the ceilings, three runs each. These were taken on 734bef548a96 with
+v5 of the net series (an earlier version of [3]), before this series
+was rebased onto net-next, and with an earlier 2/3 that also charged
+records the tunnel refuses, a path neither row reaches. They have not
+been re-run since [measured]:
 
-and kmemleak reports three skbs (six objects) allocated by
-tipc_link_tnl_prepare():
+  report                                   v2 ceilings      this series
+  512 groups x 8 sources, full refresh     5.0 - 11.9 ms    4.9 - 10.3 ms
+  ~7,500 empty records naming one group
+  that holds 4,096 sources (64 KiB)        1.74 - 2.32 s    26 - 45 ms
 
-  unreferenced object 0xff11000004d34780 (size 472):
-    backtrace (crc dd2ea0a1):
-      kmem_cache_alloc_node_noprof+0x296/0x3a0
-      __alloc_skb+0xde/0x890
-      tipc_buf_acquire+0x1d/0xe0
-      tipc_link_tnl_prepare+0x94b/0x1960
-      __tipc_node_link_down+0x4ae/0x13e0
-      tipc_rcv+0x2187/0x2e20
-      tipc_l2_rcv_msg+0x1d8/0x2e0
+The second row is the livelock: one datagram held tunnel->lock for about
+two seconds. With 2/3 the report stops after its budget of 3.85M bucket
+and source visits [estimated, from the code], about 120K at the default
+limits. I did not manage to drive the quadratic A-B walk itself into a
+measurement; its old worst case is |A| x |B|, up to 4,096 x 14,998
+compares for one record [estimated].
 
-With this patch the same test logs the warning and kmemleak reports
-nothing. With a 1000 byte message instead of the 4000 byte one, all
-four messages reach the receiver over the tunnel with and without this
-patch. Apart from the receiver's capability change, no kernel changes,
-fault injection, debug code or delays were used. There are no TIPC
-selftests to run.
+Deferring report processing to a per-tunnel work item would also take
+the work out of softirq. I have not done that here: with the work
+bounded, the deferral would add a queue and its own limits without
+changing the worst case much. Happy to do it if you prefer.
 
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with Claude Opus 5.5 and
-reviewed by me.
+This depends on the net series "amt: relay tunnel lifetime, validation
+and request-path hardening" [3], which fixes the source-timer vs.
+teardown race Sashiko also flagged: 3/3 touches amt_newlink() next to
+a line that series adds. That series is now in net-next, and this is
+based on 24630ff92eff, the net-next merge of net that brought it in.
 
-Fixes: 2320bcdae628 ("tipc: fix changeover issues due to large packet")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
----
-A reproducer is available on request.
+Testing: tools/testing/selftests/net/amt.sh, unmodified, on net-next
+24630ff92eff with this series applied, x86_64 under virtme-ng/KVM (4
+vCPUs, 4 GiB) with generic KASAN (inline), PROVE_LOCKING, PROVE_RCU and
+AMT=y: all six tests pass, amt.sh exits 0, and no KASAN, lockdep or
+WARNING report appeared during the run. amt.sh does not reach the new
+limits, so this covers the normal paths only; the over-budget path of
+2/3 is covered only by the measurements above, taken before the rebase.
+Each patch builds with W=1 C=1, with IPv6=y and IPv6=n, with no new
+warnings.
 
- net/tipc/link.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+[1] https://lore.kernel.org/netdev/20261015231825.2852054-1-omar@blockcast.net/
+[2] https://lore.kernel.org/netdev/361bbccf-6ce7-4b1f-bd55-4d8270423320@redhat.com/
+[3] https://lore.kernel.org/netdev/20261110210538.217936-1-omar@blockcast.net/
 
-diff --git a/net/tipc/link.c b/net/tipc/link.c
-index 6427c69f892..2fead2f4ed0 100644
---- a/net/tipc/link.c
-+++ b/net/tipc/link.c
-@@ -2035,7 +2035,7 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
- 				if (rc) {
- 					pr_warn("%sunable to frag msg: rc %d\n",
- 						link_co_err, rc);
--					return;
-+					goto out;
- 				}
- 				pktcnt += skb_queue_len(&frags) - 1;
- 				pktcnt_need_update = true;
-@@ -2043,19 +2043,19 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
- 				continue;
- 			}
- 			/* Unluckily, peer doesn't have TIPC_TUNNEL_ENHANCED
--			 * => Just warn it and return!
-+			 * => Just warn it and stop tunnelling!
- 			 */
- 			pr_warn_ratelimited("%stoo large msg <%d, %d>: %d!\n",
- 					    link_co_err, msg_user(hdr),
- 					    msg_type(hdr), msg_size(hdr));
--			return;
-+			goto out;
- 		}
- 
- 		msg_set_size(&tnlhdr, pktlen + INT_H_SIZE);
- 		tnlskb = tipc_buf_acquire(pktlen + INT_H_SIZE, GFP_ATOMIC);
- 		if (!tnlskb) {
- 			pr_warn("%sunable to send packet\n", link_co_err);
--			return;
-+			goto out;
- 		}
- 		skb_copy_to_linear_data(tnlskb, &tnlhdr, INT_H_SIZE);
- 		skb_copy_to_linear_data_offset(tnlskb, INT_H_SIZE, hdr, pktlen);
-@@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
- 		}
- 
- 	tipc_link_xmit(tnl, &tnlq, xmitq);
-+out:
-+	/* Empty unless tunnelling stopped early */
-+	__skb_queue_purge(&tnlq);
- 
- 	if (mtyp == FAILOVER_MSG) {
- 		struct sk_buff_head *fdefq = &tnl->failover_deferdq;
+v3:
+- New 1/3 and 2/3.
+- Based on net-next after the net series [3] was merged; 3/3 rebased
+  onto it.
+- 3/3: size hash_buckets from max_sources, at most 8 sources per
+  bucket, 256..512; lower AMT_MAX_GROUP_LIMIT from 1024 to 512.
+v2: https://lore.kernel.org/netdev/20261015231825.2852054-1-omar@blockcast.net/
+v1: https://lore.kernel.org/netdev/20261014221334.2443184-1-omar@blockcast.net/
+
+Assisted-by: LLM
+
+Omar Ramadan (3):
+  amt: make the A-B source walk linear
+  amt: bound the source-state work of one Membership Update
+  amt: make the per-tunnel group and source limits configurable
+
+ drivers/net/amt.c        | 118 +++++++++++++++++++++++++++++++--------
+ include/net/amt.h        |  15 +++++
+ include/uapi/linux/amt.h |   8 +++
+ 3 files changed, 117 insertions(+), 24 deletions(-)
+
+
+base-commit: 24630ff92eff08500ec4772728d4b1fa08c28f47
 -- 
 2.43.0
 
