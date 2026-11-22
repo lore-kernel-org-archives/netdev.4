@@ -1,79 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795335448;
-	b=YzqE3HtluJ7Htwqz0IdCifgEGGg5Od6jvPhlqcW1kJgCjMmhW+pQX0ozue9L1oJq/oyW
-	 OFyVbaNvfYE2fF5Ui7u20A9hmn5Y0TP1b6bp+o2vBq4loHkx10Ad00i9M8qYIiyCvTeUW
-	 l+rH8++g8wFNZk7z9fzxoVGlWt5qZlGsbh9RcwWRKkXCp3qnV07p3JfG9YDEdZ6huRr0X
-	 9+/ed/wmpNw51dNnZmr2QjX4GrmgS5YOTh7svR7LbGHb8uI8hCAbuWL5vg1YQObBD/Pyf
-	 9vehsQofduuvbvZQyDyevIzp/MuWNS8OREkQVl/Ip4pyxWvrs9LdwJvVvl8Roythlqg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795335448;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=kzlLI3VmcU197xNNJ2LEd4Fj/tsv/XcZsjqi8t3VDdw=;
-	b=kX5JpjtGjB3NTgLUot3UiXYu/qx6J+3kR5Jfuot/tX5onVZgy6ZG/uB8V8yf+EX2hzbv
-	 UzKxlu6wgouhn79/ljPBFUPG3vP+edDW/bhrX3qaFaTzFq2jRDa+o605zl+L4B8XeluHe
-	 vLmJF556FhAxzZMpdM48r9qMb96H2Uhf+FAEntcpNgFaybAa3gpYTArB4GeSrMq4L7N66
-	 4iL0ONK2K+3MqIihAWVf0Rx9mdfFa92SyPYRbqLv2MPJNpj44djqlJIGAPtrhecLa9FyG
-	 r+8VAlWIjnSEF2rgVA0OK28ZdgsGuj4tRCa/n2l0GVL7l8mRZR0Bu0DsFLcYA5DbcUw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIVTvBIq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795336242;
+	b=mW4N73JjqVODJ+6xJj2iWGEnSRiHh/Ycns7a703/QM2jFursWWtxLe1OKzP0ctUrV2q1
+	 7P3/VGRdU4fDLr/vfqw4/ngAtvRqD7dY2fC2BYCtMs8j4HNRuAON4EknfdQnHNJ7pKHQi
+	 gkEcaOCjzQs3aBUuh6gpTaE/5PaWN4S2CI1C5lCkv8gVjk38UoxDfZPyak7/OufLGTlyK
+	 4s9AI2xam+OXKJwtH34k3xDsBGVlIfXz/++ABp/VRvThPVjfHlAcUVAhPOMyqn39zJ3on
+	 wmXMnO5864tFsIXApSLQzonQNUrp0fb/yCez+BdFF2k+1/aQfzfS3P2rkxJiEUORFng==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795336242;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=QghZHONbcC8cXlUHYrkvEWHCcbkwipOQI37JigyXCY4=;
+	b=cl8dnhNuW8Qr+JYsinmteI3NRwhcbUUssimmQK4y8GtfoQZ5TCk5p0wPiJKjqQt7ad9T
+	 h/Q8Jet7IfeLVoAiuGpImahGVDPIxeIdHjlFjA97IpFj34YKSTswBkdwypUOjANXbt9xm
+	 fNJicX8NAnBEulk6D+sFdMAbX5SdVs6VRzAs5JsEKG9jtyL4ljiFc2c/1Nu12biRffeTm
+	 7jUtHyPr7AbN3YQX9NrqwWXtk/tCzBygUWxouuEhuwsMzKS/VXK6uErddY0tLBMaNQUPD
+	 d/etFWQDWjrYJj7KDOyqCBXgKsQ3R5SKWI9ABTqkRLUhXHCA3Mo48crTW+fv/SfNxGQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLq5cGQc;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB594606A320;
-	Sun, 22 Nov 2026 08:17:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8465C606A330;
+	Sun, 22 Nov 2026 08:30:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIVTvBIq
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795335448;
-	b=pUA/1hCEwCoTxfGM7vu+PoWp9nQNm2E1bIoPnAEBvvmODdj90J8b40bun/+ZkbCfeBjD
-	 XbBB//stJ7dCEq4NjFPVvirmSZ7jvJ+f9rxi55/oGbplqRf3CbOQyjTGOi39PiKlsbVUK
-	 kdHdsxlsull9eK04ILwmMIh9zqIxXQQ6y2G+g8xlXabMU+XRnYLNot35XMEMA3VYbilQl
-	 T922FJjORcfibXSzGD0HxiJk+Q9opH+h67x3fRYgflE96v63bjPXbdJZ9FDnSZeikTbT3
-	 gta0/h1uqKqkt478LlPE9mMwTssBczjxbdZ2fdlGs0Jufa1rF5G9HkCDdheSeFy4Y8A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795335448;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=kzlLI3VmcU197xNNJ2LEd4Fj/tsv/XcZsjqi8t3VDdw=;
-	b=GvVFWhvYtLZwpoNCeRsBZXAiePznUyE3HKoIoOGrn2prC7AT/nBV7Gyf6ngHPMtSjBon
-	 ztjzCr/87ZAI9R3i9a/lkmbyD8iFZUjA4y4CfFLiVustsA1jJXWaWCXvpk9XCPKr/hJv5
-	 rS6vxBEVJYcA7qDKEFuBpxMk9A3RbEvCnYdFNLVtvhlSkiX/j7L28pdvZxaCn0cjk8QaP
-	 jEYwI0PXdNuEZqsjGGtrPsi5UI6Hok2eVXr0YHyoMpz/gjhvHwlOiZLLE8tqhoyF6iSpY
-	 YF1HnTGHZsu0M8XfFEvNHb0qMu7WTGczNXR1WULiRTpxcQaXNZKY9h6EH70Hb5jpUgA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CA91C1F000C4;
-	Sun, 22 Nov 2026 08:17:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLq5cGQc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F8A1F000C4;
+	Sun, 22 Nov 2026 08:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795335448;
-	bh=kzlLI3VmcU197xNNJ2LEd4Fj/tsv/XcZsjqi8t3VDdw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=WIVTvBIq3kPFN64MjqKAqlX2L79x3czdTV9Y+MhMNcOg57b5nt+KLGSZr1D0MUIBr
-	 wExqqoIvdrZRGGWR7dJ0dvTvIdk1ldbvWFHI6jzEtvh5XqlKlSnvNB7Qao7XXuaLZi
-	 KKBGJwU+0qieMLF8tXZYyTLfyJw10TIp+L7JdRrz24EdPOcCcd5fVnYifg343DcYoe
-	 E2FFRdf+HQzZq8Qm/7UO5LLEEjgep4cQQav+ajXJhRebA/Rq3krRDPQyPPaUkaUpQq
-	 yzUNmMvJnzRXGRX9J+jBVeAP/ZSHljW9iMpVpWoT4J4u8ww6h7H9by9eowhucekKwT
-	 unPbWinuGI0vQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 317404BFAE;
-	Sun, 22 Nov 2026 08:17:27 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 08:17:26 +0000
-Subject: [PATCH net] net: reuseport: honour SO_LOCK_FILTER in
- SO_DETACH_REUSEPORT_BPF
+	s=k20260515; t=1795336242;
+	bh=QghZHONbcC8cXlUHYrkvEWHCcbkwipOQI37JigyXCY4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=iLq5cGQc/vWiTcdo4ee7/AsWiieeWDKdVAvRIW8QInXxgsM2G/SkfO6vWhLfO2szX
+	 QQM/DkM/bCFN4ppMdjxSP+47NFIt/W3A3rqKFDbuIvxIUD/lfQ74aKPMXyXC/KlSuL
+	 HkIfJ3ExOHv4nY/0gnCNGbaB3Q27HqLL4k7BsuCojxg1IJdYnbh1liInuqU0mUOI8h
+	 We3n/c50sXSD1QvXjVz1Ee59Ja5u6TCxbgGIUXQAIyAISNtPdo9eq60AKtErYluED9
+	 I7T5sT0MPymg8sGEbO+sacpjo7ZtX64M8c5GVeMNM2zT1sODezzo5VIlZQ2rQx79MJ
+	 yeOxKhw1c5OEQ==
+Subject: Re: [PATCH] net/nfc: fix skb ownership on data exchange errors
+From: netdev-bot+sashiko@kernel.org
+To: luob87709@gmail.com
+Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz,
+ netdev@vger.kernel.org, kuba@kernel.org
+Date: Sun, 22 Nov 2026 08:30:41 +0000
+Message-ID: <179533624147.3135.15529520698659254387@kernel.org>
+In-Reply-To: <20261118081341.1514-1-luob87709@gmail.com>
+References: <20261118081341.1514-1-luob87709@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,82 +61,241 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com>
-X-B4-Tracking: v=1; b=H4sIABWlAmsC/yWMQQrCMBBFr1Jm7UAzC0WvIi7a+KOjJSkzqQild
- zcq/M378N5KDlM4nbqVDC91LblB2HUU70O+gfXamKSXfQgibFgcc7HKU4lPTjpVGPfD8dAGSWO
- k5s6GpO9f90wZlS7/05fxgVi/Rdq2D9MIuAV+AAAA
-X-Change-ID: 20261122-reuseport-lock-filter-0a97a97e2fbc
-To: pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net, 
- kuba@kernel.org, kuniyu@google.com, willemb@google.com
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, martin.lau@linux.dev, 
- linux-kernel@vger.kernel.org, horms@kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795335446; l=1823;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=mUix/dSzrnbiMpxouGrm26+4a6yRQiNkofJT/Rp0r4M=;
- b=C1HoG1h2Yi2qB7Kdc+loDObrbf9S1VJqaIK5MIwN6f++LFKuMYPoKCW2ZkeSJiVs9NmNBGxi0
- mtivHQUnok/AMsBnjA4qQrkHfDt9B432CJehtFfaLM26ZDiEE7c7I55
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-SO_LOCK_FILTER lets a process lock the filters on a socket before
-handing it to a less privileged one. Once it is set, the existing attach
-and detach paths reject changes to the socket's BPF filters with -EPERM,
-but SO_DETACH_REUSEPORT_BPF does not check SOCK_FILTER_LOCKED. So an
-unprivileged process that receives a locked socket can still remove the
-reuseport program, which then changes how packets and connections are
-spread over the whole reuseport group.
+Critical: 0 · High: 1 (2) · Medium: 0 · Low: 1
 
-Return -EPERM from reuseport_detach_prog() when the filter is locked,
-like sk_detach_filter() does.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Found with a static analysis tool and checked by hand.
+- [High] The fix is incomplete.
+- [Low] The commit fixes skb leaks that users can hit, but it has no
+  `Fixes:` tag and no `Cc: stable@vger.kernel.org`.
 
-Fixes: 99f3a064bc2e ("bpf: net: Add SO_DETACH_REUSEPORT_BPF")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Tested in QEMU (x86_64): root binds a UDP socket with SO_REUSEPORT,
-attaches a reuseport cBPF program and sets SO_LOCK_FILTER, then a child
-running as nobody uses the inherited socket.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it runs
+  through the rawsock error branch that the patch modifies.
+- [High] This problem wasn't introduced by this patch, but it is in the
+  function the patch changes.
 
-Before:
-  SO_ATTACH_REUSEPORT_CBPF: EPERM
-  SO_DETACH_FILTER:         EPERM
-  SO_DETACH_REUSEPORT_BPF:  succeeds, the program is gone
+--
 
-After:
+net/nfc: fix skb ownership on data exchange errors
 
-SO_DETACH_REUSEPORT_BPF: EPERM as well
----
- net/core/sock_reuseport.c | 3 +++
- 1 file changed, 3 insertions(+)
+This patch documents that a data_exchange_cb_t callback takes ownership
+of a non-NULL skb regardless of err. It frees the skb on the rawsock and
+LLCP error paths and on the NCI loopback lookup failure, and clears the
+Digital DEP response pointer after the callback is invoked.
 
-diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
-index b9e5648fa4c5..cdff61161a70 100644
---- a/net/core/sock_reuseport.c
-+++ b/net/core/sock_reuseport.c
-@@ -727,6 +727,9 @@ int reuseport_detach_prog(struct sock *sk)
- 	struct sock_reuseport *reuse;
- 	struct bpf_prog *old_prog;
- 
-+	if (sock_flag(sk, SOCK_FILTER_LOCKED))
-+		return -EPERM;
-+
- 	old_prog = NULL;
- 	spin_lock_bh(&reuseport_lock);
- 	reuse = rcu_dereference_protected(sk->sk_reuseport_cb,
+> diff --git a/include/net/nfc/nfc.h b/include/net/nfc/nfc.h
+> index bcafab5c53e51..d3c2d67357f1b 100644
+> --- a/include/net/nfc/nfc.h
+> +++ b/include/net/nfc/nfc.h
+> @@ -37,6 +37,8 @@ struct nfc_dev;
+>   *
+>   * When a rx or tx package is lost or corrupted or the target gets out
+>   * of the operating field, err is -EIO.
+> + * If skb is non-NULL, ownership is transferred to the callback regardless
+> + * of err. Providers must not access or free skb after invoking the callback.
+>   */
+>  typedef void (*data_exchange_cb_t)(void *context, struct sk_buff *skb,
+>  								int err);
 
+[Severity: High]
+With this rule the callback owns a non-NULL skb whatever err is. Are
+there other data_exchange_cb_t implementations that still return early
+on error without freeing it?
 
+In drivers/nfc/st21nfca/dep.c, st21nfca_im_recv_atr_res_cb() and
+st21nfca_im_recv_dep_res_cb() both start with:
 
+	if (err != 0)
+		return;
 
+They are registered as the callback to nfc_hci_send_cmd_async() from
+st21nfca_im_send_atr_req() and st21nfca_im_send_dep_req(). When the chip
+answers with a non-OK HCI result, the path is:
+
+nfc_hci_resp_received()
+  __nfc_hci_cmd_completion(hdev, nfc_hci_result_to_errno(result), skb)
+    st21nfca_im_recv_atr_res_cb(ctx, skb, err)  /* or _dep_res_cb */
+      return;
+
+Nothing on that path seems to free the response skb. Is it leaked on
+every failed ATR_REQ or DEP_REQ? In the DEP_REQ case the upper layer also
+never gets a completion.
+
+In net/nfc/nci/hci.c, nci_hci_data_received_cb() has:
+
+	if (err) {
+		nci_req_complete(ndev, err);
+		return;
+	}
+
+nci_add_rx_data_frag() can hand the original skb plus a non-zero err to
+nci_data_exchange_complete() through its "if (status) { err = status;
+goto exit; }" path. This needs NCI_DATA_EXCHANGE to be set when the frame
+arrives, because nci_data_exchange_complete() only calls the callback
+after test_and_clear_bit(NCI_DATA_EXCHANGE) succeeds.
+
+Should this branch call kfree_skb(skb) as well?
+
+The HCI wrapper callbacks hci_transceive_cb() in net/nfc/hci/core.c,
+pn544_hci_data_exchange_cb(), st21nfca_hci_data_exchange_cb() and
+microread_im_transceive_cb() all have a default branch like:
+
+	default:
+		if (err == 0)
+			kfree_skb(skb);
+		break;
+
+That branch only runs with an unexpected async_cb_type. Under the new
+rule, though, wouldn't it leak the skb when err is non-zero?
+
+The subject says this fixes skb ownership on data exchange errors.
+Should these callbacks be converted too?
+
+> diff --git a/net/nfc/digital_dep.c b/net/nfc/digital_dep.c
+> index 968547c306a5d..c7f5378cd12e2 100644
+> --- a/net/nfc/digital_dep.c
+> +++ b/net/nfc/digital_dep.c
+> @@ -882,6 +882,7 @@ static void digital_in_recv_dep_res(struct nfc_digital_dev *ddev, void *arg,
+>  
+>  exit:
+>  	data_exch->cb(data_exch->cb_context, resp, rc);
+> +	resp = NULL;
+
+[Severity: Low]
+This fixes skb leaks that users can reach: rawsock_data_exchange_complete()
+and nfc_llcp_recv() on NCI or HCI error completions, and
+nci_nfcc_loopback_cb() when the connection lookup fails. Should the
+commit carry Fixes: tags and Cc: stable@vger.kernel.org?
+
+The hunks also depend on each other. Before this patch, the exit: path
+in digital_in_recv_dep_res() with rc != 0 freed resp after the callback:
+
+	if (rc)
+		kfree_skb(resp);
+
+A backport that took only the rawsock and LLCP hunks would turn Digital
+error paths into a double free, for example the NACK bit case
+(rc = -EIO; goto exit;).
+
+Could the commit message say that the resp = NULL change has to go
+together with the rawsock and LLCP frees?
+
+>  
+>  error:
+>  	kfree(data_exch);
+
+[Severity: High]
+This is a pre-existing issue and wasn't introduced by this patch, but it
+is in the function being changed. Several error paths in
+digital_in_recv_dep_res() jump straight to error: and free data_exch
+without ever calling data_exch->cb(). For example:
+
+	if (resp->len < size || dep_res->dir != DIGITAL_NFC_DEP_FRAME_DIR_IN ||
+	    dep_res->cmd != DIGITAL_CMD_DEP_RES) {
+		rc = -EIO;
+		goto error;
+	}
+
+The CRC failure path does the same once the NACK retries run out, or
+when the frame is shorter than 4 bytes:
+
+		PROTOCOL_ERR("14.4.1.6");
+		goto error;
+
+Other cases:
+
+  - the DID bit is set
+  - the I-PDU PNI does not match
+  - digital_in_send_nack(), digital_in_send_atn(),
+    digital_in_send_dep_req(), digital_in_send_saved_skb() or
+    digital_in_send_rtox() fails
+  - the ATN/NACK count or the RTOX value is invalid
+
+Take a raw socket connected to an NFC_DEP target on a Digital driver.
+rawsock_tx_work() does:
+
+	sock_hold(sk);
+	rc = nfc_data_exchange(dev, target_idx, skb,
+			       rawsock_data_exchange_complete, sk);
+
+Only rawsock_data_exchange_complete() drops that reference and clears
+tx_work_scheduled. If the callback never runs, does the socket reference
+leak? If so, rawsock_destruct() never calls nfc_deactivate_target() or
+nfc_put_device(), the target stays active, and later
+nfc_activate_target() calls fail with -EBUSY.
+
+tx_work_scheduled would also stay true, so later sendmsg() calls queue
+data that is never sent.
+
+A remote peer can reach these paths by sending a malformed DEP_RES. The
+resp = NULL added here sits between exit: and error: and does not cover
+them.
+
+[ ... ]
+
+> diff --git a/net/nfc/rawsock.c b/net/nfc/rawsock.c
+> index f7d7a599fade7..3bf65b1fbe255 100644
+> --- a/net/nfc/rawsock.c
+> +++ b/net/nfc/rawsock.c
+> @@ -156,8 +156,11 @@ static void rawsock_data_exchange_complete(void *context, struct sk_buff *skb,
+>  
+>  	pr_debug("sk=%p err=%d\n", sk, err);
+>  
+> -	if (err)
+> +	if (err) {
+> +		if (skb)
+> +			kfree_skb(skb);
+>  		goto error;
+> +	}
+
+[Severity: High]
+This is a pre-existing issue and wasn't introduced by this patch, but
+this error branch can get a positive err from the NCI path.
+nci_rx_data_packet() does:
+
+	nci_add_rx_data_frag(ndev, skb, pbf, conn_id, nci_to_errno(status));
+
+but nci_add_rx_data_frag() declares the last parameter as __u8:
+
+static void nci_add_rx_data_frag(struct nci_dev *ndev,
+				 struct sk_buff *skb,
+				 __u8 pbf, __u8 conn_id, __u8 status)
+
+So a negative errno is truncated to a positive byte. For example,
+-ETIMEDOUT (-110) becomes 146 and is passed on as err.
+
+rawsock_report_error() then does:
+
+	sk->sk_err = -err;
+
+That leaves sk_err at -146, so sock_error() returns +146. In
+rawsock_recvmsg() that value comes back as rc:
+
+	skb = skb_recv_datagram(sk, flags, &rc);
+	if (!skb)
+		return rc;
+
+Doesn't this make an error look like a 146-byte read with no data
+copied?
+
+This affects MIFARE, Jewel, FeliCa and ISO15693 targets on NCI
+controllers whenever the frame status byte is non-zero, for example when
+the tag leaves the field.
+
+Should the status parameter of nci_add_rx_data_frag() be an int?
+
+>  
+>  	err = rawsock_add_header(skb);
+>  	if (err)
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118081341.1514-1-luob87709%40gmail.com
