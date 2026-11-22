@@ -1,95 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.38.221.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795388577;
-	b=3oXkYX63X//ehHcOHYILz4eXT434NGkr5SCcSPI8Q24mt3LEjGweg8eto3eGDFgzW5KE
-	 MsNHwAv5EegGJzqdAFs39UJH9iNpwIOzaJZKy6GfD+Yg4qU71p/cSdTRA71gQcZIE/YKk
-	 krPzq82OdqdKgpvxIAqncOTsR8f2bb4GUK/w2vc9pVGHy3gmzFSGWYKuxkbyHJ6iwOFQm
-	 5S3S8O3sCfIhkr7q3Uov2x9CFVlNOajWEh/SYiHuWF28Cjk9oQKUYG6noJ75HHp/6iZBS
-	 1V6HffFIVXR7VsdW44QLyBH2p7OuGj2o3of0UkqIDP8b1Ni7hzQA9fDIHNWdVZMfAwA==
+	t=1795389222;
+	b=fxj1bcl376yrrTMqHINOcmCB53g06EmAYmsyjzEloQz/+q8iYX2DYLLPRJmApa2fso6Y
+	 YFGc+DO/j1KPO5I6jMbgZNiv3FPORVWwbi2uPUiL6uBt/415fIxx2TPqFGebO2pbXwjPb
+	 TabBhX5pkZR0wmVTTATYHH6WJpYk53iW0dkwJjwj8bNxO0KxiUWGyaya3sc9A6RCmtBR2
+	 G9nD7O6v1O+ib3lDGUIgKS/gI2Pq3lBnbiEUtQ5FmpfV8ZWEihgUGWEbbHHIFKYqAfLyO
+	 7C2VO9dhpTvuL2yFeWB4fLEy1pgQZgX1d0/7BP5/o+0qK2oInqBaLwtajBiNntxIJhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795388577;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=2vtq+bJAgkK5J7ORrOJ12oBNTPI8ZkKXFNJnCJW1Feo=;
-	b=dykqCjm6akybMOVsSYiok3Mby14VEUKuCfSRPmr+imL7Cat9vofuGcrHLFEXX5rqJgSf
-	 WFgwUw3RIP4vkgjwN8DdwQhMET07yGuw6EJuu/ifLXKgJytWFPuWgpj9cFp8rxEC0/iWo
-	 fFrUn17IS9L2mDv5/y571SGMxFgkz5OpAEzYBavp3yK9LnXzaf1rpVzJm/f2AnQ5P8suh
-	 /J0iVytv4RzZ3oho/Y70xO+9Xrwq6pTc0DlUDNfrJ8/5ydo4TO1aoI1z19SPB/uD1Ttaj
-	 gXEfA7TSTz1wj4TeZI41yf1433CPSmOmh7O+eBrxZeEsjXO9o0wW6UJLiW3BsZrMDMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795389222;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=RPH9ZfMAk6/3lg3j+TqcCI1Xuk/6fEF5sowIRUk1hSE=;
+	b=e+fvj70y33WEdFKqV4gU2I6CotyEpiZhWXjgCYnGN4q8gDyJ2ZJEsISi5BYBn+vykSB3
+	 OPvAwyBvs62dREHTges3GWv+Hg2aQXFzdFQ2l/xDb+Q+RBnzhtUERw1XZNec0KLNMCzNO
+	 XjBsMmhjCWUQfOeBWUxC0dQKq836yR4NPfIu9RQ6dLYvVwCP57hZmNvJv2gXPfcsIe6Wg
+	 4V/Fudj1/UfCpzETQFc6m4HwQB2omByo6woip7Jg2glwfEXyltZjAo5rADWszrcInX2aF
+	 s4FQZvH1pr76J+yseUg57JRigv+ss395D0WiUuAPS6lT9nrayBHI4NUJGz5GGixfggg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QwtFPDgv;
-	arc=none smtp.remote-ip=209.85.160.171
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=loljews.com;
+	spf=pass smtp.mailfrom=loljews.com;
+	dkim=pass header.d=loljews.com header.i=@loljews.com header.a=rsa-sha256 header.s=mail header.b=uFI9vQxB;
+	arc=none smtp.remote-ip=54.38.221.178
+Received: from mnc015mcc432.ss7-reroute.local (unknown [54.38.221.178])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D633606A31D
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:02:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D633606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B74E4606A31E;
+	Sun, 22 Nov 2026 23:13:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B74E4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=loljews.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loljews.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QwtFPDgv
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-53634b8328eso27594361cf.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:02:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795388576; x=1795993376; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2vtq+bJAgkK5J7ORrOJ12oBNTPI8ZkKXFNJnCJW1Feo=;
-        b=QwtFPDgv33BmxV4+Xike/FEy+L6uSWkDBttFSL8qbI08MhA6opEgTJBj1O/gs/LSvY
-         pkvsTKWtjLTPRarMAcO9KVr7YrVofDVztR8jrlByPdX0lOz9KGCXWo0UbBkECNy7mG2H
-         AUhs2d82k1eG5fGubgc+UPZluBpk7e60+YQERHTtZlrA1KxwLWwG8Ne28iWG+wSDAcHk
-         mzalP5xMme+ZP+HtFr79YL1sf8+jkcTyy2xEXn3xboo6rtuVEwXlSvbOI24KaSG+7q2D
-         OPc9sarA94JGm/ha2Qea/IV/C1+e42KX6JVqoI01j+67mfS6ldYTLtT2N7JRZVM66zfS
-         kbXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795388576; x=1795993376;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2vtq+bJAgkK5J7ORrOJ12oBNTPI8ZkKXFNJnCJW1Feo=;
-        b=utQ8A51oAQVOUivwEU3h3LzIGtFbeT0IM2BJbCpNQiWtHmyUKGqnmBxG1p0/Kc/pZ0
-         tdUmYrnJ/rG7SrcLhcyEjj6AO2sTOS+AjcyjEonZyRE8JcKlBucfaD51uSm14i5gBOZ0
-         2hUbDZGxD9gO77Vr/S9OqaGVpg0noBnmMtTcGIbpTJdDLf0slZK2GHcgyxOdPoTlj2i2
-         H0xLGnhrISHBFu1fd+/1mCZ3YbFwsslu3nUQCgpoFSKBtzyQA9I/yl1diPDwmu0EZN3N
-         uJil8rXc+og/CSDOavnI/jpJPSfsXNHkuo8+E6Cew+ji7q82MhXdqDIpDF6snbvmV0HB
-         16Bg==
-X-Gm-Message-State: APuU4Z8t3nz3tclj7Z08owOVbMFlmo5Y8IWRnypPOG434DQjcNWHEA3F
-	BWJtTCeycrK5yy3Wn2PzU4wbRT9lrsIZp5o26VUiduAt58aU8gwOAtvywJLZJ7Hu
-X-Gm-Gg: AZFdTZcmZkZpoxCKDfs68DuEhrdezuM5NefwpOm0hvq4p0E2WSpy3HGVA3LVq0p2NhE
-	lzGJnaYM9LfXmo0lz27KJ/yQDvesF7zrMvk7gY8GUc8WdYY0riPEafftHc4GYqcf32u7Yaictgl
-	yXIHwRQCamU8iGd9vIiq+x037AD+deAVHyB79u0zP71mU0P28iS+vlmVyETmPx2DvT3SomSsLRt
-	C3sJ4C/3JXw2WlCpUv7i/l6A0VYVHj+HmmZXnIrTtLVrPNbwJBQ2BxKLVu7e6VMltxEK5mubXHS
-	pWU5N0aqVS9I7CnchcXbqSIZuqO9gnlYU5qty1qUhrtDSJnRnbhIDa43K1j+UtKCvxElqsSzE0C
-	FwfL+5AoIdEmbpwhyAo0+2djP4B+0bYAc1KwpAFSbTzolc4YpiNj/mYZo2lBh8EChS8tvmAMP9g
-	UDgbiWh9ZJnQsy+bUHqwZfVazM0RzqJ8Pn74obCL6dLKNMRB+2PK6OlDINeTjnX5GAIDG7PLrxt
-	iokrywGd9AUjyrh92q/ZINz5rDVo5WR1Vh2KGWw5LZptcTh6dBDsBu+2eO0LGG41zNgy1p7vZCK
-	b8OWNkuMl+h8BoQnK6zG1/auIFhNE4QLxDZhb72RooOhSnMDbm2t/r+LxCiNqwrxjDk9jR01PfG
-	grrW0suyB/NLawC7WXvTE7Cqt6AR+K+yyva00ow0J7V+h+Er06uiQ9dNxBBk0CjYf93GDIYqf2V
-	x55E70xLfxrSwp1jx0
-X-Received: by 2002:ac8:5a08:0:b0:55d:25a1:72ac with SMTP id d75a77b69052e-55d76a26882mr177747901cf.27.1795388576409;
-        Sun, 22 Nov 2026 15:02:56 -0800 (PST)
-Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm82756661cf.17.2026.11.22.15.02.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 15:02:55 -0800 (PST)
-From: Xin Long <lucien.xin@gmail.com>
-To: network dev <netdev@vger.kernel.org>,
-	linux-sctp@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
-Subject: [PATCH net] sctp: unshare GSO skb frag_list members instead of linearizing
-Date: Sun, 22 Nov 2026 18:02:54 -0500
-Message-ID: <20e1d469385153bcfa766080453e8d9c1d64c339.1795388574.git.lucien.xin@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	dkim=pass (2048-bit key) header.d=loljews.com header.i=@loljews.com header.a=rsa-sha256 header.s=mail header.b=uFI9vQxB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=loljews.com; s=mail;
+	t=1795389217; bh=RPH9ZfMAk6/3lg3j+TqcCI1Xuk/6fEF5sowIRUk1hSE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=uFI9vQxBHNyD17DlmTDh9cNCVclrNR1Vjs3dU4kEaGiofwyIYl+Bsf133oKBoNYg2
+	 HYUp1x1Vvp3LdTxBSdkxWiy4BO3VHRPe5VwuI0FyGLF5hGOz3Ul/wkK5GWpaz11T4N
+	 vQrOOjp4Tzlvl5bgM7UmiNK3q+/Ot3AaML4JSmqfNBKTRjNJSYLe2R5qS3CpeZ6Byz
+	 Wsz94y/WhXXLoiIj78wxZLh4jRNDYeANyH7wCaN7pO/NTaTn8sm4p3BDCAaTKPrPar
+	 QMc4WyC8FaFv2a2nDNSE1GYh2Ytswtai+p/0AvE+1WcBQYybcexpBN8AAkhgHk5OCH
+	 g3enRqeuRC4Cw==
+Received: from loljews.com (localhost [127.0.0.1])
+	by postfix (Postfix) with ESMTP id 0E2BB27A360D;
+	Mon, 23 Nov 2026 01:13:37 +0200 (EET)
+From: Sandeep Haemoon <sandeeph@loljews.com>
+To: netdev@vger.kernel.org
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, David S. Miller <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Russell King <linux@armlinux.org.uk>, Daniel Golle <daniel@makrotopia.org>, Mason Chang <mason-cw.chang@mediatek.com>, Frank Wunderlich <frank-w@public-files.de>, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v8 2/3] net: ethernet: mtk_eth_soc: skip page_pool
+Date: Mon, 23 Nov 2026 01:13:31 +0200
+Message-Id: <patch-512286e3bf3d34c81957126ab22d02fe@loljews.com>
+In-Reply-To: <patch-51fa5ed3bc801edb3f29b61ca7888382@loljews.com>
+References: <patch-51fa5ed3bc801edb3f29b61ca7888382@loljews.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,102 +62,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-When the iptables TEE target copies an SCTP GSO packet with pskb_copy(),
-the frag_list skbs are shared by reference. The SCTP receive path then
-races on shared sk_buff headers in sctp_inq_pop(), and can hit a BUG_ON in
-__pskb_pull_tail().
+The page_pool is created with order-0 pages and MTK_PP_MAX_BUF_SIZE as
+the maximum DMA length, so it can only back a ring whose descriptor
+length fits in that.
 
-The previous fix in commit fd60d8a08619 ("sctp: linearize cloned gso
-packets in sctp_rcv") checked skb_cloned() on the outer skb and
-linearized the entire GSO packet. This is insufficient for two reasons:
+Gate the pool on ring->buf_size <= MTK_PP_MAX_BUF_SIZE and let larger
+rings use the netdev_alloc_frag()/mtk_max_lro_buf_alloc() path that already
+exists.  ring->frag_size cannot serve as the limit: it follows the
+netdev_alloc_frag() layout, whose headroom and skb_shared_info footprint
+differ from the pool's, so a ring can have frag_size <= PAGE_SIZE while
+its descriptor length is already larger than the pool can map.
 
- - A partial pull into the frag_list can privatize the head while later
-   members stay shared.
+With the current MTU limits every ring fits and the gate always passes;
+it becomes active with the 9K jumbo support that follows, when the
+shared rings grow past the limit.
 
- - Linearizing destroys per-segment boundaries, breaking AUTH: the HMAC
-   is computed per segment on transmit, but after linearization the
-   receive side hashes across all concatenated segments and the digest
-   never matches.
-
-Fix by avoiding linearization for GSO packets entirely. Add
-sctp_gso_unshare() which:
-
- 1. Calls skb_unclone() to unshare the outer skb header without
-    flattening the frag_list.
-
- 2. Walks all frag_list members and replaces any shared member with a
-    private skb_clone(), giving SCTP exclusive headers (data, len,
-    cb[]) while still sharing the underlying data buffers.
-
-Fixes: fd60d8a08619 ("sctp: linearize cloned gso packets in sctp_rcv")
-Reported-by: syzbot+f15a6eff7a53f6eb7dc3@syzkaller.appspotmail.com
-Signed-off-by: Xin Long <lucien.xin@gmail.com>
+Link: https://github.com/mediatek/mtk-openwrt-feeds
+Signed-off-by: Sandeep Haemoon <sandeeph@loljews.com>
 ---
- net/sctp/input.c | 42 ++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 40 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/net/sctp/input.c b/net/sctp/input.c
-index 9494cfa51106..cd84ee44b9f2 100644
---- a/net/sctp/input.c
-+++ b/net/sctp/input.c
-@@ -82,6 +82,38 @@ static inline int sctp_rcv_checksum(struct net *net, struct sk_buff *skb)
- 	return 0;
- }
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 6c8b039fad..b3a6e57035 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -2824,7 +2824,13 @@ static int mtk_rx_alloc(struct mtk_eth *eth, int ring_no, int rx_flag)
+ 	if (!ring->data)
+ 		return -ENOMEM;
  
-+/* Ensure exclusive ownership of frag_list members for GSO skbs.
-+ * pskb_copy() shares them by reference; unshare by cloning in place.
-+ */
-+static int sctp_gso_unshare(struct sk_buff *skb)
-+{
-+	struct sk_buff **pp, *p;
-+
-+	if (skb_unclone(skb, GFP_ATOMIC))
-+		return -ENOMEM;
-+
-+	if (!skb_has_frag_list(skb))
-+		return 0;
-+
-+	pp = &skb_shinfo(skb)->frag_list;
-+	skb_walk_frags(skb, p) {
-+		if (skb_shared(p)) {
-+			struct sk_buff *clone;
-+
-+			clone = skb_clone(p, GFP_ATOMIC);
-+			if (!clone)
-+				return -ENOMEM;
-+			clone->next = p->next;
-+			consume_skb(p);
-+			p = clone;
-+			*pp = p;
-+		}
-+		pp = &p->next;
-+	}
-+
-+	return 0;
-+}
-+
- /*
-  * This is the routine which IP calls when receiving an SCTP packet.
-  */
-@@ -117,8 +149,14 @@ int sctp_rcv(struct sk_buff *skb)
- 	 * it's better to just linearize it otherwise crc computing
- 	 * takes longer.
- 	 */
--	if (((!is_gso || skb_cloned(skb)) && skb_linearize(skb)) ||
--	    !pskb_may_pull(skb, sizeof(struct sctphdr)))
-+	if (!is_gso) {
-+		if (skb_linearize(skb))
-+			goto discard_it;
-+	} else if (sctp_gso_unshare(skb)) {
-+		goto discard_it;
-+	}
-+
-+	if (!pskb_may_pull(skb, sizeof(struct sctphdr)))
- 		goto discard_it;
+-	if (mtk_page_pool_enabled(eth)) {
++	/* A page_pool hands out order-0 pages and is created with
++	 * MTK_PP_MAX_BUF_SIZE, so it can only back a ring whose descriptor
++	 * length fits.  Larger rings use the netdev_alloc_frag()/
++	 * mtk_max_lro_buf_alloc() path below instead.
++	 */
++	if (mtk_page_pool_enabled(eth) &&
++	    ring->buf_size <= MTK_PP_MAX_BUF_SIZE) {
+ 		struct page_pool *pp;
  
- 	/* Pull up the IP header. */
+ 		pp = mtk_create_page_pool(eth, &ring->xdp_q, ring_no,
 -- 
-2.47.1
+2.53.0
 
