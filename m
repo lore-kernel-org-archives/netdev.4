@@ -1,75 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371173;
-	b=MVq3y8PWyHhfmk4uYk4jHtE3rej7W4c5lmFeN3tEukIIncvCeAP65UoUCuwZViWfIPYY
-	 6UyIKY34hw6/6P4BJ7zE4itfTAiJqLUqyRVpFxl0oeC7bi1Yh0nXmm26mArbrgUaIXVZG
-	 oRZzozzqSttts2wvIz+RJ3ViKUHApEKKvN0WczQzb3/gJGcTvqyVdlrc1hJs26wAYjKYC
-	 LF+HgMTHaXHK+MvphspfIoPbxqUycARe+XBjh/tDni7hfjiXg9PqKuuQkay8U8rJlpolp
-	 Y4GQqoXJVFP900DMKzbwssPb5aSx9ozPy0+b9vd1b257z7jt59Cg/PNzs6QhHPKC5/Q==
+	t=1795371895;
+	b=KK2kxrIkkNFRzou7OUotRXTX9uaG2yh84lHhcAryCGBbqLBFj1MrF05K023zjbQw5ljW
+	 AcPkEblgm9mhfu92AsQVlKzBLSXV/El0MbqNr5jhI3Bd+Ig6x9wMplehG+3ULRlKAT7Lg
+	 2WJd8lT7rEIB5Wlaa6yl0LKvU5+wUuM1baS6P0xhrhTrcsBi21lJ64I5x2viBsyRxKl4g
+	 h8ttIUJg2Px3iT4aD6ZbTAPxWyQa44AbvUjUsNVBJWGqC0AxEstqG3jDIiy+WMX25YJIW
+	 +loMphrjIktqnAV6Aq13jJCcAdOfQBCR0cBVL6MZJObSQ2Ku5VNeWt04xE+HycAyzOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371173;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=Mo3kjI8Xpm7/wjLGyOU2Dz1FSRwjRmlKgOXYc5So1Wo=;
-	b=kHlJxd9Td+qnz48sxP3+6Sq0KQ0AhKBsYMoIln9uIW3EGXdVsRrr5mJUwntO7fSNXp++
-	 z6Vg2ABj0Ue0A3hR8bahx8MV8Bit7CQBU/aFFrUxji2ms6b/TiRHzUzx33mpVA26HIA+D
-	 tk1sg8SlEr22AeQyLP5S0mfp0tezXfbwk9b8vHRFP5EuLyFgDUmO3npuxh+mlOKY30Mcb
-	 yu+3cCZ1gcGYESGYogetEfsFdVNK87iyh8l/i31W51W5dl4Lm3/u/99Vwbev7vMzfO2cC
-	 pRvAZznQDW8kf4pDF+qkPm+WQ7YsPHxDi2DsYByT9NpVQiB8IZbhwq4XwdL/TPDgz4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371895;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=;
+	b=DWnL+MLS/NFdl4huDxJX3Uc6utVCWj+tBB+Dnfj/D2d5XcMcmSVtrgAklbQL93fq2A9M
+	 wbHCBPI3gfZzoqP8v8Ws676aFsRiUPgIo054A5MCPguwSRimOzZDYyuWoh4mfONwwRPxr
+	 srNHqt9LcjgMBEkeFGjhv2A5yjiau6/J0+onMUH4VRTh9f8uKMHMfm13h3m3dbVQAPn/N
+	 NAg5vu6Qk3YrpPbNB+C4TVeQQtFl8fRz80I6o/9k7KA4dZWPJHM4iN1NZu8fSNMun21wc
+	 wGvf7L4pq6zGSNPKevtPTcJ0IybBJL43p5FUSRMDA5mTbgeAlRf79COtDE3HjCLsJkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CRXAsa7W;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9563F606A32C;
-	Sun, 22 Nov 2026 18:12:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BE6606A32A;
+	Sun, 22 Nov 2026 18:24:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BE6606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CRXAsa7W
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496DE1F000E0;
-	Sun, 22 Nov 2026 18:12:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795371173;
-	bh=Mo3kjI8Xpm7/wjLGyOU2Dz1FSRwjRmlKgOXYc5So1Wo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=CRXAsa7WDcnr2ID5hW3MaNS8IBlTnwVXVJ8jXES1HeAZTZ3owWi7Jn6LnQROmNfCX
-	 Hi8rA/SLh+CHxEvOsm02vz7ws7HW6NjN7P+tmWSxuvjwiAp4kC4c/V8sgDRu5afefE
-	 FRdxn02SK7LycBgR4LtKd3nmhJX9Ax9nSonYf8Y9R4CQxHxVyMqLkJhvJQU7x78/KY
-	 Ab5BQZBvk4eMTPQXua0rXBa5nlfjtQXVNSJivVZef3T3NdY6gfAjmvKuPwd14N6daa
-	 g1qQgODYl562WzAX7PIj5fdjZij/aCqtQ4FqCm7Y5Csq8408v0v8sA7ZL5+/3l/OTF
-	 Sa59F0+lGszOQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Alexander Duyck <alexanderduyck@fb.com>,
- kernel-team@meta.com, Andrew Lunn <andrew+netdev@lunn.ch>, Jesper Dangaard
- Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, Pavel
- Begunkov <asml.silence@gmail.com>, Jens Axboe <axboe@kernel.dk>, Andrii
- Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
- Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
- netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
- Mina Almasry <almasrymina@google.com>
-Cc: "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>, Weiming Shi
- <bestswngs@gmail.com>, Nikolay Aleksandrov <razor@blackwall.org>, David
- Wei <dw@davidwei.uk>, Alexander Lobakin <aleksander.lobakin@intel.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Stuart Clark
- <stuclar@meta.com>
-Subject: Re: [PATCH net-next v1 00/11] xsk: Zero copy through page-pool
- memory providers
-In-Reply-To: <20261110102039.1002605-1-bjorn@kernel.org>
-References: <20261110102039.1002605-1-bjorn@kernel.org>
-Date: Sun, 22 Nov 2026 19:12:48 +0100
-Message-ID: <875wxo3fbz.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=; b=BsPCX8drszWkyXNyHqAHkJDoyN
+	6Z5KhKiCoIFTdy5cIoJRNHjbVJSqC9oMjYIAlfVpdYwfhjWGcmhpamxw35+z16Bq+xaF5I65ALA1N
+	kq8G/V3/CzkaBkYCaW0PsYmWhIuTSOmHcVHPHyvbMjlb27hsmcQU+uqElL4N0GcRwNPk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVCEs-000bMR-9t; Sun, 22 Nov 2026 19:24:34 +0100
+Date: Sun, 22 Nov 2026 19:24:34 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] ARM: dts: rockchip: Add support for RK3506
+Message-ID: <cacdc706-3fef-491b-bb3a-96728347a17e@lunn.ch>
+References: <20261122060114.773624-1-jonas@kwiboo.se>
+ <20261122060114.773624-3-jonas@kwiboo.se>
+ <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
+ <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,40 +69,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
 
-Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org> writes:
+On Sun, Nov 22, 2026 at 05:01:08PM +0100, Jonas Karlman wrote:
+> Hi Andrew,
+> 
+> On 11/22/2026 4:46 PM, Andrew Lunn wrote:
+> >> diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
+> > 
+> >> +		gmac0: ethernet@ff4c8000 {
+> >> +			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
+> >> +			reg = <0xff4c8000 0x2000>;
+> >> +			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
+> >> +				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
+> >> +			clock-names = "stmmaceth", "ptp_ref",
+> >> +				      "pclk_mac", "aclk_mac";
+> >> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+> >> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
+> >> +			interrupt-names = "macirq", "eth_wake_irq";
+> >> +			phy-mode = "rmii";
+> > 
+> > Sorry, missed this on the first pass of the patchset.
+> > 
+> > phy-mode is generally a board/PCB property, not a SoC property. It
+> > would only be a SoC property when the SoC cannot do anything other
+> > than RMII. But given this is snps,dwmac, i expect it can do other phy
+> > modes.
+> 
+> This SoC only support RMII mode, so I put the phy-mode at SoC level.
+> 
+> Datasheet for this SoC lists following:
+> 
+>   RMII 10/100 Ethernet Controller
+>   - Support two Ethernet Controllers
+>   - Supports 10/100-Mbps data transfer rates with the RMII interfaces
+>   - Supports both full-duplex and half-duplex operation
+> 
+> The Technical Reference Manual also only mention RMII:
+> 
+>   38.2 Block Diagram
+>   ...
+>   The MAC only supports the PHY interfaces of reduced MII (RMII).
+>   ...
+>   MAC Supports 10/100-Mbps data transfer rates with the RMII interfaces.
 
-> Hi!
->
-> AF_XDP zero copy needs a second RX allocator in every driver. This
-> series makes UMEM a page-pool memory provider instead: a page_pool
-> driver opts in, and keeps its refill, recycling and DMA sync code.
-> fbnic is the first user. Patches 1-7 are core, 8-11 fbnic.
->
-> Since the RFC [RFC], net_iov is a first class netmem, the core owns
-> AF_XDP setup, and a refill contract replaces the NAPI kicks. The fixes
-> are out.
+That is unusual, but O.K.
 
-Hey,
+For the Ethernet node only:
 
-Thanks for all the input!
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-TL;DR for new readers: Too much churn, especially on the driver side.
-net_iov was not intended to be readable from the core side of things.
-
-The net_iov part needs some deeper thinking. UMEM memory is readable
-(the kernel can read the memory), but needs a non-page refcounting, and
-benefits from the rx_buf_len (larger chunks). iouring TCP ZC frags are
-also readable, and the kernel does read from it from time to time, but
-it still unreadable. I have some ideas how to fit UMEM to the puzzle.
-:-)
-
-I'm working on a v2, but it'll have a different take than this version,
-to try to reduce the amount of driver churn. It'll probably be an RFC or
-a brand new v1. I'll try to address all input from this design.
-
-
-Cheers, and thanks all!
-Bj=C3=B6rn
+    Andrew
