@@ -1,64 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795359106;
-	b=Q8yeGHhvDSGl+D+nmKwNPLe8VwrxlWWsHxcowmRCQdLrvRD37IXlebez6YLFVC9NBg8l
-	 sApnPtHLbokeALJjshi+cxu0df6BcnsOY5Lf59ekXX8MOtGyAqMomwz6yxsYomD8QTbwP
-	 EsHSPADrW1+Ox4E0SYB272hppaEIltHLArxhEVoY1AcFh+wEtaP/Avfb3ozgeCPRj3rdu
-	 IwDGJMk/B1GQO0Bq+xPfPtjraP1umi1EEj450jzfjmEn+KAvL1IMV5CgNQkAvWoAVh0A8
-	 I73QXTO/4rpeoB1CW+AKkaH6otSFesEECm1/yenWLJQsCH8BbKnZmKzbhNjtpVkTYwg==
+	t=1795359120;
+	b=wZ7Lj+1DcE/gq0JWo9eR7Uzxxp5Szo9nDFgVvMrSBKz8VrQ2OhaXc5i0A+i3jERlIDqr
+	 ZN5/Q1SrXKi+1DwB22ZcAMq8LWGT69PT5v7mNE848kV9zY4Ic0Tmstm5pKx9VN/V+QcRZ
+	 TEtdmFsK5zv/RNREan1MmitpgFUKun48U2wT3sRwowpUbYIOJDBj3TcANHil8iRZQACzE
+	 NaQJsdueJAtRqAqRi0IwNKYXLBdgcOy0wr3SvHJgpGAd7qHqod01/ySAK1cTQ2aY9tF6y
+	 rF/kcQVjIw+ssDGRfndE9EPgAWbekWjFT+6ltoDE9+fCHvRFzh+pggL1hbHdoHGnrKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795359106;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pP1Eg7j0fEyC/wpQ+r82L7kkFTb9gJSOerVN41GQVUQ=;
-	b=dzrogdHi5PgGNqSApdm3PHWgV0quXWhNwHesT6NGMwNjf1zEU+yKb4Hvt5RTioGM3n/+
-	 vWdL6E5uSnAsBpvq338qdWgyBAOKqYlEcW+/gmABapC2kqejsA/7zYJUdIbMI90mF/t9f
-	 jSiIN/bMem4XL4HD2FiWJVNiKxBa6rOOXZzxTWaGxikpkzgEUXu5sNLCNEn1Q3f8n04qd
-	 YNXT4WBiiF4MHlFOXj17yBMAHNzw13SW1bfEsdLNR9pccujGWqo34whZwq74YTO/XRLrW
-	 w6wupvjLYmkPYGtZfXcyzryjm1c54BhVByNpfn4IZ08RRI6/aU+kqmINq8Y4fYFrMpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795359120;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=N+g6yFnu5goWeGzRkjeNV5+MD0chsaKXrf18q6pxcOo=;
+	b=wv7ZwHxsOCV9vloC+FJXRrsr+szcZOVnJUR0yElOeCo8QAd7vsNf/QaGW5n0LJIKXRN/
+	 +NtxMS4uwo/yz9xn6K9xHPT9oY4mIp0rm9TCLoBjnatve/0ZCOSldhA89JmClptHqfbJH
+	 0FDau3P696TPOykYZircZrvZ9mfMn/6lhX4DAMOMDhjO0N6W9dEJV3xZ/gFyGSUBI7ejD
+	 aVxeHvNplJnF2vJ75IE50h6qo4dbwU4vmO66i3O4Cu8ql9NR3quXJimemi74bNPAQV6wM
+	 JhyiTUavPTiHTUePPhpF1sOC/e1WqY6/grNupHEw4HbwH3cXExs1O8/DaqPdoagNiHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJnGbZJn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A94B2606A320;
-	Sun, 22 Nov 2026 14:51:46 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AkmXN8eP;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9A1D8606A32A;
+	Sun, 22 Nov 2026 14:51:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A1D8606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJnGbZJn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F20B81F000C0;
-	Sun, 22 Nov 2026 14:51:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795359105;
-	bh=pP1Eg7j0fEyC/wpQ+r82L7kkFTb9gJSOerVN41GQVUQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PJnGbZJnz7BCoxtc8LVNsEWA+vw7UkZIG1UYvRus3e6zyDQUdNwU3TYCB/3y0GrWp
-	 97PNWkw5YG1g0Hid3jasu7S37JR7ohbB+3J0zAkMWt8vPSm79Fl+/dwJMBN03AwPV3
-	 ApmO5o415Ep14oTLaXTXsKAwCE1EfGltPOxUt8A6TWe+dmjEuN9ex4dAsAKX1DwWu9
-	 Pla2zp6F/JiJKV2xBwJBqHJpbksMNMTxMxtcCyoDchkzWJa9omPU5nCVJATYqC92xl
-	 g6eesqt6KHlIZW5KS1KzDQAanoo27/WXgawCgVZf/E8dV+nkGSgNgJ7JUC2CQrFaUR
-	 etLzzqtfEJ8sQ==
-Date: Sun, 22 Nov 2026 15:51:42 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@linux.dev>, 
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Simon Horman <horms@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>, 
-	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	Prabhakar <prabhakar.csengg+renesas@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH net-next v5 06/24] dt-bindings: net: dsa:
- renesas,rzn1-a5psw: Limit port reg values
-Message-ID: <20261122-nifty-unnatural-caracal-1b3e4e@quoll>
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AkmXN8eP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=AkmXN8ePhCC3zrt5wKubezneAcarFP2gnKoWuHUoOevXheQ+zPfb5syHH4Rpy2RmhSfTAmvtGYOFL
+	 AqUQEUG1305oBCJBZfAXTOwuMDiFx+h6KJL1+rHtDqOTjIunO9ig/BEuToSqCM1QKvGP+2zSmsb/rD
+	 9ldw+CG7V7a3VV28=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b03018953e-0092d;
+	Sun, 22 Nov 2026 22:51:54 +0800 (CST)
+X-RM-TRANSID:2ee66b03018953e-0092d
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46b0301877a1-71c7e;
+	Sun, 22 Nov 2026 22:51:54 +0800 (CST)
+X-RM-TRANSID:2ee46b0301877a1-71c7e
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] net/mlx5: fix a stack over-read in the QP debugfs
+Date: Sun, 22 Nov 2026 22:51:52 +0800
+Message-ID: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,30 +76,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120002549.1908299-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 12:25:16AM +0000, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> The A5PSW has four external ports and a CPU management port, using
-> port numbers from 0 to 4.
-> 
-> Previously, the patternProperties expression only matched port nodes
-> with unit addresses from 0 to 4. This allowed port nodes with other
-> unit addresses to bypass the port-specific schema constraints.
-> 
-> Update the pattern to match all port nodes and limit their reg values
-> to a maximum of 4. This ensures the constraint is applied regardless
-> of the unit address.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> v4->v5:
+dbg_read() formats the field into char tbuf[18] and passes the return
+value of snprintf() to simple_read_from_buffer() as the number of
+available bytes.  snprintf() returns the length the output would have
+had, not the number of bytes written, so when the string does not fit
+that value is larger than the buffer: the longest QP transport string is
+"Invalid transport type" (22 characters), so with the trailing newline
+the function returns 23 while only 18 bytes were written.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+simple_read_from_buffer() uses that length to bound the copy to
+userspace, so reading .../qp/<qpn>/transport copies up to 23 bytes out of
+the 18 byte stack array, leaking 5 bytes of stack.
 
-Best regards,
-Krzysztof
+Enlarge the buffer so the longest string fits and use scnprintf(), which
+returns the number of bytes actually written.
+
+Fixes: db81a5c374b5 ("mlx5_core: Improve debugfs readability")
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
+---
+v2:
+- add the Fixes tag for the commit that introduced the tbuf/is_str
+  formatting, as suggested in the review.
+
+ drivers/net/ethernet/mellanox/mlx5/core/debugfs.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c b/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c
+index 30be2b631..3e75f66f7 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c
+@@ -496,7 +496,7 @@ static ssize_t dbg_read(struct file *filp, char __user *buf, size_t count,
+ {
+ 	struct mlx5_field_desc *desc;
+ 	struct mlx5_rsc_debug *d;
+-	char tbuf[18];
++	char tbuf[24];
+ 	int is_str = 0;
+ 	u64 field;
+ 	int ret;
+@@ -522,9 +522,10 @@ static ssize_t dbg_read(struct file *filp, char __user *buf, size_t count,
+ 	}
+ 
+ 	if (is_str)
+-		ret = snprintf(tbuf, sizeof(tbuf), "%s\n", (const char *)(unsigned long)field);
++		ret = scnprintf(tbuf, sizeof(tbuf), "%s\n",
++				(const char *)(unsigned long)field);
+ 	else
+-		ret = snprintf(tbuf, sizeof(tbuf), "0x%llx\n", field);
++		ret = scnprintf(tbuf, sizeof(tbuf), "0x%llx\n", field);
+ 
+ 	return simple_read_from_buffer(buf, count, pos, tbuf, ret);
+ }
+
 
