@@ -1,99 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795389672;
-	b=Bc30xd+LkEWG0lgIlmZ9avtNHBc6LY45I2foqC3jdcV/ZqH2pr4osEpG/vziIhMEW2Nm
-	 VMW7Eor7Rxl57yKfnPgsiogu8+0U7AGHcJBLmG/il/MQqdp753dxqbAdWiFBVkiWVxlcK
-	 vr46Rto78V0SFTvs0iYLNPcbF6nO7F/I5CfFumWMJvKphMA9PBoVtGzd3yBOdQuRiQnOV
-	 vOM2Ihy/jgQafitGIER53oC2aQxhsMT/vys3XkQkDMhUs66296EAuMLmZEzogVnRSurVq
-	 ghplFJM7zEMEmuECxnqk0zI03eFIRiZMA6KREeXUZpCC4N1/xx8iskihUYdUcYdfJCg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795389672;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795390801;
+	b=wjgN+FcN2JC6p3R6p8Or/nfVO0gdNJNlGgR9WebUTJQGlLjx8XFyCGj7z4YM4Ps+I8Mz
+	 Vgud1aMpOa6UYgRH8ykVn7GLIA+UiHti17RQ6MX6bSSHcxYFH/v5pVZKXIVDktI3217Dr
+	 fv5l1tV1KmtkJoDCpMzNnQGdbrm2pKPlfsHoP93aLUTH/aDqT2LuWidf3/fBpZ9Ux0U6d
+	 GqnugrPtgk8DB89LFliLx6xbG/E1UNJZXVjrnSWhTcTD7gre9n71VPTqU8C+C2Q9Q9SJT
+	 D2XSuT1xZVlO5KBujhXLqtRw+b9GL6Oj5E0QNMbikvXGDXzngx3m8gmEPLYpGotYKfg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795390801;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=TTW4RGUBOIoiovq6C38P7O0ojxYjuzO+Jk/cZ+Q8iu8=;
-	b=J3P2Ji8+zLBsck6fGJoiNzW3qgu7vTlffQILh0O5bpIjNYa2zsixEKTXDvy/+ABDmL7s
-	 ea0jVd1IE+06w/4u93AnmCPLJtOWRhtXJYqNtCSkTuDQPiGEtokXP8ejuok3U6bM4PGpJ
-	 Wbg9JiFvsz7N4j66cVr7v9Zvt2JD0FtC9ILRuuIVBlnrZv7WBLYCN5pOIlm9wKSXiZt35
-	 JGjXFx3f2UEb5/qeXUfr8qlYvbSjmVtzdQ4TqomV9tkspCGp2WSgzU6ia0L0RlXnaYQEJ
-	 1g5ICyKQ9FihRP3CrQwOm0tzN8sRwk/30SrxFJCFiBLe+/537YCE/9p7VYII9Ee9j7g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	bh=TQb45l1RsU0Lz4sB7qqB+jyVNMLFZAFcVIiy/3FWzuo=;
+	b=1xmMHUiX66+EUTdpbPFNWtWyxfAFNGqpmxVsuZSBWr9qR2PGjfINpBOxGCb/vlduuOfB
+	 6ag5mx878gqjVaIsc6UdjTrgUsNHyHpRhuBA5Z6P/Qr60zC1mG9JXEv7IfoOM35vTGXpM
+	 hsxDYkh6rVoMYWtyaGCGE7YgS+H5FL/j4XBy56N3+IEh9bcKCQjGJnvDa2uyxju1BpGKI
+	 3k6OMP0lQzm5O6L3C9Uzve5hqBdkz2sZVT2qdp7UySnrrMTpB4wku04Rv/mZcJbm0tYTT
+	 KIGXHA0a5EjNxLzAKMh/NI+BPEy9bri8XH9MbzxZglocHnx75E/OAIzKbevqFJeT3/A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=stellman-greene.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="WX6/cOb8";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JoFkxyyJ;
+	arc=none smtp.remote-ip=209.85.222.181
+Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D538606A31D
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:21:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D538606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A37E606A334
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:40:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A37E606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WX6/cOb8
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6bab1084463so85190a12.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:21:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795389670; cv=none;
-        d=google.com; s=arc-20260327;
-        b=emIv7kk15jGK2hzEPzAy7ueNB+hcdihmvtBYCkyNzNy6CQL9AWFKZLTDMqLuQRTJk6
-         gTHkmPnIN7Ux0EtmiVOzJjTkAInjqHBzyRPRmhDFe6HSQAqukdTJlOJLuj63ooB9ds/D
-         8vQV8ErnGk+U/h9ouGYKogRJ9qQ9uDyifZu/lfSPM3NllnO5BA0RC8zMOQLtwfwMzh6i
-         Of/PQ5a/XMj7Rqtvo+TBaQugdazllwa8Op/3Qscq6jEJD4RX6CSsEo1VwKOX2/Tt/H64
-         8+I2qc6Gxuf+d1XFiRU3xzM4J8081ftvsJ7t+M2f3xO73ntU4EtnXXrCbgh0X5x8m4Zk
-         Zldg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:dkim-signature;
-        bh=TTW4RGUBOIoiovq6C38P7O0ojxYjuzO+Jk/cZ+Q8iu8=;
-        fh=5eXKLRljkh3JQK3w0eRxcHmxBes7ZYwBKpnfSOMYgcM=;
-        b=OCS0go3kdcEpg+hCbHcNarjWjiyaNygAWHn04W1r5bYWxj8VWCm0/4f5SKtuUhqpOC
-         /N16R+jlE7yACV5Q7ayqFuAcxwCgl0s7atLyRNetY5KRx6RW/nD5pXu43LtwOXjGGT48
-         +kHIeNNJPPl05mCa0wGoaMFq+1sIwm7lFHjNYxSuNg7pk745FuiRjIOVZJNNCU78tFCh
-         /cx0YTA7PCWaUzaiHtSqCiGrHe92f1WEfF+4jELvBkL3/zBIG3BBcID9oYjAa/XbuomD
-         ultkN+r+JhoxrSX01rERijM2ZdB7YXQV4Vhuv2M971WY2Qt1S6R93bwYTLyvENTgWPRf
-         zOOQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JoFkxyyJ
+Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-94962d80d34so169642385a.2
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:40:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795389670; x=1795994470; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795390800; x=1795995600; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TTW4RGUBOIoiovq6C38P7O0ojxYjuzO+Jk/cZ+Q8iu8=;
-        b=WX6/cOb85Pj/nH9o41AB0CPKgpxS5ig4OZdFldPMx6sHrCvHuKg5PW/yFYp1x/UtKH
-         EPW/4RWGqcYkzIOSNaMoZLtUi1nA0gcYmM2zrrJKN8TdIuSDWZha5A4sUIDEo4S7BEue
-         KD7MPl7oXWJMQbruRT96PpUZ/3r95KOjooWpTIeEkf/p2fvMTorhDZHHi9LyeuPRrrfL
-         9d+sLSTXEy9trwuduFLq3uUVPBipgAL4az0KoRYDR1gsLiXMtJcYFgRQI+pBB2BJ9NOi
-         1WIflajOvgq6CDhrsht+BqcSBk5+zAUqQ9UXFHBvLmBF+ZLnfxWe6ZnARGyhVfib8+BU
-         gYKA==
+        bh=TQb45l1RsU0Lz4sB7qqB+jyVNMLFZAFcVIiy/3FWzuo=;
+        b=JoFkxyyJLHpNVekneO1pBCAfzUiuj6FsnPF+f9jmITq2rUJSsSdYR0bXQa/JDkA07z
+         3Ia4RY7sTeIL3ojqsk4+cE+v1ubAAIFukwpBSf5qBb+B69kKAdyyaUzoZvhIx9Ul+erW
+         jeFUD2Zz4k4eR076rfqWAorFnRQYaCePKKB5idvb0ueu0TtsuqcJkoc6OCH1Bv2URybb
+         f1FzDhCjPJKNBfl3JGgBdVs5SB2FeNYmPdlOgiyvlhOPAwglC0Gm0LG8ljywhCy98A7U
+         HRIo4uTy9rNe7EyJHc8pOfP3L7mhNLnB4X+DAh6EABpj2A1HY3aLgkz8S7xFQp8gFHLB
+         +wsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795389670; x=1795994470;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=TTW4RGUBOIoiovq6C38P7O0ojxYjuzO+Jk/cZ+Q8iu8=;
-        b=PKTgESXo0U1Bx9xKClqmXabRa3hK/8bULGNigTC0Xh4CBpUGPngtqF4XK5BxASCprD
-         OTMIXgM/5jwIYNccQ5+UdJP/XpbgmWFDz3XUTzteoR71pWW2a9EI1PG4D8MN65N2h6FX
-         xqWZxsSrZpV8nfoHXJs95F14gRMP4qxMnUntc4B04Rj8RlCmkl8L+YJa2vUXLYbz29MQ
-         nrkDUWMjuhETV1d2/Mz19AtUYJWlNo1rCuvNa6aznaWV0lnMLlRNhiEanTzERkF/TfdG
-         cPjraZ2EYsVCt6uo1vW0GFbHN0Gm3jrB56zOhUB2C5hrwSQq8U9s3AHk0Vsgpt60PDD5
-         EmCQ==
-X-Gm-Message-State: APuU4Z95EYs+8bzo2XildjdIa4OU9Cp9SU5z4RvS8rYXyqJRJLp8n4bG
-	n6O+h7Ns709VE+CQBhHTJtSLWCSc80GyLLutC3OxBWG0J1wD7QDHWXnu5wEqBCRE75xbbhxoMmJ
-	qAOCbY49BHyneYsnKm72Ww00fEKECl/FxQcfO
-X-Gm-Gg: AZFdTZcMS2a2LSpmciSOFetXLm7AtWEohfFDrmcX5XCS1fqpobY27+4HKN4GlXfhxAg
-	L4KhWJkUldDXF6eg3WqFRdwcykR+FdXNq0ImWNcSLeL2d6QMc5Y+N2XDvnd1LqIQmHr5j0xM3QN
-	uHuii70S3cG5Kz/TNWMjecQHQzTXZkhDJtdN/W903B+TDWTK/8wggcQz4wHv2zMrpyZXVHrHEjA
-	2Cs8wdD/8KVd8szgwnuXW8Q3HM7KOmZyjhHfW66DHe44zB/wP8/g/IopQDwX/Gzg2oTIDaebKxY
-	g0Zeg5GenvgOFmw1HV4l2fQI+abPz9jDMCyKvUKWsOxb9DQLAGsfbsoKzcuMuywBm3aH9ZO9XOL
-	5fYtCWZ/XL1D+QytUTHcwW2UMkY8/uUo83GssagV31AiOhwadxJ7ZZXVu7bUy+98ZxRyE2w/Tup
-	DWtlpJCvh7nitwp4RdlqU0MGHbkcEtfsC0RZiq9DYCW8t3VL8AgGtXJ197QdnldxBjd3DVoQ==
-X-Received: by 2002:a17:906:6042:b0:c3f:98d4:dfda with SMTP id
- a640c23a62f3a-c513a5f04b2mr765814666b.3.1795389669778; Sun, 22 Nov 2026
- 15:21:09 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795390800; x=1795995600;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TQb45l1RsU0Lz4sB7qqB+jyVNMLFZAFcVIiy/3FWzuo=;
+        b=2tnAPVz/BThp9ZuHbYhXrVyLHa6B9XMNKEywI3DKHY56MQtBErgVIbwZqNd40SXRMH
+         p+byYaaFOo5hLPP5LbKiExKo13J84nTdJf6DecObTnXmvnJxciriXy2bRN2QV6vtjHE6
+         qCRd0j9hs8OJt1v75iRHWHX+KpfkoLJ2A8lyHVGhCJyFj/fd4E+8Adt3Qbpfe2FxRNsi
+         7JKmDPLX1LkbWen6ydTIb5GHEurFU8zY6ibHqvv+KSkuNLyb0fUsnqi1jFw7BGsYanm1
+         2t83+XHlkJtUJ1r5oQz7oxVGOXgITNrERJCrNRwAn1FWNSMN4YOX+8GS9nAihQ5ThDE8
+         qBbg==
+X-Forwarded-Encrypted: i=1; AL+hErGJPhDHzvIHCJ+//23bf4BUUXLqnP2SMcwh47pvIFpaGbvOh5anmJXn8KppWQwDTCEXS9Ot3ik=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CVjgq9my8u+Noh6e8HZjeLFvhfVYbsOgrqOUj2rhojCLGM3T6
+	3PPqjzocnN1cFeXnyA8XoGVuPzUhAKa/SEkRnG8/2LmzeOreUlgDf9c3
+X-Gm-Gg: AZFdTZefBbHJkoBgCPxv1UZz/AhRzRPVs1gbb0JKAqn3qO5E1DydpvoGXBOqmxTw+JJ
+	X45nATlJW5aVCel9HeWylkyqIyERnoY6HiuxPzSK14nfA+ZNvvj7ViEWCVcwa9EM3ZUF57F7eBe
+	PgmXMTO0RpL1rBfqBAnx20IiuxFk8Th/BKVQwydHcH4xbGB4A51+EdPq9YyZMp37yOBchCwrPbi
+	7byeRBy45txbnlPOqAE+y6kY4KzPqZ5+3Df+ruEmPRa7H8fx+g9rtbmMzYltczGby9Z/szzbGP2
+	rUD+Xqzwh4s+Qm/fSFJb5eGfEn+XapsqZs+ywW4ZLKfriWo6chixcHgjEcXsySZAYYQzEB4n5QN
+	sza4tXi0GMkgJk6LDdU7tHhYz/eYoZPNyn/cOYSvRdWatrFOvEL1DAB9JuYuIjGz822lGpWcCrE
+	PY7ql1iK2pX9RDEeN/3hL0m1SUAKVmIEezSgPrIfBfsvKFOCg5gxU0uonDMn/8ci+OGeVA+PRbe
+	uVNjexQWNn2DwnAFu8VObf0eX6Hkc0xNRiCLrxHQ8NUHMhWw9K9A3LO0OlsgaSoKdy/ELByO318
+	QeM90JjcY5zIL7JHIM0DT7i50CCQdORKM+yzMtyTL3eDEBxvziGFCUnjy9yM+e+CLHvRWZBC88t
+	zGPIFpjekymKvKC6i98KarL8AZtf13hPMrMJwoH/qzstRHEEU3xMZTVnF5MEYB30ympeecW+zV8
+	Idfc0gcB5fysq5tge407NI+Pg5bw==
+X-Received: by 2002:a05:620a:4012:b0:949:3365:7402 with SMTP id af79cd13be357-949ba9b8ee1mr1662958685a.17.1795390800245;
+        Sun, 22 Nov 2026 15:40:00 -0800 (PST)
+Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c8ee:a73:9097:862f])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41a341sm686330285a.37.2026.11.22.15.39.59
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 15:39:59 -0800 (PST)
+Sender: Andrew Stellman <stellman@gmail.com>
+From: Andrew Stellman <astellman@stellman-greene.com>
+To: Jon Maloy <jmaloy@redhat.com>,
+	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Tuong Lien <tuong.t.lien@dektech.com.au>,
+	Ying Xue <ying.xue@windriver.com>,
+	netdev@vger.kernel.org,
+	tipc-discussion@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Andrew Stellman <astellman@stellman-greene.com>
+Subject: [PATCH net] tipc: free the tunnel packets when failover tunnelling stops early
+Date: Sun, 22 Nov 2026 18:39:58 -0500
+Message-ID: <20261122233958.10462-1-astellman@stellman-greene.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,203 +108,109 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Johan ter Mors <johan.termors@gmail.com>
-Date: Mon, 23 Nov 2026 00:20:58 +0100
-X-Gm-Features: Aa3M54q9i-eUfb68ANYI-0WXkcVo8MmJAw0JheY6aeJJhPoOK0SSWItMbYvqNQg
-Message-ID: <CAPM+r-LfRteAFEuWu9am=K_S3cqP9iJFxiSnZK337_qwuC3HmA@mail.gmail.com>
-Subject: =?UTF-8?Q?mptcp=3A_ADD=5FADDR_echoed_but_never_joined_after_the_fi?=
-	=?UTF-8?Q?rst_announce_round_in_a_single=2Dnamespace_setup_on_6=2E12_=E2=80=94_c?=
-	=?UTF-8?Q?ounters=2C_timing_sweep=2C_CVE=2Dcorpus_reconciliation_and_a_pm=2Ec_?=
-	=?UTF-8?Q?pointer?=
-To: mptcp@lists.linux.dev
-Cc: netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi MPTCP team,
+tipc_link_tnl_prepare() returns from the middle of its tunnelling loop
+when a packet does not fit the tunnel link MTU and the peer lacks
+TIPC_TUNNEL_ENHANCED, when fragmenting such a packet fails, and when a
+tunnel packet cannot be allocated. The tunnel packets already built on
+the local tnlq are leaked, and for FAILOVER_MSG the receive side
+hand-over at the end of the function (drop_point, failover_reasm_skb,
+deferdq) is skipped.
 
-While investigating late-announce subflow behaviour with kernel-PM
-netlink configuration on UML, we hit one behaviour difference we
-cannot explain from the code, plus a few things we confirmed healthy.
-Everything below is measured twice: packet-level (AF_PACKET sniffer
-counting MPTCP subtypes) and via the MPTcpExt counters in
-/proc/net/netstat, on self-built kernels of v6.12 and v7.3.5 (same
-probe, same config).
+Purge tnlq on these paths and go on with the hand-over.
 
-The question: on 6.12, in a single-namespace setup, every ADD_ADDR
-round after the first is echoed but never followed by a join =E2=80=94 not
-even a socket-creation attempt. On 7.3.5 every round joins.
+Reproduced on net (af6737b90668) under QEMU with kmemleak, with two
+guests joined by two TIPC eth links: MTU 9000 (active) and MTU 1500
+(standby). The receiving guest runs the same kernel with
+TIPC_TUNNEL_ENHANCED removed from TIPC_NODE_CAPABILITIES, to stand in
+for a peer whose kernel predates that capability; the sending guest's
+kernel is unmodified. The sender blocks the MTU 9000 link in both
+directions with tc, sends three 100 byte messages and one 4000 byte
+message, and waits for the link to fail. Without this patch that logs
 
-Sequence (single namespace, kernel PM, limits 4, endpoint id=3D8
-127.0.0.3 SIGNAL, listener bound to 0.0.0.0:50560, 30 live loopback
-MPTCP connections per round; each later round does pm_flush() + re-ADD
-id=3D8 and creates 30 fresh connections before announcing):
+  tipc: Link tunneling error, too large msg <0, 2>: 4040!
 
-Round 1 (first announce after boot), both 6.12 and 7.3.5:
+and kmemleak reports three skbs (six objects) allocated by
+tipc_link_tnl_prepare():
 
-MPJoinSynRx=3D30 MPJoinSynAckRx=3D30 MPJoinAckRx=3D30 -> all 30 conns join
-AddAddr=3D46 EchoAdd=3D46
-Rounds 2-5 with 1 s, 3 s, 10 s and 30 s wait between rounds, 6.12:
+  unreferenced object 0xff11000004d34780 (size 472):
+    backtrace (crc dd2ea0a1):
+      kmem_cache_alloc_node_noprof+0x296/0x3a0
+      __alloc_skb+0xde/0x890
+      tipc_buf_acquire+0x1d/0xe0
+      tipc_link_tnl_prepare+0x94b/0x1960
+      __tipc_node_link_down+0x4ae/0x13e0
+      tipc_rcv+0x2187/0x2e20
+      tipc_l2_rcv_msg+0x1d8/0x2e0
 
-EchoAdd: 46 -> 152 -> 317 -> 543 -> 709 (echo tracks AddAddr:
-the announce IS received
-and echoed every round)
-MPJoinSynTx / MPJoinSynRx / MPJoinAckRx: frozen at 30
-MPJoinSynTxCreatSkErr: frozen at 16 (mptcp_subflow_create_socket
-is never even called)
-same after 30 s of idle: not a timeout, a stuck state.
-Same rounds on 7.3.5: MPJoinAckRx 30 -> 60 -> 90 -> 120 -> 150 (every
-round joins, CreatSkErr grows with the round =E2=80=94 the same dual-attemp=
-t
-pattern as round 1).
+With this patch the same test logs the warning and kmemleak reports
+nothing. With a 1000 byte message instead of the 4000 byte one, all
+four messages reach the receiver over the tunnel with and without this
+patch. Apart from the receiver's capability change, no kernel changes,
+fault injection, debug code or delays were used. There are no TIPC
+selftests to run.
 
-Two further data points that narrow it down:
+The issue was found by Claude Opus 5.5 running Quality Playbook, an
+LLM-driven code review tool:
+https://github.com/andrewstellman/quality-playbook
+The fix and this changelog were drafted with Claude Opus 5.5 and
+reviewed by me.
 
-A round-1 announce with ZERO live connections (endpoint registered, no
-msk exists yet) also poisons 6.12: after creating connections and
-announcing again, the same echo-yes/join-no signature appears. On
-7.3.5 everything works. So "the first announce that was actually
-received" is not the boundary; the state gets stuck regardless.
-pm_flush() + re-ADD between rounds does NOT reset it on 6.12. (Also a
-small aside: re-ADD of the same id without an intervening DEL/flush
-returns -EBUSY on both releases =E2=80=94 we used flush+re-ADD for every
-round.)
-The counter signature (echo present, join work never scheduled, no
-CreatSkErr/BindErr/ConnectErr) points at the echo-only branch in
-mptcp_pm_add_addr_received() (pm.c): for addr->id > 0 with
-!READ_ONCE(pm->accept_addr) the code just echoes and acks without
-scheduling MPTCP_PM_ADD_ADDR_RECEIVED. But a freshly created msk
-starts with accept_addr=3Dtrue and zero counters, and accept_addr is
-only cleared in mptcp_pm_nl_add_addr_received() after sf_created when
-a limit is hit (pm_netlink.c) =E2=80=94 so from the source we cannot see wh=
-ich
-state, in this topology only, pins 6.12 on the echo-only path from
-round 2 onward while 7.3.5 does not. The two-namespace topology
-(server announces to a client netns) does NOT show it on 6.12 either:
-a re-ADD after DEL there re-establishes all subflows within ~90 ms.
-The trigger seems to be the single-namespace "self-announce"
-configuration, where both PM roles live in one netns =E2=80=94 e.g. local
-proxy-style setups.
+Fixes: 2320bcdae628 ("tipc: fix changeover issues due to large packet")
+Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+---
+A reproducer is available on request.
 
-Follow-up on the state we report: we tried to reconcile it with the
-2026 CVE corpus before bothering you further. We backported the
-semantics of CVE-2026-46137/46158/46170 (ADD_ADDR-rtx timer
-locking/refcounts), CVE-2026-97566 (ID0 anno_list cleanup) and
-CVE-2026-99603 (SOCK_RCU_FREE on kernel-PM listeners) into our 6.12
-test kernel and re-ran the probe sequence: round 1 still completes
-joins, round 2 is still echo-only =E2=80=94 unchanged. The signature is als=
-o
-identical on IPv6 (announcing an fd00:: endpoint) and with
-tcp_syncookies=3D2 forcing every MP_JOIN through the syncookie restore
-path. A fresh listener (close + rebind between rounds) does not clear
-it either. The one discriminator we found: with a short (~1 s)
-announce-to-close dwell the echo->join path fires on every round (even
-while the genl announce itself returns -EBUSY), while with a ~15 s
-dwell it freezes permanently from round 2 onwards. So the
-echo->accept->join-work path appears to latch a per-namespace "already
-handled" state that only decays with time, independent of all the PM
-fixes we could backport. Does that ring a bell? We're happy to run
-anything specific.
+ net/tipc/link.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-Background on why we're careful with claims here: the same
-request-socket lifecycle area produced CVE-2026-98432 (IPv4 handshake
-IP-options UAF, fixed in 6.12.113 et al.), where Anthropic reported a
-working remote-root exploit against an MPTCP listener and AWS
-confirmed it =E2=80=94 while CloudLinux could not reproduce that claim. Our
-own finding sits next to CVE-2026-99288 ("NoisyTCP", unhashed-socket
-established lookup ABA, fixed in 6.12.117/6.18.63/7.3.4): Kim's own
-FAQ answers the RCE question with "Not yet. and basically, no.", no
-exploit is public, and no exploitation has been reported =E2=80=94 so we cl=
-aim
-nothing beyond what we measured. What we did add: a differential
-stress harness that drives the UP-reachable preconditions (SYN/child
-churn on fixed 4-tuples with abortive closes, 40 established
-same-dport-chain connections doing lookup pressure, backlog-2
-listeners, 25 s storm, ~45k churn events) on KASAN kernels on both
-sides of the 99288 fix (6.12.0 vs 7.3.5): zero splats on either,
-matching KernelCare's single-RX-queue analysis =E2=80=94 our UML lab is UP,=
- so
-the two-CPU race cannot fire there. We note two lab facts that may
-matter to testers: our UML builds lack CONFIG_SYN_COOKIES (the sysctl
-is absent), so the cookie-socket path of the published PoC could not
-be exercised from UML without a rebuild, and /proc/net MIB access is
-the reliable observation channel.
+diff --git a/net/tipc/link.c b/net/tipc/link.c
+index 6427c69f892..2fead2f4ed0 100644
+--- a/net/tipc/link.c
++++ b/net/tipc/link.c
+@@ -2035,7 +2035,7 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
+ 				if (rc) {
+ 					pr_warn("%sunable to frag msg: rc %d\n",
+ 						link_co_err, rc);
+-					return;
++					goto out;
+ 				}
+ 				pktcnt += skb_queue_len(&frags) - 1;
+ 				pktcnt_need_update = true;
+@@ -2043,19 +2043,19 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
+ 				continue;
+ 			}
+ 			/* Unluckily, peer doesn't have TIPC_TUNNEL_ENHANCED
+-			 * => Just warn it and return!
++			 * => Just warn it and stop tunnelling!
+ 			 */
+ 			pr_warn_ratelimited("%stoo large msg <%d, %d>: %d!\n",
+ 					    link_co_err, msg_user(hdr),
+ 					    msg_type(hdr), msg_size(hdr));
+-			return;
++			goto out;
+ 		}
+ 
+ 		msg_set_size(&tnlhdr, pktlen + INT_H_SIZE);
+ 		tnlskb = tipc_buf_acquire(pktlen + INT_H_SIZE, GFP_ATOMIC);
+ 		if (!tnlskb) {
+ 			pr_warn("%sunable to send packet\n", link_co_err);
+-			return;
++			goto out;
+ 		}
+ 		skb_copy_to_linear_data(tnlskb, &tnlhdr, INT_H_SIZE);
+ 		skb_copy_to_linear_data_offset(tnlskb, INT_H_SIZE, hdr, pktlen);
+@@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
+ 		}
+ 
+ 	tipc_link_xmit(tnl, &tnlq, xmitq);
++out:
++	/* Empty unless tunnelling stopped early */
++	__skb_queue_purge(&tnlq);
+ 
+ 	if (mtyp == FAILOVER_MSG) {
+ 		struct sk_buff_head *fdefq = &tnl->failover_deferdq;
+-- 
+2.43.0
 
-Since then we closed two more legs of the 99288 investigation, and
-both seem useful context for triage. (1) What we tried, reported
-honestly as bounded negatives: we rebuilt on a 2-vCPU x86 qemu guest
-with CONFIG_SYN_COOKIES and built a raw-packet harness (IP_HDRINCL
-segments + AF_PACKET cookie sniffer, storm workers pinned per vCPU so
-cookie churn runs on one CPU while lookup pressure runs on the other).
-Trial t1: 14,068 SYN, 5,330 cookie SYN-ACKs, 42,640 crafted
-cookie-ACKs, 294,160 established lookups; trial t2: 44,032 crafted
-cookie-ACKs, 600,760 lookups. MIB deltas confirm the cookie path was
-genuinely active (SyncookiesSent +29.9k, SyncookiesRecv +2.2k across
-both trials), yet both trials ended clean =E2=80=94 no splat, no deref. One
-open measurement question stays registered, not hand-waved: the
-majority of the crafted ACKs fail cookie validation (SyncookiesFailed
-+86.6k), and we have not yet isolated whether the child-present path
-or the time-bucket behaviour dominates that. Our loopback guest has a
-single receive queue, so the published PoC's fragment-spread technique
-cannot be exercised here =E2=80=94 consistent with KernelCare's
-single-RX-queue analysis. (2) The consequence, demonstrated as a
-labeled simulation: on an otherwise healthy guest (10 TCP connections,
-30/30 ping-pong roundtrips) we injected the equivalent NULL-deref via
-the in-kernel crash-injection path (LKDTM, crashtype EXCEPTION, write
-to address 0 =E2=80=94 the same failure mode as the 0x12 deref in tcp_v4_rc=
-v):
-"BUG: kernel NULL pointer dereference", "Oops: 0002 [#1] SMP", "Kernel
-panic - not syncing", host gone, all connections dead, no recovery
-without reboot. That is the A:H reading of the official CVSS 3.1 7.5
-(AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H) demonstrated behaviourally =E2=80=94 =
-it
-is explicitly not the race itself firing.
-
-Scope notes from the same session, in case they help downstream
-triage: Android GKI lines 5.15/6.1/6.6 carry no fix (fixed kernels are
-6.12.117/6.18.63/7.3.4), so the crash class applies there at kernel
-level; the GKI 6.12 line is fixed upstream, with merge level per
-Google release. On the BSD side the specific ABA mechanism is
-Linux-only (BSD/XNU manage request-socket lifetime differently), but
-our adjacent FreeBSD work found a related availability weakness in the
-same class: FreeBSD 14 deliberately shares one global budget between
-challenge-ACKs and closed-port RSTs (tcp_subr.c
-tcp_challenge_ack_check -> badport_bandlim(BANDLIM_TCP_RST), per the
-in-source comment), which we measured live as a 44% drop in RST
-delivery under challenge load (knee ~130 pps, hard plateau 121-132
-rps, reconfirmed on a fresh 14.4 CI-VM; FreeBSD 12/13 and XNU,
-per-connection 10/s, unaffected). We are preparing that as a separate
-FreeBSD-side report.
-
-Confirmed healthy in the same MPTCP scenarios (counter-verified, both
-releases): joins complete normally after a late announce once the
-listener serves the announced address (MPJoinAckRx=3D30/30, round 1);
-establishment-time joins (endpoint present before connect,
-SIGNAL|SUBFLOW) are 30/30 in the same namespace on 6.12 even after the
-block appears, so the join machinery itself is healthy; REMOVE_ADDR
-under 50 live subflows tears down gracefully with FIN (no RST) within
-~90 ms and re-ADD re-establishes within ~90 ms; endpoint churn under
-open joins returns EINVAL (not EBUSY) for in-use ids and works for
-inactive ones; 100 announce/join/DELETE churn cycles show zero drift
-with TIME_WAIT plateauing (~800) rather than accumulating;
-KASAN-instrumented runs of the same scenarios report nothing.
-
-We may well be misreading something in our own setup =E2=80=94 the probe is
-small and self-contained (static C, netlink + AF_PACKET + getsockopt
-only), and we are happy to send it or re-run anything specific,
-including against net-next. If it helps, the decisive counters are
-EchoAdd vs MPJoinSynTx/MPJoinSynTxCreatSkErr in MPTcpExt
-(/proc/net/netstat); a printk or ftrace on the pm.c echo-only branch
-under this sequence should settle it quickly.
-
-Defensive-scope note: this is a defensive-security evaluation of the
-TCP stack in an authorized lab; all traffic is between our own
-namespaces and guests on loopback. No exploit is claimed or provided;
-a longer evidence report (per-claim artifact hashes and manifests) is
-available on request.
-
-Thanks for your time.
-
-Kind regards,
-Johan ter Mors
-Security Engineer
