@@ -1,72 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795307198;
-	b=g6XU38ERV3g1G2MOe9WkPFnVu7r6gxQAmHloTtUppDx6TySYoPiKMHM3NymUocVrTb+X
-	 EXi2ckBJ9NjHtJdTLLdA/AuVZ4QiLkbfjGM4siPY/45jvcGKfeAuIGECBa+ViQS3sguT6
-	 qABWCOairZJ28w9Fd8GtktNW62m4C7DKEX7qiT3ds1Bdz9yuxHwRadDctn5sP9wPWgdlw
-	 RdG1RJ5/15gJIDx5Y1qZVskz9vyY6wqWjnbBGHH/FVgWT/q7Qy+mzO2pghwv+fEPwepv5
-	 gcmnIf9cONGX/d8nlHG4a9cTfIzSrUWBJoga/sNZUiFcU0kbjA8k2k8sfvjoQ1dJPqQ==
+	t=1795307337;
+	b=LHwTwxLaXBftcQGIBGEUk/nLkU5iNcBQf6Q/mJb2evyonxjKGaUmsUQwOxdgJOUbnvvR
+	 zbiB15QHMQlrwDFsYbGs4eCoEWDC5puZqF2DpkCo7WlTcZwR3IRztSVBKBdw5fb9/+yDx
+	 AZMwG4X2ixbEYPwXASXHNzVMzluKXjQFqph/NHqIoSeSoO5WNO+vboUOQ1Whb3iOx/WP1
+	 hvvkewZu2nMXtyl34glfRNqHFx0f5UgT6SKm2X9s36drCPiQCkt75RyJj2mb5tIbKJov3
+	 XFj7XV6RenWfy1Ej8HaZpnnN504KHPK21KAbiw3rFbsq9XnS/pO8oGQruN0sqvrDaiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795307198;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795307337;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=O3NiZ/2RGCF1twRZ3giU0DZRtcdHTLMMtOMA5mvfxfA=;
-	b=UUGQYe4AvbuYnO6ZtFWOjlygTo/+j5L8F2cUNj7Uaq/0bbG+QdIkvCtIGTRiHF0yFksk
-	 x081aLRn9j/nDhvp4ysh8ZlQgjnTHG7MajxKGc9gy/0zqKvVrl0jk10D7hplU2Uj/FJN0
-	 yo9ItM//LjekXBV4/1JjIl6xl/o+USlbNQVr8yKdqU47gPWpZZ4eClAFsjS1pglKZ7nTg
-	 C5NYzw3NgJG+Dv1yIltYieF6TBBF2ayc6dCzTwvJEzWVyMim0KgrouzPdNsnB2HZsljGD
-	 QnNVOu3bHsvTjo5/vQiIOyBn/kZmf6jJfAicSe2b0CKqP2gbDdQMXcAveoacNL2agbQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=kEwc5U8O4vQbo4Iwc4AS9Sem3DHHERb1KNg+gLVf9NM=;
+	b=FGnHk4X6YFMAyHrfXDbJoSm/RO/8Lwjx/Hc7TdBJ70fC9MfBZIGoueRqhrmfEajCARCM
+	 kIZNvF7O2b/SSx66WoYSk+egoSeDVgdm7gxM6m28fEAhaXMTAWDl27iGh4ylqUMRed5mY
+	 SVxqotX54IEDR9k6t7ohStfdaWx/MpnM57Yo2kfaPnMtzhoToP5fse+IHNQ2ck91mgbyY
+	 poDA3JE6lNtuK7kdNb9q3aEI8TxcQlp+n06U3JJ7VTAqdt8xxCUXGhUNSKEvHNRhtabpj
+	 Rh6AA4cyRWp9daNfyqfbenBhKUvSU2E7wUZNrVKei/MEi5xwh2duUCXGmAUSMDgVi1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--yuyanghuang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dq61qiUM;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qZdNmGIk;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76771606A320
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 00:26:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76771606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--yuyanghuang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2DCC606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 00:28:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2DCC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dq61qiUM
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b3a74ee77fso1609245a91.0
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 16:26:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qZdNmGIk
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so2040726f8f.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 16:28:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795307198; x=1795911998; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=O3NiZ/2RGCF1twRZ3giU0DZRtcdHTLMMtOMA5mvfxfA=;
-        b=dq61qiUMQwT7RgQmHA5ZnRyaex2oo7wkUWwXNeIrR0plpxOxWtP9wnOeuXImt1Ixpw
-         xji72+Dco/AsiJ0QCKyu8qoolyjjWW/RIsLtA6xK8Bev9oMxL79fffbN8Q5vzQkrFoRI
-         7AFyn2xydgAO9vBkkVfn1SANlmG7DRP7XL9GSMdbkAsvIbaiMjNxxWBdwDFUepa6A79g
-         AZ12Dl3Eby6xYfxb3gm9X2v79hkl/9UDLEO0pl/lyjXwOZBOrKz7uAY9KLHLkIepF5m6
-         EX36H6dC8lyo8A0n4ehUzqFPsLnPBl0lSyihCanKCyg7BD0GBTQVhjcFA1O1ORUyf+7h
-         0JeA==
+        d=gmail.com; s=20260707; t=1795307335; x=1795912135; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kEwc5U8O4vQbo4Iwc4AS9Sem3DHHERb1KNg+gLVf9NM=;
+        b=qZdNmGIkT1R5of4m74HHUfh4pAKHEkFDropu34+iPOeDLbUgdOES7Wbt2hJciVE7cN
+         cv1/eMghaL8IR07aAYAtgQXRqYC/eNnCxsWeGDOYK6zkMUoF4N09nfrjLWViI9uoeKtZ
+         N3ph365VNAFiywNYHA5vN+Kvh20SenJULXh6vO99m3o7guNnHUZ1wkr+WldRXswm4qDt
+         fdfjd0Y4js7Xrr0Ak1yFP0oaAM7X7E8rMNx0ewuowyBB4VR5R514UkBgHjqZ771Xwq43
+         CnuMEhX9rGt1TRVLTQlvEWdtFIKcmg4CBIZnVzzpfNic6A4VO1zZxeAcrTCxZp7owmvW
+         R5rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795307198; x=1795911998;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O3NiZ/2RGCF1twRZ3giU0DZRtcdHTLMMtOMA5mvfxfA=;
-        b=HAPfNBCag54W0ip9bw653zUHoYJ2sHHTB9WBhaPVFS6hasjffulC3d/N3fH9YdQH/0
-         Qs7icj/25OTfxHhmLuW0g3U61mBNoV+tB3ZMt9/7ZGLQDswkmdRGtVYSkJMXT3jNtA1o
-         VdNFH0VIEq0N6LiS+XSFubV+22cIFDwUOZoRKYy2ORA9XCqsqsf4NLonCgbaHXz6gNZP
-         2KTewycqzXUMnUVVIb4Ni9S4yw416TuS4PqcB+fk/sOg99I88isLAIgXU30H85bNqyaL
-         AkP9VWT4JIJvd5Q+RbNL8dBqQsJZ6EYX8aWreppFFr5WxdZ8h1TrjmpfxP5rOslT4BIL
-         o1Ww==
-X-Forwarded-Encrypted: i=1; AL+hErEhsbdfCbS/33Z9nj4nM5D/YA2RH6klW+Mjdg6uXjRvCzIQY4Y56DGfAkPgi6T78RPYHFyLcDo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9r6mjtXUw4TcDFHWBLTG/CubY83+PcYAKm0flxi9YklAhCeAI4
-	xokZgD0VJnM5YQ83ev/lvjhfYIOMq/93Th0ObI4hhzF4I7LKjp3Bh2YGMPNc9o2cO8zGEf5M5uj
-	CjcL15iTUGstqJ0JSg6NKKR8xIQ==
-X-Received: from pgfv34-n2.prod.google.com ([2002:a05:6a02:8762:20b0:cdd:aaa7:beae])
- (user=yuyanghuang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:2e8c:b0:3ad:d4aa:8559 with SMTP id 98e67ed59e1d1-3b41c8e105bmr6290195a91.17.1795307197459;
- Sat, 21 Nov 2026 16:26:37 -0800 (PST)
-Date: Sun, 22 Nov 2026 09:26:33 +0900
+        d=1e100.net; s=20260707; t=1795307335; x=1795912135;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kEwc5U8O4vQbo4Iwc4AS9Sem3DHHERb1KNg+gLVf9NM=;
+        b=faIN4T05Y1RcCZIMZw+GI4DrXqvhoH7CLMDjV3RQQ8uIJ+KkuuXEjJvQrsWor67ztZ
+         p4klfJB0nYt/ZpzLbU6IotP6c6Lb/tXUkiBMXYgqYW0UdgFJYWYVCDKKSRCAbx7Oydsh
+         Fqu9Zoy4/dZpW4LXkTyPPgKRKOXpYAXl9CacOWso9+KFHx/wVk/I73r5VlwS6sD+0lyM
+         uTAwgHUaNCZw/VvbbSgBd9DJ3jI2enirk4dkttlgFrWlqA4lNO4sBRcIZCPak5GIDY7L
+         i+jv/1eip5aL0vo6e22CvE2W5wacxBer7YfDu4hSnzlZWNzWVFPhf7Im5eipCBHe9csg
+         vTLg==
+X-Gm-Message-State: APuU4Z8dvU8A9z0o+jrKO9HdX/os8SAMkhqiwGTpJhN89CK2SDfhKjSD
+	ccD2l8NslHAhKg3YOLrwrdKn9doc9MaBVETS2J3fb2Fsq2Em497JzaYy
+X-Gm-Gg: AZFdTZehOcK5zwJnY17jmpmAyfNoB1QF+33XY0oX02CObk/Ft9w5vxjxpudcF/03sAK
+	kLWB/Yr7DuoEqRS6LVo2jmUbEBHEQCluPejc0hFBhiJZInPPsNCjK5lVey9cmSALlU4Lht5QTUw
+	nLJHHWrzekK+RXPllGuVPdrL9mNTdAWhghRzFM/eeEo8gtFQ/J5NB5rNTwqZTMwOEJRdHTMI/mz
+	yJUhMlBWkFe3Zidq42SEMvNb+wFC/RRiFneGVaN+E8Fa6Vk1bLGZqBa5LeR1+L6E62yKCIvJW8y
+	M7wusFeaUgjRHEU/wOv0XvVmzpCTywj0JWy9pJKlh9ARb7Ij9B6BxfwBGcSLsulv/EddTltgOmL
+	FAtwYdBNYnT1unGzZbCoQ3S8BVxF8xbvQ7P9T9wQTywxR6d6eGWIhYhUl/BSLn4aS+0TDpShym8
+	eQqWs6JFlhUSrJvb1fWHunFNl9cltrMOP2QiC2ykTpb71a/q7n38v5kBDr70Kuq0JuzlOlypdXz
+	SQEG4otlH5WTCwbVgACKKF1iAo1f3nlhQXTEcmzjBwaTMqfG0ja5QBF3eMnRK0ivkI/mq7m2qgr
+	INcMXkB5Dwt3/4TQcPQpzHuHIhppaOBkXmBogsvZ
+X-Received: by 2002:a05:6000:4819:b0:4a3:a0f:ecf0 with SMTP id ffacd0b85a97d-4abb9edc730mr12561602f8f.55.1795307334916;
+        Sat, 21 Nov 2026 16:28:54 -0800 (PST)
+Received: from Philipp-PC ([91.227.186.127])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm14415962f8f.31.2026.11.21.16.28.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 16:28:54 -0800 (PST)
+From: Philipp Sudakas <filzador@gmail.com>
+To: Ronak Doshi <ronak.doshi@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: netdev@vger.kernel.org,
+	Philipp Sudakas <filzador@gmail.com>
+Subject: [PATCH net 0/2] vmxnet3: fix native XDP crash on oversized frames and XDP loss on reset
+Date: Sun, 22 Nov 2026 03:28:45 +0300
+Message-ID: <20261122002847.616-1-filzador@gmail.com>
+X-Mailer: git-send-email 2.56.0.windows.4
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,51 +92,59 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122002633.584362-1-yuyanghuang@google.com>
-Subject: [PATCH net-next] net: zero hw address entries on allocation
-From: Yuyang Huang <yuyanghuang@google.com>
-To: Yuyang Huang <yuyanghuang@google.com>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Stanislav Fomichev <sdf.kernel@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-__hw_addr_create() allocates struct netdev_hw_addr with kmalloc() and
-copies only addr_len bytes into ha->addr[MAX_ADDR_LEN], leaving the
-rest uninitialized.
+Two bugs in native XDP mode of vmxnet3. The first lets a single frame
+from any host on the same L2 segment crash the guest; the second makes
+the driver silently stop running XDP after any device reset and leaks
+the program reference.
 
-If dev->addr_len later grows while entries remain (e.g., adding a
-multicast address to a down TAP device with SIOCADDMULTI and then
-switching it to ARPHRD_TUNNEL6 via TUNSETLINK), readers using
-dev->addr_len such as /proc/net/dev_mcast and AF_PACKET
-RTM_GETMULTICAST expose the uninitialized trailing slab bytes, and
-__hw_addr_add_ex() reads them in memcmp().
+Patch 1: a frame that does not fit in one XDP rx buffer (sop without
+eop) reaches the skb path, which takes the page_pool page for an skb:
+kernel BUG in skb_put(). With MTU 1500 and an XDP program attached, a
+single untagged frame of 1523..1526 bytes is enough.
 
-Switch __hw_addr_create() to kzalloc() so the unused tail of ha->addr
-is always zero.
+Patch 2: vmxnet3_rq_cleanup_all() clears xdp_bpf_prog on every quiesce
+(MTU change, down/up, ring resize, reset). XDP stops being called while
+the program is still reported as attached, and it is never released.
 
-Link: https://lore.kernel.org/netdev/179012275175.2160803.16091441325063775173@kernel.org/
-Signed-off-by: Yuyang Huang <yuyanghuang@google.com>
----
- net/core/dev_addr_lists.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Reproduced with stock modules on Debian kernels 6.12.113, 6.12.117 and
+7.2.12 (7.2.12 untainted), VMware virtual hardware version 20. Both
+code paths are unchanged in mainline as of e572847ee4d0. A small
+reproducer (raw frame sender and an XDP_PASS counter program) is
+available on request.
 
-diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
-index b6f25e487984..ff0815d8f6a8 100644
---- a/net/core/dev_addr_lists.c
-+++ b/net/core/dev_addr_lists.c
-@@ -100,7 +100,7 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
- 	alloc_size = sizeof(*ha);
- 	if (alloc_size < L1_CACHE_BYTES)
- 		alloc_size = L1_CACHE_BYTES;
--	ha = kmalloc(alloc_size, GFP_ATOMIC);
-+	ha = kzalloc(alloc_size, GFP_ATOMIC);
- 	if (!ha)
- 		return NULL;
- 	memcpy(ha->addr, addr, addr_len);
+Testing:
+- The same changes, backported to 6.12.113, were tested on the same
+  setup: frames of MTU + 23 and MTU + 30 (VLAN tagged) are dropped and
+  counted in drop_total at MTU 1400 and 1500; frames up to MTU + 22
+  still reach XDP; after an MTU change, down/up and an rx ring resize
+  the same program keeps running; MTU 9000 is refused while XDP is
+  attached; after detach the program is freed. A stream of 5000
+  oversized frames mixed with 5000 normal ones gave exactly 5000 XDP
+  passes and 5000 drops, with no kernel warnings. That test module also
+  carried a separate change to NAPI budget accounting for non-PASS XDP
+  verdicts, which will be sent on its own.
+- On mainline the patches apply to e572847ee4d0 and vmxnet3_drv.c
+  builds with W=1 without warnings; they were not run-tested on a
+  mainline kernel.
+
+Known limit not addressed here: with an MTU between about 3051 and
+VMXNET3_XDP_MAX_MTU, normal frames already need more than one buffer,
+and with this series they are dropped instead of crashing.
+
+The problems were found and analysed, and the patches drafted, with
+the help of an AI coding assistant; reproduction and testing were run
+on the reporter's lab systems.
+
+REPORTER NAME (2):
+  vmxnet3: drop XDP frames that do not fit in one rx buffer
+  vmxnet3: keep the XDP program across device resets
+
+ drivers/net/vmxnet3/vmxnet3_drv.c | 24 ++++++++++++++++++++++--
+ 1 file changed, 22 insertions(+), 2 deletions(-)
+
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.47.3
 
