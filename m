@@ -1,47 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795386630;
-	b=ei39oxZlbBUDODEPM8P1gyjQkrMKKdwE5sqfMUwARhirLqW9LZhZ4yOEMxEK5BP6GVv9
-	 QlYOzOVeP3tXqIdlK45YEjdB2TA0zUZfiVhaVKPy7iZYIki2zj/p6hYfWmfzk5fhmMZh3
-	 eaRPf1vgXjIc4ROohM3J5uN0d39YdaBnjdky/nTgfKTDDFt4Mho6upsAu2yLNJogJ/Mea
-	 AcqMGStAI2H8juRfTkyGqVwzv0RzE8GT9IsY4OCacMoBNZjKmlXqb+PlGRms+H+1+3tFG
-	 /9+pd9jHDWh6W9ItZAAeuNBlZK4jhPnMp0pT5e41TMZYiDo/eekFDN3GKL9u71U8wvQ==
+	t=1795388556;
+	b=K2D4ZyM7JKv7sxk8B2Qq5RbN2+nCI5FnbMJsaMEZcu7i7n1DZyllcc7Hz1VsjYOB7O1B
+	 aqNjf4Jx1pn4dTLu09E1EZf+IlbCaqmKcmFD3kZtf9h1C1aSQKTE6609Ulf3elE715iCR
+	 e9FIgCYcxz3nVAmJYPbZnCbRFUb3gKAEo50NX6fWAWHWMY6SAi41xBotrw6047QUgIsdR
+	 XBtte/WZcsMSf6ry4i94yVlZfEjYxKiIKcVau6HcMUC9E/n3yvK/D8E80NnnPM/6c4T/F
+	 qduH+pqXm9QVxTZZOXJZc9LYYYM4QdR+aTByT58QcanCee+BvOk2M7ZSjrG7K5UrmOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795386630;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=df1EiFED+Ng8Vy98ChQa21Dqutb4xnhJtsqjG2a3KC4=;
-	b=HNJst4k9OrtfeQACgZ9L4u0bVQCz5D9elsp+p7GrXul2EJImq1ZzsjPxMfUk3tVjQ9ma
-	 KoYxMDgCfBSbOZhONnm0T/tXMkFi8O03GhztNZAhrpY7sZ6YKGlaxLWyZRY06EC7x045F
-	 Kh4SgMg0jWS57fqa2Bw/co6oOK5F0zYfmzgLluxNJ1KWIhgezQAk/EgJgw8E5bB6WstKv
-	 sHhYo6YL1JzFSmC+FIpzOq8o+gPMEeNqGH/GsOmxg7Itd/J9FK9W8zqgWcQA7FGunMQxl
-	 maMYQ5brFBYWagLYDqp2Ul2P+/4uZOjv5zA9oRxgUD/jfvmNCOoJqBw4eS32r78HCUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795388556;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=PvuQbTGocUKQ4aF1zR8+15VyxR+xxWsbGVLohKjl5TI=;
+	b=tSur4jXAe1ZVsdLRa/fS06LPt7c9/A1b3WA4dIbMd2u6QcGPMIQHlcsIr0F8EKPcye+p
+	 NbyvEUKx9uZTNmGOGv9yOZ/ZXLxPtzAhOEHah/F97JsfbvWovM8gIFTEc/KsaFnwKC/fI
+	 I83GQ8lzNt0ownJaXkVDhR7ABrqvcMXbQztfiHiqAzz73KBgOotbG6pgoyEwhH7EHnQcS
+	 v+pl2dRitDg7tO+12LJa4KvDVYG1AdCX7kPOuK5LLOELlgubb7qGtPPIxFNXzSJkHH+qP
+	 G25pCqxqjt7Jn1AjA1VPMWUzuNPC0gSSQEYZ1TWtmtyzdx2uER1CE1Ae+XzL3snd60g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EWQFOm9Z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0JcG6HLi;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8575606A31D
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:30:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87700606A31E
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:02:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87700606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EWQFOm9Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C38FB1F000C0;
-	Sun, 22 Nov 2026 22:30:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795386630;
-	bh=df1EiFED+Ng8Vy98ChQa21Dqutb4xnhJtsqjG2a3KC4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EWQFOm9ZRnocwq9fo7ctTzYOT5zoX+ref3KTCEaKm8DWKcvnDO+wWSUGzVy8MgBbe
-	 1LOyLzDIRfV61xR76yYNVlRv+ympRZNnaLmxi1d4w2t8QdUz3uZV6FT7EvdySIpVTC
-	 XfjGMeP4dnD0dKltY5Ea9tyelg6Ubibuj2dVH3Y+t06LFrWEcdEJZg0n4wY+QPw3yD
-	 4NA7+/26d4P8/zppXdesM4DRQivrq//dy03oS0LMj/AcUATcg5ZOgf5HPdURSp1kdq
-	 IjHAoJDEKuWHI+r6Bq+1cDrSk+RzyyBZiUnd8pUvlFQpkIHgQbYd6BW08Td39RDeJ/
-	 ffM7RMWX1NSSA==
-Message-ID: <a31eccac-79fb-4fcd-81ea-243592f20c58@kernel.org>
-Date: Sun, 22 Nov 2026 15:30:29 -0700
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0JcG6HLi
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b421e8d111so1740179a91.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:02:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795388556; x=1795993356; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PvuQbTGocUKQ4aF1zR8+15VyxR+xxWsbGVLohKjl5TI=;
+        b=0JcG6HLiJt3Hx11OVCrBA5MV0nzLO7ZRnKh/SFLqjf8r3+gmYCeJEr9XzIcgTgBnnM
+         IMFfwHqnqtt81DA7SA/zasSU12HnWcA8KO8NoHjafCZiXG2/l62IPJl4BlhfEUMYyd3t
+         I6ISXaSDWCqyl/1HxhFlEAxkc3H+41bezTBCAyC4nIP3Ikng59HDquNotJoCmWWtmJis
+         Qm8F3/4NTmZqr8ORagEtJrmy6kpgFXOqlZ8A5nEeLHXzEoPPrKkBaKqfPIRvYmtUnjH0
+         fy4Js49q9dMrsUK5fFb2AAS1I89Uf3fAbTlQ0LaEKPhQpB8LaKjhOAGa/Y1dUpFoDsqw
+         /ZiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795388556; x=1795993356;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PvuQbTGocUKQ4aF1zR8+15VyxR+xxWsbGVLohKjl5TI=;
+        b=DNYWZ9s6pjHyfyLj06tJhev6N6MpA61SfZ2MqocgHqSJuG2uQ9py3KJ133323xyeSF
+         I84zaH8aBLhu1qE/yI01VvSocmPcO6nkojcs7TABDqhUAahPRtTE8LAXGHYeQMFc2bO2
+         bxNFKXY/1kcV/afR56mmrgJM5LswSHNfJV+kAoOUMFEWCZnag3shaOVUih8cPFvLGdeG
+         oQNsdwt1oXUUaHt3Q1mKon8gcjMutWszwmGDcEE+iGlbFHt3eBFY6QScip/K8ORf0AqG
+         S8doBwxMSUeUfLQOw4GnaklbqT0tzHLTdQyQyfL9wQgwtKaCXXn1XRCuRz8MrXgjyEjx
+         TBgA==
+X-Gm-Message-State: APuU4Z/epSV2jKrZOPi4J0UP4Hj+EFfRAjY1mZZUTePu7PI6vzz+WAo1
+	Dnqm5hgy2dzLHDWtTDpNGupHuJuloj/3oz0QQBNJkYBseW//5bmR8OVp9lBQOA==
+X-Gm-Gg: AZFdTZdSfZ29rjPLp5mybetM6hGO9CEsNtLRWvCtdbsJeYlWs6XZvXpregi/xhy/1Kj
+	nXsn0vFIAXXQLj9pMOHaAUAhoR+Dk7qDZgv7lNrw9jgKmJ/iLT0FA9Kq0f4rxWAU+8SrzT/yJUf
+	WIR1PMWAJ1XQsVWVqkqoW79tL/eEBibPXrl/49steWNb8VzE/5Qhb8iuUbGKZslWkY3caeuNAQh
+	HEmVjs97QaCiO6py25KNxc1UAtRefaI5AJv+ZfEhUYOqhn9Y1r5gEYpCQq9QKwnieo0XPCcy25K
+	NPoXhsCBwZq/pBjKQ9tXhKVv86dGnZtLkBbM0UtK7cHVN0gf78XL7WSxUFv27AJk1MZAK7Pi/ix
+	4e4qTaG6KKsplDN5ZNmEI1PDMZvpQfx67mRWfD68QM5YDn1Aqv4bnG2nbfxWtXGnP1hpt+pB5yd
+	orK6TJaggm61A5FOZFfrriV2Y8xFtU+aQhCFrgerUEuYYljS2u7IahT5ccQy4OjhrCaEHXZ7hO0
+	s2DXzTj+bmHpXTvlI3re7L2TXsoIzuSHsFRLrgLis+stPb1dWcLV7mAg5kqY+MtgHwYiAg2zX5r
+	8GY6G7nJgP6ZkuUaNiFJQjXl3sL30f7w0E2NXyXPSW5s/M/wpC19K/RCoTl2QefofZo=
+X-Received: by 2002:a17:90b:2fd0:b0:3ac:a521:95c with SMTP id 98e67ed59e1d1-3b41cb235aemr9910490a91.58.1795388555726;
+        Sun, 22 Nov 2026 15:02:35 -0800 (PST)
+Received: from d.home.yangfl.dn42 ([104.28.201.73])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm17663215a91.15.2026.11.22.15.02.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 15:02:35 -0800 (PST)
+From: David Yang <mmyangfl@gmail.com>
+To: netdev@vger.kernel.org
+Cc: David Yang <mmyangfl@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jian Shen <shenjian15@huawei.com>,
+	Jijie Shao <shaojijie@huawei.com>,
+	devicetree@vger.kernel.org
+Subject: [PATCH net-next v2 1/2] dt-bindings: net: hisilicon,hisi-gmac-v1: allow fixed-link and mdio child
+Date: Mon, 23 Nov 2026 07:01:30 +0800
+Message-ID: <20261122230134.3366017-2-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261122230134.3366017-1-mmyangfl@gmail.com>
+References: <20261122230134.3366017-1-mmyangfl@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,67 +106,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC net-next 0/6] ipv6: validate dsts against the netns route
- generation
-Content-Language: en-US
-To: netdev@vger.kernel.org, Ralf Lici <ralf@mandelbit.com>
-Cc: David Ahern <dahern@nvidia.com>, Ido Schimmel <idosch@nvidia.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
-References: <20261122222717.126333-1-dsahern@kernel.org>
- <20261122222717.126333-2-dsahern@kernel.org>
-From: David Ahern <dsahern@kernel.org>
-In-Reply-To: <20261122222717.126333-2-dsahern@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/22/26 3:26 PM, David Ahern wrote:
-> From: David Ahern <dahern@nvidia.com>
-> 
-> An IPv6 dst has never carried the fib6 serial number it was created
-> under. rt6_get_cookie() reads fn->fn_sernum through rt->from when a
-> socket, dst_cache or xfrm bundle stores its cookie, so a FIB change
-> that lands between the route lookup and the cookie capture is folded
-> into the cookie and a stale dst looks valid. The only dsts stamped at
-> creation are pcpu dsts of nexthop-object routes, which store the netns
-> genid in rt->sernum.
-> 
-> Looking at this I found that rt_genid_ipv6() and the fib6 serial
-> number are already the same counter: net->ipv6.fib6_sernum, which
-> fib6_new_sernum() advances on every FIB change. fn_sernum is a per-node
-> copy of it. So this series moves dst validation onto that counter, the
-> way IPv4 uses rt_genid, instead of adding another one:
-> 
->  1. Stamp every dst with the counter in ip6_dst_alloc() and validate by
->     comparison in ip6_dst_check(). Long-lived dsts (pcpu dsts of routes
->     with an embedded fib6_nh, and exception dsts) are re-stamped when a
->     lookup finds them again, otherwise they would stay invalid.
-> 
->  2. ip6_link_failure() forced a new lookup by writing -1 to fn_sernum.
->     That no longer invalidates anything, so clear the failing dst's
->     sernum instead.
-> 
->  3-4. Nexthop objects: factor out nh_has_f6i(), then bump the counter
->     when a nexthop used through a group is replaced, and when a member
->     is removed from a group.
-> 
->  5. A new PMTU or redirect exception used to bump the counter, which
->     with (1) would invalidate every dst in the namespace. Do what IPv4
->     does in update_or_create_fnhe() and invalidate only the pcpu dsts
->     of the affected fib6_nh. Route dumps still need to see that an
->     exception was added to the root node, so add a per-table sequence
->     for that rather than inventing fn_sernum values the counter could
->     later issue again.
-> 
->  6. Since nothing validates against fn_sernum any more,
->     rt_genid_bump_ipv6() no longer needs to walk every node of every
->     table. Make it an atomic increment like rt_genid_bump_ipv4(), and
->     drop the __fib6_flush_trees pointer. fn_sernum remains only for
->     route dump consistency, so nexthop, address and rule changes no
->     longer restart in-progress dumps.
-> 
+Describe the "mdio" child node the controller registers its MDIO bus
+against when devices are attached to the bus.
 
-Ralf: This aligns with the direction I meant in my reply on October 13.
+With a fixed link there is no phy-handle: make it required only when
+no fixed-link is declared.
+
+Signed-off-by: David Yang <mmyangfl@gmail.com>
+---
+ .../bindings/net/hisilicon,hisi-gmac-v1.yaml      | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml b/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
+index 89ed6ab1905e..ae2b1505a52c 100644
+--- a/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
++++ b/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
+@@ -13,6 +13,13 @@ maintainers:
+ allOf:
+   - $ref: /schemas/net/ethernet-controller.yaml#
+   - $ref: /schemas/net/mdio.yaml#
++  - if:
++      not:
++        required:
++          - fixed-link
++    then:
++      required:
++        - phy-handle
+ 
+ properties:
+   compatible:
+@@ -53,6 +60,13 @@ properties:
+       - const: mac_ifc
+       - const: phy
+ 
++  mdio:
++    $ref: mdio.yaml#
++    unevaluatedProperties: false
++    description:
++      Node containing PHY children. If this node is not present, then PHYs will
++      be direct children.
++
+   hisilicon,phy-reset-delays-us:
+     description: Triplet of PHY reset delays in microseconds.
+     items:
+@@ -67,7 +81,6 @@ required:
+   - clocks
+   - clock-names
+   - phy-mode
+-  - phy-handle
+ 
+ unevaluatedProperties: false
+ 
+-- 
+2.53.0
 
