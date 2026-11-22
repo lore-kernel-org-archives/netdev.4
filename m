@@ -1,86 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795357310;
-	b=tAdjRUyZKunxXdfl4t3xWbU3pYbXb59MUzF1eGrZTn19mJEUjp96YafiPQnXqTafyPoD
-	 jL8eQ04TweXCK7Yx90WtAwlFuCShft2FUNSAR4nGaP56QG0cLS9FCVJ46ng0EJrPuRXrY
-	 PzQERbMrDCH4Dn6x4xRtSN3wFrsvkch6STS2lFw4GqPIyinwoMjLNbv18rCuijJaMMLZl
-	 SiEXtCXxldscq1ekf4ai+6yckpPr37Bq7iZRS9CHxldQSu8bpP4s4sw8vftkCzXMdAHZW
-	 u9VNgutOV1Vn3u5AoGIh5PO61uMkXx85mANeGT1PG2XgMDH5hI97Yk8YPCY4J8zGRGw==
+	t=1795357548;
+	b=jYVUJubMSqTn8x63IbllbH0mmq5u1xIqaGhXDRhVj7Kc4Xa3NWB2e0yZP5DU9lnBDPwA
+	 SDrvkrYOvUTIEn7lFFInkrAF30iwLO2GAUAKiF9i3Xq0FdZ0IiXRNolI0XksbdOe0JkUM
+	 J23JRIH1TK79Idsjgy5OInR1TlKOAYwbKTph+VVDI8lQKko1jYiybMJu1bEEe0XykUe/l
+	 eWZAM9a1vmJ0l1r2dP/BdBfSklLIMQ8u16K55eC9n0sFCyUdyUFGRgESkXCsqnPkIHSaf
+	 ZTpjspFvdIpG9Qf6zLhRz/j3Bw6Vn0r9F5B66LMJ8sdvC7BpRI94mb1ZM7lImq6+DDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795357310;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=yPwxyZPCJRkoA2qMW2RTyJ99dfsqAAIzG4plyK1oUEo=;
-	b=v+UEcZSQvaYIxVT+JRNkudJq3e+KtiqzRN6O/lHlczpMlQJ/N1zQ5FKuUoR3Y80lZo3l
-	 YtTqyB3BxMjDub5pPLMBeY4UKD2IM2OA1wOZzTN063C3SIY8y0BiKy9CgEz3GQ/OtldNY
-	 xekto5Y4wCDk9SnezExykRza911nS+U/ZEukX/dCMZKaK9t4ljcb5yZYm6E8UB/488DFO
-	 0wlyoGuSwvvQob2buP8rbc7+svdjmsWf3Smv2o+PrbUme6C5V7ECysQ0uzfVYtQvzzvDe
-	 6qOnlK5AQks9fykJd8+vO94kDmzpGwQrnfrK6gkMkbXA6Age5UJwJ4XNKf8tVCXKpeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795357548;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
+	b=fUkYzjCPOU54i6U/g7yHMbkQQRR6Wt9xOx80iMEzSbzVPyGl4t+nZ9qty1RZboV6vd2T
+	 cVxCrim/NCdP3+tumd5jAwTKD1XYH0bMfTnAb0ap/pyt1NzgFj3yu1X8TLNSKh8IgnbVS
+	 OvLbZtFP2VLD03cv9hJ1MqGJUlV84wiDg4+163TppZkHyOIbnGcfXgzVbctkjZQyn5hv4
+	 vjlPOQjJ1oDr8QQhmcj4k3VMAsNu1HGs8FV2rR2DFEI8Lk4vr8GOHpfSoEro9q7dr+pvh
+	 gJ6mwM+AzPCWH2TCFgKg5x65WaUeWdBLdol0PK2klPVoRpxiEvZb+JCe1pVNU/9ougQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Kg+AEzwj;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ds1gaNjL;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=RjmK1+iP;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DCA0606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 14:21:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DCA0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D81606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 14:25:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70D81606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Kg+AEzwj
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso18342335e9.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 06:21:49 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ds1gaNjL;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=RjmK1+iP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795357545;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
+	b=Ds1gaNjLhb5WHwmCArop9JDrDXaIzZaDCP1OgcxsXrfRPeCRS7tpwQh6iepWN2+K7FlEfe
+	E2QgMckn9Ttq9qGTkrJOeLboENGuHKYbjDKKCkoAG28mpbnjdgPiMdz/TcQXCrtNmEawKj
+	KnaN/vzkRN6K6vnjkAFSkZzZLJ9OyIU=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-595-hd79qlk5MRuj8J6PAVPwLw-1; Sun, 22 Nov 2026 14:25:43 +0000
+X-MC-Unique: hd79qlk5MRuj8J6PAVPwLw-1
+X-Mimecast-MFC-AGG-ID: hd79qlk5MRuj8J6PAVPwLw_1795357542
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a204f135ffso12057545e9.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 06:25:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795357308; x=1795962108; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yPwxyZPCJRkoA2qMW2RTyJ99dfsqAAIzG4plyK1oUEo=;
-        b=Kg+AEzwji6EMm0ZnkcmjqMVQO8GFnoZn6i7E2sQ89lOeGDHc1YWGlGV3F72W3WM4Gt
-         ApWbvgBoIylVhyIGF22uEt0eTSveyHEmOEHBnQpw5yYfee5WAUmj8tDFvUhf01v/vlzh
-         bOxiFpsaHIdxx7PTIWsrDvxbnI59ISQjE/8WdfBKcmQg6m/LNIVKS6scrwA0eKM5/NlS
-         xootH3O54xz30xCDBRGh/3BImi/22PVXThG27C7QycZ2MhsbKNb2OML0MiJNVoc+IeV+
-         iskAIN6YYAegACi6rsY7/8/4CyZHQE2Vst8QLtX4GQStVeUgpl3QkKow9gxUFKUob9x6
-         iETw==
+        d=redhat.com; s=google; t=1795357542; x=1795962342; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
+        b=RjmK1+iPYSd7kHyy0tJDRj9S17VyfTcMukIkM7MzAGf2d0rRNITym1te3WevtWlhHr
+         HbckHHwtnTn9i+Q+NMshydqHWZhd+dztbwjqS8rC/dVB4C+ePqN+IGCHKG18hFg53fL3
+         e0FaV/WQGpI0ShjPDMqqdEW8Lx2wYDmQSBreD6L9ukv346GRG+pkZfbNxHIjtwGJZikN
+         98LM84lB5wbpFLeIeBjR2AjfxscgodYM32ZSXr/xdTGHkRnNiJDZ2DH5oc9IURrak1Kd
+         rAdClAtGndNIUE4uZoU7cLoJgtuhX14HctSnCAhm4XhzSP1ONXkfYM1+/6mKpfEtmDHR
+         8c5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795357308; x=1795962108;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yPwxyZPCJRkoA2qMW2RTyJ99dfsqAAIzG4plyK1oUEo=;
-        b=G67JgqwgzehPSi788ZOpdPZznToel9klJM9MPkKOxBQK4+k9I6lUCItjtJclWILvKr
-         LWLrYpySfwqCnwGmDYgxALnS8UnEVJmVns5nOxZNbUfXspE8WCiMzibux2qdWAwB9vCv
-         Zd9vRk5S70WVncKxk0qLU+2hazOtD48IbnkpC/Zcv6hR+9yDSUIzWCdE0OHwo08ctuWc
-         YhPYDERmjp4+CgmppsRiJCmIV6BnlBjRU1nHacuQEpxHN4p/0Jp2mdu6nuh7MhqN2ELm
-         /X4dQESi9XguoYZIR/mpjQjPCC/CDGGaWapwmfrQQQekw+pKrhRl4192jpoTzGuhbyVz
-         eliA==
-X-Gm-Message-State: APuU4Z/FxpjEMqw5w0yOPCEHg0rzrmLCuJ/GBtXskXGpJaluzlnND+vs
-	R8wqrVarHKn/zrNZfUt1UhnT8cUDBS+baa5TmOPSBj0fKrsJMtLfqzkEuAIOjzW51i8a9AAc/3r
-	DNAVr8p9yWQ==
-X-Gm-Gg: AZFdTZcPKA/pN32/aC/H7+q20FBGD45WPUU/qxN6tsaYBJFsvqBzNxbyBDgrsqgW6wC
-	O8hmM1+FPecmBTfMFEs2Lah0xjqny92VZygD/eh5Y9VWIZmLjXK/3SH3n2WEB6wV+z2jz/dMolc
-	/S4RtJf8zCouxJUmV9/FUBnxT64089BDLW0iHAonbCsvU9kzptYnVJ2hsf2aRHH7r/yFE5rbB1i
-	+y88aoaVBr8zHdUAWXTM6issylcSRUeMiRn7OnX9lMLgTBy1aXUFxnQM2rNvxmKhhaXsY40mjzj
-	kKjvCUATFpb5duuWmQkniawnN0T1/aH2vwijFOREUMbJq6nob7bnQh+cYNmyWy0Bu06wi+XmitZ
-	GnBcxpYCRxi2J/ujuCaPGFjq3yShrTdTw7aZvKy44vOqaprAjCi6tfRHRr7WcdGiKjwfU3pAoGe
-	78MGCeZiLHs4zcEKIW2a0HtUMWI4A2qI2pW1Y2sF1NUd3kLdagsUZoBgQ0VvojeqtBoUb+dq9C5
-	OhOu+oT8CeKJ8haNsKLQ1Dov8HpGdBpMrgzkPVCkK39PZU2UCDYTaqsFf06Qyj2HZHq/9HlRx+m
-	csc1Ax/yJYfvdfgwqyvq0H9WAoLAlXx8QfpKPqgCauomCiEijsndnNImxAA=
-X-Received: by 2002:a05:600d:6510:10b0:4a1:811c:8078 with SMTP id 5b1f17b1804b1-4bb8881de57mr123249665e9.26.1795357307361;
-        Sun, 22 Nov 2026 06:21:47 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm109767805e9.3.2026.11.22.06.21.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 06:21:46 -0800 (PST)
-Message-ID: <c953972c-dc7e-4b97-b271-5137f0cb2cbc@blackwall.org>
-Date: Sun, 22 Nov 2026 16:21:45 +0200
+        d=1e100.net; s=20260707; t=1795357542; x=1795962342;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
+        b=SlMRCwBP9+g2WvphyHTtrOG9mNLP7ftxNRefmeSz22YOx2GPufAAVK+6jM2VkjncO7
+         mRky0C+qPLQkpE0pjIbscurSAClGVS2iqhS2a51WrTYDpd6yi7My+GSgLL1yVNerv2mr
+         WHjYylov226rznwAgMWT4wf/FDjBOWyAlcC43zuY0QNDVaKy5SdTrWttdP8D0lunMO7D
+         2rmHb/S52THK4AZDrT+qRau9gP4hqzeBi0vTB73glDkCzuA8V8mMjBP2TszXsZrdVKwu
+         4VZvoTaKCmoPaK8PLyix+9IxJ1IbCWtxw3Zuf4BmUwWPDRc0SCTuM4sEqujZEOLRJCeE
+         L4RQ==
+X-Forwarded-Encrypted: i=1; AL+hErE0rIyd0T/vjiWAuysMvmxKyI7Mq6Gyrgcxv81k4CpKUwmaKycnEgFVo965XRXHWH4pq0j1Vl4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+l+H/2cKvZH8Q6qlkHOQ+gEMiQdMCsdMB8jx1GfoL71Q6WaCcW
+	oGH3wQAA3ne0leT6eBfJjXuhdEnbuq3oirz3ITC5Gu+b095Q0zQOGeO9y5S8bzQsOS7H9B+k5D8
+	kIfv8nrmqxVud7PtmMUMe8FnR/jZnUKUohh6qUDFoZaIsBZAqSkIoBgGgPA==
+X-Gm-Gg: AZFdTZeLtqqb552503RO7pt3EF62/XXKCj6JY4ax6sdc6242LrUiwsClQndzIau8Hjm
+	xVOD5qXljmoomVBNHohYNIohwK+Y6ys5FA+HfuKj0cw8e0UFWw8gnKlBK2Xayv8/2fZa1kj981u
+	YSuWK142E3xFHWYbJroEc0ENsEH9ypSkWW4MNR7yJgTR0q2xNpRNWTg/OqJm3gkZrAwM7IhB41l
+	3N5Sssxm7TTWDJFSP3FGlVRR5V/FaPkwc/cG7zYT9iYv0mz3Y2FbG+WHT+vxyqnNXvoUih0eOy3
+	G+e1V0eKvrKLGgCvyGzokKJWtRJ/c2OQce2D1vcQaU3uH0nO2ssHRpk5yM6qYKdsqbKzeSXAmtV
+	dR1C3tDTO2ST15ShnJjAQg+cm9w8/GphnVwPYdAIB
+X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr184853415e9.34.1795357542239;
+        Sun, 22 Nov 2026 06:25:42 -0800 (PST)
+X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr184852965e9.34.1795357541679;
+        Sun, 22 Nov 2026 06:25:41 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1524:9e00:c39b:a740:e7:3fcf])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm271466675e9.15.2026.11.22.06.25.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 06:25:40 -0800 (PST)
+Date: Sun, 22 Nov 2026 09:25:37 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Hengyu Liang <hengyul@cs.unc.edu>
+Cc: Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Paolo Abeni <pabeni@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] vhost/net: bound the count of VHOST_SET_FEATURES_ARRAY
+Message-ID: <20261122092235-mutt-send-email-mst@kernel.org>
+References: <20261122120919.1718445-1-hengyul@cs.unc.edu>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,82 +117,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: keep skbs with a prefetched socket out of
- gro_cells gro
-Content-Language: en-US, bg
-To: netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Joe Stringer <joe@wand.net.nz>, Daniel Borkmann <daniel@iogearbox.net>,
- bpf@vger.kernel.org
-References: <20261121160204.4024204-1-razor@blackwall.org>
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <20261121160204.4024204-1-razor@blackwall.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122120919.1718445-1-hengyul@cs.unc.edu>
 
-On 21/11/2026 18:02, Nikolay Aleksandrov wrote:
-> bpf_sk_assign at tc ingress holds a reference on a socket that is not
-> rcu freed, such as an established tcp socket, until the receive path
-> steals it. ip_rcv_core keeps a prefetched socket so when the assigned
-> packet is an ipip, gre or esp packet the socket stays attached after
-> decap and their rx paths pass the skb to gro_cells_receive. GRO merges
-> skbs with the same skb->sk into one flow and clears skb->sk and
-> skb->destructor of each merged skb without calling the destructor so
-> every merged skb leaks a socket ref.
+On Sun, Nov 22, 2026 at 07:09:19AM -0500, Hengyu Liang wrote:
+> Commit 333c515d1896 ("vhost-net: allow configuring extended features")
+> added VHOST_SET_FEATURES_ARRAY. The ioctl reads the number of feature
+> words from user space and checks that every word above the supported
+> ones is zero, one word at a time in a loop.
 > 
-> Send skbs with a prefetched socket to netif_rx instead as
-> gro_cells_receive already does for cloned skbs, where each skb is
-> consumed on its own and no reference is lost.
+> However, the loop has no upper bound and no scheduling point. As of now,
+> a caller can pass a count of U64_MAX and a pointer into a large
+> zero-filled mapping. The ioctl then stays in the kernel for as long as
+> the mapping is readable, and a fatal signal is not handled until it
+> ends. On a v6.18 debug kernel booted with preempt=none, two such calls
+> from a non-root user, each on a 4 GiB mapping, froze a 2-CPU VM for
+> 56 s with soft lockup reports.
 > 
-> skb_sk_is_prefetched tests skb->destructor which shares a cache line
-> with skb->cloned that is read just before so the common case adds a single
-> cheap test.
+> Interfaces that take an extensible structure from user space limit it
+> to one page (openat2, clone3, sched_setattr).
 > 
-> Reproduced with a tcx ingress program on a veth in a receiver netns with
-> an ipip tunnel which assigns an established tcp socket to ipip packets.
-> The sender sends 32 tcp segments of one flow inside ipip through a netem
-> slot qdisc so they are decapsulated in one batch and merged by gro.
-> Then the socket is closed and the receiver netns is deleted. The leaked
-> socket holds a ref on the netns so it is never torn down and its devices
-> are never unregistered:
+> On a KASAN kernel with a 1 GiB mapping: before commit 333c515d1896
+> ("vhost-net: allow configuring extended features"), the ioctl does not
+> exist and the call fails with EPERM at once. After that commit, it
+> fails with EFAULT after 26.0 s. With this patch, it fails with E2BIG at
+> once. A reproducer is available on request.
 > 
-> Before:
->    bpf_sk_assign() calls 32, sk_refcnt 32 after the burst
->    receiver netns deleted, 30s later its veth peer still exists
+> This patch will reject counts above one page of words (512 on a 4 KiB
+> page, or 32768 feature bits; 128 are defined today) before the walk
+> starts.
 > 
-> After:
->    bpf_sk_assign() calls 32, sk_refcnt 1 after the burst
->    receiver netns deleted, its veth peer is gone
-> 
-> The problem was found during reviews of patches that add bpf_sk_assign
-> egress support.
-> 
-> Fixes: cf7fbe660f2d ("bpf: Add socket assign support")
-> Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
+> Fixes: 333c515d1896 ("vhost-net: allow configuring extended features")
+> Cc: stable@vger.kernel.org # v6.17+
+> Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
 > ---
-> CC: David S. Miller <davem@davemloft.net>
-> CC: Eric Dumazet <edumazet@kernel.org>
-> CC: Jakub Kicinski <kuba@kernel.org>
-> CC: Paolo Abeni <pabeni@redhat.com>
-> CC: Simon Horman <horms@kernel.org>
-> CC: Alexei Starovoitov <ast@kernel.org>
-> CC: Martin KaFai Lau <kafai@fb.com>
-> CC: Joe Stringer <joe@wand.net.nz>
-> CC: Daniel Borkmann <daniel@iogearbox.net>
-> CC: bpf@vger.kernel.org
+> I found this while comparing the behavior of different kernel versions.
+> I used an LLM to analyze the problem and to draft the patch and this
+> message, and I analyzed the result myself.
 > 
->   net/core/gro_cells.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
+> Tested on the vhost tree at 44293796526f with KASAN and lockdep: counts
+> of 0, 2, 3 and 512 words still succeed, a nonzero word above the
+> supported ones still gives EOPNOTSUPP, and VHOST_GET_FEATURES_ARRAY is
+> unchanged.
+>  drivers/vhost/net.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
+> diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
+> index 631855064b3d..22e06b44d2ed 100644
+> --- a/drivers/vhost/net.c
+> +++ b/drivers/vhost/net.c
+> @@ -1795,6 +1795,8 @@ static long vhost_net_ioctl(struct file *f, unsigned int ioctl,
+>  	case VHOST_SET_FEATURES_ARRAY:
+>  		if (copy_from_user(&count, featurep, sizeof(count)))
+>  			return -EFAULT;
+> +		if (count > PAGE_SIZE / sizeof(u64))
+> +			return -E2BIG;
+>  
+>  		virtio_features_zero(all_features);
+>  		argp += sizeof(u64);
 
-TBH it can be applied to next, this is an old problem ("never worked") that is
-a corner case found by LLM reviews of a patch-set, which would make it easier to
-reach. I've tested it with net-next as well.
+????
+this is followed by:
 
-Cheers,
-  Nik
+                virtio_features_zero(all_features);
+                argp += sizeof(u64);
+                copied = min(count, (u64)VIRTIO_FEATURES_U64S);
+                if (copy_from_user(all_features, argp, copied * sizeof(u64)))
+                        return -EFAULT;
+
+copies at most 8 bytes.
+
+
+did you test that this patch actually helps anything?
+
+
+> base-commit: 44293796526f4343639f87b2acc53811c78b5d54
+> -- 
+> 2.53.0
 
