@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795366992;
-	b=yvrWWNui4ptb10uj2ZAynl68m7JNJlt3p4pMclKDuLERE1Ghfl+YQTMNBbPl34BxeMk3
-	 g/DO1eRq2xV4C9I9OWa53FqgkjxCW7Vpbct3wuqv7g1GW08zrUrt/Qo+W7WIP6GPoRxvb
-	 opNd6/vRAaFGSEv4PtmFiyCdEgudokl0JeJVQ8jYd9LRMPHwGdLMvRD3VxqpJUy0swuD4
-	 X/vIzqLug0QTfwMHXGQogTmLxILija0iJpld+zxIANZh++v/F6KJdv7yQMnkMoxz83I+e
-	 e1duzHcz5hzEE4/4uFqnBgQiwbNHIC2sCfVLypA2GNFJrHxZDTS7w70WRHBop1q2atQ==
+	t=1795366993;
+	b=R5yrfnIxoObWi0NQuAM0jR5OiAD9+HfGUBHWIOyoCjN4aWpqEfklvCs/6QSWTmXYNtEZ
+	 CqjdXQqh44RdT41cwFy9SuVvlHm7IgCexJIDlfBbOBYI3wgvItlSsAAyBBEKFTlErRJEq
+	 vCrtRV1tvemWN12sAA5roQ9Rjo9eu3EyCO5ynM3RqC7sLyR+qz2oiff/hIfFGkNa4GHBw
+	 43SWR8vxxh7Y3Qb82J3khrqvdM2F+8QG6oUM5YRUCurxHXa2twQ5c1MfnQi1u9xRt+r/B
+	 Z2P+piZyafBV3M7U2ng1b825y7STbtpoipZpn6WDWJn9kFgiJ8BbQePtiZCIEQvl6CQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795366992;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795366993;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=gMafmWOv8TBm4c4ZfyWe/8aXJfH25fVK6a/gc7SwN9k=;
-	b=5UQWj6EJvFp4nyNDTcqMWsFqkkHcQKsHEyBnwmya1x9KU2coJpk4M8+WBF3R1g0u8Tsb
-	 yQXcZrg25NJoPo2smJZ3Ne1YUXzwNRb6Gfk85ibtaTiVyAw97dK7TOmDGExJqEr82whWS
-	 8IfG11An7BzDmMMk5znmTWbPkslSjCmkSjP9yq7AdkurNL/gkavlLJ0u3cSlEkQksa8d2
-	 XBWksWzD6ITnB2i+uwBhFQKh/vbfi8e+oB3VSsi7rf41xW1ONlWC4tiSHOoJil52WmPEi
-	 9UMLjmya0Y4yyaqXOM6LEztchi8BQPZulG7ezc4XArm7YrA0AFe1s/PUny7kN+buJwg==
+	bh=wlxuZ0OpqEBh+1LpCqTaALs6uRazNSVFbb0AQzNjJYM=;
+	b=ro792RIMEwZkUyzubO12UHZ8/xkQWQyIHXf+KOvUO5iIIOIB26gxbmkwYsjxBGhjuYiq
+	 z++ntgdQR+F8Hy9i+2vSXjJpdaCM/EDtnUz2G2zE7CcSHCi7smVBnzyH17Da5CeRbZjPl
+	 FjE0RX5+5sFVoBxeplOxBEyRFgqbKlpGFSmv5MPjtkZiES38+8yhnqimY/SYTPJUBuF2l
+	 7zaSP84D1BNFlEGjvy0Xbo+G8RTeVxyaDhEiFkF29Q4q+yg1BwK+lYgjAMzO3hSdp5sZk
+	 HaKg6fiEKlNSWBpvRXmtOrw5vGHvdS5fJeD5IAAjgWQD9hjaZo+Cqsx2QvTPHn4dT/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="e/RQ1fY6";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LcDMOQ+w;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F127D606A32C;
-	Sun, 22 Nov 2026 17:03:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 698B4606A330;
+	Sun, 22 Nov 2026 17:03:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e/RQ1fY6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ACF41F000D2;
-	Sun, 22 Nov 2026 17:03:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LcDMOQ+w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ACE91F0089E;
+	Sun, 22 Nov 2026 17:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795366991;
-	bh=gMafmWOv8TBm4c4ZfyWe/8aXJfH25fVK6a/gc7SwN9k=;
+	s=k20260515; t=1795366993;
+	bh=wlxuZ0OpqEBh+1LpCqTaALs6uRazNSVFbb0AQzNjJYM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=e/RQ1fY6BIYSH55Asf/BChFs2qCcohDUR4wdgq3Oa7+1t5DBQjvnnL8s7JfR8coPe
-	 pqY8SuRWS4GG27uaF+nRjMcVhI5PQnNJJbxp3UzVRB5F57bkSIZZvb2BXCNG9JU5BN
-	 ckbOubnEmhF/YMbhgxBSJAAG5FfSLjhjfDZj8xihQtRg/Gs++jURC+ySUYyjBp3mVP
-	 /dfZXxUV5OAv/st5uKSTgp+XnOAM8m7Q9RRcjyrow18vj9Js0c3hEiddbVAXtZNXql
-	 rzh3APoaiVUWZABXyclTa3zQBx5j3biqoGce9CMenotpwTbad4v+zlFMqHtSBRA+Te
-	 94zDfrNDAr+0A==
+	b=LcDMOQ+w69hTjgX+klwYRUdZjCVr7DMNMpSC789EGixvshq21r0aQ95tLp+RndtyJ
+	 pPLMxysgfub8pwJI7IbWVhb9T1zxUQU43xi2w4Z8cMFcxEz42FW6VwddPpUZO4PMMH
+	 cmTNfjaBUDnndWFaXUH8eKdjEkLcCMmdh4b0yIrFqBrjWA80+OYYS2od7wK5HThq3x
+	 XDXHqoKBNu2829qwmbzwDUHX6GM3y/EJmGwgqe6B7AWGMKh+0xJNoKrVn4jmxP9J59
+	 vOVA6Fedxrwh+UvAF2ar8LJ9eOFRWGtM7bZzn4TBUVfj7fetgQlcnNaSfsL7a3fx4k
+	 gOWK1poop6TwA==
 Subject:
- Re: [PATCH net-next 7/8] eth: qede: drop the now-dead HW-GRO vs XDP handling
+ Re: [PATCH net-next 8/8] eth: gve: drop the now-dead HW-GRO vs XDP interlock
 From: netdev-bot+sashiko@kernel.org
 To: kuba@kernel.org
 Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
@@ -50,11 +50,11 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
  hramamurthy@google.com, tariqt@nvidia.com, saeedm@nvidia.com,
  daniel@iogearbox.net, hawk@kernel.org, sdf@fomichev.me, willemb@google.com,
  przemyslaw.kitszel@intel.com, bpf@vger.kernel.org
-Date: Sun, 22 Nov 2026 17:03:09 +0000
-Message-ID: <179536698993.3135.14058741842243697942@kernel.org>
-In-Reply-To: <20261118232315.3593731-8-kuba@kernel.org>
-References: <20261118232315.3593731-8-kuba@kernel.org>
-X-sashiko-severity: High
+Date: Sun, 22 Nov 2026 17:03:11 +0000
+Message-ID: <179536699175.3135.17888123102023780384@kernel.org>
+In-Reply-To: <20261118232315.3593731-9-kuba@kernel.org>
+References: <20261118232315.3593731-9-kuba@kernel.org>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,91 +78,202 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The commit message says the `edev->ndev->features &=
-  ~NETIF_F_GRO_HW` line in the XDP branch of qede_alloc_mem_rxq() is…
+- [Medium] A gve XDP attach that gve will reject now rebuilds every queue
+  twice before failing.
+- [Medium] Removing the `priv->xdp_prog && GRO_HW` refusal from
+  gve_set_features() lets gve rebuild its DQO RX queues with RSC on…
+- [Low] The core reports a misleading -EBUSY "required by another
+  feature" when gve's ndo_set_features fails while it is clearing HW-GRO…
 
 --
 
-eth: qede: drop the now-dead HW-GRO vs XDP handling
+eth: gve: drop the now-dead HW-GRO vs XDP interlock
 
-This commit removes the qede driver's own handling of the HW-GRO vs XDP
-interaction. It relies on the core to clear NETIF_F_GRO_HW before
-ndo_bpf runs and to keep it off while a program is attached. It drops
-the xdp_prog check in qede_fix_features(), the reload skip in
-qede_set_features(), and the direct dev->features write in
-qede_alloc_mem_rxq().
+This patch removes two gve checks. One refused an XDP attach while
+NETIF_F_GRO_HW was on, and the other refused to turn NETIF_F_GRO_HW back
+on while an XDP program was attached. The core now clears HW-GRO before
+ndo_bpf runs and keeps it off while a program is attached, so an XDP
+attach with HW-GRO on now succeeds with HW-GRO turned off.
 
-> diff --git a/drivers/net/ethernet/qlogic/qede/qede_main.c b/drivers/net/ethernet/qlogic/qede/qede_main.c
-> index 7ed17faced542..b24baf0e808e1 100644
-> --- a/drivers/net/ethernet/qlogic/qede/qede_main.c
-> +++ b/drivers/net/ethernet/qlogic/qede/qede_main.c
-> @@ -1571,7 +1571,6 @@ static int qede_alloc_mem_rxq(struct qede_dev *edev, struct qede_rx_queue *rxq)
->  		rxq->rx_buf_seg_size = roundup_pow_of_two(size);
->  	} else {
->  		rxq->rx_buf_seg_size = PAGE_SIZE;
-> -		edev->ndev->features &= ~NETIF_F_GRO_HW;
->  	}
+> diff --git a/drivers/net/ethernet/google/gve/gve_main.c b/drivers/net/ethernet/google/gve/gve_main.c
+> index 0ee69bc11d836..8b65b8119662d 100644
+> --- a/drivers/net/ethernet/google/gve/gve_main.c
+> +++ b/drivers/net/ethernet/google/gve/gve_main.c
+> @@ -1798,12 +1798,6 @@ static int gve_verify_xdp_configuration(struct net_device *dev,
+>  	struct gve_priv *priv = netdev_priv(dev);
+>  	u16 max_xdp_mtu;
+>  
+> -	if (dev->features & NETIF_F_GRO_HW) {
+> -		NL_SET_ERR_MSG_MOD(extack,
+> -				   "XDP is not supported when HW-GRO is on.");
+> -		return -EOPNOTSUPP;
+> -	}
+> -
+>  	if (priv->header_split_enabled) {
+>  		NL_SET_ERR_MSG_MOD(extack,
+>  				   "XDP is not supported when header-data split is enabled.");
 
-[Severity: High]
+[Severity: Medium]
+With this check gone, does an XDP attach that gve will reject anyway now
+rebuild all of the queues twice before it fails?
 
-Is this line really dead? The commit message says:
+In dev_xdp_attach(), the core clears HW-GRO before the driver sees the
+program:
 
-  the feature is already off by the time the reload for the program
-  allocates the rings;
+net/core/dev.c:dev_xdp_attach() {
+    ...
+		if (new_prog) {
+			dev->xdp_pending = 1;
+			err = dev_xdp_clear_rx_agg(dev, extack);
+			if (err)
+				goto err_clear_pending;
+		}
 
-That is true for the ndo_bpf path. The firmware error recovery path,
-though, seems to reach this else branch with GRO_HW set in dev->features
-while edev->xdp_prog is still attached:
+		err = dev_xdp_install(dev, mode, bpf_op, extack, flags, new_prog);
+		if (err)
+			goto err_clear_pending;
+    ...
+err_clear_pending:
+	dev->xdp_pending = 0;
+	netdev_update_features(dev);
+	return err;
+}
 
-qede_sp_task()
-  qede_recovery_handler()
-    qede_unload(edev, QEDE_UNLOAD_RECOVERY, true)
-    __qede_remove(edev->pdev, QEDE_REMOVE_RECOVERY)
-    __qede_probe(..., QEDE_PROBE_RECOVERY)
-      qede_init_ndev()
-    qede_load(edev, QEDE_LOAD_RECOVERY, true)
-      ...
-        qede_alloc_mem_rxq()
+On a running DQO device with HW-GRO on (the probe default), the sequence
+is:
 
-In recovery mode, edev and edev->xdp_prog are kept. However,
-qede_init_ndev() writes dev->features directly:
+dev_xdp_clear_rx_agg()
+  netdev_update_features()
+    gve_set_features()
+      gve_adjust_config()              <- rebuild 1, RSC off
+dev_xdp_install()
+  gve_xdp()
+    gve_verify_xdp_configuration()     <- returns -EOPNOTSUPP
+err_clear_pending:
+  netdev_update_features()
+    gve_set_features()
+      gve_adjust_config()              <- rebuild 2, RSC back on
 
-	hw_features = NETIF_F_GRO | NETIF_F_GRO_HW | NETIF_F_SG |
-	...
-	ndev->features = hw_features | NETIF_F_RXHASH | NETIF_F_RXCSUM |
+gve_verify_xdp_configuration() can still refuse the attach at that point
+in several cases:
 
-Nothing on this path calls netdev_update_features(), so the core never
-gets a chance to strip GRO_HW again.
+  - a jumbo MTU above 2048 - ETH_HLEN
+  - a packet_buffer_size other than SZ_2K
+  - header split with a frags-capable program (the core hds_config check
+    only rejects !xdp_has_frags)
+  - an RX/TX queue count mismatch
 
-With the clear gone, the end of qede_alloc_mem_rxq() then computes:
+Before this change, the same request failed with -EOPNOTSUPP and the
+queues were left alone. Now a refused attach interrupts traffic twice.
+Either rebuild can also end up in the failure branch of
+gve_adjust_config():
 
-	edev->gro_disable = !(edev->ndev->features & NETIF_F_GRO_HW);
-	if (!edev->gro_disable)
-		qede_set_tpa_param(rxq);
+	err = gve_queues_start(priv, tx_alloc_cfg, rx_alloc_cfg);
+	if (err) {
+		...
+		gve_queues_mem_remove(priv);
+		gve_turndown(priv);
+		return err;
+	}
 
-qede_start_queues() then sets start.gro_enable = !edev->gro_disable,
-so TPA is enabled in firmware while XDP is attached.
+Would it make sense to check gve's XDP preconditions before the core
+reconfigures HW-GRO? If not, could the commit message mention this cost
+on the failure path? The ordering comes from the core patch "net: state
+the "XDP excludes HW-GRO" rule in the core".
 
-In qede_rx_process_cqe(), TPA CQEs return before the XDP hook runs:
+> @@ -2212,12 +2206,6 @@ static int gve_set_features(struct net_device *netdev,
+>  	if ((netdev->features & NETIF_F_GRO_HW) !=
+>  	    (features & NETIF_F_GRO_HW)) {
+>  		netdev->features ^= NETIF_F_GRO_HW;
+> -		if (priv->xdp_prog && (netdev->features & NETIF_F_GRO_HW)) {
+> -			netdev_warn(netdev,
+> -				    "HW-GRO is not supported when XDP is on.");
+> -			err = -EOPNOTSUPP;
+> -			goto revert_features;
+> -		}
 
-	/* Handle TPA cqes */
-	if (cqe_type != ETH_RX_CQE_TYPE_REGULAR)
-		return qede_rx_process_tpa_cqe(edev, fp, rxq, cqe, cqe_type);
-	...
-	/* Run eBPF program if one is attached */
-	if (xdp_prog)
+[Severity: Medium]
+Can this check still fire when the core's XDP state and gve's
+priv->xdp_prog disagree after a failed detach?
 
-After a recovery with XDP attached and the interface up, would
-aggregated TCP traffic skip the attached program, so its XDP_DROP or
-XDP_REDIRECT decisions are never applied? dev->features would also show
-HW-GRO as on. This would last until something unrelated calls
-netdev_update_features().
+dev_xdp_detach_link() ignores the driver's return value and then
+recomputes the features:
 
-Would it be better to keep an XDP-aware check when computing
-gro_disable, for example edev->xdp_prog || !(features & NETIF_F_GRO_HW)?
-Other options would be to stop qede_init_ndev() from overwriting
-dev->features on the recovery probe, or to call netdev_update_features()
-once recovery completes.
+net/core/dev.c:dev_xdp_detach_link() {
+    ...
+	WARN_ON(dev_xdp_install(dev, mode, bpf_op, NULL, 0, NULL));
+	dev_xdp_set_link(dev, mode, NULL);
+	netdev_update_features(dev);
+    ...
+}
+
+gve_set_xdp() only writes priv->xdp_prog on success. So when the detach
+fails, the program and the XDP rings stay active. There are at least two
+ways for gve's detach to fail:
+
+  (a) gve_xdp() runs gve_verify_xdp_configuration() even for a NULL
+      program. gve has no ndo_change_mtu, so the MTU can be raised above
+      2048 - ETH_HLEN while XDP is attached. The detach then fails with
+      -EOPNOTSUPP.
+
+  (b) gve_configure_rings_xdp(priv, 0)->gve_adjust_config()->
+      gve_queues_mem_alloc() returns -ENOMEM.
+
+Once the link is cleared, dev_xdp_prog_count() returns 0. That means
+__netdev_update_features() keeps NETIF_F_GRO_HW from wanted_features
+and calls gve_set_features().
+
+Before this patch, the priv->xdp_prog check reverted that change. Now
+gve_adjust_config() runs with the XDP rings still configured, and
+gve_adminq_create_rx_queue() programs RSC from dev->features alone:
+
+		cmd->create_rx_queue.enable_rsc =
+			!!(priv->dev->features & NETIF_F_GRO_HW);
+
+The DQO RX path would then run the program that is still attached on
+only the first 2K buffer of each coalesced frame. A later
+"ethtool -K rx-gro-hw on" would reach the same state.
+
+Doesn't that contradict the statement in the commit message that
+"neither of these can fire any more"?
+
+>  		if (netif_running(netdev)) {
+>  			err = gve_adjust_config(priv, &tx_alloc_cfg, &rx_alloc_cfg);
+>  			if (err)
+
+[Severity: Low]
+The core's dev_xdp_clear_rx_agg() is now the only thing that turns
+HW-GRO off before XDP on gve. What error does userspace see when this
+gve_adjust_config() call fails during an XDP attach?
+
+If gve_queues_mem_alloc(), gve_close() or gve_queues_start() fails,
+gve_set_features() jumps to revert_features. That restores orig_features
+with NETIF_F_GRO_HW still set:
+
+revert_features:
+	netdev->features = orig_features;
+	return err;
+
+__netdev_update_features() logs the real errno with netdev_err() and
+returns -1, but netdev_update_features() throws that away.
+dev_xdp_clear_rx_agg() then treats the bit that is still set as a
+feature dependency:
+
+	netdev_update_features(dev);
+
+	agg = dev->features & NETIF_F_XDP_DISABLES;
+	if (agg) {
+		NL_SET_ERR_MSG_FMT(extack,
+				   "unable to disable %s, required by another feature",
+				   dev_xdp_rx_agg_name(agg));
+		return -EBUSY;
+	}
+
+gve has no ndo_fix_features, so no feature dependency exists here.
+Could the core check the return value of __netdev_update_features(), so
+that this case reports the driver's error instead of -EBUSY and a
+dependency message? This also comes from the core patch "net: state the
+"XDP excludes HW-GRO" rule in the core".
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118232315.3593731-1-kuba%40kernel.org
