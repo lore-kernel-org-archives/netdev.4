@@ -1,79 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795338828;
-	b=sKKy/z8LcOry5oP8H2DHB3YVQ/fMdJ+IBpbMlAsnRIdTvpwoc9vdgyW2cNo8n/WPyn+y
-	 NmLo+Am51C1bsprw1vs19hrcotMzUwOezpOCxr3aptUe9xXEGjpOrtfJtgGQZHJmsQ52g
-	 DgTkKuQ5rXubkYeZosxPmB3bxSY0FvdlgoM17yWLJyPG5LqaiubcswJJmGEzYE9NdU1pg
-	 SvY7OmMeeb2lCAG+q9SWVbNxUCbHN5IluEvSXhmIwZdcfAEVx5w9CaPicLhmU2eSEtppu
-	 h0+sHLZWsemUsx4OPN9PCX/5XGhbhxpO4JZk6vOOleqkDXce3iwDagxBMNaSGhQCmIg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795338828;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kQry4Cjw3RPbx5td1ZWs5hKjkfOnlF6f++DPnxPHX6o=;
-	b=d66Q2eeXrOcnPI+7xtcR7i9ydXF9/S5COG5s0t/tg9MsRGvVU37/hH2kaVuY2OjbKE3T
-	 KxZJnoRN+yV8Ehjmonog1z3dYmUOtiFX06ltqgN/JK8ZOMJT0VHEn/oRi0erlE5KYSmv/
-	 BIM/tCN3nFTiaNE1kfM1kx88eSF+4PaJHcgSpSQCmWiD9mF+hiNvkEh/L5eemp0OMMdyM
-	 kcoe6HeKodazL+LWt4yHY/y+RqBoUdB6koJp1V3Nxl3VStak1qnCKsu8FCZH5aU8K9l2m
-	 m0O05eCM33d0QrroADB5FgxK9zDnqC6bcnhHz7BmAhj9ZqC6cmIG8pFpuUNdtQ3dE1g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jr7GG1GM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96024606A32A;
-	Sun, 22 Nov 2026 09:13:48 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jr7GG1GM
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795338828;
-	b=CkESDhiyd9wn0L/Zq2tE0Boh/3/D82+U9r4euSCCbDNGCJ0k+ImcbfgcnIWh893AljcU
-	 JVmcZexQsZOBa6J/JjCBiYZRg6H0IhS6PXaxs8Sx70vGnA45+1HzpAvi2WZPt0F8VF/br
-	 lY7oJri6w14c8kK5bwhlWK73onYiudrZoOL13xWcUB7Farj2+2/f9ipUEVHs5t121aOJB
-	 9DoXWXrbPFbZl21p0nTrtRv9/RQy6N4xjgwjW/6A/+Po6R7GwZWZKqDSdBFASJPZi0GUV
-	 S0+3d4O6fk5FzdtiRyh6X324Wrq9q2ezaj1vTfbaLWRmx1znEOlFcIGct96cGPaIMJQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795338828;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kQry4Cjw3RPbx5td1ZWs5hKjkfOnlF6f++DPnxPHX6o=;
-	b=jlljnLjYolqF9TCoaEevqYNU5bKiNg6XgbOSk08nP+UBYTGOVuS5RNaYNoY9cLZCq8Wj
-	 t4msnwnEu/i5r6sSA+tYZ0+dM8iYBD0yLzzXqh3Yac1bDEZUcSLT87qg4Hz3TUiVTcsOZ
-	 N3rhEtAznLLcCKOvU+2I7bv06w/7vYQcf8NXHCstuRqc4Km75WQeOnmc9eanWBXXNEdsN
-	 jpc4VkI+vKRm51/XVTgLfUifoeBCsxLz3zH/ihN2IPnbwvEb9oY78b/ApgdZ5q19MJaSq
-	 BE/e3MG34tH6xu9mmGBubLTcIgeZhOkxQUY+4kBPTACK6Kx6Uwyjblcdal45zSuDnmQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795338968;
+	b=4KntuaoWdg/N2ZLIaiQxd3H/6RWGJpj7zQMMj1IRU9bIW10eA2nR3ukQhV5XrpijWw7b
+	 +M1ONw+U03a0HbPEpl1DQbomUTUQ937SmLBdUCie9z+wuNrMPZhFrhjPvXoPIsifybtZ9
+	 ce1DckKTb5wNMGwvza4HIYVnGdx9MQtkTzFpvbwiUudlGtc65hAex67Q/VLrlB4hI3dUG
+	 JVdtbB62akhci3txas2BweyHLEvwpsWdAnp4Exw4Fg6kHw2fqpPDQVNCXqBpGxzV2e920
+	 YANxZSnm7sA4fm+bEgc3HJw1Pzwg3+7S/fBXfiJJlotQSDwiaR2cV+F6oh6LqLi3lBw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795338968;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=0KmhmqWZGey7mXaEaM39Yzuu4YAG3T1qaBpPiWLL0gM=;
+	b=zjQM5NhAtZcFnT/O7Z9IE25h3hLvdPuHEuULeIHD0BDNdCahzMXeBzraqPo+7/bWFRGk
+	 Zkhyz8R2YFetKkIbGNiKcM+NHwdgrjqTnmAIKplu+3xBghOZcnQefMuKnmLj0LL0Gwuuq
+	 wjEZ+VOmUYovHuu+riZ+PADEvdHw/20peta5Q03P9/1Ygat2R/6ssnUu6AiNep3N6DyVD
+	 JFxKtZAMNmrgbYBYV+fg2/2+IVRebUe5416mayZk1AAZLCJgF4b7/W8MOCmhqQbd1DnlK
+	 Ny4T8QF51axRqbt4GlWdFxXZTkzGk2+ASC4fLVYnB5CiqI8b2wdbhGE6CQmtzHATEvQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=N48KdldY;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A5C621F000CA;
-	Sun, 22 Nov 2026 09:13:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795338828;
-	bh=kQry4Cjw3RPbx5td1ZWs5hKjkfOnlF6f++DPnxPHX6o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Jr7GG1GM3wN8lGV/5Ne/P+ipH2xCagiq4gW/RFVvvgriQGQjvtcJCJuobyiqWmO7m
-	 GsX+6Gf2hKIds+h6SHSrDOkEga44QT5ZuHf7LMWJO1egwE3RB6JLG5PML+huhsZRR1
-	 rb6n2YC1JFTI3U24bqBu5AVWqz7ofuGmZSvIaNS6uLbTzpFbKPjcblcB7wMlF2D0gz
-	 tQ7FGi/+lorNgo6XwJ3xAL1DjHXz5P0tod5MxyzNBqgHVVONsn9lr5XPVtawvM4CsQ
-	 bZtAHSNoVlK+k7cKW7F3BfFvO4OFvaG8KqE/nZU7yL7yDz0R7VNW2FU+05wqZZ/B30
-	 /o9Ms/uptGnRw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 344354BFCA;
-	Sun, 22 Nov 2026 09:13:47 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 09:13:47 +0000
-Subject: [PATCH net v2 1/2] net: stmmac: Limit the MTU of normal
- descriptors to one buffer
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37CA5606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 09:16:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37CA5606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=N48KdldY
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a2f4ca0dcfso1256573f8f.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 01:16:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blackwall.org; s=google; t=1795338965; x=1795943765; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0KmhmqWZGey7mXaEaM39Yzuu4YAG3T1qaBpPiWLL0gM=;
+        b=N48KdldYkQjaF/ngDujTZE6Al8clD0ZABH8Hwlk3by70BFtk/LFt1h1KBlEim1qTak
+         TscYtqyoJhYd+t2xBeovlUCH5YA13JRwUhwg/R6csWedfGyUpwtwfO1Iw5QThnf0ySiD
+         hCXVz61t55ZhKaYFXj+aLhrvlcBGM9S76VlycOzGpNJUl6ZxhRVQGiMCVYnu5UMaxaYC
+         X3pkeuuPFi2Xvif5OAaar1Qu3z8ZsZAh2qf8QT4ZAQbhA3hwaqvJQfDXYg36G2PFlf7v
+         SJyFZ55FrdfWRWjNovTf3iur4sD52UlCmkQyQC6IFvEPq6OguYPD4WXf2Jjun+dk3M+2
+         Rkmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795338965; x=1795943765;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0KmhmqWZGey7mXaEaM39Yzuu4YAG3T1qaBpPiWLL0gM=;
+        b=aw6ztr4dmjuwUCtbCL+tjF/LLuKr2m3zj+S37TCmSCcKuoqNxFzOkXeeVkBm5WWrUW
+         gXguWAqHV4u1FTIPLS+9KJsPgOVljx6PFnPBTR9ASCG1OTajRxObXhnddRKguyaH4vlx
+         qcCW18qods1Z7axfkqmPg0292FberuF1JhyrFuuUlRuq1jCYP35IpncBwda/dN+sAupc
+         TAlHS1ijz8VdDigx43O+8sSOgI2ea9M94rqWA7/wVsrt+gWb88cFv6oH+VOU06QKUdJM
+         tV+hlKOZD+9HxKBT1lnBJj4yUSDeq3NTQ3FCIqjJKMw3Plb/ZiHHydeDIhY9hlqaSPeL
+         tP0Q==
+X-Forwarded-Encrypted: i=1; AL+hErG/w1wT/Pp6RVOfz/83Uk/mxPA01Jz97e549pmvIe5/gCnuvULuiIkAWOr9dsk+mcJlZ6QgycM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YMEm9d45EFjuOP5P3YLrwE+qLD0/zH4z13wOK4zpdGCdPW+E4
+	aAKTIW8C3yVo2g5e66CC8Ok004FGsfKbPblHr/KxYktYkYC94mcARMANSkckZYZIRss=
+X-Gm-Gg: AZFdTZfBBfYF7nI7r7IGL/3P6q8HOp1ZxcpL90Td0YW2TQfZUgxzelFGkOW4uxACXEb
+	VG9AcX+0JgyhQC5+fMyRnI7Yi+HWywt2Gcjdb/+dN0xD8aLkxNssHR8vacVtLPlNXUmkWlSch7k
+	9o/mIen4yzxo+eKoWzEM4X1zZ9oKNvrrOx/BJX4E6eeNqAuLLbE2PzprSi/rJf9biOCS3exNkIt
+	TzDjmNDZ7dbqI/xHaHRkHqRuE0z7hYLVT4GOfjNGqFaiDGWjcK3rGD+ZG9bOkbr3HDYsLUMQBMU
+	duDy0XZkMbDuU5UEPM2/GmMziwOsHAfBDWvTPZi2W8AcafDhlIHLDkJbk7dMJcqoyc7bjQf/5W7
+	/I1hcF6/YTqTEZhXeAa97GTNlBUHvnRgcBIfLdqSy36ooKfpwyU1Hxrl5KIV0XHvQ3OFxRC6jOL
+	bPAY7es4qeqp6Il/c1ceK+cEWUm7gsGb0sVY1SCbTLXG/5Sm2Qv8z8ctItIPIOSqg3RMfTD0L9+
+	PDojqOSrrgNAnztCIelMEtycovsTr34Bqo1AoVtoX9IVQ11FqfHELTE5wk2aXfBfpap/VEymcFI
+	ZgR2f2hSUoIxTlmDvjg1/O3xMDzmJSnZf65U9CuS34OlMa7xYhI/E5V592giCFQKRIsZ3s1GwQ7
+	0UyYM
+X-Received: by 2002:a5d:5d01:0:b0:4a7:851a:e617 with SMTP id ffacd0b85a97d-4abaac5777cmr17246463f8f.7.1795338965324;
+        Sun, 22 Nov 2026 01:16:05 -0800 (PST)
+Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2e6dsm15828914f8f.6.2026.11.22.01.16.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 01:16:04 -0800 (PST)
+Message-ID: <9c6546b4-d88d-48ce-a4f7-721eed72d4b2@blackwall.org>
+Date: Sun, 22 Nov 2026 11:16:03 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,72 +92,126 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-sun8i-emac-mtu-limit-v2-1-c4081e5b83cf@gmail.com>
-References: <20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf@gmail.com>
-In-Reply-To: <20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- LABBE Corentin <clabbe.montjoie@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Russell King <rmk+kernel@armlinux.org.uk>, 
- Nicolai Buchwitz <nb@tipi-net.de>, Arun Iyengar <aiyengar1990@gmail.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795338826; l=1453;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=ydeE7IevavZwGHNIu116JiJ5XTZiQzYRPI/kkGQMzGs=;
- b=OLm0NCIxVOoxm3a4kij2GdUDVN9qdNUwsdi1iIXrDZaiZGALtLXXIx9TtK0tjAzcFaWaxY1k8
- mGSIgLgx6xqC513OzVh3vXdfOC+UQQ/ED6uVIfpTgaEe/CLkDlGWvW+
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 0/7] net: devmem: support leased RX and TX
+ queues on netdev unregister
+Content-Language: en-US, bg
+To: Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+ Weiming Shi <bestswngs@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>,
+ David Wei <dw@davidwei.uk>, Stanislav Fomichev <sdf.kernel@gmail.com>,
+ Bobby Eshleman <bobbyeshleman@meta.com>
+References: <20261120045918.1239746-1-almasrymina@google.com>
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <20261120045918.1239746-1-almasrymina@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+On 20/11/2026 06:59, Mina Almasry wrote:
+> Support leased RX and TX devmem bindings when either the virtual device
+> (e.g. netkit) or the physical backing net_device is unregistered:
+> 
+> 1. Pass struct net_device **dev_ptr to net_devmem_lock_dev() so callers
+>     can lock either binding->map_dev or binding->bind_dev.
+> 2. Rename binding->dev and binding->vdev to binding->map_dev (physical
+>     DMA device) and binding->bind_dev (device passed to bind-rx/bind-tx).
+> 3. Introduce netif_lease_valid() and guard netif_mp_open_rxq(),
+>     netif_mp_close_rxq(), and netif_rxq_cleanup_unlease() against an
+>     unregistering physical device reached through a queue lease.
+> 4. Fold net_devmem_lookup_dmabuf() into net_devmem_get_binding() so the
+>     xarray lookup, validation, device check, and reference acquisition
+>     run under a single rcu_read_lock() section.
+> 5. Always populate bind_dev on RX and TX bindings and handle teardown
+>     and netdev unregistration of both bind_dev and map_dev, waiting for
+>     synchronize_net() after clearing NET_DEVMEM_BINDING_LIVE before
+>     unmapping bindings whose map_dev is unregistering.
+> 6. Resolve the physical backing map_dev in netdev_nl_get_dma_dev() for
+>     leased RX bindings, lock map_dev around net_devmem_bind_dmabuf() on
+>     bind-rx when map_dev differs from netdev, assert both devices are
+>     locked, and check netif_lease_valid(map_dev).
+> 7. Add kselftests in nl_netdev.py covering leased RX and TX devmem
+>     bindings across both virtual-first and physical-first netdev
+>     unregistration orders.
+> 
+> These issues were discovered during AI code review (Sashiko) of the
+> earlier non-leased devmem unregister series (and subsequent mailing list
+> review) and confirmed by code inspection (not observed in production or
+> reproduced on real hardware). Tested with the nl_netdev.py selftest on
+> netdevsim added in this series.
+> 
+> v4:
+> - Rebase onto latest net-next/main.
+> - Fold net_devmem_lookup_dmabuf() into net_devmem_get_binding() under a
+>    single rcu_read_lock() (deferring net_devmem_dmabuf_binding_get()
+>    until after all checks pass) and update net_devmem_dev_unregister() to
+>    use a two-pass loop with a single synchronize_net() after clearing
+>    NET_DEVMEM_BINDING_LIVE and before unmapping bindings with
+>    map_dev == dev (Paolo).
+> - Document issue discovery, validation, and testing in commit messages
+>    and the cover letter (netdev-bot+sinfo).
+> - v3: https://lore.kernel.org/netdev/20261115022607.348112-1-almasrymina@google.com/
+> 
+> v3:
+> - Rebase onto latest net-next/main.
+> - Add netif_lease_valid() helper and keep lease validity checks in the
+>    lease-aware callers (netif_mp_open_rxq(), netif_mp_close_rxq(),
+>    netif_rxq_cleanup_unlease(), and net_devmem_bind_dmabuf()) rather than
+>    inside __netif_mp_open_rxq() / __netif_mp_close_rxq(), and document why
+>    mp_params is cleared directly when !netif_lease_valid(dev) (Stanislav,
+>    Sashiko).
+> - Guard the bound_rxqs loop in net_devmem_unbind_dmabuf() with
+>    if (binding->bind_dev), keep the !netif_is_queue_leasee(dev) guard in
+>    net_devmem_dev_unregister() in patch 4/6 until patch 5/6 resolves
+>    binding->map_dev to the physical device so the series is bisectable at
+>    every commit, and document the use-after-free in dma_unmap_sg_attrs() on
+>    physical netdev teardown in patch 5/6 (Sashiko).
+> - In nl_netdev.py, verify dmabuf and lease on the physical queue after
+>    binding, skip when queue_create returns EOPNOTSUPP, probe the physical
+>    device on EOPNOTSUPP so a broken lease lookup is not masked as SKIP, and
+>    clean up nk_ifname between loop iterations (Sashiko).
+> - v2: https://lore.kernel.org/netdev/20261108055809.2122934-1-almasrymina@google.com/
+> 
+> v2:
+> - Split patch 3/4 from v1 into 3 smaller commits (patches 3/6..5/6).
+> - Clear rxq->mp_params and return 0 in __netif_mp_close_rxq() whenever
+>    dev is already unregistering, avoiding queue reconfiguration on an
+>    already-shut-down map_dev during cascaded lease teardown (Sashiko).
+> - Drop unnecessary xa_erase() in net_devmem_unbind_dmabuf() and use a
+>    local map_dev variable in net_devmem_get_binding() (Stanislav).
+> - Restore ASSERT_EXCLUSIVE_WRITER(binding->bind_dev) in
+>    mp_dmabuf_devmem_uninstall(), drop redundant bind_dev->reg_state check
+>    in net_devmem_bind_dmabuf(), and expand commit message rationale
+>    (Dragos, Stanislav).
+> - v1: https://lore.kernel.org/netdev/20261103232659.1340283-1-almasrymina@google.com/
+> 
+> Mina Almasry (7):
+>    net: devmem: pass net_device pointer to net_devmem_lock_dev()
+>    net: devmem: rename binding dev and vdev to map_dev and bind_dev
+>    net: guard memory provider RX queue open and close on unregister
+>    net: devmem: fold net_devmem_lookup_dmabuf() into
+>      net_devmem_get_binding()
+>    net: devmem: always populate bind_dev and detach both devices on
+>      unregister
+>    net: devmem: resolve physical map_dev for leased RX bindings
+>    selftests: net: add leased devmem RX and TX netdev unregister tests
+> 
+>   net/core/dev.c                           |   2 +-
+>   net/core/dev.h                           |   7 +
+>   net/core/devmem.c                        | 178 ++++++++++++-----------
+>   net/core/devmem.h                        |  31 ++--
+>   net/core/netdev-genl.c                   |  59 +++++---
+>   net/core/netdev_rx_queue.c               |  31 +++-
+>   tools/testing/selftests/net/nl_netdev.py | 159 +++++++++++++++++++-
+>   7 files changed, 333 insertions(+), 134 deletions(-)
+> 
+> 
+> base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
 
-Russell King noted in [1] that max_mtu for normal descriptors,
-SKB_MAX_HEAD() (3712 on arm64), does not match the hardware. Their
-buffer sizes are 11 bits, and stmmac neither splits TX frames nor joins
-RX descriptors for them, so a frame must fit one 2047-byte buffer.
+The set looks good to me, I also ran a few basic lease queue tests w/ netkit.
+For the set:
 
-Limit max_mtu so that a frame with two VLAN tags and the FCS fits.
-
-Link: https://lore.kernel.org/r/E1vLJcL-0000000ExBL-0GFe@rmk-PC.armlinux.org.uk [1]
-Fixes: 48febf7e6476 ("stmmac: allow mtu bigger than 1500 in case of normal desc (V4)")
-Cc: Russell King <rmk+kernel@armlinux.org.uk>
-Cc: stable@vger.kernel.org
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a685ce4638f6..2a27e1e7f9b9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -8247,6 +8247,9 @@ static int __stmmac_dvr_probe(struct device *device,
- 		ndev->max_mtu = XGMAC_JUMBO_LEN;
- 	else if (priv->plat->enh_desc || priv->synopsys_id >= DWMAC_CORE_4_00)
- 		ndev->max_mtu = JUMBO_LEN;
-+	else if (priv->hw->desc == &ndesc_ops)
-+		ndev->max_mtu = BUF_SIZE_2KiB - 1 - ETH_HLEN - 2 * VLAN_HLEN -
-+				ETH_FCS_LEN;
- 	else
- 		ndev->max_mtu = SKB_MAX_HEAD(NET_SKB_PAD + NET_IP_ALIGN);
- 
-
--- 
-2.55.0
-
+Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
 
