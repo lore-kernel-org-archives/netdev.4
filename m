@@ -1,81 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795391850;
-	b=USsRMk7MZWdbzhrTfB0a4M8+iv4pkDRn14YFKKBFGOyfC1Cje9glNTfLfiqbQkmjtZBZ
-	 pyZmRinGqbRAXcagzrAqMWW0MOJvVD1J+JYoh+0xQVDlhxI1unoqwDqVxNbxGhk6qD9Ex
-	 uTs3vNu93MHwVXmyDfQlE9sYHzLD0H2VCrbG3/CCYyLgse/ewC5bi9Xub3tN3srWBrEOK
-	 VGeGulXzdIs1IxkujZR6XAFsNKb7kmZOHBHMqZKYslllPRuktRsUjztna5o5dAgXA/Qtv
-	 lEGY3VHM3PBYCK7Yaen576ll/jdZ7v72jYhwP+w2/iEqmM6jxahpKzDEcSEXRzOf09A==
+	t=1795391851;
+	b=vXfueD55SfLKOQAj6iQNCZJLx8yjaKwMVSMlhn/fVXVQnJC1GHqRIJbJO/0C2K5/tU1u
+	 sqUDWXn5GTCMVlSikcAlq/qtr5yEfYbIH3DVLShT2KS8Bf2aK5TQCdHka9b1veVmYTUOn
+	 vlxQe7GEW+4SIo5213/JtOuEHGfrewvet2UHCZ7N+bEDctQiAN4RuZxZZ9ZDC57i5SekF
+	 Hob2tqLdMxpZ4Z6PcYs+9jrBKRR/Ahaz1jlWcp8S42a0F+dPXNeOk8zuk/HfAHlynBrpe
+	 inkS7Ht9t1no4z1HvjAFcmZ6ov6KFo81sNmF+++bumDwexfelBnvu6ZwUiN2PhsFxrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795391850;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795391851;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=OWDvcWQJFaW+Q/Z3BycR33gTS+57k2jipoqFVw/ucn8=;
-	b=hDIUhPQ2nzWkF8PZMrVhzVpRJhh8eXlqUQssgwoCW3jzxbltLSDQm0t9cBPW6hf8FBzM
-	 greZtI1vcFIzmf1yhM61A/4c7lVkFJHUhCYSHhxRTfZiHGHSsJBeORNWHkRJFb4Pr2/S9
-	 ipIqF62kTeNf6QNIBgk0cgTrTvPOGv/yYyfviLGHiN6HNP6uc8CbwzW0AVt64uwho8SoL
-	 vp+itV2OrSmTjyeZ1DsPKQCpttbylFyX5EGgUHMFsbqYqNYG6CgBUrap8Dt+JTRsqf0EE
-	 sDhDS52YQWmH0wqA03A0Pk1qGaQAyYaBBf4MeHopTrQO8qL4JVhLPoG1uTJmj6GlCwg==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3ZhQvCCp11cyui2gzdA+4jeQS6r4tc4Xix/KVK/fQc0=;
+	b=Jv56IKt7FpGOYPe9HxTRGtmQq5y5jWC7aK+XrT5SnGqdj+fMfhukH58FE2MK3uC3RAYF
+	 4FhXpVAYpwJ6VRAmGblg6dXof6X5M+fgqs0tasntezFpPS+cWC0qcYrE0LEe4fBdFUGbs
+	 cH927XgFalY4dk6VAAvp96q7e9XpSbrqxlwfRAh+rmsBIB+aDi9dZXedv0/R+QZ4gargY
+	 2kJNd4+CWL69A858SPN+ipinFtJhHoXb2QL8dEhIM9zOV0rLBRbJdi9kLb4amWoRw8XST
+	 IyuPXVdTgPD8wkRaZsOLj6UFjCNZNszDz3uwo+/Nzr2ToU7QqtvWp1RbQKVmZgyR2uQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=blockcast.net;
 	spf=pass smtp.mailfrom=blockcast.net;
-	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=jRy3l6Ar;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b="I3i/PlYm";
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 922EA606A31A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:57:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 922EA606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EBB4606A339
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 23:57:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EBB4606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=jRy3l6Ar
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b3acec6677so3848443c88.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:57:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=I3i/PlYm
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-386ab9ab619so1134799eec.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 15:57:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blockcast.net; s=google; t=1795391849; x=1795996649; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OWDvcWQJFaW+Q/Z3BycR33gTS+57k2jipoqFVw/ucn8=;
-        b=jRy3l6ArLAvmqX2JCmmSSw1jPnFu7XKF3tr1v7xXmwpWJAJdlMeH0O2dM8kJN87DUL
-         Q9GYAIwIgYNMo6Jwe+BcDK8kMHiIUH0pzrIxBy5TMlqbAYDar5vefcmuxoX7o367/7aZ
-         Nf9g4XrP35n4qD/POLElajb8WRZvk9UR+GWyhVxvfk/jzEA0ilTe2+Mng7ZuvoPfbys6
-         eJhDSn9huxW7wPywERRvMkm/5N49QVmZh9naSdsy2crX/FRSJlGol/gXqdL5aSS9nuHY
-         crnvNl6WgSTj/kmKyz+NbaLM5Vci6p0LzUfXCfWuuoGp46Ir7EoVZsbRxCOKj+Y3rXSB
-         5lLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795391849; x=1795996649;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=blockcast.net; s=google; t=1795391850; x=1795996650; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OWDvcWQJFaW+Q/Z3BycR33gTS+57k2jipoqFVw/ucn8=;
-        b=2h4Ryg5puLvtO1Ipa2YD4Ctdh6tlAGgJF4pieWsNqupuewzICmvE8WWysETWBRE1Ns
-         jsJEWLFIZBnZj7YN4N41SbNnxAuC45Eu6pijlOCxXqrtnQLrTXzgFXwapJa7hvigzuUL
-         eAgc7gNng14QMi4TK7cXErDnVYDb6/Kz+tE2lc5dlNUEqQ5c38eAfJJBJ7+Qtti/Gsm6
-         TlmHx4+KoU+tBLyYK10Zt8Ni0GJOtkctJMbrFaKle2FxrTM5Kx5BrAbuQuEEZG0BbWIJ
-         yGRIAEHGJRmjFlUoErHmJnY23UER3SGoYCQPom7lkaKgtcjeaY59EP6sbKNkhl0sxwPN
-         Chcg==
-X-Gm-Message-State: APuU4Z9vdkaqmreUXXy2orrwMDXz4NTpk2a0lwf/thsXA0VQpShatgQm
-	1k1tn5AjgSbj9jPQn2U+9eguG5e8U4hQA7jqQN04cv5X0GtXupooUVMp7Ph4ykLwVMg=
-X-Gm-Gg: AZFdTZeXyMiqaX36CTEkzjMsgGY6I3ua/vbIyU/CVVAA9vxgXn1ImSEp2YqDxiknvFn
-	e+09AgQSm+91tQcqYfrYbg/p+1dAlUZaMg0l2seWau/POansNgxoRWcU/P2C3nlXIhCZtWtAGbN
-	uih+wvSzcL0R2e1X90PMYQdeqXuqZiVSaTLODL3gZg7q9O9AXi6IMoB+4pN00HZOMCA9qo5ybI7
-	7LOZtiDzIy8wiNGCpHJbqi2OA+POOw/EBvpp4mWsHTfLqF4Yv29yPkj5ExjKH+wv63tW3OPVeTX
-	Ibx9qbk8LT0JP0q32pd/zPeFc6a9szI5sGJ+pCGoSQpUXWv6BAIzP9V+cvznKXlS/Uh63MyUvUA
-	E3jiveAyqclEtGtwl8OMtKliFtYpgGARTK6RJSypbCIkOEQfgyKjpvLFPTWEiZyBQiUxstSNsRM
-	rguPqUYkHZd275+Kq0uYDFnklASlduXATUcoAqBp7Lr4RdUwgZ0lU1b4N4yEWZW5iyAgx/JdpXO
-	Al9dQPD3VH7GyJgVOdU+pjiYIEkdmEiiH6mITHompw+Ujy48V+Jtt+U5oVNT22hOXCH8DF3qe7b
-	eMzUzY7PokiptWjIKyDFAUX07zYZH7HA7r9vwwrJXZPF+WzXLvqZPKbYmi3x0cpWRE0AOZI66Qy
-	ZXLDqxGeFcYgpWFBslqB1j4TCAJO9HaobB7RCkEOOMb8q2LWLjb76
-X-Received: by 2002:a05:7300:de08:b0:382:42a:d3ea with SMTP id 5a478bee46e88-38570258929mr10259181eec.29.1795391848463;
-        Sun, 22 Nov 2026 15:57:28 -0800 (PST)
+        bh=3ZhQvCCp11cyui2gzdA+4jeQS6r4tc4Xix/KVK/fQc0=;
+        b=I3i/PlYmvH4nq8usn6zSpiJtrQCHo8mtU3SWKpQE/ln9jU3tcy9VlPnC9lH2RRCNgx
+         Aa1pzAKrhVoVKR3dGWiglYDJanmgiMlcCwk5mhS7dM/KaUNYi1tqi1fYhgTh4iVxK2Ht
+         Wt8/L9EekuNk1cB+sZUvqiXh35kmmMMZPsNLjyaTx+eyLDnyrBsZcZuAF+ByVJKbOCRp
+         tYamfeCjgThb7mrDMLnIb8gmlnoeYeH/AkQ85GlfJgHizZXikl1B/O4DRyFLfOntBjCI
+         fesx0lZFBkEfU05Wzg6mvns0H85RIZc6Sp/KqQjCS5sB+7AvyCZXm1BK4gIA+TZQ8ZGm
+         dCGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795391850; x=1795996650;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3ZhQvCCp11cyui2gzdA+4jeQS6r4tc4Xix/KVK/fQc0=;
+        b=UKacpQhBNEt8BzMZ2x4UsZ6Cg2dT8urJgCxPtSKmP5lcNui+QmyoCASP2J2qEOPVMO
+         8Y7RaN6d48tG/LAturygFuX93iIoLjNqZfk5ywf2MVJuxoYGxWielj5cGi+RqtQrWrj3
+         tAqj2+lkJZ7rTCUCE+Uu/cy+WCqR88Akbk0e6BNBMDkyb+BnPWV5SbktRqe9TQNv2PpH
+         40zTWHmkSbCV0Ydy/yU8JhRThUZP26BVktxHdlgd82AdWRbkB0BU2KJpiVLBgdh7JFZ7
+         Bg2CUPvcpxY9oCQ+hvacDDnr7TI8nZaxcF3EIcxrniWjU+QtyErsimTcR9I3o0fhYlh7
+         0ZCw==
+X-Gm-Message-State: APuU4Z82S/ohzvccgS5SsFAbbo3qHPr/I620lU+xTNPLFdeZRSml3JrI
+	Q3vFZC5f0FXfUl2WJTUhxbrxoxloK0jyZuMmnyNfZRwZ6NCdrTRPvcLVblDvTVZtCU5YP1BEIAH
+	UDFn1
+X-Gm-Gg: AZFdTZcWqFgBDGVV5QexCdW47FuS/ZouJ/xB38BWsNPqQh9UMvAnOUrhj6oPkKuCrhv
+	1jir1Hic/jl688g38Y9HgJJ1LmQRRmtlcUPNDqSgX9MmIeoVJ4skjbilNoJCupJHV5otahHlRke
+	NBJlIiLAnuKRTmDtnnsa3zBmY+mgfz2rDi5DhznZO8YjsXxhHWBeVWYkV5K22Iv6QxnjYlrz8K9
+	JJ/V+9yWUqZekaDiDY+taasL6jui3D3EyBjjusxX/ymlHNbA2BMXNH8bWnPVmNeYxSgqxIaf/LO
+	H5IMqcqSy8SIYpiurm1gKazTGqG1cqK49c1W9qW8hbhaS/qO3vtmmMA38fd6+1LeMiuHKexoJ9I
+	FnqxBkDWRWNhi4ev9zT+fKkVsJN2IG1oudA51WXiwf+pjbldw8n60xZdQmsceamMxMnSBxQlV29
+	dT4Or7suvORbUpBx3j+GkiMuHVr7S7nKfQFup2jdam7dFVEkxRNtI4wQM2eR1VBFtg/BYsrMPG5
+	xCoTzmw/sHJmVYGmE9a0CIJEaQ/9gaE039x3zSeWP8XYfGkPJKd75nznlFvKicfODDZPE3m4uH/
+	wgllP2+ATQoafKIYQydMgxVWyFhUDRnTXtc1B+CYgh7gvvllHxIopmOyLm2g9RdG9N+9O0QiQ+c
+	UusYYl4epSil47hyK2Pqa8+f3MT3jXkNA8SjQodk0slAvl3CJ5Ec=
+X-Received: by 2002:a05:7301:7e07:b0:36f:9d8:4a33 with SMTP id 5a478bee46e88-38570e21c39mr10880754eec.31.1795391850306;
+        Sun, 22 Nov 2026 15:57:30 -0800 (PST)
 Received: from devbox.ts.blockcast.net ([69.25.95.32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm34289386eec.26.2026.11.22.15.57.26
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm34289386eec.26.2026.11.22.15.57.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 15:57:26 -0800 (PST)
+        Sun, 22 Nov 2026 15:57:29 -0800 (PST)
 From: Omar Ramadan <omar@blockcast.net>
 To: Taehee Yoo <ap420073@gmail.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -86,10 +89,12 @@ To: Taehee Yoo <ap420073@gmail.com>,
 Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Simon Horman <horms@kernel.org>
-Subject: [PATCH net-next v3 0/3] amt: configurable per-tunnel limits, with bounded report work
-Date: Sun, 22 Nov 2026 23:57:21 +0000
-Message-ID: <20261122235724.2898320-1-omar@blockcast.net>
+Subject: [PATCH net-next v3 1/3] amt: make the A-B source walk linear
+Date: Sun, 22 Nov 2026 23:57:22 +0000
+Message-ID: <20261122235724.2898320-2-omar@blockcast.net>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261122235724.2898320-1-omar@blockcast.net>
+References: <20261122235724.2898320-1-omar@blockcast.net>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,93 +106,104 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A relay caps one gateway tunnel at 32 group and 128 source records, both
-compile-time constants. v2 made them configurable [1]. Sashiko and Paolo
-pointed out that at the new ceilings a single Membership Update can
-livelock the host: records are applied under tunnel->lock in softirq,
-and only the packet length bounds them [2].
+amt_lookup_act_srcs() computes A-B, the sources of the group's state that
+a received record does not name, by comparing every source in the group
+with every source in the record.  That runs under tunnel->lock in
+softirq, and only the packet length bounds the record, so a single
+Membership Update can already cost |A| * |B| address compares at the
+current 128-source default.
 
-This version keeps the processing in the RX path and bounds it instead:
+Mark the group's sources that the record names with one hash lookup per
+record source, then act on the unmarked ones in a single pass over the
+group, clearing the marks as it goes.  The cost becomes O(|A| + |B|) and
+the result is unchanged: a marked source is skipped whatever its filter
+state, exactly as the pairwise compare skipped it.
 
-1/3 makes the A-B case of amt_lookup_act_srcs() linear. It used to
-    compare every source in the group with every source in the record.
-2/3 charges every group record for the passes it makes over its group
-    and stops applying records once a report exceeds twice the cost of
-    refreshing the tunnel's whole state. A record for a group the
-    tunnel has no room for does no walk and is not charged, so a host
-    joined to more groups than max_groups keeps its refreshes.
-3/3 is v2, with the source hash sized from max_sources and the group
-    ceiling lowered from 1024 to 512, which keeps one tunnel's worst
-    case at about 4.75 MiB.
-
-Measured cost of one Membership Update, in a UML guest (KASAN off, so
-these are slower than native and only comparable with each other), at
-the ceilings, three runs each. These were taken on 734bef548a96 with
-v5 of the net series (an earlier version of [3]), before this series
-was rebased onto net-next, and with an earlier 2/3 that also charged
-records the tunnel refuses, a path neither row reaches. They have not
-been re-run since [measured]:
-
-  report                                   v2 ceilings      this series
-  512 groups x 8 sources, full refresh     5.0 - 11.9 ms    4.9 - 10.3 ms
-  ~7,500 empty records naming one group
-  that holds 4,096 sources (64 KiB)        1.74 - 2.32 s    26 - 45 ms
-
-The second row is the livelock: one datagram held tunnel->lock for about
-two seconds. With 2/3 the report stops after its budget of 3.85M bucket
-and source visits [estimated, from the code], about 120K at the default
-limits. I did not manage to drive the quadratic A-B walk itself into a
-measurement; its old worst case is |A| x |B|, up to 4,096 x 14,998
-compares for one record [estimated].
-
-Deferring report processing to a per-tunnel work item would also take
-the work out of softirq. I have not done that here: with the work
-bounded, the deferral would add a queue and its own limits without
-changing the worst case much. Happy to do it if you prefer.
-
-This depends on the net series "amt: relay tunnel lifetime, validation
-and request-path hardening" [3], which fixes the source-timer vs.
-teardown race Sashiko also flagged: 3/3 touches amt_newlink() next to
-a line that series adds. That series is now in net-next, and this is
-based on 24630ff92eff, the net-next merge of net that brought it in.
-
-Testing: tools/testing/selftests/net/amt.sh, unmodified, on net-next
-24630ff92eff with this series applied, x86_64 under virtme-ng/KVM (4
-vCPUs, 4 GiB) with generic KASAN (inline), PROVE_LOCKING, PROVE_RCU and
-AMT=y: all six tests pass, amt.sh exits 0, and no KASAN, lockdep or
-WARNING report appeared during the run. amt.sh does not reach the new
-limits, so this covers the normal paths only; the over-budget path of
-2/3 is covered only by the measurements above, taken before the rebase.
-Each patch builds with W=1 C=1, with IPv6=y and IPv6=n, with no new
-warnings.
-
-[1] https://lore.kernel.org/netdev/20261015231825.2852054-1-omar@blockcast.net/
-[2] https://lore.kernel.org/netdev/361bbccf-6ce7-4b1f-bd55-4d8270423320@redhat.com/
-[3] https://lore.kernel.org/netdev/20261110210538.217936-1-omar@blockcast.net/
-
-v3:
-- New 1/3 and 2/3.
-- Based on net-next after the net series [3] was merged; 3/3 rebased
-  onto it.
-- 3/3: size hash_buckets from max_sources, at most 8 sources per
-  bucket, 256..512; lower AMT_MAX_GROUP_LIMIT from 1024 to 512.
-v2: https://lore.kernel.org/netdev/20261015231825.2852054-1-omar@blockcast.net/
-v1: https://lore.kernel.org/netdev/20261014221334.2443184-1-omar@blockcast.net/
+Found by review (Sashiko, on the limits patch); not triggered at runtime.
 
 Assisted-by: LLM
+Signed-off-by: Omar Ramadan <omar@blockcast.net>
+---
+ drivers/net/amt.c | 43 ++++++++++++++++++++++---------------------
+ include/net/amt.h |  2 ++
+ 2 files changed, 24 insertions(+), 21 deletions(-)
 
-Omar Ramadan (3):
-  amt: make the A-B source walk linear
-  amt: bound the source-state work of one Membership Update
-  amt: make the per-tunnel group and source limits configurable
-
- drivers/net/amt.c        | 118 +++++++++++++++++++++++++++++++--------
- include/net/amt.h        |  15 +++++
- include/uapi/linux/amt.h |   8 +++
- 3 files changed, 117 insertions(+), 24 deletions(-)
-
-
-base-commit: 24630ff92eff08500ec4772728d4b1fa08c28f47
+diff --git a/drivers/net/amt.c b/drivers/net/amt.c
+index b145ed3ca..79d68bcc7 100644
+--- a/drivers/net/amt.c
++++ b/drivers/net/amt.c
+@@ -1649,7 +1649,7 @@ static void amt_lookup_act_srcs(struct amt_tunnel_list *tunnel,
+ 	union amt_addr src = {0,};
+ 	struct hlist_node *t;
+ 	u16 nsrcs;
+-	int i, j;
++	int i;
+ 
+ 	if (!v6) {
+ 		igmp_grec = grec;
+@@ -1705,28 +1705,29 @@ static void amt_lookup_act_srcs(struct amt_tunnel_list *tunnel,
+ 		}
+ 		break;
+ 	case AMT_OPS_SUB:
+-		/* A-B */
+-		for (i = 0; i < amt->hash_buckets; i++) {
+-			hlist_for_each_entry_safe(snode, t, &gnode->sources[i],
+-						  node) {
+-				if (!amt_status_filter(snode, filter))
+-					continue;
+-				for (j = 0; j < nsrcs; j++) {
+-					if (!v6)
+-						src.ip4 = igmp_grec->grec_src[j];
++		/* A-B: mark every source of A that B names, then act on the
++		 * unmarked ones in a single pass over the group, clearing the
++		 * marks as we go.  This is O(|A| + |B|) rather than |A| * |B|.
++		 */
++		for (i = 0; i < nsrcs; i++) {
++			if (!v6)
++				src.ip4 = igmp_grec->grec_src[i];
+ #if IS_ENABLED(CONFIG_IPV6)
+-					else
+-						memcpy(&src.ip6,
+-						       &mld_grec->grec_src[j],
+-						       sizeof(struct in6_addr));
++			else
++				memcpy(&src.ip6, &mld_grec->grec_src[i],
++				       sizeof(struct in6_addr));
+ #endif
+-					if (amt_addr_equal(&snode->source_addr,
+-							   &src))
+-						goto out_sub;
+-				}
+-				amt_act_src(tunnel, gnode, snode, act);
+-				continue;
+-out_sub:;
++			snode = amt_lookup_src(tunnel, gnode, AMT_FILTER_ALL,
++					       &src);
++			if (snode)
++				snode->sub_mark = true;
++		}
++		for (i = 0; i < amt->hash_buckets; i++) {
++			hlist_for_each_entry(snode, &gnode->sources[i], node) {
++				if (snode->sub_mark)
++					snode->sub_mark = false;
++				else if (amt_status_filter(snode, filter))
++					amt_act_src(tunnel, gnode, snode, act);
+ 			}
+ 		}
+ 		break;
+diff --git a/include/net/amt.h b/include/net/amt.h
+index 9ba097127..f36efcdd9 100644
+--- a/include/net/amt.h
++++ b/include/net/amt.h
+@@ -287,6 +287,8 @@ struct amt_source_node {
+ 	struct delayed_work     source_timer;
+ 	union amt_addr		source_addr;
+ 	enum amt_source_status	status;
++	/* Scratch mark for the A-B source walk, under tunnel_list->lock. */
++	bool			sub_mark;
+ #define AMT_SOURCE_OLD	0
+ #define AMT_SOURCE_NEW	1
+ 	u8			flags;
 -- 
 2.43.0
 
