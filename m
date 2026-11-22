@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795386443;
-	b=Q5DbybhRUhMSCvN2s8QQGZsMWkrRdiH4ysMBJZGfKaF9kqYoQIeyhA7jJtv/A+9tD4E5
-	 JNUPjA4hL2tlM9q2PMfa3APo3Ro8oENF+eRGkxgdLHwNQ+uUjPwkeTgy6XyU1q+tR2X6z
-	 09QfAWGdkDI2bWZQNWxSeqIUI/f8ts69oc3CO+CIah9uj9/Le/Jh0LsgwlCJpfWUv4ndf
-	 ze/6RLthjAWHmZL5w62euDxqrPLcNVTuQ7FvoiiJSOVWneSaQnToRXAhddcMXPRFSgDJh
-	 WU4d/FF29G64dXV6fSM+4TcmcBGS4po2REbVlclKNCrXnUekYGCii7N1j7PVhyFVkMQ==
+	t=1795386444;
+	b=PzxpZt2BSww4/eNv0GK1qPncVT8iuB7A+DNQxFyfqZTZ08nDxcLIYa2Gl5V/Yefxtx3N
+	 vft9Rvj+98r5+LZcBz5V2dWxYHwulW8fU/jFhafUrpeN9JDLZ2qvDDjUmm1eku9nN2NYo
+	 FYkwzBfWfznqnzuF8fNpbnTiBWuRviuMyqi+BglMTGUWIjIwwf1uXEFamvxRFcUfpCCq6
+	 m8pY9jVCuwIg9YOBjXcyJxRna9j0b/UpTYmxIdwtAOVSXZrZQJJJ3tsbnqXl9wfMkn7ic
+	 UcwyqJqz3lfvzTf/a/vCZ4NPil0n/2CDHIAlZQ8f8dY82/wB8nleqQAuWLTCNCvNEEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795386443;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795386444;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=qbRXlVCB7D5FhRXLboUHrGkLQd1PO+KQDpMzjFFF044=;
-	b=NXE9OVAC30bEFPbPCsMMz03Vw2FwyAaMZbIDTcO0ut7YLcCEomIgPDy5XXzb+HrwKwtr
-	 P8lYfpDOvfoD/rQpAwT/15CZ2Umfg3KIfNrfr0E3RM4gfjIDnTKMicsIUiQSFgIUax0fY
-	 icZ0kfDcNgR96jZ3HB0/FV2Wm+z75TDcPgOM/ubnLTzZAr4tq74rWcSP+G6twCJvVmOhc
-	 djhZqo3/qZOhZoKsW7S6nLDe8NdOdGupbisEjmlRSkFNlsjUJpBE7nuSnQJzT+QLjtzgP
-	 3QVhhFMph63+dKtNzjKMfAd7tXoNpuFwQf/Q3DSlt0Fg9PP51dhThLjkxx39cSqqG/A==
+	bh=AADb8u9tbxY2dKrtbGcP6birSdHbgYRRvl48KAzLpHk=;
+	b=UJ3JOBJTiN8H/sV8OHE5I+CZXrZ3EW0YSQKp7x3ybbY4NBoEpMyst0w7KRbIk+iHfhnN
+	 smjIbbHTu0hbHNbhRcgcTvsiT1+6mKWHecBcg+oE3n9poe8ms8YPcbtRHXqkvZ76X9Ct8
+	 9s1zBQTJg3sANtR6epmTG6e4XFzBwURNpnoi/RaCFIIN4V4sDGbrxm3KDzQrbcluotI1b
+	 yL3Z5hiwmQzB0V5TCqSZ5kt5F8kLQu/C0iprh9yMCxti9egY5S77lvnwTJ21sCNYYJzKa
+	 iSanPScgMwy4SdyYCVNvemkHdIC2/GaLsTTMe09IOoTeEMoXEQcaop9hsFTvejUjZhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iqiYGH3R;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=huCY2gOc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F2F1606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:27:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00DB8606A336
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:27:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iqiYGH3R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6003B1F000C0;
-	Sun, 22 Nov 2026 22:27:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=huCY2gOc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5576C1F000D4;
+	Sun, 22 Nov 2026 22:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795386442;
-	bh=qbRXlVCB7D5FhRXLboUHrGkLQd1PO+KQDpMzjFFF044=;
+	s=k20260515; t=1795386443;
+	bh=AADb8u9tbxY2dKrtbGcP6birSdHbgYRRvl48KAzLpHk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iqiYGH3RVB7PaeSCwaWvKP8XkNhX9KJXRAooY1n6rRLLLshdosbgfZcP4E9GmW5Mm
-	 R40y3MmScXTHT7Y0K1tULvpRPACmfLl3E1g5pwE1qS74NIQWh5Wipj7ZB63zNWpP7S
-	 27Y+ThrCNNxi96U+B76G1Aym2qM1AIEijBJBPPEu+EzQeF9annpfJmRSDZxbm03VPo
-	 fOeOo7pjtapy+EWXCQQEUOba2IE2/wEUzAZ4BtY21CVCPDyppG0jziIB7C8tAyAzzH
-	 5s7wlxTNhTQD4iGe3pWGc1av7iJJgzr6B8y4k7zTjvjhHHqVoLMG4au7k3/gGeVnA1
-	 cbtohM0ouHgUQ==
+	b=huCY2gOcP5jMDIdN2SOSKTy3zVASPCqrEw9lUizOGUF3LE3TXgm66ZgYm1t/WAQEi
+	 KTnQ62K2iD2boxd5QD8pIZqeLLGLbNpZ8cS3pcNpokmHCZCG7u/e0cuwmzy76K2XHX
+	 oAHeyvQEnrchws0gAEmSGpvTbH+qIvA8CqFCdxn2zg1QNbqJK2NIDwioDsXnpCbDBR
+	 J0XNPAaoyTJgeH6pnp4CUrWtjkjW/kyqPjFj51cEASlWRheHwqW9Jk/S/O+Mu+7x7d
+	 FZCiCq+liiL7z6N7wGtdG4ThNzgLBrsfIK/yDNlgymf/MBKeIFTTw5U4S1ZxRyTa7f
+	 jEzW4ivPk7WzA==
 From: David Ahern <dsahern@kernel.org>
 To: netdev@vger.kernel.org
 Cc: ralf@mandelbit.com,
@@ -49,10 +49,11 @@ Cc: ralf@mandelbit.com,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Subject: [RFC net-next 0/6] ipv6: validate dsts against the netns route generation
-Date: Sun, 22 Nov 2026 15:26:58 -0700
-Message-ID: <20261122222717.126333-2-dsahern@kernel.org>
+	Simon Horman <horms@kernel.org>,
+	"Claude Sonnet 5 . 5" <noreply@anthropic.com>
+Subject: [RFC net-next 1/6] ipv6: validate dsts against the netns route generation
+Date: Sun, 22 Nov 2026 15:26:59 -0700
+Message-ID: <20261122222717.126333-3-dsahern@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261122222717.126333-1-dsahern@kernel.org>
 References: <20261122222717.126333-1-dsahern@kernel.org>
@@ -69,64 +70,258 @@ Content-Transfer-Encoding: 8bit
 
 From: David Ahern <dahern@nvidia.com>
 
-An IPv6 dst has never carried the fib6 serial number it was created
-under. rt6_get_cookie() reads fn->fn_sernum through rt->from when a
-socket, dst_cache or xfrm bundle stores its cookie, so a FIB change
-that lands between the route lookup and the cookie capture is folded
-into the cookie and a stale dst looks valid. The only dsts stamped at
-creation are pcpu dsts of nexthop-object routes, which store the netns
-genid in rt->sernum.
+An rt6_info never carried the fib6 serial number it was created
+under. rt6_get_cookie() read fn->fn_sernum through rt->from at the time a
+socket, dst_cache or xfrm bundle stored its cookie, so a change that
+landed between route lookup and cookie capture was folded into the
+cookie and a stale dst looked valid. Only nexthop-object pcpu routes
+were stamped at creation, with the same counter.
 
-Looking at this I found that rt_genid_ipv6() and the fib6 serial
-number are already the same counter: net->ipv6.fib6_sernum, which
-fib6_new_sernum() advances on every FIB change. fn_sernum is a per-node
-copy of it. So this series moves dst validation onto that counter, the
-way IPv4 uses rt_genid, instead of adding another one:
+net->ipv6.fib6_sernum is already the counter that rt_genid_ipv6()
+reads and that every FIB change bumps. Stamp every dst with it in
+ip6_dst_alloc() and validate with a plain comparison in
+ip6_dst_check(); the remaining checks are that the fib6_info is still
+in the tree and not expired. rt6_get_cookie() now returns rt->sernum
+and fib6_get_cookie_safe() goes away. fn_sernum stays for route dump
+consistency.
 
- 1. Stamp every dst with the counter in ip6_dst_alloc() and validate by
-    comparison in ip6_dst_check(). Long-lived dsts (pcpu dsts of routes
-    with an embedded fib6_nh, and exception dsts) are re-stamped when a
-    lookup finds them again, otherwise they would stay invalid.
+Because validity now lives in the dst, long-lived dsts must be
+re-stamped when a lookup finds them again, or they would stay invalid
+forever:
 
- 2. ip6_link_failure() forced a new lookup by writing -1 to fn_sernum.
-    That no longer invalidates anything, so clear the failing dst's
-    sernum instead.
+ - pcpu dsts of routes with an embedded fib6_nh are re-stamped in
+   rt6_get_pcpu_route(); nexthop-object pcpu dsts are still dropped
+   and rebuilt.
+ - exception dsts are re-stamped by rt6_find_cached_rt().
 
- 3-4. Nexthop objects: factor out nh_has_f6i(), then bump the counter
-    when a nexthop used through a group is replaced, and when a member
-    is removed from a group.
+The smp_wmb() in __fib6_update_sernum_upto_root() paired with the
+smp_rmb() in fib6_get_cookie_safe(), so that a lockless reader that saw
+a new fn_sernum also saw the route inserted before it. That reader is
+gone. The remaining fn_sernum readers, the route dumps, take tb6_lock
+after reading it and the writers hold it, so drop the barrier.
 
- 5. A new PMTU or redirect exception used to bump the counter, which
-    with (1) would invalidate every dst in the namespace. Do what IPv4
-    does in update_or_create_fnhe() and invalidate only the pcpu dsts
-    of the affected fib6_nh. Route dumps still need to see that an
-    exception was added to the root node, so add a per-table sequence
-    for that rather than inventing fn_sernum values the counter could
-    later issue again.
+ip6_link_failure() still writes fn_sernum, which no longer
+invalidates anything; that is addressed in the next patch.
 
- 6. Since nothing validates against fn_sernum any more,
-    rt_genid_bump_ipv6() no longer needs to walk every node of every
-    table. Make it an atomic increment like rt_genid_bump_ipv4(), and
-    drop the __fib6_flush_trees pointer. fn_sernum remains only for
-    route dump consistency, so nexthop, address and rule changes no
-    longer restart in-progress dumps.
+Signed-off-by: David Ahern <dahern@nvidia.com>
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+---
+ include/net/ip6_fib.h | 42 +++------------------------
+ net/ipv6/ip6_fib.c    |  2 --
+ net/ipv6/route.c      | 66 +++++++++++++++++++++++++------------------
+ 3 files changed, 43 insertions(+), 67 deletions(-)
 
-David Ahern (6):
-  ipv6: validate dsts against the netns route generation
-  ipv6: invalidate the failing dst in ip6_link_failure()
-  nexthop: factor out nh_has_f6i()
-  nexthop: bump the IPv6 route generation on group changes
-  ipv6: scope exception invalidation to the affected nexthop
-  ipv6: make rt_genid_bump_ipv6() a plain counter increment
-
- include/net/ip6_fib.h       |  45 +++-------------
- include/net/net_namespace.h |  26 ++++++---
- net/ipv4/nexthop.c          |  42 ++++++++++++---
- net/ipv6/addrconf_core.c    |   7 ---
- net/ipv6/ip6_fib.c          |  76 +++++++++++---------------
- net/ipv6/route.c            | 104 ++++++++++++++++++++++++------------
- 6 files changed, 162 insertions(+), 138 deletions(-)
-
+diff --git a/include/net/ip6_fib.h b/include/net/ip6_fib.h
+index 232289b439c3..ecce7ab007a5 100644
+--- a/include/net/ip6_fib.h
++++ b/include/net/ip6_fib.h
+@@ -273,46 +273,12 @@ static inline bool fib6_check_expired(const struct fib6_info *f6i)
+ 	return false;
+ }
+ 
+-/* Function to safely get fn->fn_sernum for passed in rt
+- * and store result in passed in cookie.
+- * Return true if we can get cookie safely
+- * Return false if not
+- */
+-static inline bool fib6_get_cookie_safe(const struct fib6_info *f6i,
+-					u32 *cookie)
+-{
+-	struct fib6_node *fn;
+-	bool status = false;
+-
+-	fn = rcu_dereference(f6i->fib6_node);
+-
+-	if (fn) {
+-		*cookie = READ_ONCE(fn->fn_sernum);
+-		/* pairs with smp_wmb() in __fib6_update_sernum_upto_root() */
+-		smp_rmb();
+-		status = true;
+-	}
+-
+-	return status;
+-}
+-
+ static inline u32 rt6_get_cookie(const struct rt6_info *rt)
+ {
+-	struct fib6_info *from;
+-	u32 cookie = 0;
+-
+-	if (rt->sernum)
+-		return rt->sernum;
+-
+-	rcu_read_lock();
+-
+-	from = rcu_dereference(rt->from);
+-	if (from)
+-		fib6_get_cookie_safe(from, &cookie);
+-
+-	rcu_read_unlock();
+-
+-	return cookie;
++	/* sernum is the netns route generation the dst was created or last
++	 * revalidated under; ip6_dst_check() compares it to the current one.
++	 */
++	return READ_ONCE(rt->sernum);
+ }
+ 
+ static inline void ip6_rt_put(struct rt6_info *rt)
+diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
+index e1d49897d6ab..d465ac6ffbc6 100644
+--- a/net/ipv6/ip6_fib.c
++++ b/net/ipv6/ip6_fib.c
+@@ -1432,8 +1432,6 @@ static void __fib6_update_sernum_upto_root(struct fib6_info *rt,
+ 	struct fib6_node *fn = rcu_dereference_protected(rt->fib6_node,
+ 				lockdep_is_held(&rt->fib6_table->tb6_lock));
+ 
+-	/* paired with smp_rmb() in fib6_get_cookie_safe() */
+-	smp_wmb();
+ 	while (fn) {
+ 		WRITE_ONCE(fn->fn_sernum, sernum);
+ 		fn = rcu_dereference_protected(fn->parent,
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 4a4c5ace63c5..1f7b2cdc1d9f 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -367,6 +367,7 @@ struct rt6_info *ip6_dst_alloc(struct net *net, struct net_device *dev,
+ 
+ 	if (rt) {
+ 		rt6_info_init(rt);
++		rt->sernum = rt_genid_ipv6(net);
+ 		atomic_inc(&net->ipv6.rt6_stats->fib_rt_alloc);
+ 	}
+ 
+@@ -1458,15 +1459,24 @@ static struct rt6_info *ip6_rt_pcpu_alloc(const struct fib6_result *res)
+ 	ip6_rt_copy_init(pcpu_rt, res);
+ 	pcpu_rt->rt6i_flags |= RTF_PCPU;
+ 
+-	if (f6i->nh)
+-		pcpu_rt->sernum = rt_genid_ipv6(dev_net(dev));
+-
+ 	return pcpu_rt;
+ }
+ 
+ static bool rt6_is_valid(const struct rt6_info *rt6)
+ {
+-	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
++	return READ_ONCE(rt6->sernum) == rt_genid_ipv6(dev_net(rt6->dst.dev));
++}
++
++/* @rt was just found by a lookup against the current FIB, so it is as
++ * valid as a freshly allocated dst. Call with rcu_read_lock() held.
++ */
++static void rt6_refresh_sernum(struct rt6_info *rt,
++			       const struct fib6_result *res)
++{
++	int genid = rt_genid_ipv6(dev_net(ip6_rt_get_dev_rcu(res)));
++
++	if (READ_ONCE(rt->sernum) != genid)
++		WRITE_ONCE(rt->sernum, genid);
+ }
+ 
+ /* It should be called with rcu_read_lock() acquired */
+@@ -1476,7 +1486,14 @@ static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
+ 
+ 	pcpu_rt = this_cpu_read(*res->nh->rt6i_pcpu);
+ 
+-	if (pcpu_rt && pcpu_rt->sernum && !rt6_is_valid(pcpu_rt)) {
++	/* Routes with an embedded fib6_nh keep their pcpu dsts across FIB
++	 * changes; nexthop objects can change under them, so those are
++	 * dropped and rebuilt.
++	 */
++	if (pcpu_rt && !rt6_is_valid(pcpu_rt) && !res->f6i->nh)
++		rt6_refresh_sernum(pcpu_rt, res);
++
++	if (pcpu_rt && !rt6_is_valid(pcpu_rt)) {
+ 		struct rt6_info *prev, **p;
+ 
+ 		p = this_cpu_ptr(res->nh->rt6i_pcpu);
+@@ -1878,8 +1895,10 @@ static struct rt6_info *rt6_find_cached_rt(const struct fib6_result *res,
+ 	bucket = fib6_nh_get_excptn_bucket(res->nh, NULL);
+ 	rt6_ex = __rt6_find_exception_rcu(&bucket, daddr, src_key);
+ 
+-	if (rt6_ex && !rt6_check_expired(rt6_ex->rt6i))
++	if (rt6_ex && !rt6_check_expired(rt6_ex->rt6i)) {
+ 		ret = rt6_ex->rt6i;
++		rt6_refresh_sernum(ret, res);
++	}
+ 
+ #ifdef CONFIG_IPV6_SUBTREES
+ 	/* Use fib6_src as src_key and redo lookup */
+@@ -2767,27 +2786,18 @@ struct dst_entry *ip6_blackhole_route(struct net *net, struct dst_entry *dst_ori
+  *	Destination cache support functions
+  */
+ 
+-static bool fib6_check(struct fib6_info *f6i, u32 cookie)
++static bool fib6_check(struct fib6_info *f6i)
+ {
+-	u32 rt_cookie = 0;
+-
+-	if (!fib6_get_cookie_safe(f6i, &rt_cookie) || rt_cookie != cookie)
+-		return false;
+-
+-	if (fib6_check_expired(f6i))
++	if (!rcu_access_pointer(f6i->fib6_node))
+ 		return false;
+ 
+-	return true;
++	return !fib6_check_expired(f6i);
+ }
+ 
+ static struct dst_entry *rt6_check(struct rt6_info *rt,
+-				   struct fib6_info *from,
+-				   u32 cookie)
++				   struct fib6_info *from)
+ {
+-	u32 rt_cookie = 0;
+-
+-	if (!from || !fib6_get_cookie_safe(from, &rt_cookie) ||
+-	    rt_cookie != cookie)
++	if (!from || !rcu_access_pointer(from->fib6_node))
+ 		return NULL;
+ 
+ 	if (rt6_check_expired(rt))
+@@ -2797,12 +2807,11 @@ static struct dst_entry *rt6_check(struct rt6_info *rt,
+ }
+ 
+ static struct dst_entry *rt6_dst_from_check(struct rt6_info *rt,
+-					    struct fib6_info *from,
+-					    u32 cookie)
++					    struct fib6_info *from)
+ {
+ 	if (!__rt6_check_expired(rt) &&
+ 	    READ_ONCE(rt->dst.obsolete) == DST_OBSOLETE_FORCE_CHK &&
+-	    fib6_check(from, cookie))
++	    fib6_check(from))
+ 		return &rt->dst;
+ 	return NULL;
+ }
+@@ -2816,8 +2825,11 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+ 
+ 	rt = dst_rt6_info(dst);
+ 
+-	if (rt->sernum)
+-		return rt6_is_valid(rt) ? dst : NULL;
++	/* Any FIB change bumps the netns generation, which invalidates
++	 * every dst created under an older one.
++	 */
++	if (!rt6_is_valid(rt))
++		return NULL;
+ 
+ 	rcu_read_lock();
+ 
+@@ -2830,9 +2842,9 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+ 
+ 	if (from && (rt->rt6i_flags & RTF_PCPU ||
+ 	    unlikely(rt->dst.rt_uncached_list)))
+-		dst_ret = rt6_dst_from_check(rt, from, cookie);
++		dst_ret = rt6_dst_from_check(rt, from);
+ 	else
+-		dst_ret = rt6_check(rt, from, cookie);
++		dst_ret = rt6_check(rt, from);
+ 
+ 	rcu_read_unlock();
+ 
 -- 
 2.43.0
 
