@@ -1,57 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795336427;
-	b=AaE+e+s5pnHc07fpa1egP7whBds8gWBJ2r3sxzt3JPagJCDzCj2q3sj0qZIElusyCu9X
-	 +VIkQHGMiuals5gW2Lm32EvB+GyjpWEC2vfUyNWtDCsH70LJ6cS+ZxK5KUBtqDdL6faQd
-	 91OaX1/O0HkSOTYyKZssyZEsg3GshTTztyS1SRaqVLtypdIBib64QmdCL2NXFW42KDnWi
-	 WUXwHg4fkEn2a0HTK5f4gFzbOO0KodPOQG12T1vzSx4uASf7BL5/+kLMnYoMvx6oBQskO
-	 PQ3ovuvVNnYXUPYDhLFHBPDd1KCpL11HfDmjTF9vekYbqnhLvWlLAvfhtStLiopm3uw==
+	t=1795336794;
+	b=TKX/5uAgauGRAYS285JOnlp0DO5oQuXY01a2SqIFjXB1NFMsybV8nVL6Q5m0RAttGOkI
+	 LJUSYcqnuZDJ3Hnuz4tEAPA4gWJcQaRP8We2Dz9OXarA+sDhyWNfM9xIcBmdpBbpfzhDd
+	 r/vpZRFNt+TBtdzpHD2kDL4hnDKw6YVnGF+hgUUHy6oYcLHj2OG2uLq6VN6e8DHY3MXTE
+	 ewWGqPZIckc7g2T2bHM1PXOc8zW89X9nlvUOk/4/x2Xr2AaCtzonpcakInLHWkukSXOzi
+	 naV6n2yLMEQeWtUJnWGGJQ9lU6qDn1Pj4KHkmR8vBGXnBb6hFDFHh2os+2/lVldidGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795336427;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795336794;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=4B5xglvQmDMhBxbJuTEK9yBt10idEDUaQreE0rT6bZ8=;
-	b=sd6j1ZHrnrofo45/AXNCdKPXi5TyOKufWBqErgHXHLxTmVt+Sku7Ak9ZnEdWKH5OT3wY
-	 8tvjheq+YM2eXbtBqr/7JsXzab4RdkG04flaFGqCsxmGz6wbqckjrSENPtPdVi5N1HYjr
-	 4DmtUHQKDlmIE3CjxHYOe3t/kpyb95loWDXk8M6jBQ/G7G+eZ0MJyKmnkLn/aD8tKQBk+
-	 /16z42WorpG2E0IRvR1B0J7yczxPVOVSo8DUYJP/p9CcFzxbwb2+T54AQOHwZFb2AbEW2
-	 XEIQ+6Ej1DwKYlvhPe1gm5B2SyOBKNsNDMeBlNd0lp4Ovbe8rCQkRGUXTf+p5Ohvr3Q==
+	bh=82tcMrGFYnv3COc/Y81tp4EqEYsTMRAGEcxNCdMHdRc=;
+	b=SkAAruU1vIoOPyLYrukNZ0eLpl0UJQ20IQAiIt8xwVYhwpXIHeYOjwvsABDl0uAArkAp
+	 fCvCvAMQJfsYrf6YQsGUNoSjv100ZdE9L79GCpdWmfN1mtn+SGDclwAD7gn/rQ6Y7jtAy
+	 G3rFUsHZxESTkq+5RkHSXR6do0huN0xLGNPT7jAAHDfrymWN8++0nJtDZ5ClCVK00cfbs
+	 58DpzEXY1knMwPAMUYw/aoDtit34MfWiDkf0/1yYTUJrmk/2wIiybIG/uTygnH6aufuMQ
+	 6Vx3vHEuAbJWdC/5CyyFW8V8TiQDctrq+a642X2dIGlKL4h8UYOEc2T6Jo5j7L/b0jA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BXNQXGse;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qd8eb41b;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3687C606A320
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 08:33:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00EA7606A335;
+	Sun, 22 Nov 2026 08:39:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BXNQXGse
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C1341F000C0;
-	Sun, 22 Nov 2026 08:33:46 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qd8eb41b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40AB51F000C4;
+	Sun, 22 Nov 2026 08:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795336427;
-	bh=4B5xglvQmDMhBxbJuTEK9yBt10idEDUaQreE0rT6bZ8=;
+	s=k20260515; t=1795336793;
+	bh=82tcMrGFYnv3COc/Y81tp4EqEYsTMRAGEcxNCdMHdRc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BXNQXGse0YqWdAeFQXiyYZ0W25gWqlyvrm4/12bemPjSAQ8SyBRjK1n1ti8007x3D
-	 b3WyV0M28eCucifIkbgO/H3R9cTzhx/biDeiqt56aXZLfEnpd7BoYVT/E0Nkp3ZJgL
-	 53MH1QUxphfcDOh+my4e1mjs9XV92C4JDOMzTYFBQW2YbdcLmQLqHYKORGvebi9/2X
-	 UOocyZaGhvV/1WPBbY6KNOJFZTebm0mlKYvPSA6MDMOOgWrEYzt8jgOwn4k+dRdXJL
-	 9N6LG28Rxh92YevQTtsfvizz8c6KPgQ/OHdJ0eDI8d2Yrvvb1tfU6VXPvqgdzkyuxc
-	 Kx5KJCnuEsk7w==
-Subject: Re: [PATCH net v8 1/2] net: wangxun: protect ring accesses with RCU
+	b=Qd8eb41bJedj+mQUUvTaHt6REHI79qptfzrHrEd1wff4Qydzlbv2mRiTbHCjpNoF0
+	 vGrBaUBc9LN3ietU9JGaIeCfTr7chKK5F8DIWztMidhwFUWGE4S55ndJPK0eG/umHd
+	 JRydsd62Psp6lmOSDiO8tc+DZwQ/KpA5ttU8lKROnhObZYQ9N3Vtg1MFBqn43MRSgV
+	 Lodhbot6dCi1LYHoKZBQC1gUXPYeqjiij5k/2lr8IgufbIk6UzMFvSmxX8dF4Mz1l4
+	 9B5+Ycd/zS77dSSYLAgMLYFWLSGs8ClTy41mV954GSAZ/lyPzypnAmsGVx2AovFbSp
+	 qJjsSQIPfuUrw==
+Subject: Re: [PATCH v2] net/nfc: fix skb ownership on data exchange errors
 From: netdev-bot+sashiko@kernel.org
-To: mengyuanlou@net-swift.com
-Cc: netdev@vger.kernel.org, jiawenwu@trustnetic.com,
- duanqiangwen@net-swift.com, linglingzhang@net-swift.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, hramamurthy@google.com,
- jacob.e.keller@intel.com, przemyslaw.kitszel@intel.com
-Date: Sun, 22 Nov 2026 08:33:45 +0000
-Message-ID: <179533642599.3135.8576432289828139956@kernel.org>
-In-Reply-To: <20261118081329.39551-2-mengyuanlou@net-swift.com>
-References: <20261118081329.39551-2-mengyuanlou@net-swift.com>
+To: luob87709@gmail.com
+Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz,
+ netdev@vger.kernel.org, kuba@kernel.org
+Date: Sun, 22 Nov 2026 08:39:52 +0000
+Message-ID: <179533679278.3135.7201159366500267043@kernel.org>
+In-Reply-To: <20261118081530.32-1-luob87709@gmail.com>
+References: <20261118081530.32-1-luob87709@gmail.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +62,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,116 +73,122 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The commit message describes VF suspend/resume changes that are
-  not in the patch, and relies on them to argue that the new __rcu /…
+- [High] The fix is incomplete.
+- [Low] The commit fixes a user-reachable skb leak in
+  rawsock_data_exchange_complete() (net/nfc/rawsock.c) and changes…
 
 --
 
-net: wangxun: protect ring accesses with RCU
+net/nfc: fix skb ownership on data exchange errors
 
-This commit marks wx->tx_ring[] and wx->rx_ring[] as __rcu. Readers are
-converted to rcu_dereference() or rtnl_dereference(). The reg_idx
-computation moves into per-ring allocation via wx_get_reg_idx(), and
-wx_xmit_frame() gains checks for a NULL ring or zero queue count during
-teardown.
+The commit documents that a data_exchange_cb_t callback takes ownership
+of a non-NULL skb regardless of err. It frees the skb on the rawsock,
+LLCP and NCI loopback error paths. It also stops digital DEP from
+freeing the response after the callback has been invoked.
 
-> The ring arrays are managed by wx_alloc_q_vector() and
-> wx_free_q_vector(), reached through wx_init_interrupt_scheme() and
-> wx_clear_interrupt_scheme(). The probe paths call
-> wx_init_interrupt_scheme() before the netdev is registered; the
-> allocation path only publishes rings with rcu_assign_pointer(), so no
-> RTNL is needed there. wxvf_resume() defers rebuilding the interrupt
-> scheme to wxvf_reopen_subtask(), which runs under RTNL. wxvf_suspend()
-> holds RTNL across wxvf_close() and wx_clear_interrupt_scheme(),
-> protecting control-path readers and serializing teardown against the
-> reset subtask. The service timer and work are drained before the PCI
-> device is disabled.
+> diff --git a/include/net/nfc/nfc.h b/include/net/nfc/nfc.h
+> index bcafab5c53e51..d3c2d67357f1b 100644
+> --- a/include/net/nfc/nfc.h
+> +++ b/include/net/nfc/nfc.h
+> @@ -37,6 +37,8 @@ struct nfc_dev;
+>   *
+>   * When a rx or tx package is lost or corrupted or the target gets out
+>   * of the operating field, err is -EIO.
+> + * If skb is non-NULL, ownership is transferred to the callback regardless
+> + * of err. Providers must not access or free skb after invoking the callback.
+>   */
+>  typedef void (*data_exchange_cb_t)(void *context, struct sk_buff *skb,
+>  								int err);
 
 [Severity: High]
+This rule now covers every data_exchange_cb_t implementer. Several
+in-tree callbacks still return on error without freeing the skb. Is the
+fix complete without them?
 
-Is a VF hunk missing from this patch, or does this paragraph describe a
-different revision?
+In net/nfc/nci/hci.c, nci_hci_data_received_cb() is installed as
+conn_info->data_exchange_cb and does:
 
-The only change to wx_vf_common.c here is the rtnl_dereference()
-conversion in wx_configure_rx_vf(). wxvf_reopen_subtask() does not exist
-anywhere under drivers/net/ethernet/wangxun/. After this patch,
-wxvf_suspend() (which wxvf_shutdown() also calls) and wxvf_resume() still
-read:
+	if (err) {
+		nci_req_complete(ndev, err);
+		return;
+	}
 
-drivers/net/ethernet/wangxun/libwx/wx_vf_common.c:wxvf_suspend() {
-    netif_device_detach(wx->netdev);
-    wx_clear_interrupt_scheme(wx);
-    pci_disable_device(pdev);
-}
+nci_rx_data_packet() strips a status byte for every conn_id, based on
+the device-wide ndev->target_active_prot. That status ends up in:
 
-drivers/net/ethernet/wangxun/libwx/wx_vf_common.c:wxvf_resume() {
-    pci_set_master(pdev);
-    wx_init_interrupt_scheme(wx);
-    netif_device_attach(wx->netdev);
-}
+nci_rx_data_packet()
+  nci_add_rx_data_frag(..., nci_to_errno(status))
+    nci_data_exchange_complete(ndev, skb, conn_id, err)
+      cb(cb_context, skb, err);
 
-So wxvf_suspend() takes no RTNL and does not call wxvf_close() on a
-running interface. It also does not set WX_STATE_DOWN and does not cancel
-service_timer or service_task.
+Suppose an NFCC sends an error-status data packet on the HCI conn_id
+while a frame-I/F target is active and an RF transceive is pending.
+Wouldn't that skb leak? This is the same provider path that was tested
+for rawsock.
 
-The new comment in struct wx says:
+On the HCI side, nfc_hci_resp_received() calls:
 
-    Control-path readers use rtnl_dereference() while holding RTNL.
+	__nfc_hci_cmd_completion(hdev, nfc_hci_result_to_errno(result), skb);
 
-That only works if the writers in wx_free_q_vector() also hold RTNL. On
-this path, wx_free_q_vectors() zeroes the queue counts, NULLs each slot,
-and calls kfree_rcu() on the q_vector that embeds the rings, all without
-RTNL.
+As a result, every non-OK HCI response reaches the callback registered
+by nfc_hci_send_cmd_async() with both a non-NULL skb and a nonzero err.
+In drivers/nfc/st21nfca/dep.c, st21nfca_im_recv_atr_res_cb() and
+st21nfca_im_recv_dep_res_cb() are registered directly as that callback.
+Both start with:
 
-Can the service task race with this? Suspend leaves the timer armed and
-WX_STATE_DOWN clear, so the check in wxvf_reset_subtask() still passes:
+	if (err != 0)
+		return;
 
-wxvf_service_task()
-  wxvf_reset_subtask()
-    rtnl_lock()
-    wxvf_reinit_locked()
-      wxvf_down()
-        wx_clean_all_tx_rings()
-        wx_clean_all_rx_rings()
-      wx_configure_vf()
-        wx_configure_tx_vf()
-        wx_configure_rx_vf()
+Would every HCI error response during NFC-DEP leak the response skb
+here? For example, a timeout when the peer leaves the field.
 
-wx_set_ringparam_vf() is another example:
+Separately, the ST21NFCA_CB_TYPE_READER_F success branch of
+st21nfca_im_recv_atr_res_cb() never frees skb at all.
 
-    rtnl_dereference(wx->tx_ring[i])->count = new_tx_count;
+Four default branches only free on success:
 
-None of these readers check for NULL or run inside an RCU read-side
-section, and some of them sleep, e.g. read_poll_timeout(). Could they
-dereference a NULL ring, or use a ring after its kfree_rcu() grace period
-has ended?
+	default:
+		if (err == 0)
+			kfree_skb(skb);
+		break;
 
-On resume, wx_init_interrupt_scheme() publishes new zeroed rings with
-tx_buffer_info == NULL and desc == NULL, and sets WX_STATE_DOWN. Nothing
-reopens the device after that. netif_device_attach() then wakes the TX
-queues of a netdev that is still running, and its carrier was never
-turned off.
+They are hci_transceive_cb() in net/nfc/hci/core.c,
+pn544_hci_data_exchange_cb() in drivers/nfc/pn544/pn544.c,
+st21nfca_hci_data_exchange_cb() in drivers/nfc/st21nfca/core.c and
+microread_im_transceive_cb() in drivers/nfc/microread/microread.c. Under
+the new contract, don't these leak skb when err != 0?
 
-The new checks in wx_xmit_frame() pass, because num_tx_queues is non-zero
-and the ring is non-NULL. Does wx_xmit_frame_ring() then dereference a
-NULL tx_buffer_info here?
+nfc_hci_execute_cb() already frees skb on error, so the in-tree
+callbacks end up inconsistent with each other and with the documented
+rule. Should these callbacks be updated in the same patch, or at least
+mentioned in the commit message?
 
-    first = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
-    first->skb = skb;
+> diff --git a/net/nfc/digital_dep.c b/net/nfc/digital_dep.c
+> index 968547c306a5d..c7f5378cd12e2 100644
+> --- a/net/nfc/digital_dep.c
+> +++ b/net/nfc/digital_dep.c
+> @@ -882,6 +882,7 @@ static void digital_in_recv_dep_res(struct nfc_digital_dev *ddev, void *arg,
+>  
+>  exit:
+>  	data_exch->cb(data_exch->cb_context, resp, rc);
+> +	resp = NULL;
+>  
+>  error:
+>  	kfree(data_exch);
 
-Because suspend skips wxvf_close(), the queue and misc IRQs are not freed
-before pci_free_irq_vectors(). NAPI instances that are still enabled are
-passed to netif_napi_del(). The descriptor DMA memory, the buffer_info
-arrays and the page_pool are reachable only through the rings freed by
-kfree_rcu(). Do these leak on every suspend or shutdown with the
-interface up?
+[Severity: Low]
+This isn't a bug, but should this carry a Fixes: tag and Cc: stable? The
+rawsock_data_exchange_complete() leak can be reached by an unprivileged
+user through an NFC raw socket.
 
-Much of this VF lifecycle behaviour predates the patch. However, the
-commit message depends on the RTNL, close, drain and reopen changes to
-justify the rtnl_dereference() locking model, and those changes are not
-in the patch. Could the missing VF changes be included, or could the
-commit message and the struct wx comment be corrected to match the
-locking the code actually has?
+The hunks also depend on each other. The resp = NULL in
+digital_in_recv_dep_res() stops the provider from freeing resp, and the
+rawsock and LLCP hunks make the consumers free it.
+
+A partial backport would either leak or double free the skb. Fixes:
+tags would help stable take the change as one unit.
+
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118081329.39551-1-mengyuanlou%40net-swift.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118081530.32-1-luob87709%40gmail.com
