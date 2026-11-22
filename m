@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795366054;
-	b=wkSy2N0KSOaKkpUe+yxObUqS5LTuP1hc/1O7O1hmLRE1RrSIepOlnrT00XvAggbPGz3F
-	 WYdnAX35p6nF3kX+OsgDfHgRhM1jtLZclkqHDvo17nzmi+TMmh4YVkD5NArN5F3dqO9iE
-	 y3h+kgIZLMl3A7lBC90wE+RCVymFTmSK1FLfxHDRf+qr/9V8/ljKpxzt7ZdHn2VCCFu5g
-	 ZfTrqiAEizxn0d6nbeMpVcQb5gHkjga4XF0u9lcq0cS3g7rQ3H0wtHG4UFRHnPKQbSqlG
-	 tSeJZP7jE9Y9tS+XKAlabCFBpM5v8wxESS/0zQ92QaFs28RRs5RMPI1uQBJ2VqjI8oA==
+	t=1795366275;
+	b=D107hwVfpFt1YAKMo1m30CSfE64IT0iqDjzg4HkPdfBvJzVX0pvXwF0SMXRMI6urrpIj
+	 onpWijGVQGeeC9wmMs5NZZQd51PNJ2HatvvwNkvt8mV9NZ2RbcKkqDM+/+5YXumscyv4r
+	 yiwHGbcbnObVT/ZdJjxnTMchDDzkHjMkD23ti5i/KvYI7XVlLLsNYr9kNWEDdVNboAl15
+	 S159LDn5I+PT8MgTPcildU+WnoHBzGZPjtVqntzkDdcAcaoNyDRkYtfzfPi8qFl2CNQHn
+	 wDcWk3lXo6SYu95Ie7gYfbKLqv4o79F9F7/Eh4iKsSa9p7I+DqYzbuuGN6wPiHX5aBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795366054;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=lx/eqkzhQCjhU/lfk/3mcXkVVolcmqyYJ3MWHeNdASzu2hmG3wSsQ71B/bcQsWvc9fJc
-	 g1KJaTVLtEeXt1ha4lRghFmdnFemo8ixW5Gr0tctDILmenIBw3IVXwrY/3uH1bWh26RmU
-	 rsx0Bfh17PK6HAIJ0XkLvPlONrMCKt2l97ZvNOTIYcc3rfDBUoOCso93rSBFCNd7pBqYK
-	 sdImg3IxfeCRHv2IxyzG3xxIu9W9oHJuv8fAokHeL1p1urMdaDVrOCZ7mtAEsdefJ5VxM
-	 YilU6Tx+jCIm0q1jlBZmcEoNLR++P/7zPpI7Jf9xcLCGqj4FZ9hZz5U0yBR2CHGumTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795366275;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=odH1W3Fi9GNbi7dCUOZXZg0rZVE2x7cWfH47Ss3QQR0=;
+	b=tzBcsiYRtH6sc0TknivwNpPU3YVlcFEgFtg+wMlm6HI1WQBSnzBi5ilqpM8gbsiG4ASW
+	 lXnmlBEiY/wNduPynrGxoJqrzWccJuwdcOn9IY1rSf36lEzhkWCEITS8F5nrZ+HIIL7Cu
+	 LwAVzxM/O1/odIPv2ywxS9p2FR8kVyWeG/Ol5gRh5uRy3JRUpRP0LCKu+ST0jlmm9VDx1
+	 LoJLS+kssfz174yrhiaWOvHkvZiO4enSvai8nbccj7qqyl42gq/TYu6L8Awm0dunY+ky6
+	 u/gwiYKOntMoKo+NhodLeHEwn+4+h3DJPsRjZ1ChZz+yYgxvrnaZHmdyZJ9gvHsT0ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SkUaOqBC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vLlRJEb8;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99B06606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:47:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06A21606A33E
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:51:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06A21606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SkUaOqBC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD8FD1F000C4;
-	Sun, 22 Nov 2026 16:47:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795366054;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SkUaOqBCZv54AaOLDy4jnutlILt2r4/KWNno1wO5pdZCBl+3Z7aiG+2z8TDbjhdFq
-	 NIVFajmASWFiWVogIl0pgggk3GHnwWqymeEiurylGRdsv4jSvqrMHxtIQYOULpa6Qt
-	 ccE8pKseL8tEfCdWugPhuSgeVP4ghWlYBoMog9MkYyl8gLkJF5IBkVbm3ZvLK6KtRn
-	 EXvZKfBAMATkYFrtGvnGuzru41gG5mKH2pPMC/2dIDbC4VEx6OpZKC/FUVb+mN+xD/
-	 FTzU4xqv9+yxg/G2EH/kXyaetXJ0VGMKtP/+yLRY1REOh4FVxRzi8FVR96+xZVu4iw
-	 iAWmWiiRuzgNA==
-From: netdev-bot+sinfo@kernel.org
-To: b.lane130@outlook.com
-Cc: bharat@chelsio.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org
-Subject: 
- Re: [PATCH] net: cxgb3: complete the cleanup operations on error paths
-Date: Sun, 22 Nov 2026 16:47:33 +0000
-Message-ID: <179536605321.3294.4326806038016790623@kernel.org>
-In-Reply-To: =?utf-8?q?=3CBN8PR06MB6177F1B73B4D37AC2315B428A4462=40BN8PR06MB?=
- =?utf-8?q?6177=2Enamprd06=2Eprod=2Eoutlook=2Ecom=3E?=
-References: =?utf-8?q?=3CBN8PR06MB6177F1B73B4D37AC2315B428A4462=40BN8PR06MB6?=
- =?utf-8?q?177=2Enamprd06=2Eprod=2Eoutlook=2Ecom=3E?=
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vLlRJEb8
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 8D5F04E416E5;
+	Sun, 22 Nov 2026 16:51:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 50CA060512;
+	Sun, 22 Nov 2026 16:51:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 407BA11E624EE;
+	Sun, 22 Nov 2026 17:51:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795366271; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=odH1W3Fi9GNbi7dCUOZXZg0rZVE2x7cWfH47Ss3QQR0=;
+	b=vLlRJEb8rXtT4eD7/MWgeYKI56QggNTzC1SZIMRYtzsk623ufNRqfVNA8UhqIIutP+qJC6
+	ppfR2pVI8obtbkAUS8t8hxQZ+3CGnJiUQRwEw1uU/xT3vaoX+0aiyikzUav+op7SnCTuBh
+	umGPGI3IE/fPb4eVcdqyuTqyxAd3pT4GEQjrWjbI56U4ERJs2iVatqVBarQAmIVRSFpoUG
+	nUOdJeY4ZYTBCFFcHi6S6LYYQJaufgQwfUd2C1Mk7YmBdho9aEnGwj2C/5uvyV8vCGP4r/
+	bWE/EgaEf5SX4ESO7KtT8Vhkj+dka/cA6njZ/WaUlFaBlZNQztGadrNtLmxMNQ==
+Message-ID: <3608fc23-1d62-4118-be0d-fa1d2ed3e399@bootlin.com>
+Date: Sun, 22 Nov 2026 17:51:06 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,30 +62,151 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 2/5] net: stmmac: dwmac-sun8i: Get the EPHY
+ clock and reset before the MAC probe
+To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-kernel@vger.kernel.org
+References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
+ <20261120-sun8i-emac-mux-uaf-v4-2-57eba8915f25@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-2-57eba8915f25@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi!
+Hi,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> get_ephy_nodes() runs after stmmac_pltfr_probe() has registered the
+> netdev, so its -EPROBE_DEFER comes too late. An EPHY clock that is not
+> ready yet does not defer at all: the node is skipped and the probe
+> fails with -ENODEV.
+> 
+> Look up the clock and reset before stmmac_pltfr_probe(), and defer on
+> the clock as on the reset.
+> 
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+This is a step in the right direction, thanks
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+Maxime
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 34 ++++++++++++++---------
+>  1 file changed, 21 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 9fb398f7cf9e..4acfda235394 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -775,16 +775,15 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
+>  }
+>  
+>  /* Search in mdio-mux node for internal PHY node and get its clk/reset */
+> -static int get_ephy_nodes(struct stmmac_priv *priv)
+> +static int get_ephy_nodes(struct device *dev, struct sunxi_priv_data *gmac)
+>  {
+> -	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+>  	struct device_node *mdio_internal;
+>  	struct device_node *mdio_mux;
+>  	int ret;
+>  
+> -	mdio_mux = of_get_child_by_name(priv->device->of_node, "mdio-mux");
+> +	mdio_mux = of_get_child_by_name(dev->of_node, "mdio-mux");
+>  	if (!mdio_mux) {
+> -		dev_err(priv->device, "Cannot get mdio-mux node\n");
+> +		dev_err(dev, "Cannot get mdio-mux node\n");
+>  		return -ENODEV;
+>  	}
+>  
+> @@ -792,7 +791,7 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+>  						"allwinner,sun8i-h3-mdio-internal");
+>  	of_node_put(mdio_mux);
+>  	if (!mdio_internal) {
+> -		dev_err(priv->device, "Cannot get internal_mdio node\n");
+> +		dev_err(dev, "Cannot get internal_mdio node\n");
+>  		return -ENODEV;
+>  	}
+>  
+> @@ -801,8 +800,13 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+>  		struct clk *ephy_clk;
+>  
+>  		ephy_clk = of_clk_get(iphynode, 0);
+> -		if (IS_ERR(ephy_clk))
+> +		if (IS_ERR(ephy_clk)) {
+> +			if (PTR_ERR(ephy_clk) == -EPROBE_DEFER) {
+> +				of_node_put(mdio_internal);
+> +				return -EPROBE_DEFER;
+> +			}
+>  			continue;
+> +		}
+>  		gmac->rst_ephy = of_reset_control_get_exclusive(iphynode, NULL);
+>  		if (IS_ERR(gmac->rst_ephy)) {
+>  			ret = PTR_ERR(gmac->rst_ephy);
+> @@ -814,7 +818,7 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+>  			continue;
+>  		}
+>  		gmac->ephy_clk = ephy_clk;
+> -		dev_info(priv->device, "Found internal PHY node\n");
+> +		dev_info(dev, "Found internal PHY node\n");
+>  		of_node_put(mdio_internal);
+>  		return 0;
+>  	}
+> @@ -1209,9 +1213,15 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  	plat_dat->tx_fifo_size = 4096;
+>  	plat_dat->rx_fifo_size = 16384;
+>  
+> +	if (gmac->variant->soc_has_internal_phy) {
+> +		ret = get_ephy_nodes(dev, gmac);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	ret = sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
+>  	if (ret)
+> -		return ret;
+> +		goto dwmac_ephy;
+>  
+>  	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+>  	if (ret)
+> @@ -1230,9 +1240,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  	 * so after stmmac_dvr_probe()
+>  	 */
+>  	if (gmac->variant->soc_has_internal_phy) {
+> -		ret = get_ephy_nodes(priv);
+> -		if (ret)
+> -			goto dwmac_remove;
+>  		ret = sun8i_dwmac_register_mdio_mux(priv);
+>  		if (ret) {
+>  			dev_err(&pdev->dev, "Failed to register mux\n");
+> @@ -1247,10 +1254,11 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  dwmac_remove:
+>  	pm_runtime_put_noidle(&pdev->dev);
+>  	stmmac_pltfr_remove(pdev);
+> -	reset_control_put(gmac->rst_ephy);
+> -	clk_put(gmac->ephy_clk);
+>  dwmac_syscon:
+>  	sun8i_dwmac_unset_syscon(gmac);
+> +dwmac_ephy:
+> +	reset_control_put(gmac->rst_ephy);
+> +	clk_put(gmac->ephy_clk);
+>  
+>  	return ret;
+>  }
+> 
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
