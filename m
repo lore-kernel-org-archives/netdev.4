@@ -1,85 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795345087;
-	b=Cf2TRIe+j63tkr0XG7LemIoH8YwUCxJwpokuI//osFv1EXPtPXTWSJzcHxLc2dZa6Wul
-	 rz7nFp7a8mHtM4dCCTGokne1fU8n5FbFDFHZ6Ji4AZ/sXAR9nFn+Fz3yrQF82WRWa75OG
-	 1IglqKpIbjDW6YdYUtjfC90Zlz8DW+oqaqJRTeuw5YPdAHfGOuUUGFF5TNnbB57mayp0A
-	 yJLlHUKbUC5kw2urF2NN6zGZiHeW4FoIhcCdfvFCnWhqa6BjVJzuDNvtBLXi7zu5ZwYuQ
-	 I2GnuccoxVjJhptvMAIXW/LSqTWSXH9UEK28cA4UzTHtb7AXp2yib/VZKVBJZMBE4Ow==
+	t=1795345252;
+	b=p78JGjOFTHOusUqBmh60aq6DQ1JmlzEj6+NUN0OaPxV/ulpFylQ5Cp7LOYo0SQCXfdLJ
+	 znU23vG9PD7VxV8YkoZQQMW0HdT64RbCBk2Zme7IWgygvos/rCpK+laxFCbEWdOrT4g3n
+	 UWlFv+HzGqmgRC26QkufQKR6M7b3tfFn31gj/dDJT5EMKpc0zYBCC03zuyFl32LpgE7O0
+	 2TezULUBHVu0rAZCZTo3N3ca5kj9lXAlFPKQR3Pz47T39K307CQCVyk/yDTHYKWq5e+0v
+	 0JdifRAWsE6WydaeIgvRhuA7o9NXVhIt1DaAl37b3leRrU43veKe2li+CMDZq5hwj5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795345087;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=1BgKHSd3CQAdu9W4c7Bsjn/CT1XjSRVEIx6RizkYoTw=;
-	b=LRItAGzn9uih932R5shOLuMFgHGl+yAPQF7LxeHgvLm1Jy1vtyhRv2K+uy5akREdmV7P
-	 hWaxzWJCbngm12i1DbiJUCM5PccSFxtWo8Rq9QXXpmoukgyhq9KVypMIIRBbwL4Mfk6FU
-	 VmKCZkbvAscY+ukThGDr6S5nkGXEkup1O5doV/aL5YoEmzMTBs0N0ydzFG5Hdyu2sXXDc
-	 lT1NnCjGnxERGgS4O+F0WMVoTaF9jqnb6jO8SoSyhhWOYjjbGetgF8zwFFXyc/pW0fDi/
-	 VxWj9TIZ5IFqbHIUnKgXTTYl3R1Ne0z7uxSWMAbDpV4EAi19HgFkZqH1EeE2hQw1RSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795345252;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=zggGzxEmYdUO2ER56cmR3uCkWwbZK6jGMEYqYgWH4qo=;
+	b=ItCsVBAkqZZXLyH+HRa1RBYh1gakIravlxGATW0K0mzEgYngVQg8nR3k9csF7+O4sNoQ
+	 vW5r+kfn07MnoGxc8J7VgLfd6mhmdWYUfLf3njWycHRF1OTX5ygPDx1caZmeLJ5r3X5Ao
+	 q7YE57bYZvFjzUY2NKUFM0rAK/yPRw+NivpM8RPCXZQ3mCnLQ6uhur3ze/v9mllpvhzM5
+	 ABQTMLUhYd2sEpjZKHtV1dVrx6pFeokC/d/PbfaQHnX0zPIhkHEfthv32N2Jze7mEzOtL
+	 7H+H77GI8oodqqb8oTl+frSSA3c9HRJ3JlosIrq0qpms44sPgtl567TmQ2+5czPmg5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=N5azeeLS;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=db6jrTnn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80B63606A334
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 10:58:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80B63606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9306606A681;
+	Sun, 22 Nov 2026 11:00:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=N5azeeLS
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so19567055e9.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 02:58:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795345086; x=1795949886; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1BgKHSd3CQAdu9W4c7Bsjn/CT1XjSRVEIx6RizkYoTw=;
-        b=N5azeeLSlU0U2ox+pLF5X6rx1KmomVgd1hnhIZmqXT9K1GhQdfeOO0b4hVl63f8inl
-         RFcPBhyUiLA3N1OXnw/zQiQHR1sxXg0nAtlWjMEJflnrOGryK1Svnp26Uhd0qkVpInuF
-         SFWQmgAmIjrJ1aW9nlDUuE1oLmkJDlfICZpFuL3F5+tKiZ2TTR7VGvGng/UgVmXoGBE9
-         j0mtWX0nV+viotZdeaREjrXGkdwqC0GUbhSaG8miogntGKNpj8eQKyLtkU5Rrp2wb0wc
-         rw+jpIRZLUT5nDVQKLAODsBc9SOZbVTaZnpsMWuXQII5kU9PAAl42fel0RB6pwaJQPih
-         hEFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795345086; x=1795949886;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1BgKHSd3CQAdu9W4c7Bsjn/CT1XjSRVEIx6RizkYoTw=;
-        b=CwFOaoEa5F5Nfvq5WP05Ac3PxVbavhiUI9ltmDQk6oEjElsZ6eQiqIXaS6ea4dKXns
-         wtmhjkOxq5ZFBIZ1OiknGiCHEJHxyY1E7RyE9jyZoh8gGm2wEXY3sL6kwZOpP6LnBO7R
-         kNkRQvcSUpaCxsq7mXYKr//zLrJzm+P3q/Cs8B9Pun4u1DPIYWgYSnwry7OXyimRZzIC
-         JG1wrg/StVh2sziFLb/HyIexMipc0PxNnZMhozsu1zrzVPS+poVi4tOi1d1RuZ/TUdDz
-         bg8NLHmQd2VT2omOg9JazbuCJvnFezEnbkBsItpD4yOkVjsRWIsvxCD1G0dZSSFQ0JrE
-         2ktA==
-X-Gm-Message-State: APuU4Z/Q5qToDTHEMymfCUnnMB45HUyoYjiM3NwAxuc+eBm9I9DIZQeI
-	V+k3VXlneYzCRe+0rNWtmpmgqjFjj+dT8/URVq+192OsuGt4bhYzkIasGsUwu0CIq/8=
-X-Gm-Gg: AZFdTZeZoSeJa0Ge8g6XVMywZSxOQbYOeZkITHEDYNT8+Fz9k0BdjBna6Pp9HS08/pE
-	fqAJ+ZJJEjJo99dD97b/+g1ifyNt78AONuBM+WXppmTb39lVyT+A/rI42iUJ8qRnAUiFgWw58rB
-	gxwCpgccUfqKTAJ6pO0J6qP57W3X+A4LCKnVQszg4vyO4joogiyJRXeJgyXQg0WKe1AQ2WxfaJP
-	0awjw/L2dLIPlSUrojOyjBVrfo1mahd8yzGuq9pOLt5fE4MFF7cT7Pax+Ii0FJFOP7LwrpdvOj/
-	N5eopSuzi/b3VxvCXiZrjERWIaBxQZsCuEroc06M6pN5otTRMRpucwkhYIxPxVAhjEOlndq0vbV
-	NOADKlTxqO4OHcncWLnUFZkxdqJkwIlsz5clPH55Gehd8oaL9Pb6WqI4UyAnX6bg6WAI+syIbtF
-	WfFrjwxDjI4GKGjN28d3UMmlc4MT2KrzvV/j2mM+YLTdfHqPV0KNjMaVoUDoa6nFCs4ZK68oaOd
-	t1DeZG9BsLmE/1fG6FQpoQSAq1jGoFVCzUKqUypFRLssLUUv7mWIF6Jyt2irEjGLGzIP3SEU6CB
-	InjuVuMnDKsiZQm6hNKkMtTCsqp4wh6PxfNMBW3zGtGxffFiv1IGrIaXSGsb
-X-Received: by 2002:a05:600c:820d:b0:4a1:dfaf:f465 with SMTP id 5b1f17b1804b1-4bb887c2ca3mr186411065e9.4.1795345085983;
-        Sun, 22 Nov 2026 02:58:05 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906e4ce6sm105568865e9.4.2026.11.22.02.58.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 02:58:05 -0800 (PST)
-Message-ID: <4937f07a-6238-4136-94ca-a98b2f4b8db5@blackwall.org>
-Date: Sun, 22 Nov 2026 12:58:04 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=db6jrTnn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A40EF1F000C6;
+	Sun, 22 Nov 2026 11:00:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795345252;
+	bh=zggGzxEmYdUO2ER56cmR3uCkWwbZK6jGMEYqYgWH4qo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=db6jrTnn+WbkFLApyKYhketGr/FUPldhNR/KbNljcMY5jriBMR3R4zTA5wGO4RMSM
+	 /dFynGSlhdNnxZVGKXNSJE+5FkKkzWNnYIEzpvDSDLh4GxplUgq6O8DCRBj5xsdC7N
+	 jYwnaSAlITZPYhGyLQjNoWqliI18FNWEC2CK8BIYUB8fOrF4l7xz5+Xun3duRD0QoN
+	 zBeGkOpSEmG0RdSiL1Ve9jENSaspZ6Ct2CQcJ2+1LR1E0ElAhk4zzh/EWyBQMqbBib
+	 GPzKV9V6n0lqaRmfslCAWcUuNsK58bAq37z9YUzb7H3Ot2AY+Jg5/wO1uAm4U5mXCm
+	 jBtLgVmaiAoHg==
+Subject: Re: [PATCH net-next 3/4] net: enetc: add i.MX952 ENETC support
+From: netdev-bot+sashiko@kernel.org
+To: frieder@fris.de
+Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, wei.fang@nxp.com,
+ xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
+ imx@lists.linux.dev, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, frieder.schrempf@kontron.de
+Date: Sun, 22 Nov 2026 11:00:51 +0000
+Message-ID: <179534525124.3135.3738979682916581664@kernel.org>
+In-Reply-To: <20261118-imx952-enetc-v1-3-25721440602e@kontron.de>
+References: <20261118-imx952-enetc-v1-3-25721440602e@kontron.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,145 +65,142 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: bridge: withdraw the switchdev entry of an fdb
- entry made dynamic
-Content-Language: en-US, bg
-To: Julius Bairaktaris <julius@bairaktaris.de>,
- Ido Schimmel <idosch@nvidia.com>
-Cc: netdev@vger.kernel.org, bridge@lists.linux.dev,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
- Simon Horman <horms@kernel.org>, Vladimir Oltean <olteanv@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- Jesse Brandeburg <jbrandeb@kernel.org>
-References: <20261121191638.1724620-1-julius@bairaktaris.de>
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <20261121191638.1724620-1-julius@bairaktaris.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 21/11/2026 21:16, Julius Bairaktaris wrote:
-> Since commit 927cdea5d209 ("net: bridge: switchdev: don't notify FDB
-> entries with "master dynamic""), br_switchdev_fdb_notify() reports
-> neither the addition nor the deletion of an entry that the user added
-> without NUD_PERMANENT or NUD_NOARP. The user can turn an entry that
-> switchdev was told about, a learned one or a static one, into such an
-> entry: fdb_add_entry() does it for "bridge fdb replace ... master
-> dynamic", and __fdb_update() for "bridge fdb replace ... master use"
-> (NTF_USE), which marks a learned entry as added by the user. The
-> drivers then keep the entry they were given, and since its later
-> deletion is not reported either, they keep it after the bridge has
-> dropped it.
-> 
-> Report the deletion of the old entry to switchdev before either path
-> makes it one that is no longer reported, as br_fdb_update() does before
-> an entry moves to another port; br_switchdev_fdb_notify() tests the old
-> flags, so only an entry that was reported is withdrawn. Entries with
-> the extern_learn flag stay reported and are left alone. The NTF_USE
-> branch is only reached from netlink: the packet path passes no
-> BR_FDB_ADDED_BY_USER to br_fdb_update(). The offloaded flag of the
-> entry stays as the drivers report it.
-> 
-> Found while reviewing how DSA tracks host addresses for bridge FDB
-> entries. In QEMU with KASAN and dsa_loop given FDB operations and
-> assisted learning, an address learned on a veth port of the bridge is a
-> host address on the CPU port. After "bridge fdb replace <addr> dev vA
-> master dynamic", or "... master use", and the deletion of the entry,
-> net keeps the address on the CPU port in 3 of 3 boots for each command;
-> with this change it is deleted at the replace in 3 of 3 boots for each.
-> 
-> Fixes: 927cdea5d209 ("net: bridge: switchdev: don't notify FDB entries with "master dynamic"")
-> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
-> ---
-> I used Claude (Anthropic) to help write these patches.
-> 
->   net/bridge/br_fdb.c | 21 +++++++++++++++++++++
->   1 file changed, 21 insertions(+)
-> 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-I think this has never worked, so this patch can go to net-next.
-A few nits below.
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-> diff --git a/net/bridge/br_fdb.c b/net/bridge/br_fdb.c
-> index b601245ad923..377ca8341029 100644
-> --- a/net/bridge/br_fdb.c
-> +++ b/net/bridge/br_fdb.c
-> @@ -996,6 +996,16 @@ static bool __fdb_mark_active(struct net_bridge_fdb_entry *fdb)
->   		  test_and_clear_bit(BR_FDB_NOTIFY_INACTIVE, &fdb->flags));
->   }
->   
-> +/* Called before @fdb becomes an entry that the user added as dynamic, which
-> + * br_switchdev_fdb_notify() does not report: report the deletion of the entry
-> + * switchdev was told about, if it was
-> + */
-> +static void fdb_switchdev_hide(struct net_bridge *br,
-> +			       const struct net_bridge_fdb_entry *fdb)
-> +{
-> +	br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
-> +}
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This helper isn't helpful. Just call br_switchdev_fdb_notify directly.
+- [Medium] When an i.MX952 (ENETC rev 4.6) VF cannot get its IP minor
+  revision from the PF, enetc_vf_get_revision()…
+- [Medium] This finding is speculative.
 
-> +
->   static void __fdb_update(struct net_bridge *br,
->   			 struct net_bridge_fdb_entry *fdb,
->   			 struct net_bridge_port *source,
-> @@ -1005,6 +1015,7 @@ static void __fdb_update(struct net_bridge *br,
->   	struct net_bridge_port *old_port;
->   	struct net_bridge_dst old_dst;
->   	bool fdb_modified = false;
-> +	bool roamed = false;
->   	unsigned long now;
->   
->   	/* attempt to update an entry for a local interface */
-> @@ -1032,6 +1043,7 @@ static void __fdb_update(struct net_bridge *br,
->   			br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
->   			br_fdb_dst_write(fdb, dst);
->   			fdb_modified = true;
-> +			roamed = true;
->   			/* take over HW learned entry */
->   			if (unlikely(test_bit(BR_FDB_ADDED_BY_EXT_LEARN,
->   					      &fdb->flags)))
-> @@ -1048,7 +1060,12 @@ static void __fdb_update(struct net_bridge *br,
->   		}
->   	}
->   
-> +	/* Only from netlink (NTF_USE), with the user's flag in @flags */
+--
 
-This comment is useless.
+net: enetc: add i.MX952 ENETC support
 
->   	if (unlikely(test_bit(BR_FDB_ADDED_BY_USER, &flags))) {
-> +		/* After a roam the deletion was reported above */
-> +		if (!roamed && !test_bit(BR_FDB_STATIC, &fdb->flags) &&
-> +		    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags))
-> +			fdb_switchdev_hide(br, fdb);
->   		set_bit(BR_FDB_ADDED_BY_USER, &fdb->flags);
->   		if (test_and_clear_bit(BR_FDB_DYNAMIC_LEARNED, &fdb->flags))
->   			atomic_dec(&br->fdb_n_learned);
-> @@ -1262,6 +1279,10 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
->   		if (flags & NLM_F_EXCL)
->   			return -EEXIST;
->   
-> +		if (!(state & (NUD_PERMANENT | NUD_NOARP)) &&
-> +		    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags))
-> +			fdb_switchdev_hide(br, fdb);
+This commit adds ENETC revision 4.6 (i.MX952) entries to the enetc_info
+table, with new PF and VF driver data that use a 133 MHz sysclk. It also
+maps revision 4.6 to a PTP timer at PCI_DEVFN(0, 1) in
+enetc_get_phc_index_by_pdev().
+
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
+> index c6571b5cc8425..4ef387578b1e4 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
+
+[ ... ]
+
+> @@ -3832,6 +3840,13 @@ static const struct enetc_drvdata enetc4_vf_data = {
+>  	.eth_ops = &enetc_vf_ethtool_ops,
+>  };
+>  
+> +static const struct enetc_drvdata enetc4_6_vf_data = {
+> +	.sysclk_freq = ENETC_CLK_133M,
+> +	.tx_csum = true,
+> +	.max_frags = ENETC4_MAX_SKB_FRAGS,
+> +	.eth_ops = &enetc_vf_ethtool_ops,
+> +};
 > +
 
-I played around with the possible bits that can result from this change and I think
-I got 1 bad case:
-What if a user adds a master static entry (created with BR_FDB_ADDED_BY_USER but without
-ext_learn) which is later programmed and gets BR_FDB_OFFLOADED set, then a replace with
-"master dynamic"?
-That is,
-bridge fdb add master static, bridge -> swdev driver issues add (entry is now ADDED_BY_USER | STATIC),
-swdev -> bridge (entry is now with | OFFLOADED), bridge fdb replace master dynamic (ADDED_BY_USER | OFFLOADED)
-but the entry has been deleted in dsa / mlxsw due to the new swdev del that is sent
+[Severity: Medium]
+What happens to an i.MX952 VF when it cannot get the minor revision from
+the PF? enetc_vf_get_revision() in enetc_vf.c falls back to a fixed
+revision:
 
->   		old_dst = br_fdb_dst_read(fdb);
->   		modified = fdb_update_dst(fdb, old_dst, dst);
->   
-> 
-> base-commit: d5b89d55a322b632e2b465b392a4c1d9d338db9c
+drivers/net/ethernet/freescale/enetc/enetc_vf.c:enetc_vf_get_revision() {
+    ...
+	ip_mn = enetc_vf_get_ip_minor_revision(si);
+	if (ip_mn >= 0) {
+		si->revision = (si->pdev->revision << 8) | ip_mn;
+		return;
+	}
 
+	si->revision = ENETC_REV_4_1;
+    ...
+}
+
+In that case enetc_get_driver_data() matches the ENETC_REV_4_1 VF entry.
+It selects enetc4_vf_data (333 MHz) instead of enetc4_6_vf_data
+(133 MHz), and enetc_vf_netdev_setup() copies the 333 MHz value into
+priv->sysclk_freq.
+
+Before this patch every v4 VF drvdata used 333 MHz, so the fallback still
+gave the right clock. Now that rev 4.6 uses a different sysclk, would
+every usec/cycle conversion on that VF be off by about 2.5x?
+
+For example, enetc_init_si_rings_params() does:
+
+	priv->tx_ictt = enetc_usecs_to_cycles(600, priv->sysclk_freq);
+
+At the real 133 MHz clock this works out to about 1.5 ms instead of
+600 us. The RX DIM work and the ethtool coalesce get/set paths would be
+scaled by the same wrong factor.
+
+The fallback also makes enetc_get_phc_index_by_pdev() take the
+ENETC_REV_4_1 case. That case looks up the timer at PCI_DEVFN(24, 0), not
+at the PCI_DEVFN(0, 1) added below for rev 4.6. Without a ptp-timer
+phandle, could the VF then report no PHC, or the wrong one?
+
+The fallback runs whenever enetc_vf_get_ip_minor_revision() returns an
+error. That can be a DMA allocation failure, a busy mailbox, a poll
+timeout, or an error status from the PF.
+
+>  static const struct enetc_platform_info enetc_info[] = {
+>  	{ .revision = ENETC_REV_1_0,
+>  	  .dev_id = ENETC_DEV_ID_PF,
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
+> index 7965dfd06f5f6..3c6c6fc0ab8cf 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
+> @@ -1149,6 +1149,7 @@ static int enetc_get_phc_index_by_pdev(struct enetc_si *si)
+>  		devfn = PCI_DEVFN(24, 0);
+>  		break;
+>  	case ENETC_REV_4_3:
+> +	case ENETC_REV_4_6:
+>  		devfn = PCI_DEVFN(0, 1);
+>  		break;
+
+[Severity: Medium]
+Is there a NETC timer at 00.1 on the bus of each i.MX952 ENETC?
+
+netc_blk_ctrl.c puts the two i.MX952 ENETCs on different buses:
+
+#define IMX952_ENETC0_BUS_DEVFN		0x0
+#define IMX952_ENETC1_BUS_DEVFN		0x100
+
+This lookup uses the ENETC's own bus->number. So ENETC0 would look for a
+timer at 00:00.1, and ENETC1 would look for one at 01:00.1.
+
+i.MX94 has a timer at 00.1 on each bus. It also programs the
+ENETC-to-timer binding explicitly in imx94_enetc_update_tid():
+
+	netc_reg_write(priv->ierb, IERB_ETBCR(eid), tid);
+
+imx952_ierb_init() only writes the byte credit registers and never
+programs IERB_ETBCR. There are also no i.MX952 timer definitions or NETC
+DT nodes in the tree to compare against, so I couldn't verify the
+topology. This may well be fine on real hardware.
+
+If only one timer exists, would the ENETC on the other bus get -1 here
+and report no PHC?
+
+If each bus has its own timer, but the reset value of IERB_ETBCR does not
+bind each ENETC to the timer on its own bus, could the PHC index reported
+to userspace differ from the timer that actually timestamps the packets?
+
+>  	default:
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-imx952-enetc-v1-0-25721440602e%40kontron.de
