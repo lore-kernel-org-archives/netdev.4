@@ -1,80 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.189.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795340119;
-	b=zr2IUam2yvMQi991jipArWesDBorfi1TLlqhw4jNAkx+hZDmhECEn8iIyqp7eKnvBLEj
-	 eWxgHA/7eeK9TZ4LUxLr2DJ0XqQBZx6nSHToRWtGFt74krTZaryDixFmRX2dydKnriT7B
-	 3l8S9magG3Yv7GupI6WjcglsBZOR9i9MqkJ0RhKIdpAqcLzGGKqLRFCz6NTX5vZAUpQFE
-	 bKhq+dcCU3OUZy8c/QuoY3Woo1fVJxf2XkjBG1GG+dt57torMHGU/a8b8wfX181/et2xQ
-	 vHA8qvf2FJhMybRUlCUfO0hH0BDs8NHWdDLdVkPw9I1GUc1W6wHZgEEa+tBG9jIbp1w==
+	t=1795340203;
+	b=i2Rh4E2ge9a4+UdJzBUumwJ8hVoXxwNXJ3jUL68hY3dgdThn8hNRbvrqvM5MjR7hE3W9
+	 XFO6iXFhlyKx9eDaIOQeePdFNiXKut2VQxTUW6xMx5OUFerSRRKH4Ka3pi/7ydIRXKXwp
+	 8fv41VTCCKK63/Gwh/oqLVuwd46yQhSn3LnIzaXD9DqZ467QLNxuekZY73HYwQfUFPnmu
+	 p/qLHz6+sOUk6JIEYuDD8+VRsaXv8D48DF0q9LW85mx4fUbL4GgqyFgmohzN8j+CsiW4E
+	 0WNDIEpTRSuNh3NStUNqMIJkvi8JfXku8NvR1rKu5oje82n9m1uDxi7EH55sjN2ns5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795340119;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795340203;
 	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
 	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Content-Language:To:From:Subject:Content-Type:
-	 Content-Transfer-Encoding:References:X-Mailer;
-	bh=lKUCGDRoEboR45yhbXxIXpUNVpmwmoHgBTy0EKwr/Fk=;
-	b=AsDUtZNU9HOJ1JRPQQ9o4FFCR1dtunRCOkiOX3TQQFL9R5+GBhkjMrgVSmCrwLaROabX
-	 K8KNJMEPfHtXwuWZVL1uuuVpJmaMlPkZX9paASAYlOmxmSxPJ7kYC5R55M/DJ9TAomqLU
-	 aEhp21MLGbNyKM2q60UbixuvZ2ddtYJEIaPoPIbxdQr/e5gr9UmRktGjw2VI9qwQn7IYp
-	 ahGfrFkoSHUWXmfn5LDA2DT4PHNvnHPbbjgGJFPnSikvCg6mNXgxnESr/DQU8nStHp/3c
-	 vvUoQDEPRy9eBLOlSvpMXH/85nw9ORGRSJ0LneUBKy4qhzDDxoPML2d8Gxreb36p9/w==
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=HO43C3iEXRa6J85xNlHDELJDyLp/RMlGT8/nfr+lOp0=;
+	b=hH6qN3awohozweWq69uejHyhT9WWYN/+eiw85EBIfpWgXg/jwYj2P55sQYea98VvH0hm
+	 +aBxnoMvFIkxCosxaxL4JC5fCvfLelCTPJhsSxdfXN1PkvjYM40mzdgoZf91qrL8yA1Ee
+	 vPuQv6ccqlwwjschlWK+EWowMehooFPWZopfNBcQZWSoUZjU7ZM4ZDBXCmfd+BQMSBqDL
+	 146Gor4/iLzP8Bgw2kWk4dNTDa7SBSscuI1JLgc8dFAj1+cjj7kTngA0zOwEXtgv3dIdg
+	 /mfu5TIKp47nQ/k7c0gzeh5ETXiP+w1/9o/Sdb+mCBLA+ML1IWsDiwQMOcqt3YQmF3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yahoo.com;
 	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=kz+t0rZu;
-	arc=none smtp.remote-ip=66.163.189.148
-Received: from sonic314-22.consmr.mail.ne1.yahoo.com (sonic314-22.consmr.mail.ne1.yahoo.com [66.163.189.148])
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=qFI9auch;
+	arc=none smtp.remote-ip=66.163.184.45
+Received: from sonic317-34.consmr.mail.ne1.yahoo.com (sonic317-34.consmr.mail.ne1.yahoo.com [66.163.184.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C1CA606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 09:35:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C1CA606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1F2606A32A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 09:36:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B1F2606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=kz+t0rZu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340117; bh=lKUCGDRoEboR45yhbXxIXpUNVpmwmoHgBTy0EKwr/Fk=; h=Date:To:From:Subject:Content-Type:References:From:Subject:Reply-To:Content-Type; b=kz+t0rZuE4+257haDo5pzOzD2rrOVDsjtYwvjvUw5/3cPqtwQCLjJsQMmZJaihedUatblupRvzAdCG5TzDuBMt5qmVbytgo75aYyif8o0/HmQ5UfwGjToDG7H2G8zkFFtQb3IOgAizq10cKbAqeVB4eUjDie8lHJVsqMm0G0ajqjTlgFb+smZb/1MgAR4c5C/0ZAX8cx3d+K+YBBClY8vtja0gdNjzUsH0v1V1O3gbJTI7Yl/tR6Ji6DBlSDa1m2cDNTrhpvKqx54B93/l7oQYlUsjo5J52XsQAQz2PLHl2VA8GFSufxgJjMq0m79haxpaTInp/6WABOPz1NhqYH7w==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340117; bh=f27FIJzAWHaGMBnfb/+ISsdlONa9QX4yXuGZRF5/+02=; h=X-Sonic-MF:Date:To:From:Subject:From:Subject; b=P6Kk28wXxK/sQdnqPdm/Op9gjGwNY6r61dbrZcIf/HKI+iFu4ikCspcEJ7c2srIY+0msjnph3Ca4CjlWmy38Rnpi58euBYsUZ31u27em45yJi158/iYz7KUUNXQxHP+I9UesFOdoT0V+oP/xPdDJddoBrebZuleLKKIEqSE8ZkTuGfs2JEB83bsWrAmOiJwtTTScnCAvLV5/Ht6EkjIxRycx+ilteKsPTXePnle/kMaKzlXUnmOZ5qVzAtqYt1mLOCcEPInnn8ADysBlZ1T9qw0PmAaeV9MRw9GDuQjWIBg0LVqp4YriFGtRUSBS/aWrQcSo67SQQYIv8AvweoIaNQ==
-X-YMail-OSG: InwjR18VM1nF1.yWnw8RqkQYUozNoqwCCY2t0P3RMAkW7PcVhSIYNQLlIgewLnp
- 5vLAOcFR.xsPhfbHE1BtV4726A9hm.degBWeOLw42jlSN5RYgkthhPM6eJQPlmJhG5l1vQGk3n0t
- uzvE5bySdc9SDQf_ltkkOs5fJxQjJrNrGHgrY2CgK8oJGfB3SenUOJqVutbOaBLtnHNLVY1FOmE_
- o9OfcOOXRsmAfMHg.G39Y_KcZCO21vy_bpz_U3aVyL_cICG4kDr73AOSwztpsqaulLI_WZh0duyZ
- 3igpwB08XAauFswe8yAHwMmx3P9q6WoV_X2DYuHL6CThcdPPmaOGMwNIKHDusA1WesX2Ue21D3eK
- J7sHj_6lhQLvvx1le0Y4MqqtLG9DEyRm.1roF5isHfG6XK4TV.AiEVvMbQwnwmMOV8rx.ogn5IIo
- 3Sfowl6hq77nDymTkKTSI3iWw1y5Ap3POq3kw5AtCPaC4Tevv0h6Vtyooihs3oe4lJZELZWgqW84
- It5TBKTg3O3T4bckRQFhezRm6PcSNXm_6ML9VSXNno7BDBvYqoazjIHfsfnnxwQ8Y2uIMtinYYX9
- cvbPABUlusCnkhHMiMToAm9DXTrjUKQGayWzh9A2yS16uocWOI22WX_zATTyXo_oMxwEvRMUVnsV
- 2kJdBWSDdGrM9mz6cw46tktlijIbv23XDAkbLKU3UcD8j.aIDX_412C_7eh_ViqvaMplVzJCUvv9
- Tab6jRZR1PyTRb6JsOlOZCuV_i3WJ1ufL3gzStn9OMaKskUtkTJ6xET9xAJrQX1wqgp5Do4Sb2N1
- eA_qFBDBkhEcRX7z3OUfH2EgSqOZALsiLkmoFAqbTOv5.ALR8jqHBbGjiKlxeyMdWKXAzGdX7hLE
- 6wPh7FOeZd9oJi_ALBRVvI_z06XyNsnE0KWpuzsZ9Ln.Xxum.71eRvYwaCjjBxEx8T.MLJY.kiQH
- 02yvl8FuKHyrKSo46uvHp9cLGYGF2DI6C.hLS6Anpa9EO7z6b0Dh17BeNqe8nNWVvhVnJM2Js2Ss
- Wvxx0wzVlYmzaKJBJP4Ak3tjMcsavyYm.M19HSK9II2vb1VjLWLjg9EYHrS4f9ex_1fxTJw4thQH
- Erukjk.0vKu3Dv9.xWi2UIutjvalTean5HI7O1UKROo3HA7VnISaPZmY2tBE7gYeWBF.8L9LDwHf
- QldutxhMK1_d009Xazg04EVqi_YVprXH9hh3tjH7pTA2QKPVj6DirtnNwDPyZIzmTy.PlT2OrDJ1
- JdVY93Gmlo1_OF_hF_JCsltwRkzNeE5CqE25BLo5meaCrh9KbnzLZjmcFZ3mYaDU5kvCsvEzB0ju
- SHxs7Kms4ElMHtRDU9hpmp9QY5UiSkMEVuYUguB0y6Tgzwz6VPOUptdSZlElOr.zexUaK2i8WGKY
- ynIdepd289EmZ3rCw2.0fI_pdtllvv2blCLjlaSCE29AGc0G7UJOKN4pXiTYm4eS1c3Bjf32n5aB
- yoTZTy.jo2n6.Gi_AkWC2FJURpbdASpsR543z7GBpphs7dhY9mhhjY2JP7YIzeAlhltP.NrDoQ1H
- zZEyzHkRjwoZzF4isiZf6QYUnlwvUCIWORZE9ztJ7dcsEaujaJEfPTo2zLC2O5TJfusFLsbE4Blz
- Jd7rsEEpC3nXgKkCHxh6Ap6sOzfbp8wUR17BawYfc4JOmqBDNvsWa3ySR64RCRiZXmnq4Z60ha.h
- aRqkjQBzs.R2RLE7pjSr7XM0vDLv.LlHOOF7dyZOLGxPewFlfJnU5etKuzw2u6q_GwgMQKhxHj64
- cluEy9__Fn3n5dkl3yzkVldQ6nEjWCWT0HeSX0sulDnRL8VZ288hQgrqf0LAWIZxpEHbWbrCoQ00
- gLue67Vj7omZYlIxtB.alTdrU3w.awv33UDhE.pgWLigA6pv8YFlpBxvWH0vO9EJJPL_UZytUgol
- zWMyFWu5xaFtWSH91hRjzt9sXISqRc75Z8K9bU.AklAsmTzyIcG2zRRr3yIE0uKMTclZsANAZCBD
- FwnABpt1e5s14Din0b4i5AJOxbUNSf5x_2XQn._y00qSkj121.PrBJV0AROh8PwNpl46Wyyghrqh
- KSL0qU0iJdHu.Z72WJJv6Q1JbzA3LioeRdgOlplOU8y3R8AkMd5LIPVJCFNsuG0WW1EwMDTovKtW
- 6lgwTiZESgPLrnoFQdYDwT_0.AKl5fNbv58_h7.4pG8Xvqpnl8mdIYUomlTCSNMo.mWwmpfwCdwg
- URzaUIzBNqm6asfYmrZVMDWpjYq3OSXSXHHtQGjKnnD9fw972G9kx9B76DqEtjUbqXPHS6JYBRzc
- 3JfRN5WK4pVlZvZD93EnyupQp0pgQAyeBDllgBQ--
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=qFI9auch
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340202; bh=HO43C3iEXRa6J85xNlHDELJDyLp/RMlGT8/nfr+lOp0=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=qFI9auchQj9z0+wCQeDIayrG9QqJhba+XblOKPih7qxaGzqaZsxST/du3RJ1muktv2yG24LgcwMBjQz0xErxahftGq/kbHcc6Y/VX4AS9JlHOw+rwiwBR4YMCjXd+EPmmOVclrNON8f6VjT0a9Wd1u7tttt8C/aZnYOb04LexVNYt2Va3PsXTwrz0BeBYTmUaWxV4kHoFHeRmZUtL6wNANPHbvdqeyWnqlh9pXOMXusF1GRz8gr9DouX75wnFC9eyvt8ycBfrbaoHLn5jWBV02WLZviWmD2W+KweDuPSxF10jEaY+AQ1eBxNEoyWJBNWZfnBxD6sJnscN7wSIxW6ZQ==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340202; bh=amFclWzzKXyqP1CV1drAjTlE2i4SfkMLwUPFRxsLt39=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=ZSxs2Nj0SkOpkuWq0zNnSCPLy22owz/WomsQzTHidH6fJPm9Iknxt+nRBJXTXAXRwpbaw7Zy9O3YkCrslPVBIp5Yz7eASPY5yJp3y6N/K2aZS3Ai7WOjsuZxGVrH5ntNuoPA5or9JI9uyKYmhFQEXEfQMMogsnP+idZuesNK/xb59AsZSFCGcwdjtIKY9M+S9HnEb+ejAuzktNfvJHsQlF0NfeNSZVZdILhOjBV8CAh7guGYHFWHcWxkVzD7Hn3UXsE97oi34foNXTmnYHeDfhIDGyexLW7IYqQ7gnC3o9RI9FC8R0jhhD1rHJ/slgqoQoRZyxWvcSns2t8byKR3PQ==
+X-YMail-OSG: U7xlffIVM1n9Xw7MbtgvNvJsurWscIeMYijce62Cj6xBIeK7YZUSwaEFkdhtFdV
+ 4zqbnnByKITYSX3H.QapHL7xXtim3TEe79JyEbfmZv7jeiv4gwcuJVjYgRttvycLc8BDAzvohvqP
+ nRwM0SE.sbvNOQX.P0iMdQDLA_GJHUh2DC2ApZa.lLVmAUwmYYirYBEb9cnPDkJXOxgCFLnbBvjl
+ 6cew6DbTAB98jY7UJzBYAVYm7Jd2xK.kJrBiU2DzqS3VX5nhfAXP2jf0pUat5tClcD5VuiH3soVL
+ T7vMt.WWtZJDtBtIkPo8aSfuLTrWmEWPunSVuQlDX3Ve0882LA_b7SCAOZZSBWTy_AWchFRL_Tgs
+ rCvJEPv5wV8gHLe70pr3PYlicbRtKIl706DOIp76NrE4D0wFvyqj.kxwDVTTTJmoP3hk6cap8HsG
+ nVs93_z2qpuXVR9zzBEBP36Btb5sBiILjqgcltuIk3.WBLbkTkHgUhsS6Ozp8l.aEX72CR.3lwXI
+ wEh5qVKZ9K_o1f6iviSYKXTkReWxgB79kctFJY3WZFgkGo7.UFK3Us.5nEJpKRXbFOO93tjvlzav
+ K7GqgqqQUhZPDmZoab0lS955R8.VoEVi1HhGfq5fAa_PHB2uNGg0QWMaFvZb_Z8XgrDh9u2BJ8iv
+ tWtO5jys1gNQWixkpI7By2S4AF1SSJBRN4inAdaV0vnTazzUxAjeB7MbivW42Ri4yg.XutZvtnBT
+ E_alXskkM7l8rKp3ahy_62uiUsfEWlSEhciUv6.3moFGwlDMmsaVrPXNUDHcaD0nYm7dLPQ1BPYw
+ wU_nBZ.7BCi57tqPAqEAuMqwStty1UGXxD3iruUt1TpIFGrvz9F_aLIjdGpJ7hPiOCHbVavszzH3
+ r3aINgNQ0S9PL5Y4KXrxPhPPXDnXIGJyFAd4bn1m9dpELxEm_8Zs34rc1iX_K9lKjM1bcf5g2tVQ
+ 0qeQdmt7GNFiCISeygqtY2R2Ztj7J8hEsJoPBX5FW5gxC7BY8v8vShD._LMT27gSLj9__4tv1UbK
+ j.RSvKMaBf5JNnuZkZfWM9ivk6.38Sy6Fw3zlTmpKLfYGZf6ZeuTQsQ9eV8g8np7EplNHYwBgXXK
+ Pm90UqP5R87g48cKZpXe0RmQrBTyY1klljePZ2ChmcfdGMi6Hy5IN4jK_G_ERXsKIvlF4dHReWzi
+ 1EgUJ8vRFKeeXGGgKeabY8o4M61z.FGJC48V4jSeRBqyR8VLa2un2INnZqkSOsxju4DJNz5Queuz
+ N4mDCveJYczpWuDDyNf1JDNW.KWzovY35xvTqUZMysRq8nRszrrfChyw2EZ119MZoiChGHTpF39j
+ Veg1Zi3jt6TItHnOWKPwTNhkcaHKYgmSPSpLhFHq4qu9TzLYblu_TO0Ziu7rcXDFA1yD5dJTwPBx
+ uNaXwPJFGYCVw85iKAmI.edBls8Wjy3DkZk_Iu6.fgDJtOzPhiZKaqWa4NAdNlgLomWUZOk050zU
+ fUTQfNTOX2ngr0PX_cUAJ7ANRp7QQVh51J1BEzeClaYF9Z41LJZSiWCeopYVO5hBpbs4BGzutTzc
+ Zkpi.dPPTgf59GuPwk0NGp3Tc3AWB8XN58ngyKD55O3lWsKVVShg8YmucVzARnIZvFZvqCeXfko1
+ kisswCCuLiD9xHxrJiRZoUkwQ5plgkjupg7w6Djbcaz9TiHWE58uohl16Jw9ss0KyQiNV0WRL.MJ
+ GBHQwVY8UUlAMMRgPlR8FUzWo4_11tTOXEkBjGYS0.oCWO6VcISOBu09EwlvnkHSVpxGmcc4a3C7
+ oJGAKjMQ01smVqGv6XOvVoBDDxUvDZ.jkQ._GacVu2UXhUUIW6f.ZbsRW9MGGBPJX_uQICpZ5J8O
+ dcoNatcy9yY0CYAGHhXDeji2JDcSrl3_nk6BLXoMQAOgHErQYWd39fnv68.M2nQh105L6hraJS77
+ 6ULGCHgCoUWHX7uYq8SjYqSOBr2aROhmo6nCucltj6S49M1_kjj7wNGQS4ONo1R5IlJVobdG90Bu
+ dmreLvNjWbvGPQUcN4LRtfKdh0weV_3nDfx1lhEs9LvBpZ3P1MjQtyBI8CN024QjX_2O6DHA_cZ4
+ ayxH6W6orYhga4MnqQwLyOO.m8DbcUsB8iFuM.zpE0iyXTMHproA30eYMKGibRLtG.Nb6d_tyMIR
+ nK_8DXSn6h7SzfreqbNT6HcfCLPVrQnFGZA21X7N7s9p4p_TmOT3uULBzECXbx64IpOYfFBFuIr5
+ JMuoHABna9MZJQvdzf.HxI_Qfj0SQOQ3aYGOsWz8K8saYj7BXXTZEHaN9CBgDj1dNoaow9GahrgB
+ Ag0UVyE6VTJyqqYib08a2UD_8t0TGXec14JADtA--
 X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 9c12d4f6-18bf-4efb-bbc5-e67c0b3905f8
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic314.consmr.mail.ne1.yahoo.com with HTTP; Sun, 22 Nov 2026 09:35:17 +0000
-Received: by hermes--production-ir2-7c4859dc89-qhgqd (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 327e1356474b1f2fcb0b4d63b179b3ef;
-          Sun, 22 Nov 2026 09:35:15 +0000 (UTC)
-Message-ID: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
-Date: Sun, 22 Nov 2026 10:35:12 +0100
+X-Sonic-ID: 683f2aa3-7a9d-47d6-a89c-58eb8983171a
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Sun, 22 Nov 2026 09:36:42 +0000
+Received: by hermes--production-ir2-7c4859dc89-622bg (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 2a4ca4d27bd86477586decd0d6d230e8;
+          Sun, 22 Nov 2026 09:36:38 +0000 (UTC)
+Message-ID: <47733178-496b-4a0b-9e83-73ebe6919b54@yahoo.com>
+Date: Sun, 22 Nov 2026 10:36:36 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,438 +85,47 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Content-Language: pl
+Subject: [PATCH net-next v13 01/14] dt-bindings: net: dsa: realtek: add
+ RTL8367S-VB
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
 To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
  linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Subject: [PATCH net-next v13 00/14] net: dsa: realtek: rtl8365mb: add support
- for RTL8367S-VB
+References: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
+Content-Language: pl
+In-Reply-To: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-References: <3f1826f8-3096-40dd-a278-c70fce4852c8.ref@yahoo.com>
 X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-This series adds support for the RTL8367S-VB (chip ID 0x6642) to the
-rtl8365mb driver. The chip belongs to a new "family D" that differs from
-the existing family C in its VLAN and L2 table layouts, speed/RGMII
-configuration, SerDes (SDS13) and untagged PCP handling.
-
-Patch 1 documents the chip in the devicetree binding.
-Patch 2 adds the chip family infrastructure, with the per-family data
-(init jam table) in struct rtl8365mb_family_info (no functional
-change).
-Patch 3 moves the external interface force-mode configuration behind
-the family info (no functional change).
-Patches 4-5 add the port speed and RGMII mode configuration for family D.
-Patch 6 moves the VLAN 4k table accessors behind the family info (no
-functional change).
-Patch 7 adds the VLAN 4k table access (dynamically selecting the IVL
-learning mode from the filtering state of the user ports for family D
-only).
-Patch 8 refactors the PVID handling behind the family info (no functional
-change).
-Patch 9 adds the raw-VID PVID handling for family D.
-Patch 10 adds SDS13 PCS support.
-Patch 11 refactors the family C L2 MAC handling by introducing shared
-pack/unpack helpers and reaching the family C serializers through
-function pointers in the family info (no functional change).
-Patch 12 makes the L2 (FDB/MDB) table access work on family D, which
-has a 5-word entry layout, narrower table access fields and no EFID,
-where a VLAN-unaware bridge (VID 0) is isolated in FID 1 using
-port-based FID, and where LUT hits outside the ingress isolation mask
-fall back to flooding within the isolation mask (0x0A10 bit 0) with
-each port included in its own mask.
-Patch 13 numbers the internal priorities like PCP values on family D, as
-the vendor API does, so that untagged frames keep PCP 0 and the PCP,
-DSCP and port priority tables stay consistent with the traffic type
-numbering of the shared QoS layer. Family D has no separate
-untagged-PCP register (0x0851-0x0852).
-Patch 14 adds the RTL8367S-VB chip table entry. It comes last, so that
-no intermediate commit exposes a family D chip with incomplete
-handling and the series stays bisectable.
-
-Family C's functional behaviour is unchanged. The L2 table access and
-FDB/MDB code is shared; the family D handling is selected at runtime
-through the family info and rtl8365mb_is_d() (patch 12). The RTL8367S-VB
-has 8 ports, described by port_mask in its chip info (patch 14). On
-family D, FDB/MDB offload is available, but there is no per-bridge EFID.
-Instead, port-based FID (FID 1) isolates the offloaded VLAN-unaware
-bridge from standalone and software-bridged ports in FID 0, 0x0A10 bit 0
-(with self-bits in the port isolation masks) ensures tagged frames on
-standalone ports matching an IVL bridge VLAN flood to the CPU instead of
-dropping, and only one bridge is offloaded (max_num_bridges = 1).
-Further bridges are forwarded in software and isolated by the port
-isolation masks only (patch 12).
-
-Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port 6 over
-HSGMII (2500base-x) to an IPQ5018, with the UNIPHY mode sequence run
-at GMAC probe) with bridge VLAN filtering and per-port PVIDs, and in
-a reboot loop (16 boots, none broken, with traffic through the CPU
-port and no FCS or symbol errors), by Oleg Gavrilov.
-
-Tested on family D by Gustavo Foletto Mora on a TP-Link EX511 v2
-(RTL8367S-VB, CPU port 6 over 1G SGMII to an IPQ5018) on a live network,
-with a VLAN-aware bridge (tagged trunk with VIDs 10-40, access ports on
-VIDs 10 and 20) and a VLAN-unaware one: VLAN table and PVIDs, tagged and
-untagged traffic through the CPU port, VLAN isolation, FDB and MDB
-entries, VLAN add/delete churn, moving a port to a second bridge,
-traffic in the switch and through the CPU port, a conduit down/up and
-reboots, with no FCS, symbol, drop, fragment or jabber errors on the
-checked ports.
-
-Gustavo Foletto Mora tested the L2/LUT handling with port-based FID
-isolation (register readback across live vlan_filtering toggles and
-bridge leave, unicast between standalone ports through a VLAN-unaware
-bridge) and the lookup-hit isolation fallback (0x0A10) with self-port
-isolation masks.
-
-Tested on family D by tutzulyk on a TP-Link Archer AX53 v1 (RTL8367S-VB,
-CPU port 6 over HSGMII to an IPQ5018) with a bridge (br-lan, with a
-VLAN 99 interface on top) over LAN ports 1 and 4, with several gigabytes
-of traffic through the CPU port and no RX/TX errors on the checked ports.
-
-Regression-tested on family C by Stanislaw Pal on a TP-Link Archer AX55
-v1 (RTL8367S, CPU port 6 over a 2500base-x fixed link to an IPQ5018),
-on a tree that also carries an 802.1Q-based tagger for this switch:
-three boots (after sysupgrade, a reboot and a cold start), a further run
-of 23 boots (20 reboots, 3 power cycles, none broken, with the UNIPHY
-mode sequence run at GMAC probe), and traffic between a LAN client and
-an 802.11s mesh in both directions, with no FCS errors, drops or driver
-warnings. Family D paths are not exercised on that chip.
-
-Not covered: RGMII and real Wi-Fi stations.
+The RTL8367S-VB (chip ID 0x6642) is supported by the rtl8365mb driver
+with the changes that follow in this series. It is identified by its
+chip ID register, so it does not need a compatible string of its own.
+List it under realtek,rtl8365mb.
 
 Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Luiz Angelo Daros de Luca <luizluca@gmail.com>
 ---
-v13:
-  - 7/14: write IVL_EN cleared when a 4K entry loses its last member, so
-    that an emptied entry is not left in IVL (Sashiko); move the IVL_EN
-    rewrite into rtl8365mb_d_vlan_4k_set_ivl(), which 12/14 also uses on
-    its error path; Tested-by from Gustavo Foletto Mora kept after
-    retesting the changed scan and empty-entry paths
-  - 12/14: comment on the shared vid/fid storage in
-    rtl8365mb_d_l2_data_to_mc(); unlike the v12 attempt that took FID 1
-    from VLAN 4K entries (which failed for bridges without a PVID),
-    isolate the offloaded VLAN-unaware bridge from standalone ports using
-    family D's per-port PBFID registers (0x07AC / 0x07AD + port, assigning
-    FID 1 to VLAN-unaware bridge ports and serializing VID 0 entries with
-    FID 1), keeping standalone ports in FID 0; set 0x0A10 bit 0 and
-    include each port in its own isolation mask on family D so tagged
-    frames on standalone ports matching an IVL bridge VLAN reach the CPU
-    instead of dropping; if programming the port-based FID fails in
-    rtl8365mb_port_vlan_filtering(), restore IVL_EN through
-    rtl8365mb_d_vlan_4k_set_ivl(); drop the Tested-by tags of Stanislaw
-    Pal and Oleg Gavrilov on 12/14 as the L2/bridge FID path changed;
-    Tested-by from Gustavo Foletto Mora kept after retesting
-  - 13/14 (new): number family D internal priorities like PCP values, as
-    the vendor API does, converting from traffic types at the register
-    boundary, so untagged frames keep PCP 0 (reported and tested by
-    Gustavo Foletto Mora)
-  - 14/14: patch text is unchanged, but chip behavior changed through
-    12/14 and 13/14; Gustavo reconfirmed his tag on the full series;
-    Linus, Oleg, please reconfirm yours
+ Documentation/devicetree/bindings/net/dsa/realtek.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v12: https://lore.kernel.org/netdev/bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com/
-  - rebased on the current net-next, which describes the available ports
-    with port_mask in struct rtl8365mb_chip_info
-  - 2/13, 3/13: drop num_ports from struct rtl8365mb_family_info and
-    the num_ports use in rtl8365mb_detect(), as the ports are now
-    described by port_mask; reword the commit message
-  - 7/13: track the active 4K VLAN entries in a vlan_4k_used bitmap, so
-    rtl8365mb_d_vlan_4k_refresh_ivl() visits only the entries in use
-    instead of all 4094 VIDs (about 5 s per vlan_filtering toggle before,
-    20-30 ms with the bitmap, measured by Gustavo Foletto Mora); if
-    rewriting IVL_EN fails midway, restore the entries already rewritten
-    (best effort); the Reviewed-by and Tested-by tags stay dropped, as
-    the update code changed; entries that were already in the table
-    before the driver loaded are not visited
-  - 8/13: reword the comment on the family C PVID reset: family C is left
-    as it was before family D support, its PVID registers are not
-    touched at setup
-  - 9/13: add the missing kernel-doc markers and parameter descriptions
-    to rtl8365mb_d_vlan_port_get_pvid(), rtl8365mb_d_vlan_pvid_port_set()
-    and rtl8365mb_d_vlan_pvid_port_clear(); reword the comment in
-    rtl8365mb_vlan_setup(), as the PVID is only reset where the chip
-    needs it
-  - 10/13: clarify the comment on RTL8365MB_BYPASS_LINE_RATE_REG for
-    family D (port 5 is not an external port on the RTL8367S-VB), and
-    state in the commit message that the register layout is the same as
-    in the vendor RTL8367D API
-  - 12/13: fix the max_num_bridges comment and commit message (a bridge
-    that already has a number from another switch can still be offloaded
-    here), mention static multicast entries in the FID 0 paragraph, and
-    explain why a per-bridge FID from the VLAN 4K entries does not help.
-    Giving the offloaded bridge its own FID (FID 1) was tried and
-    dropped: it only works for bridges whose ports have a PVID, i.e. a
-    VLAN 4K entry carrying the FID. A bridge without VLANs (the default
-    br-lan) is classified into FID 0, so the static entries written with
-    FID 1 no longer match what it learns, and with fdb_isolation the
-    standalone ports' host entries in FID 0 shadow its traffic. FID 0
-    stays shared as described in the commit message, which is a known
-    limitation of the chip without EFID
-  - 13/13: describe the ports of the RTL8367S-VB with .port_mask instead
-    of a family D port count and set .num_tx_queues, as required after
-    the rebase; reword the commit message, which now says that the init
-    jam table is the RTL8367C one and has not been compared with the
-    vendor RTL8367D initialization; num_tx_queues is 8 as for the other
-    chips and has not been checked against the family D vendor code
-
-v11: https://lore.kernel.org/netdev/cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com/
-  - 7/13: add rtl8365mb_d_vlan_4k_refresh_ivl() to update IVL_EN across
-    active 4K VLAN entries when a vlan_filtering change flips the
-    switch-wide filtering state; drop Reviewed-by and Tested-by tags as
-    this adds a new scan path
-  - 8/13 (new): move the PVID get/reset/set/clear helpers behind struct
-    rtl8365mb_family_info, the existing code becoming the family C
-    implementation; no functional change (Luiz)
-  - 9/13: add the family D PVID get/reset/set/clear implementations and
-    call vlan_port_reset_pvid() through struct rtl8365mb_family_info
-    instead of using an rtl8365mb_is_d() check; drop Reviewed-by and
-    Tested-by tags as the PVID path was reworked
-  - 10/13: note in a comment that the DW8051 reset/enable bits in
-    CHIP_RESET and MISC_CFG0 are identical on family D in the vendor SDK
-  - 12/13: clarify in the comment on max_num_bridges = 1 that DSA
-    allocates bridge numbers system-wide
-  - 13/13: wire up the family D PVID callbacks in rtl8365mb_family_d,
-    make rtl8365mb_d_ext_config_forcemode() static and drop its
-    declaration from rtl8365mb.h
-  - Added a test report from tutzulyk on family D (RTL8367S-VB); no
-    Tested-by tag, as no real name and e-mail were provided
-  - Added a new family C regression run from Stanislaw Pal (Archer AX55
-    v1, RTL8367S): 23 boots, none broken
-  - Added Tested-by from Oleg Gavrilov on 2-4, 6 and 10-13 (family D,
-    Archer AX55 v1, RTL8367S-VB, 2500base-x): 16 of 16 good boots
-  - Dropped Tested-by from Stanislaw Pal on 3 and 6, as these patches
-    were added after his test
-
-v10: https://lore.kernel.org/netdev/d9da17af-f49e-4878-a8dd-59a8919e6930@yahoo.com/
-  - 8/11 of v9 (SerDes re-latch): dropped. Johan Alvarado traced the
-    symptom to the SoC side: the bootloader hands the UNIPHY over in SGMII
-    and the out-of-tree qca-uniphy PCS programs SGMII+ only from
-    pcs_config() at the first open of the conduit, about two seconds after
-    the switch brought its SerDes up in HSGMII at DSA setup, so the switch
-    receiver trains against the wrong line rate. Running the UNIPHY mode
-    sequence at GMAC probe, before the switch probes, fixes it with no
-    change in rtl8365mb (0 of 32 broken boots, versus 18 of 51). As neither
-    dwmac-ipq5018 nor pcs-qca-uniphy is in mainline, the workqueue, the
-    extra locks and the reboot notifier are not needed in this driver
-    (Johan, Alvin)
-  - 2/12: say "family-specific" in the comment on the init jam table
-  - 3/12 (new): move ext_config_forcemode() behind struct
-    rtl8365mb_family_info, the existing code becoming the family C
-    implementation; no functional change (Alvin)
-  - 4/12: only add the family D force-mode implementation, instead of
-    is_d() branches in the shared code; no functional change; say in the
-    commit message why the function is not static until the last patch
-  - 5/12: log an error instead of a warning when RGMII is not available
-    on port 7, and say in the commit message that port 7 then has no
-    supported interface
-  - 6/12 (new): move the VLAN 4k table accessors behind struct
-    rtl8365mb_family_info, the existing code becoming the family C
-    implementation; no functional change (Alvin)
-  - 7/12: only add the family D VLAN 4k accessors, instead of is_d()
-    branches in the shared code; on family D enable IVL while any user
-    port has VLAN filtering enabled, independent of the port being
-    configured (so the CPU port cannot reset it); document that IVL_EN
-    (bit 3, versus bit 14 on family C) is refreshed on the next
-    port_vlan_add/del of the VID, not on a vlan_filtering change; say in
-    the commit message why the accessors are not static until the last
-    patch
-  - 9/12: do not advertise 10 and 100 Mbit/s on the family D SerDes port,
-    as no SerDes rate is programmed for them
-  - 11/12: do not delete a dynamic unicast entry on family D; correct the
-    commit message about standalone ports (DSA programs no entries for
-    them without fdb_isolation) and describe that FID 0 is shared; name
-    the vendor function that writes the LUT aging value
-    (dal_rtl8367d_l2_init); say in the commit message why the family D
-    functions are not static until the last patch
-  - 2/12 and 12/12: restored Reviewed-by from Linus, reconfirmed on the
-    list after v9
-
-v9: https://lore.kernel.org/netdev/9b73858d-fc09-4988-8bab-fd7b88db9412@yahoo.com/
-  - 2/11: add struct rtl8365mb_family_info holding per-family data
-    (port count, init jam table); use num_ports from it in
-    rtl8365mb_detect(); rename the port count constant to
-    RTL8365MB_C_MAX_NUM_PORTS (Alvin)
-  - 3/11: drop the FORCE_SPEED_WIDTH macro and add a mask for the most
-    significant speed bit (Alvin)
-  - 5/11: restructure the family D checks when unpacking the untag
-    field; no functional change
-  - 7/11: update the kernel-doc of sds_supported and the commit message
-    for family D always setting it; note in a comment that the register
-    and field names follow the vendor API
-  - 8/11:
-    - use explicit mutex_lock()/mutex_unlock() instead of
-      guard(mutex); no functional change
-    - arm the re-latch only for 2500base-x on a CPU port, and say
-      so in the commit message; ignore conduit state changes of other
-      switches in the tree
-  - 9/11: reach the family C L2 serialisers and entry size through
-    function pointers in the family info (Alvin)
-  - 10/11:
-    - add the family D L2 serialisers to the family info, drop
-      RTL8365MB_D_L2_MAX_PORT and the port checks, as the core never
-      passes a port above num_ports - 1 (Alvin)
-    - use an SVL key (IVL=0, FID=0) for VID 0, so static unicast
-      and multicast entries match the learned ones in a VLAN-unaware
-      bridge; they were written with IVL set and never replaced the
-      learned entries (reported and tested by Gustavo Foletto Mora)
-    - offload only one bridge on family D (max_num_bridges = 1),
-      as the LUT cannot tell bridges apart without EFID; further bridges
-      fall back to software forwarding
-    - do not delete a unicast entry on family D if the entry
-      found belongs to another port; update the l2_lock and EFID
-      comments; note that the LUT aging value is undocumented
-  - 11/11: describe the 8 ports of the RTL8367S-VB in its family info
-    instead of a family check in rtl8365mb_detect(); mention the L2/LUT
-    and table access differences in the family D overview comment
-  - Dropped the Reviewed-by tags of Linus and Luiz from 2/11 and the
-    one of Linus from 11/11, as these patches changed substantially.
-    Linus, Luiz, could you please take another look? Tags on the other
-    patches are unchanged.
-  - Added Tested-by tags: Gustavo Foletto Mora on 2, 3, 5, 6, 7, 9, 10,
-    11 and Stanislaw Pal on 2, 3, 7, 8, 9, 10
-
-v8: https://lore.kernel.org/netdev/08611959-c555-46d9-8e7e-20b85d0c4056@yahoo.com/
-  - 2/11: declare the rtl8365mb_is_d() helper as a global inline function
-    in the new header
-  - 9/10: split into two patches to improve structure and address reviewer
-    comments:
-    - 9/11 (new): introduce shared MAC pack/unpack helpers and refactor
-      family C serializers without functional changes
-    - 10/11: drop the confusing _any() suffixes in favor of clean
-      symmetric dispatchers, switch to the global rtl8365mb_is_d() helper,
-      and fix the memset size in family D serializers
-
-v7: https://lore.kernel.org/netdev/3bf4dd70-9771-497b-8c27-e925e0ef81eb@yahoo.com/
-  - 3/10, 6/10: note that the family D path is unreachable until the last
-    patch
-  - 4/10: program EXT_TXC_DLY, the pin mux and the SerDes 1 disable
-    before selecting RGMII; warn when RGMII is disabled because MAC4 owns
-    EXT1
-  - 8/10: act only on the conduit of the CPU port that carries the
-    SerDes; queue the work with schedule_delayed_work() and rename the
-    devres action to rtl8365mb_sds_relatch_disable()
-  - 9/10: new, make L2/LUT access work on family D (5-word entries,
-    narrower table access fields, LUT init, no FDB isolation)
-  - 10/10: update the NET_DSA_REALTEK_RTL8365MB help text
-
-v6: https://lore.kernel.org/netdev/5a4715dd-89e0-4868-9ffb-c8fb73b18d04@yahoo.com/
-  - 4/9: do not advertise RGMII for port 7 when MAC4 owns EXT1, instead
-    of returning -EBUSY from mac_config(), which phylink ignores
-  - 5/9: take IVL_EN from vlan4k->ivl_en and leave SVLAN_CHK_IVL_SVL at
-    0, as the vendor API does
-  - 7/9: pcs_get_state(): keep phylink's speed and duplex for SGMII and
-    never report the link up with an unknown speed
-  - 8/9: start the re-latch work when the conduit comes up and stop it
-    when it goes down (.conduit_state_change); serialize it against
-    pcs_config() with sds_cfg_lock; disable it for good on shutdown and
-    unbind
-
-v5: https://lore.kernel.org/netdev/aa5fa12c-e43e-4e5e-9f77-c6eaf477abc4@yahoo.com/
-  - 1/9: fix the subject
-  - 4/9: refuse RGMII on EXT1 with -EBUSY when it is owned by MAC4,
-    before touching any EXT1 register
-  - 5/9: drop the unverified rationale for forcing SVLAN_CHK_IVL_SVL, say
-    that the vendor API leaves it at 0, and note that the family D paths
-    are not reachable until the last patch
-  - 6/9: init prev_accepted_frame to avoid a maybe-uninitialized warning
-  - 7/9: comment the write of the whole RX disable field, as in the vendor
-    sequence; fix two comments that still credit pcs_link_up() on family D
-  - 8/9: cancel the re-latch work from a reboot notifier instead of
-    checking the driver data; fix the RESTORE_TRIES comment and do not
-    sleep after the last failed restore attempt
-  - 9/9: fix the description of the external interface indices. The v4
-    changelog said that only HSGMII is exposed; that was wrong, SGMII is
-    still exposed
-
-v4: https://lore.kernel.org/netdev/38872e6f-1264-4a93-9f81-8212173e909d@yahoo.com/
-  - 1/9: reword the commit message (support is added by the series)
-  - 3/9: document the per-port force enable register
-  - 5/9: document both forced IVL bits, update stale comments
-  - 6/9: clear the family D PVID registers at setup
-  - 7/9: do not override the forced SGMII speed in pcs_get_state(),
-    update stale comments, note that the patch is preparatory
-  - 8/9: remember a failed restore and retry it first; stop the work
-    after shutdown (driver data cleared)
-  - 9/9: expose HSGMII only on the SerDes port, update the SerDes
-    interface comment
-
-v3: https://lore.kernel.org/netdev/e84d76ee-03df-49b0-8c9a-b289dfae8728@yahoo.com/
-  - add a dt-bindings patch (1/9): RTL8367S-VB listed under
-    realtek,rtl8365mb
-  - add chip family infrastructure as its own patch (2/9), no
-    functional change
-  - squash the family D PVID getter and the PVID set/clear patches
-    into one (6/9), so the read and write paths use the same register
-    layout at every point of the series
-  - add the RTL8367S-VB chip table entry last (9/9), after the family
-    D speed, RGMII, VLAN and PCS support, so no intermediate commit
-    can reach the chip with incomplete handling (reported by the
-    automated review)
-  - 6/9: fix the commit message (port p's write lands in port p >> 1)
-    and update the stale kernel-doc and file comments
-  - 8/9: start the re-latch work only for 2500base-x, cancel it from
-    .pcs_disable, from pcs_config() and via a devres action; retry the
-    SDS_MISC restore and come back soon if it fails; rewrite the
-    commit message to match the code (reported by the automated
-    review)
-  - 9/9: document family D in the file header comment and in the
-    learn limit comment (limit confirmed against the Realtek vendor
-    API)
-
-v2: https://lore.kernel.org/netdev/28382f3f-03c1-4606-9b11-86f118abeafe@yahoo.com/
-  - 2/8: mask r_speed to the width of the FORCE_SPEED field before passing
-    it to FIELD_PREP(), so that the family D 2500M value (5) cannot trip
-    the compile-time range check; bit 2 still goes to FORCE_SPEED2
-    (reported by the automated review).
-  - 4/8: the commit message now explains why EXT_TXC_DLY[5:3] is cleared
-    for RGMII on EXT1: the vendor RGMII setup does it, and the init jam
-    table leaves the field at 2, which would add an extra TX delay on top
-    of tx-internal-delay-ps. Add a comment describing the EXT_TXC_DLY
-    layout (Andrew Lunn's review).
-  - 8/8: document the new struct rtl8365mb members in the kernel-doc
-    comment (sds_lock, sds_relatch, sds_relatch_count,
-    sds_misc_target_val), which fixes the kernel-doc warnings.
-  - 1/8, 3/8, 5/8, 6/8, 7/8: no changes.
-
-v1: https://lore.kernel.org/netdev/84fc7483-b22d-45ea-a3b8-3285dc357265@yahoo.com/
-
-Mieczyslaw Nalewaj (14):
-  dt-bindings: net: dsa: realtek: add RTL8367S-VB
-  net: dsa: realtek: rtl8365mb: add chip family infrastructure
-  net: dsa: realtek: rtl8365mb: refactor forcemode handling
-  net: dsa: realtek: rtl8365mb: set speed for family D
-  net: dsa: realtek: rtl8365mb: set RGMII mode for family D
-  net: dsa: realtek: rtl8365mb: refactor VLAN 4k handling
-  net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
-  net: dsa: realtek: rtl8365mb: refactor PVID handling
-  net: dsa: realtek: rtl8365mb: use raw VID for PVID on family D
-  net: dsa: realtek: rtl8365mb: add family D SDS13 PCS support
-  net: dsa: realtek: rtl8365mb: refactor L2 MAC handling
-  net: dsa: realtek: rtl8365mb: make L2/LUT access work on family D
-  net: dsa: realtek: rtl8365mb: use PCP numbering on family D
-  net: dsa: realtek: rtl8365mb: add support for RTL8367S-VB
-
- .../devicetree/bindings/net/dsa/realtek.yaml  |   2 +-
- drivers/net/dsa/realtek/Kconfig               |   3 +-
- drivers/net/dsa/realtek/realtek.h             |  11 +-
- drivers/net/dsa/realtek/rtl8365mb.h           |  51 ++
- drivers/net/dsa/realtek/rtl8365mb_l2.c        | 263 ++++--
- drivers/net/dsa/realtek/rtl8365mb_l2.h        |  21 +
- drivers/net/dsa/realtek/rtl8365mb_main.c      | 799 +++++++++++++++---
- drivers/net/dsa/realtek/rtl8365mb_qos.c       | 111 ++-
- drivers/net/dsa/realtek/rtl8365mb_table.c     |  44 +-
- drivers/net/dsa/realtek/rtl8365mb_vlan.c      | 507 ++++++++++-
- drivers/net/dsa/realtek/rtl8365mb_vlan.h      |  28 +
- drivers/net/dsa/realtek/rtl83xx.c             |   5 +-
- 12 files changed, 1615 insertions(+), 230 deletions(-)
- create mode 100644 drivers/net/dsa/realtek/rtl8365mb.h
-
+diff --git a/Documentation/devicetree/bindings/net/dsa/realtek.yaml b/Documentation/devicetree/bindings/net/dsa/realtek.yaml
+index 473facd..ca775f6 100644
+--- a/Documentation/devicetree/bindings/net/dsa/realtek.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/realtek.yaml
+@@ -43,7 +43,7 @@ properties:
+       realtek,rtl8365mb:
+         Use with models RTL8363NB, RTL8363NB-VB, RTL8363SC, RTL8363SC-VB,
+         RTL8364NB, RTL8364NB-VB, RTL8365MB, RTL8366SC, RTL8367RB-VB, RTL8367S,
+-        RTL8367SB, RTL8370MB, RTL8310SR
++        RTL8367S-VB, RTL8367SB, RTL8370MB, RTL8310SR
+       realtek,rtl8366rb:
+         Use with models RTL8366RB, RTL8366S
+ 
 -- 
 2.53.0
 
