@@ -1,59 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795345624;
-	b=boIA3aJ5kLiyJnRDO+YqXeVLw2DhJdQqodC9jjhXWHmj/+bySzcFukdYZ2gHUqzCBw58
-	 GN1PgDL4CW9lbAuU6ivVVP9ExMikT1iQej5xrX1BU92dsqNAupCEmjChfbJ3zdN3dy2iM
-	 PAwVIXr0qu/MlhC0kwZN2wou5FxBVXH+LNIF5vAtv0egIUfY/6wtDbxed9FbWD8FfRBWr
-	 KPcU/gQX8P6spmuhQXEgQ/eJLo8xfFhw3r5ga2QW4AxqeXtsMdklnsf3BIxP19Ww5/k6f
-	 w3p8kT4FqEN7ppBcD0Sq5Zmesy05FLA1FClISy7ZP44dD/Nj3PKGCbO/1E3HUJEoysg==
+	t=1795345803;
+	b=wFqX1xuN1fFuM+uJy7/1DaQqHD6339v5XG0zVLC7oa7Awedc1hB4TGoSk9Rnolnn++wJ
+	 g0U7IVx2JF+zrj7H3+yPzX+RUc7LWlOoAimwxxBS7r8DMyEg/TdDtXQBTTk+/RxX2ZQGx
+	 VwwUDtOovm5lOrSMW9TwtMpRt0iw+g6s5pBEHVRRVKzfWB3ktP/BuQ5cEQLFFoeYu0B6q
+	 ibHHLr521dy+sMujutSUPz9w5+tMrSpANzYdhkmZeAZFYDt8WiuYFFWLpjFiD40QIy/ko
+	 7dNEjzrxEPv5Zf1P08hKt3CYHDVfRIrHl4SFS55bPrNVoxyLWK54Pt0dwzXbSey5IWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795345624;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=bd1L8F8/koxTYcaOh49inrpszN9fldx8EIO0WyauHFM=;
-	b=JNOsi3MYZoK0cOp8y6fDgERf9yYu7d5tVXfGMRqE8GopykcMztzzj5IjGs1kKu4hlRvj
-	 iTMAMLgrtUSU4HLT9IubtEtMdsj2vhRPVbQ3e1hR41CCLjzmbU7cC6ZGEXMWHldTKuzrT
-	 5o70V26lHgRev+WzNt8OJ1vwxrQ3yfJ4GNC+82++ihb+dffKhcF7G0jJXMxd/3RhD2ldV
-	 VsUAd59fGt5YYmBf/uPZYkP4SdBjVoRS5Gz1ZjwlU0JKft4d0OfYIlXKxHVpQy1O25EFw
-	 hSqp5Wl4vgTsLZCjTHmBlMBgh9wJ80zmBasfExrKiLYrdJcRU8Zb1GtWHMdSZSP9cxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795345803;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=14rHkK05+hQDO7nL3bl21/HruTK6z+DkDIpc+CW53/Q=;
+	b=V699leb2ir4C3HR1jACGLPo8nVVq3xa4gnWYT6Tf5rpkN9FXuRk0Nx3NUNtkaE07+A3L
+	 FloVlSDyEcH939q3zfz8OBTGXC0vVrxgiAk+AAK94qSMwBy4iM7ASDodg/6wS4nnyo6FR
+	 IAJSoz1t93tsMPc1hFU55UCT49WJL3O8FYCGPxc3N/xum2s68meEy6sfw028gOf4XZcnr
+	 dl+bQsMpKaFjbeIylnEtuVCkrlTZCa3cEXAUQ2iJG25zQUNWE5d1pqh9/tJlaITJElp5d
+	 2HsxfXHo04eDzM2JfL6T3sdLNZmTCPPDunIegs92bZFUpEwG8ulM05upDnoVmGTYctg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gs88IWcU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=birger-koblitz.de;
+	spf=pass smtp.mailfrom=birger-koblitz.de;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=YuHaxkWB;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=pOXY9m1A;
+	arc=none smtp.remote-ip=23.88.97.239
+Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4CB8606A331
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 11:07:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25231606A320;
+	Sun, 22 Nov 2026 11:10:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25231606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gs88IWcU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98A611F000C4;
-	Sun, 22 Nov 2026 11:07:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795345623;
-	bh=bd1L8F8/koxTYcaOh49inrpszN9fldx8EIO0WyauHFM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=gs88IWcUxgAtBmDHyMHFicietLYdNHw1JkhPSwjgmKwZ0e3LOwJIw+oKzyDTTaYt7
-	 E4ksanB2Zmu183lOP/dJu8g8wgIrYYcoRUBz40fYK6CHALShlUOlCHyX5hmdm5ShmV
-	 QPK1n/LjgOWnOgx2+jKSokmrGJoNIMrrzHisioXzRKglrAts1GyGcluwMxytc/74z5
-	 HbnNsta1ykpU8Yi/u2By6ZFgHOy7mtqyhwk9lKKSfwhslW/VOU9wuvf8UgDNEqzZlD
-	 7RKsdb93CQ/r1nnl+H8iZicBG7l7Cii7pwFZ3DrKEx8pkvLYWHTW0CDC4PA2BpyQbf
-	 8k5D3CDeaD22A==
-Subject: Re: [PATCH net v3 1/3] tg3: Don't fail probe if 31-bit coherent DMA
- mask is unsupported
-From: netdev-bot+sashiko@kernel.org
-To: pavan.chebbi@broadcom.com
-Cc: michael.chan@broadcom.com, kuba@kernel.org, andrew+netdev@lunn.ch,
- andrew.gospodarek@broadcom.com, davem@davemloft.net, edumazet@kernel.org,
- netdev@vger.kernel.org, pabeni@redhat.com, shravya.k-n@broadcom.com
-Date: Sun, 22 Nov 2026 11:07:02 +0000
-Message-ID: <179534562215.3135.11736501194773169729@kernel.org>
-In-Reply-To: <20261118105408.1076095-2-pavan.chebbi@broadcom.com>
-References: <20261118105408.1076095-2-pavan.chebbi@broadcom.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=YuHaxkWB;
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=pOXY9m1A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1795345801;
+	bh=ymj7MAkBcV45hFwZSpLKDoqfKGoaOxQ+nILlbmgV56E=;
+	h=From:Date:Subject:To:Cc:From;
+	b=YuHaxkWBt1/shJCYDIdIlnLCbO31chRs8iw+njvo2ymqxUC0yAMGUQ3aRW5vHLqfn
+	 TtkgwMHebjtSuzepjvBVgwdkMnOM0C5LE9uof8max/ns6RbGPKA99RG/pv/tBkl7xm
+	 lkfkvSRw+C/ECDTK2sESBQibMLVRRaKwpJiQhEomwEXUO5FbGFWtD7//bFNUGWi0R8
+	 CZb6D2zyiQxULCuKZ8030yFbiX3NG+0+tPUF+km359COmhDvvARi6gQKzRCX4wfT/H
+	 bcStl/QLauOvKLhzNqxtviVcnb6OlsyF7CODeyyI8CVyM8u2fg12uZ31pAWBt7GVMA
+	 w627DTVJU6+vA==
+Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
+	id 4786C495AB; Sun, 22 Nov 2026 11:10:01 +0000 (UTC)
+X-Spam-Level: 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1795345800;
+	bh=ymj7MAkBcV45hFwZSpLKDoqfKGoaOxQ+nILlbmgV56E=;
+	h=From:Date:Subject:To:Cc:From;
+	b=pOXY9m1AnykDY9zddTniqYZHmZf/ul4v+FZ4y8pfoB5LcqZRgDYVP5IGyY/LNl1b4
+	 1PpkF60HwL3Ck+ngk1ZprhrYxnyYYVQnZHEGZhyre9ejk0mrSBaWGwCUd+DeUN+lm5
+	 fM0bBTeEJxvi53Vwco2SiEIp18MztJliFiIDD78m55KEi+rVFvmZSj5shivBo5jCxD
+	 pkjcxszFo8v+nL3blAD+XFrLsgAptSddG648WgXVLM+dgZYHoS6FM9yyoM/zWP7Qb0
+	 37e76SYIEi4k8nj7QUJJzkYzx9B/xr4+g9EB88j+7930HbjrMcf45cugKNgg5xrMfy
+	 3XkNi7V9mkl3Q==
+Received: from AMDDesktop.lan (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
+	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id 2D90048BCF;
+	Sun, 22 Nov 2026 11:10:00 +0000 (UTC)
+From: Birger Koblitz <mail@birger-koblitz.de>
+Date: Sun, 22 Nov 2026 12:09:49 +0100
+Subject: [PATCH net-next v2] aqc111: Fix rx/tx_fixup issues
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,72 +74,149 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de>
+X-B4-Tracking: v=1; b=H4sIAH3NAmsC/12NwQrCMBBEf6Xs2ZUm1EY8+R/SQ5Ju20VJbBJCt
+ fTfDTl6mWF4w8wOkQJThFuzQ6DMkb0rQZ4asIt2MyGPJYNsZS+EUKhXWxxNa6euvY5K9QZK+R1
+ o4q0OPcBRQkdbgqGQhWPy4VMfsqj8fywLFCiVvnS2M0X03XCYKeDTmxen73kkGI7j+AE/+A5cr
+ gAAAA==
+X-Change-ID: 20261117-aqc111-b0cf408d776b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>
+Cc: linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Birger Koblitz <mail@birger-koblitz.de>
+X-Mailer: b4 0.14.2
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness, respectively
+alignment-handling were found, which are also present in the aqc111 driver:
+ CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+drivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
 
-Low priority / nit picks for your consideration:
+While sparse complains about lack of the use of __le64, these spots also
+incorrectly handle alignment. Fix these problems by introducing __le64
+where necessary and additionally make use of get_unaligned_le64/
+put_unalignged_le64().
 
-- [Low] On BCM57766, tg3_alloc_consistent()
-  (drivers/net/ethernet/broadcom/tg3.c, around line 8870) can find that…
+The current code also incorrectly modifies the skb buffer without checking
+it was cloned, possibly corrupting a shared buffer. This issue is also
+fixed.
 
---
+Finally, also introduce a minimum lengthe check for packets as the packet
+length is received via a USB transfer and may be incorrect.
 
-tg3: Don't fail probe if 31-bit coherent DMA mask is unsupported
+Fixes: 361459cd9642 ("net: usb: aqc111: Implement RX data path")
+Fixes: 4a3576d2bcc7 ("net: usb: aqc111: Implement TX data path")
+Signed-off-by: Birger Koblitz <mail@birger-koblitz.de>
+---
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+ddrivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
+    
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion. Finally also a length-cleck
+on the minimum length of received packets is added.
+---
+Changes in v2:
+- Do not use cast in desc_hdr = get_unaligned_le64((__le64 *)skb_tail_pointer(skb));
+- Added packet-length check
+- Improved commit subject and description covering alignment and skb-cloned
+  fixes
+- Link to v1: https://lore.kernel.org/r/20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de
+---
+ drivers/net/usb/aqc111.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-This patch makes the 31-bit coherent DMA mask for BCM57766 best effort.
-If the platform refuses that mask, the driver falls back to the coherent
-mask used before 614f4d166eee, so probe no longer fails. It also adds a
-warning when a status block is allocated at a DMA address that matches
-the erratum pattern described in 614f4d166eee.
+diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
+index 12a99df77f0d332053852e44991188c690c4c0bc..ee7c8bb858458418048dc05defe4a642b6d05b05 100644
+--- a/drivers/net/usb/aqc111.c
++++ b/drivers/net/usb/aqc111.c
+@@ -1078,7 +1078,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 	struct aqc111_data *aqc111_data = dev->driver_priv;
+ 	struct sk_buff *new_skb = NULL;
+ 	u32 pkt_total_offset = 0;
+-	u64 *pkt_desc_ptr = NULL;
++	__le64 *pkt_desc_ptr = NULL;
+ 	u32 start_of_descs = 0;
+ 	u32 desc_offset = 0; /*RX Header Offset*/
+ 	u16 pkt_count = 0;
+@@ -1095,7 +1095,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 	/* RX Descriptor Header */
+ 	skb_trim(skb, skb_len - sizeof(desc_hdr));
+-	desc_hdr = le64_to_cpup((u64 *)skb_tail_pointer(skb));
++	desc_hdr = get_unaligned_le64(skb_tail_pointer(skb));
+ 
+ 	/* Check these packets */
+ 	desc_offset = (desc_hdr & AQ_RX_DH_DESC_OFFSET_MASK) >>
+@@ -1120,10 +1120,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 		goto err;
+ 
+ 	/* Get the first RX packet descriptor */
+-	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
++	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
+ 
+ 	while (pkt_count--) {
+-		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
++		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
+ 		u32 pkt_len_with_padd = 0;
+ 		u32 pkt_len = 0;
+ 
+@@ -1139,6 +1139,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 		if (pkt_desc & AQ_RX_PD_DROP ||
+ 		    !(pkt_desc & AQ_RX_PD_RX_OK) ||
++		    pkt_len < (ETH_HLEN + AQ_RX_HW_PAD) ||
+ 		    pkt_len > (dev->hard_mtu + AQ_RX_HW_PAD)) {
+ 			skb_pull(skb, pkt_len_with_padd);
+ 			/* Next RX Packet Descriptor */
+@@ -1224,7 +1225,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 	headroom = skb_headroom(skb);
+ 	tailroom = skb_tailroom(skb);
+ 
+-	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
++	if (skb_cloned(skb) ||
++	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+ 		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
+ 					  padding_size, flags);
+ 		dev_kfree_skb_any(skb);
+@@ -1236,7 +1238,7 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 		skb_put_zero(skb, padding_size);
+ 	/* Copy TX header */
+ 	tx_desc_ptr = skb_push(skb, sizeof(tx_desc));
+-	*tx_desc_ptr = cpu_to_le64(tx_desc);
++	put_unaligned_le64(tx_desc, tx_desc_ptr);
+ 
+ 	usbnet_set_skb_tx_stats(skb, 1, 0);
+ 
 
-Link: https://lore.kernel.org/netdev/CALjTZvYKHWrD5m+RXimjxODvpFPw7Cq_EOEuzRi1PZT9_JxF+g@mail.gmail.com/
+---
+base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+change-id: 20261117-aqc111-b0cf408d776b
 
-> diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
-> index 95827df4cf6a1..2cf9d2ea069b5 100644
-> --- a/drivers/net/ethernet/broadcom/tg3.c
-> +++ b/drivers/net/ethernet/broadcom/tg3.c
-> @@ -8867,6 +8867,13 @@ static int tg3_alloc_consistent(struct tg3 *tp)
->  		if (!tnapi->hw_status)
->  			goto err_out;
->  
-> +		if (tg3_asic_rev(tp) == ASIC_REV_57766 &&
-> +		    (lower_32_bits(tnapi->status_mapping) & 0xffff0000) ==
-> +		    0xffff0000)
-> +			dev_warn(&tp->pdev->dev,
-> +				 "Status block at DMA address %pad may cause TX timeouts on this device\n",
-> +				 &tnapi->status_mapping);
-> +
-
-[Severity: Low]
-When the status block lands at an address that matches the erratum
-pattern, the driver keeps the buffer. tg3_rings_reset() later writes
-that address into the chip:
-
-	tw32(HOSTCC_STATUS_BLK_HOST_ADDR + TG3_64BIT_REG_HIGH,
-	     ((u64) tnapi->status_mapping >> 32));
-	tw32(HOSTCC_STATUS_BLK_HOST_ADDR + TG3_64BIT_REG_LOW,
-	     ((u64) tnapi->status_mapping & 0xffffffff));
-
-tg3_alloc_consistent() is only called from tg3_start(). A recovery reset
-therefore writes the same address again. That covers both the
-tg3_process_error() "DMA Status error.  Resetting chip." path and a TX
-timeout reset. Only closing and reopening the interface gets a new
-allocation.
-
-Could the driver hold on to the matching buffer and allocate a
-replacement instead? That would keep the workaround in effect on
-platforms that refuse the 31-bit mask.
-
-The warning also gives TX timeouts as the symptom. 614f4d166eee says the
-hardware sets the overflow bit in the DMA status register, and
-tg3_process_error() would report that as a DMA status error.
-
-Are TX timeouts the expected symptom here, or should the message also
-mention the DMA status error?
-
-[ ... ]
-
+Best regards,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118105408.1076095-1-pavan.chebbi%40broadcom.com
+Birger Koblitz <mail@birger-koblitz.de>
+
