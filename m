@@ -1,59 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795384545;
-	b=b156QgMdXOoo2GoReuyr9I6T5sdLKiagLgqoILiclcK1rPwygZfT+G/M/9+JKNpsfVlX
-	 oxnP68JJ24wLKg5iMd9KGSRkIjd3Ay6Ql/gBLCl8xWJE9fqoe2xyoG1WQDE4yaMtUbwcK
-	 qOmZadaNyVym9sGH119MsBGGjKBLuRvU2pYAH/NatUKRJJHWtcb7LsafTLaH0xWryK53G
-	 ePD7BDL3jwn2VF+FlBOp5t9AZdRvyrdV/iNUUAXvF5wyULYkoqBlnDChdmHR93OPNl7Uu
-	 u2KPX8KSfUe6oAHiaKDz77HwnoWfF4U9E97ycnpBQcF4+XdIV3TvJmfqTcUj5Xb/9mQ==
+	t=1795384983;
+	b=Z9lHdDTTbJVuK6BmlLqDqvJtMGV/8mhvLms7OovAirs8lVJX+rU/60QNdC+DQPDww6WT
+	 gbBbeTdcEkDH/mpSR13siNnFIu7p024cERemLVnsN671pAvi7rzeWleY71AxigdGM//MC
+	 vBXxBtEZJhkdHQzUDIabaQE+tN7guObQa32TTGda+47jT/FImRUzrwKNhR55Ess8A6hyU
+	 iIUrIf2vhhPe2a7lkckEm/vb9zOzeeNlIdDhJPy9PC3LXJ7v3RbwhYWhj1+lQ+c0P2Zpz
+	 e4mphsjCEDSBwQWLhAdGQFgDGjpH0LBFotaPeQzPMJvK0AkCTw1l20VATvc/u9ZCdzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795384545;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=RArxLci6qXjjHqY3qFip/+FWbz0OrpEmO/qow7ct95M=;
-	b=3RVr8ZXssVWMjCod+qX/wzpzsZQyaURjeYfvzavW7Srz8w+3Q9CEkk9h4x2ZulsM7B47
-	 XfGv8A36pC2hQMbWb9GjGUMnjJORmqVZiGW3qHTEacdq89xEzEZtITAdWgqEdF53BsyoM
-	 BVpRuZ47acyDYsxhhU1F38QAcpTWHVD0g7+/EwhwF9RtyCaTCtkMDEEDJjDR/6uR6YSVZ
-	 09StI9SOhWjSJc+sQaYub2KxqE8vHTi2SinUyeNCwNIc9nadz7NLQ8WrLrMJIrhSfh1ab
-	 ngYGFvTFY6ICN9FQtJwktb4b5U6PTfjuYWsjdEWTQbqKByUEHRUpcwMOp8yTmYF28Kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795384983;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Dd2jOoQYjx0SN+L+IeyhT47RMzYPHgA9OxlNT8tCwBI=;
+	b=fTXj/161e5DOOPNzH0WXbu+UDlFFEjbcV6rZgkmcfgQdJiQcFAY00ph1hA69Hq9yP9zI
+	 PB7YGYiEV9NDWwXxAUhNW/Q0ck95JkFPUmfDugRYB2xwIuTa0dARb8GcwLJxIKRi3rC7P
+	 8XkYjrVqMF2i7oXyB31N0ZuNqwcw72UMTD1jPR3jdMrtSUVlb6F4X1gGN6vUP82eDi6cp
+	 wLg6xUZ4RekPx4K/XCKMZebq1x9skEc1lqqwTwRDmPmGANy3vuIMCRj8fFwbjcOho5gRa
+	 eYzGyC0DWbpp6EG5ON/olU8t4iWeij5wAr82F1IBYEe5eli727ssFHzux2t2hJR5D1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=31vxIvjq;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PDJuNO4C;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A07F5606A31A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 21:55:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A07F5606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49DDF606A31A;
+	Sun, 22 Nov 2026 22:03:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=31vxIvjq
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=RArxLci6qXjjHqY3qFip/+FWbz0OrpEmO/qow7ct95M=; b=31vxIvjqvjPQaTQ9fygTXkOSwg
-	siL5Yz1T5eTUZC1FHg9PZJiuYuWRGdg5785nYiXjGMm01qMZOeILmROuPrGdkewP5A6ovJdrx60kM
-	bARbdJla98jFB7RrQ+ojyEUrxOUz1vWGOZ+PALkXxwAxC+9MuX/6PFtF7B4N50LfD6x4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVFX1-000cxI-DE; Sun, 22 Nov 2026 22:55:31 +0100
-Date: Sun, 22 Nov 2026 22:55:31 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: skyline@mail.ru, hkallweit1@gmail.com, linux@armlinux.org.uk,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v3] net: phy: marvell: add support for PHY LEDs
- polarity modes
-Message-ID: <992ef2e7-4334-4b0e-b1ea-5ac1360fefea@lunn.ch>
-References: <20261122213034.548858-1-olek2@wp.pl>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PDJuNO4C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CBA51F000C4;
+	Sun, 22 Nov 2026 22:03:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795384982;
+	bh=Dd2jOoQYjx0SN+L+IeyhT47RMzYPHgA9OxlNT8tCwBI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PDJuNO4CUPLHuiqMlmLyFurxPur31NPXnmTjgHIlZFWhq3zd8T9DSQZx6oRH+/0c9
+	 3j2OBVZlXuzmKp4HyVvN2nsn2Ij9XaOCeMN3Jnqh/hcnx6FjEThs5yaWflzN1Kb1Ud
+	 u16mu/r23Byz+MCFpQpJ/S2Dyw9pKIItSU6EseMzMpggwPXLMIp8aLmbEBMI2ymecT
+	 lK3WDkn5KAs+Njpcu+tKc8QBtcHPlb5hI54r2j/og2LfsJ2vDfoDjDg/crXAgIQJ68
+	 07JCnmVTuAnxGwngZbPhqoOZe58GvUeul9QuTNWXZ4Ok6p2rTsrR6BwJf9x+Cbfj8I
+	 ShTxsQcMm9m4w==
+Subject: Re: [PATCH net-next v2] net: mlx5: Allow police as the last action of
+ a TC rule
+From: netdev-bot+sashiko@kernel.org
+To: mohsin.bashr@gmail.com
+Cc: netdev@vger.kernel.org, saeedm@nvidia.com, leon@kernel.org,
+ tariqt@nvidia.com, mbloch@nvidia.com, cjubran@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 22 Nov 2026 22:03:01 +0000
+Message-ID: <179538498162.3135.15158973349412949279@kernel.org>
+In-Reply-To: <20261119040010.1405900-1-mohsin.bashr@gmail.com>
+References: <20261119040010.1405900-1-mohsin.bashr@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,52 +65,153 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122213034.548858-1-olek2@wp.pl>
 
-On Sun, Nov 22, 2026 at 10:28:55PM +0100, Aleksander Jan Bajkowski wrote:
-> Add the led_polarity_set callback for setting LED polarity. Implement
-> this callback for the 88E1116R, 88E1318 and 88E1510 PHYs. This should
-> also work on other Marvell PHYs, but I don't have access to the TRM or
-> the hardware.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Marvell have an SDK called DSDT, which covers their PHYs. It is GPL
-licensed, but not widely distributed. If you can find a copy, it will
-give you all the details for determining which PHYs this will work
-for. Just be warned, the code is horrible.
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-> Keep the LED polarization settings and restore them after a hardware
-> reset. This modification is actually only necessary on devices with a
-> wired PHY reset line and a driver that resets the PHY during the
-> link-up/link-down events. I found a single DTS file in OpenWRT
-> (armada-385-fortinet-fg-5xe.dtsi) that matches this hardware configuration.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Mainline does not really care about OpenWRT. However, why does
-armada-385-fortinet-fg-5xe.dtsi do this? Is it because of an errata in
-the PHY? Such an errata we might care about.
+- [High] The patch rejects jump only when police is the last action, but
+  leaves the same mismatch in place for every other police position.
+- [Low] The patch fixes a user-visible bug but has no Fixes: tag, and the
+  fix is folded into a feature change.
 
->  static int marvell_config_init(struct phy_device *phydev)
->  {
-> +	struct marvell_priv *priv = phydev->priv;
-> +	int err;
-> +
->  	/* Set default LED */
->  	marvell_config_led(phydev);
+--
+
+net: mlx5: Allow police as the last action of a TC rule
+
+This commit lets a police action be the last (or only) action of an
+offloaded mlx5 TC rule in switchdev mode. It sets the forward to the post
+meter table while parsing police, and sends an ok result (and a pipe
+result on the last police) to the end of the TC chains. It also rejects
+jump when police is the last action.
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+> index 1bd1c94fb9776..faa0822b1136f 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+> @@ -49,6 +49,14 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
+>  	if (err)
+>  		return false;
 >  
-> +	/* Restore the LED polarity settings after a reset. */
-> +	if (priv->led_polarity_mask) {
-> +		err = phy_modify_paged(phydev, MII_MARVELL_LED_PAGE,
-> +				       MII_88E1318S_PHY_LED_POL,
-> +				       priv->led_polarity_mask,
-> +				       priv->led_polarity_val);
+> +	if (flow_action_is_last_entry(parse_state->flow_action, act) &&
+> +	    (act->police.exceed.act_id == FLOW_ACTION_JUMP ||
+> +	     act->police.notexceed.act_id == FLOW_ACTION_JUMP)) {
+> +		NL_SET_ERR_MSG_MOD(parse_state->extack,
+> +				   "Jump on last police action is not supported");
+> +		return false;
+> +	}
+> +
 
-This does not make much sense to me. If you have lost polarity, you
-have also likely lost the LED blinks modes. So you are only restoring
-part of the state?
+[Severity: High]
+The commit message explains the rejection this way:
 
-And this is for a device which does not even exist in mainline.
+  "A jump counts from the start of the action list, so its target may be
+  an earlier action or police itself."
 
-I suggest KISS, throw this out.
+That applies to a police at any action index k >= 1, not only to the
+last one. Should this check use act_index and the remaining action count
+rather than flow_action_is_last_entry()?
 
-  Andrew
+In software, tcf_action_exec() restarts from actions[0] and skips N
+actions, so the target is the absolute index N:
+
+net/sched/act_api.c:tcf_action_exec() {
+    ...
+		if (TC_ACT_EXT_CMP(ret, TC_ACT_JUMP)) {
+			jmp_prgcnt = ret & TCA_ACT_MAX_PRIO_MASK;
+			if (!jmp_prgcnt || (jmp_prgcnt > nr_actions)) {
+				/* faulty opcode, stop pipeline */
+				return TC_ACT_OK;
+			} else {
+				jmp_ttl -= 1;
+				if (jmp_ttl > 0)
+					goto restart_act_graph;
+    ...
+}
+
+In mlx5, alloc_branch_attr() sets *jump_count = cond->extval, and
+dec_jump_count() counts down once for each TC action after the police.
+The hardware target ends up at k+N, measured from the police.
+
+Some rules that still pass the new check:
+
+  [pedit A, police drop/jump 1, B]
+    TC jumps back to police and runs it again. mlx5 goes to B.
+
+  [A, police drop/jump 2, B, C]
+    TC runs B. mlx5 skips B and goes to C.
+
+There is also the case of a jump that runs past the end of the list:
+
+  [police1 drop/jump 3, police2 drop/pipe]
+
+TC returns TC_ACT_OK here, because jmp_prgcnt > nr_actions. In mlx5,
+jump_state.jump_count never reaches 0, so no attr gets jumping_attr.
+police1->branch_true then keeps a plain post_act destination and reaches
+police2. parse_tc_actions() never checks for a jump count left over
+after the action loop.
+
+Won't all of these rules be accepted for offload and then run a different
+action sequence in hardware than TC runs in software?
+
+>  	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
+>  }
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> index 1d35c97aea0bc..7e7111e6d058b 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+
+[ ... ]
+
+> @@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>  	case FLOW_ACTION_DROP:
+>  		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>  		break;
+> -	case FLOW_ACTION_ACCEPT:
+>  	case FLOW_ACTION_PIPE:
+> -		err = set_branch_dest_ft(flow->priv, attr);
+> -		if (err)
+> -			goto out_err;
+> +		if (!last) {
+> +			err = set_branch_dest_ft(flow->priv, attr);
+> +			if (err)
+> +				goto out_err;
+> +			break;
+> +		}
+> +		fallthrough;
+> +	case FLOW_ACTION_ACCEPT:
+> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>  		break;
+
+[Severity: Low]
+This isn't a bug, but the change to FLOW_ACTION_ACCEPT handling in
+alloc_branch_attr() fixes a user-visible mismatch with TC. Before, a
+police ok result ran the actions after police. TC accepts the packet and
+stops instead.
+
+The old "case FLOW_ACTION_ACCEPT: case FLOW_ACTION_PIPE:" handling comes
+from commit f86488cb4685 ("net/mlx5e: TC, initialize branch flow
+attributes").
+
+Could this fix be split from the police-only feature and given a Fixes:
+tag? It would also help to state whether it is meant for net/stable, so
+it can be routed on its own.
+
+>  	case FLOW_ACTION_JUMP:
+>  		if (*jump_count) {
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119040010.1405900-1-mohsin.bashr%40gmail.com
