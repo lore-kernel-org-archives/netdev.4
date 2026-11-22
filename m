@@ -1,86 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795320875;
-	b=u1xOty7+8wiLm1PpFECn3hPcOm7ZB/zhwZSTzS1dNuuQkftwIiUnOrnF0Ebof5Obcz7X
-	 TJH3MxDgGJ1bv2QaTVQmvuiV/3ISuP9U2Zpwc9Xn3HCSByNXhML4bbLxZhqnUrIED3k76
-	 97xgSd+CEpSFgeHNsqUrwy5sliNDm8iUOadKUXqqaRNfUkr2lLgFOWVP1QQXszeipJVcC
-	 7DvpIKP5WkaZ1SPD+udOfF4KNmJT3BiBLeqdtGGr7BBBS/WzFwFej2ANraUdEZSwfGD24
-	 yQ9EvMR4bJs9dnmnWu8dK/HfqxWRqxYCFP2AlnYBfa83Q+HL+fQiiU1uPrZgOYFleNg==
+	t=1795321282;
+	b=CXx3A9IXq34ASA+3r7CzHIb5iEk+vQJKjnxVD8JWNJtWgXJ+rFnp6fRbvkPhMx3jzep6
+	 Xthrwv9TXH87gNE86jJ6WuWPbMpI5sQ7UlnJa44jRYkfdX8qEehfQ21Ux1eysCMep7SL+
+	 hBwZoAi9hqwrbyT6T44SOVi3Rst2wM3UNHR/i61Imq4y2HJpd2voGJbjo3IRa/AXDbw3G
+	 P3OhFpjcUMIA9+4gOX+UReUyOO/OJOiWcPME3obnIIw5O7Rz85lqZ53Tf4cBd5OVaDMHK
+	 UCZSQsR4rgn2y+11xZGXWyyRu4Y7jBDEcLswDLvBC0HQRidSviFC9UHfi9IZu1maU1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795320875;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Lb38nMxOfAlLbtezAc3dRCaDpF4QbPhXFYzRnbMlPHM=;
-	b=URzkFr9vlPLElZFuiIFb8Oo89O2yjfagfuQyXVO2pR5DDIUlq5cw0v9q83UyvFkDWGCs
-	 RCOJhnh9s/0JEQXARfXmK4TKyMcsgE0Sp9l4jcRj+jYspPX3fkQUq3CMirspwh9zQjYUq
-	 E/TSl3NyxwSY4qj1sgoLodQpa3+a/A1NK9/uAz7eSXBnb5qVB2I+SPa27MJjlBeBHQTn9
-	 dR+Lo9Pt2T5MWxh23UlfdK/xmvCCVv7rejw8bghSVJ9D19zjGp8DwCJ9nUkfoTFEJGg/u
-	 JbQE0hGOguiG/3ZaoOUmgNoCVQuv/zewOFX43WaxGoFf4Ewt2TuY2XJaqoqcgE/7i8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795321282;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5ZGfxFm22MqdeOsOLhYKxi18iGVL17970v+rtqXfBak=;
+	b=A0EssIPxOLbc/lAsPoYRyNAeZbiP+2+2HJvsuYhv09LYGSXjN+ht0Y691KA7hNs3OVaR
+	 jjn3nBWFGdgNpl0Qoo+2IYnFlMtebQcBB1SYV1RuCWRdYs7JbJ9HolmmKGqBZw9gmYRJp
+	 il/EKWxf+uqwyjwrrzs27cx/JnLJySN5aVDnJaCVUdLChUekI7KzNI9G2W28a+3E6C38r
+	 27ewASUNWPF6gudTbRFkwNVQI5zHjNwEoJGC9aFnXC3ttJ9oWthcEs2E3xJ7gD5+COWeK
+	 6ISntwOqnbLb+ZehYwF/EAyJWTVFoG/PrgI0u3Gp+laYOVHxnvmwiuwE/bHBCirI2Mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SQznjq0P;
-	arc=none smtp.remote-ip=91.218.175.178
-Received: from mta0.migadu.com (out-178.mta0.migadu.com [91.218.175.178])
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=TlXDXhE1;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80FAA606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 04:14:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80FAA606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53552606A320
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 04:21:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53552606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SQznjq0P
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=JwIXtkgmQnvWYqCsXOrCGYCDMk1uEahCPH3Tnd+gNFQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795320872; v=1; x=1795925672;
- b=SQznjq0PzjWacY5RI7IZkMLtQnykYNY8Tvxkbs3v6aYyOkRT1jWsxRVQ9cyGg4KgacMJPzkT
- DcCXJ0tUqRPByE3VDe86g6IJDnYIAfbYRYQEbXTE9FiR7wq5yHZNdQ7gRxaVoRhsn0PebYt746L
- j/VRHVpxmDZSqaR6/g4mBTPo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1dac3f365d5e8237;
-	Sun, 22 Nov 2026 04:14:32 +0000
-X-Mizu-Trace-ID: 1dac3f365d5e8237
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: bpf@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Xuanqiang Luo <luoxuanqiang@kylinos.cn>,
-	Fernando Fernandez Mancera <fmancera@suse.de>,
-	Junseo Lim <zirajs7@gmail.com>,
-	Leon Hwang <leon.hwang@linux.dev>,
-	Yuqiang Sun <izaiahsun@gmail.com>,
-	Peter Oskolkov <posk@google.com>,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 2/2] selftests/bpf: test lwt_xmit reroute of an IPv4-in-IPv6 encap
-Date: Sun, 22 Nov 2026 12:13:46 +0800
-Message-ID: <20261122041401.189733-2-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261122041401.189733-1-jiayuan.chen@linux.dev>
-References: <20261122041401.189733-1-jiayuan.chen@linux.dev>
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=TlXDXhE1
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cdb2893531bso1219681a12.1
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 20:21:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795321280; x=1795926080; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5ZGfxFm22MqdeOsOLhYKxi18iGVL17970v+rtqXfBak=;
+        b=TlXDXhE1vFamfVLeUXgS0rBDmWhARPSEQdZqgYb1TiKcGrKVl7fXBKPP6/JGfUDqYR
+         OdJPTJdan2Hz8or3R3YtQFDsX8zxOZjjxoFH7usjuiOak/CkNBFXsz4OCOpUfpGXpdsQ
+         TacQFdsnM9SmOIBkRkFLEBxIpkHt5UCcCb9w4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795321280; x=1795926080;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5ZGfxFm22MqdeOsOLhYKxi18iGVL17970v+rtqXfBak=;
+        b=I0tlBGLKhaiM8gTcWMXeWNyNzWXYKDDU6fJni2osqw482cp6SWfZIUKaGtwghYK9Zw
+         0EVN4OUP9KIdcclUlJ6jKN7hWdwSZkzeT/huoFQJe56CT7HfrbXnYZyDnjQE62CkMWpJ
+         xwqWFcgZjOcXyN5Poc4dTK/tsDnJp43Ih94Ng+v7z3BxNJxAv9J6TFpIAroBIoyy+pMP
+         TlOUL4cSxlJHhnXohtxt5zNOJx4wwalyYqhW+5nVaLqvElPYFZluwUJwMp2Cb0RZY9We
+         WBYzMURTkjf8RcySAs2etVVJB/RQJXWOqzgvmRwCc7viK2eYKknb/hqJKhVVZH5Eor60
+         6lSw==
+X-Forwarded-Encrypted: i=1; AL+hErEDaZpsgColjby3If1ePb2l1pYerEWWx/hT7HCc2fBE87lFbWBbCYhZmbjcfkvhYqmre0CbTbw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+x0oadcQbjljzKTfdzLcREWfrm945D/nVTtn7fHssSI8XsKcv9
+	9bgv8uq3HGexfGTwrwo7rOaWpRdDiwkrKtgk0ogKKcpSjO8qfGtOXnpn51d1N6o58lQ=
+X-Gm-Gg: AZFdTZeH0fKjbcP0suSf0E4EEKOS1MyxzhHNXJN8zCiyGRnqBK6nVWTDbR1DrnqM5xJ
+	EkEMD6MnQVi0jILrKZZbbLWdR0OsfwbV3aHOTr2MixA93O4pMBzPPSUz/xX/ABzztxNDxy7UP7B
+	hKgh0FR46mZEMKy6Spwb1sGi6veQ8RWdKSB9/LfzdT1SD23ZXaQNuzcOsCL41Vh9izWdMEJuobz
+	d+YMwQGnR/D4J5wLUA3+ra0sVhCnJSPg3OiNzPggHtaFqoXWce62wkBI+RXGOyssJ4MkQGqM8vU
+	bgmnXjba0wmo9LJVH3lqRirkRfIQZ23TP7iHx4u+7qOgbVfxdUklonoiLTA9Kg9r9TzyM7p/cbu
+	8GVv2IdzcuZESrgE3LI8LOzVWqWjjY2RbaGxPZquhULU1SxltFxu8kwPMAlITGkEQOyvMr4KHYl
+	509VS61I25UGYZh6KSygT8Zni79ILv3fSXaMalt+a6okv+gpHoGyHScF0FU4+jTcb/tQyjMmdBS
+	QJXFfP55aMOAJzgJDhHHAXgIGb7vquAgPea6QL8DB0QnmTFrrBtkQakCjxSB/DNCFLo38sbkQpy
+	GZQuatb25LVfqC6i12N9H7HOjJZgVZ2PzxD9eDQqnTEkVmEiZdNUd9fyHbIXCH3/0iSp9S8HyWR
+	Aj/kwuMrOtoN/gYJB85gVY+TGBjl5mdx9R1gIGKHFTBR9lLvOSuGtN1ohhfl0e5YT
+X-Received: by 2002:a17:90a:d2c7:b0:3b4:a90:7f3a with SMTP id 98e67ed59e1d1-3b41c95da5bmr6806828a91.55.1795321279640;
+        Sat, 21 Nov 2026 20:21:19 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d97356sm13717803a91.13.2026.11.21.20.21.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 20:21:19 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: alibuda@linux.alibaba.com,
+	Dust Li <dust.li@linux.alibaba.com>,
+	Sidraya Jayagond <sidraya@linux.ibm.com>,
+	Mahanta Jambigi <mjambigi@linux.ibm.com>,
+	netdev@vger.kernel.org
+Cc: Tony Lu <tonylu@linux.alibaba.com>,
+	Wen Gu <guwen@linux.alibaba.com>,
+	linux-rdma@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: Re: [PATCH net] net/smc: validate the peer's CDC cursors against our own buffers
+Date: Sun, 22 Nov 2026 09:51:13 +0530
+Message-Id: <20261122042113.2430308-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <179528990895.3294.1614564040906254045@kernel.org>
+References: <179528990895.3294.1614564040906254045@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,108 +105,93 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add a test where an lwt_xmit prog pushes an IPv6 header with a ::
-source on an IPv4 packet and reroutes. On an unfixed kernel this
-dereferences inet6_sk() of the IPv4 socket and crashes; here reaching
-the end is the pass.
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
- .../selftests/bpf/prog_tests/lwt_reroute.c    | 20 ++++++++++++++--
- .../selftests/bpf/progs/test_lwt_reroute.c    | 24 +++++++++++++++++++
- 2 files changed, 42 insertions(+), 2 deletions(-)
+Sorry for the omission.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/lwt_reroute.c b/tools/testing/selftests/bpf/prog_tests/lwt_reroute.c
-index 6c50c0f63f43..01387c0f1b19 100644
---- a/tools/testing/selftests/bpf/prog_tests/lwt_reroute.c
-+++ b/tools/testing/selftests/bpf/prog_tests/lwt_reroute.c
-@@ -18,8 +18,8 @@
-  *
-  *    ip route add 10.0.0.0/24 encap bpf xmit <obj> sec "<section_N>" dev link_err
-  *
-- *  Here <obj> is statically defined to test_lwt_reroute.bpf.o, and it contains
-- *  a single test program entry. This program sets packet mark by last byte of
-+ *  Here <obj> is statically defined to test_lwt_reroute.bpf.o.
-+ *  The lwt_xmit program sets packet mark by last byte of
-  *  the IPv4 daddr. For example, a packet going to 1.2.3.4 will receive a skb
-  *  mark 4. A packet will only be marked once, and IP x.x.x.0 will be skipped
-  *  to avoid route loop. We didn't use generated BPF skeleton since the
-@@ -42,6 +42,7 @@
-  * --------------------------------
-  *  1. Reroute to a running tun device
-  *  2. Reroute to a device where qdisc drop
-+ *  3. Reroute an IPv4 packet with a pushed IPv6 header
-  *
-  *  For case 1, ping packets should be received by the tun device.
-  *
-@@ -241,11 +242,26 @@ static void test_lwt_reroute_qdisc_dropped(void)
- 		close(tun_fd);
- }
- 
-+static void test_lwt_reroute_push6(void)
-+{
-+	SYS(out, "ip link add link_err type dummy");
-+	SYS(out, "ip link set lo up");
-+	SYS(out, "ip addr add dev lo " LOCAL_SRC "/32");
-+	SYS(out, "ip link set link_err up");
-+	SYS(out, "ip route add %s dev link_err encap bpf xmit obj %s sec push6_zerosrc",
-+	    TEST_CIDR, BPF_OBJECT);
-+
-+	ping_once("10.0.0.2");
-+out:
-+	return;
-+}
-+
- static void *test_lwt_reroute_run(void *arg)
- {
- 	netns_delete();
- 	RUN_TEST(lwt_reroute_normal_xmit);
- 	RUN_TEST(lwt_reroute_qdisc_dropped);
-+	RUN_TEST(lwt_reroute_push6);
- 	return NULL;
- }
- 
-diff --git a/tools/testing/selftests/bpf/progs/test_lwt_reroute.c b/tools/testing/selftests/bpf/progs/test_lwt_reroute.c
-index 1dc64351929c..c969962926e6 100644
---- a/tools/testing/selftests/bpf/progs/test_lwt_reroute.c
-+++ b/tools/testing/selftests/bpf/progs/test_lwt_reroute.c
-@@ -4,7 +4,9 @@
- #include <bpf/bpf_endian.h>
- #include <bpf/bpf_helpers.h>
- #include <linux/if_ether.h>
-+#include <linux/in.h>
- #include <linux/ip.h>
-+#include <linux/ipv6.h>
- 
- /* This function extracts the last byte of the daddr, and uses it
-  * as output dev index.
-@@ -33,4 +35,26 @@ int test_lwt_reroute(struct __sk_buff *skb)
- 	return BPF_LWT_REROUTE;
- }
- 
-+SEC("push6_zerosrc")
-+int test_lwt_reroute_push6(struct __sk_buff *skb)
-+{
-+	struct ipv6hdr h = {};
-+
-+	h.version = 6;
-+	h.payload_len = bpf_htons(skb->len);
-+	h.nexthdr = IPPROTO_IPIP;
-+	h.hop_limit = 64;
-+	/* 2001:db8::3, a fake address */
-+	h.daddr.s6_addr[0] = 0x20;
-+	h.daddr.s6_addr[1] = 0x01;
-+	h.daddr.s6_addr[2] = 0x0d;
-+	h.daddr.s6_addr[3] = 0xb8;
-+	h.daddr.s6_addr[15] = 0x03;
-+
-+	if (bpf_lwt_push_encap(skb, BPF_LWT_ENCAP_IP, &h, sizeof(h)))
-+		return BPF_DROP;
-+
-+	return BPF_LWT_REROUTE;
-+}
-+
- char _license[] SEC("license") = "GPL";
--- 
-2.43.0
+How it was found
+================
 
+By AI-driven fuzzing built on top of syzkaller.
+
+Its analysis was checked by hand against the code before we wrote anything,
+and every claim in the report was reproduced on net.git main at d5b89d55a322
+under KASAN:
+
+  - a 131072-byte read past a 65536-byte RMB in smc_rx_recvmsg(), reaching
+    userspace through _copy_to_iter();
+  - a 1-byte read at an attacker-chosen offset in
+    smc_cdc_handle_urg_data_arrival(), from the CDC tasklet;
+  - a NULL dereference and oops in smc_rx_splice(), where vmalloc_to_page()
+    returns NULL past the end of the RMB and get_page() dereferences it.
+
+Each was run on an unpatched and a patched kernel built from the same tree in
+the same scripted run: unpatched reports on all three, patched clean on all
+three, with SMC_DIAG confirming SMC-R came up (mode=0, fb_reason=0x0) in
+every run so that a clean result cannot be a setup failure.
+
+What changed in v2
+==================
+
+Sending v2 separately, because it is a code change rather than only the
+information above: v1 validated the SMC-R path only, while the report
+acknowledged that SMC-D shares all three consumers.  smcd_cdc_rx_tsklet()
+reads the cursors straight out of the DMB the peer writes into, in host byte
+order, with no validation of any kind - not even the length and seqno tests
+the SMC-R handler applies - so v1 left the same exposure open there.  v2 adds
+the equivalent check on that path.  The SMC-R check itself is unchanged.
+
+We have no ISM device, so the SMC-D half is reasoned from the code and from
+the shared consumers rather than reproduced; what we did verify at runtime is
+that ordinary SMC-D traffic over the loopback-ISM device still works with the
+check in place, so it does not reject a correct peer.
+
+The interdiff from the posted v1:
+
+  diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
+  index 03ff10fef..8d24e0c83 100644
+  --- a/net/smc/smc_cdc.c
+  +++ b/net/smc/smc_cdc.c
+  @@ -433,6 +433,18 @@ static void smc_cdc_msg_recv(struct smc_sock *smc, struct smc_cdc_msg *cdc)
+   	sock_put(&smc->sk); /* no free sk in softirq-context */
+   }
+   
+  +static bool smcd_cdc_cursors_invalid(struct smc_connection *conn,
+  +				     struct smcd_cdc_msg *cdc)
+  +{
+  +	if (!conn->rmb_desc)
+  +		return true;
+  +	if (cdc->prod.count > (u32)conn->rmb_desc->len)
+  +		return true;
+  +	if (cdc->cons.count > (u32)conn->peer_rmbe_size)
+  +		return true;
+  +	return false;
+  +}
+  +
+   /* Schedule a tasklet for this connection. Triggered from the ISM device IRQ
+    * handler to indicate update in the DMBE.
+    *
+  @@ -452,6 +464,15 @@ static void smcd_cdc_rx_tsklet(struct tasklet_struct *t)
+   	data_cdc = (struct smcd_cdc_msg *)conn->rmb_desc->cpu_addr;
+   	smcd_curs_copy(&cdc.prod, &data_cdc->prod, conn);
+   	smcd_curs_copy(&cdc.cons, &data_cdc->cons, conn);
+  +	/* This CDC was written by the peer into the DMB we published to it, so
+  +	 * both cursors are peer-supplied and index buffers described on this
+  +	 * side.  Nothing else checks them, and smc_cdc_msg_recv_action() uses
+  +	 * the producer cursor as a receive length and the consumer cursor to
+  +	 * credit sndbuf_space - which under DMB-nocopy is the memory the peer
+  +	 * itself owns.  Unlike the SMC-R path these values are host order.
+  +	 */
+  +	if (smcd_cdc_cursors_invalid(conn, &cdc))
+  +		return;
+   	smc = container_of(conn, struct smc_sock, conn);
+   	smc_cdc_msg_recv(smc, (struct smc_cdc_msg *)&cdc);
+   }
+
+Thanks,
+Piyus Kedia
