@@ -1,58 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795367146;
-	b=bj5/DvDKZnOfqJS3G0Kav0+64TNxe0gqxHbhG9E5B5Ctk8wR6KmAb8tx0hFEPQ1aKlMD
-	 ZCeQpSAICV1qfRcElRyyS5GPThm6dxd1qOX+wvN/klT8WqbdjN8BWCoQre419w6cKG5Ed
-	 xs1AABIed4U3qZlFXrrsFQSsIlq8FgSnZbkAbKry/fYW4rs6ZLhEnwiFRcV2Y+W1EhaI1
-	 qpH67DbkE6SRoPoONZXUq6z79Dm5AyCZrZyrPUwDTmKoqpr0A5UiP29cRfv14DfI4INZG
-	 J2StU8ZSkDlhRYHD4lS4lL6Zsr5HHrDpUQYTZDC1No497+kBdAJPWj2FK0xsq7yd2Qw==
+	t=1795367913;
+	b=5jNMqTDxIhXH2vRcC8SK+2ntTfHX0zofOuTwKsbasSMGQ5s+zTalTs/NuONU8Lhhwb0r
+	 sjoKe4GHqRUGZ/f29KMiy3INPz7HPcy5wHhh7jVaIM2s5PhPa6KUOl0+Nn4w9LnsHA+K5
+	 xNiGO7PMVc/2qJzOfsWS0h9d77gxikMLX1xZvh07ZTFhlLXVnKtlw69qWmlzbbiZ37Bsr
+	 SdYV8YCiLl51Daz6m6DJHBcQUnLkwGAaPPN12g+wuhk1p9Z17rPNMxY8Yws1HAxh6iypF
+	 ejaqSYanwsHE7Xh/0Jm7XbvXwx4GfXMBlYa9bkq9LcGcCQKtVZC1nWyhD+ZeAs5QCHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795367146;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=kuKL7b/uFjj/kh9m7DzaXizkG9DLYfZ9ZZ4A8ixWy+M=;
-	b=GO+UAISXQNpy+y4PhQ1HKXu7jFhxgdaVfR9DPgPtvKpvzVYyw5CpY2+G0j0JtM0I7prh
-	 fC4s0GNhd4SI8yZk+D0Vkesu9KPZAYrIRWJfKUFyPrAXrTbXtcqeHnsjG1rctoKnSF+fv
-	 al2rvnxbOOXc2p9NJaXGpK7dsFXSrMYp68bwjGnCV21mBa4LwQ5GujvGyKmmSpA9XBttv
-	 IKLF7Hw/6GCGfDJtlexHRQYaXzXB8svMUYhTP30FmpyAxZuQPoVMrkKU1TWKKWa4w48vS
-	 g01qX1woopgsbaQCkgMSlQLq0TVIj31zK/2uoikRehjp0l/k7V1ZvBgdsRBBxxwugtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795367913;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=78iLp+ukyIH3Bqo6jdwjTQqg9ybQFd9VxizK2IPYkLQ=;
+	b=4GeQu1d25eI5kgzNrctbLio2my9jwSdOZwOnQJO3fNFJUGSPsFMROQzaDvSOy7Uyk8du
+	 aGkGthUTKkQ20XEFe9LOk9nhmkC4fmnEZ9jT8yz++steL/ojBvRhK6PYtOMHnQqnDjoff
+	 8HrzDX3h3/YPi5v9Fbk8KRjirV7+jxvyAHSXCWLYNvLzLP8+sqDo+0ZVPBqDCPTppPtte
+	 rbnZGgKNZHjnNagQxMY0i9iPBqibR44lhMRgQXkjm05SYAcyGF8ORWxCeUZnHEk3bqicu
+	 DCLl7Naz0ifD81rbE9kK15H2y0xysf2HOD+UojTSDtGHHPqdnyPbYkb3F6LTV+3JI4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=YGvjbnNe;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=MSEwHngh;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAB27606A320
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:05:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAB27606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EDAE606A32A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:18:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EDAE606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=YGvjbnNe
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 47D641A1786;
-	Sun, 22 Nov 2026 17:05:44 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1424760512;
-	Sun, 22 Nov 2026 17:05:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8CE3D11E62428;
-	Sun, 22 Nov 2026 18:05:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795367142; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=kuKL7b/uFjj/kh9m7DzaXizkG9DLYfZ9ZZ4A8ixWy+M=;
-	b=YGvjbnNewMZ6IUn+9z5/8MlcfTA2Afsxl5UPqe+BGo7wK7Tm9GGkm1Fb6T5lxf9RUTuT/r
-	qaTnPzpaf4rREvTgdOKoyY1Ry7V1OMXGpqAl4j66dtypvX4S4il7hmK8Jv0muYTKmhh0uf
-	8h1FsrgjkwNezaJ8MQK8Oue/PlDdgyXGuNzGw2lfmUXhlWpE63H4G4aHBuGVoO3E2RkGdq
-	48AXZfEL2QfJaq0vT63p12g1+yokd4ckHLOByKoGiUK8Yr/V7L5PiPnxsfR6n+Kzv2xvkA
-	qmmF7BiqrRRsm123bdVZVzvUO3LFdVkCziVjd8dMTyKoYh2/WAobwysXRxAgyw==
-Message-ID: <fa13b218-97ef-49b6-ab8f-4e6707837a91@bootlin.com>
-Date: Sun, 22 Nov 2026 18:05:37 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=MSEwHngh
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f0426a65e0so15845455ad.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 09:18:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795367912; x=1795972712; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=78iLp+ukyIH3Bqo6jdwjTQqg9ybQFd9VxizK2IPYkLQ=;
+        b=MSEwHnghHFpvG/H9NvyBLNcSG8oKpaTq8hFGjcbk45OKxp7HM52R6ckrAw/Q/A7gGx
+         xHgWbgp6sLH23mTJmJwkBVHRXwgTJV95FigsUnpApXdZaqauZJfdZGt2cDkc3zpquCw+
+         bE74Mp/xYKn5jeOU0Os9Bx4CmTm2Az6CLgl915HHUkDpUpTPESCFkKVKLLU24bi29sr4
+         gnVxtBpSKoN8zR9F4EUzHSYofP3ITSLuXKPHFztugHXkr6sQe4jVhtxC19Pqpg2D87y9
+         XPrlZwJafq+RfLxT1uWctWAvNka/48LMeP/QkJVXiqK/sY3z+bJiSh05GF3CuxEhtayN
+         xC0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795367912; x=1795972712;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=78iLp+ukyIH3Bqo6jdwjTQqg9ybQFd9VxizK2IPYkLQ=;
+        b=Ukl6PjqkwKTnjwCtYNwVBnRrvoWRck3DHiW53yMb7Mp/s1bGI6vkMljD5cJb8L+Shz
+         uYcaAjUagU0w9R79tBMA7u56kCK3aObJH/H9eRK6Y8FaOLO5UpsfCgE+kdr9MKeMp4Lq
+         hGkHVJE1qtIncDW3dpryLf5Bna4vnSnI3R012OpnIGVyEbRmuDiiN5rONd8VbrFTL9xF
+         OoceDz56t/5d4UhMoIgeRO/oYk/ELMCQJFioXEtyrnyYr5F3xZUt6SywP0TLJSf/1FwU
+         bQoR8cyA6l9f0eyzBThp2LEWYWIve/PSX2SFLZf78dQy5k/uksxkprJ0+czTlq+U3A5A
+         FwXw==
+X-Forwarded-Encrypted: i=1; AL+hErG7SnCWmaOP5JZdb9iwziqQFZ0lhy3GnsyA3peeVPJ7Rij9R9YLoRCIaPcFdbaFUB3aVU4b1rw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8XVYrV0IP8Fx5h6ItCdYh+fj1wwk5wQ98wngZ79QFGvIagQjn8
+	DblG9HMCZ0vS5w3mxbDcuxampEfoButRSer/Y6yFqN3r4LB3ydH9G4AFnBkQ4ldiG9o=
+X-Gm-Gg: AZFdTZfxxpTjbr+CH/koaomCsbIjrazYo6SUasaisCxx4u3rHJy1M8uabuIrYPdfrs8
+	7UXGZW2riVguBqRwPsLpF+HX8UGBeL9DJKdI8/qWZD5MkuHzRJKhufXig4SU37+PRVBEM6R7B4d
+	mbLpNBRdG+Tr4qaONRDlps3j7O2JtUgDK+5qrQtuhdRFXfpZUWiDUfTdvMOrYHwq21lG2y+Zs68
+	aDuidCp0jOH/1ZzegSPsyPXUlEPdy7C2mE1ysBfnyXLwBOxYZduvIdVJT2ryQrz4Sv0LsrOf+yO
+	0q+MvNAVBEvEKc4OmIx9n8SfIt0hMiGv2oW+VCo91zj3AB0LBtn2Q45bRBbOcEaIJFZY2oZwgn+
+	1yVWVeRPixdEwBN9VxaNwqjNztQ1xgxKe0gndB6SADFtruPVzO1eTfZrI6D9QjKvP2TA40GRBbY
+	Om2gmm3JDFW9SeoI8FFnejfNsa4OoKQdf6gwkVYWlcGHXsg11HsDTyAge4Wtz53QkUVWM+YcsvD
+	Vu/LFMrLoLvTzpL8odsIDKYsUD9Ed/rHZXL6Ir8NA8nX8dnGWnmv+LjGXM8Cm1YR7HfWfG0GLA2
+	bIB78TSnr7kZhWKF969WRFfXnJplWV9gSkFjhoL/DfEiJKb/Ug4YkrgdS7091UEooxi39UE=
+X-Received: by 2002:a17:902:f603:b0:2e9:7dda:bfce with SMTP id d9443c01a7336-2f03f2760efmr88354605ad.74.1795367912601;
+        Sun, 22 Nov 2026 09:18:32 -0800 (PST)
+Received: from phoenix.local (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84364sm40712525ad.5.2026.11.22.09.18.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 09:18:32 -0800 (PST)
+Date: Sun, 22 Nov 2026 09:18:30 -0800
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org>
+Cc: fadouse@pm.me, Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko
+ <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH net v2] net/sched: act_ife: return -EAGAIN after
+ dropping rtnl_lock in load_metaops_and_vet()
+Message-ID: <20261122091830.3266fcd0@phoenix.local>
+In-Reply-To: <20261122-b4-02-act-ife-rtnl-uaf-v2-102eba468698-v2-1-67c413c45928@pm.me>
+References: <20261122-b4-02-act-ife-rtnl-uaf-v2-102eba468698-v2-1-67c413c45928@pm.me>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,96 +102,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 4/5] net: stmmac: Add MDIO init and exit
- platform hooks
-To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- linux-kernel@vger.kernel.org
-References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
- <20261120-sun8i-emac-mux-uaf-v4-4-57eba8915f25@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-4-57eba8915f25@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-Hi,
+On Sun, 22 Nov 2026 20:45:52 +0800
+YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org> wrote:
 
-On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> A glue driver that adds devices on top of the stmmac MDIO bus, such as
-> an MDIO mux, can only do so after stmmac_dvr_probe() has registered the
-> netdev.
-> 
-> Add mdio_init(), called once the bus is registered, and mdio_exit(),
-> called before it is unregistered.
-> 
-> Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> +		if (ops && rtnl_held) {
+> +			/* We dropped the RTNL mutex in order to perform the
+> +			 * module load. Tell the caller to replay the request
+> +			 * under a fresh RTNL critical section.
+> +			 */
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c | 11 +++++++++++
->  include/linux/stmmac.h                            |  2 ++
->  2 files changed, 13 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> index 7396b68899c6..fb1f7b1a5323 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> @@ -682,8 +682,16 @@ int stmmac_mdio_register(struct net_device *ndev)
->  bus_register_done:
->  	priv->mii = new_bus;
->  
-> +	if (priv->plat->mdio_init) {
-> +		err = priv->plat->mdio_init(priv);
-> +		if (err)
-> +			goto mdio_init_fail;
-> +	}
-> +
->  	return 0;
->  
-> +mdio_init_fail:
-> +	priv->mii = NULL;
->  no_phy_found:
->  	mdiobus_unregister(new_bus);
->  bus_register_fail:
-> @@ -703,6 +711,9 @@ int stmmac_mdio_unregister(struct net_device *ndev)
->  	if (!priv->mii)
->  		return 0;
->  
-> +	if (priv->plat->mdio_exit)
-> +		priv->plat->mdio_exit(priv);
-> +
->  	mdiobus_unregister(priv->mii);
->  	priv->mii->priv = NULL;
->  	mdiobus_free(priv->mii);
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 00be2df63d22..e94f9cab973d 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -296,6 +296,8 @@ struct plat_stmmacenet_data {
->  	int (*crosststamp)(ktime_t *device, struct system_counterval_t *system,
->  			   void *ctx);
->  	void (*dump_debug_regs)(void *priv);
-> +	int (*mdio_init)(struct stmmac_priv *priv);
-> +	void (*mdio_exit)(struct stmmac_priv *priv);
->  	int (*pcs_init)(struct stmmac_priv *priv);
->  	void (*pcs_exit)(struct stmmac_priv *priv);
->  	struct phylink_pcs *(*select_pcs)(struct stmmac_priv *priv,
-> 
-
+I prefer that comments stay in "short and sweet" style.
+AI and new developers seem to like long comments.
+This comment has the classic /* add one to i */ style...
+In other words the comment doesn't tell human more than is already
+obvious from the code.
