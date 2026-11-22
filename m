@@ -1,52 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795381033;
-	b=0RREsd9i3J8U3zDslOZe/bIJBj32fxu2D8irSIgwooGlDO3FGhSPcScF2H+erNR8p3mb
-	 U136A6Wd5jJc7OGi+ZLmZg1NH6TNT40GuA5+rBBBwC8q+FO1CpGn7QpOfJHCey/ejZL0p
-	 //a6Ps8bK0zd7WoRMVTq0qJmAk66qAeXvfF8qTNLul5JMDQw9NTLfjc0SgMPzrAQfQiYD
-	 7zZ8GGp4JEVuNf/KrELId8+4wZd+Cs+dxlUtbqu3wUxnyakh+rwPpj07c9xF1KNHE4FbE
-	 wnJu/CbgXYal9cX5oyEkrVAY7DYUYGU4zZSmlHU0C+ZQrRWG91p7iky4rqe7k8RqtMg==
+	t=1795381065;
+	b=ckLtjhfZWfy1PBBNm2BRjON8QZnRhH59JYdsHu2PGLqxH6exZv3FuHCu3615n9ix38hC
+	 jHyRs7/It4pRYg4S7mh+Gm3QCt9bBHU/ELLVcd5IhqQY6gkYnKDDlCE7+VlKlkvblMY8g
+	 dl3g87lwYPTKLYbvbPxXVjpuGVQJA5hZ6ds3mkTRXejbDD2YbBhrl63kTCdA8SL5Rqsmv
+	 BaclvSi+BI8DVG6RwKS+QrRSKfdAhszAGIvlYjIP5/FdCGnELt+Qa6rN+xuID8cmXI68g
+	 5fCPVcmM1eYtlmaYYVHHzVq9gAuAhi4tWQ6xB+d5J6YACQAa1spfwyqpEVxjkT1WuiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795381033;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=yIEAeJJhh545A+d8R8ZP72GJKN4grQvJ9n+GKgnK/2s=;
-	b=eFuSAVB1PjiuXLWnzPfmdVnNkvRe6Li4AxBwn7JFV6QCTYkKad0F9KNcXaLwoYMu1ayC
-	 GGM04ckxZ+jIG+sNCR6J+yGzfb9Qk0gvvIFyPJFv3UOI0WbFMQ3mIShzyX4Vb0BArwzcX
-	 tcYEYATj4pqAw2hPMOhtngOcZahziV5pLUwauO1o9qz5GWRppwG8CM3giLgb0By0HaslV
-	 LGIQ/SWIB6UlSO/KPZV/j/qPIgiuduPeGOQTPyn5ecWgMu7LamgGetlRDPsuF7Y5lMKzn
-	 Xq619gmEN1DkJEWL3vBOPe7o6Gftti90M6++FwOrrO3reSrXGMBdhHGTKDfFFZBz4vQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795381065;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=iDERK68xOldbgeUiiGYyw/w8twcI1O8oq6PXPbGFfdU=;
+	b=y4WjCJotxiPzeOPDbZKO86B3SjnoeQMYFq6LuNgqwhIfDPXV76R4svc6TcbVktCr6MFe
+	 Np4hRz7MLTMRr4OVHLFZAOpd5LTMB2qx4qXDvAGjV1mjoYpczRbvOIYtQskD56rR4vOlv
+	 i7d48ramjQ39sH6sNy8k4LdrZxP2xTwx4P+c19VZ8ALU4DWMPRFO6UXgijQxmWhcfqis/
+	 wENsXo68WNWk3zu/XB8JupVSZ+TLkRJHZtCdhMxVC88RyNa21UP6+33iQ3T3eNLvkJSkt
+	 7Ohgcejt1Y6A2uwaTRX+O+26ZMcGtsFz5aS0ysEshWLQGLT/fsqHVWS5s17ZstyW88g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=corp.free.fr;
-	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=IG8O6WXj;
-	arc=none smtp.remote-ip=212.27.60.169
-Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=bFKN3hQc;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8DAB606A31D;
-	Sun, 22 Nov 2026 20:57:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8DAB606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E2C9606A31A;
+	Sun, 22 Nov 2026 20:57:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E2C9606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=IG8O6WXj
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1795381031; bh=KRJiDlse0G6+CAgKwCdP300usgLB9uEV6J3e9CTYwtQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IG8O6WXjGRsSeKGvVWkehqu6ICBUGrwOCWhdcXyS8/Y/UPgP5lGIwaQqy/Wrxtb/Q
-	 U6vA+t+YaooTjJbtKt0bFCBj2TqYPXHUHWz4S9nIxlq6E5Wv7L6t/puVplYKsBEMTU
-	 5l5pNEXHI74rOm3t0visFtWQT38WaAmUp71gstSPF7fuN9IfaLBk2wH9Qh9gul+vuV
-	 ZpPrOKNB+Vp8ZSKiQ3bpE/kVsgzhsig3mm74PrpVwmPvzu4q+LeeFtikvO2+/IDVLT
-	 mqtML7mMvj9ZOY8l0wCpgo377kiejFrC+6QDpos49M203Z/rDn/BK+JVkGzrZAfzdc
-	 LHFm2lg18cACg==
-Received: from [0.0.0.0] (unknown [213.228.1.188])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 74FB944C0515;
-	Sun, 22 Nov 2026 21:57:09 +0100 (CET)
-Message-ID: <bfa7625b-1452-4ced-b172-604216264cfc@corp.free.fr>
-Date: Sun, 22 Nov 2026 21:57:08 +0100
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=bFKN3hQc
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=iDERK68xOldbgeUiiGYyw/w8twcI1O8oq6PXPbGFfdU=; b=bF
+	KN3hQc8rftOmJOB85CjYZtIUwFRh3FHC98U/Jxsa5dG0F7/Q+MlsyaPWa6ziHHenmf2Xrj2E0WgEq
+	96ZmT9hIRl02+gh9IlaBgc6fG3CbNLOmyIHE7AhAIxGXG5T7dryZsIVsCAnsCt2JyeJxKxTa7CMy1
+	rHTAMPX0T/xRf2M=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVEcy-000cTP-42; Sun, 22 Nov 2026 21:57:36 +0100
+Date: Sun, 22 Nov 2026 21:57:36 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-sun8i: support ethtool
+ rx-all
+Message-ID: <97515dd2-72b1-4275-910f-94336f8f18a4@lunn.ch>
+References: <20261122-submit-sun8i-rxall-v1-v1-0-607789772c56@gmail.com>
+ <20261122-submit-sun8i-rxall-v1-v1-2-607789772c56@gmail.com>
+ <ba116748-1650-4816-97a6-69eeecd4b2cb@lunn.ch>
+ <CADvTj4pDQhnABu0GnsXN-mNhvdiHkwrrk3yJs5gq9RaMPWZFSg@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,145 +77,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 10/10] docs: networking: describe tunnel key
- partitioning in TC queue filtering
-To: netdev-bot+sashiko@kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
- jhs@mojatatu.com, jiri@resnulli.us, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, michael.chan@broadcom.com,
- pavan.chebbi@broadcom.com, bharat@chelsio.com, donald.hunter@gmail.com,
- corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
- dsahern@kernel.org, idosch@nvidia.com, shuah@kernel.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- oss-drivers@corigine.com
-References: <20261117092915.255194-11-acassen@corp.free.fr>
- <179514544619.3136.11935885435056519543@kernel.org>
-Content-Language: en-US
-From: Alexandre Cassen <acassen@corp.free.fr>
-In-Reply-To: <179514544619.3136.11935885435056519543@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4pDQhnABu0GnsXN-mNhvdiHkwrrk3yJs5gq9RaMPWZFSg@mail.gmail.com>
 
+On Sun, Nov 22, 2026 at 01:05:48PM -0700, James Hilliard wrote:
+> On Sun, Nov 22, 2026 at 11:39 AM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > > +static void sun8i_dwmac_update_rx_ctl1(struct stmmac_priv *priv, u32 clear, u32 set)
+> > >  {
+> > > +     struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+> > >       u32 v;
+> > >
+> > > -     v = readl(ioaddr + EMAC_RX_CTL1);
+> > > -     v |= EMAC_RX_DMA_START;
+> > > -     v |= EMAC_RX_DMA_EN;
+> > > -     writel(v, ioaddr + EMAC_RX_CTL1);
+> > > +     guard(spinlock_irqsave)(&gmac->rx_ctl1_lock);
+> > > +     v = readl(priv->ioaddr + EMAC_RX_CTL1);
+> > > +     writel((v & ~clear) | set, priv->ioaddr + EMAC_RX_CTL1);
+> >
+> > Netdev does not like these magical guard constructs. scoped_guard is
+> > acceptable, but good old fashioned lock/unlock is preferred.
+> >
+> > It is also unclear why this now needs locks, when before it did not.
+> 
+> I added the lock because changing rx-all adds a new writer to RX_CTL1
+> while the interface is up. The runt-forwarding bit shares that register
+> with the RX DMA enable bit. If ethtool read the register just before
+> another CPU stopped RX DMA, writing it back with runt forwarding
+> enabled could also turn DMA back on.
+> 
+> I went back through the callers to see whether that can actually
+> happen. RTNL serializes the ethtool change with opening and closing the
+> interface, resetting it, and reconfiguring RX queues. Neither the sun8i
+> IRQ handler nor its TX completion path requests a DMA threshold change.
+> System suspend does stop RX DMA outside RTNL, but userspace is frozen
+> before the driver reaches that point on the normal sun8i suspend path.
+> 
+> So although the register is shared, I couldn't find a path where the
+> new writer races an existing one. I think we can drop the lock and
+> leave the existing DMA callbacks alone.
 
-On 11/20/26 04:30, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Low]
->
-> Does this example work on mlx5 with the default firmware configuration?
-> mlx5e_tc_tun_parse_outer_key_gtp() refuses the filter unless the firmware
-> reports the GTP-U TEID flex parser:
->
-> drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gtp.c:mlx5e_tc_tun_parse_outer_key_gtp() {
->      ...
-> 	if (!(MLX5_CAP_GEN(priv->mdev, flex_parser_protocols) &
-> 	      MLX5_FLEX_PARSER_GTPU_TEID_ENABLED)) {
-> 		NL_SET_ERR_MSG_MOD(extack,
-> 				   "Matching on GTP-U TEID is not supported");
-> 		return -EOPNOTSUPP;
-> 	}
->      ...
-> }
->
-> The GENEVE selector also needs a flex parser bit (MLX5_FLEX_PROTO_GENEVE,
-> checked through mlx5e_tc_tun_can_offload_geneve()). The preceding commit
-> "net/mlx5e: TC, match the tunnel key without a tunnel device" says "GTP-U
-> needs flex parser profile 3 and GENEVE profile 0". That means the 2152 and
-> 6081 selectors listed further down cannot both be available at once.
->
-> If the firmware default is profile 0, the firmware will refuse this
-> example, and the extack message does not mention the flex parser profile.
-> Could the text mention this firmware dependency?
->
-> Also, the example passes skip_sw on the filter, but the text only implies
-> that it is required ("Only the hardware can match the key").
-> mlx5e_tc_tun_parse_outer_key() refuses the offload without it:
->
-> 	if (!f->common.skip_sw) {
-> 		NL_SET_ERR_MSG_MOD(extack,
-> 				   "enc_key_id without a tunnel device requires skip_sw");
-> 		return -EOPNOTSUPP;
-> 	}
->
-> Would it help to state that requirement explicitly?
+And this is where, small changes, with good commit messages helps
+you. In order to write the commit message for a small patch adding a
+new lock, you would of done this investigation in order to write the
+commit message, answering the question "Why?"
 
+I don't say this just for reviewers benefit. It also helps you get
+your code correct.
 
-No, as on v1. The document doesn't repeat each driver limit. The mlx5 
-commit names
-the flex parser profiles and the driver refuses the filter with an 
-extack that names
-the missing match or skip_sw.
-
-
-> [Severity: Low]
->
-> Is "physical port" the full scope here? __parse_cls_flower() calls
-> mlx5e_tc_tun_parse_outer_key() for any filter_dev that is not a tunnel
-> device. That includes FDB flows on VF representors:
->
-> drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c:mlx5e_tc_tun_parse_outer_key() {
->      ...
-> 	if (fs_type == FS_FT_FDB && !mlx5e_is_uplink_rep(priv) &&
-> 	    esw->offloads.inline_mode != MLX5_INLINE_MODE_NONE) {
-> 		NL_SET_ERR_MSG_MOD(extack,
-> 				   "Flow is not offloaded due to min inline setting");
-> 		return -EOPNOTSUPP;
-> 	}
->      ...
-> }
->
-> On a VF representor the keys describe what the VF sent, not the packet on
-> the physical wire. The text also does not mention the min inline
-> requirement.
->
-> Separately, the example's action is only registered for NIC flows:
->
-> drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/act.c:tc_acts_nic[] {
->      ...
-> 	[FLOW_ACTION_RX_QUEUE_MAPPING] = &mlx5e_tc_act_rx_queue,
->      ...
-> }
->
-> tc_acts_fdb[] has no such entry, and mlx5e_tc_act_get() uses tc_acts_fdb
-> for MLX5_FLOW_NAMESPACE_FDB. Wouldn't the documented command then be
-> refused on the uplink representor in switchdev mode, even though that is
-> the physical port?
->
-> Could the paragraph say that queue_mapping steering only applies to NIC
-> (legacy mode) flows?
-
-
-The paragraph covers a filter that steers to a queue. mlx5 offloads that 
-action in
-NIC flows only and a representor never takes it. The mlx5 commit 
-describes the representor cases...
-
-
-> [Severity: Low]
->
-> Should this mention that VXLAN (4789) and GENEVE (6081) carry a 24 bit
-> VNI? The example above partitions on the top two bits of a 32 bit key,
-> but both parsers refuse keys that do not fit in 24 bits:
->
-> drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c:mlx5e_tc_tun_parse_outer_key_vxlan() {
->      ...
-> 	if (key >= MLX5E_TC_TUN_N_VNI) {
-> 		NL_SET_ERR_MSG_MOD(extack,
-> 				   "Tunnel key does not fit the 24 bit VNI");
-> 		return -EOPNOTSUPP;
-> 	}
->      ...
-> }
->
-> mlx5e_tc_tun_parse_outer_key_geneve() has the same check. So a filter that
-> copies the example with dst_port 4789 and enc_key_id
-> 0x40000000/0xc0000000 would be refused. For those tunnels the top of the
-> key space is bits 23:22, not 31:30.
-
-
-The VNI width comes with the protocol and the example is GTP-U. The 
-driver refuses a wider
-VXLAN or GENEVE key with "Tunnel key does not fit the 24 bit VNI".
-
-
+     Andrew
