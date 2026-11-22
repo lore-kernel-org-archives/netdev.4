@@ -1,97 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795339097;
-	b=VhOxc8zXj2oldoGYtJ+PcROsIVGS4lHyNAQB2SIKGThkLxM/EXkj0WxaOZXH4dgfmznn
-	 DRNiIt9i0ZKez29Wsv5fk5S8+wwVKQt5Y80ybY3P8zlEg8OeUQeJ+N/kvoIOgGoMCJcbw
-	 ev1gADG5VrDMstlly+hr8fp3DvrLtOEyzcvZjyyEMUSVzI4BCg+RuQ2Ln+NrS1sSAAI1G
-	 1S2fnmZHherRpI/3iFabwI7Clil4S/eTd/nHfWcdNnzYAeeGBurPU9NJkfDMJOCtIZ0m1
-	 rJAKOHg9qttMyWrDKoXlK7t8/LtNPqAKWs/61ohVOpJSwxFWYu4vjc+In8urPkHWTOQ==
+	t=1795339179;
+	b=AZ5CmT1mupf4QKb6noDVm1xqL8bKG7zTlfedKcIWaJTLa36BxLjqg3SIff5JFYWcdIjz
+	 PJf34pk0EpqqH6wLc9bJgOCPPd6mvNBV/j+8wJ9MldAKOnm/+bc15ytrzJADJXj/3aDKW
+	 4D8dBgoPNli2abLcNHlxrbdA2dIjqwu1p8RETOkDt2OLWcjX9GCo6eG8fjOVVHS/5bEYm
+	 9ZxhEMV/eu99/CYx1fQQS9ayWBA6/fPqW6Ubmx1e/4VgccVShgZNfs3qnEn1vaQ4Slm+B
+	 Ia8680WXwUH7nC40yKMQ0vMNnZE4zn+fAdeD6ycF8A6t3zPoW7Iz8dKgtCZSM/ftdng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795339097;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=IwI7KfDCoyMhSFpWFFdovIBGOt7mqZWWABnzRAhh+wM=;
-	b=a4JVVO1zTknbRffa8Wzui2ZB1SNXMs3kr3eYUA0IK/y5LgGtXNQE97LKpZ7In9Wo/N9h
-	 B5Sw3RgW4vyncX3K3GMb/EP0P/5it/MdPsAHuzt2qO00N+jFXqfVyClnMhPaRc4cG08pX
-	 uB0vlbGZHIg5gaDJHjHernHQLKdz7JO92kDoD4Vllvv1UzB/b7XK7+r2sAEVxC+2tcx4Q
-	 /zp5badoPZEB58Ai7RcP+l8gsE61OxOp4m+tbfr6W6WSKzBLd47RIoftmfkZKupmCfHnO
-	 TA5iRxl2HkPj8HAPHUibATSUb3tgPn86JF2wlRKABFw3LOSi/r6kl0vTjwmMKL4fyyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795339179;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=BLi6FJ3YBdze32J1P5e4SyztLeVBldzrE4m0g/yjef8=;
+	b=CbfSebqlyc25SUp2gHXs/6yITZSpU7hkpLGcg9qpsKCIC2TWYdu6VQNcvJKOWl3d17T8
+	 M/2AFpJDvRPFL8kL9UlvelaYkM4jysLcCswE2A21eMMixf6VqPYjB0Qd/T/x/NAzPAkvu
+	 u9dUTXywS5o5v0tzKdWUDvd+AcGCJ2cBMpMSgRT7GvSU10kQ6nvnd4aXdI+U83apa6fGt
+	 aC29nI4GFck68quvkPmkorE4+QfdPM+InJifZV+so+dbg6RwyEZp0NOrBM7A+7CIhjvo7
+	 CcsFDeutlo6CMUxj9WIiwroPgijsIaeWYiJoJ/jVMI1//RjKnezOmku4XK3RJ7I57sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V9cMwuul;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EMz0e8MK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE840606A32A
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 09:18:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE840606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07126606A33C;
+	Sun, 22 Nov 2026 09:19:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V9cMwuul
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-490d59c3edaso1529399f8f.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 01:18:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795339095; x=1795943895; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IwI7KfDCoyMhSFpWFFdovIBGOt7mqZWWABnzRAhh+wM=;
-        b=V9cMwuulIstoK3uawwD0uEyU8nq10rn2tL38TroU9iVprlNWVXTIf9L5epKBa5FMMz
-         ZA4J0+BObH4XgjQYDumd4fa+iQY8zMrvcHa1qcDiM66YN6fxKB+MOqk5noZwGi1hq6/k
-         IxhmoxDzXjlc10rkz4YmVfMeh5hkILg3t3VVF0dDBsAWCd9EhFhsNdiIrDarf0pvAqwc
-         eX3Z/hb25Yd0ruvMSoFfs/AsxxcWPLMuMN2+j7IRdWg+cs9uP9DlLlCwyArbks9TywLG
-         HOedlurIDentM8BQeqt+XB/mcBtEGwycStlw2qa4XYOf4w7QSLRPxm3ashS2P81eDha9
-         TOvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795339095; x=1795943895;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IwI7KfDCoyMhSFpWFFdovIBGOt7mqZWWABnzRAhh+wM=;
-        b=H3oA4IDgu9+F4Cyhqw2HQbQAZfWa4Q1AC5vklvt1pgpus2KBbgjBmWfiVxBSpZjyU1
-         vtZ2vS4TTbAcCDYiScCDCFNJ/HCalsTFDzVE+hSIOc2JoZxjLO1XTEWV9hd1NJMgyaMV
-         5rJ16zPDbZKXcuT1yjZtN+/jQspMZt8NdS0c6NkSDflZNezNEDiUDupy2926KAKcwP4r
-         ic0s6938xmzKxMGhHCpt7UCD+/9dh4B9d/GtnJIoDCek7k2cmIn/0oAw9OUieDBv2b9W
-         dAuBYHPWBq3Ds9n5QhTHfP08o+gVCkWAL/qB8WCM+Uap8+hk0FGddy43pQiF9EDFtQXP
-         2geg==
-X-Gm-Message-State: APuU4Z9KnqnAFKFAab8TR2B0Gwqn7Pp4817Rv5gszzzzWlIPHhr+nddg
-	PohJX/PaDHb9lxnND+E51WABH3kS868CBBpaaO+DHko828ZlUG3xx2PQxau0Wip4
-X-Gm-Gg: AZFdTZdRqlGiymEYjI9VocX0erHuGAJKyzkZT8u7WXiLvWCCVGg7angHcABVpTFwJZt
-	j7hhk5L34Z2kAXY05lDc/8fRmy04Je9wJvhDA1pfWbC9zM4Sml5DhKZbrxwYuSjxvJBDOUQG7i7
-	si59zY2f5xDK1XKFGCc07broWzYQzuqYVbuLxYyqX7i823MjqhGPpvSyDCVOysTXSxby6OxCHyi
-	4CyNtTMbp3onY0mR9DRJA7xo2pcvY8qZqf2gdZ3ABbHFfqq7X221hvVZ4wgxWGT+C7kSEwkBpMN
-	8NzXBEp4jZW9MrFGyhWJaIsrvNtbpgvxjMLsvveMwyRc9F9AwXPNSlVU33rqPX9JSAJlrcRVww6
-	3F3+nho6hYTLoe8nCKCtEfu5jDHTXg3a4n9g4Z/dwbAo2p4hVjry5aB4te/JJYK0xxSog4JhIIJ
-	+ZcWsor1S1UAmdZWyV9WZm0PJefSw7udHNwN6qvKeFYGPjZQowfyThiGkb64s3IhpttxOtU3I6n
-	51EJgsjJsU0VM//dzZIVysdh2X99iqRk+henbrAytdfqGipveX3+A1knmiOnXYcQoAflkXkEcpq
-	TrUxds4pMeCACBiip/xDwTQ8NiWvonIKju+mnwtNHhk7LH4NvXbpLH0fYdrlPBa1+hFM1HhqPIA
-	cdhtuFDi/6EvIi9a1X1E424b45bbEVNOXp4y0vu9jS6XKb4z2XGcRP0MxnkblBNf+LbOEZ67t5P
-	rcwuxGsw==
-X-Received: by 2002:a5d:5d87:0:b0:4a3:2ac:26a4 with SMTP id ffacd0b85a97d-4aa58527c76mr24388328f8f.23.1795339095019;
-        Sun, 22 Nov 2026 01:18:15 -0800 (PST)
-Received: from qblck ([188.130.155.185])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm15320792f8f.7.2026.11.22.01.18.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 01:18:14 -0800 (PST)
-From: Artemii Mashanov <ralerrdirsardx@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2] net: bcmgenet: reject undersized RX classification rule buffers
-Date: Sun, 22 Nov 2026 11:22:22 +0300
-Message-ID: <20261122091748.18292-1-ralerrdirsardx@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EMz0e8MK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A662A1F000C0;
+	Sun, 22 Nov 2026 09:19:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795339178;
+	bh=BLi6FJ3YBdze32J1P5e4SyztLeVBldzrE4m0g/yjef8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=EMz0e8MKeNv4rhcUPdw8SVX2ubd16Ms9Or8bDnmla+NICnuP9k8nsgLIN9WHn13RR
+	 UdUwl4QgvKX8JrP+YE1sXfgoox3UAEwF7ihCJEhWGuz3MjFhEZZzHihiEX9sNTeINi
+	 4fthJLsn/DTFai9w+s/NaR4Zs654C4eLHS7vW/8kTaUL/Nem9t7/FwhPbcYGCCrCYy
+	 OZbBt1h5c4CfW76b+YAV+YTzxL2i+vJE+vrlhn0Lgci33sApB0Fa1UspuGJRPhtTod
+	 zlQiDq62XWHwaS4YZ8VJqaJ2kUsdu2qwpbJ9M679nAsTk1+S280TEHX5QqUNtS3rZ0
+	 x9BS7BLfwH9WQ==
+Subject: Re: [PATCH net 2/4] net: skbuff: limit folio refcount when
+ rearranging skb frags
+From: netdev-bot+sashiko@kernel.org
+To: david@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, akpm@linux-foundation.org,
+ kas@kernel.org, songliubraving@fb.com, hannes@cmpxchg.org, riel@surriel.com,
+ willy@infradead.org, ncardwell@google.com, kuniyu@google.com,
+ pfalcato@suse.de, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+Date: Sun, 22 Nov 2026 09:19:37 +0000
+Message-ID: <179533917726.3135.13005025144396516237@kernel.org>
+In-Reply-To: <20261118-skb_refcount_overflow-v1-2-5551b4954c3f@kernel.org>
+References: <20261118-skb_refcount_overflow-v1-2-5551b4954c3f@kernel.org>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,54 +66,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The rule list can grow between ETHTOOL_GRXCLSRLCNT and
-ETHTOOL_GRXCLSRLALL. If the supplied array is too small,
-bcmgenet_get_rxnfc() currently reports success with only the rule
-locations that fit.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Return -EMSGSIZE when another location cannot fit so callers can
-detect an incomplete dump. On success, continue reporting the number
-of locations copied.
+Low priority / nit picks for your consideration:
 
-Signed-off-by: Artemii Mashanov <ralerrdirsardx@gmail.com>
----
-Changes in v2:
-  - Retarget to net-next as requested by Nicolai.
-  - Clarify the commit message and drop the Fixes and test lines.
-  - No code changes.
+- [Low] The commit message explains why skb_split() keeps its
+  unconditional skb_frag_ref() by saying that "each split also allocates…
 
-v1: https://lore.kernel.org/netdev/20261121001550.732679-1-ralerrdirsardx@gmail.com/
+--
 
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+net: skbuff: limit folio refcount when rearranging skb frags
 
-diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-index 6545caf..a84c8ce 100644
---- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-+++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-@@ -1664,7 +1664,7 @@ static int bcmgenet_get_rxnfc(struct net_device *dev, struct ethtool_rxnfc *cmd,
- 	struct bcmgenet_priv *priv = netdev_priv(dev);
- 	struct bcmgenet_rxnfc_rule *rule;
- 	int err = 0;
--	int i = 0;
-+	u32 i = 0;
- 
- 	switch (cmd->cmd) {
- 	case ETHTOOL_GRXCLSRLCNT:
-@@ -1675,9 +1675,11 @@ static int bcmgenet_get_rxnfc(struct net_device *dev, struct ethtool_rxnfc *cmd,
- 		err = bcmgenet_get_flow(dev, cmd, cmd->fs.location);
- 		break;
- 	case ETHTOOL_GRXCLSRLALL:
--		list_for_each_entry(rule, &priv->rxnfc_list, list)
--			if (i < cmd->rule_cnt)
--				rule_locs[i++] = rule->fs.location;
-+		list_for_each_entry(rule, &priv->rxnfc_list, list) {
-+			if (i == cmd->rule_cnt)
-+				return -EMSGSIZE;
-+			rule_locs[i++] = rule->fs.location;
-+		}
- 		cmd->rule_cnt = i;
- 		cmd->data = MAX_NUM_OF_FS_RULES;
- 		break;
+This patch replaces unconditional skb_frag_ref() calls with
+skb_frag_try_ref() and skb_frags_try_ref() in skb_segment(),
+skb_try_coalesce(), skb_shift() and tcp_clone_payload(). The goal is to
+stop skbs from multiplying folio references until the folio refcount limit
+is exceeded. skb_split() is deliberately left alone.
+
+> skb_split() can still add one reference when splitting a frag. But each
+> split also allocates a new skb that is charged to the socket, reaching
+> the refcount limit that way would require a lot of socket memory, and the
+> references go away once the data was acked, so it's not that relevant in
+> practice. Making skb_split() fail is more involved, so let's leave it alone
+> for now.
+
+[Severity: Low]
+Is this reasoning true for all skb_split() callers?
+
+Socket charging and dropping the references on ACK both describe the TCP
+callers, tcp_fragment() and tso_fragment() in net/ipv4/tcp_output.c.
+
+skb_split() also has a non-TCP caller in batadv_frag_create() in
+net/batman-adv/fragmentation.c:
+
+net/batman-adv/fragmentation.c:batadv_frag_create() {
+    ...
+	skb_fragment = dev_alloc_skb(ll_reserved + mtu + tailroom);
+    ...
+	skb_split(skb, skb_fragment, skb->len - fragment_size);
+    ...
+}
+
+The fragment skb there comes from dev_alloc_skb(), so it is not charged to
+any socket. The data is not acked either.
+
+The path is batadv_frag_send_packet()->batadv_frag_create()->skb_split()->
+skb_split_no_header(). skb_split_no_header() still calls
+skb_frag_ref(skb1, k) unconditionally whenever the split point falls inside
+a frag.
+
+The KUnit tests in net/core/net_test.c also call skb_split() on skbs that
+have no socket.
+
+The conclusion probably still holds for batman-adv. A packet is limited to
+BATADV_FRAG_MAX_FRAGMENTS fragments, and the fragments are transmitted and
+freed. Only the stated reason is TCP-specific.
+
+Could the commit message say that the socket memory argument covers only
+the TCP callers, and mention why the batman-adv path is also bounded?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-skb_refcount_overflow-v1-0-5551b4954c3f%40kernel.org
