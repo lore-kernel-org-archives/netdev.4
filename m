@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795309282;
-	b=MlnKDLmyk2pT4lSeymMnVYQZwH/Blv/TKuk4RAQc7Fgjy3fYKv4WAHHat6EftbjocAkn
-	 ITD07pmf8O3C9APhtAhuYq5FSA9GG2oxL0z3qXKgKIPJ6WazJDeJE6L0khJapHaR3Ywmj
-	 ItYVwmG7JBblpnCCrG6+L44itIk0EEYZ+rl/FMgG44I+9ni5SEg/G2wLfVCGO0WIPe4Ez
-	 /cs5NtNzihsCelsAmdFbg0ud60ahFfV7NA++EgPySSul2wmBr13Yz02C5v2QhbMfDE+W6
-	 Rt4DBd4D7i6MmC+mkZQjcV9UANpZJ9NYS2flcb5DIgaMwVgtySKwgNAXYE1BxcBNjxQ==
+	t=1795309283;
+	b=G0vw8cPqHo0JxsvOelWUenV3VtLOfuA7sdhy2LU/EUk9mjFuDTPadCN3SSLr5MBw1Yvu
+	 NKGGLZyljcL+uTW4sDEmmOY8m4q/8zG3EV1VfPazUAbWYi3WDVnbSIQeMH4ZlgZlTXSRq
+	 93GkVhQ2wwacDRJ2Ifw//ziXMNSU6xVIbUhTobqA0vXLpB7BDBs0nRaNzhoiK6l3E8uzT
+	 Wdfk9vM3muZJSazVhUyyTWHQFq6Yuf/iaUrr88PP/EZXjyGKxGIoqFjlvIb94iAQhQX3g
+	 LHQsI49lT8xpdgqasoVi6AxIHKCFjLz1tvvA5SwhA9H65eJvb+yCmADs8xTGib9Pptg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795309282;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795309283;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=6FgwCARGEpkpTwD2Bzkd8oOY3DFiHDLCOEA5k6QdlS0=;
-	b=1MWLI/f273uuASANqVeDAVNsmBopgReZ779+WWheWf6gba/rzq0b/nIO8ZTa/9GNiV48
-	 i0++e7yOe8HUsFg5kLCoGbH4/o5Bm8UDSHXiJ17PtFN/d9AtoqxwxiBfkiuDzJ/TNCJ5U
-	 MNgwLCvdYwiRov8pU2DLHyUpjwyY7buv5xH/UQmYtOITXUGtjmtDzb52judAIsELAabdI
-	 CzNDuRLy5snhsmeU//Jq9m81/sjNzlgLjDtY78zboht3TxTrbhBLqQcKWo9GmYk9+xmV8
-	 htW5oEObk8a57kqdpPGq7I1pOw69jaTmFMfs5i1YCzn8fYsZd69Ri4yL1gA5eAd41HA==
+	bh=+tP7aLEqgrF6Dk34MyWOjGQHbDw+6X3cY1fgK9v3OcA=;
+	b=mxBmHQmuvhYVBvhKGhk46S5GN4sumpet/3cX0jIdKdgBZ0s39sgzwKgh64dZOvZSbW6Q
+	 xlau/xwv8ENEJ/VykJvrmJtIUXuL18OYH7abft1QPk5H3/bzigZ2uAa+vX8S+XmJVJhDf
+	 1X25hyeVQEWJjARy+CWyuGMYOhXcccFTncCBnwYwYWPVWNxn7/CJ+MrAGq4eyc6kC6dFP
+	 ia67zRb4qNYef21L2jJd475OGBcVEy+emtyi98JmQUY/AYAHR5kd7BtE6hE1tOPU/3Umr
+	 bxuNk9K/BSKznC6QjYDYWoLASnHlI4CwzWtS5XZ1bHuRI+4eiFbmYxP1kDIrHlBx2bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSx2p52i;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ISUqcG6e;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE783606A68D;
-	Sun, 22 Nov 2026 01:01:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F570606A690;
+	Sun, 22 Nov 2026 01:01:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSx2p52i
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07E51F000E6;
-	Sun, 22 Nov 2026 01:01:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ISUqcG6e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 984C71F000C0;
+	Sun, 22 Nov 2026 01:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795309282;
-	bh=6FgwCARGEpkpTwD2Bzkd8oOY3DFiHDLCOEA5k6QdlS0=;
+	s=k20260515; t=1795309283;
+	bh=+tP7aLEqgrF6Dk34MyWOjGQHbDw+6X3cY1fgK9v3OcA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VSx2p52ivCu0LpuGlzcrVrhFSw+wVaEu0ozpY6QDENorpfUpqo5XdxWJzIdyKZ7Bc
-	 cGL/z2yvzzTIb257cWlnbcVOoLrBufy2OMb/ji5xsB1NblHojyeUt5k65C8utyO9IC
-	 YKot5LxPlpIyOWok8wA0pW+LgEv5h7S1DDdmvIn+L6gLqJNTQKJQcFMzTtwPZGD54s
-	 SFp+LcCSVaqMaFy3sIvuhBFUUdgLHwlkVMPw5VUef/xuh5znRhB65saAGWBomAehEf
-	 HffvjfUNzEdREj146aaMYcHJuQNV0zPXcgufPOr/0vZfx4m6Ud5v9Q1J62caZoWUr1
-	 ClrC0D7Bq2cSA==
+	b=ISUqcG6eRgkVab+M2uBYKVpli3cBKQFb7+UDNgU87QYDF2YNfkpzuqDfP/ZFaD8lB
+	 Mr8a7dmdF7Ywy9E9oqn/I/YmNZYUIEtO47lo1jHAVjHORtcyjupCSyR9WNYrxvzfch
+	 mI9IPRIK4NwMTyYs4gYoagssI83QZMdTsGty605NR8qHTIjdzx/n7v3C75dGRcPEae
+	 xOv3sD8M1G960VSa9/sZtD3AT8a2/JYzJtx7GssFwri8PIMU5ywFxupkHYj04WqU20
+	 zGz/RrH8xSSfZ9QcsINQHB0GXlKaf5nWE7DAhheJH2Rf+QoUKmOaFqE1Pg4NZ9RTIk
+	 fCS1LxvtkMSeQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: davem@davemloft.net
 Cc: netdev@vger.kernel.org,
@@ -59,9 +59,9 @@ Cc: netdev@vger.kernel.org,
 	przemyslaw.kitszel@intel.com,
 	bpf@vger.kernel.org,
 	Jakub Kicinski <kuba@kernel.org>
-Subject: [PATCH net-next v2 7/9] eth: bnxt_en: don't clear HW-GRO and LRO for XDP in ndo_fix_features
-Date: Sat, 21 Nov 2026 17:01:10 -0800
-Message-ID: <20261122010112.1471146-8-kuba@kernel.org>
+Subject: [PATCH net-next v2 8/9] eth: qede: drop the now-dead HW-GRO vs XDP handling
+Date: Sat, 21 Nov 2026 17:01:11 -0800
+Message-ID: <20261122010112.1471146-9-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261122010112.1471146-1-kuba@kernel.org>
 References: <20261122010112.1471146-1-kuba@kernel.org>
@@ -76,33 +76,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The core keeps HW-GRO and LRO off while a program is attached, from
-before ndo_bpf is called until it's gone. The xdp_prog check in
-bnxt_fix_features() never changes the outcome any more. Without agg
-rings, which single-buffer XDP at a small MTU implies, neither offload
-works, so that part stays.
+The core clears HW-GRO before ndo_bpf runs and keeps it off for as long
+as a program is attached, which makes two bits of qede dead:
+
+ - the xdp_prog check in qede_fix_features();
+ - qede_set_features() skipping the reload when a program is attached,
+   HW-GRO can't change while edev->xdp_prog is set any more.
+
+qede_alloc_mem_rxq() clearing NETIF_F_GRO_HW from dev->features directly
+has to stay. Firmware recovery re-runs qede_init_ndev(), which rewrites
+dev->features with HW-GRO on, and nothing recomputes them. The direct
+write no longer leaves HW-GRO off after the program is removed, the core
+recomputes the features on detach.
 
 Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 ---
-v2: no change
-v1: https://lore.kernel.org/20261118232315.3593731-7-kuba@kernel.org
+v2:
+ - keep clearing NETIF_F_GRO_HW in qede_alloc_mem_rxq(), FW recovery
+   needs it
+v1: https://lore.kernel.org/20261118232315.3593731-8-kuba@kernel.org
 ---
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/qlogic/qede/qede_filter.c | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index ca7cb573d63c..168ef8f08aed 100644
---- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-+++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -14105,7 +14105,7 @@ static netdev_features_t bnxt_fix_features(struct net_device *dev,
- 	    bp->tx_ring_size < 2 * BNXT_SW_USO_MAX_DESCS)
- 		features &= ~NETIF_F_GSO_UDP_L4;
+diff --git a/drivers/net/ethernet/qlogic/qede/qede_filter.c b/drivers/net/ethernet/qlogic/qede/qede_filter.c
+index d0e203167e35..9c68579c5b33 100644
+--- a/drivers/net/ethernet/qlogic/qede/qede_filter.c
++++ b/drivers/net/ethernet/qlogic/qede/qede_filter.c
+@@ -915,7 +915,7 @@ netdev_features_t qede_fix_features(struct net_device *dev,
+ {
+ 	struct qede_dev *edev = netdev_priv(dev);
  
--	if ((bp->flags & BNXT_FLAG_NO_AGG_RINGS) || bp->xdp_prog)
-+	if (bp->flags & BNXT_FLAG_NO_AGG_RINGS)
- 		features &= ~(NETIF_F_LRO | NETIF_F_GRO_HW);
+-	if (edev->xdp_prog || edev->ndev->mtu > PAGE_SIZE)
++	if (edev->ndev->mtu > PAGE_SIZE)
+ 		features &= ~NETIF_F_GRO_HW;
  
- 	if (features & NETIF_F_GRO_HW)
+ 	return features;
+@@ -936,15 +936,8 @@ int qede_set_features(struct net_device *dev, netdev_features_t features)
+ 		args.u.features = features;
+ 		args.func = &qede_set_features_reload;
+ 
+-		/* Make sure that we definitely need to reload.
+-		 * In case of an eBPF attached program, there will be no FW
+-		 * aggregations, so no need to actually reload.
+-		 */
+ 		__qede_lock(edev);
+-		if (edev->xdp_prog)
+-			args.func(edev, &args);
+-		else
+-			qede_reload(edev, &args, true);
++		qede_reload(edev, &args, true);
+ 		__qede_unlock(edev);
+ 
+ 		return 1;
 -- 
 2.56.1
 
