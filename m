@@ -1,99 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323666;
-	b=y8wepY7XhB3QzEr/KUPXa25CUNezdQsx8X3n41k5J/VeuC1/vMoIwhi4U4knSnlU3Jql
-	 ohpMnXwXmlD664q0+WXxNAtkVRM34zCStcDEJYJ56ukqbqM7/I32IQDbpW9qCeVbS5rND
-	 i7s4a4xubla9K+6wJ85bwaecQJtQOQJiyOH3d5VWxtGrsiASgoULtWZa3srpxjFG+O9lw
-	 dg19c6UetY8R3NWQIeFvQIBtDVCfWiOHahMObYP+BTBkScTt+U0hBc1Yd/LHBWJWI4vLB
-	 SYxB3haIfpkdTsEmuNtWYZ/G5tw+uliG94sMpCH3hIhvl/ZpNxP1nqY6AHBEUiowG0Q==
+	t=1795325554;
+	b=r3yCwumLr59rQNCG4q4heGszbhBDk5Yhrl/nvxtipxdbZGCv0NmwwkH3WNZICfb1Mi5N
+	 W92IlgCejTKLkxN87o7JU0oHv44C/iB4OF8nh8ojUkCQC4AXSrHJQw288rn82MiHd3849
+	 0ckW4fRuG61Yx9iyb7z0xgIefrAACL4NJe1V28ROaLD6OqAOCyh9OC3VEovpEWhuKL2Ig
+	 STleK4xIHlEDBQYsk83oOt1U9EnDDIcmhOxM3mtIl0atPOlP3opq6ennQrrW8QNCzAQEu
+	 G8/ywSDVFU5m0+tBxhzwHiF4oLarJhcZEZ2X1Zwd/7CViR70WnHteT53E7wzjDdwSRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323666;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795325554;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=8sO5baWR5ydBEJ8ZbvTGeWnxXFHzKoOvclS5abJHCLc=;
-	b=J8MYB0KT30f0rggHyQqkcTBrHLojzPfKeusN7sL17FcANobsSws0GNZKNf7WiRFztMFg
-	 shQY1iIFiFY6yRwYkuSNeqxH90jHTUwRlFaOvujxzCYHwPrmhpPDdh+4oDei5kGCeM1iU
-	 2OYY7h1AC+UEeaywFiKmlbVwTvv9qN7HrtUDaQdy4GpD/JQVsuhWr5Bu09ynQcf5SRKKw
-	 CYi8jr8h/WjlWekj1gjLgNZ4eanG7yKFBeArxjmpZNbY5z7xOOCxL9nG914+8TdPgN/8X
-	 VTzZ21pKWLASDlASJ0Zm+DsXJ8mjdjDletaqzvuIvKBu3Brqoipfe3sVujPsznJG2BA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=kmj+nrDmJf/nt8k5l8za4Rv321FM1aLPUbg8EmSjASY=;
+	b=DO6HQT6f23TwkUXVBeYjMQAP7AUqBhWbDBbAXpwMYLv/oND0QsCLDaXvAeAGZ6NHV9/I
+	 HCD+4uHk4hkEMICKQSlAqNvXbR728egLJCfmgkhnzdytRof9W80d7a34O9Y1wGcO2RF0R
+	 Yu9bO+t+hFpjspwItInkHPtDN7PKToH7AYGWhagziOgINH6DU7ICGxoUVK26hRnBriaaU
+	 i8xS3+T7VXTcUf1DYVu283Dx7426/QugRiHerZXfmJ9uIFDdoUH0y3Up29d4bT6qDe1W3
+	 0Qg4juuCfoz3w8s8R9F6HgvYn3S0McurffUmxFwqBW6NOg4kbzoZ7j+9KgWRgKAfMlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ICGUHgEz;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=cGmC9+HR;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE649606A331
-	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 05:01:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE649606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BD55606A32A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 05:32:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BD55606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ICGUHgEz
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cdba1b5ed8dso1116928a12.1
-        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 21:01:05 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=cGmC9+HR
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f05b465cd1so6623935ad.3
+        for <netdev@vger.kernel.org>; Sat, 21 Nov 2026 21:32:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795323665; x=1795928465; darn=vger.kernel.org;
+        d=iiitd.ac.in; s=google; t=1795325551; x=1795930351; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8sO5baWR5ydBEJ8ZbvTGeWnxXFHzKoOvclS5abJHCLc=;
-        b=ICGUHgEzmNAkS+6+rKhYTvE6UimbSj2StJZBaerKMoDxcmxCubWLSfIHmmxQl1g4DO
-         xxjxxGyvi4Eb87Uhm5z1rVC/3+Lu8Ug41jt/l9KYP/xhG/u5LwceuCJXjo3z5Wcb/HKO
-         Wg0c2fa9Qm7MlGug/l+rjLLBmKeEHwEyiPYMdi6E6IYzPU13+4L/+iYbAxD7ZOc0o0Xm
-         fCE3/fSBEPDY2zHarYLaKuJD8PKdBr/TTI7gHmoX0AzNX2Ne6jBd9lcMstA7Z+b1egmD
-         Ua1DI4I2pkXHdxccbdJ74lAnTgG9nerswqE7ekxTGTgAsUgnXNjJhAbWqRuQNxNsNnlr
-         TQhg==
+        bh=kmj+nrDmJf/nt8k5l8za4Rv321FM1aLPUbg8EmSjASY=;
+        b=cGmC9+HRXOvfEi+XbJuDZzzSyZ9UdraQVb/v52QWWGmRuFXxQLd09TpYDFA8UWisgT
+         3KGt9q+KMrwYFrtsA1+r9XVfSwmoNFc2c00IYtxXJ4gFb2+44jEmNXcpvmXOOjkDoLm8
+         pgByTnc7NCeVGi9sk5iDaVmFZQK+nVzejr6zU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795323665; x=1795928465;
+        d=1e100.net; s=20260707; t=1795325551; x=1795930351;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8sO5baWR5ydBEJ8ZbvTGeWnxXFHzKoOvclS5abJHCLc=;
-        b=WItwwuAs2NKLSpOxTOMpqqpSsERaS/JLjD+EJEcXuQMAuh2c3xFBlNaU2lgTWOLmDM
-         0mK21wzz1/LwB7yWPbDU8XCPy8PImYft0tQBtj44uF9HyA7jCke9w7J0nH/n4jnfUL92
-         I2rqqIqXzQVDKtoqiOn7q6rsoK0Y3/BNcShRdL6D4ZWFHyNOCrTdtBbxWV27KE42EqTv
-         bwLtZSk7zScagiqK0UJ2CRtwrjpEScOrzsOfsxCkAIIl4q+jhAlpHdo+baYDFYwx8AV1
-         UNLkgFfo+D8VgMYatSoES+s5Lx99m6ejYrwZmYk9LtXw7geBVeaeUzzZoHWrEs38VsVC
-         Q0Kg==
-X-Gm-Message-State: APuU4Z94sj5FfVk43ChkiacG9J6NKQ+rrMFnSsM2SjeEPnFInSE6GKKC
-	DBngrGopsk0n6ijPvgNIbiecfisM/QcqtIYYlby9CRYHE0Blwtlp8DjsF3POPgZr
-X-Gm-Gg: AZFdTZcMtJcyJwnkG2ElXgZ/Zk/TIeNwPJHBv0esoTeAjzFLYxiYYgjcDQWBspafZZZ
-	/9olsETTmkF7HuPa4XBbcVD82NdnmGuRJN9rBsRi42NFAr+PCa7i9JRA8TKhuR+PRMWlqpEqk/9
-	RAkjGqladhRwXjgoDCHmVhQxJbX6KyqFV/lpSe3lMe34OIdyKrC6JD694G2AKTPyRpaTUFIawJu
-	XEtTfdfMNsC+F1OI/8umpM1GRQaWqDkCoV4/IDByXO3xY90DpNMQxTO0d9DikEB6wT7EdQ6rv5s
-	Zbk6X28yhhx4MooTMAHKcfw23mGi1TWlCozLBwU8R/a7HeWe/VrU2b9ZJcKM2iOQi8EuBanaUh/
-	QzRcvTUm2WEuz2id2MBDVnATuFUsFKVJM007hOcw/3ta7pI5YL+3KnoLUQLDnR3m/AoHz8BBrF6
-	W9Rx6iHsb+5PR60zcmgLfLMMRqUCyt+Pm2pnNpLlAd+B32vgzpzUdlvVRRJjLKHk97MOxC3xtZU
-	L2HJ1y9d0svi+Rpqale8mY2x/+8/NNhU6on5kXU62fhuttcJ0Ac8ktHmn+Ghc52ABClpqWEl8lh
-	kUeZPwWNNa5c9K3KRGUOk1TyjPtAhjz1jh1qRLk=
-X-Received: by 2002:a17:90a:c10e:b0:3a7:a3c8:8f4a with SMTP id 98e67ed59e1d1-3b41c9080c5mr5222821a91.18.1795323664828;
-        Sat, 21 Nov 2026 21:01:04 -0800 (PST)
-Received: from x1.hs.local ([2601:600:a482:7d70::4d5e])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b82e624sm3431606a91.4.2026.11.21.21.01.03
+        bh=kmj+nrDmJf/nt8k5l8za4Rv321FM1aLPUbg8EmSjASY=;
+        b=GmIbPODPAkGJIGPcauWEY5tL7xXgyOvane6pg680Dqar50jWDiqtCeBLZJzkFiQIss
+         ja5K52XBpJSiyn9YbSooA+mncOJUpJvl8pan9ZPObJhv4tvOM+nEqqQO4GsPhqab6Nh8
+         ATewe7EgLEcrTvna2G2+SMdQktAOcrzDe5av7zxKIXAkAmuEywLbrHzAvGWNi2RR7h8f
+         VrZ/9ct4NQlV6v2irbFiAuZeyRtJtQ2YGQD3/LYKMbvcvKMkHxtrKp+dVRq89HwCZMrs
+         J02r3SOQTxYO479fvcXe+PU/XhbxtkM05AZ6HeZAL7P955Agj8E6CX4YWYpTQ9l+ZtOa
+         Ve7Q==
+X-Forwarded-Encrypted: i=1; AL+hErEK1j5L4IGuBzA3gjHNG0Zw9olFcnzC85GoGNvz8wcKMET42Cf72Pj9l9vKpyoDthgHU/xBRHs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8jNcj7toZuwQyTzPRfIMOEOOWy6JfAn4psHnQ0+aJz3WdB1Q99
+	LnnUFoe2gtJnsSYJ7TgSnguZIokYDhwxA2JAvZRIYEFAxrzL6gKpPwTPVYfBFRJPFN4=
+X-Gm-Gg: AZFdTZeio0wWyOEznceGkNX/KZptcV/2rso6PrOtcFLTr5SG5QOVfIsVL4zYk04R63Z
+	wTQU4r5GfuEvppEvOVNAWuxYESvpLNvWixrBggBqeMAGdVTme1UHzCmbFmiPjjznbJevLBHVeMo
+	G8EgQMZvqarLU26X8tCXaB3uG2IOk5Co44kbEd/Jn7hopIt0TYNjAeMVfh/3Gwk0WsWqZnl6dDv
+	BBynjkFp7YlfljG+KwXsvlOvxdyHKDbWHOyJU0Nm3AMW/yYU9IQ8elXJpbjFaE3M2XIY7zyzaT9
+	l2xz0Pd3oFM8UeIpu6v64Xa3l4FrjFTsp6EPlC/ctp2MB13nc1yXOkTEkL5B+AkQf61Rjz/HRQi
+	V3Mt+SWDdmwQflbegRipk+xpJ4/wZnmzH9+kACeKmlnK+J9B+/eOcEv8uzpZnvUaTWTwj9ok+k0
+	lTQdgxRxRAkC8ZXa4v/a+sWHTshnM9dGWDSwdelFOzO6nDp0zUtv5XRHiMTDENxgy2nRLPnBmC5
+	yNIP4P1cmE8EaP4b4Sacmu2Bvc6uASS9yUrqqBljBTGTJHEw9HYxkBDNgzXs7IQfJzTtt05EgRF
+	DWa5qjKFehhn2fZeP1NKsdyXXicm0N6X31nSM/ArLAF8Swfoawp+TJ0AdPBMlODaD9X78tkJpla
+	399Wpavvh9+UsmbOhS+AVulk5uxJgixuwLPZsaln2rTQk0JROYz877fnVoaTjKo7T
+X-Received: by 2002:a17:90b:1802:b0:3ac:a139:1b13 with SMTP id 98e67ed59e1d1-3b41c93ccf9mr7444107a91.29.1795325551382;
+        Sat, 21 Nov 2026 21:32:31 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm14076748a91.4.2026.11.21.21.32.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 21:01:04 -0800 (PST)
-From: David Westen <davidlwesten@gmail.com>
-To: netdev@vger.kernel.org
-Cc: loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	m.chetan.kumar@linux.intel.com,
-	mail@maciej.szmigiero.name,
+        Sat, 21 Nov 2026 21:32:30 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: alibuda@linux.alibaba.com,
+	Dust Li <dust.li@linux.alibaba.com>,
+	Sidraya Jayagond <sidraya@linux.ibm.com>,
+	Mahanta Jambigi <mjambigi@linux.ibm.com>,
+	netdev@vger.kernel.org
+Cc: Tony Lu <tonylu@linux.alibaba.com>,
+	Wen Gu <guwen@linux.alibaba.com>,
+	linux-rdma@vger.kernel.org,
+	linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	David Westen <davidlwesten@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net] net: wwan: iosm: always send the host sleep message on suspend
-Date: Sat, 21 Nov 2026 21:00:39 -0800
-Message-ID: <20261122050039.861287-1-davidlwesten@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: [BUG] net/smc: out-of-bounds WRITE of 869056 bytes into a 65504-byte send buffer, from a peer-credited sndbuf_space (SMC-D DMB-nocopy)
+Date: Sun, 22 Nov 2026 11:02:22 +0530
+Message-Id: <20261122053223.2497832-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,110 +102,233 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Unless the BIOS reports D3L2 for the WWAN slot, the suspend callback
-only rings the FORCE_SLEEP doorbell, and resume the FORCE_ACTIVE one.
-Neither waits for the modem. The driver doesn't keep the device in
-D0, so the PCI core then puts it into D3hot anyway. An XMM7360 in a
-ThinkPad X1 Carbon 6th gen doesn't survive that: after
-suspend-to-idle its execution stage already reads CD_READY when the
-resume callback runs, and the first port open fails:
+Hi,
 
-  iosm 0000:03:00.0: PORT open refused, phase A-CD_READY
+A second finding in net/smc, on the transmit side this time.  
 
-The modem then stays unusable until an ACPI reset.
+Summary
+=======
 
-Send the ENTER_SLEEP and EXIT_SLEEP host sleep messages on every
-system suspend, as the D3L2 path already does, so the modem knows it
-is going to D3 before it gets there.
+Affected: net.git main at d5b89d55a322 and the 7.3.1 tree we work on.
 
-This ignores the BIOS RTD3 setting for system suspend. The setting
-only selects the sleep protocol; the PCI core chooses the power state
-without it, and here chooses D3hot, which the doorbell protocol
-doesn't survive. Honoring D0L12 literally would mean keeping the
-device in D0, as commit f4dd5174e273 ("net: wwan: iosm: Keep device
-at D0 for s2idle case") did. That was reverted, D3 being the expected
-state.
+Problem: smc_tx_sendmsg() clamps the first of its two ring chunks against
+the send buffer and the second not at all, so the copy is bounded only by
+conn->sndbuf_space.  On the SMC-D DMB-nocopy path that counter is credited
+from the peer's consumer cursor.  A peer that reports an oversized cursor
+therefore makes memcpy_from_msg() write sendmsg() data past the end of the
+send buffer.
 
-With this change the modem stays in RUN through 2 and 10 minute
-suspend-to-idle cycles, and its data session keeps working. Platforms
-that do well with the doorbells now use the messages too.
+Relationship to the other report: the cursor itself is what our other patch
+("net/smc: validate the peer's CDC cursors against our own buffers", v2)
+validates, and with that applied the known way to inflate this counter is
+closed.  We are still reporting this separately because the bound
+smc_tx_sendmsg() needs is its own: nothing at the copy says the length fits
+the buffer, and a reader of the second chunk has to go and prove it
+elsewhere.  Take this as hardening if you prefer - we would rather send it
+than assume the cursor check is the last word.
 
-Fixes: be8c936e540f ("net: iosm: power management")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Westen <davidlwesten@gmail.com>
----
 
-Notes:
-    This is independent of my S3 series ("net: wwan: iosm: fix S3 resume by
-    re-binding the driver around it"), which leaves suspend-to-idle to these
-    callbacks; it applies with or without it.
-    
-    Maciej suggested forcing the D3L2 path for suspend-to-idle earlier and it
-    helped another XMM7360 user with the same CD_READY symptom:
-    https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/work_items/992#note_2938256
-    
-    Tested on an XMM7360 (ThinkPad X1 Carbon 6th gen, BIOS reports D0L12)
-    with 7.2.15 and a debug build that forces the D3L2 path, which is what
-    this patch does, logging the execution stage and the PCI power state.
-    Starting from a fresh ACPI reset, the doorbells left the modem in
-    CD_READY by the resume callback after 2 minutes of suspend-to-idle.
-    With the host sleep messages it stayed in RUN through four cycles of 2
-    and 10 minutes, two of them right after a fresh reset, and ping over
-    wwan0 still worked afterwards. The modem and its root port went to
-    D3hot in both cases. This patch itself, backported to 7.2.15 on top of
-    my S3 series, then passed a 2 and a 10 minute suspend-to-idle cycle with
-    ping working after each, and S3 with my series still works. Built with
-    W=1 on net/main. Not tested on the XMM7560 or on a platform where the
-    doorbells work.
-    
-    The investigation and the patch were done with an AI coding assistant
-    (Claude Opus 5.5). It read the driver and the earlier discussion, and
-    added temporary debug logging to record the execution stage, the PCI
-    power state and the messages around suspend and resume. We wrote the
-    change and the changelog together, and I ran the tests.
+1. Root cause
+=============
 
- drivers/net/wwan/iosm/iosm_ipc_pcie.c | 21 +++++----------------
- 1 file changed, 5 insertions(+), 16 deletions(-)
+net/smc/smc_tx.c:235-265, smc_tx_sendmsg():
 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-index 49052eb511ba..dd7cfe3747ef 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-@@ -406,14 +406,10 @@ static int __maybe_unused ipc_pcie_suspend_cb(struct device *dev)
- 
- 	ipc_pcie = pci_get_drvdata(pdev);
- 
--	switch (ipc_pcie->d3l2_support) {
--	case IPC_PCIE_D0L12:
--		ipc_pcie_suspend_s2idle(ipc_pcie);
--		break;
--	case IPC_PCIE_D3L2:
--		ipc_pcie_suspend(ipc_pcie);
--		break;
--	}
-+	/* The PCI core puts the device into D3 whatever the BIOS RTD3 setting
-+	 * says, so the modem has to be told with the host sleep message.
-+	 */
-+	ipc_pcie_suspend(ipc_pcie);
- 
- 	return 0;
- }
-@@ -427,14 +423,7 @@ static int __maybe_unused ipc_pcie_resume_cb(struct device *dev)
- 
- 	ipc_pcie = pci_get_drvdata(pdev);
- 
--	switch (ipc_pcie->d3l2_support) {
--	case IPC_PCIE_D0L12:
--		ipc_pcie_resume_s2idle(ipc_pcie);
--		break;
--	case IPC_PCIE_D3L2:
--		ipc_pcie_resume(ipc_pcie);
--		break;
--	}
-+	ipc_pcie_resume(ipc_pcie);
- 
- 	return 0;
- }
--- 
-2.56.0
+	writespace = atomic_read(&conn->sndbuf_space);
+	/* not more than what user space asked for */
+	copylen = min_t(size_t, send_remaining, writespace);
+	/* determine start of sndbuf */
+	sndbuf_base = conn->sndbuf_desc->cpu_addr;
+	smc_curs_copy(&prep, &conn->tx_curs_prep, conn);
+	tx_cnt_prep = prep.count;
+	/* either unwrapped case, or 1st chunk of wrapped case */
+	chunk_len = min_t(size_t, copylen, conn->sndbuf_desc->len -
+			  tx_cnt_prep);
+	chunk_len_sum = chunk_len;
+	chunk_off = tx_cnt_prep;
+	for (chunk = 0; chunk < 2; chunk++) {
+		rc = memcpy_from_msg(sndbuf_base + chunk_off, msg, chunk_len);
+		...
 
+and for the second iteration (:263-265):
+
+		chunk_len = copylen - chunk_len_sum;	/* remainder */
+		chunk_len_sum += chunk_len;
+		chunk_off = 0;				/* modulo offset in send ring buffer */
+
+The first chunk cannot pass the end of the buffer because it is clamped to
+sndbuf_desc->len - tx_cnt_prep.  The second is the remainder of copylen with
+no clamp, written at offset 0.  So the total written is copylen, and copylen
+is bounded only by writespace.
+
+
+2. Why sndbuf_space is not ours
+===============================
+
+For SMC-R, and for SMC-D in the copying mode, the counter is credited from
+cursors this side computed - smc_cdc_tx_handler() and the tail of
+smc_cdc_msg_send() use conn->tx_curs_sent - and is safe.
+
+The exception is the DMB-nocopy path.  net/smc/smc_cdc.c:356-370:
+
+	if (conn->lgr->is_smcd &&
+	    smc_ism_support_dmb_nocopy(conn->lgr->smcd)) {
+		diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
+					&conn->tx_curs_fin,
+					&conn->local_rx_ctrl.cons);
+		smp_mb__before_atomic();
+		atomic_add(diff_tx, &conn->sndbuf_space);
+		/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
+
+conn->local_rx_ctrl.cons is the peer's consumer cursor, taken from the CDC
+message.  The comment states the invariant smc_tx_sendmsg() depends on; the
+add does not establish it, and before our other patch nothing on the way
+here compared that cursor with any buffer length.  On SMC-D in particular
+smcd_cdc_rx_tsklet() reads the cursors out of the DMB the peer writes into
+with no validation at all.
+
+Two details that matter for judging it:
+
+  - The nocopy sndbuf is the peer's DMB.  smcd_buf_attach()
+    (net/smc/smc_core.c:2622-2650) attaches the peer's DMB and then does
+
+	buf_desc->cpu_addr = (u8 *)buf_desc->cpu_addr +
+			     sizeof(struct smcd_cdc_msg);
+	buf_desc->len -= sizeof(struct smcd_cdc_msg);
+
+    so an overflow of this buffer runs off the end of that DMB mapping, and
+    sndbuf_desc->len equals the peer's RMB size - which is why a single
+    bound on the consumer cursor covers both uses of it.
+  - The data written is the local application's own sendmsg() payload.  The
+    peer chooses the length; the sender chooses the bytes.
+
+CONFIG_DIBS_LO advertises nocopy support (dibs_lo_support_dmb_nocopy()
+returns DIBS_LO_SUPPORT_NOCOPY), so the branch is live on an ordinary
+x86_64 kernel, not only on s390 ISM hardware.
+
+
+3. What we observed
+===================
+
+A hostile peer is what the bug needs, and the only SMC-D device we have is
+the loopback-ISM (dibs) device, where both ends are the same kernel and every
+cursor is therefore kernel-generated and in range.  Userspace cannot write
+the cursor either: the CDC sits at the base of the DMB, smcd_buf_attach()
+starts the ghost sndbuf past it, and SMC sockets are .mmap = sock_no_mmap.
+
+So we stood the peer in with a debug patch that overrides the consumer cursor
+in smcd_cdc_rx_tsklet() AFTER validation - nothing else is changed, and that
+is precisely the state the send path has to survive on its own: a credit it
+did not compute.  simulated-peer-debug.patch in this directory is that patch
+plus the two pr_info()s quoted below.
+
+The credit goes out of range exactly as the code says it can:
+
+  SMC2DBG diff_tx=1000000 space_before=65504 sndlen=65504 cons=1000000
+  SMC2DBG diff_tx=1065504 space_before=0     sndlen=65504 cons=1000000
+
+conn->sndbuf_space reaches 1065504 on a 65504-byte send buffer.  One
+sendmsg() of 4 MB then turns that into an oversized copy, and the second
+chunk is written at offset 0 with the remainder:
+
+  SMCTXDBG chunk=0 off=0 len=65504  sndlen=65504  in bounds
+  SMCTXDBG chunk=1 off=0 len=869056 sndlen=65504  past the end
+
+  ==================================================================
+  BUG: KASAN: use-after-free in _copy_from_iter+0x197/0xfd0
+  Write of size 869056 at addr ffff888057980020 by task b/9467
+
+   _copy_from_iter+0x197/0xfd0
+   smc_tx_sendmsg+0x1011/0x12c0
+   smc_sendmsg+0x1a2/0x2a0
+   sock_sendmsg+0x19d/0x270
+   __sys_sendto+0x22a/0x300
+
+The full report is in
+kasan-smc-tx-sendmsg-oob-write-mainline-7.4-rc3.txt.
+
+With the patch applied and the same injected credit, every chunk stays inside
+the buffer (len 65504 or less, and no second chunk past the end), KASAN is
+silent, and an 8 MB transfer over the same connection completes with its
+contents verified - so the clamp does not break a correct sender.
+
+What this does and does not establish.  It establishes that an out-of-range
+credit becomes an out-of-bounds write of attacker-chosen length, and that the
+patch stops it.  It does not establish that a real SMC-D peer can produce
+that credit - for that you need an ISM device, and the cursor's path from
+the wire is the one our other patch validates.  We would rather you weigh
+this knowing exactly which half was simulated.
+
+
+4. Impact
+=========
+
+Stating only what the code shows, since we have no run to point at:
+
+  - An out-of-bounds WRITE, not a read: memcpy_from_msg() into
+    sndbuf_base + chunk_off for a length the peer influences - 869056 bytes
+    into a 65504-byte buffer in our run.
+  - The attacker is the remote SMC-D peer.  No local privilege is involved;
+    the local application is an ordinary sender.
+  - The bytes written are the local sender's payload rather than the peer's,
+    which limits what a peer can place there but not where it lands.
+  - Reachable only with CONFIG_SMC, an ISM/dibs device whose
+    support_dmb_nocopy() is true, and an SMC-D connection to that peer.
+
+We are not claiming an exploit, and we have not looked at what follows the
+DMB mapping.
+
+
+5. Reproducer
+=============
+
+There is no reproducer that uses only unmodified kernel interfaces, for the
+reasons in section 3: the cursor cannot be forged from userspace on the one
+SMC-D device we have.
+
+What we can send, to anyone who wants to repeat the run: the debug patch that
+stands in for the peer (simulated-peer-debug.patch, 70 lines, including the
+two pr_info()s) and the SMC-D bulk-transfer program it is driven with.  The
+program needs CONFIG_SMC, CONFIG_DIBS_LO and KASAN, and a registered UEID -
+without one the SMC-Dv2 handshake declines with 0x03030008
+(SMC_CLC_DECL_NOUEID) and silently falls back to TCP.
+
+
+6. Suggested fix
+================
+
+Attached: 0001-net-smc-bound-a-send-against-the-send-buffer-not-aga.patch
+
+One line: clamp copylen to conn->sndbuf_desc->len after it has been clamped
+to what userspace asked for.  That bounds the copy at the point the copy is
+made, whatever the credit says, and changes nothing for a correct peer.
+
+The alternative is to cap the credit at the atomic_add(), which would
+enforce the invariant the comment there states.  We are happy to send that
+instead, or both; we chose the clamp because it is local to the code that
+has to be safe.
+
+
+7. What was and was not checked
+===============================
+
+  - The patch builds and net/smc/smc_tx.o compiles clean on net.git main at
+    d5b89d55a322 with clang and KASAN.
+  - SMC-D traffic over loopback-ISM works with it applied (section 3).
+  - The three receive-side faults in our other report still do not fire on
+    the kernel carrying both patches.
+
+Not checked:
+
+  - Real ISM hardware, or any SMC-D peer that is not this kernel.
+  - The write side on SMC-R, where sndbuf_space is credited from our own
+    cursors; we believe it is not reachable there and are not claiming it
+    is.
+  - Whether a peer can steer what the overflow lands on.
+
+How this was found: by AI-driven fuzzing built on top of syzkaller.  Its analysis was then checked by hand against the code, and the credit inflation in
+section 3 measured.  The out-of-bounds write was not reproduced.
+
+
+Thanks,
+Piyus Kedia
+Kapil Vaswani
