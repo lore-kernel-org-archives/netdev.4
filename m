@@ -1,49 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.80.4.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795381794;
-	b=a17HjuXtnz2jTWQy1hdVosOwTQG+ByC4MwmkvTmVkRFcQZDVqztVoHCj9Yop/Bi5akXH
-	 VvMDVsjYOH4erOkQwfMTf7V+oAobZ9sOX0C74c/bdfX8ohSakAJ3djWXrkSmfQGbOBag8
-	 TGstt3vKW8A6lDaHR+MHrOYiOaN0zdwEM9SZk85WtdEHTETig298BYZ+p1boq/gVkst7h
-	 QCi0ODCAlH6nFSWMgU2q/29fc2fdFHGO8K4v/5VPv3cYrn460s0gh6/wnO77Tj1ep4xMk
-	 SyN1qB4wN81SDZIa3BpMZsaQKxfsyiBHyaaQQ0DnK84/XgkiBke5XipzN80kxdk6x4A==
+	t=1795382189;
+	b=lUCNtcg34foFr4lPehuy0bt5gpqW2q2pgxnHujAlmVTDrx7lTBDpAwVPqzmxmnEuqVse
+	 k11kgXNIgAPpZ92z+wGTdW2y4WcKCrpNVI6Mg/C9LAk2DbO7zp93YbdemA6/0av7G7wc8
+	 /u89hsvIhsS7nb66VnhYlYWGyJMxGKT/JPhV+pHr+cHo/Ax29C7oPLpoQblLDA24IJeR2
+	 KEZ+nnDgBH8vBb1f3fyFzAtsiMnk/SKu6PP7O1uSa/iySab1AlA3e5LPmYnrpx3zn5Zbw
+	 aP94COc5fTmzAkk0W5LwPa2t7hL7Rhobr3QW7+tT0iCrOkMJaarTvmxNgtJY9YRgybg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795381794;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=uxe+/upGUtn9RMUQNSI1VT9y02p7mp9sPqgPQ5Y4SGs=;
-	b=PyAshVQ1QyvLyrqgLHf2bm8Q+Js9URR82nFLKvWzSFDYfAhg76sn+zaAv1WUSjoLFE4I
-	 gWLC+ruoH5TDSeYlRuE3ho34/SFjQBlYktvZyEBXUQRm6g7TWemn3iBoNp+XjaXmNJ6je
-	 FhiWV1VrbsXx0iTObpOvQKxOfD3DiFm3aThuVf140c+TlfvJJlMYKFwle6nFNs8PJ0Z9I
-	 tBL5yjpbmX5oRxE4HwEdIZcu5cOLoQi6yCywmM7Mm24j22Cu3j4U5v2PTULMgUrIWBRYU
-	 3BXbBFvstK2gxXLL5RFLee6+hl4Bu7PHzsoe11AzJqlRpAl5r7rLkO/MCgABlr8kcCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795382189;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Virus-Scanned:X-Virus-Status;
+	bh=epyfVPQGGDtBJHy2eUBihSmpp7eBVfrzlTOZUIzdOIA=;
+	b=zciitJfrVIlt9sRWFQ1hNEGttlyQvb21cxMJ8KX3B2Frtt7EQY/9Xp59Eh4UGMDmcKtz
+	 EesbOrfugMAoF1/TZ8cRclfruYtzPjmWgPAeOC3DRWLAp8XiOcwEiC/1xq5Hfscw0/PXD
+	 TJYkrXHA6nX2tmPBNSjuNv/zf47fKe9fhTHtlCZ5SeU2i6f/MxIeC50UzETwuZccCOuH3
+	 NTGiSPVOrp6lEOgn1eoqV4pqT7Kj2UB6SY3a+dDcQ+kxEp6U/MoJiOweCrvgTKSL5Meto
+	 mVdxu8mzZ7u0kPmU09GyEfNDGCy6HRuxrGUWJ2K6HwokHB+fhBz+BKq2PIqpQoYKaQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=frqHZnJk;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFDC1606A31A;
-	Sun, 22 Nov 2026 21:09:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFDC1606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	dmarc=pass header.from=uniroma2.it;
+	spf=pass smtp.mailfrom=uniroma2.it;
+	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=65WSAp8h;
+	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=mtSPPvRo;
+	arc=none smtp.remote-ip=160.80.4.36
+Received: from smtp.uniroma2.it (smtp-2015.uniroma2.it [160.80.4.36])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A0F9C606A31A
+	for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 21:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0F9C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniroma2.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniroma2.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=frqHZnJk
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B99AAA035D;
-	Sun, 22 Nov 2026 22:09:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795381785; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=uxe+/upGUtn9RMUQNSI1VT9y02p7mp9sPqgPQ5Y4SGs=;
-	b=frqHZnJkTNxaPAjLmOsie2BAIg2lEWzgDqBSAagS74GBXq028DxAkyGhmH4Lc/UTP9h2/D
-	ADmcniHun9j5JI2EcNeUlRI2sXkiP1oIHHQ6toy8xs3lN0UaVO5bzJDMcvdmi+aTbz/S50
-	S8imbjTNZLaNYK3GEKUMvrNUwzLxzCGAxT8Tiyn169jjiBqwDaqRFSGzPXsvUqq5bmWbbR
-	NJT4lhERRy1gmk2Qwaw3jqsaUKBO65i+SXIopcUp5yTebvsk7VF8qCOoyS8lVMKBbj5NOJ
-	KT3DoYoxb+/tzUSxGEo5T5w0pyA7KbEWnxViY2IYi0nEV3xsBkdkaSKPnGR0RQ==
+	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=65WSAp8h;
+	dkim=pass (2048-bit key, unprotected) header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=mtSPPvRo
+Received: from smtpauth-2019-1.uniroma2.it (smtpauth.uniroma2.it [160.80.5.46])
+	by smtp-2015.uniroma2.it (8.14.4/8.14.4/Debian-8) with ESMTP id 6AMLFegr001909;
+	Sun, 22 Nov 2026 22:15:45 +0100
+Received: from [192.168.0.87] (unknown [101.59.90.84])
+	by smtpauth-2019-1.uniroma2.it (Postfix) with ESMTPSA id 0C521120628;
+	Sun, 22 Nov 2026 22:15:35 +0100 (CET)
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=uniroma2.it;
+	s=ed201904; t=1795382135; h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=epyfVPQGGDtBJHy2eUBihSmpp7eBVfrzlTOZUIzdOIA=;
+	b=65WSAp8hsPg/wXx60HMHEHqKP+Nyf1hMtgXYfGapgrK+CPSln4qgONbsp+YtjMdEIh5X6f
+	68D9HRvFrRw6GKDw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniroma2.it; s=rsa201904;
+	t=1795382135; h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=epyfVPQGGDtBJHy2eUBihSmpp7eBVfrzlTOZUIzdOIA=;
+	b=mtSPPvRonKLpvHzoBAW2Topx5ICr3JFPnjHFbvB07H5b8PCAIZQwtQCtklHdLt7mamqzsn
+	lmrDiAUM4XZKOl8OHQM1Pe2kFz3Kv4+MGZyfaXuU0igUlhmu7Tl9AQxTRTAF+BPjanV7fE
+	ghyuSnWC+2z8rXHk69965claQpW7CuXv0itlh+oeVdkjDutBli8/o6ixQIw7s2DVJ02Rkv
+	UJos06zGrBJGwEfNehzO3fTqTBbuSLCvNFExA22ZAimVKB76WKiF9c5d3udu9oqdJukg/X
+	VBtUie0Q5W0KmQJJsNlbtWjOPuePFGuQN7vVqo4a+TMMM1X2oKlD+nd9i0EBbA==
+Message-ID: <b743f74a-dd3d-4a47-9dd6-079213e4a048@uniroma2.it>
+Date: Sun, 22 Nov 2026 22:15:29 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,64 +71,65 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sun, 22 Nov 2026 22:09:40 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Sam Edwards <cfsworks@gmail.com>
-Cc: Anandu Padinhare <Anandu.Padinhare@electrifex.com>,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
- Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, "Russell King (Oracle)"
- <rmk+kernel@armlinux.org.uk>, David Wu <david.wu@rock-chips.com>,
- stable@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: retry a failed RX refill from a timer
-In-Reply-To: <CAH5Ym4jkX_tD58Gtd-mzruB+hqHK7s_9knNWh+gMqUjwuYyVPA@mail.gmail.com>
-References: <MA0PR01MB921746F36D90C7080287ACC9FD782@MA0PR01MB9217.INDPRD01.PROD.OUTLOOK.COM>
- <9d8cdde77beedce76aaaa1c5a7a788dc@tipi-net.de>
- <CAH5Ym4h8-1mc+DX0Si7XROeGn9M72bQC+ooM05Y7ZmgTo+ON4w@mail.gmail.com>
- <CAH5Ym4jkX_tD58Gtd-mzruB+hqHK7s_9knNWh+gMqUjwuYyVPA@mail.gmail.com>
-Message-ID: <3303844cdf7c00c5369453eb91027c1b@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: SRv6 L2 VPN discussion
+Content-Language: en-US, it
+To: Robert Peterson <robert.peterson53@gmail.com>, netdev@vger.kernel.org
+Cc: Andrea Mayer <andrea.mayer@uniroma2.it>,
+        Justin Iurman <justin.iurman@6wind.com>,
+        Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+        David Ahern
+ <dsahern@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Paolo Lungaroni <paolo.lungaroni@uniroma2.it>,
+        Ahmed Abdelsalam <ahabdels@cisco.com>
+References: <CAD8h+Ut1JHeg0gyB7pvZfQHhkkj0dAT07WuYgLJSUDL+A2QSSw@mail.gmail.com>
+From: Stefano Salsano <stefano.salsano@uniroma2.it>
+In-Reply-To: <CAD8h+Ut1JHeg0gyB7pvZfQHhkkj0dAT07WuYgLJSUDL+A2QSSw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-Virus-Scanned: clamav-milter 0.100.0 at smtp-2015
+X-Virus-Status: Clean
 
-Hi Sam
-
-On 22.11.2026 22:02, Sam Edwards wrote:
-
-> [...]
-
->> Do you mean "first as well" or "first instead"? Because "instead" can
->> cause avoidable packet loss:
->> 1) Initially, network is idle and ring is full of empty DMA buffers
->> 2) A burst of exactly one ring's worth of packets arrives
->> 3) The RX irq fires and stmmac_rx() attempts its refill-first (none
->> needed) then depletes the ring to the maximally-dirty state; the
->> refill timer is armed
+On 2026-11-20 18:14, Robert Peterson wrote:
+> Hi Andrea, all,
 > 
-> Thinking about it more: the "unreachable packet" problem happens at
-> this point too, even with the "first as well" behavior.
-> 
-> Maybe the best way to resolve it is to adopt stmmac_rx_zc()'s behavior
-> of refilling during the loop?
-> 
+> I have been testing the sr6 series on a net-next based kernel and would
+> like to help get it merged. Summary of what I did and found, and two
+> thingsI would like to work on, if that's ok with you guys.
+ >
+> [snip]
+Hi Robert,
 
-Only if the ring is no bigger than the NAPI budget, right?
+thanks for testing the series and for your questions.
+They are the right ones, both on the MTU handling and on End.DT2M.
 
-Otherwise tne poll can't empty it unless a refill failed, and refill 
-first
-covers that.
+We are about to post an RFC v2 of the series on netdev, with several 
+changes to the code.
+So it makes sense to wait a little and have the discussion on the merits 
+there, on the new version.
 
-Refill in the loop sounds good, but this would be IMHO a net-next 
-follow-up.
+Your help is welcome.
+Testing the RFC v2 will be the most useful thing in the short term.
+For End.DT2M and End.DX2V let's talk before any code: there are a few 
+design points to agree on first.
 
-> [...]
+Ciao,
+Stefano and Andrea
 
-Regards
-Nicolai
+
+-- 
+*******************************************************************
+Prof. Stefano Salsano
+Dipartimento Ingegneria Elettronica
+Universita' di Roma Tor Vergata
+Viale Politecnico, 1 - 00133 Roma - ITALY
+
+http://netgroup.uniroma2.it/Stefano_Salsano/
+
+E-mail  : stefano.salsano@uniroma2.it
+Office  : (Tel.) +39 06 72597770 (Fax.) +39 06 72597435
+*******************************************************************
+
