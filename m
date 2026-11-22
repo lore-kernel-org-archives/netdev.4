@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380072;
-	b=JbGa1hPVNdAoW4I2i/oBhVW3V77ck7RGEeoDkQTipDqDmMT8TXE3N1jE+beQS6jezPyY
-	 PdYxbSmI5HwAEx3H3YZYl5iSGHx2MUGtryAEhXRcY8QLyPhRfvc9Vl5B1JXFx7lP1jKOL
-	 jONUvMEaAdlUYrefjQrIX/kDH88/c1Z1BCiFlLQOokPkvacFJsVKATzUo1tzScTlTjvfD
-	 Q1mJcksm0f27wHxxuGjkqODS/iSoisfOV/EoJnck01icxxrZ5D2zFuTbamYya0Gkhh/LA
-	 Qw3Z+93YQC3gqpdTn/TkEmeL4Xcgr0GYS+AJyjfnpPLuq395SKAzVol9pWZeHn7iMcQ==
+	t=1795380067;
+	b=PsJ1h1UlN1yeYN8/RI9DobcSspqeP3/CA2wyLKKil87WvinICxOQHUBY1V2GXuK5BFlK
+	 mvi0WMLsn8+g6cQuMOBzCIx0dehcPO3z/dGKQPQqu4nopWGvNsaQ/tOZfc7SiZQ6cjmcw
+	 F/FU9PR38vGOGUKE7LR3B9wvXiGipcePJjq/7ajYHtVcXJMzmecWfbh8JKGFm1JwjYIBf
+	 RC0YMLFSUbqltw8jwT+fHaaV+pQmOQZNxG0M1NMOnDQXH8+cdAD8MPvQG3JeaRKs4EBC8
+	 JycLfqEXjl5oa1Cr/JjwrOIS+SryNTb8CUjQIswUgsyglgy9kLB3b5u36JyAM6e3fDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380072;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380067;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=636q6jaM7rA0Po/eBymCLEAcqrcFwRC63tZr1LwICak=;
-	b=fDqEr1Tk/UGzqWqg+RfHOHsj+9uD+wjVJbCqJse2dV2zl/ZcNQHKIJa7xguQcjEZT2ng
-	 hy+ocbFm3fJrGFsU4w3zed0Shl55hE1Zfr96QQpn43udQlnlM/X9GJUEnbrRoGXzhZMO1
-	 9f4qZkNNKueZhzbVuQEJb+pJBsvA175nKPwsyXHh0H6ZOZ/G6lOZ23W6jsk0TdQhHaZZP
-	 Oax0Q4EqHyjlT6TGcp2MbcrOBxE4itDT/MBF7abJ7LEpO1C1lhWPAeJM/6V9EXmZvdULk
-	 UEF56BiSn4lC9VUJo9tt3h+tuXCKysYi6S1e+5qiblnfpdkub2R33XRjS8UC1awSvwA==
+	bh=3lCoGfeSw+foOIoqggOyah4gEvrKCtbgBNEH4Ru9Kgo=;
+	b=X7hbCFh5rT/B3JEXt1MM6len2tJuLjHY8h5MeQwEu5Re1rN/lqQidC7A4Dd+BptYYhol
+	 nQ94W7X2HMq/yimfyLdWt8ZbeEIDVlilbGPbehivp/ye6uDlH9T0dZRRB+KGkg7rTS5kT
+	 DTBGT7bZ348bs3GwOmmHoA2aqxtjwxaDWEbhP2pHML4hHz7Hr/9S7aQcAd8dfGR8zmvSG
+	 AKJLLmyckAlQIf3+p8InhC21sHCu+ieuv01eF4mJajOcqf3eZUBFRmJHndD9Nhf/2bq6/
+	 ZZnYa6R3KTXEGEFZmXhIqTrgyZNEerXfpY8RNsqzvDNL35UVx28StuoJ/LDR7QtaIGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYHMYAq1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iQdTNDDl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D1B0606A683;
-	Sun, 22 Nov 2026 20:41:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD42C606A31A;
+	Sun, 22 Nov 2026 20:41:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYHMYAq1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2081B1F000D1;
-	Sun, 22 Nov 2026 20:41:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iQdTNDDl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E861F000C4;
+	Sun, 22 Nov 2026 20:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795380071;
-	bh=636q6jaM7rA0Po/eBymCLEAcqrcFwRC63tZr1LwICak=;
+	s=k20260515; t=1795380067;
+	bh=3lCoGfeSw+foOIoqggOyah4gEvrKCtbgBNEH4Ru9Kgo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OYHMYAq1FzhUzEKyGNNA0mjs+OH548HJdp8oOXqfDG6VNXjo0s/GhLuMt6XMBstYU
-	 ePoL6/SJdW+bsbjRbSIPN4ugeK8kYJoPKdeISQLM2w3r4LMK6rRywsrqs74D0dbszx
-	 cNEQR/GwZdOfg7jSBKmTKbRyWULweLgA+4isqCgTxPgjuovqmn45KnItLe4e9BiSk2
-	 RuEATIezj3rDGHttqE+xxLK3dX5FBvgVKlLPecPSBZoIqj8ErQs78fIBBpmmmfCXF7
-	 i8NsTRriRx8u0ZPfMtK//E+ddBvbqJpzZWeUXbrKCr/UCrJ3CNIjqyElnRJYfxuqeE
-	 Idfsx9M4/RBLA==
-Subject: Re: [PATCH net 4/4] ptp: ocp: correct the DCF output frequency
+	b=iQdTNDDlcjEsF05sXXZeC3jlERclL7BH+d0y/+dOSFB7xhlgKt2l97QBwltgo2Xnf
+	 LBkpfKCgQTIOWZBiNLP+uw6m36CTFBMeBRjgYu6EIjSLNI8ardc56V7gYRQHL0mmN9
+	 Oj1y+Na1V1nsgERKxZSH8s95JxjqToCJwYQ0g6GHDOP17Ek0sH5gZeQDs3pu4Dtq7/
+	 L4ExyRom2k2WEPfARDtXn4MYW0EZwp+beT5PlqXf2tF23aGJg6oDXBlLMkYONdvuOU
+	 /SkRwpe7i5gTxOZ4n0vJNW1vPZbaQBebh0FK3m1nGTcOrm+5kdi4WBStpS0ZlEppTm
+	 z7mQbLSpesY8Q==
+Subject:
+ Re: [PATCH net 1/4] ptp: ocp: prevent timestamp rearming during detach
 From: netdev-bot+sashiko@kernel.org
 To: ahmadexp@gmail.com
 Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev,
@@ -48,11 +49,11 @@ Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev,
  arkadiusz.kubalewski@intel.com, davem@davemloft.net, edumazet@kernel.org,
  jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org,
  pabeni@redhat.com
-Date: Sun, 22 Nov 2026 20:41:10 +0000
-Message-ID: <179538007070.3135.8275620503580456948@kernel.org>
-In-Reply-To: <20261118-timecard-common-301f823ddd-4-ahmadexp@gmail.com>
-References: <20261118-timecard-common-301f823ddd-4-ahmadexp@gmail.com>
-X-sashiko-severity: Medium
+Date: Sun, 22 Nov 2026 20:41:06 +0000
+Message-ID: <179538006639.3135.15219639487891578509@kernel.org>
+In-Reply-To: <20261118-timecard-common-301f823ddd-1-ahmadexp@gmail.com>
+References: <20261118-timecard-common-301f823ddd-1-ahmadexp@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,87 +66,70 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The patch fixes one bad entry in a selector table from commit
-  09eeb3aecc6c, the one named in its Fixes: tag.
+- [Low] The commit message for "ptp: ocp: prevent timestamp rearming
+  during detach" has a broken trailer block and keeps workflow notes in…
 
 --
 
-ptp: ocp: correct the DCF output frequency
+ptp: ocp: prevent timestamp rearming during detach
 
-The patch changes the DCF entry in the ptp_ocp_sma_out[] selector table
-from 77000 Hz to 77500 Hz. That brings it in line with the input table
-and the DPLL supported frequency list, so the advertised DCF77 frequency
-can be set and read back on an output pin.
+This patch adds a ts_lock mutex and a ts_stopping flag to struct ptp_ocp,
+which serializes ptp_ocp_ts_enable() against ptp_ocp_detach(). After
+detach sets ts_stopping, later enable requests fail with -ENODEV. Disables
+still go through for the PTP core cleanup.
 
 Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
 
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 650047581fd41..aa950cae68f46 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -1376,7 +1376,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
->  	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
->  	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
->  	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
-> -	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
-> +	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
+> Reported by the netdev Sashiko AI review, then checked against the
+> current PTP and POSIX-clock paths. A source-derived userspace harness
+> forces an enable after detach's disable and reproduces the rearm with
+> the old source. With this fix it rejects that enable, waits for an
+> enable already in progress, and waits for a mocked active IRQ. Both
+> timestamp and combined PPS/EXTTS paths pass with ASan/UBSan. This
+> validates ordering with stubbed MMIO/IRQ operations, not an in-kernel
+> use-after-free reproduction. No physical card was tested.
+>
+> Codex prepared the fix, tests and changelog from the review and upstream
+> source, at the request to separate common-driver fixes from WiWi support
+> and validate removal ordering.
+>
+> Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
+>
+> Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
+>
+> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 
-[Severity: Medium]
-Should the ART input table get the same kind of fix? Commit 09eeb3aecc6c,
-the one in the Fixes: tag, also added this entry to ptp_ocp_art_sma_in[]:
+[Severity: Low]
+This isn't a bug, but blank lines separate the Fixes:, Link: and
+Signed-off-by: lines from each other.
 
-drivers/ptp/ptp_ocp.c:
-static const struct ocp_selector ptp_ocp_art_sma_in[] = {
-	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
-	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-	{ }
-};
+Tools such as git interpret-trailers, b4 and patchwork only treat the last
+paragraph of the message as the trailer block. As written, is
+Signed-off-by: the only trailer they will find, with Fixes: and Link:
+missed?
 
-The entry is named "10Mhz" but has a frequency of 1 MHz. The "10Mhz"
-entry in ptp_ocp_art_sma_out[] uses 10000000.
+Could these three lines go into one trailer block with no blank lines?
 
-ptp_ocp_art_sma_init() registers the ART pins with ptp_ocp_sma_freq
-as their supported list:
+The report credit is written as prose ("Reported by the netdev Sashiko AI
+review"). Would a Reported-by: tag work better, with the lore URL as a
+Closes: or Link: trailer?
 
-	.freq_supported_num = ARRAY_SIZE(ptp_ocp_sma_freq),
-	.freq_supported = ptp_ocp_sma_freq,
+Three parts of the body describe how the patch was produced, not what the
+change does:
 
-That list contains DPLL_PIN_FREQUENCY_10MHZ but not 1 MHz.
+- the userspace harness and ASan/UBSan paragraph
+- the "No physical card was tested" note
+- the Codex/WiWi paragraph
 
-This seems to give the same two symptoms the commit message describes
-for DCF, but on ART input pins.
-
-On set, a DPLL netlink request for 10000000 passes
-dpll_pin_is_freq_supported() in the core. It then reaches the
-exact-match loop in ptp_ocp_dpll_frequency_set():
-
-	for (i = 0; tbl[i].name; i++)
-		if (tbl[i].frequency == frequency)
-			return ptp_ocp_sma_store_val(bp, tbl[i].value,
-						     sma->mode, sma_nr + 1);
-	return -EINVAL;
-
-Nothing in the table matches, so the call returns -EINVAL.
-
-On get, ptp_ocp_dpll_frequency_get() reports 1000000 for an ART input
-that selects 0x08. That value is not in the pin's advertised set. Fixed
-pins hit this too, because sma[0].default_fcn is 0x08 ("IN: 10Mhz").
-
-Would it make sense to change that entry to 10000000 in this patch, or
-in a follow-up?
-
-[ ... ]
+Could these move below the --- line so they stay out of git history? If
+the tool assistance should be recorded, an Assisted-by: style trailer may
+fit better than a paragraph in the body.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-timecard-common-301f823ddd-0-ahmadexp%40gmail.com
