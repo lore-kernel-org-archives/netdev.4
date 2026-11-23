@@ -1,60 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795416334;
-	b=E0k78SOv2h6ysee1d0hVQJmuhR8s3Fq8iSyBPFNFOB/P2Vv6riFLCQRTMDymTfWS5ztH
-	 FRYymHNa6aeGSaasjch6/Ad531S+ySi84ICY+O+6RY1C8YnpuFNrA+xlY6IDcRelb0Xlw
-	 2Bo7Lu2ogdsWeUqjjc/FPgVKTTRSGcrmdb0eYBQKPb9UTfNuiEMPFz/wZrm2JR8AlWStz
-	 l+dkZn+S+/Wi5R5CwOmO0FhNLuqx7J+5aDZ5K7xU3hxN4l3s6pPLClhkkB6ygP54PpNYU
-	 B3a8wBXMx+nLQL9WlznppylYj+sq8t3GcrLW3HSwTUsAGzLQZpVd/OFv05JdMRBQxRw==
+	t=1795416371;
+	b=DoE27KeCSfAntVwfIqf2N14solCHHmaFCMdweymsGAioJ0HWxstTqr9Oef4vk6vlQ1ed
+	 i0KM1vc/6FcM/7KMhNqpxgz/NpfbQSdfgLecmS0Bw3vzf0dI4/vdyaW2HZqL4w38N2jWB
+	 RUU2GrH0zBhE7c+ZlYt3zU1+zcS+ZoxAeSf2qQxRFVZXXj7ZkAOB8sMj2gyOSObTVSnDJ
+	 G/kg5n4sWR2o4JWM4ARtpFOLVCP7WFMF/YQUzD4PUipxPjjRVvJDitV6eynQ0+KPla6t+
+	 UAZAmNkZKLTanni2i0ycUhagTygszOaXMQgT8jIls//7nMa+PWeATrazqOAsvDejp0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416334;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ixmwBow0FK9VaNmhGL5HuCR4NwR5tANQhiSxUDqh2BA=;
-	b=TQOVn3tOmZI2eqZzJHKkIkbwTeOriEDFBCpxzmMwxShtfik178GMjdvwCfOwbaCrOxph
-	 ioQlEVNO2fdqzsChcjXVNzKi+hylflr5me2FbWl46dO4ZVJy42nxuKOTYAGZh4SC3+ZDk
-	 nEtjPhOVXJDh0ybU2VECjlgfn+Jq5zUmeT390hx+K5lHW1jFa7qPOmqTPqIiHAX9nwXPS
-	 dSKOBrU1hzXjVj5ffIvkgJHPXSX0Ir3IXKCszBfIWcFfrGniNPq5Z5w6lVsAiiRoJhuU4
-	 ClPYVH4r6LQGl2kSa05CgWX4QvV/G1KTu7cY1oKCT8gwbL0swIESwRodCdB3O06mZPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416371;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=17GLhYG3TSW0kUKpdTngosp6wTo3jNrYR5Um6SmNLJo=;
+	b=EkPJ1SjcT/5xLmw9L6ZefDmOFuZyw4wndtuqU5q2CLEbiFxPFEC/ch8aTN/6TGUTL0SI
+	 D3tU3Gg24rNKmxzqFaJGIcMZ/yDGoeyrIuBz7WzgLOvluuVXfPVqpub+k4iVaM9Tb+iDn
+	 WXHF7Cetrh9qNh2NAh2Npm3z/b2o7wW11pvJ4nnvns94OrDKrRQKlWBFLMJhIWaZ7ACks
+	 gB72r1fR9MLY7CnBK4eooTb5SqYXVc20odYswI0eJwxlZMO8SG+WaGsWmdlrOPHgs/roa
+	 FrPaB5nwryW3eQR/oMamorNqIAXMvWOd4yOlGuUcsT40RU0gFD64Q96tJANsUmZpUlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SEr113MZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Q2QteLVI;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16F58606A31A;
-	Mon, 23 Nov 2026 06:45:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDFA9606A31A;
+	Mon, 23 Nov 2026 06:46:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDFA9606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SEr113MZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC351F000C6;
-	Mon, 23 Nov 2026 06:45:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795416333;
-	bh=ixmwBow0FK9VaNmhGL5HuCR4NwR5tANQhiSxUDqh2BA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=SEr113MZraaiSKBxuqwtfO/CuTk9qTP3MkcZCjHN7cmZMKxsgaVO/fXaMUNdlPiU4
-	 AzxDd/YSviZmujlvnEUKjL5Nkuwjsown37xsV5DYqSZw25fS7bix7Gk+7L6Xv3GtpI
-	 57BjgMIPdPAIWzXxvjkhAj8kpNoXIaldvF+oi6r4uPSLnVpigxQIn+IF7fU3OyFE+T
-	 zbipMtRV7rk10uo5C+l2qwb5bJIviyDLiZJgX47/QzK+vT5YLa9AxvjHIcW4wq768Y
-	 xf++G9Wxs55QAxYR3vOdQ368NeUWIcjCzQWFuFT/9H5Xb88LAMPlplVajvzrrncIOQ
-	 TkCrywGlrfuJg==
-Subject: Re: [PATCH net v2] net/sched: cbs: fix 32-bit overflow in
- transmission time estimate
-From: netdev-bot+sashiko@kernel.org
-To: mhm.dawod@gmail.com
-Cc: netdev@vger.kernel.org, vinicius.gomes@intel.com, jhs@mojatatu.com,
- jiri@resnulli.us, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, ye.zh-yuan@socionext.com,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 06:45:32 +0000
-Message-ID: <179541633265.3135.10106837987470065643@kernel.org>
-In-Reply-To: <20261122064155.2094434-1-mhm.dawod@gmail.com>
-References: <20261122064155.2094434-1-mhm.dawod@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Q2QteLVI
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN554kg2575169;
+	Mon, 23 Nov 2026 06:45:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=17GLhY
+	G3TSW0kUKpdTngosp6wTo3jNrYR5Um6SmNLJo=; b=Q2QteLVIsHgzla82jiL56E
+	UlYEgUzJZFCwQB35kfhsD98CnkxnPJ9DpX0t3xHUWw70stA6Pmk1VkNt4OkZIlaK
+	2qiExIvDkAaQ/1Fl9BdzdHUPQVhda6CiFNDAhmWbtfS8Zgfh8KKEua9T6l9zRb86
+	gXvFP9M6tozc26yDZe0WFhASPLMriB1dKgLj8nExzPpJ90PsbbNqxh8YDTNAPuCz
+	G7MVjVWae6a0zvuQSa8cIvlPLSz6OJGFOyYaUTSwRqcEFiE2l18PQ0MYyATVp9O3
+	RW/5Shrsh9XOP2ePT0bXrcz4A4RFoNqO4HqiP2LsnXaFmPTWw8Vcdk7ymsxOZNNw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv1m1r-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 06:45:58 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54IOe684348;
+	Mon, 23 Nov 2026 06:45:58 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vdrfh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 06:45:58 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN6jrBO38207754
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 06:45:53 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7F52E20043;
+	Mon, 23 Nov 2026 06:45:53 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 866952004D;
+	Mon, 23 Nov 2026 06:45:50 +0000 (GMT)
+Received: from [9.123.13.84] (unknown [9.123.13.84])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 06:45:50 +0000 (GMT)
+Message-ID: <e6f7e442-4b52-454c-94fa-afd6f3c61169@linux.ibm.com>
+Date: Mon, 23 Nov 2026 12:15:49 +0530
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,110 +86,111 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 0/3] net/smc: fix clcsock lifetime vs
+ asynchronous paths
+To: Mahanta Jambigi <mjambigi@linux.ibm.com>, andrew+netdev@lunn.ch,
+        davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+        pabeni@redhat.com, alibuda@linux.alibaba.com,
+        dust.li@linux.alibaba.com
+Cc: hidayath@linux.ibm.com, pasic@linux.ibm.com, horms@kernel.org,
+        tonylu@linux.alibaba.com, guwen@linux.alibaba.com,
+        netdev@vger.kernel.org, linux-s390@vger.kernel.org,
+        linux-rdma@vger.kernel.org
+References: <20261120124534.430200-1-mjambigi@linux.ibm.com>
+Content-Language: en-US
+From: Sidraya Jayagond <sidraya@linux.ibm.com>
+In-Reply-To: <20261120124534.430200-1-mjambigi@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b03e127 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=Upmd74fEsTyMv7FUjCUA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyNiBTYWx0ZWRfXxe8srxMzgE/H
+ A/U1w5kMngIU39kXqZY+ODvEScS8dwsFeJbtgiQufCa0VcOUJfZ5pJZfY4eL3DQKL4vKgYy1F4C
+ TSDyqnV94mnkSw1TaGGQ6XitiNtGWhc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyNiBTYWx0ZWRfXzYDOXi/wvlfd
+ 7oK6vICUsHoT7FzlPUJczbvIuUWZ/VyL5KWDU7dq8rwOZ7szDwMmK1mfdr1gHvWeAw/wJE/0LST
+ 2pyEvvtEleeo64I4b2Ce6sq9KvVKyhCP4SS9qCeXXGjPEJuZIAIaxopw6+WG9JECcuNRhWlhXs/
+ j+E/J3JFnPv5sHH1veUrN9ElWKGBbqR5GMyz7lKmMSRiZMGzZ9kSdDS4nHFI2RtIlwL6JTQ/uJA
+ DOjU8DTsZ35abt1GjsajRNaCAtX83Hfw3GYCKNQ2mJOnXSD3K1RnecT+Cs0EyQDFyKMYDYnm7Rt
+ qHzLmPo0/55lCOtplEE2gOLcrFDPRD0lzheWnYnokIALZjhVsnge9HKVvElgZoGHw4ctc+4bCPt
+ Aldd0W9rwvfnlD/Gpmj+S6OsH3rGDREkT+q9My1DqjqR9uyAmp+oYwJJNFDR8zqP/9ngwcnvjHs
+ pazQlD+mBrtD0BQq0wA==
+X-Proofpoint-ORIG-GUID: 51AcdNNdGWrJB3i3JaoP1Aq-mH2bbxf5
+X-Proofpoint-GUID: 3sx1Nzu2eRREiTqtPi9aZlB1uKOZ6dei
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230026
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 20/11/26 6:15 pm, Mahanta Jambigi wrote:
+> The internal TCP socket (clcsock) of an SMC socket is freed by
+> asynchronous paths: link group termination reaches
+> smc_close_active_abort() and peer close reaches
+> smc_close_passive_work(), and both can run while the SMC socket is still
+> referenced by an open file descriptor. A task that uses the fd at that
+> moment, for example getsockopt() or a socket diag dump, then operates on
+> a released socket.
+> 
+> Free the clcsock only when no socket file can reference it: from the
+> socket release paths, after the socket has been unhashed, and from the
+> abnormal close paths once the socket has no file left. The decision is
+> made under the socket lock, and the accept path holds the same lock
+> across the accept-queue state check and sock_graft(), so a connection
+> that is being accepted cannot lose its clcsock to an asynchronous close.
+> The clcsock_release_lock is no longer needed: a socket operation on a
+> file is serialized with smc_release() by the file reference, and the
+> listen work is covered by flush_work() and cancel_work_sync() in
+> smc_clcsock_release().
+> 
+> Trade-off: with an open file, a clcsock now stays allocated after an
+> abnormal close until the application closes the SMC fd. The SMC
+> connection is already torn down and its TCP connection has been reset or
+> shut down; only the local TCP socket remains allocated until then.
+> 
+> Patch 1 makes the lifetime change and is self-contained. Patch 2 removes
+> the lock and the checks it made necessary, and serializes the accept
+> path with the asynchronous close. Patch 3 documents the invariant and
+> adds a destructor warning for it. The diag dump keeps its NULL check: a
+> socket is hashed in smc_sk_init(), before its clcsock is created.
+> 
+> This is hardening found by code walk, not a fix for a reported
+> regression, so the series targets net-next and carries no Fixes: tag.
+> 
+> Mahanta Jambigi (3):
+>   net/smc: keep clcsock until socket release
+>   net/smc: remove the clcsock release lock
+>   net/smc: document the clcsock lifetime
+> 
+>  net/smc/af_smc.c    | 123 +++++++++++++++---------------------------
+>  net/smc/smc.h       |   8 ++-
+>  net/smc/smc_close.c |  35 +++++++++----
+>  net/smc/smc_diag.c  |   3 ++
+>  net/smc/smc_inet.c  |   9 ++--
+>  5 files changed, 82 insertions(+), 96 deletions(-)
+> 
 
-- [High] The fix only works on older kernels.
+This series does not apply on net-next here.
+The cover letter carries no base-commit: b4 am reports "Base: not
+specified", so it is not possible to tell which tree the series was
+generated against. Please repost with the base recorded, so that b4 am
+and reviewers apply against the exact commit,for example:
+  git format-patch --base=origin/net-next -o outgoing/
 
---
+This adds base-commit: <sha> to the cover letter. Naming the base SHA
+in the cover text is enough.
 
-net/sched: cbs: fix 32-bit overflow in transmission time estimate
-
-This patch casts len to s64 in cbs_dequeue_soft(). Without the cast, the
-len * NSEC_PER_SEC product is computed in 32 bits on 32-bit architectures
-and wraps. The commit message says this restores idleslope-limited
-throughput for software CBS on 32-bit, and includes before/after numbers
-measured on a BeagleBone Black.
-
-> diff --git a/net/sched/sch_cbs.c b/net/sched/sch_cbs.c
-> index 1c93469c56e3d..107c2b6e9da30 100644
-> --- a/net/sched/sch_cbs.c
-> +++ b/net/sched/sch_cbs.c
-> @@ -222,7 +222,7 @@ static struct sk_buff *cbs_dequeue_soft(struct Qdisc *sch)
->  	if (unlikely(atomic64_read(&q->port_rate) == 0))
->  		q->last = now;
->  	else
-> -		q->last = now + div64_s64(len * NSEC_PER_SEC,
-> +		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
->  					  atomic64_read(&q->port_rate));
-
-[Severity: High]
-On this tree, does this change alone make 32-bit throughput follow
-idleslope? The same kind of 32-bit wrap still seems to happen when
-cbs_change() stores the sendslope:
-
-net/sched/sch_cbs.c:cbs_change() {
-    ...
-	WRITE_ONCE(q->idleslope, qopt->idleslope * BYTES_PER_KBIT);
-	WRITE_ONCE(q->sendslope, qopt->sendslope * BYTES_PER_KBIT);
-    ...
-}
-
-Since commit 000db9e9ad42 ("net/sched: cbs: Use units.h instead of the copy
-of a definition"), BYTES_PER_KBIT comes from include/linux/units.h:
-
-#define KILO	1000UL
-...
-#define BYTES_PER_KBIT		(KILO / BITS_PER_BYTE)
-
-That makes it an unsigned long. The old local definition was (1000LL / 8).
-On ILP32, the negative __s32 qopt->sendslope is converted to unsigned long.
-The product wraps modulo 2^32 and is then zero-extended into the s64
-q->sendslope.
-
-With the setup from the commit message (idleslope 10000, sendslope -90000),
-q->sendslope comes out as +4283717296 instead of -11250000.
-
-In cbs_dequeue_soft(), credits_from_len(len, q->sendslope, port_rate) then
-adds credits after each packet instead of taking them away.
-cbs_enqueue_soft() only resets positive credits to 0, so q->credits < 0
-never becomes true. The idleslope throttle and delay_from_credits() never
-run either.
-
-That leaves the q->last gate fixed here as the only limit. Wouldn't
-traffic then go out at about line rate rather than at idleslope?
-
-The "before" numbers in the commit message (11.1/25.0/42.9 Mbit/s) match
-idleslope * port_rate / |sendslope|. That only works with a correctly
-negative sendslope, so were they measured on a kernel without 000db9e9ad42?
-
-Because of the Fixes: tag on 961d0e5b3294, this will go back to stable
-trees. On 32-bit kernels from v6.8 on, software CBS would still do no
-shaping after the backport.
-
-cbs_dump() also hands the wrapped value back to userspace:
-
-	opt.sendslope = div64_s64(READ_ONCE(q->sendslope), BYTES_PER_KBIT);
-
-A configured -90000 reads back as 34269738.
-
-cbs_set_port_rate() has the same unsigned long multiply:
-
-	port_rate = speed * 1000 * BYTES_PER_KBIT;
-
-On 32-bit this wraps for link speeds of 34360 Mb/s and above. For example,
-40000 Mb/s gives 705032704 B/s instead of 5000000000 B/s. That port_rate is
-the divisor in the expression this patch changes.
-
-Could these be widened as well, for example (s64)qopt->sendslope *
-BYTES_PER_KBIT, (s64)qopt->idleslope * BYTES_PER_KBIT and (s64)speed *
-1000 * BYTES_PER_KBIT? That fix might need its own Fixes: tag for
-000db9e9ad42.
-
-If not, should the commit message stop saying that 32-bit throughput
-becomes idleslope on current kernels?
-
->  
->  	return skb;
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122064155.2094434-1-mhm.dawod%40gmail.com
+Thanks,
+Sidraya
