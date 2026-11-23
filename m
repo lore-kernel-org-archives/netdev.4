@@ -1,152 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.40
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795415906;
-	b=o7ADOdfdS+4KfRfF4+p4GDOewZKPM4sN+yzIXVcuWfxGl6qtIRhRjZCjywY/8UfBmzDj
-	 OduC2fy8ZYhMfPbzX/rk9p9ieltf/dX0yqw/Jh1OclF9xGhnuiI2NGaVx7sQRnQlpmtAB
-	 RAv9rWJLJUe5xIL4xtpWdMnrIbhIyNDziLt4IP9n9SPaAM8C/aoATU+rciJwY9hlMsYKP
-	 sviD79IEHnV+FNetBae2XtUDa9E3XRZlRSbdfvk+oDD8w9PFzlmkU5SjPL+WpodOwmlxn
-	 bNQDuQSkXCBninJA2OgY3D40FvyMN4AtvQuDYMxR7cDw6FE2WqErODnljfhrKwxUc9A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415906;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=kVEBj/OyEAp99ErMEz3ErQ6TttANznsYWFxVX5CjnwE=;
-	b=aFE73e4pD+okk1g46fFR08XxG1B77RN7NIdviPdbKJGVQTtsFdv1utWJRIXJr8/vob1s
-	 gc/9IbFZ9ZBxUykS60l8QBeg0r1JmhnSentDQmcZ971ewn/nUe9H3RaN71EIdPviZZfys
-	 Cm3IQ9YKFmZ9MpNQw3KjSls5iO3y6lObsAXohYPK01sGbhMe4XM2dDpAglzDx4RP76jX2
-	 xBjpZLJugrBWDK3kF8xxLeLwq/govH9axmUxGgbnPdLOYqFtAIfB+Auv/toPXXgKtU5yY
-	 gyQseKCoLo85KL0TdvkzbkSMYaAd/+AJ2KJjLj6nXdmB9x1Zv6DXr1VLftPG2PxEL7w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=LAvV9Egm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.40
-Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011040.outbound.protection.outlook.com [52.101.65.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795415926;
+	b=XKcjurajDzkB9q2SRG1pGvZna0l3eVkWoFra6VppuxRQFg3B+Wat27dT7DgJ060JGHDu
+	 m+eZfeM88utw8gWMAGQi8/aBCFyHouuzcxx5ugYqdQ1dE7zBSh1BlHZyqf0CE1BUcVzll
+	 3mAcZBM2RDnHacgKLbIb1CINnOikimA/lgYe6FQhYo97B4KmWE0udEzwYk4o1itWg1llX
+	 Y8yI/k/Ol117ZaSW/2qeygF8Gxw/SMvHnRfzJDBP7dFvEOvTGbKS3i+yU55Sp9AJKlBEO
+	 V+EthFFHtUpPohBzHPQGoXkY6MWSoRZqYMCJCb0xHjI09724/GHU74qSHqaVx2WMMkQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415926;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=NVD2K+hzT//oEG10ivggwaDCvEUpG9RqeSyqEh6apek=;
+	b=5Le5aqfCKB4xI0IZCkcE2ObYAk0HuL420wwK5QnS6ymn26hBlzFLfnEwhyZcTPNVJF/a
+	 alzjgksjnDsZgxf/OJR+IIKFEZsL9KmiFMyUOR/KgoDKqMx5BfndH+wIBOrLoUpmIcOFV
+	 /VmsQI09k8bTF56R7qNDXkjHGH8u8BPQYfiXrDHYxTfp6TgZuxfD+ZPAqef0NgJV01bQv
+	 d3jjPimVYf6mbC/AFC82Cn/D94OcazzBtY7WntsfScMkWbm6lJEA6SKkQKZk/s/3P51/G
+	 l6nzYl6UX6/O+ayLS9v77KCUIOOQGkL31ax6z2UaY/YZeRSUNrsdafPhmQqUwXYXICw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fkksMU8f;
+	arc=none smtp.remote-ip=209.85.221.179
+Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com [209.85.221.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E99B606A31A;
-	Mon, 23 Nov 2026 06:38:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E99B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B389606A31F
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:38:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B389606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=LAvV9Egm
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xZwKg9QSOx6WItTWpLLgAwXRW2ganJe+wg6yBoy8EIRJvHaA9NU23JCo0PoHyVVK5RCLiN6BYbMnyn03ywCoub4PLnyFVtIL0zstLEYFsgPD7fsegBJsYjlAZ4aGi8YYnDgoyoGpUmLWxKLE9Rb1WTtPPbtKwWuUKAqbal1p/Zhcd90aWqxwzSQd3c/wGrDUopWAJiwix0Z93HV2OpnfkwYfInfVzsyxYWDJwKpqcL+P/q4UMHoZqABUSjRhJZpypuX2q1BtZ8TT2G6TS/a9UH6D5FWISgLBmFIMAB0cxcIUwO3uZlIjVRs61t7r7CKRG2+IKLTOacAC1XWw7/BYHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kVEBj/OyEAp99ErMEz3ErQ6TttANznsYWFxVX5CjnwE=;
- b=s8Q36y5zDeOLqUFubKMirwQHwMC3knQysTi2RS/uC0V1KYlIzniQGuskI2ehQ8tuN3+BXqozc3E4xuR1wkLiupjEn9TNgcwsOp2qwDBQJDtihLh6a+fV0AG2tjG4yHdewTMjPl19LSU0j4lABP0XTnIp6zU16XE8Y2QKQHiAydxHNk6zQgWhKvxk30ptC/p7E8nb6dE+f8FEZ+YcSqlnKwqKuq5VZYcCp25htPKVfiT7QEjPu+OYfy3F4kw4AByMvCxgfCdvad8qYrL6vL95OAyHPLTibsaukgZdO9WV/TUPgPzZwOAvRXJ7T/YOlh7bVRJzXFHgypouDVniKAHfPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kVEBj/OyEAp99ErMEz3ErQ6TttANznsYWFxVX5CjnwE=;
- b=LAvV9EgmP3XKZ7iW641UPg3A9o09CEpLvvfqCxOlwkpuqXlanePIzBBzCZ/oqciE5MQnYMhDGeMbWoJz7viaDUzLl877kxJF79kr/5N8soVxBjJS+nhNnshAmBDg4drV4U6y2I+gBrSQ5o9whlmEi48pHk/c5mAUHEbcr9eI4mMCYl8HYmzcrc4AVQTG9j0XfnmdrAg+84I4TYQ9O9ktCBknYAuAnfxdwGmozd4zk4RgBDdx3ZA/bjvfVYw0+SjIGrdKh5drHSUy5nsRK2oBOcQ+DZEo3YnlTT35BjO4cp5AvZEGDZ8RM97lN7+NUOTmkDEPTysbUylUA9rFpziBCQ==
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
- by VI2PR04MB10594.eurprd04.prod.outlook.com (2603:10a6:800:26f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 06:38:21 +0000
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 06:38:21 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
- (OSS)" <wei.fang@oss.nxp.com>
-CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
-	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v8 net-next 9/9] net: dsa: netc: add PTP one-step
- timestamping support
-Thread-Topic: [PATCH v8 net-next 9/9] net: dsa: netc: add PTP one-step
- timestamping support
-Thread-Index: AQHdd9JIdl+/U/SmjUCoTA9XHTJLv7c7IOwAgAAYPaA=
-Date: Mon, 23 Nov 2026 06:38:21 +0000
-Message-ID:
- <AS4PR04MB93381D265BF5C51D8B320A9988452@AS4PR04MB9338.eurprd04.prod.outlook.com>
-References: <20261119030534.1892935-10-wei.fang@oss.nxp.com>
- <179541034095.3135.13496206683389250613@kernel.org>
-In-Reply-To: <179541034095.3135.13496206683389250613@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|VI2PR04MB10594:EE_
-x-ms-office365-filtering-correlation-id: 5a272205-22b6-46e0-8b2d-08df492c5e22
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|19092799006|7416014|376014|366016|23010399003|1800799024|18002099003|22082099003|261009223027099003|4143699003|10067099003|5023799004|11063799006|56012099006|261102123227099003|261028144727099003|261026121527099003|261026140227099003|261021121427099003|261021123027099003|261022105027099003|38070700021;
-x-microsoft-antispam-message-info:
- blbp+uSgdgy1VwLRZHpwCYiq75/kQCyKzQAQoCa2F80mWYRouNF4/B1Hm+ECAbh93oWeZekZCFo0XU59dKDURhKPnxkcVGTilfLtZGNkl2l9p8yPtI3k+2TD9Ip8iLOMN5/5rQ32JGA+GUeVF23coHYT8x97e5nehE1gb9zL77gRPBlIKbTT20bBwi1Cbp4paNIbgXw2lUUmh27LDz4Kt4jhLhiPM7I2pDVaG6cHnjh+oGCS+J7utA7nRF8UMXRdI1d4cguVPJ1R2SO3FAywe9uN4xZm/oRJuF7Rn89LezOqp/Rs/02CdxYdenxJ56kHCKdoNuZvGj9z2wp9qiy5jEMSKryetUJ+Vm5dUmlfe6PcPhN/LFrKKAVmg9UhGGKJ4ideBJwE/pIRY7pJYk+aIqjBh90ZB7e36HcnorEhd0LdNHIbvO4G7nqRghCqMpgkcIqBV/vPqETgntDfkDfauXFFBk9SEQ4bH3DhxHApJUKixJzO32rXDl6CxOLNJPt2Daiz0AN+O/vV3AIzqzg6NhVIUynkLhggRbePzppVg9BdJ6ORzc13sOpx2hMORJkisYudAla81x1M0IGxny6qh1L1/or21DHrdKKiFII8oJMW6yXPYLXHrbFJvmjoLdv55akBqYVLXD3S1TfsxkhJhRTN60cchWvkxeZ2x/kigQ4P0gIZas+YXd0RtryujVNgmkCLuuyBoxveiki+a7n+MsI4cG5dGEwTcWAVU+maGi8=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(23010399003)(1800799024)(18002099003)(22082099003)(261009223027099003)(4143699003)(10067099003)(5023799004)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261021123027099003)(261022105027099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?bu/Ql7mZEAxzJXUQ68BKmLnukQRGEXs5dBGDRmN7IjZA/MVYR9U4zSzqQgEq?=
- =?us-ascii?Q?HvWTfYe8GEczcqup4pu3VlmgKkB2r1qhg9DAZzjAjk/1AQMPWD0+75sVj3Jf?=
- =?us-ascii?Q?OGC4MMgKa8T91SRVTmmpaO5BTboHoOtFe32vGlv7SY2TpTaGeXXf3+H4mEQf?=
- =?us-ascii?Q?VN9pyIDaFYPC/fNasVJ+5IQmffi8Mqir7G4svW5Swt4AUAiaFwthsUmoSrZ7?=
- =?us-ascii?Q?9BOieum8QAbSnyOqO9oV6cTHi+2S3nERApeA65ksWVIx3ysrc2GjT/S2kq87?=
- =?us-ascii?Q?SbMhh6RZzplMJJjifKpyZnIoV9vVNraOjE2oTlLysXwz7uwj0pONdnnDtzE7?=
- =?us-ascii?Q?MLmmwdpHiBl8KeKi0AVUDc4sIyc/PHw+48MX9MyEfGEwdHmBbsVroEEbgbbt?=
- =?us-ascii?Q?FymaKl8DFnO+OLXCmm/iSl2sYROI5MHNZ7B12fA5h5tErn05zNwPuFPvOeFO?=
- =?us-ascii?Q?6BWQ0FhzVCX0VqaKzKRhZP51LYbHzKqDOXijVJ5z0mS/pS39D8mwIMxW87oF?=
- =?us-ascii?Q?5dmFqC6bylT08zEHjXTwdZebxz/VIlbuig6HZTxTp8UpnggcgdNdYDNJoSoA?=
- =?us-ascii?Q?qOTwmo+pxiKEVEA/cHRy2oaNpAji5oBDUdZns3R7Fs28PVkUU2pY81vXmq4v?=
- =?us-ascii?Q?EY4FBzsEthuYqD7NznCwWMtH0jFUn1eQz3coQSW2dLHTViSvCc/lxQa+nyvH?=
- =?us-ascii?Q?JDEVuWBumGcOZvwOlFoaHnAuTIgGR8I1b9MtKykUOMdO2JL+j27qOoIrfZrc?=
- =?us-ascii?Q?qeIVnkMiy1dUGyo1uXV36nZZyBQM7JXNhV1zLQimsuPVC+xXjJHun2V+e5av?=
- =?us-ascii?Q?O7Sgt3gU4Bvw2uu8QdXyVGWVLHtfQJUlNmWIhbg5SWBAZJRRrTxr7jv3SRXe?=
- =?us-ascii?Q?67n/ei4lN6s5Bwv2+CAqsqXdMSDUmWk54jp71gBsyhh4RMgophTH8SbpjSKz?=
- =?us-ascii?Q?OE9xMusAa43vSLn3JmQN1t58aiG9I4wqgu1eLJbevfPiyt9tlJcxcjrM+Whw?=
- =?us-ascii?Q?yfjAU2ZuTO4YUnT/fe+0iHMXFmPWzIEfND+UyCrkeyliPBDby2qEbUDXMMrf?=
- =?us-ascii?Q?57nztLxrSK7LCbenizuVc5xfzPknFrpanGDQUqoydirRT6XYBSwzYJYPV8hx?=
- =?us-ascii?Q?/8g2l4e7pxY8KsmD8Fga9Q9v/P13Z2TgY0alNN82dwTGDQfzaxSiKB/A70EV?=
- =?us-ascii?Q?XZcWfbSeZarEq9QvfWYnz4KWkaq/iKjwRmaZQYf9PzGKEDm7fCCdGJq4k4mC?=
- =?us-ascii?Q?CoaQA3qk2+V5zxWtXIzBI6CXB+9iPAKxxKf27OqTBordZOSJflpG6VC1QwWz?=
- =?us-ascii?Q?p2jYeAcx/YNHeUwuSNdjVInAqzH0zsHsLo1Eqlr2yHKQEG1LmwWOMx8T9I1U?=
- =?us-ascii?Q?ALJ2CpsMsga00olpGdhT4NrJXRgzFNrJDn3UylPffFr+h5sYDg3V9mSGQZjJ?=
- =?us-ascii?Q?MyQywppuvr9ORAMklmBwTwxY/et0deSi/ShQlYEGPD72tXFHY5QhpeazRfuN?=
- =?us-ascii?Q?j9Pm4AoERTuRL09tgSO4toUkYCHsPeG1EkT/9L3ZN9MWRfBb86vy63ViZNoY?=
- =?us-ascii?Q?8USPdTrAJ5AVfJ8FozMYUxzMI5DMbAJCkU+mMrOXTSZUDVpA51vsFCS8nFHH?=
- =?us-ascii?Q?bCVnq/BcJj3f/+4Bj+xm4cJNDEf36Fc9hSw7mlcIQvzBiZvJrd11YR2vWLss?=
- =?us-ascii?Q?vYuRhBVAMHha5l2QORCmVaNYbPIolrGGbCqKERTT0RrsVq3H?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fkksMU8f
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-5eafb65e169so1791145e0c.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:38:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795415925; x=1796020725; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NVD2K+hzT//oEG10ivggwaDCvEUpG9RqeSyqEh6apek=;
+        b=fkksMU8fAc+yqUoyWh6UZIACw679gqlS/C06qNo/BJOrb9yO8zMFLP3pH6lSr8OzEr
+         8NQanRaXVIszQU54moh8JIFe6/3kSi5GMNopXMQqXEHMf8Y7i2b2R+Z6/jerAFUa7Ewq
+         IHRSMgjWg1dolorsttwxt/7zbcqS5zuMd3mhUXqFwd6UltrEaQg4nksxtVqSwdpgJ5GK
+         Z5e9IywPqwuKLHVUJw2kpJ/TpQVpQuz+CSopnYGsNaT1K2QRpxb78rJDeSgeqkRXp+0C
+         JjSIISsdV6zTFT737bPIfU9+sur19yUaIGYoI64FkVi5StEZ1nSV7JfG57+7kctH+9od
+         Cflw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795415925; x=1796020725;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NVD2K+hzT//oEG10ivggwaDCvEUpG9RqeSyqEh6apek=;
+        b=lob73EbVTtFqxsRPX1euZto3c3B6Pk92fgGlSvuSvUuwtj+jvzYO/ehNhgjpxvM3Pp
+         QSD8oD2Iw8kuxO+qSwshW1UvMPmrO41gOyp1yuh6zcyKqG4sKpHvfmCITIMIX+xySD6/
+         R3JYEfoPH8AbN8XwXcVNACFO104JSfQa2wJ3B4bTylFW7qEtJ/fEL5rWXTuy4i8iHzm5
+         PVV8OgfVA24xS9SsPOtfVxfumiU15TZlNvQ9fvYHeRx6mWp2Rl6tNOIQ9WYMqBN8fC5+
+         CmfMS8ltHrKAIyyefzr7R+1x2HY1pzU2h6P5rHeyCCBFDS2R5kBaRyUS1qcrZE45xkbF
+         GVow==
+X-Gm-Message-State: APuU4Z9FTQK3cM+A3ZAkJUVHFpLXVLhI/4gixeNUsOUo0/Qhg+zKE51v
+	P6RxBqdEjM7H8KNo36ughYlyZlrZT4OeKfBLXVI/43y8gRhvUc7oEiBnxneipr4Ly5M=
+X-Gm-Gg: AZFdTZe6STI++RLVgOh1K4jIwSCQ3gY8f5mIdXSb6QKmjvdC2W4pJL2nF1/cRjbOMM/
+	/yYmj10dS4WiUUc5I0/oTFJj+uGKGilQH2zJ7tSB/a07/rIO2fngOUEjfcUxqk6rAwT5f/XQrwa
+	uUsGO+RhLqSsF3Si8kMY7IpQn4Xwub4D84iuO6TP8aCKq3conTGXfOwYYe/my0MjUaK76oXgLU6
+	m3ilebdMA2zLuukNUEKFs06N7M9U8/jAw2ilhv6maw8cqclnjI9tZleStxI974maUWsSUfAOirn
+	mifI/wiEbq91CB5DW4//WievepoRf5aKwwN4c17qflwt4SmMxCXV4I4w2Od/NACCXroMHJLyQFg
+	J9LpeGiGQQTjI/9p0mOKdXG/DWI9cox7gKYq/7fv8SQ2QihOwVs/j3vVfYretWtElWt2fJh11j7
+	9qzT0TvN08t5TjncKEa7Bk22eFGgBwutcUZEifOKm/8u9pRi7txqg0choT7842ho7Yo+oTS0+cc
+	taIsa8E9nfjuX6Uu9dQPw0E63XxuBxKnmWzEAqYDXRfCosU+oK/52yMKzMEIISfWM1EDEeK/ZAh
+	fs2y5LpG3qUocx9JWlmLCIrEhS1GtCWp8BUV2UX8g/Eqc6PospOz6u3ukvBBVI+0r4DTun4SNkZ
+	U3Q7yFxtprPDy
+X-Received: by 2002:a05:6122:1d0c:b0:5ea:b991:d489 with SMTP id 71dfb90a1353d-5ee8aed6f75mr5307099e0c.13.1795415924871;
+        Sun, 22 Nov 2026 22:38:44 -0800 (PST)
+Received: from MacBook-Air-91.lan ([2603:9000:d440:53a:10be:9c04:cd21:d4ba])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b4335e1sm9994665e0c.1.2026.11.22.22.38.42
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 22:38:43 -0800 (PST)
+From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+To: netdev@vger.kernel.org
+Cc: John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	Juan Agustin Niccolini <juanagusnicco@gmail.com>,
+	Eddy Tsalolikhin <eddsterxyz@gmail.com>,
+	Kyle Zeng <kylebot@openai.com>
+Subject: [PATCH net] tls: set the copy cursor before cloning plaintext
+Date: Mon, 23 Nov 2026 01:38:42 -0500
+Message-ID: <20261123063842.64536-1-juanagusnicco@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -156,93 +106,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a272205-22b6-46e0-8b2d-08df492c5e22
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 06:38:21.6355
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: y9JNcS8alanoyppKFEIn9Qhj1zuw31bobX/n+GYxelEnPYuTYjUYoi9TZNP2yewnYxXaN8Disq+V8GJKhW0vlg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10594
+Content-Transfer-Encoding: 8bit
 
-> > +static void netc_port_prepare_onestep_sync(struct netc_port *np,
-> > +					   struct sk_buff *skb,
-> > +					   u32 ptp_class, bool *twostep)
-> > +{
->=20
-> [ ... ]
->=20
-> > +	/* Ensure the buffer is linear and writable so the packet can be
-> > +	 * parsed and updated in place. Otherwise, fall back to two-step.
-> > +	 */
-> > +	if (unlikely(skb_linearize_cow(skb))) {
-> > +		*twostep =3D true;
-> > +		return;
-> > +	}
->=20
-> [Severity: Medium]
-> What happens here if the frame is a one-step Sync and skb_linearize_cow()
-> fails?
->=20
-> skb_linearize_cow() runs before the message type is checked. It can retur=
-n
-> -ENOMEM under GFP_ATOMIC pressure for any nonlinear or cloned skb, for
-> example one cloned by dev_queue_xmit_nit() while a packet tap is attached=
-.
-> When that happens, the Sync goes down the two-step path:
->=20
-> dsa_user_xmit()
->   dsa_skb_tx_timestamp()
->     netc_port_txtstamp()
->       netc_port_prepare_onestep_sync()
->         skb_linearize_cow() fails -> *twostep =3D true
->       netc_port_prepare_twostep()
->=20
-> The frame gets a To_Port subtype 2 tag, or a subtype 0 tag if
-> skb_clone_sk() also fails. Its twoStepFlag is still 0, but PM_SINGLE_STEP
-> is never programmed, and originTimestamp and correctionField are never
-> updated. Would the peer then accept a one-step Sync carrying whatever
-> originTimestamp software put there?
->=20
-> netc_port_txtstamp_handler() would also later deliver a hardware TX
-> timestamp for this Sync through skb_complete_tx_timestamp(). Doesn't that
-> conflict with the HWTSTAMP_TX_ONESTEP_SYNC description in
-> include/uapi/linux/net_tstamp.h:
->=20
->     In this case, transmitted Sync packets will not received a time
->     stamp via the socket error queue.
->=20
-> The commit message also says:
->=20
->     If the originTimestamp field of the sync frame is not in the linear
->     buffer of the skb or the correction offset exceeds the hardware
->     capability, the frame will be dropped.
->=20
-> skb_linearize_cow() runs first, so the later check:
->=20
->     if (unlikely(tstamp_offset + 10 > skb_headlen(skb) ||
->                  correction_offset > NETC_MAX_STEP_OFFSET)) {
->             NETC_SKB_CB(skb)->ptp_flag =3D NETC_PTP_FLAG_DROP;
->=20
-> only catches truncated frames. The "not linear" case falls back to
-> two-step and is not dropped.
->=20
-> Should a linearize failure on a Sync frame be handled the same way as the
-> other error paths in this function, with NETC_PTP_FLAG_DROP and a
-> tx_dropped increment?
+tls_sw_sendmsg_locked() copies into the open record by cloning space
+with tls_clone_plaintext_msg() and filling it with
+sk_msg_memcopy_from_iter(), which starts at sg.curr and sg.copybreak
+as left by whatever last added to the record. The copy trusts other
+paths to leave that cursor in the right state, and they have not.
 
-From a software perspective, this is a trade-off and cannot completely solv=
-e
-the problem unless skb_linearize_cow() never fails; otherwise, the driver
-cannot parse the message type. Therefore, we cannot discard it, as it could
-be another two-step packet, such as Delay_Req, Pdelay_Req, or Pdelay_Res.
-The issue raised by Sashiko can indeed occur, but only under memory pressur=
-e.
-Once the memory pressure subsides, PTP synchronization will return to norma=
-l.
-So there is nothing we can do for this issue, I would like to leave it as i=
-t is.
+Since commit d829e9c4112b ("tls: convert to generic sk_msg interface"),
+the path that adds the caller's own pages (sendpage, later splice) did
+not move sg.curr, so the next copy wrote into those pages. Commit
+c5a595000e26 ("net: tls, update curr on splice as well") fixed that by
+making the splice path leave sg.curr at sg.end with copybreak 0. That
+is only correct if the clone adds a new element. sk_msg_clone() instead
+grows the last element when the cloned range is contiguous with it, so
+sg.end does not move, and the copy starts at an unused slot, wraps
+around the ring and writes from sg.start, into the spliced pages again.
+
+The spliced pages can be page cache pages of a file the caller opened
+read-only, so an unprivileged user can change the cached contents of a
+file it cannot write.
+
+The copy path always appends after the data already in the record, so
+set the cursor there before cloning: on the last element with copybreak
+at its length, or at sg.start when the record is empty, as
+sk_msg_reset_curr() does. That holds whether the clone grows the last
+element or adds a new one, and it covers every path that adds to the
+record, whatever state it left the cursor in.
+
+This is where the cursor should have been set all along. With it set
+here, the copy never depended on the splice path moving sg.curr, so
+neither the original bug nor the one introduced by its fix would
+have existed.
+
+I found this bug during an LLM-based audit. Kyle Zeng and Eddy
+Tsalolikhin independently reported it before and are credited below.
+
+Fixes: d829e9c4112b ("tls: convert to generic sk_msg interface")
+Fixes: c5a595000e26 ("net: tls, update curr on splice as well")
+Reported-by: Eddy Tsalolikhin <eddsterxyz@gmail.com>
+Reported-by: Kyle Zeng <kylebot@openai.com>
+Closes: https://lore.kernel.org/all/20261030042138.73739-1-kylebot@openai.com/
+Cc: stable@vger.kernel.org
+Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+---
+Jiayuan Chen posted "[PATCH net v1] tls: fix ring wrap in
+sk_msg_memcopy_from_iter() after splice"
+(https://lore.kernel.org/all/20261120225720.89044-1-jiayuan.chen@linux.dev/),
+which sets the same cursor in the splice path. The two patches touch
+different functions and apply in either order, and this one is still
+needed even if his goes in: his closes the splice route on mainline,
+but not tls_sw_do_sendpage() on 6.1, 5.15 and 5.10, where it does not
+apply, nor the record split on 7.1 and older. This patch removes the
+copy's dependence on all of them, and applies unchanged to every
+stable branch, because tls_clone_plaintext_msg() is the same everywhere.
+
+I have an exploit that lets an unprivileged process overwrite the page
+cache of /bin/su to open a root shell. I confirmed it works on mainline
+and 5 distros. It is available to the maintainers on request.
+
+On 6.1, 5.15 and 5.10 the bug is a race, but an unprivileged user
+won it within a second in my tests. I have another reproducer
+available for those.
+
+I used a fuzzer with a page cache oracle to confirm this patch fixes
+the issue in QEMU guests on mainline 7e1392a42ea2, and all stable branches:
+7.3.5, 7.1.13, 6.18.64, 6.12.118, 6.6.162, 6.1.192, 5.15.225, and 5.10.274.
+
+I also confirmed that it fixes the original bug on a kernel
+without c5a595000e26 applied.
+
+ net/tls/tls_sw.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
+index 226e0f176fdc..efff7a02aef2 100644
+--- a/net/tls/tls_sw.c
++++ b/net/tls/tls_sw.c
+@@ -349,6 +349,17 @@ static int tls_clone_plaintext_msg(struct sock *sk, int required)
+ 	 */
+ 	skip = prot->prepend_size + msg_pl->sg.size;
+ 
++	if (msg_pl->sg.size) {
++		u32 i = msg_pl->sg.end;
++
++		sk_msg_iter_var_prev(i);
++		msg_pl->sg.curr = i;
++		msg_pl->sg.copybreak = msg_pl->sg.data[i].length;
++	} else {
++		msg_pl->sg.curr = msg_pl->sg.start;
++		msg_pl->sg.copybreak = 0;
++	}
++
+ 	return sk_msg_clone(sk, msg_pl, msg_en, skip, len);
+ }
+ 
+
+base-commit: af6737b9066832a2017c281159950ba92385ce00
+--
+2.53.0
 
