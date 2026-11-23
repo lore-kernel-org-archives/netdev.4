@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438158;
-	b=G8AYlnQiaCh1BpyGOCC5liLV5g+mNsUL5Sq9m3F8ZiTMebdaz6Cac2fU3sDKAs59avD/
-	 g/yraj/VHHwbgmkyDHmECZt8x2s9ltmenBqhX3J6WwNDhEyW22razO0NUdc80F7g7C4bm
-	 qe7rNsD1fV1/+jBA0MP2lipcJsA04odmtRxXhV5Esm41Hsw5D4CEn2xbT3VWotZla1brM
-	 1+BE97vEhnWmMD6V6usJdHVRjDGe6k/mk+5tDF+Hd0f8vxVRke9qkVAeag7hhOlRhneRA
-	 NoBspVROwuj6WBg51FJ6oJHGa1o/fV0E9QOC7DlgAKVi5D0LJFAjLNa7P/tdD5mjSgQ==
+	t=1795438160;
+	b=2A3VDm8r2S9lheH5fTs2MxgD7hPEurpUqQt60G9Jbft1uhBp1M9O/5P0OuXSiyIohoZ8
+	 n0Htk4tgjOkmOsPKw4nzxhFXo2EJTRonrqWVF2dogo5T9ujDi4aBDIudC/XamvyjBe0Dv
+	 zQPurReumrrz23Tr4YEMcXT5hDJBpFwvZaDRB4+BXPZIrdeqhvlyqM7bM3UPl0Q+TAXF7
+	 8PjlXzuiNDJbmWo2zb1gbz6wk7vr2VQMrJCfb7jCjMZw6Vi6Bt7t1ridyeeQprPWxXFLL
+	 JcYTmOTmyG636mjLFAbdp0YxKtwTivReXFp9Zf2eFBXHoYy88uRYfcGoezcI9iOJ0HQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438158;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438160;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=uCB/3nRWyCrriJhM0/9kpHJFQO/Pdm9osUstoRGqfT0=;
-	b=DhVvkYPGXJr/Eg45715BgdEWt2x8XttY0oSXoPkyCj7jiDVZkgVL86hhSug+3bc8c2yf
-	 x251Zfe1O2CRZS3o+dTvffUSGG4TrUZHz+6HvDcnJ3QKQxyY6tAPN3mIa76z6w1VR0JPc
-	 ob6neA8etO7sRAxijXrQAgJLrULOPsP2v5dSnwTeVHdB6y+8rmw7UwjVROqBn+g/3WTE5
-	 xCkvSwAcfzSZCkwsF9m7qwJfOQpj6vpAU/bKWP918OnAgzReKGcNfx6kA3l5bPmxP4UNs
-	 WrbGjAuvs0V2+fTgZmke52nqvV2AhcNDArBeC4/GOpahGNUt+EvuFJOXyIdzxYu8v0g==
+	bh=bferII2lyA/H1hIC/5y/64FdLoV9XxlRkIiuA63uNpY=;
+	b=ZHaL5LZUo15FKaX1ivsm8KaB9FNiKnsHagEuDvJJNjNhn4ucYTue/nOZNW1cjI0tT/5D
+	 uU0sJyYLcBBb4aa8vhUsxhS/9FPZyk03CwkdK8ue3liSOJLTJ/p9ohvvtD9qsRUJxr+0E
+	 EA1aVZy/0HRHxw6eAPtPBaEFV3t4GlUYrWWpeHjURxWu6pKxMyqGiJiJOMBxfxjor+Sif
+	 GZfmG0UTKJ4C5ABU46zuq4kvJ4/CDvZRLxZidakAHS1pwjga3iXcPoDVVek0VHH6favoJ
+	 DRayqJDPVqah3AwTnsaeSSNG8M7LW9zGPuQaiDIBcifVQSOvsL2RoxgfQySs0FxtJuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ZvZ/FKo8";
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="G0nVqK/2";
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53FD6606A321
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:49:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53FD6606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 813B7606A31F
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:49:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 813B7606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZvZ/FKo8
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so25127455e9.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:49:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G0nVqK/2
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so29718705e9.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:49:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795438156; x=1796042956; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795438159; x=1796042959; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=uCB/3nRWyCrriJhM0/9kpHJFQO/Pdm9osUstoRGqfT0=;
-        b=ZvZ/FKo8CerKwBRWZ75tCKi0x7Lp6P2M5ltRlTVz0MMncbLoCorN7Y2IlL8cXEWu+n
-         3tp36PZISLdXazPQFUYYOpTG3V3t9CrHnSwQv6+l+2L1Bf46YpIZ3Hu30s3vSYUwlV5i
-         Nkr5O7Kj3I8k8cvyJXAnlrxgAe2iGzHHhJF3FYuevthpXultsURZi+4zvTMN9XkIiy9W
-         YTEawiktGKQw01RZWBQUCduLhb+vonsF1o0XAQoWywIsAxc1C3VE8RGyx9g0HzuQ0T6o
-         2e7vZkPXuXjpCqE8ROWpC4cRMDF1g4/A1HbBpA4LfRs88hDhs5fjmH8frcXBCm+4Os7S
-         jYYw==
+        bh=bferII2lyA/H1hIC/5y/64FdLoV9XxlRkIiuA63uNpY=;
+        b=G0nVqK/2ApMbbi1v22uCMusPzgKZ6T7NzkA2JDYahvJcl5XsbXDnhqtOMQWHV1L2D3
+         cl2c8HIlxLMLLorroXlD/cDj/oHbFa5NBG2jpfPzetQDYEYneB5V31pWBEpv5Tp/EGD4
+         bzQKy/xpDsTJRo9uXfkUiY6Riqx5h5EagNFrW6LZW0AZDyp4m2CmNulNHnUWXEpQOuap
+         DNk+H7ndNwxPaK07EJQS9YIoKTiwjcmQ+7y15YBJzxYfddeOTwTR/ZcZKuzzMOfK5uR4
+         PznHTsPUAvR4ppyOh2vtzKhkSKSDDMbNi6Q0ZCBC4Q7Xf72fNMOqWPIGucqaEF0dTmOh
+         vHzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795438156; x=1796042956;
+        d=1e100.net; s=20260707; t=1795438159; x=1796042959;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uCB/3nRWyCrriJhM0/9kpHJFQO/Pdm9osUstoRGqfT0=;
-        b=DjkFldQhreFZUiYbc6V9XfagrIQQ+v5q1yHeHl/iOCE9AKSWvWonCKE3vHP9BUGxek
-         8BqjH5UvMut0IRm4uBsJDkDrDMgGgnKHy51aYNPMXN6i1LoENHnhy3Q3x2a0GSvSKt6z
-         50KrNAKVw9N8Mxk5dM5lXdfVRwVIDQwgRITKhB+QjP4+K2RJ+tvTNxsiLrFnu+tvR08a
-         MAF6Cw8cXHIA4XOU51UY21GkAz3lP0ISfTBhiQZioXSy4Ze5metotVphirSyUWrKFqwh
-         zpbcaGMeONzqDmD97RXjgAugZBnuaewH34cdCRh6NJsrIqfYwnt333ueu6lgv8wATrz4
-         nnkQ==
-X-Gm-Message-State: APuU4Z8JSKiHgviJJTdVRMjvph6T+mWr1oyWVZpSEFS/KDnyDY9zT3Zw
-	YtImt5jGGgBI5XI5FiBr7k72sk85kULa2n/UlgIzjxjyh8a2Xb3Culky
-X-Gm-Gg: AZFdTZfouIF50d0N7ODbdKkKqwG28qqhHRwrCblk7PrNnxkLGGi8vNdaM86fVLDxegy
-	z0hJvhVSbSDZ0a7gY2qZlk5g43v68XQVXHkm/V3368jLznR5lcrMLPjBaFuQSTs3DzwkNSLzC0X
-	Rt67BcYcl7N2A+Nr1Bay1jkPRrCqKzIRcxWimrcP+cF9T/aPxGEJZ+JJjDVfmFJ8FhugEXy6YNH
-	xxyrL3hNULX6uGTxWoyOI1bLAVuH3PWD4h7gIJJ4ir2xtFcn1VVi0Gj95dXfY5pulZhyhFrFlPX
-	GEzS4ZYefJVfqF0YtLkPj1Gr/AHr5RTnqQPcGh+WEpMA4iPN4NqA8O8U6FRJdTlpJ8fvuRRK8V1
-	a83Scn3vFhKdiZR4cDDRfDwBlYfGY13jojOEdKOXIXuXPZFvdqt2+xpvZ0BB4uTv95s1PSKtM7p
-	nBmyZLjjCWHnEEfPPXsOUG/K30cnSHg1iNTdlcIoX6P2F1rHGTAGN3iq5DDgHcdOSsrmDO02lh6
-	atlRqNSucp57ZzyP8EIMO/GmfyYni2aSZXhwDzgtYLDw106PDgPgCzjL8knw4fyya9hLmyp78Z8
-	1K38Bf+2CS/kVwaETKhM+lSSXdE0VstZ7oHHTYM=
-X-Received: by 2002:a05:600c:5395:b0:4a3:5a98:c279 with SMTP id 5b1f17b1804b1-4bb8880e599mr233863595e9.8.1795438155659;
-        Mon, 23 Nov 2026 04:49:15 -0800 (PST)
+        bh=bferII2lyA/H1hIC/5y/64FdLoV9XxlRkIiuA63uNpY=;
+        b=q5oBQ3TAfX0BB1gV/Hr+9GE+ELf6d8mobf+weIseu1sBinGS2oVmIiBBB2qC6QHnjp
+         QdZwjA3OF/+vkNj7gMkon/mh+crwNtvVYSVggzEhkYIPVCwMAf8TBnW5Zt1Rx0Lwzs4D
+         ermHQfq8NZW9DIglndQuG5TWmIrZmtLQwZrT54LYChAX1yAt0ctxxt9wqmWPaKAJFyLZ
+         6TOKV9s0JlQPO3oMo91UyzBx8rhJIzkqIzyEMK/kADBy0O9iluSl7YgUgRdDoAmow0aY
+         IAG/HjTuX7Nx0d+ExwxRtKmHjZ0XeE+QlmU2YYoyu0rU1Sr0dah0R0aRWl80SUs4TZuF
+         yYPA==
+X-Gm-Message-State: APuU4Z/B8T4xf/ibawOgfRRhSiZCsK65ke02pP/tTyiZWssh2hKPJeCn
+	tFe1csledaEb3q1hS8YhA/O/36mUcPjJr1MqudrUgm1CXqh1m0lwdPFX
+X-Gm-Gg: AZFdTZe5DGcNudhgor1BV6Tw5pNN7RZs3uBmPFZ/82SyvLgdHJ5zXnGlJZYL6PFR5SN
+	fq9yQwxq8IROsHxpwS2zRFw/j2ZrbL5AOFIvC3J6KOjSchfEuIx9g3uPJ7Pdb1y4EKjf+191ei3
+	VWOSs0e7s9o8aJM87pZY/5g5oLSMbuRgZWSS8eve1dWUflfnfndRddOXfnTzgFZmSRgfn2wunT0
+	M130rFdbhHp1C8AA7XGfTcx8IA7+JxY5dwYD/EVJM1hRu8fGO4tjSgUqwAr/dphgAWjCFzR/zDa
+	GKLWsyfBIKx5LrG5xJiCcBLPbH6I10mVijMIWx11+RNSX9xPtZJgW8VWmTwaq5ih0dlZAW476FW
+	pf3eeNcgQx5bnn7MyF+qfDMciKWOzo2FKaZcCiGaoDTFoFgPKUEXoNijv0TTxMdTYFBXkkdF19K
+	gI1gZBb/bsON3LGti0DrNr454df1QFk3RdefG4jBT48Nxav3fDbL6WUXBUX+kzF4pn70QMJ8Te4
+	jX+h1NXz2Kx8pTjJkMPThvaG7dWjqY7SMWpSbeTqYi4BA33jBKlIrpM9R+J1R7SssL2GwRFfr0W
+	qSBS4IG4lI+SnajPkCgYU5Jo6JlENcLqTpiqpdw=
+X-Received: by 2002:a05:600c:4e0e:b0:4a1:da58:1ee with SMTP id 5b1f17b1804b1-4bb88938dc9mr245624855e9.31.1795438158755;
+        Mon, 23 Nov 2026 04:49:18 -0800 (PST)
 Received: from Philipp-PC ([91.227.186.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm165097045e9.5.2026.11.23.04.49.12
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm165097045e9.5.2026.11.23.04.49.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:49:15 -0800 (PST)
+        Mon, 23 Nov 2026 04:49:18 -0800 (PST)
 From: Philipp Sudakas <filzador@gmail.com>
 To: ronak.doshi@broadcom.com,
 	bcm-kernel-feedback-list@broadcom.com
@@ -94,9 +94,9 @@ Cc: netdev@vger.kernel.org,
 	sdf@fomichev.me,
 	u9012063@gmail.com,
 	Philipp Sudakas <filzador@gmail.com>
-Subject: [PATCH net v2 4/5] vmxnet3: drop XDP frames that do not fit in one rx buffer
-Date: Mon, 23 Nov 2026 15:48:54 +0300
-Message-ID: <20261123124855.1021-5-filzador@gmail.com>
+Subject: [PATCH net v2 5/5] vmxnet3: keep the XDP program across device resets
+Date: Mon, 23 Nov 2026 15:48:55 +0300
+Message-ID: <20261123124855.1021-6-filzador@gmail.com>
 X-Mailer: git-send-email 2.56.0.windows.4
 In-Reply-To: <20261123124855.1021-1-filzador@gmail.com>
 References: <20261123124855.1021-1-filzador@gmail.com>
@@ -111,40 +111,27 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-With XDP enabled, rx ring 0 head buffers are page_pool pages and the
-device is given a buffer length of MTU + 22 (skb_buf_size; the previous
-patch keeps the XDP MTU low enough for that). The device still accepts
-somewhat longer frames (observed: up to MTU + 26 untagged, MTU + 30
-with a VLAN tag) and splits them over a head and a body descriptor.
+vmxnet3_rq_cleanup_all() clears adapter->xdp_bpf_prog. It is called
+from vmxnet3_quiesce_dev(), so on every MTU change, down/up, ring
+resize, reset work and resume. After that the driver no longer runs
+XDP, while the core still reports the program as attached, and the
+driver's reference to the program is never dropped: a later detach
+finds xdp_bpf_prog already NULL and returns early.
 
-vmxnet3_rq_rx_complete() runs XDP only for completions with both sop
-and eop set. A frame with sop but without eop falls through to the skb
-path, which uses rbi->skb although, for a VMXNET3_RX_BUF_XDP buffer,
-that union member holds the page. The result is a kernel BUG in
-skb_put(), or at BUG_ON(ctx->skb != NULL || rbi->skb == NULL):
+Seen on 6.12.117 and 7.2.12: after "ip link set dev X mtu 1400",
+"ip link set dev X down; ip link set dev X up" or
+"ethtool -G X rx 512", the attached program is no longer called, and
+each detached program stays loaded.
 
-  kernel BUG at net/core/skbuff.c:2637!
-  RIP: 0010:skb_put+0x3c/0x40
-  Call Trace:
-   <IRQ>
-   vmxnet3_rq_rx_complete+0x893/0x12b0 [vmxnet3]
-   vmxnet3_poll_rx_only+0x38/0xd0 [vmxnet3]
-   __napi_poll+0x2b/0x160
-   net_rx_action+0x336/0x420
+Do not clear the pointer there. The program is exchanged and released
+by vmxnet3_xdp_set(), which also runs when the device is unregistered,
+and which since an earlier patch of this series keeps the previous
+program on failure. Rx rings are then recreated in XDP mode after a
+reset, as vmxnet3_xdp_enabled() stays true.
 
-One frame of MTU + 23 to MTU + 26 bytes from any host on the same L2
-segment is enough to crash a guest that has a native XDP program
-attached to a vmxnet3 interface.
-
-XDP on vmxnet3 is single-buffer, so drop such frames: count them in
-drop_total, reuse the head buffer and skip the body buffers, as the
-existing allocation failure path does. The completions of one frame
-may span two polls, so start each poll with skip_page_frags set when
-no frame is in progress (rx_ctx.skb == NULL; the first patch of this
-series makes that hold for the data ring path too): a body buffer
-without a head can only belong to a dropped frame. If the last body
-buffer of a dropped frame has rcd->err set, do not count the frame a
-second time in vmxnet3_rx_error().
+Since the program now survives an MTU change, reject an MTU above
+VMXNET3_XDP_MAX_MTU while XDP is attached, as vmxnet3_xdp_set()
+already refuses to attach a program at such an MTU.
 
 The problem was found and analysed, and this patch drafted, with the
 help of an AI coding assistant. It was reproduced and tested on the
@@ -153,51 +140,33 @@ reporter's lab systems as described in the cover letter.
 Fixes: 54f00cce1178 ("vmxnet3: Add XDP support.")
 Signed-off-by: Philipp Sudakas <filzador@gmail.com>
 ---
- drivers/net/vmxnet3/vmxnet3_drv.c | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ drivers/net/vmxnet3/vmxnet3_drv.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-index e8be95c..66f6773 100644
+index 66f6773..22367b8 100644
 --- a/drivers/net/vmxnet3/vmxnet3_drv.c
 +++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-@@ -1614,7 +1614,8 @@ vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq,
- 		adapter->rx_prod_offset, adapter->rx_prod2_offset
- 	};
- 	u32 num_pkts = 0;
--	bool skip_page_frags = false;
-+	/* A frame dropped at its head may continue in the next poll. */
-+	bool skip_page_frags = !rq->rx_ctx.skb;
- 	bool encap_lro = false;
- 	struct Vmxnet3_RxCompDesc *rcd;
- 	struct vmxnet3_rx_ctx *ctx = &rq->rx_ctx;
-@@ -1662,10 +1663,27 @@ vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq,
- 		       rxd->len != rbi->len);
+@@ -2107,7 +2107,6 @@ vmxnet3_rq_cleanup_all(struct vmxnet3_adapter *adapter)
  
- 		if (unlikely(rcd->eop && rcd->err)) {
-+			/* The last body buffer of a frame already dropped */
-+			if (!rcd->sop && skip_page_frags)
-+				goto rcd_done;
- 			vmxnet3_rx_error(rq, rcd, ctx, adapter);
- 			goto rcd_done;
- 		}
+ 	for (i = 0; i < adapter->num_rx_queues; i++)
+ 		vmxnet3_rq_cleanup(&adapter->rx_queue[i], adapter);
+-	rcu_assign_pointer(adapter->xdp_bpf_prog, NULL);
+ }
  
-+		if (rcd->sop && !rcd->eop &&
-+		    rbi->buf_type == VMXNET3_RX_BUF_XDP &&
-+		    !VMXNET3_RX_DATA_RING(adapter, rcd->rqID)) {
-+			/* The frame did not fit one XDP buffer. XDP here is
-+			 * single-buffer and the head holds a page, not an
-+			 * skb: drop the frame, reuse the head buffer and
-+			 * skip the body buffers.
-+			 */
-+			rq->stats.drop_total++;
-+			ctx->skb = NULL;
-+			skip_page_frags = true;
-+			goto rcd_done;
-+		}
+ 
+@@ -3666,6 +3665,11 @@ vmxnet3_change_mtu(struct net_device *netdev, int new_mtu)
+ 	struct vmxnet3_adapter *adapter = netdev_priv(netdev);
+ 	int err = 0;
+ 
++	if (vmxnet3_xdp_enabled(adapter) && new_mtu > VMXNET3_XDP_MAX_MTU) {
++		netdev_err(netdev, "MTU %d too large for XDP\n", new_mtu);
++		return -EINVAL;
++	}
 +
- 		if (rcd->sop && rcd->eop && vmxnet3_xdp_enabled(adapter)) {
- 			struct sk_buff *skb_xdp_pass;
- 			int act;
+ 	/*
+ 	 * Reset_work may be in the middle of resetting the device, wait for its
+ 	 * completion.
 -- 
 2.47.3
 
