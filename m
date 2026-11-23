@@ -1,100 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444598;
-	b=Az14cm1qgOJkI4MfTssHVBPux2qFEpMuu4XTWnGUz6Xj02owm/c/20eDswFgQ+Fd+EHP
-	 2Q3aUn1NvhOYBtsQGzLRv+bRsGNOZ9hMaZ8FBLdE2dwLnd6tOAsNZCeqUuI+qv/8zf4wK
-	 IaLFt+3QB6B2CSBg0qgBZB4R1msLCSzx5SDhoaPElxfHRfmJO399wlsCBqV0JT4d93Kzw
-	 aACEhjWZR3PXRIOQ9Sz0cAMcF0JnGqCGSCGtg/zZv1edM0bQlsIYpwG8mdy8XdYEbPtO8
-	 26wqYeNKRRdOVcJDbjiBIEzgieqyniWSgLtEr+3OS+fBKrtbnpNv95AvD1ZVWfO6OFA==
+	t=1795444776;
+	b=kQQ3ViCVVJV3TIV2sx+OXKJS66wT/ceJNJm3Csh5K7W17Jq8YME2gtFOUT85znq6wS2c
+	 qsbhAywmoSrX51cCakETGaqQKKgMnYgDJ9RB/5V6xhyJv5TfIZZscSQ4VEH6A+/+TAR2q
+	 Ha+wskQ3X3+6auHWisJCaAEzLWTFPuT0ug+/Ua62kR0NK01ZrB+aiwVVtFEc9fRx2SVfN
+	 ruyUYyUpXJR6nPLOCsslOZf1xp1ddA5c8r8hwcial2j2/DOqkcpJeoqEgPlTZpK5he11j
+	 qUX6Jz30aqL3sLD9RmhiFK0OAe2deWMrHSDt3PTmqYzSubfH4CSrKSRHl4xpbxoEdEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444598;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=c7RIFJ9JCRdyaG8UKVxLRWxNqNn9TfnyLCzHHvdNicM=;
-	b=eObw3D3kOb9fkcbJcyQKfbf4S9WVoYS9E4PhiHv7uhapixTAAKSxUxntm1Ros2q11wCo
-	 Ya6dz4ligp/hZTOJkLBLvsc6Nr/8NtG7T+T0vJ7xD+/5M3QhbAcO3PlWDafLLnHRn9Jie
-	 Yn7SsdnznVMggE4MZqui8tuoHOJ+qi4D5BF0VzY/KXaqXsyE8oKIocukPNuU+LViKWDUk
-	 XDIc12r5O9e6FidN0MbZRg6CxTVvxIMwS9VW7hIfQVl7eM1aP7XKWoB/GdefhG7Fi2DUS
-	 GQ++ISWTt+LTJnTzbQNJbJ66m4rs3DIbR1FiaJo+lUoUYP8YW3GKESCz94xPGof7Pjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444776;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Xt4XcogETaPg/vLPHA+ZVa2mgH1C1Y+V+9gARYxKDCo=;
+	b=AlJqjSYGcKHf8FDILLaBwtVqZSNcnf0BS4w97vzXgaeFzrXuLcpq1dM+M6MtXmpQHw1c
+	 ZGRbPvWw6/GdcdMoWQNk/jPvyN19Oez6RnEc8TAE9voThO7KXzfcUTuScReWMQkW/BZJC
+	 FuoFIzO586KgYaIf2IpL0mJpwn4QXqY/D9y8MBKv7vLJdRhqfw0ocG7HuMeZyUyMsRNqc
+	 MrpX4aPTLT0Oj9C8O4PcUDKvedvP04mpIq469X+pDLQEyQI1Q7F/5qUOS2KblMrMZpG6l
+	 URwOm7YS5LR5+MdF3cxhSA9xjw+Dx0A4J7K+pgmTWwhscAXs/tBpxlaV/GMc1CzAhyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=HQ61VKDz;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nc3Cp1Yy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B351606A32D
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:36:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B351606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E628606A31A;
+	Mon, 23 Nov 2026 14:39:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=HQ61VKDz
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f037bc348dso27821345ad.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:36:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795444597; x=1796049397; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c7RIFJ9JCRdyaG8UKVxLRWxNqNn9TfnyLCzHHvdNicM=;
-        b=HQ61VKDzJuSyLg0GiLde4RIIRMg54I5xdOttpoZvzcz3swdIwdA/eSKH7IrbCIaMFH
-         1ftQy0jVuo5nXxQBRZcVdZovUXDtn1enquSp8suF8HRaLvAAz2EKh4Af0WRRUH4/wAlv
-         esH1cGnI3PK8URfa4yjsw4UQA14K+y/p53Aos=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795444597; x=1796049397;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=c7RIFJ9JCRdyaG8UKVxLRWxNqNn9TfnyLCzHHvdNicM=;
-        b=i0gHqBuIw9HIJiieiFV/wLvLkadMaq8bbBrumK9q4OwiYIj/31yGJituRS+TPes5Fs
-         KdAFhhk26B0DRx05XXTsr6gs6ohhZ7xObmx+ZEeC4bytfdJFDM2VaFFrVkyVYQc/jDZg
-         8YQonDlnrxcVBuKDqcUgnzW+mMweDBPNrEZiab8tkxMU5SjsQ2aXAg04GSWN21Z+nKiN
-         OLW3MGHtLxDoRIRcCwetbA7OkKxK4tPu00kX93QA295vQLvd0IippKNuaYbmb/XQaAkB
-         8N+2mK3q1Cop4dFijrxvmL0RGCYmcLZyUfSdZ+oMC05p/VxYqOdBe/Tg7F3DoXmvTRgy
-         qEyg==
-X-Forwarded-Encrypted: i=1; AL+hErE3ezoM1lLuCEjMvAr0Y0FJDMn7HUtnZAfLwZs/7DCK8nCMrpr99eikjF5bhKzR1kug9QgarAw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8cffzlpZ2BBhUH7HblYx7fJKhaq2G1XiK/AI1hcxW1GU7erFnY
-	csMYzAkHQAdtA6s5xj6HinlcxWU50gvKLXCMd9CX+NOiX8Lh0lgtwnnDvYEcwaYOqUiEFYriPUk
-	xRpUjmIk9Zg==
-X-Gm-Gg: AZFdTZcd4ksXK4G4DtDEg4kv4oIfww4x0JWQlLwKYwi61qZiQowDLqsMWyrNdCeSYtQ
-	eC36sYveDmU8qIlgxW4RFXiXGYhY4ZJQsKk0RlXmvRorxMpXNHb8lsal3rWN+CDWjUxsqdH/f3u
-	jwDQ4DQVAccttl2w9SayLEoQIbRsFPJ6nz6MQq3i/5j+FtSCYaZB89CnwD/zq6kfQydBW2joqzB
-	t8XU1cYccJ3nbXBEQpI1NQwLjKQ1Ix3SKgqByF8LCuNExAIybEesr9aWJaWoaWA9x+9z+/QtRb3
-	DhKG9xTEM3Y3dE9KqclBmmeFR1a0MZtRUZgcd06KHSxe0TahboEicKzpwL9nPA/RPSDRxGUZkiN
-	ztJdK6XhJg6eei/bSwYexo728sHx2x85MkLT+qKipj4Xq+TesMpxh1qK/Q5ESlDU28B5k+VQxSy
-	aOR6BwVLeUPqHFeLcybIRHjgNOOtO75CIJgQbloFf4HJ+NOg6tXJZJM7gz69zrIbsDAMCfXxl/c
-	2RF8/Jr9PNE1MEZZR9oL9Q1z6/lAvbF/uEZwPdNZruwAnEst7/MnPBQ1hvJG22pnNRvceO4jQQO
-	yZDhXGHz7Rf9PJXpyOxeeswebHYCqbTb7TkJDlTzTUT2tdZjsDiOVHEmcAfCsdt0L2OJgrtfVKt
-	Bh35ULcCJHqp6AEiwFdqHwkW19Nfvo5r+/6v39gdFbXmjWuNAMtkw3kH5T7DITcKa1g==
-X-Received: by 2002:a17:902:ced1:b0:2f0:340d:dda4 with SMTP id d9443c01a7336-2f03f1ec3fcmr143338425ad.24.1795444597511;
-        Mon, 23 Nov 2026 06:36:37 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee85466sm54062085ad.4.2026.11.23.06.36.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:36:36 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Robin van der Gracht <robin@protonic.nl>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Oliver Hartkopp <socketcan@hartkopp.net>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	linux-can@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: kernel@pengutronix.de,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	Piyus Kedia <piyus@iiitd.ac.in>,
-	stable@vger.kernel.org
-Subject: [PATCH net] can: j1939: do not pass a NULL session skb to the socket layer
-Date: Mon, 23 Nov 2026 20:06:25 +0530
-Message-Id: <20261123143625.4021586-2-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123143625.4021586-1-piyus@iiitd.ac.in>
-References: <20261123143625.4021586-1-piyus@iiitd.ac.in>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nc3Cp1Yy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08AE1F000C6;
+	Mon, 23 Nov 2026 14:39:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795444775;
+	bh=Xt4XcogETaPg/vLPHA+ZVa2mgH1C1Y+V+9gARYxKDCo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Nc3Cp1YyqxS8+n1+wQNwrlyR/It0roSLBI26bH8bkouZdaqwqYuJYwYf+s3WJ80oT
+	 JbyrajvaMQD2SfQUoCgGMeklH7PEqhF3bJYzYdyhoydD2aibO2WY640cy2XR5FGD8i
+	 GfYl/sAG3oz3Mu2nUGsYnDUOpij8MvFIv+92qegDdRRVsA8oSt/zZpQFP8F9+61ELT
+	 WhaVx6cUIpdvBhYiQiTRXbs44844xRqOvA5NsxG6VBuCWbHrZBBl3Tb2iECVzAnj0J
+	 dXF0hVkLJQrW7tBYH6rkOUnJXLgmH7aCMV/JP/2O+Vmrzn1Mr9KtnYK1OLkTayC0wF
+	 CAvq9z015JQ8g==
+Subject: Re: [PATCH net v8 2/4] net: stmmac: track unfilled XSK RX descriptors
+ explicitly
+From: netdev-bot+sashiko@kernel.org
+To: dinghui1111@163.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dinghui@lixiang.com, xiasanbo@lixiang.com, yangchen11@lixiang.com,
+ liuxuanjun@lixiang.com, fujiahui@lixiang.com, zhoujing3@lixiang.com
+Date: Mon, 23 Nov 2026 14:39:34 +0000
+Message-ID: <179544477433.3135.15487793537442434685@kernel.org>
+In-Reply-To: <31856c65c85293ac3955212a22653ca41a36ad2f.1795096430.git.dinghui@lixiang.com>
+References: <31856c65c85293ac3955212a22653ca41a36ad2f.1795096430.git.dinghui@lixiang.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,84 +67,183 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-j1939_session_completed() hands the session's skb to the socket layer
-without checking that there is one:
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-	if (!session->transmission) {
-		se_skb = j1939_session_skb_get(session);
-		/* distribute among j1939 receivers */
-		j1939_sk_recv(session->priv, se_skb);
-		consume_skb(se_skb);
-	}
+Critical: 0 · High: 2 · Medium: 0 · Low: 1
 
-j1939_session_skb_get() returns the skb covering the session's current
-offset, or NULL when the queue holds none, and j1939_sk_recv_one() then
-dereferences it on its first statement:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-	if (oskb->sk == &jsk->sk)
+- [High] Permanent RX stall on dwmac4/dwxgmac2 XSK queues after a full-
+  ring refill that ends at a non-zero index.
+- [High] net: stmmac: pre-loop refill failure in stmmac_rx_zc() skips
+  later refills
+- [Low] The comment added in stmmac_rx_refill_zc() describes a narrower
+  condition than the code under it.
 
-sk_buff::sk sits at offset 0x18, which is the address in the report below.
-consume_skb() tolerates NULL, so the dereference is the only fault.
+--
 
-A peer reaches this by completing a transport session that has no data
-queued - an EOMA for a connection whose data packets never arrived:
+net: stmmac: track unfilled XSK RX descriptors explicitly
 
-  BUG: KASAN: null-ptr-deref in j1939_sk_recv_one+0x34/0x170
-  Read of size 8 at addr 0000000000000018 by task syz-executor
-   j1939_sk_recv_one          net/can/j1939/socket.c:318
-   j1939_sk_recv              net/can/j1939/socket.c:363
-   j1939_session_completed    net/can/j1939/transport.c:1247
-   j1939_xtp_rx_eoma_one      net/can/j1939/transport.c:1424
-   j1939_xtp_rx_eoma          net/can/j1939/transport.c:1439
-   j1939_tp_cmd_recv          net/can/j1939/transport.c:2153
-   j1939_tp_recv              net/can/j1939/transport.c:2201
-   j1939_can_recv             net/can/j1939/main.c:108
+This commit adds an xsk_rx_pending counter that tracks XSK RX descriptors
+waiting for refill. It also adds a clear_rx_owner descriptor op so unfilled
+descriptors stay CPU-owned. stmmac_rx_zc() and stmmac_rx_refill_zc() now
+retry refills on every poll and write an end-of-ring tail address when a
+refill ends at index zero.
 
-Test the skb before using it, as the two other callers of the getter in
-this file already do (j1939_session_tx_dat() returns -ENOBUFS, and
-j1939_xtp_rx_dat_one() warns and cancels the session).  Nothing is warned
-about here: a session completed with no data queued is a peer's protocol
-error rather than a kernel one, and a netdev_warn() on this path would let
-a peer flood the log.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 8bd2440461959..f9ac82d2e7266 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 
-Cancelling the session instead of dropping the completion may be the more
-correct protocol behaviour; that is left alone deliberately, so this stays
-a fix for the dereference.
+[ ... ]
 
-How this was found: by AI-driven fuzzing built on top of syzkaller.  Its
-analysis was checked by hand against the code, the fault was reproduced on
-net.git main under KASAN, and the patched kernel is clean on the same
-reproducer with ordinary J1939 transport sessions unaffected.
+> @@ -5626,12 +5632,18 @@ static bool stmmac_rx_refill_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+>  		dma_wmb();
+>  		stmmac_set_rx_owner(priv, rx_desc, use_rx_wd);
+>  
+> +		rx_q->xsk_rx_pending--;
+>  		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_rx_size);
+>  	}
+>  
+>  	if (rx_desc) {
+>  		rx_q->dirty_rx = entry;
+> -		stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
+> +		/* Use the end-of-ring address when filling an initially empty
+> +		 * ring completely, so the tail differs from its initial base.
+> +		 */
 
-Fixes: 9d71dd0c7009 ("can: add support of SAE J1939 protocol")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
- net/can/j1939/transport.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+[Severity: Low]
 
-diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
-index 8fcfd13e5e6f..af54e6a6bd71 100644
---- a/net/can/j1939/transport.c
-+++ b/net/can/j1939/transport.c
-@@ -1243,9 +1243,11 @@ static void j1939_session_completed(struct j1939_session *session)
- 
- 	if (!session->transmission) {
- 		se_skb = j1939_session_skb_get(session);
--		/* distribute among j1939 receivers */
--		j1939_sk_recv(session->priv, se_skb);
--		consume_skb(se_skb);
-+		if (se_skb) {
-+			/* distribute among j1939 receivers */
-+			j1939_sk_recv(session->priv, se_skb);
-+			consume_skb(se_skb);
-+		}
- 	}
- 
- 	j1939_session_deactivate_activate_next(session);
+This isn't a bug, but the comment covers less than the code below it does.
+The entry ?: dma_rx_size expression applies to every refill whose last
+entry wraps to 0. That includes ordinary wrap-around on every lap of the
+ring, not only a complete fill of an initially empty ring.
+
+The commit message calls this "a refill ending at index zero", which
+matches the code. Could the comment say the same?
+
+It might also help to say why this differs from stmmac_rx_refill(), which
+writes the base address for index 0:
+
+	stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
+
+The later patches in the series leave this comment unchanged.
+
+> +		stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue,
+> +					     entry ?: priv->dma_conf.dma_rx_size);
+> +		stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
+>  	}
+
+[Severity: High]
+
+Can RX DMA stay stalled after a full-ring refill that ends at a non-zero
+index?
+
+This patch removes the one-slot gap that stmmac_rx_zc() used to keep:
+
+-		if (unlikely(next_entry == rx_q->dirty_rx))
+-			break;
+
+The consume loop now stops only on dma_own or on this check:
+
+		if (rx_q->xsk_rx_pending == priv->dma_conf.dma_rx_size)
+			break;
+
+Suppose the XSK fill ring runs dry under traffic. The CPU can then consume
+every descriptor, and the ring becomes completely empty with
+cur_rx == dirty_rx == k for any k. The last successful refill wrote the
+tail as base + k * desc, and DMA has stopped with its current pointer at k.
+
+Now suppose userspace supplies at least dma_rx_size buffers before the next
+poll. The refill at the top of stmmac_rx_zc() runs:
+
+	if (rx_q->xsk_rx_pending)
+		failure = !stmmac_rx_refill_zc(priv, queue, rx_q->xsk_rx_pending);
+
+It fills all N slots and entry wraps back to k. The tail is then written as
+entry ?: dma_rx_size, which is base + k * desc again. That equals both the
+stalled DMA current pointer and the previous tail value. The ?: special
+case only covers k == 0.
+
+The comment above depends on a tail equal to the DMA position not
+restarting DMA ("so the tail differs from its initial base"). Doesn't the
+same reasoning apply when k != 0?
+
+After this refill xsk_rx_pending is 0, so no later poll writes the tail
+again. Every later poll finds descriptor cur_rx DMA-owned and breaks out.
+
+stmmac_enable_dma_reception() seems to be implemented only for dwmac1000.
+On dwmac4 the RBU interrupt only increments rx_buf_unav_irq, and on xgmac
+it only schedules NAPI. On dwmac4 and dwxgmac2, would the queue stay dead
+until it is reinitialized?
+
+The later patches in the series don't seem to change this logic.
+
+[ ... ]
+
+> @@ -5661,6 +5672,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  	bool failure = false;
+>  	int xdp_status = 0;
+>  
+> +	if (rx_q->xsk_rx_pending)
+> +		failure = !stmmac_rx_refill_zc(priv, queue, rx_q->xsk_rx_pending);
+> +
+>  	if (netif_msg_rx_status(priv)) {
+>  		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
+>  
+
+[Severity: High]
+Can a refill failure at the top of stmmac_rx_zc() stop buffers that
+are freed later in the same poll from being reposted?
+
+The pre-loop call asks stmmac_rx_refill_zc() for all of
+xsk_rx_pending. Whenever the pool holds fewer free buffers than that,
+xsk_buff_alloc() returns NULL partway through and failure is latched
+to true before the receive loop starts. A partially filled fill ring
+is exactly the case this patch is meant to support.
+
+Both the batch refill inside the loop and the new refill after
+stmmac_finalize_xdp_rx() are gated on !failure. Neither one runs for
+the rest of the poll.
+
+Meanwhile several paths call xsk_buff_free() on the buffer:
+
+- XDP_PASS
+- STMMAC_XDP_CONSUMED (XDP_DROP, XDP_ABORTED, failed redirect)
+- the discard_frame and rx_not_ls error paths
+- XDP_TX, via xdp_convert_buff_to_frame()
+
+Each of these puts the buffer back on the pool free_list, where
+xsk_buff_alloc() could hand it straight back out. The old code started
+every poll with failure set to false. It would have reposted those
+buffers once dirty reached STMMAC_RX_FILL_BATCH.
+
+With XDP_USE_NEED_WAKEUP, suppose those paths consume every descriptor
+that was posted. The poll then ends with xsk_rx_pending equal to
+dma_rx_size and no DMA-owned descriptor left in the ring.
+stmmac_rx_zc() returns count < limit and NAPI completes, so no further
+RX interrupt can arrive. None of these frames reach the XSK RX ring.
+Doesn't recovery then depend entirely on userspace issuing a wakeup
+without having received anything?
+
+Without need_wakeup the problem goes the other way. Suppose the pool
+has fewer than dma_rx_size buffers in total, for example a TX-only
+socket that never populates the fill ring. Then xsk_rx_pending never
+reaches zero and the pre-loop refill fails on every poll, so
+stmmac_rx_zc() returns limit every time. Wouldn't NAPI then never
+complete, even on an idle link? Before this patch the same setup left
+failure false and returned count.
+
+Should the later refills still be attempted after an earlier failure,
+for example by OR-ing the result into failure instead of skipping the
+call? And is busy polling intended when the fill ring is simply
+smaller than the RX ring?
+
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795096430.git.dinghui%40lixiang.com
