@@ -1,66 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450315;
-	b=LpKpJ6rP/3xYQElJZtaEEgIR1DNHBbl3oMDzOcKd5sD1dAkMoYnVBDIuCZjj9tp9dS7N
-	 S8ihBgy6a4jqpE/87CxkWb8/TEVEMZuS6DJoYDiL8518HlFWezFn/fQuNBtzZzMYnxuER
-	 LDUOcNcVvCEO1dVS9JxIfsOav2GH4LIREjnOmsyB5lcgbGZa8MnRCr0MgWn9mzjRjIbfW
-	 GFVh3Se9VxaQ7iBS7IurskXLVdTOcX4/dhWtoZcJzHd8Mp8iuK4xujJOPkKr5oZw0G1fP
-	 3FYT1vqPxrXHDohO2efDo22597ftWpKogvlAxwG39g8LPbcb9XYo4XQ52wCsc0+oNZA==
+	t=1795450598;
+	b=DN9g1J6vYJSu7cCEq2SoK5EbnjFKcxD51InxRT7rZmR7VR2408i3rB0ogZiy+lBy++E3
+	 lJtW7hseNWm5P+AEj1dM/M/wK8g9qUWPSGzQ738s4XguSJUGLhZ/KZcO49YVsODwwmMzq
+	 mu24ws0U3t8hLKP0YiLCyrpXbgSyZBAs1FJukcXer9JzPpQMnRENcQdtlKbyP9eBQqt1l
+	 rCXjYlVlPd7EWTYXZ1i7J07OkzxoI54wWZU2/lEdTPGuaXewADDT8VJD4ymZKbDWPbfHH
+	 Gw0vFS5hdk/wJIKQw32A/CxgQ4hxMrZ637zoKdrsQ4QhtbMNQmmuvr8bG6cDOyDCY0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450315;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=CuV1HgSyHeqmHnQ6X0W8EKjH6rdyvaViJZVeUHENJ3o=;
-	b=e2YtJA1QKnM4f8B0lZtFJ3pST8l9DAIoZrvws5ZG1nsAOmkGUIAtHpLTSxAnzbtA1z9b
-	 Ln4IyGARcdDR8uAdbQ1tUzzugnNpGAkYTmDEeIstDyYdtEqB6BzEyWHqMTasCtHFyTGsX
-	 UZXwd6pxeNekLj/R+b0PCCYldOXANNsEzF/qn3N5M4MryxfkS2JsZO4ouhsaaJotm7+Eq
-	 CngijahIGCgD994OwXEBaKqoABkT5MpqqhgHDYBQ2wGKS5adZsbkZLFMocIaHc0tinAhR
-	 H9R4FxhHeJJApUPhD0wi5m+gPf+2tbc3HXDrC2cjdEYSJU+Iyn/l7zWt99mFzQFwKGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450598;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
+	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
+	b=d6OTpAp9YcbmlqEBWJYsUJYrkrd82GkLyqc2tk2C4e9bMZRhZwEsw9pCACS33AhF1259
+	 4zH7ncD/COLWoKm2eymea2SeABICscbgjvLFJHbhUt9hJ64TZnnO4z1XnpudmmuwJ+MKW
+	 aDzNxu63uJwotRqrVNjyO0RrdJSlmFeN8S+AgHt/qltvYa+TZD9u+zSMdGaq6HkurJD2W
+	 yZBkc/03b05wIjn9DZPrhvvo+UGLdcfhNlfs5QIBi1+d9pllpkH6uixZUx9pcjaO3AF/G
+	 ObLx8u97sohYylkggdWnfwLSwOrw7nFkEP9jh+vgmvIYy7tSa4CpB7Lz3CEEKVJi+jQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I7cdb4vd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B443606A31E;
-	Mon, 23 Nov 2026 16:11:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC302606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:16:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC302606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I7cdb4vd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A5E1F000C0;
-	Mon, 23 Nov 2026 16:11:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795450315;
-	bh=CuV1HgSyHeqmHnQ6X0W8EKjH6rdyvaViJZVeUHENJ3o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I7cdb4vdNUK3v3piY+BZlJjEe9R4MEyMtBgnxanHlmElStgvqGfQY7m05L2McBrOR
-	 VP+sk9kRQ+s6g7KtRfwY1IGa/cRy5HXcbrKutTfHWiHSdpSGmhzT2snp63v0kVxoPP
-	 D61kJ8ra9i6aLDn7pdM82YRC39mtoLm+pEdt28w6iLFn2sYZknfRXOwISv/FM3j447
-	 d8OreZirnkqEWu7JNN9y41OAQcEAUcPYoV2mGz3YuP8hvByYVXaDF5jhMXpDRAwBDK
-	 98UKa8QcdVSbM0GLaB87W8AMcxgfQMC03x9D4Rc++I920eQzGHmX5MGcXkTqRzy2mZ
-	 WIcA6ugK5QGbA==
-Subject: Re: [PATCH net-next 2/2] dt-bindings: net: dsa: Flag unexpected
- ethernet ports
-From: netdev-bot+sashiko@kernel.org
-To: krzysztof.kozlowski@oss.qualcomm.com
-Cc: hauke@hauke-m.de, andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, woojung.huh@microchip.com,
- UNGLinuxDriver@microchip.com, jensemil.schulzostergaard@microchip.com,
- ansuelsmth@gmail.com, arinc.unal@arinc9.com, Landen.Chao@mediatek.com,
- dqfext@gmail.com, sean.wang@mediatek.com, daniel@makrotopia.org,
- marex@denx.de, john@phrozen.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Mon, 23 Nov 2026 16:11:53 +0000
-Message-ID: <179545031306.3135.11482802242328622537@kernel.org>
-In-Reply-To: <20261122160907.200727-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20261122160907.200727-4-krzysztof.kozlowski@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 622434E416C9;
+	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24996601E1;
+	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40D5411E6A6F4;
+	Mon, 23 Nov 2026 17:16:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795450590; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
+	b=eIYvsQdJtYxWZ/9Mp4YVjUbwRpWXdnFJZDKQxAIIKnxVA225RdGHFg2r38CZr1c839J4sE
+	ognTwskLHcLYue5GxHvYt6P3j1glKRAFdJEKuYRhmCdUPXE9GOfwWBFWCCyzjSBm7A23EN
+	lw8W49H1OgRz849nmvj6O4t3ZgAkmFTFxUs3LxW2j6wvB5v29zN1ujaRebiHbMGnLCQyd8
+	5aPtk91XDGO7mSCIOVm0D6Exht214aw0S8Cyzt1lxjaBsPSiTepZ1ro5I0yl3gU4SMqxh8
+	/Appw7k/YtmYhjbo6pF8YplmJDsKvk+q/1Wd5KiTpoLCqURAB4F0I0+vP1nS7w==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,98 +58,151 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 17:16:26 +0100
+Message-Id: <DN2Q44M3PG5M.1Q2PKJ5A3RKNY@bootlin.com>
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v7 3/3] net: macb: distribute evenly Tx SRAM
+ segments
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261118-macb-set-channels-v7-3-2dbc00f686af@bootlin.com>
+ <179537769513.3135.7979336425983650280@kernel.org>
+In-Reply-To: <179537769513.3135.7979336425983650280@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hello netdev-bot+sashiko,
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] gem_sram_distribute_segments() in
+>   drivers/net/ethernet/cadence/macb_main.c handles num_queues >=3D=E2=80=
+=A6
+> - [Low] The comment above static_assert(MACB_MAX_QUEUES =3D=3D 8) in
+>   gem_sram_distribute_segments()=E2=80=A6
+>
+> --
+>
+> net: macb: distribute evenly Tx SRAM segments
+>
+> This patch adds gem_sram_distribute_segments(). It programs the GEM
+> TXQSEGALLOC register so that the Tx SRAM segments reported in DCFG6 are
+> spread across the active queues as powers of two. It is called from
+> macb_init_hw() and macb_context_swap_end(), and it is enabled for the
+> zynqmp, versal and eyeq5 configs.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index 180da5d62f09a..5d382f0e4aec3 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>> @@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
+>>  	}
+>>  }
+>> =20
+>> +/*
+>> + * Distribute evenly available segments across active queues. The compu=
+tation
+>> + * is complex because (1) segments are counted in powers of two and (2)=
+ a queue
+>> + * can only use up to 128 segments. There are four types of cases:
+>
+> [ ... ]
+>
+>> + *  - Sharing all segments is not doable because not enough segments ar=
+e
+>> + *    available. Take num_queues=3D4 and num_segments=3D2.
+>
+> [ ... ]
+>
+>> +static void gem_sram_distribute_segments(struct macb *bp)
+>> +{
+>> +	unsigned int num_segments, pow, remaining_segments, i;
+>> +	unsigned int num_queues =3D bp->ctx->num_queues;
+>> +	unsigned int num_advantaged_queues =3D 0;
+>> +	u32 val =3D 0;
+>> +
+>> +	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
+>> +		return;
+>> +
+>> +	num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG=
+6));
+>> +
+>> +	/* When growing the max # of queues, make sure to return a u64 here an=
+d
+>> +	 * to write into GEM_TXQSEGALLOC_UPPER.
+>> +	 */
+>> +	static_assert(MACB_MAX_QUEUES =3D=3D 8);
+>
+> [Severity: Low]
+> This isn't a bug, but the comment talks about returning a u64.
+> gem_sram_distribute_segments() is a static void function. It builds its
+> result in the local u32 val and writes it with:
+>
+>     gem_writel(bp, TXQSEGALLOC_LOWER, val);
+>
+> To support more than 8 queues, wouldn't the change be to widen (or split)
+> val and add a second write to TXQSEGALLOC_UPPER, rather than to change a
+> return type? Could the comment say that instead?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Yes; we shall replace:
 
-- [High] The fix is incomplete because it skips a sibling DSA binding
-  that has the exact defect described in the commit message.
+   When growing the max # of queues, make sure to return a u64 here and
+   to write into GEM_TXQSEGALLOC_UPPER.
+
+By:
+
+   When growing the max # of queues, make sure to write into
+   TXQSEGALLOC_UPPER.
+
+For the full story for why this comment went stale:
+gem_sram_distribute_segments() used to return a u64 with the low 32
+bits written into LOWER and the high 32 bits written into UPPER. That
+returned value was then writel() by the caller. But now that it can be
+called from two places, the writel() was moved into the function to
+avoid code duplication.
+
+>> +
+>> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
+>> +	if (num_queues >=3D num_segments)
+>> +		goto writel;
+>
+> [Severity: Low]
+> What happens here when num_queues is strictly greater than num_segments?
+
+I don't know, but this is not our worry.
+
+This check has been introduced to deal with the equality case.
+From my understanding, `num_queues > num_segments` is unreachable.
+
+And if `num_queues > num_segments` ever occurs, yes, we give each active
+queue 1 segment by doing a:
+
+   writel(0, TXQSEGALLOC_LOWER)
+
+We will *not* introduce code to lower max_num_queues if num_segments is
+found to be lower than the runtime detected queue count from
+macb_probe_queues(). This would be useless.
+
+Thanks,
 
 --
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-dt-bindings: net: dsa: Flag unexpected ethernet ports
-
-Several DSA bindings reference dsa.yaml ports, use "additionalProperties:
-true", and limit their port node pattern to a subset of unit addresses.
-Because of that, port nodes with any other unit address pass validation
-without a warning. The patch drops the unit address from the pattern and
-limits the port reg value with a maximum instead.
-
-[ ... ]
-
-> diff --git a/Documentation/devicetree/bindings/net/dsa/qca8k.yaml b/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
-> index 167398ab253aa..3840b336bdb93 100644
-> --- a/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
-> +++ b/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
-> @@ -75,13 +75,15 @@ patternProperties:
->      type: object
->      additionalProperties: true
->      patternProperties:
-> -      "^(ethernet-)?port@[0-6]$":
-> +      "^(ethernet-)?port@":
->          type: object
->          description: Ethernet switch ports
->  
->          $ref: dsa-port.yaml#
->  
->          properties:
-> +          reg:
-> +            maximum: 6
-
-[Severity: High]
-Was renesas,rzn1-a5psw.yaml left out of this conversion on purpose? It
-looks like it has the same problem the commit message describes. It
-references dsa.yaml ports, its ethernet-ports node uses
-additionalProperties: true, and its port pattern still limits the unit
-address:
-
-Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml:
-
-allOf:
-  - $ref: dsa.yaml#/$defs/ethernet-ports
-...
-  ethernet-ports:
-    type: object
-    additionalProperties: true
-    patternProperties:
-      "^(ethernet-)?port@[0-4]$":
-
-Under a renesas,rzn1-a5psw switch, a node such as port@5 or port@7 does
-not match this pattern. It does match the generic
-"^(ethernet-)?port@[0-9a-f]+$" pattern in dsa.yaml, so only the generic
-dsa-port.yaml checks apply and it passes validation. This hardware only
-has ports 0-4 (4 ports plus 1 CPU port).
-
-Would the same change used here for qca8k.yaml work for that file too,
-i.e. "^(ethernet-)?port@" plus reg: maximum: 4?
-
-nxp,netc-switch.yaml has a weaker form of the same gap:
-
-  ethernet-ports:
-    type: object
-    patternProperties:
-      "^ethernet-port@[0-9a-f]$":
-        type: object
-        $ref: dsa-port.yaml#
-
-A node named port@1 (no ethernet- prefix) or ethernet-port@10 does not
-match this pattern. Instead it matches the
-'^(ethernet-)?port@[0-9a-f]+$' pattern in ethernet-switch.yaml, which is
-reached through $ref: dsa.yaml# and only applies type: object.
-
-Such a node skips the NETC port schema, including dsa-port.yaml and its
-unevaluatedProperties: false, and passes without a warning.
-
-Should this patch cover nxp,netc-switch.yaml as well?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122160907.200727-3-krzysztof.kozlowski%40oss.qualcomm.com
