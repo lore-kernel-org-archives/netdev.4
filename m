@@ -1,60 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795466372;
-	b=aRKiI/OTnQo7ug1IYc2ZVLdrCNJPKwlkeSY2Qes0zrxBSrIyY6p6k2fmKTZrskIS/0bb
-	 drQRV5tNS/rXkJ+/8HqoLg7Wt/5pmZweZ65oMtnxf3kINcwgcgj8fF+pFkcx1CO7rgoVp
-	 QY2Qk7X3ZwRcXOYf2L75+0pHA2IGYWTISiTI/Ve5qWHa5Nz/Wd+iwIcOPYVAepZc01Zl3
-	 9BAs3noM0uxDRHG8GEmsTai6RPvjBZZUjFqJ1mWzZF37MXvFrlmBvF0NYZ7T9jI0PpKUr
-	 2yNW0zTwJYpxCX0gmg+QKq+Rf+DLpkMGS4x1aAaZcXaJkVonYr2l3fA06lF4/Gjsh3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466372;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=DK0uBeCOhfalff4B9V7doNlqC8iX//OaC2p5/50PXGI=;
-	b=WXXZCdZqPKk1ARRHCRpOOTstKIEijcCCcAm7ev2K6X8fgqo2POKbFEp4BGiT3AjJyajw
-	 3sQS1wLRgtNi1vlIfR9pIR9ipnDLMstc5G5PGGQGBHtMKLI6mm6emOCRKfeCVOO8dtbB8
-	 Qg9BNXFmKc/0hIk/Ams3I4azyQXbNcCevWz/JBX3ZmwLDUpDU/ncmwWa9WTib1VNfJ1S0
-	 SUKN5CSMXFNq4nIihJE6qD6aBsJUFlvVCj20V3lCbX9l7H4ye+k7lT6AzTgGGQCrvxYB/
-	 qUvp3Lr2S4S99XAnk2hB7m28jh3xmuCuefOipHMaokmqVQK4O1mNSd/m7+TcXQDWUDQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c62Ag414;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795466447;
+	b=LTBvPacoJ/Xo4szI7/KlkXTlEJwXtYavrRRcigjwykNaSyscDcASLx4HTF1MbT1IeJvA
+	 K7v/h+0OlT1oaNAuOaoXM0FQw7d5NnFKhCkMFYkfQ5gjL/jh0BKXMrT7xal1+6PYTad3l
+	 oN4vK+85R7ngJQofF7U8CiKMng9gU9YdYaHt8idfKcwD7/rP7kGminOCfZg6rngQZLqgB
+	 I6a6pSsHSTXwvcvxsoD9Lzr/EZJ49afU8hnlIyxhpZH+dPLs87Cw7oQz8lK8cJMQWuO+x
+	 y9Hg3rSlkk++Kl1AtZKfkT4C61sO7AwJsRdXKtus6RE+VKa034UJ82CgOs5x619XfSg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466447;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=1JuztqqewvbOzyvkkNc0deMlrjYEC/N7iEQ6kq5xmUc=;
+	b=NMq/vVhbs3j9Psl03oCVReBqgB5HXr7kdFSOO8f6ohaElhErrnYZjVb/uPofmUUJc/YS
+	 ccaoI4Y6y66woaqvIFbL/nL/xiNvbKrNtP4Jp3ASIrk87sArlz/9x9cZO21qtiQWcitGP
+	 188Ye5VlsEKjumk98QjhIN+XXZWsgpf7Ba37BuUbC2yEfZ40Phz8G9f10lEEBybEEWlBx
+	 rYspHeiiQDezvXF8gxIPCsnNuvUWw4HWt4IKBuONox8YrOijQ6cnShSEpSAlsNyirxAwp
+	 Bi9g4pa+65RzVL8gORlDEfeSkgXsikxDrHhY2ptGJfO11nz1Z88LVrlclcBbypqgDRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkJfFc1E;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09C7B606A333;
-	Mon, 23 Nov 2026 20:39:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42CFA606A31E;
+	Mon, 23 Nov 2026 20:40:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c62Ag414
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C776C1F000CF;
-	Mon, 23 Nov 2026 20:39:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkJfFc1E
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795466446;
+	b=fdjiYrKNJxP/ho8qxvW848sXooXyZ7lrF16AyF1+TtY0QXEjt+kGc6pjWXewBao5HYHz
+	 CJL6V8CzF89q9DD2fZl2FM+iVSapcedXtWddZf68geqEclPzlnyPkffQ7J8a3ogvDStQS
+	 d0Rc9pQkOqD6+O+QsBzKQ9b3XxWmt90ddbrHOptgRT2b0xpuvPNW/7hO3fFs+jp+yfUA9
+	 31YwsJGx1Wr12Ne7qCfegJ7xmfk3ESIWrCOuWNo2B3H6zD8QvxCVXZ/oaIjtESgPfl4Ga
+	 HmteRgtbhuBpshT1rKP2CGADN25I4iPc31c86izLu/PId7IDRa7Eg0VHcimo+o5En5A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795466446;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=1JuztqqewvbOzyvkkNc0deMlrjYEC/N7iEQ6kq5xmUc=;
+	b=JSkHuFq8wgtntUBKk7UOMxcsCC6R0tJiBJWAAYL4lDhVwtlewJ26NkLVVbD0B/WQmnB9
+	 lNX70vGdd8JFJAQAxD8lhkDD8uQEJlyvMp+tL7g2o+kJTtFJD8hVUWbb14JAZlvHhQRCt
+	 0ZiG0eec/BtcmODFmCoVWHGTvTAON3eeDeHh4yp727cFBAUPxxtUlsQK1GBufZG89K4uL
+	 J8y5j9Ys5ecHa+dNwhOPjOA3Ze6N9TUsQJzLaFcdvOsftj4UyYtmdmUstMJbMLQG+Cy8H
+	 1/SVb+IlheYoruOdZQuGvMJ0EkLopdu92PZNTEkgvf1e1iLntN7rAJNZd+zPMTlZSzQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id E2CC61F000CF;
+	Mon, 23 Nov 2026 20:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795466371;
-	bh=DK0uBeCOhfalff4B9V7doNlqC8iX//OaC2p5/50PXGI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=c62Ag414NS+X/+ciEiY51qD/zNbX6q6j0wFhAtiS3jf1iHMSaZvdHUnZtS68b0y1m
-	 onLKZgyneB6BhOr0mkk6np/KmN+gxv2mRIC+BD8ACwhAQKhHv0Zpax1/d6FS7g/9si
-	 MQM3ve/zTUyGCfTZSD2fro7TsWWu+tREF/adob2kpRieZr/+1Nm9xofkeZv6j74WeC
-	 TktvUuUHXACOezOKuVR6xFrOilS6S2PD8NO0eBO7cE+qSYKFTn5aSHFKj1ZxQquMKb
-	 MXcBOC7Z5jgTK1S1cJVPDk6XQKa0ACskE8YnAtHRrQduzel/oXBEXc0DzKTrWx5M31
-	 E5BEnYELRJ6GA==
-Subject:
- Re: [PATCH net v2 3/3] selftests: net: add TLS offload over bond tests
-From: netdev-bot+sashiko@kernel.org
-To: rjethwani@purestorage.com
-Cc: netdev@vger.kernel.org, stable@vger.kernel.org, john.fastabend@gmail.com,
- kuba@kernel.org, sd@queasysnail.net, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, horms@kernel.org, tariqt@nvidia.com,
- alice.kernel@fastmail.im
-Date: Mon, 23 Nov 2026 20:39:30 +0000
-Message-ID: <179546637039.3135.9772671834943336374@kernel.org>
-In-Reply-To: <20261119191341.4089157-3-rjethwani@purestorage.com>
-References: <20261119191341.4089157-3-rjethwani@purestorage.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795466446;
+	bh=1JuztqqewvbOzyvkkNc0deMlrjYEC/N7iEQ6kq5xmUc=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=jkJfFc1EyEjLSYyeF5fKPH440x+mUY7cTDfPGA0bVZzAiO8kW2GEZcp63dPfCUdXj
+	 HZ5tFh8LT1MvU329OiZG/ptOfi6dpLsDBDyyWq/U580vkS/XxMl1eRRC/ELonXqKJM
+	 D5BXNAdyit5S0pJuog5b2ipgSXIl7T6yPX3WsT1dt2z91kD0Jrl/2TxL1oevOdCdt5
+	 w6waLydglrkBtSOZR/woUO1Vbnf5+lM8Y/3aEyHxh9CnxifXzg/DtsjrQHbD8H45be
+	 QSnigPnMW4fS48dvcFztsigUWN1YhCG6SEgdEc8+J3OBNEL/jobtNYGM7ECmzhJZc/
+	 bMlqQ0L9WdQ0w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 439604C71A;
+	Mon, 23 Nov 2026 20:40:39 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Subject: [PATCH net-next v2 0/3] Add Cortina Systems CS7542 MDIO controller
+ support
+Date: Mon, 23 Nov 2026 23:40:37 +0300
+Message-Id: <20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,200 +84,102 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQ6CMBBEf4Xs2TVtKWA8+R+GA7QrrJGWtJVgC
+ P8u4Nnjy8y8WSBSYIpwzRYINHFk7zZQpwxM37iOkO3GoIQqpVQ5thpNrAqtcLDskYzWVBUVXZS
+ GbTQGevB8CO/gKKGjOUH9S+K7fZJJu2/v9hyTD5/je5LH4t/NJFFgqUorGkF5q+2tGxp+nY0fo
+ F7X9QvVey6HyAAAAA==
+X-Change-ID: 20261123-b4-cs7542-mdio-ec44e757e824
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795466438; l=3043;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=2XRyBPIMRh1j+zYtAlcrPeywf0p5acJiOwhwhsnWEZw=;
+ b=mIwMxphAuGSFzxUDwNw4M+d85hXwZXqjFAxuvk1bs6bmvGsfJ8ukAoR//oKgVXE+sbFzzWhlT
+ E4qP9FegumEAdgbYHEiC0me+BI+N6rKcMfY96I/hhX7kFKgzrb3A6OQ
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Add the Clause 22 MDIO controller used by the CS7542 network engine.
+The driver retains the MDC prescaler initialized by platform firmware and
+uses bounded polling for each transaction. It is independent of the
+pending Cortina platform series and COMPILE_TEST.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 2
+V2 follows Andrew Lunn's review: remove the pending-frame state and keep
+one straightforward transaction/poll per read or write. No timeout was
+observed at the normal firmware-selected MDC rate. The timeout mentioned
+in v1 validation was deliberately induced only in a RAM test by slowing
+the prescaler; it was not evidence of a normal bus failure. No clock-loss
+recovery guarantee is provided by this driver.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Validation:
+- Full independent ARM vmlinux/modules builds with driver=y and=m,
+  COMPILE_TEST=n, without the platform series.
+- Actual driver read/write/wait functions: 5125 address, data and timeout
+  cases under UBSan, including no data read after timeout.
+- Binding and strict driver checks; b4 dependency/preflight checks.
 
-- [Medium] In tools/testing/selftests/drivers/net/hw/tls_hw_offload.py,
-  bounce_idle() (lines 458-462) runs `ip link set dev <slave> down`,…
-- [Medium] test_tls_offload_bond_bounce takes the slave NIC
-  administratively down and up (bounce_idle()/bounce_inflight() at…
-- [Low] The -T help line in print_usage()
-  (tools/testing/selftests/drivers/net/hw/tls_hw_offload.c:769) reads…
-- [Low] selftests: net: setup_bond() runs before IPv4 check in bond
-  offload tests
+V2 booted Linux 7.4 in RAM on Almond+: PHY IDs 004d:d036, the firmware
+prescaler 00200001, and same-value advertisement write/readback passed.
+A deliberately slowed MDC produced ETIMEDOUT at about 14ms; restoring the
+prescaler returned the correct IDs. Final RAM result: failures=0 and
+automatic return to installed OpenWrt. No NAND driver was loaded and no
+flash writes were performed.
 
---
+---
+Changes in v2:
+- Drop the pending-frame state as requested by Andrew Lunn.
+- Sort Kconfig by prompt after MDIO_CAVIUM and sort the Makefile entry.
+- Add Andrew's Reviewed-by to the MAINTAINERS patch only.
+- Link to v1: https://patch.msgid.link/20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d@gmail.com
 
-selftests: net: add TLS offload over bond tests
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 
-This adds kTLS HW offload tests that run the echo test over a single-slave
-balance-xor bond. It also adds tests that bounce the slave under an open
-offloaded socket, in idle and inflight variants. The C helper gains -P to
-pause the client halfway and -T to widen its I/O timeouts and SIGALRM
-lifetime.
+---
+Fil Dunsky (3):
+      dt-bindings: net: Add Cortina CS7542 MDIO controller
+      net: mdio: Add Cortina CS7542 bus controller
+      MAINTAINERS: Add Cortina CS7542 MDIO controller entry
 
-> diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.c b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.c
-> index 5b3887f32b689..0be321866a978 100644
-> --- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.c
-> +++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.c
+ .../bindings/net/cortina,cs7542-mdio.yaml          |  48 +++++++++
+ MAINTAINERS                                        |   7 ++
+ drivers/net/mdio/Kconfig                           |  12 +++
+ drivers/net/mdio/Makefile                          |   1 +
+ drivers/net/mdio/mdio-cs75xx.c                     | 119 +++++++++++++++++++++
+ 5 files changed, 187 insertions(+)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261123-b4-cs7542-mdio-ec44e757e824
 
-[ ... ]
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
 
-> @@ -751,6 +765,9 @@ static void print_usage(const char *prog)
->  	printf("  -c <cipher>   Cipher: 128 or 256 (default: 128)\n");
->  	printf("  -n <N>        Send/echo iterations (default: 100)\n");
->  	printf("  -t <type>     Record type test: 21=alert, 22=handshake\n");
-> +	printf("  -P            Pause halfway (client): ksft_ready(), ksft_wait()\n");
-> +	printf("  -T <sec>      Send/recv timeout and lifetime bound (default: %d)\n",
-> +	       IO_TIMEOUT_S);
 
-[Severity: Low]
-This isn't a bug, but does this help text match what -T does?
-
-Without -T, the SIGALRM lifetime is HELPER_TIMEOUT_S (15), not 8. With
--T N, main() sets:
-
-	helper_timeout_s = 2 * io_timeout_s + 15;
-
-and passes that to alarm(). So <sec> sets the send/recv timeout, and the
-lifetime bound is derived from it rather than equal to it.
-
-[ ... ]
-
-> diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-> index e720ce6547610..345d5fd9a5e95 100755
-> --- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-> +++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
-
-[ ... ]
-
-> @@ -305,6 +358,145 @@ def test_tls_offload_record_type(cfg, record_type):
-
-[ ... ]
-
-> +    ip(f"link add {BOND_IFNAME} address {mac} mtu {mtu} type bond "
-> +       "mode balance-xor xmit_hash_policy layer3+4 miimon 100")
-
-[ ... ]
-
-> +    wait_carrier(cfg.ifname)
-> +    wait_carrier(BOND_IFNAME)
-> +
-> +    for peer in filter(None, cfg.remote_addr_v.values()):
-> +        wait_reachable(BOND_IFNAME, peer)
-
-[ ... ]
-
-> +def bounce_idle(cfg):
-> +    """Bounce the slave while the socket is idle, then resume the echo."""
-> +    ip(f"link set dev {cfg.ifname} down")
-> +    ip(f"link set dev {cfg.ifname} up")
-> +    wait_carrier(BOND_IFNAME)
-
-[Severity: Medium]
-Can wait_carrier(BOND_IFNAME) return here before the slave is actually
-back?
-
-For a slave going down or up, bond_slave_netdev_event() only refreshes the
-slave array. It does not change the master's carrier:
-
-drivers/net/bonding/bond_main.c:bond_slave_netdev_event() {
-    ...
-	case NETDEV_DOWN:
-		...
-		if (bond_mode_can_use_xmit_hash(bond))
-			bond_update_slave_arr(bond, NULL);
-		break;
-    ...
-}
-
-For a running balance-xor bond, bond_set_carrier() is only reached through
-bond_mii_monitor()->bond_miimon_commit(). That runs every 100ms here
-(miimon 100), and it is deferred again whenever rtnl_trylock() fails while
-the ip commands hold RTNL.
-
-So /sys/class/net/tlsbond0/carrier can still read the 1 from before the
-bounce. In that case the wait returns at once, while the NIC is still
-retraining.
-
-The resumed records would then reach a slave with no carrier and go out
-on retransmit. That is the inflight scenario, so the idle variant may not
-reliably cover the "slave back before the client resumes" case.
-
-setup_bond() waits on wait_carrier(cfg.ifname), then on the bond carrier,
-then on wait_reachable() for each peer. Should bounce_idle() use the same
-sequence?
-
-[ ... ]
-
-> +@ksft_variants([
-> +    KsftNamedVariant("idle", bounce_idle),
-> +    KsftNamedVariant("inflight", bounce_inflight),
-> +])
-> +@ksft_disruptive
-> +def test_tls_offload_bond_bounce(cfg, bounce):
-
-[ ... ]
-
-> +    require_tls_setup(cfg)
-> +    setup_bond(cfg)
-> +    run_tls_test(cfg, pause=bounce)
-
-[Severity: Low]
-Does setup_bond() run too early for an IPv6-only environment?
-
-run_tls_test() is called here with the default ipver="4", and it only
-checks cfg.require_ipver(ipver) after setup_bond() has returned.
-
-On a NetDrvEpEnv with only IPv6 addresses, setup_bond() still does all
-of its work first. It moves the global addresses to tlsbond0, takes
-cfg.ifname down, enslaves it, and waits for carrier and for ping
-reachability of the IPv6 peer.
-
-Only then does run_tls_test() raise KsftSkipEx. The deferred cleanup
-then deletes the bond, and restore_nic() brings the NIC up again,
-which flaps the link a second time.
-
-test_tls_offload_bond_bounce() has the same ordering. So each of the
-four bond variants retrains the NIC twice only to report a skip.
-
-Would it make sense to call cfg.require_ipver("4") before setup_bond()
-in both tests? Alternatively, setup_bond() could take the ipver the
-case is going to run with.
-
-[Severity: Medium]
-Could the NIC packet count check fail in both bounce variants on drivers
-that keep their TLS stats in per-queue state?
-
-The slave is taken down and up between the nic_before and nic_after
-snapshots in run_tls_test(), which runs the driver's ndo_stop/ndo_open.
-check_hw_crypto() then requires:
-
-            got = stat_diff(nic_before, nic_after, key)
-            ksft_ge(got, 1,
-                    comment=f"DUT {direction}: NIC reported no TLS "
-                            f"offload packets ({key}={got})")
-
-On funeth, which the HW_NIC_COUNTERS comment lists, fun_get_ethtool_stats()
-builds tx_tls_encrypted_packets by summing the live fp->txqs[i]->stats.
-
-funeth_close()->fun_down() with FUN_QSTATE_DESTROYED frees the TX queues in
-fun_free_rings(). funeth_open() then allocates new zeroed queues through
-kzalloc_node() in fun_txq_create_sw(). The counter therefore restarts at 0
-after the bounce.
-
-NETDEV_DOWN also moves the socket to the TX SW fallback through
-tls_device_down(), so nothing goes through the HW path after resume.
-nic_before is also around 0, because setup_bond() has just recreated the
-queues.
-
-As a result, got ends up 0, and the case reports "NIC reported no TLS
-offload packets" even with a correct kernel fix.
-
-tx_tls_ctx (fp->tx_tls_add) survives close/open, so only the packet count
-check seems to be affected. The bounce cases were only tested on mlx5,
-which keeps its counters across close/open.
-
-Should the bounce cases relax or skip the packet count check?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119191341.4089157-1-rjethwani%40purestorage.com
