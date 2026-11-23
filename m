@@ -1,59 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455901;
-	b=Hmm9L8jHmaE961cdhWDo5fa+8MfzZIU2Mhz6LTJoJp+k7gpIv2JB2e1XOkiUHwWWDCmt
-	 hsJKRelCRJg9PVPBcqDZV3AfDfpk82y/mMUrFo/GAhSTcT0XjAoP9QFE6BzrVeMuDgnr3
-	 E37mcz3XDRacCmEXafQfP94/4XFtujhF1ZPurIW7q+asUQ/jVjKRjAbwOdvTuJqrhaU3O
-	 mjkvY4DC8ln3R6+cr4PJVc4kvPEVxGbrGhdVen8yGPYJuRUsG63SBFLUAR81GxnNLD+f2
-	 FReAbKeWoe5YIbCAqviuFs91rEKKPCqGSdUMNOTsZdP+dpFA6DQ1uN11NjstZdhrojA==
+	t=1795456090;
+	b=avDiSXOAwyv/LFE4xy5HS/CwxNXhAtGYwyDc1N1xliwC4azxwfM33lHsns43eLsUB09W
+	 NH5bTgJwFgCfEt5Co14QCb7EedQII/8ClR56wRiHsrHWe/STg+7wkSgdPy+oSwRAQbmtC
+	 QhaFA1bSVvYzARn+4qTvLFzGPvW35OOoYtgsVrFf0RRuzIanN90N5mcnzcEjdKn8ASveu
+	 k245SpAubqLC+KN0U39CUxY/DuGuGoWaUmQ0I949khj/YY5ESIrv5bnThUpXV2R70XnJU
+	 8JYmm7EL+T6WOZ0HygY+49edxATyNjEnQshusNGAtEIEzN+U1Rlj5Ay5Y4QD4j/7csw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455901;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wjnzW4AkNebRLX32Od1ytfWiOGsb5QSUWsfOI4yrqJk=;
-	b=UWTWW4ox1XcA188wCUGqyzYU0iWvvTrqAX8GDmf90jq3bD1U8jrS1+UFiH5ED5JbnwLT
-	 Z0dbzkDhRrka8DvOppSZep5vxjeAPohRvdZFaw7TL2pqV33cC2ndI775mVbhl6qD/WYac
-	 LQZ9N0s/3Ekp1y2SK7I8dcy4AAJAxw3Akk9rqkeQ5g+H/eUT6H8OJVbAtoV8JW1HpQfUl
-	 yltec+Gdr6yit8vdyIL4y2eZBa57wd6wO34NTpgXn2WYJskvlBWd8Af8niRZkoJWec4o8
-	 fCTwTZX+QSBtrpr63vw8JNIaB40UPQEKrWWzBEF5u3Tg7Isr2s3UluzSX/9V+qM2YjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456090;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+	b=a4wOkpjPTPYNF6vyuZOSJs04psiasH1LkP1cl5VYZX0YmIFIct38KfsWIN12UoYpladZ
+	 D0ArjbmmoBHycumWI+8BKVnyW9zn2b8pGHAaxhz6Sj14LLKRJrdumWkx52lsi4mkWC7eJ
+	 yOH7RFq7T7Wn+saRMh1euKfP7omR3mTizdMZzM/cOGdZjod5AkSKXydWhAb3qbq9WgP1e
+	 r/p1qbTn1jEiz83vTTtIKTMDiOuHxJK+fqn6W7tXt5Ouc8mvSWf/5vrwlEOYUmDVCB8aI
+	 1T+egZSTmY1LrUEaciEyEyPA2QohIC3BYig5+YaGENsPRn67eP+IeyEGVOyoqIWtHKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eBPNp0af;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="f9lDTl/R";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I7zYFimT;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60445606A335;
-	Mon, 23 Nov 2026 17:45:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FF4E606A332
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:48:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FF4E606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eBPNp0af
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78B161F000F4;
-	Mon, 23 Nov 2026 17:45:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795455901;
-	bh=wjnzW4AkNebRLX32Od1ytfWiOGsb5QSUWsfOI4yrqJk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=eBPNp0afnYM2C+a0rSGhfPeklRhzCqVexhpHRDpPBLU7GsDmIe1bjKzTIdA9Vob++
-	 hmhFE+OVO+W6rBn/yQpecxVldpKoserZAztnQ01RUqeWJvZgZG87gR1EX2Zgx0FwTn
-	 Pxc56L6TGVOB2KsdQ8lB8CZfpyA46W+BACS70fwZFBqlrRJpYOVIq7k+oGsOYz70My
-	 U6lvkCsouxMQsIyHaBvTwb5b7+qek65rSLCPxoolkphowBC/k6fsuAyDjkzY37y7zA
-	 8NOpkGPJRo2LHu3blpaob6klLzPZeb3NSbxTNYyf8GrogaT60G1uE0mH3WdRGCPxv2
-	 Z5OaFJLYUjOfA==
-Subject: Re: [PATCH net-next] net: dsa: report a deleted FDB entry as no
- longer offloaded
-From: netdev-bot+sashiko@kernel.org
-To: julius@bairaktaris.de
-Cc: andrew@lunn.ch, olteanv@gmail.com, razor@blackwall.org, idosch@nvidia.com,
- netdev@vger.kernel.org, bridge@lists.linux.dev, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org
-Date: Mon, 23 Nov 2026 17:44:59 +0000
-Message-ID: <179545589967.3135.15910184280641420924@kernel.org>
-In-Reply-To: <20261122174434.975426-1-julius@bairaktaris.de>
-References: <20261122174434.975426-1-julius@bairaktaris.de>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f9lDTl/R;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=I7zYFimT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795456088;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+	b=f9lDTl/RMpuLahiED5XMcBxslDzePhdgBuf+egDZvPGoqOEeZDfLxlB5iW9vneCQG1WOWy
+	+3l4SwLGI/KYkTUhRsR2uBMMJHpzAsUHPfUkO//Yy9RAZVTKplDOvOb8jNIjTFbxRgi6m6
+	iSyCFT40LyGpjejCI3u/qr8HN2bhsyk=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-377-_8xYElkYNIq8vrHkS65mww-1; Mon, 23 Nov 2026 17:48:05 +0000
+X-MC-Unique: _8xYElkYNIq8vrHkS65mww-1
+X-Mimecast-MFC-AGG-ID: _8xYElkYNIq8vrHkS65mww_1795456084
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-499ca65ae87so1528995f8f.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:48:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795456084; x=1796060884; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+        b=I7zYFimTiLk4Rzqu2GcOQhrgfJCXrZm/XNcZ2tfv+D2MLltzagr/s2AK5ziRgSrbFf
+         521KK/PuYN5ONOC+Kvi5yJpoS84/Ex7dtnbWIV75OSFSAKDRQyHrzyo7ewFA5UieNJuB
+         fHFMjJp0i7VnmC1G3+Up7P3E9bM+uJK/KX1TIP+qP+JxtbvI/io5V2ejRC9Zm+T4SZx+
+         S/QJvDnxMFT7uFygTGaZc1/qf3kDhzukUzq9fWvJ9Q8C0PPhnRkFhRh51CDBBqwkCQkY
+         4c/zJS5tFpDoIsQzUT7bzxnZ2eTamuJdMLjG1LJAIHYKvlUEUk3nt6AGUbi5QXBl0eBF
+         u/yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795456084; x=1796060884;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=efi+X92Ps3JgkqQpyvgXaDyiPmGb9o+2rCD9ipnlxzQ=;
+        b=lJN5bRa6FxuoLV87WVvjByxTK1KHnSywuRXoriVQN46K8avd61scLfbYYyRvD5gHKS
+         yfvDoZDKPVdrra359v0umR5dploIOq+a6VE/6jn6tWofHrGF98Vze2P8lqk8yotbsuHQ
+         CNon2U4SFLHyWGTbYiR6VDVRpVnUuP+ElbhV1mafhHOwjiXsCAthxe2681lKyyTUBFiU
+         RodNJH/Xi1lgBf5N9zJVYsuZOLH28130lw1pLtwV2xjG9pCzjG/7mJayEr9TWyDNFyEs
+         mwCaf8bfELSN+1oLdWCi4zvZCFrgLeQaL6Xm7s+tcqet1AMMaQUUWefNEypiT+INb1n9
+         eTHQ==
+X-Forwarded-Encrypted: i=1; AL+hErH4Gs6bB2Xdgw3+p3pvmSmfbFOUlmGktmONC+YEkwP2n5YZfE4/TKXBaL/FfOJxVVAvf0QLM7k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Azbn0f+j4c2dZFhlQ6s7XO2Uw/P7RTS/HiKi7N5Vk5Dpke1m2
+	goRcI25lzXmm2Gy7ota7Fxt3LHYZJ7wyBUUQV+Yq1p6FaVHTopCyIN+9Vs5CdvyU1LLv+gVszkM
+	Q4nxlI7WBT2cikM+nJB4rAIXK9sx1zRKVlIJ+44ZLs7oJ0kbF3QgBqDTMRQ==
+X-Gm-Gg: AZFdTZdrgiBHwxyi7Ezc3nQujaoRdo7unc/ek8dBeoK93s0nDUtFSrLKRx8/b8QyRWX
+	PivSNcRzmTtoIHX1ukHBH/oI6VB8YG9vg8EoFDchvngG4El4YEFhYjtAOryDyQWzayCvOA4NbPL
+	BvKkNFNS4vDGtN8pAhhvTrR1AlOcQAp0mgAV44Zwa8W86SFCXpLjRxSmEuCpDlh0jjtwR1N/KLK
+	8bij9uNNoK4e5zCssyAp6PTDay/Pnkl/j48rjD54s144Dim0MQreyr33AeFZn3cexb/jY2OetLO
+	94N9EFO3jJ4t7iwgFRvhhhWFvP2mfSgBpDqz+xn7MEyZlxgKvLr2HKIhIilO8zrTZmEZaX60C/v
+	tnhXX5fymmJTfIz6Ppw5s2Jy56AKkR0vn/F7te6Lr
+X-Received: by 2002:a05:6000:4012:b0:4a8:f1a5:efb3 with SMTP id ffacd0b85a97d-4aa550796b2mr30453919f8f.11.1795456084331;
+        Mon, 23 Nov 2026 09:48:04 -0800 (PST)
+X-Received: by 2002:a05:6000:4012:b0:4a8:f1a5:efb3 with SMTP id ffacd0b85a97d-4aa550796b2mr30453857f8f.11.1795456083757;
+        Mon, 23 Nov 2026 09:48:03 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1524:9e00:c39b:a740:e7:3fcf])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm23541150f8f.50.2026.11.23.09.48.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 09:48:03 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:47:59 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Nguyen Dinh Phi <phind.uet@gmail.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Asias He <asias@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
+Message-ID: <20261123124426-mutt-send-email-mst@kernel.org>
+References: <20261117164916.2332953-1-phind.uet@gmail.com>
+ <20261118012321-mutt-send-email-mst@kernel.org>
+ <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,231 +122,101 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On Tue, Nov 24, 2026 at 12:48:34AM +0800, Nguyen Dinh Phi wrote:
+> On 11/18/2026 2:33 PM, Michael S. Tsirkin wrote:
+> > On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
+> >> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
+> >> vhost_vsock_mutex, but It is also read without that mutex in
+> >> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+> >>
+> >> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
+> >> ioctl while the device has TX traffic. For example:
+> >>
+> >>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
+> >>    vhost_vsock_dev_ioctl+0x25f/0x720
+> >>    __x64_sys_ioctl+0xc2/0x110
+> >>    x64_sys_call+0x299/0x20a0
+> >>    do_syscall_64+0xc9/0x510
+> >>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> >>
+> >>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
+> >>    vhost_vsock_handle_tx_kick+0x41b/0x740
+> >>    vhost_run_work_list+0x97/0xc0
+> >>    vhost_task_fn+0x98/0x1f0
+> >>    ret_from_fork+0x2e2/0x3c0
+> >>    ret_from_fork_asm+0x1a/0x30
+> >>
+> >>   value changed: 0x0000004d -> 0x00000032
+> >>
+> >> Both readers load the CID once and works correctly with either the
+> >> old or the new value.
+> >>
+> >> Mark the store with WRITE_ONCE() and the two lockless loads with
+> >> READ_ONCE(), so KCSAN knows the race is intentional.
+> > 
+> > You make it sounds like it is just KCSAN false positive.
+> > Is it?
+> > if yes, this should be data_race. If no, document why.
+> >
+> 
+> This is an actual data race, not a false positive. The value of guest_cid
+> can change while the TX worker or lookup path reads it with plain accesses.
+> Because each check loads the CID once and either value is valid, the result
+> is equivalent to the read running just before or just after the ioctl.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 3
+So, no bug. Pls clarify in commit log.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> Even so, plain concurrent accesses are a data race under the Linux kernel
+> memory model, and using READ_ONCE()/WRITE_ONCE() also prevents
+> compiler re-fetching or tearing rather than just silencing KCSAN.
 
-- [High] Use-after-free of a foreign bridge port's net_device in the new
-  deletion report.
-- [Low] The commit message describes a user-visible defect: 'bridge fdb
-  show' keeps the offload flag, and 'bridge fdb flush ... offloaded'…
-- [Low] The new offloaded=false report is a delayed, per-port message
-  meaning 'DSA's copy of (addr, vid) towards orig_dev is gone'.
-- [Low] The new DEL path reports offloaded=false whenever the deletion
-  returns 0, but for refcounted entries 0 does not mean the entry left…
+It never happens of course, but avoiding this
+in case code is refactored could be ok.
+Pls document that as the reason to prefer READ_ONCE.
 
---
 
-net: dsa: report a deleted FDB entry as no longer offloaded
+> >>
+> >> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
+> >> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+> >> ---
+> >>  drivers/vhost/vsock.c | 6 +++---
+> >>  1 file changed, 3 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+> >> index 88a310390eb0..f26c59013075 100644
+> >> --- a/drivers/vhost/vsock.c
+> >> +++ b/drivers/vhost/vsock.c
+> >> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+> >>  
+> >>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
+> >>  				   lockdep_is_held(&vhost_vsock_mutex)) {
+> >> -		u32 other_cid = vsock->guest_cid;
+> >> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+> >>  
+> >>  		/* Skip instances that have no CID yet */
+> >>  		if (other_cid == 0)
+> >> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+> >>  		hdr = virtio_vsock_hdr(skb);
+> >>  
+> >>  		/* Only accept correctly addressed packets */
+> >> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
+> >> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
+> >>  		    le64_to_cpu(hdr->dst_cid) ==
+> >>  		    vhost_transport_get_local_cid())
+> >>  			virtio_transport_recv_pkt(&vhost_transport, skb,
+> > 
+> > Will prevent compiler from hoisting the reads out of the loops.
+> > Does it matter?
+> > 
+> 
+> Not much in practice: because the loop body calls non-inline functions, the
+> field needs to be reloaded across calls anyway (and in `vhost_vsock_get()`,
+> the `vsock` pointer changes on every iteration). I checked with gcc 16.2 and
+> clang 21, and the compiler does not hoist the load out of the loop even
+> without the patch.
+> 
 
-After a successful FDB deletion requested by the bridge,
-dsa_user_switchdev_event_work() now reports SWITCHDEV_FDB_OFFLOADED with
-offloaded=false. The bridge then clears BR_FDB_OFFLOADED on entries the
-switch no longer holds. Deletions replayed for a single port that leaves a
-bridge or LAG (ctx != NULL) are not reported.
-
-> The addition has been reported since commit c9eb3e0f8701 ("net: dsa: Add
-> support for learning FDB through notification"); a deletion never was.
-
-[ ... ]
-
-> Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
-
-[Severity: Low]
-This isn't a bug, but should this have a Fixes: tag?
-
-The message names the origin commit in the text. It also describes a
-defect users can see in "bridge fdb show" and
-"bridge fdb flush ... offloaded". The prerequisite is sent as
-[PATCH net]. However, the only trailer is Signed-off-by.
-
-> diff --git a/net/dsa/user.c b/net/dsa/user.c
-> index 041f9060c8ef0..fdeb1c68c2f4b 100644
-> --- a/net/dsa/user.c
-> +++ b/net/dsa/user.c
-
-[ ... ]
-
-> @@ -3628,13 +3629,14 @@ static int dsa_user_netdevice_event(struct notifier_block *nb,
->  }
->  
->  static void
-> -dsa_fdb_offload_notify(struct dsa_switchdev_event_work *switchdev_work)
-> +dsa_fdb_offload_notify(struct dsa_switchdev_event_work *switchdev_work,
-> +		       bool offloaded)
->  {
->  	struct switchdev_notifier_fdb_info info = {};
->  
->  	info.addr = switchdev_work->addr;
->  	info.vid = switchdev_work->vid;
-> -	info.offloaded = true;
-> +	info.offloaded = offloaded;
->  	call_switchdev_notifiers(SWITCHDEV_FDB_OFFLOADED,
->  				 switchdev_work->orig_dev, &info.info, NULL);
->  }
-
-[ ... ]
-
-> @@ -3681,8 +3683,13 @@ static void dsa_user_switchdev_event_work(struct work_struct *work)
->  			dev_err(ds->dev,
->  				"port %d failed to delete %pM vid %d from fdb: %d\n",
->  				dp->index, addr, vid, err);
-> +			break;
->  		}
-> -
-> +		/* A deletion replayed for this port alone, as it leaves the
-> +		 * bridge or a LAG, can leave the entry held for other ports
-> +		 */
-> +		if (!switchdev_work->replayed)
-> +			dsa_fdb_offload_notify(switchdev_work, false);
-
-[Severity: High]
-Can this call use a freed net_device?
-
-Before this patch, the DEL branch only used switchdev_work->dev.
-dsa_flush_workqueue() in dsa_port_pre_bridge_leave() keeps that device
-alive.
-
-The DEL branch now calls dsa_fdb_offload_notify(), which passes
-switchdev_work->orig_dev to call_switchdev_notifiers().
-dsa_user_fdb_event() stores orig_dev without netdev_hold() or dev_hold():
-
-    switchdev_work->orig_dev = orig_dev;
-
-orig_dev can be a foreign bridge port such as a veth. Suppose that port
-has FDB entries DSA offloaded, either static or learned with
-ds->assisted_learning_on_cpu_port, and it is then deleted:
-
-ip link del veth0
-  br_del_if()
-    del_nbp()
-      br_fdb_cleanup_by_dst()
-        br_switchdev_fdb_notify()     /* SWITCHDEV_FDB_DEL_TO_DEVICE */
-          __switchdev_handle_fdb_event_to_device()
-            dsa_user_fdb_event()      /* ctx == NULL, replayed == false */
-              dsa_schedule_work()
-      netdev_upper_dev_unlink()
-
-Nothing flushes dsa_owq when a foreign device unregisters.
-dsa_user_netdevice_event() has no NETDEV_UNREGISTER case, and
-dsa_flush_workqueue() only runs when DSA ports or LAGs leave the bridge.
-
-So netdev_run_todo() and free_netdev() can free veth0 while these works
-are still queued, for example behind slow MDIO or SPI port_fdb_del calls.
-The work then runs:
-
-dsa_user_switchdev_event_work()
-  dsa_fdb_offload_notify(switchdev_work, false)
-    call_switchdev_notifiers(SWITCHDEV_FDB_OFFLOADED, orig_dev, ...)
-      br_switchdev_event()
-        p = br_port_get_rtnl_rcu(dev);     /* dev already freed */
-
-The existing ADD report has the same lifetime gap, but only through a
-narrow race with unregistration. Here, the teardown of orig_dev is what
-generates the DEL report.
-
-The note below the '---' line says this depends on "net: dsa: hold the
-device a queued FDB event is reported to". That patch is not in this
-tree, and git am drops the note.
-
-Could the two go in as a series, or could the dependency be recorded in
-the commit message itself? Otherwise this patch could be applied or
-backported without it.
-
-[Severity: Low]
-Does a return value of 0 here mean the entry has left the switch?
-
-Host addresses on CPU and DSA ports are refcounted, and so are LAG
-entries. dsa_port_do_fdb_del() returns 0 when only the refcount drops:
-
-net/dsa/switch.c:dsa_port_do_fdb_del() {
-    ...
-	if (!refcount_dec_and_test(&a->refcount)) {
-		trace_dsa_fdb_del_drop(dp, addr, vid, &db, &a->refcount);
-		goto out;
-	}
-
-	err = ds->ops->port_fdb_del(ds, port, addr, vid, db);
-	...
-	if (err) {
-		refcount_set(&a->refcount, 1);
-		goto out;
-	}
-    ...
-}
-
-Take a host address X added for DSA user ports A and B, giving a refcount
-of 2 on the CPU port:
-
-- A's DEL drops the refcount to 1 and reports false.
-- B's DEL then fails in port_fdb_del(). The refcount is restored to 1 and
-  nothing is reported.
-
-The last report the bridge received is false, but the switch still holds
-X.
-
-The same thing can happen if the GFP_ATOMIC allocation in
-dsa_user_fdb_event() fails for B. __switchdev_handle_fdb_event_to_device()
-stops at the first error other than -EOPNOTSUPP:
-
-	if (err && err != -EOPNOTSUPP)
-		return err;
-
-Doesn't that contradict this line in the commit message: "the last one
-for an entry gives the state the switch was left in"?
-
-[Severity: Low]
-Can this report reach a different bridge than the one the deletion was
-for?
-
-The report goes to the orig_dev captured at queue time. However,
-br_switchdev_event() finds the bridge from orig_dev's current bridge port
-when the work runs. br_fdb_offloaded_set() also ignores p and matches
-only addr and vid:
-
-net/bridge/br_fdb.c:br_fdb_offloaded_set() {
-    ...
-	fdb = br_fdb_find(br, addr, vid);
-	if (fdb && offloaded != test_bit(BR_FDB_OFFLOADED, &fdb->flags))
-		change_bit(BR_FDB_OFFLOADED, &fdb->flags);
-    ...
-}
-
-Suppose foreign port V leaves bridge B1, so del_nbp() queues DSA DEL
-works with orig_dev = V. V then joins bridge B2 before dsa_owq runs those
-works.
-
-Would the report then clear BR_FDB_OFFLOADED on B2's (addr, vid) entry?
-One example is V's own local address added again in B2, even if another
-switchdev driver in B2 offloaded it.
-
-The commit message covers the same-bridge case ("a deletion still queued
-here can clear the flag that driver set on an entry re-created on one of
-its ports"). It does not cover this cross-bridge case.
-
-br_fdb_cleanup_by_dst() keeps ext-learned entries only while
-BR_FDB_OFFLOADED is clear:
-
-			if (test_bit(BR_FDB_STATIC, &f->flags) ||
-			    (test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &f->flags) &&
-			     !test_bit(BR_FDB_OFFLOADED, &f->flags))) {
-
-So a wrongly cleared flag in either case also changes which entries those
-flushes delete.
-
->  		break;
->  	}
->  
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122174434.975426-1-julius%40bairaktaris.de
