@@ -1,61 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432805;
-	b=eSLtM0G/IjgssUx4ohkjhZ7BCvnSYyJrQMazQkpub24o9kgBfNnKoICyp0TsK4RSOfho
-	 bp8T+5o5oIjQKsePVhi9QbeCLcXIWjshgffUTQXzAqP8whu2KUPC94r8Al388fNaJNfLh
-	 rkwVz3Jf7VsbdHxyKfaj/De9h8O2WXsl5hf7xjcdRUkBky4FW/q39/zqz5nOe2pq6l2zZ
-	 mbOJ6uKh8UclvqNAtoP/h3qIGL2OhnVqsNSupfd1d+5uh5/B8XMwdjfMeQdExNXugUtTP
-	 3kvM82i+XcCmwFfWjrlZeAihYQ4qeV0WsO7l/THjlGcvm/+Omc4D/ABL6CW1T69OSOA==
+	t=1795432836;
+	b=vnJ1FTmFxWrwss/iWbVEcg7Ak84S3Qk+5eQNPUFlMCGEfkxFZXPBrtNVa77U0zSxv0IL
+	 uzLSNkbfGCMVbSd1oYSiWewEGO4qru92kBKCcrgTkwFS7lwqbK3NnW+utk74Vpj2DYJpD
+	 yJshdCuwnSq1dkQvl9+8JSJQA5HtkqB/SuuR9KADKyrk7zKdRwfx5O0cpunobTZo4DORI
+	 0uzEI8XdGdboA+73ROsTisXWcoMnKnwI7V3QT76eEa723BHi+G1eOkVqy/B3UCShpsEpN
+	 UxMBWaNcpwQsrh26IA0vBVo0NWLlwu4t5Lhxo/38lxfWFNjXHarJEQIZZoMxMC5iNyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432805;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=NvDPN1uzBydiluj4pwaIyQ1aBVv33ogPl+ZaFWP3YRE=;
-	b=rrt5jS0xeWd4SCwleRPaWHtwYF8TeCJVkkBlnOhe1/Q50ocfSGfJ8Kl4E5ya7OLCODJs
-	 WOG1OIb/OSGKuQx1DXUX6bAqU5XtQ/On9NrLTSb9QdWuJbFvUrKCvwOpCMzRwCIb4MN+u
-	 IAeljpiGNwrYtdwTrOayspY5SqhoMZjcsmPnjX33/fl62lmGLIfcma8GUueZVPoqaIrKR
-	 k5/tK+OOh1ClA87qRUwrSM4C53oem9Aj1GwOgG0uQv7Cd21kpfQIynyi67QFJB0edX/MN
-	 +GehAfMmwWDmjONkp2h+HvE4UAHIwU8Y268OBUSdxB8UkqIUFIGzu8l21RWdBBzkQFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432836;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=myR6PcZJGPmoZehHTgfNLTaXUI6Jy0x0EK+RRCP7Bnk=;
+	b=FkO1AJYtyqM4ZGUgEImtEpeAjRhDQo3DGvp0g+JFTmssHhYWKx+93aAmlTKhxQgz8BeG
+	 Z1uamKolLIfVxa/Wzp4drrxg4oF5cFBacPJHYW4yPxNJpAmfMIe2s8WCMpAYU+eMK28Xs
+	 IGKXxY38OHlZ9mYCas7+K1w5WtS1ydbqzN5jBkVT2Eg1aFa7bBJdSBX10SF7l9NwxELu1
+	 RI3Y11Kgt9mSvZRq+HIn9jauMPOAhO0/CwdMCcS4gWFAaUTNHImNxqasHq4PDbQALGKks
+	 zB0sTydF8sUenom54a5CEPgO8XIMJbbb8OPEIX4cehjvT7VxxcI13qFAIaeSiVXyhrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OIIF6fdf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SLn6qVkU;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE226606A321;
-	Mon, 23 Nov 2026 11:20:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D7E7606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:20:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D7E7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OIIF6fdf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C7B91F000EE;
-	Mon, 23 Nov 2026 11:20:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432805;
-	bh=NvDPN1uzBydiluj4pwaIyQ1aBVv33ogPl+ZaFWP3YRE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OIIF6fdf1BrCCs+ruq1Mvor5MI237MSEBGArpu+IeV8lxMgB1PSycdxaJfBNCzQKZ
-	 BULGgtpV9n+x8VbHXVo462EzyHat97zTLMaHuaDA+YsNznBqPT29IXzl/v5xarrLbC
-	 kSDUIQUT/JdX6oFMkAAwmiSSuVN56ncum0N785MpKGK6eTMK7dlhbbAf0UPJIu4RpG
-	 ZmTmvKQKTuBkJHX5lkf7JquLJAPy8/2x+1KtdYeUqEF0R5+oRXaRExyGVmqUR4nvoV
-	 Qa3GshrtY9qHhtuvfM/PcfCIaTcO9o3piwHMUMtmQqmp+ViPR9zXjFbsJ+c4pJ4VDd
-	 O7bjESx+6ongA==
-Date: Mon, 23 Nov 2026 12:20:02 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 5/8] dt-bindings: soc: synaptics: Allow SL2610 mux
- controller children
-Message-ID: <20261123-imposing-crimson-chinchilla-fe56de@quoll>
-References: <20261116135442.4827-1-jszhang@kernel.org>
- <20261116135442.4827-6-jszhang@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SLn6qVkU
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 44D11201AA;
+	Mon, 23 Nov 2026 12:20:27 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 1l3Tc0-JUl0t; Mon, 23 Nov 2026 12:20:26 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id C04CF200AC;
+	Mon, 23 Nov 2026 12:20:26 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com C04CF200AC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795432826;
+	bh=myR6PcZJGPmoZehHTgfNLTaXUI6Jy0x0EK+RRCP7Bnk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=SLn6qVkU/9dsrmnSicwJUoLhXJV5AQNJVni6XEUSvr1W5I1K2psjgzCdhwi66O/cD
+	 MhtuYUJSslG+OUn5WcjEUEajU9EwuBh7lHcGlJyhdzBh3i/xe8Okd6/zLbhrTiZ/rp
+	 YR/8dqjnXZKAKTfQNYO4ZSHgEIwlVS3KEw30EgO2vUXoFYx1nzyHieJ/ZXkfRSIyUK
+	 KmY/97Z+dUQXE0CzgI3ArtUZYONLs7THG31ddresxHn3T+vpz+qr5NwtFt1vCyp3nk
+	 ZPmpTypZAUk1oCikIVda592J9i/f8ckbHs9wqSm8HGTIb0H7Y4L1owLd7KRBDzDbrb
+	 VCkbzN6NGvaMw==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 23 Nov
+ 2026 12:20:25 +0100
+Received: (nullmailer pid 2088626 invoked by uid 1000);
+	Mon, 23 Nov 2026 11:20:25 -0000
+Date: Mon, 23 Nov 2026 12:20:25 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, <netdev@vger.kernel.org>
+Subject: Re: [PATCH net] xfrm: espintcp: read the socket error queue for
+ MSG_ERRQUEUE
+Message-ID: <awQhec8RGS9nkoW1@gauss4>
+References: <179449975985.164761.7508657205685376308.c279-espintcp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,30 +80,23 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261116135442.4827-6-jszhang@kernel.org>
+In-Reply-To: <179449975985.164761.7508657205685376308.c279-espintcp@gmail.com>
+X-ClientProxiedBy: EXCH-03.secunet.de (10.32.0.183) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-On Mon, Nov 16, 2026 at 09:54:39PM +0800, Jisheng Zhang wrote:
-> The SL2610 system controller includes selector fields for routing shared
-> peripheral signals. Allow a mux-controller child using the register mux
-> binding and show the shared MDIO master selector in the example.
+On Fri, Nov 13, 2026 at 01:09:19AM +0900, Baek Kyu, Kim wrote:
+> An ESP-in-TCP socket can have a TX timestamp queued and report POLLERR,
+> but recvmsg(MSG_ERRQUEUE) returns EAGAIN because espintcp_recvmsg()
+> reads the IKE queue instead. If an IKE message is pending, the same call
+> consumes that message as though it were an error-queue result.
 > 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Assisted-by: LLM
+> Handle MSG_ERRQUEUE through inet_recv_error() before reading the IKE
+> queue. This exposes queued error metadata and leaves IKE messages for
+> normal receive calls.
+> 
+> Fixes: e27cca96cd68 ("xfrm: add espintcp (RFC 8229)")
+> Signed-off-by: Baek Kyu, Kim <pocj8ur4in@gmail.com>
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
-
-> ---
->  .../bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml | 10 ++++++++++
-
-There is no such file, which means you are fixing in-flight patches.
-Squash it with in-flight patches instead so we see entire picture.
-
-Best regards,
-Krzysztof
-
+Applied to the ipsec tree, thanks a lot!
