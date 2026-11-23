@@ -1,155 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.37
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795401042;
-	b=UHIH+pnKAtA/ZSz11dpvPemwCYmO/sJYkyXfliLJaXQlCuluvHceLHB1qnkc2GIozwAY
-	 ztvAsE8D8MHte8zqhKz78kDEU3GN5cmnmb+k3jp12EdYzO55+R1ndPlgMnLIpsyPqSPSy
-	 eflQuBGC/inmEt6RATP0h3PeB+k3FWcxonuAyNBapsnxsfkL0rwLEprU3i9u3jskW+aTu
-	 wyJXIFJJCtk64q50114CwJH//LW4eZ5IDbW0epWiVOA336pMK/l5oB6Ep4+k0UOL5536s
-	 6mUdsGJHXi5rWz9wxdvuOj0At5HrthMy0zQyvW1tQdupcxDHDC3vx6lI6kVgDwCFpeg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401042;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=3rMGwOVEo1qiTtwxvkHa7gZlWWM64ENrzOnMp4npICY=;
-	b=pJMOSxNkGtVNpQuNAfJQa5wGAKfeOVy1wlZ15utygR3ACI9Xyti4vFhQU4lVNixPa8Wy
-	 nja0BxuEwJd+X+S6hQvByZkJuKSS+icWtNqcuOPc3L9HRCJy6a7TfciJiJruxt/Cumob1
-	 9h1scheAnJzqbYUSqQhKAnAfL2+hlJFOmwVAfg0cZj5LC1SAP7JwJVRoQbd4wCZsKl3Gm
-	 YSMdA0p9yOu6UkkIzst/2MLEu88IMVZeWQhkTuGoid8gEyTBe42KTOTJZsKD0ZWIV8Clb
-	 1Oj8+2t2WRwq5x7SBnnD2QDhQL8vq35Oeb+amdbEpbf6US6Qcr4eOCHVjUByoYqfJ3Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=est.tech;
-	spf=pass smtp.mailfrom=est.tech;
-	dkim=pass header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=HO+XUMcq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.37
-Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013037.outbound.protection.outlook.com [52.101.83.37])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795401117;
+	b=GI+Hk8PgVfYARv4zWmc+mHnCwiaN1syMQscMXd/XmBlfmhxhLr8+y2no3aph6YjGnAMK
+	 YdcaR9pA0lG+13ceRMbq/f6SCo3CxjBrIPQDBZPeKsP5egtvuZvagcrGuzxEC31EFS2Pj
+	 /5Q/Skkgftkp+SYvna6F4dsN2HOLOM8bY0Y7PfqMFBE1TSAa1fcxo7Xb6pg3aSzlG59Wd
+	 yI+bSAgYZhtXevMzNTwbPco/ZdXnsDcjjvVygOcXFyM6LJmvXMCf+Nj0mbi3a7bGEoDLw
+	 n9wuW4zmiQOeRwsz8oN93sHNbSzCzjFHB9w2gFlz7KB+hEBNcDtGyFF0uSWJ73PoQFg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401117;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=IUIJQRAo4fBf4O9kTiEZ++kZybJm/kjPCJWhtsgVsio=;
+	b=N99sPkm3O74AGxKDIkCKvwozifKNTGppXv15ixG5TkXuCZ/aLhhziAOo2ox0nX3qlsye
+	 61Bv1kv5M7hIADoi8DtocidL8ftBJO4v0THMvDzIWEXlXJpCBSZTT48dZMHaA8Jp5tZ6I
+	 wv0uv+RDzz9sYeFH6fgq+6CAOGYs9k9eRoHmIMCn1EwTG+Ifobr0dRjfDZmplZpAxYdYC
+	 BCCDnStKv3KAeLX1PmThU6G3YrmLRlgHBO1IAdyYZRAfgAVCVxMBrLZ3IqbeXXMyeqspB
+	 LEuMa51TG5XYC0XFxCAn/0PJHVaFV2jcxe/8QbTBB0GvBOT+aTouBX41b8fvyBVl2yA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHCXQErP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80699606A320;
-	Mon, 23 Nov 2026 02:30:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80699606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=est.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=est.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82706606A31A;
+	Mon, 23 Nov 2026 02:31:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=HO+XUMcq
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HmngUGf6ZbKan1RTKrt1JNfSL+jbMx1jlQWdLpdPVccAD1cJbY4jI6Cs2E/oaevqKghHRY5SBnKxcSeGTVAliey4j1iQoUaqJ9011SVsaIgQAsgzjkZgCzAPIiaj/8iqboQhuqKSQuel3jFwLUsfpe/xrXYQ5BAd4psLB5q82B4P3bzqh8DTyHm0mKraEdSpYNSjwjPNHHESmXcbMINcDczrZdGZGzBkNSb8r+5fJEjsZqXmabyxIc93SljF940QWtd3RLU9sMdpRhIOQtZ7LUnCihlr1H4u0fR3GWTdSkvjQM1K904ZxQAXGuyd9qZlcOlEc0ez+qqzUFFkRkJXbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3rMGwOVEo1qiTtwxvkHa7gZlWWM64ENrzOnMp4npICY=;
- b=ILiKDcBXVbTS7EzEJ3NpskU00VRJmD/qJ7TZpYWsNK0lufWemr2NogXU+PkZ4szBv/kVat+JRfBpzvTvN7qoF11LLgk5/JwEU3G8Ya/t7ZejgVE3+r4PnqQjC5tqNImnV5/U5VhU6/hkiLdCT9zG7XSojpzP774fl3v7akbyqRhOHUdz+veeN9oljp7foOkPi5IYSJS8Ks0TXEd+2yY8xMvGgcVPJEuyo0m3rvteJ706TPoBWGCizW4qG+uZqz9v8RwSQZKONJFDtcU1Z1b/7ha1ultYRrtgPJBfFW5UAor7pmX0n5RcL4abRArIglnUdfFNtlco2RjJvMmJPe9UHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
- dkim=pass header.d=est.tech; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3rMGwOVEo1qiTtwxvkHa7gZlWWM64ENrzOnMp4npICY=;
- b=HO+XUMcqpfvvP7WalfSTz7bqEo32hmJlYeHMt4yz+8n4RpFB0AKhcPMFDYYphgC5CLPyf8TdEj9BSzzu+zV1cxtMkwuHrbcRINNDw/CuGTqGh/QoyYFO1UhTu9efhndUOaeU17O6k1BwhlQplVodYTe+b7kgdZqNXocVDHi1zxzI+bS506aSH60iEbT0iPWDtMQLGb07U/ZIPluMD4KaZhadNSk2/IogSJROtRwLWHNbmDPVnBPmwROBm2zG6Y+A8cQDswTVJoQemdAClDLo/vx1BY7lbChgnRnpqJXl7+0SXhxFvb0Og/j8ddBdDDT0InPJ/mCQP/pqJFlgBN9NFQ==
-Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:17e::23)
- by DU4P189MB3472.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:5f0::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 02:30:37 +0000
-Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
- ([fe80::86f0:8ce1:a437:b2d5]) by AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
- ([fe80::86f0:8ce1:a437:b2d5%6]) with mapi id 15.21.0615.013; Mon, 23 Nov 2026
- 02:30:37 +0000
-From: Tung Quang Nguyen <tung.quang.nguyen@est.tech>
-To: Ian Rogers <irogers@google.com>
-CC: Simon Horman <horms@kernel.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "tipc-discussion@lists.sourceforge.net"
-	<tipc-discussion@lists.sourceforge.net>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
-	<llvm@lists.linux.dev>, Jon Maloy <jmaloy@redhat.com>, Elkin Cruz
-	<elkin@google.com>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>
-Subject: RE: [PATCH net] tipc: validate peer address attributes in
- tipc_nl_peer_rm()
-Thread-Topic: [PATCH net] tipc: validate peer address attributes in
- tipc_nl_peer_rm()
-Thread-Index: AQHdeEhE9NH7h0X5MEybNE+ZYLKd5rc69ESg
-Date: Mon, 23 Nov 2026 02:30:37 +0000
-Message-ID:
- <AM7P189MB11376E1386BB26B523A99509C6452@AM7P189MB1137.EURP189.PROD.OUTLOOK.COM>
-References: <20261119170556.1518068-1-irogers@google.com>
-In-Reply-To: <20261119170556.1518068-1-irogers@google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=est.tech;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM7P189MB1137:EE_|DU4P189MB3472:EE_
-x-ms-office365-filtering-correlation-id: da3da05b-c539-4f71-89a9-08df4909c248
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|22082099003|18002099003|261022105027099003|261026140227099003|261026121527099003|261028144727099003|56012099006|10067099003|38070700021|11063799006;
-x-microsoft-antispam-message-info:
- Hkk6P7Xtd8R1ybRkLJiIq9shHBZUqZiiPzVRGN54hjMl0I+r2hVyumtLfkbfnHWvaDQ3Oe4g+nGx7pnazE8FyccbEt7mx0qV+CHAXlo1/dJJ4gS4a0HIzbFv4eHPI6Tx+JRQ3axNSoYNO+OreIND6lMArev7E8MNXS1E7n3nMj9FWkvQ++r94Qv00psbOeRD1jVb4Y7woTTXETWO0cUmeXXiG7PXR0goh0G5kbDWXEo0IvYVkhWgWHOQXsZeLRBkSaowDvZNqTDiuhaTm6nbAvNGM7+0aqPg6grwZCln8YiwA/T/QkrC/g5LjMSSGWVGqVrP3f1j1jejnFaSwbu14eu7V9F0ZS0w0MnGkyWhaNVZGV4303+FhFOGJgtbs7ya+OCahK679F9pRJedwsA8pEG8PJP6ieZtZ2I5Jay26ZMxJCkxdvPBaBz3zqjMA5tijWxO4wbbbvBLoLSTlBF34w43irdlFEAv3aKTzd6M51k6EHcbSopMcWYaLm5XfT1PAWTzSx0oT6+F1zERGwh0P1btN/oe7SH5xr4VZqQxNrDrM70Ef5+GDdBEqo6FYizyj5dnFBfX3VBG1+HEhd9+8w8AdK6KG2SiKQQyTFLHTAJQ5ZgREW7HR3/+ouHn+bGdxKmzd7DHKH8S/tRjlvxzCfTmy/IzIlUm6I+R3xAa24lPXmajf4hm4/0504B6df5JSBH9y519XPYtJ+aEeVBLLGHrD2YkahUnqSCpbkqJ+8c=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7P189MB1137.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(22082099003)(18002099003)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(56012099006)(10067099003)(38070700021)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?T3liQ0RBWEFkdmdsU3hxdFZwUkRoOUE5WEtoaXVVOGJ5L3E3M05JZVhnekpU?=
- =?utf-8?B?eXZWanNMYXBjZTVnV0pMbDJIbVdqMmN6elNUMkpQVy93LyswME9abnFQaW0y?=
- =?utf-8?B?bmU2ak8rRTRxQXlIZDdnVUF1RmdEaUlhQy94a1lFNmVFQ1BFQkJkeUYxejhL?=
- =?utf-8?B?R3VrQ2hLamE4dlBYVjdzRXBPcUpnRFNwazBvZks2YTRUTUdSZEFiWWV3Rk5J?=
- =?utf-8?B?QW5EZ3IvdXg3UlgxQ2hvL2VXUWpIOFdJZVV0SjB2U0RqSlpXSUszU1hVLzB5?=
- =?utf-8?B?OVgyb1QvK0plZU92RGwraGRSWUl2SVNqbW5IckNiUThsai9GK3R4bHNxdUtM?=
- =?utf-8?B?U2FzN2lxN29vUmYrUm1IbEZHeG4venA1WFJ6R0ZBZkdrWm5KaFUzV0N1Rkty?=
- =?utf-8?B?SHp0bERDUG4yQnhJaG0zWEcvT2ozclgzdmthV21qRGlEOXNJV0VzSHQxSHFW?=
- =?utf-8?B?dGd2VFBlQitlRDlsRjRobEV1aDFpQXUyQzVMUGh2K29JWGh4R3hkbVNEeUNT?=
- =?utf-8?B?bDgwTGtSbDkvaHhacmFQaTU3bC91RVYwNzRQQ3owRitEcUFNaWwxZStpejZO?=
- =?utf-8?B?ZDluRXdYMXFxdkhnZVk4UnJDcjVNSXowSFpFL05PSERjUDBkczg0MnNNVi9N?=
- =?utf-8?B?dE9VVUF1Nm9PcEUydy9yWHdYY0xJbWs3bHdETVUrNUE1UWE1Ylo5MGNvNWc5?=
- =?utf-8?B?eUk2bE9jQnN2eWNQSEFPVzQ4UnhDODhuSjU0R2hIQjBXSnc5MnB1Q2Z4bE9L?=
- =?utf-8?B?WHBXaTFudSs5ZTVtQ05Qd0t3VzhtZW1KRnFsWHY0cFhWU3FmaU85ZzROc2FO?=
- =?utf-8?B?VU92eGpSN3o0VEVjcXBrdTdVV3BZUFNZQ2JSaVZvUkRUaFJYd08walMrTHVq?=
- =?utf-8?B?VzNaQlIwZUVzUFBSZnV2QSt0aVlYeDR5Sis4d3d5a294T1hVcXZ3MnZKdE10?=
- =?utf-8?B?RlpXRUhFTU9nTWZPeDFvZ2JIcnpMcE90OUFRT1JWTVZCODRJdGE0eW9RYWNC?=
- =?utf-8?B?dkRXVHdzVGVyNHAxK09HWVpUeGw5VlI2RFR3cGlVd2g2b3pNUnV2VmQ3ZlY5?=
- =?utf-8?B?Y3hBcTM1YXQ0TldaWFFGWjhJam5TdDFCcjVOckUxUmg1ZDl3YlVsUnVnSzht?=
- =?utf-8?B?OFRKeTlDNmJFdzNJdlc1dDkyOWlKZFdiVzE5eEtaQWRrK2lhVXliQjFIeThM?=
- =?utf-8?B?TmFjbkd5MWhjZC9NaXZZZnR4NGo5THN0U0xmSzBmamRHMG9xUHlnNmM3VU9G?=
- =?utf-8?B?ZURPcnVzeFZicG1BSk1pUUE0d28xU1ZGbGdjaGRlNFZwWmVmRHJQV2R4QXVE?=
- =?utf-8?B?YkdjUGpJR1RxcjhhcEprWXFJd0NGNkpjbVlSR1RHcW0ycmNPa1paVlltd1Bm?=
- =?utf-8?B?VlJmVm8waVp4eFpuTDA4TmZ3cDRoMTUwQkhyNm1iZ0tqNEtzQ1pNOXo3ZmJW?=
- =?utf-8?B?QTRDdVJPY0dmYXVxeXpyeFYxTDBUc2lvc2RJbTJGTHRWamhQOGVQL295aDNq?=
- =?utf-8?B?dDF2K1pZczZlTzdwYjY1WHNDUml3WE84Tlg3Y1Z1dDcydTZJWDRsT1U1VWd4?=
- =?utf-8?B?bjEzSlNnU3VlZXg2QnVkUWFmTkNma0FtM3pwU25YSmFETHJtcEI0aXlncUYy?=
- =?utf-8?B?T0YrSWFwY0c2RUlUVGlJV1oyckxNMjhPTVZKSlVJVnNxbE9iTERGM1lOOXVG?=
- =?utf-8?B?UFBteTNQTXhXMWJIM3ByQ3g4RXBBakhBUkFTKzhMaW9LZTAzdGhHdW1QWWRQ?=
- =?utf-8?B?VDBUV0lkSGUyU213cldrd3UxbmdyekJLcCt5OHBWdjM4SUdxWG9Gay84UFJn?=
- =?utf-8?B?aWJjUUF6T1RubnRNSmZuYzRXVHk5K3pCaTN5STN5b3l0dDlMMXQ2QU5vb1Rl?=
- =?utf-8?B?dEJzNDM3em1rNFA2NlMyY2RkRlhRS0tKVUdEZXFBZ3c1bUNJWm1yR00vSXds?=
- =?utf-8?B?OVpwU3RoM0dWT3VIUDU3VzB0VERhMGptbnlXeUh1cVR1T1U4R0wxaTBuZFZE?=
- =?utf-8?B?RFNTR2lzUjQzTy9oc0kyamp6dGxkVHNwTkRnNy83YVNkOEdUdGYvZWhBZmU4?=
- =?utf-8?B?RzN6VXo2T1BUSnlaalB1aVlkUlZzdm5VT0NNN0FTY082cDE5QmdNSHEvbU9M?=
- =?utf-8?B?dmJremIweDlyT3RwOXRCM3cxWGJFSWxyUWh5VUNjWS9SWFY4ckFGU2tXNElD?=
- =?utf-8?B?cUl3MkM2K3M2MDlIUTZob2hjZ081UGNsOTFsNHdFRW8zSEdDQ3JFRnd6REd5?=
- =?utf-8?B?dW5HejlWNkl4MmJRaGxpeHZ4cXdpRTk2NDlQTjkvdmlWVEFNYWJjUHlsUDlP?=
- =?utf-8?B?RGVtd1htOGJOemF0UGRIejRQQzdGaHE2TWxDRm9MQXV6bkZBbUJPQT09?=
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHCXQErP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 766831F000C0;
+	Mon, 23 Nov 2026 02:31:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795401117;
+	bh=IUIJQRAo4fBf4O9kTiEZ++kZybJm/kjPCJWhtsgVsio=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=fHCXQErP4l+9JJNhZLkPqlmsWIXhTQcRQ5m5quKNcx7hmx18VWpfpAgaCIG2+vfCA
+	 gv3xbpA0Pf6kNwwz8z8M3dp6qPjP9gTHALHcJ8rHPFRp7PNOGoCkpgC1AOFYSzEFwz
+	 3WZ36tNobpF1prMZT9hESf0WHFmQ9vDSMSCeo2HHIeDf/e8Q9pYK1Xm2nR20FuIdXC
+	 N9QXphkd3RbC9edxFjuzbKUwbIfQLxIq9yCfJgpbtUWkOKyJEwX0O9yd4G4hz848Vi
+	 6hada5WJ83fx5nWVd9EHV8OnG0FmXZzMIIAHMXxpbcnIzWcMseyP3QAweALGX2h1q3
+	 d3QiToueanI+g==
+Subject: Re: [PATCH v2] rxrpc: Fix slab-out-of-bounds write in
+ rxrpc_send_ACK() during PMTUD probing
+From: netdev-bot+sashiko@kernel.org
+To: gowtham398gs@gmail.com
+Cc: dhowells@redhat.com, marc.dionne@auristor.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ syzbot+0cd6f4783442ac67b56d@syzkaller.appspotmail.com, horms@kernel.org,
+ linux-afs@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com
+Date: Mon, 23 Nov 2026 02:31:56 +0000
+Message-ID: <179540111601.3135.3449316237387537597@kernel.org>
+In-Reply-To: <20261119021202.525077-1-gowtham398gs@gmail.com>
+References: <20261119021202.525077-1-gowtham398gs@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -159,29 +65,221 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: est.tech
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: da3da05b-c539-4f71-89a9-08df4909c248
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 02:30:37.2806
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YTHWWvmp5i3Yf4D9YOEZvT13s18aCA9kpqBb9BD9EWQPV22uAVFDEg65Zc9abIR0n4TzkpaVPnnTMGem9SCsZA4MMr+mQjAOVpVMOyBA5T0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4P189MB3472
 
-PlN1YmplY3Q6IFtQQVRDSCBuZXRdIHRpcGM6IHZhbGlkYXRlIHBlZXIgYWRkcmVzcyBhdHRyaWJ1
-dGVzIGluIHRpcGNfbmxfcGVlcl9ybSgpDQo+DQo+dGlwY19ubF9wZWVyX3JtKCkgZG9jdW1lbnRz
-IFRJUENfTkxBX05FVF9BRERSIGFuZA0KPlRJUENfTkxBX05FVF9OT0RFSUQgYXMgbXV0dWFsbHkg
-ZXhjbHVzaXZlIHdheXMgdG8gaWRlbnRpZnkgdGhlIHBlZXIgdG8NCj5yZW1vdmUsIGJ1dCBpbXBs
-ZW1lbnRzIHRoZW0gYXMgdHdvIGluZGVwZW5kZW50IGlmLWJsb2NrcyB3aXRoIG5vIGZhbGxiYWNr
-DQo+Y2hlY2suIElmIGEgVElQQ19OTF9QRUVSX1JFTU9WRSBuZXRsaW5rIHJlcXVlc3QgcHJvdmlk
-ZXMgYW4gZW1wdHkgbmVzdGVkDQo+VElQQ19OTEFfTkVUIGF0dHJpYnV0ZSAob3Igb25seSB1bnJl
-bGF0ZWQgVElQQ19OTEFfTkVUXyogYXR0cmlidXRlcyksICdhZGRyJw0KPnJlbWFpbnMgdW5pbml0
-aWFsaXplZCBvbiB0aGUgc3RhY2sgYW5kIGlzIHBhc3NlZCBpbnRvIGluX293bl9ub2RlKCkgYW5k
-DQo+dGlwY19ub2RlX2ZpbmQoKS4gQ29udmVyc2VseSwgaWYgYm90aCBhdHRyaWJ1dGVzIGFyZSBz
-dXBwbGllZCwgdGhlIHNlY29uZA0KPnNpbGVudGx5IG92ZXJ3cml0ZXMgdGhlIGZpcnN0Lg0KPg0K
-PlJldHVybiAtRUlOVkFMIHdoZW4gYm90aCBhdHRyaWJ1dGVzIGFyZSBwcmVzZW50IG9yIHdoZW4g
-bmVpdGhlciBpcyBwcmVzZW50Lg0KDQpSZXZpZXdlZC1ieTogVHVuZyBOZ3V5ZW4gPHR1bmcucXVh
-bmcubmd1eWVuQGVzdC50ZWNoPg0K
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
+
+Critical: 0 · High: 0 · Medium: 1 (2) · Low: 1
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The commit message's root-cause explanation does not match the
+  code.
+- [Low] In rxrpc_send_ACK() (net/rxrpc/output.c), the new comment above
+  'if (len > probe_mtu) goto skip;' says the code will 'skip padding if…
+
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but the patch
+  guards 'peer->if_mtu - peer->hdrsize' against unsigned underflow only…
+- [Medium] This problem wasn't introduced by this patch, but
+  rxrpc_init_peer() (peer_object.c:293) computes 'peer->max_data =…
+
+--
+
+rxrpc: Fix slab-out-of-bounds write in rxrpc_send_ACK() during PMTUD probing
+
+In rxrpc_assess_MTU_size(), this patch guards the if_mtu - hdrsize
+subtraction against unsigned underflow. It also caps the PMTUD upper bound
+to what local->kvec can hold, and sets pmtud_pending only when the link is
+above the 500 byte floor. Separately, the zero-page padding loop in
+rxrpc_send_ACK() is now bounded by ARRAY_SIZE(call->local->kvec).
+
+Closes: https://syzkaller.appspot.com/bug?extid=0cd6f4783442ac67b56d
+
+> As a result, peer->pmtud_bad and peer->pmtud_trial become excessively
+> large. When rxrpc_send_ACK() builds a padded RXRPC_ACK_PING packet for
+> PMTUD probing, it appends PAGE_SIZE zero-page entries to call->local->kvec
+> inside a loop until len reaches probe_mtu.
+
+[ ... ]
+
+> Fix this by guarding the subtraction against unsigned underflow when
+> peer->if_mtu <= peer->hdrsize, clamping pmtud_good, pmtud_bad, and
+> pmtud_trial to the usable payload limit, and only enabling pmtud_pending
+> when the link supports more than the minimum floor.
+
+[Severity: Medium]
+Is this the mechanism behind the syzbot report? Before this patch,
+rxrpc_assess_MTU_size() already capped pmtud_trial:
+
+	peer->max_data		= umin(RXRPC_JUMBO(1), peer->if_mtu - peer->hdrsize);
+	...
+	peer->pmtud_trial	= umin(peer->max_data, peer->pmtud_bad - 1);
+
+RXRPC_JUMBO(1) is 28 + 1412 = 1440. So even if if_mtu - hdrsize
+underflows, the first probe_mtu is at most 1468 and needs only one
+padding kvec.
+
+The only other place where pmtud_trial grows is
+rxrpc_input_probe_for_pmtud(), and it uses signed ints:
+
+	int good, trial, bad, jumbo;
+
+	good  = peer->pmtud_good;
+	trial = peer->pmtud_trial;
+	bad   = peer->pmtud_bad;
+	if (good >= bad - 1) {
+		...
+		return;
+	}
+
+As an int, an underflowed pmtud_bad is <= 0. This check returns at once,
+so trial never grows. rxrpc_adjust_mtu() only ever lowers pmtud_bad and
+pmtud_good.
+
+The kvec_limit clamp also looks like a no-op for normal routes. dst_mtu()
+is limited to IP_MAX_MTU / IP6_MAX_MTU, which is well below the roughly
+180KB needed to overrun 47 kvecs with 4K pages. The commit body never
+mentions this clamp. It is only described in the v2 changelog below the
+"---", which won't be committed.
+
+So the write past local->kvec[] seems to be stopped only by the new
+nr_kv < ARRAY_SIZE(call->local->kvec) check in rxrpc_send_ACK(). A
+backport of just the rxrpc_assess_MTU_size() hunk would not stop the
+reported overflow.
+
+Could the commit message identify what actually made probe_mtu large
+enough to overflow?
+
+Separately, the message says pmtud_good is clamped to the usable payload
+limit, but the code still does:
+
+	peer->pmtud_good	= 500;
+
+When max_mtu is below 500, pmtud_good ends up larger than pmtud_bad.
+Should the description be updated, or is a clamp missing here?
+
+> diff --git a/net/rxrpc/output.c b/net/rxrpc/output.c
+> index 88cad087f13bf..a9d083076a16e 100644
+> --- a/net/rxrpc/output.c
+> +++ b/net/rxrpc/output.c
+> @@ -325,9 +325,19 @@ void rxrpc_send_ACK(struct rxrpc_call *call, u8 ack_reason,
+>  	if (why == rxrpc_propose_ack_ping_for_mtu_probe) {
+>  		size_t probe_mtu = call->peer->pmtud_trial + sizeof(struct rxrpc_wire_header);
+>  
+> +		/*
+> +		 * skip padding if the base ACK packets already meets/exceeds probe_mtu
+> +		 */
+> +
+>  		if (len > probe_mtu)
+>  			goto skip;
+
+[Severity: Low]
+Is this comment accurate? The skip label comes after the transmit:
+
+	trace_rxrpc_send_ack(call, why, ack_reason, ack_serial);
+	rxrpc_send_ack_packet(call, nr_kv, len, ack_serial, why);
+skip:
+	rxrpc_free_ack(call);
+
+So the goto drops the whole ACK, not just the padding.
+
+The "meets" case doesn't match either. When len == probe_mtu the branch
+isn't taken, the loop does nothing, and the ACK is sent.
+
+[ ... ]
+
+> diff --git a/net/rxrpc/peer_object.c b/net/rxrpc/peer_object.c
+> index fa9a406e11683..32b75a7617f99 100644
+> --- a/net/rxrpc/peer_object.c
+> +++ b/net/rxrpc/peer_object.c
+
+[ ... ]
+
+> @@ -207,11 +209,24 @@ void rxrpc_assess_MTU_size(struct rxrpc_local *local, struct rxrpc_peer *peer)
+>  	peer->tx_seg_max = dst->dev->gso_max_segs;
+>  	dst_release(dst);
+>  
+> -	peer->max_data		= umin(RXRPC_JUMBO(1), peer->if_mtu - peer->hdrsize);
+> +	/*
+> +	 * Avoid unsigned underflow if the interface MTU is smaller than the
+> +	 * transport header size (e.g., on virtual interfaces with MTU 0).
+> +	 * Also cap the PMTUD upper bound to what local->kvec can hold when
+> +	 * padding probes with PAGE_SIZE zero pages (3 header/SACK/trailer
+> +	 * kvecs are reserved before the zero-page padding loop).
+> +	 */
+> +
+> +	max_mtu = peer->if_mtu > peer->hdrsize ? peer->if_mtu - peer->hdrsize : 0;
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but the same subtraction is
+still unguarded in two other places, and both put the result on the
+wire. In rxrpc_fill_out_ack():
+
+	if_mtu = call->peer->if_mtu - call->peer->hdrsize;
+	if (call->peer->ackr_adv_pmtud) {
+		max_mtu = umax(call->peer->max_data, rxrpc_rx_mtu);
+	} else {
+		if_mtu = umin(if_mtu, 1444);
+		max_mtu = if_mtu;
+	}
+	...
+	trailer->ifMTU		= htonl(if_mtu);
+
+The connection-level final ACK in rxrpc_conn_retransmit_call() in
+conn_event.c does the same computation and fills trailer.ifMTU from it.
+
+The new comment says if_mtu <= hdrsize can happen. In that case both
+sites wrap to about 0xFFFFFFxx. With ackr_adv_pmtud set, ifMTU tells the
+peer roughly 4G. Otherwise the ACK advertises 1444 for an interface that
+rxrpc_assess_MTU_size() now treats as having no usable payload.
+
+Should these sites use the same guard, so all three agree on the value?
+
+> +	kvec_limit = (ARRAY_SIZE(local->kvec) - 3) * PAGE_SIZE -
+> +		     sizeof(struct rxrpc_wire_header);
+> +	max_mtu = umin(max_mtu, kvec_limit);
+> +
+> +	peer->max_data		= umin(RXRPC_JUMBO(1), max_mtu);
+
+[Severity: Medium]
+This is a pre-existing issue, but this clamped assignment is skipped if
+the route lookup fails earlier in rxrpc_assess_MTU_size(). By that point
+peer->max_data may already have underflowed.
+
+rxrpc_init_peer() runs while if_mtu is still 0 from kzalloc:
+
+	peer->hdrsize += sizeof(struct rxrpc_wire_header);
+	peer->max_data = peer->if_mtu - peer->hdrsize;
+
+So max_data starts out near 0xFFFFFFC8. The fallback at the top of
+rxrpc_assess_MTU_size() never fires for that value:
+
+	peer->if_mtu = 1500;
+	if (peer->max_data < peer->if_mtu - peer->hdrsize) {
+		...
+		peer->max_data = peer->if_mtu - peer->hdrsize;
+	}
+
+If hdrsize > 1500, the right-hand side wraps too.
+
+If ip_route_output_ports() or ip6_route_output() then fails, the function
+returns with max_data still near UINT_MAX. It stays there until an ACK
+trailer or an ICMP message lowers it.
+
+In that case pmtud_pending stays false, so this can't reach the kvec
+overflow. But with ackr_adv_pmtud set, rxrpc_fill_out_ack() advertises
+maxMTU = umax(max_data, rxrpc_rx_mtu). And the DF test in
+rxrpc_send_data_packet() can never be true:
+
+	len >= sizeof(struct rxrpc_wire_header) + call->peer->max_data) {
+
+Would it make sense to also give max_data a safe initial value in
+rxrpc_init_peer()?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119021202.525077-1-gowtham398gs%40gmail.com
