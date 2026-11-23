@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459595;
-	b=2JACWFoWjfkcfLNETBeZgOqP0WPXYMwdKpaiuXVxRKtvLXVNY8TjtTiAcNxe1N6rzzai
-	 ih/I0Xo7ZAFFJZ5S1pr3XgxocO2BV6gZgSjx2gWkPufkKHDY+LihVnIhuf2LIv7E3bHc1
-	 VH2OU5qGfJnHu2pCVcdum0i41lgnknp32B0gPc9Z/gDBdY2+fQ7/T9IyBPD8eQSNSYaKc
-	 t9iI6CWm71Yl2gNWdf97qpA6NcH0eAtLDGVxzfgdSJAc8uuHIl/vVIqiFu45wofuWAOdp
-	 PxvgM3cQOT1LGAEcQWDGu6URXanr+KzFUpZ9z4b3efquF4MwaFAJ+RNcGVjfQOVOf/w==
+	t=1795459596;
+	b=ELeYZsUG599vC48IoGp7MofWgnk+Y7QoRYLRnbY10VbLGb6YDCH2Z9siORjNwKN9xkbd
+	 U1oAnnH+69d7vH/Lu5/i9jOOQS77Wgp/lYOFxxUeW141H0Nv+cvPnF6mBcZQTj1Y87hc2
+	 fmMVMfPeoVQG4hQSdRwWuMQ+TpfLEYYtlFahPM6Nl80724rxL3UUhIb4TrV4jgDGZ9cjc
+	 PzUpr6Cboooew00CjBf+KSLdCBnmsrg4iGdkZFXzsksvajSRg92lBuvesGtRrKYIihDDO
+	 Gdsfq4yclqoR/ON+K1dPS40WHEG4L5iOEzWPJNP+yfHBKxcscNuPtUclMt0gH/NjYmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459595;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459596;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Bkb0N53UI7VBpm+nTdtNNJG0XnBjw0Wvm9W/e9w13+Y=;
-	b=MOBn3T9SmhAZI1OOlScZE0rVO0IltLISD+LYccVI7gH3RlwrTrmWI+hH4RpuvtEslYul
-	 9rZB5XE2ZsJlzkJXH1VzyyGXivlWIgbW2J31mU2TNODZCYsU0ivsxZdtVR7bJQqXxeU9v
-	 xKgWWWC+8ZPjbxkHELccmT1EAsqcI72b7BNmIG9WAhqNPXDjo7ySDpJGwyWlJELSxobKN
-	 IeHhTXFWQQhEBkSFzUuH3JfgLSk2GYI6XQZGzDmw4r3CDJxzrz/kmLPDVg/Ne8zX41alr
-	 XPwayNJNAyOR6KSa+wX9iXWdWyg5TBiL2d9BHgZaQwCplKWEAC9b8ZQUxP3UMSoQsjg==
+	bh=000l8wx5L/kXs85hi530hSpUh858866LKA6/wEQ6zqk=;
+	b=ku1uYC0/YHDDi3NwRzYDoxzUdr0xGA567l+B8booWD0kOiMHwNKmV9KhPsNfp/ZpYZWZ
+	 pUEHJS3dIZvnEw2IqRnRyVpMbsACLBGczlIlnZgixqnvYG7cXqFsWcK72N957v3a/KF07
+	 uTDrmtlvu/nnGVhjK68gP3oKcmHtbvQvlaWMMkP1Z7l3AU3JOflt2J/2pmqYkxNXK4xcW
+	 T+hHOKAk94U97Js+c/Z4B5sfDpdpdSgojL6UpO752NvjLFYLhRCB4ASV3LEhfShzx5bUn
+	 2JPVx2UpZCSFdU4wMk6ALpWpWG55GcCT3sEJtu7jdlT9aIgqGTA3rVX8iEpmUTa5VLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BNQfX4Mx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eG+lDG+O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84D3F606A333
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:46:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF7E2606A32A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:46:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BNQfX4Mx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E20A1F000C4;
-	Mon, 23 Nov 2026 18:46:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eG+lDG+O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDD111F000C0;
+	Mon, 23 Nov 2026 18:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459594;
-	bh=Bkb0N53UI7VBpm+nTdtNNJG0XnBjw0Wvm9W/e9w13+Y=;
+	s=k20260515; t=1795459596;
+	bh=000l8wx5L/kXs85hi530hSpUh858866LKA6/wEQ6zqk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BNQfX4Mx5HWRBo/mSVupQpWPRvhYZ3XrVrrI9N4pkskVYv4GGmv7SHy948801Uuok
-	 ICkdvaWQIdjVejjxs3l/wv3l9k0X/s5Ld23oblmQQc6xo0C6+hdkHyZzT4mBYyjSzE
-	 Yx+zz6YlvKrjya9CvhG9FezlPfmL/Nn5oOe+orlgj9HMO9CuOesg5n3+JK3dil/BOL
-	 tU20ytBR7m032suOSzO737eoGxxK5jnia0NT87Rayj8FFD64cPgXdWr3aSBz38foFr
-	 1Ci7y9eiI+oJD5F+exC5qKB66rbTtyi5Gd70G8SP1svY5oWoCX7Slmapwo9WbnQ4Po
-	 S3fr3qZxdid4g==
-Subject: Re: [PATCH v5 net-next 05/13] selftests: xsk: split xskxceiver main()
- into setup, run and cleanup
+	b=eG+lDG+OcTtIp+tbt6RbD5tZcHSgrvOFF4zH0q1y2JXMrSZcM9pbydFyLS0H1Gq2J
+	 P7orE9FqyLeYf4CfsF3z54tX0hc42OLjd/JtBORF0vuMzI4ZyUKs+IAVvd6WxyALpQ
+	 2fTDRscvhTLy41qpos/b82vxmOdpqvfU/eCfScrib49DMMct89UhK5C0pjJpBjU57p
+	 dj2sgmOpl3GPxgKe59TmdDfgrUYsDc4d33kk8aJYCw/W4ugHpr07ehGPxDF2By/Q4J
+	 kcH8tH6fWxji34UirJ2RxGGZu8+Ha8ElFeQnSH5vaLlulRMjWrlm0IiMWa0c0vw9jq
+	 /br89nXdpalnw==
+Subject: Re: [PATCH v5 net-next 06/13] selftests: xsk: run one test case per
+ xskxceiver invocation
 From: netdev-bot+sashiko@kernel.org
 To: maciej.fijalkowski@intel.com
 Cc: netdev@vger.kernel.org, magnus.karlsson@intel.com, stfomichev@gmail.com,
  kuba@kernel.org, pabeni@redhat.com, tushar.vyavahare@intel.com,
  kerneljasonxing@gmail.com, bjorn@kernel.org
-Date: Mon, 23 Nov 2026 18:46:34 +0000
-Message-ID: <179545959409.3135.16751084893051998673@kernel.org>
-In-Reply-To: <20261119164636.1071385-6-maciej.fijalkowski@intel.com>
-References: <20261119164636.1071385-6-maciej.fijalkowski@intel.com>
+Date: Mon, 23 Nov 2026 18:46:35 +0000
+Message-ID: <179545959547.3135.15027004543719425053@kernel.org>
+In-Reply-To: <20261119164636.1071385-7-maciej.fijalkowski@intel.com>
+References: <20261119164636.1071385-7-maciej.fijalkowski@intel.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,82 +70,72 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] cleanup_iface() in
-  tools/testing/selftests/net/lib/xsk/xskxceiver.c decides whether to…
+- [Low] At this commit, test_xsk.sh and xsk_prereqs.sh are deleted, and
+  the xskxceiver.c header and the lib/Makefile XSK_SRCS comment point at…
 
 --
 
-selftests: xsk: split xskxceiver main() into setup, run and cleanup
+selftests: xsk: run one test case per xskxceiver invocation
 
-This commit restructures xskxceiver main() into separate setup, run and
-cleanup steps, in preparation for running one endpoint per process. It
-adds bind_iface(), detect_mode_caps(), mode_supported() and
-cleanup_iface(), and makes run_pkt_test() return its result. It also
-calls ksft_print_header() right after the command line is parsed.
+This commit changes xskxceiver to run exactly one test case in one mode
+per invocation. It now requires -m and -t, and it skips unsupported modes
+instead of exiting with XFAIL. It also removes test_xsk.sh and
+xsk_prereqs.sh, and points the comments at drivers/net/xsk.py, which a
+later patch in the series adds.
 
+> diff --git a/tools/testing/selftests/net/lib/Makefile b/tools/testing/selftests/net/lib/Makefile
+> index 0a6cd733883d1..84e3d220d5aa2 100644
+> --- a/tools/testing/selftests/net/lib/Makefile
+> +++ b/tools/testing/selftests/net/lib/Makefile
+> @@ -35,7 +35,7 @@ include ../../lib.mk
+>  BPF_PROG_DIRS := xsk
+>  include ../bpf.mk
+>  
+> -# AF_XDP test engine used by net/test_xsk.sh.
+> +# AF_XDP test engine used by drivers/net/xsk.py.
+>  XSK_SRCS := $(filter-out %.bpf.c,$(wildcard xsk/*.c)) \
+>  	$(top_srcdir)/tools/lib/find_bit.c
+>  
 > diff --git a/tools/testing/selftests/net/lib/xsk/xskxceiver.c b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-> index d82224a4fa4b0..97eece4c57f89 100644
+> index 97eece4c57f89..b72e9332bf705 100644
 > --- a/tools/testing/selftests/net/lib/xsk/xskxceiver.c
 > +++ b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-
-[ ... ]
-
-> +static void cleanup_iface(struct ifobject *ifobj)
-> +{
-> +	if (ifobj->xdp_prog)
-> +		xsk_detach_xdp_program(ifobj->ifindex,
-> +				       mode_to_xdp_flags(ifobj->mode));
-> +	xsk_unload_xdp_programs(ifobj);
->  }
+> @@ -6,7 +6,7 @@
+>   * Linux kernel samples/bpf/xdpsock* and modified
+>   * for use.
+>   *
+> - * See test_xsk.sh for detailed information on test topology
+> + * See drivers/net/xsk.py for detailed information on test topology
+>   * and prerequisite network setup.
 
 [Severity: Low]
-Can a DRV mode program stay attached to the netdev after xskxceiver exits?
+At this commit, tools/testing/selftests/drivers/net/xsk.py does not exist
+yet. That means this header comment and the XSK_SRCS comment in
+lib/Makefile both name a file that is not in the tree.
 
-cleanup_iface() only uses ifobj->xdp_prog and ifobj->mode to decide
-whether to detach and which flags to pass. xsk_reattach_xdp() in
-test_xsk.c attaches the program first and updates those fields only after
-the DRV mode check passes:
+With test_xsk.sh and xsk_prereqs.sh removed, nothing in the tree creates
+the veth pair or applies the busy-poll tuning that setup_vethPairs() did
+in the deleted test_xsk.sh:
 
-tools/testing/selftests/net/lib/xsk/test_xsk.c:xsk_reattach_xdp() {
-    ...
-	err = xsk_attach_xdp_program(xdp_prog, ifobj->ifindex, mode_to_xdp_flags(mode));
-	if (err) {
-		...
-	}
+	ip link add ${VETH0} numtxqueues 4 numrxqueues 4 type veth peer name ${VETH1} numtxqueues 4 numrxqueues 4
+	...
+	echo 2 > /sys/class/net/${VETH0}/napi_defer_hard_irqs
+	echo 200000 > /sys/class/net/${VETH0}/gro_flush_timeout
 
-	if (ifobj->mode != mode && (mode == TEST_MODE_DRV || mode == TEST_MODE_ZC))
-		if (!xsk_is_in_mode(ifobj->ifindex, XDP_FLAGS_DRV_MODE)) {
-			ksft_print_msg("ERROR: XDP prog not in DRV mode\n");
-			return -EINVAL;
-		}
+Is it intended that checking out or bisecting to this commit leaves no
+in-tree way to run the AF_XDP cases?
 
-	ifobj->xdp_prog = xdp_prog;
-	ifobj->xskmap = xskmap;
-	ifobj->mode = mode;
-    ...
-}
+The commit message says that test_xsk.sh was in TEST_PROGS_EXTENDED, so
+the default run_tests loses no test. A later patch in the series,
+"selftests: drv-net: run the AF_XDP tests over veth or a NIC", adds
+drivers/net/xsk.py. That runner sets up the veth pair through
+NetDrvEpEnv(veth_test=True) and repeats the busy-poll tuning in
+_setup_busy_poll(). The old IPv6 disable step is no longer needed,
+because the programs in xsk_xdp_progs.bpf.c redirect only test packets and
+return XDP_PASS for everything else.
 
-If the attach succeeds but xsk_is_in_mode() returns false, for example
-because bpf_xdp_query() fails, the program stays attached in native mode
-and the bookkeeping is never updated.
-
-On a first attach, ifobj->xdp_prog is still NULL, so cleanup_iface()
-skips the detach. If the interface was in SKB mode before,
-cleanup_iface() detaches with XDP_FLAGS_SKB_MODE, which leaves the
-native program in place.
-
-Because bpf_xdp_attach() is a netlink attach, the program outlives the
-process. The commit message says cleanup_iface() "copes with partially
-initialized objects" and takes flags "so that they match the attach".
-This partial attach state doesn't seem to be covered by either.
-
-The same code is still there at the end of the series. Each process then
-runs a single test, so no later reattach in that process can correct the
-fields.
-
-Would it make sense to record the program and mode in ifobj right after
-xsk_attach_xdp_program() succeeds, or to detach with the requested flags
-on that error path?
+Could the comments here say that drivers/net/xsk.py is added later in the
+series, or could the new runner land before the old script is removed?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119164636.1071385-1-maciej.fijalkowski%40intel.com
