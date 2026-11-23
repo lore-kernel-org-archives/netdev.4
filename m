@@ -1,86 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795399072;
-	b=sYhWsvTePfEYzuJslp60nvV+telxq5GMvheKRJXIYpRO9SbGLlAUnd1N+UzrgJ7yHdAt
-	 gWtfcAXsZrQioiwBOnQKE9vkFup3sbAYIVSq+SnVbiwNOnny7sFIkJkBDklZeQE5xTXiy
-	 HpP2c2mNrMZZ4CzozVXOrUmCQGO5lt2N+fZgq1HXBST8/mrIzs8UtNC//c6eBz9FrHvEZ
-	 CGY5VAdpDiVr6W6vXugvALB2kg171HBLjY7RcyPWAADcw6ncZsxX1wXUP4pSsC80Wn+dK
-	 v3EpCVm0CeKLCqtZ83n7VmrYUVjHnTNv5MWL+cYFB4D7iFnBJafPpZ00Si0Yt5F2/cQ==
+	t=1795399076;
+	b=1S/UUvzeLZQbUNGdInqIDZVP/LdNSvui4eBJ84aaO0Bt4Vf5TQXvkwsZCBQs4E9Cu2xC
+	 33uot+xyUqSZZVO49Zx6dQ+hUWDCJETnblaA1q5JZMrKYX7rlSXAJOff7icgWQsTlxxzf
+	 b3U/Ff1Req9HrvH0w2I+kHQEPb5k8yeqoKjLMgIbki9HBPtFrKGPB8osvELViO1/i3NKZ
+	 FS/pMB92uJW0Q6NkznEKqpeHTXyd1EPOPfdrx9gZOjzC6IsoA+KMpPo0GXjQxtRT42m3n
+	 jMtXt8lJQkVz122cdfFf3NK5nTwqLDKgjbN264FdKOBjI/TqB0o+cQRao7+W2WB+HFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795399072;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399076;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=wM7T3AJod4EBmTcKF7LzaZRbntzoK6ZSjCdw0P7V9/8=;
-	b=uFFblBiSIMAULmt4tdtgFDEu18i4hHRLj3OB0/SQk1j+rsTTxedXhaVdNNOO12Y4NZf4
-	 MFmyVjeHtYtmqLDSsqdRfUtTRPlCJnAFqUI/XttdJ7fXl10uPmg03zddy4AGz/4Cx+ZqO
-	 15+JAmIBQBoCE0eFZArrIcWlaPb+vuRvFjF9zH6RPY6KnmwuzKh14VaFUO09fYlmESkgx
-	 BkFaYnBKcHMq4MKcO/ZhiW9TOKJPLNs3zeSJdsQ1sQwWJwZg2EmwcO8qe6JEouP7HoBCQ
-	 gQG+zEcslKts56CwAx8/Zt24V5kP9XCQk0/w4CWLjNzKFVMZeF37WOtP5vKAOKheFOw==
+	bh=gBPiLOtNZeBXo1sS6gvc5aCt3HRWWKLxlMmOVRtMx0A=;
+	b=d0qShn8IRz1FYTsaaxEJHdgWrxzmsDvqKz9g6y4DU+e3z87F+vmFsyRkiHB0MOK/240N
+	 xY0WkCfmz3T1ANtnrgsGNQLTefmr2s9PCPHo2F6R3rbSPw9H7inH9d9JrLs5lENergOGg
+	 j1UdF432z5tNLPHxHXm5yFCl9q4NZvYbU1sBaoHrH4czRM4D+MZvkoSF1NhdRt949RgGj
+	 MJAnqKmApbdiQlPwJuGexN/7RNslG8HpFI6WSb0zhGYSF09aiFitbeo/RTQ08SMRolPpt
+	 iC8ngxVOm11g64PQa10mTixfBzOq3WkvBp87sq9RghR3GG0VYbduUI3tlPmNKz0xt8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XAIBn9Nf;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="qlJ3D3S/";
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 335B0606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 335B0606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F21AA606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F21AA606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XAIBn9Nf
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-36a315ed211so3574542eec.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qlJ3D3S/
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a2761c69fbso1076374c88.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795399071; x=1796003871; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795399075; x=1796003875; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wM7T3AJod4EBmTcKF7LzaZRbntzoK6ZSjCdw0P7V9/8=;
-        b=XAIBn9NfPG5z1dR4weIWq+BXD0KqpxWIbswxq/foRuS+Enfu+1cNzuILKGZMpLcJAo
-         kvme9Jgq1/1Yd6exe0rRKh5JR+zkn3Ehc1+TOPhVUEXKz3V8OLKch71AH0T43H1Wf1tT
-         BT0eaDCfYnZky1pvSBnyUaC7ETuyUf0dplWICHIJZ31Kjp5ev76zbdrfMPnsCHGUueaC
-         nsEoC5AvKThV9gcnMeKMzcoXD2jKQTy6Gvn4M0uX24Xup0BUiN/QQX6n6EY+P5Wlm092
-         BeQAvIYOHEGOCWKLak2znSkHNl5MMUCMZ0Yhb5Y8+IQJ1IbL9kCuDlWkk3siiwoMSLa+
-         Otmg==
+        bh=gBPiLOtNZeBXo1sS6gvc5aCt3HRWWKLxlMmOVRtMx0A=;
+        b=qlJ3D3S/4NRA83UA+Qxx0MV84j0g+9vascEwywrwZ98lePSCrV09t7h4sog4sC7bKz
+         ZR22Hb9QGGsrTxQ26CiJnZJHkZpZ8vaj40X5pV6/dx78VhOXSE+0d8LDHial+3Lb5Dbz
+         nUV7WjZLT1kfjkBqETuVhbyMPMTjP/XmYy9ywTQPA79Mm8E5n1KxvadHpZMqjUGRGx85
+         D9C4iUk9OkbzSzr5299YalI0JobHRWE9IzgERW67oZJBKsSQjOxD8ZjK1B6i+NXiDqHL
+         Fzxr103j+hQ4lpHo7tJhm2s8ZmgtinatIQWSzRDKLlga26a1BhENDUz6JIuKq5rNEoKy
+         I/Ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795399071; x=1796003871;
+        d=1e100.net; s=20260707; t=1795399075; x=1796003875;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wM7T3AJod4EBmTcKF7LzaZRbntzoK6ZSjCdw0P7V9/8=;
-        b=a+QwX6coW/frWQotkVIPT+ik284WEajiwwQbPLOFJ84H6O92zcU37eLkHXJIrNiLpG
-         tKvN0ld1TfHPqoYrBIEeTMyAHZGHk+3UuFcspbtPjSBbDg3yq827PFhj+OlZ1qJswXf0
-         g02vbivS/g5oWqLlLSCxEEO4dqHjjfKWrf5qWcytGvCzLefZX5rO296yjVI8tvR2OYu/
-         XeGiosbpY9gt3hD/ZHuwNmQT777KGKVvGCI5JXsQXf83Tqwlz6o8DkEZqHjp2gCxot5y
-         dWHVOSoQkKekSJaXilaC+KyG9w4LbOAdJm1P8i4HhjPbS9f3BW1QAHba/zxRArOk8rbQ
-         YRtA==
-X-Gm-Message-State: APuU4Z9Dw5emeIF9nYx8WP51TvWUWaV2up6k9GqAuAXMIKcUPs299tfG
-	31ecU4rgHK+CDTqCMfwG+U3HwaZJY9rKte/TCTV6/DjUHZ0uHyqQw1YskiMgj2UY
-X-Gm-Gg: AZFdTZeldNutq2LkSiiyHys1/l2QDM3/aAi+dUbc0J3RO/+iEWwkp7Ud4UA26JF+nly
-	71ki6dbSX7TNQyYg+GH25spCd6BUaSvwrnQ8vIE4RA/b3pzN6YJFq2i3XOqkPtRSDKzVSBE9hlP
-	78WTNyeSgiAQQchzQyc/Fmyx7UaW5h9Hg76XC/PbLbOLkTLbNX1V3Nt/NmT3shZ7Q2IRVrcS6pc
-	mFZA4EEtxowePnTmBi6i9r3DSpoqYDJ3XHMygMunqmqXWUzDfbDCUdSvUSwGqXrRjk0FfHGpEDF
-	2oEgv3EAJ4rxoYCRw1chbq/uACWjrUJsNilCRCk6ItK/GdHiogt1C4/bsmhqFoxn9JDhzxKb3Wj
-	pDf8uB8sqX4Hbci7+ZUC3nQ2eab3qrrrARimXiS4a1o61WtkLWL9tmgTC34uEjygsaClPsIM/KE
-	lZFMClTLO7Ge9GRXcbyfoY/LDjBWJRvCEakLYIpNL4HGuuiv2N9fO8wGotRmA8xSldSj06WwC3l
-	Wznel4dmayNlZEr5ui8/FEKbVZTeNSct76wVIai8Q11e8dPFmhhdqhNlTq9kVaaNenq5cvzoU6G
-	rooFTnlEdBH1ssjkjxzs6QyqcwJoo/5X5nolrzwMk/ujwnwKCccCm2hjt9V5sNyCjNdpDBwLN/Q
-	qxs64vOlErfhPfH/sqWP54jVBQupuVKkVqa1fg8HdndIQnSZKSORplHF2k6cfUKCeetOYdcKy
-X-Received: by 2002:a05:7301:b8c:b0:36a:2f6c:490e with SMTP id 5a478bee46e88-384b3986ef2mr12977042eec.6.1795399071276;
-        Sun, 22 Nov 2026 17:57:51 -0800 (PST)
+        bh=gBPiLOtNZeBXo1sS6gvc5aCt3HRWWKLxlMmOVRtMx0A=;
+        b=aJyhjDpy4fiLllufjqlyRLABCNdsNf5V5/JnJfmnEbL6axZged2+a/KCf2cmIUlbWa
+         27HYFOu7ius6m75PH4N+y1r2VFac4S8QOlRmGR1zWQ4P2slKJoEli5X28z44tH37d9M7
+         nA0xcNS3G328fAdMbo7uJiF3Y0GaTzt9XawgWV15+7oOENYxbccZmLE9TX9lSVuBSYEj
+         82oK583T7Fey8SoGLCjX/VsMK3z8W3yjYFlKBqpUs9WvhtYV6FL9aTWoFJoiLnqD6drB
+         lfWCwfDUPpxF0XnaeEDgtlflkUY4pvN9ejElfWm+nyyaNe4IOTHf+ehMjX13LzP6/EWK
+         wsjw==
+X-Gm-Message-State: APuU4Z+AZX8A1p/bHp55DAjwtDLUtSalqEAAz4MQn3sxRN9g4LX0TtF6
+	LFII7unD46QnzjlCSGI3d+kX6Kd379lsMTdj0Vc3tzSZxvINomgegcakfbiZCAru
+X-Gm-Gg: AZFdTZcMfna6v0z6gdZkKIYDy4gETjkRzFGz0C1O4o9nKh3SWeSaRDY7JIZESa1l8HI
+	HYZvL948trhgqi2y1D0IproCDV04BZ7QGssdWOI/fXdmInjjH6gAQwoT8rZtWmrOMQlf/3XBqvO
+	FwENY7LqPUNxHjAYBnBc1bkmbxAsFa1fDuy9xRAkKjF+AOvtw/EJ1XFqW1WQUIIjyelg6ZWlzoa
+	UhXHz29AyBvFVpkVdmSPQJZxv/1WGPHkpxtM7cvgCqsUcYDgV7pWzt7OKPsGuZXfzEFK63BUv+x
+	FsQixYA1qjB6j/chREVpF6GPb+w+5mQiqFiXfC2UVPQvlO/8tmDZ1j3DznSUsQr5uCkoTYh3Az+
+	rGQMJE+VWHrRekGLVNnd5f2aiW3e/yGcPhbQJzLowJBqirFjwHqCPQjY3MtwmYru1ghkpx8F6pu
+	03E+APhtLnaXZsTZMlnX73o9xTZNpDMGsO1lAinzvvKUT+2f5eeBFVfSz/Mc7ENQGQH4T+527ph
+	wqBRNELihDJyBJKrSFaC1TPxhNN47fUmPqc5+RSARXsArCno+FBtEtZxYfYZW4HuHTwVFO7RZO4
+	LcfV6v2KU6CqUdyjgXjV+yjepb0axe/rd/PtA6mDcYb4Lu1qsRHMdSPRz+sNnot4W4dafVdwt+g
+	lkbfbHq3CX29VNyG9Vg+h4VsDvD4DLpe2yiNNKR1fPJ3oCcB+kSToeTi3kCnvSZIr94Gu3RBC
+X-Received: by 2002:a05:7022:3f0d:b0:1b5:3aca:8116 with SMTP id a92af1059eb24-1b55690bcfemr10183202c88.33.1795399074946;
+        Sun, 22 Nov 2026 17:57:54 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm28493736eec.16.2026.11.22.17.57.50
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm23923285c88.1.2026.11.22.17.57.53
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 17:57:50 -0800 (PST)
+        Sun, 22 Nov 2026 17:57:54 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: netdev@vger.kernel.org,
+	andrew+netdev@lunn.ch,
 	arkadiusz.kubalewski@intel.com,
 	davem@davemloft.net,
 	edumazet@kernel.org,
@@ -89,13 +90,12 @@ Cc: andrew+netdev@lunn.ch,
 	pabeni@redhat.com,
 	richardcochran@gmail.com,
 	rmk+kernel@armlinux.org.uk,
-	vadim.fedorenko@linux.dev,
 	vladimir.oltean@nxp.com
-Subject: [PATCH net v4 5/5] ptp: ocp: correct the ART 10 MHz input frequency
-Date: Sun, 22 Nov 2026 17:57:48 -0800
-Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-5-ahmadexp@gmail.com>
-In-Reply-To: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
-References: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
+Subject: Re: [PATCH net v3 1/4] ptp: disable all timestamp channels after removing the user interfaces
+Date: Sun, 22 Nov 2026 17:57:52 -0800
+Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-r1-ahmadexp@gmail.com>
+In-Reply-To: <08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev>
+References: <20261120-timecard-common-v3-33316bf475-0-ahmadexp@gmail.com> <20261120-timecard-common-v3-33316bf475-1-ahmadexp@gmail.com> <08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,48 +107,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The ART input selector named 10Mhz has a frequency of 1000000 Hz instead
-of 10000000 Hz. ART pins advertise 10 MHz, not 1 MHz. A request for the
-advertised value passes the DPLL core's supported-frequency check but
-matches no input selector, so frequency_set returns -EINVAL. Reading
-the default ART input selector 0x08 reports the unadvertised 1 MHz value.
+On Sun, 22 Nov 2026 at 20:10:55 +0000, Vadim Fedorenko wrote:
+> > +	/* EXTTS requests do not require a pin assignment. */
+> > +	for (i = 0; i < info->n_ext_ts; i++)
+> > +		ptp_disable_pinfunc(info, PTP_PF_EXTTS, i);
+> I thought we have agreed that time stampers and pins are different beasties.
+> Still you provide time stamper index to pin function...
 
-Use 10000000 Hz for the ART input selector, matching the advertised
-frequency and the corresponding ART output entry.
+You're right. We agreed to keep timestamp channels separate from pin
+configuration, and v3 still blurred that distinction by using the pin
+helper. Sorry for not carrying that through consistently.
 
-Tests using the actual ART accessors, stubbed registers and DPLL core
-frequency validation reproduce both failures and pass with the fix
-under ASan/UBSan. No physical ART card was tested.
+In the v4 revision, the loop issues a timestamp-channel disable
+request directly:
 
-The issue was reported by the Sashiko review. Codex assisted with the
-table correction, actual-accessor regression tests and the changelog.
+	for (i = 0; i < info->n_ext_ts; i++) {
+		struct ptp_clock_request req = {
+			.type = PTP_CLK_REQ_EXTTS,
+			.extts.index = i,
+		};
 
-Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-Link: https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
-Link: https://lore.kernel.org/r/179538007070.3135.8275620503580456948@kernel.org
-Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
----
-New in v4, kept separate from the unchanged DCF correction.
+		info->enable(info, &req, 0);
+	}
 
-Testing: actual ART init/set/get functions plus the actual DPLL core
-frequency validation and get-before-set functions. A literal 10000000 Hz
-request succeeds; 1000000 is rejected; the fixed 0x08 default reports
-10000000. The old source and the one-MHz mutation fail runtime assertions.
-The test uses stubbed registers, not an ART card.
+ptp_disable_pinfunc() is unchanged and stays in the pin-configuration
+path. Teardown neither reads nor changes pin assignments. It disables
+every advertised timestamp channel, including unassigned channels and
+clocks with no pins, then disables the PPS subscription. It retains the
+existing core ordering after the user interfaces have been removed and
+active operations drained, with no new driver stopping flag or lock.
+The shared-PPS final disable still masks, flushes and drains the IRQ.
 
- drivers/ptp/ptp_ocp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I reran the source-derived removal/shared-PPS suite 100 times, covering
+six channels, zero/unassigned pins, absent channels, late and in-flight
+requests, both subscription orders and active IRQ draining. The five
+core registration/unregistration KUnit cases also pass in QEMU with
+KASAN and lockdep. These are software tests, not a new physical-card run.
 
-diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 821ecd1a13c8..93923d5a2992 100644
---- a/drivers/ptp/ptp_ocp.c
-+++ b/drivers/ptp/ptp_ocp.c
-@@ -1385,7 +1385,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
- 
- static const struct ocp_selector ptp_ocp_art_sma_in[] = {
- 	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
--	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-+	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 10000000 },
- 	{ }
- };
- 
+Thank you for insisting on the distinction. The revised code now makes
+it explicit rather than relying on a pin-named helper for channel work.
+
+The five-patch v4 series is posted separately to net:
+https://lore.kernel.org/r/20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com
+
+Ahmad
