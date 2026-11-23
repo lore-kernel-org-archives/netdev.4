@@ -1,72 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440350;
-	b=fbdZh4VzIe3d6ryMf8ojk8htv9y4aHzS8dnxPwsHL5EtFFG4Ey9fAgZUXHGCiDQfevr1
-	 JymWShnN+2EpLMrrJu5IPktPb9jgXFjMoIDmHWqdPQ/wZQyvq225s/Wm3IBhFhiBpH3PC
-	 ZkMD3E/Ia5gEv2kLHKoWfXI6Hh5tOKfGNhVOXshJ+y9pTw375OmJZ2mE84bJ6W75HuSWH
-	 Vj1atV/faXVFhjel5XLICf7SvoHDu+cR6uCQ7B7urUTnSP515U56KuHJnYLAw4deZka9j
-	 824OK6kUihRWNFxkywLzegPwTIy6h4ps0HosTpwY1btEW1Vtt51Wg5MJUlv3Vpk5L1w==
+	t=1795440352;
+	b=uxPiiR3A9vJJSYdA2PqqpfdYsKHMJiI0MjbUBamHgbCC+c0BuS8O52m9Su9wv5/fXuzx
+	 CheAjn83WyJHln/Ps0BtBM2rAjibdgPY8KCuErKe8nZlX/1fbeTDOq76Fo37dvgYTmF00
+	 acn0x+EuG8sybHvASZe1lSooUrQvu0FLiuBYiky45QxUxkxw1EnhgqNMjE76m2Ejtt+jp
+	 S6R6pUvUK6hQcumyjifVdfMhfYEPEasTUVPqhnsK4a8bHLoO16zUFYBgwQ3D+n3HYm4fN
+	 15XhJfRxwfYz0W5nrbkkYFE09LqxVQGJeZpbyeVGfEwXyT4JKIMmbWwLpTKBXY1auIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440350;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=DBCFU9vOrJdstCRij3rT/Hl2Y7D7MQX+Hld/OsjMT7U=;
-	b=A6Gaa4mYVQr7hiUfd9EcHl6vb/V3v07Hm77JjTFL0azlFICb6yGBtKUvDotPKpr4B1ZQ
-	 1l4o9/7NZzpmce59nqq0sJPONVl7RgZkVZ45OccYgWCNlXjBkHUws2VWDCPQ5xgr1H/mm
-	 1nTSo4eTTRUMUrO7E5/tgGGaM/ZHkp2jR6+h/6+TDdRtMt0+X+haetZfJydUzmvhVk47/
-	 1JHZPGJR8tC64gVhtk9atYwGuk3CXfnC2elaTsaIHny05ZPf/E6vSff/aP61FxSUwMyTD
-	 tqnYizXwPV7rTtiLfMTfSxMMb0oseqk0NjZF+eZUQw6ZXqDoj6JkGnQ9PLgBwCOW03A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440352;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=agZbsxC8XRUaliCdELdXroftudvx5Dzam1Cf9BBH+64=;
+	b=SUzfCRulywrFsnkinA/3GRBxaQJ3Hp1EdlsiLAmZOd2UlTmZSGkfcFKU7F9QhtTUXfWI
+	 P3+hgUlw+ZPVo7KQ3nYy8jPttK+9C6c/mUnHyJBO1wFaZ6m8s7RkfLEfNvKU/9QTz0dBJ
+	 tG7sHb7Pbur3axKtW6ImdKCoNn7/+ArtAYZcHq0bQBtAEtOvD40pB1S9O+rSQYaTGDAjX
+	 MONMJyXUuxlLOmQuxmFbNhBO93GVF4VDDlnvO1C3K83Sui+W3NhMZoX58IwBuFJcAfnZ1
+	 8Mpoxj5EVol3ZZ8IHPoMdWbm5QrygEkZ7+IIsO6EfAkJGC8J2i/LkKtZfnn9/RKLO2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="rxywaiJ/";
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Xlicqqh/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2F3560A382D;
-	Mon, 23 Nov 2026 13:25:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F3560A382D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A595F606A69E;
+	Mon, 23 Nov 2026 13:25:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=rxywaiJ/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795440350; x=1826976350;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=bBo0I05VdlQLgenPhmy0GmOEtXQJWt5VHRNZsb0qbBg=;
-  b=rxywaiJ/39syUj/eB3FAWCkthnE5JixUS8toA+l7qkYsj1BuTJKlGCPY
-   CNMpcOI9WJuXyxqhWV6XeLWcw4STdO+/i2iKyQx7Js+9EHsfgR4Qr9dgi
-   FiWt8bQwJg81A3r0z/PAZ+T6LgyDsP/TDyr1i6vba2Bzc0TfjfvEnc6ke
-   aVtDnvock/oAmrWNwRoHzq4he3/P13pGzDspiLI5vNEQ3Nvte66a5Uko+
-   qv1fdmsklnOuw0/kM14+smMaVvrWSBQhW9iF/DjEQ85BByxvnZ6vARTDZ
-   DTIIDNC5iKgjt6p5sEd0H10KTPjaxLIytyg9u1UeuXdbbOcJNiyYxhv0a
-   g==;
-X-CSE-ConnectionGUID: NDR+tIaTRs+D6MAlDHcSbg==
-X-CSE-MsgGUID: C0Yj1zaZTvqvnj4ZU5YucQ==
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="67154024"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:49 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Nov 2026 06:25:49 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 06:25:47 -0700
-From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-Date: Mon, 23 Nov 2026 14:25:08 +0100
-Subject: [PATCH 4/4] mfd: ocelot: Read LAN9645x registers in a single SPI
- transfer
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xlicqqh/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB11D1F02836;
+	Mon, 23 Nov 2026 13:25:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795440352;
+	bh=agZbsxC8XRUaliCdELdXroftudvx5Dzam1Cf9BBH+64=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Xlicqqh/Cw5bLJbN+HG52G3c4xNs1cTXM2eUWfaRMqdL8BsntEygAFQEJ8dRXPpmC
+	 8Y81BOcGdTRlrsz4uDudVuS18KQNns1FMIC5YXeSjs2bdIDRYr6UfrVVNfeAZheAvn
+	 GHjOEMyW3ZDpQXeTry6Mh4iK2Z1uC3FFdy/OTfTdyBwXBzI+3R7jdXoBP+02I9uzf4
+	 SV5CBphoyptb7mgzqdY7jujgjSYdcc2WZDivcZ1aeS5YEUrODG6qL+3dQsnDR0XU18
+	 fRrGwX5GBgupI4zbj0bawQLKqt8memWF2YDnuNSAE1ZnOkFnzpaQlJFhpQDjz7qG1s
+	 r0Msn1ugu9QIg==
+From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
+Date: Mon, 23 Nov 2026 14:24:56 +0100
+Subject: [PATCH net 08/10] mptcp: pm: don't let listeners pin their netns
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,212 +53,137 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-4-567d811fe1de@microchip.com>
-References: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
-In-Reply-To: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
-To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
-	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
- Cochran" <richardcochran@gmail.com>
-CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-X-Mailer: b4 0.15-dev
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-8-278042217e8d@kernel.org>
+References: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
+In-Reply-To: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
+To: Eric Dumazet <edumazet@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, 
+ Simon Horman <horms@kernel.org>, Mat Martineau <martineau@kernel.org>, 
+ Geliang Tang <geliang@kernel.org>, Christoph Paasch <cpaasch@openai.com>, 
+ Florian Westphal <fw@strlen.de>
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, 
+ Davide Caratti <dcaratti@redhat.com>, 
+ "Matthieu Baerts (NGI0)" <matttbe@kernel.org>, 
+ Josef Bacik <josef@toxicpanda.com>, stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4454; i=matttbe@kernel.org;
+ h=from:subject:message-id; bh=/+RpJZZCr+9fWGrIXW99TKLAy50OJBD8MN8jo5gWqtc=;
+ b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJZ7PY+49geMVVSJO1/wQ+W9ysC3k2Ya/fH5Dm/2t/Tu
+ aHiW3QsOkpZGMS4GGTFFFmk2yLzZz6v4i3x8rOAmcPKBDKEgYtTACbS2MfwP8XG5vzrgL+c3Pk2
+ 69QcjWfPMe8v7r3C+rDtzON7RScTnjD8d3PIusF7Yl662rRos38HGc4I8f23tNU0edch9XMv/2Q
+ 9DgA=
+X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
+ fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
 
-A register read is three SPI transfers: the address, the padding bytes
-and the value. The SPI controller handles each transfer separately, with
-its own setup and interrupt.
+From: Josef Bacik <josef@toxicpanda.com>
 
-Read the address, the padding bytes and the value of a LAN9645x register
-in one full duplex transfer instead, which removes the handling of two
-transfers from every read. The three transfer read works on the
-LAN9645x as well, this only reduces the cost of a read. The transfer
-buffer is allocated per regmap, so the regmap lock serializes its use.
+For a "signal" endpoint with a port, the in-kernel path manager creates a
+listening MPTCP socket with sock_create_kern(). This socket is released
+when the endpoint is deleted or, failing that, by pm_nl_exit_net() when the
+network namespace is dismantled.
 
-With the interrupt driven Atmel SPI controller of a LAN966x host at
-25 MHz and a GPIO chip select, a register read takes 35.8 us instead of
-62.2 us, with a standard deviation below 0.1 us over seven runs of
-13800 reads.
+The MPTCP socket itself holds no reference on the namespace. But its first
+subflow is created by mptcp_subflow_create_socket(), which always calls
+sk_net_refcnt_upgrade(). So the namespace cannot be dismantled before
+the listener is released, and the listener is not released before the
+namespace is dismantled: unless somebody deletes the endpoint, both stay
+around for ever once the last process of the namespace is gone.
 
-Half duplex controllers and devices in 3-wire mode cannot transmit and
-receive in one transfer, so fall back to the three transfer read for
-them.
+  unshare -Urn sh -c 'ip link set lo up;
+                      ip mptcp endpoint add 127.0.0.1 port 4321 signal'
 
-Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
+leaks a namespace, with everything it contains, each time it is run. It
+remains charged to the user's max_net_namespaces limit.
+
+Only take the reference if the MPTCP socket has one. A listening TCP
+socket has no timer of its own, and request sockets of a dead namespace are
+taken care of by inet_twsk_purge().
+
+The sockets cloned from that listener for incoming MP_JOIN requests do
+need the reference, for their timers, but inherit sk_net_refcnt == 0. Take
+it when they are created, with __sk_net_refcnt_upgrade(), from the
+previous commit, as this is done in atomic context, and drop the
+connection request if the namespace is already going away.
+
+The TCP listener of such an endpoint is now a plain kernel socket, like
+the MPTCP socket it belongs to: it is not counted in "sockets: used" in
+/proc/net/sockstat any more, and its destruction is not broadcast to the
+listeners of the SKNLGRP_INET*_TCP_DESTROY sock_diag groups.
+
+This issue has been found with the help of an LLM, and reproduced in a
+VM, with the reproducer shared with the original version of this patch:
+the command above, run 1000 times by an unprivileged user. Without this
+patch, all the network namespaces were leaked:
+
+  result: 1000 network namespaces made, 0 taken down, 1000 are left
+
+Fixes: 1729cf186d8a ("mptcp: create the listening socket for new port")
+Cc: stable@vger.kernel.org
+Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+[ Use __sk_net_refcnt_upgrade(), from the previous commit, instead of an
+  open-coded copy of sk_net_refcnt_upgrade(), with maybe_get_net() like
+  rds_tcp_tune(). Shorter comments, and describe the condition: any
+  kernel msk. Commit message: how the issue was found, and its
+  symptoms. ]
+Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 ---
- drivers/mfd/ocelot-spi.c | 92 ++++++++++++++++++++++++++++++++++++++++++++++--
- drivers/mfd/ocelot.h     |  3 +-
- 2 files changed, 92 insertions(+), 3 deletions(-)
+ net/mptcp/subflow.c | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mfd/ocelot-spi.c b/drivers/mfd/ocelot-spi.c
-index 6d405627136d..4f2ef847c909 100644
---- a/drivers/mfd/ocelot-spi.c
-+++ b/drivers/mfd/ocelot-spi.c
-@@ -13,6 +13,7 @@
-  * Author: Colin Foster <colin.foster@in-advantage.com>
-  */
- 
-+#include <linux/cache.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/errno.h>
-@@ -45,7 +46,12 @@
- #define LAN9645X_RESET_PADDING_BYTES	15
- #define LAN9645X_REG_ACCESS_TIME_US	2
- 
-+#define OCELOT_SPI_ADDR_SIZE		3
- #define OCELOT_SPI_MAX_PADDING_BYTES	15
-+#define OCELOT_SPI_VAL_SIZE		4
-+#define OCELOT_SPI_XFER_BUF_SIZE	(OCELOT_SPI_ADDR_SIZE + \
-+					 OCELOT_SPI_MAX_PADDING_BYTES + \
-+					 OCELOT_SPI_VAL_SIZE)
- 
- static const struct resource vsc7512_dev_cpuorg_resource =
- 	DEFINE_RES_REG_NAMED(VSC7512_DEVCPU_ORG_RES_START,
-@@ -70,6 +76,12 @@ struct ocelot_spi_data {
- 	const struct resource *gcb_res;
- 	int reset_padding_bytes;
- 	int (*padding_bytes)(u32 max_speed_hz);
-+	bool single_xfer_read;
-+};
-+
-+struct ocelot_spi_regmap_ctx {
-+	struct device *dev;
-+	u8 buf[OCELOT_SPI_XFER_BUF_SIZE] __aligned(ARCH_DMA_MINALIGN);
- };
- 
- static int vsc7512_spi_padding_bytes(u32 max_speed_hz)
-@@ -105,6 +117,7 @@ static const struct ocelot_spi_data lan9645x_spi_data = {
- 	.gcb_res = &lan9645x_gcb_resource,
- 	.reset_padding_bytes = LAN9645X_RESET_PADDING_BYTES,
- 	.padding_bytes = lan9645x_spi_padding_bytes,
-+	.single_xfer_read = true,
- };
- 
- static const struct ocelot_spi_data vsc7512_spi_data = {
-@@ -249,12 +262,78 @@ static const struct regmap_bus ocelot_spi_regmap_bus = {
- 	.read = ocelot_spi_regmap_bus_read,
- };
- 
-+static int ocelot_spi_regmap_xfer_read(void *context, const void *reg,
-+				       size_t reg_size, void *val,
-+				       size_t val_size)
-+{
-+	struct ocelot_spi_regmap_ctx *ctx = context;
-+	struct spi_transfer xfer = {};
-+	struct ocelot_ddata *ddata;
-+	const u8 *regu8 = reg;
-+	u8 *buf = ctx->buf;
-+	u8 *valu8 = val;
-+	size_t off;
-+	int err;
-+
-+	ddata = dev_get_drvdata(ctx->dev);
-+
-+	if (reg_size != OCELOT_SPI_ADDR_SIZE || val_size != OCELOT_SPI_VAL_SIZE ||
-+	    ddata->spi_padding_bytes > OCELOT_SPI_MAX_PADDING_BYTES)
-+		return -EINVAL;
-+
-+	off = OCELOT_SPI_ADDR_SIZE + ddata->spi_padding_bytes;
-+
-+	buf[0] = regu8[0];
-+	buf[1] = regu8[1];
-+	buf[2] = regu8[2];
-+	memset(&buf[OCELOT_SPI_ADDR_SIZE], 0,
-+	       ddata->spi_padding_bytes + OCELOT_SPI_VAL_SIZE);
-+
-+	xfer.tx_buf = buf;
-+	xfer.rx_buf = buf;
-+	xfer.len = off + OCELOT_SPI_VAL_SIZE;
-+
-+	err = spi_sync_transfer(to_spi_device(ctx->dev), &xfer, 1);
-+	if (err)
-+		return err;
-+
-+	valu8[0] = buf[off + 0];
-+	valu8[1] = buf[off + 1];
-+	valu8[2] = buf[off + 2];
-+	valu8[3] = buf[off + 3];
-+
-+	return 0;
-+}
-+
-+static int ocelot_spi_regmap_xfer_write(void *context, const void *data,
-+					size_t count)
-+{
-+	struct ocelot_spi_regmap_ctx *ctx = context;
-+
-+	return spi_write(to_spi_device(ctx->dev), data, count);
-+}
-+
-+static const struct regmap_bus ocelot_spi_regmap_xfer_bus = {
-+	.write = ocelot_spi_regmap_xfer_write,
-+	.read = ocelot_spi_regmap_xfer_read,
-+};
-+
-+static bool ocelot_spi_single_xfer_read(struct spi_device *spi,
-+					const struct ocelot_spi_data *data)
-+{
-+	return data->single_xfer_read &&
-+	       !(spi->controller->flags & SPI_CONTROLLER_HALF_DUPLEX) &&
-+	       !(spi->mode & SPI_3WIRE);
-+}
-+
- struct regmap *ocelot_spi_init_regmap(struct device *dev,
- 				      const struct resource *res,
- 				      const struct regmap_access_table *rd_table,
- 				      const struct regmap_access_table *wr_table)
- {
-+	struct spi_device *spi = to_spi_device(dev);
- 	struct regmap_config regmap_config;
-+	struct ocelot_spi_regmap_ctx *ctx;
- 
- 	memcpy(&regmap_config, &ocelot_spi_regmap_config, sizeof(regmap_config));
- 
-@@ -264,7 +343,16 @@ struct regmap *ocelot_spi_init_regmap(struct device *dev,
- 	regmap_config.rd_table = rd_table;
- 	regmap_config.wr_table = wr_table;
- 
--	return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
-+	if (!ocelot_spi_single_xfer_read(spi, spi_get_device_match_data(spi)))
-+		return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
-+
-+	ctx = devm_kzalloc_obj(dev, *ctx);
-+	if (!ctx)
-+		return ERR_PTR(-ENOMEM);
-+
-+	ctx->dev = dev;
-+
-+	return devm_regmap_init(dev, &ocelot_spi_regmap_xfer_bus, ctx, &regmap_config);
+diff --git a/net/mptcp/subflow.c b/net/mptcp/subflow.c
+index 20d506235074..3e674c21bdb2 100644
+--- a/net/mptcp/subflow.c
++++ b/net/mptcp/subflow.c
+@@ -844,6 +844,22 @@ void __mptcp_subflow_fully_established(struct mptcp_sock *msk,
+ 	WRITE_ONCE(msk->fully_established, true);
  }
- EXPORT_SYMBOL_NS(ocelot_spi_init_regmap, "MFD_OCELOT_SPI");
  
-@@ -296,7 +384,7 @@ static int ocelot_spi_probe(struct spi_device *spi)
- 				     spi->max_speed_hz, OCELOT_SPI_MAX_PADDING_BYTES);
++/* Children of a kernel listener need a netns ref for their timers */
++static bool subflow_child_get_net(struct sock *child)
++{
++	struct net *net = sock_net(child);
++
++	if (likely(child->sk_net_refcnt))
++		return true;
++
++	if (!maybe_get_net(net))
++		return false;
++
++	__sk_net_refcnt_upgrade(child, GFP_ATOMIC);
++	put_net(net);
++	return true;
++}
++
+ static struct sock *subflow_syn_recv_sock(const struct sock *sk,
+ 					  struct sk_buff *skb,
+ 					  struct request_sock *req,
+@@ -912,6 +928,11 @@ static struct sock *subflow_syn_recv_sock(const struct sock *sk,
  
- 	dummy_len = max(padding, data->reset_padding_bytes);
--	if (dummy_len) {
-+	if (!ocelot_spi_single_xfer_read(spi, data) && dummy_len) {
- 		ddata->dummy_buf = devm_kzalloc(dev, dummy_len, GFP_KERNEL);
- 		if (!ddata->dummy_buf)
- 			return -ENOMEM;
-diff --git a/drivers/mfd/ocelot.h b/drivers/mfd/ocelot.h
-index fa02590a5026..5d0301f0b194 100644
---- a/drivers/mfd/ocelot.h
-+++ b/drivers/mfd/ocelot.h
-@@ -32,7 +32,8 @@ enum ocelot_chip {
-  *			reset default of the chip around a chip reset.
-  * @dummy_buf:		Zero-filled buffer of at least spi_padding_bytes size.
-  *			The dummy bytes that will be sent out between the
-- *			address and data of a SPI read operation.
-+ *			address and data of a SPI read operation. Not
-+ *			allocated when reads are done in a single transfer.
-  */
- struct ocelot_ddata {
- 	enum ocelot_chip chip;
+ 		tcp_rsk(req)->drop_req = false;
+ 
++		if (!subflow_child_get_net(child)) {
++			subflow_add_reset_reason(skb, MPTCP_RST_EUNSPEC);
++			goto dispose_child;
++		}
++
+ 		/* we need to fallback on ctx allocation failure and on pre-reqs
+ 		 * checking above. In the latter scenario we additionally need
+ 		 * to reset the context to non MPTCP status.
+@@ -1860,8 +1881,10 @@ int mptcp_subflow_create_socket(struct sock *sk, unsigned short family,
+ 	/* kernel sockets do not by default acquire net ref, but TCP timer
+ 	 * needs it.
+ 	 * Update ns_tracker to current stack trace and refcounted tracker.
++	 * Not for a kernel msk, e.g. a PM listener: it would pin the netns.
+ 	 */
+-	sk_net_refcnt_upgrade(sf->sk);
++	if (sk->sk_net_refcnt)
++		sk_net_refcnt_upgrade(sf->sk);
+ 	err = tcp_set_ulp(sf->sk, "mptcp");
+ 	if (err)
+ 		goto err_free;
 
 -- 
-2.52.0
+2.55.0
 
