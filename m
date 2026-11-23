@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795469192;
-	b=qMJ4i3lwr2xVJTF+raL1UQGOulGYT8CCC1a/FqaJ/Jc9jdtZ3BlMWhD3wR/J4KqZcjWT
-	 dpVOfYVA6jIDhM2M9X4VCfAw1l6vuxS5wNw9tmGHgArGP87zKlnSRH8eBSCQo+jaZ51fU
-	 590mvuROXxHT7j0Pi0rEb7FHniT0E35SNxxK3H1EhxLGDuYUtrQeSJQyCtrgtbVDtLkMK
-	 xVR83bxaO7kPIo6RBXZbjm4SlvLCWJLGw+u8Fb9zPwkGPmIvwIsjGiERr8yNCP4Q07UQu
-	 1GWucMHVB+5rx9RIaNx6A0oPocpGYElxzJsNSI0WMFVjW6fZDMVBNY5lhFEkwlTz/lA==
+	t=1795469193;
+	b=afidhNJAyE1hooi+9pagXqVUBBDf2K1n+Qz985feTqFEw1c+ahYIGU1UK/D6UvLiLfoP
+	 F2DktCbi1rQEihhJ1GRBqrNWC+pZFHw2/rgKz/mLjVjiA4XhdmVUKiGf2iLS+Hnc12YBt
+	 uaZAThUTsua1ky0PULEYzW05P3qc/AKPydpe1wKxi9SUybzqczzxox6cWHTHWY0NTl3dY
+	 bkIbSfbJVP2vIrnHWpJJkDdXKvtDFb/KTxXLwZ4/Y2qAGoNmgx/ViPjcfNIgna5ClGXON
+	 6B9RPLKBJsuXNvitj0MkgtmeVh95MylQfd4VjXSSfq3XHl09DfgUpLpcFJsv8bWkNAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795469192;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795469193;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=DPe8sGGCdGPvCKGe5lwr97QVEUM6TDbF4ggH12EU7+E=;
-	b=0lNDzRlfwjAZXqPI7rpXu27QkBdXyPBS5V2NOaMgIOKGUr+my3uthVvXlsz5wDCfNFlr
-	 qGWNCp0eQQ3bFoEjvgB689ptUOY3LXnRO00DaByH+RKl/RhBGBqa+8UgtpUei24pnU0zO
-	 lYXPlfGKYxksAH3YGnb9xuWw0H2ulyn3ba4cEdLVS8CNm0HcMO6JUAGqMRMv6mpEwd4lL
-	 vJbFsozrZB+GgO8YY1x5XKENjLX+HmBJvDrHRH+l9Ml6i/p2To7EILyL6uoxc/tZI7QGf
-	 bxgT9Zd9ZGNpvBVQo/8behL6Mw5FwmZussY9HyAVkgBkKey/ix4D6vWhhmQE7xu8uaA==
+	bh=eH6UgdbRC4ievYK3CDGA8FvcsT7J3AAFgSAyupKWwdQ=;
+	b=K+3Ycz04hqylsm6DHi5fQWeB0d5VEShLdfgFDLaIyDGwESxLfi2sNH0903/yVNHHp3aS
+	 f1gyBJ1KkoPpZoBcMJi8g1N/DRPHvJXLASPrqDSwWtLC+Ou4GWF8c/6lW7caH13ZeWZIu
+	 uSEKNWvLqWInb6Se5l6I7G23TdI6aK+4YBvi9qXRbZw+e/Vhjfucnj94qF/oZs7JNZSlm
+	 hSwp7M904oo5i4ZKFopUqz68Fwhyrym/axqVB/kisSc6J3tbb6zyBuy40W1SDcvLDR6OS
+	 hAsRRuCWUNfZ9ercb3Re7a9yhIWUJPSHEaGJUYpAO6PulxGJnPydFyfvBZ4eTILppyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HsXMtOt0;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RYFLPbJu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF44606A32C
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:26:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A052D606A689
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:26:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HsXMtOt0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C0861F000F0;
-	Mon, 23 Nov 2026 21:26:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RYFLPbJu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47D581F01566;
+	Mon, 23 Nov 2026 21:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795469192;
-	bh=DPe8sGGCdGPvCKGe5lwr97QVEUM6TDbF4ggH12EU7+E=;
+	s=k20260515; t=1795469193;
+	bh=eH6UgdbRC4ievYK3CDGA8FvcsT7J3AAFgSAyupKWwdQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HsXMtOt0uN/HypjeFPioAb/50LIeMrpKRQ/wNpGiT3pJDm30Fc655vNZo4dzqhyXI
-	 syZ2B4Emp8/oYGyjih6u3R2ygobMiNfi/cRheOZb+YCBPZtDXEO2uu6O5YJ7iwN2/D
-	 odTWj81Ks4hG5tgJSn3wZJHJm9yEFf0fT8fuNQobPhR9viLowhWp5kalZxXqgZbS+a
-	 XEjucRCIo3eo3bsHmCDluicfO5jkLbYHwxXUynI3nyikExn8AS6OiTcISy8vylTDDF
-	 PC/VaQs0S104m+jK7P7h8FmqHdJWNVgAs07oRrdh0lkpEqo7eNCJzw/3Dx8HGkD8H8
-	 CUpSMU7aZzkIA==
+	b=RYFLPbJuH9uS96aZVrzDMj5eU4/etaryCBfA7I5nln6CTJhjtgNu626AEDkA/Wnv3
+	 EJdA7dWFAWki2JNGl1Fp/lEWArYNb7UYd8pZ/6ELLh4CLQlodI78Js8925IAMxMFqz
+	 pDEEK36JMR7X4G4NrF6+qMMOCV/LWkRPtdmcZTkxQ/HvfULU4evbKy0VaHvsaC9n+s
+	 4vz36kp0hsAVEOXsAaFfaIF60hh7rKoR3VfcXU9s4YjlDLiwo8wlauVXISr0YswiXE
+	 ob4OxGoAYTG8JPNQal686l+4AS+7e8N5hbogyPob2g657AKOWPBVy1yIofP0J8FSbJ
+	 IBDk0S7JQ9IZQ==
 From: David Ahern <dsahern@kernel.org>
 To: netdev@vger.kernel.org
 Cc: ralf@mandelbit.com,
 	David Ahern <dahern@nvidia.com>
-Subject: [RFC net-next v2 6/7] ipv6: make rt_genid_bump_ipv6() a plain counter increment
-Date: Mon, 23 Nov 2026 14:26:08 -0700
-Message-ID: <20261123212623.106153-7-dsahern@kernel.org>
+Subject: [RFC net-next v2 7/7] ipv6: stamp dsts with the generation sampled before the FIB lookup
+Date: Mon, 23 Nov 2026 14:26:09 -0700
+Message-ID: <20261123212623.106153-8-dsahern@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261123212623.106153-1-dsahern@kernel.org>
 References: <20261123212623.106153-1-dsahern@kernel.org>
@@ -62,239 +62,132 @@ Content-Transfer-Encoding: 8bit
 
 From: David Ahern <dahern@nvidia.com>
 
-rt_genid_bump_ipv6() called fib6_flush_trees() through a function
-pointer. That walked every node of every table to write a new
-fn_sernum, so that cookies derived from fn_sernum would mismatch.
+A dst is stamped with the netns route generation in ip6_dst_alloc(),
+which runs after the FIB has been read. A route change that lands
+between the lookup and the allocation is folded into the stamp: the
+dst was built from the old tree but carries the new generation, so
+ip6_dst_check() accepts it and it can keep bypassing the new route
+indefinitely.
 
-Cached dsts are now validated against net->ipv6.fib6_sernum itself,
-so the walk no longer invalidates anything. Do what
-rt_genid_bump_ipv4() does and increment the counter, keeping
-fib6_new_sernum()'s wrap to 1 so the value is never 0.
+Sample the generation before the FIB is walked, carry it in
+struct fib6_result and stamp every dst built from that result with it.
+Writers bump the generation after the route change is visible, so a
+lookup that read the old tree cannot have sampled the new generation;
+the resulting dst fails ip6_dst_check() as soon as the change is
+published. Use an acquire read for the sample so the FIB reads are not
+reordered before it.
 
-This makes nexthop, address and FIB rule changes cheap, and stops
-them from touching fn_sernum, which route dumps use to detect that a
-tree changed: a dump is no longer restarted by events that do not
-change the tree.
-
-With the walk gone, drop the __fib6_flush_trees pointer and its
-export, fib6_new_sernum() in favour of the new helper, and the sernum
-handling in fib6_cleaner that only the walk used.
+The sample is taken in fib6_table_lookup(), ip6_pol_route_lookup() and
+__ip6_route_redirect(). Exceptions created from an existing dst in
+__ip6_rt_update_pmtu() and rt6_do_redirect() inherit that dst's stamp
+instead of the current generation. Dsts allocated without a lookup
+result keep the stamp taken in ip6_dst_alloc().
 
 Signed-off-by: David Ahern <dahern@nvidia.com>
 ---
 Changes since v1:
-- None.
+- New patch.
 
- include/net/net_namespace.h | 26 ++++++++++++++-----
- net/ipv6/addrconf_core.c    |  7 -----
- net/ipv6/ip6_fib.c          | 51 ++++++-------------------------------
- 3 files changed, 27 insertions(+), 57 deletions(-)
+ include/net/ip6_fib.h       |  5 +++++
+ include/net/net_namespace.h | 10 ++++++++++
+ net/ipv6/route.c            | 12 ++++++++++++
+ 3 files changed, 27 insertions(+)
 
+diff --git a/include/net/ip6_fib.h b/include/net/ip6_fib.h
+index 92fed30a7418..a11c4a556b5d 100644
+--- a/include/net/ip6_fib.h
++++ b/include/net/ip6_fib.h
+@@ -225,6 +225,11 @@ struct fib6_result {
+ 	u32			fib6_flags;
+ 	u8			fib6_type;
+ 	struct rt6_info		*rt6;
++	/* Route generation sampled before the FIB was read. Dsts built
++	 * from this result are stamped with it, not with the generation
++	 * at allocation time. 0 means not sampled.
++	 */
++	int			sernum;
+ };
+ 
+ #define for_each_fib6_node_rt_rcu(fn)					\
 diff --git a/include/net/net_namespace.h b/include/net/net_namespace.h
-index 4a4d72080acd..f39baf51bcc5 100644
+index f39baf51bcc5..31ffac7baf73 100644
 --- a/include/net/net_namespace.h
 +++ b/include/net/net_namespace.h
-@@ -556,18 +556,30 @@ static inline int rt_genid_ipv6(const struct net *net)
- {
+@@ -557,6 +557,16 @@ static inline int rt_genid_ipv6(const struct net *net)
  	return atomic_read(&net->ipv6.fib6_sernum);
  }
--#endif
  
--static inline void rt_genid_bump_ipv4(struct net *net)
-+/* Invalidate every cached IPv6 dst in @net. Returns the new generation,
-+ * which is never 0.
++/* Sample the generation before walking the FIB. Writers bump it after the
++ * route change is visible, so a lookup that sees the old tree cannot sample
++ * the new generation: whatever dst it builds carries a generation that
++ * fails ip6_dst_check() once the change lands.
 + */
-+static inline int rt_genid_bump_ipv6(struct net *net)
- {
--	atomic_inc(&net->ipv4.rt_genid);
-+	int new, old = atomic_read(&net->ipv6.fib6_sernum);
-+
-+	do {
-+		new = old < INT_MAX ? old + 1 : 1;
-+	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
-+
-+	return new;
- }
-+#else
-+static inline int rt_genid_bump_ipv6(struct net *net)
++static inline int rt_genid_ipv6_sample(const struct net *net)
 +{
-+	return 0;
++	return atomic_read_acquire(&net->ipv6.fib6_sernum);
 +}
-+#endif
++
+ /* Invalidate every cached IPv6 dst in @net. Returns the new generation,
+  * which is never 0.
+  */
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 38d5f3bc85bb..deedb5fb62ca 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -1210,6 +1210,12 @@ static void ip6_rt_copy_init(struct rt6_info *rt, const struct fib6_result *res)
+ 	rt->rt6i_idev = dev ? in6_dev_get(dev) : NULL;
+ 	ip6_rt_init_dst(rt, res);
  
--extern void (*__fib6_flush_trees)(struct net *net);
--static inline void rt_genid_bump_ipv6(struct net *net)
-+static inline void rt_genid_bump_ipv4(struct net *net)
++	/* Pair the dst with the generation the FIB was read under, so a
++	 * change between the lookup and this allocation is not folded in.
++	 */
++	if (res->sernum)
++		rt->sernum = res->sernum;
++
+ 	rt->rt6i_dst = f6i->fib6_dst;
+ 	rt->rt6i_flags = res->fib6_flags;
+ 	if (nh->fib_nh_gw_family) {
+@@ -1294,6 +1300,7 @@ INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
+ 	struct rt6_info *rt;
+ 
+ 	rcu_read_lock();
++	res.sernum = rt_genid_ipv6_sample(net);
+ 	fn = fib6_node_lookup(&table->tb6_root, &fl6->daddr, &fl6->saddr);
+ restart:
+ 	res.f6i = rcu_dereference(fn->leaf);
+@@ -2277,6 +2284,7 @@ int fib6_table_lookup(struct net *net, struct fib6_table *table, int oif,
  {
--	if (__fib6_flush_trees)
--		__fib6_flush_trees(net);
-+	atomic_inc(&net->ipv4.rt_genid);
- }
+ 	struct fib6_node *fn, *saved_fn;
  
- #if IS_ENABLED(CONFIG_IEEE802154_6LOWPAN)
-diff --git a/net/ipv6/addrconf_core.c b/net/ipv6/addrconf_core.c
-index 29095c90aa16..e7ee5f98327d 100644
---- a/net/ipv6/addrconf_core.c
-+++ b/net/ipv6/addrconf_core.c
-@@ -9,13 +9,6 @@
- #include <net/addrconf.h>
- #include <net/ip.h>
++	res->sernum = rt_genid_ipv6_sample(net);
+ 	fn = fib6_node_lookup(&table->tb6_root, &fl6->daddr, &fl6->saddr);
+ 	saved_fn = fn;
  
--/* if ipv6 module registers this function is used by xfrm to force all
-- * sockets to relookup their nodes - this is fairly expensive, be
-- * careful
-- */
--void (*__fib6_flush_trees)(struct net *);
--EXPORT_SYMBOL(__fib6_flush_trees);
--
- #define IPV6_ADDR_SCOPE_TYPE(scope)	((scope) << 16)
+@@ -2987,6 +2995,8 @@ static void __ip6_rt_update_pmtu(struct dst_entry *dst, const struct sock *sk,
  
- static inline unsigned int ipv6_addr_scope2type(unsigned int scope)
-diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
-index 266370e15774..75512fbcb945 100644
---- a/net/ipv6/ip6_fib.c
-+++ b/net/ipv6/ip6_fib.c
-@@ -43,7 +43,6 @@ struct fib6_cleaner {
- 	struct fib6_walker w;
- 	struct net *net;
- 	int (*func)(struct fib6_info *, void *arg);
--	int sernum;
- 	void *arg;
- 	bool skip_notify;
- };
-@@ -123,21 +122,6 @@ static void fib6_walkers_skip_rt(struct net *net, struct fib6_info *rt)
- 	fib6_walkers_replace_leaf(net, rt, next);
- }
+ 		res.fib6_flags = res.f6i->fib6_flags;
+ 		res.fib6_type = res.f6i->fib6_type;
++		/* derived from @rt6: it is only as current as that dst */
++		res.sernum = READ_ONCE(rt6->sernum);
  
--static int fib6_new_sernum(struct net *net)
--{
--	int new, old = atomic_read(&net->ipv6.fib6_sernum);
--
--	do {
--		new = old < INT_MAX ? old + 1 : 1;
--	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
--
--	return new;
--}
--
--enum {
--	FIB6_NO_SERNUM_CHANGE = 0,
--};
--
- void fib6_update_sernum(struct net *net, struct fib6_info *f6i)
- {
- 	struct fib6_node *fn;
-@@ -145,7 +129,7 @@ void fib6_update_sernum(struct net *net, struct fib6_info *f6i)
- 	fn = rcu_dereference_protected(f6i->fib6_node,
- 			lockdep_is_held(&f6i->fib6_table->tb6_lock));
- 	if (fn)
--		WRITE_ONCE(fn->fn_sernum, fib6_new_sernum(net));
-+		WRITE_ONCE(fn->fn_sernum, rt_genid_bump_ipv6(net));
- }
+ 		if (res.f6i->nh) {
+ 			struct fib6_nh_match_arg arg = {
+@@ -3166,6 +3176,7 @@ INDIRECT_CALLABLE_SCOPE struct rt6_info *__ip6_route_redirect(struct net *net,
+ 	 */
  
- /* Tell route dumps that an exception was added under @f6i without
-@@ -1464,7 +1448,7 @@ static void __fib6_update_sernum_upto_root(struct fib6_info *rt,
+ 	rcu_read_lock();
++	res.sernum = rt_genid_ipv6_sample(net);
+ 	fn = fib6_node_lookup(&table->tb6_root, &fl6->daddr, &fl6->saddr);
+ restart:
+ 	for_each_fib6_node_rt_rcu(fn) {
+@@ -4383,6 +4394,7 @@ static void rt6_do_redirect(struct dst_entry *dst, struct sock *sk, struct sk_bu
  
- void fib6_update_sernum_upto_root(struct net *net, struct fib6_info *rt)
- {
--	__fib6_update_sernum_upto_root(rt, fib6_new_sernum(net));
-+	__fib6_update_sernum_upto_root(rt, rt_genid_bump_ipv6(net));
- }
- 
- /*
-@@ -1595,7 +1579,7 @@ int fib6_add(struct fib6_node *root, struct fib6_info *rt,
- 			fib6_info_release(iter);
- 		}
- 
--		__fib6_update_sernum_upto_root(rt, fib6_new_sernum(info->nl_net));
-+		__fib6_update_sernum_upto_root(rt, rt_genid_bump_ipv6(info->nl_net));
- 
- 		if (rt->fib6_flags & RTF_EXPIRES)
- 			fib6_add_gc_list(rt);
-@@ -2282,16 +2266,6 @@ static int fib6_clean_node(struct fib6_walker *w)
- 		.skip_notify = c->skip_notify,
- 	};
- 
--	if (c->sernum != FIB6_NO_SERNUM_CHANGE &&
--	    READ_ONCE(w->node->fn_sernum) != c->sernum)
--		WRITE_ONCE(w->node->fn_sernum, c->sernum);
--
--	if (!c->func) {
--		WARN_ON_ONCE(c->sernum == FIB6_NO_SERNUM_CHANGE);
--		w->leaf = NULL;
--		return 0;
--	}
--
- 	for_each_fib6_walker_rt(w) {
- 		res = c->func(rt, c->arg);
- 		if (res == -1) {
-@@ -2331,7 +2305,7 @@ static int fib6_clean_node(struct fib6_walker *w)
- 
- static void fib6_clean_tree(struct net *net, struct fib6_node *root,
- 			    int (*func)(struct fib6_info *, void *arg),
--			    int sernum, void *arg, bool skip_notify)
-+			    void *arg, bool skip_notify)
- {
- 	struct fib6_cleaner c;
- 
-@@ -2341,7 +2315,6 @@ static void fib6_clean_tree(struct net *net, struct fib6_node *root,
- 	c.w.skip = 0;
- 	c.w.skip_in_node = 0;
- 	c.func = func;
--	c.sernum = sernum;
- 	c.arg = arg;
- 	c.net = net;
- 	c.skip_notify = skip_notify;
-@@ -2351,7 +2324,7 @@ static void fib6_clean_tree(struct net *net, struct fib6_node *root,
- 
- static void __fib6_clean_all(struct net *net,
- 			     int (*func)(struct fib6_info *, void *),
--			     int sernum, void *arg, bool skip_notify)
-+			     void *arg, bool skip_notify)
- {
- 	struct fib6_table *table;
- 	struct hlist_head *head;
-@@ -2363,7 +2336,7 @@ static void __fib6_clean_all(struct net *net,
- 		hlist_for_each_entry_rcu(table, head, tb6_hlist) {
- 			spin_lock_bh(&table->tb6_lock);
- 			fib6_clean_tree(net, &table->tb6_root,
--					func, sernum, arg, skip_notify);
-+					func, arg, skip_notify);
- 			spin_unlock_bh(&table->tb6_lock);
- 		}
- 	}
-@@ -2373,21 +2346,14 @@ static void __fib6_clean_all(struct net *net,
- void fib6_clean_all(struct net *net, int (*func)(struct fib6_info *, void *),
- 		    void *arg)
- {
--	__fib6_clean_all(net, func, FIB6_NO_SERNUM_CHANGE, arg, false);
-+	__fib6_clean_all(net, func, arg, false);
- }
- 
- void fib6_clean_all_skip_notify(struct net *net,
- 				int (*func)(struct fib6_info *, void *),
- 				void *arg)
- {
--	__fib6_clean_all(net, func, FIB6_NO_SERNUM_CHANGE, arg, true);
--}
--
--static void fib6_flush_trees(struct net *net)
--{
--	int new_sernum = fib6_new_sernum(net);
--
--	__fib6_clean_all(net, NULL, new_sernum, NULL, false);
-+	__fib6_clean_all(net, func, arg, true);
- }
- 
- /*
-@@ -2624,7 +2590,6 @@ int __init fib6_init(void)
- 	if (ret)
- 		goto out_unregister_subsys;
- 
--	__fib6_flush_trees = fib6_flush_trees;
- out:
- 	return ret;
- 
+ 	res.fib6_flags = res.f6i->fib6_flags;
+ 	res.fib6_type = res.f6i->fib6_type;
++	res.sernum = READ_ONCE(rt->sernum);
+ 	nrt = ip6_rt_cache_alloc(&res, &msg->dest, NULL);
+ 	if (!nrt)
+ 		goto out;
 -- 
 2.43.0
 
