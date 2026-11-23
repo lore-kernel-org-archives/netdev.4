@@ -1,59 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.136.29.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448107;
-	b=lMOShtaDA2tF3KUQOWWCm1RFf8GuQR+cp994km1N+cA87SpOj7xIVCP5CynSTlqvmmHM
-	 yge/eCKhUsUtvU2ehiwsyyep+Pc+dl3V6Wt595HzGBXpuNmW+k1WIK4Q+Whe1EZWXiHCX
-	 zHPh6faY2vHkmGvGii91wKxUNq6+77x5GWWYQ9GIolYQKIbYgv8AYb8/fUVtPvpinnuUZ
-	 4Q15D8RXOuUnBEUU8RNQULQ+oCEFEHZ4qPKPCci8PLYl1qa8SEQRoa9DeJDoBE4vMofgh
-	 KlBf3o1ilSTCgzyXGYWolY6YswN2Lr3dbO+KWVKS3lg3qTuuYnzmwGmJVzDoiGj1yeA==
+	t=1795448125;
+	b=VXBZkLRVWBM9F+RlBzW47Sg9nRDoXKd2YZm+kGKJjNgm10CbFxO00r/WAckfhGkFgGHP
+	 4cfp0Oy2vB1oxptdd+NwGLb1R9DQoc8MlkQzRu0TirWHA3vhKo/Ho1N7UUsuCg08CVBwg
+	 eUsakN+R8nFDus04qmmwghUuBrNsrKTsNMXNxxWWZ40lh4nxWOeS+wJGBkNkHf70R2JiV
+	 As1q8zYa1tiVMZZS29sIua4/3ER17eYa/q8Zya3DaTS9nnhE76Uf/XGkRPrOkDTyFmF2J
+	 gzZJJsPSpB5Cl5APRhkNKz0uKcPHqjSjSLCE3wY1UlLBwOxgIMlO4iBZXBtC4TUeFEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448107;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=2WTUAIe9/FWuJxjNSbePYXA4Ybis92IvBPtCl2Olzak=;
-	b=xSYikZPoWcLs6/3Eyo3nEpmTWf/x2Ok6tP+6lQ8w9VhtdFRn/Z+or7IWJky5yiDiebtR
-	 fxpot1T31kfu7xcCAhOAN5YedArVVQ6bsohXRwHhEFLrJzLL83eYf5j7f6yQSm8HI86se
-	 +q23pSyoogPVIygJvtoT3iRemEo2Xq9V+VF3Aj9L6rD2D9mO1Yx7r1WbBulyEya5oQVma
-	 XRTMs91PDOc0TLlv4jpJ72XFJp0r1Z5W+ER4qURAax+YGQ1FM1+uJw9uen+1zs9Isb+nL
-	 0102Dzr6X05qMWn13sUvgzXl3HZKiPxxwoiDV8DtSxGgc9W1cyClf6upXj22HkiXv3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448125;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent:
+	 X-Bm-Milter-Handled:X-Bm-Transport-Timestamp;
+	bh=pF9wzKO7QpdVZiEm5sjWg86fJwPTS9jr8H8o/XbMXY0=;
+	b=wrHxAZ972voXEYF9MqbHy+76TGzuT/erf72h8C1R5COyBvxKh7chlQYqxMqd8TMthoD7
+	 MJ25FZD0xXQMJ5vy+m/aM3StLbEBguB82uVeZ+gvtdWeQXClIc/8hkIr5I/8+xx76hh8L
+	 QSa3ucFPrY3DlTiyYrMUWSGmpCX4Ky+XlQIixrZBvhe8rlJMqLGFHi3Yh1OFpEMhC3DmA
+	 7IHOmUQpQOM6rOkujB2po9jGbDAyp7bnTAC4FmQOqXn8tiTCl8OeyVGR2JoAVUnovXUrN
+	 7l8y3ryD3tdfYWXSCmKkUz54S1Os8FQxuaoX1CW2xM8IV25QOhbamD24RYDYV5v0LZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaLXvN1b;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=proxmox.com;
+	spf=pass smtp.mailfrom=proxmox.com;
+	arc=none smtp.remote-ip=94.136.29.106
+Received: from proxmox-new.maurer-it.com (proxmox-new.maurer-it.com [94.136.29.106])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF74D606A31A;
-	Mon, 23 Nov 2026 15:35:07 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaLXvN1b
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC21B1F000D0;
-	Mon, 23 Nov 2026 15:35:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448107;
-	bh=2WTUAIe9/FWuJxjNSbePYXA4Ybis92IvBPtCl2Olzak=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PaLXvN1baVDqlSR/1pfAUv7HDrVbjk1nEg7WL+oRUMqypGPkPIzMiIomok+P717GB
-	 GUb4J4J6A1A1mYbl6usEItkLJBPzEapq4chPn/gNpVt0wjD07E1Y9DOeb1IcK1fQaB
-	 I8La+AkQICMQ/eMamfK3uRqrVmnDBKjfWiYmnbHcOM3nlFEJIcUjExjBvJsc4+2tUS
-	 Eg4dPowa0tTaiu4hSD6N3cuO28WxvaHFsgPK34wQbeGRZWcSBoxOTjgsiMFtK8Thtc
-	 13Zko3QrqYIDHCH2Wihh6TJ6539jzMwfi/1mvgYjilTlb+Bi/+/12aYJIWYEvrrQrt
-	 5zzcttsqY3xCw==
-Subject: Re: [PATCH net v4] net/rds: defer CM id destruction to a workqueue
-From: netdev-bot+sashiko@kernel.org
-To: chenaibing@cmss.chinamobile.com
-Cc: achender@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 15:35:06 +0000
-Message-ID: <179544810638.3135.8411229490217638790@kernel.org>
-In-Reply-To: <20261122145148.1250-1-chenaibing@cmss.chinamobile.com>
-References: <20261122145148.1250-1-chenaibing@cmss.chinamobile.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ECB7606A32D;
+	Mon, 23 Nov 2026 15:35:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ECB7606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=proxmox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proxmox.com
+Received: from proxmox-new.maurer-it.com (localhost.localdomain [127.0.0.1])
+	by proxmox-new.maurer-it.com (Proxmox) with ESMTP id 020694307B;
+	Mon, 23 Nov 2026 16:35:22 +0100 (CET)
+Date: Mon, 23 Nov 2026 16:35:20 +0100
+From: Gabriel Goller <g.goller@proxmox.com>
+To: Ilya Maximets <i.maximets@ovn.org>, 
+	Boris Sukholitko <boris.sukholitko@broadcom.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Boris Sukholitko <boris.sukholitko@broadcom.com>, Aaron Conole <aconole@redhat.com>, 
+	Eelco Chaudron <echaudro@redhat.com>, Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dev@openvswitch.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC net 0/3] net: fix stacked VLAN header corruption in
+ TX offloads and OVS
+Message-ID: <awRbU3ZRECEqq8zm@luna.proxmox.com>
+References: <20261111-net_restore_the-v1-0-6aaeffa601c9@proxmox.com>
+ <488e10a9-ea28-41cf-9a8a-aa7431f6dd48@ovn.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,236 +57,65 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <488e10a9-ea28-41cf-9a8a-aa7431f6dd48@ovn.org>
+User-Agent: NeoMutt/20260616
+X-Bm-Milter-Handled: 55990f41-d878-4baa-be0a-ee34c49e34d2
+X-Bm-Transport-Timestamp: 1795448121234
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On 11.11.2026 19:33, Ilya Maximets wrote:
+> On 11/11/26 6:37 PM, Gabriel Goller wrote:
+> > Since commit 938863727076 ("tc: adjust network header after 2nd vlan
+> > push"), a second VLAN push leaves network_header pointing to the
+> > in-band VLAN header. The igb driver TSO and OVS IP set actions still
+> > expect the L3 header, so they write to the VLAN header and corrupt
+> > the packet. Patch 1 restores the L3 header in validate_xmit_skb() for
+> > CHECKSUM_PARTIAL packets, which covers packets tagged by tc or BPF.
+> > Patch 2 restores it in OVS right after the push, before later actions
+> > run. Patch 3 adds a KUnit test. tc classification after a push keeps
+> > working.
+> > 
+> > The kernel uses two conventions for skb->network_header when a packet
+> > carries an in-band VLAN tag:
+> > 
+> > * network_header points at the L3 header
+> > * network_header points at the in-band VLAN header
+> > 
+> > Since commit 938863727076 ("tc: adjust network header after 2nd vlan
+> > push"), skb_vlan_push() uses the second convention when it pushes a
+> > second tag. The flow dissector, and so tc flower, needs that layout to
+> > classify the packet after the push. Drivers doing TSO or checksum
+> > offload expect the first one. vlan_features_check() clears TSO for
+> > multi-tagged packets, so most drivers fall back to software GSO, which
+> > finds the L3 header itself. igb keeps TSO for these packets and reads
+> > the IP header at skb->network_header, so it builds the TSO context from
+> > the VLAN header and corrupts the packet. OVS set actions after a second
+> > push write to the wrong header in the same way.
+> > 
+> > Which convention should a packet with in-band VLAN tags follow? This
+> > series keeps the tc layout, converts to L3 in validate_xmit_skb() for
+> > CHECKSUM_PARTIAL packets, and restores L3 right after the push in OVS.
+> > If L3 should hold everywhere instead, the flow dissector would need to
+> > find in-band tags from mac_len, and skb_vlan_push() could go back to
+> > its old behavior.
+> 
+> IMO, having 'network_header' pointing to something that is not a network
+> layer doesn't make much sense, and having two separate meanings for the
+> same field is a recipe for more issues introduced or discovered later.
+> Others may, of course, disagree.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+I agree, a full implementation would have to revert:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+938863727076 ("tc: adjust network header after 2nd vlan push")
 
-- [High] RDS_IB_MAX_PENDING_PROBES (net/rds/ib.c:399-401) is one global
-  budget of 64 for the whole system, with no per-user or per-socket…
-- [Medium] The new temporary errors in rds_ib_laddr_check_cm()
-  (net/rds/ib.c) never reach userspace; callers read them as "this…
-- [Medium] The commit message calls the issue a real deadlock ("falling
-  back to the synchronous destroy, which would bring the deadlock back…
+then change the flow-dissector to not rely on network_header and find the
+in-band vlan tags itself.
 
---
+@Boris maybe?
 
-net/rds: defer CM id destruction to a workqueue
+> Best regards, Ilya Maximets.
 
-This patch moves rdma_destroy_id() for the probe cm_id created in
-rds_ib_laddr_check_cm() onto rds_wq, so it no longer runs under
-rds_trans_sem. A global atomic counter caps pending probe ids at
-RDS_IB_MAX_PENDING_PROBES, and the address check returns -EAGAIN above
-that cap. rds_ib_exit() flushes rds_wq before the module goes away.
+Thanks,
+Gabriel
 
-Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
-
-> diff --git a/net/rds/ib.c b/net/rds/ib.c
-> index 4ea9838d090c3..c4c10e3eabced 100644
-> --- a/net/rds/ib.c
-> +++ b/net/rds/ib.c
-> @@ -391,6 +391,30 @@ static void rds6_ib_ic_info(struct socket *sock, unsigned int len,
->  }
->  #endif
->  
-> +/*
-> + * Maximum number of probe cm_ids whose destruction is still pending on
-> + * rds_wq.  Each of them pins a cma_dev reference and an RDMA_PS_TCP port,
-> + * so the number of in-flight probes has to be bounded.
-> + */
-> +#define RDS_IB_MAX_PENDING_PROBES	64
-> +
-> +static atomic_t rds_ib_pending_probes = ATOMIC_INIT(0);
-
-[Severity: High]
-Is one system-wide budget of 64 safe here? Nothing splits it per user or
-per socket. The only place that releases a slot is
-rds_ib_destroy_id_work(), which runs on rds_wq. That is an ordered
-single-threaded workqueue, and other RDS work shares it:
-
-net/rds/threads.c:rds_threads_init() {
-	rds_wq = create_singlethread_workqueue("krdsd");
-	...
-}
-
-The commit message only considers a bind() loop. However,
-rds_ib_laddr_check_cm() is also reached for every new connection:
-
-__rds_conn_create()
-  rds_trans_get_preferred(net, faddr, conn->c_dev_if)
-    rds_ib_laddr_check()
-      rds_ib_laddr_check_cm()
-
-That includes incoming connect requests. There,
-rds_ib_cm_handle_connect() calls rds_conn_create(&init_net, daddr6,
-saddr6, ...), and saddr6 comes from the peer's CM private data.
-
-rds_ib_laddr_check() skips the probe only for v4-mapped addresses that
-rds_ib_get_device() finds. Remote peers, IPv6 addresses and uncached IPv4
-addresses each hold a slot until the worker runs.
-
-Can one unprivileged user, or a burst of connection setup, keep
-rds_ib_pending_probes at 64 and make every other user's IB address check
-fail? Their bind() would then be moved to RDS/TCP or fail, as described
-below for the -EAGAIN return. Before this patch, one user could not
-affect another user's IB bind.
-
-There also seems to be a lasting effect on connections. Take a new
-connection whose faddr is local but misses the fast path. If the probe
-returns -EAGAIN and rds_tcp is not loaded, loop_trans is NULL and
-c_loopback stays 0:
-
-net/rds/connection.c:__rds_conn_create() {
-	...
-	loop_trans = rds_trans_get_preferred(net, faddr, conn->c_dev_if);
-	if (loop_trans) {
-		rds_trans_put(loop_trans);
-		conn->c_loopback = 1;
-	...
-}
-
-Connections are not re-evaluated later, so the looped-back IB passive
-connection split is skipped:
-
-	if (conn &&
-	    conn->c_loopback &&
-	    conn->c_trans != &rds_loop_transport &&
-	    ipv6_addr_equal(laddr, faddr) &&
-	    !is_outgoing) {
-
-Wouldn't the incoming self-connect then find the outgoing conn itself,
-and rds_ib_cm_handle_connect() reject it as a raced connect?
-
-The commit message mentions neither the connection creation path nor the
-shared budget.
-
-[ ... ]
-
-> @@ -411,14 +435,39 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
-
-[ ... ]
-
->  	isv4 = ipv6_addr_v4mapped(addr);
-> +
-> +	/*
-> +	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls this
-> +	 * function with rds_trans_sem held for reading, and rdma_destroy_id()
-> +	 * takes handler_mutex, which the CM callback path acquires before
-> +	 * taking rds_trans_sem.  Reserve a pending-probe slot first, so that a
-> +	 * loop of bind() calls cannot pile up ids that pin a cma_dev reference
-> +	 * and an RDMA_PS_TCP port.
-> +	 */
-
-[Severity: Medium]
-The commit message, which is tagged Cc: stable, says:
-
-    rather than falling back to the synchronous destroy, which would bring
-    the deadlock back under memory pressure.
-
-Can that deadlock actually happen? The handler_mutex that
-rdma_destroy_id() takes here belongs to the private probe cm_id created a
-few lines below. That id has a NULL context, is only bound, is never
-listened on, and is never shared.
-
-On the CM callback path in the commit message, the code holds the
-listener's handler_mutex and the new conn_id's handler_mutex, not the
-probe's:
-
-cma_ib_req_handler()
-  rds_rdma_cm_event_handler()
-    rds_ib_cm_handle_connect()
-      rds_conn_create()
-        rds_trans_get_preferred()
-          down_read(&rds_trans_sem)
-
-Those are different instances of the same lock class.
-
-For the probe id, the events that could hold its handler_mutex reach
-rds_rdma_cm_event_handler_cmn() with conn == NULL, and nothing is done:
-
-	case RDMA_CM_EVENT_DEVICE_REMOVAL:
-	case RDMA_CM_EVENT_ADDR_CHANGE:
-		if (conn)
-			rds_conn_drop(conn);
-		break;
-
-That path never waits for rds_trans_sem. Both sides also take
-rds_trans_sem only for read.
-
-This looks like a class-level lockdep report rather than an
-instance-level deadlock. It is still worth silencing, but could the
-commit message and this comment describe it that way?
-
-If no real deadlock exists, is the stable backport justified? This patch
-also brings in the global probe cap and the transport fallback described
-here.
-
-> +	if (atomic_inc_return(&rds_ib_pending_probes) >
-> +	    RDS_IB_MAX_PENDING_PROBES) {
-> +		atomic_dec(&rds_ib_pending_probes);
-> +		return -EAGAIN;
-> +	}
-> +
-> +	w = kzalloc_obj(*w, GFP_KERNEL);
-> +	if (!w) {
-> +		atomic_dec(&rds_ib_pending_probes);
-> +		return -ENOMEM;
-> +	}
-
-[Severity: Medium]
-Does the -EAGAIN (or -ENOMEM) ever reach userspace?
-rds_trans_get_preferred() treats any non-zero laddr_check() result as
-"not this transport" and moves on to the next slot:
-
-net/rds/transport.c:rds_trans_get_preferred() {
-	...
-	for (i = 0; i < RDS_TRANS_COUNT; i++) {
-		trans = transports[i];
-
-		if (trans && (trans->laddr_check(net, addr, scope_id) == 0) &&
-		    (!trans->t_owner || try_module_get(trans->t_owner))) {
-	...
-}
-
-RDS_TRANS_TCP comes after RDS_TRANS_IB. rds_tcp_laddr_check() returns 0
-for any RTN_LOCAL IPv4 address and for any IPv6 address that passes
-ipv6_chk_addr(), and IPoIB addresses pass both checks.
-
-While the cap is hit, would the following happen?
-
-- bind() on an IB address succeeds but selects RDS/TCP. rds_bind() then
-  stores it in rs->rs_transport for the life of the socket, so RDMA cmsgs
-  and MR registration fail later.
-
-- If rds_tcp is not loaded, bind() fails with -EADDRNOTAVAIL and logs
-  "load rds_tcp or rds_rdma?".
-
-- With SO_RDS_TRANSPORT set to IB, bind() fails with -ENOPROTOOPT:
-
-	if (rs->rs_transport) {
-		trans = rs->rs_transport;
-		if (!trans->laddr_check ||
-		    trans->laddr_check(sock_net(sock->sk),
-				       binding_addr, scope_id) != 0) {
-			ret = -ENOPROTOOPT;
-
-So the cap doesn't seem to give the retryable back-pressure that the
-comment and commit message describe. rdma_create_id() could already fail
-with -ENOMEM and take the same fallback, but that was rare. Any user can
-now hit the cap on purpose.
-
-Is it intended that hitting the cap silently moves the socket to RDS/TCP?
-If so, could the commit message mention the transport switch and the
-changed errno?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122145148.1250-1-chenaibing%40cmss.chinamobile.com
