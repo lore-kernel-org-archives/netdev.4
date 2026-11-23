@@ -1,69 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.103
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436685;
-	b=xs6sR7jlKJXNyzSlXcdI85dI0SYYiR/DogM67y3GRa2v+tfhNK3u1bP6pWnl/WLth/AV
-	 fplxoCFdEqSX+hcyd7iE4lb4DKdVBnmoCfB6ht2ugKJy6DQ4K4cGPipLLWeD/BwgYixdV
-	 3FFfji5XuC1jvx2lbTHAoHdZWIt9bhoUrUwT3zNh9dJF0vzI5hzb/Cm+TJyyEAGaKTXdI
-	 Luwh1tVzGLMyku3XyH3oWlmEG0jKj1xF6bSPhENILbf95qTcIbGYiHbck/e1lfGso9ZgE
-	 5FBbXmhSxUCcqk5yv5nWMqq9LabZM9fkHpblxQIwCX5ChepmSbfEcxSSM2VC34+XNjQ==
+	t=1795436777;
+	b=ZxbjVjq4fNMX4nJld7Lqj+/5cdw0qJ9AvdwB/BddhPLIQHBhek88swGfxQt5S4Rh0Z0q
+	 UAJdX/tzYQQHetZRbYl3oMkG0EVoqnD80dWkO827PVQiYu7+aBc8PVo8c6Sww4TLpMHGP
+	 mF46DQTREbD6snKaaHDGMXFcreO+V97jqWIVGHiALMjQWYBDnOt8OoqKUsAvn10Oy6KXf
+	 0EwE+oBWRgZM5YzCwilIoWRyimlMFg6A8zrs25OBdCfvSh7KuU9liCgbJHbCqNXNvgzER
+	 oEcMPTG4ro5TjdzVaLMJgN+oOKn4psTEECuDEZUUb5V/PU6FQr9i43VmzWIGNJdNgIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436685;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=z2ZqcAzvn8rftSdz5CTFszuPMfE/mGAN+/UBYcUwPrE=;
-	b=2T5qzinkpn+OQv2wWA7LkeoqcFKZIEo8Ud3RBhKVvjj/oBDM4xHzbBycTaubwM1V7vuR
-	 XFOhv7suANuLbQB1VaBGhbTDqJBFfy+UUrx2ZWwTsyQClDuSVERDzY9EjV8P0XPUuSTbn
-	 7Avu3otTQmR29dww+hdTazOfkGvQ6i7FqNGW5Icr1rF+edtwWtfCwFoPMxm3Mf5kTRb0h
-	 ncVVCM8Onh5Xo0k0MD1mAZ62X2CbkBr7LxTFEQTWComHBin3bAf98YZ5zEGS2F2Kt5ppF
-	 lVca8WA22C7uhP7nDZxPwxTAfNeFNFvnAcXdoE04/iEe04q5ZCZzKzcXdtrv1dVWuKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436777;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=hap4NqfDUAtYDZTLDfzwkUrvXAq3qrwrlgF3SqTYS88=;
+	b=iQdtDHdbPEAwC188klBzLVVk7OCynxB8OY4CLRJ+mHu0/VWVbG0M7NTtkGGTO5B+3ni6
+	 XzZoJJtdUHBD4WSiBUpTUyF13++qDrPHLLgA2i0c+8TkYhz15nTeST5jucYyaUOjzeqdd
+	 ISP2LslEUehOS/9PtkSnaUSblEyaAAoCkD8QsNoxr7jAloCHNDZQqhm0+dHBFkpNryvOE
+	 ZW/FdE6vtPWANGYhMvQ4POiMKMCf1o4+cXybL2l/Ol1CWTNhbCe4Prf5SFStQKapTLIaZ
+	 VTu9xqp9FhiLU46QbaLIsA94xsdiM+hc/dstgFAooTByr0HcjqpOS2agn4B+ahUPmNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wu3K2n5x;
-	arc=none smtp.remote-ip=95.215.58.103
-Received: from mta1.migadu.com (out-103.mta1.migadu.com [95.215.58.103])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HdHtvZPf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 502DB606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:24:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 502DB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29A1A606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:26:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wu3K2n5x
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=8Q1SjcwepZqcgCq92WDlIH0YSR9zqzm2uSjkwhu8qA8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795436682; v=1; x=1796041482;
- b=wu3K2n5x1EoCo7UGeAlIBRwvkmXp/8LZtB5hdm44gtIKdPhbEw2TqYQ2RjRfETkRBZ4B7knZ
- xOcQ6RCrcqvW8GvMsQm5jzVtEeqmyHdULLGc7gZUrYewav6jKGNj9WjpnvkttBshNMaNpsT0NDJ
- iEj0ySByYwUVCAU+Ag1kx6gg=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c2fabbd8dfc1efd4;
-	Mon, 23 Nov 2026 12:24:42 +0000
-X-Mizu-Trace-ID: c2fabbd8dfc1efd4
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Wei Wang <weiwan@google.com>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Soheil Hassas Yeganeh <soheil@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
-Date: Mon, 23 Nov 2026 20:24:31 +0800
-Message-ID: <20261123122432.297135-1-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HdHtvZPf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375A01F000D2
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:26:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795436776;
+	bh=hap4NqfDUAtYDZTLDfzwkUrvXAq3qrwrlgF3SqTYS88=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=HdHtvZPfch1IfdAgGiJaMLZbRLsvzOsEzvLtKuage9+EsNlosx51aV908GNMly9IJ
+	 bEGKSjYjxNeGFxpfEZcE4dVldF2l9K1v2SqYUQBC2ZkeJTv8tbnbEO0T6go0RVxWY4
+	 BZvu2Num6LklaouSjzt8XUmiZz0AWwrb/ZngD63lQ8cnOFZZbWUaM2MTGHQOXcXbVR
+	 4TdhWIwL1OiCkkHOPSZK83qrJPe/Fw3jsgN9Sy5449Ec32aFodUH5GStn0PWKkoaAq
+	 J13UgWSY19JEajLY6T9wkp+A2MEa10E2FlLS0cy40+M6WsP7EsBrjbUD3bDAv5/TMc
+	 8Rap3sqEIFoVQ==
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-6d68de53053so2455225eaf.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:26:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHsvJOEgWfUFOzol0V2HWwO6MxlYR0ladKZq1CxTEoS8a0cei9JuemPMbmzGEfbrv8drKbBDX0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/lrLoZoe22tKZU5hGH6dMnmInVzMyEKym8J62kuNAokHosc32j
+	WXkO+ofLEUNTAg+WHy5UzLCMPk3Z3tkSFtjbYFLnGDzWb3vVCDjfXQt50fuoFciV1OJ73DHfTJ2
+	wOva3b45BqmHRfAUFu92ENbRoZyEncSE=
+X-Received: by 2002:a05:6820:809:b0:702:dd8d:3177 with SMTP id
+ 006d021491bc7-71b39208ce6mr8755968eaf.9.1795436775489; Mon, 23 Nov 2026
+ 04:26:15 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,90 +59,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261123121325.3137049-1-bsdhenrymartin@gmail.com> <CA+7S2v+CpMWyD89XQiWq5qC=NPQWFtJ49_7mm-GcxTOCt+gZ3Q@mail.gmail.com>
+In-Reply-To: <CA+7S2v+CpMWyD89XQiWq5qC=NPQWFtJ49_7mm-GcxTOCt+gZ3Q@mail.gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Mon, 23 Nov 2026 13:26:03 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirmFNN-2S6YiDZVfx_2FmdNxzGSO0VhDqe0eZ9t2TvbYA@mail.gmail.com>
+X-Gm-Features: Aa3M54rI-zzW4XJI4pXhhM8icWw0efWld42-HsWzk_Y3mIlBZkYMrvm7I1Gld_A
+Message-ID: <CAL4WiirmFNN-2S6YiDZVfx_2FmdNxzGSO0VhDqe0eZ9t2TvbYA@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: zero the tail of ha->addr when allocating
+ address list entries
+To: Yuyang Huang <sigefriedhyy@gmail.com>
+Cc: Henry Martin <bsdhenrymartin@gmail.com>, davem@davemloft.net, kuba@kernel.org, 
+	pabeni@redhat.com, sdf.kernel@gmail.com, nicolas.dichtel@6wind.com, 
+	horms@kernel.org, netdev@vger.kernel.org, stable@vger.kernel.org, 
+	Daniel Machon <daniel.machon@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Our local syzbot reported the following warning:
+Le lun. 23 nov. 2026 =C3=A0 13:21, Yuyang Huang <sigefriedhyy@gmail.com> a =
+=C3=A9crit :
+>
+> On Mon, Nov 23, 2026 at 9:13=E2=80=AFPM Henry Martin <bsdhenrymartin@gmai=
+l.com> wrote:
+> >
+> > __hw_addr_create() allocates entries with kmalloc() and initializes onl=
+y
+> > addr_len bytes of ha->addr, but the dump paths emit each entry using th=
+e
+> > current dev->addr_len, so an entry created with a smaller addr_len is
+> > dumped with an uninitialized tail.
+> >
+> > dev->addr_len can grow at runtime and nothing flushes the lists.  While
+> > addr_len is 0 every addition collapses into one node, because
+> > __hw_addr_add_ex() compares zero bytes, so the test adds one zero-lengt=
+h
+> > multicast entry to each of 64 tun devices and switches them to
+> > ARPHRD_IP6GRE (addr_len 16).  RTM_GETMULTICAST then returned 64 entries
+> > of 16 bytes, 37 with non-zero bytes and 21 starting with a kernel heap
+> > pointer (e.g. 0xffff8188_04857ee0).  tun has to flush dev->uc and
+> > dev->mc in TUNSETLINK as well, which is a separate patch; qmi_wwan raw
+> > IP mode and the HDLC attach/detach paths change addr_len in the same
+> > way, so tun is not the only case.
+> >
+> > Allocate with kzalloc() so the tail is zeroed at creation; the explicit
+> > ha->sync_cnt =3D 0 then becomes redundant.
+> >
+> > Found by an automated static analysis scan (Tencent CodeBuddy Security)
+> > and triggered at runtime on v7.4-rc3 as an unprivileged user.
+> >
+> > Cc: stable@vger.kernel.org
+> > Fixes: cca8ea3b05c9 ("net: tun: set tun->dev->addr_len during TUNSETLIN=
+K processing")
+> > Link: https://lore.kernel.org/netdev/20261116024056.1274402-1-bsdhenrym=
+artin@gmail.com/
+> > Link: https://lore.kernel.org/netdev/20261118125443.1137177-1-edumazet@=
+kernel.org/
+> > Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> > Reviewed-by: Nicolas Dichtel <nicolas.dichtel@6wind.com>
+> > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> > ---
+> > v2 -> v3:
+> >  - describe the test setup accurately: one entry on each of 64 tun
+> >    devices, since all additions collapse into one node while addr_len
+> >    is 0
+> >  - point Fixes: at cca8ea3b05c9, which made the leak reachable from tun
+> >  - link to v1 instead of the earlier review thread, and link to the
+> >    companion tun patch
+> >  - note that other drivers change addr_len without flushing the lists
+> >  - state how the issue was found
+> >
+> >  net/core/dev_addr_lists.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> > index d827cc21867b..9613c8a9ed7f 100644
+> > --- a/net/core/dev_addr_lists.c
+> > +++ b/net/core/dev_addr_lists.c
+> > @@ -96,7 +96,7 @@ __hw_addr_create(const unsigned char *addr, int addr_=
+len,
+> >         alloc_size =3D sizeof(*ha);
+> >         if (alloc_size < L1_CACHE_BYTES)
+> >                 alloc_size =3D L1_CACHE_BYTES;
+> > -       ha =3D kmalloc(alloc_size, GFP_ATOMIC);
+> > +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+> >         if (!ha)
+> >                 return NULL;
+> >         memcpy(ha->addr, addr, addr_len);
+> > @@ -104,7 +104,6 @@ __hw_addr_create(const unsigned char *addr, int add=
+r_len,
+> >         ha->refcount =3D 1;
+> >         ha->global_use =3D global;
+> >         ha->synced =3D sync ? 1 : 0;
+> > -       ha->sync_cnt =3D 0;
+> >
+> >         return ha;
+> >  }
+> > --
+> > 2.43.7
+> >
+>
+>  Reviewed-by: Yuyang Huang <sigefriedhyy@gmail.com>
 
-  WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
-  Modules linked in:
-  CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
-  RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
-  Call Trace:
-   <TASK>
-   tcp_sendmsg+0x2c/0x50
-   inet_sendmsg+0x62/0xb0
-   __sys_sendto+0x2fe/0x350
-   __x64_sys_sendto+0x7f/0xb0
-   x64_sys_call+0x1375/0x27e0
-   do_syscall_64+0xe4/0x470
-   entry_SYSCALL_64_after_hwframe+0x76/0x7e
-   </TASK>
-
-The problem is here:
-
-  if (!skb_zcopy_pure(skb)) {
-          copy = tcp_wmem_schedule(sk, copy);
-          if (!copy)
-                  goto wait_for_space;
-  }
-
-When MSG_ZEROCOPY data is appended to a skb that already holds copied
-data, only the user length is scheduled, but the pinned pages are then
-charged by their truesize:
-
- skb_zerocopy_iter_stream
-   __zerocopy_sg_from_iter
-    zerocopy_fill_skb_from_iter  //truesize += PAGE_ALIGN(copied + start)
-    sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
-
-For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
-charges 32768 with 4K pages.
-
-On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
-(e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
-min(copy, sk->sk_forward_alloc), which is negative. The negative copy
-is passed to skb_copy_to_page_nocache() and triggers the warning, and
-sendmsg() fails with -EFAULT.
-
-A few options were considered:
-
-1) Schedule the truesize up front. It is not known before the pages
-   are pinned, it depends on the iovec layout.
-2) Do not append zerocopy data to a non pure skb. This splits a small
-   header and its zerocopy payload into two skbs.
-3) Schedule the missing part right after the pages are charged. They
-   are already in the skb at this point, so this can not fail.
-
-Go with 3).
-
-Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pressure")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-v2: https://lore.kernel.org/netdev/20261120094605.46063-1-jiayuan.chen@linux.dev/
-v1: https://lore.kernel.org/netdev/20261119090828.343748-1-jiayuan.chen@linux.dev/
-
-Changes in v3:
-- Call sk_forced_mem_schedule() before the error checks
-
-Changes in v2:
-- Only call sk_forced_mem_schedule() for non pure zerocopy skbs (Eric)
----
- net/ipv4/tcp.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-index d510e982dcea..79b85035bf45 100644
---- a/net/ipv4/tcp.c
-+++ b/net/ipv4/tcp.c
-@@ -1352,6 +1352,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
- 
- 			err = skb_zerocopy_iter_stream(sk, skb, msg, copy, uarg,
- 						       binding);
-+			if (!skb_zcopy_pure(skb))
-+				sk_forced_mem_schedule(sk, 0);
- 			if (err == -EMSGSIZE || err == -EEXIST) {
- 				tcp_mark_push(tp, skb);
- 				goto new_segment;
--- 
-2.43.0
-
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
