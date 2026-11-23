@@ -1,55 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458358;
-	b=cXujL2SfccLrhs0wkiUa2LH2MlhZ0UKqNYdS/ZykHkIGhVHgNfvdFAtl0geP4MJvyxht
-	 vz5UM+UhdmTvFhr6mlxD2LLE6FHptuSLJotprT7XxOkFWU1lVR25oEJ36rtIaXQDWmoYC
-	 Vr6o3TBldTT1SQROJ2qdXr153aqV8Q7RRtW14akVRHOvZUOMUm8IPZ5AprTx5EYCqfJnk
-	 zKQpd4P9HW5qPGQQrrec7pzY4kRuco/ko6N4B8rSVu6suaWSEHsaO3V5gstPwMM7nVgaN
-	 YYbUAIE9Np2L/0aaDNJxJlDDakhPaAJXKq1yjNFjZoUaPscbednvKVrA1J1CbJOqHog==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458358;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=SaDWoOqIit5U64rjLHqniDWftXA6W7O7+XmPs7S3MZE=;
-	b=wfE4CtGjHO4lRprc49RFtPc0VGGKAToKk/ju3D0cFFejQf7PAIFl7Q0nGAIe1lDRMNUE
-	 DiQEE31g8wQFx48WluYHA5PzJzaDsH6R89Kq4LKuqOaSMb4H8OYrgHDAr/ybQWUxBZFl4
-	 KdJDrIIR6bG4hFaTSmmmQSFSKbKsvgahRR4zBIUqHhRbg0vRjLVM6vomoO7ZzlxeIjhMM
-	 t2xUI1g03pbM0b9VeIYvBEMD1BJ5j6S8UStRucTK2kSsypVTHADP55dXoZRmqSOoQPWl9
-	 eNT3V7PlTjBN8xI8AWbRUyzs5elcHTqi/d/29BUpuhSs3lbCFO0v4Nqd3pYPkJUlAGg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lT/ng6uR";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795458420;
+	b=GIwDlYN/4lKCwP40dRnGuvOiZNOtAGGo6wicsULAuUupptfa+Ak0qxrVtZ1o9XU2YDWZ
+	 w83TeN9Jc8xkL67eJQ3tN8VXecZyoXdjtbw2CFNwqJTOzDrBdVZK9nUBUcDchsga5qfqc
+	 pww0Y50Y7/OAC6xLc48mW9GIaYMusCUlKuJRsexuxxNyOF56jF1eWF/XjuUc+oPySQUnp
+	 rCZKHlz9jZCt9O27by5pmcf1HhGeFgGHj34hx+S0pt+yL5o1bfmtC/Or60HxM5LndXitk
+	 ENZ66oRMhyi7OEsDQdm7jht8d/rvFfJ8m6RMDjKBtG11zYCmQWgKSbqFxr36ETcAPpQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458420;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=K2nJStfnnz82291S89OZ5LNxNeQoV2VQ2lfoNNG7XVQ=;
+	b=jpv14oxfiLAutiHnQSz80J5oYwfnRlhWwM/coh6lQ/1itH9jTq9lIHnYd5pZ6G9x4P+b
+	 WRvufCv3JbnbmGsOSOCrPfi8dP0MY8RNjYovfrkW5l6JwIHymUVMuAwdcNa/dM/D5QJOP
+	 M2LJ15aob52v37V+uWANtVMMqFtx+tjSuc5Xg1A79cFck1DnyXqwCFqcZddFxP81U3xhb
+	 uUSt0FLfAXDBAsk8ndymJ0zIvifX0BJBUBSQtOD7wQ4y8FoyF3hGRilqaRHgX1HqZbVbi
+	 YvhkU+Wo12s0uEPFIXYkFAz4Blt/Jj2IeivMtFn+TN6jBMLn63ti4kSeJ+gYWeo00mQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=SWeBVSUP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.43
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011043.outbound.protection.outlook.com [52.101.57.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7374E606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:25:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2BCE606A31A;
+	Mon, 23 Nov 2026 18:26:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2BCE606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lT/ng6uR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAEFB1F000D4
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:25:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795458357;
-	bh=SaDWoOqIit5U64rjLHqniDWftXA6W7O7+XmPs7S3MZE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=lT/ng6uRnKsrw/yRVhG+89TcZIyE/GaACWEZ7JByvbOJuqxX4QbCfrFc/+GFxFbJr
-	 bgnmu+Fi/qkj7iAPjOvIQ+whzIMs+vXmDhlfs9+o0p4lq+tKcCu3Jakft9YcSfiuHo
-	 VHYSsDZTVVki7+ElTJJD0h863pn8xK9lrD037jSsHLzGgOfx3EkbXn2Eq2dhf27hg7
-	 IqfgmMNaVNuuiSP16dXI1p/VzwRR/edaCHMAISlogZwLQqABSibBaKg6bNo4uLkQgY
-	 P7agpyc0uyBZocO2taJcY4HDrlmrtx8ZCKUVJM6I2N2IKkk8F4lFGb7e6N1qkOWQTQ
-	 9vwx29BEqTmLw==
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-86156cf8a7eso3472115a34.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:25:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErH9JMz7kIytYsR5h5NptVT6yOg8FijOVPQQwryNEzVBgzbGpuIKLps+mTu1cNWJyT15N9hNknw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8CetEZPRsGxg6CNxv/kFKELDqGeYT0u8Y1aFYfG7CFIuld7DMM
-	ztJXLiDPYjpjOBO6GGggkPqRFtzWv9e4E+Q/jrNtED1fjzkn1vjNmvWQujvFMu6id8abUaREz92
-	QNFVv8ruylc4uvokoC8IE49ttuLVQFE8=
-X-Received: by 2002:a05:6820:1628:b0:713:d536:1d33 with SMTP id
- 006d021491bc7-71b3277f48fmr9431007eaf.46.1795458357018; Mon, 23 Nov 2026
- 10:25:57 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=SWeBVSUP
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DXCR5/5lYnjf6RxsrsHpUT1OkfaNdP7eRhdwHgEq5hA5fyKJ6WRRqbe/yIkFtNijOIUl0yN6c/Au2gYcwuZ7imPZZx2yH4C5ashClarzLSsWfMOkJ87hdvGanj6/f0mCAU5gsezjezfr7mQxP1Db4ydxHvHcXarIWrmXSklH0lxPNlmLDX5H/tFYp1oXUIZ+G59HhyWtiqpoNxK+TH0K8V8ZeisZSE8dOju8YVQKfmuMLDuzKXC0P8U5RyqRwaQCHQaGOARKIT35TCCKPXvyUxtAqveCGyeLCOKAs8vHeRBmUQ0CfxaKFJUYsYoPXMtaPoJYn/qPf5EMBdId8JxJxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K2nJStfnnz82291S89OZ5LNxNeQoV2VQ2lfoNNG7XVQ=;
+ b=EzXJUfqGYiciR3AwJJTM5UAweJAcLuN3IDWVd0q/Dpd33EalSE7ICeBAro6YpWGeeS7Ufb+TEU8MeM8A0b72UKTLAHqhYwmqMWiy/yumFTXFfdsjjduOG0u+kW/MozMs/qMcDLswi99SsjQO//MiENRDzDntOZb5wJZ6VajlQL8zi+PqfCJaMkGi9++eGaSJXbvCP5Chk3/5LfYFdQgCk8JpcNqGNq/m0527/IyTLOrQi6EnPNZYMU5CxCT+hx9OZJ3HTWC+Sd6Jqycogu0o0fDHRpRCwKqPgq3jn2NskYbWI2VduWuEMiLqiiBWPs4AziuWNKhf130VnbZ7ocYzFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K2nJStfnnz82291S89OZ5LNxNeQoV2VQ2lfoNNG7XVQ=;
+ b=SWeBVSUPD9qCXgEDr6HQI+9eP5kTjUkJO0Ev9kEpxd3a55ap48jluyr5VHzCcpuJxWXzOzmDfRwZl3NJ9Qg+JeHJhz0g3RyVc3JIxvRiqTt4pDDOpNDTzfWq/liW0yRMAbevwtI/Mh8oLSt2mj+jRJzpUAPnsUVM1ZUQWZhUR2e3S1BG4t9b4KJYv4g3yWcrpT6G4I0MYftx2QJB7/2i8yshoIKZoGqoHWOlhHSBNSMwqUfRCnleoF6zZf/yEjb3cuFpGRRLqRGEvTu7Mkh2CGjELYRf59dN6EJMfrzLER9IQ0a1JRaJK2g1kg5dMfdSbLL7omyOdY8cTm658gUkLA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by DM4PR12MB9072.namprd12.prod.outlook.com (2603:10b6:8:be::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.13; Mon, 23 Nov 2026 18:26:49 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 18:26:49 +0000
+Date: Mon, 23 Nov 2026 20:26:38 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: yanxia@cmss.chinamobile.com, netdev@vger.kernel.org, dsahern@kernel.org,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, horms@kernel.org, linux-kernel@vger.kernel.org,
+	kuniyu@google.com, xeb@mail.ru, yana06070@163.com
+Subject: Re: [PATCH net-next v5] ip6_gre: fix changelink conflict checks for
+ L2 tunnels
+Message-ID: <20261123182638.GA3579507@shredder>
+References: <179535496489.1244648.10031965997557933761.ip6gre-v5@cmss.chinamobile.com>
+ <179544145061.3135.15862505318599577492@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179544145061.3135.15862505318599577492@kernel.org>
+X-ClientProxiedBy: TL2P290CA0028.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:3::10) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,213 +98,113 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
-In-Reply-To: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Mon, 23 Nov 2026 19:25:46 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipqqqU8KsqRDNOdzEenn+qWABu19xVqo4Fgmhfc9cf+7w@mail.gmail.com>
-X-Gm-Features: Aa3M54qLtcxbFytXkPCthlQOB8VMAE863mdyrjJmdDkmUghBpqICfuldWFtu2H0
-Message-ID: <CAL4WiipqqqU8KsqRDNOdzEenn+qWABu19xVqo4Fgmhfc9cf+7w@mail.gmail.com>
-Subject: Re: [syzbot] [net?] KCSAN: data-race in fq_pie_reset / pie_calculate_probability
-To: syzbot <syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com>, 
-	Kyle Zeng <kylebot@openai.com>
-Cc: davem@davemloft.net, horms@kernel.org, jhs@mojatatu.com, jiri@resnulli.us, 
-	kuba@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|DM4PR12MB9072:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6d9f3d0-afa2-48f6-f574-08df498f567a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003|11063799006|4143699003|56012099006|10067099003|18002099003|22082099003|261009223027099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	RsWzG0E/6fMgIn1nZ87yElOZH3uu+cZkgoqrVtlxejMda35ZYG5VFcVbSmhqx517+FQOOw03AJQoVQzYWuRSyQUwgDh8YHHliEEkRxUZgJBPNFFE688cyhvcm/f0VkOtWNSt+QDafc60ThqMn61w8Lt+A7cw1J0Rqa0SGhL0O9UEF9P/G46WCTltCRjdigU2M93bNA7l8tRjSTaOWWcnch9wGDs5SUl4Gjx4b29RRrcsMHAnjZ4L/R2MGgcz1hEPbFpyZa+4vOykLWW9Z8LhCknuC0QViS8/NR1PwvSa+cAPneO8NcuUzk5GCSyZ4HwvGl4xi64D5uWrJ9M6Bu07LtArKVnrMVqE6/HnJ1v4EkoHSjjUqrF41aaC1fDdEGq+SfddWSZNFscHBF2LgNVCTaHTOJ0Au1IvCrm9eB/jqdPpY7vZGII+56MEZhpTeWYgayS4p99BQS2tugj1drM6FIQbeugd3PhKqYaT5qDvPvwLbMaNA3Xs2c+Y43COBHUh73gJvXnd7lSvihvekM0Jo3pAcGabQVPZWlgQ7RMy/KU92Pw9O7gs2Yk24TuPoGANWEgZZpLj1g+FF0Mj27Bo6CE4oZ/A+AVS3/gs7T6MMybPNdEvHcW7L8Zp7UejN2GYQtgUwj68+EkkEQ+MbRuxoqHAuN45St1L01sha3bAzSY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003)(11063799006)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003)(261009223027099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?rUhD0l1wdviTFXCJHszZFu/55ge9bFTyRfPtcop9IEBT04ClmV+pCZSsEQ+z?=
+ =?us-ascii?Q?fszS8AK4X0acjqiPWqtRrhm4fEvkvdkx9uMl/t6JAFKTBEdwLj635r0/GYDb?=
+ =?us-ascii?Q?LgHL0nA88UgjaeTyv5HFh4cNhQgNd6mhLPj0cZZXRVelBKrNZ3HkLYPaBCXr?=
+ =?us-ascii?Q?Yh1AJeRLPEYnB6DlPDPi0V5D/HgX1ZlA83Ksf8spjcBiWf9+Qvny17aYD3nG?=
+ =?us-ascii?Q?eGs/EeiRtCfVaaT9QgRm9vHAbwCm4FGGxxDr4Ud6Jk8v4TK2no5Sk/XhYcW0?=
+ =?us-ascii?Q?oQe5OLNmeoyMdr/ndCS3IMZCWGSN4hfcf6BWmjxL7mbV4UuyJW/TmbK0Ns5h?=
+ =?us-ascii?Q?ptoBMZ0jAX0xB58D5S0zJt9bja+oodpzQ6OJ99yX7j9jk1DQg9OIkjfVqa1t?=
+ =?us-ascii?Q?lm/xhEb/mKh1zdPQHe3hkMSjMJIsdWjC71Tq2v9UJVBXjznB5mFVlcVYjovO?=
+ =?us-ascii?Q?/h4VmtLa0lGhrSxx7BI3MOtjCWY80o4ZApFm2Glbxdt7cfAL8bdZ1EBuS1o1?=
+ =?us-ascii?Q?B0qUvww7UE4W/itpFZahk5fHjUEq53XNTw3vjcP1ZxlPx5TNWmdCcXfcMt59?=
+ =?us-ascii?Q?RBt1GwQDA+tTJXn/JKz9u0LKCPJENf8G5rJ6Tzj8HY0vnVjDcvK7fk3y+n0Y?=
+ =?us-ascii?Q?3OZxtyWxsDPKJJXYxCOfla5OVQlKWrxiGyO1KySHKLd4Etdk2u8yXKHNQlzI?=
+ =?us-ascii?Q?stL4GDbJdbHZYEpEQ3/n0LjEEJiw28v1MNj9Z4VtBtuJ7R9evs5wGUyO/6Bu?=
+ =?us-ascii?Q?zwIt267MwDF6WMJXbPZeo6bkyKMMEuXijRxUOlnqBkzyJUn3UdDTJCyHJfcz?=
+ =?us-ascii?Q?WQwiGr2+ErJq7yu5E3/O8ctrncRTgJ1RGqrj2oykkPlmbKaI9uzfVfkzx4h4?=
+ =?us-ascii?Q?mtRgIOx4SGRRFaYzWHF37eVIFukI7P20HyTrcItAkpq/gl/OSRnNzkB6kb38?=
+ =?us-ascii?Q?3e6ikINuCeSyvaax0cyCE+V1WIsI/mq64/c6weRfC5C0BWQlarCdxi0l12bF?=
+ =?us-ascii?Q?2yzQAZUQo+Rbygmgu5oaV3/7X5c8NUVfit0G4MfAHQEUhJLOiUYqOk763We8?=
+ =?us-ascii?Q?1N8nNdAJk5wlmN0KGUQa5pXBqcAaiOU0J3jhi4kCi4oaGcYvo2dPtgxia3nu?=
+ =?us-ascii?Q?A/yQxld7fzcfJMK+3uum9vbKlwVtPM+CSH/Y1GiroQzFvjuy9ojusu6l3AXE?=
+ =?us-ascii?Q?v5sz5qQx/44g5l4IAI5uq4rhqOfU/CN3y/p6i7jxciig+tVx7c3qNlih2vGv?=
+ =?us-ascii?Q?WZVrapNMwyeecPjyXob+fKejqqiTBx/8lo/5JlX08FaFldYeOCtrvgCKJb0g?=
+ =?us-ascii?Q?/vly2WCN96jRqdrUDE6OE5/mA2G3317tRqz6+CyWVjrtxyHMtj8S2x6w/2Y2?=
+ =?us-ascii?Q?F8STH7f9I2xZbFjQ3AkLfRK5XpqNoGcRFRLi0EIpi4rEzJ6y9iERyitEITCI?=
+ =?us-ascii?Q?Fj4GUEPZXt2B3XdveS2eJkMu6di2Rd+UJnUxpys5g68EvzJfraNwBRzD4D46?=
+ =?us-ascii?Q?wwxPDV3znylC0VeM2N8+urf9ESqcN0jxPDDXuuqObQ3nmydIqxAA/QIIfa7H?=
+ =?us-ascii?Q?GzcaNB9WdeX0i1oPCgIhopAbeSGBgUnsTw1slrp3t9PhPJV9TwD2eqH6No/X?=
+ =?us-ascii?Q?f+DeBjFFJlu5KA2YYHVEQH4uJZuvVUJBYJoK1QegCLTwUZ2JLDVJJD8AzRUu?=
+ =?us-ascii?Q?f2v13HQ2B3NrmmPp921Il4hYE2qVnxIkqioaMM1Pg+T4vEgm?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6d9f3d0-afa2-48f6-f574-08df498f567a
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:26:49.1424
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IB2g/WhJTeKYCWlKgEmLE/dPk8vwjaRrT6JxPHNgUkC+4RuFB02Em4d3XUvR4f37GSTtzxpNsQI6KLPBJMYcuw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB9072
 
-Le lun. 23 nov. 2026 =C3=A0 19:14, syzbot
-<syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com> a =C3=A9crit :
->
-> Hello,
->
-> syzbot found the following issue on:
->
-> HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
-> git tree:       upstream
-> console output: https://syzkaller.appspot.com/x/log.txt?x=3D118e58e958000=
-0
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=3D886d2ddd2d6b6=
-64e
-> dashboard link: https://syzkaller.appspot.com/bug?extid=3D00f5a4ef4bcb8f4=
-d19f1
-> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.=
-8
->
-> Unfortunately, I don't have any reproducer for this issue yet.
->
-> Downloadable assets:
-> disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/dis=
-k-b6a9fa34.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinu=
-x-b6a9fa34.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/b=
-zImage-b6a9fa34.xz
->
-> AI-generated root cause summary:
-> During qdisc teardown in `dev_shutdown()` -> `qdisc_put()` ->
-> `__qdisc_destroy()`, `qdisc_reset()` calls `fq_pie_reset()` without holdi=
-ng any
-> qdisc lock and before `fq_pie_destroy()` stops `q->adapt_timer`. Moreover=
-,
-> `shutdown_scheduler_queue()` has already replaced `dev_queue->qdisc_sleep=
-ing`
-> with `&noop_qdisc`, so `fq_pie_timer()`'s call to
-> `qdisc_lock(qdisc_root_sleeping(sch))` acquires `noop_qdisc`'s lock rathe=
-r than
-> `sch`'s lock. As a result, `fq_pie_timer()` -> `pie_calculate_probability=
-()`
-> runs concurrently with `fq_pie_reset()`, racing on `pie_vars_init()` writ=
-es to
-> `flow->vars` (specifically `vars->accu_prob` and `vars->avg_dq_rate`).
->
+On Mon, Nov 23, 2026 at 01:44:10PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Medium]
+> The commit message says this matches the newlink paths. However, the
+> newlink paths skip ip6gre_tunnel_find() for collect_md tunnels:
+> 
+> net/ipv6/ip6_gre.c:ip6gre_newlink() {
+>     ...
+> 	if (nt->parms.collect_md) {
+> 		if (rtnl_dereference(ign->collect_md_tun))
+> 			err = -EEXIST;
+> 	} else {
+> 		if (ip6gre_tunnel_find(net, &nt->parms, dev->type))
+> 			err = -EEXIST;
+> 	}
+>     ...
+> }
+> 
+> ip6erspan_newlink() does the same, using ign->collect_md_tun_erspan.
+> 
+> ip6gre_tunnel_link() still puts collect_md tunnels in the normal hash
+> buckets. So two ARPHRD_ETHER devices with the same wildcard parameters
+> (laddr = raddr = ::, i_key = 0, link = 0) can land in one bucket. Two
+> examples are an ip6gretap external device next to an ip6erspan external
+> device, or a plain wildcard ip6gretap created before an ip6gretap
+> external.
+> 
+> Can this lookup now return the other device and reject a valid update
+> with -EEXIST? For example:
+> 
+>   ip link add gt type ip6gretap external
+>   ip link add es type ip6erspan external
+>   ip link set gt type ip6gretap external ttl 64
+> 
+> hlist_add_head_rcu() puts es at the head of the bucket, so
+> ip6gre_tunnel_find(net, p_p, ARPHRD_ETHER) returns es. Because
+> es->dev != gt, ip6gre_changelink_common() returns -EEXIST.
+> 
+> Before this patch the lookup used ARPHRD_IP6GRE. It matched neither
+> device, so the update succeeded.
 
-This analysis is correct.
+No:
 
-For fq_pie this particular race is harmless: the qdisc is being
-destroyed, flow->vars is not read again, and q->flows is freed only
-after timer_delete_sync() in fq_pie_destroy().
+# uname -a
+Linux virtme-ng 7.4.0-rc3-virtme-g57f165ff2f30 #103 SMP PREEMPT_DYNAMIC 0 x86_64 GNU/Linux
+# ip link add gt type ip6gretap external
+# ip link add es type ip6erspan external
+# ip link set gt type ip6gretap external ttl 64
+RTNETLINK answers: File exists
 
-It is however one instance of a more general problem: __qdisc_destroy()
-calls qdisc_reset() without the lock that the sfq, red, pie, fq_pie and
-dualpi2 timers take, and these timers are only stopped later in
-->destroy(). With sfq this is a real use-after-free since commit
-47e8dbb6e763 ("net/sched: do not reset queues in graft operations").
+It failed even before the patch since the lookup resolved the fallback
+tunnel (ip6gre0).
 
-This was discussed in:
-
-https://lore.kernel.org/netdev/20261106161455.2412769-1-edumazet@kernel.org=
-/
-https://lore.kernel.org/netdev/20261110044450.51921-1-kylebot@openai.com/
-
-Kyle's v2 takes the tree lock around the final qdisc_reset() and routes
-shutdown_scheduler_queue() through dev_graft_qdisc(), which should cover
-this report. It needs a respin, as Jakub requested.
-
-Kyle, when you repost, please add:
-
-Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
-
-Thanks.
-
-
-> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3D00f5a4e=
-f4bcb8f4d19f1
->
-> IMPORTANT: if you fix the issue, please add the following tag to the comm=
-it:
-> Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
->
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> BUG: KCSAN: data-race in fq_pie_reset / pie_calculate_probability
->
-> write to 0xffff88811d293640 of 8 bytes by task 13 on cpu 1:
->  pie_vars_init include/net/pie.h:103 [inline]
->  fq_pie_reset+0x11e/0x1d0 net/sched/sch_fq_pie.c:552
->  qdisc_reset+0x51/0x2e0 net/sched/sch_generic.c:1118
->  __qdisc_destroy+0x60/0x220 net/sched/sch_generic.c:1157
->  qdisc_put net/sched/sch_generic.c:1189 [inline]
->  dev_shutdown+0x2e0/0x390 net/sched/sch_generic.c:1558
->  unregister_netdevice_many_notify+0x999/0x15e0 net/core/dev.c:12761
->  unregister_netdevice_many+0x19/0x20 net/core/dev.c:12845
->  ops_exit_rtnl_list net/core/net_namespace.c:188 [inline]
->  ops_undo_list+0x21d/0x410 net/core/net_namespace.c:249
->  cleanup_net+0x38d/0x5e0 net/core/net_namespace.c:713
->  process_one_work kernel/workqueue.c:3495 [inline]
->  process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
->  worker_thread+0x56c/0x770 kernel/workqueue.c:3659
->  kthread+0x248/0x2a0 kernel/kthread.c:436
->  ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
->  ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
->
-> write to 0xffff88811d293640 of 8 bytes by interrupt on cpu 0:
->  pie_vars_init include/net/pie.h:103 [inline]
->  pie_calculate_probability+0x425/0x4c0 net/sched/sch_pie.c:417
->  fq_pie_timer+0xf6/0x1d0 net/sched/sch_fq_pie.c:403
->  call_timer_fn+0x36/0x280 kernel/time/timer.c:1749
->  expire_timers kernel/time/timer.c:1800 [inline]
->  __run_timers kernel/time/timer.c:2375 [inline]
->  __run_timer_base+0x40c/0x610 kernel/time/timer.c:2387
->  run_timer_base kernel/time/timer.c:2396 [inline]
->  run_timer_softirq+0x31/0x70 kernel/time/timer.c:2406
->  handle_softirqs+0x109/0x310 kernel/softirq.c:669
->  __do_softirq kernel/softirq.c:703 [inline]
->  invoke_softirq kernel/softirq.c:542 [inline]
->  __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
->  instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inli=
-ne]
->  sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
->  asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.=
-h:674
->  __preempt_count_dec_and_test arch/x86/include/asm/preempt.h:123 [inline]
->  __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inlin=
-e]
->  _raw_spin_unlock_irqrestore+0x1a/0x30 kernel/locking/spinlock.c:221
->  free_frozen_page_commit+0x223/0x3a0 mm/page_alloc.c:2909
->  free_unref_folios+0x8c0/0x980 mm/page_alloc.c:3099
->  folios_put_refs+0x2cd/0x320 mm/folio.c:1065
->  folios_put include/linux/mm.h:2429 [inline]
->  __folio_batch_release+0x8e/0xb0 mm/folio.c:1125
->  folio_batch_release include/linux/folio_batch.h:101 [inline]
->  truncate_inode_pages_range+0x287/0x780 mm/truncate.c:452
->  truncate_inode_pages mm/truncate.c:530 [inline]
->  truncate_inode_pages_final+0x68/0x80 mm/truncate.c:565
->  ext4_evict_inode+0x459/0xea0 fs/ext4/inode.c:273
->  evict+0x301/0x570 fs/inode.c:829
->  iput_final fs/inode.c:2036 [inline]
->  iput+0x44f/0x5d0 fs/inode.c:2085
->  dentry_unlink_inode+0x29a/0x2b0 fs/dcache.c:510
->  dentry_kill+0x135/0x4f0 fs/dcache.c:857
->  finish_dput+0x16/0x1d0 fs/dcache.c:1032
->  dput+0x43/0x50 fs/dcache.c:1073
->  __fput+0x45c/0x660 fs/file_table.c:520
->  ____fput+0x1c/0x30 fs/file_table.c:541
->  task_work_run+0x145/0x1a0 kernel/task_work.c:233
->  exit_task_work include/linux/task_work.h:40 [inline]
->  do_exit+0x4a7/0x1530 kernel/exit.c:980
->  do_group_exit+0xfe/0x140 kernel/exit.c:1123
->  get_signal+0xc49/0xd30 kernel/signal.c:3113
->  arch_do_signal_or_restart+0x96/0x480 arch/x86/kernel/signal.c:337
->  __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
->  exit_to_user_mode_loop+0x161/0x940 kernel/entry/common.c:101
->  __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline=
-]
->  syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [=
-inline]
->  syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
->  do_syscall_64+0x23b/0x3a0 arch/x86/entry/syscall_64.c:107
->  entry_SYSCALL_64_after_hwframe+0x77/0x7f
->
-> Reported by Kernel Concurrency Sanitizer on:
-> CPU: 0 UID: 0 PID: 6734 Comm: syz.1.1114 Not tainted syzkaller #0 PREEMPT=
-(lazy)
-> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS G=
-oogle 11/06/2026
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
->
-> ---
-> This report is generated by a bot. It may contain errors.
-> See https://goo.gl/tpsmEJ for more information about syzbot.
-> syzbot engineers can be reached at syzkaller@googlegroups.com.
->
-> syzbot will keep track of this issue. See:
-> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
->
-> If the report is already addressed, let syzbot know by replying with:
-> #syz fix: exact-commit-title
->
-> If you want to overwrite report's subsystems, reply with:
-> #syz set subsystems: new-subsystem
-> (See the list of subsystem names on the web dashboard)
->
-> If the report is a duplicate of another one, reply with:
-> #syz dup: exact-subject-of-another-report
->
-> If you want to undo deduplication, reply with:
-> #syz undup
+Regardless, unclear what's the use case for configuring two such
+external devices in a single netns. By the amount of reviews that these
+drivers are getting (unless the patch is simple of course), I guess
+nobody has such a setup.
