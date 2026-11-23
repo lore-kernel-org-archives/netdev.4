@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395973;
-	b=V6HoBfK9Oi1r33ggqxE4mDWw5yRdXHw5VN7rnL7UotZJBigFhvRoAfRXcb0A1emq4QGO
-	 iQcIAKDvfB3S0rU7uHKSefeMMG497BJWYobvp/tmsnHyHsBwIiw2N2xkYEEJWy34Yl7TV
-	 vRXweHf2GA1Ps5jjIpZTxr3kPRtmO5es7423XxiILlIJ6F9auSUzCtlPt0LGuEN4aWcds
-	 wL2ZB3TIY/C1pAk6RexHo/cTxtawADGnwQVcdfzxERF2fWhYpfVQLn/PaEwOkpAC5lxmQ
-	 gVLIHruueW/HLuGttbmcshzuPq9p8dUyxZVxEvOl2NeUuMJTD541VzrqmBr9MEVMdZQ==
+	t=1795395974;
+	b=OPol4MpuV2xmzHCN2qF9dDWSu7+NZI1UiltviQVcqlkdbcaHXeEAP8FGY17S724JTMwR
+	 TbP44ByHY1XHk+zCAsDFztQ+E5yHPAqIXtvObUvD5nefZfE9j1EzwsYx0WS7kilZ37lBN
+	 9K7fEIrZBz/FoLtMWgLr+ZeqserFJIj+17FOVESSkmJ9UbsL55kRTvgyxdxkUtmj/giOl
+	 tizK71tcjpb+scAxvcc+mJZEVlpefHTL5rK08vJ76qGD6D4emGcx9v8uRkkuBydW0MnN8
+	 21npm8xKVYxXt4B0Oghgi3Tr1fAaa+3HLgYxnK88jUYalhzozo9tlZ/djC4mvYdg6Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395973;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395974;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=c52FecD9pTkops3xpRxdHkp10wpl7jH4KiBhrJdHiV8=;
-	b=TJI/Xnsq0GScp9ql3Ojw1Dg8tC3YEOxkFBhZRxAGZsHuCbvrZUZ3ZyVAeSXLTnIaNnL7
-	 JDXcIVR0GIwz+GGfURmBxTTX4zIQhChxwtMgL98zT3dzcK/AjiO0aHK+qMdno43rbJ21Z
-	 2chmzdvgQF+Sn0+BmFj4jr+y6TuWkYpKShemNFg+qX3U6QT7R3Ix+1f63Ke8Er+Lgp/ek
-	 6IEAA4mr3jpxjOmR/dgS7ApVv3zmi/QLzD3kk+VrIFGdW/a+P3o2VJos3H98AevWU3OOy
-	 WD950lNTTcnWoGHNWxCh2B3+n+tt2ca38WnAoGyF2C+5BZQTflkJPANcrBQF4pVnXeQ==
+	bh=m1kYw4ZrlZ5dWwlbPQBHBTRCJTHoFiCBu7iltfS40Aw=;
+	b=cRkX1qMdsk1QfAjCFFNjigMQj8j3Kq6NrfHQCVcL25wa7F+5w4pnhxa2pdteLzecwRjM
+	 Qgnxo4skPUst7fuQzGotUEpipxfRytwlldGGxYNnKNqPDcsUgCRtdWYweveQHzmcyzTtT
+	 EmmiGM2COEEKBunVgVz5SaogPSTID4q6IP1Oqn34dlwtAvyOPcOwXbyVbxKD/EScFLgp6
+	 4aEXq7GuWzcBRiqzweKxyB+On2kcdKz/MV0xgSQS0JHygQLegsuph7lrqa5vXRVwd+OL2
+	 aVwkosj2TjKDvUFizkugAkzHMiLWH2VYFJSx9J9XOEloTeEGXzzJxLRhwtO+GvqJh/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EeFkUDgo;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J0ETGGx4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23EA6606A31D
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E48606A331
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EeFkUDgo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACCBC1F000C0;
-	Mon, 23 Nov 2026 01:06:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J0ETGGx4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C101F000C0;
+	Mon, 23 Nov 2026 01:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795395972;
-	bh=c52FecD9pTkops3xpRxdHkp10wpl7jH4KiBhrJdHiV8=;
+	s=k20260515; t=1795395974;
+	bh=m1kYw4ZrlZ5dWwlbPQBHBTRCJTHoFiCBu7iltfS40Aw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EeFkUDgoy5serfTBSaWlvaWB1q5o1vlkGKCIQYjY/jRtCikthOhCRk807KEGGAVUE
-	 ekxpILLtzThkigPYEEaIVgFt5D9qKXY9akVLNYV0ATryUDUe/4LrSwiM55fOH9Vsp/
-	 g87pFxGCVR7ek1XSV89hA5+1/UYz0sPR1JWeYjIIJdIqkESRRCSRMgd42WOImGzUVa
-	 k+bzmUlVnrHvCDV8W4zZ3knkAI3E43rOiSxFoP5YJM+8KDI9ULGt/iqeYN+YM0t5WJ
-	 P/wirFprIvH/ywXCXiKuLCx7niq5gFnV9UB0w89YVdIZvrpGH1Y/kG3VcIf5D67ZUZ
-	 jM43kUiY+Cjww==
-Subject:
- Re: [PATCH net-next 6/8] ibmveth: Add RX queue register helpers for MQ
+	b=J0ETGGx4kggl667GPY0Jp3oCOKY8tofipGVE85QP/dYm84HgEVCAaFeLSw0eHS95m
+	 nxzxkZtor0D9OQhmOL5lSigPRaz0nFRWud1Arp8EwF5geKV052TWcSjtnrkVx9RhC8
+	 KP6SFkfjf59zVDWNNjtKeNuB+1QciOl2pnWFsqvzeAcEn+neHGXQC9jLzJL5BXdY4c
+	 lcH8r2rj6QCZHjB1y6+VeAlSNRcxQr1gh+T+Uz2kgMq8HLtgkDsZUxrNwpKzPDQggF
+	 XbSL6LtIXrElyv/nAk65UqsNsHzTauw73WR5NC0sw8FjMYtigzfbifRl4VOmc9I69E
+	 aNYT1mYyTjExg==
+Subject: Re: [PATCH net-next 7/8] ibmveth: Pass the RX queue index through
+ replenish and poll
 From: netdev-bot+sashiko@kernel.org
 To: mmc@linux.ibm.com
 Cc: netdev@vger.kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
@@ -51,10 +51,10 @@ Cc: netdev@vger.kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
  linuxppc-dev@lists.ozlabs.org, horms@kernel.org, davemarq@linux.ibm.com,
  haren@linux.ibm.com, ricklind@linux.ibm.com, bjking1@linux.ibm.com,
  shaik.abdulla1@ibm.com
-Date: Mon, 23 Nov 2026 01:06:11 +0000
-Message-ID: <179539597127.3135.40344499616504179@kernel.org>
-In-Reply-To: <20261119000711.18093-7-mmc@linux.ibm.com>
-References: <20261119000711.18093-7-mmc@linux.ibm.com>
+Date: Mon, 23 Nov 2026 01:06:12 +0000
+Message-ID: <179539597289.3135.13448321447198422850@kernel.org>
+In-Reply-To: <20261119000711.18093-8-mmc@linux.ibm.com>
+References: <20261119000711.18093-8-mmc@linux.ibm.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,112 +74,55 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message presents this patch as moving existing code
-  into helpers and changing the order of open().
+- [Low] This patch adds the queue_index parameter in inconsistent
+  positions across the RX buffer helpers in…
 
 --
 
-ibmveth: Add RX queue register helpers for MQ
+ibmveth: Pass the RX queue index through replenish and poll
 
-This moves logical LAN registration and teardown out of ibmveth_open() and
-ibmveth_close() into the new helpers ibmveth_register_rx_queues() and
-ibmveth_free_all_queues(). The H_FREE_LOGICAL_LAN busy loops now share
-ibmveth_free_logical_lan(). open() also allocates the buffer pools before
-registering the LAN.
+This patch adds a queue_index parameter to the rxq_* accessors and to the
+RX buffer lookup, harvest and replenish helpers, which used to hardcode
+queue 0. ibmveth_poll() now gets the queue index from its NAPI instance.
+Only queue 0 is used, so the behavior does not change.
 
 > diff --git a/drivers/net/ethernet/ibm/ibmveth.c b/drivers/net/ethernet/ibm/ibmveth.c
-> index 8f32f75f2d7fd..ab8c5f6a265b4 100644
+> index ab8c5f6a265b4..a40d9a6abf51b 100644
 > --- a/drivers/net/ethernet/ibm/ibmveth.c
 > +++ b/drivers/net/ethernet/ibm/ibmveth.c
 
 [ ... ]
 
-> +static long ibmveth_register_logical_lan(struct ibmveth_adapter *adapter,
-> +					 union ibmveth_buf_desc rxq_desc,
-> +					 u64 mac_address)
-> +{
-> +	long rc;
-> +	int try_again = 1;
-> +	unsigned long ua = adapter->vdev->unit_address;
-> +	unsigned long buf_dma = adapter->buffer_list_dma[0];
-> +	unsigned long filter_dma = adapter->filter_list_dma;
-
-[ ... ]
-
-> +static void ibmveth_free_all_queues(struct ibmveth_adapter *adapter)
-> +{
-> +	long lpar_rc;
-> +
-> +	lpar_rc = ibmveth_free_logical_lan(adapter);
-> +	if (lpar_rc != H_SUCCESS)
-> +		netdev_err(adapter->netdev,
-> +			   "h_free_logical_lan failed: %ld\n", lpar_rc);
-> +}
-
-[ ... ]
-
-> +	rc = ibmveth_disable_irq(adapter, 0);
-> +	if (rc)
-> +		netdev_dbg(netdev,
-> +			   "Failed to disable IRQ for queue 0 before registration, rc=%d\n",
-> +			   rc);
+> @@ -909,17 +922,20 @@ ibmveth_free_buffer_pools(struct ibmveth_adapter *adapter)
+>   * * %-EFAULT - pool and index map to null skb
+>   */
+>  static int ibmveth_remove_buffer_from_pool(struct ibmveth_adapter *adapter,
+> -					   u64 correlator, bool reuse)
+> +					   u64 correlator, int queue_index,
+> +					   bool reuse)
 
 [Severity: Low]
-This isn't a bug, but the commit message describes the patch as moving code
-into helpers and reordering open(). The patch also changes some logging that
-the message doesn't mention.
+This isn't a bug, but could queue_index go before correlator here, so it
+matches the other RX buffer helpers in this patch?
 
-In ibmveth_close(), the old message was:
+ibmveth_rxq_correlator_valid(), ibmveth_rxq_get_buffer() and
+ibmveth_rxq_harvest_buffer() all take (queue_index, correlator).
+ibmveth_remove_buffer_from_pool() takes (correlator, queue_index), and its
+kernel-doc also lists @correlator before @queue_index.
 
-    "h_free_logical_lan failed with %lx, continuing\n"
+Because of this, ibmveth_rxq_harvest_buffer() has to swap the arguments
+when it passes them on:
 
-ibmveth_free_all_queues() now prints it in decimal with new wording:
+    rc = ibmveth_remove_buffer_from_pool(adapter, correlator, queue_index,
+                                         reuse);
 
-    "h_free_logical_lan failed: %ld\n"
+int and u64 convert to each other without a warning. A future caller that
+follows the sibling order would compile cleanly, but it would index
+adapter->rx_buff_pool[queue_index][...] with a truncated correlator.
 
-Anything that greps logs for the old string will no longer match.
-
-The open() error path after a successful registration (a failure in
-ibmveth_setup_rx_interrupts() or ibmveth_alloc_tx_resources()) used to free
-the LAN without logging anything. It now goes through
-ibmveth_free_all_queues(), so it calls netdev_err() if H_FREE_LOGICAL_LAN
-fails.
-
-The new netdev_dbg() above also seems to repeat a message that
-ibmveth_toggle_irq() already prints before it returns -EIO:
-
-    dev_err_ratelimited(&adapter->netdev->dev,
-                        "Failed to %s IRQ for queue %d, rc=0x%lx\n",
-                        action, queue_index, h_rc);
-
-The old code ignored the return value of ibmveth_disable_irq(). Is the extra
-debug message needed?
-
-Two other changes are unrelated to the move: ibmveth_register_logical_lan()
-now returns long instead of int, and the adapter fields are copied into
-local variables.
-
-Could these changes either go in a separate patch or be mentioned in the
-commit message?
-
-> +
-> +	lpar_rc = ibmveth_register_logical_lan(adapter, rxq_desc, mac_address);
-
-[ ... ]
-
-> @@ -1232,14 +1295,7 @@ static int ibmveth_close(struct net_device *netdev)
->  
->  	ibmveth_cleanup_rx_interrupts(adapter);
->  
-> -	do {
-> -		lpar_rc = h_free_logical_lan(adapter->vdev->unit_address);
-> -	} while (H_IS_LONG_BUSY(lpar_rc) || (lpar_rc == H_BUSY));
-> -	if (lpar_rc != H_SUCCESS) {
-> -		netdev_err(adapter->netdev,
-> -			   "h_free_logical_lan failed with %lx, continuing\n",
-> -			   lpar_rc);
-> -	}
-> +	ibmveth_free_all_queues(adapter);
+All current callers use the correct order, including the KUnit tests. The
+later patch in this series, "ibmveth: Split RX poll into per-slot helpers
+for MQ", keeps the same order.
 
 [ ... ]
 
