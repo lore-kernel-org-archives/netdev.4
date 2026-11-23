@@ -1,112 +1,112 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795463521;
-	b=op98gGcKidXrTB/mc74e/PAgEIKOauMrbGEZNOrAYTDG5no3lnTJWh4ET24VnJ/TYk5D
-	 +8q9hipIaG4Hgk8rrn/CC50+0C2DzOUmRrUfJfXDf1plzso6TabuaUGEyObMdMNdHiXUX
-	 /GkkLknUMnCVyjdlPXIrtC6iIoRKw4nXrSpfckx3qMgB7OWlmAH2qyW3OCwLRnQXvO7Wa
-	 TKQE528py+hQAVDfK3sEQo688OBon92QhZ45wjS5raIwXDrOMPJ2pEaLt7nRClDtzkzPn
-	 ZwzBHn4kNhoRuTc1Pw/bBY7YFFDa7eQQqgV6+tyP6pjgjgEgaFXfhFFBsKENvAHCw+A==
+	t=1795463528;
+	b=j/7A0/fzPr5nbGuu4QMcVH0e+UilCEj44bk8byyqSYegBXZm/PeRDIiB3ofmBxGrwaxw
+	 UUWUWAVzXep7lq7Dcqx98V5MoTY2+9PccrLlyG2v/TWh4QSsBdGg6pZsRvKYqrQ4VNP3z
+	 vXOG7czNBOUcahJsodrB1mpsS9ZwUDnt3ZlqjByAOo6sQGUwnH40qvuePePj+DHtPi2Kc
+	 QicsHC9D+R3ABKUo/w1XoRbZx/WOJJdEXVI4d4JosH53vKbzcesizxIBu8sLxto/gSgdy
+	 j7uETGxjH+8EFScfaOMYusYPSZ669n7V10Pm/ZH1kaFTVWbEPagAyz1bFf65MZ3NL+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463521;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795463528;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
 	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=bmQ30jQqMNwZmjGFkuYgtcg/0UXtSi/qTb52PKDkGdY=;
-	b=1/H2jkI5c4ppwWN0xHO+ebVxpDZtRLkChZkoZcWlfWgJsCtGfzI7P4BsOEfoYyy+74vx
-	 dgPKvuCd/s5DojrTZFMfPEC6M7nXZHDVVRzStXrM16OKFrm4sV/yYr1JGkNSUIYS0wlHD
-	 0AhBsCFLWzACwu8kh8OK8ijAPIGyO+oWYNu2s3k4n515T7/9oEnSoyj8K7B+vz6RrsPkJ
-	 DMRZk5JS2FZpJo06P4C8SDmVUzVc5OjwIU78x+8UfVsccZiyatN7YCGeLO7sb9tsdSSxz
-	 tiNefifKh7NTRWGN0ESl2/qLJ0H6cWzJ9LdlipGX6cHbP9CcbAp2VfSn8nljX+Em1wA==
+	bh=Ar7wfH49sU9H/Es8DssBv78YjfDjLaZ23GHFlhRMqOM=;
+	b=t/fn+SzohZGowSviapBSgY6Sc1AuwEXF4i+xuP2tYS+IrLQVICux5PJTjihM2EvAiYo6
+	 /dGDnaTme1O2+za90vNH5Jpk17umqh36QvvgLg8JbiIS4h/ep/OxEgYxyLLpHEHAbn9pu
+	 KHenYYhb5DOqCfEjhsHhVgrQov4HfHPGJPt0+aKl9HiKO7lpEe0k0T3y2hajM1rXcxo9A
+	 Q0bqCdU5XBpQ6BXFSbdVC/ZOS6MLPUIlxplqysdLw9VypbgQ29n6pW9ayvj+YqFYXhRku
+	 wfo3ucN9fiuC6SnBDW8QhTiLBtSuwcHnuYXVsy1Gkp5Vp64XqN2d8u+mNZhhnazg1gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="E2vptEh/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A2f4jtw8;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pdKG2Uly;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jIAR7EEj;
 	arc=none smtp.remote-ip=205.220.168.131
 Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAC06606A326
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:52:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAC06606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1778606A326
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:52:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1778606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=E2vptEh/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A2f4jtw8
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGGpbC2768984
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:52:00 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pdKG2Uly;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jIAR7EEj
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGGnG11861248
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:52:07 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bmQ30jQqMNwZmjGFkuYgtcg/0UXtSi/qTb52PKDkGdY=; b=E2vptEh/HQByNP4t
-	7A+kHy4yItIf5B97NdyYtmKXd2NSkkLJnuhI/ksLoLX8wGBeROk53QZ5sKVpE/if
-	pcdJa6Zj/7p7ITQBHkejZs1aJQt+IBC6UR3nYVtIczzDMU0sv/HuchF/Jl8ThPMo
-	C1FDc/d/VPORUUHO5p7CO2y8XfRATeQWc5B7a+2AfQf2U26/Z/GExBegIHYcB02R
-	oLhwWOkePWv5jjM/Wmyc+nmvbLVoJ2FnOCRUhQxN1eknDAsUZyB7PF61ELeG83C5
-	um1dNJfuYUvyojlYzUEiK76c5RSy+DjffiY1SJhooOG5ALcuMcuu7CAFjnkV6rr3
-	vVVkmA==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1pb5be-1
+	Ar7wfH49sU9H/Es8DssBv78YjfDjLaZ23GHFlhRMqOM=; b=pdKG2UlyPVNheH2S
+	mFdSb1Aab+HphvqEmS3zT7cmw34z1Lnr3f19yT8qogsBzUj+LQhnmwUlso7XyYCZ
+	8fZePrfDvVkcNg0yLDK6Bh7hRPF0waV+7jk5G7Xf1CKE1IclhLIpy8M2E5N1NyRp
+	1sxDAf/mUIi1ucuGtWW/1wSfxajahoIt4lIzh2w9tEeoI0xD+UzMIbiofgTfb58c
+	ohBapWvT7NNQk6rU/Xg7KnHy4yWGqC6e/k365jv+ypJuytcq2ns4hlGghKSojeif
+	FuzXdN4vm7WKrGfa9KbexvCTIKjrNc4uNakzegSwyRyrlcPpzCjECLiXXT1zscy1
+	XSQkiw==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g9a35jt-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:51:59 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3425098ae4bso4730210eec.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:51:59 -0800 (PST)
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:52:07 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-384c78aa0dbso5164454eec.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:52:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795463519; x=1796068319; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795463526; x=1796068326; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bmQ30jQqMNwZmjGFkuYgtcg/0UXtSi/qTb52PKDkGdY=;
-        b=A2f4jtw8d8s2cajlFlOYffzDzjGvDSk5MaDvJWS6Zr1Mq+zCf40EvUy5Qhn7eDzs/I
-         0VCXJ6exnQgFjiPvdMBkfEQiyRayc1FVpYe9bP4gfCRaxvBk4nG14qF0m3aFJT7nuslG
-         0wlBQbavlJxUmpIB3b4d2b1W+e1IjxCawXAdu1Gz1N5+nCCcPHSatdSyCBVAhfyDd6SD
-         7bwvwbkMaeSzekRwO9Nf3+j3QJ5/7KSBOf/RJNvcwEADf07zgRIpW4833kfcbA2XzUDA
-         x2JISF5DBRYozS3ZXVPVB00XyWXlpVkJ/eoM2BalmY7HNZqqMRExpj+eU7wwfskyVruE
-         C7ng==
+        bh=Ar7wfH49sU9H/Es8DssBv78YjfDjLaZ23GHFlhRMqOM=;
+        b=jIAR7EEj6R2TdME/iTVTfE+7mCmTZOjt1d5rcucsHjHRwBaGpb20Z9UjLurhzfRqCn
+         tzqA/CY9Y3XcHgwTchID+D0SUhIzPI0OG0KneUNqxHz2/meKTPzC/6usCfRdkFP4YYNU
+         qBg6lMquwewuG8MoIkRwJtTwxeZKSt6F60vVjlTb9geT8FPsLnPYlrXQ2WLZpB9zd4jw
+         Yy+f4z968agclaPEWusdZXoR/o5e12M7tpKskGQYF7ltfK+6PuPF9y8sHYip76odMlLS
+         n/yookZ3lultvdxC6kQfg8RMJiu3uWwuktpvvALII3P0ZlpyIOm/VLwN9Ix79N4hGZTe
+         wX8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795463519; x=1796068319;
+        d=1e100.net; s=20260707; t=1795463526; x=1796068326;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bmQ30jQqMNwZmjGFkuYgtcg/0UXtSi/qTb52PKDkGdY=;
-        b=mhAvGRXUlI5oFtip4BDWow4c0BOK0D3C8JtjcEfBW0jiIZlCplOskDiRkhTXUHxwVw
-         gbSctzn6FvApZ9y6gQeu/k/mhl0re1qfzETl6ez9mGm35B6rMXs0KEA8Tq17i9uXIGuh
-         JvGyYkpMqyjOfibiaVjMk/EHgh9sPDBE6oinvHv6JYyf8/hb4cZT1mTTYSZ5lPPwdmDB
-         g8PuXHVFciRSty8Dk7aUqxG+UJuyCYnLhITb7cJyUSIkjjgnqRqdNb45zlWooroggYQT
-         7Tg2c5T9JOx1i7moueRuBZfNkhBepS/GxxWgrjk2p+5W0EnYdIiKN4vh0Bk7CDKZZ9Vj
-         PzNA==
-X-Forwarded-Encrypted: i=1; AL+hErG+r0Dl+BbAwzpDZsx7noXj0M8uXP2OiKadhhTb0hLBoCJYRfOv02/B7ZnPPP7Bdkcc/IOuYso=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+2igXH7dDr/dje5sF7irzFDYeU2KVpmT4gY5paXhJI+XkUR0Dd
-	zpCFN0465nacrLIyeVqpzo9oMekZcQnAj022sOOtNfUyGUxKxECriKCLZaAo0gdED3oPo3pGOgd
-	Nz3rdXXRfrznyAB5kaKaJV8sx7gNLs9a+E+UVrFGY5/eRUvnJOdE26ed8q3I=
-X-Gm-Gg: AZFdTZcz+wTwAjgYH7bFIGQsfHgXO3NBKqq7RdeXzVspTCwB6OcVouX0T0XHyBtr9CG
-	YObtCD2QnCLEM1kvzHx3wMhp1ZtDrWSWMfdhkmnxMyP9GgTXW3cKb3CCh9yTKzqnn91JCbQfktT
-	N+Wf6aK8a830XjTaq4mvnimdNB16ErmWmLMA6eN+orrzq44ExycaoHfBW4ku1dRnMYJ45c3vXCL
-	k7W9nrUHQDVWlxEoL2EXVWY2zKcLv8W82bmRKcG3p86QyhOsQOCxrRlM2jaNCnkPct+E8C7dR67
-	/VzRmavZQ9BNKiAMMa1Ioq4K1k+NUhcsFgmPfvqNDasvdZJXAFMfV9/iGw+qaqYhs7cqv33QpsK
-	vTA6BXg1QGeztI7B8CSkc//F83cDZXAGGIfvKd0r5rgGrNkwT4471lVHTkb9nZNcf0mMnY1TEGA
+        bh=Ar7wfH49sU9H/Es8DssBv78YjfDjLaZ23GHFlhRMqOM=;
+        b=Un0oIeRfLn2q7cSNmAPghLgVeasmn+DNbuK6wrMXK288X+OdjC+JEqJnKLK8AbJZ07
+         MdPjjsdjwtzRJBhgcmvseCTd/GxFeCfwkXzpBASEUB4WjkxcSsq9RhrgHb+n81ZaKiMe
+         Dz0fyvGr63K4i+EVsbAwE6hzLYr8SJ6KX9V1jJCsrjDwG7/5IpovGbcBBmW9y/sV56iQ
+         5XWRNLze92WByEJv4fx1y//nPwggB/ZBEx3b+sVkPZwu2oy1JB6Sce3N0Mh6lgOS/TKK
+         tgmmpuYjo+W1XeZTzxCkUIqfpywtK/vNKasGuCkVkaC1Vf3UYhAd564fWwQ7zjnpU1UW
+         CUwQ==
+X-Forwarded-Encrypted: i=1; AL+hErEBaXlcGs3VbVbt8SNXEcvpRYKtajbRYREjIHqi82xh8YLSJhL/4uG6sPqCzT/uX5HSdAEzw5Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6tTal2fzrrowCHC8x3kJxj++ufhMFozuY3/kPKFMmelochEIa
+	2fCZmWxCnCR2ux1/EREvFY47PAPjeSG41NXqXyOfnG6mCU7ZI4oEqvocmYXxyUvv0bKa4zL5xYd
+	v0i5wrRu6Hk04zyD8ZkaAtECB9tZpj5PMTBm4n2eZkflOleTM2A+ATBOhCw4=
+X-Gm-Gg: AZFdTZdgFnta1PEj7GaZBhKBMXj/2Dd+NTGKiQor8ArzalsEhGCBEVAuetkjyjp5hjA
+	GvxSLz5ttcArqQFbNkNBRuCtEKX6l3JYHJN1aan3jaetWG9/LHYAJugwe6Agyjq+N+aupvs43X2
+	Dy8PXQ3FFqNm5D42b2CzSDwACvOHzheSjeGnWunb9yd3DurS5xjpcQXZnm4w09O3kn9yiCTloIr
+	uwhM3obc6gNVqqHWkTLn9HY586mBVCGSB42Eu4tKCWgRh7cMFHMbHxctyCSRag6w1l0RlZy81Bu
+	EidS/xHWL4e77/WdwLvlrcgIx9mBIbvjIqjL3/DTdt/M7L2UBccx3mQBssNcUe2iBGrWGjkBS9W
+	GHZ2vl9419mtjUIs3HRwEavgrTZ8GosI+9aFcLVGEF+uEEzg8hZgo5HBi5KLljUYBdqZ6WOnuTg
 	==
-X-Received: by 2002:a05:7301:a0b:b0:386:a416:6c91 with SMTP id 5a478bee46e88-386a4166fdemr6588579eec.20.1795463519197;
-        Mon, 23 Nov 2026 11:51:59 -0800 (PST)
-X-Received: by 2002:a05:7301:a0b:b0:386:a416:6c91 with SMTP id 5a478bee46e88-386a4166fdemr6588558eec.20.1795463518660;
-        Mon, 23 Nov 2026 11:51:58 -0800 (PST)
+X-Received: by 2002:a05:7301:6408:b0:36a:270:ce76 with SMTP id 5a478bee46e88-38570f2b27dmr13408385eec.33.1795463526279;
+        Mon, 23 Nov 2026 11:52:06 -0800 (PST)
+X-Received: by 2002:a05:7301:6408:b0:36a:270:ce76 with SMTP id 5a478bee46e88-38570f2b27dmr13408347eec.33.1795463525541;
+        Mon, 23 Nov 2026 11:52:05 -0800 (PST)
 Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm36363123eec.7.2026.11.23.11.51.51
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm36363123eec.7.2026.11.23.11.51.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 11:51:58 -0800 (PST)
+        Mon, 23 Nov 2026 11:52:05 -0800 (PST)
 From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 01:21:33 +0530
-Subject: [PATCH v3 02/10] dt-bindings: clock: qcom: Add PDM XO4 divider
- clock IDs
+Date: Tue, 24 Nov 2026 01:21:34 +0530
+Subject: [PATCH v3 03/10] clk: qcom: Add a driver for PDM GP_MN fractional
+ clock divider
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,7 +118,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-b4-pdm_clk_gp_mnd_v2-v3-2-98db26a87500@oss.qualcomm.com>
+Message-Id: <20261124-b4-pdm_clk_gp_mnd_v2-v3-3-98db26a87500@oss.qualcomm.com>
 References: <20261124-b4-pdm_clk_gp_mnd_v2-v3-0-98db26a87500@oss.qualcomm.com>
 In-Reply-To: <20261124-b4-pdm_clk_gp_mnd_v2-v3-0-98db26a87500@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
@@ -137,126 +137,447 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
         linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-gpio@vger.kernel.org, netdev@vger.kernel.org,
-        Taniya Das <taniya.das@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+        Taniya Das <taniya.das@oss.qualcomm.com>
 X-Mailer: b4 0.15-dev-aa3f6
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA3OSBTYWx0ZWRfX4kTWnqrMi3n1
- vZQxkvRFmqxDAlronuckzW5NCjfJ3nojdFdk7Mxblma8FLuKic9yLddi/dmWClXLQls4ovUhzVY
- HCKcAsnBqksHEEo5eRXQcI0dxXZWz1tgjT6vA3rlVxKiV58NYeuspxVjLRvfMdHEw1fdupENklk
- CPsg2Pqz2iiknvkbnWWrEEWFTRRpt3VcJlxQCNUsRXEG/gj7jeNBe9N93lFDEpseThaBGZtjyRv
- 7cR4F52U3EGA35EhWCSBGmb5o8hWmES7/mK60WR41p5QZCusvoj0xyHsrJzFjiTAtxbyFlkFDTr
- wVvqYgcsdGmME4cnxFC6acoiqTV4uLCFoMwIpgITjEMHZ1EzfZTsju8VmVHTDQqNg7vEM4Rfedk
- Rmsvv0ARjCQZpwRLgo9pDMQGJR+l5q14iVwYVTugG5exBWx5QDfH7dSCSoYT+r4e/CTTKi8QlTx
- 24NfuEINn6boiAVEypQ==
-X-Authority-Analysis: v=2.4 cv=AeIkjHXG c=1 sm=1 tr=0 ts=6b04995f cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA3OSBTYWx0ZWRfX3TDZ76bRG0wK
+ SP89LXDewdacbvkfB1pHLePnApuc2XRxxFs9hzF/1V2EVguuTNdvyLUKmnq5rK6wq+xDzNR5O7N
+ XWlUOn6ZBdh4PeCgh/0o4600Q/H+Wnw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA3OSBTYWx0ZWRfX7GEJNH2LlaUM
+ YO0Pg394+vN/j0r2f5hFThbxfoSjdGYytFHq3eLMeNAsjucrHlsvRCKOITDS8m1KFQqtq7NoICa
+ sqew5CmnV9u5oLl9b/vtym+mwIQNfovSYIwodiEx0AI03OwLfvafr94FIFj65414RmYI+ON6K17
+ 1hQcnz7JysKuSFMP8n6y1zn2A0AQvw09Ajx1mKBL5ASDIizSWaFjzhGDlFpsVN+RHQE66J0Ikp6
+ /aRAiNIBg51p+OJON7HTjR4/je4v3xwYCs6dENLPceClXWGDW/q/vHsZhE3rLxj3JkBJYvt9GAl
+ KAvn4BiRGCY26dsh1d1YxGMVGx7wTSefqHZpqGGUwfoQ8TlNbmmiCDKEVf5LOYOahPuvktsC6BM
+ /EuKAXSi7Kaf8TgXsRhRpsv3OISiwSLYqZ4+ZaX8NktAa6NzyG9I0OYgNoVwkm284iT/yeZbrL9
+ zJGIcU8cXdxPtuFBYIw==
+X-Proofpoint-ORIG-GUID: Tjuvtplp_maqrLnuQCFIrQ5Om-0gZvvs
+X-Authority-Analysis: v=2.4 cv=cYJHPXDM c=1 sm=1 tr=0 ts=6b049967 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=ogv3psnu3gARwhNlCuYA:9 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: hNhw8hsQ-Boleziy-H6NXAVr9LaGo26K
-X-Proofpoint-ORIG-GUID: hNhw8hsQ-Boleziy-H6NXAVr9LaGo26K
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA3OSBTYWx0ZWRfXwpSjf5FkJAKq
- aA/ue+C91rIyVOJuO/K4RpgI+cCh/5Dat4Gt8UPxx9tu2T0XN+JVFKHVEhquo2VWZxbyhy0UETq
- fzj6U4pKLCahwtzfNu1/uSHZgCxS8do=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=knmouaU1qqhetKb48BEA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-GUID: Tjuvtplp_maqrLnuQCFIrQ5Om-0gZvvs
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 adultscore=0 clxscore=1015
- suspectscore=0 phishscore=0 impostorscore=0 malwarescore=0 bulkscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ phishscore=0 clxscore=1015 malwarescore=0 spamscore=0 bulkscore=0
+ priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
  definitions=main-2611230079
 
-Add clock IDs for the PDM XO4 divider sources on QCS615, QCS8300,
-SA8775P, SC7280, SM8750, and Shikra. The corresponding GCC drivers use
-these IDs to register the divider clocks.
+The PDM (Pulse Density Modulation) hardware block on Qualcomm SoCs
+contains a GP_MN clock divider that produces a fractional output
+frequency from a fixed input clock (typically TCXO4):
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+  Fout = Fin * (M / N)
+
+The hardware encodes the period in the NDIV register as the 1's
+complement of (N - M), and controls the duty cycle via a separate
+DUTY register that counts the number of low-phase native clock
+cycles over the period N.
+
+Add a standalone platform driver for this block that uses
+rational_best_approximation() to find the closest M/N pair within
+the 9-bit M and 13-bit N hardware limits. Reject ratios which cannot
+support a valid duty cycle, and program the MDIV, NDIV, and DUTY
+registers via regmap. Implement determine_rate, set_rate,
+recalc_rate, get_duty_cycle, and set_duty_cycle operations. The PDM
+AHB bus clock is gated around every register access.
+
 Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
- include/dt-bindings/clock/qcom,gcc-sc7280.h  | 1 +
- include/dt-bindings/clock/qcom,qcs615-gcc.h  | 2 ++
- include/dt-bindings/clock/qcom,qcs8300-gcc.h | 1 +
- include/dt-bindings/clock/qcom,sa8775p-gcc.h | 1 +
- include/dt-bindings/clock/qcom,shikra-gcc.h  | 1 +
- include/dt-bindings/clock/qcom,sm8750-gcc.h  | 1 +
- 6 files changed, 7 insertions(+)
+ drivers/clk/qcom/Kconfig      |  15 ++
+ drivers/clk/qcom/Makefile     |   1 +
+ drivers/clk/qcom/clk-gp-mnd.c | 342 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 358 insertions(+)
 
-diff --git a/include/dt-bindings/clock/qcom,gcc-sc7280.h b/include/dt-bindings/clock/qcom,gcc-sc7280.h
-index 3d5724b79bff18a858bdbb5c1654c5174e8cb23b..68dfd6616ce4b1c1e41f11603be639685301129f 100644
---- a/include/dt-bindings/clock/qcom,gcc-sc7280.h
-+++ b/include/dt-bindings/clock/qcom,gcc-sc7280.h
-@@ -192,6 +192,7 @@
- #define GCC_WPSS_RSCP_CLK				182
- #define GCC_EDP_CLKREF_EN				183
- #define GCC_SEC_CTRL_CLK_SRC				184
-+#define GCC_PDM_XO4_DIV_CLK_SRC				185
- 
- /* GCC power domains */
- #define GCC_PCIE_0_GDSC					0
-diff --git a/include/dt-bindings/clock/qcom,qcs615-gcc.h b/include/dt-bindings/clock/qcom,qcs615-gcc.h
-index 9704091636b87108a2a8c5ccc4a6b293829d8272..cddf21466a96a2990f1aaaf7c655fa6a4369ccbd 100644
---- a/include/dt-bindings/clock/qcom,qcs615-gcc.h
-+++ b/include/dt-bindings/clock/qcom,qcs615-gcc.h
-@@ -175,6 +175,8 @@
- #define GCC_UFS_PHY_PHY_AUX_HW_CTL_CLK				165
- #define GCC_UFS_PHY_UNIPRO_CORE_HW_CTL_CLK			166
- 
-+#define GCC_PDM_XO4_DIV_CLK_SRC					167
+diff --git a/drivers/clk/qcom/Kconfig b/drivers/clk/qcom/Kconfig
+index e6c58e8b184963fa3d885a7661ad982aaa5bcbc0..ccab70a11cfcaa3ea2217101ade50ab255631837 100644
+--- a/drivers/clk/qcom/Kconfig
++++ b/drivers/clk/qcom/Kconfig
+@@ -2170,4 +2170,19 @@ config SM_VIDEOCC_8450
+ 	  SM8450 or SM8475 devices.
+ 	  Say Y if you want to support video devices and functionality such as
+ 	  video encode/decode.
 +
- /* GCC Resets */
- #define GCC_EMAC_BCR                                            0
- #define GCC_QUSB2PHY_PRIM_BCR                                   1
-diff --git a/include/dt-bindings/clock/qcom,qcs8300-gcc.h b/include/dt-bindings/clock/qcom,qcs8300-gcc.h
-index 3c674c7baaba91815b13450e647b41053bd7330d..cee26f50092044f4a0b4cead6f669f0ccf7343c0 100644
---- a/include/dt-bindings/clock/qcom,qcs8300-gcc.h
-+++ b/include/dt-bindings/clock/qcom,qcs8300-gcc.h
-@@ -196,6 +196,7 @@
- #define GCC_TSCSS_CNTR_CLK_SRC					186
- #define GCC_TSCSS_ETU_CLK					187
- #define GCC_TSCSS_GLOBAL_CNTR_CLK				188
-+#define GCC_PDM_XO4_DIV_CLK_SRC				189
- 
- /* GCC power domains */
- #define GCC_EMAC0_GDSC						0
-diff --git a/include/dt-bindings/clock/qcom,sa8775p-gcc.h b/include/dt-bindings/clock/qcom,sa8775p-gcc.h
-index 01f54234963d6a531926103f8658307d4e0662f2..e101c9b565d650495e63f5f97b3458375d0e85ec 100644
---- a/include/dt-bindings/clock/qcom,sa8775p-gcc.h
-+++ b/include/dt-bindings/clock/qcom,sa8775p-gcc.h
-@@ -257,6 +257,7 @@
- #define GCC_UFS_PHY_ICE_CORE_HW_CTL_CLK			246
- #define GCC_UFS_PHY_PHY_AUX_HW_CTL_CLK			247
- #define GCC_UFS_PHY_UNIPRO_CORE_HW_CTL_CLK		248
-+#define GCC_PDM_XO4_DIV_CLK_SRC				249
- 
- /* GCC resets */
- #define GCC_CAMERA_BCR					0
-diff --git a/include/dt-bindings/clock/qcom,shikra-gcc.h b/include/dt-bindings/clock/qcom,shikra-gcc.h
-index 656c959c7e1251ed9af8fd04285fe616dfe9ecdc..31d381ee5c2298127b060935de60a425a0572b67 100644
---- a/include/dt-bindings/clock/qcom,shikra-gcc.h
-+++ b/include/dt-bindings/clock/qcom,shikra-gcc.h
-@@ -222,6 +222,7 @@
- #define GCC_VIDEO_VENUS_CLK_SRC					212
- #define GCC_VIDEO_VENUS_CTL_CLK					213
- #define GCC_VIDEO_XO_CLK					214
-+#define GCC_PDM_XO4_DIV_CLK_SRC					215
- 
- /* GCC power domains */
- #define GCC_CAMSS_TOP_GDSC					0
-diff --git a/include/dt-bindings/clock/qcom,sm8750-gcc.h b/include/dt-bindings/clock/qcom,sm8750-gcc.h
-index e234595d7f42d60291d60d7dcae6c6c8cb9b9925..cb2f40a704cf82d668577836b2a8d5756c1e7642 100644
---- a/include/dt-bindings/clock/qcom,sm8750-gcc.h
-+++ b/include/dt-bindings/clock/qcom,sm8750-gcc.h
-@@ -178,6 +178,7 @@
- #define GCC_VIDEO_AXI0_CLK					168
- #define GCC_VIDEO_AXI1_CLK					169
- #define GCC_VIDEO_XO_CLK					170
-+#define GCC_PDM_XO4_DIV_CLK_SRC					171
- 
- /* GCC power domains */
- #define GCC_PCIE_0_GDSC						0
++config QCOM_CLK_GP_MND
++	tristate "Qualcomm PDM GP_MN clock divider"
++	depends on ARM64 || COMPILE_TEST
++	help
++	  Support for the Qualcomm PDM GP_MN clock divider found in PDM
++	  (Pulse Density Modulation) hardware blocks.
++	  Given an input clock of frequency Fin (TCXO4), the output
++	  frequency is Fout = Fin * (M / N).  For every N input cycles
++	  the divider produces M output cycles.  D controls the duty
++	  cycle: it is the number of native clock cycles in which the
++	  GP_MN output is low, counted over 8192 native clock cycles.
++
++	  Say Y or M if you want to support GP_MN-based frequency and
++	  duty-cycle configuration on Qualcomm SoCs.
+ endif
+diff --git a/drivers/clk/qcom/Makefile b/drivers/clk/qcom/Makefile
+index f84d7343a3a475dd9ef1fa77bf0de25fab0d9e75..bc487b25ef5d9a235162fad95a3e0ef2984564f3 100644
+--- a/drivers/clk/qcom/Makefile
++++ b/drivers/clk/qcom/Makefile
+@@ -229,6 +229,7 @@ obj-$(CONFIG_SM_VIDEOCC_8550) += videocc-sm8550.o
+ obj-$(CONFIG_SM_VIDEOCC_8750) += videocc-sm8750.o
+ obj-$(CONFIG_SM_VIDEOCC_MILOS) += videocc-milos.o
+ obj-$(CONFIG_SPMI_PMIC_CLKDIV) += clk-spmi-pmic-div.o
++obj-$(CONFIG_QCOM_CLK_GP_MND) += clk-gp-mnd.o
+ obj-$(CONFIG_KPSS_XCC) += kpss-xcc.o
+ obj-$(CONFIG_QCOM_HFPLL) += hfpll.o
+ obj-$(CONFIG_KRAITCC) += krait-cc.o
+diff --git a/drivers/clk/qcom/clk-gp-mnd.c b/drivers/clk/qcom/clk-gp-mnd.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..75d620166e8dc044afb08d014f9707e9b53e8e31
+--- /dev/null
++++ b/drivers/clk/qcom/clk-gp-mnd.c
+@@ -0,0 +1,342 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#include <linux/clk.h>
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/pm_clock.h>
++#include <linux/pm_runtime.h>
++#include <linux/rational.h>
++#include <linux/regmap.h>
++
++/*
++ * PDM GP_MND clock divider register offsets.
++ *
++ * The hardware computes:
++ *   Fout = Fin * (M / N)
++ *
++ * with duty cycle controlled by D, where M < D < (N - M).
++ *
++ * Register encoding:
++ *   MDIV  = M
++ *   NDIV  = ~(N - M)  [1's complement of (N - M), masked to N_REG_WIDTH bits]
++ *   DUTY  = D
++ */
++#define GP_MND_MDIV_REG		0x0
++#define GP_MND_NDIV_REG		0x4
++#define GP_MND_DUTY_REG		0x8
++
++#define GP_MND_M_WIDTH		9
++#define GP_MND_N_WIDTH		13
++
++#define GP_MND_MAX_M		GENMASK(GP_MND_M_WIDTH - 1, 0)
++#define GP_MND_MAX_N		GENMASK(GP_MND_N_WIDTH - 1, 0)
++
++/**
++ * struct clk_gp_mnd - GP_MND fractional clock divider
++ * @dev:		device for runtime PM
++ * @regmap:		register map for the PDM block
++ * @hw:			handle between common and hardware-specific interfaces
++ * @m_val:		M value (numerator)
++ * @n_val:		N value (period)
++ */
++struct clk_gp_mnd {
++	struct device		*dev;
++	struct regmap		*regmap;
++	struct clk_hw		hw;
++	unsigned int		m_val;
++	unsigned int		n_val;
++};
++
++#define to_clk_gp_mnd(_hw) container_of(_hw, struct clk_gp_mnd, hw)
++
++static int gp_mnd_clk_runtime_resume(struct clk_gp_mnd *gp)
++{
++	return pm_runtime_resume_and_get(gp->dev);
++}
++
++static void gp_mnd_clk_runtime_put(struct clk_gp_mnd *gp)
++{
++	pm_runtime_put(gp->dev);
++}
++
++static int gp_mnd_clk_determine_rate(struct clk_hw *hw,
++				     struct clk_rate_request *req)
++{
++	unsigned long m = 0, n = 0;
++
++	rational_best_approximation(req->rate, req->best_parent_rate,
++				    (unsigned long)GP_MND_MAX_M,
++				    (unsigned long)GP_MND_MAX_N,
++				    &m, &n);
++	if (!m || !n)
++		return -EINVAL;
++
++	if (n <= 2 * m + 1)
++		return -EINVAL;
++
++	req->rate = DIV_ROUND_CLOSEST_ULL((u64)req->best_parent_rate * m, n);
++
++	return 0;
++}
++
++static int gp_mnd_clk_set_rate(struct clk_hw *hw, unsigned long rate,
++			       unsigned long parent_rate)
++{
++	struct clk_gp_mnd *gp = to_clk_gp_mnd(hw);
++	unsigned long m = 0, n = 0;
++	unsigned int d_val, n_val;
++	int ret;
++
++	rational_best_approximation(rate, parent_rate,
++				    (unsigned long)GP_MND_MAX_M,
++				    (unsigned long)GP_MND_MAX_N,
++				    &m, &n);
++	if (!m || !n)
++		return -EINVAL;
++
++	if (n <= 2 * m + 1)
++		return -EINVAL;
++
++	ret = gp_mnd_clk_runtime_resume(gp);
++	if (ret)
++		return ret;
++
++	ret = regmap_write(gp->regmap, GP_MND_MDIV_REG, m);
++	if (ret)
++		goto err_runtime_put;
++
++	/* N divider holds the 1's complement of (N - M), N_WIDTH bits wide */
++	n_val = ~(n - m) & GP_MND_MAX_N;
++	ret = regmap_write(gp->regmap, GP_MND_NDIV_REG, n_val);
++	if (ret)
++		goto err_runtime_put;
++
++	/* Program the closest-to-50% duty cycle. */
++	d_val = n / 2;
++	ret = regmap_write(gp->regmap, GP_MND_DUTY_REG, d_val);
++	if (ret)
++		goto err_runtime_put;
++
++	gp->m_val = m;
++	gp->n_val = n;
++
++err_runtime_put:
++	gp_mnd_clk_runtime_put(gp);
++
++	return ret;
++}
++
++static unsigned long gp_mnd_clk_recalc_rate(struct clk_hw *hw,
++					    unsigned long parent_rate)
++{
++	struct clk_gp_mnd *gp = to_clk_gp_mnd(hw);
++	unsigned int m_val, n_val;
++	int ret;
++
++	ret = gp_mnd_clk_runtime_resume(gp);
++	if (ret)
++		return 0;
++
++	ret = regmap_read(gp->regmap, GP_MND_MDIV_REG, &m_val);
++	if (ret)
++		goto out_runtime_put;
++
++	m_val &= GP_MND_MAX_M;
++
++	ret = regmap_read(gp->regmap, GP_MND_NDIV_REG, &n_val);
++	if (ret)
++		goto out_runtime_put;
++
++	/* Reverse the 1's complement encoding: N = ~NDIV_REG + M */
++	n_val = (~n_val & GP_MND_MAX_N) + m_val;
++
++out_runtime_put:
++	gp_mnd_clk_runtime_put(gp);
++
++	if (ret)
++		return 0;
++
++	/*
++	 * At power-on the divider registers read back as zero (M = 0), which
++	 * the 1's complement encoding would turn into a bogus N = 8191. Treat
++	 * an unconfigured divider as rate 0 and leave the cached M/N cleared so
++	 * the 50% duty-cycle default path in get_duty_cycle() stays valid.
++	 */
++	if (!m_val || !n_val) {
++		gp->m_val = 0;
++		gp->n_val = 0;
++		return 0;
++	}
++
++	gp->m_val = m_val;
++	gp->n_val = n_val;
++
++	return DIV_ROUND_CLOSEST_ULL((u64)parent_rate * m_val, n_val);
++}
++
++static int gp_mnd_clk_get_duty_cycle(struct clk_hw *hw, struct clk_duty *duty)
++{
++	struct clk_gp_mnd *gp = to_clk_gp_mnd(hw);
++	unsigned int d_val;
++	int ret;
++
++	if (!gp->n_val) {
++		duty->num = 1;
++		duty->den = 2;
++		return 0;
++	}
++
++	ret = gp_mnd_clk_runtime_resume(gp);
++	if (ret)
++		return ret;
++
++	ret = regmap_read(gp->regmap, GP_MND_DUTY_REG, &d_val);
++
++	gp_mnd_clk_runtime_put(gp);
++
++	if (ret)
++		return ret;
++
++	if (d_val >= gp->n_val)
++		return -EINVAL;
++
++	/* DUTY stores the low-phase count; report the high-phase duty cycle. */
++	duty->num = gp->n_val - d_val;
++	duty->den = gp->n_val;
++
++	return 0;
++}
++
++static int gp_mnd_clk_set_duty_cycle(struct clk_hw *hw, struct clk_duty *duty)
++{
++	struct clk_gp_mnd *gp = to_clk_gp_mnd(hw);
++	unsigned int d_val;
++	int ret;
++
++	if (!gp->n_val || !gp->m_val || !duty->den || duty->num > duty->den)
++		return -EINVAL;
++
++	/* D = (1 - duty) * N, giving the low-phase count */
++	d_val = DIV_ROUND_UP_ULL((u64)(duty->den - duty->num) * gp->n_val, duty->den);
++
++	/* Hardware constraint: M < D < (N - M) */
++	if (d_val <= gp->m_val || d_val >= (gp->n_val - gp->m_val))
++		return -EINVAL;
++
++	ret = gp_mnd_clk_runtime_resume(gp);
++	if (ret)
++		return ret;
++
++	ret = regmap_write(gp->regmap, GP_MND_DUTY_REG, d_val);
++
++	gp_mnd_clk_runtime_put(gp);
++
++	return ret;
++}
++
++static const struct clk_ops clk_gp_mnd_ops = {
++	.determine_rate	= gp_mnd_clk_determine_rate,
++	.set_rate	= gp_mnd_clk_set_rate,
++	.recalc_rate	= gp_mnd_clk_recalc_rate,
++	.get_duty_cycle	= gp_mnd_clk_get_duty_cycle,
++	.set_duty_cycle	= gp_mnd_clk_set_duty_cycle,
++};
++
++static const struct regmap_config gp_mnd_regmap_config = {
++	.reg_bits	= 32,
++	.reg_stride	= 4,
++	.val_bits	= 32,
++	.fast_io	= true,
++};
++
++static int clk_gp_mnd_probe(struct platform_device *pdev)
++{
++	struct clk_parent_data parent_data = { .index = 0 };
++	struct clk_init_data init = {
++		.name		= "gp_mn_clk",
++		.ops		= &clk_gp_mnd_ops,
++		.parent_data	= &parent_data,
++		.num_parents	= 1,
++		.flags		= CLK_GET_RATE_NOCACHE,
++	};
++	struct device *dev = &pdev->dev;
++	struct clk_gp_mnd *gp;
++	struct clk *clk;
++	void __iomem *base;
++	int ret;
++
++	gp = devm_kzalloc(dev, sizeof(*gp), GFP_KERNEL);
++	if (!gp)
++		return -ENOMEM;
++
++	gp->dev = dev;
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
++
++	ret = devm_pm_clk_create(dev);
++	if (ret)
++		return ret;
++
++	ret = pm_clk_add(dev, "ahb");
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get ahb clock\n");
++
++	clk = devm_clk_get(dev, "pdm");
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++
++	/* Set default rate if not already configured */
++	if (!clk_get_rate(clk)) {
++		ret = clk_set_rate(clk, 19200000);
++		if (ret)
++			dev_warn(dev, "failed to set default pdm clock rate\n");
++	}
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return dev_err_probe(dev, PTR_ERR(base),
++				     "failed to map PDM registers\n");
++
++	gp->regmap = devm_regmap_init_mmio(dev, base, &gp_mnd_regmap_config);
++	if (IS_ERR(gp->regmap))
++		return dev_err_probe(dev, PTR_ERR(gp->regmap),
++				     "failed to init regmap\n");
++
++	gp->hw.init = &init;
++
++	ret = devm_clk_hw_register(dev, &gp->hw);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to register gp_mnd clock\n");
++
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_simple_get, &gp->hw);
++}
++
++static const struct of_device_id clk_gp_mnd_match_table[] = {
++	{ .compatible = "qcom,sc7280-gp-mnd" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, clk_gp_mnd_match_table);
++
++static const struct dev_pm_ops clk_gp_mnd_pm_ops = {
++	SET_RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
++};
++
++static struct platform_driver clk_gp_mnd_driver = {
++	.probe  = clk_gp_mnd_probe,
++	.driver = {
++		.name		= "qcom-clk-gp-mnd",
++		.of_match_table	= clk_gp_mnd_match_table,
++		.pm		= pm_ptr(&clk_gp_mnd_pm_ops),
++	},
++};
++module_platform_driver(clk_gp_mnd_driver);
++
++MODULE_DESCRIPTION("Qualcomm PDM GP_MND clock divider driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.34.1
