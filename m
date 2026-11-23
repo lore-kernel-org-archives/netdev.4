@@ -1,81 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429723;
-	b=Ex6Y4EGblZZbo3LN/tris3SDLTceOvu8agNxeQ2vUqVjOKVuozTbGs22bO3rM8geUxZa
-	 NWpnseDhNLOmEdkjI69P0xsZ9+JH6vcx5EBsP0c+90jh2DYsb0Cjq1XVH5BKX31va7DQz
-	 wlh2mCbEVrCYA9QOWH8/LPKbvBNMkMuo8eqa9AtqQwmT+/c7KkwY37kBmyAcBxD0CvYeG
-	 MXj8VUJ9hkvJIfskVjLOOAfGYLU3zqidz+KAnAQYRIZXSbKnBQ+8OhJ37BXzA87XsGS+B
-	 JPxRhXqO7lNBhW3NkMIKSyPe90TcWtWR+fkANiSFIb92G8aAGFrlf7xyUmHtJqdS5OA==
+	t=1795429724;
+	b=vaUBMpCdpFI7XEIKQrKr3YLslcfZLnTgIHh3IOyf0Xh18xc21brwtKKpxVxC2LsUhNi9
+	 rtFZ44pOKE17iGu5WlgSI5QAQwizO/vtOxol0DkjeY4fzsS5BRay6go9XAZPUeTUIbRLM
+	 U09vCpbCnx+qMijhOelJg1aQnzUN25n1E5dtPV+0QxVmKAW290JATrPSdvIMfvTny1dYH
+	 AIrHZrJRcPQIl0MsJ2aR4BV8fDOt8v9HFvpilmINUKohnDA6ZyckK9V0FuEs5eMPOTBjs
+	 5qIgMzC6qGFWrTF9Jb/H3fzdnCTHZaP+s2FeDRKqBNZ3NNAtIrCiY8MoiBFis7HSDeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429723;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429724;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=AW+DzSmH4Qpcnnf73oxX0bRUNYCJrzW9mky9pTU2XQU=;
-	b=fUBYhO4qm3aUzZ8ppnpLmlWH8jpuFyr5W8WKaSv6hNHtIV6SpPJZHPwJcQiAyHRFxxZa
-	 6kRLMx2dNuAl6bb5Q6ZemMHgepBAwySCCIaAG/vZiaI2FNMPJRMxO3fad8aBYZaHGLSSU
-	 +xXcaFebLPVmf6Bv6dIVUW4D9BactkuXz9UjmBUTpz3uYmLucS67k31TkPelS1mwXFz4C
-	 AkgQd2r1xLVEYwM6+VssMCPS/wn63LiZ2nljv/JiqKDAU2AbrjJPB6Bq88gd3F9ttr70p
-	 BAeUlAZwrT9dLWVXWidIt7Hp3aRlPwPB4GvNO95shxmfMtUKOQTytoKMS1606AUTflA==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0A1TT+t5OqeLZ073EDE6jPbaRu8g2jN0d8R7gHtkTVQ=;
+	b=CXC1p1Aw9kt+3Ay43Tiymv4y6Ke4bOC0SAVyFIH20X0y6qKui0GyLGE1USBV6DKW5U5B
+	 1nZzOBmHCtoYpqFfH9uZ6GlCOtzeBcbABtI8H+smQCFIknXMCI5vMY39yabbbAhgcSFqu
+	 sqHq5NN5oaJk/C/H976MPTHKdeErPeoXyL0ae1/CSOtJ7lcxKBjnOe9csIY+LopnideH5
+	 fz/lcIwg9mRIea8yVPyf1soTkdADxLzUYHm61vcvmNiLRl+GmgiJYr8i3e4V8D3yr4H9C
+	 1p7pfJH0nwpVgtZFiZtbEAQAI+AHZK6PYj/dbK1aKPK4IB91eLKkXy4/z8PM2+nx6Eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=blackwall.org;
 	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=ZphuaXtn;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=h697C8WV;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8CED606A32D
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:28:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8CED606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAA86606A33D
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:28:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAA86606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=ZphuaXtn
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a358881793so1537855f8f.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:28:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=h697C8WV
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb61185057so19769205e9.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:28:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795429721; x=1796034521; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AW+DzSmH4Qpcnnf73oxX0bRUNYCJrzW9mky9pTU2XQU=;
-        b=ZphuaXtnpc4u7uh0TNwbpExOsIPvvrSlHhGpm3KbuphdW9KwVTcOQpAWFbkB4ZtrqC
-         qDAd04h83WtvnyVVkbXQMpUMAy/aZH/l8S15yvWcrzvFqPrZsbfqN4D0VVjjKW0iiVZS
-         MN+yvYlifePhZDo2SHnUvUmv3zTuL4zl+Z36jVihRvzTpyI1N3yBr8Jf0zZMjqFpYwaL
-         fUMHC//WJyTDSvnQVwKNCc1NtJoF7unWa8HmsdGEWdnOnbPLZxnUIvL8W3ONAU1yEXl4
-         0kntUaITsZt/8d73j1IVrEoCFpCLsOMGRaAS2xAFyQ1CCC/89QG0gNITZthhZZ4svY8j
-         6U3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795429721; x=1796034521;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=blackwall.org; s=google; t=1795429722; x=1796034522; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AW+DzSmH4Qpcnnf73oxX0bRUNYCJrzW9mky9pTU2XQU=;
-        b=XbfRytyOA23ZkSlJABa1Fkin2u9r8lJTJiHeBUdlWPVj4X8wIEaWLfVg9kClEeSp7X
-         wEYQzYo0TvQzsICzMGHlxtn7OeEhjkFaNwleAT+Z6sjUGXY1uMTTvuHK8vNhP67l5UIR
-         UGSWXXGdmkWyjclYeQLXamw434WK1eLae1erDDir5MNZgwz0BKFsmP45xEAhxK48AB4v
-         lyEASvsp7o3Dv85JTOZp5e+peyoqEN8/5nBfM4lKd/wrfiG7gnb+FPy0mrkdp6fwcweg
-         nRC6Tjhnky8vDKlKbj3TWMBXHdEVI+zTBbFVHw1eoiWY7LiJbPeCUP/1bK1lzgByvsxN
-         ftfQ==
-X-Gm-Message-State: APuU4Z8BkwBvl1Wss4E9Kn5q3BoAvnMqCmstiUXmhvgKSeVzmg6wqrnd
-	yxOMxUG8Oyx1NGeka6nj1xgowrkmrFsIFSCkYubyyAwXs+EkXVubuQ6R9U4kEqz+gf2z4fi6NVz
-	VDqF8uXf7kQ==
-X-Gm-Gg: AZFdTZcW6crlQv6IKHowqG4JibBXd4YqtCmEq06j0YoWVMpMKH4N3S/onti+WJI1qH7
-	+K8Wg3rECJsFuQROrB78FFV9TTd5NCh1uR8wQwIVWQ1ToBRH3q/g7bhgE1xEgTyl0Ek+gGYBBQa
-	/QdmpZpwdTDHGW0ChEjYdcQcnVVhi+b6+Xi3PoDSbJ6r+JqpyxBw2GCfe+HOZgK0hmJmI1NGSzk
-	BkRu/XOJKuZHhO5WBX6VWCY8wibtrlqWFaA/OUQYWLRv7TxDG0l+T91VR89IxoKvqY/ypZu+kKu
-	tcvEikEjiF8N8XqCiS5hbZG7sj2DMd/PyOxMGP2tYPlMTkOFhPQnXiieXpoNl/GrAg4EbyMR7Am
-	CHBoWSCOvLlksZp1A75CSnmL6KvV70YvE9AbQ2/cm1zdbhddzBVrBxVzgwq39Bw8LAKXHBGpg12
-	fE1eNc5NSnkvpo0T9+r1E7PS8dBt/7VfU8P1oSJi0BODXjd69/Nuu75zDeG/fCd9ilJY6ZxBry1
-	pPp5jclt2YTB6DALK4GGjPQ04xV+d+ONPqr72tuHaPAPFmKlizAFSCXhAErvpLKsaHnX1J66t4w
-	l7rb0tP/8a/IgD7aAHCiDDZgLYuB5NwY5kfFL/4x2RDmOKs8iB7TnMjkSFLjlMbW9rt78nQS
-X-Received: by 2002:a05:6000:4024:b0:4a5:2e5b:51c2 with SMTP id ffacd0b85a97d-4abb4f59b72mr21945148f8f.29.1795429720967;
-        Mon, 23 Nov 2026 02:28:40 -0800 (PST)
+        bh=0A1TT+t5OqeLZ073EDE6jPbaRu8g2jN0d8R7gHtkTVQ=;
+        b=h697C8WVYLtlWfUHat1yJ2d0fXT7iN640zusVa/Vq0htJqYu/wazn3OS6HzW5Jrq9/
+         CQwdtQXSO17GYrUzKRUXgzBtSi7zhXf5OoS2ba5VffV7+Lum6dKJl+hnFnsU5MiXepgw
+         MKaJ6JyZ5RxyokxgHmrhRzZUqH7vmIjl9w1cBSQu2DMvw81X3xcCTwC9ubire7NiMfTH
+         k5DgshMEC3rVoSV35qJcdJGqZX/4iBXGuRhmLsx2edHlx4c63FfOeregckS6rXZMKxGA
+         HEBPFONCOAv6Ksw+T28tio23EJdxAhNM35rjo0edO++GmJ9WaU1RtLqg/HSWTyv8pWgw
+         7OOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795429722; x=1796034522;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0A1TT+t5OqeLZ073EDE6jPbaRu8g2jN0d8R7gHtkTVQ=;
+        b=qdWcRpl+iIzagp/0ZF7ukM5sIGqAO+0Jib3cvOOuv+omoiGj+rU5fw6UvDRlft3db2
+         zw74N5Ch22d5aN6td7GM4+kUlpUoL6v6RtAQ0BAuvghlfU6E7pFKFEG+waARNM3ibN1Q
+         KG75hp4wh0D+LZ5evB6vvQvYNPabaESVriN7wVjsIR3FiLGyi6zVbHKETOdyP6/y2tde
+         ptIZery4TacmBlM96y5WvQbHJXNNhqNHjEm6kD6ECZwSI+urfS3Wqo/Zaxy52WMvgpea
+         mLU7fCnUgnBUNQg3rLsWJMCtO5iDihV2haqaJBI438OQCJ2jg+rgYU5VvoYcfn5pfWgo
+         Nylg==
+X-Gm-Message-State: APuU4Z8CL6DzJ+dPMr83sLw6tZEssNsw+9ZQUu9Wzl3sVw/YY7H7XZ+t
+	6KdeHsckionTA2grCDxYzDWxCNhD5xXkZLdjm83vCjk2V1a9uey9+lNBeQHOnWzGwDYgwyA2R8f
+	Nvt43har0/w==
+X-Gm-Gg: AZFdTZe6PekggRgwqcIw/3eFDU12sOOVOAkg7AHLsyfJZcOxah0pXfqM/EqgYaEs4k+
+	o28Na92+E98hZ+Wqyskxo3Zs/KGoHbXYiJ5hIYBepKLZM2s8pLlK0DnC3Sy/zfql0FfwhHm4WMZ
+	1v07Vyco+st2958EB2X2emf4q5Cxzg3frdzqstTNEuIFD4KvvIh6Hr5C8UtsC508AEuAPisqvR2
+	LksR3ub8JZdiH283giGfaONBqeLG01fz7YGlxdwwwzxtfOLAIdpFAU+lcVYGmCxcRqnxgO0ZM2X
+	6zc3a2AxwcSa36leKJWc6eDQQjfm9IwbFHS6oX8/8Am47WxQkTHhm0M39w6Zy8DwIvZWkMuUNaI
+	gYOHlPkc+qQj5IJFMv4aYwyvJo4mPMeeurReND58Q32WhV4/4GRFG2VtJRPytv49JsbtwPDpI+W
+	FTsv+1E4LNXiExwCbY4WuQwbrI9+zm1HqTOsdNSdiVQj84pyUTdTuxr0wqpcxA7VNxmYQXXimna
+	BoMjZS+F0YOyKW8wgoLAsQbE3aQLxWooGtGHQS6+YFKGSp7EwG+II1n4cZkqDq6Y/6ozIubO877
+	2GCnn7C+Qonao/R3bXQITv0eOByokx/UXSZEf2Ix4ssD6LaBEw0=
+X-Received: by 2002:a05:600c:8210:b0:4bb:6a2d:b438 with SMTP id 5b1f17b1804b1-4bb88786c81mr225278965e9.0.1795429722129;
+        Mon, 23 Nov 2026 02:28:42 -0800 (PST)
 Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6a67f204sm24748138f8f.21.2026.11.23.02.28.40
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb8526cbd0sm447180395e9.0.2026.11.23.02.28.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:28:40 -0800 (PST)
+        Mon, 23 Nov 2026 02:28:41 -0800 (PST)
 From: Nikolay Aleksandrov <razor@blackwall.org>
 To: netdev@vger.kernel.org
 Cc: Nikolay Aleksandrov <razor@blackwall.org>,
@@ -86,10 +88,12 @@ Cc: Nikolay Aleksandrov <razor@blackwall.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
 	bridge@lists.linux.dev
-Subject: [PATCH net-next 0/3] net: bridge: optimize vlan multicast forwarding
-Date: Mon, 23 Nov 2026 12:28:30 +0200
-Message-ID: <20261123102833.924427-1-razor@blackwall.org>
+Subject: [PATCH net-next 1/3] net: bridge: avoid VLAN lookups for multicast router forwarding
+Date: Mon, 23 Nov 2026 12:28:31 +0200
+Message-ID: <20261123102833.924427-2-razor@blackwall.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123102833.924427-1-razor@blackwall.org>
+References: <20261123102833.924427-1-razor@blackwall.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,43 +105,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
-This is the last part of the patch-sets that optimize forwarding by caching
-VLANs. It adds the forwarding optimizations to the bridge multicast code
-and also optimizes vlan range add (see tables below).
+Return the multicast port context when decoding a router-list node and
+pass its VLAN entry to the forwarding destination. With per-VLAN snooping,
+the context already identifies the egress port VLAN, so validation and
+tagging can use it directly.
 
-Patch 01 - use the vlan already stored in the in per-VLAN router context
-Patch 02 - use a small hash (64 entries) to find the port vlan groups
-           without walking all
-Patch 03 - cache the port-VLAN destination in mdbs to avoid egress VLAN
-           lookups
+A per-VLAN router context is selected through the resolved ingress VLAN.
+Global router contexts have no VLAN pointer and resolve their VLAN during
+egress validation.
 
-VLAN Add improvement (patch 02):
-Operation  VLANs   Global ms before/after   Change %   Per-VLAN ms before/after   Change %
-  ------------------------------------------------------------------------------------------
-  add            1      0.0519 /   0.0900      +73.52       0.0481 /   0.0895      +86.16
-  add           64      2.2500 /   0.7190      -68.04       2.2726 /   0.7441      -67.26
-  add         1024     32.7464 /   5.7028      -82.58      32.9841 /   6.3116      -80.86
-  add         4094    149.6750 /  34.3223      -77.07     151.5808 /  35.4586      -76.61
+During port VLAN deletion, a per-VLAN router context can remain on the
+router list after the VLAN has been unpublished. Forwarding can therefore
+still use its cached VLAN until router-list removal, whereas a fresh VLAN
+lookup would reject it. This is transient forwarding during teardown,
+consistent with the existing cached FDB destination behavior. RCU protects
+the VLAN's lifetime, and context cleanup removes it from the router lists.
 
-Single vlan add is slower, but vlan group add is 67-80% faster. Vlan del is
-pretty much the same.
+Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
+---
+local Sashiko review says:
+ [Severity: Medium]
+ Can this forward multicast through a port VLAN after it is unpublished?
 
-VLAN forwarding improvement (patch 03):
-  VLANs  Listeners  Mpps before  Mpps after  Gain %  Cycles before  Cycles after  Saved %
-  ---------------------------------------------------------------------------------------
-    8          4     0.785571    0.865156  +10.13         3771.2        3381.2    10.34
-    8          8     0.454257    0.511490  +12.60         6900.5        6091.0    11.73
-    8         16     0.249896    0.288575  +15.48        13144.0       11362.9    13.55
-   64          4     0.765468    0.841916   +9.99         3881.6        3462.1    10.81
-   64          8     0.437448    0.501744  +14.70         7153.6        6215.6    13.11
-   64         16     0.238901    0.279188  +16.86        13690.2       11674.2    14.73
- 4094          4     0.583447    0.695246  +19.16         5271.6        4339.3    17.68
- 4094          8     0.293712    0.373710  +27.24        11001.0        8492.8    22.80
- 4094         16     0.140026    0.191269  +36.60        23509.6       17213.7    26.78
+ CPU0                              CPU1
+ nbp_vlan_delete()
+   __vlan_unpublish(vg, v)
+                                   br_multicast_flood()
+                                     fwd.vlan = rpmctx->vlan
+                                     should_deliver_vlan()
+                                     br_handle_vlan()
+                                       <-- forwards on removed VLAN
+   br_multicast_port_ctx_deinit(...)
 
-Medians of 6 runs, 64-byte frames, one group per VLAN, and packet VIDs
-chosen at random. Cycles are PMU cycles / input packet on the fwding CPU.
+ Nik: this is already documented, it can forward for a short-while until
+      ctx_deinit is called which is fine
 
 CC: Ido Schimmel <idosch@nvidia.com>
 CC: David S. Miller <davem@davemloft.net>
@@ -147,20 +148,70 @@ CC: Paolo Abeni <pabeni@redhat.com>
 CC: Simon Horman <horms@kernel.org>
 CC: bridge@lists.linux.dev
 
-Thanks,
- Nik
+ net/bridge/br_forward.c |  5 ++++-
+ net/bridge/br_private.h | 19 +++++--------------
+ 2 files changed, 9 insertions(+), 15 deletions(-)
 
-Nikolay Aleksandrov (3):
-  net: bridge: avoid VLAN lookups for multicast router forwarding
-  net: bridge: mdb: index port groups by VLAN
-  net: bridge: mdb: avoid VLAN lookups in listener forwarding
-
- net/bridge/br_forward.c   | 21 +++++++++++++--------
- net/bridge/br_multicast.c | 31 ++++++++++++++++++++++++++++++-
- net/bridge/br_private.h   | 30 ++++++++++++++++--------------
- net/bridge/br_vlan.c      |  2 ++
- 4 files changed, 61 insertions(+), 23 deletions(-)
-
+diff --git a/net/bridge/br_forward.c b/net/bridge/br_forward.c
+index 54365c6104b5..b725e8f1b29a 100644
+--- a/net/bridge/br_forward.c
++++ b/net/bridge/br_forward.c
+@@ -412,10 +412,12 @@ void br_multicast_flood(struct net_bridge_mdb_entry *mdst,
+ 
+ 	while (p || rp) {
+ 		struct net_bridge_port *port, *lport, *rport;
++		struct net_bridge_mcast_port *rpmctx;
+ 		struct br_fwd_dst fwd = {};
+ 
+ 		lport = p ? p->key.port : NULL;
+-		rport = br_multicast_rport_from_node_skb(rp, skb);
++		rpmctx = br_multicast_rport_ctx_from_node_skb(rp, skb);
++		rport = rpmctx ? rpmctx->port : NULL;
+ 
+ 		if ((unsigned long)lport > (unsigned long)rport) {
+ 			port = lport;
+@@ -432,6 +434,7 @@ void br_multicast_flood(struct net_bridge_mdb_entry *mdst,
+ 				goto delivered;
+ 		} else {
+ 			port = rport;
++			fwd.vlan = rpmctx->vlan;
+ 		}
+ 
+ 		fwd.port = port;
+diff --git a/net/bridge/br_private.h b/net/bridge/br_private.h
+index 014d0b8db8c7..20e423e22132 100644
+--- a/net/bridge/br_private.h
++++ b/net/bridge/br_private.h
+@@ -1244,24 +1244,15 @@ br_multicast_get_first_rport_node(struct net_bridge_mcast *brmctx,
+ 	return rcu_dereference(hlist_first_rcu(&brmctx->ip4_mc_router_list));
+ }
+ 
+-static inline struct net_bridge_port *
+-br_multicast_rport_from_node_skb(struct hlist_node *rp, struct sk_buff *skb)
++static inline struct net_bridge_mcast_port *
++br_multicast_rport_ctx_from_node_skb(struct hlist_node *rp, struct sk_buff *skb)
+ {
+-	struct net_bridge_mcast_port *mctx;
+-
+ #if IS_ENABLED(CONFIG_IPV6)
+ 	if (skb->protocol == htons(ETH_P_IPV6))
+-		mctx = hlist_entry_safe(rp, struct net_bridge_mcast_port,
+-					ip6_rlist);
+-	else
++		return hlist_entry_safe(rp, struct net_bridge_mcast_port,
++				       ip6_rlist);
+ #endif
+-		mctx = hlist_entry_safe(rp, struct net_bridge_mcast_port,
+-					ip4_rlist);
+-
+-	if (mctx)
+-		return mctx->port;
+-	else
+-		return NULL;
++	return hlist_entry_safe(rp, struct net_bridge_mcast_port, ip4_rlist);
+ }
+ 
+ static inline bool br_ip4_multicast_is_router(struct net_bridge_mcast *brmctx)
 -- 
 2.47.3
 
