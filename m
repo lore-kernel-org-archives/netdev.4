@@ -1,58 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426137;
-	b=XUvlwGKGqQGJolUy9lbrtnPcrNreG3wACmPtJlJ4ABqxnJTPHM8qiFSdgdMxPLSidZgY
-	 BKKPlKzCUgiEeWfmNf6BTOU/9nGT9O08sr7YwJlKdxt0bg9VzLg3mQdKrwfMG0hNjPvOy
-	 MvwFQu2xJxzU6YqCF0hQ88gQVovigspI6yi3OXSPJ2ktmOWzHG8VfcW/LWUohFVRM3ShT
-	 IXNLEOZHpbfIDzxkP24bxe3mjP/pZ8dy1H2II8tjUCPfZzsKBhggc3twfWJrAPtJClgRD
-	 hFbbrznFKNrudmlHdMzqGmMf6sVOWDBdeyt8+cMJ/WKVBnO9ZJfC7y3GQWQc3vXjbDg==
+	t=1795426382;
+	b=A+fcxcgwEggPEErFl4Z14m8WmQ4OQG2A3Pd2ommw38pS0iPY8YnTd6YokDxtjLDr+UWZ
+	 nJWr+Wq7U9izmMvQnrb4uiG6R3xznNug3lSH9LYT/XbhK4dRnB5Dsq3/ZBEvCMauoNGIL
+	 UYgOI/XI32IhZsIAeWxrMyMAyNUfAasDQttoOJ7Qrbbkl34FeuOSm16nXBi8Noq/ByvZW
+	 s27KDIs5RkAd+DTqmCOTTG93k4E0saXF8lrtO6RLrlaEWB71gX1So/id9LHSoNoJJ6n4a
+	 V9hswXu5YRsWatnoqdiKf7FX3hzqyoMe76MbH254XI3GELUrXOV4oSwpiX3s3NBdIng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426137;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=XQ3s/upW/7ozz8AHusZ3fvLJjMDzHSWHY2rf94ibYuc=;
-	b=aCoOFyUPpZn6RjghK8CJ3acMxbvyd/+sE/ztb63hHoGA6jnvadY/K/eMv7yVqjfqWwYf
-	 7pZxWhftFQw0DnJq0OPHY3pInHgRkVpQl+G3p5TTRVZ5XgENL4cr3CgDgW9EGd6XFDB15
-	 M2zdhW/eJ4yAFUMmIwP62FLNXBLG5C/1wMi+yRDC7q/V9T4lqScmMZZxff0gtgLq0RYv9
-	 Nr3SiO8r44P6menOwpool/f+ALKnT7zr0SE1CMwlRntVDTalkPwyCECPZptt85X3s1/3U
-	 E8+MH/TmruCx//jJDL8pt/+Q5PaisVMV0bmcYXVoNOlBhSAC7RBBu7KUwE6/991WGcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426382;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=wrjg8TZ8INRRg9uXoP5xNjhHU0X/jN5Y6VKk62t4djE=;
+	b=GCstBIKjjIRCXGu6fNHkjyUqjN+FTh20IDrmpwx6Mgl95QXBvOGt6pRL426VggH8jGKZ
+	 IhRy9/1AqQkeag+sIB+BFQwXTQdWJUEFT5SxhseI00QBwcoWret3L4tdJRjRBAln+l7cR
+	 d87FxJVl0BoENyVmppRpyBDXGy5HyIcbOlOPbnoTqSZoGFHkGsx3XmM+gZ0hk0u9EDJ6a
+	 eOMXxTeI03AD6FghvaTo8JeBBf533g4dk6PXbBQvtmfLx8jRDWHPQdwPNM6BNYlI3p9v0
+	 HvBxMjnWKQGaaqbXRUZKpGzFo1cr8PrAknFqfdb7S9E76HLNB33/XpJtPyBQ4f/wXCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aWb0+3IF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=U45FqInJ;
+	arc=none smtp.remote-ip=220.197.31.7
+Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 091EF606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:28:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FFBB606A31A;
+	Mon, 23 Nov 2026 09:32:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FFBB606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aWb0+3IF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C3F61F000E1;
-	Mon, 23 Nov 2026 09:28:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795426136;
-	bh=XQ3s/upW/7ozz8AHusZ3fvLJjMDzHSWHY2rf94ibYuc=;
-	h=From:To:Cc:Subject:Date;
-	b=aWb0+3IFiV7ax9eBEZa8bJnaClDt7LVeCvcwt7liBITNZVcjzmfZHeAornkRAwY7L
-	 UN/iR4XDQzFr/OMZRzpLFq6o+/5AFk9P2rE1E2pcMPU9mdVyUoyYFgxeWFY0VSjtT7
-	 81hqeunAKYWLYJUAVI6th8PahAsctPZqiLJQdXuCoIh5pkOPEk01si4QwBjee9XRZz
-	 EeRoRb5lGCpYt9KbQTLjIwARQerlsPFUGq/5R2qhNnxJ07plONpG9KaqczTPXOl/r0
-	 SDazr53wJ9l2cdBxfWZGATBrzfy6QGl9zSHZu55N9Iu5hEmN4mVdgJHZ9/+kPhlAWx
-	 w6FwSysYQHNWg==
-From: Eric Dumazet <edumazet@kernel.org>
-To: "David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>,
-	Simon Horman <horms@kernel.org>,
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=U45FqInJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=wr
+	jg8TZ8INRRg9uXoP5xNjhHU0X/jN5Y6VKk62t4djE=; b=U45FqInJt1Kh9ViYd3
+	KJSC1WYpRG7MT2YPq09FQjocb47vFnShY5xcspQLvmF9f0bOSI7uMhC9YTc4aXhK
+	XLOwJxw4Uk8rykXvVdGE7kTIeFzrfGz2alIiUqO6S6pHn/adB3SnjXJVQwMCibLg
+	yom2Z1zgx7GfsuvoMrOP6oJJg=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PykvCgD3l7UTCARrlp7DDw--.2488S3;
+	Mon, 23 Nov 2026 17:32:06 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: andrew@lunn.ch
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	rosenp@gmail.com,
+	jacob.e.keller@intel.com,
+	daniel.machon@microchip.com,
+	chunkeey@gmail.com,
+	kees+treewide@kernel.org,
 	netdev@vger.kernel.org,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jiayuan Chen <jiayuan.chen@linux.dev>
-Subject: [PATCH v2 net-next] tls: wait for a single RCU grace period in tls_device_down()
-Date: Mon, 23 Nov 2026 10:28:51 +0100
-Message-ID: <20261123092851.137140-1-edumazet@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	linux-kernel@vger.kernel.org,
+	xiaolinkui@kylinos.cn
+Subject: [PATCH net v2 1/2] net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
+Date: Mon, 23 Nov 2026 17:32:00 +0800
+Message-Id: <20261123093201.770552-2-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261123093201.770552-1-xiaolinkui@126.com>
+References: <20261123093201.770552-1-xiaolinkui@126.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,96 +74,87 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PykvCgD3l7UTCARrlp7DDw--.2488S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFW5ur43Zr1fXF15ZFyfCrg_yoW5Ww15pa
+	ykGFySvrykJF1fWanxArWUAFW5ua1xta48t34Iyws3WF9xGr1kAFy5ZF1Utr1ayFZ5ZrWU
+	Xw47Jay3uF4DXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UVGQDUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqBbiuWsECBZl7AAA3d
 
-tls_device_down() calls synchronize_net() for each offloaded context
-bound to the device going down. As this runs from the NETDEV_DOWN
-notifier, a device with N offloaded sockets waits for N RCU grace
-periods while RTNL is held.
+From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-Split the loop:
+emac_init_phy() sets ndev->phydev by hand for a fixed link, so
+phy_attach_direct() never runs: the PHY stays out of the netdev's PHY
+link topology, and ETHTOOL_MSG_PHY_GET then dereferences a NULL
+link_topo in phy_prepare_data().
 
-- First stop the offload for all contexts: switch to the software
-  fallback, clear ctx->netdev and set TLS_RX_DEV_DEGRADED.
+Use of_phy_connect(), as gianfar, fec, davinci_emac and nixge do, and as
+this driver already does for the phy-handle case.  It attaches the PHY
+and drops the of_phy_find_device() reference, so put_device() goes away.
+It only installs emac_adjust_link() as phydev->adjust_link though, and
+the state machine is not started for a fixed link, so the explicit call
+that copies the link parameters into dev->phy stays.
 
-- Then call synchronize_net() once, if there is at least one context.
+Attaching also means detaching.  Without phy_disconnect(), unbind leaves
+phydev->attached_dev pointing at a freed netdev and the next probe fails
+with -EBUSY from phy_attach_direct().  This fixes the phy-handle path as
+well, which calls phy_start() but never phy_stop().
 
-- Finally, for each context, release the driver state, then move the
-  context to tls_device_down_list and drop the reference taken by
-  tls_device_down() under tls_device_lock. This part is unchanged.
-
-Between the first and the last step, the contexts sit on a private
-list with a reference held. If sk_destruct runs in that window,
-tls_device_queue_ctx_destruction() only drops its reference and
-returns without touching ctx->list, so the private list can be walked
-twice without holding tls_device_lock. The final removal stays
-serialized by tls_device_lock in the last step.
-
-The first step only writes to fields of each context. The only change
-in behavior is that all contexts stop being offloaded before the
-driver state of the first one is released.
-
-Jiayuan Chen tested v1 with the netdevsim TLS offload emulation,
-with N sockets having TX and RX offloaded on one port, measuring
-"ip link set down" on that port:
-
-sockets    before     after
-    100   12.7 ms    8.6 ms
-   1000   39.1 ms   11.5 ms
-   5000  160.8 ms   19.2 ms
-  20000  577.2 ms   44.1 ms
-
-v2 is compile tested only, with CONFIG_TLS_DEVICE=y.
-
-Signed-off-by: Eric Dumazet <edumazet@kernel.org>
-Reviewed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+Fixes: baab9de385a8 ("net: ibm: emac: use netdev's phydev directly")
+Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
 ---
-v2: rebase on top of commit 81c8333141b9 ("net/tls: serialize context
-    removal in tls_device_down()") which came via net (Jakub).
-    Move the free_ctx declaration to the second loop, and expand the
-    changelog about the private list.
-v1: https://lore.kernel.org/netdev/20261118224758.1617869-1-edumazet@kernel.org/
----
- net/tls/tls_device.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/ibm/emac/core.c | 24 +++++++++++++++++++-----
+ 1 file changed, 19 insertions(+), 5 deletions(-)
 
-diff --git a/net/tls/tls_device.c b/net/tls/tls_device.c
-index fa7170cd4fd10f6298ac031ffa824814e592d736..a90ecfce597d23588d3c568ebd6221633531575b 100644
---- a/net/tls/tls_device.c
-+++ b/net/tls/tls_device.c
-@@ -1349,9 +1349,7 @@ static int tls_device_down(struct net_device *netdev)
- 	}
- 	spin_unlock_irqrestore(&tls_device_lock, flags);
+diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
+index 1b95b4d5deff..ba02cf878a12 100644
+--- a/drivers/net/ethernet/ibm/emac/core.c
++++ b/drivers/net/ethernet/ibm/emac/core.c
+@@ -2673,11 +2673,16 @@ static int emac_init_phy(struct emac_instance *dev)
+ 				return res;
  
--	list_for_each_entry_safe(ctx, tmp, &list, list)	{
--		bool free_ctx;
--
-+	list_for_each_entry(ctx, &list, list) {
- 		/* Stop offloaded TX and switch to the fallback.
- 		 * tls_is_skb_tx_device_offloaded will return false.
- 		 */
-@@ -1364,13 +1362,18 @@ static int tls_device_down(struct net_device *netdev)
- 
- 		/* Start skipping the RX resync logic completely. */
- 		set_bit(TLS_RX_DEV_DEGRADED, &ctx->flags);
-+	}
- 
--		/* Sync with inflight packets. After this point:
--		 * TX: no non-encrypted packets will be passed to the driver.
--		 * RX: resync requests from the driver will be ignored.
--		 */
-+	/* Sync with inflight packets, once for all contexts. After this point:
-+	 * TX: no non-encrypted packets will be passed to the driver.
-+	 * RX: resync requests from the driver will be ignored.
-+	 */
-+	if (!list_empty(&list))
- 		synchronize_net();
- 
-+	list_for_each_entry_safe(ctx, tmp, &list, list)	{
-+		bool free_ctx;
+ 			res = of_phy_register_fixed_link(np);
+-			ndev->phydev = of_phy_find_device(np);
+-			if (res || !ndev->phydev)
+-				return res ? res : -EINVAL;
+-			emac_adjust_link(dev->ndev);
+-			put_device(&ndev->phydev->mdio.dev);
++			if (res)
++				return res;
 +
- 		/* Release the offload context on the driver side. */
- 		if (ctx->tx_conf == TLS_HW)
- 			netdev->tlsdev_ops->tls_dev_del(netdev, ctx,
++			if (!of_phy_connect(ndev, np, &emac_adjust_link, 0,
++					    dev->phy_mode)) {
++				of_phy_deregister_fixed_link(np);
++				return -EINVAL;
++			}
++
++			emac_adjust_link(ndev);
+ 		}
+ 		return 0;
+ 	}
+@@ -3190,6 +3195,10 @@ static int emac_probe(struct platform_device *ofdev)
+ 	/* I have a bad feeling about this ... */
+ 
+  err_detach_tah:
++	if (ndev->phydev)
++		phy_disconnect(ndev->phydev);
++	if (of_phy_is_fixed_link(np))
++		of_phy_deregister_fixed_link(np);
+ 	if (emac_has_feature(dev, EMAC_FTR_HAS_TAH))
+ 		tah_detach(dev->tah_dev, dev->tah_port);
+  err_detach_rgmii:
+@@ -3223,6 +3232,11 @@ static void emac_remove(struct platform_device *ofdev)
+ 
+ 	cancel_work_sync(&dev->reset_work);
+ 
++	if (dev->ndev->phydev)
++		phy_disconnect(dev->ndev->phydev);
++	if (of_phy_is_fixed_link(ofdev->dev.of_node))
++		of_phy_deregister_fixed_link(ofdev->dev.of_node);
++
+ 	if (emac_has_feature(dev, EMAC_FTR_HAS_TAH))
+ 		tah_detach(dev->tah_dev, dev->tah_port);
+ 	if (emac_has_feature(dev, EMAC_FTR_HAS_RGMII))
 -- 
-2.53.0
+2.25.1
 
