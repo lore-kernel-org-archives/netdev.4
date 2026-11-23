@@ -1,63 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401895;
-	b=MEdDsGLW7d3fwUozIdQ3ml9gheYDiotDIxMpmYUmtu06XfsBp56b8LRDBbC5UzCR/NL+
-	 hTfce+uaUxcnk2nUZcoxx5O9dOvE9K+l2jxzVZpr/Jc2cGP/BRIowHiB4Hukz1xVFzyji
-	 TOrsvDm7K9q3ZzaOngbOEUIJwnn9vStRWLH4MxuwEFX/fOGr4dmy9BzwezGKhYqP3zhVq
-	 SEvIyJPvkloqZL7pI/+79D9rQfnOeJCk2h8Gefe7uxLnQCpkKTM1jJEea+iTeW8PFgiDi
-	 wQTpu9uHydx7O8hSV/OF6Q8zYn4iKjzhLkNtkkXis7cFdKdM8Z5w1WB/Rn+0g63N13w==
+	t=1795402083;
+	b=WleBY9LIpDjr9eXIlP/wfNPjhNdD7th8NJGClh7AvIKgcu4475BmTVPGqKy/bwuxKu6C
+	 Fa2QgvBKXraijByJfKWxptZhQ57Od9hKX3nkT2kbGI67Kk5z6RUTSO/A7Xdg1pg9Uw6LW
+	 VrwzjAwWkO64csyHVbzn7V8ZJbvreINXg854irfyy5qaMEd+KOnD7gH6gQTo7VF/NJWKU
+	 4t4MEmdk9R/bmWz+4BG+MiuG6lNzT6lHpc/XUNW3W5kj0vWxESnRqCpxJLGm1d0pO9YEv
+	 MZ0niamVgQbmrNu9kQR4NdkdLOrOKM7Z+4ezoJXkhp+ClQe2ed/u5SajjBAAwVtt5DQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401895;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=MZW4Q/pfyt/1f1hQ+5fOgx5YvOxvuRXhncE2MiD1Lsk=;
-	b=YGO3PIbLy9bGmEkBcI+YvlEYxaiPKyeztGYU1JEyvjY/PBxUYQF8+HTNKDMaElIhoVX3
-	 DJOLivoz2KiMw9HoWEsgoPOKTzukaPP33vclDoymvqYRkrOJumG3IdznrKvn5pT3kWQMi
-	 32+7TQPWobtq/YcufP5rCZM+yNBOdwnH1hDx7A6dPZpAXRcppuF8wkXurAQNQOPGlMqjL
-	 JGo87/lmazVUBo68+MDhfUzi3V+fcg+qKIHuOo+gPfLkqJxGK0NcK83Hh74lcFsfdMlqj
-	 2M+ACKirJUvsyTmOLJENCB/1JDPfe3KBZMl2emH7vOYDap0BreJTunXheVVJcnDGKrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402083;
+	h=Received:DKIM-Signature:Date:From:To:CC:Subject:User-Agent:
+	 In-Reply-To:References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=yrk9+Mje2C0J1qnXfhBPjrjMZR0Y6jR+rEChJda2HwE=;
+	b=d2PZNk3Yik9CbqhBgFY0pP3qkw9am3yTXFRjY2EyORR4xuzzGkeH42ZeGPMOvmrc/gyq
+	 AYbMLh7n4yBBN/HfGyciSVcia3l+xqijimkH1F2QOp5L/4l4KucvuX4AQxZIJ9dKjqHb1
+	 21AjzJCB5MN8WHPtIfpqJirqbnBozfc6UFDCO06kK7UpESMs7CvyXp0DyToupmAvfmJ7q
+	 2HSLg7JxptRJV7VoNwqWgi5W31mVhL4mBhCcv4gGCPHuBu5hiWGnbPbwuVpkDLvH2eq2L
+	 Ac8CUDPRcfGSzxRzN0Fozy6KYk/30ffRATKQGC9v4hjepLRi3mBXMsWJ1xZN9rLdFOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JqaV9kwF;
-	arc=none smtp.remote-ip=91.218.175.123
-Received: from mta0.migadu.com (out-123.mta0.migadu.com [91.218.175.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CyI3qMqW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86D2B606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:44:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86D2B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 153FA606A335;
+	Mon, 23 Nov 2026 02:48:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JqaV9kwF
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=OZOlkKaSXkHl1oyMsAj32/gC3bUeC7HCvUzlH7IGoAc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795401892; v=1; x=1796006692;
- b=JqaV9kwFRyJLSzGxNhXTw90kFeJVNkLdW/MmjHGKVyddvp5LGm/75PAHwEV8jNfahIW5K3wB
- cKM9MXWqNK7wNYIesGsqFm73i5KQFBoWzRTd7XQAZSiFxVFDoJ/a4BXzQ5BprLA9iKuPNsFiULP
- AolcpUzIb/CRk/dJa1UaZZA8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 7754e070e3607ff3;
-	Mon, 23 Nov 2026 02:44:52 +0000
-X-Mizu-Trace-ID: 7754e070e3607ff3
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 10:44:43 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Jingjing Xu <xujingjing@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, shuah@kernel.org, willemb@google.com,
-	annaemesenyiri@gmail.com, idosch@nvidia.com
-Subject: Re: [PATCH net-next 2/2] selftests: net: cover zero receive mark and
- priority
-Message-ID: <20261123024443.GB10218@Liu-laptop>
-References: <20261122154912.1272447-1-xujingjing@cmss.chinamobile.com>
- <20261122154912.1272447-2-xujingjing@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CyI3qMqW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 743561F000D0;
+	Mon, 23 Nov 2026 02:47:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795402082;
+	bh=yrk9+Mje2C0J1qnXfhBPjrjMZR0Y6jR+rEChJda2HwE=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References;
+	b=CyI3qMqWU+bbm41Pvu5eArEyhtjiTt0S0MgixsjmMnIX8XzpTtcXkx19YoV/xmS9l
+	 HMpqGRoxOGOA1NhKJ3H2UtIeX3UTIJW+8eDTdQfbSrm9RXF7gJTXIYZnWa0oEyuel/
+	 k0fJ/dWSKO/w4sFbvhQTmoVdrA+siN9We+OGlyygTU0SADHC3DlcG4iMgdpZlF42tk
+	 yzlUeRBp4mvjlzXvg65kGKGeekb4OApYFk0FISD0yeZ5xSXG8+HLG4N+iY7Jf138SK
+	 S+JMqNDwUcRvas5sBIC9/IUOI0GGEVtjdkuHqW7Kdddmq/3ie0D2BWFMo6kTy5UnO3
+	 0THvIYbT0tEbA==
+Date: Mon, 23 Nov 2026 12:47:53 +1000
+From: Kees Cook <kees@kernel.org>
+To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, io-uring@vger.kernel.org,
+ netdev@vger.kernel.org
+CC: Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Stanislav Fomichev <sdf@fomichev.me>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Jens Axboe <axboe@kernel.dk>
+Subject: Re: [RFC PATCH 0/3] Introduce a classic BPF filter cache for seccomp
+User-Agent: K-9 Mail for Android
+In-Reply-To: <cover.1795139109.git.xukuohai@huaweicloud.com>
+References: <cover.1795139109.git.xukuohai@huaweicloud.com>
+Message-ID: <EF2067C8-7F71-4D92-ABC9-25BC3234036E@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,64 +65,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122154912.1272447-2-xujingjing@cmss.chinamobile.com>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Jingjing,
-On Sun, Nov 22, 2026 at 03:49:12PM +0000, Jingjing Xu wrote:
-> Exercise SO_RCVMARK and SO_RCVPRIORITY with zero values as well as the
-> existing nonzero values, for both IPv4 and IPv6. These cases catch using
-> the expected metadata value as the ancillary-message enable flag.
-> 
-> Use the lowercase ksft_fail and ksft_pass constants defined by lib.sh.
-> The uppercase names are undefined, so the failure path otherwise exits
-> with the status of echo and incorrectly reports success to the runner.
-> 
-> With the new tests and the original listener, four of eight cases fail
-> and the script exits with status 1. With the fixed listener, all eight
-> pass and the script exits with status 0. The original four cases also
-> pass with the original listener. Verification used real UDP sockets in
-> isolated network namespaces; discovery and testing were AI-assisted.
-> 
-> No kernel instrumentation or fault injection was used.
-> 
-> Fixes: c935af429ec2 ("selftests: net: add support for testing SO_RCVMARK and SO_RCVPRIORITY")
-> Signed-off-by: Jingjing Xu <xujingjing@cmss.chinamobile.com>
-> ---
->  tools/testing/selftests/net/test_so_rcv.sh | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/net/test_so_rcv.sh b/tools/testing/selftests/net/test_so_rcv.sh
-> index d8aa4362879d..3263ba2d1a67 100755
-> --- a/tools/testing/selftests/net/test_so_rcv.sh
-> +++ b/tools/testing/selftests/net/test_so_rcv.sh
-> @@ -11,6 +11,8 @@ FAILED_TESTS=0
->  declare -A TESTS=(
->  	["SO_RCVPRIORITY"]="-P 2"
->  	["SO_RCVMARK"]="-M 3"
-> +	["SO_RCVPRIORITY_ZERO"]="-P 0"
-> +	["SO_RCVMARK_ZERO"]="-M 0"
->  )
->  
 
-These are 2 new test cases.
 
->  check_result() {
-> @@ -66,8 +68,8 @@ done
->  
->  if [ "$FAILED_TESTS" -ne 0 ]; then
->  	echo "FAIL - $FAILED_TESTS/$TOTAL_TESTS tests failed"
-> -	exit ${KSFT_FAIL}
-> +	exit ${ksft_fail}
->  else
->  	echo "OK - All $TOTAL_TESTS tests passed"
-> -	exit ${KSFT_PASS}
-> +	exit ${ksft_pass}
+On November 20, 2026 4:48:49 PM GMT+10:00, Xu Kuohai <xukuohai@huaweicloud=
+=2Ecom> wrote:
+>Sandboxes like Firecracker use seccomp filters to restrict allowed
+>syscalls=2E Hundreds to thousands of Firecracker VM instances can run
+>from a single template=2E Each instance loads identical seccomp filters=
+=2E
+>The kernel repeatedly translates and JIT-compiles these same cBPF
+>programs, wasting CPU cycles and slowing down bulk startup of
+>identically sandboxed workloads=2E cBPF lacks dynamic instruction patchin=
+g
+>features like tail calls or tracing=2E Its JITed instructions remain
+>immutable at runtime=2E This makes it possible to share the same cBPF
+>filter between different processes=2E
+>
+>This series introduces a classic BPF filter cache=2E It is implemented as
+>a hash table that maps user-space filter instructions to the prepared
+>bpf prog=2E
+>
+>The cache lookup occurs before filter preparation:
+>- cache hit: Returns the shared bpf prog directly=2E
+>- cache miss: Reserves an entry=2E Concurrent tasks loading the same filt=
+er
+>  wait on a wait queue until preparation completes=2E
+>
+>The cache is instantiated per subsystem=2E Currently, seccomp is the only
+>user=2E
+>
+>This series ends with a benchmark test=2E Every producer spawns one worke=
+r
+>thread at a time, the worker installs a batch of filters and exits, the
+>benchmark reports the number of filters installed per second=2E The table
+>below benchmarks the batch size and the instruction length in one round,
+>running the command below with different option values=2E The base column
+>runs the same command on a kernel without this series=2E All data was
+>measured on a local test setup with 32 producers=2E
 
-And this is a stand along fix.
+I would expect either memory usage or launch benchmarks, not just filter i=
+nstall timings=2E
 
-I think you can split this into another patch.
+Is there a workload where there is a problem? It is hinted at in the openi=
+ng paragraph, but I'd want to better understand the actual constraints befo=
+re jumping to a solution=2E E=2Eg=2E it's already possible to share filters=
+ by way of process hierarchy, so perhaps the issue is lack of hierarchy?
 
-Thanks
-Hangbin
+I've seen proposals in the past about having handles to pre-constructed fi=
+lters, which could be applied (i=2Ee=2E much of the existing caching and li=
+fetime management remained unchanged)=2E
+
+-Kees
+
+--=20
+Kees Cook
