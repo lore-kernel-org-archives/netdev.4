@@ -1,63 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464369;
-	b=jQklHY2lJQ+1ZKtNymGrtV4PkKrnaYhuY1scqTkTC6C1nPNgBj5NTa+FYZIB9e5owo9T
-	 m6cXx1HT1xUjKLfg5qodaj7B0Y7EWkfDrAzqF7Wit9/hkGe0B9Ed1KlFoYsMIwVgLZcrX
-	 ZjmbzDuvCSMqrpBU/mrRFA2A3ndH0vBsFjtMmnJs33PmaIWTPwkmZ2kc49iSuXBKpLwbv
-	 NXUN9dNMOy3Gh+GOWWnc8N3Orpi7vjUOK9yTjAkiuZN7k1lUS5slAYFSEqlj7IEH134oG
-	 kl9AioSzXrVyK6O6EOzbwEirN65GoZYYJCWUcKtOVYZc7VO6p/0Az8aM7rmEkBYDzjg==
+	t=1795464870;
+	b=xhen6FjjXLGi/W+oMfPZ2P7GkZgfNLLMUarS75gaHU9RcE5MAserZ5EH9LrPVIQwVHNI
+	 4NLRclaIcJBB0H4dRAR66rq55HWW3dFavM6jr7cN1icLzp3kQjQGYUoAzwNnYkEM7nx3c
+	 2TUNVwHzkdJINJrWGDKtohq21Nf1/TK3rJ+MeMmpOWyDJqKcp7Ymq/TGanwfm71BACSnu
+	 NMkUR1kH9uUAq9U9CAmXpd+ybnAVdoXcxq9DnHtwprcuOQyht3HhkOBIfJei+hvqXDUqQ
+	 WR/23xZWYJ7QvfsrbA6juDdHlxlrVhtqN9kUc1BenNH65PjwvlkjDe7Z1wL0ByMZ9Gg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464369;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=9Z13M2q1BEju2I9bduqQgoLJT03MD/wXP6Ev3AKsXE8=;
-	b=aLzO3YnzE3KHz8qds2Nm/f8QfVqn/9ffoUxyo6KlQjTmoOr3Oo1t7lHyoLJUbYj4rPBr
-	 PB5dY5K6IMkfrOY8PVPaMy/cGyQtBzliClt+qbLJd6lTHQxG/UCYeDSQNCT++Yx6fpc3F
-	 EtqQhOP9onaYi5b6+t7QJKn2b7eGWh2Uc/jRP7l2ZE8b6Be7CmqaXJpcpY1WWpwNqHeyh
-	 w8ISAfbZrH/h6ktni3S1j+TBf4lp5oenyBHxrOFm5H3eBseBvBKy7wGA3pkucCUbfnzXl
-	 o+RRn/nW3KitmCY/NUxMsvGDexpl5xdnUIAbf/BmJhnixnvI7Bh0JQ5bLSb6N4RBoiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464870;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=SKSnthlrVLK0ONivHUUb2WWqe4zjQ/MAmFiGwKLAN0U=;
+	b=Ow02suQueHJVY3ztJ+T9ELCxnwfFJefF6QkzaT7OaDIAg4ntDQLKBg8QAGfMgz5yFMgZ
+	 KVT+MhRBqPZB8kn8HK19/7Ooj/qp9tWbMG8MpU6lyKrjnlZAEKMxFRI+X2LsN2ONEI0d3
+	 rVQkwEzEUzKVosFYDtP24Wp8fGWIQ8NYPv7HDLIF8S37pr+DD2+VDHU4/VvTSlwekwl6n
+	 O80jbo2FZljCgHxXapl3/id8QEFtIEjPDStZx8qLelNK1Yx7GmnyerpfkWoECPLKJSWbB
+	 Zh9NfjN+JbbnEuKQKgDXSmljX4TPrZhB44BnF1JPAVofesw7yOjxBUCBBsWFl34GstA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OujbhL8g;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ks6A74Va;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEA47606A31E;
-	Mon, 23 Nov 2026 20:06:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E439606A31E;
+	Mon, 23 Nov 2026 20:14:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E439606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OujbhL8g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82E2F1F000C6;
-	Mon, 23 Nov 2026 20:06:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795464368;
-	bh=9Z13M2q1BEju2I9bduqQgoLJT03MD/wXP6Ev3AKsXE8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OujbhL8g4RjTPcaG7WStbC7wPRVKD9zNCUxUHNvz9yRdzjeEK5cLjMCFEGTf7tQLn
-	 SNTeOXnILyC+R8t7hohjDTuwu7ZxJ4tGblUEQnq3/jV3GOCFoKLrt9PAULrOg9Xc/l
-	 3G7rUInCJ5SvfOKfRMrBvS9SScrLa9dAKy6H0H/r7gvIB71I9qNg7I8USl8kfs3wrj
-	 gQY9PzLbdSGZn2I+SkWnziuwMtS9bAnmgLOjCoFzNTXY2e4918CxcXgONZvWy79RlA
-	 ARoEdVbJUpxF6HyGTirp6ggHj2sW3ddKU3UX86/QudDOMVQLpr4UI4ya8DzCrrFW9k
-	 2XDjFBPZAnRzw==
-Subject: Re: [PATCH net-next] net: stmmac: Advertise TX checksum offload only
- when supported
-From: netdev-bot+sashiko@kernel.org
-To: prabhakar.csengg@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- prabhakar.csengg+renesas@gmail.com, biju.das.jz@bp.renesas.com,
- fabrizio.castro.jz@renesas.com, prabhakar.mahadev-lad.rj@bp.renesas.com
-Date: Mon, 23 Nov 2026 20:06:07 +0000
-Message-ID: <179546436704.3135.12593345717335656860@kernel.org>
-In-Reply-To: <20261119185016.1789843-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261119185016.1789843-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ks6A74Va
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id ECA701A17A2;
+	Mon, 23 Nov 2026 20:14:26 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AA112601E1;
+	Mon, 23 Nov 2026 20:14:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8D0C811E6A9CF;
+	Mon, 23 Nov 2026 21:14:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795464865; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=SKSnthlrVLK0ONivHUUb2WWqe4zjQ/MAmFiGwKLAN0U=;
+	b=ks6A74VaTAi+ez9pFScgXV39CcJytHQPqcjVoHiHRpoSdlwmlOtGdFptdOq0hTMkuTehvc
+	YJh3HutnAUP1t4BYUcxGyfCSUXY2k/BNq9yZjdIIyrNNzL8hw2FbbQ/TsUnYbDJKMWZS6x
+	eOE1mfOqKJ85sfi9fie5Ou8bhFOTfxy4fWDmMT5zkDRGcPp/T8qxfrgw7lGf2UPgRzLIo2
+	rzNOnDxyQbEK+NtZYNY4ZgANztZBxc8BYLiaLsgAns6Xm8efQQxKEzLXRNajZgqXkn1jkJ
+	S6Imnby+d/lTGop/4YhoaoNwLD2gjjho9cs5/7NdXFy2Qc+/vLdqye+VG+qIRQ==
+From: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Breno Leitao <leitao@debian.org>,
+	matttbe@kernel.org
+Cc: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net] selftests: drv-net: pause: detect the link partner from the remote side
+Date: Mon, 23 Nov 2026 21:14:05 +0100
+Message-ID: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,144 +81,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The logic used to detect if the kselftest remote we're interacting with
+is directly connected to us uses link renegotiation to flap the link,
+that way we know if there's a switch between the remote and the DUT.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+However the current logic is racy. It triggers a link renegotiation,
+wait for the link to come back up locally, and looks on the remote if
+the link flap counter changed.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+It's possible that this entire cycle happens locally before the peer
+reports the link flap, in which case it reports that we're not directly
+connected to the peer when we actually are.
 
-- [Medium] The new advertisement gate in __stmmac_dvr_probe() trusts
-  plat->tx_coe.
-- [Low] The commit message presents this as a bug fix ('This can cause
-  DSA user ports to inherit checksum offload through vlan_features…
+Solve that by reversing the logic : Trigger a link renegotiation on the
+peer, and check if we see the link flap locally. The current
+wait_for_aneg() already waits for a full "up - down - up" cycle, so
+it doens't really matter which side of the link flaps first here.
 
---
+This was found in the stmmac CI setup, between an Intel I350-T4 card and
+an iMX8mp + KSZ9131 board. The Pause test was failing seemingly at
+random, due to the link flap occuring either on the host or the remote
+first.
 
-net: stmmac: Advertise TX checksum offload only when supported
+Fixes: 8f897f26ef34 ("selftests: drv-net: pause: Validate the pause autonegotiation with a partner")
+Signed-off-by: Maxime Chevallier (Netdev Foundation) <maxime.chevallier@bootlin.com>
+---
+ .../testing/selftests/drivers/net/hw/pause.py | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-With this patch, __stmmac_dvr_probe() adds NETIF_F_IP_CSUM and
-NETIF_F_IPV6_CSUM to hw_features only when plat->tx_coe is set.
-Previously they were always advertised. The goal is to stop DSA user
-ports from inheriting TX checksum offload through vlan_features when the
-conduit can't do it, for example in threshold DMA mode.
-
-> The driver unconditionally advertises TX checksum offload, even when
-> the hardware capability check disables it, such as when threshold DMA
-> mode is selected. This can cause DSA user ports to inherit checksum
-> offload through vlan_features despite the conduit not supporting it.
-
-[Severity: Low]
-This reads as a bug fix, but there's no Fixes: tag, and the message
-doesn't say what actually breaks. Is this meant for net or net-next?
-
-Before this patch the conduit's own dev->features was already correct.
-stmmac_fix_features() removes the TX checksum bits:
-
-stmmac_fix_features() {
-    ...
-	if (!priv->plat->tx_coe)
-		features &= ~NETIF_F_CSUM_MASK;
-    ...
-}
-
-So only hw_features and vlan_features were wrong.
-
-For header-tagged DSA traffic, validate_xmit_skb()->skb_csum_hwoffload_help()
-on the conduit already falls back to software checksums. Also,
-stmmac_features_check() drops CSUM for non-IP ethertypes. In that case
-the only effect looks like wrong feature reporting.
-
-Wrong L4 checksums on the wire would come from trailer taggers that rely
-on the conduit (tag_trailer, tag_xrs700x). Is that the case this patch
-fixes, and could the message say so?
-
-There is also a change users can see in ethtool when tx_coe is false.
-tx-checksumming on the stmmac netdev now shows "off [fixed]" instead of
-"off [requested on]". Should the message mention that as well?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index f256244ce0d11..8cb1e3b4030e2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -8224,8 +8224,9 @@ static int __stmmac_dvr_probe(struct device *device,
->  	ndev->xdp_metadata_ops = &stmmac_xdp_metadata_ops;
->  	ndev->xsk_tx_metadata_ops = &stmmac_xsk_tx_metadata_ops;
->  
-> -	ndev->hw_features = NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
-> -			    NETIF_F_RXCSUM;
-> +	ndev->hw_features = NETIF_F_SG | NETIF_F_RXCSUM;
-> +	if (priv->plat->tx_coe)
-> +		ndev->hw_features |= NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
-
-[Severity: Medium]
-On cores without the DMA HW feature register, does plat->tx_coe reflect
-threshold DMA mode by the time this check runs?
-
-The threshold-mode override is applied only inside the hw_cap_support
-branch of stmmac_hw_init():
-
-stmmac_hw_init() {
-    ...
-	if (priv->hw_cap_support) {
-		...
-		/* TXCOE doesn't work in thresh DMA mode */
-		if (priv->plat->force_thresh_dma_mode)
-			priv->plat->tx_coe = false;
-		else
-			priv->plat->tx_coe = priv->dma_cap.tx_coe;
-		...
-	} else {
-		dev_info(priv->device, "No HW DMA feature register supported\n");
-	}
-    ...
-}
-
-Older GMACs such as 3.40a don't have this register. There,
-dwmac1000_get_hw_feature() reads 0 and returns -EOPNOTSUPP, so the else
-branch runs and tx_coe keeps the value the platform set.
-
-For "snps,dwmac-3.40a", stmmac_probe_config_dt() sets that value
-statically:
-
-	if (of_device_is_compatible(np, "snps,dwmac-3.40a")) {
-		...
-		plat->tx_coe = true;
-
-It reads "snps,force_thresh_dma_mode" for any compatible. Nothing makes
-the two settings agree.
-
-If both are set, stmmac_dma_operation_mode() checks force_thresh_dma_mode
-first:
-
-	if (priv->plat->force_thresh_dma_mode) {
-		rxmode = tc;
-	} else if (priv->plat->force_sf_dma_mode || priv->plat->tx_coe) {
-
-The TX channels are then programmed in threshold mode with tx_threshold[],
-while tx_coe stays true.
-
-In that setup the new check still adds NETIF_F_IP_CSUM and
-NETIF_F_IPV6_CSUM to hw_features, features and vlan_features. That is the
-DSA case the commit message describes. stmmac_fix_features() keeps the
-bits because it also checks only tx_coe. stmmac_xmit() then requests HW
-checksum insertion for CHECKSUM_PARTIAL skbs.
-
-The driver comment says TX COE doesn't work in threshold mode. If the
-hardware really skips it, won't those frames go out with only the
-pseudo-header partial checksum?
-
-No in-tree DT seems to combine dwmac-3.40a with
-snps,force_thresh_dma_mode (spear3xx.dtsi uses 3.40a without it). This
-may not be reachable with current in-tree users.
-
-Would it fix this to move the force_thresh_dma_mode check that clears
-tx_coe out of the hw_cap_support branch?
-
+diff --git a/tools/testing/selftests/drivers/net/hw/pause.py b/tools/testing/selftests/drivers/net/hw/pause.py
+index ca4a55e59c30..31518b7ec53b 100755
+--- a/tools/testing/selftests/drivers/net/hw/pause.py
++++ b/tools/testing/selftests/drivers/net/hw/pause.py
+@@ -90,8 +90,8 @@ def controllable_lp(cfg):
+     For low level ethtool tests, we need to have the remote directly connected
+     to the local host (i.e. not through a switch).
+ 
+-    This is tested by taking triggering a link renegotiation and checking the
+-    carrier_changes counter on the partner.
++    This is tested by triggering a link renegotiation on the remote and
++    checking that the local link flaps.
+ 
+     :returns: True if the remote is our link partner
+     """
+@@ -99,17 +99,17 @@ def controllable_lp(cfg):
+     if controllable is not None:
+         return controllable
+ 
+-    before = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
+-                     host=cfg.remote).stdout)
+-
+-    ret, _ = ethtool_ret(f"-r {cfg.ifname}", is_get=False)
++    ret, _ = ethtool_ret(f"-r {cfg.remote_ifname}", is_get=False,
++                         host=cfg.remote)
+     if ret != 0:
+-        raise KsftSkipEx(f"ethtool -r {cfg.ifname} failed: {errno.errorcode.get(ret, ret)}")
++        raise KsftSkipEx(f"ethtool -r {cfg.remote_ifname} failed: {errno.errorcode.get(ret, ret)}")
+ 
+-    wait_for_aneg(cfg, link_drop=True)
++    try:
++        wait_for_aneg(cfg, link_drop=True)
++        cfg.lp_controllable = True
++    except TimeoutError:
++        cfg.lp_controllable = False
+ 
+-    cfg.lp_controllable = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
+-                                  host=cfg.remote).stdout) > before
+     return cfg.lp_controllable
+ 
+ def require_controllable_lp(cfg):
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119185016.1789843-1-prabhakar.mahadev-lad.rj%40bp.renesas.com
+2.56.1
+
