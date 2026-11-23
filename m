@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442097;
-	b=ALU1W5zuhYemX8EnFlgWGdDn50WQw2st5NCYHxRWZutRzmRyMfYxTr59hy+0FffOZ3To
-	 mOwdmhkQL0nh8HZPyjmkwLMcwDnHk0SY9t7ZjGcmnC3y60JYsAcLTAC9cLIJZZnSYg7YX
-	 jZBJQ4HqSS9yNO1UjJQLCa9oPurCVF9ZoXjFbbadWkflBNQzd8Y/DXyWXUebfLlLmMMz4
-	 Ng/BaU4QOQ2corm9m3IkFo0GlMHtLsMl6P3eRK4UEM+GDlvkDegbbZEHvTOnnPkJhu+jD
-	 DBvt5WO+nkcIUTC8aw59e0chYsAF14MLK2r0HRJQ/LRvs7JxfB7Ilb4cHsuxQEX+vww==
+	t=1795442098;
+	b=Xmi1lwQtnvk0lY1EZ6lVL7fFWaUC7Gro8IthwRZwqzIJRCgHxmb+Eg0aREPWrc0eZB60
+	 3QcaVTAGi/JT+faGW7ONPSoUKyj+6ZxHUao89QZrtQ0jY1jhj4ao9bowVDtIx3t+Rd2jQ
+	 1HdCuigKO17tPm1tywQk5bxB8RttS6ib2U3ERW1EEghH4E43ean69RKw94Nh6b0MUI7hd
+	 MWTJeX0CpdYUjCupmc1XVm6A7YU6nRghwhVrZo8NKsmnvbgTeISU1zxSTLjLXf1tPOKk6
+	 PVc7t8yrHcpzSqdG9z+4xkO8Qb6MgTr9lvkIK9lD/SyriQvoHKLi7p/r11e3T7Z7j/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442097;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442098;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=7l6ujBlvopYz8h/a09FCsFReMdf0JytvichTI5tBd2g=;
-	b=LeB2PFydwjoaUU8UcX5SLGzPighZSaVDNf4Y9A8cSvd70PFDTRhCK1YVUv3aIHOetRr5
-	 ybP4l0KAarEjzeiHEmAguPoPoXds4KYu5gSlFopMkIduXJQISXVhi/I0U+GB6WoQWgSjR
-	 y/2Wv7iCBxNRWuyGevGhsGT5tPzsSr1UbhxfBA4x1qI4ypCG02mBGNRORA6zkGqHiBvbM
-	 E2qHsUCMvigi7xAbnsbWV86lr8sSNe6qJ3850mQLf01uFnR9RXjo788qBgm/odn0tNEd7
-	 ZH2LoK9ZlBdkEZraskcUvZGplBosyqtKJLkSqbd2NfiFsoROX2jPAoe1AtajOc929bQ==
+	bh=tUs92/3C6a+B3SOLHJJUXzN+3Ap9uUF5Js/S3EGH8Vk=;
+	b=PtfVOgEqINrB+0yogYeoduEqO0HV4P98t/MEqyCgS8GpBIhh16bcca6s4Rxn+kWcTqu4
+	 cL1yP+mxFOqCK2JO5KLutClyBKD3EL+CvDbnhKPwcni3v6RnFh8ia2VR6k/rm8MqMCQKz
+	 czLQNIlxz24DRGmktopd5UvJYXMXUxLiHQjtkBVfHcaouLFaiIpHY/3AzniRsUQG7WMiu
+	 VewxjQwI/ZppzGc+y7ZTg+oBhLMTRyETaZSzOEB/ianOMx8X7Nogodq92+G4QKOCBQV2i
+	 zQxi3J1CF2M5JJ5TyvQQU5eiX9icpq1WlbmZ7Ng92DopU85LhAbag43W7Ceu6ZQjR6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=netfilter.org;
 	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Cxa8ViT5;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=D9FIHCeB;
 	arc=none smtp.remote-ip=217.70.190.124
 Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5577A606A32C;
-	Mon, 23 Nov 2026 13:54:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5577A606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BC52606A33C;
+	Mon, 23 Nov 2026 13:54:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BC52606A33C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Cxa8ViT5
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=D9FIHCeB
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795442089;
-	bh=7l6ujBlvopYz8h/a09FCsFReMdf0JytvichTI5tBd2g=;
+	s=2025; t=1795442090;
+	bh=tUs92/3C6a+B3SOLHJJUXzN+3Ap9uUF5Js/S3EGH8Vk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cxa8ViT5O9yCaOTgvmCxfyWpTNyX/y3v0h4qqQpyWlzIzAROiPIDBd9wlSbEiLen1
-	 8CdrDeZK9WdS4n9PNWiv4ptcvZcs5ROZBBtych2fwaNEcCRm2xoeyacTwVVMmdXhQy
-	 OQhbP/W3+hkcJM7fOLhM4WBzk58JKzsKaVsrkXG/GLmKjxBOi84ibINOJiYd7Z6oli
-	 ortHu901hIfGra6ShbYyHloPre4ZeoAp1b6kPzqxPlFbn/yFr4eSzzJ0gxmWzpPAx2
-	 y/Oe+L0I+4OmjaUGEg71d4FrskpxbEMSqzS1CZ3m7ZeNVlJqeUb2FvF9pb0/5aW81U
-	 noXoKkH97TWIQ==
+	b=D9FIHCeBhCs3GwN4Te10a1bCLeVEAItqjX6thZFFlCmYavEXfCuUWUEaSlBxVaKk1
+	 PuWrqrlOuCa3beR70lRtd6UXe5AZj4E7iJfqzGTT26r5303NcVDWFDLV+UGbO4GPqw
+	 nooVAkh1OVpK2NmtbVcoHTTpUDcnNgXK/iTin4tg/c5PbIVnYho858A37nKnRPiaqM
+	 WUe7TkEZFU+0eNG5S0ThBolm9UJtD0sSQk9nJO7agKa2VKZl8kMReQdfJw5pgATH3I
+	 wfNM03OQDKeF9KiDa/D3Aa9cUh4XVhLbfqfe8yVkL59SZjC7hBBHKSSbkojbzkxP65
+	 AUF+5le2LRYfQ==
 Received: from localhost.localdomain (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with ESMTPSA id 97D3D602BA;
-	Mon, 23 Nov 2026 14:54:48 +0100 (CET)
+	by mail.netfilter.org (Postfix) with ESMTPSA id 2B305602BB;
+	Mon, 23 Nov 2026 14:54:50 +0100 (CET)
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 To: netfilter-devel@vger.kernel.org
 Cc: davem@davemloft.net,
@@ -56,9 +56,9 @@ Cc: davem@davemloft.net,
 	horms@kernel.org,
 	fw@strlen.de,
 	ja@ssi.bg
-Subject: [PATCH net-next 01/15] netfilter: conntrack: prevent nf_conntrack_buckets race condition
-Date: Mon, 23 Nov 2026 14:54:28 +0100
-Message-ID: <20261123135442.3940372-2-pablo@netfilter.org>
+Subject: [PATCH net-next 02/15] netfilter: conntrack: validate skb->_nfct and packet headers
+Date: Mon, 23 Nov 2026 14:54:29 +0100
+Message-ID: <20261123135442.3940372-3-pablo@netfilter.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123135442.3940372-1-pablo@netfilter.org>
 References: <20261123135442.3940372-1-pablo@netfilter.org>
@@ -73,84 +73,169 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Fernando Fernandez Mancera <fmancera@suse.de>
+From: Florian Westphal <fw@strlen.de>
 
-There is a race condition in the nf_conntrack_buckets sysctl handler.
-The implementation uses a single global variable as a temporary buffer
-to parse user input. Because sysctl handlers are not locked, a
-concurrent read or write can overwrite this shared variable after a
-writer has parsed its input but before the actual resize occurs.
+skbs coming from loopback already have skb->_nfct attached.
+act_ct may also attach a conntrack to the skb.
 
-While this sysctl is only writable from the initial network namespace,
-the race can trigger if a monitoring daemon reads the sysctl while an
-administrator or orchestrator is writing to it.
+Facilities like clsact or pedit can alter headers which may then result
+in e.g. UDP packet with TCP nf_conn.
 
-Fix this by removing the unnecessary global state by using a local-stack
-table instead and delegating the locking/serialization to
-nf_conntrack_hash_resize() function.
+Revalidate that this skb matches the skb l3/l4 header.  If not, drop the
+stale reference and let nf_conntrack_in perform a re-lookup.
 
-Fixes: 3183ab8997a4 ("netfilter: conntrack: allow increasing bucket size via sysctl too")
-Reported-by: VEGA <vega@nebusec.ai>
-Signed-off-by: Fernando Fernandez Mancera <fmancera@suse.de>
+For conntrack helpers, more checks may be required, e.g. tcph->doff
+revalidation.  This is handled in a followup patch.
+
+Note that the Fixes tag is bogus, back then this was perfectly fine:
+namespaces, esp. unprivileged user namespaces, did not exist and all
+crash-configs were in the "don't do that, then" department.
+
+Fixes: 9fb9cbb1082d ("[NETFILTER]: Add nf_conntrack subsystem.")
+Signed-off-by: Florian Westphal <fw@strlen.de>
 Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
 ---
- net/netfilter/nf_conntrack_standalone.c | 18 +++++-------------
- 1 file changed, 5 insertions(+), 13 deletions(-)
+ net/netfilter/nf_conntrack_core.c | 114 +++++++++++++++++++++++++++---
+ 1 file changed, 105 insertions(+), 9 deletions(-)
 
-diff --git a/net/netfilter/nf_conntrack_standalone.c b/net/netfilter/nf_conntrack_standalone.c
-index d88a10230862..9775efe4e2c9 100644
---- a/net/netfilter/nf_conntrack_standalone.c
-+++ b/net/netfilter/nf_conntrack_standalone.c
-@@ -533,27 +533,22 @@ EXPORT_SYMBOL_GPL(nf_conntrack_count);
- /* Sysctl support */
- 
- #ifdef CONFIG_SYSCTL
--/* size the user *wants to set */
--static unsigned int nf_conntrack_htable_size_user __read_mostly;
--
- static int
- nf_conntrack_hash_sysctl(const struct ctl_table *table, int write,
- 			 void *buffer, size_t *lenp, loff_t *ppos)
- {
-+	unsigned int htable_size = READ_ONCE(nf_conntrack_htable_size);
-+	struct ctl_table tmp = *table;
- 	int ret;
- 
--	/* module_param hashsize could have changed value */
--	nf_conntrack_htable_size_user = nf_conntrack_htable_size;
-+	tmp.data = &htable_size;
- 
--	ret = proc_dointvec(table, write, buffer, lenp, ppos);
-+	ret = proc_dointvec(&tmp, write, buffer, lenp, ppos);
- 	if (ret < 0 || !write)
- 		return ret;
- 
- 	/* update ret, we might not be able to satisfy request */
--	ret = nf_conntrack_hash_resize(nf_conntrack_htable_size_user);
--
--	/* update it to the actual value used by conntrack */
--	nf_conntrack_htable_size_user = nf_conntrack_htable_size;
-+	ret = nf_conntrack_hash_resize(htable_size);
- 	return ret;
+diff --git a/net/netfilter/nf_conntrack_core.c b/net/netfilter/nf_conntrack_core.c
+index 931b76aacd93..d2cd9b31507e 100644
+--- a/net/netfilter/nf_conntrack_core.c
++++ b/net/netfilter/nf_conntrack_core.c
+@@ -1998,6 +1998,99 @@ static int nf_conntrack_handle_packet(struct nf_conn *ct,
+ 	return generic_packet(ct, skb, ctinfo);
  }
  
-@@ -657,7 +652,6 @@ static const struct ctl_table nf_ct_sysctl_table[] = {
- 	},
- 	[NF_SYSCTL_CT_BUCKETS] = {
- 		.procname       = "nf_conntrack_buckets",
--		.data           = &nf_conntrack_htable_size_user,
- 		.maxlen         = sizeof(unsigned int),
- 		.mode           = 0644,
- 		.proc_handler   = nf_conntrack_hash_sysctl,
-@@ -1153,8 +1147,6 @@ static int __init nf_conntrack_standalone_init(void)
- 		ret = -ENOMEM;
- 		goto out_sysctl;
- 	}
--
--	nf_conntrack_htable_size_user = nf_conntrack_htable_size;
- #endif
++static bool nf_ct_check_icmp_inner(const struct sk_buff *skb,
++				   const struct nf_hook_state *state,
++				   unsigned int dataoff,
++				   struct nf_conn *ct,
++				   enum ip_conntrack_dir dir)
++{
++	static const unsigned int icmp_hdrsz = 8;
++	struct nf_conntrack_tuple tuple;
++
++	if (!nf_ct_get_tuplepr(skb, dataoff + icmp_hdrsz, state->pf,
++			       state->net, &tuple))
++		return false;
++
++	return nf_ct_tuple_equal(&tuple, nf_ct_tuple(ct, !dir));
++}
++
++/**
++ * nf_ct_get_careful - Get connection tracking entry with protocol revalidation
++ *
++ * @skb: Socket buffer whose conntrack entry is to be retrieved
++ * @state: Netfilter hook state
++ * @dataoff: Offset to the layer-4 header within @skb
++ * @protonum: protocol number (e.g., IPPROTO_TCP)
++ * @ctinfo: Pointer to store ip_conntrack_info
++ *
++ * This function retrieves the connection tracking entry associated with @skb.
++ * Performs revalidation of packet header, unlike nf_ct_get().
++ *
++ * If earlier in-kernel mangling (e.g., via TC pedit or clsact) altered packet
++ * contents (e.g. changing TCP to UDP), this function will drop the conntrack
++ * reference and returns NULL.  skbs coming in via NF_INET_LOCAL_OUT are
++ * trusted and never revalidated.
++ *
++ * Returns:
++ *   %NULL - No valid conntrack entry exists or revalidation failed.
++ *   Pointer to &struct nf_conn associated with skb, may be a template.
++ */
++static struct nf_conn *
++nf_ct_get_careful(struct sk_buff *skb,
++		  const struct nf_hook_state *state,
++		  unsigned int dataoff, u8 protonum,
++		  enum ip_conntrack_info *ctinfo)
++{
++	struct nf_conn *tmpl = nf_ct_get(skb, ctinfo);
++	struct nf_conntrack_tuple inverse;
++	struct nf_conntrack_tuple tuple;
++	enum ip_conntrack_dir dir;
++
++	/* LOCAL_OUT is trusted: in case stack sends ICMP error, skb gets
++	 * the conntrack assigned via nf_ct_attach().
++	 *
++	 * Such conntrack may not even be in hashtable yet, so
++	 * nf_conntrack_handle_icmp() cannot find a connection matching
++	 * the inner header.
++	 */
++	if (state->hook == NF_INET_LOCAL_OUT)
++		return tmpl;
++
++	if (!tmpl || nf_ct_is_template(tmpl))
++		return tmpl;
++
++	if (state->pf != nf_ct_l3num(tmpl))
++		goto error;
++
++	if (!nf_ct_get_tuple(skb, skb_network_offset(skb),
++			     dataoff, state->pf, protonum, state->net,
++			     &tuple))
++		goto error;
++
++	dir = CTINFO2DIR(*ctinfo);
++	if (nf_ct_tuple_equal(&tuple, nf_ct_tuple(tmpl, dir)))
++		return tmpl;
++
++	if (*ctinfo == IP_CT_RELATED || *ctinfo == IP_CT_RELATED_REPLY) {
++		if (state->pf == NFPROTO_IPV4 && protonum == IPPROTO_ICMP &&
++		    nf_ct_check_icmp_inner(skb, state, dataoff, tmpl, dir))
++			return tmpl;
++
++		if (state->pf == NFPROTO_IPV6 && protonum == IPPROTO_ICMPV6 &&
++		    nf_ct_check_icmp_inner(skb, state, dataoff, tmpl, dir))
++			return tmpl;
++	}
++
++	if (!nf_ct_invert_tuple(&inverse, &tuple))
++		goto error;
++
++	if ((tmpl->status & IPS_NAT_MASK) && nf_ct_tuple_equal(&inverse, nf_ct_tuple(tmpl, !dir)))
++		return tmpl;
++error:
++	nf_reset_ct(skb);
++	return NULL;
++}
++
+ unsigned int
+ nf_conntrack_in(struct sk_buff *skb, const struct nf_hook_state *state)
+ {
+@@ -2006,21 +2099,24 @@ nf_conntrack_in(struct sk_buff *skb, const struct nf_hook_state *state)
+ 	u_int8_t protonum;
+ 	int dataoff, ret;
  
- 	nf_conntrack_init_end();
+-	tmpl = nf_ct_get(skb, &ctinfo);
++	/* rcu_read_lock()ed by nf_hook_thresh */
++	dataoff = get_l4proto(skb, skb_network_offset(skb), state->pf, &protonum);
++	if (dataoff <= 0) {
++		NF_CT_STAT_INC_ATOMIC(state->net, invalid);
++		tmpl = nf_ct_get(skb, &ctinfo);
++		if (ctinfo != IP_CT_UNTRACKED)
++			nf_reset_ct(skb);
++		return NF_ACCEPT;
++	}
++
++	tmpl = nf_ct_get_careful(skb, state, dataoff, protonum, &ctinfo);
+ 	if (tmpl || ctinfo == IP_CT_UNTRACKED) {
+ 		/* Previously seen (loopback or untracked)?  Ignore. */
+ 		if ((tmpl && !nf_ct_is_template(tmpl)) ||
+ 		     ctinfo == IP_CT_UNTRACKED)
+ 			return NF_ACCEPT;
+-		skb->_nfct = 0;
+-	}
+ 
+-	/* rcu_read_lock()ed by nf_hook_thresh */
+-	dataoff = get_l4proto(skb, skb_network_offset(skb), state->pf, &protonum);
+-	if (dataoff <= 0) {
+-		NF_CT_STAT_INC_ATOMIC(state->net, invalid);
+-		ret = NF_ACCEPT;
+-		goto out;
++		skb->_nfct = 0;
+ 	}
+ 
+ 	if (protonum == IPPROTO_ICMP || protonum == IPPROTO_ICMPV6) {
 -- 
 2.47.3
 
