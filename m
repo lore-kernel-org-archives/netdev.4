@@ -1,97 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.70
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795448430;
-	b=f7PWyVi7THTQnbgTGdqOitxUh9soVtSviG1HRPQwLg2bvmfGLYu9a+uowVx7uObPujvc
-	 ObwdAkOWtY67n64340lVld0Lg1Kr4ETOfNquVybKRtc//A5VkerKCG0uPVeH/DK8XZzpD
-	 5n49yyF4TLLYLvRFHP5/zbvXmgDVpqGaKtGnyGJzGstS1k7FpLfzJquEeI8lfZSq7c7xa
-	 NOdyveRzAbY5Wa++QYJfGHWQPeRyQ3EVsPdILmL3xAWwrmuTMlKYMOqnphDssSgpQtenL
-	 ndabYQsx2v1OMGVfNp6nFSsgtuWbK0ct+1hj4grghv3aVOA7gZSOU1IZ69YZr+Sjwog==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448430;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=txfYluJCCySe/4qjl14LymA0WkLgMfGf42JrvVZo+tM=;
-	b=ZlPwIAGUY2piogDQHQbRzvQlRis/dejCbzuu0HOvXf2Wx83w4u9dzBe668izf+SRZqdO
-	 3kPUzHJ1WU1uq9w37Iz7+N8tZRqiIUly0u7hEgeqTj59IzzfNMtMeyfNgBrYGPuVhiXdx
-	 WDUZ355lmA00NBrXvaqTlde3KHV0JqBrzUNmSLu/jFeps14LRnS8zzSLYTuNNVuPBUqP9
-	 LUpPj/lE4BR6FFQ291fd3ypWligpg5lOBbe99pbqCVpKL1KaPt8gU+DDR9yeIHewh16aY
-	 DbZbHn5cBUG4NkZVe59SOzAFpHNJITR41YAzHxd+VyvbBMnCySPQkWOPvc302dibPcw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YohIAvI6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.70
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010070.outbound.protection.outlook.com [52.101.193.70])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795448836;
+	b=v/AsnIGeEfYmmGoRsc2hF+4wh6NTN5EGxkD5P2NJxQzjVkYlp8ICBUK5vE0OZW7P/PTh
+	 kGgcfqV48yEhflP1L1QwFuOF1TwqJqjHYnR5k+O7EfCxemTwQ+luWCOHPrOBdsTovRgC0
+	 vnqhJGNqi3ykvh0SxyIyCLzOF/RiJRt7ALVFloIzgfr6g8anM8G7nhM3+fd7J/S5CTis3
+	 /LFO6X9R4dOd4sVKkIvWVvTnAukIkNOPDvKUZ083lSTFbzCQc/agWtDq18+OjullutKQT
+	 NgomxSPgXYBXXh+1M0ajoYny312eoMxb9S0ah5O6/nDOOugetPEhth7+7szJ7me0eSA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448836;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=2RRGa+6xAqYwGcrdChLln3M+CJbvF/ihltQfYAefwKY=;
+	b=Ersamjq6HMNaC4l9//g+0ft8KeoX/tcDkGp4OeFSMVi6WyTKC3LD8jkOhcCuvjYWGWcD
+	 DrLRo9aK4+htHz+veG9xh5Y/gbJC8cEKuFZnmDG87JNBwgKvBKgl3DVeXOpUQETQMn4qB
+	 waJUe7wlFzQCoo5woMpEq7/zGg200Cb+nn65NskHA73olg/+1v6ncTIeMyfPPLaouvUPx
+	 33zms11A0ZXjKCFLKVxeA/2ADwVBDjg8FtJ0o8/UDRsNKqo2FJHbvhz9PTdnyVD4Pr5bq
+	 7Hir/3DGe85UjzMIkAd23TBg/XUblQkz46W5IKlBK8cX+D+H2NtxuLeuRzFdURWkuJA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Kai04/5i";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28C21606A33C;
-	Mon, 23 Nov 2026 15:40:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28C21606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A93D9606A330
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:47:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YohIAvI6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JrAdgN/cY7jdWKuoTEWkIgnsrGZVXeU0RhafsHu3rTm7ZpSSR62y3yQ6F4zlokFyY4TEzW5M0e+pkZw0rpsLiAuHsCL5pMsIFAmddtGbx0RPkjm+KDjcOcTodnDTdeL9XS8B9lM5nR58gxgTpcq5/XRW9wDrny/n8xtuXQe/mjhKjKEJ52Yp8lDw3hSenIjiCqQ0hXUJy2sf4WBwhPNgNnS238kVYjvLm1huywNyRC4qaPoNk2FemO1/jzwezODb4Lp9KOpEyjlSHU4ydboogV/R9RNt+OnuqZcJmH1sLAFb70oc4ZZkUBzjxHIHyE0klf2IRFtCquFbwaJlJvU9dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=txfYluJCCySe/4qjl14LymA0WkLgMfGf42JrvVZo+tM=;
- b=pJ7075RsnE2TZ1Y/Iy1TFGpywj+2U0ihlZLDjqbY3/u+f6JhdLZz39s6va4YTi4lycKMLXJiMyNFyJV4CXC6r82N9asxMz4NvsZEeORurANXMYPoT3PewlpFAh0ZGlQrbCTZHjjpZIR19ciuhSCPdZag7BzuhzsXKgPXhHUj7zBF2jn1bp+g3Gq4YOz16v0poyolPEsWE1R72NmeuSbK/usqYuA/IdYPUKo4tE1w2zp/xINj0m+55ICDSx4NyYvJN6kE46OdhR8MEM2OkVRGziHwnTol96IATc/lDZjM1BFZD31u8PfV2tIJIl41WTFf4fh6ACrNDFlhGuS4W1JmwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=txfYluJCCySe/4qjl14LymA0WkLgMfGf42JrvVZo+tM=;
- b=YohIAvI6eutI42oAA+8AVfSjAFWr44/RPTAc3ASIoWGy6HFO+sYlBraLiS65j92yZj0hXQ3T08bnbMpsfNso13Bhf5aqt0de8kM/i/wsINmXiRLxnAqTpie9/cuOFMfMQljbRPZZuOmuwTEJ6htTZB8qczuEe9nBLW4mxmkxAx/A4eN8BPizaHfDA+7Z6/blJbZS1ygT1NVIBeMiBhE9hS/NR3RHyqbB/rYDlhhRxIwUnnByS3Db0WF1c2HzQ0hPiTKxqAkDU+w2C9YCAm9Bzl9kUMzQzscRkkd9DT996aHHoYY6xLRHCXNZACiSoNCYjHl4GR20KVxOMDA8seqOSA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by DS5PR12MB484139.namprd12.prod.outlook.com (2603:10b6:8:47c::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 15:40:26 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 15:40:26 +0000
-Date: Mon, 23 Nov 2026 17:40:17 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: Vladimir Vdovin <deliran@verdict.gg>
-Cc: David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next v4 2/3] ipv6: Cache pmtu for all paths of a
- multipath route
-Message-ID: <20261123154017.GA3456673@shredder>
-References: <20261117193141.27004-1-deliran@verdict.gg>
- <20261117193141.27004-3-deliran@verdict.gg>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117193141.27004-3-deliran@verdict.gg>
-X-ClientProxiedBy: TL2P290CA0020.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:3::9)
- To LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kai04/5i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E6721F000E6;
+	Mon, 23 Nov 2026 15:47:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795448836;
+	bh=2RRGa+6xAqYwGcrdChLln3M+CJbvF/ihltQfYAefwKY=;
+	h=From:To:Cc:Subject:Date;
+	b=Kai04/5idHNmf//X4Fd73Bp2azWGMqBNhmiH1CpLbg+gNt/j2d+fvbzjo9H4UKTb6
+	 6JCoYeQk+RKWHN34gJF5d533By0d6Nh4PDxDY9fTxH0ps+OCsoq96DD09cb3O7GHrB
+	 FyfDDCfl3WUWfMrBPQ0L/GyoMzUdxr440VyYcEA8LjaOFZlgX3jENDiXsv1O5JwVRm
+	 0BNfl/v+u8rAutETY+JhQoB1rJ5m8M6LeKzY5hi/mK+LdKfom9ThEiJw5bb1Uwhpcw
+	 i+9y1cNim2nsiMlYVXKYbEqJx8yCnW8yjWs/ZumSI6qMNNvsADm8/WeCU0UsudOwhz
+	 F1ljdzcI6tcCA==
+From: Eric Dumazet <edumazet@kernel.org>
+To: "David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Neal Cardwell <ncardwell@google.com>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	Eric Dumazet <edumazet@kernel.org>
+Subject: [PATCH net-next] tcp: use order-0 page frags in tcp_collapse()
+Date: Mon, 23 Nov 2026 16:47:08 +0100
+Message-ID: <20261123154708.360226-1-edumazet@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,236 +61,232 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|DS5PR12MB484139:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc13ea93-e23f-4500-415a-08df49781828
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|7416014|261102123227099003|261026140227099003|261026121527099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|11063799006|56012099006|4143699003|10067099003|261009223027099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	/eKHiPmQLQpXwRVzcWb+pkRjkztk8QSMYnqNJvp7VRaUidZy0BPt3HfNg+FKami+IKCGs1RWIVb820JHratXiLuFtbbd1um13vFUCWiO2mULQ7b6EAB63EkMBACfMn4wlcNCnPEqVqIxC39mw+v6rsAb5xO/4x8P2LkEmIS/6YlWyO0qDSWA3xnGc2xdY1N45fUi5UzwVyx89fg4OjCzy6bvJcL+NVIidnt799acE+3I5fgZ0++gwJbOY1hFS+s4inE/VjFLN7/ZYKU/HKGqPDn02uIaSAS3omnHXSxpiH+YW8WJOx7AKaLa/2k+Vn9OGVAW+1gFcKCRyfIyVySqfACk9AircGGo6m5xRpbYGiIxocfQc78ckw5oV8pPLogZYCAjFSgZrzKCBLHw6XkqbHSuKrpMw02Tho7TA9Vh3svxSqhhYaWmIJHznmFk/OXfckdfPcMFNxJDwsIPqzS2entFqaAe0Kz7H9b+aSn6Cyxduz+l14Xp3HehjFjnMLMkj//XK7LqVqGHZnzyl3lrHOeRG3FjPFSN4ljkfLKdXa53SoPSF1Uy+9b48UDCQ4UrDhBKcIGvKaC4T1I14KCqvCHQWJ7C7ylcEwmuwHYc9dYN0D86DnAnP5T4EFmJiFrM9b0CrMGNp7Qxz6yqy3b5Cq/plcF3JJQONabEhv8Gn3k=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(7416014)(261102123227099003)(261026140227099003)(261026121527099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(11063799006)(56012099006)(4143699003)(10067099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?2235wAir+ET4s2Z8PlPpp0t0Z1wndsJ4yM6mFSIuh7S9URzxz8BrRpZAGrtu?=
- =?us-ascii?Q?tqzKBGJAL7N6xDznSQ0/yciGKTVSjmxF/rhvYjPg0ZrdeWUZbJGly4IywTIL?=
- =?us-ascii?Q?MVPpLGU35aKAWQKyURTJtL87OlXKEg8xRAfs4MeaNnxYycWdwH8nE9EAmqb7?=
- =?us-ascii?Q?0Wl9l5X3ADDWfouSqoHhI0zIj8wzkFQJKqXcsSJRcKt6bZ5jIFpddFe6Eg0g?=
- =?us-ascii?Q?QWev+WvPgclY0NQv9wC2mpPQIj66IeP7Rg0g4K9hACyityBq+VFjPDePNtfL?=
- =?us-ascii?Q?hStZO5gt5bCGjS5Jpm3Vc1iZ0vQA8b4QDcYQ8MwptcH6MuGzU+uZwpcogKpv?=
- =?us-ascii?Q?NqJ4RF68o0pnLa45AQzUynER0jhNYiYwLeMwRlARtjmAdTBL1upgVpo7Tr6s?=
- =?us-ascii?Q?U8loKVm4ozgGxpGqLCCKD7pEvmm8LhO3iKh+wEIlWEtMuVKyM9kMJOxk5sQn?=
- =?us-ascii?Q?7U5Darv2OWi/nD6xH4erzEWOuzvQxz3sqNOI9+Yzf1nJ1Ll8JbIAdqLkGfoO?=
- =?us-ascii?Q?72K8d/boPqCQPyzJ7S48f7FqjkmATJKtj8MC3XQPG9v4Nxn47TkMKvve16hX?=
- =?us-ascii?Q?kuAPNL8Kmk1GYBr9s0yIem758IgDstVPJhRq8j3Q9ldc3SiOID7mf2/HWFYS?=
- =?us-ascii?Q?qFJ/YlYBQxYkioLRNgRq2CAxIwkxmj9T85DI7o/fmj6DQP92CKn2HXCtZ2Mm?=
- =?us-ascii?Q?F0Vf46lJUhQssu4/IM+pBZaI85E9148/+N2lxCc6HQcVApCcrUibOrURjPNc?=
- =?us-ascii?Q?sWHHXzD9TRhWQc0wZXiFSbRh8liIGaabZ76CFcAuEbf/m1RPrqIof1TQbVnN?=
- =?us-ascii?Q?qA97xOQ1E2NVlAwPvm7s652WshFnJZmt3U0I05pxdyX4tQC8WjL5nP9/EDNf?=
- =?us-ascii?Q?PjpAOqkagzKOqIFbymIhquBvOHMf0FLspQ/2MRWzq9vZSj69pOC0hL8uLdXN?=
- =?us-ascii?Q?92h3DA25Dc19mh0H+CvNkFnhk8qXMjVtgU8XcueIPoXkzy8ahLNpSgman1PK?=
- =?us-ascii?Q?F9DMSRk3/FnhBwIO8Rlf2LRlrxLU2wxTNuph7g0hVwUFjKDsh26GAAOE4zwt?=
- =?us-ascii?Q?HH/dDCMWyAxdrJLCgxdwHk/wumizNmyQO3GVnAqEw4Z+glKB3TpczcWXaXkU?=
- =?us-ascii?Q?GaOrUXqKXxmmwk5/PEXGdb7kaS6iD1PKjr5Gb1nIx9yXYjHY45iwb8g2B3L5?=
- =?us-ascii?Q?ecdwZumrfvGyKO2V4sVI/6NOhP0OhLuJLMyVKWMoae0szOirFHrliCJY0BRb?=
- =?us-ascii?Q?HHw+T2360eiy51sNuXTEX9WebYwLeb5r35M9Xu3roBARLwMFO7oMVoZErxQ/?=
- =?us-ascii?Q?qR5kXX3mgbCb16LF1Wnea/PseE1me7/+fqpWy12CVYj1sNjJu9zlyhMh8hoX?=
- =?us-ascii?Q?BWPE9r7pvo0Gzim8A/jgmUzDHmsGh9x4PUCDgT8n1I9TnLjR4dAfObqj6Vaf?=
- =?us-ascii?Q?jOiCqcsczJS6ojz44oMLPyDuiSSKPYpJa2pnBcXLEKfrXlor1QY9FHNSAjeO?=
- =?us-ascii?Q?UbJeEW7Vo0mHyhsItlZa9y0x3E3cj8mXx7f9SLKLaPOhvKT7l/aclasV+9Jf?=
- =?us-ascii?Q?KbpuGfpgKD1lRbJDHXpJi2y+0bd0eMMopLRcc7Cx6leBwZ2IIoEXongYwpfG?=
- =?us-ascii?Q?BeQtEtM3xNDg/77K7xXWbplEsbjf6dMlltuEo7/x1T1e37DljI906RIz6+gd?=
- =?us-ascii?Q?nrdF7tGBJe43eOxoTOnr7eBeV+0bwtb9rdgE+EuckR1HPi4S?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc13ea93-e23f-4500-415a-08df49781828
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 15:40:26.1571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ErwLUhhHpxt9L7fn1LMbWu3aUyW9l5JcXt4G/2NUYnOlHBHFbUO0e2X2GyvCqs7C7gLkkRg52HZJHezY2ZY6ZQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PR12MB484139
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 10:31:40PM +0300, Vladimir Vdovin wrote:
-> Same problem and same fix as for IPv4 in commit 7d3f3b4367f3 ("net:
-> ipv4: Cache pmtu for all packet paths if multipath enabled"): the
-> exception for a Packet Too Big may land on another path of a multipath
-> route than the one the flow is on, and the flow keeps blackholing. Cache
-> the pmtu on every path of the route instead.
-> 
-> For IPv6 that means:
-> 
-> - ip6_update_pmtu() looks the destination up by the interface the
->   Packet Too Big came in on, or by a hash without the protocol and
->   ports for an unbound socket, neither has to be the path of the flow.
-> 
-> - the paths are the fib6_nh of a nexthop object, or the siblings of the
->   fib6_info the dst came from. Only ip6_update_pmtu() walks them, the
->   dst of sockets and tunnels is the path of their flow.
-> 
-> - a path only lowers what it uses, the pmtu of its exception, updated
->   in place to keep a gateway from a redirect, else the mtu of the route
->   and the device. The looked-up dst isn't checked anymore, it may be
->   narrower than the Packet Too Big while the path of the flow isn't.
-> 
-> - siblings not in the tree and a nexthop replaced by a blackhole are
->   skipped.
-> 
-> A Packet Too Big now costs up to one exception per path, as a
-> Fragmentation Needed does for IPv4 since the commit above.
-> 
-> Link: https://lore.kernel.org/netdev/ad29493c-9e48-4a94-b327-e47af3a9d137@kernel.org/
-> Signed-off-by: Vladimir Vdovin <deliran@verdict.gg>
-> ---
->  net/ipv6/route.c | 138 +++++++++++++++++++++++++++++++++++------------
->  1 file changed, 103 insertions(+), 35 deletions(-)
+tcp_collapse() copies payload into linear skbs of SKB_MAX_ORDER(0, 0)
+bytes (3776 bytes on x86_64), each of them with its own sk_buff and
+its own skb_shared_info.
 
-Why not make it similar to IPv4 where we always try to update the PMTU
-on all the available nexthops? Something like [1].
+The truesize of such an skb is 4352 bytes: 13% of the memory is
+overhead, and a collapsed range can not be denser than that.
 
-Anyway, I suggest finishing with IPv4 first, then moving to IPv6. Send
-two patches for IPv4 (fix + selftest), then, once accepted, send the
-IPv6 part (another two patches).
+Store the payload in order-0 page frags instead. One sk_buff can
+hold up to MAX_SKB_FRAGS pages, and the overhead of a collapsed
+range is now about one sk_buff and its small head.
 
-[1]
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 04098cf32eab..550616981086 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -2911,12 +2911,52 @@ static bool rt6_cache_allowed_for_pmtu(const struct rt6_info *rt)
- 		(rt->rt6i_flags & RTF_PCPU || rcu_access_pointer(rt->from));
+What does not fill a page is stored in the linear part of the first
+new skb, if this is not bigger than SKB_MAX_ORDER(0, 0) bytes: this
+is never more expensive than a partially used page. Otherwise, the
+last page frag is partially used.
+
+A range of up to SKB_MAX_ORDER(0, 0) bytes is still collapsed into
+a linear skb.
+
+All the pages are allocated before the copy, like skbs were, so
+that tcp_collapse() can still give up without side effect if an
+allocation fails. The truesize of the new skbs is still known
+before they are allocated, to skip the ranges that would not
+shrink.
+
+In tcp_rcv_collapse_bloated.pkt, the 30 skbs of 1000 bytes
+(truesize 69120) were collapsed into 8 skbs (truesize 34816).
+They are now collapsed into a single skb with 7 pages
+(truesize 30976).
+
+Other benefits:
+
+- Fewer skbs in the receive queue and in the out-of-order rbtree.
+
+- Collapsed data is stored in page frags which are full pages,
+  except possibly the last one: they can be used by
+  TCP_ZEROCOPY_RECEIVE.
+
+TCP_COLLAPSE_SCALING_RATIO is not changed: skbs with a density
+above 86% are still not collapsed.
+
+Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+---
+ net/ipv4/tcp_input.c                          | 109 ++++++++++++++----
+ .../packetdrill/tcp_rcv_collapse_bloated.pkt  |   2 +-
+ 2 files changed, 90 insertions(+), 21 deletions(-)
+
+diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+index 801c76744ed8..975e6501aef8 100644
+--- a/net/ipv4/tcp_input.c
++++ b/net/ipv4/tcp_input.c
+@@ -5837,7 +5837,7 @@ static struct sk_buff *tcp_skb_next(struct sk_buff *skb, struct sk_buff_head *li
+ #define TCP_COLLAPSE_SCALING_RATIO				\
+ 	((TCP_COLLAPSE_MAX_SIZE << TCP_RMEM_TO_WIN_SCALE) /	\
+ 	 (SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE)))
+-/* Cap pool preallocation per sub-range to at most 16 skbs in seq
++/* Cap pool preallocation per sub-range to about 15 pages in seq
+  * space.  A single first skb exceeding this is still collapsed,
+  * whereas an exceeding overlapping ofo range is skipped.
+  */
+@@ -5886,6 +5886,57 @@ static struct sk_buff *tcp_collapse_one(struct sock *sk, struct sk_buff *skb,
+ 	return next;
  }
  
-+struct rt6_pmtu_arg {
-+	struct fib6_result	res;
-+	const struct in6_addr	*daddr;
-+	const struct in6_addr	*saddr;
-+	u32			mtu;
-+};
-+
-+static int rt6_nh_update_pmtu(struct fib6_nh *nh, void *_arg)
++/* Allocate an skb with @linear bytes in its head, and @size bytes
++ * in order-0 page frags. All frags are full pages, but possibly the last one.
++ */
++static struct sk_buff *tcp_collapse_alloc_skb(int linear, int size)
 +{
-+	struct rt6_pmtu_arg *arg = _arg;
-+	struct fib6_result *res;
-+	struct rt6_info *rt;
++	struct sk_buff *nskb = alloc_skb(linear, GFP_ATOMIC);
 +
-+	res = &arg->res;
-+	res->nh = nh;
-+	rt = rt6_find_cached_rt(res, arg->daddr, arg->saddr);
-+	if (rt) {
-+		if (arg->mtu < dst6_mtu(&rt->dst)) {
-+			rt6_do_update_pmtu(rt, arg->mtu);
-+			fib6_nh_update_exception(nh, res->f6i->fib6_src.plen,
-+						 rt);
++	if (!nskb)
++		return NULL;
++
++	__skb_put(nskb, linear);
++
++	while (size > 0) {
++		int len = min_t(int, size, PAGE_SIZE);
++		struct page *page;
++
++		/* No __GFP_HIGHMEM: the page is directly mapped. */
++		page = alloc_page(GFP_ATOMIC | __GFP_NOMEMALLOC | __GFP_NOWARN);
++		if (!page) {
++			__kfree_skb(nskb);
++			return NULL;
 +		}
-+		return 0;
++		skb_add_rx_frag(nskb, skb_shinfo(nskb)->nr_frags, page, 0, len,
++				PAGE_SIZE);
++		size -= len;
 +	}
 +
-+	if (arg->mtu >= fib6_mtu(res))
-+		return 0;
-+
-+	rt = ip6_rt_cache_alloc(res, arg->daddr, arg->saddr);
-+	if (rt) {
-+		rt6_do_update_pmtu(rt, arg->mtu);
-+		if (rt6_insert_exception(rt, res))
-+			dst_release_immediate(&rt->dst);
-+	}
-+
-+	return 0;
++	return nskb;
 +}
 +
- static void __ip6_rt_update_pmtu(struct dst_entry *dst, const struct sock *sk,
- 				 const struct ipv6hdr *iph, u32 mtu,
- 				 bool confirm_neigh)
- {
--	const struct in6_addr *daddr, *saddr;
-+	struct rt6_pmtu_arg arg = { .mtu = mtu };
- 	struct rt6_info *rt6 = dst_rt6_info(dst);
-+	const struct in6_addr *daddr, *saddr;
-+	struct fib6_info *f6i, *sibling;
++/* Return the address of the byte at @offset in nskb, and the room
++ * left in the linear part or in the page frag containing this byte.
++ */
++static void *tcp_collapse_dst(const struct sk_buff *nskb, int offset, int *room)
++{
++	int hlen = skb_headlen(nskb);
++	const skb_frag_t *frag;
++
++	if (offset < hlen) {
++		*room = hlen - offset;
++		return nskb->data + offset;
++	}
++
++	offset -= hlen;
++	frag = &skb_shinfo(nskb)->frags[offset >> PAGE_SHIFT];
++	offset &= ~PAGE_MASK;
++	*room = skb_frag_size(frag) - offset;
++
++	return skb_frag_address(frag) + offset;
++}
++
+ /* Collapse bloated sub-ranges in contiguous sequence of skbs
+  * head..tail starting from sequence number start.
+  *
+@@ -5901,7 +5952,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 	unsigned int old_truesize, new_truesize;
+ 	struct sk_buff *skb = head, *n;
+ 	struct sk_buff_head tmp, pool;
+-	int remainder, nskbs;
++	int size, linear, npages;
+ 	struct sk_buff *nskb;
+ 	u8 scaling_ratio;
+ 	int released = 0;
+@@ -5983,34 +6034,47 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 	    sub_end - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE)
+ 		goto skip;
  
- 	/* Note: do *NOT* check dst_metric_locked(dst, RTAX_MTU)
- 	 * IPv6 pmtu discovery isn't optional, so 'mtu lock' cannot disable it.
-@@ -2947,47 +2987,43 @@ static void __ip6_rt_update_pmtu(struct dst_entry *dst, const struct sock *sk,
- 		/* update rt6_ex->stamp for cache */
- 		if (rt6->rt6i_flags & RTF_CACHE)
- 			rt6_update_exception_stamp_rt(rt6);
--	} else if (daddr) {
--		struct fib6_result res = {};
--		struct rt6_info *nrt6;
+-	/* Third, check if the new skbs have high density. */
+-	nskbs = (sub_end - start) / TCP_COLLAPSE_MAX_SIZE;
+-	new_truesize = nskbs * SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE);
 -
--		rcu_read_lock();
--		res.f6i = rcu_dereference(rt6->from);
--		if (!res.f6i)
--			goto out_unlock;
-+	}
+-	remainder = (sub_end - start) % TCP_COLLAPSE_MAX_SIZE;
+-	if (remainder) {
+-		nskbs++;
+-		new_truesize += skb_head_truesize(remainder, GFP_ATOMIC);
+-	} else {
+-		remainder = TCP_COLLAPSE_MAX_SIZE;
+-	}
++	/* Third, check if the new skbs have high density.
++	 *
++	 * Payload is stored in order-0 page frags: one sk_buff can hold
++	 * up to MAX_SKB_FRAGS pages, and truesize stays close to the
++	 * payload size.
++	 *
++	 * What does not fill a page is stored in the linear part of
++	 * the first new skb, unless a page is cheaper.
++	 */
++	size = sub_end - start;
++	linear = size & ~PAGE_MASK;
++	if (linear > TCP_COLLAPSE_MAX_SIZE)
++		linear = 0;
++
++	npages = DIV_ROUND_UP(size - linear, PAGE_SIZE);
++	new_truesize = skb_head_truesize(linear, GFP_ATOMIC) +
++		       npages * PAGE_SIZE;
++	if (npages > MAX_SKB_FRAGS)
++		new_truesize += (DIV_ROUND_UP(npages, MAX_SKB_FRAGS) - 1) *
++				skb_head_truesize(0, GFP_ATOMIC);
  
--		res.fib6_flags = res.f6i->fib6_flags;
--		res.fib6_type = res.f6i->fib6_type;
-+	if (!daddr)
-+		return;
+ 	if (old_truesize <= new_truesize)
+ 		goto skip;
  
--		if (res.f6i->nh) {
--			struct fib6_nh_match_arg arg = {
--				.dev = dst_dev_rcu(dst),
--				.gw = &rt6->rt6i_gateway,
--			};
-+	rcu_read_lock();
-+	f6i = rcu_dereference(rt6->from);
-+	if (!f6i || !rcu_access_pointer(f6i->fib6_node))
-+		goto out;
+-	while (nskbs--) {
+-		nskb = alloc_skb(nskbs ? TCP_COLLAPSE_MAX_SIZE : remainder,
+-				 GFP_ATOMIC);
++	while (size > 0) {
++		int len = min_t(int, size - linear, MAX_SKB_FRAGS * PAGE_SIZE);
++
++		nskb = tcp_collapse_alloc_skb(linear, len);
+ 		if (!nskb)
+ 			goto end;
  
--			nexthop_for_each_fib6_nh(res.f6i->nh,
--						 fib6_nh_find_match, &arg);
-+	arg.daddr = daddr;
-+	arg.saddr = saddr;
-+	arg.res.f6i = f6i;
-+	arg.res.fib6_flags = f6i->fib6_flags;
-+	arg.res.fib6_type = f6i->fib6_type;
- 
--			/* fib6_info uses a nexthop that does not have fib6_nh
--			 * using the dst->dev + gw. Should be impossible.
--			 */
--			if (!arg.match)
--				goto out_unlock;
-+	if (f6i->nh) {
-+		if (!nexthop_is_blackhole(f6i->nh))
-+			nexthop_for_each_fib6_nh(f6i->nh, rt6_nh_update_pmtu,
-+						 &arg);
-+		goto out;
-+	}
- 
--			res.nh = arg.match;
--		} else {
--			res.nh = res.f6i->fib6_nh;
--		}
-+	rt6_nh_update_pmtu(f6i->fib6_nh, &arg);
- 
--		nrt6 = ip6_rt_cache_alloc(&res, daddr, saddr);
--		if (nrt6) {
--			rt6_do_update_pmtu(nrt6, mtu);
--			if (rt6_insert_exception(nrt6, &res))
--				dst_release_immediate(&nrt6->dst);
--		}
--out_unlock:
--		rcu_read_unlock();
-+	list_for_each_entry_rcu(sibling, &f6i->fib6_siblings, fib6_siblings) {
-+		if (!READ_ONCE(f6i->fib6_nsiblings))
-+			break;
-+		if (!rcu_access_pointer(sibling->fib6_node))
-+			continue;
-+		arg.res.f6i = sibling;
-+		arg.res.fib6_flags = sibling->fib6_flags;
-+		arg.res.fib6_type = sibling->fib6_type;
-+		rt6_nh_update_pmtu(sibling->fib6_nh, &arg);
+ 		__skb_queue_tail(&pool, nskb);
++		size -= linear + len;
++		linear = 0;
  	}
-+out:
-+	rcu_read_unlock();
- }
  
- static void ip6_rt_update_pmtu(struct dst_entry *dst, struct sock *sk,
+ 	while (before(start, sub_end)) {
+-		int copy = min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - start);
++		int copy;
+ 
+ 		nskb = __skb_dequeue(&pool);
++		copy = nskb->len;
+ 		memcpy(nskb->cb, skb->cb, sizeof(skb->cb));
+ 		TCP_SKB_CB(nskb)->has_rxtstamp = false;
+ 		skb_copy_decrypted(nskb, skb);
+@@ -6026,12 +6090,17 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+ 		/* Copy data, releasing collapsed skbs. */
+ 		while (copy > 0) {
+ 			int offset = start - TCP_SKB_CB(skb)->seq;
+-			int size = TCP_SKB_CB(skb)->end_seq - start;
++			int room;
++			void *dst;
++
++			size = TCP_SKB_CB(skb)->end_seq - start;
+ 
+ 			BUG_ON(offset < 0);
+ 			if (size > 0) {
+-				size = min(copy, size);
+-				if (skb_copy_bits(skb, offset, skb_put(nskb, size), size))
++				dst = tcp_collapse_dst(nskb, nskb->len - copy,
++						       &room);
++				size = min3(copy, size, room);
++				if (skb_copy_bits(skb, offset, dst, size))
+ 					BUG();
+ 				TCP_SKB_CB(nskb)->end_seq += size;
+ 				if (TCP_SKB_CB(skb)->has_rxtstamp) {
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt b/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
+index 90e8be86968f..486a33bcddd3 100644
+--- a/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
++++ b/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_bloated.pkt
+@@ -113,7 +113,7 @@
+ 
+ // Shrink SO_RCVBUF so sk_rcvbuf (320,000) is smaller than current
+ // sk_rmem_alloc (334,592 on x86_64 default), but larger than sk_rmem_alloc
+-// after collapsing the 30 bloated skbs (300,288 on x86_64 default).
++// after collapsing the 30 bloated skbs (296,448 on x86_64 default).
+    +0 setsockopt(4, SOL_SOCKET, SO_RCVBUF, [160000], 4) = 0
+ 
+ // Inject the next 1,000 B segment with a changed window to bypass
+-- 
+2.53.0
 
