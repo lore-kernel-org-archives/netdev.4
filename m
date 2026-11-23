@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424853;
-	b=p2SHl/0U55njvZDdJ99IneXMkmYB8s4ZiPiY1Ab2XuQFi/amk3zekKTiAjRjcJuxAgTl
-	 mvJaev7ehDsvrzeP/InxNu4yiBvPYir/hv4apzd6b0ZeHncWyBHun0ho0ZC+LhlULq3UO
-	 sdB16f01MFKxL7agm4fzZILk0h3BnPbYmxCkbSU/jm0W8lOjrfq3oNJKi+yK6uvrlJ/Kc
-	 WczJAPF83aPYd11VodmxnBaszEMxUdMRV98FS2CI3gSGySdziDGY93ZqMIqf9H8j0Uuok
-	 Dd7ZBXDc9iysSix6BIc9Y78acpKI1SeO7YXBk8RbWgTNM3ET2WKOqtKWeSN0UhSZ1Cw==
+	t=1795424940;
+	b=Xih87aSpLAQz8P1akhyCo0isZMBVa51eoamq6EaBTlQYjoWuBFsn5mcKWCKUkVOwey0j
+	 CFQ4Bxrd/TqcVwaMoBQxlTBHG94DZ8B/m0y8bysSz8C8hPgA3pneW1NwetZnpbir9DpQv
+	 3s3Xw6dnaJ8qOSXu3Vyng7pTaBIqqgFdojoEpjZLXOlO6H1S7/qdwghyAu+IZLIEKoRL8
+	 rcw0vFKr9CrdWZ4Zb8Ywa/Z3TsAEQNd1vbs3KcLBnPoUmMempUlgp34n3nzUvHfri/cvR
+	 0fE5Y5tEtcP7UxkXvtaLxZC737o1LNDmF/zEqjgLr66L3EXyQ3uPSMjwwxnG0G4mIGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424853;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=s1+xyywWJx875swgmqI1rAMPqceEFht+o+5gfJd4QUM=;
-	b=ZI4XMbTL7QU76nnyOlr//dSqu95uW7OgM6OZrbVUjlFxuRWJR1PkwacZK7MdAEa/E8MF
-	 hBeOm6stiWHf6ksY2IQwUuskcKWb6l/W8q8TQauBb1e6ihkYAfF3pJrIpLlAjyqgXcapi
-	 8R00W/4E4UV/8mcr1CIys7B6DKppmsNDiNhJTI0WsMUinXbYuO5Cv7G7hAk0Xu1wv3sIv
-	 A9p9SubVTwlQrnTygNsF1g2GD97ZfwJfvjc3PK17aObv0xmvl/kDnNk3AqO1954TDoIo2
-	 DYO1rCcDF6koouZPGpJ0UE/k6gyGIz2FHx7NRtBuWKuvIqAURZJiKMuh3DYkY82NyqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424940;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=mzrtJAbMobTpGy8WHIthTQipMFymKA52iLtSYNRDZ0k=;
+	b=SUGL6ZqUfFsAlPWPgqnRp0g3ODtmTmkwBvYOLwNNYT3FaGP0ZBB8ERNvv7jiVnZn89qD
+	 yoMzotApjdmrfW+FzhkhzzzUA4xJL9WyVTfbOMHNVb+hjtLfZiTEseT2Ph9zhaXgnF75U
+	 Y22NSwPjLO/yTrmYo/ZwL85UHmD4qFxNVCwVqmkNem5T7LlX2CRtaeHrOA1RJwZay7aXV
+	 Oh0O4qyvYs0cd8Uxt+orK/P9kmoc/0f5Jh4yDYC8ycNJi1alC4yVJY3wzMcz2oIrVGkYW
+	 /ngarVQTUbjShNHIPMD/axXW8qxbQgtQVSOYFobULSAMnLukRfqq5eE67GdtlnWCx/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=RcjqURFP;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AVEjSOrb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9585A606A31A;
-	Mon, 23 Nov 2026 09:07:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9585A606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B10E3606A332;
+	Mon, 23 Nov 2026 09:09:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=RcjqURFP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795424852; x=1826960852;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jEkDjgkAKC9Fxc3XQnLgmWRwUmXMEQRyG6rRR1lxVSc=;
-  b=RcjqURFPswTnh1SeQJmJ6wKQNCb7vsaE25aTgXUw9t2kszXiht7dBdeE
-   FGJ57R7H+WVH9CpMtpar4m3aLjGi4prpB5sf5O4r0g3T6XpwtyPmmL2BF
-   F+Qtk9dK6fw2CWOTvRN8Lw6eMFxYH6TLnYEtl5j6SOlXeTROnZO+c76RE
-   jWlc1VLT0ThP2VH+bE7YGMXfsWczJgfMplmIFapj1m60X/KYn7BiMpD78
-   avcB1yRdkMTl/ZaxKvH1V8tAq9S0JsKr5NvEGz0NMpCX1VdibGqve5gcU
-   wJf2OM2N+tcApYw8UH5LSI9CmqYeMGrLQ88xrOLb8Qg5KVFU2fcC832nY
-   A==;
-X-CSE-ConnectionGUID: 9QKuukfETJaxYQzdaDaMIg==
-X-CSE-MsgGUID: EC7/SU8YTS6mUc72DBytEw==
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="65939751"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:07:25 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Mon, 23 Nov 2026 02:07:25 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 02:07:23 -0700
-Date: Mon, 23 Nov 2026 10:07:22 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Ian Rogers <irogers@google.com>
-CC: Dimitris Michailidis <dmichail@fungible.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, Elkin Cruz
-	<elkin@google.com>
-Subject: Re: [PATCH net] eth: funeth: Include FEC stats in
- fun_free_stats_area() DMA free size
-Message-ID: <20261123090722.z5xcxwwdelnnjifq@DEN-DL-M70577>
-References: <20261119170613.1519353-1-irogers@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AVEjSOrb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 664411F000C0;
+	Mon, 23 Nov 2026 09:08:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795424940;
+	bh=mzrtJAbMobTpGy8WHIthTQipMFymKA52iLtSYNRDZ0k=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AVEjSOrbaxkYkqXb/u7ef3ouiCkwOim/ry4Rt07CGyD/ztTzQHf/sDa4nVf5itTYT
+	 UqFM3XMn1xTSa8MaR+7DN8a667o5yD8RwvcE35mOUYsiaDBex5JnNO41e9Xwq98mWU
+	 SSGg3k4j9g9w7RfTVFeAkBNavrOvhaOROyDLDaj/Ik3YG2K1AkXvVyfrB9TC5AgA8s
+	 YeYftG+pKLc7YlpB2OqwwaGsUQ0+D8fbGfZEoqfhL2+6ea/Oka5rQKiHKJ5StBBysK
+	 pb/65zrGjMdVgq4TV998Ee3cxjvrzNACh0kwhwy7jAdzZ4JBDErN9JacxOAb6pxbr/
+	 BACwmbqyIqDbA==
+Subject: Re: [PATCH net v4] octeontx2-af: Fix BPID leaks in NIX backpressure
+ enable/disable
+From: netdev-bot+sashiko@kernel.org
+To: nshettyj@marvell.com
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ rkudurumalla@marvell.com, sgoutham@marvell.com, rkannoth@marvell.com,
+ gakula@marvell.com, sbhatta@marvell.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org
+Date: Mon, 23 Nov 2026 09:08:58 +0000
+Message-ID: <179542493892.3135.7516887793037759713@kernel.org>
+In-Reply-To: <20261119085434.2598197-1-nshettyj@marvell.com>
+References: <20261119085434.2598197-1-nshettyj@marvell.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,91 +65,298 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261119170613.1519353-1-irogers@google.com>
 
-> fun_init_stats_area() allocates coherent DMA memory for
-> (PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
-> 64-bit counters (632 bytes), whereas fun_free_stats_area() omits
-> PORT_MAC_FEC_STATS_MAX and passes 616 bytes to dma_free_coherent(),
-> triggering DMA-API debug size-mismatch warnings on teardown.
-> 
-> Extract a shared fun_stats_area_size() helper used by both allocation and
-> deallocation paths, and cast the leading enum constant to unsigned int to
-> avoid cross-enum arithmetic.
-> 
-> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
-> -Wenum-enum-conversion enabled; fix and changelog drafted with an AI
-> coding assistant. Build-tested under LLVM=1 W=1 and
-> -Wenum-enum-conversion; not tested on Fungible Ethernet hardware.
-> 
-> Fixes: ee6373ddf3a9 ("net/funeth: probing and netdev ops")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  .../ethernet/fungible/funeth/funeth_main.c    | 20 +++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/fungible/funeth/funeth_main.c b/drivers/net/ethernet/fungible/funeth/funeth_main.c
-> index bad8276d26b0..e0d4e69abfa4 100644
-> --- a/drivers/net/ethernet/fungible/funeth/funeth_main.c
-> +++ b/drivers/net/ethernet/fungible/funeth/funeth_main.c
-> @@ -1457,17 +1457,20 @@ void fun_set_ring_count(struct net_device *netdev, unsigned int ntx,
->  	}
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
+
+Critical: 0 · High: 1 · Medium: 3 · Low: 1
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The new channel range checks in nix_bp_disable()
+  (rvu_nix.c:672-677) and nix_bp_enable() (rvu_nix.c:822-827) validate…
+- [Medium] nix_bp_enable() (rvu_nix.c:832-857) still leaks an LBK BPID
+  whenever NIX_BP_ENABLE or NIX_CPT_BP_ENABLE is sent for a channel that…
+- [Medium] nix_bp_chan_disable() (rvu_nix.c:624-639) passes 'cfg &
+  GENMASK_ULL(8, 0)' to nix_bp_free_lbk_bpid() without checking that…
+- [Medium] nix_bp_enable() now saves each allocated BPID in
+  rsp->chan_bpid[i] (line 844) and later reads it back from rsp to…
+- [Low] The commit message undersells one of the problems this patch
+  fixes.
+
+--
+
+octeontx2-af: Fix BPID leaks in NIX backpressure enable/disable
+
+This patch reworks nix_bp_enable() and nix_bp_disable() so that LBK BPIDs
+are allocated up front, one per programmed channel. On disable, a BPID is
+released per channel, and only when it is in the LBK pool and owned by the
+requester. It also adds channel range checks against the function's RX
+channels and iterates with a counter bounded by chan_cnt.
+
+> octeontx2-af: Fix BPID leaks in NIX backpressure enable/disable
+
+[ ... ]
+
+>     - In nix_bp_disable(), release only the BPID read back from the
+>       channel, and only if it lies in the LBK free pool and is owned by
+>       the requesting pcifunc. Previously the BPID was freed without a
+>       range check, and fn_map/ref_cnt were cleared for every BPID owned
+>       by the function, so FLR could no longer reclaim the rest.
+
+[Severity: Low]
+This isn't a bug in the new code, but does the commit message undersell
+what the missing range check allowed?
+
+In the old nix_bp_disable(), an LBK channel whose BPID field was below
+bp->free_pool_base reached this call directly. That includes the reset
+value 0, which the new comment in nix_bp_free_lbk_bpid() names:
+
+    rvu_free_rsrc(&bp->bpids, bpid - bp->free_pool_base);
+
+Both operands are promoted to int, so the id is negative. rvu_free_rsrc()
+then passes it to __clear_bit(id, rsrc->bmap). That is an out-of-bounds
+bitmap write in the AF mbox handler, not a leak.
+
+The in-tree path reaches it. otx2_init_hw_resources() sends
+NIX_CPT_BP_DISABLE on every open, including from LBK VFs, and this call
+has no !is_otx2_lbkvf() guard, unlike the NIX_BP_* calls next to it:
+
+    /* Default disable backpressure on NIX-CPT */
+    otx2_nix_cpt_config_bp(pf, false);
+
+Any LBK VF can also send NIX_BP_DISABLE without a prior enable.
+
+Could the subject and changelog say that this fixes an out-of-bounds write
+a VF can trigger? That would help with stable selection.
+
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+> index 199723d5ec947..274662086d2a9 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+> @@ -599,18 +599,56 @@ static u16 nix_get_channel(u16 chan, bool cpt_link)
+>  	return cpt_link ? chan | BIT(11) : chan;
 >  }
 >  
-> -static int fun_init_stats_area(struct funeth_priv *fp)
-> +static size_t fun_stats_area_size(void)
->  {
-> -	unsigned int nstats;
-> +	unsigned int nstats = (unsigned int)PORT_MAC_RX_STATS_MAX +
-> +			      PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX;
-> +
-> +	return nstats * sizeof(u64);
-> +}
->  
-> +static int fun_init_stats_area(struct funeth_priv *fp)
+> +static void nix_bp_free_lbk_bpid(struct rvu *rvu, struct nix_bp *bp,
+> +				 u16 bpid, u16 pcifunc)
 > +{
->  	if (!(fp->port_caps & FUN_PORT_CAP_STATS))
->  		return 0;
+> +	int idx;
+> +
+> +	/* Skip channels never enabled (reset value 0) or not using an LBK bpid */
+> +	if (bpid < bp->free_pool_base ||
+> +	    bpid >= bp->free_pool_base + bp->bpids.max)
+> +		return;
+> +
+> +	idx = bpid - bp->free_pool_base;
+> +
+> +	/* Only release the bpid if it is owned by this function. */
+> +	mutex_lock(&rvu->rsrc_lock);
+> +	if (bp->fn_map[idx] == pcifunc) {
+> +		rvu_free_rsrc(&bp->bpids, idx);
+> +		bp->fn_map[idx] = 0;
+> +		bp->ref_cnt[idx] = 0;
+> +	}
+> +	mutex_unlock(&rvu->rsrc_lock);
+> +}
+> +
+> +static void nix_bp_chan_disable(struct rvu *rvu, struct nix_bp *bp,
+> +				int blkaddr, u16 chan, bool cpt_link,
+> +				int type, u16 pcifunc)
+> +{
+> +	u16 chan_v = nix_get_channel(chan, cpt_link);
+> +	u64 cfg;
+> +
+> +	cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
+> +	rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
+> +		    cfg & ~BIT_ULL(16));
+> +
+> +	if (type != NIX_INTF_TYPE_LBK)
+> +		return;
+> +
+> +	nix_bp_free_lbk_bpid(rvu, bp, cfg & GENMASK_ULL(8, 0), pcifunc);
+
+[Severity: Medium]
+Can this free a BPID that is still programmed on another channel?
+
+Disable clears only BIT_ULL(16) and leaves the old BPID in bits 8:0. The
+free here does not check whether BIT_ULL(16) was set in cfg.
+nix_bp_free_lbk_bpid() then checks fn_map[idx] == pcifunc, which is
+ownership by function, not by channel.
+
+Here is a sequence from one LBK VF A on hardware with cpt_links:
+
+  NIX_BP_ENABLE      RX chan CFG = X | BIT16, fn_map[X] = A
+  NIX_BP_DISABLE     RX chan CFG = X, X freed, fn_map[X] = 0
+  NIX_CPT_BP_ENABLE  X is the lowest free index again,
+                     CPT chan CFG = X | BIT16, fn_map[X] = A
+  NIX_BP_DISABLE     reads stale X from the RX chan, fn_map[X] == A,
+                     so X is freed
+
+X is now free while A's CPT channel still uses it. The next LBK
+allocation by another VF gets X, and the two functions share one
+backpressure ID.
+
+The same can happen after FLR. rvu_nix_flr_free_bpids() frees by fn_map
+only and never touches NIX_AF_RX_CHANX_CFG. The channel keeps its stale
+BPID with BIT16 still set, and a later disable of that channel frees an
+index that may have been given to another channel of the same function.
+
+Should the release depend on BIT_ULL(16) having been set, so that a stale
+BPID field is not treated as a live mapping?
+
+> +}
+> +
+
+[ ... ]
+
+> @@ -629,26 +667,19 @@ static int nix_bp_disable(struct rvu *rvu,
+>  		return err;
 >  
-> -	nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX +
-> -		 PORT_MAC_FEC_STATS_MAX;
-> -
-> -	fp->stats = dma_alloc_coherent(&fp->pdev->dev, nstats * sizeof(u64),
-> +	fp->stats = dma_alloc_coherent(&fp->pdev->dev, fun_stats_area_size(),
->  				       &fp->stats_dma_addr, GFP_KERNEL);
->  	if (!fp->stats)
->  		return -ENOMEM;
-> @@ -1476,11 +1479,8 @@ static int fun_init_stats_area(struct funeth_priv *fp)
->  
->  static void fun_free_stats_area(struct funeth_priv *fp)
->  {
-> -	unsigned int nstats;
-> -
->  	if (fp->stats) {
-> -		nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX;
-> -		dma_free_coherent(&fp->pdev->dev, nstats * sizeof(u64),
-> +		dma_free_coherent(&fp->pdev->dev, fun_stats_area_size(),
->  				  fp->stats, fp->stats_dma_addr);
->  		fp->stats = NULL;
+>  	bp = &nix_hw->bp;
+
+[ ... ]
+
+> +	/* CGX may use up to NIX_BPIDS_PER_LMAC channels (PFC) */
+> +	if (type == NIX_INTF_TYPE_CGX) {
+> +		if ((u32)req->chan_base + req->chan_cnt > NIX_BPIDS_PER_LMAC)
+> +			return NIX_AF_ERR_INVALID_BPID_REQ;
+> +	} else if ((u32)req->chan_base + req->chan_cnt > pfvf->rx_chan_cnt) {
+> +		return NIX_AF_ERR_INVALID_BPID_REQ;
 >  	}
-> -- 
-> 2.56.1.708.g77570a6a1d-goog
->
+> +
+> +	chan_base = pfvf->rx_chan_base + req->chan_base;
+> +	for (i = 0; i < req->chan_cnt; i++)
+> +		nix_bp_chan_disable(rvu, bp, blkaddr, chan_base + i, cpt_link,
+> +				    type, pcifunc);
 
-Fix looks good to me.
+[Severity: High]
+Can a requester get past this new range check by changing req->chan_cnt
+after it has been checked?
 
-Although, I think it's more common with a compile time constant for a fixed size
-used for alloc and free. Something like:
+req lives in the BAR4 mailbox region shared with the PF/VF. The loop
+condition reads req->chan_cnt again on every iteration. The loop body does
+readq()/writeq() (and mutex_lock() for LBK), so the compiler cannot keep
+the checked value in a register.
 
-#define FUN_PORT_NSTATS ((unsigned int)PORT_MAC_RX_STATS_MAX + \
-                         PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
+An LBK VF has an rx_chan_cnt of 1. It can pass the check with
+chan_cnt = 1 and then rewrite chan_cnt to 255 while the loop runs. The AF
+would then clear BIT(16) on up to 254 neighbouring channels owned by other
+functions.
 
-        fp->stats = dma_alloc_coherent(&fp->pdev->dev,
-                                       FUN_PORT_NSTATS * sizeof(u64),
-                                       &fp->stats_dma_addr, GFP_KERNEL);
+nix_bp_enable() has the same pattern. Both of its loops, and
+rvu_nix_get_bpid(), read req->chan_base and req->chan_cnt again after the
+check. There, one request could drain the shared LBK pool, and the
+programming loop could set BIT(16) with the requester's BPIDs on other
+functions' channels.
 
-Not a big deal though.
+req->chan_base is also read again after the check. If the compiler does
+not merge that load with the first one and the race is won, chan_v can
+exceed 0x1FFF. With:
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+    #define NIX_AF_RX_CHANX_CFG(a)                  (0x1A30 | (a) << 15)
+
+bits 28-30 then get set. rvu_write64() ORs the offset into (block << 28),
+so the read-modify-write could land in another AF block's registers.
+
+Processing mbox requests in place is common in this driver, and there was
+no check at all before this patch, so this patch does narrow the exposure.
+Still, the commit message says these out-of-range requests are now
+rejected.
+
+Would it work to copy chan_base and chan_cnt into locals, validate them
+once, and use the locals in the loops and in rvu_nix_get_bpid()?
+
+>  	return 0;
+>  }
+
+[ ... ]
+
+> @@ -771,35 +806,54 @@ static int nix_bp_enable(struct rvu *rvu,
+
+[ ... ]
+
+>  	chan_base = pfvf->rx_chan_base + req->chan_base;
+> -	bpid = bpid_base;
+>  
+> -	for (chan = chan_base; chan < (chan_base + req->chan_cnt); chan++) {
+> +	/* Get all bpids first so a failure leaves the channels untouched */
+> +	for (i = 0; i < req->chan_cnt; i++) {
+> +		bpid = rvu_nix_get_bpid(rvu, req, type, i);
+>  		if (bpid < 0) {
+>  			dev_warn(rvu->dev, "Fail to enable backpressure\n");
+> +			if (type == NIX_INTF_TYPE_LBK)
+> +				while (i--)
+> +					nix_bp_free_lbk_bpid(rvu, bp,
+> +							     rsp->chan_bpid[i] & 0x3FF,
+> +							     pcifunc);
+>  			return -EINVAL;
+>  		}
+>  
+> +		rsp->chan_bpid[i] = ((req->chan_base + i) & 0x7F) << 10 |
+> +				    (bpid & 0x3FF);
+> +	}
+> +
+> +	for (i = 0; i < req->chan_cnt; i++) {
+> +		chan = chan_base + i;
+> +		bpid = rsp->chan_bpid[i] & 0x3FF;
+
+[Severity: Medium]
+Is it safe to read the BPID back from rsp here?
+
+rsp comes from otx2_mbox_alloc_msg() in rvu_process_mbox_msg(). It sits in
+the mailbox region that rvu_get_mbox_regions() maps from the PF/VF BAR4:
+
+    mbox_addr[region] = ioremap_wc(bar4, MBOX_SIZE);
+
+The requesting function can therefore rewrite rsp->chan_bpid[i] between
+the allocation loop and this loop. The window includes a
+mutex_lock()/mutex_unlock() for every LBK allocation.
+
+If that happens, the AF writes whatever 9-bit BPID the function chose into
+NIX_AF_RX_CHANX_CFG, bypassing the allocation and range checks in
+rvu_nix_get_bpid(). Disable frees whatever it reads back from the channel,
+so the BPIDs that were actually allocated are never freed.
+
+The error unwind above has the same problem. It frees whatever values are
+in rsp->chan_bpid[i], not the BPIDs that were allocated.
+
+Before this patch, the programmed BPID came from a local variable and rsp
+was only written. Could the allocated BPIDs be kept in a local array, with
+rsp only written from it?
+
+>  		chan_v = nix_get_channel(chan, cpt_link);
+>  
+>  		cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
+>  		cfg &= ~GENMASK_ULL(8, 0);
+>  		rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
+>  			    cfg | (bpid & GENMASK_ULL(8, 0)) | BIT_ULL(16));
+
+[Severity: Medium]
+Does this still leak an LBK BPID when backpressure is already on for the
+channel?
+
+For LBK, rvu_nix_get_bpid() always takes a new bit from bp->bpids and sets
+fn_map/ref_cnt. This loop then overwrites the BPID field without checking
+BIT_ULL(16) and without releasing the BPID that was there.
+
+After enable (gets X), enable (gets Y), then disable,
+nix_bp_chan_disable() reads back only Y and frees it. X stays allocated
+until rvu_nix_flr_free_bpids() runs on FLR.
+
+One LBK VF can repeat NIX_BP_ENABLE until the shared LBK pool is empty.
+After that, rvu_nix_get_bpid() returns NIX_AF_ERR_INVALID_BPID for every
+other LBK VF.
+
+The subject says "Fix BPID leaks in NIX backpressure enable/disable".
+Should the enable path check for an already enabled BPID owned by this
+pcifunc before allocating a new one?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119085434.2598197-1-nshettyj%40marvell.com
