@@ -1,161 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.12.33
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795426489;
-	b=4KUHCW+KQLw0vtlmFa4OsfZQc1S+/mDOXKfFzvjp0EzttRIHNQSlmEy6NW5q1E1zTMio
-	 cOfzlwSosDsgAfxJVVVy3ARAcA7+wKSXUkM8tynnErkxMKprMyvrvyxnyfLBC0ccywisW
-	 XxjBopgXYTRhKJ2t9psenNA77ve/xaKeMK2HRYVI/AO2pAYiXYmY9Y/HZ2tXOToP3UaAC
-	 k//Te7NaxjFb+72UCnu5qYzC6qiK5IOLTGs9WLSWG6tXDxqmYMyTVK59rx0XgLHw17YOJ
-	 cHTsAf8ho2qXF+Hlb45pESGU9q5IbUFyB1IIAkaaJ38ks7Hx+EK4+iGFEtgOSHWw6Yg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426489;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=YQzxNF6xtMk44bt7Cj9srJkaGwcdkf5qBldzEL9rygk=;
-	b=P47zzzx89gSKnxDv+/K0N+Sp+ayrDodP8k/PnTfZY8jb213cni868H4dGmNqkm7JYl4n
-	 gWrwiu1znEynlfbLNrISOIlVlvCLXuv9hm2wzeIinTUTcrCshWJKskLraiGIiiHs7y3fE
-	 pONEoPaKHFQfKiSsh7fjnBht+KPP2nkL+wMzM7YBSXMJrbqS2jqsluxe28zmLHEj4vXV0
-	 Uk7+aulIbsMmkBMwjOwbEwOXYZglPFbmMjUzN6b/ftif7nLEqIFImXKkRlfn1RGvhn30r
-	 0vjOTxTEQ4CvnDrn3mQgO4ygTf4whAC4CSMQP0LF9wucq6Gk6O0/jYxxxe0A3AnzimQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=NBbDdkzD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.12.33
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azolkn19011033.outbound.protection.outlook.com [52.103.12.33])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795426526;
+	b=c2m4bqqXD5WYI9NOzSAZZIRd5B1bg6NEZ3jrSMi7G4Jwg6XhepYlYh4tTeWaSEDQUL+p
+	 crIsNPOv9FFaCBpR3+krprLuJmZ+aDG5zRTZTIQKR2g2qJv3jDC7AOMRxg9xc8w5BzGUy
+	 jza1T3Mr2NxkrHjvdP7Wi+PwKNEnRvWJR+7/llUB9ZfwhCOyGIsmPXpwINlP5WEf623wM
+	 nUALXyRqRRna51lP354iGZ9yH8PYB7Y4xMp1r361MM0xQlrIdHbQDGSN+HnKGNeIPW3YR
+	 pC5p70+JSa+2QXMqIkVRghbUMJTOu5psdJM0pvmPl3/PkoQHZQXk8RWg88PVuNbYHkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426526;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=YSCst1Q1N2oXZJM30s4MwHTcN+gIG7I1Yy44MulzNBg=;
+	b=w058b871eEN4hDJEq8FvRSXJEDHPoaPt/I3sjIlOWrdzMUZRVfkhjaOF3JDmEu9RFQKA
+	 T/WGwsjWkH1MoZiyhmJcPESYiFdbmeVtoBB6W8St2GzfiUepxPF5NogQjRMmrVfg0g0CN
+	 OAB/CoWtkHYrpzN4wstap9pDJ6ewD4nY9bmpWn+zoyc0YfIZnmh3OE/7vTgUS5l/zf3X8
+	 8tNQv3jDVuhkDlDAHhz9YSNcvUxK/uYK8HRw/hWZtPqHqK3TsM9QPzxUqHZe5drlDlBUW
+	 0vV9aGyl7GyYzsRiD5eMSdpE38iI9AxlBtlTUMiomYnwzVUmw5l90MqaBIqYdT6IMVA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eOGDAIQs;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E2F7606A32A;
-	Mon, 23 Nov 2026 09:34:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E2F7606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B0EA606A683
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:35:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=NBbDdkzD
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T1ZtLulR68nUMcsPIPBfnjbCGtw+MoCurybCt9/GToSalz975ssTfcFqGuUkQ6Krd9UhfuBjLOHUN8ogU4jbucPxDZMwOvhLKR028cGsfS9D7WmjXB1Xvt1KdWCes8MbHMrX2MeGj4rPkzs2WLICFyhXsYUeZehEInhX1zL56uC8yAmBHcVxDwK5mx9OR+zQIi7rqjgBjxaW9So6YsQJN8+7a3YYf5gPtuWIZNfi3GlmFBIlqGHH+fLx5sjhbmQH1CGvQwPEe7ZvuvBRgYwF1H1D5sop7itGPNIj0E6j87m03dHsLJx4axESyB+ZqNrpz3L2Hm7qq8k0m2q90VSvoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
- bh=YQzxNF6xtMk44bt7Cj9srJkaGwcdkf5qBldzEL9rygk=;
- b=DDBVi6Qt2W/qD4I78RVisx8wfQ6TO6kBjygZ5YmXrBaLUJoh3Mr+PmR4liqRm2ura42BG8rx8NUjl2qt3wUES5Z2swGVPEWR3lnVgim1j/W67e37HRzTCycVfgg61MV7xIzLbIVrAhnVzGhqJEVSKeRQPRVcgJN3epjeZwXM3X2EUx9LziMM231Y2SNa/Ib17eLWI0mmo9jlgwX8EKhnhdNb12abr5IaRbAIKQTymGnBq/1U9sUXlyvDSL710cdQl4j9AmpEGKi9/Lewaefu/abOnrOXlxbgORp0fQK9Wk8cKQAeoGQN08N4vmM21wLZ38CSlekh7kka2xsyOTM9BQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YQzxNF6xtMk44bt7Cj9srJkaGwcdkf5qBldzEL9rygk=;
- b=NBbDdkzDDq88o3hTxjaDERWO4D8LVquq8R8Nw2j9qbgjGwBxwg5GglHnpSyN803qRoRdR2dg2vHiS29PKK3QwZwtRoPtJ+7+O2W9AW08gQc3Yo5GOrh2zIaXPxpie/kLgoUrmKMo6gwittLSVGaKr9kvnExZR07Xroun5R2kENN5XVd6+VHThGAKcuwh2dueEi8bER0d+nHgX7GQ+CL/3OvS6BtFp1naN6gQC4k7yrbEwXSSEYlWEgklRND6CH6lZVQta8cyf0qAeYbiMo2olHJCbYe4fnqTtAfHA1+oIWJNqKMJRVcrE1CGlBJ6gOwE7XAFc7zptXIYYpQKBR+ojg==
-Received: from BN6PR05MB3281.namprd05.prod.outlook.com (2603:10b6:405:40::35)
- by SJ0PR05MB8664.namprd05.prod.outlook.com (2603:10b6:a03:394::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 09:04:36 +0000
-Received: from BN6PR05MB3281.namprd05.prod.outlook.com
- ([fe80::5b9b:67c7:5397:c42]) by BN6PR05MB3281.namprd05.prod.outlook.com
- ([fe80::5b9b:67c7:5397:c42%5]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
- 09:04:36 +0000
-From: Yingjie Wang <x-professor@outlook.com>
-To: "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-CC: "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"corbet@lwn.net" <corbet@lwn.net>, "skhan@linuxfoundation.org"
-	<skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"edumazet@kernel.org" <edumazet@kernel.org>, "ncardwell@google.com"
-	<ncardwell@google.com>, "gang.yan@linux.dev" <gang.yan@linux.dev>,
-	"kuniyu@google.com" <kuniyu@google.com>, "davem@davemloft.net"
-	<davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org"
-	<horms@kernel.org>, "matttbe@kernel.org" <matttbe@kernel.org>,
-	"martineau@kernel.org" <martineau@kernel.org>, "geliang@kernel.org"
-	<geliang@kernel.org>, "ycheng@google.com" <ycheng@google.com>,
-	"weiwan@google.com" <weiwan@google.com>, "joel.granados@kernel.org"
-	<joel.granados@kernel.org>
-Subject: [PATCH net-next v4 2/2] mptcp: avoid wrapping blackhole timeout
-Thread-Topic: [PATCH net-next v4 2/2] mptcp: avoid wrapping blackhole timeout
-Thread-Index: AQHdeymp/LQBHf8LX0eGUfjlOHDOMQ==
-Date: Mon, 23 Nov 2026 09:04:36 +0000
-Message-ID:
- <61910493c920d138cd33da5ae5fc7947a64fba05.1795424547.git.x-professor@outlook.com>
-References: <cover.1795424546.git.x-professor@outlook.com>
-In-Reply-To: <cover.1795424546.git.x-professor@outlook.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN6PR05MB3281:EE_|SJ0PR05MB8664:EE_
-x-ms-office365-filtering-correlation-id: 03de979d-a180-45d4-a9de-08df4940cc25
-x-ms-exchange-slblob-mailprops:
- AZnQBsB9XmrTkIzDOCxR6E7nJ4I/6XZ7XnEfcFlZsmiQfLeX9DD1ZIGYjYUC6uKRWwlMs3WNyEIK8MAg6ou3CkNx+MVMEQxPSn1zv/N7k1H9UqxLHevgzyxkRvylq/fsD+IjtI5a8q9Ans5xBSZLjXUdOpAj99UggBkT2xFBtoLbAo6bA/0iv2nKPP0B9Zi3wN/RNK01hSiQFpljdz8MnQ0Lu4MT9rdP/uvsvCzrHblzzge1c6bZPw84nYKYuhURnbl3H0xalDEHW4+g+aaEe5qOw0ZmoQcLCcCqNaV06x51QmuXs5cOUSPBGcpCDYOkb8Z8DOey09FcnR0ndQBOUKibncn1ZJZ/p+8mCXZb9LrqBGBhSS7EMWtbqsk71ixcdWPrLzZ7PXFvd2VOk1POaHd+xJy+ZbyNZrdHB+u5tEtdedqxsH/udgn7wIhlGwVOjj4gsh6L3qgoCT0+e+PoQSQUNSd3giLe2Fq4Wfn21B65FZK4atkwFR0sj/iUJHhnnFtgw/vbNYNL81yAY3RBgrIaGWuyq4ECKjWQZyvevG+0KypRPLPgd2wbdhw5drts0Tmd1PJKq5czsGbfJaHzWD+TTInqUYy/oyxJZEevSKKYp+X/LAAPvYaAHXtNxTdy6UVlHzdn2kOv04HCD+/ooZUKN9AxXlWgpiaMSv5ewtCKQgiCnsHPBdvqhbm2gAnoRGEgkCNknVzOOUoA4rVvbYFdJ8kM8gDfs8agXTCKlTosQcILM9W3+chtPjVlfpWCNmwpCPolRug=
-x-microsoft-antispam:
- BCL:0;ARA:14566002|15080799012|31061999003|38102599003|22091999003|8062599012|19110799012|41001999006|8060799015|51005399006|24121999003|25010399006|4140399003|24021099003|440099028|3412199025|102099032|40105399003|30101999006|26121999007;
-x-microsoft-antispam-message-info:
- =?iso-8859-1?Q?ALgL/5cHdf5ix2S4yOQnPa5KXVv9K2h61AHoaOymYbCjOVKDDT8ilsvmIC?=
- =?iso-8859-1?Q?xExBlfK2B40sBnFQS3av+rY9COxMUGWuynBkugDrJ8obqIVLlU0xQl0pJ0?=
- =?iso-8859-1?Q?vvs2I/HirVhNHijZJXqFX0Zup91xcIq5vGmBavIn57JKkQgxJ85Vz+ssJO?=
- =?iso-8859-1?Q?J2ZlEz9LB05yHoR/9zGYX48VeYGHLHjyXwpg14M68TJYfAF02RBq1lK7jH?=
- =?iso-8859-1?Q?AcfoRGZsxV91dexZk4s4HdZhOx0wzc1GejA5HgusD8L3GQ85pmWSsPk1Ml?=
- =?iso-8859-1?Q?Nf+LB5gFhTEx7aDUh3e0eUet64XlnaPvURrGBNZrFqA8IGSK6KpVJ4hMvl?=
- =?iso-8859-1?Q?d8J4yY/COYlC+6Xzaf/e3ePzfW6wGmwLUxxQaV1J9H90kxwszTqT+mjnIK?=
- =?iso-8859-1?Q?ThmuxGVFswax7Ps/rXsAVgX+jxcKxpOQwzt7PnIVhmXjJH1YVuQ77bGjDt?=
- =?iso-8859-1?Q?4cd48O2fDjQ0MsekvDA6vPFk4E8PzQLOx4yYHMd25Y41qQKsEkfUIZ688O?=
- =?iso-8859-1?Q?2tFd7IWLLVObzH+Oa6QqHIeyKdHJYgS29m/XvoZ9en/PHhfqRLPO4Ufh9z?=
- =?iso-8859-1?Q?wPJcCWyojC9+ga8UdALQ3AHNmdkEw9IRyT/wBw3SxJJE4ibLeZ8gQAMyzj?=
- =?iso-8859-1?Q?M9+cNwOb+o2f+dC24Ko4LoV+l3INf1LYXD6fVUWmKbuWXwM5APOpYmBJad?=
- =?iso-8859-1?Q?Z7ZdL5zeuYX1zrghhTmDUBgWoMw8r3EdL87md14BddfDu+Hj37nOmpHYBv?=
- =?iso-8859-1?Q?9CGN7hmMLatfZVIEttsoLKYR5SI5Vu3kLO3qZbhQhG6o8HK3D1RkkRVITo?=
- =?iso-8859-1?Q?WyU5PGzVVYg8ssltq004lfrfjV1DppChyf5Djmiz8beQ/MTJrDODF93hqu?=
- =?iso-8859-1?Q?fArK7o1w6w1ilGThWZecO/YlOuDyYFp6vMrhv0Wu+SOYvaogGYkNr3jyNQ?=
- =?iso-8859-1?Q?CP3bYki/dtjBm8MYGCzMy4iLX6ltY2pt3XTR/YCcy7nf+16J2dyVyZCCur?=
- =?iso-8859-1?Q?5sTl7N+uvom9C3SzpzW6UnEGvrRYUSiGZnClvFfw6sJIVEDvZLPR57tnZQ?=
- =?iso-8859-1?Q?CatoubGOrvnverAmJPCeE29jZ1Vio4IN3nVB0CCaHBww4984C/zaYdSUNO?=
- =?iso-8859-1?Q?KLvRzJLYmhaRDfIqwvady1bc8sGqsRV4WO1DB7TZniWTUpKJgp?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-1?Q?MpWDBFtkPwzhnj3U/Wi6rt0BRhnFFTIpesHVrl9RhZEfeXwSIrB0t7iEDo?=
- =?iso-8859-1?Q?m8rmHGSL28dgZM4GWNNRKSDpG40Ny5HfOuajjBlPiswIw58uEu0DaiL+MU?=
- =?iso-8859-1?Q?SlyqDB3qaXh+2qq2S5+mJnXa7zu3LptuAZSMBKhp7WQsvsRJorOv89Zelp?=
- =?iso-8859-1?Q?F0tZ8fZU0ey16tG43qMPAihqUFYf308RaNlE7PYXP3oHn/DHNXJJc4z/Cx?=
- =?iso-8859-1?Q?lG/ZIhFx7GbslKoVlOEP9sJ/HkCpZ1T/xS8gAdV16BuAEACQ9HjSkP4M0G?=
- =?iso-8859-1?Q?kWK+6HoI6+7JI6QXZpX+8FQlKdn2BFpBzceLlBqSgcsTLmUJVs9z67mEeU?=
- =?iso-8859-1?Q?2BPdTW4if0NN6L4+LChS+S6xz8KIlctWuOSnr5EE9nMRVrXc3R8EuSsmsj?=
- =?iso-8859-1?Q?A6F8PT+feqc/DBTIgv7oWR8cHrGxYZoJIBf9cc518adtjpwFqron4T2qk4?=
- =?iso-8859-1?Q?DhWD+GaY0BqqDn4AwEY1DZn/5Rtk+Y/Pm26ESETjsjGCP4/lvfqdb8uzyU?=
- =?iso-8859-1?Q?ymabJ0xANqyKCYX6LFgW3TilvxM1Sk3zb26BgUc5E5+5w8elPHveCCOlnC?=
- =?iso-8859-1?Q?v+Ex0BhLplQ5oqGR57D/pX+fyyIIznVlylNwJuToKgx5opHF3iaOXYm9WS?=
- =?iso-8859-1?Q?TcpSne24BqXw/h1IXtFnByAYSjQ+RUo4M29v4apLLCL61xCoi7i+SbKdy6?=
- =?iso-8859-1?Q?co9YPvNDf9LKMsZNTKuwiUwPYkCPGNpHYKGWsDXYW8brZJU+Hk6vu9SStM?=
- =?iso-8859-1?Q?yTw57iAOBeeWgP3iYz5RIDjdsmZ0jDUuGKue6LRE+E2Mxs2dUXNtY5l7ni?=
- =?iso-8859-1?Q?oICl6yEzpJvrDb6EuZ8tNLwgFkVi8Ta+bfcYlWgmP+Mia6HYzx+7GMQkN8?=
- =?iso-8859-1?Q?Du5Iox1mlvJInXIkoGvTDCTP9GlWV4RIESiTN5Nzsgdb36oEFneC3jjS2S?=
- =?iso-8859-1?Q?BEMqaH9tvbLITVMvcFxz6oj4tSxi5C9fOGjCXM6926s88t16bcS5aU5PCV?=
- =?iso-8859-1?Q?vggTNsXPuNCS4gSVQMsyQod9CToeVeWdTZMc7PbTJqaJKs9aD7B23HiNDD?=
- =?iso-8859-1?Q?hlApBaJsIiiNU/JD/nzdwgWqtE/yRbdEV2z13E116fCiO2bYxdJvJfuDgs?=
- =?iso-8859-1?Q?SZ2HqEQNI41VLyPCMROtFswv4v7m6zzXoZxxS1znrqiM7d15BHRLfwnbHm?=
- =?iso-8859-1?Q?6aiyUJ8r8O+lUWNQAPviedimq2L5WqNMfszLsCNeYIIWAogw2MOiCYFJAb?=
- =?iso-8859-1?Q?Yv9Rg9ChF6gVHatm4h5zEgjGW1SKf76pIV53XK9CkMBlwTsfLdpcNp+hZI?=
- =?iso-8859-1?Q?A83Zqycqaq1bR/p82vhrYgFZQrBQe13EgktJM2d+AuOxJF3hqvmS4qj0yN?=
- =?iso-8859-1?Q?9SEoPzscARXYCwVgCrLbrTnFI+DDCHzLZpQSpnVIe1IYDG9auJEN0QoI9I?=
- =?iso-8859-1?Q?kULpEvaQu5U98kMw?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eOGDAIQs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F12EA1F00AE3
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:35:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795426526;
+	bh=YSCst1Q1N2oXZJM30s4MwHTcN+gIG7I1Yy44MulzNBg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=eOGDAIQsBxuXWg/xMFZ8ps/8xyu86C1vuUmBmKZsFdzuC9+WgUAcgTZ9ZoZYOdHGa
+	 JUxG6L5q1GBw5NfiSzucZFCLqogd7Koyd+uc88gUCPddXxN1PslmjeskXE7oHYRE6c
+	 1mjze7FArpGDspL8mKhjXPTwNs8Hl/JNw/6ktt5t4eDE0DEqAuIU0bcEdyQmjAv38J
+	 y8Gxyj5yzBnrloFlWfQVhBWSCjltqskzEta+6O8TN2kNElEtM9AFYHNUzcpPw6TxZ3
+	 TPNrA8IMlV/xuXhNzbS4DRwBmIpnFciiSklAK5P7VV6cLVyMyhRSTVm/dGjUnGy383
+	 beEaIRzot0pEw==
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-71aea92f666so2019086eaf.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:35:25 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEyziXYwm7s64ej8NjmJxd9ZgiZBa7rbouYWNp3zt1neiOgtCZV62PK1fCjOP7d+Zj+UW8IZBI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oJt2j6S/jirxxAWgpRGijhSgzC2QneWb2gt6TfolEWb8lozjQ
+	95nA0cbsCp2w5l3U9JlG80AjYsItNWDTXbQBmzBa+IA+nIZC4ApzWSMwNHaB/7lm9cdqTfZrLgk
+	TvIwhJXYjOdAI4erJq1uPIR2ztkDTt/M=
+X-Received: by 2002:a05:6820:f016:b0:71a:f065:6179 with SMTP id
+ 006d021491bc7-71b39036693mr8533445eaf.0.1795426525148; Mon, 23 Nov 2026
+ 01:35:25 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -165,121 +59,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR05MB3281.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 03de979d-a180-45d4-a9de-08df4940cc25
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 09:04:36.1365
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR05MB8664
+References: <20261123034047.56745-1-dennylin0707@gmail.com>
+In-Reply-To: <20261123034047.56745-1-dennylin0707@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Mon, 23 Nov 2026 10:35:14 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiovxhEi8G4W9F7faF9COPTaUcjo_1VF2ObJpbUB0i1ibw@mail.gmail.com>
+X-Gm-Features: Aa3M54qGv8m9FUEFf183zxyfsISWMH4tBcTTNJxZbS6d1d9E0oMYtFvyu7Y4NZo
+Message-ID: <CAL4WiiovxhEi8G4W9F7faF9COPTaUcjo_1VF2ObJpbUB0i1ibw@mail.gmail.com>
+Subject: Re: [PATCH v2 net] net/tcp-ao: fix reset key lookup for IPv4 segments
+ on IPv6 listeners
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: ncardwell@google.com, kuniyu@google.com, davem@davemloft.net, 
+	dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	0x7f454c46@gmail.com, fruggeri@arista.com, noureddine@arista.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-mptcp_active_should_disable() calculates the active-disable interval as=0A=
-multiplier * blackhole_timeout * HZ. Since all operands are 32-bit, a=0A=
-large blackhole_timeout can wrap the delay, even on 64-bit kernels, and=0A=
-make active MPTCP available again while the blackhole is still present.=0A=
-=0A=
-With HZ=3D1000 and the maximum multiplier of 64, a timeout of 67109 seconds=
-=0A=
-should produce 4,294,976,000 jiffies (about 50 days), but the calculation=
-=0A=
-truncates it to 8,704 jiffies (8.7 seconds).=0A=
-=0A=
-This issue was found using a static analysis tool. It was confirmed with=0A=
-a loopback reproducer that induces 12 MPTCP blackholes and opens another=0A=
-connection 10 seconds later: with a 67109 second timeout, the unpatched=0A=
-kernel retried MP_CAPABLE. The reproducer needs neither kernel=0A=
-modifications nor error injection.=0A=
-=0A=
-Compute the interval in u64 and cap it at MAX_JIFFY_OFFSET before adding=0A=
-it to the saved timestamp. On 32-bit kernels, the cap keeps the interval=0A=
-within the range that time_before() can compare, limiting the longest=0A=
-backoff to about 12.4 days at HZ=3D1000.=0A=
-=0A=
-Also limit the writable initial timeout to one day, matching=0A=
-tcp_fastopen_blackhole_timeout_sec. Writes above 86400 seconds, which=0A=
-were previously accepted, now fail with -EINVAL and leave the current=0A=
-value unchanged. The default remains 3600 seconds, and zero still=0A=
-disables blackhole detection.=0A=
-=0A=
-Suggested-by: Eric Dumazet <edumazet@kernel.org>=0A=
-Signed-off-by: Yingjie Wang <x-professor@outlook.com>=0A=
----=0A=
-Changes since v3:=0A=
-- Combine the arithmetic fix and one-day input limit, as requested=0A=
-  by Matthieu; name the bound one_day_secs.=0A=
-- Drop Fixes, as requested by Matthieu.=0A=
-- Leave the existing comments unchanged, as requested by Matthieu.=0A=
-- Drop Gang Yan's Reviewed-by because it covered only the arithmetic=0A=
-  fix; retain Eric's Suggested-by for the input limit.=0A=
-- Move the test notes below the separator, as requested by Eric.=0A=
-- Rebase on current net-next.=0A=
-=0A=
-Testing: the loopback reproducer fell back to TCP without retrying=0A=
-MP_CAPABLE, and the sysctl accepted 86400 and rejected 86401. The=0A=
-MPTCP selftests were not run.=0A=
-=0A=
- Documentation/networking/mptcp-sysctl.rst | 1 +=0A=
- net/mptcp/ctrl.c                          | 6 +++++-=0A=
- 2 files changed, 6 insertions(+), 1 deletion(-)=0A=
-=0A=
-diff --git a/Documentation/networking/mptcp-sysctl.rst b/Documentation/netw=
-orking/mptcp-sysctl.rst=0A=
-index b9b5f58e0625..ca00253c8ae9 100644=0A=
---- a/Documentation/networking/mptcp-sysctl.rst=0A=
-+++ b/Documentation/networking/mptcp-sysctl.rst=0A=
-@@ -63,6 +63,7 @@ blackhole_timeout - INTEGER (seconds)=0A=
- 	blackhole issue goes away.=0A=
- =0A=
- 	0 to disable the blackhole detection. This is a per-namespace sysctl.=0A=
-+	The maximum value is one day (86400 seconds).=0A=
- =0A=
- 	Default: 3600=0A=
- =0A=
-diff --git a/net/mptcp/ctrl.c b/net/mptcp/ctrl.c=0A=
-index 164f79b9deb0..11472e20fa6f 100644=0A=
---- a/net/mptcp/ctrl.c=0A=
-+++ b/net/mptcp/ctrl.c=0A=
-@@ -20,6 +20,7 @@ static int mptcp_pernet_id;=0A=
- =0A=
- #ifdef CONFIG_SYSCTL=0A=
- static int mptcp_pm_type_max =3D __MPTCP_PM_TYPE_MAX;=0A=
-+static int one_day_secs =3D 24 * 3600;=0A=
- #endif=0A=
- =0A=
- struct mptcp_pernet {=0A=
-@@ -350,6 +351,7 @@ static struct ctl_table mptcp_sysctl_table[] =3D {=0A=
- 		.mode =3D 0644,=0A=
- 		.proc_handler =3D proc_blackhole_detect_timeout,=0A=
- 		.extra1 =3D SYSCTL_ZERO,=0A=
-+		.extra2 =3D &one_day_secs,=0A=
- 	},=0A=
- 	{=0A=
- 		.procname =3D "syn_retrans_before_tcp_fallback",=0A=
-@@ -487,6 +489,7 @@ bool mptcp_active_should_disable(struct sock *ssk)=0A=
- 	unsigned long timeout;=0A=
- 	int disable_times;=0A=
- 	int multiplier;=0A=
-+	u64 delay;=0A=
- =0A=
- 	pernet =3D mptcp_get_pernet(net);=0A=
- 	blackhole_timeout =3D READ_ONCE(pernet->blackhole_timeout);=0A=
-@@ -503,10 +506,11 @@ bool mptcp_active_should_disable(struct sock *ssk)=0A=
- =0A=
- 	/* Limit timeout to max: 2^6 * initial timeout */=0A=
- 	multiplier =3D 1 << min(disable_times - 1, 6);=0A=
-+	delay =3D (u64)multiplier * blackhole_timeout * HZ;=0A=
- =0A=
- 	/* Paired with the WRITE_ONCE() in mptcp_active_disable(). */=0A=
- 	timeout =3D READ_ONCE(pernet->active_disable_stamp) +=0A=
--		  multiplier * blackhole_timeout * HZ;=0A=
-+		  min(delay, MAX_JIFFY_OFFSET);=0A=
- =0A=
- 	return time_before(jiffies, timeout);=0A=
- }=0A=
--- =0A=
-2.43.0=0A=
-=0A=
+Le lun. 23 nov. 2026 =C3=A0 04:41, Hungyu Lin <dennylin0707@gmail.com> a =
+=C3=A9crit :
+>
+> tcp_ao_prepare_reset() looks up the key for a reset that is sent on
+> behalf of a listener by the address of the peer. It takes that address
+> from the IPv6 header whenever the listener is an AF_INET6 socket, also
+> when the segment is an IPv4 one that arrived on a dual-stack listener.
+> The address is then read from the middle of the IPv4 header, the key of
+> the peer is not found and the reset is not sent.
+>
+> The v4-mapped check that follows does not help: it looks at
+> sk->sk_v6_daddr, which is the unspecified address for a listener, and
+> it runs after the address has been picked.
+>
+> Take the family and the address from the protocol of the segment
+> instead of the family of the socket.
+>
+> Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+> ---
+> v2:
+>  - Take the family from skb->protocol only, do not read sk->sk_family
+>    (Kuniyuki).
+> v1: https://lore.kernel.org/all/20261117215554.68071-1-dennylin0707@gmail=
+.com/
+>
+
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+
+Please reply to the netdev-bot question: how was this found, and did
+you trigger it at runtime or is it from code inspection only?
+
+A follow-up for net-next adding a v4-mapped peer on a dual-stack
+listener case to tools/testing/selftests/net/tcp_ao/rst.c would be
+nice.
+
+Thanks.
