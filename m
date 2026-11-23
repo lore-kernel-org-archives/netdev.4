@@ -1,101 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434137;
-	b=hZsSRXJXfndLyrdW9Hl+SWo9GWNstFhVbHLGXqdzbu0hVCF7G5RMXoZCC7laTyVD47Il
-	 KlleEO7+WOFYyb8a3dC02LXUYMFwNz4Y11u3U2Mo9i9g8GZlsmMyhZC515UEfJzjU/5+a
-	 klZAKBMcrn5bmdqMzJZVN9YIR+tUV2iuufPeSMokX+KV78yepbBdoJLsyjffM39Y5TNE5
-	 PcfWhzwiZSz5wpScXRA8VUbv2pOzYQMoIfxkKNujJgqVaLtwK19TJt0uARlxmF6hRpAyN
-	 4XoRtCcOpi5rLJgKeXp5WmPeRntAGifJ+oGnt0NwdpjHLjzV56Iqf2zm6IVHkYOjBRA==
+	t=1795434533;
+	b=z9R1ybOzJ/c68eI6Rcr4IwkpEqlvdKyC/dKf5bYx0kHGh2ZCzaJe+DYWejh1XWeQ3JH9
+	 iyqLlAzE8uVfcirRZ7Qo/sPD3O6EWlPPODZWAT/R3EisGhKY7v3bKsv7j+wwhG0LtYJzu
+	 UR8biUuGfrLCfUx8mmjn1U4td9njndPri+fc50gpuiOfTgmvCfpoVYqik7ITG2dK7CqvT
+	 wXCNAy+0UBDnFlFwRztg2ygqL+lmSYh64XzOB3H8yYNt7uywcTkULxUyDui3yOmYf5EQA
+	 o99wWnEd+gq93SpR4UWHBJPrQkufO+YuTjFNQvWZmam933XosljnmKHBpM1kAm581Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434137;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434533;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ir6z+1QO+ZehukLrcRk3cS0RS9cUAR81T7iwjbCFauE=;
-	b=oXFbK5O1mDpzR1//jM6/iYEMemhpgtLM4Mg40nOMaX+o66gemaFv8VPdQyMt7p96T3+y
-	 kaaIhlgxflLa7Da2r8xvo67LlQZJh8F4MArdZSvFCxwiEmwapzVtzkJOHjeOWi0U0bwM7
-	 F/PZDYfhHVwQ0TF60wGUNRMc4QQ5GP0CRptrN6FdSeYcUK74DC4QldWlNnyyZk4BAG1YF
-	 Uy3nGa5sbI8Y4MqQ3ecw7VNWd1W4iDTmRydK6/12IHo/hdkqiTscf3HQzrMIPn6oSjnyV
-	 TbjBWe2gqgq0okXMdXJbGGvemL21ARVEP2jDLPm2wM68S0rsXfPqIeFVtU5ozKpEXcQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:CC:Subject:User-Agent:In-Reply-To:References:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=bVLWph7B2WEr3md9baVPpYweSSyWCOp9inF7HhcfyZY=;
+	b=5Z7HTprd+7cOHoRYnx9B+OLnFPQu6NZRfgIgYpvbmom56RLKdiXkBvKRu9fIi1Jkg2CX
+	 YovaiLfIrrq7tY3nHlWOhN5lB4HiSWzCn+KVJhYfbh98UI0Fn4fnSOJmaCSEdPA7yyExL
+	 DMFM56crqgTqcDG0Z7GDuwDPG/yyEj76SEVCH0aXlawL5xGGR+gyt2DBEdIstDOLIgdwu
+	 lqBiH4fJgL4qqmizOkSvFrMGuIUp75cDB+5s7SyaX7lFkWhg94qTupARjYslybADstBiN
+	 p8MVaz6PgSjI6od26AWwF5Z/nXnsG+ZK+lk8fj1qoBx+F5i5VHoW1ZNjO1lxbE6LyUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UJCbp4Bz;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PtBRx4f0;
+	arc=none smtp.remote-ip=209.85.222.46
+Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com [209.85.222.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58AB4606A32E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:42:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58AB4606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81345606A32E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:48:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81345606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UJCbp4Bz
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so29624645e9.2
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:42:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PtBRx4f0
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-99e0b1ee864so1144059241.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:48:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795434136; x=1796038936; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ir6z+1QO+ZehukLrcRk3cS0RS9cUAR81T7iwjbCFauE=;
-        b=UJCbp4Bzy1ZHHz/xeg0gqvcKdeVezUb6m0Mo8hJL273XKnukNrQq6GOFSTmBAcjtIX
-         s2GCR8GWmHxvC5uOozGY8scUgUfrOwY3kE8bhlboNv5IqSm5yui9SXAymUYKwiGcRWsc
-         J6LYhl6L51UcZv8m0kzMHi2MsoLzuS5JL4Q8P/lj4Rh3rfIv7+JUU/zYEdDe7S8tuMXl
-         PwVs2ncrraM02QiyFfnunkB4h88mWWkhFQvqLR1D37opDahhfF+iYWsTYetkcqzCG9ns
-         U/19A+I4PiRujN03OKyHf9g+Dfcld0t9JK8l+ZULcO/dMujm4FM8SkQE5BXk1aj/U6r3
-         8PuQ==
+        d=gmail.com; s=20260707; t=1795434532; x=1796039332; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=bVLWph7B2WEr3md9baVPpYweSSyWCOp9inF7HhcfyZY=;
+        b=PtBRx4f0zHMPWrKCeYo4jmRaJQ1LN5JSKPTl8SuaDwwGOylL4gwkeWZuRFAir8i0Oc
+         XB5k0mzLRktyLJg+vl6aem4aZ3S0217Q3kedU2XJ6a+Rx8VhSCyQSgIcPtDw+IP9ceJx
+         J7XQA7M2DQ9QOU9CoOt65NNP+M3zGNqHutwCOtJDBV4E2sybFUpiotdRZ3ia/0Br1aW+
+         VZ6Kom8GTYEPap127qiISr/1UNfo3AcD6EfhKm7hnT7W26Ny4mS5A50oLqj7OTJQAqFu
+         fZ9Is/5bx67lwhC+m4nxemqFdjv14gTMpbZYwWIzCosqHuaHMYyuL2c09z6O+3MlbY/5
+         9DJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795434136; x=1796038936;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ir6z+1QO+ZehukLrcRk3cS0RS9cUAR81T7iwjbCFauE=;
-        b=KNHaPojIBmVni2/XSZ0tan3qekwHQxhLLSk1qa8vyXw5VjLWoiqimPrUMowwUiV/B2
-         URR5eYADqFjAY4xOP1KDaW4wS+v5HiG/zg+nejIy655wtJO4F/9uT22uDsX2VeG2tWem
-         0kF9SJeRZC0T7UcJdth8kzGFukd12ZY7eY/0PMwUiWszzTqVMitcPM9dRVRn9whwHWs1
-         HTqY4wBjOICU3jJrvVgy/IXqfEpP0k9QIMVxgchhG15UEw1BnEmakIcBqFwEovrypJ0J
-         cy/2l90eJqy76/FRlic4ERhG6VypFzPKB7vihfzkfTLoYmfOujrWdBI0RrdkG5XQ10x/
-         6nLg==
-X-Gm-Message-State: APuU4Z+YzNmOC5NK+y9foTV+MsBkmlV7mZOYTT/yM4oQ/WRosrqGUom/
-	8efCzHDFsG66OfjNHFzAVFfDdOnBQUsLFPvlaGjRmi0qPHQfG0+TnFwf
-X-Gm-Gg: AZFdTZdZLIj/gKQfkZbZ1eZn5tOcK1ryK/3K1fi+9x8jdPtjEjzoOswRqzUq+pNgUKc
-	xFuQ83y3IY4wvaVd+21Mdj3CB+LzeOUOlRkU5kAi1oJabfawMKUJc1BBEr22gPlHqrngA+TgGLc
-	+UH1jW5c5rtXybutZrQc8/Br5CTe16JerW7eXBM13IBVKGwLGBxRDZFMB6TIw+0UBhHtlnzEuCT
-	AsHdSDFlrtlEpZSIzzNYetnrX3aC0A5GdvEPjv2dXvJFA9+neld/1LWTdVsWsf4QHzDYNKrdlAL
-	4q6tyq5K3R9n1NtHEt9ceCs72p9igROClPByC/XILF22qR1ctAf8ZM0JPgIKwRvQZrmWxGZ/bNx
-	o5wsxDn9liJyz1aehRWC13wMsWVC5HfsAl05X2dd4xgB4OiGskY+erAERNTrXd9ZZjxFN+7Ju1l
-	4iPaqvLN7CtwF5QEHPM6Hxi1KIQsHTPuWRiYx7dI5q7S1Rb8f+AUyTX/9Behfn/fDigQQOH7Ob9
-	9tmvObpmESnn/59UQFZOntFdBe7bYZjYDk4hlpSVN+nh2f1Bd0RtBlnt6Ozg+2Id7afLbHJAAsP
-	g6nRNQjT/poqj62oAeoGz3jxP096h+rNW5xalrkC6w==
-X-Received: by 2002:a05:600c:a51:b0:4bb:5f43:23bb with SMTP id 5b1f17b1804b1-4bb88828173mr215608255e9.33.1795434135562;
-        Mon, 23 Nov 2026 03:42:15 -0800 (PST)
-Received: from localhost.localdomain ([102.187.134.136])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853368d3sm351369625e9.1.2026.11.23.03.42.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:42:15 -0800 (PST)
-From: Mohamed Dawod <mhm.dawod@gmail.com>
+        d=1e100.net; s=20260707; t=1795434532; x=1796039332;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bVLWph7B2WEr3md9baVPpYweSSyWCOp9inF7HhcfyZY=;
+        b=ORNXxK+vnWOyDfY5tZmhGcl76HaaVCXz6C3ogbDBINHalstyLt39dWqC7VtsFgAPtc
+         1pOfE/Zv5opyWe6c91HQRuh8U1hoU88S1NjnQBtBzRX943RSPbr9oqZtjg803ZCGrJJa
+         tB9TdyaSvgNe/2z6hYl9d+eCghsyIju+TZHC5F8otaIcWQJfyfYpOv8d5gz0VHR2ikG7
+         eGXb+rGBcAhgrZFHkujnyziNYb9ICDlRXm1rLV996+xGICdf8FCdLDs3xJZlcTsBoXA2
+         H9mN9JBW6SDfVRbbbjjKldQKVt5AgOlj8C8K/mJOBGURpSJ+AVn96KkJ3bIQJcgYAulP
+         S97g==
+X-Forwarded-Encrypted: i=1; AL+hErG5yQQpib3abKbhsCqYfsqBwiDNW8/MdrpxT40byRJBFWw217kxpZmIIEJ2aH+dA1UTQhlNWVM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FuliTBbCViUMkoFx0R/HHEuxM1wmVJ4V7F5jQT/nOY1K5+Q26
+	5aLFHH5Pg/NMOiBf+bWLv8JwpMidC344EqtmoPb6Mvy2VMbj1j5445uq
+X-Gm-Gg: AZFdTZeTVGfZR7JcU/FbCbZdkBTkqgh1VOBQPpYG58vv1ZTnrxtrxdm5BVImgL3B+5g
+	4Vkhqt7Bw0s6XrVMcnygX3woFaSmd0OHNDpWReNSvT37XK4xAgRrdUb3FmB/OVOsIaXG1kTdjX/
+	1Z5VqJ6dmIzMNlySbx41Aepe1qkeSy7EqEcxyafHEty8EknU+QaH2JGAhrkjIjZtNfQ65KDLevl
+	AgjtoC0TsS4MDYRTk9zCD+5GT0OaFfp0izbuLrccFsKnzPb26z8TNLP9OXwzVAlTCGMkiTQILEx
+	kBs5ERG+HpgkwP6pi73Us07Gisl9YKH3Z5SPVD/ekvOp2cflJT+AOWIEk0vBFJmvyJOZ5RZOzj9
+	IKXW6O9QQ5PmgKPOevLrLUVU/ZTk6UCbko9DtSgziCYuRHMBS1XJ9AZbv9HEGcWMpI9PAKcdBtZ
+	3NWaahAQkqQIMIhMNBPraNzWGxncZEg1r+u9NpR0FvgS5MKWeiNkMUwd+mC5CcUXKq1VbY22bBY
+	NjlEJNMCbg/+SfsjTxOqkTyaSdJ1OE/4afcjqcwvGOCXbBU8dgifyArH19GfZqlY36qzpQ5VJ9c
+	CekfnHFxdkTUJ4XW/kH1jMk5Ju0Q+tw1Vsc=
+X-Received: by 2002:a05:6102:374d:b0:7cc:971a:61ee with SMTP id ada2fe7eead31-7d7393ff678mr5339224137.10.1795434532277;
+        Mon, 23 Nov 2026 03:48:52 -0800 (PST)
+Received: from ehlo.thunderbird.net ([179.181.85.100])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f92680sm11676646137.5.2026.11.23.03.48.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 03:48:51 -0800 (PST)
+Date: Mon, 23 Nov 2026 08:46:43 -0300
+From: Felipe Stival <v0idpwn@gmail.com>
 To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org,
-	vinicius.gomes@intel.com,
-	jhs@mojatatu.com,
-	jiri@resnulli.us,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	ye.zh-yuan@socionext.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission time estimate
-Date: Mon, 23 Nov 2026 13:42:08 +0200
-Message-Id: <20261123114208.2112278-1-mhm.dawod@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261119053357.2033707-1-mhm.dawod@gmail.com>
-References: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+CC: john.fastabend@gmail.com, kuba@kernel.org, sd@queasysnail.net,
+ davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, shuah@kernel.org, netdev@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net 1/2] tls: don't hide a queued KeyUpdate from poll()
+User-Agent: Thunderbird for Android
+In-Reply-To: <179538279534.3135.17423952957860887247@kernel.org>
+References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com> <179538279534.3135.17423952957860887247@kernel.org>
+Message-ID: <B373FE61-88E2-4F2B-9796-01B39ACF7635@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,17 +102,12 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for the review.
+> Can a poller that is already waiting still miss the KeyUpdate here?
 
-Regarding the two additional findings:
-
-Both issues concerning the signed 64-bit rate conversions in cbs_change() and cbs_set_port_rate() are already addressed by a separate patch series submitted by Jack Wang:
-
-[PATCH net v3] net/sched: cbs: perform rate conversions in signed 64-bit arithmetic
-https://lore.kernel.org/netdev/
-
-My patch addresses a separate issue in cbs_dequeue_soft(), where the multiplication of len by NSEC_PER_SEC overflows on 32-bit architectures, resulting in an incorrect packet transmission-time estimate.
-
-I intend to keep these fixes separate to avoid duplicating the changes already covered by Jack Wang's patch series.
+Yes, any record tls_sw_recvmsg() puts on rx_list has no wakeup for
+concurrent polls=2E This predates this patch, and I'd say it belongs in a
+separate discussion=2E
