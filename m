@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795393738;
-	b=sBJhxGuks82pymA8ZVztJxFOU0TNT4U0QOpPmXNZum7TaymUJUO0n6B8DXYMFtTDIWLf
-	 npf/ufpaHMTMU5nWRg6UX9s9bDzT/ItfU/nfrri1aTiJWoK7U50egJuRG2qN7Q0GEhITb
-	 OMguNo6sqiD23fYoNd1B6prC9WVBVZ7WBULjofurkHPAOw3DOHcMY5FgWgphTwMFonqqB
-	 LTQTirt2G1sPAJRa1I0RQI/Zex0ethLwZYekotnNBo0sxEaKbdZSwjsAhx66CnfGzH4Yo
-	 p84JGNCESg53c5Y61VVqcsaIH5IDO6BmatSqwofzEKk4TsiLyyaBTYblN/JNGqSN2mA==
+	t=1795393734;
+	b=jYqelRX6Do3UTpXPZEWYFnnHNnXQJ+nQ4JL5qOJ388AD5Pv+tCLOsl5eF/nl9qbywPbb
+	 9WpL0psIv2LEAXC4vuGRyG9Hb1St9MJopu5j+ScDzyPsvfxt2crS8B17uW+Io0fz7pKfD
+	 kRlVw2zE15buSsUE4gENam5I4t8g28pU0Hp2cYgiib4UaScY60Qgr43YIDyVeo39olEnI
+	 aL/cf2/5EIMDIKGEds3/RG7GHq6ED4Dj56MAj3bWcmOO7ztzg8/JjnBir47wib2+vs+jo
+	 uX/tay4JkIAoG/mYOqAb4eAATpxexQWFJ38aTfK6e8SUA7ji5ZNoyL17lJ9k7NHu0Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393738;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393734;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=PvZyFq1FELK1bfFHKWCx7YRvHf8V/OFifY6nZbW7s3c=;
-	b=iGB9rwDicUK+0KfGnjYe8tp1sVwCvL0rYJTnk7z336scFPW3Htadub1yAJPqsmo2601y
-	 ehH3xdMvngyOdHiy4wtLLLsPgEmJYgPgO/JQvR84LYy9arYGUVUqzjVh8cjjPQjprXKnc
-	 6j8GumkHHqh7DkVZLfpzzMpehKJpZgXfYcWq+CwfY7pi9wyvGmeXD3Jnl2YTtSC+9u2ga
-	 2a770VWM4LUjgcknIEivkj13EBLLlBqGTEF/1/cbbfJwwauD3Qrp7nMak+wFliPaD0CmN
-	 aiCbvpTBHkCz/MBS7TP7lRpOKjHttxMcjzS/8frswYJzFghyxeF/cnCV9AKKLw+qHUg==
+	bh=U+HLN1k8lco5bdQT0KCTCsJjmlrsMySjcezfIG6VGqg=;
+	b=YXYbXCu8yJe837wmJ73cQMaHwnDxCjNk/p6MvJKKBZciaDBH2xDQJC+iXD3aPq87/C+F
+	 tMlQu2YgyIHjjMsoF+5N1zDPNG6Hjf0f3Sctg6o65o9OAkbCTABXzeiqov77iowdny595
+	 LG1HeWLlni10mNsK58M66F5CnEkYXnjA01UK0c5Ne+hrYHoeE7Rdo6CHXwQMeM/XMfIWm
+	 n+5uH7t5ptr7+2eH9LbxJigoWps1DTPxJdNu5rgGSUcpnRYUZdgeVklCfLeDGp670zASG
+	 9UbydaJyhicXUvkDygaf4pRtiRj2ZKhQbM2GlasOmome9C5NHINoISY+jrxLq1Rt8dQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NQV5qUjb;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=meQNc0ro;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27ACF606A330;
-	Mon, 23 Nov 2026 00:28:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDAC4606A31A;
+	Mon, 23 Nov 2026 00:28:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NQV5qUjb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62751F000D3;
-	Mon, 23 Nov 2026 00:28:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=meQNc0ro
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A7471F000CF;
+	Mon, 23 Nov 2026 00:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795393737;
-	bh=PvZyFq1FELK1bfFHKWCx7YRvHf8V/OFifY6nZbW7s3c=;
+	s=k20260515; t=1795393734;
+	bh=U+HLN1k8lco5bdQT0KCTCsJjmlrsMySjcezfIG6VGqg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NQV5qUjbk33dtvk82psm/YvnecirlnGdsOF/IhOEenfFIfEe6Q4MAvK5qdtyJEMID
-	 os5kXTibrb0gjY9XGZJh9yWa3fUySSoUIl99Aw51oTPQYuTsuhVnWHiBMMqxmbmT+q
-	 1PXruLDhO7nBKyzFDCjW/+NHwJMD0WnSuHweBph8ivG6grQFXl1o4VRbzqGTI0JPPB
-	 RZKaKK0lVydefk5pY62Vwx+sXx4CxUF2KGqTyjw0z76C8jr6Wk0pnmCean5rHoDr5C
-	 W9tnd7+bF6Kw+4toD2mLgyXj0K2t0v/uI0Xx3OubnHgHdVDA2kmUIAXe8AGpS9Uxm4
-	 oHijgx1IIustA==
-Subject: Re: [PATCH v2 net 3/4] net: enetc: fall back to software TX csum for
- too long L3 headers
+	b=meQNc0roy9IBNOVc+GZSaqQzt10PHUrvXHSjkaBJymAAglslM1DJrxqgzHLW1alQR
+	 rbNygEMoXeb/uLZ8q6dEv8aQiraCbrjByuqaxJWbuWXbreVOHXaXVeULMjg5ooYmqF
+	 dFdblTBt61n3VAeAaH7scPVqZqZOtEGvVbrMTz/cGEaUMMNLUsV/0XvaZDax+k9++B
+	 pvBHYc1Nmy7/mUPvmhhr0ld5IodXbsHslKTCO+xkqrgoWEFzp4vwnogo7bi4UQwZy/
+	 IRy4OfBSwH9m3Kc4nRFOSQ26yFDTxyVKy08sw0V52i9StM/zs5+DJ5VuoYUt3mXaaU
+	 jtLgEi80DtAJw==
+Subject: Re: [PATCH v2 net 1/4] net: enetc: let core segment GSO skb when TSO
+ would not fit the TX ring
 From: netdev-bot+sashiko@kernel.org
 To: vladimir.oltean@nxp.com
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  claudiu.manoil@nxp.com, wei.fang@nxp.com, xiaoning.wang@nxp.com,
  ioana.ciornei@nxp.com, willemdebruijn.kernel@gmail.com, imx@lists.linux.dev,
  linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 00:28:56 +0000
-Message-ID: <179539373648.3135.13870830196856644441@kernel.org>
-In-Reply-To: <20261118235055.1225115-4-vladimir.oltean@nxp.com>
-References: <20261118235055.1225115-4-vladimir.oltean@nxp.com>
-X-sashiko-severity: Medium
+Date: Mon, 23 Nov 2026 00:28:52 +0000
+Message-ID: <179539373276.3135.4544992671951430926@kernel.org>
+In-Reply-To: <20261118235055.1225115-2-vladimir.oltean@nxp.com>
+References: <20261118235055.1225115-2-vladimir.oltean@nxp.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,159 +77,131 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] net: enetc: L4 offset check in enetc_features_check() misses
-  CHECKSUM_NONE GSO
-- [Low] The commit "net: enetc: fall back to software TX csum for too
-  long L3 headers" has no Fixes: tag, but it fixes a real bug.
-- [Low] The macro's name says inclusive maximum, but its only user treats
-  it as an exclusive bound.
+- [High] enetc_features_check()
+  (drivers/net/ethernet/freescale/enetc/enetc.c:1106-1122) decides…
 
 --
 
-net: enetc: fall back to software TX csum for too long L3 headers
+net: enetc: let core segment GSO skb when TSO would not fit the TX ring
 
-This patch makes enetc_features_check() strip the checksum and GSO
-features from CHECKSUM_PARTIAL skbs when the hardware TX checksum engine
-is in use and the L4 offset (plus any hwaccel VLAN tag) reaches 127 bytes.
-The i.MX95 hardware rejects such frames as a programming error, but the
-driver still counts them as sent.
+This patch adds an ndo_features_check() to enetc. For skbs that take the
+software TSO path, it clears the GSO features when the descriptor estimate
+is at least the TX ring size, so the core segments those skbs before
+ndo_start_xmit(). The goal is to stop the TX queue from stalling on skbs
+that could never fit in the ring.
 
 > diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
-> index 7f089a84d9a65..6cc519eea5bd3 100644
+> index c6571b5cc8425..1606ac57016f3 100644
 > --- a/drivers/net/ethernet/freescale/enetc/enetc.c
 > +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-> @@ -1114,6 +1114,16 @@ netdev_tx_t enetc_xmit(struct sk_buff *skb, struct net_device *ndev)
+
+[ ... ]
+
+> @@ -1098,6 +1103,24 @@ netdev_tx_t enetc_xmit(struct sk_buff *skb, struct net_device *ndev)
 >  }
 >  EXPORT_SYMBOL_GPL(enetc_xmit);
 >  
-> +static bool enetc_skb_l4_too_deep(const struct sk_buff *skb)
+> +netdev_features_t enetc_features_check(struct sk_buff *skb,
+> +				       struct net_device *ndev,
+> +				       netdev_features_t features)
 > +{
-> +	unsigned int l4_offset = skb_checksum_start_offset(skb);
+> +	struct enetc_ndev_priv *priv = netdev_priv(ndev);
 > +
-> +	if (skb_vlan_tag_present(skb))
-> +		l4_offset += VLAN_HLEN;
+> +	features = vlan_features_check(skb, features);
 > +
-> +	return l4_offset >= ENETC_TX_CSUM_MAX_L4_OFFSET;
-
-[Severity: Low]
-This isn't a bug, but is the name ENETC_TX_CSUM_MAX_L4_OFFSET a bit
-misleading? enetc.h defines it as:
-
-#define ENETC_TX_CSUM_MAX_L4_OFFSET	127
-
-This comparison treats it as an exclusive bound, so the largest L4 offset
-actually allowed is 126. The ">=" matches the RM text ("must be smaller
-than 127 bytes"). The "MAX" in the name, though, suggests that 127 itself
-is allowed.
-
-Someone reusing the macro could reasonably write
-"> ENETC_TX_CSUM_MAX_L4_OFFSET" and let a 127 byte offset through, which
-the hardware would reject. Would a name like
-ENETC_TX_CSUM_L4_OFFSET_LIMIT, or a value of 126 compared with ">", make
-the definition and its use agree?
-
-The mismatch is still there at the end of the series. The later patch
-"net: enetc: let core segment GSO skb when headers exceed TSO_HEADER_SIZE"
-also cites this macro in its commit message.
-
-> +}
-> +
->  netdev_features_t enetc_features_check(struct sk_buff *skb,
->  				       struct net_device *ndev,
->  				       netdev_features_t features)
-> @@ -1122,6 +1132,12 @@ netdev_features_t enetc_features_check(struct sk_buff *skb,
->  
->  	features = vlan_features_check(skb, features);
->  
-> +	if (priv->active_offloads & ENETC_F_TXCSUM &&
-> +	    skb->ip_summed == CHECKSUM_PARTIAL && enetc_skb_l4_too_deep(skb)) {
-> +		features &= ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
+> +	if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
 > +		return features;
-> +	}
 > +
+> +	if (tso_count_descs(skb) >= priv->tx_bd_count)
+> +		features &= ~NETIF_F_GSO_MASK;
 
-[Severity: Medium]
-Does this check catch GSO skbs that reach enetc_features_check() with
-skb->ip_summed set to something other than CHECKSUM_PARTIAL?
+[Severity: High]
+Can SKB_GSO_DODGY skbs get past this check, given that their gso_segs is
+still 0 when enetc_features_check() runs?
 
-There are at least two ways to get such an skb here:
+tso_count_descs() is computed from skb_shinfo(skb)->gso_segs.
+virtio_net_hdr_to_skb() clears that field for untrusted skbs, for example
+those sent by af_packet with PACKET_VNET_HDR:
 
-- validate_xmit_skb() changes a non-fraglist GSO skb marked
-  CHECKSUM_UNNECESSARY into CHECKSUM_NONE before it calls
-  netif_skb_features(). One example is a TCPv6 skb with an SRH that
-  GRO coalesced and that is then forwarded or bridged out of the
-  ENETC port.
-- __virtio_net_hdr_to_skb() builds CHECKSUM_NONE GSO skbs when
-  VIRTIO_NET_HDR_F_NEEDS_CSUM is not set. Local users of tun/tap,
-  macvtap, vhost-net or AF_PACKET can trigger this.
+include/linux/virtio_net.h:virtio_net_hdr_to_skb() {
+    ...
+			shinfo->gso_type |= SKB_GSO_DODGY;
+			shinfo->gso_segs = 0;
+    ...
+}
 
-For those skbs the ip_summed test fails and enetc_skb_l4_too_deep() is
-never called. NETIF_F_TSO6 and NETIF_F_HW_CSUM stay set in features.
+With PACKET_QDISC_BYPASS, nothing recomputes gso_segs before the features
+check. qdisc_pkt_len_segs_init() is only called from __dev_queue_xmit():
 
-netif_needs_gso() is then true because the skb is not
-CHECKSUM_PARTIAL. validate_xmit_skb() goes through __skb_gso_segment()
-into tcp6_gso_segment(), which switches the skb to CHECKSUM_PARTIAL
-via __tcp_v6_send_check(). tcp_gso_segment() then returns NULL without
-segmenting, because skb_gso_ok() still sees NETIF_F_TSO6 in features.
+packet_xmit()
+  dev_direct_xmit()
+    __dev_direct_xmit()
+      validate_xmit_skb_list()
+        validate_xmit_skb()
+          enetc_features_check()   <- gso_segs == 0, GSO features kept
 
-The skb reaches enetc_start_xmit() and enetc_lso_hw_offload() whole.
-enetc_lso_map_hdr() then sets ENETC_TXBD_FLAGS_CSUM_LSO,
-ENETC_TXBD_FLAGS_LSO and ENETC_TXBD_FLAGS_L4CS with an L4 offset of
-127 bytes or more. Wouldn't the hardware reject that with the same
-programming error described in the commit message? The frame would be
-dropped while tx_ring->stats still counts it as sent.
+The estimate is therefore just nr_frags, and NETIF_F_GSO_MASK stays set.
+enetc does not advertise NETIF_F_GSO_ROBUST, so the skb goes through
+__skb_gso_segment(), and tcp_gso_segment() takes this branch:
 
-At this point in the series nothing bounds the GSO header length
-either. Headers of 256 bytes or more on this path also wrap the u8
-lso->hdr_len and lso->l3_hdr_len fields that enetc_lso_start() fills
-in.
+net/ipv4/tcp_offload.c:tcp_gso_segment() {
+    ...
+	if (skb_gso_ok(skb, features | NETIF_F_GSO_ROBUST)) {
+		/* Packet is from an untrusted source, reset gso_segs. */
 
-The TSO_HEADER_SIZE - VLAN_HLEN check added later by "net: enetc: let
-core segment GSO skb when headers exceed TSO_HEADER_SIZE" removes the
-wrap. It does not close this hole, though. A GSO skb with an L4 offset
-between 127 and 232 bytes and no more than 252 bytes of headers still
-keeps NETIF_F_TSO6 at the end of the series.
+		skb_shinfo(skb)->gso_segs = DIV_ROUND_UP(skb->len, mss);
+    ...
+}
 
-csum_start is only meaningful for CHECKSUM_PARTIAL, so the ip_summed
-test is needed as long as enetc_skb_l4_too_deep() uses
-skb_checksum_start_offset(). Would it work to use
-skb_transport_offset() for GSO skbs regardless of ip_summed, and keep
-the csum_start based check for non-GSO CHECKSUM_PARTIAL skbs?
+This returns NULL, so the original unsegmented skb is passed on, now with
+its real gso_segs. With gso_size as small as 8 and a ~64KB payload, that
+is roughly 8000 segments, or about 16000 BDs for a 2048-entry ring.
 
-[Severity: Low]
-Should this patch have a Fixes: tag? The other three patches in the
-series each carry "Fixes: fb8629e2cbfc", but this one has none.
+enetc_bd_unused() is at most bd_count - 1, so this check in
+enetc_start_xmit() can never become false:
 
-The L3_START/L3_HDR_LEN programming in enetc_map_tx_buffs() that this
-check guards came from commit d9a093d2d12a ("net: enetc: add Tx checksum
-offload for i.MX95 ENETC"):
+		} else {
+			if (enetc_bd_unused(tx_ring) < tso_count_descs(skb)) {
+				netif_stop_subqueue(ndev, tx_ring->index);
+				return NETDEV_TX_BUSY;
+			}
 
-	temp_bd.l3_aux0 = FIELD_PREP(ENETC_TX_BD_L3_START,
-				     skb_network_offset(skb));
-	temp_bd.l3_aux1 = FIELD_PREP(ENETC_TX_BD_L3_HDR_LEN,
-				     skb_network_header_len(skb) / 4);
+dev_direct_xmit() frees the skb, but the subqueue stays stopped. The only
+place that wakes it is enetc_clean_tx_ring(), and that needs completed
+frames:
 
-enetc_lso_map_hdr() has the same unbounded programming. It came from
-commit 69797ff888d3 ("net: enetc: add LSO support for i.MX95 ENETC PF"),
-and LSO depends on the same checksum engine:
+	if (unlikely(tx_frm_cnt && netif_carrier_ok(ndev) &&
+		     __netif_subqueue_stopped(ndev, tx_ring->index) &&
+		     ...
+		netif_wake_subqueue(ndev, tx_ring->index);
 
-	txbd_tmp.l3_aux0 = FIELD_PREP(ENETC_TX_BD_L3_START, lso->l3_start);
-	/* l3_hdr_size in 32-bits (4 bytes) */
-	txbd_tmp.l3_aux1 = FIELD_PREP(ENETC_TX_BD_L3_HDR_LEN,
-				      lso->l3_hdr_len / 4);
+If the ring is idle when this happens, and with no ndo_tx_timeout, does
+that TX queue stay stopped until the interface is bounced? That would be
+the same stall the commit message describes as triggerable "from any
+source that can craft gso_segs".
 
-Without a tag, stable trees that contain d9a093d2d12a (December 2024 and
-later) may not get this fix. Frames such as IPv6 with a 5 SID SRH would
-then still be dropped silently by the hardware while being counted as
-sent.
+A tc egress BPF program can probably reach the same state as well.
+bpf_skb_adjust_room() and similar helpers set gso_segs = 0 together with
+SKB_GSO_DODGY, and sch_handle_egress() runs after
+qdisc_pkt_len_segs_init().
 
-Would something like this be appropriate?
+The af_packet UDP_L4 case does not seem to trigger this, because
+virtio_net_hdr_to_skb() caps it at UDP_MAX_SEGMENTS. The TCP case does
+trigger it.
 
-Fixes: d9a093d2d12a ("net: enetc: add Tx checksum offload for i.MX95 ENETC")
+Later patches in the series do not appear to change this. At the end of
+the series, enetc_features_check() still goes through
+enetc_tso_count_descs(), which reads skb_shinfo(skb)->gso_segs.
 
->  	if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
->  		return features;
->  
+Would it work to derive the segment count from skb->len, the header length
+and gso_size here, at least for SKB_GSO_DODGY skbs? Another option would be
+for enetc_start_xmit() to drop, instead of returning NETDEV_TX_BUSY for,
+any skb whose estimate is >= tx_ring->bd_count.
+
+> +
+> +	return features;
+> +}
+> +EXPORT_SYMBOL_GPL(enetc_features_check);
 
 [ ... ]
 
