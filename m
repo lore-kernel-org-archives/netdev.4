@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795458660;
-	b=Krcvrgqr0S3obmVi75pIox5FghUk729jaRB9jIxlpvi8vr+eIHIoSS185VjpVA06D5k3
-	 +YFAIrZkkzbEHUF4+eFGj5WRPMcVV5EEQTPW5BVMzCZeurXtj5j2VIltu4ARpXuw8+fGp
-	 ihyVgz2gr0DRqW6iEEsPRXBB/0O6w/0ftbd0fxEfqNrg5EM/CEYlRg8XVhpBKaOiOyfby
-	 bxdNCMvvkFfiF1RzUN3zkRJryJ9bR0vtMCSNnd+YuhBe6w4JDVqAmGQxzbY/p93nvhbSO
-	 mDY7jfNvsWa4Hs7+/7O0Mg+sPOwNPfdGhJVYWuthjO7RtgP8PKaY3DpEjQUGCtQj1jA==
+	b=RpwNc/QUe/j/hHmaVIh03L+8ywBZk7wgHKXd3x1pay/D/B/8T/rNyrUDc+e0SyGlJA1G
+	 qwZ6yvi+RigaY7wgPyXC7IPYCo8nzCr2d/wZzza4Ec4PxaRO/qh5FilQhYW1x1GSwZm4f
+	 sS0xTdSGajsWmHty5cw9sfC1kmTHa8HqNJemhX2YnvqHU0EwbWH9bdZBshXrvH7VlCLrK
+	 w8WJy7dpSZGJ9VQ2towK934CYruO151NqcUbEMC32mU5uM2JAg4cL2sJaUEHCk8JNZixZ
+	 DOph2Ra2D+C9WoO8Dvh9ZNGLkTxzPLmlSn9ueKtNgJSLxbblt52XZhmXQ9rVzBBWWBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795458660;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ziPq+rozolTFcfNoS5trKF207s8r7DJFetFXDyLmxW0=;
-	b=ygUbZ7OfmDanzsYPXrozdd5UYdrOgzuDZNTJFUJZDUnUtawjeAXPtsAKcqmXYe/JYjkA
-	 vtY/qL+Re0T1P9ATmuXmLHq5w5FjfMNcMbqnGE025IdC9TttNaBmVRxnYH6e4MfvP4sSH
-	 bPK3NS2mn1gcSMkl6r/sSLC+Et3WITEo4rzy7gYoEMD1ri2bSr9gUqQkXFw70Fdpe8olV
-	 OHuT731lwafX7wkEP8eZvKsRK+r8qcrs+xQx5nhooE9dHU9HOx6yW2Mp1BBnsE735Y5p9
-	 8bZTHPK3fkwOqah0jhtZhgvAjtmnuMqEALJJHALw75lzJSMN+QR6SnLldMcx6f5iUuw==
+	bh=0Cr5+htcvfo1cucc/4RedFWOfXhyue4IWdVJkAGcmPI=;
+	b=RE7UOAnQTAiZh+6l06Q2i0hl0mvEU2lhrlzGTiSMr/aLSRRYapKPNYEiDPmiPvkYrwJi
+	 MQgO2qqoPJwzCxlnwjDYV9IZFol7EFsL0tLNq5dAhTIWU+3vl9COR7a6XzXX3a+ZlpcPj
+	 Rxlw7LkyHRVmPTNegUH/BZ4JUIIl1vu5kA8gejR0Z/h/VvShloALbK3h4abHlJrDC8JEk
+	 gpC7+vaJYtOHU/uLlntedUf50EG4OIRTm1raSFKdkOWU0eA157DhynWEAHbcrQNn/7B+Z
+	 yyFUL3I1OoxVejq8APjP3JWOL0lAQJhPqK55BcxEoI8HdKwzzIY9DhYNSs7qOS9reRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hpxRiSY7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlJxlKP0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E79F9606A31A;
-	Mon, 23 Nov 2026 18:30:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D780A606A334;
+	Mon, 23 Nov 2026 18:31:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hpxRiSY7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDCB1F000C0;
-	Mon, 23 Nov 2026 18:30:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlJxlKP0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF821F000C6;
+	Mon, 23 Nov 2026 18:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795458659;
-	bh=ziPq+rozolTFcfNoS5trKF207s8r7DJFetFXDyLmxW0=;
+	s=k20260515; t=1795458660;
+	bh=0Cr5+htcvfo1cucc/4RedFWOfXhyue4IWdVJkAGcmPI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hpxRiSY7HpcAIL55xRlAm1lflsBTQn8fl9d6/ZHCwN1U5The5a9miNZIpDt70xwux
-	 WTTX8RmlJ/4q/8Zd7YYxPMyiLGwJJKdEsr/xU7yWKaz5GaAWEn6Q/ksWceinw98jEX
-	 nCARY3P+70q9exQORVcQZpwenY7A7+co2PfEh+I28DS/ViDtD5kQov5vFWi0I0GzOl
-	 LF0tWlKt5Se6rdid3qOy/Qs+nRdW4Ke+RcDEHWrUlvbII3zBKoMNAYcXxL3S7sXXt7
-	 sdihoGiNnHRAK20Misl8C87lGGhvZYJRez6RwwFGsMqOHtXAJ6zzY4i95qx8JEvweh
-	 pf7a6kNaXpEow==
-Subject:
- Re: [PATCH net v6 1/5] bnxt_en: return the RING_FREE status to callers
+	b=mlJxlKP0YMQVkwFrr2i4+kBhSomdW3Ds3eRTfbFko8mgj4GV9LzreTYLTRukJTF4E
+	 WalyfdN4hgPfWUrX74M7ZIsU/dMrVf4jIQvWGmxl6VMwtwNa6Fq17dszX9/qJGrACh
+	 oy0Kfluw1aF4OOU6Ug/pPmi6DLHAG/CXsew4cSArxTkKRodN/F3ggFV/apAPNJEze/
+	 33CUydGsMWDHoceZOLk8ohagsLBXCuI/cYruc82x6l0Et/bNN4b8TKMcwHWGx3pcal
+	 L9Bs0c8gDI5e+jG/p42p3wixr2T+FA+Z9FARGEjlm9zzVfzFI1eIhOKs/xuKlQWCLk
+	 35+bj/qBfKXsg==
+Subject: Re: [PATCH net v6 2/5] bnxt_en: check HWRM response if completion
+ never arrives
 From: netdev-bot+sashiko@kernel.org
 To: joe@dama.to
 Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
@@ -50,10 +50,10 @@ Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
  prashant@broadcom.com, edumazet@google.com, horms@kernel.org,
  selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
  linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 18:30:57 +0000
-Message-ID: <179545865792.3135.13782875077253506018@kernel.org>
-In-Reply-To: <20261120152830.699712-2-joe@dama.to>
-References: <20261120152830.699712-2-joe@dama.to>
+Date: Mon, 23 Nov 2026 18:30:59 +0000
+Message-ID: <179545865940.3135.4199576162321798829@kernel.org>
+In-Reply-To: <20261120152830.699712-3-joe@dama.to>
+References: <20261120152830.699712-3-joe@dama.to>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,189 +78,115 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message describes an errno contract that
-  hwrm_ring_free_send_msg() (drivers/net/ethernet/broadcom/bnxt/bnxt.c)…
-- [Low] The commit message says 'No caller acts on it yet, so there is no
-  functional change' but still carries `Fixes: 74608fc98d28`.
-- [Low] In hwrm_ring_free_send_msg()
-  (drivers/net/ethernet/broadcom/bnxt/bnxt.c), the `return -EIO;` left…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it is still
-  present at the end of the series.
+- [Medium] In __hwrm_send()
+  (drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c), when the HWRM_DONE…
 
 --
 
-bnxt_en: return the RING_FREE status to callers
+bnxt_en: check HWRM response if completion never arrives
 
-This patch makes hwrm_ring_free_send_msg() pass up the errno from the HWRM
-layer on failure. Before, it always returned -EIO. It also changes
-bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
-bnxt_hwrm_rx_agg_ring_free() to return that status, though no caller uses
-it yet.
+Before this patch, an HWRM_RING_FREE sent over a completion ring failed
+if __hwrm_send() timed out waiting for the completion. With this patch,
+__hwrm_send() checks the response buffer first. If resp_len is set, the
+sequence id matches and the valid byte is set, the command is treated as
+completed and goes through the normal error_code handling.
 
-> No caller acts on it yet, so there is no functional change.
->
-> Fixes: 74608fc98d28 ("bnxt_en: Ring free response from close path should use completion ring")
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c b/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
+> index de02d1baa7514..53667c0c38aaf 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt_hwrm.c
+> @@ -582,11 +582,50 @@ static int __hwrm_send(struct bnxt *bp, struct bnxt_hwrm_ctx *ctx)
 
-[Severity: Low]
-This isn't a bug, but is the Fixes tag meant to be here? The commit message
-says there is no functional change. At this commit, every caller of the TX,
-RX and AGG helpers still ignores the return value.
+[ ... ]
 
-Later patches in the series carry the same Fixes tag and depend on these
-return values, for example "bnxt_en: stop DMA before releasing rings the
-firmware did not free". If the tag is there so stable takes this patch
-together with them, could the commit message say so?
-
-> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> index e78cf7ad3cbc8..c3413354e7582 100644
-> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> @@ -7673,55 +7673,62 @@ static int hwrm_ring_free_send_msg(struct bnxt *bp,
->  	if (rc || error_code) {
->  		netdev_err(bp->dev, "hwrm_ring_free type %d failed. rc:%x err:%x\n",
->  			   ring_type, rc, error_code);
-> +		if (rc)
-> +			return rc;
+> +			/* The completion was not delivered, but the firmware
+> +			 * may still have freed the ring. Check the response
+> +			 * before giving up and log the state.
+> +			 */
+> +			resp_seq_id = READ_ONCE(ctx->resp->seq_id);
+> +			len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
+> +			if (len && resp_seq_id == ctx->req->seq_id)
+> +				valid_byte = READ_ONCE(*((u8 *)ctx->resp + len - 1));
+> +
+> +			if (!valid_byte) {
+> +				hwrm_err(bp, ctx,
+> +					 "Resp cmpl intr err msg: 0x%x len:%d seq:0x%x/0x%x\n",
+> +					 req_type, len,
+> +					 le16_to_cpu(resp_seq_id),
+> +					 le16_to_cpu(ctx->req->seq_id));
+> +				goto exit;
+> +			}
+> +
+> +			/* Read the rest of the response after the valid byte */
+> +			dma_rmb();
+> +			if (!(ctx->flags & BNXT_HWRM_CTX_SILENT))
+> +				netdev_warn(bp->dev,
+> +					    "Resp cmpl intr not delivered, msg: 0x%x completed anyway (len:%d valid:0x%x err:0x%x)\n",
+> +					    req_type, len, valid_byte,
+> +					    le16_to_cpu(ctx->resp->error_code));
+> +		} else {
+> +			len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
+>  		}
+> -		len = le16_to_cpu(READ_ONCE(ctx->resp->resp_len));
+>  		valid = ((u8 *)ctx->resp) + len - 1;
 
 [Severity: Medium]
-Does the errno returned here match what the commit message describes? The
-message says:
+Is a set valid byte in ctx->resp enough to show that the ring is safe to
+free?
 
-    Return the errno from hwrm_req_send() instead. -EBUSY means no response
-    arrived: the wait timed out, was abandoned, or the firmware channel is
-    down.
+The commit message calls this case one where "only the notification was
+lost". But the commit in the Fixes: tag, 74608fc98d28, sent the
+RING_FREE response to the completion ring so that the completion entry
+itself would act as the fence:
 
-If the channel is already down, the request never reaches __hwrm_send(),
-because hwrm_ring_free_send_msg() returns success first:
+  "The response will be the last entry in the ring and we can free the
+  ring after getting the response.  This will guarantee no spurious DMA
+  to freed memory."
 
-	if (BNXT_NO_FW_ACCESS(bp))
-		return 0;
+The response buffer and the HWRM_DONE completion entry are two separate
+device writes. Once token->state is BNXT_HWRM_COMPLETE, the existing
+success path reads resp_len without waiting for the valid byte. That
+suggests the response buffer is written before the completion entry.
 
-So the only channel-down case that comes back as -EBUSY is a FW_FATAL_COND
-that gets set during the wait.
+So a set valid byte may not mean that the HWRM_DONE entry has landed. It
+also may not mean that the TX/RX completions queued ahead of it on the
+same ring have landed.
 
-Some cases where RING_FREE never reaches firmware return -ENOMEM, not
--EBUSY. The first is hwrm_req_init() failing in __hwrm_req_init():
+This path runs when NAPI has stopped draining the completion ring, for
+example after a TX watchdog timeout, a lost IRQ or a full completion
+ring. In that situation the hardware may still have completion DMA
+pending.
 
-	req_addr = dma_pool_alloc(bp->hwrm_dma_pool, GFP_KERNEL | __GFP_ZERO,
-				  &dma_handle);
-	if (!req_addr)
-		return -ENOMEM;
+Before this patch, this case returned -EBUSY. Later in this series,
+"bnxt_en: stop DMA before releasing rings the firmware did not free"
+makes bnxt_hwrm_ring_free() count only -EBUSY results as stuck rings.
+__bnxt_close_nic() then calls bnxt_stop_dma():
 
-The second is __hwrm_send() failing before it sends anything:
+    if (bnxt_hwrm_tx_ring_free(bp, &bp->tx_ring[i],
+                               close_path) == -EBUSY)
+            stuck++;
+    ...
+    if (bnxt_shutdown_nic(bp, irq_re_init))
+            bnxt_stop_dma(bp);
 
-	token = __hwrm_acquire_token(bp, dst);
-	if (!token) {
-		rc = -ENOMEM;
-		goto exit;
-	}
+This is the close path that reaches this code:
 
-__hwrm_to_stderr() also maps a firmware HWRM_ERR_CODE_NO_BUFFER reply to
--ENOMEM. A caller therefore can't tell "never sent" from "firmware
-rejected" for that errno. Also, the hwrm_req_init() error is returned here
-as well, not only the errno from hwrm_req_send().
+__bnxt_close_nic()
+  bnxt_shutdown_nic()
+    bnxt_hwrm_resource_free()
+      bnxt_hwrm_ring_free()
+        bnxt_hwrm_tx_ring_free() / bnxt_hwrm_rx_ring_free() (close_path)
+          hwrm_ring_free_send_msg()
+            __hwrm_send()
 
-Later in the series, bnxt_hwrm_ring_free() counts a ring as stuck only
-when the helper returns -EBUSY:
+This patch returns 0 when the fence was never seen. Would those rings
+then skip the stuck count and bnxt_stop_dma()? If so, bnxt_free_skbs()
+and bnxt_free_mem() would release the ring memory while bus mastering is
+still enabled.
 
-	if (bnxt_hwrm_tx_ring_free(bp, &bp->tx_ring[i], close_path) == -EBUSY)
-		stuck++;
-
-On the -ENOMEM path, would the ring then be released through
-bnxt_free_mem() without bnxt_stop_dma()? Firmware never got the RING_FREE
-and still owns the ring. The path would be:
-
-__bnxt_close_nic()->bnxt_shutdown_nic()->bnxt_hwrm_resource_free()->
-  bnxt_hwrm_ring_free()->bnxt_hwrm_tx_ring_free()->
-    hwrm_ring_free_send_msg()->hwrm_req_init() returns -ENOMEM
-
->  		return -EIO;
-
-[Severity: Low]
-Can this return -EIO still be reached? __hwrm_send() sets rc with
-__hwrm_to_stderr() from the same response error_code, and only
-HWRM_ERR_CODE_SUCCESS maps to 0. So rc == 0 with a nonzero error_code
-doesn't look possible. On the hwrm_req_init() failure path, error_code
-stays 0 and rc is nonzero.
-
-This isn't a bug, but rc is now the errno handed to callers, and the
-netdev_err() above prints it as rc:%x (for example rc:fffffff0). Would %d
-be clearer? The %x format predates this patch. After a timeout or abandon,
-the err:%x value also comes from a response buffer that firmware never
-wrote.
-
->  	}
->  	return 0;
->  }
-
-[ ... ]
-
-> -static void bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-> -				   struct bnxt_rx_ring_info *rxr,
-> -				   bool close_path)
-> +static int bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-> +				  struct bnxt_rx_ring_info *rxr,
-> +				  bool close_path)
->  {
-
-[ ... ]
-
-> -	hwrm_ring_free_send_msg(bp, ring,
-> -				RING_FREE_REQ_RING_TYPE_RX,
-> -				close_path ? cmpl_ring_id :
-> -				INVALID_HW_RING_ID);
-> +	rc = hwrm_ring_free_send_msg(bp, ring,
-> +				     RING_FREE_REQ_RING_TYPE_RX,
-> +				     close_path ? cmpl_ring_id :
-> +				     INVALID_HW_RING_ID);
->  	ring->fw_ring_id = INVALID_HW_RING_ID;
->  	bp->grp_info[grp_idx].rx_fw_ring_id = INVALID_HW_RING_ID;
-> +	return rc;
->  }
-
-[Severity: High]
-This is a pre-existing issue that this patch did not introduce, but it is
-still there at the end of the series.
-
-bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
-bnxt_hwrm_rx_agg_ring_free() clear fw_ring_id on every path. The RX and AGG
-helpers also clear the grp_info rx_fw_ring_id and agg_fw_ring_id. The queue
-management callers ignore the status these helpers now return.
-
-bnxt_queue_stop() does:
-
-	bnxt_hwrm_rx_ring_free(bp, rxr, false);
-	bnxt_hwrm_rx_agg_ring_free(bp, rxr, false);
-	page_pool_disable_direct_recycling(rxr->page_pool);
-
-It then hands the old ring and page pool to qmem, and ndo_queue_mem_free
-frees them later.
-
-bnxt_tx_queue_stop() does:
-
-	bnxt_hwrm_tx_ring_free(bp, txr, true);
-	bnxt_hwrm_cp_ring_free(bp, txr->tx_cpr);
-	bnxt_free_one_tx_ring_skbs(bp, txr, txr->txq_index);
-
-This unmaps and frees the TX buffers right after an -EBUSY that nobody
-checks.
-
-If firmware doesn't answer RING_FREE here, can the device keep writing into
-freed RX pages, or keep reading from unmapped TX buffers?
-
-The close path log in this series shows firmware can keep doing DMA after
-an unanswered RING_FREE (AMD-Vi IO_PAGE_FAULT). However, only the close,
-half-close and init-error paths through bnxt_hwrm_ring_free() were changed
-to stop DMA.
-
-The RX side is reachable through netdev_rx_queue_restart()->
-bnxt_queue_stop(), for example from the TPH IRQ affinity notifier or from
-binding a devmem or io_uring zcrx queue. The TX side is reachable through
-bnxt_tx_queue_stop() when BNXT_FLAG_SHARED_RINGS or tph_mode is set.
-
-[ ... ]
+Also, if the HWRM_DONE entry shows up late and NAPI processes it after
+the token has been released, does hwrm_update_token() just log an
+"Invalid hwrm seq id" error?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120152830.699712-1-joe%40dama.to
