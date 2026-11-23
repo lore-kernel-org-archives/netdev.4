@@ -1,86 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437995;
-	b=EwNlvZFxCVL9J0b9TTn5AynNZnjKGAj39nBF9mx1pHlxUISRQZ7RWleHFqFlasp8exp8
-	 riQNatqXj3d8b+M1WctZrIfP6M7fr1io3vlK8IRBJq7fzhZGF+kdNvdUuSWHycgve6yvb
-	 tpobd/aY99UUWLF9qWLJLBgDf0lf/XEU0TJdLve4q3sxGZLKQYjAiubR5u0OWtj+04eKn
-	 u7B2UckeBn/oVkOH3v+bT7Fz5N0okbJzi0JuRASgNjs8CAGtKTDAZ9hQm5eYinhmHqWBy
-	 CCIVlFsoYiTDv4FszLgrYEt875MyCA6PW0W75BJJ8d8NNA3lfICdtQHzshocNMNIK7g==
+	t=1795438068;
+	b=UVe4/PxCY6nGAB+MKbHJnSwy+6mPCeT4LJbQQblzbHzfYn5miFYRVGQwxwhobH+wGa1I
+	 9/YrgR3wJy7prA5YHwYn/wVXNIGX1M0Ip4K9xx22AjbIM2kiCZ5wDNBlme+dLw5JKbAlP
+	 q2tN1ZKM9ncjxoPONSX4+ZmETDC1c9gWTegENLz1PVG+Cua7Oodpwm66Z9XdQT6A7X9DU
+	 o08KUGSDO7oshUEk1jYn5j1w1bYK2XxXc2W+W2NjOWO1zpS1NqwkaGxsFDAJHjSeImyyh
+	 WBRR+nN7+pKsgJ33DgDANKiVpXUaAIF5CKzliO016uOIsInZUj0cutLiX3xP0vaBDjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437995;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:From:To:Cc:
-	 References:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=xljfEW1ARtv9O5fRWcQQ3fcCIsF2gNs8iXKa4wamXZc=;
-	b=DEMdXV27BWsFq2UDTMHIgeBv2Ohbcsd/CYNemfu7NYd0gHgIRSkgKmtOKBxZo/d4BN4f
-	 zDrxd/yrUFYIUtDhdXi3SaqF3NYGzYcwIyGcQjpVTVq6NF3iipv6Gfp5NYWKub18U2tVQ
-	 pIZ5rQ1F+HE/BNg8h3EhPVdHjJ0MRU8bh30TICDygc54afMQ/dBcA12ztXFEtG6ibtugy
-	 kNf9A1UFpvDXBaUOtgQeCCyGablgXNMYyK5Q6stBzSkRzzcGNbu8Seh+Do3w5fxT/c3Te
-	 CJpeXc9TNUPrZ20t/yh9TmGSrcEJ5k8vglNi2mEY+chDgYp9a3ogb4nCKgA/ky5JhKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438068;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=orrWhwI38eNtu/8XCVAnDu9Zutnik9Tw9G8jO+qCzzg=;
+	b=a2iCtPKWYcfGAP+GIsjKf3IQKTeaj4suGLnDM3nT8wfLBIqybL7NBnVSv+QfYINvnOBK
+	 4IBZGIjfS+Uw/CDRPPASndSWU0k2Ijp4620y1Z37Luumb+xtjVermCMLL8krOaHiZYvuJ
+	 45Z6kzHVAeJg+ic0ef6zVabmQxWCqi0xwtOWHni6VjjYnI3ELnuhD7fPwMg9tOptf/IkQ
+	 DLf5MA+MQqstBBd9bbM/If82QyU0I0H/RbOZBv3LM9G4rZCAkWq9IGZWxdwv3fi2Tc/d6
+	 mGtkBSzJ4SPWqS5uQ9J9uv/eOgxxB0gB1YV6+ZmMSJmjeqfXNqUb6TCwPe2LRxcAjIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=GJVK37dR;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="ceLpo/QP";
+	arc=none smtp.remote-ip=66.163.184.45
+Received: from sonic317-34.consmr.mail.ne1.yahoo.com (sonic317-34.consmr.mail.ne1.yahoo.com [66.163.184.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69437606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:46:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69437606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57318606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:47:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57318606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=GJVK37dR
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so31423695e9.2
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:46:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795437994; x=1796042794; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:references:cc:to
-         :from:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xljfEW1ARtv9O5fRWcQQ3fcCIsF2gNs8iXKa4wamXZc=;
-        b=GJVK37dR/Q9siyKu+M5KtXAt4XhqexpGLl+hNEL9JqcddI3JkinJ3I3nfYnfLSey5K
-         7ktANB7NPwGSuSqoUgbhMSVgtxc24op6IxqQ8P2bWCnZER/77L9pgti0UttXuvFwsVX7
-         kB/gATBIYMCzf2UaWGn+3p1+JzrdZuQdDs3O1Dvrr68fu4ustwKfW13Xvvw2qbMOu0gI
-         /+ORJl8glpzDnCRG8tEA9Tg2UVeXfYMW+p/jO0PHc3DjW3G6DSdA2PGXBdG/zNNRqC0c
-         xRtpzq1B0+bXGgmpka9BCPcMdv7lctpyZLq8gXsM4uH623uJAhmGrSKQic+2/J+AoXUl
-         DhPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437994; x=1796042794;
-        h=content-transfer-encoding:content-type:in-reply-to:references:cc:to
-         :from:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xljfEW1ARtv9O5fRWcQQ3fcCIsF2gNs8iXKa4wamXZc=;
-        b=08+xcOQV+Q4gB4oVW7paNDZ4tiQF+PQoYe7whOgJiWF32TQatzchDzsmUYWWE4XKMI
-         q4uK17BwkYR0/opYMCCEnFzihfXU3feZBMnmChYTi3PAQqQZBYW94j3/IgNvSSGrpOgU
-         exsai9RNpz99wXbMckkgZynRFWerIfZnNz+ljM+g8MFbIcLD7E7c34Ok84XolnyT9bVj
-         shcuP0NC2I4b8SkuG6mvuqgfndWPhB1svOMYb5BTXA8PY0DkKxapZ4LWk3LOhqEiH1yw
-         BBMAAiMo/U1/cd+QhvPTZMDbWTliAtzlU9MQDEAV72IBYkWzbNVvXNQeKBaKw0CqxPuT
-         mGDA==
-X-Gm-Message-State: APuU4Z9FVotzDJWarT6r4xUT5PSfCVwC0XbmwYZRB4z/JNtwx6/gUqvh
-	dNocrBFkBIYS0Zq+8v3uyDf38NNGHs7jk/j05jYCjRUZTCDVq+enIxbuzOXXKHQe2Hs=
-X-Gm-Gg: AZFdTZeqZyS/1a83LskIWIs4MbNTr9D9b6QZxsJR4VrFxB1bBKSJ+sHu/VChqhVCtyF
-	8m9PSUM/6uRgiphvkbOnEWvIBFEA1J3OORitQKI2cwWbqUdhN7pmnH/EmKzAPBaZ285wnPwPEU+
-	Sz0dF5si5yRIF4I0hTQ4IuekcX2E4idSyo+bhJx7AquFnQ4t+C2y+Jms7ZMSUbxkW3e6IHbeeIT
-	vTMfD/p6BzOaFGNFbYoqUKPAs3F8I/mOaQn9U7ElQDOBPpo5teAyXT62NPC+bZPLJDP5QdWjYUT
-	881ZZRsFlqpNokRkl4UbEOqm7bO4LEY/nCX9Sb5o/vb+uN1FnwC+6TG7Hjg315/zGviIN1srurq
-	V1LkMrCz5vOViPl55dAr3SkVX/VLAA9TK581Z0tipVW6Fj32mDbziR5BtdgDY4akegUZ7l+Zmcp
-	a2OqPxl10hJFM8+hJRIlhdoafwTPKo+VNXQ742eTcdoJ3oPRuNTGFXA5NJktVW6JZMwUp4e6T2G
-	1yVDq6k15tnPPkHpWTpU2Cw6Og5G0CDvpj4/yf9ZiauHrugTffVs4lfwSAgXeLJOda5ymSt+WDH
-	hJcVnYdkKC8X5EJqOcb3OV0EpTFdndKPj8ed/AmYs9q1+DWcNLzzpIZCc67jSHr/8QoteQEFH3X
-	tfXe9
-X-Received: by 2002:a05:600c:4e16:b0:4bb:69b2:d3df with SMTP id 5b1f17b1804b1-4bb88813024mr239666355e9.25.1795437993515;
-        Mon, 23 Nov 2026 04:46:33 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm399417215e9.7.2026.11.23.04.46.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 04:46:33 -0800 (PST)
-Message-ID: <a0180b86-cd27-4a1c-af55-ed7ff09d911d@blackwall.org>
-Date: Mon, 23 Nov 2026 14:46:31 +0200
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=ceLpo/QP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795438067; bh=orrWhwI38eNtu/8XCVAnDu9Zutnik9Tw9G8jO+qCzzg=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=ceLpo/QPIXDkwQNFAnKkgbqcLWlpZ+XSwk9MrjcKuZ5mj2ig01ryEOcdqVQ/TDqSyK9JPmd9Dmpdv2Au4FM/Yj4+2JzhHvI02HuLHAvaUrL1Cdb56apNYCp+3VEktfO/BXw9BhrHMMiOgjMoJeURWHLQ8peeaZ8w8ava6OBe6bN0z7FpHSHRFaVvin6esq0S0kTVsQijXLmems/79HqPc25YcHTHwb6JeCjGTJISJCaz7QRJuBt8PzOTA/2V8jFULRVRAg2JUZcfkdlLeKKzP5LxkukooBhcOHxekl/a9fSG9ak5FBT+w+G+xuojsmvSmAx131n+UruunU7Q/pCr7w==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795438067; bh=3LMuNOxW8zKYTBKQm3BNccZdU2n9C5W1yY55HXhrbvd=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=Lb/8jBMmBAup5ZYuUOYgqUqY9JrAIgx58OJXgm8XlvyHUeWz2LYxfPOkSz2qiWejstrP59eQ3utPj6p/OZgr8UrornEiLjnElmvvdoDSMUmjDz3In5V1FFV5IVm8XPJg2fDgWX7jpWODQXkaQ6bAySmf1fHV3SVVZOGsD5bBNZb9QXvh6ElNiBV3AFWk/KQEz0GTc4clGmsdqqB+strcc823l8w/jss+5T5mSiqFioext1ab19Zrfh5LWg2sEBJpFWAwseyx5y8DUlIoU+lFdSFqyZrAXk8btOUKT0itHAWuVV1pjW2m7OOW7hKlRlvjRkPb30Ktq64F2LEIT0ve/w==
+X-YMail-OSG: a93BEHcVM1lwrnw8poiQoAhNQqt0NJ4tAKAVlTdTwoDNeMs50BxComSCYx8Xl9Q
+ Ap0jQXw7doCu7HpYFgABDH7lxT8IZMBeWpcVEYeuuoRqn._aR.HHncWa5hBmEC3Dl2RXA5st_EgS
+ Nnzjxo5XNQBYUSYtnWDIUJbHxbfqb09QzbdyJOljdd7ebC1mEX3ieCICyIr1NBFbAe_ugjbhjuMK
+ fcDRBqyWK2X5NZyf4fHi8FypUJCTfMLwigp075gIU03WjiDp8fUzfxLShqNi1_Ai1JiI82_ImJnD
+ jfPyUheLevr6sqxLs73WwfFT6zdnEikiH4wzD5PXrueTzDsw2HEeswUfpQKOp.wZ4ub6AsKE.zhQ
+ 4gqBiMJo8.klOMfmHOkZHmxBokRGcwfaUoivQVmWq.qk9Cf0gzPzCasVh1uPMcD5o0kLs1W6Nrcd
+ 63s.ooAoVCfYgRBF9Uy9VfV5B0tbflsWjjnJLr8yu7a9C_m382JjiF3L_f8Z.QdcWb7ls1oVLF9H
+ D6Zl15RczWdYhmPZfKK_ozzQNQdchHB3srTl1vEdRsSS9ezrQovYZCC7MUiXYyRC72kDu67x0psK
+ N3lf_LRhftoQ6uu.7kDht00KcciXcyombKjlVSDqqPzjMw4jivTGvLdX09e4xAz908yZfR.EvxS1
+ YqPoBM__d_9ndN9CEP6uNW7caV.xqIg56Xy1.43mf2NhhH9EHHo3GlyEa0atVVupLQE2Ae4aR.Kb
+ HI_1Rev4fsyVTUZdP4jxqjj_SpQiAdiWqKiQq1sw5i_RtyUsBZx3YOXfIvZ5jOKAAf_NMBCeyUTg
+ jJwZ_MRODW45GwWDAaxPKVx0L7xi2thX15KgoCvszWmiZmzWrV98XSohKVJ7SMA.KavzpPbGQDYp
+ fG54Upbo1jK..bq1c8Jtdb1cOmg3gAmYgBF7M97Pf3XAbcLnDrL9BaOKajHbHuKPpmPylNbxXbmW
+ aMM5kLn9BSLbLxgNe53CS1WewdsRy36KraocT6UxaJ5QbVpKuFDn.YFCgvELdyznhlQic3O2FAis
+ DA.r5Pg1qlqfQ.rsgcvvhVACCKB9muQQh5yzgC8AYQoWb9riXEKRmTrrb1rb2NoDY.LYp2zt2C1w
+ o4Pqos9JFERZv8Rm_ZoXHdpWvNnyXlN6ZOsNLX1FxPvt28QQ7OkEA9WY9cYFGE0fWiGFdDuxZpIn
+ IDctyLp8jt9A9ySmS8sUchEStUuQiw49U1tzLERFuOF6g7x8.IMAOcFNGEy_lT9F2IvdvgzNYm5D
+ 1dveduYEqApWdMw.1XlpekBxXWz_vtqnW02ZV0j_CUYcUUAF.lCWy3LWfkiVXsuPwwnw9u15fzZ7
+ ku2jGNZ8KdS8FnSycJo3LoZvG3tfCCwI5ioRyb.n4IOErDhF_jGRkGrr1tOwGlGcHqG2qUX2I4Ux
+ hhORGNI8H0grbl7.phtx3Y.f90ATMo2wtClorZq670G_afF3UuIquMHR9ohNjac3oUP60qpA3MCQ
+ gayt6ycrwtMGDLV7u3a4pG8wMR3TS30RDK5AQZFKBjlUAelD9U6wrZg1EAhitA9nAYI.uj02fMxH
+ 4m767jgHTV7DHdSY.ShbXSQRZywS6unbVmte5VLg4aRgmbFXyltmAilzGyPgD1siQ3hCMWmapXC3
+ CvRPFNRKZYsvP5WLAMz.kv7Mk1iKmNN.YyCHYNUdnJqlS1K.2YPQsbMt53rmHnZH1Y.DnXCBZ0Q3
+ MpwlQEdHOAJX469r7EwEYjNq4aZLYiW4SNA6g59gLbVJeFUq7DhzECJekNsFqHq75HXBPFdN028E
+ iH0ajBcKB2pg2MYh_l_0BX8If07m82NHbbK5li5rLanvID0m1psL56nHBMpQA813YWfsQoyjggW5
+ NX0f0cX2Mj031xEx14yvv5Aoc99TaaXC._a.ucPG6.0u5Lt_eLQN9MGfkY2.n4FrrYK8Tbijeoln
+ pZgs94ZkktPioOcWuIcFNLqf5jqJ_yGqCjbF6r35DKscprUnzGxhytlowx0z08TAVuipf9UGjzxT
+ Us4iMRiMbOxRt5F3i82Y_62r0n9WOxEI7hzVVlgUJCeL67qEzrd7e2DvZyyU_aQq44t1yZE0wiiv
+ k_mISmXt97DhNNnwsCPfh2LmU_8f7FF7fNNG1InJdB7L1tKpDrpZhliizbPEXR0HSoDd2UEvtuRx
+ NQPwZn2vExE3Hqwf6Qn84ldrTsI7tOF_i7xnQ5RifBHUAzYs7KAKC9VNk7Ick6Lg6aImbPDa_Ksh
+ qJGsTe3uP2TsewCrWb9f5TtAlXMiR3iHhy8Yp5K5tw78yrOF83BhTSzIJB13fMgDtnrVZMekpPUz
+ SwPOsY6OUwenXexuNHRTmCdY-
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: eef3ac1d-69b4-426f-8e94-9319f1c7c173
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Mon, 23 Nov 2026 12:47:47 +0000
+Received: by hermes--production-ir2-7c4859dc89-9kgzz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 3522ec87fe67852f4cc02edda797809b;
+          Mon, 23 Nov 2026 12:47:44 +0000 (UTC)
+Message-ID: <b9f22af1-f0d0-4beb-8a4b-f4e0cf225363@yahoo.com>
+Date: Mon, 23 Nov 2026 13:47:44 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,58 +85,76 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 2/2] bonding: don't let an 802.3ad slave change its
- type
-Content-Language: en-US, bg
-From: Nikolay Aleksandrov <razor@blackwall.org>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>, Hangbin Liu <hangbin.liu@linux.dev>
-Cc: netdev@vger.kernel.org, Jay Vosburgh <jv@jvosburgh.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- linux-kernel@vger.kernel.org
-References: <179535729502.2645501.5219010464870440@gmail.com>
- <179535729502.2645501.271186140389290426@gmail.com>
- <20261123032537.GE10218@Liu-laptop>
- <179540710966.3093990.1416762538136490909@gmail.com>
- <9a533d71-7c7f-4946-9f5b-444db8737547@blackwall.org>
-In-Reply-To: <9a533d71-7c7f-4946-9f5b-444db8737547@blackwall.org>
+Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
+ support for RTL8367S-VB
+To: Oleksij Rempel <o.rempel@pengutronix.de>,
+ Gustavo Foletto Mora <gusfmora@gmail.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com,
+ gabonpivovich@gmail.com, contact@c127.dev
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+ <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
+ <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
+ <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
+ <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
+ <awPy7Wxq-_ukUNfG@pengutronix.de>
+Content-Language: pl
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+In-Reply-To: <awPy7Wxq-_ukUNfG@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-On 23/11/2026 14:43, Nikolay Aleksandrov wrote:
-> On 23/11/2026 06:29, Kyuwon Cho wrote:
->> On Mon, Nov 23, 2026 at 11:25:37AM +0800, Hangbin Liu wrote:
->>> Hmm, I personally prefer the approach used by vlan and team, which disallows
->>> changing the slave type after enslavement. If you think we should only disable
->>> the 802.3ad-specific part, this change should be merged with patch 1, as they
->>> address the same issue.
->>
->> For net I would keep it to 802.3ad, where the type change leads to the
->> out-of-bounds read, and merge it into patch 1 as you suggest. Refusing
->> the type change in every mode would also make the enslave of the nlmon
->> device in bond-eth-type-change.sh fail. The test would still pass, as
->> it does not check that enslave, but it would no longer change the type
->> it is there to test, so that change seems better made in net-next.
->>
->> Nikolay, would you rather have the general check?
->>
->> I will send v4 with the two patches merged once this is settled.
->>
->> Thanks,
->> Kyuwon Cho
-> 
-> Since this requires purposefully breaking the bond with CAP_NET_ADMIN,
-> I'd go for net-next. About the general check - unfortunately I don't
-> think we can do it at all due to one, rather weird, use case that comes
-> to mind - nested bonds. There are setups which use bonds of bonds and that
-> will put ordering on the setup, potentially could break scripts.
-> 
-> Cheers,
->   Nik
+Hi Oleksij,
 
-On a second thought - the bond is ARPHRD device by default, so nested bond
-would affect only non-ARPHRD setups, I'm not sure if there are any such setups.
-Just saying, it could be a path to stopping all type changes after enslave. :)
+On Mon, Nov 23, 2026 at 01:46:00PM +0100, Oleksij Rempel wrote:
+ > Hi Gustavo, Mieczyslaw,
+ >
+ > thank you. I have no family D hardware, so only some pointers from
+ > family C.
+ >
+ > On 21/11/2026 Gustavo Foletto Mora wrote:
+ > > On 21/11/2026 Mieczyslaw Nalewaj wrote:
+ > >> 1. Does a non-zero value written to 0x0851 on your board change
+ > >>    anything (PCP of untagged frames, or the register reading back)?
+ > >
+ > > Not yet answered: on my test image the switch registers are read-only
+ >
+ > On family C the added tag takes its PCP from 0x0851/0x0852. If family
+ > D ignores that field, the tag probably carries the internal priority
+ > unconverted.
 
+That matches what Gustavo observed on the RTL8367S-VB: without
+0x0851/0x0852, newly inserted 802.1Q tags take their PCP directly from
+the frame's internal priority.
+
+ > Other places that can set this PCP on family C, in case they matter
+ > on family D:
+ >
+ > - remarking, bit 12 of 0x000e + 0x20 * port (off after reset)
+ > - 0x093a bit 0: when set, an untagged IPv4 frame takes its PCP from
+ >   the DSCP table
+
+Good to know, thanks. Numbering the internal priorities like PCP values
+on family D (matching the vendor RTL8367D API) makes the newly inserted
+tag match the traffic type without needing remarking.
+
+ > > [...] so an inverse table would also turn tagged PCP 5 into PCP 0
+ >
+ > Agreed, without PCP trust that table would change tagged frames too.
+ >
+ > Family D is not merged, so the DCB code has no bug in net-next and
+ > needs no Fixes: tag. I think the family D part belongs behind a hook
+ > in rtl8365mb_family_info, like VLAN, PVID and L2 in v12.
+
+Agreed. I have refactored the QoS priority handling behind
+rtl8365mb_family_info hooks (qos_iprio_to_hw, qos_hw_to_iprio and
+qos_set_untag_pcp) and implemented the PCP-numbered family D hooks on
+top of that in v14, which I will send shortly.
+
+Regards,
+Mieczyslaw
 
