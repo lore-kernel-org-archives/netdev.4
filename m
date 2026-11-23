@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427504;
-	b=h+CTvk/i+xpTVelgON3nW5+wxNJQ1GTpjF8X55VUdrlphGYbjKN77kty8Vt++i3WZk61
-	 EU77bugpE2Az5Uoed8ScIlPC9ZkjTAkpPWEra97Yo8si8mJ+YH7LzoTYSSckBnrloGWP0
-	 uysyaTmLAr1bYJHRxSyP/VaTVLSgYagH/nO/OefJnUgevD1v4kkbJjBYDj+W0T3VN485l
-	 dcS3fB3k15uW4Wq9W/Czwu1OrJfH2brTVJnQhX8Zj1r8s80+fAHXI2ZTh1q7pAN9Fw4wP
-	 laqDlOiKXPY1tzdnUn53OUoubUuMM7qiSjmv9Wzlqvmv8hnofbliCm1CAGHasnOdprQ==
+	t=1795427506;
+	b=3qlvpEfASMkTVB5rd/Mxqc/fQe9MGgT7OO3J4JFJ7hz3cxb+xyFVoajASm/AXel7KQk3
+	 3Go+Vei/3B9j2N8oRXaTX77wd/1uXA8Y09a9d5PvzVwCQ97fqJTjbSJXnjopAauPKWg2+
+	 h/hEQzfIes/LPliNbxmAEtrG5Do8O5KT7olSYiHsXkkRFh6qO1yKyfpXx6xFJZgardb29
+	 4+SnYBVmoj8MR8ZaKqqZWL919YxpDxpP1nqJuweGMVh3ebRfqWpPL8/njt/Gsnj0QzUo6
+	 Si2x5TQYlNeUvh5KTwtW1EqCUmIiXbpwAQw3zyMfDlJNAPcwvT7Oshh70S4WpIjJDRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427504;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427506;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=qoOqqQyfe2VE0IHHms+1mItF/LiME/jGAh/E3IK/h1g=;
-	b=mYg9g+HN98P4UcEb0LS7Z8O0aS9rw+qmsG/9YZ+hgBgf4AW8OezkA2ymsNm8Eso3RcZX
-	 q8PslE5vj63dzVoKL3jsZr/b6eaezmR9XOVdVMQ7RTcyKztH3lK/D4Q8ILbkjclFZ3zru
-	 6uh7Kl19jfHdidumUSE8Abw7uaJCivs0ez3Sl2jBglcb6B+9BILWExVW8s2Ll4yvinL+Z
-	 7eODUr7qURpBzLWFpxqrG0b6IaRywUl7cTRRghYpCbWeSQczT+b48R8M945c5pd9kOQv0
-	 L1dJUPC9mB872jK2rJ/EBD2cvP2HaWSGWmBj1meUm0TjwXtXpbPCr/O3jOuWoPbH3hw==
+	bh=C5VkB9RixcqiwadJ3yFLZvIZqE7r38z2cyWmWStYsOk=;
+	b=UvUjUDSPJn6JE0xUArX8h6JSEsVxMNC0aAubK+OTMCPNVByKvX7yfHoR2WG1NofUxHAL
+	 8oPU+TWN10qQQlv+TvBK+PU/sRX1uMp1RQr/Io7fljlFrRYXXDJ5UIjZYlKUUuNPllnyU
+	 BVSiupLi9JZU1N+6WIN+xq7Kt0FyS+/k1BtKnZY6XpXcmknFB00V9g75Dor6oILoN9Vy/
+	 rjl7ToC77UQkhKCNkYyWaCnrZ+Uljsc/EBauYfbVz3WRiVwREpUMj8diAIJFYKX31JmQp
+	 K0tJgaIVPZ219/LEegL3j7juwd/rvOOadhAZjVNgALlWD0yLTnDK/YtgyrFM3FmvEzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iGk08+lf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="V25RPT/p";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 618C3606A334;
-	Mon, 23 Nov 2026 09:51:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 514E2606A337;
+	Mon, 23 Nov 2026 09:51:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iGk08+lf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B48381F008B2;
-	Mon, 23 Nov 2026 09:51:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V25RPT/p
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB99E1F000D3;
+	Mon, 23 Nov 2026 09:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427503;
-	bh=qoOqqQyfe2VE0IHHms+1mItF/LiME/jGAh/E3IK/h1g=;
+	s=k20260515; t=1795427505;
+	bh=C5VkB9RixcqiwadJ3yFLZvIZqE7r38z2cyWmWStYsOk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iGk08+lfig9c0ZiEvUxD7Pm2/gQWupmhNEZ91w/bFTHl6Jln5/AGfw1vkovGWHQP4
-	 M81SmfGsytsDDMkMS6gV2B2JQ8/56qg7KWk3+FfK8EJUxZ6BNLPgxZjxWFOpDhSrfY
-	 LSOsLVo/E3PIXKTg5i9nDLEXv324aIYYtxlFbbel/bUbUpH7155a85h0/1Xbee8IkL
-	 yk7qIbUnyaGCpyqRHNKG0XG07nQb2CafvosuLc3WUio+Y2qvG4euMSuopmt/Yoktos
-	 O5yWknnh+Vba+SGvwrhBTyzwFt+2adao/+vMYlYU7nwrvLpHFuK87foZRE10V/O2Yi
-	 ct/UDqTvZ82QQ==
-Subject: Re: [PATCH net-next v13 13/14] net: dsa: realtek: rtl8365mb: use PCP
- numbering on family D
+	b=V25RPT/pAhyj5VlyCONGDttnAEMeD9w3V7z8/gOFzPreLIpoZgR50BmwZmNxybp6A
+	 lUOcEn/5Gn9tT8j/Xr0XhLzIuktP3GjS/u+zz1S0ICQilP0ixHy90qsFS+GNAQTWS/
+	 I7LA7/hALIoARz+IW+WWt2KryXZ6lb0mtd5Cz6sPyQZiSngE0HHg5V6OmJ1+8F5dSM
+	 KfmREMOeZlOvmCoOuyOdVCI/tMuGn4PZDFSiXyniZfJqZLeNRoGHlQTL6Hsa0cntln
+	 Fyzp8xDY+opp3bKchtJ0Sq+fpaIC6YEOvV/obxHXGiEIVUkshikx8UQIwXCdCF1j9L
+	 kmetFdJZxUJWA==
+Subject: Re: [PATCH net-next v13 14/14] net: dsa: realtek: rtl8365mb: add
+ support for RTL8367S-VB
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,10 +50,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Mon, 23 Nov 2026 09:51:42 +0000
-Message-ID: <179542750228.3135.1234426620734047109@kernel.org>
-In-Reply-To: <f5adc725-64fd-4aa5-b76f-b817528ba1be@yahoo.com>
-References: <f5adc725-64fd-4aa5-b76f-b817528ba1be@yahoo.com>
+Date: Mon, 23 Nov 2026 09:51:44 +0000
+Message-ID: <179542750447.3135.8686604271395828150@kernel.org>
+In-Reply-To: <2ec7a146-d353-4eb0-b0ac-a53d6a0a2838@yahoo.com>
+References: <2ec7a146-d353-4eb0-b0ac-a53d6a0a2838@yahoo.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,171 +78,109 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] On family D, rtl8365mb_qos_set_port_prio()
-  (drivers/net/dsa/realtek/rtl8365mb_qos.c:261) accepts any default…
-- [Low] The realtek_ops::qos_set_port_prio contract in
-  drivers/net/dsa/realtek/realtek.h:186-191 says the callback sets the…
-- [Low] Within rtl8365mb_qos.c, this patch uses `iprio` to mean the
-  802.1Q traffic type (rtl8365mb_qos_iprio_to_hw(priv, u8 iprio),…
+- [Medium] The new rtl8365mb_family_d descriptor sets `.jam_table =
+  rtl8365mb_init_jam_8365mb_vc`.
 
 --
 
-net: dsa: realtek: rtl8365mb: use PCP numbering on family D
+net: dsa: realtek: rtl8365mb: add support for RTL8367S-VB
 
-On family D, this patch converts between 802.1Q traffic types and the
-chip's PCP-style priority numbering at the register boundary. That covers
-the port priority, the PCP and DSCP priority tables, and the
-priority-to-queue table. Family D has no untagged-PCP register, so
-rtl8365mb_qos_set_port_prio() now returns -EOPNOTSUPP there when untag_pcp
-does not match the PCP the port priority implies.
+This patch adds the RTL8367S-VB (chip ID 0x6642) to the chip table. It is
+the first chip to use the family D implementations added earlier in the
+series. It also makes rtl8365mb_d_ext_config_forcemode() static and
+updates the comments and the Kconfig help.
 
-Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-7067296792
-
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_qos.c b/drivers/net/dsa/realtek/rtl8365mb_qos.c
-> index 5b9e1abe75c8b..c06d684825c0b 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_qos.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_qos.c
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> index 75d9c6120e7ff..73563244f3be5 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
 
 [ ... ]
 
-> @@ -231,41 +264,69 @@ int rtl8365mb_qos_set_port_prio(struct realtek_priv *priv, int port, u8 iprio,
->  	u32 untag_reg = RTL8365MB_QOS_PORT_UNTAG_PCP_REG(port);
->  	u32 reg = RTL8365MB_QOS_PORT_PRI_REG(port);
->  	u32 mask = rtl8365mb_qos_sel_mask(port);
-> -	int ret;
-> +	int hw, ret;
+> @@ -832,6 +844,24 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+>  	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
+>  };
 >  
->  	ret = rtl8365mb_qos_check_port(priv, port);
->  	if (ret)
->  		return ret;
->  
-> -	ret = rtl8365mb_qos_regmap_update_field(priv, untag_reg, mask,
-> -						untag_pcp);
-> -	if (ret)
-> -		return ret;
-> +	hw = rtl8365mb_qos_iprio_to_hw(priv, iprio);
-> +	if (hw < 0)
-> +		return hw;
-> +
-> +	if (rtl8365mb_is_d(priv)) {
-> +		/* No separate PCP for untagged frames: it is the one the
-> +		 * port priority implies, so a different one cannot be set.
-> +		 */
+> +static const struct rtl8365mb_family_info rtl8365mb_family_d = {
+> +	.family = RTL8365MB_FAMILY_D,
+> +	.jam_table = rtl8365mb_init_jam_8365mb_vc,
+> +	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
 
 [Severity: Medium]
-Is this also true when untagged frames are classified at ingress, or only
-for the PCP of a tag inserted on egress?
+Are the RTL8367C init values safe to write as they are on the family D
+register map?
 
-This file's comment above rtl8365mb_qos_apptrust_src[] says:
+With this entry, rtl8365mb_setup()->rtl8365mb_switch_init() writes
+rtl8365mb_init_jam_8365mb_vc to RTL8367S-VB. It then writes
+rtl8365mb_init_jam_common, with no family check:
 
-/* The 1Q source also classifies untagged frames, by the PCP given to untagged
- * frames. Ranked above DSCP, it would hide DSCP from untagged IP frames.
- */
+drivers/net/dsa/realtek/rtl8365mb_main.c:rtl8365mb_switch_init() {
+    ...
+	/* Common init jam */
+	for (i = 0; i < ARRAY_SIZE(rtl8365mb_init_jam_common); i++) {
+		ret = regmap_write(priv->map, rtl8365mb_init_jam_common[i].reg,
+				   rtl8365mb_init_jam_common[i].val);
+    ...
+}
 
-Commit 78dc82293945 ("program the PCP of untagged frames") added the
-0x0851/0x0852 write for that reason: "With PCP trust, the switch classifies
-an untagged frame by this value. The value is 0 after reset, so untagged
-frames would be Best Effort whatever the port default priority is."
+The commit message says the chip-specific table "has not been compared
+with the vendor RTL8367D initialization". It does not mention that the
+common table (0x1200, 0x0884, 0x06EB, 0x03FA, 0x08C8, 0x0A30, 0x0800,
+0x0802, 0x09DA, 0x1D32) is applied to family D as well.
 
-On family D that write is now skipped. The commit message also says
-dal_rtl8367d_vlan_portPvid_set() rejects any priority other than 0, which
-suggests the untagged PCP is fixed at 0 there. On family D,
-rtl8365mb_qos_set_apptrust() still ranks the 1Q source above
-RTL8365MB_QOS_WEIGHT_PORT.
+Several of these addresses are already treated as family D registers
+elsewhere in the driver.
 
-Suppose the family D 1Q source classifies untagged frames the same way
-family C does. What happens with this sequence?
+0x13F9 is RTL8365MB_D_REG_EXT_TXC_DLY and gets 0x0090:
 
-  dcb app replace dev lanX default-prio X     (X != 0)
-  dcb apptrust set dev lanX order pcp
+	{ 0x13E2, 0x003F }, { 0x13F9, 0x0090 }, { 0x121E, 0x03CA },
 
-rtl83xx_port_set_default_prio() calls rtl8365mb_qos_set_port_prio() with
-(pcp_to_tt(X), X). The untag_pcp != hw check passes, and the port priority
-is written as X.
+That sets the EXT1 RGMII TX delay field [5:3] to 2. In
+rtl8365mb_ext_config_rgmii(), that field is cleared only when EXT1 is
+configured as RGMII. Everything else in the register keeps the jam value.
 
-Once PCP is trusted, would untagged frames be classified from PCP 0? They
-would then go to the Best Effort queue and get PCP 0 in any tag inserted
-on egress, instead of X as on family C.
+0x0A30 is RTL8365MB_D_LUT_CFG_REG and gets 0x020E (bits 1, 2, 3 and 9):
 
-If so, the driver reports success for a default priority the hardware
-does not apply. Also, the new "family C only" comment on
-RTL8365MB_QOS_PORT_UNTAG_PCP_REG seems to conflict with the apptrust
-comment for family D.
+	{ 0x03Fa, 0x0007 }, { 0x08C8, 0x00C0 }, { 0x0A30, 0x020E },
 
-The commit message says testing was done without CONFIG_DCB, so this path
-may not have been exercised.
+rtl8365mb_d_lut_init() only clears bits 4 and 6, which the jam value does
+not set anyway:
 
-> +		if (untag_pcp != hw)
-> +			return -EOPNOTSUPP;
+	ret = regmap_update_bits(priv->map, RTL8365MB_D_LUT_CFG_REG,
+				 RTL8365MB_D_LUT_CFG_IPMC_HASH_MASK |
+				 RTL8365MB_D_LUT_CFG_BCAM_DISABLE_MASK, 0);
 
-[Severity: Low]
-This isn't a bug today, but should the qos_set_port_prio contract in
-realtek.h be updated too? It still says:
+So bits 1, 2, 3 and 9 keep the family C values. Their meaning on family D
+is not documented.
 
-	/* Set the priority of @port to @iprio, and make @untag_pcp the PCP
-	 * given to untagged frames on @port. @untag_pcp is an 802.1p
-	 * priority, not an iprio.
-	 */
+0x1305 is RTL8365MB_DIGITAL_INTERFACE_SELECT_REG0 and gets 0xC000:
 
-That reads as if untag_pcp is applied on its own. On family D it is never
-programmed, and any value other than ieee8021q_tt_to_pcp(iprio) gets
--EOPNOTSUPP.
+	{ 0x18E0, 0x4004 }, { 0x122B, 0x241C }, { 0x1305, 0xC000 },
 
-The two current callers, rtl83xx_qos_init_port() and
-rtl83xx_port_set_default_prio(), both pass matching values, so this branch
-can't be reached now. The documented contract allows a later shared-layer
-change to set the untagged PCP on its own. Such a change would fail only
-on family D.
+The per-extint mode nibbles are rewritten later. Bits 15:14 stay set, and
+their meaning on family D is unknown.
 
-> +	} else {
-> +		ret = rtl8365mb_qos_regmap_update_field(priv, untag_reg, mask,
-> +							untag_pcp);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
-> -	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, iprio);
-> +	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, hw);
->  }
+The remaining entries (0x13EB, 0x1303, 0x1304, 0x13E2, 0x121E, 0x1233,
+0x1237, 0x1239, 0x123A, 0x0301, 0x1349, 0x18E0, 0x122B, 0x13F0, 0x1D32
+and others) are undocumented RTL8367C values. The series has already
+found that family D moved or repurposed nearby registers, for example
+0x0A32 and 0x13E8.
+
+The two tested boards use SGMII/HSGMII on port 6. Could these writes cause
+problems in configurations that have not been tested, such as RGMII or MII
+on port 7, or in multicast LUT handling?
+
+Would it be better to give family D its own jam table based on the vendor
+RTL8367D init sequence? Another option is to skip the entries in
+rtl8365mb_init_jam_common that overlap family D registers. Failing that,
+could the commit message at least say that the common table is also
+applied unverified?
+
+> +	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
+> +	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
+> +	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
 
 [ ... ]
-
-> @@ -306,19 +367,27 @@ int rtl8365mb_qos_qmap_init(struct realtek_priv *priv)
->  {
->  	unsigned int nq = priv->ds.num_tx_queues;
->  	struct dsa_port *dp;
-> -	int iprio, ret;
-> +	int prio, ret;
->  
-> -	for (iprio = 0; iprio < RTL8365MB_NUM_INTERNAL_PRIOS; iprio++) {
-> -		int tc = ieee8021q_tt_to_tc(iprio, nq);
-> +	/* The table is indexed by the chip's priority, which is the traffic
-> +	 * type on family C and the PCP on family D.
-> +	 */
-> +	for (prio = 0; prio < RTL8365MB_NUM_INTERNAL_PRIOS; prio++) {
-
-[ ... ]
-
->  		qid = rtl8365mb_qos_tc_to_qid(nq, tc);
->  		ret = rtl8365mb_qos_set_qmap_qid(priv,
->  						 RTL8365MB_QOS_QMAP_DEFAULT,
-> -						 iprio, qid);
-> +						 prio, qid);
-
-[Severity: Low]
-This isn't a bug, but rtl8365mb_qos_set_qmap_qid() still calls its index
-parameter iprio, and so does RTL8365MB_QOS_QMAP_TBL_REG(_m, _iprio):
-
-static int rtl8365mb_qos_set_qmap_qid(struct realtek_priv *priv, int qmap,
-				      u8 iprio, u8 qid)
-
-In the rest of this file, and in realtek.h, an iprio is a traffic type.
-This helper now receives the chip's priority instead. On family D that is
-in PCP numbering, where BE (1) and BK (0) are swapped.
-
-The only caller passes the right value. Could the parameter be renamed,
-for example to prio or hw? Otherwise a future caller that passes a real
-traffic type would put BE and BK in each other's queues on family D.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/3f1826f8-3096-40dd-a278-c70fce4852c8%40yahoo.com
