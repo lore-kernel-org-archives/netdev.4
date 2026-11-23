@@ -1,154 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.0
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795413657;
-	b=xjLLIOWDAX7T9tZmJWOjmolsPmk8So141E3zSDRVXn4467quW0FawwqQpJ+5NulTdfQk
-	 huBv7VMm2fmCb5y3zk9bkWpiV+R7NosuDBZDPfG9899XK41wSjltikGGbrxRaU/U7TJ0t
-	 6+NwtghKeuoixvdVjAy+i+Js0kfNzxzqs3jHVET0lVa2ybl4i2Wwr8uBvEoF2rZ8tHV+C
-	 TyYeDtXafoU+cQaQVZsLLmH7PesvsrobDC/JhdnRruhKA9P6GUgzvmUswzSRLuGPxNc8T
-	 fSQRwVLKhpWxqSeqb/H0cRzxswbLeO4inqAYwQ8/ogkVvK36k5Qu/S8moS0FbkshOyA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413657;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=IIOxOGhxPXm6AABf4rQHvRKhbwdjGRZQL+njG4a9r0A=;
-	b=nmLArrZuq/TdJykEEr8GryvX4pPYx1u0sZp84ZmKLmSHWxyOM0hacHc/4OMoFcaNG+mH
-	 crpBVqKqLcSWR9vVXuOCQ3cg13blHclpQY1ycQOF8yapIiv+0Axp2mxy77q8d0asoFTFp
-	 GYsBgTiCOK1mB/o/5zKCN4XZ1o+5sWwdlAP8/4uFQnsY4Fzd8QeF8gnB8O0F91EWheG4S
-	 CzRL4VitlaFVTt8OSUtrHz85cdk3+Gs57ywcAPxQjt1mL9wRzaM8x+CKpU2ElelMh7tYj
-	 MZgqMgCEBwTF4knVnz+at+njeV4U2W6XZ9ulGVsXI+ra7ViM0oHfJUzbECqeVXxcp9g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=G+Ztmh9m;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.0
-Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011000.outbound.protection.outlook.com [52.101.65.0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.37
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795414632;
+	b=ImMKfijI4vRwJl6elcJmORVcZqKBA2d/pdlGV2gtuy26fFcY/KvWNHkixekHAn4DK9pH
+	 BeP8IqkWCbXuKQ1SQGrzCTz906mGqOMy8ROt8Jab5MmA7LhdO25mYMZVzB7sbxXm3VW/G
+	 3gPi7U4CfVuglICM20zB0KKucRstWKmaooTeEnyn2D4HV7h1FTJYA3wv7HXDrDufaRMUR
+	 FfgV33WbCtn+LlJOFgsrjHOSsT1meGFN7+m2auj2penLYncEJ6Wgnz84ZQesbovMz4uRk
+	 FtSlx6fGmwq0jTlyBLryHYigcftnDNJQbbLE77kg1IilPBAB99IkSSY/4+gnfZOSWhQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414632;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=1rBLAy1WSlW0j01EGSb8zQ3VnNxACKn1ffYhnDM1Amc=;
+	b=RrP5HvnZwpHEuOqTzdJ4Ru7HY/lD+zYKrDxKhl7rzqLl2Ocf+BWUpSb6Qhj3NSUapU6R
+	 FDrnA2lBVktekdTqjeLmgJA64NC4ofcNHhm8xAcQWlJx149r3+tw8Lwv0xKWSwmG4rARM
+	 hkvcbPJ7lUAs/j8DnEHatnTB/60O1P6MZOk2ZYofFqNYyglsWy5yiuST92aeNEpw8l2iq
+	 v2+2hQmtbpg6kWw5pCOV4d5envhGy7cYC0zLKaBHGbn2nuKnlz0jipuTVADYrugADclyE
+	 xZA5tAANe8mQ2gnW+8bTBpCRSMHKlnxQcDUgyU35a3GucHoQtJktm6FMWbERpoB4Sag==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTbojTpp;
+	arc=none smtp.remote-ip=91.218.175.37
+Received: from mta0.migadu.com (out-37.mta0.migadu.com [91.218.175.37])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C768606A31A;
-	Mon, 23 Nov 2026 06:00:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C768606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBF64606A327
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:17:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBF64606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=G+Ztmh9m
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dqymfGrs0gsJT/KwgHZIkA8CULThQzUc4paYA9bYWEABzv4qVX5YaumVW+yX50UXzFM1aarTvJoxsxcLW+l2FWrQJYL9cdphLjNlPiTRpfIx1gt41yfb4bPOfQcIzvG3lTjsgl/xlkmZejfwgeN4Gef/SttDVhSuQKym9gv1qs2doq2g8qmr0/SzVhhxBF/U7E3WoRgdAKxJzSpihoN+eO/MCsPNHV9ECg63bHVgNAtb9edjcDq4WdAYNkmfi2ud/SldMU2tHK/66PZ/NdDqXPWEj12AVFzJENdcJeNCnR2LboIwZS2oYvJ4Yj8PhA/WBYWxGDn8ER+AfbJCq76ZNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IIOxOGhxPXm6AABf4rQHvRKhbwdjGRZQL+njG4a9r0A=;
- b=SjrUxriLhsd3NIDHs/Fp336sGPpIPeKRttE9IfoSVaFhZCbye0c4+O/yz9nG5rowuxzIhHYNNihd0qQsSwOzcedvPaKzPdzhta1lAAcpK+pHq2UfARb4mKEC47AAJC8Su1Q5pT4zx9w+ao/9TlyDsxvFu90Q+wei0X1/7Mw9COSQqnYCa+UZiUbH/acfLcCnEO5RsHoLIJfPWByRUGCWp1s3KLAVZCnm+z7PvZaLla+KMQ2EKfkiSVMGOtLbJJ6Oa/7+zUylbwKk2B3Sh40aul+CK/XHIPIQog4mO7sghxi3TPjTNZlthA+0N89D1Dj3RfcqqbII9utSN1HwYSxteA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IIOxOGhxPXm6AABf4rQHvRKhbwdjGRZQL+njG4a9r0A=;
- b=G+Ztmh9mLRuD1295+XUtkhDDDzLKTgQAiC1DgGsoR/Xu98DakiNZVMXKDMHksCvrVoydZAvNvye6Pui+oVf29cmaVgWgTvhU4JnlqPNKweGCsOT6rx31yHTwofgOAmoE6/9hbYRFQ7tG3owdyfn9IRc3SHDxPtola2nvjqeSZtPZqH3e+7JejbGQuibxUMvqF2/ZMRKugqAKcg5Cf7yYSRED3rjqBo/zE2kev3IioR75IUq8S7bNlep7pPVdPLgdMKkR0iW0uhCdmGRXyeBdLW0Z+mPwUQTcdBP2fSrdz541B1iFVLzMuQRB6orf2XuVPcdiIsajJX3EypzsSLhWFw==
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
- by PAXPR04MB8542.eurprd04.prod.outlook.com (2603:10a6:102:215::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 06:00:52 +0000
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 06:00:52 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
- (OSS)" <wei.fang@oss.nxp.com>
-CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
-	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v8 net-next 4/9] net: dsa: netc: tie setup resources and
- reset to DSA setup/teardown
-Thread-Topic: [PATCH v8 net-next 4/9] net: dsa: netc: tie setup resources and
- reset to DSA setup/teardown
-Thread-Index: AQHdd9I3sVEp6uudR0COvgaFzGt1z7c7IOaAgAAN3sA=
-Date: Mon, 23 Nov 2026 06:00:52 +0000
-Message-ID:
- <AS4PR04MB93380FC80BDE1B410825EF2D88452@AS4PR04MB9338.eurprd04.prod.outlook.com>
-References: <20261119030534.1892935-5-wei.fang@oss.nxp.com>
- <179541033517.3135.5228725617878780083@kernel.org>
-In-Reply-To: <179541033517.3135.5228725617878780083@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
- MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-11-23T05:55:12.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
- Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|PAXPR04MB8542:EE_
-x-ms-office365-filtering-correlation-id: 457eb5ca-df2e-4843-e810-08df4927219c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|23010399003|22082099003|18002099003|11063799006|56012099006|4143699003|261028144727099003|261102123227099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261021121427099003|261009223027099003|38070700021|10067099003;
-x-microsoft-antispam-message-info:
- gQ5axupeszcPWjNuaRhrAQu/ZIePrUeCm7a4ugez2100QyLjpD2vR4CbIOGniTpGzTOcN1E/DGqiJIpr1XnBKBGq/icnm2SDFwL3KHJf1D6fAaIhY7ANFq0eouze9P/UB2Pz+5x4Dz5iR9jRoosHmJYdwIc0ZBCXUuXbGXy2APAQ/OolQC2IA7NZZYLlu4P5j1LkLhIAF/YDpjS84z5oxFYMdJP88ZPNCkgNMVpCRzHsHADpm6yIvMfGIoeslVs5g9sJIYZI5aJF8h0R7qSeZHeAxRiDn7W7dW51o8vqSVmGwkJjzKIkdWwO4dGkkpW14IzDgRNDSYRwJc/jgBPX00soG0KbjXL4MTBRac6WCo/3gC6vYV/LzWWQKrQooVQJWOtKnjl962FxRLsQbrF+pkwPcHk/LZel+zsdUL8dKg8rD4/GEsvrHYVtPZgmoz2ba72UNRUv9/QqBDAZPQgA48kWvRO8nF6dDZY5qL3lcbc+xxrwR2TaYRmPc4nK9/rcOlZpNmoWjd/AUObm3e3VlQFRRq1dhDRsaOATIdBc5r8OqpgY7qORst2JRCb4cLCknqR7zTploK+dm2/fv/ih24uQ8XDFv7XwvkbIYF8NeUai0qX6H7scAMFO7JxP/RvkXphvGsEKy8BVhCn9CGbR0BxBGQ0HHtoZH7PuNZuMcTTkjmzZhS3P4jfKLbjo7A6VMRnfnR8iMPx3aMPVv9CBiBO/JlmnQ9QehFWUX45nEcE=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(23010399003)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003)(261028144727099003)(261102123227099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261009223027099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?jzAKGTp2ia/LQe2BzD6iyJvPna1R4H9rEsJ3AxVn5qWfnZuBCSExrmV8Zrsx?=
- =?us-ascii?Q?KPwkh/dXwYjhAs1nZbf4q4dakQKXmx0dSGXZCpgvHLmLBczKqYtO9fXwwvWX?=
- =?us-ascii?Q?xvfW2Rb2LhYTihVo3zHK/OrqWuZUE3JSqGSxWgFkIfeNM4fB642lRhn6qHAj?=
- =?us-ascii?Q?IAk+4h6aFuO8hiFVNGvaZcAMFKCCHKm6fpdHAmHIWT1GAZffHnFsoftSlido?=
- =?us-ascii?Q?Lf9bRxQtc02DkDOqbZM4QSxilXvB4dtcJIV3JmMIBw/bPSYudt11J3f17dV7?=
- =?us-ascii?Q?aub1oIVPVFKa6fCfEpSMxet4sd4Q2QIJrPyPUET/Rl/wQ3Ko/okAwrs1RAuu?=
- =?us-ascii?Q?MieG/XE4TN4vqKLEe2U4MC+XkiTpvYRVNyJ59z3C3YJWs/e6C21fxg4adQ8f?=
- =?us-ascii?Q?iPGjD1nuIl9kvvUrG3ImWhmB4CwlwBNNlRD9zq/ZySujtAFbkwgYW9rihgH/?=
- =?us-ascii?Q?6wjZikELn4V1ShCpxLIWFhP6eVnCa4WKbuHBKDe9eKHz8fUtstJkbFjc/Pho?=
- =?us-ascii?Q?xQcuuP6jRcfA6k1BbdX+jTHqvD9TmSykfhFppw8RIclp0C9vTe7P7mGIOBdx?=
- =?us-ascii?Q?2vIQGqzCY1YMlAM/LYF/4frsT9EDVfwy+EE1ECIjCqm6KEWNGJKVbkRsBfnI?=
- =?us-ascii?Q?SyJ7L0wj8RwOD7WyjbtllfV320+N2vbIGFNCGVxHNAbg5nOpzWVvP/1AW9NZ?=
- =?us-ascii?Q?SgvDFMuA8YSuRKpWhiUcC0FRRkaTnPuPe5I2ZJlz6LrlrYJAsEIIu2dAgTiB?=
- =?us-ascii?Q?j1VdJa7Jcb8GRbf164rRMFuCZWIUB+lCQc9WTzQjhkTm4MCITY36/oKLzdDv?=
- =?us-ascii?Q?f2unf7SiptP0RjMENrbu4cs/3av2+sLORXA6EdNgxxEuIiPSz3/xL4qGv0wr?=
- =?us-ascii?Q?/bG8bJsEPSZaQeDZkPF2BFVHZ+kIDDWsBnJQoGTNNZFfX1vvFbt4u9eUXLAX?=
- =?us-ascii?Q?gG2JKi3E2yODhTAEP4+4C25DpJ7eSf3+UKLwDyc4Rhc2aVozVt2I9TjIAIjN?=
- =?us-ascii?Q?esCsQMvAmn38USkiTPDSgW7MxJ7V87le7uj1rraOYoG6LN9jvrmU6DC1wXv9?=
- =?us-ascii?Q?LJPu0J6Sm6gwJ8dXqhbiiBTry+RaVstnGVgXueBdP6tW9hwyz3PJ6z1UIZlD?=
- =?us-ascii?Q?YdIPR2w5zO+pKt5lbOHqMKwpYkmRvC8BSf8ulL5fVn9pqefife0C/OZJSudS?=
- =?us-ascii?Q?RYxro1sEbyRKlF/FrMx6kp/ov36+jrPvtEPTwYBA7bbyWr5YdfIiDi1/b4i1?=
- =?us-ascii?Q?9j8XAzt7xpMITp1Ne+xPS3/p+nhdvntd9kBCY2OsP5gKGSg+ZlOlBr5yKEwi?=
- =?us-ascii?Q?0lkLMeO2ivl6ayDDmsc8iY5CS3w2pWE5b7QmOHPo/lyrukx0YNVLe+TCrKiA?=
- =?us-ascii?Q?sYwhGxHHbAQgdGcGPS93j9XOJgRQIs0apyH5uMe1nVxYpanPpXjwZ4bFbhaE?=
- =?us-ascii?Q?GlPp9HzUYxhna2NuHZu2HwOjL/+fZkUj/s1fnX22Cba+LJgsnDpZG8Ss+jMu?=
- =?us-ascii?Q?4UE3iLWweYe7KPEbEIqSvKHg43RCjn+ZK4xvzaiT9mPeA7cyyQlrb7zm/QgB?=
- =?us-ascii?Q?p9GLv28bQAjv6Cwzac0hKg2yjc2mXLswBzd+Oo9dDQpE00k8a4vhqOTsGXoG?=
- =?us-ascii?Q?zpXKfRAZbtBHBbwm5VrPrmcFZdLOyGxE0t6fMpz4NvsrD2UIP4P9v9ZqH0yM?=
- =?us-ascii?Q?xTrrTi2uk0t3JFQexN9EwXkXpMFxzKMVK6xgMo4wvGkn+YfA?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTbojTpp
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=giOvSHAOr8ZRxE8MoHsdh6XZLWVdDYWU10lBTFdDrrI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795414629; v=1; x=1796019429;
+ b=jTbojTpptxj2VJj9BzxK8exnAJdDEedY8a9O1R2iFeD/tqXAVYmMcByaDtYyN2K0emA5GCnl
+ yjzN4EcwRVvGWZTTa9MjGj4khtwiqrw9eUWlZ34QRdnV6qv4YxBaX8Q83qbd5X2yn4d/sB+2T/D
+ ROn9qg28IT/WJ62Id+gXmn18=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 7db56b269390c286;
+	Mon, 23 Nov 2026 06:17:08 +0000
+X-Mizu-Trace-ID: 7db56b269390c286
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 14:17:02 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+Cc: netdev-bot+sashiko@kernel.org, David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Hangbin Liu <liuhangbin@kylinos.cn>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, 1342116488@qq.com
+Subject: Re: [PATCH net-next v3 1/2] ipv6: check mc_forwarding before calling
+ ip6mr_get_route()
+Message-ID: <20261123061702.GJ10218@Liu-laptop>
+References: <20261116014744.18223-1-sunwenbo@cmss.chinamobile.com>
+ <20261116014744.18223-2-sunwenbo@cmss.chinamobile.com>
+ <179509619796.3136.11845865038486249097@kernel.org>
+ <20261120032219.18091-1-sunwenbo@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -158,85 +73,115 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 457eb5ca-df2e-4843-e810-08df4927219c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 06:00:52.5845
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CLFGnTnC9yAvE5MUM+6rZ0ZHoagL2AfOUujttk8UgfSE7uEyAh4/QjrObfoCa5KIOuiVkWCjn8+8gWStShh1Dw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8542
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120032219.18091-1-sunwenbo@cmss.chinamobile.com>
 
-> net: dsa: netc: tie setup resources and reset to DSA setup/teardown
->
-> This commit adds netc_switch_reset() so that every netc_setup() after the
-> first one does a PCIe FLR and starts from a clean hardware state. It also
-> converts the setup-path devm_ allocations to explicit alloc and free.
-> These are released in netc_teardown() and on the error paths.
->
-> > diff --git a/drivers/net/dsa/netc/netc_main.c
-> b/drivers/net/dsa/netc/netc_main.c
-> > index 1225ff8153d44..f724f95add36b 100644
-> > --- a/drivers/net/dsa/netc/netc_main.c
-> > +++ b/drivers/net/dsa/netc/netc_main.c
->
-> [ ... ]
->
-> > @@ -1042,7 +1161,10 @@ static int netc_switch_pci_init(struct pci_dev
-> *pdev)
-> >     void __iomem *base;
-> >     int err;
-> >
-> > -   pcie_flr(pdev);
-> > +   err =3D pcie_flr(pdev);
-> > +   if (err)
-> > +           return dev_err_probe(dev, err, "FLR failed\n");
-> > +
->
-> [Severity: Low]
-> This hunk changes probe behaviour, and the commit message doesn't say so.
-> Before, the return value of pcie_flr() was ignored and probe always went
-> on. Now any FLR failure in netc_switch_pci_init() makes probe fail.
->
-> The commit message only says:
->
->   The probe path already performs a FLR in netc_switch_pci_init(), so the
->   first setup will skip the reset because the priv->configured flag is
->   not set.
->
-> and later:
->
->   The NETC switch does not support multi-switch yet, so there is no
->   functional problem today. This only reworks the driver so that
->   multi-switch can be added later without hitting these issues.
->
-> Both passages read as if the probe path is unchanged.
->
-> pcie_flr() can fail in three ways:
->
->   - -ENOTTY when pci_dev_config_accessible() fails
->   - an error from pci_dev_reset_iommu_prepare()
->   - an error from pci_dev_wait() after PCIE_RESET_READY_POLL_MS times out
->
-> In any of these cases, a NETC switch that bound before this patch would
-> now fail to probe.
->
-> Failing probe is probably the right behaviour, since the driver relies on
-> a clean post-FLR state. Could the commit message mention this change, or
-> could it go into its own patch? The hunk is still the same at the end of
-> the series.
+On Fri, Nov 20, 2026 at 11:22:19AM +0800, Wenbo Sun wrote:
+> Thank you for the detailed review on v3 1/2. We reproduced and verified each
+> of the findings in a User-Mode Linux (UML) environment (`CONFIG_IPV6_MROUTE=y`)
+> and prepared a focused single-patch v4 to address them:
+> 
+> 1. Root-Cause Analysis & Local UML Reproduction of v3 1/2 Findings:
+> 
+>    Base UML topology:
+>      ip link add d0 type veth peer name d1
+>      ip link set d0 up && ip link set d1 up
+>      ip -6 addr add 2001:db8::2/64 dev d0
+>      ip -6 addr add ff0e::1 dev d0 autojoin
+> 
+>    (a) [High] Routable multicast query when mc_forwarding=1:
+>        In `inet6_rtm_getroute()`, `skb->dev` is never set on the newly
+>        allocated reply skb, and `ip6mr_get_route()` looks up
+>        `ip6mr_cache_find(mrt, &rt->rt6i_src.addr, &rt->rt6i_dst.addr)`, where
+>        `rt` is the per-CPU route copied from `f6i->fib6_dst` (`ff00::/8`).
+>        We reproduced this in UML by opening an `AF_INET6` `SOCK_RAW`
+>        (`IPPROTO_ICMPV6`) socket, enabling `MRT6_INIT`, registering `d0` via
+>        `MRT6_ADD_MIF`, and adding `(S=2001:db8::3, G=ff0e::1)` via
+>        `MRT6_ADD_MFC`:
+>          MRT6_ADD_MIF(mifi=0, pifi=3) OK
+>          MRT6_ADD_MFC(S=2001:db8::3, G=ff0e::1) OK
+>          mc_forwarding=1
+>          $ ip -6 route get ff0e::1 from 2001:db8::3 iif d0
+>          RTNETLINK answers: No such device
+>          ip_exit=512
+>        Because `ip6mr_get_route()` checks `(::, ff00::)` instead of the
+>        queried `(S,G)` and `skb->dev` is NULL, it misses even when the MFC
+>        entry exists. Making `mc_forwarding=1` MFC queries work requires
+>        passing `(src, dest)` and handling `skb->dev` / `skb_realloc_headroom()`
+>        across `inet6_rtm_getroute()` and `ip6mr_get_route()`, which we now
+>        explicitly state as out of scope in the commit message and drop patch
+>        2/2 in v4 so we do not alter the uAPI errno to -ENODEV prematurely.
+> 
+>    (b) [Medium 1] Regression when a multicast query matches a non-multicast
+>        route (e.g. `::/0`):
+>        In v3, replacing `ipv6_addr_is_multicast(&rt6_dst->addr)` with
+>        `ipv6_addr_is_multicast(mc_dst)` caused queries matching a non-multicast
+>        FIB route (when `ff00::/8` is absent, such as on `lo`, an l3mdev
+>        master, or after deleting `ff00::/8`) to enter `ip6mr_get_route()` when
+>        `mc_forwarding=1`.
+>        Reproduced on v3 in UML:
+>          # ip -6 route del multicast ff00::/8 dev d0 table local
+>          # ip -6 route add ::/0 dev d0
+>          # (with MRT6_INIT / mc_forwarding=1):
+>          $ ip -6 route get ff0e::1 from 2001:db8::3 iif d0
+>          RTNETLINK answers: No such device
+>          ip_exit=512
+> 
+>    (c) [Medium 2] `RTM_F_FIB_MATCH` (`fibmatch`) missing link-local exclusion:
+>        In `inet6_rtm_getroute()`, the `fibmatch` branch calls `rt6_fill_node()`
+>        with `dst = NULL, dest = NULL`. In v3, `mc_dst` fell back to
+>        `&rt6_dst->addr` (`ff00::`, scope 0), so link-local `fibmatch` queries
+>        still entered `ip6mr_get_route()` when `mc_forwarding=1` (whereas IPv4
+>        `fibmatch` uses `fib_dump_info()` and never calls `ipmr_get_route()`).
+>        Reproduced on v3 in UML (with `MRT6_INIT` / `mc_forwarding=1`):
+>          $ ip -6 route get fibmatch ff02::1 from 2001:db8::3 iif d0
+>          RTNETLINK answers: No such device
+>          ip_exit=512
+> 
+>    (d) [Low] Fixes tag / net vs net-next:
+>        Because this patch aligns long-standing non-crash route-get reporting
+>        semantics with IPv4 (while full `mc_forwarding=1` MFC lookup in
+>        `ip6mr_get_route()` remains a separate effort), we keep targeting
+>        net-next without a Fixes tag, and have softened the commit message
+>        accordingly.
+> 
+> 2. Concrete Fix in v4 & UML Verification Results:
+> 
+>    In v4, we converge the series into a single patch that checks `dest != NULL`
+>    (so `fibmatch` queries always emit the matched FIB6 entry and `RTA_IIF`),
+>    keeps `ipv6_addr_is_multicast(&rt6_dst->addr)` (avoiding the non-multicast
+>    route regression), and tests `ipv6_addr_type(dest)` against
+>    `(IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)`:
+> 
+>      if (dest && ipv6_addr_is_multicast(&rt6_dst->addr) &&
+>          !(ipv6_addr_type(dest) &
+>            (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
+>          atomic_read(&net->ipv6.devconf_all->mc_forwarding))
+> 
+>    Verified on v4 in UML (`FAILURES=0, TEST_EXIT_CODE=0`):
+>    - Test 1 (`mc_forwarding=0`, `ff0e::1` with `iif d0`):
+>      `ff0e::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
+>    - Test 2 (`mc_forwarding=1`, link-local `ff02::1` with `iif d0`):
+>      `multicast ff02::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
+>    - Test 3 (`mc_forwarding=1`, interface-local `ff01::1` with `iif d0`):
+>      `multicast ff01::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
+>    - Test 4 (`mc_forwarding=1`, `fibmatch` for `ff02::1` and `ff0e::1` with
+>      `iif d0`):
+>      `multicast ff00::/8 dev d0 table local proto kernel metric 256 iif d0 pref medium`
+>      (`ip_exit=0`, PASS)
+>    - Test 5 (`mc_forwarding=1`, `ff0e::1` matching `::/0` after removing
+>      `ff00::/8`):
+>      `ff0e::1 from 2001:db8::3 dev d0 proto boot src 2001:db8::2 metric 1024 iif d0 pref medium`
+>      (`ip_exit=0`, PASS)
+>    - Test 6 (IPv6 unicast with `iif`, IPv6 multicast without `iif`, IPv4
+>      multicast with `iif` regressions): all PASS.
+> 
+> Thanks,
+> Wenbo
+> 
 
-The NETC switch supports FLR, and from the hardware perspective, the FLR
-time is within 32.768 us. Therefore, pcie_flr() will not return an error.
-Otherwise, this would be a hardware issue. This modification is only to
-prevent Sashiko from generating false reports due to not checking the
-return value of pcie_flr(). I don't think it's necessary to mention this
-minor change in the commit message.
+I think it worth to add a selftest to cover these testings.
 
-
-
-
-NXP Confidential
+Thanks
+Hangbin
