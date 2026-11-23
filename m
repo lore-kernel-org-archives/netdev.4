@@ -1,60 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405141;
-	b=JBGtPxhOOChjnWGQwAMMABWKrwLQMFEtz5AIKkA0KrnwpG0EcRIF0FeK470ECFuAfaVW
-	 IwV2qouz1cFVKhgp8fAbM0G3UbNPZqLapUqokmx4L7SaHFThbW63a0b1ScQfDxSZhd7qo
-	 jQg4HQ5EmZGlcKrho7yfjiwB+U3fxpQUWg8t4M207D/sWQLXPOvSOjmQkiPaJSmC9V12/
-	 W9XI/eCCn3RbGJYPM1WlH4X6W3EPw0W87rBvzsRbAsJh3Z9gzc3/HsnFn/rTKS6sCmki1
-	 e+8Tue4kUIxYDVFCtugWX7Oc1WFKd4YFXQSCb79YWYhB44bEWlGAyjZP8NCVznGhtXQ==
+	t=1795405263;
+	b=f78Kpyw+QTzoPLLNSFZStJMFeouLyiRGe4h4r/cu+IW3YxzSwkIAj9REWizCQ9uxwR6m
+	 9vo7nZ9ncnxnZWvjIR3/8nurmV9sLrRhVqNbL4iywiHBiXAUgZ6IeDA6du8JK72e4LjOa
+	 AU9A4o8Jpqv8R75dyZVUO72B1fq1rMa65DTw5iDmZ/1G+OTXtgwVtuk5QsqijR7WXMjAz
+	 xk5xQU8l3LSKVrO6Wdax/1sqN7iijdR57bEIrhhL0rSy2yMeUQQ2/Pr0EJN8wHnuh/mkU
+	 DZ9rAUHpjQmohm/KhpAeQbv9Y9MgXa3GmW5Ckp8np5vUG8iljKBCW4W8Zz54YJ/2ziA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405141;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UhdycD3E4TQHSpgQx1RGrt8ODptzt/z2eEdDTelW+XE=;
-	b=07FCOqYh7M8vOj9IPWLQVtPWPFfzxESiU1dDGZIWjnSbI/Fo15+OQP+bzemO4zfq6nFH
-	 ezE6VJEMLeAF2wVmpPPnNgoClNxSgCvmDYq3yXooMg0MsKBNyu5Lsoc7AxqXAph52XPI8
-	 8Gb+m1oS0UxFCk2Ut2psApUzExastJ/BKDrgNsmq1rHmBtDsNqmySFLIbOuby8B/aZsL7
-	 xSrd6+raSQ2osaKY4i4pUdnYWU4lgg7BtgZ8E2wHzfLnPZLt1i4uN+TDbYvlp+boItinn
-	 Lrg2g9tBFJoWz49waWgnr2lxT+8HTHd1eo+KlY8nvCTN4qKINFW+fUKizNxAgkTZiLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405263;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=I/uN54xQrauXi+R0dUK9MCordJLorId2BIMzOW5ancw=;
+	b=3o6+aWKf7GLwmNZhzXQkeQCNMLL+I1a482dHidPG2ZCc5sJinnLWAgfDS02hRnNE6OVz
+	 +Vcf8wt6WMLfRjQrYWEqMpUS+koynVY8ZJTKV1ADtzcFLweFOD5uBGiFLrfXvFb6lMSFv
+	 6Igb9Po2ZCxjmMEwnZt/n/Pmc9MIgHKVLN/jcnMZoNLp8EW2St70lHUVA9PG/rCWZUkL7
+	 V3Buy2zBUYjQ27sn2eDiCYBdWrBoJS5voQdsmPSdLYS6iPp7QTfBpAsmzwSxLPjq1rp9f
+	 7UAJlXx7vmFIGDiqwuGHP9Nc/Dxxu2Q8YMcAJj16nfu0bsPm9FS0FZ5KFpaL1tLgn2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EgZTIO76;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HkFYhu3J;
+	arc=none smtp.remote-ip=74.125.229.9
+Received: from mail-dy2-f9.google.com (mail-dy2-f9.google.com [74.125.229.9])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C7CE606A31A;
-	Mon, 23 Nov 2026 03:39:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFC0D606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:41:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFC0D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EgZTIO76
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75CEE1F000C6;
-	Mon, 23 Nov 2026 03:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795405140;
-	bh=UhdycD3E4TQHSpgQx1RGrt8ODptzt/z2eEdDTelW+XE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EgZTIO762Khh+MWbss2i4AIu+aiSB8x9Re7+Q5cfwPJUb2xco6B9X3kyu+Zy4jAs6
-	 EAIM0FfF5mCkR+EdI5qiOlSNyHH6AhJaRAScSr+uSKqMLj9H04TLp1Sg6n8NVZPJCw
-	 paY7voFNvHsBZ/YjoR3+uBx3KyKeiw0oBtLmItwJn4qoV7alHbX7XiYqCX9HHkwJqV
-	 y3Vbotm/ThgPMPfze28g9rmeSXzxVu8Y5E6VsDBXDxYiwaKtnUdIx8aV2Wi6XgH8F+
-	 AK4VxSkSc4NrCPEdL99vC7uC9mrQckPafzBdxLkoppIRbigU/CE8tT3A7SBjSPgXhD
-	 HYRXTIHNZE1Xw==
-Subject: Re: [BUG] xfrm: a socket policy cloned for a TCP child leaks when
- cloning the second policy fails
-From: netdev-bot+sashiko@kernel.org
-To: kyuwoncho18@gmail.com
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- edumazet@kernel.org, kuniyu@google.com, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, ast@kernel.org, josef@toxicpanda.com,
- netdev@vger.kernel.org, ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 03:38:58 +0000
-Message-ID: <179540513898.3135.13913410077710347458@kernel.org>
-In-Reply-To: <179505710269.3511679.8893709762919027206@gmail.com>
-References: <179505710269.3511679.8893709762919027206@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HkFYhu3J
+Received: by mail-dy2-f9.google.com with SMTP id 5a478bee46e88-377157fde7bso977046eec.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:41:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795405262; x=1796010062; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=I/uN54xQrauXi+R0dUK9MCordJLorId2BIMzOW5ancw=;
+        b=HkFYhu3JKk7jNNj5yTVp4C+Cx267EtXSd8XhUUOv5OTbbq04IivDtsdQwtW4gz1+Fe
+         bBnMYaoFWLqpt4Mad0JrEC1GNLO7y+GZQ2Ns4ExH3BJjQ3wWk8Rvm1xlVDrDfaZTPzEG
+         FwhDhRaNIE8BaXlCWjkxxiAXvB2oBnVSIMuqe/qdiOg31tLh/kTzgf7+zLQtcAV4ihvB
+         SR3oSk73zyK034bj4NHABEdDTagN6R8vA/cAa0QN2nOrxoXXzPa0qE5W1/C/ejb6kYNJ
+         v6K0Ks2yZ1mpuI8bF3pEha/03ZFsvQJCLR0a9lKl3vMrVDIBW0X5xzvNleJnqDP95SKg
+         cogA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795405262; x=1796010062;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I/uN54xQrauXi+R0dUK9MCordJLorId2BIMzOW5ancw=;
+        b=Dt7srjFa5NFux85VsIKu6bxdgPGarVoBDPj3tF2+2wL0VRcYiBXvKwbhLr22UuEAcq
+         2uLMkmhvCni3mVQXnAvfQ9eXAOolkXbR/cfaxbvX5REx1NomSiBhlwikyG5JVMYlvgt6
+         LLjKnrLpUYYronVWT40gIHrl+yV5oeoz4+HDmgVPNom0WQRkN9jMua4FE5+/dgC4+BGm
+         x2WE6RI23pjrhe1Jt8ogQti5TpwN1h7dMY+pS7OH7wTsv6h8Or6OnLTjqrs29YWXHgwr
+         fOazBx+oH88UvMqp1j53qKU4tenL6HFeFsjop4wukp+r6ozmCHhRVK1tOnYB3jTgb34L
+         Ns8w==
+X-Forwarded-Encrypted: i=1; AL+hErE2oT/+rD4G/8EhBvnfMNKGkkk7i4obr/t1VihJfwXAqZcvEaFMrZyuK9xYOwjyD2thHfYH/fo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/HrzEYSpN+8LpR7qjatCvmPeuafjH27T5UnaghXWYOOQTDv6XP
+	RbtOCZrkVGJxpjiuvVd1tTvd01AjZoZWAtGHFFJ1Zl1F0VlGzg8PbQoZ
+X-Gm-Gg: AZFdTZcCHO1mAJEOUZplN4ig4HQAfjx0MZMhNpF8nD92ogsf+uDVYkuDLHyG5UmAuQ/
+	nDdEJdWJYY/wU0kckE6VKY3sF42n/x6WO9TEHDPA+hQ88OXigSBvZjqzRQAga5NUVFiwHWR4BHm
+	lynzuiPVo3MzW0UR9eULU6jKhGYeLZpA+mkxtxyPr3h1+MIpcqf53npQ2tCLxTl9sFu/y1BSPDD
+	nYuFNza9xUktlWynDS8I10mbFmxHEZV7aH86Xvtio8u77fhNZI1I8tQr535ma7DnYkQssmQwU5G
+	2afTVwuSp9RY2y8uCXXYyfPd1XJx+marYJok4NLugI4/aDG+0aXqXI/7B7AL2FsxKy/2As7QNGH
+	yNmVNyYyJ7PYLBGkXVFosQPi22TdwzPdiFR7b9MHBvffLUPmPWccIAZUMXrIY+nmhlCFlhVCcz+
+	B1EtCdHPN+WOLtZcxjXSUlGEa6kUx3XqYq5z9BlHJ16k29IHGiXcZt/XgIwVEK9TRC79M4/3cSU
+	QoNmy9FETkbKeFE6wLwTq5CN3ASS5XUl6NNusTZHZRxeU9ndEAA+urqbFMYtRPRm1X7CDRZQppS
+	YQ3lJ7HkQeMQYAT/3wwi16E02K5g1mUgII/6HOPLMTAscZcs4iiVjzlmBBmAQ1sHlGclhlXizjb
+	pNPH5IKnzWIx8t6DDzxbxB0yWmG7w8tiRs8SyoJj7vaiOFpzuDc3+P1JRWDM=
+X-Received: by 2002:a05:7300:bf11:b0:368:7c2d:a612 with SMTP id 5a478bee46e88-3856fe59b16mr10742137eec.10.1795405261632;
+        Sun, 22 Nov 2026 19:41:01 -0800 (PST)
+Received: from localhost.localdomain ([98.148.34.5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm29489364eec.7.2026.11.22.19.41.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 19:41:01 -0800 (PST)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: edumazet@kernel.org,
+	ncardwell@google.com
+Cc: kuniyu@google.com,
+	davem@davemloft.net,
+	dsahern@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	0x7f454c46@gmail.com,
+	fruggeri@arista.com,
+	noureddine@arista.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dennylin0707@gmail.com
+Subject: [PATCH v2 net] net/tcp-ao: fix reset key lookup for IPv4 segments on IPv6 listeners
+Date: Mon, 23 Nov 2026 03:40:47 +0000
+Message-ID: <20261123034047.56745-1-dennylin0707@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,173 +106,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+tcp_ao_prepare_reset() looks up the key for a reset that is sent on
+behalf of a listener by the address of the peer. It takes that address
+from the IPv6 header whenever the listener is an AF_INET6 socket, also
+when the segment is an IPv4 one that arrived on a dual-stack listener.
+The address is then read from the middle of the IPv4 header, the key of
+the peer is not found and the reset is not sent.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
+The v4-mapped check that follows does not help: it looks at
+sk->sk_v6_daddr, which is the unspecified address for a listener, and
+it runs after the address has been picked.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Take the family and the address from the protocol of the segment
+instead of the family of the socket.
 
-- [High] The new rollback loop in __xfrm_sk_clone_policy()
-  (net/xfrm/xfrm_policy.c:2463-2469) checks the parent's slot,…
-- [Low] The commit message is the raw MIME bug-report email, not a
-  changelog.
-- [Low] The commit message says a partial clone 'leaves the same mix, a
-  new sk_policy[0] next to the parent's sk_policy[1]'.
+Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+---
+v2:
+ - Take the family from skb->protocol only, do not read sk->sk_family
+   (Kuniyuki).
+v1: https://lore.kernel.org/all/20261117215554.68071-1-dennylin0707@gmail.com/
 
---
+ net/ipv4/tcp_ao.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-xfrm: a socket policy cloned for a TCP child leaks when cloning the second policy fails
-
-This patch adds a rollback loop to __xfrm_sk_clone_policy(). When a later
-clone_policy() call fails, the loop deletes the policies already cloned into
-the child socket. The goal is to stop a socket policy leaking on
-net->xfrm.policy_all, which triggers a warning in xfrm_policy_fini() when the
-network namespace is torn down.
-
-> --===============7878978291613295449==
-> Content-Type: text/plain; charset="us-ascii"
-> Content-Transfer-Encoding: 7bit
->
-> Hi Steffen, Herbert,
-
-[Severity: Low]
-This isn't a bug, but the commit message is the raw MIME bug report, not
-a changelog. It contains:
-
-- MIME boundary lines and Content-Type headers
-- the cover letter greeting and sign-off
-- the full repro.c
-- a base64 gzip of the kernel config
-- an mbox-escaped ">>From 84f048c2..." line before the actual patch
-  description
-
-The commit subject is the bug report subject. The patch's own subject,
-"xfrm: free the policies already cloned when a socket clone fails", only
-appears inside the attachment.
-
-Could this be resent as an inline patch with its own subject and
-description? The reproducer and config could go below the --- line, or be
-linked.
-
-[ ... ]
-
-> Socket policies are only freed by xfrm_sk_free_policy() from
-> inet_csk_destroy_sock() and sk_common_release(), so nothing frees the
-> clone of sk_policy[0].
-
-[Severity: Low]
-This list leaves out mptcp (net/mptcp/protocol.c) and tcp_v4_send_reset().
-tcp_v4_send_reset() already frees partial clones itself:
-
-net/ipv4/tcp_ipv4.c:tcp_v4_send_reset() {
-    ...
-		xfrm_sk_clone_policy(ctl_sk, sk);
-    ...
-	xfrm_sk_free_policy(ctl_sk);
-    ...
-}
-
-With this patch, partial clones for that caller are also freed inside the
-callee. Should the changelog mention that?
-
-[ ... ]
-
-> A partial clone leaves
-> the same mix, a new sk_policy[0] next to the parent's sk_policy[1], so
-> it is not covered there.
-
-Is this accurate? xfrm_sk_clone_policy() clears the child's slots before
-it calls __xfrm_sk_clone_policy():
-
-include/net/xfrm.h:xfrm_sk_clone_policy() {
-	if (!sk_fullsock(osk))
-		return 0;
-	sk->sk_policy[0] = NULL;
-	sk->sk_policy[1] = NULL;
-	...
-}
-
-So after a failure at i == 1, the child holds its own clone in slot 0 and
-NULL in slot 1, not the parent's pointer.
-
-The parent's pointers survive in newsk only on the !is_charged path in
-sk_clone(). On that path xfrm_sk_clone_policy() is never called, because of
-short-circuit evaluation:
-
-	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index cea6842e6454d..c6d5c7582af73 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
-> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
->  			rcu_assign_pointer(sk->sk_policy[i], np);
->  		}
->  	}
-> +	while (unlikely(ret) && i--) {
-> +		np = rcu_dereference(sk->sk_policy[i]);
-> +		if (rcu_access_pointer(osk->sk_policy[i])) {
-> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-> +		}
-> +	}
-
-[Severity: High]
-Should this test np instead of reading osk->sk_policy[i] a second time?
-
-The parent slot is read once in the clone loop with
-rcu_dereference(osk->sk_policy[i]) and again here. Nothing keeps the two
-reads equal.
-
-The listener is not locked on this path. tcp_v4_rcv()->tcp_check_req()
-runs on the listener without bh_lock_sock(), and tcp_v4_send_reset() clones
-from sk into ctl_sk. Meanwhile, setsockopt(IP_XFRM_POLICY) can change the
-parent slots through do_ip_setsockopt()->xfrm_user_policy()->
-xfrm_sk_policy_insert(), which only holds net->xfrm.xfrm_policy_lock.
-
-Could this pass NULL to xfrm_policy_delete()? Suppose the listener has only
-sk_policy[1] set:
-
-clone loop, i == 0:  osk->sk_policy[0] == NULL, child slot 0 stays NULL
-clone loop, i == 1:  clone_policy() fails, ret = -ENOMEM
-                     concurrent setsockopt installs a dir 0 policy
-cleanup, i == 0:     np == NULL, osk->sk_policy[0] != NULL
-                     xfrm_policy_delete(NULL, XFRM_POLICY_MAX)
-
-xfrm_policy_delete() dereferences pol straight away:
-
-	struct net *net = xp_net(pol);
-
-	spin_lock_bh(&net->xfrm.xfrm_policy_lock);
-
-On the sk_clone() path, this would oops in softirq context.
-
-The opposite ordering seems to leave the original leak in place. Suppose
-both parent slots are set: slot 0 is cloned and linked on
-net->xfrm.policy_all, and the slot 1 clone fails. A concurrent setsockopt
-with a NULL optval and optlen of 0 then clears both parent slots in
-xfrm_user_policy():
-
-	if (sockptr_is_null(optval) && !optlen) {
-		xfrm_sk_policy_insert(sk, XFRM_POLICY_IN, NULL);
-		xfrm_sk_policy_insert(sk, XFRM_POLICY_OUT, NULL);
-
-The cleanup sees osk->sk_policy[0] == NULL and skips the real clone.
-sk_clone() then takes its free path, and the xfrm_policy_fini() warning can
-still fire.
-
-xfrm_sk_clone_policy() already sets the child slots to NULL before cloning.
-Would checking "if (np)" on the child pointer avoid both cases?
-
->  	rcu_read_unlock();
->  	return ret;
->  }
-
+diff --git a/net/ipv4/tcp_ao.c b/net/ipv4/tcp_ao.c
+index bb7bbc20ba3f..857b8684e01d 100644
+--- a/net/ipv4/tcp_ao.c
++++ b/net/ipv4/tcp_ao.c
+@@ -799,8 +799,8 @@ int tcp_ao_prepare_reset(const struct sock *sk, struct sk_buff *skb,
+ 		return -ENOTCONN;
+ 
+ 	if ((1 << sk->sk_state) & (TCPF_LISTEN | TCPF_NEW_SYN_RECV)) {
+-		unsigned int family = READ_ONCE(sk->sk_family);
+ 		union tcp_ao_addr *addr;
++		unsigned int family;
+ 		__be32 disn, sisn;
+ 
+ 		if (sk->sk_state == TCP_NEW_SYN_RECV) {
+@@ -813,14 +813,14 @@ int tcp_ao_prepare_reset(const struct sock *sk, struct sk_buff *skb,
+ 			sisn = th->seq;
+ 			disn = 0;
+ 		}
+-		if (IS_ENABLED(CONFIG_IPV6) && family == AF_INET6)
++		if (IS_ENABLED(CONFIG_IPV6) &&
++		    skb->protocol == htons(ETH_P_IPV6)) {
++			family = AF_INET6;
+ 			addr = (union tcp_md5_addr *)&ipv6_hdr(skb)->saddr;
+-		else
+-			addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
+-#if IS_ENABLED(CONFIG_IPV6)
+-		if (family == AF_INET6 && ipv6_addr_v4mapped(&sk->sk_v6_daddr))
++		} else {
+ 			family = AF_INET;
+-#endif
++			addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
++		}
+ 
+ 		sk = sk_const_to_full_sk(sk);
+ 		ao_info = rcu_dereference(tcp_sk(sk)->ao_info);
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179505710269.3511679.8893709762919027206%40gmail.com
+2.43.0
+
