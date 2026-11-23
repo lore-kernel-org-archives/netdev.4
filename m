@@ -1,98 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434533;
-	b=z9R1ybOzJ/c68eI6Rcr4IwkpEqlvdKyC/dKf5bYx0kHGh2ZCzaJe+DYWejh1XWeQ3JH9
-	 iyqLlAzE8uVfcirRZ7Qo/sPD3O6EWlPPODZWAT/R3EisGhKY7v3bKsv7j+wwhG0LtYJzu
-	 UR8biUuGfrLCfUx8mmjn1U4td9njndPri+fc50gpuiOfTgmvCfpoVYqik7ITG2dK7CqvT
-	 wXCNAy+0UBDnFlFwRztg2ygqL+lmSYh64XzOB3H8yYNt7uywcTkULxUyDui3yOmYf5EQA
-	 o99wWnEd+gq93SpR4UWHBJPrQkufO+YuTjFNQvWZmam933XosljnmKHBpM1kAm581Qw==
+	t=1795434606;
+	b=RoMRP/scvU1ycCFeuu+U+za+AWEHLFA68NE1809Pg1LdSDlEV6y000BRC39eds+792g5
+	 X7hJH9XSpIAHgvC2JNdZ+1qGuuHtNSkvp71hTIFpdeLkqMy5m4vBGcQqYu/mdgtb3ZPHs
+	 kp+gUpCxYJeizXe45EkyF8TDYuCn9GkIviP1RgFjviW6JuDjTBr2OILeOBHCFpYNMCk80
+	 FUxQr8TtzRxzSQvTR6s+M6VpZVAOFYXRDnBlsBFEchX3zABEMlaJ7jjTgfIeXmVVwuBjV
+	 S7+5eP6UZQKB8NsrUaN9HfdlHU0PCc2EbTl9U2S3t9m9466MlKalBHP07elL1vWX3IA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434533;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:CC:Subject:User-Agent:In-Reply-To:References:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=bVLWph7B2WEr3md9baVPpYweSSyWCOp9inF7HhcfyZY=;
-	b=5Z7HTprd+7cOHoRYnx9B+OLnFPQu6NZRfgIgYpvbmom56RLKdiXkBvKRu9fIi1Jkg2CX
-	 YovaiLfIrrq7tY3nHlWOhN5lB4HiSWzCn+KVJhYfbh98UI0Fn4fnSOJmaCSEdPA7yyExL
-	 DMFM56crqgTqcDG0Z7GDuwDPG/yyEj76SEVCH0aXlawL5xGGR+gyt2DBEdIstDOLIgdwu
-	 lqBiH4fJgL4qqmizOkSvFrMGuIUp75cDB+5s7SyaX7lFkWhg94qTupARjYslybADstBiN
-	 p8MVaz6PgSjI6od26AWwF5Z/nXnsG+ZK+lk8fj1qoBx+F5i5VHoW1ZNjO1lxbE6LyUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434606;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=ZuJcgSdqpqCKxNvlfebWKYAlIipyM0Z/cnY85S62i90=;
+	b=Ty877PkEoXZzRyTYEA6G+1SggWrj7howRxMWg/cxlvKdIIN9KwdwBbaf36T5G5Nbbvy1
+	 PM/j2nBatAWWP0MooQldxEfo7dNq9tC7HnsUtYwVmaq7czsh/kNDkh8bJQ6dqppbpSD0s
+	 i5DsrMNJ8wNe+QLnaE0QJUgBG9Ql5PY/zoPN275kaNrQZKfU3LXgezz5YJPHgwVcz0qk4
+	 yBMdp9Ux30UWA+SPNfmwOi8uzvQAiCvtB6BLwk/s4MJUWspy7AMd/uXYwXtiriKIDHwl5
+	 cGjs5ahyjf+pk8fl8zg+ubvltljuyx7ffrGp4cw5UEEvdASF6GPtR2onI0gSYr5qfjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PtBRx4f0;
-	arc=none smtp.remote-ip=209.85.222.46
-Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com [209.85.222.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RwawEDJe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81345606A32E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:48:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81345606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09103606A31A;
+	Mon, 23 Nov 2026 11:50:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PtBRx4f0
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-99e0b1ee864so1144059241.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:48:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795434532; x=1796039332; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id
-         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=bVLWph7B2WEr3md9baVPpYweSSyWCOp9inF7HhcfyZY=;
-        b=PtBRx4f0zHMPWrKCeYo4jmRaJQ1LN5JSKPTl8SuaDwwGOylL4gwkeWZuRFAir8i0Oc
-         XB5k0mzLRktyLJg+vl6aem4aZ3S0217Q3kedU2XJ6a+Rx8VhSCyQSgIcPtDw+IP9ceJx
-         J7XQA7M2DQ9QOU9CoOt65NNP+M3zGNqHutwCOtJDBV4E2sybFUpiotdRZ3ia/0Br1aW+
-         VZ6Kom8GTYEPap127qiISr/1UNfo3AcD6EfhKm7hnT7W26Ny4mS5A50oLqj7OTJQAqFu
-         fZ9Is/5bx67lwhC+m4nxemqFdjv14gTMpbZYwWIzCosqHuaHMYyuL2c09z6O+3MlbY/5
-         9DJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795434532; x=1796039332;
-        h=content-transfer-encoding:content-type:mime-version:message-id
-         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bVLWph7B2WEr3md9baVPpYweSSyWCOp9inF7HhcfyZY=;
-        b=ORNXxK+vnWOyDfY5tZmhGcl76HaaVCXz6C3ogbDBINHalstyLt39dWqC7VtsFgAPtc
-         1pOfE/Zv5opyWe6c91HQRuh8U1hoU88S1NjnQBtBzRX943RSPbr9oqZtjg803ZCGrJJa
-         tB9TdyaSvgNe/2z6hYl9d+eCghsyIju+TZHC5F8otaIcWQJfyfYpOv8d5gz0VHR2ikG7
-         eGXb+rGBcAhgrZFHkujnyziNYb9ICDlRXm1rLV996+xGICdf8FCdLDs3xJZlcTsBoXA2
-         H9mN9JBW6SDfVRbbbjjKldQKVt5AgOlj8C8K/mJOBGURpSJ+AVn96KkJ3bIQJcgYAulP
-         S97g==
-X-Forwarded-Encrypted: i=1; AL+hErG5yQQpib3abKbhsCqYfsqBwiDNW8/MdrpxT40byRJBFWw217kxpZmIIEJ2aH+dA1UTQhlNWVM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FuliTBbCViUMkoFx0R/HHEuxM1wmVJ4V7F5jQT/nOY1K5+Q26
-	5aLFHH5Pg/NMOiBf+bWLv8JwpMidC344EqtmoPb6Mvy2VMbj1j5445uq
-X-Gm-Gg: AZFdTZeTVGfZR7JcU/FbCbZdkBTkqgh1VOBQPpYG58vv1ZTnrxtrxdm5BVImgL3B+5g
-	4Vkhqt7Bw0s6XrVMcnygX3woFaSmd0OHNDpWReNSvT37XK4xAgRrdUb3FmB/OVOsIaXG1kTdjX/
-	1Z5VqJ6dmIzMNlySbx41Aepe1qkeSy7EqEcxyafHEty8EknU+QaH2JGAhrkjIjZtNfQ65KDLevl
-	AgjtoC0TsS4MDYRTk9zCD+5GT0OaFfp0izbuLrccFsKnzPb26z8TNLP9OXwzVAlTCGMkiTQILEx
-	kBs5ERG+HpgkwP6pi73Us07Gisl9YKH3Z5SPVD/ekvOp2cflJT+AOWIEk0vBFJmvyJOZ5RZOzj9
-	IKXW6O9QQ5PmgKPOevLrLUVU/ZTk6UCbko9DtSgziCYuRHMBS1XJ9AZbv9HEGcWMpI9PAKcdBtZ
-	3NWaahAQkqQIMIhMNBPraNzWGxncZEg1r+u9NpR0FvgS5MKWeiNkMUwd+mC5CcUXKq1VbY22bBY
-	NjlEJNMCbg/+SfsjTxOqkTyaSdJ1OE/4afcjqcwvGOCXbBU8dgifyArH19GfZqlY36qzpQ5VJ9c
-	CekfnHFxdkTUJ4XW/kH1jMk5Ju0Q+tw1Vsc=
-X-Received: by 2002:a05:6102:374d:b0:7cc:971a:61ee with SMTP id ada2fe7eead31-7d7393ff678mr5339224137.10.1795434532277;
-        Mon, 23 Nov 2026 03:48:52 -0800 (PST)
-Received: from ehlo.thunderbird.net ([179.181.85.100])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f92680sm11676646137.5.2026.11.23.03.48.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 03:48:51 -0800 (PST)
-Date: Mon, 23 Nov 2026 08:46:43 -0300
-From: Felipe Stival <v0idpwn@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-CC: john.fastabend@gmail.com, kuba@kernel.org, sd@queasysnail.net,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
- horms@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
- rdunlap@infradead.org, shuah@kernel.org, netdev@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net 1/2] tls: don't hide a queued KeyUpdate from poll()
-User-Agent: Thunderbird for Android
-In-Reply-To: <179538279534.3135.17423952957860887247@kernel.org>
-References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com> <179538279534.3135.17423952957860887247@kernel.org>
-Message-ID: <B373FE61-88E2-4F2B-9796-01B39ACF7635@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RwawEDJe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCB521F000C4;
+	Mon, 23 Nov 2026 11:50:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795434605;
+	bh=ZuJcgSdqpqCKxNvlfebWKYAlIipyM0Z/cnY85S62i90=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=RwawEDJeLLTVq0aLOV92cxBvfS9B9ZdMV+04TVYTZXFileauuOJ14Am9MXJvzjVj2
+	 Q4+wyPVkezsnePy8WF579jxQiY//X7b7L39OmWKuuC7nWo/9QeBGm4LvXEdpKPkKt5
+	 HXuR/D6hzw1vWXJF2SJUSO8KEiXNRbGr+0uT+7NwdCrLuVs2FtLfkg8dN9ruPK7Nvf
+	 E7pA1sQbjOFVRuoIRXOBr7qYW7JWIAhH8BGCYekpymmgYhUw/E2MNpn/uNBAD3EIxy
+	 ngOqdXE+42tPtKnF4sDD4H0EjdEJtfPZOD4ESMNCo295o/8txDsQryjfYAjMW9gelj
+	 3efTLb8A2Nxgw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45BE392ED9E;
+	Mon, 23 Nov 2026 11:50:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,12 +53,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] tun: complete the zerocopy buffer of packets consumed
+ by
+ XDP
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179543460453.2338965.1975770060566006606.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 11:50:04 +0000
+References: <20261113232843.2338734-1-antonio@mandelbit.com>
+In-Reply-To: <20261113232843.2338734-1-antonio@mandelbit.com>
+To: Antonio Quartulli <antonio@mandelbit.com>
+Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, mst@redhat.com,
+ eperezma@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, sdf@fomichev.me, netdev@vger.kernel.org,
+ virtualization@lists.linux.dev, bpf@vger.kernel.org
 
-> Can a poller that is already waiting still miss the KeyUpdate here?
+Hello:
 
-Yes, any record tls_sw_recvmsg() puts on rx_list has no wakeup for
-concurrent polls=2E This predates this patch, and I'd say it belongs in a
-separate discussion=2E
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Sat, 14 Nov 2026 00:28:41 +0100 you wrote:
+> When vhost-net passes a zerocopy buffer that tun_get_user() does not use,
+> because the packet spans too many pages, the packet is copied and the
+> buffer completed. If the copy goes through build_skb() and native XDP
+> consumes the packet (DROP, TX or REDIRECT), tun_get_user() returns
+> without completing it: vhost-net never gets the descriptor back, and
+> closing the vhost-net device then blocks forever.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net] tun: complete the zerocopy buffer of packets consumed by XDP
+    https://git.kernel.org/netdev/net/c/3896ae4adf5f
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
