@@ -1,72 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795416003;
-	b=m7n+Sf1y+nRpUZ4IFId61ufYQLQig9xWGxTkkGiFW2k6lB9sJn2RQwP1eAVhvHnV/Qzv
-	 7co7R1xEKQZBdoHDjSYK+Pv1Qdh2dzg/Yt/6Dv+3bCPJcJQdNvf2YVHoz7SQI6YS59Jv5
-	 MX/ENL84P+mhiHDXtW62xdNOS60/PwobDqX4RieeyK6+MklnKMSsXoRJhCE1fQpdwmMLI
-	 vWKjySDqEOC9JnubjqfinMjf3thtslej12INqra9+nhZroOKZ3rd3c7oJjfbUIOVKvlFt
-	 cvVZJDcuDcD8n8+HcRwcG6Azfd2JpFjQ8O12rpGkJzZUyW58EKTnWA66FzC8hFgnO7A==
+	t=1795416334;
+	b=E0k78SOv2h6ysee1d0hVQJmuhR8s3Fq8iSyBPFNFOB/P2Vv6riFLCQRTMDymTfWS5ztH
+	 FRYymHNa6aeGSaasjch6/Ad531S+ySi84ICY+O+6RY1C8YnpuFNrA+xlY6IDcRelb0Xlw
+	 2Bo7Lu2ogdsWeUqjjc/FPgVKTTRSGcrmdb0eYBQKPb9UTfNuiEMPFz/wZrm2JR8AlWStz
+	 l+dkZn+S+/Wi5R5CwOmO0FhNLuqx7J+5aDZ5K7xU3hxN4l3s6pPLClhkkB6ygP54PpNYU
+	 B3a8wBXMx+nLQL9WlznppylYj+sq8t3GcrLW3HSwTUsAGzLQZpVd/OFv05JdMRBQxRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416003;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=tFBbEjTVG6FIv+j1Fe5z/DyiO1sZmnfSor6MAode+lY=;
-	b=zsHF7xhDetiJZZKZcq6MF0DqkSvVdEDV+KxsHkmarc9oZUKQHSvaW8r/zs35ZQrsEkGT
-	 mzBOwaNPhB0FUxy/4vKVK/bXskpxT4JnQMKned8JsvRMgAHk5bYKQWHfC8oeOeUnjv8ep
-	 jSi+fDaYxZ+6yFJt4+UC4Wusr+N2qEwyT6k6JOFvD9v8bLw+DIjwhk9SdKp+kRECPuKDS
-	 NXAdvuGatROFBIlTsDzKyjY0SJNOG4j+s5/7XJ2ydJ81xNCQ39GaJla8RBW5d/b2Zr3O9
-	 16SMnysjD2MQzp3vebE/RktNlVdkpmXslHciET3x6sADn0MwuQeaNqVl4vtF1UTyKCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416334;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ixmwBow0FK9VaNmhGL5HuCR4NwR5tANQhiSxUDqh2BA=;
+	b=TQOVn3tOmZI2eqZzJHKkIkbwTeOriEDFBCpxzmMwxShtfik178GMjdvwCfOwbaCrOxph
+	 ioQlEVNO2fdqzsChcjXVNzKi+hylflr5me2FbWl46dO4ZVJy42nxuKOTYAGZh4SC3+ZDk
+	 nEtjPhOVXJDh0ybU2VECjlgfn+Jq5zUmeT390hx+K5lHW1jFa7qPOmqTPqIiHAX9nwXPS
+	 dSKOBrU1hzXjVj5ffIvkgJHPXSX0Ir3IXKCszBfIWcFfrGniNPq5Z5w6lVsAiiRoJhuU4
+	 ClPYVH4r6LQGl2kSa05CgWX4QvV/G1KTu7cY1oKCT8gwbL0swIESwRodCdB3O06mZPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=m5FAcMP5;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 939B7606A31E;
-	Mon, 23 Nov 2026 06:40:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 939B7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SEr113MZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16F58606A31A;
+	Mon, 23 Nov 2026 06:45:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=m5FAcMP5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=m5FAcMP5GayGRHDFII3ji4FuUvBJu3AQnlmD2t8GWrv151nFaSffl+dqQ/d74eUajkkGtxgtJjZVs
-	 lgn4DGUoMySvpFsJBkUE8gFQKn6cU8HQdmcrtR8Vp6VxbIXoBMTggQJFWbbFPG6MZVXMbq7UtLwKdE
-	 npAfzTD7QRhVWubQ=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b03dfbfd79-764ec;
-	Mon, 23 Nov 2026 14:39:59 +0800 (CST)
-X-RM-TRANSID:2ee26b03dfbfd79-764ec
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b03dfbc90c-8a1ad;
-	Mon, 23 Nov 2026 14:39:59 +0800 (CST)
-X-RM-TRANSID:2ee16b03dfbc90c-8a1ad
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kuba@kernel.org
-Subject: Re: [PATCH v2] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Date: Mon, 23 Nov 2026 14:39:59 +0800
-Message-ID: <20261123063959.147-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <179541469889.3135.11276449301186567298@kernel.org>
-References: <179541469889.3135.11276449301186567298@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SEr113MZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC351F000C6;
+	Mon, 23 Nov 2026 06:45:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795416333;
+	bh=ixmwBow0FK9VaNmhGL5HuCR4NwR5tANQhiSxUDqh2BA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=SEr113MZraaiSKBxuqwtfO/CuTk9qTP3MkcZCjHN7cmZMKxsgaVO/fXaMUNdlPiU4
+	 AzxDd/YSviZmujlvnEUKjL5Nkuwjsown37xsV5DYqSZw25fS7bix7Gk+7L6Xv3GtpI
+	 57BjgMIPdPAIWzXxvjkhAj8kpNoXIaldvF+oi6r4uPSLnVpigxQIn+IF7fU3OyFE+T
+	 zbipMtRV7rk10uo5C+l2qwb5bJIviyDLiZJgX47/QzK+vT5YLa9AxvjHIcW4wq768Y
+	 xf++G9Wxs55QAxYR3vOdQ368NeUWIcjCzQWFuFT/9H5Xb88LAMPlplVajvzrrncIOQ
+	 TkCrywGlrfuJg==
+Subject: Re: [PATCH net v2] net/sched: cbs: fix 32-bit overflow in
+ transmission time estimate
+From: netdev-bot+sashiko@kernel.org
+To: mhm.dawod@gmail.com
+Cc: netdev@vger.kernel.org, vinicius.gomes@intel.com, jhs@mojatatu.com,
+ jiri@resnulli.us, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, ye.zh-yuan@socionext.com,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 06:45:32 +0000
+Message-ID: <179541633265.3135.10106837987470065643@kernel.org>
+In-Reply-To: <20261122064155.2094434-1-mhm.dawod@gmail.com>
+References: <20261122064155.2094434-1-mhm.dawod@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,59 +64,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Hi,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-On Mon, 23 Nov 2026 06:18:18 +0000, netdev-bot+sashiko wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> - [High] The fix is incomplete: the regulator leak the commit message
->   describes can still happen.
-> - [Medium] Possible double disable: the new error labels in
->   mt7530_setup() disable core_pwr/io_pwr, but mt7530_remove() still...
-> - [Low] Possible power-down ordering problem (speculative): the new
->   err_powers / err_disable_core_pwr rollback in mt7530_setup() disables...
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-Thanks for the review.  These are the same three issues that were found
-in the review of v1 [1], and I agree with all of them for v2 as well:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-* High: Correct.  The chained error labels only unwind failures inside
-  mt7530_setup().  mt7530_setup_irq(), mt7530_setup_mdio() (both can
-  return -EPROBE_DEFER), the SGMII PCS creation and the DSA core setup
-  steps can still fail with the regulators left enabled, and each
-  deferred probe retry would leak one more enable.
+- [High] The fix only works on older kernels.
 
-* Medium: Correct.  In a multi-switch tree, a switch can stay bound
-  without its ds->ops->setup having run; a later failing setup is
-  reported through the other switch's probe.  With the v2 unwinding
-  bringing the enable count back to zero, the later unbind would then
-  hit the unbalanced regulator_disable() in mt7530_remove().
+--
 
-* Low: Point taken, it is speculative for a software-only fix, and
-  mt7530_remove() already disables the regulators in the same order.
+net/sched: cbs: fix 32-bit overflow in transmission time estimate
 
-v2 has been superseded by v3 [2], which adopts the structure suggested
-in the review ("move the enable/disable into a properly paired place,
-such as probe with a devm action"):
+This patch casts len to s64 in cbs_dequeue_soft(). Without the cast, the
+len * NSEC_PER_SEC product is computed in 32 bits on 32-bit architectures
+and wraps. The commit message says this restores idleslope-limited
+throughput for software CBS on 32-bit, and includes before/after numbers
+measured on a BeagleBone Black.
 
-  [PATCH v3] net: dsa: mt7530: manage the core and io regulators with devm actions
-  https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
+> diff --git a/net/sched/sch_cbs.c b/net/sched/sch_cbs.c
+> index 1c93469c56e3d..107c2b6e9da30 100644
+> --- a/net/sched/sch_cbs.c
+> +++ b/net/sched/sch_cbs.c
+> @@ -222,7 +222,7 @@ static struct sk_buff *cbs_dequeue_soft(struct Qdisc *sch)
+>  	if (unlikely(atomic64_read(&q->port_rate) == 0))
+>  		q->last = now;
+>  	else
+> -		q->last = now + div64_s64(len * NSEC_PER_SEC,
+> +		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
+>  					  atomic64_read(&q->port_rate));
 
-The enables now live in mt7530_probe(), each paired with a
-devm_add_action_or_reset() callback, mt7530_setup() is back to its
-original shape, and mt7530_remove() no longer touches the regulators.
-This resolves all three findings: every later failure path (including
--EPROBE_DEFER retries and the bind-without-setup case) is covered by
-the devm actions, and there is no second disable anywhere.
+[Severity: High]
+On this tree, does this change alone make 32-bit throughput follow
+idleslope? The same kind of 32-bit wrap still seems to happen when
+cbs_change() stores the sendslope:
 
-pw-bot: cr
+net/sched/sch_cbs.c:cbs_change() {
+    ...
+	WRITE_ONCE(q->idleslope, qopt->idleslope * BYTES_PER_KBIT);
+	WRITE_ONCE(q->sendslope, qopt->sendslope * BYTES_PER_KBIT);
+    ...
+}
 
-[1] https://lore.kernel.org/r/179531318026.3135.909782780821579093@kernel.org
-[2] https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
+Since commit 000db9e9ad42 ("net/sched: cbs: Use units.h instead of the copy
+of a definition"), BYTES_PER_KBIT comes from include/linux/units.h:
 
-Best regards,
-Xiangwu Lai
+#define KILO	1000UL
+...
+#define BYTES_PER_KBIT		(KILO / BITS_PER_BYTE)
 
+That makes it an unsigned long. The old local definition was (1000LL / 8).
+On ILP32, the negative __s32 qopt->sendslope is converted to unsigned long.
+The product wraps modulo 2^32 and is then zero-extended into the s64
+q->sendslope.
 
+With the setup from the commit message (idleslope 10000, sendslope -90000),
+q->sendslope comes out as +4283717296 instead of -11250000.
+
+In cbs_dequeue_soft(), credits_from_len(len, q->sendslope, port_rate) then
+adds credits after each packet instead of taking them away.
+cbs_enqueue_soft() only resets positive credits to 0, so q->credits < 0
+never becomes true. The idleslope throttle and delay_from_credits() never
+run either.
+
+That leaves the q->last gate fixed here as the only limit. Wouldn't
+traffic then go out at about line rate rather than at idleslope?
+
+The "before" numbers in the commit message (11.1/25.0/42.9 Mbit/s) match
+idleslope * port_rate / |sendslope|. That only works with a correctly
+negative sendslope, so were they measured on a kernel without 000db9e9ad42?
+
+Because of the Fixes: tag on 961d0e5b3294, this will go back to stable
+trees. On 32-bit kernels from v6.8 on, software CBS would still do no
+shaping after the backport.
+
+cbs_dump() also hands the wrapped value back to userspace:
+
+	opt.sendslope = div64_s64(READ_ONCE(q->sendslope), BYTES_PER_KBIT);
+
+A configured -90000 reads back as 34269738.
+
+cbs_set_port_rate() has the same unsigned long multiply:
+
+	port_rate = speed * 1000 * BYTES_PER_KBIT;
+
+On 32-bit this wraps for link speeds of 34360 Mb/s and above. For example,
+40000 Mb/s gives 705032704 B/s instead of 5000000000 B/s. That port_rate is
+the divisor in the expression this patch changes.
+
+Could these be widened as well, for example (s64)qopt->sendslope *
+BYTES_PER_KBIT, (s64)qopt->idleslope * BYTES_PER_KBIT and (s64)speed *
+1000 * BYTES_PER_KBIT? That fix might need its own Fixes: tag for
+000db9e9ad42.
+
+If not, should the commit message stop saying that 32-bit throughput
+becomes idleslope on current kernels?
+
+>  
+>  	return skb;
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122064155.2094434-1-mhm.dawod%40gmail.com
