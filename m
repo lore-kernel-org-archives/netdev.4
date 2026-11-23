@@ -1,112 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439455;
-	b=w1gn5/qAfaUNj69H4OotIT1gH6gGatjpQNYI3vDFLeJM0biwAbT7rlZc4NsIBC0K16cq
-	 RyI64Z8P8VhMUqlBfaQE7NvNlCW7Qe+fKIwjODpNWEgTueqmJ5qYp6SObTr76m1hqd3MG
-	 p0DPBnu+VqSiF3EvWWMAG5Uc7KuiZvDR/t1zEeFMNpu0prUQLT2U019sjoz7UoBc7iZCS
-	 5WNYPSBZEC2b0CCUifCtWbRxRmnVpWmaxmk3oNyxqSvmQR1+cgO7I2G5zfl5M0zVaqreW
-	 hsLzBJhHqii716sqHsw13vsvOLb5vifXGY1HnQX8yVqcq9ZyNgjWA1k3qtGFCCprMLA==
+	t=1795439566;
+	b=DVhpx2tuwJw44i3k/mTCxBXVy7DCXxDHsBghvXuKL/bgtdVVk0bG5DJIZ70Z8sS5FTd2
+	 boYX6u/uVNNJUBKHD9VHsFU9gfNM1a4REwPlIDHL4moDoVMBLpmZjTzEPSTymmt+7fx/4
+	 bI8Wz0Gs7p2Of1lI7+vtDVDmU/6QmhrxIpPr+CBayTGwBRqcH/KCT1IW+ifPOPGDFha5D
+	 SK0obAY4Ds+FOjRcDeCbZvhc7A02EYyJ4YzSbBEwGn9a7D+ChNNJDYi5dCJTAhy2S0zh2
+	 aTD4NdCaiiFjuPxowkeVxPsj+yfAgS4HaJHEfd+Emx9K+xE2cUkqXorqA++IP74GLKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439455;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7dSUYZEgNCLN4peeDNcu8u/0Z/HyiOcYEuA7oi+4CJg=;
-	b=Z5JsTP3xAbpgSjFG36DLXW/fnncTHTqkRjj/pkmwf41McFh6bRTGZiRxC8FM9XWk9V9A
-	 M/DXlJsjVvY5cgIzQxRIEboYsPXXvWfLQvPFzil2ImFXiEpRWeyOq008+dqz2WG3RSEXG
-	 rXbwDtImyCrTs/MOoHWKzcPSTLcDxhHYorz0pIng0fMeGARY9ydrvvKTD9WEEWNBRJ5Iw
-	 BaDnv4oKLecFZlzpx6j10dRJ/2cSN/4irpVV0vhZXAMirjOE/6ibYLGHBzBFPl6A4J3AL
-	 NPMXOJrWCdnx6wVvy+Ur0HnJWKnytUoR6qzmOoE9qD1ZiOp5s1DxVN8AtIgvJfT5zbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439566;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=w6eqsCdQF3I2GhYQxS52iBVcQvGlWjO6LkwGaOHisJYoSr5BTrN+ef2m9d/0WLJSyFwV
+	 +2j7CzRgBbSBWNzBXnS8KWlGtCaJKWjXzwcxPpBBFmJZ/OAv0zk2XXTAywZNomu8Kj1r5
+	 T0jwJINlzTUc81L3moEzBUA/g/oPn4o+/tIuBFcWy6ozMxD9B7d5aocs//QZxuyxDUbrQ
+	 RJ3HzgOGYdTRw83IhRhZUXWX4KL+QImTqDE3S/22t614Brfpe27LkkP0EdUqfZZTF2cp7
+	 +ImM8pG4bdWdGdjupGIMxFaFqORGPRlQV3W+KyB1etAlyAQxou3/SlARWX5OVPyUYkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qpg7mrlE;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pl3FZ6Wh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DC7C606A68E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:10:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DC7C606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC5C7606A31A;
+	Mon, 23 Nov 2026 13:12:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qpg7mrlE
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso17699635e9.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:10:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795439452; x=1796044252; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7dSUYZEgNCLN4peeDNcu8u/0Z/HyiOcYEuA7oi+4CJg=;
-        b=qpg7mrlE4nx9XMuqFOY5eJZKNJ/e2FFVQF44i1PR0LIdAWJot+5EKNuzCEMHKDDoZM
-         3x/PA+x9v70n7md58LQRfkW3JxPqmYL5RerRnSEe90ukVisxYXuN7b3im7TrMRxR+tKK
-         y04w3vOyY2kHGHPMObdgCo6aZtAijmoZGoKAg0tIarIVw9kpRFaTMJtNgxxBI5unpcTz
-         QlSxo0EqHTAeWXnLvLcVpGZm1N3npH3kU8LZUg2xS1uqB3xU6OuJROrZafzsizwq5xMg
-         UfZNlQqPULlRWv866+OkKKAZNlDNWPXfwV8B7qLh7fOWj5FfHazQqoeX8sS+lihCriAb
-         C87A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795439452; x=1796044252;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7dSUYZEgNCLN4peeDNcu8u/0Z/HyiOcYEuA7oi+4CJg=;
-        b=eZE4Wed60BQpqX7pipdaWehKCy2rpQD5tyJg1pt03jC5lf6oxEhiZvF0Pux9j5eMS0
-         FF41hCLpnkCg3l35wUuJdeI3wffzQJ00obyBKetQQ0tvxzp+k+Nwb1Va87pxGiDmOL8C
-         lHl1G5ZnDQiX7FjCtF9QSxUFSU5UnjCzIaAZRptNWZYjNKiPL2KaRc43Em9WxbFcWwra
-         bwl/VLsS5IlxmzTOx/TcypbVQ5xqudLZSRwKorU91l8wbhbD6lpb0uMANJJ8UFyLHPxs
-         lNMmk9ia7X79j2fBAj4iPVpbVXo2TLWh4l0ULU3XEYO153H+CP8wN46H0Tur2KzHgtEy
-         Fajg==
-X-Forwarded-Encrypted: i=1; AL+hErFCRGQjzdQzs3kBndfTtSBQWoPK7GGRbrxFBt3f0LB6cpjoHzOuofAXd4Fl9TpwVN0WIsdXSeA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PBCPn9pHnofgjfc8yAcnzS2T0JXQLV+pwgRqlSK4YOUucq5By
-	bGQrdaSMkWIOT7dtdLgKG+vXVcvz3cHkr2FgB7VfY92uGqesEMDFuMcB
-X-Gm-Gg: AZFdTZd9C/582yBcVBN792DoGkSe6W3Sz+/pd5slh9dM8dygCnNpcDMQ7OZITj7JeRH
-	d86EFZGf/bisgXc8EHxJp0X7cV81PeAYRBPzn2IqnAzXp//eAPoF/JsLgdQ/3pW16DZVmXVMK28
-	R9p6/mSjInKuzMbwc3SikFB3cFiuXWQ/2EIeuIDoeaelAJs49MRwwEHtOD5grgsNCeKrHMuMECk
-	BjjWwa1o2M79K3VyhiSsLROV3j2pcg0R95CC6B2PzNnMphAlCkH24qTDpgRe2OLK5t8v3bQ2kwM
-	Lnq12U/aFdyzjifpM3tEamKTbO+K/6nGPfVC+5YEMAHzpbN62dIYvko2IHyPR9csOLZLlS/cpvA
-	bkh/M6Cep4ODwmz3uIx4MBl/Go7dzabpWPWeRMPGuEWwFbYMfFlrr+6sYi3SIl0jxBe4uS1r+PB
-	uQb8O47KwbFDgCuY/DQoA/FQ6nzTeDkR7b7lRNuEaedHtsLY1h32ruFJjOKYb0hApXxZOkqJWeJ
-	/3U+1es7f+3WCKsd/AN2LgIEERoO6JjpdU2oKgC/cum3nP8mWZKNjf0i6NdhRSeDW6aZ2WLD2V4
-	LAXnzbg18lqZtNzlK1mJncVag1fakl8kAqEnMlhdFBXfxFpcQ28TRxMOeRGIeDyo9cHrzaGx+RU
-	DQZMAEmgPPNjE9uRPSB1+s0rAHV64BcSBhC4J8ZKd0mmRoCAmFFb0a/ey8jktm+m4wRXJo49Rc9
-	o=
-X-Received: by 2002:a05:600c:a087:b0:4bb:5c92:ce22 with SMTP id 5b1f17b1804b1-4bb887fe887mr233753995e9.8.1795439452477;
-        Mon, 23 Nov 2026 05:10:52 -0800 (PST)
-Received: from iku.lan ([2a00:23c8:254f:fd01:f273:2c28:9387:7d5c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm400714065e9.7.2026.11.23.05.10.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:10:52 -0800 (PST)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@linux.dev>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Ralph Siemsen <ralph.siemsen@linaro.org>,
-	linux-renesas-soc@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v6 4/4] net: dsa: rzn1-a5psw: Set driver data in probe
-Date: Mon, 23 Nov 2026 13:08:52 +0000
-Message-ID: <20261123130852.3420491-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pl3FZ6Wh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9A51F000D2;
+	Mon, 23 Nov 2026 13:12:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795439566;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Pl3FZ6WhF+5BtB66fte8JV5RPlpfc7eGLvXZlog8ELGkOJt4uPK7/HkE3sgpKOtil
+	 UY4x9LHrZwbnh2iuTIkfaJH0y3o0H9O3fqqsGMGCY6Vvc1dKNmEO6kgUI0CEAx7Ei3
+	 kRLjg1jc8c+p9/PGyLswW1boMCnhE2C5+cPbj84errBWA7TZpkKCFfato9+Wm0DjqT
+	 //pnu0JwVyQE63zuJ3tfN4MJn9sHGmM2qZy5Y/sb087OyXtBAeu73fIT9LjNURldbF
+	 g+ZwUDl014TCbdLqI/ct8Lgc2SUPvggMLzen3VI8LTykxi02qKDOhjxW2LR60ZZ9gS
+	 IxbUmQKU2r8GQ==
+From: netdev-bot+sinfo@kernel.org
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <clement.leger@linux.dev>,
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Ralph Siemsen <ralph.siemsen@linaro.org>, linux-renesas-soc@vger.kernel.org,
+ netdev@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: 
+ Re: [PATCH net v6 0/4] net: dsa: Fix various issues in rzn1-a5psw driver
+Date: Mon, 23 Nov 2026 13:12:44 +0000
+Message-ID: <179543956483.3294.440601604363377666@kernel.org>
+In-Reply-To:
+ <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,44 +72,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Hi!
 
-a5psw_remove() and a5psw_shutdown() retrieve the driver private data
-using platform_get_drvdata(), but a5psw_probe() never sets it.
-Consequently, both callbacks return early without unregistering or
-shutting down the DSA switch.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Set the driver data in probe to ensure the remove and shutdown
-callbacks can access the private data and perform the required DSA
-cleanup.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Fixes: 888cdb892b61 ("net: dsa: rzn1-a5psw: add Renesas RZ/N1 advanced 5 port switch driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Clément Léger <clement.leger@linux.dev>
----
-v6:
-  - Added reviewed-by tag
-v5: https://lore.kernel.org/all/20261120002549.1908299-12-prabhakar.mahadev-lad.rj@bp.renesas.com/
----
- drivers/net/dsa/rzn1_a5psw.c | 1 +
- 1 file changed, 1 insertion(+)
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-index 7fc62956c5d0..4925d24ec2a3 100644
---- a/drivers/net/dsa/rzn1_a5psw.c
-+++ b/drivers/net/dsa/rzn1_a5psw.c
-@@ -1219,6 +1219,7 @@ static int a5psw_probe(struct platform_device *pdev)
- 	if (!a5psw)
- 		return -ENOMEM;
- 
-+	platform_set_drvdata(pdev, a5psw);
- 	a5psw->dev = dev;
- 	mutex_init(&a5psw->lk_lock);
- 	spin_lock_init(&a5psw->reg_lock);
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.56.1
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
