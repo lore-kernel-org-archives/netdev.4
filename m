@@ -1,87 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452662;
-	b=zBxVPgJpuqqfH0ONxLuzFnHiqJUM4DbsikrWio+Kz0Q/oSl4BSKuO5Ekfz6TSMnKbWEO
-	 SSxzrD6zC1Tx8T+pgt0kA/K91lAYJMXtwtG1RM6Xu6QDLekG8FPaIDvo2L8nw/dsaEi95
-	 0uw9a4GK1UsRxL7xFXE3UxDzm9EO2UwEkKBKwIUjdHs2mEoGmZOSXaOO60oh7gg3LkzrZ
-	 nY12c6Xv6g3mpb2immu1WeNjfgIp2XqpXwycirU4TLrIB/8Lhb0Q/QAJyy/F7WuqmEVpT
-	 Etd/F0Plkw4kEYf/W+PuJUtEE7QvNTb/wj9NlB1SXwGbE5VSzFgHL6tBkwVwQxJsPBg==
+	t=1795452826;
+	b=2Fmv1aCT6Dmk/hgPt/GtbEP7T86gGUgURqDA5qUheo2BAh99o2zvaZcaV0sKFYwn+hqG
+	 Wu/v7ZoOIezUgvb4IIRaKlbtvV66r63OZ1YVAQ/Y52BemzbNfecaWSZ9WsyiHAMYYVWne
+	 ZY+spBxu3aYdVpPZxTGK/EjIBQ3N/n/ZJRv2HUpgubrc08DMKkbc5lv/RmCf7ZoQkKOOI
+	 d5rQXngvkko3U/2nTJksAyNFSShwbbwC8o5Xz21klZPcxobqDw1k3/ec+gXanhYdL/RbH
+	 XYvGXH5mi8DOXnLwYdC6RDAn2TvXnQvTP6m3s23WU5ZHji/ueITKT5ZPnVe6XZ5rrkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452662;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=oDDXBnRuSFWwir+Qc8FIH/dhSu2JKoewicfxlAouLOQ=;
-	b=bWIkFZMA/+V1Td1hsIFqrViEBiAdDd/WqZIU2uRtcaxl4jDbKj0gHMuvjZJRP7wBsbGz
-	 fGSLgfYMJRzwwcKErxbX+YdXXM7b/ogH9HGzkVyliqh7yOFeqiyOftCR63IXwcvRz+10b
-	 xNaoM3+1K0F4WGjhWB7DzN1QvVSJFA56ytCDDd0SM/+oqvD5KzlHIM6/IEkvj3wcQzQOw
-	 xHXmcd2jZkniQSLs+mpqLgpqZmpHcOLCunlXgDenjr/2P6PmoNIgF4Sau0+Jq5pgX6Lxj
-	 bVR3Lx+YBCdwNfY/xL3dBT6iDTRsgtTLq+Dv6YmnCjjIie/NixlNuYeFFQlrT1ZUQ4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452826;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=drBF3Z3PQ0R8gQvpvkiEd1RU8Xl9TyEqLv9Q1GlRXlw=;
+	b=OEocjBJdDTvN64imUFX5J2BYjopNdNTAZnSaCzro8MvdlA/9tLfRTNsMxUgsU8uUWiET
+	 U9R387f4U7q3/qb8cDqJAqPgmT2Px6DaE3pepV6F69SyFARffm2wOuZT52lakxAF217oM
+	 S5VucyNYnU3TQeiYCSGD6dbosB78qFOFCGmkiv+BTjRJitp0O8ruM5/uMvg6q2fIyPWl/
+	 Oo/e/c5++shqKx0PWNLMbhMAoJ5rKP0G5aOZYT9mLZb2qiPbhyYnrsnjjeKkhQuXbiuaY
+	 6yfWFJFpgrrmQ14xc982WV1OcUMHPpssBC743tFwsUsw/fQ8+KjYlama70BS43piRKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=Qw7beBot;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kWNAo7iT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FAEA606A687
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:51:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FAEA606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7574A606A31E;
+	Mon, 23 Nov 2026 16:53:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=Qw7beBot
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=oDDX
-	BnRuSFWwir+Qc8FIH/dhSu2JKoewicfxlAouLOQ=; b=Qw7beBot+GEfrz2B7nN6
-	L91TgwiyyshqWEIlVxVwK+kbARCBrRi6xpjS9Fs0aqTv82dY6SF3rTegjqVEdYak
-	06XG8jvk4zsw/SOjvy19BxtfawiXuNLUVtw4nhignsmehIxWOLZkTQ3D3bD2Uo4i
-	xQHm7K4nP2xn1zsGRbNKoONoqJKi4q8wcV8jzMC24bruB0522uj7iK/e3r8w3oar
-	F1T+homIsQFmqZ+e6iHrwX/WYOLJMKeF+AKO+jgD3wfX32JjFtZ3YhbyNdVIAj08
-	kKLYKz9/KJWRmmS78KqnWsFdTSY3YBaPUCl0GPYGFMvPBYKc0knyFj6QdvnSrQGW
-	Aw==
-Received: (qmail 2835965 invoked from network); 23 Nov 2026 17:50:55 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 23 Nov 2026 17:50:55 +0100
-X-UD-Smtp-Session: l3s3148p1@zwO+ZfRgEuIgAQnoAEqRAK1B9h1530u9
-Date: Mon, 23 Nov 2026 17:50:55 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Ralph Siemsen <ralph.siemsen@linaro.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, khendry@reliablecontrols.com,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: clock: r9a06g032-sysctrl: Document
- reset cells
-Message-ID: <awRu6SH8GvRir-eP@shikoro>
-References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
- <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
- <awARmkCuelD_fdX6@shikoro>
- <5d8530485716d129be2efa0518254e3322cecdb0.camel@pengutronix.de>
- <awAq7vxcY8CGjhNl@ninjato>
- <awGV8BU_AfaXQyBv@maple.netwinder.org>
- <awIMBj_7OLrlM5G-@shikoro>
- <CANp-EDbNxWnpjXDshVhPEwppGu1cf2V2UBO+hk2NtFDFeqCAdg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kWNAo7iT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A001F000CF;
+	Mon, 23 Nov 2026 16:53:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795452825;
+	bh=drBF3Z3PQ0R8gQvpvkiEd1RU8Xl9TyEqLv9Q1GlRXlw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kWNAo7iTk2MizLlzq6bTI6pK9ABv2SQVSrbQBR4A46kcXFppRsGaTwrWWEzSDO5en
+	 YaKFoqoJ6WryyYf6vNmu7OVHhdktiaZio6JNRTHMM0Ha3evBiAKDkNETFs68Qjpfyo
+	 2zK5R1WKOhuAvFG6PlUPNwziGkaugKBYjRjjeONPuVNh1RC5fDu6VfvUqZCOLkd/cf
+	 iihftvajLKupwIW7J4EZDVISpP3f7FGT4n4IwCCeyZvSESMhrnDSio+ue4T4m709M4
+	 uKoo4zFB8kmig0Y5Kdgk5sUSy+va1cFL517sYC9zSWDh82BvuKxiMl2/ZZxeFsXpmg
+	 30nSpusG+Xbdw==
+Date: Mon, 23 Nov 2026 16:53:40 +0000
+From: Simon Horman <horms@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: lcy8047@gmail.com, michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, vikas.gupta@broadcom.com,
+	andrew.gospodarek@broadcom.com, jacob.e.keller@intel.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] bnxt_en: Fix auxiliary device leak on early probe
+ failures
+Message-ID: <20261123165340.GH31322@horms.kernel.org>
+References: <20261118050716.3873167-1-lcy8047@gmail.com>
+ <179515123717.3136.1891710789877841672@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,41 +62,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/micjW0Pmzh8X1xY"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CANp-EDbNxWnpjXDshVhPEwppGu1cf2V2UBO+hk2NtFDFeqCAdg@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179515123717.3136.1891710789877841672@kernel.org>
 
---/micjW0Pmzh8X1xY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Fri, Nov 20, 2026 at 05:07:17AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] In bnxt_init_one()
+>   (drivers/net/ethernet/broadcom/bnxt/bnxt.c), a bnxt_pf_wq allocation…
+> - [Medium] bnxt_en: skipped bnxt_clear_int_mode() on bnxt_pf_wq error in
+>   bnxt_init_one()
 
+The two issues above appear to be the same issue.  It does seem to be a
+real leak, similar to the one addressed by the patch under review. Yet
+strictly speaking different.
 
-> And perhaps more importantly, it would make consistent the .index and
-> .source fields. Having one of them shifted by 1 can be confusing, and
-> could lead to bugs.
+I'm indifferent as to weather it's fixed in a revised version of this patch
+or as a follow-up.
 
-I do buy that. If you have time and interest, I will review it.
+> - [Low] The commit message lists the leaking failure points as
+>   bnxt_set_dflt_rings(), bnxt_init_int_mode() and the bnxt_pf_wq…
 
+This does seem nice, but I don't think it warrants a respin by itself.
 
---/micjW0Pmzh8X1xY
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsEbukACgkQFA3kzBSg
-KbZygQ/9G2yCc2P4OLa0WArZ/M4a7tsNbdcqactU++gO9citbwVdE8tbKOjFg3gM
-C3cnNOz58R1ubgUwSsRzkp7ey+UwISzT3JsP1xrXWrSQjoZM87H6S5K8CZOdb1qQ
-ftUOMVVPSPZdA6d5n/cLDE4p2rHQNMLxhr4BS95yHB5HjrApA/4CMnbpR1IkZE87
-i9Yj415eL6OpaZwo6gm/YgYuW9z0dd7rvJe9gYoqvCyLCsRhTMp46LJ23uSxy5oT
-Mjt5J2pINGrRh0aaAEwRXvoP5xBzORYvlbzdwwVvUKwWBV8ddR5IunRY+M4EpwJp
-ZZpC9bqg73DmsM9+T9v7/+Kb/3eDhNUjPxm/a3LcWMVQCDNFI57PRoLOZ6e8tE90
-pZCW6utLA03Sy5jMX+O/Y2+eC/HtOF+plz16UA/PqWHltgH8Bp+2ck4nV7TYyViJ
-+Zawlq7FTNsVDL5pX8tqiOLkyRZAvJ8P1mySrqg84t0p9npXvAnRE2LOeVvBGmM8
-DkTR1HAHa77DMaVt6uLM8o9KTpU+xPI9jefiqbTbXb8Q/LyQHQ/q14hD86a7/4I8
-p3KOrX3dFYmbXk2LJT0DYwSnIvxQcMX1hLYQLeBEmjQPov0fvDfDVNQ3R49f2P0n
-hZhltREBYFLuU4p9/onFUGU24M55UlAusAJTlMOu863GxzxxjEo=
-=8jOZ
------END PGP SIGNATURE-----
-
---/micjW0Pmzh8X1xY--
+Reviewed-by: Simon Horman <horms@kernel.org>
