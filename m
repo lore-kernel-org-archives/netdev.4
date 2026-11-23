@@ -1,95 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468096;
-	b=wCg26fwWs+zzSTLLEQL6MHap4W5jKUOVsACp5wf6md4DrxhvRRJpKv8OmAd8HF4IvWPw
-	 eRxb/Mwbj4l3VjGcf6GvEsXW4jsphE8t5/m9S0y1i7Ny3UztYeZ6qweE+jDrUhS1bQNsI
-	 ZUyOkB4/eVmotQ10uRjgFqx3t34EL4cFfblsiPRDQGLBWLiilF0SYSJ3nbD8ynfY3j5iT
-	 7C2vQMSiNjfaxIj5IQ6AmbRYUmuKS8MduI4uzOyAQ7/9uiXFpc4NPgukP6DTYAzk5ozvo
-	 xyuDt4bkgYEufN2s04jchr2Av75OLqGUd12kcv7X8vfGUEsJIJk7Y62rH5Dun8Nw5xQ==
+	t=1795468113;
+	b=ueJ1f5maJQcvEooVQnUSZttBFYH081Z25fhyVRPTFaGYxgM6fFqlD+dcasFUFBT73fNT
+	 /mTrKFs7S8C5TEgLe6UnDOpnEhyQcm7w06ZhXNv/PJdSmvD14JNCUbbO4hZzWxiPtA7It
+	 V6G3Eg3ExV7BYkxsewizIyYbKPp8TjGenWCTXY99KbjqcGy06ZBvBrAdnoFbhSZzaGbU8
+	 kfa5jlYIcEs+IXkaInTXbd+vqQqCjtpvQxz3uHPXD4is/szwxFstIXA4G4HkusOBs74r6
+	 Mk4odJk0oLRXZk1n/CGUUBHmgXxbPBykx7tPC9rWL7/Z7Ih5SspQ1bGeZoknpDMdaGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468096;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Kdq8XE2WD+zE7mBxC4ot9PCOO+QuZNhp87JTabaeaC0=;
-	b=3eNjnnSgwV6gvtEMSuMQaQnUo5fPfBjECVFf2op+Xc8UVEkO1ncMD0+90fkLMEX4eoi6
-	 HLGuKSBTppWa7sbSkWSBBibaBazdSzJHBMhMr0iwsMXFmK6wS1NC+1fYm1M2okExCn1x8
-	 gr0fwvE0hBLFU5szfZsFlUOAI2eyUXuwypPApXmFN6mA5pb6+noQo7hF+zLAenyzSx2nj
-	 3Si6ioE3XKrKcJp6SWxc5hIyFluWuLNsUzSt5f3lws1SxH8Oi6YgBt12KubRhdYdP8J/h
-	 7t7p/Yi9oThLyRt8+URD1849eNX+T4LBklgPdCh+5IXNhs1eWbrhtAzhNqf4tK2AU5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468113;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=EO4uQX/7/bcKRhbS3udTzj/oZQeNEQAhUDG89AzCYmg=;
+	b=J2VztNhsipZiCbVeQTuYED5clAj58gfigsLB6nsbdofFriqmuPVfOkksPhO4Tmi/QFEm
+	 0IBDyWrg7/DUNusfJhv7Z6GzknywcOptp51U/WA7RYxbkccXYJuMolEqbl35GJr5mna3Y
+	 egyfU0nE7Lwktr0sfOAk1hPsdx1xiz6SIaaEtGNZfbiuvwV+cE0/taODIe/wETghkjq2z
+	 VErF1+2pqku1n4BqEB798HLQDPPhJHCjygj0L+qN3JgH00a1aFhzEINQ9k7Y5mYutCyrw
+	 ceq3uSF2379eMJQDjsgyQCqq6eh0qMPk8TbEJGSGpNbMfNboNuVOrI+jyoKsb3thprQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="onEe/Mw9";
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9dR51uW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28AAA606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:08:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28AAA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BE88606A321;
+	Mon, 23 Nov 2026 21:08:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=onEe/Mw9
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48dee593f18so3625841f8f.3
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:08:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795468094; x=1796072894; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Kdq8XE2WD+zE7mBxC4ot9PCOO+QuZNhp87JTabaeaC0=;
-        b=onEe/Mw9+fNgrKvUr/zqgx5v30AfvV0HTkhHE6tl2Z7GbiFvBxMllygfF2K3Pm6Juv
-         A7MrOts1iIYgp6t49Uv4vN76A9wsGbqztd+tIxpMlxsFOCxruibTH9tRY5hnU2wL/3mp
-         +q9Nq1kr51k7oql7DGV3l5mJkff1Qpu24KI9tLI7wT+EZ2j/QM/smAtkIhuT9H095HF0
-         kOoemgpCzG4Zej5kX4CJIyWOtK8mNKPqw/3P2gbnQuytFYrFZfBj6+zJif6Fc0/xhqbm
-         cDCxBFL0QxkjazYd56B8oJw0aAtKwV4CsZij6q3nNjeqVplBG1Kh9oUd9M2JpyhY/eQr
-         /aZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795468094; x=1796072894;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Kdq8XE2WD+zE7mBxC4ot9PCOO+QuZNhp87JTabaeaC0=;
-        b=Of1/Bu+c8Z0arsLlQRof+EcgSHI8bdlZ5Q5a5J3R2D/5Mlso1oD9YpqHnFl+azSrUG
-         x7gd1sr6ZjV312SfFiy+kyIvJ5MA+pL4lAt097uUcEk6N/VdFfT9rpYfoseWR57JjNPu
-         4N9NdxaYjcTbheluC/ZQ+XIPTVZw8WYQXalRLkUuNW5nDSXD6LQCZuUhfg9TR/dee+sR
-         nGQDWRiq8XgdkGj1LAtawmubnGaZJNInl93ilEYzCLl70AlTEx8IjiPQUjQqrHxKt9Vh
-         RFQCXLqYM7j5h3h/j3m1mb3wquuk/ABM74Gio5BeQQ/bmmxyDLZJiZaY1BW6pvOkVDnk
-         vuMA==
-X-Gm-Message-State: APuU4Z9ljMNwC841Y410WVd53K6Si2tylI8/lgwVKes6C2ZvC8xnwb6b
-	jZpRZGwOtXDw860rQymdEry/B5vVATRTacUdSMbqnj3M1SRXWo0UdcNNBWm9r+g7f0k=
-X-Gm-Gg: AZFdTZfEeFsAyShDIo6S95X4a9BCPBGvHYRFJgTbFotUg5YR2oCrVHEiiabpOqW2W9x
-	0I1acOTw0B73p76DFiQrpxqQUOgBdhLOM3nXLbQfb5rQ3kre8/qkB94OnKo5+yUSewMbxRwoJhz
-	rhS2xyL0qmQk+JZZLEGR5uR01o9Tb8nOKxGwCKMstxFGwD5fbVph2hyiQ/HY0tpIW4k3W2pNpsv
-	B6i8snNhg66OFOwPm6ouw0t4NMpEdpNazNa2yTkzP3ut1HbLP6nsgmq3QvBvdWnEUILBsRYcdpQ
-	BInFHSiCgdVaqEPH/vRrF4qVb1ONR09PUNdFqRZhbmIc+UDwLY3GOV4rKkFrqtXh4wLoel/eJ4t
-	upNOPPLi/vEMZKVnUWF/QQCNjG+hW9eHZgMiCdtEqvzpRoMPyWq45T/XhDaJkhWFhbq2HNF+GvU
-	oIACIvSkUeF16l1gSrFZG8Z8zTfpifwy/ShJbzHnxlFeqKe+ke5xtFGXwBdoK33i/xp1sueZco5
-	iz/96k3Wxigj4FyT+sje56ULHdyuGtJd6uUGP9cYCWAK2ddbqmj/HNMiOpXwgMtPKjl/GzaK7za
-	1s6jnsuvL2G0r0U5v9YzuWIm3hNCjB5+17qByUyZfZKaFdVp0eHudx0=
-X-Received: by 2002:a05:6000:2382:b0:48e:3df8:74cb with SMTP id ffacd0b85a97d-4abab6de621mr26733936f8f.6.1795468094420;
-        Mon, 23 Nov 2026 13:08:14 -0800 (PST)
-Received: from [127.0.1.1] (ip-024-180.users.dtel.ru. [91.210.24.180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm25636958f8f.11.2026.11.23.13.08.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:08:13 -0800 (PST)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v2 0/3] Add Cortina Systems CS7542 MDIO
- controller support
-Date: Tue, 24 Nov 2026 00:08:12 +0300
-Message-ID: <179546809264.4063936.5870536670274625147@gmail.com>
-In-Reply-To: <25226a92-b234-4c1d-96c8-24ab5b9878fa@lunn.ch>
-References: <20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com>
- <25226a92-b234-4c1d-96c8-24ab5b9878fa@lunn.ch>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9dR51uW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A4341F000C0;
+	Mon, 23 Nov 2026 21:08:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795468113;
+	bh=EO4uQX/7/bcKRhbS3udTzj/oZQeNEQAhUDG89AzCYmg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=B9dR51uWHHhVnYeoZ2b4EvD3DV6CDpRIaSZhavQoeKruWyn1VjlSYp3z0MeMmFXIz
+	 dnxJWN2Y0emDlLuOHTboMMkrbMYjxXnaq3k0REAyZI1OvKFPwA6db2/GxgbdlAzRm9
+	 ydq/AvG8zu+YusmwusMa1b4x17S9r3VNddXatiLNlvXjvPXCA2+KQGOkf3KS1DhOHv
+	 eLM9kyw1pTzMksWmMXLOoYMQFA8ElQIhN9JEwbYziCv28+U6Ems49iEwONKwXOcxaw
+	 QQOJhe4FhLpbrp7JTxw4M9Im4vjuRRgX7XZAd1K+qVE2EzQokJPT2rdhirXOJ6JtFd
+	 r5E2LY9yoMYAg==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Johan Hovold <johan@kernel.org>,
+	driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Amir Tzin <amirtz@nvidia.com>,
+	Moshe Shemesh <moshe@nvidia.com>,
+	Shay Drory <shayd@nvidia.com>,
+	Parav Pandit <parav@nvidia.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>
+Subject: Re: [PATCH V3] driver core: auxiliary bus: Fix IRQ sysfs directory cleanup
+Date: Mon, 23 Nov 2026 22:08:26 +0100
+Message-ID: <20261123210826.1625426-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261112081319.3466442-1-tariqt@nvidia.com>
+References: <20261112081319.3466442-1-tariqt@nvidia.com>
+X-Patch-Reply: applied
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,12 +82,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-> Allow at least 24 hours to pass between postings.
+On Thu, 12 Nov 2026 10:13:19 +0200, Tariq Toukan wrote:
+> [PATCH V3] driver core: auxiliary bus: Fix IRQ sysfs directory cleanup
 
-Understood, sorry for the quick reroll. I will leave at least 24 hours
-between netdev postings and collect further comments before sending
-another revision.
+Applied, thanks!
 
-Thanks,
-Fil
+  Branch: driver-core-testing
+  Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git
+
+[1/1] driver core: auxiliary bus: Fix IRQ sysfs directory cleanup
+      commit: b0404f6af48d
+
+The patch will appear in the next linux-next integration (typically within 24
+hours on weekdays).
+
+The patch is in the driver-core-testing branch and will be promoted to
+driver-core-next after validation.
