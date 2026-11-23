@@ -1,98 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.6
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.177
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795436473;
-	b=nZcQsjXx7+jF199c+icKc6OHaOipSzKMUAYBSeHlnK5qg5CxLWeNLc9ZQ+Lou3pw3Bt4
-	 28EnjsQ6AcwmHg52GQlK3O7PKjko3CufFIG6dcHY1I5GZaKGrfkNXFtd3PCSOU7AI70eo
-	 wwxov5AR4/XRD3LWughFO1rhIhc0dahW+4C5FOjn/m+3aQQA+KCMtcGmGa/m4Osk/pWV5
-	 8F/zeyoIJ6SZ5o+pspsuuqkq/DTGbmHyOMeOBiQCyBGrPf21DPKUv0kylkLnegvZGt4Ii
-	 XoTb12J9snI1+Ruq3rZlCpHfmEm1i7tFHmhWvbLT5R4urnMu5ayhsiuqZAlunR5dlDg==
+	t=1795436480;
+	b=lfPgIBBaDBHmIFkloXE/EYdeSjFWGM9JnBxIpa9hnMA9u2OY+BvRTPDxwxbpVvtI4UW8
+	 fFxH9Ec9PapKybHhTvu0ci/keg7BJjXV3/WIcKAoCM8cSXWBj/xdyQ85ENBQ8BzUp9z9E
+	 uCWfG3GclNGWqD7hfDKE9LMudlPwd0cqDqPJ04gji5PTspMGPNM4X5mNFnLg4yn50xhSs
+	 lOU1rqdmSxfkpmDPuJSc8ekg1nal7FGmGXvWhVYcDLmOqfvd9ED1XdjhT3+6I2KfxJf4W
+	 j4mA213hCnbfEHhjGuP/JOZc34TZMXcUcLeyL2giMqvvO6XLGGj0amx5YrBMvDI1h0Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436473;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=/R0EYUJV5shC2J03W852ECBTKKBoRd1QuRFxKiDuC/8=;
-	b=hMpM5THJl138wzofLAaZLRxWZqigkbbVUJJFE2Glas2lJ8T/NaDxJowYm7FxpkbBruIR
-	 sJemIUGXT/A+EMykKFRISoUZzkwb2dsBbXqGk6qVOc/5LRPU7Ohe7bJkZi4O8TYKAZsI8
-	 /lmsGhsQl+EoZjQ87k+71zUO7H9/5Wze+P5CzTsrdadG+qvrpmnsKxNCQiIgUO8cE/ohb
-	 BYVjjsfDf/cH1V6Vh6qVFmgfUqLZYULx9ydEg7+ZSet4NE4boW12cFBnQcsAFdRkmWOHQ
-	 M1Wcqa1V2i6X8ZtrpztrZjKyLcqSAj9GFIRLRhSZCTkl5Uzw46NW4MsWhy7CA0fvIjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436480;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=S+3UY8YgKHQ6r6HwEv6iZIETGtvYvXbZwkM5LcLCzD0=;
+	b=0WS71FEQ97oRcRY6fPA1MPwuKPOYigPtrad6FhOCSmQPC9zWes0Q6V6f1PkDEdUtHqVO
+	 YrYoJKuAeRVZN56E5hpxBiKzj07r5lQ+TZi4IuB5VwbrqRj5yVuCLJ+1Ku8mcpumc9Y1K
+	 K4Sqlq9tcHksYG0dRZrq+6UurF45c9slNY8nBLnJ+14ZRy0DB4rDenfjE2N79MGQydxM3
+	 XYHr6fqSPEvFpjJiNzNvzbjjsTkyr31DEaEQPWRs9JzW0+e0SacinvHjqRZ38PZqUqyHy
+	 4AqV+8Gk0+PUKEnDRRn4VeCzhxhZIR+MQKEUs4AqRptw0ZkQP32PBTE/dLmAmX05Gsg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=GY62tSch;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.6
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012006.outbound.protection.outlook.com [52.101.43.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZNVMMsr8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49FD1606A31A;
-	Mon, 23 Nov 2026 12:21:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49FD1606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A018A606A682
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:21:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A018A606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=GY62tSch
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hqJgAX/IZdHOZqoi9Msm8UcsCbK3d/3EHyUTfMHTDuDmmKrUZQpeDVZkr0vG6ssKIh2M6oIGoCn5ykm7gxHvRykQF09BOu2WA/Jk4XWbdSeUprT/+C5Vz6LeNQK+dxCaILMWU+Ti1mOrCV4PjCqldtwKpAMn6WLWKnFOhra+Nu6YpGsJhEjrRwOrA/Vqy2Re9ohnpk+nk82lDgYEDS5lidYQTG+zAETNfyLP6ztAItXODciOxmHDu1DscmabbyHqjqCj7rqnzD2tZxRsl7QtRFadVk4iGEa7nzSOvMVGpji/rq4i6hfOVutrsHogLEkJYd0pO5zs23KPNQ3BYP23Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/R0EYUJV5shC2J03W852ECBTKKBoRd1QuRFxKiDuC/8=;
- b=KIQsB2GJsJZiUBUeLaxJnyNTsz5qjlDc6nbtnMG8wC003Ipt0lwddsms71sRKFDFc429aR9YiGqkc04G8SF56V/EyUwkol4UnrvxSN1beg6JDQaocUvbeMJ/sYuz2kJMVTlHira2K36QG80kt0EQeG/sduSq9+DyVM0T34zvjjPOmImnkslg4Qe5iR+hbiTyqN8ze/CtLfvmZ6Khtl6SVbQTkDTWBArgMrf5zw4LGCvo84FfyWH4gtwT5TQBAhH71lAuvU99RsQgXPyG4IVXIgn1eeKNhWqiiOUoyMI9gp/7uvObKZj6tT2OxPxknX5k7ptwbXdvDdCugwyybfO1IQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/R0EYUJV5shC2J03W852ECBTKKBoRd1QuRFxKiDuC/8=;
- b=GY62tSchfS60zBGYpEkUYSHbFwoVQnr6f7GbMN5Plvp8yvMafh4aAVWzp8PqcXHhpNtLbVIRrhwxdxsZ2BbMi6XCz0ykKY5qUm/Bi+DWndgqGysPkz1wYcpfN6gzAvRPdac1qRHWgGz2/t0+IKxfi36GAJjn/+YjQ5t9P7WBfExuE7jM/4duuBmfZDhkv7q8rllpzl3kzYYi6VNAPF/kTlJaxLCG+lZVZVhaswxh5642yrJRcWYR+xTJIIrS5uOtfA5TP/iOjkSbK+ORwa3kEUjqRiGf+94ImuyDXOlg5CFxPGH5neXY8FcbvP33+inTawrBiRDLcpXmOC34IJhSeg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SA0PR12MB4367.namprd12.prod.outlook.com (2603:10b6:806:94::13)
- by SN7PR12MB7202.namprd12.prod.outlook.com (2603:10b6:806:2a9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 23 Nov
- 2026 12:21:08 +0000
-Received: from SA0PR12MB4367.namprd12.prod.outlook.com
- ([fe80::2815:8a95:1a44:be1c]) by SA0PR12MB4367.namprd12.prod.outlook.com
- ([fe80::2815:8a95:1a44:be1c%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 12:21:08 +0000
-Message-ID: <c136c508-ed03-4679-b7b4-f8fd89859ae0@nvidia.com>
-Date: Mon, 23 Nov 2026 14:21:02 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net/mlx5: fix a stack over-read in the QP debugfs
-To: Aibing Chen <chenaibing@cmss.chinamobile.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
- Tariq Toukan <tariqt@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
-Content-Language: en-US
-From: Mark Bloch <mbloch@nvidia.com>
-In-Reply-To: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0011.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::14) To SA0PR12MB4367.namprd12.prod.outlook.com
- (2603:10b6:806:94::13)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZNVMMsr8
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f03eeda984so16303915ad.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:21:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795436479; cv=none;
+        d=google.com; s=arc-20260327;
+        b=o7ucrSdmD6rj1ArVHv15vuECESIUIZoBHT9cuKj38py6DQlagUd8iZEKV7xEODAaou
+         rhYbtmmhbcssu+K/kLWd0+JL+ue10lY/opuJ4Rw3hYRsfGY5+oYhk+11im2A0DodvmfD
+         mqgEjUrSpNGXUBzsxwdwX5XUQgTe/oCQ9H6DXqy4j7vH2OOWKriNmIlQont3paQ2QvtL
+         DRB3uRfYZPJkJBmgDIQAMU57Dthrjl3xJz5YF8i750Y1yR1XYN8JEGf2DKT/S+34zlHT
+         JBSt+pfh9BmPUQS0fns1TvpbIr2ryKfE+fI3HDVo5WUPUt2mLuJYK3DnCfK+NkqGsyxv
+         HH7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=S+3UY8YgKHQ6r6HwEv6iZIETGtvYvXbZwkM5LcLCzD0=;
+        fh=YRX9PhhRphK9ADlEPatbPMJPcheh17jn6Qex1q6ywbo=;
+        b=VRb3looz/lYNsLLniRD6jYntE0giP5AXZnYKSVO2snEDZKEXQiiP1s2EDWgBfaDOUa
+         0QpIw1Xs/+R0wGAxVBFdM7fPVydX55emHlQpVi9oGW9jNQGwp0LG5sQAMEzJxFm7RgYQ
+         TwE5yPeJxmNEsP/ujTWetp2BXdNh4gV65SMNpPudCN0R3SsuIgM6gzWjU+rD08DorBAi
+         xITKfPwMmgErd1nU3hAzKBuKAKIDQ/8CAYGmIAnKakE+nqf92+VCItZvKhdz7x4t3Zha
+         e6LKFy8mKKzb2JquFqi0nyi9fO4h4SjsdnYGZXP9lwTiO9Lne+dJ98esfpPbswKx/vAh
+         SRgg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795436479; x=1796041279; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=S+3UY8YgKHQ6r6HwEv6iZIETGtvYvXbZwkM5LcLCzD0=;
+        b=ZNVMMsr8xgBZwMHGgf0llTeJT9OPe/PTJydE7JNTVsNbrKYrrUoxDH1Sk2KsLachsB
+         JitdI9KJdwsvuHViguiPP70nc8RfB/emZ7AHkz4YQ7lvQC3A7ZVlv//9W+N1A6hf8Tuz
+         Fd5otwAJiuQrh9qH7WlLB/ENHnn1gbVXIKbxSly2MKe9ldt6/Twjgx2KjjWVaS1E/W3o
+         /VMaZwgTwWXgFPI3GHadpgV3XTiMVIEQaNxtFYajnYqrrNKYrq5HpgYAG/eT1tn9Z7hk
+         FAtHCfUGn6uaHB1tOPirI0/ENl9Qs1NoUVExmVhSdwfhZNm7USZ/empOKW1d18rsFoWf
+         KSqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795436479; x=1796041279;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=S+3UY8YgKHQ6r6HwEv6iZIETGtvYvXbZwkM5LcLCzD0=;
+        b=Jn+OT09itL25DZGycYy5g/eiHh3AJTjgOzu6XWw+nBh6qmkBBUWB+DsquJZlwcEjPb
+         tJiYw2ZxuAEr+f19HBrBQyRmYlCnCh26PUQ6sZDb0opbcaQ59lUIdOQFkOFh7M7iBHQC
+         PZ+J3D+gU8arjXaOK/X9n205hri2P63hZJSpWIufr6ZqRPS0dN/8T7zKO52YOjkxJVzY
+         JbwaUaidyCr7qnO3sdpVR8dBR63uviD3DZuuHPrxb8XKKks90IS7FQLWP52xPTrFwLxy
+         55GNgriDaam9QbwJl/hLsaPtM5MjqerAXsgw87gFJT9uCjsZyQnl2omWn3/Dj1fI3TIG
+         yffg==
+X-Forwarded-Encrypted: i=1; AL+hErGHPolI9JpXZzoU2LnHo95zvsvH+JRfYbzs6Z40loZgfRcgxkGqQkT69ARXRdMHx0qZAQAn2vQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9UYdb/Mv1VLEhOx4r/2S/V1NT8zAb4oAVBi5hZtmN1W89XXCc7
+	QrXsg825MbGBDX1d9NQVyhdaZ858Y9gtnPiAEUQFGDQ6lD5rCrE1GICqjwb41JKwpEM8l3zUEjF
+	VEIudIVHtgaZMKaZN0F0wdXC4EKkf5qU=
+X-Gm-Gg: AZFdTZfq6XH0WGRBDOCreS/VsUN3EiM8RuG2B/1VQ1tz4rA6HbohGXSniNCVSooRfHU
+	nLVR+0ynuvLreNUau7TVa76StOBO9LjDOMevAcuRLv5h+pfAsUYyAXC2B8rbSU037b8K07d2/jh
+	UYXXW74mrxqfQ/DpgAZcqhtb/Xs1WKOXZrmJf1u1WgsLkVg/gs3FXFA7VKfMdQj9DqkLGHNSpb9
+	P49sZtqWcDAGHaaAAb7MvKSkXVAOiBobav1y5Rt+4VDPAzQqm5/Y5Md+gvG0+R+vEdS/t8UHksZ
+	lKLJcNwV2X2dpZ7DBhJ1QITnxqnlQZQUusNGBdDzdNaCLybE6nDelSkJoMsZuCSoxMRgv5ZR1bR
+	LDW6mq4WJ7Cd7h7jjTMbKwGANFEnoKEWgUU+i96MM0dVYIzU2H0PUQVMO6YSZmjtBja+0BU+WTk
+	3t8ODrJELUFbSgsP5NFRsa+ujxQg==
+X-Received: by 2002:a17:902:ea02:b0:2f0:4168:fb35 with SMTP id
+ d9443c01a7336-2f04168fe4emr105967575ad.11.1795436478851; Mon, 23 Nov 2026
+ 04:21:18 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,128 +105,96 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA0PR12MB4367:EE_|SN7PR12MB7202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00953cce-458d-41fb-8c6a-08df495c4097
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|22082099003|18002099003|261009223027099003|3023799007|261026140227099003|261026121527099003|56012099006|11063799006|261028144727099003|261021121427099003|261021123027099003|261022075727099003|261022105027099003|261102123227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	7AHxL4lgv72TCq2bfHQOuNRxKtmg5RJRBnLROKFVp93Apaxx3eXjyborha0WpYX/ly/aDW8tlbFaig2V9ALatGCuVHnXweNfy5643cYBp0Y7Zwl8v5ahK/GjrDJ/Zsm9ZtZgAHJgL3TAxxPHGsCmB1VkMddVEyGXCGfB73v0gKLJ4UjnSb84dElf8UxvCEFyy+vlNkTvpYT5kWtMAHeCunnIbOrl8y1kTZ35xc2ttrdF45nePwHTOGnUFf3W8IM15Gssyw5GXXevynDdb26j1s8nzz8EhBTMA5W2zav4+LkymUwsLaNbH0+anYocqcK1sXcW7fWK+rcZTaEDt1PeQAPjlg7ZrcUkPJFzazPxMZfBUg7OEqDr6Irb4VNTQHjHNkTCZkrcNmAss1ETK4x3jG4N+kRswbxprWaIo7UCIAqEIgTKz1N7NQiNioxs7unGhrlAJuqW+tIVQ935iBmIeUE0KpuyJzCWnWgmHRltEThJ33xpe1eUSVgbUlQKQyPW84FqjIBxhLZ9Aj8LhK5dmWAGgU5bWTnEwkdvd7J+U0QwaBOr2GiIRV0O2/Q7Bqo1/fxlThbJs2Cr4WZpLB+pb3lrx1/9NVA9fw4b9fTLX3IdI88OSMkbxu9/xjHPDxvCefW8vIh5kLXGHp/7Typp7vbFk0BSTouUUsCkwponqHs=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA0PR12MB4367.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(22082099003)(18002099003)(261009223027099003)(3023799007)(261026140227099003)(261026121527099003)(56012099006)(11063799006)(261028144727099003)(261021121427099003)(261021123027099003)(261022075727099003)(261022105027099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?aGh1R05mSFlMc0I1UGxtd25LYjBkWmE3YXdMZTJMU1JUUmFLd2txMUk0STNz?=
- =?utf-8?B?NWJxcllQeFlkMlp5TnoxNEY2Q2NUcmNUZ2Z2cjMyMkgrRXB6QXJCdkZDdk5U?=
- =?utf-8?B?cVZJNy8zdDNEdzN4Q2lmWStOR1NINFM3NjZiRllGTTZFWTljMzFNNnd0VEJZ?=
- =?utf-8?B?S0duNFcraDhGS2hncGVKR1VKRzM5ZTNJMFAwaFVzUW1Ud3huNUs4cGRRSmhP?=
- =?utf-8?B?S2FsMHBITkdvSjNRTC85aHA0UlJGTmMrdlFtYTB1WkZRT002YnhvVUFyZzR3?=
- =?utf-8?B?TWRLd3hFWE1mRllkS3dBY3huTWpPS1VDVEpiMm52UzZob0FVTWVwSVJ2UW0y?=
- =?utf-8?B?OUcxNFByaWNmQnFPUGd1T0Y1Y1F4Zm1Kczc0WjluRmVTWWpoSCtpM0ZpbTRE?=
- =?utf-8?B?cFBJWURHOWdCLy9Pc2szWEhMb1NoWCtzdnYwSFExRVpxSTFpYlY3OUl0SDNw?=
- =?utf-8?B?dklYV0RtSTFPZGtTVWsxZVdrQ1o2TGJtZTBtWmRWbnZEVnBrcE1FWjBWRzl6?=
- =?utf-8?B?dzRYUHlOQnU3MkplTktFRnYxMWpoaytDaCtDYStEUjNTOU1JZHVnRFF3U0dF?=
- =?utf-8?B?MlNqaCt3MHN2QVMzSUF0OWttSUZzWkU4QVYrWTVFOHFUMFdhL3N2UFFOSzF3?=
- =?utf-8?B?SEFBR3F6NnAxOS9FRG1TV2hOaENXaHpJR0Jyd3RVZi9sVDNHN0VXOHpuZGoz?=
- =?utf-8?B?RWN3dk55OSsxK29lTjI3WVpoeXYyUkZnNmpJOUk3RzBXanNaMVlDUXc5SVhP?=
- =?utf-8?B?d0pYZE1RVGxIT0dQeTY3bWhiN3ZFNFhHSXpYTWpqNlBWNVR4dGFuYUltd1Na?=
- =?utf-8?B?eTZib2FPWU9tc1MxUktsN24rWmlPMVpMWUxpeDVGaXovbkxydWdBWTM0Wnp2?=
- =?utf-8?B?L0RRRHJ6QVFaMy95UGxDUG4vb1VQUHBDYitoQjJHaGcySXh2YmdLNi9LejFG?=
- =?utf-8?B?TG91UWtDQlZYOVFYSVZqTm1MNWtyL0tzdjhaemdteUNuUUlmcVdGR25DY3R5?=
- =?utf-8?B?VmhSSDZsTTdYbTFSbVFuc0VFc2JidTg1N1FVWlVLUFhDalcwWjV2V3l4RnR0?=
- =?utf-8?B?cXNVc0VCS2YvZE04L1R2WnllTnl2ZHpyeXNCaUs0TGVWSk5ITHVWVFZyb050?=
- =?utf-8?B?OXN5YTU3UXhyWU9SS1hOY2s3WnJCWEpRQmZKWGpOSTZhRURHU3R2RGNCcXJL?=
- =?utf-8?B?RFBQYjZkejRyeGI5MStyRFRKSWN3dm9JWmVkQVdKYzVTd1FrZ25tcERsdGdz?=
- =?utf-8?B?M1N3SExJeWVtWlRReVA4NjBBRXlMNE9TMjdEd0t1TFZ4ZGZLQ2xMYlhaU0VQ?=
- =?utf-8?B?VmM5UGNRUUNoRm14dnhtNFhSN3huYm9wNFV1NjlhNkRPWFdpTytINFcvWFF3?=
- =?utf-8?B?Z1JYbm1TenNsNndhcWloMFhxWVhLOS9WL2tFekdLT04zZ0VuSkJSUHVZc3Z5?=
- =?utf-8?B?cGpqYWNPb1k1SjI0MkZPeXVxQnh1dE41QUhlTXBHU1REZlRXcm5XUUtSR3pv?=
- =?utf-8?B?WmZoTlNSU3F5NERjOVVncDdMV3NZeTJOdUF2R0V3V1QyUVhnSEg3L2U3alF3?=
- =?utf-8?B?QkxBK2lhbmNxaDM5ZEx0Zi9jK0krZFMwV0gyUllXaE16L0drN3dHSVRsc1lS?=
- =?utf-8?B?alhIMnF5T09zV3JlbDhGenUySlJBVThWNUxYaUdFUEgvSWhna0FjY1pPRy9v?=
- =?utf-8?B?SjRyVUxIU29vZE8vblZCTSt1Nk8vdm5MMFJwbFF0b2ZEdk4vUFZvc1ZxMWZq?=
- =?utf-8?B?aHJDSFlkQ1BsTUZweGZTRVk5cjJWVmxQTDUzRlR6VFg3TXR6K3doRE0xb2ZH?=
- =?utf-8?B?UG9mclpLRWI5SnRXdEo5cFRSOXovN2xKUlk3eXJhcXBxM004bnl3VUdYT3F3?=
- =?utf-8?B?SkxhRkRxZmdCZkdoQlI1WHN4U3ZKeFg0elVsUlVPM3JScE15aFFpT2hWb1ZY?=
- =?utf-8?B?eEpFelRIVUh5aTh1Y3JJOWxnT2s4K0NITW8xbzBOeWUxU25TeXQxNlV3ZWlz?=
- =?utf-8?B?WWtrTXhTakp1dDl4MFhZQnJJY29vc3RqZVN5cW9KR2FPUFRKZi9jejVtbmY2?=
- =?utf-8?B?OHliRHJVZlVtUTRHTXNZZ0ZxaG51eUlzZ3lOVnpaOHU4M3pPOXMyWTRrc1VI?=
- =?utf-8?B?Ukdpblpja0FzN0Nuak9mOHVXbmNsK2NFQ0Vaa09pVCttRWR4OWFMQW1wMWMw?=
- =?utf-8?B?N1VNVTVjUXFJdVA3Y25WQTVFUE1hZktkdkR5SXRuVkZ6TG5vV21mRVAyZDJS?=
- =?utf-8?B?cWcyRHVRVnVsK3BnYVlwMHZVSkVsb1l2ZTJmMTJKa1g5cWZZUUZpYW40Sk9T?=
- =?utf-8?B?ckFBV1NieEl5ejVVUS9kZVBUaGxLQllyd0hUTUtvUXJaVGhHcmxoQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00953cce-458d-41fb-8c6a-08df495c4097
-X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 12:21:08.0631
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vNWmKFwqSzVURbKqxdMG2j50BhvsZkDEqSEhzkTd2+Kts02O5XQF2aZfrcaYVUtXUAw1h1eu12Ca2DbsnEe8VA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7202
+References: <20261123121325.3137049-1-bsdhenrymartin@gmail.com>
+In-Reply-To: <20261123121325.3137049-1-bsdhenrymartin@gmail.com>
+From: Yuyang Huang <sigefriedhyy@gmail.com>
+Date: Mon, 23 Nov 2026 21:21:07 +0900
+X-Gm-Features: Aa3M54qZQ_AH7l8CEolFlSvCzul0ZDF-gQS65gCmLYJoMaHRqjccaUQe7U_FBLo
+Message-ID: <CA+7S2v+CpMWyD89XQiWq5qC=NPQWFtJ49_7mm-GcxTOCt+gZ3Q@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: zero the tail of ha->addr when allocating
+ address list entries
+To: Henry Martin <bsdhenrymartin@gmail.com>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
+	pabeni@redhat.com, sdf.kernel@gmail.com, nicolas.dichtel@6wind.com, 
+	horms@kernel.org, netdev@vger.kernel.org, stable@vger.kernel.org, 
+	Daniel Machon <daniel.machon@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-
-
-On 22/11/2026 16:51, Aibing Chen wrote:
-> dbg_read() formats the field into char tbuf[18] and passes the return
-> value of snprintf() to simple_read_from_buffer() as the number of
-> available bytes.  snprintf() returns the length the output would have
-> had, not the number of bytes written, so when the string does not fit
-> that value is larger than the buffer: the longest QP transport string is
-> "Invalid transport type" (22 characters), so with the trailing newline
-> the function returns 23 while only 18 bytes were written.
-> 
-> simple_read_from_buffer() uses that length to bound the copy to
-> userspace, so reading .../qp/<qpn>/transport copies up to 23 bytes out of
-> the 18 byte stack array, leaking 5 bytes of stack.
-> 
-> Enlarge the buffer so the longest string fits and use scnprintf(), which
-> returns the number of bytes actually written.
-> 
-> Fixes: db81a5c374b5 ("mlx5_core: Improve debugfs readability")
-> Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
-
-Acked-by: Mark Bloch <mbloch@nvidia.com>
-
+On Mon, Nov 23, 2026 at 9:13=E2=80=AFPM Henry Martin <bsdhenrymartin@gmail.=
+com> wrote:
+>
+> __hw_addr_create() allocates entries with kmalloc() and initializes only
+> addr_len bytes of ha->addr, but the dump paths emit each entry using the
+> current dev->addr_len, so an entry created with a smaller addr_len is
+> dumped with an uninitialized tail.
+>
+> dev->addr_len can grow at runtime and nothing flushes the lists.  While
+> addr_len is 0 every addition collapses into one node, because
+> __hw_addr_add_ex() compares zero bytes, so the test adds one zero-length
+> multicast entry to each of 64 tun devices and switches them to
+> ARPHRD_IP6GRE (addr_len 16).  RTM_GETMULTICAST then returned 64 entries
+> of 16 bytes, 37 with non-zero bytes and 21 starting with a kernel heap
+> pointer (e.g. 0xffff8188_04857ee0).  tun has to flush dev->uc and
+> dev->mc in TUNSETLINK as well, which is a separate patch; qmi_wwan raw
+> IP mode and the HDLC attach/detach paths change addr_len in the same
+> way, so tun is not the only case.
+>
+> Allocate with kzalloc() so the tail is zeroed at creation; the explicit
+> ha->sync_cnt =3D 0 then becomes redundant.
+>
+> Found by an automated static analysis scan (Tencent CodeBuddy Security)
+> and triggered at runtime on v7.4-rc3 as an unprivileged user.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: cca8ea3b05c9 ("net: tun: set tun->dev->addr_len during TUNSETLINK =
+processing")
+> Link: https://lore.kernel.org/netdev/20261116024056.1274402-1-bsdhenrymar=
+tin@gmail.com/
+> Link: https://lore.kernel.org/netdev/20261118125443.1137177-1-edumazet@ke=
+rnel.org/
+> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> Reviewed-by: Nicolas Dichtel <nicolas.dichtel@6wind.com>
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
 > ---
-> v2:
-> - add the Fixes tag for the commit that introduced the tbuf/is_str
->   formatting, as suggested in the review.
-> 
->  drivers/net/ethernet/mellanox/mlx5/core/debugfs.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c b/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c
-> index 30be2b631..3e75f66f7 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/debugfs.c
-> @@ -496,7 +496,7 @@ static ssize_t dbg_read(struct file *filp, char __user *buf, size_t count,
->  {
->  	struct mlx5_field_desc *desc;
->  	struct mlx5_rsc_debug *d;
-> -	char tbuf[18];
-> +	char tbuf[24];
->  	int is_str = 0;
->  	u64 field;
->  	int ret;
-> @@ -522,9 +522,10 @@ static ssize_t dbg_read(struct file *filp, char __user *buf, size_t count,
->  	}
->  
->  	if (is_str)
-> -		ret = snprintf(tbuf, sizeof(tbuf), "%s\n", (const char *)(unsigned long)field);
-> +		ret = scnprintf(tbuf, sizeof(tbuf), "%s\n",
-> +				(const char *)(unsigned long)field);
->  	else
-> -		ret = snprintf(tbuf, sizeof(tbuf), "0x%llx\n", field);
-> +		ret = scnprintf(tbuf, sizeof(tbuf), "0x%llx\n", field);
->  
->  	return simple_read_from_buffer(buf, count, pos, tbuf, ret);
+> v2 -> v3:
+>  - describe the test setup accurately: one entry on each of 64 tun
+>    devices, since all additions collapse into one node while addr_len
+>    is 0
+>  - point Fixes: at cca8ea3b05c9, which made the leak reachable from tun
+>  - link to v1 instead of the earlier review thread, and link to the
+>    companion tun patch
+>  - note that other drivers change addr_len without flushing the lists
+>  - state how the issue was found
+>
+>  net/core/dev_addr_lists.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> index d827cc21867b..9613c8a9ed7f 100644
+> --- a/net/core/dev_addr_lists.c
+> +++ b/net/core/dev_addr_lists.c
+> @@ -96,7 +96,7 @@ __hw_addr_create(const unsigned char *addr, int addr_le=
+n,
+>         alloc_size =3D sizeof(*ha);
+>         if (alloc_size < L1_CACHE_BYTES)
+>                 alloc_size =3D L1_CACHE_BYTES;
+> -       ha =3D kmalloc(alloc_size, GFP_ATOMIC);
+> +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+>         if (!ha)
+>                 return NULL;
+>         memcpy(ha->addr, addr, addr_len);
+> @@ -104,7 +104,6 @@ __hw_addr_create(const unsigned char *addr, int addr_=
+len,
+>         ha->refcount =3D 1;
+>         ha->global_use =3D global;
+>         ha->synced =3D sync ? 1 : 0;
+> -       ha->sync_cnt =3D 0;
+>
+>         return ha;
 >  }
-> 
-> 
-> 
+> --
+> 2.43.7
+>
 
+ Reviewed-by: Yuyang Huang <sigefriedhyy@gmail.com>
