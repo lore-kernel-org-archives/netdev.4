@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459600;
-	b=s2mSwmLcKZ8//ZrPtxJ507s2w+9lqbsc4DIJIKTjturZjdSeYxoB/lBpBBlEDX0wNYRO
-	 yR7W/qHykzczu8PMvYJiEID6h41vtSZ5QUkbfiP4XiDUABfeFzPqYxdwlzej//Y2D+Hvd
-	 zECEv0Aq0FAPi+vILziZq6IXHhnnl7jWpS/4Ga8NS/i588f2+QQHUKPVoTb88W9mleymb
-	 yUdx++aIfs7jMXMG79VpcxHUj3fKTqlkRGOxWcvWoizbjgbfWK/X0CSQjIo8SMp2Uqvvz
-	 TWdiXp0AsCtrDD60xbNn2ONQIS775w1JF89BujP0Fp3Zx0m2MfVvMzlU6clbsx43Etw==
+	t=1795459601;
+	b=ZBh/yRys25KO/lmAf7xtbII84TiuHXCzfu1/fDi1szh2P4wCafcaZh7b1LIpK8L+0wRK
+	 Wer6AOw+sw+iy9ZHIblfLi1NWq1CeOFW74g0IGpinIeG4v27dl1FLRNnEhXl2BCjvjydD
+	 u0TvHB6MgolQ+v++QksbrrGIpJW3cNC9H87HTCmNVNRaYpVYfVvPrfiigRJPxpQAhbGt3
+	 0q8a1IzgGZmv12xBSfsJs3lnSzRS9UtE1EayglrV7bHBGgKLDVoBPT8+YLfX7dk5D4Ygk
+	 d8314fhb+6BvqMIWc+Hhv5rhE4ZuGXkskxUO2ZKDI2vuVbncN3FGXvwufrCOl7I2YiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459600;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459601;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=HEpENts/gFDvQfVLi/YRCCA8fZ9tFdcSg7hBd/Vai+o=;
-	b=kKQc9Quu7YuPJ1EjRR+E3qEVPnpv/nifq1YEUU6qdKZppw2fgVzqR2qiIFRn7k0BGmuI
-	 6qMtzqsG53+SiJJiWKj/ehz42KnH+Iz+Ayxq7OpaGM2DX2FNfOV7pj74r6hfAe8GZAS9L
-	 PBdizF/7SoLUolMpzEQduuSTEP8uRv+wkNAUunrQ2A6q90YdqOpVw3b6af/IhGmt8jbSF
-	 2nqzAsRED9qLiMBLAF3Tzsrkt3c2EqD0YK93cV8jNGXCF0R/FCfQm5qV4M0ZOz5Ave44G
-	 88XB+mBkOQl4tw9eUCyS4RN+e9QHoiNE7bQGlnyyjj00g3VEpSdL3BgoySxentrg8pw==
+	bh=ZTChiiMixcnFB5cRYtJQaT2zLxpnBgFNM/9oYFt3zJE=;
+	b=pPB1KtTsSz8RuSM+y6UpnLCJuMpAgIMZfrSXcspj8pPU/nBh282PDDyKmFqbi4BWnkU8
+	 pQ9HsyZXXmQWfeeDZ5DJdC2au081sxP330e4JG0zIWHFFCTw5HtdKmz0gXE+diXh0vsrm
+	 X9RXzRWIzslpUFnXgt4G9W5jTbJO5dgCBosLxXMSvAaMDhoHYd46ukCIN5Uypv8kSW6c4
+	 yPAMHEJxmGjj8hofNha3hlzjKq95tMp4iQsCN5E3nIjrfiac2Yk0oHatBLedyLww0unBx
+	 /BQMNCuqYFEhwIpuYpZw1p33suV9S575jWdrb0Sz4v1jVxKnAlI0Pake1R5d87Yds9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YaWnM4LW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hNDh8SOf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24EA5606A327
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:46:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70636606A330
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:46:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YaWnM4LW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA6611F000C0;
-	Mon, 23 Nov 2026 18:46:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hNDh8SOf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9232B1F000C0;
+	Mon, 23 Nov 2026 18:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459599;
-	bh=HEpENts/gFDvQfVLi/YRCCA8fZ9tFdcSg7hBd/Vai+o=;
+	s=k20260515; t=1795459601;
+	bh=ZTChiiMixcnFB5cRYtJQaT2zLxpnBgFNM/9oYFt3zJE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YaWnM4LWNSvXWUIBBWvX08RR9SqU/y46oLU4SrdWAxrXW0u+C4vR3A5+34qeC/cdj
-	 I7e9Dy07Gj8rkTGLXdjg0xAVtlShD/xqFjHF+WtqCFwNB9gf4DrfHtcQHuXitrBnSZ
-	 hXwwDgn0sdXb9ZQnAFrXXP8MYY2YJh07ZUmdetdGqwXmzXYloD/vWYRNlGHeq15q0X
-	 1UFpOF2hfBj2oF6sUbXObMmFGFzzii2IppZFzO8+4fy0UZ3MKAvcKE/bKKEKvVygIZ
-	 MvXX2oReIijVkWIC3TT51DQcVo0stMHGj2jk2OlF1KjaElueTAzukLVySurgOzcnai
-	 bTNzDAvQUz8cA==
-Subject: Re: [PATCH v5 net-next 08/13] selftests: xsk: send UDP over IPv4 or
- IPv6 between the interface MACs
+	b=hNDh8SOfIIBWsqAa+3HewBTVfOAHzzrD1KZDBqcZ55P5x1lEYAbKnOKdDD5TPUPv0
+	 fdkdzQ6a3iecudlNtCqktOe986+vikn7uU/TfbwnrY7fkKH6BT3hQxZ9j05HAu1hOU
+	 6RD0YEmYa8rY78mzKJqu9z+jUYkUL0EEZSo3jNwWCYZWaMeoumTxZJ5kBX+5Jfrk6b
+	 WWQheIjCB9HTais7c1YG5gRfwKmeIxpgUkLtCobq8PwF7Fs6rukPhh1eslYGiUVhm/
+	 6fAOr4OXNAPR7+Pk/hsYyK55zRreTxfeUE83fh900wKa+E79DU9fp4KZX/vrEjkAyo
+	 wLnM5MvnBYeig==
+Subject: Re: [PATCH v5 net-next 09/13] selftests: xsk: prepare xskxceiver for
+ endpoints on two hosts
 From: netdev-bot+sashiko@kernel.org
 To: maciej.fijalkowski@intel.com
 Cc: netdev@vger.kernel.org, magnus.karlsson@intel.com, stfomichev@gmail.com,
  kuba@kernel.org, pabeni@redhat.com, tushar.vyavahare@intel.com,
  kerneljasonxing@gmail.com, bjorn@kernel.org
-Date: Mon, 23 Nov 2026 18:46:38 +0000
-Message-ID: <179545959852.3135.9080788623983347843@kernel.org>
-In-Reply-To: <20261119164636.1071385-9-maciej.fijalkowski@intel.com>
-References: <20261119164636.1071385-9-maciej.fijalkowski@intel.com>
+Date: Mon, 23 Nov 2026 18:46:40 +0000
+Message-ID: <179545960018.3135.10988887966916268523@kernel.org>
+In-Reply-To: <20261119164636.1071385-10-maciej.fijalkowski@intel.com>
+References: <20261119164636.1071385-10-maciej.fijalkowski@intel.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -64,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 0 · Medium: 4 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,181 +75,290 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] This commit turns the AF_XDP test frames into UDP over
-  IPv4/IPv6.
-- [Low] The feature patch also carries fixes for older selftest defects,
-  with no Fixes: tag and no separate patch.
-- [Low] parse_command_line() in xskxceiver.c reads --udp-port with
-  `opt_udp_port = strtoul(optarg, NULL, 10);` into a u16 and checks no…
+- [Medium] In SKB mode, the remote's driver-mode RX_SG flag still gates
+  the multi-buffer cases, so the DUT can lose that coverage.
+- [Medium] xsk_wait_link_up() (tools/testing/selftests/net/lib/xsk/xsk.c)
+  is meant to wait out a NIC reset, but it stops on the first…
+- [Medium] detect_mode_caps() (xskxceiver.c) now sets
+  XSK_CAP_DRV|XSK_CAP_ZC from NETDEV_XDP_ACT_XSK_ZEROCOPY alone,…
+- [Medium] The new MTU restore in cleanup_iface() (xskxceiver.c) runs
+  right after the XDP detach.
+- [Low] selftests: xsk: TX-only guard bypassed in xsk_attach_xdp_progs()
 
 --
 
-selftests: xsk: send UDP over IPv4 or IPv6 between the interface MACs
+selftests: xsk: prepare xskxceiver for endpoints on two hosts
 
-The xskxceiver test frames used to be ETH_P_LOOPBACK frames between
-made-up MAC addresses. They are now UDP over IPv4 or IPv6 between the
-real interface MACs, configured by new --src-ip, --dst-ip, --dst-mac and
---udp-port options. The XDP programs now redirect only UDP packets to the
-test port and pass everything else to the stack. The patch also fixes the
-.bss read in is_adjust_tail_supported() and adds length checks to
-is_frag_valid() and pkt_dump().
+This commit adds --queue, --max-frags and --timeout options to xskxceiver.
+It also adds a SKIP message on the control channel and a link-up wait after
+READY, so a zero-copy endpoint on a DUT can run against an SKB-mode endpoint
+on a remote host. Zero-copy support is now taken from
+NETDEV_XDP_ACT_XSK_ZEROCOPY instead of a probe bind, cases default to a 1500
+MTU, and cleanup_iface() restores the original MTU.
 
-> diff --git a/tools/testing/selftests/net/lib/xsk/test_xsk.c b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-> index fdf449822f026..d4485da0f9ac8 100644
-> --- a/tools/testing/selftests/net/lib/xsk/test_xsk.c
-> +++ b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-
-[ ... ]
-
-> @@ -792,31 +933,12 @@ static bool is_metadata_correct(struct pkt *pkt, void *buffer, u64 addr)
->  	return true;
->  }
->  
-> -static int is_adjust_tail_supported(struct xsk_xdp_progs *skel_rx, bool *supported)
-> +static bool is_adjust_tail_supported(struct xsk_xdp_progs *skel_rx)
->  {
-> -	struct bpf_map *data_map;
-> -	int adjust_value = 0;
-> -	int key = 0;
-> -	int ret;
-> -
+> diff --git a/tools/testing/selftests/net/lib/xsk/xsk.c b/tools/testing/selftests/net/lib/xsk/xsk.c
+> index 54e6808e3fe46..6249a4955b64b 100644
+> --- a/tools/testing/selftests/net/lib/xsk/xsk.c
+> +++ b/tools/testing/selftests/net/lib/xsk/xsk.c
+> @@ -828,3 +828,37 @@ int xsk_get_mac(const char *ifname, u8 mac[ETH_ALEN])
 
 [ ... ]
 
-> -	ret = bpf_map_lookup_elem(bpf_map__fd(data_map), &key, &adjust_value);
-> -	if (ret) {
-> -		ksft_print_msg("Error: bpf_map_lookup_elem failed with error %d\n", ret);
-> -		return ret;
-> -	}
-> -
->  	/* Set the 'adjust_value' variable to -EOPNOTSUPP in the XDP program if the adjust_tail
->  	 * helper is not supported. Skip the adjust_tail test case in this scenario.
->  	 */
-> -	*supported = adjust_value != -EOPNOTSUPP;
-> -
-> -	return 0;
-> +	return skel_rx->bss->adjust_value != -EOPNOTSUPP;
->  }
-
-[Severity: Low]
-This isn't a bug, but the old bpf_map_lookup_elem() call here was a real
-stack overflow in the test process, and it has nothing to do with the
-UDP conversion. The baseline .bss holds idx, drop_idx, adjust_value and
-count. That is at least 16 bytes, all copied into the single int
-adjust_value on the stack.
-
-The same applies to the new short fragment check in is_frag_valid() and
-the bounded word count in pkt_dump().
-
-The commit message does describe each fix, and they are tied to this
-patch. It removes idx and adds test_port to .bss. It also grows
-PKT_HDR_SIZE to 44 or 64 bytes, which is why the short fragment check is
-needed. The fixes themselves look complete.
-
-Would it be worth moving these into a separate patch with a Fixes: tag,
-so they can be picked up on their own?
-
-[ ... ]
-
-> diff --git a/tools/testing/selftests/net/lib/xsk/xsk_xdp_progs.bpf.c b/tools/testing/selftests/net/lib/xsk/xsk_xdp_progs.bpf.c
-> index 84e5f47322895..2b55dbaf13b24 100644
-> --- a/tools/testing/selftests/net/lib/xsk/xsk_xdp_progs.bpf.c
-> +++ b/tools/testing/selftests/net/lib/xsk/xsk_xdp_progs.bpf.c
-
-[ ... ]
-
-> +static __always_inline bool is_test_packet(struct xdp_md *xdp)
+> +int xsk_wait_link_up(const char *ifname, int timeout_ms)
 > +{
-> +	__u32 hdr_len;
+> +	struct ethtool_value edata = { .cmd = ETHTOOL_GLINK };
+> +	struct ifreq ifr = { .ifr_data = (void *)&edata };
+> +	int err;
 > +
-> +	return test_udp_hdr(xdp, &hdr_len);
-> +}
->  
->  SEC("xdp.frags") int xsk_def_prog(struct xdp_md *xdp)
->  {
-> +	if (!is_test_packet(xdp))
-> +		return XDP_PASS;
->  	return bpf_redirect_map(&xsk, 0, XDP_DROP);
->  }
+> +	for (;;) {
+> +		err = xsk_ifreq_ioctl(ifname, SIOCETHTOOL, &ifr);
+> +		if (err == -EOPNOTSUPP)
+> +			return 0;
+> +		if (err || edata.data)
+> +			return err;
 
 [Severity: Medium]
-The test frames now carry real IPv4/IPv6 and UDP headers, so NIC RSS can
-hash them. The old ETH_P_LOOPBACK frames gave it nothing to hash. Every
-program here still redirects to a fixed xskmap index, whatever
-xdp->rx_queue_index is:
+Should transient ioctl errors be retried here the same way as a down link?
+Any SIOCETHTOOL error other than -EOPNOTSUPP ends the wait right away.
 
-    return bpf_redirect_map(&xsk, 0, XDP_DROP);
+__dev_ethtool() returns -ENODEV while the device is detached:
 
-On a multi-queue physical NIC with no flow steering, what happens to a
-test packet that RSS puts on a queue other than the bound one? It looks
-like xsk_rcv_check() would drop it, and the case would then time out.
+net/ethtool/ioctl.c:__dev_ethtool() {
+    ...
+	if (!netif_device_present(dev)) {
+		rc = -ENODEV;
+		goto out;
+	}
+    ...
+}
 
-XDP_SHARED_UMEM makes this more likely. Each socket now sends from its
-own source port, set in __test_spec_init():
+An error from ethtool_ops->begin() ends the wait the same way.
 
-    xsk->src_port = udp_port + j;
+Drivers detach the netdev during a reset. For example, ice_prepare_for_reset()
+and idpf_detach_and_close() both call netif_device_detach(). The local device
+may still be detached when sync_endpoints()->wait_link_up() runs. In that
+case, wouldn't wait_link_up() print "Link on %s is not up", send
+XSK_PEER_ABORT, and fail the case on both endpoints?
 
-So an L4 hash could put the two flows on different queues.
+That looks like the reset this wait was added for. Could the loop sleep and
+retry on such errors until timeout_ms runs out?
 
-Later in the series, "selftests: drv-net: run the AF_XDP tests over veth
-or a NIC" handles this in drivers/net/xsk.py. _reserve_queue() takes the
-bound queue out of RSS with ethtool -X equal. _steer_udp() then installs
-an ethtool -N flow-type udp4/udp6 dst-port rule on both hosts. The rule
-matches only the destination port, so it covers both shared UMEM source
-ports. "selftests: xsk: drop the single-interface loopback mode" also
-says the hardware test steers its traffic with ntuple and RSS
-configuration. At this commit, no in-tree runner drives a physical NIC.
-
-Could the usage text or the commit message say that the caller has to
-steer the flow to the bound queue?
+> +		if (timeout_ms <= 0)
+> +			return -ETIMEDOUT;
+> +		usleep(100 * 1000);
+> +		timeout_ms -= 100;
+> +	}
+> +}
 
 [ ... ]
 
 > diff --git a/tools/testing/selftests/net/lib/xsk/xskxceiver.c b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-> index ded94b84cd1da..ef03bf3bd37b1 100644
+> index ef03bf3bd37b1..cc7754f3a8224 100644
 > --- a/tools/testing/selftests/net/lib/xsk/xskxceiver.c
 > +++ b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
 
 [ ... ]
 
-> @@ -294,6 +315,20 @@ static void parse_command_line(struct ifobject *ifobj_tx, struct ifobject *ifobj
->  		case OPT_LISTEN:
->  			opt_listen = true;
->  			break;
+> @@ -403,12 +397,14 @@ static bool is_xdp_supported(int ifindex)
+>  	return true;
+>  }
+>  
+> +/* Probe only the mode that the endpoint runs in. */
+>  static u32 detect_mode_caps(struct ifobject *ifobj)
+>  {
+> -	if (is_xdp_supported(ifobj->ifindex)) {
+> +	if (opt_mode == TEST_MODE_ZC && ifobj_has_cap(ifobj, XSK_CAP_ZC_ADVERTISED)) {
+> +		/* Trust the advertised flag; an XDP_ZEROCOPY bind never falls back to copy. */
+> +		ifobj_set_cap(ifobj, XSK_CAP_DRV | XSK_CAP_ZC);
+> +	} else if (opt_mode == TEST_MODE_DRV && is_xdp_supported(ifobj->ifindex)) {
+>  		ifobj_set_cap(ifobj, XSK_CAP_DRV);
+> -		if (ifobj_zc_avail(ifobj))
+> -			ifobj_set_cap(ifobj, XSK_CAP_ZC);
+>  	}
+
+[Severity: Medium]
+On devices where zero-copy support depends on configuration, does trusting
+NETDEV_XDP_ACT_XSK_ZEROCOPY alone turn a SKIP into a FAIL?
+
+virtio_net sets the flag unconditionally in virtnet_probe():
+
+	dev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
+		NETDEV_XDP_ACT_XSK_ZEROCOPY;
+
+But virtnet_xsk_pool_enable() refuses the pool when the virtqueue has no DMA
+device:
+
+	dma_dev = virtqueue_dma_dev(rq->vq);
+	if (!dma_dev)
+		return -EINVAL;
+
+That happens without VIRTIO_F_ACCESS_PLATFORM, e.g. a default QEMU
+virtio-net-pci without iommu_platform=on. It also returns -ENOENT when the RX
+queue has no page_pool (big-packets mode).
+
+With the old ifobj_zc_avail() probe bind, such a device skipped every
+zero-copy case. Now mode_supported() passes, but the XDP_ZEROCOPY bind fails
+in each case, so the case is reported as FAIL.
+
+The commit message says "a false advertisement still fails the case". The
+static flag cannot tell whether a given device instance can do zero-copy,
+though. Is failing every ZC case on such setups, for example virtio-net CI
+VMs, the intended result?
+
+> @@ -423,8 +419,10 @@ static bool mode_supported(enum test_mode mode, u32 caps)
+>  	return caps & XSK_CAP_ZC;
+>  }
+>  
+> -static void cleanup_iface(struct ifobject *ifobj)
+> +static int cleanup_iface(struct ifobject *ifobj)
+>  {
+> +	int err = 0;
+> +
+>  	/* A peer shadow has a skeleton but no bound interface. */
+>  	if (!ifobj_is_local(ifobj))
+>  		goto unload;
+> @@ -432,8 +430,16 @@ static void cleanup_iface(struct ifobject *ifobj)
+>  	if (ifobj->xdp_prog)
+>  		xsk_detach_xdp_program(ifobj->ifindex,
+>  				       mode_to_xdp_flags(ifobj->mode));
+> +	/* After the detach, as an attached program can cap the MTU. */
+> +	if (ifobj->dev_mtu != ifobj->orig_mtu) {
+> +		err = xsk_set_mtu(ifobj->ifindex, ifobj->orig_mtu);
+> +		if (err)
+> +			ksft_print_msg("Failed to restore MTU %d on %s\n",
+> +				       ifobj->orig_mtu, ifobj->ifname);
+> +	}
+
+[Severity: Low]
+Does POLL_TXQ_FULL still attach an XDP program on a TX-only endpoint
+in SKB and DRV mode?
+
+testapp_poll_txq_tmout() runs single-threaded on the TX ifobj:
+
+testapp_poll_txq_tmout()
+  testapp_validate_traffic_single_thread(test, test->ifobj_tx)
+    __testapp_validate_traffic(test, test->ifobj_tx, NULL)
+      xsk_attach_xdp_progs(test, test->ifobj_tx, NULL)
+
+The TX ifobj therefore enters xsk_attach_xdp_progs() as ifobj_rx. On
+the TX host that ifobj is local. xdp_prog_changed_rx() looks at
+test->ifobj_rx, which is the shadow there and never has a program, so
+it is true.
+
+xsk_reattach_xdp() then attaches test->xdp_prog_rx and test->xskmap_rx
+to the TX interface. Those come from the shadow's skeleton. The
+function returns at the !ifobj_tx check, before it reaches the new
+rx_on / TEST_MODE_ZC guard.
+
+The commit message says an endpoint that only transmits attaches the
+XDP program only in zero-copy mode. This case does not follow that
+rule. In DRV mode it attaches a native program on the TX NIC, which is
+the kind of change that can reset a NIC and that this patch otherwise
+tries to avoid.
+
+Should the TX-only check be based on rx_on of whichever ifobj is being
+attached, so that it also covers the first branch? Or should the
+single-threaded path pass its ifobj in the slot that matches its
+role?
+
+[Severity: Medium]
+Can this restore race with the deferred release of the zero-copy pool?
+
+Closing the XSK socket does not unbind the pool from the queue right away:
+
+xsk_destruct()
+  xp_put_pool()
+    queue_work(system_freezable_wq, &pool->work)
+
+xp_release_deferred()   (later, under rtnl)
+  xp_clear_dev()
+    ndo_bpf(XDP_SETUP_XSK_POOL, NULL)
+
+Nothing makes this MTU request wait for that work. mlx5e_change_mtu() rejects
+an MTU that does not fit a pool that is still bound:
+
+	if (priv->xsk.refcnt &&
+	    !mlx5e_xsk_validate_mtu(netdev, &priv->channels,
+				    &new_params, priv->mdev)) {
+		err = -EINVAL;
+
+For example, take a DUT with an original MTU of 9000 that runs a default ZC
+case at 1500 with 4096 byte chunks. If the restore to 9000 gets rtnl before
+the pool teardown, it fails. The endpoint then reports FAIL for a case that
+passed.
+
+Under xsk.py the fallback ip link set mtu restores the MTU later. Run
+standalone, xskxceiver leaves the NIC at the test MTU.
+
+The series already retries ethtool -G in xsk.py's _set_ring() for the same
+deferred release ("A driver can refuse that while an XSK socket that just
+closed still holds a queue, as ice does until a work item releases the
+buffer pool"). Should the MTU restore get a similar retry?
+
+>  unload:
+>  	xsk_unload_xdp_programs(ifobj);
+> +	return err;
+>  }
 
 [ ... ]
 
-> +		case OPT_UDP_PORT:
-> +			opt_udp_port = strtoul(optarg, NULL, 10);
-> +			break;
+> @@ -553,8 +563,17 @@ int main(int argc, char **argv)
+>  
+>  out:
+>  	xsk_set_endpoint(NULL);
+> -	cleanup_iface(ifobj_tx);
+> -	cleanup_iface(ifobj_rx);
+> +	err = cleanup_iface(ifobj_tx);
+> +	err |= cleanup_iface(ifobj_rx);
+> +	/* xsk.py trusts a passed or skipped endpoint to have undone the MTU. */
+> +	if (err)
+> +		ret = TEST_FAILURE;
+> +	/* After the cleanup, which can still fail a case that ran. */
+> +	if (test.test_func)
+> +		report_pkt_test(&test, ret);
+> +	/* The peer skips the case too, rather than fail on the closed connection. */
+> +	if (ret == TEST_SKIP)
+> +		xsk_peer_skip(peer, opt_timeout * 1000);
 
-[Severity: Low]
-Does --udp-port need a range check here? The strtoul() result goes
-straight into the u16 opt_udp_port, so a value above 65535 is silently
-truncated modulo 65536. Only a result of 0 is rejected, by the
-!opt_udp_port check and by xsk_set_flow().
+[Severity: Medium]
+Can this SKIP pass on to the DUT a skip that comes only from the remote NIC's
+native driver features?
 
-xsk_load_xdp_programs() then makes the truncated value the port that the
-XDP programs match on:
+In SKB mode, __testapp_validate_traffic() requires XSK_CAP_MBUF on both
+ifobjs for every case with test->mtu > MAX_ETH_PKT_SIZE:
 
-    ifobj->xdp_progs->bss->test_port = udp_port;
+	mbuf_cap = test->mode == TEST_MODE_ZC ? XSK_CAP_MBUF_ZC :
+						XSK_CAP_MBUF;
+	...
+		return TEST_SKIP;
 
-UDP traffic to an unintended port could then be redirected to the XSK
-instead of reaching the stack.
+detect_ifobj_caps() sets XSK_CAP_MBUF only from NETDEV_XDP_ACT_RX_SG. That
+flag belongs to the native driver's feature set:
 
-There is also a separate wrap: with --udp-port 65535, the source port of
-socket 1 in __test_spec_init() becomes 0:
+	if (query_opts.feature_flags & NETDEV_XDP_ACT_RX_SG)
+		ifobj_set_cap(ifobj, XSK_CAP_MBUF);
 
-    xsk->src_port = udp_port + j;
+An SKB-mode endpoint binds with XDP_COPY, and xp_assign_dev() returns early
+for force_copy without looking at xdp_features. Generic XDP handles frags for
+an xdp.frags program through
+netif_skb_check_for_xdp()->skb_cow_data_for_xdp().
 
-That wrap looks harmless. xsk_xdp_shared_umem() computes
-(__u16)(0 - 65535) == 1 and still picks socket 1, and UDP source port 0
-is legal.
+setup_peer() copies the remote's own caps into the shadow, so both checks
+read the remote NIC's RX_SG bit.
 
-Later in the series, the in-tree launcher drivers/net/xsk.py checks the
-value with _check_opt("--udp-port", cfg.udp_port, 1, 0xffff) before
-passing it on. The series leaves option range checks to the launcher, so
-this only affects running xskxceiver by hand.
+If the remote NIC does not advertise RX_SG, the remote returns TEST_SKIP for
+every multi-buffer case: SEND_RECEIVE_9K_PACKETS, the *_MULTI_BUFF cases,
+TOO_MANY_FRAGS, UNALIGNED_*_9K/MB, and others. With this patch it then sends
+XSK_PEER_SKIP. The ZC DUT's sync_endpoints() returns TEST_SKIP, and xsk.py
+reports the case as skipped.
+
+Doesn't that lose the DUT's multi-buffer zero-copy coverage just because of
+the remote's native XDP flags? It also seems to go against "an endpoint
+probes only the mode it runs in" in the commit message.
+
+>  	xsk_peer_close(peer);
+>  	pkt_stream_delete(test.tx_pkt_stream_default);
+>  	pkt_stream_delete(test.rx_pkt_stream_default);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119164636.1071385-1-maciej.fijalkowski%40intel.com
