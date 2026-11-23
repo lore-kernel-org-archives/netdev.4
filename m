@@ -1,105 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477272;
-	b=jKdI+SGvV1kISNm9Zuk7EJzWwp+Uj+L9o4ekwd5+cK2iZ1l1cGG8PRmL9DLrHbZuClsl
-	 GtVFMQPHMuaITRKwmx4h68pHkkCo1EI3sdVpyJoknShCYwdFcZzVXIids6+bfPsy0jG2T
-	 7U5yA13slMcY475/zV/gXHwXpqnhHhQoS0OKMmkbpowfuDFgSNQS0dRu36n8/lJlhB2tO
-	 IKF2J0IlZpEJ/R1MaKfY38s6vlngRzRfH02XGXMSw9FkevuNC0LuiVKbGQ88R2k4H+K4Z
-	 KZuRwPgsnKPqRl5rT7f1DW4zfSrAv++/YTYkVefMX26h7RY/QlyELgu1nPbSnijB0KQ==
+	t=1795477533;
+	b=25TQdxLKmS2QiaRLFNYzF4q4ccW1dwt5AC+2R3e+n8FXwdCFCoxaDn5GfveRJqIvX2LJ
+	 bAca6yTjfkG8+ckRWP6GBV8mrYzRXfK6tjIVYaMmMv810yC2TPfTGEVTqCOR67td4Unzb
+	 DeYTq9giG/YIro0ccNeuTo0QXR7J9aneqqqQU5mySrh5+7SCtLEYrKV27YujHlFWQblx4
+	 bzeN5fF9R8y5bQYFErjZd+MfXHobTGSkNQyt0M4MutBlMiGi1BNHoas5rRszvHi9BVUYh
+	 KwVq/rGzE7i7dHU3DQcntU/YFZVIM5N47R4MTq223sZfgEri7G9tTrSJHvX3IQgNQOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477272;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=7sCs1EHW+8IerzbWNfyv2UgBTw/vhw4f3rwKGqlZg4g=;
-	b=mOnKzVoMli4RRB6sNEwJ8YRb2zVyoK5uHU47NqQSY/GOgGeYgvhZUDcYjvI7aFdsovbY
-	 wl1OllbWIA5fXmKu4f4n2E4/UZ+m0ZfMJvOlh+06XOTu/qQqGRpN1Qh8nEaJBZ0LmSUlV
-	 TVt9szJzl6SzSjervjsYTjSCHqtZ5CtGrtVhha35G6q8ZuzApG778yIM+1sIRwWfISDIk
-	 4R6A8Gi1nF4im8ibSRFRzpwiHPvIOq02Jb9WPvjcK433yqMb8orfcHOFRVt+stiyf0xMr
-	 YUsmaXx9SeCfOhXeq7h9DIOMkkleHnkC6PiCSkc6YrAwVbk5VW11HoxT25/ptppAX2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477533;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=r5+OgPsCyjeC9MKv74G7YxKH+Z743Xl2jrS1zHnIGuU=;
+	b=Gu/9gzle9jC2bbiAuPbDoczZbFO5S6GdFqE3Pz+AJJUX4wvCYm/FwFnEu5xuWy6l9G2E
+	 mAuQTuMqqH78EOjnmiOht02/4fEm1jQSiXzmCYtZVGYfXxWEcevEGkZ38sdFg/mnO/uOp
+	 AIM9lF1zEeeosCHMKhWSLVYZuHvElqwlU6xYqjmJqud2qM4Rc+YgoN4KQ1IYAMxnTzGxW
+	 TYnfnom+mYRV4QQM7SmXUB2Vu8vVVumzdR03p67NXo3n/vheKw9lKZp5/+pXvhVeQWJI6
+	 8SoSTlU4ACqagiNGAIwRRF6wp8Px+/kEWxJn/RyALApJNEEIE0j9+6fYmTqLWpTa3ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYWt5XT3;
-	arc=none smtp.remote-ip=209.85.167.43
-Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com [209.85.167.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d87XWevT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D86F606A331
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:41:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D86F606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C010D606A326;
+	Mon, 23 Nov 2026 23:45:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYWt5XT3
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c126f80426so3931265e87.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:41:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795477270; x=1796082070; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7sCs1EHW+8IerzbWNfyv2UgBTw/vhw4f3rwKGqlZg4g=;
-        b=gYWt5XT3dQdvUniO8+A/+WNJltKocdfgxkgNxZe8u7HVwfNGB6CA1qdTF5017B6rnb
-         98PanKA+f1HpBkUcmRqPBdXcFCc3FJI+Ug1A19doLUqC6V1sNwobGVwzJE6zsYqVfLIg
-         3W+Dzl6vvvB4YkIzAagXieJMiasMu5GxJBNDkvlc8o1pvh0iZDgvreteWtF1XXdgjG+j
-         mIa5mYRLJHka30/ESkNougpg5hX5vQlZab6K5pePpngpPUfUN94211ZkVeRX2C1rh3Wn
-         pzXRGh064vXiStuc9IHGJyKV9lj2DjOwgitxM4KN3rwsO/lYRek6kxgoDpqN3CTvzArP
-         E4GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477270; x=1796082070;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7sCs1EHW+8IerzbWNfyv2UgBTw/vhw4f3rwKGqlZg4g=;
-        b=JrAS8z8rHJpJmn+4O0vLLtksY+yogaU+gAIcNFnCCLJpZYJEKb8qnf4u0BLnhoZnpu
-         YxNlYOG52R//U8rRMpa5he+B3iWLo4wbFHF2rWiThRgWmEDKEBL2mwUcO59Ol3X7jdLe
-         WVm39Jf3LVIGuKrKpCRpEwzcHlkYm5VsHtrzOAe2QCsOWYEKEX/TDGns2EJUY4HQFO00
-         eCMd/Dsp9LZd+nFLSqLLiinyM549xbTwdOESksJhkFDQ7F4ycL5HEKyEw5Iq4FLzvkkZ
-         4grXDMtAJcKOTShEPvzeyq+OD7Q9+mDaXw6h6v3B/D9er2G0JhZgeN9geOr815sQhSG+
-         RWog==
-X-Forwarded-Encrypted: i=1; AL+hErEz1/2eEM63YwzMpR5dgKzovtFrppNdSg7AQA6ibCbQ/AJBm3gT4VPEnCh+vjFMmyv0tign3Mk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9puAxFjaGj+HxQwbb+3cLACiJpWdJ38ePmHZo9rF1+FtFS73H2
-	7TZZfuth0SMDJPmwOS03fqq4kioXpjSwrx+uBZEDR+oDJqi8IgnevLt7
-X-Gm-Gg: AZFdTZdcg9MKx3N2FKtoYlFU57izfeLMkFIZ6JBbmVY2X4BckjWqQn8dnrboPI4mCvx
-	9586jVxZziA2WRDDEMvy84JuxdfsP/ENRIt7deSKxNkqUQDY4iA49VxSykgg8w1Xkloaf9HJkCq
-	NUp8Gy1rmI+q8A/4OxhQUCtFO3RCRW/fMKbibMkGVW2FjI7qHFmeewdmIpTCUzAqUwCs3s8dzvY
-	hFQCv0BWmv/wEnx6YzH32vvKAj1f7I+wMHUbBxAckOHJsovcKnDbX+vhPfTUvx8OEvC4zF+XBLs
-	DicQGkv82uOdf77t1Yvf3/zDuMB00KvAJ6GT12wALYcBAMPAbg2SBYaiOpv9jIlAhmwx0x0XXhd
-	Mjm6twp1wXOglJnn5EesypqMqarz5gR6n5sC7OByQHuWpRYNusSaK7KEP6kDoZUT2pRUlO3ua36
-	vYNReMvs2fCbhHQ40gVmm+kMtKUKIhv5PWPw30HkMakyIQ9sbaJ2V0Y+OwjujTLtaSZDqHLMsVD
-	hmeETAobRu5qO5EQopCpLlmovBp5LGhNDZ9Vh92LfRg6LxqbFXXGUjL0xqIaAgKz2B4pHMnmoRY
-	qv405ci7yVzbOfbAyttVwJCzwSmwxRgbDicyzgqckJEoDB7OO70N72U=
-X-Received: by 2002:a05:6512:124d:b0:5c1:56f2:fda4 with SMTP id 2adb3069b0e04-5c1bc89530fmr3136762e87.49.1795477270244;
-        Mon, 23 Nov 2026 15:41:10 -0800 (PST)
-Received: from [127.0.1.1] (ip-024-180.users.dtel.ru. [91.210.24.180])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04451csm3314217e87.59.2026.11.23.15.41.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:41:09 -0800 (PST)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
- 	Conor Dooley <conor+dt@kernel.org>, 	Andrew Lunn <andrew+netdev@lunn.ch>,
- 	"David S. Miller" <davem@davemloft.net>, 	Eric Dumazet <edumazet@kernel.org>,
- 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- 	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
- 	Linus Walleij <linusw@kernel.org>, 	Russell King <linux@armlinux.org.uk>,
- netdev@vger.kernel.org, 	devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Subject:
- Re: [PATCH net-next 4/5] net: cortina: Add CS7542 CPU network  datapath
-Date: Mon, 23 Nov 2026 23:41:02 +0000
-Message-ID: <179547726260.3.2509837092976108381@gmail.com>
-In-Reply-To: <560efd8b-44a6-4b3f-9f88-d1a891b4f253@lunn.ch>
-References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
- <20261123-b4-cs7542-ethernet-v1-4-fdb5e8c2d508@gmail.com>
- <560efd8b-44a6-4b3f-9f88-d1a891b4f253@lunn.ch>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d87XWevT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77ABE1F000D0;
+	Mon, 23 Nov 2026 23:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795477532;
+	bh=r5+OgPsCyjeC9MKv74G7YxKH+Z743Xl2jrS1zHnIGuU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=d87XWevTeVnp1yyijNQj/o/rxb3ELz5hwQm3F4PdqWKidGP+W8YOykjpBMWgDGC44
+	 PxOpGJU96C/zcUxmmyxFguw/3/g9ioF7r+z6zwflHvRgIUfhd8wTb/7Mf0RSVJtog2
+	 0SUvDW2KdzWDXNiBRhwVhoCtzLcJB2H57DqTV2niAMkc1s2NJVF1qw9bbI0UWmsig2
+	 +iZp9IhYj7VMCb1JAFN04bHOERB8Q0KzjwnA+5OfNcf0YAxZx+Zr2EPE7uWJev9BeA
+	 xN8BPmoaOpZRyf49FJ9WLIpzmSxu7vdreGJQsNt7NAkDXg6f5n7VA3Fx8woF+sLtGR
+	 f5oXsA/JJXciw==
+Subject: Re: [PATCH net] sctp: unshare GSO skb frag_list members instead of
+ linearizing
+From: netdev-bot+sashiko@kernel.org
+To: lucien.xin@gmail.com
+Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net,
+ kuba@kernel.org, edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
+ marcelo.leitner@gmail.com
+Date: Mon, 23 Nov 2026 23:45:32 +0000
+Message-ID: <179547753202.3135.11036747479037466293@kernel.org>
+In-Reply-To: <20e1d469385153bcfa766080453e8d9c1d64c339.1795388574.git.lucien.xin@gmail.com>
+References: <20e1d469385153bcfa766080453e8d9c1d64c339.1795388574.git.lucien.xin@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,36 +64,238 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Hi Andrew,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-I removed both module parameters and the unused internal-buffer alternative,
-keeping the previous external-DDR QM/TM default. I could not justify weight
-16 with a hardware requirement, so the next version uses netif_napi_add()
-and the normal weight 64. The .c helpers are plain static functions, and
-ndo_open now unwinds through cleanup labels.
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-I reviewed the flags against the core transitions. opened publishes a port
-under the shared TX lock after IRQ/NAPI setup succeeds. netif_running() is
-already true while ndo_open can still fail, so it cannot identify a port
-that shared completions may safely wake. Clearing opened under that lock
-before netif_tx_disable prevents completions waking a closing queue.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-stopping gates the single reap timer shared by all ports. Last-port close
-sets it under the same lock used by timer-rearm paths, before dropping the
-lock and calling hrtimer_cancel(). It prevents a running callback or RX
-poll from rearming during cancellation. I retained these flags and added
-comments explaining their roles. rx_stopping separately closes the device
-retry/IRQ-rearm window; napi_disable alone does not join a poll tail after
-napi_complete_done().
+- [High] sctp_gso_unshare() (net/sctp/input.c) does not give SCTP
+  exclusive ownership of frag_list members, even though its comment says…
+- [Medium] sctp_rcv() now skips skb_linearize() for every GSO-SCTP skb,
+  including nonlinear ones that have no frag_list.
+- [Low] The commit message misstates the history and the mechanism.
 
-Independent built-in/module ARM builds without the platform series pass.
-The revised driver also passed Almond+ RAM testing with live NAPI weight
-64, two load/unload cycles, 600 byte-exact UDP echoes and 20 ICMPv6 replies
-through the normal DSA path. A separate internal CPU-port diagnostic
-passed 448 nonlinear/jumbo frames, including 8192-byte payloads. These are
-functional checks, not throughput measurements.
+--
 
-I will collect further review before sending v2 within the agreed cadence.
+sctp: unshare GSO skb frag_list members instead of linearizing
 
-Thanks,
-Fil
+This patch stops sctp_rcv() from linearizing cloned SCTP GSO skbs. It adds
+sctp_gso_unshare() instead. That helper calls skb_unclone() on the outer
+skb and replaces each shared frag_list member with a private skb_clone().
+The aim is to avoid races on shared frag_list headers after a TEE
+pskb_copy(), and to keep per-segment boundaries so that SCTP-AUTH works.
+
+> The previous fix in commit fd60d8a08619 ("sctp: linearize cloned gso
+> packets in sctp_rcv") checked skb_cloned() on the outer skb and
+> linearized the entire GSO packet. This is insufficient for two reasons:
+>
+>  - A partial pull into the frag_list can privatize the head while later
+>    members stay shared.
+
+[Severity: Low]
+
+Does this match the TEE case? The TEE target goes through
+nf_dup_ipv4()/nf_dup_ipv6() and pskb_copy(). __pskb_copy_fclone() gives
+the new skb a private head and shares the frag_list:
+
+net/core/skbuff.c:__pskb_copy_fclone() {
+    ...
+	if (skb_has_frag_list(skb)) {
+		skb_shinfo(n)->frag_list = skb_shinfo(skb)->frag_list;
+		skb_clone_fraglist(n);
+	}
+    ...
+}
+
+Neither skb is marked cloned. So the skb_cloned() check added by
+fd60d8a08619 never fired here, and no partial pull is involved.
+
+If that's right, the bug goes back to commit 90017accff61 ("sctp: Add GSO
+support"). Should the Fixes: tag point there instead of fd60d8a08619?
+
+>  1. Calls skb_unclone() to unshare the outer skb header without
+>     flattening the frag_list.
+
+skb_unclone() only acts when skb_cloned() is true. It then calls
+pskb_expand_head(), which reallocates the data head and shared info. The
+sk_buff header is already private at that point.
+
+For the pskb_copy()/TEE skb, skb_cloned() is false, so skb_unclone() does
+nothing. Could this step be described more precisely?
+
+> diff --git a/net/sctp/input.c b/net/sctp/input.c
+> index 9494cfa51106c..cd84ee44b9f24 100644
+> --- a/net/sctp/input.c
+> +++ b/net/sctp/input.c
+> @@ -82,6 +82,38 @@ static inline int sctp_rcv_checksum(struct net *net, struct sk_buff *skb)
+>  	return 0;
+>  }
+>
+> +/* Ensure exclusive ownership of frag_list members for GSO skbs.
+> + * pskb_copy() shares them by reference; unshare by cloning in place.
+> + */
+> +static int sctp_gso_unshare(struct sk_buff *skb)
+> +{
+> +	struct sk_buff **pp, *p;
+> +
+> +	if (skb_unclone(skb, GFP_ATOMIC))
+> +		return -ENOMEM;
+> +
+> +	if (!skb_has_frag_list(skb))
+> +		return 0;
+> +
+> +	pp = &skb_shinfo(skb)->frag_list;
+> +	skb_walk_frags(skb, p) {
+> +		if (skb_shared(p)) {
+> +			struct sk_buff *clone;
+> +
+> +			clone = skb_clone(p, GFP_ATOMIC);
+
+[Severity: High]
+
+Does this give SCTP exclusive ownership of the frag_list member, as the
+comment above says? skb_clone() makes the sk_buff private. The data buffer
+stays shared: dataref is bumped and both skbs are marked cloned.
+
+The SCTP receive path then writes into that shared data. For a
+cover-letter GSO skb, sctp_inq_pop() points chunk->skb at the frag_list
+member:
+
+net/sctp/inqueue.c:sctp_inq_pop() {
+    ...
+			if (chunk->head_skb && chunk->skb->data_len == chunk->skb->len) {
+				...
+				chunk->skb = skb_shinfo(chunk->skb)->frag_list;
+    ...
+}
+
+sctp_sf_authenticate() then changes the digest in place:
+
+net/sctp/sm_statefuns.c:sctp_sf_authenticate() {
+    ...
+	save_digest = kmemdup(digest, sig_len, GFP_ATOMIC);
+	...
+	memset(digest, 0, sig_len);
+
+	if (sctp_auth_calculate_hmac(asoc, chunk->skb,
+				     (struct sctp_auth_chunk *)chunk->chunk_hdr,
+				     sh_key, GFP_ATOMIC)) {
+    ...
+}
+
+sctp_auth_calculate_hmac() writes the HMAC it computes back into the same
+digest location in the packet.
+
+In the TEE scenario from the commit message, both copies share the same
+frag_list data. Can this sequence let an unauthenticated packet through
+on the second copy?
+
+receiver A (first copy, on-wire digest D does not match)
+  sctp_sf_authenticate()
+    save_digest = D
+    memset(digest, 0, sig_len)
+    sctp_auth_calculate_hmac() writes valid H into the shared bytes
+    compare fails -> BAD_SIG
+
+receiver B (second copy)
+  sctp_sf_authenticate()
+    save_digest = H     <- read from the shared bytes
+    memset, then recompute H
+    compare(H, H) succeeds -> chunk->auth = 1
+
+If the two copies are processed at the same time, can valid packets also
+fail verification? The HMAC input would include the other receiver's
+partial writes.
+
+The cloned-outer case looks affected too, for example an AF_PACKET tap on
+lo. packet_rcv() clones the skb, and then
+skb_unclone()->pskb_expand_head()->skb_clone_fraglist() leaves the members
+shared. Before this patch, skb_linearize() gave SCTP a private copy of the
+data.
+
+With this patch, don't the memset() and the HMAC write land in data the
+tap's queued clone still references? The packet socket reader would then
+see zeroed or recomputed digest bytes instead of the bytes received on the
+wire.
+
+Would it work to make the data private for the members SCTP writes to?
+That could be skb_copy() or pskb_expand_head() on shared or cloned members,
+at least those carrying AUTH. Another option is to compute the HMAC into a
+private buffer instead of the packet.
+
+> +			if (!clone)
+> +				return -ENOMEM;
+> +			clone->next = p->next;
+> +			consume_skb(p);
+> +			p = clone;
+> +			*pp = p;
+> +		}
+> +		pp = &p->next;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+
+[ ... ]
+
+> @@ -117,8 +149,14 @@ int sctp_rcv(struct sk_buff *skb)
+>  	 * it's better to just linearize it otherwise crc computing
+>  	 * takes longer.
+>  	 */
+> -	if (((!is_gso || skb_cloned(skb)) && skb_linearize(skb)) ||
+> -	    !pskb_may_pull(skb, sizeof(struct sctphdr)))
+> +	if (!is_gso) {
+> +		if (skb_linearize(skb))
+> +			goto discard_it;
+> +	} else if (sctp_gso_unshare(skb)) {
+> +		goto discard_it;
+> +	}
+
+[Severity: Medium]
+
+What happens to a nonlinear GSO-SCTP skb that has page frags but no
+frag_list? sctp_gso_unshare() returns early for it:
+
+	if (!skb_has_frag_list(skb))
+		return 0;
+
+So it reaches sctp_inq_pop() still nonlinear. There, head_skb is only set
+when frag_list is non-NULL. Otherwise chunks are bounded by
+skb_tail_pointer(), which covers only the linear area:
+
+	} else if (chunk->chunk_end > skb_tail_pointer(chunk->skb)) {
+		/* Discard inside state machine. */
+		chunk->pdiscard = 1;
+
+Such skbs can come from generic XDP with a frags-capable program:
+
+netif_receive_generic_xdp()
+  netif_skb_check_for_xdp()
+    skb_cow_data_for_xdp()
+      skb_pp_cow_data()
+
+veth native XDP can produce them as well. skb_copy_header() keeps gso_type
+as SKB_GSO_SCTP, and the payload ends up in page frags with no frag_list.
+
+If an AF_PACKET tap then clones the skb, the old skb_cloned() condition
+linearized it. With this change, are the chunks past the linear head now
+pdiscarded?
+
+The AUTH reasoning in the commit message only applies when a frag_list
+exists. Could the code still linearize when !skb_has_frag_list(skb)?
+
+> +
+> +	if (!pskb_may_pull(skb, sizeof(struct sctphdr)))
+>  		goto discard_it;
+>
+>  	/* Pull up the IP header. */
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20e1d469385153bcfa766080453e8d9c1d64c339.1795388574.git.lucien.xin%40gmail.com
