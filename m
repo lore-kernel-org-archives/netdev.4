@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471872;
-	b=wMV4PSffdZLw6Zeo4BMKDcQTjAcReQP1pVrPdpe0X0wbtzBkyDOROKLycCi5fYVsMAcN
-	 rZpxWEDN69HEpuMhVNgxBgY8Sqm4ix5dX9oHhC5ylAyhh7LiJWoEzKgZg5cEVjb39J0BL
-	 gDJ8DmaLiUrtUHYetOabLiRPivMDy15A+UyrtY0K4Xn/jooaNuyXnPxFd4cvb34tTBQGK
-	 kbj2PAftUrr37BAvDUZ1HjuP2KJRmNKSed04cTHEnfa/xlVvRmVGV5U0whO6FYkLZC2/6
-	 +aXzxTny5yJL0JacwTVLtMUSaj/87IRmhL7GZS4/srpmjLUVDggKRik6hCylYs4nnGA==
+	t=1795471873;
+	b=jGJfRnDxWj1N5Fp8BSaQQMB0fJ3HYo4RK6CbL/hHMZU+xaaQKg2Myf6lLnvGYufQp2FR
+	 4Mgjvlefmf/wOTFzf1tDyy+/Ctg5XJeRiqvqiO1taz1vbvIG6PuOIVXraB4sB8Klf4eLI
+	 tus0QyetQh69IknfXr5gLy7X5DVx5KY2sQwhZTAlU08qroN+LO1iGv4+7Hcij/8hbDTPE
+	 iMCz2A+KCoNq1u1NHYr0oZik2mS8dd18qVRgFE8IicN2dYt05F9//Usd3+OfM8upUKb6o
+	 nagHHfJm5uGfAjlOOXZiRs2erBr7dkZpJnb5rJCLCDmEHkmX7gBsfnSQngUA+g4PldA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471872;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795471873;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=4xHRp9aZooZyc9nci6AtLM+Hkldl0hr3+96Zvxfc5+Q=;
-	b=QAYBJwx9xub48mMR56FcT2ICJ2VrcDczzB8q2ruhFaIYF1fhw/2KouAHlbliKaL3vHiz
-	 PInZrn+qjHl3181A0IRyO8KiwlQr8jwBfX4cEq3vSbFJTHAEzQsgA6KkhLGJLoOt6c8KA
-	 tjIcd0M51bwdN88ZNdxKjASL7v1Wd1mmsEfvvi+zpqLY0hf2ZR+/FnEJS1Cg64aK6Ja2p
-	 VeaEPb/o+AsIkqnFScHHNdO2Lb1RNwRpcRyqmUz2zyryNQfigf9nekA8BvxqsCS0QFdFx
-	 EQ74JrnSmRdSl4DUtBGvtHVkmELomO4FUMMnmrFFBxkiZGaBfg8kKpuM0IOpt2Vy0TQ==
+	bh=4gwJugCmV4Jl56bEvoUZykXNr9VR7iCQ2K2cfxnOECs=;
+	b=EItxyjTf/i4brdUTC3cBnLj4XtZuvme1LbuM6O9vDH3cXaU35qeKaDrvTYlFTZ9RJCCm
+	 XGVCWYJyCYFJxx6VRwCu06F/MersH3koMwKNZMJkPnN8Oln7BtNDwrlrWKRIGjNciA4ln
+	 BUaeoW1K0HQhmzEgXAAk38hYnIk1QB+FTfFrIFMVGr47pMaOlRnpqk9GU8He5uw3xJJZr
+	 aCRnH9u6s+B2Y7Hpvwvg3OPd9Nn5QEQ5gIy9a3HPg+gmgfee3GolRI6g6g6e7dMnAZDxh
+	 hhXZ4by271SXu0yysqUyK5H0WFmGKvBZ1Yo+KR2ogFQ1sfEZ5rcsJbNvJlC+AUvpn0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y2JOJRLC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fzSJo8mL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DABC606A334
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 22:11:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DD0B606A321
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 22:11:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y2JOJRLC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDEBD1F000D2;
-	Mon, 23 Nov 2026 22:11:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fzSJo8mL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A821F000C0;
+	Mon, 23 Nov 2026 22:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795471871;
-	bh=4xHRp9aZooZyc9nci6AtLM+Hkldl0hr3+96Zvxfc5+Q=;
+	s=k20260515; t=1795471872;
+	bh=4gwJugCmV4Jl56bEvoUZykXNr9VR7iCQ2K2cfxnOECs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Y2JOJRLCiRKr85/tYVMzcedSLeQsCpKNLLCWADK6sEfWot2F7kmS/9W7kPwF1Ah2J
-	 iy0gv8cIk5bTrqVpu/4uU9l3gnPDCtBdkTsnJhcV8PJ197RxIhzxs/LS4ju/MwP/9r
-	 nan3886Hcwn80c6VPDpOQzCgNW66MxeWhcVHMcHjJrLUARRVqsmnfVD5jXVmhoOCR9
-	 zW1zc571GQcLwYA4cM5iEAeMlMa6oj0zvmhN6qtf4Im2uug3p/mvSotUcK0biEpHc3
-	 5blWlrxYEprBd3jX82IQ5LkXzUOKZG+ssVkiqXLmu50Y37tuDgr1xEqmSMVlTOjvQ0
-	 zTKLGjKyDqaDg==
-Subject: Re: [PATCH net v3 1/3] net: dsa: motorcomm: Ignore multicast
- addresses in FDB ops
+	b=fzSJo8mLQ1ijHo9J2VDlKRn/CtcqEyV19WSq/l1pCqM4lfBGnv/qLFWnO53SqNlQ1
+	 MqD+JOJP5JUxpIUgkp4q8LeEVJsKHXqqUIymI9rWw7tS5MqFn52klgTpbmRUxTLPaV
+	 vmth04ptbJ3RsLOtpBHedNdehQbqCnp0ob2RNl113+ypmXA6MfMVMMjNWBJP3jg8A3
+	 HPtD8G3P+F74mM1/Fsoo5fAtRK+VqKS0O3cA3+AvEC0Fb5nIYkTOgCOxfDELj5Bjnt
+	 FanHwOXlR/RfvNz2jXH0AnpwD/dLbXuNf8VJCFH0FBWJGJSP4nL4dB/NFYq09GBORr
+	 3oymWj5g4Nk8Q==
+Subject: Re: [PATCH net v3 2/3] net: dsa: motorcomm: Do not inherit ports from
+ dynamic FDB entries
 From: netdev-bot+sashiko@kernel.org
 To: mmyangfl@gmail.com
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Date: Mon, 23 Nov 2026 22:11:10 +0000
-Message-ID: <179547187046.3135.5287571257450168353@kernel.org>
-In-Reply-To: <20261119221110.1123578-2-mmyangfl@gmail.com>
-References: <20261119221110.1123578-2-mmyangfl@gmail.com>
-X-sashiko-severity: Low
+Date: Mon, 23 Nov 2026 22:11:11 +0000
+Message-ID: <179547187187.3135.17425549919833355866@kernel.org>
+In-Reply-To: <20261119221110.1123578-3-mmyangfl@gmail.com>
+References: <20261119221110.1123578-3-mmyangfl@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -63,121 +63,100 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] The commit message does not say what actually breaks in hardware,
-  even though the patch carries a Fixes: tag.
-- [Low] For multicast MACs, yt921x_dsa_port_fdb_add() now returns 0
-  without writing anything to the switch.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] When yt921x_fdb_join() (drivers/net/dsa/motorcomm/chip.c)
+  finds an existing non-static (hardware-learned) entry for the (addr,…
 
 --
 
-net: dsa: motorcomm: Ignore multicast addresses in FDB ops
+net: dsa: motorcomm: Do not inherit ports from dynamic FDB entries
 
-This patch makes yt921x_dsa_port_fdb_add() and yt921x_dsa_port_fdb_del()
-return early for multicast MAC addresses. Multicast entries are then no
-longer touched from the FDB path, because the software bridge never
-forwards according to a multicast FDB entry.
-
-> The software bridge never forwards according to an FDB entry with a
-> multicast MAC. A multicast entry created by "bridge fdb add" is
-> therefore inert in the software data path, but its switchdev
-> notification still reaches .port_fdb_add().
->
-> Ignore multicast addresses in .port_fdb_add() and .port_fdb_del() so
-> multicast entries are not touched from FDB side.
-
-[Severity: Low]
-This isn't a bug, but could the commit message say what goes wrong in
-hardware without this change? The patch carries a Fixes: tag, and the
-description does not mention the user-visible impact.
-
-In this driver the FDB and MDB ops share one hardware table. They use
-the same (addr, vid) key and the same helpers:
-
-drivers/net/dsa/motorcomm/chip.c:yt921x_dsa_port_mdb_add() {
-    ...
-	res = yt921x_fdb_join(priv, addr, vid, BIT(port));
-    ...
-}
-
-yt921x_dsa_port_mdb_del() calls yt921x_fdb_leave(), which is also what
-the FDB ops called before this patch.
-
-Before this patch, "bridge fdb add <mcast> dev swpN master static" wrote
-a static hardware entry. The switch then forwarded that group by the FDB
-port mask, while the software bridge forwarded it by MDB or by flooding.
-
-Also, a later "bridge fdb del" of an address that MDB had also
-programmed ran yt921x_fdb_leave(). That cleared the port bit from the
-MDB-owned entry, or deleted the entry once no ports were left:
-
-drivers/net/dsa/motorcomm/chip.c:yt921x_fdb_leave() {
-    ...
-	if (!(ctrl2 & YT921X_FDB_IO2_EGR_PORTS_M)) {
-		ctrl = YT921X_FDB_OP_OP_DEL | YT921X_FDB_OP_START;
-    ...
-}
-
-After that, hardware multicast forwarding no longer matches the software
-MDB, which still believes the group is offloaded.
-
-Could these two effects be described in the commit message?
+This patch changes yt921x_fdb_join() so that an existing non-static
+(hardware-learned) entry for the same (address, VID) key has its egress
+port mask replaced, not merged, when it is converted into a static
+fdb/mdb entry.
 
 > diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-> index c753c746490a1..9a9e8ed76e01f 100644
+> index 9a9e8ed76e01f..ea305159cd5e7 100644
 > --- a/drivers/net/dsa/motorcomm/chip.c
 > +++ b/drivers/net/dsa/motorcomm/chip.c
-
-[ ... ]
-
-> @@ -876,6 +879,12 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
->  	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
->  	int res;
+> @@ -799,7 +799,10 @@ yt921x_fdb_join(struct yt921x_priv *priv, const unsigned char *addr, u16 vid,
 >  
-> +	/* The software bridge never forwards according to an FDB entry with a
-> +	 * multicast MAC, do not touch it from the FDB path
-> +	 */
-> +	if (is_multicast_ether_addr(addr))
-> +		return 0;
+>  	ctrl1 = val1 & ~YT921X_FDB_IO1_STATUS_M;
+>  	ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
+> -	ctrl2 = val2 | YT921X_FDB_IO2_EGR_PORTS(ports_mask);
+> +	ctrl2 = val2;
+> +	if (ctrl1 != val1)
+> +		ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
+> +	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(ports_mask);
 
-[Severity: Low]
-Will returning 0 here make the bridge report the multicast entry as
-offloaded, even though nothing was written to the switch?
+[Severity: Medium]
+When a learned entry is turned into a static one here, only
+YT921X_FDB_IO2_EGR_PORTS_M is cleared. Should the other attributes of the
+learned entry be cleared as well?
 
-dsa_user_switchdev_event_work() in net/dsa/user.c treats any 0 return
-as a successful offload:
+The remaining OUT2 bits are written back through
+yt921x_fdb_add_index_in12():
 
-dsa_user_switchdev_event_work()
-    dsa_port_fdb_add()
-        yt921x_dsa_port_fdb_add()    <- returns 0 for multicast
-    dsa_fdb_offload_notify()
-        info.offloaded = true;
-        call_switchdev_notifiers(SWITCHDEV_FDB_OFFLOADED, ...)
+  YT921X_FDB_IO2_MOVE_AGING_STATUS_M   GENMASK(31, 30)
+  YT921X_FDB_IO2_IGR_DROP              BIT(29)
+  YT921X_FDB_IO2_EGR_DROP              BIT(17)
+  YT921X_FDB_IO2_COPY_TO_CPU           BIT(16)
+  YT921X_FDB_IO2_IGR_PRIO_EN           BIT(15)
+  YT921X_FDB_IO2_PRIO_M                GENMASK(14, 12)
+  YT921X_FDB_IO2_NEW_VID_M             GENMASK(11, 0)
 
-The bridge handles this in br_fdb_offloaded_set(), which sets
-BR_FDB_OFFLOADED. br_fdb_fill_info() then reports NTF_OFFLOADED.
+YT921X_FDB_IO1_EGR_PRIO_EN in ctrl1 is kept as well, because only
+YT921X_FDB_IO1_STATUS_M is replaced.
 
-As a result, "bridge fdb show" would list the multicast entry as
-"offload", but the hardware table has no such entry. The driver's fdb
-dump path also filters out multicast, so the hardware side shows
-nothing. Before this patch the entry was actually programmed.
+The other path that creates a static entry, yt921x_fdb_add(), writes
+only the port mask to IN2:
 
-For comparison, rtl83xx_port_fdb_add() and rtl83xx_port_fdb_del() in
-drivers/net/dsa/realtek/rtl83xx.c return -EOPNOTSUPP for the same
-check.
+	ctrl = YT921X_FDB_IO2_EGR_PORTS(ports_mask);
+	res = yt921x_reg_write(priv, YT921X_FDB_IN2, ctrl);
 
-If 0 was chosen on purpose, for example to avoid the dev_err() that the
-deferred work prints on failure, could the commit message or the code
-comment say so?
+The driver never sets any of the other IO1/IO2 attribute bits. That
+means the contents of a static entry added through port_fdb_add or
+port_mdb_add now depend on whether the switch learned the address
+first. If the hardware fills in MOVE_AGING_STATUS or any of the drop,
+copy or priority bits on a learned entry, the static entry inherits
+them. yt921x_fdb_leave() also writes OUT1/OUT2 back with only the
+egress ports changed, so nothing later clears that state.
 
-This also seems to remain after the later patch in this series, "net:
-dsa: motorcomm: Rewrite FDB entry on port migration". That patch keeps
-the multicast early return of 0 in both fdb_add and fdb_del.
+This looks like the same kind of problem the commit message describes,
+untracked hardware state carried into a DSA-installed static entry, but
+handled only for the port mask.
+
+The later patch in this series, "net: dsa: motorcomm: Rewrite FDB entry
+on port migration", moves this logic into yt921x_fdb_update() and keeps
+the same partial mask:
+
+	if (join_ports_mask) {
+		ctrl1 &= ~YT921X_FDB_IO1_STATUS_M;
+		ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
+		if (ctrl1 != val1)
+			ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
+	}
+
+So the issue is still present at the end of the series.
+
+For the non-static case, could ctrl1/ctrl2 be rebuilt the way
+yt921x_fdb_add() builds them (STATUS_STATIC plus FID and address in
+IN1, only EGR_PORTS in IN2), instead of masking out a single field?
+
+>  	if (ctrl1 == val1 && ctrl2 == val2)
+>  		return 0;
+>
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119221110.1123578-1-mmyangfl%40gmail.com
