@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455685;
-	b=hx0Dh9Rjwo8ATcMwhyNV22wcYjAAwng7/paLveuPJGxFkgcQZsN7NW3K9ZhcIre6hZCy
-	 KZZv3+7ZqkV68mURCEvGPNzxftXA+8Ud1eGAH+SEAsQwmqez8sTSaDhmCsrN4Cwj83Bjv
-	 u3NwNoGNL2KjXSlJY6zCv8Uh6WHZa/KcBmfPwwgoAeA2IZgqF0np1tsjGuNcWarCefdZI
-	 wdPnlbwA7i609kSkP4ZePYT4kmOU7QOL6l1MaBQbNYTmM9k0OdRf8i/+i7sT4DuMSix7m
-	 BVaWyS8SRQzAWy+4oF8yMrc7GIJtwJtoIsxUEHSkvRaGjBIDPm1kgIpNmKrzMJijlsA==
+	t=1795455686;
+	b=s6CWAINeEuBhW93cxbc9Xx+oUmmH5Tl2KQpSa2oSoOvRTMWoqhjr7VaKZl1pQSlMMmmV
+	 +7pmu5AjiMvUhP3X37rSZMD1pMk0074gSGCEFsdcUZZW9c+TPIe+wJ3Botl8f2/wgMC/h
+	 w0q6X5sBLVXOnT5T4anp4gsBqOlK5OibfwS4Idm1sXouZCoAkMGIMw7hRLh+vllpV9qSc
+	 n9eu0Nu+8y4XR8IXpqbuFecpaEY8ccvd1xGRt+kD2MsoB82H/nOVdhu9+/F3XXy48neTQ
+	 sPvl7qDmqyhh7B+fCzbgU+fpTGY6OnMSnEJdPMA++WwKXK1fnovDDHGDbYZjaQQG0nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455685;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455686;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:
 	 X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=50tBgP9EvHiJ3pXlg5LOwuoWYl1wXAWy7E4OUGAPpUo=;
-	b=qvp7VEq/ElOBDoKx0Sd8+DPBTgaGohnbSxioBikIiQ95ayrBDhP7S1uic4Q4Y+F4Y9J+
-	 vA2uskdu6wSKXWZC17FB5bkBJ4BWUDZafJsCQtGyUXFOKTWd31kAB0vZsle1vzprA/4LW
-	 sc/+XZjsSvglYngsWzf6e3tYVAiyulSPp8ddjk46L677tVpa2nX1mhV6KQP3FXwQpdeyG
-	 ublzvRu3Cgs4MYKFXMnuxIVv8f9c28w63irZ9Jwqld5V9Q4v/ZPJ4WNSG24lO+dESo+JG
-	 kHCljopMYbF8BTeYneyOmF4mzrIoQvhhzKmzc5b6MviuH3NYvwP7JQftBOHAlactcNw==
+	bh=3ZHAh6xRNVY71drSAQ4x4OY76B0dZe+k1rQGV+TrgVc=;
+	b=SUyls8+WUrqA5symtPRg01wUxFzbQ6X43jo5H/tuj8ZSITriPk+cwiVdw9xCoPNug1ol
+	 8RlOUd4yuWUbF+YyzYz4MIqwAbvjGPzzNO1oO/9QF5YNO9b2MXpPYR3Vd/RrpgET1k31E
+	 epVOMnxuBEGWV4SbAYS21hhtlSth/Qg+CsGDl9YugxiARfyrlOhxMkuHnnM1YpVNrUl7e
+	 Sca0ewztFGvxmldsnjqhz0tmX4AOrQ8/wB1N7TrC5YWE0xsvlDEAdREfoMfiZfHKuISyJ
+	 44hCpB9JZkby1SAy0wV5aRVxkc+nHqRVdHM0DXzSW7blFZuNMMVML/WkmpTuWtQamuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DA8EmNEv;
-	arc=none smtp.remote-ip=74.125.229.8
-Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DZGkpPDz;
+	arc=none smtp.remote-ip=74.125.229.137
+Received: from mail-dl2-f9.google.com (mail-dl2-f9.google.com [74.125.229.137])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F17C3606A32C
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:41:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F17C3606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D0BA606A32A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:41:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D0BA606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DA8EmNEv
-Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-382afece6d8so662304eec.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:41:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DZGkpPDz
+Received: by mail-dl2-f9.google.com with SMTP id a92af1059eb24-1397ad3d891so437523c88.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:41:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795455684; x=1796060484; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795455685; x=1796060485; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=50tBgP9EvHiJ3pXlg5LOwuoWYl1wXAWy7E4OUGAPpUo=;
-        b=DA8EmNEv4flhrEi/S2hMVLxldZNW7hwJspGI+CNKh4tXAhVhH5kdf2fpn+2YH9jSgI
-         u47ZjUdr3TF0FvNfgKUNncq7qLB/U7Fp9T8/I1M0ukqkllMnT4ofEnR6eIupz/TUnUJ7
-         QsR2uOrGb8pqt3L0vxzzLQ1o0qI5Vc9rBi1U+DRFRFck/32jBP+m5k4fa6ZmAjbMTq9R
-         expxFIE5JlsbloPp969d2v+qgH+2tEJiz3lWe6eNJbmKy2SvTCVHDzxzVgA135FOlmy2
-         tZuMxYd4ZCYe55Ln33UcJ2qyMiZ01uMUZwOaggZoUfRXItMwlFkk51W5ytFTewsjCbfp
-         D/TA==
+        bh=3ZHAh6xRNVY71drSAQ4x4OY76B0dZe+k1rQGV+TrgVc=;
+        b=DZGkpPDzO5K4Kr9cojihF7LPdiyg7XvqHbfIfC2s8YwU9uu7kcRk7/UlPW6hAfywQI
+         zX6o185eKq22ar0N/GMCYiJYjVMqwUkj5OQX5bxs6Jov6Mgl0VgTzBlvarlNqojawCxv
+         zPbLLsFOczYovvsDUgPXn7gGo4KnqLTd03Y22ls43Wl69oE0dMdbJHu4enL9ODv1KStl
+         wyjFM6oSi6JbB21bOaevhBXMIyaI0tSDGutFCxHNAA6v11npG34rZo0OOUIF7efiVdag
+         jOuEc6bjePcO6GZNdaAehpbxnq1FO7PlrPuJ+XD7p0Au9vyPb+RJOtrKmR4EQX96lAlV
+         gEaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795455684; x=1796060484;
+        d=1e100.net; s=20260707; t=1795455685; x=1796060485;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=50tBgP9EvHiJ3pXlg5LOwuoWYl1wXAWy7E4OUGAPpUo=;
-        b=l3G87UXiWcQxLZzDDoe0NftWL3zP8UHI2mO6TYOFApc6CXoE7JE98zwD3olyFRglHT
-         z0/nxk3r6UNkmcErP79UrrhO+HMlzW5X1WzTPJUjPHwUfAXmDpcMbK2/1V3CczNAv7CK
-         H6raWUj+oPzxEN/08rQNEDLYLU/Zi23yXG279szxveT4mCF6FHSXCdrHqtXg+V3HKNJQ
-         vj8CJ4tvAa0Yxas16iWt143Fq9N3GpM13472aRJ4iwc1dDjimJWx6zPge7uHc7XCrtRT
-         G3+3xwOznUESWn6jGV/0m9dZ/tuaVbY+w4P0f4VCdzTMp923UOgZJKzc7YppHtzOdNSg
-         4HyA==
-X-Gm-Message-State: APuU4Z+bIkM57GhOIsRwoRQ8wj0KQb+3TnrIqA8+ZX3UyJzUR60XIKFq
-	w5mAbmyoZPVcLFgBElKyDCkgmNGw/UypGNJjjmWedA9+ON7MUtSKRBx4GAP0nJrNDbc=
-X-Gm-Gg: AZFdTZfe09LxEzPdrgSL3Bu97mUfCN9GQZ5aGbbKNaF6iGCf9oOAHXrVxs43UTx5GCe
-	qfoKH5TQlsq6rpO6ViwQk802iCMJj04pwgkNUfzP1trSsvFfq70iql03L8gFx7oWkBHs4RBEh9V
-	YVXpphSHLcxLt3UDjVA6pLv1P1CkwCc5HtTzfRRcEbuhCK+v7OH0RptxxQmrC4wHmr5rHsh0OPY
-	F0Nd2GFoZGMMac+eGVtKPoDPj/HTPMyUXx2lTb2vZfOqSKypW549zJTpywKsTCqiN2+nDTmTbeP
-	TAJM6CD9+d/jKX3OI4WW9JGeDKg8kTOXjVjjkVs5gPkDVrfelkd2vQ0z+/TK+MwbBckILEaElbO
-	wv7ke+67MGSfvQdT3fWqQ69bcYLr0kMilTxuheAkCUKx/tsywRdjeBnPvEsCtJKSg8AdD2BGgZH
-	WWOqRutKU9ENob+SNMGps/2/xmKrvnbX1WkIiYWuzu52vDfsPeaEM1J8vXrH+8rDSmkTxwiaFkO
-	Q75I8Ziq6bBxGt1+ZZmL54yIzSZZh8JvxMwE3zwPu9NV8n95E6Ff/6W53kC4k9M29PLZs1ppNe8
-	2WK2YXJ1tc43I7EeW5eLG1mkukiZKix4MBuJRCtnLnAs
-X-Received: by 2002:a05:7301:1884:b0:374:ba43:ae2e with SMTP id 5a478bee46e88-3856f65eccamr11660323eec.14.1795455683989;
-        Mon, 23 Nov 2026 09:41:23 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:70::])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm34269184eec.13.2026.11.23.09.41.23
+        bh=3ZHAh6xRNVY71drSAQ4x4OY76B0dZe+k1rQGV+TrgVc=;
+        b=bpyCpwm9dkHZN3sIb+sqtyijgwk4eHHg7fAS3d0F2VO4nPydMew1UqzyREZS9EC7zI
+         EWP8UvOwm4uBgsmvpRzcKkMmu7EKR40qwRvnTHSs68hRiT11VuzVuNLlzDmoF8+A6TS6
+         NRfQkv0iZEwNpYId7pxup1GAyYs5ncds1egMNc2d4ulVp6LFYlmFCEfHD+PcteFWd2mS
+         uym4jgkG25ArJpM/t9JwYgOuOWUUFmO4A3nb+L2gq0//Hyh5YvnXRzQ3T7+e4RAd3fCl
+         oQjrmkKh72jp3ZLPbVP/Q7VtosOF0A+8eW6OJxwwlA2Wok04nNKJTPNgsevpHLFObYc3
+         OOHw==
+X-Gm-Message-State: APuU4Z9CDK5R6bBl8YZIjnw+YOr6GQFzc4olI7jt3dTKMRAn8nZhL++c
+	darL/bzin5bQB5CzfOdpdJbg75pEQKrd5FuK4J7vmmJvx3+iUoVDKOFf9ScBc/xK1Ys=
+X-Gm-Gg: AZFdTZdeds33eBICkUHip0EDwS8iY1Bhn3KWVR7hMwbnscFKk2/f4knQJ28Q7iDVP+T
+	O+g18CV+EGJJKs9JEswSTpRMNAriRFcSOY23xCNxgRv6V7OaiejXEt/bDr4IIf+0woLxCM2mdNM
+	WALCfVpMM6+nlc4TnrxvtvPjhuqc7/BhIR+/PhxJrvTTy4Vu+FmQlLKToTwtuBNEXEEVa/fQU3H
+	Hfz6yjPSwmgrJI2GnF4xHrLILwdR9DlUpWuSz5JmygdG1Lrle8TC05IyN7LTIs4TR/wGoJFvYW/
+	eusuD+A5bZ4XxY+zmxxvUN+IYzqcaBH3qBQjWuTUBZjWth5RQkqXcEVfA+617qUy5ohxUVIcwnt
+	/bYikxOkEldTgj/PXSidXm7xfaQ5M4eUnuDTTRxwFlskyqRj4vFoucmYPeOmVGrD8OTvG+T+2bm
+	8fxML7Bx5PHKOKQq7xPzLh0Z4ulWL9N2Z/0tFK3c4Fz1wfw6O/gFdUKPVjVYNwEOIQqf3TN4NNT
+	lzaIeBNnnF0VX3T6gB78HvuqYTbRBxMYYWvgJu6HzqLacGPrM6nPlwAGkvQcMS/O8pBoUlLtGeF
+	yu/hBrW7uaRUepbbqz9z06U=
+X-Received: by 2002:a05:701a:8457:20b0:1b2:42e3:e5f0 with SMTP id a92af1059eb24-1b55689edb4mr11574246c88.12.1795455685128;
+        Mon, 23 Nov 2026 09:41:25 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:69::])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm34288541c88.7.2026.11.23.09.41.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:41:23 -0800 (PST)
+        Mon, 23 Nov 2026 09:41:24 -0800 (PST)
 From: Stanislav Fomichev <sdf.kernel@gmail.com>
 X-Google-Original-From: Stanislav Fomichev <sdf@fomichev.me>
 To: netdev@vger.kernel.org
@@ -84,9 +84,9 @@ Cc: davem@davemloft.net,
 	edumazet@google.com,
 	kuba@kernel.org,
 	pabeni@redhat.com
-Subject: [PATCH net-next 1/4] selftests: drv-net: kperf: support request-response tests
-Date: Mon, 23 Nov 2026 09:41:17 -0800
-Message-ID: <20261123174120.505808-2-sdf@fomichev.me>
+Subject: [PATCH net-next 2/4] selftests: drv-net: add a closed-loop request-response test
+Date: Mon, 23 Nov 2026 09:41:18 -0800
+Message-ID: <20261123174120.505808-3-sdf@fomichev.me>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261123174120.505808-1-sdf@fomichev.me>
 References: <20261123174120.505808-1-sdf@fomichev.me>
@@ -101,88 +101,83 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Let KperfResult tell the rate of the transactions of request-response
-tests and, when the client is asked for them with --time-stats 2, their
-latency percentiles and maximum, as seen by the source, which sends the
-requests. Request-response tests run a single flow; of more, the first
-one is kept.
+Add rr.py, which measures back-to-back transactions of a kilobyte each
+way, which fits in a 1500 byte MTU, over one connection with kperf, and
+reports their rate and the latency percentiles and maximum which kperf
+reports.
 
 Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
 ---
- .../selftests/drivers/net/lib/py/kperf.py     | 31 +++++++++++++++++--
- 1 file changed, 29 insertions(+), 2 deletions(-)
+ .../selftests/drivers/net/perf/Makefile       |  1 +
+ .../testing/selftests/drivers/net/perf/rr.py  | 47 +++++++++++++++++++
+ 2 files changed, 48 insertions(+)
+ create mode 100755 tools/testing/selftests/drivers/net/perf/rr.py
 
-diff --git a/tools/testing/selftests/drivers/net/lib/py/kperf.py b/tools/testing/selftests/drivers/net/lib/py/kperf.py
-index 8ee8c5ba2ff7..98d27d83dee2 100644
---- a/tools/testing/selftests/drivers/net/lib/py/kperf.py
-+++ b/tools/testing/selftests/drivers/net/lib/py/kperf.py
-@@ -7,20 +7,35 @@ import shlex
- import subprocess
- import uuid
- from dataclasses import dataclass
-+from typing import Optional
+diff --git a/tools/testing/selftests/drivers/net/perf/Makefile b/tools/testing/selftests/drivers/net/perf/Makefile
+index 1a90537d2726..91feb0d62a7b 100644
+--- a/tools/testing/selftests/drivers/net/perf/Makefile
++++ b/tools/testing/selftests/drivers/net/perf/Makefile
+@@ -3,6 +3,7 @@
+ TEST_PROGS := \
+ 	devmem.py \
+ 	iperf.py \
++	rr.py \
+ # end of TEST_PROGS
  
- from lib.py import cmd, ksft_pr, rand_port, wait_port_listen
- 
- 
- _SECTION_RE = re.compile(r"==\s+(Source|Target)\b")
- _RATE_RE = re.compile(r"\b(Tx|Rx)\s*([0-9]+(?:\.[0-9]+)?)\s+Gbps\b")
-+_RPS_RE = re.compile(r"\b([0-9]+(?:\.[0-9]+)?) RPS\b")
-+_LAT_RE = re.compile(
-+    r"\b(p25|p50|p90|p99|p999|p9999|max):([0-9]+(?:\.[0-9]+)?)us\b")
- 
- 
- @dataclass
- class KperfResult:
--    """Aggregate throughput (Gbps) of both endpoints."""
-+    """Aggregate throughput (Gbps) of both endpoints. Request-response tests
-+    also tell the rate (per second) of the source, which sends the requests,
-+    and with --time-stats 2 its latencies (usec).
-+    """
- 
-     source_throughput: float
-     target_throughput: float
-+    rate: Optional[float] = None
-+    p25: Optional[float] = None
-+    p50: Optional[float] = None
-+    p90: Optional[float] = None
-+    p99: Optional[float] = None
-+    p999: Optional[float] = None
-+    p9999: Optional[float] = None
-+    lat_max: Optional[float] = None
- 
- 
- class KperfRunner:
-@@ -133,6 +148,7 @@ _RATE_RE = re.compile(r"\b(Tx|Rx)\s*([0-9]+(?:\.[0-9]+)?)\s+Gbps\b")
-     def parse(output):
-         """Parse human-readable kperf client output."""
-         throughput = {"Source": [], "Target": []}
-+        rr = {}
-         section = None
- 
-         for line in output.splitlines():
-@@ -149,9 +165,20 @@ _RATE_RE = re.compile(r"\b(Tx|Rx)\s*([0-9]+(?:\.[0-9]+)?)\s+Gbps\b")
-                 if (section, direction) in (("Source", "Tx"),
-                                              ("Target", "Rx")):
-                     throughput[section].append(float(value))
-+            if section != "Source":
-+                continue
+ TEST_INCLUDES := \
+diff --git a/tools/testing/selftests/drivers/net/perf/rr.py b/tools/testing/selftests/drivers/net/perf/rr.py
+new file mode 100755
+index 000000000000..1dff0c476390
+--- /dev/null
++++ b/tools/testing/selftests/drivers/net/perf/rr.py
+@@ -0,0 +1,47 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0
 +
-+            # Request-response tests run a single flow, take the first one
-+            # and ignore the rest
-+            match = _RPS_RE.search(line)
-+            if match:
-+                rr.setdefault("rate", float(match.group(1)))
-+            for name, value in _LAT_RE.findall(line):
-+                key = "lat_max" if name == "max" else name
-+                rr.setdefault(key, float(value))
- 
-         if not all(throughput.values()):
-             raise ValueError("incomplete kperf result")
- 
-         return KperfResult(sum(throughput["Source"]),
--                           sum(throughput["Target"]))
-+                           sum(throughput["Target"]), **rr)
++"""Measure TCP request-response performance with kperf."""
++
++from lib.py import KperfRunner, NetDrvEpEnv, ksft_exit, ksft_metric, ksft_run
++
++
++# One connection, a kilobyte each way, which fits in a 1500 byte MTU, and
++# latency percentiles
++RR_ARGS = [
++    "--time", "10",
++    "--warmup", "100",
++    "--num-connections", "1",
++    "--req-size", "1024",
++    "--resp-size", "1024",
++    "--time-stats", "2",
++    "--validate", "no",
++]
++
++
++def _report(result) -> None:
++    ksft_metric("rate", result.rate, goal="higher")
++    ksft_metric("latency_p25", result.p25, goal="lower")
++    ksft_metric("latency_p50", result.p50, goal="lower")
++    ksft_metric("latency_p90", result.p90, goal="lower")
++    ksft_metric("latency_p99", result.p99, goal="lower")
++    ksft_metric("latency_p999", result.p999, goal="lower")
++    ksft_metric("latency_p9999", result.p9999, goal="lower")
++    ksft_metric("latency_max", result.lat_max, goal="lower")
++
++
++def closed_loop(cfg) -> None:
++    """Measure back-to-back transactions."""
++    with KperfRunner(cfg) as runner:
++        _report(runner.run(RR_ARGS))
++
++
++def main() -> None:
++    """Run the request-response performance tests."""
++    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
++        ksft_run([closed_loop], args=(cfg,))
++    ksft_exit()
++
++
++if __name__ == "__main__":
++    main()
 -- 
 2.53.1-Meta
 
