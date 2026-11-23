@@ -1,49 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396446;
-	b=Wmp911SZG50vBLPs98EWyZ8Tfwb8Hz3EnTuTHTkp/0kG9PDfDYz3gsjYeUg2xI6lUGBS
-	 STZPu/5GKGvKCsH8EwW8KiM1tTmdDjbR1ZO41wpE3fJDU0HeIf0F79a/BRUXF5suOSpoe
-	 cJgzY5FxEfXytAmevU1nHdtlfMCnu5Jv5w/LBQgPPJOeK4M3vVBVTpei/QyXGPQGQoD/E
-	 yXT5ksLUdsrycLEAo01bp3AB/CLgbaJBEE8hZQ7ag8TiGgVn4M0W64VrwGFv52hwYYfof
-	 IdfP04+sfcyGy28ZLnz5wgyXWV4KDApXcurhg0uwmdj6ZobbLcpdBr2v7qpDBqCuAbA==
+	t=1795396454;
+	b=zi5CmbsyWWIP6YcQ/4Fam+GvM7peZZwKt/YIGlQtl/6OKgHMFyzsT15Agz7Vx8bqtkbM
+	 GAq3PTSrvx6U84peo4eUzpgskES8ERlNgm48wOYmNlP6DdI05KxPqn4HVh3h9BIAjslP5
+	 9F/AEk173YcK4hPNj4w7MqeoYvLqQzWfCpMcXtjAvNE8DjnOPnZNjaYteMW7ToVdmwb9K
+	 vFNh63HZdgszbwnqP3GQhw5U3SAqBbUUoYcNeYyp/DR+5S8tTg0UKWqahvnpXXtzztHwQ
+	 O9ZJGDKJY3J/3f0NdVbUCqonjBwR6P0lwAYDanVSSxl/X3i7SI6Uk7gmnyConHSfTVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396446;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
-	bh=q9SQQ0vGS3CHKJ8j/JCjW1fpSMIrH3GOczh92WgrNI0=;
-	b=n/HcotXasnytF1oAWddgb5wGLpBtRiPWFRYwFher+89s0CcpYZkwtUl9MEQTLFbQs3/b
-	 sskJTIRyp6pOlThidYrwAdGYj3KA03O6giAuqB+oy3tCsE/It+fA2XpprdjzgvVrv3tRb
-	 mKoaRLQdY/ZMWSG+7875fdA0dNBcZLYPUf5Nm4eXmiKnKAhP/OTuBr7GwGCP9WZByaV64
-	 RmKC6iICrKuQ6pgyLULZIk7oquaIBp8G9oXDfs7NYysevMZZUYl9RAMISSNtvFdRs1PBi
-	 wcemhHng72lWcYtjn6AF6cKRybaXoAgYly6nN28ORGGiYsvGzu+kdrwPmRZAaZhUnww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396454;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=1nAFz1rE2Zgq0kT2UJ5pKEhQqcU8lxqQXw2MrFx+Nfc=;
+	b=pYZrMBTfNg/tmd5x+6LlDdoeixZlNJ55dAWeRxY8ztf03HR0s7/UdHR9gNKc9N/uWePj
+	 4CkIGVm9AcUqiXxBqwnrsZb+cPSGX6GMJevdtDz5+Ovu5QxGWCZENhHVJp23xUYqrtls0
+	 WiCfI/oIN+MLF2RqmZsp2raJBZnwj1VGeEe8iwJ+o8MrsqTpq+5f3RFNf8mmgpDYOOGnG
+	 pmishOdd7aYSQGCApUZyOAiwFORtgvvtqfZafCILuLUB4GraLHtu4L5eaypgZ1P+Rge2X
+	 6ZhW1/QNp0FrcTvIJ/w0UhpauL/DmjKewRbsub40ZyTUp5IqRzi42cJpfvrkBkDp5QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zju.edu.cn;
-	spf=pass smtp.mailfrom=zju.edu.cn;
-	arc=none smtp.remote-ip=207.46.229.174
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 940DF606A31E;
-	Mon, 23 Nov 2026 01:14:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 940DF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
-Received: from zju.edu.cn (unknown [123.60.231.41])
-	by mtasvr (Coremail) with SMTP id _____wBHEn5YkwNrgc4sAg--.11185S3;
-	Mon, 23 Nov 2026 09:14:01 +0800 (CST)
-Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
-	by mail-app3 (Coremail) with UTF8SMTPSA id zS_KCgBXY6BOkwNrma+BAQ--.24710S4;
-	Mon, 23 Nov 2026 09:13:51 +0800 (CST)
-From: Lin Ma <linma@zju.edu.cn>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: netdev@vger.kernel.org,
-	linux-afs@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lin Ma <linma@zju.edu.cn>
-Subject: [PATCH net] rxrpc: Fix overread of short key descriptions
-Date: Mon, 23 Nov 2026 09:13:02 +0800
-Message-ID: <20261123011302.4032262-1-linma@zju.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5brb9u8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AE13606A332;
+	Mon, 23 Nov 2026 01:14:13 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5brb9u8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6C351F000C0;
+	Mon, 23 Nov 2026 01:14:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795396453;
+	bh=1nAFz1rE2Zgq0kT2UJ5pKEhQqcU8lxqQXw2MrFx+Nfc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=m5brb9u8foWKbi7SrlcdW6nE2yWIS8IEGVU5QHSZYMih+9IEkmiqaNM0lLx2EYbPE
+	 Ene3Ka2hJ1BAvW2vOWqYEoxo49rMX/8KuHKgTHWJQeFE3NrlIrAf3xeYL6VLmMY+/l
+	 ekFXnTI29+zSfV1Cj1JiY8g0iM3LpoM2wMrgHM/4k71UbfvjD94MuJKD4cUZLqKZBp
+	 tapIlLzsw5cg25rKFRJ3Wy6OzHRx9WFNJ4Dy/E+S8IHUzJbf1ziPCMSD/LFgujVS+y
+	 I6gkNfNt8+7zFmlY0xlcmT0RV+dcWLazJhMGzWNLJfBLUPxJ9MdE0Cw4N9AumibzJ+
+	 +Zbi9zcgZuE0w==
+Date: Mon, 23 Nov 2026 01:13:59 +0000
+From: Tzung-Bi Shih <tzungbi@kernel.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	linux-bluetooth@vger.kernel.org,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
+	oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
+	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	MPT-FusionLinux.pdl@broadcom.com,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Zhihao Cheng <chengzhihao1@huawei.com>,
+	linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org, Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
+	linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
+	devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org,
+	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
+	linux-f2fs-devel@lists.sourceforge.net,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Benson Leung <bleung@chromium.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	intel-gfx@lists.freedesktop.org,
+	Matthew Brost <matthew.brost@intel.com>,
+	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
+	intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v2 11/12] docs: ioctl-number: update platform entries
+Message-ID: <awOTV4kbshpi_cxp@google.com>
+References: <20261119053514.255348-1-rdunlap@infradead.org>
+ <20261119053514.255348-12-rdunlap@infradead.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,60 +114,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zS_KCgBXY6BOkwNrma+BAQ--.24710S4
-X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAosC
-X-CM-DELIVERINFO: =?B?dGQvMgXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
-	APHnkvfpsecr7gZmVpD/pedGdLDGcsJv7K8kPVYGo1dA/gYcWlr/AvKbeVnROdNmXbHqU/
-	ahHZJ7fORbLq6yD3/GxawJEI+GR44huhTqccmhay0eS4avcDRRwry/5uE7d+rw==
-X-Coremail-Antispam: 1Uk129KBj93XoW7uF1rXr13Gw1DtrWxtF43Arc_yoW8Jw45pa
-	98ta47Jrn5Gr43ZF1kZw4rWw1rAF48Jr17Kr18Wwn5AanagryFgrySkF4Yg3W5AFWrJr1Y
-	9FWjy3srAF4UuFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
-	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAF
-	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
-	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
-	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
-	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
-	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
-	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
-	vjxU26pBDUUUU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119053514.255348-12-rdunlap@infradead.org>
 
-rxrpc_read() checks whether the key description starts with "afs@" by
-calling memcmp() with a length of 4.  The description is an arbitrary
-NUL-terminated string supplied when the key is created and is only
-required to be non-empty, so it can be as short as one character.  In
-that case memcmp() reads up to two bytes past the end of the
-kmemdup()'d description (which is strlen(description) + 1 bytes long).
+On Wed, Nov 18, 2026 at 09:35:12PM -0800, Randy Dunlap wrote:
+> Update the list of platform/ files where ioctls are defined and update
+> the ranges of function numbers that are used.
+> 
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> ---
+> v2: no change
+> 
+> [Since having multiple maintainers trying to merge these would
+> cause some conflicts, it would be more manageable for Jon to
+> take all of these through the docs-next tree.]
 
-The result of the comparison is not affected because the NUL terminator
-is reached within the first four bytes, and the overread is normally
-confined to the slab object, but it is still an out-of-bounds read.
-
-Use str_has_prefix(), which stops at the NUL terminator.
-
-Fixes: ed6dd18b5aceb ("RxRPC: Allow RxRPC keys to be read")
-Signed-off-by: Lin Ma <linma@zju.edu.cn>
----
- net/rxrpc/key.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/rxrpc/key.c b/net/rxrpc/key.c
-index cbd26da44951..019e512aeb1f 100644
---- a/net/rxrpc/key.c
-+++ b/net/rxrpc/key.c
-@@ -746,7 +746,7 @@ static long rxrpc_read(const struct key *key,
- 	_enter("");
- 
- 	/* we don't know what form we should return non-AFS keys in */
--	if (memcmp(key->description, "afs@", 4) != 0)
-+	if (!str_has_prefix(key->description, "afs@"))
- 		return -EOPNOTSUPP;
- 	cnlen = strlen(key->description + 4);
- 
-
+Acked-by: Tzung-Bi Shih <tzungbi@kernel.org> # cros_ec
