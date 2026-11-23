@@ -1,79 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445658;
-	b=phsf3R9BpGHQdfULgpoBYN1of/OotShnb8VZ9ujBSwWeicHrWfdWTTmEPjDS2pahw27o
-	 X76HazfFVLkaPud6AzR8VE7AT5SDxPupICDATyVK6Krxq5HP9G+yPda55df3wIMmPHaIl
-	 ncq6VQMPGiAOSLPNwDCIaQwcTPHezdF5Mgk13AFcQ1Juj+GoXyXvLw6N9m4KSnB/ACk2Z
-	 ZbL0ESP83YQnOcaz9S/NWTPwO6HYfUljnqlAtHnNfLQVCS/z7xRH62Qoqpb7Anxfpd205
-	 8WWH+AHtKOLkVZCQmXIgmZmVkcO6gi/lytaX/kWSPPVt9hMg1KdEr7ppSucZGzFCkuQ==
+	t=1795445669;
+	b=YL0x2asLvSOsLxtfdydjIxqSq8u/3Pc5uVewvrm+ROs/Oi7Gs0KFXUagcbPDi9PYnRdj
+	 7ipSFqsUI91Wrw575LpFJ8Rga+kGYE84IL4+y/b38oCCWB6ykofgdj6NjLDMYVCgd3RGA
+	 nSKEl+S5RLaM8HJDXnxYQI403ALkiZO5CpUGbtT1j9ehDnQnbyIemuSdmew+nARRRDY2S
+	 +nZalYLgppQVOQ2BmoXd0QllVjTSuLWmIgQWt5IgVlILzOY2KXy1Wsb6YbM3tFUMgH0/Z
+	 fUI1d7TX9k+oS5WPz5YQWluJGrfuXgZsDKrzr4m1qn3FxlsmTKgpmez0edJT5hS4LJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445658;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=nbCRcJ3CZPxOULxWfeRq0Sbbd2T3nRGZ+rn7/jTnOUQ=;
-	b=rx4KAQ2HoY3mcFWWLiev3fgaCClH5YMURb4W9ZoZIqF6eImNaPBZEpSSKa7eevTKpBx3
-	 wWaoIkmL+okaM9TCMiKUU0xK7APEge4hdTnLQvxpLRX8og7rZ7j0JzUwxMnMZ5pkY523v
-	 Wireztyjgw+fdY1VXcga4K2ZwW07pCjYRE1BkJhnOYxmnylTIUilhYnaVJJOQnNEja3BB
-	 /2U7WrpNtkIjg11XF9hQrdgRdrqlSOO2LqbG7hA3HnX0SgKYvIYXOOWLlz+FmogssTbjz
-	 c7Ku1F07ZtgXh6DI1qP2Xc0nt00NYRQAihMWUalbn2vcpNcLwxmZVfLZKdOzc0rLnjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445669;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=MTEd3wJh9azedyr+Vm0OAaPXjbeBgq/pERaDwYxZA58=;
+	b=bFykwKI5zCpAMYy0lmhi9U+qduwF0WWDbr4NwAH/d2EZPydsbT5KXhG6HDtyq+Yb0GHs
+	 tNFAOmiX8PwT4c25Csowq5g9ObyXn2VBT0tIU8MG5lm/3kCR0iF0QeS8zicPTQdwgi0Fy
+	 KpAnsDQlfsl3ID5d+hdzoSpZ7lcRXL9cnPpIK0erDzys8t+dNMsiq1sLxXiLEBizXVPzs
+	 QRrXj5xSDpNXslAxzevYHBiu57tDxO7AgKa+Yzbm7lLqMrlB30uSiFxTGl+tgBIlEfxiC
+	 qFPu50MplQNB1m81DVWfiQV7I29O/2jm8yvgorAyb0hKCc4APPJoV0dle+s5i0yw7+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=XdaP+3fg;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 531D160A3807;
-	Mon, 23 Nov 2026 14:54:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 531D160A3807
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=cNdIsRMP;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF341606A685;
+	Mon, 23 Nov 2026 14:54:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF341606A685
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=XdaP+3fg
-Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 05E1420B7168;
-	Mon, 23 Nov 2026 06:54:12 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 05E1420B7168
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795445654;
-	bh=nbCRcJ3CZPxOULxWfeRq0Sbbd2T3nRGZ+rn7/jTnOUQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XdaP+3fgC4CahbgZMIYBjKu9m7/wRsXZ/HvmjTm1FDppHsza/DmgnbgSvHPHkd+YT
-	 HvgjiVqhj+O48c6taDabJ00qf0kueVbzeapgR7ucurVQU8HDi2VnKiXPr+WbYzsM6t
-	 RcDhUv1k6IcOa+SEvbKxgQiNY3qu9qHvw8a+iktA=
-From: Wei Hu <weh@linux.microsoft.com>
-To: leon@kernel.org
-Cc: longli@kernel.org,
-	kotaranov@microsoft.com,
-	kuba@kernel.org,
-	davem@davemloft.net,
-	pabeni@redhat.com,
-	edumazet@google.com,
-	andrew+netdev@lunn.ch,
-	jgg@ziepe.ca,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	shradhagupta@linux.microsoft.com,
-	horms@kernel.org,
-	ernis@linux.microsoft.com,
-	stephen@networkplumber.org,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	gargaditya@linux.microsoft.com,
-	kees+treewide@kernel.org,
-	kees@kernel.org,
-	mawasthi@linux.microsoft.com,
-	weh@microsoft.com,
-	edumazet@kernel.org
-Subject: Re: [PATCH net-next v11 4/4] net: mana: add dynamic HWC queue depth with reinit path
-Date: Mon, 23 Nov 2026 14:54:00 +0000
-Message-ID: <20261122064231.hwc-v11-leon-p4.weh@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261117180931.GE162713@unreal>
-References: <cover.1794751992.git.weh@linux.microsoft.com> <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com> <20261117180931.GE162713@unreal>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=cNdIsRMP
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=MTEd3wJh9azedyr+Vm0OAaPXjbeBgq/pERaDwYxZA58=; b=cNdIsRMPZzGk9F22Vz/MFAAmWR
+	ghXAdcK+XwK41QDKuIuJ13CTPZg4D/W36ZBQ0jm34wOrNT1lvFdBteg3/Rpn0KyYZ4XOl1yNUydac
+	iz9pmO5NuxUxaiRBCJ+4i/7s+cEa1IMG1fruHsRPlZGsvArBbaNDYTld1wJAcSY2QG5g=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVVQk-000oBI-NR; Mon, 23 Nov 2026 15:54:06 +0100
+Date: Mon, 23 Nov 2026 15:54:06 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Linkui Xiao <xiaolinkui@126.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, rosenp@gmail.com,
+	jacob.e.keller@intel.com, daniel.machon@microchip.com,
+	chunkeey@gmail.com, kees+treewide@kernel.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	xiaolinkui@kylinos.cn
+Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with
+ of_phy_connect()
+Message-ID: <4ed4f82b-3ff8-467b-9127-bdc29d498ae4@lunn.ch>
+References: <20261112075321.3903875-1-xiaolinkui@126.com>
+ <ef2eb733-4b94-4c2e-9165-0b324733a482@lunn.ch>
+ <20261123091012.730441-1-xiaolinkui@126.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,20 +68,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123091012.730441-1-xiaolinkui@126.com>
 
-On Tue, Nov 17, 2026, Leon Romanovsky wrote:
-> No. Make sure you also call mana_ib_gd_create_dma_region() with valid
-> parameters.
+> of_phy_connect() only stores the handler in phydev->adjust_link, attach
+> never calls it. The state machine is not started on this path either -
+> emac_mdio_init_phy() runs only for the phy-handle case - so nothing else
+> fills in dev->phy, which emac_configure() reads to build MR1. A fixed link
+> cannot change, so calling it once is enough.
 
-Both callers already reject unsupported page sizes. The guard you
-quoted checks the HWC's capacity, not an argument from either caller.
-Before RDMA probe, the channel has already carried a 640-byte version
-request. With one page address, CREATE needs 72 bytes and ADD_PAGES
-needs 64.
+The whole point of fixed-link is that it works like a real PHY. You
+should not special case it other than when creating it and destroying
+it. You should call phy_start/phy_stop. When start is called, phylib
+will call the adjust link callback, same as a real PHY, and setup the
+MAC as needed.
 
-I dropped the redundant guard and its debug message in v12. Both
-commands still limit their batch size to what the channel negotiated.
-
-Thanks,
-Wei
+    Andrew
