@@ -1,65 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440248;
-	b=ZX71RPx2rzejcSYCaLVc346sqgAfTo4Kgds8CK8y6IxwRwJQfGgUOQaJ4BEhp9A7x7io
-	 9bsOyEqlEWWMmc5hZovuKLJCTsNWNM8u3YazAyzbrBDMsxe4MjwqvEK5jH+WnPVoOBufQ
-	 KIAtO7W9+4XW9xGw+Djt1cXi52KJlG6HeELkmOb1ia8dw1CLZcp2AH8pncMLL8q31RCo2
-	 uETV26G31a4uT4tIvCiJ4WLoZtxfLqSWjQLnzXqu71U40HEs9wwmphqFAjS437Y2j2RSf
-	 UIEGR2rI4KOTaIxNkRRlw20rhqI682aCSQdwQnrPho4OXDz695QLF5KC8tG12dnEWaQ==
+	t=1795440277;
+	b=MPb8Cu9AyXWB6NHxNOuUUvBgKFno5KOaKnAaEGTWsz7Y39U6BCrysQ6hRIqXrYHV1iJ6
+	 +19GAdXUIBq9J2onUN48s+qhYAP3gp0KonT0FxcT8Yrl1wfVUrxwdp3454zSKQTnJ2MbX
+	 LUPo7VyXyBnCNWgsBk7iyNcGmro5xC5qQv7HrBQ4cuj65iFcnAFikmyXNpMas13nbFx1C
+	 HriARi1iIsD32RTDmpi/mEwaAIFMdNZgmpxip4qGkK6P5u1UNh/ZSQv/wDgJGMRUXadJY
+	 q2R6jeNynT46mdWdEhXD9ubR/Yd6ELxl5KJ8eyPZxsqCXgJjadTGkVRRewnaF+Enz8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440248;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=mvYDAmTPND065bEyMUQdFya2DyZKAiR6PvyK6Q17Cwk=;
-	b=nYTAp8CXP2xcvoSyOajWEUIBCQuBzwyJpK8PvwiMMqCBz2T0lVjf99OWcQTJr5UyQ8oP
-	 DfmfnvsENrm8gx57txF8NOm3RNo6wGcHsFXCdEg1wv9qOmLKrNGLU5yFcQCEsmgr5OKWz
-	 tDhNoSyfKPBjuTqVjFqP5lh3IgSPJXAuvV9JOsDssATX4A4Sn+fCpKtDklsbZn6gygOkA
-	 NUvI1ZIZP0M/loHDODe3SksM6ImPi4i3PJTr72rmoGOK+ymdOoSroAKOAJxrpNNsdagfs
-	 a0msAKInGP6ZQBIa4f5BWbrYiVZsJ/rm105tPUnFfz384rtnDoRpjaOwsN2ej3HUBtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440277;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=oTTNKhcDuIn46gIcY42LpngctAWTR9fAWsQGYxr7PjU=;
+	b=LHCjkxMfsPU7wRnRIv5sl+DBGMTd+9i8P4h9sqLpXyMX1eJx6r0D4enSkVdflXUlp3Vt
+	 U141oKjmoNiEsnILeiu/owxWCkS3qiGPlInri21efWyZaC9sE6QjRS/2H8s8pVaCbqe+K
+	 qCnrzA3lvVQZl1vjcwH3HH4Xelk9/wd1sBVRoyZFHMsHvuHEnHDlf25VZ64ba2AAbg7r5
+	 0uK6jfh4zBlnOd839/IqcVELt90JUqPwaJYsMkSXQWqJrjb/CKOzxGMLyYmAXF5wbV7Ml
+	 Ucyx2Q5DvxR2Q+rnga4uhPN2fTDp2oBhRreR+tNXI4DbKJZzJ891KS6fyMF70o4puMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T+0djCW7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ETTRC+TQ;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14E04606A31A;
-	Mon, 23 Nov 2026 13:24:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0C95606A31A;
+	Mon, 23 Nov 2026 13:24:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0C95606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T+0djCW7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB0CE1F000D2;
-	Mon, 23 Nov 2026 13:24:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440247;
-	bh=mvYDAmTPND065bEyMUQdFya2DyZKAiR6PvyK6Q17Cwk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T+0djCW7dr/ynsSXYMgJn6R5Dl91QlBCh+TcSiMGPYIbXagqvOYKjIC/LqIKJIgVh
-	 2tsRenK8/vfzdGWeHGahRSnb451bLxXc9xXAo/gLuPnnRa/xnoe1EoX54fGV4iXZ9E
-	 kz4VgkOo4cTPP04Vwc32qERrb8x/HKIXnjuN5XHbbIWblFOwTjAqTE07P8bzqrt3YF
-	 EJbq3R8OFhttE2WXN2QcIjmpa2X6erPzeJjtQuIBQW4LY+zme38htbGcGefYQjZedX
-	 UJxBxBd8Mqr6E+S1TX5FgF5sgRMmr84L1JYc4NtQDI1n2RysHzx/G6B+BuWJLQjfDC
-	 1t2Dma2vfEGkQ==
-Date: Mon, 23 Nov 2026 21:03:41 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/8] net: stmmac: Add glue layer for Synaptics SL2610 SoC
-Message-ID: <awQ5raWYlMBpCqIl@xhacker>
-References: <20261116135442.4827-1-jszhang@kernel.org>
- <20261116135442.4827-5-jszhang@kernel.org>
- <4f1c4180-3a00-4b17-a27b-e61b307d3e5f@bootlin.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ETTRC+TQ
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1A7864E41648;
+	Mon, 23 Nov 2026 13:24:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E33FC601E1;
+	Mon, 23 Nov 2026 13:24:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0CD4411E6A07F;
+	Mon, 23 Nov 2026 14:24:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795440274; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=oTTNKhcDuIn46gIcY42LpngctAWTR9fAWsQGYxr7PjU=;
+	b=ETTRC+TQZPmFHu4lHZT7cI4u9uhW/HwWQOFWbIN4DWzUdtbhoAf18mmCDnKfC3DVFWF7d5
+	AEf4Vr/zCz7CBElLHgNkSe3+sf+1Oqqf3NkY2noD4YhALRNMZlQsDTDZTxnJN7nwaANIaJ
+	3CDg0ZFlkwIv1lD6457FcI4HkBhNR0gvbwzAzQKLTMq5vRz1J6IiYMnpLrHC72+4QHFmYB
+	gCmsuM4SbLPW6Wm0ZUI+5nhOL7fw8iJMMa/4ljhLn8cZho8t9yEu0C0Ts+ac3qJtJAwSOw
+	cPBdxx4av02IZVPuzbkGltgaxUjMwML5HqKAWSrJ6h22BKjoaN/Hb1pVKJT9Ew==
+Message-ID: <30533c91-65b0-446b-9937-7a9900549bd1@bootlin.com>
+Date: Mon, 23 Nov 2026 14:24:29 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,154 +62,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <4f1c4180-3a00-4b17-a27b-e61b307d3e5f@bootlin.com>
+User-Agent: Betterbird (Linux)
+Subject: Re: [PATCH net] net: pse-pd: tps23881: Fix reported power class
+To: netdev-bot+sashiko@kernel.org
+Cc: pabeni@redhat.com, o.rempel@pengutronix.de, kuba@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org
+References: <20261119112511.239208-1-kory.maincent@bootlin.com>
+ <179543375923.3135.13985748487135407652@kernel.org>
+From: Kory Maincent <kory.maincent@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <179543375923.3135.13985748487135407652@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, Nov 23, 2026 at 12:57:06PM +0100, Maxime Chevallier wrote:
-> Hi,
-> 
-> On 11/16/26 14:54, Jisheng Zhang wrote:
-> > Add dwmac glue driver to support the DesignWare-based GMAC controllers
-> > in the Synaptics SL2610 SoC.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  MAINTAINERS                                   |   2 +
-> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
-> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
-> >  .../net/ethernet/stmicro/stmmac/dwmac-syna.c  | 116 ++++++++++++++++++
-> >  4 files changed, 130 insertions(+)
-> >  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-syna.c
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 430758242906..dba0288bf4da 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -3808,12 +3808,14 @@ M:	Jisheng Zhang <jszhang@kernel.org>
-> >  M:	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-> >  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> >  S:	Maintained
-> > +F:	Documentation/devicetree/bindings/net/syna,sl2610-dwmac.yaml
-> >  F:	Documentation/devicetree/bindings/soc/synaptics/
-> >  F:	arch/arm/boot/dts/synaptics/
-> >  F:	arch/arm/mach-berlin/
-> >  F:	arch/arm64/boot/dts/synaptics/
-> >  F:	drivers/clk/berlin/*sl2610*
-> >  F:	drivers/clk/berlin/sl-*
-> > +F:	drivers/net/ethernet/stmicro/stmmac/dwmac-syna.c
-> >  F:	drivers/pinctrl/berlin/pinctrl-sl2610.c
-> >  F:	drivers/reset/reset-sl2610.c
-> >  F:	drivers/soc/synaptics/
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > index c6559e749c0c..79ffebcaba0e 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > @@ -310,6 +310,17 @@ config DWMAC_SUN55I
-> >  	  stmmac device driver. This driver is used for A523/T527
-> >  	  GMAC200 ethernet controller.
-> >  
-> > +config DWMAC_SYNA
-> > +	tristate "Synaptics SL2610 DWMAC support"
-> > +	depends on OF && HAS_DMA && (ARCH_BERLIN || COMPILE_TEST)
-> > +	select MFD_SYSCON
-> > +	help
-> > +	  Support for the Synaptics SL2610 DesignWare Ethernet MAC glue.
-> > +	  This configures the PHY interface through the system controller.
-> > +
-> > +	  To compile this driver as a module, choose M here. The module
-> > +	  will be called dwmac-syna.
-> > +
-> >  config DWMAC_THEAD
-> >  	tristate "T-HEAD dwmac support"
-> >  	depends on OF && (ARCH_THEAD || COMPILE_TEST)
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > index b16a456b730e..d132353e9403 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > @@ -35,6 +35,7 @@ obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
-> >  obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
-> >  obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
-> >  obj-$(CONFIG_DWMAC_SUN55I)	+= dwmac-sun55i.o
-> > +obj-$(CONFIG_DWMAC_SYNA)	+= dwmac-syna.o
-> >  obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
-> >  obj-$(CONFIG_DWMAC_ULTRARISC)	+= dwmac-ultrarisc.o
-> >  obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-syna.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-syna.c
-> > new file mode 100644
-> > index 000000000000..c4bc895b29da
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-syna.c
-> > @@ -0,0 +1,116 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Synaptics DWMAC platform driver
-> > + *
-> > + * Copyright (C) 2026 Jisheng Zhang <jszhang@kernel.org>
-> > + *
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/module.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/of.h>
-> > +#include <linux/of_device.h>
-> > +#include <linux/of_net.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/regmap.h>
-> > +
-> > +#include "stmmac_platform.h"
-> > +
-> > +#define CTL_PHY_INTF_SEL	GENMASK(4, 1)
-> > +#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, 1)
-> > +#define CTL_PHY_INTF_RMII	FIELD_PREP(CTL_PHY_INTF_SEL, 4)
-> 
-> Please use PHY_INTF_SEL_RGMII and PHY_INTF_SEL_RMII from "common.h"
 
-I read this as "use SYNA_PHY_INTF_SEL_RGMII and SYNA_PHY_INTF_SEL_RMII",
-correct me if there's misunderstanding.
 
+On 11/23/26 12:35, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
 > 
-> > +
-> > +struct syna_dwmac {
-> > +	struct plat_stmmacenet_data *plat;
-> > +	struct regmap *regmap;
-> > +	u32 rgmii_ctl;
-> > +	struct device *dev;
-> > +};
-> > +
-> > +static int syna_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
-> > +{
-> > +	struct syna_dwmac *dwmac = plat->bsp_priv;
-> > +	u32 phyif;
-> > +
-> > +	switch (plat->phy_interface) {
-> > +	case PHY_INTERFACE_MODE_RMII:
-> > +		phyif = CTL_PHY_INTF_RMII;
-> > +		break;
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +		phyif = CTL_PHY_INTF_RGMII;
-> > +		break;
-> > +	default:
-> > +		dev_err(dwmac->dev, "unsupported phy interface %s\n",
-> > +			phy_modes(plat->phy_interface));
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	return regmap_update_bits(dwmac->regmap, dwmac->rgmii_ctl, CTL_PHY_INTF_SEL, phyif);
-> > +}
-> > +
-> > +static int syna_dwmac_init(struct device *dev, void *priv)
-> > +{
-> > +	struct syna_dwmac *dwmac = priv;
-> > +
-> > +	return syna_dwmac_set_phy_if(dwmac->plat);
-> > +}
+> Critical: 0 · High: 1 · Medium: 0 · Low: 0
 > 
-> Can you implement .set_phy_intf_sel() instead ? that should simplify that quite a lot.
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
 > 
+> - [High] The new lookup table in tps23881_pi_get_pw_class()
+>    (drivers/net/pse-pd/tps23881.c) maps four raw class codes to -ERANGE:…
+> 
+> --
+> 
+> net: pse-pd: tps23881: Fix reported power class
+> 
+> This commit adds a lookup table to tps23881_pi_get_pw_class() that
+> translates the raw classification register value into the IEEE 802.3
+> class number. Before this, the raw value was reported directly.
+> 
+>> diff --git a/drivers/net/pse-pd/tps23881.c b/drivers/net/pse-pd/tps23881.c
+>> index 244ce596d845c..58ea7e0ffa996 100644
+>> --- a/drivers/net/pse-pd/tps23881.c
+>> +++ b/drivers/net/pse-pd/tps23881.c
+>> @@ -402,6 +402,25 @@ tps23881_pi_get_chan_current(struct tps23881_priv *priv, u8 chan)
+>>   	return (int)tmp_64;
+>>   }
+>>   
+>> +static int tps23881_class_table[] = {
+>> +	-ERANGE,
+>> +	1,
+>> +	2,
+>> +	3,
+>> +	4,
+>> +	0,
+>> +	0,
+>> +	-ERANGE,
+>> +	5,
+>> +	6,
+>> +	7,
+>> +	8,
+>> +	4,
+>> +	5,
+>> +	-ERANGE,
+>> +	-ERANGE,
+>> +};
+>> +
+> 
+> [ ... ]
+> 
+>> @@ -416,7 +435,8 @@ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+>>   	if (ret < 0)
+>>   		return ret;
+>>   
+>> -	return tps23881_calc_val(ret, chan, 4, 0x0f);
+>> +	ret = tps23881_calc_val(ret, chan, 4, 0x0f);
+>> +	return tps23881_class_table[ret];
+> 
+> [Severity: High]
+> Will this make the whole PSE status query fail on a port with no
+> classified PD?
 
-Good idea. Thanks for the suggestion
+Yes indeed.
+> The error then goes back to userspace through this path:
+> 
+>    pse_prepare_data()
+>      -> pse_get_pse_attributes()
+>        -> pse_ethtool_get_status()
+>          -> tps23881_pi_get_pw_class()  /* returns -ERANGE */
+> 
+> The admin state and power status, which were already read, are thrown
+> away. Actual power, power limit and limit ranges are never read.
+> 
+> Before this patch, raw 0 set c33_pw_class to 0. pse_fill_reply() in
+> net/ethtool/pse-pd.c then just left the attribute out:
+> 
+> 	if (st->c33_pw_class > 0 &&
+> 	    nla_put_u32(skb, ETHTOOL_A_C33_PSE_PW_CLASS,
+> 			st->c33_pw_class))
+
+I am wondering about this. Class 0 is a valid class, it means 
+classification is not implemented. Then on this case should we report it 
+or not. A unknown class is kind of similar to a classification not 
+implemented. I will change ERANGE value to 0.
+
+-- 
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
