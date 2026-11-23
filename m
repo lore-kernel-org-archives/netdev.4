@@ -1,62 +1,41 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.136.29.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446662;
-	b=GftfROH2DI6NaSq9a9Xx8W+IvSUqJErntpJVQA8axwYm7vmQq/Hg20EaoS4c+nwiV69H
-	 cvEdCkHZFRSp9+pMLGYgfeW4o1iTKe37B9Gqn5bIK800+5ipTeYtHpwAO99QNzO0txoCJ
-	 qs++sRuYRKi6a1m/gFPEV/uwfDVfDtv7BbUio9/V0hEg4B1U11uWgTjUQ5TmrO48lQi8C
-	 qhalshlH2rnfXgaAc6Q3/URyBHZg7ajZNHPho7aKD8TGfnwS0sBNFGGMo/ZEy/VkaWfLQ
-	 ExN1O0AAAOmPHPHrhl34LCiQfjF/boHErPw9liAXaDL6LQRrDu/Ag7WqowWOJE0EFqQ==
+	t=1795446683;
+	b=a8r09CBKd9umAuMVAEj/4LkcO+Tan1Sa6LMG175QI8+nWtSGlhITJE8J7LyfGtoS/GgQ
+	 vnw6g+1wqRd4IBhsi1BsbPElVWoeXS8moROua68INZaaVDmgEnIsztWxcTYl5/o8O6HRY
+	 MMcQWMhRJhC9VZwT53Qiv/wIFQfQm94xjZc08rsMg3D2XLacQcFbC6lmSxYNwOuQs7k/u
+	 XzLkslbIxdE62ElBHzXL840+x34gsYwrUugrZzS+Zo8mm3f5JPF8pT0KO1uwTM5yOnESq
+	 C/gajrD9ck1kwlJzwicLBR5wNqmMdnNzta6aSleOT3cvoSgfttSSKtw8Q1dY2GDEM0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446662;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=4D/pNtTn3K7Pquh1FRZ6xItg3AzYP2AHx7ViO6lbqj4=;
-	b=SssCO1v6vkyhmBaCQ8Nn1hXRFByc9U6VZOHe2coEiSCPivWmXmWTBpqTz9wwAoXmZiFP
-	 AVtigNYEQCN9luZ0NR+q0ckAbPTezQJKffpW0GlRQOIV2Zhs4QotSbMU1deW42owR8bul
-	 L6kuYvKF56JxtjSoGIQ9mcR+ooE7XsZpUG09U8yKYLq+xEPZYka6OswYOtq/Trwroem8C
-	 DgGcrh+jRV7bX/f75I7gVv7I6CK4yqUrlB/avRR+vOxHv/XwFLB868h0hTqdpz8vaS6s6
-	 p7ZfAov8aJPFIHA5u3hT61wPUJnQKVxaSQ3XFefO7Oh7y9rNCjkO3P7FaXe6L4wWSiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446683;
+	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Bm-Milter-Handled:X-Bm-Transport-Timestamp;
+	bh=4g+57NcIYL3QlojIx2fxjF8f/AubFeNsYW9DPqlJVLM=;
+	b=RAVQ3uXhcxqMO469fm4xldm/lIkPGmveRyeTo/WH1LrAgYa4k+O0mGg2lKe7RCTk28f2
+	 BrRqUG1wVZPcGn7sviCedbn4Z1usBlkeU0NHu5kT6ycuqUQ5BEysT/BEni3MaNJSsxRun
+	 IQGLsQrhdx49VmM3/xQxDAbaPV/ItVBMXMhCsq/uv4X3zfZwKr8poBlfrGSl+2ncDuNdq
+	 GtfwRZRV2LBC2SJbL5yby7uo/xRWG+3SCweH2ZxWn9Xk3mRSKcRryIW81Funf7Leqy4LT
+	 fahxMD21b0FXE5XBL3R6OxQwx1LISL4yTJXevdl42OJkCmh4NzqMEX5NuRhYhgxKxjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="II0cW/A5";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=none header.from=proxmox.com;
+	spf=pass smtp.mailfrom=proxmox.com;
+	arc=none smtp.remote-ip=94.136.29.106
+Received: from proxmox-new.maurer-it.com (proxmox-new.maurer-it.com [94.136.29.106])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 303C3606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:11:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 303C3606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=II0cW/A5
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=4D/pNtTn3K7Pquh1FRZ6xItg3AzYP2AHx7ViO6lbqj4=; b=II0cW/A5ihPuXaD7WA7mipn6T/
-	xYDcBLLJE+qyZIyyKdzZ10WL6PEM+MlE4xPnVdtqtmRw3ST3tVFi4ZT/2CK6vla5b1eGq+ulqNhai
-	4dP7JCI7qmO8nLZv8eC1ZwdG1sKLsxGXn2ftK8CJZOKYafP4nYhlmIlxEYVqp9eUh84w=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVVh6-000ofw-1z; Mon, 23 Nov 2026 16:11:00 +0100
-Date: Mon, 23 Nov 2026 16:11:00 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH net-next] net: pcs: xpcs-rk: use cleanup.h for
- platform_device reference
-Message-ID: <814be8ca-6fe4-401a-af4e-206f1b67be74@lunn.ch>
-References: <20261123123052.578956-2-coiaprant@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 748C2606A31E;
+	Mon, 23 Nov 2026 15:11:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 748C2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=proxmox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proxmox.com
+Received: from proxmox-new.maurer-it.com (localhost.localdomain [127.0.0.1])
+	by proxmox-new.maurer-it.com (Proxmox) with ESMTP id 240B8433F8;
+	Mon, 23 Nov 2026 16:11:20 +0100 (CET)
+From: Gabriel Goller <g.goller@proxmox.com>
+Date: Mon, 23 Nov 2026 16:10:06 +0100
+Subject: [PATCH net-next v2] vxlan: always report local address
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,28 +45,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123123052.578956-2-coiaprant@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-vxlan_preserve_local-v2-1-72d89179a98d@proxmox.com>
+X-B4-Tracking: v=1; b=H4sIAF1XBGsC/32OQQ6CMBREr0L+2hp+AU1deQ9DSKkfqcGWtLWpI
+ dzdgnuXk5k3Mwt4cpo8XIoFHEXttTVZ8EMBapTmQUzfswZe8hNiWbOYJmm62VEGI3WTVXJiqhq
+ kaASJMzaQ0WwPOu21NzAUmKEUoP05/t0/SYWtdcuO2gfrPvuDiDvxfywiQ0aib3DgWPG+vs7Op
+ pdNR2Vf0K7r+gXNksEM1gAAAA==
+X-Change-ID: 20261104-vxlan_preserve_local-c3fa959e9715
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Ido Schimmel <idosch@nvidia.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Gabriel Goller <g.goller@proxmox.com>
+X-Mailer: b4 0.17-dev
+X-Bm-Milter-Handled: 55990f41-d878-4baa-be0a-ee34c49e34d2
+X-Bm-Transport-Timestamp: 1795446678922
 
-On Mon, Nov 23, 2026 at 08:30:53PM +0800, Coia Prant wrote:
-> Use the __free(platform_device_put) cleanup action to manage the
-> platform_device reference obtained from of_find_device_by_node().
-> 
-> This removes the need for explicit put_device() calls on every failure
-> path and at the end of the successful path, simplifying the function
-> and reducing the chance of reference leaks or double puts.
-> 
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+When a VXLAN device has no local address, link dumps and notifications
+contain neither IFLA_VXLAN_LOCAL nor IFLA_VXLAN_LOCAL6. If the device
+also has no remote or group address, userspace can't tell whether it is
+an IPv4 or IPv6 device, even though the kernel stores the family. FRR
+runs into this when it finds existing VXLAN devices after a restart.
 
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+Report the local address even when it is unset, as IFLA_VXLAN_LOCAL
+0.0.0.0 or IFLA_VXLAN_LOCAL6 ::, so the attribute type shows the
+family.
 
-Low level cleanup constructs (such as __free()) can be used when
-building APIs and helpers, especially scoped iterators. However,
-direct use of __free() within networking core and drivers is
-discouraged.
+Signed-off-by: Gabriel Goller <g.goller@proxmox.com>
+---
+Changes in v2:
+- rebase
+- Link to v1: https://lore.kernel.org/20261104-vxlan_preserve_local-v1-1-e9b51f2132b4@proxmox.com
+---
+ drivers/net/vxlan/vxlan_core.c | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
 
-    Andrew
+diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+index d11028b37472..b7ad60cb5d12 100644
+--- a/drivers/net/vxlan/vxlan_core.c
++++ b/drivers/net/vxlan/vxlan_core.c
+@@ -4765,18 +4765,17 @@ static int vxlan_fill_info(struct sk_buff *skb, const struct net_device *dev)
+ 	if (cfg->remote_ifindex && nla_put_u32(skb, IFLA_VXLAN_LINK, cfg->remote_ifindex))
+ 		goto nla_put_failure;
+ 
+-	if (!vxlan_addr_any(&cfg->saddr)) {
+-		if (cfg->saddr.sa.sa_family == AF_INET) {
+-			if (nla_put_in_addr(skb, IFLA_VXLAN_LOCAL,
+-					    cfg->saddr.sin.sin_addr.s_addr))
+-				goto nla_put_failure;
++	/* Report the address family even when the local address is unspecified. */
++	if (cfg->saddr.sa.sa_family == AF_INET) {
++		if (nla_put_in_addr(skb, IFLA_VXLAN_LOCAL,
++				    cfg->saddr.sin.sin_addr.s_addr))
++			goto nla_put_failure;
+ #if IS_ENABLED(CONFIG_IPV6)
+-		} else {
+-			if (nla_put_in6_addr(skb, IFLA_VXLAN_LOCAL6,
+-					     &cfg->saddr.sin6.sin6_addr))
+-				goto nla_put_failure;
++	} else {
++		if (nla_put_in6_addr(skb, IFLA_VXLAN_LOCAL6,
++				     &cfg->saddr.sin6.sin6_addr))
++			goto nla_put_failure;
+ #endif
+-		}
+ 	}
+ 
+ 	if (nla_put_u8(skb, IFLA_VXLAN_TTL, cfg->ttl) ||
 
 ---
-pw-bot: cr
+base-commit: 2388bb763e323442f4dd8189238ac0c5f334c4a0
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git main
+change-id: 20261104-vxlan_preserve_local-c3fa959e9715
+
+Best regards,
+--  
+Gabriel Goller <g.goller@proxmox.com>
+
+
