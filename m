@@ -1,55 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795456917;
-	b=G/DAohn+ri/dlSeQ6oIki0C+jGm3eSGi2iDgDeO0iKMOzjf/bOJr8hVF9fSX2seHlbM8
-	 LbpIZsuN5LSvpDhkwYYBO1DqrpFDvlcA0PGHXJ155/Pc28+0I/X5KRqG1IoLg+lAstgfy
-	 8dPttGSfX1o4S4WC0yJ1GvlyeVwMjYE14PFUrZD6ZZFR99aoxxIQ+BbWjE50iwnaBvwv4
-	 +91MrtkaGtFQ0c4RZqPgUsMFM+bcDTHSP38o68M4Y9y6NRKp28vSiulKzwMj2HlTa8zVB
-	 /aHBapoGj3tEDH8wiWDxmpFLj6uW9QVPOW/oqJcGMz8NJBHADOWdzEvPfHa4MHVLO7Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456917;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=tMSmWi4PmO8P9evCtaCCqvLcTiNowVONOK61eDxOosg=;
-	b=DkGNrkX+ulzIbugNKlhQ2MQrxAZif+1RUohgzA/N7DdiLNirnoRhrLUh7Rhabl4r2OOp
-	 B8yT8CPKY0iHO+nU3dSpMQouum6S7/KSMtJ1AvbRUP2S5YDyvBgc7dCIF2ScydL+EgLEg
-	 omTQ5JgHg2BTR719twnjiKP81kQGzpFY3z9oxmFvphTvjsOOAu7lcxay3YJLA1UNxqRBO
-	 KaiIQIo1qKec2g17kDjK31h3/oMopgXCdAweNi4oWEp7RlMwsQWXbQi2Ebv02Nxg6WUHr
-	 3moOJ+tgR8C0IRDA1GpTxYIb794b7qPpM1llkWmU2au2ThFIAM3rW1HIXywiZCQGb2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eG5+Frx8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795456920;
+	b=3xige+1YXcsQ7uAN7H3MfOSwwwk4IUJPDFbsX+0F8lH3Hs5cRH51xxysjh8Z/l2FwTYx
+	 v8EaVNccBUn5VMbdNSFY9MK3mQUl0timmxye3kKFT4RwetxEXt7A7C1Whp6u6ythSqxJ+
+	 OXLP8C7ZWq0awBENKwFO32sukigPBUoieGZup5FyKwsVozdZrIQIcJgElxjUf+baET+KP
+	 SaspsJJBd8xYN1YEmViFrgSFUCeRxPkZvTDG33D7CtCxHdzbOnaODNnPVsT6JTnlyn5Tb
+	 0R0+b0gwZV5mjsipkhry5g23YsiLp3IoghSZuE5aecW8Wzaxf7i1JY9qUiNSRL2dG0w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456920;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=arx8YwV9LXIJ8gKAjOC7RTyOcSxyXezLIn5p9QTOkSM=;
+	b=2vaDKJ95JlVIn0Hx9rfThjyLiOAxj7J7+uqS55BMNnvuE38oM8HFULjPykPBVL8XSGaJ
+	 VtHnQHyqPb0FECXScvWR/BZ+MHkc6DLnifuy+IyYWdj1CscxM2hIuxiKIXi1yf5Jk/Ori
+	 9baJbxS2nHdNf5dtDPLhNKzlYhMMTXSRkeNVjufLNVE/v/hGRMVgIbBseP1E4eTQEvNjw
+	 SjLiMxp5KuBS8ZJEVOuoMbaccIiEy4HoLf5a4gbzkXuCZEA6kJ/A/mXS2kGBwOHYPRf0r
+	 wdh3jx/lveUPJsXxu19UmQIoDKev/I52pf7xwnWqeThXBXCTj96eX9MGpKDBmPVJodQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=i4K5lfBK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.3
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011003.outbound.protection.outlook.com [52.101.62.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12ADE606A327
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:01:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2894D606A31F;
+	Mon, 23 Nov 2026 18:01:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2894D606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eG5+Frx8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681351F008B2
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:01:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795456916;
-	bh=tMSmWi4PmO8P9evCtaCCqvLcTiNowVONOK61eDxOosg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=eG5+Frx8GVX/c/z8PXyzsWlQ3dvQGju5CuqfTFpLzNVh+WruclO4HH56q2lKR2BGy
-	 dMNPyKR51mAo2/u2nFEqWnnJu6kEN9eRGjEey8NNwMGdm+NRB6QrK+Iv+q5iihp94Q
-	 MfyhCylceSyDzCMbJl3gsDLSMTbF3VHlFvP7jz8bptuQmcE1NqU7rUyHne9kvB4uCC
-	 xl4xv41GxPWNfzdlMM5WvR0M10oZbuSLwebreh0awE1Ul52jly2/6pJs1jvdBbHNUi
-	 +Y99pwWxYzhLIHNWgUhDkaJv6uDeX+PeVnEMqFx/HdSisjNSMuCNS6suwP/4rIqu2D
-	 qQ9EtNMh7thxQ==
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-43bf9548df4so3375507fac.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:01:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHa8xSv6Hxii4uH2y6zJMRiITBJV+BMurBg2uLo/FtfcipLOUKI6p1Cj5YGFs/M4w7ad+fHa/4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8i5CdJyZrMYFZGIcrSzDUCL08rYCnJNjOOOoi2cExDWbaSKRxI
-	EHF4qviNpRWNsLpO1e6cugZ+/HiTJnVi59XhJWrQC0luaiBpDdLLa/W1Vyh66A5QnhwbQNxH3K2
-	6c8eOpkiWnPhRkStXGIpo+Fy0s6PqG9A=
-X-Received: by 2002:a05:6871:4396:b0:49e:472c:6b12 with SMTP id
- 586e51a60fabf-4bc860f9b97mr10968896fac.52.1795456915652; Mon, 23 Nov 2026
- 10:01:55 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=i4K5lfBK
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gXWMDIfg/jSJwIv04scRMaz11xdhUGQmjnapEbuxNccbxfm80/uSRh3azMobCh6Ggi6S8prIE3CRuRueGG6mtPzGlmo3va3l7yBy9Kwjuty9vnZF22ABg+9iTfZQPMhHt8uXgJsthjgruvXQIHXR9wjMc4/X/nR9TRdfdYeZI+z6s4+0uGS6Y7O16DLsv4ksl8Ytm17JLxCEcD3im1qahU227CbO0IUrdXSsnja/dnQXsd9HEwNPoWqXixpWgEMS7fcpB3I9gpwqR/IsuETbuzShjEcOt+JkA1X+6HYwxsVcUWuvw9C7JwychYbybk94ynmWQ8SDAF1myZhnWDsg3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=arx8YwV9LXIJ8gKAjOC7RTyOcSxyXezLIn5p9QTOkSM=;
+ b=ZOCH+vsLlTHZBOqb9rlsyw8XLzn4ZUrjUol1NQIFpcFeX/3YbaYxIav0GRDUa9SYzDEfuUUTGp0Qz61dPmhbe5qD5gjl086fPC33eTBf0PPv/pvosRO0gcsC4vpk9tAPmg0Me0LMFQt8p1U4OihY3KuQEw4ikaFqVkyODkhhDMIw3mbt3XTLrVld8ZFyTMMdPtXvuTdqH2uiItOdrW+yPBeuavENAfBHX06XhoD4LLlf9Ar0uGPYRnmY7UxU4QN7jImuTRr9WvcbY5AcGWZUTa67cWw6cZ9vvB2Dls0/3bW8Kz5oHQWkE08ADI6oXSb0AFBXAladY7cAbvyGw231SA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=davemloft.net smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=arx8YwV9LXIJ8gKAjOC7RTyOcSxyXezLIn5p9QTOkSM=;
+ b=i4K5lfBKTroZSF3UclfyBqZaN5zSWGqTjLkzLROJT9ZaeIXDNh4ZR5Gh9cq/IYVuFf7SNDuwa85l2UEFquizOqPPZF/t2PsP4UzdByQPctkqr+zho7ZgsDxgzpJIwUjGsPpZ4YMZC0rGaeS2xHSNvxWce6tMNqhk7kBfo0iW567HAPy/zghUZ7Z1CejYPYKDRbERBnTcPZD0+Tmoa5VNAI5y6FB9NUHwTCe4rXYTIH4uIgShPaeATJRBs7QZGcCnFkpMh2wP86NWBMMZ1fGcMoVAEhidCeKRh/Gta4KXPVDObBHJxLRpaNfjSjYMdQ7zC7mJZLltUNxQot6Z3E8fxQ==
+Received: from PH7P220CA0070.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32c::10)
+ by CH3PR12MB8879.namprd12.prod.outlook.com (2603:10b6:610:171::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
+ 2026 18:01:43 +0000
+Received: from MW2PEPF00014677.namprd04.prod.outlook.com
+ (2603:10b6:510:32c:cafe::44) by PH7P220CA0070.outlook.office365.com
+ (2603:10b6:510:32c::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 18:01:42 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MW2PEPF00014677.mail.protection.outlook.com (10.167.249.184) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 18:01:42 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 10:01:06 -0800
+Received: from tuxedo.docsis.vodafone.cz (10.126.231.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Mon, 23 Nov 2026 10:01:00 -0800
+From: Petr Machata <petrm@nvidia.com>
+To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	<netdev@vger.kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, Nikolay Aleksandrov
+	<razor@blackwall.org>, <bridge@lists.linux.dev>, Ido Schimmel
+	<idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, Andy Roulin
+	<aroulin@nvidia.com>, <mlxsw@nvidia.com>, Shuah Khan <shuah@kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+Subject: [PATCH net-next 12/13] selftests: net: lib: py: Add RtnlNeighFamily
+Date: Mon, 23 Nov 2026 18:59:27 +0100
+Message-ID: <4d75835c1c05fc9c201895b4c08aca3c866f6d4b.1795447450.git.petrm@nvidia.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <cover.1795447450.git.petrm@nvidia.com>
+References: <cover.1795447450.git.petrm@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,124 +117,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120134548.214126-1-mdshahid03@gmail.com> <20261120100415.363fcb19@kernel.org>
- <179525944307.361783.17801110279499293110.b4-reply@b4> <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
- <179544969959.175192.4403952228876691788.b4-reply@b4>
-In-Reply-To: <179544969959.175192.4403952228876691788.b4-reply@b4>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Mon, 23 Nov 2026 19:01:44 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipNiCm9nBMt+ZB1+U3o9j8KY1L2Lo0vKb5QHORpBgDCiA@mail.gmail.com>
-X-Gm-Features: Aa3M54pP93d9ftwDviKwv8Mss2IlcC8MVW5kDbHlRC_286VLxTw7dgxd5mF-bYc
-Message-ID: <CAL4WiipNiCm9nBMt+ZB1+U3o9j8KY1L2Lo0vKb5QHORpBgDCiA@mail.gmail.com>
-Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in rtnl_get_link()
-To: mdshahid03@gmail.com
-Cc: Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW2PEPF00014677:EE_|CH3PR12MB8879:EE_
+X-MS-Office365-Filtering-Correlation-Id: 45e669ae-4b57-4ec4-6740-08df498bd467
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|36860700016|7416014|23010399003|376014|82310400026|11063799006|56012099006|261021121427099003|261021123027099003|261026121527099003|10067099003|261102123227099003|261022105027099003|261009223027099003|261026140227099003|261022075727099003|261028144727099003|261102130727099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	Nr1CV548agNlSCbZoaICXzQfGr7u3JOJt1XonIgIKZoqlcS6vvxF8s6j6IiTHTrco7rW5u8uB9IV1eGY/Frb/d3QTv4GJ+rqf4HCZlvQKiNh4E3eMrOFHUCOxOpQ37pUootk3Fahga1VtNXYtVtghyyguRK2woTDwYOR7T2hW3cVrdWTfuL+ZxcOIx/DSvSHSmfc1IHlJJxA57vF1CG9P1ES/CdntJtC9sYuhmKJHu6RCHU5f3tX8EVzH1wKESEGTRdOq+mQVYt0qwJnmyaKH5WOx25Py1Kqc5B12EVfra0ow2Rby5vzgV5tWi7O5XiY0BCHL6TdeR8GxAkjqhUMhjB3kkN10HjHssLG03E7EG1oTZLRiwi8el+3aRFmmSo/dl4i8oRetO9dgYl4woqH4xij6f1glmq88tLBlDtVaj8JzbNkpT9xXf6rk8RLXeK5etL+F4Urvo3D3sXDtY3UpdIvV9GxubX1KhY5VjaT96cm9m3AWcYtYSRtQvmV1PQEiXxNl9MirKQUsmnZK1K7r6sRvWVj3b5tqT4+1MVVlft1M0Lvqoz4zxD9L/HeJfTE51ptY/i2YNufLbrciyr1Invq0UBNABkDYQ3SN7TowYXYh3vKVvcXx3S4NfKI5hvhhSI2pD2CJe/7Obb10Nn0JRPgxVN+i7fXJwlw3vgTny0qGvspuyN9JDG9a0HNNleh3j+y4SwElLIz9wwrP8anwQ==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(7416014)(23010399003)(376014)(82310400026)(11063799006)(56012099006)(261021121427099003)(261021123027099003)(261026121527099003)(10067099003)(261102123227099003)(261022105027099003)(261009223027099003)(261026140227099003)(261022075727099003)(261028144727099003)(261102130727099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	GsjBFj178y3lK9enYwoNzrz9b1hJUH1hI+72kU0WBPG9+sxqMF0BrHDdGx0uuttNTwwrCWrluEAZ7xyBgVa9Bsz5guykjokO4BwEXBHoVXPGS+bWzltddkkvvubJ4/FUT56/TddHIr2fPv6nhP5GLP9FeLpPw381rmNTK9PFQ5lMlSMBPam/9v7UMzooPzrz4uKmqdgZXfftnkKoskiIKwZYf7mHHReUA3rcY19vA7yEzX05c9upTSx/ATRT3PlNNDK2CDH6MNhE7GEvexbDE2Ufl5TZ//OE4FrWrrrRm3/vAGW6KzWDaVg01h6XX9jlL3d1sbOkXC1zlWQrix1FMERw+oL1+1yT6/YGoDOTPTdVwVWFX4Np/sx0xgUQH4aymxdRB+Xwn1EhwVjPZS14plEFFHz99qBCiKnWn9XoEH2tbrpMn6TDu7hb4w30ucdo
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:01:42.1769
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45e669ae-4b57-4ec4-6740-08df498bd467
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MW2PEPF00014677.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8879
 
-Le lun. 23 nov. 2026 =C3=A0 17:02, <mdshahid03@gmail.com> a =C3=A9crit :
->
-> Thanks Paolo.
->
-> I think,I may have misunderstood this part from NET documentation guideli=
-nes:
->
-> "The commit message must disclose whether reproducing the issue required
-> modifying the kernel (e.g. inserting a delay to widen a race, or[[**writi=
-ng
-> a loadable module to issue the right sequence of calls)**]] or using erro=
-r injection."
->
-> I interpreted this as allowing a out-of-tree test module to produce
-> an issue,provided that it uses legitimate kernel APIs.
->
-> 1.am i intrepretting incorrectly ?
+Add a YnlFamily wrapper for the rt-neigh spec, next to the ones for
+rt-link, rt-addr and rt-route, and export it from lib.py.
 
-Yes.
+Signed-off-by: Petr Machata <petrm@nvidia.com>
+---
+CC: Shuah Khan <shuah@kernel.org>
+CC: linux-kselftest@vger.kernel.org
+---
+ tools/testing/selftests/net/lib/py/__init__.py |  6 ++++--
+ tools/testing/selftests/net/lib/py/ynl.py      | 10 +++++++++-
+ 2 files changed, 13 insertions(+), 3 deletions(-)
 
-This sentence is a disclosure requirement, so that reviewers know how
-much weight to give to the reproducer. It does not say that any crash
-obtained this way is a bug.
+diff --git a/tools/testing/selftests/net/lib/py/__init__.py b/tools/testing/selftests/net/lib/py/__init__.py
+index b1696f432c7c..3f7696d06e6f 100644
+--- a/tools/testing/selftests/net/lib/py/__init__.py
++++ b/tools/testing/selftests/net/lib/py/__init__.py
+@@ -17,7 +17,8 @@ from .utils import CmdExitFailure, fd_read_timeout, cmd, bkg, defer, \
+     ctl_file_write, wait_file, tool, tc
+ from .bpf import bpf_map_set, bpf_map_dump, bpf_prog_map_ids
+ from .ynl import NlError, NlctrlFamily, YnlFamily, \
+-    EthtoolFamily, NetdevFamily, RtnlFamily, RtnlAddrFamily, RtnlRouteFamily
++    EthtoolFamily, NetdevFamily, RtnlFamily, RtnlNeighFamily, \
++    RtnlAddrFamily, RtnlRouteFamily
+ from .ynl import NetshaperFamily, DevlinkFamily, GtpFamily, PSPFamily, Netlink
+ 
+ __all__ = ["KSRC",
+@@ -36,4 +37,5 @@ __all__ = ["KSRC",
+            "NetshaperFamily", "DevlinkFamily", "GtpFamily", "PSPFamily",
+            "NlError",
+            "YnlFamily", "EthtoolFamily", "NetdevFamily", "RtnlFamily",
+-           "NlctrlFamily", "RtnlAddrFamily", "RtnlRouteFamily", "Netlink"]
++           "RtnlNeighFamily", "NlctrlFamily", "RtnlAddrFamily",
++           "RtnlRouteFamily", "Netlink"]
+diff --git a/tools/testing/selftests/net/lib/py/ynl.py b/tools/testing/selftests/net/lib/py/ynl.py
+index 69a6e9d9b390..ac13bf1ff23d 100644
+--- a/tools/testing/selftests/net/lib/py/ynl.py
++++ b/tools/testing/selftests/net/lib/py/ynl.py
+@@ -29,7 +29,8 @@ except ModuleNotFoundError as e:
+ 
+ __all__ = [
+     "NlError", "NlPolicy", "Netlink", "YnlFamily", "SPEC_PATH",
+-    "EthtoolFamily", "RtnlFamily", "RtnlAddrFamily", "RtnlRouteFamily",
++    "EthtoolFamily", "RtnlFamily", "RtnlNeighFamily", "RtnlAddrFamily",
++    "RtnlRouteFamily",
+     "NetdevFamily", "NetshaperFamily", "NlctrlFamily", "DevlinkFamily",
+     "GtpFamily", "PSPFamily",
+ ]
+@@ -49,6 +50,13 @@ class RtnlFamily(YnlFamily):
+         super().__init__((SPEC_PATH / Path('rt-link.yaml')).as_posix(),
+                          schema='', recv_size=recv_size)
+ 
++class RtnlNeighFamily(YnlFamily):
++    """Netlink interface for neighbour messages."""
++    # pylint: disable=too-few-public-methods
++    def __init__(self, recv_size=0):
++        super().__init__((SPEC_PATH / Path('rt-neigh.yaml')).as_posix(),
++                         schema='', recv_size=recv_size)
++
+ class RtnlAddrFamily(YnlFamily):
+     def __init__(self, recv_size=0):
+         super().__init__((SPEC_PATH / Path('rt-addr.yaml')).as_posix(),
+-- 
+2.56.1
 
-A test module (or an added delay) is fine when it only makes it easier
-to reach a state that the unmodified kernel can reach by itself, for
-instance to widen a race window, or to exercise an in-tree code path
-that is hard to trigger from user space.
-
-Your module does something different: it creates a state that no
-in-tree code can create.
-
-rtnl_msg_handlers[PF_UNSPEC] is populated from rtnetlink_init(), which
-is built-in and panics if the registration fails. Nothing in the tree
-calls rtnl_unregister_all(PF_UNSPEC), the only callers are for
-PF_PHONET, PF_INET6, PF_MPLS and PF_CAN.
-
-So the PF_UNSPEC table is never NULL once the kernel has booted, and
-rtnl_get_link() relies on this.
-
-This is what Jakub asked in his first reply ("How can this happen?"),
-and the changelog should have answered it.
-
->
-> 2.This is general question ,i mean ,we can litrally crash the kernel
-> just with loadable module ? How do we distinguish a legitimate kernel
-> bug exposed through a test module from a crash caused by an artificial
-> or unsupported sequence of operations? is this not vulnerablity in a
-> way or design issue ?
-
-Of course a module can crash the kernel. A module runs with full
-kernel privileges, it can call panic(), or overwrite any memory.
-Loading one requires CAP_SYS_MODULE. There is no security boundary
-between a module and the rest of the kernel, so this is not a
-vulnerability.
-
-Exported functions are not hardened against callers misusing them.
-We do not add checks for conditions that can not happen, they add
-code, and they hide the invariants from people reading the code.
-
-The question to ask is: can the unmodified kernel reach this state,
-from user space, from the network, or from a device?
-
-If yes, you should be able to describe the in-tree call chain in the
-changelog, and in most cases to trigger it without a module.
-
-If the only way is to add new kernel code calling an API in a way no
-in-tree user does, there is nothing to fix.
-
-Note that clang-analyzer does not know about this kind of invariant.
-Its reports are a starting point for an analysis, they are not a proof
-that a bug exists.
-
->
-> 3.Don't you see a gap in documentation w.r.t testing with loadable module
-> in details.
-
-Not really. The documentation asks how the bug was confirmed to be
-real. A module unregistering the PF_UNSPEC handlers does not confirm
-anything about the upstream kernel.
-
->
-> I am asking because, like to understand the correct approach and apply
-> it to my future kernel contributions.
->
-> Have a nice day !!!
->
-> Thanks
-> Shahid.
->
-> On 2026-11-23 11:56 +0100, Paolo Abeni wrote:
-> > On 11/21/26 12:10, mdshahid03@gmail.com wrote:
-> > > I tested this issue on both original and patched kernels in qemu.
-> > >
-> > > First, I used a test module to unregister all PF_UNSPEC handlers.
-> >
-> > Just in case the are any doubts on the poic: if you need a custom
-> > OoO kernel module to trigger a 'bug', it's not a bug.
-> >
-> > /P
-> >
-> >
-> >
->
->
