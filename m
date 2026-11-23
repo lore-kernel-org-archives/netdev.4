@@ -1,110 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795456824;
-	b=ImKybLjkAHFpd33CdwJxQHwtlukVIAl1nzhXcQKXd3YcPSPuttHNJ/7LAuXzBT+WLaz2
-	 mbHm/LSRB40fpmm3PMRsMvUBqMlEWWJGkCrn9p13tv/2mjef+483lKoY/NuZBDJk2asAb
-	 yapfWcsnNkUhLGSPzn1rmhdLQkXnDxBreaI9pyTPURFtLxL2wO6ntnt/VqXridJaUFYx6
-	 rcgMS8ELcAqsZy157dEm1S5c9yTAHca0WuJfj0VpniAsj9it9ydAV0bcEs920UUKfQ/NK
-	 iZBm06yTqX5d6mMbttnl50wBdgbCKEAjn5thMQxlAOISZKc5S2rmsShu27M5YcUlT/w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456824;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=nb/FGitDKzpAAEQ4y+iINi4RcWIkczm0245abfqpbBg=;
-	b=oU7W5nqFqnT6KiI/Tp3gMrDJBL4yumHMW+WZDuq0XwfyIwyhgs/S4Y3+9nooPM0LAPgT
-	 G/Y+NZyOEXgXbGmX7VwjLv24kJJbnvBZu1HZiGX9I7+Nf/Loy8wABl7bdyt77wr8IhIOz
-	 R6WVpajuny5FFYFzJr5m3ymH/UN8sHYVBIzD/d8V1m+xFg4cGJ0aBeZRWqejZl8DwvvT8
-	 uAX1WVUf4KyqybQ/OhhsqjbqIakVWiJEdTRjzbdj3MDJcjrnVDLAe9ZdihbrKSmmVgQlz
-	 TUtLgPWHNIlWEA6dtjIITscXj3Y98/LYJDdmiTYy8OSokAqkGk8SDfKmWmBCDxFWShQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CzfpLtwf;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.45
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012045.outbound.protection.outlook.com [52.101.48.45])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795456820;
+	b=0xp7aKnqYd1vLTpMHC0PZAOdQwf/x3AXi6EXGWkYq2opF4SByiqjt25kGGHBkbUtgDYl
+	 2SG+KswCjj8iRH7qOt6NBHprKIqdsTrWKFdQYxwdIi3A+89mJGKWHPjXQ2ABcdyh3vZj0
+	 A2vMIN2PNA39Khz9h45UWMiWxvYF49TWPRiw05w3SuNHrgSIqsiCedTnNV/qebTVFyjUH
+	 cQ5a234WMUW2FfIG5mpLq7RFBXArodZB+W30ekmMGfaqaG347hzexeK2d63OXUhMX+er0
+	 HKP6G/RcclXJt9ggsrxKJB2xswZW1memY6tYtP72MNnRVn2L2qxuUSPQiXVlb8bFfAg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456820;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=VCDgVwIkgLge8GbQvw7KHx7sko0csoUykFdgfMQXgFM=;
+	b=APxG5/Qv+h2iXU1tUFCnlpkbPJh5n1PPKvbVNxnMf896YyS02Iqi0vkwcLHqmtww7ksE
+	 pGTu+DjbVkBCVTsc4CThmKGA4tK6IB9Pq9J8D8/K0EHnDoNGRZyOMuVyN9idlGm7fsdW1
+	 /fwoSb7wJqcOyCuQTfDQgCbua3N9iFgzJrpz9WgRTbMwWc0aPL/06P3HPvq75k39yQou1
+	 yxb3DHUMNMQMrxNlgpN60S9gYPAWBUwEAMNwr9NXtq4MkW5Wi6C5TBYi4k5jxg5WWVpkK
+	 ImFxzN9FSNe5qcgb1QtlsOJqpfSxTNz7Cy3LJSW9/C6QEzW86SnscelznuWi2Wu5zUw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SiAZc5ki;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8B72606A31F
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:00:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8B72606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99C3F606A321;
+	Mon, 23 Nov 2026 18:00:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CzfpLtwf
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ef7eo+yp2tPbe7qr9zKDW1UIqC7d4SCzDgoq1xqunHf/Od2yVn6X17XWrf69fggDUAVWesTbgLcC1ZAwPuWJ4X9iHgyea3MhUWVgfoPzurpPHGvjbXOWLmVp2gBwLYos31cEj5pKSSJgMcBLWZ+BDJgTXBC4tEv6FsIhCcH6j5niT9nJg6Z9cEWs17dfQMo3qdBDn95BXDqGa17XyjJN9zsXTdhvSQ9JBg6cwnhSOH0XpB7vpNin+W250bEJqG+jdkGa01pSjYyql6/StBX7w9G0OyiSII4kkhA85ZIo4BziFMTeZlrUxXzx7mNcrbbiIiS2Efvk18zGA1hiBfoUMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nb/FGitDKzpAAEQ4y+iINi4RcWIkczm0245abfqpbBg=;
- b=raQ1LFuRDcK2NlgnOQ9V2QMLdTbzhQx54yUEAvqa/J/0vabh7+i9ZutXI6J2Eart+JS4I+SzOv3D7/Gofbzym3bZWfLytQenFe8hwHUIMqbJD9Nzt+OqhT4lmlZqxFLXz5GbcuzyYySJK38P3Exlpdjm2WvDclPPPoVYoLBX0J02TlAifaZJGyNqxOn+jhvhQxsmjYzwWkuyQ4jgcXf6OntScQ4YXX9aEWmKZYA1KtMJWbu0f+UnX7O56FaZxNsU3uIauEXvFmN3kd21hqjJgHXn6v9nUnr+9S3bEbSxUrcTBnDV4xG6ep2pAGWLYQZaoyXCYKAbbbnysTd32ngz7Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=davemloft.net smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nb/FGitDKzpAAEQ4y+iINi4RcWIkczm0245abfqpbBg=;
- b=CzfpLtwfdRHj1f62NQyThkz2HTlxRDRD6PIgtW+8cv5vbuvBSVix7VRlIFNYPrZ0JAy4L2tLmvLTh0Dn6vj4bajOJ7YisE7kXGtFD6toazJOac+PoJqobEBUvLL07rt0uV/nuPVzsJGV322Nz+KNhXKN95rIUsgJHzzqJKURoB+E+lIHPOEYlrtGkZ49auvbZDJkt2M88SiEVqcHCEFiJRyVpgKHlW+gyT9hH50HqaCDjEOMigIjsX40PcJ4UEc3tnWvQ6V0o/ymEbeKZs0I+K0UzEBPXmN0VborxhGipCYm5zHhlDyRutI8q3NvmnK0tsu/PTDP00US/w+GLoiK+Q==
-Received: from PH8P222CA0023.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:2d7::17)
- by SA3PR12MB196577.namprd12.prod.outlook.com (2603:10b6:806:533::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 18:00:21 +0000
-Received: from PH3PEPF00059618.namprd05.prod.outlook.com
- (2603:10b6:510:2d7:cafe::8c) by PH8P222CA0023.outlook.office365.com
- (2603:10b6:510:2d7::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 18:00:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- PH3PEPF00059618.mail.protection.outlook.com (10.167.243.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 18:00:20 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 09:59:57 -0800
-Received: from tuxedo.docsis.vodafone.cz (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 09:59:52 -0800
-From: Petr Machata <petrm@nvidia.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	<netdev@vger.kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, Nikolay Aleksandrov
-	<razor@blackwall.org>, <bridge@lists.linux.dev>, Ido Schimmel
-	<idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, Andy Roulin
-	<aroulin@nvidia.com>, <mlxsw@nvidia.com>
-Subject: [PATCH net-next 00/13] net: Report requester's port ID in FDB notifications
-Date: Mon, 23 Nov 2026 18:59:15 +0100
-Message-ID: <cover.1795447450.git.petrm@nvidia.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SiAZc5ki
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 502661F000D1;
+	Mon, 23 Nov 2026 18:00:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795456820;
+	bh=VCDgVwIkgLge8GbQvw7KHx7sko0csoUykFdgfMQXgFM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=SiAZc5kiVYEA2z4xL5BwqF+GHuzD7MWu9w6aGI7XCDZPo3LBsrS93UFXFoFXDY0o0
+	 lJcVCtQRmWGmd8ImF4sBgYj4e6EkmDM3kCtWrd3I9Eqy4DMVsDzGb8hkWEEYEcHKJ8
+	 KQ0Zmpv2Gd3mCSSy12qeK5ErOyqf89+DNZLW4DKUJrr0qmh0fERtNA2KOwP5kTJU7J
+	 xQoBH66qED4WJP5lRE2lmxUHDa5o2sckcDt7EGkzGAsCTmaPFdPc0nwYeKrpc34C1x
+	 A6KDnAN36sRVjh8XZ8hAu24LD4kLsw1xeqXjmN7hb8926J0YVWki3sI7bCdbeUsCI1
+	 jbsY1bqrvmOgg==
+Subject: Re: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C
+ tag variant
+From: netdev-bot+sashiko@kernel.org
+To: adilov@disroot.org
+Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ alvin.sipraga@analog.com, linusw@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zectaiga@gmail.com
+Date: Mon, 23 Nov 2026 18:00:18 +0000
+Message-ID: <179545681886.3135.12744267158619416896@kernel.org>
+In-Reply-To: <20261119165129.26693-1-adilov@disroot.org>
+References: <20261119165129.26693-1-adilov@disroot.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,163 +64,200 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH3PEPF00059618:EE_|SA3PR12MB196577:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8be692d-b830-46f1-762d-08df498ba3b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|82310400026|376014|23010399003|36860700016|6133799003|18002099003|3023799007|11063799006|56012099006|261026140227099003|261026121527099003|261028144727099003|261102123227099003|261009223027099003|261022075727099003|261022105027099003|261022115727099003|261022113327099003|261021123027099003|261021135927099003|261021121427099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	zcznk0+trU+I2e1ia/XcyQVVW3soCoQQYup2k5yAZLKhxsNPvQIddz0xhTP87owappsAjgpPWig/lf4ibjeRyc7mKb6UNv1gj33Ynr+BDeFvr4zStcSAjgunrYObGbLWf51ehgGxggV4peeif4nRPhrQnEruXGaBibJSLTAotyveIQ3L2yDuqg3rqOdF5+2MrWpajOP+pxOfxLOggUQt0s9XDdA9ZI31A+x6KiV9sKF/9kIQ+BjrZkf1y7LDOaunHtfsXvKVyTD4rddUG+nCXUVEfM64UUPmHn9+1VPh7SEOS4H7Ena1qyLfRodDWBNQEJfnGQXQ4MsggTLfOuVCN5geJT3qUfhr0/7KaR6Bi+cg/kAZmkXsRTtVdfyE7z2EGHNiZZn6Xq5M/1gCtsrGjxHs8Ih3JWUrhKf68GhH+42BMZWFOZRkdJ2Mbm6Yuk9Rgc88XwBLkyGGp+igPsYSF1eRmrZt7yeir0X51nQE1VeBkEVS6arImnLBeuTzJnkbLAY6rCqWfoZq2N/2Fky5DOMU/+2mz+2m53hAr9djaz7Fe+PzlzLRPfU7vRJUshH6Bo+7Wj1TAQO2VX+q+zR2nuothjIbBCfJZR2PMDjvY1K8neAPbKqfWJewK6bP79Sz6v5Bbg+O76/9j2IXY4T8Tt/wC4bdLK21hPFlX27AhyXMm5u137NImDmt+idYJHTYIWqSHDg2Vc3HZ4gXbVZsEA==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(23010399003)(36860700016)(6133799003)(18002099003)(3023799007)(11063799006)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(261009223027099003)(261022075727099003)(261022105027099003)(261022115727099003)(261022113327099003)(261021123027099003)(261021135927099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	+Fn2TvgDcX91hjdWdv0H07uQkcPuXr5vBddZXmJbbqAahcWobaX0Un9TjaCpDgH9/4G0/3Ltixldlw5NHc8pKL8Y6/1629jwippwWgJc+Qi0S53I2UU2+oHPfx5hS1ohJd+TJb7SN3XJ6ZEJ8N7W8G/Jv9Z+iJYrYRdoOexD6rxGgWPPXJd1TL+yICPsNLPNJRiTOnAQEkrmdQZYPszmxbnkD3MBbqvm74A699HKXylnQ3jDZvE/0jm/lMgRHf5EK0wq6FxuQ0Qt6Dp2T2PmtU3xgI7XDOLiMufG681WiN/zxwfe0DEqqDue+A2DoLt9HMdNxSHN8AbtLy/fMleGU6HDPMLpVby36i0GWY4IWueLS+z9uxL2dSuAfu+/LdbaS35tSpF7KgDsqSyEavADbhBt/gSpbt71Ov3E5O19bmJeDd0Zgzg5AlQHZryY6wKS
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:00:20.5024
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8be692d-b830-46f1-762d-08df498ba3b9
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH3PEPF00059618.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB196577
 
-Every netlink message carries a port ID in the nlmsg_pid header field. The
-port ID identifies a netlink socket. In a request it is the port ID of the
-socket that sent it. When a change that results from a request is
-announced to the multicast listeners, the kernel puts the port ID of the
-requester in nlmsg_pid of the notification. For changes that the kernel
-initiates by itself, such as aging, nlmsg_pid is zero.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-This is used by applications that both configure the kernel and listen to
-notifications from it. By comparing nlmsg_pid to the port ID of their own
-socket, they can tell their own changes apart from those made by someone
-else, and ignore the former. Commit 7b8f7a402d4c ("neighbour: fix nlmsg_pid
-in notifications") fixed this for IP neighbours, citing quagga as one such
-application. Routes and nexthops report the port ID as well.
+Critical: 0 · High: 0 · Medium: 2 · Low: 2
 
-For FDB entries, the notifications (RTM_NEWNEIGH and RTM_DELNEIGH with the
-AF_BRIDGE family) always carry zero, whoever caused them, so applications
-that manage FDB cannot do this sort of filtering. Hence this patchset.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The patchset goes through the following steps:
+- [Medium] This patch adds a new DSA tag protocol, DSA_TAG_PROTO_RTL8_4AP
+  (value 38), and the tagger rtl8_4ap_netdev_ops.
+- [Medium] rtl8_4ap_read_tag() (net/dsa/tag_rtl8_4.c, lines 296-306) uses
+  a deny-list to decide whether the switch already forwarded a received…
+- [Low] The patch makes tag_rtl8_4.c cover a second chip family, but some
+  existing documentation was not updated and the new comment contradicts…
+- [Low] The comment and the code in net/dsa/tag_rtl8_4.c disagree on what
+  REASON means for the rtl8_4ap tagger.
 
-- FDB notifications are generated in two places. The bridge and VXLAN
-  drivers send their own from ndo_fdb_add, _del and _del_bulk, but these
-  NDOs are not given the port ID of the requester. For other drivers that
-  implement ndo_fdb_add / _del, the rtnetlink core sends a default
-  notification on their behalf. It has the port ID at hand, but does not
-  pass it on.
+--
 
-  The obvious way to get the port ID to the bridge and VXLAN is to add it
-  to the NDO prototypes. But ndo_fdb_add and _del already carry many
-  arguments, and one more would further complicate the already unwieldy
-  prototypes, as well as require adjustments in every driver. Instead, in
-  patch #1, convert the prototypes of ndo_fdb_add, _del and _get to take a
-  new struct ndo_fdb_parms. ndo_fdb_get already has the port ID, but it
-  shares most of its arguments with the other two, so it makes sense to
-  treat them alike.
+net: dsa: tag_rtl8_4: add support for RTL9607C tag variant
 
-  A dedicated structure has the advantage that both callers and callees
-  can refer to individual arguments by name instead of by position. Any
-  future additions boil down to a new field in the structure.
+This commit adds a new DSA tag protocol, rtl8_4ap (DSA_TAG_PROTO_RTL8_4AP),
+for the variant of the 8 byte Realtek protocol 4 tag used by the switch
+embedded in RTL9607C SoCs. The tag sits after the source MAC, as with
+rtl8_4, but the fields are laid out differently and the TX and RX layouts
+differ from each other.
 
-  In patch #2, have ndo_dflt_fdb_add and ndo_dflt_fdb_del take the
-  structure as well. That simplifies the drivers that use the helper, which
-  can now just pass the structure pointer right through.
+> diff --git a/include/net/dsa.h b/include/net/dsa.h
+> index 09f3043d57f06..6f86c76253043 100644
+> --- a/include/net/dsa.h
+> +++ b/include/net/dsa.h
+> @@ -63,6 +63,7 @@ struct tc_action;
+>  #define DSA_TAG_PROTO_MT7628_VALUE		35
+>  #define DSA_TAG_PROTO_KS8995_VALUE		36
+>  #define DSA_TAG_PROTO_LAN9645X_VALUE		37
+> +#define DSA_TAG_PROTO_RTL8_4AP_VALUE		38
 
-  In patch #3, move the port ID of ndo_fdb_get from an argument into the
-  structure and adjust drivers.
+[Severity: Medium]
+Which switch driver is expected to select DSA_TAG_PROTO_RTL8_4AP?
 
-- Now that the structure argument is available to the bridge driver, make
-  use of the fact in patch #4. Instead of unpacking the structure fields
-  and passing them on one by one, propagate the structure itself further
-  into the driver.
+The only in-tree user of the protocol 4 taggers is rtl8365mb. It only
+returns the two existing values:
 
-  Then in patch #5, propagate the port ID all the way to where bridge
-  notifications are generated.
+drivers/net/dsa/realtek/rtl8365mb_main.c:rtl8365mb_get_tag_protocol() {
+    ...
+	if (cpu->position == RTL8365MB_CPU_POS_BEFORE_CRC)
+		return DSA_TAG_PROTO_RTL8_4T;
 
-  It is tempting to somehow use the parms structure more extensively in
-  VXLAN as well, but VXLAN has its own large set of protocol-specific
-  parameters. Passing the structure as such is not going to help that much.
-  It looks like VXLAN would ideally need its own VXLAN-specific parms
-  structure. But since the complexity damage here is limited to VXLAN,
-  leave the status quo and in patch #6, just add the new parameter. The
-  patchset is large enough as it is.
+	return DSA_TAG_PROTO_RTL8_4;
+}
 
-- Patch #7 is where the port ID in struct ndo_fdb_parms is initialized from
-  the request. With that, notifications that the bridge and VXLAN send as a
-  result of adding, replacing and deleting an entry carry the port ID.
-  Notifications that are not a result of a request still carry zero.
+Likewise, rtl8365mb_change_tag_protocol() only accepts DSA_TAG_PROTO_RTL8_4
+and DSA_TAG_PROTO_RTL8_4T.
 
-  Patch #8 then adds the port ID argument to ndo_fdb_del_bulk, which does
-  not use the newly-introduced parms structure, and has the bridge and
-  VXLAN drivers use the now-available port ID for notifications.
+So nothing in mainline can reach rtl8_4ap_tag_xmit() or rtl8_4ap_tag_rcv().
+The patch still permanently reserves protocol ID 38 and adds the module
+aliases "id-38" and "rtl8_4ap".
 
-  Finally, patch #9 converts the rtnetlink fallback helper, so that the
-  notifications it sends on behalf of drivers that do not emit their own
-  carry the port ID as well.
+The commit message says:
 
-- Patches #10 to #13 add a selftest. Patches #10 to #12 extend the rt-neigh
-  spec with attributes needed to build FDB delete requests, add the
-  NLM_F_BULK flag to the YNL Python library and add an RtnlNeighFamily
-  wrapper to the selftest library. Patch #13 then adds the test itself. The
-  test is written in Python with YNL, because the usual shell tools cannot
-  show nlmsg_pid.
+    Add basic necessities for this cpu tag variant to function.
 
-Petr Machata (13):
-  net: Introduce struct ndo_fdb_parms
-  net: Pass struct ndo_fdb_parms to ndo_dflt_fdb_{add, del}()
-  net: Pass portid to ndo_fdb_get through the structure
-  net: bridge: Pass struct ndo_fdb_parms a bit further
-  net: bridge: Pass portid through FDB notifications
-  net: vxlan: Pass portid through FDB notifications
-  net: rtnetlink: Report port ID in bridge and VXLAN FDB notifications
-  net: rtnetlink: Report port ID in bulk FDB delete notifications
-  net: rtnetlink: Report port ID in fallback FDB notifications
-  netlink: specs: rt-neigh: Extend the delneigh request attributes
-  tools: ynl: Add NLM_F_BULK
-  selftests: net: lib: py: Add RtnlNeighFamily
-  selftests: net: Add a test for port ID in FDB notifications
+However, the RTL9607C switch driver that would use this tagger is not part
+of the submission. The only testing mentioned was on an out-of-tree OpenWrt
+6.18 kernel.
 
- Documentation/netlink/specs/rt-neigh.yaml     |   4 +
- drivers/net/ethernet/intel/i40e/i40e_main.c   |  29 +-
- drivers/net/ethernet/intel/ice/ice_main.c     |  43 ++-
- drivers/net/ethernet/intel/igb/igb_main.c     |  14 +-
- drivers/net/ethernet/intel/ixgbe/ixgbe_main.c |  14 +-
- drivers/net/ethernet/mscc/ocelot_net.c        |  19 +-
- .../net/ethernet/qlogic/qlcnic/qlcnic_main.c  |  38 ++-
- drivers/net/macvlan.c                         |  33 +-
- drivers/net/vxlan/vxlan_core.c                | 118 +++----
- drivers/net/vxlan/vxlan_private.h             |   5 +-
- drivers/net/vxlan/vxlan_vnifilter.c           |   6 +-
- include/linux/netdevice.h                     |  43 ++-
- include/linux/rtnetlink.h                     |   9 +-
- net/bridge/br.c                               |   2 +-
- net/bridge/br_fdb.c                           | 177 ++++++-----
- net/bridge/br_netlink.c                       |   4 +-
- net/bridge/br_private.h                       |  20 +-
- net/bridge/br_sysfs_br.c                      |   2 +-
- net/core/rtnetlink.c                          |  98 +++---
- tools/net/ynl/pyynl/lib/ynl.py                |   2 +
- tools/testing/selftests/net/Makefile          |   1 +
- tools/testing/selftests/net/config            |   1 +
- .../selftests/net/fdb_notify_portid.py        | 297 ++++++++++++++++++
- .../testing/selftests/net/lib/py/__init__.py  |   6 +-
- tools/testing/selftests/net/lib/py/ynl.py     |  10 +-
- 25 files changed, 669 insertions(+), 326 deletions(-)
- create mode 100755 tools/testing/selftests/net/fdb_notify_portid.py
+Could this be resubmitted together with the switch driver that consumes it?
+
+[ ... ]
+
+> diff --git a/net/dsa/tag_rtl8_4.c b/net/dsa/tag_rtl8_4.c
+> index 4da3beebef75e..c934c232d330e 100644
+> --- a/net/dsa/tag_rtl8_4.c
+> +++ b/net/dsa/tag_rtl8_4.c
+> @@ -74,6 +74,54 @@
+
+[ ... ]
+
+> + * On CPU->Switch however the byte 3 is also different:
+> + *
+> + *  |-----------------------------------+-----------------------------------|
+> + *  |              (8-bit)              |             (8-bit)               |
+> + *  |          Protocol [0x04]          |         TX_PORTMASK_LOW           |
+> + *  |-----------------------------------+-----------------------------------|
+> + *  |     (3-bit)    |(1)|   (1)  | (3) |(1) |(1)|   (1)   |(1) |(2)| (1) |1|
+> + *  |TX_PORTMASK_HIGH| X | PRI_EN | PRI |KEEP| X |LEARN_DIS|PSEL| X |DIRTX|X|
+
+[Severity: Low]
+This isn't a bug, but the CPU->switch diagram calls the forwarding port
+mask TX_PORTMASK_LOW and TX_PORTMASK_HIGH. The glossary earlier in the file
+says "RX (CPU->switch): forwarding port mask", and the code names the same
+fields RTL8_4AP_RX_LO and RTL8_4AP_RX_HI. Should the diagram say RX to
+match?
+
+The new macros also mix two prefixes: RTL9607C_RX_HI_MSK sits next to
+RTL8_4AP_RX_LO and RTL8_4AP_RX_HI.
+
+A few existing descriptions were not updated for the new variant. The file
+header still says:
+
+ * NOTE: Currently only supports protocol "4" found in the RTL8365MB, hence
+ * named tag_rtl8_4.
+
+The tag placement text only mentions "rtl8_4" and "rtl8_4t". The
+NET_DSA_TAG_RTL8_4 help text in net/dsa/Kconfig only mentions the
+RTL8365MB-VC:
+
+	  switches with 8 byte protocol 4 tags, such as the Realtek RTL8365MB-VC.
+
+Could these be updated to cover RTL9607C and rtl8_4ap?
+
+[ ... ]
+
+> @@ -97,13 +146,63 @@
+>  #define RTL8_4_REASON			GENMASK(7, 0)
+>  #define   RTL8_4_REASON_FORWARD		0
+>  #define   RTL8_4_REASON_TRAP		80
+> +#define   RTL8_4AP_REASON_BCAST_TRAP	203
+> +#define   RTL8_4AP_REASON_RESV_TRAP	215
+> +#define   RTL8_4AP_REASON_IGMP		219
+> +#define   RTL8_4AP_REASON_RMA		220
+> +#define   RTL8_4AP_REASON_ACL		227
+
+[Severity: Low]
+The only REASON documentation in this file is the shared table:
+
+ *    REASON     | reason for forwarding packet to CPU
+ *               | 0: packet was forwarded or flooded to CPU
+ *               | 80: packet was trapped to CPU
+
+The new RTL9607C section says only bytes 4-7 differ on switch->CPU. That
+suggests REASON means the same thing on this SoC.
+
+However, rtl8_4ap_read_tag() treats 203, 215, 219, 220 and 227 as traps,
+and none of these codes appear in the comment. It also treats 80 as
+forwarded, which is the opposite of the documented meaning.
+
+The new FBI description ("Only relevant when REASON is FB (aka < 64)") also
+implies that 0..63 are flow based reasons. That conflicts with "0: packet
+was forwarded or flooded to CPU".
+
+Could the RTL9607C REASON codes be documented, and the existing table
+marked as RTL8365MB specific?
+
+[ ... ]
+
+> @@ -153,6 +252,84 @@ static struct sk_buff *rtl8_4t_tag_xmit(struct sk_buff *skb,
+
+[ ... ]
+
+> +	/* Parse REASON */
+> +	reason = FIELD_GET(RTL8_4_REASON, ntohs(tag16[1]));
+
+[ ... ]
+
+> +	switch (reason) {
+> +	case RTL8_4AP_REASON_BCAST_TRAP:
+> +	case RTL8_4AP_REASON_RESV_TRAP:
+> +	case RTL8_4AP_REASON_IGMP:
+> +	case RTL8_4AP_REASON_RMA:
+> +	case RTL8_4AP_REASON_ACL:
+> +		break;
+> +	default:
+> +		dsa_default_offload_fwd_mark(skb);
+> +		break;
+> +	}
+
+[Severity: Medium]
+Is a deny-list safe here? Every REASON value except these five ends up in
+dsa_default_offload_fwd_mark():
+
+net/dsa/tag.h:dsa_default_offload_fwd_mark() {
+	struct dsa_port *dp = dsa_user_to_port(skb->dev);
+
+	skb->offload_fwd_mark = !!(dp->bridge);
+}
+
+That covers the flow based reasons (< 64) from the FBI description, code
+80, and any other trap reason the RTL9607C can emit.
+
+Suppose the switch traps a frame to the CPU on a bridged port for one of
+those unlisted reasons. Wouldn't the bridge then treat the frame as already
+forwarded in hardware, and skip software forwarding to the other ports in
+the same hardware domain? That frame would be silently lost.
+
+Whether this happens depends on which reason codes the hardware emits and
+how the switch driver configures trapping. Neither is visible in the tree.
+
+Would it be safer to set offload_fwd_mark only for reasons that are known
+to mean the switch already forwarded or flooded the frame?
 
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119165129.26693-1-adilov%40disroot.org
