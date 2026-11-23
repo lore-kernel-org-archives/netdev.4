@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795460935;
-	b=EkmlqgsvsuvgeuusDs0h8n6gE5AytPEuBJ3zXkJf0CvFse/8u9rHbYmwE7Mr+Jt7Ce27
-	 kKGakuWTyJZf9v2qx4ITVhGKBRPBXp0iVeHjWOY5Vt5RK+VlnCfK0kfJiJ4h43rdX4Ucz
-	 c1vv27KZDk3unARwlu5nJ0+WssGWrBRcu3pC/Bre0msqO1H261wcs/YEahFEVaF6eP7UH
-	 +2TxGNtSRi6vOAMPmQyit0NXTBVDZsNZDFUzdP0L4RPU6CTr7pUhWyupyPq9Pq0wuDMpa
-	 d63W7LweZcCcaY/Y41wW3RZqHzEuFBeZiG3xXDxXTwaBmfz2q3kPmhhZ7fLorI/Cikw==
+	t=1795461027;
+	b=ETsrRur6KSjJqR+XHQhgfHZvLtouN7TsH/8EZjn0auqDzZdc5wWw9qoY9pzgq0Hv6wNc
+	 RksjKpg135IbwAmGcyYQ/5gqhGZ6tjFUInE10R0wUh4nu8qAE435MDQK0Q3/mu9i8G/nW
+	 l2EzYm0Ei5EEfl40ZIAQagK1iYpBB8Z+n5V0pwfcpl4l3HjORm3KBnMGIaPClS0j/lzZI
+	 juvJmzBmPBTIpZlvDxz4EZTNr3YNW7sSklCzyvpA99rb+wE4saoO/s0numVQqC7OeRybX
+	 Pp6Vfgq9fV+U5BEL4bJ0X4GFrbrqzW135OdljJceKqNALWE4mpy8dr36NQ8e0Vh6wOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795460935;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461027;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
 	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=1Bpf8g/Kvm3EhHimBz2qrE+GvhgrWU9i9uAz53dEKLo=;
-	b=kxUSVyI4i3gJw3EI1bpJcP3+4eN8kntaqq/ylpSRVN9hqYQUhCoTSVfzZn8i4rnj/Sb4
-	 iJ7ogxdaE7Ui81n1b5vqImk3e9zkQ/Wy4w7+wc0zY5r0tZgzYBpZQRYFY4cgbIYwbfavx
-	 zOnqNxMwANcf5IH0X7y2TcmCGGAXmLNGpplMO1pHxmPu1RGPgOakaXdkDkfsN4U3g4wez
-	 ZgwWOkJykEeqb6VO3Br5ZAUrkPBQ9mkrIG3Mgt4IbOrsbpRaOJ2vyTQbyU+ErbnI4uycA
-	 FKxugbrToyq/9bz10nyx9PCIR9vAmM0XsKI0wAEJ5P/qc9auoILsplW0nBbQRZRUePQ==
+	bh=7lQOa9vwijiJOoSBFtm+iD2GmNTwzQakCoKwIBOxlmk=;
+	b=dnKxYVm1H2QQrozpoIZ+03gKJRG1Cu5FfnxLnCkmk4dkZdhq+t+3Wza+U8kzNkj25KLp
+	 CYMl3GR4MbBBj5Y13mLx8AYVcZc0qdC+g1AcbjG46dzD43DC7fAYsY2jykNN/5OReU/jG
+	 cPyfTTKqL+gSnI1M1AoP5/MHPgpMt/T3o/acO6zWlLXr0jw11mAoaSlrzHIW0aX0+ihKL
+	 j/GkdRYl/8yoHigkQ2E7sTmPnZW+P2fgzA+Wd3JtsLSDkpLZ087vuCMf4H8y4eoUbzLyp
+	 wohV/eW/zshXrYwlNuplweJQEGGlzrYEaUO/BIjIk5kdyjsCZIrnymT8qv3AE1Aa0hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8ET3wPO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W9eoMtc2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 737F6606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:08:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08FA7606A321
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:10:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8ET3wPO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BF291F000C4;
-	Mon, 23 Nov 2026 19:08:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W9eoMtc2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15A581F000C0;
+	Mon, 23 Nov 2026 19:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795460934;
-	bh=1Bpf8g/Kvm3EhHimBz2qrE+GvhgrWU9i9uAz53dEKLo=;
+	s=k20260515; t=1795461026;
+	bh=7lQOa9vwijiJOoSBFtm+iD2GmNTwzQakCoKwIBOxlmk=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=O8ET3wPOpU4y0V16ga9GzVE16wz8X6Qh6V/mLf9HYYKFZXMxcSbZb9xO/gqxz8L+z
-	 U3Hkdl+vrTe3gf92zJlKo4hx6iKyc3p1YA4hxcWBhOrUggwiTvG2ztibk9Hvlg+xLx
-	 pj94vQHokU88A/SsVh00ctx6gwWEC8TEZZmN8S2vc3ZbCri+Egvci+30SQDlHdBqXv
-	 NckarYmuw3Z1Qnp5pHVFo3j/zeb9Umaike+kgG3RZv8e8UJ/CKv8KqfGBTGJyLkkyj
-	 sppU2M6cO1nh5Yt/p/q3encHlxZV4KXMzZ7h7UIlnoBbeQbHE7UwyMHWL47eY25fM/
-	 /A5FKBQpSeuYg==
+	b=W9eoMtc20Pn2Eq72HJ7q5SjHR6Rr1imyXyXfRHYq9ePkWuvUhpdG4Xm25EoBHh8la
+	 +oE3aS+RZmuSuOa+bAcxCS0xz+qADvyYfqxUBwyqHB9YAwx4rwOVO7JH6cpCP08zVK
+	 +cGfdnCFxRwMo0hH7hWqGgqLRTVssiyyAzzW/ZnUGQgaAxvAEwBScYLmqcuN2LfhA+
+	 lA0RpcJNQBpMdxNSQtQbKwP1TZGiBabZJHLmTrDxIx1st/tT0CQnLq0PaclJ7HQHGo
+	 ZyiIAvIpN5RXBdtFePhER1MP9WupDivHFLO+/BloZG2EUAFegG5eUODWUB3jn+nWwC
+	 aWeKaOQVCNeGw==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>, netdev@vger.kernel.org
 Cc: magnus.karlsson@intel.com, stfomichev@gmail.com, kuba@kernel.org,
  pabeni@redhat.com, tushar.vyavahare@intel.com, kerneljasonxing@gmail.com,
  Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: Re: [PATCH v5 net-next 08/13] selftests: xsk: send UDP over IPv4 or
- IPv6 between the interface MACs
-In-Reply-To: <20261119164636.1071385-9-maciej.fijalkowski@intel.com>
+Subject: Re: [PATCH v5 net-next 09/13] selftests: xsk: prepare xskxceiver
+ for endpoints on two hosts
+In-Reply-To: <20261119164636.1071385-10-maciej.fijalkowski@intel.com>
 References: <20261119164636.1071385-1-maciej.fijalkowski@intel.com>
- <20261119164636.1071385-9-maciej.fijalkowski@intel.com>
-Date: Mon, 23 Nov 2026 20:08:50 +0100
-Message-ID: <87y0ajpdq5.fsf@all.your.base.are.belong.to.us>
+ <20261119164636.1071385-10-maciej.fijalkowski@intel.com>
+Date: Mon, 23 Nov 2026 20:10:23 +0100
+Message-ID: <87tsl7pdnk.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,40 +65,43 @@ Content-Transfer-Encoding: quoted-printable
 
 Maciej Fijalkowski <maciej.fijalkowski@intel.com> writes:
 
-> xskxceiver sends frames of the loopback ethertype between made-up MAC
-> addresses, and its XDP programs redirect every frame to the XSKMAP.
-> That suits a veth pair that carries nothing else, but not a physical
-> link, where the peer NIC filters out the made-up addresses and the
-> programs take neighbour discovery, LLDP or SSH away from the stack.
+> drivers/net/xsk.py, added later in this series, runs each hardware
+> AF_XDP case on a NIC with a zero-copy endpoint on the device under test
+> and an SKB-mode endpoint on a remote host, without negotiating
+> capabilities between them. Add what such a pair needs:
 >
-> Send the test packets as UDP between the MAC addresses of the two
-> interfaces on any link. Each endpoint takes the IPv4 or IPv6 addresses
-> of the flow (--src-ip, --dst-ip), the MAC address of its peer
-> (--dst-mac) and the UDP port (--udp-port), and reads its own MAC
-> address from the interface. Over IPv4 the UDP checksum is left at zero,
-> as IPv4 allows; over IPv6 it is computed from the known payload.
-> PKT_HDR_SIZE and MIN_PKT_SIZE now stand for variables that
-> xsk_set_flow() sets, so the smallest packet grows with the headers to
-> 64 bytes over IPv4 and 88 over IPv6, and a verbatim stream adds up the
-> descriptors of a packet for its IP and UDP lengths.
+> - --queue binds a queue other than 0
+> - --max-frags, up to 0xffff as it sizes a packet array, hands both
+>   endpoints the DUT limit for TOO_MANY_FRAGS, as each one builds the
+>   packet stream from its own view of it
+> - --timeout, 1 to 0xffff seconds as it is passed on in milliseconds as
+>   an int, sets the RX and TX loop timeout, 3s by default, and once both
+>   endpoints are ready, each waits up to as long while its link is down,
+>   as an MTU or XDP program change on either host can reset a NIC
+> - an endpoint probes only the mode it runs in, taking zero-copy support
+>   from NETDEV_XDP_ACT_XSK_ZEROCOPY rather than from a probe bind; its
+>   XDP_ZEROCOPY bind fails rather than falling back to copy mode, so a
+>   false advertisement still fails the case
+> - an endpoint that only transmits attaches the XDP program only in
+>   zero-copy mode, where a driver can require one for TX wakeups
+> - an RX endpoint fills its fill ring before the bind, as a zero-copy
+>   driver posts its RX buffers then and would otherwise wait for the
+>   first wakeup, which comes only after READY lets the peer send
+> - an endpoint that skips a case sends SKIP on the control channel, so
+>   that its peer skips too rather than failing on the closed connection;
+>   this is how a TX endpoint learns that both XDP_ADJUST_TAIL_GROW cases
+>   skip on an SKB-mode RX endpoint. It then reads until the peer closes,
+>   for up to the timeout, as closing with unread data resets the
+>   connection, which drops a SKIP that the peer has yet to acknowledge
 >
-> The XDP programs redirect only the UDP packets to the test port and
-> pass everything else to the stack, all IPv4 fragments included. The port
-> is written when a skeleton is loaded, so it also reaches the shadow
-> endpoint's copy, whose programs the local side attaches once
-> BIDIRECTIONAL swaps the directions. XDP_SHARED_UMEM picks the socket by
-> the UDP source port, the test port plus the socket index, rather than by
-> a made-up destination MAC, and xsk_xdp_adjust_tail() numbers a grown
-> tail after the UDP header.
->
-> is_adjust_tail_supported() copied all of .bss into an int with
-> bpf_map_lookup_elem(), past the end of the int even before the port
-> grew .bss; read adjust_value through the skeleton instead.
-> is_frag_valid() now rejects a fragment too short for the words it
-> reads, and pkt_dump() prints only the words within the length it is
-> given, which is_pkt_valid() gives as the first fragment's length.
-> write_payload() zeroes the bytes after the last full word, which the
-> IPv6 UDP checksum counts.
+> Cases now default to an MTU of 1500 (ETH_DATA_LEN) rather than the
+> 1518 byte frame size: IFLA_MTU counts the L3 MTU, so the old default
+> changed a standard MTU, which can reset a NIC, for every case. An
+> SKB-mode endpoint raises its MTU only when a case needs a larger one,
+> so a jumbo-MTU peer is not reset twice per case. cleanup_iface()
+> restores the MTU that bind_iface() found once the XDP program, which
+> can cap it, is detached, and fails the endpoint if it cannot, so the
+> result is reported after cleanup_iface().
 >
 > Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 
