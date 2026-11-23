@@ -1,67 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395613;
-	b=lu8va5Z8yMrYjv4839bShxYeQrp08C4K0EvBhzNdufMzz/c+ofBVGT+r/XuZYvzpAKey
-	 B8iA/jXjhuxvrPOf5EawxTpHMhftg8MEd47evKNeJ0PYOtGqObKVexd2FXwO/ueoYSq+L
-	 VJkwO/N8zKDA5YSWwoRRR+RYtiqSh5n4/pT4bWf/og+GDutyp8ZCgzGrkNXCLOUQLoQyi
-	 9RdLgnDzQboXKfWRcakZ45IR2f0GAygD5IigbcI3y/M0b0QyTZ2h0o2RJUA9cml578dln
-	 7omoqzZXObTQn+0uFHwpyYW3rcAz8qMZ4htsxTjKDPvFeIl6yEXWEggxY7BBtWDJsUg==
+	t=1795395618;
+	b=32Oee/8LLZfNJeY5cCgXm4gWE1HwV6LJTnl7FixPlcIHrHwhKdXtXIIQ1aiw49BvT3F/
+	 uNd9/TE4eZeQ7OQlaoAAcz5gjEzJFLSKeevQG5C68986VPme3tcagaBLS0vDMxs/VSLEK
+	 LzeGV4wJO+bJIZgyaB1M6SwJvi/wyx0LYCDJzVkrDB5SY4skPxXZtYG3Ly6RUbZjwkuFc
+	 NHCVhRqAX7axC+tSqM5ga77VHi26uJmSj+T+P4mGh1+f/9gDGBu/j0zvN5Bq8fnhNe9AU
+	 gtt6BSAtBOA4edHN0YpURTWY551O4weXLJ0B/KobYC33Nrtxo9IAiTpWYf2hw8HlDAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395613;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=LQaMs4m0GH1lFeKfuT3qI/9/G/+BZoDLQMFq+/2UF8M=;
-	b=qVytdMh6biKEeVZqND3rsu35qHxmOP0efig/QB8VwNn/eFvZfjdNIeOltbYLaVgkfCuJ
-	 p5czqg+W4sLsL8ymdWk5a9d7A0lfY2R/TnDIZJBMfPlOxy5fApQecfq1IKDBBGvGMZf0A
-	 bWepEyf8sYGjQGmUf1FcBvuBtvAZKHGJSO1J++xoCykOdjJ88vN88nBkyFYzXOtK6i2Ro
-	 7knUmYuvsZCnLdveGoDshJeTKFlPuMeeXxutmZaMByPTs28frKF142lDZ7G+lqKFamrGm
-	 HHCLzHZ84aGqsWRzIvVUbSBuqwiFZXIL8PBkAEPfuG5nRTeLQvfljn0yC7vJkMn+74A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395618;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=iLrnKxxVMWKMeMeAgoH7MuH9sETQs3VlmpYHt8ql4sI=;
+	b=DOWcCik5wEUojNaMa42mCk86Oz+8dV3QLC9lb4RC9sYHlX38ajzZ9sVQsMP2/VQ7O3s2
+	 rmqXswi6NLIIZBEX2sfIpf6L1xseScXTBFk8Bop/EcJRENgk0Ft4qxYWobRZFBtZipSd3
+	 In0Td3R0mUZsZfM2sd0bEjvCsWERZ76cFOfpu/6ot65/cMNB3kob7JNTbDtvWxgkXnHjB
+	 CfTOFmvWWs+aY8kbABZ+LF/+aPV7adKz8dOOTix9/WPysb0Ouriqi9pSoLD2SvQETr9Wy
+	 NaPJl9n5Cfe34F1mdZeZT6a3xRlMmW937vRyJkIPAm2/Je1DAeSESef4x2P8TTJF8LA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codewreck.org;
-	spf=pass smtp.mailfrom=codewreck.org;
-	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=AHGky8Vx;
-	arc=none smtp.remote-ip=62.210.214.84
-Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CsxJXzR1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CEF1606A32C;
-	Mon, 23 Nov 2026 01:00:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CEF1606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3544C606A32D;
+	Mon, 23 Nov 2026 01:00:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=AHGky8Vx
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id 6051914C2DE;
-	Mon, 23 Nov 2026 02:00:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1795395602;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LQaMs4m0GH1lFeKfuT3qI/9/G/+BZoDLQMFq+/2UF8M=;
-	b=AHGky8VxGQMpG5+CbhSEMlv6yHQTRzMXqvtnc+lhWEYAAHLJ6ZvFVaUyzzdNMDQ2iDuEi/
-	h1Ge+zpKfnGentriE0fu7YxVFCQ68o/qEWz0Jh9R9T/9A1tYdIB/mRp61+fQUftuz9xTw0
-	Jg/Lv9n4WZgOqdwKNsnOPXyMs7BUmDaQMfhMCa7MvoAtTNIYgi/pWSs+J+dhdLD0kwaX8u
-	Ium97QQ20D9Sg74sDcWNoJzb4xkgqKdI4+8hYDoiDIgEGYK/ZR7QdfAc/DY2skflybrUOP
-	Pu6llsVxrj4RUUumN/oTRQSGo65EZeiWj8UkLooU/v6cpngXdbl+uLXOeBWWHg==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id 47c69b9e;
-	Mon, 23 Nov 2026 00:59:58 +0000 (UTC)
-Date: Mon, 23 Nov 2026 09:59:43 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>,
-	Eric Van Hensbergen <ericvh@kernel.org>,
-	Latchesar Ionkov <lucho@ionkov.net>,
-	Christian Schoenebeck <linux_oss@crudebyte.com>,
-	v9fs@lists.linux.dev
-Subject: Re: [PATCH] net/9p: client.h: clean up kernel-doc warnings
-Message-ID: <awOP_4jvEyebmc75@codewreck.org>
-References: <20261123004425.1770155-1-rdunlap@infradead.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CsxJXzR1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A9421F000CA;
+	Mon, 23 Nov 2026 01:00:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795395617;
+	bh=iLrnKxxVMWKMeMeAgoH7MuH9sETQs3VlmpYHt8ql4sI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=CsxJXzR1yflwMnj8XPbzLcPCJmf70siSQZaD/VFXj0qrc7OmQbPjZKWb6v7NUd97p
+	 EVgTwO478HHWS0KM3ejN5NFaQDfiovYLGaIFk/jqhi/d/bc40penOkQnCwCjKzxiLC
+	 yXr5ITyUVKhoz0ayrlF8wOHVIGvf2t2NWQqbpA6LtNSn6hpvmAPvkpsAs5MLkioiJT
+	 CUUm6HKvIMtH47SbOJ/xbyJ4P8UHzzMsHrq4ycDpt//TR2rNRV3ZxKyOmlWAyAsyM1
+	 nqac3iYrMpm4VRK2JBMIBbGiHdBKMmds3Eq52DD8dRrl4NPx3SNhIC8a3ww2MrMXyw
+	 ron5q8LYyDA4g==
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 6EB60F40068;
+	Sun, 22 Nov 2026 20:00:16 -0500 (EST)
+Received: from phl-imap-15 ([10.202.2.104])
+  by phl-compute-10.internal (MEProxy); Sun, 22 Nov 2026 20:00:16 -0500
+X-ME-Sender: <xms:IJADa4sWS_dWu437hzP3u_w67qUb75GfYEhu1TxxpCUo9Lsq218FBA>
+    <xme:IJADawRP7O4VUoTS_etAOCQEWoybhwVvPLWPNNTfEGqh-zjIwSRE_ZZhNHMnwcGq9
+    dNTDm10gIMcCymq22gB5myU20ajGQDo42acDS00hnC1bwIFCWIxBcw>
+X-ME-Proxy-Cause: dmFkZTFIEef34L9gI7dEhgKcCVtUw+ZHC7e1XQRRVaW1n+cw99FavR/qIyYWKGr2MqAkqJ
+    6dhS7cnALR9U3ZGnrXPxbBjkn2gnPlsDeJJbmilHbZ2LoGNqFSZCVPqRmwTEDmqyQNYEwL
+    6eMHNPgd/OyeBZuEpy31PIQfTrMNWhreYLasRbhMUMpxMEyQE1jfdf6ma5OFi5/yUoVRUB
+    WKxkGewiptcJ0vE4zUWHQdVw7V6g0usmVnBmOU8E1DJl2AUHmLqFSQxtbEFxPZerZ+9DZl
+    CF6V81tXc9kuP1iBWOa4WhpAf5TahRuYRKw8944qHu1bekT0hg2JpuWuP2dT5kLq7DfXjl
+    nbMAXZ6W6YXQb9BCsBJLYHO9fydxixQTjnwYQ5oBG3KjeLcw5kzd9XDkqkmTMIwtj4pxI5
+    wxEnYzFYasHvRGuYX5dij4IlMU8YdbtToqGlBnFZ9KPMKQy94rItjr69cl0QiROLWpS+xy
+    BnJ6U7bmmpXGdXOzjITEFLcSwkYbpW59VGWKDrbOCGiccG+GFmaOog4xnBlMVQBKr0ZFHJ
+    ERCaDhj+x325PLeYXpu+AniAdKkuKQQEUP0gsSq58IrTLMdImBLQ6/JJLNgKKdUHrvAhTh
+    6ZxcRxRCMuSxXSV6lN0iX9waARWZUoaGEGPlXS/hUM4tmI0eHdeqUZkAIk3A
+X-ME-Proxy: <xmx:IJADa9tgInJBZbfsFld5p5JrI8Itckc4f2VozugegDhGM907yqycEQ>
+    <xmx:IJADa7Xy3LG_ZOZ_qvzau2WE8U1-A1vvhHRRtX6mX1YxYtEAPjVoAg>
+    <xmx:IJADa-UFKkrlDBOhAa5-6tdDePlsI-glyEWAKNNR6eCa_YplXYYaAg>
+    <xmx:IJADa2QQ72b8k_XUKhSAfqzxdUmM6n0BgsgzQFMq0W7EM-xYGnzUaA>
+    <xmx:IJADa9Er_AzpJ81CrK5IEChZ9fPPJmpYEvNOo-MdKuZvbqLn-BZDi3o4>
+Feedback-ID: ifa6e4810:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 438A0780070; Sun, 22 Nov 2026 20:00:16 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,23 +77,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261123004425.1770155-1-rdunlap@infradead.org>
+X-ThreadId: A8Z6fJDuAPLk
+Date: Sun, 22 Nov 2026 19:59:56 -0500
+From: "Chuck Lever" <cel@kernel.org>
+To: "Jakub Kicinski" <kuba@kernel.org>
+Cc: "Donald Hunter" <donald.hunter@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, "Paolo Abeni" <pabeni@redhat.com>,
+ "Simon Horman" <horms@kernel.org>,
+ "John Fastabend" <john.fastabend@gmail.com>,
+ "Sabrina Dubroca" <sd@queasysnail.net>, "Keith Busch" <kbusch@kernel.org>,
+ "Jens Axboe" <axboe@kernel.dk>, "Christoph Hellwig" <hch@lst.de>,
+ "Sagi Grimberg" <sagi@grimberg.me>, "Chaitanya Kulkarni" <kch@nvidia.com>,
+ "Jeff Layton" <jlayton@kernel.org>, NeilBrown <neil@brown.name>,
+ "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo" <Dai.Ngo@oracle.com>,
+ "Tom Talpey" <tom@talpey.com>, "Eric Dumazet" <edumazet@kernel.org>,
+ kernel-tls-handshake@lists.linux.dev, netdev@vger.kernel.org,
+ linux-nvme@lists.infradead.org, linux-nfs@vger.kernel.org,
+ "Hannes Reinecke" <hare@kernel.org>
+Message-Id: <b76fc2c2-466c-4638-876a-3f9af436d29a@app.fastmail.com>
+In-Reply-To: <20261121161302.69f202c8@kernel.org>
+References: <20261113-tls-session-tags-v3-0-91271964cdb0@kernel.org>
+ <20261121161302.69f202c8@kernel.org>
+Subject: Re: [PATCH net-next v3 00/10] Deliver TLS session tags to upper-layer
+ consumers (NFSD)
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Randy Dunlap wrote on Sun, Nov 22, 2026 at 04:44:25PM -0800:
-> Repair all kernel-doc warnings:
-> 
-> Warning: include/net/9p/client.h:52 Enum value 'BeginDisconnect' not described in enum 'p9_trans_status'
-> Warning: include/net/9p/client.h:90 struct member 'refcount' not described in 'p9_req_t'
-> Warning: include/net/9p/client.h:132 struct member 'fcall_cache' not described in 'p9_client'
-> Warning: include/net/9p/client.h:132 struct member 'trans_opts' not described in 'p9_client'
-> Warning: include/net/9p/client.h:147 expecting prototype for struct p9_fd_opts. Prototype was for struct p9_client_opts instead
-> Warning: include/net/9p/client.h:243 enum fid_source { FID_FROM_OTHER, FID_FROM_INODE, FID_FROM_DENTRY, }; error: Cannot parse struct or union!
-> 
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 
-Thanks, picked up!
+
+On Sat, Nov 21, 2026, at 7:13 PM, Jakub Kicinski wrote:
+> On Fri, 13 Nov 2026 14:21:58 -0500 Chuck Lever wrote:
+>> NFSD controls remote access to its exports today by IP address and
+>> hostname. Neither of these are cryptographically secure. For
+>> instance, a MitM can replace the response to a server's plaintext
+>> DNS query. As a result, a malicious NFS client can pretend to be a
+>> client whose hostname matches one that has access to exports it
+>> would otherwise be denied access to.
+>> 
+>> So instead, we want access-control decisions to be based on
+>> cryptographically-vetted objects such as TLS peer-certificates.
+>> In-kernel x.509 parsing would duplicate work mature userspace
+>> libraries already do, so let's make tlshd evaluate peer certificates
+>> in user space.
+>> 
+>> The certificates are evaluated against admin-defined policy, such
+>> as whether the certificate's Issuer matches a particular string.
+>> tlshd then marks NFS TLS sessions with those policy matches. Admins
+>> also provide a set of policy names on each NFSD export (allow_tags).
+>> Computing the intersection with these per-export tags is quick and
+>> completely separate from the details of parsing x.509 certificates.
+>> 
+>> A yet-to-be-posted patch series introduces tag set support to the
+>> exportfs command in nfs-utils. tlshd 1.5.0, current as of this
+>> writing, already implements TLS session tagging.
+>
+> I submitted this for AI review now, I think due to the problem
+> Simon flagged CI didn't just gobble it up automatically.
+> The AI review will not be emailed to the list automatically but
+> hopefully it will be ready here by the time you read this:
+> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-tls-session-tags-v3-3-91271964cdb0@kernel.org
+
+There are some drips and drabs here. I can re-roll, and think more
+about higher level policy-based access control.
+
+
+> Any examples of APIs like the one you're adding working well?
+
+I found one or two while developing these a year ago. Nothing
+is leaping to mind at the moment, though.
+
 
 -- 
-Dominique
+Chuck Lever (Come to NFS bake-a-thon! https://nfsv4bat.org)
