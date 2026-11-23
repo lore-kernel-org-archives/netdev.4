@@ -1,94 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.67
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436083;
-	b=JX3htGIhZv9nlEcaoEd/3kp+alyX+8pZ+BRF2IR6+8rwx3ilr2f29oHDGC0OL/vHzzyM
-	 BjJZCYqUqqchg4+6nutDYffLCkFZHYg4U0wrSa53ZoixhHAfFBVhihDSCjP2XKV+W6S2f
-	 II3gq/23JXedVhVH/0kosM+IM1wVWFauHw0eu6BUK68CFWEJICXtw7thRvJw8edwSTf78
-	 2bas4+VByPauulOEGogEPyHHkFcxPr5sYKnPfgrdV1PIDdnsyqEQNmR5LxehTKm417UkX
-	 g3fpobQly7yppdpwIeitIGrjk2MsRY3+Ju1qtP/larIlMVyCmoTN1AUqqgQve/5r5WQ==
+	t=1795436152;
+	b=a5E13dBcvcZzbuZOmRewopekD9S9rjV3LvH5gBpv4rNYChk8Yh+0rFYJljo3k/Tlm9GP
+	 cs88EmXBP0AJs5lKPoS0tb+BRHObcG+ePl+g33zUtC1NjLD9kLAqSV41Zcj6U3M9LQbUB
+	 YNLVE3tPo8x6Pic4gfFpXF57oqDiOQhIPWdJ4jZwyLZgMJztcgRbazEeL+v5Bwe8uf/rw
+	 qKFTI0G7J7xqEEMhucEyCgi46U/881jxL0V2l+MHGZ430QfWECxw6ScSfosppjUP+0mxZ
+	 Q0F4FYtLOTzB49RKY+onD7AnXhahGZTpcXuNDOx27fSF9ku2s2J9dev/MZ2gGj8ULRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436083;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=fjlxH4l0PpU/A+nrxn7qK+PVufEbeMAD3+j2srfN4gw=;
-	b=y0h4vdOuNq5ovmsOgXlk/80BLik7O/J/im2nzxPws0RMoWnAcxcXa90rhHQq0QdxfLYV
-	 rvS+4QEnBjdS4JBO5OnO/X0sFd6s6+pHTbpTy700ZYAwsxsQ/ZJpf9y3kv0ZoGcttIh5r
-	 d2H7scypGqmN6KFPwYndx89NmYFwbxvAEoKU1FcbqFJ/iVt5tLIB5soz0flRvmoqwjvUT
-	 nEfCeZQLgm2N4Xm4bqm2rELTBNsm137NTgPDCj18pr2+k59tu3uxk52xZbOT76hN/ETpV
-	 Pefxz+QWQKr8RnQzHLGEoSaDeZPKsavd3qShxyuS7EstrAkPnxqSNtIFmkioKu2xkmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436152;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=bZXodFX/JC+676ImzyFGUevH85yaSaEwQLZwFDM7ocA=;
+	b=BazirNstSbX+pyL1JAfX+ABBxW9oJbrtnoIsoiN+LOKCFzkDWMRTuSwcwaHu43S5R4h0
+	 aovgfp30kBQLbGJI6g1/ZIfIyhsmB+PKaUmEXxOYfyDavNnH16Ve9nkQniWotsN6WzbvQ
+	 xhnEYQmU7thDhfMIUUhc/wQx5CyoOyHHQZvKWgJtwX4QayZ5V5s/L1mVxSnxQdp8XgZT/
+	 P94aA3ywKPpSUK4fu7MRLjWPME8AD68HvMNVvq45Dx9vCKfcUydUDt66XrK/iViJ3hhKt
+	 fn3i0HCSb1f40l807zYSFJISUibin+tkvZBfzNUR1AIBMFe0XDgVEbQjedcWzhWYYMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zyE4p50q;
-	arc=none smtp.remote-ip=74.125.229.9
-Received: from mail-dy2-f9.google.com (mail-dy2-f9.google.com [74.125.229.9])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=paZhpFN4;
+	arc=none smtp.remote-ip=91.218.175.67
+Received: from mta0.migadu.com (out-67.mta0.migadu.com [91.218.175.67])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96A40606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:14:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96A40606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36AC4606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:15:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36AC4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zyE4p50q
-Received: by mail-dy2-f9.google.com with SMTP id 5a478bee46e88-384d0550c71so1914301eec.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:14:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795436082; x=1796040882; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fjlxH4l0PpU/A+nrxn7qK+PVufEbeMAD3+j2srfN4gw=;
-        b=zyE4p50qKfzKw/03LnpAPaTgaY/AGG/KVpRD+FjYDC3bCNx7HgM3etTF3DtB3mkPec
-         YWyGc6lxWXgMraGzsskmxphV9yy2xI3P8MVLaJ59IU10LkMUKyVDzUsgNb47+OjMs1Yu
-         Qhq6uFJIDVpiQIKcnWAA+oXxJlNBlg1JhbyN7ZbAaWK52mz2a0BzFU4ZQPqvNth3lVcp
-         ypEjiYc79l5hAt3mXqmt36kJllBCrCAUjqaHPyY4krWkhb+2ZR8f9tEoInLy13LACXHj
-         ijZP6uhUX3zF4DaLE8GP3sUCu6K7jnZ51bO+TJeJV1BRWz1xUx7TUdqHU6nmcl7SZP/H
-         AXeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436082; x=1796040882;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fjlxH4l0PpU/A+nrxn7qK+PVufEbeMAD3+j2srfN4gw=;
-        b=zp2qlhtCsF3MoD7yZqryIl+xfy5ArD0U73ZN8kb/atc2BPr6/rwgzYotcwJ6j1xlKc
-         zoSoWs1ZC8+I1h5UEdzCvcjfmLdfXVpp0fmyLewh/2M58d5+/f2+LQYYRtjw/4anfx1C
-         Z5uqRvjdfoXegZwIdxxUpd5sqjqb3uAeBwOAbZtl/fqs3fzR29fLXwEFaEw9xk4uw71y
-         hju3oYtdlMaWPK0Ne0fkKOlhDFVk5NGhe3aG4L1Kctlze4WOwEv9npev8mlPs5gzrset
-         T9MEvho+EyPp2UF4YWpJxKyDwZ7CivHYFKBgJfmHSnuOZzNcEdfRg/avLn14o70vlGNN
-         wAtw==
-X-Gm-Message-State: APuU4Z/AnML6wFhhEAzVSIrCw/U5jeAgyH5/6E8+V/UaGR0FtO6O9Noh
-	zdEZ5E6xp76hNrMlcbeJyDR0PqOMV2EPdydP/2ThJZVt6+CRR5Tv8PIs9DNF75zcZG7lVYR8
-X-Gm-Gg: AZFdTZcX1x17qnMee4KJTnrLC4iiqK0Ql8D5v5eMdwVV0gGvXmowSRDvYwXRqeGt1DI
-	FZg3a1Kt/Bw3/G605J7svSj3YRuW3XQK7wLV1pw/xrYmu/AYZ9WMZKkHKnRaPkhyyioAoeo3q39
-	0VwuCski7wxOpPin1UF8UckMg/YL6FFgo24KhIe1qEFYkH31K8yaZd26zMJM8kpWcgbtlxIPlXl
-	lnDKjhaI5yiV4wRU4UPg60wVXQXqY12jDrx182dqcZeGUoT7E+w5yIpuwZY4LXO6UOpwvSWLw2z
-	EMgglKJVzlKVbXmST5NsQ7lZKcrRffp5Vxdo6KRISLN3B7oYmCsJNMInJ3B+/JQa+qMb+xhCPkk
-	Ps5mlIq4Tb1IjdfxcXy+yzdbhNsq99Hc3DxAt3oWmdMpQPsBED7zLU/z4HaXLBlf0sAUElvpE0x
-	0pW95aNFcE6Rr8HEYmuxEhZuMJhbp8qXwPxPkWAuM6u8DmBjZI3a4MvlPRGm4z5HiaTeUQXoFgJ
-	DH9KzxLGqf01bUPxH1qkJG2+3pkA8ZYgtEBFpQnXIZ4nCkSgIoNeAWr7w3drCngZlJyVKdjVq0A
-	CCBzw+t7hAyDPNNoxSyBGOdkYnJ3JAyfL6SR1EIO41nsSjAJ9Wg2M4hSpDc=
-X-Received: by 2002:a05:7301:1a08:b0:386:9f4c:e07f with SMTP id 5a478bee46e88-3869f4ce1d9mr7893703eec.14.1795436081674;
-        Mon, 23 Nov 2026 04:14:41 -0800 (PST)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm32691038eec.13.2026.11.23.04.14.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:14:41 -0800 (PST)
-From: Coia Prant <coiaprant@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=paZhpFN4
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=oQZk156dD6Bt0vOiMV0cjdp6bnV2K6jfTP6MrnNniCw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795436149; v=1; x=1796040949;
+ b=paZhpFN41ov31O7rLqpKuLrZZR09hWndkUHmR6PrAswDLT3/z6MYNLfeFDkSZ5KVypk13ZyU
+ uCoyey0R2GVycZSp7kzYsjkz14Vxq3/Dt1Y6pHCdidZ5ObGthWEN2dLNIjRVNctapGTPAJrqeG2
+ DnfAwwzJBRAwIEA9sJc38+yk=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 6e185afc4a3cd36b;
+	Mon, 23 Nov 2026 12:15:49 +0000
+X-Mizu-Trace-ID: 6e185afc4a3cd36b
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
 To: netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Kenneth Lee <kennethbwlee@snu.ac.kr>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH] net: pcs: xpcs-rk: use cleanup.h for platform_device reference
-Date: Mon, 23 Nov 2026 20:14:36 +0800
-Message-ID: <20261123121436.564486-1-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	Simon Horman <horms@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Wang Zhan <wang.zhan@smartx.com>,
+	Martin Karsten <mkarsten@uwaterloo.ca>,
+	bpf@vger.kernel.org
+Subject: [PATCH net v2] net: xdp: fix generic XDP on skbs without an Ethernet header
+Date: Mon, 23 Nov 2026 20:15:34 +0800
+Message-ID: <20261123121540.275576-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,79 +79,94 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Use the __free(platform_device_put) cleanup action to manage the
-platform_device reference obtained from of_find_device_by_node().
+Kenneth Lee reported a bug [1]:
 
-This removes the need for explicit put_device() calls on every failure
-path and at the end of the successful path, simplifying the function
-and reducing the chance of reference leaks or double puts.
+  skb_vlan_push got skb with skb->data not at mac header (offset 14)
+  WARNING: net/core/skbuff.c:6474 at skb_vlan_push+0x5ec/0x8a0
+   ____bpf_skb_vlan_push net/core/filter.c:3239 [inline]
+   bpf_skb_vlan_push+0x216/0x8b0 net/core/filter.c:3229
+   bpf_prog_run_data_pointers+0x17c/0x240 include/linux/filter.h:917
+   tcf_bpf_act+0x31c/0x940 net/sched/act_bpf.c:50
+   tcf_action_exec+0x2c1/0x720 net/sched/act_api.c:1147
+   tcf_classify+0x6e4/0x1080 net/sched/cls_api.c:1860
+   tc_run+0x31c/0x5d0 net/core/dev.c:4411
+   sch_handle_ingress net/core/dev.c:4486 [inline]
+   __netif_receive_skb_core+0x141b/0x2ec0 net/core/dev.c:6054
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
+bpf_prog_run_generic_xdp() reads xdp->data as an Ethernet header. On an
+L3 device like sit0 there is none, so the "did the program change the
+header" check compares garbage, and the fixup:
+
+	__skb_push(skb, ETH_HLEN);
+	skb->pkt_type = PACKET_HOST;
+	skb->protocol = eth_type_trans(skb, skb->dev);
+
+leaves mac_len == 0 with skb_mac_header(skb) == skb->data - ETH_HLEN.
+tc ingress then can't get skb->data back onto the mac header.
+
+XDP is Ethernet only, so refuse to attach a generic XDP program to a
+device that is not ARPHRD_ETHER.
+
+The one exception is lo. Its type is ARPHRD_LOOPBACK, but it uses
+eth_header_ops and eth_type_trans() like any Ethernet device, so its
+skbs do carry an Ethernet header. Generic XDP on lo works today and the
+BPF selftests rely on it (xdp_attach, xdp_devmap_attach, check_mtu,
+...), so keep allowing it.
+
+Rejecting the attach is not enough on its own, dev->type can change
+after the program is attached. An empty bond or team takes the type of
+its first port, and TUNSETLINK lets a tun device change its type.
+dev->hard_header_len is no help either, it is what the driver wants
+reserved on TX and many Ethernet drivers make it larger than ETH_HLEN.
+So also skip the program for skbs whose mac header is shorter than
+ETH_HLEN.
+
+[1]: https://lore.kernel.org/bpf/20260812043643.808295-1-kennethbwlee@snu.ac.kr/
+
+Fixes: 297249569932 ("net: fix generic XDP to handle if eth header was mangled")
+Reported-by: Kenneth Lee <kennethbwlee@snu.ac.kr>
+Closes: https://lore.kernel.org/bpf/20260812043643.808295-1-kennethbwlee@snu.ac.kr/
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 ---
- drivers/net/pcs/pcs-xpcs-rk.c | 20 +++++---------------
- 1 file changed, 5 insertions(+), 15 deletions(-)
+v1 -> v2:
+ - Generic XDP does not support L3 devices, as discussed on v1. Reject
+   the attach and skip skbs without an Ethernet header, instead of
+   running the program on them.
+ - Target net instead of net-next.
 
-diff --git a/drivers/net/pcs/pcs-xpcs-rk.c b/drivers/net/pcs/pcs-xpcs-rk.c
-index e0057545329a..8539caff6725 100644
---- a/drivers/net/pcs/pcs-xpcs-rk.c
-+++ b/drivers/net/pcs/pcs-xpcs-rk.c
-@@ -481,7 +481,6 @@ MODULE_DEVICE_TABLE(of, xpcs_rk_of_ids);
- struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *pcs, int port)
- {
- 	DECLARE_PHY_INTERFACE_MASK(supported_interfaces) = { 0, };
--	struct platform_device *pdev;
- 	struct dw_xpcs_rk *pxpcs;
- 	struct dw_xpcs *xpcs;
+v1: https://lore.kernel.org/netdev/20260813113229.381136-1-jiayuan.chen@linux.dev/
+---
+ net/core/dev.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/net/core/dev.c b/net/core/dev.c
+index 1a63f6b939f7..7598ac4c217b 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -5844,6 +5844,10 @@ static u32 netif_receive_generic_xdp(struct sk_buff **pskb,
+ 	if (skb_is_redirected(skb))
+ 		return XDP_PASS;
  
-@@ -494,7 +493,7 @@ struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *pcs, int
- 	if (!xpcs_rk_mdio_addr_validate(port))
- 		return ERR_PTR(-EINVAL);
++	/* XDP is Ethernet only, skip skbs without an Ethernet header. */
++	if (skb->data - skb_mac_header(skb) < ETH_HLEN)
++		return XDP_PASS;
++
+ 	/* XDP packets must have sufficient headroom of XDP_PACKET_HEADROOM
+ 	 * bytes. This is the guarantee that also native XDP provides,
+ 	 * thus we need to do it here as well.
+@@ -10869,6 +10873,12 @@ static int dev_xdp_attach(struct net_device *dev, struct netlink_ext_ack *extack
+ 			NL_SET_ERR_MSG(extack, "XDP program already attached");
+ 			return -EBUSY;
+ 		}
++		/* lo is ARPHRD_LOOPBACK but uses Ethernet framing. */
++		if (mode == XDP_MODE_SKB && dev->type != ARPHRD_ETHER &&
++		    dev->type != ARPHRD_LOOPBACK) {
++			NL_SET_ERR_MSG(extack, "Generic XDP only supports Ethernet devices");
++			return -EOPNOTSUPP;
++		}
+ 	}
  
--	pdev = of_find_device_by_node(pcs);
-+	struct platform_device *pdev __free(platform_device_put) = of_find_device_by_node(pcs);
- 	if (!pdev)
- 		return ERR_PTR(-EPROBE_DEFER);
- 
-@@ -515,27 +514,19 @@ struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *pcs, int
- 	 * destroyed (DL_FLAG_AUTOREMOVE_CONSUMER), so no explicit
- 	 * device_link_remove() is needed on the failure paths.
- 	 */
--	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER)) {
--		put_device(&pdev->dev);
-+	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER))
- 		return ERR_PTR(-EPROBE_DEFER);
--	}
- 
--	if (READ_ONCE(pdev->dev.links.status) != DL_DEV_DRIVER_BOUND) {
--		put_device(&pdev->dev);
-+	if (READ_ONCE(pdev->dev.links.status) != DL_DEV_DRIVER_BOUND)
- 		return ERR_PTR(-EPROBE_DEFER);
--	}
- 
- 	pxpcs = platform_get_drvdata(pdev);
--	if (!pxpcs || !pxpcs->bus) {
--		put_device(&pdev->dev);
-+	if (!pxpcs || !pxpcs->bus)
- 		return ERR_PTR(-EPROBE_DEFER);
--	}
- 
- 	xpcs = xpcs_create_mdiodev(pxpcs->bus, port);
--	if (IS_ERR(xpcs)) {
--		put_device(&pdev->dev);
-+	if (IS_ERR(xpcs))
- 		return xpcs;
--	}
- 
- 	/*
- 	 * The RK3568 XPCS supports 1000BASE-X, SGMII and QSGMII.
-@@ -547,7 +538,6 @@ struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *pcs, int
- 			  supported_interfaces);
- 
- 	xpcs_config_eee_mult_fact(xpcs, pxpcs->eee_mult_fact);
--	put_device(&pdev->dev);
- 	return xpcs;
- }
- EXPORT_SYMBOL_GPL(xpcs_rk_create);
+ 	/* don't call drivers if the effective program didn't change */
 -- 
-2.47.3
+2.43.0
 
