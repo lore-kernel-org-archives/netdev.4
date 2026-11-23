@@ -1,66 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795467264;
-	b=TzDUZZWreOW9aDDsVvgWdSr54UXxZea/+ibaX4hm6qEtWExIKOjsNAaNJ9CLeS4RYGH6
-	 KggknuJX9uZCa1x8eAt6xyIX8z8Fe5mopqxOLZ/4AG7rer3OT7OLleL1jN1OeGKtGfleN
-	 iK+pDJ5kOunMpxEWluGGCxldoFec/f6zs8LsmlIDCtpnRNUFXWZanzOeNxd54+z6bVBEm
-	 HZHTxlN9/QhZwu29ySwkwgz6oLHdXenDO3rR6rN4TZvzCUxRTZooTYcfrBDdtPtOVtisb
-	 t1giMVxUy7y4yx9Pd81UvBYs+9bsTuP14f6sX5/b9W4av913JStSnyE5C+WoSiqefcw==
+	t=1795467364;
+	b=ROmwVb0UrLV0wfzON4BeOJNDy27VJQxeP5oeSFoBsrdgH9tP29N1bn5/4kh0EQ4CB/1o
+	 TGB+Hgj7o280cWVdbgwWQF56Wari2mXNUlyYasCTn1DJ1qNZez+fl30fVNs/ng9Coby8V
+	 bWWG8w61xQacCIvMalK0kj0U47F8ODnIAD4T2vaCl+Y8WZEz4tYh5R0vlYVH+91SJh3ml
+	 U80RHN8k2SqXpzIepJ0w26qtaIhCbBYVQz1vhc+fLthRgJd7/bWNKQVnOvtRUyzSxTS07
+	 SbKfYgshhSB7MxC0h32+qbl+d20oU3AkntmkusXNgMWfHgkXIHYzL+qtC4SIoIc5HxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467264;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=9kwWGU/9XS+mypuJXIfY4mEcVCcegopNjEMl3o9RBnU=;
-	b=fx2sNG9aMcQJ0WBwZdbsG6XTWgK5WoxTc49vvu2ReWuSgeiPr73Tt82hhIlP2HlKkrtR
-	 hdN0xRW9USsRrloBrla9QPAgHZMxO9RD7M/q/ah6XecCH7u74JjCuGAiqeWEKGbn7vKLr
-	 VDG0htVKydc5O+yy1x5fvIfeCuWnQfna9AwRnGnoPJYR2eizfiXMz4/Ay7ImFjudmgMh1
-	 Y1L3A0Gg7lEN2kWF8wr3Z0t/Td+/zAzSVJK0+IQV1LZbNiPQEHk21Z2Yc08tvTkAjOVTO
-	 FF6yo2O+yQufFgty9o3lZ2T97ZobcZ4wGGNf1FyQ8L++d7JGvPvTg0vcwpUaBUYm28Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467364;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=HAvjf+qFnF2PlnNrWEQfKw74csMPKo5xN9MJAY/vfc0=;
+	b=16jcPPk6Lw2XFZ+Wjcf9HoaiHQMctGwS7aboTyYVJY0GRNcAsfsXDTAcx2nOWNLT/jwA
+	 ZN4E+N2p1vK8QhApskykrdCcR84ozBIJOzY4uY1w7g4hWltTBjdEDHbrVLd38+/zRaAdw
+	 G+90Ie1+hArBGD7g6Haf9o+aEsSI5bXOYmYvNOu40kzRLuTwrD8LleOzNeKGd6B6NGjEn
+	 5Obx9na2+9Y2mgfHeDiqtm1o8Wvjqfz4GAkrmJ3FBfAzJQg/JSZz2iq9ww7oKjVSqK+rl
+	 eXOq6wAAv0MT7ltFng2OnxLKP2hbjfLMBB4FvrB1tfXNmkD/KVnEaTMXy5R2sovsBHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=EWobnZB3;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SyufintC;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2BBE606A31E;
-	Mon, 23 Nov 2026 20:54:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2BBE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EE13606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:56:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=EWobnZB3
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=9kwWGU/9XS+mypuJXIfY4mEcVCcegopNjEMl3o9RBnU=; b=EWobnZB3eRH0Z/c9+cvmY5m4mE
-	2uUmCGnrC7Lthwr9+mj82ikAfK3S1HKDhJdYIkNxb7oTyTMeLKHKbB3Djf0X3QZ3If4IwvLx6fk37
-	a5mWZ7j6Jb3d+tTgPoQQrIOx7o3pENI7z7rk2dqgNXLOCWsPg31/TEGONQfGI4GnRWXA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVb3D-000tJt-3G; Mon, 23 Nov 2026 21:54:11 +0100
-Date: Mon, 23 Nov 2026 21:54:11 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: filipp.dunsky@gmail.com
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 0/3] Add Cortina Systems CS7542 MDIO
- controller support
-Message-ID: <25226a92-b234-4c1d-96c8-24ab5b9878fa@lunn.ch>
-References: <20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SyufintC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A7431F01567;
+	Mon, 23 Nov 2026 20:56:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795467363;
+	bh=HAvjf+qFnF2PlnNrWEQfKw74csMPKo5xN9MJAY/vfc0=;
+	h=From:To:Cc:Subject:Date;
+	b=SyufintCTIvTXofljWuywuFKxyTrKNIjBQfzoo8FX1eNNrTJvqz+ff4VSTZIFMXsK
+	 K+nCP53efjnW+7DH60/NPz7vYYFVf+lDu0KD8AvdVfCbtrCwcVBD5ws5DXLDO28nUG
+	 lA5Tp3roSpsR8wVDxeGaZzWd/DB1RgFkqQwQ35xqumPFufkpnVmgzzdmysPIWP/OHh
+	 TikBSeFbnjqCjsba/SNzHonKbIXNmWamhzSa9t0rGJHEjYjWcMB2KvSPaLmez5AW82
+	 HNa6G5hLDvd4vZfuuyNTxtpfz71MX5m4xopLdv/YN2VNMzg4MoDeHNo9J0WCDaEqwl
+	 6BFhMFzDQwGpA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: davem@davemloft.net
+Cc: netdev@vger.kernel.org,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org,
+	ahmed.zaki@intel.com,
+	jacob.e.keller@intel.com,
+	intel-wired-lan@lists.osuosl.org,
+	anthony.l.nguyen@intel.com,
+	przemyslaw.kitszel@intel.com,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: [PATCH net 0/2] eth: intel: fix unintentional symmetric RSS
+Date: Mon, 23 Nov 2026 12:55:58 -0800
+Message-ID: <20261123205600.1794292-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,19 +65,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 11:40:37PM +0300, Fil Dunsky via B4 Relay wrote:
+Fix Intel drivers not handling RXH_XFRM_NO_CHANGE.
 
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+I had an urge to "fix this in the core" and hide RXH_XFRM_NO_CHANGE
+from the drivers, by fetching the current config instead.
+But "NO_CHANGE" values are already part of the driver facing API
+(hfunc has ETH_RSS_HASH_NO_CHANGE). Besides we can't _completely_
+hide RXH_XFRM_NO_CHANGE from the drivers, since we want the drivers
+to be able to populate the defaults for new RSS contexts.
+We need a "user didn't say" value there.
 
-  Resending after review
+---
 
-  Allow at least 24 hours to pass between postings. This will ensure
-  reviewers from all geographical locations have a chance to chime
-  in. Do not wait too long (weeks) between postings either as it will
-  make it harder for reviewers to recall all the context.
+Matt pointed out that the upcoming RSS sizing series breaks
+NIPA tests, this is because the fix we shared in June:
+  https://lore.kernel.org/20260626152636.1e48330f@kernel.org
+or Maciej's version:
+  https://lore.kernel.org/20261007200311.730443-1-maciej.fijalkowski@intel.com
+is still not upstream!?
 
-  Andrew
+Recent discussions suggest that Intel maintainers may be willing
+to ack patches on netdev directly. Let's put that to tests.
+
+Note that I think this is a major bug likely to bother real
+users so I'm targetting net. Przemek's series will have to
+wait for net->net-next merge.
+
+Jakub Kicinski (2):
+  ice: don't unintentionally switch to symmetric RSS hash
+  iavf: don't unintentionally switch to symmetric RSS hash
+
+ drivers/net/ethernet/intel/iavf/iavf_ethtool.c | 3 ++-
+ drivers/net/ethernet/intel/ice/ice_ethtool.c   | 9 ++++++---
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+-- 
+2.56.1
+
