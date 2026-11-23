@@ -1,100 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451523;
-	b=CuE4Qvt0Dx+7fYRKlNnvI8lEGVhUm5XXwXvDeAIYqwf/s7pJXe8w1kRe5x0RJg4rcVnT
-	 YixSLz793dE+pNhVIl5SXeWl+fJKcT8IGi1/PKR9atCQnfXEc5QaDziBgMf6hXUrDhilL
-	 EB3kvtKIYKTd32y491WeB4fIYnzCkiOpbX0f8FvUD0sevaDg/XNkgRX7gCFA7RygE5pAz
-	 j3W8qYnCi99Bbm2k7trzUTBlaF75usr45TLyXDvu/ko780SpS4PkQnGj+7PAeQ+TeE/6w
-	 Y72kUnf6I/JP17RFz9odXPRxr2zZmHXYAdwI5dl6X8cvDCWp9KH/dIaih4Dn67wBZjg==
+	t=1795452248;
+	b=szYsGarJrQ3O2QwZ5hQP/72a78hGcVBvIJm8x9kvrV9khVPX8FcaRUXvfKI/4JndVPQw
+	 7pBwhzeZDIolD+yLpFjMiHEmp1ce6Y8WWB/xTBJyu/RZDa87cDyetg2F/lLQUlMPSVuTX
+	 8evK+Sm1zidJJHDD4tXirlHddYtnUXCvF7nwoMfBo/I2haHlA/mznHhkxzCH1WQl8a8V/
+	 YkXCjho7OjB/VKvLazIcvQlqHYZwTHPfW09mDI6oyKHK5KXA3hW3l2DdH83TLkdycKiwb
+	 jTo0YbF7hP/l5MeyXJgQH+KML5WwKx77QJL0MK8sV9QEXZImBy02HYfH6p5/mZ7C1/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451523;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=rrmNHSU3ypTCqoRrLbiif4hQznku7QNW/QdUBxa7ntk=;
-	b=5Z2L82GGoY71D+SKFpVD45yjS5DdSF/i6I+GoJiwxqTsDUghDBtua7GeajZEi4NS5cDg
-	 xyfpc97FNT37/6f27HszF+n7+2STTmfkF5BjwoqD1HQJcTpZPIP96I85bkDkMBSDXrce5
-	 OwRp3eoD9ll0By3oUlMvPmC7JXqGtTgm8de6yM8zh0Bf3P/46g2FGZC8am7i7jaSsuWDT
-	 sXEgZ+LDY0hPWBg+60Pi/m7nElVkszcKMkjQ4LlqiD4bRuZY+CCIEP9ZV/y8ezZvWn91g
-	 P/Qc+I5AcoOoLoj3AVNqW7rLJS1ERt/1Kr4cAScKC4djZ+nqet9r/5tyaSe3adD+ZtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452248;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:
+	 X-purgate-type:X-purgate-ID:X-purgate;
+	bh=+j8NlTDkaSolKJC2T/OgIC4R3UPkUPvo0idclAridzw=;
+	b=jZXaBHdptvKePGgFyHCKx7tsLPwvuThWS871Za40506dOX+FIBxFWfVL50mKvfocF3O4
+	 PRIi5EH7sbJpeO7O5Nv+rhgeQbjxOlospTKAr6K1Y8//Yl5Gb233pwyoTGqt73xtOBKaS
+	 /OIilQONsVVNXEpw/GCoVU1T07+brpyibS8ZaFOVY/A+eddj8EagX8U+zz3q5D8tB/lXn
+	 u4SBCLwSnpf3UiU1CKlvgUkBtN3xUWhIoI92o1yvdU6cjm7Lin2ewB6gTzqW7zkOxCa7H
+	 4jpWvS+QWxjLR2R1xeUKtXeqIcRnaGAbAm4Il9Y2XcgogQBR8v0DZLSNI/Zpac917EQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CpQgYNvD;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=Y4klHzNh;
+	arc=none smtp.remote-ip=91.198.224.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E9BB606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:32:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E9BB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC70606A31A;
+	Mon, 23 Nov 2026 16:44:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC70606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CpQgYNvD
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-33fb4680717so9553953eec.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:32:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795451523; x=1796056323; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rrmNHSU3ypTCqoRrLbiif4hQznku7QNW/QdUBxa7ntk=;
-        b=CpQgYNvDlFm0WiYd39sOK1W0UR0I7V31U8ortklh7qSSwm6F8QJBjE2TEoURaVPaio
-         Srr2IE+9Tm0WbczfgbG+NWbjvV2h91gsiKYgbaklbxHOHby5HGHBvez4C8KMrJuSEbXI
-         M0VW36eGCJH5M5vt9n0DaQVPCyYGNgKTxr2hdPO+XPO7GPuSmj8XnJ2eBEwIpI2wFnfQ
-         T10LTXL0XnaQar7JkJJHwVnpHD61Hd7Joe/guVvRpbjBuxIE7Ebags33MrTLM8qahW0r
-         XDFyWIgI+mCm592NsA5FxqrxKidmPHa5kZOFVc6CZu9mex+kyt0n2fk0EUWL7hBNYIhk
-         BJQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795451523; x=1796056323;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rrmNHSU3ypTCqoRrLbiif4hQznku7QNW/QdUBxa7ntk=;
-        b=Z8Uq/J/l7wh7rhsmqXslDX+O5LXtB1qVcvm3erMVyXGljNHOPA45XaQ+ORtxv5xvCc
-         f9RHzjZUQforMVCe5pSSLSjB61NmOP2VLv8ZLdygW4f9i2aAtcNF+a76rXRTTtCZ2B9j
-         NG9mQxoOeqjjMaDY/0mVcAugWk3OwJ7C6X5llK0BD8/nwfczQbhgSTo9wZTlH1D34d0/
-         AV2vVtnfZI1mJrXSXCFlKkTU5D9qXi9GzibBU1In0kq+jktr9euKknNOrUva/CIrDIJJ
-         oKK9nYSiyM9xAlF1wtGaypxhU7O5oEEbzxDN62wx8CMB1hxjlQZTHDOzpKHkKipSGJXf
-         fzeg==
-X-Forwarded-Encrypted: i=1; AL+hErE+0mItuRFua3NoPLaH6S8TB2YZH3hWr9q/2H7LLARgNhyuSF/e0I+XupYE7XpbkGPP2/eqptU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/X9GwpSx/MsCHb3xNzp2UeGxCtOiXJsYft0X8v0h/3zWvbJx/W
-	CsRGolyMN6pqX8N6NnY+tRUjszmQFhqpN8UiVQAJQV8K4kW3GUxGHMw=
-X-Gm-Gg: AZFdTZcPVF8PD0lBtStDfkhZyaxzn49fqUQPKH3QIsbvzrcf2HaU0mywbpyRptDRizO
-	OnkqkACg0QBx0MWVg+z7gmfTbCDMPiHpXfibb4Un8lcHbIO/QGJQdIq1a1hkIjmhL0CUtgIIzEF
-	+82vUSvP6sAEHAz4Alzo18bBPmKTphYGCOy7ABjGeSRWcL4gdgB7b+yFY19wnczHS2r4OqttHh9
-	GUQJXCJNVAlhYSt6hghsFtowTH/BD5V5oMXo27fnJJgkENCoWEi+HvQ46luCcw1Z9kXGxKVx1bY
-	8I3f6jAur5ownwVm2ouMI64Mtuu6VvQZl28DeAW+gCxb0NT800UzUvLJb3bSUat9GpUS6yVy22n
-	Cc+3HVDqtvsRz5N2JAQFlR1CIopEP9nUx+K+/dCg1lUce7UzWgFLEP34LsIeGSohaKEF7JfItDc
-	KTabWll1HvxX4PfmSKP9bfoytcasbSGT7OJxla5BDZab/xfZMAO8C+2HEL7SH3GJQehnGTHBMp8
-	Z2k+fSZ91VTT51/yK62HJ7yoUig9CMEgTrhtzNO5Tfze0DrCISzJn/EjykGXSjMioJP+vknN8B6
-	X6p23TEVc0gVs3PdFfdQOKSH7Kdv3DMjNSpKRfYRZD1c4yxhPPVvQ7FOcw==
-X-Received: by 2002:a05:693c:88c7:10b0:386:b3aa:77f0 with SMTP id 5a478bee46e88-386b3aa7d6emr2891515eec.18.1795451522495;
-        Mon, 23 Nov 2026 08:32:02 -0800 (PST)
-Received: from localhost.localdomain ([218.212.26.103])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm9727659eec.27.2026.11.23.08.31.59
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 08:32:02 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: MD Danish Anwar <danishanwar@ti.com>,
-	Parvathi Pudi <parvathi@couthit.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Mohan Reddy Putluru <pmohan@couthit.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: ti: icssm-prueth: Retain port node references until remove
-Date: Tue, 24 Nov 2026 00:31:30 +0800
-Message-ID: <confirmed-20261105-26-ee6bb3813c44@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=Y4klHzNh
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
+	id 1xVX9C-00GtH9-2r; Mon, 23 Nov 2026 17:44:06 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xVX9B-002tZ2-Ix; Mon, 23 Nov 2026 17:44:05 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795452245;
+	bh=+j8NlTDkaSolKJC2T/OgIC4R3UPkUPvo0idclAridzw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Y4klHzNhRpNdJtjtlMPEEhin3Zm4SRR/9BU/KQ8b07eaLwlT2b5T7Jb79KXl3RNrT
+	 lqQFNPbbJOoCI3ZW29fke261imKo+P5PYfcSM5Kl4ImAzcFOswVZAhnPaPCwHPjw2v
+	 HrXpKH6dyS9/dSthjbLw0f+NJo0wwFUMGRkOudOtn3qaVvv09dWgtSLIJAZK6th1ut
+	 MIo8JF7vOUHuiw9oytM889tcfBbw98f4PntmWPrIy+oao/lj51plBUz+FgpArjoFDK
+	 +7pOMLhvmllnoCmWWaqfS2i6S7NL9F0qN6M0MxvzWxlPdSOIpibE4afyiNpK8AcQ7F
+	 vjUjNW7YiK2Ew==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id 0CD5D240041;
+	Mon, 23 Nov 2026 17:44:05 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id E789E240036;
+	Mon, 23 Nov 2026 17:44:04 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 905C920059;
+	Mon, 23 Nov 2026 17:44:04 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,44 +71,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Mon, 23 Nov 2026 17:44:04 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: shyckless@gmail.com
+Cc: davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org,
+	pabeni@redhat.com, netdev@vger.kernel.org, linux-x25@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+	paul@paul-moore.com, stevewong@hust.edu.cn, kaixuan.li@ntu.edu.sg
+Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
+ label on accept
+Organization: TDT AG
+In-Reply-To: <20261123-x25-v1-1-4432d3892f8b@gmail.com>
+References: <20261123-x25-v1-1-4432d3892f8b@gmail.com>
+Message-ID: <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-type: clean
+X-purgate-ID: 151534::1795452246-CD763E18-5E6CCF35/0/0
+X-purgate: clean
 
-icssm_prueth_probe() takes a reference to each available port node and
-stores the nodes in prueth->eth_node[]. Those references are released
-both at the end of a successful probe and in icssm_prueth_remove(), leaving
-one excess put per port after unbinding the driver.
+On Mon, 23 Nov 2026 01:31:20 +0100, Suyuan Wang wrote:
+> x25_make_new() creates the socket that accept() returns by copying
+> fields from the listening socket, but it never clones the listening
+> socket's LSM security state -- there is no security_sk_clone(osk, sk).
 
-Keep the references after a successful probe, since the stored nodes are
-used during teardown. The existing remove path and probe error path then
-each release the references only when they own them.
+Thanks!
 
-Fixes: 511f6c1ae093 ("net: ti: icssm-prueth: Adds ICSSM Ethernet driver")
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-AI assistance was used for analysis and patch preparation.
-
-Based on next-20261104 (8b7179210b22).
-Compile-tested: arm64, GCC 14.2.0, W=1, drivers/net/ethernet/ti/icssm/icssm_prueth.o;
-baseline and patched objects built with no warnings.
-Static source review; no hardware, boot, or KASAN test was performed.
-
- drivers/net/ethernet/ti/icssm/icssm_prueth.c | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index b42c98e861e081d6c616881786b94e8bcde6b944..4f9529e0e404fd9cfee9e7340f2f048442ab938a 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -2018,10 +2018,6 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 	dev_info(dev, "TI PRU ethernet driver initialized: %s EMAC mode\n",
- 		 (!eth0_node || !eth1_node) ? "single" : "dual");
- 
--	if (eth1_node)
--		of_node_put(eth1_node);
--	if (eth0_node)
--		of_node_put(eth0_node);
- 	return 0;
- 
- netdev_unregister:
-
-base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
+Acked-by: Martin Schiller <ms@dev.tdt.de>
