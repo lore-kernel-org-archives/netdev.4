@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795410340;
-	b=XI7u94ev2xAjYPLkxrkJDh/c3mxvk/6oGuby/nG6FR8JD5H1SDVB3YyBQcFzAhFk7ljA
-	 7OcueL3onIyrguEB8FA/bl9EbDLNo+WQkEaYUBw+JRx8fh/dvMKGZKcTNh5SMrMZ3QUQY
-	 K2o5fga2s3cKKRegWmjOY3QzYW4DRPii2S5NO+R8pGhxPN8HO3DNmoE6PcduXVWTceJYo
-	 nkEt7I9zPcDMSmIzph+y+sAfxyUIXww2cGQPsW9NnszmwlMT5uqdddJBwFwf2kF3hqP9Y
-	 TO1PE4Aq5FGzP9DAvaimimdW8p1SarokuW8FPLN+nFVvOW4si3kFZqxVTfN6Jg/kZTA==
+	t=1795410337;
+	b=HClMul9j79aHQP85OkDKHKfC5H3hujKl99KjTelCZ7ccR68LY8tYjmsfr2Z37cY/bglM
+	 on9Rj8Kru3sQEok4m8AVcu7WRmKjp3Z1vRcNWKrgd/o2WiJ6pPOZRehH+O1ANqNQu3Xl/
+	 MKtJt8GmUNW9T1MPVCythvUGb4d+QcUNNEi3SavrayM2ybiAbEL0ixgscH1Tt6h+lHEY8
+	 2cRJY7rScxfqBF4nS4zWwoB4u9CIcNivwk/V5EXvXeKL9xjAbrWBQDUIrdA1R4nslcUTz
+	 aaOrvOh8qtQefreobUHFyDSucrw1R4HDaGhiOwCh+mvBt2+rFD+glUEvdf0yd3YdNMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795410340;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795410337;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=w8e+3WRbDOUCO3CM0bxDt3Ty+eAqQazN2XhtHI1VjrY=;
-	b=MlY1r0y4wn//09VwTEIqEbAJPdYLdRwJSoH2G+im0i3N1CAZrPHu0G981RhJYR30fhEp
-	 h2P0xTgCZrECakkNTYmZua7JZ4YaXVOfOshh51jV+2HiXVTpD8j74Rm8ZXXCNZ2VFaZx+
-	 dfwYIwHyTK+biLqfunzcJawCkprKfu2XhtC+u6eojsEaoGK2PH4ZvHAE1HZm/Oaqbt8/b
-	 tG6D55NCzOO+mz4CtFnbBpdJNbD1W/iTlmziBh3HiDaj3f780xdxzIUJVaHDxCdchue9b
-	 170hL1zvEWTd1OpFbsitX5j35sgW7ChLQPfzeVHURqxuKMQ9MN9cI9qb72bnTeYel7A==
+	bh=kc1WDNzqnWa7MzsqOAzEg3sXZ0FXTjUIsij2hS/psy8=;
+	b=UMqixHALkSixwbHCcovprjnS8XF1rswOK/0knw4FsZ2TTpS0W2p144g+9iSzB2UHMu7c
+	 D9rjruD9UzmsCXVH0DBsc5M97Jfj2I/g5i9ImYziSI2dmh3GOF2hqfo2wRaXYASp90f5A
+	 ZgCHZtgpJGRx6mdRvFlehe6QEfyhZ9t3zo0zqDS2cN4VwZU4IzxxgJehMFM9A+tNIqde/
+	 frniisL64O9yN1wpYMFMNhwTdxfqGIwQk4NJMMmxPQioJsHUSClBlobWvR/QOucp8aBZB
+	 oqEk7/Yctl0kaJnxNs4PRhbr5aP5pCDg3S+ALWZoZ5BfELTqLLlxL1kIoDddd5VyJBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lIfq0H3m;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MaJmLHh7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81DC2606A335;
-	Mon, 23 Nov 2026 05:05:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47244606A31A;
+	Mon, 23 Nov 2026 05:05:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lIfq0H3m
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4456F1F000E0;
-	Mon, 23 Nov 2026 05:05:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MaJmLHh7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B6C1F000CA;
+	Mon, 23 Nov 2026 05:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795410340;
-	bh=w8e+3WRbDOUCO3CM0bxDt3Ty+eAqQazN2XhtHI1VjrY=;
+	s=k20260515; t=1795410336;
+	bh=kc1WDNzqnWa7MzsqOAzEg3sXZ0FXTjUIsij2hS/psy8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lIfq0H3mK5sdaXj7zpLKBnPA2do9QNohK1yaRLNQiyO7eS0fXUg9pBdBoDW7P291k
-	 4x/EjDSsoVzpOWWBM6VzOLiK5blWykSpjzCrGJ8DXb1Qh1B/nEPUT/0eGCcEtSKspA
-	 UipdOChW9Y4o97ga1GdoH9hDa1He8EWgsXBG/2hzCBk2UInmFBAlW/F6cwJDPyLNuE
-	 MspTK+f3Iye+CIjptOZlpfGK7fXh/a4uVfF4H94Jz1v9TVdBDZs9QV/1iYOYRD9Xj1
-	 pUt5oLDTGCsBA/a2sSy1zBvzzYDiDxDy55h7sx3KPJKuNeYHyhf9Z/D0hMXfN5TMq1
-	 4WwX+kdsxFHAw==
-Subject: Re: [PATCH v8 net-next 8/9] net: dsa: netc: add PTP two-step
- timestamping support
+	b=MaJmLHh73l7lNwukwY22xJ7TRPlLyjsKgI6pQH3BWlzUQYCqKS6z5xd9rP6LXTe4s
+	 NDRy/Kdzc1QCkY8khTw91OdWz9E38XGfiyjbKlxz8VJ5GJ67k+MKXBnHvkIvbKOKaF
+	 i2lEzuClX9n2A2rFbOC9dLOcP1RpTiq8BWLsqKx+XxtKkv1X5Sd0Oad+NJ+u/P21sq
+	 49uho1bKuptVA/znJFwH0qo+mIZ2gDReW9eyAr9MNFyAomkqcRBhLZVmhNXE/GQ+qM
+	 PP2dqtmReItxuqsTqV3WiwPpCl/jS0oqf12gHVKteZHYIFda+sKvbxAr/zQOX3Lx67
+	 Bz2PZVJKjrvJw==
+Subject: Re: [PATCH v8 net-next 4/9] net: dsa: netc: tie setup resources and
+ reset to DSA setup/teardown
 From: netdev-bot+sashiko@kernel.org
 To: wei.fang@oss.nxp.com
 Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
@@ -51,10 +51,10 @@ Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
  wei.fang@nxp.com, imx@lists.linux.dev, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-arm-kernel@lists.infradead.org
-Date: Mon, 23 Nov 2026 05:05:38 +0000
-Message-ID: <179541033885.3135.10657211800089692875@kernel.org>
-In-Reply-To: <20261119030534.1892935-9-wei.fang@oss.nxp.com>
-References: <20261119030534.1892935-9-wei.fang@oss.nxp.com>
+Date: Mon, 23 Nov 2026 05:05:35 +0000
+Message-ID: <179541033517.3135.5228725617878780083@kernel.org>
+In-Reply-To: <20261119030534.1892935-5-wei.fang@oss.nxp.com>
+References: <20261119030534.1892935-5-wei.fang@oss.nxp.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,110 +74,71 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] netc_port_del_ptp_filter() (drivers/net/dsa/netc/netc_ptp.c)
-  handles every error from ntmp_ipft_delete_entry() as "the entry is…
+- [Low] The patch changes how netc_switch_pci_init() handles a failed
+  probe-time FLR, and the commit message does not say so.
 
 --
 
-net: dsa: netc: add PTP two-step timestamping support
+net: dsa: netc: tie setup resources and reset to DSA setup/teardown
 
-This adds two-step TX timestamping and RX timestamping for the NETC
-switch. For RX, IPFT rules trap PTP frames to the CPU port with an
-ingress timestamp. For TX, the driver queues the skb clones and matches
-them by request ID against hardware response frames delivered through a
-new tagger callback.
+This commit adds netc_switch_reset() so that every netc_setup() after the
+first one does a PCIe FLR and starts from a clean hardware state. It also
+converts the setup-path devm_ allocations to explicit alloc and free.
+These are released in netc_teardown() and on the error paths.
 
-> diff --git a/drivers/net/dsa/netc/netc_ptp.c b/drivers/net/dsa/netc/netc_ptp.c
-> new file mode 100644
-> index 0000000000000..bd4d0b70e7ee5
-> --- /dev/null
-> +++ b/drivers/net/dsa/netc/netc_ptp.c
-> @@ -0,0 +1,502 @@
+> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
+> index 1225ff8153d44..f724f95add36b 100644
+> --- a/drivers/net/dsa/netc/netc_main.c
+> +++ b/drivers/net/dsa/netc/netc_main.c
 
 [ ... ]
 
-> +static int netc_port_del_ptp_filter(struct netc_port *np)
-> +{
-> +	struct netc_switch *priv = np->switch_priv;
-> +	int ret = 0;
-> +	int err;
+> @@ -1042,7 +1161,10 @@ static int netc_switch_pci_init(struct pci_dev *pdev)
+>  	void __iomem *base;
+>  	int err;
+>  
+> -	pcie_flr(pdev);
+> +	err = pcie_flr(pdev);
+> +	if (err)
+> +		return dev_err_probe(dev, err, "FLR failed\n");
 > +
-> +	for (int i = 0; i < NETC_PTP_MAX; i++) {
-> +		if (np->ptp_ipft_eid[i] == NTMP_NULL_ENTRY_ID)
-> +			continue;
-> +
-> +		/* No -ETIMEDOUT here: with the command BD ring enabled, the
-> +		 * hardware execution time for a command is much less than
-> +		 * 1ms, so no timeout error will occur. Any remaining error
-> +		 * means the entry is still present in the table.
-> +		 */
-> +		err = ntmp_ipft_delete_entry(&priv->ntmp,
-> +					     np->ptp_ipft_eid[i]);
-> +		if (likely(!err)) {
-> +			np->ptp_ipft_eid[i] = NTMP_NULL_ENTRY_ID;
-> +			continue;
-> +		}
-> +
-> +		ret = err;
-> +		dev_err(priv->dev,
-> +			"Delete PTP entry 0x%x (type %d) on port %d failed\n",
-> +			np->ptp_ipft_eid[i], i, np->dp->index);
-> +	}
 
 [Severity: Low]
-Is the claim in this comment guaranteed by the NTMP layer? The delete
-goes through this path:
+This hunk changes probe behaviour, and the commit message doesn't say so.
+Before, the return value of pcie_flr() was ignored and probe always went
+on. Now any FLR failure in netc_switch_pci_init() makes probe fail.
 
-netc_port_hwtstamp_set()
-  netc_port_set_ptp_filter()
-    netc_port_del_ptp_filter()
-      ntmp_ipft_delete_entry()
-        ntmp_delete_entry_by_id()
-          netc_xmit_ntmp_cmd()
+The commit message only says:
 
-netc_xmit_ntmp_cmd() hands the BD to hardware and only then waits:
+  The probe path already performs a FLR in netc_switch_pci_init(), so the
+  first setup will skip the reset because the priv->configured flag is
+  not set.
 
-drivers/net/ethernet/freescale/enetc/ntmp.c:netc_xmit_ntmp_cmd() {
-    ...
-	i = (i + 1) % cbdr->bd_num;
-	cbdr->next_to_use = i;
-	netc_write(cbdr->regs.pir, i);
+and later:
 
-	err = read_poll_timeout(netc_read, val,
-				(val & NETC_CBDRCIR_INDEX) == i,
-				NETC_CBDR_DELAY_US, NETC_CBDR_TIMEOUT,
-				true, cbdr->regs.cir);
-	if (unlikely(err))
-		return err;
-    ...
-}
+  The NETC switch does not support multi-switch yet, so there is no
+  functional problem today. This only reworks the driver so that
+  multi-switch can be added later without hitting these issues.
 
-If the consumer index does not advance within NETC_CBDR_TIMEOUT, this
-returns -ETIMEDOUT. The hardware may still run the DELETE after that.
+Both passages read as if the probe path is unchanged.
 
-In that case np->ptp_ipft_eid[i] is kept. netc_port_current_rx_filter()
-would then report an rx_filter that is no longer installed. The commit
-message says this design avoids exactly that:
+pcie_flr() can fail in three ways:
 
-  "so a delete or rollback that fails partway does not leave software
-  reporting a filter that no longer matches the hardware."
+  - -ENOTTY when pci_dev_config_accessible() fails
+  - an error from pci_dev_reset_iommu_prepare()
+  - an error from pci_dev_wait() after PCIE_RESET_READY_POLL_MS times out
 
-Every later netc_port_set_ptp_filter() also starts by deleting the stale
-entry ID. If the hardware rejects deleting a missing entry (the response
-error status maps to -EIO), could every later hwtstamp_set on that port
-fail until the switch is set up again?
+In any of these cases, a NETC switch that bound before this patch would
+now fail to probe.
 
-This needs the hardware itself to stall, because read_poll_timeout()
-reads once more after the deadline. The host-flood path added earlier in
-the series by "net: dsa: netc: check return value of
-ntmp_ipft_delete_entry()" makes the same assumption. This patch adds a
-second user whose reported state depends on it.
+Failing probe is probably the right behaviour, since the driver relies on
+a clean post-FLR state. Could the commit message mention this change, or
+could it go into its own patch? The hunk is still the same at the end of
+the series.
 
-Should -ETIMEDOUT be handled separately here, for example by treating
-the entry state as unknown? Or should the comment say this is an
-assumption about the hardware rather than a guarantee?
-
-[ ... ]
+>  	err = pcim_enable_device(pdev);
+>  	if (err)
+>  		return dev_err_probe(dev, err, "Failed to enable device\n");
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119030534.1892935-1-wei.fang%40oss.nxp.com
