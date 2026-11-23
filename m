@@ -1,59 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454041;
-	b=o0W4lzV8e3vcZRIbeajZJ4kWEGpGUWLCaTml7MIpbMwGQR7G/EimjX3+p/uF5VfENvvp
-	 LIA+ni3hyYXBf2nF9jWdI3pGqMnczNsZhOYFJ2vWAx7QFdsG/wwujudiFfJyxe+lj7eLZ
-	 bllM/l0jxNYc8EakNZ8Ru40xHCuPd9/qTsPuyPTmN0PiJBCUMM9fl4K/RGQGLtb/Nuy5k
-	 lfRpLClj5PmKwR2+L3/oy5NpRCCM2xP6jefpvtrssPs3I6OhMEyTVHAhoeQquC97MiD0u
-	 SDJDJpgz0jLD+V6TGVSeRJgDQtthadyscb3o9oqpGNjmXl9rvCLlVTQeqNEq1JExjjw==
+	t=1795454129;
+	b=FlwCkEUy/QS7B/Zbaxw/yjYaMUoCJJ41v8zy6Vwn27lR979ZbMbrsCJV8L3DMtnxa1er
+	 PFpsknYsc8q8/abmmATcOai1Fxh8T6+749jN7rLCM5xSpbCBkE5KMrzzqAbhRqlnYspOH
+	 09LFeVA9MZvFlRNo7sgVc0LuSxrarJ8eLoR6PFn+vc6eCCfKlXuziQUObGSDlPtJcDFaM
+	 uzV8Ztv7Pb6oJX0Iz1cxSV4OSA/0tfptor3V1WglS00/x5Gv0dG6JIu53mP/QoeDLgOxo
+	 bIE9ZSE99WCjWTrMfflcD1t/h51c26F/+lyU+Uv/93HHze4Loey/MxvSjU0z8IigElw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454041;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=78jy483vydXvK4ltornXtEtoywkGAA7A3QJIuSYEOhk=;
-	b=ZHfnrG10Crv6O3QI5SY2wg+n/tuHa6xoME5QydbnbKNdvYwgGXZPSNYXlcW1uWG4pwV1
-	 hEU7ooxugUpUvdXEzdrrM90DIKtMhoKqI/xlNH3w/b646f62t1fdxPulZct6972NEh0Am
-	 T45SuDCOxhBaADCkWQ8NpQOjI2hBAUHQg09iXBbxX5UV42HQ44ne4EPPi+9kng4uaHHhw
-	 vGXinnn6QSp8N8/1Q4rWlQ4uHVaXfh7ZCrX6Rr73mZA4UXHV5b3SMxGVCA9n6HQFYB/44
-	 GdzVZH+glmMqB+dmjNlzxejRFS8Q26TPnLVgntKApdO7i+SdDyb3gMkm+6XLJvy+Opg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454129;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7HrXdAZvqoP2wKFdIA57K4p11FPgSibCIfOS3Ctnkzw=;
+	b=d53garOrau906wY+uAXtA6ZuRWXUff0457bS2r2IrBUeOHOccSO9vUpgqe0mjT1yMzeC
+	 ATnThiIJmAhNkVwPsqjANRENOD1zdULZPuspQOXIJPhdmXKqPxQF5FiKhxuEfJdouj/K9
+	 AOafLrwqA/O6FpnQSA+fOsof/4I0ivqltXCYvJIjdVIKeJ+No5sHs4oessWZx87woT+wo
+	 yk797LqL1LZZjvsEoLMoD5NevAO2e7njzq2330WodqF+oS4OPiFMJO3YszeLx0o/vmScz
+	 hlF1qhn9/WGI8/LLyjLOxHxLs5raT3LwpB3yAsVZQZomAQ8aCVCNxVzsT9siGLwu8JA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U8eZOIXA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=mEiKiGo3;
+	arc=none smtp.remote-ip=115.124.28.98
+Received: from out28-98.mail.aliyun.com (out28-98.mail.aliyun.com [115.124.28.98])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DEE0606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:14:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94865606A321;
+	Mon, 23 Nov 2026 17:15:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94865606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U8eZOIXA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92991F000C4;
-	Mon, 23 Nov 2026 17:13:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795454040;
-	bh=78jy483vydXvK4ltornXtEtoywkGAA7A3QJIuSYEOhk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=U8eZOIXAjxgeoiQO4it/28fvml6bUCB2gJiyrS8DYsrrwdbIsm8niCnap5YgX+46O
-	 r3xZ4lkFcCXt4XgZZQjjV4JDFsYVsueQkthuSw6be6PcwOiJTmZ/K8eQ9R6y/DwQKh
-	 /U0bG5u+kJIt037k7vxxvsVcKdTCdvZuF+t//L5W81tH1aTl9tmKmUinvLvq7yqppD
-	 tv5XWF+Hx4/rFZvcdkyES0G8PzMGPaV7cjU3LfV6GOVZ8Wg3gsGWn5bUphVKKUsZXk
-	 5pmpygQu94f1C42wwD+30DWseZr4Tb9A51D51GBjr2eNX23ZX3U6ZMLC09EZ2JefU7
-	 U0/7wJpIQY4Gg==
-Subject:
- Re: [PATCH] net: cxgb3: complete the cleanup operations on error paths
-From: netdev-bot+sashiko@kernel.org
-To: b.lane130@outlook.com
-Cc: bharat@chelsio.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org
-Date: Mon, 23 Nov 2026 17:13:59 +0000
-Message-ID: <179545403948.3135.3451259084551088603@kernel.org>
-In-Reply-To: <BN8PR06MB6177F1B73B4D37AC2315B428A4462@BN8PR06MB6177.namprd06.prod.outlook.com>
-References: <BN8PR06MB6177F1B73B4D37AC2315B428A4462@BN8PR06MB6177.namprd06.prod.outlook.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=mEiKiGo3
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795454125; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=7HrXdAZvqoP2wKFdIA57K4p11FPgSibCIfOS3Ctnkzw=;
+	b=mEiKiGo3FN+oN+AGBYc3wvuUn8CzfAX1akPPEa/O/yqZ00PNAMMZyxkUC/W/FL5iC3az1BwGbTCdRxOEu9jIxd3IWpYN8EUQLNPhx9eogzTkgJhZka1uqUy1906FDhYTPRFqceur4NsbGglgi/5KuLgHFt/ioHiEjmAO/hN+Ims=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.00469832-0.00143452-0.993867;FP=12259131756606194868|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=15;RT=15;SR=0;TI=SMTPD_---.k8Vw2b2_1795454122;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8Vw2b2_1795454122 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 01:15:24 +0800
+From: Fang Xieyan <fangxy@xiaopeng.com>
+To: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	netdev@vger.kernel.org
+Cc: Liu Haijun <haijun.liu@mediatek.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Lin Qiaojie <linqj@xiaopeng.com>
+Subject: [PATCH net v2] net: wwan: t7xx: validate PIT data before building RX skb
+Date: Tue, 24 Nov 2026 01:15:19 +0800
+Message-ID: <20261123171519.33975-1-fangxy@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,151 +71,264 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Both normal and fragment RX paths derive a data offset from the
+modem-supplied PIT address and the BAT DMA base. The unsigned 64-bit
+difference was stored in an int without checking the address order,
+so a backwards address could wrap into a non-negative offset. The
+normal path could then pass an invalid offset to skb_reserve(), while
+the fragment path could pass an invalid offset and PIT data length
+to skb_add_rx_frag().
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+These invalid ranges can make the resulting skb or fragment refer
+outside the allocated buffer or DMA-mapped page. The error paths
+also left consumed BAT entries unmarked, preventing BAT release and
+buffer replenishment. In addition, packet assembly errors shared
+the return value with the final PIT notification, so dropping a
+packet could prevent consumed PIT entries from being returned to
+the hardware.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Validate the address order and complete offset/length range before
+building either skb representation: check normal data against both
+skb tailroom and the DMA mapping length, and fragment data against
+the mapped page buffer, keeping DMA-relative and page-relative
+offsets separate. Extract each PIT BID once, validate it before
+indexing the BAT array, and use the same index for BAT access and
+bitmap updates. Cast the fragment BAT void pointer to
+struct dpmaif_bat_page before pointer arithmetic. On error, free
+the normal BAT skb and mark its entry consumed; also consume
+fragment entries of failed packets and failed assemblies while
+keeping their pages mapped for reuse. Keep packet assembly errors
+separate from PIT notification errors so consumed PIT entries are
+returned even when a packet is dropped.
 
-- [High] The new unwind under out_close_led in init_one()
-  (drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c, lines 3384-3391)…
-- [Low] The commit message says only that the error path in init_one()
-  'lacks some cleanup operations to release sources', which reads like a…
+Fixes: d642b012df70 ("net: wwan: t7xx: Add data path interface")
+Cc: stable@vger.kernel.org
+Reviewed-by: Lin Qiaojie <linqj@xiaopeng.com>
+Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
+---
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 114 ++++++++++++++-------
+ 1 file changed, 79 insertions(+), 35 deletions(-)
 
---
-
-net: cxgb3: complete the cleanup operations on error paths
-
-This patch adds offload unregistration, netdev unregistration and MSI
-teardown to the out_close_led error path in init_one(). That path is
-taken when sysfs_create_group() fails after the ports have been
-registered.
-
-> If sysfs_create_group() fails, the error path lacks some
-> cleanup operations to release sources. Add corresponding
-> cleanup functions under out_close_led label.
-
-[Severity: Low]
-
-Does this description undersell what the patch fixes? Before this change,
-out_close_led fell straight through to out_free_dev. That calls
-free_netdev() on ports still in NETREG_REGISTERED, which hits this check:
-
-net/core/dev.c:free_netdev() {
-    ...
-	BUG_ON(dev->reg_state != NETREG_UNREGISTERED);
-    ...
-}
-
-The adapter was also kfree()d while its t3cdev was still on the offload
-device list via cxgb3_adapter_ofld()->register_tdev().
-
-This failure path seems to have come from commit 7c099773b086 ("net: cxgb3:
-add error handling for sysfs_create_group").
-
-Should the commit message mention the BUG_ON and the use-after-free? Should
-it also carry a Fixes: tag for that commit?
-
-> diff --git a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c b/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
-> index 3bee82bc06806..a6693f332d259 100644
-> --- a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
-> +++ b/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
-> @@ -3381,6 +3381,15 @@ static int init_one(struct pci_dev *pdev, const struct pci_device_id *ent)
->  	return 0;
->  
->  out_close_led:
-> +	if (is_offload(adapter))
-> +		cxgb3_adapter_unofld(adapter);
-> +
-> +	for_each_port(adapter, i)
-> +		if (test_bit(i, &adapter->registered_device_map))
-> +			unregister_netdev(adapter->port[i]);
-> +
-> +	cxgb_disable_msi(adapter);
-> +
->  	t3_set_reg_field(adapter, A_T3DBG_GPIO_EN, F_GPIO0_OUT_VAL, 0);
->  
->  out_free_dev:
-
-[Severity: High]
-
-Is this teardown complete if a port was opened before sysfs_create_group()
-failed?
-
-Userspace can see the netdevs as soon as register_netdev() returns. So
-udev, NetworkManager or "ip link set up" can open a port before
-sysfs_create_group() runs. Opening a port goes through
-cxgb_open()->cxgb_up(), which does:
-
-cxgb_up()
-    setup_sge_qsets(adap)
-    request_irq() with dev_id == adapter
-    t3_start_sge_timers(adap)
-    adap->flags |= FULL_INIT_DONE
-
-On an offload adapter, offload_open() also sets OFFLOAD_DEVMAP_BIT in
-open_device_map and calls cxgb3_offload_activate(). That may register the
-netevent notifier, and it adds the adapter to the global adapter_list.
-
-remove_one() tears down the same state like this:
-
-	t3_sge_stop(adapter);
-	...
-	if (is_offload(adapter)) {
-		cxgb3_adapter_unofld(adapter);
-		if (test_bit(OFFLOAD_DEVMAP_BIT,
-			     &adapter->open_device_map))
-			offload_close(&adapter->tdev);
-	}
-	... unregister_netdev() ...
-	t3_stop_sge_timers(adapter);
-	t3_free_sge_resources(adapter);
-	cxgb_disable_msi(adapter);
-
-The new error path is missing t3_sge_stop(), offload_close(),
-t3_stop_sge_timers() and t3_free_sge_resources().
-
-While OFFLOAD_DEVMAP_BIT is still set, open_device_map stays non-zero after
-unregister_netdev()->__cxgb_close(). So cxgb_down() is skipped:
-
-	if (!adapter->open_device_map)
-		cxgb_down(adapter, on_wq);
-
-That leaves the IRQs requested and interrupts enabled, and cxgb3_wq is not
-flushed. cxgb_disable_msi() then disables MSI/MSI-X vectors that may still
-have handlers attached. Even without offload, cxgb_down() does not stop the
-SGE reclaim timers or free the qsets.
-
-The code then falls through to iounmap(adapter->regs), free_netdev() and
-kfree(adapter).
-
-Can sge_timer_tx() and sge_timer_rx() still fire after that? They
-dereference qs->netdev and pi->adapter, read registers through
-adapter->regs, and rearm themselves with mod_timer().
-
-There are other leftovers too:
-
-- The IRQ handlers would still have a freed dev_id.
-- adapter_list and the netevent notifier would still point at the freed
-  adapter.
-- The SGE DMA rings would leak with their hardware contexts still enabled,
-  because only t3_free_qset() disables them.
-
-The sysfs_create_group() failure can happen in practice. If
-register_netdev() failed for port[0] but another port registered,
-port[0]->dev.kobj has no sysfs directory. internal_create_group() then
-returns -EINVAL.
-
-Would it be better to follow the teardown order in remove_one()?
-Alternatively, the failure point after register_netdev() could go away
-entirely, for example by attaching cxgb3_attr_group through
-port[0]->sysfs_groups[] before registration.
-
+diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+index 5af90ca6e063..da4b7cb05bf3 100644
+--- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
++++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+@@ -282,7 +282,7 @@ static int t7xx_frag_bat_cur_bid_check(struct dpmaif_rx_queue *rxq,
+ 	if (cur_bid >= DPMAIF_FRG_COUNT)
+ 		return -EINVAL;
+ 
+-	bat_page = bat_frag->bat_skb + cur_bid;
++	bat_page = (struct dpmaif_bat_page *)bat_frag->bat_skb + cur_bid;
+ 	if (!bat_page->page)
+ 		return -EINVAL;
+ 
+@@ -392,17 +392,15 @@ int t7xx_dpmaif_rx_frag_alloc(struct dpmaif_ctrl *dpmaif_ctrl, struct dpmaif_bat
+ 
+ static int t7xx_dpmaif_set_frag_to_skb(const struct dpmaif_rx_queue *rxq,
+ 				       const struct dpmaif_pit *pkt_info,
+-				       struct sk_buff *skb)
++				       unsigned int cur_bid, struct sk_buff *skb)
+ {
+-	unsigned long long data_bus_addr, data_base_addr;
++	unsigned long long data_bus_addr, data_base_addr, dma_offset;
+ 	struct skb_shared_info *shinfo = skb_shinfo(skb);
+ 	struct device *dev = rxq->dpmaif_ctrl->dev;
+ 	struct dpmaif_bat_page *page_info;
+-	unsigned int data_len;
+-	int data_offset;
++	unsigned int data_len, data_offset;
+ 
+-	page_info = rxq->bat_frag->bat_skb;
+-	page_info += t7xx_normal_pit_bid(pkt_info);
++	page_info = (struct dpmaif_bat_page *)rxq->bat_frag->bat_skb + cur_bid;
+ 
+ 	if (!page_info->page)
+ 		return -EINVAL;
+@@ -410,14 +408,26 @@ static int t7xx_dpmaif_set_frag_to_skb(const struct dpmaif_rx_queue *rxq,
+ 	if (shinfo->nr_frags >= MAX_SKB_FRAGS)
+ 		return -EINVAL;
+ 
+-	dma_unmap_page(dev, page_info->data_bus_addr, page_info->data_len, DMA_FROM_DEVICE);
+-
+ 	data_bus_addr = le32_to_cpu(pkt_info->pd.data_addr_h);
+ 	data_bus_addr = (data_bus_addr << 32) + le32_to_cpu(pkt_info->pd.data_addr_l);
+ 	data_base_addr = page_info->data_bus_addr;
+-	data_offset = data_bus_addr - data_base_addr;
+-	data_offset += page_info->offset;
+ 	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
++
++	if (data_bus_addr < data_base_addr) {
++		dev_err_ratelimited(dev, "Invalid PIT frag data address\n");
++		return -EINVAL;
++	}
++
++	dma_offset = data_bus_addr - data_base_addr;
++	if (dma_offset > page_info->data_len ||
++	    data_len > page_info->data_len - dma_offset) {
++		dev_err_ratelimited(dev, "Invalid PIT frag data offset or length\n");
++		return -EINVAL;
++	}
++
++	dma_unmap_page(dev, page_info->data_bus_addr, page_info->data_len, DMA_FROM_DEVICE);
++
++	data_offset = page_info->offset + dma_offset;
+ 	skb_add_rx_frag(skb, shinfo->nr_frags, page_info->page,
+ 			data_offset, data_len, page_info->data_len);
+ 
+@@ -438,22 +448,44 @@ static int t7xx_dpmaif_get_frag(struct dpmaif_rx_queue *rxq,
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	ret = t7xx_dpmaif_set_frag_to_skb(rxq, pkt_info, skb_info->cur_skb);
++	ret = t7xx_dpmaif_set_frag_to_skb(rxq, pkt_info, cur_bid, skb_info->cur_skb);
++	/* Mark the entry consumed on failure too, so release can reuse it. */
++	t7xx_dpmaif_set_bat_mask(rxq->bat_frag, cur_bid);
+ 	if (ret < 0) {
+-		dev_err(rxq->dpmaif_ctrl->dev, "Failed to set frag data to skb: %d\n", ret);
++		dev_err_ratelimited(rxq->dpmaif_ctrl->dev,
++				    "Failed to set frag data to skb: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-	t7xx_dpmaif_set_bat_mask(rxq->bat_frag, cur_bid);
+ 	return 0;
+ }
+ 
++/* Consume a fragment PIT belonging to a packet that is already dropped. */
++static int t7xx_dpmaif_drop_frag(struct dpmaif_rx_queue *rxq,
++				 const struct dpmaif_pit *pkt_info)
++{
++	unsigned int cur_bid = t7xx_normal_pit_bid(pkt_info);
++
++	if (t7xx_frag_bat_cur_bid_check(rxq, cur_bid))
++		return -EINVAL;
++
++	/*
++	 * The page is still mapped and owned by the BAT entry; marking it
++	 * consumed lets release advance and the allocator reuse the page.
++	 */
++	t7xx_dpmaif_set_bat_mask(rxq->bat_frag, cur_bid);
++	return -EINVAL;
++}
++
+ static int t7xx_bat_cur_bid_check(struct dpmaif_rx_queue *rxq, const unsigned int cur_bid)
+ {
+-	struct dpmaif_bat_skb *bat_skb = rxq->bat_req->bat_skb;
++	struct dpmaif_bat_skb *bat_skb;
++
++	if (cur_bid >= DPMAIF_BAT_COUNT)
++		return -EINVAL;
+ 
+-	bat_skb += cur_bid;
+-	if (cur_bid >= DPMAIF_BAT_COUNT || !bat_skb->skb)
++	bat_skb = (struct dpmaif_bat_skb *)rxq->bat_req->bat_skb + cur_bid;
++	if (!bat_skb->skb)
+ 		return -EINVAL;
+ 
+ 	return 0;
+@@ -627,38 +659,50 @@ static void t7xx_dpmaif_parse_msg_pit(const struct dpmaif_rx_queue *rxq,
+ 
+ static int t7xx_dpmaif_set_data_to_skb(const struct dpmaif_rx_queue *rxq,
+ 				       const struct dpmaif_pit *pkt_info,
++				       unsigned int cur_bid,
+ 				       struct dpmaif_cur_rx_skb_info *skb_info)
+ {
+-	unsigned long long data_bus_addr, data_base_addr;
++	unsigned long long data_bus_addr, data_base_addr, data_offset;
+ 	struct device *dev = rxq->dpmaif_ctrl->dev;
+ 	struct dpmaif_bat_skb *bat_skb;
+-	unsigned int data_len;
++	unsigned int data_len, tailroom, max_len;
+ 	struct sk_buff *skb;
+-	int data_offset;
+ 
+-	bat_skb = rxq->bat_req->bat_skb;
+-	bat_skb += t7xx_normal_pit_bid(pkt_info);
++	bat_skb = (struct dpmaif_bat_skb *)rxq->bat_req->bat_skb + cur_bid;
+ 	dma_unmap_single(dev, bat_skb->data_bus_addr, bat_skb->data_len, DMA_FROM_DEVICE);
+ 
+ 	data_bus_addr = le32_to_cpu(pkt_info->pd.data_addr_h);
+ 	data_bus_addr = (data_bus_addr << 32) + le32_to_cpu(pkt_info->pd.data_addr_l);
+ 	data_base_addr = bat_skb->data_bus_addr;
+-	data_offset = data_bus_addr - data_base_addr;
+ 	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
+ 	skb = bat_skb->skb;
+ 	skb->len = 0;
+ 	skb_reset_tail_pointer(skb);
+-	skb_reserve(skb, data_offset);
+ 
+-	if (skb->tail + data_len > skb->end) {
+-		dev_err(dev, "No buffer space available\n");
+-		return -ENOBUFS;
++	if (data_bus_addr < data_base_addr) {
++		dev_err_ratelimited(dev, "Invalid PIT data address\n");
++		goto err_drop;
++	}
++
++	data_offset = data_bus_addr - data_base_addr;
++	tailroom = skb_tailroom(skb);
++	max_len = min(tailroom, bat_skb->data_len);
++	if (data_offset > max_len || data_len > max_len - data_offset) {
++		dev_err_ratelimited(dev, "Invalid PIT data offset or length\n");
++		goto err_drop;
+ 	}
+ 
++	skb_reserve(skb, (int)data_offset);
+ 	skb_put(skb, data_len);
+ 	skb_info->cur_skb = skb;
+ 	bat_skb->skb = NULL;
+ 	return 0;
++
++err_drop:
++	dev_kfree_skb_any(skb);
++	bat_skb->skb = NULL;
++	t7xx_dpmaif_set_bat_mask(rxq->bat_req, cur_bid);
++	return -ENOBUFS;
+ }
+ 
+ static int t7xx_dpmaif_get_rx_pkt(struct dpmaif_rx_queue *rxq,
+@@ -672,9 +716,9 @@ static int t7xx_dpmaif_get_rx_pkt(struct dpmaif_rx_queue *rxq,
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	ret = t7xx_dpmaif_set_data_to_skb(rxq, pkt_info, skb_info);
++	ret = t7xx_dpmaif_set_data_to_skb(rxq, pkt_info, cur_bid, skb_info);
+ 	if (ret < 0) {
+-		dev_err(rxq->dpmaif_ctrl->dev, "RX set data to skb failed: %d\n", ret);
++		dev_err_ratelimited(rxq->dpmaif_ctrl->dev, "RX set data to skb failed: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+@@ -726,7 +770,7 @@ static int t7xx_dpmaif_rx_start(struct dpmaif_rx_queue *rxq, const unsigned int
+ 	unsigned int cur_pit, pit_len, rx_cnt, recv_skb_cnt = 0;
+ 	struct device *dev = rxq->dpmaif_ctrl->dev;
+ 	struct dpmaif_cur_rx_skb_info *skb_info;
+-	int ret = 0;
++	int ret = 0, pkt_ret;
+ 
+ 	pit_len = rxq->pit_size_cnt;
+ 	skb_info = &rxq->rx_data_info;
+@@ -756,13 +800,13 @@ static int t7xx_dpmaif_rx_start(struct dpmaif_rx_queue *rxq, const unsigned int
+ 		} else { /* DES_PT_PD */
+ 			val = FIELD_GET(PD_PIT_BUFFER_TYPE, le32_to_cpu(pkt_info->header));
+ 			if (val != PKT_BUF_FRAG)
+-				ret = t7xx_dpmaif_get_rx_pkt(rxq, pkt_info, skb_info);
+-			else if (!skb_info->cur_skb)
+-				ret = -EINVAL;
++				pkt_ret = t7xx_dpmaif_get_rx_pkt(rxq, pkt_info, skb_info);
++			else if (skb_info->err_payload || !skb_info->cur_skb)
++				pkt_ret = t7xx_dpmaif_drop_frag(rxq, pkt_info);
+ 			else
+-				ret = t7xx_dpmaif_get_frag(rxq, pkt_info, skb_info);
++				pkt_ret = t7xx_dpmaif_get_frag(rxq, pkt_info, skb_info);
+ 
+-			if (ret < 0) {
++			if (pkt_ret < 0) {
+ 				skb_info->err_payload = 1;
+ 				dev_err_ratelimited(dev, "RXQ%u error payload\n", rxq->index);
+ 			}
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/BN8PR06MB6177F1B73B4D37AC2315B428A4462%40BN8PR06MB6177.namprd06.prod.outlook.com
+2.50.1
+
