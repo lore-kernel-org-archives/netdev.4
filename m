@@ -1,62 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795475709;
-	b=4Cm3DwWZlDFMQx5AHblO3Pi91LvyVbVrv0zpxzzlB34Qpkmsr0j01F9WYOZqNfc8G8Br
-	 c9U9Xg/ppUc7fP4rT7G/u7swdZg2usp8PSoWL4VBXefP540nUuABAVSyeLdZVZZ4I19Dt
-	 qxDtj9u678o6ypRI/xkoiLuU5HiUxM4J5yFnWxwjeMfPYlCCPXxcmowIAxKiwp7nFGxzN
-	 cDSuFP/4AH8Zv8mTJM8jb+buRMwWmOKgGHk7UX7NgzfcOwff1lqZ70owcUI27AuI2CmQC
-	 F2puqNdUp2LOVV2D6oOrmAaakjopkXsY/Z4AZd2B9rgqbTZ+6LRYrG0fngLb3p0z8TA==
+	t=1795475722;
+	b=yDTsEecMMBSbXMkiH58/JQzLzgfdBXfEYS4wHSAVA+/3ZC4CdxlcMVhXxh1kOlHKeBDo
+	 yewvDUvjSmK7ugZYw3LeZV29fHU2fDfqukhK+EYggupNniPM3/EsaGhSG0V6JndwIqrwe
+	 LF0icKvYrfuoWZx0lnByFujAvXa/Yd2cWSzzNadUUBZfNZeOSHRxJFqYZ1G17FT0Bp7rO
+	 QZM+mSkZzs91yKMvt80L0meIImAqB20c2LaRliJriY8RipQqaM18hZeOcHV1rk27LBz0D
+	 9/lm0PNe7rAgbB1QADKu2LZLWtwczmJjxnmvTulFSOAYF90/vFW0S04V2BD0S3HKxiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475709;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oLmGWtI2ku8OobUX8IXzT/SJezeWZOgyXUpkYddicFI=;
-	b=5Va4LMBCtT3JBLDgMGZgm93xHMSH0rsyR5XCU4V03oag89FolUrgiWXf1+PGwSCTpXyz
-	 HCkufKd/QTEGsyOCts1rDo655oIxMPMR6q2VEmGZowa3PGkW3j3d0WpQYdYpaNr1ttQGI
-	 pV1medl7DLsQ7UnbnMV+rJYkorM6R7TxACFEx7KDbb32H6+tVpHsph0uQA7iPRV2s6Vmn
-	 FSsPtaSTICLirbSOfsnyr404GLGjgDlhp01qAMuuqpjLvH18nTszpapyjtqrWsgO4pjYY
-	 AU3ZtI05q272ys9Y3lHLLyxfzIbu/oVyJ/ws+mgmYXwMu0UZ/EJCyHAKtLY+z9DqH0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795475722;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=yLBdnVh8xwsXQonOiCKJHP1ANYw6wkSutl8/BrhO7dY=;
+	b=CxMUG8DSgHCS1FhFvRwe0k5M24W7AClAkQlLAuNQvZmkz16RG0xxPs7rjjEPORLLTKO1
+	 WkwfDfPiEI42dv5dlHJtEmaAI8IVOT1ql/ik5E1QxlfoWgqWnmwzQBdj1GHcaCAA1XDAt
+	 RQHO81DXH5yQJ+VSvRwddYSnZADYAFnObO5uM4ZKsgH0EKsfYAU8Q0hngEGTPbJtN7jXm
+	 pmOfTzJUFyYq6rId2VbG/FsVZg30ovip3AfJUUb5Ap46warcbW2lrnRTMQwb3RXR2+uaZ
+	 LdbpaowfFGM2cTJMgH9y6lhv95+RhIbUT5YYlw+zEIdrDgjitxfGCYDqT7s7cKjTy0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WL/K8FUm";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ra2UnGi0;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC4C8606A69F;
-	Mon, 23 Nov 2026 23:15:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC054606A337
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:15:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC054606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WL/K8FUm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 479D41F000EC;
-	Mon, 23 Nov 2026 23:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795475709;
-	bh=oLmGWtI2ku8OobUX8IXzT/SJezeWZOgyXUpkYddicFI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WL/K8FUmm1dMW/4d2llwALEo0FOmpVizKKKd6aD2dyCjTXUlvaJbYZye3V8+Y5P+z
-	 t4M0MA0AbfSHMdOugXQMn5pr6vvWSmdyT1CFG/4zzHnoMaQuFkBo4XheqBwMczk1Sx
-	 9jBdjjuA20bKDEGEgk/S2TKQvx+oGqMv6uJg0Z7xxuo/WaU7cKRvAOL0LD8g6TOA0+
-	 JifjNFKTIQ9umv2H7RRWj5jFb/0WCsLknPhu8PPraDoQpN/VATYnGGj4IWs9rpgAJS
-	 k0dRaGhoMp1rjwNuXoSwo3NdMO9gyayBANipG+QUJOVnL7SPjCGHPWLGrc8DlVvG4d
-	 Chg9dFveUWnVQ==
-Subject: Re: [PATCH net-next v8 3/3] net: ethernet: mtk_eth_soc: add 9K jumbo
-From: netdev-bot+sashiko@kernel.org
-To: sandeeph@loljews.com
-Cc: netdev@vger.kernel.org, nbd@nbd.name, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
- daniel@makrotopia.org, mason-cw.chang@mediatek.com, frank-w@public-files.de,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 23:15:07 +0000
-Message-ID: <179547570786.3135.14102312432224479446@kernel.org>
-In-Reply-To: <patch-33f903552b0fbd7330e1165ec70bbb39@loljews.com>
-References: <patch-33f903552b0fbd7330e1165ec70bbb39@loljews.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ra2UnGi0
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-38431138772so4965467eec.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:15:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795475721; x=1796080521; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yLBdnVh8xwsXQonOiCKJHP1ANYw6wkSutl8/BrhO7dY=;
+        b=Ra2UnGi0ij9gulCmXyGwRzEVlkwp8AK/N8UJYPA20T8Ml1jaNGA+2SDEJV5QWSsj92
+         oZqlYTy0seldjCrdxd24kOcuwMyfn/I5BerhTPwjAUumEKR7mbDLi3pUPJO+igLcMA61
+         gYHAa5LNfUGwUu9TCzWhoP4lRbyszuggZzxAB6DmCV++C2CT2McgftbmAXkNdu+a5BE5
+         +T8RrONQ9ID71jdoI8Nv3nkSULowUt6Yk7krBy23pYXqtQFtUlN/1E6sDDDGvZpO45M2
+         W2uWpUvHtSwzKqXmH5Bq1vOgj382IZcnakrbZm/3R7y1vanC2RFK27YSPQaHI7/MTuU8
+         0Bkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795475721; x=1796080521;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=yLBdnVh8xwsXQonOiCKJHP1ANYw6wkSutl8/BrhO7dY=;
+        b=hXamsjvwJdNoA4zQVmXnC9A3IegkZEk4mOG95+AsJMv8zjFjsVjpBs6W3rH1zDItcv
+         7+QkgC4+54yVsaiOcDEsHXqUqmnDJj2HP7mBylxZU7b/hUFQmD5SloNDB4xCm7Ik+ykq
+         Smqnsmls3oYXYJCCi0mXl/QX70QYIrYpvK03Rv1KPmV5QkcBwRrhOUc41xgmuf2EJD6L
+         X6F+G/pEaTnys8NT7lUCW2aV4ZOVN7erLYqlZrivmsISfMh2aSeubs+bwcqqDsgE5tbv
+         bQtFNU+uOp5nWNuSWrL4Q9FC2+k2c+3n9Qy+1ULuw5MToGCWOZgZidk6LqipzB6gXnm4
+         y+rQ==
+X-Forwarded-Encrypted: i=1; AL+hErE6+U30v+kfU9kyi9xdWzWhiRJ4PDKvPnoMJH+z0pbwubHssNcNSR3knDvEd3TS5xJyCL/sVk8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Jc0+0zK/vFQPYnY9r/HMeLPfbSEJgwt3XyzvSWShSLYF3VnB8
+	QqWQ9253YUmGSbigVqiRWGWTVt8EEVv9zlW41lcFOzaTcMWfOH/Sqe1F
+X-Gm-Gg: AZFdTZf475B08KJ9Q4yRXTYdpFMQLT3KRGFpH0GPNXtOwWv9+ZdHFW3wyL94W0po7g5
+	9VSeZYqxe+YRlItdiPqBygUke6tU5zwNN97DyBRbtpA9+Qg+eNYOc7ItXDS59EABRkNvoVCsBq5
+	cWZJKV9j9F7O7qJNlRj4iwkgy2Rja4PDgp6ptJI7a6tfCtCncA6e3s1kvuKPQRg7aoV1cBRmGrk
+	IyZIjuePwprplx34FGKyEziyZc4xoMnxOmrilUXG+LbhLtvMwHu+hZW59XYsxBvxd6y+5B5EaXs
+	Gf55TzzwxcaDDIJ89Ye1CLcnyuO1EB0MUuRBID0nhyBrZpbl207NgQiJ9++3Jys+nKZgfPvB8Br
+	q/PGIdYFeNny3/5oAJ+jVMQ0J5RVbu5UiZo8uKUWcAN0zGlnd+nqhba3IYA5fGHPDkS0Wdp2ZRL
+	1ekoNu3F68tvKyd3BOiwfrgio+lVcAyY3pnqdmOFNLMRV9niy9ptqt1d64bMXsMIzCZJP2aAjRi
+	1FMTBO1/Ll3lY5VlK1RXxFWKXm27GvNVZLuoo2VjkIt4L6seCGibXw6lPcLRcuCoFSWE9UYIGnW
+	Z4ixME+jj4DW6QsTlYk+oMrfb5V5VpV+QvNTZ3viW/Ti47SInC3nH9b0O2Xx0QFjJxOTT5sfnv8
+	ebXO0A3rS9Lu3dnlzBTCS4UF3K0F9DBE=
+X-Received: by 2002:a05:7301:152f:b0:376:203e:7d7b with SMTP id 5a478bee46e88-3856c6b35b5mr15176431eec.2.1795475720681;
+        Mon, 23 Nov 2026 15:15:20 -0800 (PST)
+Received: from v4bel ([211.209.222.29])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm41447416eec.6.2026.11.23.15.15.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 15:15:20 -0800 (PST)
+Date: Tue, 24 Nov 2026 08:15:15 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, richardbgobert@gmail.com, willemb@google.com,
+	kuniyu@google.com, netdev@vger.kernel.org, imv4bel@gmail.com
+Subject: Re: [PATCH net v2] net: gro: avoid truncating transport header
+ offsets
+Message-ID: <awTJAyw57pj7LFfq@v4bel>
+References: <avcJ_0-OqgDlD5GB@v4bel>
+ <179492223500.3136.9448543337352524214@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,400 +102,161 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
-Thank you for your contribution! Sashiko AI review found 9 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 5 · Low: 4
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit message's case for GMAC1, the built-in switch port
-  and the only 10G MAC, contradicts itself and does not support the…
-- [Medium] mtk_pdma_set_sdl() writes ADMA_RX_CFG[31:16] (pdma.rx_cfg =
-  0x6a10) with MTK_PDMA_LRO_SDL + eth->rx_buf_len, i.e. 0x3000 +…
-- [Medium] mtk_poll_rx() now counts over-long descriptors in
-  netdev->stats.rx_length_errors, and mtk_get_stats64() adds that into…
-- [Medium] In mtk_set_mcr_max_rx(), the MCR jumbo field (bits 31:28) is
-  written whenever the SoC has MTK_NETSYS_RX_9K and val > 1552.
-- [Medium] On MT7988, mtk_change_mtu() (called under RTNL) now calls
-  mtk_set_all_macs_max_rx(), which reads every other MAC's…
-- [Low] The commit message says 9K is enabled on "the 10G XGMII MACs" and
-  that XMAC_RX_CFG2 is programmed "on the XGMII MACs, so a tagged…
-- [Low] mtk_poll_rx() gains a `pktlen > ring->buf_size` drop, justified
-  by a comment that states as fact that "The engine can report a length…
-- [Low] The commit message describes the patch as "a forward-port of the
-  MediaTek downstream jumbo work: Mason Chang's \"change default rx…
-- [Low] mtk_xgdm_mac_link_up() calls mtk_set_mcr_max_rx(mac,
-  mac->hw->rx_buf_len) unconditionally.
-
---
-
-net: ethernet: mtk_eth_soc: add 9K jumbo
-
-This adds an MTK_NETSYS_RX_9K capability for MT7988. It raises max_mtu on
-the XGMII MACs to 9194 and sizes the shared RX rings from the largest MTU
-of any MAC. The MAC limits (MCR, XMAC_RX_CFG2) and the ADMA_RX_CFG SDL
-field are reprogrammed from that shared length, and mtk_poll_rx() now
-drops descriptors whose PLEN0 exceeds the posted buffer.
-
-Link: https://github.com/frank-w/BPI-Router-Linux/commit/b4c6cb1d5532
-Link: https://github.com/mediatek/mtk-openwrt-feeds
-
-> This is a forward-port of the MediaTek downstream jumbo work: Mason
-> Chang's "change default rx buffer length" and "add 9k jumbo frame
-> support" (MediaTek OpenWrt feed 999-eth-30/31, carried in
-> frank-w/BPI-Router-Linux), plus Frank Wunderlich's "try to fix crash
-> the right way".
-
-[ ... ]
-
-> Signed-off-by: Sandeep Haemoon <sandeeph@loljews.com>
-
-[Severity: Low]
-The message credits the code to Mason Chang and Frank Wunderlich, but the
-only trailer is the submitter's Signed-off-by.
-
-Should the original Signed-off-by chain be kept here, or Co-developed-by
-plus Signed-off-by tags added, as described in
-Documentation/process/submitting-patches.rst?
-
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> index b3a6e5703538e..bc0295f95203b 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-
-[ ... ]
-
-> @@ -554,6 +555,98 @@ static int mtk_mac_prepare(struct phylink_config *config, unsigned int mode,
->  	return 0;
->  }
->  
-> +/* The MACs are fed from the shared RX rings, so the maximum frame they may
-> + * accept is a property of the ring buffer length.  GMAC1 on netsys v3+ is
-> + * the built-in switch port: it has no XMAC_RX_CFG2 limit register, so it
-> + * keeps the MCR programming the other SoCs use, extended with the MCR
-> + * jumbo field so its limit can grow with the rings like the XGMII MACs'.
-> + */
-> +static void mtk_set_mcr_max_rx(struct mtk_mac *mac, u32 val)
-> +{
-> +	struct mtk_eth *eth = mac->hw;
-> +	u32 mcr_cur, mcr_new;
-> +
-> +	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
-> +		return;
-> +
-> +	if (!mtk_interface_mode_is_xgmii(eth, mac->interface) ||
-> +	    mac->id == MTK_GMAC1_ID) {
-> +		mcr_cur = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
-> +		mcr_new = mcr_cur & ~MAC_MCR_MAX_RX_MASK;
-> +
-
-[ ... ]
-
-> +		/* The bucket encodes at most 2048; the SoCs with the 9K
-> +		 * capability need the jumbo field, in 1024-byte units, for
-> +		 * anything larger.  The MT7988A reference manual defines
-> +		 * only 4'h2 (2 Kbytes) for that field and marks the rest
-> +		 * reserved, while the MediaTek downstream driver programs
-> +		 * the length there and jumbo passes on its reference
-> +		 * hardware; the vendor encoding is kept for the internal
-> +		 * switch port.  Clearing it together with the bucket keeps
-> +		 * a later MTU shrink from leaving a stale larger limit
-> +		 * behind.
-> +		 */
-> +		if (MTK_HAS_CAPS(eth->soc->caps, MTK_NETSYS_RX_9K)) {
-> +			u32 jumbo = DIV_ROUND_UP(val, MTK_MAX_RX_LENGTH_UNIT);
-> +
-> +			mcr_new &= ~MAC_MCR_MAX_RX_JUMBO_MASK;
-> +
-> +			if (val > 1552)
-> +				mcr_new |= MAC_MCR_MAX_RX_JUMBO(jumbo);
-> +		}
-
-[Severity: Medium]
-The commit message describes what the vendor driver does for GMAC1 in two
-places, and the two descriptions seem to contradict each other:
-
-  "the vendor driver programs the length there and jumbo passes on its
-  reference hardware, so the vendor encoding is kept for the internal
-  switch port."
-
-and:
-
-  "the downstream reference programs no limit for GMAC1 and jumbo frames
-  pass the switch on the reference hardware, which suggests the field
-  is not enforced there"
-
-If the vendor driver does not program GMAC1, what justifies writing the
-reserved encodings (3..9 in MCR[31:28]) into GMAC1's MTK_MAC_MCR?
-
-If the field is not enforced for switch-side frames, is the claim "so no
-MAC accepts a frame the rings cannot hold" accurate for GMAC1?
-
-The current code already suggests the field is not enforced.
-mtk_mac_config() does a full-register write for the XGMII modes:
-
-    mtk_w32(mac->hw, MAC_MCR_FORCE_LINK_DOWN, MTK_MAC_MCR(mac->id));
-
-That leaves GMAC1 in the 1518 bucket, yet tagged 1522-byte DSA frames
-already pass on MT7988. If so, the per-descriptor PLEN0 bound would be the
-only real protection on GMAC1.
-
-There is no Tested-by, and the message does not say whether 9K frames
-through GMAC1 and DSA were tested. Could that be clarified?
-
-[Severity: Medium]
-The jumbo field is gated only on MTK_NETSYS_RX_9K, not on
-mac->id == MTK_GMAC1_ID. The comment, however, limits the vendor encoding
-to the internal switch port.
-
-The MCR branch is taken by any MAC whose mac->interface is not XGMII. On
-MT7988 that means GMAC2/GMAC3 in MII or GMII mode, and later any
-SGMII/2500BASE-X MAC once those modes are supported.
-
-mtk_set_all_macs_max_rx(), mtk_mac_config() and mtk_hw_init() all pass
-the shared eth->rx_buf_len. Once any XGMII MAC's MTU goes above 2030,
-rx_buf_len becomes 3072..9216.
-
-Would these GDM MACs, whose max_mtu stays at 2030, then be programmed
-with MAC_MCR_MAX_RX_JUMBO(3..9), the encodings the manual marks reserved?
-Their RX length handling would then depend on another netdev's MTU.
-
-Should the jumbo write be limited to GMAC1?
-
-[ ... ]
-
-> @@ -877,6 +982,12 @@ static void mtk_xgdm_mac_link_up(struct mtk_mac *mac,
->  		mcr |= XMAC_MCR_FORCE_RX_FC;
->  
->  	mtk_w32(mac->hw, mcr, MTK_XMAC_MCR(mac->id));
-> +
-> +	/* The logic reset above can clear the RX size limit programmed from
-> +	 * mtk_mac_config(), so set it again now that the logic is out of
-> +	 * reset and the interface mode is known.
-> +	 */
-> +	mtk_set_mcr_max_rx(mac, mac->hw->rx_buf_len);
->  }
-
-[Severity: Low]
-mtk_set_mcr_max_rx() picks the register from the cached mac->interface,
-not from the interface argument phylink passes here. This call site also
-has no PHY_INTERFACE_MODE_NA guard, unlike mtk_set_all_macs_max_rx() and
-mtk_hw_init().
-
-mtk_mac_config() can exit through init_err before it sets mac->interface,
-for example when mtk_gmac_2p5gphy_path_setup() fails for GMAC2 INTERNAL.
-In that case mac->interface stays NA. Because mac_config returns void,
-phylink still calls mac_link_up, and mtk_mac_link_up() dispatches here
-based on the interface argument.
-
-Would mtk_set_mcr_max_rx() then read-modify-write the GDM MTK_MAC_MCR of
-an XGDM MAC and leave XMAC_RX_CFG2 at its 0x800 reset value?
-
-Should this call use the same NA guard as the other call sites, or pick
-the register from the interface argument?
-
-> @@ -1239,29 +1350,40 @@ static void mtk_get_stats64(struct net_device *dev,
->  
->  	storage->tx_errors = dev->stats.tx_errors;
->  	storage->rx_dropped = dev->stats.rx_dropped;
-> +	storage->rx_length_errors += dev->stats.rx_length_errors;
->  	storage->tx_dropped = dev->stats.tx_dropped;
->  }
-
-[Severity: Medium]
-The new software drops are added to rx_length_errors. Earlier in this
-function, storage->rx_errors is still set only from the checksum counter:
-
-    storage->rx_errors = hw_stats->rx_checksum_errors;
-
-The kernel-doc for struct rtnl_link_stats64 in
-include/uapi/linux/if_link.h says:
-
-    @rx_errors: Total number of bad packets received on this network
-    device. This counter must include events counted by
-    @rx_length_errors,
-
-Should rx_errors also include dev->stats.rx_length_errors? Otherwise the
-new drops will not show up in the error totals reported by ip -s link
-and /proc/net/dev.
-
-[ ... ]
-
-> @@ -2268,6 +2398,15 @@ static int mtk_poll_rx(struct napi_struct *napi, int budget,
->  
->  		pktlen = RX_DMA_GET_PLEN0(trxd.rxd2);
->  
-> +		/* The engine can report a length larger than the posted
-> +		 * buffer; never pass the unwritten remainder of the buffer
-> +		 * up the stack.
-> +		 */
-> +		if (unlikely(pktlen > ring->buf_size)) {
-> +			netdev->stats.rx_length_errors++;
-> +			goto release_desc;
-> +		}
-
-[Severity: Low]
-The comment states that the engine can report a PLEN0 larger than the
-posted buffer. If that is true, does the current code already crash on
-every SoC?
-
-On the non-page_pool path, build_skb(data, ring->frag_size) plus
-skb_reserve(NET_SKB_PAD + NET_IP_ALIGN) leaves exactly buf_size of room.
-skb_put(skb, pktlen) with a larger pktlen would then reach
-skb_over_panic().
-
-If so, should this check go out as a separate fix with a Fixes: tag, so it
-can be applied to net and stable instead of only arriving with the MT7988
-feature work?
-
-The check is also required by the build_skb(data, alloc_size) change
-further down, which extends tailroom to the whole compound page. Without
-the check, an over-long PLEN0 would pass non-zeroed memory from
-__get_free_pages() up the stack instead of crashing. Could the commit
-message explain that dependency?
-
-[ ... ]
-
-> @@ -3259,6 +3416,71 @@ static int mtk_dma_busy_wait(struct mtk_eth *eth)
-
-[ ... ]
-
-> +/* Program ADMA_RX_CFG[31:16], "ADMA LRO free buffer SDL" in the MT7988A
-> + * reference manual: the capacity of the buffer the ADMA is handed,
-> + * encoded the way the MediaTek downstream driver does it
-> + * (MTK_PDMA_LRO_SDL plus the frame area).  It is not the RX frame-length
-> + * limit; that is the per-descriptor PLEN0 together with the MAC limit.
-> + */
-> +static void mtk_pdma_set_sdl(struct mtk_eth *eth)
-> +{
-> +	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
-> +	u32 val;
-> +
-> +	if (!mtk_is_netsys_v3_or_greater(eth))
-> +		return;
-> +
-> +	val = mtk_r32(eth, reg_map->pdma.rx_cfg);
-> +	val &= ~MTK_RX_CFG_SDL_MASK;
-> +	val |= FIELD_PREP(MTK_RX_CFG_SDL_MASK,
-> +			  MTK_PDMA_LRO_SDL + eth->rx_buf_len);
-> +	mtk_w32(eth, val, reg_map->pdma.rx_cfg);
-> +}
-
-[Severity: Medium]
-This writes 0x3000 + rx_buf_len into ADMA_RX_CFG[31:16]. That is 14336 at
-the default MTU and 21504 at 9K. mtk_dma_init() calls it on every DMA
-bring-up on MT7988, including at MTU 1500. MTK_PDMA_LRO_SDL was unused
-until now, so this register used to stay at its reset default.
-
-The comment calls this field "the capacity of the buffer the ADMA is
-handed". MT7988 has no MTK_HWLRO, so there are no LRO rings.
-
-The ADMA only gets normal-ring buffers of ring->buf_size (about
-rx_buf_len, or order-0 page_pool pages at 2K) and the 2K QDMA buffers.
-The programmed value is about 12 KiB larger than any buffer that is
-actually posted.
-
-If the comment is accurate and the engine treats this field as buffer
-capacity, can it DMA past the end of the page_pool pages or the 2K QDMA
-buffers?
-
-If PLEN0 is the real bound, as the commit message argues, is the comment
-wrong? And is this write needed at all on a SoC without HW LRO?
-
-[ ... ]
-
-> @@ -4360,15 +4585,53 @@ static int mtk_change_mtu(struct net_device *dev, int new_mtu)
-
-[ ... ]
-
-> +	/* On the SoCs whose rings grow with the MTU every MAC has to be
-> +	 * narrowed or widened together, because they share the buffers;
-> +	 * the other SoCs keep the per-device limit they always had.
-> +	 */
-> +	if (MTK_HAS_CAPS(eth->soc->caps, MTK_NETSYS_RX_9K))
-> +		mtk_set_all_macs_max_rx(eth);
-> +	else
-> +		mtk_set_mcr_max_rx(mac, length);
-
-[Severity: Medium]
-Can this race with another MAC's phylink resolve worker?
-
-mtk_change_mtu() runs under RTNL. mtk_set_all_macs_max_rx() reads every
-other MAC's mac->interface without a lock, then does a plain
-mtk_r32()/mtk_w32() read-modify-write of that MAC's MTK_MAC_MCR.
-
-The other MAC's phylink resolve worker holds only its own phylink
-state_mutex. It writes mac->interface in mtk_mac_config(). It also
-read-modify-writes the same MCR in mtk_mac_config(), mtk_mac_finish(),
-mtk_gdm_mac_link_up() and mtk_mac_link_down().
-
-One possible interleaving, where MAC B's link is still being set up and
-CPU0 computes a new max-rx value for it:
-
-CPU0 (RTNL, MTU change on MAC A)
-mtk_set_all_macs_max_rx()
-  mtk_set_mcr_max_rx(B)
-    mcr_cur = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
-
-                     CPU1 (MAC B resolve worker)
-                     mtk_gdm_mac_link_up()
-                       mcr |= MAC_MCR_TX_EN | MAC_MCR_RX_EN |
-                              MAC_MCR_FORCE_LINK;
-                       mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
-
-    mtk_w32(mac->hw, mcr_new, MTK_MAC_MCR(mac->id));
-
-Would MAC B then be left with TX/RX disabled and FORCE_LINK cleared,
-while phylink reports carrier up until the next link flap?
-
-Before this patch, mtk_change_mtu() only touched the MCR of the device
-being changed.
-
-rx_buf_len does not change while DMA is running, and all phylinks are
-stopped when DMA is down. Would calling mtk_set_all_macs_max_rx() only
-when !running avoid this race?
-
-[ ... ]
-
-> @@ -5018,8 +5281,17 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
->  	eth->netdev[id]->irq = eth->irq[MTK_FE_IRQ_SHARED];
->  	eth->netdev[id]->dev.of_node = np;
->  
-> +	/* DSA sets the conduit MTU (user MTU + tag) before the netdev is
-> +	 * opened, so max_mtu must already be final here.  Deriving it only
-> +	 * in mtk_open() leaves the conduit at its 1504 default and blocks
-> +	 * 9K frames on the DSA user ports.
-> +	 */
->  	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
->  		eth->netdev[id]->max_mtu = MTK_MAX_RX_LENGTH - MTK_RX_ETH_HLEN;
-> +	else if (MTK_HAS_CAPS(eth->soc->caps, MTK_NETSYS_RX_9K) &&
-> +		 mtk_interface_mode_is_xgmii(eth, phy_mode))
-> +		eth->netdev[id]->max_mtu =
-> +			MTK_MAX_RX_LENGTH_9K - MTK_RX_ETH_HLEN - VLAN_HLEN;
-
-[Severity: Low]
-The commit message says 9K is enabled on "the 10G XGMII MACs". It also
-says XMAC_RX_CFG2 is programmed "on the XGMII MACs, so a tagged
-maximum-size frame fits from the first 3K class up".
-
-In this tree, mtk_add_mac() never adds USXGMII, 10GBASE-R or 5GBASE-R to
-supported_interfaces for any MAC. Those modes only appear inside
-mtk_interface_mode_is_xgmii(). MT7988_CAPS also has no MTK_SGMII.
-
-On MT7988, the only reachable mode that counts as XGMII is
-PHY_INTERFACE_MODE_INTERNAL. GMAC1 (ESW) and GMAC2 (2P5GPHY) use it.
-
-GMAC1, the only 10G MAC, takes the MCR branch in mtk_set_mcr_max_rx(). The
-XMAC_RX_CFG2 path therefore only runs on GMAC2, the internal 2.5G PHY
-port.
-
-Could the commit message say which MACs use which limit register?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/patch-51fa5ed3bc801edb3f29b61ca7888382%40loljews.com
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179492223500.3136.9448543337352524214@kernel.org>
+
+On Tue, Nov 17, 2026 at 01:30:35PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 � High: 1 � Medium: 0 � Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [High] ipv6: gro: u16 off truncation in ipv6_gro_receive() inflates
+>   data_offset
+> - [Low] The commit message says the reproducer is already blocked by a
+>   GRO extension-header limit.
+> 
+> --
+> 
+> net: gro: avoid truncating transport header offsets
+> 
+> This patch replaces skb_set_transport_header() with
+> skb_set_transport_header_careful() in ipv6_gro_receive() and
+> inet_gro_receive(). If the GRO transport offset does not fit in the
+> 16-bit skb->transport_header, the skb is not held as a new GRO head and
+> goes through the normal receive path instead.
+> 
+> > The IP6_MAX_EXT_HDRS_CNT limit in ipv6_gro_pull_exthdrs() prevents this
+> > reproducer. However, nested encapsulations can each add an extension
+> > header chain, so the accumulated offset can still exceed the range of
+> > skb->transport_header. inet_gro_receive() can also be reached with such
+> > an offset.
+> 
+> [Severity: Low]
+> Is this paragraph accurate for the tree this patch applies to? Here,
+> ipv6_gro_pull_exthdrs() in net/ipv6/ip6_offload.c is still an unbounded
+> loop with no header counter:
+> 
+> net/ipv6/ip6_offload.c:ipv6_gro_pull_exthdrs() {
+> 	for (;;) {
+> 		int len;
+> 
+> 		ops = rcu_dereference(inet6_offloads[proto]);
+> 
+> 		if (unlikely(!ops))
+> 			break;
+> 
+> 		if (!(ops->flags & INET6_PROTO_GSO_EXTHDR))
+> 			break;
+>     ...
+> }
+> 
+> IP6_MAX_EXT_HDRS_CNT is not referenced anywhere in ip6_offload.c.
+> 
+> The limit appears to come from Eric's prerequisite patch. That patch is
+> only mentioned in the v2 notes below the --- line, and git am drops those
+> notes. The permanent log would then describe a cap that is not in this
+> tree, and nothing would point to the patch that adds it. In this tree,
+> this change is the only thing that stops the KASAN reproducer.
+> 
+> Could the prerequisite be referenced in the changelog itself, for example
+> with a Link: tag? Or could the sentence be reworded?
+> 
+> The nested encapsulation argument could also be more specific. With a
+> 12-header cap, one GRO pass handles at most two L3 layers through
+> encap_mark. That comes to about 2 x 12 x 2048 bytes, roughly 49 KB, plus
+> a small amount of driver headroom. That total is still below 64 KB.
+> 
+> Which path still exceeds the range? One candidate is a second GRO pass
+> through gro_cells after decapsulation, where the pulled outer headers
+> become headroom. Could the changelog name the concrete path?
+> 
+> Also, skb_set_transport_header_careful() was added by commit f12c2de4f542
+> ("batman-adv: reject unrepresentable multicast TVLV offsets"). This patch
+> carries Fixes: 4b0ebbca3e16 and Cc: stable, so stable trees would need
+> f12c2de4f542 as well. Should that dependency be noted in the changelog?
+> 
+> [ ... ]
+> 
+> > diff --git a/net/ipv6/ip6_offload.c b/net/ipv6/ip6_offload.c
+> > --- a/net/ipv6/ip6_offload.c
+> > +++ b/net/ipv6/ip6_offload.c
+> > @@ -249,7 +249,8 @@ INDIRECT_CALLABLE_SCOPE struct sk_buff *ipv6_gro_receive(struct list_head *head,
+> >  		skb_gro_pull(skb, sizeof(*iph));
+> >  	}
+> >  
+> > -	skb_set_transport_header(skb, skb_gro_offset(skb));
+> > +	if (!skb_set_transport_header_careful(skb, skb_gro_offset(skb)))
+> > +		goto out;
+> >  
+> >  	NAPI_GRO_CB(skb)->proto = proto;
+> >  
+> 
+> [Severity: High]
+> Can this early exit turn a truncated inner offset into a heap
+> overflow?
+> 
+> Suppose outer layers advance skb_gro_offset() to just below the
+> limit, so the outer transport offset still passes the new careful
+> check. A tunnel and L2 callback such as gre_gro_receive() followed by
+> eth_gro_receive() can then pull a few more bytes without any U16_MAX
+> check. The inner ipv6_gro_receive() is entered with off above 65535.
+
+This concern seems plausible, but I could not find a path where
+skb_gro_offset() exceeds 65535 in the current upstream tree with
+v2 applied. The two capped IPv6 header chains in this path stay
+below 50KB, and skb headroom is not part of skb_gro_offset().
+
+I will not send a v3.
+
+> It stores off into the u16 network_offsets[] slot before anything
+> validates it, so the slot holds off - 65536.
+> 
+> If the inner nexthdr is an extension header, ipv6_gro_pull_exthdrs()
+> then does:
+> 
+> net/ipv6/ip6_offload.c:ipv6_gro_pull_exthdrs() {
+>     ...
+> 	skb_gro_pull(skb, off - skb_gro_receive_network_offset(skb));
+>     ...
+> }
+> 
+> Subtracting the truncated value advances data_offset by an extra
+> 65536. On a linear skb the extension headers were read through
+> frag0, so frag0_len is still set.
+> 
+> Before this patch, tcp6_gro_receive() or udp6_gro_receive() called
+> skb_gro_header() with the inflated offset. That went through
+> skb_gro_header_slow(), which invalidated frag0. With this change the
+> careful check fails first. We jump to out with data_offset far past
+> skb_headlen() and frag0_len still non-zero.
+> 
+> dev_gro_receive() then takes the normal path and calls
+> gro_try_pull_from_frag0(). grow is roughly 64KB and frag0_len is
+> non-zero, so gro_pull_from_frag0() copies that many bytes to
+> skb_tail_pointer(skb), past skb->end. That overwrites
+> skb_shared_info and the memory after the head buffer.
+> 
+> A single linear skb slightly over 64KB is enough to reach this.
+> virtio_net, veth, tun/tap and loopback can all deliver one. That
+> includes devices an unprivileged user sets up in a user and network
+> namespace.
+> 
+> Could the representability check move to the top of
+> ipv6_gro_receive(), before off is stored in network_offsets[] and
+> before ipv6_gro_pull_exthdrs() runs? Making ipv6_gro_pull_exthdrs()
+> pull relative to skb_gro_offset() would avoid the inflation, but the
+> truncated network_offsets[] entry would still be wrong for any later
+> user. inet_gro_receive() stores a truncated network_offsets[] entry
+> the same way, although it does not inflate data_offset.
+> 
+> -- 
+> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/avcJ_0-OqgDlD5GB%40v4bel
