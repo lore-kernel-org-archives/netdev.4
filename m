@@ -1,49 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440345;
-	b=SQZzidJZUzwE6OwZNjVMowGbz1hhSOYBBhMXX7f3n5Jl+p3VW7+mTg6uJqtkQB0Zp0A1
-	 UUyzAgGx75n6MtkxOKbgWXW8lB13GQ54TICYz1Lm44xaFHwUc8ScuODGL6Bp6HK+3a6GU
-	 vPiufbUh19h/OIxT/NRJb3zDPAquN1JelIZJ2y4iZamFZ7da+DchtA4WDW1bavEoiMzX5
-	 bsrD4v6PgaI+BwSmO7ub1gjPBcbdEViIMMBLH37bxy0R1Am5Q3sUBrJW+/P0eE5hNGX57
-	 V8GMCxO8eYVhHvMAMH9ptLkQw753Gk9M2WYP9ZGG9RNxsJJKtzrt+UTvcwWublg2f8w==
+	t=1795440350;
+	b=fbdZh4VzIe3d6ryMf8ojk8htv9y4aHzS8dnxPwsHL5EtFFG4Ey9fAgZUXHGCiDQfevr1
+	 JymWShnN+2EpLMrrJu5IPktPb9jgXFjMoIDmHWqdPQ/wZQyvq225s/Wm3IBhFhiBpH3PC
+	 ZkMD3E/Ia5gEv2kLHKoWfXI6Hh5tOKfGNhVOXshJ+y9pTw375OmJZ2mE84bJ6W75HuSWH
+	 Vj1atV/faXVFhjel5XLICf7SvoHDu+cR6uCQ7B7urUTnSP515U56KuHJnYLAw4deZka9j
+	 824OK6kUihRWNFxkywLzegPwTIy6h4ps0HosTpwY1btEW1Vtt51Wg5MJUlv3Vpk5L1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440345;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=dhOl6SMJcFEgG7JjGFeImeI+0PoTpGZsESAagy7OtWc=;
-	b=0Mg8Ujm75xf8uQGqnpThXKbEBhAYlGD8vHIQQdyK8MC4IEBTfccFhhxN68AhczVIyG1E
-	 XWwxGhylawuXkBzx9TlxN/dYdn/8dGGIJwwmbPaOJ5r7P96ptzh0iXFjxNY3PCFkH6znv
-	 pKJLWOBnY5Zvjp28eoWl9nEdnaRltNNZ678q3hjjsb9QBWgxjQIpsJ2L5hHLKnZd861t9
-	 Ob7Q+oVA052ZMMSt9rt43RNCfUTIL6dyUguqJNrKHKzZN3PKlk3Yrqol3NAYzmdX4cT69
-	 aED/DHQ8hUB8uqtHpOGTky8VmPmfhzyVrC73DZhtWiXRGGlA3Q0Ii9t3ZilU6Qr2Tsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440350;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
+	bh=DBCFU9vOrJdstCRij3rT/Hl2Y7D7MQX+Hld/OsjMT7U=;
+	b=A6Gaa4mYVQr7hiUfd9EcHl6vb/V3v07Hm77JjTFL0azlFICb6yGBtKUvDotPKpr4B1ZQ
+	 1l4o9/7NZzpmce59nqq0sJPONVl7RgZkVZ45OccYgWCNlXjBkHUws2VWDCPQ5xgr1H/mm
+	 1nTSo4eTTRUMUrO7E5/tgGGaM/ZHkp2jR6+h/6+TDdRtMt0+X+haetZfJydUzmvhVk47/
+	 1JHZPGJR8tC64gVhtk9atYwGuk3CXfnC2elaTsaIHny05ZPf/E6vSff/aP61FxSUwMyTD
+	 tqnYizXwPV7rTtiLfMTfSxMMb0oseqk0NjZF+eZUQw6ZXqDoj6JkGnQ9PLgBwCOW03A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YOYCJAT+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="rxywaiJ/";
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56BB4606A69A;
-	Mon, 23 Nov 2026 13:25:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2F3560A382D;
+	Mon, 23 Nov 2026 13:25:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F3560A382D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YOYCJAT+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B25061F000EB;
-	Mon, 23 Nov 2026 13:25:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440345;
-	bh=dhOl6SMJcFEgG7JjGFeImeI+0PoTpGZsESAagy7OtWc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=YOYCJAT+1au2FoXWFlgrCw8LuyylzV6LeFXo3/9Ver4d4Qys5WFL0AYiWDwigGzGf
-	 60wyZinnE1F7aSIg1MjpOfLqNIZOHuCNoEFYtkWzdbGLqXFy/VHa9OPVQ0p3iN78yH
-	 IcYtI3Ms67bBiDVGsdEQeQvgfS4iHAZ/YZxidtYc1MP2pHYLW6wDirVsYbp9qGB2h7
-	 6vq0vydldoe2kivfymszceP78Zj23JjsS22V3ufm4Nri9+cFn3hOb+oe2M2FK3k9yV
-	 ILNip26Zr83bii0A1Jd8jAR7q8FNtRJJioyyQ+qL9qcAlXKiuyxssqW0LPwX8fenC3
-	 vM06DyFd/rziQ==
-From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
-Date: Mon, 23 Nov 2026 14:24:54 +0100
-Subject: [PATCH net 06/10] mptcp: don't leak an orphan when the PM closes
- its last subflow
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=rxywaiJ/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795440350; x=1826976350;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=bBo0I05VdlQLgenPhmy0GmOEtXQJWt5VHRNZsb0qbBg=;
+  b=rxywaiJ/39syUj/eB3FAWCkthnE5JixUS8toA+l7qkYsj1BuTJKlGCPY
+   CNMpcOI9WJuXyxqhWV6XeLWcw4STdO+/i2iKyQx7Js+9EHsfgR4Qr9dgi
+   FiWt8bQwJg81A3r0z/PAZ+T6LgyDsP/TDyr1i6vba2Bzc0TfjfvEnc6ke
+   aVtDnvock/oAmrWNwRoHzq4he3/P13pGzDspiLI5vNEQ3Nvte66a5Uko+
+   qv1fdmsklnOuw0/kM14+smMaVvrWSBQhW9iF/DjEQ85BByxvnZ6vARTDZ
+   DTIIDNC5iKgjt6p5sEd0H10KTPjaxLIytyg9u1UeuXdbbOcJNiyYxhv0a
+   g==;
+X-CSE-ConnectionGUID: NDR+tIaTRs+D6MAlDHcSbg==
+X-CSE-MsgGUID: C0Yj1zaZTvqvnj4ZU5YucQ==
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="67154024"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:49 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 23 Nov 2026 06:25:49 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Mon, 23 Nov 2026 06:25:47 -0700
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+Date: Mon, 23 Nov 2026 14:25:08 +0100
+Subject: [PATCH 4/4] mfd: ocelot: Read LAN9645x registers in a single SPI
+ transfer
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,94 +77,212 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-6-278042217e8d@kernel.org>
-References: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
-In-Reply-To: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
-To: Eric Dumazet <edumazet@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, 
- Simon Horman <horms@kernel.org>, Mat Martineau <martineau@kernel.org>, 
- Geliang Tang <geliang@kernel.org>, Christoph Paasch <cpaasch@openai.com>, 
- Florian Westphal <fw@strlen.de>
-Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, 
- Davide Caratti <dcaratti@redhat.com>, 
- "Matthieu Baerts (NGI0)" <matttbe@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3178; i=matttbe@kernel.org;
- h=from:subject:message-id; bh=idSA9++hWiOgEzQLbsTV71c4EwKKNFxFmkF/eqUJWig=;
- b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJZ7PZYdN+e6PHmqsaK7teiz+pNHCMjm/tC3y6sLHVZF
- iK1LONoRykLgxgXg6yYIot0W2T+zOdVvCVefhYwc1iZQIYwcHEKwESC4xn+6bSU3/6/tGHnP+65
- E8SufnwwQ/bRssNF89d/SFTK2NxbbcLIcJQj4c52j/KT29bk1bD9PXZBu3G24/O7PMKe29/ciXu
- 2kgUA
-X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
- fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
+Content-Transfer-Encoding: 8bit
+Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-4-567d811fe1de@microchip.com>
+References: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+In-Reply-To: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
+	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
+ Cochran" <richardcochran@gmail.com>
+CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: b4 0.15-dev
 
-Once close() has returned, an orphaned MPTCP socket is only destroyed by
-mptcp_worker(), in the run that sees it in TCP_CLOSE: later on, the
-worker returns at once for an msk in this state, and
-mptcp_schedule_work() no longer queues it.
+A register read is three SPI transfers: the address, the padding bytes
+and the value. The SPI controller handles each transfer separately, with
+its own setup and interrupt.
 
-__mptcp_close_ssk() moves an orphan to TCP_CLOSE when, after the closure
-of a subflow, only the initial one remains, and it is closed. This
-function is not only called by the worker: path manager commands also
-close subflows of any msk of the netns, orphans included, under the msk
-lock: e.g. 'ip mptcp endpoint delete' or 'flush' with the in-kernel PM,
-or MPTCP_PM_CMD_SUBFLOW_DESTROY with the userspace one. In this case,
-nothing destroys the orphan: it stays in TCP_CLOSE until the reboot,
-with its token, its initial subflow, and its reference to the netns,
-which is then never freed.
+Read the address, the padding bytes and the value of a LAN9645x register
+in one full duplex transfer instead, which removes the handling of two
+transfers from every read. The three transfer read works on the
+LAN9645x as well, this only reduces the cost of a read. The transfer
+buffer is allocated per regmap, so the regmap lock serializes its use.
 
-This can happen when the initial subflow has been reset or has timed
-out, and the connection is closed -- the orphan then waits for the end
-of the DATA_FIN exchange, up to TCP_TIMEWAIT_LEN -- before the endpoint
-used by another subflow is removed, e.g. when an interface goes down.
+With the interrupt driven Atmel SPI controller of a LAN966x host at
+25 MHz and a GPIO chip select, a register read takes 35.8 us instead of
+62.2 us, with a standard deviation below 0.1 us over seven runs of
+13800 reads.
 
-Only the worker can close an orphan, as it must then destroy it. So
-here, mark its close timeout as expired, and queue the worker, like it
-is done for an msk in the accept queue. The worker then closes the
-orphan with mptcp_do_fastclose() -- nothing is sent: the only subflow
-left is closed -- and destroys it. If __mptcp_close_ssk() was called by
-the worker, this happens later in the same run.
+Half duplex controllers and devices in 3-wire mode cannot transmit and
+receive in one transfer, so fall back to the three transfer read for
+them.
 
-This issue has been found by an AI code review agent, while reviewing
-the code of the commit "mptcp: leave an orphan's DATA_FIN to the
-worker", and confirmed with a new Packetdrill test: the initial subflow
-of an orphan waiting for the end of the DATA_FIN exchange is reset, then
-the endpoint of the other subflow is removed. Without this patch, the
-orphan stayed:
-
-  UNCONN 0      0      192.168.0.1:8080 192.0.2.1:39933
-  kernel_orphan_last_subflow.pkt:39: error executing `! ss -HMan | grep -v LISTEN` command: non-zero status 1
-
-Fixes: 27e5ccc2d5a5 ("mptcp: fix dangling connection hang-up")
-Cc: stable@vger.kernel.org
-Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
+Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
- net/mptcp/protocol.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/mfd/ocelot-spi.c | 92 ++++++++++++++++++++++++++++++++++++++++++++++--
+ drivers/mfd/ocelot.h     |  3 +-
+ 2 files changed, 92 insertions(+), 3 deletions(-)
 
-diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
-index 17451240c105..5339fd6a8d81 100644
---- a/net/mptcp/protocol.c
-+++ b/net/mptcp/protocol.c
-@@ -2744,8 +2744,13 @@ static void __mptcp_close_ssk(struct sock *sk, struct sock *ssk,
- 	 */
- 	if (list_is_singular(&msk->conn_list) && msk->first &&
- 	    inet_sk_state_load(msk->first) == TCP_CLOSE) {
--		if (sk->sk_state != TCP_ESTABLISHED ||
--		    msk->in_accept_queue || sock_flag(sk, SOCK_DEAD)) {
-+		if (sock_flag(sk, SOCK_DEAD)) {
-+			/* let the worker close and destroy the orphan */
-+			mptcp_set_close_tout(sk, tcp_jiffies32 -
-+					     (mptcp_close_timeout(sk) + 1));
-+			mptcp_schedule_work(sk);
-+		} else if (sk->sk_state != TCP_ESTABLISHED ||
-+			   msk->in_accept_queue) {
- 			mptcp_set_state(sk, TCP_CLOSE);
- 			mptcp_close_wake_up(sk);
- 		} else {
+diff --git a/drivers/mfd/ocelot-spi.c b/drivers/mfd/ocelot-spi.c
+index 6d405627136d..4f2ef847c909 100644
+--- a/drivers/mfd/ocelot-spi.c
++++ b/drivers/mfd/ocelot-spi.c
+@@ -13,6 +13,7 @@
+  * Author: Colin Foster <colin.foster@in-advantage.com>
+  */
+ 
++#include <linux/cache.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/errno.h>
+@@ -45,7 +46,12 @@
+ #define LAN9645X_RESET_PADDING_BYTES	15
+ #define LAN9645X_REG_ACCESS_TIME_US	2
+ 
++#define OCELOT_SPI_ADDR_SIZE		3
+ #define OCELOT_SPI_MAX_PADDING_BYTES	15
++#define OCELOT_SPI_VAL_SIZE		4
++#define OCELOT_SPI_XFER_BUF_SIZE	(OCELOT_SPI_ADDR_SIZE + \
++					 OCELOT_SPI_MAX_PADDING_BYTES + \
++					 OCELOT_SPI_VAL_SIZE)
+ 
+ static const struct resource vsc7512_dev_cpuorg_resource =
+ 	DEFINE_RES_REG_NAMED(VSC7512_DEVCPU_ORG_RES_START,
+@@ -70,6 +76,12 @@ struct ocelot_spi_data {
+ 	const struct resource *gcb_res;
+ 	int reset_padding_bytes;
+ 	int (*padding_bytes)(u32 max_speed_hz);
++	bool single_xfer_read;
++};
++
++struct ocelot_spi_regmap_ctx {
++	struct device *dev;
++	u8 buf[OCELOT_SPI_XFER_BUF_SIZE] __aligned(ARCH_DMA_MINALIGN);
+ };
+ 
+ static int vsc7512_spi_padding_bytes(u32 max_speed_hz)
+@@ -105,6 +117,7 @@ static const struct ocelot_spi_data lan9645x_spi_data = {
+ 	.gcb_res = &lan9645x_gcb_resource,
+ 	.reset_padding_bytes = LAN9645X_RESET_PADDING_BYTES,
+ 	.padding_bytes = lan9645x_spi_padding_bytes,
++	.single_xfer_read = true,
+ };
+ 
+ static const struct ocelot_spi_data vsc7512_spi_data = {
+@@ -249,12 +262,78 @@ static const struct regmap_bus ocelot_spi_regmap_bus = {
+ 	.read = ocelot_spi_regmap_bus_read,
+ };
+ 
++static int ocelot_spi_regmap_xfer_read(void *context, const void *reg,
++				       size_t reg_size, void *val,
++				       size_t val_size)
++{
++	struct ocelot_spi_regmap_ctx *ctx = context;
++	struct spi_transfer xfer = {};
++	struct ocelot_ddata *ddata;
++	const u8 *regu8 = reg;
++	u8 *buf = ctx->buf;
++	u8 *valu8 = val;
++	size_t off;
++	int err;
++
++	ddata = dev_get_drvdata(ctx->dev);
++
++	if (reg_size != OCELOT_SPI_ADDR_SIZE || val_size != OCELOT_SPI_VAL_SIZE ||
++	    ddata->spi_padding_bytes > OCELOT_SPI_MAX_PADDING_BYTES)
++		return -EINVAL;
++
++	off = OCELOT_SPI_ADDR_SIZE + ddata->spi_padding_bytes;
++
++	buf[0] = regu8[0];
++	buf[1] = regu8[1];
++	buf[2] = regu8[2];
++	memset(&buf[OCELOT_SPI_ADDR_SIZE], 0,
++	       ddata->spi_padding_bytes + OCELOT_SPI_VAL_SIZE);
++
++	xfer.tx_buf = buf;
++	xfer.rx_buf = buf;
++	xfer.len = off + OCELOT_SPI_VAL_SIZE;
++
++	err = spi_sync_transfer(to_spi_device(ctx->dev), &xfer, 1);
++	if (err)
++		return err;
++
++	valu8[0] = buf[off + 0];
++	valu8[1] = buf[off + 1];
++	valu8[2] = buf[off + 2];
++	valu8[3] = buf[off + 3];
++
++	return 0;
++}
++
++static int ocelot_spi_regmap_xfer_write(void *context, const void *data,
++					size_t count)
++{
++	struct ocelot_spi_regmap_ctx *ctx = context;
++
++	return spi_write(to_spi_device(ctx->dev), data, count);
++}
++
++static const struct regmap_bus ocelot_spi_regmap_xfer_bus = {
++	.write = ocelot_spi_regmap_xfer_write,
++	.read = ocelot_spi_regmap_xfer_read,
++};
++
++static bool ocelot_spi_single_xfer_read(struct spi_device *spi,
++					const struct ocelot_spi_data *data)
++{
++	return data->single_xfer_read &&
++	       !(spi->controller->flags & SPI_CONTROLLER_HALF_DUPLEX) &&
++	       !(spi->mode & SPI_3WIRE);
++}
++
+ struct regmap *ocelot_spi_init_regmap(struct device *dev,
+ 				      const struct resource *res,
+ 				      const struct regmap_access_table *rd_table,
+ 				      const struct regmap_access_table *wr_table)
+ {
++	struct spi_device *spi = to_spi_device(dev);
+ 	struct regmap_config regmap_config;
++	struct ocelot_spi_regmap_ctx *ctx;
+ 
+ 	memcpy(&regmap_config, &ocelot_spi_regmap_config, sizeof(regmap_config));
+ 
+@@ -264,7 +343,16 @@ struct regmap *ocelot_spi_init_regmap(struct device *dev,
+ 	regmap_config.rd_table = rd_table;
+ 	regmap_config.wr_table = wr_table;
+ 
+-	return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
++	if (!ocelot_spi_single_xfer_read(spi, spi_get_device_match_data(spi)))
++		return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
++
++	ctx = devm_kzalloc_obj(dev, *ctx);
++	if (!ctx)
++		return ERR_PTR(-ENOMEM);
++
++	ctx->dev = dev;
++
++	return devm_regmap_init(dev, &ocelot_spi_regmap_xfer_bus, ctx, &regmap_config);
+ }
+ EXPORT_SYMBOL_NS(ocelot_spi_init_regmap, "MFD_OCELOT_SPI");
+ 
+@@ -296,7 +384,7 @@ static int ocelot_spi_probe(struct spi_device *spi)
+ 				     spi->max_speed_hz, OCELOT_SPI_MAX_PADDING_BYTES);
+ 
+ 	dummy_len = max(padding, data->reset_padding_bytes);
+-	if (dummy_len) {
++	if (!ocelot_spi_single_xfer_read(spi, data) && dummy_len) {
+ 		ddata->dummy_buf = devm_kzalloc(dev, dummy_len, GFP_KERNEL);
+ 		if (!ddata->dummy_buf)
+ 			return -ENOMEM;
+diff --git a/drivers/mfd/ocelot.h b/drivers/mfd/ocelot.h
+index fa02590a5026..5d0301f0b194 100644
+--- a/drivers/mfd/ocelot.h
++++ b/drivers/mfd/ocelot.h
+@@ -32,7 +32,8 @@ enum ocelot_chip {
+  *			reset default of the chip around a chip reset.
+  * @dummy_buf:		Zero-filled buffer of at least spi_padding_bytes size.
+  *			The dummy bytes that will be sent out between the
+- *			address and data of a SPI read operation.
++ *			address and data of a SPI read operation. Not
++ *			allocated when reads are done in a single transfer.
+  */
+ struct ocelot_ddata {
+ 	enum ocelot_chip chip;
 
 -- 
-2.55.0
+2.52.0
 
