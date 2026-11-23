@@ -1,107 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441650;
-	b=orlvPc2PiPJB1VsQRGB1HzKKJimOBTiNxPK1qnbHG//e8qxUpudG4BNnlZoRCtamGvur
-	 0St9SaE+NJN35bSCnJv8KOwSz+cXT2SSYaivSkhP/ZIbQ6IRRlIJCS0+sAYR6s1NFQ6Lb
-	 VCX9PBWFXEBjy8g/WDfksjualwcWY4o08Kvaha5q3ajZWAnuYyrhMnWHRve/oF6A2+evM
-	 piq03/tWflaaq4jf2KAYKcjmkxckoNHYpIkymb8EyqiwpFfIpMpRkE6EnqGoKiIYi3Tq/
-	 TCIg52d5zDxXKSQC+9FxPWepmuNthqvsD2TzH5iWJ07XSpFQOc1t5ZIss9S9p7PmUlQ==
+	t=1795441835;
+	b=0YaerpSgjaa8MdyCaNYiXcPbetSTi7gl4O9Pfk77hQj0Tozw/R6Qj+FPvvO0vQp0DT6W
+	 cKtlg+euKB+f7WaE65xR68meEWpUqMU20oKbKp09GxMYvjohT2UU6fx2OLYbrC92yqFxi
+	 m0ntzkD0fNHBANR+llx/5m4ntJzur/fllHW6DTr8THmLVxyRvMKDN4lPp87AjDjIUcb6l
+	 +XMSNpl0LvGTjG+LGnOn/XzBVRiwZDVFMT4ySOY4UmgvY7c77mnioUw2qEWW8gjLRm5wF
+	 tjU3Pb5xMI22iOMsbIlcZG18G069uElpJY+NmRDqgRLflzCraSOQuAwn4aH3Y0HCTmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441650;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441835;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
 	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
-	b=SbGcHToxIS4joZYKrXJZ3DS81I73L5tSEVXZOR0kTM1UUruzf0SAlKBqySpu7foWEYJz
-	 JJg1lhVqJb9EqlHAB1lCCuktMvsSUpWDzcQoefWNF/G48Hob8o14pCeaSsbz5ReKCy20x
-	 OnnBqOU39TJECzANABUqE7nrLUGtb3YxYVe+GbRRDwZSPe7rkJw28VGxZlFIbWtqWqJb1
-	 4Aaeapi5D6xmM8NPAF1EuQ6zAXD7kjBd5EVuA571sWCZrlho1RUuFActSc1Di3/VhL8SZ
-	 YXBRPq2gbUPPkq+j+nlNI/P14cq0snlIHGRLa8dmuH4T9TLWD0QWAcCDp1SwWiWK3Lg==
+	bh=Bane91NP8+Gml15ubrXTKh3benjzD/ALRcScJf35bXw=;
+	b=QY0WB22bStP+c2SKghA9WVO24KauSYpACtLR7XnXyffJcryM2+9Z1T7vFMRDmpasYyCn
+	 uJjhzeVdjhkHjVP7byAAVQ0hXC4kilTNrvP+jaSAwKJ0wyn18aeoasoM+G8CavaTGdLuX
+	 ob+5H1AF7gR0GCaksFmG32fOTCc665sok7n69Knarj4HdovtW86NBmujprV0GXIBH1qKR
+	 u/c1FFhuOCSrtLEUbjTcSpCaVs5WgbUs/29rTsqMWxAwdrYsIlVjdvAZLuB7S47yPrAi8
+	 bbhxOrFVVqRl6EP8Wuqm8WK5xPaJz6v/EAR7Xk5obPbMMsDYG1VRJ5qtu2dI5LZIRIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=TEElbL9+;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=V0xv+J2H;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xPTrwrK6;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D846C606A321
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:47:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D846C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF0B4606A33C
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:50:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF0B4606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=TEElbL9+;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=V0xv+J2H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795441649;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
-	b=TEElbL9+IhYUMR7UShaacTfs3gUDH8tMqn4d9NxZXS4ymv+D7cBu12yLUI/B2InxToVw//
-	pGmaiooHO3cFPO6YU/507LPci6u8nHA289zCvFOOsNPuP1iDkC2ebITUwyOfJGyZ3eU8Sy
-	HI+8VYsqkkNbukLubfyi6Cruzsd6h1U=
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-573-3M_rB-EmPE2v8UljGdipDg-1; Mon, 23 Nov 2026 13:47:26 +0000
-X-MC-Unique: 3M_rB-EmPE2v8UljGdipDg-1
-X-Mimecast-MFC-AGG-ID: 3M_rB-EmPE2v8UljGdipDg_1795441646
-Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-6ba4be5f951so2077373a12.3
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:47:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xPTrwrK6
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c4d28f75d62so552360766b.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:50:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795441645; x=1796046445; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795441833; x=1796046633; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
-        b=V0xv+J2HSN1NuVUAQZjFAVgWhJS9eY4gd/lrrpRsjjr8Kr8p0SBzHilovKAKfveNGB
-         dR2w8XYjmUFyD34zlzphdz5RYGaOsWch/8N0jyFkACv4GslVhAfjtuOboh12glRPHc4D
-         AKgI49408j7ZcqtII19BJJgFuOGXwY6fbO6Epn4P2L/+iCn1ABO4e3Elt5ih2nlZ15Jg
-         1zHCmIhVRwaFVXrSSMOUDWCexWxefsJN/xcg4od1O6xGN1c4NuIApQK4/rncVKojJqv9
-         iecKQuFR+2hOsVYxHD/3zmM1toqLTbnRy81dr8Ugvn/5RaVdbMdc5gnd/hDCnBthMJLa
-         +1Tg==
+        bh=Bane91NP8+Gml15ubrXTKh3benjzD/ALRcScJf35bXw=;
+        b=xPTrwrK6fyazwXD6N9sRU8vdj+qov9rx8UD6+1pucPMFc5mHpXv8lKESKi6C1mJzb4
+         ycZ0zXWRChTZshQJ1cbaXYqZxsUo+LicJygjVF6eM2kbd016s8ZjUmU5LhPu8ZHJq1/r
+         mZITZKW8W8oqzTlBdGfiEdd879Oz7h7WFSwj6IJ3nDSMGug2qNM0tCumlY6DjLCn3x0k
+         aL/YIk/W45HiPuAAufNWVdjLBv+ZIx7MEX/X2T9iJMK8YgdjYrMAcqTUeGjBu0gFBUL6
+         R2kjwhNz6ET0I2cUVomvCJJ4zc8TukAuit9/P75HyzSPZr9nNU+WZQWamUxseIdC6wvd
+         sx9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441645; x=1796046445;
+        d=1e100.net; s=20260707; t=1795441833; x=1796046633;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
-        b=iEOuGyuRBmf1WM7ekC3UdX/YWbElbJjVVJS77Y+CwKkCKOGjvzecX7sRdtCKfXsBY5
-         SAWGITX9NXfJNpyITtsExV1W4o5AuB/IqhsoG6rEz0mmhnR3eFt+s2RoFI26usLwKFjJ
-         Cs7Gpc/nwXfT70mrD3V9nr0RSgIiT5/NIi7J2JXq5CHf15tkkIvJhIsxrWif+rd3AV0A
-         wOX37T4Azn61RE8QxfzttNxCqtsY2boFXTGfr44d4d/bDb3pAC5iM07yKkJkbdEcRjkg
-         unsjir2hHA5dcVtV/5pQaxD4M62E3PbGvHFzDkp9KFrtSMfIVjjoEBAhKnx+bbG5mkKP
-         64Hw==
-X-Gm-Message-State: APuU4Z+oEm1lQrT9V6JQAUqSXeA4aDbucNs8ZjRG+rN3TexkEGqqUr/z
-	EED6AcZybMOnlGZtlpxvhkXakntvZCgts423+5kJCr7fs0vL2cxou/H03DqZw3hT5MKuDo/kcWs
-	FQT6FuaHbUltCnOalB6AwIQDkarBIL6BI7OhLLsrMLotRwdXeqSAlJsFvVA==
-X-Gm-Gg: AZFdTZdiPPvYgjR1tOUSM2qHHRKJy5Fjd+dpt/RUmei/E4ZiZ7FrBCFjlWHxrxw/D3J
-	85DxXxULvny6XnTylkFtwDgAwc07Kmfi2uOZeSzjvaiz8iQz6x1ZYfTpRO8RdHPYVMOv7aLimxD
-	ZCv3UW79wNeVtUxZ5MEK7wQ/0eyd1bnusbyzaJYR9x+bssE2lXXFGYko6CTGA4cEGdpBtNTj03T
-	WmlUbnrnJGo6r6XGip3Z5IgFEA7ikNwFM7TmcPhq5bZ3qDIdUX/4DE05Gns7zRVD2vJoneVvIVc
-	NuPb9a+6LPQyhhSfDOsMBwD62u0IAaqqAvtSGgHG2yirYGkD90uSB5Qspm/6hyIKFKg88H8Ufq5
-	iTka3bx9Unao15AScdr68no8e6DT4HtDcePsCrGHFJJz3ms2GVLGDjGCAZDTJmJOLIFhYkctoZE
-	gw2VUENcV657kvY8CeVWi0zDbMEBQ7Ty/tvSkYqZJpZ8iY
-X-Received: by 2002:a05:6402:400d:b0:6b5:9849:e328 with SMTP id 4fb4d7f45d1cf-6ba37ebdda1mr7965695a12.39.1795441645533;
-        Mon, 23 Nov 2026 05:47:25 -0800 (PST)
-X-Received: by 2002:a05:6402:400d:b0:6b5:9849:e328 with SMTP id 4fb4d7f45d1cf-6ba37ebdda1mr7965674a12.39.1795441645139;
-        Mon, 23 Nov 2026 05:47:25 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba37109c58sm5253555a12.33.2026.11.23.05.47.23
+        bh=Bane91NP8+Gml15ubrXTKh3benjzD/ALRcScJf35bXw=;
+        b=J/mpf1M033M7HR+tJIatkqrDLQfUamvu7OWp2EMz8g1BKXiZlo0jzf4Q0sW+8kt0gD
+         hCfe9uay/cP5aivl1/prDzR4c1C+LPFjtvLgIUPFXV5RNdWm3KAoH4UGV52gUeenifPF
+         SPJ7qS8Tvxiq6Cfldk4d2BKpsvTgh4dhfKKlJGQ+yf4NYOnoetJXV2XNvy/kBt9wHHwK
+         GbR3I84+jihqdKVebQ7QuZJCuzSEjZTIDjmYMZuascnsxRQWbQp4WgbBi14uul1Koa6D
+         /1GYb+T7Nz0hvkFbZjtcF7zcvq2U4t3ypLxMqfxzHQ/fvTrq+fP0m59suWzAmCebKYvC
+         7RUA==
+X-Forwarded-Encrypted: i=1; AL+hErEuBq3ZPpnrlMCIrW7rIJb9vEY2MUh53AwYLQsUt2hfMIrlWCHRz138thXy6qLPfsClffcVUs8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qfDCDv5Dtol0OO4p1F3nNaIKuKjbn3oFDG3XrTaM1xdSrq/N+
+	BOT4XK3pDfvyo5N7qIN58VF48RZHiMNRLGWurCIvaiT95TMO0ojYyHLFGp8yfw==
+X-Gm-Gg: AZFdTZejlNz5IgszYV3K/H9M6j34nPA31jLa8OWKMJ/gKhxlLkJoCmpEcD5v/vsHU3K
+	g6lhFFJuowJy4igXiASuneSP61oPEddDAD7R+Gyx21MwEqknAYlgZWEXBlx7s80JKuyUezyfh7D
+	yyF8VSyhCM+Cul+KWplY48hk9wKeLlPhcrRucnN4pMNYvdN2r5XlOvNUvCMQMEyScgDl9efoMS8
+	BqRayv9MJBIJLmzCD4BrEmSdGOexotSXn6Q4S4qyLoEL1yFGhQqwDL5j1gf/cd9DAJay2K1Xc+b
+	dr3rPwPf7Xlx/wrD4pHYTtVpDMnvGS2nsYlhqVuoLD4GlSGCC7P2sxCS/CmhKBZ4LsjktwmGcc6
+	283HykwppdyPpx1/dVjXlfVkjRqvQ2sDmzKR83EZz5vEg+Pdyr7CO10o2NC9ccZLs33/63P6AuE
+	dZgqeSudD+YhTxb1OnmA1YAA9GbkaHEmps6Bjgn6SS90j4AbeBfbNy8A40u5VD67lhj+iOfK0Xh
+	nimIkLtrt8rUYrOHk7mNY1U+LlLjMrSMvn0chKgtA7nG87+IUmGM5gI0xieW8NYOJJ+CJnamQfc
+	8SKpwzDWobJcdtHVxHV4lNx14YkxjMC7ZTSE08sA8ca9Wq3ybGzWxj/I4i6fRrIpoMFEmHkbAVY
+	zbs3x0L6y62BTpmtAFEAKDRsHwLj053MN50lzgEsdQSqEXZqiliyYuMsibC0rIiWpEg0K6rqAzX
+	UDb8o=
+X-Received: by 2002:a17:906:1553:b0:c50:576f:b39e with SMTP id a640c23a62f3a-c513ab0cf13mr612886766b.26.1795441833283;
+        Mon, 23 Nov 2026 05:50:33 -0800 (PST)
+Received: from ?IPV6:2a01:4b00:bd21:4f00:7cc6:d3ca:494:116c? ([2a01:4b00:bd21:4f00:7cc6:d3ca:494:116c])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe3b0sm410984766b.8.2026.11.23.05.50.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 05:47:24 -0800 (PST)
-Message-ID: <923664db-2b04-4440-8b07-2965c1e97aa0@redhat.com>
-Date: Mon, 23 Nov 2026 14:47:22 +0100
+        Mon, 23 Nov 2026 05:50:32 -0800 (PST)
+Message-ID: <c60f3a12-4a54-43ec-b1e4-45bf43deff57@gmail.com>
+Date: Mon, 23 Nov 2026 13:50:08 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,46 +95,52 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v10 2/4] net: hsr: refuse forwarding devices as
- HSR/PRP ports
-To: Xin Xie <xiexinet@gmail.com>, netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, horms@kernel.org, andrew+netdev@lunn.ch, shuah@kernel.org,
- kees@kernel.org, petr.wozniak@gmail.com, qingfang.deng@linux.dev,
- fmaurer@redhat.com, luka.gejak@linux.dev, bigeasy@linutronix.de,
- xiaoliang.yang_1@nxp.com, skhawaja@google.com, liuhangbin@gmail.com,
- stable@vger.kernel.org, sdf.kernel@gmail.com, lukma@denx.de,
- fmancera@suse.de, danishanwar@ti.com
-References: <20261117141922.20-3-xiexinet@gmail.com>
- <179514132185.3136.17085396682149520983@kernel.org>
- <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
+Subject: Re: io_uring/zcrx: copy statistics lose updates when one ifq is
+ shared by multiple rings (Data race)
+To: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
+Cc: io-uring@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+ <2026102727-data-sequel-ce41@gregkh>
+ <375d4b.2ad09.1a202324f3e.Coremail.xuhx@hust.edu.cn>
 Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
+From: Pavel Begunkov <asml.silence@gmail.com>
+In-Reply-To: <375d4b.2ad09.1a202324f3e.Coremail.xuhx@hust.edu.cn>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/20/26 22:30, Xin Xie wrote:
-> On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
->> Can a plain veth slave still re-enter the xmit path of its own HSR master?
+On 11/22/26 07:39, 徐晗翔 wrote:
+> An io_uring zero-copy RX ifq can be exported by one ring and imported by
+> another.  Both rings then perform receive-zc on their own TCP sockets,
+> but they share the same struct io_zcrx_ifq and therefore the same
+> ifq->notif_stats.  The statistics update is not atomic:
 > 
-> Yes. The redirect case exists without the patch, and the commit message
-> lists it as not covered. seqnr_lock has been held across the port
-> transmit since 06afd2c31d33 and 430d67bdcb04. The patch refuses port
-> types that make no sense as HSR/PRP ports, which covers the syzbot
-> topology, as Sebastian suggested [1].
-What about explicitly detecting the AA deadlock maintaining a per cpu
-status?
+>      static void zcrx_stat_add(__u64 *p, s64 v)
+>      {
+>          WRITE_ONCE(*p, READ_ONCE(*p) + v);
+>      }
+> 
+> io_uring/zcrx.c:1337-1340.  It is called for copy_count and copy_bytes
+> from io_zcrx_copy_frag() at zcrx.c:1770-1771.  There is no ifq-level
+> lock in this path.  lock_sock() in io_zcrx_tcp_recvmsg() is per TCP
+> socket, the ring's uring_lock is per ring, alloc_lock only protects
+> fallback niov allocation and is released before the copy, and
+> ctx_lock/notification is taken after the statistics update and is not
+> involved when event_desc.type_mask == 0.  Two CPUs can therefore read
+> the same old value, add their own increments, and write back the same
+> new value: one update is lost.
+> 
+> The effect is limited to the UAPI cumulative copy statistics
+> (struct zcrx_stats at include/uapi/linux/io_uring/zcrx.h:83-86).  The
+> values are user-mappable diagnostic data; the race does not control
+> buffer lifetime, DMA, reference counts, or packet contents.
+It is racy, and IIRC Clement dropped atomicity at some point, perhaps
+for performance reasons. I don't think it really matters though, the
+main purposes of the stat is to be a flag saying "something is wrong,
+setup steering rules". What's your use case? For precise statistics
+I'd rather prefer to add a trace point, which would be able to do it
+the right way (e.g. per-cpu counters).
 
-	if (<percpu_hst_xmitting>)
-		// warn_on_once && free skb && return
-
-	<set percpu_hst_xmitting>
-	spin_lock_bh(&hsr->seqnr_lock);
-	hsr_forward_skb(skb, master);
-	spin_unlock_bh(&hsr->seqnr_lock);
-	<clear percpu_hst_xmitting>
-
-/P
+-- 
+Pavel Begunkov
 
