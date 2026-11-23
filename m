@@ -1,159 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.13
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795408683;
-	b=3SJ0ecWV1tcrkK9+0RYnGze7sljCU2S0zutDEcekMvwypPwlqMQ+tyMLUjl94dA6Xrmi
-	 NwIss50zlS8/s0+bVQTucXMz8mECuBDiT5pBFyt2/83QlZZ3+iP2aGkbFhE/NvlVkAh5+
-	 avZMElf3yGw8PPq6AMbmPIj+zc0W4BctWuaUc9BwuMmE3P/3Os7JHBjnXfUoL7S+rdrPM
-	 ooFJFKtguxqJivV7wClgUuh/NgM7spKiYDr2oTMYPcqNYevXNYOCVGX4Tn2Bpi8DiTeLG
-	 dL9eiH7Z6fHzWscIxPs+s/A4DwpVd3IRLJfUjz8WPI1ikhVziapfOAKosmQK4h/xNqQ==
+	t=1795409655;
+	b=Q6O8z/jDaAcJJps5xLHWTux6y3gE0E/K4mG7KF+H1MneACbM0nwWGVsoRS2ShayMxCTi
+	 Mz+rBPeNHlIY6aQxcOwcAXpa3Gn0oJhXjgJR+S+YVWHOynFD2e3sGY/Jcc7tj5AmgLOcf
+	 ry6yD8tkGuFflbrwSSeVVITQ8vKLNkt6WGdfXVrMzH2aWyDsVAvuv35qsID1bmiLjLiV7
+	 jfQfCOjHM7qthZ6zj7lnHO3ySkAE1W29RCavp+UkTRj0ZyfyaB50CqhCngQTb/B9b2vXY
+	 HQa1Jy0IGcqWHLAe5h7wm74pXk0KgO81vK7iLexoSk/pfTDICiuKrNvR8tsfx0xEmDg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795408683;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795409655;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=CcSLh5CUENOETOT7XYYCE5cFgpJh5ZGm1UmnE7xxWkE=;
-	b=qvCVtPU+2b3vQmzJwoPPWJ/zkVmFHBivTn9gtj9NQ6CNfG4OfJB717V1bpxcqcVrT3xZ
-	 bnUyMp36BstuCbGqIk3OzIiu5v6sMYfDF6cent/ZxcmeU2Zzgd27uQw7vAI4aVdnGbHE7
-	 HK0W6ZvF5Zbf4WfWdwG3YI0ruDOyyEDgMXPIqzOQwUvX9kS9f6DiMCY1QDfxFXcgLPnK7
-	 m9UTh6kllA7Ih0kcoxJH/GpocVoCFkpE+F8GzdT+MNWfwhCxTrc/6LNcaIN4Tl5uiNre9
-	 CZB+jIXzyvtgE82tGVZVTkjAZHVHnUNi6RrT0pnF4xi8llV7GbwyVlXEsr2fhmXEDcA==
+	bh=KT4o8nt4llyColJJhwIRSZnGIF/d+XeGV38+L12l4L4=;
+	b=yGSJVc6a04/0Pos1cT/Y4CVxeqfOtOXXldDwdujahDnZA6XHUaK6OE7lroVCSkUp64pL
+	 2HqUDpd2+CrwaCrEWChAVuhHjSGTVYtTXNbOkT+4eCtq9ly9Uxbh1910Qw2U0EAvT8gz0
+	 a+IT3k0LVBrOUmAypRJgFWMk0sOLv9BUuAD6a+C1g12qjkvwuNtuWe21+43oTxuG5PcdR
+	 iEgQTANOU+NDmYRwf75rbZYUL7lzsXq3FUlTgGy3HwChWnFsKYyG/bGDjrokrTJvXYy0h
+	 sbCKZ/bqaKrJppWqR3jOqqkO4D3nyl2IqO50XriQW1BVkNmQXAGEP8e6iHjCSaYoFuA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jabil.com;
-	spf=pass smtp.mailfrom=jabil.com;
-	dkim=pass header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b="a/wusqQi";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.13
-Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010013.outbound.protection.outlook.com [52.101.46.13])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uOiYFirB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010025.outbound.protection.outlook.com [52.101.56.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E88A606A31A;
-	Mon, 23 Nov 2026 04:38:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E88A606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jabil.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jabil.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D19B606A339;
+	Mon, 23 Nov 2026 04:54:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D19B606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=a/wusqQi
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uOiYFirB
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u+sf+Y782nyw8ejE5ikqGHUZGikASvyq85FR9ZO0BRxGrbe9+B4BOOh0LaNu0epVyxcXepw4xWJ9lfeLc+3Mxsr7jSMPIYDjU1OOgJEmy1I/wv9Ddd9k83as6qFg2b0r4OALR5LRwQkc0sa0i8LsWdQz5ruYdLP+76mXObBHkGoEDBCKzgZNhSqBdkVz4Ae49jTpvg1oK9YUswvAC0mEaJWzXDqxHEDGYha7FKNfGTPPv5UWW6J6RqdAtXgU9PqaeC94Acl35qzeWbNFdlIzfP+unvx+hiuexB6tox+TG4wPVGsChPka3pQsonRBMFYG4P9yk0/c+iesDcGmv7KFtQ==
+ b=bY65t3voyZ9aUnDf447FLv2o0APhFSN+lT75ztdFNUFv/8jVDQ3VQSubRo2p3laTUW25h/sJlVzDopnGsNSQHx9e/C69MRObc9jt+bi5Fnv6uQ5UDjK6N4JzOmsFXuc+Xq6RUn3fUG8BDkmPWBKlFxsBf4bTIZ+/8SE4vWE+RN8yvVI3vE0M2ZFYVT/4lA/hmv88E57n4hOUKdRByBOJJF2LAF2bZpKCGai/DsF7/9pwqy7Y0QqUVTrYwqc/RWuYxc7GZG2QJO09wWZHQjBv1A0TkSux5DloiFNDvJ2NFf7X+A+axE70cl+QUVoeofXdpHy7eF1JF9mqxbQSrCGS6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CcSLh5CUENOETOT7XYYCE5cFgpJh5ZGm1UmnE7xxWkE=;
- b=XNuoQq8StLdxu6pEXB5dgGr6AxG7/HUbSvDmMUoMWGwvIRa3YfF0nqb7ZCyc3QCUJKvk+zMk+t3TON9FG0Nq5Gqyv+lZBgtfSifB3U90hsrlQkAAi51YT5QfWk3bwT6mvRLp9IxDnKI08FInswSneklHv/w1y3hEUn4Z6dhTLLUbT44+gyC63+lc/a0xac0qZWC++IRlyx/7yHNWMUYi60ZtzGfoySWmoPTJUbC29G9QcRhVnzBvmt35uH50IRwbihmo13ES2vq7ouH/0Cq5QejR39QUGaNJxDdPGC+khpM1ZCvhwdjY+PkH/JgeSHoj2Qkl4sqnHfui4I1YD6stvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=jabil.com; dmarc=pass action=none header.from=jabil.com;
- dkim=pass header.d=jabil.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jabil.com;
- s=selector1;
+ bh=KT4o8nt4llyColJJhwIRSZnGIF/d+XeGV38+L12l4L4=;
+ b=qVkg7LrSBgl3pmj+ZoUlHxohiUNUOJna36lGVtWL6JTWXe9maObf6BpA4F2CxPcFGMdDfVQZvSbVVw281yrOgoRHIBmo2UyoUUIBk8JzYwazjiXntw8cBrDo9UQP2OaTwP4YLQyZ7V5IjdRNZl9FxlFdX6Ooisq2ikvkf4vu1VHM9mJm0C+k4HS4oGq3/lOTGi8NkhFqkvX98bnUEi6yTEq2aOTWnuf9QugL3TI1wYrKOK6Jrxd8B5keyK1+hJObPgo6Y1An1BxJjMbQiQKFXQM+QiaO/0LGufiFR7d973jvI1WCravQevQcAJOjBWbV1I+mb3DVY+DeEqfKPJBTaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=cmss.chinamobile.com
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CcSLh5CUENOETOT7XYYCE5cFgpJh5ZGm1UmnE7xxWkE=;
- b=a/wusqQirijTTqMflMCh4Nxt3z1DaAaMb9/8vJxCNcidKvJsFTDErpgLazaDcWiJH0p3qjxObYNwFRXMiLDybAN6jZrH+oia5DG4lE8oooVEwXTPqx42foCSLS/6DtnLPKIuVUOWaov1WNTaphN+zcc+RH+ynXCk/KpZGhHkcw5FQsJbdScFiaFxGlhIQl4QNr+zKAoGjGUpJhq+PoG1JUXUGfNiwJ8sFF8tsIcZNaiRGkNHUpudjNLfxPETw1eB3zE8sybSYpm2W6n3I/xz3logfx3we3vCymjeY6SZgO6vEb5Vb26vjXf2e9uc++o5Fw2/XjROfa6p2uwpU6CkAQ==
-Received: from DM8PR02MB8087.namprd02.prod.outlook.com (2603:10b6:8:1b::11) by
- SA0PR02MB705379.namprd02.prod.outlook.com (2603:10b6:806:d5::10) with
+ bh=KT4o8nt4llyColJJhwIRSZnGIF/d+XeGV38+L12l4L4=;
+ b=uOiYFirBBBNpBtuieaoZ2m6ndnnYFT7KtRmRGXcR+wjN8/RVAupsEUIPeirc+QItnyKsFz8UugceMBuu24Rx+d15SLRPa1Z4xkt/EFqQZyET2FSeEJ6i2eoWEn+9ZOWkHNniajfSX48VJ/o6kcPGLrFHW5Qmnbvva/2J1L4HIb+oV77P0odMAj0ngxIzmU/hQxozFNg7flV8IL5t0NMSMxRiyabHhYuMs7dgPdsJh1Vz9z1+rjnO0/kLn4708j/WEKI3Yk1cd6QeDwyewic8R8SCyEg4xD+C3RwC4oiBp3jEqW/QKRepfftQzncViL/V87DjmIQ96wCeF2J/3Z7FiQ==
+Received: from PH8PR07CA0018.namprd07.prod.outlook.com (2603:10b6:510:2cd::15)
+ by LV1PR12MB891283.namprd12.prod.outlook.com (2603:10b6:408:516::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 04:38:00 +0000
-Received: from DM8PR02MB8087.namprd02.prod.outlook.com
- ([fe80::6e40:b3cf:7280:6497]) by DM8PR02MB8087.namprd02.prod.outlook.com
- ([fe80::6e40:b3cf:7280:6497%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 04:37:59 +0000
-From: Kenny Hsieh <kenny_hsieh@jabil.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
-	"matt@codeconstruct.com.au" <matt@codeconstruct.com.au>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "peda@lysator.liu.se"
-	<peda@lysator.liu.se>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@kernel.org"
-	<edumazet@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next v3] mctp i2c: add sysfs control for mux child
- netdevs
-Thread-Topic: [PATCH net-next v3] mctp i2c: add sysfs control for mux child
- netdevs
-Thread-Index: AQHdegx2DnsWakRucUKRIuqcH0yhQLc7FDMw
-Date: Mon, 23 Nov 2026 04:37:59 +0000
-Message-ID:
- <DM8PR02MB8087942AD8FB03135001A0A48E452@DM8PR02MB8087.namprd02.prod.outlook.com>
-References: <20261118100231.3827609-1-kenny_hsieh@jabil.com>
- <179530217699.3135.2359467047069026979@kernel.org>
-In-Reply-To: <179530217699.3135.2359467047069026979@kernel.org>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=jabil.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM8PR02MB8087:EE_|SA0PR02MB705379:EE_
-x-ms-office365-filtering-correlation-id: a0f58c9a-2932-4079-50d8-08df491b8d7a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|18002099003|22082099003|261009223027099003|261021121427099003|261026121527099003|261102123227099003|261022075727099003|56012099006|10067099003|38070700021|4143699003|11063799006|5023799004;
-x-microsoft-antispam-message-info:
- 1DCEnzvhXcVS9XPFKpkRfbhHhVzP6EMOhsTaeEltnD/qblF9sGI5S8gibODCcnIGx6XsZM6kx8ABwvs7vPd20j9kQ7HoguHHuQLgb+tc7kl15PPNj4UkaYjTXj+kc4m3d+wvvfOosuPwE7FdooWznY0ZYX+yB3O+MPZDuCFOZReOMxapZUdXtJbd3cq/sSvo3FAUjFXvtFx/WkQL8xy2M1RLzdd8FUeXNpVT+MkfcP+04/VoUELtIgMq5o6hRZBjBjithn3uIY5Yj9JbkTWYtZVy2OK9tvlQNk2lzKOAwjafc1SD1VUxNZopDAX6kOe0FGija8KVbRzt0nRjSYcwJXcU+1jokPqRO/H2Q+NfvZ8ez2JdcXxTAOnPryMTwXz0NBJxVbQpU7dNGoP8yQN2CbpIWEiiGX0YnHbJU3PefTiYMo/LXEtNKThbHKbiM/ol5tTlNWJZzqTWw1DegTaeYLsocfaxxvOpSb20wxnOpmvMcanQ+IWlW4XN2iZVpsD+BN7TaXwPRI7mXqU/YXF5CR2t1aaLkr1IzdbDriK7vAQXmF9vmrkmBwl/yo3x1IXZ/PbMpTs50sJxdvPSCb+/UVAgzLfj1PPQr3MNcFLGOVvqWPXrN9ReNiYPTf4k847V9+0N7xLpW5j8rlYxT4lISMBnXNRifGSSXURmUxAuOLc=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR02MB8087.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(261026121527099003)(261102123227099003)(261022075727099003)(56012099006)(10067099003)(38070700021)(4143699003)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?alJTSXM1T1R6ZTRBMnpPbU9sSklDK2tYUEhWNUJZbURuVlZNSjJYRUh0Nlgr?=
- =?utf-8?B?czRINmY1aDhCeFo5Q0VYTVRaOElZZXVzbUdmWi9IWkhLSTJOOG9vdEk4MTl3?=
- =?utf-8?B?UlZjaWZ5M3V1VGc1RTRpb1loRi9OVzBUdEZWTk4zTUh6SGZNTDlwZDQ4czRT?=
- =?utf-8?B?M1FpQnBXRHl3cnBSK0dMcGVRaDVyYldzeTJjNDlodm8vZUlVcE1CRTB5N3Vi?=
- =?utf-8?B?eERIZ0Q2MkF0eXpUUjRZVm50TzhsTGpYdWxNUGQ2Skh0YUFWSHFDdWlQcCtH?=
- =?utf-8?B?MG4xei83QVA5SUhXRjJJUDJtWkpGMThCNTA4aVY5akY1MmtlcmpJNEpld0pv?=
- =?utf-8?B?YTBQWXBnQ0ZTOGZWVzRWVlM0L3B3N1g1MWVXZERnelNDTkdVQUhFVWpuVngz?=
- =?utf-8?B?RXd5TFYwaTVFVStKZElhVEI0QzloV0lqL0dWY1hRU0dwZUY0bWM0eVJ2UUNi?=
- =?utf-8?B?YUhGVVJYSnhmZ0I2U0h4azNKenVWRFMrcmdLbnNpdjZoYjlZTHNXMlZ0eSsr?=
- =?utf-8?B?ZVlMUHl2ZEJnRHdhWCtUQzdJeFY2bzE5Q0RNVVNidG5sTkNLeGUxQWlrRmZp?=
- =?utf-8?B?bkNjYW1RYUlrYzl4VEpvNHk2VFNsQTZnOGtId3crMUJUWmhjZ1UxR0Z4UE8w?=
- =?utf-8?B?bUJGbFZpVFIvVU9uaHlXTEtPYlg1SUk3SjJFVS95UzMwcTluTmJqR3FLcFdE?=
- =?utf-8?B?emR4Y2htUUI2MjhjMFBBVDhGVTJ5T1FCSlJJM1RuSHh1NGQzWGJNYzYzREx3?=
- =?utf-8?B?bEZDRVFyT2xDTW9idTUwUytOUGZOd2F3S3IwU3F5cjlTdkEzSUk1WXhRdEhW?=
- =?utf-8?B?bWlrUlFIYjJMZW9KYk92dGZBQ3o0OUJrajloUkMzTjNTRDZqd3ZJcEZDZ0pR?=
- =?utf-8?B?b0FXaVhJamhmci85R0VVN1Nid0tYd1lYbkRHMXh2bjZQdHJWaWs1eStoU1FD?=
- =?utf-8?B?bWZ0TUNWSkZhbG9NUVBudk5ObHNLU0d0WkNuTkYvRU9yT2RUdGVSZ1RXTUtW?=
- =?utf-8?B?U3MrTXE0eXZEVUk2U083d3E3L1pFSEVJcW9tdjUzTzhaNCs3MWVORVpSVDVy?=
- =?utf-8?B?YkZPN0RUV0NtTW5kQlY0WEloUTJQOXplNWppQ3M2RXI3cFdaUHZrSm11Uzho?=
- =?utf-8?B?SmxiTXB1TTJ3TGc5cktqUGVHdG1qRUp3YThJYlBlcUJ3Qml5cFllVzAxd0RI?=
- =?utf-8?B?SEpjQUZNY0RVaGR1VWdNRWdBTDgyeVRCc09zZmdTcHdCT1gvSzIrbTJLQjh2?=
- =?utf-8?B?TUZIYk00M2taU3ZLT2xlWFZyUTJIaS9iRU1xd0Rpd29Kbi9DZE4xNzkzdlBy?=
- =?utf-8?B?UVEzNnJ2elltWjJPUXdORG1sVHhOSEYvNnl4RnFYQjNYNzlGd3I4cTBqVW4r?=
- =?utf-8?B?d1UvWXVXcERKWTAzUkRXSVFRVWJ1amZPQVZCbDQ2KzJldUpjU1hEVUtxbkQr?=
- =?utf-8?B?Qkl6aitSWmRubEk1VCt3VWJBV0psU29XNXFFdFN1Q1lJTitqc00rM21wWjRC?=
- =?utf-8?B?OWxXMU8rM3JlUnRGczYxQndpMUUzamhRY0lDcm14MWtGWVkvOEp5UHl1Qmpm?=
- =?utf-8?B?Z0Rnc1BlSTBnZWVzaU16TzBFc2c2eWc0cDZQcXd4Z1pKTFQ5dXN2LzUvdzdq?=
- =?utf-8?B?TlJQSUhTNEVUZGZXdUVBcTFUMERJU1I4THJnc0hYV1A4eVBCMStxQXdWYnFD?=
- =?utf-8?B?VzVUdDhIRHBQVnRKVUZZTnhhaEhTQWN6RVNpc2tTNVhXNmxTV0pObGRpc0J6?=
- =?utf-8?B?eldqdmU1VDhVVmtQb2xMZjc0SVhNMmRHQy9pTnpQY0pOK2pZZk8xY1BhR01I?=
- =?utf-8?B?NUF1ZUpFcVRZdERJMWY5NW1pWXRrN01sazJIUVAzUkhkOXBzK1hyWTlSUFkr?=
- =?utf-8?B?ZFFBeGhGZjRSNXN0NUppZXE1N211U3BJUlhnTnF4OGdsdWQ3elFRdTZqRjV5?=
- =?utf-8?B?M1VHVUROek1JeVR6bVlLWExjY2U1Si9pV24wUXArV1V4Y2RZZ0l4MWprcUNY?=
- =?utf-8?B?WjdzWEUwamZPY0ltMWVRU0N3enZTRVE2K25yZ0Fid0FDUExZWWsrS3ByQlRO?=
- =?utf-8?B?RUVqeDJmNHZtcEk3dFFBMDBWb0VJSUhsTjdkaHdsblI3V3pRRTZUS0ZhNFdE?=
- =?utf-8?B?Z3VSNGdISGx6aW52T2xobjNrNnpvbklBU3J1bmdmOHo5ZFRvSzYrWW8wZlNZ?=
- =?utf-8?B?anRYblRkNWhvRUhNb2NKSGhUU0RWWDNmSnZ5WEV3RDV0czBTUC94Z0NHWnl1?=
- =?utf-8?B?ME9XdXFUSWJsbmkydDgvQjJ1bXZCekVOWUZXeVEzWUcvYmlkS2M0U1NiTW5a?=
- =?utf-8?B?RU1ULzBZY25LTFVocmQwaHdWNTFjbXovV25nOVd1eHo4bTlSREpRdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ 2026 04:54:12 +0000
+Received: from SJ1PEPF000037A7.namprd04.prod.outlook.com
+ (2603:10b6:510:2cd:cafe::99) by PH8PR07CA0018.outlook.office365.com
+ (2603:10b6:510:2cd::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 04:54:12 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF000037A7.mail.protection.outlook.com (10.167.244.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 04:54:11 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Sun, 22 Nov
+ 2026 20:54:00 -0800
+Received: from [10.221.192.64] (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Sun, 22 Nov
+ 2026 20:53:56 -0800
+Message-ID: <bad9d7cf-1f34-4027-82aa-42f8e4d50d82@nvidia.com>
+Date: Mon, 23 Nov 2026 06:53:54 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -163,25 +104,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: jabil.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR02MB8087.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0f58c9a-2932-4079-50d8-08df491b8d7a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 04:37:59.6152
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net/mlx5: fix a stack over-read in the QP debugfs
+To: Aibing Chen <chenaibing@cmss.chinamobile.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Tariq Toukan
+	<tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, <netdev@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
+Content-Language: en-US
+From: Moshe Shemesh <moshe@nvidia.com>
+In-Reply-To: <20261122145152.1473-1-chenaibing@cmss.chinamobile.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000037A7:EE_|LV1PR12MB891283:EE_
+X-MS-Office365-Filtering-Correlation-Id: aea3a74d-01aa-4c4f-d2fe-08df491dd0d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|23010399003|36860700016|22082099003|18002099003|3023799007|11063799006|56012099006|261026121527099003|261026140227099003|261102123227099003|261028144727099003|261022105027099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	ZrGyGybsqFGt/Qrv2tW4homE4cA0Y3X8UfG+/yb6eR9QDcj6KLKnJ3ttD7TfaJVEhDWqF9rc/l2uO8XtiuC71IThjcu7bxQIp/NtZXhiSomeaJ7UGKBtE0swMVW9QW3FmcjQmWs2CtUW2Ctg0o8x55az4drJ62ySuyeX177sSSjYr45FoRixhdbQGi9iBXNQs7OOHTZ4yDw4wa2ALbqH92JpBltmLguZ73WpB630WG+yItqnI6N4+egRHP0TIWw2I0E2t5ceheFxi2zGT7LuyzH/3xOuclMOSO034VGc7E/nd9okNQZKCNpKjOVg6aXxmoOAUK6TYWrSYDZzInjOfCJ9BnWdMURpYEUH1I2kFzsTG3C6hOWWzNT+ooAQ9zKkbakyoAlJpRBvpXguTgcL3gIBNE4gJ/8X+DmRopmSa07Q/C8SQYKCXtxHeAS4PWRvIuijiOX+5bHi4moPLLk/jlqNYGhg+3tbT0QL5ChEquPG0f3DLb9/jUGI4NbBHzUr5kII1diZ3TLQ2GAUyGJlCf/Fm6R7NJIF8u4HDwDRNnpc+OJVMNtoXz58Ve5DHnOgE/wCv0XB6IHqB4Dj/eyj9hvjtrRDenl/+5+4RYgkf9IKmejHGymdmajayU+xG1AJ+D610Y3zCNU6nDIuzNj3/eisZqOSui4vceMZzq/szYbVceAN25EWmJS2cBTiOWva1IZ8YLGBc+eAua6zoJQF3g==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(23010399003)(36860700016)(22082099003)(18002099003)(3023799007)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261102123227099003)(261028144727099003)(261022105027099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	OlLFFT9tCLfxhaxXmXJwj2Iw7ZPvMrg1pCzkY7ldfU4XOm7rDyTXxvQ80ChewvrnVXHFnjKRKP6eXKPSeAhZdGByeb4o9qJdCQ6eZMf2nMBAD3acvM3C41rDyV2TTeIGxWHx2rSkRu8SJpR9ZfhBq519g96IVAAqZRROyvemP03rO1oxt/U6T3g9OjuJxXGQAnqaE3p7e03s3mGBamFm5cNffaaFtrt+GfRUbJXTJYSX0D42VKWPH/RSWQBBG63aDQHjjSgT0PYYxLtLqP73iuNxoWsQHfmNzN5ZUoVRBLq7dzHFNetQ6blpJoQoGuWoJQVwMEwz2UPLHixOPqt/sBq6VvUsxr4UZ/wVDFmXcfi6fPJRpBSCvfBWzapmPCmwNUEGMRALZzifnjxgZjj7QL/d56NUFJWN8VFNPk9/u1OaMkgQESv8ZTs/YM2Ohm5H
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 04:54:11.5916
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bc876b21-f134-4c12-a265-8ed26b7f0f3b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: O25TqEKEDygfppCk5f6ywzYyXn8C/w7NsRIc5sPWTKmdWzKRz/10glwsBg/Z6DJKhZjkMxA/zTf+9QMVao4EvQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR02MB705379
+X-MS-Exchange-CrossTenant-Network-Message-Id: aea3a74d-01aa-4c4f-d2fe-08df491dd0d6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF000037A7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR12MB891283
 
-QWxsIHRocmVlIGFyZSByaWdodC4gdjQgd2lsbDoNCg0KICAtIGNoZWNrIGNhcGFibGUoQ0FQX05F
-VF9BRE1JTikgbGlrZSBtY3RwLXNlcmlhbCBkb2VzLCBzaW5jZSBhbnlvbmUNCiAgICBjYW4gZ2V0
-IENBUF9ORVRfQURNSU4gaW4gYSBuZXRucyB0aGV5IGNyZWF0ZQ0KICAtIGZpeCB0aGUgY29tbWl0
-IG1lc3NhZ2Ugb24gd2hlcmUgdGhlIGR1cGxpY2F0ZSBhZGQgY29tZXMgZnJvbSwgYW5kDQogICAg
-bWVudGlvbiBCVVNfTk9USUZZX1JFTU9WRURfREVWSUNFIHRoZXJlDQogIC0gbGlzdCBFUEVSTSwg
-RUlOVkFMIGFuZCB0aGUgb3RoZXIgRU5PREVWIGNhc2UgaW4gdGhlIEFCSSBkb2MNCg0KVGhlIGRv
-dWJsZSBmcmVlIGlzIGZpeGVkIHNlcGFyYXRlbHkgaW4gbmV0LCBub3cgYXQgdjQsIGFuZCBpdCBh
-cHBsaWVzDQp3aXRoIHRoaXMgb25lIGluIGVpdGhlciBvcmRlcjoNCmh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL25ldGRldi8yMDI2MTExOTA5NDMwNy4zODY0Njc5LTEta2VubnlfaHNpZWhAamFiaWwu
-Y29tLw0KDQpwdy1ib3Q6IGNyDQoNCg==
+
+
+On 11/22/2026 4:51 PM, Aibing Chen wrote:
+> dbg_read() formats the field into char tbuf[18] and passes the return
+> value of snprintf() to simple_read_from_buffer() as the number of
+> available bytes.  snprintf() returns the length the output would have
+> had, not the number of bytes written, so when the string does not fit
+> that value is larger than the buffer: the longest QP transport string is
+> "Invalid transport type" (22 characters), so with the trailing newline
+> the function returns 23 while only 18 bytes were written.
+> 
+> simple_read_from_buffer() uses that length to bound the copy to
+> userspace, so reading .../qp/<qpn>/transport copies up to 23 bytes out of
+> the 18 byte stack array, leaking 5 bytes of stack.
+> 
+> Enlarge the buffer so the longest string fits and use scnprintf(), which
+> returns the number of bytes actually written.
+> 
+> Fixes: db81a5c374b5 ("mlx5_core: Improve debugfs readability")
+> Signed-off-by: Aibing Chen<chenaibing@cmss.chinamobile.com>
+
+Reviewed-by: Moshe Shemesh <moshe@nvidia.com>
+
+Thanks.
