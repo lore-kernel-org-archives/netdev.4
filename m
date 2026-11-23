@@ -1,54 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427838;
-	b=ypm+C9n0qlpBuGxX6vWpQBqBSPmyI6T0xZYSZIcJMAVsKXrgorvwIHqxTQW6GVqTpf1W
-	 S04VAo43Otx9nLF7R32OmWQWG7n+hu73z87SpRhzpP1jCrWKIJB0arKrTDyW4SYYv/1SH
-	 agMvndZNxJjecjFED2ZQ3uXcEe5PCiJxhZYkYkx7WtMnXVL1vt6dOawmVw8rZIfxYgD6J
-	 Zdgwwwd3ql38TPfdYBPs0xcoE3big9g66siDEEX2u0ZYMgWm3FwVGQM8amnirR1e6CmHC
-	 mGHhlE7YO3etN4N6O0sdfKoRuuxPZt8RPZ4HfMxNlMHsUQcWf4rAwG4DNo5OClomO3A==
+	t=1795428064;
+	b=Pc1v6VF6W3nn6pQhNNKkHOZDysrcoWTCFhXN9VnSiWZ6Dhu+GSrymKdUNfEILCFpOGt+
+	 jPpznhVQ2sSvch4k1YOCVTMqjI3JP31dN7FAT54wI+nX7b5i3/bv5VhOlsBeR1jmJs9yv
+	 DSGNQfNAlIqVNvadm3RLY5RZpNpmEIa4woW2dFIRnl++dX6/C/UeeAYsHLfEpN+K80fwm
+	 Q3zpTdfBjADVUH14C3pe3I69OvgjhpD5fEHwnozG5iEI2sWXq5nW6yz8h3oAgnNaCcSbn
+	 u40sSZ7v2rdWIlV8MiogS2xzua1ujFn8WabS6X9wqw5uroCA/Mc1rnjNXntXfqdWsew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427838;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4s8ObVh8aYrx9unOg3Fhb+rodQ27w3kLEqVCY36mwwQ=;
-	b=LV0uyihwcjLLkSoUAR1q5rDvMVz97SSy6gwpeJvYmX93Jh8iJ+noIffc2mFGXuHpFg9J
-	 6mr5hc105ONCMzLMRqPzI/gXrnmu6o9+87qankqdK8j04jDh80U59/TAUsglQXGNso9BD
-	 at6eSBsERWtZJnnI0bWw+KZBRQHqhqXqJJUWVyNLtC7nxILkRPqCNxF+E3Jk3PRI6qOgI
-	 emKSYX+Bwtbr4gHxH4NE/cJCnQhm8siyt+O96d+l5yReK/e1aUfRP3OmjjhmsgCIimB5N
-	 SKxasjHVGIklXXYDuVy7epaKOZPWigw2TzwDrQ12mBKAmZKVD2/KHe3m1stPg1jXiew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428064;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=CxWOPXPmnh+FCw4+vi8QbQ8f7brE7jSL7SPa0d7lPk4=;
+	b=05DFmB7RrwZtS4uyYBeEM3OMnc0e5ruy65hGYYxFVk6HR7R0GRe08sc1vMHfQJFpRR4X
+	 txJMHYpy9GoBlWZL61FyPTuUeOaD8bFYNXDoyZVsC9oVK5sV6r5B6ojMevI/YzsV6zH7H
+	 YTtiW/dXAbSW+jjw4vtD31KMZnlOY9NCTzbztGmaMnjF6spm56EM2cdPsGfqqRkiZFnDN
+	 Gz0SrVx80oE+7ceV7y5FntHjBoPUtV9LVpi2c2htaYwswGm3R70Xjq6jFbaGEsRMFaCvx
+	 vcpKBF8yMUPfTgAYbhxPwpjEuS5bX/JNk98dE7AA1cnuulBlXzFh9+2sHvoNa4ja82w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KhPbG/Co";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iaFGflAY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39BF1606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:57:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D280606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:01:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KhPbG/Co
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE5BE1F000ED
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:57:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iaFGflAY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5A821F000D3
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427837;
-	bh=4s8ObVh8aYrx9unOg3Fhb+rodQ27w3kLEqVCY36mwwQ=;
+	s=k20260515; t=1795428063;
+	bh=CxWOPXPmnh+FCw4+vi8QbQ8f7brE7jSL7SPa0d7lPk4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=KhPbG/CoifjG+/yNpmHATBRMfFPEhDxkvSiMArJ2Io+DP3li+Gfx3z/uGaXDVzLAf
-	 z8U7loBNU/h9j9f1uSWcPTK29wLWcsEzD5rE5QenWvJ2BW/1uKxVLRKisUUDd9hoDh
-	 6VadaL+BpdddiZrbbFkTy6cU/gy8vVcUotFjjbfOzEYxpN9NbSX2h0Rk2SQKO6D+YU
-	 ZFsj7hz5JHcHXYV6Ce1IKcHCylniO4M0uqqGk0/2OqamGelhrV00Hmz2l8XcODXe6A
-	 IURHeVHzq+t+jxLrgP0wBlILq3V1kTd0HpaWCQ1HZudIRI+1L5i54NvRKy8sESCLM0
-	 OnQAtsRg5DmEQ==
-Received: by mail-oi1-f170.google.com with SMTP id 5614622812f47-4c5d8c7f326so1243071b6e.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:17 -0800 (PST)
-X-Gm-Message-State: APuU4Z/2QENjD1OHrjRXp0V+2h+jyfzZEBIP9LkUvwIBEYStJ+i44Ubb
-	u9yCvDCVH8BKMASbaA8+PSlMTJpSc7YjdwJ0QQhZ0H0cziKnHEsb5/wr7xMk5fzv0ebstejO4aF
-	SMjImpIUqAiN/3kfJoYlVZth5upJVn5s=
-X-Received: by 2002:a05:6808:4f4f:b0:56a:dc07:f218 with SMTP id
- 5614622812f47-57a0a10c801mr12163511b6e.20.1795427837069; Mon, 23 Nov 2026
- 01:57:17 -0800 (PST)
+	b=iaFGflAYRtt0ktAkz67eikAVWSPw9/DHlZIidVIj4omCzFxGlpOQ4oJPcpvb0QQLu
+	 dRndW8mThj0e+Z5uHEqdFMQIB28reXAupf4ZCqsrtTvSq7OSWyh5QNg2EJ8STFko4I
+	 ohM/xUGoZmsECH3UvKqOotVus6oY2eGOedib0luECk5dX5b3YVuFIjBXYUBTXC6K2q
+	 PqK6Z0Xdmx6f45OzHhrcWjaACZ3BxJAAbvXuLx/CMHLzexEVP11TRAyxW0Ax/jQeeU
+	 SoAI0BTH7Jkyo3ev7/WfaRycN64htfqGLUeEkrgdJr1Yt8w10kcG1IGVAZnZRGAjX4
+	 Hm4dxO5tvyD7Q==
+Received: by mail-ot1-f52.google.com with SMTP id 46e09a7af769-8633b750a19so543740a34.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:01:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHt9GOejVqu5SAtcUdhqfTZq0pfHLTdioY37s5PtfXF0YFzRCZeChCPASZYAdwLrd4YpPSt1SA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+X4h1TWRpjhOBz/vHhNgH5XmhCSzqCTVwoo95cZg0cMC6IwpFW
+	/JCNHYC1jhyU+QzQ8vMzIivu4+7YaCTBbhWFO9tQz0qHL/s4WAJ2AmUUtpUGveMFozlC5bLRPKj
+	smc/i85JsuO2os8OBqHduvq9SJWlOYak=
+X-Received: by 2002:a05:6830:43aa:b0:862:c6cb:2e24 with SMTP id
+ 46e09a7af769-86314fe2c72mr12598798a34.0.1795428063315; Mon, 23 Nov 2026
+ 02:01:03 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,40 +59,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1795424546.git.x-professor@outlook.com>
-In-Reply-To: <cover.1795424546.git.x-professor@outlook.com>
+References: <20261121203537.341320-1-kuniyu@google.com>
+In-Reply-To: <20261121203537.341320-1-kuniyu@google.com>
 From: Eric Dumazet <edumazet@kernel.org>
-Date: Mon, 23 Nov 2026 10:57:06 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqKAmkvqD+WMms7ZCwGDm3QE_Aw8VfqA=Xc6k1=8O-8Rg@mail.gmail.com>
-X-Gm-Features: Aa3M54p7KYmo2scuMtB2OXhhali3YsSnFeJgNMDOhVNqlLJAMAK0n7zrYR_BrAM
-Message-ID: <CAL4WiiqKAmkvqD+WMms7ZCwGDm3QE_Aw8VfqA=Xc6k1=8O-8Rg@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 0/2] tcp/mptcp: prevent blackhole timeout
- arithmetic wraparound
-To: Yingjie Wang <x-professor@outlook.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "corbet@lwn.net" <corbet@lwn.net>, 
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>, 
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "ncardwell@google.com" <ncardwell@google.com>, 
-	"gang.yan@linux.dev" <gang.yan@linux.dev>, "kuniyu@google.com" <kuniyu@google.com>, 
-	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>, 
-	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>, 
-	"matttbe@kernel.org" <matttbe@kernel.org>, "martineau@kernel.org" <martineau@kernel.org>, 
-	"geliang@kernel.org" <geliang@kernel.org>, "ycheng@google.com" <ycheng@google.com>, 
-	"weiwan@google.com" <weiwan@google.com>, "joel.granados@kernel.org" <joel.granados@kernel.org>
+Date: Mon, 23 Nov 2026 11:00:52 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiohGqm_r4he=GVUtzkUKHckChOK2cPeB-c-A5FYqgss9w@mail.gmail.com>
+X-Gm-Features: Aa3M54qyCdFC807lvEQdzDMSDVli1h_atQ_J5r15fn0e4Ma0vm-4UnmPg6qXYcg
+Message-ID: <CAL4WiiohGqm_r4he=GVUtzkUKHckChOK2cPeB-c-A5FYqgss9w@mail.gmail.com>
+Subject: Re: [PATCH v1 net] tcp: Don't clear saddr before ->put_port().
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Joanne Koong <joannelkoong@gmail.com>, Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le lun. 23 nov. 2026 =C3=A0 10:34, Yingjie Wang <x-professor@outlook.com> a=
- =C3=A9crit :
+Le sam. 21 nov. 2026 =C3=A0 21:35, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
 >
-> The TCP Fast Open and MPTCP blackhole timeout calculations can wrap in
-> 32-bit unsigned arithmetic, even on 64-bit kernels. With HZ=3D1000 and a
-> 64-fold backoff, 67109 seconds becomes 8.7 seconds instead of about
-> 50 days.
+> When CGROUP_INET4_POST_BIND or CGROUP_INET6_POST_BIND prog fails,
+> __inet_bind() / __inet6_bind() calls sk->sk_prot->put_port().
 >
-> Compute both delays in u64, cap them at MAX_JIFFY_OFFSET, and limit both
-> initial timeout sysctls to one day. The new input limits reject values
-> that were previously accepted, so this series remains for net-next and
-> is not intended for stable.
+> For TCP, __inet_put_port() calls inet_bhashfn_portaddr() to get
+> the corresponding bhash2 bucket.
+>
+> inet_bhashfn_portaddr() requires saddr, but it is cleared before
+> __inet_put_port(), leading to bhash2 lock mismatch.
+>
+> This triggers list corruption or use-after-free by a conccurent
+> thread touching the same bhash2 bucket, e.g. tcp_diag_dump()
+> with TCPF_BOUND_INACTIVE. [0]
+>
+> Let's clear saddr after calling sk->sk_prot->put_port().
 
 Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+
+Thanks!
