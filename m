@@ -1,70 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428560;
-	b=opL9K4QZHrsa6Dgy04CZwaOvJ0YH5HGOCBzuivmHW+wE9SKv51p3nQnonfZGV0qp9jgJ
-	 K90jFNN7zFEDFtcqdiWsLYs10etzhhtmlR0FvgkIWf9F9UExqNHdEfdMe95QPqggCSxmS
-	 eKjQAt2HXu4cPRYVbnfRdSTA0CtWMNsjLMda/bpHKL3bjBIwKhzGWQZpQgVcPGvV4IF01
-	 Rt6fi3JPu+d7hIrejIl+AmKmuLI8Wdsdt5OKS1KXF8tn82ZImndgyWx3A+L3GtsN9yECI
-	 7/KWVbUD/hQR/BSx0eoqk3lJTkruUh797M5s/fw8EbPw+NlZByYHuHG+wMNt38qk92A==
+	t=1795428647;
+	b=d8MfFm1T3U6fjP2zCYDkV08ORk2wSnXG5V4xp4leaSnuAsBqsvmsj+7Id4I5pykTFafy
+	 u6M0BHoHZ7r+UXXlZpiaiOsA2TOFr9sgASLndvqcJHR3bZ9kM/Z9/PERbGllCnQ1UfWnJ
+	 49G5PZiL0yV8YClth2lIjEDlPHGqeisqzrwLvp7D4HdhEN1OfN6W9UKWy6IPVu91L1fMh
+	 YkA5d6FWEx9Z9yoeIcVo9CQNjHvAzHy5zg4Hp6y6FVvAm1C0GJxpvUgbf9fNifUPkrJgD
+	 XiN4VsJCdhFyvyJ8+G37vf8f+UNAtFieQYslIHesh+5JQisOb0kljl1l+vdTp2ce8hQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428560;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=UzDd0SmU9JGmt2OnzA2QPSIsnM/OhlSQ1LdpomQPeVc=;
-	b=kwDqmicDrNBsQlivZxCAr+/Dj0km0yVl2ksYmWF+CApzRq7+N1t94Wmmjc5DaRt1kloL
-	 lXSBTGoMj5xCGPPhZTpt4X470ZC86qDcUlXW5YvOd54u7FvVEDadY/VR5018BhK8jSpov
-	 awzGiPG1EfMLZIH7/9vKQF4dsHzAsDDBeMh4bpHeiFzkdNtp5xnB3AJuf3qUQLfOlMXRQ
-	 uN2YyrztBuigr0XASmT4ztj18dGmxmmIy/wrzV7kMuP6vIPcmcv94R6I8EDG8fwxD+u5U
-	 KaWike49wySnap53DAzHvdt+bIu6socEV1tCmIKfugWt/w5yGjpn5L0YhgmYtpIzqnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428647;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=mbvL3v9xitudIPXWyeH2ku+y2nh35yR2K9Tkb/IhZnM=;
+	b=Z4OpoqIV19CClM7TKjeHJM+4LC9t4ZmlbtRov9YPvDbmH7epao2FmF+9J90IxSUPJvMa
+	 7D30fFfSwSDtENTykKcLBFQeaRwQe5pvj7yf07UM32r6n6eBR7yjCMJGeqPBqt+gGFDsV
+	 /FqbgKBvZj1zGyY/Dc1Dc5I8kLY4KoOSYOSmt4OPE9vgKLSRXrB/lBH1oa0kBmsRIOzn3
+	 K7G9iSCv34pVprYWz1oKiT1Sq7N0ji3Rc6tvL5VMM/1XaJOsdH2w7UNOcE0S0rewEq19s
+	 QEw6P7InJF5CgfL4+/ISPpZcdE1LwwbyNZHFmMnAb3iO2T88Rxwsh9p+RPeFATx04rA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=euJdA8EB;
-	arc=none smtp.remote-ip=95.215.58.56
-Received: from mta1.migadu.com (out-56.mta1.migadu.com [95.215.58.56])
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=DxF7N+H6;
+	arc=none smtp.remote-ip=209.85.214.227
+Received: from mail-pl1-f227.google.com (mail-pl1-f227.google.com [209.85.214.227])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEED4606A321
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:09:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEED4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70316606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:10:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70316606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=euJdA8EB
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GRIGe4MYSmcamc/GomLgN/fYZ1+yWn5x99Cm2Hh0m+E=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795428557; v=1; x=1796033357;
- b=euJdA8EBP4mOaNaki4eFa/6T3fp6J77vej0S8q4+PFeFckVlaATHyoLSCcWVaWdqTJJBh7Hw
- D/RDs7PoFiGRh0TsHq5NF40pzKOtQKy5BG3w4kLtF+FbSIYTns0Jd1P0IVcuFOPNmNEVfze7csX
- 64BRkMRElTCPc025BYOs9n5U=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 7fd23bef945703c4;
-	Mon, 23 Nov 2026 10:09:17 +0000
-X-Mizu-Trace-ID: 7fd23bef945703c4
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 18:09:08 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	Stefano Salsano <stefano.salsano@uniroma2.it>,
-	Justin Iurman <justin.iurman@gmail.com>,
-	Andrea Mayer <andrea@common-net.org>
-Subject: Re: [PATCH net-next v4 5/5] selftests: seg6: add PSP flavor testing
- for SRv6 End.X
-Message-ID: <20261123100908.GA11364@Liu-laptop>
-References: <20261119-srv6_flavors_endx-v4-0-284cdb484eee@kylinos.cn>
- <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
- <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=DxF7N+H6
+Received: by mail-pl1-f227.google.com with SMTP id d9443c01a7336-2f07a960666so11701065ad.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:10:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795428646; x=1796033446;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mbvL3v9xitudIPXWyeH2ku+y2nh35yR2K9Tkb/IhZnM=;
+        b=WuLNIeKlQ/Bk0aS4snoYAQ+DrmMK7VVmhi9KvrOzG9V7tEdSim4ZAg/Y68PC+maxHa
+         SmUnpy872sbsQ17Bfh6pFgVT+WA+3ooRJA5pdhqZymEZeOMkTQoaADmpaJWLr3XHLkgX
+         qxCtAGWp4nSrVBVF7Dca9LM1lX4Y76Wdw7gkIZRyBrM2uU/79sNwoz2Ln/cWZjt8+mIR
+         15zRiUO4vMwdNv5DQ5h6h0cIskoI6vkypN19+eLYw4IKsvvq0t0R3m3oKcarFFooqOC4
+         WsKi0BcEGoE8tIADu/xAE5FaYu0Dj8xbSZ0rx/BrhfYA8ylrrwNYr4EaIYUfnD7fIZlG
+         ijnA==
+X-Gm-Message-State: APuU4Z+pFVTXDvpfNd+LcobhmI6i3Y5JGhjNhLQfKUFUhbUav8VzTGt3
+	mzCrD/+h1eBE0udZyF0ZC4wKaAqdxTWDCDQovgasVQ6QN9nGn3V0eQKyUXl3NaXFa97gEg+v7RM
+	v3wQ365Kd4C9+PG6/OUjE8VdhJfZ0OF6vce3pMqqioVPuoyDuqtTUkmaSroqfGLwwmMn8wnElxa
+	nVacZmymntjk5WcQcdXFVoMhdasf0gf0Ys37lAPzVkMj17QDTSzzenMNo4WlAhopF0qWxUeCyaF
+	ZzGMITXjw==
+X-Gm-Gg: AZFdTZeTfe6YIPeQjCH3XeM1J9UlQsx8P9hjkcoQfoAjlo1aK4iNsDa0ZZHIRoM1aUs
+	HG0elwmusOSMAh7TUdQRxB4REgRbW4SOqJsuthp7rreQpA24BbEh70KaEyWZ4lIPbdaFbkXWkBc
+	Ai47xuZ+20oG5PyDyC3wVf5sRRYUovo6mmPs6J/WCz/OBXBZ/foijtqPACLNh4Hr2frxhq+wKt5
+	99K5osMYGRZIlMNGkmZ4HAYsrAlSSSaQ60oMAjOsTMm0zAVXKJ9InujJbTiria83jnRXeSSJnao
+	MJ2KIvwDLjk9yc6t6noq7oG19raNb2Fwh7WXv+2optsIaGDgS/1TejpNd/4DSs62oh9jYZfrwHV
+	3H6rH26THDyhLVJ8l5nM8OOmQzrU0+52LYdGYrDes2ikaX2lpVqIJ3CgXvazg+i3rQlqND5ZLkf
+	NVnuJKv5q+xdB+exicaq4D5ZSoWYljWaHpoQ==
+X-Received: by 2002:a17:90b:4b85:b0:3ab:c80:9370 with SMTP id 98e67ed59e1d1-3b41c9b2c94mr9535768a91.20.1795428645761;
+        Mon, 23 Nov 2026 02:10:45 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41cfc5245sm2968615a91.0.2026.11.23.02.10.45
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Nov 2026 02:10:45 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-341eff9e381so5206130eec.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:10:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795428643; x=1796033443; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mbvL3v9xitudIPXWyeH2ku+y2nh35yR2K9Tkb/IhZnM=;
+        b=DxF7N+H6TyqFKvlvcS8JlDUZB5pxd7pkFMMj+WOdEHkHKwgSKHzNEeAWItKsEsEO97
+         hvFH2aCMgYnOJo8YJqSoiUsOPEe94vCPQywaQWMi6KOMuDq2ePMAuUIAmfmDx5hVsJ6c
+         fGyS/XeEEIB+pI+WveCnHk0Cn9T1DrUxrTBu0=
+X-Received: by 2002:a05:7301:4704:b0:383:729:cabe with SMTP id 5a478bee46e88-3856f8519ecmr12218904eec.19.1795428643267;
+        Mon, 23 Nov 2026 02:10:43 -0800 (PST)
+X-Received: by 2002:a05:7301:4704:b0:383:729:cabe with SMTP id 5a478bee46e88-3856f8519ecmr12218871eec.19.1795428642490;
+        Mon, 23 Nov 2026 02:10:42 -0800 (PST)
+Received: from H5-S1 ([192.19.203.250])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm1084358eec.9.2026.11.23.02.10.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 02:10:42 -0800 (PST)
+From: Vikas Gupta <vikas.gupta@broadcom.com>
+To: davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bhargava.marreddy@broadcom.com,
+	rahul-rg.gupta@broadcom.com,
+	vsrama-krishna.nemani@broadcom.com,
+	rajashekar.hudumula@broadcom.com,
+	dharmender.garg@broadcom.com,
+	ajit.khaparde@broadcom.com,
+	Vikas Gupta <vikas.gupta@broadcom.com>
+Subject: [PATCH net-next v9 01/10] bnge: restructure VNIC and filter code
+Date: Mon, 23 Nov 2026 15:37:37 +0530
+Message-ID: <20261123100746.1975030-2-vikas.gupta@broadcom.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20261123100746.1975030-1-vikas.gupta@broadcom.com>
+References: <20261123100746.1975030-1-vikas.gupta@broadcom.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,226 +121,819 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Hi Andrea,
+Move VNIC and L2 filter code out of bnge_netdev.c into dedicated
+bnge_vnic.c/h and bnge_filter.c/h files in preparation for multi-VNIC,
+RSS context, and NTUPLE filter support.
 
-Thanks a lot for you detailed review. I will fix all of them in next version.
-I just have some questions about a few comments.
+This is a code reorganization with no functional change, which helps
+centralize the functions into their respective modules.
 
-On Mon, Nov 23, 2026 at 05:09:52AM +0100, Andrea Mayer wrote:
-> > [snip]
-> > +# Given the description of a router as an input, the function returns its
-> > +# adjacent route id, or 0 if a host adjacent.
-> > +# i.e. input: "1", output: ""
-> > +#      input: "1>2", output: "2"
-> > +#      input: "1>h", output: "0"
-> > +__get_srv6_adjacent_id()
-> > +{
-> > +	local adjacent="${1#*>}"
-> > +
-> > +	[[ "${adjacent}" == "${1}" ]] && return
-> > +	[[ "${adjacent}" == "h" ]] && adjacent=0
-> 
-> Nit, a style preference: I would use if blocks here, as in the rest
-> of the selftest. With cut -s -d'>' -f2, this function could also read
-> the ">" as you already do in __get_srv6_node_id().
+The move comes with a few small cleanups:
+- The BNGE_FLTR_TYPE_*, BNGE_FLTR_* state and BNGE_VNIC_*_FLAG macros
+  become enums with new values. None of them reaches firmware, and all
+  users are inside the driver.
+- struct bnge_filter_base members hash and list are renamed to hlist
+  and list_node.
+- bnge_rss_ctxs_in_use() is renamed to bnge_get_total_rss_ctxs(), and
+  bnge_get_total_vnics() no longer takes the rx_rings argument.
+- bnge_fill_hw_rss_tbl() and bnge_set_dflt_rss_indir_tbl() use u16
+  indexes and temporaries; the values fit.
 
-I plan to use
+Reviewed-by: Dharmender Garg <dharmender.garg@broadcom.com>
+Signed-off-by: Vikas Gupta <vikas.gupta@broadcom.com>
+---
+ drivers/net/ethernet/broadcom/bnge/Makefile   |   4 +-
+ drivers/net/ethernet/broadcom/bnge/bnge.h     |   7 -
+ .../net/ethernet/broadcom/bnge/bnge_filter.c  | 113 ++++++++++++
+ .../net/ethernet/broadcom/bnge/bnge_filter.h  |  58 ++++++
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.c    |   2 +
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.h    |   2 +
+ .../net/ethernet/broadcom/bnge/bnge_netdev.c  | 170 +-----------------
+ .../net/ethernet/broadcom/bnge/bnge_netdev.h  |  72 --------
+ .../net/ethernet/broadcom/bnge/bnge_resc.c    |  31 +---
+ .../net/ethernet/broadcom/bnge/bnge_vnic.c    | 100 +++++++++++
+ .../net/ethernet/broadcom/bnge/bnge_vnic.h    |  63 +++++++
+ 11 files changed, 350 insertions(+), 272 deletions(-)
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
 
-	echo "${element}" | cut -s -d'>' -f2 | sed 's/h/0/'
+diff --git a/drivers/net/ethernet/broadcom/bnge/Makefile b/drivers/net/ethernet/broadcom/bnge/Makefile
+index 8e07cb307d21..d0a3cb24dc1d 100644
+--- a/drivers/net/ethernet/broadcom/bnge/Makefile
++++ b/drivers/net/ethernet/broadcom/bnge/Makefile
+@@ -12,4 +12,6 @@ bng_en-y := bnge_core.o \
+ 	    bnge_ethtool.o \
+ 	    bnge_auxr.o \
+ 	    bnge_txrx.o \
+-	    bnge_link.o
++	    bnge_link.o \
++	    bnge_vnic.o \
++	    bnge_filter.o
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge.h b/drivers/net/ethernet/broadcom/bnge/bnge.h
+index 64c792b278ad..b175d63021aa 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge.h
++++ b/drivers/net/ethernet/broadcom/bnge/bnge.h
+@@ -163,13 +163,6 @@ struct bnge_dev {
+ #define BNGE_L2_FLTR_MAX_FLTR	1024
+ 
+ 	u32			*rss_indir_tbl;
+-#define BNGE_RSS_TABLE_ENTRIES	64
+-#define BNGE_RSS_TABLE_SIZE		(BNGE_RSS_TABLE_ENTRIES * 4)
+-#define BNGE_RSS_TABLE_MAX_TBL	8
+-#define BNGE_MAX_RSS_TABLE_SIZE				\
+-	(BNGE_RSS_TABLE_SIZE * BNGE_RSS_TABLE_MAX_TBL)
+-#define BNGE_MAX_RSS_TABLE_ENTRIES				\
+-	(BNGE_RSS_TABLE_ENTRIES * BNGE_RSS_TABLE_MAX_TBL)
+ 	u16			rss_indir_tbl_entries;
+ 
+ 	u32			rss_cap;
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+new file mode 100644
+index 000000000000..a8bb441ebef9
+--- /dev/null
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+@@ -0,0 +1,113 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (c) 2026 Broadcom.
++
++#include <linux/kernel.h>
++#include <linux/dma-mapping.h>
++#include <linux/jhash.h>
++
++#include "bnge.h"
++#include "bnge_netdev.h"
++#include "bnge_vnic.h"
++#include "bnge_hwrm_lib.h"
++#include "bnge_filter.h"
++
++void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr)
++{
++	if (!refcount_dec_and_test(&fltr->refcnt))
++		return;
++	hlist_del_rcu(&fltr->base.hlist);
++	kfree_rcu(fltr, base.rcu);
++}
++
++static void bnge_init_l2_filter(struct bnge_net *bn,
++				struct bnge_l2_filter *fltr,
++				struct bnge_l2_key *key, u32 idx)
++{
++	struct hlist_head *head;
++
++	ether_addr_copy(fltr->l2_key.dst_mac_addr, key->dst_mac_addr);
++	fltr->l2_key.vlan = key->vlan;
++	fltr->base.type = BNGE_FLTR_TYPE_L2;
++
++	head = &bn->l2_fltr_hash_tbl[idx];
++	hlist_add_head_rcu(&fltr->base.hlist, head);
++	refcount_set(&fltr->refcnt, 1);
++}
++
++static struct bnge_l2_filter *__bnge_lookup_l2_filter(struct bnge_net *bn,
++						      struct bnge_l2_key *key,
++						      u32 idx)
++{
++	struct bnge_l2_filter *fltr;
++	struct hlist_head *head;
++
++	head = &bn->l2_fltr_hash_tbl[idx];
++	hlist_for_each_entry_rcu(fltr, head, base.hlist) {
++		struct bnge_l2_key *l2_key = &fltr->l2_key;
++
++		if (ether_addr_equal(l2_key->dst_mac_addr, key->dst_mac_addr) &&
++		    l2_key->vlan == key->vlan)
++			return fltr;
++	}
++	return NULL;
++}
++
++static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
++						    struct bnge_l2_key *key,
++						    u32 idx)
++{
++	struct bnge_l2_filter *fltr;
++
++	rcu_read_lock();
++	fltr = __bnge_lookup_l2_filter(bn, key, idx);
++	if (fltr)
++		refcount_inc(&fltr->refcnt);
++	rcu_read_unlock();
++	return fltr;
++}
++
++static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
++						   struct bnge_l2_key *key,
++						   gfp_t gfp)
++{
++	struct bnge_l2_filter *fltr;
++	u32 idx;
++
++	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
++	      BNGE_L2_FLTR_HASH_MASK;
++	fltr = bnge_lookup_l2_filter(bn, key, idx);
++	if (fltr)
++		return fltr;
++
++	fltr = kzalloc_obj(*fltr, gfp);
++	if (!fltr)
++		return ERR_PTR(-ENOMEM);
++
++	bnge_init_l2_filter(bn, fltr, key, idx);
++	return fltr;
++}
++
++int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
++			      const u8 *mac_addr)
++{
++	struct bnge_l2_filter *fltr;
++	struct bnge_l2_key key;
++	int rc;
++
++	ether_addr_copy(key.dst_mac_addr, mac_addr);
++	key.vlan = 0;
++	fltr = bnge_alloc_l2_filter(bn, &key, GFP_KERNEL);
++	if (IS_ERR(fltr))
++		return PTR_ERR(fltr);
++
++	fltr->base.fw_vnic_id = bn->vnic_info[vnic_id].fw_vnic_id;
++	rc = bnge_hwrm_l2_filter_alloc(bn->bd, fltr);
++	if (rc)
++		goto err_del_l2_filter;
++	bn->vnic_info[vnic_id].l2_filters[idx] = fltr;
++	return rc;
++
++err_del_l2_filter:
++	bnge_del_l2_filter(bn, fltr);
++	return rc;
++}
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.h b/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+new file mode 100644
+index 000000000000..ea1acefd70b4
+--- /dev/null
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+@@ -0,0 +1,58 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Copyright (c) 2026 Broadcom */
++
++#ifndef _BNGE_FILTER_H_
++#define _BNGE_FILTER_H_
++
++#include <linux/types.h>
++#include <linux/if_ether.h>
++#include <linux/refcount.h>
++#include <linux/jhash.h>
++
++struct bnge_net;
++
++enum {
++	BNGE_FLTR_TYPE_L2	= 1
++};
++
++enum {
++	BNGE_FLTR_VALID,
++	BNGE_FLTR_FW_DELETED
++};
++
++struct bnge_filter_base {
++	struct hlist_node	hlist;
++	struct list_head	list_node;
++	__le64			filter_id;
++	u8			type;
++	u8			flags;
++	u16			rxq;
++	u16			fw_vnic_id;
++	u16			vf_idx;
++	unsigned long		state;
++
++	struct rcu_head		rcu;
++};
++
++struct bnge_l2_key {
++	union {
++		struct {
++			u8	dst_mac_addr[ETH_ALEN];
++			u16	vlan;
++		};
++		u32	filter_key;
++	};
++};
++
++#define BNGE_L2_KEY_SIZE	(sizeof(struct bnge_l2_key) / 4)
++struct bnge_l2_filter {
++	/* base filter must be the first member */
++	struct bnge_filter_base	base;
++	struct bnge_l2_key	l2_key;
++	refcount_t		refcnt;
++};
++
++void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr);
++int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
++			      const u8 *mac_addr);
++#endif /* _BNGE_FILTER_H_ */
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+index 227de771f2ef..d613587086cb 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+@@ -15,6 +15,8 @@
+ #include "bnge_rmem.h"
+ #include "bnge_resc.h"
+ #include "bnge_netdev.h"
++#include "bnge_vnic.h"
++#include "bnge_filter.h"
+ 
+ static const u16 bnge_async_events_arr[] = {
+ 	ASYNC_EVENT_CMPL_EVENT_ID_LINK_STATUS_CHANGE,
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h
+index bf452e390d5b..ae03041c36ac 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h
+@@ -4,6 +4,8 @@
+ #ifndef _BNGE_HWRM_LIB_H_
+ #define _BNGE_HWRM_LIB_H_
+ 
++struct bnge_l2_filter;
++
+ #define BNGE_PLC_EN_JUMBO_THRES_VALID		\
+ 	VNIC_PLCMODES_CFG_REQ_ENABLES_JUMBO_THRESH_VALID
+ #define BNGE_PLC_EN_HDS_THRES_VALID		\
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+index 8b184978da23..c8b5d3d6d331 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+@@ -25,6 +25,8 @@
+ #include "bnge_ethtool.h"
+ #include "bnge_rmem.h"
+ #include "bnge_txrx.h"
++#include "bnge_vnic.h"
++#include "bnge_filter.h"
+ 
+ #define BNGE_RING_TO_TC_OFF(bd, tx)	\
+ 	((tx) % (bd)->tx_nr_rings_per_tc)
+@@ -2053,174 +2055,6 @@ static int bnge_hwrm_ring_alloc(struct bnge_net *bn)
+ 	return rc;
+ }
+ 
+-void bnge_fill_hw_rss_tbl(struct bnge_net *bn, struct bnge_vnic_info *vnic)
+-{
+-	__le16 *ring_tbl = vnic->rss_table;
+-	struct bnge_rx_ring_info *rxr;
+-	struct bnge_dev *bd = bn->bd;
+-	u16 tbl_size, i;
+-
+-	tbl_size = bnge_get_rxfh_indir_size(bd);
+-
+-	for (i = 0; i < tbl_size; i++) {
+-		u32 j;
+-
+-		j = bd->rss_indir_tbl[i];
+-		rxr = &bn->rx_ring[j];
+-
+-		*ring_tbl++ = cpu_to_le16(rxr->rx_ring_struct.fw_ring_id);
+-		*ring_tbl++ = cpu_to_le16(bnge_cp_ring_for_rx(rxr));
+-	}
+-}
+-
+-static int bnge_hwrm_vnic_rss_cfg(struct bnge_net *bn,
+-				  struct bnge_vnic_info *vnic)
+-{
+-	int rc;
+-
+-	rc = bnge_hwrm_vnic_set_rss(bn, vnic, true);
+-	if (rc) {
+-		netdev_err(bn->netdev, "hwrm vnic %d set rss failure rc: %d\n",
+-			   vnic->vnic_id, rc);
+-		return rc;
+-	}
+-	rc = bnge_hwrm_vnic_cfg(bn, vnic);
+-	if (rc)
+-		netdev_err(bn->netdev, "hwrm vnic %d cfg failure rc: %d\n",
+-			   vnic->vnic_id, rc);
+-	return rc;
+-}
+-
+-static int bnge_setup_vnic(struct bnge_net *bn, struct bnge_vnic_info *vnic)
+-{
+-	struct bnge_dev *bd = bn->bd;
+-	int rc, i, nr_ctxs;
+-
+-	nr_ctxs = bnge_cal_nr_rss_ctxs(bd->rx_nr_rings);
+-	for (i = 0; i < nr_ctxs; i++) {
+-		rc = bnge_hwrm_vnic_ctx_alloc(bd, vnic, i);
+-		if (rc) {
+-			netdev_err(bn->netdev, "hwrm vnic %d ctx %d alloc failure rc: %d\n",
+-				   vnic->vnic_id, i, rc);
+-			return -ENOMEM;
+-		}
+-		bn->rsscos_nr_ctxs++;
+-	}
+-
+-	rc = bnge_hwrm_vnic_rss_cfg(bn, vnic);
+-	if (rc)
+-		return rc;
+-
+-	if (bnge_is_agg_reqd(bd)) {
+-		rc = bnge_hwrm_vnic_set_hds(bn, vnic);
+-		if (rc)
+-			netdev_err(bn->netdev, "hwrm vnic %d set hds failure rc: %d\n",
+-				   vnic->vnic_id, rc);
+-	}
+-	return rc;
+-}
+-
+-static void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr)
+-{
+-	if (!refcount_dec_and_test(&fltr->refcnt))
+-		return;
+-	hlist_del_rcu(&fltr->base.hash);
+-	kfree_rcu(fltr, base.rcu);
+-}
+-
+-static void bnge_init_l2_filter(struct bnge_net *bn,
+-				struct bnge_l2_filter *fltr,
+-				struct bnge_l2_key *key, u32 idx)
+-{
+-	struct hlist_head *head;
+-
+-	ether_addr_copy(fltr->l2_key.dst_mac_addr, key->dst_mac_addr);
+-	fltr->l2_key.vlan = key->vlan;
+-	fltr->base.type = BNGE_FLTR_TYPE_L2;
+-
+-	head = &bn->l2_fltr_hash_tbl[idx];
+-	hlist_add_head_rcu(&fltr->base.hash, head);
+-	refcount_set(&fltr->refcnt, 1);
+-}
+-
+-static struct bnge_l2_filter *__bnge_lookup_l2_filter(struct bnge_net *bn,
+-						      struct bnge_l2_key *key,
+-						      u32 idx)
+-{
+-	struct bnge_l2_filter *fltr;
+-	struct hlist_head *head;
+-
+-	head = &bn->l2_fltr_hash_tbl[idx];
+-	hlist_for_each_entry_rcu(fltr, head, base.hash) {
+-		struct bnge_l2_key *l2_key = &fltr->l2_key;
+-
+-		if (ether_addr_equal(l2_key->dst_mac_addr, key->dst_mac_addr) &&
+-		    l2_key->vlan == key->vlan)
+-			return fltr;
+-	}
+-	return NULL;
+-}
+-
+-static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
+-						    struct bnge_l2_key *key,
+-						    u32 idx)
+-{
+-	struct bnge_l2_filter *fltr;
+-
+-	rcu_read_lock();
+-	fltr = __bnge_lookup_l2_filter(bn, key, idx);
+-	if (fltr)
+-		refcount_inc(&fltr->refcnt);
+-	rcu_read_unlock();
+-	return fltr;
+-}
+-
+-static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
+-						   struct bnge_l2_key *key,
+-						   gfp_t gfp)
+-{
+-	struct bnge_l2_filter *fltr;
+-	u32 idx;
+-
+-	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
+-	      BNGE_L2_FLTR_HASH_MASK;
+-	fltr = bnge_lookup_l2_filter(bn, key, idx);
+-	if (fltr)
+-		return fltr;
+-
+-	fltr = kzalloc_obj(*fltr, gfp);
+-	if (!fltr)
+-		return ERR_PTR(-ENOMEM);
+-
+-	bnge_init_l2_filter(bn, fltr, key, idx);
+-	return fltr;
+-}
+-
+-static int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
+-				     const u8 *mac_addr)
+-{
+-	struct bnge_l2_filter *fltr;
+-	struct bnge_l2_key key;
+-	int rc;
+-
+-	ether_addr_copy(key.dst_mac_addr, mac_addr);
+-	key.vlan = 0;
+-	fltr = bnge_alloc_l2_filter(bn, &key, GFP_KERNEL);
+-	if (IS_ERR(fltr))
+-		return PTR_ERR(fltr);
+-
+-	fltr->base.fw_vnic_id = bn->vnic_info[vnic_id].fw_vnic_id;
+-	rc = bnge_hwrm_l2_filter_alloc(bn->bd, fltr);
+-	if (rc)
+-		goto err_del_l2_filter;
+-	bn->vnic_info[vnic_id].l2_filters[idx] = fltr;
+-	return rc;
+-
+-err_del_l2_filter:
+-	bnge_del_l2_filter(bn, fltr);
+-	return rc;
+-}
+-
+ static bool bnge_mc_list_updated(struct bnge_net *bn, u32 *rx_mask,
+ 				 const struct netdev_hw_addr_list *mc)
+ {
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
+index 8c300f2fb5f3..f6fd11de7de0 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
+@@ -563,8 +563,6 @@ struct bnge_napi {
+ };
+ 
+ #define INVALID_STATS_CTX_ID	-1
+-#define BNGE_VNIC_DEFAULT	0
+-#define BNGE_MAX_UC_ADDRS	4
+ 
+ #define BNGE_RX_MASK_CFG_FLAGS				\
+ 	(CFA_L2_SET_RX_MASK_REQ_MASK_PROMISCUOUS |	\
+@@ -572,78 +570,8 @@ struct bnge_napi {
+ 	 CFA_L2_SET_RX_MASK_REQ_MASK_ALL_MCAST |	\
+ 	 CFA_L2_SET_RX_MASK_REQ_MASK_BCAST)
+ 
+-struct bnge_vnic_info {
+-	u16		fw_vnic_id;
+-#define BNGE_MAX_CTX_PER_VNIC	8
+-	u16		fw_rss_cos_lb_ctx[BNGE_MAX_CTX_PER_VNIC];
+-	u16		mru;
+-	/* index 0 always dev_addr */
+-	struct bnge_l2_filter *l2_filters[BNGE_MAX_UC_ADDRS];
+-	u16		uc_filter_count;
+-	u8		*uc_list;
+-	dma_addr_t	rss_table_dma_addr;
+-	__le16		*rss_table;
+-	dma_addr_t	rss_hash_key_dma_addr;
+-	u64		*rss_hash_key;
+-	int		rss_table_size;
+-#define BNGE_RSS_TABLE_ENTRIES		64
+-#define BNGE_RSS_TABLE_SIZE		(BNGE_RSS_TABLE_ENTRIES * 4)
+-#define BNGE_RSS_TABLE_MAX_TBL		8
+-#define BNGE_MAX_RSS_TABLE_SIZE			\
+-	(BNGE_RSS_TABLE_SIZE * BNGE_RSS_TABLE_MAX_TBL)
+-	u32		rx_mask;
+-
+-	u8		*mc_list;
+-	int		mc_list_size;
+-	int		mc_list_count;
+-	dma_addr_t	mc_list_mapping;
+-#define BNGE_MAX_MC_ADDRS	16
+-
+-	u32		flags;
+-#define BNGE_VNIC_RSS_FLAG	1
+-#define BNGE_VNIC_MCAST_FLAG	4
+-#define BNGE_VNIC_UCAST_FLAG	8
+-	u32		vnic_id;
+-};
+-
+-struct bnge_filter_base {
+-	struct hlist_node	hash;
+-	struct list_head	list;
+-	__le64			filter_id;
+-	u8			type;
+-#define BNGE_FLTR_TYPE_L2	2
+-	u8			flags;
+-	u16			rxq;
+-	u16			fw_vnic_id;
+-	u16			vf_idx;
+-	unsigned long		state;
+-#define BNGE_FLTR_VALID		0
+-#define BNGE_FLTR_FW_DELETED	2
+-
+-	struct rcu_head         rcu;
+-};
+-
+-struct bnge_l2_key {
+-	union {
+-		struct {
+-			u8	dst_mac_addr[ETH_ALEN];
+-			u16	vlan;
+-		};
+-		u32	filter_key;
+-	};
+-};
+-
+-#define BNGE_L2_KEY_SIZE	(sizeof(struct bnge_l2_key) / 4)
+-struct bnge_l2_filter {
+-	/* base filter must be the first member */
+-	struct bnge_filter_base	base;
+-	struct bnge_l2_key	l2_key;
+-	refcount_t		refcnt;
+-};
+-
+ u32 bnge_cp_ring_for_rx(struct bnge_rx_ring_info *rxr);
+ u32 bnge_cp_ring_for_tx(struct bnge_tx_ring_info *txr);
+-void bnge_fill_hw_rss_tbl(struct bnge_net *bn, struct bnge_vnic_info *vnic);
+ int bnge_alloc_rx_data(struct bnge_net *bn, struct bnge_rx_ring_info *rxr,
+ 		       u16 prod, gfp_t gfp);
+ u16 bnge_find_next_agg_idx(struct bnge_rx_ring_info *rxr, u16 idx);
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+index 82895c236ff6..01205b161d82 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+@@ -11,6 +11,7 @@
+ #include "bnge_hwrm.h"
+ #include "bnge_hwrm_lib.h"
+ #include "bnge_resc.h"
++#include "bnge_vnic.h"
+ 
+ static u16 bnge_num_tx_to_cp(struct bnge_dev *bd, u16 tx)
+ {
+@@ -202,13 +203,13 @@ int bnge_cal_nr_rss_ctxs(u16 rx_rings)
+ 		     BNGE_RSS_TABLE_MAX_TBL);
+ }
+ 
+-static u16 bnge_rss_ctxs_in_use(struct bnge_dev *bd,
+-				struct bnge_hw_rings *hwr)
++static u16 bnge_get_total_rss_ctxs(struct bnge_dev *bd,
++				   struct bnge_hw_rings *hwr)
+ {
+ 	return bnge_cal_nr_rss_ctxs(hwr->grp);
+ }
+ 
+-static u16 bnge_get_total_vnics(struct bnge_dev *bd, u16 rx_rings)
++static u16 bnge_get_total_vnics(struct bnge_dev *bd)
+ {
+ 	return 1;
+ }
+@@ -219,24 +220,6 @@ u32 bnge_get_rxfh_indir_size(struct bnge_dev *bd)
+ 	       BNGE_RSS_TABLE_ENTRIES;
+ }
+ 
+-static void bnge_set_dflt_rss_indir_tbl(struct bnge_dev *bd)
+-{
+-	u16 max_entries, pad;
+-	u32 *rss_indir_tbl;
+-	int i;
+-
+-	max_entries = bnge_get_rxfh_indir_size(bd);
+-	rss_indir_tbl = &bd->rss_indir_tbl[0];
+-
+-	for (i = 0; i < max_entries; i++)
+-		rss_indir_tbl[i] = ethtool_rxfh_indir_default(i,
+-							      bd->rx_nr_rings);
+-
+-	pad = bd->rss_indir_tbl_entries - max_entries;
+-	if (pad)
+-		memset(&rss_indir_tbl[i], 0, pad * sizeof(*rss_indir_tbl));
+-}
+-
+ static void bnge_copy_reserved_rings(struct bnge_dev *bd,
+ 				     struct bnge_hw_rings *hwr)
+ {
+@@ -269,7 +252,7 @@ static bool bnge_need_reserve_rings(struct bnge_dev *bd)
+ 	if (hw_resc->resv_tx_rings != bnge_tx_rings_demand(bd))
+ 		return true;
+ 
+-	vnic = bnge_get_total_vnics(bd, rx);
++	vnic = bnge_get_total_vnics(bd);
+ 
+ 	if (bnge_is_agg_reqd(bd))
+ 		rx <<= 1;
+@@ -315,12 +298,12 @@ int bnge_reserve_rings(struct bnge_dev *bd)
+ 		sh = true;
+ 	hwr.cmpl = bnge_cprs_demand(bd);
+ 
+-	hwr.vnic = bnge_get_total_vnics(bd, hwr.rx);
++	hwr.vnic = bnge_get_total_vnics(bd);
+ 
+ 	if (bnge_is_agg_reqd(bd))
+ 		hwr.rx <<= 1;
+ 	hwr.grp = bd->rx_nr_rings;
+-	hwr.rss_ctx = bnge_rss_ctxs_in_use(bd, &hwr);
++	hwr.rss_ctx = bnge_get_total_rss_ctxs(bd, &hwr);
+ 	hwr.stat = bnge_func_stat_ctxs_demand(bd);
+ 	old_rx_rings = bd->hw_resc.resv_rx_rings;
+ 	old_rx_nr_rings = bd->rx_nr_rings;
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+new file mode 100644
+index 000000000000..3a6c8f0a5954
+--- /dev/null
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+@@ -0,0 +1,100 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (c) 2026 Broadcom.
++
++#include <linux/kernel.h>
++#include <linux/dma-mapping.h>
++#include <linux/ethtool.h>
++
++#include "bnge.h"
++#include "bnge_netdev.h"
++#include "bnge_vnic.h"
++#include "bnge_hwrm_lib.h"
++#include "bnge_filter.h"
++#include "bnge_resc.h"
++
++void bnge_set_dflt_rss_indir_tbl(struct bnge_dev *bd)
++{
++	u16 max_entries, pad;
++	u32 *rss_indir_tbl;
++	u16 i;
++
++	max_entries = bnge_get_rxfh_indir_size(bd);
++	rss_indir_tbl = &bd->rss_indir_tbl[0];
++
++	for (i = 0; i < max_entries; i++)
++		rss_indir_tbl[i] = ethtool_rxfh_indir_default(i,
++							      bd->rx_nr_rings);
++
++	pad = bd->rss_indir_tbl_entries - max_entries;
++	if (pad)
++		memset(&rss_indir_tbl[i], 0, pad * sizeof(*rss_indir_tbl));
++}
++
++void bnge_fill_hw_rss_tbl(struct bnge_net *bn, struct bnge_vnic_info *vnic)
++{
++	__le16 *ring_tbl = vnic->rss_table;
++	struct bnge_rx_ring_info *rxr;
++	struct bnge_dev *bd = bn->bd;
++	u16 tbl_size, i;
++
++	tbl_size = bnge_get_rxfh_indir_size(bd);
++
++	for (i = 0; i < tbl_size; i++) {
++		u16 ring_id, j;
++
++		j = bd->rss_indir_tbl[i];
++		rxr = &bn->rx_ring[j];
++
++		ring_id = rxr->rx_ring_struct.fw_ring_id;
++		*ring_tbl++ = cpu_to_le16(ring_id);
++		ring_id = bnge_cp_ring_for_rx(rxr);
++		*ring_tbl++ = cpu_to_le16(ring_id);
++	}
++}
++
++int bnge_hwrm_vnic_rss_cfg(struct bnge_net *bn,
++			   struct bnge_vnic_info *vnic)
++{
++	int rc;
++
++	rc = bnge_hwrm_vnic_set_rss(bn, vnic, true);
++	if (rc) {
++		netdev_err(bn->netdev, "hwrm vnic %d set rss failure rc: %d\n",
++			   vnic->vnic_id, rc);
++		return rc;
++	}
++	rc = bnge_hwrm_vnic_cfg(bn, vnic);
++	if (rc)
++		netdev_err(bn->netdev, "hwrm vnic %d cfg failure rc: %d\n",
++			   vnic->vnic_id, rc);
++	return rc;
++}
++
++int bnge_setup_vnic(struct bnge_net *bn, struct bnge_vnic_info *vnic)
++{
++	struct bnge_dev *bd = bn->bd;
++	int rc, i, nr_ctxs;
++
++	nr_ctxs = bnge_cal_nr_rss_ctxs(bd->rx_nr_rings);
++	for (i = 0; i < nr_ctxs; i++) {
++		rc = bnge_hwrm_vnic_ctx_alloc(bd, vnic, i);
++		if (rc) {
++			netdev_err(bn->netdev, "hwrm vnic %d ctx %d alloc failure rc: %d\n",
++				   vnic->vnic_id, i, rc);
++			return -ENOMEM;
++		}
++		bn->rsscos_nr_ctxs++;
++	}
++
++	rc = bnge_hwrm_vnic_rss_cfg(bn, vnic);
++	if (rc)
++		return rc;
++
++	if (bnge_is_agg_reqd(bd)) {
++		rc = bnge_hwrm_vnic_set_hds(bn, vnic);
++		if (rc)
++			netdev_err(bn->netdev, "hwrm vnic %d set hds failure rc: %d\n",
++				   vnic->vnic_id, rc);
++	}
++	return rc;
++}
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
+new file mode 100644
+index 000000000000..c81d3a64561e
+--- /dev/null
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
+@@ -0,0 +1,63 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Copyright (c) 2026 Broadcom */
++
++#ifndef _BNGE_VNIC_H_
++#define _BNGE_VNIC_H_
++
++struct bnge_net;
++struct bnge_dev;
++struct bnge_l2_filter;
++
++#define BNGE_RSS_TABLE_ENTRIES		64
++#define BNGE_RSS_TABLE_SIZE		(BNGE_RSS_TABLE_ENTRIES * 4)
++#define BNGE_RSS_TABLE_MAX_TBL		8
++#define BNGE_MAX_RSS_TABLE_SIZE			\
++	(BNGE_RSS_TABLE_SIZE * BNGE_RSS_TABLE_MAX_TBL)
++#define BNGE_MAX_RSS_TABLE_ENTRIES				\
++	(BNGE_RSS_TABLE_ENTRIES * BNGE_RSS_TABLE_MAX_TBL)
++
++#define BNGE_MAX_CTX_PER_VNIC	8
++
++#define BNGE_MAX_MC_ADDRS	16
++#define BNGE_MAX_UC_ADDRS	4
++
++enum {
++	BNGE_VNIC_DEFAULT	= 0
++};
++
++enum {
++	BNGE_VNIC_RSS_FLAG	= BIT(0),
++	BNGE_VNIC_MCAST_FLAG	= BIT(1),
++	BNGE_VNIC_UCAST_FLAG	= BIT(2)
++};
++
++struct bnge_vnic_info {
++	u16		fw_vnic_id;
++	u16		fw_rss_cos_lb_ctx[BNGE_MAX_CTX_PER_VNIC];
++	u16		mru;
++	/* index 0 always dev_addr */
++	struct bnge_l2_filter *l2_filters[BNGE_MAX_UC_ADDRS];
++	u16		uc_filter_count;
++	u8		*uc_list;
++	dma_addr_t	rss_table_dma_addr;
++	__le16		*rss_table;
++	dma_addr_t	rss_hash_key_dma_addr;
++	u64		*rss_hash_key;
++	int		rss_table_size;
++	u32		rx_mask;
++
++	u8		*mc_list;
++	int		mc_list_size;
++	int		mc_list_count;
++	dma_addr_t	mc_list_mapping;
++
++	u32		flags;
++	u32		vnic_id;
++};
++
++void bnge_fill_hw_rss_tbl(struct bnge_net *bn, struct bnge_vnic_info *vnic);
++int bnge_hwrm_vnic_rss_cfg(struct bnge_net *bn,
++			   struct bnge_vnic_info *vnic);
++int bnge_setup_vnic(struct bnge_net *bn, struct bnge_vnic_info *vnic);
++void bnge_set_dflt_rss_indir_tbl(struct bnge_dev *bd);
++#endif /* _BNGE_VNIC_H_ */
+-- 
+2.52.0
 
-> 
-> > [snip]
-> > @@ -819,33 +964,44 @@ __setup_rt_policy()
-> >  	local function
-> >  	local op_type
-> >  	local node
-> > +	local act
-> > +	local sid
-> >  	local n
-> >  
-> >  	in_nsname="$(get_rtname "${encap_rt}")"
-> >  
-> >  	for n in ${policy_rts}; do
-> > +		# Abort if policy format is incorrect:
-> > +		# 1. "1>h:psp" that has ">" but not "End.X"
-> > +		# 2. "1:psp:End.X" that has "End.X" but no ">"
-> > +		if [[ "${n}" == *">"* && "${n}" != *"End.X"* ]] || \
-> > +			[[ "${n}" != *">"* && "${n}" == *"End.X"* ]]; then
-> > +			echo "Incorrect operation format: ${n}" && false
-> > +		fi
-> 
-> The check is there, but ret is not set. With "1>h:psp", the End tests
-> pass and then the run ends as SKIP:
-> 
->     Incorrect operation format: 1>h:psp
->     SKIP: Setting up the testing environment failed
-> 
-> Could it set ret to ksft_fail? Also, the check looks at the element as
-> a whole, while the parameter and the nh6 are computed for each node.
-> For example, "4>2,2:next-csid,psp:End.X" passes it although the node
-> "2" has no adjacency, and the setup then fails in ip, on the nh6. A
-> function that checks each node, called in place of this check, would
-> cover both:
-> 
-> 	if ! __check_srv6_rtcfg "${n}"; then
-> 		ret="${ksft_fail}"
-> 		return 1
-> 	fi
-> 
-> It would take the nodes and the behavior from the parsers that
-> __setup_rt_policy() already uses, not from the text of the element.
-> Just as an idea, something like this in __check_srv6_rtcfg():
-> 
-> 	nodes="$(__get_srv6_rtcfg_id "${element}")"
-> 	op_type="$(__get_srv6_rtcfg_op "${element}")"
-> 	act="$(__get_srv6_rtcfg_act "${element}")"
-> 
-> 	if ! op_has_next_csid "${op_type}" && \
-> 	   echo "${nodes}" | grep -q ","; then
-> 		echo "${element}: only NEXT-C-SID takes more than one node"
-> 		return 1
-> 	fi
-> 
-> 	for node in $(echo "${nodes}" | sed 's/,/ /g'); do
-> 		rt="$(__get_srv6_node_id "${node}")"
-> 		param="$(__get_srv6_param "${act}" "${node}")"
-> 
-> 		case "${act}" in
-> 		"End")
-> 			if [ "${node}" != "${rt}" ]; then
-> 				echo "${element}: End takes no parameter"
-> 				return 1
-> 			fi
-> 			;;
-> 		"End.X")
-> 			if [ -z "${param}" ]; then
-> 				echo "${element}: End.X needs an adjacency"
-> 				return 1
-> 			fi
-> 			;;
-
-This check seems not enough with error config like "4>2h:psp:End.X".
-Should we limit the param to 0-4?
-
-> 		esac
-> 	done
-> 
-> IMO a case per behavior would also make End.T easier to add, both for
-> the flavor core that your 1/5 mentions for End.X/T and for NEXT-C-SID,
-> which I am working on.
-> 
-> > [snip]
-> > @@ -1031,6 +1187,25 @@ setup_end_flv_psp()
-> >  	SETUP_ERR=0
-> >  }
-> >  
-> > +setup_endx_flv_psp()
-> > +{
-> > +	SETUP_ERR=1
-> > +
-> > +	setup_hs_lo_addr 1 1 "${ENDX_CSID_PSP_FUNC}"
-> > +	setup_hs_lo_addr 2 2 "${ENDX_CSID_PSP_FUNC}"
-> > +
-> > +	# The same SRv6 policies with setup_end_flv_psp except using End.X
-> > +	setup_rt_policy_ipv6 2 1 "3>4:noflv:End.X 4>2:psp:End.X 2>h:psp:End.X"
-> > +	setup_rt_policy_ipv6 1 2 "1>h:psp:End.X"
-> > +
-> > +	setup_rt_policy_ipv6 "2:${ENDX_CSID_PSP_FUNC}" 1 \
-> > +		"3>4:next-csid,psp:End.X 4>2,2>h:next-csid,psp:End.X"
-> > +	setup_rt_policy_ipv6 "1:${ENDX_CSID_PSP_FUNC}" 2 \
-> > +		"4>3,3>1,1>h:next-csid,psp:End.X"
-> > +
-> > +	SETUP_ERR=0
-> > +}
-> 
-> On v3, Sashiko asked whether the End.X tests would pass with End.X
-> working as End. In this topology, the nh6 of each End.X is also the
-> next hop that a lookup of the new DA gives, and the tests pass in both
-> cases. An unreachable route in table 90 for the next SID, on rt-4 for
-> (i.a) and on rt-3 for (i.c), would make End fail and leave End.X
-> working. This is close to what Sashiko suggested on v3. What do you
-> think about adding these two routes to the End.X scenario, each with
-> its defer?
-
-Hmm, we add the SIDs with End.X action, and the address also has parameters.
-e.g. for (1.a) we add fcff:4::2af1, which unreachable route should we add
-then? Cause we don't use fcff:2::ef1 at all.
-
-BTW, is there any reason we add the unreachable route on rt-4 for (i.a) and on
-rt-3 for (i.c)? In the consumed SRH testing, we can only add the extra on
-ingress route. e.g.
-
-#   (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the   
-#         extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes
-#         it. 
-#         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2        
-#   (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the  
-#         extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes
-#         it.
-#         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2  
-
-Which means we need the end action on rt-4.
-
-> 
-> > [snip]
-> >  test_kernel_supp_or_ksft_skip()
-> > [snip]
-> >  	if ! ip -netns "${test_netns}" -6 route \
-> >  		add "${IPv6_TESTS_ADDR}" encap seg6local \
-> > -		action End flavors "${flavor}" dev "${DUMMY_DEVNAME}"; then
-> > -		echo "SKIP: ${flavor} flavor not supported in kernel"
-> > +		"${policy[@]}" dev "${DUMMY_DEVNAME}"; then
-> > +		echo "SKIP: ${action} flavor ${flavor} not supported in kernel"
-> 
-> A note on this probe. On older kernels this add can succeed without
-> the flavor, and the tests then fail instead of being skipped. This
-> happens with End.X on v6.5, and with End on v6.0. I was thinking of
-> sending a separate patch that reads the route back, for the End and
-> the End.X probe. There is no need to wait for it. Does it work for
-> you?
-
-OK, I will add a checking for the added route.
-
-> 
-> > [snip]
-> > +if test_kernel_supp_or_ksft_skip End.X psp; then
-> > +	test_endx_flv
-> > +fi
-> 
-> When the probe finds no End.X PSP, the End.X tests do not show up in
-> the summary. The v4 skips only that scenario, as suggested on v3,
-> which is good. On my patch that added the consumed SRH tests, you
-> suggested to return at once when the srh match is missing. I kept the
-> check in each test because log_test_skipped() then logs each test and
-> counts it in "Tests skipped". IMHO the End.X scenario could do the
-> same, to be consistent. Does it sound reasonable to you?
-
-Sorry, I didn't get what you mean here. Do you want to run
-the check before each end.x testing and report skip one by one?
-
-e.g.
-
-	if test_kernel_supp_or_ksft_skip End.X psp; then
-        	host_srv6_end_flv_psp_tests "End.X"
-	else
-		echo "SKIP..."
-	fi
-
-	if test_kernel_supp_or_ksft_skip End.X psp; then
-	        host_srv6_end_flv_next_csid_psp_tests "End.X"
-	else
-		echo "SKIP..."
-	fi
-
-	if test_kernel_supp_or_ksft_skip End.X psp; then
-	        host_srv6_endx_flv_consumed_srh_tests
-	else
-		echo "SKIP..."
-	fi
-
-Thanks
-Hangbin
