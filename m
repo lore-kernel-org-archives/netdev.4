@@ -1,72 +1,155 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401044;
-	b=ukfEwKOz+iaF1p3qNHDn0fFn+nmTjKV6gxswna+fB4aef1ZTiPPNYP0Lwr8ZEkkfaTT6
-	 p/eaAzvxHOPW3eTlqY/1qAMSn2mCKMhWYkmZpkblWWAOHZZtA34ZOm+Je4t2SzKBcq317
-	 SoDHqYjn4VQY3g+92q/IRRPJUh9UU3eB45Cly04Z2CItYn3bvzoK2zjHcY0rS80+5PMP/
-	 Y+avujNIVp7NGxNAzf7292G6MM1kLdqpuAjDC6feKVq9tHcCj4mrhlcmGRsxkHmp7xDXm
-	 ofoPuxOV/cZfUXZwJ6sWwLioHxTkbHmSWn3bCPi8Hi3aNkli9t2T8sGRDWPruOql5/A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401044;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Cq/cYX7/b8Dzuiz6ClHov3WU2VvNwLYaxpdD04so0IE=;
-	b=vZ7Fme7ofTGhpWHsRWLGASsEC+ElB4Pmvcp2lQpFMThjajXMgyLLejquDMgwXFDTe1nl
-	 bkYUMt8i8pF5yCvkp6PK4/ASuRIF0c9JDb4pL2+63MTYXv5yDHsTrU0z5pxhUQsAXafNK
-	 3xLknxaqmWUldeF61uJlm20OmkAhosz0lM/JMzOpzMM2pUaeu/zjO3hdn07weHaYNW+pn
-	 pPU9EJNxpondM9iy9VpL65yacaVA+q5BtVxI+dnN5P1imvK/+/CdJZpmMnCG7u6oUq7uo
-	 UDWpACYyx6DIqdkyr2ArMMgrQXGkRatfTOW45pkJD/IxBXvjND1M47MfgupTKYNYrcA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b="ap/m1zbY";
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 05D7A606A31E;
-	Mon, 23 Nov 2026 02:30:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05D7A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.37
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795401042;
+	b=UHIH+pnKAtA/ZSz11dpvPemwCYmO/sJYkyXfliLJaXQlCuluvHceLHB1qnkc2GIozwAY
+	 ztvAsE8D8MHte8zqhKz78kDEU3GN5cmnmb+k3jp12EdYzO55+R1ndPlgMnLIpsyPqSPSy
+	 eflQuBGC/inmEt6RATP0h3PeB+k3FWcxonuAyNBapsnxsfkL0rwLEprU3i9u3jskW+aTu
+	 wyJXIFJJCtk64q50114CwJH//LW4eZ5IDbW0epWiVOA336pMK/l5oB6Ep4+k0UOL5536s
+	 6mUdsGJHXi5rWz9wxdvuOj0At5HrthMy0zQyvW1tQdupcxDHDC3vx6lI6kVgDwCFpeg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401042;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=3rMGwOVEo1qiTtwxvkHa7gZlWWM64ENrzOnMp4npICY=;
+	b=pJMOSxNkGtVNpQuNAfJQa5wGAKfeOVy1wlZ15utygR3ACI9Xyti4vFhQU4lVNixPa8Wy
+	 nja0BxuEwJd+X+S6hQvByZkJuKSS+icWtNqcuOPc3L9HRCJy6a7TfciJiJruxt/Cumob1
+	 9h1scheAnJzqbYUSqQhKAnAfL2+hlJFOmwVAfg0cZj5LC1SAP7JwJVRoQbd4wCZsKl3Gm
+	 YSMdA0p9yOu6UkkIzst/2MLEu88IMVZeWQhkTuGoid8gEyTBe42KTOTJZsKD0ZWIV8Clb
+	 1Oj8+2t2WRwq5x7SBnnD2QDhQL8vq35Oeb+amdbEpbf6US6Qcr4eOCHVjUByoYqfJ3Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=est.tech;
+	spf=pass smtp.mailfrom=est.tech;
+	dkim=pass header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=HO+XUMcq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.37
+Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013037.outbound.protection.outlook.com [52.101.83.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80699606A320;
+	Mon, 23 Nov 2026 02:30:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80699606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=est.tech
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=est.tech
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ap/m1zbY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=ap/m1zbYYyigZzmloFF1/kMe45Uwudj+XEMEQDffMpBkOcCeebRzKl75HJ7IV3EWn10AteMNIu13P
-	 rXRiQiRnNIN0WVk5MEvkOA8nVdCkHLF/EJkotgDpYOmTMSESdVZEFjuROg7O8OcFyHtYYW6jj9l0r8
-	 bcI/T8hj/h4Rwx2U=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b03a54e409-d7b05;
-	Mon, 23 Nov 2026 10:30:41 +0800 (CST)
-X-RM-TRANSID:2ee46b03a54e409-d7b05
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26b03a54f965-83027;
-	Mon, 23 Nov 2026 10:30:41 +0800 (CST)
-X-RM-TRANSID:2ee26b03a54f965-83027
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kuba@kernel.org
-Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Date: Mon, 23 Nov 2026 10:30:41 +0800
-Message-ID: <20261123023041.609-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <179531318026.3135.909782780821579093@kernel.org>
-References: <179531318026.3135.909782780821579093@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=HO+XUMcq
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HmngUGf6ZbKan1RTKrt1JNfSL+jbMx1jlQWdLpdPVccAD1cJbY4jI6Cs2E/oaevqKghHRY5SBnKxcSeGTVAliey4j1iQoUaqJ9011SVsaIgQAsgzjkZgCzAPIiaj/8iqboQhuqKSQuel3jFwLUsfpe/xrXYQ5BAd4psLB5q82B4P3bzqh8DTyHm0mKraEdSpYNSjwjPNHHESmXcbMINcDczrZdGZGzBkNSb8r+5fJEjsZqXmabyxIc93SljF940QWtd3RLU9sMdpRhIOQtZ7LUnCihlr1H4u0fR3GWTdSkvjQM1K904ZxQAXGuyd9qZlcOlEc0ez+qqzUFFkRkJXbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3rMGwOVEo1qiTtwxvkHa7gZlWWM64ENrzOnMp4npICY=;
+ b=ILiKDcBXVbTS7EzEJ3NpskU00VRJmD/qJ7TZpYWsNK0lufWemr2NogXU+PkZ4szBv/kVat+JRfBpzvTvN7qoF11LLgk5/JwEU3G8Ya/t7ZejgVE3+r4PnqQjC5tqNImnV5/U5VhU6/hkiLdCT9zG7XSojpzP774fl3v7akbyqRhOHUdz+veeN9oljp7foOkPi5IYSJS8Ks0TXEd+2yY8xMvGgcVPJEuyo0m3rvteJ706TPoBWGCizW4qG+uZqz9v8RwSQZKONJFDtcU1Z1b/7ha1ultYRrtgPJBfFW5UAor7pmX0n5RcL4abRArIglnUdfFNtlco2RjJvMmJPe9UHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
+ dkim=pass header.d=est.tech; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3rMGwOVEo1qiTtwxvkHa7gZlWWM64ENrzOnMp4npICY=;
+ b=HO+XUMcqpfvvP7WalfSTz7bqEo32hmJlYeHMt4yz+8n4RpFB0AKhcPMFDYYphgC5CLPyf8TdEj9BSzzu+zV1cxtMkwuHrbcRINNDw/CuGTqGh/QoyYFO1UhTu9efhndUOaeU17O6k1BwhlQplVodYTe+b7kgdZqNXocVDHi1zxzI+bS506aSH60iEbT0iPWDtMQLGb07U/ZIPluMD4KaZhadNSk2/IogSJROtRwLWHNbmDPVnBPmwROBm2zG6Y+A8cQDswTVJoQemdAClDLo/vx1BY7lbChgnRnpqJXl7+0SXhxFvb0Og/j8ddBdDDT0InPJ/mCQP/pqJFlgBN9NFQ==
+Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:17e::23)
+ by DU4P189MB3472.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:5f0::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 02:30:37 +0000
+Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
+ ([fe80::86f0:8ce1:a437:b2d5]) by AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
+ ([fe80::86f0:8ce1:a437:b2d5%6]) with mapi id 15.21.0615.013; Mon, 23 Nov 2026
+ 02:30:37 +0000
+From: Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+To: Ian Rogers <irogers@google.com>
+CC: Simon Horman <horms@kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "tipc-discussion@lists.sourceforge.net"
+	<tipc-discussion@lists.sourceforge.net>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, Jon Maloy <jmaloy@redhat.com>, Elkin Cruz
+	<elkin@google.com>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>
+Subject: RE: [PATCH net] tipc: validate peer address attributes in
+ tipc_nl_peer_rm()
+Thread-Topic: [PATCH net] tipc: validate peer address attributes in
+ tipc_nl_peer_rm()
+Thread-Index: AQHdeEhE9NH7h0X5MEybNE+ZYLKd5rc69ESg
+Date: Mon, 23 Nov 2026 02:30:37 +0000
+Message-ID:
+ <AM7P189MB11376E1386BB26B523A99509C6452@AM7P189MB1137.EURP189.PROD.OUTLOOK.COM>
+References: <20261119170556.1518068-1-irogers@google.com>
+In-Reply-To: <20261119170556.1518068-1-irogers@google.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=est.tech;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM7P189MB1137:EE_|DU4P189MB3472:EE_
+x-ms-office365-filtering-correlation-id: da3da05b-c539-4f71-89a9-08df4909c248
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|22082099003|18002099003|261022105027099003|261026140227099003|261026121527099003|261028144727099003|56012099006|10067099003|38070700021|11063799006;
+x-microsoft-antispam-message-info:
+ Hkk6P7Xtd8R1ybRkLJiIq9shHBZUqZiiPzVRGN54hjMl0I+r2hVyumtLfkbfnHWvaDQ3Oe4g+nGx7pnazE8FyccbEt7mx0qV+CHAXlo1/dJJ4gS4a0HIzbFv4eHPI6Tx+JRQ3axNSoYNO+OreIND6lMArev7E8MNXS1E7n3nMj9FWkvQ++r94Qv00psbOeRD1jVb4Y7woTTXETWO0cUmeXXiG7PXR0goh0G5kbDWXEo0IvYVkhWgWHOQXsZeLRBkSaowDvZNqTDiuhaTm6nbAvNGM7+0aqPg6grwZCln8YiwA/T/QkrC/g5LjMSSGWVGqVrP3f1j1jejnFaSwbu14eu7V9F0ZS0w0MnGkyWhaNVZGV4303+FhFOGJgtbs7ya+OCahK679F9pRJedwsA8pEG8PJP6ieZtZ2I5Jay26ZMxJCkxdvPBaBz3zqjMA5tijWxO4wbbbvBLoLSTlBF34w43irdlFEAv3aKTzd6M51k6EHcbSopMcWYaLm5XfT1PAWTzSx0oT6+F1zERGwh0P1btN/oe7SH5xr4VZqQxNrDrM70Ef5+GDdBEqo6FYizyj5dnFBfX3VBG1+HEhd9+8w8AdK6KG2SiKQQyTFLHTAJQ5ZgREW7HR3/+ouHn+bGdxKmzd7DHKH8S/tRjlvxzCfTmy/IzIlUm6I+R3xAa24lPXmajf4hm4/0504B6df5JSBH9y519XPYtJ+aEeVBLLGHrD2YkahUnqSCpbkqJ+8c=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7P189MB1137.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(22082099003)(18002099003)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(56012099006)(10067099003)(38070700021)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?T3liQ0RBWEFkdmdsU3hxdFZwUkRoOUE5WEtoaXVVOGJ5L3E3M05JZVhnekpU?=
+ =?utf-8?B?eXZWanNMYXBjZTVnV0pMbDJIbVdqMmN6elNUMkpQVy93LyswME9abnFQaW0y?=
+ =?utf-8?B?bmU2ak8rRTRxQXlIZDdnVUF1RmdEaUlhQy94a1lFNmVFQ1BFQkJkeUYxejhL?=
+ =?utf-8?B?R3VrQ2hLamE4dlBYVjdzRXBPcUpnRFNwazBvZks2YTRUTUdSZEFiWWV3Rk5J?=
+ =?utf-8?B?QW5EZ3IvdXg3UlgxQ2hvL2VXUWpIOFdJZVV0SjB2U0RqSlpXSUszU1hVLzB5?=
+ =?utf-8?B?OVgyb1QvK0plZU92RGwraGRSWUl2SVNqbW5IckNiUThsai9GK3R4bHNxdUtM?=
+ =?utf-8?B?U2FzN2lxN29vUmYrUm1IbEZHeG4venA1WFJ6R0ZBZkdrWm5KaFUzV0N1Rkty?=
+ =?utf-8?B?SHp0bERDUG4yQnhJaG0zWEcvT2ozclgzdmthV21qRGlEOXNJV0VzSHQxSHFW?=
+ =?utf-8?B?dGd2VFBlQitlRDlsRjRobEV1aDFpQXUyQzVMUGh2K29JWGh4R3hkbVNEeUNT?=
+ =?utf-8?B?bDgwTGtSbDkvaHhacmFQaTU3bC91RVYwNzRQQ3owRitEcUFNaWwxZStpejZO?=
+ =?utf-8?B?ZDluRXdYMXFxdkhnZVk4UnJDcjVNSXowSFpFL05PSERjUDBkczg0MnNNVi9N?=
+ =?utf-8?B?dE9VVUF1Nm9PcEUydy9yWHdYY0xJbWs3bHdETVUrNUE1UWE1Ylo5MGNvNWc5?=
+ =?utf-8?B?eUk2bE9jQnN2eWNQSEFPVzQ4UnhDODhuSjU0R2hIQjBXSnc5MnB1Q2Z4bE9L?=
+ =?utf-8?B?WHBXaTFudSs5ZTVtQ05Qd0t3VzhtZW1KRnFsWHY0cFhWU3FmaU85ZzROc2FO?=
+ =?utf-8?B?VU92eGpSN3o0VEVjcXBrdTdVV3BZUFNZQ2JSaVZvUkRUaFJYd08walMrTHVq?=
+ =?utf-8?B?VzNaQlIwZUVzUFBSZnV2QSt0aVlYeDR5Sis4d3d5a294T1hVcXZ3MnZKdE10?=
+ =?utf-8?B?RlpXRUhFTU9nTWZPeDFvZ2JIcnpMcE90OUFRT1JWTVZCODRJdGE0eW9RYWNC?=
+ =?utf-8?B?dkRXVHdzVGVyNHAxK09HWVpUeGw5VlI2RFR3cGlVd2g2b3pNUnV2VmQ3ZlY5?=
+ =?utf-8?B?Y3hBcTM1YXQ0TldaWFFGWjhJam5TdDFCcjVOckUxUmg1ZDl3YlVsUnVnSzht?=
+ =?utf-8?B?OFRKeTlDNmJFdzNJdlc1dDkyOWlKZFdiVzE5eEtaQWRrK2lhVXliQjFIeThM?=
+ =?utf-8?B?TmFjbkd5MWhjZC9NaXZZZnR4NGo5THN0U0xmSzBmamRHMG9xUHlnNmM3VU9G?=
+ =?utf-8?B?ZURPcnVzeFZicG1BSk1pUUE0d28xU1ZGbGdjaGRlNFZwWmVmRHJQV2R4QXVE?=
+ =?utf-8?B?YkdjUGpJR1RxcjhhcEprWXFJd0NGNkpjbVlSR1RHcW0ycmNPa1paVlltd1Bm?=
+ =?utf-8?B?VlJmVm8waVp4eFpuTDA4TmZ3cDRoMTUwQkhyNm1iZ0tqNEtzQ1pNOXo3ZmJW?=
+ =?utf-8?B?QTRDdVJPY0dmYXVxeXpyeFYxTDBUc2lvc2RJbTJGTHRWamhQOGVQL295aDNq?=
+ =?utf-8?B?dDF2K1pZczZlTzdwYjY1WHNDUml3WE84Tlg3Y1Z1dDcydTZJWDRsT1U1VWd4?=
+ =?utf-8?B?bjEzSlNnU3VlZXg2QnVkUWFmTkNma0FtM3pwU25YSmFETHJtcEI0aXlncUYy?=
+ =?utf-8?B?T0YrSWFwY0c2RUlUVGlJV1oyckxNMjhPTVZKSlVJVnNxbE9iTERGM1lOOXVG?=
+ =?utf-8?B?UFBteTNQTXhXMWJIM3ByQ3g4RXBBakhBUkFTKzhMaW9LZTAzdGhHdW1QWWRQ?=
+ =?utf-8?B?VDBUV0lkSGUyU213cldrd3UxbmdyekJLcCt5OHBWdjM4SUdxWG9Gay84UFJn?=
+ =?utf-8?B?aWJjUUF6T1RubnRNSmZuYzRXVHk5K3pCaTN5STN5b3l0dDlMMXQ2QU5vb1Rl?=
+ =?utf-8?B?dEJzNDM3em1rNFA2NlMyY2RkRlhRS0tKVUdEZXFBZ3c1bUNJWm1yR00vSXds?=
+ =?utf-8?B?OVpwU3RoM0dWT3VIUDU3VzB0VERhMGptbnlXeUh1cVR1T1U4R0wxaTBuZFZE?=
+ =?utf-8?B?RFNTR2lzUjQzTy9oc0kyamp6dGxkVHNwTkRnNy83YVNkOEdUdGYvZWhBZmU4?=
+ =?utf-8?B?RzN6VXo2T1BUSnlaalB1aVlkUlZzdm5VT0NNN0FTY082cDE5QmdNSHEvbU9M?=
+ =?utf-8?B?dmJremIweDlyT3RwOXRCM3cxWGJFSWxyUWh5VUNjWS9SWFY4ckFGU2tXNElD?=
+ =?utf-8?B?cUl3MkM2K3M2MDlIUTZob2hjZ081UGNsOTFsNHdFRW8zSEdDQ3JFRnd6REd5?=
+ =?utf-8?B?dW5HejlWNkl4MmJRaGxpeHZ4cXdpRTk2NDlQTjkvdmlWVEFNYWJjUHlsUDlP?=
+ =?utf-8?B?RGVtd1htOGJOemF0UGRIejRQQzdGaHE2TWxDRm9MQXV6bkZBbUJPQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,56 +159,29 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: est.tech
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: da3da05b-c539-4f71-89a9-08df4909c248
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 02:30:37.2806
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: YTHWWvmp5i3Yf4D9YOEZvT13s18aCA9kpqBb9BD9EWQPV22uAVFDEg65Zc9abIR0n4TzkpaVPnnTMGem9SCsZA4MMr+mQjAOVpVMOyBA5T0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4P189MB3472
 
-Hi,
-
-On Sun, 22 Nov 2026 02:06:20 +0000, netdev-bot+sashiko wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> - [High] The fix is incomplete.
-> - [Medium] The new err_powers/err_disable_core_pwr paths in
->   mt7530_setup() disable core_pwr/io_pwr, but mt7530_remove() was not??> - [Low] This is speculative and depends on the hardware.
-
-Thanks for the review, I verified all three findings against the code
-and agree with them:
-
-* High: Correct.  The v2 error paths only covered mt7530_setup()
-  itself, while mt7530_setup_irq(), mt7530_setup_mdio() (both can also
-  return -EPROBE_DEFER), the SGMII PCS creation and the DSA core
-  setup steps can all fail afterwards with the regulators left
-  enabled, so the fix was indeed incomplete.
-
-* Medium: Correct.  In a multi-switch tree a switch can bind while its
-  ds->ops->setup has not run yet, and a later failing setup of that
-  switch is reported through the other switch's probe.  The v2
-  unwinding would then have left the bound switch with an unbalanced
-  regulator_disable() in mt7530_remove().
-
-* Low: Point taken.  It is speculative for a software-only fix, and
-  mt7530_remove() already disables the regulators in the same order.
-
-I have posted a v3 that adopts the ownership suggestion from the
-review instead of unwinding manually:
-
-  [PATCH v3] net: dsa: mt7530: manage the core and io regulators with devm actions
-  https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
-
-The enables now live in mt7530_probe(), each paired with a
-devm_add_action_or_reset() that disables the regulator again, and the
-explicit disables in mt7530_remove() are gone.  This covers every
-error path after the enables and keeps the enables and disables
-balanced in all combinations of probe, setup and unbind.
-
-For reference, the earlier versions of this fix:
-
-  v1: https://lore.kernel.org/r/20261118014114.1855-1-laixiangwu@cmss.chinamobile.com
-  v2: https://lore.kernel.org/r/20261119060424.1476-1-laixiangwu@cmss.chinamobile.com
-
-pw-bot: cr
-
-Best regards,
-Xiangwu Lai
-
-
+PlN1YmplY3Q6IFtQQVRDSCBuZXRdIHRpcGM6IHZhbGlkYXRlIHBlZXIgYWRkcmVzcyBhdHRyaWJ1
+dGVzIGluIHRpcGNfbmxfcGVlcl9ybSgpDQo+DQo+dGlwY19ubF9wZWVyX3JtKCkgZG9jdW1lbnRz
+IFRJUENfTkxBX05FVF9BRERSIGFuZA0KPlRJUENfTkxBX05FVF9OT0RFSUQgYXMgbXV0dWFsbHkg
+ZXhjbHVzaXZlIHdheXMgdG8gaWRlbnRpZnkgdGhlIHBlZXIgdG8NCj5yZW1vdmUsIGJ1dCBpbXBs
+ZW1lbnRzIHRoZW0gYXMgdHdvIGluZGVwZW5kZW50IGlmLWJsb2NrcyB3aXRoIG5vIGZhbGxiYWNr
+DQo+Y2hlY2suIElmIGEgVElQQ19OTF9QRUVSX1JFTU9WRSBuZXRsaW5rIHJlcXVlc3QgcHJvdmlk
+ZXMgYW4gZW1wdHkgbmVzdGVkDQo+VElQQ19OTEFfTkVUIGF0dHJpYnV0ZSAob3Igb25seSB1bnJl
+bGF0ZWQgVElQQ19OTEFfTkVUXyogYXR0cmlidXRlcyksICdhZGRyJw0KPnJlbWFpbnMgdW5pbml0
+aWFsaXplZCBvbiB0aGUgc3RhY2sgYW5kIGlzIHBhc3NlZCBpbnRvIGluX293bl9ub2RlKCkgYW5k
+DQo+dGlwY19ub2RlX2ZpbmQoKS4gQ29udmVyc2VseSwgaWYgYm90aCBhdHRyaWJ1dGVzIGFyZSBz
+dXBwbGllZCwgdGhlIHNlY29uZA0KPnNpbGVudGx5IG92ZXJ3cml0ZXMgdGhlIGZpcnN0Lg0KPg0K
+PlJldHVybiAtRUlOVkFMIHdoZW4gYm90aCBhdHRyaWJ1dGVzIGFyZSBwcmVzZW50IG9yIHdoZW4g
+bmVpdGhlciBpcyBwcmVzZW50Lg0KDQpSZXZpZXdlZC1ieTogVHVuZyBOZ3V5ZW4gPHR1bmcucXVh
+bmcubmd1eWVuQGVzdC50ZWNoPg0K
