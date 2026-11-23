@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.38.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795454323;
-	b=qXQumCEycdlYhgUWjCw7+ne7Dbgfl8XOBGeyP21+mtdHWbARR7NHXXwLUokiH16NhwSm
-	 VwsKBEFF+ctZ5C2W+0Ji8r2yHvM89rUSzj1xVZseJGu8jbs8Ni7mjpSl4Y+z0PBaPDL8b
-	 OkPFHp3j/XItuJy9GPOoHQNJw0JBpPK5fMbNQymYEQrioxLrtxNRYWBQJVXXTkMSQeln8
-	 SmBntiH1TtGTrPMw6T1ld72ua96ivOUUdiKVCWxuBRB2ad7JEDJAg68u+ReNExod5e8dL
-	 fYB21w80PSId+B23bFhj/oxrrd9rnzyM7jwYp3SgOvVahIT0ezYG//SYeC807gHJ6jg==
+	b=juEuuz4HfzIMXlA1q2BHSTSdElU5w7q6JCLUJTI+F0wncnNR0bUZ2YnZWqIS+HvQBzBE
+	 rO0Jzj9UlujeHUq4YlH/pNN5sRcC9mK6tGr22klP2XAtHBJz+zT+sEEGBRMzl043adp8r
+	 ZwuYDoROvOIt9zGKSkh5b6dSPqmnomrbxiAWksS3V251SewegZal8mcNxRFX86kVOlXC/
+	 WNgOAdZLp9vIWmi/nDWOJnBiRhLL83YbkjuWkM9sGzPLouCDqEbh1fSy1DN8h4raJfGsn
+	 /zaeu2D6biSBw48+zkvM1HVUHybIuIkJ1KV68krJK+Gvdwu1dSq0idoZGYaKWwQe6sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795454323;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=89BApgqYz11D87S6DGoBfXEeIp+QnnRQ5WgQc0ueIG8=;
-	b=evZu44ZYeAhdt8QinAGOJNv5USl6mIvOg15fPGwziyT0jYOzqak+sqTe8yyX3aOsCgGB
-	 b7aMM8gH5lanXBtvNRwrVcVcyhTUYVXmf5J0MgnQFu5SOzIkt1D4Ky9gfXnWm6YJqPU0N
-	 wbX7Fq98qs60NJuJ8KkQFJMlHnakWxESptJdETBJSIzjtcVo9a13BQNAI6hEnrdHnzYDV
-	 W3xuz28kzwYzSO28kc7q6ppaYuYdQfcNG3kQKENC/QYS2rpk0CRLJ4tD3NtdzD9AZynP0
-	 drRdSQ1gAK4e0LC2r83EOHBQAXycAOP7cR/lD6jITV9ImDBmmJdMYZo93jGYmSsq7yA==
+	bh=oJvHQFMgooA7UahwimsOb3OkFjRJ0W83iVe8uaAwcJo=;
+	b=kQNbJNejnQzr8AoJhMdRCPi2kDFnh0VPZQIv9FT48lQ4hVd0LG9wAnSM4hCl4airaB4a
+	 qTx86uaPgfnnuqESLJU2nA+DH+awGJWu8DrmeYqSw3UA0Iq9jj7HcW5QvtXJ2Cib0YkXV
+	 Kjo6KlfZaew0pNHCeR10mGkw5MPuCldFbI4E4V04n2HR+uE3SnKXSQzO6/JepMvryb9qJ
+	 nFsbIXRMw6oUcQBZbk5AX3Ek7W+iMdMWVPyVugtMgdcb+Tcsniqz+3crH+Acj98hcZgmV
+	 NGsL6Jand/0BrxaiRO/K3itmrNO8cCjVZijHJNdaPNI9bEnDLImUBx3uBfbsHwi8b9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=simonwunderlich.de;
 	spf=pass smtp.mailfrom=simonwunderlich.de;
-	dkim=pass header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=I94oO1lJ;
+	dkim=pass header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=aSXbZnpz;
 	arc=none smtp.remote-ip=23.88.38.48
 Received: from mail.simonwunderlich.de (mail.simonwunderlich.de [23.88.38.48])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 0ED61606A698
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:18:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ED61606A698
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2CFA4606A33D
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:18:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CFA4606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=simonwunderlich.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=simonwunderlich.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=I94oO1lJ
-Received: from kero.packetmixer.de (p200300C59714c2E05a704819b6BA2db4.dip0.t-ipconnect.de [IPv6:2003:c5:9714:c2e0:5a70:4819:b6ba:2db4])
+	dkim=pass (2048-bit key) header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=aSXbZnpz
+Received: from kero.packetmixer.de (p200300C59714C2e05a704819B6ba2dB4.dip0.t-ipconnect.de [IPv6:2003:c5:9714:c2e0:5a70:4819:b6ba:2db4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.simonwunderlich.de (Postfix) with UTF8SMTPSA id B0D82FA384;
-	Mon, 23 Nov 2026 18:18:35 +0100 (CET)
+	by mail.simonwunderlich.de (Postfix) with UTF8SMTPSA id 61A1BFA3E2;
+	Mon, 23 Nov 2026 18:18:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=simonwunderlich.de;
-	s=09092022; t=1795454315;
+	s=09092022; t=1795454321;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=89BApgqYz11D87S6DGoBfXEeIp+QnnRQ5WgQc0ueIG8=;
-	b=I94oO1lJGCg5mBC7Zh5cqSF9BEsjLdkYXz9GdFy6WWR6GnpBlezc8a0oERv7+Ur2NN9DF5
-	mEqXYaZ+VArgNRPz/xX0E5HVUPiOIqClSc9V6Qscux9b1x2WPyaKtACLvmOsA5ZwTunhLd
-	gnS96YKeCdl5aQXDHHnWJoITbMT+T909wH0n6g7M0w4l+bp1WknIuYN8XDb1yYMefOoLEt
-	ejrWV4GLryD/vQ9G0eXy9TdoTHpkL1GFpDico+iC3/lHLwl3aml9YLhsP/TVcyMw9al2kK
-	Kut1XzgN56CME7PKQHt5oa7WtBWuPYMV2TOE8yZ/9DuWWnxABeS9fVuV4FE9Hw==
+	bh=oJvHQFMgooA7UahwimsOb3OkFjRJ0W83iVe8uaAwcJo=;
+	b=aSXbZnpzBuOvGm4Ekc6962RsfPVSRVOMkKFf24ZO4q1PKDwcYOvS3+01CtwP+Lp8C8UoED
+	ZYfSRXARLYvs3+VlXrGZop48llPG22oU587wNC2iTE8VPJCkCnYacR26ZV0+B+RUvcnydh
+	sjYoI1lGJcevePFeCfPgGvsLXGTMe9qGxY+7mu/FAVNzG8/6+4kJoE/WHcbvlNuBTPyzpu
+	1DE93c+KzNlmptbMLNjHc6zz/B5qGsRVL9ydCj6RwQRkSedSCrAg6t05Cw/sFBCeRgDnGo
+	7/gaqJ4/JUshZa8lHCMhzdVJIFccT8r8PmSCjxlu17mIH6UEl/cHrR677xgtRw==
 From: Simon Wunderlich <sw@simonwunderlich.de>
 To: netdev@vger.kernel.org
 Cc: "David S. Miller" <davem@davemloft.net>,
@@ -60,11 +60,10 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	Simon Horman <horms@kernel.org>,
 	b.a.t.m.a.n@lists.open-mesh.org,
 	Sven Eckelmann <sven@narfation.org>,
-	Sashiko <sashiko-bot@kernel.org>,
 	Simon Wunderlich <sw@simonwunderlich.de>
-Subject: [PATCH net-next 04/15] batman-adv: bla: register own backbone gw when claiming for local node
-Date: Mon, 23 Nov 2026 18:18:16 +0100
-Message-ID: <20261123171827.3294525-5-sw@simonwunderlich.de>
+Subject: [PATCH net-next 09/15] batman-adv: tt: remove unannounced local entries via pending state
+Date: Mon, 23 Nov 2026 18:18:21 +0100
+Message-ID: <20261123171827.3294525-10-sw@simonwunderlich.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123171827.3294525-1-sw@simonwunderlich.de>
 References: <20261123171827.3294525-1-sw@simonwunderlich.de>
@@ -81,65 +80,95 @@ Content-Transfer-Encoding: 8bit
 
 From: Sven Eckelmann <sven@narfation.org>
 
-batadv_bla_rx() claims an unclaimed client (or a client which migrated to
-the local node) by calling batadv_handle_claim() with the address of the
-primary interface as backbone address. batadv_handle_claim() then registers
-the backbone gateway via batadv_bla_get_backbone_gw() - but always with
-own_backbone set to false.
+batadv_tt_local_remove_entry() unhashes an entry which still carries
+BATADV_TT_CLIENT_NEW immediately because it was not yet announced to the
+other nodes. But the flag is only cleared at the end of the commit. The ADD
+of the entry might therefore already have been taken for the next TTVN when
+the flag is checked.
 
-When no backbone gateway entry for the local node exists yet on this VLAN
-(for example due to an earlier error), the entry is therefore created like
-a foreign backbone gateway. No initial announcement is sent and the entry
-doesn't enter the BATADV_BLA_BACKBONE_GW_UNSYNCED state with the startup
-grace period (wait_periods and bla.num_requests). The following call of
-batadv_bla_update_own_backbone_gw() finds the already existing entry and
-returns early without fixing this up.
+Handle such an entry like an already announced one: queue the DEL and mark
+the entry as BATADV_TT_CLIENT_PENDING. It is then removed from the local
+table when the pending entries are purged by the next commit.
+batadv_tt_local_purge_pending_clients() already takes care of not
+uncounting an entry which was never counted.
 
-As a result, the first announcement is delayed by up to one BLA period and
-multicast traffic is not held back while the local claim table isn't
-synced yet.
+This also leaves the commit as the only place which finishes the removal of
+a local entry. A follow-up change relies on this to apply exactly the
+announced changes to the local table.
 
-Pass the correct own_backbone value to batadv_bla_get_backbone_gw() by
-checking whether the backbone address is the address of the primary
-interface.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-dba9d95d-5eeb-40fd-abf4-e054aee1f735
 Signed-off-by: Sven Eckelmann <sven@narfation.org>
 Signed-off-by: Simon Wunderlich <sw@simonwunderlich.de>
 ---
- net/batman-adv/bridge_loop_avoidance.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ net/batman-adv/translation-table.c | 35 +++++-------------------------
+ 1 file changed, 5 insertions(+), 30 deletions(-)
 
-diff --git a/net/batman-adv/bridge_loop_avoidance.c b/net/batman-adv/bridge_loop_avoidance.c
-index 68ff2f94cf49..3da070a087da 100644
---- a/net/batman-adv/bridge_loop_avoidance.c
-+++ b/net/batman-adv/bridge_loop_avoidance.c
-@@ -986,18 +986,22 @@ static bool batadv_handle_claim(struct batadv_priv *bat_priv,
- 				unsigned short vid)
- {
- 	struct batadv_bla_backbone_gw *backbone_gw;
-+	bool own_backbone;
-+
-+	own_backbone = batadv_compare_eth(backbone_addr,
-+					  primary_if->net_dev->dev_addr);
+diff --git a/net/batman-adv/translation-table.c b/net/batman-adv/translation-table.c
+index 2828e362640a..977f62c88da7 100644
+--- a/net/batman-adv/translation-table.c
++++ b/net/batman-adv/translation-table.c
+@@ -1745,13 +1745,11 @@ batadv_tt_local_set_pending(struct batadv_priv *bat_priv,
+  * @roaming: true if the deletion is due to a roaming event
+  * @curr_flags: pointer to store the flags of the entry before it was removed
+  *
+- * For an already announced entry, the (roamed) DEL change is queued and the
+- * entry is marked as BATADV_TT_CLIENT_PENDING by batadv_tt_local_set_pending().
+- * It stays in the local table until the next ttvn increment.
+- *
+- * An entry which still carries BATADV_TT_CLIENT_NEW was added right after the
+- * last ttvn increment and was not (yet) announced. It is therefore removed
+- * from the local table immediately.
++ * The (roamed) DEL change is queued and the entry is marked as
++ * BATADV_TT_CLIENT_PENDING by batadv_tt_local_set_pending(). It stays in the
++ * local table until the DEL is committed with the next ttvn increment. This
++ * also applies to an entry which still carries BATADV_TT_CLIENT_NEW because its
++ * ADD might already have been taken for the next ttvn.
+  *
+  * An entry which was already removed from the local table after it was looked
+  * up is ignored and BATADV_NO_FLAGS is stored in @curr_flags.
+@@ -1770,7 +1768,6 @@ batadv_tt_local_remove_entry(struct batadv_priv *bat_priv,
+ 	spinlock_t *list_lock; /* protects write access to the hash lists */
+ 	struct batadv_tt_common_entry *common = &tt_local_entry->common;
+ 	struct batadv_hashtable *hash = bat_priv->tt.local_hash;
+-	bool unhashed = false;
+ 	u16 flags;
+ 	u32 i;
  
- 	/* register the gateway if not yet available, and add the claim. */
+@@ -1795,24 +1792,6 @@ batadv_tt_local_remove_entry(struct batadv_priv *bat_priv,
+ 		if (roaming)
+ 			common->flags |= BATADV_TT_CLIENT_ROAM;
  
- 	backbone_gw = batadv_bla_get_backbone_gw(bat_priv, backbone_addr, vid,
--						 false);
-+						 own_backbone);
+-		if (common->flags & BATADV_TT_CLIENT_NEW) {
+-			batadv_dbg(BATADV_DBG_TT, bat_priv,
+-				   "Deleting local tt entry (%pM, vid: %d): %s\n",
+-				   common->key.addr,
+-				   batadv_print_vid(common->key.vid), message);
+-
+-			hlist_del_init_rcu(&common->hash_entry);
+-			atomic_inc(&hash->generation);
+-
+-			/* The entry was never announced and was therefore
+-			 * never counted in the local table size.
+-			 */
+-			__batadv_tt_local_event(bat_priv, common,
+-						common->flags | BATADV_TT_CLIENT_DEL);
+-			unhashed = true;
+-			break;
+-		}
+-
+ 		flags = BATADV_TT_CLIENT_DEL;
+ 		if (roaming)
+ 			flags |= BATADV_TT_CLIENT_ROAM;
+@@ -1822,10 +1801,6 @@ batadv_tt_local_remove_entry(struct batadv_priv *bat_priv,
+ 	}
  
- 	if (unlikely(!backbone_gw))
- 		return true;
+ 	spin_unlock_bh(list_lock);
+-
+-	/* drop reference of removed hash entry */
+-	if (unhashed)
+-		batadv_tt_local_entry_put(tt_local_entry);
+ }
  
- 	/* this must be a CLAIM frame */
- 	batadv_bla_add_claim(bat_priv, claim_addr, vid, backbone_gw);
--	if (batadv_compare_eth(backbone_addr, primary_if->net_dev->dev_addr))
-+	if (own_backbone)
- 		batadv_bla_send_claim(bat_priv, claim_addr, vid,
- 				      BATADV_CLAIM_TYPE_CLAIM);
- 
+ /**
 -- 
 2.47.3
 
