@@ -1,63 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428421;
-	b=b28qYGLYXaQtzv+PGpoB1otEYuOY4RT97ZGfkozXqDRRsmWaD8DhZBVmN2RXGORavjFv
-	 vE98YnjozeWrF8yzS+ks+nGKJb1/Ve1Um5/D5FHu+6n8YKj0x3Zhk83pN7eXsOAlsoNU4
-	 htjCvY7gSf9ZsiFcmxbmAB0u4rWijsdPWsGwHj1ihXyqYaQ325zOLBHnZAvJyT5RvvllX
-	 WZyPBBmT2nfrMDnxRDn+WTWwPRAFz+u4T/+ilyTEPMVNUE6N+bNMpsugaOOMzanuYHDo1
-	 nZgNye7HY7C42PzPcRn5sSMYvUTe2nstXSy2jmsWZrd4pWF/ANO7tiaTHj2jxGqLDPA==
+	t=1795428479;
+	b=n6ktFUgB4nuDkizePyiG0eFfN+rysKOr/csE6qE22XcXeODgOHoJmajD5Xl/eOaDGymf
+	 IMv4qFjFIAwLPMoqAUOzPqRLckatJmAc/4bNLdQ06d0w9vU59XeEQ14yXeZ4KaFcJvFdC
+	 RDcjYFMMHiO+MDBvbSKZQspcovQDUlHT2Y2xeplUmvnWYtVHpzYaqaRk43hyR7HTIg9ct
+	 kMFvbYg6Y97ehfvhmORJYmfo1YMTUYHI45t0R6QGcfjHWGzs4aFsx3rmduV+xXZt8yT33
+	 8tJKXcJLabizTGpiDv2NNgf7SrQDMbDBYL9FZKJ+3YbnchCX2/9nGeaMSm29NaS6DJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428421;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=6dWrzTEqrK6nKc1TJcUidD5GK19M6KlUED1psMXUX8s=;
-	b=w7XYKvWE9KY474PjntLdJszjUKauXQ2oD0tQLhO4ehcd4hEU1tUT9Xt1SnZdh2eIwKSK
-	 9nnBP+U0UIqU2yvRjGqZiXWaVJDsiyrevWOjrigHvpQHcNaN6thFZQ084wa5gg9vUJ1+H
-	 VNoMt0I+RIVoyYe58KNYrwgv1rwZSIyi/Y/7rd97HqLwmtGKiaJnwhSOOBoDNjrbT0VgO
-	 Bl8j199BxWif3pMwgy/xnKewTI7dGy3rRuSrmYv16StWk8zj2iKrX523iyHlxvWdS2K1c
-	 jXXiwMLBn05UEmEn8hNlE00VG0LoIVYXgexdfH/qQFn1AJsOo4CUpVWc8fjzIpahEHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428479;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=qp8AGd60G0fwr6K2rygdNI5NkaIRDQZvwIb0BjBfWEQ=;
+	b=bT+wNblLXznTFxcjgE5lW93AlVfRaurMv9fuxzqCPPd6Ds/Pr1bPYi582h2XH8XhMMrf
+	 iJ8DORChXJEvh7WGdEMsfnJV1QkXmPHw69r6sGVYZfenu6DM+WybmbJ/ulrDITD2WFKZf
+	 YBDGwKtzxaqhxLnRoH8kdeo2GrP4WgZkPd7YXaDQZfqUIwm6dvmfjpa/V/5S1piDaFK0g
+	 vQgivijJFZf+c2ulcl0iH3s1P+6eXwowOJ9X1z17TGy6PIw4C80ceFIVRThONKw44IRUQ
+	 CocgLBh8+iXNhIK/0XEEPyeLNaji84LNFqogUegV1+btvibf48XlcVNywR5vNVqjyGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dsrkcxhg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=NhWXnRCL;
+	arc=none smtp.remote-ip=209.85.222.98
+Received: from mail-ua1-f98.google.com (mail-ua1-f98.google.com [209.85.222.98])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2048D606A336;
-	Mon, 23 Nov 2026 10:07:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9D9D606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:07:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9D9D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dsrkcxhg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E551F000D8;
-	Mon, 23 Nov 2026 10:06:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795428420;
-	bh=6dWrzTEqrK6nKc1TJcUidD5GK19M6KlUED1psMXUX8s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Dsrkcxhg1JctUS6kzFQxFlyk5X67Z+ZI3nDmladFozerpVBrQpgk9Sy12Ec05yQ6Z
-	 Nz80e8sE9yrbv0SpzoPuusPH3f0gkuQDAuYYz9gWv8vmMUkdX4Vlcn7kxfVASgeDF+
-	 lGFtldgSDVgsGG+ts9EiN0O6EpuT40RHaN4F03ix8sQf8zNWzh76Ndu4s2EBeFnWBn
-	 XqHMVsnLzjl50UIrFqDGL5tzwgSfFimzMLZEw7hlTlyKBENHbPkPWaNujOKAB+x/cx
-	 zZ7lPl1ffVVWTVMyLuZEhmxPRoVytWlmDpyaGNrUcNVFrJq3qLg9qTzsAeE3zwBB3Q
-	 mxYTFXlNGjYKA==
-Subject:
- Re: [PATCH net v2 2/2] net: stmmac: dwmac-sun8i: Limit the MTU to 2018
-From: netdev-bot+sashiko@kernel.org
-To: aiyengar1990@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wens@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, clabbe.montjoie@gmail.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- rmk+kernel@armlinux.org.uk, nb@tipi-net.de, stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 10:06:59 +0000
-Message-ID: <179542841933.3135.13344268634308620175@kernel.org>
-In-Reply-To: <20261122-sun8i-emac-mtu-limit-v2-2-c4081e5b83cf@gmail.com>
-References: <20261122-sun8i-emac-mtu-limit-v2-2-c4081e5b83cf@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=NhWXnRCL
+Received: by mail-ua1-f98.google.com with SMTP id a1e0cc1a2514c-996eeadfbeaso1722362241.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:07:57 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795428477; x=1796033277;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qp8AGd60G0fwr6K2rygdNI5NkaIRDQZvwIb0BjBfWEQ=;
+        b=gxXu5SFQJICKPSDczeUR0ZTdWfrzjZ/7GqMPmWORxaL0MkpW8uKJz8BmgJGyVLRGEn
+         Y7PR/sBOiAk54J9EYG/WzsOVuU3wnv7MK0FLBk+Pn+OLOc+IeKkynua3bQIIeyiOTaBf
+         yijMXvijY7/KYq1juW3UKrthomuNZZxx3gg0fjw50nmVSubTCLB/gmBzf12bvQX8qf02
+         4rkuRzvJwpRN8r5p9FMmoFGtiorwhG/1rq/i/TiCwLjTUmvPeOyDIM33nAx6McVh+4+q
+         F+F3cIZBWvXU/et4C1aZg087T21sk74nRWFg/ELkNwrS8FkxLEdZkWLSVApxeiw368s8
+         rGuw==
+X-Gm-Message-State: APuU4Z+1dVH/epGWF6LsSn1U9d45b1DSz+EyApo1WE7PpicOSCdFVpEW
+	rurxXLDzs6Kqs5BcABmljZgDmYZygBnNZdW6mLVtqRGxkTrL8lcGbO+nYEpZNIJ5mGgVTGyxroo
+	4oa3lXCIiuiZ+Jsie52mGdu2y3HFtpGFLJJIgFBR+Rc3ID2ZVRORznV3UPGfqTPalAluSB1hQHA
+	rLj+KbTQ6lQ8wdu4ifWRJNiLUTrHqJdJJwlNHwTHBPpJtxmqVb7tolpKXr0W5tK4m/bSIacDeWV
+	zx2uIOdKA==
+X-Gm-Gg: AZFdTZeh5dAiATpbijyxE1vdhP9TPopaFTl5sY5lyjOAcU+xEkOOdQpAjf/v1xKvLId
+	Y6rEDUCT1CR6sm6slo1tvLQp6yysh0SwqEpVcHPM5HjQOdrtM73mkrU2NxXzQxB8oXT0gVOsaSD
+	cgNHIIJfSEJtSDCjZrtSlWUiOaVIZeVEPNXVOYg06AzJC5syvNrMx+DVSoSuiTWGoc0IDe5MaGr
+	dsrP/p1foY2roeAbMxXQw5hWxy3+7o4WvyKUA6rFSvZeHO5U1m4Q7VliqHHROjGFs4FKgoKJnpR
+	lSGpQ+Ho2FfiNWFRKVl0qSYFOgiWjeuTXUkCZylGxHqmhTwAaLM1w7Oy4rjSImqM4KL30oa0gus
+	0mKVGItumBhX3BS5zKArh83dTba6gYZTC8vzlo4vFmtTCNJiV1sEfA3wXdHocOre7eCZR0ViIKk
+	AvAMiI78AWSzbSIubqfXA4fM/liBG0J/uUWRLZ
+X-Received: by 2002:a05:6102:f11:b0:7d0:6cf3:d8f0 with SMTP id ada2fe7eead31-7d7393ff876mr5517216137.18.1795428476763;
+        Mon, 23 Nov 2026 02:07:56 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e1b3904sm1111971241.19.2026.11.23.02.07.56
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Nov 2026 02:07:56 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-386a65fca25so1586011eec.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:07:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795428476; x=1796033276; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qp8AGd60G0fwr6K2rygdNI5NkaIRDQZvwIb0BjBfWEQ=;
+        b=NhWXnRCLnL+495SFMWbsVCErMbGN5dbDTqA3KRkytEOXZgs/2ewSUS2jOQu/VJVRhT
+         5AlnREgStHFekv1zHv7nd6DYhGFKAilYrtZZKIladuVdUOfmAmy2SSI1l7FMP4otqlRx
+         +D67qUGY+WdSyhDPK5mW4Q0nQhvn5tqwgICeg=
+X-Received: by 2002:a05:693c:65c1:b0:386:9cae:abef with SMTP id 5a478bee46e88-3869caeeec6mr7677512eec.36.1795428475370;
+        Mon, 23 Nov 2026 02:07:55 -0800 (PST)
+X-Received: by 2002:a05:693c:65c1:b0:386:9cae:abef with SMTP id 5a478bee46e88-3869caeeec6mr7677483eec.36.1795428474712;
+        Mon, 23 Nov 2026 02:07:54 -0800 (PST)
+Received: from H5-S1 ([192.19.203.250])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm1084358eec.9.2026.11.23.02.07.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 02:07:54 -0800 (PST)
+From: Vikas Gupta <vikas.gupta@broadcom.com>
+To: davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bhargava.marreddy@broadcom.com,
+	rahul-rg.gupta@broadcom.com,
+	vsrama-krishna.nemani@broadcom.com,
+	rajashekar.hudumula@broadcom.com,
+	dharmender.garg@broadcom.com,
+	ajit.khaparde@broadcom.com,
+	Vikas Gupta <vikas.gupta@broadcom.com>
+Subject: [PATCH net-next v9 00/10] add features to bnge
+Date: Mon, 23 Nov 2026 15:37:36 +0530
+Message-ID: <20261123100746.1975030-1-vikas.gupta@broadcom.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,140 +117,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Hi,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+This series adds ntuple filter, RSS context, and flow steering
+support to bnge driver.
+Patch 1 is a pure refactor (no functional change) that relocates the
+filter and VNIC related code into the appropriate files. Patch 7 drops
+the refcount usage from L2 filters, also with no functional change.
+The subsequent patches then add the ethtool commands for configuring 
+ntuple flows and RSS contexts.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks,
+Vikas
 
-- [Medium] The patch hard-codes a 2044-byte limit as an MTU cap in one
-  glue driver.
-- [Low] The commit message and the code do not cover the same hardware.
-- [Low] The 2044-byte fill limit was measured on the H616, an arm64 SoC
-  where NET_IP_ALIGN is 0 (arch/arm64/include/asm/processor.h:17).
+v8-v9:
+    - Addressed valid comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
+      https://sashiko.dev/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
 
---
+v7-v8:
+    - Addressed valid comments from Sashiko
+      https://sashiko.dev/#/patchset/20261114074742.1484603-1-vikas.gupta%40broadcom.com	
 
-net: stmmac: dwmac-sun8i: Limit the MTU to 2018
+v6-v7:
+    - Addressed valid comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
+      https://sashiko.dev/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
 
-This commit caps the maximum MTU of the dwmac-sun8i glue driver by setting
-plat_dat->maxmtu in sun8i_dwmac_probe(). The cap makes a frame with two
-VLAN tags and the FCS fit in 2044 bytes. According to the commit message,
-the H616 RX DMA fills only 2044 bytes of a buffer.
+v5->v6:
+    - Addressed comments from Sashiko
+      https://sashiko.dev/#/patchset/20261103123651.442893-1-vikas.gupta%40broadcom.com
+    - Fix inline keyword use in C file.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 2ece7ba9dd73b..ec401cae8187b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -1208,6 +1208,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  	plat_dat->mac_setup = sun8i_dwmac_setup;
->  	plat_dat->tx_fifo_size = 4096;
->  	plat_dat->rx_fifo_size = 16384;
-> +	plat_dat->maxmtu = 2044 - ETH_HLEN - 2 * VLAN_HLEN - ETH_FCS_LEN;
+v4->v5:
+    - Addressed comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928061307.1172344-1-vikas.gupta%40broadcom.com
 
-[Severity: Low]
-The commit message says:
+v3->v4:
+    - Addressed comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
+      https://sashiko.dev/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
+    - The patch count drops to 10 now that the HSI patches have been merged.
 
-  The H616 RX DMA fills only 2044 bytes of a buffer, so frames of 2045 to
-  2047 bytes, allowed by the previous patch, are dropped.
+v2->v3:
+   - Build fix.
+   - Addressed comments from Sashiko
+    https://sashiko.dev/#/patchset/20260908093053.2596020-1-vikas.gupta%40broadcom.com
+    Below Sashiko comments are not valid:
+     Patch-8: 
+                Comment under bnge_toeplitz().
+                 Explanation: bnge_toeplitz() is not used for aRFS.
+     Patch-9:
+                Comment regarding bnge_clear_usr_fltrs().
+                 Explanation:
+                  Both bnge_clear_usr_fltrs() (only invoked while the
+                  interface is down) and bnge_grxclsrule() execute
+                  under the netdev instance lock, so they are
+                  serialized and never touch the filter list at the 
+                  same time.
+      Patch-10: 
+                Comment "Does this direct dereference of the MAC
+                header need a linearization ...".
+                 Explanation: ndo_rx_flow_steer runs on the RX path
+                after eth_type_trans(), which already accesses and
+                pulls the Ethernet header.
 
-This assignment in sun8i_dwmac_probe() does not check gmac->variant. So
-it applies to every entry in sun8i_dwmac_match[]:
+                Comment Related to bnge_cfg_ntp_filters().
+                 Explanation:
+                   bnge_cfg_ntp_filters() runs from bnge_sp_task(),
+                   which holds the netdev instance lock while executing.
+v1->v2:
+   - Build fixes.
+   - Addressed comments from Sashiko
+   https://sashiko.dev/#/patchset/20260814011435.194631-1-vikas.gupta%40broadcom.com
 
-  allwinner,sun8i-h3-emac
-  allwinner,sun8i-v3s-emac
-  allwinner,sun8i-a83t-emac
-  allwinner,sun8i-r40-gmac
-  allwinner,sun50i-a64-emac
-  allwinner,sun50i-h6-emac
-  allwinner,sun50i-h616-emac1
+Vikas Gupta (10):
+  bnge: restructure VNIC and filter code
+  bnge: add NTUPLE/ARFS VNIC
+  bnge: add helper functions for multi RSS contexts
+  bnge: add RXFH ethtool support
+  bnge: add ethtool support to manage RSS contexts
+  bnge: remove refcount from L2 filter
+  bnge: add NTUPLE filter infrastructure
+  bnge: add NTUPLE filter support in ethtool
+  bnge: add aRFS flow steering ndo support
+  bnge: add cpu_rmap support for IRQ affinity
 
-H616 EMAC0 is covered too, through the a64-emac fallback. On all of these
-max_mtu drops from 2021 to 2018.
-
-Has the 2044 byte limit been seen on the non-H616 parts as well? If it
-belongs to the whole sun8i EMAC IP, could the commit message say so? If
-not, should the cap be per variant, for example kept in struct
-emac_variant?
-
-The Fixes: tag points to 9f93ac8d4085 ("net-next: stmmac: Add
-dwmac-sun8i"). That commit added H3/A83T/A64 support, and H616 was not
-supported at the time. Doesn't the tag contradict the H616-only
-explanation?
-
-The phrase "allowed by the previous patch" also seems misleading. Before
-"net: stmmac: Limit the MTU of normal descriptors to one buffer", max_mtu
-for normal descriptors was SKB_MAX_HEAD(), about 3712. So frames of 2045
-to 2047 bytes were allowed long before that patch. Once the series is
-merged, "the previous patch" will also mean little to stable backporters.
-
-[Severity: Medium]
-Is 2044 really a sun8i-specific limit? It could also come from the RX
-buffer size that the shared normal descriptor code programs.
-
-drivers/net/ethernet/stmicro/stmmac/common.h states:
-
-/* RX Buffer size must be multiple of 4/8/16 bytes */
-#define BUF_SIZE_16KiB 16368
-#define BUF_SIZE_8KiB 8188
-
-But ndesc_init_rx_desc() in norm_desc.c still programs 2047:
-
-	bfsize1 = min(bfsize, BUF_SIZE_2KiB - 1);
-	p->des1 |= cpu_to_le32(bfsize1 & RDES1_BUFFER1_SIZE_MASK);
-
-2047 is not a multiple of 4, and 2047 & ~3 is exactly 2044.
-
-__stmmac_dvr_probe() also still sets this for every ndesc_ops platform:
-
-	else if (priv->hw->desc == &ndesc_ops)
-		ndev->max_mtu = BUF_SIZE_2KiB - 1 - ETH_HLEN - 2 * VLAN_HLEN -
-				ETH_FCS_LEN;
-
-Other normal descriptor users, such as older GMAC 3.x and MAC100 cores
-without enhanced descriptors, would still advertise an MTU of 2021. The
-largest frames at that MTU need the out-of-spec 2047 byte buffer. If that
-hardware handles an unaligned RBS1 the way the H616 does, those frames
-would span descriptors and be silently discarded. On 64-bit or 128-bit
-buses the aligned size would be 2040 or 2032, so the gap would be larger.
-
-Could ndesc_init_rx_desc() program an aligned RBS1 instead, with the
-ndesc max_mtu in __stmmac_dvr_probe() derived from it? That would remove
-the need for the hard-coded 2044 here.
-
-Neither the code nor the commit message explains where 2044 comes from.
-
-[Severity: Low]
-Was 2044 measured only on the arm64 H616? There NET_IP_ALIGN is 0, so
-RX buffers start word-aligned at page + NET_SKB_PAD.
-
-On the 32-bit sun8i SoCs (H3/H2+, V3s, A83T, R40), arch/arm does not
-override NET_IP_ALIGN, so the default of 2 applies. stmmac_rx_offset()
-includes it in the DMA buffer start:
-
-static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
-{
-	if (stmmac_xdp_is_enabled(priv))
-		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
-
-	return NET_SKB_PAD + NET_IP_ALIGN;
-}
-
-So every RX buffer on those SoCs starts 2 bytes into a 32-bit word.
-
-Suppose the EMAC DMA rounds its fill relative to the start address and
-not only the size field. Could the usable fill on the 32-bit variants
-then be below 2044? Maximum-size frames at MTU 2018 would span
-descriptors and be silently dropped again.
-
-Could the commit message say which SoCs and buffer alignments the 2044
-constant was checked on?
+ drivers/net/ethernet/broadcom/bnge/Makefile   |    4 +-
+ drivers/net/ethernet/broadcom/bnge/bnge.h     |   28 +-
+ .../net/ethernet/broadcom/bnge/bnge_ethtool.c | 1140 +++++++++++++++++
+ .../net/ethernet/broadcom/bnge/bnge_filter.c  |  839 ++++++++++++
+ .../net/ethernet/broadcom/bnge/bnge_filter.h  |  137 ++
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.c    |  192 ++-
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.h    |    9 +-
+ .../net/ethernet/broadcom/bnge/bnge_netdev.c  |  560 +++++---
+ .../net/ethernet/broadcom/bnge/bnge_netdev.h  |   94 +-
+ .../net/ethernet/broadcom/bnge/bnge_resc.c    |  163 ++-
+ .../net/ethernet/broadcom/bnge/bnge_resc.h    |    1 +
+ .../net/ethernet/broadcom/bnge/bnge_vnic.c    |  379 ++++++
+ .../net/ethernet/broadcom/bnge/bnge_vnic.h    |   96 ++
+ 13 files changed, 3279 insertions(+), 363 deletions(-)
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf%40gmail.com
+2.52.0
+
