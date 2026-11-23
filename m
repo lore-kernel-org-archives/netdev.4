@@ -1,81 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455684;
-	b=ijgqGeZIeCDKMHXt2xATygSuMLGuVFMuMaXuKlG9oUyL+Ls1VX0dXP0ZWOnNtCoOaBvk
-	 jVddtWHOUOJJPSDYnUuildGVouGD4JP36u4CFVa+8bvxnJskpehUNjItdNHlAFvyhc6X+
-	 DYYE5/24U8t9gVbkuodVkqJg+EO47xGB0K8fL6q2k2DhGDawfElqtyCxYvG9ftPK5LCVM
-	 NxsmWaCYh0yZ6ZJyGtbRwiFjm1rakK2iQFlmr6NjwLoHx3e1JakluD+VntTxQogrGUbeE
-	 /pSfLiwICfxYupTp3FdAvh3xSfobEyHbvUzGGiBDMuzc+LcBCvL49aU/M2qQ4YdqHPw==
+	t=1795455685;
+	b=hx0Dh9Rjwo8ATcMwhyNV22wcYjAAwng7/paLveuPJGxFkgcQZsN7NW3K9ZhcIre6hZCy
+	 KZZv3+7ZqkV68mURCEvGPNzxftXA+8Ud1eGAH+SEAsQwmqez8sTSaDhmCsrN4Cwj83Bjv
+	 u3NwNoGNL2KjXSlJY6zCv8Uh6WHZa/KcBmfPwwgoAeA2IZgqF0np1tsjGuNcWarCefdZI
+	 wdPnlbwA7i609kSkP4ZePYT4kmOU7QOL6l1MaBQbNYTmM9k0OdRf8i/+i7sT4DuMSix7m
+	 BVaWyS8SRQzAWy+4oF8yMrc7GIJtwJtoIsxUEHSkvRaGjBIDPm1kgIpNmKrzMJijlsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455684;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455685;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:
 	 X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9bKjx+dDdqkrVyWGWMGq+GC1gV1zZDg8rCsvITd4h2Q=;
-	b=JQ8Xfgv0rzjc43on42uFFZLPCS+MulSEU4XFg079bg96rU67mFySQg4mT84IwRjOb885
-	 PkoMcioXCTFWiqPGZAtG6lMSu842Aglt/4SGHm9lOFDregap88QaB/jnHPBg1V6f10QH2
-	 PsrA1YA/ljc+wwoSNXiX2vrfGnYADx5S/RrVX/gMNso4+YbTaFt0jZL9ylp9VzGNXBx+Q
-	 K0XHVbGtMPVmDKQMKtEJYxQqif7Fp7fNz69dcy6Duv+QBQd5+q0LFWfpm9fq4biIIQwhJ
-	 yQar+2tWG2qujQ7dfZYzmThr+S67IB6wKP+Hzfi86DAxkdPpByd5Uk+bBZtMFY0Oncg==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=50tBgP9EvHiJ3pXlg5LOwuoWYl1wXAWy7E4OUGAPpUo=;
+	b=qvp7VEq/ElOBDoKx0Sd8+DPBTgaGohnbSxioBikIiQ95ayrBDhP7S1uic4Q4Y+F4Y9J+
+	 vA2uskdu6wSKXWZC17FB5bkBJ4BWUDZafJsCQtGyUXFOKTWd31kAB0vZsle1vzprA/4LW
+	 sc/+XZjsSvglYngsWzf6e3tYVAiyulSPp8ddjk46L677tVpa2nX1mhV6KQP3FXwQpdeyG
+	 ublzvRu3Cgs4MYKFXMnuxIVv8f9c28w63irZ9Jwqld5V9Q4v/ZPJ4WNSG24lO+dESo+JG
+	 kHCljopMYbF8BTeYneyOmF4mzrIoQvhhzKmzc5b6MviuH3NYvwP7JQftBOHAlactcNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xqd7QLpk;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DA8EmNEv;
 	arc=none smtp.remote-ip=74.125.229.8
 Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0BC7606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:41:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0BC7606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F17C3606A32C
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:41:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F17C3606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xqd7QLpk
-Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-382afece6d8so662298eec.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:41:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DA8EmNEv
+Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-382afece6d8so662304eec.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:41:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795455683; x=1796060483; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9bKjx+dDdqkrVyWGWMGq+GC1gV1zZDg8rCsvITd4h2Q=;
-        b=Xqd7QLpkjPkq8Yop5RSTXQw8W+4unRv3Zu0TrEZUDmWcYovw1vjOOv176w1N+IpYcg
-         wrsFieRAY8cPUr7Rwqsn/dfNXpUaZbFeH7rrzRSf5fFaqbqF5hItA7iNCk/jgsDjKhvp
-         7uKB8a8plHvhusXX3WnrmrnauYs3WP1kNPWmng7NfrWtaxO4gXwZsGRJv3jHd+xuN/6P
-         xmv8dy97B27dli6ULbSnABMzDpU1Pw8juUm5kkBGenOUkIGJ3NJDGDhwbMYwI4FVisxm
-         Mw3YoeAG+AHB4O720wJrClJIvwjGmmBNaEg+V8wMN2kv0fkZMedqLLn/NmlSaIQMnILx
-         aO9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795455683; x=1796060483;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795455684; x=1796060484; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9bKjx+dDdqkrVyWGWMGq+GC1gV1zZDg8rCsvITd4h2Q=;
-        b=KPsn9efUccMfpSM6SXVzmVRfJOrLMS3HziaF6CsAc2Uui0sohE/tmSY25eR73QL4bP
-         xR/QS/6/DpSpx25/gwsI7gNETpW3VFEt/vMbBB7VDtl6jkh3l6h62aGRCn46gBp5XQcj
-         vHIctPuaRVvR5+yNOqF5i7l5zZMWnbk+0gGHwXKido/lnUm1A19uElK4RKNMMxCgVrYR
-         x56Yh3hM3Y4533Lt4igGXnTaRHJTqFh4n4bt96cAW1u2tKguuqPiNbZKK229XnBV0J1J
-         1KP+t4jD5RZ2UHmR3EtQ71QVFyGHLU7qRoDmm7uB0SGWpbmWkWWVxAHuGXpKrME//yul
-         FMPw==
-X-Gm-Message-State: APuU4Z88GDNawIpT9Qoc79aG6w7OC2Iy7SARNkKnuk5HHB1SdfRNEZFS
-	8v8nV5tjUuUFT1sVkfezWivbmYqhPo/d5575aK8qBZlww+BhKhO99Osn4gmgMVnhW8I=
-X-Gm-Gg: AZFdTZc6vq/rjfElkVZBJqSqqh04rJY+E3I1FL91z7azHK7TrmUfYdeDAcUs/NkCxdj
-	DwON04PrwaXKrO9osdwMdSxJ47TvRFaDSgRhPzbCIQW/AbfoZuc4j5cEqULUWhNXRXQzYbFIX8l
-	zO2BM93w3GV/vyu5QWh+RAIEvYwBeeg1cV8JOlAryvSbidWoeIeXQ5sJxseogfGnALzj5fqyM0h
-	r/+1DvLSJOgNTkbPsfkEKBOilS7zGd7F2+LzjMw2+fXQDnE/VGhuP6KPqDXjkfrjV8IApTVhuZ/
-	vUYPTwfeViAdwsfkFqaDdj9c44WSIrT+yHkTbeLAs5e53oOqS2oY3aub+bAW+51jlbpsbB2CFLA
-	UQlqqWFXuIyppamYpAIIoIrv9quFhKOSxmBk1vQuZc7mwzOFvpeNLMokXBThsP0w8GB9WstCqET
-	N0qzIfEvt41TTzIlyj4np4nzR1D75LtNcCJWw5DE9ixrk7/avwWk3fkIXkaSNX3V0t5CViI5Pyt
-	zUxbnx+MrcHTQxRgZI4hwxtnpIwe/CYu+OkpDWzg1q9P22XJ2i35jRipLoaeDgZ9FOiGQivrJig
-	b8OITUVI2tVJyOIPAtGbMMk=
-X-Received: by 2002:a05:7301:6188:10b0:386:9ba8:2864 with SMTP id 5a478bee46e88-3869ba82acfmr7837316eec.0.1795455682974;
-        Mon, 23 Nov 2026 09:41:22 -0800 (PST)
+        bh=50tBgP9EvHiJ3pXlg5LOwuoWYl1wXAWy7E4OUGAPpUo=;
+        b=DA8EmNEv4flhrEi/S2hMVLxldZNW7hwJspGI+CNKh4tXAhVhH5kdf2fpn+2YH9jSgI
+         u47ZjUdr3TF0FvNfgKUNncq7qLB/U7Fp9T8/I1M0ukqkllMnT4ofEnR6eIupz/TUnUJ7
+         QsR2uOrGb8pqt3L0vxzzLQ1o0qI5Vc9rBi1U+DRFRFck/32jBP+m5k4fa6ZmAjbMTq9R
+         expxFIE5JlsbloPp969d2v+qgH+2tEJiz3lWe6eNJbmKy2SvTCVHDzxzVgA135FOlmy2
+         tZuMxYd4ZCYe55Ln33UcJ2qyMiZ01uMUZwOaggZoUfRXItMwlFkk51W5ytFTewsjCbfp
+         D/TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795455684; x=1796060484;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=50tBgP9EvHiJ3pXlg5LOwuoWYl1wXAWy7E4OUGAPpUo=;
+        b=l3G87UXiWcQxLZzDDoe0NftWL3zP8UHI2mO6TYOFApc6CXoE7JE98zwD3olyFRglHT
+         z0/nxk3r6UNkmcErP79UrrhO+HMlzW5X1WzTPJUjPHwUfAXmDpcMbK2/1V3CczNAv7CK
+         H6raWUj+oPzxEN/08rQNEDLYLU/Zi23yXG279szxveT4mCF6FHSXCdrHqtXg+V3HKNJQ
+         vj8CJ4tvAa0Yxas16iWt143Fq9N3GpM13472aRJ4iwc1dDjimJWx6zPge7uHc7XCrtRT
+         G3+3xwOznUESWn6jGV/0m9dZ/tuaVbY+w4P0f4VCdzTMp923UOgZJKzc7YppHtzOdNSg
+         4HyA==
+X-Gm-Message-State: APuU4Z+bIkM57GhOIsRwoRQ8wj0KQb+3TnrIqA8+ZX3UyJzUR60XIKFq
+	w5mAbmyoZPVcLFgBElKyDCkgmNGw/UypGNJjjmWedA9+ON7MUtSKRBx4GAP0nJrNDbc=
+X-Gm-Gg: AZFdTZfe09LxEzPdrgSL3Bu97mUfCN9GQZ5aGbbKNaF6iGCf9oOAHXrVxs43UTx5GCe
+	qfoKH5TQlsq6rpO6ViwQk802iCMJj04pwgkNUfzP1trSsvFfq70iql03L8gFx7oWkBHs4RBEh9V
+	YVXpphSHLcxLt3UDjVA6pLv1P1CkwCc5HtTzfRRcEbuhCK+v7OH0RptxxQmrC4wHmr5rHsh0OPY
+	F0Nd2GFoZGMMac+eGVtKPoDPj/HTPMyUXx2lTb2vZfOqSKypW549zJTpywKsTCqiN2+nDTmTbeP
+	TAJM6CD9+d/jKX3OI4WW9JGeDKg8kTOXjVjjkVs5gPkDVrfelkd2vQ0z+/TK+MwbBckILEaElbO
+	wv7ke+67MGSfvQdT3fWqQ69bcYLr0kMilTxuheAkCUKx/tsywRdjeBnPvEsCtJKSg8AdD2BGgZH
+	WWOqRutKU9ENob+SNMGps/2/xmKrvnbX1WkIiYWuzu52vDfsPeaEM1J8vXrH+8rDSmkTxwiaFkO
+	Q75I8Ziq6bBxGt1+ZZmL54yIzSZZh8JvxMwE3zwPu9NV8n95E6Ff/6W53kC4k9M29PLZs1ppNe8
+	2WK2YXJ1tc43I7EeW5eLG1mkukiZKix4MBuJRCtnLnAs
+X-Received: by 2002:a05:7301:1884:b0:374:ba43:ae2e with SMTP id 5a478bee46e88-3856f65eccamr11660323eec.14.1795455683989;
+        Mon, 23 Nov 2026 09:41:23 -0800 (PST)
 Received: from localhost ([2a03:2880:9ff:70::])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm47478418eec.5.2026.11.23.09.41.22
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm34269184eec.13.2026.11.23.09.41.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:41:22 -0800 (PST)
+        Mon, 23 Nov 2026 09:41:23 -0800 (PST)
 From: Stanislav Fomichev <sdf.kernel@gmail.com>
 X-Google-Original-From: Stanislav Fomichev <sdf@fomichev.me>
 To: netdev@vger.kernel.org
@@ -83,10 +84,12 @@ Cc: davem@davemloft.net,
 	edumazet@google.com,
 	kuba@kernel.org,
 	pabeni@redhat.com
-Subject: [PATCH net-next 0/4] selftests: replace iperf with kperf and add RR
-Date: Mon, 23 Nov 2026 09:41:16 -0800
-Message-ID: <20261123174120.505808-1-sdf@fomichev.me>
+Subject: [PATCH net-next 1/4] selftests: drv-net: kperf: support request-response tests
+Date: Mon, 23 Nov 2026 09:41:17 -0800
+Message-ID: <20261123174120.505808-2-sdf@fomichev.me>
 X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261123174120.505808-1-sdf@fomichev.me>
+References: <20261123174120.505808-1-sdf@fomichev.me>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,59 +101,88 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Recently added iperf throughput runs (918696-924166) have not been stable:
+Let KperfResult tell the rate of the transactions of request-response
+tests and, when the client is asked for them with --time-stats 2, their
+latency percentiles and maximum, as seen by the source, which sends the
+requests. Request-response tests run a single flow; of more, the first
+one is kept.
 
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":99.60508305201279}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":90.65816851430006}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":92.02795621872379}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":98.78863365714747}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":103.38157195808748}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":93.64137239021106}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":101.73578035463773}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":78.15304223077422}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":103.79536587818043}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":91.48843017237692}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":75.27885187718259}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":103.5323033205535}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":92.04284599832805}
+Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
+---
+ .../selftests/drivers/net/lib/py/kperf.py     | 31 +++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
 
-Compared to kperf devmem:
-
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.588}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.63}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.606}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.594}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.54}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.594}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.552}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.561}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.616}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.63}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.532}
-  ktap-metric-json: {"goal":"higher","name":"throughput","value":185.62}
-
-This is most likely due to --pin-off we are doing with kperf. So replace
-iperf with kperf (add regular and zerocopy variants).
-
-At the same time, add closed loop RR stats to estimate the amount PPS
-we can take (so I can follow up with open loop RR).
-
-Stanislav Fomichev (4):
-  selftests: drv-net: kperf: support request-response tests
-  selftests: drv-net: add a closed-loop request-response test
-  selftests: drv-net: add a kperf stream test
-  selftests: drv-net: remove the iperf performance test
-
- .../selftests/drivers/net/lib/py/kperf.py     | 31 +++++++++++-
- .../selftests/drivers/net/perf/Makefile       |  3 +-
- .../selftests/drivers/net/perf/iperf.py       | 23 ---------
- .../testing/selftests/drivers/net/perf/rr.py  | 47 +++++++++++++++++++
- .../selftests/drivers/net/perf/stream.py      | 40 ++++++++++++++++
- 5 files changed, 118 insertions(+), 26 deletions(-)
- delete mode 100755 tools/testing/selftests/drivers/net/perf/iperf.py
- create mode 100755 tools/testing/selftests/drivers/net/perf/rr.py
- create mode 100755 tools/testing/selftests/drivers/net/perf/stream.py
-
+diff --git a/tools/testing/selftests/drivers/net/lib/py/kperf.py b/tools/testing/selftests/drivers/net/lib/py/kperf.py
+index 8ee8c5ba2ff7..98d27d83dee2 100644
+--- a/tools/testing/selftests/drivers/net/lib/py/kperf.py
++++ b/tools/testing/selftests/drivers/net/lib/py/kperf.py
+@@ -7,20 +7,35 @@ import shlex
+ import subprocess
+ import uuid
+ from dataclasses import dataclass
++from typing import Optional
+ 
+ from lib.py import cmd, ksft_pr, rand_port, wait_port_listen
+ 
+ 
+ _SECTION_RE = re.compile(r"==\s+(Source|Target)\b")
+ _RATE_RE = re.compile(r"\b(Tx|Rx)\s*([0-9]+(?:\.[0-9]+)?)\s+Gbps\b")
++_RPS_RE = re.compile(r"\b([0-9]+(?:\.[0-9]+)?) RPS\b")
++_LAT_RE = re.compile(
++    r"\b(p25|p50|p90|p99|p999|p9999|max):([0-9]+(?:\.[0-9]+)?)us\b")
+ 
+ 
+ @dataclass
+ class KperfResult:
+-    """Aggregate throughput (Gbps) of both endpoints."""
++    """Aggregate throughput (Gbps) of both endpoints. Request-response tests
++    also tell the rate (per second) of the source, which sends the requests,
++    and with --time-stats 2 its latencies (usec).
++    """
+ 
+     source_throughput: float
+     target_throughput: float
++    rate: Optional[float] = None
++    p25: Optional[float] = None
++    p50: Optional[float] = None
++    p90: Optional[float] = None
++    p99: Optional[float] = None
++    p999: Optional[float] = None
++    p9999: Optional[float] = None
++    lat_max: Optional[float] = None
+ 
+ 
+ class KperfRunner:
+@@ -133,6 +148,7 @@ _RATE_RE = re.compile(r"\b(Tx|Rx)\s*([0-9]+(?:\.[0-9]+)?)\s+Gbps\b")
+     def parse(output):
+         """Parse human-readable kperf client output."""
+         throughput = {"Source": [], "Target": []}
++        rr = {}
+         section = None
+ 
+         for line in output.splitlines():
+@@ -149,9 +165,20 @@ _RATE_RE = re.compile(r"\b(Tx|Rx)\s*([0-9]+(?:\.[0-9]+)?)\s+Gbps\b")
+                 if (section, direction) in (("Source", "Tx"),
+                                              ("Target", "Rx")):
+                     throughput[section].append(float(value))
++            if section != "Source":
++                continue
++
++            # Request-response tests run a single flow, take the first one
++            # and ignore the rest
++            match = _RPS_RE.search(line)
++            if match:
++                rr.setdefault("rate", float(match.group(1)))
++            for name, value in _LAT_RE.findall(line):
++                key = "lat_max" if name == "max" else name
++                rr.setdefault(key, float(value))
+ 
+         if not all(throughput.values()):
+             raise ValueError("incomplete kperf result")
+ 
+         return KperfResult(sum(throughput["Source"]),
+-                           sum(throughput["Target"]))
++                           sum(throughput["Target"]), **rr)
 -- 
 2.53.1-Meta
 
