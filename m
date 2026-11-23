@@ -1,61 +1,154 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413613;
-	b=u2ceiW90vlcMcznXfXjpjhPfm+fNDM55tna2HGOB5N6DlB5qL65TqDHNtBRitl8PjJZr
-	 f4dqdNL8mM+k8v+z3vjYhSIt+6kaisuILJxXHdZJvckCN1HyJc9sQaY9f3k6Kp7mG2c55
-	 foguoF2hW+jol+eGLLw1at5KSy5/zJjHCg4pSXDILKnbuaeQ5Yw7x/5LzT8kQwUAOnd8B
-	 bkXXZrP+0q4weQhEwbhSxzjQcrtGGpLi3cMkBfPNjdgAWNiKo2XTiauiFFD6Iz4rWoTnj
-	 9NMgGPCONb4azACISQCfKMoJbADjFUzi8SFdjnkemOvnIuEaVF5/BJi9VoxAEqPMioQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413613;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=4o/3B7pUXuwDFpxtRlH6qNIzuDtBf5+FEuoviec2aUs=;
-	b=JoTDzEzi+Z3VwU+JRJ6A8lmiaSrxsd+qv3F8PRPAZJbtlzLfHejJ3Vr1S7fjWhnIF49I
-	 mzR4rB0ashtc1ABGXSN8f0e2+UbIlBFDVU6bgED9ivpegs5x7KCxMzc6rjqxt27sUAZjr
-	 Qmvgl8ZN+FKx3unOWNZCAlFzYEwqIo5wsUZ/izdKpw7GOuWRye3I7VNHUdiAN2iwhkMDo
-	 SrHkSbkYBf6D2Ct47FJ7By8wBCpTtoJI306F1wxRqpZ5ienIKendyAlMOgnh844Qhm21s
-	 1Ig0tgNGyLJilIyvx3Ji8R9563JoD9Q8rYXN8An1h7c6SN5aPLFWsvpCwuuw0W+M5+w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BgVzhCe6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.0
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795413657;
+	b=xjLLIOWDAX7T9tZmJWOjmolsPmk8So141E3zSDRVXn4467quW0FawwqQpJ+5NulTdfQk
+	 huBv7VMm2fmCb5y3zk9bkWpiV+R7NosuDBZDPfG9899XK41wSjltikGGbrxRaU/U7TJ0t
+	 6+NwtghKeuoixvdVjAy+i+Js0kfNzxzqs3jHVET0lVa2ybl4i2Wwr8uBvEoF2rZ8tHV+C
+	 TyYeDtXafoU+cQaQVZsLLmH7PesvsrobDC/JhdnRruhKA9P6GUgzvmUswzSRLuGPxNc8T
+	 fSQRwVLKhpWxqSeqb/H0cRzxswbLeO4inqAYwQ8/ogkVvK36k5Qu/S8moS0FbkshOyA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795413657;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=IIOxOGhxPXm6AABf4rQHvRKhbwdjGRZQL+njG4a9r0A=;
+	b=nmLArrZuq/TdJykEEr8GryvX4pPYx1u0sZp84ZmKLmSHWxyOM0hacHc/4OMoFcaNG+mH
+	 crpBVqKqLcSWR9vVXuOCQ3cg13blHclpQY1ycQOF8yapIiv+0Axp2mxy77q8d0asoFTFp
+	 GYsBgTiCOK1mB/o/5zKCN4XZ1o+5sWwdlAP8/4uFQnsY4Fzd8QeF8gnB8O0F91EWheG4S
+	 CzRL4VitlaFVTt8OSUtrHz85cdk3+Gs57ywcAPxQjt1mL9wRzaM8x+CKpU2ElelMh7tYj
+	 MZgqMgCEBwTF4knVnz+at+njeV4U2W6XZ9ulGVsXI+ra7ViM0oHfJUzbECqeVXxcp9g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=G+Ztmh9m;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.0
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011000.outbound.protection.outlook.com [52.101.65.0])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 486AC606A327;
-	Mon, 23 Nov 2026 06:00:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C768606A31A;
+	Mon, 23 Nov 2026 06:00:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C768606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BgVzhCe6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D1E1F000C4;
-	Mon, 23 Nov 2026 06:00:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795413612;
-	bh=4o/3B7pUXuwDFpxtRlH6qNIzuDtBf5+FEuoviec2aUs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BgVzhCe626Rh5/823hjW8sNahVD0sDTAWzkqxtzvDdNnxrjb5D/nzCZ2OtfWGY62h
-	 oOYWNj8FowFMS/EhmqZo2AUGJU8to3iYHHCmvWlUAfUVDMEYe92TLtqUJHKkfWcmDt
-	 uShYht4BQ9yMiPLQj6VKmXYxqPLVOrz5akHgk/foer5uUf2byic6BP/KGQV9LZ/Y1l
-	 o0YwgfF+P2Ejf/Jfv+Om64YocjCo1tkQ0rUQbdPskgDM+DUBvxFJ4xc6YIZrz5gumi
-	 8pjjiRSSO/LLrY09HogQ7uCwCkkK5PPl7KYOYzt1zIbCUwbb55P6sCPmP7qGCfyYSF
-	 n3hGFok0hBi0g==
-Subject: Re: [PATCH net] net/smc: bound a send by the send buffer, not by the
- peer's credit
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com,
- sidraya@linux.ibm.com, mjambigi@linux.ibm.com, netdev@vger.kernel.org,
- tonylu@linux.alibaba.com, guwen@linux.alibaba.com, linux-rdma@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
- kapil@presceralabs.ai, kuba@kernel.org
-Date: Mon, 23 Nov 2026 06:00:11 +0000
-Message-ID: <179541361172.3135.1077986856171763823@kernel.org>
-In-Reply-To: <20261122053223.2497832-2-piyus@iiitd.ac.in>
-References: <20261122053223.2497832-2-piyus@iiitd.ac.in>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=G+Ztmh9m
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dqymfGrs0gsJT/KwgHZIkA8CULThQzUc4paYA9bYWEABzv4qVX5YaumVW+yX50UXzFM1aarTvJoxsxcLW+l2FWrQJYL9cdphLjNlPiTRpfIx1gt41yfb4bPOfQcIzvG3lTjsgl/xlkmZejfwgeN4Gef/SttDVhSuQKym9gv1qs2doq2g8qmr0/SzVhhxBF/U7E3WoRgdAKxJzSpihoN+eO/MCsPNHV9ECg63bHVgNAtb9edjcDq4WdAYNkmfi2ud/SldMU2tHK/66PZ/NdDqXPWEj12AVFzJENdcJeNCnR2LboIwZS2oYvJ4Yj8PhA/WBYWxGDn8ER+AfbJCq76ZNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IIOxOGhxPXm6AABf4rQHvRKhbwdjGRZQL+njG4a9r0A=;
+ b=SjrUxriLhsd3NIDHs/Fp336sGPpIPeKRttE9IfoSVaFhZCbye0c4+O/yz9nG5rowuxzIhHYNNihd0qQsSwOzcedvPaKzPdzhta1lAAcpK+pHq2UfARb4mKEC47AAJC8Su1Q5pT4zx9w+ao/9TlyDsxvFu90Q+wei0X1/7Mw9COSQqnYCa+UZiUbH/acfLcCnEO5RsHoLIJfPWByRUGCWp1s3KLAVZCnm+z7PvZaLla+KMQ2EKfkiSVMGOtLbJJ6Oa/7+zUylbwKk2B3Sh40aul+CK/XHIPIQog4mO7sghxi3TPjTNZlthA+0N89D1Dj3RfcqqbII9utSN1HwYSxteA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IIOxOGhxPXm6AABf4rQHvRKhbwdjGRZQL+njG4a9r0A=;
+ b=G+Ztmh9mLRuD1295+XUtkhDDDzLKTgQAiC1DgGsoR/Xu98DakiNZVMXKDMHksCvrVoydZAvNvye6Pui+oVf29cmaVgWgTvhU4JnlqPNKweGCsOT6rx31yHTwofgOAmoE6/9hbYRFQ7tG3owdyfn9IRc3SHDxPtola2nvjqeSZtPZqH3e+7JejbGQuibxUMvqF2/ZMRKugqAKcg5Cf7yYSRED3rjqBo/zE2kev3IioR75IUq8S7bNlep7pPVdPLgdMKkR0iW0uhCdmGRXyeBdLW0Z+mPwUQTcdBP2fSrdz541B1iFVLzMuQRB6orf2XuVPcdiIsajJX3EypzsSLhWFw==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by PAXPR04MB8542.eurprd04.prod.outlook.com (2603:10a6:102:215::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 06:00:52 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 06:00:52 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
+ (OSS)" <wei.fang@oss.nxp.com>
+CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
+	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v8 net-next 4/9] net: dsa: netc: tie setup resources and
+ reset to DSA setup/teardown
+Thread-Topic: [PATCH v8 net-next 4/9] net: dsa: netc: tie setup resources and
+ reset to DSA setup/teardown
+Thread-Index: AQHdd9I3sVEp6uudR0COvgaFzGt1z7c7IOaAgAAN3sA=
+Date: Mon, 23 Nov 2026 06:00:52 +0000
+Message-ID:
+ <AS4PR04MB93380FC80BDE1B410825EF2D88452@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20261119030534.1892935-5-wei.fang@oss.nxp.com>
+ <179541033517.3135.5228725617878780083@kernel.org>
+In-Reply-To: <179541033517.3135.5228725617878780083@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-11-23T05:55:12.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
+ Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|PAXPR04MB8542:EE_
+x-ms-office365-filtering-correlation-id: 457eb5ca-df2e-4843-e810-08df4927219c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|23010399003|22082099003|18002099003|11063799006|56012099006|4143699003|261028144727099003|261102123227099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261021121427099003|261009223027099003|38070700021|10067099003;
+x-microsoft-antispam-message-info:
+ gQ5axupeszcPWjNuaRhrAQu/ZIePrUeCm7a4ugez2100QyLjpD2vR4CbIOGniTpGzTOcN1E/DGqiJIpr1XnBKBGq/icnm2SDFwL3KHJf1D6fAaIhY7ANFq0eouze9P/UB2Pz+5x4Dz5iR9jRoosHmJYdwIc0ZBCXUuXbGXy2APAQ/OolQC2IA7NZZYLlu4P5j1LkLhIAF/YDpjS84z5oxFYMdJP88ZPNCkgNMVpCRzHsHADpm6yIvMfGIoeslVs5g9sJIYZI5aJF8h0R7qSeZHeAxRiDn7W7dW51o8vqSVmGwkJjzKIkdWwO4dGkkpW14IzDgRNDSYRwJc/jgBPX00soG0KbjXL4MTBRac6WCo/3gC6vYV/LzWWQKrQooVQJWOtKnjl962FxRLsQbrF+pkwPcHk/LZel+zsdUL8dKg8rD4/GEsvrHYVtPZgmoz2ba72UNRUv9/QqBDAZPQgA48kWvRO8nF6dDZY5qL3lcbc+xxrwR2TaYRmPc4nK9/rcOlZpNmoWjd/AUObm3e3VlQFRRq1dhDRsaOATIdBc5r8OqpgY7qORst2JRCb4cLCknqR7zTploK+dm2/fv/ih24uQ8XDFv7XwvkbIYF8NeUai0qX6H7scAMFO7JxP/RvkXphvGsEKy8BVhCn9CGbR0BxBGQ0HHtoZH7PuNZuMcTTkjmzZhS3P4jfKLbjo7A6VMRnfnR8iMPx3aMPVv9CBiBO/JlmnQ9QehFWUX45nEcE=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(23010399003)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003)(261028144727099003)(261102123227099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261009223027099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?jzAKGTp2ia/LQe2BzD6iyJvPna1R4H9rEsJ3AxVn5qWfnZuBCSExrmV8Zrsx?=
+ =?us-ascii?Q?KPwkh/dXwYjhAs1nZbf4q4dakQKXmx0dSGXZCpgvHLmLBczKqYtO9fXwwvWX?=
+ =?us-ascii?Q?xvfW2Rb2LhYTihVo3zHK/OrqWuZUE3JSqGSxWgFkIfeNM4fB642lRhn6qHAj?=
+ =?us-ascii?Q?IAk+4h6aFuO8hiFVNGvaZcAMFKCCHKm6fpdHAmHIWT1GAZffHnFsoftSlido?=
+ =?us-ascii?Q?Lf9bRxQtc02DkDOqbZM4QSxilXvB4dtcJIV3JmMIBw/bPSYudt11J3f17dV7?=
+ =?us-ascii?Q?aub1oIVPVFKa6fCfEpSMxet4sd4Q2QIJrPyPUET/Rl/wQ3Ko/okAwrs1RAuu?=
+ =?us-ascii?Q?MieG/XE4TN4vqKLEe2U4MC+XkiTpvYRVNyJ59z3C3YJWs/e6C21fxg4adQ8f?=
+ =?us-ascii?Q?iPGjD1nuIl9kvvUrG3ImWhmB4CwlwBNNlRD9zq/ZySujtAFbkwgYW9rihgH/?=
+ =?us-ascii?Q?6wjZikELn4V1ShCpxLIWFhP6eVnCa4WKbuHBKDe9eKHz8fUtstJkbFjc/Pho?=
+ =?us-ascii?Q?xQcuuP6jRcfA6k1BbdX+jTHqvD9TmSykfhFppw8RIclp0C9vTe7P7mGIOBdx?=
+ =?us-ascii?Q?2vIQGqzCY1YMlAM/LYF/4frsT9EDVfwy+EE1ECIjCqm6KEWNGJKVbkRsBfnI?=
+ =?us-ascii?Q?SyJ7L0wj8RwOD7WyjbtllfV320+N2vbIGFNCGVxHNAbg5nOpzWVvP/1AW9NZ?=
+ =?us-ascii?Q?SgvDFMuA8YSuRKpWhiUcC0FRRkaTnPuPe5I2ZJlz6LrlrYJAsEIIu2dAgTiB?=
+ =?us-ascii?Q?j1VdJa7Jcb8GRbf164rRMFuCZWIUB+lCQc9WTzQjhkTm4MCITY36/oKLzdDv?=
+ =?us-ascii?Q?f2unf7SiptP0RjMENrbu4cs/3av2+sLORXA6EdNgxxEuIiPSz3/xL4qGv0wr?=
+ =?us-ascii?Q?/bG8bJsEPSZaQeDZkPF2BFVHZ+kIDDWsBnJQoGTNNZFfX1vvFbt4u9eUXLAX?=
+ =?us-ascii?Q?gG2JKi3E2yODhTAEP4+4C25DpJ7eSf3+UKLwDyc4Rhc2aVozVt2I9TjIAIjN?=
+ =?us-ascii?Q?esCsQMvAmn38USkiTPDSgW7MxJ7V87le7uj1rraOYoG6LN9jvrmU6DC1wXv9?=
+ =?us-ascii?Q?LJPu0J6Sm6gwJ8dXqhbiiBTry+RaVstnGVgXueBdP6tW9hwyz3PJ6z1UIZlD?=
+ =?us-ascii?Q?YdIPR2w5zO+pKt5lbOHqMKwpYkmRvC8BSf8ulL5fVn9pqefife0C/OZJSudS?=
+ =?us-ascii?Q?RYxro1sEbyRKlF/FrMx6kp/ov36+jrPvtEPTwYBA7bbyWr5YdfIiDi1/b4i1?=
+ =?us-ascii?Q?9j8XAzt7xpMITp1Ne+xPS3/p+nhdvntd9kBCY2OsP5gKGSg+ZlOlBr5yKEwi?=
+ =?us-ascii?Q?0lkLMeO2ivl6ayDDmsc8iY5CS3w2pWE5b7QmOHPo/lyrukx0YNVLe+TCrKiA?=
+ =?us-ascii?Q?sYwhGxHHbAQgdGcGPS93j9XOJgRQIs0apyH5uMe1nVxYpanPpXjwZ4bFbhaE?=
+ =?us-ascii?Q?GlPp9HzUYxhna2NuHZu2HwOjL/+fZkUj/s1fnX22Cba+LJgsnDpZG8Ss+jMu?=
+ =?us-ascii?Q?4UE3iLWweYe7KPEbEIqSvKHg43RCjn+ZK4xvzaiT9mPeA7cyyQlrb7zm/QgB?=
+ =?us-ascii?Q?p9GLv28bQAjv6Cwzac0hKg2yjc2mXLswBzd+Oo9dDQpE00k8a4vhqOTsGXoG?=
+ =?us-ascii?Q?zpXKfRAZbtBHBbwm5VrPrmcFZdLOyGxE0t6fMpz4NvsrD2UIP4P9v9ZqH0yM?=
+ =?us-ascii?Q?xTrrTi2uk0t3JFQexN9EwXkXpMFxzKMVK6xgMo4wvGkn+YfA?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,280 +158,85 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
-
-Critical: 0 (1) · High: 0 · Medium: 4 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit message's threat model is wrong for the path it
-  names.
-- [Medium] The new comment in smc_tx_sendmsg() (net/smc/smc_tx.c:238-243)
-  and the commit message name only the SMC-D DMB-nocopy credit in…
-- [Medium] The patch fixes a write past the end of the send buffer and
-  includes a KASAN splat, but it carries no Fixes: tag and no Cc:…
-- [Medium] The clamp keeps each memcpy_from_msg() in smc_tx_sendmsg()
-  inside the buffer, but the peer-derived credit stays uncapped.
-- [Low] After this patch the tree contradicts itself about sndbuf_space.
-
-Pre-existing issues:
-- [Critical] This patch did not introduce this problem, but the receive
-  path has the same flaw and it is still present.
-
---
-
-net/smc: bound a send by the send buffer, not by the peer's credit
-
-This patch clamps copylen in smc_tx_sendmsg() to sndbuf_desc->len. With
-the clamp, the second (wrapped) chunk can no longer be written past the
-end of the send buffer when sndbuf_space has been inflated. The commit
-message attributes the inflated credit to the SMC-D DMB-nocopy path in
-smc_cdc_msg_recv_action().
-
-> That counter is not always a value this side computed.  On the SMC-D
-> DMB-nocopy path smc_cdc_msg_recv_action() credits it from the peer's
-> consumer cursor:
-
-[ ... ]
-
-> Reproduced.  A hostile peer needs an ISM device we do not have, so the peer
-> was stood in for by a debug patch that overrides the consumer cursor after
-> validation, on an SMC-D connection over the loopback-ISM device.  The
-
-[Severity: Medium]
-Is this threat model accurate for the path named here?
-
-In smc_cdc_msg_recv_action(), the diff_tx credit only runs under this
-check:
-
-	if (conn->lgr->is_smcd &&
-	    smc_ism_support_dmb_nocopy(conn->lgr->smcd)) {
-
-smc_ism_support_dmb_nocopy() only returns true when the device provides
-support_mmapped_rdmb:
-
-	/* for now only loopback-ism supports
-	 * merging sndbuf with peer DMB to avoid
-	 * data copies between them.
-	 */
-	return (smcd->dibs->ops->support_mmapped_rdmb &&
-		smcd->dibs->ops->support_mmapped_rdmb(smcd->dibs));
-
-The only provider of that op appears to be drivers/dibs/dibs_loopback.c:
-
-	.support_mmapped_rdmb = dibs_lo_support_dmb_nocopy,
-
-With real ISM hardware this credit branch never runs. With loopback-ism,
-both ends are the same kernel, so in-kernel SMC code writes the consumer
-cursor, not a remote party.
-
-Would it be more accurate to describe the nocopy part as hardening?
-
-The text also says the cursor was overridden "after validation". It then
-refers to "net/smc: validate the peer's CDC cursors against our own
-buffers". That validation doesn't appear to be in this tree, because
-smcd_cdc_msg_to_host() still copies the peer's prod/cons cursors as they
-arrive. Should the message state that dependency?
-
-The path a remote peer can actually reach seems to be smc_switch_cursor()
-during SMC-R link failover (see the comment on the diff below). Could
-the message name that path?
-
-[ ... ]
-
-> Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-> Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
-
-[Severity: Medium]
-Should this carry Fixes: tags and Cc: stable?
-
-Before this patch, the second chunk in smc_tx_sendmsg() overflowed the
-sndbuf whenever sndbuf_space exceeded sndbuf_desc->len. The commit
-message includes a KASAN splat for that write.
-
-There appear to be two sources of that credit:
-
-cc0ab806fc52 ("net/smc: adapt cursor update when sndbuf and peer DMB
-are merged") added the nocopy diff_tx credit in
-smc_cdc_msg_recv_action().
-
-c6f02ebeea3a ("net/smc: switch connections to alternate link") added
-atomic_add(diff, &conn->sndbuf_space) in smc_switch_cursor(), which a
-remote SMC-R peer can reach.
-
-Without the tags, stable trees won't pick up the fix for the SMC-R case.
-
-> diff --git a/net/smc/smc_tx.c b/net/smc/smc_tx.c
-> index 0f0c6df3bf2ce..5dc489bf624ed 100644
-> --- a/net/smc/smc_tx.c
-> +++ b/net/smc/smc_tx.c
-> @@ -235,6 +235,13 @@ int smc_tx_sendmsg(struct smc_sock *smc, struct msghdr *msg, size_t len)
->  		writespace = atomic_read(&conn->sndbuf_space);
->  		/* not more than what user space asked for */
->  		copylen = min_t(size_t, send_remaining, writespace);
-> +		/* and never more than the send buffer holds.  sndbuf_space is
-> +		 * credited in smc_cdc_msg_recv_action() from the peer's
-> +		 * consumer cursor on the SMC-D DMB-nocopy path, so it is not a
-> +		 * value this side computed, and the second chunk below is not
-> +		 * clamped against the buffer the way the first one is.
-> +		 */
-
-[Severity: Medium]
-Is the nocopy path the only place that credits sndbuf_space from a peer
-cursor? smc_switch_cursor() in net/smc/smc_core.c runs on SMC-R link
-failover and does:
-
-	smc_curs_copy(&cons, &conn->local_rx_ctrl.cons, conn);
-
-	if (smc_curs_comp(conn->peer_rmbe_size, &cons, &fin) < 0) {
-		...
-		diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
-		smc_curs_add(conn->sndbuf_desc->len,
-			     &conn->tx_curs_sent, diff);
-		smc_curs_add(conn->sndbuf_desc->len,
-			     &conn->tx_curs_fin, diff);
-
-		smp_mb__before_atomic();
-		atomic_add(diff, &conn->sndbuf_space);
-
-Nothing bounds diff from above.
-
-On SMC-R, smc_cdc_cursor_to_host() only rejects cursors that move
-backward:
-
-	if ((old.wrap == temp.wrap) &&
-	    (old.count > temp.count))
-		return;
-	smc_curs_copy(local, &temp, conn);
-
-A remote peer can therefore advance cons.count by a large amount. In a
-multi-link group it can then force failover by sending an LLC
-DELETE_LINK:
-
-smc_llc_process_cli_delete_link()
-  smc_switch_conns()
-    smc_switch_cursor()
-      atomic_add(diff, &conn->sndbuf_space)
-
-That looks like the remotely reachable trigger for the overflow this
-patch fixes. Should the comment and the commit message mention it?
-
-The commit message also offers to cap the credit at the atomic_add()
-instead. That cap would need to cover this site too.
-
-smc_curs_add() subtracts the size only once. For a large enough diff,
-could tx_curs_sent.count therefore stay at or above sndbuf_desc->len?
-smc_tx_rdma_writes() later uses sent.count as the source offset:
-
-	to_send = smc_curs_diff(conn->sndbuf_desc->len, &sent, &prep);
-
-This patch leaves that cursor state as it is.
-
-> +		copylen = min_t(size_t, copylen, conn->sndbuf_desc->len);
-
-[Severity: Medium]
-Does this clamp bound the send by the send buffer, as the subject says?
-Each memcpy_from_msg() now stays inside the buffer, but sndbuf_space
-itself is still uncapped.
-
-With the numbers from the commit message, one iteration ends with:
-
-	atomic_sub(copylen, &conn->sndbuf_space);
-
-That leaves 1065504 - 65504 = 1000000, so this check never sends the
-producer into smc_tx_wait():
-
-	if (!atomic_read(&conn->sndbuf_space) || conn->urg_tx_pend) {
-
-Each later loop iteration, and each later sendmsg(), can then write up
-to a full ring at tx_curs_prep. Can that overwrite data the consumer
-hasn't sent yet? Can it let prep get more than one wrap ahead of
-tx_curs_sent and tx_curs_fin?
-
-smc_curs_diff() only compares wraps with !=. In that state,
-smc_tx_prepared_sends() and to_send in smc_tx_rdma_writes() would
-misreport pending data. Meanwhile sendmsg() returns success for data
-that was overwritten.
-
-SIOCOUTQ in smc_ioctl() also still relies on the invariant:
-
-	answ = smc->conn.sndbuf_desc->len -
-			atomic_read(&smc->conn.sndbuf_space);
-
-In that state SIOCOUTQ would return a negative queue length to
-userspace.
-
-Would the credit need to be capped where it is added, in
-smc_cdc_msg_recv_action() and smc_switch_cursor(), as the commit message
-offers? Without that, the invariant isn't restored.
-
-[Severity: Low]
-This isn't a functional bug, but the new comment says sndbuf_space can't
-be trusted. The existing comments still claim the invariant holds. In
-smc_cdc_msg_recv_action():
-
-	atomic_add(diff_tx, &conn->sndbuf_space);
-	/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
-
-and later in smc_tx_sendmsg():
-
-	atomic_sub(copylen, &conn->sndbuf_space);
-	/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
-
-copylen is now capped at len, so an inflated sndbuf_space stays above
-len after the subtraction. In that case both comments are false.
-
-The nocopy caller of smc_curs_diff() also passes an unchecked peer
-cursor as new. That goes against the helper's documented contract:
-
-	/* calculate cursor difference between old and new, where old <= new and
-	 * difference cannot exceed size
-	 */
-
-Should these comments be updated along with this change?
-
->  		/* determine start of sndbuf */
->  		sndbuf_base = conn->sndbuf_desc->cpu_addr;
->  		smc_curs_copy(&prep, &conn->tx_curs_prep, conn);
-
-[Severity: Critical]
-This isn't a bug introduced by this patch, but the receive side appears
-to have the same unclamped second chunk. In smc_rx_recvmsg():
-
-		copylen = min_t(size_t, read_remaining, readable);
-		...
-			chunk_len = copylen - chunk_len; /* remainder */
-			chunk_len_sum += chunk_len;
-			chunk_off = 0; /* modulo offset in recv ring buffer */
-
-The only bound on copylen is bytes_to_rcv. smc_cdc_msg_recv_action()
-credits bytes_to_rcv from the peer's producer cursor with no cap:
-
-	diff_prod = smc_curs_diff(conn->rmb_desc->len, &prod_old,
-				  &conn->local_rx_ctrl.prod);
-	...
-		atomic_add(diff_prod, &conn->bytes_to_rcv);
-		/* guarantee 0 <= bytes_to_rcv <= rmb_desc->len */
-
-On SMC-R, smc_cdc_cursor_to_host() only rejects backward cursors. On
-SMC-D, smcd_cdc_msg_to_host() copies prod as it arrives.
-
-Suppose a remote peer sends the same wrap with a large count. Could
-memcpy_to_msg() or smc_rx_splice() then read far past the end of the
-RMB and copy kernel memory to user space?
-
-The commit message points to "net/smc: validate the peer's CDC cursors
-against our own buffers" for the receive side. That validation isn't in
-this tree.
-
-Would a similar clamp against conn->rmb_desc->len in smc_rx_recvmsg(),
-or validating the cursors on receive, close this?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122053223.2497832-2-piyus%40iiitd.ac.in
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 457eb5ca-df2e-4843-e810-08df4927219c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 06:00:52.5845
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: CLFGnTnC9yAvE5MUM+6rZ0ZHoagL2AfOUujttk8UgfSE7uEyAh4/QjrObfoCa5KIOuiVkWCjn8+8gWStShh1Dw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8542
+
+> net: dsa: netc: tie setup resources and reset to DSA setup/teardown
+>
+> This commit adds netc_switch_reset() so that every netc_setup() after the
+> first one does a PCIe FLR and starts from a clean hardware state. It also
+> converts the setup-path devm_ allocations to explicit alloc and free.
+> These are released in netc_teardown() and on the error paths.
+>
+> > diff --git a/drivers/net/dsa/netc/netc_main.c
+> b/drivers/net/dsa/netc/netc_main.c
+> > index 1225ff8153d44..f724f95add36b 100644
+> > --- a/drivers/net/dsa/netc/netc_main.c
+> > +++ b/drivers/net/dsa/netc/netc_main.c
+>
+> [ ... ]
+>
+> > @@ -1042,7 +1161,10 @@ static int netc_switch_pci_init(struct pci_dev
+> *pdev)
+> >     void __iomem *base;
+> >     int err;
+> >
+> > -   pcie_flr(pdev);
+> > +   err =3D pcie_flr(pdev);
+> > +   if (err)
+> > +           return dev_err_probe(dev, err, "FLR failed\n");
+> > +
+>
+> [Severity: Low]
+> This hunk changes probe behaviour, and the commit message doesn't say so.
+> Before, the return value of pcie_flr() was ignored and probe always went
+> on. Now any FLR failure in netc_switch_pci_init() makes probe fail.
+>
+> The commit message only says:
+>
+>   The probe path already performs a FLR in netc_switch_pci_init(), so the
+>   first setup will skip the reset because the priv->configured flag is
+>   not set.
+>
+> and later:
+>
+>   The NETC switch does not support multi-switch yet, so there is no
+>   functional problem today. This only reworks the driver so that
+>   multi-switch can be added later without hitting these issues.
+>
+> Both passages read as if the probe path is unchanged.
+>
+> pcie_flr() can fail in three ways:
+>
+>   - -ENOTTY when pci_dev_config_accessible() fails
+>   - an error from pci_dev_reset_iommu_prepare()
+>   - an error from pci_dev_wait() after PCIE_RESET_READY_POLL_MS times out
+>
+> In any of these cases, a NETC switch that bound before this patch would
+> now fail to probe.
+>
+> Failing probe is probably the right behaviour, since the driver relies on
+> a clean post-FLR state. Could the commit message mention this change, or
+> could it go into its own patch? The hunk is still the same at the end of
+> the series.
+
+The NETC switch supports FLR, and from the hardware perspective, the FLR
+time is within 32.768 us. Therefore, pcie_flr() will not return an error.
+Otherwise, this would be a hardware issue. This modification is only to
+prevent Sashiko from generating false reports due to not checking the
+return value of pcie_flr(). I don't think it's necessary to mention this
+minor change in the commit message.
+
+
+
+
+NXP Confidential
