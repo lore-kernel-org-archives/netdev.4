@@ -1,60 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795412160;
-	b=YPTiWx21IKAj2tnsvlE8x9pXY6+T90Bx6bhfIotKlkgGYcNQUgvlrrku7kgW9kAzlPg3
-	 tuPGYgAL5piEa5rbveF7i7uIwQPgjEXxAb+hEB8ftLSDa8pOtLNQN1jF2spO2BV+5XmiX
-	 ef74/6F+UajPv6sShjjf4n+M4kGgExgoyUhwy7VUadzyqpLsppaNW0w1g1uAJYQhhtu5l
-	 7vUV+XnVdWRbqdTieqEET+YpZ/Keb64ZRdoksN2LDLxzHHCmEtaZUb+fCX2FpBvD9l/Mz
-	 OHooEdpIazSHl0e0CaFp/cOT6iqKlI5lSI2xnRutHphPeCXUwG9FpT7dA6CTGjgcHjg==
+	t=1795412350;
+	b=iQjeT0c3hza1qJymT9AIBSbWAGXXBZvXF4SxcH0rSvJFPaj3Tf0sKeb2dDfxyGaJ/Mqn
+	 gixHblUtVKHqhMsUDIeHfMYvYOLH/HHfC6X4jeX1EmPOFIHiIQscBjKmcs/Chv8CDeGfK
+	 YUv2t97tcsTojdTlodS/2uyTFmEE9KnNrW6TJCjk6QCMQggR+rwkA5d2/s/dQOJBxjVBW
+	 f4KkKtcShpvGskF5AWVZ9MPHZ577KGYzoK4k4+oBmRJQC9q1oFQaHJyY5qc2v8B7VNpl5
+	 KTQQC1Re2GrS7Z2+0zAkihgpYhJTUcuXL/R8fEFFb6fcpy99Sz0ie68Jp4vE3jTlhAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795412160;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=VkZ23aU3uhOoGMf0oIT03MRmm+QCba6V9bOzuBzDUiw=;
-	b=GemfoFxUWvp3HQNSjXPj+XHhcw8Y6XWZ4sjhsoFgGCLiOu2t0jKQTgJ+cMl8OpEwInDt
-	 90aBvm7XulVv7KJxiK+guTEru0JMNoj/oXLj/ITbF+GHkS3bDYq+KLh7Obh2B4crKtw96
-	 XJo0N4KCGxMcpdz3ReoBGr+TDNU93IyZlp782Bv66a60DzkHQsJjPbmszX0+g9Ej/pRkj
-	 Xu6ZioNxxLbV+8gda+6golz4ehUoHvdDXnf/rbn2VjCq65CNZ76Pw04TlPx4T6F27jKhL
-	 fbGPP7j5EUqNuF3WOOqNYQBXdlmwkbbQzUK/1PVSUTK2AUUaot8xx2HfDvS791vQ3bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795412350;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=9fZC67cJJ/GjqV+nhFxv50Ir/g4Ncc4bsSbtF+FPqMU=;
+	b=5fxr/k42Xzb1fcx7I34EJNNO5Bc53OiodR8kJ9OJPJ6+/3AS1ALoo7IM3ZklI0d758W0
+	 2iwqQ8N7Vaq8qJdmqoxIIiMpOHslv13PpymgQyMG9U0thgGXaXjBRbsIUXVme+PbNsyu9
+	 752fZ4LhRtP/4dXwi49a3YWZo1cJ6zHYh+vBhW+v5eHPH7L1Ok6vFayfVXfiVWUmBiu+J
+	 94VI/iv/UGGPAEfcwrmngNkgESOljwXDwBbD+MmHINRPhkTev0cRjonSBnQesstYcIvg5
+	 wBptPliGt8uVTSZVbQf6He1AB+Bu63IUOxFjppy3kzfjjoLG15hXJp9KjwB/K3FaDWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JWG4CmM3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN;
+	arc=none smtp.remote-ip=95.215.58.144
+Received: from mta1.migadu.com (out-144.mta1.migadu.com [95.215.58.144])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B2B9606A31A;
-	Mon, 23 Nov 2026 05:35:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0406F606A32E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:39:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0406F606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JWG4CmM3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC96B1F000E0;
-	Mon, 23 Nov 2026 05:35:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795412159;
-	bh=VkZ23aU3uhOoGMf0oIT03MRmm+QCba6V9bOzuBzDUiw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JWG4CmM3IY2zX7oO8i4AOhu18Y6igoML+0jBimCtm54WkIMX5TRHrqIOGrUYktIPl
-	 CG6WPjIqldTPVr5cDpL8IRkomu5Srv15A15BpYF9RkaaOFjGsraasENgkgFLR/qkRQ
-	 rapNWRYEDe0YMXViIxwQBJWPc+72Pz82/AYMduk76UnGPeBMmEd0F09MX2yyrLgcuU
-	 MO4DiD6VC9odrhu0N9hg+sKswfQYTTIorroE6Yx3NFMXV/IwpdGXwEA9laSWI27f1V
-	 rHFLUgsfkt8PaaS6Mgx53acrGG/ULYmq0yYv92QrZRSfvl+GamfJw1+f77Rx/imEMr
-	 YuWHSohmQSFpQ==
-Subject: Re: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission
- time estimate
-From: netdev-bot+sashiko@kernel.org
-To: mhm.dawod@gmail.com
-Cc: netdev@vger.kernel.org, vinicius.gomes@intel.com, jhs@mojatatu.com,
- jiri@resnulli.us, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, ye.zh-yuan@socionext.com,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 05:35:58 +0000
-Message-ID: <179541215830.3135.6185662719709867689@kernel.org>
-In-Reply-To: <20261119053357.2033707-1-mhm.dawod@gmail.com>
-References: <20261119053357.2033707-1-mhm.dawod@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GGgKl6H2K6gHd6hfWzXd1Bt9/gcGE2YwIrAA2CbG6HE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795412347; v=1; x=1796017147;
+ b=OJheM6XNmkjKLELNqpyXr1iE+WMP8bwEStj1ztPkWTyBCt43i7svWeJ5eQF7MvEVAGKFPuDl
+ 0NcZYGSB55t39ls9W4uFbaHdWJBxoohMz6bWoxQ74kf+rlSv1gI8maU/M3n6hq8p5+IL0BU3j3h
+ vTbtM7KzjNxxcqb0jyn1C6tE=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 80c29ab3a696dce2;
+	Mon, 23 Nov 2026 05:39:07 +0000
+X-Mizu-Trace-ID: 80c29ab3a696dce2
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 13:38:56 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
+Subject: Re: [PATCH net-next] selftests: net: reuseport_addr_any: report
+ epoll_wait timeouts honestly
+Message-ID: <20261123053856.GH10218@Liu-laptop>
+References: <20261120065855.22628-1-emmaonana18@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,139 +68,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120065855.22628-1-emmaonana18@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] On 32-bit kernels, software CBS still does not shape after this
-  patch, because the configured negative sendslope is stored as a large…
-- [Medium] The divisor of the patched transmission-time estimate is
-  itself computed in 32 bits on 32-bit kernels.
-
---
-
-net/sched: cbs: fix 32-bit overflow in transmission time estimate
-
-This patch casts len to s64 in cbs_dequeue_soft(). Without the cast,
-len * NSEC_PER_SEC is computed in 32 bits on 32-bit architectures, wraps,
-and makes the q->last estimate far too small. The commit message includes
-measurements on 32-bit ARM showing throughput matching idleslope after the
-fix.
-
-> diff --git a/net/sched/sch_cbs.c b/net/sched/sch_cbs.c
-> index 1c93469c56e3d..107c2b6e9da30 100644
-> --- a/net/sched/sch_cbs.c
-> +++ b/net/sched/sch_cbs.c
-> @@ -222,7 +222,7 @@ static struct sk_buff *cbs_dequeue_soft(struct Qdisc *sch)
->  	if (unlikely(atomic64_read(&q->port_rate) == 0))
->  		q->last = now;
->  	else
-> -		q->last = now + div64_s64(len * NSEC_PER_SEC,
-> +		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
->  					  atomic64_read(&q->port_rate));
-
-[Severity: High]
-On 32-bit kernels, does software CBS shape at all on this tree, even with
-this fix? A negative sendslope looks like it gets stored as a large
-positive value.
-
-net/sched/sch_cbs.c:cbs_change() {
-    ...
-	WRITE_ONCE(q->idleslope, qopt->idleslope * BYTES_PER_KBIT);
-	WRITE_ONCE(q->sendslope, qopt->sendslope * BYTES_PER_KBIT);
-    ...
-}
-
-Since commit 000db9e9ad42 ("net/sched: cbs: Use units.h instead of the
-copy of a definition"), BYTES_PER_KBIT comes from include/linux/units.h:
-
-#define KILO	1000UL
-#define BYTES_PER_KBIT		(KILO / BITS_PER_BYTE)
-
-That makes it 125UL, an unsigned long. The old local definition was
-(1000LL / 8), which is signed.
-
-On ILP32, the __s32 qopt->sendslope is converted to a 32-bit unsigned
-long. The product wraps mod 2^32 and is then zero-extended into the s64
-q->sendslope.
-
-With the setup from the commit message, sendslope = -90000 kbit/s is
-stored as 4283717296 bytes/s instead of -11250000.
-
-Then in cbs_dequeue_soft():
-
-	/* As sendslope is a negative number, this will decrease the
-	 * amount of q->credits.
-	 */
-	credits = credits_from_len(len, q->sendslope,
-				   atomic64_read(&q->port_rate));
-
-With the wrapped value, each 1242-byte frame at 100 Mbit/s adds about
-425000 credits instead of subtracting them. q->credits never goes
-negative, and the "if (q->credits < 0)" throttling branch never runs.
-
-Wouldn't throughput then be limited only by the q->last estimate, close to
-line rate rather than idleslope?
-
-The "before" numbers in the commit message (idleslope * port_rate /
-|sendslope|) only work out with a negative sendslope. Could they have come
-from a kernel older than 000db9e9ad42?
-
-cbs_dump() also looks affected:
-
-	opt.sendslope = div64_s64(READ_ONCE(q->sendslope), BYTES_PER_KBIT);
-
-On 32-bit this would report 34269738 to userspace for a configured
--90000.
-
-The same unsigned 32-bit multiplication would also wrap idleslope above
-about 34.36 Gbit/s.
-
-Should the slope conversion in cbs_change() use signed 64-bit arithmetic
-too, for example (s64)qopt->sendslope * BYTES_PER_KBIT, and the same for
-idleslope?
-
-[Severity: Medium]
-The commit message says:
-
-    Cast len to s64 so the multiplication is done in 64 bits on all
-    architectures.
-
-Is the divisor in this expression also safe on 32-bit? It is computed in
-cbs_set_port_rate():
-
-net/sched/sch_cbs.c:cbs_set_port_rate() {
-    ...
-	port_rate = speed * 1000 * BYTES_PER_KBIT;
-    ...
-}
-
-speed * 1000 is an int and BYTES_PER_KBIT is 125UL. On ILP32 the product
-is computed as a 32-bit unsigned long and only widened when it is
-assigned to the s64 port_rate.
-
-It wraps for link speeds of 34360 Mbit/s or more. 40G gives 705032704
-instead of 5000000000 bytes/s, and 100G gives 3910065408 instead of
-12500000000.
-
-On such links, wouldn't the q->last estimate here (about 7x too long at
-40G) and the per-packet charge in credits_from_len() both still be wrong
-on 32-bit?
-
-Before 000db9e9ad42, the local (1000LL / 8) made this product 64-bit.
-Would it make sense to fix this in the same respin, since it has the same
-cause as the sendslope conversion?
-
+On Fri, Nov 20, 2026 at 07:58:55AM +0100, Omokefe Emmanuel Onanaroghene wrote:
+> receive_once() waits 3ms for a packet but only checks for errors
+> (i < 0). On timeout (i == 0) it falls through and uses ev.data.fd
+> uninitialized. recv() on a garbage fd fails with a misleading
+> "failed to recv" (or worse, blocks or returns a bogus fd). Report
+> the timeout for what it is; errnum 0, since epoll_wait sets no
+> errno on timeout.
+> 
+> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+> ---
+>  tools/testing/selftests/net/reuseport_addr_any.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/net/reuseport_addr_any.c b/tools/testing/selftests/net/reuseport_addr_any.c
+> index 1c43401a1c807..2e8aa83f68dd0 100644
+> --- a/tools/testing/selftests/net/reuseport_addr_any.c
+> +++ b/tools/testing/selftests/net/reuseport_addr_any.c
+> @@ -155,6 +155,8 @@ static int receive_once(int epfd, int proto)
+>  	i = epoll_wait(epfd, &ev, 1, 3);
+>  	if (i < 0)
+>  		error(1, errno, "epoll_wait failed");
+> +	if (i == 0)
+> +		error(1, 0, "epoll_wait timed out waiting for packet");
 >  
->  	return skb;
+>  	if (proto == SOCK_STREAM) {
+>  		fd = accept(ev.data.fd, NULL, NULL);
+> -- 
+> 2.43.0
+> 
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119053357.2033707-1-mhm.dawod%40gmail.com
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
