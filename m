@@ -1,53 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405291;
-	b=SwduPoLoE1NYK8zAlSSmFjKQG+C8ZVbXu4P5oDYBk+K7eN42Ykwv26ValVGRwRd7V7gU
-	 elnvdKv1ULbDjJbyfBqIOzD+iw8VeX9XcA7s8zCrRt+eQTpUNDuksR36EaBHmPj7JWf23
-	 VtwrFQs8MIQIHI8dFPlF8g9JXfZlLZ1TwdnGusaAEFwZgksJrTXeTOoIZ2QRe/8UMP3D8
-	 Ja6QFhv0CNt23B+zu0fym/EFunY1sfmlTRKZOD4oSE13+3uF6f3xkONrP0d/1a6+IvlUM
-	 espew2XvHVS9Tk6WmQdI0BfVevj8nB+RmkxMKO6HpwKeWrYdd5din2VVPMKPl395Y/w==
+	t=1795405332;
+	b=JdPQ2URD+V2nSSoUGWMuxrok7vdUYSH0hVowFV9cc8kuy+OJIIS0BFldzvqslMxaZquL
+	 Y6/PafN97MgJwJ5z8uWnCtDm0mO9sFuJXm79PrcDmGbNgd0BbNFUexobEDPRdOWzmIXN/
+	 NtdYhLWQEkQUE2J+iP6HYaUYa+4YRTIkEnSqvxycHV3SErie+xN9NP01+T6y9uoL2wHLV
+	 dVZTJuACHBzoj6QhzsMrgtoaTZ/gvAAZ2DXoqRS0dDaBDi8slv7MfZwWuQcSKdhYn8Ev4
+	 Ilx4krBdufSl8k61nQhNsefMCknqsj+O+og8VPzaKdNrfKETN257mo8vDnpbpZ6cS1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405291;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-CM-DELIVERINFO:X-Coremail-Antispam;
-	bh=azLotfhPz62cI6ap9RyhSVO5lLTwfrHkxru9oRkeOnA=;
-	b=Yhr3iElMf3d4+OWHZ5QZaNFWzygNU/OtnsuVxUjCSSbYA+5CTbMKWTVenlqbRtTv/rFX
-	 tWIqv5SK5vhDwx0wi7LL8EZEtHWHXMMPIvHN2AWeOf+KY6XliNIqTc/MF4BCH1VlLNKCG
-	 0RURa9deDyqhLoS/kgKpTz7sTGi/Y8QBiWUbI7+DtQCP2ybYSX+W5qK5ZqybGWkycX8Ll
-	 vZwX7jPJH4zYBJ4Ncbdse5+k2wzMPIrMC0a2xu6gx0mLcN7/9QAd5dpSfIxl+Y0htwzyn
-	 EIHgmtOOVu2hLRS2JgP/S6NhlfIAcvZ0rawitSB9op1CWAtYNUUG0sBixPb04zXxJjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405332;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=J82r7e/StwMZ0ryZHVu12IQ8HJkOX5ETc1NfMu0E98o54ACoqdu/sHg8A0Q9UyjID4fW
+	 RzaBrGekdrU6rtP0PDPC33Ll632dQtcut++r233SLNrCAQeUsUrROdI5xdbRx8OeI4M4x
+	 z7+TMZoDrvEY/WAKHyAjXg1w/9bQHOCC4DbcdCm6EqQYbuVfa2hCBSZ3Z62azqv/Qnujd
+	 v5K8HoMZmMk4tUV42bHaEpo8Ds5VYowvd+E6DlTTgUhyW7F2sPkG/XDd2SDynKpdRXY1Y
+	 /iTFlRqXfiiq1MDt+xZaQ8ejo1ikpYVShRLlhdawPUaVKXeL1sCB/mWcCAPDQv6dmow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zju.edu.cn;
-	spf=pass smtp.mailfrom=zju.edu.cn;
-	arc=none smtp.remote-ip=132.226.202.154
-Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E1F01606A31A;
-	Mon, 23 Nov 2026 03:41:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1F01606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
-Received: from zju.edu.cn (unknown [123.60.231.41])
-	by mtasvr (Coremail) with SMTP id _____wBXQT_jtQNrujQtAg--.206S3;
-	Mon, 23 Nov 2026 11:41:24 +0800 (CST)
-Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
-	by mail-app2 (Coremail) with UTF8SMTPSA id zC_KCgCn_XvftQNrPGoFAQ--.43947S4;
-	Mon, 23 Nov 2026 11:41:20 +0800 (CST)
-From: Lin Ma <linma@zju.edu.cn>
-To: netdev-bot+sinfo@kernel.org
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	netdev@vger.kernel.org,
-	linux-afs@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lin Ma <linma@zju.edu.cn>
-Subject: Re: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
-Date: Mon, 23 Nov 2026 11:40:31 +0800
-Message-ID: <20261123034031.4039623-1-linma@zju.edu.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179535620364.3294.15218868114054377349@kernel.org>
-References: <20261122135515.3989708-1-linma@zju.edu.cn> <179535620364.3294.15218868114054377349@kernel.org>
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WOWgWcon;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31F56606A331;
+	Mon, 23 Nov 2026 03:42:12 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WOWgWcon
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3254E1F000E1;
+	Mon, 23 Nov 2026 03:42:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795405331;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WOWgWcon/9A5o2G54x/McltxY6Z+1qA7UflxclySP7yK94QwOaja3Ebwf/wv9aAl1
+	 BVhMG0CNmHK/AlaWfBj0xw5sXhLLgknnbTyQHEpAC9bi070kVonwNI68eHjaeBmYbU
+	 F5uHR3gJLRQz2AqWfs0hqYWtN9UFWvhyT0UZ3r9bSiZxzUWj//Tfl1PyAm6IIVxYQr
+	 BKgrWux17TcdrYdb4xivQCHtgs7g5DglpUyx/AbJ6SdqmyLx7t/nHkVnb1yPddb5Px
+	 EcBAbatx5QChiLhrdJeOyJCQ84dRw7ScR9i1xRWbdkJ1g0xZwjExnDE4x8mkah2oTB
+	 fqf5y1fObO+bA==
+From: netdev-bot+sinfo@kernel.org
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, 0x7f454c46@gmail.com, fruggeri@arista.com,
+ noureddine@arista.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 net] net/tcp-ao: fix reset key lookup for IPv4 segments
+ on IPv6 listeners
+Date: Mon, 23 Nov 2026 03:42:10 +0000
+Message-ID: <179540533075.3294.4368058624378409639@kernel.org>
+In-Reply-To: <20261123034047.56745-1-dennylin0707@gmail.com>
+References: <20261123034047.56745-1-dennylin0707@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,41 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zC_KCgCn_XvftQNrPGoFAQ--.43947S4
-X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAysY
-X-CM-DELIVERINFO: =?B?BE6+LgXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
-	APHnkvfpsecr7gZmVpD/pedGcJgL4JeUGI23A+VlFyLKqioogTwNHZZ/No11c6+1MrpssW
-	4zTpECUvEJiCCFcCXeDkI+McodZ3My3mpEjY9W5swLa7aL9TrYPqQporRIXIRw==
-X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
-	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
-	BjDU0xBIdaVrnRJUUUvmb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26c
-	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
-	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxV
-	AFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x02
-	67AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI
-	0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280
-	aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48Icx
-	kI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4U
-	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
-	AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
-	cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
-	80aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI
-	43ZEXa7IU801v3UUUUU==
 
-Hi,
+Hi!
 
-Found by code inspection while reviewing the RACK/TLP retransmission
-path, then reproduced on a KASAN kernel.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-The symptom is a KASAN null-ptr-deref in the
-rxrpc_resend_tlp() -> rxrpc_retransmit_data() path: a write of size 4 to
-NULL+0x24 (txb->flags |= RXRPC_TXBUF_RESENT), because the TLP fast path
-selects a slot below the tail queue segment's base.  That happens when
-rxrpc_transmit_fresh_data() advances tx_qtail/tx_top and
-rxrpc_send_data_packet() then fails to allocate its wire header before
-tx_transmitted is updated.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Thanks,
-Lin Ma
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
