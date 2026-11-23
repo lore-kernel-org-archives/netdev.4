@@ -1,79 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795444263;
-	b=B1FqT1agfXwnuYUJZB9Q4eEJXnrGM0u5/GW/+ziosIgAaO8PGK1cT2zh1eu/LTnpgBs6
-	 /362NwcbBG5PTh1m9YpROhHaKVfo6BiGxrgQseSL39dUtbKYAKRNLytLAFgn3hiOwBeO5
-	 AN7YVGjHYCj/sZWBNKcYjqSY16WGG7dpJ/sBEoahgiARGFLPq5josYT0XFNVpsrczFCjz
-	 NKKUCktaZAZ7KH2ZLlNtPmOGTEzhhrVdGYW+e4WOBeBdcZTfD59QPkoE/QbI3xi0HRRru
-	 dlziT6z01cBnXDsoSRiEbn0ZoD9OyGzsWMvbUUfb5CUetVU3dyvmu3Da8WnCK4I/a1w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444263;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xrLaKHA3sJwjAre87JnUl3Dnk2NMJRvKap97XCVKh7o=;
-	b=B4kGpQGdppHkwCli8o+2p7Go1+7rvf2Uk5kosVwz0GYujHeKveKrFbjjtX/6Cq5hRRvT
-	 3ubEQiZl6wyn1Fc1OnT/E+fjVXVii+WOxH3lzjCTIKbXHRRr5x7cYEPSTQvgLHg+9NSDu
-	 NJPCRKQSzZKlOVPsbIbgerPs8UIVL05luYwb9FwuSeNbw89P/ryfXDIexRGvPYYCAhlqG
-	 Ie5GB6qNjm43Pjg/SMho0i/dZML9P4Y5xwLeuF0cPLcjyQm33YV8oP1fWofNntBWrrZ1Y
-	 7wBOUjpXSRQmzeiNZGIrUSyNaki+ak7c+lv/N2f0fFQhn4MfQlsQwM6eVmzplkRgQjA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X23225MT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60048606A32E;
-	Mon, 23 Nov 2026 14:31:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X23225MT
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795444263;
-	b=YjX1CFzB0IX7sSz/QchQzmS13swHdrqZM1fUxq+ENXJPQOp1qhKTZNE2CczqQot2EbYR
-	 v4l8Hyi/tiYQgQBrwCuO98xQ3GrUv7lxggBdIyyhLJUT5XSAkW5HRYvuEktyVtLHWE3de
-	 DK9ZxvX587NvOUVkQbFKwx1uw7z63jZlA690xMlSAibQKmE/vahIG5cINoefM2rZRcm/q
-	 RxSMKT0S6szjjoHuWUb8yE9jXdV1dcCgN3X5p9ex6aQGfG30fdZO6AiSa6A9uwSTlwXJa
-	 nkvnT/0ZIzHF31JyURlaHCFT6J9DnVdySqx5JlqitvJia4S4GDUNbrFH+avEBSmZ4KA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795444263;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xrLaKHA3sJwjAre87JnUl3Dnk2NMJRvKap97XCVKh7o=;
-	b=pmi1Qk4iAVVY0AU3VxsVA0YlBbrpmfV4Gi7kWIhQzzzTU3twOQ2kRWxnN1PrST5pkRFk
-	 DeYyTgfnKH7Z3uJW/2YDI3vQQ9/SNR0QQGjRdUQCP4hrwSRFZjiLd326GaAC0PaRvvd5N
-	 qPWytDFQUSOfomP9aszxMzzo2Og6+EmS5AVHnMrv6TLg9UZmqZFSgM+ILEKnDNcu9KSjt
-	 DRhenHCY65TxK8fmlvpyYueYuSd2jBIBLCzJQAI8/tjpezAz67BQHOzMiL8EHBICvDHgR
-	 dRHmhF6rKTAtIQMV6dVV99WInRUgg+ugk52VDcHplxkb8UTpV/whs0PBVW1OyowH1Yg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795444330;
+	b=uthZA+8F0ulqzI48f8aoibcaJPo6+m6BVmAdUcdIbotCB0kDGKsyWxvbSS+WFION3yvc
+	 47kZkSD2okpv7qlK6DEUGwyFk56hZ/f7Jo8Hdm89HWE+gl3qReygxPqmc1odin5d/iFWk
+	 Htyb197Bl4KYw+PnvCXPzZr1dY4Nze4yqvvwf//4pey8lAqlSZp7cV89FLafZqFS1Ahpd
+	 +ZEVo1kQKUu8aGsPOJvlHotWGCx0qypPgRXFEhymDoiaW+YMHWqiJ9E98Iom5jnzC/fTH
+	 nTjzC1JO8e49hg55JgHDYcOGec6XfS6HBuspi3DdL/CwoRhGa1wMchGtaHy0CLRkhtw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444330;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=F8jfPCUe7qNLVmh/bCCWGpaAKG7UBlJO6QYBEFeRggQ=;
+	b=RRV4jneR7YP3qXNEdGI+8K0txt5fMw08GLIDHdoV0Pcauu3CvRkLawD4iSXK+UAsPktc
+	 Cpf/rBnBaoupc66vIhhjZs6cVuHqA/YVFylff4WU0ZkUMM/2e0sBb2hyot9rE5ImkrUyW
+	 SSH3mUt5nVpmlZxrlhmLi/1duTdT9TCt7tP/+7RvImJ+EbyImmAf5agL/o1t2dg9m7bRj
+	 OSvo8jT8m4j+qkBpEe+Kn6eybLDZsHZ6SDOZdi+ke7xVGo+kNoZitCbdegT+OVzICdhfZ
+	 HGtqVfZ8o6niWJyTVlyhk7+MkJKtFG+eYm2VhciiwmUMqEJacgiDG/WIIvrJQbV/uCA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LG2GPrJf;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hdmzuS5m;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A8C511F000C4;
-	Mon, 23 Nov 2026 14:30:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444263;
-	bh=xrLaKHA3sJwjAre87JnUl3Dnk2NMJRvKap97XCVKh7o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=X23225MT00aLLFvrf2KvDneKDL6TCTl//ZcxB5aHy0CdThvZDHi4+dW1RPp4NtgXv
-	 7gzP2lEs9ofSTT3Myyb9bY6ZHxmfUMrPd7ZlrGPE+qo2ofAtNSgZxYSR2k/JBVUi82
-	 kdGnrSi2fiJLmUkz8b1+sKPC6LEg/cteyyamxNQKsdW0nF2hWb10yxsnJfgBYDQSv/
-	 F5+R9+V9T9Y1zp6cYm2zIS2QKuWdr3qtzbFTEahoWXQKp4rOm6HPw+iGth6+x2KwNG
-	 CUetOLOcw+xd6Qut2Nk9dmvdCBSKd4DU9YBrYP7QSGEkC0S79Ys+aJ2yEq4I/6Jz2Q
-	 ue+MfgzrbGZqw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 361944C4E2;
-	Mon, 23 Nov 2026 14:30:52 +0000 (UTC)
-From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Mon, 23 Nov 2026 15:30:43 +0100
-Subject: [PATCH net 1/2] ipv6: check the scope of the best source address
- candidate in a VRF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A28606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:32:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49A28606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LG2GPrJf;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hdmzuS5m
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795444329;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F8jfPCUe7qNLVmh/bCCWGpaAKG7UBlJO6QYBEFeRggQ=;
+	b=LG2GPrJfVVj1HBG7vAVfePCt/UJcEN7VCs4PKSi7M7Bc2NTC5kLQbLzfX6eFQwObAoB/Gq
+	0Spu2Q+yBHqlHZjDhZ5+BaSndZlj9BxEQyT7DZlLhoABwCfraFlHmajHAyhYKC5KZ8uROi
+	aSDl98l04kAf/Rr6Ya/AWMLcO3xyzTs=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-189-p8rCp4fCNDuZfZs4ZikT0g-1; Mon, 23 Nov 2026 14:32:06 +0000
+X-MC-Unique: p8rCp4fCNDuZfZs4ZikT0g-1
+X-Mimecast-MFC-AGG-ID: p8rCp4fCNDuZfZs4ZikT0g_1795444326
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4ab341c0696so953083f8f.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:32:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795444325; x=1796049125; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F8jfPCUe7qNLVmh/bCCWGpaAKG7UBlJO6QYBEFeRggQ=;
+        b=hdmzuS5m5zvAuAe7UrPm7CEjK88HUjKO9M3bpisGc6kQjz7LY8ITZC8Ml5wPGwbiBo
+         9s0JFfKU3/6I5YhEoRoYBU9UcUMuYSH/E2XjlCDqYt4Nz0ObPpxwUzuwAFAW/0eRVRFz
+         IZLAAWYfTHev0vLZzXz7PRORJPEk0F9E/VYOoVuPCwg54af9T0wk83w2WpivEMVjVmqG
+         blIBkRAjJRlJAewH0eEx7tGrmQOOYzZIubVmrWBr4JCyyKQbBxaGxuMcCy3nOKrzVdCz
+         5+9ASiemtaZgSgGChmZjTepsX/tx6Er6H+u3mJRMr7Rpr39ksMMxafbpHJ7oVgOMfLRY
+         tasw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795444325; x=1796049125;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F8jfPCUe7qNLVmh/bCCWGpaAKG7UBlJO6QYBEFeRggQ=;
+        b=0RtIWYqUSUIZY3vJM/o015Wqvhp43P/ZA1Meu80jQ/Ak5Ubdhggu4F6wINGTG6bB/u
+         Eqy+mZ3TjkqYBjFoFjA0dw+f/c8gLkHMW9eFK32HAlh6uBUXdl/HqOhohMR8TCXvvjaO
+         bMVdc733tVrokEjyL3inJUQmKhfNQsCd04LJbAzW53LiAilQtMEh5nj3pgqV6kMb5m/8
+         q3sLIU+fDMzsrCF2yUIVD2ciabUZdltnwI1zk8YVWzEaWPdKZUbVEpN5PQ8qpq71umwd
+         d1WxhJFth/RkTSf4ab3qGgqjTyzpjaH0sqiM0Vmqc4exMB/bYrEEtogWlepgiATtu8/X
+         zCYQ==
+X-Forwarded-Encrypted: i=1; AL+hErHwwayt7GCtCnQPW8MJfi1VfjA81eolGcP/akH5isxS1MhYwj8M0TT0Z4vCyWymSOGGFDoiCMo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nGxuJ1RU3y8BHLpQXzMmjjvDYI9Qzql0gUHbUurQyaaBU69ba
+	0unRv1697KKbJlt3NiUi2V3BXEj/3eeJV6Nud5zcLkQXKAby0RWPOthJ9ECtRUIUZUKc+BAtyBt
+	qr5Bg9KkaIIxepJiqCNikPhU/wnZXAt+SCDgnd0iDTkrPZS6RJhaa/Or5Eg==
+X-Gm-Gg: AZFdTZcwjX+O9Ln4PpP53j2AfalKc3XRodWmcIZP1YSx+POLuPmZkXemNlS8M4ETg5u
+	mV03Nz2D+v/VU6FKtVeRxSh6ml6nJjmht1cDw/9bHxnzNBal2OSaT51fLY0hQCM/XdnHnMabQn/
+	u+g0V26VRtJyYzGGH11pQrlaNKFJtYqGo1rfB/7/7zNdUp+xbAuLBDcnQ5w21e79XB4Gl6T6BKc
+	8ETBVTFpwL00p+Mq6dAV8ZWczo3XIE4GdCL/7KtAat7H0LbdflNGVRLJmGC/tErvLbIyhMmusL9
+	DqwsR0P5D/sVYs2e6FWjRntXlq638aFcamXg2rtCftKuHQyAJy+0mGFbK4HsPoHfkaeqIcLZsj3
+	HkSrbOhF+BQozbm2kFIRKdyngNqiwRT4K2DkogsIQQ+RU+aj2/nRiucNXFrhZctwSPahsPshgNn
+	ZNczH1PaDmRmO4Zz11HPeP0YEDbZdkTGaJ9p8bpauUXvLN
+X-Received: by 2002:a05:6000:4b03:b0:48d:ff71:dd9d with SMTP id ffacd0b85a97d-4abb2ce4d3dmr23940931f8f.23.1795444325654;
+        Mon, 23 Nov 2026 06:32:05 -0800 (PST)
+X-Received: by 2002:a05:6000:4b03:b0:48d:ff71:dd9d with SMTP id ffacd0b85a97d-4abb2ce4d3dmr23940880f8f.23.1795444325262;
+        Mon, 23 Nov 2026 06:32:05 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm23554628f8f.8.2026.11.23.06.32.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 06:32:04 -0800 (PST)
+Message-ID: <b745d596-97ec-409e-9673-176dce73f6fd@redhat.com>
+Date: Mon, 23 Nov 2026 15:32:03 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,104 +112,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-1-f667ab150ade@free.fr>
-References: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-0-f667ab150ade@free.fr>
-In-Reply-To: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-0-f667ab150ade@free.fr>
-To: David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
- Nicolas Dichtel <nicolas.dichtel@6wind.com>, Shuah Khan <shuah@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Vincent Jardin <vjardin@free.fr>, stable@vger.kernel.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795444251; l=2864;
- i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=qAK+JiLvzEBuj4PJyiZhxLv+qsyTNP8cUsd3PTIFVWc=;
- b=DoNrMRJhpkn60MdAaMHqnBimsK6qsAE7VwJ7xzOfpQ4Ctqle+qhdlT3jDGtjUw2NbvaSBuZo0
- Z7xr8V0IESzDym2QwpvPhYX0/MHuNXVJgwzsgTcwd9paGMhzyTXMQl7
-X-Developer-Key: i=vjardin@free.fr; a=ed25519;
- pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
-X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
- auth_id=871
-X-Original-From: Vincent Jardin <vjardin@free.fr>
-Reply-To: vjardin@free.fr
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 2/3] net: pse-pd: realtek-pse-mcu: ensure MCU
+ does dynamic power management
+To: netdev-bot+sashiko@kernel.org, jonas@jonasjelonek.de
+Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, sander@svanheule.net, russell@personaltelco.net
+References: <20261116115224.1454885-3-jonas@jonasjelonek.de>
+ <179506764349.3136.14504567519359431973@kernel.org>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <179506764349.3136.14504567519359431973@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-From: Vincent Jardin <vjardin@free.fr>
+On 11/19/26 06:54, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 2
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] rtpse_mcu_register() (drivers/net/pse-pd/realtek-pse-mcu-
+>    core.c:854-857) now fails probe on any error from the new…
+> 
+The above looks like worth to be addressed.
 
-When a packet is sent through a device of a VRF, ipv6_dev_get_saddr()
-first checks the addresses of that device and of the VRF device.
-It stops there when the best of them has a scope that fits the
-destination.
-
-Since the commit abb9a68d2c64 ("ipv6: take care of scope when
-choosing the src addr"), that is what the scopedist of the best
-candidate is tested for.
-
-scopedist is only written when the rule scope compares 2 candidates.
-With a single candidate, the rules stop at the first one, which only
-tells that there was no candidate yet, then scopedist is read without
-having been written.
-
-It is 0 with CONFIG_INIT_STACK_ALL_ZERO, which passes the test:
-a device that only has an IPv6 link-local address sends to
-global destinations with that link-local address,
-although another device of the VRF has a global address.
-
-  # ip link add site2 type vrf table 30
-  # ip link set site2 up
-  # ip link add dummy0 type dummy
-  # ip link set dummy0 master site2 up
-  # ip addr add fd00:91::1/64 dev dummy0 nodad
-  # ip link add dummy1 type dummy
-  # ip link set dummy1 master site2 up
-  # ip -6 route add fd00:93::/64 vrf site2 dev dummy1
-  # ip -6 route get fd00:93::1 vrf site2
-  fd00:93::1 dev dummy1 table 30 src fe80::5cb7:13ff:fe96:87ac metric 1024 pref medium
-
-When the scope rule does run, scopedist is negative, whether the scope
-fits or not: the test fails, and the other devices of the VRF are
-checked too. One of their addresses can then win on a later rule,
-the longest matching prefix for instance, over the address of the VRF
-device, which the first lookup is meant to prefer.
-
-So let's compare the scope of the best candidate with the scope of the
-destination instead.
-
-This issue was found for a development of a UDP tunnel device with
-IPv6 addresses in a VRF selecting an IPv6 link-local source
-address for a global destination: then it was confirmed with the
-fib_tests.sh case of the next commit, whose first two checks fail without
-this fix on a CONFIG_INIT_STACK_ALL_ZERO=y kernel.
-
-Fixes: abb9a68d2c64 ("ipv6: take care of scope when choosing the src addr")
-Cc: stable@vger.kernel.org
-Signed-off-by: Vincent Jardin <vjardin@free.fr>
----
- net/ipv6/addrconf.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
-index d9d13e78bf13b..656bf1ea26da8 100644
---- a/net/ipv6/addrconf.c
-+++ b/net/ipv6/addrconf.c
-@@ -1902,8 +1902,10 @@ int ipv6_dev_get_saddr(struct net *net, const struct net_device *dst_dev,
- 							    master, &dst,
- 							    scores, hiscore_idx);
- 
--			if (scores[hiscore_idx].ifa &&
--			    scores[hiscore_idx].scopedist >= 0)
-+			hiscore = &scores[hiscore_idx];
-+			if (hiscore->ifa &&
-+			    __ipv6_addr_src_scope(hiscore->addr_type) >=
-+			    dst.scope)
- 				goto out;
- 		}
- 
-
--- 
-2.43.0
-
+/P
 
