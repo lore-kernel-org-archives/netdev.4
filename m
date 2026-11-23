@@ -1,72 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461751;
-	b=AgEvzuDduvtY3pfp/duSYZw+xkzKn2+yviyBNqdJc3h3QU0V1j0EuBBw8NiuRxd5aHuY
-	 2ZFSu0jQjUDEf/431gDbvS55dgNaMgs4gNojyPKOoGvPaVVjMJ7gOZBpc4inVxGzTHO3n
-	 fsXigyBjlP5llz2tYJLLpYwyyTrSQUw0v2jerNyAByGRiCU4Y1NAEJ/bsGxdA4oerS5Ch
-	 HU0Mkb88yELRSBV12pylfKRlaE1kqvu6mY0TcndXVHBPB1lOzuNi2d6Om4+RB/YQpu0jp
-	 13O/MOzFeNCcBfd1VRqYBTtqmM3KQgDir4rHOUGYCnduI/MTTTPU5fmPQ4f1uNv9J4w==
+	t=1795461804;
+	b=f+KDmD4On+WB+S6AYWC8TA7YJ8crt/S1O3AJK6HgotBXS28kUjEB0Hh1FXSOV823vW0+
+	 Ke+gdOXSI4fkJ/Dl1Qnj9iuJXcuCjtQ90kcbXcsqsmAK1gOTf3BIOMHUyXkPZkcAU1Syw
+	 Hko5XNlP27v5qY76QLC/vWsRIPx9EZEg+qQTT4+VO5hnteC8ZK8DLoLw/JdhwmHL8CUO4
+	 OVyY7EhK3ZlKREohbBtDPEgZfVPo6qUm6plUeZeCk0qNe9OIHuml3nzyc2NF1827bOip+
+	 9Qqlc6xvkfRTjkiuuBMNFvw8CewKP1huX4D3VcCvmOopAKKCREvZ4unUJdXH2MKmHMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461751;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=ETps0+A920M+I0wsn4d1uMr+F5f++KxdjGc1y6/+WnU=;
-	b=G7JSllwIzeCjiqvMRQUrrp7tklkz9mCJQohKXqShDbm/NnOTA3ZCQ//MhlcjO813UT8G
-	 4xjCbNcuYn/aUNyz9DMxR0a48SXofvLfIC3EHSXp93i/HlG0oeYEgmmSFqWA7kajPJykE
-	 8RjrH02kD2tkbPfWg8wmqnLQWJZuaRNocY66advaFRu8DLOpesuIqbaNQRn7ROd7X0x2H
-	 zYXh86e3ggVuMWwewiv5qYgvv5DtDkZOg4mvIfX6c6dBEFkZffzF6rt1lSGSCGYjMh5fb
-	 sO9wvzvXH0GgUuTggcy6cKVkm2Yr/Rjj2Qub2dlKo3l8viiQAPXzGvXuMg549jMwijA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461804;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=fhUKm+do3TxAyyEFU4NqF0vG45kG3h279znbQEFbaTE=;
+	b=rXMEybIVDT9zKjOuOxloMtRYE4wveZ2vdek2jgouwReIvKb3N/OVJJMMZJ6FT89zOXif
+	 C6vhelzZvpqlwtfYsIsJAKyuZCixPFM4uk9E3nw43xt9dW3HBzQ2ZhyEb9tP+sbSCR78k
+	 cB6SOwN4UaTwOZl2qzcJIkicax5/OhXXrVpu8CdUu4h3KjottC6ngwfPQ+9qwJk1u79+/
+	 fBBUTPFXd4ogiyS82QrC2nGlGYkcmPJNUShS8+ljql8QXnTmkvy6PM+FYT6fa+FH77Nej
+	 pyX6XLnDwMZ1D5UcyCwaxb1oUK/im8RTdi62dfplxuxvTQtmTCYhNTR95rO7DGC5Oew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BoMeULWF;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MFBOQgTC;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70E50606A31F
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:22:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70E50606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9809606A31A;
+	Mon, 23 Nov 2026 19:23:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BoMeULWF
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-16bc6f3fdb1so2291467c88.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:22:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795461750; x=1796066550; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ETps0+A920M+I0wsn4d1uMr+F5f++KxdjGc1y6/+WnU=;
-        b=BoMeULWFWP5wAz1YCCVkQ2NzIWtEVoPuXzlaMGe3h9ArbVkxH5Qx0q85F4SRwAEvGy
-         Kd193zO/7vSlCrZAg4DbjrpUBrN9elJ2S/7NlzlPpyXOr8UM+g63CO5NR1ERTREu3d3I
-         ejooan5dzs0yQ7xQtC4Uv+1ynLn1wSAmv6cRDp/7VWifNNK6MiEG7LH8mkMfHfXqx/gz
-         U/Pvbz5X1m06NStiP+QPjhxh3yvG/MirJ/Ksh83Pr4alkVVrYQZ63oWqA1GfppPDyAN9
-         QflyXTrUgRiZyD4zLf2mu1tLCPvKn4ep1mrsY496FXBc5B5K1WqOdyemkz+b/+r/T0c4
-         5Ztw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795461750; x=1796066550;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ETps0+A920M+I0wsn4d1uMr+F5f++KxdjGc1y6/+WnU=;
-        b=KrBozsL9xGr/H66ag3dPmdAmQn5jV8QJTMmwAN76Oy/4+wsuohbT1zb6QItJam1GaI
-         HHSXLrGGk004arhD2ZTuZ6WCXAJBXLKTBT9JvRZNTbllQecQSQ6kwReAYW66eeoCJN2t
-         BI9i+am0iNRfL2TrHtKdrd5KoV5yvGejGoQuuVx+e4X3PylyuvefiR1l024aV2HRG5ln
-         zD5tEh6O35iMM3g8VaGXLL7Mq2FpayCFbmP7FLeCjkeUmH9q6Q09x7rdAAUK7C/1zC/E
-         cS0fcX/fzq+MTOl9MiV+3VfTtIyo65AFzYXWS9mhuIPThSqeky9sXOwGIJ3+ma7o5qly
-         PF5w==
-X-Forwarded-Encrypted: i=1; AL+hErF0ivS7gmpFEQs0oppX+6Cl3JWEKVFpvSMrEKpIRZ44H6DiF1e5v5/bsZem+tGf44XzjCxeBY8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+AIHueqIshYbFtgYmGkp5snb3Wb5csXWVRrfP5g51qJhvicJUa
-	igL1NGR04ICf5jc8MHHFkdL4SI3o/JQfAtyf+YwW4XFvE/SpJ7cxfgAq/i0wwGYXWzEpN5Itq9y
-	dRnAtgPhCyN5Nsbxv2kI04g==
-X-Received: from dldz14-n1.prod.google.com ([2002:a05:701b:418e:10b0:1a1:ce17:436b])
- (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:21cd:b0:1b2:4871:b1f7 with SMTP id a92af1059eb24-1b5568fbfcbmr10792987c88.39.1795461749885;
- Mon, 23 Nov 2026 11:22:29 -0800 (PST)
-Date: Mon, 23 Nov 2026 11:22:20 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MFBOQgTC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC111F000CF;
+	Mon, 23 Nov 2026 19:23:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795461804;
+	bh=fhUKm+do3TxAyyEFU4NqF0vG45kG3h279znbQEFbaTE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=MFBOQgTCSu5rbSwBW/SqlX9d7qB+cyS88fufP4nm9z+y7FDjjzNn9PpuH/+eYINrt
+	 QWDHRGjOzC4QzPBG4evm828OGlyOxi8jm03ZvymlmFin9qcvubM7Uuwvp/5bdBaOvk
+	 AnvXaQgrVx6/n9X3RK3rQdr1GLLAMgfxa/nB4XbDz72KxS0V3O7lAf8k0n22NG7aLx
+	 nW7rrx73FmRyvxZkbZ4Egv6SDwD9RLkqN5CvEv5kJkr8SrXJ52ZH7jzqlnRvv3uqKc
+	 5hr+bo42pefH9TQuWP4uiumJTz7RGmZqcCiHV7LmJYptN1VXcHey+YEFh4LTbjR0of
+	 HswAq/oDDClxA==
+Subject: Re: [PATCH net-next v2 1/2] net: bridge: withdraw the switchdev entry
+ of an fdb entry made dynamic
+From: netdev-bot+sashiko@kernel.org
+To: julius@bairaktaris.de
+Cc: razor@blackwall.org, idosch@nvidia.com, netdev@vger.kernel.org,
+ bridge@lists.linux.dev, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, olteanv@gmail.com,
+ vladimir.oltean@nxp.com, jbrandeb@kernel.org
+Date: Mon, 23 Nov 2026 19:23:22 +0000
+Message-ID: <179546180293.3135.5862034760494795708@kernel.org>
+In-Reply-To: <20261122192118.1204290-2-julius@bairaktaris.de>
+References: <20261122192118.1204290-2-julius@bairaktaris.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,105 +63,243 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261123192220.4013325-1-nilayvaish@google.com>
-Subject: [PATCH net-next] virtio_net: use page_private() accessors for the
- big-packets page chain
-From: Nilay Vaish <nilayvaish@google.com>
-To: "Michael S . Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>
-Cc: "=?UTF-8?q?Eugenio=20P=C3=A9rez?=" <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	netdev@vger.kernel.org, virtualization@lists.linux.dev, 
-	Nilay Vaish <nilayvaish@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
 
-Big packets mode chains its receive pages through page->private, reading
-and writing the field directly.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-struct page is being shrunk as part of the memdesc work, and its private
-field is one of those that will move. Direct users have to go through
-the accessors before that can happen.
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
-Use page_private() and set_page_private() instead, like the rest of the
-kernel, so that the driver no longer depends on where struct page keeps
-the field.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-No functional change.
+- [Medium] A late driver offload report can set BR_FDB_OFFLOADED again
+  after the new withdrawal has cleared it.
+- [Medium] The new withdrawal does its check and its action as separate
+  steps, with nothing that excludes the lockless packet path.
+- [Medium] The patch treats br_switchdev_fdb_notify()'s filter as the
+  definition of what is reported, and withdraws an entry…
 
-This patch was written with the help of an AI coding assistant (Gemini).
+--
 
-Signed-off-by: Nilay Vaish <nilayvaish@google.com>
----
- drivers/net/virtio_net.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+net: bridge: withdraw the switchdev entry of an fdb entry made dynamic
 
-diff --git a/drivers/net/virtio_net.c b/drivers/net/virtio_net.c
-index 0988a946ef35..5eef2c315963 100644
---- a/drivers/net/virtio_net.c
-+++ b/drivers/net/virtio_net.c
-@@ -680,8 +680,10 @@ static void give_pages(struct receive_queue *rq, struct page *page)
- 	struct page *end;
- 
- 	/* Find end of list, sew whole thing into vi->rq.pages. */
--	for (end = page; end->private; end = (struct page *)end->private);
--	end->private = (unsigned long)rq->pages;
-+	for (end = page; page_private(end);
-+	     end = (struct page *)page_private(end))
-+		;
-+	set_page_private(end, (unsigned long)rq->pages);
- 	rq->pages = page;
- }
- 
-@@ -690,9 +692,9 @@ static struct page *get_a_page(struct receive_queue *rq, gfp_t gfp_mask)
- 	struct page *p = rq->pages;
- 
- 	if (p) {
--		rq->pages = (struct page *)p->private;
-+		rq->pages = (struct page *)page_private(p);
- 		/* clear private here, it is used to chain pages */
--		p->private = 0;
-+		set_page_private(p, 0);
- 	} else
- 		p = alloc_page(gfp_mask);
- 	return p;
-@@ -881,7 +883,7 @@ static struct sk_buff *page_to_skb(struct virtnet_info *vi,
- 		 * Currently, big packets mode doesn't use page pools.
- 		 */
- 		if (!rq->page_pool) {
--			page = (struct page *)page->private;
-+			page = (struct page *)page_private(page);
- 			if (page)
- 				give_pages(rq, page);
- 		}
-@@ -929,7 +931,7 @@ static struct sk_buff *page_to_skb(struct virtnet_info *vi,
- 		skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags, page, offset,
- 				frag_size, truesize);
- 		len -= frag_size;
--		page = (struct page *)page->private;
-+		page = (struct page *)page_private(page);
- 		offset = 0;
- 	}
- 
-@@ -2705,7 +2707,7 @@ static int add_recvbuf_big(struct virtnet_info *vi, struct receive_queue *rq,
- 		sg_set_buf(&rq->sg[i], page_address(first), PAGE_SIZE);
- 
- 		/* chain new page in list head to match sg */
--		first->private = (unsigned long)list;
-+		set_page_private(first, (unsigned long)list);
- 		list = first;
- 	}
- 
-@@ -2725,7 +2727,7 @@ static int add_recvbuf_big(struct virtnet_info *vi, struct receive_queue *rq,
- 	sg_set_buf(&rq->sg[1], p + offset, PAGE_SIZE - offset);
- 
- 	/* chain first in list head */
--	first->private = (unsigned long)list;
-+	set_page_private(first, (unsigned long)list);
- 	err = virtqueue_add_inbuf(rq->vq, rq->sg, vi->big_packets_num_skbfrags + 2,
- 				  first, gfp);
- 	if (err < 0)
+Two paths turn an fdb entry into a user-added dynamic entry, which
+br_switchdev_fdb_notify() no longer reports. They are fdb_add_entry()
+("replace ... master dynamic") and the NTF_USE branch of __fdb_update()
+("replace ... master use"). Before either path does so, the patch now
+sends a switchdev deletion for the entry and clears BR_FDB_OFFLOADED, and
+br_fdb_offloaded_set() now assigns the offloaded flag instead of toggling
+it.
+
+> diff --git a/net/bridge/br_fdb.c b/net/bridge/br_fdb.c
+> index b601245ad9239..4af091c192449 100644
+> --- a/net/bridge/br_fdb.c
+> +++ b/net/bridge/br_fdb.c
+
+[ ... ]
+
+> @@ -1032,6 +1033,7 @@ static void __fdb_update(struct net_bridge *br,
+>  			br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
+>  			br_fdb_dst_write(fdb, dst);
+>  			fdb_modified = true;
+> +			roamed = true;
+>  			/* take over HW learned entry */
+>  			if (unlikely(test_bit(BR_FDB_ADDED_BY_EXT_LEARN,
+>  					      &fdb->flags)))
+> @@ -1049,6 +1051,12 @@ static void __fdb_update(struct net_bridge *br,
+>  	}
+>  
+>  	if (unlikely(test_bit(BR_FDB_ADDED_BY_USER, &flags))) {
+> +		if (!test_bit(BR_FDB_STATIC, &fdb->flags) &&
+> +		    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags)) {
+> +			if (!roamed)
+> +				br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
+> +			clear_bit(BR_FDB_OFFLOADED, &fdb->flags);
+> +		}
+> +		set_bit(BR_FDB_ADDED_BY_USER, &fdb->flags);
+
+[Severity: Medium]
+Can the packet path slip in between this withdrawal and the
+set_bit(BR_FDB_ADDED_BY_USER) below it?
+
+The NTF_USE branch gets here from __br_fdb_add() holding only
+local_bh_disable() and rcu_read_lock(). The packet path,
+br_fdb_update() -> fdb_find_rcu() -> __fdb_update(), takes no lock at
+all.
+
+Three things happen in separate steps: the check that the entry is still
+reported, the DEL, and the move to the never-reported state.
+
+Take M learned on port A, with a frame from M arriving on a non-sticky
+port B:
+
+CPU0 (bridge fdb replace M dev vA master use)
+__fdb_update()
+    br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);    /* DEL for A */
+
+CPU1 (frame from M on port B)
+__fdb_update()
+    if (source != old_port) {
+        br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH); /* DEL for A again */
+        br_fdb_dst_write(fdb, dst);
+    ...
+    fdb_notify(br, fdb, RTM_NEWNEIGH, true);           /* ADD for B */
+
+CPU0
+    clear_bit(BR_FDB_OFFLOADED, &fdb->flags);
+    set_bit(BR_FDB_ADDED_BY_USER, &fdb->flags);
+
+CPU1's notifications get through the filter in br_switchdev_fdb_notify()
+because BR_FDB_ADDED_BY_USER is still clear.
+
+Once CPU0 sets the bit, the filter drops every later notification for
+the entry, including its final deletion. So the hardware entry for B is
+never withdrawn. For a host address on the DSA CPU port, the refcounted
+entry from dsa_port_do_fdb_add() stays installed after the bridge drops
+or moves the entry.
+
+The second DEL for A has no matching ADD. On the CPU port,
+dsa_port_do_fdb_del() returns -ENOENT. With fdb_isolation off,
+db.bridge.num is 0 and shared across bridges, so it can instead drop a
+reference that another bridge holds for the same addr/vid.
+
+fdb_add_entry() holds hash_lock, but the packet path doesn't take it. So
+the same window exists there, between the DEL and the later
+fdb_update_dst(), set_bit(BR_FDB_ADDED_BY_USER) and clearing of
+BR_FDB_STATIC.
+
+The following patch in the series only adds clear_bit(BR_FDB_OFFLOADED)
+on the roam path, so it doesn't close this window.
+
+>  		if (test_and_clear_bit(BR_FDB_DYNAMIC_LEARNED, &fdb->flags))
+>  			atomic_dec(&br->fdb_n_learned);
+> @@ -1262,6 +1270,12 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
+>  		if (flags & NLM_F_EXCL)
+>  			return -EEXIST;
+>  
+> +		if (!(state & (NUD_PERMANENT | NUD_NOARP)) &&
+> +		    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags)) {
+> +			br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
+> +			clear_bit(BR_FDB_OFFLOADED, &fdb->flags);
+> +		}
+> +
+
+[Severity: Medium]
+How does this withdrawal interact with br_switchdev_fdb_replay()?
+
+The patch treats the br_switchdev_fdb_notify() filter as the definition
+of which entries are reported. Replay doesn't use that filter. It walks
+every entry, including user-added dynamic ones:
+
+net/bridge/br_switchdev.c:br_switchdev_fdb_replay() {
+    ...
+	hlist_for_each_entry_rcu(fdb, &br->fdb_list, fdb_node) {
+		err = br_switchdev_fdb_replay_one(br, nb, fdb, action, ctx);
+    ...
+}
+
+When a DSA port leaves the bridge, a converted entry gets a second DEL:
+
+dsa_port_pre_bridge_leave()
+    switchdev_bridge_port_unoffload()
+        br_switchdev_fdb_replay(adding=false)
+
+added_by_user is now set, so switchdev_fdb_is_dynamically_learned() in
+dsa_user_fdb_event() doesn't filter this DEL. It reaches
+dsa_port_bridge_host_fdb_del() or dsa_port_fdb_del(), and
+dsa_flush_workqueue() runs while dp->bridge is still valid.
+
+Before this patch, the replay DEL was the only DEL for a converted
+entry. Now it has no matching ADD:
+
+- On the CPU port, dsa_port_do_fdb_del() returns -ENOENT and the driver
+  logs "port %d failed to delete %pM vid %d from fdb".
+- With fdb_isolation off, it can drop another bridge's reference for the
+  same addr/vid.
+
+The other direction has a problem too. A port that joins after the
+conversion gets a replay ADD for the user-dynamic entry. Its later
+ageing or deletion is filtered by br_switchdev_fdb_notify(), so drivers
+can still keep the entry after the bridge has dropped it.
+
+That direction already affects every user-dynamic entry since commit
+927cdea5d209. It doesn't match the commit message, though, which says
+br_switchdev_fdb_notify():
+
+  "reports neither the addition nor the deletion of an entry that the
+  user added without NUD_PERMANENT or NUD_NOARP"
+
+Replay reports both. The following patch in the series doesn't touch
+replay either.
+
+>  		old_dst = br_fdb_dst_read(fdb);
+>  		modified = fdb_update_dst(fdb, old_dst, dst);
+>  
+> @@ -1706,8 +1720,8 @@ void br_fdb_offloaded_set(struct net_bridge *br, struct net_bridge_port *p,
+>  	spin_lock_bh(&br->hash_lock);
+>  
+>  	fdb = br_fdb_find(br, addr, vid);
+> -	if (fdb && offloaded != test_bit(BR_FDB_OFFLOADED, &fdb->flags))
+> -		change_bit(BR_FDB_OFFLOADED, &fdb->flags);
+> +	if (fdb)
+> +		assign_bit(BR_FDB_OFFLOADED, &fdb->flags, offloaded);
+
+[Severity: Medium]
+Can a late offload report from the driver set BR_FDB_OFFLOADED again
+after the new withdrawal in fdb_add_entry() or __fdb_update() has
+cleared it?
+
+DSA programs FDB entries from an ordered workqueue:
+dsa_user_fdb_event() calls dsa_schedule_work(), which queues on dsa_owq.
+
+When an ADD work item finishes, it calls dsa_fdb_offload_notify() with
+offloaded=true. That goes through br_switchdev_event() to
+br_fdb_offloaded_set(). A DEL work item never reports offloaded=false.
+
+For example:
+
+  bridge fdb add A dev lan1 master static
+      queues ADD work
+  bridge fdb replace A dev lan1 master dynamic
+      fdb_add_entry() queues DEL work and clears BR_FDB_OFFLOADED,
+      which isn't set yet
+  ADD work runs
+      programs the hardware and reports offloaded=true
+      br_fdb_offloaded_set() -> assign_bit(..., true)
+  DEL work runs
+      removes A from the hardware
+
+The entry is now ADDED_BY_USER, !STATIC and !EXT_LEARN, so
+br_switchdev_fdb_notify() filters every later notification and nothing
+corrects the flag.
+
+fdb_fill_info() keeps reporting NTF_OFFLOADED, and
+"bridge fdb flush ... offloaded" keeps matching the entry. The NTF_USE
+path in __fdb_update() does the same when a learned or host entry still
+has ADD work pending.
+
+The commit message says the clear is there so the entry is not:
+
+  "still be shown as offloaded, and matched as such by "bridge fdb
+  flush", after the hardware dropped it"
+
+Moving to assign_bit() stops a concurrent report from inverting the
+flag, but it doesn't stop a late report from setting it.
+
+Could br_fdb_offloaded_set() ignore entries that br_switchdev_fdb_notify()
+no longer reports?
+
+The following patch in the series, "net: bridge: clear the offloaded
+flag of an fdb entry that roams", doesn't touch br_fdb_offloaded_set(),
+so this window is still there at the end of the series.
+
+>  
+>  	spin_unlock_bh(&br->hash_lock);
+>  }
+
 -- 
-2.56.1.839.g22a8290db9-goog
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122192118.1204290-1-julius%40bairaktaris.de
