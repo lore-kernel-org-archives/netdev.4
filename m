@@ -1,54 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421358;
-	b=XVwugYnhzMTe3zneacR857U9F2ZEbELqYJpZ3FvD3+m3bw5aJbG6KdH9Kq3rbCo7LvGQ
-	 UyzQmXXaVrzCbXlVT7p72x2ZSSrhoXFZqLkzvazqHvHUpPx5XUAsk4k60tW1Sb3SFrkmH
-	 uzwCGrp6DYU98Cxl3kUTgREYaeF06Vlw3vhn+/f5CH/DPsU17zYObNbL6AbkJgfvot3hk
-	 Bsui0Ehs9imOpYClYwTmJjsCLsjbOcfTT5lIgJIBeYTWuO+XZJWYHjt6aPYSLPFEBGq8g
-	 TVtPj8Y/memuHplWpfA50R5m/FNQ1yb/vI6qzENQ34JJxny+N5FBncmO9viXcEHjmgA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421358;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 From:Subject:To:Cc:References:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=rkqgWRc27otdpALibzeS4RLFb3XtiaNFEPnkvU5rUjI=;
-	b=mHEoiuCoVnj80PTWDuEc2yPqRo3ZwFoYUSEESvM5UsY7aoNN59ZzwLjgiigaypp9nj9y
-	 WCgSHKxasEQ0zXrROt63I7e83IUPa8X2mbsjackFHtbSxzg9IvM1HYezg9t+0N4WUugOR
-	 RE41KWttr1afj+mn9zRcB1RSSqWL5OlB0FjMsFnRf1OKPRUxd3NL7jJSvBuRQ1ELN67dn
-	 TUmmMcNd3ra/wa2jgq0XMZGJ4jRh3jsr+C0nUzlKFAF7IzJVZH5em/n1iwtINm9SY2jif
-	 VoQubwtNYHCYvPTDVoUL9xW6MGVrmamm0y2zMsiEVY7jRy/FQrdNC+UQVGzN4qM/+Ew==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JauWTYqS;
-	arc=none smtp.remote-ip=95.215.58.46
-Received: from mta1.migadu.com (out-46.mta1.migadu.com [95.215.58.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.24
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795421435;
+	b=UruPV6mEMAFCFtUyrtifZFZ3ZG8aFocsLWfq0U8K1/ukOrvJjAI7KA1RKQE99D3qrXQn
+	 YLp35Ng4TVCqVL1Ueop2JtVKwP4IDXSu6+bjAmIqS/SdPupaNG5JDFQpEPDEcUEcmwjMc
+	 QLODPTtoqV1MF6JDMt9dHo/4zYwNYlzhQXj56oOzXZwQ4QQBn8qe2btlZQnmLR5/yq6f7
+	 sVq/hkY54VX8+Z3dyeLGv2U2Im40+oa0xrDuYgdbJaMmR4zrvD5u0Z6g0uYZ4lcRrNRgf
+	 zCGJd6n/tPVNNAj85UgXoMyC/5lXUjP19k9zuA3bSJjMvix4zWGBLJrfxehEZQU+PAg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421435;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=yFCqd4c8p9Cms/L1QxIcwZsgx91DTEEaA9d4yZVBpyY=;
+	b=Ls5JC1rNRybH0GvlNfxR408ophipr06C9pnQF0MfV8uxSiN4Y1Nyas0P9jf1wwOc//Zc
+	 6sHQinPaHoaJb0om9dBpvwaneoJG0g+3qg4ASxI75B6jXggu3KcnQzt3iwP+NSr4+qnZh
+	 x/jElQRsk0aj+ksXZLzRezB+uD2Wl0Bd43NP3K9fSgil0Qt+dNts1Uo9GbUQgyuJOl6e6
+	 N0Dmnwhrp7u73yTq6gtIGXkMxWVzWawHr4t88rTQZ+AGzfOQC0lJPNZVVRO5aadG0XFQj
+	 5UpbDGnevqPBO4NBDoB0kujT9uP71FeDeK0NzyS4crRJGv3j65cILjsw5g4db8dFwfA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=khLgo4PX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.24
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012024.outbound.protection.outlook.com [52.101.43.24])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 047E7606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:09:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 047E7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BDC3606A6B7;
+	Mon, 23 Nov 2026 08:10:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BDC3606A6B7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JauWTYqS
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=zWleqOppfklU2qNEH6k+5t2FcbXOtb2beCUwX3nqER4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795421356; v=1; x=1796026156;
- b=JauWTYqScQYdIL9n4iWIfYXBR+0eGfLWwPLLUUS7kFHE4A8B+Z7E4xCbrZG4CUV7hsRUKJp9
- Iypsz7Fovu1jcOFvRCkIyKfDBg+dbyF5fd9nmyVMrb9+natPdIOkRYnWLL5CIyx2GyZoob0/urO
- KvS4NQt0h3i1T2RY84BQE9uQ=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 0cf66a178946746f;
-	Mon, 23 Nov 2026 08:09:15 +0000
-X-Mizu-Trace-ID: 0cf66a178946746f
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <037c23b7-7b9e-4a9a-b608-552e419fcec5@linux.dev>
-Date: Mon, 23 Nov 2026 17:09:06 +0900
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=khLgo4PX
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Nj4ixymjJgCoD+lNcWpDXYEd001ZiLS2yH4MiSxTricbqEyV/RaIxyQQlyLZli1CnkdfovDOur3Ys3Lv+/ce4gmsd7B6jp10qZZjFDnQP8X7Fsi70Q85jeqafM2PGaMPsayXsPyhkYF6K4AjrdT0ODCYMAbnIdnxG51kCvG3fAk+lH5EPvkJfzfxrbKcbgY1kVrCw9fIwqwImPVG8+r5ufLtuIFiyrfYJS4gnxKxMeISSeAFUyE6mCfbVaiFed3Q74H1FFvB0EM8dUCi111kXnyvy2zI4Oc4MUr92JtOzfWqgUltNnrqFYQ/RNGBu6rpfOv7BPKCNWC2MJP1QoniFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yFCqd4c8p9Cms/L1QxIcwZsgx91DTEEaA9d4yZVBpyY=;
+ b=egNXAv7kxCONVx5yHntw9NH8DlmzM7/Xqp6vzOBhpYM2kNSU8lgRzjmj57cDWlD9nExazwH1oRj9BmAhm8kgqyYoH6hcyjGeYQOPLghgd/MRVW8LsxiahwUOMis0Sk9L7uv9rTlHtTo0Gpp4jCM59lmvR5fUpUVK8UTbbJub8to6VYeQwpB9N1o3b7NN00Qh/FXc8DVbFLerwKgw5fvH8tFre2clctb8f222ZHWSgS3fRgxc7qTs+AR/2BnEpbAfvllAanS7O+P4Pg2zPEu998JGU1gtPuyfTd9+w9QxDpD4djufgI9vhA5hFY3/lavbIm5FJZjg9S5S+huv5wQ+mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yFCqd4c8p9Cms/L1QxIcwZsgx91DTEEaA9d4yZVBpyY=;
+ b=khLgo4PXEloBBRhk2wRUurzufS6ke9cogIIBdc/Q06t+L94fzL3AFFTOtBGGXFTr9GlHUr0g9/EFO2FE0Ll1HaNRHmM8aCj6p+/gJgmXWv0WCr0Q/Ek+bYm5xfTq1d6beREPCrcdF2HpKvsF8gw/eYJZimKYrhzOnvzzgXgfA1KMDeEqmonyWRfnac4GLbby0EdU1Q9b4Miz2KUOHqv20fePTFDk8jQ6SAecsub6hcrhCP3Qfli3kBjZpnAlIec1lmErpMvn8sbKiZ5fF7txLYuSM/aPtED8VPMDQew/oHmlTTCJqLPrNwmTIkU0te2lJShcZH+PoXp4JphOYmfBmw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by CHBPR12MB497579.namprd12.prod.outlook.com (2603:10b6:610:33d::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 08:10:30 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 08:10:30 +0000
+Date: Mon, 23 Nov 2026 10:10:22 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	pabeni@redhat.com, edumazet@kernel.org, willemb@google.com,
+	horms@kernel.org, razor@blackwall.org, dsahern@kernel.org,
+	shuah@kernel.org, bridge@lists.linux.dev,
+	linux-kselftest@vger.kernel.org, kyuwoncho18@gmail.com
+Subject: Re: [PATCH net 2/2] selftests: bridge_mdb: Test failed source list
+ replace
+Message-ID: <20261123081022.GB3126678@shredder>
+References: <20261122072504.2623702-2-idosch@nvidia.com>
+ <179541888360.3135.4706984344785286288@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179541888360.3135.4706984344785286288@kernel.org>
+X-ClientProxiedBy: TLZP290CA0009.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::18) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,77 +100,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-Subject: Re: [PATCH net v2] netdevsim: fix rate node leak during reload and
- removal
-To: xietangxin <xietangxin@h-partners.com>
-Cc: Dmytro Linkin <dlinkin@nvidia.com>, Vlad Buslov <vladbu@nvidia.com>,
- Jiri Pirko <jiri@resnulli.us>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com,
- gaoxingwang1@huawei.com, huyizhen2@huawei.com,
- Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-References: <20261121110858.1337003-1-xietangxin@h-partners.com>
-In-Reply-To: <20261121110858.1337003-1-xietangxin@h-partners.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|CHBPR12MB497579:EE_
+X-MS-Office365-Filtering-Correlation-Id: 70a4b1e0-1a0e-4952-1099-08df49393da0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|18002099003|22082099003|261026140227099003|261026121527099003|261022105027099003|261028144727099003|56012099006|10067099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	hvVa3H+kK3oGQ/qDLC7J3zEKD/HieDSZ2r4n0Y0A9B1x17BAWnW5Fqm5m290h4ml9SYCj3LRhTXHi1ey+KH61pfL0kUOcif3EqgpCClJTXvMid0DbKT4ydowWI1D560PmNc+1Wf/Cx7nq2SvMkPClxNnyNRA+GnriAVgcdFdlRmVEPwPw8uyUlq5rJL1d1UjNem7RMHpPS/g2PhPGt/b9vn2GffT0A/Cqxg5jrktqmOVND/xexOkE/ZXUl4mphVuLPCYTUfDYrSyl+6ds0/8Ky/FAYi6CD1xkSLhtvCK9wFBjBnjdjh8ypYOVL2K9WTTdjf+exZ9nPT9AIGsYZ08q3BtaNAKx7Nq4VqDEssLkuhLkysoaxQXzwNqAdtX6NS2NkVgoJ9DxcQDlAt25tqW9toSrc/txMQjrr9oM2KC1u/hT8/ewy+S5hvV5DHBw56zLhdTKq/CIYdQJgZ/iC5w5wzB3SBirOwC/doH30TUNImC0omls6fpcH6TDPFno/G/JVfK0LjKhMqNUkxudagpx1soAx8AauyaY68+vycx/YKSjLOv0yh5fQm19KCu/be0XwZ777sDnddsig2CXCHcwMCy4VXsuu+CKUEwWOx/YT7SSgKCY4VY8V0YyhRW6rfdFAIo2t4lucijgB162hItuQVJdKwvSsHLkeU+wEo2N4I=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(18002099003)(22082099003)(261026140227099003)(261026121527099003)(261022105027099003)(261028144727099003)(56012099006)(10067099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?QOrY1kyXDXIIGhbmmdoNtbXLUoGPH+sRNmqVB7aVch+x5ykJII0gq3NItpFq?=
+ =?us-ascii?Q?+zUmM6moa2HG3Z6d7L636he+giqpUEahcSrOYm+jc9VEdh7gAf/1zA8LU5MJ?=
+ =?us-ascii?Q?5XDx0hyTT+HFih/eri6ek6p14VL2j4G23kzDX/B0+mSodYxWxpUnjhLq2JX4?=
+ =?us-ascii?Q?GNEINUanLGSptMc9JyQ8T10DXueJGLR/3b4YtZzv0hWwimiLcXT/Q2alTEz6?=
+ =?us-ascii?Q?sFXQxTf3waynl0UsX31uBPLmxh5ezctxIxWtBYVS3+jybwRSffjcTopFHy51?=
+ =?us-ascii?Q?nEWqUMro4HsECVhTaf3e7muXvmJLyA3Xq+He+42Rr4nATy1b3OnfTV2YlXCO?=
+ =?us-ascii?Q?jkotAhllQjt4/uBEcg6NAbM2N+QEbYfpGHbtBA7fY2DOk8o+jLX0U5dVldt5?=
+ =?us-ascii?Q?oW4G9q62xFUjr2yzSrIOEOQAJEVJdoiORK45IVg40Q+ZJad2sd8qShu8Q6CQ?=
+ =?us-ascii?Q?vT5JGkl8MUgNF6Bj+ZroV35e/e/AWiEbojOid0ODTY96jCNfPNhyDy11HJr/?=
+ =?us-ascii?Q?wfbbZoqUOKndyKtcgdMHC52m9YbCfuUXaDP1crFxsyt0rHluIw2yLYpMJRko?=
+ =?us-ascii?Q?237NA0cPVfYPcIOg1fgnTWIZMRS4cpCbMls4eZ4inouM0t0WRSY6HoglspIL?=
+ =?us-ascii?Q?xQ9JiuxYrDrKYzkSxk5SodS2X/kscamjT/AGGXYW/gcicXtCJlBrQDgs3vsz?=
+ =?us-ascii?Q?t6fqxtrCWnGR69o4HHS/JlhSBSKDNyOq5kCzAFIPfy3ReMoQflD8PAy9rhR4?=
+ =?us-ascii?Q?PpVrlag00tMVvGhjIWpcjUCuUgA24PXSHvQbrh3x2EcA/pHl2XnxX1pRRpv5?=
+ =?us-ascii?Q?YGD5sBzwP/e7V2bqDyoXK3GR4ckI1wqf4QuV8hGuNj1LaTJQaTAADs8VN5tD?=
+ =?us-ascii?Q?3medhHz6LerDr8/OAehHskTxXeqIQ4bK7P1W7WpvyOhJ38yZ9B9R6bl3w8N7?=
+ =?us-ascii?Q?tDX+0vgaNZEmGfqzoz9wCfb8n9fv5zFwJOb9Q1sS1ghtbkquqy2we91McpQg?=
+ =?us-ascii?Q?WEnGrL11JrKiZsT8r70WIE2g0SKtW0k3bPH45V6IbVssUvUDUgzA2YC9gnuG?=
+ =?us-ascii?Q?66gc3eH1wnja3IRc3T7KLjIHMAnBJRJP1AqmQB+ks9JD28YP+trxL475JW+R?=
+ =?us-ascii?Q?sYCrig+91gEUQO14QEkg1I1NLdnaq2STJRlMj6zNc/OYZqV4bdlec3ibnAcp?=
+ =?us-ascii?Q?zTgBOVmLy+A177I/CH8UrQfUdKha6IqFLiwI2cXSJWQS/FDNdp2KXPr7ovZO?=
+ =?us-ascii?Q?NAYlIAs2l/f/nbYFP3rOz2DBKDev3AiOE1gbDAGxDG3RnxZicmn8qERlUBnI?=
+ =?us-ascii?Q?b1Uv9kTH79ZJMsnB+Bq2QX5r5P3oH8sVWkCb/AIHIEkPGmbHKz9C0wBKnH4T?=
+ =?us-ascii?Q?xs6aNGJxEne4RL1P6IvXT8Yhh34TtZj+9TsbXJNmvklT1YLaB1jO+C/Z6W3t?=
+ =?us-ascii?Q?FajOBoJYnJWTjE0SgSrwRGj8wTWW/GvGFcjY9eyS/XMZGDQMqiYbKoUVAmCh?=
+ =?us-ascii?Q?fJnNh5rH/sV82VxkFaXpt5D384asVkrjVHLn2hM0VSD9NXg3xsrZGxkw1Kzf?=
+ =?us-ascii?Q?HxIRufQ9R9ZENyjp5fkR2Kg6SHk1Yv9lf5x3V9SphuiGScq7kHQ4mtk9C7me?=
+ =?us-ascii?Q?FBF3NcUaW3ZrehGvLKnGeLYib5k663xxPcscgd+Tl9jy/gimGBJJXjBeUUuc?=
+ =?us-ascii?Q?Oxv+IzXcjqBfCPssUa19Qk5gPyKirt5Mcj33vuRPd0N12PGX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70a4b1e0-1a0e-4952-1099-08df49393da0
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:10:30.6729
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: REqVHsZpkX7OXYIHJBL4CiZM2oZDz9ZCckCoBriOrqp8h/UQMQNzgR4SA99MQZP18Q228DtklI7EcYxOeGrQ5A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHBPR12MB497579
 
-On 2026/11/21 at 20:08 xietangxin wrote:
-> netdevsim allows switching the eswitch mode to switchdev with zero VFs
-> and creating rate nodes on such a device. However during device teardown
-> nsim_dev_reload_destroy() only drops the eswitch back to legacy when VFs
-> were configured, so the rate nodes are never destroyed and trigger the
-> WARN_ON(devlink_rates_check()) in devlink_free():
-> 
->    WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c, CPU#2: bash/5032
->    Modules linked in: netdevsim ...
->    CPU: 2 UID: 0 PID: 5032 Comm: bash Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
->    Call trace:
->     devlink_free+0x18c/0x26c (P)
->     nsim_drv_remove+0x9c/0xb4 [netdevsim]
->     nsim_bus_remove+0x10/0x1c [netdevsim]
->     del_device_store+0x110/0x190 [netdevsim]
->     ...
-> 
-> The rate nodes are also left behind on the devlink reload path, where
-> they trigger the WARN in devlink_reload_reinit_sanity_check() instead:
-> 
->    WARNING: net/devlink/dev.c:437 at devlink_reload_reinit_sanity_check+0x110/0x148, CPU#3: devlink/5205
->    Modules linked in: netdevsim ...
->    CPU: 3 UID: 0 PID: 5205 Comm: devlink Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
->    Call trace:
->     devlink_reload_reinit_sanity_check+0x110/0x148 (P)
->     devlink_reload+0x218/0x228
->     devlink_nl_reload_doit+0x3dc/0x5b4
->     ...
-> 
-> Evaluate the eswitch mode check unconditionally, so rate nodes are
-> destroyed whether or not any VF was ever configured. Note this also
-> resets a zero-VF switchdev device back to legacy mode on reload, like
-> the existing VF case.
-> 
-> Reproduce by:
->    $ echo "10 1" > /sys/bus/netdevsim/new_device
->    $ devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
->    $ devlink port function rate add netdevsim/netdevsim10/n1
->    $ echo 10 > /sys/bus/netdevsim/del_device
-> 
-> Replacing the last step with "devlink dev reload netdevsim/netdevsim10"
-> hits the devlink_reload_reinit_sanity_check() WARN instead.
-> 
-> Fixes: 885226f5680e ("netdevsim: Implement support for devlink rate nodes")
-> Cc: stable@vger.kernel.org
-> Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
-> Closes: https://lore.kernel.org/netdev/6af9824c.920b2b3a.148c65.0009.GAE@google.com/
-> Reported-by: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-> Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
-> Signed-off-by: xietangxin <xietangxin@h-partners.com>
-> ---
+tl;dr - I believe the patch is fine as-is.
 
-Reviewed-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+On Mon, Nov 23, 2026 at 07:28:03AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Medium]
+> The add and the failed replace both use temp, filter_mode exclude and the
+> default proto. The test then only checks whether the (S, G) entries exist.
+> Would a partly applied replace of an existing source be caught here?
 
-Thanks,
-Xuanqiang
+Does the patch claim to fix that? Does the selftest claim to catch this?
+No.
