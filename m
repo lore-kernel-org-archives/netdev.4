@@ -1,55 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449868;
-	b=Atv5zmcShCWpdig5RYWCk4QsiL40tXmfU6mg1sZfPg4O9RQ/VSxZ127nNg8H62Arnz/s
-	 TfqqtGeFY9qCH8746hxGpGYlSobKFPmAtgZkahWWyLZcCJMq9aQ+MtRhZ2es23ATsF97F
-	 PYO4V0ARSVy3rU0+AlfvyBim9HXK4IwgJEovNutqHcgIw1PmJS1ig6y6X8SGH+wER+ddt
-	 LP2XppmFfXpJZlkxjjpN3YyXM3yzOMDYpu74ZRzPxUvBv32TZ2Qkdk5C4hdcll8eaG1q6
-	 juexHEmjADBdY2hRsNeB7oYC5fzjDlw5fVFjfFVtsPRZIJxTfhrXphozYuXFQ6L8Fpg==
+	t=1795449879;
+	b=CxXjfDIKuDHTDEGvHotnFT+B5JphKECNz2sodJmKpuAx+es96nMwgEdo+f/wiDib1zYW
+	 HS9hkbxYinNZKYIJDK8dtBLakZAuYYEqTh2P1pV8DfpzRc1+mySg1tRT1KdlKfIzJUJZ1
+	 Wc1OTVcqjlUUQbdcDcmsI9+RJCu3GLQEjfUW7w1YuKDi+il9+/NzQc0Y3dfFQlwE8DNR+
+	 Ef151FyHowD322ldSCfV7/yQAyo3L2kZgz5cpGztj8/utHPzvfNWLiUdc99AYjtnt4MTa
+	 n3POj//7A04SmQLOKhM7Bm1VCx75lp5cRN+uaIdfwuZ0HNHyLKepo/2d4abmeAMvVWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449868;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
-	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=LwN3fDmMgmrTxD3q1KoPz3VI89oxMTQsPO4gySpZ9os=;
-	b=mDwHfOFbQ8WovzRDm3VQy4RpvCkGy2iOBpwNNd6h7s7rHrlWepVijPK36DMMHyLZQEHb
-	 cChhhj7sT1UtcXAqdcZ2ZfauRVbM5yv06W2zM61Xn9HXh9WD4Mys4WfmEtnF9inxe7JW/
-	 EYJdYzj6H6t6y8lxwK13aSZzBsk57/1jvyqD+LHmpWewr2LHkTSPA9Wk89N/g7ugJbnAV
-	 H27ZlojuF6Vl3arLX4+vAYg7uipCPdO2JwZhjnCTuOXhCqGwQt+E9LOQWjcwAMDVSu97U
-	 RJZgNWsX5+dMCNBfufLbHfzmwjZcSkGUigRyqVLBWbm8wdK+A4yeKT/E/tdFZH49S7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449879;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=I9Jr6YJmZs8nZfgXSXnYWzj0Ncur09tzU0MWm7x5IHY=;
+	b=BMVPNbY/FWCZPTD3Lg9461AUSQAVXVOreR2wP3vqoPSV7fjYwaEqbQeLAvHzvLgwBR7s
+	 2rIz9O2TFz2ZQmFLoOmvUP9DDhNnX6vfs8J0BYNZUISnmTau1OY4lujzo/ywgz8selHJ+
+	 AKUTaSszqKvgYqi1baMv3KyX+wACssg2QgJgOe3MjgoGQYzZ2xYlZ0HhCSSL1IxsKvhZi
+	 jzzWjcMEdBqOABdGNcg81xGetxUNkXOM5Ejxdtc8nvR8EfwAbmMsfZDffvqinTgOZyWGk
+	 P9JRTmWCUGBFvrnEB9Xa61AdP5lUnSBDIirx6j3y42dmxI7cw8AbvqSuw+efsJqJP2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X4tIIP5i;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CCN1Gvo3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62009606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:04:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62009606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B01B2606A321;
+	Mon, 23 Nov 2026 16:04:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X4tIIP5i
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id CF24D1A179E;
-	Mon, 23 Nov 2026 16:04:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9C05A601E1;
-	Mon, 23 Nov 2026 16:04:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7DD5711E68E6C;
-	Mon, 23 Nov 2026 17:04:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795449859; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=LwN3fDmMgmrTxD3q1KoPz3VI89oxMTQsPO4gySpZ9os=;
-	b=X4tIIP5iygtUvgvo4MLBe8xMaYOVznmQU+DhBI1yCvQ3ErNnGNeN6YCNkhB8t8R+iJYDFP
-	KgtpS4QQNO9ZmE8W+AwIaokXUf+CURl1t+Og5k/8ixy7a6oGpIS7HQ0MVb+fJbOAIeWAGJ
-	abRa3uGR5+Yrw5akspjsPWaw6R5vsX2F/cs3e6njJc7+FmYNVYaMAkQIjkCBad5gEGQO60
-	4GD5IYBdipJuxAL7fPKJaUQXL72Su6wN5a7aWAgSewXsiFvdOnCC/Wmgtbm227XVQHk+SV
-	zi4AcLc8ENZTeVJGMPbpNHQfGlGyCBrGAx1/jFzma5E57tC31WnZQu9MEJr2aQ==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CCN1Gvo3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F3F1F000EC;
+	Mon, 23 Nov 2026 16:04:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795449879;
+	bh=I9Jr6YJmZs8nZfgXSXnYWzj0Ncur09tzU0MWm7x5IHY=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=CCN1Gvo3r9pr0aSe8ti+33UGqAzGCha4Q8iB1Mr+LTZacvm8nm6Nqkv+ct5AeQHvU
+	 uoYDgK553wECjJ7UvAMuvNYMqhMay4tU9VnzwV6f0xPTwLvVdsUKfPOx1Qgcn+K+Is
+	 EuQHWWuNUIHrALPzWwvPPIyd/tVIhMzfJiM9Jh2sWOhUWRpFRPBZx2QL7QCOIpvrm2
+	 MDH+q8nTLYuSLF9zqaM9JDNXBjQa5YZ7f51nmvUwfm/JaD/ig7kqYm+n9kf7Z95xqD
+	 DhVpdAOh14js36nf3Lor+mmOWC/Yg9ylZMvGCuT/LmHKrqCz3aRmsZf7rCVQj0XPkM
+	 N2Bt6T1Dw+sLg==
+Content-Type: multipart/mixed; boundary="===============7517899553110599387=="
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,280 +48,89 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 17:04:08 +0100
-Message-Id: <DN2PUPUBWLIS.XU99VSML8U14@bootlin.com>
-Subject: Re: [PATCH net-next v7 2/3] net: macb: implement
- ethtool_ops.get|set_channels()
-Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
- <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
- <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
- <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
- <thomas.petazzoni@bootlin.com>
-To: <netdev-bot+sashiko@kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-macb-set-channels-v7-2-2dbc00f686af@bootlin.com>
- <179537769318.3135.17791912110495668142@kernel.org>
-In-Reply-To: <179537769318.3135.17791912110495668142@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Message-Id: <ec5343ff7b660c9126b72574cd89cbd54772bd4291d4af16f1b9e39f16939398@mail.kernel.org>
+In-Reply-To: <20261123152743.19629-5-leon.hwang@linux.dev>
+References: <20261123152743.19629-5-leon.hwang@linux.dev>
+Subject: Re: [PATCH bpf-next v3 4/9] bpf: Add log support for cgroup prog link_create
+From: bot+bpf-ci@kernel.org
+To: leon.hwang@linux.dev,bpf@vger.kernel.org
+Cc: ast@kernel.org,daniel@iogearbox.net,john.fastabend@gmail.com,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,rostedt@goodmis.org,mhiramat@kernel.org,mathieu.desnoyers@efficios.com,kpsingh@kernel.org,matt@bobrowski.net,shuah@kernel.org,leon.hwang@linux.dev,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,netdev@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Mon, 23 Nov 2026 16:04:36 +0000 (UTC)
 
-Hello netdev-bot+sashiko,
+--===============7517899553110599387==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 1
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] When TX queues are disabled, their BQL/DQL state is never
->   reset, so they can stall after a later regrow.
-> - [Medium] The new rollback path in macb_set_channels() restarts TX on
->   the old rings without realigning the hardware queue pointer.
-> - [Low] The new comment in macb_init_buffers() (line 514) says that
->   "macb_set_channels(), which is the only way of writing to=E2=80=A6
->
-> --
->
-> net: macb: implement ethtool_ops.get|set_channels()
->
-> This commit moves num_queues from struct macb into struct macb_context an=
-d
-> adds bp->max_num_queues and bp->configured_num_queues. It then implements
-> the ethtool get_channels/set_channels operations, using the existing
-> context swap window to reallocate rings when the interface is running.
-> Queues beyond the active count are disabled by writing QUEUE_DISABLE to
-> their RBQP/TBQP registers.
->
->> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
-rnet/cadence/macb_main.c
->> index 1e06666921160..180da5d62f09a 100644
->> --- a/drivers/net/ethernet/cadence/macb_main.c
->> +++ b/drivers/net/ethernet/cadence/macb_main.c
->> @@ -504,11 +504,25 @@ static void macb_init_buffers(struct macb *bp)
->>  		macb_writel(bp, TBQPH, upper_32_bits(txq->ring_dma));
->>  	}
->> =20
->> -	for (q =3D 0, queue =3D bp->queues; q < bp->num_queues; ++q, ++queue) =
-{
->> -		rxq =3D &bp->ctx->rxq[q];
->> -		txq =3D &bp->ctx->txq[q];
->> -		queue_writel(queue, RBQP, lower_32_bits(rxq->ring_dma));
->> -		queue_writel(queue, TBQP, lower_32_bits(txq->ring_dma));
->> +	for (q =3D 0, queue =3D bp->queues; q < bp->max_num_queues; ++q, ++que=
-ue) {
->> +		if (q < bp->ctx->num_queues) {
->> +			rxq =3D &bp->ctx->rxq[q];
->> +			txq =3D &bp->ctx->txq[q];
->> +			queue_writel(queue, RBQP, lower_32_bits(rxq->ring_dma));
->> +			queue_writel(queue, TBQP, lower_32_bits(txq->ring_dma));
->> +		} else {
->> +			/* macb_set_channels(), which is the only way of writing
->> +			 * to bp->configured_num_queues, is only allowed if
->> +			 * MACB_CAPS_QUEUE_DISABLE.
->> +			 */
->
-> [Severity: Low]
-> This isn't a bug, but is this comment accurate? macb_probe() also writes
-> bp->configured_num_queues:
->
-> 	bp->max_num_queues =3D num_queues;
-> 	bp->configured_num_queues =3D num_queues;
->
-> The else branch is still only reached on QUEUE_DISABLE hardware, because
-> macb_set_channels() is the only path that can lower the count below
-> bp->max_num_queues.
->
-> Could the comment say that instead?
+> bpf: Add log support for cgroup prog link_create
 
-Yes but that's nitpicking. Of course we init bp->configured_num_queues
-to the hardware's queue count. By saying
+TL;DR: The new bpf_log() calls in cgroup attach run under cgroup_mutex and
+cgroup_bpf_mutex, so a copy_to_user() fault on the user log buffer may stall
+other cgroup operations. Consider logging after unlock.
 
-   macb_set_channels is the only way of writing to configured_num_queues
+> diff --git a/kernel/bpf/cgroup.c b/kernel/bpf/cgroup.c
+> --- a/kernel/bpf/cgroup.c
+> +++ b/kernel/bpf/cgroup.c
 
-we mean that macb_set_channels() is the only way to make
+[ ... ]
 
-   bp->configured_num_queues < bp->max_num_queues
+> @@ -1045,23 +1060,33 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
+>  	atype = bpf_cgroup_atype_find(type, new_prog->aux->attach_btf_id);
+>  	if (atype < 0)
+>  		return -EINVAL;
+> -	if (revision && revision != cgrp->bpf.revisions[atype])
+> +	if (revision && revision != cgrp->bpf.revisions[atype]) {
+> +		bpf_log(log, "Cgroup revision mismatch: expected %llu, actual %llu.\n",
+> +			revision, cgrp->bpf.revisions[atype]);
+>  		return -ESTALE;
+> +	}
 
->> @@ -3359,10 +3385,6 @@ static void macb_context_swap_start(struct macb *=
-bp)
->>  	 */
->>  	netif_tx_disable(bp->netdev);
->> =20
->> -	/* Now that everything is stopped, clear DQL. */
->> -	for (q =3D 0; q < bp->num_queues; ++q)
->> -		netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev, q));
->> -
->>  	/* Safe to call outside bp->lock because bp->irq_quiesced ensures the =
-IRQ
->
-> [ ... ]
->
->> @@ -3399,16 +3421,26 @@ static void macb_context_swap_end(struct macb *b=
-p,
->> =20
->>  	lockdep_assert_held(&bp->mac_cfg_lock);
->> =20
->> -	/* Swap contexts & give buffer pointers to HW. */
->> +	/* Swap contexts & give buffer pointers to HW.
->> +	 * !new_ctx means that the swap failed and we keep the old context.
->> +	 */
->> =20
->> -	old_ctx =3D bp->ctx;
->> -	WRITE_ONCE(bp->ctx, new_ctx);
->> -	wmb(); /* ensure IRQ enabled below read the new context */
->> -	macb_init_buffers(bp);
->> +	if (new_ctx) {
->> +		old_ctx =3D bp->ctx;
->> +		WRITE_ONCE(bp->ctx, new_ctx);
->> +		wmb(); /* ensure IRQ enabled below read the new context */
->> +
->> +		macb_init_buffers(bp);
->> +
->> +		/* Clear DQL (only on successful context swap). */
->> +		for (q =3D 0; q < bp->ctx->num_queues; ++q)
->> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
->> +								  q));
->> +	}
->
-> [Severity: Medium]
-> This reset runs after bp->ctx has been switched to new_ctx, so it only
-> covers the new, smaller queue count. Take a running shrink such as
-> "ethtool -L eth0 combined 2" on a 4-queue GEM. What resets the DQL state
-> of queues 2 and 3?
->
-> macb_free(old_ctx) at the end of this function frees the in-flight skbs o=
-n
-> all 4 old queues. netdev_tx_completed_queue() is never called for those
-> bytes, so num_queued - num_completed stays non-zero on queues 2-3. If BQL
-> had already stopped those queues, __QUEUE_STATE_STACK_XOFF also stays set=
-.
->
-> macb_close() only resets the active context's queues:
->
-> 	for (q =3D 0; q < bp->ctx->num_queues; ++q)
-> 		netdev_tx_reset_queue(netdev_get_tx_queue(netdev, q));
->
-> macb_open() has no reset. netif_set_real_num_tx_queues() does nothing
-> with DQL when queues are re-enabled. So consider this sequence:
->
->   ethtool -L eth0 combined 2   (running, TX in flight on queues 2-3)
->   ip link set eth0 down        (resets queues 0-1 only)
->   ethtool -L eth0 combined 4   (down, no swap, no reset)
->   ip link set eth0 up          (no reset)
->
-> Can queues 2-3 come back with stale in-flight bytes and STACK_XOFF still
-> set? The hardware ring would have nothing to complete, and
-> macb_tx_timeout()->macb_tx_restart() doesn't touch DQL. Flows hashed to
-> those queues would stall. Even after a completion, the stale bytes keep
-> dql_completed() from growing the limit.
->
-> Before this patch, macb_context_swap_start() and macb_close() both reset
-> every hardware queue. Should these resets cover the old context's queue
-> count, or bp->max_num_queues?
+[ ... ]
 
-Yes, that is correct. Nicolai, a human, already reported that! [0]
+> @@ -1143,13 +1168,14 @@ static int cgroup_bpf_attach(struct cgroup *cgrp,
+>  	cgroup_bpf_lock_hierarchy();
+>  	ret = __cgroup_bpf_attach(cgrp, prog, replace_prog, link, type, flags,
+> -				  id_or_fd, revision);
+> +				  id_or_fd, revision, log);
+>  	cgroup_bpf_unlock_hierarchy();
+>  	return ret;
 
-V7 resets BQL on the new context queues (ie those that will be active
-soon) when we should be resetting the old context queues (ie those that
-were active until now).
+Can these bpf_log() calls block other cgroup users while the locks are
+held?
 
-To be safe, let's reset all queues here and at close. This will be a
-in-depth defense barrier if we ever reintroduce such a bug. Otherwise
-we risk queues that are stalled forever.
+cgroup_bpf_attach() takes cgroup_mutex and cgroup_bpf_mutex through
+cgroup_bpf_lock_hierarchy() before calling __cgroup_bpf_attach(), and
+the new messages are emitted from inside it (and from get_prog_list()
+via insert_pl_to_hlist()):
 
-[0]: https://lore.kernel.org/all/cc50263bc4f161b2fff96e04306868cc@tipi-net.=
-de/
+cgroup_bpf_attach()
+  cgroup_bpf_lock_hierarchy()
+  __cgroup_bpf_attach()
+    bpf_log()
+      bpf_verifier_vlog()
+        copy_to_user(log->ubuf + ..., log->kbuf, ...)
 
->> @@ -4618,6 +4658,75 @@ static int gem_set_rxnfc(struct net_device *netde=
-v, struct ethtool_rxnfc *cmd)
->> +	if (running) {
->> +		new_ctx =3D macb_context_alloc(bp, num_queues, netdev->mtu,
->> +					     bp->configured_rx_ring_size,
->> +					     bp->configured_tx_ring_size);
->> +		if (IS_ERR(new_ctx))
->> +			return PTR_ERR(new_ctx);
->> +
->> +		macb_context_swap_start(bp);
->> +	}
->> +
->> +	ret =3D netif_set_real_num_queues(bp->netdev, num_queues, num_queues);
->> +	if (ret) {
->> +		if (running) {
->> +			macb_free(new_ctx);
->> +			kfree(new_ctx);
->> +			macb_context_swap_end(bp, NULL);
->> +		}
->> +		return ret;
->> +	}
->
-> [Severity: Medium]
-> Is it safe to restart TX on the old rings here? By this point
-> macb_context_swap_start() has already cleared NCR.TE:
->
-> 	ctrl =3D macb_readl(bp, NCR);
-> 	macb_writel(bp, NCR, ctrl & ~(MACB_BIT(RE) | MACB_BIT(TE)));
->
-> On GEM, clearing TE resets the transmit queue pointer to the TBQP base,
-> i.e. descriptor 0. Commit 881a0263d502 ("net: macb: Shuffle the tx ring
-> before enabling tx") relies on this, which is why macb_mac_link_up() call=
-s
-> gem_shuffle_tx_rings() before it sets TE again.
->
-> With new_ctx =3D=3D NULL, macb_context_swap_end() skips macb_init_buffers=
-()
-> and doesn't rotate the rings. If bp->link_up is set, it goes straight to:
->
-> 		ctrl =3D macb_readl(bp, NCR);
-> 		macb_writel(bp, NCR, ctrl | MACB_BIT(RE) | MACB_BIT(TE));
->
-> The link never went down, so macb_mac_link_up() and its shuffle don't run=
-.
->
-> Would the hardware then restart at descriptor 0 while txq->tail points
-> somewhere else?
->
-> If descriptor 0 has TX_USED set, TX stops with TXUBR. macb_tx_restart()
-> then keeps issuing TSTART because TBQP !=3D head, and TX stalls for good.
->
-> If descriptor 0 is a middle descriptor of an earlier multi-descriptor
-> (SG/TSO) frame, TX_USED is clear. The DMA would then fetch a buffer that
-> macb_tx_unmap() has already unmapped.
->
-> This path is reached when channels are grown on a running, link-up
-> interface and netif_set_real_num_queues() fails with -ENOMEM while
-> allocating the queue kobjects. Does the !new_ctx path in
-> macb_context_swap_end() need the same gem_shuffle_tx_rings() handling as
-> macb_mac_link_up()?
+log->ubuf is the user supplied log_buf, so if that page is not resident
+(swapped out, or backed by FUSE or userfaultfd), copy_to_user() can sleep
+in the fault for as long as the caller chooses.  While it sleeps,
+cgroup_mutex and cgroup_bpf_mutex remain held, so cgroup mkdir/rmdir,
+migration, BPF attach/detach, BPF_PROG_QUERY and the cgroup bpf release
+work would all wait.
 
-Yes. Again, Nicolai the human had caught that in his review! [0]
+Commit 40aec6bab02e ("bpf, cgroup: Protect cgroup_bpf state with its own
+mutex") split these paths out from cgroup_mutex to avoid hung tasks, and
+before this patch the attach path did not touch user memory under these
+locks.
 
-The short summary: stopping the MAC TX engine resets the hardware ring
-cursors. That means our TX SKBs are at some slot in the ring (like 42).
-When we restart the MAC TX engine, it will work on slot 0 and not 42.
+This isn't a lock ordering problem, since cgroup_mutex -> mmap_lock
+already exists, but would it be better to record the message and emit it
+from cgroup_bpf_link_attach() after cgroup_bpf_unlock_hierarchy()?
 
-We already have a solution for this: gem_shuffle_tx_rings(). So that is
-what's missing from the successful context swap end.
 
-[0]: https://lore.kernel.org/all/cc50263bc4f161b2fff96e04306868cc@tipi-net.=
-de/
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45209424655
+--===============7517899553110599387==--
