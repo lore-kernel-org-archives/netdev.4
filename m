@@ -1,62 +1,140 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=59.120.207.196
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402757;
-	b=iA+/eWHAK7SkD///IArdla6pTplm971Hxfdh7fnhogq63ztboYoGjzb+bGrHvc2NOmPP
-	 FFtxeUVm6pKqfCFAluBr35sII3GAffZSehkUB2TRXmbFf9/2CH8QUz89NNMlQcSicNn5u
-	 nxR6agTZtUORiMctyX/hrf2tiaCjINCs5VAmiuE6RRw3q3knAUt1hgkyJrAYYRbuMzTBe
-	 FyY3GUBD1ILx0gUU0wvIHKDODUF8gSDmutUisx2tXGsT/1hUWBLWG9YfXj5Af+0gSzHHY
-	 80OnHDAp/NRqzAyCoVLeePBDuGAF3kmVnWbTkknkFBQDmcdP27Upy/SR/t74+EULkWQ==
+	t=1795403145;
+	b=07ieTwJ/JPQjE6vWznVCTa3/o+iICf8qiLRTZkX+PGIM/8qB+bUrFljbHxWFHrQ2xpo7
+	 BzfWAeCQT4Vi1+o1ckJ1564ggU+zhwjM1/bbVo3Y4fPeeVvMWfTQCppmCdRiO2r5HPX5M
+	 LOM36XpcvXMhkjdqkLSKvpL3Pj+MePJI0gsIvSyQ3HZiftJSqf80Vvo82QrPfJeA54Uex
+	 /IlVcbpfN29YllK93Xe6ts6eaiFwrSdTPH6CML8S+FMcC5lAPzKZr1rY7Odhn2Cq9mvN/
+	 ozzZllFMZoyByIHCL+M27mlUY3k1WniBrAjQjLqqcpJ7DFNyS6tcuZfY07zX906oGig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402757;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Qwr2cCAOaet+9t0FDvm07EfNzCXFLHm+HRFJv2U38MA=;
-	b=UvIwVF5mjjBfaO1R1j+WYfIFiveZnPf+vh6asPF/GadRScC5PYe3+kNP+2kwqm1IA0fb
-	 dHq+sEuSK67YSAwQuQ/bhm/Da0JAcQWvNfRXlp9OliKAoNhxosmb7C+Mbx9oq54nDol8J
-	 XxHLmah2RBCUoEYL1QPbgF17/t/VVuFYm/oaXzh0beNDt+n/MCSV2wC1sZyh2LmMOsKs0
-	 iV6hhosJxSRwtyP9CmI0ECmkXB0T/s5hP1tXFULdb1YclHRU9rjwGZ6vSrEE76bA3zre4
-	 NwIIZVzA16U7byfbPVEv2XnuGN+Agbd4Qb462ZuJ1K5VL9HbB7XIrjgWzReem4/A8VQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795403145;
+	h=DMARC-Filter:X-UUID:X-CID-CACHE:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:
+	 X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:X-UUID:
+	 X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:
+	 X-CID-RHF:X-UUID:Received:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-originating-ip:x-tm-as-product-ver:x-tm-as-result:
+	 x-tmase-matchedrid:x-tm-as-user-approved-sender:
+	 x-tm-as-user-blocked-sender:x-tmase-result:x-tmase-version:
+	 x-tm-snts-smtp:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=TnLydP/q0OcHaQiyLeY7n0laxjesdk+CQW1eJ2FF2TQ=;
+	b=inA6qIF45JI6aB6gQmkuEuJJjHfNt/mnSQFpiLpoNU/onXd1vudJKsCC4wi8AChKtxzy
+	 8y5+90v6GXVQ5yRvWWvQq175aa4hOGcoarMPAxV/3T8CaotfiB+rhfp6/CIFffgBAXEcH
+	 FfBn2ZtjfKiSfyPZ084aOkwNPrNFudOxsgeh0TzpugANsKWNFTd0tP2qNhV+Y8wXxthFt
+	 +Sx0rIwT/ExJZfwTdGTOY0ML4Ohnhg49bwhmVylyPxAM0Axtr8Gx2rrOB3n78gHg8AAJ/
+	 LY7kyzmDGCKOfzWlSKWIGgbpp4W09o9KpNVX7Ga64ZCVU4HMqwtv/aF73BGG3IIyX0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uQKInNfR;
-	arc=none smtp.remote-ip=91.218.175.228
-Received: from mta0.migadu.com (out-228.mta0.migadu.com [91.218.175.228])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=compal.com;
+	spf=pass smtp.mailfrom=compal.com;
+	arc=none smtp.remote-ip=59.120.207.196
+Received: from tpecef21.compal.com (exmail3.compal.com [59.120.207.196])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B802C606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:59:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B802C606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uQKInNfR
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Y2aqAhugKihjmhMcrLgqcMd8jYX+xFuHeB/bjurEUMk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795402753; v=1; x=1796007553;
- b=uQKInNfRF5slUUo8c7NrFfZSVd4WLR1FUo85S6eFa5obyJ7fb+vhKSiNb4tcCva27J2kaxMy
- IpJ4lD4ZGtc4fOTCqboheQPyudsgNocpHCR8Xed1DC7OvBOUMGLndxbZv/cwLnk3FPxEnvY3HAW
- NF2LCEYSpxfu9xRtVuoPJg8w=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id dfd43cbaf89bbd57;
-	Mon, 23 Nov 2026 02:59:13 +0000
-X-Mizu-Trace-ID: dfd43cbaf89bbd57
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 10:59:06 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Jingjing Xu <xujingjing@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, shuah@kernel.org, willemb@google.com,
-	annaemesenyiri@gmail.com, idosch@nvidia.com
-Subject: Re: [PATCH net-next 1/2] selftests: net: enable receive metadata
- independently of its value
-Message-ID: <20261123025906.GC10218@Liu-laptop>
-References: <20261122154912.1272447-1-xujingjing@cmss.chinamobile.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AD86606A31A;
+	Mon, 23 Nov 2026 03:05:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AD86606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=compal.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=compal.com
+X-UUID: bdd98fc8e6ea11f1b2470fb4f881575f-20261123
+X-CID-CACHE: Type:Local,Time:202611231105+08,HitQuantity:1
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:12a4dbc3-3f4a-4585-9149-66d08a2b0137,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:291e20b,CLOUDID:b6ee69bf-d29a-4186-997b-c51a4a814dc4,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: bdd98fc8e6ea11f1b2470fb4f881575f-20261123
+Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef21.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1779342535; Mon, 23 Nov 2026 11:05:30 +0800
+X-UUID: bad2729ae6ea11f1907ca11d1ee29896-20261123
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:428bed8c-8d26-4c2f-9d25-701d38411628,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:24e8556d-7094-42ec-b0fc-880bdbe65e51,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
+	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
+	RC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: bad2729ae6ea11f1907ca11d1ee29896-20261123
+Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg11.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
+	with ESMTP id 1716193816; Mon, 23 Nov 2026 11:05:25 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
+ Mon, 23 Nov 2026 11:05:20 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::23a8:5ed2:f09e:3abf]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::23a8:5ed2:f09e:3abf%11]) with mapi id
+ 15.02.2562.056; Mon, 23 Nov 2026 11:05:20 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
+CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
+	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
+	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "wen-zhi.huang@mediatek.com"
+	<wen-zhi.huang@mediatek.com>, "shi-wei.yeh@mediatek.com"
+	<shi-wei.yeh@mediatek.com>, "Minano.tseng@mediatek.com"
+	<Minano.tseng@mediatek.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "horms@kernel.org"
+	<horms@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
+	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "Yu. Robert (GSM)"
+	<robert_yu@compal.com>, "Chang. Jeff (GSM)" <Jeff_Chang@compal.com>,
+	"edumazet@kernel.org" <edumazet@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: Re: [PATCH net-next v12 1/6] net: wwan: t9xx: Add PCIe core
+Thread-Topic: [PATCH net-next v12 1/6] net: wwan: t9xx: Add PCIe core
+Thread-Index: AQHdevd54De0Y6zWOkihERTiFY38IA==
+Date: Mon, 23 Nov 2026 03:05:20 +0000
+Message-ID: <e0c8e3ba67c44497929214dc4af457d9@compal.com>
+References: <20261117-t9xx_driver_v1-v12-1-e181b616b820@compal.com>,<179526494505.3135.4658538684680862441@kernel.org>
+In-Reply-To: <179526494505.3135.4658538684680862441@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30338.002
+x-tm-as-result: No-10--6.787900-8.000000
+x-tmase-matchedrid: FYPNOy2BwYguv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZuZd
+	NI5cmL7EsdzeBfTA9wJLyT/MN7wrGexAkh/4iTFXsX4aFYAMIYOdVbkPpTjx93ip853bfdtlrUT
+	d4rjs9C9xvCC56QlYKQlMuaZyxNaOvcFcLkIKgogLOnhkOkWpfX6u8VnsVatciGVApiRLArlald
+	PULa7AQCsdNWM5hW1JcgK7xmCFN17L4EjeSe7K+B1wPM2CYnhNMa2390tjr7+N7me0G16g/GhrD
+	xsfTpHEfwQ1wVmT5NxM8oF1lOcJpN5xM13XxOl1prktoeU+bT7jwao3bN2eydTHFoOVTUKP/fcJ
+	RwrfXvl6+Fy6rKzWhqD8aIfkI3jSRLJXbemaGaJFg2HO5lmNEJFx8VBGp0H2ED0N8WyOeXF/jW0
+	J1+/nWm5okWypgcy3tZWH9XyytR6HQaA1x89VwycOunEIf0eXQahV9NsL7Q+L12p7cZqBWARb8n
+	rC2fmyNzjZg+C+I37KvNGNmG0SU6+eCSMeOiOkA/lH/MvdoiYmkrgX3CciJtFJvI9LYcV3ImxnQ
+	vgkai0DmyMy7NxgFv6mDCw61sljTsUVzafMt+vqmyQquMhRu65d4IbM4cXIY35lXsc1ptReheOh
+	f9vXhZHs7bBd7vh4a1SF0R3OwPNaebaOpYUQ7GMZqqlp63mW39InOc4KUjGgIAoCghvZZgz+8rP
+	HUa6xHcvjWJiii5la1X5Zxk7x/Q==
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--6.787900-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30338.002
+x-tm-snts-smtp: 4C3FC59DB10D8A9E35C1569EDD467391D4C3B4065E1AAB9E488F7CCA55FFE3CF2000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,57 +144,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122154912.1272447-1-xujingjing@cmss.chinamobile.com>
 
-On Sun, Nov 22, 2026 at 03:49:11PM +0000, Jingjing Xu wrote:
-> so_rcv_listener passes the expected mark or priority to setsockopt() as
-> its SO_RCVMARK or SO_RCVPRIORITY enable flag. Consequently, expecting zero
-> also disables the ancillary message being tested. A zero mark or priority
-> is valid, but invoking the listener with -M 0 or -P 0 fails with ENOMSG.
-> 
-> Use a separate nonzero flag to enable reception and keep opt.val solely
-> for checking the received value.
-> 
-> This issue was found with AI-assisted source review and reproduced using
-> real UDP sockets. Zero and nonzero mark/priority tests pass over IPv4 and
-> IPv6 after the fix; the zero cases fail on the original helper.
-> 
-> No kernel instrumentation or fault injection was used.
-> 
-> Fixes: c935af429ec2 ("selftests: net: add support for testing SO_RCVMARK and SO_RCVPRIORITY")
-> Signed-off-by: Jingjing Xu <xujingjing@cmss.chinamobile.com>
-> ---
->  tools/testing/selftests/net/so_rcv_listener.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/net/so_rcv_listener.c b/tools/testing/selftests/net/so_rcv_listener.c
-> index bc5841192aa6..3d43fa688338 100644
-> --- a/tools/testing/selftests/net/so_rcv_listener.c
-> +++ b/tools/testing/selftests/net/so_rcv_listener.c
-> @@ -65,6 +65,7 @@ static void parse_args(int argc, char *argv[])
->  
->  int main(int argc, char *argv[])
->  {
-> +	int enable = 1;
->  	int err = 0;
->  	int recv_fd = -1;
->  	int ret_value = 0;
-> @@ -88,7 +89,7 @@ int main(int argc, char *argv[])
->  		goto cleanup;
->  	}
->  
-> -	err = setsockopt(recv_fd, SOL_SOCKET, opt.rcvname, &opt.val, sizeof(opt.val));
-> +	err = setsockopt(recv_fd, SOL_SOCKET, opt.rcvname, &enable, sizeof(enable));
->  	if (err < 0) {
->  		perror("Recv setsockopt error");
->  		ret_value = -errno;
-> base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
-> -- 
-> 2.53.0
-> 
-> 
-> 
-
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+VGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQo+IElzIGl0IHNhZmUgdG8gY2FsbCBwY2lfZnJlZV9p
+cnFfdmVjdG9ycygpIGhlcmUgYW5kIGluIG10a19wY2lfcmVtb3ZlKCkgd2hlbg0KPiB0aGUgZGV2
+aWNlIHdhcyBlbmFibGVkIHdpdGggcGNpbV9lbmFibGVfZGV2aWNlKCk/DQo+DQo+IHBjaW1fZW5h
+YmxlX2RldmljZSgpIHNldHMgcGRldi0+aXNfbWFuYWdlZC4gQmVjYXVzZSBvZiB0aGF0LA0KPiBw
+Y2lfYWxsb2NfaXJxX3ZlY3RvcnMoKSBpbiBtdGtfcGNpX3JlcXVlc3RfaXJxKCkgZ29lcyB0aHJv
+dWdoDQo+IHBjaV9zZXR1cF9tc2lfY29udGV4dCgpLT5wY2ltX3NldHVwX21zaV9yZWxlYXNlKCks
+IHdoaWNoIHJlZ2lzdGVycw0KPiBwY2ltX21zaV9yZWxlYXNlKCkgYXMgYSBkZXZyZXMgYWN0aW9u
+Lg0KPg0KPiBUaGUga2VybmVsLWRvYyBvZiBwY2lfZnJlZV9pcnFfdmVjdG9ycygpIGluIGRyaXZl
+cnMvcGNpL21zaS9hcGkuYyBzYXlzOg0KPg0KPiAgKiBXQVJOSU5HOiBEbyBub3QgY2FsbCB0aGlz
+IGZ1bmN0aW9uIGlmIHRoZSBkZXZpY2UgaGFzIGJlZW4gZW5hYmxlZA0KPiAgKiB3aXRoIHBjaW1f
+ZW5hYmxlX2RldmljZSgpLiBJbiB0aGF0IGNhc2UsIElSUSB2ZWN0b3JzIGFyZSBhdXRvbWF0aWNh
+bGx5DQo+ICAqIG1hbmFnZWQgdmlhIHBjaW1fbXNpX3JlbGVhc2UoKSBhbmQgY2FsbGluZyBwY2lf
+ZnJlZV9pcnFfdmVjdG9ycygpIGNhbg0KPiAgKiBsZWFkIHRvIGRvdWJsZS1mcmVlIGlzc3Vlcy4N
+Cj4NCj4gQWZ0ZXIgYSBmYWlsZWQgcHJvYmUsIG9yIG9uY2UgbXRrX3BjaV9yZW1vdmUoKSByZXR1
+cm5zLCBkZXZyZXMgY2FsbHMNCj4gcGNpX2ZyZWVfaXJxX3ZlY3RvcnMoKSBhIHNlY29uZCB0aW1l
+LiBUb2RheSB0aGF0IGRvZXMgbm90aGluZywgYmVjYXVzZQ0KPiBwY2lfZGlzYWJsZV9tc2l4KCkg
+cmV0dXJucyBlYXJseSB3aGVuICFkZXYtPm1zaXhfZW5hYmxlZC4gVGhlIFRPRE8gaW4NCj4gZHJp
+dmVycy9wY2kvbXNpL21zaS5jIHNheXMgdGhpcyBpbXBsaWNpdCBtYW5hZ2VkIGJlaGF2aW91ciBp
+cyBnb2luZyB0bw0KPiBjaGFuZ2UsIHRob3VnaCwgc28gdGhlIGRyaXZlciB3b3VsZCB0aGVuIGJl
+IHJlbHlpbmcgb24gYW4gaWRlbXBvdGVuY2UgdGhhdA0KPiBtYXkgZ28gYXdheS4NCj4NCj4gVGhp
+cyBpcyBzdGlsbCB0aGUgc2FtZSBhdCB0aGUgZW5kIG9mIHRoZSBzZXJpZXMuDQoNCk5vIGNoYW5n
+ZS4gIFRoZSB2ZWN0b3JzIGhhdmUgdG8gYmUgZnJlZWQgYWZ0ZXIgbXRrX21oY2NpZl9leGl0KCkg
+YW5kDQpiZWZvcmUgdGhlIHJlc2V0LCBhbmQgZGV2cmVzIG9ubHkgcnVucyBvbmNlIHJlbW92ZSgp
+IGhhcyByZXR1cm5lZCwgdGhhdA0KaXMgYWZ0ZXIgdGhlIHJlc2V0IGFuZCBhZnRlciBwY2lfcmVz
+dG9yZV9zdGF0ZSgpOyBvbiB0aGUga2V4ZWMgc2h1dGRvd24NCnBhdGggaXQgZG9lcyBub3QgcnVu
+IGF0IGFsbC4gIFRoZSBsYXRlciBwY2ltX21zaV9yZWxlYXNlKCkgZmluZHMNCm1zaXhfZW5hYmxl
+ZCBjbGVhciBhbmQgcmV0dXJucywgYW5kIGlmIHRoZSBpbXBsaWNpdCBtYW5hZ2VkIGJlaGF2aW91
+ciBpcw0KcmVtb3ZlZCwgYXMgdGhlIFRPRE8gc2F5cywgdGhlIGV4cGxpY2l0IGNhbGwgaXMgd2hh
+dCByZW1haW5zLCBzbyBub3RoaW5nDQpoZXJlIGRlcGVuZHMgb24gaXQuICB0N3h4IGVuYWJsZXMg
+d2l0aCBwY2ltX2VuYWJsZV9kZXZpY2UoKSBhbmQgZnJlZXMNCml0cyB2ZWN0b3JzIHRoZSBzYW1l
+IHdheS4NCg0KPiBDb3VsZCBwY2llaHAgdHJlYXQgdGhpcyByZXNldCBhcyBhIHN1cnByaXNlIHJl
+bW92YWwgb2YgdGhlIG1vZGVtPw0KPg0KPiBNUlNULl9SU1QgaW4gbXRrX3BjaV9wbGRyKCkgaXMg
+YSBwbGF0Zm9ybSByZXNldCB0aGF0IGRyb3BzIGFuZCByZXRyYWlucyB0aGUNCj4gbGluay4gVGhl
+IE1IQ0NJRiBERVZfRVZUX0gyRF9ERVZJQ0VfUkVTRVQgZmFsbGJhY2sgYmVsb3cgbWF5IGRyb3Ag
+dGhlIGxpbmsNCj4gdG9vLCBkZXBlbmRpbmcgb24gdGhlIGZpcm13YXJlLg0KPg0KPiBOZWl0aGVy
+IHBhdGggaXMgd3JhcHBlZCBpbiBwY2lfaHBfaWdub3JlX2xpbmtfY2hhbmdlKCkgYW5kDQo+IHBj
+aV9ocF91bmlnbm9yZV9saW5rX2NoYW5nZSgpIG9uIHBkZXYtPmJ1cy0+c2VsZi4gVGhlaXIga2Vy
+bmVsLWRvYyBjb3ZlcnMNCj4gdGhpcyBjYXNlOg0KPg0KPiAgKiBNYXJrIHRoZSBiZWdpbm5pbmcg
+b2YgYSBjb2RlIHNlY3Rpb24gY2F1c2luZyBzcHVyaW91cyBsaW5rIGNoYW5nZXMgb24gdGhlDQo+
+ICAqIFNlY29uZGFyeSBCdXMgb2YgQHBkZXYsIGUuZy4gYXMgYSBzaWRlIGVmZmVjdCBvZiBhIFNl
+Y29uZGFyeSBCdXMgUmVzZXQsDQo+ICAqIEQzY29sZCB0cmFuc2l0aW9uLCBmaXJtd2FyZSB1cGRh
+dGUgb3IgRlBHQSByZWNvbmZpZ3VyYXRpb24uDQo+ICAuLi4NCj4gICogTXVzdCBiZSBwYWlyZWQg
+d2l0aCBwY2lfaHBfdW5pZ25vcmVfbGlua19jaGFuZ2UoKS4gIE1heSBiZSBjYWxsZWQgYm90aA0K
+PiAgKiBmcm9tIHRoZSBQQ0kgY29yZSBhbmQgZnJvbSBFbmRwb2ludCBkcml2ZXJzLg0KPg0KPiBw
+Y2llaHBfaXN0KCkgaWdub3JlcyB0aGUgbGluayBldmVudHMgb25seSB3aGVuIHRoYXQgYnJhY2tl
+dCBpcyBzZXQ6DQo+DQo+IGRyaXZlcnMvcGNpL2hvdHBsdWcvcGNpZWhwX2hwYy5jOnBjaWVocF9p
+c3QoKSB7DQo+ICAgICAuLi4NCj4gICAgICAgICBpZiAoKGV2ZW50cyAmIChQQ0lfRVhQX1NMVFNU
+QV9QREMgfCBQQ0lfRVhQX1NMVFNUQV9ETExTQykpICYmDQo+ICAgICAgICAgICAgIChwY2lfZHBj
+X3JlY292ZXJlZChwZGV2KSB8fCBwY2lfaHBfc3B1cmlvdXNfbGlua19jaGFuZ2UocGRldikpICYm
+DQo+ICAgICAgICAgICAgIGN0cmwtPnN0YXRlID09IE9OX1NUQVRFKSB7DQo+ICAgICAuLi4NCj4g
+fQ0KPg0KPiBXaXRob3V0IHRoZSBicmFja2V0LCBvbiBhIGhvdHBsdWctY2FwYWJsZSB1cHN0cmVh
+bSBwb3J0LA0KPiBwY2llaHBfaGFuZGxlX3ByZXNlbmNlX29yX2xpbmtfY2hhbmdlKCkgd291bGQg
+ZGlzYWJsZSB0aGUgc2xvdCwgbWFyayB0aGUNCj4gZGV2aWNlIGRpc2Nvbm5lY3RlZCBhbmQgcmUt
+ZW51bWVyYXRlIGl0Lg0KPg0KPiBPbmNlIHRoZSBkZXZpY2UgaXMgbWFya2VkIGRpc2Nvbm5lY3Rl
+ZCwgcGNpX2RldmljZV9pc19wcmVzZW50KCkgcmV0dXJucw0KPiBmYWxzZS4gVGhlIDUwIHggMjAg
+bXMgcG9sbCBvbiBtdGtfcGNpX2xpbmtfY2hlY2soKSB0aGVuIHJ1bnMgdG8gdGhlIGVuZCBhbmQN
+Cj4gdGhlICJkZXZpY2Ugbm90IGJhY2siIHdhcm5pbmcgZmlyZXMuIHBjaV9yZXN0b3JlX3N0YXRl
+KCkgaXMgdGhlbiBzZW50IHRvIGENCj4gZGV2aWNlIHRoZSBjb3JlIGhhcyBhbHJlYWR5IGdpdmVu
+IHVwIG9uLg0KPg0KPiBUaGUgY29yZSdzIG93biBwY2llaHBfcmVzZXRfc2xvdCgpIGJyYWNrZXRz
+IGl0cyBsaW5rLWRyb3BwaW5nIGJ1cyByZXNldCB3aXRoDQo+IHRoZXNlIGhlbHBlcnMuIFdvdWxk
+IGl0IG1ha2Ugc2Vuc2UgdG8gZG8gdGhlIHNhbWUgYXJvdW5kIGJvdGggcmVzZXQgcGF0aHMNCj4g
+aGVyZT8gbXRrX3BjaV9zaHV0ZG93bigpIHJ1bnMgdGhpcyBzYW1lIGNvZGUgZHVyaW5nIGEga2V4
+ZWMgcmVib290Lg0KPg0KPiBUaGlzIGlzIHN0aWxsIHRoZSBzYW1lIGF0IHRoZSBlbmQgb2YgdGhl
+IHNlcmllcy4NCg0KTm8gY2hhbmdlIGZvciB0aGUgYnJhY2tldCBpbiB0aGlzIHNlcmllczogcGNp
+X2hwX2lnbm9yZV9saW5rX2NoYW5nZSgpDQphbmQgcGNpX2hwX3VuaWdub3JlX2xpbmtfY2hhbmdl
+KCkgYXJlIG5vdCBleHBvcnRlZCB0byBtb2R1bGVzLCBhbmQgdGhpcw0KZHJpdmVyIGNhbiBiZSBi
+dWlsdCBhcyBvbmUuICBUaGVpciBvbmx5IGNhbGxlciBpcyBwY2llaHBfcmVzZXRfc2xvdCgpOw0K
+cGNpX2Rldl9hY3BpX3Jlc2V0KCkgYW5kIHRoZSBNUlNULl9SU1QgcmVzZXQgaW4gdDd4eCBhcmUg
+bm90IGJyYWNrZXRlZA0KZWl0aGVyLiAgT24gYSBob3RwbHVnLWNhcGFibGUgcG9ydCB0aGUgcmVz
+dWx0IGlzIHdoYXQgeW91IGRlc2NyaWJlOiB0aGUNCnBvbGwgcnVucyBvdXQsIHRoZSB3YXJuaW5n
+IGlzIHByaW50ZWQsIGFuZCBwY2llaHAgcmVtb3ZlcyBhbmQNCnJlLWVudW1lcmF0ZXMgdGhlIG1v
+ZGVtLCB3aGljaCBsZWF2ZXMgaXQgd2l0aCB2YWxpZCBjb25maWcgc3BhY2UuICBJDQp3aWxsIHN0
+YXRlIHRoaXMgaW4gdGhlIGNvbW1pdCBtZXNzYWdlLCBhbmQgYWRkIHRoZSBicmFja2V0IG9uY2Ug
+dGhlDQpoZWxwZXJzIGNhbiBiZSBjYWxsZWQgZnJvbSBhIG1vZHVsZS4NCg0KV2lsbCBmaXggaW4g
+djEzIHRoZSBrZXhlYyBjYXNlIHRoYXQgZm9sbG93cyBmcm9tIGl0OiB0aGVyZSBwY2llaHAgY2Fu
+DQp1bmJpbmQgdGhlIGRldmljZSBhZnRlciAuc2h1dGRvd24gaGFzIGFscmVhZHkgcnVuIHRoZSB0
+ZWFyZG93biwgc28NCm10a19wY2lfZGV2X2V4aXQoKSB3aWxsIHJldHVybiBlYXJseSB3aGVuIGl0
+IGhhcyBhbHJlYWR5IHJ1bi4NCg0KVGhhbmtzLA0KSmFjaw0KDQpwdy1ib3Q6IGNy
