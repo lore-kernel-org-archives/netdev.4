@@ -1,99 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.8
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795474344;
-	b=tLpydNNB5CefNV9jFT1J005dkNpA3FqT7PPE6XP7PktIvM5k+Y5r8NL3zjnGV/2KG5r7
-	 1Mfa39UFaXTKx8Gr+wb1R99h0G7OKMApOpowX3FlFY/EhxLi539IrcxPWOkgCYPm9plfS
-	 6X4pcXpbb8HL+AvSWI79egIUsWaATHgrnhe6TwggcbicNGEcyusFDbKYv+qvEIlf9YS66
-	 j15PTYZdYBoYSeflyO6EmXoZI7pYrcikHXVMWsHoCOF+u0DQapjmn+slTIrMNixiS6Dwq
-	 O2spnHOWvfaUHKn9MVCELKP0ICQwgKfKmUx0aXMrmAvxxKaXsOOVVx/f4beOoG0bqVg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795474344;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=fSXsLtSg4B0myYuZ8XMEe2lEGjAIu4iVzbHSGcsEBQI=;
-	b=DMnXjx+kILvfAXQCo89RLnG4w/zFV58Hw6ZxsPsWm0o29O8tl3D2rJN/GH+vuOwtlbgF
-	 pOIYwwweF8WLzIbUTfeSqYR4fEpXrGK9rxsRF8rcnSVVJdnYI5ScSGq55mrivEAlVXp3j
-	 4xXPjC5sivQBkW3pZxNxplFaYP/HAehLqIsoTytnoHSj8eI2f26gHvkWbocJ+H4Yg0Rra
-	 v5iO3vrNZuNgbosTlaZrRp2XoZ2Wp4fL8hJZanIOI4K09J5pZLEBndY6+Hog4ffG+j/s+
-	 2t7rIlhX0ko///+LNh8Wz8n6nc+zS52KY7nHOMOJrGcPNljN6cApGDkbznrgJV6qjuw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TDuH9Qs1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.8
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010008.outbound.protection.outlook.com [52.101.193.8])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795474976;
+	b=cbFZ6TpW7rJBcR0Ui4C4EIad5sXCBM1Sh975UG6IPcx6wp8bPGW5YZ9XsY3C7D3Lzlwi
+	 fTo9t60XIsNFlbGnTVTf9khCbWYolCPxjGyK8XP9cmWL9TwLTc4dpJGkSQmf4C0CRHt8h
+	 ocEe0OAZcJkZfqJb5+NMCaawBrpYvtsLzkuuUSaw9yeQeW6PVbu+6qyQEY1cmXEK5/8hm
+	 Oc+JLHuFY1W5PnCPkshLriShSHofpsOP/8QggNwFu2pSR/6DLZbCw7cFzasW+wQzL+w7F
+	 ION8lr6NR8k4KL7H3fdN0oUo3Bz2t8ZVmZZI0CDxw3klBA8tY1bUiCKnsdr7gQzS8hA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795474976;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=FInmTlBBCijcidrB7kILO5RuU05i+OIdvD0BtPtPq/s=;
+	b=ODJBSjexS80re/TY7i1385vWus43tNlM/H+4BVJQ3nZypUmNZmqPMyVtJq1Ywbl9vNmz
+	 1oj6N4tpovAo5rVpJJMydeZSFifh+Y+qfeBAs9tpLvxm8CgFLjWhSPRaqPIv43FlWDyxd
+	 bnXRCUqT5ixewgsbgAFTRhG8t3+cdwlBnlexM0Q7mC+2AEgM77VUBvIC51jmd696lKLxJ
+	 9yt+VkUObGADMyzl7B+TYGtlJUtVhFPvsvD+qckAV/grwHX2XNkPtpSzidPrBigmvFQTL
+	 RNXRyXIrY4v2IIkq4MWpwhkB/brcZOGIsobfGKQky5b/R7DmPfgBMKqgZ2/hFPoufqA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NU91a9hh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49F0B606A32D;
-	Mon, 23 Nov 2026 22:52:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49F0B606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7D2606A31E;
+	Mon, 23 Nov 2026 23:02:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TDuH9Qs1
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K9mwATSr57AucVDDw7UufARMSBJoidRfJodx+9a8jsKGEevd1G7eHzjOs8RulGMowRUMaQvIKjLVrOo10E9B/m/iezn5qV0W/b+WP1Tbv6M8vMKtybdfYXO+zJsKVJAewVSbfWtMPiLA9x+4FV27uxFrnQF3dvQRLr+URB8gPvYxjTXB5XPsq73c3aT/A5QRBvEThRvIx1KsdWYa95EXLjalETofaKfObg/VudT46rBzeIOE7bV2nfRfxlHtYWGjZvotmmSoeeV7CxvvodMOs+ElHXA4jsKVMIjBmWZZv8qBdO9SvH1mJwMI/7h4dV1Bvtp2Eiiczm+q2VXztBNjqA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fSXsLtSg4B0myYuZ8XMEe2lEGjAIu4iVzbHSGcsEBQI=;
- b=BMFXAo0O6aWtizH684LgilUG3Frs2KOLzH96OcYbxrvn2cNeBHMPi8yav0010mhXgnJNNAjDfgdlpFT6yu4NuoEC7DwW9vz45sup8V4W820BtZ/o9NzamK/1aXKb8xPGD9ktd5EWL61d3EyAjm9Tb4/vlPRi391l83DWfs7GhHd1W4+MsUJEJ9tAf86Rmla4LfKvEr2o5wd8w7TKr/KvlZozJKeFOTyBAjINR9Nv4At/+Wl3k4lFwoXMPdlSLN/vMnLdZsOFFTsgtOFNlpGapPwlnHSETUSKEGWl9Y0oFr6xuPcb9jnffLfl7WzOzBxc258GejneELH8RlukGtwAQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fSXsLtSg4B0myYuZ8XMEe2lEGjAIu4iVzbHSGcsEBQI=;
- b=TDuH9Qs10NFlkG638FzsGFs+mDr3OmFXT7u3SN0xdnWXHwtD4JhPdTy6X3kN13P5+m+CppSODLTUnCqQUT8y0o63en8MQzrBOJaV6Ef7n6RYFEm7FxbhPb1WVBRbFq1AobT3FBmkB0xR1Y+nycrRiEei+gY55504/ag1rfpuCJQ=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from MN2PR12MB3485.namprd12.prod.outlook.com (2603:10b6:208:c9::22)
- by EA3PR12MB178636.namprd12.prod.outlook.com (2603:10b6:303:308::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 22:52:20 +0000
-Received: from MN2PR12MB3485.namprd12.prod.outlook.com
- ([fe80::7ac:5acc:f8b7:65c9]) by MN2PR12MB3485.namprd12.prod.outlook.com
- ([fe80::7ac:5acc:f8b7:65c9%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 22:52:20 +0000
-Message-ID: <de51f77f-b077-4c96-95d0-50b7248df7cd@amd.com>
-Date: Mon, 23 Nov 2026 14:52:16 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/3] RDMA/ionic: Use the ionic command timeout
- for the admin queue
-To: netdev-bot+sashiko@kernel.org, nikhil.rao@amd.com
-Cc: brett.creeley@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- abhijit.gangurde@amd.com, allen.hubbe@amd.com, jgg@ziepe.ca,
- leon@kernel.org, jiri@resnulli.us, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-doc@vger.kernel.org, eric.joyner@amd.com, ArunKumar.Prakash@amd.com
-References: <20261119-b4-ionic-cmd-timeout-v3-2-2cdb8fca15fd@amd.com>
- <179539559480.3135.11592624744457325166@kernel.org>
-Content-Language: en-US
-From: "Rao, Nikhil" <nikhirao@amd.com>
-In-Reply-To: <179539559480.3135.11592624744457325166@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY1P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::15) To MN2PR12MB3485.namprd12.prod.outlook.com
- (2603:10b6:208:c9::22)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NU91a9hh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D3FC1F000CA;
+	Mon, 23 Nov 2026 23:02:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795474975;
+	bh=FInmTlBBCijcidrB7kILO5RuU05i+OIdvD0BtPtPq/s=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NU91a9hhn63oTiYUAPjPGFF9+yK2JqPYxw/ALPef7cC3xiAgjdPmHgNS6PzTZ3IOe
+	 oNA4OC8viaH7nEp4QPIqjj7fPhpxEte29OuZuC1hLGHAlTBIPWUL6yb9xkFiwkiHOF
+	 s8uKnU+KA4iEm59YAvaYBkIFWg4hmwRYG1PJmkzzo8sf2HY6wOnVCXv22TarcRmw8T
+	 FVnTGf6IELtxwsR4q84k0oxjNld+yvgJeU3AOFDZFCu7UWS/M6iIHu1/PH3+Kk3LNz
+	 +ksoqqtMDtQBnDkQO082uV55EBmrjK1oFnYS+kVeRtHkJM5MIxlQ3MdqFNeDND57cf
+	 Hes9rTwca5vzw==
+Subject: Re: [PATCH net-next v2 2/2] net: hix5hd2_gmac: support fixed-link and
+ mdio child
+From: netdev-bot+sashiko@kernel.org
+To: mmyangfl@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shenjian15@huawei.com,
+ shaojijie@huawei.com, devicetree@vger.kernel.org
+Date: Mon, 23 Nov 2026 23:02:54 +0000
+Message-ID: <179547497461.3135.10844552053295953627@kernel.org>
+In-Reply-To: <20261122230134.3366017-3-mmyangfl@gmail.com>
+References: <20261122230134.3366017-3-mmyangfl@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,98 +64,192 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3485:EE_|EA3PR12MB178636:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4b2549c9-eabe-45e9-426f-08df49b46e09
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|18002099003|22082099003|4143699003|11063799006|56012099006|261026140227099003|261021135927099003|261028144727099003|261026121527099003|261009223027099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	TNZQ5auvg7EZKUtcVTCmxZcCBir/o/BabjH3aaLU1C7SpiLm+fLThP2puXNWuKLBxrvPfMVUUv6i10hAXcoqtrbyoHMXHKtkp7lL5BnBOW56VZJC5T/17nPO8Tghyc02TsI70hFzA+T7BSLrfLJS88ABzwXfpR/lQaJwl+YBwWwLcub1LrJZmy6/Hwc2JbaMSMFLjGFaB6cUWP0Kox/IhdufR6GYbdaS65t1LdHg2iGulo7fHYODe51/MQTg+nm0pgtseYMd9yERc3Ke9QIM4Kdq+kQq82EOE/FYs0eb462fiFEm76nQNUima8CHYilJnj+KePFd2kPIy1cMgUnrKanRaIcnFFDw51QN7IB8pHpkoJH7KYGAvdmo1t/xhohFRqlQmsiZcbHiCp1V1whmJh5F/+D2VxUsmck3suK9H2dMJK78vj0OwCRmtPk97f0kWn3odQPBA+F1y10xmPLcJWDCGRYutjI0JqaoIQBE+ICjwWW6epUneK9rVBQL5kXDC7bjvUgCRNHeCrVB6+NBNcff3hckBhSKjtYhdLYf3/w8hgIrJmEmTliiDISEg1nSwY5T83ZDDG28KgouMrXxUfWVaRxeY3kEq1veZkNQYitEUIU5ZI2x6SOANLIwn6bb
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3485.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006)(261026140227099003)(261021135927099003)(261028144727099003)(261026121527099003)(261009223027099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?YkhDNGx3K09lZVpTbHZTSkdPOTVLQjdqTzNITjc1ODZvcDlvMXJTNCs2ZHhi?=
- =?utf-8?B?dExxRUozRzliekJVRmh6NDBGQW9TR3ZVNjhZT25CL05qOXV4SWFRVUl0eXFa?=
- =?utf-8?B?M25YQzBzYnM3WmJrVXJQd0pBY1RTY3ptM1gyODR1b09xWFRxSlJDWlFKRWM2?=
- =?utf-8?B?bk1pcEJVeUpIQXkyRjBVTTFzeU5WMWI1VmxWN2JjaXJVVGJWVUZ0aGlldEM4?=
- =?utf-8?B?R0JuazFQME5UekNvR28yd1dnRTJqdzZyeUpqV3Z4K280YVVYSDUzTndxSk1M?=
- =?utf-8?B?NlZZc3h2RXZyQllrQ2FCK1c5R2pjUStkL2E0M252dVZlMFlGOXhZK3l5aXBJ?=
- =?utf-8?B?Zk1id0FGNTBITU5TUm9ZcjE5Z3kyZ21pcHc2SlNNdEY2blExSTUxbDA3UUpt?=
- =?utf-8?B?dnZUckVWTEtXUE1WeWRQRFgycVZVeWFYL2JsVXR3V3Vnak91azg4SllJaWw1?=
- =?utf-8?B?U2tHL2Y0RTV4S2kvMmgwaWZiNjRBbVM3WXgwVERmUVFNVjRTcHlMWksrVUVT?=
- =?utf-8?B?N213bzFSOHo2Y3NNRnhlNkpnRHFxTkJhVy9DY25WQWJsNWN0NVNhVHhxRGlj?=
- =?utf-8?B?OFNockQ1VTU0eC9jV21wSUIyaFZzY1JiNitnMFNuaFBlK0QrV3M0cGxneW9n?=
- =?utf-8?B?RWJZcEpUenR6Nm5KeHdLQ1BGcS9UWVl1ZUt4L0tpL2oxWDNuWXRoanl1aXhQ?=
- =?utf-8?B?ZTVkL3kzOS9FUkQzQmRpeTg4b2VtazcrcjJpRE55TnppNS96SmpGZiszeTNM?=
- =?utf-8?B?S1NZOTA3NlRZNm04cElvSDhjOGc1SS9nR0haZEYvNUdWS3RpUzFiMk1GOUhB?=
- =?utf-8?B?dmZzc2p5TWtlVXFrTDBhZ1pGREZUZ3J6dm9EWVF4dVRHNzJSSVpHRVBxU0p0?=
- =?utf-8?B?d1Rmd3BKcDlTUDNTblBpcDVlVk5xSFBPaEZxUXlWUEFQRzVUNzFhZzRmeVhO?=
- =?utf-8?B?NXEzYS9JaUNyWHJqam9oTHhjenluSWNkQjZHK2FtMFNvU1plMW5ydFR6S0lU?=
- =?utf-8?B?VmI4UGw5eG5Hamo0R3NuaTUrMjkvWUYzWjkwRXk3Q2JYY1B0djQ3V0VpN2ZC?=
- =?utf-8?B?MWNwT2lkNDNZeGQ1cGpEelNmTVMyczk3YXFiUEtGOFRjYkJ2UDVuYUZNNW1S?=
- =?utf-8?B?anI5SkJPcGVpc1BGcEpNMzFwUUJ6bEk1T0svWFl5MklrSENIWU1jQ2plNmtx?=
- =?utf-8?B?RTdUOFV6MDB6OUI4MVRLREh3c1dRYXM4R3Q0N3c5eHRtb0lKRXlzcEtpWElv?=
- =?utf-8?B?MXFMZk1vU2RRaE5aVWdIQ2hZcS9RZjdOdWc2ajd4V1ExZmdhRkRST2pPS1Yw?=
- =?utf-8?B?ay9YbWNndmtYOUZLUURoYThlMVluYzJOWmhzSjhFbGZxT0NSdDVRZGpoZ2FS?=
- =?utf-8?B?RXFLTjRLVDBsQU1VM0pNbzZBT0JBdU5SOGxwTytQNmJXZ2xNRFlaMitncWU4?=
- =?utf-8?B?d2cxSzkrTk1sTVM4UVFnSXE3Y2RNWFlxanErSmVxcWlCUWc0S1REalk2aWhu?=
- =?utf-8?B?dFcvMDV5U0NCZGY0UmtkQnFhdmxnRTBCaFNSazhNb3hKZXplNjlhanVvOVhC?=
- =?utf-8?B?M3c2SDNoa1FBOEFmRjlMUHJVNTVKUmxBamJaMmtoa2xMZDlTcDloTTJjdW1Q?=
- =?utf-8?B?TXFTS0R0VGZiUklUZmx5VzNGR0tDUTNnUlJCZzZBQUR4VFhzaFVEYUozVFpl?=
- =?utf-8?B?U0JxRHpmc281bWpjekNESFlub1NCV0V5VjRDbkw4NU5BdXhqa1ZEY2s3T2dK?=
- =?utf-8?B?OC9xSmlQSVZtdGdVTTBMdEFIVFBmTUROSWtCdmxsRjFzMGVDWE5LYzMwTjdk?=
- =?utf-8?B?R28wQUVLa05IZlgwQ0Zwa21UL3d6dG1UUkFzZHpqYWZHZ0RXdWFCcG50SjhP?=
- =?utf-8?B?c0s2MjFlUEVUK1Aybmx3QjRlYk41QXNOVnE0cWFwakgvYlFqaHJVY3NDT1RC?=
- =?utf-8?B?QTJDZFZNczRuVVByckVBZlFzOTMwNGRhaXlwUEt2eVIrSWpxcEg2TDBxL2xY?=
- =?utf-8?B?dVVtYlVhSEs2UmlBc3JrUUR5ajJmTi84bGYwbVZkM0tGR2FzUGpqK29vaGtU?=
- =?utf-8?B?MlM5eFE1aEEwa3lrVEFrNHlJdE53bDhab2gvSjNVcWJmZWxiMXE1SmJOTFdR?=
- =?utf-8?B?UU1saVNoWkF5a2Z0S3FUL2QvQW1iNUNwR0g2RlB2dlpEYlJjTGk3QVcvWjk4?=
- =?utf-8?B?ZHF5RktzYk81YlVnRHMwcytkaTBVSEltN1FVYWJ1T3BlMDBPcXZvSmNTRkFB?=
- =?utf-8?B?N25HLzNxa0J3SDg0QUlYNHk1ZTU5aHFBaWNzRDJrUUhHMVJEWE1kVHNRVlJy?=
- =?utf-8?B?ZUFZcWIwZ0hlODAwayswMWJmTitBSDFITGllSlJROUVhSUJyVUJGQT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b2549c9-eabe-45e9-426f-08df49b46e09
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3485.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 22:52:20.3201
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yDYaHbdwwFbtEf284+k0+JM2DWjAy/TacGAwETMFDUZzGONCY3ZEzW9wWQi2WOarL6UzOTk3bEPO9y2U3xZUmg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EA3PR12MB178636
 
-On 11/22/2026 4:59 PM, netdev-bot+sashiko@kernel.org wrote> [Severity: Low]
-> Should this have a Fixes: tag? 
-[...]
-> A backport would also need the earlier "ionic: make the command timeout
-> per device" commit, because that commit adds ionic_cmd_timeout().
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-The stable part, raising the watchdog from 2 to 5 seconds, is sent
-separately to rdma for-rc with that Fixes: tag and no dependency on
-1/3:
-https://lore.kernel.org/linux-rdma/20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com/
-This patch only makes the watchdog follow the configurable timeout.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-> [Severity: High]
-[...]
-> Would it work for the busy-wait to cancel the wr and return -ETIMEDOUT
-> without a LIF reset when it gives up before cmd_timeout, and leave the
-> reset to the watchdog? The 2 second spin bound in atomic context could
-> stay as it is.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Not as is. On a busy-wait timeout the driver cancels the wr, which only
-stops tracking it, and the create AH error path then returns the AH id
-and frees the header buffer while the command can still complete in the
-device. Killing the admin queues and resetting the LIF stops the driver
-from using the device in that state. Doing without it needs the driver
-to defer releasing the id and the buffer until the admin queue has
-moved past the command, which is a separate change from this series.
-The busy-wait keeps its 2 second bound because its callers hold a
-spinlock.
+- [Medium] In hix5hd2_dev_probe()
+  (drivers/net/ethernet/hisilicon/hix5hd2_gmac.c), the MDIO bus is now…
+- [Low] hix5hd2_dev_probe() now uses of_phy_is_fixed_link(node) to choose
+  between the fixed-link path and the phy-handle path, and also to…
 
-Thanks,
-Nikhil
+--
+
+net: hix5hd2_gmac: support fixed-link and mdio child
+
+This commit adds fixed-link support to hix5hd2_gmac. With it, the MAC can
+probe when it is wired directly to another MAC with no PHY. It also
+registers the MDIO bus on an "mdio" child node when one is present. When
+the MAC node has a fixed-link and no mdio child, it skips the MDIO bus
+entirely.
+
+> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+> index 12a5657653f85..9a2a3fa1455fb 100644
+> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+
+[ ... ]
+
+> @@ -1175,23 +1176,35 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+>  		hix5hd2_phy_reset(priv);
+>  	}
+>  
+
+[ ... ]
+
+> +	bus = NULL;
+> +	mdio_np = of_get_child_by_name(node, "mdio");
+> +	if (mdio_np || !of_phy_is_fixed_link(node)) {
+> +		bus = mdiobus_alloc();
+> +		if (!bus) {
+> +			ret = -ENOMEM;
+> +			of_node_put(mdio_np);
+> +			goto out_disable_clk;
+> +		}
+
+[Severity: Medium]
+In hix5hd2_dev_probe(), if the MAC node has a fixed-link but no "mdio"
+child, this condition is false. mdiobus_alloc() and of_mdiobus_register()
+are never called, and bus and priv->bus stay NULL.
+
+Are MDIO devices described as direct children of the MAC node then
+silently ignored?
+
+The binding from the preceding patch ("dt-bindings: net:
+hisilicon,hisi-gmac-v1: allow fixed-link and mdio child") still says this
+for the mdio property:
+
+    Node containing PHY children. If this node is not present, then PHYs
+    will be direct children.
+
+The binding also still references mdio.yaml at the MAC node level. So a
+fixed-link node with direct <name>@<addr> MDIO children looks
+binding-valid. Examples would be a PHY used by another MAC, or a switch
+managed over this GMAC's MDIO lines. In that case nothing is probed and
+no warning is printed.
+
+Separately, the commit message says:
+
+    Register the bus based on if the PHY attached to a given interface is
+    described in the device tree or not, like commit ef8a2e27289e ("net:
+    macb: fix probing of PHY not described in the dt").
+
+Is that accurate? macb_mdiobus_register() always registers the bus. It
+only chooses between DT-based and scan-based registration:
+
+drivers/net/ethernet/cadence/macb_main.c:macb_mdiobus_register() {
+    ...
+	for_each_available_child_of_node(np, child)
+		if (of_mdiobus_child_is_phy(child)) {
+			of_node_put(child);
+			return of_mdiobus_register(bp->mii_bus, np);
+		}
+
+	return mdiobus_register(bp->mii_bus);
+}
+
+Also, of_mdiobus_child_is_phy() returns true for any child that has no
+compatible property:
+
+drivers/net/mdio/of_mdio.c:of_mdiobus_child_is_phy() {
+    ...
+	if (!of_property_present(child, "compatible"))
+		return true;
+    ...
+}
+
+Under the macb logic, the fixed-link subnode would therefore still count
+as a PHY. of_mdiobus_register(np) would still run and print the "scan phy
+fixed-link at address X" messages.
+
+The code here takes a different approach: it registers no bus at all for
+fixed-link. Could the commit message describe what the code does instead?
+
+The commit message also doesn't mention that an "mdio" child is now used
+as the bus node. Before this patch it was scanned as a reg-less PHY
+candidate of the MAC node.
+
+[ ... ]
+
+> @@ -1199,11 +1212,18 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+>  		goto err_mdiobus;
+>  	}
+>  
+> -	priv->phy_node = of_parse_phandle(node, "phy-handle", 0);
+> -	if (!priv->phy_node) {
+> -		netdev_err(ndev, "not find phy-handle\n");
+> -		ret = -EINVAL;
+> -		goto err_mdiobus;
+> +	if (of_phy_is_fixed_link(node)) {
+> +		ret = of_phy_register_fixed_link(node);
+> +		if (ret < 0)
+> +			goto err_mdiobus;
+> +		priv->phy_node = of_node_get(node);
+> +	} else {
+> +		priv->phy_node = of_parse_phandle(node, "phy-handle", 0);
+
+[Severity: Low]
+of_phy_is_fixed_link() also returns true when the node sets managed to
+anything other than "auto". This happens even with no fixed-link property
+or subnode:
+
+drivers/net/mdio/of_mdio.c:of_phy_is_fixed_link() {
+    ...
+	err = of_property_read_string(np, "managed", &managed);
+	if (err == 0 && strcmp(managed, "auto") != 0)
+		return true;
+    ...
+}
+
+What happens to a node with managed = "in-band-status", a phy-handle and
+no mdio child? Before this patch the driver ignored managed and connected
+the real PHY through phy-handle.
+
+After this patch:
+
+- no MDIO bus is registered, because of the bus condition above
+- phy-handle is never parsed
+- of_phy_register_fixed_link() takes the in-band-status path:
+
+drivers/net/mdio/of_mdio.c:of_phy_register_fixed_link() {
+    ...
+	if (of_property_read_string(np, "managed", &managed) == 0 &&
+	    strcmp(managed, "in-band-status") == 0) {
+		/* status is zeroed, namely its .link member */
+		goto register_phy;
+	}
+    ...
+}
+
+hix5hd2 has no PCS or in-band status handling, so nothing ever sets the
+fixed PHY's link. Would the interface stay link-down permanently?
+
+The binding from this series only drops the phy-handle requirement when
+fixed-link is present:
+
+  - if:
+      not:
+        required:
+          - fixed-link
+    then:
+      required:
+        - phy-handle
+
+So the binding still treats such a node as a phy-handle configuration.
+
+No in-tree hix5hd2 DTS uses managed, and of_phy_get_and_connect() uses the
+same precedence. The commit message doesn't mention this behaviour change,
+though.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122230134.3366017-1-mmyangfl%40gmail.com
