@@ -1,57 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.22.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402144;
-	b=i+sePi8x9c3G9lUN/0NcdNClouJ9akP/8QpFxe/YVYpOj5XubnyiiUD6k8cJUzskPPfS
-	 RCED1ogRx85M3CT6c+TQOkHN2f4e3xcyZNHNLcv2Tx+gd5GKPViagwErmkO/Txcr54WER
-	 JGQFBWzQm+efm6+ivCmu3i6n+P14AN6uXZRh/Sn8qZTK81NsK/sKuGoQknHNeXEUMge3x
-	 6SopN36k0CjQQKm/Se8kGakvBgGgn1U0qrc4RtlpJR/+ZwWligh9VZqNDYhcU8yuwywaA
-	 yiLe5NIhqrmyKywh7m0u5f75PxINWhKFeh3Aezb5iwr8yp5X+6wcWLkNHh+ABqIrlvw==
+	t=1795402757;
+	b=iA+/eWHAK7SkD///IArdla6pTplm971Hxfdh7fnhogq63ztboYoGjzb+bGrHvc2NOmPP
+	 FFtxeUVm6pKqfCFAluBr35sII3GAffZSehkUB2TRXmbFf9/2CH8QUz89NNMlQcSicNn5u
+	 nxR6agTZtUORiMctyX/hrf2tiaCjINCs5VAmiuE6RRw3q3knAUt1hgkyJrAYYRbuMzTBe
+	 FyY3GUBD1ILx0gUU0wvIHKDODUF8gSDmutUisx2tXGsT/1hUWBLWG9YfXj5Af+0gSzHHY
+	 80OnHDAp/NRqzAyCoVLeePBDuGAF3kmVnWbTkknkFBQDmcdP27Upy/SR/t74+EULkWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402144;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=VfMIDRBajaw6YLETwjyTTpbILnXPlm5eaXjJBJ2siyg=;
-	b=oORj5AP7m/DVWOE1LRtivrjVPVYKklQr1zwh/2ZgkCWZaRrcPnGxQfHU6eFPwYAZeO80
-	 riiULe7nme6eUV7hMKUcTOAEz/DkU8/Ujbj5YG5QMY/i2H1ZiEVRD5n95TdYgIO6H+lDa
-	 WoR5HqI26g0f1UoOVwr/EMHm/vndtG+pggii1xhXEe1ouwU5Mjk2IWZZjGkT6nau2l4Xe
-	 LXmAD9gVz92jxInVxOpAWAuh0R4JAORM62c6hemGJGmL7Kvv+WnPq366tpGvWiuSyH229
-	 o5J3bi9w0DGEiLA/YAt7OJnNfKXfl080b/edh/Ncgr4BUaitEAlOZhGDiIsxUD13fow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402757;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Qwr2cCAOaet+9t0FDvm07EfNzCXFLHm+HRFJv2U38MA=;
+	b=UvIwVF5mjjBfaO1R1j+WYfIFiveZnPf+vh6asPF/GadRScC5PYe3+kNP+2kwqm1IA0fb
+	 dHq+sEuSK67YSAwQuQ/bhm/Da0JAcQWvNfRXlp9OliKAoNhxosmb7C+Mbx9oq54nDol8J
+	 XxHLmah2RBCUoEYL1QPbgF17/t/VVuFYm/oaXzh0beNDt+n/MCSV2wC1sZyh2LmMOsKs0
+	 iV6hhosJxSRwtyP9CmI0ECmkXB0T/s5hP1tXFULdb1YclHRU9rjwGZ6vSrEE76bA3zre4
+	 NwIIZVzA16U7byfbPVEv2XnuGN+Agbd4Qb462ZuJ1K5VL9HbB7XIrjgWzReem4/A8VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mucse.com;
-	spf=pass smtp.mailfrom=mucse.com;
-	arc=none smtp.remote-ip=54.207.22.56
-Received: from smtpbgbr2.qq.com (smtpbgbr2.qq.com [54.207.22.56])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uQKInNfR;
+	arc=none smtp.remote-ip=91.218.175.228
+Received: from mta0.migadu.com (out-228.mta0.migadu.com [91.218.175.228])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACBE2606A330;
-	Mon, 23 Nov 2026 02:49:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACBE2606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
-X-QQ-mid: esmtpsz20t1795402086t08d1b59b
-X-QQ-Originating-IP: pVf7nvjY2YZo46HzFvvvCi+kSjU3AWEKbpqwBL1NV9U=
-Received: from localhost ( [203.174.112.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 23 Nov 2026 10:48:04 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3612839150560736065
-EX-QQ-RecipientCnt: 10
-Date: Mon, 23 Nov 2026 10:48:04 +0800
-From: Yibo Dong <dong100@mucse.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
- through ethtool
-Message-ID: <3B9BA8241EE72A75+20261123024804.GC35839@nic-Precision-5820-Tower>
-References: <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
- <179510098459.3136.6099142715168518439@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B802C606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:59:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B802C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uQKInNfR
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Y2aqAhugKihjmhMcrLgqcMd8jYX+xFuHeB/bjurEUMk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795402753; v=1; x=1796007553;
+ b=uQKInNfRF5slUUo8c7NrFfZSVd4WLR1FUo85S6eFa5obyJ7fb+vhKSiNb4tcCva27J2kaxMy
+ IpJ4lD4ZGtc4fOTCqboheQPyudsgNocpHCR8Xed1DC7OvBOUMGLndxbZv/cwLnk3FPxEnvY3HAW
+ NF2LCEYSpxfu9xRtVuoPJg8w=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id dfd43cbaf89bbd57;
+	Mon, 23 Nov 2026 02:59:13 +0000
+X-Mizu-Trace-ID: dfd43cbaf89bbd57
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 10:59:06 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Jingjing Xu <xujingjing@cmss.chinamobile.com>
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, shuah@kernel.org, willemb@google.com,
+	annaemesenyiri@gmail.com, idosch@nvidia.com
+Subject: Re: [PATCH net-next 1/2] selftests: net: enable receive metadata
+ independently of its value
+Message-ID: <20261123025906.GC10218@Liu-laptop>
+References: <20261122154912.1272447-1-xujingjing@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,147 +66,57 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179510098459.3136.6099142715168518439@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: MtwKLoEcyZa/UoSI8ukvdXHAXLapKjK0cOBUAij+o6ylx+NupeQUwV41
-	xknqhSZ1UjjAe9UkAhOaEmnGlNjfsSERrKHTWuCDTXcAK4Cw/sD+8dDJ0oUjN0dh2CsMum3
-	9EDZ/zQKcFho+vrDctL19Kl4toSWiHhgMTa1thfmnaU0M5Rf8+XssYluryw710zpARteFxU
-	h9HJcloRiAJ19ddtL1t5LeqZkiIoK9sUT6g0SZ/Li8PZQxXKAVCbvPqqOKTMDvRnZAOH3RN
-	7n4sFBMXrW8AWFzfUojC17Znl6D7u/zh4fmlqLSz3SbjXP4REhD7tusxCgDKiYc0Zl41khL
-	9qrEqa4UgMxIT8eyFtfa3ogqx2aHBBiz+z0vlHzRouPU7lpqz3ebSdBsAMZqULn3Sbt8quT
-	LyotJpFs5GvhL+CW/31KLAPhr7lEwf2orWoygMeX/UfTjuiIiCIOPAadVfK1WPetr1IpW47
-	N3fD2ewOnM7rABA9Hdufj8XxdbhEB6ZtBkVJiTdmpUdDJkM5GMXRwx1gwZojepku52YVTXe
-	m9Pvtmv5i/l2L6YmqA5Ol7B/uVrpt8/KXUCOQMH7RHDQ/mbh/mVzV/Ubu+PkK//qUM7f1I8
-	9UDk8IgB+adK2uxNkHqXADaJsLzcgwJsc1lCyOhAFgw9ztPIBNttL+Hvs1CGPNo52aJc1Ee
-	V3Vax9vuxO2tn+lEAWDQ3Dd3Excg1ycpd6pCjB6ysfwfrIMq06C1OkEaPYIN7AH0iAgjrUm
-	xQin31QMqxcZmQo7HkgjmmWwuoeFg053mYLx90jyfEqFDJodULt5yxNugkFQjRvpmrJ9Q5k
-	WEY6OTMsDKB8Q1T/O7kjnVT26BSfdBRq0YjSmg7axWWT39PYHYj1e1cOY/o55KsZaRp06+J
-	wLDjBtg43u4EvOwDZaYJUMW6c24GO/DsSe37Bd9VDMC2RoF4Dm+KADg2vsVjaeNTTx1Jtco
-	JI/cYv/ROTs3BD4fERdBiTMTyG2w1RfwbLuLBx4WTZJzZHYmBDzKidKVcnp260byFlTByx+
-	qLTX/f4qadLoAkWMFxm81Qg5Skdh5csEkm8P/UYTQX6AlfV5wmcleK8s8UXSNHAydkC3yjY
-	ODAV0S9UP0zxmZV1r8ySSPMR35EU8ew2vJ35a3Xk4PveVpKLfv6hNQ=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <20261122154912.1272447-1-xujingjing@cmss.chinamobile.com>
 
-On Thu, Nov 19, 2026 at 03:09:44PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
+On Sun, Nov 22, 2026 at 03:49:11PM +0000, Jingjing Xu wrote:
+> so_rcv_listener passes the expected mark or priority to setsockopt() as
+> its SO_RCVMARK or SO_RCVPRIORITY enable flag. Consequently, expecting zero
+> also disables the ancillary message being tested. A zero mark or priority
+> is valid, but invoking the listener with -M 0 or -P 0 fails with ENOMSG.
 > 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> Use a separate nonzero flag to enable reception and keep opt.val solely
+> for checking the received value.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> This issue was found with AI-assisted source review and reproduced using
+> real UDP sockets. Zero and nonzero mark/priority tests pass over IPv4 and
+> IPv6 after the fix; the zero cases fail on the original helper.
 > 
-> - [Medium] In rnpgbe_setup_default_link()
->   (drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c), the probe-time link…
+> No kernel instrumentation or fault injection was used.
 > 
-> --
+> Fixes: c935af429ec2 ("selftests: net: add support for testing SO_RCVMARK and SO_RCVPRIORITY")
+> Signed-off-by: Jingjing Xu <xujingjing@cmss.chinamobile.com>
+> ---
+>  tools/testing/selftests/net/so_rcv_listener.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> net: rnpgbe: Report link settings through ethtool
-> 
-> This adds get_link_ksettings support. It reports supported and advertised
-> link modes, autoneg, port type and PHY address, using firmware data that
-> is queried with GET_LANE_STATUS at probe. It also changes the probe-time
-> default link setup: TP ports use autoneg, and fibre and backplane ports
-> use fixed 1000/full.
-> 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > index dcc8233e024e1..a6ab94bd1578a 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > @@ -68,8 +68,32 @@ int rnpgbe_reset_hw(struct mucse_hw *hw)
-> >   **/
-> >  int rnpgbe_setup_default_link(struct mucse_hw *hw)
-> >  {
-> > -	return mucse_mbx_set_link(hw, RNPGBE_DEFAULT_ADV, true, 0, 0,
-> > -				  ETH_TP_MDI_AUTO);
-> > +	u32 advertising = hw->link_config.supported & RNPGBE_DEFAULT_ADV;
-> > +	bool autoneg = hw->link_config.status & MUCSE_LINK_TP;
-> > +	u8 duplex = DUPLEX_UNKNOWN;
-> > +	u32 speed = SPEED_UNKNOWN;
-> > +	int err;
-> > +
-> > +	if (!autoneg) {
-> > +		advertising &= RNPGBE_FW_ADV_1000_FULL;
-> > +		speed = SPEED_1000;
-> > +		duplex = DUPLEX_FULL;
-> > +	}
-> > +
-> > +	err = mucse_mbx_set_link(hw, advertising, autoneg,
-> > +				 autoneg ? 0 : speed, autoneg ? 0 : duplex,
-> > +				 ETH_TP_MDI_AUTO);
-> 
-> [Severity: Medium]
-> What happens here if advertising ends up as 0?
-> 
-> Before this patch, probe always sent the fixed, non-empty
-> RNPGBE_DEFAULT_ADV. Now hw->link_config.supported narrows the mask.
-> rnpgbe_init_link_config() copies that value from the GET_LANE_STATUS
-> reply without any check:
-> 
->     hw->link_config.supported = le32_to_cpu(info.supported);
-> 
-> Take a TP port whose supported mask has none of the RNPGBE_DEFAULT_ADV
-> bits. This sends PHY_LINK_SET with autoneg enabled and an empty
-> advertisement. Firmware only acks the message, so err is 0. The driver
-> then caches advertising = 0 with MUCSE_LINK_AUTONEG set.
-> 
-> Wouldn't the PHY then autonegotiate with nothing advertised, so the link
-> never comes up?
-> 
-> Later in the series, "net: rnpgbe: Support copper link configuration"
-> adds rnpgbe_set_link_ksettings(), which rejects this exact configuration:
-> 
-> 	if (autoneg) {
-> 		if (!advertising)
-> 			return -EINVAL;
-> 
-> Ethtool can't recover from this state either. The requested
-> advertisement has to be a subset of the same empty supported set, and
-> forced 10/100 needs supported & mode. Both paths return -EINVAL. This
-> probe path is still the same at the end of the series.
-> 
-> On a fibre or backplane port, the code forces 1000/full without checking
-> that supported contains RNPGBE_FW_ADV_1000_FULL.
-> rnpgbe_get_link_ksettings() in this same patch seems to expect that bit
-> can be missing:
-> 
-> 	if (supported & RNPGBE_FW_ADV_1000_FULL)
-> 		linkmode_set_bit(mode, cmd->link_modes.supported);
-> 
-> However, its AUTONEG_DISABLE block always reports the cached SPEED_1000
-> and DUPLEX_FULL. Ethtool would then show a forced speed that matches
-> nothing in link_modes.supported.
-> 
-> Elsewhere this driver checks firmware data and falls back: a random MAC
-> when is_valid_ether_addr() fails, and ST_VALID_MAGIC and
-> mucse_link_speed_valid() for link events.
-> 
-> Could rnpgbe_setup_default_link() or rnpgbe_init_link_config() also
-> check for an empty mask here? On an empty mask it could either fall back
-> to RNPGBE_DEFAULT_ADV or fail the probe.
-> 
-The driver relies on the capabilities reported by GET_LANE_STATUS
-for the devices it supports:
-
-- TP ports support 10/100 Mb/s half/full duplex and 1000 Mb/s full
-  duplex. The reported supported mask contains at least one mode
-  in RNPGBE_DEFAULT_ADV.
-- Fibre and backplane ports support fixed 1000 Mb/s full duplex,
-  and their supported mask contains RNPGBE_FW_ADV_1000_FULL.
-
-With this firmware contract, the TP default advertisement is
-non-empty, and the fixed 1000/full configuration on fibre and
-backplane ports is supported.
-> [ ... ]
-> 
+> diff --git a/tools/testing/selftests/net/so_rcv_listener.c b/tools/testing/selftests/net/so_rcv_listener.c
+> index bc5841192aa6..3d43fa688338 100644
+> --- a/tools/testing/selftests/net/so_rcv_listener.c
+> +++ b/tools/testing/selftests/net/so_rcv_listener.c
+> @@ -65,6 +65,7 @@ static void parse_args(int argc, char *argv[])
+>  
+>  int main(int argc, char *argv[])
+>  {
+> +	int enable = 1;
+>  	int err = 0;
+>  	int recv_fd = -1;
+>  	int ret_value = 0;
+> @@ -88,7 +89,7 @@ int main(int argc, char *argv[])
+>  		goto cleanup;
+>  	}
+>  
+> -	err = setsockopt(recv_fd, SOL_SOCKET, opt.rcvname, &opt.val, sizeof(opt.val));
+> +	err = setsockopt(recv_fd, SOL_SOCKET, opt.rcvname, &enable, sizeof(enable));
+>  	if (err < 0) {
+>  		perror("Recv setsockopt error");
+>  		ret_value = -errno;
+> base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
 > -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/BD205A7832D36E7D%2B20261116030917.1329989-1-dong100%40mucse.com
+> 2.53.0
 > 
+> 
+> 
+
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
