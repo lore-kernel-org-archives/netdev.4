@@ -1,84 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437217;
-	b=dW/u3TbZn+hsx/jsomHD2vxFiIqApXnypJks1NgF2aJJnsjZyPePt1u+qXhv2pewGX4N
-	 spKbe76Nrk42lK7FmCmnIuefFvG+WGd3JV4Kdb2VgMtUIBg92zHiDQWvJU+EAzGgRNHgI
-	 ygGPggCE0GZ2eRoGXpT5HH/j14eVwOz2P5XJTifyMPumslagBVzM6+zeoNRfEwQBg8Z7a
-	 2KmFXomRC5JBRPYDTqaIfCh/BpNSY5la5+47lyPeoXiNyRIVRDXFDS/wGMhgtzuefInZv
-	 +KNyqdtIQGbav0ltQ+ssLqH3LP2ueZksAsy5mnlXsozP6K0RoJUoYx+e1jH4zas0zpw==
+	t=1795437293;
+	b=wMVgWxOC9bVOTb6PunCnzTTtSPiPZOaMW0rpxRN9UFEkcvFenhRImEmxkxMixF7jxg3i
+	 PSWoe3wt5swiR39YwtXrbe7pXwseFxyKtoLOV25ZfO3kqYmsZxO5fVveT9Fu1j20kK7qD
+	 CeqqyP/XHq/RwocXXQWAnzU2W4Xk1PWyc3tqkuAAPyiT5c5sUtytRSpzPgwVqGlSgCoMJ
+	 lFQTs4YjOAFexLs6tz8ETgAS5DXvEsidSrYacpti5sb3NBmBAHNh20Ej5TqJHsiBo0JDv
+	 NJmIJKzdETCP8jNFlBSViSD9gEuEYWp+0bJ8Yjn3lwtJq0hAZx1WmvX/CrPeLuqWn1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437217;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
-	bh=J0mlNUxeHiFvmURQfRnhNjQjYghLvFoxyIdXO0EVi9E=;
-	b=o2VmzaEuNFBguIKg8WQgUBxihjrFobJj6pSlSbUkt1p06HVtAPEooY/r1I1MuDsszxzM
-	 PPZJlaoTgs07yjD13SKah57gvwRm50SwCA0giGDkEoJUbNqVFrHyQC/LkPuBf8+xNiJAx
-	 himoHqN2QyrL4FFApqZpeTghs5+AXP4wXP8jk2iB7mdSXTDi4mcxctuHeb1E15Po76EX+
-	 U/t7b4rYWiHeuURJ+hBqbSCDgEtkwOl2RwyeA1YVJAm1a7xvMSAv00TWMGxuDha/V0Ths
-	 D+EQC2uYIbMozfv9BspqdtA+eBXSFgRYLGfPMKL30Rwwnbi64URsy+YgiV6JiZivgaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437293;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=3IJwMBwW8JkW2wptK+zgfPvwr+IFceyZHyiWMzHt3Lk=;
+	b=ANlzll2GCe6UIT5KhmW3PkePBVu5QPNJmoeW4Ii+mhZaZ974j3uAwxu4ZPuSiKOhGqb9
+	 NgtUo4TIBe9lDntV6ZZj6Jkpm/5w7sjnc/2iBretYBAGR+ANHBuAU+ahDTGD4Q//SkX9K
+	 WYrM7uKIWDKkgV8fORa1YBQ9omXsU/VlT+Lb6xKtR/0NEQL8XsB0N23+gOl6zpHryl6mX
+	 FVJFRWi/Gmkj0ws4v7sJpxctdAvPCOfn9yPKepqfmL5+dJvlF1LuxWSZCa7IQOuwHcqCA
+	 iWqmEGyCaL3VHlRjKTO0EdD3rrqQt/8U2QXz35VL1IO6y7jLgNsJHMIniYLcFoX9xzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b7usWCHz;
-	arc=none smtp.remote-ip=209.85.128.171
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=V9PRYonZ;
+	arc=none smtp.remote-ip=195.10.208.47
+Received: from mout-b-107.mailbox.org (mout-b-107.mailbox.org [195.10.208.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55E4A606A321
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:33:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55E4A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7FC2606A327
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:34:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7FC2606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b7usWCHz
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b503e2a87bso31211757b3.3
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:33:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795437215; x=1796042015; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=J0mlNUxeHiFvmURQfRnhNjQjYghLvFoxyIdXO0EVi9E=;
-        b=b7usWCHzIxH06fYfGotrQgPVLAmQ3sWKSBQiYFomKOR1WG9RrYxCgghN5xryJd8aa6
-         I7QJq55FrNH2VuK5wByTae3ZvEPs8yxhLG5gaiAM+xYeoGoJNVqDsFy32aUK0AJtpTdq
-         D78ot97LeUzcEUkhfyorOUMIj/esXbrJ/wjakWlzrJo0XjhHt4WkexbHjpNCTPX67slJ
-         36CKmmhtVcOSioQ6cdNsixq8eqPWaI7iyBZsQOgqX+p4gsgXdWGgbWM/eQNhxwlEWeqn
-         V1l6m/NP8B2sMsm759gCJ5b5kr5ikU8Zo0KzFfRJh2dp2rTjXrvw2lUmrdawOpHzwQ/F
-         9XXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437215; x=1796042015;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J0mlNUxeHiFvmURQfRnhNjQjYghLvFoxyIdXO0EVi9E=;
-        b=WMGt01fo2sfrvM82jQFOwugOxNJfCg/DdN7uvpHGU7MxCB0bvY8fBPMpEe5EAIbM9U
-         XQg83v/ITIwigHYbLp+FKYzbRMkwWWYRK8Ar7+wpxTWig2tqea1u9uQvdDkXFtylZm5l
-         El8yBaWpM8LY2Wj06G1Mzf58jzN3KgpwFnYWq9PA1loq5yYxx8FIrlkQ8wJnfKFPE//H
-         XZBb+cmjm0gdME9V6e6GUjA46PTd0qGn8O7r9OM3+XtD8FdJWEPvw3td4Z+YhDr2FDcn
-         tPt+Q6meNZCaWW6q0HQyX4WZJK3WoV6WlmfjteGWZgSPPXVPjuBCWWH5KZdEcY6Y88Zb
-         Mmaw==
-X-Forwarded-Encrypted: i=1; AL+hErFxPkJtT2vQwjJq8hFprCed4XPO1cBG77K9CpsrQbauwlRfXmdTVkwm7SjfqE+vI1rOlNS3hME=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2sXx8/QoVIMXYHtDwKAFblaJbsKX5pNXdB40y20Wsxa0C3PSW
-	O3m0DU47Gujd93P6V28wtBnSZ29ZQW59s/GhaI1vqw4qZfaZb2Juk+El
-X-Gm-Gg: AZFdTZf9qmqQZ065/Hc9IccPfaTBjz2Tt02Vt5hLPJiqXSKZ4eR8VfuSjaphOVe12Ud
-	sshMEDL6uvBKlUD449tzWYyub0dbKDmygxhNUehei0NT5cCb0bIADZa1O9oQSHv3JG0ffXBUNoy
-	LmsZmCzUeAArt92JfvB47kUtjbuUopiIrz6YNaIH9ve5cxwsRk+JCxa1eZ8/ydyjXM5xG2kfDWX
-	FtllfoAYs+B7Abj9jwjQv/n3Ane/XfldOSc/506RVj5CCDH1v+ITw+QXZ8ued/sTjQxf4ssWrN5
-	UdCkJWMKYYKJ2TAALPg01ZASBvjsYMQfwbHKJONoiMf4oIVP88D4jpLwiHtQ56t4xiCaBnJwSAl
-	0DBxIPrmjLMSmGB9z00L1T1LpUN/BOIS5P0BD4vC5ZHAYKg4eSop3QMFIrp30RXaj1bgEsyA0hj
-	vLowzD5de6sveAsOgWnRhrS/uFHTEVy8LVRZgVOPDBWIaqLUNUUeKYfHjEam8qhPduaGzYpen76
-	dJel/rheYY3Hpt/itsu6HNmu20mWBALC/6Wl8j6vIH5ImEOsq8HaJei9/CivEfPd5VhqiFw9YiT
-	mkj5+SeJdfJZWKDvfd95yJHaT0qgKPwxQKQ=
-X-Received: by 2002:a05:690c:610d:b0:8b4:deb1:4b18 with SMTP id 00721157ae682-8b520442309mr48137067b3.18.1795437215079;
-        Mon, 23 Nov 2026 04:33:35 -0800 (PST)
-Received: from localhost ([2600:1700:4a51:2210::11])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b520ca0cf8sm41807657b3.29.2026.11.23.04.33.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 04:33:34 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=V9PRYonZ
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4jY5422ywSz3wgl;
+	Mon, 23 Nov 2026 13:34:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795437282;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3IJwMBwW8JkW2wptK+zgfPvwr+IFceyZHyiWMzHt3Lk=;
+	b=V9PRYonZekA2+PUXBjx/quDh4m8B8rBdUaQDMnvYAAGtlpqvrpaSTHm+NW+vU/LETjBV2F
+	l7a9boELYKna7KO7sg8Kd1QVZRJCy/2TjxF+JdyIiskv/VJpfGmoHVbotwabPotag/JDzn
+	Ob5bXags9DofB8pe7VJQxJ+jxtJvMJ9Esv8Q09cHunnyorCIhImOD56JMOQJVyX5HjDJNN
+	fzbNf6VhMWMH+/JtdCjJmLOaWA1/OkVm8FIzcpfOI552+qCez5fFsOeOv9hufORHw203Fs
+	wBW6MSroWlHtXQm9gg6GxOLPIVq5QRY+eUhMD0R/WWWiNyIdFjbraYVwhiN9dw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: David Ahern <dsahern@kernel.org>
+Cc: netdev@vger.kernel.org,
+	David Ahern <dahern@nvidia.com>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [RFC net-next 0/6] ipv6: validate dsts against the netns route generation
+Date: Mon, 23 Nov 2026 13:34:34 +0100
+Message-ID: <20261123123435.402751-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261122222717.126333-2-dsahern@kernel.org>
+References: <20261122222717.126333-1-dsahern@kernel.org> <20261122222717.126333-2-dsahern@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,99 +78,121 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 07:33:33 -0500
-Message-Id: <DN2LDH2V24NL.13URJFKPGO0N@gmail.com>
-Subject: Re: [PATCH net-next v5 6/6] selftests: drv-net: psp: add rekey
- tests
-From: "Daniel Zahka" <daniel.zahka@gmail.com>
-To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
-Cc: <kuba@kernel.org>, <willemdebruijn.kernel@gmail.com>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <pabeni@redhat.com>,
- <horms@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
- <rdunlap@infradead.org>, <donald.hunter@gmail.com>,
- <andrew+netdev@lunn.ch>, <shuah@kernel.org>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>, <willemb@google.com>
-X-Mailer: aerc 0.21.0-threadmapfix
-References: <20261118-psp-v5-6-b9ec840e0296@gmail.com>
- <179530218434.3135.4343666486290603431@kernel.org>
-In-Reply-To: <179530218434.3135.4343666486290603431@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jY5422ywSz3wgl
 
-On Sat Nov 21, 2026 at 6:03 PM EST, netdev-bot+sashiko wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] selftests: drv-net: psp: stale length n in run_session() after
->   tx assoc
->
-> --
->
->> diff --git a/tools/testing/selftests/drivers/net/psp_responder.c b/tools=
-/testing/selftests/drivers/net/psp_responder.c
->> --- a/tools/testing/selftests/drivers/net/psp_responder.c
->> +++ b/tools/testing/selftests/drivers/net/psp_responder.c
->> @@ -247,6 +354,16 @@ run_session(struct ynl_sock *ys, struct opts *opts,
->>  						fprintf(stderr, "WARN: echo but no data sock\n");
->>  					send_ack(comm_sock);
->>  				}
->> +				if (cmd("rx assoc"))
->> +					handle_rx_assoc(ys, data_sock,
->> +							comm_sock);
->> +				if (cmd_w_msg("tx assoc", struct assoc_msg)) {
->> +					handle_tx_assoc(ys, buf, data_sock,
->> +							comm_sock);
->> +					__consume(sizeof(struct assoc_msg));
->> +				}
->> +				if (cmd("key rotate"))
->> +					handle_key_rotate(ys, opts, comm_sock);
->>  				if (cmd("data close")) {
->>  					if (data_sock >=3D 0) {
->>  						close(data_sock);
->
-> [Severity: Medium]
-> In run_session(), n is set from off once, before the do/while loop,
-> and is never updated. cmd() still tests n >=3D sz and __consume() tests
-> n =3D=3D sz. For a single tx assoc message n is 49.
->
-> cmd("tx assoc") consumes the 9 byte string and moves the struct
-> assoc_msg to buf[0]. __consume(sizeof(struct assoc_msg)) then takes
-> the else branch. That leaves off =3D=3D 0, but the 40 byte assoc_msg is
-> still in buf[0..39].
->
-> The checks that follow in the same iteration (key rotate, data close,
-> conn psp, conn clr, exit) still see n =3D=3D 49. They memcmp() buf agains=
-t
-> the SPI, version and key bytes of a message that was already handled.
-> Suppose those bytes match a command string. For example, an SPI of
-> 0x65786974 with version 0 reads as "exit\0". The matching __consume()
-> then does off -=3D sz starting from zero, and memmove() gets a negative
-> length converted to a huge size_t, which crashes the responder.
->
-> The conn psp handler already has the same stale-n pattern, but it
-> only leaves the two version bytes behind. tx assoc is the first
-> command that leaves an arbitrary binary payload at the front of buf.
->
-> Would it make sense to have cmd() and __consume() check off rather
-> than n, perhaps as a small fix ahead of this patch? Then a command
-> could only match bytes that have not been consumed yet.
+Hi David,
 
-that probably would make sense, but this is mostly a preexisting
-hazard with the demux loop, so it would cost another setup patch, and
-the issue is still not actually reachable during test execution. The 4B
-SPI would need to alias the string "exit". That won't ever happen.
+I had a look at the series and tested it. I see two problems with the
+approach.
 
-This would be the only reason to go to a v6 for the series here, so let
-me know if you think this is worth it.
+On Sun, 22 Nov 2026 15:26:58 -0700, David Ahern <dsahern@kernel.org> wrote:
+> copy of it. So this series moves dst validation onto that counter, the
+> way IPv4 uses rt_genid, instead of adding another one:
+>
+>  1. Stamp every dst with the counter in ip6_dst_alloc() and validate by
+>     comparison in ip6_dst_check(). Long-lived dsts (pcpu dsts of routes
+>     with an embedded fib6_nh, and exception dsts) are re-stamped when a
+>     lookup finds them again, otherwise they would stay invalid.
+>
+
+pcpu and exception dsts are shared by every socket and dst_cache that
+holds them, and with this series validity lives in the shared dst
+instead of in each holder's cookie. When one lookup re-stamps the dst,
+the stale dst becomes valid again for every holder. IPv4 does not
+re-stamp: a stale cached route fails rt_cache_valid and __mkroute_output
+allocates a new one, so routes already held by sockets keep their old
+genid.
+
+The script below shows this. A connected UDP socket on CPU0 caches its
+route to fd01::2 through fd01::/64, then a blackhole for fd01::2/128 is
+added. If an unrelated socket on CPU0 then connects to fd01::3 through
+the same /64, the first socket keeps using the old route: all 10
+datagrams it sends after the blackhole reach the wire, in 3 out of 3
+runs. Without the unrelated socket they are dropped, and current
+net-next and my series [1] drop them in both cases. With an xfrm policy
+for the socket's port instead of the blackhole, the same sequence makes
+the socket keep sending its 10 datagrams in plaintext, where net-next
+and [1] encrypt them. This is not a narrow race but the deterministic
+outcome with this series.
+
+The stamp is also read after route selection, in ip6_dst_alloc and in
+rt6_refresh_sernum. A FIB change that lands in between, e.g. the same
+blackhole added while a lookup for fd01::2 has already selected the /64,
+yields a dst selected from the old state that carries the new
+generation. That is the window ip6_dst_lookup_flow_cookie in [1] closes
+by reading the generation before the lookup.
+
+For generation-based validation to hold, the value has to live with the
+holder rather than in the shared dst, and it has to be read before route
+selection. dst_check already takes a per-holder cookie for this: with
+the generation read before the lookup as the cookie, compared with the
+current one, dsts need no stamp or re-stamping and pcpu dsts stay
+reusable across changes. That is what ip6_dst_lookup_flow_cookie
+returns, with fn_sernum in place of the netns generation, so the two
+approaches differ in invalidation granularity (per node vs netns-wide)
+rather than in where the snapshot lives. I'd rather keep the per-node
+granularity, but either one needs the holders converted to a cookie read
+before the lookup.
+
+[1] https://lore.kernel.org/netdev/cover.1795166508.git.ralf@mandelbit.com/
+
+Reproducer, run as root in a VM, "restamp.sh route|xfrm ctrl|other":
+
+#!/bin/bash
+# usage: restamp.sh route|xfrm ctrl|other
+#
+# A connected UDP socket on CPU0 caches its route to fd01::2, then that
+# destination gets a blackhole (route) or an xfrm policy (xfrm). With
+# "other", an unrelated socket on CPU0 then connects through the same /64.
+# Counts what the first socket sends to fd01::2 after the change.
+case=$1 mode=$2
+log=/tmp/restamp-$case-$mode.txt
+on_cpu0() { taskset -c 0 ip netns exec cl "$@"; }
+
+ip netns del cl 2>/dev/null
+ip netns add cl
+ip -n cl link add c0 type veth peer name p0
+for dev in c0 p0; do
+	# no link-local address: its DAD would add a route and bump the generation
+	ip -n cl link set $dev addrgenmode none
+	ip -n cl link set $dev up
+done
+ip -n cl addr add fd00::1/64 dev c0 nodad
+ip -n cl neigh add fd00::2 lladdr 02:00:00:00:00:02 dev c0 nud permanent
+ip -n cl route add fd01::/64 via fd00::2 dev c0
+ip -n cl xfrm state add src fd00::1 dst fd01::2 proto esp spi 0x1001 reqid 1 \
+	mode transport aead 'rfc4106(gcm(aes))' \
+	0x0102030405060708090a0b0c0d0e0f1011121314 128
+
+on_cpu0 bash -c 'exec 3>/dev/udp/fd01::2/5002; echo before >&3; sleep 3
+	for i in {1..10}; do echo after >&3; sleep 0.1; done' 2>/dev/null &
+sock=$!
+sleep 0.5
+
+if [ $case = route ]; then
+	ip -n cl route add blackhole fd01::2/128
+else
+	ip -n cl xfrm policy add src fd00::1 dst fd01::2 proto udp dport 5002 \
+		dir out tmpl src fd00::1 dst fd01::2 proto esp reqid 1 mode transport
+fi
+ip netns exec cl tcpdump -nn -l -i c0 dst fd01::2 >$log 2>/dev/null &
+cap=$!
+if [ $mode = other ]; then
+	sleep 0.2
+	on_cpu0 bash -c 'echo x >/dev/udp/fd01::3/9'
+fi
+
+wait $sock
+sleep 0.5; kill $cap; wait $cap
+if [ $case = route ]; then
+	echo "route $mode: $(grep -c UDP $log) datagrams sent past the blackhole"
+else
+	echo "xfrm $mode: $(grep -c UDP $log) plaintext, $(grep -c ESP $log) ESP"
+fi
+ip netns del cl
+
+-- 
+Ralf Lici
+Mandelbit Srl
