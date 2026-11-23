@@ -1,67 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452248;
-	b=szYsGarJrQ3O2QwZ5hQP/72a78hGcVBvIJm8x9kvrV9khVPX8FcaRUXvfKI/4JndVPQw
-	 7pBwhzeZDIolD+yLpFjMiHEmp1ce6Y8WWB/xTBJyu/RZDa87cDyetg2F/lLQUlMPSVuTX
-	 8evK+Sm1zidJJHDD4tXirlHddYtnUXCvF7nwoMfBo/I2haHlA/mznHhkxzCH1WQl8a8V/
-	 YkXCjho7OjB/VKvLazIcvQlqHYZwTHPfW09mDI6oyKHK5KXA3hW3l2DdH83TLkdycKiwb
-	 jTo0YbF7hP/l5MeyXJgQH+KML5WwKx77QJL0MK8sV9QEXZImBy02HYfH6p5/mZ7C1/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452248;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
-	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
-	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:
-	 X-purgate-type:X-purgate-ID:X-purgate;
-	bh=+j8NlTDkaSolKJC2T/OgIC4R3UPkUPvo0idclAridzw=;
-	b=jZXaBHdptvKePGgFyHCKx7tsLPwvuThWS871Za40506dOX+FIBxFWfVL50mKvfocF3O4
-	 PRIi5EH7sbJpeO7O5Nv+rhgeQbjxOlospTKAr6K1Y8//Yl5Gb233pwyoTGqt73xtOBKaS
-	 /OIilQONsVVNXEpw/GCoVU1T07+brpyibS8ZaFOVY/A+eddj8EagX8U+zz3q5D8tB/lXn
-	 u4SBCLwSnpf3UiU1CKlvgUkBtN3xUWhIoI92o1yvdU6cjm7Lin2ewB6gTzqW7zkOxCa7H
-	 4jpWvS+QWxjLR2R1xeUKtXeqIcRnaGAbAm4Il9Y2XcgogQBR8v0DZLSNI/Zpac917EQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dev.tdt.de;
-	spf=pass smtp.mailfrom=dev.tdt.de;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=Y4klHzNh;
-	arc=none smtp.remote-ip=91.198.224.70
-Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.22
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795452254;
+	b=IEXhc/4SOG/p0W5JJMcD2vCCP570o6OQ2eNxtei8EUBU6OjZpPXoYHIOGeLFlstpnTQS
+	 zaCkmm0wIHC6rrf62+lAkscRTKOPOS23BVVT/XHL5wceZ/i2j0eVtEGqTraQ91jVk0+l2
+	 +ghZxMBMPuxCarii+ECAeWKKroGWHvx01Sy0cawqELOmuvD8UuHFHJNOrH/ZKcR9JGx0I
+	 s5QkN+cDTkNunHDfB8WkGx7pjTDdSIJA+2QUPnGZ3OQzusH6/Vokbdynk0qFeRYFZwB6D
+	 MR4Yg7Vlu9tvG/aL25qa5cGkkOvqC9PBHXN58XVi21OiZdz3zqji/jBnOnRwZl1mDFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452254;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
+	b=jbUHq+dbouLvmHqn6gx2xjeX3+nd04rshO+VD5HrcioFI/Q+WWAZ3Kn4A1xfv4LpZadJ
+	 umYMYv/OWSA7jjMxq094t/BYFTH2khiDYZ3VhJcEym6Tur7+TFvgMeUloJKCXQ4ddOdVz
+	 04EXojlVf4om51aiwGs7zjuKeFuf8zFBEboMBo3B669XVQWrG9CEBokZeOSpv/ExcRdsW
+	 A9aO6ovGv8ifvr785sNDdIidT9gMKLHAQEvR0U2KkhDuEZUN7QJPVgklNBSYSgvqJogMg
+	 GfAXTrJyCHiGZyniPUPc5A/J+4RZI98pttaNSegKQm6pDrNdqpAELjpmTlCUa1FaDsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2mU5GQlq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.22
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013022.outbound.protection.outlook.com [40.93.201.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC70606A31A;
-	Mon, 23 Nov 2026 16:44:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC70606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC7C606A31E;
+	Mon, 23 Nov 2026 16:44:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC7C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=Y4klHzNh
-Received: from [194.37.255.9] (helo=mxout.expurgate.net)
-	by relay.expurgate.net with smtp (Exim 4.92)
-	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
-	id 1xVX9C-00GtH9-2r; Mon, 23 Nov 2026 17:44:06 +0100
-Received: from [195.243.126.94] (helo=securemail.tdt.de)
-	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ms@dev.tdt.de>)
-	id 1xVX9B-002tZ2-Ix; Mon, 23 Nov 2026 17:44:05 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
-	s=z1-selector1; t=1795452245;
-	bh=+j8NlTDkaSolKJC2T/OgIC4R3UPkUPvo0idclAridzw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Y4klHzNhRpNdJtjtlMPEEhin3Zm4SRR/9BU/KQ8b07eaLwlT2b5T7Jb79KXl3RNrT
-	 lqQFNPbbJOoCI3ZW29fke261imKo+P5PYfcSM5Kl4ImAzcFOswVZAhnPaPCwHPjw2v
-	 HrXpKH6dyS9/dSthjbLw0f+NJo0wwFUMGRkOudOtn3qaVvv09dWgtSLIJAZK6th1ut
-	 MIo8JF7vOUHuiw9oytM889tcfBbw98f4PntmWPrIy+oao/lj51plBUz+FgpArjoFDK
-	 +7pOMLhvmllnoCmWWaqfS2i6S7NL9F0qN6M0MxvzWxlPdSOIpibE4afyiNpK8AcQ7F
-	 vjUjNW7YiK2Ew==
-Received: from securemail.tdt.de (localhost [127.0.0.1])
-	by securemail.tdt.de (Postfix) with ESMTP id 0CD5D240041;
-	Mon, 23 Nov 2026 17:44:05 +0100 (CET)
-Received: from mail.dev.tdt.de (unknown [10.2.4.42])
-	by securemail.tdt.de (Postfix) with ESMTP id E789E240036;
-	Mon, 23 Nov 2026 17:44:04 +0100 (CET)
-Received: from mail.dev.tdt.de (localhost [IPv6:::1])
-	by mail.dev.tdt.de (Postfix) with ESMTP id 905C920059;
-	Mon, 23 Nov 2026 17:44:04 +0100 (CET)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2mU5GQlq
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QWolYgO26gWeFlLGX44Jen1GudTtdhod9/KAC8cQhJxQOyuQmLUXZl2qroBQzgNHH1ly6+BAY532p3FN58P5TElDKda2iuie9A01FMhwcUSKYSk9JIjQKRyGfNxTn1MX5z6br6qXp1HRnKLAuIlp0WAu2O695pHluKLEXQITqkISjr5ARqTkZDzExS+JltnDRmNfOOQJtP5lnppjp/1woF2x/XYPf8IKRMS3iihT0dTVmRI4uVHg4+HVd4MAMRcsLhicAItiPRCRg+IvBXLgdBIvkI0L4nCjtp8v3Cnz+CSBJs5sHWDcPkaoJ7Sm1Lw4ZGQiiQxVlqxUKgPYRDCbDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
+ b=OX5q4WYc2dLRK5EDZSDcCU9ykm2WgzuILcLEbfoYlaU45nGqNwfCp2gBEgKHnF19AaqDHHEblMldVEKHfpmRw8ho/bIJtZtVhoCGI+PwJ3PKEcVqmeetyl8FaUP/FihIBHSBCqP8G93tSQ0Rpg+GBKY9YSc9C7dTADS5+krrt810pu6lrlQchm2+0wB+OAJZ5W8hQmfY5GswdbUVcittwWNkeqZv7XeHWTT1vfBAsBVhHwUmAsVc8HIQ8q99ZxaqfVcBKz0MF3fXny6GUJXXEjxccAjn3J7uw4radsVEei3Mz8f5YdWiYeT5awk6jFeG1bNChmeAlQKQWKJyFJR2vQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
+ b=2mU5GQlqWVedpPiX8SfZGqFxRr4IVfJ5ehQKlF4KGC3t+9pbGVongLYdnp1q9h2SPtp0RLoDOobkZHlxdLvYKjjwlzN/ltam15grhVY5LFdNPwC80S5tmUXeZRF/waf1CDJawG3ePWOzS5xlEKlqF7KGDoQYLnc65GcrxM9POVA=
+Received: from PH8PR22CA0014.namprd22.prod.outlook.com (2603:10b6:510:2d1::29)
+ by SJ2PR12MB8883.namprd12.prod.outlook.com (2603:10b6:a03:538::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 16:42:59 +0000
+Received: from BY1PEPF0001AE17.namprd04.prod.outlook.com
+ (2603:10b6:510:2d1:cafe::93) by PH8PR22CA0014.outlook.office365.com
+ (2603:10b6:510:2d1::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 16:42:59 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BY1PEPF0001AE17.mail.protection.outlook.com (10.167.242.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 16:42:58 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 10:42:55 -0600
+Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Mon, 23 Nov 2026 10:42:52 -0600
+From: Srinivas Neeli <srinivas.neeli@amd.com>
+To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>, <horms@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>
+Subject: [PATCH net-next v2] net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
+Date: Mon, 23 Nov 2026 22:12:51 +0530
+Message-ID: <20261123164251.48234-1-srinivas.neeli@amd.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,32 +108,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-Date: Mon, 23 Nov 2026 17:44:04 +0100 (CET)
-From: Martin Schiller <ms@dev.tdt.de>
-To: shyckless@gmail.com
-Cc: davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org,
-	pabeni@redhat.com, netdev@vger.kernel.org, linux-x25@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	paul@paul-moore.com, stevewong@hust.edu.cn, kaixuan.li@ntu.edu.sg
-Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
- label on accept
-Organization: TDT AG
-In-Reply-To: <20261123-x25-v1-1-4432d3892f8b@gmail.com>
-References: <20261123-x25-v1-1-4432d3892f8b@gmail.com>
-Message-ID: <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
-X-Sender: ms@dev.tdt.de
-User-Agent: Roundcube Webmail/1.3.17
-X-purgate-type: clean
-X-purgate-ID: 151534::1795452246-CD763E18-5E6CCF35/0/0
-X-purgate: clean
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE17:EE_|SJ2PR12MB8883:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd8a27e0-31a8-4c78-6f62-08df4980d503
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|261102123227099003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|6133799003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	mOG0yGFkax9pzAIkolMhn4iVmpZKbVxM3xT9VBqYhIqPG7gTYv9Dqfb9yYLifEf0ltNSB58b07t7ofiQw3mBVCumMsz2Vdh6VpeGNBJA2hsFV4QKDdvaPxsUuVbmLutknOyI088q7F2b7zYa1mdrzO92yLaUAK0cUXsFjt8rK2L4ub/wIEpbcZiXnyHnhKU41eoJx2moamKAJBDbkQ12U/+P0UprcoQL8WXsAmXkTUTuUwKknnrbfM2/V0Y62HyXNU+b+S2XSZhan+4Bnvzy1t+TY1o8Je9qDVWX4/itYwdfmqvv8rVNJMx4PoCnEuEGINF/a1OX2mnvl5rDjXms41PlZ2RnRby0JUxW8XMN2FNxn4f6i5JQtHQIrtaBYsTaAkcUNADGeys4RnkyNorfa+c5kLjTs0P3fLNwDBwNAVxgdB/uO46uYmySYvP6+u8DkTldL1QAyTI0aPl2PAkKtMaG8LmXi2sw0EXziS4dhoMjiMMzuDo+8eiGH9jv0dhL8Gpg8GzZ/BRriUdQaeSUhvZ05e7Qz78g3zSIi+BwhYFBKtAznK4rgBw0JMrtkuPvLgXUil8u1LT/e3Bwoot6qXLj0CAQbTyRRc46zWaPy11to0PJjk0G1Ay3aZ/fdxaiKJqDbxRdkyEw3Aea1gnV7XEgWxzdpT9w10KUHu/awP8=
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(261102123227099003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	NPGtpyWmRI6l5G7fZcJZ0G9eYTyeG3j3+bZlUhdXRlyreR7jhL55XUCJWZyenx+JQ8UzPeX1Y/ftKxf63AdNVe4chvRmJx7ZUbN75hb5k3OKuP4rIucjxPNRwhDD7UhGfCCV0oor/0fHvudIQXslwn+y0RRTLhSYKSm6XtDSJNC1z8mXLAWl+Ph0ir1PgqMDT9PkmbTnbRWbnI4RMcnIIMdAt+4AcHg037AaXktFubbNpoyAUTE+K9u4tLDdY730c67bIdWx5En1dhaDaXgkZtlioQPthJ7bYWlSF4ZSwkhj67gL+eGdGzKbxYhC9Nz0SZsXRRcaC94ywPFp5c+pljbnqZI48/QxAoptGaYu6yzRZg5Sd+MjBE6Ft/kv1yzxYDjZNlOd9AmlNkPmH/h54MKxDmHuB+XMCqmWTBLSPjMGvKCs99ULkPGkKiTO+pOh
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 16:42:58.7065
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd8a27e0-31a8-4c78-6f62-08df4980d503
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BY1PEPF0001AE17.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8883
 
-On Mon, 23 Nov 2026 01:31:20 +0100, Suyuan Wang wrote:
-> x25_make_new() creates the socket that accept() returns by copying
-> fields from the listening socket, but it never clones the listening
-> socket's LSM security state -- there is no security_sk_clone(osk, sk).
+The dmaengine RX path derived the received frame length from the descriptor
+APP metadata. That only works when the optional AXI4-Stream status/control
+interface is present, because the hardware populates the APP fields solely
+when that interface is enabled. On designs without it the length read back
+is invalid.
 
-Thanks!
+The AXI DMA engine already reports how many bytes it wrote into the buffer
+through the standard dmaengine residue mechanism. Compute the RX frame
+length as the posted buffer length minus result->residue, which is
+independent of the status/control interface and correct across all designs,
+including multi-descriptor frames where the residue is summed over the
+chain.
 
-Acked-by: Martin Schiller <ms@dev.tdt.de>
+Drop the descriptor metadata lookup, which was only used for this purpose.
+Detect a failed transfer from dmaengine_result.result instead of the
+metadata pointer return value, and remove the now unused LEN_APP macro.
+
+The transmit path is unaffected. It still passes APP metadata for checksum
+offload and derives its length from the skb.
+
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+---
+Changes in v2:
+- Refresh the patch against next-20261120 to address the reported
+  git am failure. No intended change to the RX logic.
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+
+Apply failure reported in:
+https://lore.kernel.org/lkml/20261123140311.GB31322@horms.kernel.org/
+
+This patch was originally posted as part of the MCDMA series and can
+be applied independently of the other patches in that series.
+https://lore.kernel.org/lkml/20260818174151.1608971-4-srinivas.neeli@amd.com/
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 7e83c4b5f193..5b4998e2ca14 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -55,7 +55,6 @@
+ #define TX_BD_NUM_MAX			4096
+ #define RX_BD_NUM_MAX			4096
+ #define DMA_NUM_APP_WORDS		5
+-#define LEN_APP				4
+ #define RX_BUF_NUM_DEFAULT		128
+ 
+ /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
+@@ -1219,30 +1218,27 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ {
+ 	struct skbuf_dma_descriptor *skbuf_dma;
+-	size_t meta_len, meta_max_len, rx_len;
+ 	struct axienet_local *lp = data;
+ 	struct sk_buff *skb;
+-	u32 *app_metadata;
++	size_t rx_len;
+ 	int i;
+ 
+ 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
+ 	skb = skbuf_dma->skb;
+-	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
+-						       &meta_max_len);
+ 	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
+ 			 DMA_FROM_DEVICE);
+ 	skbuf_dma->skb = NULL;
+ 
+-	if (IS_ERR(app_metadata)) {
++	if (result->result != DMA_TRANS_NOERROR) {
+ 		if (net_ratelimit())
+-			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
++			netdev_err(lp->ndev, "RX DMA transfer failed\n");
+ 		dev_kfree_skb_any(skb);
+ 		lp->ndev->stats.rx_dropped++;
+ 		goto rx_submit;
+ 	}
+ 
+-	/* TODO: Derive app word index programmatically */
+-	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
++	/* Actual length = posted buffer length - residue. */
++	rx_len = lp->max_frm_size - result->residue;
+ 	skb_put(skb, rx_len);
+ 	skb->protocol = eth_type_trans(skb, lp->ndev);
+ 	skb->ip_summed = CHECKSUM_NONE;
+-- 
+2.43.0
+
