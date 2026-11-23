@@ -1,107 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430332;
-	b=1uj9YN+klOgEh7Z1ZjAYmem1e/C2yT2/Acsbvf86uyLUoWKRQi8FrW6h3esaLgvhTwFw
-	 i7osU+0seBu38dqitUBg+xkCzE4wnF3n1i+b6uqcJPakYTglQ7YTXtYzrOZAH6j7lqjN1
-	 sdZoZOXUMYxcMu5o0jABNfCRQedug7ZxEy2EqzYoRSZHbrL3ZgXSrXbzwOcOGcxlCmK1M
-	 BOZ19TEyqUa7dZwENDCLFUBohhCQlSIP8W9x+sN7sfy2ngl/RKaau/MWAfo67uv4nEwSX
-	 iu/MS3/niu8UF/6TUykfte5ZjH5spI0C2tCleV3QpaD8bqQPVZ3bLbzWtSzu6w78RPQ==
+	t=1795430376;
+	b=00wNdoRcVBUrpzss5dIR0bJ0DBFldIQ/w2n0LIMdAVUnb19JiqpoUTOdWfCaJ2CU9/dG
+	 gtQ4NfvgmQdx3/rWmooTEAxtZbsDHRHZGkVHO/62LoRPdnHoCm8z6U/qq0C2E5i8lfeAd
+	 OfKz3ZorLhV8wgPz8NjYfnLLHMPQ1R4uVuIizsboAH4p0cSxcoan3WXqbCjOPRWyTYDUd
+	 4f4kk0OLT0H8tYTgStU9noj0S+aFDKtnCpZs7kYOAo3L5letzjC/X6Yp60WpybsY6a6d7
+	 jK1ihH+HNv9eTe+HAeUPD3cqZV8O4Mcqzm2GLdAXMv+m0Lt2N0mWo5F2B4nXeRtZUTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430332;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430376;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2vogCHTyzsPAWp62GPt/7NN1PGJX3oa0puEKi/CotX0=;
-	b=b/XwtGaC9JQJ3/tqGI6sDswp15M5f2TGFP5gVHnHlX7sXFehAKFinoil7IW8Rmx6vene
-	 k3UUIHHsnLagfZoDCwzXjfSTW3Fj+RdI9QBe/RIeOf/bHMAfxW6Cycaphfbbgkvo9bMgL
-	 VQ3ukQz9ff8Y+W+ePYmIwnO2PokS05GbQuk1ck5fzvO2aWmqgpzCOmFgRwMXBcMLdLoZn
-	 OHj+6muCymBZ+IgDLXRzc+LqakkDStKm6RPBIhf/M/y13ePx5nW5vve+IiwPMo+sChx/X
-	 zHY1CXF499l/0nGalSZCwnphenRaxul14od3ZUZQcoFNFbxU9e2/bb9MM5k/LlgOGiA==
+	bh=j/tG/UEzIieZgAJph/MrBCvQdKGyZRKklloUXvZ0UYA=;
+	b=Gs87BowwKRc3XrAXhXU+wYqRm6ElhqL+TI6j0gRL76aMByh8ktYPcz4Mf+K+OEE6P26U
+	 /4uYd9/PYz5Nu17BmrSl1Td0Px1dykqOBcpYTOYRFJ9o+e3IxofgQlvazXV+scMQ8GHdJ
+	 1DvttnDS5CGyhaC8Q1zRasGxj4vSrDGykNJUln8X+jRR87LcViNuHHE9aLSd6LkiYQnF9
+	 tFxuDctIdnDNM9pxnCAUmYBG46+SlXLkPW6mPok93eMA9jSFr4XoxHfG9gZ9KDeVvMXuu
+	 4/qhWmcsxpoaKBduQwM91r5wsRD7i8FaoMb5jd+uSbwRpE/uhGcwq3I0dZobKae0fFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BKGAqYE9;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=OOrOArhW;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=njNAbrpq;
+	arc=none smtp.remote-ip=162.62.57.252
+Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07AAA606A336
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:38:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07AAA606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2896A606A31E;
+	Mon, 23 Nov 2026 10:39:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2896A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BKGAqYE9;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=OOrOArhW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795430331;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2vogCHTyzsPAWp62GPt/7NN1PGJX3oa0puEKi/CotX0=;
-	b=BKGAqYE9isy8xC+EX+MKAN9vOZiYD6bXnGkHZ/MAlPANZj9WsEN3Tp/gHD13HSOues6RsH
-	npOnDFMGCjuehekF0Mzf4V6k3xmBZCFpUlccppr+/tS6Y+sBrP/ntM2vt+FdQeuNIRZOxg
-	X449grfGUy/Y6mUT3JvKuIn/6O6C4mI=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-348-bVi4mwfKM-OF7v48_qNogg-1; Mon, 23 Nov 2026 10:38:48 +0000
-X-MC-Unique: bVi4mwfKM-OF7v48_qNogg-1
-X-Mimecast-MFC-AGG-ID: bVi4mwfKM-OF7v48_qNogg_1795430328
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4ba078abd78so19396045e9.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:38:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795430327; x=1796035127; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2vogCHTyzsPAWp62GPt/7NN1PGJX3oa0puEKi/CotX0=;
-        b=OOrOArhWVwNcPbfRVmT6Y6fSaMbQZv4neHWc2dYRVLFU8oHOgXIAVp+CiqOa4JNFJL
-         bF4/2GUTXQi51oxgnbW2R8f9kqHAP4ExNlTcwcmE3AzTChIhuouy8xNOKHMlYr2nj/a3
-         qq6eRQwjv3fgl17/UQpf6iZfe7/HPfQudkn2B60A59SIhWHKYKLWh3GB8SEcQ/I7E1vP
-         C2QZIiFCrO/ZA5lWXF8KKo63H6NIE/yMxY7ep9QEZMj9RzosogxJS9Posh09rKauf6lR
-         ke/oJXt3EqTbfngGFuJYcL7VQ6Vb5/Y+HeFOX6VFS6IFPVUA7/H4cRyNHbkjNq4KabWH
-         I8Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430327; x=1796035127;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2vogCHTyzsPAWp62GPt/7NN1PGJX3oa0puEKi/CotX0=;
-        b=Cs1XF9bfgF2vgoLE4uBTXLYnzN7YdqhpLQ8RGAqltzVsqox+7iylMX1pG//0obefsv
-         FQ6lCf7ctU6s+tQIue7GKvFe1jSlcG9mruMUlmaDh6l773OUQsxiUAxuZpU1A04Bkeui
-         YX7YoMSMn++3a2ZloqhvZtQQBbfSY35mQUn2NSmdWFFtuPUOQYsVcezNQgEKrm3Osejb
-         Nwg4uTkXRpZmV9bxN8/PH+lS8g6UoXyNi5EAihnjgkfJRs/Oo46NTfipw50Rdyw2lTee
-         qc/HsSm3r9xaHdlce2PjRlwEbc2fu0NgKzW1nc0Sd42MP7tI3GAYO0e/ZrKwFlusj08c
-         8WYA==
-X-Forwarded-Encrypted: i=1; AL+hErHsKLKG3Gn9q7knwzDl+K2977oI3hB3GHi0IypyNf49OfWzMXcVeKDdxD0UOuw6ptVLPO2OJKk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86DcKMSE7JLvUrNh2BLvqgKCRIkxXKPYsfbEnlL0r5WGtnqNdg
-	+xnjExh8tANk8l3ftIw2vIXo7SS9h9SCtMrs/8GKlmiDeovSnP31m9aBHlol4grCv3TPj+a4S74
-	7pnJRZl0e6tI7sKq25v8sDQABjsqeJk0AW/X/p+W/hWJU2NvM0jL503oUcg==
-X-Gm-Gg: AZFdTZcRO/58B/uKvpZFRay4A8e2Dsn/M4zNN6O/wAFwEDH3XhhNls1SSc9hhMYxLdA
-	xcE5my35YaNBhd4g7TKaVwis56zzIquPqLUbj77CYOlg/hPOqK1qDCHdJjLW+U1g5WeCAOEEOYt
-	FLdtHhbUALZnqRqDPwzgT8h6L7BWj0eXfUCGt3qw4BahG8sXZm/Ns306dRuaFSd+CaMUFFAq75z
-	7tizeVosEdRm4p2lWKBYguYYmhToNxJJywzm2XfMQ8tRyTnwOBUMWkATvsF/5q7joTSelmkD1bG
-	0h4OrvO2k8DiKHrZ6KNiGSZFoiIUuM769/OyN0kZlCKFolykwsluyG0BhNqgXgfBIORvSeFoY3K
-	V4tw+v0XarAMrUji98T05nihrUrOwLXqsmLI+cjCvztI+5GZwDoYKgvA5w12NQ61igDprojwvM1
-	lmCdm+qS4FFdmLr2L1WnoFn8NDsgp8a6wOCwGTt7eDhfPS
-X-Received: by 2002:a05:6000:4009:b0:4ab:7c3:101 with SMTP id ffacd0b85a97d-4abb514617emr22984741f8f.22.1795430327639;
-        Mon, 23 Nov 2026 02:38:47 -0800 (PST)
-X-Received: by 2002:a05:6000:4009:b0:4ab:7c3:101 with SMTP id ffacd0b85a97d-4abb514617emr22984699f8f.22.1795430327225;
-        Mon, 23 Nov 2026 02:38:47 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm21654938f8f.5.2026.11.23.02.38.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 02:38:46 -0800 (PST)
-Message-ID: <5691bcd9-1358-4f1d-b300-18a25a63eb31@redhat.com>
-Date: Mon, 23 Nov 2026 11:38:45 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=njNAbrpq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795430364; bh=j/tG/UEzIieZgAJph/MrBCvQdKGyZRKklloUXvZ0UYA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=njNAbrpq4KIHGXNhQieMt9cicwl4OezNy2Bmc36lyj5fzU3Cg4cz/acF1SVRGCMQq
+	 t8M7UEwq3HOZIe6ElZk3NEhSGxV/n3rfG1x4TBDcb8Fzx8Y2zcnKgLMdD1xA3QsKVU
+	 cPbXs09tXynPTEqOM3Wtdk75/88eijM8oIM2Owgs=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
+	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
+	id 9D68AA19; Mon, 23 Nov 2026 18:39:22 +0800
+X-QQ-mid: xmsmtpt1795430362t9r4b51ec
+Message-ID: <tencent_72DC05B1DB892BF77B6916964DF9A3263907@qq.com>
+X-QQ-XMAILINFO: N/WmRbclY25Gkdy/Sr2RyBrIzXg5agU7hEvfOAKWwVTxgOiHxpWaZtfr0UXLf1
+	 XVeVwZ1hOlT1SZdJIAosyMolDr4AhWKlk4VDcSTcOCSWtt1ikXPong/lFGIgCTuytxQR68r0RdDn
+	 U9OJ02z0uZkX1Q1eUL2LWxIhDgxvHRltDAG1VTW93KgB5iIqOa2UCGyJPO8nAjNhpxES/NnS6Emo
+	 hV5sfxbOUoLbcxTnvWAWC0JLwCuMZ6WlGtT98m4xvVU97wo5XUWPSmDIKf3fdarsXCsmwlt2ZaND
+	 /tuN10MHRwj3h0EK5pUFdvjj93JOyEN7wpuazmwcJlhjw965Q92O2T7IeUkvXg/E1HBcyBTYTjhB
+	 fs9NGa/7Isig6FIyuUYtlRA6Z6Z/3L9NfSD68Lc5tP4WpA4tLFxzBWhoTWtPGOtdKF+hK9wYpC5Y
+	 a19/HdMvFxOG+ZFB5xesocQ68vVA4HTE9PeH0B5xbZvEiDqoYOHW70VgSOng0i1nAeKcJQsLYc5E
+	 YQmCFitEjByOOhGxwRjb6gEgx69sgP9wApMXBqtCP+gqq2H+5VKcSA7GkgWG/RI3kZqORZoDEEm7
+	 80CCCV/uVm4xTXLHb1Pq46Eq1+sxu3H63XIR9o/pT4PVmZYri97wrHdil0HRdT7tZa9wUVAP2pek
+	 kYDz/egJa+sp5Fw1egH4G+wxBjbemW3Z14mQxMvXG+kh0fmQME5DVc2pna+DGfEce3If0jigxMqv
+	 fxPPY350VI8t8DSrPSfyaO2ZmEpQw8sHHpDjGLYaPSPKYVPpJ/lkgF6qRZSENNP85oInd3izkNo6
+	 TQ/b9Wd6qPu4biI3jSOy+n3Nb33eOc5KSqtdW4CECIETgU0GJbjrhPWnEAaoANCXTw1f/gwP/gQY
+	 cejNSc2sZ/3iPAQiZCafOnoSC1JVMG7ASEVvfGqlPrUqTrWjlyuGyitLont+4tlSKY1ylUxGgwTv
+	 glaoobALT/zNR3FQqWdHu+O6kUFWeSPwwAP/57RFM2Jt3wWQpshbojcrWYLGq9kNWXmIook0DMti
+	 fPA3Ecp4EDhvY7dgvtqWjyzC4wtCtk0Uf75Jknq3YQFxM5cgiZsewkj02VZZ2tSccOIWH2fZ6MYE
+	 Qz4h6k
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+From: Shuai Liu <847807867@qq.com>
+To: netdev@vger.kernel.org
+Cc: ms@dev.tdt.de,
+	linux-x25@vger.kernel.org,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	847807867@qq.com
+Subject: Re: [PATCH v3] x25: defer socket cleanup on link termination to process context
+Date: Mon, 23 Nov 2026 18:39:22 +0800
+X-OQ-MSGID: <20261123103922.1466829-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <mid:11>
+References: <mid:11>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,33 +82,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: hinic: Don't fail probe when firmware lacks
- rx-vlan-filter
-To: Jinjie Ruan <ruanjinjie@huawei.com>, cai.huoqing@linux.dev,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261116021858.273519-1-ruanjinjie@huawei.com>
- <0e15bc66-3737-4e6e-92dd-3b54e95e224c@huawei.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <0e15bc66-3737-4e6e-92dd-3b54e95e224c@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/23/26 07:32, Jinjie Ruan wrote:
-> Ping.
-Please avoid this kind of communication, it just add load
-on the ML, with no benefits for anyone.
+Hi Martin,
 
-Your patch:
+Thanks for the detailed test report - it settles the discussion. The
+stalled-owner case is what I had missed: the deferred worker blocks in
+lock_sock() until the owner releases the socket, so the window is as
+long as the send buffer takes to fault in, not microseconds. My
+"runs within microseconds" argument assumed nobody had the socket
+locked, and the workqueue approach is the wrong tool here.
 
-https://patchwork.kernel.org/project/netdevbpf/patch/20261116021858.273519-1-ruanjinjie@huawei.com/
+Please drop this patch. I will not send another version of it, and I'll
+leave the fix to Thang's series.
 
-has unanswered 'high severity' feedback from sashiko and is
-in 'Changes Requested' status. You should have replied to sashiko
-long ago. A new revision is required.
+The bh_lock_sock() pattern is clearly the better fit: clear immediately
+when the socket is not owned, otherwise set X25_KILL_FLAG and disconnect
+from release_cb, skip flagged sockets in __x25_find_socket() and in the
+transmit path, and keep a sleeping sweep for NETDEV_DOWN, where the
+device can be freed right after.
 
-/P
+One thing that may be worth keeping in mind when you post it: in the
+October thread sashiko pointed out that x25_make_new() copies the
+parent's flags word (x25->flags = ox25->flags, af_x25.c:607) and only
+clears X25_INTERRUPT_FLAG. If X25_KILL_FLAG lives in that word, a child
+created while the parent is flagged inherits it, and the
+__x25_find_socket() skip and the transmit block would then apply to the
+child as well. The current posting may already handle this; I could not
+tell from the thread.
 
+I have the syzbot repro for this report (extid 300375dfd44665f063a6)
+and a QEMU setup where it reproduces in under two minutes on current
+mainline. If a Tested-by from that setup would be useful when you post
+Thang's series, I'm happy to run it.
+
+And noted, my mistake: new versions as a new thread with the version in
+the patch subject, not as a reply to the previous posting.
+
+Thanks,
+Shuai
 
