@@ -1,64 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795412350;
-	b=iQjeT0c3hza1qJymT9AIBSbWAGXXBZvXF4SxcH0rSvJFPaj3Tf0sKeb2dDfxyGaJ/Mqn
-	 gixHblUtVKHqhMsUDIeHfMYvYOLH/HHfC6X4jeX1EmPOFIHiIQscBjKmcs/Chv8CDeGfK
-	 YUv2t97tcsTojdTlodS/2uyTFmEE9KnNrW6TJCjk6QCMQggR+rwkA5d2/s/dQOJBxjVBW
-	 f4KkKtcShpvGskF5AWVZ9MPHZ577KGYzoK4k4+oBmRJQC9q1oFQaHJyY5qc2v8B7VNpl5
-	 KTQQC1Re2GrS7Z2+0zAkihgpYhJTUcuXL/R8fEFFb6fcpy99Sz0ie68Jp4vE3jTlhAg==
+	t=1795412574;
+	b=OR2gV34gsgpWGwyTVWwbHCgFLXaejftuJI2Ef+cksEzeA6b94Mcd8qqgG5CRIOgNaKmg
+	 FstYBzdyGAKjliHDliiniAiHARrTAJtlK4b9dxcL1KtfV7znFUacCZoloRoBSwXHhDTj5
+	 fObYJ/JQhEDWAlSyEX30ocir1FrR/YnTDF2HD584wbU93Aw3XA3gMCvX6wp07yONhYbbq
+	 fS2+HJ0ol7fn71d9KmNrk9JR7cEgkHM+uTwvWsgsjgodxQ9FJ7Zanbu0+BqbBiy+Azbmz
+	 t8UYmSMHpCNeFfXEciPe7H4/TA6/mKDd4ZM5mjoQHmiZH52TySc3BpgbpWtcg1RlKJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795412350;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=9fZC67cJJ/GjqV+nhFxv50Ir/g4Ncc4bsSbtF+FPqMU=;
-	b=5fxr/k42Xzb1fcx7I34EJNNO5Bc53OiodR8kJ9OJPJ6+/3AS1ALoo7IM3ZklI0d758W0
-	 2iwqQ8N7Vaq8qJdmqoxIIiMpOHslv13PpymgQyMG9U0thgGXaXjBRbsIUXVme+PbNsyu9
-	 752fZ4LhRtP/4dXwi49a3YWZo1cJ6zHYh+vBhW+v5eHPH7L1Ok6vFayfVXfiVWUmBiu+J
-	 94VI/iv/UGGPAEfcwrmngNkgESOljwXDwBbD+MmHINRPhkTev0cRjonSBnQesstYcIvg5
-	 wBptPliGt8uVTSZVbQf6He1AB+Bu63IUOxFjppy3kzfjjoLG15hXJp9KjwB/K3FaDWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795412574;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=H8JwR7B+7ndWtT3MP8NnXDucTckP4zsTxZorbc3F8PY=;
+	b=SF74R9tN0g0ZWkUhquPDEie5Auz/SDSeWipL1FeWAGkY0/fK1AqpxTmXJW8fasAeA98s
+	 HmdpRgSTJc5Ko8cQknp+PtFkW26B3pbeqOgNgkTon6/gCq3mEoVRS0lTXfQEjreRith/0
+	 Y0W3UnVSuS+I8qkYgWPu7WNEzoWtCMlN0h2Z9AJlCqv+u5SyD2xpo5bcJu5aNln1pBMTN
+	 bZ1ux3A3pqsXN5wMsJ1SjuRRLTACBXtJ3FvPLYq1vQABbVR24s/e58HhzBNhBeJSsQ/Ur
+	 F1ddpE5Zn43F/UwXFGFUQIM+Om0AIdeJ8FLJ1DhOkDeNx6Jd+FNeimG01C0ihFcBcEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN;
-	arc=none smtp.remote-ip=95.215.58.144
-Received: from mta1.migadu.com (out-144.mta1.migadu.com [95.215.58.144])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="opMt/z35";
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0406F606A32E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:39:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0406F606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56733606A330;
+	Mon, 23 Nov 2026 05:42:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56733606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GGgKl6H2K6gHd6hfWzXd1Bt9/gcGE2YwIrAA2CbG6HE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795412347; v=1; x=1796017147;
- b=OJheM6XNmkjKLELNqpyXr1iE+WMP8bwEStj1ztPkWTyBCt43i7svWeJ5eQF7MvEVAGKFPuDl
- 0NcZYGSB55t39ls9W4uFbaHdWJBxoohMz6bWoxQ74kf+rlSv1gI8maU/M3n6hq8p5+IL0BU3j3h
- vTbtM7KzjNxxcqb0jyn1C6tE=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 80c29ab3a696dce2;
-	Mon, 23 Nov 2026 05:39:07 +0000
-X-Mizu-Trace-ID: 80c29ab3a696dce2
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 13:38:56 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
-Subject: Re: [PATCH net-next] selftests: net: reuseport_addr_any: report
- epoll_wait timeouts honestly
-Message-ID: <20261123053856.GH10218@Liu-laptop>
-References: <20261120065855.22628-1-emmaonana18@gmail.com>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=opMt/z35
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=H8
+	JwR7B+7ndWtT3MP8NnXDucTckP4zsTxZorbc3F8PY=; b=opMt/z352qWOs9qMoD
+	LmEGxBHptIxlk1itiymmC70dXvV6Y+N/4ZFWSPSoxiL6bEqJmYgd2AZqv2MFQHSs
+	prsQbXfaL5Zwx1N/8s7IlunlcCoPKMw6xC+7+PMxgfW2ycueMEoS4/1A4GSBo0n0
+	tE5BFA3abKNaliair3jkxWlNk=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnL9ky0gNrZC+QIw--.65118S2;
+	Mon, 23 Nov 2026 13:42:12 +0800 (CST)
+From: Rongguang Wei <clementwei90@163.com>
+To: netdev@vger.kernel.org,
+	bpf@vger.kernel.org
+Cc: willemdebruijn.kernel@gmail.com,
+	jasowangio@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	ast@kernel.org,
+	alexei.starovoitov@gmail.com,
+	andrii@kernel.org,
+	Rongguang Wei <weirongguang@kylinos.cn>
+Subject: [PATCH net v12 0/2] tun: fix re-attaching the socket filter
+Date: Mon, 23 Nov 2026 13:42:07 +0800
+Message-Id: <20261123054209.89946-1-clementwei90@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,38 +67,101 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120065855.22628-1-emmaonana18@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnL9ky0gNrZC+QIw--.65118S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAFWktw4kZF1rAr15Gw1rZwb_yoWrWr15pa
+	yrWw15Gr4kW3yxWw4fua1xAw15Xw1kGF13uwnxG34ruFWYgry8C3yI93yYv3Z0yryvgr4r
+	JFnavFnFg3WDJFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjuWLUUUUU=
+X-CM-SenderInfo: 5fohzv5qwzvxizq6il2tof0z/xtbC-hRdyGsD0jTDLgAA3c
 
-On Fri, Nov 20, 2026 at 07:58:55AM +0100, Omokefe Emmanuel Onanaroghene wrote:
-> receive_once() waits 3ms for a packet but only checks for errors
-> (i < 0). On timeout (i == 0) it falls through and uses ev.data.fd
-> uninitialized. recv() on a garbage fd fails with a misleading
-> "failed to recv" (or worse, blocks or returns a bogus fd). Report
-> the timeout for what it is; errnum 0, since epoll_wait sets no
-> errno on timeout.
-> 
-> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-> ---
->  tools/testing/selftests/net/reuseport_addr_any.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/net/reuseport_addr_any.c b/tools/testing/selftests/net/reuseport_addr_any.c
-> index 1c43401a1c807..2e8aa83f68dd0 100644
-> --- a/tools/testing/selftests/net/reuseport_addr_any.c
-> +++ b/tools/testing/selftests/net/reuseport_addr_any.c
-> @@ -155,6 +155,8 @@ static int receive_once(int epfd, int proto)
->  	i = epoll_wait(epfd, &ev, 1, 3);
->  	if (i < 0)
->  		error(1, errno, "epoll_wait failed");
-> +	if (i == 0)
-> +		error(1, 0, "epoll_wait timed out waiting for packet");
->  
->  	if (proto == SOCK_STREAM) {
->  		fd = accept(ev.data.fd, NULL, NULL);
-> -- 
-> 2.43.0
-> 
+From: Rongguang Wei <weirongguang@kylinos.cn>
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+This series fixes attaching a queue to a TAP device, which re-installs the
+socket filter of a persistent device.
+
+TUNATTACHFILTER keeps only the sock_fprog header, so the instructions are
+read from user space again for every queue that is attached later. Keep
+the program on the device instead, run it from tun_net_xmit(), and record
+IFF_NOFILTER per queue. Patch 1 does that. Also removes the exports of
+sk_attach_filter() and sk_detach_filter() because no caller in a module.
+
+Patch 2 adds selftests for the re-attach, for bad programs with and without
+queues, and for the IFF_NOFILTER paths.
+
+Thanks to Willem de Bruijn and Alexei Starovoitov for the reviews.
+
+---                                                                             
+v12:
+  - drop the EXPORT_SYMBOL_GPL() of sk_attach_filter() and
+    sk_detach_filter(), as Alexei asked.  It is a cleanup on its own, so it
+    goes in a separate patch and the stable backport of the fix does not
+    carry it
+v11:
+  - keep one program on the device instead of a copy per queue, as Alexei
+    suggested; sk_attach_filter_kern() and bpf_prog_validate_classic() are
+    gone with it
+  - TUNDETACHFILTER now applies to queues detached with IFF_DETACH_QUEUE too
+  - selftests: cover the zero-queue and detached-queue paths
+  - https://lore.kernel.org/netdev/20261119032242.71919-1-clementwei90@163.com/
+v10:
+  - add bpf@vger.kernel.org and the BPF maintainers to Cc
+  - selftests: fix the queue numbering and add a zero-queue case
+  - https://lore.kernel.org/netdev/20261109023848.59575-1-clementwei90@163.com/
+v9:
+  - zero the whole sock_fprog header, so that the padding TUNGETFILTER
+    copies is not uninitialized stack
+  - https://lore.kernel.org/netdev/20261030060043.94719-1-clementwei90@163.com/
+v8:
+  - narrow the bpf_prog_validate_classic() contract to the classic
+    verifier and note that it can also return -ENOMEM
+  - commit the new program only after every queue took it
+  - https://lore.kernel.org/netdev/20261028093235.148649-1-clementwei90@163.com/
+v7:
+  - verify the instructions before anything is replaced
+  - fix the kernel-doc of sk_attach_filter_kern()
+  - reject a program whose length is out of range before allocating memory
+  - selftests: add a case for a rejected program with valid length and bad
+    instructions
+  - https://lore.kernel.org/netdev/20261023092239.186665-1-clementwei90@163.com/
+v6:
+  - add description for return value of sk_attach_filter_kern()
+  - https://lore.kernel.org/netdev/20261016070654.170932-1-clementwei90@163.com/
+v5:
+  - add kernel-doc for sk_attach_filter_kern()
+  - fix the wording of the mprotect() comment
+  - https://lore.kernel.org/netdev/20261012021113.45939-1-clementwei90@163.com/
+v4:
+  - merge the kernel copy and the error check into one patch
+  - charge the kernel copy to the caller's memory cgroup
+  - https://lore.kernel.org/netdev/20261003063859.136895-1-clementwei90@163.com/
+v3:
+  - reorder: the kernel copy of the program comes before the corrected
+    error check
+  - add sk_attach_filter_kern() in the patch that first uses it
+  - https://lore.kernel.org/netdev/20260930080746.135017-1-clementwei90@163.com/
+v2:
+  - roll back the filter attach when a later step of tun_attach() fails
+  - keep a copy of the program in the kernel
+  - add selftests for the re-attach and for a rejected TUNATTACHFILTER
+  - https://lore.kernel.org/netdev/20260929093712.131096-1-clementwei90@163.com/
+v1:
+  - https://lore.kernel.org/netdev/20260923025653.59348-1-clementwei90@163.com/
+
+Rongguang Wei (2):
+  tun: run the socket filter from tun_net_xmit()
+  selftests: net: add TAP socket filter attach tests
+
+ drivers/net/tun.c                 |  93 ++++----
+ net/core/filter.c                 |   2 -
+ tools/testing/selftests/net/tun.c | 358 ++++++++++++++++++++++++++++++
+ 3 files changed, 401 insertions(+), 52 deletions(-)
+
+base-commit: c44104f3642da720164042623e4832836aefdd8e
+-- 
+2.25.1
+
+
+No virus found
+		Checked by Hillstone Network AntiVirus
+
