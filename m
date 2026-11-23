@@ -1,56 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461130;
-	b=UN2NlmDoPCD1ppiCg5dL8QrMWbJxhqS1XB4jDhD8h2n4QmDax+s9gmYVCU1sFI2y1Z2R
-	 8aSErqCBSkRwCpYDnL0wCT5jPOczeXxdfpMHJyw3wgYSCeJEQPtS+HecEM1hf5J8Xw3j3
-	 v78+wlpKNXog9bTzdFt4T+r7gP1RyXC3X7EYZPDv+NzNYDAHuQ6fU1VbQZQ/FG/TOba2Q
-	 bOj+WhsyG1rO7EQ8LwXLyz/z/PGgGfPYrqRF/Qb5K0VpI3mPgB+tgk+RIpuwzd0AtWqUN
-	 jWFo/nlSVfECAzqFKPbU9GHJrPiQZm0xIYKUq6TWWJP7Y4qfc6QCzNjAJbTMWFEX/ig==
+	t=1795461142;
+	b=dd9DGGNPGFMkgOPWBSlWoYzb2xCs+NujAMCOutml9BZo2L/G2vHefvWdDNfqDKgS/toR
+	 hyCfGvrqEzTMnxo1psn+XGHyZ8ZBpLW7cxmJJMHpgBADYyohaHc0g32B3rwlSekWEwGwF
+	 VEWdCVzlhCK1VVwdnGenskFfrzQEGN80BpFj3W1/4Vky+/smkKMd0KiRILf7pAmRHPtnf
+	 sk86DivVjYumKaH/WB354x7UB21FBTGAE/20WgN9EEihHe5AnHuyyFFymYOgBDdbTOjo4
+	 MC5tLXz3bPk+c2uZRmwzSphDBivvv7Y29ozU9nPG1DVvdJRol1WfEoOwx8w8d830u2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461130;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=669cLwprKalZDSaW7X4qn1vPbEGUYgE2wL6e+ZzxvrQ=;
-	b=y/7In817nZVbHUZXzDckmgqR+FzkcOOE9y1tZ8Xgzj8rgg3sZh52fxCaFGvm7OPmO0hU
-	 iauvW4QuMLjVCi29+gmeyzhD+0PO5imMfOouN93d+tIS2kbnn6oDSnVe4RZIF/0V7aRAS
-	 q5LEqqTq6a1026dwbj9pTw7YuuHch8HTFdRHzZUZ4PGORVDIDIVeN6n/h3QsADxtp0cmn
-	 DJYuKbOWkDyGIE4GIeVLId46tRiIU3nq4cpexnQpzQv5/TK5f2RlSCJu7aJ78Yp3IKf/3
-	 8fs597yHmoaqwPi2PhnOglQhUM7QTeu3Ez79WSsXvvnha6KLt6Zk2LgcajeSU69868g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461142;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZdUQUp3LwRE1rqDIK9upCqVPp3ZoKJh9GfW0EZyBwV0=;
+	b=iNrkjvZbPPZQV9mp0J5vcjj063po8iT1zyA1x6QwmJrF7pkrBfKexGB9nmBvanwe0TBR
+	 tVL9HcMb6tuvf0yJgJx2VbwqHTR2H+Qe5jahFu7y+m068hDKPLVc4uM+LBKpzJAXG1g9o
+	 tQrQI1ymQhMnxdRTuHzCQPmcKOpN5Iis9FB6wbfBWbORIwkXXjXo8j/v9igOaIpnz1V8F
+	 v9AnSU0YDhMfJ/bKEO73q1LlquLESPUWqT4S7uTA2E1lJwG+7P2Yd6ofKcAB3Sl0qlxbz
+	 HsGiw50+Ex5z8noMuNIPRpnrFfcGhkvuO+6/g/yvtBSBDmMZYACx6Dg79QMipJpu4cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="e0f/DZkH";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=queasysnail.net;
+	spf=pass smtp.mailfrom=queasysnail.net;
+	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=rVs462hm;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=d56s9FR7;
+	arc=none smtp.remote-ip=103.168.172.147
+Received: from fout-a4-smtp.messagingengine.com (fout-a4-smtp.messagingengine.com [103.168.172.147])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F21D6606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:12:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3B3E606A321
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:12:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3B3E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e0f/DZkH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 130C51F000CA;
-	Mon, 23 Nov 2026 19:12:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795461129;
-	bh=669cLwprKalZDSaW7X4qn1vPbEGUYgE2wL6e+ZzxvrQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=e0f/DZkHLzllD7hOPZdQff2ObT5yonlnpopG1JZ2jgVp+VWS2kebgLaC3XpBrbRwI
-	 uYez0Hii9VnBM7LJZa5mFf5W8xrzlwmwkPHDQBX7QgOEo9dcoeVczYdOUWFKZw+c+R
-	 Ix1G29vstzkAXnB9Git7Ird6ExZjkyIKKckVlN1O9+rca85AOwrhRJeZzRYzTJQnUL
-	 C5aLQVaDOsV/GvpuLmrB5YIRxM6e+Q4A1/DCCIv3RaFJJag/ePBzqs3ohvZBIapZhB
-	 w8ZtV45gJvlUezrR7phVoKb8ae4xi3mTjtAobBN3ww43wskW8INB8CzqHOHC5p/wbI
-	 +9J33wL2ImCaQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>, netdev@vger.kernel.org
-Cc: magnus.karlsson@intel.com, stfomichev@gmail.com, kuba@kernel.org,
- pabeni@redhat.com, tushar.vyavahare@intel.com, kerneljasonxing@gmail.com,
- Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: Re: [PATCH v5 net-next 10/13] selftests: xsk: list the endpoint
- roles of the test cases
-In-Reply-To: <20261119164636.1071385-11-maciej.fijalkowski@intel.com>
-References: <20261119164636.1071385-1-maciej.fijalkowski@intel.com>
- <20261119164636.1071385-11-maciej.fijalkowski@intel.com>
-Date: Mon, 23 Nov 2026 20:12:06 +0100
-Message-ID: <87pkvvpdkp.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=rVs462hm;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=d56s9FR7
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id 0B423EC1D02
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:12:20 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Mon, 23 Nov 2026 14:12:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1795461140; x=
+	1795547540; bh=ZdUQUp3LwRE1rqDIK9upCqVPp3ZoKJh9GfW0EZyBwV0=; b=r
+	Vs462hm3ZTTwmfJ/LANU5Bp2WK+CzBh9m+TtI+om51GmazmufwSRRu4ZJpQAKJRJ
+	pzuG7hO/ZIVv3F171CgAUorHitOyaWaApdSeSO+wgxP0ZErQ7msB+RNwZUjTgsgA
+	2Y4jjvFfprF2n4euSPZf8d/qE7c9UVir9lAclUKJMW6iwCktpM+Dh+obKfclvAsX
+	9pmt2DSPXNeOPjTCmiLEdE2F+0XjUgdEhtZ2VLUpeNfzjN/JVNV9f1/j/EBqh0IK
+	Pf8Mui7zUkHO0SLioWl/Gu1Js6mJyilXk8CUdGQdvhbdIAOzpGu2PmEFMeRMV4+z
+	78VXxexbgeJnCqJ2XNUyQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795461140; x=1795547540; bh=ZdUQUp3LwRE1rqDIK9upCqVPp3ZoKJh9GfW
+	0EZyBwV0=; b=d56s9FR7dugRFejlNsCQauNUx4FToM+ZNfbEp7rsFttoEgbtz3G
+	PNI4rTqYZsmKwrXUlhKmH4unNa7Amuh7M14RPHrMXrefR4iSAJDIM3EbD59qMGhf
+	i5pV7sILDiiYEK0mCw/QkvYVkBV5kUv4I70yBYbnh2FHAfd2n5iJfUsF5g+yAOdy
+	g7pXMpwtcofcMFNbiNgrH36VnQ69+zMaemyVVkDyfS7yAEI9kd29yWgOj2J+Ttqo
+	j+Daicz7fgr2XlWj4aLqcuBd+mzZ4l+JYLagS2XwiRffdaNBBrnK+7wLTuwYMSlu
+	Az4cKmdfFVxYO0ZmU9oTJsRvV53/Lyf3XuQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=queasysnail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795461140; d=queasysnail.net;
+	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:KhOF6mxRCAkqA9qSpazPFfyRV21kA8+016KLjFuF8Hbz/Vz
+	YOKrr+ONVsU9Q/OAmCKRDjr8xqLnDVH+TYl3nmlLrb5uXN5GJdzqR8E+koh6M0UL
+	sFnedBQa8bvcN8CbZkL2Fl+YbfrEF7xMqth82fCQMmODMMXsLYJ/RuVmk0Kxm+Ee
+	y4ykGkJsBHg/ABgYhC7CFTT0dkjkNAeN92QzurXrk6+yRClmP9LpTGdLyxN4HCva
+	6U66OPCMAbMlAUd3vvkula6PiWTsfV1cf3RO+YFP0zDJyu3H3Uh5Knom/EyHFB0a
+	jyj0GcquwK5Ds8HWAGAFuLjDwW4x2z8A475lhVQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:bufxvJwWPJL3RqRXEeaKLqgZ8ndCZ00zrZs7ISG+d64=:L++HDDslH/nMCC2g76db85vFJlKw4k4HTXdQxp16tl0=;
+X-ME-Sender: <xms:E5AEa5vx03GSXAvuqpp_AQQfQgE_HnNnjB6brswKP_5wfM4OsWwxzw>
+    <xme:E5AEa84uzNCk49oSKAqqoUgiiXiq9Xk9O2rzKILsxgxx84UDhK0s_QuqkP6IljLCr
+    ANOYb0LcWNR84MtWMCsMKSc7PoYVe3Hh3ZHfBPau-wub_VeuqDjcjKE>
+X-ME-Received: <xmr:E5AEa0SAT3W4J9u5K8WF6KahVSdlnazv1er-IZFFjPXXjsKJe1jIi2LJJRQ>
+X-ME-Proxy-Cause: dmFkZTFGfMpzRIlRD0JqalkLOXufcldaW5mPKf9gnwsFJ+vDBNXu+ucuA2mHV3sG8awFD7
+    TlQIpLKAlhdRZZzmHM5dzCLr9yCnlqE++1MlGQQlh2hXPAqwPuBKqVs+0+vPLr0jD3m21t
+    KMWW9e6Nr1j2suHosCkXbxWML5v/2o8alliubSq4BLKdJ8hbk8S/De75gOw23JrVIkPY8N
+    D1D3yW5QclrWuPlgXczruL49Qy/XefuKPG45Q8mhw3p9cd6s3zLGtXYEfumcXvrZY2eHdx
+    vAfqlz0+MYyB1suAIuZNChzbjL65w1LKUjDuaCq/DRfI4jG14yihH6ToIZrLFbuh+tdvsy
+    qqobtHJW75A5py4Dwv+RigPIEvPWFGHtQNxvt0r08bDNOn7mj1DClZ8etsIEQFkSAnl+Qg
+    vMV3JMfnq2533Cy6XJoUhqFcZ+K/iGg66/tkCSliXrxWC7Fl1RsWmOZZlyaaPS1Z2F33Xy
+    wdE6/do2ryEMjpqq6Rx41AYLp71oneCzukbKogCx7I38KcVO4k2CllfHKo94RMmgPREFEd
+    URGDsBoO3+C8AbHXc+MxOfdElfuM4172gASIoAzb6NhWEwhaO5pgqVVA58YNOgZVBzX++C
+    LG6HS9r9OSbFojsmNpCKDEfdzq7VWKBkJMa0WD4lFBXygFbv1mU6ghr4jywg
+X-ME-Proxy: <xmx:E5AEa3vWthM5yLcbJ4PuwK6FXeCXspXymyOCLSatAfeIqEkMLwcNMA>
+    <xmx:E5AEa-9zXXKTZS04cEi1yTHxkEAQsEpRqbANvz5_vqnQZZ9IEyju0Q>
+    <xmx:E5AEa4whMWMSIAMMOVkPCc3ZxaJICU-VuhF8N74AR_Ow7lqu3bl7bA>
+    <xmx:E5AEa49cycLdn6bpUBP4YVsSm6iVaHwCwPGgQ6iEqUuUqEJxRuCy2Q>
+    <xmx:FJAEa0_5qXRsoSOClbwXanZavhmZGkTEf8_aRUPh05sz25iMpP7bxqNZ>
+Feedback-ID: i934648bf:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 23 Nov 2026 14:12:18 -0500 (EST)
+Date: Mon, 23 Nov 2026 20:12:16 +0100
+From: Sabrina Dubroca <sd@queasysnail.net>
+To: Rishikesh Jethwani <rjethwani@purestorage.com>
+Cc: netdev@vger.kernel.org, stable@vger.kernel.org,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Alice Mikityanska <alice.kernel@fastmail.im>,
+	Tariq Toukan <tariqt@nvidia.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v5 1/2] tls: fix socket use-after-free during
+ device-down
+Message-ID: <awSQENPQBd7ogyyA@krikkit>
+References: <20261116183519.3314837-1-rjethwani@purestorage.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,27 +130,75 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+In-Reply-To: <20261116183519.3314837-1-rjethwani@purestorage.com>
 
-Maciej Fijalkowski <maciej.fijalkowski@intel.com> writes:
+2026-11-16, 11:35:17 -0700, Rishikesh Jethwani wrote:
+> tls_device_down() pins each TLS context, then drops tls_device_lock before
 
-> On a NIC, drivers/net/xsk.py, added later in this series, runs each
-> case with its zero-copy endpoint as RX, as TX or as both. A list of the
-> cases by ID in that runner would repeat the test table and silently go
-> stale when a case is added or moved.
->
-> Split tests[] into the tests that check both endpoint roles, those that
-> check the RX endpoint, those that check the TX endpoint, and the
-> generic ones, which a hardware run does not do: BIDIRECTIONAL swaps the
-> directions, and STAT_RX_DROPPED and TX_QUEUE_CONSUMER skip in zero-copy
-> mode. The test IDs follow the order of these arrays, so they change,
-> and xsk.py takes them from xskxceiver. The notes that came with
-> ci_skip_tests[] go.
->
-> -l now follows each test with the roles that it tests on hardware, e.g.
-> "0: SEND_RECEIVE rx tx" or "9: POLL_RX rx", and a generic test with
-> none, so that one list serves both a veth and a hardware run.
->
-> Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+pin = hold a reference?
 
-Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
+> switching ctx->sk's TX validator. The socket destructor can run between
+
+Please stop calling it a "validator". Those abstract references are
+just obfuscation.
+
+> these steps: the context survives, but __sk_destruct() frees the socket.
+> 
+> Switch the validator while selecting contexts from tls_device_list under
+> tls_device_lock. The destructor uses the same lock for its context put
+
+Which destructor? We shouldn't have to guess which functions are being
+called.
+
+> and list removal, so ctx->sk remains allocated through the switch.
+> 
+> Checking sk_refcnt would miss sockets whose queued SKBs still hold
+> sk_wmem_alloc and require fallback after sk_refcnt reaches zero.
+> 
+> Requires commit f08d8c1bb97c ("net/tls: Fix race in TLS device down flow"),
+> which moved the destructor's context put under tls_device_lock. Include
+> this prerequisite in older backports.
+
+Can we add the dependency in the Cc: stable line instead of bloating
+the actual commit message?
+
+> Found by code inspection. An ASan harness running the extracted teardown
+> functions with userspace shims reproduces the UAF before this fix and
+> passes afterward. Tested on Mellanox ConnectX-6 Dx (Crypto Enabled).
+> 
+> Fixes: c55dcdd435aa ("net/tls: Fix use-after-free after the TLS device goes down and up")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Rishikesh Jethwani <rjethwani@purestorage.com>
+> ---
+>  net/tls/tls_device.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+
+Changelog? Links to previous versions?
+
+> diff --git a/net/tls/tls_device.c b/net/tls/tls_device.c
+> index 4cdfbb57ecff..866193a506d2 100644
+> --- a/net/tls/tls_device.c
+> +++ b/net/tls/tls_device.c
+> @@ -1345,16 +1345,19 @@ static int tls_device_down(struct net_device *netdev)
+>  		    !refcount_inc_not_zero(&ctx->refcount))
+>  			continue;
+>  
+> -		list_move(&ctx->list, &list);
+> -	}
+> -	spin_unlock_irqrestore(&tls_device_lock, flags);
+> -
+> -	list_for_each_entry_safe(ctx, tmp, &list, list)	{
+>  		/* Stop offloaded TX and switch to the fallback.
+>  		 * tls_is_skb_tx_device_offloaded will return false.
+> +		 *
+> +		 * The context reference pins ctx; tls_device_lock keeps ctx->sk
+> +		 * allocated until the validator has been switched.
+
+I don't think this comment is helpful (and again with the obfuscation).
+
+>  		 */
+>  		WRITE_ONCE(ctx->sk->sk_validate_xmit_skb, tls_validate_xmit_skb_sw);
+
+-- 
+Sabrina
