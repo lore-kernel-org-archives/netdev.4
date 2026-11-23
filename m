@@ -1,58 +1,136 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444424;
-	b=KCmcMP8H9xyAmxNxMOFROjVdDL1+ZdqRkxBbqEfjY6rUdgGlzLfFdO/kMsOSW0uU5mjE
-	 kz9ns8p6+323ry3PqIXvA3kDdd/TmsC48ReYWz2tTOuFZGzXGL0baMY9speAbO9DywdAd
-	 aIPu3j+DE05avVqnDwVaEuSAobXdnj54YNUNVjHEKrih4Ho0Iv8G7YF3a/rNwEat2pdVP
-	 M5XMl4VZvU6tMVB0rn0RsG27SVowRpTUOt+3jCeB4jCY3SGOxMohtOQl8lDRni5q3xxPQ
-	 96AZmmFVUFp8zuzkw5Dh14F5Hvc/B3HUeSZI94bC+nCGBHE7Xf9gtyMVvbFcrzEE5/g==
+	t=1795444486;
+	b=c42oeZ5Jx3xm4nH2k94YXVSBz8dosDIpQrerDfKg80fvDKwGOjRzVgsMAgHs5vgTBt3q
+	 7Xtd1hrxumT6jqTveKnoF9r+OKd2mu3QcuwCXH+3vODHXLUOSkk4wf/BYDtRWcyANcbSY
+	 4no7GYFbZ1+1655WS3CqaoU6KOUGRD1hMxobQGRy+QtYbQjorBORABGC2rdDQNa+cz21y
+	 XC4fzb3BsmttNRAkd7SoDOuYaxjTIPbVzvKRNAHSg6PjxpFGX7h92Gr/+j2lNoEKN6h2G
+	 fyIdvEoD8e/+OMIp4J+o4kieJDubZNe3+6076LYFUFZMaiO1/lD+hF768ZrSXoP9KTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444424;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=PAIZwiK5qKowgcqUfUnx7bgiDvxuWelNXNLii6FeV8A=;
-	b=N4cQ9hNNbJ5yb7A4dHX06L5YwOrsLDMjE9P3YJ5bCcd9Vuveqb5qnzY+5dRve0fwoLYU
-	 tYQVXeV0LIEXfXVKFPKOWM2s9NoLD08IgfNWDZp1GrN1YMYPpncNgdhnQpAFGlJspU34F
-	 O7TAdL5g1fHirdDzger7REd1cuj9z1IF1pPOjEP/rsBEv4/v7Bg12mIne/NlDStiuvjfM
-	 C1KCCCR1z+es6UO7DAt8R9k9AwNW3COQYbeZMOTG20JB6tW/UMD/5poZ2zoB81sFxihV0
-	 0qDf31UQzvA4I0Me2nDQxl7VnpipULJ8eF+0qoLa0YwAsBc2wCfgP3F5E/E0i4rnNlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444486;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=;
+	b=sAy0OsyuG8bLwT5eo0iE9jCoCufbKJxGO4TxWces1cpuoC2ABeP2Vb/HPzEuEiobQP+1
+	 zlcl3vi8QCP+Ba7QFs+FswkAvHZmpcnPEe4764SZo50KP3mzRjl6fv9cEvQrP0RJwJoDU
+	 x14i5jJYoLajELCpHdH8lLzvUEevC22xpgjl20Y5tdXEZ0xmOg1bvakaVUeA3V499EYpa
+	 AdsipgkrBILM89g7IaTjpLVtQg3KpRmpx6w6+uC6AzxwuX3BOOcQxUzQp3yg4wv/enclH
+	 DDhqRi3sz9u6Sc+gqUFIPTrRe9x307Ga9bOGmLf0yPLZal3Qsxp54N2SVDLDuzv61eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QgtIOA61;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="IBdhDM7/";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="C3j2/6nH";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92D5F606A31A;
-	Mon, 23 Nov 2026 14:33:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C507606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:34:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C507606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QgtIOA61
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028E41F000D3;
-	Mon, 23 Nov 2026 14:33:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444423;
-	bh=PAIZwiK5qKowgcqUfUnx7bgiDvxuWelNXNLii6FeV8A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QgtIOA61DawPVOSPQTA4zgawhZbWQ5WUTc5nGKJxuJxvhOgEDfcLPqH6cK0uzF0w9
-	 Qo9cNpP9nNNbc11jiA1pvqfLOXeYqGGLdVX72EoFrKgZwzhRkkzpb7ltpruBzcrcnz
-	 lWPm3zb1ho8ZTLGfKCL+DruO+jx7Ln+PUF4y+/GvchnTzzftoWyHLjua1uq6LYlrge
-	 ofIxmzH0C/csZ4dCIUPX89p77HkzadDzcwZOM/zk0TB79URonGv03Vz8GsxysOwQFl
-	 zdpusr//uo8gtyF8tOi1nfvTeHEIcF7rrQgtnLoG4uprRDWpC0uxSZakeC/hDDXgCR
-	 Dj5LqZIjjts6A==
-Date: Mon, 23 Nov 2026 14:33:39 +0000
-From: Simon Horman <horms@kernel.org>
-To: subash.a.kasiviswanathan@oss.qualcomm.com
-Cc: netdev-bot+sashiko@kernel.org, sean.tranchetti@oss.qualcomm.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
- dev_set_mtu() and restore on failure
-Message-ID: <20261123143339.GC31322@horms.kernel.org>
-References: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
- <179524464443.3135.11939584752095940965@kernel.org>
- <000101dd79d0$1e2a73c0$5a7f5b40$@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IBdhDM7/;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=C3j2/6nH
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDLSCx1461855
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:34:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=; b=IBdhDM7/3HUZSXDT
+	STbqoNJPo9owgso9UilkDQ1JQnpWHbDOcojnxddccFlu8fewo4UUTQCb5yeoLf5C
+	eYH36bKEhGSvqXQYmNFDn24gGNkWvr4thE9CrnjSerhEdQjMrmC2ifUyRaj3NAwd
+	Fx4UYOo89OlRGkyXhhHw+KjlCUeTb5kBSl4Z4alesXJ5rZ2NCZi0fnniQWRth0TU
+	K2PpHRW59IbpFVe4MTwXGnKxurv6P65/tYxVWmQ70jNRfoD0FCLxik6zxMFmRLEL
+	0NAQ8FrB/kNcxbs05EPw43SMrL7u53rPzXF/UYaYJ+OE8o0qGS7ijxuuGB9EmKhD
+	zYlOgg==
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g9a1spm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:34:45 +0000 (GMT)
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-67935d0ddcdso5242306d50.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:34:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795444485; x=1796049285; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=;
+        b=C3j2/6nHdZtys2QUDXUO0TSbFjIwSOOANliTHWofJQRWUOcJ8zKb+SXYBZ1ieXjyTi
+         0FoTs3QBKBtDS980V7RJIQ12r3l4HI25cHvVNdiFCr3FfjN9S0bqswUeK1RjPvmpp0oH
+         aBMthSs2HYmswSyPDdYv0mf0A2i0xr78+cJvDBlyk3iw2GAcp904Kef4IOJmuOgoSXPC
+         YJj5G27TmvzPwZ1CrPjz2qvZ/VTGjCMNGAukaaE9eOzZXIBvzZ108y68EpQLaZpJXukw
+         BCY2W97hM28VCbBcSABWoU4CR/yOXLuyXz3vPAT8xY5TIGcXBhbnorRIxEIVHbqQC6Hl
+         ralw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795444485; x=1796049285;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=;
+        b=hdJjNN0EEmaxhaVRcsBLlD4fz02T20s5Ood2LtpKJDTOjzgdKZZTjXUVzYakQ+Bupp
+         Plq8zbJJZfEngSAE4u22YFBrpnke+c8SIg6aJ/+Kk8XlmeXNIOIcw1lMTyxg7ZgyF0np
+         0c/6vG0yFCRzDJRNfkI4sSaVl/Qa0P//a24rHV7XSacMMExJAP6TVYg4ALg+Za/pg5xD
+         x8WqYUjQ/XidmBNxLFy3u+iaghU7gTz5OJt2aYEnzweid6J/H0aXH+gDgYhfZe+7Iv1N
+         GLvpGZEM4qXUkMQ9KdMjTnMRmenbzuKjtVnOiMSl61kMl8VSrMtmZtdzrHSB3gMsMoeY
+         0Xfg==
+X-Forwarded-Encrypted: i=1; AL+hErGh2qv1s3IBNeqxoEI3du5dmb+ScOZ7vzk/D/iGZcaH+nKj+h4RC4xB6MYVOyKpQ2Zzjyu81Ak=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+sR1hnJx88YOn3A0H6FIdejynOLyZRf4TBdRoRPP9b1BI9juc
+	601tjXdoqT3DOT2gSgxM0r61SaZv9NABkjee/Jajz+yHKBc0j1d8/aE0NC8apq+rOqytE/o/OJ+
+	3UKC+eFyhXGqsa+1/2u3E4AB2Z0hnaKwlxH0q+MvwTPizidUc/E2mfs2VJb8=
+X-Gm-Gg: AZFdTZe3y3NKYVlwevWgK82jpc7xLU2puh7ITyFt9SGFI73kh1N5oKxAuZT3uvfTRCw
+	7aN9y/SKo+/XXDOOyCeVXa76KWZd/vAsv1rOFrVFY9RzRc9v3BXNkko0g8XrPsdfyIQ4j6meHcy
+	1c136kc8VQRESGIoEcXJJWYiXnx/wHa351dyFDtsW//ArtiE/RitQa5P8eLTah2lCjTHDEYlggH
+	SUCMno8MOOiEcq5oFCEcweJYenaMb8eMx9rmUaYY99reX83nDKvyCphTJaxMFfciVyAfqlNa80i
+	Tv8dld/peM3N8/K6+5CYPv+B3p38Y3LXM+2kp9Aj4CTzwocqNfEMB1zt2EjH1jLgfmK6OiJYAMU
+	FFMWz70iDMkmB+6I6mYEb6AYElE9y4rbkQubyRRGeBCMdMRlugTGl7Ey9MxXsgwHi0xpXKhn+6g
+	zB4+ljzvunbTRpJ0iv4J4aXB21Mh8Tt7g26Kj3pUxS/Vf7IYh+VC+Z2K41fRNFDg==
+X-Received: by 2002:a05:690e:1c1c:b0:67c:1dca:7e0 with SMTP id 956f58d0204a3-67e03cff709mr2905882d50.14.1795444484730;
+        Mon, 23 Nov 2026 06:34:44 -0800 (PST)
+X-Received: by 2002:a05:690e:1c1c:b0:67c:1dca:7e0 with SMTP id 956f58d0204a3-67e03cff709mr2905869d50.14.1795444484149;
+        Mon, 23 Nov 2026 06:34:44 -0800 (PST)
+Received: from brgl-qcom.home (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm26263469f8f.21.2026.11.23.06.34.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 06:34:43 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Jingyi Wang <quic_jingyw@quicinc.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Lijuan Gao <quic_lijuang@quicinc.com>,
+        Melody Olvera <quic_molvera@quicinc.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
+        Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
+        devicetree@vger.kernel.org, netdev@vger.kernel.org,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>
+Subject: Re: [PATCH 00/18] pinctrl: qcom: add gp_mn mux function across Qualcomm TLMM blocks
+Date: Mon, 23 Nov 2026 15:34:40 +0100
+Message-ID: <179544447632.77146.14884722918215310109.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com>
+References: <20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,198 +140,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <000101dd79d0$1e2a73c0$5a7f5b40$@oss.qualcomm.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NyBTYWx0ZWRfXwKx40Wt9rBe3
+ cRJ3S3prG+7t1Ghl+RoJ++tEfe7XYy11KhzH9fcUsTUvlJtJzgkohbSbsHVTwZXiycK0a5GZs0q
+ jECQeRCt0jhJf4Cz5nyeHSlzPyiPGJg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NyBTYWx0ZWRfX/gl2Lc2E/P58
+ qWqajdcjRFZ3SPiJZh2rpAsH0I7UwUTJwovR03gHk6YDqpaATmPF+I6m5tXSD9BHaOZr3VSiiBb
+ C8djHMde4bylMJgcxrp9w+fNy/spG3IHumxHRx27vXBNjEGRFbWSOpon/ue0bRClfWhIdmLw4/t
+ lhD86pHkzJzEdP1o4GfBImupi9qhpgvEREzGfVzybWc+uiJkNoBrzvf1AwaIaVheSiQNSBBJ/CF
+ 5fLBX55USdsOycNN9Pukep0Uavn4H92TT0JbBtJ2d/8jwV5YNj2u7zrd6RSagfLTQrEMYuRo9ul
+ caFzJUIsnhZ/4eUW3f+ujQMhHK8rMCQq80DvT050wGGTkxqyoRm+eVfFDI8jlx0oyzrmfmODqRY
+ i5UheMDPKeHun2aBtOIKPGgm1yw+fTA9V1eBUnzf/45LCaHDyC05JKGlvmKWCRMeUdt95dW8uw7
+ 8Hd6uaZuA2fnZZKgxmw==
+X-Proofpoint-ORIG-GUID: OKrybFcahMz_UpvElrki5IFwgnnrdYqo
+X-Authority-Analysis: v=2.4 cv=cYJHPXDM c=1 sm=1 tr=0 ts=6b044f05 cx=c_pps
+ a=J+5FMm3BkXb42VdG8aMU9w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=gHIesgCGEubIfZZWx2YA:9 a=QEXdDO2ut3YA:10
+ a=Epx66wHExT0cjJnnR-oj:22
+X-Proofpoint-GUID: OKrybFcahMz_UpvElrki5IFwgnnrdYqo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 malwarescore=0 spamscore=0 bulkscore=0
+ priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230057
 
-On Sat, Nov 21, 2026 at 08:51:04AM -0700, subash.a.kasiviswanathan@oss.qualcomm.com wrote:
-> > -----Original Message-----
-> > From: netdev-bot+sashiko@kernel.org <netdev-bot+sashiko@kernel.org>
-> > Sent: Saturday, November 21, 2026 12:04 AM
-> > To: subash.a.kasiviswanathan@oss.qualcomm.com
-> > Cc: sean.tranchetti@oss.qualcomm.com; andrew+netdev@lunn.ch;
-> > davem@davemloft.net; edumazet@kernel.org; kuba@kernel.org;
-> > pabeni@redhat.com; netdev@vger.kernel.org; linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
-> > dev_set_mtu() and restore on failure
-> > 
-> > Thank you for your contribution! Sashiko AI review found 2 potential
-> > issue(s) to consider.
-> > 
-> > Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> > 
-> > If you believe none of the issues are legitimate, please reply to each
-> > issue of Medium severity or higher and explain why the AI is wrong.
-> > If any of them are legitimate and you plan to respin, please let patchwork
-> > know by including "pw-bot: cr" as a separate line at the end of your reply
-> > (one such reply per series is enough).
-> > 
-> > - [Medium] rmnet_vnd_update_dev_mtu()
-> >   (drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c:447-473) now
-> > shrinks…
-> > - [Low] The commit message opens with "When the real device MTU or the
-> >   data format requires a smaller MTU, existing endpoints are shrunk by…
-> > 
-> > --
-> > 
-> > net: qualcomm: rmnet: Resize endpoints with dev_set_mtu() and restore on
-> > failure
-> > 
-> > This commit changes rmnet_vnd_update_dev_mtu() so it shrinks existing
-> > endpoints with dev_set_mtu() instead of calling the ndo directly. As a
-> > result, MTU notifiers and link notifications are now delivered. If resizing
-> > an endpoint fails, the endpoints already resized are put back to their
-> > saved MTU, and the original error is returned.
-> > 
-> > > When the real device MTU or the data format requires a smaller MTU,
-> > > existing endpoints are shrunk by writing dev->mtu directly. No MTU
-> > > notifiers run and userspace gets no link notification.
-> > 
-> > [Severity: Low]
-> > Is the part about the real device MTU accurate?
-> > 
-> > rmnet_vnd_update_dev_mtu() has only two callers, rmnet_newlink() and
-> > rmnet_changelink(). The changelink call only happens when
-> > IFLA_RMNET_FLAGS
-> > is present, which means a data format change.
-> > 
-> > When the real device MTU changes, rmnet_config_notify_cb() only validates
-> > the new value and vetoes it if needed:
-> > 
-> > drivers/net/ethernet/qualcomm/rmnet/rmnet_config.c:rmnet_config_notify_
-> > cb() {
-> >     ...
-> > 	case NETDEV_CHANGEMTU:
-> > 		if (rmnet_vnd_validate_real_dev_mtu(real_dev))
-> > 			return NOTIFY_BAD;
-> >     ...
-> > }
-> > 
-> > So endpoints are never shrunk on that path, either before or after this
-> > patch.
-> > 
-> > Could the commit message be limited to the data format case? As written,
-> > it suggests this fix also covers the real device MTU path.
-> > 
-> > > diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> > b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> > > index 8bf87c5ecb43b..dce436e4c6305 100644
-> > > --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> > > +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> > > @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct
-> > net_device *real_dev)
-> > 
-> > [ ... ]
-> > 
-> > >  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
-> > > -		if (ep->egress_dev->mtu <= new_mtu)
-> > > +		ep->saved_mtu = ep->egress_dev->mtu;
-> > > +		if (ep->saved_mtu <= new_mtu)
-> > >  			continue;
-> > >
-> > > -		err = rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
-> > > -		if (err)
-> > > -			return err;
-> > > +		err = dev_set_mtu(ep->egress_dev, new_mtu);
-> > > +		if (err) {
-> > > +			fail_ep = ep;
-> > > +			break;
-> > > +		}
-> > >  	}
-> > >
-> > > -	return 0;
-> > > +	if (!err)
-> > > +		return 0;
-> > > +
-> > > +	/* Restore the endpoints which were already resized. Failures here
-> > > +	 * are ignored since the original error is the one to report.
-> > > +	 */
-> > > +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
-> > > +		if (ep == fail_ep)
-> > > +			break;
-> > > +
-> > > +		if (ep->egress_dev->mtu != ep->saved_mtu)
-> > > +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
-> > 
-> > [Severity: Medium]
-> > Does this restore undo everything the earlier dev_set_mtu() calls did?
-> > 
-> > Now that the shrink goes through dev_set_mtu(), netif_set_mtu_ext() runs
-> > the NETDEV_PRECHANGEMTU and NETDEV_CHANGEMTU notifier chains for
-> > each
-> > endpoint.
-> > 
-> > A PRECHANGEMTU notifier can now veto the shrink. For example,
-> > team_device_event() does this:
-> > 
-> > drivers/net/team/team_core.c:team_device_event() {
-> >     ...
-> > 	case NETDEV_PRECHANGEMTU:
-> > 		/* Forbid to change mtu of underlaying device */
-> > 		if (!port->team->port_mtu_change_allowed)
-> > 			return NOTIFY_BAD;
-> >     ...
-> > }
-> > 
-> > Before this patch, the direct rmnet_vnd_change_mtu() call could not fail
-> > here, because new_mtu < ep mtu <= real_dev->mtu - old headroom. So a
-> > newlink or changelink with IFLA_RMNET_FLAGS that used to succeed can now
-> > return an error.
-> > 
-> > If the veto happens on a later endpoint, the CHANGEMTU notifiers have
-> > already run on the earlier ones. If the temporary new_mtu was below
-> > IPV6_MIN_MTU, addrconf_notify() tore down IPv6 on those endpoints:
-> > 
-> > net/ipv6/addrconf.c:addrconf_notify() {
-> >     ...
-> > 	case NETDEV_CHANGEMTU:
-> > 		/* if MTU under IPV6_MIN_MTU stop IPv6 on this interface.
-> > */
-> > 		if (dev->mtu < IPV6_MIN_MTU) {
-> > 			addrconf_ifdown(dev, dev != net->loopback_dev);
-> > 			break;
-> > 		}
-> >     ...
-> > }
-> > 
-> > In the same way, inetdev_event() falls through to inetdev_destroy() when
-> > the MTU is below the IPv4 minimum.
-> > 
-> > Restoring saved_mtu only creates a new, empty inet6_dev or in_device. The
-> > configured addresses, routes and per-device sysctls are still lost, even
-> > though the request returned an error.
-> > 
-> > For example, take a real_dev MTU of 1284 with no checksum offload (4 bytes
-> > of headroom). Endpoint A has a lower mux_id, has IPv6 configured and is at
-> > 1280. Endpoint B has a higher mux_id, is a team port and is also at 1280. A
-> > changelink that sets CKSUMV5 (8 bytes of headroom) gives new_mtu = 1276:
-> > 
-> >   dev_set_mtu(A, 1276)  -> addrconf_ifdown(A, true)
-> >   dev_set_mtu(B, 1276)  -> vetoed by team_device_event(), -EPERM
-> >   dev_set_mtu(A, 1280)  -> A comes back with no IPv6 addresses
-> > 
-> > Userspace also gets a shrink-then-grow pair of RTM_NEWLINK events for A,
-> > for a request that failed.
-> > 
-> > The commit message says a failed request "does not leave some of them
-> > shrunk". That holds for the MTU values but not for the L3 state.
-> > 
-> > Is this partial rollback intended? If so, should the commit message
-> > mention the new veto failures and the lost L3 state on endpoints that were
-> > already resized?
-> > 
-> > > +	}
-> > > +
-> > > +	return err;
-> > >  }
-> > 
+
+On Wed, 18 Nov 2026 11:32:31 +0530, Taniya Das wrote:
+> The GP M/N divider generates a clock output that can be routed to a TLMM
+> pin via the gp_mn pinmux function. This series adds the gp_mn function to
+> the Qualcomm TLMM pin control drivers that expose it.
 > 
-> Yes, partial rollback is expected here. The comment above the rollback logic already mentions that - "Failures here
-> are ignored". 
+> The driver changes for QCS8300, SA8775P, SC7280 and QCS615 were originally
+> part of the PDM GP_MN clock series, where only the drivers were posted.
+> This series adds the matching gp_mn entry to each of those TLMM bindings as
+> well, so the binding and driver stay self-consistent. The remaining patches
+> extend the same gp_mn function to additional Qualcomm SoCs: SM8750,
+> Kaanapali, Glymur, Shikra and Nord. For every SoC the gp_mn entry is added
+> to its TLMM binding enum first, followed by the driver change.
+> 
+> [...]
 
-I assume that the motivation for taking this approach is that both avoiding
-the need for rollback and performing a full rollback is somewhere between
-difficult and impossible.
+Applied, thanks!
 
-If so, I think the trade-off made in this patch is reasonable.
+[01/18] dt-bindings: pinctrl: qcom: qcs8300: add gp_mn function
+        https://git.kernel.org/brgl/c/98215755f97c9442690d7006390a6dd4fafe2496
+[02/18] pinctrl: qcom: qcs8300: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/d44c2eca9f49c89e566368dc38aacb1cb0c2b1b8
+[03/18] dt-bindings: pinctrl: qcom: sa8775p: add gp_mn function
+        https://git.kernel.org/brgl/c/942cc68b11c1a99e0cd0722934135bc0585f2352
+[04/18] pinctrl: qcom: sa8775p: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/04a448e013117a53f138464a3adc3454407e21cf
+[05/18] dt-bindings: pinctrl: qcom: sc7280: add gp_mn function
+        https://git.kernel.org/brgl/c/4b6560893c646794835fdd89643e9c71fd0ea870
+[06/18] pinctrl: qcom: sc7280: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/dbb4b922fd5e5f6f3bb8b6ecf1d48aa73445f98c
+[07/18] dt-bindings: pinctrl: qcom: qcs615: add gp_mn function
+        https://git.kernel.org/brgl/c/0d3cf110ffdb691742c3659508d5023f15d509fb
+[08/18] pinctrl: qcom: qcs615: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/5308e218e3c2cbf9cfafce322b3bdfbd71b258da
+[09/18] dt-bindings: pinctrl: qcom: sm8750: add gp_mn function
+        https://git.kernel.org/brgl/c/0cb5ffa9eb0ce97db86106d298d2b39d55680c81
+[10/18] pinctrl: qcom: sm8750: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/c24a092390a21ecb61ec8171b41fa289d27418e9
+[11/18] dt-bindings: pinctrl: qcom: kaanapali: add gp_mn function
+        https://git.kernel.org/brgl/c/d804723bcfda3f2b30618aec18eb1cc0881ea13b
+[12/18] pinctrl: qcom: kaanapali: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/dd9ecba27b981279e2cc84a225a11c7c6308ea76
+[13/18] dt-bindings: pinctrl: qcom: glymur: add gp_mn function
+        https://git.kernel.org/brgl/c/844b5b901910df4718171519fb1393e2bea57bac
+[14/18] pinctrl: qcom: glymur: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/b1922656379ea475bfc5c0f21f615c4eddcd0226
+[15/18] dt-bindings: pinctrl: qcom: shikra: add gp_mn function
+        https://git.kernel.org/brgl/c/36303ea598135dfbe30c77773af509ba32542795
+[16/18] pinctrl: qcom: shikra: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/c16f39dad1bbb9dc10886de1b113695166d60bb9
+[17/18] dt-bindings: pinctrl: qcom: nord: add gp_mn function
+        https://git.kernel.org/brgl/c/0a9a2a463910ba341fc12adf362227f730de7aff
+[18/18] pinctrl: qcom: nord: Add gp_mn mux function
+        https://git.kernel.org/brgl/c/e19e48b2e6c603ebd4839153a45294a9c416e083
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
