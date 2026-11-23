@@ -1,96 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795392566;
-	b=KxEufdVu2JqVJFYuKa2H4LNX3URE4rBOdUe8isNcbQbgTPEGGen5vdyk0aSRfWyDSStW
-	 QmbPx0HWBgo4UFtJPf+pTPjHkJjSIeITefsy7Mb8LReFOtbFisKMxXbS8jABkBQ0fO965
-	 I7N5EZ3TqDPHLRR9MyGOPd+VOd6ZMtEtNDhbY5p+T294mJagSmqh0YzBFbe/IBQYivhyy
-	 HKScBbB5cYOJndQ/+XV7hGQuie/W7Bf9ZU5wyUS5efR/u0nHALMABv8IPofo3WiSqxNBN
-	 L26ERRFA1Cs54j5HOVJFNibyyrOywE3OFJxP3rQwv2d8kqgLTfP02vHIwSOOI1f8Bag==
+	t=1795393543;
+	b=EP0myJcI2vM5dAP6lpqELldz/udOKGtn3mCy/TpaQ9Y5uJEd+g9chPm1/4/u7YMGM+5S
+	 5i4VpxU7ZQguscS/C2yl5pw/RkT2QZzViZUaH+hKETmZAw11KmdNxGOIFt9xpQ1R45f4v
+	 /vXpLXCYh0db8T0LRwrJd9McN7qzdH9vP56uHGLvvmOAqk14vmebWZhhZKR/AzxO4v/Q/
+	 WjLecSMtX9rZ6A5axRjhRR5ZLYQ5+INBLNb6UIWtdOzLCc1Su6HIZBb0bDCbg9dqtbfas
+	 aUQDk2LkVGmMS/SW17nYDSIqtbhZ4cLavoSJjP3fTiyzy0MFtgWjtIYyl4iqi+zRf/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795392566;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=5oZfxZDZESOt7JOg36JOb5NoJDTCRqffJz0J5sNJMMI=;
-	b=B5DIrstxiuhYbvaPTbHUwcEpJ4kl/irNxH4vfqpjdonEoP/daqi59w2Lz6392avED/yl
-	 Ip7a5bmNOiLYCkacXdrZNwwbGDxOnE6S1NBtcpm1i4aeW367MAyFhKPb+3loxL1FYnGwJ
-	 GykSgFIv2LjSsjIlFnBakd1Fak0xZjzOtnwZbepSSMNbYK1Qgbgmh5UpVg3Um9ILNTh2w
-	 cTYOvYBr9oiChAHRCfiq/O9/ZGlcUiTphjatc98x2dAnWHwscbB2rIepg5tHg/LFe6/eB
-	 kVzj4/PYMzJ7SkGl8yiPl88Q2A8f5r2L0J2svfnFQvAxVYJZZQAD0ns6/CA6mYNjvmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393543;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=rFGFyJlMM2hycCOeLd2pZeLmJL2ifKJTAEAyuF1Hf08=;
+	b=wXEDMFWmOuMPkC+lp5ScH+CSyoQZ+SncekzlDVSYDaW9kTobQYHSFb47iMm+2qj/Cg7S
+	 r+FX1PL+80wIJqrPcWKf5j3xmTa9YzLOdfLfg2IU9ickIY9kxaFdVIIO5Jw68JUWLPwpk
+	 sIym9NeqbMmY0Lpa1ZhbtaiuavMHFw8Rs5MDcgVu6ZUQ3CUvlTz6SrzHZ1DH3U8s5WNg7
+	 F0aKVwuXAogWBM22WjDtG+vPQV77f9ly3RuCioUw3FqNr4A3Z2Yq8viHLD/E6b0UA/WlZ
+	 XM3nvfa1R4u+5F8lHmtsWNd+cYQWia0H53JDf3P7yFN9DfCy5ZgnyRAGv6ytvj3pbFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="bO3Xvg/G";
-	arc=none smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CEhgc8Rj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DAFD606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:09:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DAFD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF32E606A31A;
+	Mon, 23 Nov 2026 00:25:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bO3Xvg/G
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b4a93d0814so6049a91.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:09:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795392565; x=1795997365; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5oZfxZDZESOt7JOg36JOb5NoJDTCRqffJz0J5sNJMMI=;
-        b=bO3Xvg/GvXSBMOwAZWCHZ1tEYldoTL/n5xhnbPHDS3uQE7Sv8OQh4LJ6JYItRZAiXq
-         XvMWlzkSxtPGXkZ9l71qN1dHqUb3fc+VqST8GHnFtZZqiOCeFNhbyoKkCxAJnNE67ZYL
-         yCTXW4qcyGBGrntGyiasEEr077JUQQZnBLh9AE/QBfYhitZGWz2MHpNL4CQALeWsvyJE
-         fZK2dxbkB8oPVUn7tbLVgYB+dkQ5E5AIFcS1pMibV5hpo5QyjEQtqL2bh/UYXkzA1wU2
-         5HZvTnuuMHEnb9rsuwBO6rT0+e/EuKC2+iRhfKdWpSMXnCl/zBSp5z+vWqW91x44iKNP
-         SKEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795392565; x=1795997365;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5oZfxZDZESOt7JOg36JOb5NoJDTCRqffJz0J5sNJMMI=;
-        b=oLRgc28BbyZfEInhTO21azg67XRM6x8x7cTnBWSM+JwXFw2V1tMw0DFMojZDm6V/83
-         zL7b+d0WeqVGGcnN51XUEifaJL5PqYopRgeWAQMIheg/xHKz2iVoXmXwaiIGXieEHaHk
-         fAVhtpQq4QgrnFDX8fPzAfip507XhMtRSlSIavmYjUh4kxytEzuHMfPt+hTnD4t0N0+5
-         RNcNaGj/96QwR5GF7BbdLMKH1dvNO9KNL4PWSOyiOcp2l5s5xKRKvf5L7wTKL5ik3nA8
-         nWo4CpCgLRO5ztfzS+WUwXcCCZHMWvjHaLP+VXpL23pppdx9zL+fI9NXw0Z87d5Om36A
-         ia6A==
-X-Forwarded-Encrypted: i=1; AL+hErF/IW4ZwRLjgHt2e/0r4yB4mNNnmX6UUmGrb7zj2G2O1t38qapVoutz7KeFqXQJxdjZVHAxYrQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+JZ/7ViubHPT0g2iMVUSyKPuKMYAliqmjkqJhR57TKffY2umgk
-	4VJAQk5Igoldq9zbRJIxhOKi0oO6kOxixoSXojVIQizJtoRsVnVVBpEJ
-X-Gm-Gg: AZFdTZf3Y6aci9zgipe+p5ulBCxN2o8YtMtbwP8ys6yNL16mcvi/GR6SfBvpaZOfpQ8
-	CgJkmLCzV2vKBkDuLoxe8UjqCNrUV4rqVtBy+hb5MUWFR+mI4MHjuWKvI8S3GjeLiGsb7y5Jy4v
-	sTq//LK+z8KbeE40+r/j2GXFT7XLEbpbr2yWz/3rqWAYbw88rwY6RV7ejKbsUJ03AS3oTxl2co2
-	3YjIeJf0p54gkWaP79pOOaAy+D/L7HnjFh9TSGV1PVdjPxr4F0plHZON+s4foNQCmziM3eXM37t
-	/E1c+xhXoUAe8cNxbgAdr6GJaZxkGszzPZoduRAR1xrCm5WO0spbyBPiSYeIeX/+zum1nB+OfDx
-	2RRVD7eFjBtSx3xFYJI+mi3ga3ll+/Y9PfhdVKq9NI9urTBmx/J+fjI/kPYZqkH1U6kmG9CpIsh
-	rVdRCVo+AD+OStSbG3LY/fAlYmHpePnDaHuRlJUTlDJXR5O9kKuwN/nShjRmsyAq+njtT/3MaAo
-	F8JiB5Uj2qw3MfzDq1wUglAwMzdqY/qeD3FhfbB76O8452Zy5N/27clUNvzR4kKCjV5wxOcHT78
-	XiNB/9cY6b5bT5G7VS4+nAUpr1ji9K1y9cUaBmHQgv91Z8ZmmHcQqyWceR7GLi/Z
-X-Received: by 2002:a17:90b:2cce:b0:3a4:967c:6947 with SMTP id 98e67ed59e1d1-3b41c909001mr9327128a91.21.1795392564569;
-        Sun, 22 Nov 2026 16:09:24 -0800 (PST)
-Received: from gmail.com ([116.162.234.40])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm16532573a91.3.2026.11.22.16.09.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 16:09:24 -0800 (PST)
-From: Xue Boyang <fuchen.dust@gmail.com>
-To: Robin van der Gracht <robin@protonic.nl>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Oliver Hartkopp <socketcan@hartkopp.net>,
-	kernel@pengutronix.de,
-	linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net v2] can: j1939: fix null-ptr-deref in j1939_session_completed()
-Date: Sun, 22 Nov 2026 18:09:16 -0600
-Message-ID: <20261123000916.181439-1-fuchen.dust@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CEhgc8Rj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E3B01F000CF;
+	Mon, 23 Nov 2026 00:25:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795393543;
+	bh=rFGFyJlMM2hycCOeLd2pZeLmJL2ifKJTAEAyuF1Hf08=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=CEhgc8Rj7bXRxrF3lCeo9H52AZlytk+nH4eFDkekc1rC00J9s295zHLx+onNmvXU8
+	 /vrsGIWUK4zcdci/YuipELQjYkFCjz3UebuqpG9N3R4Y1tLkCcEG0F9bwQKf+rn/1H
+	 pEqv1C8NAOiKhHe0yh9AhiRSMtWlPyxWcUguoJY3AwfFKIF+PsZl5MnQLymfriAQTE
+	 sPv8KfT/2i0AB4RVuw3gxFdn6HrePUfX1WUtC87XksMynaxfAL6eJqpHXrn38o9PAF
+	 JQCh/jT4eacD18hnt/+Ap9TcQSywGIjvGgt97jOn75mYOOWJFeYRWbhdLwmJjKtYGQ
+	 zrs6dVwaQKN7g==
+Subject: Re: [PATCH net-next v5 1/4] ipv4: draw rt_genid from a sequence
+ shared by all netns
+From: netdev-bot+sashiko@kernel.org
+To: qiliang.yuan@linux.dev
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ razor@blackwall.org, kuniyu@google.com, ralf@mandelbit.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 00:25:42 +0000
+Message-ID: <179539354213.3135.13464015676697562807@kernel.org>
+In-Reply-To: <20261121-bug-net-netns-move-rcu-barrier-v5-1-100a3b5d9090@linux.dev>
+References: <20261121-bug-net-netns-move-rcu-barrier-v5-1-100a3b5d9090@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,125 +64,183 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-j1939_session_completed() distributes the reassembled message of a
-receive session. It looks the message up at the offset named by the
-last ETP.CM_DPO of the peer, session->pkt.dpo * 7, and passes the
-result to j1939_sk_recv() without checking it.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-j1939_xtp_rx_dpo_one() stores that DPO without any check. A receive
-session keeps the whole message in a single skb, so a DPO with a
-packet number >= session->pkt.total makes the lookup return NULL.
-When the transfer then completes, j1939_sk_recv() dereferences the
-NULL pointer and the kernel crashes in the receive path.
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-Any node on the CAN bus can send such a DPO, for example right before
-the last data packet of an otherwise valid transfer, so this is
-remotely triggerable. On a system with the vcan and J1939 modules
-available, an unprivileged local user can reach it from inside a user
-namespace as well.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Reject the DPO when it is received, and keep a backstop for the
-lookup:
+- [Medium] rt_genid_bump_ipv4() in net/ipv4/route.c can return without
+  changing net->ipv4.rt_genid, so a requested route-cache flush is…
+- [Low] The commit message describes a netns-isolation bug in the current
+  tree, but the patch has no Fixes: tag and no Cc: stable.
+- [Low] The fix relies on every rt_genid value being unique across netns,
+  and that only holds until the global 32-bit rt_genid_seq wraps.
 
-- Cancel a receive session with J1939_XTP_ABORT_BAD_EDPO_OFFSET when
-  the DPO has a packet number >= session->pkt.total. That abort code
-  existed but was never sent. Transmitter sessions are not affected,
-  they only see the echo of their own DPO.
-- Keep the NULL check in j1939_session_completed() and set
-  session->err on that path, so that an unexpected lookup failure is
-  reported as J1939_EE_INFO_RX_ABORT instead of ending as a success.
+--
 
-AI assistance was used to analyze the bug, and to prepare and test
-this patch.
+ipv4: draw rt_genid from a sequence shared by all netns
 
-Fixes: 9d71dd0c7009 ("can: add support of SAE J1939 protocol")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xue Boyang <fuchen.dust@gmail.com>
----
+This patch replaces the per-netns atomic_inc() of the IPv4 rt_genid with
+values drawn from one global sequence shared by all netns. That sequence
+never returns 0. Each drawn value is published with a cmpxchg on the netns
+rt_genid, so a route cached in one netns cannot pass rt_is_expired() after
+its device moves to a netns whose rt_genid happens to match.
 
-Notes (j1939-v2-submit):
-    Based on mainline commit 4843f6873f7c4835e62f2c73ba0fd538e57a2f22.
-    
-    Changes since v1, following the Sashiko review:
-    v1: https://lore.kernel.org/linux-can/20261117103516.535910-1-fuchen.dust@gmail.com
-    review: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117103516.535910-1-fuchen.dust%40gmail.com
-    
-    - v1 only added the NULL check. v2 also rejects the DPO in
-      j1939_xtp_rx_dpo_one() and reports a failed lookup via
-      session->err.
-    - The commit message now states the impact and the reachability.
-    - This patch supersedes my 2-patch series from September, which had
-      the same NULL check and a DPO check limited to dpo > pkt.total:
-      https://lore.kernel.org/linux-can/20260918025622.192582-1-m18335910246@163.com
-    
-    Testing, on v7.4-rc3 based kernels with CONFIG_KASAN=y, with raw CAN
-    frames injected on a vcan interface:
-    
-    - Unpatched: an ETP receive session given a DPO with packet number 256
-      for a 256 packet transfer, followed by the last data packet, causes
-      "KASAN: null-ptr-deref in range [0x18-0x1f]" in j1939_sk_recv() and
-      a panic. The same happens when an unprivileged user triggers it from
-      inside a user namespace, with the modules auto-loaded on demand.
-    - Patched: the kernel answers with ETP.CM_ABORT (reason 12), the
-      socket gets J1939_EE_INFO_RX_ABORT, nothing is delivered and the
-      kernel keeps running. Same for packet numbers 257 and 65535.
-    - A valid transfer whose last DPO has packet number 255 completes on
-      both kernels, the 1786 byte message arrives intact.
-    - net/can/j1939/ builds without warnings with W=1.
-    
-    The reproducer is not included. It is available on request.
+> When a device moves to another netns, routes cached through it remain
+> usable until dst_dev_put() points them to blackhole_netdev. For a route
+> using a nexthop object this happens in nexthop_free_rcu(), which
+> free_fib_info_rcu() queues from inside an RCU callback, so the
+> rcu_barrier() in __dev_change_net_namespace() does not wait for it. If
+> the rt_genid of the new netns matches the cached one in that window,
+> ipv4_dst_check() accepts the route and a socket in the old netns keeps
+> sending through a device that now belongs to another netns.
 
- net/can/j1939/transport.c | 22 +++++++++++++++++++---
- 1 file changed, 19 insertions(+), 3 deletions(-)
+[Severity: Low]
+This describes a netns isolation bug in the current tree, but the patch has
+no Fixes: tag and no Cc: stable. Should it have them?
 
-diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
-index 8fcfd13e5e6f8..d3644c8239a4b 100644
---- a/net/can/j1939/transport.c
-+++ b/net/can/j1939/transport.c
-@@ -1244,8 +1244,13 @@ static void j1939_session_completed(struct j1939_session *session)
- 	if (!session->transmission) {
- 		se_skb = j1939_session_skb_get(session);
- 		/* distribute among j1939 receivers */
--		j1939_sk_recv(session->priv, se_skb);
--		consume_skb(se_skb);
-+		if (se_skb) {
-+			j1939_sk_recv(session->priv, se_skb);
-+			consume_skb(se_skb);
-+		} else {
-+			/* should not happen, report it instead of a success */
-+			session->err = EPROTO;
-+		}
- 	}
- 
- 	j1939_session_deactivate_activate_next(session);
-@@ -1823,14 +1828,25 @@ static void j1939_xtp_rx_dpo_one(struct j1939_session *session,
- 				 struct sk_buff *skb)
- {
- 	const u8 *dat = skb->data;
-+	unsigned int dpo;
- 
- 	if (j1939_xtp_rx_cmd_bad_pgn(session, skb))
- 		return;
- 
- 	netdev_dbg(session->priv->ndev, "%s: 0x%p\n", __func__, session);
- 
-+	dpo = j1939_etp_ctl_to_packet(skb->data);
-+	/* a receive session keeps the whole message in a single skb,
-+	 * reject a DPO which does not point into it
-+	 */
-+	if (!session->transmission && dpo >= session->pkt.total) {
-+		j1939_session_timers_cancel(session);
-+		j1939_session_cancel(session, J1939_XTP_ABORT_BAD_EDPO_OFFSET);
-+		return;
-+	}
-+
- 	/* transmitted without problems */
--	session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
-+	session->pkt.dpo = dpo;
- 	session->last_cmd = dat[0];
- 	j1939_tp_set_rxtimeout(session, 750);
- 
+The window does exist before this patch. free_fib_info_rcu() runs as an
+RCU callback, and from there the nexthop release is queued as a second,
+nested callback:
 
-base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+free_fib_info_rcu()
+  nexthop_put(fi->nh)
+    call_rcu_hurry(&nh->rcu, nexthop_free_rcu)
+
+The rcu_barrier() in __dev_change_net_namespace() does not wait for that
+nested callback.
+
+The likely origin is the change that let fib_info use nexthop objects.
+Could the exact commit be identified and cited, so stable maintainers know
+which kernels need this?
+
+> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+> index d0930ae4c5ae6..ece931f7d9e4d 100644
+> --- a/net/ipv4/route.c
+> +++ b/net/ipv4/route.c
+> @@ -393,6 +393,42 @@ static inline int ip_rt_proc_init(void)
+>  }
+>  #endif /* CONFIG_PROC_FS */
+>  
+> +/*
+> + * Draw rt_genid bumps from one sequence shared by all netns. A route keeps
+> + * the genid of the netns it was created in, and is checked against the netns
+> + * its device is in now, so distinct values make that check fail once the
+> + * device has moved. Every netns starts at 0, which the sequence never hands
+> + * out, and inserting a route bumps the genid, so cached routes carry values
+> + * drawn from the sequence.
+> + */
+> +static atomic_t rt_genid_seq;
+
+[Severity: Low]
+Values from this sequence are unique only until the 32-bit rt_genid_seq
+wraps. The commit message says so ("until it wraps after 2^32 bumps"), but
+it doesn't mention that an unprivileged user can now force the wrap. Is
+that intended?
+
+sysctl_route_net_init() keeps the flush sysctl for netns owned by non-init
+user namespaces:
+
+net/ipv4/route.c:sysctl_route_net_init() {
+    ...
+		if (net->user_ns != &init_user_ns) {
+			if (tbl[0].procname != ipv4_route_flush_procname)
+				table_size = 0;
+		}
+    ...
+}
+
+After unshare -Urn, each write to /proc/sys/net/ipv4/route/flush takes
+this path:
+
+ipv4_sysctl_rtcache_flush()->rt_cache_flush()->rt_genid_bump_ipv4()
+
+Each write advances the global rt_genid_seq, and this is cheap to repeat.
+
+After a wrap, the genid that netns B draws can equal the genid cached on
+routes in netns A. One example is the draw at NETDEV_UP after a device
+move. A netns can also draw back the value of an older generation that was
+invalidated, for example by an xfrm policy insertion. Either case lets
+rt_is_expired() accept a stale route again.
+
+This is hard to hit on purpose. rt_genid is not visible to userspace, so a
+collision is roughly a 1 in 2^32 exact match. Per-netns 32-bit counters
+could also be driven by unprivileged users before this patch.
+
+It matters more once the later patch in the series, "net: remove
+rcu_barrier() from __dev_change_net_namespace()", removes the barrier.
+After that, genid uniqueness is the only check that rejects IPv4 routes
+cached through a moved device.
+
+Would a 64-bit generation be worth considering here? If not, could the
+comment and commit message say that unprivileged users can drive the wrap?
+
+> +
+> +static int rt_genid_draw(void)
+> +{
+> +	int genid;
+> +
+> +	do {
+> +		genid = atomic_inc_return(&rt_genid_seq);
+> +	} while (!genid);
+> +
+> +	return genid;
+> +}
+> +
+> +/*
+> + * Publish the drawn value with a cmpxchg on the netns genid, drawing again if
+> + * another bump got there first, so that a stalled bump never overwrites a
+> + * newer value and each bump is ordered after the ones it replaces.
+> + */
+> +void rt_genid_bump_ipv4(struct net *net)
+> +{
+> +	int genid, old = atomic_read(&net->ipv4.rt_genid);
+> +
+> +	do {
+> +		genid = rt_genid_draw();
+> +	} while (!atomic_try_cmpxchg(&net->ipv4.rt_genid, &old, genid));
+
+[Severity: Medium]
+Can this bump return without changing net->ipv4.rt_genid?
+
+rt_genid_draw() rejects only 0. Nothing compares the drawn value with the
+current genid of the netns.
+
+Say netns A last drew V. Other netns then advance the shared rt_genid_seq
+until it wraps back to V, and A's next bump draws V again. In that case
+atomic_try_cmpxchg() runs with old == genid == V. It succeeds, the loop
+exits, and A's rt_genid stays at V.
+
+The old atomic_inc() always changed the value. Now the requested flush is
+silently lost, and rt_is_expired() keeps accepting routes cached before it
+until the next bump.
+
+Callers that depend on the flush include:
+
+- fib_trie route insert and delete
+- rt_cache_flush() from the NETDEV_UP/NETDEV_DOWN and address handlers
+- xfrm policy insertion in xfrm_policy.c
+- rt_genid_bump_all() on SELinux policy reload
+
+Would redrawing while genid == old avoid this? For example:
+
+	do {
+		do {
+			genid = rt_genid_draw();
+		} while (genid == old);
+	} while (!atomic_try_cmpxchg(&net->ipv4.rt_genid, &old, genid));
+
+> +}
+> +EXPORT_SYMBOL_GPL(rt_genid_bump_ipv4);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121-bug-net-netns-move-rcu-barrier-v5-0-100a3b5d9090%40linux.dev
