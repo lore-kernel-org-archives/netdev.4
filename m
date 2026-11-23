@@ -1,79 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795431862;
-	b=YM0iJDYRu8X84v4F9ZDGlX+zQzYeRoZnvcLbwO8nAeqg4GxXSZPrE1ylLMn4f1Zt6TzG
-	 B9iOdyibBF5/392N8l7YKyQJb83tRC2QiBBAacf1vvJ4BpAPOVj1Kf5skJnH4lhQ51SMF
-	 XySez1c6Gy71cohl74FeqxOiTnWcUO/cZpiuOlSlzmdWfHiKr0NGBAk4hw/Bd5eFX/64K
-	 Ccddj1RIfkVYhUjelQvl6ZWPGrvHBwMh+h91zc3zLyqdaxFgOXOPMh1t16DX9hky2Rw3x
-	 ivjZa5ZSCjmdUZJ8q5g0+HcaGLx4ToqSHQBwd2SnoOsjXvCOD7b6/wFC4uZyTPwIiRg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431862;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cp7jVLyfy7qosA+llzUSJcDBk8mNpOqESOfJOfHRX9A=;
-	b=juEfmuR6sQhMuH0zEfLIpgaiciN1uwXgmVU9jXWz0lfUmFAShkXBf+8Ciy1lCY2AmgyR
-	 9YxsCNJIlAjhFZyW/H7y7EKtF+54rk/hzJ345imcNk4R/V6yOQ3Seipdou2bIoit1s/p+
-	 kHRC5eXg/BsGmebBbJV2NJhtWhTCiY95nDvLqtGB8tqMZPSXilAfsGTw/bV8Qkh07qpC0
-	 dV2MXbHsmJ88HIXvPI4V7etAI0Iv7BFhZ75wRx4ohS9de/lqxogQyD64+4NqL+llQ7EUu
-	 pHtIYRrGyJgQM1Ze4m3HyfbFMaNKB/bT2j+lQd93gSG9HEWoKq4LmlDn6YGhNYpfAPQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BKRnsZzE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB18606A69A;
-	Mon, 23 Nov 2026 11:04:22 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=218.76.62.146
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795432166;
+	b=llGkyp3XqM7g1iV7vggaF6yglqWgvbliJi7A0RiH8GOzJ12QAVjg61b1oFUCLOIMHNRY
+	 JP1PDSe0aqut8ohoAAlB+lSWKKvO1laj/h8EdJpAZZKQIgAq1E5sVkgb3AmL52UBQmKjZ
+	 oBHhtaqaih6W1QCX7P5VVI451MujhnrFLRBJYyWRfyKZNNRr28WM7pfvyNs2ljbOgxi68
+	 IGSzfomTu06Plz++BHDqxBhSLTXL7vTZh/z3/P2yJeNZpMKyjbQGBtfZ1H8e5tTbxTm5f
+	 pXooG19fewSJ0U6Rgz//uAD3jm6e2CO146jzSwMMe1ctOz4y6rfOfUIlO+0DEAXUv+A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432166;
+	h=DMARC-Filter:DKIM-Signature:Received:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=+kDopycZnDAP9HA19BBrkkNf4GaSRLyZaHpHCwaxUpc=;
+	b=oVSGEvWGDnTuY2Swcyi6IoPysHnFKd0C8fvwG/tlDpYNA46wtHKVpKMG1CBzUf1XGtwA
+	 nyn4zf/GVwuBw3y7sA5ZtfgPPngewHq3elO9ML0zLtRxBAlZfcJPnDua5OxS+lOfAqAU8
+	 l1anCQzZMi1ek6OjMlKOATmpd9Pi3o4xbrErrEepekd6csHgDPCBMxNRGo0yw0uGXadTf
+	 0ok3H4iLwFmciQfYU0N8sBUz2YQQ+qsf71OpBZxKbup3A1/FGIhmwc+QEY4taYkBcFLFe
+	 CgMWccQkLRXW3F6riimblQC3iR8sA84EL6yJ/o6xMf+xz7y/DqIAN8nTB70Gbc7Wy5w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ultrarisc.com;
+	spf=pass smtp.mailfrom=ultrarisc.com;
+	dkim=pass header.d=ultrarisc.com header.i=@ultrarisc.com header.a=rsa-sha256 header.s=dkim header.b=R6k8B3wW;
+	arc=none smtp.remote-ip=218.76.62.146
+Received: from ultrarisc.com (unknown [218.76.62.146])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A7129606A31E;
+	Mon, 23 Nov 2026 11:09:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7129606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ultrarisc.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ultrarisc.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BKRnsZzE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795431861;
-	b=F5PvO9ZS5AljJn307vyVy85ut+kJ44hEqi7tQiDRxa0MGd8ALGfEqu1tcoT/iOx72drD
-	 J6ykQvK554EX4yuolPZjxir1IePxjs5vrOxietCR+u2x/WcIF5CxjiKH9oLxfG3NgpHU8
-	 r19dK0TURpoUJ5Yi5T2SPI+A7wFTsRsi/JwpnPguvcBxWGGlH519QWvbuZ4OhLlsaPStr
-	 d3zu0LJIrjRbGGbz1rPcXICnlRcEH1SlvSWp2pr3vlXpTzVTwplXoTqrNugNMdHLEc6yx
-	 8ir3q/viMjSKB72+JdC+uAWf7UQwUYbZR6Fv5m5ccgfY//gPWRiKPfpEdZlpnOxTlnw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795431861;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cp7jVLyfy7qosA+llzUSJcDBk8mNpOqESOfJOfHRX9A=;
-	b=UJL+/BFeS9c4PXrMgSrLgBru6i2ePrATGUw1Mc4QL9gbvtS6d6P2JXu3USh+9/Dn6y4M
-	 7nGHUkqKf0RMJkDfd3NA6Xn4o8YHk3k8mw9oHnGrvWuR1HPTqdVx2XJBswCZ1G1S5RAnb
-	 MgfTwQZviqb19wjxs8s1/nnTgx0kFZ/XKhPxxrfh6UdK3zDs2gZkOcY36Yxp5LyjE1HHp
-	 uJHDWGhPm41UsAXWZqTNTVPtCoUuZNAk7UoF4unKH7qLggNGOjEj6vcjoWepy8inVlLIA
-	 BMdtA7JcPJY6egwhRoDQnk00raXQM844TS88NaCTRGFswzWQuXFDu/yqQt26Tr60FJw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8A40F1F000CA;
-	Mon, 23 Nov 2026 11:04:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795431861;
-	bh=cp7jVLyfy7qosA+llzUSJcDBk8mNpOqESOfJOfHRX9A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=BKRnsZzEVevC2TEytdcaXJWmAHhZyNsbVtd7iT7CgJ8LTnIwZXLkL+hqZ+E9Emx7a
-	 g2zbAFV8SRUIVjI8S4zl499kuVIF9klWzoKDwuC0B8QwOZGDu+MU2+b/WuZd2qU/44
-	 nUFmGfttSZ22enQith15gVrqODP3YTeIXBCanTT+Ibc92sKR2MmlKgCOgI5xXP7uHF
-	 FjjF7DrvuE89JAoJneczRJmRQTLECOKTCEENSJIhGq9ST13by3IZB7DOHNJRiC2W3d
-	 bS5gcEoWFn0JmVlK9R9VEXNiH4acEaKTqXnV9yrcA0XMutI8/bSAnqfcXWIIiWPxZ0
-	 XUQMbELzyQQkQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1B5784C436;
-	Mon, 23 Nov 2026 11:04:11 +0000 (UTC)
-From: Yongjian Wang via B4 Relay <devnull+echoowall.gmail.com@kernel.org>
-Date: Mon, 23 Nov 2026 19:04:09 +0800
-Subject: [PATCH net-next v3 1/2] tcp: document black hole detection for
- tcp_mtu_probing
+	dkim=pass (1024-bit key, unprotected) header.d=ultrarisc.com header.i=@ultrarisc.com header.a=rsa-sha256 header.s=dkim header.b=R6k8B3wW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=+kDopycZnDAP9HA19BBrkkNf4GaSRLyZa
+	HpHCwaxUpc=; b=R6k8B3wWpsiObveZeoFHed2EGTGDnFK/0MmJcI8iybAPk3FF0
+	pJQ0EDMJ5VaLgj7thKOpbCuh8pWZSJlpeyZDf6gQuLeL7oUj8L1WPtMvc/97H09n
+	lzYtebxKcWeCSegQDhjBnScZFBSLUxWY4UZRU2J+koaIlXN0oF6ZJY+T3U=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwDHQAexHgRrhEgEAA--.2091S2;
+	Mon, 23 Nov 2026 19:08:33 +0800 (CST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,88 +51,80 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-tcp-mtu-probing-doc-v1-v3-1-c288c2df9666@gmail.com>
-References: <20261123-tcp-mtu-probing-doc-v1-v3-0-c288c2df9666@gmail.com>
-In-Reply-To: <20261123-tcp-mtu-probing-doc-v1-v3-0-c288c2df9666@gmail.com>
-To: corbet@lwn.net, kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, 
- davem@davemloft.net, shuah@kernel.org
-Cc: Yongjian Wang <echoowall@gmail.com>, ncardwell@google.com, 
- kuniyu@google.com, rdunlap@infradead.org, linux-kselftest@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- netdev@vger.kernel.org, skhan@linuxfoundation.org, horms@kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795431849; l=2508;
- i=echoowall@gmail.com; s=20261026; h=from:subject:message-id;
- bh=Frl+i4oYaux9oiKFjwNbjA51vHapvkpGWp30QDI+s2s=;
- b=f5etkxrWA6fQgRh+NwtBZBF3MUJxwU5qu/NnCZXzkgU3bAw/BDpDr6GyWU5H+bZLECY3ZseNL
- auuw2Q3ESx9BVoH9aIW/ea6xjO817LDQ1sKX66b19N2MTOge9NmLrDr
-X-Developer-Key: i=echoowall@gmail.com; a=ed25519;
- pk=9XP6JhqjjPsHCF6UZZZTeqTRnXIa4+ufggnxXtTJ+no=
-X-Endpoint-Received: by B4 Relay for echoowall@gmail.com/20261026 with
- auth_id=1323
-X-Original-From: Yongjian Wang <echoowall@gmail.com>
-Reply-To: echoowall@gmail.com
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
+From: Xincheng Ji <jixincheng@ultrarisc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, 
+ Xincheng Ji <jixincheng@ultrarisc.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
+ linux-pci@vger.kernel.org, linux-clk@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Fei Chen <chenfei@ultrarisc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261118-unimpeded-swapping-6b1b3e5bebba@spud>
+References: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
+ <179501112283.639563.5233054429317576626.b4-review@b4>
+ <20261118-unimpeded-swapping-6b1b3e5bebba@spud>
+Date: Mon, 23 Nov 2026 19:08:40 +0800
+Message-Id: <179543212034.1604484.9462414929447940252.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795432120; l=658;
+ i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
+ bh=2XLgEq6VwPYO3u9Cdwe+eXzTlcnJKcd6VYZ8ir9zoX4=;
+ b=aKUFY1rPQkOEW8tfiUw+ybT22Zp6yoFu8w2dZgnGnPlt9ibfbxWWEE9JKWkooBYH/PP4AKZCr
+ UTCWh0XY9DvBDMZKPe01jKMlplaefeGjNl2vREUNTEe+gDv5shPr6X+
+X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
+ pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
+X-CM-TRANSID:AQAAfwDHQAexHgRrhEgEAA--.2091S2
+X-Coremail-Antispam: 1UD129KBjvdXoW5Kr1fJw13ArWfCr1xWF48Zwb_yoWxXwb_uw
+	nayFyxA3WUCF1xAanF9F45urnF9rW0gw1UZ34Fyr1xCrWvvw4kWws0kr90vr1Sva97tF9I
+	krn5Zr13Kry2vjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbT8FF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr1j6F
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
+	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
+	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
+	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
+	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
+	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRCCJPDUUUU
+X-CM-SenderInfo: pml0x0xfkh0wg6xo325dul2uoofrz/1tbiAQAADmsD4rIADQABs7
 
-From: Yongjian Wang <echoowall@gmail.com>
+Hi Jerome, Conor,
 
-ip-sysctl.rst says that tcp_mtu_probing=1 enables MTU probing once an
-ICMP black hole is detected, but not when that happens or what TCP
-does then.
+Thanks for the feedback and the clock Ack.
 
-Describe both, as implemented in tcp_write_timeout() and
-tcp_mtu_probing(). Also add the missing defaults of tcp_mtu_probing
-and tcp_base_mss.
+I agree that leaving the company does not necessarily mean stepping
+down as a maintainer. Unfortunately, I am no longer able to contact
+Jia Wang or Xincheng Zhang to ask for their confirmation.
 
-Signed-off-by: Yongjian Wang <echoowall@gmail.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
----
- Documentation/networking/ip-sysctl.rst | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+Following your suggestion, I will send v2 adding Fei Chen and myself
+as maintainers while retaining the existing entries. We can revisit
+their removal after allowing a reasonable time for them to respond.
 
-diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-index 0b7bfbd98a92..a4a28b452d25 100644
---- a/Documentation/networking/ip-sysctl.rst
-+++ b/Documentation/networking/ip-sysctl.rst
-@@ -412,6 +412,8 @@ tcp_base_mss - INTEGER
- 	Path MTU discovery (MTU probing).  If MTU probing is enabled,
- 	this is the initial MSS used by the connection.
- 
-+	Default: 1024
-+
- tcp_mtu_probe_floor - INTEGER
- 	If MTU probing is enabled this caps the minimum MSS used for search_low
- 	for the connection.
-@@ -711,6 +713,26 @@ tcp_mtu_probing - INTEGER
- 	- 1 - Disabled by default, enabled when an ICMP black hole detected
- 	- 2 - Always enabled, use initial MSS of tcp_base_mss.
- 
-+	A black hole is detected when the retransmission timer fires after
-+	the handshake and retransmissions have stayed unacknowledged for as
-+	long as tcp_retries1 retransmissions would take with an RTO starting
-+	at 200 ms and doubling each time, which is 3 seconds with the
-+	default tcp_retries1. This time is counted from the first
-+	retransmission and only checked when the timer fires, so a flow
-+	with a 200 ms RTO detects the black hole at the fifth timeout,
-+	about 6 seconds after the original transmission.
-+
-+	With value 1, the first detection enables MTU probing and lowers
-+	the MSS to tcp_base_mss if it is larger. After that, and from the
-+	first detection with value 2, each timeout at which a black hole is
-+	still detected lowers search_low to half its MSS, capped at
-+	tcp_base_mss but never below tcp_mtu_probe_floor or tcp_min_snd_mss,
-+	and lowers the MSS to match if it is larger. Once MTU probing is
-+	enabled, the connection also probes for a larger MSS, as with
-+	value 2.
-+
-+	Default: 0
-+
- tcp_probe_interval - UNSIGNED INTEGER
- 	Controls how often to start TCP Packetization-Layer Path MTU
- 	Discovery reprobe. The default is reprobing every 10 minutes as
+Conor, thanks for offering to take this through the RISC-V tree if
+the subsystem maintainers do not pick it up.
+
+Thanks,
+Xincheng
 
 -- 
-Git-157)
-
+Xincheng Ji <jixincheng@ultrarisc.com>
 
