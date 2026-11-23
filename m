@@ -1,95 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394938;
-	b=2RmCQzAgtjxcGpiFSA35Tmh2V61BrzomkaedJuQYFu1skZcXnHFpwPX4BY4CyUtBiOXF
-	 GdBQEgqvnG/dan3CRMDz8cNxunRZEL8Yx9ybtSaRCt6XajUVBdaW9v4+p06kYes5jwf6N
-	 gDGgwzqvhGYfTb4NIPm/d7BUBx7COSrPB76VyEcVOAHWl07Oe+5CQTZ862jhMwxGM68/K
-	 XHo4od8XqAvTBZ4vFNRJnEjTvCgU5e/wFf2cQ7umY6AjG/dsn8Zf4U6ytQwL/ogTsk3Ly
-	 hvK8LLEcX7K112ZQJskY5zV8S9TspaEIhWY+EXJZSShEVQNdZOhxjvYz7pZYxwBRGfw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394938;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795394952;
+	b=Qh2Y5PGsw3YqtAeC1qNCr44XB3qxFhIgvN04i0RwJC/xFABjbfCx4NvK1THas+TVFizm
+	 PcqholySR3zjw1K9ACdifRQUr/j007zMo0vpI5pXHQ+G7/DSY2hEdgjWMAqC8/aVY6Qlp
+	 w7v8Fd8k0HAS/ExdYykeUwYqK45Q4r7Q/l98JjpH9kBnGRK+6TIg4ZgfBx0LMP/8bpzbD
+	 uCX09a4sWRJUpRfADIITLMUHQ2esvssjgyKGAujxDnbpKMM128jLLwxqxJdl2Tr8TgAcO
+	 4KCSkPF3S+AMtVUWIh8iypQMORgUc2I0mAQ+MYtrFGrG8zszSRHhTa7IL+2bAU80Zrw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394952;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=XkB1/D3AgiE/513YaWxpzlpuC5tZ2ZyAh+6bQUBtanI=;
-	b=ZSumiYaGgcYF1Iy76DDOeSKce81P6WK05Km4f+GWV4nvaEJ8DK+LdqEXfGZhjt5Ckemf
-	 wcFXk58kz2ToQAFzkgrdpbXAZaYQ0/diJAyb5bWWLR5RXEChktrSAve+pizhozAMT49Lm
-	 VLXrgXATi8+PJq6V6XKU/RnbJ3F8bKtBfdRAFIdCOszd1hAYztbfa9OGZilkGolUKF9OS
-	 LbcnXnmVBDrIKxRxFlV0Bipfwqm9vor0p2bNndL6a30HMWBE+d6Um+XzHy+KMgPnr/hqY
-	 C/8zSF2ihnwnxTzOSTN5AuTwihQZo90LK656FcSBepGE5MknI4CGHbGLZ9Gb2D6U8Rw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=f5qjBMoAO4jBXR8/b0YhlthlXetGuAcfTr8ec5NafHw=;
+	b=deP2AT2TgWDfZQaHEweHSF+EThqKZnld/I6JNEabHj47Tq7tAD6diUVelrHxtvA2NHFK
+	 RRwUxkzuI4wWvHMGAJtdrx9QPUodcQPMA07XLxtafRCVvVe7AE362eubaOiwWXOccCxsG
+	 fhj3Zglq6sKR9I1Q4uGj2EQB4R/8bQlTdcfb7xWMjRBrxWznmyaN1PwkszuC3VJvHWTwx
+	 0c5WLH1WNHiwY4LIUQG5Yp9LCjT/sAcz/gJZOcUIXfpXCfMilsv72gYYZgATf7aMTroKx
+	 TCfGMMO6+p8ATCfqJyO2uWXuzGOms/w1vUBE9Arp2hQ6w1wgOagKuJtYnMuqFDjTXZA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yv4KZfCQ;
-	arc=none smtp.remote-ip=209.85.219.54
-Received: from mail-qv1-f54.google.com (mail-qv1-f54.google.com [209.85.219.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i6Bzeyv8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5596A606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:48:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5596A606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABF20606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:49:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABF20606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yv4KZfCQ
-Received: by mail-qv1-f54.google.com with SMTP id 6a1803df08f44-9213fddb596so32749056d6.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:48:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i6Bzeyv8
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c51373ae637so413063266b.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:49:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795394950; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SLC0+H5zBPFNa6fpIWHUcBjZwMdQrGe6TSPGQWtJniuqznOwkVQAjwgg6r3OZ2EPIP
+         20Z1kf3M/lG+C9vuEP3IAPPqxmIO3Dv9jH01xIXDGnaqDwI8NjX4a6uab8ehaqUyenOF
+         g9+ivEGfLiZJJqRX8Z+2D/unLGDk0KAgI6pFVmlKH5bnRgL7oREl8iwaTXkwmi3217Wd
+         i+Rb3WEsAIsxLeoPem0WV5rt5CALxvsBLAG3QX4L+FXFocqK6IaFfILM5M3sH/d9kmst
+         4DflfGcBw3J2s/Qinu2ZnNhSB2KpXmE3vR1h9q22WfLyU8MGIBFW65bXXXyLG5MhB32G
+         G/gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=f5qjBMoAO4jBXR8/b0YhlthlXetGuAcfTr8ec5NafHw=;
+        fh=tCbebW+1+b8GVwUBADvWshhzVEvmaWHcNyJpTPIJRN0=;
+        b=ciibrf5BXYaqJs/SvbRbKg2wTwX96qAsAFxtf+Ic7sKwOt7ytetffzU50eYCQQ6G+/
+         bFNyedKB20HEz86zDORfYraTCAeBgtULDvJNdrZAelHHpy49Z+2ioYgY00AKM1ApLifU
+         LrYZmUh55+ZWwKRCLmj2S9WEw1CKQS2AsikEVMsMeOvdB1aHZvWnbmL/BV+UmZ4QF8xq
+         /T9GZMM7S43r6u2ugcyzdS32/AjpQ7n+lwG1dYQZ7bP3hLyabPIeHMy3BC/+U4jZjSy4
+         cF5hapU63rAo4UdaZOq2QH2H3AoGemybdVhWXCzVdxckYdiEWnVthKZgpCVJRuyy+22g
+         wYpw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795394937; x=1795999737; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XkB1/D3AgiE/513YaWxpzlpuC5tZ2ZyAh+6bQUBtanI=;
-        b=Yv4KZfCQcO/Uy3EECBrqPMwu7OhIBLjYRV+wwYftbhQybdJ81AlyvFmnYfeMLgi4ai
-         fWw/OAbJiRVllxuBWeqkpNywfiGahml9PxA5nzIhP6VXXB8wzByW7ddbm0Eu7YGsIqdw
-         Sr9ndePx+kj+L1M3g8dbC07LlK5zpu4Gbd4FfH+nOFbiIjLB2lIf5MnZw7PftSlmqdkK
-         4HSdH5vDRLBsTwL/vSNx04Klgz7r20BhopWwcD+L7Ayt7mmfMruh1BSY3P7KteCc7UIa
-         09XhNh9o+GqjiDB74SXB5uC99wIhdo7Bgf44XYBxP6Vf9IaxzgJaJ6ogqpDwulDkwxUI
-         ztmA==
+        d=gmail.com; s=20260707; t=1795394950; x=1795999750; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=f5qjBMoAO4jBXR8/b0YhlthlXetGuAcfTr8ec5NafHw=;
+        b=i6Bzeyv86mdMgsesGOxqIPDNX7x7CxM6zpvptLa0BVoyunZY5o9TzG+V/1Cc2A+P8p
+         MNShe1xD6DNSWUJ68ST7QrA0nl/GWNYYOMPTthx2UyalDEbE8MT/VNG6Eo/XQHali8qw
+         pYkJT6iX6B3WbIlzdT1r5au8unG7fKI3zPtG+E6uvwdQHA1O/uDc7wpLs3EygsQTjbQn
+         ElXCGpbwJLNefed1epDVcokUoUavg8uFiKiJ18F71E0qHX0T9jeMaO/Hr2MKmILv9V9I
+         pfkAyNLYAQKFMFHEjE61y/++Fo5nuJNB+Qjf91vHSO18mGOa3pWxBvL43+ukGa+pAwGi
+         Zj4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795394937; x=1795999737;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XkB1/D3AgiE/513YaWxpzlpuC5tZ2ZyAh+6bQUBtanI=;
-        b=ZnlDdKxzX9ihjnHy5odrIyvT7UVD3Uuo6vungkvs2lBA34QdRHNz1UtvWtEUzfpPQ4
-         hShW6bMM705D12N8gAtCPPYeibuJ8vZmiXhUBYbvwdDEa5+Lw8k19UX6VABZ/wbtuplu
-         Y/PcUq3HE+KAeKooo4jQ9LeytpWkCzydesZdb9A7ABfzRmk/129P/TLBcW9FFbZNOYnt
-         UqIWQ5qJOA8pk9c9u6NtgqO4MYEazieiTKD+x1p5JBbGHgxCyzyq1/gbxlTl85g96qaW
-         U0Aqr/hyQXDqUhvm5jwyv6/6OFvBw0payRqcLcmzcB7+OaVY7SiV5Tk8x+1XZQY6Hhse
-         JBwA==
-X-Gm-Message-State: APuU4Z8Y2t6ONN6RPNh9Eg8WaZ+n0uWhM+3fBzJZqWicKre5WFwJlYWK
-	hr/kqiToGmwVi1HJFQ8M4joWMmw2JCo0SMnN/oX3ntebTyLnma1Mo/8GC33+Z+Vn
-X-Gm-Gg: AZFdTZdTcqzbZjPZ4E913on6Wt6e89882kB4B03AaTiCm17Nrh8n32nfnaj4i5MsWyT
-	uVcASMlzNfub+GF/SjGqVzAJO14ZwLkCtioH+F81l5FQu+WcWujFVex+FAS2F8psF1Kz2upZMVD
-	jSD2Ub4pXnJyhz/UemN7OmH77A/Rsd8FyiAx3+6wz5YZOzh9Rrpw6lD8v+tGAmd5PgkKEUjPefk
-	g3/MZ0+OcsHiBGL9Rz/ORH006lEbuN5LfZCf85bRX9GPgefFJWbDWN9eDX+K3EfH6J/XwAE+Bc8
-	HBH60N1U/d9yATTRUyeZvEf4wuxNCRhh6uw5wP2Ev68UZN8hUov5lgKStVB0q270Lo2P/5wdSvU
-	hV3ySljWGm20BNDszIhgQossKgyhX8Teq3Kc9OWpp3l4Ep0f2OvqqAT3LKUOC3legSouTTiqn+E
-	XRbsde7NxPyCPh8pKjIjj1DRTuGmyUNMLxvn+f6DWViQGfujXWtEYy/xVcEt03cuCTrtLpFKE8k
-	niBIzUFLYyizk2BsEOl3whVPIe6bctIjuxzbIYNzoQbLWaW4vpJUfnBtseJx4PVENmR96Yj7yed
-	q+SHDmfHwPsUd5b9Slq84wD27Veygzi3HxKrXSodR0DyEvLLsksFEpZ1XthpDn/VFIYVoVonuQb
-	nT1mM/+bWN7rXgGnOJx8AQhCXk9CwgGX5iy8qre0TYiFuGh3h00Wsoi9iNnppoJ/lFK3NyOY60d
-	uT7wiOVnICPZrwJERU
-X-Received: by 2002:a05:6214:458b:b0:91e:cf4d:f868 with SMTP id 6a1803df08f44-92134a990c3mr185930986d6.22.1795394937359;
-        Sun, 22 Nov 2026 16:48:57 -0800 (PST)
-Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b0827sm90841726d6.8.2026.11.22.16.48.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 16:48:56 -0800 (PST)
-From: Xin Long <lucien.xin@gmail.com>
-To: network dev <netdev@vger.kernel.org>,
-	linux-sctp@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
-Subject: [PATCH net-next] sctp: diag: set sin6_scope_id for IPv6 link-local lookup addresses
-Date: Sun, 22 Nov 2026 19:48:56 -0500
-Message-ID: <409da01d058fee776791de001ffd222069f06090.1795394936.git.lucien.xin@gmail.com>
-X-Mailer: git-send-email 2.47.1
+        d=1e100.net; s=20260707; t=1795394950; x=1795999750;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=f5qjBMoAO4jBXR8/b0YhlthlXetGuAcfTr8ec5NafHw=;
+        b=tiBW0t41dFpI6vgbivBM0NERmKQZpqxknMDXeAYJnNowRod+7hQsi7lG91tClE2qoL
+         +bO6uMJhVyenNznIbH2WJ/SCBep1kGKSWEvsesxdtPWzrC0d265gIJrwNh7qLFJ/hMLH
+         1/0bOF4FladpGeHt2H59OZRoIZlhpQyITN3vAT0R00JUe2wD1JvjFXj9JlAocDh183uA
+         EJHqsB1pJ1VCb1wwqHWdA3RpLmDhEuNwIZ1vOWie4oChgioIPluBxSfau+0fZFf3EmKr
+         takM4cEG2DxSfqZuAsy/0HLfTPpnc7OX6ElgEXbtAyIHxDRR9h8i9bQhmrJ/KE+nxOXP
+         XcmA==
+X-Forwarded-Encrypted: i=1; AL+hErGpPOHWzvreaha3h0szCiCM0mtuoRKadROjsLPwJo6tOlA6NXdTeb+3mZEK9IPfB6lnJLVuGVk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/gjdEU1t6ffHEPbBd+vJnvuPBTY6WAxmtc6aHO0oA7Ct9EgIl7
+	ZcMycnlpJONOV6TpfhFIyJaJFnFMvK6QBq6fjfcEbAx/36ZpzHhVbv1SM+q7R9sh6sbOA5D7B90
+	Q7YEfmPPogW3CLSKzMR0EMVtQY/JW6DE=
+X-Gm-Gg: AZFdTZfnIWUkTjpaSX/tGqePLlaY5SCRgo335iPRofy8APvNd4taEYgZ/GDmZWv83cH
+	jyFUXlKKrcfO0q/6p3CANhrzKJUS9RZfUc5Tqpw9mm3hmizPYuSSTugHLbZj1TW1B3nNZ6mw899
+	O5lSmEhCV9R5Fhg/yHbXMMVj2d62YZsdTtmwVTqOjRz1da1hiynpnNEBAwnSbHJpRkjCfyVWig+
+	RNxqgjXS8TYCrVcRho0SAwxVhK34PIdbd0thqd2E6g6VRSFh3GXkplCkzpl5ZKu9ZaAb9CFJmtu
+	+D4oyEEkK9Ym5cjeJGMxry+t/ohcbSlx/UVO8B6sFSD4nNPzHHD6AhNj2T/w3kEwC4H8SXbdjz3
+	KdzxzfK5VzSXXWIM2Eu8m9cqvp4N8g4arY7eHp56wX9Rr+Q8uTa94PuQNtJr5DT3tvA55ei4RBJ
+	FZOsNQI87T018lxKaNSLj1nV+7mZTW
+X-Received: by 2002:a17:906:48cf:b0:c51:638:7838 with SMTP id
+ a640c23a62f3a-c513aad0dddmr571463366b.33.1795394950064; Sun, 22 Nov 2026
+ 16:49:10 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,41 +102,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: Eugene Siegel <elzeigel@gmail.com>
+Date: Sun, 22 Nov 2026 19:48:58 -0500
+X-Gm-Features: Aa3M54ppxhnAFcxuldWHOjy1ZaCs6phJb8TeOEdbF3lhpRK3_VauRio9txwm7v8
+Message-ID: <CALkdYjV9G2fPfXK7UYTe4FuXNUBYD+DbM6caVtBT3CAULHHqUQ@mail.gmail.com>
+Subject: tcp: question about RST at SACK right-most edge
+To: edumazet@kernel.org, "ncardwell@google.com" <ncardwell@google.com>
+Cc: "kuniyu@google.com" <kuniyu@google.com>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-As gomaja noticed, sctp_diag_dump_one() builds IPv6 lookup addresses on the
-stack but never sets sin6_scope_id. For link-local addresses,
-__sctp_v6_cmp_addr() compares scope ids, so an exact SOCK_DIAG_BY_FAMILY
-query can only match a link-local association when the caller's idiag_if is
-propagated into the lookup addresses.
+Hi,
 
-Set sin6_scope_id from req->id.idiag_if on both laddr and paddr before the
-lookup, so that exact queries for IPv6 link-local associations can succeed
-when the correct interface index is supplied.
+I think because a TCP RST is accepted if sequence number matches the
+right edge of right-most SACK block
+(introduced in e00431bc93bb), it is easier for an off-path attacker to
+forge a TCP RST since they don't
+need to guess RCV.NXT. If the attacker gets a forged out-of-order
+segment queued, then they can also send
+a RST with sequence number at the end of the segment and cause
+disconnect. To forge, the attacker needs to
+guess the sequence in window, ack in acceptable range and know the
+4-tuple. The application I work on is a
+distributed network and it is possible to know the IP addresses as
+well as the listening port. Finding the
+ephemeral port is discussed in
+https://www.cs.ucr.edu/~zhiyunq/pub/ccs19_tcp_model_checking.pdf; the
+SYN
+half-open queue side-channel they mention is still present in Linux
+7.4-rc3 (aebb72744764). Our application
+periodically sends and receives up to 4 MB so the window size can be
+large and makes it easier for an attacker
+to guess acceptable sequence and ack numbers. The attacker's guesses
+consist of two packets: one packet
+guessing the sequence + ack numbers, followed by a RST. With our
+window sizes this is a few million packets
+compared to up to 2^32 packets when the sequence number has to match
+RCV.NXT exactly. I tested against two
+computers running our application and it worked as described. Is this
+something that Linux would consider
+hardening (perhaps by fixing the ephemeral port side-channel or by
+constraining the RST if possible)? If not,
+I'd appreciate any advice on what our application should do. I don't
+think we can use TCP-AO for all nodes in our
+network because some nodes are behind NAT.
 
-Signed-off-by: Xin Long <lucien.xin@gmail.com>
----
- net/sctp/diag.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/net/sctp/diag.c b/net/sctp/diag.c
-index c2a0de2adf6f..dc199e3e96b1 100644
---- a/net/sctp/diag.c
-+++ b/net/sctp/diag.c
-@@ -455,11 +455,13 @@ static int sctp_diag_dump_one(struct netlink_callback *cb,
- 		memcpy(&laddr.v6.sin6_addr, req->id.idiag_src,
- 		       sizeof(laddr.v6.sin6_addr));
- 		laddr.v6.sin6_family = AF_INET6;
-+		laddr.v6.sin6_scope_id = req->id.idiag_if;
- 
- 		paddr.v6.sin6_port = req->id.idiag_dport;
- 		memcpy(&paddr.v6.sin6_addr, req->id.idiag_dst,
- 		       sizeof(paddr.v6.sin6_addr));
- 		paddr.v6.sin6_family = AF_INET6;
-+		paddr.v6.sin6_scope_id = req->id.idiag_if;
- 	}
- 
- 	return sctp_transport_lookup_process(sctp_sock_dump_one,
--- 
-2.47.1
-
+Thanks.
