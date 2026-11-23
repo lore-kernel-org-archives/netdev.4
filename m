@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438322;
-	b=OSLa/aeGThBV5ierxhc5ROL9ZDHmk+XobGK93GI9TkcAwQI9MF6jJxa4iGvusMDdFbzp
-	 OgEHm5kgEz7+HAW4gDwhfaPOefkahNllCvbFip5BGAmBJ+TrgH/tOVxm/Nk3YvHq3mZEq
-	 TgDX3162LjVqqwyEoK6rPO2x5RemTlJzlnYcj5tRj1GbV8I1qid0G/xdqEZHbPsLHc+Bc
-	 pcjUlGudGW4AgYK5+pVHSCLhoyIiQaLSZEbNGwCX0D33vK1psVbhTNrJDY77S9cfuvWrd
-	 0K8/p4jjTySV7tdcFjVTa8ULOYpIZyDqfc1uDXRBr4cepX6HBts+rlPsMmPSIlmfUmA==
+	t=1795438329;
+	b=xljBhIjn5lKHGw4QAz3UFAlTNZgjahXmX6en461PFt6T6gc539yUcLF/kt1tdIAGPFKG
+	 7dFO5gCHs+6WpkUPI/u24hqD6RTIY+VW+MOpLyfaOjX8MamYrG7STkf11/U6APIz3Dkbb
+	 Ec92fG8OY7X1sfxnhIXsgmQb9JDdHuF6jSO+eTkFoxbFTKFvxPzCiq+e9QC5Z1am9thPU
+	 yoXx2USQfZkquGA8NuucJ/M9NM3wMgZhrDf+MN5MgX5qPcTHryrEXcaHWhgrTp6dN5WwS
+	 pXqqFg1TPu4HNp7A31kAkQeo/0VNcaPwWZcc2Yo15roGIaEM3RDCaAI7nmgQQq57+yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438322;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438329;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=p2IWpjpm56FZDYL2J6E/8Z+eeikvXsCr0/LAHQK5bkI=;
-	b=h0fpuylPh3Mh0xJw/wSyA3BN7dPYaI5lVhx6rGw+lSTqi57i9TNcBZFKZBB0dvhI9ja5
-	 XU8ii1Usq7S2dBRrms0klfM+GECL9oRotD6CLIk1AduvKGSvzfbzqh3ANlWYIDMsZufdF
-	 AyGA/7mvh0NXTul8tY+B+ApoNzBap7nGXHNC9qwXy6Osm8rkygsarD80HHFN5gPz/PkEV
-	 XDjlmgsJwgBcPkvUh3nvzRK45w6PqBW3jzOsYqSPjYfJ8dfquVI+HPrIMhZfmODpNWdYs
-	 FP9svOwrWvUA7drknMjsdLKVdQv5+XLxfTkMz4XnzRFDxSn+RVc2DMkYPB09KFIfL5g==
+	bh=gbcv55uyjw0fopltdaiw4Q0dqBwFdcRA0KznAqN+vss=;
+	b=5tw+J7k0UclZMBdpjajkEPcMnRQ10CnoQI7pgXIAWTtEzd/j4y22fCJAAgtTk7nZoYqb
+	 08bUGTsta79DjuyfWkwamgViiMl0l+Y9yGAtQRP/Q4mMdIRKhdo9ANZ/Sa0NgGVTqN2qr
+	 JUiJaM/5rR/PAyTriBBeG9u5jzXdVOzuZqHNWVZV+tsMp6lW4EWcgjKN//RCcddMOzaNA
+	 81uLCXW84Aqzs20aZoqnzj/HYyB5ivGBF2NIFdcJTA4UAsL4tLrG/Xno9R2wDM/dsjvF3
+	 oK636v+9J1P/5XvFdPiG+9q3LXazxqecncQNnPEYRThGsOQIiMgEHH18ZroagxuBvfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KEyiJbLf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ViJiiLtg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99183606A334;
-	Mon, 23 Nov 2026 12:52:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 416CE606A33F;
+	Mon, 23 Nov 2026 12:52:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KEyiJbLf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B24F1F000C4;
-	Mon, 23 Nov 2026 12:52:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ViJiiLtg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 523E61F00AE3;
+	Mon, 23 Nov 2026 12:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795438322;
-	bh=p2IWpjpm56FZDYL2J6E/8Z+eeikvXsCr0/LAHQK5bkI=;
+	s=k20260515; t=1795438328;
+	bh=gbcv55uyjw0fopltdaiw4Q0dqBwFdcRA0KznAqN+vss=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KEyiJbLfUDmsEJfa1Kx/wZf9FzRuBcw9SnMx6X/r0k/X0spu68I7dygL0JCwYiJKh
-	 eNcqEI+kKP7ihvrND/GSFYfWRGr9VwVGWa/qGPz6rGUR8FruTfUHko0l4Bww8stA/a
-	 /JPdAHt9y0Lkc08FputF9Y4puMnCcfik0wTll5OxW79iwDDGt47r7dvaTb+9Hn6Taf
-	 6I7RxaCWCy5EZNfPED2PCI/rNlG84I+cvDWvC1pHS7m0AStNksuJQ8pBMgE7fJU2N8
-	 DWTbLLeZnpAMV0XidiIo3lpjCEbnsC5yS5RUom6JWBScIt7dG1T/B+sg8yYX46aVOr
-	 ev1jZdef4GztQ==
-Subject: Re: [PATCH v35 net-next 2/8] net/nebula-matrix: add common resource
- implementation
+	b=ViJiiLtgu0Q+GAhfsfdE/dEoNjpbPQo1K0aFrbFS2ocRJfiFrUyC1pNnxMXiMYPyA
+	 NRH4ULBDEYXr3liT6lT6Fivb/7w/SDocuDjou23bG9hrz+YCt5hqlRfmUhd0zBWTRD
+	 HOKJt2hpLiE2LfYy2zaQXvgwKQzbuFKcEMU2dvZB2T2LhXVTE7EtKvNzJ1qR+29Bnw
+	 9R4XM9WqpxCMM8q4i68AB+zB/63wTAffjqYNN9P3qIBlNtgZ1GaJW2gIbZa0lSF6C1
+	 lERUlebCtt+kPCHjiXIMqS0fooIuq+7KFaWvSq2iPVXUcyxfM0Fbf3rmMp7GHuOpoO
+	 vaPLhFZ+IWECw==
+Subject: Re: [PATCH v35 net-next 7/8] net/nebula-matrix: add common/ctrl dev
+ init/remove operation
 From: netdev-bot+sashiko@kernel.org
 To: illusion.wang@nebula-matrix.com
 Cc: dimon.zhao@nebula-matrix.com, alvin.wang@nebula-matrix.com,
  sam.chen@nebula-matrix.com, netdev@vger.kernel.org, kuba@kernel.org,
  andrew+netdev@lunn.ch, pabeni@redhat.com, edumazet@google.com,
  horms@kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 12:52:01 +0000
-Message-ID: <179543832118.3135.18073760250615993889@kernel.org>
-In-Reply-To: <20261119113530.32107-3-illusion.wang@nebula-matrix.com>
-References: <20261119113530.32107-3-illusion.wang@nebula-matrix.com>
+Date: Mon, 23 Nov 2026 12:52:07 +0000
+Message-ID: <179543832792.3135.10347904080978998972@kernel.org>
+In-Reply-To: <20261119113530.32107-8-illusion.wang@nebula-matrix.com>
+References: <20261119113530.32107-8-illusion.wang@nebula-matrix.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,200 +76,216 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The control-PF probe reads firmware-written board
-  configuration from the mailbox BAR exactly once: the DW3 port…
-- [Low] net/nebula-matrix: single-implementation hw_ops and commit
-  message mismatch
+- [Medium] nbl_core_init() turns on Bus Master Enable (pci_set_master(),
+  nbl_main.c line 68) before anything quiesces the mailbox TX/RX…
+- [Low] The comment and the extra pci_clear_master() in the
+  nbl_core_init() error branch of nbl_probe()…
+- [Low] Two comments describe the remove path in an order that
+  nbl_core_remove() does not follow.
 
 --
 
-net/nebula-matrix: add common resource implementation
+net/nebula-matrix: add common/ctrl dev init/remove operation
 
-This adds a chip-agnostic resource layer for the Nebula Matrix driver. On
-the control PF it reads the PF topology, per-PF BDF, Ethernet port and VSI
-mappings from hardware and firmware registers once at probe time. It also
-adds plain lookup helpers that convert between VSI, PF and Ethernet IDs.
+This adds nbl_dev_init() and nbl_dev_remove(). They set up the mailbox
+clean work and channel queue, and on the control PF they also program
+the mailbox QINFO routing and run init_module. The patch wires them into
+nbl_core_init()/nbl_core_remove() and moves pci_set_master() from
+nbl_probe() into nbl_core_init(), just before nbl_dev_init().
 
-> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
-> index f363ab1fd4168..fa5b88e8c70fc 100644
-> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
-> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
-
-[ ... ]
-
-> +/*
-> + * Registers reset to zero after cold boot / FLR / bus reset. Firmware
-> + * programs valid values before driver probe, so zero is only seen on
-> + * hardware fault or register read failure. Initialize data=0 to guard
-> + * against nbl_hw_read_mbx_regs() early-return on bounds-check failure.
-> + */
-> +static void nbl_hw_get_fw_eth_map(struct nbl_hw_mgt *hw_mgt, u32 *eth_map)
-> +{
-> +	u32 data = 0;
-> +
-> +	nbl_hw_read_mbx_regs(hw_mgt, NBL_FW_BOARD_DW6_OFFSET, &data,
-> +			     sizeof(data));
-> +	*eth_map = FIELD_GET(NBL_FW_BOARD_DW6_ETH_BITMAP_MASK, data);
-> +}
-
-[ ... ]
-
-> +static void nbl_hw_get_board_info(struct nbl_hw_mgt *hw_mgt,
-> +				  struct nbl_board_port_info *board_info)
-> +{
-> +	u32 data = 0;
-> +
-> +	nbl_hw_read_mbx_regs(hw_mgt, NBL_FW_BOARD_DW3_OFFSET, &data,
-> +			     sizeof(data));
-> +	board_info->eth_num = FIELD_GET(NBL_FW_BOARD_DW3_PORT_NUM_MASK, data);
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
-> new file mode 100644
-> index 0000000000000..b96ac999ec82f
-> --- /dev/null
-> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
-
-[ ... ]
-
-> +static int nbl_res_ctrl_dev_setup_eth_info(struct nbl_resource_mgt *res_mgt)
-> +{
-
-[ ... ]
-
-> +	fw_port_num = res_mgt->resource_info->board_info.eth_num;
-> +
-> +	hw_ops->get_fw_eth_map(res_mgt->hw_ops_tbl->priv, &eth_bitmap);
-> +	if (eth_bitmap & ~((1 << NBL_MAX_ETHERNET) - 1)) {
-> +		dev_err(dev, "FW reported invalid eth_bitmap 0x%x\n",
-> +			eth_bitmap);
-> +		return -EINVAL;
-> +	}
-> +	if (fw_port_num != hweight32(eth_bitmap)) {
-> +		dev_err(dev, "FW inconsistency: port_num=%u, bitmap=0x%x\n",
-> +			fw_port_num, eth_bitmap);
-> +		return -EINVAL;
-> +	}
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+> index d256394a5cbb1..2d015ba6f5311 100644
+> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+> @@ -599,5 +599,25 @@ int nbl_disp_init(struct nbl_adapter *adapter)
+>  
+>  void nbl_disp_remove(struct nbl_adapter *adapter)
+>  {
+> -	/* Dispatch structures are allocated via devm */
 > +	/*
-> +	 * Firmware is ready before probe. Valid port counts are 1/2/4;
-> +	 * 0 (invalid config), 3 (unsupported topology), and >4 (exceeds
-> +	 * hardware max) are all rejected with -EINVAL.
-> +	 */
-> +	if (fw_port_num == 0 || fw_port_num == 3 ||
-> +	    fw_port_num > NBL_MAX_ETHERNET) {
-> +		dev_err(dev, "FW reports %u Ethernet ports, unsupported (valid: 1/2/4)\n",
-> +			fw_port_num);
-> +		return -EINVAL;
-> +	}
-
-[Severity: Medium]
-What happens if the control PF is probed before firmware has rewritten the
-DW3 and DW6 board words?
-
-The comment above nbl_hw_get_fw_eth_map() and nbl_hw_get_board_info() says
-these registers reset to zero after cold boot, FLR or bus reset. It relies on
-firmware programming them before probe.
-
-The probe path doesn't seem to check that this has happened. There is no
-ready bit, poll or -EPROBE_DEFER between nbl_hw_init_leonis() and these
-single reads:
-
-nbl_probe()->nbl_core_init()->nbl_res_init_leonis()->nbl_res_start()
-    ->nbl_res_init_board_info()
-    ->nbl_res_ctrl_dev_setup_eth_info()
-
-If PF0 is bound shortly after an FLR or secondary bus reset, for example a
-sysfs reset followed by a bind, both reads could return 0. Then:
-
-    eth_bitmap == 0       passes the check for bits above NBL_MAX_ETHERNET
-    fw_port_num == 0      passes fw_port_num != hweight32(eth_bitmap)
-    fw_port_num == 0      returns -EINVAL
-
-The control PF probe would then fail for good. Later in the series the
-sibling PFs wait on function 0 via nbl_probe_chip_deps(). Would they stay in
--EPROBE_DEFER until the management PF is rebound by hand?
-
-Could the all-zero case be treated as "firmware not ready yet" instead of an
-invalid configuration? A bounded readiness poll in nbl_res_start(), or
-returning -EPROBE_DEFER for that case, would do it.
-
-> +	eth_info->eth_num = fw_port_num;
-
-[ ... ]
-
-> +static int nbl_res_start(struct nbl_resource_mgt *res_mgt)
-> +{
-> +	struct nbl_common_info *common = res_mgt->common;
-> +	int ret = 0;
-> +
-> +	if (common->has_ctrl) {
-> +		nbl_res_init_board_info(res_mgt);
-> +
-> +		ret = nbl_res_init_pf_num(res_mgt);
-> +		if (ret)
-> +			return ret;
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
-> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
-> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
-> @@ -44,9 +57,22 @@ struct nbl_hw_ops {
->  	 * PFs starting at PF0.
->  	 */
->  	void (*get_host_pf_mask)(struct nbl_hw_mgt *hw_mgt, u32 *pf_mask);
-> +	void (*get_real_bus)(struct nbl_hw_mgt *hw_mgt, u8 *bus);
->  
->  	void (*cfg_mailbox_qinfo)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
->  				  u8 bus, u8 devid, u8 function);
-> +	void (*get_fw_eth_map)(struct nbl_hw_mgt *hw_mgt, u32 *eth_map);
-> +	/**
-> +	 * get_board_info - Fetch board info from firmware
-> +	 * @hw_mgt: hardware management context
-> +	 * @board_info: output pointer for board info structure
+> +	 * Dispatch structures are devm-allocated and freed at detach.
 > +	 *
-> +	 * Firmware contract: board_info.eth_num MUST equal the number of
-> +	 * unmasked PFs from get_host_pf_mask(). See get_host_pf_mask for
-> +	 * details.
+> +	 * The five responders registered by nbl_disp_setup_msg() are
+> +	 * owned by the channel layer (xarray of handlers) and are never
+> +	 * unregistered here. This is safe because the teardown order
+> +	 * guarantees no responder can run after this point:
+> +	 *
+> +	 *   mailbox teardown
+> +	 *     -> cancel_work_sync(clean_mbx_task)   // drain RX work
+> +	 *     -> nbl_chan_teardown_queue()          // stop HW queue,
+> +	 *                                                 // join clean task,
+> +	 *                                                 // active=false
+> +	 *     -> nbl_chan_remove_common()
+> +	 *          -> nbl_common_destroy_wq()            // no new work
+> +	 *          -> nbl_chan_remove_msg_handler()      // free handler nodes
+> +	 *
+> +	 * By the time devres frees disp_mgt, the mailbox queue is stopped
+> +	 * and the handler xarray is empty, so no responder can touch
+> +	 * res_mgt->intr_mgt after nbl_intr_mgt_stop() has cleared it.
 > +	 */
-> +	void (*get_board_info)(struct nbl_hw_mgt *hw_mgt,
-> +			       struct nbl_board_port_info *board_info);
->  };
->  
->  struct nbl_hw_ops_tbl {
 
 [Severity: Low]
-This patch adds four more callbacks to struct nbl_hw_ops (flush_write,
-get_real_bus, get_fw_eth_map and get_board_info), and nbl_hw_ops still
-has only one implementation, the static hw_ops in nbl_hw_leonis.c.
-v35 dropped nbl_resource_ops after the earlier request not to add ops
-tables until a second implementation exists. Does the same reasoning
-apply to nbl_hw_ops?
+Is this the order nbl_core_remove() actually uses? The comment concludes
+that the handler xarray is empty, so no responder can touch
+res_mgt->intr_mgt after nbl_intr_mgt_stop() has cleared it.
 
-The callers in nbl_res_init_pf_num(), nbl_res_ctrl_dev_pf_info_init(),
-nbl_res_ctrl_dev_setup_eth_info() and nbl_res_init_board_info() are all
-in nbl_hw_leonis/nbl_resource_leonis.c, so this is Leonis code calling
-Leonis helpers through res_mgt->hw_ops_tbl->ops. nbl_hw_setup_ops()
-also devm-allocates a wrapper whose only job is to point at a static
-table. Could these be direct calls until draco actually lands?
+Here is nbl_core_remove() after this patch:
 
-The commit message also doesn't seem to match the code. It says
-nbl_hw_ops_tbl is the only remaining ops table, but struct
-nbl_channel_ops_tbl is already in struct nbl_interface, and a later
-patch in the series adds struct nbl_dispatch_ops_tbl. It also says the
-PF mask validation and the BDF/Eth/VSI table construction are shared
-between the two chip families. Those are static functions in
-nbl_resource_leonis.c, called only from nbl_res_init_leonis(). Only the
-ID conversion helpers in nbl_resource.c are chip-agnostic. Can the
-description be updated, or the shared code moved where the message
-says it is?
+	nbl_dev_remove(adapter);
+	nbl_disp_remove(adapter);
+	nbl_res_remove_leonis(adapter);
+	nbl_chan_remove_common(adapter);
 
-Finally, this patch removes the NULL checks on the static hw_ops
-members in nbl_hw_setup_ops() that the channel layer patch earlier in
-this series added. Those checks could never fire. Could they be left
-out of the patch that introduces nbl_hw_setup_ops(), so this one does
-not have to delete them?
+nbl_res_remove_leonis()->nbl_intr_mgt_stop() sets res_mgt->intr_mgt to
+NULL. That happens before nbl_chan_remove_common() calls
+nbl_common_destroy_wq() and nbl_chan_remove_msg_handler(). So at that
+point all five responders are still in the handler xarray, and
+common->wq still exists.
+
+What actually keeps responders from running is the stopped mailbox queue
+in nbl_chan_teardown_queue(): shutdn, RX QUEUE_RST and the cancelled
+clean_task. Nothing breaks today.
+
+The struct nbl_dispatch_ops kernel-doc in nbl_def_dispatch.h makes the
+same claim:
+
+ * torn down before nbl_res_remove_leonis() runs: nbl_chan_teardown_queue()
+ * stops the RX path and nbl_chan_remove_common() frees the handler nodes,
+ * so once the resource layer starts disappearing there is no responder
+ * left that could still be running, or be entered.
+
+Could both comments be changed to describe the real order? They are
+unchanged at the end of the series.
+
+>  }
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
+> index db863f9ecfdfd..e5da5581185a7 100644
+> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
+
+[ ... ]
+
+> @@ -53,7 +54,27 @@ struct nbl_adapter *nbl_core_init(struct pci_dev *pdev,
+>  	ret = nbl_disp_init(adapter);
+>  	if (ret)
+>  		goto out_res_remove;
+> +
+> +	/*
+> +	 * Arm bus mastering before nbl_dev_init() hands the mailbox queues
+> +	 * to the hardware: it writes the ring addresses, sets QUEUE_EN and
+> +	 * rings the RX tail doorbell, and the device cannot fetch those
+> +	 * descriptors with Bus Master Enable clear - nothing re-kicks the
+> +	 * queue afterwards.  This is the first point where it is safe to
+> +	 * turn it on, because the MSI-X map scrub that must run with DMA
+> +	 * off (nbl_intr_setup_mgt(), called from nbl_res_init_leonis()
+> +	 * above) has already completed; see the comment in nbl_probe().
+> +	 */
+> +	pci_set_master(pdev);
+
+[Severity: Medium]
+Can a mailbox queue that a previous kernel left enabled start DMAing as
+soon as bus mastering is turned on here?
+
+This comment only covers the FUNCTION_MSIX_MAP scrub. The mailbox TX/RX
+QINFO_CFG entries (ring base, size and QUEUE_EN) are the same kind of
+state. They survive kexec, or an unload that never reached
+deinit_module(), and there is no .shutdown callback.
+
+During probe, QUEUE_RST is not asserted until later:
+
+nbl_dev_init()
+  nbl_dev_setup_common_dev()
+    nbl_dev_setup_chan_queue()
+      nbl_chan_setup_queue()
+        nbl_chan_init_queue()        <- coherent ring/buffer allocations
+        nbl_chan_config_queue(tx)
+          nbl_hw_config_mailbox_txq()
+        nbl_chan_config_queue(rx)
+          nbl_hw_config_mailbox_rxq()
+
+The RX entry is only reset after the TX entry has been reprogrammed.
+
+Before this point, the only stale-state handling is
+nbl_hw_clear_stale_status():
+
+- it runs only on the control PF
+- it runs only when driver_status is still set
+- it then sleeps 2-3ms while firmware reclaims the state asynchronously
+
+The comment above NBL_FW_CLEANUP_SYNC_MIN_US says:
+
+  A firmware pass that takes longer than this window - an ECPU still busy
+  right after kexec, say - can therefore still race a later probe.
+
+Suppose that reclaim has not finished, or does not cover an entry.
+Before QUEUE_RST lands, could the device then do any of these?
+
+- fetch stale TX descriptors
+- write an incoming message into an old RX buffer address
+- write descriptor USED flags into memory the new kernel now owns
+
+Would it make sense to assert QUEUE_RST and clear the base of both
+mailbox QINFO_CFG entries before pci_set_master()? That is what
+nbl_hw_stop_mailbox_rxq()/txq() do, with the read-back flush, and it is
+MMIO only, so it does not need bus mastering.
+
+> +
+> +	ret = nbl_dev_init(adapter);
+> +	if (ret)
+> +		goto out_clear_master;
+>  	return adapter;
+> +
+> +out_clear_master:
+> +	pci_clear_master(pdev);
+> +	nbl_disp_remove(adapter);
+>  out_res_remove:
+>  	nbl_res_remove_leonis(adapter);
+>  out_chan_remove:
+
+[ ... ]
+
+> @@ -281,17 +305,21 @@ static int nbl_probe(struct pci_dev *pdev,
+
+[ ... ]
+
+>  	adapter = nbl_core_init(pdev, &param);
+>  	if (IS_ERR(adapter)) {
+>  		dev_err(dev, "Nbl adapter init fail: %pe\n", adapter);
+> +		/*
+> +		 * nbl_core_init() enables bus mastering before its last
+> +		 * step, which is the one that failed.
+> +		 */
+> +		pci_clear_master(pdev);
+
+[Severity: Low]
+Is this comment accurate? Five of the failure exits in nbl_core_init()
+return before pci_set_master() runs:
+
+- devm_kzalloc_obj()
+- nbl_hw_init_leonis()
+- nbl_chan_init_common()
+- nbl_res_init_leonis()
+- nbl_disp_init()
+
+The one remaining exit is an nbl_dev_init() failure. nbl_core_init()
+already clears bus mastering for it at its own out_clear_master label:
+
+out_clear_master:
+	pci_clear_master(pdev);
+	nbl_disp_remove(adapter);
+
+So this pci_clear_master() either clears a bit that was never set or
+clears it a second time. That is harmless at runtime, but the comment
+suggests nbl_probe() owns the bus master unwind for nbl_core_init().
+
+Could the comment and the extra call be removed? They are still present
+at the end of the series.
+
+>  		return PTR_ERR(adapter);
+>  	}
+>  
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119113530.32107-1-illusion.wang%40nebula-matrix.com
