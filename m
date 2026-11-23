@@ -1,58 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471874;
-	b=3yotBsmAF42KHV2Vy8nDe28sWxkcmPs+Nct63ZOUM6lWBNz3bnhbb1TTnKOY8lDptyUe
-	 RvYMZ0eDWkapBLlsu4BgN1ZQ+GyfKcQ7H3jSxaYnStnC8pJ6nXofZww29uTGxIBNMpXCl
-	 zbigkLeUXViqxJa2acLienlFI9cKKUC6fjUhBui+B7+6dbkRW/NVjM2fiFxsgafpfoWsZ
-	 yvCcYIA+P4lsvqrk/pSgJvoWq0x0qpOyDS4tJDZcjgtuKKESxj+5Yz/pgi+9W+cO3z5VS
-	 KFKVn862EsD6T3Exu0OPJjIP5koQYPoLuZkLKmw7dIGJVMdIHWOgyn4P33frJkYpNDA==
+	t=1795472004;
+	b=F9NoCPszYxuPNJnpb/ANFoA57oEpIb2mkoWzIlvda7OLElbOb+F4/rUkgYFp3KSDNrgZ
+	 JDySHxIByuk7ruhFZdQ2lilQtzfeiWswZVaIkc+bHYc62hDLfJNRh1F/RKnA8VQtrReZ+
+	 a7DT/01z23P+lUWpCJcJgIIDYmOj/+G0q45PBnugGtbWoUO7uSoqMDLh61t6u0D9wVrC1
+	 8Nf3ljtPrO/cSKZp2ScrbZdngHstXaLNIRy5BLQsbM8AY+r2xkF5qtFSo3mtgUs+PGOhT
+	 NTMeauH5sPP8yVzxSK4PhHNrQ463Frg7EKkOOE4IouQVVef9Bbf9Z9sIYgGuw2CABtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471874;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=kXEn77mF22JDhRcO0FzMK1lBV54W4jVNonldkIWKxeE=;
-	b=SBLWLyS2d0VLxTn+lrvbw0prs/tzRHEOEf7VaMUN1p8W9hfA7moWVToXROXhpfkv14P7
-	 Vc6pkfWkyYNG2dbhyfoferdQCNyjnkWyGunHPJ15FW4RCY2QCSlUD+yyFakt/s+0vBFZU
-	 rCdAoILTMd53Mn+R9QaQwdoRYRw/tI+PTQDuHhMS/V6fbk2z3QHnkpnflhER8vUsf3OW3
-	 0doOrin+VT5GRRoUj7qdEbcCeDzLwmI1uF4unvfvOeMdec5O0S+P+aE0FEIO5JVcVNNaD
-	 fq3t98WtGOmhgFQhpuUCR/0FjAnxAFdEry5nR9g0GT13GcmpwVHu4fZOVCcTvdkOp5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472004;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=efn82r+KfBu1S0hOP1HDx+eAdvbrYXzPa6l82piTvoI=;
+	b=GVekieIkQmvgzgCVtNuaSY96WZl/Iggh5DCno8LDnNnG6w43pJflcoB5YsjvPCxFD4vx
+	 +B1qRmvI6dvP6NybwSFgWhtmPPCXJZCDXmsDhoPmGMZZALNyywqcA0mUZ9UiIcycVayH/
+	 QBgRAka84dOztQj25+QVLx2WYHEPO/yNwWzgfbVJJ5bTUdUIFSsi2bzlJqeYqU4GKzYFv
+	 sAkYU4+TfZCHJJypgOUZg9Pm8Gor/k2ezRGAGPExrigUIDPkTe4GqGjwxo9AnDDrKZ7bS
+	 KipxLtmwDqE5lUAOxFtA+pykagZ4KcN1HpBIwkeB49559cCaH6zEJ1ZbRefLmbFao1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMbBJsZy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=corp.free.fr;
+	spf=pass smtp.mailfrom=corp.free.fr;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=T3dAotLr;
+	arc=none smtp.remote-ip=212.27.60.169
+Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B0D8606A337
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 22:11:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEADA606A321;
+	Mon, 23 Nov 2026 22:13:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEADA606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMbBJsZy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620A41F000C4;
-	Mon, 23 Nov 2026 22:11:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795471873;
-	bh=kXEn77mF22JDhRcO0FzMK1lBV54W4jVNonldkIWKxeE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AMbBJsZyzoYmAerHgBWhMvPkRa5S3GahW5oMGWT9q2UzgyTOD1nMUsQqJ4+HlQxJi
-	 SdA/nvMIfoNaXoA5G572DE68mpABd8iXh//Zeycj6CiqzvsHP1MpvUPRJOVuvT+bzE
-	 ZbTvnK0m/c0nomM7EuM3GLLm/CyDUygtsSZ3xU0QHiuMp+Dq13DuifBtUvKMKWQxFT
-	 6JBDyX5c5A8XBQ05ye2y978OT+OHg4Ce2ufirV4vmQ84L4AAp2fWbs+fj1XJDDlq3e
-	 BwOFzcyIxM1CTUPgJlUsgrPQJFFuRhqkGugR7QSSk2wIL3sr4vu9aKKklg2on+eUnl
-	 glHs56nLWG8tA==
-Subject: Re: [PATCH net v3 3/3] net: dsa: motorcomm: Rewrite FDB entry on port
- migration
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Date: Mon, 23 Nov 2026 22:11:12 +0000
-Message-ID: <179547187297.3135.17256967241487478010@kernel.org>
-In-Reply-To: <20261119221110.1123578-4-mmyangfl@gmail.com>
-References: <20261119221110.1123578-4-mmyangfl@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=T3dAotLr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
+	t=1795471995; bh=ec7JQ3WRoKkbQyPcQyH3esPajpEWc3CRL0lLiaShQEI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=T3dAotLrdsmHTChkjyf2lA4ywdH9YGdausbhF+IN8Fsq7R2x5/v+hwlzyXAEnaz/q
+	 +MPNjX2bHpxjsc/86bbU2MRZXN/B3vfjW0jZv07rl4Sy8kG1F5yPM37Tr5LYyJWweh
+	 yebCP4hfgh9a6HnW5BQlHL4v7ZUh7NG3cOSsYQaAw+L0NFQLqZjE1xz6JPbb2B8ukG
+	 +v9mPr+VVUM4rXNRk0YVxz5LOqAbkwrOYTOxtMY+2f6M7QFR/CRSQQ9uvvu4o2o9Wq
+	 5VjpxJ53QueiOuphPhsn0rfijqmsHa7PFtDc8emSQnoDoDiAPMwQjUHr0hLsqXgh/D
+	 gYOi5pjCWfSTA==
+Received: from lnxos-dev.home (82-66-150-212.subs.proxad.net [82.66.150.212])
+	by rcs.proxad.net (Postfix) with ESMTPSA id 24A4044C0111;
+	Mon, 23 Nov 2026 23:13:15 +0100 (CET)
+From: Alexandre Cassen <acassen@corp.free.fr>
+To: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Moshe Shemesh <moshe@nvidia.com>,
+	Yevgeny Kliteynik <kliteyn@nvidia.com>,
+	Vlad Dogaru <vdogaru@nvidia.com>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org
+Subject: [PATCH net] net/mlx5: HWS, fix action STE double free on rule update
+Date: Mon, 23 Nov 2026 23:13:08 +0100
+Message-ID: <20261123221310.4045513-1-acassen@corp.free.fr>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,162 +73,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+An HWS rule keeps the chunk of its action STEs in rule->action_ste. An
+update saves it in rule->old_action_ste and frees it once the new match
+STE is written. When the new actions need no action STEs, the rule still
+points to that chunk. Its next update or its deletion free it again.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Two rules can then end up with the same action STEs. A packet of one can
+get the header rewrite or the meter of the other. The second free can
+also dereference an action STE table that the cleanup work has freed.
+Neither was observed.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The buddy allocator counts the same segment as free twice. After a few
+updates of several rules, it finds no segment where it counts one:
 
-- [High] The migration fix is incomplete when an address moves between
-  the host (CPU port) and a user port, even in the single-bridge setup…
-- [Medium] The new dsa_bridge_ports(ds, db.bridge.dev) call in
-  yt921x_dsa_port_fdb_add() (chip.c:888) walks every user port of the…
+  ICM Buddy: failed finding free mem for order 0
+  WARNING: drivers/net/ethernet/mellanox/mlx5/core/steering/hws/buddy.c:93 at mlx5hws_buddy_alloc_mem+0x11a/0x140 [mlx5_core], CPU#34: tc/449154
+  Call Trace:
+   <TASK>
+   hws_pool_buddy_db_get_chunk+0x25/0x50 [mlx5_core]
+   mlx5hws_pool_chunk_alloc+0x30/0x80 [mlx5_core]
+   mlx5hws_action_ste_chunk_alloc+0x85/0x480 [mlx5_core]
+   hws_rule_create_hws+0x860/0x9c0 [mlx5_core]
+   mlx5hws_rule_action_update+0x81/0x140 [mlx5_core]
+   mlx5hws_bwc_rule_action_update+0x10d/0x200 [mlx5_core]
+   mlx5_cmd_hws_update_fte+0xb0/0x140 [mlx5_core]
+   del_hw_fte+0x1b2/0x390 [mlx5_core]
+   mlx5_del_flow_rules+0x10f/0x270 [mlx5_core]
+   __mlx5_eswitch_del_rule+0x5c/0x1b0 [mlx5_core]
+   mlx5_eswitch_del_offloaded_rule+0x10/0x20 [mlx5_core]
+   mlx5e_tc_rule_unoffload+0x4b/0x100 [mlx5_core]
+   mlx5e_tc_unoffload_fdb_rules+0x35/0x80 [mlx5_core]
+   mlx5e_tc_del_fdb_flow+0x2ca/0x310 [mlx5_core]
+   mlx5e_tc_del_flow+0x63/0x610 [mlx5_core]
+   mlx5e_flow_put+0x3a/0x80 [mlx5_core]
+   mlx5e_delete_flower+0x29b/0x460 [mlx5_core]
+   mlx5e_setup_tc_cls_flower+0x7d/0x90 [mlx5_core]
+   mlx5e_setup_tc_block_cb+0x58/0x90 [mlx5_core]
+   tc_setup_cb_destroy+0xcc/0x1b0
+   fl_hw_destroy_filter+0xa1/0xe0 [cls_flower]
+   fl_change+0x1bf1/0x20a9 [cls_flower]
+   tc_new_tfilter+0x432/0xea0
+   rtnetlink_rcv_msg+0x384/0x460
+   netlink_rcv_skb+0x61/0x120
+   rtnetlink_rcv+0x15/0x30
+   netlink_unicast+0x2a1/0x3d0
+   netlink_sendmsg+0x237/0x490
+   ____sys_sendmsg+0x32d/0x350
+   ___sys_sendmsg+0xaf/0x110
+   __sys_sendmsg+0x93/0x100
+   __x64_sys_sendmsg+0x1d/0x30
+   x64_sys_call+0x821/0x23d0
+   do_syscall_64+0xbd/0x570
+   </TASK>
 
---
+The pool then holds more free elements than its size at close:
 
-net: dsa: motorcomm: Rewrite FDB entry on port migration
+  mlx5_core 0000:31:00.0: mlx5hws_pool_destroy:386:(pid 448599): Attempting to destroy non-empty pool
 
-This commit merges yt921x_fdb_join() and yt921x_fdb_leave() into a new
-yt921x_fdb_update() helper. On .port_fdb_add() it uses the bridge port
-mask as the leave mask, so that ports left behind by a migration are
-dropped from the hardware entry.
+Forget the chunk in rule->action_ste once it is saved, as the update
+flow did with the action STE index before the commit below.
 
-> diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-> index ea305159cd5e7..79e4326d5a703 100644
-> --- a/drivers/net/dsa/motorcomm/chip.c
-> +++ b/drivers/net/dsa/motorcomm/chip.c
+Triggered during an endurance test of a 5G UPF code, on flower rules
+that lose their police action in place. The reproduction below gives
+the trace above on a ConnectX-7 with firmware 28.48.1000. It only
+uses tc and devlink, with no kernel change. DEV is the uplink
+representor and PCI its devlink handle:
 
-[ ... ]
+  r() { for i in $(seq 128); do echo "filter $1 dev $DEV ingress prio 1 handle $i protocol ip flower skip_sw dst_ip 10.0.0.$i $2"; done | tc -b -; }
+  BIG="action pedit ex munge ip ttl set 63 pipe action csum ip pipe action police rate 1mbit burst 32k conform-exceed drop/pipe action drop"
+  devlink dev param set $PCI name flow_steering_mode value hmfs cmode runtime
+  devlink dev eswitch set $PCI mode switchdev
+  tc qdisc add dev $DEV ingress
+  r add "$BIG"
+  for n in 1 2 3; do r replace "action drop"; r replace "$BIG"; done
+  tc filter del dev $DEV ingress prio 1
+  devlink dev eswitch set $PCI mode legacy
 
-> @@ -888,8 +884,12 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
->  	if (is_multicast_ether_addr(addr))
->  		return 0;
->  
-> +	if (db.type == DSA_DB_BRIDGE)
-> +		leave_ports_mask = dsa_bridge_ports(ds, db.bridge.dev);
-> +
+With this fix, the reproduction runs clean on the same ConnectX-7.
+It was not tested against kernel selftests.
 
-[Severity: High]
-Does this leave mask handle an address that moves between the host (CPU
-port) and a user port?
+Not addressed here and not triggered: after a successful update,
+hws_rule_destroy_failed_hws() can free rule->old_action_ste again. A
+failed update can leak it now also when it needs no action STEs.
 
-dsa_bridge_ports() walks dsa_switch_for_each_bridge_member(), which is
-built on dsa_switch_for_each_user_port(). That means the CPU port bit is
-never in leave_ports_mask.
+Fixes: 3fc44ca44d7c ("net/mlx5: HWS, update flow - support through bigger action RTC")
+Signed-off-by: Alexandre Cassen <acassen@corp.free.fr>
+---
+ drivers/net/ethernet/mellanox/mlx5/core/steering/hws/rule.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The driver sets assisted_learning_on_cpu_port, so a host address A (on
-br0, or on a foreign bridged interface) is installed through
-dsa_port_do_fdb_add(cpu_dp). The hardware entry becomes static with only
-the CPU port in its egress mask.
-
-If the address is then moved with:
-
-  bridge fdb replace A dev swp2 master static
-
-fdb_add_entry() in net/bridge/br_fdb.c only sends RTM_NEWNEIGH, so the
-driver gets yt921x_dsa_port_fdb_add(swp2) with no delete first. In
-yt921x_fdb_update():
-
-	ctrl2 = val2 & ~YT921X_FDB_IO2_EGR_PORTS(leave_ports_mask);
-	...
-	ctrl1 = val1;
-	if (join_ports_mask) {
-		ctrl1 &= ~YT921X_FDB_IO1_STATUS_M;
-		ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
-		if (ctrl1 != val1)
-			ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
-	}
-	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(join_ports_mask);
-
-The entry is already static, so ctrl1 == val1 and the clear-all branch is
-skipped. Wouldn't the entry be written back as {CPU, swp2}, leaving the
-CPU port behind?
-
-The reverse direction looks broken too, and the driver can't see it.
-Moving A back to the host goes through dsa_port_do_fdb_add(cpu_dp). There
-the old record, whose refcount was never released, is found again:
-
-net/dsa/switch.c:dsa_port_do_fdb_add() {
-	...
-	a = dsa_mac_addr_find(&dp->fdbs, addr, vid, db);
-	if (a) {
-		refcount_inc(&a->refcount);
-	...
-}
-
-So .port_fdb_add() is not called for the CPU port and swp2 stays in the
-entry. A later fdb del on the host side only drops the refcount.
-yt921x_dsa_port_fdb_del() also only clears BIT(port).
-
-Can this leave a static hardware entry that never ages out and keeps
-forwarding unicast for A to the CPU port and/or swp2 after the software
-bridge has moved it?
-
-The commit message says single-bridge usage is covered, and this is a
-single-bridge setup. The CPU port side depends on DSA's refcounting.
-Can a driver-side leave mask fix that part at all?
-
-[Severity: Medium]
-Is it safe to walk every port's dp->bridge from .port_fdb_add()?
-
-This handler can run from the deferred switchdev worker without rtnl:
-
-dsa_user_switchdev_event_work()
-  dsa_port_bridge_host_fdb_add()
-    dsa_port_do_fdb_add(cpu_dp)
-      ds->ops->port_fdb_add()
-        yt921x_dsa_port_fdb_add()
-          dsa_bridge_ports()
-
-The comment in dsa_port_bridge_host_fdb_add() says rtnl can't be
-guaranteed there. Only cpu_dp->addr_lists_lock is held.
-
-dsa_bridge_ports() reads each user port's bridge through
-dsa_port_bridge_dev_get():
-
-	return dp->bridge ? dp->bridge->dev : NULL;
-
-At the same time, another port Q can leave its bridge under rtnl. When Q
-is the last member, dsa_port_bridge_destroy() does this with no RCU grace
-period:
-
-	dp->bridge = NULL;
-
-	if (!refcount_dec_and_test(&bridge->refcount))
-		return;
-	...
-	kfree(bridge);
-
-The dsa_flush_workqueue() in dsa_port_pre_bridge_leave() only drains work
-queued before that point. Host FDB work for a port that stays bridged can
-still be queued from softirq learning.
-
-With multiple bridges on the switch, can the worker load dp->bridge for Q
-and then read ->dev after that dsa_bridge has been freed?
-
-Even without a use-after-free, the membership snapshot is not taken under
-any lock that serializes bridge join/leave. Could leave_ports_mask be
-stale by the time the entry is written?
-
-Before this patch, this path only used the db that DSA passed in for the
-calling port. The other dsa_bridge_ports() callers in this driver
-(port_bridge_flags and bridge join) run under rtnl. DSA core already reads
-dp->bridge in this worker without rtnl (for example in
-dsa_foreign_dev_check()), but this patch adds a new cross-port walk.
-
->  	mutex_lock(&priv->reg_lock);
-> -	res = yt921x_fdb_join(priv, addr, vid, BIT(port));
-> +	res = yt921x_fdb_update(priv, addr, vid, leave_ports_mask,
-> +				BIT(port));
->  	mutex_unlock(&priv->reg_lock);
->  
->  	return res;
-
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/rule.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/rule.c
+index 0d4cb2b2393b..cc94d3149d76 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/rule.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/rule.c
+@@ -243,6 +243,8 @@ static void hws_rule_create_init(struct mlx5hws_rule *rule,
+ 		 * new action STEs and a corresponding match STE.
+ 		 */
+ 		rule->old_action_ste = rule->action_ste;
++		/* The rule may need no action STEs once updated */
++		rule->action_ste.action_tbl = NULL;
+ 	}
+ 
+ 	rule->pending_wqes = 0;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119221110.1123578-1-mmyangfl%40gmail.com
+2.43.0
+
