@@ -1,80 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447316;
-	b=VsLS9ab2kImdrRfFcIAqBPeuibbbiQ1MbrWDCKw/vicqGXT8yj9hNauOdDa8vaieGPQR
-	 mGGLDOqv1kJpAMKAQOXr40ioyY0r2vMed9ckzSBeri6hk0IKBHDtZMG7N+e0EnFGEfJ12
-	 2+gRPvDNCNS7H7mqenBBnaFvtRZHv1ZLQWP6PK64PTGAKhzemzRKgoxvWZYIoPWmmxTkU
-	 aVebmFrqUwmBT3cAL2cA5utxkJPniG4sapMuAHqRYxqa5x/eMMlAJRVM66HJDmMXvuxzJ
-	 jOP00Ru0SZ5k3Nvb9Bt6b9SfGv63UYsxR1TsLyfUpxK2slCIfDgL7jgkzSXpfg6s9xw==
+	t=1795447499;
+	b=45hEm9dzFFoVHxvh3mE2+YF3Nq7Jzip+MzdS/NRC1LucXmmtiGudG2h/K7M+Rz7RAiVo
+	 qkBseYtEkyxpEUNDsgVH7CI6F0LKmrGE7PFLD/YvBbTX/s9lWBd2VoMRJfSezM7wV1sPs
+	 3CORE9JijlBrwgPaLI62stk6IvdaBey2uaxUt17lvh//WRs07Xdw8CF0lzH+wcbKDqwHk
+	 JwxeXkH8WWHS1gZxHp1y/fY9brqrZM5J2LSWUnoUuSxWAanHCXQkxGTaIWk0pdSphFzYi
+	 Q1LP6SK7mhxvtAjH/iaIuAosIR5Ra4MlzKT4eRgcuqBrmFvXqHl4k/QgA0qW75Y00ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447316;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=STKKGhMDLzI7yW9S72yonEXwLFCwhDpVjPRmQQOrHEs=;
-	b=Hsq546nTrEoYoKdSqm0dNw1b9i4fJ24d1u3pIsKS5osGwlxvtttbCBjoT/nf114/2l9k
-	 W0EhAgl7pD4bq/xNgDkwoDFFjtUxbEU+YK9O7Lq6v2Uk0akLOX9AveEWZgJ9+iZNANXBp
-	 OLKQqYVm0SF7cNlrrCXe597AmVhodIPfHPnG6VTG29+MrnEgqW1lFV3vxlvmc9eHYJppe
-	 AOBh+1zYoXeEdRCZGCuDdWeZJYrGfNT7ldgh1xrvv07Xvwt2Rb0JUTstkhoaJMITKKPnP
-	 RUz08tCCSvW+d0/GWYeXve9K2p76zVhLba/yX3N+tzRz7XNekNJgOVCwuax0MVg6K6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447499;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=hU6lCuXcSGRGPK5UfUxs40iBp8ye+14Obren8ukXLbQ=;
+	b=DHAOctVOQ8bU1OzLo/EbzFzeGfjz8chgx708TeMliEJZ6VB4oX1gaa/C+6OYGjrxXrgR
+	 CirE/K85LjJ9LPBhbI5OuLicaqCmGv/tUoYrBBWPA07hDNp+/y54eq+DuLerdmrbXti3s
+	 9zjXXYzjsSvLRVEgwbMh9oS5Oj2XiqJDevMQ913lkbzhGOJJTiZ7dhDNPkCv9MtOsGiuS
+	 dqn4VsfmEUhpemh2WKW5TARQQz+00Vx02b7d4FDnoVH1acNxnmsgMj0bfD1QCZbXiHgqt
+	 JZWcb1i3LGojHJShmnouA1YbdGUV1ZL5+tlvoMhxk8K2HgTijiAqEKwu6m1WoOCNMpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=EVnfaTKD;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D46E1606A6BD;
-	Mon, 23 Nov 2026 15:21:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D46E1606A6BD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gxVQky7b;
+	arc=none smtp.remote-ip=95.215.58.45
+Received: from mta1.migadu.com (out-45.mta1.migadu.com [95.215.58.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71547606A31F
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:24:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71547606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=EVnfaTKD
-Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
-	by linux.microsoft.com (Postfix) with ESMTPSA id AAA3A20B7168;
-	Mon, 23 Nov 2026 07:21:50 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AAA3A20B7168
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795447311;
-	bh=STKKGhMDLzI7yW9S72yonEXwLFCwhDpVjPRmQQOrHEs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EVnfaTKDGMuYZQyhfGpkSIL81h4ys9JfX86fu36lJR4jCvAku98oTcIj8Q4LQKEIk
-	 TxFH9eNN6ViklP+IAd82FgA+KiyklUnEy+UaRoiyGHCh/whGFYt51adLABKxxn6XXi
-	 FO4KtEwu6jgz33lT0E+kAEa7BpKmOdl/9nRUYQQY=
-From: Wei Hu <weh@linux.microsoft.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: longli@kernel.org,
-	kotaranov@microsoft.com,
-	kuba@kernel.org,
-	davem@davemloft.net,
-	pabeni@redhat.com,
-	edumazet@google.com,
-	andrew+netdev@lunn.ch,
-	jgg@ziepe.ca,
-	leon@kernel.org,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	shradhagupta@linux.microsoft.com,
-	horms@kernel.org,
-	ernis@linux.microsoft.com,
-	stephen@networkplumber.org,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	gargaditya@linux.microsoft.com,
-	kees+treewide@kernel.org,
-	kees@kernel.org,
-	mawasthi@linux.microsoft.com,
-	weh@microsoft.com,
-	edumazet@kernel.org
-Subject: Re: [PATCH net-next v11 4/4] net: mana: add dynamic HWC queue depth with reinit path
-Date: Mon, 23 Nov 2026 15:21:46 +0000
-Message-ID: <20261122064231.hwc-v11-netdev-p4.weh@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179527857414.3135.3409829551491930106@kernel.org>
-References: <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com> <179527857414.3135.3409829551491930106@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gxVQky7b
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=w69mSWUbKNyFWa5SNC3RxlJB/92Ei48ZvSabQKErQrw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795447496; v=1; x=1796052296;
+ b=gxVQky7b5fSMJm4NdKilc59dIzzYJ23qDvX9Wrracg+DlP59zBVhhO+3mJxI9IaogZn2kkBD
+ AtNE2O+iCrEDnMPsMTFsADCISIsKjyDg67ebJtOjaqQet9NzzLvyHp/EtRa9nPuLjjBlny1V/Ae
+ 794v+b6BRbrWBGqsB+tkAE8A=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1060c7766cc6e36e;
+	Mon, 23 Nov 2026 15:24:56 +0000
+X-Mizu-Trace-ID: 1060c7766cc6e36e
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <b43ca10b-6ef5-4114-8d9b-cb1eafa22765@linux.dev>
+Date: Mon, 23 Nov 2026 16:24:51 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,37 +58,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v6 2/4] net: dsa: rzn1-a5psw: Fix VLANTransmitted
+ counter offset
+To: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+ Ralph Siemsen <ralph.siemsen@linaro.org>, linux-renesas-soc@vger.kernel.org,
+ netdev@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ stable@vger.kernel.org
+References: <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20261123130852.3420491-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Language: en-US
+From: Clement Leger <clement.leger@linux.dev>
+In-Reply-To: <20261123130852.3420491-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026, netdev-bot+sashiko wrote:
-> Could the doorbell validation go into its own patch with the Fixes: tag,
-> and the dynamic depth work be sent without one?
 
-Yes. Doorbell validation is patch 1 in v12 and carries the Fixes: tag.
-The depth change is patch 5 and has no Fixes: tag.
 
-> Can the PF meaning of MAX_REQUEST and MAX_RESPONSE be confirmed here?
+On 11/23/26 14:08, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> The RZ/N1 hardware manual places the VLANTransmittedOK counter at
+> offset 0x8f4, not 0x8ec. Correct the register offset so the driver
+> reads the counter from the right location.
+> 
+> Fixes: c7243fd4a62f ("net: dsa: rzn1-a5psw: add statistics support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v6:
+>    - No changes from v5
+> v5: https://lore.kernel.org/all/20261120002549.1908299-10-prabhakar.mahadev-lad.rj@bp.renesas.com/
+> ---
+>   drivers/net/dsa/rzn1_a5psw.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
+> index d54acedac194..9693f8503b0b 100644
+> --- a/drivers/net/dsa/rzn1_a5psw.h
+> +++ b/drivers/net/dsa/rzn1_a5psw.h
+> @@ -185,7 +185,7 @@
+>   #define A5PSW_etherStatsFragments		0x8E0
+>   
+>   #define A5PSW_VLANReceived			0x8E8
+> -#define A5PSW_VLANTransmitted			0x8EC
+> +#define A5PSW_VLANTransmitted			0x8F4
+>   
+>   #define A5PSW_aDeferred				0x910
+>   #define A5PSW_aMultipleCollisions		0x914
 
-Yes. MAX_RESPONSE limits what the VF sends; MAX_REQUEST limits what
-the VF receives. With MAX_REQUEST=2048 and MAX_RESPONSE=4096, the VF
-may send a 4096-byte request. I've kept that direction in v12.
+Hi Prabhakar,
 
-> Does the PF know that the rebuilt rings are larger than the bootstrap
-> rings?
-
-They aren't larger in v12. The PF uses the same 4 KiB descriptor rings
-after rebuild. The reported depth changes how many requests can be
-outstanding, not where the rings wrap. If the reported depth would
-require a larger ring, v12 keeps the bootstrap channel.
-
-> Can this overwrite a timeout that the PF set during the rebuild?
-
-Yes, restoring the saved timeout in v11 could overwrite a newer value.
-V12 doesn't shorten the timeout for the private EQ test, so there's no
-saved value to restore. If the candidate fails, v12 tears it down
-before rebuilding and testing a depth-one channel. If teardown isn't
-acknowledged, it keeps the HWC resources and returns the error without
-trying the same destroy again on the way out.
+Reviewed-by: Clément Léger <clement.leger@linux.dev>
 
 Thanks,
-Wei
+
+Clément
