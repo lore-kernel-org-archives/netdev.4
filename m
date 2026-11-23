@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438330;
-	b=0Nopc2aikmtAqNSdjRK4zN2dUOaY3weQm4Z+haAFj0/JFqtHTdiQ/xPVwyh2l7aq1ZAH
-	 PmWBdJL05dkG8oo7XzKApjqhkIBAAHFyDPdsR4/f6CkHhthQVc6i6nK5FYStpTLlKXqjy
-	 Z4/ibfex6blqKF57zKdMlA7+MsQfpWHhEGBDU9D51aH7L5SL+D3orObA+jKpVWarwkMvl
-	 YmzqAXbW0MTP20s3Y2w4N4uTEQN/QHQdfQQfhoAXtuU9zkRosvEohMO+m5B8ZFd34hAI7
-	 N0dtx+3WlEbpB6F0D65F208SRxLRhde5eeGxGwKZQNep08QPv8asSu+3Ce9QMsnrT9w==
+	t=1795438882;
+	b=u0pk6nR8lmoritb2eKF/uJ+a45E+bjJAy61iksq7ZjnTwDBdU0flCassrE8telibbPMk
+	 L5kc9V/rfVRPq8EIUU8S7c8oNoFK8cegUQYnW8f12dNBmTfEA0O+5PvLsjyYdG/k3S/eo
+	 2LBJV0SjMwcjHEogO4CtD0wa6lzp/ym9dEFfmBjkYcnqh9r1VWl7wZVlLkBs9VIDD+CrO
+	 c9krmAlMGoaTb9s5Ov0JEYwjOSUmtPZbEjGW6EqRraOWRa5GYyoNjFUhNUH3f1HNGVbTg
+	 pT/9fENx7+ZCqStQ2pLwWUD/wmgC99tzZKJ3qrhFmujToEMEJ9d8r+99pf5aoKTLY/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438330;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438882;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=h9ZUjDmunpwZz8eMoC/Lxj2yys6gfAnkin9JNTfCTAg=;
-	b=trOykrSk790XdNgQ+55z1lowWPYxPkCVv8G/l+dur1c78A74FYyjaqYcUpOo0UMMyG07
-	 FUrCpreyPe+bkJoOWp4RaUTjK7gpA0r1GqW30ywRGl5vWnOKs+eLrI2B52kNgcaWZF4ug
-	 7+YY5cFffunnPO8/KOzDR7Csl6ZVta2bgrHO6qrZicwccLSaRM4BR7N/PnCqY57RKGufF
-	 oiRFpJz/uT4gzypzKLis3XjlAwV/Ctyo3hjFZoN+Z4gFHAnGFf/UOFxikd1a/KlVAWyRi
-	 YWGJbGg6+uWGIo5iCytpWUVCpzFG6uyvBvdZi5fVrGcqiTaqSsE54sTDdilE1zKS+IA==
+	bh=eslbTwCS3DOxu5OkG+CmAJ6KLSRI8ONcb53rubmd8D4=;
+	b=5nuYJ3hS7je5q1VQB50olUgArKvu+kRL+ojXSPXQe2mb/F03xU6JCThkRuzK2/e4KwJw
+	 siGZj1oiOs6SUm8vs8sqxEJJKm8aRRdeUGHMgvwXuPheglvJCtWwvuaoaGjmgfVM6Ss6E
+	 kDAenBYmujN1K4pKuPUkXw6SWpab0Wvg58CoTpMlsT1dUALYzlIznb83b/0lS16OTVNdL
+	 ahmvRo5rn+B7bNKpUupN0524pz5mr9b39b9D8ImpNZBVTe7Z7RxmLROoNPyzXYXC2vgz7
+	 NUwrbCVg0/OUSN0IefMQ89UrY76o58ljU2w0MxnGS6M94XV67fVrofh/rJUQW+IcaWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xijd59ht;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ivys1QOH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7202F606A696;
-	Mon, 23 Nov 2026 12:52:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A02B0606A31E;
+	Mon, 23 Nov 2026 13:01:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xijd59ht
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D8981F00A19;
-	Mon, 23 Nov 2026 12:52:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ivys1QOH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 546901F000E0;
+	Mon, 23 Nov 2026 13:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795438330;
-	bh=h9ZUjDmunpwZz8eMoC/Lxj2yys6gfAnkin9JNTfCTAg=;
+	s=k20260515; t=1795438881;
+	bh=eslbTwCS3DOxu5OkG+CmAJ6KLSRI8ONcb53rubmd8D4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Xijd59htkxGoFzxiJoIN8sIAueVLHqPCSS2GYYh1CHo7Q1thsb4UFk6eZW31D67Zy
-	 qfXZNcg40F7Ewz9Zl+3Bobwd6czDw4wSEQxiOrCBKwL8uwVzDJl48c8SO1mA6AyFaP
-	 bUoMWf5tGZNdDvmAlvfvFXTAXorTMVO5Ob8AWiLqwAjLpgX4+x0/ZD7MsGgRQbqXuG
-	 NRvb/i7SPLPgsjy3hXSetAqqLpoi4q75XeNMMJStnNE9oichjrkVnT+Wmqb48zdy88
-	 2CwzrfJM9KiXa01AB1RfevDofHc3YUbU3glx7a5EE07B39im0Kl8JgGNbp91fUylnh
-	 QOy5U0ZbzlBmQ==
-Subject: Re: [PATCH v35 net-next 8/8] net/nebula-matrix: add common dev
- start/stop operation
+	b=ivys1QOH3tQj2lONDekX2iV3dojbsWZsnOsDbtJ7DY57xT3h2WF5+Q82ZAKuJgczD
+	 8vrAEXW3LLvPCkwvth+lKnpV1vgDG0e7RtcjQFLx9NMhlDsRVN2OdkyQwbiCYcMH7a
+	 Uoxdbkq5tlJBY4w3bX00bXH0EOT/JtmkHmNXOKRpoSRLYRgXNYisdewpeza//+DxuT
+	 ev/5I/Yy9GVILZcumqAknoa58gGtFzQjFit9R5vFc0Y3HHhWz+JKhIlQ0M7whN8cri
+	 nty8CaMd0mFsiTm1emb4Gfv9jbpQfdpDJlQAmAs3fycR163FZSTs7+znC87WzTJ/iR
+	 y13+5yK9q2Dkg==
+Subject: Re: [PATCH net v6 1/3] net/sched: sch_teql: unshare the header before
+ writing and fix retry strip
 From: netdev-bot+sashiko@kernel.org
-To: illusion.wang@nebula-matrix.com
-Cc: dimon.zhao@nebula-matrix.com, alvin.wang@nebula-matrix.com,
- sam.chen@nebula-matrix.com, netdev@vger.kernel.org, kuba@kernel.org,
- andrew+netdev@lunn.ch, pabeni@redhat.com, edumazet@google.com,
- horms@kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 12:52:09 +0000
-Message-ID: <179543832921.3135.12200832894176272241@kernel.org>
-In-Reply-To: <20261119113530.32107-9-illusion.wang@nebula-matrix.com>
-References: <20261119113530.32107-9-illusion.wang@nebula-matrix.com>
+To: jhs@mojatatu.com
+Cc: netdev@vger.kernel.org, victor@mojatatu.com, jiri@resnulli.us,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, stable@vger.kernel.org, sashiko-bot@kernel.org
+Date: Mon, 23 Nov 2026 13:01:20 +0000
+Message-ID: <179543888086.3135.17583427226707859195@kernel.org>
+In-Reply-To: <QDISC-6HS9.v6.r0.20261119070330-1@mojatatu.com>
+References: <QDISC-6HS9.v6.r0.20261119070330-1@mojatatu.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,204 +70,112 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message and the new comments argue against earlier
-  review feedback more than they describe this change.
-- [Low] This patch adds a third queue_work() site for the mailbox clean
-  task: the hardirq handler nbl_dev_clean_mailbox() calls…
-- [Low] A comment in nbl_dev_setup_common_dev() (added earlier in this
-  series by commit "net/nebula-matrix: add common/ctrl dev init/remove…
+- [Low] The new comment in __teql_resolve() ("Each attempt starts from
+  the network header, as neigh_resolve_output() does.") and the matching…
 
 --
 
-net/nebula-matrix: add common dev start/stop operation
+net/sched: sch_teql: unshare the header before writing and fix retry strip
 
-This commit adds nbl_dev_start() and nbl_dev_stop(). They are called
-from nbl_probe() and nbl_remove() through nbl_core_start() and
-nbl_core_stop().
+This patch calls skb_cow_head() in __teql_resolve() before the neighbour
+can write or queue the skb, so a cloned header is not corrupted. It also
+pulls the skb to its network header before resolving. On retry,
+teql_master_xmit() now pulls back only the link header length the slave
+added.
 
-Start configures the MSI-X map, fetches the VSI/ETH ids, allocates the
-MSI-X vectors and arms the mailbox interrupt. Stop undoes these steps.
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v4.r0.20261111094338-1%40mojatatu.com
+Link: https://lore.kernel.org/netdev/20260824115928.4099988-1-victor@mojatatu.com/
+Link: https://lore.kernel.org/netdev/20261110101908.2e64e8e9@kernel.org/
 
-nbl_probe() now also rejects a function that has neither the ctrl nor
-the net capability.
-
-> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
-> index b20747d47fde2..de6a30996bb32 100644
-> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
-> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
-
-[ ... ]
-
-> @@ -19,6 +30,247 @@ static void nbl_dev_init_msix_cnt(struct nbl_dev_mgt *dev_mgt)
+> diff --git a/net/sched/sch_teql.c b/net/sched/sch_teql.c
+> index dc21cd9704a25..44730a5e89178 100644
+> --- a/net/sched/sch_teql.c
+> +++ b/net/sched/sch_teql.c
 
 [ ... ]
 
-> +static int nbl_dev_disable_mailbox_irq(struct nbl_dev_mgt *dev_mgt)
-> +{
-
-[ ... ]
-
-> +	lvec = msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].base_vector_id;
-> +	/*
-> +	 * Disable sequence invariant: clear the software READY flag first,
-> +	 * then mask the hardware interrupt. Must not reverse the order.
-> +	 *
-
-[ ... ]
-
-> +	 * This does NOT preserve in-flight ACKs, and must not be described
-> +	 * as doing so: the woken sender gives up and resets its slot to
-> +	 * IDLE, so an ACK arriving afterwards finds a non-WAITING slot and
-> +	 * is dropped by the receive path ("Skip ack invalid status").
-> +	 * Interrupt mode is being torn down here; the guarantee is a
-> +	 * bounded, deterministic failure, not delivery.  In this driver
-> +	 * every ACK-requesting sender runs from probe/remove and the clean
-> +	 * task only sends ACK-less replies, so nothing depends on the
-> +	 * stronger claim today.
-
-[Severity: Low]
-This isn't a bug, but could this comment be cut down to just the
-invariant? Wording like "must not be described as doing so" reads like
-a reply to earlier review, not documentation of the code.
-
-The same thing happens in a few other places in this patch.
-
-The comment at the top of nbl_dev_start() repeats the commit message's
-argument for -ETIMEDOUT over -EPROBE_DEFER.
-
-The lifetime of the control PF's MSI-X resources is explained three
-times: in the commit message, at the err_destroy_map label in
-nbl_dev_start(), and again in nbl_dev_stop(). This covers the
-had_config path, the coherent table being kept, and nbl_intr_mgt_stop()
-being the only release.
-
-Those comments also describe the internals of functions in
-nbl_interrupt.c:
-
-  __nbl_res_intr_prepare_destroy_msix_map()
-  __nbl_res_intr_complete_destroy_msix_map()
-  the rollback in nbl_res_intr_cfg_msix_map()
-  nbl_intr_mgt_stop()
-
-Won't these comments go stale without anyone noticing when those
-functions change?
-
-Most of the commit message is also about alternatives that were not
-taken, for example:
-
-    Relaxing the dependency to
-    "func 0 finished nbl_dev_init()" would therefore let every sibling RPC
-    sit out the full 5-6s polling wait.  Converting the timeout to
-    -EPROBE_DEFER would only hide it behind dev_dbg() and make every later
-    bind pay that wait again.
-
-The same goes for the pcim_msi_release double free discussion and the
-driver_override paths. Could the changelog focus on what start and stop
-actually do?
-
-The label rename in nbl_dev_init() (setup_ctrl_dev_fail becomes
-out_remove_common_dev, and setup_err is dropped) is not related to
-start/stop. Would it fit better in a separate patch?
-
-[ ... ]
-
-> @@ -86,6 +338,14 @@ static void nbl_dev_clean_mailbox_task(struct work_struct *work)
->  				      NBL_CHAN_TYPE_MAILBOX);
->  }
+> @@ -292,6 +292,18 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
+>  		n = mn;
+>  	}
 >  
-> +static void nbl_dev_clean_mailbox_schedule(struct nbl_dev_mgt *dev_mgt)
-> +{
-> +	struct nbl_dev_common *common_dev = dev_mgt->common_dev;
-> +	struct nbl_common_info *common = dev_mgt->common;
+> +	/* Unshare the head before the neighbour can write or queue it. */
+> +	if (skb_cow_head(skb, LL_RESERVED_SPACE(dev)) < 0) {
+> +		err = -ENOMEM;
+> +		goto out;
+> +	}
 > +
-> +	queue_work(common->wq, &common_dev->clean_mbx_task);
-> +}
+> +	/* Each attempt starts from the network header, as
+> +	 * neigh_resolve_output() does.
+> +	 */
+> +	if (skb_network_offset(skb) > 0)
+> +		__skb_pull(skb, skb_network_offset(skb));
+> +
+>  	if (neigh_event_send(n, skb_res) == 0) {
 
 [Severity: Low]
-This adds a third queue_work() site for clean_mbx_task, called from the
-nbl_dev_clean_mailbox() hardirq handler. The invariant comment in the
-channel layer still says there are only two:
+Is this comment accurate? The commit message makes the same claim:
 
-drivers/net/ethernet/nebula-matrix/nbl/nbl_channel/nbl_channel.c:nbl_chan_teardown_queue() {
+  "Start every attempt from the network header, as neigh_resolve_output()
+  does"
+
+The pull only runs when three things hold: the slave has header_ops, the
+skb has a dst, and the neighbour lookup succeeds. teql_resolve() still
+returns early, before it calls __teql_resolve():
+
+net/sched/sch_teql.c:teql_resolve() {
     ...
-	 * Nothing can be queued once Step 1 has run: both queue_work()
-	 * sites (the sender's ACK poll and the worker's own self-requeue)
-	 * check shutdn and clean_task under state_lock, and Step 1 cleared
-	 * both.
+	if (!dev->header_ops || !dst)
+		return 0;
     ...
 }
 
-The new site checks neither shutdn nor clean_task, and it cannot take
-the state_lock mutex from hardirq context. It also skips the common->wq
-check that nbl_chan_send_msg() makes before calling queue_work().
+Also, __teql_resolve() returns -ENOENT or PTR_ERR(mn) before it reaches
+the pull.
 
-The invariant still holds today, but only because the device layer
-frees the mailbox IRQ first. nbl_dev_stop() calls
-nbl_dev_free_mailbox_irq() before the channel is torn down in
-nbl_core_remove()->nbl_dev_remove_common_dev(). The nbl_dev_start()
-rollback frees the IRQ at err_free_irq.
+Take an skb that has a dst and skb_network_offset() > 0. One example is
+the tc-mirred redirect from a physical device's clsact egress that the
+commit message mentions.
 
-Should the comment in nbl_chan_teardown_queue() list the hardirq site?
-Should it also say that the invariant depends on the IRQ being freed
-before teardown_queue() runs? This patch's commit message already
-lists three sources ("queued by the mailbox hardirq, by the task's own
-self-requeue, or by this function's polling sends").
+If a slave without header_ops is tried first, it transmits the skb with
+the incoming link-layer bytes still in front of the network header.
 
-[ ... ]
+If a header_ops slave was tried earlier in the same round and failed or
+was busy, that same slave gets the skb starting at the network header.
+So what goes on the wire still depends on slave order.
 
-> @@ -309,3 +569,189 @@ void nbl_dev_remove(struct nbl_adapter *adapter)
->  	if (common->has_ctrl)
->  		nbl_dev_remove_ctrl_dev(adapter);
->  }
-> +
-> +/* ----------  Dev start process  ---------- */
-> +int nbl_dev_start(struct nbl_adapter *adapter)
-> +{
+The comparison with neigh_resolve_output() is also not exact. That
+function only pulls once the neighbour has resolved:
 
-[ ... ]
+net/core/neighbour.c:neigh_resolve_output() {
+	if (!neigh_event_send(neigh, skb)) {
+		...
+		do {
+			__skb_pull(skb, skb_network_offset(skb));
+    ...
+}
 
-> +	ret = nbl_dev_cfg_msix_map(dev_mgt);
-> +	if (ret)
-> +		goto err_destroy_map;
-> +
-> +	/* Fetch VSI/ETH identity after cfg_msix_map */
-> +	ret = disp_ops->get_vsi_id(priv, NBL_VSI_DATA, &common->vsi_id);
-> +	if (ret)
-> +		goto err_destroy_map;
-> +	ret = disp_ops->get_eth_id(priv, common->vsi_id, &common->eth_num,
-> +				   &common->eth_id, &common->logic_eth_id);
-> +	if (ret)
-> +		goto err_destroy_map;
+Here the pull runs before neigh_event_send(), whatever that returns. On
+the -EAGAIN and queued paths the leading bytes are dropped while *hlen
+stays 0.
 
-[Severity: Low]
-Does this match the comment that an earlier patch in this series added
-to nbl_dev_setup_common_dev()?
+The retry comment in teql_master_xmit() is accurate about the header
+that was pushed:
 
-	/*
-	 * VSI/ETH identity is deliberately not fetched here but in the
-	 * start path, which is where it is used: the IDs only feed MSI-X
-	 * and queue setup.
+	/* Pull back only the header this slave added. */
+	if (hlen > 0)
+		__skb_pull(skb, hlen);
 
-Here the IDs are fetched after nbl_dev_cfg_msix_map(), and the
-cfg_msix_map dispatch op takes no VSI/ETH input:
+However, the link-layer bytes that the earlier pull in __teql_resolve()
+removed are never restored. So the skb does not go back to the state it
+was in before the attempt, and neither comment says so.
 
-drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h:
-	int (*cfg_msix_map)(struct nbl_dispatch_mgt *disp_mgt,
-			    u16 num_net_msix, u16 num_others_msix,
-			    bool net_msix_mask_en);
+The old unconditional retry pull already behaved in this order-dependent
+way, so this is only about the wording. Could the comments and the commit
+message be changed to describe what the code actually does?
 
-The series has no queue setup yet either. As far as I can tell,
-common->vsi_id, eth_id, eth_num and logic_eth_id are written here and
-never read. The one exception is vsi_id, which is passed to get_eth_id.
-
-Even so, a failure from either RPC still aborts probe through
-err_destroy_map. For example, nbl_res_get_eth_id() can return an error
-for a PF/VSI mismatch or when rel_pf_id >= eth_num.
-
-Should the fetch move to the patch that uses these IDs? If not, should
-the comment in nbl_dev_setup_common_dev() be corrected?
+> @@ -299,9 +311,12 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119113530.32107-1-illusion.wang%40nebula-matrix.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v6.r0.20261119070330%40mojatatu.com
