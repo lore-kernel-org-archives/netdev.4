@@ -1,101 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795436946;
-	b=QlnB2PSBgq7hXnGV39xWB/VRVGvgSydY6lymukL93Go98ZMX2wp+SFWsSVYDUE5zg4Fm
-	 LKxvq2tvC/jjPL6yXOKV6T3BsbGW/bo4H+1fsq6XOGd17Tp4MWBGWRJ6WAC1o3yni31ce
-	 ViPLdzod8YxX9PZyc3AbI6fnrj3CX1FK2BSjcS1xrzo7y/XUvVS7urLYptdmSlgC/OBA1
-	 tmTjLTqC7eKEuu3XfWd4oTItXrELkfYmmjkl+rFAy4tshVEdjaqGOeOTtaXf3klnwF9DT
-	 xKBALxriUOEry2dz/NKLkLqOO4pl0SEZsa6+9lwBtB45CnIG1JBIhIZ7n4NmfvXEnMw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436946;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=qrBlPM8eFe+UqrAcD/gV4kBOAQwCPiHjxrajE3hn/Mc=;
-	b=m0hPchVknXedBX29r4UL7VfXISi76S9UNCBQODbeiCXme98N2LC3b7EwSR99eyUc/miD
-	 ZZNaVpgcTDHd2plY7TcJIAyF5CJgeSyO2rOcVNgUk4QD0gJSHunUyptr7yFKt1eR4IrUh
-	 PRZWHbNltos8GVFqR6iHLWUGNx40YqbmVwRjQgotHW0wrZ73IPNBVmtRmimPr2zo0GZRR
-	 3NSCkF92Ve9n0CGH+TFaHusyMaGYYmULoCmjDF0dnE6/R2x1SmmQ1YLsO9QERBQN9bpu9
-	 EQsuT2lpqo7Cl3b/iS23gtXSzw14u4ZclNvXrUf9U1Db132HvmaTiacFDqZYitH0UUw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="exdAKoY/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.146
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795436959;
+	b=N9tEY0Ex/dkWg42NnM0G6eyTWujFwLUqDdIHD0ujdA5woyXIrj0Im/FkAJ+r0Jod5nnD
+	 M8ATg8lGMpszHMJRsEwY/jvapIePAtGXYL++os4s9dqTAWHVWtKVvZwH1hjg8nDNKTEQd
+	 InnO7Expt4aldE0+8ZJKDZAL4uedf+JMEdGMeiLAv3mErv/V3WevHMV9BNOs5LxRi/A+l
+	 Hb9ya2ji/rkQA8e7HI92kNnYIypvQb1SNl7RNiHsjP2mxSCVErGXP5GjfsFEHvzINu9Ce
+	 bxnbTcVFBLEyMY/aqZ1x7CggbIEZgBkQEy+JQnUEd0pxscR+K2QPDp0dkkDcEWdL7vg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436959;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ONwxD/hpziRyhX75mEN3Xo6joPmDg9mfrq7iZeUaYUc=;
+	b=KyK4YuEbq08zVhbKOGM+/+pZjLCRm1mam4f67nmWsfh7L2Fa4UGAKZcEADxR6cE0JMo6
+	 9RsPF4Dnws0jpePSmFwe6LSMygQjR2xOk6/NLDVWzvVCWFLN0ar5xavPaw3vwdV6iX98R
+	 UkdlHOxklYL5XW0cf3/si0MnNR3MaOxhlI/oX8thMaPPqGWSUSzbRX1nESQwxQvgy9Y96
+	 V0s42uEw2eVfDJcqbr66HoRKrFeX9WBDh0NZC49kPIEB5TP0OtVTUhHhdJsUGeOrVOSCy
+	 MTdrHDmRNXb6ocgNVc/gIq4vH9xB3D7MvUm9hdodPTRR8nJPGtK+J6DBZFiGCzgVVWg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=flapping.org;
+	spf=pass smtp.mailfrom=flapping.org;
+	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=I34yiEFR;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=KbVy9w6V;
+	arc=none smtp.remote-ip=202.12.124.146
+Received: from fout-b3-smtp.messagingengine.com (fout-b3-smtp.messagingengine.com [202.12.124.146])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 706C2606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:29:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 706C2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FC0C606A331
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:29:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FC0C606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=exdAKoY/
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48e09aa5264so1766749f8f.2
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:29:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795436945; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TDjT8fONihwPjhUwrreVMeS/jDDbGwZpax+qq7ppI7VJHleSzvsoPPWDnhpVTi/URP
-         GuTUMI1VYeCMp1Wt20At8wvJdfB2p7Ps66ua6kX9OVyGOPIJy2IOt58XwLRNumAnanXC
-         KyGqQDkTCSXJV0iHAh7h3S49/0DO50IMHMq9qjHDeWKus6aq57W+iVsR2NXEmgC8XQXR
-         FnXC87t/UeUaOUwg1XICz3ucbETO7S6no0C6BPc61SMnJnCtTjXMOHXW7hU/uPeulY/l
-         qkiyOYXaTh3i3Jjl0t6TaFWWv9gkVpAPqItV/PgJMlhk6U7NDcBaxRuisFegNYlXv62t
-         O51w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qrBlPM8eFe+UqrAcD/gV4kBOAQwCPiHjxrajE3hn/Mc=;
-        fh=Ep41dYfW2IAfJ0w4IslPcRyICC0kTFKXGBWy8oIAoKM=;
-        b=WDKQMpNOt/D0OFM1tIuRP/LCIGWlCniKmbauMa/lkZ45omyO6TEY6Re342NYQq8l5i
-         Z+2coIY0s/7GGPkflIZMKBE4rm+e/WVoTC7QeAZhiOOqAmEgAOdVHuebXlnMD5vop7Hm
-         h33lLLjbOIMJxrjow1CEN9aQyM5x4grXI49VZWGVE+rTS7x7NjKhi9qpQ1RLC/2HaR6f
-         Y/NJRceZU3lRsYFXVSa4DIQdNOZ3J3ddQu60e03eeoMBEEP3jTW0F9UxanpvJeqwXK/m
-         o8wwZOwoNwJQ0lXDCj7McVI7E1+NvFnZeOuUzGLc6amQEAOz1u0cDqchcjpJg/j6zmcs
-         F3OA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795436945; x=1796041745; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qrBlPM8eFe+UqrAcD/gV4kBOAQwCPiHjxrajE3hn/Mc=;
-        b=exdAKoY/Sj/1MXfEqx6dzg3yHAtBCcka/a3q+wOk9rh8sSSJckb+zIRZkfr40oLKVH
-         wfDW18ceNJCsog9LvJkKKnghF7uN1XMi7rRx/tO5FjZoD5OrqUrAehqlQ0o+5/u1ZdCb
-         GjRUDPBlgZ21WMLM6Qxns5OK/KkgTPAcivTBlc1CcXwqPlJqxNik/s1J7qwpFImIZej2
-         640uIY7tOPlp+LT4oahfc1rtLth1nAfWuweJxebo0Bt75ROek64MzxDq+chxxDV2I5JG
-         9xX70cNeoctg55raFUoP/6PYAvapBr3jiT2FrzhU8eCeQ+J/6BN/7aeCO6ctwfkxnxAC
-         VOYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436945; x=1796041745;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qrBlPM8eFe+UqrAcD/gV4kBOAQwCPiHjxrajE3hn/Mc=;
-        b=WAKN7NxBz9Lg4N3tc1QExFhJFiIJG+bEsx0Tbn9Iy5e6tDp0Hc+lBUaDHpOt627JY8
-         nJu4IjYxeNwptUAjYbob0KnvQKjiDKRNLnF/AjsdAMgjX0FnoIEl/Nef9+60jgwYe722
-         lNP65jS8REXellVOvqTSvjR4WzMc68KJAaJAynwaaDIQvOfTEgzHefXV5QQOfBu/rh82
-         r6B50NA6YKvzTYRma5HBEv4BPJaQ61+pPIUCC6JoL4VIDpzmBfDhaAqNvzu9jGz5X1lz
-         4Xj+G1No7lrZaMSJnzW1gtsvoUxs5GP+/Ac5PPOBe7eQhNKpA0MTq34CPgDI7J9DaSTI
-         ZwEQ==
-X-Forwarded-Encrypted: i=1; AL+hErFIFGXgSLoOKHmA7DWfXT+M0f2x3Tfb1x0OAmbSDFwfglRz2O5ZnIj88PLgzHqFnqKp/dn3DtY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/mbhAhbYFwVxcHVPd5/wF0BN6QlIEClJgqNc1M4inJinbjLlFd
-	gVwyvp/247cNMcvA03/jxPUyTSWk8RwD4NLhjAnYYJaH2fZ6FEt5p/2XcM2zY15m2tGH1sgJcyw
-	LgqO7GSe+u3apHQaFeGNqKgXgcLzIOvw=
-X-Gm-Gg: AZFdTZcBhBmiBd4V0D4e2RfkODbup5l/6WFdX1Yr+ufeLHrT9zfaWcl3G0Pjq/sgfBR
-	6QBH5oWQwUG+FvQOnEyshGaZRWM2qnn5Ue1XVZUzgPr2oTBFQ9l7DZB/rIc5Z9fD0fKGnD0ipr8
-	WcS90RMy37SZOahB9r/3Bvo9JG2i/iSR3l0bgndIWC26Ar1ahomcql0jnJTSuTVh9sxdsq4JpUW
-	GW17dLZ+uL4IXPOxGWbu7x2nWp8V+rzL6WYhfR3/gHKITZMUBrG+IxyK6yLyeWvWt5rLq1dCjnK
-	gKrE1RlNK8eInxxmCGJ+aydnGQi0uF3zRvubJu8JVU7OFmJ9TPstAUx/wJHoIyUyjyjXCSmqpLl
-	s0KzDXH3bLZjUiQLqi0H1PkSUR/Ttu/C8unsmBj0ofWZ17XSKHqo29YnXmMiRanwZpSvQ+/GQhr
-	m5BAqI6ouSNH9BEKbBLPXK6c7gNSpNrvrE4GIex+BYiVbjrvk/qIPcxCYtyg==
-X-Received: by 2002:a5d:5f41:0:b0:4b4:510c:519e with SMTP id
- ffacd0b85a97d-4b4510c5231mr3941260f8f.27.1795436944634; Mon, 23 Nov 2026
- 04:29:04 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=I34yiEFR;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=KbVy9w6V
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id 740B51D005BA
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 07:29:18 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Mon, 23 Nov 2026 07:29:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795436957;
+	 x=1795523357; bh=ONwxD/hpziRyhX75mEN3Xo6joPmDg9mfrq7iZeUaYUc=; b=
+	I34yiEFR4KN8BY4JcsT1C8H9KNx9yZhGrAtZ5+Nbxx8nmoI+/0g4TzNaJfFq2T0F
+	N12iAdQuhko8fX8IYG5ewEtIW6MXxhH+jdivbFI94VZgSeea/KaZsV7xfV6/s+m0
+	YFe5uNGCOE6Q/R4d4nNDYjPnDD18tHWGCDNkVQ8eAWndStJmvgyPKxkfA29Pm9TY
+	qrsDWigX+G0LkmnbAdh91dapUSgpokIAnGzECtQTOtWCwg3hKweRpcBFMSGP8mau
+	vO0ZNZ0esKPwo0euYHgtjas3gYx7CP2LLFcNSEyeHr2i5vlA+pNdH2/Tr5qDy18s
+	iPu2r2Bt6NZamYuzXBwxSQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795436957; x=
+	1795523357; bh=ONwxD/hpziRyhX75mEN3Xo6joPmDg9mfrq7iZeUaYUc=; b=K
+	bVy9w6VRYSCua0MTznnnKiY0UUU1YmJK+N8GNS6JsKcwhe8RbCSYsjAPo4SZnspj
+	MzKHUvFZXjlJ7WGUIgvRbJlO4GUuENIye9Qvr60w2x7GRJIcWE+le8XPwQ6nuO0Y
+	4zxLhRihjKiWVWTEMpV3k9KtQfe7T/nnjXSABZ/udIALlGb9rLEnyb9wEavAZGgI
+	/vufKKScZubP6lFanSjv0SGa8FNmDz8KJEaHw4KKo/uyDoKIqithmEYJYZtx1Eml
+	bcWxy9phGh0yO0wEqrf7a+9nAdQTTXU+FJOFDRoj9FcASGp9nt710O/0OMotzeLL
+	WQIIgNKdpWeAiLE8ZwBSg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795436957; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:qm5F1Z/4pA6fp+yUYlJQA+CxVB8Bq3uaO/4TaEaKPL7pXD5
+	YlG66TBPgslSHl/wGfH5nvsx+J6uqOC4r4xtk1r2fYNrGP5Efu1aqY1Zfkmoz/EO
+	xKADEWMoqZpxO965uXpZuy1G1Fd2xYShojpRiHZsbkCDW7O4Om/cPvh1Q35+J2Nv
+	zKvCCeYswRqL9YzvLFno6g+xLvLDbv1f10j08b5Lgpdg0HQIkaXh6kzgtLYtduBf
+	Ocmure3vFdVs6J7P0n4OTRrb0zZEMF8qMBAIbrkCJIZYLN9LxqJlOZTApzCTWQml
+	/c/5tpfzvx9D/1uaiK8WcQ7GBA+WgpJmRDSp1eg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:lZTecQA440xg33w/6Mjz5wIW+4Uu+CJWtMV8HVcXUfI=:0n+HdhqAqfukQ3LilLL3eel6AuBRrQti2Yw+9VIz2+Q=;
+X-ME-Sender: <xms:nDEEa2FJRfCCBdU0SaDiQ7bc2_QBHQzB4kf8sc2nS0il4u5rjzA6Lg>
+    <xme:nDEEa55EjYP6GpPugOW03ai4bG6soH5RlSLD7IZoWgOgKm5dt8V294Gya22NSuKEw
+    zwFc2xT7OUK57YX_Cq7q6K7TTYPDUW2qHfOFIrWXmP8p8LBz6QuP2dW0A>
+X-ME-Received: <xmr:nDEEazwAkruzMA6R6_iWFliyWd2NFVG8FzjdzFjliAWrMpn6oZ0ficLSo9EL1LQd_lbb9Lik2K8yYbVmjQmf7NYj>
+X-ME-Proxy-Cause: dmFkZTEMAnGsVeePsslCMqmMEXZp+ZMdT0ZybgSkl3h4Y19HKRLluILYHMMuLPtHjmdz/0
+    6ZwY4Q8f44z63cjmjUc9TixZ4kfbYEo9NZu3eUg9t979MvMqsuz/YagISTF+6+1ASmcVDk
+    PbB4MqTURWTXnz6L52HP3Lq5UiC8I5fW2Ll7A5COpuC8LID8Rs/VOvUfkLGTpnGMWAaZBG
+    DmqoFDykizp5te3eVkKvwtw53rqwfxQgdqUyz34RC56YbSWlfUQUsZPt1egTyGhPmZLMCW
+    M1vKmEP8oEE0LqJODG2nGjdyhLr7cot7XJIH2zt4+6S38mhYrKI+voG7CswNmHVbnHzIs+
+    BsU5oLTn8Whsa4XfmNk31wkDRPS3aH0HKNK6AkqA9A4O8F5C1Xou+/M5iz3h55v4hlfVXc
+    SuvyGx6i5h/TON1vRc9XR+XsQvJhvzF9bzxMObE0WPu5Y4SIBzfkzGCbk7FxKTrKswNEP6
+    sMboRB0RE1s5D90JHDxWfWBXs7ESyIz5fF+ncqte0JgdQqHFwkNAiOA8/6YltXMoN9gDzI
+    N3KtmjfvNn8cJrtlHPeD4Ene8NTZOaBBRl3D2SP54EMTjNkTbhgH4T611P80k3g1hh2eEv
+    v53rPezLN2j6R4FBDYT86HitAjdCaeSrJmFQE919CXr7LckEPt70dxCN2IJA
+X-ME-Proxy: <xmx:nDEEawO3PFZKAtvVSvQPzOe88SmdzIjtKdFnLw4TmNbFscmu8yFFPw>
+    <xmx:nDEEaxnOihbDJQE6ILPfXF6yj7j6txPBp8UCtoxgammHxk0uRteS1Q>
+    <xmx:nDEEa9Ts8Qz8G3UKrfSdEZwhRdqx1063jea-kFDNOaX0O0PyCt4LwA>
+    <xmx:nDEEa4VKP9JPzG9ISZZR_8es9JeFk61qQBjsj5PJwzAQn7dtTvw6Mg>
+    <xmx:nTEEawLqn7q9I_RnqlFa1LKn2SluoSUg1wuDtDeEalP4VqukoVQpi6wC>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 23 Nov 2026 07:29:14 -0500 (EST)
+Date: Mon, 23 Nov 2026 21:29:09 +0900 (JST)
+Message-Id: <20261123.212909.2235963510215664841.tomo@flapping.org>
+To: johan@kernel.org
+Cc: fujita.tomonori@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, hfdevel@gmx.net
+Subject: Re: [PATCH net-next v3] net: tn40xx: avoid early firmware node
+ release
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <20261118163602.1141227-1-johan@kernel.org>
+References: <20261118163602.1141227-1-johan@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,49 +125,25 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261120002549.1908299-13-prabhakar.mahadev-lad.rj@bp.renesas.com> <457ae5cb-fea3-4366-802f-f81447cca3cf@lunn.ch>
-In-Reply-To: <457ae5cb-fea3-4366-802f-f81447cca3cf@lunn.ch>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 23 Nov 2026 12:28:38 +0000
-X-Gm-Features: Aa3M54pwpdIWaGuuMBrn27ZxcRZ-1H1x8XFbCBtqvnWS6semHXinABmTSf51p7Q
-Message-ID: <CA+V-a8vGO+pf-2fSZ3BEfNepz7wpPmqiRB00MUMWrW87mN13JQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 12/24] net: dsa: rzn1-a5psw: Add support for
- optional reset control
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@linux.dev>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Simon Horman <horms@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Ralph Siemsen <ralph.siemsen@linaro.org>, 
-	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-Hi Andrew,
+On Wed, 18 Nov 2026 17:36:02 +0100
+Johan Hovold <johan@kernel.org> wrote:
 
-Thank you for the review.
+> The mdiobus allocated by tn40_mdiobus_init() has no primary firmware
+> node so its firmware node pointer points to the secondary software node
+> added by device_add_software_node() and whose reference is released by
+> device_remove_software_node().
 
-On Fri, Nov 20, 2026 at 3:32=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > This change prepares the driver for use on Renesas RZ/T2H and RZ/N2H
-> > SoCs, where the ETHSW IP block is connected to a dedicated reset line
-> > that must be controlled by software.
->
-> So it is not optional for those? At least the DT binding should mark
-> it as required for these compatibles.
->
-Yes the resets are not present on RZ/N1 hence I made it optional. For
-the RZ/T2H SoC where the reset is present the DT binding marks resets
-as a required property.
+[...]
 
-Cheers,
-Prabhakar
+> Avoid ever releasing the MDIO software node before it is deregistered
+> and fix the asymmetry and layering violation by making the software node
+> a primary node which is released when freeing the mdiobus.
+> 
+> Cc: Hans-Frieder Vogt <hfdevel@gmx.net>
+> Signed-off-by: Johan Hovold <johan@kernel.org>
+
+Reviewed-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
