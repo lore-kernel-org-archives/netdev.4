@@ -1,58 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441582;
-	b=WYG3gfBw+tpwakay50tF8nJ8G1AruAnLa4iEHq+/FlNflmhSJ2iLE6bQHRuGjqQisyM9
-	 3PcFq2z6QP64hm51DFkCWyvEwK4yDpdzkIm0yCYLTwHSSyyDxrfvNs0AA6VD4Qm7bhCSe
-	 Yiy/HTRbVD2a8JdTytzodaqTL7STsIZEZQyDrNwvQEYwyjlWVay2pUlCEFxBy/w2lWeDN
-	 ZIZhklt0TCuu68IVrIo8uE4+na2xLlwI933F/yGe5CU7nEAjJfFTIqEo+XXyZLnZDXHOt
-	 dZWsL196uGt1s9t0A8KYR0wGN3aYE43MWHGuxr1gJML6tM+yj0XMhKhuCfw76bIWG8w==
+	t=1795441650;
+	b=orlvPc2PiPJB1VsQRGB1HzKKJimOBTiNxPK1qnbHG//e8qxUpudG4BNnlZoRCtamGvur
+	 0St9SaE+NJN35bSCnJv8KOwSz+cXT2SSYaivSkhP/ZIbQ6IRRlIJCS0+sAYR6s1NFQ6Lb
+	 VCX9PBWFXEBjy8g/WDfksjualwcWY4o08Kvaha5q3ajZWAnuYyrhMnWHRve/oF6A2+evM
+	 piq03/tWflaaq4jf2KAYKcjmkxckoNHYpIkymb8EyqiwpFfIpMpRkE6EnqGoKiIYi3Tq/
+	 TCIg52d5zDxXKSQC+9FxPWepmuNthqvsD2TzH5iWJ07XSpFQOc1t5ZIss9S9p7PmUlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441582;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=SotFHZGTiXsXK70nWLsWd9AXfMdw3V7EYm9/120lqW4=;
-	b=V7TSXclKfuw5zZHnxccvadvi2zAnRqQmGjlkGJlfncuY65MqGI2MbzhgxQ10eAZo6t/7
-	 G3akF+Q8y7sO5BPEuwvEu2SrVE3HY7uBEUTsMY2QmTvqylWPuLgMHXuVIydnlxG7gqNrb
-	 DeHEQbN95aEhHjPLFei/8zRWdvAnnL/dfViBbZy2kbsm+H9YgfHiMXM/WWdFpDlPmcmag
-	 z2JCPXSW50oz0TFYaSp1ynN3pXnzIxdtmwqAUnoBTx/MSojPsuWtIerr9Na2KeH0p58QZ
-	 8+uqUWMzT4I3rEtDAqxNFsR9WpCYe9NbiLrMaK7IRr5ahOvzRiz2omLNTd82/izdn9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441650;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
+	b=SbGcHToxIS4joZYKrXJZ3DS81I73L5tSEVXZOR0kTM1UUruzf0SAlKBqySpu7foWEYJz
+	 JJg1lhVqJb9EqlHAB1lCCuktMvsSUpWDzcQoefWNF/G48Hob8o14pCeaSsbz5ReKCy20x
+	 OnnBqOU39TJECzANABUqE7nrLUGtb3YxYVe+GbRRDwZSPe7rkJw28VGxZlFIbWtqWqJb1
+	 4Aaeapi5D6xmM8NPAF1EuQ6zAXD7kjBd5EVuA571sWCZrlho1RUuFActSc1Di3/VhL8SZ
+	 YXBRPq2gbUPPkq+j+nlNI/P14cq0snlIHGRLa8dmuH4T9TLWD0QWAcCDp1SwWiWK3Lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=MTrPHSHx;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=TEElbL9+;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=V0xv+J2H;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 149A3606A31F;
-	Mon, 23 Nov 2026 13:46:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 149A3606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D846C606A321
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:47:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D846C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=MTrPHSHx
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 444144E4167F;
-	Mon, 23 Nov 2026 13:46:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 19BEA601E1;
-	Mon, 23 Nov 2026 13:46:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 674E811E6A43F;
-	Mon, 23 Nov 2026 14:46:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795441575; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=SotFHZGTiXsXK70nWLsWd9AXfMdw3V7EYm9/120lqW4=;
-	b=MTrPHSHxIkh18uK8raQzgErDoiOhLJSxE5bbrgiiDaonDgjX0Ztxaw+2ED5vhIkys7pd79
-	6D67pfL1SpRMPXBOP1ge2I9zzPQVoTt4p49AhI20UdSI1BO6Tds4dgIRyHyfl+7vIiiw93
-	G0y2saO+aF12tnIUHNO9O4Hc/mDBX0gGZSAKQxvqPYm8ByTmJYsvy1Q6s+kkJWdV+l3xyz
-	JWFUwR/nkogjSsTNaN5V8wXRObZ/NbDjq0KD3nC31TimFWvVdB6Qsh0G61tYlC5TrdwvnG
-	OPL9NSuMK/DKR5RU4DA9sYDujfr94toDxW+dVaXK1Jx36tNP3sGnVs7eJUzF3w==
-Message-ID: <e06178c5-19a9-426b-a71f-4c6af112924d@bootlin.com>
-Date: Mon, 23 Nov 2026 14:46:11 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=TEElbL9+;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=V0xv+J2H
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795441649;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
+	b=TEElbL9+IhYUMR7UShaacTfs3gUDH8tMqn4d9NxZXS4ymv+D7cBu12yLUI/B2InxToVw//
+	pGmaiooHO3cFPO6YU/507LPci6u8nHA289zCvFOOsNPuP1iDkC2ebITUwyOfJGyZ3eU8Sy
+	HI+8VYsqkkNbukLubfyi6Cruzsd6h1U=
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-573-3M_rB-EmPE2v8UljGdipDg-1; Mon, 23 Nov 2026 13:47:26 +0000
+X-MC-Unique: 3M_rB-EmPE2v8UljGdipDg-1
+X-Mimecast-MFC-AGG-ID: 3M_rB-EmPE2v8UljGdipDg_1795441646
+Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-6ba4be5f951so2077373a12.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:47:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795441645; x=1796046445; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
+        b=V0xv+J2HSN1NuVUAQZjFAVgWhJS9eY4gd/lrrpRsjjr8Kr8p0SBzHilovKAKfveNGB
+         dR2w8XYjmUFyD34zlzphdz5RYGaOsWch/8N0jyFkACv4GslVhAfjtuOboh12glRPHc4D
+         AKgI49408j7ZcqtII19BJJgFuOGXwY6fbO6Epn4P2L/+iCn1ABO4e3Elt5ih2nlZ15Jg
+         1zHCmIhVRwaFVXrSSMOUDWCexWxefsJN/xcg4od1O6xGN1c4NuIApQK4/rncVKojJqv9
+         iecKQuFR+2hOsVYxHD/3zmM1toqLTbnRy81dr8Ugvn/5RaVdbMdc5gnd/hDCnBthMJLa
+         +1Tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795441645; x=1796046445;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YLrN3M1XfLMhZZJEefU5MTc8mdCMhL4DOsawNJPcdvE=;
+        b=iEOuGyuRBmf1WM7ekC3UdX/YWbElbJjVVJS77Y+CwKkCKOGjvzecX7sRdtCKfXsBY5
+         SAWGITX9NXfJNpyITtsExV1W4o5AuB/IqhsoG6rEz0mmhnR3eFt+s2RoFI26usLwKFjJ
+         Cs7Gpc/nwXfT70mrD3V9nr0RSgIiT5/NIi7J2JXq5CHf15tkkIvJhIsxrWif+rd3AV0A
+         wOX37T4Azn61RE8QxfzttNxCqtsY2boFXTGfr44d4d/bDb3pAC5iM07yKkJkbdEcRjkg
+         unsjir2hHA5dcVtV/5pQaxD4M62E3PbGvHFzDkp9KFrtSMfIVjjoEBAhKnx+bbG5mkKP
+         64Hw==
+X-Gm-Message-State: APuU4Z+oEm1lQrT9V6JQAUqSXeA4aDbucNs8ZjRG+rN3TexkEGqqUr/z
+	EED6AcZybMOnlGZtlpxvhkXakntvZCgts423+5kJCr7fs0vL2cxou/H03DqZw3hT5MKuDo/kcWs
+	FQT6FuaHbUltCnOalB6AwIQDkarBIL6BI7OhLLsrMLotRwdXeqSAlJsFvVA==
+X-Gm-Gg: AZFdTZdiPPvYgjR1tOUSM2qHHRKJy5Fjd+dpt/RUmei/E4ZiZ7FrBCFjlWHxrxw/D3J
+	85DxXxULvny6XnTylkFtwDgAwc07Kmfi2uOZeSzjvaiz8iQz6x1ZYfTpRO8RdHPYVMOv7aLimxD
+	ZCv3UW79wNeVtUxZ5MEK7wQ/0eyd1bnusbyzaJYR9x+bssE2lXXFGYko6CTGA4cEGdpBtNTj03T
+	WmlUbnrnJGo6r6XGip3Z5IgFEA7ikNwFM7TmcPhq5bZ3qDIdUX/4DE05Gns7zRVD2vJoneVvIVc
+	NuPb9a+6LPQyhhSfDOsMBwD62u0IAaqqAvtSGgHG2yirYGkD90uSB5Qspm/6hyIKFKg88H8Ufq5
+	iTka3bx9Unao15AScdr68no8e6DT4HtDcePsCrGHFJJz3ms2GVLGDjGCAZDTJmJOLIFhYkctoZE
+	gw2VUENcV657kvY8CeVWi0zDbMEBQ7Ty/tvSkYqZJpZ8iY
+X-Received: by 2002:a05:6402:400d:b0:6b5:9849:e328 with SMTP id 4fb4d7f45d1cf-6ba37ebdda1mr7965695a12.39.1795441645533;
+        Mon, 23 Nov 2026 05:47:25 -0800 (PST)
+X-Received: by 2002:a05:6402:400d:b0:6b5:9849:e328 with SMTP id 4fb4d7f45d1cf-6ba37ebdda1mr7965674a12.39.1795441645139;
+        Mon, 23 Nov 2026 05:47:25 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba37109c58sm5253555a12.33.2026.11.23.05.47.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 05:47:24 -0800 (PST)
+Message-ID: <923664db-2b04-4440-8b07-2965c1e97aa0@redhat.com>
+Date: Mon, 23 Nov 2026 14:47:22 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,46 +111,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net v2] net: pse-pd: tps23881: Fix reported power class
-To: netdev-bot+sinfo@kernel.org
-Cc: Paolo Abeni <pabeni@redhat.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, Jakub Kicinski <kuba@kernel.org>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>
-References: <20261123133420.708557-1-kory.maincent@bootlin.com>
- <179544113824.3294.17718997849062582647@kernel.org>
-From: Kory Maincent <kory.maincent@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v10 2/4] net: hsr: refuse forwarding devices as
+ HSR/PRP ports
+To: Xin Xie <xiexinet@gmail.com>, netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, horms@kernel.org, andrew+netdev@lunn.ch, shuah@kernel.org,
+ kees@kernel.org, petr.wozniak@gmail.com, qingfang.deng@linux.dev,
+ fmaurer@redhat.com, luka.gejak@linux.dev, bigeasy@linutronix.de,
+ xiaoliang.yang_1@nxp.com, skhawaja@google.com, liuhangbin@gmail.com,
+ stable@vger.kernel.org, sdf.kernel@gmail.com, lukma@denx.de,
+ fmancera@suse.de, danishanwar@ti.com
+References: <20261117141922.20-3-xiexinet@gmail.com>
+ <179514132185.3136.17085396682149520983@kernel.org>
+ <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
 Content-Language: en-US
-In-Reply-To: <179544113824.3294.17718997849062582647@kernel.org>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
 
-
-
-On 11/23/26 14:38, netdev-bot+sinfo@kernel.org wrote:
-> Hi!
+On 11/20/26 22:30, Xin Xie wrote:
+> On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
+>> Can a plain veth slave still re-enter the xmit path of its own HSR master?
 > 
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
-> 
->   - How the issue was discovered, e.g. hit in production, hit during
->     development, syzbot report, manual code inspection, LLM or static
->     analysis tool scan.
+> Yes. The redirect case exists without the patch, and the commit message
+> lists it as not covered. seqnr_lock has been held across the port
+> transmit since 06afd2c31d33 and 430d67bdcb04. The patch refuses port
+> types that make no sense as HSR/PRP ports, which covers the syzbot
+> topology, as Sebastian suggested [1].
+What about explicitly detecting the AA deadlock maintaining a per cpu
+status?
 
-The issue was hit during development extending the current driver.
-I don't see the point of explaining this but well ...
+	if (<percpu_hst_xmitting>)
+		// warn_on_once && free skb && return
 
->   - Whether the issue was actually triggered, or is only theoretical
->     (e.g. found by LLM and not proven at runtime). If it was triggered
->     please include the symptoms, like the stack trace or kernel messages.
+	<set percpu_hst_xmitting>
+	spin_lock_bh(&hsr->seqnr_lock);
+	hsr_forward_skb(skb, master);
+	spin_unlock_bh(&hsr->seqnr_lock);
+	<clear percpu_hst_xmitting>
 
-IMHO I think the commit message is clear enough.
-
--- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+/P
 
