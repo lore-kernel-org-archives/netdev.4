@@ -1,69 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795414632;
-	b=ImMKfijI4vRwJl6elcJmORVcZqKBA2d/pdlGV2gtuy26fFcY/KvWNHkixekHAn4DK9pH
-	 BeP8IqkWCbXuKQ1SQGrzCTz906mGqOMy8ROt8Jab5MmA7LhdO25mYMZVzB7sbxXm3VW/G
-	 3gPi7U4CfVuglICM20zB0KKucRstWKmaooTeEnyn2D4HV7h1FTJYA3wv7HXDrDufaRMUR
-	 FfgV33WbCtn+LlJOFgsrjHOSsT1meGFN7+m2auj2penLYncEJ6Wgnz84ZQesbovMz4uRk
-	 FtSlx6fGmwq0jTlyBLryHYigcftnDNJQbbLE77kg1IilPBAB99IkSSY/4+gnfZOSWhQ==
+	t=1795414700;
+	b=Pq6cATgPykWEVKYiS/6qz8H6mRS7VSZ9VKNaTrwuu3WWUORies0C5GzAaMeUCSblJGTU
+	 bgrizJvtvLviGJRh5nnMYJs0q4V5q23Jtt9D3HxfzWtpJz7XjHMtVPlmjPiAwVuGbthiu
+	 z4RaJhPRWR7NTQ1dHq+UHDmorK76Y/lvE6Ldp8Xu3zspHmbsBklsRJu8Qn1+2KgJp7E7S
+	 /P1dRd96Vkq7COlLrHsVc1j2gdxT+PlulkpSjIo3rHR6KYt0t3EkkQIx5ETM9Qvi0BGl4
+	 0EJ+9lK0ntGEN8SL3Q2zW39I6Iij89P4OpQ9c5bLv/5AvjXZ/Ww7RunjIkYN+Nx0rMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414632;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1rBLAy1WSlW0j01EGSb8zQ3VnNxACKn1ffYhnDM1Amc=;
-	b=RrP5HvnZwpHEuOqTzdJ4Ru7HY/lD+zYKrDxKhl7rzqLl2Ocf+BWUpSb6Qhj3NSUapU6R
-	 FDrnA2lBVktekdTqjeLmgJA64NC4ofcNHhm8xAcQWlJx149r3+tw8Lwv0xKWSwmG4rARM
-	 hkvcbPJ7lUAs/j8DnEHatnTB/60O1P6MZOk2ZYofFqNYyglsWy5yiuST92aeNEpw8l2iq
-	 v2+2hQmtbpg6kWw5pCOV4d5envhGy7cYC0zLKaBHGbn2nuKnlz0jipuTVADYrugADclyE
-	 xZA5tAANe8mQ2gnW+8bTBpCRSMHKlnxQcDUgyU35a3GucHoQtJktm6FMWbERpoB4Sag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414700;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qegEcjJZDluSirF3Yp5SHdiF1Bt5r3HGLhrlQkTtEGE=;
+	b=Hpbbb+LZ1kK7eBz8y/u0AmF3dik8X2H7EP/T54lFD7y3r2UQvDrZFZERBNmqKmJjNs4Q
+	 NuavW484JBSNRgI41VhH+wSWtGDVikmUCgw7xCXJWcqirJ1v5dJ+HNhjy61Y2ofTpJBgn
+	 DHsNvxNJXYRCENs+GSHSghDHfrMqgsQGlCTimZAFHinsqjkeh8SR5MoLNgCwlTaw56r3o
+	 5JX1O+K9r+nsZWsCoq0nE+P+aVeJoP5LqWr/JIkDIijOuAQ5ZY65dwGnSQQZm5SeAUsN6
+	 mGqEIjn996U6TiAoP+8k4LZMaC6d8Sxoi8rxvMH28IlHjnD+fZpThN3JBXS9weAdMrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTbojTpp;
-	arc=none smtp.remote-ip=91.218.175.37
-Received: from mta0.migadu.com (out-37.mta0.migadu.com [91.218.175.37])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EqJKoCyF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBF64606A327
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:17:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBF64606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32F5F606A31A;
+	Mon, 23 Nov 2026 06:18:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTbojTpp
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=giOvSHAOr8ZRxE8MoHsdh6XZLWVdDYWU10lBTFdDrrI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795414629; v=1; x=1796019429;
- b=jTbojTpptxj2VJj9BzxK8exnAJdDEedY8a9O1R2iFeD/tqXAVYmMcByaDtYyN2K0emA5GCnl
- yjzN4EcwRVvGWZTTa9MjGj4khtwiqrw9eUWlZ34QRdnV6qv4YxBaX8Q83qbd5X2yn4d/sB+2T/D
- ROn9qg28IT/WJ62Id+gXmn18=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 7db56b269390c286;
-	Mon, 23 Nov 2026 06:17:08 +0000
-X-Mizu-Trace-ID: 7db56b269390c286
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 14:17:02 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-Cc: netdev-bot+sashiko@kernel.org, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Hangbin Liu <liuhangbin@kylinos.cn>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, 1342116488@qq.com
-Subject: Re: [PATCH net-next v3 1/2] ipv6: check mc_forwarding before calling
- ip6mr_get_route()
-Message-ID: <20261123061702.GJ10218@Liu-laptop>
-References: <20261116014744.18223-1-sunwenbo@cmss.chinamobile.com>
- <20261116014744.18223-2-sunwenbo@cmss.chinamobile.com>
- <179509619796.3136.11845865038486249097@kernel.org>
- <20261120032219.18091-1-sunwenbo@cmss.chinamobile.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EqJKoCyF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5564C1F000CF;
+	Mon, 23 Nov 2026 06:18:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795414699;
+	bh=qegEcjJZDluSirF3Yp5SHdiF1Bt5r3HGLhrlQkTtEGE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=EqJKoCyF71lESyBjFsnn/TepqM1E5BCjOIFmhmZNQzcRwXXakFoxnpW7UoqwlSgy3
+	 Op3A24qIIshi5ZLT3nk5NthkR5/5KiJOnsbXzYQ1vkfZWtDzm4DRuDRDc3c+CJfEDo
+	 lk0SxJ/PoWR6M7eJztxdhoPQoPNswlQwlIKj57H76yFBh0PFt9wi+ruJeqm5eduCrw
+	 AEHFZuy1M3++vyqrokNHomeJ6QGwXc5NGI6//6gYLEv6XLVYWSRcCiIYV3dZonOghn
+	 DaHCdT5OOFZ0pwd0d/RLqgtjCahaUUk7QpNSry2vrQFHs2qYfo76XgiYidxuJGl+zQ
+	 tPgvp5ahwUQFA==
+Subject: Re: [PATCH v2] net: dsa: mt7530: fix regulator leak in mt7530_setup()
+From: netdev-bot+sashiko@kernel.org
+To: laixiangwu@cmss.chinamobile.com
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kuba@kernel.org
+Date: Mon, 23 Nov 2026 06:18:18 +0000
+Message-ID: <179541469889.3135.11276449301186567298@kernel.org>
+In-Reply-To: <20261119060424.1476-1-laixiangwu@cmss.chinamobile.com>
+References: <20261119060424.1476-1-laixiangwu@cmss.chinamobile.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,115 +62,209 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120032219.18091-1-sunwenbo@cmss.chinamobile.com>
 
-On Fri, Nov 20, 2026 at 11:22:19AM +0800, Wenbo Sun wrote:
-> Thank you for the detailed review on v3 1/2. We reproduced and verified each
-> of the findings in a User-Mode Linux (UML) environment (`CONFIG_IPV6_MROUTE=y`)
-> and prepared a focused single-patch v4 to address them:
-> 
-> 1. Root-Cause Analysis & Local UML Reproduction of v3 1/2 Findings:
-> 
->    Base UML topology:
->      ip link add d0 type veth peer name d1
->      ip link set d0 up && ip link set d1 up
->      ip -6 addr add 2001:db8::2/64 dev d0
->      ip -6 addr add ff0e::1 dev d0 autojoin
-> 
->    (a) [High] Routable multicast query when mc_forwarding=1:
->        In `inet6_rtm_getroute()`, `skb->dev` is never set on the newly
->        allocated reply skb, and `ip6mr_get_route()` looks up
->        `ip6mr_cache_find(mrt, &rt->rt6i_src.addr, &rt->rt6i_dst.addr)`, where
->        `rt` is the per-CPU route copied from `f6i->fib6_dst` (`ff00::/8`).
->        We reproduced this in UML by opening an `AF_INET6` `SOCK_RAW`
->        (`IPPROTO_ICMPV6`) socket, enabling `MRT6_INIT`, registering `d0` via
->        `MRT6_ADD_MIF`, and adding `(S=2001:db8::3, G=ff0e::1)` via
->        `MRT6_ADD_MFC`:
->          MRT6_ADD_MIF(mifi=0, pifi=3) OK
->          MRT6_ADD_MFC(S=2001:db8::3, G=ff0e::1) OK
->          mc_forwarding=1
->          $ ip -6 route get ff0e::1 from 2001:db8::3 iif d0
->          RTNETLINK answers: No such device
->          ip_exit=512
->        Because `ip6mr_get_route()` checks `(::, ff00::)` instead of the
->        queried `(S,G)` and `skb->dev` is NULL, it misses even when the MFC
->        entry exists. Making `mc_forwarding=1` MFC queries work requires
->        passing `(src, dest)` and handling `skb->dev` / `skb_realloc_headroom()`
->        across `inet6_rtm_getroute()` and `ip6mr_get_route()`, which we now
->        explicitly state as out of scope in the commit message and drop patch
->        2/2 in v4 so we do not alter the uAPI errno to -ENODEV prematurely.
-> 
->    (b) [Medium 1] Regression when a multicast query matches a non-multicast
->        route (e.g. `::/0`):
->        In v3, replacing `ipv6_addr_is_multicast(&rt6_dst->addr)` with
->        `ipv6_addr_is_multicast(mc_dst)` caused queries matching a non-multicast
->        FIB route (when `ff00::/8` is absent, such as on `lo`, an l3mdev
->        master, or after deleting `ff00::/8`) to enter `ip6mr_get_route()` when
->        `mc_forwarding=1`.
->        Reproduced on v3 in UML:
->          # ip -6 route del multicast ff00::/8 dev d0 table local
->          # ip -6 route add ::/0 dev d0
->          # (with MRT6_INIT / mc_forwarding=1):
->          $ ip -6 route get ff0e::1 from 2001:db8::3 iif d0
->          RTNETLINK answers: No such device
->          ip_exit=512
-> 
->    (c) [Medium 2] `RTM_F_FIB_MATCH` (`fibmatch`) missing link-local exclusion:
->        In `inet6_rtm_getroute()`, the `fibmatch` branch calls `rt6_fill_node()`
->        with `dst = NULL, dest = NULL`. In v3, `mc_dst` fell back to
->        `&rt6_dst->addr` (`ff00::`, scope 0), so link-local `fibmatch` queries
->        still entered `ip6mr_get_route()` when `mc_forwarding=1` (whereas IPv4
->        `fibmatch` uses `fib_dump_info()` and never calls `ipmr_get_route()`).
->        Reproduced on v3 in UML (with `MRT6_INIT` / `mc_forwarding=1`):
->          $ ip -6 route get fibmatch ff02::1 from 2001:db8::3 iif d0
->          RTNETLINK answers: No such device
->          ip_exit=512
-> 
->    (d) [Low] Fixes tag / net vs net-next:
->        Because this patch aligns long-standing non-crash route-get reporting
->        semantics with IPv4 (while full `mc_forwarding=1` MFC lookup in
->        `ip6mr_get_route()` remains a separate effort), we keep targeting
->        net-next without a Fixes tag, and have softened the commit message
->        accordingly.
-> 
-> 2. Concrete Fix in v4 & UML Verification Results:
-> 
->    In v4, we converge the series into a single patch that checks `dest != NULL`
->    (so `fibmatch` queries always emit the matched FIB6 entry and `RTA_IIF`),
->    keeps `ipv6_addr_is_multicast(&rt6_dst->addr)` (avoiding the non-multicast
->    route regression), and tests `ipv6_addr_type(dest)` against
->    `(IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)`:
-> 
->      if (dest && ipv6_addr_is_multicast(&rt6_dst->addr) &&
->          !(ipv6_addr_type(dest) &
->            (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
->          atomic_read(&net->ipv6.devconf_all->mc_forwarding))
-> 
->    Verified on v4 in UML (`FAILURES=0, TEST_EXIT_CODE=0`):
->    - Test 1 (`mc_forwarding=0`, `ff0e::1` with `iif d0`):
->      `ff0e::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
->    - Test 2 (`mc_forwarding=1`, link-local `ff02::1` with `iif d0`):
->      `multicast ff02::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
->    - Test 3 (`mc_forwarding=1`, interface-local `ff01::1` with `iif d0`):
->      `multicast ff01::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
->    - Test 4 (`mc_forwarding=1`, `fibmatch` for `ff02::1` and `ff0e::1` with
->      `iif d0`):
->      `multicast ff00::/8 dev d0 table local proto kernel metric 256 iif d0 pref medium`
->      (`ip_exit=0`, PASS)
->    - Test 5 (`mc_forwarding=1`, `ff0e::1` matching `::/0` after removing
->      `ff00::/8`):
->      `ff0e::1 from 2001:db8::3 dev d0 proto boot src 2001:db8::2 metric 1024 iif d0 pref medium`
->      (`ip_exit=0`, PASS)
->    - Test 6 (IPv6 unicast with `iif`, IPv6 multicast without `iif`, IPv4
->      multicast with `iif` regressions): all PASS.
-> 
-> Thanks,
-> Wenbo
-> 
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-I think it worth to add a selftest to cover these testings.
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-Thanks
-Hangbin
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix is incomplete: the regulator leak the commit message
+  describes can still happen.
+- [Medium] Possible double disable: the new error labels in
+  mt7530_setup() disable core_pwr/io_pwr, but mt7530_remove() still…
+- [Low] Possible power-down ordering problem (speculative): the new
+  err_powers / err_disable_core_pwr rollback in mt7530_setup() disables…
+
+--
+
+net: dsa: mt7530: fix regulator leak in mt7530_setup()
+
+This patch adds chained error labels to mt7530_setup(). When a later step
+in the function fails, the MT7530 core and io regulators are now disabled
+again. Both labels check priv->id, so MT7621 is left alone because it
+skips the regulator section.
+
+Link: https://lore.kernel.org/all/20261118014114.1855-1-laixiangwu@cmss.chinamobile.com/
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..988f236548dfc 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+
+[ ... ]
+
+> @@ -2579,16 +2581,24 @@ mt7530_setup(struct dsa_switch *ds)
+>  	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+>  		ret = mt7530_setup_gpio(priv);
+>  		if (ret)
+> -			return ret;
+> +			goto err_powers;
+>  	}
+>  #endif /* CONFIG_GPIOLIB */
+>  
+>  	/* Flush the FDB table */
+>  	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+>  	if (ret < 0)
+> -		return ret;
+> +		goto err_powers;
+>  
+>  	return 0;
+
+[Severity: High]
+Does this fully close the leak described in the commit message?
+
+mt7530_setup() is only the sw_setup step of mt753x_setup(). It returns 0
+here with both regulators still enabled. After that, mt753x_setup() can
+fail without disabling them:
+
+drivers/net/dsa/mt7530.c:mt753x_setup() {
+	int ret = priv->info->sw_setup(ds);
+	...
+	ret = mt7530_setup_irq(priv);
+	if (ret)
+		return ret;
+
+	ret = mt7530_setup_mdio(priv);
+	if (ret)
+		return ret;
+	...
+}
+
+mt7530_setup_irq() fails in two cases:
+
+- of_irq_get() returns <= 0. This includes -EPROBE_DEFER when the parent
+  irqchip has not probed yet.
+- devm_regmap_add_irq_chip_fwnode() fails.
+
+mt7530_setup_mdio() fails if devm_mdiobus_alloc() returns NULL or if
+devm_of_mdiobus_register() returns an error.
+
+If ops->setup fails, dsa_switch_setup() jumps to unregister_notifier and
+does not call ->teardown.
+
+If ops->setup succeeds but a later step fails (tag protocol setup, user
+MII bus registration, port or conduit setup), the teardown that does run
+only does this:
+
+drivers/net/dsa/mt7530.c:mt753x_teardown() {
+	if (priv->bus)
+		cancel_delayed_work_sync(&priv->stats_work);
+}
+
+Either way, dsa_register_switch() fails and mt7530_probe() fails. That
+means mt7530_remove() never runs, and it is the only other place that
+disables these supplies.
+
+devm then releases the regulator handles while their enable count is
+still nonzero. This hits WARN_ON(regulator->enable_count) in
+_regulator_put(). The supplies also stay on, because rdev->use_count is
+never decremented.
+
+With -EPROBE_DEFER, each deferred probe retry runs mt7530_setup() again
+and leaks one more enable.
+
+These look like the symptoms the commit message describes: "both
+regulators staying powered after a failed probe and a WARN_ON(enable_count)
+splat".
+
+Would it be better to also unwind in mt753x_setup() and the teardown
+path? Another option is to move the enable/disable into a properly paired
+place, such as probe with a devm action, or setup/teardown.
+
+> +
+> +err_powers:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->io_pwr);
+> +err_disable_core_pwr:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->core_pwr);
+> +	return ret;
+>  }
+
+[Severity: Medium]
+Can these labels combine with mt7530_remove() to disable the supplies
+twice?
+
+mt7530_remove() still disables both supplies unconditionally:
+
+drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
+	if (priv->id == ID_MT7530) {
+		ret = regulator_disable(priv->core_pwr);
+		...
+		ret = regulator_disable(priv->io_pwr);
+		...
+	}
+}
+
+Take a multi-switch DSA tree where the MT7530 has DSA link ports and is
+not the last member to probe. Its probe succeeds, because
+dsa_tree_setup() returns early without running ops->setup:
+
+net/dsa/dsa.c:dsa_tree_setup() {
+	complete = dsa_tree_setup_routing_table(dst);
+	if (!complete)
+		return 0;
+	...
+}
+
+When a later switch completes the tree, this runs:
+
+dsa_tree_setup_switches()
+  dsa_switch_setup()
+    mt753x_setup()
+      mt7530_setup()
+
+Suppose mt7530_setup() then fails after the regulators were enabled, for
+example on a reset timeout, a chip ID mismatch, a 20MHz XTAL, or a VLAN0
+or FDB command failure. These new labels bring the enable count back to
+zero.
+
+The other switch's probe fails, but the MT7530 stays bound. When it is
+unbound later, mt7530_remove() disables both supplies again. That
+triggers the "unbalanced disables" WARN in _regulator_disable(), and the
+driver logs "Failed to disable core power" and "Failed to disable io
+pwr".
+
+Before this patch the sequence happened to balance: the failed setup
+left the regulators enabled, and remove disabled them.
+
+[Severity: Low]
+This is speculative, but should the chip go back into reset before its
+supplies are cut here?
+
+Earlier in mt7530_setup(), reset is released:
+
+drivers/net/dsa/mt7530.c:mt7530_setup() {
+	...
+	} else {
+		gpiod_set_value_cansleep(priv->reset, 0);
+		usleep_range(5000, 5100);
+		gpiod_set_value_cansleep(priv->reset, 1);
+	}
+	...
+}
+
+mt7530_probe() requests the line as GPIOD_OUT_LOW, which holds the chip
+in reset. The new err_powers path, however, disables io_pwr and core_pwr
+while reset is still released.
+
+On boards with switchable supplies, the host would then drive RESET_N
+into an unpowered IO domain. That could back-power the chip through its
+input protection diodes.
+
+Before this patch, these error paths left the chip fully powered.
+mt7530_remove() also disables the supplies without asserting reset, so
+this ordering already exists elsewhere in the driver.
+
+Would it be safer to mirror the setup order? That would mean asserting
+reset first, with gpiod_set_value_cansleep(priv->reset, 0) or
+reset_control_assert() for MCM, and only then disabling the regulators.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119060424.1476-1-laixiangwu%40cmss.chinamobile.com
