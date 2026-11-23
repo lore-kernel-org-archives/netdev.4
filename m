@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.38.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454320;
-	b=x+zY05tOsZI3Vjimg20V9XOCH3OaHnmM/diHlh4OGtOutgYFFXMAkZRlk9Cxdyp5uZ3W
-	 yn7TZ2u4lQchFK9tknSxN+xud0OL0tfdQ8wkrxVP7bRsixkZhBfmjSZsBBX89BME9t7yQ
-	 ZqgBLHNSBpWd3JFYFjE1+fDmJMcm1ZkEDqW3klaeoVPfFwPHG3kkPypROGbRzyM9diGK+
-	 UBZ8wi3FIa8YEnobXVOI+ONzomWz1p/LSSzy5lc6JEs1HSFdmPImJqLOjy/7MIoifdyK/
-	 Giuj9s2P9FyrNRjUtm84yP3AqFFu2juLjvqrdaC3g1QF0Bp6MYa/SkjZhQe5NAyptqg==
+	t=1795454321;
+	b=k0AWWfu5XRZDlz0sefYWu+2NF+fB7iTEcnl0mNKjbEe/ldaQVobwuVLFRbQ6mBrDFsPY
+	 xUZhNTpyCBGLklcMMjTbBdvMzb3wuCpXYcKdBIgNxnkQ5V0Vu8EB0IX6uFikmcvGJtXws
+	 DF0haaoTCtXZ3uyPQ4Fa9ouXjRqTuJSMkaEq7RPP4CiDcRMOiGuYQStLkopAagjzETv0Z
+	 JsALhPubOBa26aekUTWoARTvUw0v5iTj09vz8R4idM5dtQ5UEarx/5TcmODm2fea6fvD1
+	 HOi2Z8c58X5AiEf+Nlc956cB+/MMTngfAgN8Z0M2G635H/gP4Oa1xEqhOGSFtf0mq/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454320;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454321;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=+Ujdg5G89P0pU+ZP7KvnYTjdgZuzFmYy+5yVDPI5RbI=;
-	b=rMQhcVNUCVeD2SgLJHqa0lmLw8fskkyIeANwJOQdD18+IPyNy2iFWJBc72qj1/9urtUo
-	 OJiQi6hDmare2Y+3vqe6Jc4JZTowCpyoREdgf5ah6vlk++BdY5k/381wi9nn3oUaKDOfy
-	 CQpw2aKdQgQti44Uy3zyTNr7lvaZoH1Yvj4QJsb2D2t4JmcTrfXB4OoVpqNOizRJ/q7ut
-	 0EB9aw45jT5jZNvnQ2SdMGqZJZEAQsGl4k3rb5bqXYK7wjjtv8eG4pNLX4BuxwugMKCt0
-	 thywFH/Q8GFvgJBvTQjgmbR2HSbJkA+eNlNylcEpvEbZ6Gx/BdQiDljKCf4BklSdw2Q==
+	bh=61uMj0sUvajsGIc4hbK6/2n/ENBq0us5BtBioYyKYo4=;
+	b=VlaawP6jBzfDP+OV0Cy6uHitH9vwLuuF1qDNYC2ecGfG8V2hpJZ4VnXw5CBeQeiXVVEJ
+	 uIPQZ3Rv4wCS+NPNgzwVLRsB+d+KjgBnFIkpL6UnZoigyIAx6b5ardx7bgQq7WBSKTmYG
+	 ekxAFRDbtOhBjer7wJHJqQIsUddElLanT/KnJSJn7s7Ge1RyBP2rwYjeTs9mAetj3larC
+	 +jyzdZBxX/vCgi4OSV/vaBdHrxbMyer/lDeZ++EM0e7towk74Sk8GELLFyOS+NpIi1GVg
+	 GJLfYw0QkhF6bH2e6JuNjmyTtu4Tjof4OC/qdKyF7ify3Cy3OjfVHAP90MZbroUWjoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=simonwunderlich.de;
 	spf=pass smtp.mailfrom=simonwunderlich.de;
-	dkim=pass header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=iBXojrTb;
+	dkim=pass header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=fSbzlS85;
 	arc=none smtp.remote-ip=23.88.38.48
 Received: from mail.simonwunderlich.de (mail.simonwunderlich.de [23.88.38.48])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4A334606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:18:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A334606A31E
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3D956606A334
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:18:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D956606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=simonwunderlich.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=simonwunderlich.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=iBXojrTb
+	dkim=pass (2048-bit key) header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=fSbzlS85
 Received: from kero.packetmixer.de (p200300c59714c2E05A704819B6bA2DB4.dip0.t-ipconnect.de [IPv6:2003:c5:9714:c2e0:5a70:4819:b6ba:2db4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.simonwunderlich.de (Postfix) with UTF8SMTPSA id 55EDCFA0B2;
-	Mon, 23 Nov 2026 18:18:31 +0100 (CET)
+	by mail.simonwunderlich.de (Postfix) with UTF8SMTPSA id 5D2D7FA264;
+	Mon, 23 Nov 2026 18:18:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=simonwunderlich.de;
-	s=09092022; t=1795454311;
+	s=09092022; t=1795454313;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+Ujdg5G89P0pU+ZP7KvnYTjdgZuzFmYy+5yVDPI5RbI=;
-	b=iBXojrTbNS/oh1VX5SrCVYBB+Gi4Xb5NA3bASBr10YlNB8uSjUwbp+Q5e8kij2vM/Ta570
-	8C+tclsSGUWsE0WSQH4JY9F/5Tpv3rqDaEwSAJyMdCNkVm0prZbGwdPbYdk1qweCuSnGgy
-	dRU+N/TP00rBxzzyDsnJoVyC9MYYbsT8/ofVZXwwmPj9xuTO26/JLz8AYaAi/gH/b5fn4X
-	9GmB+YugZIJHLHH6f+ILqHrNi8aHFIjbdevOGOMk0QFIn6TlhhZEZZ/yzXVRE+so5NySPk
-	RNIABEF6l0DACW9MCc0g8w9TlZ/UNqm8VsBbwC8pwjiKMZuwUxXgoBa1+QkG8Q==
+	bh=61uMj0sUvajsGIc4hbK6/2n/ENBq0us5BtBioYyKYo4=;
+	b=fSbzlS85KrQN9fPaljyZS+1AuCfu3UbGT3TvUSyCGP9qaY6ZjaIdIviO0gCFvLiase7sGl
+	QGgIR4xGFLXqJ+JIxgH97bh35tLfArWdKdLCR6wB2h6pKYRNWf/h+efsb0XhWYK86dFKej
+	A7Gpa/jiQeKRTEw8/uXdYwJCD10zTo6yDXEorm9TGVkq5+8DZWleXuUm0tvV//9SBoy2QT
+	t/b1MTS+D/1XxrX/Atux+Hs0ffuLFflMe70Km3IhDGhlJR2E51cgLkac8T+V/sMiXjshZn
+	4r4z/TSe1ZuWsHkLLDeLjqn1NcJDED9ssSiETi7kgwTyA/CLuHCrxgWAtUbizA==
 From: Simon Wunderlich <sw@simonwunderlich.de>
 To: netdev@vger.kernel.org
 Cc: "David S. Miller" <davem@davemloft.net>,
@@ -61,9 +61,9 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	b.a.t.m.a.n@lists.open-mesh.org,
 	Sven Eckelmann <sven@narfation.org>,
 	Simon Wunderlich <sw@simonwunderlich.de>
-Subject: [PATCH net-next 01/15] batman-adv: document refcount of returned objects
-Date: Mon, 23 Nov 2026 18:18:13 +0100
-Message-ID: <20261123171827.3294525-2-sw@simonwunderlich.de>
+Subject: [PATCH net-next 02/15] batman-adv: mcast: use mla_lock also during mcast_free
+Date: Mon, 23 Nov 2026 18:18:14 +0100
+Message-ID: <20261123171827.3294525-3-sw@simonwunderlich.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123171827.3294525-1-sw@simonwunderlich.de>
 References: <20261123171827.3294525-1-sw@simonwunderlich.de>
@@ -80,592 +80,33 @@ Content-Transfer-Encoding: 8bit
 
 From: Sven Eckelmann <sven@narfation.org>
 
-Callers of lookup, get and create functions have to know whether they own a
-reference to the returned object (and have to release it with the matching
-batadv_*_put() or dev_put()), or only borrow it. Some functions document
-this already (e.g. "(with increased refcnt)" or "The object is returned
-with refcounter increased by 1."), but many say nothing.
-
-Add a note to the kerneldoc of the __must_check functions that return an
-object with an increased refcounter and did not document this yet. For the
-exceptions:
-
-* batadv_transtable_best_orig()
-* batadv_mcast_forw_orig_entry()
-
-the opposite is stated to make the difference clear ("no increased refcnt",
-"only valid in current RCU read-side critical section")
+While it is technical ok to not hold the mcast.mla_lock when calling
+batadv_mcast_mla_tt_retract() in batadv_mcast_free(), it is more clear to
+always require the lock when calling batadv_mcast_mla_tt_retract(). This
+strict + simple rule will later make it also possible to check the lock
+requirements automatically via the LLVM/clang CONTEXT_ANALYSIS.
 
 Signed-off-by: Sven Eckelmann <sven@narfation.org>
 Signed-off-by: Simon Wunderlich <sw@simonwunderlich.de>
 ---
- net/batman-adv/bat_iv_ogm.c            |  6 +++++-
- net/batman-adv/bat_v.c                 |  3 ++-
- net/batman-adv/bat_v_ogm.c             |  1 +
- net/batman-adv/bridge_loop_avoidance.c |  7 +++++--
- net/batman-adv/distributed-arp-table.c |  1 +
- net/batman-adv/gateway_client.c        |  7 +++++--
- net/batman-adv/hard-interface.c        |  6 +++++-
- net/batman-adv/hard-interface.h        |  3 ++-
- net/batman-adv/multicast.c             |  1 +
- net/batman-adv/multicast_forw.c        |  2 ++
- net/batman-adv/netlink.c               | 28 +++++++++++++-------------
- net/batman-adv/originator.c            | 16 ++++++++++++---
- net/batman-adv/routing.c               |  1 +
- net/batman-adv/tp_meter.c              | 12 +++++++----
- net/batman-adv/translation-table.c     | 18 ++++++++++++-----
- net/batman-adv/tvlv.c                  |  2 ++
- 16 files changed, 80 insertions(+), 34 deletions(-)
+ net/batman-adv/multicast.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/net/batman-adv/bat_iv_ogm.c b/net/batman-adv/bat_iv_ogm.c
-index a7b5d5a1cc02..4f60e50dbad2 100644
---- a/net/batman-adv/bat_iv_ogm.c
-+++ b/net/batman-adv/bat_iv_ogm.c
-@@ -136,6 +136,7 @@ static u8 batadv_ring_buffer_avg(const u8 lq_recv[])
-  * Return: the originator object corresponding to the passed mac address or NULL
-  * on failure.
-  * If the object does not exist, it is created and initialised.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_orig_node * __must_check
- batadv_iv_ogm_orig_get(struct batadv_priv *bat_priv, const u8 *addr)
-@@ -177,7 +178,8 @@ batadv_iv_ogm_orig_get(struct batadv_priv *bat_priv, const u8 *addr)
-  * @neigh_addr: the mac address of the neighbour
-  * @orig_node: originator object representing the neighbour
-  *
-- * Return: pointer to the neigh_node or NULL in case of failure
-+ * Return: pointer to the neigh_node or NULL in case of failure.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_neigh_node * __must_check
- batadv_iv_ogm_neigh_new(struct batadv_hard_iface *hard_iface,
-@@ -1483,6 +1485,7 @@ batadv_iv_ogm_update_seqnos(const struct ethhdr *ethhdr,
-  *
-  * Return: A neighbor node which is the best router towards the given originator
-  * address. Bonding candidates are ignored.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_neigh_node * __must_check
- batadv_orig_to_direct_router(struct batadv_priv *bat_priv, const u8 *orig_addr,
-@@ -2489,6 +2492,7 @@ static void batadv_iv_init_sel_class(struct batadv_priv *bat_priv)
-  *
-  * Return: gateway node with the highest score for the current selection class,
-  *  or NULL if no eligible gateway exists.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_gw_node * __must_check
- batadv_iv_gw_get_best_gw_node(struct batadv_priv *bat_priv)
-diff --git a/net/batman-adv/bat_v.c b/net/batman-adv/bat_v.c
-index 1ee9f966e548..1214e6f9c43c 100644
---- a/net/batman-adv/bat_v.c
-+++ b/net/batman-adv/bat_v.c
-@@ -612,7 +612,8 @@ static int batadv_v_gw_throughput_get(struct batadv_gw_node *gw_node, u32 *bw)
-  * batadv_v_gw_get_best_gw_node() - retrieve the best GW node
-  * @bat_priv: the bat priv with all the mesh interface information
-  *
-- * Return: the GW node having the best GW-metric, NULL if no GW is known
-+ * Return: the GW node having the best GW-metric, NULL if no GW is known.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_gw_node * __must_check
- batadv_v_gw_get_best_gw_node(struct batadv_priv *bat_priv)
-diff --git a/net/batman-adv/bat_v_ogm.c b/net/batman-adv/bat_v_ogm.c
-index 4abb4c871e8c..c2ad9ac0d6e7 100644
---- a/net/batman-adv/bat_v_ogm.c
-+++ b/net/batman-adv/bat_v_ogm.c
-@@ -51,6 +51,7 @@
-  * Return: the orig_node corresponding to the specified address. If such an
-  * object does not exist, it is allocated here. In case of allocation failure
-  * returns NULL.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_orig_node *batadv_v_ogm_orig_get(struct batadv_priv *bat_priv,
- 					       const u8 *addr)
-diff --git a/net/batman-adv/bridge_loop_avoidance.c b/net/batman-adv/bridge_loop_avoidance.c
-index 729534eb19fb..68ff2f94cf49 100644
---- a/net/batman-adv/bridge_loop_avoidance.c
-+++ b/net/batman-adv/bridge_loop_avoidance.c
-@@ -213,6 +213,7 @@ static void batadv_claim_put(struct batadv_bla_claim *claim)
-  * @key: key of the searched claim
-  *
-  * Return: claim if found or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_bla_claim * __must_check
- batadv_claim_hash_find(struct batadv_priv *bat_priv,
-@@ -252,7 +253,8 @@ batadv_claim_hash_find(struct batadv_priv *bat_priv,
-  * @addr: the address of the originator
-  * @vid: the VLAN ID
-  *
-- * Return: backbone gateway if found or NULL otherwise
-+ * Return: backbone gateway if found or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_bla_backbone_gw * __must_check
- batadv_backbone_hash_find(struct batadv_priv *bat_priv, const u8 *addr,
-@@ -479,7 +481,8 @@ static void batadv_bla_loopdetect_report(struct work_struct *work)
-  * @vid: the VLAN ID
-  * @own_backbone: set if the requested backbone is local
-  *
-- * Return: the (possibly created) backbone gateway or NULL on error
-+ * Return: the (possibly created) backbone gateway or NULL on error.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_bla_backbone_gw * __must_check
- batadv_bla_get_backbone_gw(struct batadv_priv *bat_priv, const u8 *orig,
-diff --git a/net/batman-adv/distributed-arp-table.c b/net/batman-adv/distributed-arp-table.c
-index 2bb6716a124a..a6145383e6d7 100644
---- a/net/batman-adv/distributed-arp-table.c
-+++ b/net/batman-adv/distributed-arp-table.c
-@@ -395,6 +395,7 @@ static u32 batadv_hash_dat(const void *data, u32 size)
-  * @vid: VLAN identifier
-  *
-  * Return: the dat_entry if found, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_dat_entry * __must_check
- batadv_dat_entry_hash_find(struct batadv_priv *bat_priv, __be32 ip,
-diff --git a/net/batman-adv/gateway_client.c b/net/batman-adv/gateway_client.c
-index e6e97c0478cc..0dddcea7def9 100644
---- a/net/batman-adv/gateway_client.c
-+++ b/net/batman-adv/gateway_client.c
-@@ -74,7 +74,8 @@ void batadv_gw_node_release(struct kref *ref)
-  * batadv_gw_get_selected_gw_node() - Get currently selected gateway
-  * @bat_priv: the bat priv with all the mesh interface information
-  *
-- * Return: selected gateway (with increased refcnt), NULL on errors
-+ * Return: selected gateway, NULL on errors.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_gw_node *
- batadv_gw_get_selected_gw_node(struct batadv_priv *bat_priv)
-@@ -98,7 +99,8 @@ batadv_gw_get_selected_gw_node(struct batadv_priv *bat_priv)
-  * batadv_gw_get_selected_orig() - Get originator of currently selected gateway
-  * @bat_priv: the bat priv with all the mesh interface information
-  *
-- * Return: orig_node of selected gateway (with increased refcnt), NULL on errors
-+ * Return: orig_node of selected gateway, NULL on errors.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_orig_node *
- batadv_gw_get_selected_orig(struct batadv_priv *bat_priv)
-@@ -374,6 +376,7 @@ static void batadv_gw_node_add(struct batadv_priv *bat_priv,
-  * @orig_node: originator announcing gateway capabilities
-  *
-  * Return: gateway node if found or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_gw_node *batadv_gw_node_get(struct batadv_priv *bat_priv,
- 					  struct batadv_orig_node *orig_node)
-diff --git a/net/batman-adv/hard-interface.c b/net/batman-adv/hard-interface.c
-index 46dcbba0379b..b692b5b83d7c 100644
---- a/net/batman-adv/hard-interface.c
-+++ b/net/batman-adv/hard-interface.c
-@@ -73,7 +73,8 @@ void batadv_hardif_release(struct kref *ref)
-  * batadv_hardif_get_by_netdev() - Get hard interface object of a net_device
-  * @net_dev: net_device to search for
-  *
-- * Return: batadv_hard_iface of net_dev (with increased refcnt), NULL on errors
-+ * Return: batadv_hard_iface of net_dev, NULL on errors.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_hard_iface *
- batadv_hardif_get_by_netdev(struct net_device *net_dev)
-@@ -236,6 +237,7 @@ static bool batadv_is_valid_iface(const struct net_device *net_dev)
-  *
-  * Return: the 'real' net device or the original net device and NULL in case
-  *  of an error.
-+ * The returned object has an increased refcounter.
-  */
- struct net_device *__batadv_get_real_netdev(struct net_device *netdev)
- {
-@@ -284,6 +286,7 @@ struct net_device *__batadv_get_real_netdev(struct net_device *netdev)
-  *
-  * Return: the 'real' net device or the original net device and NULL in case
-  *  of an error.
-+ * The returned object has an increased refcounter.
-  */
- struct net_device *batadv_get_real_netdev(struct net_device *net_device)
- {
-@@ -485,6 +488,7 @@ int batadv_hardif_no_broadcast(struct batadv_hard_iface *if_outgoing,
-  *
-  * Return: first hard interface in BATADV_IF_ACTIVE state attached to
-  *  @mesh_iface, or NULL if none is active.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_hard_iface * __must_check
- batadv_hardif_get_active(struct net_device *mesh_iface)
-diff --git a/net/batman-adv/hard-interface.h b/net/batman-adv/hard-interface.h
-index 6bdef0ae1419..ad53e6086bae 100644
---- a/net/batman-adv/hard-interface.h
-+++ b/net/batman-adv/hard-interface.h
-@@ -99,7 +99,8 @@ static inline void batadv_hardif_put(struct batadv_hard_iface *hard_iface)
-  * batadv_primary_if_get_selected() - Get reference to primary interface
-  * @bat_priv: the bat priv with all the mesh interface information
-  *
-- * Return: primary interface (with increased refcnt), otherwise NULL
-+ * Return: primary interface, otherwise NULL.
-+ * The returned object has an increased refcounter.
-  */
- static inline struct batadv_hard_iface * __must_check
- batadv_primary_if_get_selected(struct batadv_priv *bat_priv)
 diff --git a/net/batman-adv/multicast.c b/net/batman-adv/multicast.c
-index 29bfeb800fa5..415981fe6dc6 100644
+index 415981fe6dc6..703f61955083 100644
 --- a/net/batman-adv/multicast.c
 +++ b/net/batman-adv/multicast.c
-@@ -80,6 +80,7 @@ static void batadv_mcast_start_timer(struct batadv_priv *bat_priv)
-  *
-  * Return: NULL if no such bridge exists. Otherwise the net device of the
-  * bridge.
-+ * The returned object has an increased refcounter.
-  */
- static struct net_device * __must_check
- batadv_mcast_get_bridge(struct net_device *mesh_iface)
-diff --git a/net/batman-adv/multicast_forw.c b/net/batman-adv/multicast_forw.c
-index 0120d1ea30ac..863ada459480 100644
---- a/net/batman-adv/multicast_forw.c
-+++ b/net/batman-adv/multicast_forw.c
-@@ -109,6 +109,8 @@ batadv_mcast_forw_push_est_padding(struct sk_buff *skb, int count,
-  * @entry_offset: the offset of the hlist node within the orig_node struct
-  *
-  * Return: The orig_node containing the hlist node on success, NULL on error.
-+ * The returned object has no increased refcounter and is only valid inside
-+ * the RCU read-side critical section of the caller.
-  */
- static struct batadv_orig_node *
- batadv_mcast_forw_orig_entry(struct hlist_node *node,
-diff --git a/net/batman-adv/netlink.c b/net/batman-adv/netlink.c
-index fd58523cea7c..361660371726 100644
---- a/net/batman-adv/netlink.c
-+++ b/net/batman-adv/netlink.c
-@@ -1135,8 +1135,8 @@ static int batadv_netlink_set_vlan(struct sk_buff *skb, struct genl_info *info)
-  * @net: the applicable net namespace
-  * @ifindex: index of the mesh interface
-  *
-- * Return: Pointer to mesh interface (with increased refcnt) on success, error
-- *  pointer on error
-+ * Return: Pointer to mesh interface on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- static struct net_device * __must_check
- batadv_netlink_get_meshif_from_ifindex(struct net *net, int ifindex)
-@@ -1163,8 +1163,8 @@ batadv_netlink_get_meshif_from_ifindex(struct net *net, int ifindex)
-  * @net: the applicable net namespace
-  * @info: receiver information
-  *
-- * Return: Pointer to mesh interface (with increased refcnt) on success, error
-- *  pointer on error
-+ * Return: Pointer to mesh interface on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- static struct net_device * __must_check
- batadv_netlink_get_meshif_from_info(struct net *net, struct genl_info *info)
-@@ -1183,8 +1183,8 @@ batadv_netlink_get_meshif_from_info(struct net *net, struct genl_info *info)
-  * batadv_netlink_get_meshif() - Retrieve mesh interface from netlink callback
-  * @cb: callback structure containing arguments
-  *
-- * Return: Pointer to mesh interface (with increased refcnt) on success, error
-- *  pointer on error
-+ * Return: Pointer to mesh interface on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- struct net_device *batadv_netlink_get_meshif(struct netlink_callback *cb)
- {
-@@ -1203,8 +1203,8 @@ struct net_device *batadv_netlink_get_meshif(struct netlink_callback *cb)
-  * @net: the applicable net namespace
-  * @ifindex: index of the hard interface
-  *
-- * Return: Pointer to hard interface (with increased refcnt) on success, error
-- *  pointer on error
-+ * Return: Pointer to hard interface on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_hard_iface * __must_check
- batadv_netlink_get_hardif_from_ifindex(struct batadv_priv *bat_priv,
-@@ -1245,8 +1245,8 @@ batadv_netlink_get_hardif_from_ifindex(struct batadv_priv *bat_priv,
-  * @net: the applicable net namespace
-  * @info: receiver information
-  *
-- * Return: Pointer to hard interface (with increased refcnt) on success, error
-- *  pointer on error
-+ * Return: Pointer to hard interface on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_hard_iface * __must_check
- batadv_netlink_get_hardif_from_info(struct batadv_priv *bat_priv,
-@@ -1267,8 +1267,8 @@ batadv_netlink_get_hardif_from_info(struct batadv_priv *bat_priv,
-  * @bat_priv: the bat priv with all the mesh interface information
-  * @cb: callback structure containing arguments
-  *
-- * Return: Pointer to hard interface (with increased refcnt) on success, error
-- *  pointer on error
-+ * Return: Pointer to hard interface on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_hard_iface *
- batadv_netlink_get_hardif(struct batadv_priv *bat_priv,
-@@ -1290,8 +1290,8 @@ batadv_netlink_get_hardif(struct batadv_priv *bat_priv,
-  * @net: the applicable net namespace
-  * @info: receiver information
-  *
-- * Return: Pointer to vlan on success (with increased refcnt), error pointer
-- *  on error
-+ * Return: Pointer to vlan on success, error pointer on error.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_meshif_vlan * __must_check
- batadv_get_vlan_from_info(struct batadv_priv *bat_priv, struct net *net,
-diff --git a/net/batman-adv/originator.c b/net/batman-adv/originator.c
-index 0a5ee918cf50..25a3f78aca1a 100644
---- a/net/batman-adv/originator.c
-+++ b/net/batman-adv/originator.c
-@@ -48,7 +48,8 @@ static struct lock_class_key batadv_orig_hash_lock_class_key;
-  * @bat_priv: the bat priv with all the mesh interface information
-  * @addr: mac address of the originator
-  *
-- * Return: orig_node (with increased refcnt), NULL on errors
-+ * Return: orig_node, NULL on errors.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_orig_node *
- batadv_orig_hash_find(struct batadv_priv *bat_priv, const u8 *addr)
-@@ -106,6 +107,7 @@ bool batadv_compare_orig(const struct hlist_node *node, const void *data2)
-  *
-  * Return: the vlan object identified by vid and belonging to orig_node or NULL
-  * if it does not exist.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_orig_node_vlan *
- batadv_orig_node_vlan_get(struct batadv_orig_node *orig_node,
-@@ -346,6 +348,7 @@ batadv_orig_router_get(struct batadv_orig_node *orig_node,
-  *
-  * Return: A neighbor node which is the best router towards the given originator
-  * address.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_neigh_node *
- batadv_orig_to_router(struct batadv_priv *bat_priv, const u8 *orig_addr,
-@@ -528,7 +531,8 @@ batadv_neigh_ifinfo_new(struct batadv_neigh_node *neigh,
-  * Looks for and possibly returns a neighbour belonging to this originator list
-  * which is connected through the provided hard interface.
-  *
-- * Return: neighbor when found. Otherwise NULL
-+ * Return: neighbor when found. Otherwise NULL.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_neigh_node * __must_check
- batadv_neigh_node_get(const struct batadv_orig_node *orig_node,
-@@ -564,6 +568,7 @@ batadv_neigh_node_get(const struct batadv_orig_node *orig_node,
-  * @orig_node: originator object representing the neighbour
-  *
-  * Return: the hardif neighbour node if found or created or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_hardif_neigh_node * __must_check
- batadv_hardif_neigh_create(struct batadv_hard_iface *hard_iface,
-@@ -611,6 +616,7 @@ batadv_hardif_neigh_create(struct batadv_hard_iface *hard_iface,
-  * @orig_node: originator object representing the neighbour
-  *
-  * Return: the hardif neighbour node if found or created or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_hardif_neigh_node * __must_check
- batadv_hardif_neigh_get_or_create(struct batadv_hard_iface *hard_iface,
-@@ -634,7 +640,8 @@ batadv_hardif_neigh_get_or_create(struct batadv_hard_iface *hard_iface,
-  *
-  * Looks for and possibly returns a neighbour belonging to this hard interface.
-  *
-- * Return: neighbor when found. Otherwise NULL
-+ * Return: neighbor when found. Otherwise NULL.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_hardif_neigh_node *
- batadv_hardif_neigh_get(const struct batadv_hard_iface *hard_iface,
-@@ -669,6 +676,7 @@ batadv_hardif_neigh_get(const struct batadv_hard_iface *hard_iface,
-  * Allocates a new neigh_node object and initialises all the generic fields.
-  *
-  * Return: the neighbour node if found or created or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_neigh_node * __must_check
- batadv_neigh_node_create(struct batadv_orig_node *orig_node,
-@@ -734,6 +742,7 @@ batadv_neigh_node_create(struct batadv_orig_node *orig_node,
-  * @neigh_addr: the mac address of the neighbour interface
-  *
-  * Return: the neighbour node if found or created or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_neigh_node *
- batadv_neigh_node_get_or_create(struct batadv_orig_node *orig_node,
-@@ -945,6 +954,7 @@ void batadv_originator_free(struct batadv_priv *bat_priv)
-  * The new object is not added to the originator list.
-  *
-  * Return: the newly created object or NULL on failure.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_orig_node *batadv_orig_node_new(struct batadv_priv *bat_priv,
- 					      const u8 *addr)
-diff --git a/net/batman-adv/routing.c b/net/batman-adv/routing.c
-index 6bcd9d9496ba..821fb5addbfe 100644
---- a/net/batman-adv/routing.c
-+++ b/net/batman-adv/routing.c
-@@ -587,6 +587,7 @@ batadv_last_bonding_replace(struct batadv_orig_node *orig_node,
-  *
-  * Return: the router which should be used for this orig_node on
-  * this interface, or NULL if not available.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_neigh_node *
- batadv_find_router(struct batadv_priv *bat_priv,
-diff --git a/net/batman-adv/tp_meter.c b/net/batman-adv/tp_meter.c
-index 4014a431951e..d3ffcc3aa44b 100644
---- a/net/batman-adv/tp_meter.c
-+++ b/net/batman-adv/tp_meter.c
-@@ -262,7 +262,8 @@ static void batadv_tp_batctl_error_notify(enum batadv_tp_meter_reason reason,
-  * Look for a tp_vars object matching dst as end_point and return it after
-  * having increment the refcounter. Return NULL is not found
-  *
-- * Return: matching tp_vars or NULL when no tp_vars with @dst was found
-+ * Return: matching tp_vars or NULL when no tp_vars with @dst was found.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tp_sender * __must_check
- batadv_tp_list_find_sender(struct batadv_priv *bat_priv, const u8 *dst)
-@@ -327,7 +328,8 @@ static bool batadv_tp_list_active(struct batadv_priv *bat_priv, const u8 *dst)
-  * session and return it after having increment the refcounter. Return NULL
-  * is not found
-  *
-- * Return: matching tp_vars or NULL when no tp_vars was found
-+ * Return: matching tp_vars or NULL when no tp_vars was found.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tp_sender * __must_check
- batadv_tp_list_find_sender_session(struct batadv_priv *bat_priv, const u8 *dst,
-@@ -1210,7 +1212,8 @@ void batadv_tp_stop(struct batadv_priv *bat_priv, const u8 *dst,
-  * session and return it after having increment the refcounter. Return NULL
-  * is not found
-  *
-- * Return: matching tp_vars or NULL when no tp_vars was found
-+ * Return: matching tp_vars or NULL when no tp_vars was found.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tp_receiver * __must_check
- batadv_tp_list_find_receiver_session(struct batadv_priv *bat_priv, const u8 *dst,
-@@ -1567,7 +1570,8 @@ static void batadv_tp_ack_unordered(struct batadv_tp_receiver *tp_vars)
-  * @bat_priv: the bat priv with all the mesh interface information
-  * @icmp: received icmp tp msg
-  *
-- * Return: corresponding tp_vars or NULL on errors
-+ * Return: corresponding tp_vars or NULL on errors.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tp_receiver * __must_check
- batadv_tp_init_recv(struct batadv_priv *bat_priv,
-diff --git a/net/batman-adv/translation-table.c b/net/batman-adv/translation-table.c
-index f9de255ef0df..216f41387afa 100644
---- a/net/batman-adv/translation-table.c
-+++ b/net/batman-adv/translation-table.c
-@@ -149,6 +149,7 @@ static inline u32 batadv_choose_tt(const void *data, u32 size)
-  *
-  * Return: a pointer to the tt_common struct belonging to the searched client if
-  * found, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tt_common_entry * __must_check
- batadv_tt_hash_find(struct batadv_hashtable *hash, const u8 *addr,
-@@ -193,6 +194,7 @@ batadv_tt_hash_find(struct batadv_hashtable *hash, const u8 *addr,
-  *
-  * Return: a pointer to the corresponding tt_local_entry struct if the client is
-  * found, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tt_local_entry * __must_check
- batadv_tt_local_hash_find(struct batadv_priv *bat_priv, const u8 *addr,
-@@ -218,6 +220,7 @@ batadv_tt_local_hash_find(struct batadv_priv *bat_priv, const u8 *addr,
-  *
-  * Return: a pointer to the corresponding tt_global_entry struct if the client
-  * is found, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- struct batadv_tt_global_entry *
- batadv_tt_global_hash_find(struct batadv_priv *bat_priv, const u8 *addr,
-@@ -962,8 +965,8 @@ static bool batadv_tt_local_add_existing(struct batadv_priv *bat_priv,
-  * as BATADV_TT_CLIENT_NEW to avoid sending it in a full table response going
-  * out before the next ttvn increment (consistency check).
-  *
-- * Return: the new entry with an initialized reference counter on success, NULL
-- * otherwise.
-+ * Return: the new entry on success, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tt_local_entry * __must_check
- batadv_tt_local_create(struct net_device *mesh_iface, const u8 *addr,
-@@ -1954,7 +1957,8 @@ static void batadv_tt_changes_list_free(struct batadv_priv *bat_priv)
-  * retrieve the orig_tt_list_entry belonging to orig_node from the
-  * batadv_tt_global_entry list
-  *
-- * Return: it with an increased refcounter, NULL if not found
-+ * Return: found entry on success, NULL if not found.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tt_orig_list_entry * __must_check
- batadv_tt_global_orig_entry_find(const struct batadv_tt_global_entry *entry,
-@@ -2191,8 +2195,8 @@ batadv_tt_global_merge_flags(struct batadv_tt_global_entry *tt_global_entry,
-  * The returned entry is not yet part of bat_priv->tt.global_hash and has an
-  * empty originator list.
-  *
-- * Return: the new entry with an initialized reference counter on success, NULL
-- * otherwise.
-+ * Return: the new entry on success, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tt_global_entry * __must_check
- batadv_tt_global_create(const unsigned char *tt_addr, unsigned short vid,
-@@ -2356,6 +2360,8 @@ static bool batadv_tt_global_add(struct batadv_priv *bat_priv,
-  *
-  * This function assumes the caller holds rcu_read_lock().
-  * Return: best originator list entry or NULL on errors.
-+ * The returned object has no increased refcounter and is only valid inside
-+ * the RCU read-side critical section of the caller.
-  */
- static struct batadv_tt_orig_list_entry *
- batadv_transtable_best_orig(struct batadv_priv *bat_priv,
-@@ -3024,6 +3030,7 @@ _batadv_is_ap_isolated(struct batadv_tt_local_entry *tt_local_entry,
-  * mesh for contacting the client 'addr', NULL otherwise.
-  * In case of multiple originators serving the same client, the function returns
-  * the best one (best in terms of metric towards the destination node).
-+ * The returned object has an increased refcounter.
-  *
-  * If the two clients are AP isolated the function returns NULL.
-  */
-@@ -3346,6 +3353,7 @@ static void batadv_tt_req_purge(struct batadv_priv *bat_priv)
-  *
-  * Return: the pointer to the new tt_req_node struct if no request
-  * has already been issued for this orig_node, NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tt_req_node * __must_check
- batadv_tt_req_node_new(struct batadv_priv *bat_priv,
-diff --git a/net/batman-adv/tvlv.c b/net/batman-adv/tvlv.c
-index a4f7e474b424..d26f3f7754a2 100644
---- a/net/batman-adv/tvlv.c
-+++ b/net/batman-adv/tvlv.c
-@@ -68,6 +68,7 @@ static void batadv_tvlv_handler_put(struct batadv_tvlv_handler *tvlv_handler)
-  * @version: tvlv handler version to look for
-  *
-  * Return: tvlv handler if found or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tvlv_handler * __must_check
- batadv_tvlv_handler_get(struct batadv_priv *bat_priv, u8 type, u8 version)
-@@ -131,6 +132,7 @@ static void batadv_tvlv_container_put(struct batadv_tvlv_container *tvlv)
-  * (tvlv.container_list_lock).
-  *
-  * Return: tvlv container if found or NULL otherwise.
-+ * The returned object has an increased refcounter.
-  */
- static struct batadv_tvlv_container * __must_check
- batadv_tvlv_container_get(struct batadv_priv *bat_priv, u8 type, u8 version)
+@@ -2184,8 +2184,9 @@ void batadv_mcast_free(struct batadv_priv *bat_priv)
+ 	batadv_tvlv_handler_unregister(bat_priv, BATADV_TVLV_MCAST_TRACKER, 1);
+ 	batadv_tvlv_handler_unregister(bat_priv, BATADV_TVLV_MCAST, 2);
+ 
+-	/* safely calling outside of worker, as worker was canceled above */
++	spin_lock(&bat_priv->mcast.mla_lock);
+ 	batadv_mcast_mla_tt_retract(bat_priv, NULL);
++	spin_unlock(&bat_priv->mcast.mla_lock);
+ }
+ 
+ /**
 -- 
 2.47.3
 
