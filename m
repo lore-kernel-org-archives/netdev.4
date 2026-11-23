@@ -1,70 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477194;
-	b=mxnI532ObZ0qgx77CAKb9JgdK74IwOfESumBAhmxA+33cFl7LoWzNKw5ZJxiyjAY+Zpp
-	 d0ORj2df6Z+N92PU70MdthWC6Ji+1bo883Z1U0cbeyIAMoFGkY3S53FZRhHqJ0I7EmtE3
-	 S2Z+YmEv5nE4fM2wU9x/mY7BA3ggsnybBshBkEr0rs7b5bcr3KU/Lz9BB+GyHEeXKN2EL
-	 u6ZGsCWMrq3j3Khr2ktTztiHyz6bJgB+jmBHOqkr9PB8UFj4v+kIf0FDF6e+sKL9vbaGU
-	 ImIswzwwqiPnUA6CjzTI2i8KJYAQTaXedAZ2HNNAnFuUzkmzlvnyImKz8zOSJzSAXag==
+	t=1795477272;
+	b=jKdI+SGvV1kISNm9Zuk7EJzWwp+Uj+L9o4ekwd5+cK2iZ1l1cGG8PRmL9DLrHbZuClsl
+	 GtVFMQPHMuaITRKwmx4h68pHkkCo1EI3sdVpyJoknShCYwdFcZzVXIids6+bfPsy0jG2T
+	 7U5yA13slMcY475/zV/gXHwXpqnhHhQoS0OKMmkbpowfuDFgSNQS0dRu36n8/lJlhB2tO
+	 IKF2J0IlZpEJ/R1MaKfY38s6vlngRzRfH02XGXMSw9FkevuNC0LuiVKbGQ88R2k4H+K4Z
+	 KZuRwPgsnKPqRl5rT7f1DW4zfSrAv++/YTYkVefMX26h7RY/QlyELgu1nPbSnijB0KQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477194;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=GQphScNATQHHldgFgEcB68heOuz1yKCUAO9uOSn7l/E=;
-	b=shMrdllPTn2ZAej1UaGZHVO/S4fY3MRMxAJghEOs+kEjGHhOyVfnz0RFfuYtlING26ET
-	 3XfGMItT85M3BBy6PPnUPYJPPxmDEBrQu8ZdbFu06t8SokSWpjHCWLKCBPO5gFwqJfufa
-	 oVTnAoGgjkWdy8I4WlrDRxQ9LbqN1qEK50hnqkYgvs4PpCHDWDEne1psjTTiG3FdM4NpV
-	 L/dhvsHj82bpCFICtFEpHfRXXz8roWb/eZGh6vKp0uKNn30bAsnDRFCanXzJBf41J8HIe
-	 9lvxFaEWwQiERyOCIBLni5XazX+pTLhD8dx0AE+BP19AVd1nswIHylLE9bFDycavOHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477272;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=7sCs1EHW+8IerzbWNfyv2UgBTw/vhw4f3rwKGqlZg4g=;
+	b=mOnKzVoMli4RRB6sNEwJ8YRb2zVyoK5uHU47NqQSY/GOgGeYgvhZUDcYjvI7aFdsovbY
+	 wl1OllbWIA5fXmKu4f4n2E4/UZ+m0ZfMJvOlh+06XOTu/qQqGRpN1Qh8nEaJBZ0LmSUlV
+	 TVt9szJzl6SzSjervjsYTjSCHqtZ5CtGrtVhha35G6q8ZuzApG778yIM+1sIRwWfISDIk
+	 4R6A8Gi1nF4im8ibSRFRzpwiHPvIOq02Jb9WPvjcK433yqMb8orfcHOFRVt+stiyf0xMr
+	 YUsmaXx9SeCfOhXeq7h9DIOMkkleHnkC6PiCSkc6YrAwVbk5VW11HoxT25/ptppAX2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=DF42BqXj;
-	arc=none smtp.remote-ip=115.124.28.99
-Received: from out28-99.mail.aliyun.com (out28-99.mail.aliyun.com [115.124.28.99])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYWt5XT3;
+	arc=none smtp.remote-ip=209.85.167.43
+Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com [209.85.167.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4466606A6A6;
-	Mon, 23 Nov 2026 23:39:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4466606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D86F606A331
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:41:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D86F606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=DF42BqXj
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795477184; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=GQphScNATQHHldgFgEcB68heOuz1yKCUAO9uOSn7l/E=;
-	b=DF42BqXjUdPkQLpCBC5CtznPLQOQTUGHZFL+h9zdNSlL6hvmVlslfN2+9T1AN8aFdDyCTn01AiPsF1WML9OU6BY/VLNjO8yXZfYpN2nLf8gomaaJ81EJwf/NpjftDJjfcJgDzuaDaf7lVgxjUQ6+KfVReX0uCoKs9I54yL5Uzsw=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04998161|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00557952-0.000104749-0.994316;FP=12015874423884973311|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=16;RT=16;SR=0;TI=SMTPD_---.k8dSJk7_1795477180;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8dSJk7_1795477180 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Tue, 24 Nov 2026 07:39:42 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	netdev@vger.kernel.org,
-	Liu Haijun <haijun.liu@mediatek.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Lin Qiaojie <linqj@xiaopeng.com>
-Subject: Re: [PATCH net v2] net: wwan: t7xx: validate PIT data before building RX skb
-Date: Tue, 24 Nov 2026 07:39:36 +0800
-Message-ID: <20261123233936.51601-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <179545421789.3294.8652562780118952990@kernel.org>
-References: <20261123171519.33975-1-fangxy@xiaopeng.com> <179545421789.3294.8652562780118952990@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYWt5XT3
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c126f80426so3931265e87.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:41:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795477270; x=1796082070; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7sCs1EHW+8IerzbWNfyv2UgBTw/vhw4f3rwKGqlZg4g=;
+        b=gYWt5XT3dQdvUniO8+A/+WNJltKocdfgxkgNxZe8u7HVwfNGB6CA1qdTF5017B6rnb
+         98PanKA+f1HpBkUcmRqPBdXcFCc3FJI+Ug1A19doLUqC6V1sNwobGVwzJE6zsYqVfLIg
+         3W+Dzl6vvvB4YkIzAagXieJMiasMu5GxJBNDkvlc8o1pvh0iZDgvreteWtF1XXdgjG+j
+         mIa5mYRLJHka30/ESkNougpg5hX5vQlZab6K5pePpngpPUfUN94211ZkVeRX2C1rh3Wn
+         pzXRGh064vXiStuc9IHGJyKV9lj2DjOwgitxM4KN3rwsO/lYRek6kxgoDpqN3CTvzArP
+         E4GQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795477270; x=1796082070;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7sCs1EHW+8IerzbWNfyv2UgBTw/vhw4f3rwKGqlZg4g=;
+        b=JrAS8z8rHJpJmn+4O0vLLtksY+yogaU+gAIcNFnCCLJpZYJEKb8qnf4u0BLnhoZnpu
+         YxNlYOG52R//U8rRMpa5he+B3iWLo4wbFHF2rWiThRgWmEDKEBL2mwUcO59Ol3X7jdLe
+         WVm39Jf3LVIGuKrKpCRpEwzcHlkYm5VsHtrzOAe2QCsOWYEKEX/TDGns2EJUY4HQFO00
+         eCMd/Dsp9LZd+nFLSqLLiinyM549xbTwdOESksJhkFDQ7F4ycL5HEKyEw5Iq4FLzvkkZ
+         4grXDMtAJcKOTShEPvzeyq+OD7Q9+mDaXw6h6v3B/D9er2G0JhZgeN9geOr815sQhSG+
+         RWog==
+X-Forwarded-Encrypted: i=1; AL+hErEz1/2eEM63YwzMpR5dgKzovtFrppNdSg7AQA6ibCbQ/AJBm3gT4VPEnCh+vjFMmyv0tign3Mk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9puAxFjaGj+HxQwbb+3cLACiJpWdJ38ePmHZo9rF1+FtFS73H2
+	7TZZfuth0SMDJPmwOS03fqq4kioXpjSwrx+uBZEDR+oDJqi8IgnevLt7
+X-Gm-Gg: AZFdTZdcg9MKx3N2FKtoYlFU57izfeLMkFIZ6JBbmVY2X4BckjWqQn8dnrboPI4mCvx
+	9586jVxZziA2WRDDEMvy84JuxdfsP/ENRIt7deSKxNkqUQDY4iA49VxSykgg8w1Xkloaf9HJkCq
+	NUp8Gy1rmI+q8A/4OxhQUCtFO3RCRW/fMKbibMkGVW2FjI7qHFmeewdmIpTCUzAqUwCs3s8dzvY
+	hFQCv0BWmv/wEnx6YzH32vvKAj1f7I+wMHUbBxAckOHJsovcKnDbX+vhPfTUvx8OEvC4zF+XBLs
+	DicQGkv82uOdf77t1Yvf3/zDuMB00KvAJ6GT12wALYcBAMPAbg2SBYaiOpv9jIlAhmwx0x0XXhd
+	Mjm6twp1wXOglJnn5EesypqMqarz5gR6n5sC7OByQHuWpRYNusSaK7KEP6kDoZUT2pRUlO3ua36
+	vYNReMvs2fCbhHQ40gVmm+kMtKUKIhv5PWPw30HkMakyIQ9sbaJ2V0Y+OwjujTLtaSZDqHLMsVD
+	hmeETAobRu5qO5EQopCpLlmovBp5LGhNDZ9Vh92LfRg6LxqbFXXGUjL0xqIaAgKz2B4pHMnmoRY
+	qv405ci7yVzbOfbAyttVwJCzwSmwxRgbDicyzgqckJEoDB7OO70N72U=
+X-Received: by 2002:a05:6512:124d:b0:5c1:56f2:fda4 with SMTP id 2adb3069b0e04-5c1bc89530fmr3136762e87.49.1795477270244;
+        Mon, 23 Nov 2026 15:41:10 -0800 (PST)
+Received: from [127.0.1.1] (ip-024-180.users.dtel.ru. [91.210.24.180])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04451csm3314217e87.59.2026.11.23.15.41.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 15:41:09 -0800 (PST)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ 	Conor Dooley <conor+dt@kernel.org>, 	Andrew Lunn <andrew+netdev@lunn.ch>,
+ 	"David S. Miller" <davem@davemloft.net>, 	Eric Dumazet <edumazet@kernel.org>,
+ 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ 	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+ 	Linus Walleij <linusw@kernel.org>, 	Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH net-next 4/5] net: cortina: Add CS7542 CPU network  datapath
+Date: Mon, 23 Nov 2026 23:41:02 +0000
+Message-ID: <179547726260.3.2509837092976108381@gmail.com>
+In-Reply-To: <560efd8b-44a6-4b3f-9f88-d1a891b4f253@lunn.ch>
+References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
+ <20261123-b4-cs7542-ethernet-v1-4-fdb5e8c2d508@gmail.com>
+ <560efd8b-44a6-4b3f-9f88-d1a891b4f253@lunn.ch>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,48 +109,37 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The issue was found during a security review of the t7xx driver's
-device-supplied input paths, assisted by the Hawkeye agent
-(LLM-based code analysis).
+Hi Andrew,
 
-It is reproduced at runtime, not only theoretical. No t7xx hardware
-is available, so a fault-injection harness in a KASAN-enabled QEMU
-guest synthesizes malformed PIT entries and drives the RX assembly
-paths; this is a synthetic trigger, not a natural one.
+I removed both module parameters and the unused internal-buffer alternative,
+keeping the previous external-DDR QM/TM default. I could not justify weight
+16 with a hardware requirement, so the next version uses netif_napi_add()
+and the normal weight 64. The .c helpers are plain static functions, and
+ndo_open now unwinds through cleanup labels.
 
-On the normal path, a PIT data address 128 bytes below the BAT DMA
-base yields an int offset of -128. The unpatched code accepts it,
-skb_reserve() moves skb->data before skb->head, and reading the
-payload triggers:
+I reviewed the flags against the core transitions. opened publishes a port
+under the shared TX lock after IRQ/NAPI setup succeeds. netif_running() is
+already true while ndo_open can still fail, so it cannot identify a port
+that shared completions may safely wake. Clearing opened under that lock
+before netif_tx_disable prevents completions waking a closing queue.
 
-  BUG: KASAN: slab-out-of-bounds in t7xx15_harness_run+0x1a5e/0x2340 [mtk_t7xx]
-  Read of size 1 at addr ff110000013bd000 by task insmod/71
-  Call Trace:
-   <TASK>
-   dump_stack_lvl+0x55/0x70
-   print_report+0x10d/0x5d0
-   kasan_report+0x96/0xd0
-   t7xx15_harness_run+0x1a5e/0x2340 [mtk_t7xx]
-   t7xx_pci_init+0x9/0xff0 [mtk_t7xx]
-   do_one_initcall+0x84/0x350
-   do_init_module+0x29d/0x800
-   load_module+0x510c/0x6630
-   init_module_from_file+0x15d/0x180
-   idempotent_init_module+0x320/0x670
-   __x64_sys_finit_module+0xbd/0x120
-   do_syscall_64+0xee/0x500
-   entry_SYSCALL_64_after_hwframe+0x77/0x7f
-   </TASK>
-  The buggy address belongs to the object at ff110000013bcd00
-   which belongs to the cache skbuff_small_head of size 704
-  The buggy address is located 64 bytes to the right of
-   allocated 704-byte region [ff110000013bcd00, ff110000013bcfc0)
+stopping gates the single reap timer shared by all ports. Last-port close
+sets it under the same lock used by timer-rearm paths, before dropping the
+lock and calling hrtimer_cancel(). It prevents a running callback or RX
+poll from rearming during cancellation. I retained these flags and added
+comments explaining their roles. rx_stopping separately closes the device
+retry/IRQ-rearm window; napi_disable alone does not join a poll tail after
+napi_complete_done().
 
-A second input, where the u64 address difference narrows to a small
-positive int, is also accepted by the unpatched code. On the
-fragment path, a negative offset likewise reaches the page copy and
-faults on an unmapped address. With this patch applied, all of
-these inputs are rejected (-ENOBUFS on the normal path, -EINVAL on
-the fragment path) and no KASAN report or fault is produced.
+Independent built-in/module ARM builds without the platform series pass.
+The revised driver also passed Almond+ RAM testing with live NAPI weight
+64, two load/unload cycles, 600 byte-exact UDP echoes and 20 ICMPv6 replies
+through the normal DSA path. A separate internal CPU-port diagnostic
+passed 448 nonlinear/jumbo frames, including 8192-byte payloads. These are
+functional checks, not throughput measurements.
+
+I will collect further review before sending v2 within the agreed cadence.
+
+Thanks,
+Fil
