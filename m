@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795399058;
-	b=J9t0GTyJXW3LR6L3tKJcIwQF/pt/SbPdikyZmzwVzEgyQClgsyYF04HjFJZsDYRsBCN+
-	 FAoKrUJBjnJFWqNeNqphzfoiF7yf2wRuTSfFr2KL1OYpw1bUpb+38sIPzhYwnDuU+R608
-	 mJddQwb2qESl+NP5mEo4NrUEy7Ld2s1AsQQgEx1rNQYw9vvM9RWS3QqjtVkjjfBGaajFW
-	 YF/OJjnKP5TmFDcdP2vBWLvK8uM9r4OUqQl0Cg3FkL312z0m47SI8nKtxnQa5T7AHgwlR
-	 aUq7o+F8NSHb1uL97OYR0Wc42BarNzPL1BRmBMmSqhNXuou0STlkqUVP2RwB49Yp6Xg==
+	t=1795399062;
+	b=nRoqSp8g9gMIwJdd61HD6ZgAMwidXXHJKIp48I/Q+nboMAzu5jASdAnjFG/GgRk96zZQ
+	 3Htzy+kLb5h+AAKzrumsBqEJPwPqsBePEEZm7yJvRHTZZnJpdbUciS6C1qsLxt50aNvVq
+	 HordcnwDiPza25XoxCArbM051w2JXoBf1/o8741bbBxP21tyvXnq3u3AdGKmWwaOMeBQN
+	 smtmXldVYVVugb+KOSMEgZA2L/i1ZSPRVUzFh+KODa3QJK2Biqpf7+1ls/3UCPSr6zQ46
+	 5U7PYDXwZOeLDA62yWU6mhU0J4iBvTE6huT0odlz9M2llr7Iy/0Qcd8FrG+MGZLX2Uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795399058;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399062;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Nl4w1xEyLUDW41U/BJXGR/AzIuR6Vo4G7cXU/w1TxNM=;
-	b=CDh6Y4nLqPLkX5+ltcyKd5XO0ZgfaOlyb5YSCo3lLH8LFjpOjH7pGrmqabEL4FH61P6G
-	 WOaCEIVAPvOe+mIlZ1zTeQqimiOa/esrim3MvFANJPRFmCDRAJh5trp4uv3xRTyibAsuA
-	 D4VZ4zG92SINI4d84f9fE2CHZ8Lx/+zlW8+bbadPADfupB7Ns4/+v08tAd59qBj3enU/L
-	 Jijfz8bwRrr8M1CUYwgl0MdMFyBXZ9taBZqZEZJDMyfr0H1/5vorve8Zn2m5MpUcksJmz
-	 si/OHeqMe9KqMQZakqdNutanaskvs+P7p9IxXUiumbsvI4t5zKFHbe9flj98GSFgWCA==
+	bh=Yz+h8e6nlUGS3YHD1p73owGomONCcK+wC5nQNATZT5I=;
+	b=5XRZ4qAiEdXVbdFoRTvPiAh1WX8/OMxq5857Z7X4En3d6oX5Hz939hSoocuZa9MPA+zU
+	 EwULpMRErzOiblZhhyDZG4JKiTj5/OqdPYIJrKwy8i9Q0gGPHd+ZJXVp0m87u114SKbAa
+	 5yhFGg3SsgIW6uK8iujzO9CB9zmDTKnZ2ztg9EppjPXKiNHZ+DtkMVOvtqW2+v0c+D1vI
+	 7/79hyZA2aN4eHk+I7bZrUnzSlJSA9db9qY8Hn3fAz8gFeD7KoqHZotUdhRPIBJEx7kKR
+	 q9mqnpdKsk/JQbT151nypTg7dIBeXS5WYvG8viNbUrVKkgXsLc3vglEBCUnPaDSoRHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RDIwsUkd;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="e+ia0Ge/";
+	arc=none smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 263BC606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 263BC606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF97D606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF97D606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RDIwsUkd
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso6143115eec.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e+ia0Ge/
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-15dd124bbe7so969997c88.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795399057; x=1796003857; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795399061; x=1796003861; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Nl4w1xEyLUDW41U/BJXGR/AzIuR6Vo4G7cXU/w1TxNM=;
-        b=RDIwsUkdet0i59zNH5ZjQnFEV2R1jyK9WxCnzlyj7QB4PWAhOiW7eCbXCE16HIlkah
-         eo/inwgiMFrxhi67yvanxiBHM7CjFmWcIRsg39QYcbrYeViR/xq8dXIh3s7mq9OBqR+V
-         DzSHbUa7zj4B9FQG7GiMLyTTXfamABspOuFBtdFMBjBrq3LrPohuvwwFkTv6ESWoX16C
-         DucXHbVg+Uh7bomsJaH+f37Hqha22EyqYvxuCmX7jN4P27OoL6jhYpZbP58tPhYEB3q5
-         +t8qZ07nrVgfAGX9jX7z7JbyPb42DTAVydXTJ9tpVeKq0SIpAah/ipjy9uCDtRn4/8RO
-         eTrg==
+        bh=Yz+h8e6nlUGS3YHD1p73owGomONCcK+wC5nQNATZT5I=;
+        b=e+ia0Ge/5Z+b5LRVJTFyzd5GeA3yjJkTZV1waFmedghs32YyHpqSFNlGcPvO8m7cOR
+         bYEYNUpsM2S4xd1U38UG9cAnu/rq67gHZHlDRWYRnQU2Fgwn4vV5tjKTxvouhibYyTYu
+         LrWL0dBQQmgzIOVmWVm7sOAc3qxvylTWw9sZ1HO181sRz3m4xc6kAv0Lc7ZXmH2Eou6W
+         vKb+qlpujLDnUqMpYTUML3ZWQjd/oYWI1Qp8KGfVTgs1JQ8BQLk8IkRgWNrBAmb0yUkI
+         zSmc3sA8A7x9WOywWXuFGgsOPHsE4s33y56gJXBoZS7l98dtt+R5cX+K+4eCPrTGzABL
+         jUXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795399057; x=1796003857;
+        d=1e100.net; s=20260707; t=1795399061; x=1796003861;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Nl4w1xEyLUDW41U/BJXGR/AzIuR6Vo4G7cXU/w1TxNM=;
-        b=ZIlllrU8eNv+mael86jzv7kmsI/3OksQfNpsjNkuErUUWRVjWLMQ/13usPxXEIED2n
-         tbhT2mYgmsH7LaxtyzZbOhSxPjaZWsG0MbHhMUACJFiRuDsEi+jnWapdtJVv5b1CNBy6
-         QyRP9HCyY2gMQDfgw9/0Pyt9atfwCD8wWFyPUYItHbKLJXcdfE9kJr27zmDTQL2v2zXu
-         3cmaI8ErRiBeAd7KPloRazTPVVML3tVRs61T5G3TZSfY618/ab1sd3sQ3GbqNzVmSNxb
-         eR4tDVRypCTNf9N3ofD7ebHHn/5H2c2GECpxiaO20Hx9bJKlLRlxMsOBIKPnWnQ6UCh0
-         91ow==
-X-Gm-Message-State: APuU4Z/VbA1HUafskgyFZ8PVKMx5enG57/hns7nLpcj3XBUN3WQcVtYQ
-	qsPCNTmdQq99pVA7ou3/2OZH6Jor3MdwZEbYXC9ag7SN5lJDgRRR+K2zOCYcZ6V+
-X-Gm-Gg: AZFdTZeNA6/ZBlVedGx0hrQWu93Z7KPMG3kZ2IWQKPKxRe9227VFXRIFD8CvVB3nNqu
-	NJTUaieW8/VnCyLbObZU1uLcs1Ia35gT+Yzf3M4/7uVpDJBx7Kgf8dtzbjbdAstDwG9xdF+RyCT
-	sW0BnBBSLJnImP8CEObtivD6AckIE1sK5sWycCWHmIAZSwFTfnzJL5NGwClzB2EuYGLdPW1Xl5b
-	YwarEKHtvb6e3Ubm4t9ExuWpMtSE6nu0z5emzMuE2+Iu2lhXTuWqlJEl6kowDLWmH6JU+OAsHll
-	kRD5oM6KBTnpxmr9YtSTBjNgtGM/NQqYCil750+pOQtACnUA7nZ193pjozXiGds+YnPl743xSdt
-	1Ka/Wavyeo9LR4W7v73Je7YdMyeF3DKYMnZDLeWraeS0n5uAoDF+hzo41TfYgCO7Ix020UVLAco
-	qCjKQS+MusQkyx31tiUitDXMudgQlP24iJMdXsCQ3JzfYjm6+9zWEn/txkV+1jOmi1904m8xOAm
-	2r+lW/G+4HbJTyBROWPLlvZk4KReAlB2PYBoNoLKoVRgdhu/5X5zeyeFX0ejuoUXUwlB+qYQfdW
-	akvLYbP+4ZUNIruI/lw7ttoybl3sGABij3de/208uM7bL8PVtCxJEubAb+QRBRrHivp7gIVwF+E
-	FLicw+PaAFA9pBm5e/wqemJx3J1m2gc5cs002REvgmD2lnzAlCuYEgmtUTsBJ5ZUppbz/9Jy1
-X-Received: by 2002:a05:7301:3f0a:b0:384:8f9:bbf6 with SMTP id 5a478bee46e88-3857180d3b2mr17230480eec.38.1795399057116;
-        Sun, 22 Nov 2026 17:57:37 -0800 (PST)
+        bh=Yz+h8e6nlUGS3YHD1p73owGomONCcK+wC5nQNATZT5I=;
+        b=Yhz2WqnFdse22Nt73szr7PDfBSclAU66o/CreRjmUInB8gkQY/SDR/k1fSDcndj36f
+         Fb0P4z4Up5ajWqLh+WRMVMcdkhO/t+R4mMCUq/2eneezc4Mhi4DHTSwzhf6380x5Q7+p
+         cmG7mXiypDqQ4Kp6O4MUedKpf2ejpl2kLzRmxVgWkpK8wQaaGaG0Z/RSHp660WdPJshx
+         d/0Pagh02maaSSRuKCLyTcmSSijP9Zlo8QuW4UZvTf/OUfF73PZemixjlGqD/JljH5jN
+         Sv2dQN3zWmMZ4iQyT2t9LW3ljLBV0bvxnoI+5qbZuSAkmUPmEJM7LFZucUI7AjrvXfjz
+         LY7g==
+X-Gm-Message-State: APuU4Z8VU491A7DC5JBJaWovMf6c45JAC1K2eBXVUh10jvpWP1c4Efer
+	EvZMHdTwSIT7zIaY7Lw58MTR+eGgBUIAgf1l91U85y3Jt0e5qnFxI56QZt3g31xK
+X-Gm-Gg: AZFdTZf/4qBVBBZgdvVuyvnSQfM7j+pioMFs7DapUyvON/oE4rM1sOXEjnY57i6Yddd
+	H0XLD2HShcVLAred+8vjEiOsWIj6dN2+SEbrlJKJ9JvYSZcLjfZ97CAj6xYX9brLidhVaNTNcFl
+	hb3hfDVwtx/wOR8td6r8Za2KbwIroJsg0J/wYRUqsybdSdaqV8/24Decxs3pCjMoJTkwO3IWkGq
+	F+ve6wKPeZhdCH29SXareNYQuYCiH7JixYPL91uH2kCJVSj4QnBunXovQMX6MoxmWfboa76p3My
+	Sz0ZBqAzuAS7OjVTqC7z6PXJXbwibE9oY6jEZU0KCytcVNOfWTEXz6Z7P6omfkSgedXsTL0x2BJ
+	+xH4bbZNdw+j8576Qvsc49gcah7sdcuddVIW6CiW+uzamygZ2dy0BZQB5etYUUbYaXdpWGIQmqZ
+	q7UBU6FcNw3ofZjv/yRe0z8lPfT8JO2faD27d4qX2W5CG67buoqKK6HTGWg+sHtZlgntvy7xDmk
+	9Pxpin44zefLg8ycbxDeFva0SZwikNrOHUUTiRptXB6OixurP4Kw1Zdo5wqEzcOhggdWnIH0YZR
+	t9UIm+pyCtkpSIIQhKju5FK42b3tC6dQ1BYiWY3aLgjdiY8isjSvTNOcfJrtNGAPmIf/a2zrFfa
+	MiyfNKhmVa3UNE6Ho0wwhu5MyXIn42bdV0s5s3SCr4iOHrWi+0CWb6x7jkVj+Vq/fhOUBL5SO
+X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id 5a478bee46e88-386a1ae6d5fmr6018064eec.36.1795399060780;
+        Sun, 22 Nov 2026 17:57:40 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm32289948eec.28.2026.11.22.17.57.36
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm25648335eec.25.2026.11.22.17.57.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 17:57:36 -0800 (PST)
+        Sun, 22 Nov 2026 17:57:40 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
@@ -91,9 +91,9 @@ Cc: andrew+netdev@lunn.ch,
 	rmk+kernel@armlinux.org.uk,
 	vadim.fedorenko@linux.dev,
 	vladimir.oltean@nxp.com
-Subject: [PATCH net v4 1/5] ptp: disable all timestamp channels after removing the user interfaces
-Date: Sun, 22 Nov 2026 17:57:34 -0800
-Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-1-ahmadexp@gmail.com>
+Subject: [PATCH net v4 2/5] ptp: ocp: handle hardware selectors and combined DPLL input routes
+Date: Sun, 22 Nov 2026 17:57:38 -0800
+Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-2-ahmadexp@gmail.com>
 In-Reply-To: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
 References: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -107,120 +107,99 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-PTP_EXTTS_REQUEST and extts_enable can enable channels without assigning
-a PTP_PF_EXTTS pin. ptp_disable_all_events() only visits assigned pins,
-so those channels can still generate events after the clock is released.
-ptp_ocp exposes six timestamp channels but only four SMA pin descriptors;
-the internal GNSS and PHC timestamp sources do not need an SMA assignment.
+The selector table index is not the hardware selector value. Passing the
+index to the SMA setter can select unrelated signals. Use the table
+value, as the sysfs path already does, and mask the direction enable bit
+before looking up the frequency.
 
-Disable each advertised external timestamp channel, followed by the
-existing PPS disable, after posix_clock_unregister() has removed sysfs
-and drained active ioctls. Keep the pin configuration unchanged.
+Inputs can feed several destinations. For example, IN: TS1 TS2 produces
+selector 0x000c, which is not an individual table entry. An exact-match
+frequency lookup fails with -EINVAL, preventing the DPLL core from
+reading the old frequency before a later frequency change. The error
+also propagates through the DPLL pin dump.
 
-Remove ptp_ocp's preliminary timestamp-disable loop. It runs before the
-user interfaces are removed and can race with an enable: the enable sets
-pps_req_map, detach clears it and disables the source, then the enable
-rearms the source. Both later subscription disables can consequently see
-an empty map and skip the hardware shutdown. With shutdown delegated to
-the core, requests finish before the final disables and IRQ drains.
-Keep the existing resource cleanup for probe failures without a clock.
+For input combinations, report a known frequency only when the selected
+frequency-bearing destinations agree. Timestamp and counter destinations
+do not constrain it. Report zero when there is no known frequency, when
+destinations disagree, or when unknown selector bits remain. This uses
+the same zero-frequency representation as individual timestamp routes.
+Keep the exact-match requirement for output selectors.
 
-Do not skip the shared PPS source's register disable when the final
-subscription map is empty. An overlapping extts_enable sysfs request and
-ioctl can leave an empty map with the source enabled. Once both interfaces
-are drained, the core's final disables must still mask and drain the IRQ.
-Preserve the shortcut while another PPS or EXTTS subscription remains.
+Source-derived tests reproduce the selector and combined-input failures
+using stubbed MMIO and the DPLL core get-before-set function. They pass
+with the fix under ASan/UBSan. No physical card was tested.
 
-Issue PTP_CLK_REQ_EXTTS requests directly for timestamp channel indices.
-Do not use the pin-function helper or require a pin assignment. Keep the
-pin-function helper for changes to actual pin configuration.
+The issues were reported by the Sashiko review. Codex assisted with the
+code, tests and changelog in response to those reports.
 
-Source-derived tests with stubbed MMIO and IRQ operations reproduce the
-early-disable/map race and pass with this fix. Core unregister tests also
-pass in QEMU with KASAN and lockdep. No physical card was tested.
-
-The issue was reported by the Sashiko review. Codex assisted with the
-code, tests and changelog in response to that report and Vadim's review.
-
-Fixes: a60fc3294a37 ("ptp: rework ptp_clock_unregister() to disable events")
-Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
+Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-Link: https://lore.kernel.org/r/4e42134b-b017-4836-9772-9c1915b16e77@linux.dev
-Link: https://lore.kernel.org/r/08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev
+Link: https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
 Changes in v4:
- - Issue timestamp disable requests directly, as requested by Vadim;
-   leave ptp_disable_pinfunc() for pin configuration.
- - Move review-only testing details out of the commit message.
+ - Handle input masks with multiple destinations and make ambiguous
+   frequencies explicit as zero. Keep exact output matching.
+ - Drop the earlier review tag because this expands the implementation.
 
-Testing: 100 ASan/UBSan teardown/shared-PPS suite runs, including late and
-in-flight enables, concurrent sysfs/ioctl requests, all six channels,
-zero/unassigned pins, absent channels and active IRQ draining. Seven
-deliberate cleanup regressions were rejected. Five core register/unregister
-KUnit cases ran in QEMU with KASAN and lockdep. No physical card was used.
+Testing: 4,669 input masks across FB/ADVA/ADVA X1 tables, timestamp-only
+and mixed-frequency routes, unknown bits, strict output matching and
+recovery through the actual DPLL core get-before-set function. The old
+source fails the combined-input test. Selector, mask, combined-route and
+conflicting-frequency negative variants fail at runtime under ASan/UBSan.
 
- drivers/ptp/ptp_chardev.c | 14 +++++++++-----
- drivers/ptp/ptp_ocp.c     | 17 ++---------------
- 2 files changed, 11 insertions(+), 20 deletions(-)
+ drivers/ptp/ptp_ocp.c | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
-index f63b45f5ee6a..5835c01cddb4 100644
---- a/drivers/ptp/ptp_chardev.c
-+++ b/drivers/ptp/ptp_chardev.c
-@@ -53,11 +53,15 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
- 	unsigned int i;
- 
- 	mutex_lock(&ptp->pincfg_mux);
--	/* Disable any pins that may raise EXTTS events */
--	for (i = 0; i < info->n_pins; i++)
--		if (info->pin_config[i].func == PTP_PF_EXTTS)
--			ptp_disable_pinfunc(info, info->pin_config[i].func,
--					    info->pin_config[i].chan);
-+	/* EXTTS requests do not require a pin assignment. */
-+	for (i = 0; i < info->n_ext_ts; i++) {
-+		struct ptp_clock_request req = {
-+			.type = PTP_CLK_REQ_EXTTS,
-+			.extts.index = i,
-+		};
-+
-+		info->enable(info, &req, 0);
-+	}
- 
- 	/* Disable the PPS event if the driver has PPS support */
- 	if (info->pps) {
 diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 625a85b2dc7e..b16d36c3305f 100644
+index b16d36c3305f..df1a428eb2fe 100644
 --- a/drivers/ptp/ptp_ocp.c
 +++ b/drivers/ptp/ptp_ocp.c
-@@ -2559,8 +2559,8 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
- 		else
- 			bp->pps_req_map &= ~req;
+@@ -5869,7 +5869,8 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (tbl[i].frequency == frequency)
+-			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
++			return ptp_ocp_sma_store_val(bp, tbl[i].value,
++						     sma->mode, sma_nr + 1);
+ 	return -EINVAL;
+ }
  
--		/* if no state change, just return */
--		if ((!!old_map ^ !!bp->pps_req_map) == 0)
-+		/* Skip the register update while a subscription remains. */
-+		if (old_map && bp->pps_req_map)
+@@ -5887,6 +5888,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 	int i;
+ 
+ 	val = bp->sma_op->get(bp, sma_nr + 1);
++	val &= SMA_SELECT_MASK;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (val == tbl[i].value) {
+@@ -5894,7 +5896,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
  			return 0;
- 	}
+ 		}
  
-@@ -5755,19 +5755,6 @@ ptp_ocp_detach(struct ptp_ocp *bp)
- 	ptp_ocp_detach_sysfs(bp);
- 	ptp_ocp_attr_group_del(bp);
- 	timer_delete_sync(&bp->watchdog);
--	/* Disable interrupts on all timestampers */
--	if (bp->ts0)
--		ptp_ocp_ts_enable(bp->ts0, 0, false);
--	if (bp->ts1)
--		ptp_ocp_ts_enable(bp->ts1, 0, false);
--	if (bp->ts2)
--		ptp_ocp_ts_enable(bp->ts2, 0, false);
--	if (bp->ts3)
--		ptp_ocp_ts_enable(bp->ts3, 0, false);
--	if (bp->ts4)
--		ptp_ocp_ts_enable(bp->ts4, 0, false);
--	if (bp->pps)
--		ptp_ocp_ts_enable(bp->pps, ~0, false);
- 	if (bp->ptp)
- 		ptp_clock_unregister(bp->ptp);
- 	kfree(bp->ptp_info.pin_config);
+-	return -EINVAL;
++	if (sma->mode == SMA_MODE_OUT)
++		return -EINVAL;
++
++	/* Inputs can feed several destinations, including timestampers. */
++	*frequency = 0;
++	for (i = 0; tbl[i].name; i++) {
++		if (!(val & tbl[i].value))
++			continue;
++		val &= ~tbl[i].value;
++		if (!tbl[i].frequency)
++			continue;
++		if (*frequency && *frequency != tbl[i].frequency) {
++			*frequency = 0;
++			return 0;
++		}
++		*frequency = tbl[i].frequency;
++	}
++	/* Unknown destinations do not establish a frequency either. */
++	if (val)
++		*frequency = 0;
++
++	return 0;
+ }
+ 
+ static const struct dpll_device_ops dpll_ops = {
