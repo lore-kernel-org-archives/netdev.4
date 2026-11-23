@@ -1,101 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476440;
-	b=hI3igmC/AOHi8lTJmNtMw4VB8mnJNHpXh0hgps99p0WcrpBk9ljKxpQ3l13C0mbPnBlU
-	 X86YANSjg151PGpkOX68t6oxM5dB9rakv7VL2LWwY6NFkcrpibCPSN8+IRVBjd/CXhgvy
-	 LM+/BY1V4AtcEB2FjruBKnDkb22kvgJ8gVJwj4Ko6EPL0yf5/pgEYJSgFO8pmeOy5Txk/
-	 uVsiOpC64M5GPzAgYpi4+FyjMh59jPtuXSguBx4LLuy9AotAaqYD6vX2qM/1HjV7l73Y7
-	 V/KsXM5upb+VFRfbZnWdysWYKtlrpNJEBSpsIyFokQN4YiVQXe+yx1uWR4KMIOX2nwQ==
+	t=1795476489;
+	b=IIElkNBYKYl3iOlpCgJL+V3fYV+YFbwjCuwi5jcR41vO1K4+q9flSN+JIah2EFHA1SG9
+	 0ECvgI5YVTgS5zgvZu89Jhhipb9oxXQD1Kyt70rHfo09DKP9XcYzIhZlru9VibRdyxLS1
+	 htr/bO0UaM8UTXTmTm4enIajOvpEHjuLQV/Hu5tXvfBR0rF5ah1YL/yRX6m9OBNupWIBz
+	 lkApsGLju0/ZcjAjXExBUCYL+qJGVTcjIRlNgkrERf6Inwvwhu4dAZG4J50cmxzm6e5Oc
+	 5VkCMrrkDmeUrMZ+FgOaEHVIx7Ef9gmf7Q6UA0ozfBp2d1+ofn9l+Sqcp3gUzV80k+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476440;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:Mail-Followup-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
-	b=MI3kQfKw00pQwkUfESZRb9b4e/dDSAKeA9Mhyberq8lyUchBGJaY7UxPk5PxMtfvgwl2
-	 K98LjvdmldPKhiG17gY7/YgoWELwk7HcEEs4DV3w0oHAyug7fcHXcgsOzfpcqxRKBZzMa
-	 cRtW0CmWTfyFYsw5orP4lh5ZLvl4JHUahw3O+9XMmckJk1CswtLm2SQjGdGHv+nzjg8Fn
-	 2BBztVZeTreLUCWCHQ+VRdIlkr0EQSW9OZeDyNat9tknPR8ByvL8VKod+yRMIwBf7RqMr
-	 Hsww2e+PJdv+8os+2NzIOp6iCO5zYl9VRNrIXFa4zjqqeulGj96Jd1DNKHPqHjrmugg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476489;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version;
+	bh=OmzTRubTnAu2LE3ZA88luIqbHMLI1ENdVnQ5aQlfvrg=;
+	b=ctfxybW8nMPYaw0B+LulpG0SIscvMdp+Y/Hk2BMIEz5r2bRyboBLfxQka/W7Bj3gX6lZ
+	 zNh6P6xEgAHBWVrQjax6xdsiwtURDMY8gYWQadvBPE9OhL2OKdIDIvZ28pbF+BudtgyxU
+	 FJrP7JGafFIHXmo5p+CYyyf/bgvsVcQPXHImYLr3oCGtHcG2uU9snB2gZI7Y4GQBFo8OJ
+	 t7irrBsfshSbewCStlIdrEtJe396QrNAGACT2I8FyR8lKV09jfuGc8nvHn8DExCSnO34p
+	 uuS7BtuLJwrJf+W0A8fxDnOMtEd25EpHIFDI/Nb6vi/HfJgkNbFSwkLnc/Z4vlTuwlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=c6mBRDzg;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="W9sr/JvA";
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 482BB606A686
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:27:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 482BB606A686
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10D5D606A31E;
+	Mon, 23 Nov 2026 23:28:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10D5D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=c6mBRDzg
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so1751696a12.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:27:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795476440; x=1796081240; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
-        b=c6mBRDzgIZ9H7GWVPY/NPFpSZVPRkVb3ExQRmZnYsMUhVj6GwRJWUP6DIZ1N8CMm/v
-         IRrlLQKW/o6q8CFyf9Q151QiF4Nmnx/ouFuRYZLqeAx2zQyR9FKTsmnl+pE9/izvJEAw
-         4LuNWS1Cbhh0FDHjAtH3AkhwvRnw0H5H47LPPRqyxJGgr1rWl+5fJQdVJPr+9XVX9TYZ
-         DMT3/WeblE9Ly/L149xdrq8ZO/knZrAxSihN2cTrwv/ajrAm4q0JioORDvEA7VPib6+W
-         Fc1We1SHbHja0aU6la3mCKWmqdmdqyrw7PrK1kBw+lHZZRnVJkwWtgVJrKaeNf49g9jN
-         uuVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795476440; x=1796081240;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
-        b=0G7JsNjTEzYVvPtxhQlJBq1dwtBb0sr57nGSTMAEOfi2vHmO6pTbogEQBcJQ/maSaD
-         4pS/zVtUvDHLiRjaZ4OIpHJ7Sww63R/+0oY/E73TzrviRrnp8ALOKwor31QXIZBmIAyF
-         rPRM0I+NiDsjcynxxUhSjlEDkSUMFrQuCQrkYtdwdVPSoVklfIiIwbSfUvS9OnYdT6AA
-         2sd77FMH9JbH2yy1nyRWckd1JGAflOGVwS/M2nsoXbZ+lZk/vpckm7rAH//J8VrH1Y0u
-         3MdWw0oSeT+aPP5HGqezUwoUXu0XbtfXK0x7M4CRCrTmTCmi5p8QFWiEF6QzuuiE/Dda
-         kOqg==
-X-Gm-Message-State: APuU4Z950fCyumzoHU++8MBCH8ZMAtWizvb020wu80y/lrRS+ObC/Wwk
-	NsrUg7zhNCOib1MGfnb/Xm4tN/+6akRDHLj/Lcul9vhyBHoY+d3S124ZZds1/paGYm24/3M8Qwi
-	lK8S0
-X-Gm-Gg: AZFdTZe/88+UyvTRCKXButVbQheGPrt/L8zt3WUBr26k69Xh39b52r6VEc9tXxFbI31
-	5oHFf5uieQeugtamtd1NjCtbxB1Tm2lSQO3+TsmyJn7jv1sYXC32ado6HO3sxg6b7BDPD8JU03D
-	UcxfnlOkhB3muijMzHE9NE4iWTEZhWABMYJOY0GtWxcYj3Ryf6a0g0C/titwiqaDKokE6UaXs5d
-	3XTYkTKbXjx5wpa5thWmAoC3AhYp3R+n7PDx/DUE4HW7lKPxXZL+dAwMMK7pBiL7vsa+ku1amC0
-	9LtlrrqVlQ5Ka5tmlaFc6dorOAId2FVrrths/6f0ZRYEjCWjEa2WThXHLj7zZsI0duL6Y6btgN7
-	1n2BE4XgHWgm595L2NJGUQMDatMM2SqMOU2PNAk72/fFxTWoDQ8Yy61G3Fl3+8JkdT38l8eF622
-	1fNiJl/DsK5McOrbQWs+IZVFrZ5KtDMbJeUohAqcBp2YyEnGGrMnlTa8aeUw3tX72cPiRbyms1I
-	DLWwdqT3RUWjUHb9SUNA+/YBVwWvkZg5RX91TNju8BZ30sWMhZIp5V1mPZ+nl4ZITXwBsXnhQ24
-	WgqEKToN9CTgakmb3O4Vpl5PbmDhnjOH+QLHrttt/3M=
-X-Received: by 2002:a17:90b:4a90:b0:3ab:e588:c295 with SMTP id 98e67ed59e1d1-3b41c95b542mr783917a91.42.1795476439597;
-        Mon, 23 Nov 2026 15:27:19 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:5d::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b73b2b3sm8886551a91.2.2026.11.23.15.27.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:27:19 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:27:18 -0800
-From: Joe Damato <joe@dama.to>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v6 0/5] bnxt_en: Make RING FREE more robust
-Message-ID: <awTL1hW4kH+lo8Vl@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
-	linux-kernel@vger.kernel.org
-References: <20261120152830.699712-1-joe@dama.to>
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=W9sr/JvA
+Received: from pps.filterd (m0528004.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw3au2537414;
+	Mon, 23 Nov 2026 15:27:27 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=OmzTRubTnAu2LE3ZA88luIqbHMLI1ENdVnQ5a
+	Qlfvrg=; b=W9sr/JvAIs8cJ34Gr3QUpPpcZguNxMAmXtmgD+57sgPNDHaM4gqpc
+	vo2llu8v4j3c0kWOnkLSqnvP7OIyI0KFft3pTM2VdhccZIzwFkFVws8y02mx4sqa
+	p1KU7d8A5ww5AkvypNHNFxij7Y0ggbb/aBGeoq77hzeP0uI12YBIbwkXkSB5yuJ6
+	1oMwBWJu0V/fGjK/qRId4En9QfbFp48qewkCcw1178akVLqEjNc19y2S1EjsL3Lj
+	aweXwnEz/7hNCRl+YuhDEZJ0fOILvOrhJj5QoAa75kOAssPWeGRh8Ql1of05tabe
+	SHwXLNLhGdtpXau8+tzIkrkwvKptkoNeQ==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3wth9xrv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 23 Nov 2026 15:27:27 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:fe::f072) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
+ 2026 23:27:26 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netfilter-devel@vger.kernel.org>
+CC: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+        Phil Sutter <phil@nwl.cc>, Nikolay Aleksandrov <razor@blackwall.org>,
+        Ido
+ Schimmel <idosch@nvidia.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Boris Pismenny
+	<borisp@nvidia.com>,
+        Sabrina Dubroca <sd@queasysnail.net>,
+        John Fastabend
+	<john.fastabend@gmail.com>,
+        Daniel Zahka <daniel.zahka@gmail.com>,
+        Willem de
+ Bruijn <willemdebruijn.kernel@gmail.com>,
+        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
+	<bjorn@kernel.org>,
+        <coreteam@netfilter.org>, <bridge@lists.linux.dev>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH nf-next 0/2] netfilter: don't send decrypted skbs in clear text
+Date: Mon, 23 Nov 2026 15:27:25 -0800
+Message-ID: <20261123232725.2459168-1-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261111003111.3826942-1-toddfreed@meta.com>
+References: <20261111003111.3826942-1-toddfreed@meta.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,104 +95,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120152830.699712-1-joe@dama.to>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MyBTYWx0ZWRfXzlCzCYpFAcqS
+ VuKhpy7ngEj61iY6BteWZ3SJFTzOBG9htSFTUuIXZUE+Az290e+1qWLz1ZQkczOXlmEGZKGLj+K
+ xNwYZNYSJW5HViri/Gsfie5LxIZQH9s=
+X-Proofpoint-ORIG-GUID: 62SX9WHEWbHBKIvWWcJ2JNkX6d19_jle
+X-Authority-Analysis: v=2.4 cv=U9sHnuru c=1 sm=1 tr=0 ts=6b04cbdf cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=GbPsI2Ihf5RTnMjR_gZv:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
+ a=Jh7froBkOg0y2yNVTH0A:9 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-GUID: 62SX9WHEWbHBKIvWWcJ2JNkX6d19_jle
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MyBTYWx0ZWRfX8uyonCn6MmGI
+ 4t/NxPr2CHgFpbSFcqG6zarIqEUr78WzGpuhj4/wkvoN2OkK17SXKSMNAnyyWAkc6x6wfvOaoMd
+ ixGg8CqA/rtcM8hFcnCYrBlNkaMLlnbTBZ3GgcIahaWVUPhJW2nSwDLELfDfo/8cfjf7KjgTnSr
+ DHUqOv+ksxD8UCm2tdpNGOBPUgjyLy9tgQqqLM+4k8QjIq6IyxXRgd1hNQ02wa/FMH5a+39Gt99
+ 4x1TvUV/iFXaTLCdTFjtrdh890pUMUJtAm7mzxPAiYxARX16FSMy3zkfiMmT8jrym1AJASm8UHP
+ IbYyjJ0dbbZxx6H31pgBClcFDQFqRkP/lChaUXWaQg3jY0mNreyYPWPan8OSBp1oZ9XZWgKZ0D1
+ jKI4MHbXjzaHAqrglO5c6Z4KowagmavC82c2HLFr4ytCrGRXkEiXCc8Cl5HciZlB1CvvfG/jVr0
+ d/I/4puQFReZu03BYwA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 
-On Fri, Nov 20, 2026 at 07:28:22AM -0800, Joe Damato wrote:
-> Greetings:
-> 
-> On two production systems, I saw the following dmesg pattern:
-> 
->   NETDEV WATCHDOG: transmit queue 0 timed out 6073 ms
->   Resp cmpl intr err msg: 0x51                  x20
->   hwrm_ring_free type 1 failed                  x12
->   hwrm_ring_free type 2 failed                  x8
->   AMD-Vi: IO_PAGE_FAULT  x3
-> 
-> This suggests that, for some currently unknown reason, TX completions stall
-> and the netdev watchdog fires. The driver asks FW to free the rings, this
-> times out, but the driver ignores the possible failure and frees ring memory.
-> Since the FW didn't respond to the ring free command, it is possible that the
-> FW is still DMAing to the memory which was freed.
-> 
-> To address this, this series makes the driver stop DMA before freeing ring
-> memory when the firmware did not answer RING_FREE.
-> 
-> Since the RFCv4, I found a third system that hit this repeatedly:
-> 
->   NETDEV WATCHDOG: CPU: 35: transmit queue 0 timed out 5459 ms
->   hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x64
->   hwrm_ring_free type 2 failed. rc:fffffff0 err:0    x32
->   hwrm_ring_free type 0 failed. rc:fffffffb err:1    x64
->   hwrm_ring_alloc type 1 failed. rc:ffffffe4 err:4
->   hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x44
->   Abandoning msg {0x51 0x3e35} len: 0 due to firmware status: 0x408100
->   nic open fail (rc: fffffffb)
->   DMAR: [DMA Write NO_PASID] Request device [47:00.0] fault addr
->   0xffffa07ef000 [fault reason 0x05] PTE Write access is not set
-> 
-> This case differs from the first two in a few ways, but this series would have
-> still helped:
-> 
->  - The ring frees fail on the close path and again on the error path of
->    the reopen (bnxt_init_chip()), and the device then writes to memory the
->    driver has already unmapped. The series stops DMA on both paths.
-> 
->  - The interface came back up later, the watchdog fired again, and the
->    cycle started over. The host logged 79 DMAR write faults in about 20
->    hours. Patch 4 breaks this loop by refusing to reopen after DMA has
->    been stopped.
-> 
->  - The firmware answers each RING_FREE about 5 seconds late, after the
->    driver has given up, and finally reports an error in its health
->    register. Patch 2 does not treat these late responses as success because
->    their sequence ids do not match.
-> 
-> In this most recent case, I suspect the hardware is faulty, but the driver
-> shouldn't hand memory back to the system while the device could still write to
-> it.
+This series is superseded, please drop it.
 
-Sashiko's review of v6 raised a few questions that depend on how the firmware
-behaves.
+1/2 netfilter: bridge: don't refragment decrypted skbs - dropped.
+It can no longer be reproduced on net/main or with socket-less psp
+series, so is no longer relevant.
 
-1. Patch 2: firmware ordering for RING_FREE
+2/2 netfilter: reject: don't reply to decrypted skbs - reproduces on net/main,
+so resent to nf as Fixes (also reduced to the ICMP errors),
 
-   When the firmware writes the RING_FREE response (valid byte set),
-   has it already stopped all DMA for that TX/RX/AGG ring? Is the
-   only thing still in flight the completions?
+https://lore.kernel.org/netfilter-devel/20261123231835.2356740-1-toddfreed@meta.com/
 
-   Also, once the firmware answers RING_FREE for a completion ring, has
-   it stopped writing to that ring?
-
-   If the response can be written before the ring is quiesced, patch 2
-   is wrong and I'll change it.
-
-2. Patch 3: abandoned waits because of FW health
-
-   hwrm_wait_must_abort() gives up when the health register reports
-   not-healthy, and patch 3 counts that RING_FREE as stuck.
-
-   I am going to guess no, but is there a health status that guarantees the
-   firmware has discarded its ring state? If so, we could skip stopping
-   DMA in that case.
-
-   Sashiko suggests that an ifdown overlapping with a firmware reset would
-   need a rebind. That might be extremely rare and fine as-is, though.
-
-3. Patch 5: Drop ?
-
-   Sashiko found a deadlock and RDMA restart races. I don't know what the
-   simplest fix to all of this would be.
-
-   Maybe it's better to drop patch 5 and let bnxt_re handle this in a
-   separate series?
-
-It would be really great to get the ring free failure path fixed so that FW
-isn't TX-ing memory the driver has released.
-
-If there's any guidance on the above that Broadcom can provide to help get
-this applied that would be very helpful.
-
-Thanks,
-Joe
+-Todd
