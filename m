@@ -1,59 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795397634;
-	b=yy57mWKx7am1eps5IscAC4HN+tbIMYyNOBxEfzAu98FR0vLp4g4qYkM/+1kP6GM5pPbo
-	 so1e66U6SJy800mkhUcNupP60usfaVaN8ticLRGqtYO/X8lzYnNHRe2vD2UWFaj+n/0XE
-	 yrT4n61xyfnxZEsuXW9hPLVM3OKEnfSQPxxxofUEKrG+ynotW9FcN06NThbPfvpSPGPAe
-	 W5zRgynzI55oGfnLKNDLAQJKdDkJM/4YSzNx373haqa68mkkOnB5C1t7OZoJ9J+0msEXt
-	 TYfwdJbLSUepo+GraSsbpD+F37l8Z0Mg1oAr8rtH2j1yzmBCfIcSOFYM0kMu7T5OUPQ==
+	t=1795398009;
+	b=CnQO6dXK4dl96YGywT/A5+JHb+NveRqgopwVWyQOnaMYgQmHiqAUPZd2uPwQWj2CiVoL
+	 HirLGrMEhl2dm79jIY+O891+3fiKXWqLhTkefgTeulduoxtHZJ75h5Icup625zXwcPUbz
+	 RXL4skZzqIR6aWNMzsSCM4YJKNAvHS/Fdb9oeGnZcSnAk0vQ0mD4x+xX8YKbiFD+MRR3r
+	 RWfhHyCMN3dUgatJB4FiBArONSGshRs5y4USzRBqv/qkaO0KEfhuvWRE0Qze1TFLkDgs+
+	 N+MLFwXyrO0+Z2FkRYYb0p2EfNnH9F1xI4ycmp0kXVbyQAkyJoDca4IJFfyYyps7cgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795397634;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795398009;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=TFjV7U7E5Jx1Ins2cB0HnvxZayy3EZy1RrJEu6KQsis=;
-	b=uRnuRRhPbXphUw58HmVd9PQtFSfeSoR8cM3zrnyKbW65NJsBHhz87qIMPhGyREFV5+wU
-	 FcTx5sbo710Qy1V06pD7SIeQWch9DBIll/3mnB4Mi4i4e+oVEST4E/jZl6dXgLNm+LV2y
-	 lwrqbKxKZrOppEYaKPAr4IYg3vGOk4bUAlkbgbNaDWg8agfKw7q66UHUOtMeP5ktjaqZx
-	 Adj+ykuoc3QLwGyBM/Q+bzl2c3VENETGZ3GwKePDrkzLohfh0IO86RhvmgMlQ6uT3aRb0
-	 gC3aBNdiMUSYEmQdWYVdru+hdi9/9S57czsr+DWt+MRYxCF9HIOXaigmQyw3I3DLRrw==
+	bh=ceIIcc4zK+CPfUbBfPOZqR1EDh72ggw2yVO7k0cL/kQ=;
+	b=eDWxxkqAiujz9RkTLw9/gO8On8/o1ApMYjA2+hLc+PaRmNf2BLO60SwOV0BfQXZ9HE3O
+	 bJ4kN8qPwcJbGTfQhMuB9ItQv1sB/RS1xUmZ2LECm4kurpqweApz4B00jM8Whq+ujG2OD
+	 t2MR4W0okAqsdCV5HCsSp0ub19ZFL5XJPNxHHC0Vfm4GRG9eVK/OJIr7cDvsYrMd//10u
+	 omEeb6iuAaRdW7CbdJOPVWolXgrNHm3JdKJw8v2scTCFSUeu9ODIYQWFqwddlYvEleab7
+	 y0fNNaxd4pxePSJH1Y1FdJikbOWdWXiKxUfQbmugfmTgAg9oJxUcPT3dJwnFQwxpckQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ehUlkQuc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WsKWYh4s;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C670C606A332;
-	Mon, 23 Nov 2026 01:33:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DBF5606A31A;
+	Mon, 23 Nov 2026 01:40:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ehUlkQuc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 587111F000C4;
-	Mon, 23 Nov 2026 01:33:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WsKWYh4s
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4001F000CA;
+	Mon, 23 Nov 2026 01:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795397634;
-	bh=TFjV7U7E5Jx1Ins2cB0HnvxZayy3EZy1RrJEu6KQsis=;
+	s=k20260515; t=1795398008;
+	bh=ceIIcc4zK+CPfUbBfPOZqR1EDh72ggw2yVO7k0cL/kQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ehUlkQucOqjykh4wWL3BvReDkEexCsjN4X9QiqTyw2K/9Yuql7oK+bCqXG0ppjUEf
-	 It2cJdkkztbFLFFgaqLR0ldSI/dzgEzk2E6Tx6TylGiRSGFcOBsMU8+oETAPHOQH5L
-	 oxTQv3kKTzbxPdPoyvxdUcbmUDe7aoTZjoZ8uwM0VQ3e9CObaKdcsQYlc/hp0BJLbI
-	 1js/mo3RLvjYXyTBvSGzYRshz7Zi7ino9cdCmtHtnqvtRbzp+rgs9qWkxdjoQ/S+YK
-	 3c/a8h40wYTATYqzcxHRNf7Zv9p/l5T8TDESqdxniaS2ocbfpFXokefDED9skhNtjE
-	 F6eHtObpoZLsg==
-Subject: Re: [PATCH net-next v2 9/9] eth: gve: drop the now-dead HW-GRO vs XDP
- interlock
+	b=WsKWYh4sY2Lb7noH2Cjog3vul3I/aqK4L4wpahyxWlXhe0ytZeCFa6h9ZbLKFc9X/
+	 cuJyEkerxsU/paW8mFIT8I9hjeaH+tEU3rnHKeMSHXCJj5qOib9s4UNc3Sqs2b+snt
+	 lVVOeiSrfuwmi9lX7jbRqKIWTg86kmHczAGd6YagP6X/7qfqJUFB2VB6YCDAq+uhi/
+	 +oTDFGEVPzPC5V1a/q4UUqtk2DT+oprxjxD8sSKxBYvX0KAyw7VvJU7QTBTPD2kw3z
+	 lWSUZ/GtPcPPzSaKuij8Vy74fwS4RqvE8xCPQg9pf6B/ggaKvBScWh8yzxKX2ohowY
+	 7+nHJUcXHtE5A==
+Subject:
+ Re: [PATCH] x25: defer socket cleanup on link termination to process context
 From: netdev-bot+sashiko@kernel.org
-To: kuba@kernel.org
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
- michael.chan@broadcom.com, manishc@marvell.com, joshwash@google.com,
- hramamurthy@google.com, tariqt@nvidia.com, saeedm@nvidia.com,
- daniel@iogearbox.net, hawk@kernel.org, sdf@fomichev.me, willemb@google.com,
- przemyslaw.kitszel@intel.com, bpf@vger.kernel.org, nktgrg@google.com
-Date: Mon, 23 Nov 2026 01:33:52 +0000
-Message-ID: <179539763293.3135.3326411357299687013@kernel.org>
-In-Reply-To: <20261122010112.1471146-10-kuba@kernel.org>
-References: <20261122010112.1471146-10-kuba@kernel.org>
+To: 847807867@qq.com
+Cc: ms@dev.tdt.de, linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+ davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+ linux-kernel@vger.kernel.org, netdev-bot+sashiko@kernel.org,
+ stable@vger.kernel.org
+Date: Mon, 23 Nov 2026 01:40:07 +0000
+Message-ID: <179539800759.3135.17245752044060918891@kernel.org>
+In-Reply-To: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
+References: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,174 +77,176 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] A rejected XDP attach on a running gve DQO device with HW-GRO
-  on (the DQO default) now rebuilds all of the device's hardware queues…
-- [Low] gve's XDP attach path no longer reports its own error when HW-GRO
-  cannot be turned off, because the HW-GRO handling now happens inside…
+- [Medium] The patch makes clearing of existing virtual calls
+  asynchronous.
+- [Low] x25_device_event() (net/x25/af_x25.c) calls x25_link_terminated()
+  from two process-context notifier events, and the patch treats them…
 
 --
 
-eth: gve: drop the now-dead HW-GRO vs XDP interlock
+x25: defer socket cleanup on link termination to process context
 
-This patch removes two gve checks: one refused XDP while HW-GRO was on,
-the other refused HW-GRO while XDP was attached. The core now clears
-NETIF_F_GRO_HW before ndo_bpf runs and keeps it off while a program is
-attached. Attaching XDP with HW-GRO on now succeeds with HW-GRO turned
-off instead of failing with -EOPNOTSUPP.
+This patch moves x25_kill_by_neigh() out of softirq context and into a
+per-neighbour work item on a new dedicated x25 workqueue, which avoids
+calling lock_sock() from softirq. The work holds references on the
+neighbour and its net_device, and NETDEV_DOWN flushes the work.
 
-> diff --git a/drivers/net/ethernet/google/gve/gve_main.c b/drivers/net/ethernet/google/gve/gve_main.c
-> index 35cf0f06a0f27..59ced629dcf6b 100644
-> --- a/drivers/net/ethernet/google/gve/gve_main.c
-> +++ b/drivers/net/ethernet/google/gve/gve_main.c
-> @@ -1804,12 +1804,6 @@ static int gve_verify_xdp_configuration(struct net_device *dev,
->  		return -EOPNOTSUPP;
->  	}
->  
-> -	if (dev->features & NETIF_F_GRO_HW) {
-> -		NL_SET_ERR_MSG_MOD(extack,
-> -				   "XDP is not supported when HW-GRO is on.");
-> -		return -EOPNOTSUPP;
-> -	}
-> -
->  	if (priv->header_split_enabled) {
->  		NL_SET_ERR_MSG_MOD(extack,
->  				   "XDP is not supported when header-data split is enabled.");
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
 
-[Severity: Medium]
-With this check gone, a rejected XDP attach on a running gve DQO device
-with HW-GRO on (the DQO default) seems to rebuild every hardware queue
-twice before it fails. Is that intended?
-
-In dev_xdp_attach(), HW-GRO is cleared before dev_xdp_install() and
-ndo_bpf get a chance to refuse:
-
-net/core/dev.c:dev_xdp_attach() {
-    ...
-		if (new_prog) {
-			dev->xdp_pending = 1;
-			err = dev_xdp_clear_rx_agg(dev, extack);
-			if (err)
-				goto err_clear_pending;
-		}
-
-		err = dev_xdp_install(dev, mode, bpf_op, extack, flags, new_prog);
-		if (err)
-			goto err_clear_pending;
-    ...
-err_clear_pending:
-	dev->xdp_pending = 0;
-	netdev_update_features(dev);
-	return err;
-}
-
-dev_xdp_clear_rx_agg()->netdev_update_features() reaches
-gve_set_features() with GRO_HW cleared. On a running device that runs a
-full gve_adjust_config(): gve_queues_mem_alloc(), gve_close(), then
-gve_queues_start(). RSC is fixed per queue when the queue is created, in
-gve_adminq_create_rx_queue():
-
-	cmd->create_rx_queue.enable_rsc =
-		!!(priv->dev->features & NETIF_F_GRO_HW);
-
-The remaining refusals only run after that rebuild. First come the core
-checks in dev_xdp_install(), then
-gve_xdp()->gve_verify_xdp_configuration(), which checks queue format,
-header split, buffer size, MTU and queue counts.
-
-If any of them fails, err_clear_pending calls netdev_update_features()
-again. GRO_HW is still in wanted_features, so gve_adjust_config() runs a
-second time to turn RSC back on.
-
-DQO_QPL looks like the easiest way to hit this. gve_init_priv() enables
-NETIF_F_GRO_HW for every DQO format, but gve_set_netdev_xdp_features()
-leaves xdp_features at 0 for DQO_QPL:
-
-	} else {
-		xdp_features = 0;
-	}
-
-As a result, every native attach on a running DQO_QPL device rebuilds the
-queues twice and then fails with "XDP is not supported on this queue
-format.". The MTU and queue-count refusals can be hit the same way on
-DQO_RDA, for example with a jumbo MTU.
-
-Either rebuild can also fail in gve_queues_start(), which leaves the
-interface running with no live queues:
-
-	err = gve_queues_start(priv, tx_alloc_cfg, rx_alloc_cfg);
-	if (err) {
-		netif_err(priv, drv, priv->dev,
-			  "Adjust config failed to start new queues, !!! DISABLING ALL QUEUES !!!\n");
-		gve_queues_mem_remove(priv);
-		gve_turndown(priv);
-		return err;
-	}
-
-Before the series, gve refused the same request right away with no
-hardware side effects. The new ordering comes from the earlier patch
-"net: state the "XDP excludes HW-GRO" rule in the core", which put
-dev_xdp_clear_rx_agg() ahead of dev_xdp_install() and ndo_bpf.
-
-The commit message only describes the success case ("now succeeds with
-HW-GRO turned off"). Even a successful attach now rebuilds the queues
-twice: once for the GRO_HW toggle and once in gve_configure_rings_xdp().
-
-Could the gve configuration checks run before the core clears HW-GRO? If
-the double rebuild is acceptable, could the commit message say so?
-
-> @@ -2218,12 +2212,6 @@ static int gve_set_features(struct net_device *netdev,
->  	if ((netdev->features & NETIF_F_GRO_HW) !=
->  	    (features & NETIF_F_GRO_HW)) {
->  		netdev->features ^= NETIF_F_GRO_HW;
-> -		if (priv->xdp_prog && (netdev->features & NETIF_F_GRO_HW)) {
-> -			netdev_warn(netdev,
-> -				    "HW-GRO is not supported when XDP is on.");
-> -			err = -EOPNOTSUPP;
-> -			goto revert_features;
-> -		}
->  		if (netif_running(netdev)) {
->  			err = gve_adjust_config(priv, &tx_alloc_cfg, &rx_alloc_cfg);
->  			if (err)
+> diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
+> index f45c9ec7d2c68..a1a8bc203a24f 100644
+> --- a/net/x25/af_x25.c
+> +++ b/net/x25/af_x25.c
+> @@ -222,6 +222,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+>  			nb = x25_get_neigh(dev);
+>  			if (nb) {
+>  				x25_link_terminated(nb);
+> +				flush_work(&nb->kill_work);
+>  				x25_neigh_put(nb);
+>  			}
+>  			x25_route_device_down(dev);
 
 [Severity: Low]
-If gve_adjust_config() fails here while the core is turning HW-GRO off
-for an XDP attach, does the user get the real error back?
+NETDEV_DOWN now flushes kill_work. Should the NETDEV_CHANGE case in
+x25_device_event() flush it as well?
 
-gve_set_features() restores orig_features and returns the errno.
-__netdev_update_features() only logs that errno and returns -1, and
-netdev_update_features() discards the -1. dev_xdp_clear_rx_agg() then
-just re-reads dev->features:
-
-net/core/dev.c:dev_xdp_clear_rx_agg() {
+net/x25/af_x25.c:x25_device_event() {
     ...
-	netdev_update_features(dev);
-
-	agg = dev->features & NETIF_F_XDP_DISABLES;
-	if (agg) {
-		NL_SET_ERR_MSG_FMT(extack,
-				   "unable to disable %s, required by another feature",
-				   dev_xdp_rx_agg_name(agg));
-		return -EBUSY;
-	}
+		case NETDEV_CHANGE:
+			if (!netif_carrier_ok(dev)) {
+				nb = x25_get_neigh(dev);
+				if (nb) {
+					x25_link_terminated(nb);
+					x25_neigh_put(nb);
+				}
+			}
+			break;
     ...
 }
 
-gve has no ndo_fix_features, and no gve feature depends on HW-GRO. For
-gve, GRO_HW can only stay on because gve_set_features() failed: -ENOMEM
-from gve_queues_mem_alloc(), an adminq error from gve_close(), or a
-gve_queues_start() failure.
+Both cases run in process context under RTNL. Before this patch, both
+cleared the sockets synchronously.
 
-The user gets -EBUSY and a feature-dependency message instead of the
-real errno.
+After carrier loss, the sockets now stay attached to nb with
+nb->state == X25_LINK_STATE_0 until the worker runs. During that window
+they can still send through x25_transmit_link(), which would queue the
+frame and call x25_establish_link().
 
-If gve_queues_start() was the failure, the device is also left turned
-down. The later netdev_update_features() call in err_clear_pending finds
-features already equal to wanted_features and does nothing. Nothing in
-the extack shows that the NIC has lost its queues.
+Only the softirq callers seem to need the deferral. The process-context
+callers could keep the old behaviour with a flush, or by calling
+x25_kill_by_neigh() directly.
 
-Before the series, gve refused the same request itself with a specific
--EOPNOTSUPP extack. The new error reporting comes from the earlier patch
-"net: state the "XDP excludes HW-GRO" rule in the core".
+[ ... ]
+
+> diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+> index d1e8cd81c2143..424044c1cf974 100644
+> --- a/net/x25/x25_link.c
+> +++ b/net/x25/x25_link.c
+
+[ ... ]
+
+> +static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
+> +{
+> +	x25_neigh_hold(nb);
+> +	dev_hold(nb->dev);
+> +	if (!queue_work(x25_wq, &nb->kill_work)) {
+> +		dev_put(nb->dev);
+> +		x25_neigh_put(nb);
+> +	}
+> +}
+> +
+>  /*
+>   *	This handles all restart and diagnostic frames.
+>   */
+> @@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+>  			break;
+>  		case X25_LINK_STATE_3:
+>  			/* clear existing virtual calls */
+> -			x25_kill_by_neigh(nb);
+> +			x25_defer_kill_by_neigh(nb);
+>  
+>  			x25_transmit_restart_confirmation(nb);
+>  			break;
+
+[Severity: Medium]
+With this change, does the restart/terminate sequence continue while the
+old virtual calls are still bound to nb?
+
+x25_defer_kill_by_neigh() only queues the work and returns. In
+x25_link_control(), the restart confirmation (or the restart request,
+the move to X25_LINK_STATE_2, and T20 in the RESTART_CONFIRMATION case)
+goes out first. nb->queue is also drained in STATE_3 at the end of the
+function.
+
+The old sockets are still on x25_list at that point, with
+x25->neighbour == nb and their old LCIs. The same applies to
+x25_link_terminated(), which sets STATE_0 but leaves the sockets
+connected. Neither the softirq X25_IFACE_DISCONNECT path nor
+NETDEV_CHANGE flushes the work.
+
+Until the worker runs, a few things look possible.
+
+If the peer reuses an LCI after the restart, x25_receive_data() still
+matches the stale socket:
+
+net/x25/x25_dev.c:x25_receive_data() {
+    ...
+	if ((sk = x25_find_socket(lci, nb)) != NULL) {
+		...
+		queued = x25_process_rx_frame(sk, skb);
+		...
+	}
+
+	if (frametype == X25_CALL_REQUEST)
+		return x25_rx_call_request(skb, nb, lci);
+    ...
+}
+
+So could a new CALL_REQUEST on a reused LCI be handed to the old socket
+instead of reaching x25_rx_call_request()?
+
+A stale socket can also still transmit via x25_transmit_link(). In
+STATE_0 that queues the frame and calls x25_establish_link(), which
+brings the link back up for a dead call. In STATE_1/2 the frame is
+queued and flushed later onto the restarted link.
+
+When x25_kill_by_neigh_work()->x25_kill_by_neigh() finally runs, it
+disconnects every socket whose neighbour == nb at that moment. That
+includes calls set up after the triggering event, such as sockets from
+x25_rx_call_request() or outgoing calls from x25_connect():
+
+	x25->neighbour = x25_get_neigh(rt->dev);
+
+Can valid new calls get torn down with ENETUNREACH this way? The same
+question applies to forwards that x25_clear_forward_by_dev() removes
+after being created post-event.
+
+The comments "clear existing virtual calls" and "Out of order: clear
+existing virtual calls (X.25 03/93 4.6.3)" also no longer match what
+happens synchronously.
+
+One option might be to detach the sockets synchronously in softirq (for
+example, mark them dead or clear lci/neighbour under x25_list_lock or
+bh_lock_sock()) and defer only the part that sleeps.
+
+> @@ -97,7 +118,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+>  			break;
+>  		case X25_LINK_STATE_3:
+>  			/* clear existing virtual calls */
+> -			x25_kill_by_neigh(nb);
+> +			x25_defer_kill_by_neigh(nb);
+>  
+>  			x25_transmit_restart_request(nb);
+>  			nb->state = X25_LINK_STATE_2;
+> @@ -254,7 +275,7 @@ void x25_link_terminated(struct x25_neigh *nb)
+>  	x25_stop_t20timer(nb);
+>  
+>  	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
+> -	x25_kill_by_neigh(nb);
+> +	x25_defer_kill_by_neigh(nb);
+>  }
+
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122010112.1471146-1-kuba%40kernel.org
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_EC124B80BC53531B2EAB18DD04B37BAE7406%40qq.com
