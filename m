@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795395978;
-	b=DGPrsFs08g8ZrfezoZBUW49zGTD4JrZiAdP/PnRmgb2bMBLWEXxO5wqhwS2HK1z9e+Av
-	 vyQz4wI4Kll50gwbiBHv3Gh7FSRQjHJAZIYSybjgMqWI3evgoX2qOC9cI1r4MiIziqQxM
-	 2NqKNrOsbs67rA2VoJ7/YLnyMl9SF3/EjU/Met4bi3htLcrFS9yEV9kn8q60gCJC81SsZ
-	 60ZYcf58q/EcBOxcHXX73jT1Gj/FGt0vPmGyK0nLRdi2HyTPQnBoqaCzepQ6svVss7r3n
-	 C8HaH32BE/hcc1BHi4RUc1t9+ktiCo7x+eRHhd3bygl9CuJJmQbw7aQRoGtihTKlZAw==
+	b=xcirmul93JtuWbGUvAqUjAbAxNcUBmmqq7iQaF/M7Jc6ve5QoR5dtu4tWS+T0Xgpd+y7
+	 1V3hZ+r+4d5AZbM2mhCCyUQullXfxu4z42He9zO71SwjvSpGhviGXfY9gVD9r/6hPEw/G
+	 m/v63Fb2IoPVlHsNdo4OJaSb49hjheawGuddLdvB30H2Mj/FklqS9GPVrMDbK8uIIjQtj
+	 hpShjdjUkh/E51UpjSHO8CdB3aLhhOOme6h7+01dJqWSdgWaAo953xZz1TDvD9/kAt10o
+	 B7bMPf5F1b+cFca6SuMu8e7u6GP7jqp1igReGgK++5gRFz2YmiJY2HuumQX+5jHOTWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795395978;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=1Zoo9XJTPYrdHfSXlDKHwIXN7MYXmeiXVWp4UATL1+w=;
-	b=i9yv2iZWZ36URmvpCRKMRHOBkcrTXfvCvsQVI/6UjoKFdTSGd0gx2OATvuDiSz9FWOAW
-	 A/dLXe94BQhZpGvBa+6UJ1TDRDGlRi1AY9CB5/cjyGfkWEhVBGM1MV+sKOeXq4rYBBsVj
-	 mUD8sP6AEJoO1Efm3VUysOKBzf701D3bizN+CUOyfGnbibPKQPlA79mNXdP6k1jwMAeTU
-	 FSoWMGQcUNuPfolTgc/5eHj5Ykz4SAw4mGXtsKLh1IVEFC9eNOeV/k5H66vYankAMG0bb
-	 gusczYRJRXQoY/G9sqWqw8QO8p+025OGpfhLzJGstyHfv75lXcEStsJM/sODE9NJ0bw==
+	bh=lRX8+TAe/A3hOjyZQJpqESHbzA31Kj7ZIZkFU1RGn48=;
+	b=Ji0P2btIpDXvxq11IO7p2jDzrI5WJpih3JVj9VOwmp68oFYVhXUoYb6YFsNdTGd7ClzZ
+	 fVpULIK32O5mSr427JYOUT0TcJtdHhhJ2ExSy0KBu7GCLL+JxDwfQSpLStTkqTD9NUkYX
+	 mIsPBy0wBp7e0yWWR7xtYKXYvdfyc2/2dnjV95QD6CEKgql7rWRi/y9z24Y65CFxPwZ+e
+	 XXEB65J3OK/detb6S0yX3XglheVJeCTne/LRyI4XLbNdHxjlAdYuNrrH4RXbpcPcLUAsH
+	 yTGwGjcQxIoQzeFwgN9n4ofzUCGYCU/IdGeuPguRMfyeHNdfyV637UNzwL8e9RfKakw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y8ek+V4A;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aDK36XgV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09031606A32A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B20D3606A32C
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y8ek+V4A
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 701FB1F000C6;
-	Mon, 23 Nov 2026 01:06:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aDK36XgV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D931F000C4;
+	Mon, 23 Nov 2026 01:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795395977;
-	bh=1Zoo9XJTPYrdHfSXlDKHwIXN7MYXmeiXVWp4UATL1+w=;
+	s=k20260515; t=1795395978;
+	bh=lRX8+TAe/A3hOjyZQJpqESHbzA31Kj7ZIZkFU1RGn48=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Y8ek+V4AUqm0sZMkfViyq64LAnqX/EwXoOoe5snZbxetmNhugEN4nVDzROySacgSs
-	 EUtflDx6TucnPzwRIVI+DTgA8ypPs7+6B003bvTALwyNpZIhhJpOyU5equc8FXAVNW
-	 eAlE3yCrT4M/aRw8DWFnNmPEUgNN++0aw1aYWfqBWkBRAMWiFUax9P5N8f5NjgHOUL
-	 u2m/IgsXezO9pVF+gkTrWlNAwRR1kyH5EqUyOHcWVw0XpIX3PT1Kvp23XxPQB8obnC
-	 DLwLFnEeUdhisf5+fk1EcJg7eqbw7E5we2oKT/RiiIxOBK18OWyflHzhD1LAF9lF4A
-	 QZ6ijZcohiQng==
+	b=aDK36XgVjtrozghjMQye3X4wfuXlH5dliW3XQ6MzM/YV1Flk+WkjJ/x9/us17myDF
+	 B01FnWUfj0X+YkyRouAM1rSVyZKoWfhWLT455oxv1ekqbc79KddPsCTKe1NzEOSWDG
+	 xC+T6lHvp0wXXipCI2687GnUQFIK1wXzlhXN71D3yEP3n3TcvUAP9tGj2gZVwWv6/X
+	 K9pjt31SEB8CWOlTMtyxrlodmKU2j8zA0+CkpvkOE1Nb6IUpBP1Ee/ns/EWfx53CHt
+	 cHLY/0FP+BMDryVlOnhZZEJF8GWm2KqGmG/c/BgxFOOCYYEP6Nu2CYYYw9243BuNWx
+	 WecGmEYjM1ifw==
 Subject:
- Re: [PATCH net 1/2] vmxnet3: drop XDP frames that do not fit in one rx buffer
+ Re: [PATCH net 2/2] vmxnet3: keep the XDP program across device resets
 From: netdev-bot+sashiko@kernel.org
 To: filzador@gmail.com
 Cc: ronak.doshi@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
  netdev@vger.kernel.org, kuba@kernel.org
 Date: Mon, 23 Nov 2026 01:06:17 +0000
-Message-ID: <179539597704.3135.16978504109818344145@kernel.org>
-In-Reply-To: <20261122002847.616-2-filzador@gmail.com>
-References: <20261122002847.616-2-filzador@gmail.com>
-X-sashiko-severity: Medium
+Message-ID: <179539597786.3135.350150131775018719@kernel.org>
+In-Reply-To: <20261122002847.616-3-filzador@gmail.com>
+References: <20261122002847.616-3-filzador@gmail.com>
+X-sashiko-severity: Critical
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -63,10 +63,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
+Critical: 1 · High: 0 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -74,177 +74,116 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message says the XDP head buffer given to the
-  device is MTU + 22 (skb_buf_size).
-- [Low] In vmxnet3_rq_rx_complete() (drivers/net/vmxnet3/vmxnet3_drv.c),
-  the new comment says "Count it against the budget like other XDP…
-- [Low] A frame dropped by the new head-drop branch in
-  vmxnet3_rq_rx_complete() is counted twice in rq->stats.drop_total if…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch's
-  new poll-start logic relies on the invariant it breaks, and it can…
+- [Critical] On a failed XDP attach, the patch leaves a dangling bpf_prog
+  pointer in adapter->xdp_bpf_prog.
 
 --
 
-vmxnet3: drop XDP frames that do not fit in one rx buffer
+vmxnet3: keep the XDP program across device resets
 
-With XDP enabled, a frame the device splits over a head and a body
-descriptor used to reach the skb path in vmxnet3_rq_rx_complete(). That
-path treated the page_pool page as an skb and crashed the guest. This
-patch drops such frames at the head, skips their body buffers, and
-starts each poll with skip_page_frags set when no frame is in progress.
+This patch stops vmxnet3_rq_cleanup_all() from clearing
+adapter->xdp_bpf_prog. The attached XDP program then survives the
+quiesce and reset paths, such as MTU changes, down/up and ring resizes.
+It also rejects MTU changes above VMXNET3_XDP_MAX_MTU while XDP is
+attached.
 
 > diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-> index f8df83f9965db..fb98eb7712584 100644
+> index fb98eb7712584..e84bf116a3baf 100644
 > --- a/drivers/net/vmxnet3/vmxnet3_drv.c
 > +++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-> @@ -1614,7 +1614,8 @@ vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq,
->  		adapter->rx_prod_offset, adapter->rx_prod2_offset
->  	};
->  	u32 num_pkts = 0;
-> -	bool skip_page_frags = false;
-> +	/* A frame dropped at its head may continue in the next poll. */
-> +	bool skip_page_frags = !rq->rx_ctx.skb;
-
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch.
-However, this new line assumes rq->rx_ctx.skb is NULL whenever no frame
-is in progress, and the data ring XDP path can break that.
-
-For a data ring completion with XDP enabled, VMXNET3_GET_RING_IDX()
-returns 0, so rbi points into rq->buf_info[0]. vmxnet3_rq_init() marked
-that entry VMXNET3_RX_BUF_XDP, so its union holds a struct page pointer.
-The sop block in vmxnet3_rq_rx_complete() still does:
-
-			skip_page_frags = false;
-			ctx->skb = rbi->skb;
-    ...
-			if (rxDataRingUsed && vmxnet3_xdp_enabled(adapter)) {
-    ...
-				if (act == XDP_PASS) {
-					ctx->skb = skb_xdp_pass;
-					goto sop_done;
-				}
-				need_flush |= act == XDP_REDIRECT;
-
-				goto rcd_done;
-			}
-
-On any verdict other than XDP_PASS, ctx->skb keeps the page pointer.
-That includes an XDP_DROP firewall program. The stale value can carry
-over into later polls.
-
-Suppose the next completion has eop and err set. Would
-vmxnet3_rx_error() then run this on a ring-owned page_pool page?
-
-	if (ctx->skb)
-		dev_kfree_skb_irq(ctx->skb);
-
-With this patch, the stale non-NULL value also makes the next poll start
-with skip_page_frags = false. An orphan non-sop body could then get past
-BUG_ON(ctx->skb == NULL && !skip_page_frags) and reach
-vmxnet3_append_frag() with the page treated as an skb.
-
-Would it make sense to clear ctx->skb before that goto rcd_done? The
-ring buffer XDP path already does this. Another option is to not assign
-ctx->skb = rbi->skb for VMXNET3_RX_BUF_XDP buffers.
-
->  	bool encap_lro = false;
->  	struct Vmxnet3_RxCompDesc *rcd;
->  	struct vmxnet3_rx_ctx *ctx = &rq->rx_ctx;
-> @@ -1666,6 +1667,21 @@ vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq,
->  			goto rcd_done;
->  		}
+> @@ -2104,7 +2104,6 @@ vmxnet3_rq_cleanup_all(struct vmxnet3_adapter *adapter)
 >  
-> +		if (rcd->sop && !rcd->eop &&
-> +		    rbi->buf_type == VMXNET3_RX_BUF_XDP &&
-> +		    !VMXNET3_RX_DATA_RING(adapter, rcd->rqID)) {
+>  	for (i = 0; i < adapter->num_rx_queues; i++)
+>  		vmxnet3_rq_cleanup(&adapter->rx_queue[i], adapter);
+> -	rcu_assign_pointer(adapter->xdp_bpf_prog, NULL);
+>  }
 
-[Severity: Medium]
+[Severity: Critical]
+If an XDP attach fails inside vmxnet3_xdp_set(), does removing this line
+leave a dangling program pointer in adapter->xdp_bpf_prog?
+
+vmxnet3_xdp_set() publishes the new program and drops the old one before
+it rebuilds and reactivates the device:
+
+drivers/net/vmxnet3/vmxnet3_xdp.c:vmxnet3_xdp_set() {
+    ...
+	vmxnet3_xdp_exchange_program(adapter, new_bpf_prog);
+	if (old_bpf_prog)
+		bpf_prog_put(old_bpf_prog);
+    ...
+	err = vmxnet3_activate_dev(adapter);
+	if (err) {
+		NL_SET_ERR_MSG_MOD(extack,
+				   "failed to activate device for XDP.");
+		return -EOPNOTSUPP;
+	}
+    ...
+}
+
+When ndo_bpf fails, dev_xdp_install() in net/core/dev.c drops the
+reference it took for the driver. It also does not record the program:
+
+	err = bpf_op(dev, &xdp);
+	if (err) {
+		if (prog)
+			bpf_prog_put(prog);
+		return err;
+	}
+
+Before this patch, every error label in vmxnet3_activate_dev()
+(activate_err, irq_err, rq_err) went through vmxnet3_rq_cleanup_all().
+As a side effect, that reset adapter->xdp_bpf_prog to NULL. With the line
+removed, nothing clears the pointer on that path.
+
+vmxnet3_activate_dev() can fail in three ways:
+
+- vmxnet3_rq_init_all() returns -ENOMEM because vmxnet3_create_pp() or
+  vmxnet3_rq_alloc_rx_buf() failed.
+- vmxnet3_request_irqs() fails.
+- The device rejects VMXNET3_CMD_ACTIVATE_DEV.
+
+The vmxnet3_rq_create_all() error return in vmxnet3_xdp_set() leaves the
+pointer in the same state.
+
+Take an attach of program P on a running interface (old NULL, new P).
+After this failure, adapter->xdp_bpf_prog == P, but neither the driver
+nor the core holds a reference to P. Once userspace closes the prog fd,
+P and its JIT image are freed.
+
+vmxnet3_xdp_enabled() still returns true, so on the next down/up the rx
+rings are rebuilt in XDP mode:
+
+vmxnet3_open()
+  vmxnet3_activate_dev()
+    vmxnet3_rq_init_all()
+      vmxnet3_rq_init()
+        buf_type = VMXNET3_RX_BUF_XDP
+
+Received packets then go from vmxnet3_rq_rx_complete() into
+vmxnet3_process_xdp() or vmxnet3_process_xdp_small(), which do:
+
+	xdp_prog = rcu_dereference(rq->adapter->xdp_bpf_prog);
+
+Could this run the freed program on every received packet?
+
+A later attach of another program would see old_bpf_prog == P and call
+bpf_prog_put() on the freed program. dev_xdp_uninstall() only calls
+ndo_bpf for modes the core has recorded, so unregister would not clear
+the stale pointer either.
+
+The detach case (old P, new NULL) can still end up in the same state.
+The same failure leaves the driver with NULL after P has already been
+put, while the core still reports P as attached. That is the core/driver
+disagreement the commit message describes.
+
 The commit message says:
 
-  the device is given a buffer length of MTU + 22 (skb_buf_size)
+  "The program is exchanged and released by vmxnet3_xdp_set()"
 
-Does that hold for larger MTUs? vmxnet3_adjust_rx_ring_size() caps
-skb_buf_size at VMXNET3_MAX_SKB_BUF_SIZE (3072) on v7:
-
-		adapter->skb_buf_size = min((int)adapter->netdev->mtu + VMXNET3_MAX_ETH_HDR_SIZE,
-					    VMXNET3_MAX_SKB_BUF_SIZE);
-
-Before v7 it sets skb_buf_size = VMXNET3_MAX_SKB_BUF_SIZE once the MTU is
-above 3050. vmxnet3_rq_init() then uses that value as the length of the
-VMXNET3_RX_BUF_XDP head buffers.
-
-vmxnet3_xdp_set() only rejects netdev->mtu > VMXNET3_XDP_MAX_MTU, which
-is about 3494 on x86_64.
-
-Take XDP attached with an MTU of roughly 3059 to 3494. Won't every
-full-sized frame (MTU + 14 > 3072) be split into a head and a body, and
-then be dropped silently by this branch? That would drop all full-MTU
-traffic on such an interface, not only the MTU + 23 to MTU + 26 frames
-the commit message describes.
-
-The later commit "vmxnet3: keep the XDP program across device resets"
-adds an XDP check to vmxnet3_change_mtu(). It uses the same
-VMXNET3_XDP_MAX_MTU bound, though, so this MTU range still seems to be
-accepted.
-
-Could XDP head buffers get a device length based on
-VMXNET3_XDP_MAX_FRSIZE instead? Alternatively, could XDP be rejected when
-MTU + VMXNET3_MAX_ETH_HDR_SIZE > skb_buf_size?
-
-> +			/* The frame did not fit one XDP buffer. XDP here is
-> +			 * single-buffer and the head holds a page, not an skb:
-> +			 * drop the frame, reuse the head, skip its body buffers.
-> +			 * Count it against the budget like other XDP verdicts.
-> +			 */
-> +			rq->stats.drop_total++;
-
-[Severity: Low]
-Can a frame dropped here be counted twice in drop_total? Suppose its
-eop body completion has rcd->err set. This check at the top of the loop
-runs before the skip_page_frags handling:
-
-		if (unlikely(rcd->eop && rcd->err)) {
-			vmxnet3_rx_error(rq, rcd, ctx, adapter);
-			goto rcd_done;
-		}
-
-vmxnet3_rx_error() then increments rq->stats.drop_total again, without
-any condition. vmxnet3_get_stats64() reports drop_total as rx_dropped.
-
-The skb allocation failure path already has the same double count, so
-this adds a second case. Also, the comment in vmxnet3_rx_error() says
-ctx->skb may be NULL only for the first and only desc of a packet. With
-this patch, that no longer covers every case.
-
-> +			ctx->skb = NULL;
-> +			skip_page_frags = true;
-> +			num_pkts++;
-
-[Severity: Low]
-Is the comment "Count it against the budget like other XDP verdicts"
-accurate? After vmxnet3_process_xdp() returns a verdict other than
-XDP_PASS, vmxnet3_rq_rx_complete() does:
-
-			ctx->skb = NULL;
-			need_flush |= act == XDP_REDIRECT;
-
-			goto rcd_done;
-
-and num_pkts is not incremented. The same goes for the data ring path
-after vmxnet3_process_xdp_small(), and for the allocation failure drop
-path that this branch says it copies. Only XDP_PASS is counted, later,
-after sop_done.
-
-That makes this the only drop path that uses up NAPI budget. Should the
-comment and the commit message be adjusted, or should the accounting be
-made consistent?
-
-> +			goto rcd_done;
-> +		}
-> +
+The error paths in vmxnet3_xdp_set() do not roll back the exchange,
+though. Would it be safer to publish the new program and put the old one
+only after vmxnet3_activate_dev() succeeds? Another option would be to
+restore old_bpf_prog on the error paths without dropping its reference.
 
 [ ... ]
 
