@@ -1,92 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455253;
-	b=VnzvIsRigl7j/l6/LEwhDr8Vz+E7NjxSNjz8SSEOvO4P/usiwLpWL2ZuZtc6BhB5o903
-	 yxcTgJA5iOUGqkAWNSyHXlxyoObegDH9D/qyUfZZKXvLQQ4dmjKLqIYsMTrwJedTMxqTw
-	 GSj2+OjXBJDjmVYJa7qNDe6bfLRUzy9XpAELbh0eG1oxhYCiNraJyNI9QhAAbXSbXq+Ok
-	 Z6u/OYS/ioSKHdakxXqYRmYseNXRfG1aRsPe1ctcis/tZ8/o761b0PPB1r+jXsrlspWZP
-	 nQUTcFfTW0FxcHjgM9qv0s3waOjL/dzAwizIS4jweI/yAHMwijMWlRfQELrP26whipg==
+	t=1795455429;
+	b=If//MHRRk/Jx/g06WRm5L4/PjWljeQwyfWjJjkaatZBW2BJ5Gd1Tj/5tIFX26v864HaQ
+	 GB4jvKUDmG2VDQXb+IgAAUPOmonoCfGN0+snHSs4TVvjaMyPSMFiEv5XrmtllrAQmI0tj
+	 DT2gY6OhXUlnrobtyVKuRX1t+feEr8VtgF9JZkzBKSLCrHibXIU6WHcmz6oYv6bO5SuvK
+	 rIoTjB2kFEysL6xbugA8n1hu7r4ucmV2b/Ui0/zKRxquUI/GETbdDR3E+sRxqlFS2sMYE
+	 H0DNT+By8pTT2RQR0jl0o+1YJ7qomHheHduQV7iHOaeqNKOo1rsgqZaxjR0CyEJ/ufw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455253;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=pTxUnvDjANJ9l3Kj71UoNPPJRMztFFW3BLCmjld/5QU=;
-	b=B1n31heoK1nvP7EGoSRzTD/mXnSSZcw9jFPTxgL7yQaX9gj5ZppXDcAuqF5a7bHGx1a4
-	 bi2bYhTZ7Dlc87XJH1x2lmii1YQxTxOMGZz7jvDdE8yMfTCpwvIvNp1jqqOL32NZEtMoG
-	 w26aiKwS+CJnohrUf+p93+AwjIM82+v13bTjlzvMx4sXeVBTkXwlIoS2W952xYJqfIweg
-	 CPGs6hdOumaAsHKT3Pr08al1Tvry0DIhdq6xLa0pcDeL1rDFOdRxU9sWDhakvOXQ1lheg
-	 w5pF5BNVCgITY73fX6yHvM/uU4PUt5UqPiZ5zN6aPwDMHcFOoPmChDC6JUr2vbR3gbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455429;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:From:To:Cc:References:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=rzVynzPII4AN7uXHnRqc3zCQk4r/0ZARldkXe2YrPVk=;
+	b=DPOsYfkQeIwt8yzBFE7ZEDc1wSlvN2eyTKxx+W7IBtlErgdJqacuPG3Wv/0goWKrT/sn
+	 V6Jl9OMXAUch11xXQ498xNdQd+Bt0qxpoigrbWBdxtTl7IKDURfElew4kqBCrkyLgV4sC
+	 t7FRVZ1C8BlbmExaRX0/a5N4fbitnrfGiRGFRB8vhN7Fm7Ob4M1hZBXAuL5r4t9CqPlkN
+	 cFiG2Ivp/pbmeReEbjux8QEUWrOaSSmxpKE2A11QKBIjpetNqLhk7r74PZYsoAUgL47NJ
+	 zMta5HnpaEciqSyP+vXFcfIiWx2GhHdshACbbdE4WffvQfaiF7zIbHHSJZ38wvqit9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="u1uw1e7/";
-	arc=none smtp.remote-ip=209.85.217.41
-Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com [209.85.217.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IH8KuXr0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75FBA606A33C
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:34:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75FBA606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A83606A680
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:37:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u1uw1e7/
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-7d2ccd3c7a2so1112504137.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:34:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795455251; x=1796060051; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pTxUnvDjANJ9l3Kj71UoNPPJRMztFFW3BLCmjld/5QU=;
-        b=u1uw1e7/ldotRYzQiqhdMXwBwX/do6GuppzXT7t26WdY5wCItLn2mHAybEoOh6K1sV
-         edhmhM/2wmic1XFgM87SKigjkf7TMZ17XdVsILe84q69AlxZj+JPDqJmPQDZfahxhnnD
-         k8tz1vivuzMigWmAp3gP8qBF5YpcwTjrt59OZUa0NWvPVJUlkgTTPyXswIBhyam5aBKv
-         xjkhnqw9MrqOA9egrqNv35zw6uen2VnJkmnMvb//y+xcX/mYB7ZhZSO05DvPdD86BPJF
-         wTcNZZMh4E8kkVZV3vcospU53oDpuiY5+tTtxI7wNVChAWOu6A3qXQ2rE5LVGZ0f3m+x
-         ZJAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795455251; x=1796060051;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pTxUnvDjANJ9l3Kj71UoNPPJRMztFFW3BLCmjld/5QU=;
-        b=vQTZXQUfJ6FWFsaeg74M5fSyhb2AdA0LhZBMNF9ymivk8GB23SADAkRH0yhXj8BZKT
-         Smk2sJl0S3iYcKUuO1qH7Wvtu8X0O6F8LrY0hIrEgjulK8RdpvHJZFBeMSndRvy84jDl
-         +NGipFjD/9aHvuFGGQUDyDM255UD9iFB81GTnJu8M74R5MgybYPkjOwVaauBMqsLu/Da
-         6CBudOVD1pxXtDeZkUepNqODJOCV3A5TpbbiQBHejD+qc0PjIQvLtNjQSoEufyJh0Vk2
-         Sy8G4YHPUbqwoCYtmHVbiu+9YHUle+zVkFLEMihozr8aNg+9CNkgQPp33+OHLZfWDB1i
-         8HqA==
-X-Forwarded-Encrypted: i=1; AL+hErFGVFgHnDt/tZK9HEZ4HAavBo8um+OzxIy/Oae+fAX6sSf/oB3dSTWhQBybXKcepCFMN9IQrVw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/PEnms2jz08xOCF/aq4bCTgmAlXZU5vW4dxcH1kijEEefIu9YE
-	AaBDkO9CZa7GbEKVWO4BNAtl9sZEpHJ9otqQR26tdWtjs4y4q9C3leRX
-X-Gm-Gg: AZFdTZcLaY9JetdynEZqvC+tLXyO940o9fgjo2iwT9ZX3bf4JYqEsv14c+UgxMPzDRF
-	3FBx5nVJBHTb+zx+WJobSAbdutTSv9tULcR6fbFVqhuj+incmqHrvTrVxqr+jdng1iKweKL69M0
-	8sfJZqfUiXI5XAQ/6cwK7r3zQLLpQcJQJgfmH9ft+cKx/9OM0Adqo3BvdetG60TzWvmAWnyHXkN
-	2+OKwWKEbkUdchTJkzrRWasEsANI1DBMdWQbMZt5Qi9b2te5OKvmZZ2yOUJcJOSk7znvECrFyK4
-	kHENgo39pmSHtXNAB0R4bV4alsUZQ37PoeIxhgBlAQNOi8ZtrF7UWf0ua0dk4Zu/WvjsNnvxGs3
-	JAszY7NNvaG37lqtlo50Xy2n56HA+bnh2oQd6Gb5NYLYyYh1ZEs5Gw/4RmBy22U9UA8IWxucDdC
-	Tg/loM3t9xjOQwfrUZ0ThbZzdrqdgKKFbHz/WopV7d6sCaA1lJMYw5n+zIxz8CK9QzQbuFHAl2x
-	w4cJ72cGBy8ksKnGuyesD2smH6rU2RbjkA12OKWzwX670gzYdhnQMHpS3261k8ooHH0l9gOtmfm
-	bIlre0xOZPnIB520OIQHmJ0pS6KP5k65d92zdN2yw3k1Pzras5dWe7mZo+ujZ8v7LwxkIjMo1Oo
-	jH5GRBuA6LpVgoETgASGMrscoOkHxfSrmgaC/NcXB6QtutFpJqQVI88zYaA94Bry6
-X-Received: by 2002:a67:e706:0:b0:7d2:cdd6:6be with SMTP id ada2fe7eead31-7d73942ad2emr4987813137.21.1795455251020;
-        Mon, 23 Nov 2026 09:34:11 -0800 (PST)
-Received: from lvondent-mobl5.taila91cb8.ts.net ([72.188.211.115])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e8265e55sm12635830137.11.2026.11.23.09.34.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:34:10 -0800 (PST)
-From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-To: davem@davemloft.net,
-	kuba@kernel.org
-Cc: linux-bluetooth@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [GIT PULL] bluetooth 2026-11-23
-Date: Mon, 23 Nov 2026 12:34:08 -0500
-Message-ID: <20261123173408.3632176-1-luiz.dentz@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IH8KuXr0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5DF51F000C6;
+	Mon, 23 Nov 2026 17:37:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795455428;
+	bh=rzVynzPII4AN7uXHnRqc3zCQk4r/0ZARldkXe2YrPVk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=IH8KuXr05CpSwqZDlKdf3+4E4eFKAi3bpYR8lG6xwqGS0m00C5hcsjE0OVzM5nU2q
+	 dWsCLL7Cls6atXJvp/6SG/QG0F45UwWjQ5tsB3FsJvHBpo+tsii1T8zOjeuiiesPkv
+	 kFlC7pCWsaHuQSYHugUM3aRxGF1xlMLI4MXfTeXG0S66Y0Br55WmxNdmG8nJXA8jci
+	 yl4pTRsaSMxB9/ec/JJaDXcq7sRws0hqiDCjih2Mx3tmmlwF6kRV4hy/vNhGEJCZid
+	 SgBatLcl1Y6Xe36BHtoSSjIAOJ3IS6V41IwDhcfmLBKJHB+Tii5U4RRMmKCSltqpgq
+	 khfn/A4iWsr3g==
+Message-ID: <d08b597d-f5f7-4487-9c0f-93eca264fad4@kernel.org>
+Date: Mon, 23 Nov 2026 18:37:05 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,110 +51,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [TEST] Google's Netdev-CI: a few flaky tests
+Content-Language: fr
+From: Matthieu Baerts <matttbe@kernel.org>
+To: Pin-yen Lin <treapking@google.com>
+Cc: Sheena Mohan <sheenamo@google.com>, Willem de Bruijn
+ <willemb@google.com>, Netdev <netdev@vger.kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>
+References: <224334a7-150e-4794-af72-596c3821558c@kernel.org>
+ <CADWJPTundpvzkpJrxva=M+6YF4zQ9dRSY78Xypi9B1NuH58Usw@mail.gmail.com>
+ <a9e4655a-0a12-4b40-9641-36e7acc2cdcd@kernel.org>
+ <CAHwYsiqOhntJR7D00vzRed1=eo+4xXnRdYtTD79zdL35RT9Kog@mail.gmail.com>
+ <8093f0a0-3a87-4cd6-9c53-e575007a9762@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <8093f0a0-3a87-4cd6-9c53-e575007a9762@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The following changes since commit 5beb86f98c3d45f6d64be5b6d6c77480487b41b4:
+Hi Pin-yen,
 
-  Bluetooth: L2CAP: return LE credits from recvmsg under the conn lock (2026-11-17 11:39:36 -0500)
+On 20/11/2026 10:09, Matthieu Baerts wrote:
+> Hi Pin-yen,
+> 
+> Thank you for this email.
+> 
+> On 20/11/2026 04:12, Pin-yen Lin wrote:
+>> On Mon, Oct 26, 2026 at 9:41 AM Matthieu Baerts <matttbe@kernel.org> wrote:
+>>> On 24/10/2026 19:49, Sheena Mohan wrote:
+> 
+> (...)
+> 
+>>>>       - napi-id-py & bond-options-sh: We will investigate both tests.
+>>>
+>>> When fixes are applied or unstable tests are blocked on your side, do
+>>> you mind pinging me so I can remove them from this ignore list, please?
+>>>
+>>>   https://netdev.bots.linux.dev/contest/filters-hw.json
+>>
+>> Both napi-id-py and devmem-py should be fixed now given that [1] has
+>> been accepted and merged to net-next. Could you remove these two from
+>> the ignore list?
+> 
+> Thank you for the fix and the ping, I just removed these two tests, plus
+> psp-py for IDPF which seems to have been disabled on your side.
 
-are available in the Git repository at:
+I forgot to say that I also added testEthtool for IDPF to
+filters-hw.json because it started to fail recently:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth.git tags/for-net-2026-11-23
 
-for you to fetch changes up to 4fe38719e6738feaa90486e36b0790dd5d960a96:
+https://netdev.bots.linux.dev/flakes.html?tn-needle=testEthtool&br-pfx=net-next-hw&ld-remote=google-idpf
 
-  Bluetooth: btintel_pcie: Fold MAC_INIT into btintel_pcie_get_mac_access() (2026-11-20 10:57:23 -0500)
+Is it something you can fix or disable as well? :)
 
-----------------------------------------------------------------
-bluetooth pull request for net:
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
 
-Core:
-
- - hci_core: Take req_sync lock in hci_power_on()
- - hci_core: Hold hdev->lock when removing advertisement monitors
- - hci_core: Don't fail removing a monitor unknown to the controller
- - hci_sync: Lock the lookup in hci_disable_ext_adv_instance_sync()
- - hci_sync: Hold hdev->lock in hci_schedule_adv_instance_sync()
- - hci_sync: Fix remaining advertising instance UAFs
- - hci_sync: Use controller handles for periodic advertising
- - hci_event: Validate sent command length in LE Set Ext Adv Enable
- - hci_debugfs: Fix racy toggling of debugfs controlled flags
- - L2CAP: Use a reserved ident for L2CAP_LE_CREDITS
- - L2CAP: Don't use uninitialized EFS in l2cap_parse_conf_rsp()
- - SMP: Serialize link key updates from smp_notify_keys()
- - SMP: Check smp_data before using SMP_DEV()
- - SMP: Don't create the BR/EDR channel while unregistered
- - MGMT: Fix read_index_list() buffer overflow
- - MGMT: Reject zero multi advertising rotation duration
- - MGMT: Fix mesh transmission locking and lifetime
- - MGMT: Fix use-after-free in mgmt_powering_down()
- - MGMT: Retain the selected legacy advertising schedule ID
- - MSFT: Protect the event prefix with hdev->lock
- - MSFT: Free the response of the monitor commands
- - MSFT: Record the filter state on Command Disallowed
- - MSFT: Only enable the advertisement filter with monitors
-
-Drivers:
-
- - btintel_pcie: Set only MAC_INIT in btintel_pcie_mac_init()
- - btintel_pcie: Fold MAC_INIT into btintel_pcie_get_mac_access()
- - btrtl: Propagate errors if btrtl_vendor_read_reg16() fails
- - btrtl: Return -ENOMEM if bt_skb_alloc() fails
-
-----------------------------------------------------------------
-Cen Zhang (2):
-      Bluetooth: hci_sync: Fix remaining advertising instance UAFs
-      Bluetooth: hci_sync: Use controller handles for periodic advertising
-
-Kiran K (2):
-      Bluetooth: btintel_pcie: Set only MAC_INIT in btintel_pcie_mac_init()
-      Bluetooth: btintel_pcie: Fold MAC_INIT into btintel_pcie_get_mac_access()
-
-Luiz Augusto von Dentz (17):
-      Bluetooth: mgmt: Fix read_index_list() buffer overflow
-      Bluetooth: hci_core: Take req_sync lock in hci_power_on()
-      Bluetooth: hci_sync: Lock the lookup in hci_disable_ext_adv_instance_sync()
-      Bluetooth: hci_sync: Hold hdev->lock in hci_schedule_adv_instance_sync()
-      Bluetooth: SMP: Serialize link key updates from smp_notify_keys()
-      Bluetooth: SMP: Check smp_data before using SMP_DEV()
-      Bluetooth: SMP: Don't create the BR/EDR channel while unregistered
-      Bluetooth: hci_event: Validate sent command length in LE Set Ext Adv Enable
-      Bluetooth: mgmt: Reject zero multi advertising rotation duration
-      Bluetooth: L2CAP: Don't use uninitialized EFS in l2cap_parse_conf_rsp()
-      Bluetooth: mgmt: Fix mesh transmission locking and lifetime
-      Bluetooth: MGMT: Fix use-after-free in mgmt_powering_down()
-      Bluetooth: MSFT: Protect the event prefix with hdev->lock
-      Bluetooth: hci_debugfs: Fix racy toggling of debugfs controlled flags
-      Bluetooth: hci_core: Hold hdev->lock when removing advertisement monitors
-      Bluetooth: MSFT: Free the response of the monitor commands
-      Bluetooth: hci_core: Don't fail removing a monitor unknown to the controller
-
-Nguyen Ngoc Thang (1):
-      Bluetooth: L2CAP: Use a reserved ident for L2CAP_LE_CREDITS
-
-Thomas de Gruijter (2):
-      Bluetooth: MSFT: Record the filter state on Command Disallowed
-      Bluetooth: MSFT: Only enable the advertisement filter with monitors
-
-Tzung-Bi Shih (2):
-      Bluetooth: btrtl: Propagate errors if btrtl_vendor_read_reg16() fails
-      Bluetooth: btrtl: Return -ENOMEM if bt_skb_alloc() fails
-
-Zhao Li (1):
-      Bluetooth: MGMT: Retain the selected legacy advertising schedule ID
-
- drivers/bluetooth/btintel_pcie.c |  31 +---
- drivers/bluetooth/btrtl.c        |   9 +-
- include/net/bluetooth/hci_core.h |   7 +
- include/net/bluetooth/l2cap.h    |   5 +
- net/bluetooth/hci_core.c         |  81 ++++++++-
- net/bluetooth/hci_debugfs.c      |  32 +++-
- net/bluetooth/hci_event.c        |   9 +-
- net/bluetooth/hci_sync.c         | 344 +++++++++++++++++++++++++++--------
- net/bluetooth/l2cap_core.c       |  33 ++--
- net/bluetooth/mgmt.c             | 377 ++++++++++++++++++++++++++++++---------
- net/bluetooth/mgmt_config.c      |   8 +
- net/bluetooth/mgmt_util.c        |  23 ++-
- net/bluetooth/msft.c             | 118 ++++++++----
- net/bluetooth/smp.c              |  58 ++++--
- 14 files changed, 861 insertions(+), 274 deletions(-)
