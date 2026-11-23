@@ -1,61 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401117;
-	b=GI+Hk8PgVfYARv4zWmc+mHnCwiaN1syMQscMXd/XmBlfmhxhLr8+y2no3aph6YjGnAMK
-	 YdcaR9pA0lG+13ceRMbq/f6SCo3CxjBrIPQDBZPeKsP5egtvuZvagcrGuzxEC31EFS2Pj
-	 /5Q/Skkgftkp+SYvna6F4dsN2HOLOM8bY0Y7PfqMFBE1TSAa1fcxo7Xb6pg3aSzlG59Wd
-	 yI+bSAgYZhtXevMzNTwbPco/ZdXnsDcjjvVygOcXFyM6LJmvXMCf+Nj0mbi3a7bGEoDLw
-	 n9wuW4zmiQOeRwsz8oN93sHNbSzCzjFHB9w2gFlz7KB+hEBNcDtGyFF0uSWJ73PoQFg==
+	t=1795401295;
+	b=rlaieEjXQljo3vs3/70i+0r5RMXMMWjSzSrvo3eY5wRugmfJpTnZoQ6KqhipI6YgKeD+
+	 UfMwGKshXbVNQPi4kkVKhQi44GxzDecW+QiFcemlo+HFdIkj+t7AwvRbBToAco6JogZLg
+	 pw9ydw2SaAyeeKOOpJChsBpztJxC++vq09bZ21OUZN8xPFulj3HsYwqTiCIO8rHl//gFc
+	 6CEOAFqpovBScZLT1kgLJ/wjg3p0l+JcwUianr3GJvEGWp5Q8ZYrXoFEtHNBhdJmZbUv2
+	 v9V7uKt+RicpEsnrFuU3iHQ83KCmkgnEoAmFN9SWVh6bzOnNK5tmQd2rsgPzOBFCC3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401117;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=IUIJQRAo4fBf4O9kTiEZ++kZybJm/kjPCJWhtsgVsio=;
-	b=N99sPkm3O74AGxKDIkCKvwozifKNTGppXv15ixG5TkXuCZ/aLhhziAOo2ox0nX3qlsye
-	 61Bv1kv5M7hIADoi8DtocidL8ftBJO4v0THMvDzIWEXlXJpCBSZTT48dZMHaA8Jp5tZ6I
-	 wv0uv+RDzz9sYeFH6fgq+6CAOGYs9k9eRoHmIMCn1EwTG+Ifobr0dRjfDZmplZpAxYdYC
-	 BCCDnStKv3KAeLX1PmThU6G3YrmLRlgHBO1IAdyYZRAfgAVCVxMBrLZ3IqbeXXMyeqspB
-	 LEuMa51TG5XYC0XFxCAn/0PJHVaFV2jcxe/8QbTBB0GvBOT+aTouBX41b8fvyBVl2yA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401295;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4Oc64KSmd4BfTK59u2VDQ0x7zgg8Szh+LnQVeqvI2Iw=;
+	b=Dqb2Uav9PgRrjUJwtJD/8/U1ssyDs8inzB7Wj0PPcpDdPN8U4zSkqdIVmg1E7782Id+s
+	 wnrzyFo0cD4srsEKdLhghfXmpN7W/ZrZ9Eb53XlmBYWsAtRqFye1pLp1SV+PuNYsYBLxX
+	 Cq0qLGRY3G6aZZnmuCwAVczK9xJuBBdmz+1OPfnpgRle93+eIoWVUN2mmzZVN+Vuugby6
+	 RA6TQEU2qj6B3h+Tw5NLB58bcDVci9bZD5jphlLlVpjM5Iez+qz9Htl445UPKoPO+MSsk
+	 x+s3GgcWJIitFNp0uNNBJIulxqAesKOFiT6ZirzXVfFQWcwj/+AfN+QO/wv2WznAb9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHCXQErP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=QLxu+y7F;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82706606A31A;
-	Mon, 23 Nov 2026 02:31:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96ECD606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:34:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96ECD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHCXQErP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 766831F000C0;
-	Mon, 23 Nov 2026 02:31:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795401117;
-	bh=IUIJQRAo4fBf4O9kTiEZ++kZybJm/kjPCJWhtsgVsio=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fHCXQErP4l+9JJNhZLkPqlmsWIXhTQcRQ5m5quKNcx7hmx18VWpfpAgaCIG2+vfCA
-	 gv3xbpA0Pf6kNwwz8z8M3dp6qPjP9gTHALHcJ8rHPFRp7PNOGoCkpgC1AOFYSzEFwz
-	 3WZ36tNobpF1prMZT9hESf0WHFmQ9vDSMSCeo2HHIeDf/e8Q9pYK1Xm2nR20FuIdXC
-	 N9QXphkd3RbC9edxFjuzbKUwbIfQLxIq9yCfJgpbtUWkOKyJEwX0O9yd4G4hz848Vi
-	 6hada5WJ83fx5nWVd9EHV8OnG0FmXZzMIIAHMXxpbcnIzWcMseyP3QAweALGX2h1q3
-	 d3QiToueanI+g==
-Subject: Re: [PATCH v2] rxrpc: Fix slab-out-of-bounds write in
- rxrpc_send_ACK() during PMTUD probing
-From: netdev-bot+sashiko@kernel.org
-To: gowtham398gs@gmail.com
-Cc: dhowells@redhat.com, marc.dionne@auristor.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- syzbot+0cd6f4783442ac67b56d@syzkaller.appspotmail.com, horms@kernel.org,
- linux-afs@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com
-Date: Mon, 23 Nov 2026 02:31:56 +0000
-Message-ID: <179540111601.3135.3449316237387537597@kernel.org>
-In-Reply-To: <20261119021202.525077-1-gowtham398gs@gmail.com>
-References: <20261119021202.525077-1-gowtham398gs@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=QLxu+y7F
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f01f296937so21604365ad.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:34:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795401292; x=1796006092; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4Oc64KSmd4BfTK59u2VDQ0x7zgg8Szh+LnQVeqvI2Iw=;
+        b=QLxu+y7Fm2VIy4RbXDQxjQ7wI9+oWbCtRPMd7r5VI+DfwXU2ZCdDvrhEbMM56m77AY
+         MBoL8wXvOIb7bhsjkAIDAUBk5redv94wdUGfgmpWIa1+bD+Cd1b9w1W7o9j/VX3iyoDc
+         Ufvp8RqJIrOVgO5bN7D27e2u2fT1SbaLOJ3zY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795401292; x=1796006092;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4Oc64KSmd4BfTK59u2VDQ0x7zgg8Szh+LnQVeqvI2Iw=;
+        b=Arda/RBKJpR1FV+qJIDzRNCG26QaGeUHJnoiDVN1KT6+prcnApUo5IJHfs26MpQ1Y9
+         VF3ZO2jIApC8k4HsZ10xVGpKo5PqnnWLVQPipQLqVGNBdnMGHfYnJNGDs7Fv3VKl1sPj
+         gm8GUU5Pi9sF9iPNYoS/B1BQdXbGBTDiPHGhNs5qNeMwXoKnnonymgFGMLWztykCCW7l
+         C5f1REi75jttQiPm0TAzIXnc4kYZzDL4Ugd7c69EjGTGTO798hifwEZb2UpoyhMD+csn
+         bIq7jqUrcI28ezt5q6vxo6Vl47EL4RV51Jkf8Vz28daP79A3aUSZPFKIKV8aCeX2WTY3
+         oGUw==
+X-Forwarded-Encrypted: i=1; AL+hErEhpPfDGkGOqnWVnn7BsATnlh3ZQgdmgPksSSDBPTR89+fSFVlYNycsqF6X3BuSbXMD105mg1A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+pkSZf538SQgZfwfs385mLm/9r5KNpYQ6U/FYD8J48g0lc8k02
+	f7Lix5TFW+7rzn4hWu6TxC+tJBFQkxrNmQWEk+qAbrWGr81C0A9Z361yyRYmHfPX+s4=
+X-Gm-Gg: AZFdTZc0ymw9yWMb/Nz1lEGrb4awm5/He13lM20PeJbLrnbccumjFad0YwZb/mZe1Ql
+	9bycmqFX+/sfrg8+yU8F9JxX8xXgd152tgPBujug0XT5uFrIag9WlIHMGOU/Jay/dB/onFGQQBe
+	YwklGfZtpyIUC0Nhots4uarM5aSSft/55sHKSRG0+nUlq1NxczHXRH3WS7rQ8UzeH+pCbsKvrCe
+	FWksaHAQ/DT9zEnWV9wH6vWzUEc7+YhlUdEo1GWghuwv5F/16sM8SLEroxUYx6nr3FtWIrn74Bs
+	XhbqavX1kElIpWQ8wOPHGwiLgzXMYrjpGX+DBczVekJtQAo01+VugnlONm3a4Qhv/mG4Zjs8ksd
+	JAZgL/AewbalfyCJoTOU6TPaKcj9qBojBVKpY2OsOmWrdoGHeMry5R7kG7/IGtGWNcu/KitsPfR
+	+aG1QhsPsswrUeNoZ1yR0UUngG9653L5xT/37uTaYuNSHpOzudmldLMt0Ldp7sudddMCwopa9Zo
+	V7wdLogWnQWYpaZ/blB9vttZAtgKTEWd2y/SKKYZx0GwRZk0oCG9hBK8pOeumeMgUGwFlkrS+WU
+	phRRThJQ5GagBMq6jBTVWTHFMl5Un0MKdTIq2k7aZi8Fohvbfqh+ZPqgWjtxnOLJKFZc9D77ick
+	B8VirSfKf7j5AJyV1f3vqzuenN/Qv9umtMSQjcLVzM2jwI7w4jTFnhfxMCrF2q6st
+X-Received: by 2002:a17:903:1aed:b0:2f0:a814:de43 with SMTP id d9443c01a7336-2f0a814e02amr695025ad.57.1795401291903;
+        Sun, 22 Nov 2026 18:34:51 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84027sm44590425ad.7.2026.11.22.18.34.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 18:34:51 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: David Heidelberg <david@ixit.cz>,
+	netdev@vger.kernel.org
+Cc: oe-linux-nfc@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: [BUG] net/nfc: nci_add_rx_data_frag() hands a NULL skb to the nfc core when the reassembly cannot grow
+Date: Mon, 23 Nov 2026 08:04:45 +0530
+Message-Id: <20261123023446.3350387-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,221 +94,164 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello,
 
-Critical: 0 · High: 0 · Medium: 1 (2) · Low: 1
+nci_add_rx_data_frag() frees the skb and sets the local pointer to NULL when
+it cannot make room for the data accumulated so far, and then falls through
+to the exit path it shares with the success case.  In target mode that NULL
+is passed to nfc_tm_data_received(), and the LLCP receive path dereferences
+it.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reproduced on net.git main at af6737b90668 ("net: af_key: fix use-after-free
+in dump_sp()"), 7.4.0-rc3-01164, with KASAN.  A patch is in the next mail of
+this thread.
 
-- [Medium] The commit message's root-cause explanation does not match the
-  code.
-- [Low] In rxrpc_send_ACK() (net/rxrpc/output.c), the new comment above
-  'if (len > probe_mtu) goto skip;' says the code will 'skip padding if…
 
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but the patch
-  guards 'peer->if_mtu - peer->hdrsize' against unsigned underflow only…
-- [Medium] This problem wasn't introduced by this patch, but
-  rxrpc_init_peer() (peer_object.c:293) computes 'peer->max_data =…
+1. Root cause
 
---
+net/nfc/nci/data.c, nci_add_rx_data_frag():
 
-rxrpc: Fix slab-out-of-bounds write in rxrpc_send_ACK() during PMTUD probing
+	if (ndev->rx_data_reassembly) {
+		reassembly_len = ndev->rx_data_reassembly->len;
 
-In rxrpc_assess_MTU_size(), this patch guards the if_mtu - hdrsize
-subtraction against unsigned underflow. It also caps the PMTUD upper bound
-to what local->kvec can hold, and sets pmtud_pending only when the link is
-above the 500 byte floor. Separately, the zero-page padding loop in
-rxrpc_send_ACK() is now bounded by ARRAY_SIZE(call->local->kvec).
+		/* first, make enough room for the already accumulated data */
+		if (skb_cow_head(skb, reassembly_len)) {
+			pr_err("error adding room for accumulated rx data\n");
 
-Closes: https://syzkaller.appspot.com/bug?extid=0cd6f4783442ac67b56d
+			kfree_skb(skb);
+			skb = NULL;              <-- cleared here
 
-> As a result, peer->pmtud_bad and peer->pmtud_trial become excessively
-> large. When rxrpc_send_ACK() builds a padded RXRPC_ACK_PING packet for
-> PMTUD probing, it appends PAGE_SIZE zero-page entries to call->local->kvec
-> inside a loop until len reaches probe_mtu.
+			kfree_skb(ndev->rx_data_reassembly);
+			ndev->rx_data_reassembly = NULL;
 
-[ ... ]
-
-> Fix this by guarding the subtraction against unsigned underflow when
-> peer->if_mtu <= peer->hdrsize, clamping pmtud_good, pmtud_bad, and
-> pmtud_trial to the usable payload limit, and only enabling pmtud_pending
-> when the link supports more than the minimum floor.
-
-[Severity: Medium]
-Is this the mechanism behind the syzbot report? Before this patch,
-rxrpc_assess_MTU_size() already capped pmtud_trial:
-
-	peer->max_data		= umin(RXRPC_JUMBO(1), peer->if_mtu - peer->hdrsize);
+			err = -ENOMEM;
+			goto exit;               <-- and carried into the exit path
+		}
 	...
-	peer->pmtud_trial	= umin(peer->max_data, peer->pmtud_bad - 1);
-
-RXRPC_JUMBO(1) is 28 + 1412 = 1440. So even if if_mtu - hdrsize
-underflows, the first probe_mtu is at most 1468 and needs only one
-padding kvec.
-
-The only other place where pmtud_trial grows is
-rxrpc_input_probe_for_pmtud(), and it uses signed ints:
-
-	int good, trial, bad, jumbo;
-
-	good  = peer->pmtud_good;
-	trial = peer->pmtud_trial;
-	bad   = peer->pmtud_bad;
-	if (good >= bad - 1) {
-		...
-		return;
-	}
-
-As an int, an underflowed pmtud_bad is <= 0. This check returns at once,
-so trial never grows. rxrpc_adjust_mtu() only ever lowers pmtud_bad and
-pmtud_good.
-
-The kvec_limit clamp also looks like a no-op for normal routes. dst_mtu()
-is limited to IP_MAX_MTU / IP6_MAX_MTU, which is well below the roughly
-180KB needed to overrun 47 kvecs with 4K pages. The commit body never
-mentions this clamp. It is only described in the v2 changelog below the
-"---", which won't be committed.
-
-So the write past local->kvec[] seems to be stopped only by the new
-nr_kv < ARRAY_SIZE(call->local->kvec) check in rxrpc_send_ACK(). A
-backport of just the rxrpc_assess_MTU_size() hunk would not stop the
-reported overflow.
-
-Could the commit message identify what actually made probe_mtu large
-enough to overflow?
-
-Separately, the message says pmtud_good is clamped to the usable payload
-limit, but the code still does:
-
-	peer->pmtud_good	= 500;
-
-When max_mtu is below 500, pmtud_good ends up larger than pmtud_bad.
-Should the description be updated, or is a clamp missing here?
-
-> diff --git a/net/rxrpc/output.c b/net/rxrpc/output.c
-> index 88cad087f13bf..a9d083076a16e 100644
-> --- a/net/rxrpc/output.c
-> +++ b/net/rxrpc/output.c
-> @@ -325,9 +325,19 @@ void rxrpc_send_ACK(struct rxrpc_call *call, u8 ack_reason,
->  	if (why == rxrpc_propose_ack_ping_for_mtu_probe) {
->  		size_t probe_mtu = call->peer->pmtud_trial + sizeof(struct rxrpc_wire_header);
->  
-> +		/*
-> +		 * skip padding if the base ACK packets already meets/exceeds probe_mtu
-> +		 */
-> +
->  		if (len > probe_mtu)
->  			goto skip;
-
-[Severity: Low]
-Is this comment accurate? The skip label comes after the transmit:
-
-	trace_rxrpc_send_ack(call, why, ack_reason, ack_serial);
-	rxrpc_send_ack_packet(call, nr_kv, len, ack_serial, why);
-skip:
-	rxrpc_free_ack(call);
-
-So the goto drops the whole ACK, not just the padding.
-
-The "meets" case doesn't match either. When len == probe_mtu the branch
-isn't taken, the loop does nothing, and the ACK is sent.
-
-[ ... ]
-
-> diff --git a/net/rxrpc/peer_object.c b/net/rxrpc/peer_object.c
-> index fa9a406e11683..32b75a7617f99 100644
-> --- a/net/rxrpc/peer_object.c
-> +++ b/net/rxrpc/peer_object.c
-
-[ ... ]
-
-> @@ -207,11 +209,24 @@ void rxrpc_assess_MTU_size(struct rxrpc_local *local, struct rxrpc_peer *peer)
->  	peer->tx_seg_max = dst->dev->gso_max_segs;
->  	dst_release(dst);
->  
-> -	peer->max_data		= umin(RXRPC_JUMBO(1), peer->if_mtu - peer->hdrsize);
-> +	/*
-> +	 * Avoid unsigned underflow if the interface MTU is smaller than the
-> +	 * transport header size (e.g., on virtual interfaces with MTU 0).
-> +	 * Also cap the PMTUD upper bound to what local->kvec can hold when
-> +	 * padding probes with PAGE_SIZE zero pages (3 header/SACK/trailer
-> +	 * kvecs are reserved before the zero-page padding loop).
-> +	 */
-> +
-> +	max_mtu = peer->if_mtu > peer->hdrsize ? peer->if_mtu - peer->hdrsize : 0;
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but the same subtraction is
-still unguarded in two other places, and both put the result on the
-wire. In rxrpc_fill_out_ack():
-
-	if_mtu = call->peer->if_mtu - call->peer->hdrsize;
-	if (call->peer->ackr_adv_pmtud) {
-		max_mtu = umax(call->peer->max_data, rxrpc_rx_mtu);
+exit:
+	if (ndev->nfc_dev->rf_mode == NFC_RF_TARGET) {
+		/* Data received in Target mode, forward to nfc core */
+		err = nfc_tm_data_received(ndev->nfc_dev, skb);
+		if (err)
+			pr_err("unable to handle received data\n");
 	} else {
-		if_mtu = umin(if_mtu, 1444);
-		max_mtu = if_mtu;
-	}
-	...
-	trailer->ifMTU		= htonl(if_mtu);
-
-The connection-level final ACK in rxrpc_conn_retransmit_call() in
-conn_event.c does the same computation and fills trailer.ifMTU from it.
-
-The new comment says if_mtu <= hdrsize can happen. In that case both
-sites wrap to about 0xFFFFFFxx. With ackr_adv_pmtud set, ifMTU tells the
-peer roughly 4G. Otherwise the ACK advertises 1444 for an interface that
-rxrpc_assess_MTU_size() now treats as having no usable payload.
-
-Should these sites use the same guard, so all three agree on the value?
-
-> +	kvec_limit = (ARRAY_SIZE(local->kvec) - 3) * PAGE_SIZE -
-> +		     sizeof(struct rxrpc_wire_header);
-> +	max_mtu = umin(max_mtu, kvec_limit);
-> +
-> +	peer->max_data		= umin(RXRPC_JUMBO(1), max_mtu);
-
-[Severity: Medium]
-This is a pre-existing issue, but this clamped assignment is skipped if
-the route lookup fails earlier in rxrpc_assess_MTU_size(). By that point
-peer->max_data may already have underflowed.
-
-rxrpc_init_peer() runs while if_mtu is still 0 from kzalloc:
-
-	peer->hdrsize += sizeof(struct rxrpc_wire_header);
-	peer->max_data = peer->if_mtu - peer->hdrsize;
-
-So max_data starts out near 0xFFFFFFC8. The fallback at the top of
-rxrpc_assess_MTU_size() never fires for that value:
-
-	peer->if_mtu = 1500;
-	if (peer->max_data < peer->if_mtu - peer->hdrsize) {
-		...
-		peer->max_data = peer->if_mtu - peer->hdrsize;
+		nci_data_exchange_complete(ndev, skb, conn_id, err);
 	}
 
-If hdrsize > 1500, the right-hand side wraps too.
+nfc_tm_data_received() does not test the skb (its only NULL test is on
+dev->dep_link_up), nfc_llcp_data_received() tests the LLCP local and not the
+skb, and __nfc_llcp_recv() then dereferences it:
 
-If ip_route_output_ports() or ip6_route_output() then fails, the function
-returns with max_data still near UINT_MAX. It stays there until an ACK
-trailer or an ICMP message lowers it.
+	static void __nfc_llcp_recv(struct nfc_llcp_local *local, struct sk_buff *skb)
+	{
+		if (!pskb_may_pull(skb, LLCP_HEADER_SIZE)) {
 
-In that case pmtud_pending stays false, so this can't reach the kvec
-overflow. But with ackr_adv_pmtud set, rxrpc_fill_out_ack() advertises
-maxMTU = umax(max_data, rxrpc_rx_mtu). And the DF test in
-rxrpc_send_data_packet() can never be true:
+pskb_may_pull() reads skb->len, which is offset 0x70 on this build - the
+address in the report below.
 
-	len >= sizeof(struct rxrpc_wire_header) + call->peer->max_data) {
+The other branch is already correct: nci_data_exchange_complete() accepts a
+NULL skb (it prints "len %d" as `skb ? skb->len : 0` and passes it to the
+callback with the error), which is how the pending data exchange learns the
+fragment was lost.
 
-Would it make sense to also give max_data a safe initial value in
-rxrpc_init_peer()?
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119021202.525077-1-gowtham398gs%40gmail.com
+2. How the failing branch is reached
+
+skb_cow_head() has to fail, and the length it is asked for is the
+accumulated reassembly:
+
+	reassembly_len = ndev->rx_data_reassembly->len;
+	if (skb_cow_head(skb, reassembly_len)) {
+
+A peer controls that length.  Each PBF_CONT fragment is appended to
+ndev->rx_data_reassembly, and the next fragment's head must then be expanded
+by the whole accumulated size with a GFP_ATOMIC allocation inside
+pskb_expand_head().  Growing the reassembly to a few hundred KiB with
+PBF_CONT fragments and then sending one more makes the expansion fail
+reliably rather than occasionally - the reproducer does exactly this, with
+64 KiB fragments, and faults on the first run every time.
+
+
+3. KASAN report
+
+net.git main, 7.4.0-rc3-01164-gaf6737b90668, KASAN (full log attached as
+kasan-nfc-nci-null-skb-mainline-7.4-rc3.txt):
+
+  BUG: KASAN: null-ptr-deref in nfc_llcp_data_received+0x93
+  Read of size 4 at addr 0000000000000070 by task kworker/u8:0/13
+  Workqueue: nfc2_nci_rx_wq nci_rx_work
+   skb_headlen             include/linux/skbuff.h:2527
+   pskb_may_pull_reason    include/linux/skbuff.h:2860
+   pskb_may_pull           include/linux/skbuff.h:2875
+   __nfc_llcp_recv         net/nfc/llcp_core.c:1625
+   nfc_llcp_data_received  net/nfc/llcp_core.c:1657
+   nfc_tm_data_received
+   nci_add_rx_data_frag
+   nci_rx_work
+
+The same reproducer on 7.3.1 gives the same fault named one frame deeper
+(null-ptr-deref in skb_headlen, kasan-nfc-nci-null-skb-7.3.1.txt), because
+net/ is built there without inlining.
+
+
+4. Impact
+
+A NULL dereference in the NCI receive workqueue: an oops that kills the
+worker and, with panic_on_oops, the machine.  It is a denial of service, not
+a corruption - address 0x70 is not mappable on any supported configuration.
+
+Reachable by whoever can deliver NCI target-mode data to the device: an NFC
+peer over the air, or a local process owning an NFC device.  The only extra
+condition is memory pressure the same peer creates by choosing the
+reassembly length.
+
+
+5. Reproducer
+
+nfc_nci_reassembly_null_skb.c in this directory (sent off-list on request).
+It brings up a virtual NCI device, activates target mode, accumulates a
+large reassembly with PBF_CONT fragments and then sends the final fragment.
+
+
+6. Suggested fix
+
+Test the skb before forwarding it, leaving the other branch alone:
+
+	+		if (skb) {
+	+			err = nfc_tm_data_received(ndev->nfc_dev, skb);
+	+			if (err)
+	+				pr_err("unable to handle received data\n");
+	+		}
+
+Returning early from the failure site instead would be smaller, but it would
+skip nci_data_exchange_complete() in initiator mode and leave a pending data
+exchange uncompleted, so the test belongs in the target-mode branch.
+
+The patch follows in this thread.  Checkpatch is clean.
+
+
+7. What was and was not checked
+
+Checked: the fault reproduces on net.git main under KASAN; the patched
+kernel is clean on the same reproducer; nci_data_exchange_complete() handles
+a NULL skb on every path (verified by reading it, not by inference);
+ordinary NCI fragment reassembly still delivers with the patch applied;
+net/nfc/nci/data.c is byte-identical between 7.3.1 and af6737b90668.
+
+Not checked: real hardware; an over-the-air peer.  We also did not audit the
+other callers of nfc_tm_data_received() (pn533, pn544, st21nfca, microread,
+digital_dep) for the same pattern - they pass skbs they own, but we have not
+tested them.
+
+No Fixes: tag is given: the NULL assignment dates from the NCI reassembly
+support and our clone of net.git does not reach that commit.  Happy to add
+the exact tag if you would like one.
+
+This was found by AI-driven fuzzing built on top of syzkaller; its analysis
+was then checked by hand against the code and every claim above was
+reproduced.
+
+Kapil Vaswani
+Piyus Kedia
