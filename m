@@ -1,87 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427194;
-	b=ESmotgQBHE1FfQZg1GTwSx1TpSIR8TR2OMUHdpwgCvjCLZX1W/Xw0DeEau0cV54o/35M
-	 Yz5V+MHqhrlmloWxiHZrZPHpfY/WgsbpFMGrqewEU+PudJelADg7QYYVjA1P/GxCoPYth
-	 ZzTT63UaN+T5vRESAH8BoHyn52/h6T61Dr+CBldS5+a5xzPSd60JTCPzuMNVPdVhCUARu
-	 dCTnHLdV1Z7oqc95SeZt+TTJZepw95FmmaAx9mdtPwNiPWa8wp9CS1SmMrPRkAeQn38sG
-	 xgQS+rTc2Xvw9WYmSchHn58Ik8w74RmVBqejitw5brkxFSE/08s1jUctxAkMaRUMsAA==
+	t=1795427492;
+	b=cwdsb8efqHEEfODozkDWLsOZBYMuw42W6Rgbqqta0ekmqyoc+on5PMoyW8j7cpRIAFbY
+	 z5v/ZCGYG+wnUW45VxRzbbFENKh1VDL8/8EbSRuHWKGnxQg6kMY8BK8UJW2bDU/nLVn5m
+	 UuBhBmjrZvCx7ARkFPqZwY1A1ZYRex6kYWsNAi1UE/x7MqYrDhCpXv50pF9GDDE7RSEKe
+	 2VYIBNj7aNlzCnx1SUE6iZqUkqSnTMW8ZCdpUiZuNZgb9e/ItxKQ18amIFauSnW926G3A
+	 CMtaA7nU4g4HSnje5oGlKPHGW0KqCP/fCCjXoMWTCvPyXpEU+QMgipUa6qiRnhtgBeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427194;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=eZEk4cOQr2FPxoxTzq089dU3C50eIos+X1Vfo3checo=;
-	b=QN84iAq5JJjHzfTlG7zKU9xYUbSWSJHhLACo3QrhNuEQLHZbcam3Jt98q9D9C8MLntn3
-	 FIIfmlTmv3LzBGrrGDTD84ncFfU6y0pvpVWmmkwQZy4XZz+I7DKS2gJpafxCO+OQc7Pnx
-	 JyMYRnYwGyY3SJ+S0SdTqDInXdulhY3UUFWBNbOT2a28J8Hv+Ya1MBGKkeq80bKOpr8m7
-	 WIa20QqF4YfImOVRB+Mdaz4VfciH1PkC8f0cFeic4swV5xB4Aqp0S2TpXdqbw+lpUDXjD
-	 CeqvikBKubtH3ExNRzH9E7xhSSk5OFzn8OjndNoV/oSzyi7GTpoyljXZPgQR3bOfL4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427492;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=OxNLSkFk8Y5cB7ol8XF126M3ZjDkbAL+tIa/C0CcN54=;
+	b=29Pc6qcEb0uIlJTX5yLRlCksR5Oo0vTFljfoq12yw+d7xYjTNjDRnbcuDVRIDgmwMkxz
+	 z4kp+iXmLmgR6qXr8OceCHuVSzlEi1zDW4sB6D7msPj9UfpchGSv2XqaJYrsDiSiFDPDJ
+	 9iuWGUI/ReRc4kquvPqqP/9arFkxDDGw1oPkD+L/NhHGucZsEa0qho0xxRZwZ6k/JUCv2
+	 cJpYIg0X81vKWsc/xrNOalvAUlAv38U6jO5rymc2ZwuMzFpto84z+EvZGh9M3GS9FelC3
+	 RwxENya7u+AG/IpoggnbYuPnTtZjR/p5fUhgoscvnVWyQ7dQS1fisRxA+yxlkzji/Lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b="A/ifu4BV";
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mV90rbyg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 431E8606A33E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:46:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 431E8606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F55C606A31A;
+	Mon, 23 Nov 2026 09:51:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=A/ifu4BV
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso30139655e9.3
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:46:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795427192; x=1796031992; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eZEk4cOQr2FPxoxTzq089dU3C50eIos+X1Vfo3checo=;
-        b=A/ifu4BVrq3O89qvkUvzk1f9L4nihg4FyRXFGOwwPVfjEscRp2Bf7hR4kjhux28dF5
-         5GwP1/mzMeOCJ/KKn4f5LfS9Dhr/kWLL1/xUCCstTyZIMQWhzUAABspTFsxVdbbfy57o
-         8gA8/wtBUiaIhx82SqhhAinJ2rr3b1IMEenJXhijV02aR3kM1NJ5hiaDtVlR+WdQwhtx
-         G4+LW2+Xm/YGpsQ7kjw/+MG4VbgEX+dWJquFYll4oLgeaXsI99IvQAKV/gwbgbd+o2wM
-         YQh0Z1mRWhWTzIGiSz4U7rQMmyZE/D9Yjj/zyOlsN7A7vtJTm0yeB3TmZQLGhAP8oRHo
-         gzUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795427192; x=1796031992;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eZEk4cOQr2FPxoxTzq089dU3C50eIos+X1Vfo3checo=;
-        b=diTCrwS8ZaPPTZAb7vOotPEjkVGx5y4ilR5SfU6VYR/iCtJo3IqbUgx9h9urTFvF+K
-         FRDxUelWrGdYbNODc5fcq0iAHMgAav0ZRyePqv5nMcdgqnB2DVq1NaJwJCAg4UQuaq4S
-         RIU0WxjzYyKdiOui3GhFz9WyKD2PYyP6gh5eJ08dw4T0lRTDHLIzPe5kxqsdJZzF5P7w
-         MtRZmWtEMp2AYUESyLgrm0zEjvn4Z36K7xovLjcqpRVh2iOoUaAbGuGY2jUo1dCMm8ij
-         U5r5NgILAbfYvq+fWBJkrvQNCUhdF5M8RNiONcjixwVU8Zw7FCOPEtATCC3L9kDCQ0ka
-         joPQ==
-X-Forwarded-Encrypted: i=1; AL+hErGFDkno5ZUGEjuYJtRiDehV8sshF17S/Uk7K0+J3N9k9Y7VJXT7selI69wbr25AliKsQ4YWqHU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/7DD0lmGW+LdPM0am7mDT/trlrKMTJ5SIxAk4Gxz7YXz4b3wYU
-	vP4CiswTKcjMnpEjsUGlM8fSsjoIa0LP/rAnvctDVM2J3pMk9rcsGH+s8PB3Eglj5Pw=
-X-Gm-Gg: AZFdTZfzDIBWk+hkWUpLn10ObW2ww2N2ndTPCNCjtIqRgBclaBJf4zlbdfkUyVdDIiq
-	ltNveVDkEd8LXDtOeXDjJzNyo9g/ydydr4ejStxWxqkhasHrjJHq0V0rpm9DGy5z+gQLSsHr+Qn
-	tf0ShCDDRubCDsBNLEKvzc8UJ1xEYpdG10p5WiA2O/GP2EKSPiFKD8JyEi+j92mj/dzN/nqvr8C
-	pVY6lY1RlKuBJ9X/vGTFlLMRiLShk30CQfDsl3fQyNM6ASWQe8qqjm9mdGOYWXdnmiKvYSWLlbq
-	PK/l7u18ahMqbbVczxcDVybLR2ItbNwlMVQcZt/hd43aGsqQC6oV3wOBbjq70nJ5cgW4k+7jSUi
-	IuxNp6BbQwLp7jr4ArvJanHdWsAyNt0tbgH4/5hDcDeAGM1jPbjI11puvbVEj6ChFHAi8FeaPNB
-	KJSVGX0VujCtfnquW9Vmy+MquoaN9KbKzCfNWOw04O7BSjess4KWlZJd51mG0FSubmK8LwIVTPk
-	dFf2RZ/QYxkRc5MThAKmqmrwlIDdMEn9hKysARyFu+pHRxUJDsKgpqZvWmnsf5enC2dv3XFnLnG
-	XNXzYazDwmd4bT20dbphiez7iVd95UhPmXy4SqbtxkdXBJtOiy94Z69b46U=
-X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr254981035e9.31.1795427192587;
-        Mon, 23 Nov 2026 01:46:32 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm19669233f8f.18.2026.11.23.01.46.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 01:46:32 -0800 (PST)
-Message-ID: <114c2bff-6d09-4b0b-8f7a-df0f45832f6f@blackwall.org>
-Date: Mon, 23 Nov 2026 11:46:31 +0200
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mV90rbyg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA6AF1F000C6;
+	Mon, 23 Nov 2026 09:51:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795427491;
+	bh=OxNLSkFk8Y5cB7ol8XF126M3ZjDkbAL+tIa/C0CcN54=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=mV90rbyg/SZC/gcRySu0H3M6+HmUvEPiTaN5oE8pUT/I5b7pSAM8vh1r5mYBnv1Ae
+	 NHKK6eegICAg3gq4EGol495w6hNHx2l1on6m6uJBIhbG4+QQzcUDkvFwOJ7vqmLbK7
+	 cniwjhgeN84a/DkBVBZBOv7K1I3ENl5PnNCH5p4dpBLG7WjoCjwZnDa3IrNJSYTh5r
+	 TTHYlOcecJrv0d5VTLAnb87oJgEmclp9FfGxQRJ5p//u91V9vqzXUYYO0PckF0nIAm
+	 5NjrHjdyroI2zTgG7ZgMNss1znOTgXXCbz68lYuqkmNr6EIOc4/EJpk00tNcLgvQjX
+	 ezm36itsTL6eA==
+Subject:
+ Re: [PATCH net v5] libcxgb: use raw_cpu_ptr() in ppm_get_cpu_entries()
+From: netdev-bot+sashiko@kernel.org
+To: wanghr2026@mail.zgclab.edu.cn
+Cc: david.laight.linux@gmail.com, bigeasy@linutronix.de,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, rostedt@goodmis.org
+Date: Mon, 23 Nov 2026 09:51:30 +0000
+Message-ID: <179542749046.3135.7766812948211328242@kernel.org>
+In-Reply-To: <179508121445.22600.6953098503196332718@mail.zgclab.edu.cn>
+References: <179508121445.22600.6953098503196332718@mail.zgclab.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,59 +64,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf 1/2] bpf, net: validate assigned socket on receive
-Content-Language: en-US, bg
-To: Jiayuan Chen <jiayuan.chen@linux.dev>, bpf@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Kuniyuki Iwashima <kuniyu@google.com>,
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
- Martin KaFai Lau <kafai@fb.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>, netdev@vger.kernel.org
-References: <20261123084138.723275-1-razor@blackwall.org>
- <20261123084138.723275-2-razor@blackwall.org>
- <3c96d878-0326-43c2-9869-e941cae675f4@linux.dev>
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <3c96d878-0326-43c2-9869-e941cae675f4@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 23/11/2026 11:41, Jiayuan Chen wrote:
-> 
-> 
-> On 11/23/26 4:41 PM, Nikolay Aleksandrov wrote:
->> bpf_sk_assign accepts any hashed socket and the rx path uses it without
->> checking against the packet which can also be rewritten after the
->> assignment. A TCP socket can then reach UDP receive, AF_INET socket
->> IPv6 receive, a v6only AF_INET6 socket IPv4 receive etc. A queued skb can
->> also be delivered in another netns than the one checked at assignment, e.g.
->> after an rx_handler forwards it to an upper device there.
->>
->> Check the socket where it is consumed: inet_steal_sock and
->> inet6_steal_sock take the protocol of the caller and drop a prefetched
->> socket on a mismatch. Like bpf_sk_lookup_assign, IPv4 also rejects v6only
->> sockets which tcp_v6_conn_request would otherwise accept through
->> tcp_v4_conn_request. A syncookie request socket left on the skb is released
->> as well.
-> 
-> 
-> Some old discussion is here:
-> https://lore.kernel.org/netdev/20260403015851.148209-1-jiayuan.chen@linux.dev/
-> https://lore.kernel.org/netdev/20260608125846.157004-1-jiayuan.chen@linux.dev/
-> 
-> But the situation will change as time goes on. Hope the issue can be fixed.
-> 
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Ah! Thanks a lot for the pointers, I see. I can just document this as a pre-existing
-problem in my patch-set and leave it for the time being, I don't see how it can be
-hit by accident, someone has to be malicious to do it and I think Alexei has a good
-point that there will always be a way to crash the kernel.
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-Sorry for the noise.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks,
-  Nik
+- [High] This patch makes the allocation and free paths in
+  drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c compute a pool's…
 
+--
+
+libcxgb: use raw_cpu_ptr() in ppm_get_cpu_entries()
+
+This patch replaces get_cpu()/per_cpu_ptr()/put_cpu() with raw_cpu_ptr()
+in ppm_get_cpu_entries(), so spin_lock_bh() is no longer taken with
+preemption disabled on PREEMPT_RT. The task can now migrate before the
+lock is taken, so the global index base comes from a new pool->base
+field set in ppm_alloc_cpu_pool() instead of cpu * pool_index_max.
+
+> diff --git a/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c b/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+> index 2e3973a32d9d1..837bdf4128370 100644
+> --- a/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+> +++ b/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+
+[ ... ]
+
+> @@ -144,11 +141,11 @@ static int ppm_get_cpu_entries(struct cxgbi_ppm *ppm, unsigned int count,
+>  
+>  	spin_unlock_bh(&pool->lock);
+>  
+> -	pr_debug("%s: cpu %u, idx %d + %d (%d), next %u.\n",
+> -		 __func__, cpu, i, count, i + cpu * ppm->pool_index_max,
+> -		pool->next);
+> +	pr_debug("%s: pool cpu %u, idx %d + %d (%d), next %u.\n",
+> +		 __func__, pool->base / ppm->pool_index_max,
+> +		 i, count, i + pool->base, pool->next);
+>  
+> -	i += cpu * ppm->pool_index_max;
+> +	i += pool->base;
+>  	ppm_mark_entries(ppm, i, count, caller_data);
+>  
+>  	return i;
+> @@ -375,6 +372,7 @@ ppm_alloc_cpu_pool(unsigned int *total, unsigned int *pcpu_ppmax)
+>  
+>  		memset(ppool, 0, alloc_sz);
+>  		spin_lock_init(&ppool->lock);
+> +		ppool->base = count;
+>  		count += ppmax;
+>  	}
+>  
+
+[Severity: High]
+Does this base still match the decode in ppm_unmark_entries() when
+cpu_possible_mask is not contiguous?
+
+count is a running counter over for_each_possible_cpu(). That makes
+pool->base the CPU's position among possible CPUs times ppmax, not
+cpu * ppmax.
+
+ppm_unmark_entries() was not changed, and it still reads the quotient as
+a CPU id:
+
+drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c:ppm_unmark_entries() {
+    ...
+		cpu = i / ppm->pool_index_max;
+		i %= ppm->pool_index_max;
+
+		pool = per_cpu_ptr(ppm->pool, cpu);
+		spin_lock_bh(&pool->lock);
+		bitmap_clear(pool->bmap, i, count);
+    ...
+}
+
+As an example, take cpu_possible_mask = {0, 2, 3}. cpu 2 gets
+base = ppmax and cpu 3 gets base = 2 * ppmax.
+
+An index from cpu 2's pool (ppmax + k) decodes on release to cpu 1. cpu 1
+is not a possible CPU, so
+cxgbi_ppm_ppod_release()->ppm_unmark_entries() would take a lock and
+clear bits in a per-CPU slot that was never set up.
+
+An index from cpu 3's pool (2 * ppmax + k) would be freed into cpu 2's
+bitmap. Could that clear a bit cpu 2 still has in use, so the ppod is
+handed out again while the adapter still holds the first DDP tag? cpu
+3's own bit would also never be cleared, so those entries would leak.
+
+The old code was already wrong on sparse possible masks, because
+cpu * pool_index_max could go past pool_rsvd. This patch changes how it
+fails: it now writes into a non-possible CPU's per-CPU area and frees
+into another CPU's pool. Sparse masks do happen. For example,
+arch/sparc/kernel/prom_64.c sets possible CPUs by firmware cpuid.
+
+The commit message says:
+
+  The free path, ppm_unmark_entries(), re-derives the owning pool from
+  the global index rather than from the running CPU and takes that same
+  lock, so any thread can service any shard.  Derive the global index
+  base from pool->base so it always matches the pool that was locked.
+
+That only holds if pool->base == cpu * pool_index_max. Would it work to
+have the free path look up the pool by its stored base? Another option
+is to use cpu * ppmax everywhere, including when computing the total.
+
+The new pr_debug() in ppm_get_cpu_entries() has the same problem.
+pool->base / ppm->pool_index_max gives the position in the possible
+mask, not the CPU id.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179508121445.22600.6953098503196332718%40mail.zgclab.edu.cn
