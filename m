@@ -1,105 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.86
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795422251;
-	b=IRgWSK5K8IrisVqInHuAKzBOYAQc1Du+IfpKplkqW0mAJxF+F4RYXWO5om3Sk+vRRVF2
-	 Yf8Oq8kLecGo9LmQbIsKYJxS8Gjl0xflK0YR5m9xH4tzCoQ20hMd38T7w8yMMNlSdydvN
-	 yXz5NnrcROtUqDAhEk4UjG78/SIZN/erqOIkyFBA/6X7dK3gFWeuvsibmsEc/70PdWP/j
-	 DEtmLqlJRpu/juaQbxpRYY8Cz43wmOoorHxsIw6hHnNGijGe2bPCUqLNJbPB0L4ZrfZAi
-	 6jj4jMzK1ekRDKFwW5E+oDvdy4flsAlvWS3SUIun2Zm1iBj44MNTdVB7E1GVbj3Nywg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422251;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7JV4TwoNsvXMu7vPPeJjdqGmjlYCEzvD+FBkkLCOKsU=;
-	b=SH4xEMRgnkiOJ0sDTb+gaVnCSZwKMoMCsGpNoIMm9Ie/5e6NDVO2pVRHAEbiYs9U9RRb
-	 hKPg+mTHn7Gi3oKTxjzsiNHt5tjTIWCyQgtYjAInAVyni6bBnj7zWqzSYCdVZGld9aF6l
-	 r//FoXV7DROT19ROPYe04lqUm6euvoBMG+J/QLtKT9hZAJXT/WOcxLFNry0lJ45e2ArR+
-	 fxU6Jtzd1M3IK3UCSPS1pfmZWqelSBO6678DEHsGpxkBH2ag+7AmhDQahdrVAtEQIVh0S
-	 V2kPmziQ38ldXYbC09tDtUgp/bsGVihi8c16yBkCKxhhkn3+G/wPrOaAmNN/PyfrKRA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kontron.de;
-	spf=pass smtp.mailfrom=kontron.de;
-	dkim=pass header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=r6buaBv0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.86
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11023086.outbound.protection.outlook.com [40.107.162.86])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795422369;
+	b=ZNPC/mnJZYpFTYxiSt2V6mMn0KKBLkYLBTMeVkrYBPtuqShpxrHWE/KRgftwOADeNjWT
+	 00v9LuD21V9msSOkhN4dDymyfTUHVQRAw+RKTU7cBXVwmdYP8tYygksV+q3WI4aC5UfaA
+	 hgZFgQ1pGW5qUdV1dv8tgnsq1aLEcuZEQ6fK2x8O8T214G6Vc8Wf3zmKyMtB5VFhZP436
+	 Ay68I3leOmHnYxWqrWtY4rEW4B2L2Glo+SG13ViwXDLK6w1QP6lOxEH36WPzVOrz4NJ9M
+	 fmBzk6vC2qvscSYNOqitZuO7xX6ULUJ9vx959g+wmV4HEDcF/SPwgXWcudN9HwPMgqg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422369;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=2ZXYzpMsSpVMbq5bALXeiDcyDHaH4rSnY+t2qNogl3c=;
+	b=ADRVEGJUdiQ1KLOjKaz+GUxFvkezVZRz9NUZ4oO6O81GkwUTqxlo3/qhuQ/i6uV2do8t
+	 lJJH9qdmyxi9agx/mm8/UXrj4Be+eJ4DTXg+Ngbl179BtrtZPhV5rcv7BQuz7nGbYXLzq
+	 dgWpxuMIUcKmQ3VViUdOUjWXbXkAQPV3Cc/Gf+Fnt4ayoYvAGPZdtklv5xAHYjf8BYp8/
+	 OnkNPiwPk9QT641SvsxoGwyx5Mc+njrAskZ9PNNo2iPFB6q6KBRPiDV2gY9YF7kmWETDV
+	 w433GLgu4u7TQaRvLXPYQmRltBFv/kPtxOkEWRNBmYUXYEI60mdWo4N+cyou9EIn1sA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hG9R1cT4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3026B606A31A;
-	Mon, 23 Nov 2026 08:24:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3026B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kontron.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kontron.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E4B606A31A;
+	Mon, 23 Nov 2026 08:26:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=r6buaBv0
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HFnI7BwACHIkbQmNdCCCPtD/23pb9MyFToJQ3cpTDzUXGm+auiEcnUKNS24ClLvnaEc+RiwG96iwPmhNPOlIM3VTJnnbTyqrtuc+9/mCpPVKdrWKyrjMVZCGwakK75GtgHsmpbB+n5Xqe8Ye0QmiaPrWXqvTrEgUvACadLStnG7rMROtUkkNKgAXGhhurW3e5W4dTIdyNfhEDm5qmPOI6gEQO+G8M2LDvfPe6EGEW/f52KWUeDO0omL1oYriNoCG7a2L44s+OeVvy3nCQ35CKrSjbn15eIPTtV6tweFiDVRY6ZdkWxKiLEe76dz4OuDLz1bdOoHHm2KSKv4Kep37MA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7JV4TwoNsvXMu7vPPeJjdqGmjlYCEzvD+FBkkLCOKsU=;
- b=Z1Ej3lh8ZudLSoz6v9u4UE8CdXb/qyR4a5XinJk+oVI2KSU7c22le31v7Pa29cW3O+WFilR2Rj0Bn0QcNHZcrOhkBkJupTgdzaZMr9Q2mv1UGcfXZH8ijVEgrQOnSaZ/Y9i7NBianSJsCkvNnPSPnQnyj1D22cxi/+yYXGyLp2oQmDpK6MY7/CIa54dgvxx6+jdZtinu3zHYnIIqodo0QHJbpE0GQ4ee1FE9C1eR66t+ptFpctgwGi4NoI4wDo/1tiFwPXX7HFKDnPEva4Mp5yWZ6/c5wFJiFIoTBp5CyQpQIPPAzzcp4ZQ48+q+KmMPAdG4Z3yBZFaChQukeQ2sbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7JV4TwoNsvXMu7vPPeJjdqGmjlYCEzvD+FBkkLCOKsU=;
- b=r6buaBv0t052bD7zhrrVXclCAddeyhC1z2PNVM+h2SnXGYvI2BplMtgOq59L1JlWFXeMwNJLeRyWf4Z3WxO3jQ+ydO6/FaJG4Nb12mctbRz1+KJitFrwoIkxMQto7KuZOy+azcXaktnshQlJiP11Y38CFf3PPU+LpTANxG0//REAApOzQRZBPmThMxEjD4rROk/H4Z0Nzri3LOzpiO45ll5lFrD6rqbKj7R5m6P7bzNoREyqGwvkG7G40WorzgBF/yXfww7jbfhGbkbFyAvnpDjCjX+d1C42b+xV+oiS+06ksXJuaYccUuPIftibDSCNFqxIpK4qUxRoBGv8fr9ybQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by GV1PR10MB8673.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1d5::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Mon, 23 Nov
- 2026 08:24:00 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0662.001; Mon, 23 Nov 2026
- 08:24:00 +0000
-Message-ID: <c0d303e2-cbb2-40aa-97b2-c0ec6d493cde@kontron.de>
-Date: Mon, 23 Nov 2026 09:23:59 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/4] net: enetc: Add i.MX952 support
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-To: Clark Wang <xiaoning.wang@nxp.com>
-Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Claudiu Manoil <claudiu.manoil@nxp.com>,
- Richard Cochran <richardcochran@gmail.com>, Jakub Kicinski
- <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Frieder Schrempf
- <frieder@fris.de>, Eric Dumazet <edumazet@kernel.org>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>
-References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
- <ZR6PR04MB5878801865D14143CC9622B73CF37A2@ZR6PR04MB587880.eurprd04.prod.outlook.com>
- <f0538c2e-873a-4522-9883-c28113efb0bb@kontron.de>
-Content-Language: en-US, de-DE
-In-Reply-To: <f0538c2e-873a-4522-9883-c28113efb0bb@kontron.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR3P281CA0193.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a4::6) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hG9R1cT4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCE11F000C4;
+	Mon, 23 Nov 2026 08:26:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795422368;
+	bh=2ZXYzpMsSpVMbq5bALXeiDcyDHaH4rSnY+t2qNogl3c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hG9R1cT4I778FIhn9+UnCNDcoR0RghBICzDHiYHixQahjyOswRk8B+/IIHceoKVmM
+	 /xEmFoR8oJvHBtjGToResk/kU1fR8t3juUbfgppPOQ6nW5GD8iuYb4yDzoifl6rYJ2
+	 uymziFFSfMMjkLVV1KUl+qCF7J2ZNfoVsfGezQHPjoblSSKWe6M5sodasfGgF9rJPP
+	 /IG0CdLeds+JE05IIzItpNLvLNMBplTnue/NwuCXYhEn4+F4Ene3jV/1VjfPUPkT6M
+	 9dwCHsG9RculA4+82o71pCuTDRcBzlFagnA5U3hYkT5oCYnez0mSU2N+hwNCqQB8wW
+	 sQap6TZqvNlWQ==
+Subject:
+ Re: [PATCH] net: dsa: mt7530: disable the power rails on setup failure
+From: netdev-bot+sashiko@kernel.org
+To: wanghr2026@mail.zgclab.edu.cn
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 08:26:07 +0000
+Message-ID: <179542236717.3135.17350424891277003723@kernel.org>
+In-Reply-To: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+References: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,131 +66,201 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GV1PR10MB8673:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5382b6f6-a27f-4d64-d006-08df493b2046
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261026121527099003|261026140227099003|261028144727099003|261021123027099003|261021121427099003|261021135927099003|261022105027099003|261102123227099003|11063799006|4143699003|56012099006|10067099003|22082099003|18002099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	wbHMoULN8bWzeML+P2DEo55ggEImSWcsWQgRAtAZW/AQHioV1lK8FZ1DKwNDk/5hHyIt2r23VZBfuxWVNLVX173p6l6PiUCrbeZUk+tqf8hmqHSKXgog5Xpn57YF9YR97ZwweL/YiUO2lfVdo4Ncw/Y2XiEH8xTRFlkchQdRvugZmLH0h5hP2Sl1TTxiDjD4AC+8HnGPOZ3GPRS2PspP5RU4pvy9e2qQnXjgFR0am+YfMagcBOvojF97TjKCtbLYKpyFvpzV2iHLC/LQKKkVHT9gL8q5ANPRBool6vB2BiwnhzllwdH6Snk4bNhwM/hdTqh5cVNAn1sAZlip7++3+1IeYsgC45vAS23mJinIcjKQWFuCyFz+2JE4q0nmd/ve6jK1u0zmovzXFOgj8D1m8t8wsSmYWCD2GzWwjoJZyPVhGCQrk3T4ikgkscb3Nt8WeQi19nExOfKOMWLCZbwx4Ug3a+FfYiqvKvXcKBHAVosC5PqdhLW6RaARH3yY93KdSDtY/ZiA8cbNTSwu5+cdqt4HoP8tMtsnCfqEfxKRxsS93QaG1G7ZJZCujXRvMx/MxdQRUuEUyUhJ6O8P+Y6drV/QFTl+bW70o7KJ4xJuRIo=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261026121527099003)(261026140227099003)(261028144727099003)(261021123027099003)(261021121427099003)(261021135927099003)(261022105027099003)(261102123227099003)(11063799006)(4143699003)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eEErSTdpRkduRitkaTZpbk1rRkJBaG1HQ2x2VitIdDVoNkFiVVlXa3c4VFcy?=
- =?utf-8?B?eVpxMXN1aGxxN2Z4aTdYdTZwNTd6MjRhSW1vazlkVVE4RUZHK0pISjRkVG5y?=
- =?utf-8?B?WGVHNTRaek83dkpOUk1RY1Z3YWtKWk5kSUJCTWcxaGhhd0x3eW5HeXlJb2Q2?=
- =?utf-8?B?N0RHbXhJaktVaU9mcXBVOGRvMUhpcU9ucTlxQ1pZdkpvMkxWVzZJS21jT0hj?=
- =?utf-8?B?aGdMRjBWeUhlR1oxSG5PQloxek82WXF1cmE3SVhvcEJ2ZGhXQ1ZmcUlhOFNZ?=
- =?utf-8?B?OHNCZUZsVFh5R1BkeFJLQXRsMnFCeVRwMysvajZEaUQ0N1lKWVRhOGRHWml0?=
- =?utf-8?B?eGtVeTFSNUNTL1JSVDdGbGxlSVBuMEpDVGMvQk1Vc0JlSFZzTVh6MkcwcnpD?=
- =?utf-8?B?alkrWloxYkZTd1NXa21sZ0ljcWZJekluLy9rVTl3ak9UOHZMZEUvVjVuT0FP?=
- =?utf-8?B?QmhvbWNmcmpuREhXZnF4TlIveDVJWXpOWXpMZ2NwZ2lBWm14MFd2MndlQkxJ?=
- =?utf-8?B?bzZRYWVXT0pJNnNweEJsRURtYXlVbC92aHBtTEdPRDlDRXVTZzVmV0UvUDZs?=
- =?utf-8?B?d1VGL1UvVlRSWjlFT1RXaVpzWVV5ZzRQZE44RGI0aWRHbGhrcUlteVlaM3Vv?=
- =?utf-8?B?SEIwN1pDblpUdlZtd0FmQzRPUlhsUDlMWG1ZRTJuYkZ6WmJCQ1h3aVEwbVJT?=
- =?utf-8?B?am5nUDh2ODUxRTBlQVlFTWlJL3pmN2pDeWY3bm9jam5BQlQ0SUpQMmQ5Myty?=
- =?utf-8?B?QThra0RSQ3k5SVViaXJaSmVMM0NsNHBLOTJ2Ym10NUdXRWx1blIzSk5CbnpQ?=
- =?utf-8?B?NnFybDF2cjlyeDZlWWY2KzJTZ3R4aU14bG95ZHY0QnY0WnJhRHJyakNPZ2RM?=
- =?utf-8?B?Z2V2T0xnaGVoS2daekxFTFZ6cUJSZHorTmN4c3UxdUhKcmR4Q3IyTWFENXYw?=
- =?utf-8?B?VjdUT3Y3c1VLVDMwTGZudFVMS1RKZVYxVWdwQ1FSZG9rVkpweHordndhTmx0?=
- =?utf-8?B?WE5hSmdUQkNlZXpwdkF6MjE5NFAxdnFQRm95RWxZS05rQ2dQV0NzUzhsWlBt?=
- =?utf-8?B?UUlyMmJCdXNJQ0tFWHEzTTZpZUtsRzlhbVhsVzM0S251SldRS2ZyYkIrNmJQ?=
- =?utf-8?B?R25qR0Jsd0cyL1g5aDNrWFJXVTBVU1gyTFZ4cGppYS9MMzNSaEdGZTVBZUg3?=
- =?utf-8?B?RDdjMjI5UVczSnJ5QU1od3lwdkhFWll4L2xYTG9Yd2VxUmNYaWdNc3FJUWRy?=
- =?utf-8?B?bnIzOERHK0hOaFl2WWpqdDFvRnJmaTQ0eWNOOXBaTE93YjJZRTlIbGtHendm?=
- =?utf-8?B?TEFHaHBacWZTWmh0Skd5V1htam42NG9ZQTBxUDR2dDVsU0JHSERYcENJU09M?=
- =?utf-8?B?MThteGNsSlI1anJYWk1pM2JVZ0wzUEZnQkMydnJnNkxrY2ltOStxTS9GZEUv?=
- =?utf-8?B?Y3JxSUNGQ0M3RE1ZUEVCeVUyWnoxeXNFbGMxVU84LzZnY04xemcraGo2bUJy?=
- =?utf-8?B?K2xFMUZqR2VxSGtMRUxnZ0hsKy9PNXEzRE43TXVmOFhCTGJTZWM4N2NjdnM4?=
- =?utf-8?B?OUZRUTljNWxrSlMveUlCenVpTmlwUTBuRkJhMXN0YURDRXZUejY4a3ZlMmhZ?=
- =?utf-8?B?R1NaQWdDbm95ZDNzQWJYWlZlVk9MWkJ5b2FXQXc2aXZ4U3QyTTF2N0lCbWlV?=
- =?utf-8?B?dVRBU2lkN0xyNC9kSHlLV0d5RFZSeGVwa2RDQXZ4TDZleG5hMmpHS2hyUENu?=
- =?utf-8?B?ZlM3M0UzTkd0RjF5ZUhJeXdTMHIyc3JacHhmZTFkQlVmZmUwY3U4Tk9xM2x1?=
- =?utf-8?B?eVNwVGRabkhmMkFFalp3ZjExd3NqTlhqVDZhNG03OENXSFpkbFYxWTlMTjAr?=
- =?utf-8?B?UjdqbHprNnlhY2FaalQ0OW9ENU9zemxnek03WUR5Z1ZzajRTUG9KVFVCb1dz?=
- =?utf-8?B?MmFpc2V4YUh3SUE0SkUyUldYdGNKaFZvb3U0SExBNE5OMnI1emRVQitScFIy?=
- =?utf-8?B?OGhnSjFLRlRtdkxNbFB6dk41dk5WQ2JZa1lpOVJiSEpydzZPbHNJYlFMQUZ5?=
- =?utf-8?B?djhuTmNYR3owZ2oxYVR2Y1IvZWJPMVlpcXE4Y0QvckRFZ09jTFAwTVJqUXRn?=
- =?utf-8?B?MWhRR3gra1BPYWVORjBYbUpUNDhEbmo3V3Y0bFBoNUlyencyRkpIT0ExWE1V?=
- =?utf-8?B?QmVCeWdpTjNJZUVrRCtQcHBDdkN6NUkzMW5YL1psN3pBdE4yUlJTc3pZdGh5?=
- =?utf-8?B?Rm83dzFJblA5V2J1bEhrUmRXaWVqKzNWeGZ4MFJsVTNpQi83YlFuUTI2b0RV?=
- =?utf-8?B?K0RFSlRvcEQ1RHE1THlpY3dpeU5kZlppSFdsVnVpWGJjZW9NcndzU1YzcjBS?=
- =?utf-8?Q?CC8Vd/TMs6EDWbWY=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5382b6f6-a27f-4d64-d006-08df493b2046
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:24:00.4382
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NLBxYVN1nwRznOpMIqDe0USYI70iUEUUtOjugvqSyLaCVkXx+I8P+leegaToLwlwbRwUq2LD2IOc7sA+Xl3bHOQ7rc+Jg3ElQefa1Y8NA0Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB8673
 
-On 18.11.26 11:50, Frieder Schrempf wrote:
-> On 18.11.26 11:43, Clark Wang wrote:
->> [Sie erhalten nicht h?ufig E-Mails von xiaoning.wang@nxp.com. Weitere Informationen, warum dies wichtig ist, finden Sie unter https://aka.ms/LearnAboutSenderIdentification ]
->>
->>> Subject: [PATCH net-next 0/4] net: enetc: Add i.MX952 support
->>>
->>> This adds support for the NETC Ethernet controller on the i.MX952 SoC.
->>>
->>> i.MX952 has two ENETC instances (IP revision 4.6), each on its own PCIe bus.
->>> ENETC0 shares bus 0 with the NETC timer and the central EMDIO,
->>> ENETC1 sits alone on bus 1. The NETC system clock runs at 133 MHz, compared to
->>> 333 MHz on i.MX95.
->>>
->>> The patches are ported from NXP's lf-6.18.y vendor kernel. The device tree
->>> changes for imx952.dtsi and the i.MX952 EVK will be sent separately to the i.MX
->>> tree.
->>>
->>> Tested on the i.MX952 EVK with ENETC0 (RGMII): the link works, hardware
->>> timestamping is available and the PHC runs at the correct rate. ENETC1 is
->>> untested as it needs an add-on board.
->>>
->>> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->>> ---
->>> Clark Wang (2):
->>>       net: enetc: netc_blk_ctrl: add i.MX952 support
->>>       ptp: netc: use 133 MHz system clock on i.MX952
->>>
->>> Frieder Schrempf (1):
->>>       dt-bindings: net: nxp,netc-blk-ctrl: add i.MX952 compatible
->>>
->>> Wei Fang (1):
->>>       net: enetc: add i.MX952 ENETC support
->>>
->>>  .../devicetree/bindings/net/nxp,netc-blk-ctrl.yaml |  1 +
->>>  drivers/net/ethernet/freescale/enetc/enetc.c       | 23 +++++++
->>>  .../net/ethernet/freescale/enetc/enetc_ethtool.c   |  1 +
->>>  drivers/net/ethernet/freescale/enetc/enetc_hw.h    |  2 +
->>>  .../net/ethernet/freescale/enetc/netc_blk_ctrl.c   | 73
->>> ++++++++++++++++++++++
->>>  drivers/ptp/ptp_netc.c                             |  7 ++-
->>>  6 files changed, 106 insertions(+), 1 deletion(-)
->>> ---
->>> base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
->>> change-id: 20261118-imx952-enetc-bd2bc331e1b5
->>>
->>> Best regards,
->>> --
->>> Frieder Schrempf <frieder.schrempf@kontron.de>
->>
->> Hi Frieder,
->>
->> I have sent the V1 patchset for imx952, will sent V2 this week.
->> https://lore.kernel.org/all/20261104092217.1730351-1-xiaoning.wang@oss.nxp.com/
-> 
-> Thanks! I totally missed your series when I was searching for it.
-> 
-> Please ignore this series and sorry for the additional noise.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Did you already send the v2? If not, please put me on Cc once you do as
-I'm currently not subscribed to the netdev list.
+Critical: 0 · High: 1 · Medium: 1 · Low: 2
 
-Thanks!
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [High] The fix is incomplete.
+- [Medium] The new error-path disable in mt7530_setup() can be followed
+  by a second disable of the same rails, because mt7530_remove()…
+- [Low] In mt7530_setup(), suppose mt7530_setup_gpio() has registered the
+  GPIO chip with devm_gpiochip_add_data() and the later…
+- [Low] Speculative.
+
+--
+
+net: dsa: mt7530: disable the power rails on setup failure
+
+This commit changes the early returns in mt7530_setup() that come after
+the core and io regulator enables. They now jump to new unwind labels,
+which disable io_pwr and core_pwr when priv->id == ID_MT7530. The goal is
+to stop the switch rails from staying enabled after a failed probe.
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..769f733f80d2a 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+
+[ ... ]
+
+> @@ -2579,16 +2581,25 @@ mt7530_setup(struct dsa_switch *ds)
+>  	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+>  		ret = mt7530_setup_gpio(priv);
+>  		if (ret)
+> -			return ret;
+> +			goto err_disable_pwrs;
+>  	}
+>  #endif /* CONFIG_GPIOLIB */
+>  
+>  	/* Flush the FDB table */
+>  	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+>  	if (ret < 0)
+> -		return ret;
+> +		goto err_disable_pwrs;
+
+[Severity: Low]
+Suppose mt7530_setup_gpio() has already registered the gpiochip with
+devm_gpiochip_add_data() and the FDB flush then fails. This goto turns
+off io_pwr and core_pwr while the gpiochip is still registered.
+
+The gpiochip is only removed when devres on priv->dev is released. In a
+single-switch tree that happens at the end of the failed probe. If another
+switch's probe drove the tree setup and the MT7530 stays bound, it does
+not happen at all.
+
+During that window, could mt7530_gpio_get(), mt7530_gpio_set() and
+mt7530_gpio_direction_*() do regmap accesses over MDIO to a switch whose
+supplies are off? Should the gpiochip be removed before the hardware
+loses power?
+
+>  
+>  	return 0;
+> +
+> +err_disable_pwrs:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->io_pwr);
+> +err_disable_core_pwr:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->core_pwr);
+> +
+> +	return ret;
+>  }
+
+[Severity: High]
+Does this fully cover the leak described in the commit message? These
+labels only handle failures inside mt7530_setup(). The rails can still be
+left enabled when something fails after mt7530_setup() has returned 0.
+
+mt753x_setup() calls priv->info->sw_setup(), which is mt7530_setup() for
+ID_MT7530, and then does this:
+
+drivers/net/dsa/mt7530.c:mt753x_setup() {
+    ...
+	ret = mt7530_setup_irq(priv);
+	if (ret)
+		return ret;
+
+	ret = mt7530_setup_mdio(priv);
+	if (ret)
+		return ret;
+    ...
+}
+
+mt7530_setup_irq() can fail with -EPROBE_DEFER from of_irq_get() when the
+interrupt parent hasn't probed yet. Neither of these returns disables
+core_pwr or io_pwr.
+
+Something similar happens in dsa_switch_setup() and dsa_tree_setup().
+Failures after ds->ops->setup() succeeds (tag protocol setup, user MDIO
+bus, ports, conduit, lags) only unwind through ds->ops->teardown, which is
+mt753x_teardown():
+
+static void
+mt753x_teardown(struct dsa_switch *ds)
+{
+	struct mt7530_priv *priv = ds->priv;
+
+	if (priv->bus)
+		cancel_delayed_work_sync(&priv->stats_work);
+}
+
+In all of these cases dsa_register_switch() fails, so mt7530_probe() fails
+and mt7530_remove() never runs. When devres later calls regulator_put(),
+the regulator core would hit WARN_ON(regulator->enable_count). On
+-EPROBE_DEFER, every re-probe enables the rails again:
+
+mt7530_probe()
+  dsa_register_switch()
+    dsa_tree_setup()
+      dsa_switch_setup()
+        mt753x_setup()
+          mt7530_setup()       <- rails enabled, returns 0
+          mt7530_setup_irq()   <- -EPROBE_DEFER, rails left enabled
+
+Would it be better to tie the regulator lifetime to the whole
+setup/teardown pair instead of using local labels in mt7530_setup()? One
+option is to disable the rails in mt753x_teardown() and on the
+mt753x_setup() error paths, and change mt7530_remove() to match. Another
+is to use devm-managed enables.
+
+[Severity: Medium]
+Can these new disables lead to unbalanced regulator disables later in
+mt7530_remove()?
+
+mt7530_remove() in drivers/net/dsa/mt7530-mdio.c disables both rails
+whenever priv->id == ID_MT7530. It does not know whether setup succeeded:
+
+drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
+    ...
+	if (priv->id == ID_MT7530) {
+		ret = regulator_disable(priv->core_pwr);
+		...
+		ret = regulator_disable(priv->io_pwr);
+    ...
+}
+
+The driver supports port 5 as a DSA link (see the
+dsa_is_dsa_port(priv->ds, 5) check in mt7530_setup_port5()). In a
+multi-switch tree, dsa_tree_setup() returns 0 while the tree is
+incomplete:
+
+	complete = dsa_tree_setup_routing_table(dst);
+	if (!complete)
+		return 0;
+
+So mt7530_probe() can succeed, and mt7530_setup() then runs later from
+another switch's dsa_register_switch(). Suppose it fails there after the
+rails are enabled. These labels bring the enable counts back to 0, and the
+error goes to the other switch's probe. The MT7530 stays bound with its
+drvdata set.
+
+On a later unbind, mt7530_remove() would call regulator_disable() again.
+_regulator_disable() would then WARN with "unbalanced disables" and return
+-EIO. Before this patch the rails stayed enabled after a setup failure, so
+remove was balanced in this case.
+
+[Severity: Low]
+This one is speculative: should the switch be put back into reset before
+the rails are dropped here? By the time any of these gotos run, the chip
+has already been taken out of reset earlier in mt7530_setup():
+
+	if (priv->mcm) {
+		reset_control_assert(priv->rstc);
+		usleep_range(5000, 5100);
+		reset_control_deassert(priv->rstc);
+	} else {
+		gpiod_set_value_cansleep(priv->reset, 0);
+		usleep_range(5000, 5100);
+		gpiod_set_value_cansleep(priv->reset, 1);
+	}
+
+On the non-MCM path, the host keeps driving the reset GPIO at its run
+level, and the MDIO controller keeps driving MDC/MDIO, into a chip whose
+supplies have just been released. On boards where regulator_disable()
+actually removes the rail, could that back-power the I/O domain?
+
+Asserting reset with gpiod_set_value_cansleep(priv->reset, 0) or
+reset_control_assert(priv->rstc) before the regulator_disable() calls
+would avoid this. mt7530_remove() has the same ordering, but this patch
+adds a new power-off sequence that is reached more often.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/1795076103951-10-8fa23d94%40mail.zgclab.edu.cn
