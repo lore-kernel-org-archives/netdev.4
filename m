@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395974;
-	b=OPol4MpuV2xmzHCN2qF9dDWSu7+NZI1UiltviQVcqlkdbcaHXeEAP8FGY17S724JTMwR
-	 TbP44ByHY1XHk+zCAsDFztQ+E5yHPAqIXtvObUvD5nefZfE9j1EzwsYx0WS7kilZ37lBN
-	 9K7fEIrZBz/FoLtMWgLr+ZeqserFJIj+17FOVESSkmJ9UbsL55kRTvgyxdxkUtmj/giOl
-	 tizK71tcjpb+scAxvcc+mJZEVlpefHTL5rK08vJ76qGD6D4emGcx9v8uRkkuBydW0MnN8
-	 21npm8xKVYxXt4B0Oghgi3Tr1fAaa+3HLgYxnK88jUYalhzozo9tlZ/djC4mvYdg6Mw==
+	t=1795395976;
+	b=QzKEMieEU5B1Rk36GWaYHBgHoabjTFtPqQSAk1KJPY+RvVBt0lBdVRMeXEgjOKzE53ly
+	 2ZzldI7RDTsFx0Pl3dHCnpZxFVMN7MBXZAnHKEqbuvwuqtU/U6KHF4+XH95TdfYCo/pxB
+	 qVzmNtpTJN44b+9L3QncvYNFdhYNsC7Sb4aZNnUMgF/B12tMnmPyhPxpPOdPPjPrei3Q1
+	 fZ5AmVoof0DTi6Gl8NZt23490V7SuC+iwYb7PuQihBz5PHYgPcVN0FY3ZLHwdPDVmZ3rH
+	 qP18b4i2Fo7kFjzp5MLiYi3ly/zii58CjgAHa4ARBovw6a4Za65ZINBX/G2wi/0c/sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395974;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395976;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=m1kYw4ZrlZ5dWwlbPQBHBTRCJTHoFiCBu7iltfS40Aw=;
-	b=cRkX1qMdsk1QfAjCFFNjigMQj8j3Kq6NrfHQCVcL25wa7F+5w4pnhxa2pdteLzecwRjM
-	 Qgnxo4skPUst7fuQzGotUEpipxfRytwlldGGxYNnKNqPDcsUgCRtdWYweveQHzmcyzTtT
-	 EmmiGM2COEEKBunVgVz5SaogPSTID4q6IP1Oqn34dlwtAvyOPcOwXbyVbxKD/EScFLgp6
-	 4aEXq7GuWzcBRiqzweKxyB+On2kcdKz/MV0xgSQS0JHygQLegsuph7lrqa5vXRVwd+OL2
-	 aVwkosj2TjKDvUFizkugAkzHMiLWH2VYFJSx9J9XOEloTeEGXzzJxLRhwtO+GvqJh/g==
+	bh=GT8u9eDgHjpLy1q95C+aJQ3RfZ/aTWtvLFOTauQjW14=;
+	b=4buo2PcAhIxvbxOCG8Uqj+Oqqt55AfqwTox34Jrque+QHixZP6ZLuTJLavK9QZO3f4WO
+	 6WOld/RqITkNIAzsiVIcba86fr3NZlR5qWs3aOcIrbUHablWlP5fiFfn6H9HSfUZ1LQEK
+	 V+yX06uYf5t/WSmbs/7piGrBbPHJDbGME0ayUpxqDjtmX7IMtqF9XTzxgJzdCzBK4H5Ci
+	 RmtKXjKXTITUuk8E6dyWePAlTIo5+tR4wUACTEqIEsTh3hCtV4JlVRlRXLerz2vxU8fGo
+	 IZsRn+CSBlUiQszgxPWimQtJxH4wPAQtdJLu02ocHcyNaEnqqVTXdShXW/ciFh9j0/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J0ETGGx4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P06DhByh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E48606A331
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74CC6606A333
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J0ETGGx4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C101F000C0;
-	Mon, 23 Nov 2026 01:06:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P06DhByh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01CFE1F000C0;
+	Mon, 23 Nov 2026 01:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795395974;
-	bh=m1kYw4ZrlZ5dWwlbPQBHBTRCJTHoFiCBu7iltfS40Aw=;
+	s=k20260515; t=1795395976;
+	bh=GT8u9eDgHjpLy1q95C+aJQ3RfZ/aTWtvLFOTauQjW14=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=J0ETGGx4kggl667GPY0Jp3oCOKY8tofipGVE85QP/dYm84HgEVCAaFeLSw0eHS95m
-	 nxzxkZtor0D9OQhmOL5lSigPRaz0nFRWud1Arp8EwF5geKV052TWcSjtnrkVx9RhC8
-	 KP6SFkfjf59zVDWNNjtKeNuB+1QciOl2pnWFsqvzeAcEn+neHGXQC9jLzJL5BXdY4c
-	 lcH8r2rj6QCZHjB1y6+VeAlSNRcxQr1gh+T+Uz2kgMq8HLtgkDsZUxrNwpKzPDQggF
-	 XbSL6LtIXrElyv/nAk65UqsNsHzTauw73WR5NC0sw8FjMYtigzfbifRl4VOmc9I69E
-	 aNYT1mYyTjExg==
-Subject: Re: [PATCH net-next 7/8] ibmveth: Pass the RX queue index through
- replenish and poll
+	b=P06DhByhBLMb9DZoTx3L1qvZ5ZKjzu6QlCW6TGHKLNrAoqvIU3uouKFO1HQSMaeQr
+	 Ju3+AIkPlAv5HBMkIkFs3JUuqnP099GraoLCtcxr6CSKOas3EPo8BWvWQfn/QlKDIj
+	 Bjz9htPslbQCymHIaLVHA3Ddk98924TZwdEldEtYejJ3Pp6vT18hBN7SS/LsMx2f2n
+	 BJs0ozXwIMHoOcMmPMqV8jEsXlaHLiteHrl+9z8sz2z1Tgr/5AnPT2TZdQq0pWEjCP
+	 FdWf2GEjnIoW6LYgvAzypQiTdpeyFINHTOshcswh8e1jX80kiLQiaoRgDOdj0X60qR
+	 DEOrZ5UPlRwZA==
+Subject:
+ Re: [PATCH net-next 8/8] ibmveth: Split RX poll into per-slot helpers for MQ
 From: netdev-bot+sashiko@kernel.org
 To: mmc@linux.ibm.com
 Cc: netdev@vger.kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
@@ -51,10 +51,10 @@ Cc: netdev@vger.kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
  linuxppc-dev@lists.ozlabs.org, horms@kernel.org, davemarq@linux.ibm.com,
  haren@linux.ibm.com, ricklind@linux.ibm.com, bjking1@linux.ibm.com,
  shaik.abdulla1@ibm.com
-Date: Mon, 23 Nov 2026 01:06:12 +0000
-Message-ID: <179539597289.3135.13448321447198422850@kernel.org>
-In-Reply-To: <20261119000711.18093-8-mmc@linux.ibm.com>
-References: <20261119000711.18093-8-mmc@linux.ibm.com>
+Date: Mon, 23 Nov 2026 01:06:14 +0000
+Message-ID: <179539597459.3135.8252131963439580422@kernel.org>
+In-Reply-To: <20261119000711.18093-9-mmc@linux.ibm.com>
+References: <20261119000711.18093-9-mmc@linux.ibm.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,57 +74,95 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] This patch adds the queue_index parameter in inconsistent
-  positions across the RX buffer helpers in…
+- [Low] The helper ibmveth_poll_drop_oversize() in
+  drivers/net/ethernet/ibm/ibmveth.c has a misleading name, and the…
+- [Low] Two comments still name ibmveth_poll() as the place where per-
+  slot RX handling happens, but this patch moved that code into new…
 
 --
 
-ibmveth: Pass the RX queue index through replenish and poll
+ibmveth: Split RX poll into per-slot helpers for MQ
 
-This patch adds a queue_index parameter to the rxq_* accessors and to the
-RX buffer lookup, harvest and replenish helpers, which used to hardcode
-queue 0. ibmveth_poll() now gets the queue index from its NAPI instance.
-Only queue 0 is used, so the behavior does not change.
+This commit moves three pieces of per-slot RX handling out of
+ibmveth_poll() and into new helpers: the invalid-slot recycle, the
+bad-frame drop and frame delivery. The bad-frame error message now also
+prints the queue index. Otherwise the commit intends no behavior change.
 
 > diff --git a/drivers/net/ethernet/ibm/ibmveth.c b/drivers/net/ethernet/ibm/ibmveth.c
-> index ab8c5f6a265b4..a40d9a6abf51b 100644
+> index a40d9a6abf51b..a36dafb8e8937 100644
 > --- a/drivers/net/ethernet/ibm/ibmveth.c
 > +++ b/drivers/net/ethernet/ibm/ibmveth.c
+> @@ -1995,6 +1995,148 @@ static void ibmveth_rx_csum_helper(struct sk_buff *skb,
 
 [ ... ]
 
-> @@ -909,17 +922,20 @@ ibmveth_free_buffer_pools(struct ibmveth_adapter *adapter)
->   * * %-EFAULT - pool and index map to null skb
->   */
->  static int ibmveth_remove_buffer_from_pool(struct ibmveth_adapter *adapter,
-> -					   u64 correlator, bool reuse)
-> +					   u64 correlator, int queue_index,
-> +					   bool reuse)
+> +static void ibmveth_poll_deliver_frame(struct napi_struct *napi,
+> +				       struct ibmveth_adapter *adapter,
+> +				       struct net_device *netdev,
+> +				       int queue_index, u64 correlator)
+> +{
+
+[ ... ]
+
+> +	skb = ibmveth_rxq_get_buffer(adapter, queue_index, correlator);
+> +	if (unlikely(!skb)) {
+> +		ibmveth_rxq_advance(adapter, queue_index);
+> +		netdev->stats.rx_dropped++;
+> +		return;
+> +	}
 
 [Severity: Low]
-This isn't a bug, but could queue_index go before correlator here, so it
-matches the other RX buffer helpers in this patch?
+This get_buffer failure branch now lives in ibmveth_poll_deliver_frame().
+Are two comments elsewhere in ibmveth.c out of date as a result?
 
-ibmveth_rxq_correlator_valid(), ibmveth_rxq_get_buffer() and
-ibmveth_rxq_harvest_buffer() all take (queue_index, correlator).
-ibmveth_remove_buffer_from_pool() takes (correlator, queue_index), and its
-kernel-doc also lists @correlator before @queue_index.
+The kernel-doc for ibmveth_rxq_harvest_buffer_test() still says:
 
-Because of this, ibmveth_rxq_harvest_buffer() has to swap the arguments
-when it passes them on:
+ * the toggle at the end. This covers the harvest path; the advance after
+ * ibmveth_rxq_get_buffer() fails in ibmveth_poll() is not tested here.
 
-    rc = ibmveth_remove_buffer_from_pool(adapter, correlator, queue_index,
-                                         reuse);
+ibmveth_poll() no longer contains that ibmveth_rxq_advance() call.
 
-int and u64 convert to each other without a warning. A future caller that
-follows the sibling order would compile cleanly, but it would index
-adapter->rx_buff_pool[queue_index][...] with a truncated correlator.
+The kernel-doc for ibmveth_rxq_harvest_buffer() also still says:
 
-All current callers use the correct order, including the KUnit tests. The
-later patch in this series, "ibmveth: Split RX poll into per-slot helpers
-for MQ", keeps the same order.
+ * Context: called from ibmveth_poll
 
-[ ... ]
+Its direct callers are now ibmveth_poll_recycle_invalid(),
+ibmveth_poll_drop_oversize() and ibmveth_poll_deliver_frame(). That one
+is still roughly accurate, because these helpers are only reached from
+ibmveth_poll(). The test comment, though, now names the wrong function.
+
+> +
+> +	pool = correlator >> 32;
+> +	bpool = &adapter->rx_buff_pool[queue_index][pool];
+> +	room = min_t(unsigned int, skb_tailroom(skb), bpool->buff_size);
+> +	off = offset;
+> +	len = length;
+> +	if (unlikely(len < ETH_HLEN || off >= room || len > room - off)) {
+> +		ibmveth_poll_drop_oversize(netdev, adapter, queue_index,
+> +					   off, len, room, correlator);
+> +		return;
+> +	}
+
+[Severity: Low]
+This isn't a bug, but does the name ibmveth_poll_drop_oversize() fit
+what this helper handles?
+
+It is called when any of these three checks fail:
+
+    len < ETH_HLEN || off >= room || len > room - off
+
+Only the last check means the frame is too large. The first one catches
+frames shorter than an Ethernet header. The second catches an offset
+that lies outside the buffer.
+
+The message inside the helper is already generic ("bad RX frame offset
+%u length %u (buffer %u) on queue %d, dropping"). The commit message,
+however, uses the same narrow wording as the helper name:
+
+  Move the invalid-slot recycle, the oversize-frame drop and frame
+  delivery out of ibmveth_poll() into helpers.
+
+Would a name like ibmveth_poll_drop_bad_frame() be a better match?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119000711.18093-1-mmc%40linux.ibm.com
