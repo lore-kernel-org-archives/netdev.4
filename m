@@ -1,99 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430564;
-	b=sKqFwstfQloCHFqT6TwxbCHNizp3Mv9jpMh7h6LlkThlMVBv6qwuPtal0yTIbSsjCMeT
-	 2hjjRLee7IJ+RYf4tOW9WA/PKMM7Pu3+oeYpdpsnrdo66d65WbtTmrdQZUT93YF5nIbTF
-	 llj3jD/elhj1/WrAKPM4d91HN0fwSnw6yoA1Q4Du11TvRkEqZUkskFYSdlMiMQGxJnFRc
-	 d/YmJyXIHo9cjkrLt0Z29xdBvy+sdn78/8Uuw0/ivbZX+Ozp5/NSWr/00ALuFG4u536Gv
-	 3mvp8pHQzXbQfrW2UzsVc+wQgY9iN1hY1AywiRAFZD4K82SmN68y7HUSn1/QhkUpGOA==
+	t=1795430735;
+	b=uVpwGHemT3N3EFOlszbO4vaF82j5J8ZziU8QN7FUOUitg1mWFI7sQK+N/TbDCq0gKGgR
+	 aVUgCH4/8riaFYxArOKNey7iatm6//c0b2UPNPkNkXpwoxAjOp2MHU5U8X6xHl/JPZxSW
+	 UWLlaI/OwBFH0k4berBbhVhixuuFjb2/agoFFeYptdV47n/iKu4FY5z8A+RkNXLhE9/2B
+	 4p9awnfLnZHYXVmMpuFpropy41WFYeMYGUKlz30u/M8o6Y8s+KhfGGqjIKLXXyi4XXEaI
+	 UAC8caCNgtC3FYQ4hFRwfegqkYJ2X4gMk3hH98CWL5n0Ag90kBXZQAyOPZbYl/cGf1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430564;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
-	b=q5IYtnNLa8YdMuuyDLpzJE07vlbsia/DxXApqu0l8fwe65jx53yqt9ojwlV8Veb6Gwm6
-	 XuIJXeGjzG8hQS6FmYJ7JbbQyCfsKPScquuRF+M9NpxV5aD0qzO/FhosmliZIBTA8ZR+4
-	 vJo0nF9rmO+9YqJy9KBONINh4HI/DmNcgEwilYu98GPiURFVl7UWXGRI8BzTRdSDQeqRo
-	 jZk8FWb2lJz+oroOgteYDPUjCQitKIntSMXxL2fOB2r9UYNv5IYFwQdKheCNk/PP9s0Jr
-	 WYkNRijvqzmW0OcVYnTUAIGh5TK72KdjGnjBFL+PI9tNP/3x+BWRxc63Io3I3LS+1yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430735;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=oUpEqwY/+w5AwAJClspe+tJn46saqMfolD/UMh3zsRY=;
+	b=QaC3HaxCp12j91f/1bBkGLiZ3ZZscvNQS80l9W6lT3OoIcdLYo7MgJ/3QZxwbPdL/Wmw
+	 mOXg6BVSQs0k1a6K0KihvXSBQRSO7XtAWqr8hTVBJyKkEbmKqhGA19jterNXczdR4g6eq
+	 RrwUpG+I3d/jmsGKWJ012MDmC2ivg0F/W/LyTeH9vZ3pZ3AMbn028Sn7J9xP9WCMxsBqo
+	 cXiDz1zXNoPK89v51OObBaS79FffRuBbWK2/uvk/XY0pWPauc2MB1e6HkNEu9ZZSXF4g9
+	 EMczF+3AgLA0CeE8IEetnvGNd6io4nbfDBECAbkB2WY6Y1n6MBoZoDk83OYtmvkdIsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=IEmaKJxH;
-	arc=none smtp.remote-ip=209.85.210.176
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IMtLGDOI;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79EDB606A33B
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:42:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79EDB606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84DBD606A321;
+	Mon, 23 Nov 2026 10:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84DBD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=IEmaKJxH
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8a05b210703so1371656b3a.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:42:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795430563; x=1796035363; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
-        b=IEmaKJxHZzoh9SFERTTYfh5haKVCSycuxx/K3Ey6NAOHkrV0/w8s3j2r4Zuso6UDYQ
-         8HsqcBTDXwaB9sTsJFNltvTKYv/BiJn89DGCt+4H19Y+QeELW6PPeyfDzAaRSS+sC/yJ
-         MXQNPlX1tVbfCx4wHsfut5FDjb+qTassJhLITBv+K6EjJ1HDENme/sUZHtKZYSZaKnnv
-         mSOzcM2GBXVSQFch/LEqN245ZqjzSdWerZzedMrKS0X6+4XWz1+dKcghq6mGkFFzhoS4
-         wFFVOhWGxzdRZ0r3VBKyIzOr25FMeazd14E4lgZncWqYRj8Y3f1LEbouqxSYukwgt06x
-         y+5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430563; x=1796035363;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
-        b=O/WNxD9nZbGe1Vqd0TbEvov7yeTlpCf4lCrUtFyODPVkzhImj6R0x8uYzMCkh632kE
-         fRPOEupcegQoU9ppT6dNLgdel/wzJ4E8fPCW58BSm1e8lgzBoXRBt0hJgATD0FMHkqZv
-         /bu6cLxZMYaGf3ze4+ffO+tkJLGZvgBWqdMvMVN3MS2DIooyHaREqwaqYMRWKDHMghRu
-         CQpcqACh7WyKNRJoJv/rFx16DC1tgrP3hGoLftzsDmpkltEOj7vr0XJHPytejUfhYofn
-         25BYGDZPiaimnRfOXt632WbagvQ9yli7RR6stzj5DJnRTqy+a6EISMZKHYbTTLWsdFoL
-         +auA==
-X-Forwarded-Encrypted: i=1; AL+hErEJCZ1ky5W7Dd3yyOZu4VaeKku+rx5eP9Wq8eoTfHdEyWX1QODqLQZTyL5SarzPKoSVTimyxpE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SXU81pd7nO3aykyIztN7ZGYhWtsK012fEavUN+Knt6yNjnSiN
-	wN+QhbZtUds31c383Yvrnha1bgyadGqMvYo77VJMlXkXtFfPS+si6nBokQTaHMb6ojQ=
-X-Gm-Gg: AZFdTZeDu0V8ZDWco3nREAaZeKbr9OwVUs+2qe/ZY7YeDq+zgvm+5iy1i6Zkm5QDMP2
-	hNUJioqhwyE/Zy9XPbm5MK8vqT+Byq9bRUXPUD7uEO6BwK8TaIhgFLMGMJnWiL67QvzHGrmi7gz
-	hMa/6nCqP/BzmQ4CO/CSS5r9c4j0VxzcIqlu+DLg7j2wQTCs117v7gY/mOLLxRHDjeJtFNDfwx9
-	Iw67wf5owJI4+pogsnHKni0GX13jXaHt/MTOzNZX9+tI/RQF7D1a/ibPI4cYSr/iuLwFif6Wep2
-	DOYz/ayKG/UV0RHi6eYpaInL5IHVUSNd3nv2r7ncly0LKrisZLKJrAa9yqWm2fVfWUiR93W0t0w
-	+wrf4WufyDSZ0hpzFfqfhbC6NwzpF4Q2x4z5asE+jER2XsPrZ/iVGbR+Zn7nnY2G5c46nLoxXMw
-	QfxCc+jf3LiUgU8Qdcp/nTpfSGVKXQicXHeI3Inxp3k8b5+i5JBKC9iQPIFx+tf97EWuqJi1ByE
-	6mAiA6aMnGsjMq+pYLikYkrfkkfrmMwIB6od89LMvV69B1H35FSfKvfbh8v3y+cH95DmInDueSU
-	q1AMojGPNeiISF7LBlB1b3V0cQMe7OdhLKb9
-X-Received: by 2002:a05:6a20:4308:b0:3eb:b2ce:7b4f with SMTP id adf61e73a8af0-4014c34fdfemr11751808637.68.1795430562727;
-        Mon, 23 Nov 2026 02:42:42 -0800 (PST)
-Received: from rmustafin-laptop ([27.79.41.63])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde84cd5ed8sm2283731a12.10.2026.11.23.02.42.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:42:42 -0800 (PST)
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Rustam Mustafin <rmustafin@cloudlinux.com>,
-	stable@vger.kernel.org
-Subject: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
-Date: Mon, 23 Nov 2026 17:42:36 +0700
-Message-ID: <20261123104236.4179425-1-rmustafin@cloudlinux.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IMtLGDOI
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9FtFF2785551;
+	Mon, 23 Nov 2026 10:45:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=oUpEqwY/+w5AwAJClspe+t
+	Jn46saqMfolD/UMh3zsRY=; b=IMtLGDOIlE+gk42jBTAwvho5GFCE7q3AnXMErW
+	ejSXNUBvFzhyAF1Bq8/56TQlemFzbNWmovmG1yMuB4QjdJduealsCkSEBZKXU0/Y
+	5elXCOeHZcr26BNHk1R+6fnZdjpe5O5YudNcj4e26LASGLgMJK8ZxZwPR35KJARf
+	WJ8ryeEAKpFrM/n+ImpeskJY7ZS9aWAECBn+vt0LeSRRhzJ9/jDFkTtFgZaCi2bs
+	8ppBq5hdav+ibrRCASU81un3UfKoIEiv92tw0QmcfKMOLLEMOPUvIORhGvxAx+kz
+	xOyJoyQ8Dtr9+g/ej3H+PZwL3UT7LinK0XKnef5FuDys1L0g==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyd10qq-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 10:45:24 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANAjMnT321126;
+	Mon, 23 Nov 2026 10:45:22 GMT
+Received: from hu-ffaruque-hyd.qualcomm.com (hu-ffaruque-hyd.qualcomm.com [10.147.245.31])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTP id 6ANAjLpQ321114;
+	Mon, 23 Nov 2026 10:45:22 +0000 (GMT)
+From: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
+Subject: [PATCH v2 0/3] arm64: dts: qcom: add Monaco Draco EVK board
+ support
+Date: Mon, 23 Nov 2026 16:15:11 +0530
+Message-Id: <20261123-monaco-draco-v2-0-3ee3b2375f16@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,90 +73,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADgZBGsC/1WMwQ7CIBAFf6XZszQstqV68j9MD4SllkRKBSWah
+ n+XNl68TDIvebNCNMGaCOdqhWCSjdbPRcShAj2p+WaYpeIguOgQecucn5X2jMJGQVK0I6f+hAT
+ lsgQz2veeuw7FJxufPnz2esJt/YVQ/ocSMs5MIwg7ecSmp4uPsX681F175+oCGHLOX3dnw7OvA
+ AAA
+X-Change-ID: 20261105-monaco-draco-2d725f0d891d
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
+        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
+        Dipa Mantre <dipa.mantre@oss.qualcomm.com>,
+        Sravani Tella <tella@hu-tella-hyd.qualcomm.com>,
+        Monish Chunara <monish.chunara@oss.qualcomm.com>,
+        Ajinkya Inchure <ainchure@qti.qualcomm.com>,
+        Faruque Ansari <faruque.ansari@oss.qualcomm.com>,
+        Kishor Buchi <kbuchi@qti.qualcomm.com>,
+        Karthik S <karthik.s@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: 5RhR1bbrhI1XzPxx2sx6E7x8mfbVk0NY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX15VvimgE2yIj
+ 5YP8yghQSdIt9utXAon+3mrsppq763/1rh+mGh05Prclg2wXL+opyKz821HgFbiyyMVIcLZr+hf
+ bZeK5uhcN8NAQPrVqJxyqImCTYnoC+s/Cv4UyNqTUv6MG/a+k7Cp8pHEvQL8PjN5dEdsROuhPTE
+ 3+jhVmp5XVeG2q3WxahkhMom8duBhiEWsLGkOgG1resjil1WIH0/06qtbe+hjyNIasACbENHiAj
+ vH6yKonYzppaBZBzyFN0M8/SzCEr4GayH6hn/l4c6X4YrQSOG0RHOSmxqHinCLC1hqv/pAPntB5
+ MLAUdCUvTB438WEQuW7jUQs7PiuuwkBk66Kwl6pQfFBzj8Td095iSZSr3QcRYir8QG8r9/XrEQZ
+ rDsvhCnNb+ZuTW7D2u3xYOmJo8dwJsgXXhMwwwPT8Y3FMA/daFef1dc/s3Py2GeFelILaY3Pd6v
+ SwQZAk2psAlNnVrDEoQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfXxRJT4JbGSInl
+ hasrEBOLcwuFhwG9PyouLnZVFDjNciUEO1EhdJ9fs/xChERi3H1nYwlhOoGJ14JG4b9xbBE7GKH
+ f1GTt+Mt0or4vAmx8h64iDe/b063+0s=
+X-Proofpoint-GUID: 5RhR1bbrhI1XzPxx2sx6E7x8mfbVk0NY
+X-Authority-Analysis: v=2.4 cv=Aol7T+9P c=1 sm=1 tr=0 ts=6b041944 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=OfGTQUpXpFICen9CABoA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
+ spamscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230042
 
-__xfrm6_output() decides how to report a too big frame by looking at
-its sk argument, but xfrm_local_error() reports to skb->sk and
-dereferences it unchecked.  The two differ for a UDP tunnel: vxlan,
-geneve and other udp_tunnel6_xmit_skb() users pass the tunnel socket as
-sk, while a frame they forward has no skb->sk.  When such a frame takes
-an IPv6 tunnel mode xfrm bundle and exceeds its MTU, xfrm_local_error()
-oopses:
+This series adds device tree support for the Monaco Draco EVK, an
+evaluation kit based on the QCS8300 SoC targeting automotive and
+industrial use cases. The platform consists of a System on Module
+(SoM) paired with the Draco carrier board.
 
-  Oops: general protection fault, probably for non-canonical address
-  0xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
-  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
-  RIP: 0010:xfrm_local_error+0x92/0x190
-  Call Trace:
-   <IRQ>
-   xfrm6_output+0x599/0xae0
-   udp_tunnel6_xmit_skb+0x713/0xd90
-   vxlan_xmit_one+0x1ebc/0x3490
-   vxlan_xmit+0x1369/0x6540
-   dev_hard_start_xmit+0xe3/0x5b0
-   __dev_queue_xmit+0x18e7/0x3550
-   ip6_output+0x360/0xec0
-   ip6_forward+0x1573/0x35c0
+The Monaco Draco AC SoM integrates the QCS8300 SoC, two PMM8654AU
+PMICs, eMMC and UFS storage, USB0/USB1, the Adreno 623 GPU, USB
+and UART interfaces.
 
-Commit 1620c88887b1 ("xfrm: Fix the usage of skb->sk") changed both the
-IPV6_DONTFRAG test and the local error test from skb->sk to sk.  Test
-skb_to_full_sk(skb) in both, as xfrm6_tunnel_check_size() does.
+The Draco carrier board builds on the SoM and adds:
+ - DWMAC gigabit Ethernet (2500base-x to HSGMII PHY), MAC from EEPROM
+ - AMC6821 fan controller on i2c13
+ - I2C GPIO expanders (4x kts1622 on i2c14, 2x tca9538 on i2c15)
+ - Native DisplayPort output (DP0) to an on-board DP connector
+ - Dual PCIe (pcie0/pcie1) via an on-board TC9563 PCIe switch
+ - ST33HTPM TPM over SPI10
+ - M.2 E-key slot connectivity
+ - Audio Playback and Capture over max98091, Audio Capture over
+   va_macro codec DMA.
 
-A frame without a socket then goes to ip6_fragment(), which sends an
-ICMPv6 Packet Too Big, also when the tunnel socket sets IPV6_DONTFRAG,
-where it was dropped silently.  For callers that pass a NULL sk, such as
-ip6_tunnel, the error goes to skb->sk again, as before 1620c88887b1, and
-a request or timewait socket that vrf passes as sk is no longer read as
-a full socket.
+This series is functionally dependent on the driver and binding changes
+posted here:
+https://lore.kernel.org/all/20261123073459.2361169-1-karthik.s@oss.qualcomm.com/
 
-Fixes: 1620c88887b1 ("xfrm: Fix the usage of skb->sk")
-Cc: stable@vger.kernel.org
-Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+Signed-off-by: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
 ---
+Changes in v2:
+- Move PCIe reset and wake gpios to port node (Sashiko-bot)
+- Add compatible = "pciclass,0604" for switch dsp to create a platform device and invoke it's
+  power-on sequence.
+- Add Audio Playback and Capture over max98091, Audio Capture over va_macro codec DMA
+- Link to v1: https://lore.kernel.org/r/20261117-monaco-draco-v1-0-e42d1673148d@oss.qualcomm.com
 
-Notes:
-    v2: also use skb_to_full_sk(skb) for the IPV6_DONTFRAG test, as the
-    review of v1 suggested; drop the code comment.
-    v1: https://lore.kernel.org/all/20261114125552.1319352-1-rmustafin@cloudlinux.com/
-    
-    Tested with KASAN on 7e1392a42ea2: a frame forwarded through vxlan over
-    IPv6 ESP oopses without the patch and not with it.  Through ip6ip6 over
-    the same ESP tunnel, a too big frame is dropped as before; ping now gets
-    EMSGSIZE on its error queue instead of a Packet Too Big.
-    
-    Not touched here:
-    - iptfs_is_too_big() has the same mismatch (IPv6 oops, IPv4 silent drop);
-      it was pointed out in two reviews:
-      https://lore.kernel.org/all/20260908224856.1591189-1-kuba@kernel.org/
-      https://lore.kernel.org/all/179369310739.488856.16665150928122536725@kernel.org/
-    - skb_to_full_sk() can read a freed listener when a bpf syncookie request
-      socket is redirected and queued; the bpf_sk_assign series handles it:
-      https://lore.kernel.org/all/20261119142231.2612515-2-razor@blackwall.org/
+---
+Faruque Ansari (3):
+      dt-bindings: arm: qcom: add Monaco Draco EVK board
+      arm64: dts: qcom: add Monaco Draco AC SoM
+      arm64: dts: qcom: add Monaco Draco EVK board
 
- net/ipv6/xfrm6_output.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/arm/qcom.yaml   |   5 +
+ arch/arm64/boot/dts/qcom/Makefile                 |   5 +
+ arch/arm64/boot/dts/qcom/monaco-draco-ac-som.dtsi | 320 +++++++++
+ arch/arm64/boot/dts/qcom/monaco-draco-evk.dts     | 755 ++++++++++++++++++++++
+ 4 files changed, 1085 insertions(+)
+---
+base-commit: 6d0933ae9d46674a6ea63a87e9e9ab4e662670c9
+change-id: 20261105-monaco-draco-2d725f0d891d
 
-diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
-index 44b221a09a0c..d38311645908 100644
---- a/net/ipv6/xfrm6_output.c
-+++ b/net/ipv6/xfrm6_output.c
-@@ -88,14 +88,14 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
- 
- 	toobig = skb->len > mtu && !skb_is_gso(skb);
- 
--	if (toobig && xfrm6_local_dontfrag(sk)) {
-+	if (toobig && xfrm6_local_dontfrag(skb_to_full_sk(skb))) {
- 		xfrm6_local_rxpmtu(skb, mtu);
- 		kfree_skb(skb);
- 		return -EMSGSIZE;
- 	} else if (toobig && xfrm6_noneed_fragment(skb)) {
- 		skb->ignore_df = 1;
- 		goto skip_frag;
--	} else if (!skb->ignore_df && toobig && sk) {
-+	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
- 		xfrm_local_error(skb, mtu);
- 		kfree_skb(skb);
- 		return -EMSGSIZE;
+Best regards,
 -- 
-2.52.0
+Faruque Ansari <faruque.ansari@oss.qualcomm.com>
 
