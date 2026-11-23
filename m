@@ -1,101 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795399091;
-	b=W9LsGDixJcpryG2CO+NMVBhqTcFAgjSZmlU8Lq240HYC1S0QNHX4/NKxrxapLk6munS+
-	 2A6zhd8FM06GVVubnfgHj0h85VLQdvvC5JwU4+PpKUuKiUW0BTFEKA08Weg6vZ+mBpQH+
-	 3+3nJBEib2KxfdnjxHA6wOG/3lBHGiGlQFWOXLfPreRO8FD4e/pxOWLiZF2jFPCLy1wHk
-	 WpujZWMSZoa1Cpmw0t1L4qeRxj8DIThh7D6Vok8R2ZK/ON/LVdfG83/Kckv475L4uiNFN
-	 q5gSL7ee4aDwfp4ZVlyB5FSMwq6gVJib3d1RVm/wtv+nnQZogPtoSTe4t5Sl5CfvaBg==
+	t=1795399986;
+	b=iXy/rRCNM8IH4sWIhg0Qbf7ExFj6teLlrAX1mn9RLrAFA+3qwczKJdiZSe1U//B9+KIv
+	 QcY9lMpv34u1Z3xvUGQhMxdVXfPMOJRbA7VfgFfAUrRA8YO9j6k4w+AIEWB6PewCXkCSf
+	 MOu6wW49klqyIBBFVMNGFYZkdF2ohwgolpEkQKlqS+Unbl8/e3J8ol9cOSpHzxzPncAWu
+	 dJDeAc2ivEhBkNxZ5Mmxa4FQj9wgmZE6ablyQc9UH2AyGYUdHDfAss01QvRY02D0QkIqC
+	 SHaZMqXCiAz0kZhQBTiMxFX2DXhWU9vuPFvVkJjpplkq5oLq/efUGKtuvc3xU2dznog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795399091;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/6m9oG6/G1/S0puY4RqRayaqVyRy90+VEAnpcpDQ9Iw=;
-	b=poHvjYHAalPB0Nrh8h+A9cUxw52f9M6URjxP5KTc+iPy3fJhbG6cRU8+zDhwwDEb8BWm
-	 uvmM23p/Zyfmx1811GlXTzq6wTJvGxYn18tAnZg9LtUhsSHHAbPwH7TBskcO4Z+OxpViZ
-	 49CfeAWRgCpqhLAgH4ejSkpWxawnQlL5KcoTkC95G4ADLu0OGGJ0gUR+S3YDEjQVhP8Wl
-	 gmoBzGHWRcYNHsZYL+sPoxrcY4T+mRH5CHSpxpSbt0SRYaW5EbeD7b0FxD9B10au17LB7
-	 4XQ0HiBCDUTqEqP6t+lqPqQP5kVP3cN47n4Xa58KPJHf3+AneQJ0TXJy+aJ48LIOvQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399986;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=7WNllSuoY628fVV8UwqSTdUaKi0NxXh2fFQ5nKQfqWo=;
+	b=pRoOK1mTAQcURY/+oBd2aAJuHNpywi8YewGUPIkXbX4rygyyjXC6VcEV7EgN76QR8Rfy
+	 4xlNaijAwBiCG3BCoyOEsRi+nu680b/6YFQiOZyrwsa1sg3uvWa2nBxz8OGRu7TWPQCVc
+	 E1KAUz+2EVAX58oVRbX4uuYNJrYIGVutnCRy1FrP7X4EzR7Wdg60ilMUQpvMuqPntejFm
+	 ogeAnS9ner9zqulkBgDfyL39lRnPpUrvtMwVBPo5hyRYUPOmra7IWmpW0BfGR+bOM1hHA
+	 qcJlaur8IXfq0U2CfsKUDPosDp+46W/h+Z4LLxfZ2YApnxESCGtlXu7J3BYh4V3UO6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KoaGNxhb;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C6FD606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:58:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C6FD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KoaGNxhb
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38190551625so5858397eec.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:58:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795399089; x=1796003889; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/6m9oG6/G1/S0puY4RqRayaqVyRy90+VEAnpcpDQ9Iw=;
-        b=KoaGNxhbWXMn4T+/msTNtl/XwQZly12OOm9gE+ST+YG7+TM7gWn54hU/Ozmi4jkYxL
-         81VD09Dg/KTZLmdsTDgws5EczLVb8WqYb2vsX7qNvQYO14VWrNAlvdn6t865nxnjiPVZ
-         lEzBfDpXisvBmRNWwCpWtCzwmeR7qTFIRnR5bffYhJ2DqtDcXOof/+GK8Jb5WeO1ozJ2
-         CC+MY7T4nZ9Ep9L8D/ZzyD04q36Cdb2JyFaq4HPcr8qvuASDWBEwcNeStgolH4A7OX/M
-         hIHPZo22uM7PzDQzegM9CV9a1O74WiI21aog6DrSfUxLVP/65BabyMbwy/Tk5sYBlOGy
-         oKcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795399089; x=1796003889;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/6m9oG6/G1/S0puY4RqRayaqVyRy90+VEAnpcpDQ9Iw=;
-        b=c0aDx+b5hYpvfrIV2a6wmIxflH5PgTVkbCqTo/GV/zaSGB2u5ClU7X19ajaVXVQQ9k
-         nMoLKJpe6n7XkeN2OHeN1cosp7ZPnFq0Umym9yP8je8W12ZNUzBCRscjMICy52LqaSzf
-         vjjd6oY0sB9/4SlniNTF4YANYADr7N/UgqsJ2YdmK95kaxVPiV0XCy6QG0sTGnJC4TTZ
-         /0Pn1P3kDTjCGPt8agacPlHE7Y/uutKWZoH/UFKq1GdlOq0DuIPDXXdarzpeBf0PAfIO
-         VLaPRpnIBCjmmRAv2d4vAbA/ONQwPbLPw2RUfNreEV+pExwZ52hwPkcjij5HZ9EhEVD/
-         Csbw==
-X-Gm-Message-State: APuU4Z8eDGMq7lGku6QgNOQKpaX9JVaonB9e3vyBRmTPgBeybPWSulVF
-	s5r7mqHSLBaog+y/xEmMKRnz9lCtwCUI5QcleCoh5HebExUJMiEUw9kR
-X-Gm-Gg: AZFdTZfhDnooVETEN3MDhTLinu03Il9LKrcCkVVXeMeci/KMLBke3tXZsDvX2BQHGMy
-	/nooFvZrI0kz26CSF0CHCJyqNE/Zfa1Ft2YQOgO5NW8klGSqDLa96OeI6E4qY/NjbRTv0dwrMV0
-	VUXUZIDvxtfm7UcCP/TSHKaQys0zet3QobOdZ4r6l+gJzJxVzejPdbrjBnFKwHhWsxKj8RnSzvD
-	/UIRc1t+tLqsZn06d1YJc7PVCOFhHqksQyCzV8JvWbJGbzoMkrffXh7NdLN0+iV/yXdbEM5tvrg
-	WICgTArifE7kUeHxv57ndqU1fNY0SEHsUfBviRBzILBc7R+REseZBJy08e5XWY2Qp2pLIkOK/Oa
-	bzJFcJstaR6oXwztzppQ7/0zDQEr5V/21U88DVUbrGccyNxwjbSMeTqLexpLIO2tWBe7Nsl8IJ1
-	phFA2F9NX6lqfmC2RWdV8qNP8UGgeG/cf3iVuW7UCH1OOshmvIoG+jbn5lik6dKRALRsFQhRXr+
-	i74FfAIvnEtdKodGFMueDk8q0jhPUfJGRT8o2q3bPGhJsLfC9PmexInDM+dQnisQqCWbRLLFllp
-	bD0OsB08AVyLRwi0CvEVNxU+jfl8fr0gxdYwtyhxLo8bhiVnadvxw2DF38hsd5YsZQjeykNszC1
-	NjYvcgR/hfK7ojXNCWexrozWmpwrDDrItzetiYFfqV0OEcxnVR/r6iXQfv2imytIZOya7CTnD
-X-Received: by 2002:a05:693c:8642:20b0:386:9e22:ca4c with SMTP id 5a478bee46e88-3869e22cc7emr7180886eec.35.1795399089350;
-        Sun, 22 Nov 2026 17:58:09 -0800 (PST)
-Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3856456e6c6sm27647281eec.2.2026.11.22.17.58.08
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 17:58:08 -0800 (PST)
-From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	richardcochran@gmail.com,
-	andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	jiri@resnulli.us,
-	kuba@kernel.org,
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=132.226.202.154
+Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id DADA0606A31A;
+	Mon, 23 Nov 2026 02:13:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DADA0606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wA3ITcqoQNrD_UsAg--.13525S3;
+	Mon, 23 Nov 2026 10:12:59 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app1 (Coremail) with UTF8SMTPSA id yy_KCgCHmIUioQNrZnAbAQ--.21654S4;
+	Mon, 23 Nov 2026 10:12:52 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: netdev-bot+sinfo@kernel.org
+Cc: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	pabeni@redhat.com
-Subject: Re: [PATCH net 1/4] ptp: ocp: prevent timestamp rearming during detach
-Date: Sun, 22 Nov 2026 17:58:06 -0800
-Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-r5-ahmadexp@gmail.com>
-In-Reply-To: <179538006639.3135.15219639487891578509@kernel.org>
-References: <20261118-timecard-common-301f823ddd-1-ahmadexp@gmail.com> <179538006639.3135.15219639487891578509@kernel.org>
+	Lin Ma <linma@zju.edu.cn>
+Subject: Re: [PATCH net] rxrpc: Fix overread of short key descriptions
+Date: Mon, 23 Nov 2026 10:12:01 +0800
+Message-ID: <20261123021202.4035298-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179539668255.3294.13468714473453034116@kernel.org>
+References: <20261123011302.4032262-1-linma@zju.edu.cn> <179539668255.3294.13468714473453034116@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,40 +58,40 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:yy_KCgCHmIUioQNrZnAbAQ--.21654S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAusE
+X-CM-DELIVERINFO: =?B?3oN7rQXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGdboVYov/USHyHXOYpqKPIbbAN6FzyV0VTnaiIk7dV95xXK
+	10ImVjZal0gRq8it5oLTkR6P8W9CrxruHxbQKN8qIfynaGlLQxuCfIQ6UICXEQ==
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
+	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv
+	67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7xvr2IYc2
+	Ij64vIr40E4x8a64kEw24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l
+	x2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14
+	v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IY
+	x2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87
+	Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIF
+	yTuYvjxU7xwIDUUUU
 
-On Sun, 22 Nov 2026 at 20:41:06 +0000, netdev-bot+sashiko@kernel.org wrote:
-> This isn't a bug, but blank lines separate the Fixes:, Link: and
-> Signed-off-by: lines from each other.
->
-> Tools such as git interpret-trailers, b4 and patchwork only treat the last
-> paragraph of the message as the trailer block. As written, is
-> Signed-off-by: the only trailer they will find, with Fixes: and Link:
-> missed?
->
-> Could these three lines go into one trailer block with no blank lines?
+Hi,
 
-Agreed. The trailer block was made contiguous in v3 and remains so in
-the v4 draft. Any new personal sign-off will be appended to that
-same block after review, not separated by a blank paragraph.
+Found by code inspection/static analysis while auditing rxrpc key
+handling.  I did exercise the path at runtime: add_key("rxrpc", "a",
+NULL, 0, ...) followed by keyctl_read() reaches the
+memcmp(key->description, "afs@", 4) and returns -EOPNOTSUPP.
 
-> Could these move below the --- line so they stay out of git history? If
-> the tool assistance should be recorded, an Assisted-by: style trailer may
-> fit better than a paragraph in the body.
+It is only a C-level overread: kmalloc rounds the 2-byte description up
+to an 8-byte object, the inlined 4-byte load is not KASAN-instrumented,
+and the extra bytes are slab padding.  There is no crash, no KASAN
+report and no user-visible effect, so this is a small correctness/UB
+fix rather than a runtime-triggered bug.
 
-I moved detailed testing and revision notes below the separator and
-removed the repeated cross-patch workflow descriptions. Each commit
-retains a brief, patch-specific validation statement, including the lack
-of physical-card testing, as required by maintainer-netdev.rst. A short
-provenance statement also remains as required by generated-content.rst.
-I have not invented a new trailer or added a reporting tag not supplied.
+Thanks,
+Lin Ma
 
-Also, this report is on v1's mutex/stopping-flag approach. That approach
-was replaced following Vadim's review: final channel shutdown is handled
-by the PTP core after interface removal. The latest revision uses
-explicit timestamp-channel requests, leaving the pin helper only in the
-pin-configuration path.
-
-The five-patch v4 series is posted separately to net:
-https://lore.kernel.org/r/20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com
-
-Ahmad
