@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446010;
-	b=upq19rbNNt25zAEPYF1xaJ5c45Jg8NQJzZEmtDHq1iQQIBSjcC6VHIvs8nND0ZkoNMym
-	 hmP82RvnNQ1Pq0XUwmpTbizbJ5b9GFq6OCkFk8VJXLXBZnzedjegvx/qoR9D8sGoArTIR
-	 tTckIaYIFyAfOatf5Ygq3VqiXxuXcY72Zm/IgDu9LLj2et5yU942CuH1P+0jhBvx/cfmI
-	 NWdVIO49oxK1PfSSPqNkTAW7/oJEHvPU1ZsI00EhiECr5QAom8/4ntZyjxVwdGQSkAz2E
-	 enRQ+gQ+fb4muAXrwCRrKK5uigGapcy/Q0+adzWkhl333unV4xqsWRpVFfpmDVcbeyA==
+	t=1795446007;
+	b=e2RrEfODueod9b76blTL68AfS7hZr+ncFO2aciBs1Mt+l27HXZBFfucrjMFqZ9c020Aw
+	 KqJUqlQhviOUsBQySzS87U4VyLoKnWPapkTT7JMjy111GaR6054TXEqnszILIJxyvfsQR
+	 ZrjvfmW9vses2Wdpzqhw1w0YR+WhcP+XCZK3aAn9t96V3di1wTA/HoAfpsxzUofahWNzh
+	 4vvK7QdK2oMIrhHnC1XKy8tl8SF8QL2fJxJSnikGPAtJOY0vU1Ugq9cXZyTyNwI5BLae8
+	 i11FaV2fkXVHc9a9ub0P1yKpF35Zf25i1Bcw5zoQfAs6nNrVicrdWnuKgInza92QBmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446010;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446007;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=YeKTj8sU3PPVK1jqHNIBn6E0hYZh7ngUgDcVZ2nW3qI=;
-	b=nWQjJMijLPKzk8EbsGmmWlV2zofRcKc/1PnQ8z3t9zG9GkR0peL8X6rKaY0P2e7oQ6HX
-	 eBJ5AKSwbETB5fEbz/8emBs4PV3IWYMoDo1x2SQp5XuyxQwl3lYvwqfZ2tw83SBvhaaIm
-	 WZlzfgQ7No9s2MCGScS3v+5YJw2CNk8VeGvDDoytt8ehEKlD7Cyqo8Ey7LCHIoeeUd3xM
-	 52T8uxturdc0SRM62THBHAUuT0Glvf/pY+MPnxXt083D7MRc5XM3qoun5UtbDY6ybediG
-	 tl9MR+sLZJ4fTCbYZ6oLJdL4j3Eqzm4vjtYBFCYWEwOmxA4FGMofijAcoh5rXOJOQmw==
+	bh=H6E/jkmzLyWVvfOAsLO4im6SCcZEX4bZlh8TxnnXRC4=;
+	b=tYV9btcpEmudJSHWxARTUCZbLp5PToiOMXz5xkVkysygBkUzMyzpSzVsgFXVxOtwlaHQ
+	 gYWX89dVrgI1WZM8DZtvnhaknTWvY/0nJywoKMEPLRZd9m68eaLdVN451V/vMTHnvAL0t
+	 WGdD2B0+mOkt5XCcVFeF1XLL5E6AuKtJJc9ViRXdyqp0C1jJq8Uo9NS+99KpP3Jj/TbY7
+	 FWRXwaD4SLP9SWefg875yY+W5G2C68n8+HuMTMoBUyBwj0wfSlRbFD1BznxqTbwZyEvhY
+	 ybjI3ZsT4aU3jd3D5kLlmXHayS6adwV3WgHosjLl6x9P9xKlaRl7v66pa98FQreN2DA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePQy81q8;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R60Fl+tY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BCB606A335;
-	Mon, 23 Nov 2026 15:00:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D16F606A32D;
+	Mon, 23 Nov 2026 15:00:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePQy81q8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0D01F000D3;
-	Mon, 23 Nov 2026 15:00:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R60Fl+tY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8445E1F000D0;
+	Mon, 23 Nov 2026 15:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446009;
-	bh=YeKTj8sU3PPVK1jqHNIBn6E0hYZh7ngUgDcVZ2nW3qI=;
+	s=k20260515; t=1795446006;
+	bh=H6E/jkmzLyWVvfOAsLO4im6SCcZEX4bZlh8TxnnXRC4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ePQy81q8oFLsSMqmQViHrg3+sOBKvkUC99sl1+PnNaGR6tMcujMT8LkkOUuKAN1QA
-	 vy8d9rcf/VcdP1rrhdI9uaTR+Gh/FTJfB3bInhjOYbJtUhkkU3PAW9nX0Vz0STRlw9
-	 63MvXgLyghChW36pV2kH/HNI2ddnA7syovuMcq6fc98NjMn0vO75oCXIyPaMAIBT6e
-	 yvmBJPk8Xo4k9YvO5TMCuwnaDTAmxzjZSFm2mNxlg9gNHTPKY2vEwEdwlWTKfJfskA
-	 H6WhvJj9B4CYJvCc7p0ZIJMlVR9fS0MU56PoBK32THlh1e9ajmilG2VBlTNlRFXedK
-	 xzZN8gBWB2VPA==
+	b=R60Fl+tYwITgqYgBPe4X4nnK1kWkFZuB/vkyYtTLO2LhSWW0IcPfYKf+FqL9vTv8B
+	 QSK4Ht39YCfTW5e5uXso4Qeyx9gojDxNP1cQhekEmV2AmRvlAK4qCqKOXsaW6+dSAP
+	 VDnD0yCFWfOcxwmsa04f/+TPUrEOVLcN8huZUvMaSLSunfs12OWpBVqAqCTyjpF7D/
+	 Uako3MFoYx0TfkAWYQZUukw+FRIh5cS8fu6ZN5tVgCfgfkiN8c+Rbz+0OX0rz2IErP
+	 Sb52rVDzGRYHHanyhEoLZynEYGUzcLBpdeUWbO2Kd430ENR/+OexAps3JRKe5Kfruu
+	 DmcbBye5VXohQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4593392EDBC;
-	Mon, 23 Nov 2026 15:00:09 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7749C392EDBC;
+	Mon, 23 Nov 2026 15:00:06 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,41 +54,37 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] net: sparx5: check DT port reg against chip
- port
- count
+Subject: Re: [PATCH net] net: release netpoll dev_lock when NETDEV_PRE_UP
+ vetoes an open
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179544600827.2443681.14423703100229910536.git-patchwork-notify@kernel.org>
-Date: Mon, 23 Nov 2026 15:00:08 +0000
-References: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
-In-Reply-To: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
-To: =?utf-8?b?546L5rWp54S2IDx3YW5naHIyMDI2QG1haWwuemdjbGFiLmVkdS5jbj4=?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: daniel.machon@microchip.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com
+ <179544600502.2443681.1409220130904920815.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 15:00:05 +0000
+References: <20261118-netpoll-preup-veto-v1-1-7d3fdf101d3a@gmail.com>
+In-Reply-To: <20261118-netpoll-preup-veto-v1-1-7d3fdf101d3a@gmail.com>
+To: SeungJong Ha <engineer.jjhama@gmail.com>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, nhorman@tuxdriver.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
 Hello:
 
-This patch was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net.git (main)
 by Paolo Abeni <pabeni@redhat.com>:
 
-On Wed, 18 Nov 2026 14:43:07 +0800 you wrote:
-> From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
-> 
-> mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
-> portno, which sparx5_create_port() later uses to index the fixed-size
-> sparx5->ports[] array:
-> 
->     sparx5->ports[config->portno] = spx5_port;
+On Wed, 18 Nov 2026 15:27:44 +0900 you wrote:
+> When netpoll is attached to a device, __dev_open() takes
+> npinfo->dev_lock through netpoll_poll_disable() before calling the
+> NETDEV_PRE_UP notifiers, but returns without releasing it when a
+> notifier vetoes the open. The next attempt to open the device then
+> sleeps in down() with RTNL held, and every other RTNL user blocks
+> behind it.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v3] net: sparx5: check DT port reg against chip port count
-    https://git.kernel.org/netdev/net-next/c/5a1f67933615
+  - [net] net: release netpoll dev_lock when NETDEV_PRE_UP vetoes an open
+    https://git.kernel.org/netdev/net/c/a233b32f1a12
 
 You are awesome, thank you!
 -- 
