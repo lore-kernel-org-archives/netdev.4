@@ -1,63 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795394675;
-	b=jkjnWmwvnC2rm46VKqMAYqx9XPLtVLKR3gm6erdFyDqBNc6GOnU6SOyaset8OKwh/4P4
-	 p5i33hnBWlAVKdyohfCcACiHEL7MIkWUJabj6kB19FZ1SBYmR8u5oY+G8cyNKxLAD4Z55
-	 0XSyOxv+sxwcS8WpA55159xTdZWOnn2Xjcugjd42JW/tu+fjGe3+I/HvTqaZ98HeULjHx
-	 GsUjnPmh8r1AE6PloigSs/Xd68BruWzN/ej2mS77OFexrJ16NMQRAFFQhIDmMIZOpvdHT
-	 m8yO/+G7Ycy+EM1wZk4ljEM+Q3TkpUevNLLQuYSXFTD4I3YntRkgTF6qdfnzmRj+0SQ==
+	b=njmtPiOqD8h3qVZyaeRKs/heeSsu289EOUuMVGMMdVYs6NBYhj1NcTtTKagE5NL8T5V9
+	 Ezh2sHrelDrYgXEFydMvM9vVoJnYSuUeHPskh7iU9zuzev03WEf5rfX1X1IW96mhVG1g0
+	 vxHdlqmvsheKOeyIA/j9r/g4fBMzTId8qUefivAiiIwvKd/xwHUPhtx3EDW/YbBT5TFgB
+	 1YbEvI3tUwij8285GPCUk4b3xR4VGEC7ugqQ4Hj0AEHm/cd+9BZnQdvSs74tcMZe62MOr
+	 6O7F/UIz3OA/+TnhIrkL8OAC8eQkL2dZ9dOJfKdP8vh3452nX7tiE7vi+eWYL/0EnJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795394675;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=b9scxl8T8Qmpo4ViZYc3RgT+CqJzl0k4iJX8+yFHT7g=;
-	b=vmWryPQe7NFKw0IZCoFlXT9vTOKRifw8gYEdjW3U+CR6tp5wZ1lVnf2QynW/Ip06ytqW
-	 UC8FHL8p9PiPovPE9XEqCx+RBuMfXVbg7JXnqssnV+EZAyKQ8pVmudc2b47+a1z20NbQf
-	 RcfrrnYCUfhz1PGKgVePaA9XKO86TO7CxdXRz8+7t8P+hcCmsbqtoM+ZzeBgoa8EApVqo
-	 pR85uREoVw0jvT5owLTpqSaDHeLery6rISl0jHIY9WeqAFQ/cWR5/bT2fD+WG9W+3Bave
-	 TEcpbThDdbXI7qEmzIS7IS1dXlrcZEHqV/OqCdhByuhNhUpUj6Slgw0bKGqjMjZ3XGA==
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=TN3atIghVemOlMWS6OdQtOm4gB9s02HY7cHrHMnNt1g=;
+	b=dRGJS7A8eyYqj/A9XWtA/A3CKaQ5UDBlSUAaN8DUCw9QRAqV/5CphSSC+mTMJJgymtY5
+	 cYCKP9B5+qPE0dcnf73wvZ78u8G2j8Ix05hwr+NdNcJBspBOH40+DxhjIglryfEcCDm4B
+	 MoAolt+0bs3I5G8yWm3S4z17YnNOSwmHk08tA75llDm8QYHL0sbdG+l81ysNrw8BAErRP
+	 beM+gJuRejqucD2mCC249ArnnJ6ZojuJeSHPUbI/SsMaLpdx2O6a/dWAnmE2J0LFwILS0
+	 F21AVSBCWUWSUVAqf1pbJW1rnYa/HIzDv/Lo+MAt4G6DK378hOtqSPpC2NOYj9ETlMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KvPWF18/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z3ADhScw;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E08FE606A32A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:44:34 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KvPWF18/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44AF01F000C6;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD71B606A33B;
 	Mon, 23 Nov 2026 00:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795394674;
-	bh=b9scxl8T8Qmpo4ViZYc3RgT+CqJzl0k4iJX8+yFHT7g=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KvPWF18/FXTCWvJKhWogtxpAnqDjfNDHQzmdXh0Ms+TLQKmwAK4J2d7KKp9jGY/4b
-	 G/LPYkNDKb/MHQd7qGcGc/M7noidHTBy4d1if/JcYhDl6DGDMHcCWnDf6is9Q7gEwf
-	 il1UVbQEACUFOm1iZ0pGyjPSayiPYW5LK4A2m9HLva5jkeVPvkQ/aU8T0TxlTF059E
-	 tBSDsAiZw1cBqEaMHwBlP8KOq+rqbqvBYJ+q02dCf45Vta+bx0rxwjaMiHuA4aAy5H
-	 wtRpw4wkfuLeyhklrCNt81qtaY9ZH72S4nJF/JQU4v0aOdW0bcdVr5d9npE3fkYWZF
-	 PdKsfwLvga7cQ==
-Subject: Re: [PATCH net-next 1/2] ibmveth: drop TX on a queue whose long term
- buffer was freed
-From: netdev-bot+sashiko@kernel.org
-To: mmc@linux.ibm.com
-Cc: netdev@vger.kernel.org, nnac123@linux.ibm.com, maddy@linux.ibm.com,
- mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
- ritesh.list@gmail.com, sshegde@linux.ibm.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linuxppc-dev@lists.ozlabs.org, horms@kernel.org, davemarq@linux.ibm.com,
- haren@linux.ibm.com, ricklind@linux.ibm.com, bjking1@linux.ibm.com,
- shaik.abdulla1@ibm.com
-Date: Mon, 23 Nov 2026 00:44:32 +0000
-Message-ID: <179539467281.3135.6706630717389291385@kernel.org>
-In-Reply-To: <20261119000235.15622-2-mmc@linux.ibm.com>
-References: <20261119000235.15622-2-mmc@linux.ibm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD71B606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z3ADhScw
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=TN3atIghVemOlMWS6OdQtOm4gB9s02HY7cHrHMnNt1g=; b=Z3ADhScwMuC+uRls6/gs6Q/4nA
+	MMFZuo0UX9R0GXb1cCxFJvko7rCzgYCmmBRUYJzCmF2ih1n/L5KvdYj+dvBWKpJbJcJbt2mC+EK5V
+	1JgsOfz1mzzezHvHMP+068m5rFFXHENOmJFqovAFiUFdtLqtaOVP6WmywhcJacE21CmrZYOaikyTm
+	1u8ZYA9lZ1V9okBI3x5H97qh1XrYuJShsDgDg9VWBt+mB0kchvwCRF6vil1pn+OrMzjy3Z7xR5LMW
+	ZBWgr2XGHt6vWW9WbgvjhRRqe7eyYQoDMEWvrYBJqEfuNts0DoKFXgXIwWGxkYbQuUup3leshLl4j
+	gpIvaIXQ==;
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xVIAU-000000020Cs-35wA;
+	Mon, 23 Nov 2026 00:44:26 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-fsdevel@vger.kernel.org,
+	netdev@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>,
+	Eric Van Hensbergen <ericvh@kernel.org>,
+	Latchesar Ionkov <lucho@ionkov.net>,
+	Dominique Martinet <asmadeus@codewreck.org>,
+	Christian Schoenebeck <linux_oss@crudebyte.com>,
+	v9fs@lists.linux.dev
+Subject: [PATCH] net/9p: client.h: clean up kernel-doc warnings
+Date: Sun, 22 Nov 2026 16:44:25 -0800
+Message-ID: <20261123004425.1770155-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,170 +69,99 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Repair all kernel-doc warnings:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Warning: include/net/9p/client.h:52 Enum value 'BeginDisconnect' not described in enum 'p9_trans_status'
+Warning: include/net/9p/client.h:90 struct member 'refcount' not described in 'p9_req_t'
+Warning: include/net/9p/client.h:132 struct member 'fcall_cache' not described in 'p9_client'
+Warning: include/net/9p/client.h:132 struct member 'trans_opts' not described in 'p9_client'
+Warning: include/net/9p/client.h:147 expecting prototype for struct p9_fd_opts. Prototype was for struct p9_client_opts instead
+Warning: include/net/9p/client.h:243 enum fid_source { FID_FROM_OTHER, FID_FROM_INODE, FID_FROM_DENTRY, }; error: Cannot parse struct or union!
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+---
+Cc: Aneesh Kumar K.V <aneesh.kumar@linux.vnet.ibm.com>
+Cc: Eric Van Hensbergen <ericvh@kernel.org>
+Cc: Latchesar Ionkov <lucho@ionkov.net>
+Cc: Dominique Martinet <asmadeus@codewreck.org>
+Cc: Christian Schoenebeck <linux_oss@crudebyte.com>
+Cc: v9fs@lists.linux.dev
 
-- [Medium] The new NULL check in ibmveth_start_xmit()
-  (drivers/net/ethernet/ibm/ibmveth.c:1312) depends on the sender seeing…
-- [Low] The patch treats adapter->tx_ltb_ptr[] as lockless-read state.
+ include/net/9p/client.h |   22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
---
-
-ibmveth: drop TX on a queue whose long term buffer was freed
-
-This patch makes ibmveth_start_xmit() read the TX long term buffer
-pointer once with READ_ONCE() and drop the packet if it is NULL. The NULL
-store in ibmveth_free_tx_ltb() is annotated with WRITE_ONCE(), and
-ibmveth_set_channels() switches from netif_tx_stop_all_queues() to
-netif_tx_disable() so in-flight senders leave before LTBs are changed.
-
-> diff --git a/drivers/net/ethernet/ibm/ibmveth.c b/drivers/net/ethernet/ibm/ibmveth.c
-> index 05d6b60cd187d..faacff14841b4 100644
-> --- a/drivers/net/ethernet/ibm/ibmveth.c
-> +++ b/drivers/net/ethernet/ibm/ibmveth.c
-> @@ -599,7 +599,7 @@ static void ibmveth_free_tx_ltb(struct ibmveth_adapter *adapter, int idx)
->  	if (!ptr)
->  		return;
->  
-> -	adapter->tx_ltb_ptr[idx] = NULL;
-> +	WRITE_ONCE(adapter->tx_ltb_ptr[idx], NULL);
->  	dma_unmap_single(&adapter->vdev->dev, adapter->tx_ltb_dma[idx],
->  			 adapter->tx_ltb_size, DMA_TO_DEVICE);
->  	kfree(ptr);
-
-[Severity: Low]
-This isn't a bug, but the lockless annotation here covers only one of the
-two writers of tx_ltb_ptr[]. The other one, ibmveth_allocate_tx_ltb()
-(called from ibmveth_open() and ibmveth_set_channels()), still publishes
-the pointer with a plain store before the buffer is DMA mapped:
-
-ibmveth_allocate_tx_ltb() {
-	adapter->tx_ltb_ptr[idx] = kzalloc(adapter->tx_ltb_size,
-					   GFP_KERNEL);
-	...
-	adapter->tx_ltb_dma[idx] = dma_map_single(&adapter->vdev->dev,
-	...
-	if (dma_mapping_error(&adapter->vdev->dev, adapter->tx_ltb_dma[idx])) {
-		...
-		kfree(adapter->tx_ltb_ptr[idx]);
-		adapter->tx_ltb_ptr[idx] = NULL;
-		return -ENOMEM;
-	}
-}
-
-On a mapping error it frees the buffer while the published pointer is
-still non-NULL. That is the reverse of the NULL, unmap, free order used in
-ibmveth_free_tx_ltb().
-
-Several other accesses are also plain: the first load in
-ibmveth_free_tx_ltb() and the tx_ltb_ptr[] checks in
-ibmveth_set_channels(). In addition, ibmveth_start_xmit() re-reads
-tx_ltb_dma[queue_num] without taking a snapshot of it next to ltb.
-
-The READ_ONCE()/WRITE_ONCE() pair and the new comment suggest a reader
-can run concurrently. If so, could the allocate path expose an unmapped
-or freed LTB?
-
-If no reader can run concurrently, because the stopped txqs provide the
-serialization, could the comment say that instead? Otherwise, the
-allocate path could get the same treatment: map into a local, then
-WRITE_ONCE() the pointer, and leave the published pointer NULL on error.
-
-> @@ -1195,7 +1195,7 @@ static int ibmveth_set_channels(struct net_device *netdev,
->  	/* We have IBMVETH_MAX_QUEUES netdev_queue's allocated
->  	 * but we may need to alloc/free the ltb's.
->  	 */
-> -	netif_tx_stop_all_queues(netdev);
-> +	netif_tx_disable(netdev);
->  
->  	/* Allocate any queue that we need */
->  	for (i = old; i < goal; i++) {
-
-[ ... ]
-
-> @@ -1304,6 +1304,16 @@ static netdev_tx_t ibmveth_start_xmit(struct sk_buff *skb,
->  	union ibmveth_buf_desc desc;
->  	int i, queue_num = skb_get_queue_mapping(skb);
->  	unsigned long mss = 0;
-> +	void *ltb;
-> +
-> +	/* A sender that picked its queue before ethtool -L shrank the TX
-> +	 * queues can get here after that queue's LTB was freed.
-> +	 */
-> +	ltb = READ_ONCE(adapter->tx_ltb_ptr[queue_num]);
-> +	if (unlikely(!ltb)) {
-> +		netdev->stats.tx_dropped++;
-> +		goto out;
-> +	}
-
-[Severity: Medium]
-Is this NULL check ordered against the queue wake in
-ibmveth_set_channels()?
-
-netif_tx_disable() takes and releases each txq lock while it sets
-DRV_XOFF. The LTB updates and the wake come after that, with no txq lock
-held:
-
-ibmveth_set_channels()
-  netif_tx_disable(netdev);         <- all txq locks dropped here
-  ...
-  ibmveth_free_tx_ltb(adapter, i - 1);
-    WRITE_ONCE(adapter->tx_ltb_ptr[idx], NULL);
-    dma_unmap_single(...);
-    kfree(ptr);
-  netif_tx_wake_all_queues(netdev); <- test_and_clear_bit on every queue,
-                                       including the removed ones
-
-A sender still using a removed queue, such as AF_PACKET with
-PACKET_QDISC_BYPASS, goes through:
-
-__dev_direct_xmit()
-  HARD_TX_LOCK(dev, txq, smp_processor_id());
-  if (!netif_xmit_frozen_or_drv_stopped(txq))   <- plain load of txq->state
-    netdev_start_xmit()
-      ibmveth_start_xmit()
-        ltb = READ_ONCE(adapter->tx_ltb_ptr[queue_num]);
-
-The writer's last txq unlock comes before the NULL store, so the lock
-does not order that store against the sender. The only link between the
-two sides is the fully ordered test_and_clear_bit(). On the reader side,
-its two loads are separated only by a control dependency. That is the
-MP+fence+ctrl pattern, and both LKMM and Power allow it.
-
-Could a sender then see the queue as awake, still load the old kfree'd
-LTB pointer, and memcpy() packet data into freed memory? The window is
-very narrow, but nothing here seems to rule it out.
-
-The grow path has a similar gap. ibmveth_allocate_tx_ltb() stores
-tx_ltb_ptr[i] and then tx_ltb_dma[i], and ibmveth_start_xmit() re-reads
-the DMA address later with no ordering:
-
-	desc.fields.address = adapter->tx_ltb_dma[queue_num];
-
-ibmveth_free_tx_ltb() never clears tx_ltb_dma[]. Can a sender pair a new
-non-NULL ltb with a stale tx_ltb_dma[] value and post a descriptor with an
-unmapped or old IOVA? The commit message says this case is handled:
-
-    On a grow, that sender could otherwise see a new LTB before it is DMA
-    mapped, or one that the failure path frees again.
-
-Would any of these close the gap?
-
-- Call netif_tx_lock_bh()/netif_tx_unlock_bh() after the LTB updates and
-  before waking the queues.
-- Update the pointers while holding each txq lock.
-- Do not wake queues >= real_num_tx_queues.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119000235.15622-1-mmc%40linux.ibm.com
+--- linux-next-20261120.orig/include/net/9p/client.h
++++ linux-next-20261120/include/net/9p/client.h
+@@ -38,6 +38,7 @@ enum p9_proto_versions {
+ /**
+  * enum p9_trans_status - different states of underlying transports
+  * @Connected: transport is connected and healthy
++ * @BeginDisconnect: beginning transition to @Disconnected
+  * @Disconnected: transport has been disconnected
+  * @Hung: transport is connected by wedged
+  *
+@@ -75,6 +76,7 @@ enum p9_req_status_t {
+  * struct p9_req_t - request slots
+  * @status: status of this request slot
+  * @t_err: transport error
++ * @refcount: request refcount
+  * @wq: wait_queue for the client to block on for this request
+  * @tc: the request fcall structure
+  * @rc: the response fcall structure
+@@ -98,6 +100,8 @@ struct p9_req_t {
+  * @trans_mod: module API instantiated with this client
+  * @status: connection state
+  * @trans: transport instance state and API
++ * @fcall_cache: per-client fcall kmem cache
++ * @trans_opts: union of struct fd, struct tcp
+  * @fids: All active FID handles
+  * @reqs: All active requests.
+  * @name: node name used as client id
+@@ -137,9 +141,9 @@ struct p9_client {
+ };
+ 
+ /**
+- * struct p9_fd_opts - holds client options during parsing
++ * struct p9_client_opts - holds client options during parsing
+  * @msize: maximum data size negotiated by protocol
+- * @prot-Oversion: 9P protocol version to use
++ * @proto_version: 9P protocol version to use
+  * @trans_mod: module API instantiated with this client
+  *
+  * These parsed options get transferred into client in
+@@ -228,25 +232,27 @@ struct v9fs_context {
+ 	struct p9_session_opts	session_opts;
+ };
+ 
++enum fid_source {
++	FID_FROM_OTHER,
++	FID_FROM_INODE,
++	FID_FROM_DENTRY,
++};
++
+ /**
+  * struct p9_fid - file system entity handle
+  * @clnt: back pointer to instantiating &p9_client
+  * @fid: numeric identifier for this handle
++ * @count: reference counter
+  * @mode: current mode of this fid (enum?)
+  * @qid: the &p9_qid server identifier this handle points to
+  * @iounit: the server reported maximum transaction size for this file
+  * @uid: the numeric uid of the local user who owns this handle
+  * @rdir: readdir accounting structure (allocated on demand)
+  * @dlist: per-dentry fid tracking
++ * @ilist: inode list
+  *
+  * TODO: This needs lots of explanation.
+  */
+-enum fid_source {
+-	FID_FROM_OTHER,
+-	FID_FROM_INODE,
+-	FID_FROM_DENTRY,
+-};
+-
+ struct p9_fid {
+ 	struct p9_client *clnt;
+ 	u32 fid;
