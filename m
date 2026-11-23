@@ -1,100 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795475863;
-	b=0PJvR12P2rqgE7CdbT9PMplDNX87Hb+HGf98pzC4iTLnONs2kt5UnA3a+rrF7sgo9mNe
-	 Kb7k7v8IktQSqa3UhvISmnTQ6khkfmkXcg2RI47ftNQD73m9xGTL3ZgzAchgqAN2Rtly8
-	 sxqdZ9fHdpF1X5bB0J/+dPzLqzJcicICtMY9r+I0oXlNjoRz8UldZPHe89LGxaREOASSQ
-	 DOQSH7DpdM9y7MDXOTZ4oxGn5YK5cKqCZvil4D+pv2ZZldEX2SGBmbBAthCDh261GKAzv
-	 kpDHOmrQcjtxty2apfx2K3zPjlApwG3xuDNljos6Olrt1vHmaF9uGXtCz3mRc89gU8g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475863;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=+MXRXuLPInN3MQrHXJcGu5dPrrdPX+141SdN1gzh0GU=;
-	b=jLC2MHU7FYE3+fe4AtXp0gadGnP2hdQCfWHqp3XZ1RrzQSKQTxkaL8rqF/g3COcIBksA
-	 SanA66+BM61uIG7itnvMWBpU7a7fX1soiG2LPFcnaiPtobb1LgPqMkVfRZoCtVjoRFEKF
-	 kt6x5Yx2bmMp8SSbQqC69j0bC/EQtmvnisyjTBbKhEf6DmRQGlGu8c2SAVZidW8EJLfhB
-	 JvNeK4O7vt49CfuguJMcJkuHjiQh34yR8MxIArUXdopqUsGMT5VmD2/icERhh5uR7S+sI
-	 U+kTCjtPo2KCfALUesXU3XNW+iiVvYQSVf47IVZ0J1MdS/IrzdMR5TxT2XkCBKNK0gg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paul-moore.com;
-	spf=pass smtp.mailfrom=paul-moore.com;
-	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=f2URxq+P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795475972;
+	b=c7rpdXtI4Z+mLTQnyq7onrTzjS8eeVjp+ZBXfLzknheSyEQDK6YgyAPxRIotiG88feKQ
+	 WPnz6QhD7tA3kFGHYzbDi7HujBTpv3PsSPKMR5OjzEGyd4qvnFEZXRXcPjq620I59sRlZ
+	 tOR2a6MzlZEIfnDLSK3iTQ5j+O+zaBZDBCqCHA529JabgHESLMKtE5T71E4e6W65ubztX
+	 K/uP2XuLS1+KLLJqEUulMOXjCGDtl6iip7+AvuEDYEdouFwLKO1QFsnzy761XlD62flqD
+	 OVw7kAhYZ52uYwU7sNGlhoQvPxLvnuY1QIgT11ZcU2K1Ec4S0Z1FG9wDLrTPAuX0cJQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795475972;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version;
+	bh=YnITptjLDMHlKMuNDcyL11AHr7ri5HqywhVbFsv/2zs=;
+	b=Q4zAYFeWUfLmHFFzd/L1L87gTt4T+AXqQXRncM+6+g2R4enkm+uwArOQdq6qyumDI0G0
+	 5lwzQPcWGnPl3eP/0wu3z4itMZEn4gTp6QMo/XrQgmMYhq7riOguIWXZW6l58k+O8goN1
+	 Hv/YmMq15LT6A8t0/b5BI2scwuFHtjwgbmOH8zubxxRBZ0pSNCPSrYE67TQbaDAQaO5S0
+	 sykfOj2Ze9Qvr0s1wW2VwFyVQq2BL1Jf21quqmOeEV1njjbKBqD3LwWMh7m0iS+W0blmn
+	 DuUMmmU/YkzjKpP/47j4mVGUXZROLeHiDVo+p1TFOQwzHejexTqMbNZ9dRBYyqrWlCQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=TYuBCMHj;
+	arc=none smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80AE0606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:17:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80AE0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A0EE606A31E;
+	Mon, 23 Nov 2026 23:19:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A0EE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=f2URxq+P
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so1849168a91.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:17:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795475863; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MXpL7w3epLtmcQ0A0L8pXSiVohUSPTv/fi4bo+91GBBDATvbbIsZeUnnLTvwgTZagg
-         RoRi9XT1uqQo8LLCLHMgm01083XD7h2zzgJ4gtGyw9+aK/UAaGHL9SICobSIGsddD8Dr
-         mSKh3AlrQJZL9OI0K0Xy+AchP81+eJ0ojJK7uA8gLOlWuTaUXLce2ZuR19iOraDzm+RX
-         8xAoJzy5cdqNB/obsaxAleWnLY3qbjQgmu9wHYcS0FNgpnQ3hSBoId/l3gq50ypM2NZo
-         U4UC78SEasN442FBVeYJ734Ca/GqbXEgP89VinBIwMz8CMByc+jYVBvXXggghGiZbt8v
-         mUDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+MXRXuLPInN3MQrHXJcGu5dPrrdPX+141SdN1gzh0GU=;
-        fh=a4da3AohfHzrff0mFBj+HTmRCc3e0vLwaDU4f0fe0To=;
-        b=W+6N4XdOLKel4YIwUDEDeJcDkPZFTHkZimCEBsA3Cv+fbkvZyTtTFkSXfSx5QN8CXQ
-         u/mb3ChfYv+R7UrPzcW9QzUMs+wTDrnkzK7+gv29hlZZea34wJPhyReoBcMTH0pueYN0
-         pO3/bjP4/xuMaPV9L6DnDm7+aHWNbce29xkuJP5FY6TvBXTTI5AXpogw19krPlZrBmV1
-         n3RwozNnWm80ImOFpzQBO9le448juyGCgfDGnysepJLLrY01NPJo/X4gx1nnclp+/jtX
-         ndI0q/VmMh1QnLG8PCTdFtoSrD3o/LeK7Znphm9w6WNplWRyYcvqfZfxf4lqnrrRi/ZO
-         jueQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1795475863; x=1796080663; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+MXRXuLPInN3MQrHXJcGu5dPrrdPX+141SdN1gzh0GU=;
-        b=f2URxq+PdSANt2DyfE/LnSY1XFoTYnOosj5xEXQkbA7SxI6W4QwU0HmSJshejcTWky
-         S0FQGoGeqWv/V4cetnAuhQG9AIsuiihN0orRNBCn6WjeSaid26HA+lT6VUTjWcBQSD62
-         qbB1PFXofdfinS7Mln/088yRU9CiCBNNcCiudlFZlzwG2Ibxhw2O3aFEMNMwREoEyrb7
-         CsDxG2c54h+p3PHCJY7OlHB3qiqGkyYxICHT/g7CCS/5/T31+MIRFHRPhTmhfz3hmzG1
-         Fon7afxI8wozcjBzuTy7rCmabVdtDYIth244kS2420jGicRJ8THCQhWgSfEHI5cYMGye
-         12ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795475863; x=1796080663;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+MXRXuLPInN3MQrHXJcGu5dPrrdPX+141SdN1gzh0GU=;
-        b=CxvFuqtSHg2UTlxVR2J+fq2k3Sm9JVrOcQX9huA9eV5dtfeoBp/MvmfH7BP7u6HnNB
-         aPF7ceS6IBNx8kDBX5TSla2ky/J0iO4XwFO0/mHeZjp2Scvu+cGGNqfhZyEZRyjyfysP
-         aHswbkaBlOGX821ITY333q7REX+nouyZAyBYb2NeLJbzFXOcq4Yqd8pLWjMSwmp/y0k5
-         VwHcCPXBdMv/ttvMowbgQFGKpTTsmQa2EKQMBKp3QedADgZiOQa8cQeIB3qfcf1gR+Aw
-         bNeOs212Yv/mfms5H4fVIOpDZmdhMgQWVCh4P1mOPZ+WLwEFdRam7aB0mjti5lEL5HHJ
-         meKw==
-X-Forwarded-Encrypted: i=1; AL+hErFwY2xqUd8ttzHyAr7M1cs5RtHtXUyiwvj5DRQmeHQwn+j+bcxGupauCgehqjKYaI6L2d/Qzqo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QNVdw62sbdnxdVWnLntgImnuNclSBG9LtiGD7IMCoRdUsLXUY
-	CtTG9jjNicMZihFxDuMBxPyT0cVyghG1U/DcxyJVWoBsYMdNcUzuj49SK0zi/weYGdzpa6UfuGl
-	ZciMGKhDJjlcUmqdj4iLVlv8VxJOtkk/BGsRZ3lYA
-X-Gm-Gg: AZFdTZeBd0H1vEVLUjDmaev12f91PJVRnw3eg3VOqcoVIj0ITyTepBQDCpMqskB0Q5m
-	Fkj/yAR9aDVY8saskicAs5tURGYdA8KmWjgixp2W6+CLOOlDNwGlZOietyjPfapL+1sbJRAIBdd
-	8FS14qW2DbeA5KZE480FViefXZLl+VZT7LbAPo6UQQddVqnnnBWZcoX+KPxr8OSNdeyvV3hwR0u
-	59IecvmnZsjIl80E3kPuW/ER7qrKsQkj404fEkkkJyPGCVSrssBgeOXCm7TxbYQ3fijwW3tMOpc
-	+kBQu59xAJmGqTeWprASXGQ/qFsEYif0qZytYAXQolV7tIX7t6DdZx7SkgJhcEoNJLejbzsbV/+
-	7to7EWZM7OmdIVHVw9YEamPotw9lZYew2Zvue28XuAtJCtf9FYIMPq8mGgk3z5LnwKNovDg==
-X-Received: by 2002:a17:90b:380f:b0:3ad:1da4:2ddf with SMTP id
- 98e67ed59e1d1-3b41cb0cae0mr10882903a91.51.1795475862780; Mon, 23 Nov 2026
- 15:17:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=TYuBCMHj
+Received: from pps.filterd (m0528009.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw1RT2657760;
+	Mon, 23 Nov 2026 15:18:45 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=YnITptjLD
+	MHlKMuNDcyL11AHr7ri5HqywhVbFsv/2zs=; b=TYuBCMHjvl5dEnOSa8vwRYtxR
+	za4E3wkq1CWwgiGgSCwpDvhmRHYme3l05zeZ3DxJkZm0d4bF6JSLPuNU/3M8lBxU
+	6MC6uPrknt9SD97qPG7XFRZv5gaiQ3AiARnDuvnZvwfGhpyH/iHr8oKL/NoK+d5z
+	AFxdTutVyXRRIVHVELsJdShPf7+QUnGH9UK0Bo0FRw8wSSdqF1Ubkxhlt5pY8cyM
+	7o8przmZy9Rp5Ibgn/seWZMBF/hUguH5smAh1NKscbq4EwlFi29w2KNoT7sbhYjJ
+	LW54qWZu6HFKEs9CSK8eIJh3erByWMjix91dACQc8l70SuVV/RbGfz7UfmAEw==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3wx9hxa9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 23 Nov 2026 15:18:45 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:1c::11) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
+ 2026 23:18:43 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netfilter-devel@vger.kernel.org>
+CC: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+        Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Boris Pismenny
+	<borisp@nvidia.com>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Sabrina
+ Dubroca <sd@queasysnail.net>,
+        Daniel Zahka <daniel.zahka@gmail.com>,
+        Willem
+ de Bruijn <willemdebruijn.kernel@gmail.com>,
+        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+        <coreteam@netfilter.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: [PATCH nf] netfilter: reject: don't quote decrypted payload in icmp errors
+Date: Mon, 23 Nov 2026 15:18:35 -0800
+Message-ID: <20261123231835.2356740-1-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,78 +88,130 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261029-work-security-namespace_free-v2-1-65591dbba7b3@kernel.org>
- <20a5e5372530caa583c57003dfcd009d@paul-moore.com>
-In-Reply-To: <20a5e5372530caa583c57003dfcd009d@paul-moore.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Mon, 23 Nov 2026 18:17:31 -0500
-X-Gm-Features: Aa3M54o74z8pn5Pvit6S16im7-Wxu2Y0a6J5-TPpee1sYBnPKi6ZczEefWRjtvE
-Message-ID: <CAHC9VhT78Ktssi1gLWTKPC6KEgg9npeTf+2-vjwANeAbPoSC5w@mail.gmail.com>
-Subject: Re: [PATCH v2 1/7] lsm: always call the namespace_free hook
-To: Christian Brauner <brauner@kernel.org>
-Cc: linux-security-module@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, netdev@vger.kernel.org, 
-	Linus Torvalds <torvalds@linux-foundation.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Authority-Analysis: v=2.4 cv=aY/0Dhot c=1 sm=1 tr=0 ts=6b04c9d5 cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=U_y8lYiYyhHBU5rMqhb2:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
+ a=DTGP0nILiB9DUAOxyKkA:9 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-ORIG-GUID: rA4bA3gNgBn3RbXgZyhV9bTnbfaRvJEq
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfX7igi5WtQnCLe
+ 6lfZXqhH72GRRf+LINkq+BhD9z+BDIzR+m4s1PpzKDFRvHKLsMxcpxvc089T0djoHiYpYIZT25T
+ fPCv5Vvb64y5VjkAuRPWMD52QUHWV+k=
+X-Proofpoint-GUID: rA4bA3gNgBn3RbXgZyhV9bTnbfaRvJEq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfX1pC1+PSo5A0q
+ QpHrAGErgWWIKxCSHO5TMU/O4/bLRq8le9N0PuO6bsbonew+5pnocIpjAAMOoQWj+2HrEFN/IMx
+ H9JvHbAa340IT8tVpEmM+De9AVPLUZS4K04PooGZF/xiwlOnhAHzhRs6NDxY1Kdoujq2V9xrOcf
+ NiZJZLEWiF5vBs47TnIWERkHD1O+qrnDXVsMQnHQYB8dvhfgf+mQ1J7g3HuRZ/I3MyK9cxO/TJe
+ NJ4Ya/RLAmbx8gMWOwHs32yKJFN04ndi8MaayayGI4LqC7S1S+Cedwmz3YjkQ986NrHAJdmy8C4
+ fnd7UEv0OW/4jEoXxJyP/igsUkXTKket37B3QJEROJLBrvcmx0b2AlUHMjkaNzRl8JfHNwIJbxf
+ D+QRctd3Tj+wCpRWjIyCfvUqYVbUak71VQSV3XNuAXdp1OyuxV4/OryIIfHqBVUKFTYbAFqvSvt
+ KhEdpcgaVgY5WT7WA+Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 
-On Mon, Nov 23, 2026 at 6:12=E2=80=AFPM Paul Moore <paul@paul-moore.com> wr=
-ote:
-> On Oct 29, 2026 sashiko-bot@kernel.org wrote:
-> >
-> > security_namespace_free() returns early if ns->ns_security is NULL and
-> > skips the namespace_free hook. But ns->ns_security is only allocated if
-> > an LSM requests a namespace blob via lbs_ns and currently no LSM does.
-> > So the namespace_free hook is never called at all.
-> >
-> > Landlock only uses namespace_init and namespace_install so it doesn't
-> > care. But the bpf LSM attaches to every hook and a program attached to
-> > namespace_free never runs. We want to use it in systemd-nsresourced to
-> > get notified when a user namespace goes away. Right now it has to kprob=
-e
-> > retire_userns_sysctls() for that.
-> >
-> > Note that a bpf program can't work around this. The size of the
-> > namespace blob is fixed at boot and the bpf LSM doesn't request one.
-> > And security_namespace_init() allocates the blob before the
-> > namespace_init hooks are called anyway.
-> >
-> > The check isn't needed. __ns_common_free() is only ever called after
-> > __ns_common_init() succeeded and security_namespace_init() only calls
-> > security_namespace_free() after the blob has been allocated. So if an
-> > LSM requests a namespace blob it is always there when the hook runs.
-> > Call the hook unconditionally like security_sb_free(),
-> > security_file_free() and security_bpf_map_free() do.
-> >
-> > The bpf LSM attaches programs to its bpf_lsm_*() stubs so fentry on the
-> > stubs shows what a bpf LSM program sees. Booted with lsm.debug, which
-> > prints "LSM: blob(ns) size 0", and created 100 user and uts namespaces:
-> >
-> >   bpftrace -e 'fentry:bpf_lsm_namespace_init { @init =3D count(); }
-> >                fentry:bpf_lsm_namespace_free { @free =3D count(); }' &
-> >   for i in $(seq 100); do unshare -Uu true; done
-> >
-> >   before: @init: 200 @free: 0
-> >   after:  @init: 200 @free: 200
-> >
-> > Fixes: f675d2e95569 ("lsm: add LSM blob and hooks for namespaces")
-> > Cc: stable@kernel.org # mainline only
-> > Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> > ---
-> >  security/security.c | 3 ---
-> >  1 file changed, 3 deletions(-)
->
-> I just merged this into the lsm/topic-7.5-02-lsm_ns_free_change branch
-> with a corrected subject line (namespace_free is the callback to
-> security_namespace_free()) and the stable tag removed; both changes are
-> annotated in the metadata section.  I'll be pushing that branch up to
-> kernel.org shortly.
+On receive, skb->decrypted means that the device decrypted the skb
+(kTLS device offload, PSP). For a decrypted skb, any part of the packet
+which had been encrypted should not be sent back onto the network in
+cleartext.
 
-[Side note: my apologies, my script got confused by the sashiko review
-and only replied to sashiko and the LSM list; adding back the original
-To/CC list]
+These patches in the net series,
 
---=20
-paul-moore.com
+https://lore.kernel.org/netdev/20261117203137.804424-1-toddfreed@meta.com
+
+ ipv4: icmp: don't quote decrypted payload in icmp errors
+ ipv6: icmpv6: don't quote decrypted payload in icmpv6 errors
+
+make the IP stack not send any ICMP error about a received decrypted
+skb.
+
+The reject expression in netdev and bridge chains builds its own ICMP
+errors, without icmp_send() and icmpv6_send().
+nf_reject_skb_v4_unreach() and nf_reject_skb_v6_unreach() quote up to
+536 and 1220 bytes of the packet. Apply the rule to these paths too.
+These only get received skbs, as the netdev and bridge reject
+expressions are limited to the ingress, prerouting and input hooks, so
+unlike icmp_send() no locally originated case needs to be kept.
+
+The reject rule still drops the packet, but without a reply, as it
+already does in other cases (non-first fragments, ICMP errors, bad
+checksums).
+
+nf_send_unreach() and nf_send_unreach6() use icmp_send() and
+icmpv6_send(), which are covered by the net series.
+
+Testing:
+
+Reproduced with mlx5 (ConnectX-7) on net/main, with a reject rule in a
+netdev ingress chain on the receiving host matching an established
+connection. With kTLS RX device offload, the ICMP and ICMPv6
+unreachables quoted the decrypted TLS payload in cleartext. With PSP
+sockets, the ICMPv6 unreachables quoted the decrypted TCP header and
+payload. With this patch, no ICMP error is sent for the decrypted
+packets.
+
+Fixes: 784abe24c903 ("net: Add decrypted field to skb")
+Cc: stable@vger.kernel.org
+Signed-off-by: Todd Freed <toddfreed@meta.com>
+---
+
+Notes:
+    This supersedes the 2-patch nf-next series "netfilter: don't send
+    decrypted skbs in clear text":
+    https://lore.kernel.org/netfilter-devel/20261111003111.3826942-1-toddfreed@meta.com
+    
+     - Patch 2/2, "netfilter: reject: don't reply to decrypted skbs",
+       reproduces on net/main, so it is resent here to nf as a fix, reduced
+       to the ICMP errors.
+     - Patch 1/2, "netfilter: bridge: don't refragment decrypted skbs", is
+       dropped. I could not reproduce it on mlx5, neither on net/main nor
+       with the socket-less PSP series: the device doesn't decrypt PSP in IP
+       fragments.
+
+ net/ipv4/netfilter/nf_reject_ipv4.c | 7 +++++++
+ net/ipv6/netfilter/nf_reject_ipv6.c | 7 +++++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/net/ipv4/netfilter/nf_reject_ipv4.c b/net/ipv4/netfilter/nf_reject_ipv4.c
+index 7cb33af671e2..4d89ec6a4a91 100644
+--- a/net/ipv4/netfilter/nf_reject_ipv4.c
++++ b/net/ipv4/netfilter/nf_reject_ipv4.c
+@@ -118,6 +118,13 @@ struct sk_buff *nf_reject_skb_v4_unreach(struct net *net,
+ 	if (!nf_reject_iphdr_validate(oldskb))
+ 		return NULL;
+ 
++	/* Don't send the decrypted part of an skb onto the network: the
++	 * device decrypted a received skb, and this reply quotes it. Only
++	 * received skbs get here (bridge, netdev ingress).
++	 */
++	if (unlikely(skb_is_decrypted(oldskb)))
++		return NULL;
++
+ 	/* IP header checks: fragment. */
+ 	if (ip_hdr(oldskb)->frag_off & htons(IP_OFFSET))
+ 		return NULL;
+diff --git a/net/ipv6/netfilter/nf_reject_ipv6.c b/net/ipv6/netfilter/nf_reject_ipv6.c
+index 5e08d8529cc8..fc30569b1f4d 100644
+--- a/net/ipv6/netfilter/nf_reject_ipv6.c
++++ b/net/ipv6/netfilter/nf_reject_ipv6.c
+@@ -144,6 +144,13 @@ struct sk_buff *nf_reject_skb_v6_unreach(struct net *net,
+ 	if (!nf_reject_ip6hdr_validate(oldskb))
+ 		return NULL;
+ 
++	/* Don't send the decrypted part of an skb onto the network: the
++	 * device decrypted a received skb, and this reply quotes it. Only
++	 * received skbs get here (bridge, netdev ingress).
++	 */
++	if (unlikely(skb_is_decrypted(oldskb)))
++		return NULL;
++
+ 	/* Don't reply to ICMPV6_DEST_UNREACH with ICMPV6_DEST_UNREACH */
+ 	if (nf_skb_is_icmp6_unreach(oldskb))
+ 		return NULL;
+
+base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
+-- 
+2.53.1-Meta
+
