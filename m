@@ -1,67 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411341;
-	b=gQO5RNIMuN8JVmOK7ZYNHiUTOxEtupC8SuFPm9uLYCYrUuW7q8zTAnyiNZM1iD87yTuW
-	 E7g/ntYYanyTA9EpiGFKus9nQX7375O23dEr5FJYLxxRQOx2qNZMchj2nOnsBH30Hcie3
-	 P9CieFLra13KLjc3PUey+RShiSSCVp/1wbBGw2esZEcGB9ajqBcPGl1aIxQg8uJuU4wDY
-	 rPzlc2epOCh85PEvAtt7U1do/2R3tG+K4gCqFU60S+1voL8+zGJtlDOGL3DwCDxbkiGEC
-	 wI0BUBR8WZmq3Uj2ucWrkHwLIZHgfsuhLqSXaXe0UAwa2TtUPimCVNPCmxzqon4S9SQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411341;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iy36ClD91OuaesY/Ay9KrdFH02xOa7KlfGzGZS847ZU=;
-	b=aJbSqqd8Oc9vlqSLpPxLoh4c0qJQb/CxGBVbdl3s5hKwjcrXbRkWsEpaIeOJn5uNQjsY
-	 MgUZ79RibCKcpHy+jpUPSKazeMoDTY9KK5VcONRieixu3dKSN/Mx5nYjwrNfPogFMhwg8
-	 tw2Z1Ihvs0BhvuUIhjeZm1nRUV0xsd0qllxIMisndxGJlzuggTG1HEvBUQwHLjoFbUKKG
-	 9Dc4mG/i7J4oiGl3W59vIFEZoviuGscaHltx6kl2asxlThr2h/+qUKxpOEYswW7KhUcsl
-	 btnMcZPAYaAo2gPNfLNOZg7Z2NE4am3m0Xje+nZ0w+3ebkfZeSwmVuhXdvc0b/S2imQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="rorQCa/B";
-	arc=none smtp.remote-ip=95.215.58.43
-Received: from mta1.migadu.com (out-43.mta1.migadu.com [95.215.58.43])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.178
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795411393;
+	b=OpYHcuNBGz0wBv/ntciJO0P7uypMLbKD9N6fdmT0Nv5qlbXYI3DJMoh+sT6W43+uoosn
+	 FfMPjE1OlQ/5NGE8jufBvdcIlHcL5YOLG1JyJmwQn2vs3TYIjO3llJyDANkSP1TpNIAT7
+	 dxV6XoFBerdLNit/KNr+iB0a/9gjs/FDAmo7dAUpWEPCiEk4s90716wng7poYA1lCiYRF
+	 vGNJLzNLJdHUMTLQKNAFE11SDypCtizJXPyq8E0fRnbyI5E8xLXQFzROjV0fDZVBli5G2
+	 x/RvkmwL4W7MdYrAz/sLEgROVHRVdId1v4tbvrDNe35Q5zSTf97/4+CdEvnPB4WfOnQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411393;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+	b=q/57Gu51Wlti0Sh8ugm6tPnEBgeamGWdE4u8rqUrsELiWLb6N2el0tUrDr8ONsh826kM
+	 fGc7toArPcNxSmCVXP48eofVmJCF/lajT1lwDmzDJDYjOfmo2d+VP5aBOcoMXEiBESzhv
+	 Jj+1Ha/W3szQZl/XqAgG0kkpd6JUsaDH446XNsTVtHuTWkEUm/wDx5yJUVJ69pNS9FJ/t
+	 bHlzDkyObLamlxZ7mMdaJJ/AmlCqREmz7b9Zj3n0Z/zCGJ1VE4N5IN/BD4xhTNCWkc7pN
+	 et4/pRvUlYL9IBoehexJUBcxsVJoOffpwN4VkflXwYlR0A8o30vScMV04aIVN5x1Uyw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mwj+h2QP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.178
+Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com [209.85.208.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26DAE606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:22:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26DAE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D056B606A320
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:23:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D056B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rorQCa/B
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=D82Nd0c2N+O4K4PuYhgfhJVwNjk6bdjRGsOrqQiK2r4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795411339; v=1; x=1796016139;
- b=rorQCa/BO2A211dkndlN3Z5a+4JYq5futjumyEheZuePk96gq4WCr5xxiiNzN0OOhnmMz6xT
- ZYy/qBo+xlUR66fL2yeW3qkEcIsDDLIhN3QNJbE0KaQZEtKr3kVQkRYp3Ks+Ws7sc8Yb57Wk7p6
- 1lORLH0C+OVV/3QD07YeWkuk=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id d4f9441bda4b8cfe;
-	Mon, 23 Nov 2026 05:22:19 +0000
-X-Mizu-Trace-ID: d4f9441bda4b8cfe
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 13:22:07 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: tianyi@cloudflare.com, kuba@kernel.org, netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
-	pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, sdf@fomichev.me,
-	skhan@linuxfoundation.org, kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev
-Subject: Re: [PATCH net-next v5 3/3] selftests: net: veth: propagate
- bad-settings check failures to exit status
-Message-ID: <20261123052207.GG10218@Liu-laptop>
-References: <20261121182217.4609-1-emmaonana18@gmail.com>
- <20261121182217.4609-4-emmaonana18@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mwj+h2QP
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ad0102edd4so26313241fa.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 21:23:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795411391; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sApfqIFSazYe7u/0SWmyrYTBIoC3jO8f9B2EVuWPRn2Bka3HXMYk5JOcjozf+fbxD2
+         aTAEvB/v/5FssBxWjmmC6hzs4p7kzUhvyiFBqA9UrKqTpNhI+T6p0CAMrH8xMsvjk+yN
+         PusJ4eNs+QgR1dBfhnouQ7sfrI+gsTcuMznEQnFQnJOCMlOkaEGL4OGsGlvhUAGdGq/m
+         ohcDIX1+kjA60veynlO5VkmSt5zPDvSKSnNNgYA4mLD6uxI8YXg4yID1t1W1OAvy4rdc
+         ywc3ykcnDZmPaZ0yFlcB9b6zHYTUaH17EFJu9aYsj9ymR1wCNiENZwkty77J0ceuAlNI
+         4VJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+        fh=2Sb7tOedukz7oJya4SsB+rlZTEVzLi6md1r7BUpzbBI=;
+        b=VbRdQv6HGG/7AB3X978GP00TN7sD0hI3Izy9ygB29hhiyMzMglCeixr5+rNWaWKeMb
+         BHZrdCXUN7mefJIULtub5U3K87LYDbeE1Qmlc9JWy95y7AB8oGrSeJyBwdiri97Bx+Qq
+         zizQbHOEKAacWbzZOKAaPnOZtPeCg96qb6FcjBx/T+RvlB7DtiHYDznL/N0YqjJzavHk
+         bQ7tbnn08kHcweLhjLfKtGtU6/iL2Tjr0eN1PRlrEp8aVJdyU7Wof0ghrz+W9iZnO14R
+         SbZYK1/P7QvDVpNdaSXYRapnhO4ctB1NG1+ZRzecaVrV04akxSrWm3VtjLY4BRbI/M4o
+         6qHA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795411391; x=1796016191; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+        b=Mwj+h2QPeqw6v8be7H58zceYRBdzZKvfvq6oyrHUkdqisW9TaJtZ0tgOg8vu8BUm+U
+         UGIgY+DOf/aBCpAuS7FdqHskAk5H7OoxMjs0C09FknECuTQpq94Vd5xm2Ym1rmF7rCbn
+         GNCHoF1hhDNLi4QT8By+TMCzderkFrpAUFR0LoI6wO8XBa7XsXwnhZ0zp7y/qUmu8GWN
+         6fMXid99IZUF7kVzgl7PkDVjCS0IDGbU+kdw/mwgLopOuFk1nIpQPLh4b0LOPHcZVJXC
+         VqObrIJYOOnc4980Dbz+DGtQ6h0LLXjARtrDzNddjPsUfP59MXLzpLp9r3SpjWB8jvPC
+         plpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795411391; x=1796016191;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+        b=PQkixbahQXHGiTYMIfZrTDnAeurdftNvVVNttLnPc+NiLY+WoS+3SoeMfRUexTFy3k
+         CuWzsUDzfn1WLuQ7lmbr8Z/mwJ59jD8jS2raIwv9SAtq5U1x66AhaLITbwlPvyPSA5Vd
+         dJEyboJIXkP1WNlV+yOMDQHNOG/6RvF/PGTJ9T7zDayoxtRVHphYYRfLl6jn2k+saeYj
+         020BVFfEwcOU4sOJoRQ3hs/TPzsZj59HE9UnF9TxT7Xc/wGDWJKOnNdvX1LZXx0UwdVs
+         XH0JbnZvfkaX358/WTG3xZNJDCobEx8wLxpxGVBmQz4Rdsv1dxznxCPnDmBWxgm/a5LM
+         ls+A==
+X-Forwarded-Encrypted: i=1; AL+hErGBYqz6cf84KaYE2qaImHJf185RWeSmQhNhHNy3HEoT5WL92w4uMqvA84Cdjm0zFbignUzAKWQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/mLCGkuQFArFq1L+u1lu37qQwfvhjEoth5+pEpWwgyTxHiwq8F
+	51tgL4nAYqexAKPFPkNsx5oddWylMZhgvIy2drkUumDdsjZ2Ae6iHT3AvYRfocBE+5Vw4Tb4Uo4
+	kS5pRVdJTdE9GTQ3C8Nvy3+Q6N+0YD8U=
+X-Gm-Gg: AZFdTZfzhTGF0389m8+BqB+y5Kn7PNQLV4k2sybu9Y723BalSfyr3sadVp2IHfhwkMj
+	kCt7FNKb+SvtwkGF8NHTW6OCEXbe32ENJuMayNX+OxyWzO12IjCD1GQtENV+OfjezdRQ+tgZzn8
+	0et8KACUiEi/32ilObSgYTXZ40CYxEiKcbk0S3ox4O++aNMLS29ydSOvg6p+lGwpABMQ+s3ZMyf
+	OYTz5fYG1D90SoUgsB9fU4z86HCRdLoFt8Dye1Qhh5/DXptMwswWbLytHN20Oo2YABZJxU+BaRL
+	1VePnYd+PEubXNH0MCE6GJ+aSHmKTl1hTe/2NaEeHrjhVYB4lJGyCW8+288QcnHDIYNQ/SWTbOD
+	00NDQypOYed7S8BH3WBd/Me0JHBOSl3ERsXF4tniT6wL8jB5tYuANPGj3m+s=
+X-Received: by 2002:a05:651c:4186:b0:3ac:efb1:6def with SMTP id
+ 38308e7fff4ca-3ae7f9f7df0mr23250971fa.12.1795411390729; Sun, 22 Nov 2026
+ 21:23:10 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,82 +103,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121182217.4609-4-emmaonana18@gmail.com>
+References: <20261106054811.281798-2-oss.patchbox@gmail.com> <add2bfe5-0d8a-4b64-a8dd-5e02be00e425@oracle.com>
+In-Reply-To: <add2bfe5-0d8a-4b64-a8dd-5e02be00e425@oracle.com>
+From: Yuho Choi <oss.patchbox@gmail.com>
+Date: Mon, 23 Nov 2026 00:22:57 -0500
+X-Gm-Features: Aa3M54o18bPzB_y6cN5ZyBXSDft40ObSb8CAiNsU_ZagFcTkH4vNqu9TTbhSp9U
+Message-ID: <CAGG=RgDLSueREjeeyw09oo8ttLHN2VYUC0qEDv+HYFUrSo0LdA@mail.gmail.com>
+Subject: Re: [PATCH v1] vhost-scsi: do not validate vrings during endpoint teardown
+To: Mike Christie <michael.christie@oracle.com>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
+	=?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
+	virtualization@lists.linux.dev, kvm@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Omokefe,
-On Sat, Nov 21, 2026 at 07:22:17PM +0100, Omokefe Emmanuel Onanaroghene wrote:
-> Three more checks in veth.sh print "fail - set operation successful
-> ?!?" without setting ret: "bad setting: XDP with RX nr less than TX",
-> "bad setting: reducing RX nr below peer TX with XDP set", and "bad
-> setting: increasing peer TX nr above RX with XDP set". A kernel that
-> wrongly accepts any of these invalid operations would be reported yet
-> the script would still exit 0. Wrap each fail branch so it sets ret=1.
-> 
-> Reported-by: Tianyi Gao <tianyi@cloudflare.com>
-> Link: https://lore.kernel.org/all/CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com/
-> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-> ---
->  tools/testing/selftests/net/veth.sh | 26 +++++++++++++++++++-------
->  1 file changed, 19 insertions(+), 7 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-> index 7a2bbed0263e7..6eeb123aaf885 100755
-> --- a/tools/testing/selftests/net/veth.sh
-> +++ b/tools/testing/selftests/net/veth.sh
-> @@ -474,9 +474,13 @@ if [ $CPUS -gt 1 ]; then
->  	ip netns exec $NS_DST ethtool -L veth$DST rx 1 tx 2 2>/dev/null
->  	ip netns exec $NS_SRC ethtool -L veth$SRC rx 1 tx 2 2>/dev/null
->  	printf "%-60s" "bad setting: XDP with RX nr less than TX"
-> -	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
-> -		section xdp 2>/dev/null &&\
-> -		echo "fail - set operation successful ?!?" || echo " ok "
-> +	if ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
-> +		section xdp 2>/dev/null; then
-> +		echo "fail - set operation successful ?!?"
-> +		ret=1
-> +	else
-> +		echo " ok "
-> +	fi
->  
->  	# the following tests will run with multiple channels active
->  	ip netns exec $NS_SRC ethtool -L veth$SRC rx 2
-> @@ -484,16 +488,24 @@ if [ $CPUS -gt 1 ]; then
->  	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
->  		section xdp 2>/dev/null
->  	printf "%-60s" "bad setting: reducing RX nr below peer TX with XDP set"
-> -	ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null &&\
-> -		echo "fail - set operation successful ?!?" || echo " ok "
-> +	if ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null; then
-> +		echo "fail - set operation successful ?!?"
-> +		ret=1
-> +	else
-> +		echo " ok "
-> +	fi
->  	CUR_RX=2
->  	CUR_TX=2
->  fi
->  
->  if [ $CPUS -gt 2 ]; then
->  	printf "%-60s" "bad setting: increasing peer TX nr above RX with XDP set"
-> -	ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null &&\
-> -		echo "fail - set operation successful ?!?" || echo " ok "
-> +	if ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null; then
-> +		echo "fail - set operation successful ?!?"
-> +		ret=1
-> +	else
-> +		echo " ok "
-> +	fi
->  	chk_channels "setting invalid channels nr" $DST 2 2
->  fi
->  
-> -- 
-> 2.43.0
-> 
+Thanks for the review!
 
-This one and patch 2 are fixing the same issue in the same test. Why bother
-with two patches?
+On Sun, 8 Nov 2026 at 14:05, Mike Christie <michael.christie@oracle.com> wrote:
+>
+> Can you describe the bug a little more?
+>
+> If we have done vhost_scsi_set_endpoint successfully, are you saying a later
+> call to vhost_scsi_clear_endpoint could fail the. vhost_vq_access_ok check
+> and not teardown the endpoint?
+
+Yes, the first case is what I meant. Sorry for not explaining the
+failure path in the commit message.
+
+Since a543346b96a1 ("vhost-scsi: reject delayed virtqueue setup"), I/O
+virtqueues that are not configured when SET_ENDPOINT is called remain
+without a backend.
+
+VHOST_SET_LOG_BASE validates the new log base only for virtqueues with
+a backend. Therefore, an invalid log base can be stored in an inactive
+virtqueue even when the ioctl returns -EFAULT. A subsequent
+CLEAR_ENDPOINT then fails vhost_vq_access_ok() and skips teardown.
+
+I reproduced this on current mainline (8dac6df92a2e) with KASAN, with
+the following sequence:
+
+  VHOST_SET_OWNER
+  VHOST_SET_FEATURES(VHOST_F_LOG_ALL)
+  VHOST_SET_MEM_TABLE
+  Set up vq 0, 1, and 2 only
+  VHOST_SCSI_SET_ENDPOINT             -> 0
+  VHOST_SET_LOG_BASE(kernel address)  -> -EFAULT
+  VHOST_SCSI_CLEAR_ENDPOINT           -> -EFAULT
+  close()
+
+After close(), tpg->vhost_scsi still points to the freed vs. Linking
+another LUN triggers a KASAN use-after-free in vhost_scsi_do_plug().
+
+I also reproduced the in-flight command UAF described in the commit
+message. A delayed READ completion after close() triggers KASAN in
+vhost_scsi_release_cmd(). The READ has to be queued after the
+VHOST_SET_LOG_BASE call, because device ioctls flush in-flight
+commands.
+
+With the patch applied, both reproductions complete without KASAN
+reports, and endpoint teardown succeeds.
+
+Without a successful SET_ENDPOINT, no command can start, so the second
+scenario you mentioned is not what I meant.
+
+I can share the reproducer and full KASAN reports if useful. I'll
+include the failure sequence in v2.
 
 Thanks
-Hangbin
