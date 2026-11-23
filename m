@@ -1,106 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468695;
-	b=nDd4arHohojSw/b9buJ+Vdcy8bc6PiV3Fa/iVctDaS3Qx25rM5lfDyEiquQQJTruo2kF
-	 6XBmEbgUyBlitvpdKWXH1V3uy2kA8GZSWRKMjaa4wDENrq+FMHbfLgwtianLykz3h6gcb
-	 3VWo0o2EsSMUCsaJuSFXgeuo8RhiX8iVfusuZpA9PRF2Jarm4hBwd37w3mBf3iHwCtBJ2
-	 19/CR6lq32LfFmEGDIAypM6WOWUAfHA99+KJQsDp3Www8hHZszlhTe2FhKyIWNAS+e6O+
-	 1i9Hp+HwoB+HvOY0QYRxmiZCLYXe8gw3GzfGoZq7vmV8BNZdb6Tm6IgvwBTUROnvWPg==
+	t=1795468740;
+	b=FbhzfzftNOiVd10vtpyPSg+dNSiLoU/mOtadfXALnSTC+DNeyoN0CQUvKDEtIlI5sq1a
+	 PcHvD3bjAxZ8U0a1hFbbvRH4zVlEqiOWd8/mhY3TqU7mCUQSaWt9J36nq1b167+BUc2Ud
+	 7rBXlOGHVwFe8enYDBDWstG1XYSildyIuwDNAJHxjvJZl6VQRW2KHDxyQHZQsUEGMOzWc
+	 0SQ6uXjVSP5R6EEIe3m0BEaOc3AB0D4gIYDnUAU6ZSTvj+CubrNgbhAWMgaTGrh0OEdSj
+	 9ZMcXDWavA1Vyue0SB0vpWY+JLcj8Xi1dBzLm1lOJjBVl0yykJNkXq7S6JgUGyIWBEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468695;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:Mail-Followup-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
-	b=QdQlU9uB8Gn8du3FM06Xr3H95SKOSx2bXpIhjjVPBmk8vimwykjrHKItstqpWxYHVULb
-	 P2zFpfnXT+BtiQ7q/XhG6BSnbLd+ScAi272PA/YWTx8CYqsGE0JZXkfI6g980YGdoFfOt
-	 tEsKbB2WODVBXsk+CqnNMWsUNfdYKFn/+co8KESQNh0wSMtlKa/Zukz74GeQpeR0HWSY8
-	 esf2+CcMABMGU7AzPjFT3K+wjjbyGy42Bn5ln7MbPVvI/eBWZt/vJZmPW6+FRGb5I26NW
-	 pNXFNfAaN/0BGvdeT5z9L7ehEMMghvbjNoVPFVW3dDkbSvRqjMdO7+GS+AJV5ikwIbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468740;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qEIinZtcBAYEv52+JOKWtbTYLe1Rs9Vkqc2XQn0JmQ4=;
+	b=ISlmJTTOWEuUhudtKWoqpvofHxFex+Xp8W+rN5t/2Vb2xCZ8BUPOCHYzmBNTLYsLcrgg
+	 EWBgnQXL1gD0/kPtBYO7PTJcxFDGCrFSkOlWwLg0gSVUYmmEL2pSGwaSBxsgtHMIwlBSF
+	 T5tZtNPhM8wj2r8M++HcTzUhiYbZap0bY4RdDzXZnA/sKyeaABP6IQfYMsjkKsbWhjueg
+	 wKBaOD2QM4loEdVcQFtDv5PWlgPBGZ3x63pRJ48oNNhrdhtRcRjU87MU4chmuPqk4wHFh
+	 FolQrjrAdnZujrWzQpDpkntB9WaZK8+zM0z2BPjbUM5UOeHDyCkQjLWHow/fXi6AnbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZymQIMKI;
-	arc=none smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYLtC2ty;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07CCB606A321
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:18:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07CCB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F28606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:19:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZymQIMKI
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cde84cb8803so690253a12.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:18:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795468694; x=1796073494; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
-        b=ZymQIMKIHgtOZ3h9wmhuFq5N5VzASSfaGAbDi259xOEgfIO4rOR02KPHNqW4Nc3fXo
-         t7wnSaqOjx3x5bhq46oC8jr6gQ72wGLgXgWsV+yXRBZUDyFtHmSo3ZtYjPYnZJ6b2GGk
-         S/U36mI1ZS/r1tPJgHQzfRKtiBLXo5euSzmS2mSKhKg3asE9d6UX/0wD0+sTSe3tCzXn
-         baTAcHgaar3Y5Owzj97f7PZ+Le3hdxzHRVMadUOlzHfjm8hCshzX+qM5q2zVbvQ6T5mc
-         ZXwnBfIwhLyJRyANMre16nA3/fL9yPD9WmNTwYz7fxP7IpYkItPLcvxbebRRtOHoZJDr
-         pA8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795468694; x=1796073494;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
-        b=zwCBo1Me6xIBchb3TxsrV6t4EEulIostL3RaEy54qyyz3bhJIVMbAr9aJhsfMAyWtf
-         1S/rd7dtLS3nsDcZmN3yCG03+/oCP8tTrHCwxlZ+jCx3PQCi5RRNn4nzVM0E1Vlo98y4
-         3pqJ1Gp5O+Q+SACxm7NecwD44wYgwApEBhKA6MtAt8ERvBbAe5wb0ISkSJOqTgfPzDs1
-         XTOroNpDZQ/qpCwPhcsSEXTdRTttyZ6T1Oyo190n7Y6yap5os7BI/vd3Sd2t2U8szChT
-         JunvYCnja9lqhLBC2KdRbSef8pPPsw2AauMSL/Zl07QTE+WPqY1GmCwoFLvGbJpsihli
-         b4EA==
-X-Gm-Message-State: APuU4Z/ZuD8FN5M6gi4R+t5n7VREhzDuorSC+2URyVkQXvLls8zpe7SB
-	d78fsCjQofSGY1/vAB0IN+DxqGwBHRCTfrG/2FpvJhGUQnXxegRlSj+OSn2S8b6ZUMo=
-X-Gm-Gg: AZFdTZcWDxCR0dl5VWJcEAsjWty4JUsH5VYGQzB1vXSJwo/uhgwzB5ezrcNFpvPPbsu
-	hZM/R51MTJXDhyp8SketSXgtM8SkbPqY4/LKkJV4noNd7s+5pg3OLspRUk1VkMjsRGXohbJBRaZ
-	OE3HLciWBrZy5YDLh4i6/l6HPOjkDQass6575eYfqPuUOA0V7/q++UZwBtYBnw6ZFep2fqYYFRm
-	lihPyfdCYduUPc39eRl4RNCLORp1Va4n2N616EntdZIqX+AT1G64FPSl4l3y+J0bG17kBtE6H0v
-	fa7H5ckjW9ucXTBqM7ET65aUfs0YVdMLIPUijKY946AOfOTWgDz2GASeeE1A868HsyDXNkfmGao
-	UJ9icreuPNLewvfSJbvhlwOvYqGFAt6zM+QikiymhrVlh9PfftKop3tUc43IErDs/cOkIOgW5GZ
-	j8j4geG4wPBH5gIHGo3Yqt+HRKb3BaqAtLbBBWSWvryLIpf9ItqRRB0I1jjAa2w08jK4QDzNylQ
-	dPxhZs8CAa26V2mHAE+W4Mb8tAbywRtabRySzMEQVONpmbyQcJwGl5Td+qL1mpWI86ydu8ehaSh
-	gJceIvl7W77Rbk72eLmlrATmbWnwe4fGfxqkUS0lIA==
-X-Received: by 2002:a17:90b:5109:b0:3ac:9176:e837 with SMTP id 98e67ed59e1d1-3b41c956568mr11182393a91.50.1795468694116;
-        Mon, 23 Nov 2026 13:18:14 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:1::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b0f482bdsm3916508a91.14.2026.11.23.13.18.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:18:12 -0800 (PST)
-Date: Mon, 23 Nov 2026 13:18:11 -0800
-From: Joe Damato <joe@dama.to>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
-	horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v6 1/5] bnxt_en: return the RING_FREE status to
- callers
-Message-ID: <awStk4gPo+BvDDuQ@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org,
-	netdev@vger.kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
-	horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-References: <20261120152830.699712-2-joe@dama.to>
- <179545865792.3135.13782875077253506018@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYLtC2ty
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D8A1F000D2;
+	Mon, 23 Nov 2026 21:18:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795468740;
+	bh=qEIinZtcBAYEv52+JOKWtbTYLe1Rs9Vkqc2XQn0JmQ4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BYLtC2ty0GG92t+7DLPgLeK9gS5u/4wdWB2fLUlJh4AfEu32iwZDYcKlkBx5U2tQE
+	 eW1yrtg3ipNebVp+GTbTtLBniRDWlJF0oAARU4inhn3NGHiBu0X+ncmemfhiiSUGEu
+	 XTAleKMXAh3zbAzoPLZpKqND+n+dC4bSjWnRAlolp+NNssrZnHjGyHvrMZQcsy98rp
+	 oVZD1ONlWkl/ebt8nMsEMzePJTybnn9vg53f3zx84B4V0zTDUR7ifqWQZ9ce9KfiFN
+	 XjR7RnktlzjKDVOFxhSbqtM5EBvMnBjn1zMDhQDE/PysJzaya2BnKPm6JXq0YRZQov
+	 mxjfcgxQHeeDA==
+Subject: Re: [PATCH net] net: avoid clobbering active cork flowi union on
+ datagram connect
+From: netdev-bot+sashiko@kernel.org
+To: dmnk@google.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, kuniyu@google.com, horms@kernel.org,
+ willemdebruijn.kernel@gmail.com, netdev@vger.kernel.org,
+ dmnk+artist@google.com
+Date: Mon, 23 Nov 2026 21:18:59 +0000
+Message-ID: <179546873902.3135.3909249766807884385@kernel.org>
+In-Reply-To: <20261119192147.2640881-1-dmnk@google.com>
+References: <20261119192147.2640881-1-dmnk@google.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,228 +64,193 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179545865792.3135.13782875077253506018@kernel.org>
 
-On Mon, Nov 23, 2026 at 06:30:57PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message describes an errno contract that
->   hwrm_ring_free_send_msg() (drivers/net/ethernet/broadcom/bnxt/bnxt.c)…
-> - [Low] The commit message says 'No caller acts on it yet, so there is no
->   functional change' but still carries `Fixes: 74608fc98d28`.
-> - [Low] In hwrm_ring_free_send_msg()
->   (drivers/net/ethernet/broadcom/bnxt/bnxt.c), the `return -EIO;` left…
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but it is still
->   present at the end of the series.
-> 
-> --
-> 
-> bnxt_en: return the RING_FREE status to callers
-> 
-> This patch makes hwrm_ring_free_send_msg() pass up the errno from the HWRM
-> layer on failure. Before, it always returned -EIO. It also changes
-> bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
-> bnxt_hwrm_rx_agg_ring_free() to return that status, though no caller uses
-> it yet.
-> 
-> > No caller acts on it yet, so there is no functional change.
-> >
-> > Fixes: 74608fc98d28 ("bnxt_en: Ring free response from close path should use completion ring")
-> 
-> [Severity: Low]
-> This isn't a bug, but is the Fixes tag meant to be here? The commit message
-> says there is no functional change. At this commit, every caller of the TX,
-> RX and AGG helpers still ignores the return value.
-> 
-> Later patches in the series carry the same Fixes tag and depend on these
-> return values, for example "bnxt_en: stop DMA before releasing rings the
-> firmware did not free". If the tag is there so stable takes this patch
-> together with them, could the commit message say so?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-The fixed tag belongs there, yea, and I think it being there already explains
-to stable what the situation is. So, I'm going to pass on this feedback.
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
 
-> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > index e78cf7ad3cbc8..c3413354e7582 100644
-> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > @@ -7673,55 +7673,62 @@ static int hwrm_ring_free_send_msg(struct bnxt *bp,
-> >  	if (rc || error_code) {
-> >  		netdev_err(bp->dev, "hwrm_ring_free type %d failed. rc:%x err:%x\n",
-> >  			   ring_type, rc, error_code);
-> > +		if (rc)
-> > +			return rc;
-> 
-> [Severity: Medium]
-> Does the errno returned here match what the commit message describes? The
-> message says:
-> 
->     Return the errno from hwrm_req_send() instead. -EBUSY means no response
->     arrived: the wait timed out, was abandoned, or the firmware channel is
->     down.
-> 
-> If the channel is already down, the request never reaches __hwrm_send(),
-> because hwrm_ring_free_send_msg() returns success first:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Yes, you are correct that the commit message could be adjusted. If there is a
-v7, I will fix the commit message but I am not sure it is worth respinning
-this if only the commit message is slightly imprecise.
- 
-> 	if (BNXT_NO_FW_ACCESS(bp))
-> 		return 0;
-> 
-> So the only channel-down case that comes back as -EBUSY is a FW_FATAL_COND
-> that gets set during the wait.
-> 
-> Some cases where RING_FREE never reaches firmware return -ENOMEM, not
-> -EBUSY. The first is hwrm_req_init() failing in __hwrm_req_init():
-> 
-> 	req_addr = dma_pool_alloc(bp->hwrm_dma_pool, GFP_KERNEL | __GFP_ZERO,
-> 				  &dma_handle);
-> 	if (!req_addr)
-> 		return -ENOMEM;
-> 
-> The second is __hwrm_send() failing before it sends anything:
-> 
-> 	token = __hwrm_acquire_token(bp, dst);
-> 	if (!token) {
-> 		rc = -ENOMEM;
-> 		goto exit;
-> 	}
-> 
-> __hwrm_to_stderr() also maps a firmware HWRM_ERR_CODE_NO_BUFFER reply to
-> -ENOMEM. A caller therefore can't tell "never sent" from "firmware
-> rejected" for that errno. Also, the hwrm_req_init() error is returned here
-> as well, not only the errno from hwrm_req_send().
-> 
-> Later in the series, bnxt_hwrm_ring_free() counts a ring as stuck only
-> when the helper returns -EBUSY:
-> 
-> 	if (bnxt_hwrm_tx_ring_free(bp, &bp->tx_ring[i], close_path) == -EBUSY)
-> 		stuck++;
-> 
-> On the -ENOMEM path, would the ring then be released through
-> bnxt_free_mem() without bnxt_stop_dma()? Firmware never got the RING_FREE
-> and still owns the ring. The path would be:
-> 
-> __bnxt_close_nic()->bnxt_shutdown_nic()->bnxt_hwrm_resource_free()->
->   bnxt_hwrm_ring_free()->bnxt_hwrm_tx_ring_free()->
->     hwrm_ring_free_send_msg()->hwrm_req_init() returns -ENOMEM
+- [High] Regression on AF_INET UDP sockets: once a datagram is corked, a
+  later connect() leaves the socket sending all of its connected traffic…
+- [Low] The Fixes: tag does not cover the IPv4 hunk.
 
-Yea, I don't buy this one.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it comes from
+  the same root cause and limits what a connect-side guard can achieve.
 
-This would need a small allocation to fail on the close path. The driver
-already released the ring in that case before this series, so nothing gets
-worse with this change.
+--
 
-Every RING_FREE failure in the production logs from the cover letter was a
-no-response (rc:fffffff0, -EBUSY).
+net: avoid clobbering active cork flowi union on datagram connect
 
-That is the case this series handles.
+When sk->sk_write_queue holds pending corked frames, this commit stops
+__ip4_datagram_connect() and ip6_datagram_dst_update() from doing the route
+lookup in inet->cork.fl (and np->final). New noinline_for_stack helpers
+handle that case with stack-allocated flow keys. The fast path with an
+empty write queue still uses the cork flow.
 
-> >  		return -EIO;
-> 
-> [Severity: Low]
-> Can this return -EIO still be reached?
+> The symmetric overwrite of
+> inet->cork.fl.u.ip4 in __ip4_datagram_connect() when an IPv6 or IPv4
+> cork is active predates the IPv6 change (since <= v4.19).
 
-Probably not, but leaving it is harmless.
+[ ... ]
 
-> This isn't a bug, but rc is now the errno handed to callers, and the
-> netdev_err() above prints it as rc:%x (for example rc:fffffff0). Would %d
-> be clearer? The %x format predates this patch. After a timeout or abandon,
-> the err:%x value also comes from a response buffer that firmware never
-> wrote.
+> Fixes: 4e6c91cf60f2 ("ipv6: use inet->cork.fl.u.ip6 and np->final in ip6_datagram_dst_update()")
+> Cc: stable@vger.kernel.org
 
-The response buffer is zeroed before the request is sent, so err reads 0 in
-that case. That matches the logs (err:0).
+[Severity: Low]
+Should the IPv4 hunk have its own Fixes: tag?
 
-> >  	}
-> >  	return 0;
-> >  }
-> 
-> [ ... ]
-> 
-> > -static void bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-> > -				   struct bnxt_rx_ring_info *rxr,
-> > -				   bool close_path)
-> > +static int bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-> > +				  struct bnxt_rx_ring_info *rxr,
-> > +				  bool close_path)
-> >  {
-> 
-> [ ... ]
-> 
-> > -	hwrm_ring_free_send_msg(bp, ring,
-> > -				RING_FREE_REQ_RING_TYPE_RX,
-> > -				close_path ? cmpl_ring_id :
-> > -				INVALID_HW_RING_ID);
-> > +	rc = hwrm_ring_free_send_msg(bp, ring,
-> > +				     RING_FREE_REQ_RING_TYPE_RX,
-> > +				     close_path ? cmpl_ring_id :
-> > +				     INVALID_HW_RING_ID);
-> >  	ring->fw_ring_id = INVALID_HW_RING_ID;
-> >  	bp->grp_info[grp_idx].rx_fw_ring_id = INVALID_HW_RING_ID;
-> > +	return rc;
-> >  }
-> 
-> [Severity: High]
-> This is a pre-existing issue that this patch did not introduce, but it is
-> still there at the end of the series.
-> 
-> bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
-> bnxt_hwrm_rx_agg_ring_free() clear fw_ring_id on every path. The RX and AGG
-> helpers also clear the grp_info rx_fw_ring_id and agg_fw_ring_id. The queue
-> management callers ignore the status these helpers now return.
-> 
-> bnxt_queue_stop() does:
-> 
-> 	bnxt_hwrm_rx_ring_free(bp, rxr, false);
-> 	bnxt_hwrm_rx_agg_ring_free(bp, rxr, false);
-> 	page_pool_disable_direct_recycling(rxr->page_pool);
-> 
-> It then hands the old ring and page pool to qmem, and ndo_queue_mem_free
-> frees them later.
-> 
-> bnxt_tx_queue_stop() does:
-> 
-> 	bnxt_hwrm_tx_ring_free(bp, txr, true);
-> 	bnxt_hwrm_cp_ring_free(bp, txr->tx_cpr);
-> 	bnxt_free_one_tx_ring_skbs(bp, txr, txr->txq_index);
-> 
-> This unmaps and frees the TX buffers right after an -EBUSY that nobody
-> checks.
-> 
-> If firmware doesn't answer RING_FREE here, can the device keep writing into
-> freed RX pages, or keep reading from unmapped TX buffers?
-> 
-> The close path log in this series shows firmware can keep doing DMA after
-> an unanswered RING_FREE (AMD-Vi IO_PAGE_FAULT). However, only the close,
-> half-close and init-error paths through bnxt_hwrm_ring_free() were changed
-> to stop DMA.
-> 
-> The RX side is reachable through netdev_rx_queue_restart()->
-> bnxt_queue_stop(), for example from the TPH IRQ affinity notifier or from
-> binding a devmem or io_uring zcrx queue. The TX side is reachable through
-> bnxt_tx_queue_stop() when BNXT_FLAG_SHARED_RINGS or tph_mode is set.
-> 
+4e6c91cf60f2 only touches net/ipv6/datagram.c. git blame traces the
+fl4 = &inet->cork.fl.u.ip4 assignment in __ip4_datagram_connect() to
+3038eeac027d ("ipv4: Lock socket and use cork flow in
+ip4_datagram_connect().") from 2011, so "since <= v4.19" is also not quite
+accurate.
 
-The above is the first item in the "leaving out" section of the cover letter.
-It is a real proble, but I haven't seen it in production. Every failure I've
-seen was on the close path.
+With only the IPv6 tag, stable tooling would limit the backport to trees
+that contain 4e6c91cf60f2. The older trees that the message describes as
+affected would not get the IPv4 change. The IPv4 question below also
+applies before the backport scope is widened.
 
-I think fixing the paths mentioned above are a separate series from this one
-which addresses an issue I observed.
+> diff --git a/net/ipv4/datagram.c b/net/ipv4/datagram.c
+> index 7d25519a6cdd3..4fdad1d2e42f1 100644
+> --- a/net/ipv4/datagram.c
+> +++ b/net/ipv4/datagram.c
+
+[ ... ]
+
+> @@ -82,6 +81,25 @@ int __ip4_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr, int
+>  out:
+>  	return err;
+>  }
+> +
+> +static noinline_for_stack int
+> +__ip4_datagram_connect_corked(struct sock *sk, struct sockaddr_unsized *uaddr,
+> +			      int addr_len)
+> +{
+> +	struct flowi4 fl4;
+> +
+> +	return ____ip4_datagram_connect(sk, uaddr, addr_len, &fl4);
+> +}
+
+[Severity: High]
+On a plain AF_INET UDP socket, does this leave inet->cork.fl.u.ip4 holding
+the old corked destination after connect()?
+
+The route lookup goes into the stack fl4, which is then thrown away.
+inet_daddr, inet_dport and sk_dst move to the new peer. cork.fl.u.ip4
+still holds what udp_sendmsg() wrote while corking:
+
+net/ipv4/udp.c:udp_sendmsg() {
+    ...
+	fl4 = &inet->cork.fl.u.ip4;
+	fl4->daddr = daddr;
+	fl4->saddr = saddr;
+	fl4->fl4_dport = dport;
+	fl4->fl4_sport = inet->inet_sport;
+    ...
+}
+
+The commit message calls cork.fl scratch storage for connect. For IPv4 UDP,
+though, the lockless fast path in udp_sendmsg() also uses it as the
+connected flow whenever the cached route is still valid:
+
+net/ipv4/udp.c:udp_sendmsg() {
+    ...
+	fl4 = &inet->cork.fl.u.ip4;
+    ...
+	if (connected)
+		rt = dst_rtable(sk_dst_check(sk, 0));
+
+	if (!rt) {
+		...
+		fl4 = &fl4_stack;
+		...
+	}
+    ...
+	saddr = fl4->saddr;
+	if (!ipc.addr)
+		daddr = ipc.addr = fl4->daddr;
+    ...
+		skb = ip_make_skb(sk, fl4, ip_generic_getfrag, msg, ulen,
+    ...
+			err = udp_send_skb(skb, fl4, &cork);
+    ...
+}
+
+ip_make_skb()->__ip_make_skb()->ip_copy_addrs(iph, fl4) fills the IP
+header from that flow. udp_send_skb() takes uh->dest and the checksum
+addresses from the same fl4.
+
+The sequence would be:
+
+  sendto(B, MSG_MORE)      cork.fl.u.ip4 = B
+  connect(C)               corked branch, cork.fl.u.ip4 stays B
+  flush (UDP_CORK=0 or a send without MSG_MORE)
+                           udp_push_pending_frames() sends to B,
+                           cork.fl untouched
+  send() ...               fast path builds packets for B's address
+                           and port, sent over C's route
+
+Before this patch, connect() always rewrote cork.fl.u.ip4, so only the one
+pending datagram went to the wrong place. With the patch, it looks like
+every later connected send() goes to B until the route goes stale or the
+socket reconnects.
+
+The dual-stack case in the commit message doesn't seem to reach this fast
+path. For v4-mapped peers, udpv6_sendmsg() always passes an explicit
+sockaddr_in to udp_sendmsg(), which forces connected=0.
+
+Would it be better to make the connected fast path in udp_sendmsg() stop
+depending on inet->cork.fl.u.ip4, or to resync it after the cork is
+flushed, rather than skipping the write in connect()?
+
+> +
+> +int __ip4_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
+> +			   int addr_len)
+> +{
+> +	if (unlikely(!skb_queue_empty(&sk->sk_write_queue)))
+> +		return __ip4_datagram_connect_corked(sk, uaddr, addr_len);
+> +
+> +	return ____ip4_datagram_connect(sk, uaddr, addr_len,
+> +					&inet_sk(sk)->cork.fl.u.ip4);
+> +}
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. It has
+the same root cause, and a guard in __ip4_datagram_connect() can't cover
+it, because no connect() happens while corked:
+
+  connect(A)               cork.fl.u.ip4 and sk_dst = A
+  sendto(B, MSG_MORE)      connected=0, sk_dst left alone,
+                           corking writes B into cork.fl.u.ip4
+  flush                    udp_push_pending_frames() sends to B,
+                           cork.fl not restored
+  send()                   connected=1, sk_dst_check() returns A's
+                           route, fl4 stays &inet->cork.fl.u.ip4
+
+That last send() builds the packet with B's saddr and daddr via
+ip_copy_addrs() and B's port in udp_send_skb(), and sends it over A's
+route. This keeps happening until the route goes stale or the socket
+reconnects. It appears to date back to around 2011 (b6f21b268026,
+9cce96df5b76, e474995f290f).
+
+None of the functions changed by this patch run in this sequence. Could a
+change in udp_sendmsg()'s connected fast path fix both this and the case
+above? Options would be rebuilding or checking the flow from socket state,
+or falling back to fl4_stack.
+
+The dual-stack variant can't reach this path either, since udpv6_sendmsg()
+passes an explicit sockaddr_in for v4-mapped destinations.
+
+> EXPORT_SYMBOL(__ip4_datagram_connect);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119192147.2640881-1-dmnk%40google.com
