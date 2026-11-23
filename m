@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795410458;
-	b=hchbcEM8A+uVKlGE3XNOycdKoDm32obXYbcN3i2f8VVsrCAps7SIKFnOeZrlnpjEUKyT
-	 F3EdKDWVfLDtcvw23vWvFI8upukwl2jbFJk+oOB62yd/VkWrIkuxgyYTBlOFV0tCJX82t
-	 EVCvgBAUS7n3yVTC6peYMPXfzgPBR7WYyFZjj/I72eOJJSzLjRxfmtk3hsWwOBjOzagGN
-	 bJiozZQ9X9YSfMtCqSJf8rifO3yPJqK2vQPwI0RX6Qgk9BV4YJghfFYPkw2EJGRwjvVNh
-	 qe/PGsqJ8WP+YFijJrV6aATGcyWbZhtQq2wpdEebxI+66VgcjXAJEg3gorja+pW7rJw==
+	t=1795410887;
+	b=q0rb38iS69VMU9EoL9wifjIdBDv2nXiadgdpgF0XiSuLIK3d/q2bH1ttXcp1sitUXt2S
+	 wCnCF7NhKqDjJiDYSy1sEk6/B0lJ4YYUpvPh9jid2lLzAB0nv5cbSzmDgK2TOzjuZNqDr
+	 VPnee7EaplQNWTxXi8dCmBWkgLEl2F6kJ+yXf3D7923Dhw3SPo46vEy/8KYUVYUDHpccX
+	 eOdSB7VP/v0VJeqCF21UBGVrWLuAz+r3k91+Aat+b5H/9IezhCcH/LdunaJD5zhH3GYvY
+	 9vN6W/1RVhcNHx72YG+/hQEtItZ4Nf1DpyYvDfAJE0s3tLAOwpd5LHbjcIup8iNr4ow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795410458;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jXsj4yBDa40W+GRxXNQS4djxEV9wqaTAzh35gQgC/FM=;
-	b=5YIbVLuhAgcMPmMsKnVXDzrsZCLOLFjS6+JZPIipbBbhm7fRrZv4YNh678ESe3rcRjJF
-	 KEdJ+WY7btudfCOCKDoI1WzHr+Ho6qwmRsMMjWzHdLaaYl/wHhCndIlriaXtCfT+N6nCj
-	 cqU7TTpuHab/t0+aN2xt9vcPgum+C7H/0jKKYzBvMuA+GCsESmNGEafXrIhr+qBWqoFlR
-	 UD1i8nBBqM3NLAx78PwqzpZpWbfdJ3o6wifOqK+JL2PkkD/NI6Q0Y78/lC7pt9biuRr3j
-	 NhD6uHJkL+owb0Voj9yhWtzHkr9VcGiLNUh1Cf1Lk+WbYMZmSMRofiVwRKZ44KTTmsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795410887;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=FuEsR0gl/FRBomGQtdy1DpOLnKBF4WvHwtlAdJIMaXk=;
+	b=o+jXNnD+0hq9M8x6jPnKcJoB++s1CLD2AflhaytlIG7RdGvdUCcgoKDZ/58PvjhGO45y
+	 ExXHN23wxmDEFcP0w6L1YynkpmcRKT5grPAASKvief8geFddxOUbmjce6FzrqTtXatU/X
+	 fCrRwd2lj5fL3pog7jtXXBuKftE3mnS+f1VFGkEQM+ro2EM/p0Rkgbi3Lk+vcXMXczF8S
+	 iJccYIyMdVZMcHLbLl6wnkL3SubjsxH9Rky+wWYYdx5kI047bTkahX+2aQfV62hL77I6I
+	 ht8EK7/4HCqqfABcX6PxZ1geDdaxk1zLOFg5yawxg9UWHaMMq1bIWSZvZF13whSiXnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=A5tXLO4H;
-	arc=none smtp.remote-ip=95.215.58.211
-Received: from mta1.migadu.com (out-211.mta1.migadu.com [95.215.58.211])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DPEadBDo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A516606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:07:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A516606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBF32606A31A;
+	Mon, 23 Nov 2026 05:14:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=A5tXLO4H
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=lnUq93IGNsz/Cb1nIEvJY31ok+tibOAtwwZITwxSEzw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795410454; v=1; x=1796015254;
- b=A5tXLO4H2zXdVBartanS99QsB4ZSefo+fmAjO1C/3RMC1RrLk9kfYzSklUKSYu0ER+BLUQBO
- lwzfHrlBK09pU58/+KmHTIRuHjJHMRJDZMSaFQeWlywVqS5L+E1pid8n8R1PbobGwbsQfVmMHs+
- tYBtWX99qnYJyIJvZIrRpQpg=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id f42f577cfbcb11bc;
-	Mon, 23 Nov 2026 05:07:34 +0000
-X-Mizu-Trace-ID: f42f577cfbcb11bc
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 13:07:25 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Xia Yan <yanxia@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, horms@kernel.org, linux-kernel@vger.kernel.org,
-	kuniyu@google.com, xeb@mail.ru, yana06070@163.com,
-	netdev-bot+sashiko@kernel.org
-Subject: Re: [PATCH net-next v5] ip6_gre: fix changelink conflict checks for
- L2 tunnels
-Message-ID: <20261123050725.GF10218@Liu-laptop>
-References: <179535496489.1244648.10031965997557933761.ip6gre-v5@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DPEadBDo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E57881F000C0;
+	Mon, 23 Nov 2026 05:14:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795410887;
+	bh=FuEsR0gl/FRBomGQtdy1DpOLnKBF4WvHwtlAdJIMaXk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=DPEadBDo1O+G3J99wgmQd5wQRx/GLhLpE/iAUQjjiacT9Z2xIYN7XtCJ3Kx9P2ltX
+	 58uxquPCJ28Z+zukyGXCJlRdt1HF91dseT+FZEPGo8jpeDQvAODr5LMEYWsbnS3baa
+	 W1o0xWLD/5lNzkqzhur0d34qRzF70GCa3cuQCt7+J4+f2ED9ERtnr6z40h1Zwh5Flp
+	 YDRWabcI3JoZrgNPsB4lgrGlBSDh0wUQkEiQK5pmm1k+pRB4c+yH6Z3Gd9/NE+lHl6
+	 6h+EITCArQ0wRxBnTYK8RwUHA92szzqJ78japFV+9BqTfZNJtuqQdQb1pcMpfbMAjp
+	 DyWky68Rbo45w==
+Subject:
+ Re: [PATCH net] virtio_net: mask callbacks before handing off NAPI ownership
+From: netdev-bot+sashiko@kernel.org
+To: mst@redhat.com
+Cc: linux-kernel@vger.kernel.org, zcjie0802@qq.com, jasowangio@gmail.com,
+ eperezma@redhat.com, xuanzhuo@linux.alibaba.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netdev@vger.kernel.org, virtualization@lists.linux.dev
+Date: Mon, 23 Nov 2026 05:14:46 +0000
+Message-ID: <179541088645.3135.14221394097883219540@kernel.org>
+In-Reply-To: <ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst@redhat.com>
+References: <ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst@redhat.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,81 +64,214 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179535496489.1244648.10031965997557933761.ip6gre-v5@cmss.chinamobile.com>
 
-On Sun, Nov 22, 2026 at 09:42:44PM +0800, Xia Yan wrote:
-> ip6gre_changelink_common() calls ip6gre_tunnel_locate(), which only
-> looks for ARPHRD_IP6GRE devices. The same helper also handles ip6gretap
-> and ip6erspan devices.
-> 
-> An L2 tunnel can therefore change its parameters to match another L2
-> tunnel, and incoming packets can be delivered to the wrong interface.
-> An L3 tunnel with matching parameters can also make a valid L2 update
-> fail with EEXIST.
-> 
-> Use ip6gre_tunnel_find() with dev->type, as the newlink paths do. This
-> also matches the device-type check in IPv4 ip_tunnel_changelink().
-> 
-> Found while comparing the duplicate checks in newlink and changelink.
-> Reproduced under UML using existing netlink interfaces, without kernel
-> instrumentation or fault injection. With an IPv6 underlay named under
-> already configured:
-> 
->   ip link add tap1 type ip6gretap local fd26:106::1 \
->       remote fd26:106::2 key 100 dev under
->   ip link add tap2 type ip6gretap local fd26:106::1 \
->       remote fd26:106::2 key 200 dev under
->   ip link set tap1 up
->   ip link set tap2 up
->   ip link set tap2 type ip6gretap key 100
-> 
-> Before the fix, the last command succeeds and received frames move from
-> tap1 to tap2. After the fix, it fails with EEXIST and tap2 is unchanged.
-> 
-> Tested on net-next under UML with W=1 builds before and after the change.
-> Standalone tests covered duplicate and valid updates for ip6gretap and
-> ip6erspan, including receive-interface and payload checks, plus an L3 GRE
-> control. Kernel selftests were not run.
-> 
-> Signed-off-by: Xia Yan <yanxia@cmss.chinamobile.com>
-> ---
-> 
-> Notes (ip6gre-v5-mail):
->     Changes in v5:
->     - Return to the minimal one-line v1 change, as requested by Ido Schimmel.
->     - Rebase onto current net-next.
->     
->     v4: https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
->     Review: https://lore.kernel.org/netdev/20261122123555.GA2812544@shredder/
->     
->     Current UML build and runtime baseline: eb6d6c80d35449c27471b1874f13066c09a8964d.
->     The v1 x86_64 W=1 allmodconfig- and allyesconfig-derived full builds used
->     net 7076f684d513. Those full builds were not repeated for this rebase.
-> 
->  net/ipv6/ip6_gre.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
-> index 26c0e1c4de18f8b44ceb05d01673aaadfbcbd5ef..9f1e58f9326afd27d097431ffe62efb0aaaaf58a 100644
-> --- a/net/ipv6/ip6_gre.c
-> +++ b/net/ipv6/ip6_gre.c
-> @@ -2064,7 +2064,7 @@ ip6gre_changelink_common(struct net_device *dev, struct nlattr *tb[],
->  
->  	ip6gre_netlink_parms(data, p_p);
->  
-> -	t = ip6gre_tunnel_locate(net, p_p, 0);
-> +	t = ip6gre_tunnel_find(net, p_p, dev->type);
->  
->  	if (t) {
->  		if (t->dev != dev)
-> 
-> base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
-> -- 
-> 2.43.0
-> 
-> 
-> 
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] napi_complete_done_finish() (net/core/dev.c:7142-7150) repeats
+  the `n->state & (NAPIF_STATE_NPSVC | NAPIF_STATE_IN_BUSY_POLL)` test…
+- [Low] The commit has no Signed-off-by trailer.
+- [Low] The patch adds a second way to complete NAPI
+  (napi_complete_done_prepare()/napi_complete_done_finish(), exported…
+
+--
+
+virtio_net: mask callbacks before handing off NAPI ownership
+
+This commit splits napi_complete_done() into napi_complete_done_prepare()
+and napi_complete_done_finish(). With the split, a false return keeps NAPI
+ownership until the caller calls finish. virtio_net's
+virtqueue_napi_complete() uses this to disable virtqueue callbacks before
+ownership passes to another poll, which avoids an RX stall when IRQ
+deferral is in use.
+
+Closes: https://lore.kernel.org/netdev/tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com/
+
+> Reported-by: Congjie Zhou <zcjie0802@qq.com>
+> Closes: https://lore.kernel.org/netdev/tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com/
+> Fixes: 6f8b12d661d0 ("net: napi: add hard irqs deferral feature")
+> Message-ID: <20261119064843-mutt-send-email-mst@kernel.org>
+> Assisted-by: LLM
+> Tested-by: Congjie Zhou <zcjie0802@qq.com>
+
+[Severity: Low]
+
+This isn't a code issue, but the trailer block has no Signed-off-by.
+
+Documentation/process/coding-assistants.rst says AI agents must not add
+Signed-off-by. It also says the human submitter is responsible for
+"Adding their own Signed-off-by tag to certify the DCO".
+
+This patch carries Assisted-by: LLM. Could the author's Signed-off-by be
+added?
+
+> diff --git a/net/core/dev.c b/net/core/dev.c
+> index 6140fd9d11cd0..4be810fb5175e 100644
+> --- a/net/core/dev.c
+> +++ b/net/core/dev.c
+
+[ ... ]
+
+> @@ -7085,8 +7108,48 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
+
+[ ... ]
+
+> +/**
+> + * napi_complete_done_prepare - prepare NAPI completion
+> + * @n: NAPI context
+> + * @work_done: number of packets processed
+> + * @completion: opaque completion token
+> + *
+> + * Return: true if NAPI is complete and interrupts may remain enabled;
+> + * false if ownership is retained. On false, mask interrupts and call
+> + * napi_complete_done_finish().
+> + */
+
+[Severity: Low]
+
+Should Documentation/networking/napi.rst be updated to cover this API?
+
+It currently says:
+
+  napi_complete_done() releases the ownership of the instance.
+
+and:
+
+  IRQ should only be unmasked after a successful call to napi_complete_done():
+
+The new API uses a different contract. Interrupts are enabled before
+completion. A false return from napi_complete_done_prepare() keeps
+ownership. The caller must then call napi_complete_done_finish(), or
+NAPIF_STATE_SCHED stays set.
+
+Right now that requirement is only described in this kernel-doc.
+
+> +bool napi_complete_done_prepare(struct napi_struct *n, int work_done,
+> +				struct napi_completion *completion)
+> +{
+> +	return __napi_complete_done_prepare(n, work_done, true, completion);
+> +}
+> +EXPORT_SYMBOL_GPL(napi_complete_done_prepare);
+> +
+> +/**
+> + * napi_complete_done_finish - finish NAPI completion after masking interrupts
+> + * @n: NAPI context
+> + * @completion: token passed to napi_complete_done_prepare()
+> + *
+> + * The caller must provide any device-specific interrupt ordering.
+> + */
+> +void napi_complete_done_finish(struct napi_struct *n,
+> +			       struct napi_completion *completion)
+> +{
+> +	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+> +				 NAPIF_STATE_IN_BUSY_POLL)))
+> +		return;
+> +
+> +	__napi_complete_done_finish(n, completion->timeout, false, false, NULL);
+> +}
+
+[Severity: Medium]
+
+Can this second check of n->state disagree with the decision made in
+__napi_complete_done_prepare()?
+
+struct napi_completion only records the timeout. So finish() works out
+which path prepare() took by testing NPSVC and IN_BUSY_POLL again. The
+early return in __napi_complete_done_prepare() never writes
+completion->timeout:
+
+	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+				 NAPIF_STATE_IN_BUSY_POLL)))
+		return false;
+
+IN_BUSY_POLL is only set by whoever acquires SCHED, so it can't change
+while this poll owns the instance.
+
+NPSVC is different. poll_one_napi() sets and clears it while holding only
+napi->poll_owner:
+
+net/core/netpoll.c:poll_one_napi() {
+	...
+	if (test_and_set_bit(NAPI_STATE_NPSVC, &napi->state))
+		return;
+	...
+	clear_bit(NAPI_STATE_NPSVC, &napi->state);
+}
+
+A regular poller only takes poll_owner if dev->npinfo was already set
+when the poll started:
+
+include/linux/netpoll.h:netpoll_poll_lock() {
+	...
+	if (dev && rcu_access_pointer(dev->npinfo)) {
+		int owner = smp_processor_id();
+
+		while (cmpxchg(&napi->poll_owner, -1, owner) != -1)
+			cpu_relax();
+	...
+}
+
+__netpoll_setup() publishes npinfo with a bare rcu_assign_pointer(). It
+does not wait for polls that are already running.
+
+Say netconsole, or a bond/bridge netpoll setup, attaches to a virtio_net
+device while a poll is between prepare() and finish(). netpoll_poll_dev()
+can then take poll_owner and toggle NPSVC inside that window.
+
+In the first case, prepare() saw NPSVC clear and returned false because of
+MISSED or defer_hard_irqs. By then it has already done list_del_init() and
+set list_owner to -1, but SCHED is still set. If NPSVC gets set before
+finish() runs, finish() returns early:
+
+virtqueue_napi_complete()
+  napi_complete_done_prepare()     <- returns false, SCHED kept
+  virtqueue_disable_cb(vq)
+                                   netpoll sets NPSVC
+  napi_complete_done_finish()      <- returns early
+
+Doesn't this leave SCHED set, callbacks masked, and the NAPI on no poll
+list? The queue would stall, and a later napi_disable() in
+virtnet_close() would spin forever.
+
+The opposite case also looks wrong. If prepare() saw NPSVC set and took
+the early return, the on-stack token in virtqueue_napi_complete() is
+never written:
+
+	struct napi_completion completion;
+
+Now suppose NPSVC is cleared before finish() runs. Then
+__napi_complete_done_finish() runs with an uninitialized
+completion->timeout. It clears SCHED and can call hrtimer_start() with
+that stack value:
+
+	if (timeout)
+		hrtimer_start(&n->timer, ns_to_ktime(timeout),
+			      HRTIMER_MODE_REL_PINNED);
+
+The old single-pass napi_complete_done() could not hit either case,
+because its cmpxchg ran regardless of a late NPSVC change.
+
+The window for concurrent polls during netpoll attach predates this
+patch. What is new is that the decision is now split across two separate
+reads of n->state.
+
+Could prepare() record its decision in struct napi_completion, or always
+initialize the token, and finish() use that instead of re-reading
+n->state?
+
+> +EXPORT_SYMBOL_GPL(napi_complete_done_finish);
+> +
+>  static void __skb_defer_free_flush(struct skb_defer_node *sdn, int budget)
+>  {
+>  	struct llist_node *free_list;
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst%40redhat.com
