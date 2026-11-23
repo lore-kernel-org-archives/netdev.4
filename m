@@ -1,64 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422615;
-	b=zVp7kZgVB19NTXxqaJO9g2RWZndJzR6BbdSDYjapgbaxktG0jp1ZVQHhq4aW2bxWI/ik
-	 RdUB+eRLduI1g8ET/bh9Z181NEeZJ0MjOUdy/pyraC+2NsyDIijbJZVVnoo5U5oi0Mpjf
-	 aD5/vbR+y7btMGfi9lJHPjs3CBkn4ygBAQBzgrTxh476esx+lAAYuBeBb2MJJh548Z6+M
-	 S2ZSdOvdITlVtGBNBr5+IC0k87yX1hBHexqOplh/Lxe6P703gxWNLMolEGxAv24kBPaE4
-	 dKUhs34Qd5hMQyM/4ey8u3wmGXsnAJE58O7WqBoB3ukB//MjUvrjEuxKULCM7n9I7sg==
+	t=1795422998;
+	b=ShZjrL55EgzUVyjQQZURSulTXVKUcy0V3JfRYVU/0uAkRo82Q1Ihd7JrPmbrSLCX0FEm
+	 wQNgJc5lXZhUVWc6WcPmiIwxGtwrjkNNpfMWDR32ZJgAVJoWk+GmyCJpJkDxMj9Icw3HU
+	 uXobM+BXEreFRewubXZJVKjhJnEEPxV8vg3UjZyMMyWEixAFyGVwVs01cDsMpBanyGr7T
+	 LosIkInjWKAn9xzAexr4UjS5FpbIqRad+nn48fYnvX6Taut1fFoD/olt1RCBb5oYwm5qu
+	 T0qOz2R3/6FvagRoatycTiPk5LQ2AH4V72CNN2X2nRF4j/23audOx7vqdktIbQYcRIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422615;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=g90/0bhbxPIHkU4mFDJWsNmnCkTgmCZxPuEg8GPDaE4=;
-	b=regR6M1YLLU0r3ixVnk6f+PXd3EnI89eSUFwWZehr6QXYHwNZbwmq+rHIFb1PhtkrMqS
-	 AvZUrksAAN7J1YwoWx8jI1IrfJp2XoMn+JuwOZclDA8NC160BZMuONdAn0Xasast2KwTw
-	 MTtRlaK++QZ4yX0y5HxSYVTIg2SO975vomidGQxgrHteiHDWJI8AMYNcEWwvQ6nnzlSN6
-	 sBRKkQM8tEQALSnMHMNDKSs4YUDF+phXeBf0vYcFGXLJOjHSsQNRj3S48csinUEYnLgiy
-	 jHkp9gqAtsPBA28ppDVL7aXSm1vAFuEs10L+MJX8i+kVmB89iRegxmBu4x2dgOFCh4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422998;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2OX63kgV8CtpEDOwgqN7q56BE5W0V+/Nb3DnFHGJsZ4=;
+	b=SaZALOz/y3FUOlva/OXKiHS+LHCayQdTT4nNT6l8jmPeRe6DQN5k/g0BJWHX3KKCKzE4
+	 UD0NhmY9q/o93A0X3u4hhfD21fDJOhzKmWlf/wsmayNq0oNgybbFsfzFS5eyAzw4oSnQX
+	 yHtZaNq1anjLx/fT95JhD66zvEuR8URUDcsz+cL4us7APORl3hfu64pfMr+J/LdwhZVuF
+	 V5kUdUYkYlP+YyVGFfnOpXx4yQPRWhp1YrcO6j6lTRRTGmW3BT7Xe/99j4edaBkCL1z/b
+	 K1sDZlOCXG0M8UMeQYA7IF/VTZ2eeNpfVRBKPrxFU/v4s+w7ZuS+vkDkVXxUrDsRuVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PXULo1uE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T6SOaqwF;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F9D606A31A;
-	Mon, 23 Nov 2026 08:30:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3799E606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:36:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3799E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PXULo1uE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 841501F000CA;
-	Mon, 23 Nov 2026 08:30:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795422615;
-	bh=g90/0bhbxPIHkU4mFDJWsNmnCkTgmCZxPuEg8GPDaE4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PXULo1uEs5gqu1IV55GH6XzrlAMnkg7aML82UaJ7P0OLCy2GmoAv5mYdxL9hUIV7u
-	 jEnaL7Mzr0zmJzdlrh1FTVQpNNcU4E0e9whuo8ZLAWP27aVJY8zIIQxBhRVIW5qtV8
-	 ITHTFckdHDzXFIroyGvBmKet6tLcxgecDClkheY54A8wnhpZm6X3t/G8TpbUd6M28h
-	 FEdGAcxU0Q/gFfgk4219uGFxeYvN//XCAyraN1ZjPfgQ/ifzbksu4GKAmqWV6zm29M
-	 xNB603K1JIdFM5wvMVEheM3ybmTvHLcB1sTMJHQ1a0xvq3I/76jYcSCd8ArO5DHA1I
-	 SqCYOEVQW60QA==
-Date: Mon, 23 Nov 2026 09:30:12 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arun Iyengar <aiyengar1990@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	David Wu <david.wu@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Serge Semin <fancer.lancer@gmail.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, 
-	Pranjal Shrivastava <praan@google.com>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH 3/9] dt-bindings: soc: rockchip: grf: Allow a clock for
- the RK3588 PHP GRF
-Message-ID: <20261123-wealthy-luminous-skunk-cb5dbb@quoll>
-References: <20261113-mmu600-php-v1-0-231196049a3b@gmail.com>
- <20261113-mmu600-php-v1-3-231196049a3b@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T6SOaqwF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795422998; x=1826958998;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=f57rKML2Xyrc1MDHRFxcs8lQhQu7zcxkpMHWNl9Kgzs=;
+  b=T6SOaqwF82cLkBykedKW7YgNwWFhrhD0hqB2yEaqmqbkQtimiChuZMB9
+   VTHQq2ph4SkA6N4jMFVnJU4ZYnSw/fVoGdA2wLQjsoLnLyMAOhY7QUEh7
+   M5lpH74UMNDS6FbugfxlB1m91yx9QtjC/SJAucBAexkM+M0874d6LFbgj
+   KhB+Djd8zcSFdOs6VtG9r4wFjMLWoOcLKnoEDeSWSKR6B9t5X/NjdZOXW
+   q5tflrTz7r2d/PKcXFxKimYCyAr0+R4gGvD3idlYngh+mrB9aVgpfJeLw
+   JqhdSwMmyZcBsH9AIZLgNNx5EpMvqL5FhK65GjiW/GqRIyZwhetH05Flk
+   w==;
+X-CSE-ConnectionGUID: 3yojb2J7S0WjsqsEPN0F9w==
+X-CSE-MsgGUID: 8o8Pl4FGQe+XSfheZ/F7/w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4234543"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4234543"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:36:38 -0800
+X-CSE-ConnectionGUID: QrrBQgBBSgStlcLHxb5M5w==
+X-CSE-MsgGUID: +FOa851gTsSJxt+KLjFA3Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11016022"
+Received: from linux.intel.com ([10.54.29.200])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:36:38 -0800
+Received: from [10.241.178.60] (soc-5CG1401QVW.clients.intel.com [10.241.178.60])
+	by linux.intel.com (Postfix) with ESMTP id C851320B8CD1;
+	Mon, 23 Nov 2026 00:36:33 -0800 (PST)
+Message-ID: <a62bce53-a307-483f-86e9-00949b142e9f@linux.intel.com>
+Date: Mon, 23 Nov 2026 16:36:32 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,42 +76,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261113-mmu600-php-v1-3-231196049a3b@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v1 0/3] af_packet/tcp: fix late hardware timestamp
+ handling
+To: Kohei Enju <kohei@enjuk.jp>, netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Kuniyuki Iwashima <kuniyu@google.com>, Willem de Bruijn
+ <willemb@google.com>, David Ahern <dsahern@kernel.org>,
+ Neal Cardwell <ncardwell@google.com>,
+ Gerhard Engleder <gerhard@engleder-embedded.com>,
+ Jonathan Lemon <jonathan.lemon@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Gomes Vinicius <vinicius.gomes@intel.com>,
+ Song Yoong Siang <yoong.siang.song@intel.com>,
+ Looi Hong Aun <hong.aun.looi@intel.com>,
+ "Tan, Khai Wen" <khai.wen.tan@intel.com>
+References: <20260429091632.26509-1-kohei@enjuk.jp>
+Content-Language: en-US
+From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+In-Reply-To: <20260429091632.26509-1-kohei@enjuk.jp>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 13, 2026 at 04:38:49PM +0000, Arun Iyengar wrote:
-> The RK3588 PHP GRF is clocked from pclk_php_root, which is gated when
-> no PHP peripheral holds it. Allow the clock, so the syscon regmap
-> enables it.
+On 4/29/2026 5:16 PM, Kohei Enju wrote:
+> Since commit 97dc7cd92ac6 ("ptp: Support late timestamp determination"),
+> skb_shared_hwtstamps may carry netdev_data instead of a resolved
+> hwtstamp. AF_PACKET and TCP could still read that storage as a ktime_t
+> and report bogus hardware timestamps to userspace.
 > 
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
+> This series factors the late timestamp resolution logic into a common
+> helper, then switches AF_PACKET and TCP to use it.
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> index e94c83d7c138..2525eb51f13b 100644
-> --- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> +++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> @@ -321,8 +321,16 @@ allOf:
->          - clocks
->  
->      else:
-> -      properties:
-> -        clocks: false
-> +      if:
-> +        not:
-> +          properties:
-> +            compatible:
-> +              contains:
-> +                const: rockchip,rk3588-php-grf
-> +
+> Notes on SOF_TIMESTAMPING_BIND_PHC:
+> The generic socket receive timestamping path honors it, but the
+> AF_PACKET and TCP receive paths touched here haven't implemented that
+> behavior.
+> This series doesn't change that; those paths always resolve timestamps
+> with cycles == false and preserve their timestamp-domain semantics.
+> 
+> Kohei Enju (3):
+>    net: introduce helper to resolve hardware timestamps from skb
+>    af_packet: use skb_get_hwtstamp() for hardware timestamps
+>    tcp: use skb_get_hwtstamp() for hardware timestamps
+> 
+>   include/linux/skbuff.h | 11 +++++++++++
+>   include/net/tcp.h      |  2 +-
+>   net/core/skbuff.c      | 27 +++++++++++++++++++++++++++
+>   net/ipv4/tcp_input.c   |  3 ++-
+>   net/ipv4/tcp_ipv4.c    |  6 ++++--
+>   net/ipv6/tcp_ipv6.c    |  3 ++-
+>   net/packet/af_packet.c |  2 +-
+>   net/socket.c           | 27 +++------------------------
+>   8 files changed, 51 insertions(+), 30 deletions(-)
+> 
+Hi Kohei,
 
-This is not understandable - two nested ifs, one even with negation.
+I am currently working with Vinicius on a fix for wrong hardware 
+timestamp in tcpdump 
+(https://lore.kernel.org/all/20261111053728.2611070-1-khai.wen.tan@linux.intel.com/)
 
-If binding is too complex, it could be split.
+We have came across your series are also fixing the same issue. I would 
+like to check about your current status on the v2 for this series, we 
+are planning to implement your fixes (skb_get_hwtstamp() helper) into 
+our patch, so we would like to ask if you currently have plan for the 
+series v2. If you not having plans for this or don’t have time for this, 
+may we include the first patch of this series into our patch, the patch 
+authorship will still be kept to you?
 
-Best regards,
-Krzysztof
-
+Best Regards,
+KhaiWen
