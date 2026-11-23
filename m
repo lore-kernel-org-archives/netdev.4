@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427498;
-	b=GEj4aPQE8fZJpGzTFq3kkKG/NVvlP79GHD6E+6HcpRvAyv8uIoXcarhA1UYjP4Hirxzh
-	 p/hlPbYe1+xsV1Hg2MzmdbusHEeG2hSTU4JdPDCz8Dxq6aSEz6czYLrMUiSf0ktGU+ZEj
-	 50GWymsM8ibiDzDTKskrn+kRgTkGAvRFE6Tq+My94oFeFQsvn/y618SDxlonSErEEM6op
-	 z567jfx6A+Lsce0C2PBi5td0sz3aM8oBzNSLTFW+4Lm3JhXVX0rDMownBtvKUJkNNJe/L
-	 RIVp19oFZDkw0Vj8GDHIPG4eAhtamgcs9IUvqL2AZ/AFQUIK71tm+MEWkd3zfSSgqJA==
+	t=1795427500;
+	b=uOXo/ByDs0e3LYmi1J9yYcZOzFD91/tZC1ec6sfrh6dXI3ObwsYtEm+cxeetsEgDccet
+	 yT7lF0oANZdMBazl9Q40xlNaRZTto7SLWdLye8OQapYdmKurmgB49frIYK37fPy0damKz
+	 fjPAaAvZf+FoWhy4CJtLIPi9k0OBUv6hgZKTcHlDgB7qXdFp0dGBKMmTQs7jHNSF/uRxH
+	 iz13n4xzIFD3XpvqwMwK0S9Vn6fQHhKCQ/AhHklKTpi4Ux29w+mdwymQQBRFxEjxk9jSe
+	 +d/LespWQIuqwM8JmmLMLmIbxJp75wgsjSzS4PDQXylLtRwA5wWv5bwI0xxbPzMnbwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427498;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427500;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=cKIHxdrVgTvPN1YdjFiUNGAh+m3glGXVecaHibF7T1I=;
-	b=4k0GDNwUMSdxB1f6NElX4AbbdBE1Be9HljyKHnR3lxYvLAHh9kbVVxprpfM1yrQUrosa
-	 0wA5NTkwJMBL7mIwaDxM985N/36VJSfXBEEDMC1FvlEpLodUslmfxXbkJMnxuShkZptPZ
-	 UwBBzVKzxe78fVFtNLRwum+zGvHXB9vywB69yYipZ/73Jt5NJf1CJw6dRRnDtZOYSbFjp
-	 jBNrh+i99HMLVmUQqTn4T8WfQAOz/ywsoYbO9l336pKiCmmzPWp7gNPZWYjwZk/QaFrOe
-	 HXkq8379mV6gvMkTiPAAsA/ru06w4VY9ZGaaFs7olxrwIT7Lt6w13Mbor1KMuy8vd/g==
+	bh=hRxieL1O5Yz+uBDOAl8S3FzDGEyOjAtfX9xXEMK4ZzM=;
+	b=ns1YkfaLfsk5P0EicpaqLNN27ZL1P2VOcxYdTIwTcyONOjbbHXcR6WHZaTwUBJJF0oEa
+	 oOpKVIZIH0FePAlstO2H1EWJMULAB3RXj7T+N8ynvgAqTX9ZGVoQgoInuZ6KdVOvF7hhF
+	 zM3CzVt+e8Qe5krBVAxkp8U6FgLk1fZWJgkL263fRtc8QAxT4Luv0mdv3+j6lTodGlhD2
+	 ffAlnKGOG+4YMBS0dTEXqe80zmpkIUEzRfGdXphpBAShV+FpPKkokAb/VkYuI9kMnCPpr
+	 5IWM3ZqKbKTRjFpsYvBwqxKLWy5SxOM7lZjK/eDZjaeQr/YN1Fz06ODP+j0Sh3EyGZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mf7IqGwo;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRTIO+Ct;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E95F606A32C;
-	Mon, 23 Nov 2026 09:51:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38BA2606A686;
+	Mon, 23 Nov 2026 09:51:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mf7IqGwo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D801F000CA;
-	Mon, 23 Nov 2026 09:51:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRTIO+Ct
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0FC41F000D3;
+	Mon, 23 Nov 2026 09:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427497;
-	bh=cKIHxdrVgTvPN1YdjFiUNGAh+m3glGXVecaHibF7T1I=;
+	s=k20260515; t=1795427499;
+	bh=hRxieL1O5Yz+uBDOAl8S3FzDGEyOjAtfX9xXEMK4ZzM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Mf7IqGwoZFH4KTeo+3mXxA4tUI0oIDT84h1oOQnE/QBBzSyn8+UfyEYacnZWY4g2i
-	 n6rD/ilpa12Ou6s/RmXlRzDl0kfXl3iVLvug/h7bKYlR06taHR5h6N1IpCRh+utbHm
-	 BNVzTs5OLqpeDXtk/0v2DyRCqmyEPingC244XUMGmqugh9iXF2YJqKbjgpBm7RcVE3
-	 x9WVNHRZxaP8RI5WDF+6AWUKIvrE2m4fDQ4tUUEVxt/wdUwCxDHxQe5Pm5Noyk+3Rf
-	 3hf2SJ89maoBBZ/F5UI8kfF1fCYfpWUECTqCJ6kDclqEXNNhH9Qg3y1KklaqGfffWc
-	 Bcl+WeBPIYjJA==
-Subject: Re: [PATCH net-next v13 07/14] net: dsa: realtek: rtl8365mb: set and
- get vlan 4k for family D
+	b=lRTIO+CtmJDUDz7saE2hQYaFQMpx+NhFnK60Y7nFgQK76Jhw+dpQ1KPihcg7ayfFQ
+	 SXBx7+JSR3J2as1Hwd5xQzaD6x8/+DiydSrUoOvSSB4RqeQhNfR9X63K/JsPndTYuh
+	 c3MFRdIZcWGHoTW9i1E1npIcoqwn7C1/c0sz1zvp1tSwoHzbdERsMPZOSv7SS+EHGu
+	 Lu9tNNRgCsSeYqMvjMP9kmxNfVvD2V3sKj0f3J3+CW2ZibeVx9Y1eutBwaPJgSnoE2
+	 oPl6Tm7tZnSoxHhZA/Q1vWKSpFlpn+vurJGtVPCngZluMEP/zAnmOu+0qBRY+TR58/
+	 t26TmRRp9FinA==
+Subject: Re: [PATCH net-next v13 10/14] net: dsa: realtek: rtl8365mb: add
+ family D SDS13 PCS support
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,10 +50,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Mon, 23 Nov 2026 09:51:36 +0000
-Message-ID: <179542749608.3135.8744349482532821261@kernel.org>
-In-Reply-To: <0552fff4-ac3d-4e2b-8d66-610d0e661e11@yahoo.com>
-References: <0552fff4-ac3d-4e2b-8d66-610d0e661e11@yahoo.com>
+Date: Mon, 23 Nov 2026 09:51:38 +0000
+Message-ID: <179542749823.3135.12232435194258605468@kernel.org>
+In-Reply-To: <04f43ce3-74af-4688-9235-458d21545cc8@yahoo.com>
+References: <04f43ce3-74af-4688-9235-458d21545cc8@yahoo.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,159 +78,129 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In rtl8365mb_d_vlan_4k_set_ivl()
-  (drivers/net/dsa/realtek/rtl8365mb_vlan.c), the rollback loop skips…
-- [Low] The new field vlan_4k_used is added to struct realtek_priv in
-  drivers/net/dsa/realtek/realtek.h.
+- [Medium] Flow control on the family D SerDes CPU port (port 6) is never
+  enabled on the SerDes side.
+- [Low] rtl8365mb_sds_probe_option() now sets mb->sds_supported = true
+  unconditionally on family D (lines 1467-1469).
 
 --
 
-net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+net: dsa: realtek: rtl8365mb: add family D SDS13 PCS support
 
-This adds two-word CVLAN pack/unpack helpers for family D. On family D,
-IVL_EN now follows the switch-wide VLAN filtering state. A vlan_4k_used
-bitmap in struct realtek_priv lets a filtering flip rewrite only the 4K
-entries in use.
+This commit extends the RTL8367S SGMII/HSGMII PCS code in rtl8365mb to
+cover family D switches. On those chips the CPU SerDes is reached through
+the indexed SDS13 window, and the SDS_MISC layout differs from family C.
+The family D path uses its own tuning tables, skips pcs_link_up(), and
+relies on the MAC forced-mode register that mac_link_up() programs.
 
-> diff --git a/drivers/net/dsa/realtek/realtek.h b/drivers/net/dsa/realtek/realtek.h
-> index cfe56d30f5cb1..a3ecc13ec561e 100644
-> --- a/drivers/net/dsa/realtek/realtek.h
-> +++ b/drivers/net/dsa/realtek/realtek.h
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> index 7ad9ef1cbab7d..50ba2fa465808 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
 
 [ ... ]
 
-> @@ -65,6 +67,11 @@ struct realtek_priv {
->  	 * deleting port VLAN memberships and PVID configurations.
->  	 */
->  	struct mutex		vlan_lock;
-> +	/* VIDs with a non-empty 4K VLAN entry, protected by vlan_lock. Lets
-> +	 * a switch-wide update visit only the entries in use instead of
-> +	 * reading all 4094 over the slow management bus.
+> @@ -1418,6 +1461,14 @@ static int rtl8365mb_sds_probe_option(struct realtek_priv *priv)
+>  	int ret;
+>  	int i;
+>  
+> +	/* Family D has a fixed SDS13 programming model and does not use the
+> +	 * family C option register to select its tuning table.
 > +	 */
-> +	DECLARE_BITMAP(vlan_4k_used, VLAN_N_VID);
+> +	if (rtl8365mb_is_d(priv)) {
+> +		mb->sds_supported = true;
+> +		return 0;
+> +	}
+> +
 
 [Severity: Low]
-Does this comment describe more than the code maintains?
+sds_supported is now always true on family D, so rtl8365mb_setup() calls
+rtl8365mb_sds_raise_rate_limits() on every family D chip:
 
-struct realtek_priv is shared by the rtl8365mb and rtl8366rb/rtl8366-core
-drivers. The only place that updates the bitmap is
-rtl8365mb_vlan_4k_port_set(), and only on family D:
+rtl8365mb_setup()
+    if (mb->sds_supported) {
+        ret = rtl8365mb_sds_raise_rate_limits(priv);
 
-	if (rtl8365mb_is_d(priv)) {
-		if (vlan4k.member)
-			set_bit(vlan->vid, priv->vlan_4k_used);
-		else
-			clear_bit(vlan->vid, priv->vlan_4k_used);
-	}
+That function writes these family C port 6 limiter registers:
 
-On rtl8365mb family C, and in rtl8366rb/rtl8366-core (which write 4K
-entries through priv->ops->set_vlan_4k), the bitmap stays empty even when
-4K entries are populated. As the commit message notes, it also never holds
-entries that were in the table before the driver loaded.
+  RTL8365MB_INGRESSBW_PORT6_RATE_CTRL0_REG and CTRL1_REG (0x00CF, 0x00D0)
+  RTL8365MB_PORT6_EGRESSBW_CTRL0_REG and CTRL1_REG (0x0398, 0x0399)
 
-Should the comment say that this is rtl8365mb family D only and covers only
-entries written by this driver? Or would the field fit better in struct
-rtl8365mb (chip_data), since it adds 512 bytes to every realtek_priv?
+The commit message checks the RTL8367D vendor API for the bypass line rate
+register 0x03F7. Has the same layout been confirmed on family D for these
+four registers?
 
-This is unchanged at the end of the series.
+The comment above rtl8365mb_sds_raise_rate_limits() is also unchanged. It
+still gives only the family C rationale:
 
-[ ... ]
+/* The vendor driver raises the port 6 ingress and egress rate limiters to
+ * their maximum in its switch init, unconditionally for the whole chip
+ * family. The chip reset in rtl8365mb_setup() puts them back to their reset
+ * default of 0x1FFFF, ...
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-> index 566c6bc1449af..b80783502884b 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+Could the comment or the commit message say whether the RTL8367D vendor
+API does the same on family D?
 
 [ ... ]
 
-> @@ -277,6 +324,124 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+> @@ -2087,18 +2231,21 @@ static void rtl8365mb_phylink_mac_link_up(struct phylink_config *config,
+>  			return;
+>  		}
+>  
 
 [ ... ]
 
-> +int rtl8365mb_d_vlan_4k_set_ivl(struct dsa_switch *ds, bool want_ivl)
-> +{
-
-[ ... ]
-
-> +	for_each_set_bit(vid, priv->vlan_4k_used, VLAN_N_VID) {
-> +		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
-> +		if (ret)
-> +			goto rollback;
-> +		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
-> +			continue;
-> +
-> +		vlan4k.ivl_en = want_ivl;
-> +		ret = fi->vlan_4k_write(priv, &vlan4k);
-> +		if (ret)
-> +			goto rollback;
-> +	}
-> +
-> +	return 0;
-> +
-> +rollback:
-> +	/* Best effort: restore the entries rewritten so far. IVL_EN is
-> +	 * switch-wide, so before the scan every entry in use had the old
-> +	 * value (!want_ivl) and every entry below @failed that now has
-> +	 * want_ivl was rewritten above.
-> +	 */
-> +	failed = vid;
-> +	for_each_set_bit(vid, priv->vlan_4k_used, failed) {
+> +		/* Family C: the SerDes has its own pause enables; program
+> +		 * them from the resolved pause modes, as the vendor driver
+> +		 * does when forcing the link on a SerDes external
+> +		 * interface. These bits, not the MAC force pause bits, gate
+> +		 * pause on the SerDes external interface: flow control
+> +		 * testing shows that pause frames are only emitted with the
+> +		 * SerDes TXFC bit set, while the MAC force pause bits alone
+> +		 * have no effect on this port. This is done here rather
+> +		 * than in rtl8365mb_pcs_link_up() because pcs_link_up()
+> +		 * carries no pause information. Family D does not use this
+> +		 * path: its pause bits are set in the forced-mode register
+> +		 * by rtl8365mb_d_ext_config_forcemode().
+>  		 */
+> -		if (rtl8365mb_interface_is_serdes(interface)) {
+> +		if (rtl8365mb_interface_is_serdes(interface) &&
+> +		    !rtl8365mb_is_d(priv)) {
+>  			u32 val = 0;
+>  
+>  			if (tx_pause)
 
 [Severity: Medium]
-Can this rollback skip the one VID most likely to be half-changed?
+With this check, does flow control still work on the family D SerDes
+port?
 
-Say fi->vlan_4k_write() fails for some VID X in the forward loop. The code
-then jumps here with vid == X. The bound given to for_each_set_bit() is
-exclusive, so X itself is never re-read or restored.
+The comment above says that on family C the MAC force pause bits alone
+have no effect on the SerDes interface. Pause frames are only sent when
+the SerDes TXFC bit is set.
 
-The write can fail after the chip has already taken the new value.
-rtl8365mb_d_vlan_4k_write()->rtl8365mb_table_query() issues the command
-before it polls for completion:
+On family D, the only pause programming left is the TXPAUSE/RXPAUSE bits.
+rtl8365mb_d_ext_config_forcemode() writes them into the MAC force
+register.
 
-rtl8365mb_table_query() {
-    ...
-	/* Execute */
-	ret = regmap_write(priv->map_nolock, RTL8365MB_TABLE_CTRL_REG, cmd);
-	if (ret)
-		goto out;
+Nothing else on family D seems to write a SerDes-side pause enable:
 
-	/* Poll for completion */
-	ret = rtl8365mb_table_poll_busy(priv);
-	if (ret)
-		goto out;
-    ...
-}
+- rtl8365mb_pcs_config() sets only PA33PC_EN, PA12PC_EN, MAC6_SEL_SDS0 and
+  the mode field in SDS_MISC.
+- rtl8365mb_pcs_link_up() returns early.
 
-The entry may already hold want_ivl in two cases: the busy poll times out,
-or the bus reports an error after the command write has reached the chip.
+rtl8365mb_phylink_get_caps() still advertises pause on that port:
 
-rtl8365mb_port_vlan_filtering() then returns the error, and DSA keeps the
-old dp->vlan_filtering. So rtl8365mb_d_want_ivl(ds, -1, false) still
-reports the old mode while VLAN X may be in the other learning mode (IVL vs
-SVL). X stays like that until a later flip to that target succeeds or
-rtl8365mb_vlan_4k_port_set() rewrites that VID.
+	config->mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
+				   MAC_10 | MAC_100 | MAC_1000FD;
 
-The commit message says the rewrite is a separate function "so that an
-error path can restore the previous state", but the entry that failed is
-not restored.
+Suppose the family D SerDes behaves like family C here. Then phylink would
+report pause as enabled, but no PAUSE frames would be sent or honoured on
+the CPU link. A 2500base-x CPU port feeding a slower conduit would then
+drop frames under congestion instead of applying backpressure.
 
-Would failed = vid + 1 be safe here? The rollback re-reads each entry and
-only changes entries that hold want_ivl, so an unmodified X would be left
-alone.
-
-This code is unchanged at the end of the series.
-
-> +		if (fi->vlan_4k_read(priv, vid, &vlan4k))
-> +			continue;
-> +		if (!vlan4k.member || vlan4k.ivl_en != want_ivl)
-> +			continue;
-> +		vlan4k.ivl_en = !want_ivl;
-> +		fi->vlan_4k_write(priv, &vlan4k);
-> +	}
-> +	return ret;
-> +}
-
-[ ... ]
+The commit message mentions only 1G SGMII and 2500base-x link testing.
+Was flow control tested on family D? Or does the RTL8367D vendor API show
+that the forced-mode pause bits are enough there?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/3f1826f8-3096-40dd-a278-c70fce4852c8%40yahoo.com
