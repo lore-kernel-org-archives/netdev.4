@@ -1,60 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432925;
-	b=1o9Ga/RiFpCDnkugqA4r8Tptx7NEmpi6feQeEmh31wIdHITSKx/Hto57qOVk9myXn7zt
-	 wNxAeyC7eLT8pmeUNsCRY9v0B9FGTIsj7G7z2jNZ9hIiZ9V25ylksX4cWY5RB7EWGTBVG
-	 4lqQ5i3EL2kPd+BhhFm4bwE2W88zPjtpeJOrP13MlakKjj7EIk55WUk0dTgDm6Fr70/gL
-	 SES2Zk6zGmS0+HIIjPpMI34PNqldpbJibmCdPr/LRtVo+NOavpx8tDMgKOtIkNN8ufO3x
-	 5Fb6sRLW7vXa1agfdtvSHW+uSmZswClrqiOrsDeP3LH5z/e94QPJxJ5nLH3n8MBgliw==
+	t=1795433020;
+	b=Gxkl3kasrjBNBoBnZaLgsjlfUl1syEMTTMtCvfgudllfI31DB0UhUvNWsej3ZW35VOAG
+	 5LptVIJrvg3x9T6fliBAitcu3/iT2S+FBXlHJhAZ8sr2LbXEofiLvNGnRxxy0NjIbViPs
+	 Llcp65V7paiPF/hJig1I9P/mPcmdTZFLY5/3gi3lUblL+2wxl+mheSqOES9RedbuBlBn3
+	 Rv1OMhUAehDX/lYIRknEnCV8POaoQDsngxmlPSFcQ3QFhKSogE8gHuo7IMCfc0fhzYHC5
+	 cPJijEsysNE3sXEmT9AKAQRlZ4bkIFvUP2bBtJAKd0214a0jbGvIHafDuKlmZy7xhFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432925;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=vGo5Rr0biOUzRbqTgcdqL0cPEhygXKXc6hTCMqPuRJs=;
-	b=gJX4ZVSTPYtnNe7MjsDCwUAZ4FpXVBPIir7IjJvD86HZjot+YEFpJRk2HIULs+zYYSmq
-	 I4IVGWKXN8xlC5AKNocCwBoRytRHe4xAMCTTFzyi0Ad8ANg39ubkbkkNs70WUiDKkQ34z
-	 +AXwRz6FlxW72Z5dYBvZ9nRnhvDU8dW6xSHtjMwHsS2QjTQBj2jX8HRqT+CybNYICzNk3
-	 cqn/Pes0SWQQ5Gok29di3FZu7FUsCUEUo/J7piilrFNDXLZntLk6n6+BYM015bw32aPUQ
-	 g5MMla77PpkQuRpIqaG+Wo7sT3XKstm3g0jdMC0ThryLoa95MT4v0xdfcKfn4ZSiWlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433020;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=Bum+lssZPEFatuL2bG+N1NnJsQw7nXk0ur3WJ+ACVtg=;
+	b=TDOuEQC8J92EudVTZxDhIUBqMFGIJLH2BqLCIw2tnNBnKTIi0fUFyZto6vt7h3YmNntm
+	 Rmc+btlXvhFK14gHZWEa9QByql+vMEOFe8zoobvS4YAoyt/2EjGymDjsYm15+xAUtsS4g
+	 PhYnR0zcEXN0KpCaP08+CHDE1V2BQ5Jj30sRpv0AfdZoChFUj0RQo93YIIB7vy9fQ2KZc
+	 s16aNCuYsP/WlFMNGtsF5BqYPZcOs+A8Y95+6NugnyWdJssrKH40zIPXWwlriWiGCpKEL
+	 Z9/9xQo7MBlKKx1/UhZoL/o56wrKrGR9qEpgxcv8tqsIUhS61YXesUAybTh+JwhLbQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TaEAGtfb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=HzqUGRGG;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BCC0606A31A;
-	Mon, 23 Nov 2026 11:22:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 612E9606A31E;
+	Mon, 23 Nov 2026 11:23:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 612E9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TaEAGtfb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E6E71F000C0;
-	Mon, 23 Nov 2026 11:22:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432925;
-	bh=vGo5Rr0biOUzRbqTgcdqL0cPEhygXKXc6hTCMqPuRJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TaEAGtfb1D0eMiLppFjMfL2pfXlRlJ3/3z+jlWljMxV/TbpZTKRwWyknjQLNr/AO3
-	 OaUwdmfBmImt98xPKAoI4t0TNxr521PoFDPjzDSWD2tJ70wUgLfaHPqKTalEIFn8oj
-	 Ij9uvOUdN8jRITkjCClWXYyAN0qJvIJoIB08KH2pDKDtxrfNcOcpfG7BPwUyESRWng
-	 uaK4lGcnsta2D3EWdAFhFsldfHRPT3yMWJ+vNbHFblZcw05AC/c4AyOG50REHz1SOw
-	 74nmuw1vWsmy0YL9cl5M7XQmjTPHR4WgsSZfnC28cCEZgl+QvML5PHa6OAaSSXIAdp
-	 IjeIy4qCkDygw==
-Date: Mon, 23 Nov 2026 12:22:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/8] dt-bindings: net: Add Synaptics SL2610 DWMAC
-Message-ID: <20261123-aromatic-feathered-whale-bfc874@quoll>
-References: <20261116135442.4827-1-jszhang@kernel.org>
- <20261116135442.4827-4-jszhang@kernel.org>
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=HzqUGRGG
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 8950020728;
+	Mon, 23 Nov 2026 12:23:37 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id REJH_RAY6Ms5; Mon, 23 Nov 2026 12:23:36 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id A3DC9201C7;
+	Mon, 23 Nov 2026 12:23:36 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com A3DC9201C7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795433016;
+	bh=Bum+lssZPEFatuL2bG+N1NnJsQw7nXk0ur3WJ+ACVtg=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=HzqUGRGG69t1azuhLafPq7isOoKAcz2QJREEgF44pc92J4ctrvIi9y7YJjsenc8Sr
+	 d1zizrlAdlKomgV1OMLUtzqkkPsjviu8UzWpr8BGV+UypsVR/7p8nRdk5L/Wm4zvIg
+	 EOwK0wswzgk2AG/hX5KUdjm3pWfP+inIs9+vhEGJ0ZBRDPg7ClEq9LTovzD0Wv0W7i
+	 PMB5hBjVlXuPRxZzAFx/1vRO1DPOSUWnPqaktxcX8S/VeucVY+dlzpEaJ4S//1kwUB
+	 jiHxViEnLbKy9cqoVdOTePhjMKFqelrnsNq1q1h/ZU0+SaqwQvEtZnF6IRRJjP3WXy
+	 qgyzQFKn4R0wA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 23 Nov
+ 2026 12:23:35 +0100
+Received: (nullmailer pid 2092840 invoked by uid 1000);
+	Mon, 23 Nov 2026 11:23:35 -0000
+Date: Mon, 23 Nov 2026 12:23:35 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, Christian Hopps
+	<chopps@labn.net>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	<netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>,
+	<syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com>
+Subject: Re: [PATCH ipsec] xfrm: iptfs: force a dst reference before queueing
+ an skb
+Message-ID: <awQiN-6b40NOCVFV@gauss4>
+References: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,45 +85,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261116135442.4827-4-jszhang@kernel.org>
+In-Reply-To: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-On Mon, Nov 16, 2026 at 09:54:37PM +0800, Jisheng Zhang wrote:
-> +  phy-mode:
-> +    enum:
-> +      - rmii
-> +      - rgmii
-> +      - rgmii-id
-> +      - rgmii-rxid
-> +      - rgmii-txid
+On Sun, Nov 15, 2026 at 08:26:11PM +0700, Nguyen Ngoc Thang wrote:
+> iptfs_output_collect() is the dst->output hook and runs under the
+> caller's RCU read lock. It queues the skb and sends it later from the
+> iptfs hrtimer. The skb may still carry a noref dst, e.g. one set by
+> __ip_queue_xmit() via skb_dst_set_noref(). Once the RCU section ends,
+> nothing keeps that dst alive.
+> 
+> When the timer fires, xfrm_output_one() calls skb_dst_force() outside
+> any RCU section:
+> 
+>   WARNING: include/net/dst.h:326 at xfrm_output_resume+0x41d9/0x64e0
+>   Call Trace:
+>    xfrm_output_one net/xfrm/xfrm_output.c:549 [inline]
+>    xfrm_output_resume+0x41d9/0x64e0 net/xfrm/xfrm_output.c:597
+>    iptfs_output_queued net/xfrm/xfrm_iptfs.c:2325 [inline]
+>    iptfs_delay_timer+0x3803/0x4310 net/xfrm/xfrm_iptfs.c:2362
+>    __run_hrtimer kernel/time/hrtimer.c [inline]
+>    __hrtimer_run_queues+0x3bc/0xa10 kernel/time/hrtimer.c
+>    hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
+>    handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
+> 
+> The warning also means the queued skb may point to a dst that has
+> already been freed.
+> 
+> Take a reference with skb_dst_force() while still under RCU, as other
+> deferred xmit paths do, and drop the skb if its dst is already gone.
+> 
+> Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
+> Reported-by: syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=622de7e1f18a30fc404a
+> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
 
-Missing constraints for interrupts, clocks, resets, domains and so on.
-
-> +
-> +required:
-> +  - compatible
-> +  - syna,syscon
-> +  - phy-mode
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    chip: syscon@f7e10000 {
-> +        compatible = "syna,sl2610-soc-syscon", "syscon";
-> +        reg = <0xf7e10000 0x10000>;
-> +        clocks = <&osc>;
-> +        #clock-cells = <1>;
-> +        #reset-cells = <1>;
-> +    };
-
-Not relevant, drop entire node.
-
-
-Best regards,
-Krzysztof
-
+Applied, thanks a lot!
