@@ -1,100 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471138;
-	b=PctbnIdPa/WddiCZca1dvWUwqlhZop/OUR2opZPgJDi36cCOYQmC9DaNGdWUrW1wurA9
-	 JrOg6SfmJbKjuM0QpsbhcEhqf4baIlyCJQBb5VwNk61KuUoBfuWJfvsEV9BkJYLRhbk4z
-	 5y4PG6wlY/Rn81tyfeGDInZg8RKLeQiwBZPx6iYhflLJQbq8RQeASyf3s9gzGZ8OFz9WF
-	 Asp6lSzRJ3A2brSD9qiDV27yXMPYw3CY89aIxJSpoGBchJ3L//J+ys9YDqei1wy4lhxFP
-	 ajUStk8fkxxXkTwCgjGjEmxsgzfnxxhW/3Mwi1ck5ZNjIugpv5NtMbQESnNU8i4dJsg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471138;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795471290;
+	b=iLNoxCjsL0ac6NhDXUHAZY30T4RSf3BgRfzMD9jupiTNVJqNOSgX0mUfvyxSPoRBKiGE
+	 COSl7jYeTvfkLEZcr9Lg3UcjLe+UuaTmQvoqZsIdhkf1tyIFv4+14oOlUpQSI72lVT5NN
+	 v2lwnHF/E1pgk3eHSL/cL5N+iKZ9BCJTQe5zV8+TdruhTyE05wd+1NPwvQJ1ygjV9r4BP
+	 vb6o4FOPw7rBnUfQRhaf/QqeJhKx626B68vZpr4TWzqLhmFMlg6EzZYzCVLBUrOji/Std
+	 HFDgB1qMJmhZ8UbYCo5dHYMCAmPnpv1l3zY5PVNth6J+hcpBcL5Kg3WG80Dj+achiJw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795471290;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DV9yKzignK8HrwTMEbGEbZ0KghQpPXelP3Qat87gORM=;
-	b=4HuVTohkZ+AiXUFPFw+A34g/Pvp0e0P2AuC86Vjbk+THKeyOj08aLZQj4YJdKbgtwu4u
-	 EYS1FcMpCxvV1oMCiHDV+s7mjMfklj8gEWeeHiuUtJ7dHvkwynesvmh0gH8HYVyYG0S6S
-	 SbgWCPvLTTIOQmkAiSMXsjTf/gfiJ8Kk8TImoq8o7IZUrlmI+rHVYB3KD0S9L7+lOjwZ6
-	 MseOzmUKRhZAKgRUa5AmQ+AJMBNB5q55MixlADqlnBjAhZTElDk4hR5aI4LwLhVDkN4oL
-	 WVU1YafOiG9fEDnKUNcygV+tAEQiVvtDdmgD3Jv8VlHBPPJJo62d8j91z/nqUnRA/Ag==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WgDuQE8y;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=srL4Uf6AX26Xr4iCAP6zHkN1OE8a5FhQcDs//2mI1Q8=;
+	b=5n6gpEftEf6Uqjd5VO6pdZrF1GlB6aIH0oiz2ZYIko1x3kkMdD1e1d2NcUagpgRVjfJ3
+	 mO4MrUCvlIiC/6d2fTwUlOxSz2nDt3YV+r3beU8O1j96oLeXDv3LP06fW2DuY+6u2UoO0
+	 U5cw2aLrR2bfW4Dj0Hdd9FttTrpq0mQ2YYWxGBsoN693jYw8043yjgcCmTrFN02Cv1pXd
+	 QeMeR6Y0+Hk/qYK70epwxtJTsYNZ0XwwEOZenhm36u+vcGURCTF1aAE58fYPRKR166Plb
+	 aLXpkUFa30aFXq6mWMtZP/5slIJFJj0mCdZndepL/BQgjRO4eAYrxTT/Ecy+crVY08w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=bIEcMOri;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.43
+Received: from mail-oa1-f43.google.com (mail-oa1-f43.google.com [209.85.160.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 636C5606A326
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:58:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 636C5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77E4C606A32D
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 22:01:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77E4C606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WgDuQE8y
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-3282db206d3so688999eec.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:58:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=bIEcMOri
+Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-4adae187d94so2581273fac.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:01:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795471289; cv=none;
+        d=google.com; s=arc-20260327;
+        b=b01dF/aRfm8rvnbXHyDFaYyZLI13zPfhTDQTmMM8ucd09W6sm+aL0mA3PTRHXJWpDh
+         UytiJuMjrqtza8gF0A20eVm2tjAF7Aa+OFQqGT8F443JOMMXQxHwTe8JwSlakuJjEtO0
+         wX6IQN8p9wo7EnEa0vQnYQhLv2Qdh/qbdXpO+6g9Wc8GJjpZ+BwxPOlqiyGgerSkCgXP
+         nKl3ployNsW3jO4stTbTGn3e/xhGWEP6N/dP96hBkeTuWeIutX8GgGZHUIbEHstx5WRj
+         7lROBly5ke8biw58U4zk7UdE2U7lAv1FU8tJzD1VeNFInp9kzHjviD9f2wpUrAnYkSFN
+         KT4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=srL4Uf6AX26Xr4iCAP6zHkN1OE8a5FhQcDs//2mI1Q8=;
+        fh=WiRJ1poBfOo5QwsKnXd9XP8mbDsyRcvCUhOQN88dpe4=;
+        b=rFlhIl+vuxLSrhBG/EAc1RNoC4R7B+pFfDTwtah1EVfFtwUDKHWWh6iceFvG1KcHeg
+         uppBf/7i0izAhU4aI4KH7fkvPruanLe8RD1nKRIwY1ov8xIsau+/k++HOO7UlrpvFTRR
+         wca8XCD9LfT00UqZbF3Q78oBu3SiEocXkpoT+jtNaVh8Wa/WQ60/XCmQzvZtnjqAyJTh
+         DrvSEO7UD/tIeWdmokcSnYnpyvGQWYqpKrhGCArFbgSVwSPAFogCE+LfADgqr1f5R5SV
+         83TCbcLxoF+XobxrE5WQPqPso0foAtjJeaQg5vgEszUTEBg499EqYfzyj/nfBY4RoeQC
+         Cy1A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795471137; x=1796075937; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DV9yKzignK8HrwTMEbGEbZ0KghQpPXelP3Qat87gORM=;
-        b=WgDuQE8y/o1A69jb5YvYN0KY3iiB7eA9MDq2I1XX5YCoe46tux7MzpMrKiXclX1CRX
-         5kVjAcdqoN3JmlrtNbvtLG0bSyuTtZRQKgNWeO0tvi0u2KbBU1BlR/td6IVtD5xn/evf
-         DrI0U/yxWHdR+17WVfTODJTm4wFQxix1bd5vmUpVtnJqpZ+yjoGj6RmusesiE6ysDNMy
-         ZLze/QHBJjN1ikLTdMQWv21e6B8Ib3dmpXVhVHrUto9ppxhBshj6ZxAVqeS5LlxzyUO0
-         LV0E8gxYoqCdvYw5sjatTaL+5qYwbPQWcuXLSRfAuZFGkpMDwbXY7X7w8oanZVqWDzRw
-         5nqQ==
+        d=cloudflare.com; s=google09082023; t=1795471289; x=1796076089; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=srL4Uf6AX26Xr4iCAP6zHkN1OE8a5FhQcDs//2mI1Q8=;
+        b=bIEcMOri8Aax8dKFPrgYNg8wJhG1TdHlstGt2MlCyltgaYxCPE3njcf/ibhUFjv9+A
+         DUCiQLx8Ue8lqs8APjUUIua4gZUO8hcQX5Mpziqka8UfmD+frjU+gJD+i+bF5k7RHgwj
+         fpdDp2HDYwI0VfSnwrxLMhUzCsK58c2MIKdK56m2LP31pTpIPMaOGEdrx/LC/YAxGnRV
+         xDNA95uN/5YkxdEZ6dQjD3YfWy3iBL1pEQc/bRHawTjj21LlnI30bfI7XWeA5oSCgrC5
+         inFIAx1nx0xqQpVBsutU31JvUAm5Z3V0Qg87HKJTPqRxxFl8nRb+b27K2AMX0xRg9Dej
+         aBOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795471137; x=1796075937;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DV9yKzignK8HrwTMEbGEbZ0KghQpPXelP3Qat87gORM=;
-        b=CGHySkeSPqprZUKhdQl5a8idb1TKC1RY6fNDf8R0Xcc10QLN7gTiNzpLPHtyBBlgkd
-         hxbejYnO9Je99/m7SRr4wSXQD6iqx7YXO+OLT+cZPk07Wrix/jf4Z8qXNsRzXA5a88Tb
-         C3UFopR0oXnQRZqFQwb3R6u9ZtqvqpxmhmogKzHMry6jkCXyn42x/pkB69VW2iHcbaA9
-         CCcpBw8Q/dM2xJY+LwVZtSQVRrq9r0odLFdc7WnavunORKsEP6qpUEaEihkMjr6UbEKN
-         cmYLIUyXyvIW9Z1++zzTWGQGdM/zok4NqgGozLuVleR+zHa1pPC/nsVu8YYDGlKqHZLZ
-         KW7Q==
-X-Gm-Message-State: APuU4Z+EkPzio/qo2RjCnxdwKj3ppmn8fybM7xET6CVwnQpY6D34tv3v
-	s2Dfytq4s4FibT+mUIAMKZhioZXbUsG0k122IKioVaMuJg3bt0Av3+yh
-X-Gm-Gg: AZFdTZf++MW4c0lZ3//Qa7NCDDfJ6dMIZmvwH6wJT5+EGUPcfxsQ3G/6DozhrYFeeYx
-	Io/b/K9qTpeqMTRFgP4ie0qXS3EcgvGIwftf1GCcEib59KZbLfmr4qVqaC2AiESrsZVrzzwmRuS
-	PQiRu/DBbWnSNVNu1loeJuA7J+ki2yR3N87Osy3qlL26FvSywKeaiDMsG8S6wbHS7Hub5/mNsCI
-	kkFFFuVfsJM89P+ausPmHQpD5iZcKJRahMJsb7UTNJYB++CJ5xa/4TJAFqTCGmXMcG5Pv+1gEM0
-	WAtQrwekyW76t8koBxnmaTldJsiWooeMfy+gXM3c6ey28WVo6Wa5ON4jwcA32hdx9j0mBIxUEZp
-	z5+4sMLK9hQ/TCasUAx1qzUL/4+ry1q9+6pfCF6azwknPb+OYVcDj9ZdX9z75vgl1n2XDhUfR6P
-	9/qJNQQi3ewwPkjopdJ3zjU/YEs8x8Hiah/UiHfSDun7DXGp9WfIE79wXrh26gU+PedldbjDKxF
-	p7ZrcWwCzzhc3LtJEt2udZHCOdXmpMiuMefBAsZti3NN5O9v17dXaQ3rjAMzqQqs6JTXwMOArOz
-	S4dF0MD0iQKrwLORM1f1jV+r07PY8dSpVcrbqOfSeCeEZie5EPxmz2CsvALxdwmG9YQL0Mr3cNZ
-	Ab5QzOWVnijgiYLQRmzhpmkFK+7QIdnRP4sXu/9O5p/bCFDE9Mw==
-X-Received: by 2002:a05:7300:d090:b0:386:8bd2:da2c with SMTP id 5a478bee46e88-3868bd2db9amr10983073eec.2.1795471137447;
-        Mon, 23 Nov 2026 13:58:57 -0800 (PST)
-Received: from Mac.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm38247176eec.23.2026.11.23.13.58.55
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 13:58:56 -0800 (PST)
-From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	richardcochran@gmail.com,
-	andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	jiri@resnulli.us,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Subject: Re: [PATCH net v2 4/4] ptp: ocp: correct the DCF output frequency
-Date: Mon, 23 Nov 2026 13:58:55 -0800
-Message-ID: <20261123-timecard-common-v4-followup-art-ahmadexp@gmail.com>
-In-Reply-To: <179547059147.3135.16821426799248727782@kernel.org>
-References: <20261119-timecard-common-v2-078fe69f33-4-ahmadexp@gmail.com> <179547059147.3135.16821426799248727782@kernel.org>
+        d=1e100.net; s=20260707; t=1795471289; x=1796076089;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=srL4Uf6AX26Xr4iCAP6zHkN1OE8a5FhQcDs//2mI1Q8=;
+        b=eK9Qtm/PeYg9N8LdjCsErRWW6UUoOtE3INlYbBJZUqTDYyI7L73WUJRBqh5E3D9DhE
+         /ppzQ1B6qSYTXmZBuVXTBo0cuLUs0VIxnFz2MUuuHXNajVpIXKQ83xWMm3FJBoSnpS3o
+         ZrHRFlpPQ0vfxxtSi//x5u7950VrZ1bVueqTod4b4FHyWtOJXfgHluXfS5H+I9YbA+u+
+         AYaumkvv77xtUSE+jEpYdMcMAeIHeR8TicGsZltRsMklxIHFR0ZdujnQvuJEqPNsYn8V
+         YOteJk7U9aDx/v2WCCHVjsHO56QSSHPyoDH0KSj8Qy9IyHGiDC3Pqr64XJMmEgE753ba
+         amdA==
+X-Gm-Message-State: APuU4Z/ac8k2/4RZ8Tzv86hrtBY2x4Qwo0a/1cj5J6KqPFtd6/9MMg5U
+	peHlWJp3zATE4koSlPuChK+HQF9ddkYJsVke8NChvhSxEp04a9YKxyUGv+McTJbSgUTmkhAFcmj
+	1schUIdIozs0YUTzCAUfoPC5njKty9Mkaw5fksan9DogM97id10LMdpRwUg==
+X-Gm-Gg: AZFdTZebCUtCmbvjyQWVvKppPbYlyRnWCoH8FExwHe7rX/zPDJwuWUUmsR255l5NXE7
+	QNkCJGC/76JZ48IYaXx+bah7vbHJbNKcKSE+dItJBIgdSYVPbzA4As6xmQrq1XAetrW2TrpwFkR
+	7cOO2vUTJum5Ex4eQGT/lKc3adwJQt+f+fO2mZ5yCEKpNRLgezqI4V6Saw4kLR86j5mSDTrfKpP
+	CSTKyt5+XttuI8hfdieddbmHzrsBUYl6JnCAEvZb5JSjftfLiFtz9szPwLn0SHr9/2JZ5UlHcIm
+	jC3NZkXh+uch1XIRu28je3DF53hQ381R0BAxp5N6cWUY+GDYc4RiV43V+vSJBYWRg+5SwqziTYK
+	ANGCpg39opJGwvWTUGMtXOLgbNbTIpcTnpYtjTpWOx9BDsVPw3EvFZf22gfZY3CMZ7HARU6I=
+X-Received: by 2002:a05:6871:60c:b0:475:a153:2dce with SMTP id
+ 586e51a60fabf-4bc84926567mr11531088fac.36.1795471288917; Mon, 23 Nov 2026
+ 14:01:28 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,65 +102,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261121012402.84848-1-tianyi@cloudflare.com> <3adef4b4d528780bae31f2fb02d0a08bf9c8ebd5.camel@gmail.com>
+ <CAG4wq-f18SHytDb39SdJYzRPk-dzECjH_HCSiMGAQ721Zmfomg@mail.gmail.com> <CAKgT0UeWWherBt1MDcPF7R7jxt6E_3peo8VuxrgY3JdseM-0rg@mail.gmail.com>
+In-Reply-To: <CAKgT0UeWWherBt1MDcPF7R7jxt6E_3peo8VuxrgY3JdseM-0rg@mail.gmail.com>
+From: Tianyi Gao <tianyi@cloudflare.com>
+Date: Mon, 23 Nov 2026 22:01:17 +0000
+X-Gm-Features: Aa3M54rB6Tkjt_a_xBRCBKw7WSvCOL2uVv3n24p_DPRCDrCGO9kKs27p19qzjqs
+Message-ID: <CAG4wq-dizUz-6GB8Aj1wRTQBOzbHbT7pX9gom+AhR=5OWSyjzw@mail.gmail.com>
+Subject: Re: [PATCH net] ice: do not report CHECKSUM_COMPLETE when an XDP
+ program is attached
+To: Alexander Duyck <alexander.duyck@gmail.com>
+Cc: netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Paul Greenwalt <paul.greenwalt@intel.com>, Alice Michael <alice.michael@intel.com>, 
+	Eric Joyner <eric.joyner@intel.com>, Jesse Brandeburg <jbrandeb@kernel.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, bpf@vger.kernel.org, kernel-team@cloudflare.com, 
+	tianyi.gao@linux.dev
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 23 Nov 2026 at 21:49:51 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Should the "10Mhz" entry in ptp_ocp_art_sma_in be fixed the same way?
-> It comes from the same commit, 09eeb3aecc6c, and looks like the same
-> kind of typo:
->
-> drivers/ptp/ptp_ocp.c:
-> static const struct ocp_selector ptp_ocp_art_sma_in[] = {
-> 	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
-> 	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-> 	{ }
-> };
->
-> That value is 1 MHz. The matching "10Mhz" entry in ptp_ocp_art_sma_out
-> uses 10000000, and ptp_ocp_art_sma_init() labels 0x08 as the 10 MHz
-> input:
->
-> 	bp->sma[0].default_fcn = 0x08;	/* IN: 10Mhz */
+On Mon, 2026-11-23, Alexander H Duyck wrote:
+> For example, one recent one I saw was an issue on the Tx side where
+> an outgoing XDP program was modifying the frame and actually not
+> updating the pseudoheader checksum. As a result it was breaking Tx
+> checksum offloads for NICs that were using the HW_CSUM that used
+> that checksum header. We could have fixed it by forcing all the
+> drivers to recalculate the pseudo-header checksum, but instead we
+> pushed back on the program that was making that change.
 
-Yes, thank you. This is a real defect in v2. The posted v4 series already
-includes the separate companion patch 5, with the same Fixes commit:
+Thank you for the explanation, Alex.
 
-https://lore.kernel.org/r/20261122-timecard-common-v4-e0db4ab1aa-5-ahmadexp@gmail.com
+On Tx the checksum is in the frame, so the program can fix it. On Rx
+the program can't touch skb->csum at all, so there is nothing to push
+back on.
 
-It changes the ART input entry to 10000000 Hz. Keeping this separate
-leaves the DCF correction narrowly scoped and preserves its review tag.
+> The point is you are fixing things for your use case, but anybody
+> who is using the CHECKSUM_COMPLETE to compute the checksum on the
+> frames and using XDP without changing the frames will see this as a
+> significant performance regression.
 
-I reran the source-derived ASan/UBSan regression on the unchanged
-submitted v4 source. It uses the actual ART init/set/get functions and
-the DPLL core supported-frequency and get-before-set functions:
+Without GCS, TCP and UDP still get CHECKSUM_UNNECESSARY, same as
+E810. GCS only came in v6.15, so this just puts E830 with XDP back
+to where it was.
 
-  - A literal 10000000 Hz request succeeds and selects 0x08.
-  - A 1000000 Hz request is rejected by core validation.
-  - The fixed-pin default 0x08 reads back as 10000000 Hz.
+The cases I can think of that are truly impacted are IPv6 with
+extension headers, and UDP tunnels that the NIC does not parse and
+that have a zero outer checksum. These fall back to software
+checksum.
 
-The pre-fix source failed the ART regression during v4 preparation;
-the submitted v4 code passes. These tests use stubbed registers, not a
-physical ART card or an end-to-end netlink session.
+And programs that do change the frame are worse off today. Every
+packet gets summed again in software, plus the "hw csum failure".
 
-> The diff only changes the DCF .frequency value in ptp_ocp_sma_out. The
-> selector, mask, disabled-state and removal ordering work mentioned here
-> is not part of this patch. Someone reading this commit by itself, such
-> as a stable backporter, will see validation claims for code it does not
-> touch.
->
-> Could the series-level testing notes and the description of tool
-> assistance go in the cover letter or below the '---' separator instead?
+I don't see a fix that meets all of these:
 
-Agreed about the cross-patch claims. The posted v4 DCF patch now describes
-only the DCF set/readback regression and its software-only validation:
+1. It is small enough and can be backported to stable.
+2. It fixes the problem fully. We could drop CHECKSUM_COMPLETE only
+   when the program moved data or data_end, but some in-place
+   writes, e.g. NAT or the IPv6 hop limit, would still trigger
+   "hw csum failure". IMO that brings more problems.
+3. It keeps CHECKSUM_COMPLETE for programs that do not change the
+   frame. But that looks like a bigger change, which doesn't fit
+   net.
 
-https://lore.kernel.org/r/20261122-timecard-common-v4-e0db4ab1aa-4-ahmadexp@gmail.com
+If you have one, I am happy to take it. Otherwise, as I understand
+it, the choice is between:
 
-Detailed test and revision notes are below the separator. Brief discovery,
-validation and provenance statements remain in the commit message as
-required by maintainer-netdev.rst and generated-content.rst. The repeated
-selector, disabled-state and teardown testing claims are removed, and
-the original report link is retained. No new revision is needed for
-either of these v2 findings.
+1. A performance regression for some programs, but no "hw csum
+   failure".
+2. No regression for those programs, but "hw csum failure" stays
+   for programs that change the frame.
 
-Ahmad
+I would like to know how the community normally decides between
+these.
