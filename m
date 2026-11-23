@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405785;
-	b=ZJHxSXxXvcWrT8ofSmceL8WxK4LyEWBQ+bHPZTaoUHP3V0Tezxx1oncgI0IgN7lnICCw
-	 cCUtjsPtVDYEuH67qVEQSWEHj/BVInaCzLAsjQhnaSujJJrajB3QqaUMGQVrxaZf5gkE8
-	 31SdOwpwFzeW2Mkpyvy+o73phryyBTjrd2ecdTMGVzUwKKL4Edh1DpiGJt/vAlTQ7zilh
-	 DRNb5OFZT0JWq9Bjbk/Ey1NCG0zfdLU0Ww8JwpKVr10tl/S7wVqeUmF85UBdSnuBZRLN7
-	 ur3syuJf8Vs1K1h+CMamDhWAyyToVFc1YmwwGeRIfXH5708OHW7sgi9qZcxunjiODUw==
+	t=1795405974;
+	b=2bka6TkN/xOVlV+VoFyg6Vjj+2NYCI91nujol038p+zpxGqy5wCk+JJmCZYlY6HQzE5O
+	 w1oqwM+Bnnx/qgbS9UFOI66B99cZcsnHvYzEyx4LxG87W+1c5Rk+xevSuHRpf6NzBUyj0
+	 N3bqa8JRYorDOWDaOE35pB+Hqyd7q+Trq+AtstRfy0fluSm72xwr35iECf2qqU3jW/Bto
+	 8/UIMrpcOTLfo6d496Ajui8/IV+y3bgwyknoLUKFbS5qNFtZlt/Yh2sm7vt3oKJNes2xh
+	 iRy+2QdTLe8lzkrY1x+QSG1g7VRZXYxbVe59/0ljQob/1ub9J0JVCelGsq2R1VYNcJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405785;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405974;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=f8iyGXNmQvV5cTF4wbciC3whz9LR368QT9AC0uWH/+U=;
-	b=28HeGlafclZuoZgLSRoo97T3dKMpOMNpsiE6L+hOF7rFSGI/U2hGQUM+0jDjPgvJyNub
-	 UvN/+uNtE9h1/dn+uI/H4FaFpPbjq5LdkMe/MnQ6U9JTJIz4kykt6VD83KhfR8LWRRjjj
-	 CYBgAuYsi3w6kqARek85q5dCo18ZJTiFJVNppxkqD6HX2uPFmdCdcPPSAGh1lQDJ4+MZZ
-	 51oUQsnZTX5cmx1tNSjV818ibu4NFgG9JR8/ovUF+Vv7y+WLUdBAYyksWdffxuOH7n4zW
-	 jNSp5MUm0E8d5i0Yd1AFEXTPZr/xkZ2voTWB6WIlEJvDX/HEEIy6/2KC6bMmSUNrSmA==
+	bh=GWeUgN1Q3s4O4ED86ec2MQb2aOQNQReapQTsz0PBSns=;
+	b=vYazHSiOwC9djbLWGbxoic5/l8XAUFaytWzYItxvzEvD6uSEd966/GI+oQddT9QBgII2
+	 kYKs+qak4LHcXQHmyuTMalWhHnQCO2mIMTKPX7yIg1gV6WqyjTAHf1u05+qOraygOIRhn
+	 78OaNNTnrPUFz/xukmeyW61AoaHwqThoGnVTRAXv2eaN8KiTVnjsAioW1tjw1Wx1kDHNa
+	 3HzUIezrpchqEMXpiyzWCrfmxjI1TiCIsgOEc3gkSQLqhdoUFGNogJ/VFyz2jZNeHWeOs
+	 u2qyEEWzLvfR3uewWBOJQJNy8bi+c2B20X6Fr9NrjqA8793i3MXNO1iboLXAWKJGx3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaPdDxiT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Twq9Rx0b;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62EC5606A31A;
-	Mon, 23 Nov 2026 03:49:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CBCF606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:52:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaPdDxiT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F971F000CF;
-	Mon, 23 Nov 2026 03:49:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Twq9Rx0b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FBB31F000CA;
+	Mon, 23 Nov 2026 03:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795405784;
-	bh=f8iyGXNmQvV5cTF4wbciC3whz9LR368QT9AC0uWH/+U=;
+	s=k20260515; t=1795405973;
+	bh=GWeUgN1Q3s4O4ED86ec2MQb2aOQNQReapQTsz0PBSns=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PaPdDxiT0ZzWJF7DBMqH3luU5AtZBAAviGm8XkUt3lzOWMwrjtqRn0qsY7WboX0eQ
-	 iQq4Wt32cHVBgluXJkcGpBEXZqtLLbyGTgK2jecATH3j9mHHDx7wI31iG2Gnmt52hO
-	 5giAxFTkg+jhbJFx7atKXv1e5e+ILcl1P5jlOK11ROhC2Pt9oCjH5mAGgTqIx4P7PV
-	 ZvaSjb063KI14Uoi8nAmIqJ3NZd9ClfFOhs2P/ObLiDKjH5IG3a6rybHiQRiRxiAe1
-	 H9SaWC8u5Yes/8w1n5XWUbjnOU4XSQGbtD7NM6mMY103TMqqdKLus6+13k7RtXzJnd
-	 m1qnrmvOQRbeQ==
-Subject: Re: [BUG] netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX
- queues with an RX queue index
+	b=Twq9Rx0b3uValQi+eiTTBRZEAwTDH6diDA0w8yfrusoFdaRCq/N+wkKrtM6oL3oYG
+	 a0dQc4SX2fuAiQtfHJnkN9r78Gao+NXCLyohukiH8PACLaGR4BAjyimXfHokjBCSe6
+	 hXye8S3/5J8QOPxZ8V7x3kmQPcXM3mGuf31xBznh5JPKbBhccBOJpQ29THpDJxk8VX
+	 RFnZkKBpxjD3/PLsbkpP1zTCgFbEfKnK4f/p0dVlz93wes0FE58wIlUrut8eybATLL
+	 OrCzksscsba0nkUX8oDh7rrc5xSxscMfIhGZ8W2a1x5t7PDLmp5xMzQhCPD3v8G5uW
+	 bPZIgfj0jFVYA==
+Subject: Re: [PATCH net-next v2 2/7] eth: bnxt_en: follow explicitly set IRQ
+ affinity when placing page pool
 From: netdev-bot+sashiko@kernel.org
-To: kyuwoncho18@gmail.com
-Cc: kuba@kernel.org, leitao@debian.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 03:49:43 +0000
-Message-ID: <179540578385.3135.5126417737226790045@kernel.org>
-In-Reply-To: <179505710275.3511681.13434978152402269948@gmail.com>
-References: <179505710275.3511681.13434978152402269948@gmail.com>
+To: kuba@kernel.org
+Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
+ edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+ horms@kernel.org, pavan.chebbi@broadcom.com, bjorn@kernel.org, joe@dama.to
+Date: Mon, 23 Nov 2026 03:52:52 +0000
+Message-ID: <179540597280.3135.6843062872659992639@kernel.org>
+In-Reply-To: <20261120035214.369158-3-kuba@kernel.org>
+References: <20261120035214.369158-3-kuba@kernel.org>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,7 +67,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,66 +75,139 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message for 7bdc53e966c0 is the raw multipart MIME
-  email.
+- [Medium] The page pool's NUMA node is chosen from a cached
+  bp->ring_nid[] entry before the driver checks whether that entry has…
+
+Pre-existing issues:
+- [Low] Two different CPUs can be taken from the same affinity mask.
 
 --
 
-netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX queues with an RX queue index
+eth: bnxt_en: follow explicitly set IRQ affinity when placing page pool
 
-This commit adds a check to nsim_start_peer_tx_queue() in
-drivers/net/netdevsim/netdev.c. The peer's TX queue is now woken only when
-rq->napi.index is below peer_dev->real_num_tx_queues.
+This patch makes the NUMA node of the Rx page pool follow IRQ affinity
+that the user set explicitly. The affinity notifier computes the node of
+the first online CPU in the mask and publishes it in a new bp->ring_nid[]
+array. bnxt_alloc_rx_rings() and bnxt_queue_mem_alloc() look the node up
+through a new helper, bnxt_cp_num_to_node(), which falls back to
+cpumask_local_spread() when no affinity was set.
 
-This fixes a KASAN slab-out-of-bounds read in nsim_poll(). The read happens
-when a device is relinked to a peer that has fewer TX queues while its RX
-queues still hold traffic from the old peer.
-
-> netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX queues with an RX queue index
->
-> --===============8293946977515997899==
-> Content-Type: text/plain; charset="us-ascii"
-> Content-Transfer-Encoding: 7bit
->
-> Hi Jakub,
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> index fe90689e4079d..96f226165ed94 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> @@ -3823,6 +3823,20 @@ static int bnxt_alloc_ring(struct bnxt *bp, struct bnxt_ring_mem_info *rmem)
+>  	return 0;
+>  }
+>  
+> +/* Node of the CPU expected to service cp ring @n. If user did not configure
+> + * the affinity explicitly, use the default spread (historic behavior).
+> + */
+> +static int bnxt_cp_num_to_node(struct bnxt *bp, int n)
+> +{
+> +	int nid = READ_ONCE(bp->ring_nid[n]);
+> +	unsigned int cpu;
+> +
+> +	if (nid != NUMA_NO_NODE)
+> +		return nid;
 
 [Severity: Medium]
-It looks like the cover email was applied here instead of the attached
-patch. The subject is the title of the bug report. The attached
-format-patch has its own subject:
+Can this return a stale node when the recorded mask no longer has any
+online CPU?
 
-  netdevsim: bound the peer TX queue index in nsim_start_peer_tx_queue()
+The only place that resets ring_nid[i] to NUMA_NO_NODE for a stale mask
+is bnxt_request_irq(). In __bnxt_open_nic(), memory is allocated before
+the IRQs are requested:
 
-The changelog body is the raw multipart MIME message. It includes the MIME
-boundary lines, the per-part Content-Type, Content-Transfer-Encoding and
-Content-Disposition headers, and the full repro.c source. It also includes
-the base64-encoded config.gz attachment:
+__bnxt_open_nic() {
+    ...
+	rc = bnxt_alloc_mem(bp, irq_re_init);
+    ...
+	if (irq_re_init) {
+		bnxt_init_napi(bp);
+		rc = bnxt_request_irq(bp);
+    ...
+}
 
-> --===============8293946977515997899==
-> Content-Type: application/gzip
-> Content-Transfer-Encoding: base64
-> Content-Disposition: attachment; filename="config.gz"
-> MIME-Version: 1.0
->
+This means bnxt_alloc_mem()->bnxt_alloc_rx_rings()->bnxt_cp_num_to_node()
+reads ring_nid[i] before this check runs:
+
+	if (!test_bit(i, bp->ring_affinity_set) ||
+	    !cpumask_intersects(cpu_mask, cpu_online_mask)) {
+		clear_bit(i, bp->ring_affinity_set);
+		WRITE_ONCE(bp->ring_nid[i], NUMA_NO_NODE);
+
+Here is one sequence. The user pins ring i through
+/proc/irq/N/smp_affinity, the device is closed, and then every CPU in
+that mask goes offline. The notifier was released with the IRQs, and
+hotplug IRQ migration does not call it.
+
+On the next open, the page pool and ring memory are allocated on the old
+node. bnxt_request_irq() then moves the IRQ to
+cpumask_local_spread(i, numa_node), which may be on a different node.
+Before this patch, both used cpumask_local_spread() and ended up on the
+same node.
+
+bnxt_half_open_nic() calls bnxt_alloc_mem() but never calls
+bnxt_request_irq(), so on that path the stale value is never corrected.
+
+The later patch in the series ("restart Rx queues when their IRQ moves to
+another NUMA node") does not seem to fix this either. Its
+bnxt_irq_affinity_update() only acts when nid != NUMA_NO_NODE, and
+bnxt_request_irq() has just reset ring_nid to NUMA_NO_NODE. The mismatch
+would last until the next affinity change or close/open.
+
+At that point the comment on ring_nid in bnxt.h ("NUMA node of the first
+online CPU in the affinity mask") also does not hold.
+
+Would it work to check cpumask_intersects() in bnxt_cp_num_to_node(), or
+to invalidate stale entries before bnxt_alloc_mem() runs?
+
+> +	cpu = cpumask_local_spread(n, dev_to_node(&bp->pdev->dev));
+> +	return cpu_to_node(cpu);
+> +}
+
 [ ... ]
 
-The real changelog and its trailers come at the very end, inside the
-embedded attachment, after a nested format-patch header:
+> @@ -11882,6 +11896,14 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
+>  	cpumask_copy(irq->bp->ring_cpu_mask[irq->ring_nr], mask);
+>  	set_bit(irq->ring_nr, irq->bp->ring_affinity_set);
+>  
+> +	/* Readers can't access ring_cpu_mask atomically, so pre-compute
+> +	 * the info they care about (NUMA node, TPH tag) and store it
+> +	 * with WRITE_ONCE().
+> +	 */
+> +	cpu = cpumask_first_and(mask, cpu_online_mask);
+> +	nid = cpu < nr_cpu_ids ? cpu_to_node(cpu) : NUMA_NO_NODE;
+> +	WRITE_ONCE(irq->bp->ring_nid[irq->ring_nr], nid);
 
-> >>From 0a9629d8c7c93ef16dd000ab4cf04e9792044987 Mon Sep 17 00:00:00 2001
-> From: Kyuwon Cho <kyuwoncho18@gmail.com>
-> Date: Thu, 19 Nov 2026 11:36:52 +0900
-> Subject: [PATCH net] netdevsim: bound the peer TX queue index in
->  nsim_start_peer_tx_queue()
+[Severity: Low]
+This is a pre-existing issue and was not introduced by this patch. The
+TPH steering tag later in this same notifier is still computed from
+cpumask_first(mask):
+
+	if (pcie_tph_get_cpu_st(irq->bp->pdev, TPH_MEM_TYPE_VM,
+				cpumask_first(mask), &tag))
+		return;
+
+The ST table init in bnxt_request_irq() also uses
+cpumask_first(cpu_mask). A user-written mask only has to overlap the
+online mask, so its lowest CPU can be offline.
+
+With such a mask, the steering tag targets one CPU, while
+bnxt_queue_mem_alloc()->bnxt_cp_num_to_node() places the page pool on
+the node of a different CPU.
+
+Before this patch the page pool node ignored the mask entirely, so this
+patch narrows the mismatch rather than causing it. Could the node and the
+tag both use the first online CPU in the mask, so that they stay
+consistent?
+
+>  #ifdef CONFIG_RFS_ACCEL
+>  	if (irq->bp->dev->rx_cpu_rmap && irq->ring_nr < irq->bp->rx_nr_rings) {
+>  		int err;
+
 [ ... ]
-> Fixes: ff2ac4df58ad ("netdevsim: implement peer queue flow control")
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-
-Could this be re-applied from
-0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch? Then the
-subject and body would be the patch's own changelog, with the Fixes: and
-Signed-off-by: tags kept. The reproducer and kernel config could stay in
-the mail thread and be referenced with a Link: tag.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179505710275.3511681.13434978152402269948%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120035214.369158-1-kuba%40kernel.org
