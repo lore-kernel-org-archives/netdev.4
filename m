@@ -1,155 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.60
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795406578;
-	b=BsgCJjiqjnpbyveKp+w6cx30MZHrfqOItBQui0fldDWyXvBl54rE0oyDf7kgRDVXC4zw
-	 Q2swrlanvKgBXAwZhgcu/YdVL0RnKGjOjUJH/oOqAqRIrfJfYGeZG5tpTl3WOzKxBREFs
-	 dLOZvo4RUZQjxxBkbdVS/d/pG+H/wDjXc7JpBjEyLrKW0Ao2yvAW4wGAKDg3oaDOWxq2o
-	 E6NWAGf0w0/2HEIsRhD4bB2gF8BOIPJXla2FDzVx1bbo2T01wfFgO3MdGl9lXBXXnG1qf
-	 1oNcfIbPQkm0/GMTukyotg938wkOIkEXWC2t2oS4mtBdgMyQJq/gEzAcVaAwXyLu82g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795406578;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=o5AGvtlkU8QL1KoxlRUWakhDEge4fGn7MaO+qEvCeMM=;
-	b=s9E62KJO69WLJa5wt54xM0LKiJmOxo67d7RTb+e44fyUSYxYY1TDBrKp2lsVpbOxT1Uf
-	 2V4p2aqYhh7c8BQlM1P3oSBfLrfKZqdtr6bziDvoA+sIhx9dLNw0cAu3dAWkqZ26r/oWV
-	 kSd8fTbh2Oyc2pttEv7K+ZGKjorFcPNitpT0NPQJ+eklXmIdtn+IrFwoLG6RXhK+AnocD
-	 p5Ze8LrnOA5ZpGsEObytUztfo6Im/c4nfsKVFm/PwFWcQhcmsODM7otn9aZqSefmXlc0Z
-	 aM2CfhsgDq9rBusXaegQLkA3GDmEIGclJ//wKrOLM4hXJ+wTu51+ceLxjWb52vewKEA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=est.tech;
-	spf=pass smtp.mailfrom=est.tech;
-	dkim=pass header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=TIibDTrs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.60
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013060.outbound.protection.outlook.com [40.107.159.60])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795406949;
+	b=skET2df8FRDWaR14PnIcReNxv+wUXsl0DuEzEmyi2/lgPEzum8gq+/Dn62u3ahk5AQ1p
+	 OrHxxDkllwaDaNlPZ3AlVjU4bq75SSjiddo5VrdMrAmWVewuS9GzPqNmNicETqTcc/4WY
+	 dAPt79KDq0jIIvR4tgWMV3ofNY9bvt0XVD0yueWgAyMaruoSy7gRjxWGQu7yaGLONgHyO
+	 c8qevh3IuUfyRtGpI5rPeCLGWosM+3NNQjH38LmKZyFEfnu9DV+2fzw/ESzAI9xLqHnXA
+	 Obn483wkQdzqfq4IseBVtXm8vKlSMZA5u98bGVKoiTvvNQSxaxyytXP/5OkB9PpKHtQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406949;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=0ozgnlts1k6aHVWDS0U58M4CpqFB+e+83aS7nu4uq/U=;
+	b=0cSOKfmThyt2PMOcH3uFu5v82BPXvaUtR1PwFjnVuRCKyYpLye9FkN4yx/aXx6KCKmU+
+	 TqloAdUSN/txGfiXt+2OmQX2Ch79Ep+YmvVt5P51sgwgyn6daEQdhEE3GXIZnf18t5b8M
+	 rb8YpmFjQE6vuYY7WIeZd2vmaNQlYpiSLW6JCs7ErwS9lny9nfhm2oenduP+iL+GMkgXR
+	 mmMZHPqDhFdHMg0RUGIvxVYhjTo19s3x2+Z6Ggw6T3Fwk7J/VWFzShTvMgSkvmkxS/xUX
+	 MYZA0VhwQeZGk0ZcFVirSSYx5S9C5EOffhSsXSWSkrh3aOvsXG3aAQ790OTKBuMRcDw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="f/feW676";
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B243606A31A;
-	Mon, 23 Nov 2026 04:02:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B243606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=est.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=est.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69F42606A686
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:09:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69F42606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=TIibDTrs
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TLRhQu792q36VGEfBLRjnkLHHOJpWHZ0OzuvzCSyrWBAzJjxQAUPaJqk4GJqj/CdzBQtn6llY6qCz0YctQqcsCo3BhyfT7ZPv0y/HDXnK4D0H+LE5vKMbP6KUzzNhHp+5LtaURuQCLraFN2ZzaLOSUAnreLq+AXo2YTktoTCQc24GPxgxuuaJ+sa/sW2RjAzhCkkt0mBrs89UG2+rSOXdiToDh32fiu7uHFam3Rm535zyaX1Su86p+BtpCdeOeAxSaZHNoX6VTQKhL3yV0fMP9tscbw0JWAlS+W/Wxt4Oh8LYMLmiMnADAs5IvJyGka+iV2F5acxGD1hT+6cQbKoRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o5AGvtlkU8QL1KoxlRUWakhDEge4fGn7MaO+qEvCeMM=;
- b=H/x6nkD1ySyzTVYDIqe+q3z6I9p82OdGIc8YCuQWUkYVvyGS5jxfsXpKVRxK6BOaZh6K8yseCI+A0JGMc4uZCM7hWSCljjFkM/JKI0tea/tYOqVQI9hsjz5UX3BTe6bUTRd7V//kq6rnrytPfElYWcKH5SexS69B+1GpO4jxfdUpP/YC5z+zRaQUixELmlAqb4bthQF3rG2dfnIj+6Qf69jijAdcZY2i7yuNnOezM2ArtYH+1NTjseF9BOFH9inNjiuiOxv06LXupbQnErkg8Vo0xm57/9g5QdBOo3mCngd/fMhNoEOXUsNFzq2KGZpHCg3z9Tya34uE4ek9Qm8ybw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
- dkim=pass header.d=est.tech; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o5AGvtlkU8QL1KoxlRUWakhDEge4fGn7MaO+qEvCeMM=;
- b=TIibDTrsWnjkfk01f1j0eBJPpNXvKeDJ3SnFPu5OToLYDlZewDwI7PRWh306PsYTnyBVYRzOK/SssXaZk/ohU/7SIfd3fv3Wzmgp8ftQRER36NU4bcbRTtXdiU91zMChLW3FKpfWfkHIlXYtjwJ6DbZunKmXR6tUjzfLWyC8DyUqKCkUyiCG9UyEmrZx1OH9m08ruUmv+qIjOzoU+7KEIsGCzfdfNAKNNPrl0xtlZgAAAOo0sdk5A0iPYIGTYeqyxZtF8Wh3g9CZKPmnXuEYvctqAiGohxmsjBBbXMx0DXYb7ndICwO8ujwjURn3OljRtgXksK4WFw7R/MnuMNt7mQ==
-Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:17e::23)
- by AM7P189MB0849.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:179::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 04:02:52 +0000
-Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
- ([fe80::86f0:8ce1:a437:b2d5]) by AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
- ([fe80::86f0:8ce1:a437:b2d5%6]) with mapi id 15.21.0615.013; Mon, 23 Nov 2026
- 04:02:52 +0000
-From: Tung Quang Nguyen <tung.quang.nguyen@est.tech>
-To: "shyckless@gmail.com" <shyckless@gmail.com>
-CC: "horms@kernel.org" <horms@kernel.org>,
-	"tipc-discussion@lists.sourceforge.net"
-	<tipc-discussion@lists.sourceforge.net>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "davem@davemloft.net" <davem@davemloft.net>,
-	"kuba@kernel.org" <kuba@kernel.org>, "edumazet@kernel.org"
-	<edumazet@kernel.org>, "jmaloy@redhat.com" <jmaloy@redhat.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>
-Subject: RE: [PATCH net] tipc: restore write readiness when a socket's group
- goes away
-Thread-Topic: [PATCH net] tipc: restore write readiness when a socket's group
- goes away
-Thread-Index: AQHdeG5okDVcJoIAd06ZNucuWr8J1bc7DXkQ
-Date: Mon, 23 Nov 2026 04:02:52 +0000
-Message-ID:
- <AM7P189MB1137026AA0F76C9BA3ADD687C6452@AM7P189MB1137.EURP189.PROD.OUTLOOK.COM>
-References: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
-In-Reply-To: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=est.tech;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM7P189MB1137:EE_|AM7P189MB0849:EE_
-x-ms-office365-filtering-correlation-id: bef09f3c-d7ca-4ebe-db6d-08df4916a57b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|22082099003|18002099003|10067099003|11063799006|56012099006|261028144727099003|261026121527099003|261026140227099003|261021123027099003|261022105027099003|38070700021;
-x-microsoft-antispam-message-info:
- T6hRGi1O22ZyXrIaf2AY/EOsw4pjd2eT4l44gWdR8aWj2D14NxR33nMhKkI3PnCr+eLTYrdzVt5P9da69QM9TFZLP6Xzil7m2GfDgBtW3oTEIMfMLxnl95BBeIMGvOWdvq97ZtlcK2UuUxir1ISU1HAmJPnY1XerN/PGMQdTXay4Zf+M0smrlFPz3iBK2R8Jtf3MyBqIacb75BzmTdV4zVOB13skTidCtJ41ntQRNd3Wzh8rqxRfXcBwmRZfw3TNYIMLnREQlZAWKNYFvr3nPdag9/yaQRVpJPzqGJ/jBATePsx1nGD4p1E8e2m6nKUn5IYDApxKafnopp6pu4MwXElZa2uus2pNibpF6x69YdUy6Br+ZFxrEkHnXguFGEXTQ9CW/7njcU8lt2d2Z47UOglx6qIXZ6xlMIt+RpwpcuXn+LkxgoHZ97EKENP4uqBGWkOJh5dQnDU3cyBvwFCwKEPWMan5BcPjG7SRYHM5ArSkKQAMBxQL5nMbO4gkXFs4S14LZjjrdNXuuNr6He3tO1VwMOQm8kXfi0Ixb1BXFHssS4fsWSqOCTfeH9HwovYkaBNdck5JZrh7Ju2M/pq4l4o91U7eneHgvnoaAk1Evr2LYs6/8D88dNhIbSBz3HKtfIpntSxBM3BLPqe+3kb4q47JcGprjtG+7pLCETexHksqtOBpHUA5ssi52amsrft04Cb6ud9B7gUCQmFO6mDZZHxjQbkxbLMFAE5KZxt459E=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7P189MB1137.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(261028144727099003)(261026121527099003)(261026140227099003)(261021123027099003)(261022105027099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?UFJyUFBUOVVQVGpmTHBaUTdiWEc4dzZJbVpJQTY3eWw0eUZXZVJteVl2NmFt?=
- =?utf-8?B?bGZURXU2eVcwQlBGcHduM043cDRrOWtSK3d1MFBvcllnZ0ZlUDMxWFRIRG1H?=
- =?utf-8?B?MFRLNU1FY3gvQkgxODk2amlkSUxvTVJZL042Qjd0bVpKTUlMcjBUL1JjZXJj?=
- =?utf-8?B?dWl0WU9hRFBYQnJRa24zOWFzMTBIVHpOMVQ4MmtPWEdzMUNXeW5YNUVrR0ZV?=
- =?utf-8?B?WjdRK3ZscTZuRFJ1cnl6YW9WRzdEanJHY1Zjd0NLclNySk1wY0hIM1pyZVRo?=
- =?utf-8?B?QVRsbmc4QUYvd1JvN0RwdUZYbEZ4YzU2VHEwRksyU0cvYklSV2FYOUZDV2tC?=
- =?utf-8?B?bktnSHUvUnl2QVFzUFFENGZFN2JGaVZKbW45MDUrVDJFVE14aVVpVTNOT1VH?=
- =?utf-8?B?NVNHeE9CdzZ6Ky94aUxtTVpkUnU4aExMMjlkOGdZSVRGZ0taQWhzbFhsbnZT?=
- =?utf-8?B?cVpYSndBWHpOUjZ2b2o5NGwvMHJGVTUwQzJBRnVqY2ZmOE1yTHdPMEdzK2Ey?=
- =?utf-8?B?SmNWeUIwUzVXK2kzSnAvSjBuY21JeVd1ZEhZbk9qbjZzV2VWUWhxdVZ1T2ZH?=
- =?utf-8?B?Q1RwYjJIM21zWjVYa1Z4c3BiOWdHRXZoVTQ3aElpaWdxMkcxRE9HRVBMWkhO?=
- =?utf-8?B?eHVQRlJQZ3RGRWFhQlM4dllDcVRZR3pSNEZiY0lib0p0RG1DcHlFWFRuNW0v?=
- =?utf-8?B?US9GajM0cDdoUjVlaktIenBxQlRoSTZHSFYvKzdNWHB1NkZtU3NqRjBXM2Fn?=
- =?utf-8?B?dzFQVkpQZTZ5cThJZ29IRnpDaXBjVGYreUIzZFJGemFCaWE2VUpqeFVHYjk3?=
- =?utf-8?B?NU11RXpHeXdQOXJQSEp3Y0s5MU9QRkNXdm5IUXh5MDlhV1dFb2gvSExncUhZ?=
- =?utf-8?B?aFNEaTdLb2xsUFFxdEtvYnNYeXFnWXJlT3dnbktsVUJXNXlUYlZpSUlueXhJ?=
- =?utf-8?B?RDZndS9yQUk1L0lzSFd1MTZ6SmlZQjdsVG5md3BOK3MzWlZ2aEo1M20rcjhM?=
- =?utf-8?B?c2RPQ2ZIZzcvTjd4Y0ZVZG56amdERFJQdHpDSFd6c1Y5RzVNVTV2WUJScm9l?=
- =?utf-8?B?cnRUUDBxVi9paG1vZS9wd0oyY2xMZ1E5ZTdHT2FuMitLTE8xanU0TVMxOFZr?=
- =?utf-8?B?QnN0SHFuSmlBanI2M1E4YjFBMzN6ZmFpVjVLd3NMOFcyY1owYXRUdTdsOTZY?=
- =?utf-8?B?R3NIV2ZNcmJFcTNMbkE2QWJSMVRoczJCUlZKd0Z4cGRhSjdYQ0lWZHlneWhl?=
- =?utf-8?B?VFJFSWlOdGZZY1pLM09yL2E2VzIweE4wZEtxRnNnM1IxK3N2OGFLVHhkaXdF?=
- =?utf-8?B?MWo5c0MzN1RpbkNleTNqVCtjU2xoMFVndllYKzFQMUpHUlJPeGRvOWRtdjYy?=
- =?utf-8?B?ZWw1REMzdlBqZHpFUFgzR3NNM0JmOHBiWFg4dFVtcHcyWWRtSGtJRDEzdDBn?=
- =?utf-8?B?V3JnUmM0UTl6WVNtU2Jld1Z0RHNCVkFMN0JkaDJoOFpSU29pUisycldhdUQz?=
- =?utf-8?B?eTRmd3VoS0NkS2FVTWMwRlNlekNHVTRzTDlrZlgwcE9QZ0RQcytLbUM0TkZx?=
- =?utf-8?B?eFY3aHVHeW9pTXhocVNMdVdWeENZZXhRNVhrTFhLSm9MZVh6QlI1dHlDbXdh?=
- =?utf-8?B?MmFJdklWaFUzOWhwbFU1YnFZRlcyVkJxWmtUQ0JYYWNKQmFSRE4xdkg0cjVJ?=
- =?utf-8?B?YUYyRjdVTmZ5YVMwL3BiVlNFVlVlVnQwRTl5Q2FRMmVjTG4waG5LUWNtWGYz?=
- =?utf-8?B?N3hUdzNmMm5tU1RIeUtOTHo3YmFrRFFDN1c5UWdlZzcwY3hmNkxiaUF3RGpz?=
- =?utf-8?B?MEExMzZzR3NtZW5CYVhLc25QOGtDRFBiSCtqdHkrMWk2c3dsWUVEZ21rRU1G?=
- =?utf-8?B?TC8ydXZCVHlWMG1WazFya0QyUUZ0UG1Ndm1vM3VmemJDM3ZsZ0hLL2YvT2du?=
- =?utf-8?B?RjQxdlVNRkxDT3M0R2t1SEt3VEZRbW5JMFRPTjJhK1k0Ym1rYXNiK3VrRTIv?=
- =?utf-8?B?QXRaOUQwUG4yS0wwSUxhL3dydzF4VkU3L3psN3hDZFRabDR6a1ZkNExQOUYy?=
- =?utf-8?B?alQrejVkT1lRa3ZHa2VZTWV3NzZMOXl1dDErVTJHSWJlSWdZQUg5RmMwR05F?=
- =?utf-8?B?ajBtSkl0ZldCSVFnT1pscCtNWUdCVjZqU3hEaldTV2tRc2ltNXdDUWpNcGtv?=
- =?utf-8?B?WENPUjNBd0VmNmQxNjd2dXNaYWRsZkVHbnZjQ2NYTTR2YStZLzdjU3FkajM0?=
- =?utf-8?B?Qk5TeFk4Skp6clczemt1RVluRzloMFcvVHY0Wk1mR2p4ckxvU2hrZ2JUR2l4?=
- =?utf-8?B?ZjRzZlBRSUVLVTQ0Y2tad0dTNTZ3b1EwVEg3YkduYkFHeXd0N3hUQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f/feW676
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-385d8a00598so3871948eec.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 20:09:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795406948; x=1796011748; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0ozgnlts1k6aHVWDS0U58M4CpqFB+e+83aS7nu4uq/U=;
+        b=f/feW676kYcNLohQrSt9t33eRTFRAHP7p89OYGFI07b8sAo1pE6G1FmaTxhlUEl5YY
+         g4nhePLzBmIeh3nfKRv9Lwnwva4ZZEQ5Le4Ldcd07LWcw28zYqEzKUAwEB0nr1jz6im7
+         60x+EcLa7V+qTzq29bcZEpSePWWAx7yP041SqeDc8eHv80LjfKm/u2m62nihImZn79Oo
+         gelQrzpiNSjcVqecuhqdrGNk2s9wKZc2KNG/7Qguf2AFGWexspMMhQOOuvFUElvOcpaG
+         LrhXwuxwL2sYJoCu+dFAothWGwRGQ3fzhpBoNspdhK9Bo7SoPszxFXjjpvkNyKiu5I/I
+         Fkow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795406948; x=1796011748;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0ozgnlts1k6aHVWDS0U58M4CpqFB+e+83aS7nu4uq/U=;
+        b=lncSOHb1Ty+A0TJY0YiHHZGp3EUbbQM/pTniUvYlRuthBSfI6C9EVL4HTjth+/g7zE
+         eF3sJKMGXyKA+m/fKbHNqFE6C32er9k9fPGuiBjQruI4S8DnlCgZLtJkDjkQbgGaACFt
+         YLjjEc1OicXW5uA/CaJdDz2PAOcmG3bOSUeTpEcrX7XGbgBKxCPGi/vlGJuXzeb+QDZG
+         8ki90eiS61bcGgc6YzEvaUeHljjwosvSecQLAJs7g2nraY4wRZjegjTANeFyJLu0cyZ2
+         2akOAWsBqW1I+yIrG94m/AdtZ8dEJ6PXb0AZlWTTvou/YXU9u8bkts/t3fPjdbnzJhzM
+         mn7Q==
+X-Forwarded-Encrypted: i=1; AL+hErHVNHgpYFmI533DHuXw6Tk59pN0ABJBMgvxTE5fySScSMF2Qsb9opjwkHdvE35+hgTRr7a3bRA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/RXic7ldEoEBrc9iH/T8oGgYh+0fkky8cQLyrmGVVhi/+JyPIb
+	Obe1GidMnnd5vlH7aJSlRbDnjFfUy67qPBx80UHIOFgj/UVnD/4NbBiwdp6ci0Uv
+X-Gm-Gg: AZFdTZffQBJaiuS2YzSepd0OWZY1cGCq64tKzV9I6yZ2oep3+6uzESZJuEXGSKaIeeu
+	s+rpsf5tZhbHcLPdeg2m7+KzY25glzuDNyg36JV8ZmDRerohsPaHOyBd2AQdzZWb0ZbjCJEZ9mb
+	iCRmGRHs9iWzigFP/gTp44s7M0fwJdWWR6R5zTEe9DYT+IgUjkyvQxJTLvy/oS8ddj129FSZyb6
+	NIeFwkH1ZAp8lncWwDyeTw8d0EJQFrZYbO70KVzjE9omtRBXNxy7EHah4ZgJt62tm1uVZIYtAGl
+	iMik5woXBswUARXLEJnLNoWUWpSxw10koMJi9UHt7e9WMY8fiwhVjA2arCy4h2Ex5RjflKPNVBQ
+	e/7dJE3WzvytXrWsTMJY4Iet1qN59dnKQRzJdLgnH2V/wwBV2zTkhDQmLBYYUmqkTJadJA4lajR
+	fyz4UpOL2CYo7vYtsLbp16ku9R9Z6CpyigkMTZLnaanfMw9OY8ubDohoyl/BdxTfOZFmhGQD1f6
+	3nmW+04Q+OC+NRzP9Qe6hNeef9G7xY/zqDQd6uabCb7yrb2QkCd1hxFRQ6uAwCm9DbPkduKRCxN
+	RrhXU/k1s/zWoTxSkVI8gtQmYxhK/DptZ9C1upMKKcKAJMuQvUgSmZTFZ7JDTuCBwR4=
+X-Received: by 2002:a05:7301:6184:10b0:386:a9d3:6ce8 with SMTP id 5a478bee46e88-386a9d36dafmr3264927eec.7.1795406948364;
+        Sun, 22 Nov 2026 20:09:08 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm33451547eec.21.2026.11.22.20.09.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 20:09:08 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Xin Long <lucien.xin@gmail.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Jun Yang <junvyyang@tencent.com>,
+	linux-sctp@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3 1/1] sctp: fail the association when the INIT-ACK cannot be processed
+Date: Mon, 23 Nov 2026 13:09:00 +0900
+Message-ID: <179539544818.3016044.18009252996572506068@gmail.com>
+In-Reply-To: <179539544818.3016044.13738712075053349592@gmail.com>
+References: <179539544818.3016044.13738712075053349592@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -159,46 +105,168 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: est.tech
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: bef09f3c-d7ca-4ebe-db6d-08df4916a57b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 04:02:52.3910
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rupu+P80SPNi/eiPJzl7RK+G+A3w7LaTv9LXUUefob2NMKb5YY64ltHhSBPUqwf2DfzSnnvD75jrXBnk/987EmnBDhbmsuVl8+KzbmqIWFM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7P189MB0849
+Content-Transfer-Encoding: 8bit
 
-PlN1YmplY3Q6IFtQQVRDSCBuZXRdIHRpcGM6IHJlc3RvcmUgd3JpdGUgcmVhZGluZXNzIHdoZW4g
-YSBzb2NrZXQncyBncm91cCBnb2VzDQo+YXdheQ0KPg0KPkZyb206IFN1eXVhbiBXYW5nIDxzdGV2
-ZXdvbmdAaHVzdC5lZHUuY24+DQo+DQo+dGlwY19ncm91cF9jcmVhdGUoKSBzZXRzIHRzay0+Z3Jv
-dXBfaXNfb3BlbiB0byBmYWxzZSwgYW5kIHRpcGNfcG9sbCgpIG9ubHkNCj5yZXBvcnRzIEVQT0xM
-T1VUIGZvciBhIHNvY2tldCBpbiBUSVBDX09QRU4gc3RhdGUgd2hlbiB0aGF0IGZsYWcgaXMgdHJ1
-ZS4NCj5Db21taXQgMWIyMmJjYWQ3ZTM5ICgidGlwYzogY29ycmVjdCBpbml0aWFsIHZhbHVlIGZv
-ciBncm91cCBjb25nZXN0aW9uIGZsYWciKQ0KPm1hZGUgc3VyZSB0aGUgZmxhZyBpcyB0cnVlIGZv
-ciBzb2NrZXRzIHRoYXQgbmV2ZXIgam9pbiBhIGdyb3VwLCBzaW5jZSBvdGhlcndpc2UNCj4iU09D
-S19SRE0vREdSQU0gc29ja2V0cyBzZW5kaW5nIGRhdGFncmFtcyBuZXZlciByZWNlaXZlIFBPTExP
-VVQiLg0KPg0KPlRoZSBmbGFnIGlzIG5vdCBzZXQgYmFjayB3aGVuIHRoZSBncm91cCBnb2VzIGF3
-YXkgYWdhaW4sIHRob3VnaDoNCj4NCj4tIHRpcGNfZ3JvdXBfY3JlYXRlKCkgY2xlYXJzIHRoZSBm
-bGFnIGFuZCB0aGVuIGZhaWxzIHdoZW4gdGhlIHRvcG9sb2d5DQo+ICBzdWJzY3JpcHRpb24gY2Fu
-bm90IGJlIGNyZWF0ZWQsIGZvciBleGFtcGxlIHdoZW4gVElQQ19NQVhfU1VCU0NSDQo+ICBzdWJz
-Y3JpcHRpb25zIGV4aXN0IGFscmVhZHk7DQo+LSB0aXBjX3NrX2pvaW4oKSBkZWxldGVzIHRoZSBu
-ZXcgZ3JvdXAgd2hlbiB0aXBjX3NrX3B1Ymxpc2goKSBmYWlscywNCj4gIGZvciBleGFtcGxlIHdo
-ZW4gdGhlIG5vZGUncyBwdWJsaWNhdGlvbiBsaW1pdCBpcyByZWFjaGVkOw0KPi0gdGlwY19za19s
-ZWF2ZSgpIGRlbGV0ZXMgdGhlIGdyb3VwIHdoaWxlIHRoZSBmbGFnIG1heSBzdGlsbCBiZSBmYWxz
-ZSwNCj4gIGUuZy4gYmVjYXVzZSBvZiBncm91cCBjb25nZXN0aW9uLCBvciBiZWNhdXNlIHRoZSBn
-cm91cCBoYXMgbm8gb3RoZXINCj4gIG1lbWJlcnMgeWV0Lg0KPg0KPkluIGFsbCB0aHJlZSBjYXNl
-cyB0aGUgc29ja2V0IGlzIGJhY2sgdG8gYW4gb3JkaW5hcnkgUkRNL0RHUkFNIHNvY2tldCwgYnV0
-DQo+cG9sbCgpIG5ldmVyIHJlcG9ydHMgRVBPTExPVVQgZm9yIGl0IGFnYWluLiBCZWZvcmUgY29t
-bWl0DQo+NjBjMjUzMDY5NjMyICgidGlwYzogZml4IHJhY2UgYmV0d2VlbiBwb2xsKCkgYW5kIHNl
-dHNvY2tvcHQoKSIpLA0KPnRpcGNfcG9sbCgpIGFsc28gcmVwb3J0ZWQgRVBPTExPVVQgd2hlbiB0
-c2stPmdyb3VwIHdhcyBOVUxMLCBzbyBkZWxldGluZyB0aGUNCj5ncm91cCB3YXMgZW5vdWdoOyBz
-aW5jZSB0aGVuIHRoZSBmbGFnIGhhcyB0byBiZSByZXNldC4NCj4NCj5TZXQgdHNrLT5ncm91cF9p
-c19vcGVuIHRvIHRydWUgaW4gdGhlc2UgdGhyZWUgcGxhY2VzLCBhcyBpdCBpcyBmb3IgYSBzb2Nr
-ZXQgdGhhdA0KPm5ldmVyIGhhZCBhIGdyb3VwLCBhbmQgY2FsbCBza193cml0ZV9zcGFjZSgpIHNv
-IHRoYXQgYSB0YXNrIGFscmVhZHkgd2FpdGluZyBmb3INCj5FUE9MTE9VVCBpcyB3b2tlbiB1cCwg
-YXMgdGlwY19za19maWx0ZXJfcmN2KCkgZG9lcyB3aGVuIGEgZ3JvdXAgYmVjb21lcw0KPm9wZW4g
-YWdhaW4uDQo+DQoNClJldmlld2VkLWJ5OiBUdW5nIE5ndXllbiA8dHVuZy5xdWFuZy5uZ3V5ZW5A
-ZXN0LnRlY2g+DQo=
+sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
+If either fails to allocate memory, sctp_cmd_interpreter() stops there,
+but the association stays: with the peer marked AUTH capable and
+asoc->shkey still NULL, a chunk that the peer wants authenticated, such
+as the ABORT built by close() with SO_LINGER {1, 0}, takes a reference
+on the NULL key:
+
+  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113)
+  Write of size 4 at addr 0000000000000018
+  Call Trace:
+   sctp_auth_shkey_hold (net/sctp/auth.c:113)
+   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
+   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
+   sctp_close (net/sctp/socket.c:1564)
+
+Process the INIT-ACK and set up the association key directly in
+sctp_sf_do_5_1C_ack(), and fail the association if either step fails.
+SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY have no other users, so
+remove them.
+
+Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
+Suggested-by: Xin Long <lucien.xin@gmail.com>
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
+ include/net/sctp/command.h |  4 ----
+ net/sctp/sm_sideeffect.c   | 40 --------------------------------------
+ net/sctp/sm_statefuns.c    | 15 +++++++++++---
+ 3 files changed, 12 insertions(+), 47 deletions(-)
+
+diff --git a/include/net/sctp/command.h b/include/net/sctp/command.h
+index 2058fabffbf6..8596e96c321a 100644
+--- a/include/net/sctp/command.h
++++ b/include/net/sctp/command.h
+@@ -34,7 +34,6 @@ enum sctp_verb {
+ 	SCTP_CMD_GEN_SACK,	/* Send a Selective ACK (maybe).  */
+ 	SCTP_CMD_PROCESS_SACK,	/* Process an inbound SACK.  */
+ 	SCTP_CMD_GEN_INIT_ACK,	/* Generate an INIT ACK chunk.  */
+-	SCTP_CMD_PEER_INIT,	/* Process a INIT from the peer.  */
+ 	SCTP_CMD_GEN_COOKIE_ECHO, /* Generate a COOKIE ECHO chunk. */
+ 	SCTP_CMD_CHUNK_ULP,	/* Send a chunk to the sockets layer.  */
+ 	SCTP_CMD_EVENT_ULP,	/* Send a notification to the sockets layer. */
+@@ -86,7 +85,6 @@ enum sctp_verb {
+ 	SCTP_CMD_ASSOC_CHANGE,	 /* generate and send assoc_change event */
+ 	SCTP_CMD_ADAPTATION_IND, /* generate and send adaptation event */
+ 	SCTP_CMD_PEER_NO_AUTH,   /* generate and send authentication event */
+-	SCTP_CMD_ASSOC_SHKEY,    /* generate the association shared keys */
+ 	SCTP_CMD_T1_RETRAN,	 /* Mark for retransmission after T1 timeout  */
+ 	SCTP_CMD_UPDATE_INITTAG, /* Update peer inittag */
+ 	SCTP_CMD_SEND_MSG,	 /* Send the whole use message */
+@@ -117,7 +115,6 @@ union sctp_arg {
+ 	struct sctp_association *asoc;
+ 	struct sctp_transport *transport;
+ 	struct sctp_bind_addr *bp;
+-	struct sctp_init_chunk *init;
+ 	struct sctp_ulpevent *ulpevent;
+ 	struct sctp_packet *packet;
+ 	struct sctp_sackhdr *sackh;
+@@ -158,7 +155,6 @@ SCTP_ARG_CONSTRUCTOR(CHUNK,	struct sctp_chunk *, chunk)
+ SCTP_ARG_CONSTRUCTOR(ASOC,	struct sctp_association *, asoc)
+ SCTP_ARG_CONSTRUCTOR(TRANSPORT,	struct sctp_transport *, transport)
+ SCTP_ARG_CONSTRUCTOR(BA,	struct sctp_bind_addr *, bp)
+-SCTP_ARG_CONSTRUCTOR(PEER_INIT,	struct sctp_init_chunk *, init)
+ SCTP_ARG_CONSTRUCTOR(ULPEVENT,  struct sctp_ulpevent *, ulpevent)
+ SCTP_ARG_CONSTRUCTOR(PACKET,	struct sctp_packet *, packet)
+ SCTP_ARG_CONSTRUCTOR(SACKH,	struct sctp_sackhdr *, sackh)
+diff --git a/net/sctp/sm_sideeffect.c b/net/sctp/sm_sideeffect.c
+index 35f540fb15fc..a95bf10b852b 100644
+--- a/net/sctp/sm_sideeffect.c
++++ b/net/sctp/sm_sideeffect.c
+@@ -698,32 +698,6 @@ static void sctp_cmd_assoc_failed(struct sctp_cmd_seq *commands,
+ 	sctp_add_cmd_sf(commands, SCTP_CMD_DELETE_TCB, SCTP_NULL());
+ }
+ 
+-/* Process an init chunk (may be real INIT/INIT-ACK or an embedded INIT
+- * inside the cookie.  In reality, this is only used for INIT-ACK processing
+- * since all other cases use "temporary" associations and can do all
+- * their work in statefuns directly.
+- */
+-static int sctp_cmd_process_init(struct sctp_cmd_seq *commands,
+-				 struct sctp_association *asoc,
+-				 struct sctp_chunk *chunk,
+-				 struct sctp_init_chunk *peer_init,
+-				 gfp_t gfp)
+-{
+-	int error;
+-
+-	/* We only process the init as a sideeffect in a single
+-	 * case.   This is when we process the INIT-ACK.   If we
+-	 * fail during INIT processing (due to malloc problems),
+-	 * just return the error and stop processing the stack.
+-	 */
+-	if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init, gfp))
+-		error = -ENOMEM;
+-	else
+-		error = 0;
+-
+-	return error;
+-}
+-
+ /* Helper function to break out starting up of heartbeat timers.  */
+ static void sctp_cmd_hb_timers_start(struct sctp_cmd_seq *cmds,
+ 				     struct sctp_association *asoc)
+@@ -1397,16 +1371,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
+ 					SCTP_CHUNK(new_obj));
+ 			break;
+ 
+-		case SCTP_CMD_PEER_INIT:
+-			/* Process a unified INIT from the peer.
+-			 * Note: Only used during INIT-ACK processing.  If
+-			 * there is an error just return to the outter
+-			 * layer which will bail.
+-			 */
+-			error = sctp_cmd_process_init(commands, asoc, chunk,
+-						      cmd->obj.init, gfp);
+-			break;
+-
+ 		case SCTP_CMD_GEN_COOKIE_ECHO:
+ 			/* Generate a COOKIE ECHO chunk.  */
+ 			new_obj = sctp_make_cookie_echo(asoc, chunk);
+@@ -1772,10 +1736,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
+ 			sctp_cmd_peer_no_auth(commands, asoc);
+ 			break;
+ 
+-		case SCTP_CMD_ASSOC_SHKEY:
+-			error = sctp_auth_asoc_init_active_key(asoc,
+-						GFP_ATOMIC);
+-			break;
+ 		case SCTP_CMD_UPDATE_INITTAG:
+ 			asoc->peer.i.init_tag = cmd->obj.u32;
+ 			break;
+diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
+index 6a4205de0aa6..fd9f94c12d42 100644
+--- a/net/sctp/sm_statefuns.c
++++ b/net/sctp/sm_statefuns.c
+@@ -603,13 +603,22 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct net *net,
+ 
+ 	initchunk = (struct sctp_init_chunk *)chunk->chunk_hdr;
+ 
+-	sctp_add_cmd_sf(commands, SCTP_CMD_PEER_INIT,
+-			SCTP_PEER_INIT(initchunk));
++	if (!sctp_process_init((struct sctp_association *)asoc, chunk,
++			       sctp_source(chunk), initchunk, GFP_ATOMIC)) {
++		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
++				SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
++		return SCTP_DISPOSITION_CONSUME;
++	}
+ 
+ 	/* SCTP-AUTH: generate the association shared keys so that
+ 	 * we can potentially sign the COOKIE-ECHO.
+ 	 */
+-	sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
++	if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
++					   GFP_ATOMIC)) {
++		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
++				SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
++		return SCTP_DISPOSITION_CONSUME;
++	}
+ 
+ 	/* Reset init error count upon receipt of INIT-ACK.  */
+ 	sctp_add_cmd_sf(commands, SCTP_CMD_INIT_COUNTER_RESET, SCTP_NULL());
+-- 
+2.43.0
+
