@@ -1,58 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795398009;
-	b=CnQO6dXK4dl96YGywT/A5+JHb+NveRqgopwVWyQOnaMYgQmHiqAUPZd2uPwQWj2CiVoL
-	 HirLGrMEhl2dm79jIY+O891+3fiKXWqLhTkefgTeulduoxtHZJ75h5Icup625zXwcPUbz
-	 RXL4skZzqIR6aWNMzsSCM4YJKNAvHS/Fdb9oeGnZcSnAk0vQ0mD4x+xX8YKbiFD+MRR3r
-	 RWfhHyCMN3dUgatJB4FiBArONSGshRs5y4USzRBqv/qkaO0KEfhuvWRE0Qze1TFLkDgs+
-	 N+MLFwXyrO0+Z2FkRYYb0p2EfNnH9F1xI4ycmp0kXVbyQAkyJoDca4IJFfyYyps7cgg==
+	t=1795398010;
+	b=14fn4ZA94PcQZlABmp3Y09p531dOjMt/NBK/lXO649hktfOWGBkarArt+hnaallMAHzS
+	 QmPAIVjPveYm3p6LXLnLY8bpGGU+0ZFPZLqghqH+srloMbxP+aJkugxSn7Hk/LlQdzVEV
+	 d+sAls03rd7LXjNRX7KnuvbLHSPhjJxsZ7sD+JKwsJAVVNXsvQACJzCOktr8QBTc/xtwM
+	 68HuHOAyAAT4E67See4bcczNM2mvXedyNyLeFAfx+Id+Hv5Y/4IUOZMFq+W6k9ZlQyXcP
+	 R7Uml5fUvZccB3+FvThTqJSe9NHIzyXeREpXZZxoNcZ91mJMJWR4PpMlFDZTzay91JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795398009;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795398010;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ceIIcc4zK+CPfUbBfPOZqR1EDh72ggw2yVO7k0cL/kQ=;
-	b=eDWxxkqAiujz9RkTLw9/gO8On8/o1ApMYjA2+hLc+PaRmNf2BLO60SwOV0BfQXZ9HE3O
-	 bJ4kN8qPwcJbGTfQhMuB9ItQv1sB/RS1xUmZ2LECm4kurpqweApz4B00jM8Whq+ujG2OD
-	 t2MR4W0okAqsdCV5HCsSp0ub19ZFL5XJPNxHHC0Vfm4GRG9eVK/OJIr7cDvsYrMd//10u
-	 omEeb6iuAaRdW7CbdJOPVWolXgrNHm3JdKJw8v2scTCFSUeu9ODIYQWFqwddlYvEleab7
-	 y0fNNaxd4pxePSJH1Y1FdJikbOWdWXiKxUfQbmugfmTgAg9oJxUcPT3dJwnFQwxpckQ==
+	bh=y89p4Zfp3vjpcB8k1IxkJ///JSjR1z1U+uhQSBuiQGA=;
+	b=S7xwHRcvk5oPrUykLJKO4yG+SUeiD4ZcOvLFMQZyq62IUB/MMuXrFmdX28Jg0wj2+u62
+	 tViAWrNw8IdBcKK6U9rNPPz7T9xxFBcuRGaDQcTxnDARJ/asp/0S6nsKRy+RqfUID9A7+
+	 wkJaSykvgxW8BbzhUkdJfu3iQ0FjnZaF1J6p1leE4KaJm2kx8X7l8EEl+DgjSiVs45NUX
+	 tZf1+QGOjhXBaxs2DEzZk5hHFvxMBYBQMlEjyoymvvDLnS/9Cz1oC5zIQBsZT4nIkm2Am
+	 3A91j7pKBAblTeorX7dbvjqJrsw4H2l+Igq5YkFV5J8PRwt4seIY84obPkXDorX6K9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WsKWYh4s;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFxI34y5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DBF5606A31A;
-	Mon, 23 Nov 2026 01:40:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEFFE606A681;
+	Mon, 23 Nov 2026 01:40:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WsKWYh4s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4001F000CA;
-	Mon, 23 Nov 2026 01:40:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFxI34y5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3D9C1F000C0;
+	Mon, 23 Nov 2026 01:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795398008;
-	bh=ceIIcc4zK+CPfUbBfPOZqR1EDh72ggw2yVO7k0cL/kQ=;
+	s=k20260515; t=1795398010;
+	bh=y89p4Zfp3vjpcB8k1IxkJ///JSjR1z1U+uhQSBuiQGA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WsKWYh4sY2Lb7noH2Cjog3vul3I/aqK4L4wpahyxWlXhe0ytZeCFa6h9ZbLKFc9X/
-	 cuJyEkerxsU/paW8mFIT8I9hjeaH+tEU3rnHKeMSHXCJj5qOib9s4UNc3Sqs2b+snt
-	 lVVOeiSrfuwmi9lX7jbRqKIWTg86kmHczAGd6YagP6X/7qfqJUFB2VB6YCDAq+uhi/
-	 +oTDFGEVPzPC5V1a/q4UUqtk2DT+oprxjxD8sSKxBYvX0KAyw7VvJU7QTBTPD2kw3z
-	 lWSUZ/GtPcPPzSaKuij8Vy74fwS4RqvE8xCPQg9pf6B/ggaKvBScWh8yzxKX2ohowY
-	 7+nHJUcXHtE5A==
+	b=FFxI34y5GtZr6CUsawb3gkCSqiCeap6v7VnzXzALiAqSh9wCziAo94IfgkhRTuIge
+	 yxkbk+qAXh2gh93bulEqxWXjxLwdG8gUO/4FxucytAvn8K1Qa/Dmf2EZZSUvX9OI2g
+	 SK5QL/yBzm93ZRmzX8hy00rTfm93fggrks+PHk9FQclSfGzWawBHbkBC2tj1yUUrmZ
+	 z7uoy1yt1CvTMqkrNsUOdQoXu6iJbKEwgjDy4Xso9FJfXOWSOPLl7w0vusMAmF0b/8
+	 1hL+o3t+TfVn8wF4mwrpVW2y5lsciPJ8mufZ6XATmeWVEGQxzCrf6ddD4uxVPHgVJW
+	 wQZTUaXresW6A==
 Subject:
- Re: [PATCH] x25: defer socket cleanup on link termination to process context
+ Re: [PATCH net v2] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
 From: netdev-bot+sashiko@kernel.org
-To: 847807867@qq.com
-Cc: ms@dev.tdt.de, linux-x25@vger.kernel.org, netdev@vger.kernel.org,
- davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com,
- horms@kernel.org, syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
- linux-kernel@vger.kernel.org, netdev-bot+sashiko@kernel.org,
- stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 01:40:07 +0000
-Message-ID: <179539800759.3135.17245752044060918891@kernel.org>
-In-Reply-To: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
-References: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
+To: jain.sm@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, justin.iurman@gmail.com, horms@kernel.org,
+ joel.granados@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 01:40:09 +0000
+Message-ID: <179539800944.3135.14978978337031412574@kernel.org>
+In-Reply-To: <20261122013848.14287-1-jain.sm@gmail.com>
+References: <20261122013848.14287-1-jain.sm@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,176 +76,161 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The patch makes clearing of existing virtual calls
-  asynchronous.
-- [Low] x25_device_event() (net/x25/af_x25.c) calls x25_link_terminated()
-  from two process-context notifier events, and the patch treats them…
+- [Medium] proc_ioam6_id_wide() (net/ipv6/sysctl_net_ipv6.c) changes how
+  writes are parsed on 64-bit in several ways the commit body does not…
+- [Low] proc_ioam6_id_wide() passes a temporary ctl_table `tmp` with only
+  .data and .maxlen set to proc_dostring().
 
 --
 
-x25: defer socket cleanup on link termination to process context
+ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
 
-This patch moves x25_kill_by_neigh() out of softirq context and into a
-per-neighbour work item on a new dedicated x25 workqueue, which avoids
-calling lock_sock() from softirq. The work holds references on the
-neighbour and its net_device, and NETDEV_DOWN flushes the work.
+net.ipv6.ioam6_id_wide was handled by proc_doulongvec_minmax(). This
+commit replaces that with a local handler, proc_ioam6_id_wide(), which
+formats and parses the u64 through proc_dostring() and kstrtou64(). This
+fixes 32-bit architectures, where unsigned long is 4 bytes and the old
+handler treated the u64 as a vector of two 32-bit values.
 
-Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
-
-> diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
-> index f45c9ec7d2c68..a1a8bc203a24f 100644
-> --- a/net/x25/af_x25.c
-> +++ b/net/x25/af_x25.c
-> @@ -222,6 +222,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
->  			nb = x25_get_neigh(dev);
->  			if (nb) {
->  				x25_link_terminated(nb);
-> +				flush_work(&nb->kill_work);
->  				x25_neigh_put(nb);
->  			}
->  			x25_route_device_down(dev);
+> diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
+> index 1a0a36dcdabc1..61c28df64d582 100644
+> --- a/net/ipv6/sysctl_net_ipv6.c
+> +++ b/net/ipv6/sysctl_net_ipv6.c
+> @@ -30,6 +30,48 @@ static u32 rt6_multipath_hash_fields_all_mask =
+>  static u32 ioam6_id_max = IOAM6_DEFAULT_ID;
+>  static u64 ioam6_id_wide_max = IOAM6_DEFAULT_ID_WIDE;
+>  
+> +/* unsigned long is 32-bit on some arches, so handle the u64 here */
+> +static int proc_ioam6_id_wide(const struct ctl_table *table, int write,
+> +			      void *buffer, size_t *lenp, loff_t *ppos)
+> +{
+> +	u64 *valp = table->data;
+> +	char buf[24] = "";
+> +	const struct ctl_table tmp = {
+> +		.data	= buf,
+> +		.maxlen	= sizeof(buf),
+> +	};
 
 [Severity: Low]
-NETDEV_DOWN now flushes kill_work. Should the NETDEV_CHANGE case in
-x25_device_event() flush it as well?
 
-net/x25/af_x25.c:x25_device_event() {
-    ...
-		case NETDEV_CHANGE:
-			if (!netif_carrier_ok(dev)) {
-				nb = x25_get_neigh(dev);
-				if (nb) {
-					x25_link_terminated(nb);
-					x25_neigh_put(nb);
-				}
-			}
-			break;
+The temporary table passed to proc_dostring() has no procname. Will the
+sysctl write warning then print "(null)" instead of ioam6_id_wide?
+
+On every write, proc_dostring() calls:
+
+kernel/sysctl.c:proc_dostring() {
+	if (SYSCTL_USER_TO_KERN(dir))
+		proc_first_pos_non_zero_ignore(ppos, table);
     ...
 }
 
-Both cases run in process context under RTNL. Before this patch, both
-cleared the sockets synchronously.
+Take kernel.sysctl_writes_strict=0 and a write shorter than 24 bytes at
+a non-zero offset. That write reaches warn_sysctl_write(&tmp):
 
-After carrier loss, the sockets now stay attached to nb with
-nb->state == X25_LINK_STATE_0 until the worker runs. During that window
-they can still send through x25_transmit_link(), which would queue the
-frame and call x25_establish_link().
+	pr_warn_once("%s wrote to %s when file position was not 0!\n"
+		[ ... ]
+		current->comm, table->procname);
 
-Only the softirq callers seem to need the deferral. The process-context
-callers could keep the old behaviour with a flush, or by calling
-x25_kill_by_neigh() directly.
+This is pr_warn_once(), so a message that doesn't name the file would
+use up the only warning for the whole system. The old
+proc_doulongvec_minmax() path passed the real table here.
 
-[ ... ]
+Would adding .procname = table->procname to tmp be enough?
 
-> diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
-> index d1e8cd81c2143..424044c1cf974 100644
-> --- a/net/x25/x25_link.c
-> +++ b/net/x25/x25_link.c
-
-[ ... ]
-
-> +static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
-> +{
-> +	x25_neigh_hold(nb);
-> +	dev_hold(nb->dev);
-> +	if (!queue_work(x25_wq, &nb->kill_work)) {
-> +		dev_put(nb->dev);
-> +		x25_neigh_put(nb);
-> +	}
-> +}
+> +	loff_t pos = *ppos;
+> +	u64 val;
+> +	int ret;
 > +
->  /*
->   *	This handles all restart and diagnostic frames.
->   */
-> @@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
->  			break;
->  		case X25_LINK_STATE_3:
->  			/* clear existing virtual calls */
-> -			x25_kill_by_neigh(nb);
-> +			x25_defer_kill_by_neigh(nb);
->  
->  			x25_transmit_restart_confirmation(nb);
->  			break;
+> +	if (!write) {
+> +		snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
+> +		return proc_dostring(&tmp, write, buffer, lenp, ppos);
+> +	}
+> +
+> +	/* an empty write changes nothing, as with proc_doulongvec_minmax() */
+> +	if (!*lenp)
+> +		return 0;
+> +
+> +	/* proc_dostring() would silently truncate a longer input */
+> +	if (*lenp >= sizeof(buf))
+> +		return -EINVAL;
+> +
+> +	ret = proc_dostring(&tmp, write, buffer, lenp, ppos);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* a lone "\n" is invalid, a continued write in strict mode is ignored */
+> +	if (!buf[0])
+> +		return pos ? 0 : -EINVAL;
+> +
+> +	if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
+> +		return -EINVAL;
 
 [Severity: Medium]
-With this change, does the restart/terminate sequence continue while the
-old virtual calls are still bound to nb?
 
-x25_defer_kill_by_neigh() only queues the work and returns. In
-x25_link_control(), the restart confirmation (or the restart request,
-the move to X25_LINK_STATE_2, and T20 in the RESTART_CONFIRMATION case)
-goes out first. nb->queue is also drained in STATE_3 at the end of the
-function.
+The commit message says:
 
-The old sockets are still on x25_list at that point, with
-x25->neighbour == nb and their old LCIs. The same applies to
-x25_link_terminated(), which sets STATE_0 but leaves the sockets
-connected. Neither the softirq X25_IFACE_DISCONNECT path nor
-NETDEV_CHANGE flushes the work.
+  One change on 64-bit: a write of two numbers such as "5 6" is now
+  rejected with -EINVAL, instead of being a partial write that sets the
+  value to 5.
 
-Until the worker runs, a few things look possible.
+Does proc_ioam6_id_wide() change 64-bit behaviour in other ways that
+should be listed too?
 
-If the peer reuses an LCI after the restart, x25_receive_data() still
-matches the stale socket:
+The length guard checks the total write size. But _proc_do_string()
+copies at most maxlen - 1 bytes and stops at the first '\n' or NUL:
 
-net/x25/x25_dev.c:x25_receive_data() {
+kernel/sysctl.c:_proc_do_string() {
     ...
-	if ((sk = x25_find_socket(lci, nb)) != NULL) {
-		...
-		queued = x25_process_rx_frame(sk, skb);
-		...
-	}
-
-	if (frametype == X25_CALL_REQUEST)
-		return x25_rx_call_request(skb, nb, lci);
+		while ((p - buffer) < *lenp && len < maxlen - 1) {
+			c = *(p++);
+			if (c == 0 || c == '\n')
+				break;
+			data[len++] = c;
+		}
     ...
 }
 
-So could a new CALL_REQUEST on a reused LCI be handed to the old socket
-instead of reaching x25_rx_call_request()?
+So a 24-byte write of 23 characters plus "\n" fits in buf without being
+truncated, yet the guard rejects it. The guard also rejects "5\n"
+followed by 22 or more bytes, and a value padded with 24 or more bytes
+of whitespace. The old path accepted all of these, fully or as a partial
+write.
 
-A stale socket can also still transmit via x25_transmit_link(). In
-STATE_0 that queues the frame and calls x25_establish_link(), which
-brings the link back up for a dead call. In STATE_1/2 the frame is
-queued and flushed later onto the restarted link.
+Is the comment "proc_dostring() would silently truncate a longer input"
+accurate for these cases?
 
-When x25_kill_by_neigh_work()->x25_kill_by_neigh() finally runs, it
-disconnects every socket whose neighbour == nb at that moment. That
-includes calls set up after the triggering event, such as sockets from
-x25_rx_call_request() or outgoing calls from x25_connect():
+In strict mode, a continued write at a non-zero offset now returns
+-EINVAL if it is 24 bytes or longer, and is ignored if it is shorter.
+The old proc_first_pos_non_zero_ignore() path ignored it at any length.
 
-	x25->neighbour = x25_get_neigh(rt->dev);
+Because _proc_do_string() stops at the first '\n', "\n5" or " \n 5"
+leaves buf empty and returns -EINVAL. The old path skipped the newline
+in proc_skip_spaces() and set 5.
 
-Can valid new calls get torn down with ENETUNREACH this way? The same
-question applies to forwards that x25_clear_forward_by_dev() removes
-after being created post-event.
+In the other direction, "5\n6" now succeeds, sets 5 and reports all
+bytes consumed. Meanwhile "5 6" and "5\t6" return -EINVAL.
 
-The comments "clear existing virtual calls" and "Out of order: clear
-existing virtual calls (X.25 03/93 4.6.3)" also no longer match what
-happens synchronously.
+kstrtou64() also skips a leading '+', so "+5" is now accepted. The old
+path rejected it in proc_get_long():
 
-One option might be to detach the sockets synchronously in softirq (for
-example, mark them dead or clear lci/neighbour under x25_list_lock or
-bh_lock_sock()) and defer only the part that sleeps.
+	if (!isdigit(*p))
+		return -EINVAL;
 
-> @@ -97,7 +118,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
->  			break;
->  		case X25_LINK_STATE_3:
->  			/* clear existing virtual calls */
-> -			x25_kill_by_neigh(nb);
-> +			x25_defer_kill_by_neigh(nb);
->  
->  			x25_transmit_restart_request(nb);
->  			nb->state = X25_LINK_STATE_2;
-> @@ -254,7 +275,7 @@ void x25_link_terminated(struct x25_neigh *nb)
->  	x25_stop_t20timer(nb);
->  
->  	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
-> -	x25_kill_by_neigh(nb);
-> +	x25_defer_kill_by_neigh(nb);
->  }
+Two other changes are only described below the --- line, so they won't
+reach git history: 21 to 23 digit input is now accepted, and a lone "\n"
+at a non-zero offset in non-strict mode is now ignored.
+
+Could the up-front total length check be dropped? After proc_dostring(),
+the handler could check whether a terminator was found within
+maxlen - 1 bytes, and decide explicitly whether data after '\n' is
+rejected. Any 64-bit changes that remain could then go in the commit
+body.
+
+> +
+> +	WRITE_ONCE(*valp, val);
+> +	return 0;
+> +}
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_EC124B80BC53531B2EAB18DD04B37BAE7406%40qq.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122013848.14287-1-jain.sm%40gmail.com
