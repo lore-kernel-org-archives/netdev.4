@@ -1,110 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.101.248.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396454;
-	b=zi5CmbsyWWIP6YcQ/4Fam+GvM7peZZwKt/YIGlQtl/6OKgHMFyzsT15Agz7Vx8bqtkbM
-	 GAq3PTSrvx6U84peo4eUzpgskES8ERlNgm48wOYmNlP6DdI05KxPqn4HVh3h9BIAjslP5
-	 9F/AEk173YcK4hPNj4w7MqeoYvLqQzWfCpMcXtjAvNE8DjnOPnZNjaYteMW7ToVdmwb9K
-	 vFNh63HZdgszbwnqP3GQhw5U3SAqBbUUoYcNeYyp/DR+5S8tTg0UKWqahvnpXXtzztHwQ
-	 O9ZJGDKJY3J/3f0NdVbUCqonjBwR6P0lwAYDanVSSxl/X3i7SI6Uk7gmnyConHSfTVg==
+	t=1795396453;
+	b=p7hUrkCBJ24XKnL4Lov2r5JXCoyWoqqJcapYOUjFYS5jcbq3uvFZdDtIh7NGd4ug7Ez5
+	 oPNafcJfyXxU2VAtaspA+FiOv7PrvGmj9P9xmpJabgfHNeGeWLBFZdfIZcSI1247exgPE
+	 PxgvVAqptfPvUDP7QozRyBDhZGb2mMGxCTOwXmaHdvcOlDx5MLkYnyMFeBzGsoRMSbyZx
+	 pnZ+rWI0iC1AEySSg0BfcPfQ00g/x3tGyrtdpKzTrpVISIOh2X+QkKyd/KUa0e0xq/kB7
+	 TMsl5Tfi6Y2YUAqjKrAJIypOkAbfqH7iJd507kD2O3yVsPbEJpujUkio23r8fNfvDDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396454;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1nAFz1rE2Zgq0kT2UJ5pKEhQqcU8lxqQXw2MrFx+Nfc=;
-	b=pYZrMBTfNg/tmd5x+6LlDdoeixZlNJ55dAWeRxY8ztf03HR0s7/UdHR9gNKc9N/uWePj
-	 4CkIGVm9AcUqiXxBqwnrsZb+cPSGX6GMJevdtDz5+Ovu5QxGWCZENhHVJp23xUYqrtls0
-	 WiCfI/oIN+MLF2RqmZsp2raJBZnwj1VGeEe8iwJ+o8MrsqTpq+5f3RFNf8mmgpDYOOGnG
-	 pmishOdd7aYSQGCApUZyOAiwFORtgvvtqfZafCILuLUB4GraLHtu4L5eaypgZ1P+Rge2X
-	 6ZhW1/QNp0FrcTvIJ/w0UhpauL/DmjKewRbsub40ZyTUp5IqRzi42cJpfvrkBkDp5QA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396453;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=I6yOiTQDOMx7xgrbUTonjLgXgnPtkTY8xFHVLWTXSgY=;
+	b=pqiO0V2b0dVRnk8n9W9fV9VnpxXUEi5XhtLjnC8G8Ato/UXfmyFh1tBe70mwucJy8/AC
+	 zXUi9raKqHOjluNUKCiUHRa6eTc5nV3rnbKTfHNfQcbrLPtoSnTFlCurpMymoox9BTUI8
+	 qS0PRVwoZUEiNsl1cxCdIiep8VsRhZ3gtvB6y3Gjqm2qboa47a+gBg0kuTZdvonFwERTz
+	 aYRwlQOL16PXIIfskToFsgZyDQdz9EwEojM1y/oHtvg97Gv/P8mRaevubpGtz2OV9BYqQ
+	 MlZsBuObyf0WU+HSGMzOp919Dept1geNLKSPk4ojwk8ykXk7thP+bZ8B2t3LqdFXiOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5brb9u8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AE13606A332;
-	Mon, 23 Nov 2026 01:14:13 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5brb9u8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6C351F000C0;
-	Mon, 23 Nov 2026 01:14:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795396453;
-	bh=1nAFz1rE2Zgq0kT2UJ5pKEhQqcU8lxqQXw2MrFx+Nfc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m5brb9u8foWKbi7SrlcdW6nE2yWIS8IEGVU5QHSZYMih+9IEkmiqaNM0lLx2EYbPE
-	 Ene3Ka2hJ1BAvW2vOWqYEoxo49rMX/8KuHKgTHWJQeFE3NrlIrAf3xeYL6VLmMY+/l
-	 ekFXnTI29+zSfV1Cj1JiY8g0iM3LpoM2wMrgHM/4k71UbfvjD94MuJKD4cUZLqKZBp
-	 tapIlLzsw5cg25rKFRJ3Wy6OzHRx9WFNJ4Dy/E+S8IHUzJbf1ziPCMSD/LFgujVS+y
-	 I6gkNfNt8+7zFmlY0xlcmT0RV+dcWLazJhMGzWNLJfBLUPxJ9MdE0Cw4N9AumibzJ+
-	 +Zbi9zcgZuE0w==
-Date: Mon, 23 Nov 2026 01:13:59 +0000
-From: Tzung-Bi Shih <tzungbi@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
-	oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
-	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	MPT-FusionLinux.pdl@broadcom.com,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Zhihao Cheng <chengzhihao1@huawei.com>,
-	linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
-	virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
-	linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
-	devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>,
-	Namjae Jeon <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org,
-	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
-	linux-f2fs-devel@lists.sourceforge.net,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Benson Leung <bleung@chromium.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	amd-gfx@lists.freedesktop.org,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	intel-gfx@lists.freedesktop.org,
-	Matthew Brost <matthew.brost@intel.com>,
-	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
-	intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v2 11/12] docs: ioctl-number: update platform entries
-Message-ID: <awOTV4kbshpi_cxp@google.com>
-References: <20261119053514.255348-1-rdunlap@infradead.org>
- <20261119053514.255348-12-rdunlap@infradead.org>
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=46.101.248.176
+Received: from zg8tndyumtaxlji0oc4xnzya.icoremail.net (zg8tndyumtaxlji0oc4xnzya.icoremail.net [46.101.248.176])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 78291606A32D;
+	Mon, 23 Nov 2026 01:14:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78291606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wDX7jRhkwNroc4sAg--.11219S3;
+	Mon, 23 Nov 2026 09:14:09 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app3 (Coremail) with UTF8SMTPSA id zS_KCgC3CqdgkwNr+K+BAQ--.37450S4;
+	Mon, 23 Nov 2026 09:14:09 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Lin Ma <linma@zju.edu.cn>
+Subject: [PATCH net] rxrpc: Bound the OOB challenge queue per connection
+Date: Mon, 23 Nov 2026 09:13:20 +0800
+Message-ID: <20261123011320.4032340-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,20 +53,142 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119053514.255348-12-rdunlap@infradead.org>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zS_KCgC3CqdgkwNr+K+BAQ--.37450S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAqsA
+X-CM-DELIVERINFO: =?B?4xjnygXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGcBqcyijhDw7SXfVbmqB2A4q20OOH9vDaY9MFicGtae2BFE
+	fmb2ItgbSrUzSP2K/xkdSR+W6OnPV0BSgrrXxlRutGbGYt9J3uwFfeL9uPxtcQ==
+X-Coremail-Antispam: 1Uk129KBj93XoWxury8Jr17ur47Gr4kJF48Xwc_yoWrCF43pa
+	90kr93Kr4kXr1fCrZ3Aa18A3Wavw4DW34UGr1Uu3yrAwsag3Z3JF4ktF48XF1UGw4kGrZx
+	Zr4Yga98Ca1UA3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
+	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAF
+	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
+	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
+	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
+	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
+	vjxU2YFCUUUUU
 
-On Wed, Nov 18, 2026 at 09:35:12PM -0800, Randy Dunlap wrote:
-> Update the list of platform/ files where ioctls are defined and update
-> the ranges of function numbers that are used.
-> 
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> ---
-> v2: no change
-> 
-> [Since having multiple maintainers trying to merge these would
-> cause some conflicts, it would be more manageable for Jon to
-> take all of these through the docs-next tree.]
+rxrpc_notify_socket_oob() adds CHALLENGE packets to the owning socket's
+recvmsg_oobq without any limit.  A peer that keeps sending CHALLENGEs on
+an existing connection can therefore grow that queue, and the
+pending_oobq tree it feeds, without bound if the socket owner never
+reads or responds to them.  Each queued skb also holds a reference to
+the connection.
 
-Acked-by: Tzung-Bi Shih <tzungbi@kernel.org> # cros_ec
+A connection cannot make progress until a CHALLENGE is answered, so
+there is no point in retaining an arbitrarily deep backlog of them.
+Count the outstanding OOB skbs against the connection and drop new
+CHALLENGEs once a small limit is reached.  The count is dropped when the
+skb is finally freed, whether by the userspace response path, the kernel
+OOB API or socket teardown.
+
+Dropping the packet consumes it without sending a reject, so a flood
+does not abort the connection; if the application cannot keep up, the
+existing call and connection timeouts still apply.
+
+Fixes: 5800b1cf3fd8 ("rxrpc: Allow CHALLENGEs to the passed to the app for a RESPONSE")
+Signed-off-by: Lin Ma <linma@zju.edu.cn>
+---
+ net/rxrpc/ar-internal.h |  8 ++++++++
+ net/rxrpc/conn_event.c  | 20 ++++++++++++++++----
+ net/rxrpc/oob.c         |  2 ++
+ 3 files changed, 26 insertions(+), 4 deletions(-)
+
+diff --git a/net/rxrpc/ar-internal.h b/net/rxrpc/ar-internal.h
+index 865f05fe37ab..1eabf1ad5b28 100644
+--- a/net/rxrpc/ar-internal.h
++++ b/net/rxrpc/ar-internal.h
+@@ -534,6 +534,13 @@ struct rxrpc_bundle {
+ 	struct rxrpc_connection	*conns[4];	/* The connections in the bundle (max 4) */
+ };
+ 
++/*
++ * Maximum number of out-of-band messages that may be queued against a
++ * connection.  A connection cannot make progress while a CHALLENGE is
++ * outstanding, so a deeper queue only represents a peer flooding us.
++ */
++#define RXRPC_OOB_MAX_QUEUED	4
++
+ /*
+  * RxRPC connection definition
+  * - matched by { local, peer, epoch, conn_id, direction }
+@@ -575,6 +582,7 @@ struct rxrpc_connection {
+ 	struct list_head	proc_link;	/* link in procfs list */
+ 	struct list_head	link;		/* link in master connection list */
+ 	struct sk_buff_head	rx_queue;	/* received conn-level packets */
++	atomic_t		n_oobq;		/* Number of OOB messages queued */
+ 	struct page_frag_cache	tx_data_alloc;	/* Tx DATA packet allocation */
+ 	struct mutex		tx_data_alloc_lock;
+ 
+diff --git a/net/rxrpc/conn_event.c b/net/rxrpc/conn_event.c
+index 611c790bc6d0..8665e5f7770d 100644
+--- a/net/rxrpc/conn_event.c
++++ b/net/rxrpc/conn_event.c
+@@ -436,7 +436,7 @@ static bool rxrpc_post_challenge(struct rxrpc_connection *conn,
+ 	struct rxrpc_skb_priv *sp = rxrpc_skb(skb);
+ 	struct rxrpc_call *call = NULL;
+ 	struct rxrpc_sock *rx;
+-	bool respond = false, queued = false;
++	bool respond = false, queued = false, drop = false;
+ 
+ 	sp->chall.conn =
+ 		rxrpc_get_connection(conn, rxrpc_conn_get_challenge_input);
+@@ -471,13 +471,25 @@ static bool rxrpc_post_challenge(struct rxrpc_connection *conn,
+ 		return false;
+ 	}
+ 
+-	if (call)
+-		queued = rxrpc_notify_socket_oob(call, skb);
++	if (call) {
++		/* A connection can only make progress by answering one
++		 * CHALLENGE at a time, so don't let a peer pile an unbounded
++		 * number of them up on the socket queue.
++		 */
++		if (atomic_inc_return(&conn->n_oobq) <= RXRPC_OOB_MAX_QUEUED) {
++			queued = rxrpc_notify_socket_oob(call, skb);
++			if (!queued)
++				atomic_dec(&conn->n_oobq);
++		} else {
++			atomic_dec(&conn->n_oobq);
++			drop = true;
++		}
++	}
+ 	rcu_read_unlock();
+ 	if (call && !queued) {
+ 		rxrpc_put_connection(conn, rxrpc_conn_put_challenge_input);
+ 		sp->chall.conn = NULL;
+-		return false;
++		return drop;	/* Silently consume a challenge we dropped. */
+ 	}
+ 
+ 	if (!call)
+diff --git a/net/rxrpc/oob.c b/net/rxrpc/oob.c
+index c80ee2487d09..a126296866fa 100644
+--- a/net/rxrpc/oob.c
++++ b/net/rxrpc/oob.c
+@@ -215,6 +215,7 @@ static int rxrpc_respond_to_oob(struct rxrpc_sock *rx,
+ 
+ 	switch (skb->mark) {
+ 	case RXRPC_OOB_CHALLENGE:
++		atomic_dec(&sp->chall.conn->n_oobq);
+ 		rxrpc_put_connection(sp->chall.conn, rxrpc_conn_put_oob);
+ 		break;
+ 	}
+@@ -329,6 +330,7 @@ void rxrpc_kernel_free_oob(struct sk_buff *oob)
+ 
+ 	switch (oob->mark) {
+ 	case RXRPC_OOB_CHALLENGE:
++		atomic_dec(&sp->chall.conn->n_oobq);
+ 		rxrpc_put_connection(sp->chall.conn, rxrpc_conn_put_oob);
+ 		break;
+ 	}
+
