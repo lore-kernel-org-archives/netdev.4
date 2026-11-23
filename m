@@ -1,53 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.79.23
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421023;
-	b=UAmspuIxVcIztTztMrzOpzyvk4CWr5Wza3/BwMwBax0SkmZzWEFNpAOS7mLCOvGfCKKZ
-	 C5ZavVN0ui/ApeLVGeYo6R0Y2wwYC11xHpd7/VxyRIQEDETThG6CdBqnBc8WIwx+ibUbo
-	 H1o6J6SzcvKnH+bjO8OV5cvkmSa54FzNKim8LvTi4zqM6HHogx77fjK3q8aO74BMhgP2j
-	 rbX0cMFIzFlO+A6Q4Gqy2MKWNh3UhpitePMYudMXQ5p3AkAew0tO2QKYjZ6sCTL1GU6Ml
-	 zDpyfl/yib9SxNnLH4HpKmcse5FiF79VEGKL/DDIdUcHHxhXGGOcFSnpnE7kqLa7S2w==
+	t=1795421033;
+	b=JHwmKmOkwZfFx6k7HPv8YDsN41wnnuEualqOY5O5sxZ0f+U+JHvVppJcvyfpz7MYucbx
+	 +B2t4/tZOJt4U3Bb0lBqAIcqOl34SfJB/JCIaXZGBQAnPWxGCUHrqA7VOhoUcZFZ6o6RO
+	 M4b17Rl3eVddCuJyn8h75c12vhcEzSjud+ZNazbHVJJIhmEcRcE0V79+pnyerc8eYf02F
+	 /IdDFQj5mAB8bf2ha+k/q1U4oiehcaJEHEfu7le8iVx+NYxrDNm1RVP+fv50M4vtzTrgm
+	 UbOJvdL8jOYqyfMvlkw37UkQT/qA+BiD6msri5WaTPMFuaIzUW9xsZvl60jOeb0UjlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421023;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
-	 mail-alias-created-date:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Authority-Info-Out:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-JNJ;
-	bh=JYvSvDfswO2l+IyLzWQJX1wneXOmcrOuIQ0XsfOmxLo=;
-	b=sGHyRmzdrnZcVgdr+2nwLQuYI5SgtLVaMjoowx7RBydVNbHnTR5SJMeUI87CFkXolW1D
-	 BviKTSm3vP14oMNs+ol7iZNX1Q8kqXJ8BKb5pIe7ZJhUSgY/LnXdn9CNroFh03mxdTXSE
-	 8LuTG8xMOq0tz/8PK9sJQ3+BM9Koa9KMVUuFSRFXPknkfqrg6ByOhI8fbI0C+7ctHsodI
-	 EaiAnLUvjTaaWRKfGMSkFHYGUl6dmvSKHp+61WQxE/IxAFwoptXGJ+I/wHVL98MrepFqE
-	 vBSuxUqt8D6S2nd0qbAgbG0VB50ucZG+6Resnuq1PWB9jXjZJfX3YZSXe05X8hsI+xQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421033;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate-ID:
+	 X-purgate:X-purgate-type;
+	bh=wq8s74QVlUlCAUYwxi1YGNXVTyJwh2qmcap9DQJ8qsw=;
+	b=ULrb+A1/2xhVf0nWr4/7B9GdbccFn9txN31TtYMWVEqyAzvZIuiH+X4Mx92IZR5h6aXB
+	 QG70FDnXhQWgMrWqrd3OJjZvonLWh3K3qS5g5TTyvcCewx9AId9eXTHUKIbmkkSHWTXW3
+	 r8Wfr9DH12yCm11jsH9CuQUAU9qCnKIS7lE3O9QGEL0L4PSdXnsibPPcLqbcYZBYFoIjS
+	 rEjfD1/FAHmyGw95bFPKdhsRiw7tmaegJ42RlSDOsFUMNSCMkRDvTAQxb31fcynDc3h3h
+	 Lmwxm2mZdrDOw1GZKOl1LAkpKpezbJoeSvEh/PzdnCWg4u9vbes9cFTAa4rZzQV5kQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shuye.dev;
-	spf=pass smtp.mailfrom=shuye.dev;
-	dkim=pass header.d=shuye.dev header.i=@shuye.dev header.a=rsa-sha256 header.s=sig1 header.b=vpSzqAyK;
-	arc=none smtp.remote-ip=57.103.79.23
-Received: from outbound.st.icloud.com (st-2005b-snip4-11.eps.apple.com [57.103.79.23])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=nlBhaU0f;
+	arc=none smtp.remote-ip=91.198.224.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 482D0606A69C
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:03:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 482D0606A69C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=shuye.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shuye.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 959D3606E602
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:03:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 959D3606E602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shuye.dev header.i=@shuye.dev header.a=rsa-sha256 header.s=sig1 header.b=vpSzqAyK
-Received: from outbound.st.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-1a-100-percent-0 (Postfix) with ESMTPS id CFD851800218;
-	Mon, 23 Nov 2026 08:03:36 +0000 (UTC)
-X-ICL-RepId: 01a2076e-9277-7aed-a86f-ebaadef8294b
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shuye.dev; s=sig1; t=1795421021; x=1826957021; bh=JYvSvDfswO2l+IyLzWQJX1wneXOmcrOuIQ0XsfOmxLo=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=vpSzqAyKYN9JXypjsE1N4TUp9scJJooBDOprtbzu8ybgNoqq0JJ649kUKH8bNeoAZtcRF+YUTxi1gHC1YgTdD03kMAzwYvk3LWptgekTpaEBM2b4GHD79c0QCJmjBTnEkL88UZsP6AdNUqaWO+3qtdx+f4Iu48OISYhrOx8gePBUVDo0GxRvR8Eo9EBZzjdpKA1fBMkTYF1jtKuX3lMq+rz5kIQpLZj6DtVTz0ernGYTJC1M5l5qA3HYqcUoqPW4yZMIJJEqZ8hARTd8m30/ZJzxwyD3P9VYMRF9t5lKcBR9Q+nFZU5GgFTtJFr10ZG9OmvJgAVslXvYzH2dTH2DSw==
-mail-alias-created-date: 1658105457252
-Received: from shuye.dev (unknown [17.156.216.30])
-	by p00-icloudmta-asmtp-us-east-1a-100-percent-0 (Postfix) with ESMTPSA id 8A3EC1800208;
-	Mon, 23 Nov 2026 08:03:35 +0000 (UTC)
-From: Ye Shu <hello@shuye.dev>
-Date: Mon, 23 Nov 2026 00:02:33 -0800
-Subject: [PATCH iwl-net] e1000e: add HP ZBook 8 G2i 14 to disable K1 list
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=nlBhaU0f
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
+	id 1xVP1i-007NlH-Oy
+	for netdev@vger.kernel.org; Mon, 23 Nov 2026 09:03:50 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xVP1i-00D1PQ-Cd
+	for netdev@vger.kernel.org; Mon, 23 Nov 2026 09:03:50 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795421029;
+	bh=wq8s74QVlUlCAUYwxi1YGNXVTyJwh2qmcap9DQJ8qsw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nlBhaU0fc8m/tEw7l/Hk3CVYXezPnR+M5gSVtj6o2mGKDqrylcMxjNZsXT/I5VnKh
+	 ALrWFiNRODJXW+wTukKkJi80PAoFxocAFddss1K3p6b3nVPXEhFOowdt3JVAa4ijU5
+	 zdHiPGaa4WLPhZsBwl14gzIVP2cLnj35mIPwmMUpphE+TRQKhwhn7aFS2iJy5NmLDL
+	 +vILnAsKfuqgt0Bdk53SOgJr7LUvJ59GKcoGQ3NF2vI8bGUwh6semhjy21UtPrWHxw
+	 6FRvYVnXpxjUQBjzAoXk5ph1UBgKWInWRjx6gOQVasPTsrNA1KfbWE8xGxVN3GRQNG
+	 8DZXVoefQTGdg==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id E40F0240041
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:03:49 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id D317B240036;
+	Mon, 23 Nov 2026 09:03:49 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 91E142AED5;
+	Mon, 23 Nov 2026 09:03:49 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,134 +73,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-e1000e-hp-zbook-k1-v1-1-468e3868229f@shuye.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MUQrCMAwG4KuE/3mBpCtOexXxYWp0YdKOVlQcu
- 7vgd4BvRbPq1pBoRbWXNy8ZibQjXKYx3439ikQIEnaqIbCpiBhPC3/Ppcw8K0cb+l7iuD8MER1
- hqXbzzz89wt8PzvbEadt+Vl9Bvm0AAAA=
-X-Change-ID: 20261122-e1000e-hp-zbook-k1-4e73304a8974
-To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
- Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>, 
- Dima Ruinskiy <dima.ruinskiy@intel.com>, 
- Vitaly Lifshits <vitaly.lifshits@intel.com>, 
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Ye Shu <hello@shuye.dev>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1963; i=hello@shuye.dev;
- h=from:subject:message-id; bh=Tk2kaEGBsjUU2+Xrzlzb0H/K/d1lZQi2yqEQQz5/qho=;
- b=owEBbQKS/ZANAwAKAWrdZni68N7qAcsmYgBrA/NWcuNYDo8u4aF8qMy37Q7bnFL1jtPHc127Y
- fSZwVz3epiJAjMEAAEKAB0WIQTaiAWzOwE7Z7uq/ZNq3WZ4uvDe6gUCawPzVgAKCRBq3WZ4uvDe
- 6ta+D/9PwriDv8XRgFc/U/kIMVeThj7EebTpGu8kcFwMwPsYQfxspAmTPn0tKF3/vi0XHfE6PK8
- IpTOaWsx2+7gJ9Z4wfQqJA41HgB7/DntHYjBI7IqtYRQFkuXX6D08mqwsCX4AIuVS9jLmXZBD3H
- p343xw0GhxXgCBrkAHFvdWGQ1LesLZM6TMNyj9Jj0/9F/DwTRD62j9jyN2YbO/Si1+nzP4Y/Z1v
- y94bHqEX8k4B/Ja37S9fkKXfur3hZj0ET7RQwcStQpBqKqE8UruMMOcgHb+/3dm6pIOT7ZCWg/3
- n6Z0v7z3omLI/SQKT/XtWP8RhkibKKEbEadUtb4CEwm0qtrrrmivtHO7LOngxTDz4y0MQbdNoYq
- Ij00FuanyDh2sSP3fWS5JkdEm008xZZVytCzZiyRkpP6QVa7806KG8TlTus9NswYDk+NtTNtoKU
- cY/2aGuz/O91kYMJCoCC2ZUM2K46yjAmYCmvwUGnYkYs8CEv00VvPV7A/gYNCYPzjhi0uPDjbQW
- KX0w7yYGblTk67HJCNWJwvjex91oBSxoFxPVhb0smawe/0g9mIoH9adAJDFXlUPqgxadj6kVJtM
- HHnhmBPZrQSOdCNzJVtiQ/P6plZQQPfaTjhTzSUAHPilGlKiVm3gaqfVkX5nyAUf4f8brGQQu6Z
- 7Q/kxBZbRey/D1A==
-X-Developer-Key: i=hello@shuye.dev; a=openpgp;
- fpr=F021058172993F4D228EDB6972FF4E8B377057DE
-X-Authority-Info-Out: v=2.4 cv=PbNqFShd c=1 sm=1 tr=0 ts=6b03f35a
- cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
- a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=AZoGnDOZhPiq548KR6q9:22 a=oPt-bpzCUupNiBt5qcZk:22
- a=VwQbUJbxAAAA:8 a=qnVDHuHs7DX7YdgB2tMA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: HdjXjTci-5tB4pFkOoyDrfYGc9KzORrV
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfX4dEOGQjMgsGb
- Lq8PiPHkbChVwAzgBEyVPOnoyjH9nfyS8wax6h9TF9w+4JE+1nDE5m6XBNVf8sHvC93EXM5zjJF
- qTFSQbQDsLIDGr3GCIIit7o2WxNZ9V4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfXxvq+SjnGHP7y
- 1v5u3GOhL+kM/QSiRiniwLbclc48zyT596Pz/Si4PvCO7XwsZsCNj3rlk/qsvwr9Y4kA3bziLB+
- gBdVIt+5vTFBMKE0SW9mMW+DOOOA6YHSD8X1bmQhhayWubK8TCuAhEzbFG2toLFSHOQoJCO9/1m
- IjiWLI1U8JXp/Mv6VZM9Um7BDMWMJYSC8Zq+gv0I139zl9czzG8bDWlVMpaUufQqcKA+V6kZS4i
- stUZxOG9hVsgsJi2Nta6zOcq/8GaIm9+vRAc9LmrnQRDS+zT3nw+ueIdF1OyTtb6iaePnS3pkWn
- vQQBPp8Vjw4osSYmVrDKdmdVln5x5qMru8iGwQrBP8SPDqNj6GFB3qsNi79vAs=
-X-Proofpoint-GUID: HdjXjTci-5tB4pFkOoyDrfYGc9KzORrV
-X-JNJ: AAAAAAABLlj2GXMfJgPS6ZL5RRkrN0+SR9VBuGsw3ND80RiAZpzRIEpF3Dlr9lyz/ynVjv
- Woll1dMWwHn2JnSryo5B/riTWwepCRbUINaKzGdbvPQcwCZN6SbfbWpJHs+VKUJnub25Ju
- 1TqG8so0rh2Y1cGCQezxCSGburtFMaicUlhIdu0+4wG716e01ONFDv/d/AGtHP1H075Ajq
- lLcSnGpeSKw5NmbLzKFW5P50jgVsgXqD7pM6YUTOkXauYJfQKZXBuKPFxk7PKuNCu090qm
- /cm730GZmSPqO8nBI4YOGujMY5MZPoyC7py6TtDMA8lBPnv870rvR2D8b9yr3vWSJP2u/i
- ts0vQLlS+op+Jjdi4MZAqB9Mz4KRwB7xYRzJnGhyq4tKPIvMJQPzqrlYgbmnLVVcHUmnsw
- OBsrTTEieovBFBN7yZ2bIjBW4an27t0TXj4g4OFbqMJAUSuLO0Vz/0ItV7oPur0cL4uMHF
- +3V05bLAMHFvTaLMpLP9zk1xFcLiK3y4f+JTA+wpOrciFZykHtyqIEpNHCSc8+8gieZBZQ
- zaBS/5XBcZiYqXkF2/rNsASE9HieRLIik+i/SawHxVVkmYjLMx8JjLIk0A+yxkTC8DA88W
- CZC5DGnLQWLUObAhIxJQRPt0+F7djNQuuTueVyHBpcSw/9w9U5SqqAXvSQlwsVQVgb8BeD
- NYMpVqDWlCNsRcRRcGaBU90sKslSF39d5/+YofUHbubxdsLoL1OkrNkhh0D4Jn1VzKCvQU
- T2OgJO49U6BB9Rckz56in4r1oKpN7wlW3D41ymp8d6Xj4dhV/0a0sGPxkQbo+Ly78qPuLN
- P2Vko0tHM4/nOFbtttlHgMSKkz8cpkJwAQ+FusSMJ7igDBAIeL9sTdqt32dmkOVHornKi3
- jMYKyCGe8pMXUdU5zm5LukhNcgXqpDI6D0+D5VZLHPPmWWzbVDwDwP7Aa47DXV5lPzMOu3
- c3mhHxrn7hFAvpMXq9SxPoVY0qmBwZZF2ZmMJvRkficN2bq6qnDVj/seezgHGlSDw4Y2VX
- L4r71T9eJpKSdhU7dDniikf1mMKz17Q4qKwA46U8a9Vm7AxSyGZ21OnzMvBGR4rhlaU+Ap
- eW2y4d7RmM59inRS/ti1bUVE17iKI2QYTaoXQIiZWqt43XpbWz60K0IU6DSuDiyNbUC7Ie
- cIYRM8AqmCC2pgnnm4CHjzIxbpjk8uBDKnY4lb3UjJfFh/P+FnuS1rTfIyliRO36G4KMc+
- 1qyXJsYEXAqBV8UxRo5csaxTFj1wQmgJnrwNHcY2ufDJHv88Ktsx2twHXzgviPQtHRedPO
- pXrsF3qCHU6Ual4AREoRahTgsezTbGTHwA1h9hbRxIY2O/Enczai14Itl0M3BzBGUh1+jc
- lX+MQZIDg9ogOXz5ZKmwTwGFmLhSnPmZms14YraQrz2SQoQv+ehYLg==
+Date: Mon, 23 Nov 2026 09:03:49 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: Shuai Liu <847807867@qq.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
+	linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
+Subject: Re: [PATCH] x25: defer socket cleanup on link termination to
+ process context
+Organization: TDT AG
+In-Reply-To: <tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com>
+References: <179539800759.3135.17245752044060918891@kernel.org>
+ <tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com>
+Message-ID: mid:11
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-ID: 151534::1795421030-BACF971F-50843502/0/0
+X-purgate: clean
+X-purgate-type: clean
+Message-ID: <20261123080349.ScmCLanF2bkBAAS6-tg5TvBoHycVT0Ql_ZS-45e_92s@z>
 
-On the HP ZBook 8 G2i 14 (Panther Lake, Intel I219 NIC [8086:57b3]),
-enabling K1 causes intermittent failures to enter S0ix during s2idle,
-despite CPU reaching package C10.
+Hi Shuai,
 
-Failed suspend reports:
-    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!!
+On Mon, 23 Nov 2026 04:47:48 +0100, Shuai Liu wrote:
+> Changes in v3:
+>   - Flush kill_work in NETDEV_CHANGE as well, restoring synchronous
+>     socket cleanup for both process-context notifier events (Sashiko)
 
-Disabling K1 through the ethtool private flag restores reliable S0ix
-entry:
-    sudo ethtool --set-priv-flags eno1 disable-k1 on
+The NETDEV_CHANGE flush is fine, but I don't agree that the medium
+issue from the review is not actionable, and I don't want to take the
+workqueue approach.
 
-An A/B/A test within a single boot, using 120-second suspend cycles,
-demonstrates the effectiveness:
-    disable-k1 on:   6/6 successful (~116-119 s in S0ix)
-    disable-k1 off:  1/4 successful (118, 0, 0, 0 s in S0ix)
-    disable-k1 on:   4/4 successful (~115-119 s in S0ix)
+In your reply to the review you wrote:
+> The deferred work runs within microseconds of the event, long before
+> the peer can deliver any new frame.
 
-This fix adds a DMI-specific exception to disable K1 by default on the
-system.
+That only holds while no socket on the link is owned by a task. The
+worker sleeps in lock_sock() until the owner releases the socket, which
+is exactly the case in which the current code sleeps in softirq, and an
+owner holds the socket for as long as its send buffer takes to fault
+in. Until then, every call on the link keeps its LCI binding.
 
-Chia-Lin Kao reported a similar failure on a Dell system with the
-same NIC device ID.
+I tested v3 with two lapbether devices on a veth pair and a sender
+stalled in x25_sendmsg() via userfaultfd, so that its socket is owned
+when the link event arrives:
 
-Cc: stable@vger.kernel.org
-Fixes: 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake")
-Link: https://lore.kernel.org/r/c4801ff7-7ff6-457e-b0a5-c2e633d35c59@shuye.dev
-Signed-off-by: Ye Shu <hello@shuye.dev>
----
- drivers/net/ethernet/intel/e1000e/netdev.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+- after a LAPB disconnect, the stalled call itself brings the link back
+   up (SABM) before it is cleared, so the peer can reach us again while
+   the old calls are still bound;
+- after a RESTART, a CALL REQUEST on the old LCI, sent two seconds after
+   the restart was confirmed, never reaches the listener, and the old
+   call sends a DATA packet on that LCI.
 
-diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
-index 6f85dab5c..060a9bcdf 100644
---- a/drivers/net/ethernet/intel/e1000e/netdev.c
-+++ b/drivers/net/ethernet/intel/e1000e/netdev.c
-@@ -74,6 +74,14 @@ static const struct dmi_system_id disable_k1_list[] = {
- 			DMI_MATCH(DMI_PRODUCT_VERSION, "ThinkPad P14s Gen 5"),
- 		},
- 	},
-+	{
-+		.ident = "HP ZBook 8 G2i 14",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-+			DMI_MATCH(DMI_PRODUCT_NAME,
-+				  "HP ZBook 8 G2i 14 inch Mobile Workstation PC"),
-+		},
-+	},
- 	{}
- };
- 
+Neither involves frames that were in flight before the restart.
 
----
-base-commit: af6737b9066832a2017c281159950ba92385ce00
-change-id: 20261122-e1000e-hp-zbook-k1-4e73304a8974
+> Detaching the sockets synchronously in softirq would require writing
+> x25->neighbour / lci / state from BH without lock_sock()
 
-Best regards,
--- 
-Ye Shu <hello@shuye.dev>
+It doesn't. Thang's patch from October [1] uses the pattern that
+x25_receive_data() and the x25 timers already use: under
+bh_lock_sock(), a socket that is not owned is cleared right away, and an
+owned one only gets an atomic flag and is cleared by its owner from
+release_cb. Its v2 also skips flagged sockets in __x25_find_socket() and
+keeps them from transmitting, which fixes both cases above in the same
+test. I'll post it in the next days.
 
+Also, please post new versions as a new thread, with the version in the
+subject of the patch itself, not as a reply to the previous posting.
+
+[1] 
+https://lore.kernel.org/all/20261001150118.128470-1-ngocthang2710.1999@gmail.com/
+
+pw-bot: changes-requested
