@@ -1,99 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795466140;
-	b=UF/CeXpYQ8UnzJyqUDBNs2s4UzVV4dtS2ktcvPXAiroaylelXO2z4EaPunILDF//zvVv
-	 lIc33k00CLkZwuDxXpVuH86ESWQrPZck6rqJlf7gwNuT4CLZp8Qj4MMxFZ38Ki07d7+w6
-	 hGSY3FSHEMX4qocardMQBFYw8dt4oovImKka4m1RWNpkRem6ugSWtfSIdvimMTpkqfGIk
-	 9NQIOpdIzkleQ93GlwxuEXLajZBz2dbbZ64ijE7QhcVaIwna2awPHO34CpRPywcin0pT+
-	 VFEJQ35deZWFKYjfxlDAMNDZZwcbViytT+CizMRCngbmovC3mya0d2mIUNzEDUBrWAQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466140;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=krTB7RKoikRzD5yyiTQ8FGQ+GcAUNRrGAGBRDsGvivU=;
-	b=rVmzhl7fCPX3l/q2ce9/rIbsH/QBdhKjOifw4/0RzZahrV9gVSD8GYIc/InS9mwO5jkG
-	 x8hwH+BtNsnq0cz0yMu9Ju/hzWohXkejAadXkyiHSKrfOloqOgEmCARB0IOATHXZXRIXp
-	 3fy3AnGsuHq2H9lNmPlx3w0+jwwpLk+r0pX2BHKknnH7kWTHui1o6098o5BD+UOTLrSrc
-	 M8kB/0PSEmkBPRjhbjHTDXPmdVyzZEHb78vJl0PCRHxWJrdz4nmq/dV+W9UBtb/Uag1hJ
-	 Dg5n+jCSU6wiEVcwtDmR9dWlDzR+yBsLQbePb3EpRoHlcvp2oV/Z0cDKDE+uVM0G0dA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudflare.com;
-	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b="QQXh7/z1";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.44
-Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com [209.85.161.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795466368;
+	b=hbpIUnH6ZRnRg9gg7SDcAGSLGNgf5lFeeeOh91iLAzYJLtPeHwFoOt+KSdM6LhywnWw9
+	 9wk/UCIooCeMc/bKkcupxE9W8KdwVKPgi7aviOFcCgDZGJEWCktfyuqOF1cQhGtzVq5PB
+	 6grRFgzf351jicknMB31kppjVO/4P6+6I3QmsAZqO7rTE0s0cp4sIBgY3qSN47WynOeIt
+	 V+qBtipQulyXxcwAlFVuXgi45HdbHVMgpszQG9qkm+bhKn0+HrxzZcaaTKy+W3dT+1ri/
+	 CJzvuFxorDidHMnm+ZqluUcCtj2l8Lo1hS+8evbkgJAG9s+AVDMA4iQqo6HIjZoY1ZQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466368;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=uYHZ9xBPT+FC2JvbmkS0mkpOSIDYPq7bEQsGc7x1jrs=;
+	b=UwLj+6rU6Y23rFCJm0qmOWfKkoqYW0cQxNpxuYRdssujfWlTFO5yFjAS9OlPXq2rHau/
+	 Wc9sd7To+tOSJIOTmzx4XQMrNGLHXwroF42VeQj1jEWUPhOpErOBjixvokUNeuNZY0xrQ
+	 bGgUrTEca5ibJB575pr03pgi/8GZ60O1e+cSCLYxzEsqSiS0lOODGOgUAo7kKlOb0m6xx
+	 1DdrA9W6P40L/a0s5LlhXL3ISx1z3wPgDE2xHMuEpru1hNJZ2ryiTn8yT3CB/+hB7ChuE
+	 l4X0ZS+rVMXBABU6tCKreMS7PqBRXtXONCguIlON5F3crHkliIXBXH9kAAYr1timcyg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Y1cOvA/3";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20856606A32A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20856606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9574606A31E;
+	Mon, 23 Nov 2026 20:39:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=QQXh7/z1
-Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-71ad5f20016so2502394eaf.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:35:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795466139; cv=none;
-        d=google.com; s=arc-20260327;
-        b=W7HMh2Lc8LV+6l5rFwU7/WXL11gWLnRLCzDxWPgv0mjYmdZ7SF+pp6ce+27iiYG8XX
-         IperM+M7iPQo9W2ft8cFbNHNPQO8KOyAYTPt2t5AfmE8HtLAfiWMwiB/1PtvJ0s2IbWs
-         ioGmbecRfwb8+UmOCYFlEffngoW9mu5/kgun8amYB66fLEZ5YWs38e43o6xUfFYqn/gQ
-         JNGaQvmCfhu4Q/+pXWJprUlRdHPpGijAjuHXIxROLAnP73YYPWadSu/PqNgfUcMg46B5
-         iGYncoL88j0NSQNKtNfMfNehxc8I5m9OaYoBcdVzeyxp1/6/5Jv4BBBTqyKqzpQZGI5z
-         FOUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=krTB7RKoikRzD5yyiTQ8FGQ+GcAUNRrGAGBRDsGvivU=;
-        fh=vwsKYc3963CloJzlTSWnvijHE9l8ACVa/4ER1aYbAQ0=;
-        b=Po/Xy9GVYronXEag7QH7oTQ4bFgXxxBBtCNjwUv2OoknTzxtAfUTM2NBceeydPdFmj
-         Isk6QmnTfqCPIQDao1NdnalYTGjx/4az5clXvX4xFZ3uwpstdM3Kt5StRLhyd5iSPx0G
-         XjtW3SRJNxI75YAC0diUbrR68C/k8DDhTVnoZO0F1PHYPDBmLqE45DLwDSts+U5sC3fL
-         rO0VAld4lXFC0pwGPeMY63Ogd0SBuh+arMDrL2vW1c0iUQkMNOPp8BOiDvQ9lsHjRrb/
-         kN5qnPQ216xw8R3zl/2CorcfDry9l94TBi+oOOH9v+dru2N+wMOqev30u221Q3+P2j35
-         D6OA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1795466139; x=1796070939; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=krTB7RKoikRzD5yyiTQ8FGQ+GcAUNRrGAGBRDsGvivU=;
-        b=QQXh7/z1dUg33nJ3IIus60/y21mBi3We5PBI1YHITS915S8JNeb83kVQ2JkKY8s9g0
-         EVvXRSS6SIqCUx2D0R03SMnPbSA9YNIQMEAJwSl28n1RCjGMQ3glX/jdd5AIxVqjHT1f
-         viWaOet0TqL5Ahrrpi++8Jmg1e8tUrDdcU5GF1wjOLHB/zFNWS4UCP7GGjD2XDUWe6+k
-         4GLvLiFMjeH3QSRP7b4NNKghUJtXDeMbFeDLDQfhSWVHNYw6rKAs6UvrI9KjzEbreC+q
-         1qLA0XbE7r/2tk/OydeDFaqmuQbb0UvEkbCwpDt1hhWYpzlgmO3OM2XplS40+ie2i7gH
-         I6sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795466139; x=1796070939;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=krTB7RKoikRzD5yyiTQ8FGQ+GcAUNRrGAGBRDsGvivU=;
-        b=pGNnq5ZbUCbHMmu4XBYP1eGc8Is0YPdmYx2zFyAdVA1kfhFLfxbCGu9frJTSVX8XuM
-         56HyDJlw4/p/tmia9x47ZX9z5Uy+PXZ+wMcadiGlqNJOZO5tBG02LVSgaQbisFjReoGB
-         ff/eUOLcPLdZu4LUl9twxkgzYuGMxK5H17VEU0iE1ok54gtsRhQJPlFyUiUCcDMqFYZd
-         2811wOkAHIHEGZZmsBfN8uKdL11CVw1tYGLlqyOMt9Ez3iNDOafkihY1XIzO3+mHV16a
-         xdiawqJW281nrxBFVLkJjHGM17LWVHJtb0C0a0ZlTbhPS/vtR98NKrS8vB5obCAzKMgk
-         WOZA==
-X-Gm-Message-State: APuU4Z+x/3ROVlDuN73jfcUsd67R/fPtkuGpLWbHYzW/x3dJ3wlbQq7P
-	Gy/SSMY0vpCZhbMg1ZF9G6D+34R7Loo18MSt/9BXZ8iAeI3R48g7zrLE5MsF6Akptp/lyx9jT9Z
-	ud3AJWviqTfvpQLPl4IWR68bm29juIWhlAqS82BC1Jg==
-X-Gm-Gg: AZFdTZdE/suk7WplLtNZ6+GgWVjJ5Kq8XT1HgHLih0JpB1A6lSxqfaEtaQNKeB1m7g0
-	IpAWzlR4n9Ul0THVRotA3Ty1bNwxANNUrq6uFRVwgsqkl1ec9EuU3sZZpMY93NfLjcwSxMoe2UY
-	6igjwZ9CqYRNQHpoKg1Q5DyVyoGI3oizwMecdIQozOvNPCXMIYEPF9+rbSrTlv603ziRYRjaxT1
-	ZHrrDZhhk5kHp+/LFbJd+HnxOLhudKymxJH4QULTzkzaCRVlhCoaq94QQWA2X8H6kUocEwjYb+W
-	GrCXwrHuNh/T6TNtbMitHR83xliTHLL885PQixiVp4TPohu2wuPPn5CJl+VwBJwjfu+9gtdVtFH
-	12lSlF5fPAGYCm/09Y2TY/BRnNfx08oWgjbpoZVVCPNCgtIm3AILK+Z58gq7T+jiBWF3WtB0nIX
-	kO0vZZBv+VMQ==
-X-Received: by 2002:a05:6820:a78c:20b0:716:bca7:41de with SMTP id
- 006d021491bc7-71b395b5dc2mr6723471eaf.87.1795466138983; Mon, 23 Nov 2026
- 12:35:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1cOvA/3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BCC91F000CF;
+	Mon, 23 Nov 2026 20:39:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795466368;
+	bh=uYHZ9xBPT+FC2JvbmkS0mkpOSIDYPq7bEQsGc7x1jrs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Y1cOvA/3nz30UZogGyFzZjrVjryx7oc7wKW6obzWqBB3TWb4RMIOg0Ao6mc8e2gpm
+	 Omgs8pdxzANnqA1L6RAKqzsNzpJLetu/IFHidIpD/zWuu21tuNhSuc0pYFwM0ermHx
+	 lqxuBsU6oU2sZmmNF97TqkRHMXq6w9UF0g+QPYbUQ74SKmAXzWFoWo01G8h4L11i6e
+	 RjPBNuOeWAGVwlFtHn+yzgnI/K5Ers+K1ki0vCqQ8HuyTJjrXGSM5a/131eFH89ZAo
+	 zCCD2DoH+oTc5O6MXUm9b9k3r92G11RhMWp606G6mkEhChpZ5TmUH60gsmk0m6foTo
+	 69TECRTRKapeQ==
+Subject: Re: [PATCH net v2 1/3] tls: device: keep tls_sw_fallback() from
+ encrypting its own output
+From: netdev-bot+sashiko@kernel.org
+To: rjethwani@purestorage.com
+Cc: netdev@vger.kernel.org, stable@vger.kernel.org, john.fastabend@gmail.com,
+ kuba@kernel.org, sd@queasysnail.net, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, tariqt@nvidia.com,
+ alice.kernel@fastmail.im
+Date: Mon, 23 Nov 2026 20:39:27 +0000
+Message-ID: <179546636707.3135.15103841065368039377@kernel.org>
+In-Reply-To: <20261119191341.4089157-1-rjethwani@purestorage.com>
+References: <20261119191341.4089157-1-rjethwani@purestorage.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,51 +64,136 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121012402.84848-1-tianyi@cloudflare.com> <3adef4b4d528780bae31f2fb02d0a08bf9c8ebd5.camel@gmail.com>
-In-Reply-To: <3adef4b4d528780bae31f2fb02d0a08bf9c8ebd5.camel@gmail.com>
-From: Tianyi Gao <tianyi@cloudflare.com>
-Date: Mon, 23 Nov 2026 20:35:27 +0000
-X-Gm-Features: Aa3M54plANLdGi-6T1QT2FegAb5y7dpeYS4xxUrv2cDoobb2gOCJGSKfYwT1pMM
-Message-ID: <CAG4wq-f18SHytDb39SdJYzRPk-dzECjH_HCSiMGAQ721Zmfomg@mail.gmail.com>
-Subject: Re: [PATCH net] ice: do not report CHECKSUM_COMPLETE when an XDP
- program is attached
-To: Alexander H Duyck <alexander.duyck@gmail.com>
-Cc: netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org, 
-	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
-	Paul Greenwalt <paul.greenwalt@intel.com>, Alice Michael <alice.michael@intel.com>, 
-	Eric Joyner <eric.joyner@intel.com>, Jesse Brandeburg <jbrandeb@kernel.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, bpf@vger.kernel.org, kernel-team@cloudflare.com, 
-	tianyi.gao@linux.dev
-Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 2026-11-23 at 10:49 -0800, Alexander H Duyck wrote:
-> I'm not sure this is the best fix for this. If we are needing all NICs
-> that support CHECKSUM_COMPLETE *and* XDP to report CHECKSUM_NONE in the
-> event of a frame being modified by XDP it really feels like we should
-> probably look at moving this further up the stack.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Thanks for the review, Alex.
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-IMHO we should first make sure XDP programs do not cause "hw csum
-failure" in current kernels. Whatever an XDP program does, it should
-not be able to trigger a hw csum failure. It's not an uncommon use
-case, e.g., Katran from Meta [3] and Cloudflare's load balancer. And
-existing selftests already do it (test_xdp_native_adjst_head_* and
-test_xdp_native_adjst_tail_* in
-tools/testing/selftests/drivers/net/xdp.py).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> Also even if we go the multiple driver fix route I wonder if we
-> shouldn't look at adding a new XDP return type to indicate that we are
-> passing a modified frame
+- [High] The patch makes skb->decrypted the marker for 'still needs TLS
+  encryption': tls_sw_fallback() now skips skbs with…
+- [Low] The new early return in tls_sw_fallback()
+  (net/tls/tls_device_fallback.c:377-379, '/* Already encrypted, e.g. by…
 
-IMHO that is for net-next. There we can add optimizations, such as a
-way to keep CHECKSUM_COMPLETE for programs that do not change the
-frame, potentially after [1] or [2] is accepted.
+--
 
+tls: device: keep tls_sw_fallback() from encrypting its own output
 
-[3] https://github.com/facebookincubator/katran/blob/13a0d69221e43b4941b81303e6726ddc61a12169/katran/lib/bpf/pckt_encap.h#L137
+This patch makes tls_sw_fallback() pass through skbs that do not have the
+decrypted bit set, and clears that bit on the output of complete_skb(). The
+aim is to keep a second software fallback pass (for example at the bond
+master and then again at the slave) from re-encrypting ciphertext with the
+same rcd_sn and IV.
+
+> diff --git a/net/tls/tls_device_fallback.c b/net/tls/tls_device_fallback.c
+> index b547027cc879f..57d8f6b50e4dd 100644
+> --- a/net/tls/tls_device_fallback.c
+> +++ b/net/tls/tls_device_fallback.c
+> @@ -192,6 +192,9 @@ static void complete_skb(struct sk_buff *nskb, struct sk_buff *skb, int headln)
+>  	skb->destructor = NULL;
+>  	skb->sk = NULL;
+>  
+> +	/* nskb is encrypted now */
+> +	nskb->decrypted = 0;
+> +
+
+[Severity: High]
+Does this also cover the hardware offload path?
+
+complete_skb() keeps nskb->sk = sk. The driver side check for hardware
+encryption does not look at skb->decrypted:
+
+include/net/tls.h:tls_is_skb_tx_device_offloaded() {
+	...
+	return sk && sk_fullsock(sk) &&
+	       (smp_load_acquire(&sk->sk_validate_xmit_skb) ==
+	       &tls_validate_xmit_skb);
+}
+
+So drivers still treat software fallback ciphertext as offloaded.
+
+Take a TLS_HW socket offloaded on mlx5 eth0 whose route later moves to
+vlan@eth0:
+
+vlan@eth0:
+  tls_validate_xmit_skb()
+    dev != netdev, not a bond master
+    tls_sw_fallback()->complete_skb()    /* ciphertext, decrypted = 0 */
+  vlan_dev_hard_start_xmit()
+    dev_queue_xmit(eth0)
+
+eth0:
+  tls_validate_xmit_skb()
+    dev == netdev, skb returned unchanged
+  mlx5e_accel_tx_begin()
+    tls_is_skb_tx_device_offloaded() returns true
+    mlx5e_ktls_handle_tx_skb()
+      state->tls_tisn = priv_tx->tisn;   /* in-order seq */
+
+In that case, would the NIC encrypt the software ciphertext a second time
+with the same record keystream and put plaintext on the wire?
+
+mlx5e_ktls_handle_tx_skb() only checks skb->decrypted in the
+MLX5E_KTLS_SYNC_SKIP_NO_DATA branch. nfp_net_tls_tx() also decides only
+through tls_is_skb_tx_device_offloaded(), and it attaches ntls->fw_handle
+when ntls->next_seq == seq.
+
+This path existed before this patch. However, the commit message says the
+bit is cleared "so its output is not encrypted again", and that doesn't
+seem to hold for the hardware path.
+
+Should tls_is_skb_tx_device_offloaded() also require skb_is_decrypted(skb)
+so that it follows the same rule?
+
+[ ... ]
+
+> @@ -371,6 +374,10 @@ static struct sk_buff *tls_sw_fallback(struct sock *sk, struct sk_buff *skb)
+>  	s32 sync_size = 0;
+>  	u64 rcd_sn;
+>  
+> +	/* Already encrypted, e.g. by the bond master */
+> +	if (!skb_is_decrypted(skb))
+> +		return skb;
+> +
+
+[Severity: Low]
+This isn't a bug, but is this comment accurate for every skb that takes
+this return?
+
+Data written before setsockopt(TLS_TX) also has decrypted = 0, because
+tcp_sendmsg_locked() does:
+
+	skb->decrypted = !!(flags & MSG_SENDPAGE_DECRYPTED);
+
+Only tls_push_data() and tls_device_write_space() pass that flag, so that
+data was never encrypted by kTLS.
+
+Also, the existing bypass further down in tls_sw_fallback() no longer
+seems reachable for the packets it describes:
+
+	if (fill_sg_in(sg_in, skb, ctx, &rcd_sn, &sync_size, &resync_sgs)) {
+		/* bypass packets before kernel TLS socket option was set */
+		if (sync_size < 0 && payload_len <= -sync_size)
+			nskb = skb_get(skb);
+		goto put_sg;
+	}
+
+Three things make it unreachable for those packets:
+
+- Only decrypted = 1 skbs reach fill_sg_in() now.
+- Those skbs are created after the start marker set in
+  tls_set_device_offload().
+- tcp_skb_can_collapse() refuses merges across a decrypted mismatch.
+
+Should the new comment also mention pre-offload plaintext? And should the
+start marker bypass, along with the matching start marker handling in
+fill_sg_in(), be updated or removed?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119191341.4089157-1-rjethwani%40purestorage.com
