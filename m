@@ -1,107 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443947;
-	b=Y3ScfkEsHyYnb86AQZUtW4LbEpzvQ8JsqWGe5lKla5nd7IwfrfW+1OseRyig8HzTKrVY
-	 HdU4FJ4IhWq6C1/XFhBuRFOCve/DsJwMx5CdPNp1w1ljRnvuKIcfN2XoV+0V6WeJDk9X0
-	 ADC07OAPB4ZZ2QUkrARp3cDwUiQdt01JpCKEButXtxf7IL4no6LE/aEa9j2nRZkshyxII
-	 IIAmBeemR3UUxC3MXiN6u2uBEw/T92ruZ9V+EUpG+tVGM+CF4p1D/9Bsz1McNHT9R4iOh
-	 zv3rwQGV4gqGFco2jTtwwEJaUPpVYqavF/SKPoxXIlNizwoCjaG1zZCiOSl7P/XPrTQ==
+	t=1795444035;
+	b=H+8OliwTe7EjTPj5mUuRqjucDzXZVQhSUDeA7xOW+xq68CCoLZjPAclaiOb0k5xPOYiQ
+	 y5hwBCURTifuq07rl9pv9cMG0KBeOeFBwk76OzksR0ISyoDa9rBjkCczAE87cSVWKczNd
+	 6cpxMNt9l7T8N9yjTQneUY5HRBhcLXT4abWJuwDu7KrsHLJEzrwjuKcudaz3Wkc2Aqw6h
+	 ixuEeXKYbYF6MeWwQE59yoVtGMPSyeHVDYqAfZXHuT2tDTRwr032VD7TRqOj7LZSDZYm4
+	 B1FRFkYyIMUDY+shiBQCWufimrmQoxSZ9BzXjxuJ+6Oiot1kBCFHoVqsoPj2QWjS4Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443947;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-	b=PCEq1NBl1h/shw1ZySsUMVSRr0CZBHEzdSu3ZhXO5C5Z8ZqznVgD0xXCbSPKwhGYJWOw
-	 K7KXDWxT4Wr4YaUZm4CncMz1c2KzXMvIJ0iMgfcZuRqlCu+60gnCInLfL/Lrwdx0RjaNd
-	 HpHpYyPJ4Rbh3UI51N7MxWMDt/S8hkvSEoXOAestC/r6tCT51/HiBMIFPE7vCGFsWMd5U
-	 Mks78YArpuVJRGWPxpkC48STZQmU2dyVLj9ZmHn4ADnN0xPjd/i3LHbj7I51M8Bh3e6bg
-	 EEhio/usFezc+qJWNqySzkf69hmd2UkyhNIVINle2RQFjL4UlzM3LSFkFsxWoofv+6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444035;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=KHB/XI4cKY1r8Bk1cluPtbj8UheyxZWHTnaL5PnDwJ0=;
+	b=HsF7JdEGU+30dywajDVmOQ8ij9lxn/hQvV/t6JmYX6yNBOKJQGCsVY6QqImoPDAQyDxc
+	 C90rZnSLezzmOimQawnpYssO7NqIWUoRz5/QzmVmEOFB7WvGMyq34/Ugm8kdrmbWf4ZZY
+	 SF66y8UIwQc39Gz29dKE9RlsLh5kLeSQs0mucILTZL1/+jUScwAH/elFr5IcwwEPQv8Qs
+	 D/rUQJtTVnekKmcAr3Bpjp4MQEHLFTT88gWwJ8V8czddpwe9oCQRMMjpih6WpOn6klGBl
+	 V/WAen3FJoq5tDzI02gasBAsJiiFIJ3wb3BTTUERnC+OHx9kkOLq0c7DZnuVmpNQWrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LgXvSsKl;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EyCeo9KV;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CJELoYmX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92227606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:25:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92227606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73305606A31E;
+	Mon, 23 Nov 2026 14:27:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LgXvSsKl;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EyCeo9KV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795443945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-	b=LgXvSsKlPakd7uYc27D7BnIE4UDFrHy1apvyc59uqVg2ei8HQ/bHLMtaf1GJOK48oltgO+
-	inL/abcbVyXSJc4u1bwTDqVDpeTbqVxfzFH9PqLxzkKdbGFc/atEsMBSL/D/AwMWwrEIT9
-	oatRVxCE8DNkt2uZ3f9bbbCXYCSXhq8=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-507-l4CRSzYdPnW861gbkmxteQ-1; Mon, 23 Nov 2026 14:25:43 +0000
-X-MC-Unique: l4CRSzYdPnW861gbkmxteQ-1
-X-Mimecast-MFC-AGG-ID: l4CRSzYdPnW861gbkmxteQ_1795443942
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-49090fde23aso2091867f8f.2
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:25:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795443942; x=1796048742; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-        b=EyCeo9KVSS1jJ8bnW9XNbLBiaXRazjmE+WmLAfyf0V+72j/WeGV9VkgW/NFdEoYDAv
-         ORskZH889xizBAzTBpBE0oeXHTi7WK/HVKKAzqVLkMNS4SFAIjpkH5lQp2WUhOwcj6w2
-         U+68g6SlVLmQQSVG1B/GNX3jmbrdCil4BWXCROKK7fpzfYPy7uMgdJe9GjrTbhzeeK/P
-         p4RcEqUPgFtGzS/7Ria+0136rvsd06Bid2RFCswDyUcBQNRS4GWqMJ+lVxcipKuZwFzs
-         jAUWWrXeqQysb19AeRl5dq1+VbBViLB6bZiEpAEq1sKBR+LFvPoI0QvRVzvOc23WlG0g
-         8sDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443942; x=1796048742;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-        b=QpNlBvG4Sbti5UfeBKOw4G4SlXcbEjdlpuakEVzfE71aPolACloWtYPtM0Z9DnwTLc
-         RGLs3Roc2TgmwhZnqrhcchCmb2vRY6t0d8/zl5QmUcDLytHCWlLB5gDC0xDFRGEMCR2x
-         gduXGqPIL/Bu+tGo8KJ/le9ZKE69vR/ny+LrC1xYf26MLTN8DirDUbc/3buXQCfX+xnM
-         2OjxD01d75OYptfPuRisb9fGg7PaASqMM64k9hZO0zGEay4dldA8VVZgTqfy8JoroInp
-         P5luyPX9uPAPId8epWC1JaSZLdH6XRDkayfB7eJDszn4L1NcHQpDMfG7R+T/CBaH00F5
-         6PAQ==
-X-Gm-Message-State: APuU4Z+86Gob1GHJRq+5ffjRv3Qm7ZP3wtE66T4BAQIKeoHWdXXJODxz
-	HC4hZK/Io5AGJ9TquXSy//2vifv2m0adyHjEswOGc5pNe3V1QLwVt9gkMIKdO/piGhsv7E9yxqX
-	TyaW9TU7D/h5WJvJt0EgIT2QdMZ/GIlQVzTI362u76Nk0PgaKJJNNoMdbpA==
-X-Gm-Gg: AZFdTZfRqqgB1CM2jcujhVIJv+XBDOb82uNbV2+WcuneWVed/e8YKsw4WwhwnucQ+K8
-	nItkm/7IuxKVDpuq7SUkACU3WAOrgrhfR5qys5t/PK7t8tiJ4Mwr2BD978+qZMVgxcxnsFni8hs
-	93o1nhzIClrK/WtvoYgjtyjapUDYCm0+mY/QQIvmxXKC2uzMvDMtPOmn8n9FPCasdCEJP76vefh
-	mfQ0FGR8baAXzZw6/cozec7TwT+vx4yJH5Fj3mF+X6hROndzY8SzJFH9u2wzakv4bo6BpWcJdv3
-	4HpAcJ3fYqVAbpsdkX/OflFf9WgJ3FDKk+7EF8bcQoV82w3UKSW2X3fTS1WMkn8ZQ3n4mlQxxc2
-	C8RzWsZhfKDSzFrGwrPM4DhZPTLAywFYtMadEd4C/D94VxMD9ODJ74uLlhHAJXDk7iVSoAMXcDv
-	7P5cVfCdo40s4jSKNv0Qt3dH78sA/PTZhtEoeUDbw0hCkw
-X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr22673181f8f.56.1795443941784;
-        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
-X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr22673141f8f.56.1795443941433;
-        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm22660754f8f.51.2026.11.23.06.25.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
-Message-ID: <e6811e96-20df-49fd-a5b9-d343047dbd7b@redhat.com>
-Date: Mon, 23 Nov 2026 15:25:40 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CJELoYmX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E29D91F000C6;
+	Mon, 23 Nov 2026 14:27:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795444035;
+	bh=KHB/XI4cKY1r8Bk1cluPtbj8UheyxZWHTnaL5PnDwJ0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=CJELoYmX/EDhq0BWS8Gj5oaSsjEeUFBwlcdk4dUw3JvbNG0GjW48yGzHkXMi7QdH5
+	 kIj2Q4irawJdO/wOls7zTG2BOXO3I6ZDxrvERilOJ/g0tofdr42tQIXt4DF9tviNf5
+	 BUywKElXkp22vw3BhFrWLFVZ/+WeROQ0tpt0iR/fGvJsWcAWQDTtmt4qp6MEwf6sCX
+	 uzfFJj4A+cp5DUjpcTDC7Sa+oCvnu3yVIxlb925PJR6VwwFC2MlQoHaP9rpTfkGb0R
+	 VT2pfoWu08nRUPcMo3TG+RzCAXmB7X5PAsOYdV/h4jOzvA22rtrDt2d3HQEEi+XsvB
+	 D2t7yKP7R9bBg==
+Subject: Re: [PATCH net v3 1/4] igb: don't disable rings that don't exist when
+ disabling an XSK pool
+From: netdev-bot+sashiko@kernel.org
+To: antonio@mandelbit.com
+Cc: intel-wired-lan@lists.osuosl.org, anthony.l.nguyen@intel.com,
+ przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ janislacis06@gmail.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, sdf@fomichev.me, sriram.yagnaraman@ericsson.com,
+ kurt@linutronix.de, maciej.fijalkowski@intel.com, hkallweit1@gmail.com,
+ joe@dama.to, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org
+Date: Mon, 23 Nov 2026 14:27:13 +0000
+Message-ID: <179544403344.3135.6737096159492443262@kernel.org>
+In-Reply-To: <20261119140412.163202-2-antonio@mandelbit.com>
+References: <20261119140412.163202-2-antonio@mandelbit.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,37 +68,242 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] mctp: i3c: Fix potential thread leak on registration
- failure
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>,
- Jeremy Kerr <jk@codeconstruct.com.au>,
- Matt Johnston <matt@codeconstruct.com.au>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/17/26 15:48, Guangshuo Li wrote:
-> mctp_register_netdev() can fail before netdev registration begins,
-> leaving the TX thread and bus list entry allocated. The error path
-> assumes ndo_uninit has already cleaned them up.
-> 
-> Always clean up on registration failure. Make bus cleanup idempotent
-> because later registration failures can already have called ndo_uninit.
-> 
-> This issue was found by our static analysis tool under development.
-> 
-> Fixes: c8755b29b58e ("mctp i3c: MCTP I3C driver")
-> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-Issues in error paths in device init/shutdown existing since the
-beginning don't qualify for 'net' target. Applying to net-next.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-/P
+Critical: 0 · High: 2 (2) · Medium: 0 · Low: 1
 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix only covers the RX side.
+- [High] The new guard `qid < adapter->num_rx_queues` in
+  igb_xsk_pool_disable() is not serialized against the code that writes…
+- [Low] Commit message accuracy (discarded by baseline).
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but `if_running`
+  in igb_xsk_pool_disable() (and in igb_xsk_pool_enable()) uses…
+- [High] This problem wasn't introduced by this patch, but the error
+  paths of igb_xsk_pool_disable() (igb_xsk.c:162-165) and…
+
+--
+
+igb: don't disable rings that don't exist when disabling an XSK pool
+
+The patch adds a qid < adapter->num_rx_queues bound to the if_running
+condition in igb_xsk_pool_disable(). With it, the function stops
+disabling and re-enabling rings the device doesn't have. The goal is to
+stop a NULL ring from reaching igb_txrx_ring_disable() when the stack
+knows about more queues than the device has.
+
+Link: https://lore.kernel.org/netdev/20261116153041.3002666-2-antonio@mandelbit.com/
+
+> xsk_get_pool_from_qid() checks the queue id against the stack's real
+> queue counts, which can be higher than the number of rings the device
+> has, e.g. after igb falls back from MSI-X to MSI on resume.
+
+[Severity: Low]
+This is minor. At this commit, a successful resume goes through
+__igb_open(netdev, true), which re-syncs the real queue counts:
+
+    err = netif_set_real_num_tx_queues(adapter->netdev,
+                                       adapter->num_tx_queues);
+
+The MSI-X to MSI example only leaves stale counts after the later patch
+"igb: fix RTNL assertion when resuming from runtime suspend". That patch
+makes __igb_resume() call __igb_open(netdev, true, !rpm), which skips the
+re-sync on runtime resume until igb_rtnl_resume_task() runs.
+
+The guard also covers the runtime-suspended-while-up state. There,
+igb_free_q_vectors() has set num_rx_queues = 0 while netif_running() is
+still true.
+
+Could the commit message and the new code comment mention that
+dependency, or use the runtime-suspended case as the example?
+
+> diff --git a/drivers/net/ethernet/intel/igb/igb_xsk.c b/drivers/net/ethernet/intel/igb/igb_xsk.c
+> index ce4a7b58cad2f..8ed82bb1def9a 100644
+> --- a/drivers/net/ethernet/intel/igb/igb_xsk.c
+> +++ b/drivers/net/ethernet/intel/igb/igb_xsk.c
+> @@ -148,7 +148,12 @@ static int igb_xsk_pool_disable(struct igb_adapter *adapter, u16 qid)
+>  		return -EINVAL;
+>  
+>  	rx_ring = adapter->rx_ring[qid];
+> -	if_running = netif_running(adapter->netdev) && igb_xdp_is_enabled(adapter);
+> +	/* The stack can know more queues than the device has, e.g. after a
+> +	 * fallback to fewer queues on resume: skip the rings it doesn't have.
+> +	 */
+> +	if_running = netif_running(adapter->netdev) &&
+> +		     igb_xdp_is_enabled(adapter) &&
+> +		     qid < adapter->num_rx_queues;
+
+[Severity: High]
+Is checking only num_rx_queues enough here? igb_txrx_ring_disable() and
+igb_txrx_ring_enable() also use the TX ring:
+
+    struct igb_ring *tx_ring = adapter->tx_ring[qid];
+    ...
+    set_bit(IGB_RING_FLAG_TX_DISABLED, &tx_ring->flags);
+
+igb can run with fewer TX rings than RX rings. From
+igb_set_interrupt_capability():
+
+    adapter->num_rx_queues = adapter->rss_queues;
+    if (adapter->vfs_allocated_count)
+        adapter->num_tx_queues = 1;
+    else
+        adapter->num_tx_queues = adapter->rss_queues;
+
+igb_get_max_rss_queues() allows 2 RSS queues on an 82576 with VFs.
+
+Here is a possible sequence:
+
+1. With SR-IOV off (e.g. 4 queues), bind a zero-copy AF_XDP socket to
+   qid 1. igb_xsk_pool_enable() accepts it.
+
+2. Write to sriov_numvfs:
+   igb_pci_sriov_configure()->igb_enable_sriov()->igb_sriov_reinit().
+   igb_clear_interrupt_scheme() sets tx_ring[1] to NULL, and
+   igb_init_interrupt_scheme() allocates rx_ring[0..1] but only
+   tx_ring[0]. The pool registered at qid 1 stays in place.
+
+3. Close the socket:
+   xp_release_deferred()->xp_disable_drv_zc()->ndo_bpf()->
+   igb_xsk_pool_disable(adapter, 1).
+   xsk_get_pool_from_qid() returns the pool because
+   1 < real_num_rx_queues. The new guard passes because
+   1 < num_rx_queues. igb_txrx_ring_disable() then calls set_bit() on
+   NULL->flags with rtnl held.
+
+The commit message says this matches "as igb_xsk_pool_enable() and
+igb_xsk_wakeup() already check". However, igb_xsk_wakeup() bounds qid
+by the TX count:
+
+    if (qid >= adapter->num_tx_queues)
+        return -EINVAL;
+
+igb_xsk_pool_enable() also checks real_num_tx_queues. Should this guard
+require qid < adapter->num_tx_queues as well, or NULL-check both ring
+pointers? No later patch in the series touches igb_xsk_pool_disable().
+
+[Severity: High]
+Is this check serialized against the resume path that writes
+num_rx_queues and the ring arrays?
+
+igb_xsk_pool_disable() holds only rtnl. __igb_resume() calls
+igb_init_interrupt_scheme() without rtnl on runtime resume, and before
+rtnl_lock() on system resume. Inside it, igb_set_interrupt_capability()
+publishes num_rx_queues = rss_queues before igb_alloc_q_vector() fills
+tx_ring[] and rx_ring[].
+
+When the device is runtime-suspended with the interface up,
+igb_free_q_vectors() has set num_rx_queues = 0 and the rings are NULL,
+but netif_running() is still true. Runtime resume can start
+asynchronously, for example from a PME on link-up:
+
+CPU0 (XSK release, rtnl held)
+igb_xsk_pool_disable()
+    rx_ring = adapter->rx_ring[qid];      /* NULL */
+
+CPU1 (runtime resume)
+igb_init_interrupt_scheme()
+    igb_set_interrupt_capability()
+        adapter->num_rx_queues = adapter->rss_queues;
+
+CPU0
+    qid < adapter->num_rx_queues          /* now true */
+    igb_txrx_ring_disable()
+        tx_ring = adapter->tx_ring[qid];
+        set_bit(IGB_RING_FLAG_TX_DISABLED, &tx_ring->flags);
+
+If the rings are still NULL, this oopses. If they were just allocated,
+napi_disable() races with napi_enable() and ring setup on CPU1.
+igb_realloc_rx_buffer_info() is also called later with the stale local
+rx_ring, which is NULL.
+
+Can the NULL ring this patch is meant to prevent still reach
+igb_txrx_ring_disable() through this window? The missing serialization
+in __igb_resume() predates this patch, and later patches in the series
+keep it.
+
+>  	if (if_running)
+>  		igb_txrx_ring_disable(adapter, qid);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but netif_running() plus a
+queue count bound doesn't show that the NAPI is enabled. Can
+igb_txrx_ring_disable() end up calling napi_disable() on a NAPI that
+was never enabled, or is already disabled?
+
+netif_napi_add() sets NAPI_STATE_SCHED and NAPI_STATE_NPSVC.
+napi_disable_locked() then waits on them with no timeout:
+
+    while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
+        usleep_range(20, 200);
+
+There are two ways to reach that state:
+
+- In __igb_resume(), igb_init_interrupt_scheme() succeeds but
+  __igb_open(netdev, true) fails before napi_enable(), for example in
+  igb_setup_all_tx_resources(). __LINK_STATE_START and xdp_prog stay
+  set.
+
+- igb_xdp_setup() and igb_sriov_reinit() ignore an igb_open() failure
+  after igb_close(), and igb_down() has already called napi_disable().
+
+Closing an AF_XDP socket on such a qid then runs
+xp_release_deferred()->igb_xsk_pool_disable()->igb_txrx_ring_disable()->
+napi_disable(), which loops forever with rtnl held.
+igb_xsk_pool_enable() uses the same condition.
+
+Would checking __IGB_DOWN, as igb_xsk_wakeup() does, be a more reliable
+indicator here?
+
+[Severity: High]
+This is a pre-existing issue, but what happens when
+igb_realloc_rx_buffer_info() fails further down in
+igb_xsk_pool_disable()?
+
+    if (if_running) {
+        err = igb_realloc_rx_buffer_info(rx_ring, false);
+        if (err)
+            return err;
+
+        igb_txrx_ring_enable(adapter, qid);
+    }
+
+By this point igb_txrx_ring_disable() has set IGB_RING_FLAG_TX_DISABLED,
+zeroed TXDCTL/RXDCTL and called napi_disable(). The error return skips
+igb_txrx_ring_enable(), and rx_ring->xsk_pool and tx_ring->xsk_pool
+still point to the pool.
+
+xp_disable_drv_zc() only warns:
+
+    if (err)
+        WARN(1, "Failed to disable zero-copy!\n");
+
+The core then clears and frees the pool, so the ring is left with a
+dangling xsk_pool pointer.
+
+Any later igb_down(), from igb_close(), reset_task or igb_xdp_setup(),
+calls napi_disable() on the already-disabled NAPI and blocks forever
+with rtnl held. Binding a new XSK socket to that qid hangs the same way
+through igb_txrx_ring_disable().
+
+igb_xsk_pool_enable() has the same imbalance after
+igb_realloc_rx_buffer_info(rx_ring, true) fails:
+
+    if (err) {
+        xsk_pool_dma_unmap(pool, IGB_RX_DMA_ATTR);
+        return err;
+    }
+
+>
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119140412.163202-1-antonio%40mandelbit.com
