@@ -1,91 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476489;
-	b=IIElkNBYKYl3iOlpCgJL+V3fYV+YFbwjCuwi5jcR41vO1K4+q9flSN+JIah2EFHA1SG9
-	 0ECvgI5YVTgS5zgvZu89Jhhipb9oxXQD1Kyt70rHfo09DKP9XcYzIhZlru9VibRdyxLS1
-	 htr/bO0UaM8UTXTmTm4enIajOvpEHjuLQV/Hu5tXvfBR0rF5ah1YL/yRX6m9OBNupWIBz
-	 lkApsGLju0/ZcjAjXExBUCYL+qJGVTcjIRlNgkrERf6Inwvwhu4dAZG4J50cmxzm6e5Oc
-	 5VkCMrrkDmeUrMZ+FgOaEHVIx7Ef9gmf7Q6UA0ozfBp2d1+ofn9l+Sqcp3gUzV80k+A==
+	t=1795476504;
+	b=JPpw3+mYuFa37gMhOfUqBUoRdIf5HMfgsz+REPFRHm7Ans5e1JaLUwTMs8VGfcOnsQUI
+	 oCrWiLmDAP5IKnqefhTXc22t1E2jwT6ugWVPAwaNF5A9mgwLv+Qg0xsAYcYt62FQi4Tmh
+	 kdq32hhdpcSND2lr/AwFmey1fk2MUXWiEvrMOcxMVrJweQit0kJQY+yGxxuPQAwFcQxds
+	 tf7pVLmOVon3gZcmQyBNVtNypsEl6ETwcw2jygiXtAa85aO0cPb5sQC9xmFVergvnadNt
+	 Jnsn1nJl1Cg+RIS1cRqGvrO/amHHfcvijUvMopnC4s5lg5N6amyOC89gS0gK/DIRPQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476489;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version;
-	bh=OmzTRubTnAu2LE3ZA88luIqbHMLI1ENdVnQ5aQlfvrg=;
-	b=ctfxybW8nMPYaw0B+LulpG0SIscvMdp+Y/Hk2BMIEz5r2bRyboBLfxQka/W7Bj3gX6lZ
-	 zNh6P6xEgAHBWVrQjax6xdsiwtURDMY8gYWQadvBPE9OhL2OKdIDIvZ28pbF+BudtgyxU
-	 FJrP7JGafFIHXmo5p+CYyyf/bgvsVcQPXHImYLr3oCGtHcG2uU9snB2gZI7Y4GQBFo8OJ
-	 t7irrBsfshSbewCStlIdrEtJe396QrNAGACT2I8FyR8lKV09jfuGc8nvHn8DExCSnO34p
-	 uuS7BtuLJwrJf+W0A8fxDnOMtEd25EpHIFDI/Nb6vi/HfJgkNbFSwkLnc/Z4vlTuwlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476504;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=Z4q2lcvDeMyQnvMma/TSV0pjEr8kXRVVL/7uiZixGfQ=;
+	b=GmXV8TMZsQxCfITlv+MzVcNL5bYgDgcrpAx9d2SDpNcfhsJ10XCAVR6BILs2Rgp9Tlx1
+	 PrM+HPWkP73i1Y8BXm8y5RBaTkojVzAA7xz1H9zA8wdabtAj6+L7qysVlnRh1bb1o8jXG
+	 qk6Jv6bqNgrv6MIcUrmbuUQVbHpKGwWdxWaTLsTsrDF9WlTUbyombohma9mAoSDFoUW+0
+	 NozGRttGAp5H6lGCeImiwrD7p1dH3rPtGzosojCh2aINF9oI3xLGAiv1eiRFZcLF8F1PK
+	 t+T5/gVLABB68iyJDojqdCZaKgrbZNgJsptukIFfuDusf9x+1PxSSj15IrWd2JeMXbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="W9sr/JvA";
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10D5D606A31E;
-	Mon, 23 Nov 2026 23:28:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10D5D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GBCBOGHy;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E976E606A321;
+	Mon, 23 Nov 2026 23:28:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E976E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=W9sr/JvA
-Received: from pps.filterd (m0528004.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw3au2537414;
-	Mon, 23 Nov 2026 15:27:27 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=OmzTRubTnAu2LE3ZA88luIqbHMLI1ENdVnQ5a
-	Qlfvrg=; b=W9sr/JvAIs8cJ34Gr3QUpPpcZguNxMAmXtmgD+57sgPNDHaM4gqpc
-	vo2llu8v4j3c0kWOnkLSqnvP7OIyI0KFft3pTM2VdhccZIzwFkFVws8y02mx4sqa
-	p1KU7d8A5ww5AkvypNHNFxij7Y0ggbb/aBGeoq77hzeP0uI12YBIbwkXkSB5yuJ6
-	1oMwBWJu0V/fGjK/qRId4En9QfbFp48qewkCcw1178akVLqEjNc19y2S1EjsL3Lj
-	aweXwnEz/7hNCRl+YuhDEZJ0fOILvOrhJj5QoAa75kOAssPWeGRh8Ql1of05tabe
-	SHwXLNLhGdtpXau8+tzIkrkwvKptkoNeQ==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3wth9xrv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 23 Nov 2026 15:27:27 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:fe::f072) by mail.thefacebook.com
- (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
- 2026 23:27:26 +0000
-From: Todd Freed <toddfreed@meta.com>
-To: <netfilter-devel@vger.kernel.org>
-CC: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
-        Phil Sutter <phil@nwl.cc>, Nikolay Aleksandrov <razor@blackwall.org>,
-        Ido
- Schimmel <idosch@nvidia.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Boris Pismenny
-	<borisp@nvidia.com>,
-        Sabrina Dubroca <sd@queasysnail.net>,
-        John Fastabend
-	<john.fastabend@gmail.com>,
-        Daniel Zahka <daniel.zahka@gmail.com>,
-        Willem de
- Bruijn <willemdebruijn.kernel@gmail.com>,
-        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
-	<bjorn@kernel.org>,
-        <coreteam@netfilter.org>, <bridge@lists.linux.dev>,
-        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH nf-next 0/2] netfilter: don't send decrypted skbs in clear text
-Date: Mon, 23 Nov 2026 15:27:25 -0800
-Message-ID: <20261123232725.2459168-1-toddfreed@meta.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261111003111.3826942-1-toddfreed@meta.com>
-References: <20261111003111.3826942-1-toddfreed@meta.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GBCBOGHy
+Received: from [192.168.159.19] (unknown [4.194.122.136])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DCBAB20B7167;
+	Mon, 23 Nov 2026 15:27:54 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DCBAB20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795476499;
+	bh=Z4q2lcvDeMyQnvMma/TSV0pjEr8kXRVVL/7uiZixGfQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GBCBOGHyS/woweuMXp/5IiE28nI/q/RWX2fOSyY1oqRdeq6mlJhA0Uy5CY+vntB9X
+	 OBTSWMmuYPNMyZOn37AlljwgO2+M5LQQTDHUqK0know9vyyT8rD60yDr0IBXlfgUHN
+	 T50QratbJQPYi89ozm+6Qtlk7+5eXdmnoqz5Vvmg=
+Message-ID: <ba8c4cdb-ba60-4166-8d0f-812db13ee90a@linux.microsoft.com>
+Date: Mon, 23 Nov 2026 15:27:55 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,39 +53,126 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MyBTYWx0ZWRfXzlCzCYpFAcqS
- VuKhpy7ngEj61iY6BteWZ3SJFTzOBG9htSFTUuIXZUE+Az290e+1qWLz1ZQkczOXlmEGZKGLj+K
- xNwYZNYSJW5HViri/Gsfie5LxIZQH9s=
-X-Proofpoint-ORIG-GUID: 62SX9WHEWbHBKIvWWcJ2JNkX6d19_jle
-X-Authority-Analysis: v=2.4 cv=U9sHnuru c=1 sm=1 tr=0 ts=6b04cbdf cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=GbPsI2Ihf5RTnMjR_gZv:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
- a=Jh7froBkOg0y2yNVTH0A:9 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-GUID: 62SX9WHEWbHBKIvWWcJ2JNkX6d19_jle
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MyBTYWx0ZWRfX8uyonCn6MmGI
- 4t/NxPr2CHgFpbSFcqG6zarIqEUr78WzGpuhj4/wkvoN2OkK17SXKSMNAnyyWAkc6x6wfvOaoMd
- ixGg8CqA/rtcM8hFcnCYrBlNkaMLlnbTBZ3GgcIahaWVUPhJW2nSwDLELfDfo/8cfjf7KjgTnSr
- DHUqOv+ksxD8UCm2tdpNGOBPUgjyLy9tgQqqLM+4k8QjIq6IyxXRgd1hNQ02wa/FMH5a+39Gt99
- 4x1TvUV/iFXaTLCdTFjtrdh890pUMUJtAm7mzxPAiYxARX16FSMy3zkfiMmT8jrym1AJASm8UHP
- IbYyjJ0dbbZxx6H31pgBClcFDQFqRkP/lChaUXWaQg3jY0mNreyYPWPan8OSBp1oZ9XZWgKZ0D1
- jKI4MHbXjzaHAqrglO5c6Z4KowagmavC82c2HLFr4ytCrGRXkEiXCc8Cl5HciZlB1CvvfG/jVr0
- d/I/4puQFReZu03BYwA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/14] mshv_vtl: convert mmap hooks to mmap_prepare
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ netdev@vger.kernel.org, Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
+ Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+ Scott Branden <scott.branden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+References: <20261105-late-2026-mmap_prepare-v1-0-c56aadfbab8a@kernel.org>
+ <20261105-late-2026-mmap_prepare-v1-3-c56aadfbab8a@kernel.org>
+Content-Language: en-US
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+In-Reply-To: <20261105-late-2026-mmap_prepare-v1-3-c56aadfbab8a@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-This series is superseded, please drop it.
+On 11/5/2026 1:05 PM, Lorenzo Stoakes (ARM) wrote:
+> Move from the deprecated mmap hook to the new mmap_prepare hook for both
+> the mshv_vtl and mshv_vtl_low devices. These only set VMA operations and
+> flags.
+> 
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-1/2 netfilter: bridge: don't refragment decrypted skbs - dropped.
-It can no longer be reproduced on net/main or with socket-less psp
-series, so is no longer relevant.
+I don't see this causing any functional changes, but quickly ran basic
+regression testing on it anyway. I couldn't find b61fa14ce; I tested
+based on v7.4-rc1.
 
-2/2 netfilter: reject: don't reply to decrypted skbs - reproduces on net/main,
-so resent to nf as Fixes (also reduced to the ICMP errors),
+No issues seen.
 
-https://lore.kernel.org/netfilter-devel/20261123231835.2356740-1-toddfreed@meta.com/
+Tested-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+Reviewed-by: Kameron Carr <kameroncarr@linux.microsoft.com>
 
--Todd
+-- 
+Regards,
+Kameron
+
+> ---
+>  drivers/hv/mshv_vtl_main.c | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
+> index d8225242c73f..e372d4c0188d 100644
+> --- a/drivers/hv/mshv_vtl_main.c
+> +++ b/drivers/hv/mshv_vtl_main.c
+> @@ -832,9 +832,9 @@ static const struct vm_operations_struct mshv_vtl_vm_ops = {
+>  	.fault = mshv_vtl_fault,
+>  };
+>  
+> -static int mshv_vtl_mmap(struct file *filp, struct vm_area_struct *vma)
+> +static int mshv_vtl_mmap_prepare(struct vm_area_desc *desc)
+>  {
+> -	vma->vm_ops = &mshv_vtl_vm_ops;
+> +	desc->vm_ops = &mshv_vtl_vm_ops;
+>  
+>  	return 0;
+>  }
+> @@ -852,7 +852,7 @@ static const struct file_operations mshv_vtl_fops = {
+>  	.owner = THIS_MODULE,
+>  	.unlocked_ioctl = mshv_vtl_ioctl,
+>  	.release = mshv_vtl_release,
+> -	.mmap = mshv_vtl_mmap,
+> +	.mmap_prepare = mshv_vtl_mmap_prepare,
+>  };
+>  
+>  static void mshv_vtl_synic_mask_vmbus_sint(void *info)
+> @@ -1283,10 +1283,10 @@ static const struct vm_operations_struct mshv_vtl_low_vm_ops = {
+>  	.huge_fault = mshv_vtl_low_huge_fault,
+>  };
+>  
+> -static int mshv_vtl_low_mmap(struct file *filp, struct vm_area_struct *vma)
+> +static int mshv_vtl_low_mmap_prepare(struct vm_area_desc *desc)
+>  {
+> -	vma->vm_ops = &mshv_vtl_low_vm_ops;
+> -	vm_flags_set(vma, VM_HUGEPAGE | VM_MIXEDMAP);
+> +	desc->vm_ops = &mshv_vtl_low_vm_ops;
+> +	vma_desc_set_flags(desc, VMA_HUGEPAGE_BIT, VMA_MIXEDMAP_BIT);
+>  
+>  	return 0;
+>  }
+> @@ -1294,7 +1294,7 @@ static int mshv_vtl_low_mmap(struct file *filp, struct vm_area_struct *vma)
+>  static const struct file_operations mshv_vtl_low_file_ops = {
+>  	.owner		= THIS_MODULE,
+>  	.open		= mshv_vtl_low_open,
+> -	.mmap		= mshv_vtl_low_mmap,
+> +	.mmap_prepare	= mshv_vtl_low_mmap_prepare,
+>  };
+>  
+>  static struct miscdevice mshv_vtl_low = {
+> 
