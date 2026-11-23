@@ -1,152 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.0
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795415441;
-	b=mViWOQZJ7APE0ZGkQz9SkO/vTYkIhjPFkB5Hk+Ue9tzMxAW3knBIskSQTiRQrGx0RrTO
-	 cMSCYX/DN/kQkD8dMEPRCb4QdagpJOAgjDSGssbk6TEUgXXrjcK7ILCcMAl8uvV++8y4H
-	 H6twYdsU5rD+raThfTQYvM1HYB3FymPPJ9sxQFcYgEFWUkOjohiaFpZX/1oFZ9i8HJ7XY
-	 wtjAERtzkD0RgRzWlAoevt9+WqNG/YKHHzjxTvIOfyPgNJ1vDvMKYDIcbh25I1BAMsgUs
-	 +rshqTQPXRSKnmPT5MQ/DdE31C1sLYRnrNWhysageuZtBY3RDG19J6S6JmX4AY/vYoQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415441;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7WmfcxVfo+tuMrwxoND1BmbAhw440OXQeu6cvQjpe8Y=;
-	b=cy65eXhMcv3IL8FIGUlZowUWc2azNfZCywAoD5woqA8fcAcVwYCqHFZWYHx0cON+h26d
-	 eRMDQHc6AC6UQ8OULr5ywDBgc/YJIICK9MASUjMmnn6M8smy7lmwlSK4OBn0bFwMwHy2k
-	 q3AyywLrNZdcfr9eDzbjNOKRgfp/ibrD9AzGvA7h0Cee88C84ASR+sSUeL8t6P7JrkrJo
-	 CkCpQGvm6iyqw/4LCXPNq1qCgDTKZEBEyv5Bfc+AbksgOvhhd+wWzkIivrZdiSez+EuDN
-	 fbtbNvvOgHrwX4zg/0D9gSlwWGHlfI0Y6nPIxyK229QfcEQpIvxvdHfjvJyxtLOhAeA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=akB8c08W;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.0
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011000.outbound.protection.outlook.com [52.101.70.0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795415460;
+	b=YMAIy3NkkKCAneuKC3wtIOIEZoIAc17TiNQrzRuqj/xEyhpjjXIV5Mk76iEmriFp3EMM
+	 +BLoWSVGL7IFWv6WdKu2h8wE7gNv92TTFLRVxX9GTVAwVOgXjvPvh91NMkhC93Rfy3AT5
+	 zcRbyznj3eMMALEBqKOVMj/cGS3uXOpIfe81OnOUqsL5B0YfMRWliEZotR7a/JQwvNaYf
+	 O78u6LjsRm1tYHqAUcG3+zO0JMW9OIWm8Rbu7/AfHv0ym1T+k8Ug9aEZ8ZJcdAVR28Gyf
+	 0gbL4wGNIxCoygpqQdZBw9bBinC8YYEzO0oBjcwDDH03zBp00O8kkvudklz9hgztmNQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415460;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FC41BXf4VJWZQyWR3Sgt6XorZQrlBJJIAm976pUKW8M=;
+	b=dtgfMN26xXTl4wA4ubvUaCyXk2M+xw3m5pA/I8a7ELqMjwZkZzxPAG3kDLtV3G6Qk0Mu
+	 u3NaT/jQbcjrkCHDyAVYzIFJaTwUhn8PlEP26lgDwDQauynP8KLEK5QNyKizwD5yshL3F
+	 JrqlXgZ+e5uzOuezCTIr/AlroCF+sVwCPJpLBP/hv53xJbr7xkkqPE70dscUjY8j5doLq
+	 cpKjGZ6+rw6rAYiqWpvI71uIsEyr7Ei1Ih2lqwwm+6io8WQlWjKquVsKyZdUbEjXfttEI
+	 tSlqqTsDgJFngS0xTIFnZbvJk7yuUVE4dsz7K3LOktv+IcD7DsabrqQ62ex9KmE8eVQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MCV/B79T";
+	arc=none smtp.remote-ip=209.85.222.42
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com [209.85.222.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A25C3606A327;
-	Mon, 23 Nov 2026 06:30:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A25C3606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCD69606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:30:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCD69606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=akB8c08W
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o9WrNEvL7raMkeBnneGw/hQ7YT9LDZvAIAB3TVe2x5Q2S1Z9KleQe9I4AUQeRji68KPXb+Q2jORv4tzpwy72ueCyLE7cZxo5ehVNysdtvIhH/jaFlQtw7smsONa/zQ7lyO74+fLQtS4vOfcRcmshC4Ma3J7/lXHuadULHTQZiGk69NJ832zwpHNGNIdcyQO4MZVt1vIiEhSfU23JOKtAjrd2j8ffAVgRoiX2/Y8sm04GU/s161/ftlmavxONAYQCE+xbsjfAndUXWEcZVCRgCE5dLzx1JjYYtada1/WGK/CiO6eZQ0JXMTPhsEUxef2svkobILPSBW4el1Ps6vsp2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7WmfcxVfo+tuMrwxoND1BmbAhw440OXQeu6cvQjpe8Y=;
- b=druObjYBmOJdpN/V9+Omvmp2YmMv8hq9UnD+taewfEntgLHZPuzmX02hTUFajIQ7K80j8iC8pWlRicYxfDw+bX6sMqGQ61HwYwKwr0B7ZSxKDC2ERU8n6H0tPRm5pgIrKeb/oFKZMTVFgxa/R7gykZDfpC+gjyK9NIJF8UhJ+uMx0vae6j6zNjnyZRD+bIWMEPN9dHtbPAAE+kEhl1jaAT5AUQE5/i3YfduTeXC2r8s4rNadb3jw9iwcfXbGuGv2BuH/hbnmjcEmkTDzeZnVvZVbl+z1gor0YyQEwVLAIf9XQpbSxFsVtXPUNfz1brVT0ktajAWa3ngJGmPYpJlwcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7WmfcxVfo+tuMrwxoND1BmbAhw440OXQeu6cvQjpe8Y=;
- b=akB8c08WPtaQ0j6RD686U4Igce8edXmb99VYi2FCMOt77yanxg1XZ5aJhbKOVssqxosSS0VQjF1I0UsjuYfmkzY7MAb79wDQdETXCGYdyHV7sdtpNL1IJgFP1fMMSHw8z3kuAtzFwCavLQjILNza6aUXFFhCIkNuEnwOYUbJEbJVyZz1QjW0Ba9Sq4JPQ5hrBLg3rJ0pAluo989Ol4m4UNsRTVCQnzXG6ggrqIfOkGGLjFXTOCjotlR9KSYODtBUe9kkSLzEY74ewOFkuh/jFqCBytiTZfekEnw+r49rOlLuMKQLYKW54ZxEhcivMSB2cwi0uYacs/fRJWwWGaPRFw==
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
- by AM7PR04MB7189.eurprd04.prod.outlook.com (2603:10a6:20b:116::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 06:30:36 +0000
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 06:30:36 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
- (OSS)" <wei.fang@oss.nxp.com>
-CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
-	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v8 net-next 8/9] net: dsa: netc: add PTP two-step
- timestamping support
-Thread-Topic: [PATCH v8 net-next 8/9] net: dsa: netc: add PTP two-step
- timestamping support
-Thread-Index: AQHdd9JFrual8XbhpkqJwtDHKU1MD7c7IOoAgAAXSAA=
-Date: Mon, 23 Nov 2026 06:30:36 +0000
-Message-ID:
- <AS4PR04MB9338EF6246A8910C1BB4393988452@AS4PR04MB9338.eurprd04.prod.outlook.com>
-References: <20261119030534.1892935-9-wei.fang@oss.nxp.com>
- <179541033885.3135.10657211800089692875@kernel.org>
-In-Reply-To: <179541033885.3135.10657211800089692875@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|AM7PR04MB7189:EE_
-x-ms-office365-filtering-correlation-id: d2384d17-e8ce-4d7d-b916-08df492b4909
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|23010399003|366016|22082099003|18002099003|261009223027099003|4143699003|10067099003|11063799006|56012099006|261028144727099003|261026140227099003|261026121527099003|261021123027099003|261022105027099003|38070700021;
-x-microsoft-antispam-message-info:
- g336sZHx3cNpceX814fSPxsL0m0UVOUIGVPc+YJvWq8Z+2r0UmmTjO5N0xNv2mhVen1J+Z/EAWawj+qslzVJiGUOeP2fkUxkjuOdDKwtipsnMwL/yEoOR9wUN12UZUMqAAZvh+gVn1+I3dcNoAmbYchkSRhXtioU8tXStEChqacvCPvcLZiPgtF8O3Y26JqDvxe9WUwKI3hlDbtLbIZcP+PQq1kCG6dV926zqNWXKGqX5HqCFlPAi8B1RbF/COiM5YnQI/lBXCYde1CakXFG0fbzXjGzKRZEwmHeRZkO4eqI9/Sp+tSmMX2WPGmV46aSI3IQKW248CTYVu20TorLMBIoxh/haulUOYJmwTYqA3PiIZIWyDD8mPyVWOQDo5zOXLULudZowPpWvVFqrsvZ+4I9TD3WAp0ljZMzHRQiqMcrO8eCKnN8YoaMYW/z4pfnxwAIoZ2hmHUz6ZWuAngeB2Kanpg13tGOjh4OZwGhZpyK8zrY8isiiV3Xcah5qz1mV+tN0gj7iL0CgtnvAqLAtvbuF0EpyQOLsPKQPT7EEVIT9RaQ6ig/CUZLmZ9j9p/2wrEh+1GLcRKFwoEkTQaomFlaRc23TwEi90Xy1dhZDHsjNIGoDG3B0ehK3zAGSbyKYVFXX6BklBlyRzyyhMsO/Reu5ZA2WpM8ys55BZt+j20KSKPQ+r4GA0613IN7lS7H2F/zRImukoJc4tkL9aOjqLBrs/zSxm4gvQ2aEyUfBwE=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(4143699003)(10067099003)(11063799006)(56012099006)(261028144727099003)(261026140227099003)(261026121527099003)(261021123027099003)(261022105027099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?BwzIpMlaUTessdZB2wfjpSjkB8c92Uml5fI09AoQ/5g2A38Qco4J7nCwHlGN?=
- =?us-ascii?Q?8SEJz9xCVe81M6iD3mcuP907qFF0fqpfl4SLgcdTxp9H5dWmGwR52QXW11ap?=
- =?us-ascii?Q?CDBHIXM575ER2MlWstRme0LO1/Mz/WhpphMcQG5HHT6BwbmDcUFgawd1Env9?=
- =?us-ascii?Q?rZiJ9Bf2IaXyssvwP54Vwl/0Dqlt0tKgFcFKtYOC151CxCpPrZKkCEv+OY2V?=
- =?us-ascii?Q?cyp7/cRJsY//5mdlCbixNNURGvt9F35WP35TuFuiBMQ6EYuS1F0MG3RQF9Ta?=
- =?us-ascii?Q?uhn3iEACtikXpRHypolQucXC2BrB1N010und+ErmNkCp0xCGAGXNe41sC6a9?=
- =?us-ascii?Q?zBB2O81H0F4J8tDqj/mUOVo7osdia010vagKrCeFbdojfKUkbDcQOowW604Z?=
- =?us-ascii?Q?f1cu6dE7v8pqw3W41Hf9vtb+U03nzmARMujM/8xhc1JzUKzCAGn/ENV5Pno7?=
- =?us-ascii?Q?Q+LO29ZSjVvb79X3RISERUm+SmP0dSa9ZuJpHk98cDv74Ofh1fAKur/jOCgY?=
- =?us-ascii?Q?UclLlDD/EFC/VTb50ceh8vu/t5MKalC1DS2qGW7dnhEk5XTHOiNv6Xszrbip?=
- =?us-ascii?Q?5TjTNC73H5mQUyPekrP4NjJ6FAh9+muZf7ojdb+CXNML9yrX6xzbQBIlcdnX?=
- =?us-ascii?Q?EJl1ci6nkGR+DFvKASgqDoWchQBiXBXIr+Gd/kQGl2oXJxo9r7+EbP//yFfo?=
- =?us-ascii?Q?ovHDU3a2X+vvDxzSfsy8zi7zbb80+fFYpntd0pNNCQRoOgwNuzKZsc7PJH/q?=
- =?us-ascii?Q?wfEquO1YGshoIgiP+0sePaTzS/e8MZN+07De1DMAVwYkogOyvYlxAKaFqZcG?=
- =?us-ascii?Q?kAX97VvstbYrCxNZKjoCBCr35igMMtl183kL0PKog3ef7ToyJt+mSNeHULhy?=
- =?us-ascii?Q?9Eeegh7+Bm4gUBzSzeVWNakFgCq/qTUSIihs1WLTAUKgX+W80nHiTZBmYlqk?=
- =?us-ascii?Q?R34/gqTjAhqXAhzJk9DPN8VYUinkG6EKGzu6YPovyheHG90B7kLATQB0m0iy?=
- =?us-ascii?Q?fgCL2OnSTFegPUUubTfiNYPdNfo7lmDvuLaymSsL4xk7jjJGKREfOYHc1OCu?=
- =?us-ascii?Q?DPFqPOkGH+g/fv2B8Y/1uO1vf6p+pPntzJlwSTJtxJrs1rrH7fhwOKyGX7Lm?=
- =?us-ascii?Q?u1DpXpe4CTZS/JgJ2GUI7N9V5h113rDESEchgolhwrxD1ogtNIbGk7ZE63bk?=
- =?us-ascii?Q?Qt8ymLxviMcgIYofpDEdLsF4rPICKp6K03Jrp3bXbayXtG/8J84ynN2h6jlS?=
- =?us-ascii?Q?r5dmyx37aUaxocVPo+zZPINNvP3MYgaB7Pf7eVWpbRvkAeKC/9t3OPNy/2sw?=
- =?us-ascii?Q?dLdF05kYAA5DAJ7JmqXUnh0rhs5GOAFs2zn5owRGsNWOvRuWgeJhCddmQOkb?=
- =?us-ascii?Q?J29J4NATN9B3XFtwZN4bRbaCVj1ZtMYsKTqMH9JgpXdVd59l3qMLztXLMaXT?=
- =?us-ascii?Q?9yFvEtxUK7K8qO6QGMJ+Ihr3b/2Klj3+vU4ATxDwrYTt2pX8UYea9amJgGxi?=
- =?us-ascii?Q?3v1TPRSpeor4moCzLzbUxyzQ+VmpsgyXSlSCD1xkJgMnjX2wF4v6SQdq5NqQ?=
- =?us-ascii?Q?o4RNdMuojzCgdXFnYm47D1vdFlj+exmGNA1XrtjUbrtDUZtral2qBaFoNC76?=
- =?us-ascii?Q?AST7Zj1qzZKu18gaet0I6JvPjoEOYEmhCupwjHRUJD3k+H+eJMfaNbVBlIGR?=
- =?us-ascii?Q?AnQ8pybKpvAu1Xe9kpnP2IGlhH33dtj6+vtwcE+4j61ShF6H?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MCV/B79T
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-98301b325c4so658851241.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:30:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795415459; x=1796020259; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FC41BXf4VJWZQyWR3Sgt6XorZQrlBJJIAm976pUKW8M=;
+        b=MCV/B79TQ3wl1OdvCn+/05GbGxrnVvp2GCl6elyGMM5cDPlxm2MBVUl8bcJfQDByqF
+         lmvHk/8pHxIp+YJE2XJKD8h0Nr6+Pd4DqEr5K9dpkOoPI3v7nWIlY931RtjgledVuQZ+
+         /tEC+dmRnWEVAoVyYXKuLj05ole/RaCJ0u4XtErdhr+Js4VXQ3NlvwBJ8rJIKYwRo3lj
+         Xk8uyGtHpzrzzw33YW/TGHQgGQEdja04pW39IadJ03Zvd2XtAsi8DCimddQuy/AkVHxs
+         LtSIypsXCTyVkipJWvcQbBBKZ4WehbcQ4lu5569txprj4HeyGNLejCAtWTOl3X8Birj0
+         D2/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795415459; x=1796020259;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FC41BXf4VJWZQyWR3Sgt6XorZQrlBJJIAm976pUKW8M=;
+        b=kqABiz5AAkoaS2iFxgWktVUzIjc2apqrF7V9bggwWsQ78dZYFhmWxN7BSKchq/zn2o
+         pcjeAW3D17/OGdOCtk3mEaLmJd/kdyOO9MiurUe5Zix9VjInM+849fexpDTFUwPZEmIN
+         8mIABq3U17VBJwpXcwWqyKr3r4KR2SP9sgiGFwDqrlRZt7v+l1R4SXuT4+h6l+lZMMqb
+         Ypvsw0v/iNIQeaGhdqgXJfQ8S319HBdO9n4BnclaZJKunHYhmEqCMIfBh9PZGqVBEI4O
+         alxBMw6EaiYQkWid0UKwD1yMCAgp3PT+scvzX7KuWzYnvB1t7KkEUgEa4AuzB8rlApDW
+         RSnw==
+X-Gm-Message-State: APuU4Z8Q1PNQJPD/Lmf50YTcPcfss67Wb0B5Muaaxae0jvXaAs6qrjb7
+	iQTzbYUjC4pTeaSZ9r1UwCrrs5XIQ0f0AaYSpxL/bgjOIlg2vbtcGg2m
+X-Gm-Gg: AZFdTZeUGrwI51TRDY2FasgIiAKJciDgcUuub368JbXBpiRWys0qpMJyFaGYvDw6W9b
+	vfevtcatHwoleu1lEMtb98kgoGwBUuI/shj8cyQRucP1tsuI0jHP8AnBk7cMpij/cecH1mFrNeE
+	G+N8wUYyngWH13tZOIulHgnHKoSJLB4UT3EZ0uWfB3Yh9zLMKldUwEuK8cAXM3YTVyNPWLMdWJn
+	qJQO+xOIkRvT1VGiMgwzBNySvnDidw45kxHf04/9RLOPrw7zt/694wola0CYynjpfdfEKitEf6P
+	33QA7bsZWpnur0JA3z3jLvf9fn7HtuuOdpj/IOxqnWZhKAGOcW7eDAXKqKxthK2hTX+YfmEDSqm
+	yuSFNlE9qlmOXRDgODdY4Ft1j83JmI+RWCsALQ+SLJFQJZxo1h2pdONMJwsQsFZJ1i1y7rgOyo9
+	vN08DfkTDqsGYHBlr1hUtowXqh+LD5iFE6n7xv60a9ldTBz3Ma56k60rcv1HfOnaW0u5fkrmkzQ
+	NSO1GUBf/2zTU27Y00ENlkCdZOd4CLvfN/sfvvsoQF0LTeQVWnqSan1/m0fpiCMaF5m6iaRzfxo
+	D16RjyTWumO9PcH+eg0a+NAZVkcxHbfJd+52aJB66MIFvH0dKSzDxJ5H+aEQ8SdHL08=
+X-Received: by 2002:a05:6102:8097:b0:7c1:bc57:c7f5 with SMTP id ada2fe7eead31-7d7393c9b97mr4057528137.12.1795415458558;
+        Sun, 22 Nov 2026 22:30:58 -0800 (PST)
+Received: from MacBook-Air-91.lan ([2603:9000:d440:53a:10be:9c04:cd21:d4ba])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e822a085sm10595144137.10.2026.11.22.22.30.55
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 22:30:57 -0800 (PST)
+From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org,
+	Eddy Tsalolikhin <eddsterxyz@gmail.com>,
+	Kyle Zeng <kylebot@openai.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v1] tls: fix ring wrap in sk_msg_memcopy_from_iter() after splice
+Date: Mon, 23 Nov 2026 01:30:55 -0500
+Message-ID: <20261123063055.58813-1-juanagusnicco@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120225720.89044-1-jiayuan.chen@linux.dev>
+References: <20261120225720.89044-1-jiayuan.chen@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -156,103 +105,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d2384d17-e8ce-4d7d-b916-08df492b4909
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 06:30:36.7234
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: oBFgLCbuRhWSRXJoQiDIMVf4IiPV7qpGkaN7bi9JIRukR35gwUXnDnG0mh49rSiBcXy9U6PTT4I3guogmCWRKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7189
+Content-Transfer-Encoding: 8bit
 
-> > +static int netc_port_del_ptp_filter(struct netc_port *np)
-> > +{
-> > +	struct netc_switch *priv =3D np->switch_priv;
-> > +	int ret =3D 0;
-> > +	int err;
-> > +
-> > +	for (int i =3D 0; i < NETC_PTP_MAX; i++) {
-> > +		if (np->ptp_ipft_eid[i] =3D=3D NTMP_NULL_ENTRY_ID)
-> > +			continue;
-> > +
-> > +		/* No -ETIMEDOUT here: with the command BD ring enabled,
-> the
-> > +		 * hardware execution time for a command is much less than
-> > +		 * 1ms, so no timeout error will occur. Any remaining error
-> > +		 * means the entry is still present in the table.
-> > +		 */
-> > +		err =3D ntmp_ipft_delete_entry(&priv->ntmp,
-> > +					     np->ptp_ipft_eid[i]);
-> > +		if (likely(!err)) {
-> > +			np->ptp_ipft_eid[i] =3D NTMP_NULL_ENTRY_ID;
-> > +			continue;
-> > +		}
-> > +
-> > +		ret =3D err;
-> > +		dev_err(priv->dev,
-> > +			"Delete PTP entry 0x%x (type %d) on port %d
-> failed\n",
-> > +			np->ptp_ipft_eid[i], i, np->dp->index);
-> > +	}
->=20
-> [Severity: Low]
-> Is the claim in this comment guaranteed by the NTMP layer? The delete
-> goes through this path:
->=20
-> netc_port_hwtstamp_set()
->   netc_port_set_ptp_filter()
->     netc_port_del_ptp_filter()
->       ntmp_ipft_delete_entry()
->         ntmp_delete_entry_by_id()
->           netc_xmit_ntmp_cmd()
->=20
-> netc_xmit_ntmp_cmd() hands the BD to hardware and only then waits:
->=20
-> drivers/net/ethernet/freescale/enetc/ntmp.c:netc_xmit_ntmp_cmd() {
->     ...
-> 	i =3D (i + 1) % cbdr->bd_num;
-> 	cbdr->next_to_use =3D i;
-> 	netc_write(cbdr->regs.pir, i);
->=20
-> 	err =3D read_poll_timeout(netc_read, val,
-> 				(val & NETC_CBDRCIR_INDEX) =3D=3D i,
-> 				NETC_CBDR_DELAY_US,
-> NETC_CBDR_TIMEOUT,
-> 				true, cbdr->regs.cir);
-> 	if (unlikely(err))
-> 		return err;
->     ...
-> }
->=20
-> If the consumer index does not advance within NETC_CBDR_TIMEOUT, this
-> returns -ETIMEDOUT. The hardware may still run the DELETE after that.
->=20
-> In that case np->ptp_ipft_eid[i] is kept. netc_port_current_rx_filter()
-> would then report an rx_filter that is no longer installed. The commit
-> message says this design avoids exactly that:
->=20
->   "so a delete or rollback that fails partway does not leave software
->   reporting a filter that no longer matches the hardware."
->=20
-> Every later netc_port_set_ptp_filter() also starts by deleting the stale
-> entry ID. If the hardware rejects deleting a missing entry (the response
-> error status maps to -EIO), could every later hwtstamp_set on that port
-> fail until the switch is set up again?
->=20
-> This needs the hardware itself to stall, because read_poll_timeout()
-> reads once more after the deadline. The host-flood path added earlier in
-> the series by "net: dsa: netc: check return value of
-> ntmp_ipft_delete_entry()" makes the same assumption. This patch adds a
-> second user whose reported state depends on it.
->=20
-> Should -ETIMEDOUT be handled separately here, for example by treating
-> the entry state as unknown? Or should the comment say this is an
-> assumption about the hardware rather than a guarantee?
+On Sat, 21 Nov 2026 06:57:19 +0800, Jiayuan Chen wrote:
+> tls_sw_sendmsg_splice() forces sg.curr = sg.end after adding the
+> spliced page.
+>
+> The following non-splice sk_msg_memcopy_from_iter() is a do-while
+> loop: it advances i with sk_msg_iter_var_next() and only then tests
+> i != sg.end, so starting from sg.curr == sg.end it wraps the ring.
 
-As explained in the email thread for patch 6, the -ETIMEDOUT error will not
-occur, so there is no need to worry about this.
+I don't think this addresses the root cause. The copy path in
+tls_sw_sendmsg_locked() starts writing at whatever cursor the last
+producer left behind, and this is the second time the splice line has
+been fixed because of that: c5a595000e26 made it move sg.curr because
+the copy was writing into the spliced page, and that change is what
+introduced this bug.
 
+This patch does close the splice route on mainline but doesn't touch
+multiple producers that leave the scatterlist cursor in a bad state
+for the next copy:
 
+- tls_sw_do_sendpage() on 6.1, 5.15 and 5.10, where this patch does
+  not apply. The bug is reachable there too, as a race rather than
+  deterministically (won within a second in my tests).
+- the record split in tls_push_record() on 7.1 and older.
+
+The copy path always appends after the data already in the record, so
+it can set the cursor itself, in tls_clone_plaintext_msg(), before
+cloning: on the last element with copybreak at its length, or at
+sg.start when the record is empty, as sk_msg_reset_curr() does. That
+holds whether the clone grows the last element or adds a new one,
+covers every producer, would have made c5a595000e26 unnecessary, and
+applies unchanged to every stable branch.
+
+I'll send it as a separate patch that tags d829e9c4112b which caused the
+symptom that c5a595000e26 fixed but introduced this bug.
+
+Best,
+Agustin
