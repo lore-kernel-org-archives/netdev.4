@@ -1,99 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795463166;
-	b=2wwlWNWiHT//ccLJT+XbBbA5w+MC3p/00zCPTA+rxkb8yFXJtz+TjzIu5qr68LNrGpes
-	 fSgTgLlc1n7JIazVYYM+Rk3/r22Qyg6ajKCSugyA105kWJxUeis+gwkuKN4v0Ve27wRLG
-	 ikGmazsgPx5OLJNeDiXYNciH5vcLatSnoJSw3g++sZHIfASROvUwOko037Ol5lav/X8UX
-	 JSrM9lEnt9U+Ke8Oa1Yc1ZrmQsM7B48Q4j1kfP3rc3Vkqpo/GUjmGGLki0Z+thMcQ9Jji
-	 lJHtegPaRTpbRjEbnswmhpD5W6kMJJD/09UM+Nf0tHZPA39c+KYR6VvvAu/18by7c9g==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=67.231.145.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795463215;
+	b=evWW84vI81DMmRTsFL/hc9OwVd+7VmBSqcRmq2zmANSsPCN0GgWrPSiYIPHSlGBm6wXi
+	 J6mKQ1kBBpGDrl/1symydsigi7o4Lc38CL7qHlYSOEKLM0b8zQ6dmypSRIZLpgXXqc2r1
+	 gkHE/bN37yvMRE+LVd79sn8Nycx7GAexwQXN0DenIFwC2jgSBTlCJpXOlrsFUM/FzV+oH
+	 jE52BirNaEiHJsxiMZLX++GVFRRZVFf/EHnPi8jO7UpU/P6ylPTjExh3qaYxCNLxpbTS4
+	 YKA0eBiTJ9GSH6ISYKox+mdIIVcnZ5ABhGVOOC7SmEiqX+J5B+buC43efihx8KT3sqw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463166;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=4O7Yh56fKh/q6/tnTMLnj/3/E0wZbOBEq8RccLPoCDk=;
-	b=5pYD/mvPZN/PDApa2Ys9qpkbSCY+/ZYJa/GL66WDAMJ3TzxzFJE8Xah/8v8QjqmfAIUa
-	 46Zdbx9LJVUrp8/zaUUAQrFqh1VrpJ+ikVAglfws/bFbj/hgybfP/6ZxgWK1WG6MRC14t
-	 H54Ghg/n/ZsYAftGbAEzRsgVNakD93UBHj1R5baqJ2nURYBrcGBq5pNu8Mz4mRn+leth5
-	 gC+E6peuykDJmvq5Y0UkKEXyUQpRw/OfBSBk+HvHLWUP88pmeKJZKbJbNveVJJsnurZp5
-	 8FFJYLUJNMOb2jtf6oMZ2851wJormyoZur2FTX0eGzmnwqfS2ASWjDghq+2faoJDgdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795463215;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
+	bh=68msumE9ER+DmiSRosq40jxym27XxyiCjqWMWovmiXU=;
+	b=tIPhtDJp75rHscsPf5b2U2S0wqewk74D1PEkwVbuggJyNBtAQOjVwsO9ydzblR2gH+aA
+	 3bNCCKgFPxXJTqOYwM7BMxEtzQroT3vdOfkavyDqvDUyfhYZIeq391UuxUMOJj/V2gh3+
+	 Lp8DOjeqbYQluT5Ta1bcvlSFKgDBRvwYTR5VapyzTTZbL+TFZS+mXcK0DyrQatRc7uV4S
+	 CSV7CxsNSGvD6kO+EIW/3/b6/ltnRy6XpGlohioXQ3fD8FgrBj+eQmfCRdSGA0u26OC7f
+	 Ixlmdk5nSXAfo/GFQGlyVDROKmjeiK+e6dZJEQoZLmiInzwZKhUQaYqfh9tqcsSA01w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=s15NEf91;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.46
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010046.outbound.protection.outlook.com [52.101.201.46])
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NxH5C50a;
+	arc=fail smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DEFE606A31A;
-	Mon, 23 Nov 2026 19:46:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DEFE606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55C1A606A321
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:46:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55C1A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=s15NEf91
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e00IKdXZWR1AsIXgMaktZ1jbLyT9HnFAJklFyyeXQ8xjPwku7mM4ZdxbBL8UMDWLBvhIqDsrVxJ9RfS//nZsbQSVDQV+34kOeH8l4GkAGOA70ngdpxvA1dPm4ueDYpMEXP7xNwHNxNu5IV0AI2JK9hQLE18fTv4pjr7FgcNLLKzvB+B51xZ5f9iERq+HnAJxXmKgPABW3lghvzIkCQK9njH9pKE/fqwtsqu2IOudlgqb7YaMJRyXcIujRAnb8j+Z4EerTF57UTZg0L8IrNXUTzA9CXO0u72nmqFIRHEv76LGB91b+2f/BYqiRN/hUUVibAKiG4cYXsQJuE0Zo+h14Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4O7Yh56fKh/q6/tnTMLnj/3/E0wZbOBEq8RccLPoCDk=;
- b=aTOwDwso9jKNhhrK85ZLRARXz2UHIvVx7wBX6fCKXTsxFk33JrfL0B7QbQFlAWRefo7eyxiIizTiYZ3a0tzTOsvItBFqtebT2sts5c/d9SV9xDVlF0JlM1V+jp2mtk0hoLBu0mMZXeGUMD/o9nui0BU3BIH2uiqjyc8vn2ILpt+N54dv1w9DGrZTmLnOpDRiuug36udrJ1kpOxN1hs6VEheHvLg5A1fYh4OBRdDfCIC/Rq3fXjjjfjNmPFomShpOuS41OtWmCcKmty59YcPcHCABY3FxCO2WuhIgVQCNXSWMvzmkm4CanpL4wonCrzyBLSnqb4bO7JuBeUDRglpw5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4O7Yh56fKh/q6/tnTMLnj/3/E0wZbOBEq8RccLPoCDk=;
- b=s15NEf91BZ5yKdybAh8Ast2EVOoYiEAOaA74PLhz/e7MsvDzBuKIXzcRlPZ1OCjdEr+lszDD9BCcoGgzKU5s5VtYdISQgHKN4LkP9rLx0rxfOU/FAW7h3ERxmL8vRmRNh6og6FkqKuzcceyinx7+XZQ48//s/w4RrPKZ156Cg/ETCTj8dl3L8El6mSev4IFWkOTDn+rngoefQ+UwrOZcpJZbdzp6hHnbbMMQ6TFMeWgOJDWFP3EqhmqgJ2+kqmHIUypAuFgCGvgMACQhkHVIyUoJkUJhuQgfCnUmFrjfXGxexKnyST9FWRhY+ZVECIAojBJXQKSW4dU/39oq1VpCGA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHAPR12MB999248.namprd12.prod.outlook.com
- (2603:10b6:610:2ff::22) by SA0PR12MB4352.namprd12.prod.outlook.com
- (2603:10b6:806:9c::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 19:45:59 +0000
-Received: from CHAPR12MB999248.namprd12.prod.outlook.com
- ([fe80::4972:8062:d74e:b205]) by CHAPR12MB999248.namprd12.prod.outlook.com
- ([fe80::4972:8062:d74e:b205%6]) with mapi id 15.21.0639.010; Mon, 23 Nov 2026
- 19:45:58 +0000
-Message-ID: <9e4c9d14-f653-4f49-a9ed-f423d2b96976@nvidia.com>
-Date: Mon, 23 Nov 2026 20:45:52 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 6/9] eth: mlx5e: drop the now-dead HW-GRO and
- LRO vs XDP handling
-To: netdev-bot+sashiko@kernel.org, kuba@kernel.org
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
- michael.chan@broadcom.com, manishc@marvell.com, joshwash@google.com,
- hramamurthy@google.com, tariqt@nvidia.com, saeedm@nvidia.com,
- daniel@iogearbox.net, hawk@kernel.org, sdf@fomichev.me, willemb@google.com,
- przemyslaw.kitszel@intel.com, bpf@vger.kernel.org, nktgrg@google.com
-References: <20261122010112.1471146-7-kuba@kernel.org>
- <179539763134.3135.16178645255065325636@kernel.org>
-Content-Language: en-US
-From: Dragos Tatulea <dtatulea@nvidia.com>
-In-Reply-To: <179539763134.3135.16178645255065325636@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0161.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b3::8) To CHAPR12MB999248.namprd12.prod.outlook.com
- (2603:10b6:610:2ff::22)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NxH5C50a
+Received: from pps.filterd (m0528008.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGJKh21437472
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:46:54 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=68msumE9ER+
+	DmiSRosq40jxym27XxyiCjqWMWovmiXU=; b=NxH5C50am/nw4X0MHjqFCQfQQj4
+	A2bOT7e7cLabU4X+Sd7THNtQ0jl6lvyPzgQ8aOft1isWuisGo+XJ7aIXM51vLROc
+	qpPpnDmrvZlB8yc0yB5YrixgG5RHYMlIFX3nTm0V5JBI7PU/MIOOByEkhJAKUVFE
+	xX1gXF3waa+WEhGm7iKHLHJZFkp1lLYYn9mdCJt0+YUM1GX8VUH5jmf31nNw7S/w
+	SpQlGDrlIaO9LC8fxFlZXyX7bNpQpgNXsQ+ra+V5OEhX0O0WIXkynG53BtDhqIBb
+	CzlqPIM8Xakrj0S2g1MP02M7rJZAtx5Csz52FYEb/yWEZbOe7LdyHCAJxCw==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j40spft4j-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:46:54 -0800 (PST)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3ae19907a31so3502256a91.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 11:46:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795463214; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VjY4cwIUMB1ri1wjRqs76xoNXCJdu++KsXes57jmbxdTj2jURJTEOCXXIDuAhTfq2g
+         Qsd4P1HyaHVTI+FWWuJsQjw1jWCjMBaI5V7awFNlCl73TSmOcKy8ID+Z0ndqzEDlynWQ
+         AA1i78NQAgikK7ZAdUfvJJE4Wp22n6QM48tI2WsLgKgIRrFIsN6dgRnWAnnIp0mFfh/H
+         zohVbNmaGCq6RcPmQmnpTpS/N68zMpvDwQRjj2qnQZ3UoMxbTm3MU5nVG8rDwNdHSR1K
+         /A8eza3cSamlzuuG9FNoHd+pgS2/EH3R259Y/VlWhLvkQhLJ4etfJbTsRkrQncsazfGz
+         ibIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=68msumE9ER+DmiSRosq40jxym27XxyiCjqWMWovmiXU=;
+        fh=VvL5dL+mgEvjkUmom1tJuMINqMVCIECPyPse3ZLuWR8=;
+        b=C9QwnaYxc2qETjOh403BjfG8Y9S4P2+tzKy3E//47FTK52MvsxqTs0eVKfGrIUjuUs
+         dmJeksQm6f0EM2A70K6XVHjGBflORLMa6pzUoNEwhLiFcHKF5yGOLdhcToPT/QpHrI/c
+         SEIXerN/zxNNkYmgU3IsW4s/txpmCkZCS0gP9Tbs56GeVps7gYXRhVuJuHIX4gSLda+S
+         HY6Uis5UNnezQjHiGo1Q/PszTVi9A4JOnEQwvQ21/cEk4CR4vtl8vw/hDhq+ldrAsjaQ
+         kCFvlvIlHDMScJw5AKecMQFMaI3KsaA8koEZEVmIqH3k1K9qd3B7ZhdCTIlF2/JHLjPF
+         VcQw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795463214; x=1796068014;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=68msumE9ER+DmiSRosq40jxym27XxyiCjqWMWovmiXU=;
+        b=t7sTsWAL3Jze7/FUeJidCoukBJvjnsvtjVY870AA24FZMozANr65wakdK/34eC2fbk
+         MZgEgBGOykYuTyqh+lS6zd0h0IQxP+8LJHHnwDDIda4EeqrRzJ8BKkumCbzFlYOGoWPi
+         J9cTZ8XSU9hR0WVBm1Gd4Salg+0S9vWLqT3R8oVXXLzHmD1Spa/ukoSvsie8IIEHASjs
+         C9yMRiNJIc+Y0liv6hmDR2E5C3No5qRZ9aQW+LZfRf0+4xVgRKnVnY5fv9c8IQmRiSsa
+         6Cstmn3MHBvX9XkjgQldPYhcy/aRaSiTrYUi4j2PJa9ZIMscGidVhrtSGZqjiHTJR6+2
+         VRiA==
+X-Gm-Message-State: APuU4Z8yTUOU3XmUZZxpDzVosGxKzM3NJbj0ho5Roz0er1eL2ApxAQAI
+	VTx7cyfRw1UWAklRwz8lHyVxgEP0eQOpBaOg1ppP8uTy0Y3NeTT8AmBBs2KKeqmh2XRHAN6WYQE
+	dSDqlQrK8urnoiEfOXtONTmJY/R30xoT1aqKu7dK4mYS5OdoVG2gZ8Ki4z4DkOq77FD2WvlfVea
+	2lX95BA1+sQKEShjL9de6b+v254qAKQZI=
+X-Gm-Gg: AZFdTZfqRmNtAqexcMcnecAdmz1/0Oz+r9KY8tRBBHk2Y5CItWuNkmOBUES4JETYE8z
+	lFnQDsapHx5vi5Av8jCsqWKaGGmmWmXvLa3ovIc1wJ+v3LTQKsKoCsQN/lkTW+ZmT6lDTW0OJ5+
+	SM+FzuRBl5OKcPQbwQ7xlZxdMvc+uGdQmK13TM9h+A8cWdn2hatgoehdOGI0GDdNJwb5i1oXGPN
+	UtV/b24RdHnPg50j0kCe2TPVvUCjEyjB8VOnHreyoBXp9hnjyc=
+X-Received: by 2002:a17:90b:4483:b0:3a4:b509:88bd with SMTP id 98e67ed59e1d1-3b41c7bc7ccmr7276189a91.2.1795463213793;
+        Mon, 23 Nov 2026 11:46:53 -0800 (PST)
+X-Received: by 2002:a17:90b:4483:b0:3a4:b509:88bd with SMTP id
+ 98e67ed59e1d1-3b41c7bc7ccmr7276167a91.2.1795463213335; Mon, 23 Nov 2026
+ 11:46:53 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,299 +109,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHAPR12MB999248:EE_|SA0PR12MB4352:EE_
-X-MS-Office365-Filtering-Correlation-Id: b4f748ac-c693-40ef-72a2-08df499a6590
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|10067099003|4143699003|5023799004|11063799006|56012099006|261021135927099003|261021121427099003|261026140227099003|261022105027099003|261102123227099003|261028144727099003|261026121527099003|261022075727099003|261009223027099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	TqClx0Jvkbz2TdRyIQE7CTN+EZyrGCrZPX8Uey1uotQWOixwnWlJqW2dvRGIMr8M67ZtBSCdmtds9KaxJsyI9jXgkq2ylq8o6xdb4YadQBxHiz9kyNJ+qlg5DHO7UWlU38bW4IFHyIyCKQ/Cxw7pI45reBdPVyJXuCRS+Wr8FDbTgymFzFIVZ3iK/3aTrNvuK3DKYld6lkVW5jWjm+6wEfuD8bEIbJlDWCnCcJIXoooAh+l6NRuSvXxu3hX6Zi8Zynk8acbh1q1ylHamjvBE9ze0n2WbW8ZPtWixHSSSTV4gVcJP7meB9Udsb2VIzYdKmWROqpxd2zMDJvriTksRp3gT9DX/LBEXjOUZVCyH5E4yu2tVgtVj1rWNUCxLAtZ8Bq5b54H2XC0YdA+I+nVck1w1PmTUww3+APuClH51D2Ttw89SFt9dje6JnDZluHA2WtErTwrS9KMRNx94nuM37utTpfS35oJ8nDfcxvKV7LQP9I24+/D8pAnEQ/5uWt6PGDm/Ar0gtIdmt04x00kpH4euMyFum1efh8ANzOOU/0PqePJa+TxFNC/mgBbEu9oXisjH+VwbolDnmTPKTybzlAwyZwHsqWXuvkfQ6QPl1qhBxma2D+iZi517TQqOOaHN2zfWRDcgjTCe+RFFKOSzrSbEDGeC7KUah0fajkcIJMw=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHAPR12MB999248.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(10067099003)(4143699003)(5023799004)(11063799006)(56012099006)(261021135927099003)(261021121427099003)(261026140227099003)(261022105027099003)(261102123227099003)(261028144727099003)(261026121527099003)(261022075727099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?WHdwS0pmdmVyMHMrZXRsM1RTcEpTOThoSHhWczRPdEpVbE5wRDFtSWtnS01X?=
- =?utf-8?B?ODdRZ2tJOHBRTDlyNFhQenBUUVpvb0NUNk1Gd0tKeEVXVDh0UXdoaUNjOGF0?=
- =?utf-8?B?YjE2eEVnS2FoSnJueEErWEUxdEZobm5hKzVxRW1oSy9rblY3Z2swY1pVRDA5?=
- =?utf-8?B?dDc1Vm5oWStVRVIreWNzYktkZ2cwcU1BTW43eDF3K0lWUk9GNmxmTDkrY2Fh?=
- =?utf-8?B?cTlPS081VGxCNXd5d3pEZ2x4aEgwMWhUVWtsN0QxaDlMT1M3SnhlRFNVUHY4?=
- =?utf-8?B?SWptZWtIYTZyMVBhSkJXRXIvOTRUajh1ZTFUZkNCZ2R1QWIzZlhldmdNV2NE?=
- =?utf-8?B?QXU1M05FRFdqSzVxRDhFb0JielpRNkRBM3QwT0ZTbnUwenFXdW01MThkYklm?=
- =?utf-8?B?ekU2MVgxcGhabk1rL1JYVERPWXFjRXZzOW1lQWpiRjhFalZKWEtYQXZWd3F4?=
- =?utf-8?B?NGdSNitEeEVpZ1ZpcGpQTjBjdWJmQXlzaWczTXczNDV0anAzcEdZbjZmZWZR?=
- =?utf-8?B?bnhpQms4cEtCMzc0eWwzdXluTVVTL1p4OFZlcWdqaStET3JMT1RtVzNEVDRF?=
- =?utf-8?B?NVFiYU5GZHdCZlZpZDU0Rml2ck9PdjZyU2NKbm9mV1VOTWRBNS93QlhXMVJE?=
- =?utf-8?B?bTd2L0h5T1J1ZUlUUXlwZ0wvR1BKZ2hZMzJsS2hobHZxTi9TWWpyeTlkK1ZS?=
- =?utf-8?B?dWhPSWNrTlVuUmUxanpCSzVkVmRoQkVGWXkrZ2ZuTFZDU0syUnNLODVpK1cz?=
- =?utf-8?B?REZlZ01hSldYU29TVEJqaXUwVUF1N0xTM1gxeTgzdjAvc0hHMWNlT201NlBC?=
- =?utf-8?B?dm5LdytuMnVVUExYUHRIWStPbkFQMkFiNDVXSkRMQVVvbkY3dXE2ZWMyWFJO?=
- =?utf-8?B?RCtaTzVTejRvMFpkUVgwYU1jaU5hcWJ6VlBGTDhKWWdTN0d4Zm5Ud3ZEWnE2?=
- =?utf-8?B?dUF5bWxvMWxFWHVvd3oxNTlqTEp5TFZBTHVhdGhXcFBNM0ZJVkpPbTZhd2Z2?=
- =?utf-8?B?UHBoT2tRd2xpL3I1K3lrSm1IckJNbkgzdldlc1NNQWFOdS8za2o0bTN0WGNJ?=
- =?utf-8?B?azJmcU1ST1lueXBqSkZSUFgwMnllKzdTbmwwcmM1b2EvUVkwWmJ1M2V0ZDAr?=
- =?utf-8?B?MWdDK21BY0dTa3IrK010SWtDTUU0Wm1Xa1RmdzBhcXdXdUc3d0dyTmlDR21Y?=
- =?utf-8?B?cHBiSVd3cXluNVdVZERDQ1ZNK2dsMDVLUEQzdjFlQ2M2djQ4THBtR0c2cFhj?=
- =?utf-8?B?SXFWdFFUOUZIN0lGQzBrMFc1a2RoVUNneGZMWXlBSnpBZjdZVXBDZXRib3ZC?=
- =?utf-8?B?VVYyYmhGdGQzRmsyNVV6ZGNtTkNRbEJUcU1aNEZMcG81clJ1dDY5TXlLeVVa?=
- =?utf-8?B?QWFubWJjYmJPOU9rWjcyWlp2SVIraFFIa1AyMEpuMnRlZUdaT3Z0QmZxT21z?=
- =?utf-8?B?Z3NMRWJTaGFzMXhzYWhsMXFyRVZrVmptaDhpTXNTQTdBaEU5cTNXNzAvdjFO?=
- =?utf-8?B?dTZ6azd2OVhTL2VxdElnQlh5NkZQSHJ6WjlUZnZuRzFYN0ROSnAxbThKQWpv?=
- =?utf-8?B?T1JWR0dmelUrN0JFdElxM2pKQWFlS1p6ZEQ5T2ZxNEpwdCtQMDJaL2IzODBN?=
- =?utf-8?B?dmRBUU9TTS83WUwwNmZ4VUlIRFZZR0dnYmtZcnpxNEFNbFZpaEI4NmVGNjJ2?=
- =?utf-8?B?ZmdwQ0ZxSTZsbE9Lam8xMzVVWUJYbE9XSjN2N1JibFNtZnNiN0JoOXA4cDNQ?=
- =?utf-8?B?UCtrQ0kxNEFITmdVSVlJUXpRSWp0RzhJTlZJNXpraEh2eTV3T3BiQ05UN3FE?=
- =?utf-8?B?MFlLSzFhNWpDdzFpUVl5UjJtaU01RFlpTUl3dC9zREdxUnJpVWQ4NmRLMmZr?=
- =?utf-8?B?bUxUWmNJRi9ScXlGY1VIWmhybHZ3QWE1NkxWVmo3MEJhNVd0bk9ZaG54aHpP?=
- =?utf-8?B?K2Z6WWJGSFhHSlNlOHZUd1BYdXB2NXFTajFMejZLYTF3T3lPZGFzOExvdk5v?=
- =?utf-8?B?RDVzblpTeG0vYjh0NkVtajNmL1VQaTA2c3hHKzBSb0NFMlNjOWtucVAxalhz?=
- =?utf-8?B?Tk1PaW40S3pBekF5RnVrMHpwVXZXK1ZkL3RyQ1lvbE5aSEM1TWM0bmR4ckhr?=
- =?utf-8?B?WCtOUmN0R011YzdYUFNiL2RUKzZqMXZhY3VsOEFZb3ZPM0ZvL0g0M3BnT0tG?=
- =?utf-8?B?dXI2bDVUTS9XYUlSUEZsUDhBblNISGs4aTBwanlTVDNoMUpiVUR2R3JSejlH?=
- =?utf-8?B?enhyR2F2enFzcDhVSDY3YUM4UER1V3hZTWNTVlk3dWNTdkpNRFBTYUNXanVI?=
- =?utf-8?B?enVzdnRwKzB0KzJDTm9mYzNYUGd1RHUyWHN6LzBHNGhQUFNFbDlvZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b4f748ac-c693-40ef-72a2-08df499a6590
-X-MS-Exchange-CrossTenant-AuthSource: CHAPR12MB999248.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 19:45:58.8997
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /2eYQvo2vRHNeuV/xZgFl0LqYo/giekyXyOego3PUYDLAtpTdKeOsOW5/HTaDBIebQhCDpJlbMp1fIWKOk1kmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4352
+References: <20261117203137.804424-6-toddfreed@meta.com> <179529586258.3135.12190616828136497053@kernel.org>
+In-Reply-To: <179529586258.3135.12190616828136497053@kernel.org>
+From: Todd Bert Freed <toddfreed@meta.com>
+Date: Mon, 23 Nov 2026 11:46:40 -0800
+X-Gm-Features: Aa3M54qNBs9m9dMGH-6cVdsrK_G87ANBZo0TyGs0hmoTzNiwaEmGoS1Z8U9eLXY
+Message-ID: <CADh2yMys__9M11pgtxkMQHuhjvM8DzZr20t7W0aEVNqEmABEnQ@mail.gmail.com>
+Subject: Re: [PATCH net v6 5/8] ipv6: icmpv6: don't quote decrypted payload in
+ icmpv6 errors
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+        bjorn@kernel.org, borisp@nvidia.com, cratiu@nvidia.com,
+        daniel.zahka@gmail.com, dsahern@kernel.org, dtatulea@nvidia.com,
+        edumazet@kernel.org, idosch@nvidia.com, kuba@kernel.org,
+        john.fastabend@gmail.com, leon@kernel.org,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-rdma@vger.kernel.org, mbloch@nvidia.com, pabeni@redhat.com,
+        raeds@nvidia.com, rrameshbabu@nvidia.com, sd@queasysnail.net,
+        saeedm@nvidia.com, shuah@kernel.org, horms@kernel.org,
+        tariqt@nvidia.com, weiwan@google.com, willemdebruijn.kernel@gmail.com,
+        stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Proofpoint-GUID: 7w8LrHGFU_OdtvqX-7Y5R9kpW482mZyn
+X-Proofpoint-ORIG-GUID: 7w8LrHGFU_OdtvqX-7Y5R9kpW482mZyn
+X-Authority-Analysis: v=2.4 cv=UbrE26SN c=1 sm=1 tr=0 ts=6b04982e cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=_1IyUuN4QrATX339ibzo:22
+ a=-7il3XB7buBOucKm-QsA:9 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA3OCBTYWx0ZWRfX3aXk+S3+NuzP
+ uRSkmO1MjYeuShu/E1dbnPI88++imkn8HsmJH+vNUD0hxbN7loUJ5+C+NSu9rj3PxQu0QL4jeTC
+ 7MH5TDIbRN8ycE5oEckt0sITgLz+7xU=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA3OCBTYWx0ZWRfX3Lt6NN3+/3XC
+ OqyLtGQneblTutHcZ4b/QLyxwe1AfISlv8VRndxTCgbKm1d/mQZS+MawIWSHWjNpWdUyJ+EOP/8
+ m8o2gLRKciYP0/eJz3lFSkMi7A6MVRPVYL0Pvrl0nyoNTBizM5saTpSi/hwGjACMV795vDz35St
+ 7ysDw++OoUHC5Ub4C+cIrXKGOF9LItKGluSYnxApUIXXce9/2DUhiSaM9fxL76BP0JqOdQcWUc0
+ R3vtJmh6kahRXy56kqhN1UbjCeaJWjCCW41FcvPKt1r8OGZ0HuqqdcXELSpC5jyBxdfJhtIRBpy
+ PsSdZgA1gYm9GlBjlfYRclrFcaYSVsoeFD3UOtYYhcdRe4hSzQL6Gwf/xAajQOHCsFrn7DIXBDp
+ 4wbSIu/FHW8Jy5DnkA2pXNhbUxbsaDKuYvpZIWQMjMt5k4ZxOadxI8EHfY220fJmGerZiAL2HcV
+ RMIbntKF40zMh0y24WQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
 
-On 23.11.26 02:33, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 1 · Medium: 2 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The patch removes mlx5e's own HW-GRO/LRO vs XDP handling.
-> - [Medium] The patch keys the whole NETDEV_XDP_ACT_XSK set
->   (BASIC|REDIRECT|XSK_ZEROCOPY, plus RX_SG) in mlx5e_set_xdp_feature()…
-> - [Medium] mlx5e_set_xdp_feature() now dereferences
->   priv->netdev->cfg_pending->hds_config.
-> 
-> --
-> 
-> eth: mlx5e: drop the now-dead HW-GRO and LRO vs XDP handling
-> 
-> This patch removes the mlx5e driver-side refusal of an XDP attach while
-> HW-GRO or LRO is on. It also removes the XDP clause in mlx5e_fix_features()
-> and relies on the core to clear those features and keep them off while a
-> program is attached. XDP features are now advertised based on
-> tcp-data-split rather than packet merge, and mlx5e_set_ringparam()
-> refreshes them when hds changes.
-> 
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
->> index 06a8a4be4be7c..08568137d044d 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
->> @@ -4487,12 +4487,14 @@ static int mlx5e_handle_feature(struct net_device *netdev,
->>  
->>  void mlx5e_set_xdp_feature(struct mlx5e_priv *priv)
->>  {
->> +	struct netdev_config *cfg = priv->netdev->cfg_pending;
-> 
-> [Severity: Medium]
-> Is it safe to dereference netdev->cfg_pending here without the netdev
-> instance lock?
-> 
-> Two callers run mlx5e_set_xdp_feature() on a registered netdev with only
-> rtnl_lock held: mlx5e_nic_init() and mlx5e_build_rep_params(). Both follow
-> this pattern:
-> 
-> 	if (take_rtnl)
-> 		rtnl_lock();
-> 
-> 	/* update XDP supported features */
-> 	mlx5e_set_xdp_feature(priv);
-> 
-> 	if (take_rtnl)
-> 		rtnl_unlock();
-> 
-> Both callers are reachable from mlx5e_netdev_change_profile() during
-> eswitch mode changes.
-> 
-> ethnl_default_set_doit() allocates, swaps and frees cfg_pending while
-> holding only the instance lock. It does this for the commands mlx5e does
-> not opt in to rtnl, such as COALESCE_SET, PAUSE_SET, RSS_SET and
-> LINKMODES_SET:
-> 
-> 	ret = netdev_reconfig_start(dev);
-> 	...
-> out_free_cfg:
-> 	__netdev_free_config(dev->cfg_pending);
-> 	dev->cfg_pending = dev->cfg;
-> 
-> Could the following interleaving read freed memory?
-> 
-> CPU1 (COALESCE_SET, instance lock)
->     dev->cfg_pending = P;               /* fresh copy */
-> 
-> CPU0 (profile change, rtnl only)
->     cfg = netdev->cfg_pending;          /* P */
-> 
-> CPU1
->     __netdev_free_config(P);
->     dev->cfg_pending = dev->cfg;
-> 
-> CPU0
->     cfg->hds_config                     /* reads freed P */
-> 
-> Reading dev->cfg instead doesn't look safe either. On a successful SET,
-> the old dev->cfg is swapped into the pending slot and then freed.
-> 
-> Would taking netdev_lock() after rtnl_lock() around these calls work here?
-> That is the same order mlx5e_nic_enable() uses.
-> 
->>  	struct mlx5e_params *params = &priv->channels.params;
->>  	struct net_device *netdev = priv->netdev;
->>  	xdp_features_t val = 0;
->>  
->> +	/* XDP can't run with HW-GRO, and tcp-data-split keeps HW-GRO on */
->>  	if (netdev->netdev_ops->ndo_bpf &&
->> -	    params->packet_merge.type == MLX5E_PACKET_MERGE_NONE)
->> +	    cfg->hds_config != ETHTOOL_TCP_DATA_SPLIT_ENABLED)
->>  		val = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
->>  		      NETDEV_XDP_ACT_XSK_ZEROCOPY |
->>  		      NETDEV_XDP_ACT_RX_SG;
-> 
-> [Severity: Medium]
-> Does keying these bits off hds_config also change how AF_XDP zero-copy
-> bind behaves?
-> 
-> Together, BASIC, REDIRECT and XSK_ZEROCOPY make up NETDEV_XDP_ACT_XSK, and
-> xp_assign_dev() checks that set before it allows a zero-copy bind:
-> 
-> net/xdp/xsk_buff_pool.c:xp_assign_dev() {
-> 	...
-> 	if ((netdev->xdp_features & NETDEV_XDP_ACT_XSK) != NETDEV_XDP_ACT_XSK) {
-> 		err = -EOPNOTSUPP;
-> 		goto err_unreg_pool;
-> 	}
-> 	...
-> }
-> 
-> Before this patch, a zero-copy bind on mlx5e with LRO or HW-GRO on was
-> refused, or fell back to copy mode. Now it reaches this path:
-> 
-> ndo_bpf(XDP_SETUP_XSK_POOL)
->   mlx5e_xsk_setup_pool()
->     mlx5e_xsk_enable_locked()
-> 
-> mlx5e_xsk_enable_locked() registers the pool and bumps priv->xsk.refcnt
-> without checking packet_merge.
-> 
-> Nothing on that path calls netdev_update_features(), and
-> dev_xdp_clear_rx_agg() only runs for XDP_SETUP_PROG. So the commit message
-> says "The AF_XDP check stays", but the priv->xsk.refcnt clause in
-> mlx5e_fix_features() is not applied at bind time. LRO or HW-GRO stays on
-> while an XSK pool is bound.
-> 
-> This also seems to open a sequence that was unreachable before:
-> 
-> 1. Bind a zero-copy XSK with HW-GRO on and tcp-data-split=auto.
-> 2. Set tcp-data-split=enabled. mlx5e_ethtool_set_tcp_data_split() accepts
->    it because GRO_HW is still in dev->features.
-> 3. mlx5e_fix_features() clears GRO_HW in the XSK clause, then the HDS
->    clause forces it back on.
-> 4. mlx5e_set_ringparam() calls mlx5e_set_xdp_feature(), which withdraws
->    XSK_ZEROCOPY while a zero-copy pool is still bound.
-> 
-> The commit message only describes the XDP attach change ("used to fail
-> with -EINVAL and now succeeds"). Should the AF_XDP zero-copy bind change
-> be handled here, or at least described?
-> 
-> [ ... ]
-> 
->> @@ -4604,17 +4606,6 @@ static netdev_features_t mlx5e_fix_features(struct net_device *netdev,
->>  		}
->>  	}
->>  
->> -	if (params->xdp_prog) {
->> -		if (features & NETIF_F_LRO) {
->> -			netdev_warn(netdev, "LRO is incompatible with XDP\n");
->> -			features &= ~NETIF_F_LRO;
->> -		}
->> -		if (features & NETIF_F_GRO_HW) {
->> -			netdev_warn(netdev, "HW GRO is incompatible with XDP\n");
->> -			features &= ~NETIF_F_GRO_HW;
->> -		}
->> -	}
->> -
-> 
 > [Severity: High]
-> On mlx5e, does the core really keep HW-GRO off for as long as a program is
-> attached?
-> 
-> __netdev_update_features() strips NETIF_F_XDP_DISABLES only before it calls
-> ndo_fix_features, and doesn't check again afterwards:
-> 
-> net/core/dev.c:__netdev_update_features() {
-> 	...
-> 	if ((features & NETIF_F_XDP_DISABLES) && dev_xdp_prog_count(dev)) {
-> 		netdev_dbg(dev, "Dropping HW-GRO and LRO features since XDP is attached.\n");
-> 		features &= ~NETIF_F_XDP_DISABLES;
-> 	}
-> 
-> 	if (dev->netdev_ops->ndo_fix_features)
-> 		features = dev->netdev_ops->ndo_fix_features(dev, features);
-> 	...
-> }
-> 
-> Later, mlx5e_fix_features() adds GRO_HW back unconditionally for HDS:
-> 
-> 	if (cfg && cfg->hds_config == ETHTOOL_TCP_DATA_SPLIT_ENABLED &&
-> 	    !(features & NETIF_F_GRO_HW)) {
-> 		...
-> 		features |= NETIF_F_GRO_HW;
-> 	}
-> 
-> Can this sequence leave SHAMPO active with an XDP program attached?
-> 
-> 1. Enable HW-GRO and tcp-data-split.
-> 2. Run ethtool -K <dev> rx-fcs on (or rx off). netdev_fix_features() drops
->    GRO_HW after the driver hook, and set_feature_hw_gro(false) sets
->    packet_merge to NONE. hds_config stays ENABLED.
-> 3. Attach a multi-buffer native XDP program. dev_xdp_install() only
->    refuses hds for !xdp_has_frags, and dev_xdp_clear_rx_agg() sees no
->    GRO_HW or LRO. mlx5e_xdp_set() now only calls
->    mlx5e_params_validate_xdp().
-> 4. Run ethtool -K <dev> rx-fcs off. The core strips GRO_HW, then
->    mlx5e_fix_features() forces it back for HDS, and netdev_fix_features()
->    no longer drops it. mlx5e_set_features()->set_feature_hw_gro(true)
->    then switches packet_merge to SHAMPO with params.xdp_prog set.
-> 
-> With SHAMPO, the RQs use mlx5e_handle_rx_cqe_mpwrq_shampo(). Header-split
-> packets go through mlx5e_skb_from_cqe_shampo(), which never runs
-> rq->xdp_prog, so that traffic would skip the attached program.
-> 
-> The removed xdp clause had the same ordering problem, because it ran
-> before the HDS clause. However, this patch removes the driver-side
-> handling on the basis of the core guarantee, and the gap still seems to
-> be there at the end of the series.
-> 
-> Is anything on this path meant to reject SHAMPO while an XDP program is
-> attached?
-> 
-> [ ... ]
-> 
-Most of these issues are coming from accessing hds_config in
-mlx5e_set_xdp_feature() which is called in several places.
+> Does this cover the NDISC Redirect sent from ip6_forward()? That path also
+> quotes the invoking packet, but it never goes through icmp6_send():
+>
+> None of these conditions look at skb->decrypted.
+>
+> With
+> forwarding enabled, a PSP packet sent to a non-local IPv6 address would be
+> decrypted and then forwarded.
+>
+> kTLS RX offload can also produce a decrypted skb whose destination is no
+> longer local. One example is when the local address is removed while the
+> offload is still active.
+>
+> The !skb_sec_path() condition already keeps redirects from quoting frames
+> decapsulated by IPsec.
 
-Why not drop the hds check in mlx5e_set_xdp_feature() for
-packet merge / hds and simply reject the XDP program installation
-in mlx5e_xdp_set() when netdev->cfg->hds_config == ETHTOOL_TCP_DATA_SPLIT_ENABLED?
+I reproduced this on CX7, with both psp and ktls offload sockets. It
+only affects
+ipv6 (or rather, this path is already addressed by patch 4, the icmp fix).
 
-Thanks,
-Dragos
+* server enables forwarding (force_forwarding=1)
+* client connects to an on-link address using the server as gateway, so
+  the server forwards the packet back out and sends a redirect
+* the forwarded packet itself is dropped because of skb->decrypted
+* the redirect quotes the invoking packet which had been decrypted and
+  goes out
+
+I will post a v7 with one additional patch that addresses this.
+
+-Todd
+
+pw-bot: cr
