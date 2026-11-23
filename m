@@ -1,72 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795440341;
-	b=VuCE4aQOUn5sMhnDjfLMDLZQ7dP0CS5BFJGpfthei8NPSikzIA7gs9zv9MGhBzpV33CN
-	 pdUaT2cxGDK2KNpjNkYLCbXgdJera9nnea8YDgs/BMEgiOJ4fPFxYkV2/QeGRwjObjR+K
-	 u61+lOyRMlMlkS/VTHD+5uudLOT5XkHeTaai+X+A/VR/ihCxpSIu5wwn+mMdW3qDkiTCO
-	 VpsJ5KiQd1fmX5NWgytcyAUBHC2XwuLTkpbh+IS/+AA6Gcj9O4fU7OjA+l6TnHr5Eeoad
-	 USeKWxGtgmIwNTC+GUTDTFlRT4DBOdnzDU99eZswR2+02rshD7OxIgDo+Bq6LwgkP8A==
+	b=LZZHARUUvA5r6fhT0xdlXmqAETHAVci9F4C5hz+PZKUismYFf/oSQNqmaB+ro1vPUmUr
+	 iip8XD364t9nlb1SWf+b91YfI+vm/rPkj/P7vB8E5u5njQm6AdSsdcjhP6IBorheXkc2Q
+	 LKeVa91Q+zBbJo/8l9DPjW066F+a5FbHuPaGiG7G4EQA6SoZ/L2ZA8DYTLe0e0CXG9iJK
+	 +M/We9QLZpdBNlbEa05vIjQZKmuc2XllY+nFpsC5YMEuv3W1k68sJvkb0H9hOAEpcCsz8
+	 QXuqQyaRi6Ml+DNk74ry0Ow6zYr9whDzFAmHkOCCirJWs/H9HbkKO7vaSHh6s5+JPqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795440341;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Subject:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:To:CC:X-Mailer;
-	bh=Zruk1kJrG0KNFuKlQxpAt1DgMhhrbuqeYBz1BcIwEMM=;
-	b=WkHxX6nEhFro1oYBUB1c8IohDG2DmZhp4pGjpaNHnuw8axPCkEnNFhisoW92nELBZkJF
-	 E3DBbuN5hoAArNEQ/FfTek4NEKFJoZ//MUXmET/JkSleyF/yD2cjoDQ0fLCkvwPzKN9qD
-	 tmCh8jhdUWJwZ83JUYcR3kXWFkcGwD4ar3Wcec8WKwxlvhvxgLiVeumJN0FKZuc2xnCWC
-	 HMuA/jGI10ZMIhEhXmZwIK5bzn8iEJR9r9Qb4N++BRDh0CEhvuaBYLHs1UlrI8TCJlRwZ
-	 YrrhnNwMg3IcWIeFK8SRDNlWgU6QPvQbO1isy5LXtF6E8eRj5T5Qfj84vjABSOIRhLQ==
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=5yQazAnRvUhL1YPWsEfIdEVVovgootntAdurk94OIqg=;
+	b=2hNgaxdOFzCiSHN87rNym8Vvx1V+zdsqW5RpGAu69oVU2cpqD2HEMPWW/6M+LSZaVn10
+	 UjmirbC3Vdcw4782n81qpw/Azm/QigcpzPq2cy/2iMwUn4TWFthjVUbfJKgd1bM0bHo/H
+	 Eg+3yoOe0lL1xETNLl7/MFvg4XlE7OPCmjpbaVuxQUJvKOCtd9zwWj7Rqu67cxXsc/815
+	 Hj3fzUUXPk6RZ8/fmnwOSONPc+eMG0c5g/0QV5yegWgN1CQIA21qaTTeS/zyXz6vImG0x
+	 anYxngvpI7TNUx/UNyiBMNhe5MERXwtrErfCZr2xFthoMxRj5sEREtitlQyOsYzwXxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=PsovGr3W;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RO0EorJX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91147606A31F;
-	Mon, 23 Nov 2026 13:25:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91147606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D025F606A685;
+	Mon, 23 Nov 2026 13:25:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=PsovGr3W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795440340; x=1826976340;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=b+in/dX32hm/jDF5wRo84HDsEtawHGqccdnfijHYad0=;
-  b=PsovGr3WTDoNHN413GhErmVS333zun6B8zFIfRi+eG66cs+RMSqvFgbH
-   5J9HfL+RBGiMVywsS6YsK4mM9XUDj5UYHLEHsdzZe8fTQ7b4zb3elzd2x
-   frxdFNtk3CJV9HgBbKgTQVMP0X6A36m2oYRKTUtrjx2dd4DLkOQIUZoB1
-   DDo92yCvpnR+JelPQFxqrvZ7zNo260otpGQDNMtc3ndQ7DOOBA5RXras9
-   32wZvaczAL6j5R7RPDWFAnTn7qBYCTXA/j2hiYrdtLOe8/VT8ie5TVmva
-   7agJuoX6aXr0bds7Awyzc+1RaHvgM+iKXewg2w5BqMpDzF6U+9FpxOABM
-   Q==;
-X-CSE-ConnectionGUID: B4FUNwb8QjeG36RMYBLkxQ==
-X-CSE-MsgGUID: Fg0VtAI2RzqOM4svlNVm9g==
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="233969644"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:39 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Nov 2026 06:25:39 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 06:25:37 -0700
-From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-Subject: [PATCH 0/4] mfd: ocelot: Support the LAN9645x switch family
-Date: Mon, 23 Nov 2026 14:25:04 +0100
-Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RO0EorJX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AA5C1F0089E;
+	Mon, 23 Nov 2026 13:25:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795440341;
+	bh=5yQazAnRvUhL1YPWsEfIdEVVovgootntAdurk94OIqg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=RO0EorJXxcRkVcVfYhjOHzl/udxH2Snsi6TtPB3SUNCTNb5ucgUm5mvq7T9WKa6XM
+	 k1AlPC6mc4M919tcH1/B2LoH+575+1jmZtQt4e3U+ppRl965CIjRbjsk33kI9p3xgq
+	 DLvOmmrQcky9+Thwl3tTjkuyYf3Aw226+LbeTdCQnoGZ1C8M6KsT8CL2WSpk8AIsi2
+	 2ZT3gqB7gih/FjXsogxsJ5lLQHrjmAJ9CpkDO98U8FmqXkgZvWkKumIo4QW3BfyEnm
+	 u1zwickS/8cbuXjldh43vMSNCdEjh1rtc09TQiUE8sOW7eg8ZcEplNC4cWAjMmOQZS
+	 k/pwn2qj8Y+fg==
+From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
+Date: Mon, 23 Nov 2026 14:24:53 +0100
+Subject: [PATCH net 05/10] mptcp: leave an orphan's DATA_FIN to the worker
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,74 +53,106 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIALE+BGsC/x3NQQqDMBBA0avIrDtgQtTaqxQXYzLaAZuEJIog3
- r2hy7f5/4LMSTjDq7kg8SFZgq9Qjwbsh/zKKK4adKt7pdQTv4vDYHkLBck53MiPvelOzHuMIRU
- cyZrW6JnM0EGtxMSLnP/De7rvH6+330RxAAAA
-To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
-	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
- Cochran" <richardcochran@gmail.com>
-CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-X-Mailer: b4 0.15-dev
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-5-278042217e8d@kernel.org>
+References: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
+In-Reply-To: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
+To: Eric Dumazet <edumazet@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, 
+ Simon Horman <horms@kernel.org>, Mat Martineau <martineau@kernel.org>, 
+ Geliang Tang <geliang@kernel.org>, Christoph Paasch <cpaasch@openai.com>, 
+ Florian Westphal <fw@strlen.de>
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, 
+ Davide Caratti <dcaratti@redhat.com>, 
+ "Matthieu Baerts (NGI0)" <matttbe@kernel.org>, 
+ Chris Mason <mason@kernel.org>, stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3222; i=matttbe@kernel.org;
+ h=from:subject:message-id; bh=XWQXbAqQ6Lz7CqdQOqSowGu9aekYFBuMgbNjjPTK0Zw=;
+ b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJZ7HbzLF97uPnC5/MveHYmPPq69PvfeX+MF7m8tXf3+
+ 3V0OU9xREcpC4MYF4OsmCKLdFtk/sznVbwlXn4WMHNYmUCGMHBxCsBEWi8y/DM/VPHT5+SSltaj
+ AuwNs9KDRTubPVI7rsr+YVg6pe9z20yG/0E37fqsgwMWJR8s2cLSujd6zcT+dUUfOQ8ysM7X22H
+ /nAEA
+X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
+ fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
 
-The Microchip LAN9645x is a family of ethernet switch chips without an
-internal CPU. Like the VSC7512, the chips are controlled externally over
-SPI, and the register targets of the chip are distributed as named
-regmaps to child devices. This series extends the ocelot MFD driver to
-the LAN9645x family, with the pin controller, the two MDIO controllers
-and the switch as child devices, served by the existing pinctrl-ocelot,
-mdio-mscc-miim and lan9645x DSA drivers.
+From: Chris Mason <mason@kernel.org>
 
-Patch 1 moves the VSC7512 specific SPI interface, reset and child device
-setup into match data and per chip tables.
+Closed MPTCP sockets can leak until reboot, with the data in their
+receive queues, which can exhaust tcp_mem and stall other TCP
+connections.
 
-Patch 2 adds a binding for the LAN9645x family.
+Once close() has returned, only mptcp_worker() destroys an orphaned msk,
+and only in the run that moves it to TCP_CLOSE: a later run returns at
+once, and mptcp_schedule_work() queues no work for an msk in that state.
+The receive path, in softirq, puts data on the backlog while the msk is
+owned, and release_sock() calls mptcp_release_cb(), which passes the
+backlog to __mptcp_move_skbs(). But __mptcp_move_skbs() calls
+mptcp_check_data_fin(), which can move the msk to TCP_CLOSE, and by then
+the lock owner, here the worker, no longer looks at the state:
 
-Patch 3 adds the LAN9645x support.
+    receive path, softirq             mptcp_worker()
+    =====================             ==============
+                                      not in TCP_CLOSE: no destroy
+    last data, with the DATA_FIN
+      the msk is owned: backlog
+                                      release_sock()
+                                        mptcp_release_cb()
+                                          __mptcp_move_skbs()
+                                            mptcp_check_data_fin()
+                                              TCP_CLOSE, never destroyed
 
-Patch 4 reads LAN9645x registers in a single SPI transfer on full duplex
-controllers.
+The fix used here is to queue the worker in __mptcp_move_skbs() if an
+orphaned msk has a DATA_FIN to handle, instead of calling
+mptcp_check_data_fin().
 
-Dependencies:
+This issue has been found with the help of an LLM, and reproduced in a
+VM, with the reproducer shared with the original version of this patch:
+200,000 connections in which the server accept()s and close()s, while
+the client reads the end of file, sends one byte, and closes. Without
+this patch, some MPTCP sockets of the server stayed in the CLOSE state
+for good, with their network namespace:
 
-This series is based on net-next which includes [1]. The binding in
-patch 2 references the switch binding
-net/dsa/microchip,lan96455s-switch.yaml, and patch 2 adds the new
-binding to the MICROCHIP LAN9645X ETHERNET SWITCH DRIVER entry in
-MAINTAINERS, both added by that series.
+  === connections so far : MPTCP sockets of the server in the state CLOSE: 200000:722,
+  [...]
+  RESULT [...] | left 300 s behind the end: slab_MPTCP=722 sockets_MPTCP=722 [...]
+  [...] | veth_end_left=1 slab_net_namespace_left=2 | [...]
 
-The series therefore does not apply to for-mfd-next yet, and
-dt_binding_check of patch 2 fails on a base without the switch binding.
-
-The DSA series is expected in v7.5-rc1. The series is posted now for
-review, and will be resent rebased on v7.5-rc1.
-
-[1] https://lore.kernel.org/r/20261111-dsa_lan9645x_switch_driver_base-v17-0-83a471c5bddb@microchip.com
-
-Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
+Fixes: bc68b0efa1bf ("mptcp: move the whole rx path under msk socket lock protection")
+Cc: stable@vger.kernel.org
+Signed-off-by: Chris Mason <mason@kernel.org>
+[ Shorter comment. Commit message: how the issue was found, and its
+  symptoms. ]
+Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 ---
-Jens Emil Schulz Østergaard (4):
-      mfd: ocelot: Select the chip through match data
-      dt-bindings: mfd: Add the Microchip LAN9645x switch family
-      mfd: ocelot: Add support for the LAN9645x switch family
-      mfd: ocelot: Read LAN9645x registers in a single SPI transfer
+ net/mptcp/protocol.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
- .../bindings/mfd/microchip,lan96455s.yaml          | 132 +++++++++++
- MAINTAINERS                                        |   1 +
- drivers/mfd/Kconfig                                |   2 +-
- drivers/mfd/ocelot-core.c                          | 263 ++++++++++++++++++++-
- drivers/mfd/ocelot-spi.c                           | 242 ++++++++++++++++---
- drivers/mfd/ocelot.h                               |  25 +-
- 6 files changed, 617 insertions(+), 48 deletions(-)
----
-base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
-change-id: 20261118-mfd-ocelot-add-lan9645x-support-9ac4042ba475
+diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
+index 23d35f43b566..17451240c105 100644
+--- a/net/mptcp/protocol.c
++++ b/net/mptcp/protocol.c
+@@ -2312,9 +2312,15 @@ static bool __mptcp_move_skbs(struct sock *sk, struct list_head *skbs, u32 *delt
+ 	}
+ 
+ 	__mptcp_ofo_queue(msk);
+-	if (moved)
+-		mptcp_check_data_fin((struct sock *)msk);
+-	return moved;
++	if (!moved)
++		return false;
++
++	/* Only the worker can close an orphan, as it must then destroy it */
++	if (!sock_flag(sk, SOCK_DEAD))
++		mptcp_check_data_fin(sk);
++	else if (mptcp_pending_data_fin(sk, NULL))
++		mptcp_schedule_work(sk);
++	return true;
+ }
+ 
+ static bool mptcp_can_spool_backlog(struct sock *sk, struct list_head *skbs)
 
-Best regards,
 -- 
-Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
+2.55.0
 
