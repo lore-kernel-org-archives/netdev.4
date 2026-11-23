@@ -1,84 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450748;
-	b=b+y255wm9HPCGmMV9Vqv6yPISX5KELGqtHIjVXHUOYCMIsqjiEnnB9GRz5BKS6ETjdTM
-	 dqgKF6ElxYUoFDY7ElDixZ0uem8RGQEhGda8OfAbLPNLWsoTGeEfh43dGH65ePyhe0MNn
-	 VqqFFM1shLzPYrXCr5Y5jvn9RnpEiQj864Yiur8it8KlmbuBz1uG5IA0O4NvxhS356jEd
-	 9lEss5jd8jBUWFxuzVbEIM5dJmYT5lu1arLSN+h7lTaO9h86jOG+O+UDfJdGYiKkcxUZR
-	 nnne2CQ6K4+hTCMnHiWCZhRW5HkwPU4ofn1xR8tUdj6hhe4MtOt6Xh8UZcip6QGzy8A==
+	t=1795450766;
+	b=bDsqm6YdG+X3HzoMhDA6GGl802z9ou74CispXBfszvjB+F5C19+U9Ll2IDFvr4aIRUNU
+	 cvkQGWVHBvZbYYPvWrK4ULKyahS7qDigLuu9/BwopkI20ZdCQM56wbW7eCMw/AbtsqAfy
+	 I2ezcp3PqoAYUmlfMUFvSLPdhpYKgxYOb/ROjBtt47p+pcUZoyWmCCy7LFn1MZcyqz4X5
+	 pDZhw3Xqnrx+Ewkm3PN1rQeBjjYU1777bzuxGTpcvb3KJ1AHLXXxUMKKwAP/BPYbO3GzW
+	 IcGXEONUiORTY0bpuqcdH38XMYYAlocdlJ+7I1oKwNkU5rZ6z8gdOtUD6BhdCRzyuMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450748;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version;
-	bh=T3dIrp743mScXUEVTG9HzJg8wQXGZt9Ea7srRCQkNSQ=;
-	b=e5Z0nnWOQ6vqHriltUtsVCP35Y2jQwXX/L1OEmPo1Z80HBId/y242FrzkkuZvVjS24Jx
-	 so9Dbuf/cAqrTyq3TCxNRxlPvcRzxVOvAB6I+z195j05gh5DSQQWyEEjMCpiINRJXxEyo
-	 LvkSqvCvR4adDtYDDw2RbgCWz/b3EkX9qypZ0urlG/89g5JeFd7lIGGIVEphGalDRMQ2v
-	 d3zyHy4qdwS+H3/YlHpNH+iwMHBj8inzeknrjTZhMVzfGViHpr2RHVLLJN4/NbXDko8bh
-	 Nb+Z18nQuOqEK3vpPTVUC7L8ZonCRiXPC/81XRa/3ncKCPye+XviuhjtwzazITtPUNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450766;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=55skxeKZ9XJ2oPQI1dpQfpuUvuGaN5lAgogsDovX5xc=;
+	b=RbSZfPAmEB7pMl2rvBi/5X/ZjHtriDu2dcp8Wm/biU7BM3ZJDgak986dAXBL5wK8g+k6
+	 0TEjkIjIj+9ZYTw9MMA0EIx5c5gr/qVOb3Cn13fNjAdDaicI/G+cx95koV55jRqKf/oNQ
+	 mLouAY8nHpuAZrauV9SOAzz7sfawsb5laH+s+RLlqh1Oepey3eaqsLSZqbK8RmWgJEkk/
+	 w6PhiTLRLdsP9P+9Phq+DwO4Os52wZR7rxzMJQcJRFSGagm5xv4+Ev02KBBxsKeVOeiZd
+	 N/vqPdEoot7bippYCxD1iXEMNRoL0JHMQQGEVcdon/p1O8hhceEKzKVyoHErXV02cOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=ftmTbLuk;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0a-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=IKbczG5d;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 424EC606A31E;
-	Mon, 23 Nov 2026 16:19:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 424EC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E26F606A321;
+	Mon, 23 Nov 2026 16:19:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E26F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=ftmTbLuk
-Received: from pps.filterd (m0001303.ppops.net [127.0.0.1])
-	by m0001303.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6ANGIIRg3716626;
-	Mon, 23 Nov 2026 08:18:49 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=T3dIrp743mS
-	cXUEVTG9HzJg8wQXGZt9Ea7srRCQkNSQ=; b=ftmTbLuksZ18qcfFfRkriR971dv
-	dEYLc8rH4Og7I8wESceYbNcIzKBwhPNKt+zG3i8U5lIgQrebN0Ae1QFkj1HVVePN
-	7u87nd31X7efKdDfnkGw2B2tqxWkc3oVUvlCgJXauNpsnV9gddXaElDys2VcXhxR
-	+8Y76P6oINjFpwHqdywWh/DaySDNZZaHDz7VfFK2dIT0IYKtkMyvUs6dtONqjzZn
-	WgpHGJPDTSMWbiw3CGI87ALp6M4+dzo9poARQtizBW9erbRjn09Ojy3TdtO/fVn9
-	qrWHiWuhnGDZ7Apkmwln6u9VeCfa7gKZPJ2QnKW9K39cHkLFi8sBLTCbMaw==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by m0001303.ppops.net (PPS) with ESMTPS id 4j37udt00r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 23 Nov 2026 08:18:49 -0800 (PST)
-Received: from localhost (2620:10d:c085:208::f) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
- 2026 16:18:47 +0000
-Date: Mon, 23 Nov 2026 08:18:47 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Stefano Garzarella <sgarzare@redhat.com>
-CC: Paolo Abeni <pabeni@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>,
-        Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-        Xuan Zhuo
-	<xuanzhuo@linux.alibaba.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Simon Horman
-	<horms@kernel.org>, <kvm@vger.kernel.org>,
-        <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can
- reach the device
-Message-ID: <awRnZ9S+3B996VqJ@devvm29614.prn0.facebook.com>
-References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
- <awQJo8WE5Gn4nYHp@sgarzare-redhat>
- <12a2b44d-3d24-4b77-9dd5-24361d5fe910@redhat.com>
- <awQ5xzF8P0NJiCsv@sgarzare-redhat>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=IKbczG5d
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DFA9D4E416C9;
+	Mon, 23 Nov 2026 16:19:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9A044601E1;
+	Mon, 23 Nov 2026 16:19:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F1A9F11E6A730;
+	Mon, 23 Nov 2026 17:19:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795450762; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=55skxeKZ9XJ2oPQI1dpQfpuUvuGaN5lAgogsDovX5xc=;
+	b=IKbczG5d7XD6KV38kQVObMWAt+QUHAu4ETZvLtVo8dmG+nqKFdURsuU2BF3jboRnqBluFz
+	sNFBUN8uVGXLMTEUUbjdXddSnvGlp/3M/9jgO1ibnNXR53yTQhCk0EkGo2C3CMb7tvOATw
+	oF88Uj9saaCklyMjkkDgrTICMVQ37/6Zl8LUUcW9Gb9DFJRrOgWmQvuc4KvWOmcOuaUrGB
+	53rICNqC3tGVbboUCsXSOTMvHe3Q55HHeT3iAb48w+BnOTa2YEfK3jZ5A/UUTlW1AjgynJ
+	sYu6pyW+Sx4gZAvvPbtiN7ZT4mWWf7ZRRv0bEtlBzpysxZ2iSdOKwYaFyH+ZLg==
+Message-ID: <c4dfa9e9-6df3-4251-945c-b476d6c65fbd@bootlin.com>
+Date: Mon, 23 Nov 2026 17:19:11 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,70 +62,85 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <awQ5xzF8P0NJiCsv@sgarzare-redhat>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2NCBTYWx0ZWRfX5r3cneGfkihi
- SNwtFPkMtyBsD7xby0vFdVN7Veu2bLp9FJANDCVXDLDMydzzHzPMOksVokwfKKSRKQHEnNI5+K2
- K6sqW7IFpidNYXSPeBclQv5eMZqHjZ6seFeXsN7/syjfQjRGZnkcUra+gWVfdIhGS/U9ik3etY4
- qcM4PxkjSJCYUIgeTaRb3/V2OsCL6Pj0/LPpqCZjNXaqr8/f3ged9Y7ROkd5ICkyvoF8phbLeAe
- EbI3LegRksfvyc9X1yPcbJEyiAZSvw6d7b5aQZrsqjDILmd3VwKOAU0Jj0tp8uW7F3N4tVX/2BN
- 7xs2aACmI7uynv+HqSbUKS9z63YAH/AEP2ivj75gAvrsegqaQvSg4EcmXAdJi884ZEkzftbUV29
- JShS/Hy1Blccvx/uYdP9Ucu/YPenqXTtRXsAVWsLSfgyDUpBr+T7QghZYuh8M29+GF4dSFrnFuZ
- oJahC5jVyqebJ9kJ/kg==
-X-Proofpoint-ORIG-GUID: vkp3xM5VmOZ-hvVr8sf5yf6TGZeYqnHg
-X-Proofpoint-GUID: vkp3xM5VmOZ-hvVr8sf5yf6TGZeYqnHg
-X-Authority-Analysis: v=2.4 cv=VK5IDNPX c=1 sm=1 tr=0 ts=6b046769 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=_78whYxrdx1mplLwxq1U:22 a=20KFwNOVAAAA:8
- a=QUIw27DrvkiG4lpEvKAA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2NCBTYWx0ZWRfXzO4NYOeXqdXM
- PEcKJjN339C23yg71j/WjRFVdZZbuea4Qe4n/IVN3nQQAA6rgPm+GG8A/srvFX7rwgRb6LAiPHf
- wWo7XD7TXJgA5MvgfJ43rvR9CgzuLUg=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/3] net: stmmac: dwmac-sun8i: emit pause frames
+ when the RX FIFO fills
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
+ edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
+ willemb@google.com, wens@kernel.org, jernej.skrabec@gmail.com,
+ samuel@sholland.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, linux@armlinux.org.uk,
+ lorenzo.bianconi@oss.qualcomm.com, nb@tipi-net.de,
+ thomas.petazzoni@bootlin.com, alexis.lothore@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20261122144926.284857-3-maxime.chevallier@bootlin.com>
+ <179544551937.3135.9976133356956488963@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <179544551937.3135.9976133356956488963@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, Nov 23, 2026 at 02:17:54PM +0100, Stefano Garzarella wrote:
-> On Mon, Nov 23, 2026 at 12:58:38PM +0100, Paolo Abeni wrote:
-> > On 11/23/26 10:43, Stefano Garzarella wrote:
-> > > On Mon, Nov 16, 2026 at 03:46:49PM -0800, Bobby Eshleman wrote:
-> > > > vsock_deliver_tap() clones every packet to every vsockmon device on the
-> > > > system. Creating one needs only CAP_NET_ADMIN in the owning user
-> > > > namespace, so an unprivileged user can capture the traffic of local mode
-> > > > namespaces.
-> > > > 
-> > > > Pass the packet's netns to vsock_deliver_tap() and only deliver to
-> > > > devices that pass vsock_net_check_mode(), the same rule socket lookups
-> > > > use. vhost passes the vhost_vsock netns, loopback the sending socket's
-> > > > netns, and virtio-vsock NULL (global mode).
-> > > 
-> > > For local namespaces I think we are fine, but what about global?
-> > > 
-> > > Is it okay that a namespace with global can capture all the packets of other global namespaces?
-> > > 
-> > > Asking because at this point the CAP_NET_ADMIN is useless, since an user on a global namespace, without CAP_NET_ADMIN, can just create a namespace to have CAP_NET_ADMIN and access all the traffic. Should we fix also that?
-> > My take is that the above question is quite orthogonal to the current patch
-> > and may impact old applications relying on the legacy behavior.
-> 
-> True, but I'm not sure that behavior was correct since the beginning.
-> E.g., what is the point of having CAP_NET_ADMIN requirement if an
-> unprivileged user can just crate a new namespace and get it?
-> 
-> Anyway, it's eventually pre-existing netns support in vsock, so it should be
-> fixed with a followup.
-> 
-> 
-> Reviewed-by: Stefano Garzarella <sgarzare@redhat.com>
-> 
-> Thanks,
-> Stefano
-> 
 
-Its a fair point and I agree we should take it up in a follow up. My
-current instinct is that CAP_NET_ADMIN probably shouldn't be enforced
-for some (all?) of these global-mode paths.
 
-Best,
-Bobby
+On 11/23/26 15:51, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] Unserialized read-modify-write of EMAC_RX_CTL1 in
+>   sun8i_dwmac_flow_ctrl() (drivers/net/ethernet/stmicro/stmmac/dwmac-…
+> 
+> --
+> 
+> net: stmmac: dwmac-sun8i: emit pause frames when the RX FIFO fills
+> 
+> This commit sets the RX FIFO flow control thresholds in EMAC_RX_CTL1 from
+> sun8i_dwmac_flow_ctrl(). With these thresholds, the MAC sends pause
+> frames when less than 2K is left in the RX FIFO and stops when more than
+> 4K is free. The new bits are set only when TX flow control is requested.
+> 
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+>> index c63f4d87de509..75c743dfe3483 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> 
+> [ ... ]
+> 
+>> @@ -766,6 +772,17 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
+>>  		v &= ~EMAC_RX_FLOW_CTL_EN;
+>>  	writel(v, ioaddr + EMAC_RX_CTL0);
+>>  
+>> +	v = readl(ioaddr + EMAC_RX_CTL1);
+>> +	v &= ~(EMAC_RX_FIFO_FLOW_CTL | EMAC_RX_FLOW_CTL_TH_ACT |
+>> +	       EMAC_RX_FLOW_CTL_TH_DEACT);
+>> +	if (fc & FLOW_TX)
+>> +		v |= EMAC_RX_FIFO_FLOW_CTL |
+>> +		     FIELD_PREP(EMAC_RX_FLOW_CTL_TH_ACT,
+>> +				EMAC_RX_FLOW_CTL_TH_2K) |
+>> +		     FIELD_PREP(EMAC_RX_FLOW_CTL_TH_DEACT,
+>> +				EMAC_RX_FLOW_CTL_TH_4K);
+>> +	writel(v, ioaddr + EMAC_RX_CTL1);
+> 
+> [Severity: Medium]
+> Can this read-modify-write of EMAC_RX_CTL1 race with the RX DMA start and
+> stop helpers?
+
+Hmmm yes indeed, I think we can work around that by writing these FIFO
+values in sun8i_dwmac_dma_operation_mode_rx(), just like we do in dwmac1000
+and dwmac4, that way no race :)
+
+I'll iterate and fix my typos,
+
+Maxime
+
